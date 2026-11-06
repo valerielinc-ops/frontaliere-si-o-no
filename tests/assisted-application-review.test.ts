@@ -44,6 +44,16 @@ function draft(extra: Record<string, any> = {}) {
     profile: { fullName: 'Maria Rossi', email: 'maria@example.com', location: 'Como', languages: [] },
     job: { source: 'job_detail', title: 'Infermiera', applyUrl: 'https://jobs.lever.co/x/1/apply' },
     channel: { type: 'lever', label: 'Lever', applyUrl: 'https://jobs.lever.co/x/1/apply' },
+    portalContract: {
+      version: 1,
+      phase: 'review',
+      channel: 'lever',
+      status: 'ready',
+      postingMatch: 'match',
+      observedAt: T0,
+      background: { status: 'observed', readOnly: true, requestCount: 11, mutatingRequestCount: 0 },
+      submit: { capability: 'native_form', status: 'ready' },
+    },
     coverLetter: { subject: 'Candidatura', text: 'Gentili Signori,\n\nTesto.\n\nCordiali saluti' },
     applicationEmail: { to: '', subject: 'x', body: 'y' },
     formAnswers: [{ key: 'motivationShort', label: 'Motivazione', value: 'Mi motiva il reparto.' }],
@@ -90,6 +100,7 @@ describe('candidate review API', () => {
       questions: [{ id: 'work_permit', required: true }],
       can: { approve: false, reject: true, answer: true, confirmSubmitted: false },
     });
+    expect(body).not.toHaveProperty('portalContract');
     const serialized = JSON.stringify(body);
     for (const secret of ['verdict', 'summaryIt', 'checksIt', 'factCheck', 'Profilo debole', 'Chiedere il diploma']) {
       expect(serialized).not.toContain(secret);
