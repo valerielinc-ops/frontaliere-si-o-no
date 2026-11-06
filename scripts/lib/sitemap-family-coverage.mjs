@@ -3,6 +3,8 @@
  * Counts include each unique canonical loc and its listed hreflang URLs.
  */
 
+import { isExternallyServedUrl } from './externally-served-paths.mjs';
+
 export const SITEMAP_FAMILY_COVERAGE_KEYS = Object.freeze([
   'events',
   'fuel-italian-stations',
@@ -12,6 +14,25 @@ export const SITEMAP_FAMILY_COVERAGE_KEYS = Object.freeze([
   'profession-cities',
   'topics',
 ]);
+
+/**
+ * Keep the family-count ratchet inside the same ownership boundary as the
+ * publisher sitemap validator. Article URLs are refreshed and served by the
+ * corpus repo, so their local copies cannot prove this site's coverage.
+ */
+export function filterExternallyServedUrlsFromSitemapCoverage(snapshot) {
+  if (!snapshot || Array.isArray(snapshot) || !snapshot.perSitemap
+    || typeof snapshot.perSitemap !== 'object' || Array.isArray(snapshot.perSitemap)) {
+    return snapshot;
+  }
+  return {
+    ...snapshot,
+    perSitemap: Object.fromEntries(Object.entries(snapshot.perSitemap).map(([name, urls]) => [
+      name,
+      Array.isArray(urls) ? urls.filter((url) => !isExternallyServedUrl(url)) : urls,
+    ])),
+  };
+}
 
 export function sitemapCoverageFamilyForKey(key) {
   const name = String(key || '').split('/').pop().toLowerCase();

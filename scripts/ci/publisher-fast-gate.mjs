@@ -3,7 +3,10 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { isInvokedDirectly } from '../lib/is-invoked-directly.mjs';
 import { isExternallyServedUrl } from '../lib/externally-served-paths.mjs';
-import { evaluateSitemapFamilyCoverage } from '../lib/sitemap-family-coverage.mjs';
+import {
+  evaluateSitemapFamilyCoverage,
+  filterExternallyServedUrlsFromSitemapCoverage,
+} from '../lib/sitemap-family-coverage.mjs';
 import { ownsSitemapUrl, sectionForUrl } from '../validate-sitemap-links.mjs';
 import { SHARD_VALIDATOR_VERSION } from './shard-content-manifest.mjs';
 
@@ -93,19 +96,6 @@ function localeForUrl(url) {
   return 'it';
 }
 
-function sitemapCoverageInput(snapshot) {
-  // Article-section sitemaps are served and refreshed by the corpus repo.
-  // This build lists them for discovery but does not own their freshness, so
-  // local copies must not count as this deploy's family-coverage evidence.
-  return {
-    ...snapshot,
-    perSitemap: Object.fromEntries(Object.entries(snapshot.perSitemap).map(([name, urls]) => [
-      name,
-      Array.isArray(urls) ? urls.filter((url) => !isExternallyServedUrl(url)) : urls,
-    ])),
-  };
-}
-
 function parseSitemapSnapshot(root, previousSnapshot, declarations, errors) {
   const urlSet = new Map();
   const snapshotPath = path.join(root, 'new-sitemap-urls.json');
@@ -148,8 +138,8 @@ function parseSitemapSnapshot(root, previousSnapshot, declarations, errors) {
     errors.push('pre-deploy sitemap snapshot is missing or is not schema version 3');
   } else {
     const coverage = evaluateSitemapFamilyCoverage(
-      sitemapCoverageInput(previousSnapshot),
-      sitemapCoverageInput(currentSnapshot),
+      filterExternallyServedUrlsFromSitemapCoverage(previousSnapshot),
+      filterExternallyServedUrlsFromSitemapCoverage(currentSnapshot),
       declarations,
     );
     for (const invalid of coverage.invalidDeclarations) {
