@@ -66,7 +66,12 @@ import { buildEmployerProfilePath, canonicalCompanyProfileSlug } from './shared/
 import { BRIDGE_FLOOR, MIN_ACTIVE_JOBS } from './shared/employerProfileConfig.mjs';
 import { loadEmployerDemandSlugs } from './shared/employerDemandSignal.mjs';
 import { buildCompanyOrganization } from './shared/jobPostingSchema';
-import { resolveEmployerProfilesFlushed, type EmittedEmployerProfile } from './shared/buildSignals';
+import { isAllowlistedJobHref, filterEmployerProfileJobLinks } from './shared/employerProfileJobLinks';
+import {
+  getJobSitemapAllowlist,
+  resolveEmployerProfilesFlushed,
+  type EmittedEmployerProfile,
+} from './shared/buildSignals';
 import { composePlaceTitle, TITLE_MAX_CHARS } from './shared/titleSuffix';
 import { JOBLIST_AD_EVERY_N, JOBLIST_AD_MAX_PER_LIST } from '../services/adsenseSlots';
 import {
@@ -391,6 +396,28 @@ function jobDetailPath(job: CorpusJob, locale: Locale): string {
   const slug = localizedJobSlug(job, locale);
   if (!slug) return '';
   return buildCanonicalJobDetailPath(locale, job, slug);
+}
+
+/** The producer's all-locale allowlist is the source of truth for every
+ * localized card. A null registry means the employer emitter is ahead of the
+ * jobs producer in the closeBundle lifecycle; the post-emission consumer
+ * applies the same predicate once the producer has published it. */
+function isJobInActiveDetailRegistry(
+  job: CorpusJob,
+  allowlist: ReadonlySet<string> | null,
+): boolean {
+  if (allowlist === null) return true;
+  return LOCALES.every((locale) => {
+    const detail = jobDetailPath(job, locale);
+    return detail !== '' && isAllowlistedJobHref(`${BASE_URL}${detail}`, allowlist);
+  });
+}
+
+function filterJobsToActiveDetails(
+  jobs: readonly CorpusJob[],
+  allowlist: ReadonlySet<string> | null,
+): CorpusJob[] {
+  return jobs.filter((job) => isJobInActiveDetailRegistry(job, allowlist));
 }
 
 /** Per-locale sentence builders for the intro prose — one map, shared assembly
@@ -845,6 +872,7 @@ export function employerProfilePagesPlugin(rootDir: string): Plugin {
       // producer has run), unparseable, stale, truncated — and an empty set
       // makes the gate below identical to what it was before demand existed.
       const demandBackedSlugs = loadEmployerDemandSlugs(rootDir);
+      const jobSitemapAllowlist = getJobSitemapAllowlist();
       let heldByDemand = 0;
 
       const dateStamp = new Date().toISOString().slice(0, 10);
@@ -875,7 +903,12 @@ export function employerProfilePagesPlugin(rootDir: string): Plugin {
         // Keep the repeated card + ItemList payload bounded. The live total
         // remains explicit in the stat tile and jobs heading below, so this is
         // a preview cap rather than a claim that the company has fewer roles.
-        const listed = group.slice(0, MAX_JOBS_LISTED);
+        // When the jobs producer has already published its registry (parallel
+        // closeBundle and direct tests), apply it before both renderers. In
+        // the production sequential profile the registry is published later;
+        // filterEmployerProfileJobLinks() applies the identical boundary after
+        // jobsSeoPagesPlugin has completed.
+        const listed = filterJobsToActiveDetails(group, jobSitemapAllowlist).slice(0, MAX_JOBS_LISTED);
         // Display the LIVE active count (corpus at build time) rather than the
         // committed snapshot, and gate indexability on it — so a dataset that
         // has drifted below the floor since it was generated auto-downgrades to
