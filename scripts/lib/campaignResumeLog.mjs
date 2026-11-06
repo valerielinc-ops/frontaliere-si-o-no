@@ -133,10 +133,8 @@ export function createResumeWriter(db, opts, chunkState, { flushEvery = 50 } = {
   let written = 0;
   let ambiguousWritten = 0;
 
-  const flushOnce = async () => {
-    if (pending.length) {
-      const batch = pending;
-      pending = [];
+  const flushOnce = async (batch, ambiguousBatch) => {
+    if (batch.length) {
       try {
         await markSent(db, opts, batch, chunkState);
         written += batch.length;
@@ -146,15 +144,13 @@ export function createResumeWriter(db, opts, chunkState, { flushEvery = 50 } = {
       }
     }
 
-    if (pendingAmbiguous.length) {
+    if (ambiguousBatch.length) {
       if (!opts.ambiguousField) throw new TypeError('ambiguousField is required to record an ambiguous send');
-      const batch = pendingAmbiguous;
-      pendingAmbiguous = [];
       try {
-        await markSent(db, { ...opts, field: opts.ambiguousField }, batch, chunkState);
-        ambiguousWritten += batch.length;
+        await markSent(db, { ...opts, field: opts.ambiguousField }, ambiguousBatch, chunkState);
+        ambiguousWritten += ambiguousBatch.length;
       } catch (error) {
-        pendingAmbiguous = [...batch, ...pendingAmbiguous];
+        pendingAmbiguous = [...ambiguousBatch, ...pendingAmbiguous];
         throw error;
       }
     }
@@ -165,7 +161,14 @@ export function createResumeWriter(db, opts, chunkState, { flushEvery = 50 } = {
   // `chunkState` halfway through another writer's Firestore append.
   let flushChain = Promise.resolve();
   const flush = () => {
-    const next = flushChain.then(flushOnce);
+    // Snapshot synchronously: an ambiguous callback must quarantine its own
+    // recipient immediately, even when another flush is still queued.
+    const batch = pending;
+    pending = [];
+    const ambiguousBatch = pendingAmbiguous;
+    pendingAmbiguous = [];
+    if (!batch.length && !ambiguousBatch.length) return flushChain;
+    const next = flushChain.then(() => flushOnce(batch, ambiguousBatch));
     // A failed flush must not poison later recovery attempts, but the promise
     // returned to the caller must still reject with the original error.
     flushChain = next.catch(() => {});
