@@ -182,7 +182,11 @@ describe('portable crawler generation observer workflow', () => {
     try {
       for (const payload of payloads) {
         const response = path.join(root, 'response.json');
-        fs.writeFileSync(response, JSON.stringify({ encoding: 'base64', content: Buffer.from(payload).toString('base64') }));
+        const encoded = Buffer.from(payload).toString('base64');
+        const content = payload === JSON.stringify(contract)
+          ? encoded.match(/.{1,8}/g)?.join('\n')
+          : encoded;
+        fs.writeFileSync(response, JSON.stringify({ encoding: 'base64', content }));
         const result = spawnSync('bash', ['-c', `set -euo pipefail
           github_get_with_retry() { cp "$RESPONSE" "$1"; }
           ${validator}
