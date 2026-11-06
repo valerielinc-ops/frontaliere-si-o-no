@@ -56,42 +56,33 @@ import { WEEKLY_EMPLOYERS_ARCHIVE_NOINDEX_MARKER } from '../../build-plugins/sha
 import { buildCanonicalJobDetailPath } from '../../build-plugins/shared/jobDetailPath';
 import { renderArticleInlineMarkup } from '../../build-plugins/articleSeoFallback';
 import { buildBorderWaitTodayPath } from '../../scripts/lib/borderWaitSections.mjs';
-import bodyBorderWaitIt from '../../packages/articles/content/blog-body/it/dosso-dogana-stabio-gaggiolo-traffico-frontalieri';
-import bodyBorderWaitEn from '../../packages/articles/content/blog-body/en/dosso-dogana-stabio-gaggiolo-traffico-frontalieri';
-import bodyBorderWaitDe from '../../packages/articles/content/blog-body/de/dosso-dogana-stabio-gaggiolo-traffico-frontalieri';
-import bodyBorderWaitFr from '../../packages/articles/content/blog-body/fr/dosso-dogana-stabio-gaggiolo-traffico-frontalieri';
 
 const BASE = 'https://frontaliereticino.ch';
 const BORDER_WAIT_ARTICLES = [
   {
     locale: 'it',
     source: `${BASE}/articoli-frontaliere/dosso-dogana-stabio-gaggiolo-traffico-frontalieri/`,
-    body: bodyBorderWaitIt,
+    link: buildBorderWaitTodayPath('it', 'gaggiolo'),
   },
   {
     locale: 'en',
     source: `${BASE}/en/cross-border-articles/stabio-gaggiolo-customs-speed-bump-traffic-cross-border-workers/`,
-    body: bodyBorderWaitEn,
+    link: buildBorderWaitTodayPath('en', 'gaggiolo'),
   },
   {
     locale: 'de',
     source: `${BASE}/de/grenzgaenger-artikel/verkehrsschwelle-stabio-gaggiolo-stau-grenzgaenger/`,
-    body: bodyBorderWaitDe,
+    link: buildBorderWaitTodayPath('de', 'gaggiolo'),
   },
   {
     locale: 'fr',
     source: `${BASE}/fr/articles-frontalier/ralentisseur-stabio-gaggiolo-files-frontaliers/`,
-    body: bodyBorderWaitFr,
+    link: buildBorderWaitTodayPath('fr', 'gaggiolo'),
   },
 ];
 
-function articleBorderWaitPath(body) {
-  const markdownLinks = [...Object.values(body).join('\n').matchAll(/\]\((\/[^)]+)\)/gu)].map((match) => match[1]);
-  return markdownLinks.find((link) => link.includes('gaggiolo'));
-}
-
 function validHtml(url, extra = '') {
-  return `<title>Border wait test</title><link rel="canonical" href="${url}"><meta name="description" content="A sufficiently long description for the border-wait crawl regression and its full-tree contract.">${extra}`;
+  return `<title>Border wait test</title><link rel="canonical" href="${url}"><meta name="description" content="A sufficiently long description for the border-wait crawl regression and its full-tree contract, including canonical route coverage for localized article links.">${extra}`;
 }
 
 describe('Bing-compatible full-tree crawler', () => {
@@ -1756,7 +1747,6 @@ describe('Bing-compatible full-tree crawler', () => {
   it('keeps localized Gaggiolo article links out of the T0/T12 frontier redirect corpus', async () => {
     const cases = BORDER_WAIT_ARTICLES.map((article) => ({
       ...article,
-      link: articleBorderWaitPath(article.body),
       target: `${BASE}${buildBorderWaitTodayPath(article.locale, 'gaggiolo')}`,
     }));
     const sourceTemplates = [...new Set(cases.map(({ source }) => templateIndexFor(source)))];
