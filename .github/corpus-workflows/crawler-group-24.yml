@@ -68,7 +68,7 @@ jobs:
       CRAWLER_GENERATION_TOKEN: ${{ inputs.generation_token || format('{0}-{1}', github.run_id, github.run_attempt) }}
       CRAWLER_GENERATION_RECEIPT_DIR: crawler-generation/receipts
       CRAWLER_GROUP_COMMIT_DIR: crawler-generation/commit-batch
-      CRAWLER_GROUP_MAX_PARALLEL: "6"
+      CRAWLER_GROUP_MAX_PARALLEL: "7"
       AI_CACHE_PATH: .cache/jobs-ai-cache.json
     steps:
       - name: Checkout frontaliere-si-o-no (attempt 1/2, sparse)
