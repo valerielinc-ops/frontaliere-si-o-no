@@ -88293,6 +88293,80 @@
         }
       }
     },
+    "generated:article-uri-progetto-cultura-integrazione": {
+      "source": "generated-provider",
+      "commons": {
+        "title": "Generated editorial illustration",
+        "pageUrl": "https://openai.com/policies/terms-of-use/",
+        "width": 1200,
+        "height": 675,
+        "revision": "2026-11-06T08:38:34.906Z"
+      },
+      "author": {
+        "text": "frontaliereticino.ch",
+        "name": "frontaliereticino.ch",
+        "url": null,
+        "type": "Organization"
+      },
+      "attribution": null,
+      "licence": {
+        "name": "Generated media — provider terms apply",
+        "family": "other-attribution",
+        "attributionRequired": true,
+        "url": "https://openai.com/policies/terms-of-use/"
+      },
+      "restrictions": [
+        "illustrative-only",
+        "no-real-recognizable-foreground-person",
+        "no-public-figure-face",
+        "no-logo-brand-or-text",
+        "no-specific-real-event-photojournalism"
+      ],
+      "fetchedAt": "2026-11-06",
+      "generated": {
+        "schema": 1,
+        "assetId": "article-uri-progetto-cultura-integrazione",
+        "kind": "generated",
+        "provider": "openai-codex",
+        "model": "gpt-image-2.5",
+        "executorModel": "gpt-5.6-luna",
+        "promptVersion": "frontaliereticino.generated-image-policy.v1",
+        "promptHash": "afeb39e4ad864332a8612e156be3e0fabecb6a65622514b47de5653b17edbc05",
+        "license": "generated-provider",
+        "licenseUrl": "https://openai.com/policies/terms-of-use/",
+        "credit": "frontaliereticino.ch",
+        "sha256": "09225f0b8590c036f92be7a8a18b96faf5cf4e7cff1e7cf47e4a02fa64574a51",
+        "bytes": 83846,
+        "width": 1200,
+        "height": 675,
+        "format": "webp",
+        "generatedAt": "2026-11-06T08:38:34.906Z",
+        "verifiedAt": "2026-11-06T08:38:58.002Z",
+        "restrictions": [
+          "illustrative-only",
+          "no-real-recognizable-foreground-person",
+          "no-public-figure-face",
+          "no-logo-brand-or-text",
+          "no-specific-real-event-photojournalism"
+        ],
+        "scope": "article-hero",
+        "imageUrl": "/images/blog/article-uri-progetto-cultura-integrazione.webp",
+        "area": "Swiss border region",
+        "season": "all seasons",
+        "variant": "article hero",
+        "vision": {
+          "ok": true,
+          "contains_text": false,
+          "contains_logo": false,
+          "contains_recognizable_face": false,
+          "contains_recognizable_foreground_person": false,
+          "looks_like_specific_real_event": false,
+          "is_photograph": false,
+          "is_topic_relevant": true,
+          "notes": "Original generic synthetic editorial scene of a diverse cultural-integration discussion in a Swiss alpine setting; faces are not recognizable and there is no text, signage, watermark, or branding."
+        }
+      }
+    },
     "generated:article-val-de-bagnes-sostenibilita-2024": {
       "source": "generated-provider",
       "commons": {
@@ -129999,6 +130073,10 @@
     },
     "article-ulmann-incarico-appenzello": {
       "file": "generated:article-ulmann-incarico-appenzello",
+      "modified": "resized"
+    },
+    "article-uri-progetto-cultura-integrazione": {
+      "file": "generated:article-uri-progetto-cultura-integrazione",
       "modified": "resized"
     },
     "article-val-de-bagnes-sostenibilita-2024": {

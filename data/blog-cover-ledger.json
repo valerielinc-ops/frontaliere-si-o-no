@@ -15,10 +15,10 @@
       "2": 197,
       "3": 0,
       "4": 0,
-      "5": 1062,
+      "5": 1063,
       "6": 5061
     },
-    "publishedCovers": 7805,
+    "publishedCovers": 7806,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 1,
     "inheritedRecordsMaterialized": 197,
@@ -214778,6 +214778,39 @@
         "provider": "openai-codex",
         "assetId": "article-ulmann-incarico-appenzello",
         "imageUrl": "/images/blog/article-ulmann-incarico-appenzello.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-uri-progetto-cultura-integrazione": {
+      "cover": "/images/blog/article-uri-progetto-cultura-integrazione.webp",
+      "hash": "09225f0b8590c036f92be7a8a18b96faf5cf4e7cff1e7cf47e4a02fa64574a51",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-ur",
+          "id": "uri-progetto-cultura-integrazione",
+          "category": "novita",
+          "date": "2026-11-06T08:38:58.092Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-uri-progetto-cultura-integrazione.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1794,
+      "verifiedAt": "2026-11-06",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-uri-progetto-cultura-integrazione",
+        "imageUrl": "/images/blog/article-uri-progetto-cultura-integrazione.webp",
         "evidence": "generated-engine-record"
       }
     },
