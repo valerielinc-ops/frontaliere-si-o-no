@@ -432,6 +432,29 @@ describe('IST detail response classification', () => {
     });
   });
 
+  it('classifies first-person Inspired boilerplate without an IB marker', () => {
+    const result = classifyIstDetailPage({
+      sourceUrl: 'https://jobs.inspirededu.com/job/Lugano-German-Teacher/1375440260/',
+      status: 200,
+      html: `
+        <article>
+          <h1 data-job-field="title">German Teacher</h1>
+          <div data-job-field="location">Lugano, CH</div>
+          <div data-job-field="hiringOrganization">Inspired Education</div>
+          <div data-careersite-propertyid="description">
+            ROLE SUMMARY: Our Inspired Education Group school in Lugano.
+          </div>
+        </article>
+      `,
+    });
+
+    expect(result).toMatchObject({
+      outcome: 'classified',
+      evidence: 'native-detail-fields',
+      isIst: true,
+    });
+  });
+
   it('classifies a Swiss role whose role summary explicitly names another Inspired school', () => {
     const result = classifyIstDetailPage({
       sourceUrl: 'https://jobs.inspirededu.com/job/Montreux-Specialist-Teacher-Humanities/1375742257/',
