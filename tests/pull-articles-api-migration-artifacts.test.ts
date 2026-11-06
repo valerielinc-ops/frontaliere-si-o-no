@@ -136,6 +136,7 @@ const SITEMAPS = ['sitemap-blog.xml', 'sitemap-blog-ch.xml', 'sitemap-articles-a
 const API_COMMIT = 'deadbeefcafe1234567890abcdef1234567890ab';
 const BLOG_CREDITS_PATH = 'data/image-credits-blog.json';
 const DISCOVERY_ARTICLES_PATH = 'data/discovery-articles.json';
+const DISCOVERY_ARTICLES_MANIFEST_PATH = 'data/discovery-articles-manifest.json';
 const SLUGS_PATH = 'slugs.json';
 const CANTON_ARTICLES_PATH = 'canton-articles.json';
 const CANTON_ARTICLES = JSON.stringify([{
@@ -1105,20 +1106,29 @@ describe('pull-articles-api: discovery article index', () => {
     expect(code).toBe(0);
     expect(out).toContain('validated 1 published discovery articles');
     expect(readPub(dir, DISCOVERY_ARTICLES_PATH)).toBe(raw);
+    expect(JSON.parse(readPub(dir, DISCOVERY_ARTICLES_MANIFEST_PATH))).toEqual({
+      schema: 1,
+      commit: API_COMMIT,
+      files: { [DISCOVERY_ARTICLES_PATH]: Buffer.byteLength(raw, 'utf8') },
+      counts: { discoveryArticles: 1 },
+    });
   });
 
   it('removes an old snapshot when the legacy manifest does not publish discovery articles yet', async () => {
     routes = baseRoutes();
     const dir = makeCheckout();
     const destination = path.join(dir, 'public', DISCOVERY_ARTICLES_PATH);
+    const manifestDestination = path.join(dir, 'public', DISCOVERY_ARTICLES_MANIFEST_PATH);
     fs.mkdirSync(path.dirname(destination), { recursive: true });
     fs.writeFileSync(destination, 'stale discovery index');
+    fs.writeFileSync(manifestDestination, 'stale discovery manifest');
 
     const { code, out } = await run(dir);
 
     expect(code).toBe(0);
     expect(out).toContain('not published yet');
     expect(fs.existsSync(destination)).toBe(false);
+    expect(fs.existsSync(manifestDestination)).toBe(false);
   });
 
   it('refuses stale or manifest-mismatched discovery data without changing the served copy', async () => {
