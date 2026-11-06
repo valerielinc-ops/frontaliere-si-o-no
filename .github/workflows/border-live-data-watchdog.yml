@@ -35,28 +35,36 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v7
         with:
-          # The repository's blob history is much larger than this monitor's
-          # sparse tree. Without a partial clone, checkout has repeatedly used
-          # the whole 10-minute job budget before the health check could start.
+          # This monitor needs a few runtime files, not the generated 858 MB
+          # bucket profile. The broad `/*` profile repeatedly spent the whole
+          # 10-minute job budget materializing blobs after the fetch completed.
           filter: blob:none
-          # checkout sparse: generato da scripts/ci/apply-checkout-profiles.mjs
+          # checkout profile: intentionally manual and minimal
           sparse-checkout: |
-            /*
-            !/public/images/
-            !/data/jobs/
-            !/data/translation-cache/
-            !/packages/articles/content/
-            !/data/related-search-candidates.json
-            !/data/cf-hot-404s.json
-            !/data/jobs-ai-cache.json
-            !/data/dist-size-history.jsonl
-            !/data/jobs-stats-history.json
-            !/data/url-first-seen.json
-            !/data/jobs-snapshots-history/
-            !/data/slug-registry.json
-            !/data/evidence-index.json
-            !/data/health-premiums/
-            !/data/jobs-crawler-summaries/
+            /.npmrc
+            /package.json
+            /package-lock.json
+            /data/borderCrossings.ts
+            /data/border-wait-current.json
+            /data/webcam-status.json
+            /functions/src/lib/trafficCollectionCalendar.js
+            /scripts/check-border-data-health.mjs
+            /scripts/load-rc-env.mjs
+            /scripts/lib/configure-main-push-auth.sh
+            /scripts/lib/git-fetch-target.mjs
+            /scripts/lib/git-push-rejection.sh
+            /scripts/lib/git-push-with-retry.sh
+            /scripts/lib/github-issue-creator.mjs
+            /scripts/lib/google-service-account-token.mjs
+            /scripts/lib/int-from-env.mjs
+            /scripts/lib/is-invoked-directly.mjs
+            /scripts/lib/main-push-guard.mjs
+            /scripts/lib/old-history-guard.mjs
+            /scripts/lib/pipeline-phase-timing.mjs
+            /scripts/lib/run-bounded-command.mjs
+            /scripts/lib/single-flight-lock.mjs
+            /scripts/lib/tiChCookieJar.mjs
+            /scripts/lib/transient-fetch.mjs
           sparse-checkout-cone-mode: false
         # Keep a provider-side checkout stall observable as a failed step
         # instead of letting the global cap cancel the entire watchdog job.

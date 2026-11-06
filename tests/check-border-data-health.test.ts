@@ -627,5 +627,34 @@ describe('border-live-data-watchdog.yml — state carry outside git (issue #7376
     );
     expect(checkout).toMatch(/filter: blob:none/);
     expect(checkout).toMatch(/timeout-minutes: 7/);
+    const sparseBlock = checkout.match(/sparse-checkout: \|\n([\s\S]*?)\n\s+sparse-checkout-cone-mode:/);
+    expect(sparseBlock).not.toBeNull();
+    const sparsePaths = sparseBlock![1].split('\n').map((line) => line.trim()).filter(Boolean);
+    expect(sparsePaths).toEqual([
+      '/.npmrc',
+      '/package.json',
+      '/package-lock.json',
+      '/data/borderCrossings.ts',
+      '/data/border-wait-current.json',
+      '/data/webcam-status.json',
+      '/functions/src/lib/trafficCollectionCalendar.js',
+      '/scripts/check-border-data-health.mjs',
+      '/scripts/load-rc-env.mjs',
+      '/scripts/lib/configure-main-push-auth.sh',
+      '/scripts/lib/git-fetch-target.mjs',
+      '/scripts/lib/git-push-rejection.sh',
+      '/scripts/lib/git-push-with-retry.sh',
+      '/scripts/lib/github-issue-creator.mjs',
+      '/scripts/lib/google-service-account-token.mjs',
+      '/scripts/lib/int-from-env.mjs',
+      '/scripts/lib/is-invoked-directly.mjs',
+      '/scripts/lib/main-push-guard.mjs',
+      '/scripts/lib/old-history-guard.mjs',
+      '/scripts/lib/pipeline-phase-timing.mjs',
+      '/scripts/lib/run-bounded-command.mjs',
+      '/scripts/lib/single-flight-lock.mjs',
+      '/scripts/lib/tiChCookieJar.mjs',
+      '/scripts/lib/transient-fetch.mjs',
+    ]);
   });
 });
