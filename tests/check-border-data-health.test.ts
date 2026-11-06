@@ -237,6 +237,19 @@ describe('collectWebcamUrls', () => {
     expect(collectWebcamUrls([crossing!]).size).toBe(0);
   });
 
+  it('keeps Saltrio-Arzo as an external webcam link when the stable thumbnail is a placeholder', () => {
+    const crossing = borderCrossings.find((candidate) => candidate.name === 'Saltrio-Arzo');
+    const webcam = crossing?.webcams?.[0];
+
+    expect(webcam).toMatchObject({
+      imageUrl: 'https://www.4insiders.webcam/webcam/arzo/10557',
+      sourceUrl: 'https://www.4insiders.webcam/webcam/arzo/10557',
+      embedAllowed: false,
+    });
+    expect(webcam).not.toHaveProperty('minBytes');
+    expect(collectWebcamUrls([crossing!]).size).toBe(0);
+  });
+
   it('uses the current municipal Cannero frame after the former endpoint died', () => {
     const crossing = borderCrossings.find((candidate) => candidate.name === 'Luino-Fornasette');
     const webcam = crossing?.webcams?.[0];
