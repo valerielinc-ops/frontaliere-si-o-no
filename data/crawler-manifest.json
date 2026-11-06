@@ -15006,6 +15006,7 @@
       "runStep": {
         "name": "Run dedicated Galenica crawler",
         "env": {
+          "NODE_OPTIONS": "--disable-warning=DEP0040 --disable-warning=DEP0169 --max-old-space-size=4608",
           "JOBS_CRAWLER_TIMEOUT_MS": "${{ github.event.inputs.timeout_ms || '' }}",
           "JOBS_CRAWLER_USE_FIRESTORE_CONFIG": "1",
           "JOBS_GALENICA_STRICT": "${{ github.event.inputs.strict_localization || '1' }}",
