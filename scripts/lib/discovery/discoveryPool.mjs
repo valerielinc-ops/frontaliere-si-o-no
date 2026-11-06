@@ -20,7 +20,6 @@ import {
 } from './sources/googleNewsRssSource.mjs';
 import { fetchTrendsDiscoveryCandidates } from './sources/googleTrendsSource.mjs';
 import { discoveryScore } from './discoveryScore.mjs';
-import { newsUrlKey } from '../news-url-key.mjs';
 import { isNearDuplicate, SLUG_SIMILARITY_THRESHOLD } from '../scheduler/slugSimilarity.mjs';
 
 const ENV_TRUE = (val) => val === '1' || val === 'true';
@@ -28,6 +27,25 @@ const MAX_TREND_EVIDENCE_SEEDS = 3;
 const MAX_TREND_EVIDENCE_ARTICLES_PER_SEED = 2;
 const MAX_TREND_EVIDENCE_AGE_HOURS = 14 * 24;
 const MIN_TREND_EVIDENCE_WINDOW_MS = MAX_TREND_EVIDENCE_SEEDS * NEWS_RSS_MAX_SEED_DURATION_MS;
+
+// This module is an identical transport twin. The site's news-url-key.mjs is
+// deliberately adapted on the corpus side, so importing it here would leave
+// the transported twin with an ERR_MODULE_NOT_FOUND. Evidence dedup only needs
+// a local, non-persistent URL key: discard campaign/locale decorations while
+// preserving every non-empty identifying query parameter.
+const EVIDENCE_TRACKING_PARAM_NAMES = new Set([
+  'fbclid', 'gclid', 'gbraid', 'wbraid', 'dclid', 'msclkid', 'yclid', 'twclid',
+  'igshid', 'mc_cid', 'mc_eid', 'ref', 'referrer', 'referer', 'source', 'src',
+  'cmpid', 'cmp', 'spm', 'xtor', 'ito', 'ncid', 'sref', 'share', 'sharedfrom',
+  'feature', 'trk', 'trkcampaign', 'rss', 'from', 'hl', 'gl', 'ceid', 'oc',
+]);
+const EVIDENCE_TRACKING_PARAM_PREFIXES = ['utm_', 'at_', 'pk_', 'mtm_', 'piwik_', 'ns_', 'hsa_', '_ga', '_gl'];
+
+function isEvidenceTrackingParam(name) {
+  const normalized = String(name || '').toLowerCase();
+  return EVIDENCE_TRACKING_PARAM_NAMES.has(normalized)
+    || EVIDENCE_TRACKING_PARAM_PREFIXES.some((prefix) => normalized.startsWith(prefix));
+}
 
 function normalizeDeadlineMs(value) {
   if (value === null || value === undefined) return null;
@@ -99,7 +117,28 @@ function isSecureHttpUrl(value) {
 
 export function canonicalizeEvidenceUrl(value) {
   if (!isSecureHttpUrl(value)) return null;
-  return newsUrlKey(value);
+  const raw = String(value ?? '').replace(/&amp;/gi, '&');
+  try {
+    const url = new URL(raw);
+    const base = `${url.protocol}//${url.hostname}${url.pathname}`.replace(/\/$/, '').toLowerCase();
+    const identifyingParams = [];
+    for (const [name, parameterValue] of url.searchParams) {
+      if (isEvidenceTrackingParam(name) || !parameterValue) continue;
+      identifyingParams.push([name.toLowerCase(), String(parameterValue)]);
+    }
+    identifyingParams.sort((a, b) => (
+      a[0] === b[0]
+        ? (a[1] < b[1] ? -1 : a[1] > b[1] ? 1 : 0)
+        : (a[0] < b[0] ? -1 : 1)
+    ));
+    if (identifyingParams.length === 0) return base;
+    const query = identifyingParams
+      .map(([name, parameterValue]) => `${encodeURIComponent(name)}=${encodeURIComponent(parameterValue)}`)
+      .join('&');
+    return `${base}?${query}`;
+  } catch {
+    return null;
+  }
 }
 
 function buildTrendEvidenceCandidates(trendSignals, newsEvidence, nowMs) {
