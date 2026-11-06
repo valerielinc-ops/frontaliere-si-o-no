@@ -1206,7 +1206,17 @@ function applicationEntryControls(snapshot = {}, context = {}) {
     return Boolean(target && posting
       && (target.origin !== posting.origin || target.pathname !== posting.pathname || target.search !== posting.search));
   });
-  return unbound.length === 1 ? unbound : [];
+  // A single external Apply link can identify an ATS handoff only when no
+  // source proof exists. Once the resolver has bound a SuccessFactors module
+  // to this posting, uniqueness alone cannot authorize a different module.
+  const proofBound = context.postingRouteProof
+    ? unbound.filter((control) => isVerifiedPostingEntry({
+      applyUrl: control?.href,
+      postingUrl: context.postingUrl,
+      postingRouteProof: context.postingRouteProof,
+    }))
+    : unbound;
+  return proofBound.length === 1 ? proofBound : [];
 }
 
 // A posting may show an informational region notice and still expose its own

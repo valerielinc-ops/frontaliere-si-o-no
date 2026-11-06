@@ -161,6 +161,39 @@ describe('runner final guard across three application stages', () => {
     expect(f.openClick).not.toHaveBeenCalled();
   });
 
+  it('rejects a unique external Apply control that conflicts with the posting proof', async () => {
+    const postingUrl = 'https://careers.helsana.ch/job/it-management-assistenz/1426391333/';
+    const moduleUrl = 'https://career5.successfactors.eu/career?company=Helsana&career_job_req_id=34525&lang=de_DE&career_ns=job_application';
+    const otherModuleUrl = 'https://career5.successfactors.eu/career?company=Helsana&career_job_req_id=34526&lang=de_DE&career_ns=job_application';
+    const postingRouteProof = { via: 'successfactors', applyUrl: moduleUrl, postingUrl };
+    const shell = snapshot(postingUrl, 'Helsana careers', [{ id: 'wrong-apply', text: 'Jetzt bewerben', href: otherModuleUrl }]);
+    const registration = {
+      ...snapshot(moduleUrl, 'Create your account for Infrastructure Strategy Manager', [{ id: 'create', text: 'Bewerbungskonto erstellen' }]),
+      fields: [
+        { id: 'email', label: 'E-Mail-Adresse', kind: 'text', inputType: 'email', required: true },
+        { id: 'first-name', label: 'Vorname', kind: 'text', required: true },
+        { id: 'last-name', label: 'Nachname', kind: 'text', required: true },
+      ],
+    };
+    const f = fixture(shell, null, review, null, {
+      applyUrl: moduleUrl,
+      postingUrl,
+      postingRouteProof,
+      applySnapshot: registration,
+      channelType: 'successfactors',
+      job: { company: 'Helsana', title },
+    });
+
+    const result = await f.run();
+
+    expect(f.page.goto).toHaveBeenCalledWith(moduleUrl, { waitUntil: 'domcontentloaded', timeout: 60_000 });
+    expect(f.page.goto).not.toHaveBeenCalledWith(otherModuleUrl, expect.anything());
+    expect(result.event).toMatchObject({ type: 'submit_handoff' });
+    expect(f.guard).not.toHaveBeenCalled();
+    expect(f.click).not.toHaveBeenCalled();
+    expect(f.openClick).not.toHaveBeenCalled();
+  });
+
   it('hands off the issue 17251 language-only shell without asking the candidate or guessing an apply URL', async () => {
     // Synthetic route; the issue preserves only /job/*/* and Sprache.
     const postingUrl = 'https://jobs.stadt-zuerich.ch/job/Synthetic-Role/42/';
