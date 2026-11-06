@@ -91,8 +91,8 @@ export function employmentTypeJsonLdValue(types) {
   return types.length === 1 ? types[0] : [...types];
 }
 
-const LABELS = Object.freeze({
-  it: { FULL_TIME: 'Tempo pieno', PART_TIME: 'Tempo parziale', CONTRACTOR: 'Mandato/freelance', TEMPORARY: 'Temporaneo', INTERN: 'Stage/tirocinio', VOLUNTEER: 'Volontariato', PER_DIEM: 'A giornata', OTHER: 'Altro' },
+export const JOB_EMPLOYMENT_LABELS_BY_LOCALE = Object.freeze({
+  it: { FULL_TIME: 'Tempo pieno', PART_TIME: 'Tempo parziale', CONTRACTOR: 'Contratto', TEMPORARY: 'Temporaneo', APPRENTICESHIP: 'Apprendistato', INTERN: 'Tirocinio', INTERNSHIP: 'Tirocinio', VOLUNTEER: 'Volontariato', PER_DIEM: 'A giornata', OTHER: 'Altro' },
   en: { FULL_TIME: 'Full-time', PART_TIME: 'Part-time', CONTRACTOR: 'Contractor/freelance', TEMPORARY: 'Temporary', INTERN: 'Internship', VOLUNTEER: 'Volunteer', PER_DIEM: 'Per diem', OTHER: 'Other' },
   de: { FULL_TIME: 'Vollzeit', PART_TIME: 'Teilzeit', CONTRACTOR: 'Mandat/Freelance', TEMPORARY: 'Befristet', INTERN: 'Praktikum', VOLUNTEER: 'Ehrenamtlich', PER_DIEM: 'Tagessatz', OTHER: 'Sonstiges' },
   fr: { FULL_TIME: 'Temps plein', PART_TIME: 'Temps partiel', CONTRACTOR: 'Mandat/freelance', TEMPORARY: 'Temporaire', INTERN: 'Stage', VOLUNTEER: 'Bénévolat', PER_DIEM: 'À la journée', OTHER: 'Autre' },
@@ -113,7 +113,7 @@ const NOT_STATED = Object.freeze({
  */
 export function formatJobEmploymentTypes(types, locale) {
   const short = String(locale || 'it').slice(0, 2).toLowerCase();
-  const labels = LABELS[short] || LABELS.it;
+  const labels = JOB_EMPLOYMENT_LABELS_BY_LOCALE[short] || JOB_EMPLOYMENT_LABELS_BY_LOCALE.it;
   if (!Array.isArray(types) || types.length === 0) return NOT_STATED[short] || NOT_STATED.it;
   return types.map((type) => labels[type] || type).join(', ');
 }

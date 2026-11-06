@@ -399,9 +399,9 @@ describe('pickJobDisambiguator (human-readable cascade)', () => {
   expect(pickJobDisambiguator(job, 'it', baseTitle)).toBe('CHF 50-70k');
  });
 
- it('picks employmentType label (PART_TIME → "Part-time" in IT)', () => {
+ it('picks employmentType label (PART_TIME → "Tempo parziale" in IT)', () => {
   const job = { employmentType: 'PART_TIME', salaryMin: 50000, salaryMax: 70000, postedDate: '2027-04-01', id: 'migros-lugano-recept-abc1' };
-  expect(pickJobDisambiguator(job, 'it', baseTitle)).toBe('Part-time');
+  expect(pickJobDisambiguator(job, 'it', baseTitle)).toBe('Tempo parziale');
  });
 
  it('skips FULL_TIME (default) and falls through to salary', () => {
@@ -432,10 +432,10 @@ describe('pickJobDisambiguator (human-readable cascade)', () => {
  });
 
  it('skips a token already present in the base title (case-insensitive)', () => {
-  // baseTitle already contains "Part-time"
+  // baseTitle already contains "Tempo parziale"
   const job = { employmentType: 'PART_TIME', salaryMin: 50000, salaryMax: 70000, postedDate: '2027-04-01' };
-  const out = pickJobDisambiguator(job, 'it', 'Receptionist Part-time — Migros, Lugano');
-  expect(out).toBe('CHF 50-70k');  // skipped Part-time, fell through
+  const out = pickJobDisambiguator(job, 'it', 'Receptionist Tempo parziale — Migros, Lugano');
+  expect(out).toBe('CHF 50-70k');  // skipped Tempo parziale, fell through
  });
 
  it('returns empty string when nothing usable is available', () => {
