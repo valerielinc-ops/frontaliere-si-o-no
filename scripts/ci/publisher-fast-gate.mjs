@@ -10,7 +10,7 @@ import {
 import { ownsSitemapUrl, sectionForUrl } from '../validate-sitemap-links.mjs';
 import { SHARD_VALIDATOR_VERSION } from './shard-content-manifest.mjs';
 
-export const FAST_GATE_VALIDATOR_VERSION = 'publisher-fast-gate-v3';
+export const FAST_GATE_VALIDATOR_VERSION = 'publisher-fast-gate-v4';
 export const SITE_ORIGIN = 'https://frontaliereticino.ch';
 const LOCALES = ['it', 'en', 'de', 'fr'];
 const SHA_RE = /^[0-9a-f]{64}$/u;
@@ -174,6 +174,7 @@ export function validatePublisherFastGate({
   sitemapCoverageDeclarations,
   pageManifests,
   sectionManifests,
+  archiveEvidenceManifests = null,
   sourceArtifacts,
   publisherArtifacts,
   manifestArtifactNames = [],
@@ -181,8 +182,60 @@ export function validatePublisherFastGate({
   const errors = [];
   const pageByUrl = new Map();
   const pageManifestByLocale = new Map();
+  const archiveEvidenceByUrl = new Map();
   const expected = { sourceRunId, sourceSha, kind: 'publisher-page-manifest', schemaVersion: 2, validatorVersion: 'publisher-page-index-v2' };
   const artifactMetadata = readArtifactMetadata(sourceRunId, publisherRunId, sourceArtifacts, publisherArtifacts);
+
+  const archiveEvidenceByLocale = new Map();
+  for (const manifest of archiveEvidenceManifests ?? []) {
+    const locale = String(manifest?.locale ?? '');
+    const label = `expired archive evidence ${locale}`;
+    assertManifestHeader(manifest, {
+      sourceRunId,
+      sourceSha,
+      kind: 'expired-archive-publication-evidence',
+      schemaVersion: 1,
+      validatorVersion: 'expired-archive-publication-v1',
+    }, errors, label);
+    if (!LOCALES.includes(locale)) { errors.push(`${label}: locale is unsupported`); continue; }
+    if (archiveEvidenceByLocale.has(locale)) { errors.push(`${label}: duplicate locale evidence`); continue; }
+    archiveEvidenceByLocale.set(locale, manifest);
+    const artifactName = `expired-archive-evidence-${locale}-${sourceRunId}`;
+    const artifact = artifactMetadata.get(`${sourceRunId}:${artifactName}`);
+    assertArtifactRef({ name: artifactName, runId: sourceRunId, digest: artifact?.digest }, sourceRunId, artifactMetadata, errors);
+    const indexed = Number(manifest.indexedOverflowAliases);
+    const rendered = Number(manifest.renderedOverflowPages);
+    if (!Number.isSafeInteger(indexed) || indexed < 0) errors.push(`${label}: indexedOverflowAliases is invalid`);
+    if (!Number.isSafeInteger(rendered) || rendered < 0) errors.push(`${label}: renderedOverflowPages is invalid`);
+    if (!Array.isArray(manifest.entries)) { errors.push(`${label}: entries is not an array`); continue; }
+    if (indexed > 0 && rendered > 0 && manifest.entries.length === 0) errors.push(`${label}: overflow pages have no publication canary`);
+    if (manifest.sampleSize !== manifest.entries.length) errors.push(`${label}: sampleSize differs from entries`);
+    for (const entry of manifest.entries) {
+      const url = String(entry?.url ?? '');
+      if (!url || archiveEvidenceByUrl.has(url)) { errors.push(`${label}: missing or duplicate URL ${JSON.stringify(url)}`); continue; }
+      if (entry.evidenceKind !== 'expired-archive') errors.push(`${label}: evidenceKind is invalid for ${url}`);
+      if (entry.locale !== locale) errors.push(`${label}: page locale mismatch for ${url}`);
+      if (entry.section !== sectionForUrl(url, locale)) errors.push(`${label}: page section mismatch for ${url}`);
+      if (!routeCandidates(url).includes(String(entry.path ?? ''))) errors.push(`${label}: page path does not map to URL ${url}`);
+      for (const field of ['sha256', 'payloadSha256', 'descriptionSha256', 'expiredAtSha256', 'ownerSha256']) {
+        if (!SHA_RE.test(String(entry[field] ?? ''))) errors.push(`${label}: ${field} is missing or malformed for ${url}`);
+      }
+      archiveEvidenceByUrl.set(url, entry);
+    }
+  }
+  if (archiveEvidenceManifests !== null) {
+    for (const locale of LOCALES) {
+      if (!archiveEvidenceByLocale.has(locale)) errors.push(`expired archive evidence missing for locale ${locale}`);
+    }
+    const indexedPopulations = new Set(
+      [...archiveEvidenceByLocale.values()].map((manifest) => Number(manifest.indexedOverflowAliases)),
+    );
+    if (indexedPopulations.size > 1) errors.push('expired archive indexed overflow population differs between locales');
+    const indexedPopulation = Number([...indexedPopulations][0] ?? 0);
+    if (indexedPopulation > 0 && archiveEvidenceByUrl.size === 0) {
+      errors.push('expired archive overflow has no trusted publication canary');
+    }
+  }
 
   for (const manifest of pageManifests) {
     const locale = manifest?.locale;
@@ -303,14 +356,16 @@ export function validatePublisherFastGate({
     const [locale, section] = key.split(':', 2);
     for (const [url, shardPage] of shardPages) {
       const page = pageByUrl.get(url);
-      if (!page) {
+      const archiveEvidence = archiveEvidenceByUrl.get(url);
+      if (!page && !archiveEvidence) {
         errors.push(`${locale}/${section}: shard URL is absent from source page manifests: ${url}`);
         continue;
       }
-      if (page.locale !== locale) errors.push(`${locale}/${section}: shard URL locale differs from source page manifest: ${url}`);
-      if (page.section !== section) errors.push(`${locale}/${section}: shard URL section differs from source page manifest: ${url}`);
-      if (shardPage.path !== page.path) errors.push(`${locale}/${section}: shard path differs from source page manifest for ${url}`);
-      if (normalizeDigest(shardPage.sourceSha256) !== normalizeDigest(page.sha256)) {
+      const source = page ?? archiveEvidence;
+      if (source.locale !== locale) errors.push(`${locale}/${section}: shard URL locale differs from source receipt: ${url}`);
+      if (source.section !== section) errors.push(`${locale}/${section}: shard URL section differs from source receipt: ${url}`);
+      if (shardPage.path !== source.path) errors.push(`${locale}/${section}: shard path differs from source receipt for ${url}`);
+      if (normalizeDigest(shardPage.sourceSha256) !== normalizeDigest(source.sha256)) {
         errors.push(`${locale}/${section}: shard source digest differs from source page manifest for ${url}`);
       }
       if (!SHA_RE.test(String(shardPage.sha256 ?? ''))) errors.push(`${locale}/${section}: final shard page digest is missing or malformed for ${url}`);
@@ -343,6 +398,16 @@ export function validatePublisherFastGate({
   for (const url of pageByUrl.keys()) {
     if (!urlSet.has(url)) errors.push(`page manifest URL is absent from the source sitemap bundle: ${url}`);
   }
+  for (const [url, evidence] of archiveEvidenceByUrl) {
+    const pageManifest = pageManifestByLocale.get(evidence.locale);
+    if ((pageManifest?.requiredSections ?? []).includes(evidence.section)) {
+      const shardPage = sectionByKey.get(`${evidence.locale}:${evidence.section}`)?.get(url);
+      if (!shardPage) errors.push(`expired archive canary is absent from required shard ${evidence.locale}/${evidence.section}: ${url}`);
+      else if (normalizeDigest(shardPage.sourceSha256) !== normalizeDigest(evidence.sha256)) {
+        errors.push(`expired archive canary digest differs in required shard ${evidence.locale}/${evidence.section}: ${url}`);
+      }
+    }
+  }
   for (const name of manifestArtifactNames) {
     const runId = name.startsWith('section-page-manifest-it-') ? String(sourceRunId)
       : name.startsWith('section-page-manifest-') ? String(publisherRunId)
@@ -361,6 +426,7 @@ export function validatePublisherFastGate({
     sitemapUrlPopulation: urlSet.size,
     pageManifestPopulation: pageByUrl.size,
     sectionManifestPopulation: [...sectionByKey.values()].reduce((sum, pages) => sum + pages.size, 0),
+    expiredArchiveEvidencePopulation: archiveEvidenceByUrl.size,
     sampleRate: 1,
     sampledPages: urlSet.size,
     offendersTotal: errors.length,
@@ -389,6 +455,7 @@ function main() {
   const args = parseArgs(process.argv.slice(2));
   const pageManifests = jsonFiles(args['page-manifests-dir']);
   const sectionManifests = jsonFiles(args['section-manifests-dir']);
+  const archiveEvidenceManifests = jsonFiles(args['archive-evidence-dir']);
   const manifestArtifactNames = [
     ...pageManifests.map((manifest) => manifest.manifestArtifactName),
     ...sectionManifests.map((manifest) => manifest.manifestArtifactName),
@@ -404,6 +471,7 @@ function main() {
     sitemapCoverageDeclarations: readJson('data/sitemap-family-coverage-declarations.json'),
     pageManifests,
     sectionManifests,
+    archiveEvidenceManifests,
     sourceArtifacts: readJson(args['source-artifacts']),
     publisherArtifacts: readJson(args['publisher-artifacts']),
     manifestArtifactNames,

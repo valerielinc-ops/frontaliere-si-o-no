@@ -30,6 +30,7 @@ import { Worker } from 'worker_threads';
 import type { Plugin } from 'vite';
 import { shouldEmitLocale } from './shared/localeEmitFilter';
 import { JOB_OG_PHOTO_FILES, getJobOgPhotoKey } from './shared/jobOgImageCatalog.mjs';
+import { getItalianJobTitle } from './shared/italianJobTitle.mjs';
 import {
   ARCHIVED_JOB_OG_IMAGE_VERSION,
   JOB_OG_IMAGE_VERSION,
@@ -261,6 +262,7 @@ function truncateText(s: string, maxChars: number): string {
 }
 
 interface CardModel {
+  kicker?: string;
   title: string;
   subtitle?: string;
   company: string | null;
@@ -364,6 +366,22 @@ function buildCardJsx(model: CardModel): unknown {
                     alignItems: 'flex-start',
                   },
                   children: [
+                    model.kicker
+                      ? {
+                          type: 'div',
+                          props: {
+                            style: {
+                              display: 'flex',
+                              fontSize: 27,
+                              fontWeight: 700,
+                              letterSpacing: 1.2,
+                              color: BRAND_ACCENT,
+                              marginBottom: 18,
+                            },
+                            children: model.kicker,
+                          },
+                        }
+                      : null,
                     {
                       type: 'div',
                       props: {
@@ -630,7 +648,8 @@ export default function jobOgImagesPlugin(): Plugin {
       const renderQueue: RenderJob[] = [];
       for (const job of jobs) {
         const slug = deriveSlug(job);
-        if (!slug || !job?.title) {
+        const italianTitle = getItalianJobTitle(job);
+        if (!slug || !italianTitle) {
           stats.skipped += 1;
           continue;
         }
@@ -655,15 +674,8 @@ export default function jobOgImagesPlugin(): Plugin {
         }
 
         const model: CardModel = {
-          // Prefer the Italian-translated title when present. The plugin's
-          // audience is Italian-speaking frontalieri, the slug is built from
-          // titleByLocale.it, and the OG meta `og:title` on the linked page
-          // is the IT version — using the raw `job.title` (often German or
-          // English source) leaks the wrong language into the social card.
-          title: truncateText(
-            job.titleByLocale?.it ?? job.title ?? '',
-            82,
-          ),
+          kicker: 'STIAMO ASSUMENDO',
+          title: truncateText(italianTitle, 82),
           company: deriveCompany(job),
           city: deriveCity(job),
           salary: deriveSalary(job),

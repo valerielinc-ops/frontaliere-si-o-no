@@ -1210,7 +1210,7 @@ describe('crawler generation state cleanup', () => {
       /worker_watchdog_minutes="\${CRAWLER_WORKER_TIMEOUT_MINUTES:-([0-9]+)}"/g,
     )].map(([, minutes]) => Number(minutes) * 60 * 1000);
     const timeoutMs = 340 * 60 * 1000;
-    expect(watchdogDurations).toHaveLength(22);
+    expect(watchdogDurations).toHaveLength(24);
     expect(projectedLaneDurationMs(watchdogDurations, CRAWLER_GROUP_MAX_PARALLEL)).toBeGreaterThan(timeoutMs);
     expect(projectedLaneDurationMs(watchdogDurations, crawlerGroupMaxParallel(24))).toBeLessThanOrEqual(timeoutMs);
   });

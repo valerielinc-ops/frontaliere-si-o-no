@@ -1294,6 +1294,15 @@ jobs:
             --manifest-out="$LOCALE_SITEMAP_MANIFEST_OUT"
           test -s "$LOCALE_SITEMAP_MANIFEST_OUT"
 
+      - name: Upload expired archive publication evidence
+        if: success()
+        uses: actions/upload-artifact@v7
+        with:
+          name: expired-archive-evidence-${{ matrix.locale }}-${{ github.run_id }}
+          path: dist/assets/expired-archive-evidence-${{ matrix.locale }}.json
+          retention-days: 8
+          if-no-files-found: error
+
       # The in-build BUILD_LOCALE filter only gates WriteCollector writes;
       # direct-fs.writeFileSync emitters (redirect/bridge/weather/alias) still
       # write every locale. This removes the non-owned locale output the same
@@ -1436,6 +1445,9 @@ jobs:
           test -s "$manifest"
           cp "$manifest" dist/locale-sitemap-manifest.json
           members+=(locale-sitemap-manifest.json)
+          evidence="assets/expired-archive-evidence-${{ matrix.locale }}.json"
+          test -s "dist/$evidence"
+          members+=("$evidence")
           if [ -f "dist/${{ matrix.locale }}.html" ]; then
             members+=("${{ matrix.locale }}.html")
           fi
@@ -2063,6 +2075,7 @@ jobs:
               --artifact-run-id "$GITHUB_RUN_ID" \
               --tar "$RUNNER_TEMP/$section-dist-it.tar" \
               --page-manifest "$RUNNER_TEMP/locale-sitemap-manifest-it.json" \
+              --evidence-manifest "dist/assets/expired-archive-evidence-it.json" \
               --out "$RUNNER_TEMP/shard-content-manifests/it/$section.json"
             rm -rf "$src"
           }

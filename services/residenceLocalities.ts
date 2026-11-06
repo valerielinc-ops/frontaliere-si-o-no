@@ -87,7 +87,7 @@ export function residenceProfilePrefill(confirmedLocation: string, confirmedCoun
 
 /** Load only the selected country. Typing never sends residence text to a geocoder. */
 export function loadResidenceLocalities(country: string): Promise<string[]> {
-  if (!Object.hasOwn(countries, country)) return Promise.resolve([]);
+  if (!Object.prototype.hasOwnProperty.call(countries, country)) return Promise.resolve([]);
   if (!cache.has(country)) {
     const loader = catalogues[`../data/residence-localities/${country}.json`];
     if (!loader) return Promise.resolve([]);
