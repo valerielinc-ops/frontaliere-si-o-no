@@ -362,6 +362,68 @@ describe('assisted application profile history and file replacement', () => {
     const visibleNonWorkdayReceipt = { ...visibleWorkdayName, url: () => 'https://jobs.example/apply' };
     expect(await uploadReceipt(visibleNonWorkdayReceipt as any, locator as any, ['/tmp/CV.pdf'], { timeoutMs: 0 })).toBe(true);
   });
+
+  it('accepts a confirmed generic upload after the portal replaces the file input', async () => {
+    const locator = { evaluate: vi.fn(async () => []) };
+    const page = {
+      url: () => 'https://jobs.example/apply',
+      locator: () => ({ allInnerTexts: async () => [] }),
+      getByText: () => ({ first: () => ({ isVisible: async () => false }) }),
+      waitForTimeout: async () => {},
+    };
+
+    expect(await uploadReceipt(page as any, locator as any, ['/tmp/CV.pdf'], {
+      acceptedResponse: true,
+      timeoutMs: 0,
+    })).toBe(true);
+
+    const partialLocator = { evaluate: vi.fn(async () => ['CV-a.pdf']) };
+    expect(await uploadReceipt(page as any, partialLocator as any, ['/tmp/CV-a.pdf', '/tmp/CV-b.pdf'], {
+      acceptedResponse: true,
+      timeoutMs: 0,
+    })).toBe(false);
+
+    const detachedLocator = { evaluate: vi.fn(async () => { throw new Error('detached'); }) };
+    expect(await uploadReceipt(page as any, detachedLocator as any, ['/tmp/CV.pdf'], {
+      acceptedResponse: true,
+      timeoutMs: 0,
+    })).toBe(false);
+
+    const failedPage = {
+      ...page,
+      locator: () => ({ allInnerTexts: async () => ['Upload failed'] }),
+    };
+    expect(await uploadReceipt(failedPage as any, locator as any, ['/tmp/CV.pdf'], {
+      acceptedResponse: true,
+      timeoutMs: 0,
+    })).toBe(false);
+
+    let alertReads = 0;
+    const lateFailedPage = {
+      ...page,
+      locator: () => ({ allInnerTexts: async () => alertReads++ === 0 ? [] : ['Upload failed'] }),
+    };
+    expect(await uploadReceipt(lateFailedPage as any, locator as any, ['/tmp/CV.pdf'], {
+      acceptedResponse: true,
+      timeoutMs: 0,
+    })).toBe(false);
+
+    let unreadableAlertReads = 0;
+    const unreadableFinalAlertPage = {
+      ...page,
+      locator: () => ({
+        allInnerTexts: async () => {
+          unreadableAlertReads += 1;
+          if (unreadableAlertReads === 2) throw new Error('alert-detached');
+          return [];
+        },
+      }),
+    };
+    expect(await uploadReceipt(unreadableFinalAlertPage as any, locator as any, ['/tmp/CV.pdf'], {
+      acceptedResponse: true,
+      timeoutMs: 0,
+    })).toBe(false);
+  });
 });
 
 describe('upload dialog frame safety', () => {

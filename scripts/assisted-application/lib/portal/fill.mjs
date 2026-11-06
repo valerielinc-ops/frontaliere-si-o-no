@@ -815,7 +815,7 @@ function selectedUploadPaths(paths, multiple) {
   return paths.length > 1 && multiple ? paths : paths.slice(0, 1);
 }
 
-/** A Workday file needs a successful upload response; its selected filename is not a receipt. */
+/** A successful upload response is a receipt even when a portal replaces the file input after upload. */
 export async function uploadReceipt(page, locator, paths, { acceptedResponse = false, timeoutMs = 60_000 } = {}) {
   const names = paths.map((file) => path.basename(file));
   if (!names.length) return false;
@@ -824,11 +824,27 @@ export async function uploadReceipt(page, locator, paths, { acceptedResponse = f
   do {
     const alerts = await page.locator('[role="alert"]:visible').allInnerTexts().catch(() => []);
     if (/(?:upload|file|document).{0,40}(?:fail|error|unable|could not|couldn['’]t)|(?:fail|error).{0,40}(?:upload|file|document)/i.test(alerts.join(' '))) return false;
-    const inputNames = await locator.evaluate((element) => [...(element.files || [])].map((file) => file.name)).catch(() => []);
+    const inputRead = await locator.evaluate((element) => [...(element.files || [])].map((file) => file.name))
+      .then((names) => ({ ok: true, names }))
+      .catch(() => ({ ok: false, names: [] }));
+    const inputNames = inputRead.names;
     const visibleNames = await Promise.all(names.map((name) => page.getByText(name, { exact: false }).first().isVisible().catch(() => false)));
     const inputHasFiles = names.every((name) => inputNames.includes(name));
-    if ((!requiresPortalReceipt && names.every((name, index) => visibleNames[index]))
-      || (inputHasFiles && (!requiresPortalReceipt || acceptedResponse))) return true;
+    // observeFileUpload sets acceptedResponse only after a recognized upload request
+    // receives a successful response. A boolean response cannot account for
+    // every file in a multi-file selection, and a failed locator read is not
+    // proof that a portal replaced the input with a valid receipt.
+    const responseReceipt = acceptedResponse && names.length === 1 && inputRead.ok && inputNames.length === 0;
+    const visibleReceipt = !requiresPortalReceipt && names.every((name, index) => visibleNames[index]);
+    const inputReceipt = inputHasFiles && (!requiresPortalReceipt || acceptedResponse);
+    if (responseReceipt || visibleReceipt || inputReceipt) {
+      const latestAlertRead = await page.locator('[role="alert"]:visible').allInnerTexts()
+        .then((alerts) => ({ ok: true, alerts }))
+        .catch(() => ({ ok: false, alerts: [] }));
+      if (!latestAlertRead.ok) return false;
+      if (/(?:upload|file|document).{0,40}(?:fail|error|unable|could not|couldn['’]t)|(?:fail|error).{0,40}(?:upload|file|document)/i.test(latestAlertRead.alerts.join(' '))) return false;
+      return true;
+    }
     if (Date.now() >= deadline) break;
     await page.waitForTimeout(250);
   } while (true);
