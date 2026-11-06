@@ -93,7 +93,7 @@ const STATIC_TEMPLATE_ESCAPE_RE = /\\(u\{[0-9a-fA-F]+\}|u[0-9a-fA-F]{4}|x[0-9a-f
 
 function decodeStaticTemplateSuffix(value: string): string {
   return value.replace(STATIC_TEMPLATE_ESCAPE_RE, (whole, escape: string) => (
-    escape === '`' ? '`' : decodeTsStringEscapeSequence(escape) ?? whole
+    escape === '`' ? '`' : escape === '/' ? '/' : decodeTsStringEscapeSequence(escape) ?? whole
   ));
 }
 

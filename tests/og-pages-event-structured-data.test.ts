@@ -9,6 +9,11 @@ afterEach(() => temporaryRoots.splice(0).forEach((root) => fs.rmSync(root, { rec
 
 const BASE_URL = 'https://frontaliereticino.ch';
 
+it('decodes escaped slashes in static BASE_URL templates', () => {
+  const value = ['`', '${BASE_URL}', '\\/event', '`'].join('');
+  expect(resolveStaticTemplateUrl(value, BASE_URL)).toBe(`${BASE_URL}/event`);
+});
+
 it('normalizes Event price text and resolves BASE_URL templates before completeness validation', async () => {
   const rootDir = fs.mkdtempSync(path.join(os.tmpdir(), 'og-pages-event-jsonld-'));
   temporaryRoots.push(rootDir);
