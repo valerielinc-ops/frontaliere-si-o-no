@@ -36,7 +36,7 @@ function sourceRuntime(details: Record<string, {
   body: string;
   title?: string;
   href?: string;
-}>) {
+}>, listingHtml?: string) {
   const links = Object.keys(details).map((id) =>
     `<a href="${details[id].href || `/Vacancies/${id}/Description/1`}">${details[id].title || 'Liegenschaftskoordinator (m/w/d)'}</a>`).join('\n');
   const requested: string[] = [];
@@ -45,7 +45,7 @@ function sourceRuntime(details: Record<string, {
     if (url === 'https://recruitingapp-2649.umantis.com/robots.txt') {
       return response(url, 200, 'User-agent: *\nAllow: /');
     }
-    if (url === SEED_URL) return response(url, 200, links);
+    if (url === SEED_URL) return response(url, 200, listingHtml ?? links);
     const id = /\/Vacancies\/(\d+)\//.exec(url)?.[1] || '';
     if (id && details[id]) return response(url, details[id].status ?? 200, details[id].body);
     throw new Error(`unexpected URL ${url}`);
@@ -196,6 +196,22 @@ describe('Alexander von Humboldt-Stiftung Stellen crawler parser', () => {
   });
 
   describe('authoritative non-Swiss snapshot', () => {
+    it('publishes a source-proven zero when Umantis renders its empty-board marker', async () => {
+      const marker = 'Es wurden noch keine Einträge erfasst, die hier angezeigt werden könnten.';
+      const { runtime } = sourceRuntime({}, `
+        <script>window.msg.wNoEntries = ${JSON.stringify(marker)}</script>
+        <div class="showblock_showtableaslist" id="connectortable_1">
+          <span class="color-grey-m">${marker}</span>
+        </div>
+      `);
+
+      const jobs = await fetchAllRecruitingapp2649Jobs(runtime);
+
+      expect(jobs).toEqual([]);
+      expect((jobs as any).discoveredCount).toBe(0);
+      expect(assertCompleteRecruitingapp2649Snapshot(jobs)).toBe(true);
+    });
+
     it('does not trip the shared detail-drop guard for a complete large foreign snapshot', async () => {
       const details = Object.fromEntries(Array.from({ length: 16 }, (_, index) => [
         String(7000 + index),

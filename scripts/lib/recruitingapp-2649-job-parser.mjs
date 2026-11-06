@@ -16,7 +16,12 @@ import { createHash } from 'node:crypto';
 import { fetch as undiciFetch } from 'undici';
 import { appendSlugDisambiguator, detectLang } from './dedicated-crawler-common.mjs';
 import { stripHtml } from './crawler-template.mjs';
+import { isAuthoritativeEmptySnapshot } from './authoritative-empty-snapshot.mjs';
 import { buildSlug } from './regenerate-slugs-helpers.mjs';
+import {
+  runUmantisSpecWithEmptyProof,
+  umantisAuthoritativeEmptyOrNull,
+} from './umantis-empty-listing.mjs';
 import { isSufficientVacancyDescription } from './prospector/extract.mjs';
 import {
   isAllowlistedAuthoritativeNonSwissLocation,
@@ -24,7 +29,6 @@ import {
   resolveSourceBackedSwissGeography,
   sourceBackedSwissGeographyFields,
 } from './prospector/location-evidence.mjs';
-import { loadSpec, runSpecInProduction } from './prospector/spec-crawler.mjs';
 import { extractLinks } from './prospector/careers-trail.mjs';
 import { umantisVacancyIdentity } from './prospector/umantis-detail.mjs';
 import { extractRuntimeDetailFields } from './prospector/detail-extract.mjs';
@@ -192,7 +196,6 @@ function attachSnapshotProof(rows, proof, observedDetailsByUrl = null, titleEvid
  * whole batch, so the standard pipeline keeps the previous slice.
  */
 async function fetchJobListings(runtime = {}) {
-  const spec = loadSpec(RECRUITINGAPP_2649_KEY);
   const attemptedDetailIds = new Set();
   const listingTitles = new Map();
   const observedDetails = new Map();
@@ -258,7 +261,7 @@ async function fetchJobListings(runtime = {}) {
     return detail;
   };
 
-  const rows = await runSpecInProduction(spec, {
+  const rows = await runUmantisSpecWithEmptyProof(RECRUITINGAPP_2649_KEY, {
     ...runtime,
     fetchImpl: observingFetch,
     detailExtractor: observingDetailExtractor,
@@ -287,6 +290,7 @@ async function fetchJobListings(runtime = {}) {
 }
 
 export function assertCompleteRecruitingapp2649Snapshot(jobs) {
+  if (isAuthoritativeEmptySnapshot(jobs)) return true;
   if (!Array.isArray(jobs) || jobs.length !== 0) return false;
   const proof = jobs.authoritativeSnapshotProof;
   if (!proof?.complete || proof.discoveredCount <= 0 || proof.publishedCount !== 0) return false;
@@ -312,6 +316,11 @@ export async function fetchAllRecruitingapp2649Jobs(runtime = {}) {
   const listings = await fetchJobListings(runtime);
   if (!listings || listings.length === 0) {
     console.warn('⚠️ No job listings returned.');
+    const authoritativeEmpty = umantisAuthoritativeEmptyOrNull(
+      listings,
+      RECRUITINGAPP_2649_COMPANY_NAME,
+    );
+    if (authoritativeEmpty) return authoritativeEmpty;
     return attachSnapshotProof([], listings?.authoritativeSnapshotProof || {
       discoveredCount: 0,
       detailCount: 0,

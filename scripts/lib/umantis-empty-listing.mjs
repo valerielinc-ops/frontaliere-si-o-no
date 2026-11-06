@@ -2,10 +2,10 @@
 /**
  * Shared reader for an Umantis job-market listing page.
  *
- * Four spec-driven crawlers (recruitingapp-2563, recruitingapp-1154,
- * recruitingapp-2677, jsafrasarasin) all did `return runSpecInProduction(spec)`
- * and nothing else, so a run that reached an empty board and a run that never
- * reached the board at all produced the same value: `[]`. That ambiguity is why
+ * Five spec-driven crawlers (recruitingapp-2563, recruitingapp-1154,
+ * recruitingapp-2649, recruitingapp-2677, jsafrasarasin) need to distinguish a
+ * run that reached an empty board from a run that never reached the board at
+ * all. Both otherwise produce the same value: `[]`. That ambiguity is why
  * `[crawler-health] recruitingapp-2563` (#6660) reopens forever — the monitor
  * has nothing to read.
  *
