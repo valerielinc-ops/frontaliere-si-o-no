@@ -260,6 +260,15 @@ describe('Guidle server-rendered detail fallback', () => {
       startDate: '2022-07-10',
       endDate: '2022-07-15',
     });
+
+    const sharedMonthRange = textualDate.replace(
+      'Sonntag, 10. Juli 17:00 Uhr – Freitag, 15. Juli 2022 12:00 Uhr',
+      '18.–20. November 2026',
+    );
+    expect(mapDetailPageToLocaleData(sharedMonthRange, 'de')).toMatchObject({
+      startDate: '2026-11-18',
+      endDate: '2026-11-20',
+    });
   });
 
   it('distinguishes a genuinely undated detail from an unparsed absolute date', () => {

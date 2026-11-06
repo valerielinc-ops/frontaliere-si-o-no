@@ -190,6 +190,10 @@ const GUIDLE_MONTH_NUMBER = new Map([
 ].flatMap(([names, month]) => names.map((name) => [name, month])));
 const GUIDLE_MONTH_PATTERN = [...GUIDLE_MONTH_NUMBER.keys()].sort((a, b) => b.length - a.length).join('|');
 const GUIDLE_TEXT_DATE_RE = new RegExp(`\\b(\\d{1,2})\\.\\s*(${GUIDLE_MONTH_PATTERN})(?:\\s+((?:19|20)\\d{2}))?\\b`, 'giu');
+const GUIDLE_SHARED_MONTH_RANGE_RE = new RegExp(
+  `\\b(\\d{1,2})\\.\\s*[–—-]\\s*(\\d{1,2})\\.\\s*(${GUIDLE_MONTH_PATTERN})\\s+((?:19|20)\\d{2})\\b`,
+  'iu',
+);
 
 const USER_AGENT = 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch)';
 const FETCH_TIMEOUT_MS = 20000;
@@ -443,6 +447,14 @@ function guidleIsoDate(year, month, day) {
 
 function extractGuidleTextDateRange(value) {
   const normalized = String(value || '').normalize('NFD').replace(/\p{Diacritic}/gu, '').toLowerCase();
+  const sharedMonthRange = GUIDLE_SHARED_MONTH_RANGE_RE.exec(normalized);
+  if (sharedMonthRange) {
+    const month = GUIDLE_MONTH_NUMBER.get(sharedMonthRange[3]);
+    const year = Number(sharedMonthRange[4]);
+    const startDate = guidleIsoDate(year, month, Number(sharedMonthRange[1]));
+    const endDate = guidleIsoDate(year, month, Number(sharedMonthRange[2]));
+    return startDate && endDate && startDate <= endDate ? { startDate, endDate } : null;
+  }
   const dates = [];
   GUIDLE_TEXT_DATE_RE.lastIndex = 0;
   let match;
