@@ -2335,11 +2335,25 @@ export function hasVacancySpecificPostingEvidence(pageText, job = {}, {
     || isPostingRouteBound({ pageUrl, postingUrl, postingRouteProof });
   if (routeBound) return !namesAnotherEmployer(pageText, job);
   const titleMatched = Boolean(job?.title && titleMatches(pageTitle, job.title));
-  // Without a route proof, require the employer as well as the role in the
-  // document title. A footer or related-job card elsewhere on the page cannot
-  // supply identity for this vacancy.
-  const sourceIdentityMatched = postingMatch(pageTitle, job, pageUrl) === 'match';
+  // The source page must identify the role in its title. Its employer may be
+  // in the body; the external Apply fallback separately requires that same
+  // employer and role in the CTA's own bounded vacancy card.
+  const sourceIdentityMatched = postingMatch(sourceText, job, pageUrl) === 'match';
   return titleMatched && sourceIdentityMatched;
+}
+
+/** Read-only reconciliation cannot use an Apply control or a persisted route proof. */
+export function hasReadOnlyVacancyEvidence(pageText, job = {}, { pageTitle = '' } = {}) {
+  const sourceText = `${pageTitle}\n${pageText}`;
+  const company = String(job?.company || '').trim();
+  if (!company || !nameWords(company).length) return false;
+  const organizationCompatible = !job?.organization || sameEmployerFamily(job.organization, company);
+  return Boolean(organizationCompatible && job?.title
+    && !namesAnotherEmployer(sourceText, job)
+    && titleMatches(pageTitle, job.title)
+    // Host aliases are acceptable for an application form reached from a
+    // proven posting, but read-only reconciliation has no such provenance.
+    && postingMatch(pageTitle, { ...job, company }) === 'match');
 }
 
 /**

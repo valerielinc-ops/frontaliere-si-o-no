@@ -3,7 +3,7 @@ import { JSDOM } from 'jsdom';
 import { readFileSync } from 'node:fs';
 import { extractFieldsInPage } from '../scripts/assisted-application/lib/portal/fields.mjs';
 import { guardPlan } from '../scripts/assisted-application/lib/portal/plan.mjs';
-import { applicationEntryControls, formPostingMatch, hasVacancySpecificPostingEvidence, localizePortalQuestions, portalReadAheadCapability, portalQuestionReductionHandoff, portalRequirementsForCandidate, portalRequirementsFromMissingRequired, readPortalRequirements, readPortalQuestions } from '../scripts/assisted-application/lib/portal/portal.mjs';
+import { applicationEntryControls, formPostingMatch, hasReadOnlyVacancyEvidence, hasVacancySpecificPostingEvidence, localizePortalQuestions, portalReadAheadCapability, portalQuestionReductionHandoff, portalRequirementsForCandidate, portalRequirementsFromMissingRequired, readPortalRequirements, readPortalQuestions } from '../scripts/assisted-application/lib/portal/portal.mjs';
 import { PORTAL_QUESTION_PLACEHOLDERS } from '../functions/src/lib/portalQuestionText.js';
 import { questionsForCandidate } from '../functions/src/assistedApplicationCandidateEdits.js';
 import { transition } from '../functions/src/assistedApplicationFlow.js';
@@ -727,8 +727,34 @@ it('requires vacancy evidence beyond a company match before trusting one externa
   expect(hasVacancySpecificPostingEvidence('Muster AG Karriere', job, {
     pageUrl: listingUrl, pageTitle: 'Muster AG — Application Manager', postingUrl,
   })).toBe(true);
-  expect(hasVacancySpecificPostingEvidence('Andere GmbH — Apply · Footer Muster AG', job, {
+  expect(hasVacancySpecificPostingEvidence('Muster AG Karriere — Apply', job, {
     pageUrl: listingUrl, pageTitle: 'Application Manager', postingUrl,
+  })).toBe(true);
+  expect(applicationEntryControls({
+    text: 'Muster AG Karriere — Apply',
+    links: [{ text: 'Apply', href: 'https://ats.example.test/apply', vacancyContext: 'Application Manager — Andere GmbH' }],
+  }, {
+    job, postingUrl, allowSingleExternalApplicationEntry: true,
+  })).toEqual([]);
+  expect(hasReadOnlyVacancyEvidence('Muster AG Karriere', job, {
+    pageUrl: listingUrl, pageTitle: 'Application Manager',
+  })).toBe(false);
+  expect(hasReadOnlyVacancyEvidence('Muster AG Karriere', job, {
+    pageUrl: postingUrl, pageTitle: 'Application Manager',
+  })).toBe(false);
+  expect(hasReadOnlyVacancyEvidence('Application form', { title: 'Application Manager' }, {
+    pageTitle: 'Application Manager',
+  })).toBe(false);
+  expect(hasReadOnlyVacancyEvidence('Application form', { company: 'AG', title: 'Application Manager' }, {
+    pageTitle: 'Application Manager',
+  })).toBe(false);
+  expect(hasReadOnlyVacancyEvidence('Application form', job, {
+    pageUrl: postingUrl, pageTitle: 'Muster AG — Application Manager',
+  })).toBe(true);
+  const rhbJob = { company: 'Ferrovia Retica (RhB)', title: 'Application Manager' };
+  expect(hasReadOnlyVacancyEvidence('Application form', rhbJob, {
+    pageUrl: 'https://rhb-career.talent-soft.com/application',
+    pageTitle: 'Application Manager',
   })).toBe(false);
   expect(hasVacancySpecificPostingEvidence('Application Manager', { ...job, organization: 'Muster AG' }, {
     pageUrl: listingUrl, pageTitle: 'Application Manager', postingUrl,
