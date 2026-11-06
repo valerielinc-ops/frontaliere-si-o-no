@@ -34,6 +34,8 @@ import {
   parseRittmeyerJobDetailWithUrl,
   isRittmeyerTicinoListing,
   buildRittmeyerLocalizedContent,
+  buildRittmeyerOnlyfyPrintUrl,
+  parseRittmeyerOnlyfyPrintAd,
   RITTMEYER_LEGACY_PLACEHOLDER_TITLES,
   RITTMEYER_LEGACY_SYNTHETIC_HEADINGS,
 } from './lib/rittmeyer-job-parser.mjs';
@@ -41,6 +43,7 @@ import { inferAnyCanton } from './lib/target-swiss-locations.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
 import { evaluateAuthoritativeSnapshot, exitCrawlerOnError, fetchHtml } from './lib/crawler-template.mjs';
 import { onlyfyFullAdUrl, extractOnlyfyJobAdText, isOnlyfyJobAdText } from './lib/onlyfy-listing-common.mjs';
+import { extractPdfJobContentFromUrl } from './lib/pdf-job-content.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 
@@ -426,6 +429,7 @@ async function buildRittmeyerJob(listing) {
   const shellDetail = parseRittmeyerJobDetailWithUrl(shellHtml, detailUrl);
   const fullAdUrl = onlyfyFullAdUrl(detailUrl);
   let detail = shellDetail;
+  let fullAdError;
   if (fullAdUrl) {
     try {
       const fullAdHtml = await fetchText(fullAdUrl);
@@ -440,10 +444,28 @@ async function buildRittmeyerJob(listing) {
         summary: fullAdText,
       };
     } catch (err) {
-      if (!isOnlyfyJobAdText(shellDetail.summary)) {
-        throw new Error(`Rittmeyer: Onlyfy detail body unavailable for ${detailUrl}: ${err?.message || err}`);
-      }
+      fullAdError = err;
     }
+  }
+  if (!isOnlyfyJobAdText(detail.summary)) {
+    const printAdUrl = buildRittmeyerOnlyfyPrintUrl(detailUrl);
+    if (!printAdUrl) {
+      throw new Error(`Rittmeyer: Onlyfy detail body unavailable for ${detailUrl}: ${fullAdError?.message || 'no trusted print source'}`);
+    }
+    const printAd = await extractPdfJobContentFromUrl(printAdUrl);
+    const printDetail = parseRittmeyerOnlyfyPrintAd(printAd?.text || '', listing);
+    if (!isOnlyfyJobAdText(printDetail.summary)) {
+      const printError = printAd?.error || 'print PDF did not contain a complete job body';
+      throw new Error(`Rittmeyer: Onlyfy detail body unavailable for ${detailUrl}: ${fullAdError?.message || 'HTML ad unavailable'}; ${printError}`);
+    }
+    detail = {
+      ...shellDetail,
+      ...printDetail,
+      title: printDetail.title || shellDetail.title || listing.title,
+      location: printDetail.location || shellDetail.location || listing.location || '',
+      workload: printDetail.workload || shellDetail.workload || '',
+      applyUrl: shellDetail.applyUrl || '',
+    };
   }
   // Postings are German, French or Italian; the source slot must carry the
   // posting's own language so the translation step fills the other three.
@@ -455,7 +477,7 @@ async function buildRittmeyerJob(listing) {
   // Trust the parsed `Schweiz` field (and fall back to the listing title
   // when missing) so off-Camorino postings get the right canton + postal.
   const site = resolveRittmeyerSiteAddress(detail.location || listing.title || '');
-  const workload = detail.workload || String(listing.snippet || listing.title || '').match(/\b\d{2,3}\s*[-–]\s*\d{2,3}\s*%\b/)?.[0] || '';
+  const workload = detail.workload || String(listing.snippet || listing.title || '').match(/\b\d{2,3}\s*[-–]\s*\d{2,3}\s*%(?=\s|$)/)?.[0] || '';
   return {
     title: detail.title,
     slug: localized.slugByLocale[sourceLang],

@@ -5,6 +5,8 @@ import {
   isRittmeyerTicinoListing,
   parseRittmeyerJobDetail,
   parseRittmeyerJobDetailWithUrl,
+  buildRittmeyerOnlyfyPrintUrl,
+  parseRittmeyerOnlyfyPrintAd,
   buildRittmeyerLocalizedContent,
 } from '../scripts/lib/rittmeyer-job-parser.mjs';
 import {
@@ -111,6 +113,51 @@ describe('rittmeyer-job-parser', () => {
     expect(isRittmeyerTicinoListing(listings[0])).toBe(true);
     expect(listings.rittmeyerListingMarkupSeen).toBe(true);
     expect(listings.rittmeyerListingSkippedMalformedRows).toBe(0);
+  });
+
+  it('uses the Rittmeyer candidate print endpoint for the official ad source', () => {
+    expect(buildRittmeyerOnlyfyPrintUrl(
+      'https://brugg.onlyfy.jobs/en/job/4it6c5xx4ivuhudv7e6kk1oyh232efn/',
+    )).toBe(
+      'https://brugg.onlyfy.jobs/candidate/job/print/4it6c5xx4ivuhudv7e6kk1oyh232efn?lang=en&mode=print',
+    );
+    expect(buildRittmeyerOnlyfyPrintUrl(
+      'https://other.onlyfy.jobs/en/job/4it6c5xx4ivuhudv7e6kk1oyh232efn/',
+    )).toBe('');
+  });
+
+  it('keeps the print source body and removes the contact footer', () => {
+    const detail = parseRittmeyerOnlyfyPrintAd(`
+      I sistemi di controllo e la tecnologia di misurazione di Rittmeyer costituiscono la base per soluzioni innovative nei settori dell'approvvigionamento idrico ed energetico.
+
+      Sales Project Engineer (a) Ticino
+
+      Camorino, Svizzera
+
+      80-100%
+
+      La tua area di competenza
+
+      Ricevi le richieste di offerta dal reparto vendite e prepari offerte commerciali per i clienti. Identifichi i rischi e garantisci un passaggio di consegne ordinato al team operativo.
+
+      Il tuo contatto
+
+      HR Team
+
+      contact details
+    `, {
+      title: 'Sales Project Engineer (a) Ticino',
+      location: 'Camorino',
+    });
+
+    expect(detail).toMatchObject({
+      title: 'Sales Project Engineer (a) Ticino',
+      location: 'Camorino',
+      workload: '80-100%',
+    });
+    expect(detail.summary).toContain('Identifichi i rischi');
+    expect(detail.summary).not.toContain('HR Team');
+    expect(detail.summary).not.toContain('contact details');
   });
 
   it('follows Onlyfy listing pages when the board advertises more than one page', async () => {
