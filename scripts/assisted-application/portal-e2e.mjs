@@ -46,7 +46,9 @@ const portalTestCandidate = ({ dateOfBirth = '12.05.1990', permitAnswer = 'Yes' 
   },
   answers: {
     salutation: 'Mr',
-    ...(permitAnswer ? { work_permit: permitAnswer, valid_work_permit: permitAnswer } : {}),
+    ...(permitAnswer
+      ? { work_permit: 'Permesso G', valid_work_permit: permitAnswer }
+      : {}),
   },
   portalQuestionsAnswered: permitAnswer
     ? [{ id: 'valid_work_permit', question: 'Do you hold a valid work permit?', answer: permitAnswer }]
@@ -595,7 +597,12 @@ function fakePortal() {
     // The posting names the brand, never the company the order names; the form behind the account keeps
     // the account page's title, and the site's language menu sits in its header (Workday, 2026-10-07). Its
     // «Postal Code» is no verification code: taken for one, the run waited for an e-mail nobody sends.
-    if (route === 'GET /wd/job') return send(page('Verkaufsberater/in', '<p>Acme Careers</p><h1>Verkaufsberater/in</h1><a href="/wd/apply">Apply</a>'));
+    if (route === 'GET /wd/job') {
+      return send(page(
+        'Verkaufsberater/in | Acme Retail Switzerland',
+        '<section class="job-detail"><p>Acme Careers</p><h1>Verkaufsberater/in</h1><p>Acme Retail Switzerland</p><a href="/wd/apply">Apply</a></section>',
+      ));
+    }
     if (route === 'GET /wd/apply') return state.sessions.has(sessionOf(req)) ? redirect('/wd/form') : send(workdayAccountPage());
     if (route === 'GET /wd/sign-in') return state.sessions.has(sessionOf(req)) ? redirect('/wd/form') : send(workdayAccountPage('sign_in'));
     // The form behind the account. Its «Country» is a listbox button, and choosing draws the address fields
@@ -1940,7 +1947,7 @@ async function main() {
         && state.applications.length === applicationsBeforeQuestion);
       if (permitQuestion) {
         const candidate = portalTestCandidate();
-        candidate.answers.work_permit = 'Yes';
+        candidate.answers.work_permit = 'Permesso G';
         candidate.answers[permitQuestion.id] = 'Yes';
         candidate.portalQuestionsAnswered = [{ id: permitQuestion.id, question: permitQuestion.applicationQuestion || permitQuestion.question, context: permitQuestion.context, section: permitQuestion.section, autocomplete: permitQuestion.autocomplete, answer: 'Yes' }];
         const resumedApplication = await run({ candidate });
