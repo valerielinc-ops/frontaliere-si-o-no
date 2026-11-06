@@ -1236,7 +1236,7 @@ export function applicationEntryControls(snapshot = {}, context = {}) {
     && startsApplication(control?.text || control?.label));
   if (posting && current && current.origin === posting.origin
     && current.pathname === posting.pathname && current.search === posting.search
-    && /^(?:\/[a-zA-Z0-9%._-]+)?\/job\/[^/]+\/[^/]+\/?$/i.test(posting.pathname)
+    && /^(?:\/[a-zA-Z0-9%._-]+)?\/job\/[^/]+(?:\/[^/]+)?\/?$/i.test(posting.pathname)
     && Array.isArray(snapshot.fields) && snapshot.fields.length === 0
     && scriptEntries.length === 1 && allEntries.length === 1) return scriptEntries;
   const unbound = controls.filter((control) => {
@@ -6866,7 +6866,7 @@ export async function submitViaPortal(ctx) {
     // A verified apply/posting URL pair is stronger than the title of a thin
     // shell, which may still show a stale or generic role while it mounts.
     const postingVacancyMatched = enteredFromMatchingPosting
-      || hasVacancySpecificPostingEvidence(postingSeen, ctx.job, {
+      || hasVacancySpecificPostingEvidence(initialPageText, ctx.job, {
         pageUrl: postingUrl,
         pageTitle: postingTitle,
         postingUrl: ctx.postingUrl,
