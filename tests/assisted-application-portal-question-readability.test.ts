@@ -1112,6 +1112,43 @@ it('keeps known Italian EOC Umantis fields candidate-readable when localization 
   });
 });
 
+it('keeps Italian EOC country and nationality catalogues without the localization provider', async () => {
+  const codex = vi.fn().mockRejectedValue(new Error('translation unavailable'));
+  const questions = [
+    {
+      id: 'country', question: 'Paese', applicationQuestion: 'Paese', type: 'choice',
+      options: ['Selezionare', 'Svizzera', 'Italia', 'Germania', 'Francia'],
+      applicationOptions: ['Selezionare', 'Svizzera', 'Italia', 'Germania', 'Francia'],
+    },
+    {
+      id: 'nationality', question: 'Nazionalità', applicationQuestion: 'Nazionalità', type: 'choice',
+      options: ['Selezionare', 'Svizzera', 'Italiana', 'Tedesca', 'Francese'],
+      applicationOptions: ['Selezionare', 'Svizzera', 'Italiana', 'Tedesca', 'Francese'],
+    },
+  ];
+
+  const request = await portalRequirementsForCandidate({ questions, documents: [] }, {
+    candidateLocale: 'it', applicationLocale: 'it', codex,
+  });
+
+  expect(codex).not.toHaveBeenCalled();
+  expect(request.questions).toEqual(questions.map((question) => expect.objectContaining({
+    id: question.id,
+    applicationQuestionLocale: 'it',
+    localizationStatus: 'same_language',
+    options: question.options,
+  })));
+
+  const foreignCodex = vi.fn().mockRejectedValue(new Error('translation unavailable'));
+  await expect(portalRequirementsForCandidate({ documents: [], questions: [{
+    ...questions[1],
+    options: ['Bitte wählen', 'Schweiz', 'Italien', 'Deutschland', 'Frankreich'],
+    applicationOptions: ['Bitte wählen', 'Schweiz', 'Italien', 'Deutschland', 'Frankreich'],
+  }] }, { candidateLocale: 'it', applicationLocale: 'it', codex: foreignCodex }))
+    .rejects.toMatchObject({ code: 'portal_question_localization_unavailable' });
+  expect(foreignCodex).toHaveBeenCalledOnce();
+});
+
 it('keeps deterministic German field copies when an unresolved same-language question shares the batch', async () => {
   const codex = vi.fn().mockRejectedValue(new Error('translation unavailable'));
   const result = await localizePortalQuestions([
