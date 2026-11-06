@@ -14,6 +14,13 @@ it('decodes escaped slashes in static BASE_URL templates', () => {
   expect(resolveStaticTemplateUrl(value, BASE_URL)).toBe(`${BASE_URL}/event`);
 });
 
+it('decodes escaped interpolation markers and template line continuations', () => {
+  const value = ['`', '${BASE_URL}/events/\\${literal}', '\\\ncontinued', '`'].join('');
+  expect(resolveStaticTemplateUrl(value, BASE_URL)).toBe(`${BASE_URL}/events/\${literal}continued`);
+  expect(resolveStaticTemplateUrl('`${BASE_URL}/events/${slug}`', BASE_URL))
+    .toBe('`${BASE_URL}/events/${slug}`');
+});
+
 it('normalizes Event price text and resolves BASE_URL templates before completeness validation', async () => {
   const rootDir = fs.mkdtempSync(path.join(os.tmpdir(), 'og-pages-event-jsonld-'));
   temporaryRoots.push(rootDir);

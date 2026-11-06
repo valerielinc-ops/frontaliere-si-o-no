@@ -52,6 +52,7 @@ on:
       - 'public/rss*.xml'
       - 'public/news-ticker-live.json'
       - 'public/data/discovery-articles.json'
+      - 'public/data/discovery-articles-manifest.json'
       - '.github/workflows/sync-articles-sitemaps.yml'
   schedule:
     # Twice a day, offset off the hour to stay clear of the deploy cron.
@@ -619,6 +620,7 @@ jobs:
             public/sitemap.xml
             public/canton-articles.json
             public/data/discovery-articles.json
+            public/data/discovery-articles-manifest.json
             public/images/blog
             public/images/generated
             data/blog-cover-ledger.json
@@ -683,6 +685,7 @@ jobs:
             --path public/sitemap.xml \
             --path public/canton-articles.json \
             --path public/data/discovery-articles.json \
+            --path public/data/discovery-articles-manifest.json \
             --path public/images/blog \
             --optional-path public/images/generated \
             --path data/blog-cover-ledger.json \

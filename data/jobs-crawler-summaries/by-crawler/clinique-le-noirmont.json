@@ -1,23 +1,24 @@
 {
   "key": "clinique-le-noirmont",
   "label": "Clinique Le Noirmont",
-  "generatedAt": "2026-11-05T21:41:03.868Z",
+  "generatedAt": "2026-11-06T09:47:44.075Z",
   "total": 4,
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
-  "newCount": 1,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 3,
-  "durationMs": 4721,
-  "avgDurationMs": 4721,
+  "durationMs": 4517,
+  "avgDurationMs": 4517,
   "durationHistory": [
-    4721
+    4517
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "title": "Diététicien (F/H) 90%",
-      "slug": "dieteticien-f-h-90-clinique-le-noirmont",
+      "slug": "dietician-m-f-90-clinique-le-noirmont-le-noirmont",
       "url": "https://www.cliniquelenoirmont.ch/FileDownload/Download/1054",
       "applyUrl": "https://www.cliniquelenoirmont.ch/La-clinique/Offres-demploi",
       "company": "Clinique Le Noirmont",
@@ -40,11 +41,11 @@
       "postedDate": "",
       "postingDateSource": "unknown",
       "validThrough": "2027-02-03T21:40:49.345Z",
-      "needsRetranslation": true,
       "_meta": {
         "sourceIdentifier": "dl:1054"
       },
       "id": "clinique-le-noirmont-6e2821775237",
+      "firstSeenAt": "2026-11-05T21:40:49.345Z",
       "salaryMin": 77400,
       "salaryMax": 108000,
       "currency": "CHF",
@@ -52,17 +53,15 @@
       "streetAddress": "Le Noirmont",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-05T21:40:49.345Z",
-      "_qualityScore": 82,
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 16,
+        "translation": 25,
         "completeness": 23
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [
     {
@@ -201,5 +200,5 @@
       }
     }
   ],
-  "codeCommit": "a1060e0c6e0f3560033abbedf4c719e585e35225"
+  "codeCommit": "fcc02aa26827aced497af1a7ae17fb25a96e49c5"
 }

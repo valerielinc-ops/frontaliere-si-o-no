@@ -94,6 +94,7 @@ import { resolveNewsletterArticle } from './lib/newsletter-article-selection.mjs
 import {
   freezeCampaignDiscoverySelection,
   loadDiscoveryArticleIndex,
+  loadDiscoveryArticleIndexFromHttp,
   nonPersistedDiscoverySelection,
   omitDuplicateDiscoveryArticle,
 } from './lib/newsletter-discovery-selection.mjs';
@@ -2333,7 +2334,14 @@ async function main() {
   const isResume = alreadySentForCampaign.size > 0;
   const allowNewDiscoverySelection = mode !== 'send'
     || (campaignResumeLookupKnown && !isResume);
-  const discoveryIndex = loadDiscoveryArticleIndex();
+  // Fetch the manifest-pinned public index before freezing a brand-new
+  // campaign selection. A local pull can lag the corpus publication; a valid
+  // empty response may freeze null, while transport or snapshot errors must
+  // stop before any recipient is sent. Resumes keep their immutable Firestore
+  // selection and previews continue to use the committed local snapshot.
+  const discoveryIndex = mode === 'send' && db && allowNewDiscoverySelection
+    ? await loadDiscoveryArticleIndexFromHttp()
+    : loadDiscoveryArticleIndex();
   const discoveryByLocale = new Map();
   for (const locale of ['it', 'en', 'de', 'fr']) {
     if (mode === 'send') {

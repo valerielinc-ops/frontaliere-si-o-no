@@ -294,6 +294,15 @@ describe('buildJobCaption', () => {
     expect(c).toContain('📋 Tempo pieno');
   });
 
+  it('uses Italian labels for part-time and internship roles', () => {
+    const partTime = buildJobCaption({ ...fullJob, employmentType: 'PART_TIME' });
+    const internship = buildJobCaption({ ...fullJob, employmentType: 'INTERN' });
+
+    expect(partTime).toContain('📋 Tempo parziale');
+    expect(partTime).not.toContain('Part-time');
+    expect(internship).toContain('📋 Tirocinio');
+  });
+
   it('refuses a source-language title copied into the Italian slot', () => {
     const rawTitle = 'Verkäufer / Verkäuferin mit Schichtverantwortung';
     expect(() => buildJobCaption({

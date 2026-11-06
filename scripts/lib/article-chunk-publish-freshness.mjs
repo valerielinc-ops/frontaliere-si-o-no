@@ -24,6 +24,7 @@ export const ARTICLE_SURFACE_PATHS = Object.freeze([
   'public/rss*.xml',
   'public/news-ticker-live.json',
   'public/data/discovery-articles.json',
+  'public/data/discovery-articles-manifest.json',
   '.github/workflows/sync-articles-sitemaps.yml',
 ]);
 

@@ -1,7 +1,7 @@
 {
   "key": "badrutts-palace",
   "label": "Badrutt's Palace Hotel",
-  "generatedAt": "2026-11-05T21:26:16.140Z",
+  "generatedAt": "2026-11-06T09:58:09.068Z",
   "total": 4,
   "discovered": null,
   "parsed": 4,
@@ -16,10 +16,10 @@
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 3,
-  "durationMs": 4120,
-  "avgDurationMs": 4120,
+  "durationMs": 2397,
+  "avgDurationMs": 2397,
   "durationHistory": [
-    4120
+    2397
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -35,7 +35,7 @@
       "url": "https://jobs.badruttscareers.com/en-GB/jobs/5478672-elektriker-m-w-d",
       "source": "Badrutt's Palace Hotel Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T21:26:00.960Z",
+      "crawledAt": "2026-11-06T09:57:55.244Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -69,7 +69,7 @@
       },
       "streetAddress": "Via Serlas 27",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-05T21:26:00.960Z",
+      "validThrough": "2026-12-06T09:57:55.244Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 87,
       "_qualityBreakdown": {
@@ -94,7 +94,7 @@
       "url": "https://jobs.badruttscareers.com/en-GB/jobs/8107575-director-of-brand-marketing-m-f-d",
       "source": "Badrutt's Palace Hotel Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-05T21:26:00.958Z",
+      "crawledAt": "2026-11-06T09:57:55.242Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -128,7 +128,7 @@
       },
       "streetAddress": "Via Serlas 27",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-05T21:26:00.958Z",
+      "validThrough": "2026-12-06T09:57:55.242Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 85,
       "_qualityBreakdown": {
@@ -150,7 +150,7 @@
       "url": "https://jobs.badruttscareers.com/en-GB/jobs/8158231-assistant-head-of-technical-services-m-w-d",
       "source": "Badrutt's Palace Hotel Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-05T21:26:00.953Z",
+      "crawledAt": "2026-11-06T09:57:55.240Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -184,7 +184,7 @@
       },
       "streetAddress": "Via Serlas 27",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-05T21:26:00.953Z",
+      "validThrough": "2026-12-06T09:57:55.240Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 87,
       "_qualityBreakdown": {
@@ -206,7 +206,7 @@
       "url": "https://jobs.badruttscareers.com/en-GB/jobs/8057933-restaurant-manager-for-le-grand-hall-m-f-d",
       "source": "Badrutt's Palace Hotel Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-05T21:26:00.922Z",
+      "crawledAt": "2026-11-06T09:57:55.230Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -240,7 +240,7 @@
       },
       "streetAddress": "Via Serlas 27",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-05T21:26:00.922Z",
+      "validThrough": "2026-12-06T09:57:55.230Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 85,
       "_qualityBreakdown": {
@@ -251,5 +251,5 @@
       }
     }
   ],
-  "codeCommit": "a1060e0c6e0f3560033abbedf4c719e585e35225"
+  "codeCommit": "fcc02aa26827aced497af1a7ae17fb25a96e49c5"
 }

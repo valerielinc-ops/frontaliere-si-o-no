@@ -1,6 +1,6 @@
-import { GOOGLE_EVENT_AVAILABILITY_CODES } from '../../packages/articles/engine/shared/google-event-values.mjs';
+import { SCHEMA_ORG_ITEM_AVAILABILITY_CODES } from '../../packages/articles/engine/shared/google-event-values.mjs';
 
-const ITEM_AVAILABILITIES = GOOGLE_EVENT_AVAILABILITY_CODES;
+const ITEM_AVAILABILITIES = SCHEMA_ORG_ITEM_AVAILABILITY_CODES;
 
 /** Normalize a Schema.org ItemAvailability value; reject unrelated URLs/names. */
 export function normalizeSchemaOrgItemAvailability(value) {

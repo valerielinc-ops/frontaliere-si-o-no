@@ -1,8 +1,13 @@
 import { describe, expect, it } from 'vitest';
+import { mkdtempSync, rmSync, writeFileSync } from 'node:fs';
+import { tmpdir } from 'node:os';
+import path from 'node:path';
 import {
+  DISCOVERY_ARTICLES_ARTIFACT,
   DISCOVERY_ARTICLES_MAX_AGE_MS,
   chooseDiscoveryArticle,
   freezeCampaignDiscoverySelection,
+  loadDiscoveryArticleIndexFromHttp,
   omitDuplicateDiscoveryArticle,
   parseDiscoveryArticleIndex,
 } from '../scripts/lib/newsletter-discovery-selection.mjs';
@@ -183,6 +188,150 @@ describe('parseDiscoveryArticleIndex', () => {
     expect(() => parse(index(now, [article('raw', now, {
       rawQuery: 'not public',
     })]), now)).toThrow(/invalid article contract/);
+  });
+});
+
+describe('loadDiscoveryArticleIndexFromHttp', () => {
+  function apiFixtures(payload: ReturnType<typeof index>) {
+    const indexRaw = JSON.stringify(payload);
+    const manifestRaw = JSON.stringify({
+      schema: 1,
+      commit: payload.commit,
+      files: { [DISCOVERY_ARTICLES_ARTIFACT]: Buffer.byteLength(indexRaw, 'utf8') },
+      counts: { discoveryArticles: payload.count },
+    });
+    return { manifestRaw, indexRaw };
+  }
+
+  function response(body: string, status = 200) {
+    return {
+      ok: status >= 200 && status < 300,
+      status,
+      text: async () => body,
+    };
+  }
+
+  it('loads the HTTP index only when its bytes, count, and commit match the manifest', async () => {
+    const now = Date.now();
+    const payload = index(now);
+    const { manifestRaw, indexRaw } = apiFixtures(payload);
+    const requested: string[] = [];
+    const loaded = await loadDiscoveryArticleIndexFromHttp({
+      apiBase: 'https://api.example.test/corpus/',
+      now,
+      retries: 0,
+      fetchImpl: async (input) => {
+        const url = String(input);
+        requested.push(url);
+        return response(url.endsWith('/manifest.json') ? manifestRaw : indexRaw);
+      },
+    });
+
+    expect(requested).toEqual([
+      'https://api.example.test/corpus/manifest.json',
+      `https://api.example.test/corpus/${DISCOVERY_ARTICLES_ARTIFACT}`,
+    ]);
+    expect(loaded).toEqual(payload);
+  });
+
+  it('returns a valid empty index so callers can freeze an intentional null selection', async () => {
+    const now = Date.now();
+    const payload = index(now, []);
+    const { manifestRaw, indexRaw } = apiFixtures(payload);
+    const bodies = [manifestRaw, indexRaw];
+    const loaded = await loadDiscoveryArticleIndexFromHttp({
+      apiBase: 'https://api.example.test/corpus',
+      now,
+      retries: 0,
+      fetchImpl: async () => response(bodies.shift() || ''),
+    });
+
+    expect(loaded).toMatchObject({ count: 0, articles: [] });
+  });
+
+  it('rejects a remote index that disagrees with its manifest instead of treating it as empty', async () => {
+    const now = Date.now();
+    const payload = index(now);
+    const { manifestRaw } = apiFixtures(payload);
+    const wrongIndex = JSON.stringify({ ...payload, commit: 'f'.repeat(40) });
+    const bodies = [manifestRaw, wrongIndex];
+
+    await expect(loadDiscoveryArticleIndexFromHttp({
+      apiBase: 'https://api.example.test/corpus',
+      now,
+      retries: 0,
+      manifestFilePath: '/missing/discovery-manifest.json',
+      indexFilePath: '/missing/discovery-index.json',
+      fetchImpl: async () => response(bodies.shift() || ''),
+    })).rejects.toThrow(/after 1 attempts/);
+  });
+
+  it('retries a failed HTTP attempt and uses only a coherent local last-known-good pair', async () => {
+    const now = Date.now();
+    const payload = index(now);
+    const { manifestRaw, indexRaw } = apiFixtures(payload);
+    const directory = mkdtempSync(path.join(tmpdir(), 'newsletter-discovery-lkg-'));
+    const manifestFilePath = path.join(directory, 'manifest.json');
+    const indexFilePath = path.join(directory, 'discovery-articles.json');
+    writeFileSync(manifestFilePath, manifestRaw);
+    writeFileSync(indexFilePath, indexRaw);
+    let calls = 0;
+    const delays: number[] = [];
+    try {
+      const loaded = await loadDiscoveryArticleIndexFromHttp({
+        apiBase: 'https://api.example.test/corpus',
+        now,
+        retries: 1,
+        retryDelayMs: 13,
+        sleepImpl: async (ms) => { delays.push(ms); },
+        manifestFilePath,
+        indexFilePath,
+        fetchImpl: async () => {
+          calls += 1;
+          return response('', 503);
+        },
+      });
+
+      expect(loaded).toEqual(payload);
+      expect(calls).toBe(2);
+      expect(delays).toEqual([13]);
+    } finally {
+      rmSync(directory, { recursive: true, force: true });
+    }
+  });
+
+  it('rejects when HTTP fails and the local last-known-good pair is missing or incoherent', async () => {
+    const now = Date.now();
+    const payload = index(now);
+    const { manifestRaw, indexRaw } = apiFixtures(payload);
+    const directory = mkdtempSync(path.join(tmpdir(), 'newsletter-discovery-bad-lkg-'));
+    const manifestFilePath = path.join(directory, 'manifest.json');
+    const indexFilePath = path.join(directory, 'discovery-articles.json');
+    writeFileSync(manifestFilePath, manifestRaw);
+    writeFileSync(indexFilePath, indexRaw.replace(payload.commit, 'f'.repeat(40)));
+    try {
+      await expect(loadDiscoveryArticleIndexFromHttp({
+        apiBase: 'https://api.example.test/corpus',
+        now,
+        retries: 0,
+        manifestFilePath,
+        indexFilePath,
+        fetchImpl: async () => response('', 503),
+      })).rejects.toThrow(/after 1 attempts/);
+    } finally {
+      rmSync(directory, { recursive: true, force: true });
+    }
+  });
+
+  it('bounds a stalled HTTP request with the configured timeout', async () => {
+    await expect(loadDiscoveryArticleIndexFromHttp({
+      apiBase: 'https://api.example.test/corpus',
+      timeoutMs: 5,
+      retries: 0,
+      manifestFilePath: '/missing/discovery-manifest.json',
+      indexFilePath: '/missing/discovery-index.json',
+      fetchImpl: async () => new Promise(() => {}),
+    })).rejects.toThrow(/after 1 attempts/);
   });
 });
 

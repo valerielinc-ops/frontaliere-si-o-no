@@ -3,6 +3,7 @@ import {
   readStaticStringLiteral,
   skipStaticTrivia,
 } from './ts-literals.mjs';
+import { isStaticBaseUrlTemplate } from './static-base-url-template.mjs';
 
 /**
  * Lexical, balanced resolver for generated SEO entries.
@@ -558,8 +559,7 @@ function hasInterpolatedTemplateInRange(source, start, end, { allowBaseUrlTempla
       const templateEndExclusive = close < 0 ? end : Math.min(close + 1, end);
       if (hasTemplateInterpolation(source, cursor, templateEndExclusive)) {
         const raw = close < 0 ? '' : source.slice(cursor, close + 1);
-        const resolvedByEmitter = allowBaseUrlTemplates
-          && /^`\$\{BASE_URL\}(?:(?!\$\{)[^`])*`$/u.test(raw);
+        const resolvedByEmitter = allowBaseUrlTemplates && isStaticBaseUrlTemplate(raw);
         if (!resolvedByEmitter) return true;
       }
       cursor = templateEndExclusive;

@@ -222,9 +222,12 @@ describe('article corpus sync parser gate', () => {
   it('commits the discovery article index and replays it after merge', () => {
     const commitRun = stepNamed('Commit if changed').run ?? '';
     const occurrences = commitRun.split('public/data/discovery-articles.json').length - 1;
+    const manifestOccurrences = commitRun.split('public/data/discovery-articles-manifest.json').length - 1;
 
     expect(occurrences).toBe(2); // git staging allowlist and open-data-refresh-pr path.
+    expect(manifestOccurrences).toBe(2); // The LKG pin must travel with its index.
     expect(workflow.on.push.paths).toContain('public/data/discovery-articles.json');
+    expect(workflow.on.push.paths).toContain('public/data/discovery-articles-manifest.json');
     expect(workflow.jobs['replay-after-article-sync'].if).toBe("github.event_name == 'push'");
   });
 

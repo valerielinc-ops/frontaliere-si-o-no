@@ -74,6 +74,25 @@ jobs:
               echo '::error::gh api failed while listing artifacts for the publisher run'
               exit 1
             fi
+            # A publisher can finish with conclusion=failure after Pages was
+            # deployed when the independent post-deploy validator reports a
+            # quality failure. That is still a published dist and is exactly
+            # what this audit must inspect. Require the actual Pages job to be
+            # successful instead of treating the aggregate run conclusion as
+            # the publication verdict; a missing/failed deploy remains
+            # fail-closed.
+            if ! publisher_jobs="$(gh api --paginate --slurp "repos/$GH_REPO/actions/runs/$publisher_id/jobs?per_page=100")"; then
+              echo '::error::gh api failed while listing jobs for the publisher run'
+              exit 1
+            fi
+            if ! publisher_deploy_conclusion="$(jq -r '[.[] | .jobs[]? | select(.name == "deploy") | .conclusion][0] // empty' <<< "$publisher_jobs")"; then
+              echo '::error::publisher job listing was not valid JSON'
+              exit 1
+            fi
+            if [ "$publisher_deploy_conclusion" != 'success' ]; then
+              echo "Skipping publisher run $publisher_id: deploy job conclusion=${publisher_deploy_conclusion:-<missing>}"
+              continue
+            fi
             has_name() { printf '%s\n' "$1" | grep -Fxq -- "$2"; }
 
             complete=true
@@ -99,8 +118,8 @@ jobs:
               echo "Selected source run $source_id ($source_sha), publisher run $publisher_id"
               exit 0
             fi
-          done < <(jq -r '.[] | select(.conclusion == "success" and .headBranch == "main") | [.databaseId, .displayTitle] | @tsv' <<< "$runs")
-          echo '::error::No successful publisher run has a complete, unexpired source and shard artifact set.'
+          done < <(jq -r '.[] | select(.headBranch == "main") | [.databaseId, .displayTitle] | @tsv' <<< "$runs")
+          echo '::error::No publisher run with a successful deploy job has a complete, unexpired source and shard artifact set.'
           exit 1
 
   full-audit:

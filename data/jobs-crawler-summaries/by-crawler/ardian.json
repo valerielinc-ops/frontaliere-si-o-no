@@ -1,7 +1,7 @@
 {
   "key": "ardian",
   "label": "Ardian",
-  "generatedAt": "2026-11-05T21:44:28.377Z",
+  "generatedAt": "2026-11-06T09:48:46.336Z",
   "total": 3,
   "discovered": null,
   "parsed": 3,
@@ -12,30 +12,30 @@
   "resurrectedJobs": 0,
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
-  "newCount": 1,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 6902,
-  "avgDurationMs": 6902,
+  "durationMs": 5718,
+  "avgDurationMs": 5718,
   "durationHistory": [
-    6902
+    5718
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "ardian-61b3219950d2",
-      "slug": "customized-solutions-intern-march-july-2027-zurich-m-f-ardian-ch",
+      "slug": "customized-solutions-tirocinante-march-july-2027-zurich-m-f-ardian-zurich",
       "company": "Ardian",
       "companyKey": "ardian",
       "companyDomain": "ardian.com",
       "title": "Customized Solutions Intern - March & July 2027 | Zurich (M/F)",
-      "needsRetranslation": true,
       "location": "Zurich",
       "canton": "ZH",
       "url": "https://ardian.wd103.myworkdayjobs.com/en-US/ArdianCareers/job/Zurich/Customized-Solutions-Intern---March---July-2027---Zurich--M-F-_JR1002285",
       "source": "Ardian Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-05T21:44:08.077Z",
+      "crawledAt": "2026-11-06T09:48:27.473Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -51,25 +51,24 @@
       "postedDate": "2026-11-03",
       "postingDateSource": "reported",
       "applyUrl": "https://ardian.wd103.myworkdayjobs.com/en-US/ArdianCareers/job/Zurich/Customized-Solutions-Intern---March---July-2027---Zurich--M-F-_JR1002285",
+      "firstSeenAt": "2026-11-05T21:44:08.077Z",
       "salaryMin": 79000,
       "salaryMax": 138500,
       "salarySource": "estimated",
       "postalCode": "8001",
       "streetAddress": "Zurich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-18T21:44:08.077Z",
+      "validThrough": "2026-12-18T09:48:27.473Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-05T21:44:08.077Z",
-      "_qualityScore": 89,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 21,
+        "translation": 25,
         "completeness": 25
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [
     {
@@ -84,7 +83,7 @@
       "url": "https://ardian.wd103.myworkdayjobs.com/en-US/ArdianCareers/job/Zurich/Investor-Relations-Intern---January-2027-I-Zurich_JR1002219",
       "source": "Ardian Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-05T21:44:09.384Z",
+      "crawledAt": "2026-11-06T09:48:28.760Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -107,7 +106,7 @@
       "postalCode": "8001",
       "streetAddress": "Zurich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-05T21:44:09.384Z",
+      "validThrough": "2026-12-06T09:48:28.760Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -130,7 +129,7 @@
       "url": "https://ardian.wd103.myworkdayjobs.com/en-US/ArdianCareers/job/Zurich/Fund-Finance-Secondaries---Primaries-Intern---February-2027-I-Zurich--M-F-_JR1002246",
       "source": "Ardian Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-05T21:44:08.744Z",
+      "crawledAt": "2026-11-06T09:48:28.118Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -153,7 +152,7 @@
       "postalCode": "8001",
       "streetAddress": "Zurich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-05T21:44:08.744Z",
+      "validThrough": "2026-12-06T09:48:28.118Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -164,5 +163,5 @@
       }
     }
   ],
-  "codeCommit": "a1060e0c6e0f3560033abbedf4c719e585e35225"
+  "codeCommit": "fcc02aa26827aced497af1a7ae17fb25a96e49c5"
 }

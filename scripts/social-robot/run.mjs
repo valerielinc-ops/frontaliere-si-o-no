@@ -69,6 +69,7 @@ import { acquireLock, defaultStateDir, diagnosticsDir, downloadsDir, openProfile
 import { START_JITTER_MAX_MS, fileJournalStore, randomBetween } from './lib/cadence.mjs';
 import { DEFAULT_TIKTOK_USERNAME, FLOWS, INSTAGRAM_HOME, captureDiagnostics, classifyError, findTikTokPublishedPost, resolveTikTokMusicVariant, stepTracker } from './lib/flows.mjs';
 import { SITE_REPO, downloadEntryFiles, ghConfirmDispatcher, gitMainReader, runRobot } from './lib/robot.mjs';
+import { configureSocialRobotRuntime } from './lib/runtime.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
@@ -236,6 +237,7 @@ async function login({ stateDir, platforms }) {
 }
 
 async function main() {
+  configureSocialRobotRuntime();
   const opts = parseArgs(process.argv.slice(2));
   if (opts.help) {
     console.log(readUsage());

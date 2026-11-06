@@ -306,22 +306,29 @@ describe('Google Event data quality publication gate', () => {
   });
 
   it.each([
-    'BackOrder',
-    'Discontinued',
     'InStock',
-    'InStoreOnly',
-    'LimitedAvailability',
-    'MadeToOrder',
-    'OnlineOnly',
-    'OutOfStock',
     'PreOrder',
-    'PreSale',
-    'Reserved',
     'SoldOut',
   ])('accepts the Schema.org ItemAvailability code %s', (availability) => {
     const event = structuredClone(COMPLETE_EVENT);
     singleOffer(event).availability = `https://schema.org/${availability}`;
     expect(hasCompleteGoogleEventData(event)).toBe(true);
+  });
+
+  it.each([
+    'BackOrder',
+    'Discontinued',
+    'InStoreOnly',
+    'LimitedAvailability',
+    'MadeToOrder',
+    'OnlineOnly',
+    'OutOfStock',
+    'PreSale',
+    'Reserved',
+  ])('rejects the non-Google Event ItemAvailability code %s', (availability) => {
+    const event = structuredClone(COMPLETE_EVENT);
+    singleOffer(event).availability = `https://schema.org/${availability}`;
+    expect(hasCompleteGoogleEventData(event)).toBe(false);
   });
 
   it('rejects EventMovedOnline with an offline attendance mode', () => {

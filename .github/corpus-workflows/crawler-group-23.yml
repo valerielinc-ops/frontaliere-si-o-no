@@ -93,7 +93,7 @@ jobs:
             exit 1
           fi
           cleanupCrawlerGenerationState() {
-            local own_pgid process_listing process_groups process_states active_groups pgid active attempt
+            local own_pgid process_listing process_groups process_states active_groups pgid active
             own_pgid="$(ps -o pgid= -p "$$" 2>/dev/null | tr -d '[:space:]')"
             if ! [[ "$own_pgid" =~ ^[1-9][0-9]*$ ]]; then
               echo "::warning::crawler generation cleanup could not identify its own process group"
@@ -112,7 +112,7 @@ jobs:
             done
             for pgid in $process_groups; do kill -TERM -- "-$pgid" 2>/dev/null || true; done
             active=0
-            for attempt in 1 2 3 4 5; do
+            for _ in 1 2 3 4 5; do
               if ! process_states="$(ps -ww -eo pgid=,stat= 2>/dev/null)"; then
                 echo "::warning::crawler generation cleanup could not verify terminated workers"
                 return 1
@@ -129,7 +129,7 @@ jobs:
               for pgid in $process_groups; do
                 case " $active_groups " in *" $pgid "*) kill -KILL -- "-$pgid" 2>/dev/null || true ;; esac
               done
-              for attempt in 1 2 3; do
+              for _ in 1 2 3; do
                 if ! process_states="$(ps -ww -eo pgid=,stat= 2>/dev/null)"; then
                   echo "::warning::crawler generation cleanup could not verify killed workers"
                   return 1
@@ -8295,7 +8295,7 @@ jobs:
             exit 1
           fi
           cleanupCrawlerGenerationState() {
-            local own_pgid process_listing process_groups process_states active_groups pgid active attempt
+            local own_pgid process_listing process_groups process_states active_groups pgid active
             own_pgid="$(ps -o pgid= -p "$$" 2>/dev/null | tr -d '[:space:]')"
             if ! [[ "$own_pgid" =~ ^[1-9][0-9]*$ ]]; then
               echo "::warning::crawler generation cleanup could not identify its own process group"
@@ -8314,7 +8314,7 @@ jobs:
             done
             for pgid in $process_groups; do kill -TERM -- "-$pgid" 2>/dev/null || true; done
             active=0
-            for attempt in 1 2 3 4 5; do
+            for _ in 1 2 3 4 5; do
               if ! process_states="$(ps -ww -eo pgid=,stat= 2>/dev/null)"; then
                 echo "::warning::crawler generation cleanup could not verify terminated workers"
                 return 1
@@ -8331,7 +8331,7 @@ jobs:
               for pgid in $process_groups; do
                 case " $active_groups " in *" $pgid "*) kill -KILL -- "-$pgid" 2>/dev/null || true ;; esac
               done
-              for attempt in 1 2 3; do
+              for _ in 1 2 3; do
                 if ! process_states="$(ps -ww -eo pgid=,stat= 2>/dev/null)"; then
                   echo "::warning::crawler generation cleanup could not verify killed workers"
                   return 1

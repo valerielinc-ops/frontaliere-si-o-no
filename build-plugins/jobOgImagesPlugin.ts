@@ -31,6 +31,7 @@ import type { Plugin } from 'vite';
 import { shouldEmitLocale } from './shared/localeEmitFilter';
 import { JOB_OG_PHOTO_FILES, getJobOgPhotoKey } from './shared/jobOgImageCatalog.mjs';
 import { getItalianJobTitle } from './shared/italianJobTitle.mjs';
+import { JOB_EMPLOYMENT_LABELS_BY_LOCALE } from '../scripts/lib/job-employment-type.mjs';
 import {
   ARCHIVED_JOB_OG_IMAGE_VERSION,
   JOB_OG_IMAGE_VERSION,
@@ -243,13 +244,7 @@ function deriveSlug(job: JobMinimal): string | null {
   );
 }
 
-const EMPLOYMENT_LABEL_IT: Record<string, string> = {
-  FULL_TIME: 'Tempo pieno',
-  PART_TIME: 'Part-time',
-  CONTRACTOR: 'Contratto',
-  TEMPORARY: 'Temporaneo',
-  INTERN: 'Stage',
-};
+const EMPLOYMENT_LABEL_IT: Record<string, string> = JOB_EMPLOYMENT_LABELS_BY_LOCALE.it;
 
 function truncateText(s: string, maxChars: number): string {
   if (!s) return '';

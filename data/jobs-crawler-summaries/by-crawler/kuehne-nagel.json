@@ -1,7 +1,7 @@
 {
   "key": "kuehne-nagel",
   "label": "Kuehne+Nagel",
-  "generatedAt": "2026-11-05T21:25:13.774Z",
+  "generatedAt": "2026-11-06T09:28:22.835Z",
   "total": 5,
   "discovered": null,
   "parsed": 5,
@@ -12,16 +12,17 @@
   "resurrectedJobs": 0,
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
-  "newCount": 1,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 4,
-  "durationMs": 8801,
-  "avgDurationMs": 8801,
+  "durationMs": 6440,
+  "avgDurationMs": 6440,
   "durationHistory": [
-    8801
+    6440
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "kuehne-nagel-c3188eb23ec0",
       "slug": "road-logistics-sales-representative-kuehne-nagel-opfikon",
@@ -34,7 +35,7 @@
       "url": "https://jobs.kuehne-nagel.com/global/en/job/KUNAGLOBAL20239EXTERNALENGLOBAL/road-logistics-sales-representative",
       "source": "Kuehne+Nagel Dedicated Parser (Phenom People)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T21:24:58.136Z",
+      "crawledAt": "2026-11-06T09:28:07.488Z",
       "addressLocality": "Opfikon",
       "addressRegion": "ZH",
       "postalCode": "8152",
@@ -54,23 +55,22 @@
       "applyUrl": "https://jobs.kuehne-nagel.com/global/en/job/KUNAGLOBAL20239EXTERNALENGLOBAL/road-logistics-sales-representative",
       "jobReqId": "20239",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-11-05T21:24:58.136Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T21:24:58.136Z",
+      "validThrough": "2027-02-04T09:28:07.488Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-05T21:24:58.136Z",
-      "_qualityScore": 79,
+      "_qualityScore": 83,
       "_qualityBreakdown": {
         "cleanliness": 17,
         "richness": 18,
-        "translation": 21,
+        "translation": 25,
         "completeness": 23
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [
     {
@@ -85,7 +85,7 @@
       "url": "https://jobs.kuehne-nagel.com/global/en/job/KUNAGLOBAL16638EXTERNALENGLOBAL/blue-yonder-wms-specialist-m-w-d",
       "source": "Kuehne+Nagel Dedicated Parser (Phenom People)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-05T21:24:57.715Z",
+      "crawledAt": "2026-11-06T09:28:07.156Z",
       "addressLocality": "Embrach",
       "addressRegion": "ZH",
       "postalCode": "8424",
@@ -109,7 +109,7 @@
       "salaryMax": 134500,
       "salarySource": "estimated",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-05T21:24:57.715Z",
+      "validThrough": "2026-12-06T09:28:07.156Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 83,
       "_qualityBreakdown": {
@@ -131,7 +131,7 @@
       "url": "https://jobs.kuehne-nagel.com/global/en/job/KUNAGLOBAL7329EXTERNALENGLOBAL/servicetechniker-logistik-m-w-d",
       "source": "Kuehne+Nagel Dedicated Parser (Phenom People)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T21:24:57.178Z",
+      "crawledAt": "2026-11-06T09:28:06.729Z",
       "addressLocality": "Embrach",
       "addressRegion": "ZH",
       "postalCode": "8424",
@@ -156,7 +156,7 @@
       "salaryMax": 126000,
       "salarySource": "estimated",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-05T21:24:57.178Z",
+      "validThrough": "2026-12-06T09:28:06.729Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 83,
       "_qualityBreakdown": {
@@ -178,7 +178,7 @@
       "url": "https://jobs.kuehne-nagel.com/global/en/job/KUNAGLOBAL19181EXTERNALENGLOBAL/import-specialist-luftfracht-m-w-d",
       "source": "Kuehne+Nagel Dedicated Parser (Phenom People)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T21:24:55.296Z",
+      "crawledAt": "2026-11-06T09:28:06.311Z",
       "addressLocality": "Opfikon",
       "addressRegion": "ZH",
       "postalCode": "8152",
@@ -202,7 +202,7 @@
       "salaryMax": 111500,
       "salarySource": "estimated",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-21T21:24:55.296Z",
+      "validThrough": "2027-01-22T09:28:06.311Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 83,
       "_qualityBreakdown": {
@@ -224,7 +224,7 @@
       "url": "https://jobs.kuehne-nagel.com/global/en/job/KUNAGLOBAL17233EXTERNALENGLOBAL/senior-internal-auditor",
       "source": "Kuehne+Nagel Dedicated Parser (Phenom People)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-05T21:24:54.830Z",
+      "crawledAt": "2026-11-06T09:28:05.918Z",
       "addressLocality": "Schindellegi",
       "addressRegion": "SZ",
       "postalCode": "8834",
@@ -248,7 +248,7 @@
       "salaryMax": 146000,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-08T21:24:54.830Z",
+      "validThrough": "2026-12-08T09:28:05.918Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 83,
       "_qualityBreakdown": {
@@ -259,5 +259,5 @@
       }
     }
   ],
-  "codeCommit": "a1060e0c6e0f3560033abbedf4c719e585e35225"
+  "codeCommit": "fcc02aa26827aced497af1a7ae17fb25a96e49c5"
 }

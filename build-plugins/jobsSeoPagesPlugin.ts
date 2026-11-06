@@ -176,7 +176,7 @@ import {
 import { renderEmployerCtaJobPage } from './shared/employerCtaBlock';
 import { deriveJobPostalCode } from '../services/jobLocationSnapshot';
 import { isFullyRemoteListing, isSourceStreetAddress } from '../scripts/lib/jobposting-field-provenance.mjs';
-import { formatJobEmploymentTypes, resolveJobEmploymentTypes } from '../scripts/lib/job-employment-type.mjs';
+import { formatJobEmploymentTypes, JOB_EMPLOYMENT_LABELS_BY_LOCALE, resolveJobEmploymentTypes } from '../scripts/lib/job-employment-type.mjs';
 import { salaryProvenanceSuffix } from './shared/salaryEstimateSuffix';
 import { resolveJobApplicationUrl } from '../services/jobApplicationDestination';
 import { buildFallbackCanonicalContent, canonicalizeFallbackCleaned, localizeFallbackCanonical, type CleanedFallbackContent } from '../services/jobs/canonicalFallback';
@@ -838,11 +838,11 @@ export { stripLiteralMarkdownFromTitle };
 const EMPLOYMENT_TYPE_LABEL: Record<string, Record<string, string>> = {
  it: {
   PART_TIME: 'Part-time',
-  TEMPORARY: 'Temporaneo',
-  CONTRACTOR: 'Contratto',
-  APPRENTICESHIP: 'Apprendistato',
-  INTERN: 'Tirocinio',
-  INTERNSHIP: 'Tirocinio',
+  TEMPORARY: JOB_EMPLOYMENT_LABELS_BY_LOCALE.it.TEMPORARY,
+  CONTRACTOR: JOB_EMPLOYMENT_LABELS_BY_LOCALE.it.CONTRACTOR,
+  APPRENTICESHIP: JOB_EMPLOYMENT_LABELS_BY_LOCALE.it.APPRENTICESHIP,
+  INTERN: JOB_EMPLOYMENT_LABELS_BY_LOCALE.it.INTERN,
+  INTERNSHIP: JOB_EMPLOYMENT_LABELS_BY_LOCALE.it.INTERNSHIP,
   OTHER: '',
  },
  en: {

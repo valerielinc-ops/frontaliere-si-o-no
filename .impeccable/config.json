@@ -67,7 +67,7 @@
         "rule": "design-system-font",
         "value": "roboto",
         "createdAt": "2026-11-02T18:10:29.272Z",
-        "reason": "Agent: job-og-images embeds the Roboto TTF pair from public/fonts and intentionally renders generated social cards in Roboto."
+        "reason": "Agent: Satori needs the bundled static Roboto font for raster social cards; DESIGN.md typography governs the interactive site UI."
       }
     ]
   },

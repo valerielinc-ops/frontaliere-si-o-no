@@ -1,7 +1,7 @@
 {
   "crawlerKey": "pdgr",
-  "assembledAt": "2026-11-05T21:27:03.168Z",
-  "runId": "42111395021",
+  "assembledAt": "2026-11-06T12:52:56.701Z",
+  "runId": "42194041114",
   "jobs": [
     {
       "id": "pdgr-389768d42bee",
@@ -34,7 +34,7 @@
       "url": "https://www.pdgr.ch/jobs/fachfrau-fachmann-hauswirtschaft-2/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T21:26:52.628Z",
+      "crawledAt": "2026-11-06T09:58:00.675Z",
       "addressLocality": "Cazis",
       "postalCode": "7408",
       "addressCountry": "CH",
@@ -81,7 +81,7 @@
       "addressRegion": "GR",
       "streetAddress": "Cazis",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-05T21:26:52.628Z",
+      "validThrough": "2026-12-06T09:58:00.675Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -115,7 +115,7 @@
       "url": "https://www.pdgr.ch/jobs/koechin-koch-3/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T21:26:51.520Z",
+      "crawledAt": "2026-11-06T09:57:59.542Z",
       "addressLocality": "Cazis",
       "postalCode": "7408",
       "addressCountry": "CH",
@@ -173,7 +173,7 @@
       "addressRegion": "GR",
       "streetAddress": "Cazis",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-05T21:26:51.520Z",
+      "validThrough": "2026-12-06T09:57:59.542Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -207,7 +207,7 @@
       "url": "https://www.pdgr.ch/jobs/praktikantin-praktikanten-5/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T21:26:50.446Z",
+      "crawledAt": "2026-11-06T09:57:58.374Z",
       "addressLocality": "Cazis / Chur",
       "postalCode": "7408",
       "addressCountry": "CH",
@@ -271,7 +271,7 @@
       "addressRegion": "GR",
       "streetAddress": "Cazis / Chur",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-05T21:26:50.446Z",
+      "validThrough": "2026-12-06T09:57:58.374Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -305,7 +305,7 @@
       "url": "https://www.pdgr.ch/jobs/fachpsychologe-in-5/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T21:26:49.363Z",
+      "crawledAt": "2026-11-06T09:57:57.213Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -397,7 +397,7 @@
       },
       "streetAddress": "Loëstrasse 220",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-05T21:26:49.363Z",
+      "validThrough": "2026-12-06T09:57:57.213Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -406,8 +406,8 @@
       "slugByLocale": {
         "de": "unterassistent-in-psychiatrische-dienste-graubunden-cazis-chur",
         "it": "assistente-psychiatrische-dienste-graubunden-cazis-chur",
-        "en": "assistant-psychiatrische-dienste-graubunden-cazis-chur",
-        "fr": "assistant-psychiatrische-dienste-graubunden-cazis-chur"
+        "en": "junior-physician-psychiatrische-dienste-graubunden-cazis-chur",
+        "fr": "medecin-stagiaire-psychiatrische-dienste-graubunden-cazis-chur"
       },
       "company": "Psychiatrische Dienste Graubünden",
       "companyKey": "pdgr",
@@ -431,7 +431,7 @@
       "url": "https://www.pdgr.ch/jobs/unterassistent-in/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T21:26:48.258Z",
+      "crawledAt": "2026-11-06T09:57:56.015Z",
       "addressLocality": "Cazis / Chur",
       "postalCode": "7408",
       "addressCountry": "CH",
@@ -463,17 +463,16 @@
           "unterassistent-in-pdgr-ch"
         ],
         "en": [
-          "junior-physician-psychiatrische-dienste-graubunden-cazis-chur"
+          "assistant-psychiatrische-dienste-graubunden-cazis-chur"
         ],
         "fr": [
-          "medecin-stagiaire-psychiatrische-dienste-graubunden-cazis-chur"
+          "assistant-psychiatrische-dienste-graubunden-cazis-chur"
         ]
       },
       "previousSlugs": [
         "assistente-medico-psychiatrische-dienste-graubunden-cazis-chur",
         "unterassistent-in-pdgr-ch",
-        "junior-physician-psychiatrische-dienste-graubunden-cazis-chur",
-        "medecin-stagiaire-psychiatrische-dienste-graubunden-cazis-chur"
+        "assistant-psychiatrische-dienste-graubunden-cazis-chur"
       ],
       "firstSeenAt": "2026-05-17T10:52:08.282Z",
       "salaryMin": 73000,
@@ -492,7 +491,7 @@
       "addressRegion": "GR",
       "streetAddress": "Cazis / Chur",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-05T21:26:48.258Z",
+      "validThrough": "2026-12-06T09:57:56.015Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -526,7 +525,7 @@
       "url": "https://www.pdgr.ch/jobs/dipl-pflegefachperson-hf-10/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T21:26:47.129Z",
+      "crawledAt": "2026-11-06T09:57:54.834Z",
       "addressLocality": "Cazis / Chur",
       "postalCode": "7408",
       "addressCountry": "CH",
@@ -577,7 +576,7 @@
       "addressRegion": "GR",
       "streetAddress": "Cazis / Chur",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-05T21:26:47.129Z",
+      "validThrough": "2026-12-06T09:57:54.834Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -611,7 +610,7 @@
       "url": "https://www.pdgr.ch/jobs/fachfrau-fachmann-betriebsunterhalt-efz-chur/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T21:26:46.036Z",
+      "crawledAt": "2026-11-06T09:57:53.583Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -669,7 +668,7 @@
       },
       "streetAddress": "Loëstrasse 220",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-05T21:26:46.036Z",
+      "validThrough": "2026-12-06T09:57:53.583Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -703,7 +702,7 @@
       "url": "https://www.pdgr.ch/jobs/oberpsychologe-in-3-2/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T21:26:44.939Z",
+      "crawledAt": "2026-11-06T09:57:52.430Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -796,7 +795,7 @@
       },
       "streetAddress": "Loëstrasse 220",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-05T21:26:44.939Z",
+      "validThrough": "2026-12-06T09:57:52.430Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -830,7 +829,7 @@
       "url": "https://www.pdgr.ch/jobs/dipl-pflegefachperson-hf-4__trashed/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T21:26:43.883Z",
+      "crawledAt": "2026-11-06T09:57:51.243Z",
       "addressLocality": "Cazis",
       "postalCode": "7408",
       "addressCountry": "CH",
@@ -900,7 +899,7 @@
       "addressRegion": "GR",
       "streetAddress": "Cazis",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-05T21:26:43.883Z",
+      "validThrough": "2026-12-06T09:57:51.243Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -934,7 +933,7 @@
       "url": "https://www.pdgr.ch/jobs/oberaerztin-oberarzt-7-2/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T21:26:41.684Z",
+      "crawledAt": "2026-11-06T09:57:48.811Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1060,7 +1059,7 @@
       },
       "streetAddress": "Loëstrasse 220",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-05T21:26:41.684Z",
+      "validThrough": "2026-12-06T09:57:48.811Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1094,7 +1093,7 @@
       "url": "https://www.pdgr.ch/jobs/oberaerztin-oberarzt-8-5/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T21:26:40.572Z",
+      "crawledAt": "2026-11-06T09:57:47.618Z",
       "addressLocality": "Cazis",
       "postalCode": "7408",
       "addressCountry": "CH",
@@ -1148,7 +1147,7 @@
       "addressRegion": "GR",
       "streetAddress": "Cazis",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-05T21:26:40.572Z",
+      "validThrough": "2026-12-06T09:57:47.618Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1182,7 +1181,7 @@
       "url": "https://www.pdgr.ch/jobs/dipl-pflegefachperson-hf-5-6/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T21:26:39.455Z",
+      "crawledAt": "2026-11-06T09:57:46.424Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1241,7 +1240,7 @@
       },
       "streetAddress": "Loëstrasse 220",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-05T21:26:39.455Z",
+      "validThrough": "2026-12-06T09:57:46.424Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1249,9 +1248,9 @@
       "slug": "medico-specialista-in-psichiatria-psychiatrische-dienste-graubunden-chur",
       "slugByLocale": {
         "it": "medico-specialista-in-psichiatria-psychiatrische-dienste-graubunden-chur",
-        "en": "psychiatrist-psychiatrische-dienste-graubunden-chur",
+        "en": "senior-physician-psychiatrische-dienste-graubunden-chur",
         "de": "oberarztin-oberarzt-psychiatrische-dienste-graubunden-chur",
-        "fr": "psychiatre-psychiatrische-dienste-graubunden-chur"
+        "fr": "medecin-superieur-psychiatrische-dienste-graubunden-chur"
       },
       "company": "Psychiatrische Dienste Graubünden",
       "companyKey": "pdgr",
@@ -1275,7 +1274,7 @@
       "url": "https://www.pdgr.ch/jobs/oberaerztin-oberarzt-3-9/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T21:26:37.161Z",
+      "crawledAt": "2026-11-06T09:57:44.042Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1310,12 +1309,12 @@
         "en": [
           "oberarztin-oberarzt-psychiatrische-dienste-graubunden-chur",
           "oberarztin-oberarzt-psychiatrische-dienste-graubunden-chur-t5twns",
-          "senior-physician-psychiatrische-dienste-graubunden-chur"
+          "psychiatrist-psychiatrische-dienste-graubunden-chur"
         ],
         "fr": [
           "oberarztin-oberarzt-psychiatrische-dienste-graubunden-chur",
           "oberarztin-oberarzt-psychiatrische-dienste-graubunden-chur-t5twns",
-          "medecin-superieur-psychiatrische-dienste-graubunden-chur"
+          "psychiatre-psychiatrische-dienste-graubunden-chur"
         ]
       },
       "previousSlugs": [
@@ -1323,8 +1322,8 @@
         "oberarztin-oberarzt-pdgr-ch-t5twns",
         "oberarztin-oberarzt-psychiatrische-dienste-graubunden-chur-t5twns",
         "oberarztin-oberarzt-psychiatrische-dienste-graubunden-chur",
-        "senior-physician-psychiatrische-dienste-graubunden-chur",
-        "medecin-superieur-psychiatrische-dienste-graubunden-chur"
+        "psychiatrist-psychiatrische-dienste-graubunden-chur",
+        "psychiatre-psychiatrische-dienste-graubunden-chur"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
       "salaryMin": 110500,
@@ -1354,14 +1353,14 @@
       },
       "streetAddress": "Loëstrasse 220",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-05T21:26:37.161Z",
+      "validThrough": "2026-12-06T09:57:44.042Z",
       "validThroughSource": "last-observed-window"
     },
     {
       "id": "pdgr-931f5642c1d2",
       "slug": "medico-senior-psychiatrische-dienste-graubunden-ilanz",
       "slugByLocale": {
-        "it": "primario-psychiatrische-dienste-graubunden-ilanz",
+        "it": "medico-senior-psychiatrische-dienste-graubunden-ilanz",
         "en": "senior-physician-senior-physician-psychiatrische-dienste-graubunden-ilanz",
         "de": "oberarztin-oberarzt-psychiatrische-dienste-graubunden-ilanz",
         "fr": "medecin-superieur-medecin-superieur-psychiatrische-dienste-graubunden-ilanz"
@@ -1388,7 +1387,7 @@
       "url": "https://www.pdgr.ch/jobs/oberaerztin-oberarzt-6-3/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T21:26:35.976Z",
+      "crawledAt": "2026-11-06T09:57:42.825Z",
       "addressLocality": "Ilanz",
       "postalCode": "7130",
       "addressCountry": "CH",
@@ -1415,7 +1414,8 @@
         "it": [
           "oberarztin-oberarzt-pdgr-ch-t5tufv",
           "oberarztin-oberarzt-psychiatrische-dienste-graubunden-ilanz",
-          "oberarztin-oberarzt-pdgr-ch"
+          "oberarztin-oberarzt-pdgr-ch",
+          "primario-psychiatrische-dienste-graubunden-ilanz"
         ],
         "de": [
           "oberarztin-oberarzt-pdgr-ch"
@@ -1424,7 +1424,8 @@
       "previousSlugs": [
         "oberarztin-oberarzt-pdgr-ch-t5tufv",
         "oberarztin-oberarzt-psychiatrische-dienste-graubunden-ilanz",
-        "oberarztin-oberarzt-pdgr-ch"
+        "oberarztin-oberarzt-pdgr-ch",
+        "primario-psychiatrische-dienste-graubunden-ilanz"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
       "salaryMin": 110500,
@@ -1443,14 +1444,14 @@
       "addressRegion": "GR",
       "streetAddress": "Ilanz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-05T21:26:35.976Z",
+      "validThrough": "2026-12-06T09:57:42.825Z",
       "validThroughSource": "last-observed-window"
     },
     {
       "id": "pdgr-7d82aa45ee20",
       "slug": "ergoterapista-psychiatrische-dienste-graubunden-chur",
       "slugByLocale": {
-        "it": "ergotherapist-psychiatrische-dienste-graubunden-chur",
+        "it": "ergoterapista-psychiatrische-dienste-graubunden-chur",
         "en": "ergotherapeut-in-psychiatrische-dienste-graubunden-chur",
         "de": "ergotherapeut-in-pdgr-ch",
         "fr": "ergotherapeute-psychiatrische-dienste-graubunden-chur"
@@ -1477,7 +1478,7 @@
       "url": "https://www.pdgr.ch/jobs/ergotherapeut-in-4/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T21:26:33.657Z",
+      "crawledAt": "2026-11-06T09:57:40.365Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1506,7 +1507,8 @@
         "kochin-koch-psychiatrische-dienste-graubunden-chur",
         "ergotherapeut-in-psychiatrische-dienste-graubunden-chur",
         "ergotherapeut-in-pdgr-ch",
-        "terapista-occupazionale-psychiatrische-dienste-graubunden-chur"
+        "terapista-occupazionale-psychiatrische-dienste-graubunden-chur",
+        "ergotherapist-psychiatrische-dienste-graubunden-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1515,7 +1517,8 @@
           "kochin-koch-psychiatrische-dienste-graubunden-chur",
           "ergotherapeut-in-psychiatrische-dienste-graubunden-chur",
           "ergotherapeut-in-pdgr-ch",
-          "terapista-occupazionale-psychiatrische-dienste-graubunden-chur"
+          "terapista-occupazionale-psychiatrische-dienste-graubunden-chur",
+          "ergotherapist-psychiatrische-dienste-graubunden-chur"
         ],
         "de": [
           "kochin-koch-pdgr-ch"
@@ -1552,7 +1555,7 @@
       },
       "streetAddress": "Loëstrasse 220",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-05T21:26:33.657Z",
+      "validThrough": "2026-12-06T09:57:40.365Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1586,7 +1589,7 @@
       "url": "https://www.pdgr.ch/jobs/oberaerztin-oberarzt-9-2/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T21:26:32.406Z",
+      "crawledAt": "2026-11-06T09:57:39.124Z",
       "addressLocality": "Samedan / Scuol",
       "postalCode": "7503",
       "addressCountry": "CH",
@@ -1644,7 +1647,7 @@
       "addressRegion": "GR",
       "streetAddress": "Samedan / Scuol",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-05T21:26:32.406Z",
+      "validThrough": "2026-12-06T09:57:39.124Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1654,7 +1657,7 @@
         "it": "psicologia-praticante-in-psychiatrische-dienste-graubunden-cazis-chur",
         "en": "psychology-practitioner-in-psychiatrische-dienste-graubunden-cazis-chur",
         "de": "psychologiepraktikant-in-pdgr-ch",
-        "fr": "psychologue-psychiatrische-dienste-graubunden-cazis-chur"
+        "fr": "stagiaire-en-psychologie-psychiatrische-dienste-graubunden-cazis-chur"
       },
       "company": "Psychiatrische Dienste Graubünden",
       "companyKey": "pdgr",
@@ -1678,7 +1681,7 @@
       "url": "https://www.pdgr.ch/jobs/psychologiepraktikant-in/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T21:26:31.299Z",
+      "crawledAt": "2026-11-06T09:57:37.922Z",
       "addressLocality": "Cazis / Chur",
       "postalCode": "7408",
       "addressCountry": "CH",
@@ -1704,7 +1707,7 @@
       "previousSlugs": [
         "psychologiepraktikant-in-psychiatrische-dienste-graubunden-cazis-chur",
         "psychologiepraktikant-in-pdgr-ch",
-        "stagiaire-en-psychologie-psychiatrische-dienste-graubunden-cazis-chur"
+        "psychologue-psychiatrische-dienste-graubunden-cazis-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1716,7 +1719,7 @@
         ],
         "fr": [
           "psychologiepraktikant-in-psychiatrische-dienste-graubunden-cazis-chur",
-          "stagiaire-en-psychologie-psychiatrische-dienste-graubunden-cazis-chur"
+          "psychologue-psychiatrische-dienste-graubunden-cazis-chur"
         ]
       },
       "localeMismatchSuppressed": true,
@@ -1739,7 +1742,7 @@
       "addressRegion": "GR",
       "streetAddress": "Cazis / Chur",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-05T21:26:31.299Z",
+      "validThrough": "2026-12-06T09:57:37.922Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1773,7 +1776,7 @@
       "url": "https://www.pdgr.ch/jobs/nachtaerztin-nachtarzt-2/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T21:26:30.147Z",
+      "crawledAt": "2026-11-06T09:57:36.758Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1832,7 +1835,7 @@
       },
       "streetAddress": "Loëstrasse 220",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-05T21:26:30.147Z",
+      "validThrough": "2026-12-06T09:57:36.758Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1866,7 +1869,7 @@
       "url": "https://www.pdgr.ch/jobs/oberaerztin-oberarzt-5-5/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T21:26:28.999Z",
+      "crawledAt": "2026-11-06T09:57:35.598Z",
       "addressLocality": "Cazis / Chur",
       "postalCode": "7408",
       "addressCountry": "CH",
@@ -1918,7 +1921,7 @@
       "addressRegion": "GR",
       "streetAddress": "Cazis / Chur",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-05T21:26:28.999Z",
+      "validThrough": "2026-12-06T09:57:35.598Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1952,7 +1955,7 @@
       "url": "https://www.pdgr.ch/jobs/assistenz-oder-fachpsychologe-in-2-6/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T21:26:26.747Z",
+      "crawledAt": "2026-11-06T09:57:33.128Z",
       "addressLocality": "Ilanz",
       "postalCode": "7130",
       "addressCountry": "CH",
@@ -2044,7 +2047,7 @@
       "addressRegion": "GR",
       "streetAddress": "Ilanz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-05T21:26:26.747Z",
+      "validThrough": "2026-12-06T09:57:33.128Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2078,7 +2081,7 @@
       "url": "https://www.pdgr.ch/jobs/dipl-pflegefachperson-hf-7-5/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T21:26:25.640Z",
+      "crawledAt": "2026-11-06T09:57:31.937Z",
       "addressLocality": "Ilanz",
       "postalCode": "7130",
       "addressCountry": "CH",
@@ -2126,7 +2129,7 @@
       "addressRegion": "GR",
       "streetAddress": "Ilanz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-15T21:26:25.640Z",
+      "validThrough": "2026-12-15T09:57:31.937Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2160,7 +2163,7 @@
       "url": "https://www.pdgr.ch/jobs/mitarbeiter-in-cafeteria-4/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T21:26:24.520Z",
+      "crawledAt": "2026-11-06T09:57:30.729Z",
       "addressLocality": "Cazis",
       "postalCode": "7408",
       "addressCountry": "CH",
@@ -2214,7 +2217,7 @@
       "addressRegion": "GR",
       "streetAddress": "Cazis",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-17T21:26:24.520Z",
+      "validThrough": "2026-12-17T09:57:30.729Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2248,7 +2251,7 @@
       "url": "https://www.pdgr.ch/jobs/assistenz-oder-fachpsychologe-in-7/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T21:26:23.418Z",
+      "crawledAt": "2026-11-06T09:57:29.499Z",
       "addressLocality": "Samedan",
       "postalCode": "7503",
       "addressCountry": "CH",
@@ -2298,7 +2301,7 @@
       "addressRegion": "GR",
       "streetAddress": "Samedan",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-21T21:26:23.418Z",
+      "validThrough": "2026-12-21T09:57:29.499Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2332,7 +2335,7 @@
       "url": "https://www.pdgr.ch/jobs/beauftragte-r-fuer-die-un-brk-peer-mitarbeiter-in/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T21:26:22.328Z",
+      "crawledAt": "2026-11-06T09:57:28.346Z",
       "addressLocality": "Rothenbrunnen",
       "postalCode": "7405",
       "addressCountry": "CH",
@@ -2379,7 +2382,7 @@
       "addressRegion": "GR",
       "streetAddress": "Rothenbrunnen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-23T21:26:22.328Z",
+      "validThrough": "2026-12-23T09:57:28.346Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2413,7 +2416,7 @@
       "url": "https://www.pdgr.ch/jobs/dipl-pflegefachperson-hf-6-9/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T21:26:21.187Z",
+      "crawledAt": "2026-11-06T09:57:27.149Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2472,7 +2475,7 @@
       },
       "streetAddress": "Loëstrasse 220",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-23T21:26:21.187Z",
+      "validThrough": "2026-12-23T09:57:27.149Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2506,7 +2509,7 @@
       "url": "https://www.pdgr.ch/jobs/logopaede-in/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T21:26:20.109Z",
+      "crawledAt": "2026-11-06T09:57:25.996Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2564,7 +2567,7 @@
       },
       "streetAddress": "Loëstrasse 220",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-27T21:26:20.109Z",
+      "validThrough": "2026-12-27T09:57:25.996Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2598,7 +2601,7 @@
       "url": "https://www.pdgr.ch/jobs/mitarbeiter-in-roomservice/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T21:26:19.005Z",
+      "crawledAt": "2026-11-06T09:57:24.855Z",
       "addressLocality": "Cazis",
       "postalCode": "7408",
       "addressCountry": "CH",
@@ -2645,7 +2648,7 @@
       "addressRegion": "GR",
       "streetAddress": "Cazis",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-30T21:26:19.005Z",
+      "validThrough": "2026-12-30T09:57:24.855Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2679,7 +2682,7 @@
       "url": "https://www.pdgr.ch/jobs/dipl-pflegefachperson-hf-oder-dipl-sozialpaedagogen-in-hf-3/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T21:26:17.879Z",
+      "crawledAt": "2026-11-06T09:57:23.704Z",
       "addressLocality": "Cazis",
       "postalCode": "7408",
       "addressCountry": "CH",
@@ -2727,7 +2730,7 @@
       "addressRegion": "GR",
       "streetAddress": "Cazis",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-30T21:26:17.879Z",
+      "validThrough": "2026-12-30T09:57:23.704Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2761,7 +2764,7 @@
       "url": "https://www.pdgr.ch/jobs/mitarbeiter-in-raumpflege-transportdienst/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T21:26:16.748Z",
+      "crawledAt": "2026-11-06T09:57:22.528Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2819,114 +2822,7 @@
       },
       "streetAddress": "Loëstrasse 220",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-01T21:26:16.748Z",
-      "validThroughSource": "last-observed-window"
-    },
-    {
-      "id": "pdgr-0c3d5c4b5188",
-      "slug": "collaboratore-trice-in-raumpflege-psychiatrische-dienste-graubunden-chur",
-      "slugByLocale": {
-        "it": "collaboratore-trice-in-raumpflege-psychiatrische-dienste-graubunden-chur",
-        "en": "mitarbeiter-in-raumpflege-psychiatrische-dienste-graubunden-chur",
-        "de": "mitarbeiter-in-raumpflege-pdgr-ch",
-        "fr": "mitarbeiter-in-raumpflege-psychiatrische-dienste-graubunden-chur"
-      },
-      "company": "Psychiatrische Dienste Graubünden",
-      "companyKey": "pdgr",
-      "companyDomain": "pdgr.ch",
-      "title": "Mitarbeiter/-in Raumpflege",
-      "titleByLocale": {
-        "it": "Collaboratore/trice Cura degli ambienti",
-        "en": "Room care employee",
-        "de": "Mitarbeiter/-in Raumpflege",
-        "fr": "Employé (e) d'entretien des locaux"
-      },
-      "description": "Ihre Umgebung:\nSie arbeiten in einem modernen Umfeld der Klinik Waldhaus in Chur und sind Teil eines engagierten Reinigungs-Teams. Sie übernehmen eigenverantwortlich hauswirtschaftliche Aufgaben und profitieren von einem unterstützenden, kollegialen Arbeitsumfeld.\n\nIhre Aufgaben:\n- Sie werden als Springer/-in flexibel in der allgemeinen Reinigung in der Klinik Waldhaus sowie an den Aussenstandorten eingesetzt und übernehmen Ferienvertretungen\n\n- Sie führen Grundreinigungen und alle anfallenden hauswirtschaftlichen Tätigkeiten selbständig und fachgerecht aus.\n\n- Sie sind mitverantwortlich für die Einhaltung unseres hohen Qualitätsstandards im Bereich der Raumpflege\n\n- Ihre Arbeitszeiten variieren je nach Einsatz von Montag bis Sonntag von 6.30 Uhr bis 20.00 Uhr\n\nUnser Anforderungsprofil:\n- Sie haben bereits langjährige Berufserfahrung in der Reinigung und sind eine körperlich robuste\n\nPersönlichkeit mit hohem Engagement\n\n- Sie arbeiten gerne im Team und Loyalität wird bei Ihnen grossgeschrieben\n\n- Sie bringen Bereitschaft zur Einsatztätigkeit auch an den Wochenenden mit\n\n- Sie sind flexibel, zuverlässig, pflichtbewusst und arbeiten speditiv\n\n- Sie verfügen über ein gepflegtes Erscheinungsbild sowie über gute Deutschkenntnisse\n\n- Sie besitzen einen Führerausweis (Kategorie B)\n\nWir bieten Ihnen:\n- Eine vielseitige und abwechslungsreiche Tätigkeit in einem lebhaften Betreib\n\n- Sie können Ihre Erfahrungen in verschiedenen Bereichen der Hotellerie einbringen\n\n- Sie arbeiten in einem angenehmen, sozialen Umfeld\n\n- Sie profitieren von fortschrittlichen Arbeitsbedingungen (Überdurchschnittliche Sozialleistungen, Ferienguthaben von mindestens 30 Tagen)\n\n- Sie haben die Möglichkeit Weiterbildungskurse zu besuchen",
-      "descriptionByLocale": {
-        "it": "I dintorni:\nLavori in un ambiente moderno di Klinik Waldhaus a Chur e fai parte di un team di pulizia dedicato. Si assume la responsabilità per i compiti nazionali e beneficia di un ambiente di lavoro solidale e collegiale.\n\nI loro compiti:\n- Essi sono utilizzati come primavera in modo flessibile nella pulizia generale a Klinik Waldhaus così come nelle località all'aperto e prendere in consegna i rappresentanti delle vacanze\n\n- Eseguono la pulizia di base e tutte le attività domestiche in modo indipendente e professionale.\n\n- Voi siete congiuntamente responsabili del rispetto dei nostri elevati standard di qualità nel settore della manutenzione degli ambienti\n\n- Le ore di lavoro variano a seconda dell'uso dal lunedì alla domenica dalle 18.30 alle 20.\n\nIl nostro profilo di requisito:\n- Hai già molti anni di esperienza professionale nella pulizia e sono un fisicamente robusto\n\nPersonalità con alto impegno\n\n- Ti piace lavorare nella squadra e la lealtà è importante per te\n\n- Portano anche la disponibilità per l'azione nei fine settimana\n\n- Sono flessibili, affidabili, dutiful e veloci di lavoro\n\n- Hanno un aspetto ben tenuto e buona conoscenza del tedesco\n\n- Hai una patente di guida (categoria B)\n\nVi offriamo:\n- Un'attività versatile e variegata in un'operazione vivace\n\n- Puoi contribuire alla tua esperienza in varie aree del settore dell'ospitalità\n\n- Lavori in un ambiente piacevole e sociale\n\n- Si beneficiano di condizioni di lavoro progressive (sopra i benefici sociali medi, crediti per le vacanze di almeno 30 giorni)\n\n- Hai la possibilità di frequentare ulteriori corsi di istruzione",
-        "en": "Your surroundings:\nYou work in a modern environment of Klinik Waldhaus in Chur and are part of a dedicated cleaning team. You take on responsibility for domestic tasks and benefit from a supportive, collegial working environment.\n\nTheir tasks:\n- They are used as springers flexibly in general cleaning at Klinik Waldhaus as well as at the outdoor locations and take over holiday representatives\n\n- They carry out basic cleaning and all domestic activities independently and professionally.\n\n- You are jointly responsible for compliance with our high quality standards in the area of room maintenance\n\n- Your working hours vary depending on the use from Monday to Sunday from 6.30 a.m. to 8 p.m.\n\nOur requirement profile:\n- You already have many years of professional experience in cleaning and are a physically robust\n\nPersonality with high commitment\n\n- You like to work in the team and loyalty is important to you\n\n- They also bring readiness for action on weekends\n\n- They are flexible, reliable, dutiful and work fast\n\n- They have a well-kept appearance and good knowledge of German\n\n- You have a driving licence (category B)\n\nWe offer you:\n- A versatile and varied activity in a lively operation\n\n- You can contribute your experience in various areas of the hospitality industry\n\n- You work in a pleasant, social environment\n\n- You benefit from progressive working conditions (above average social benefits, holiday credits of at least 30 days)\n\n- You have the opportunity to attend further education courses",
-        "de": "Ihre Umgebung:\nSie arbeiten in einem modernen Umfeld der Klinik Waldhaus in Chur und sind Teil eines engagierten Reinigungs-Teams. Sie übernehmen eigenverantwortlich hauswirtschaftliche Aufgaben und profitieren von einem unterstützenden, kollegialen Arbeitsumfeld.\n\nIhre Aufgaben:\n- Sie werden als Springer/-in flexibel in der allgemeinen Reinigung in der Klinik Waldhaus sowie an den Aussenstandorten eingesetzt und übernehmen Ferienvertretungen\n\n- Sie führen Grundreinigungen und alle anfallenden hauswirtschaftlichen Tätigkeiten selbständig und fachgerecht aus.\n\n- Sie sind mitverantwortlich für die Einhaltung unseres hohen Qualitätsstandards im Bereich der Raumpflege\n\n- Ihre Arbeitszeiten variieren je nach Einsatz von Montag bis Sonntag von 6.30 Uhr bis 20.00 Uhr\n\nUnser Anforderungsprofil:\n- Sie haben bereits langjährige Berufserfahrung in der Reinigung und sind eine körperlich robuste\n\nPersönlichkeit mit hohem Engagement\n\n- Sie arbeiten gerne im Team und Loyalität wird bei Ihnen grossgeschrieben\n\n- Sie bringen Bereitschaft zur Einsatztätigkeit auch an den Wochenenden mit\n\n- Sie sind flexibel, zuverlässig, pflichtbewusst und arbeiten speditiv\n\n- Sie verfügen über ein gepflegtes Erscheinungsbild sowie über gute Deutschkenntnisse\n\n- Sie besitzen einen Führerausweis (Kategorie B)\n\nWir bieten Ihnen:\n- Eine vielseitige und abwechslungsreiche Tätigkeit in einem lebhaften Betreib\n\n- Sie können Ihre Erfahrungen in verschiedenen Bereichen der Hotellerie einbringen\n\n- Sie arbeiten in einem angenehmen, sozialen Umfeld\n\n- Sie profitieren von fortschrittlichen Arbeitsbedingungen (Überdurchschnittliche Sozialleistungen, Ferienguthaben von mindestens 30 Tagen)\n\n- Sie haben die Möglichkeit Weiterbildungskurse zu besuchen",
-        "fr": "Votre environnement:\nVous travaillez dans un environnement moderne de Klinik Waldhaus à Chur et faites partie d'une équipe de nettoyage dédiée. Vous assumez la responsabilité des tâches domestiques et bénéficiez d'un environnement de travail collégial et solidaire.\n\nLeurs tâches:\n- Ils sont utilisés comme ressorts souplement dans le nettoyage général à Klinik Waldhaus ainsi que dans les endroits extérieurs et prendre des représentants de vacances\n\n- Ils effectuent le nettoyage de base et toutes les activités domestiques de façon indépendante et professionnelle.\n\n- Vous êtes conjointement responsable du respect de nos normes de haute qualité dans le domaine de l'entretien des chambres\n\n- Vos heures de travail varient selon l'utilisation du lundi au dimanche de 18h30 à 20h.\n\nNotre profil d'exigence:\n- Vous avez déjà de nombreuses années d'expérience professionnelle dans le nettoyage et sont un physique robuste\n\nPersonnalité avec un engagement élevé\n\n- Vous aimez travailler en équipe et la loyauté est importante pour vous\n\n- Ils sont également prêts à intervenir le week-end.\n\n- Ils sont flexibles, fiables, sérieux et travaillent rapidement\n\n- Ils ont une apparence bien gardée et une bonne connaissance de l'allemand\n\n- Vous avez un permis de conduire (catégorie B)\n\nNous vous offrons:\n- Une activité polyvalente et variée dans une opération animée\n\n- Vous pouvez apporter votre expérience dans différents domaines de l'industrie hôtelière\n\n- Vous travaillez dans un environnement social agréable\n\n- Vous bénéficiez de conditions de travail progressives (au-dessus des prestations sociales moyennes, crédits de vacances d'au moins 30 jours)\n\n- Vous avez la possibilité de suivre des cours de perfectionnement"
-      },
-      "location": "Chur",
-      "canton": "GR",
-      "url": "https://www.pdgr.ch/jobs/mitarbeiter-in-raumpflege-3/",
-      "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-05T21:26:15.641Z",
-      "addressLocality": "Chur",
-      "postalCode": "7000",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Ristorazione",
-      "contract": "full-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Psichiatria",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-10-03",
-      "postedDate": "2026-10-03",
-      "postingDateSource": "reported",
-      "applyUrl": "https://www.pdgr.ch/jobs/mitarbeiter-in-raumpflege-3/",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "facility": "Raumpflege",
-      "pensumMin": 80,
-      "pensumMax": 80,
-      "pensum": "80%",
-      "previousSlugs": [
-        "manutenzione-del-personale-psychiatrische-dienste-graubunden-chur",
-        "staff-room-maintenance-psychiatrische-dienste-graubunden-chur",
-        "entretien-des-locaux-du-personnel-psychiatrische-dienste-graubunden-chur",
-        "mitarbeiter-in-raumpflege-pdgr-ch",
-        "mitarbeiter-in-raumpflege-pdgr-ch-xfnigi"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "manutenzione-del-personale-psychiatrische-dienste-graubunden-chur",
-          "mitarbeiter-in-raumpflege-pdgr-ch",
-          "mitarbeiter-in-raumpflege-pdgr-ch-xfnigi"
-        ],
-        "en": [
-          "staff-room-maintenance-psychiatrische-dienste-graubunden-chur"
-        ],
-        "de": [
-          "mitarbeiter-in-raumpflege-pdgr-ch-xfnigi"
-        ],
-        "fr": [
-          "entretien-des-locaux-du-personnel-psychiatrische-dienste-graubunden-chur"
-        ]
-      },
-      "firstSeenAt": "2026-10-03T09:23:38.984Z",
-      "salaryMin": 62000,
-      "salaryMax": 78000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 62000,
-          "maxValue": 78000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "GR",
-      "companyRegisteredAddress": {
-        "status": "matched",
-        "source": "zefix-lindas",
-        "companyName": "Psychiatrische Dienste Graubünden",
-        "streetAddress": "Loëstrasse 220",
-        "postalCode": "7000",
-        "addressLocality": "Chur",
-        "addressRegion": "GR",
-        "checkedAt": "2026-10-31T20:50:16.545Z",
-        "streetAddressSource": "zefix-registry"
-      },
-      "streetAddress": "Loëstrasse 220",
-      "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-01T21:26:15.641Z",
+      "validThrough": "2027-01-01T09:57:22.528Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2960,7 +2856,7 @@
       "url": "https://www.pdgr.ch/jobs/dipl-pflegefachperson-hf-8-5/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T21:26:13.481Z",
+      "crawledAt": "2026-11-06T09:57:18.805Z",
       "addressLocality": "Samedan / Scuol",
       "postalCode": "7503",
       "addressCountry": "CH",
@@ -3016,7 +2912,7 @@
       "addressRegion": "GR",
       "streetAddress": "Samedan / Scuol",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-03T21:26:13.481Z",
+      "validThrough": "2027-01-03T09:57:18.805Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3050,7 +2946,7 @@
       "url": "https://www.pdgr.ch/jobs/stv-pflege-standortleiter-in-2/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T21:26:12.405Z",
+      "crawledAt": "2026-11-06T09:57:17.595Z",
       "addressLocality": "Ilanz",
       "postalCode": "7130",
       "addressCountry": "CH",
@@ -3108,7 +3004,7 @@
       "addressRegion": "GR",
       "streetAddress": "Ilanz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-05T21:26:12.405Z",
+      "validThrough": "2027-01-05T09:57:17.595Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3142,7 +3038,7 @@
       "url": "https://www.pdgr.ch/jobs/hilfskoechin-hilfskoch-2/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T21:26:11.304Z",
+      "crawledAt": "2026-11-06T09:57:16.307Z",
       "addressLocality": "Cazis",
       "postalCode": "7408",
       "addressCountry": "CH",
@@ -3192,7 +3088,7 @@
       "addressRegion": "GR",
       "streetAddress": "Cazis",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-07T21:26:11.304Z",
+      "validThrough": "2027-01-07T09:57:16.307Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3226,7 +3122,7 @@
       "url": "https://www.pdgr.ch/jobs/assistenzaerztin-assistenzarzt-2-10/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T21:26:10.208Z",
+      "crawledAt": "2026-11-06T09:57:15.124Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -3293,7 +3189,7 @@
       },
       "streetAddress": "Loëstrasse 220",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-13T21:26:10.208Z",
+      "validThrough": "2027-01-13T09:57:15.124Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3327,7 +3223,7 @@
       "url": "https://www.pdgr.ch/jobs/dipl-pflegefachperson-hf-fuer-die-nachtwache-10/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T21:26:09.102Z",
+      "crawledAt": "2026-11-06T09:57:13.908Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -3395,7 +3291,7 @@
       },
       "streetAddress": "Loëstrasse 220",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-14T21:26:09.102Z",
+      "validThrough": "2027-01-14T09:57:13.908Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3429,7 +3325,7 @@
       "url": "https://www.pdgr.ch/jobs/mitarbeiter-in-raumpflege-2/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T21:26:08.022Z",
+      "crawledAt": "2026-11-06T09:57:12.711Z",
       "addressLocality": "Rothenbrunnen",
       "postalCode": "7405",
       "addressCountry": "CH",
@@ -3485,7 +3381,7 @@
       "addressRegion": "GR",
       "streetAddress": "Rothenbrunnen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-17T21:26:08.022Z",
+      "validThrough": "2027-01-17T09:57:12.711Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3519,7 +3415,7 @@
       "url": "https://www.pdgr.ch/jobs/chefaerztin-chefarzt-privatklinik-mentalva/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T21:26:06.878Z",
+      "crawledAt": "2026-11-06T09:57:11.467Z",
       "addressLocality": "Cazis",
       "postalCode": "7408",
       "addressCountry": "CH",
@@ -3573,7 +3469,7 @@
       "addressRegion": "GR",
       "streetAddress": "Cazis",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-24T21:26:06.878Z",
+      "validThrough": "2027-01-24T09:57:11.467Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3607,7 +3503,7 @@
       "url": "https://www.pdgr.ch/jobs/assistenz-oder-fachpsychologe-in-3-3/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T21:26:05.781Z",
+      "crawledAt": "2026-11-06T09:57:10.268Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -3663,7 +3559,7 @@
       "addressRegion": "GR",
       "streetAddress": "Davos",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-25T21:26:05.781Z",
+      "validThrough": "2027-01-25T09:57:10.268Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3697,7 +3593,7 @@
       "url": "https://www.pdgr.ch/jobs/dipl-pflegefachperson-hf-fh-7/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T21:26:04.720Z",
+      "crawledAt": "2026-11-06T09:57:09.089Z",
       "addressLocality": "Cazis / Chur",
       "postalCode": "7408",
       "addressCountry": "CH",
@@ -3753,7 +3649,7 @@
       "addressRegion": "GR",
       "streetAddress": "Cazis / Chur",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-26T21:26:04.720Z",
+      "validThrough": "2027-01-26T09:57:09.089Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3787,7 +3683,7 @@
       "url": "https://www.pdgr.ch/jobs/lehrperson-oberstufe-schulische-heilpaedagogik-shp/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T21:26:03.592Z",
+      "crawledAt": "2026-11-06T09:57:07.914Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -3852,7 +3748,7 @@
       },
       "streetAddress": "Loëstrasse 220",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-28T21:26:03.592Z",
+      "validThrough": "2027-01-28T09:57:07.914Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3886,7 +3782,7 @@
       "url": "https://www.pdgr.ch/jobs/dipl-pflegefachperson-hf-fuer-die-nachtwache-2-13/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T21:26:02.493Z",
+      "crawledAt": "2026-11-06T09:57:06.728Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -3956,7 +3852,7 @@
       },
       "streetAddress": "Loëstrasse 220",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-28T21:26:02.493Z",
+      "validThrough": "2027-01-28T09:57:06.728Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3990,7 +3886,7 @@
       "url": "https://www.pdgr.ch/jobs/controller/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T21:26:01.393Z",
+      "crawledAt": "2026-11-06T09:57:05.473Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -4054,7 +3950,7 @@
       },
       "streetAddress": "Loëstrasse 220",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-01T21:26:01.393Z",
+      "validThrough": "2027-02-01T09:57:05.473Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4088,7 +3984,7 @@
       "url": "https://www.pdgr.ch/jobs/mitarbeiter-in-roomservice-2/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T21:26:00.299Z",
+      "crawledAt": "2026-11-06T09:57:04.273Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -4156,16 +4052,16 @@
       },
       "streetAddress": "Loëstrasse 220",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-02T21:26:00.299Z",
+      "validThrough": "2027-02-02T09:57:04.273Z",
       "validThroughSource": "last-observed-window"
     },
     {
       "id": "pdgr-db829fb379da",
       "slug": "terapista-dello-sport-psychiatrische-dienste-graubunden-cazis-chur",
       "slugByLocale": {
-        "de": "sporttherapeut-in-pdgr-ch",
         "it": "terapista-dello-sport-psychiatrische-dienste-graubunden-cazis-chur",
         "en": "sports-therapist-psychiatrische-dienste-graubunden-cazis-chur",
+        "de": "sporttherapeut-in-pdgr-ch",
         "fr": "therapeute-du-sport-psychiatrische-dienste-graubunden-cazis-chur"
       },
       "company": "Psychiatrische Dienste Graubünden",
@@ -4173,16 +4069,16 @@
       "companyDomain": "pdgr.ch",
       "title": "Sporttherapeut/-in",
       "titleByLocale": {
-        "de": "Sporttherapeut/-in",
         "it": "Terapista dello sport",
         "en": "Sports Therapist",
+        "de": "Sporttherapeut/-in",
         "fr": "Thérapeute du sport"
       },
       "description": "Ihre Aufgaben:\n- Sie orientieren sich an den Behandlungszielen der Patientinnen und Patienten und begleiten und behandeln psychisch kranke Menschen mit sporttherapeutischen Methoden\n\n- Sie führen sporttherapeutische Aktivitäten (Spielsport, Funktionelles Training, Fitness, Pilates, etc.) im Einzel- und Gruppensetting durch\n\n- Sie arbeiten interdiziplinär mit den verschiedenen Stationen zusammen\n\n- Sie dokumentieren Therapieverläufe im klinikinternen elektronischen Patienten Dossier\n\nUnser Anforderungsprofil:\n- Sie haben einen Bachelor- oder Masterabschluss in Sport- und Bewegungswissenschaften oder Sport, Bewegung und Gesundheit einer staatlichen Hochschule, Fachhochschule oder Universität\n\n- Sie verfügen über Erfahrung, Menschen mit psychischen Erkrankungen anzuleiten und zu begleiten\n\n- Sie haben Kenntnisse und Fähigkeiten im administrativen Bereich\n\n- Sie sind eine innovative, kreative und selbständig arbeitende Persönlichkeit\n\n- Sie haben ein hohes Mass an Empowerment und bringen fachliche Fähigkeiten mit\n\nWir bieten Ihnen:\n- Sie übernehmen eine abwechslungsreiche und verantwortungsvolle Tätigkeit in einem motivierten, interdisziplinären Team\n\n- Sie können Ihre Ideen einbringen und Ihr Aufgabenfeld mitgestalten\n\n- Sie profitieren von fortschrittlichen Arbeitsbedingungen (Überdurchschnittliche Sozialleistungen, Ferienguthaben von mindestens 30 Tagen)\n\n- Sie haben die Möglichkeit Weiterbildungskurse zu besuchen",
       "descriptionByLocale": {
-        "de": "Ihre Aufgaben:\n- Sie orientieren sich an den Behandlungszielen der Patientinnen und Patienten und begleiten und behandeln psychisch kranke Menschen mit sporttherapeutischen Methoden\n\n- Sie führen sporttherapeutische Aktivitäten (Spielsport, Funktionelles Training, Fitness, Pilates, etc.) im Einzel- und Gruppensetting durch\n\n- Sie arbeiten interdiziplinär mit den verschiedenen Stationen zusammen\n\n- Sie dokumentieren Therapieverläufe im klinikinternen elektronischen Patienten Dossier\n\nUnser Anforderungsprofil:\n- Sie haben einen Bachelor- oder Masterabschluss in Sport- und Bewegungswissenschaften oder Sport, Bewegung und Gesundheit einer staatlichen Hochschule, Fachhochschule oder Universität\n\n- Sie verfügen über Erfahrung, Menschen mit psychischen Erkrankungen anzuleiten und zu begleiten\n\n- Sie haben Kenntnisse und Fähigkeiten im administrativen Bereich\n\n- Sie sind eine innovative, kreative und selbständig arbeitende Persönlichkeit\n\n- Sie haben ein hohes Mass an Empowerment und bringen fachliche Fähigkeiten mit\n\nWir bieten Ihnen:\n- Sie übernehmen eine abwechslungsreiche und verantwortungsvolle Tätigkeit in einem motivierten, interdisziplinären Team\n\n- Sie können Ihre Ideen einbringen und Ihr Aufgabenfeld mitgestalten\n\n- Sie profitieren von fortschrittlichen Arbeitsbedingungen (Überdurchschnittliche Sozialleistungen, Ferienguthaben von mindestens 30 Tagen)\n\n- Sie haben die Möglichkeit Weiterbildungskurse zu besuchen",
         "it": "I loro compiti:\n- Essi sono orientati verso gli obiettivi di trattamento del paziente e accompagnare e trattare le persone mentalmente malate con metodi terapeutici sportivi.\n\n- Essi svolgono attività terapeutiche sportive (sport di gioco, formazione funzionale, fitness, Pilates, ecc) in regolazione individuale e di gruppo.\n\n- Lavori interdisciplinari con le diverse stazioni\n\n- Documentano corsi di trattamento nel dossier del paziente elettronico della clinica\n\nIl nostro profilo di requisito:\n- Hai un diploma di laurea o master in scienze dello sport e del movimento o sport, esercizio e salute di un college statale, college di scienze applicate o università\n\n- Avete esperienza nel guidare e accompagnare le persone con malattia mentale\n\n- Hai conoscenze e competenze nel campo amministrativo\n\n- Sei una personalità innovativa, creativa e autonoma\n\n- Hai un alto grado di empowerment e portare competenze professionali\n\nVi offriamo:\n- Si assume un lavoro vario e responsabile in un team motivato e interdisciplinare\n\n- Puoi contribuire alle tue idee e modellare il tuo campo di responsabilità\n\n- Si beneficiano di condizioni di lavoro progressive (sopra i benefici sociali medi, crediti per le vacanze di almeno 30 giorni)\n\n- Hai la possibilità di frequentare ulteriori corsi di istruzione",
         "en": "Their tasks:\n- They are oriented towards the patient’s treatment goals and accompany and treat mentally ill people with sports therapeutic methods.\n\n- They carry out sports therapeutic activities (game sports, functional training, fitness, Pilates, etc.) in individual and group setting\n\n- You work interdisciplinary with the different stations\n\n- They document treatment courses in the clinic's electronic patient dossier\n\nOur requirement profile:\n- You have a bachelor's or master's degree in sports and movement sciences or sports, exercise and health of a state college, college of applied sciences or university\n\n- You have experience in guiding and accompanying people with mental illness\n\n- You have knowledge and skills in the administrative field\n\n- You are an innovative, creative and self-employed personality\n\n- You have a high degree of empowerment and bring professional skills\n\nWe offer you:\n- You take on a varied and responsible job in a motivated, interdisciplinary team\n\n- You can contribute your ideas and shape your field of responsibility\n\n- You benefit from progressive working conditions (above average social benefits, holiday credits of at least 30 days)\n\n- You have the opportunity to attend further education courses",
+        "de": "Ihre Aufgaben:\n- Sie orientieren sich an den Behandlungszielen der Patientinnen und Patienten und begleiten und behandeln psychisch kranke Menschen mit sporttherapeutischen Methoden\n\n- Sie führen sporttherapeutische Aktivitäten (Spielsport, Funktionelles Training, Fitness, Pilates, etc.) im Einzel- und Gruppensetting durch\n\n- Sie arbeiten interdiziplinär mit den verschiedenen Stationen zusammen\n\n- Sie dokumentieren Therapieverläufe im klinikinternen elektronischen Patienten Dossier\n\nUnser Anforderungsprofil:\n- Sie haben einen Bachelor- oder Masterabschluss in Sport- und Bewegungswissenschaften oder Sport, Bewegung und Gesundheit einer staatlichen Hochschule, Fachhochschule oder Universität\n\n- Sie verfügen über Erfahrung, Menschen mit psychischen Erkrankungen anzuleiten und zu begleiten\n\n- Sie haben Kenntnisse und Fähigkeiten im administrativen Bereich\n\n- Sie sind eine innovative, kreative und selbständig arbeitende Persönlichkeit\n\n- Sie haben ein hohes Mass an Empowerment und bringen fachliche Fähigkeiten mit\n\nWir bieten Ihnen:\n- Sie übernehmen eine abwechslungsreiche und verantwortungsvolle Tätigkeit in einem motivierten, interdisziplinären Team\n\n- Sie können Ihre Ideen einbringen und Ihr Aufgabenfeld mitgestalten\n\n- Sie profitieren von fortschrittlichen Arbeitsbedingungen (Überdurchschnittliche Sozialleistungen, Ferienguthaben von mindestens 30 Tagen)\n\n- Sie haben die Möglichkeit Weiterbildungskurse zu besuchen",
         "fr": "Leurs tâches:\n- Ils sont orientés vers les objectifs de traitement du patient et accompagnent et traitent les malades mentaux par des méthodes thérapeutiques sportives.\n\n- Ils mènent des activités sportives thérapeutiques (sports de jeu, entraînement fonctionnel, fitness, Pilates, etc.) dans un cadre individuel et en groupe\n\n- Vous travaillez interdisciplinairement avec les différentes stations\n\n- Ils documentent les cours de traitement dans le dossier électronique du patient de la clinique\n\nNotre profil d'exigence:\n- Vous êtes titulaire d'un baccalauréat ou d'une maîtrise en sciences du sport et du mouvement ou en sports, exercice et santé d'un collège d'État, d'un collège de sciences appliquées ou d'une université\n\n- Vous avez de l'expérience pour guider et accompagner les personnes atteintes de maladie mentale\n\n- Vous avez des connaissances et des compétences dans le domaine administratif\n\n- Vous êtes une personnalité innovante, créative et indépendante\n\n- Vous avez un haut degré d'autonomisation et apportez des compétences professionnelles\n\nNous vous offrons:\n- Vous prenez un emploi varié et responsable dans une équipe motivée et interdisciplinaire\n\n- Vous pouvez contribuer à vos idées et façonner votre domaine de responsabilité\n\n- Vous bénéficiez de conditions de travail progressives (au-dessus des prestations sociales moyennes, crédits de vacances d'au moins 30 jours)\n\n- Vous avez la possibilité de suivre des cours de perfectionnement"
       },
       "location": "Cazis / Chur",
@@ -4190,7 +4086,7 @@
       "url": "https://www.pdgr.ch/jobs/sporttherapeut-in-3/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T21:25:58.080Z",
+      "crawledAt": "2026-11-06T09:57:01.752Z",
       "addressLocality": "Cazis / Chur",
       "postalCode": "7408",
       "addressCountry": "CH",
@@ -4207,14 +4103,26 @@
       "postingDateSource": "reported",
       "applyUrl": "https://www.pdgr.ch/jobs/sporttherapeut-in-3/",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "department": "Erwachsenenpsychiatrie",
       "facility": "Affektive Erkrankungen",
       "pensumMin": 10,
       "pensumMax": 10,
       "pensum": "10%",
+      "previousSlugs": [
+        "sporttherapeut-in-pdgr-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "sporttherapeut-in-pdgr-ch"
+        ],
+        "en": [
+          "sporttherapeut-in-pdgr-ch"
+        ],
+        "fr": [
+          "sporttherapeut-in-pdgr-ch"
+        ]
+      },
       "needsRetranslation": true,
       "salaryMin": 81500,
       "salaryMax": 114000,
@@ -4232,30 +4140,16 @@
       "addressRegion": "GR",
       "streetAddress": "Cazis / Chur",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T21:25:58.080Z",
-      "validThroughSource": "last-observed-window",
-      "previousSlugsByLocale": {
-        "it": [
-          "sporttherapeut-in-pdgr-ch"
-        ],
-        "en": [
-          "sporttherapeut-in-pdgr-ch"
-        ],
-        "fr": [
-          "sporttherapeut-in-pdgr-ch"
-        ]
-      },
-      "previousSlugs": [
-        "sporttherapeut-in-pdgr-ch"
-      ]
+      "validThrough": "2027-02-03T09:57:01.752Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "pdgr-a7ae8746d420",
       "slug": "cuocere-cucinare-psychiatrische-dienste-graubunden-cazis",
       "slugByLocale": {
-        "de": "kochin-koch-pdgr-ch",
         "it": "cuocere-cucinare-psychiatrische-dienste-graubunden-cazis",
         "en": "cook-cook-psychiatrische-dienste-graubunden-cazis",
+        "de": "kochin-koch-pdgr-ch",
         "fr": "cuisiniere-psychiatrische-dienste-graubunden-cazis"
       },
       "company": "Psychiatrische Dienste Graubünden",
@@ -4263,16 +4157,16 @@
       "companyDomain": "pdgr.ch",
       "title": "Köchin / Koch",
       "titleByLocale": {
-        "de": "Köchin / Koch",
         "it": "Cuocere / cucinare",
         "en": "Cook / Cook",
+        "de": "Köchin / Koch",
         "fr": "Cuisinière"
       },
       "description": "Ihre Umgebung:\nIhr zukünftiger Arbeitsplatz ist jeweils eine top moderne Küche, welche für die Verpflegung von 150 Patienten- und 120 Mitarbeitermahlzeiten pro Standort verantwortlich ist.\n\nIhre Aufgaben:\n- Sie sind versiert und beherrschen Ihr Handwerk\n\n- Sie kennen alle Bereiche der Küche sowie neue Kochtechniken und arbeiten gerne bei hochstehenden Anlässen und Banketten mit\n\n- Sie sind den Umgang mit Frischprodukten aus unserer Region gewohnt und achten auf die Einhaltung unserer hohen Qualitätsstandards im Bereich Sauberkeit und Ordnungssinn\n\n- Mit Ihrer engagierten und herzlichen Art sind Sie eine Bereicherung für den Betrieb und somit für unsere Kunden\n\nUnser Anforderungsprofil:\n- Sie sind ausgebildete Köchin / Koch EFZ und verfügen bereits über Berufserfahrung\n\n- Sie zeichnen sich durch hohe Belastbarkeit, Flexibilität, Einsatzbereitschaft und Kreativität aus\n\n- Sie sind zuverlässig, pflichtbewusst und haben ein ausgeprägtes Dienstleistungsbewusstsein sowie hohe Kundenorientierung\n\n- Sie sind bereit, bei Bedarf auch in unserer Küche am Standort der Klinik Waldhaus in Chur Einsätze zu leisten\n\nWir bieten Ihnen:\n- Eine vielseitige und abwechslungsreiche Tätigkeit in einem lebhaften Betreib\n\n- Sie können Ihre Erfahrungen in verschiedenen Bereichen der Hotellerie einbringen\n\n- Sie arbeiten in einem angenehmen, sozialen Umfeld\n\n- Sie profitieren von fortschrittlichen Arbeitsbedingungen (Überdurchschnittliche Sozialleistungen, Ferienguthaben von mindestens 30 Tagen)\n\n- Sie haben die Möglichkeit Weiterbildungskurse zu besuchen",
       "descriptionByLocale": {
-        "de": "Ihre Umgebung:\nIhr zukünftiger Arbeitsplatz ist jeweils eine top moderne Küche, welche für die Verpflegung von 150 Patienten- und 120 Mitarbeitermahlzeiten pro Standort verantwortlich ist.\n\nIhre Aufgaben:\n- Sie sind versiert und beherrschen Ihr Handwerk\n\n- Sie kennen alle Bereiche der Küche sowie neue Kochtechniken und arbeiten gerne bei hochstehenden Anlässen und Banketten mit\n\n- Sie sind den Umgang mit Frischprodukten aus unserer Region gewohnt und achten auf die Einhaltung unserer hohen Qualitätsstandards im Bereich Sauberkeit und Ordnungssinn\n\n- Mit Ihrer engagierten und herzlichen Art sind Sie eine Bereicherung für den Betrieb und somit für unsere Kunden\n\nUnser Anforderungsprofil:\n- Sie sind ausgebildete Köchin / Koch EFZ und verfügen bereits über Berufserfahrung\n\n- Sie zeichnen sich durch hohe Belastbarkeit, Flexibilität, Einsatzbereitschaft und Kreativität aus\n\n- Sie sind zuverlässig, pflichtbewusst und haben ein ausgeprägtes Dienstleistungsbewusstsein sowie hohe Kundenorientierung\n\n- Sie sind bereit, bei Bedarf auch in unserer Küche am Standort der Klinik Waldhaus in Chur Einsätze zu leisten\n\nWir bieten Ihnen:\n- Eine vielseitige und abwechslungsreiche Tätigkeit in einem lebhaften Betreib\n\n- Sie können Ihre Erfahrungen in verschiedenen Bereichen der Hotellerie einbringen\n\n- Sie arbeiten in einem angenehmen, sozialen Umfeld\n\n- Sie profitieren von fortschrittlichen Arbeitsbedingungen (Überdurchschnittliche Sozialleistungen, Ferienguthaben von mindestens 30 Tagen)\n\n- Sie haben die Möglichkeit Weiterbildungskurse zu besuchen",
         "it": "I dintorni:\nIl loro futuro posto di lavoro è una cucina moderna, che è responsabile per la ristorazione di 150 pasti paziente e 120 pasti dipendenti per posizione.\n\nI loro compiti:\n- Sei esperto e padroneggia il tuo mestiere\n\n- Conoscono tutte le aree della cucina e le nuove tecniche di cottura e amano lavorare con eventi e banchetti di alto profilo\n\n- Sono abituati a trattare prodotti freschi della nostra regione e prestare attenzione al rispetto dei nostri elevati standard di qualità nel settore della pulizia e del senso dell'ordine.\n\n- Con la vostra natura impegnata e sentita siete un arricchimento per l'azienda e quindi per i nostri clienti\n\nIl nostro profilo di requisito:\n- Sei uno chef qualificato / chef EFZ e hai già esperienza professionale\n\n- Sono caratterizzati da elevata resistenza, flessibilità, impegno e creatività\n\n- Essi sono affidabili, dutiful e hanno una chiara consapevolezza del servizio e un alto livello di orientamento del cliente\n\n- Siete pronti, se necessario, anche nella nostra cucina nella posizione di Klinik Waldhaus in incarichi Chur\n\nVi offriamo:\n- Un'attività versatile e variegata in un'operazione vivace\n\n- Puoi contribuire alla tua esperienza in varie aree del settore dell'ospitalità\n\n- Lavori in un ambiente piacevole e sociale\n\n- Si beneficiano di condizioni di lavoro progressive (sopra i benefici sociali medi, crediti per le vacanze di almeno 30 giorni)\n\n- Hai la possibilità di frequentare ulteriori corsi di istruzione",
         "en": "Your surroundings:\nTheir future workplace is a top modern kitchen, which is responsible for the catering of 150 patient meals and 120 employee meals per location.\n\nTheir tasks:\n- You are savvy and master your craft\n\n- They know all areas of the kitchen as well as new cooking techniques and like to work with high-profile events and banquets\n\n- They are accustomed to handling fresh products from our region and pay attention to compliance with our high quality standards in the area of cleanliness and sense of order.\n\n- With your committed and heartfelt nature you are an enrichment for the company and therefore for our customers\n\nOur requirement profile:\n- You are a qualified chef / chef EFZ and already have professional experience\n\n- They are characterized by high resilience, flexibility, commitment and creativity\n\n- They are reliable, dutiful and have a pronounced service awareness and a high level of customer orientation\n\n- You are ready, if necessary, also in our kitchen at the location of Klinik Waldhaus in Chur assignments\n\nWe offer you:\n- A versatile and varied activity in a lively operation\n\n- You can contribute your experience in various areas of the hospitality industry\n\n- You work in a pleasant, social environment\n\n- You benefit from progressive working conditions (above average social benefits, holiday credits of at least 30 days)\n\n- You have the opportunity to attend further education courses",
+        "de": "Ihre Umgebung:\nIhr zukünftiger Arbeitsplatz ist jeweils eine top moderne Küche, welche für die Verpflegung von 150 Patienten- und 120 Mitarbeitermahlzeiten pro Standort verantwortlich ist.\n\nIhre Aufgaben:\n- Sie sind versiert und beherrschen Ihr Handwerk\n\n- Sie kennen alle Bereiche der Küche sowie neue Kochtechniken und arbeiten gerne bei hochstehenden Anlässen und Banketten mit\n\n- Sie sind den Umgang mit Frischprodukten aus unserer Region gewohnt und achten auf die Einhaltung unserer hohen Qualitätsstandards im Bereich Sauberkeit und Ordnungssinn\n\n- Mit Ihrer engagierten und herzlichen Art sind Sie eine Bereicherung für den Betrieb und somit für unsere Kunden\n\nUnser Anforderungsprofil:\n- Sie sind ausgebildete Köchin / Koch EFZ und verfügen bereits über Berufserfahrung\n\n- Sie zeichnen sich durch hohe Belastbarkeit, Flexibilität, Einsatzbereitschaft und Kreativität aus\n\n- Sie sind zuverlässig, pflichtbewusst und haben ein ausgeprägtes Dienstleistungsbewusstsein sowie hohe Kundenorientierung\n\n- Sie sind bereit, bei Bedarf auch in unserer Küche am Standort der Klinik Waldhaus in Chur Einsätze zu leisten\n\nWir bieten Ihnen:\n- Eine vielseitige und abwechslungsreiche Tätigkeit in einem lebhaften Betreib\n\n- Sie können Ihre Erfahrungen in verschiedenen Bereichen der Hotellerie einbringen\n\n- Sie arbeiten in einem angenehmen, sozialen Umfeld\n\n- Sie profitieren von fortschrittlichen Arbeitsbedingungen (Überdurchschnittliche Sozialleistungen, Ferienguthaben von mindestens 30 Tagen)\n\n- Sie haben die Möglichkeit Weiterbildungskurse zu besuchen",
         "fr": "Votre environnement:\nLeur futur lieu de travail est une cuisine moderne supérieure, qui est responsable de la restauration de 150 repas pour patients et de 120 repas pour employés par emplacement.\n\nLeurs tâches:\n- Vous êtes habile et maîtrisez votre métier\n\n- Ils connaissent tous les domaines de la cuisine ainsi que les nouvelles techniques de cuisine et aiment travailler avec des événements et des banquets haut de gamme\n\n- Ils sont habitués à manipuler des produits frais de notre région et de prêter attention au respect de nos normes de haute qualité dans le domaine de la propreté et du sens de l'ordre.\n\n- Avec votre nature engagée et sincère, vous êtes un enrichissement pour l'entreprise et donc pour nos clients\n\nNotre profil d'exigence:\n- Vous êtes un chef qualifié / chef EFZ et avez déjà une expérience professionnelle\n\n- Ils se caractérisent par une grande résilience, flexibilité, engagement et créativité.\n\n- Ils sont fiables, doivent et ont une conscience du service prononcée et un haut niveau d'orientation de la clientèle\n\n- Vous êtes prêt, si nécessaire, également dans notre cuisine à l'emplacement de Klinik Waldhaus dans les missions de Chur\n\nNous vous offrons:\n- Une activité polyvalente et variée dans une opération animée\n\n- Vous pouvez apporter votre expérience dans différents domaines de l'industrie hôtelière\n\n- Vous travaillez dans un environnement social agréable\n\n- Vous bénéficiez de conditions de travail progressives (au-dessus des prestations sociales moyennes, crédits de vacances d'au moins 30 jours)\n\n- Vous avez la possibilité de suivre des cours de perfectionnement"
       },
       "location": "Cazis",
@@ -4280,7 +4174,7 @@
       "url": "https://www.pdgr.ch/jobs/koechin-koch-2-11/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T21:25:56.960Z",
+      "crawledAt": "2026-11-06T09:57:00.569Z",
       "addressLocality": "Cazis",
       "postalCode": "7408",
       "addressCountry": "CH",
@@ -4297,13 +4191,25 @@
       "postingDateSource": "reported",
       "applyUrl": "https://www.pdgr.ch/jobs/koechin-koch-2-11/",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "facility": "Küche",
       "pensumMin": 60,
       "pensumMax": 60,
       "pensum": "60%",
+      "previousSlugs": [
+        "kochin-koch-pdgr-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "kochin-koch-pdgr-ch"
+        ],
+        "en": [
+          "kochin-koch-pdgr-ch"
+        ],
+        "fr": [
+          "kochin-koch-pdgr-ch"
+        ]
+      },
       "salaryMin": 62000,
       "salaryMax": 78000,
       "salarySource": "estimated",
@@ -4320,30 +4226,16 @@
       "addressRegion": "GR",
       "streetAddress": "Cazis",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T21:25:56.960Z",
-      "validThroughSource": "last-observed-window",
-      "previousSlugsByLocale": {
-        "it": [
-          "kochin-koch-pdgr-ch"
-        ],
-        "en": [
-          "kochin-koch-pdgr-ch"
-        ],
-        "fr": [
-          "kochin-koch-pdgr-ch"
-        ]
-      },
-      "previousSlugs": [
-        "kochin-koch-pdgr-ch"
-      ]
+      "validThrough": "2027-02-03T09:57:00.569Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "pdgr-a87434f6e16d",
       "slug": "cura-gestione-del-sito-psychiatrische-dienste-graubunden-thusis",
       "slugByLocale": {
-        "de": "pflege-standortleitung-pdgr-ch",
         "it": "cura-gestione-del-sito-psychiatrische-dienste-graubunden-thusis",
         "en": "care-site-management-psychiatrische-dienste-graubunden-thusis",
+        "de": "pflege-standortleitung-pdgr-ch",
         "fr": "gestion-des-soins-sites-psychiatrische-dienste-graubunden-thusis"
       },
       "company": "Psychiatrische Dienste Graubünden",
@@ -4351,16 +4243,16 @@
       "companyDomain": "pdgr.ch",
       "title": "Pflege-/Standortleitung",
       "titleByLocale": {
-        "de": "Pflege-/Standortleitung",
         "it": "Cura/gestione del sito",
         "en": "Care/site management",
+        "de": "Pflege-/Standortleitung",
         "fr": "Gestion des soins/sites"
       },
       "description": "Ihre Umgebung:\nIhr zukünftiger Arbeitsplatz ist das Psychiatriezentrum Nordbünden. Dieses bietet ambulante psychiatrische Behandlungen sowie tagesklinische Angebote für Erwachsene an. Das Psychiatrie-Zentrum Nordbünden umfasst zwei Tageskliniken mit Standorten in Chur und Thusis sowie zwei Ambulatorien in Chur und Cazis.\n\nIhre Aufgaben:\n- Sie übernehmen die fachliche, personelle und organisatorische Führung der allgemeinpsychiatrischen Tagesklinik\n\n- Sie gewährleisten eine professionelle, individuelle und patientenzentrierte Pflege und Betreuung\n\n- Sie wirken an der Behandlungsplanung mit und arbeiten im Bezugspflegesystem\n\n- Sie gestalten das milieutherapeutische Angebot mit und übernehmen die Leitung therapeutischer Einzel- und Gruppenangebote\n\n- Sie fördern eine wertschätzende interprofessionelle Zusammenarbeit und vernetzen sich mit externen Behandlungspartnern\n\n- Sie sichern und entwickeln die Pflegequalität sowie die Standards und Prozesse kontinuierlich weiter\n\n- Sie begleiten Veränderungs- und Entwicklungsprozesse und wirken an der Umsetzung der Unternehmens- und Prozessziele mit\n\nUnser Anforderungsprofil:\n- Sie verfügen über einen Abschluss als diplomierte Pflegefachperson HF/FH und bringen mehrjährige Berufserfahrung in der psychiatrischen Pflege mit\n\n- Sie bringen idealerweise Führungserfahrung sowie eine abgeschlossene Führungsausbildung mit oder sind bereit, diese zu absolvieren\n\n- Sie zeichnen sich durch ausgeprägte soziale Kompetenzen aus und schätzen die interprofessionelle Zusammenarbeit\n\n- Sie kommunizieren klar, sicher und wertschätzend\n\n- Sie handeln ziel- und lösungsorientiert und verfügen über ausgeprägtes organisatorisches Geschick\n\n- Sie überzeugen durch hohe Fach- und Sozialkompetenz und bringen Kenntnisse im Qualitätsmanagement mit\n\nWir bieten Ihnen:\n- Sie übernehmen eine abwechslungsreiche und verantwortungsvolle Tätigkeit\n\n- Eine vielfältige und kooperative Zusammenarbeit mit allen Berufsgruppen auf sämtlichen Stufen\n\n- Mit Teilzeitarbeitsmodellen, regelmässigen Arbeitszeiten von Montag bis Freitag und unbezahlten Urlauben eine optimale Work-Life-Balance\n\n- Sie profitieren von fortschrittlichen Arbeitsbedingungen (Überdurchschnittliche Sozialleistungen, Ferienguthaben von mindestens 30 Tagen)\n\n- Nutzen Sie unser internes Fort- und Weiterbildungsangebot – wir unterstützen auch Ihre externen Fortbildungsanliegen",
       "descriptionByLocale": {
-        "de": "Ihre Umgebung:\nIhr zukünftiger Arbeitsplatz ist das Psychiatriezentrum Nordbünden. Dieses bietet ambulante psychiatrische Behandlungen sowie tagesklinische Angebote für Erwachsene an. Das Psychiatrie-Zentrum Nordbünden umfasst zwei Tageskliniken mit Standorten in Chur und Thusis sowie zwei Ambulatorien in Chur und Cazis.\n\nIhre Aufgaben:\n- Sie übernehmen die fachliche, personelle und organisatorische Führung der allgemeinpsychiatrischen Tagesklinik\n\n- Sie gewährleisten eine professionelle, individuelle und patientenzentrierte Pflege und Betreuung\n\n- Sie wirken an der Behandlungsplanung mit und arbeiten im Bezugspflegesystem\n\n- Sie gestalten das milieutherapeutische Angebot mit und übernehmen die Leitung therapeutischer Einzel- und Gruppenangebote\n\n- Sie fördern eine wertschätzende interprofessionelle Zusammenarbeit und vernetzen sich mit externen Behandlungspartnern\n\n- Sie sichern und entwickeln die Pflegequalität sowie die Standards und Prozesse kontinuierlich weiter\n\n- Sie begleiten Veränderungs- und Entwicklungsprozesse und wirken an der Umsetzung der Unternehmens- und Prozessziele mit\n\nUnser Anforderungsprofil:\n- Sie verfügen über einen Abschluss als diplomierte Pflegefachperson HF/FH und bringen mehrjährige Berufserfahrung in der psychiatrischen Pflege mit\n\n- Sie bringen idealerweise Führungserfahrung sowie eine abgeschlossene Führungsausbildung mit oder sind bereit, diese zu absolvieren\n\n- Sie zeichnen sich durch ausgeprägte soziale Kompetenzen aus und schätzen die interprofessionelle Zusammenarbeit\n\n- Sie kommunizieren klar, sicher und wertschätzend\n\n- Sie handeln ziel- und lösungsorientiert und verfügen über ausgeprägtes organisatorisches Geschick\n\n- Sie überzeugen durch hohe Fach- und Sozialkompetenz und bringen Kenntnisse im Qualitätsmanagement mit\n\nWir bieten Ihnen:\n- Sie übernehmen eine abwechslungsreiche und verantwortungsvolle Tätigkeit\n\n- Eine vielfältige und kooperative Zusammenarbeit mit allen Berufsgruppen auf sämtlichen Stufen\n\n- Mit Teilzeitarbeitsmodellen, regelmässigen Arbeitszeiten von Montag bis Freitag und unbezahlten Urlauben eine optimale Work-Life-Balance\n\n- Sie profitieren von fortschrittlichen Arbeitsbedingungen (Überdurchschnittliche Sozialleistungen, Ferienguthaben von mindestens 30 Tagen)\n\n- Nutzen Sie unser internes Fort- und Weiterbildungsangebot – wir unterstützen auch Ihre externen Fortbildungsanliegen",
         "it": "I dintorni:\nIl suo futuro posto di lavoro è il Psychiatry Center Nordbünden. Offre trattamenti psichiatrici ambulatoriale e servizi clinici giornalieri per gli adulti. Il Nordbünden Psychiatry Center comprende due cliniche diurne con sedi a Chur e Sois e due ambulatorie a Chur e Cazis.\n\nI loro compiti:\n- Prenderai il sopravvento professionale, personale e gestione organizzativa della clinica psichiatrica generale\n\n- Garantiscono la cura e la cura professionale, individuale e paziente\n\n- Partecipano alla pianificazione del trattamento e lavorano nel sistema di assistenza di riferimento\n\n- Aiuta a modellare l'offerta milieutherapeutica e a prendere il controllo della gestione delle offerte terapeutiche individuali e di gruppo\n\n- Promuovi una cooperazione interprofessionale apprezzata e una rete con partner esterni di trattamento\n\n- Garantiscono e sviluppano continuamente la qualità della cura e gli standard e i processi\n\n- Essi accompagnano i processi di cambiamento e sviluppo e partecipano all'attuazione degli obiettivi aziendali e di processo\n\nIl nostro profilo di requisito:\n- Hai una laurea in infermiera qualificata HF/FH e hanno diversi anni di esperienza professionale nella cura psichiatrica\n\n- Idealmente, avrete esperienza di leadership e formazione di leadership completata o sono pronti a completarlo.\n\n- Sono caratterizzate da forti competenze sociali e apprezzano la cooperazione interprofessionale.\n\n- Si comunica chiaramente, in modo sicuro e con apprezzamento\n\n- Agisci obiettivo e soluzione orientata e hai una forte abilità organizzativa\n\n- Convincono attraverso alta competenza professionale e sociale e portano la conoscenza nella gestione della qualità\n\nVi offriamo:\n- Si assume un'attività varia e responsabile\n\n- Una cooperazione diversificata e cooperativa con tutti i gruppi professionali a tutti i livelli\n\n- Con modelli di lavoro part-time, orari di lavoro regolari dal lunedì al venerdì e vacanze non retribuite, un ottimo equilibrio tra vita lavorativa\n\n- Si beneficiano di condizioni di lavoro progressive (sopra i benefici sociali medi, crediti per le vacanze di almeno 30 giorni)\n\n- Approfittate della nostra offerta di formazione interna e di ulteriore formazione – supportiamo anche le vostre esigenze di formazione esterna",
         "en": "Your surroundings:\nHer future workplace is the Psychiatry Center Nordbünden. It offers outpatient psychiatric treatments as well as daily clinical services for adults. The Nordbünden Psychiatry Center comprises two day clinics with locations in Chur and Thusis as well as two ambulatories in Chur and Cazis.\n\nTheir tasks:\n- You will take over the professional, personnel and organizational management of the general psychiatric day clinic\n\n- They ensure professional, individual and patient-centered care and care\n\n- They participate in treatment planning and work in the reference care system\n\n- You help shape the milieutherapeutic offer and take over the management of therapeutic individual and group offers\n\n- You promote an appreciative interprofessional cooperation and network with external treatment partners\n\n- They ensure and continuously develop the quality of care as well as the standards and processes\n\n- They accompany change and development processes and participate in the implementation of company and process goals\n\nOur requirement profile:\n- You have a degree as a qualified nurse HF/FH and have several years of professional experience in psychiatric care\n\n- Ideally, you will have leadership experience as well as completed leadership training or are ready to complete it.\n\n- They are characterised by strong social skills and appreciate interprofessional cooperation.\n\n- You communicate clearly, securely and appreciatively\n\n- You act goal- and solution-oriented and have a strong organizational skill\n\n- They convince through high professional and social competence and bring knowledge in quality management\n\nWe offer you:\n- You take on a varied and responsible activity\n\n- A diverse and cooperative cooperation with all professional groups at all levels\n\n- With part-time work models, regular working hours from Monday to Friday and unpaid holidays, an optimal work-life balance\n\n- You benefit from progressive working conditions (above average social benefits, holiday credits of at least 30 days)\n\n- Take advantage of our internal training and further education offer – we also support your external training needs",
+        "de": "Ihre Umgebung:\nIhr zukünftiger Arbeitsplatz ist das Psychiatriezentrum Nordbünden. Dieses bietet ambulante psychiatrische Behandlungen sowie tagesklinische Angebote für Erwachsene an. Das Psychiatrie-Zentrum Nordbünden umfasst zwei Tageskliniken mit Standorten in Chur und Thusis sowie zwei Ambulatorien in Chur und Cazis.\n\nIhre Aufgaben:\n- Sie übernehmen die fachliche, personelle und organisatorische Führung der allgemeinpsychiatrischen Tagesklinik\n\n- Sie gewährleisten eine professionelle, individuelle und patientenzentrierte Pflege und Betreuung\n\n- Sie wirken an der Behandlungsplanung mit und arbeiten im Bezugspflegesystem\n\n- Sie gestalten das milieutherapeutische Angebot mit und übernehmen die Leitung therapeutischer Einzel- und Gruppenangebote\n\n- Sie fördern eine wertschätzende interprofessionelle Zusammenarbeit und vernetzen sich mit externen Behandlungspartnern\n\n- Sie sichern und entwickeln die Pflegequalität sowie die Standards und Prozesse kontinuierlich weiter\n\n- Sie begleiten Veränderungs- und Entwicklungsprozesse und wirken an der Umsetzung der Unternehmens- und Prozessziele mit\n\nUnser Anforderungsprofil:\n- Sie verfügen über einen Abschluss als diplomierte Pflegefachperson HF/FH und bringen mehrjährige Berufserfahrung in der psychiatrischen Pflege mit\n\n- Sie bringen idealerweise Führungserfahrung sowie eine abgeschlossene Führungsausbildung mit oder sind bereit, diese zu absolvieren\n\n- Sie zeichnen sich durch ausgeprägte soziale Kompetenzen aus und schätzen die interprofessionelle Zusammenarbeit\n\n- Sie kommunizieren klar, sicher und wertschätzend\n\n- Sie handeln ziel- und lösungsorientiert und verfügen über ausgeprägtes organisatorisches Geschick\n\n- Sie überzeugen durch hohe Fach- und Sozialkompetenz und bringen Kenntnisse im Qualitätsmanagement mit\n\nWir bieten Ihnen:\n- Sie übernehmen eine abwechslungsreiche und verantwortungsvolle Tätigkeit\n\n- Eine vielfältige und kooperative Zusammenarbeit mit allen Berufsgruppen auf sämtlichen Stufen\n\n- Mit Teilzeitarbeitsmodellen, regelmässigen Arbeitszeiten von Montag bis Freitag und unbezahlten Urlauben eine optimale Work-Life-Balance\n\n- Sie profitieren von fortschrittlichen Arbeitsbedingungen (Überdurchschnittliche Sozialleistungen, Ferienguthaben von mindestens 30 Tagen)\n\n- Nutzen Sie unser internes Fort- und Weiterbildungsangebot – wir unterstützen auch Ihre externen Fortbildungsanliegen",
         "fr": "Votre environnement:\nSon futur lieu de travail est le Centre de psychiatrie Nordbünden. Il offre des traitements psychiatriques ambulatoires ainsi que des services cliniques quotidiens pour les adultes. Le Centre de psychiatrie de Nordbünden comprend deux cliniques de jour avec des emplacements à Chur et This ainsi que deux ambulatoires à Chur et Cazis.\n\nLeurs tâches:\n- Vous prendrez en charge le professionnel, le personnel et la gestion organisationnelle de la clinique psychiatrique générale de jour\n\n- Ils assurent des soins professionnels, individuels et axés sur le patient\n\n- Ils participent à la planification du traitement et travaillent dans le système de soins de référence\n\n- Vous aidez à façonner l'offre milieuthérapeutique et à prendre en charge la gestion des offres individuelles et collectives thérapeutiques\n\n- Vous faites la promotion d'une coopération interprofessionnelle reconnaissante et d'un réseau avec des partenaires de traitement externes\n\n- Ils assurent et développent en permanence la qualité des soins ainsi que les normes et les processus\n\n- Ils accompagnent les processus de changement et de développement et participent à la mise en œuvre des objectifs de l'entreprise et des processus\n\nNotre profil d'exigence:\n- Vous avez un diplôme d'infirmière diplômée HF/FH et avez plusieurs années d'expérience professionnelle en soins psychiatriques\n\n- Idéalement, vous aurez une expérience de leadership ainsi qu'une formation en leadership terminée ou êtes prêt à l'achever.\n\n- Ils se caractérisent par de solides compétences sociales et apprécient la coopération interprofessionnelle.\n\n- Vous communiquez clairement, en toute sécurité et avec reconnaissance\n\n- Vous agissez en fonction de vos objectifs et de vos solutions et vous avez une solide compétence organisationnelle.\n\n- Ils convainquent par une haute compétence professionnelle et sociale et apportent des connaissances en gestion de la qualité\n\nNous vous offrons:\n- Vous prenez une activité variée et responsable\n\n- Une coopération diversifiée et coopérative avec tous les groupes professionnels à tous les niveaux\n\n- Avec des modèles de travail à temps partiel, des horaires de travail réguliers du lundi au vendredi et des congés non payés, un équilibre optimal entre le travail et la vie personnelle\n\n- Vous bénéficiez de conditions de travail progressives (au-dessus des prestations sociales moyennes, crédits de vacances d'au moins 30 jours)\n\n- Profitez de notre offre de formation interne et de formation continue – nous soutenons également vos besoins de formation externe"
       },
       "location": "Thusis",
@@ -4368,7 +4260,7 @@
       "url": "https://www.pdgr.ch/jobs/pflege-standortleitung/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T21:25:55.860Z",
+      "crawledAt": "2026-11-06T09:56:59.351Z",
       "addressLocality": "Thusis",
       "postalCode": "7430",
       "addressCountry": "CH",
@@ -4385,14 +4277,16 @@
       "postingDateSource": "reported",
       "applyUrl": "https://www.pdgr.ch/jobs/pflege-standortleitung/",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "department": "Erwachsenenpsychiatrie",
       "facility": "Psychiatrie-Zentrum Nordbünden",
       "pensumMin": 80,
       "pensumMax": 90,
       "pensum": "80 - 90%",
+      "previousSlugs": [
+        "pflege-standortleitung-pdgr-ch",
+        "pflege-standortleitung-psychiatrische-dienste-graubunden-thusis"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "pflege-standortleitung-pdgr-ch",
@@ -4405,10 +4299,7 @@
           "pflege-standortleitung-psychiatrische-dienste-graubunden-thusis"
         ]
       },
-      "previousSlugs": [
-        "pflege-standortleitung-pdgr-ch",
-        "pflege-standortleitung-psychiatrische-dienste-graubunden-thusis"
-      ],
+      "firstSeenAt": "2026-11-05T21:25:55.860Z",
       "salaryMin": 81500,
       "salaryMax": 114000,
       "salarySource": "estimated",
@@ -4425,9 +4316,8 @@
       "addressRegion": "GR",
       "streetAddress": "Thusis",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T21:25:55.860Z",
-      "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-05T21:25:55.860Z"
+      "validThrough": "2027-02-03T09:56:59.351Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }

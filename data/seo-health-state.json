@@ -1,32 +1,7 @@
 {
   "schemaVersion": 1,
-  "lastRunAt": "2026-11-05T12:28:32.873Z",
-  "findings": {
-    "jobposting-missing|https://frontaliereticino.ch/de/jobs-in-genf/kostenpreismanager-m-w-rolex-geneve/": {
-      "code": "jobposting-missing",
-      "url": "https://frontaliereticino.ch/de/jobs-in-genf/kostenpreismanager-m-w-rolex-geneve/",
-      "consecutiveRuns": 2,
-      "firstSeenAt": "2026-11-04T12:14:42.606Z",
-      "lastSeenAt": "2026-11-05T12:28:32.873Z",
-      "detail": null
-    },
-    "canonical-missing|https://frontaliereticino.ch/prezzi-benzina/italia/travedona-monate/stazioni/sommese-petroli-trieste-213/": {
-      "code": "canonical-missing",
-      "url": "https://frontaliereticino.ch/prezzi-benzina/italia/travedona-monate/stazioni/sommese-petroli-trieste-213/",
-      "consecutiveRuns": 2,
-      "firstSeenAt": "2026-11-04T12:14:42.606Z",
-      "lastSeenAt": "2026-11-05T12:28:32.873Z",
-      "detail": null
-    },
-    "sitemap-noindex|https://frontaliereticino.ch/prezzi-benzina/italia/travedona-monate/stazioni/sommese-petroli-trieste-213/": {
-      "code": "sitemap-noindex",
-      "url": "https://frontaliereticino.ch/prezzi-benzina/italia/travedona-monate/stazioni/sommese-petroli-trieste-213/",
-      "consecutiveRuns": 2,
-      "firstSeenAt": "2026-11-04T12:14:42.606Z",
-      "lastSeenAt": "2026-11-05T12:28:32.873Z",
-      "detail": null
-    }
-  },
-  "cleanRuns": 0,
-  "lastActionable": true
+  "lastRunAt": "2026-11-06T12:12:14.432Z",
+  "findings": {},
+  "cleanRuns": 1,
+  "lastActionable": false
 }
