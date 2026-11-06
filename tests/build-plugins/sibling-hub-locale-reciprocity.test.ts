@@ -19,7 +19,7 @@
  * sitemap-seo-hubs.xml — the whole file is expected to survive the
  * sanitizer completely unchanged.
  */
-import { afterEach, describe, expect, it } from 'vitest';
+import { afterEach, describe, expect, it, vi } from 'vitest';
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
@@ -63,6 +63,8 @@ async function runCloseBundle(plugin: Plugin): Promise<void> {
 }
 
 afterEach(() => {
+  vi.unstubAllEnvs();
+  vi.resetModules();
   while (tempRoots.length) {
     const dir = tempRoots.pop()!;
     fs.rmSync(dir, { recursive: true, force: true });
@@ -135,6 +137,28 @@ describe('sibling build-plugins — EN/DE/FR sitemap entries reciprocal, x-defau
     await runCloseBundle(jobSectorPagesPlugin(tempRoot));
     const xml = fs.readFileSync(path.join(tempRoot, 'dist', 'sitemap-sector.xml'), 'utf-8');
     assertFullyReciprocalFourLocaleSitemap('sitemap-sector.xml', xml);
+  });
+
+  it('jobSectorPagesPlugin: the IT shard lists all sibling-locale pages without rendering them locally', async () => {
+    vi.stubEnv('BUILD_LOCALE', 'it');
+    vi.resetModules();
+    const { jobSectorPagesPlugin: makePlugin, SECTOR_HUB_KEYS } = await import('../../build-plugins/jobSectorPagesPlugin');
+    const tempRoot = makeTempRoot(true);
+    await runCloseBundle(makePlugin(tempRoot));
+    const xml = fs.readFileSync(path.join(tempRoot, 'dist', 'sitemap-sector.xml'), 'utf-8');
+    assertFullyReciprocalFourLocaleSitemap('sitemap-sector.xml', xml);
+
+    const blocks = parseUrlBlocks(xml);
+    expect(blocks).toHaveLength(SECTOR_HUB_KEYS.length * 4);
+    const populations = { it: 0, en: 0, de: 0, fr: 0 };
+    for (const block of blocks) {
+      const pathname = new URL(locOf(block)).pathname;
+      const locale = /^\/(en|de|fr)\//.exec(pathname)?.[1] as 'en' | 'de' | 'fr' | undefined;
+      populations[locale ?? 'it'] += 1;
+      const page = path.join(tempRoot, 'dist', pathname.replace(/^\/+|\/+$/g, ''), 'index.html');
+      expect(fs.existsSync(page), pathname).toBe(locale === undefined);
+    }
+    expect(populations).toEqual(Object.fromEntries(['it', 'en', 'de', 'fr'].map((locale) => [locale, SECTOR_HUB_KEYS.length])));
   });
 
   it('nursingLandingsPlugin: sitemap-nursing.xml (no data/jobs.json — empty-state pages)', async () => {

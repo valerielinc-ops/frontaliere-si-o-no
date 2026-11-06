@@ -1,7 +1,7 @@
 {
   "crawlerKey": "nant",
-  "assembledAt": "2026-11-05T21:24:49.813Z",
-  "runId": "42109233596",
+  "assembledAt": "2026-11-06T09:14:24.435Z",
+  "runId": "42192263599",
   "jobs": [
     {
       "id": "nant-a5ce73bd8694",
@@ -35,7 +35,7 @@
       "url": "https://app.beehire.com/invite/bIZr6lj9a",
       "source": "Fondation de Nant Dedicated Parser (Beehire JSON)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-05T21:24:40.945Z",
+      "crawledAt": "2026-11-06T09:14:15.318Z",
       "addressLocality": "Corsier-sur-Vevey",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -79,7 +79,7 @@
       },
       "streetAddress": "Corsier-sur-Vevey",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-05T21:24:40.945Z",
+      "validThrough": "2026-12-06T09:14:15.318Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -88,7 +88,7 @@
       "slugByLocale": {
         "it": "aiuto-a-tasso-variabile-fondation-de-nant-corsier-sur-vevey",
         "en": "variable-rate-helpers-fondation-de-nant-corsier-sur-vevey",
-        "de": "helfer-mit-variabler-rate-fondation-de-nant-corsier-sur-vevey",
+        "de": "pflegehilfskrafte-mit-variablem-beschaftigungsgrad-fondation-de-nant-corsier-sur-vevey",
         "fr": "aide-soignant-e-s-a-taux-variable-nant-corsier-sur-vevey"
       },
       "company": "Fondation de Nant",
@@ -114,7 +114,7 @@
       "url": "https://app.beehire.com/invite/ERrUfAGgv",
       "source": "Fondation de Nant Dedicated Parser (Beehire JSON)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-05T21:24:40.944Z",
+      "crawledAt": "2026-11-06T09:14:15.316Z",
       "addressLocality": "Corsier-sur-Vevey",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -137,7 +137,7 @@
       "previousSlugs": [
         "aide-soignant-e-s-a-taux-variable-nant-corsier-sur-vevey",
         "aide-soignant-e-s-a-taux-variable-fondation-de-nant-corsier-sur-vevey",
-        "pflegehilfskrafte-mit-variablem-beschaftigungsgrad-fondation-de-nant-corsier-sur-vevey"
+        "helfer-mit-variabler-rate-fondation-de-nant-corsier-sur-vevey"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -145,7 +145,7 @@
         ],
         "de": [
           "aide-soignant-e-s-a-taux-variable-fondation-de-nant-corsier-sur-vevey",
-          "pflegehilfskrafte-mit-variablem-beschaftigungsgrad-fondation-de-nant-corsier-sur-vevey"
+          "helfer-mit-variabler-rate-fondation-de-nant-corsier-sur-vevey"
         ]
       },
       "firstSeenAt": "2026-09-19T22:48:27.676Z",
@@ -164,7 +164,7 @@
       },
       "streetAddress": "Corsier-sur-Vevey",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-19T21:24:40.944Z",
+      "validThrough": "2026-12-19T09:14:15.316Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -198,7 +198,7 @@
       "url": "https://app.beehire.com/invite/GhP4UCz1f",
       "source": "Fondation de Nant Dedicated Parser (Beehire JSON)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-05T21:24:40.943Z",
+      "crawledAt": "2026-11-06T09:14:15.312Z",
       "addressLocality": "Corsier-sur-Vevey",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -248,77 +248,7 @@
       },
       "streetAddress": "Corsier-sur-Vevey",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-06T21:24:40.943Z",
-      "validThroughSource": "last-observed-window"
-    },
-    {
-      "id": "nant-c25894a15447",
-      "slug": "stagiaire-pre-heg-a-100-nant-corsier-sur-vevey",
-      "slugByLocale": {
-        "it": "stagiaire-pre-heg-a-100-nant-corsier-sur-vevey",
-        "en": "stagiaire-pre-heg-a-100-nant-corsier-sur-vevey",
-        "de": "stagiaire-pre-heg-a-100-nant-corsier-sur-vevey",
-        "fr": "stagiaire-pre-heg-a-100-nant-corsier-sur-vevey"
-      },
-      "company": "Fondation de Nant",
-      "companyKey": "nant",
-      "companyDomain": "nant.ch",
-      "title": "Stagiaire pré-HEG à 100%",
-      "titleByLocale": {
-        "it": "Interno pre-HEG 100%",
-        "en": "100% pre-HEG intern",
-        "de": "100% Pre-HEG Intern",
-        "fr": "Stagiaire pré-HEG à 100%"
-      },
-      "description": "Envie de vous lancer dans le monde professionnel ? Institution de formation de renom, la Fondation de Nant met au concours un place de\n\nStagiaire pré-HEG à 100%\n\nLA MISSION\n La Fondation de Nant est une institution privée reconnue d’intérêt public, mandaté par l’Etat pour organiser et dispenser les soins psychiatriques dans la région de l’Est vaudois. Afin de mener à bien cette mission, la Fondation peut compter sur l’appui de son service d’Etat-Major en étroite collaboration avec divers corps de métier, impatients de découvrir leur stagiaire !\n\nNOUS OFFRONS\n Rejoindre la Fondation de Nant, c'est intégrer une institution privée reconnue d'intérêt public , chargée par l'État d'organiser et de dispenser les soins psychiatriques dans la région de l'Est vaudois . \n• Nous offrons un environnement d’apprentissage stimulant et varié avec l’opportunité d’être partie prenante d’un projet institutionnel. La Fondation de Nant, au travers de ce stage d’une année, vous offre la possibilité de découvrir un métier, de vous essayer à quelque chose de différent et de plonger dans les coulisses d’un hôpital psychiatrique.\n\nNOUS CHERCHONS\n Une personne curieuse, autonome et à l’aise avec le contact humain, titulaire d'un titre de degré secondaire II (maturité gymnasiale, professionnelle ou équivalent) et souhaitant effectuer son année de pratique préalable à l'entrée en Bachelor HEG. De plus nous recherchons une personne ayant un bon niveau scolaire ainsi qu’une bonne maîtrise de la langue française. Finalement nous souhaitons trouver avant tout une personne motivée qui a envie d’apprendre et d’apporter sa pierre à l’édifice de l’institution.\n\nEntrée en fonction\n Dès que possible\n\nType de contrat\n\nCDD d'une durée d'1 an\n\nLieu de travail\n Corsier-sur-Vevey\n\nRenseignements auprès de\n Luana Volpi, Stagiaire – Psychologue du travail,\n Au 021 965 70 33 ou luana.volpi@nant.ch\n\nDans la mesure où toutes nos candidatures sont traitées de manière électronique, nous vous remercions de postuler exclusivement par internet , en nous adressant au minimum, un CV accompagné d’une lettre de motivation\n Plus d’informations sur www.nant.ch\n\nFondation de Nant — Établissement psychiatrique au cœur du canton de Vaud, sites de Corsier-sur-Vevey et SPAUL (Lausanne).",
-      "descriptionByLocale": {
-        "it": "Vuoi entrare nel mondo professionale? Un rinomato istituto di formazione, la Fondazione Nant pone un posto per\n\nInterno pre-HEG 100%\n\nLA MISSIONE\nLa Fondazione Nant è un istituto privato riconosciuto nell'interesse pubblico, incaricato dallo Stato di organizzare e fornire assistenza psichiatrica nella regione orientale di Vaud. Al fine di svolgere questa missione, la Fondazione può contare sul sostegno del suo servizio Stato-Major in stretta collaborazione con vari mestieri, desiderosi di scoprire il loro tirocinante!\n\nUFFICIO\nPartecipare alla Fondazione Nant è l'integrazione di una riconosciuta istituzione privata di interesse pubblico, incaricata dallo Stato di organizzare e fornire cure psichiatriche nella regione orientale di Vaudois.\n• Offriamo un ambiente di apprendimento stimolante e vario con l'opportunità di essere coinvolti in un progetto istituzionale. La Fondazione Nant, attraverso questo stage di un anno, vi offre l'opportunità di scoprire una professione, provare qualcosa di diverso e immergersi dietro le quinte di un ospedale psichiatrico.\n\nNoi vediamo\nUna persona curiosa, indipendente e confortevole con contatto umano, che detiene una laurea secondaria II (gymnasial, professionale o equivalente) e desidera completare il suo anno di pratica prima di entrare in HEG Bachelor. Inoltre, stiamo cercando una persona con un buon livello di istruzione e un buon comando della lingua francese. Infine, vogliamo trovare una persona motivata che vuole imparare e portare la sua pietra all'edificio dell'istituzione.\n\nEntrata in servizio\nNon appena possibile\n\nTipo di contratto\n\nCSD di 1 anno\n\nLuogo di lavoro\nCorsier-sur-Vevey\n\nInformazioni da\nLuana Volpi, Interno – Psicologo del lavoro,\nA 021 965 70 33 o luana.volpi@nant.ch\n\nNella misura in cui tutte le nostre applicazioni sono elaborate elettronicamente, vorremmo ringraziarvi per aver applicato esclusivamente via Internet, inviandoci almeno un CV accompagnato da una lettera di presentazione.\nMaggiori informazioni su www.nant.ch\n\nFondazione Nant — Istituzione psichiatrica nel cuore del cantone di Vaud, siti di Corsier-sur-Vevey e SPAUL (Lausanne).",
-        "en": "Want to get into the professional world? A renowned training institution, the Nant Foundation places a place for\n\n100% pre-HEG intern\n\nTHE MISSION\nThe Nant Foundation is a private institution recognized in the public interest, mandated by the State to organize and provide psychiatric care in the eastern Vaud region. In order to carry out this mission, the Foundation can count on the support of its State-Major service in close collaboration with various trades, eager to discover their intern!\n\nWE OFFER\nJoining the Nant Foundation is the integration of a recognized private institution of public interest, mandated by the State to organize and provide psychiatric care in the Vaudois East Region.\n• We offer a stimulating and varied learning environment with the opportunity to be involved in an institutional project. The Nant Foundation, through this one-year internship, offers you the opportunity to discover a profession, try something different and dive behind the scenes of a psychiatric hospital.\n\nWE SEEK\nA curious, independent and comfortable person with human contact, who holds a secondary degree II (gymnasial, professional or equivalent) and wishes to complete his year of practice before entering the HEG Bachelor. In addition, we are looking for a person with a good level of education and a good command of the French language. Finally, we want to find a motivated person who wants to learn and bring his stone to the institution building.\n\nEntry on duty\nAs soon as possible\n\nType of contract\n\n1-year CSD\n\nPlace of work\nCorsier-sur-Vevey\n\nInformation from\nLuana Volpi, Intern – Work Psychologist,\nAt 021 965 70 33 or luana.volpi@nant.ch\n\nTo the extent that all our applications are processed electronically, we would like to thank you for applying exclusively via the Internet, by sending us at least a CV accompanied by a cover letter.\nMore information on www.nant.ch\n\nNant Foundation — Psychiatric institution in the heart of the canton of Vaud, sites of Corsier-sur-Vevey and SPAUL (Lausanne).",
-        "de": "Möchten Sie in die Berufswelt einsteigen? Eine renommierte Ausbildungseinrichtung, die Nant Foundation stellt einen Platz für\n\n100% Pre-HEG Intern\n\nDIE EINLEITUNG\nDie Nant-Stiftung ist eine im öffentlichen Interesse anerkannte private Einrichtung, die vom Staat beauftragt wird, psychiatrische Versorgung in der östlichen Waadtregion zu organisieren und bereitzustellen. Um diese Mission durchzuführen, kann die Stiftung auf die Unterstützung ihres Staats-Major-Dienstes in enger Zusammenarbeit mit verschiedenen Berufen zählen, die darauf bedacht sind, ihren Praktikanten zu entdecken!\n\nWIR ANGEBOT\nDer Beitritt zur Nant-Stiftung ist die Integration einer anerkannten privaten Institution von öffentlichem Interesse, die vom Staat beauftragt wird, psychiatrische Versorgung in der Region Waadtois Ost zu organisieren und bereitzustellen.\n• Wir bieten eine anregende und abwechslungsreiche Lernumgebung mit der Möglichkeit, sich an einem institutionellen Projekt zu beteiligen. Die Nant Foundation bietet Ihnen durch dieses einjährige Praktikum die Möglichkeit, einen Beruf zu entdecken, etwas anderes auszuprobieren und hinter die Kulissen einer psychiatrischen Klinik zu tauchen.\n\nWIR SEHEN\nEine neugierige, unabhängige und komfortable Person mit menschlichem Kontakt, die einen Sekundarabschluss II (Gymnasial, beruflich oder gleichwertig) hat und ihr Praxisjahr vor dem Eintritt in den HEG Bachelor abschließen möchte. Darüber hinaus suchen wir eine Person mit einem guten Bildungsniveau und einer guten Beherrschung der französischen Sprache. Schließlich wollen wir eine motivierte Person finden, die lernen und seinen Stein in das Institutionsgebäude bringen möchte.\n\nEingangszollstelle\nSo bald wie möglich\n\nArt des Vertrags\n\nEinjähriges CSD\n\nArbeitsort\nCorsier-sur-Vevey\n\nInformationen von\nLuana Volpi, Praktikantin – Arbeitspsychologin,\nUnter 021 965 70 33 oder luana.volpi@nant.ch\n\nSoweit alle unsere Bewerbungen elektronisch bearbeitet werden, danken wir Ihnen für Ihre Bewerbung ausschließlich über das Internet, indem Sie uns mindestens einen Lebenslauf mit Anschreiben zusenden.\nMehr Informationen auf www.nant.ch\n\nNant Foundation — Psychiatrische Einrichtung im Herzen des Kantons Waadt, Standorte Corsier-sur-Vevey und SPAUL (Lausanne).",
-        "fr": "Envie de vous lancer dans le monde professionnel ? Institution de formation de renom, la Fondation de Nant met au concours un place de\n\nStagiaire pré-HEG à 100%\n\nLA MISSION\nLa Fondation de Nant est une institution privée reconnue d’intérêt public, mandaté par l’Etat pour organiser et dispenser les soins psychiatriques dans la région de l’Est vaudois. Afin de mener à bien cette mission, la Fondation peut compter sur l’appui de son service d’Etat-Major en étroite collaboration avec divers corps de métier, impatients de découvrir leur stagiaire !\n\nNOUS OFFRONS\nRejoindre la Fondation de Nant, c'est intégrer une institution privée reconnue d'intérêt public , chargée par l'État d'organiser et de dispenser les soins psychiatriques dans la région de l'Est vaudois . \n• Nous offrons un environnement d’apprentissage stimulant et varié avec l’opportunité d’être partie prenante d’un projet institutionnel. La Fondation de Nant, au travers de ce stage d’une année, vous offre la possibilité de découvrir un métier, de vous essayer à quelque chose de différent et de plonger dans les coulisses d’un hôpital psychiatrique.\n\nNOUS CHERCHONS\nUne personne curieuse, autonome et à l’aise avec le contact humain, titulaire d'un titre de degré secondaire II (maturité gymnasiale, professionnelle ou équivalent) et souhaitant effectuer son année de pratique préalable à l'entrée en Bachelor HEG. De plus nous recherchons une personne ayant un bon niveau scolaire ainsi qu’une bonne maîtrise de la langue française. Finalement nous souhaitons trouver avant tout une personne motivée qui a envie d’apprendre et d’apporter sa pierre à l’édifice de l’institution.\n\nEntrée en fonction\nDès que possible\n\nType de contrat\n\nCDD d'une durée d'1 an\n\nLieu de travail\nCorsier-sur-Vevey\n\nRenseignements auprès de\nLuana Volpi, Stagiaire – Psychologue du travail,\nAu 021 965 70 33 ou luana.volpi@nant.ch\n\nDans la mesure où toutes nos candidatures sont traitées de manière électronique, nous vous remercions de postuler exclusivement par internet , en nous adressant au minimum, un CV accompagné d’une lettre de motivation\nPlus d’informations sur www.nant.ch\n\nFondation de Nant — Établissement psychiatrique au cœur du canton de Vaud, sites de Corsier-sur-Vevey et SPAUL (Lausanne)."
-      },
-      "location": "Corsier-sur-Vevey",
-      "canton": "VD",
-      "url": "https://app.beehire.com/invite/PzPmrtqqv",
-      "source": "Fondation de Nant Dedicated Parser (Beehire JSON)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-11-05T21:24:40.942Z",
-      "addressLocality": "Corsier-sur-Vevey",
-      "addressRegion": "VD",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "1804",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "intern",
-      "sector": "Santé mentale / Psychiatrie",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://app.beehire.com/invite/PzPmrtqqv",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "careerSiteUrl": "https://nant.ch/carrieres/",
-      "firstSeenAt": "2026-10-27T21:18:47.211Z",
-      "salaryMin": 77500,
-      "salaryMax": 108000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 77500,
-          "maxValue": 108000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Corsier-sur-Vevey",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-25T21:24:40.942Z",
+      "validThrough": "2027-01-07T09:14:15.312Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -353,7 +283,7 @@
       "url": "https://app.beehire.com/invite/vOH7Zsw7M",
       "source": "Fondation de Nant Dedicated Parser (Beehire JSON)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-05T21:24:40.942Z",
+      "crawledAt": "2026-11-06T09:14:15.311Z",
       "addressLocality": "Corsier-sur-Vevey",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -405,7 +335,77 @@
       },
       "streetAddress": "Corsier-sur-Vevey",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-10T21:24:40.942Z",
+      "validThrough": "2027-01-10T09:14:15.311Z",
+      "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "nant-c25894a15447",
+      "slug": "stagiaire-pre-heg-a-100-nant-corsier-sur-vevey",
+      "slugByLocale": {
+        "it": "stagiaire-pre-heg-a-100-nant-corsier-sur-vevey",
+        "en": "stagiaire-pre-heg-a-100-nant-corsier-sur-vevey",
+        "de": "stagiaire-pre-heg-a-100-nant-corsier-sur-vevey",
+        "fr": "stagiaire-pre-heg-a-100-nant-corsier-sur-vevey"
+      },
+      "company": "Fondation de Nant",
+      "companyKey": "nant",
+      "companyDomain": "nant.ch",
+      "title": "Stagiaire pré-HEG à 100%",
+      "titleByLocale": {
+        "it": "Interno pre-HEG 100%",
+        "en": "100% pre-HEG intern",
+        "de": "100% Pre-HEG Intern",
+        "fr": "Stagiaire pré-HEG à 100%"
+      },
+      "description": "Envie de vous lancer dans le monde professionnel ? Institution de formation de renom, la Fondation de Nant met au concours un place de\n\nStagiaire pré-HEG à 100%\n\nLA MISSION\n La Fondation de Nant est une institution privée reconnue d’intérêt public, mandaté par l’Etat pour organiser et dispenser les soins psychiatriques dans la région de l’Est vaudois. Afin de mener à bien cette mission, la Fondation peut compter sur l’appui de son service d’Etat-Major en étroite collaboration avec divers corps de métier, impatients de découvrir leur stagiaire !\n\nNOUS OFFRONS\n Rejoindre la Fondation de Nant, c'est intégrer une institution privée reconnue d'intérêt public , chargée par l'État d'organiser et de dispenser les soins psychiatriques dans la région de l'Est vaudois . \n• Nous offrons un environnement d’apprentissage stimulant et varié avec l’opportunité d’être partie prenante d’un projet institutionnel. La Fondation de Nant, au travers de ce stage d’une année, vous offre la possibilité de découvrir un métier, de vous essayer à quelque chose de différent et de plonger dans les coulisses d’un hôpital psychiatrique.\n\nNOUS CHERCHONS\n Une personne curieuse, autonome et à l’aise avec le contact humain, titulaire d'un titre de degré secondaire II (maturité gymnasiale, professionnelle ou équivalent) et souhaitant effectuer son année de pratique préalable à l'entrée en Bachelor HEG. De plus nous recherchons une personne ayant un bon niveau scolaire ainsi qu’une bonne maîtrise de la langue française. Finalement nous souhaitons trouver avant tout une personne motivée qui a envie d’apprendre et d’apporter sa pierre à l’édifice de l’institution.\n\nEntrée en fonction\n Dès que possible\n\nType de contrat\n\nCDD d'une durée d'1 an\n\nLieu de travail\n Corsier-sur-Vevey\n\nRenseignements auprès de\n Luana Volpi, Stagiaire – Psychologue du travail,\n Au 021 965 70 33 ou luana.volpi@nant.ch\n\nDans la mesure où toutes nos candidatures sont traitées de manière électronique, nous vous remercions de postuler exclusivement par internet , en nous adressant au minimum, un CV accompagné d’une lettre de motivation\n Plus d’informations sur www.nant.ch\n\nFondation de Nant — Établissement psychiatrique au cœur du canton de Vaud, sites de Corsier-sur-Vevey et SPAUL (Lausanne).",
+      "descriptionByLocale": {
+        "it": "Vuoi entrare nel mondo professionale? Un rinomato istituto di formazione, la Fondazione Nant pone un posto per\n\nInterno pre-HEG 100%\n\nLA MISSIONE\nLa Fondazione Nant è un istituto privato riconosciuto nell'interesse pubblico, incaricato dallo Stato di organizzare e fornire assistenza psichiatrica nella regione orientale di Vaud. Al fine di svolgere questa missione, la Fondazione può contare sul sostegno del suo servizio Stato-Major in stretta collaborazione con vari mestieri, desiderosi di scoprire il loro tirocinante!\n\nUFFICIO\nPartecipare alla Fondazione Nant è l'integrazione di una riconosciuta istituzione privata di interesse pubblico, incaricata dallo Stato di organizzare e fornire cure psichiatriche nella regione orientale di Vaudois.\n• Offriamo un ambiente di apprendimento stimolante e vario con l'opportunità di essere coinvolti in un progetto istituzionale. La Fondazione Nant, attraverso questo stage di un anno, vi offre l'opportunità di scoprire una professione, provare qualcosa di diverso e immergersi dietro le quinte di un ospedale psichiatrico.\n\nNoi vediamo\nUna persona curiosa, indipendente e confortevole con contatto umano, che detiene una laurea secondaria II (gymnasial, professionale o equivalente) e desidera completare il suo anno di pratica prima di entrare in HEG Bachelor. Inoltre, stiamo cercando una persona con un buon livello di istruzione e un buon comando della lingua francese. Infine, vogliamo trovare una persona motivata che vuole imparare e portare la sua pietra all'edificio dell'istituzione.\n\nEntrata in servizio\nNon appena possibile\n\nTipo di contratto\n\nCSD di 1 anno\n\nLuogo di lavoro\nCorsier-sur-Vevey\n\nInformazioni da\nLuana Volpi, Interno – Psicologo del lavoro,\nA 021 965 70 33 o luana.volpi@nant.ch\n\nNella misura in cui tutte le nostre applicazioni sono elaborate elettronicamente, vorremmo ringraziarvi per aver applicato esclusivamente via Internet, inviandoci almeno un CV accompagnato da una lettera di presentazione.\nMaggiori informazioni su www.nant.ch\n\nFondazione Nant — Istituzione psichiatrica nel cuore del cantone di Vaud, siti di Corsier-sur-Vevey e SPAUL (Lausanne).",
+        "en": "Want to get into the professional world? A renowned training institution, the Nant Foundation places a place for\n\n100% pre-HEG intern\n\nTHE MISSION\nThe Nant Foundation is a private institution recognized in the public interest, mandated by the State to organize and provide psychiatric care in the eastern Vaud region. In order to carry out this mission, the Foundation can count on the support of its State-Major service in close collaboration with various trades, eager to discover their intern!\n\nWE OFFER\nJoining the Nant Foundation is the integration of a recognized private institution of public interest, mandated by the State to organize and provide psychiatric care in the Vaudois East Region.\n• We offer a stimulating and varied learning environment with the opportunity to be involved in an institutional project. The Nant Foundation, through this one-year internship, offers you the opportunity to discover a profession, try something different and dive behind the scenes of a psychiatric hospital.\n\nWE SEEK\nA curious, independent and comfortable person with human contact, who holds a secondary degree II (gymnasial, professional or equivalent) and wishes to complete his year of practice before entering the HEG Bachelor. In addition, we are looking for a person with a good level of education and a good command of the French language. Finally, we want to find a motivated person who wants to learn and bring his stone to the institution building.\n\nEntry on duty\nAs soon as possible\n\nType of contract\n\n1-year CSD\n\nPlace of work\nCorsier-sur-Vevey\n\nInformation from\nLuana Volpi, Intern – Work Psychologist,\nAt 021 965 70 33 or luana.volpi@nant.ch\n\nTo the extent that all our applications are processed electronically, we would like to thank you for applying exclusively via the Internet, by sending us at least a CV accompanied by a cover letter.\nMore information on www.nant.ch\n\nNant Foundation — Psychiatric institution in the heart of the canton of Vaud, sites of Corsier-sur-Vevey and SPAUL (Lausanne).",
+        "de": "Möchten Sie in die Berufswelt einsteigen? Eine renommierte Ausbildungseinrichtung, die Nant Foundation stellt einen Platz für\n\n100% Pre-HEG Intern\n\nDIE EINLEITUNG\nDie Nant-Stiftung ist eine im öffentlichen Interesse anerkannte private Einrichtung, die vom Staat beauftragt wird, psychiatrische Versorgung in der östlichen Waadtregion zu organisieren und bereitzustellen. Um diese Mission durchzuführen, kann die Stiftung auf die Unterstützung ihres Staats-Major-Dienstes in enger Zusammenarbeit mit verschiedenen Berufen zählen, die darauf bedacht sind, ihren Praktikanten zu entdecken!\n\nWIR ANGEBOT\nDer Beitritt zur Nant-Stiftung ist die Integration einer anerkannten privaten Institution von öffentlichem Interesse, die vom Staat beauftragt wird, psychiatrische Versorgung in der Region Waadtois Ost zu organisieren und bereitzustellen.\n• Wir bieten eine anregende und abwechslungsreiche Lernumgebung mit der Möglichkeit, sich an einem institutionellen Projekt zu beteiligen. Die Nant Foundation bietet Ihnen durch dieses einjährige Praktikum die Möglichkeit, einen Beruf zu entdecken, etwas anderes auszuprobieren und hinter die Kulissen einer psychiatrischen Klinik zu tauchen.\n\nWIR SEHEN\nEine neugierige, unabhängige und komfortable Person mit menschlichem Kontakt, die einen Sekundarabschluss II (Gymnasial, beruflich oder gleichwertig) hat und ihr Praxisjahr vor dem Eintritt in den HEG Bachelor abschließen möchte. Darüber hinaus suchen wir eine Person mit einem guten Bildungsniveau und einer guten Beherrschung der französischen Sprache. Schließlich wollen wir eine motivierte Person finden, die lernen und seinen Stein in das Institutionsgebäude bringen möchte.\n\nEingangszollstelle\nSo bald wie möglich\n\nArt des Vertrags\n\nEinjähriges CSD\n\nArbeitsort\nCorsier-sur-Vevey\n\nInformationen von\nLuana Volpi, Praktikantin – Arbeitspsychologin,\nUnter 021 965 70 33 oder luana.volpi@nant.ch\n\nSoweit alle unsere Bewerbungen elektronisch bearbeitet werden, danken wir Ihnen für Ihre Bewerbung ausschließlich über das Internet, indem Sie uns mindestens einen Lebenslauf mit Anschreiben zusenden.\nMehr Informationen auf www.nant.ch\n\nNant Foundation — Psychiatrische Einrichtung im Herzen des Kantons Waadt, Standorte Corsier-sur-Vevey und SPAUL (Lausanne).",
+        "fr": "Envie de vous lancer dans le monde professionnel ? Institution de formation de renom, la Fondation de Nant met au concours un place de\n\nStagiaire pré-HEG à 100%\n\nLA MISSION\nLa Fondation de Nant est une institution privée reconnue d’intérêt public, mandaté par l’Etat pour organiser et dispenser les soins psychiatriques dans la région de l’Est vaudois. Afin de mener à bien cette mission, la Fondation peut compter sur l’appui de son service d’Etat-Major en étroite collaboration avec divers corps de métier, impatients de découvrir leur stagiaire !\n\nNOUS OFFRONS\nRejoindre la Fondation de Nant, c'est intégrer une institution privée reconnue d'intérêt public , chargée par l'État d'organiser et de dispenser les soins psychiatriques dans la région de l'Est vaudois . \n• Nous offrons un environnement d’apprentissage stimulant et varié avec l’opportunité d’être partie prenante d’un projet institutionnel. La Fondation de Nant, au travers de ce stage d’une année, vous offre la possibilité de découvrir un métier, de vous essayer à quelque chose de différent et de plonger dans les coulisses d’un hôpital psychiatrique.\n\nNOUS CHERCHONS\nUne personne curieuse, autonome et à l’aise avec le contact humain, titulaire d'un titre de degré secondaire II (maturité gymnasiale, professionnelle ou équivalent) et souhaitant effectuer son année de pratique préalable à l'entrée en Bachelor HEG. De plus nous recherchons une personne ayant un bon niveau scolaire ainsi qu’une bonne maîtrise de la langue française. Finalement nous souhaitons trouver avant tout une personne motivée qui a envie d’apprendre et d’apporter sa pierre à l’édifice de l’institution.\n\nEntrée en fonction\nDès que possible\n\nType de contrat\n\nCDD d'une durée d'1 an\n\nLieu de travail\nCorsier-sur-Vevey\n\nRenseignements auprès de\nLuana Volpi, Stagiaire – Psychologue du travail,\nAu 021 965 70 33 ou luana.volpi@nant.ch\n\nDans la mesure où toutes nos candidatures sont traitées de manière électronique, nous vous remercions de postuler exclusivement par internet , en nous adressant au minimum, un CV accompagné d’une lettre de motivation\nPlus d’informations sur www.nant.ch\n\nFondation de Nant — Établissement psychiatrique au cœur du canton de Vaud, sites de Corsier-sur-Vevey et SPAUL (Lausanne)."
+      },
+      "location": "Corsier-sur-Vevey",
+      "canton": "VD",
+      "url": "https://app.beehire.com/invite/PzPmrtqqv",
+      "source": "Fondation de Nant Dedicated Parser (Beehire JSON)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-11-06T09:14:15.310Z",
+      "addressLocality": "Corsier-sur-Vevey",
+      "addressRegion": "VD",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1804",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "intern",
+      "sector": "Santé mentale / Psychiatrie",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://app.beehire.com/invite/PzPmrtqqv",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "careerSiteUrl": "https://nant.ch/carrieres/",
+      "firstSeenAt": "2026-10-27T21:18:47.211Z",
+      "salaryMin": 77500,
+      "salaryMax": 108000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 77500,
+          "maxValue": 108000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Corsier-sur-Vevey",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-26T09:14:15.310Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -440,7 +440,7 @@
       "url": "https://app.beehire.com/invite/gp2L_WeE7",
       "source": "Fondation de Nant Dedicated Parser (Beehire JSON)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-05T21:24:40.940Z",
+      "crawledAt": "2026-11-06T09:14:15.306Z",
       "addressLocality": "Corsier-sur-Vevey",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -492,7 +492,7 @@
       },
       "streetAddress": "Corsier-sur-Vevey",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-02T21:24:40.940Z",
+      "validThrough": "2027-02-03T09:14:15.306Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -526,7 +526,7 @@
       "url": "https://app.beehire.com/invite/urcNBVdZA",
       "source": "Fondation de Nant Dedicated Parser (Beehire JSON)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-05T21:24:40.939Z",
+      "crawledAt": "2026-11-06T09:14:15.302Z",
       "addressLocality": "Corsier-sur-Vevey",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -576,7 +576,7 @@
       },
       "streetAddress": "Corsier-sur-Vevey",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-02T21:24:40.939Z",
+      "validThrough": "2027-02-03T09:14:15.302Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -611,7 +611,7 @@
       "url": "https://app.beehire.com/invite/rGlkHrJhT",
       "source": "Fondation de Nant Dedicated Parser (Beehire JSON)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-05T21:24:40.938Z",
+      "crawledAt": "2026-11-06T09:14:15.301Z",
       "addressLocality": "Corsier-sur-Vevey",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -658,41 +658,41 @@
       },
       "streetAddress": "Corsier-sur-Vevey",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-02T21:24:40.938Z",
+      "validThrough": "2027-02-03T09:14:15.301Z",
       "validThroughSource": "last-observed-window"
     },
     {
       "id": "nant-cc2302ed8233",
       "slug": "100-infermiera-jaman-fondation-de-nant-la-tour-de-peilz",
       "slugByLocale": {
-        "fr": "infirmier-ere-a-100-jaman-nant-la-tour-de-peilz",
         "it": "100-infermiera-jaman-fondation-de-nant-la-tour-de-peilz",
         "en": "100-nurse-jaman-fondation-de-nant-la-tour-de-peilz",
-        "de": "100-krankenschwester-jaman-fondation-de-nant-la-tour-de-peilz"
+        "de": "100-krankenschwester-jaman-fondation-de-nant-la-tour-de-peilz",
+        "fr": "infirmier-ere-a-100-jaman-nant-la-tour-de-peilz"
       },
       "company": "Fondation de Nant",
       "companyKey": "nant",
       "companyDomain": "nant.ch",
       "title": "Infirmier·ère à 100 % Jaman",
       "titleByLocale": {
-        "fr": "Infirmier·ère à 100 % Jaman",
         "it": "100% Infermiera Jaman",
         "en": "100% Nurse Jaman",
-        "de": "100% Krankenschwester Jaman"
+        "de": "100% Krankenschwester Jaman",
+        "fr": "Infirmier·ère à 100 % Jaman"
       },
       "description": "Afin de compléter son équipe à l’Unité Hospitalière de psychiatrie adulte (UH Jaman), la Fondation de Nant met au concours un poste d’\n\nInfirmier·ère à 100 % Jaman\n LA MISSION\n Les infirmiers·ères de l’Unité hospitalière de Jaman ont pour mission d’assurer les prestations de soins requises pour chaque patient et ce en étroite collaboration au sein d’une équipe interdisciplinaire. Jaman est une unité hospitalière ouverte fonctionnant sur le modèle de la communauté thérapeutique.\n\nNOUS OFFRONS\n La Fondation de Nant est une institution privée reconnue d’intérêt public, chargée par l’Etat d’organiser et dispenser des soins psychiatriques dans la région de l’Est vaudois. Travailler à Jaman c’est travailler au sein d’une équipe interdisciplinaire proposant des séjours de durée brève à moyenne pour soutenir et consolider le processus de rétablissement des patients présentant des troubles psychiques sévères engendrant des difficultés sociales et relationnelles.\n NOUS CHERCHONS\n Un·e Infirmier·ère avec de l’expérience en psychiatrie , détenteur·trice d’un Bachelor of Science HES-SO en soins infirmiers avec reconnaissance Croix-Rouge (ou titre jugé équivalent). De plus avoir la capacité à interagir avec les patients autant dans une dynamique groupale qu’individuelle est important. Nous souhaitons engager une personne motivée par la mission de santé publique de la Fondation et aimant le travail en équipe interdisciplinaire .\n\nEntrée en fonction\n Dès que possible\n\nDélai de postulation\n 29.11.2026\n\nConditions d’engagement\n Selon la Convention Collective de Travail dans le secteur parapublic vaudois.\n\nLieu de travail\n 1814 La Tour-de-Peilz\n\nRenseignements auprès de\n • Remy Volet, ICUS (UH Jaman) 021 965 77 80\n • Morgane Wirthner, Infirmière Cheffe SPPA 021 965 70 03\n\nDans la mesure où toutes nos candidatures sont traitées de manière électronique, nous vous remercions de postuler exclusivement par internet, en nous adressant, au minimum, un curriculum vitae accompagné d’une lettre de motivation\n\nPlus d’information sur www.nant.ch\n\nFondation de Nant — Établissement psychiatrique au cœur du canton de Vaud, sites de Corsier-sur-Vevey et SPAUL (Lausanne).",
       "descriptionByLocale": {
-        "fr": "Afin de compléter son équipe à l’Unité Hospitalière de psychiatrie adulte (UH Jaman), la Fondation de Nant met au concours un poste d’\n\nInfirmier·ère à 100 % Jaman\n LA MISSION\n Les infirmiers·ères de l’Unité hospitalière de Jaman ont pour mission d’assurer les prestations de soins requises pour chaque patient et ce en étroite collaboration au sein d’une équipe interdisciplinaire. Jaman est une unité hospitalière ouverte fonctionnant sur le modèle de la communauté thérapeutique.\n\nNOUS OFFRONS\n La Fondation de Nant est une institution privée reconnue d’intérêt public, chargée par l’Etat d’organiser et dispenser des soins psychiatriques dans la région de l’Est vaudois. Travailler à Jaman c’est travailler au sein d’une équipe interdisciplinaire proposant des séjours de durée brève à moyenne pour soutenir et consolider le processus de rétablissement des patients présentant des troubles psychiques sévères engendrant des difficultés sociales et relationnelles.\n NOUS CHERCHONS\n Un·e Infirmier·ère avec de l’expérience en psychiatrie , détenteur·trice d’un Bachelor of Science HES-SO en soins infirmiers avec reconnaissance Croix-Rouge (ou titre jugé équivalent). De plus avoir la capacité à interagir avec les patients autant dans une dynamique groupale qu’individuelle est important. Nous souhaitons engager une personne motivée par la mission de santé publique de la Fondation et aimant le travail en équipe interdisciplinaire .\n\nEntrée en fonction\n Dès que possible\n\nDélai de postulation\n 29.11.2026\n\nConditions d’engagement\n Selon la Convention Collective de Travail dans le secteur parapublic vaudois.\n\nLieu de travail\n 1814 La Tour-de-Peilz\n\nRenseignements auprès de\n • Remy Volet, ICUS (UH Jaman) 021 965 77 80\n • Morgane Wirthner, Infirmière Cheffe SPPA 021 965 70 03\n\nDans la mesure où toutes nos candidatures sont traitées de manière électronique, nous vous remercions de postuler exclusivement par internet, en nous adressant, au minimum, un curriculum vitae accompagné d’une lettre de motivation\n\nPlus d’information sur www.nant.ch\n\nFondation de Nant — Établissement psychiatrique au cœur du canton de Vaud, sites de Corsier-sur-Vevey et SPAUL (Lausanne).",
-        "it": "Al fine di completare il suo team presso l'Unità ospedaliera di Psichiatria Adulta (UH Jaman), la Fondazione Nant sta mettendo in competizione una posizione di\n\n100% Infermiera Jaman\n LA MISSIONE\n Le infermiere dell'Unità ospedaliera Jaman sono responsabili di fornire la cura necessaria per ogni paziente in stretta collaborazione con un team interdisciplinare. Jaman è un'unità ospedaliera aperta che opera sul modello della comunità terapeutica.\n\nUFFICIO\n La Fondazione Nant è un istituto privato riconosciuto nell'interesse pubblico, incaricato dallo Stato di organizzare e fornire assistenza psichiatrica nella regione orientale di Vaud. Lavorare a Jaman sta lavorando con un team interdisciplinare che offre soggiorni a breve e medio termine per sostenere e consolidare il processo di recupero dei pazienti con gravi disturbi mentali che causano difficoltà sociali e relazionali.\n Noi vediamo\n Un'infermiera con esperienza in psichiatria, titolare di un Bachelor of Science HES-SO in allattamento con il riconoscimento della Croce Rossa (o equivalente). Inoltre, avere la capacità di interagire con i pazienti in gruppo e dinamica individuale è importante. Vogliamo assumere una persona motivata dalla missione di sanità pubblica della Fondazione e amare il lavoro come team interdisciplinare.\n\nEntrata in servizio\n Non appena possibile\n\nTempo di pubblicazione\n 29.11.2026\n\nCondizioni di impegno\n Secondo la Convenzione Collettiva del Lavoro nel settore pubblico Voodoo.\n\nLuogo di lavoro\n 1814 La Torre di Peilz\n\nInformazioni da\n • Remy Component, ICUS (UH Jaman) 021 965 77 80\n • Morgane Wirthner, infermiera capo SPPA 021 965 70 03\n\nNella misura in cui tutte le nostre applicazioni sono elaborate elettronicamente, vorremmo ringraziarvi per l'applicazione esclusivamente via Internet, inviandoci, al minimo, un curriculum vitae accompagnato da una lettera di copertura.\n\nMaggiori informazioni su www.nant.ch\n\nFondazione Nant — Istituzione psichiatrica nel cuore del cantone di Vaud, siti di Corsier-sur-Vevey e SPAUL (Lausanne).",
-        "en": "In order to complete its team at the Adult Psychiatry Hospital Unit (UH Jaman), the Nant Foundation is putting into the competition a position of\n\n100% Nurse Jaman\n THE MISSION\n The nurses of the Jaman Hospital Unit are responsible for providing the care required for each patient in close collaboration with an interdisciplinary team. Jaman is an open hospital unit operating on the model of the therapeutic community.\n\nWE OFFER\n The Nant Foundation is a private institution recognized in the public interest, mandated by the State to organize and provide psychiatric care in the eastern Vaud region. Working in Jaman is working with an interdisciplinary team offering short- to medium-term stays to support and consolidate the recovery process of patients with severe mental disorders causing social and relational difficulties.\n WE SEEK\n A nurse with experience in psychiatry, holder of a Bachelor of Science HES-SO in nursing with Red Cross recognition (or equivalent). Furthermore, having the ability to interact with patients in both group and individual dynamics is important. We want to hire a person motivated by the Foundation's public health mission and loving the work as an interdisciplinary team.\n\nEntry on duty\n As soon as possible\n\nPosting time\n 29.11.2026\n\nConditions of engagement\n According to the Collective Labour Convention in the Voodoo public sector.\n\nPlace of work\n 1814 The Tower of Peilz\n\nInformation from\n • Remy Component, ICUS (UH Jaman) 021 965 77 80\n • Morgane Wirthner, Nurse Chief SPPA 021 965 70 03\n\nTo the extent that all our applications are processed electronically, we would like to thank you for applying exclusively via the Internet, by sending us, at a minimum, a curriculum vitae accompanied by a cover letter.\n\nMore information on www.nant.ch\n\nNant Foundation — Psychiatric institution in the heart of the canton of Vaud, sites of Corsier-sur-Vevey and SPAUL (Lausanne).",
-        "de": "Um ihr Team an der Adult Psychiatry Hospital Unit (UH Jaman) zu vervollständigen, stellt die Nant Foundation in den Wettbewerb eine Position von\n\n100% Krankenschwester Jaman\n DIE EINLEITUNG\n Die Krankenschwestern der Jaman Hospital Unit sind dafür verantwortlich, die für jeden Patienten erforderliche Versorgung in enger Zusammenarbeit mit einem interdisziplinären Team zu gewährleisten. Jaman ist eine offene Krankenhauseinheit, die nach dem Modell der therapeutischen Gemeinschaft arbeitet.\n\nWIR ANGEBOT\n Die Nant-Stiftung ist eine im öffentlichen Interesse anerkannte private Einrichtung, die vom Staat beauftragt wird, psychiatrische Versorgung in der östlichen Waadtregion zu organisieren und bereitzustellen. Working in Jaman arbeitet mit einem interdisziplinären Team zusammen, das kurz- bis mittelfristige Aufenthalte anbietet, um den Genesungsprozess von Patienten mit schweren psychischen Störungen, die soziale und relationale Schwierigkeiten verursachen, zu unterstützen und zu konsolidieren.\n WIR SEHEN\n Eine Krankenschwester mit Erfahrung in der Psychiatrie, Inhaber eines Bachelor of Science HES-SO in Pflege mit Anerkennung des Roten Kreuzes (oder gleichwertig). Darüber hinaus ist die Fähigkeit, mit Patienten sowohl in der Gruppe als auch in der individuellen Dynamik zu interagieren, wichtig. Wir möchten eine Person einstellen, die von der öffentlichen Gesundheitsmission der Stiftung motiviert ist und die Arbeit als interdisziplinäres Team liebt.\n\nEingangszollstelle\n So bald wie möglich\n\nPostzeit\n 29.11.2026\n\nEinsatzbedingungen\n Gemäß dem Kollektivarbeitsübereinkommen im öffentlichen Sektor von Voodoo.\n\nArbeitsort\n 1814 Der Turm von Peilz\n\nInformationen von\n • Remy Component, ICUS (UH Jaman) 021 965 77 80\n • Morgane Wirthner, Krankenschwester Chef SPPA 021 965 70 03\n\nSoweit alle unsere Bewerbungen elektronisch bearbeitet werden, möchten wir uns bei Ihnen bedanken, dass Sie sich ausschließlich über das Internet bewerben, indem Sie uns mindestens einen Lebenslauf mit Anschreiben zusenden.\n\nMehr Informationen auf www.nant.ch\n\nNant Foundation — Psychiatrische Einrichtung im Herzen des Kantons Waadt, Standorte Corsier-sur-Vevey und SPAUL (Lausanne)."
+        "it": "Al fine di completare il suo team presso l'Unità ospedaliera di Psichiatria Adulta (UH Jaman), la Fondazione Nant sta mettendo in competizione una posizione di\n\n100% Infermiera Jaman\nLA MISSIONE\nLe infermiere dell'Unità ospedaliera Jaman sono responsabili di fornire la cura necessaria per ogni paziente in stretta collaborazione con un team interdisciplinare. Jaman è un'unità ospedaliera aperta che opera sul modello della comunità terapeutica.\n\nUFFICIO\nLa Fondazione Nant è un istituto privato riconosciuto nell'interesse pubblico, incaricato dallo Stato di organizzare e fornire assistenza psichiatrica nella regione orientale di Vaud. Lavorare a Jaman sta lavorando con un team interdisciplinare che offre soggiorni a breve e medio termine per sostenere e consolidare il processo di recupero dei pazienti con gravi disturbi mentali che causano difficoltà sociali e relazionali.\nNoi vediamo\nUn'infermiera con esperienza in psichiatria, titolare di un Bachelor of Science HES-SO in allattamento con il riconoscimento della Croce Rossa (o equivalente). Inoltre, avere la capacità di interagire con i pazienti in gruppo e dinamica individuale è importante. Vogliamo assumere una persona motivata dalla missione di sanità pubblica della Fondazione e amare il lavoro come team interdisciplinare.\n\nEntrata in servizio\nNon appena possibile\n\nTempo di pubblicazione\n29.11.2026\n\nCondizioni di impegno\nSecondo la Convenzione Collettiva del Lavoro nel settore pubblico Voodoo.\n\nLuogo di lavoro\n1814 La Torre di Peilz\n\nInformazioni da\n• Remy Component, ICUS (UH Jaman) 021 965 77 80\n• Morgane Wirthner, infermiera capo SPPA 021 965 70 03\n\nNella misura in cui tutte le nostre applicazioni sono elaborate elettronicamente, vorremmo ringraziarvi per l'applicazione esclusivamente via Internet, inviandoci, al minimo, un curriculum vitae accompagnato da una lettera di copertura.\n\nMaggiori informazioni su www.nant.ch\n\nFondazione Nant — Istituzione psichiatrica nel cuore del cantone di Vaud, siti di Corsier-sur-Vevey e SPAUL (Lausanne).",
+        "en": "In order to complete its team at the Adult Psychiatry Hospital Unit (UH Jaman), the Nant Foundation is putting into the competition a position of\n\n100% Nurse Jaman\nTHE MISSION\nThe nurses of the Jaman Hospital Unit are responsible for providing the care required for each patient in close collaboration with an interdisciplinary team. Jaman is an open hospital unit operating on the model of the therapeutic community.\n\nWE OFFER\nThe Nant Foundation is a private institution recognized in the public interest, mandated by the State to organize and provide psychiatric care in the eastern Vaud region. Working in Jaman is working with an interdisciplinary team offering short- to medium-term stays to support and consolidate the recovery process of patients with severe mental disorders causing social and relational difficulties.\nWE SEEK\nA nurse with experience in psychiatry, holder of a Bachelor of Science HES-SO in nursing with Red Cross recognition (or equivalent). Furthermore, having the ability to interact with patients in both group and individual dynamics is important. We want to hire a person motivated by the Foundation's public health mission and loving the work as an interdisciplinary team.\n\nEntry on duty\nAs soon as possible\n\nPosting time\n29.11.2026\n\nConditions of engagement\nAccording to the Collective Labour Convention in the Voodoo public sector.\n\nPlace of work\n1814 The Tower of Peilz\n\nInformation from\n• Remy Component, ICUS (UH Jaman) 021 965 77 80\n• Morgane Wirthner, Nurse Chief SPPA 021 965 70 03\n\nTo the extent that all our applications are processed electronically, we would like to thank you for applying exclusively via the Internet, by sending us, at a minimum, a curriculum vitae accompanied by a cover letter.\n\nMore information on www.nant.ch\n\nNant Foundation — Psychiatric institution in the heart of the canton of Vaud, sites of Corsier-sur-Vevey and SPAUL (Lausanne).",
+        "de": "Um ihr Team an der Adult Psychiatry Hospital Unit (UH Jaman) zu vervollständigen, stellt die Nant Foundation in den Wettbewerb eine Position von\n\n100% Krankenschwester Jaman\nDIE EINLEITUNG\nDie Krankenschwestern der Jaman Hospital Unit sind dafür verantwortlich, die für jeden Patienten erforderliche Versorgung in enger Zusammenarbeit mit einem interdisziplinären Team zu gewährleisten. Jaman ist eine offene Krankenhauseinheit, die nach dem Modell der therapeutischen Gemeinschaft arbeitet.\n\nWIR ANGEBOT\nDie Nant-Stiftung ist eine im öffentlichen Interesse anerkannte private Einrichtung, die vom Staat beauftragt wird, psychiatrische Versorgung in der östlichen Waadtregion zu organisieren und bereitzustellen. Working in Jaman arbeitet mit einem interdisziplinären Team zusammen, das kurz- bis mittelfristige Aufenthalte anbietet, um den Genesungsprozess von Patienten mit schweren psychischen Störungen, die soziale und relationale Schwierigkeiten verursachen, zu unterstützen und zu konsolidieren.\nWIR SEHEN\nEine Krankenschwester mit Erfahrung in der Psychiatrie, Inhaber eines Bachelor of Science HES-SO in Pflege mit Anerkennung des Roten Kreuzes (oder gleichwertig). Darüber hinaus ist die Fähigkeit, mit Patienten sowohl in der Gruppe als auch in der individuellen Dynamik zu interagieren, wichtig. Wir möchten eine Person einstellen, die von der öffentlichen Gesundheitsmission der Stiftung motiviert ist und die Arbeit als interdisziplinäres Team liebt.\n\nEingangszollstelle\nSo bald wie möglich\n\nPostzeit\n29.11.2026\n\nEinsatzbedingungen\nGemäß dem Kollektivarbeitsübereinkommen im öffentlichen Sektor von Voodoo.\n\nArbeitsort\n1814 Der Turm von Peilz\n\nInformationen von\n• Remy Component, ICUS (UH Jaman) 021 965 77 80\n• Morgane Wirthner, Krankenschwester Chef SPPA 021 965 70 03\n\nSoweit alle unsere Bewerbungen elektronisch bearbeitet werden, möchten wir uns bei Ihnen bedanken, dass Sie sich ausschließlich über das Internet bewerben, indem Sie uns mindestens einen Lebenslauf mit Anschreiben zusenden.\n\nMehr Informationen auf www.nant.ch\n\nNant Foundation — Psychiatrische Einrichtung im Herzen des Kantons Waadt, Standorte Corsier-sur-Vevey und SPAUL (Lausanne).",
+        "fr": "Afin de compléter son équipe à l’Unité Hospitalière de psychiatrie adulte (UH Jaman), la Fondation de Nant met au concours un poste d’\n\nInfirmier·ère à 100 % Jaman\n\nLA MISSION\nLes infirmiers·ères de l’Unité hospitalière de Jaman ont pour mission d’assurer les prestations de soins requises pour chaque patient et ce en étroite collaboration au sein d’une équipe interdisciplinaire. Jaman est une unité hospitalière ouverte fonctionnant sur le modèle de la communauté thérapeutique.\n\nNOUS OFFRONS\nLa Fondation de Nant est une institution privée reconnue d’intérêt public, chargée par l’Etat d’organiser et dispenser des soins psychiatriques dans la région de l’Est vaudois. Travailler à Jaman c’est travailler au sein d’une équipe interdisciplinaire proposant des séjours de durée brève à moyenne pour soutenir et consolider le processus de rétablissement des patients présentant des troubles psychiques sévères engendrant des difficultés sociales et relationnelles.\n\nNOUS CHERCHONS\nUn·e Infirmier·ère avec de l’expérience en psychiatrie , détenteur·trice d’un Bachelor of Science HES-SO en soins infirmiers avec reconnaissance Croix-Rouge (ou titre jugé équivalent). De plus avoir la capacité à interagir avec les patients autant dans une dynamique groupale qu’individuelle est important. Nous souhaitons engager une personne motivée par la mission de santé publique de la Fondation et aimant le travail en équipe interdisciplinaire .\n\nEntrée en fonction\nDès que possible\n\nDélai de postulation\n29.11.2026\n\nConditions d’engagement\nSelon la Convention Collective de Travail dans le secteur parapublic vaudois.\n\nLieu de travail\n1814 La Tour-de-Peilz\n\nRenseignements auprès de\n• Remy Volet, ICUS (UH Jaman) 021 965 77 80\n• Morgane Wirthner, Infirmière Cheffe SPPA 021 965 70 03\n\nDans la mesure où toutes nos candidatures sont traitées de manière électronique, nous vous remercions de postuler exclusivement par internet, en nous adressant, au minimum, un curriculum vitae accompagné d’une lettre de motivation\n\nPlus d’information sur www.nant.ch\n\nFondation de Nant — Établissement psychiatrique au cœur du canton de Vaud, sites de Corsier-sur-Vevey et SPAUL (Lausanne)."
       },
       "location": "La Tour-de-Peilz",
       "canton": "VD",
       "url": "https://app.beehire.com/invite/agNZ2aiLS",
       "source": "Fondation de Nant Dedicated Parser (Beehire JSON)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-05T21:24:40.936Z",
+      "crawledAt": "2026-11-06T09:14:15.296Z",
       "addressLocality": "La Tour-de-Peilz",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -710,10 +710,23 @@
       "postingDateSource": "unknown",
       "applyUrl": "https://app.beehire.com/invite/agNZ2aiLS",
       "requirements": [],
-      "requirementsByLocale": {
-        "fr": []
-      },
+      "requirementsByLocale": {},
       "careerSiteUrl": "https://nant.ch/carrieres/",
+      "previousSlugs": [
+        "infirmier-ere-a-100-jaman-nant-la-tour-de-peilz"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "infirmier-ere-a-100-jaman-nant-la-tour-de-peilz"
+        ],
+        "en": [
+          "infirmier-ere-a-100-jaman-nant-la-tour-de-peilz"
+        ],
+        "de": [
+          "infirmier-ere-a-100-jaman-nant-la-tour-de-peilz"
+        ]
+      },
+      "firstSeenAt": "2026-11-05T21:24:40.936Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
       "salarySource": "estimated",
@@ -729,23 +742,8 @@
       },
       "streetAddress": "La Tour-de-Peilz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T21:24:40.936Z",
-      "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-05T21:24:40.936Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "infirmier-ere-a-100-jaman-nant-la-tour-de-peilz"
-        ],
-        "en": [
-          "infirmier-ere-a-100-jaman-nant-la-tour-de-peilz"
-        ],
-        "de": [
-          "infirmier-ere-a-100-jaman-nant-la-tour-de-peilz"
-        ]
-      },
-      "previousSlugs": [
-        "infirmier-ere-a-100-jaman-nant-la-tour-de-peilz"
-      ]
+      "validThrough": "2027-02-04T09:14:15.296Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }

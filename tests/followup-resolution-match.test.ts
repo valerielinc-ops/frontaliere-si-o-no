@@ -9,6 +9,8 @@ import {
   detectAlreadyResolved,
   closingMergedPr,
   closedIssueRefs,
+  parseFollowupItems,
+  dailyBucketSourcePrNumbers,
 } from '../scripts/ci/followup-resolution-match.mjs';
 
 // Locks the conservative matcher shared by the issue-fix.yml pre-flight gate
@@ -455,6 +457,46 @@ describe('closingMergedPr (explicit done-but-open via merged PR cross-ref)', () 
 // (is-followup-fix-pr.mjs): a merged PR closing a `follow-up` issue is a
 // follow-up FIX → skip triage so it can't mint a grandchild follow-up.
 // MUST agree with closingMergedPr on what a "closing ref" is (shared regex).
+describe('serialized daily item boundaries', () => {
+  const serializedBreak = '\\n\\n';
+
+  it('recognizes a stable item without a title after a serialized boundary', () => {
+    const body = [
+      '### FU-2026-10-07-001 — first item',
+      '- State: open',
+      '- Sources: PR #8102' + serializedBreak + '### FU-2026-10-07-002',
+      '- State: done',
+      '- Sources: PR #8101',
+    ].join('\n');
+
+    const items = parseFollowupItems(body);
+    expect(items.map((item) => [item.id, item.state])).toEqual([
+      ['FU-2026-10-07-001', 'open'],
+      ['FU-2026-10-07-002', 'done'],
+    ]);
+    expect(items[0].raw.endsWith(serializedBreak)).toBe(true);
+    expect(items[0].text.includes(serializedBreak)).toBe(false);
+    expect(dailyBucketSourcePrNumbers(body)).toEqual([8102, 8101]);
+  });
+
+  it('does not create a phantom item from an escaped heading inside inline code', () => {
+    const inlineCode = String.fromCharCode(96);
+    const body = [
+      '### FU-2026-10-07-001 — first item',
+      '- State: open',
+      '- Suggested action: use ' + inlineCode + serializedBreak
+        + '### FU-2026-10-07-002 — example' + inlineCode + ' as an example',
+      '- Sources: PR #8102',
+    ].join('\n');
+
+    const items = parseFollowupItems(body);
+    expect(items.map((item) => [item.id, item.title, item.state])).toEqual([
+      ['FU-2026-10-07-001', 'first item', 'open'],
+    ]);
+    expect(dailyBucketSourcePrNumbers(body)).toEqual([8102]);
+  });
+});
+
 describe('closedIssueRefs (closing-keyword issue refs in a PR body)', () => {
   it('extracts a single closing ref', () => {
     expect(closedIssueRefs('Fixes #1834')).toEqual([1834]);
