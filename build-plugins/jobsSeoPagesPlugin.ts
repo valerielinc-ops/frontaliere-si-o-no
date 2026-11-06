@@ -13979,8 +13979,8 @@ ${staticAnalyticsHtml}
  // Sub-phase profiler: ph:ejp:shell measured at 48.7s (45% of expired-
  // soft-landing) in run 26469566046. Break it down so the next round
  // can target either the template assembly (likely cheap) or minifyHtml
- // (regex-heavy, suspected dominant). Gated by JOBS_SEO_PROFILE_PHASES=1
- // already on in deploy.yml.
+ // (regex-heavy, suspected dominant). Gated by JOBS_SEO_PROFILE_PHASES=1,
+ // which deploy and benchmark workflows enable only for explicit investigations.
  const __tShellTpl = phaseTimer();
  const shell = localeShells[locale];
  const metaDescription = softLandingMetaDescription(locale, pageDesc);
