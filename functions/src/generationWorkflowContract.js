@@ -79,8 +79,7 @@ export function generationWorkflowSupportsOrigin(source, origin = 'editorial_sig
     && contract.dispatchOrigins.includes(origin);
 }
 
-const entrypoint = process.argv[1];
-if (entrypoint && import.meta.url === pathToFileURL(realpathSync(entrypoint)).href) {
+if (process.argv[1] && import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href) {
   let source;
   try {
     source = readFileSync(0, 'utf8');
