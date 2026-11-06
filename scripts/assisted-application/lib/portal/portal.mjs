@@ -1794,7 +1794,31 @@ async function hasLiveCookieManagerSurface(page, button) {
   return surfaceIsLive === true;
 }
 
-async function cookieControlHasCookieContext(page, button, snapshot = {}) {
+function isYellowsharkJobCookiePreference(page, button, snapshot = {}) {
+  if (!COOKIE_MANAGE_CONSENT_RE.test(cookieControlLabel(button))
+    || button?.formId || button?.roleFormId) return false;
+  const fields = Array.isArray(snapshot?.fields) ? snapshot.fields : null;
+  if (!fields || fields.length) return false;
+  const frameNumber = Number(button.frame) || 0;
+  // The post-choice origin check is page-level. Keep this fallback on the
+  // main document so an embedded frame cannot change origins between checks.
+  if (frameNumber !== 0) return false;
+  const hasJobApply = (snapshot.buttons || []).some((candidate) => !candidate.disabled
+    && (Number(candidate.frame) || 0) === frameNumber
+    && /^jetzt bewerben$/i.test(cookieControlLabel(candidate)));
+  if (!hasJobApply) return false;
+  const frames = typeof page?.frames === 'function' ? page.frames() : [];
+  const pageUrl = frames[frameNumber]?.url?.() || (frameNumber === 0 ? page?.url?.() : '');
+  try {
+    const url = new URL(String(pageUrl || ''));
+    return url.protocol === 'https:' && url.hostname === 'jobs.yellowshark.com'
+      && url.pathname.startsWith('/job/');
+  } catch {
+    return false;
+  }
+}
+
+async function cookieControlHasCookieContext(page, button, snapshot = {}, { allowYellowsharkFallback = true } = {}) {
   const label = cookieControlLabel(button);
   const isPreferenceControl = COOKIE_CUSTOMIZE_RE.test(label)
     || COOKIE_GENERIC_PREFERENCES_RE.test(label)
@@ -1809,7 +1833,8 @@ async function cookieControlHasCookieContext(page, button, snapshot = {}) {
   if (manageConsent && (button.formId || button.roleFormId)) return false;
   // The live manager check is affirmative proof for this label. Do not fall
   // through to the generic Accept control check, which rejects "Manage consent".
-  if (manageConsent) return await hasLiveCookieManagerSurface(page, button);
+  if (manageConsent) return await hasLiveCookieManagerSurface(page, button)
+    || (allowYellowsharkFallback && isYellowsharkJobCookiePreference(page, button, snapshot));
   if (button.dialog && /^d\d+$/.test(String(button.dialogId || ''))) {
     const frame = page.frames()[button.frame || 0] || page.mainFrame();
     try {
@@ -1825,14 +1850,16 @@ async function cookieControlHasCookieContext(page, button, snapshot = {}) {
   return isPageCookieConsentControl(page, snapshot, button);
 }
 
-async function findCookieControl(page, snapshot, pattern, { genericPreferences = false, manageConsent = false } = {}) {
+async function findCookieControl(page, snapshot, pattern, {
+  genericPreferences = false, manageConsent = false, allowYellowsharkFallback = true,
+} = {}) {
   for (const button of snapshot?.buttons || []) {
     if (button.disabled || (button.chrome && button.cookieSurface !== 'banner')) continue;
     const label = cookieControlLabel(button);
     if (!pattern.test(label)
       && !(genericPreferences && COOKIE_GENERIC_PREFERENCES_RE.test(label))
       && !(manageConsent && COOKIE_MANAGE_CONSENT_RE.test(label))) continue;
-    if (await cookieControlHasCookieContext(page, button, snapshot)) return button;
+    if (await cookieControlHasCookieContext(page, button, snapshot, { allowYellowsharkFallback })) return button;
   }
   return null;
 }
@@ -1861,13 +1888,7 @@ async function clickCookieChoice(page, snapshot, button) {
   } catch {
     return { status: 'unresolved', snapshot };
   }
-  await page.waitForTimeout(800);
-  const current = await cookiePageSnapshot(page);
-  if (!current || !origin || pageOrigin(page) !== origin) return { status: 'unresolved', snapshot: current || snapshot };
-  if (await cookieChoice(page, current)
-    || await findCookieControl(page, current, COOKIE_CUSTOMIZE_RE, { genericPreferences: true, manageConsent: true })
-    || cookieDialogRemains(current, button)) return { status: 'unresolved', snapshot: current };
-  return { status: 'dismissed', snapshot: current };
+  return confirmCookieChoiceDismissed(page, snapshot, origin, button);
 }
 
 async function clearShadowCookieMarker(page) {
@@ -1953,6 +1974,30 @@ async function markShadowCookieButton(page, { includePreferences = false } = {})
   }
 }
 
+async function confirmCookieChoiceDismissed(page, snapshot, origin, blockingControl = null, { verifyShadow = false } = {}) {
+  await page.waitForTimeout(800);
+  const current = await cookiePageSnapshot(page);
+  if (!current || !origin || pageOrigin(page) !== origin) return { status: 'unresolved', snapshot: current || snapshot };
+  if (await cookieChoice(page, current)
+    || await findCookieControl(page, current, COOKIE_CUSTOMIZE_RE, {
+      genericPreferences: true, manageConsent: true,
+    })
+    || cookieDialogRemains(current, blockingControl)) return { status: 'unresolved', snapshot: current };
+  if (verifyShadow) {
+    let shadowAction = await markShadowCookieButton(page);
+    if (shadowAction) {
+      await clearShadowCookieMarker(page);
+      return { status: 'unresolved', snapshot: current };
+    }
+    shadowAction = await markShadowCookieButton(page, { includePreferences: true });
+    if (shadowAction) {
+      await clearShadowCookieMarker(page);
+      return { status: 'unresolved', snapshot: current };
+    }
+  }
+  return { status: 'dismissed', snapshot: current };
+}
+
 export async function dismissCookieBanner(page, snapshot) {
   let choice = await cookieChoice(page, snapshot);
   if (choice) return clickCookieChoice(page, snapshot, choice);
@@ -1969,7 +2014,14 @@ export async function dismissCookieBanner(page, snapshot) {
     let current = await cookiePageSnapshot(page);
     if (!current || !origin || pageOrigin(page) !== origin) return { status: 'unresolved', snapshot: current || snapshot };
     choice = await cookieChoice(page, current);
-    if (!choice) return { status: 'unresolved', snapshot: current };
+    if (!choice) {
+      // Manage consent can open a shadow-root preference center whose explicit
+      // Reject/Accept controls are absent from the regular DOM snapshot.
+      const shadowDecision = await markShadowCookieButton(page);
+      if (shadowDecision !== 'decision') return { status: 'unresolved', snapshot: current };
+      if (!await clickMarkedShadowCookie(page)) return { status: 'unresolved', snapshot: current };
+      return confirmCookieChoiceDismissed(page, current, origin, preferences, { verifyShadow: true });
+    }
     return clickCookieChoice(page, current, choice);
   }
 
@@ -2237,6 +2289,22 @@ export function sameEmployerFamily(one, other) {
   const first = core(one);
   return first.some((word) => !EMPLOYER_KIND_WORDS.has(word) && !FORM_VOCABULARY.has(word)) && first.join(' ') === core(other).join(' ');
 }
+
+function hasDistinctiveCompanyIdentity(company) {
+  return nameWords(company).some((word) => !EMPLOYER_KIND_WORDS.has(word)
+    && !FORM_VOCABULARY.has(word) && !BRANCH_WORDS.has(word));
+}
+
+function currentVacancyIdentityContexts(snapshot = {}) {
+  const controls = [
+    ...(Array.isArray(snapshot.buttons) ? snapshot.buttons : []),
+    ...(Array.isArray(snapshot.links) ? snapshot.links : []),
+  ];
+  return [...new Set(controls.filter((control) => control && !control.disabled && !control.chrome
+    && startsApplication(control.text || control.label))
+    .map((control) => String(control.vacancyContext || '').trim())
+    .filter((context) => context && context.length <= 700))];
+}
 // The kind of employer, alone in a title, names nobody: «Hotel application» is a hotel's form, whoever
 // the hotel is (review of #11064). Next to a word of the order's company it is a name, though:
 // «Esempio Resort» is not «Grand Hotel Esempio» (the neighbour rule does not take these for neutral).
@@ -2326,8 +2394,14 @@ export function hasVacancySpecificPostingEvidence(pageText, job = {}, {
   pageTitle = '',
   postingUrl = '',
   postingRouteProof = null,
+  vacancyIdentityContexts = [],
 } = {}) {
   const sourceText = `${pageTitle}\n${pageText}`;
+  const contexts = Array.isArray(vacancyIdentityContexts)
+    ? vacancyIdentityContexts.filter((context) => typeof context === 'string' && context.trim() && context.length <= 700)
+    : [];
+  const company = String(job?.company || '').trim();
+  if (company && !hasDistinctiveCompanyIdentity(company)) return false;
   const organizationCompatible = !job?.company || !job?.organization
     || sameEmployerFamily(job.organization, job.company);
   if (!organizationCompatible || namesAnotherEmployer(sourceText, job)) return false;
@@ -2335,11 +2409,28 @@ export function hasVacancySpecificPostingEvidence(pageText, job = {}, {
     || isPostingRouteBound({ pageUrl, postingUrl, postingRouteProof });
   if (routeBound) return !namesAnotherEmployer(pageText, job);
   const titleMatched = Boolean(job?.title && titleMatches(pageTitle, job.title));
-  // Without a route proof, require the employer as well as the role in the
-  // document title. A footer or related-job card elsewhere on the page cannot
-  // supply identity for this vacancy.
-  const sourceIdentityMatched = postingMatch(pageTitle, job, pageUrl) === 'match';
+  // The source page must identify the role in its title. Its employer may be
+  // in the Apply control's bounded vacancy card. Arbitrary page text can also
+  // contain a related vacancy, so it cannot prove this posting's employer.
+  const matchesCurrentIdentity = (text) => titleMatches(text, job.title)
+    && (!company || (hasDistinctiveCompanyIdentity(company) && postingMatch(text, job, pageUrl) === 'match'));
+  const sourceIdentityMatched = matchesCurrentIdentity(pageTitle)
+    || contexts.some(matchesCurrentIdentity);
   return titleMatched && sourceIdentityMatched;
+}
+
+/** Read-only reconciliation cannot use an Apply control or a persisted route proof. */
+export function hasReadOnlyVacancyEvidence(pageText, job = {}, { pageTitle = '' } = {}) {
+  const sourceText = `${pageTitle}\n${pageText}`;
+  const company = String(job?.company || '').trim();
+  if (!company || !hasDistinctiveCompanyIdentity(company)) return false;
+  const organizationCompatible = !job?.organization || sameEmployerFamily(job.organization, company);
+  return Boolean(organizationCompatible && job?.title
+    && !namesAnotherEmployer(sourceText, job)
+    && titleMatches(pageTitle, job.title)
+    // Host aliases are acceptable for an application form reached from a
+    // proven posting, but read-only reconciliation has no such provenance.
+    && postingMatch(pageTitle, { ...job, company }) === 'match');
 }
 
 /**
@@ -2736,7 +2827,7 @@ const OPTION_FALLBACK_MARKERS = Object.freeze({
 // Several are too short or contain shared technical words for the language
 // detector to classify (for example "Via", "Diploma" and "Indirizzo e-mail/login").
 const DETERMINISTIC_ITALIAN_PORTAL_LABELS = new Set([
-  'foto', 'titolo accademico', 'nome', 'cognome', 'data di nascita',
+  'foto', 'titolo', 'titolo accademico', 'nome', 'cognome', 'data di nascita',
   'indirizzo e mail login', 'password', 'via', 'nap', 'localita', 'paese',
   'telefono', 'cellulare', 'profilo linkedin', 'profilo xing', 'nazionalita',
   'diploma', 'annotazioni sulla formazione',
@@ -2744,7 +2835,26 @@ const DETERMINISTIC_ITALIAN_PORTAL_LABELS = new Set([
   'come e venuto a conoscenza della nostra organizzazione',
   'attualmente ho un contratto con l eoc',
   'in passato ho gia lavorato per l eoc',
+  'statuto di soggiorno',
+  'dichiaro di aver letto e compreso la dichiarazione sulla protezione dei dati dell eoc acconsento che i miei dati personali vengano trattati e conservati in conformita con tale dichiarazione e con le normative vigenti in materia di protezione dei dati in svizzera',
+  'attivazione dati',
 ]);
+
+// These short Italian EOC catalogues are too sparse for the language detector
+// (and the retention copy is long but low-confidence). Keep the whitelist
+// exact so a changed or mixed-language option still fails closed.
+const DETERMINISTIC_ITALIAN_OPTION_CATALOGUES = new Map([
+  ['titolo', ['Signora', 'Signor']],
+  ['statuto di soggiorno', [
+    ...permitOptions('it'),
+    'Nazionalità svizzera', 'Permesso C', 'Permesso B', 'Permesso L',
+    'Permesso F/N', 'Permesso G (frontaliere)', 'Attualmente senza permesso',
+  ]],
+  ['attivazione dati', [
+    'Do il mio consenso affinché i miei dati vengano memorizzati anche successivamente a una concreta richiesta di occupazione e dopo essere stato informato di offerte di lavoro interessanti.',
+    'Desidero che i miei dati vengano eliminati dopo la procedura di candidatura corrente.',
+  ]],
+].map(([label, options]) => [label, new Set(options.map(normalizedQuestionText))]));
 
 function fallbackOption(option, language) {
   const text = String(option || '').trim();
@@ -2971,6 +3081,12 @@ function deterministicItalianCountryOption(option, key) {
   return null;
 }
 
+function deterministicItalianOptionsMatch(label, options) {
+  const catalogue = DETERMINISTIC_ITALIAN_OPTION_CATALOGUES.get(label);
+  if (!catalogue) return null;
+  return options.every((option) => catalogue.has(normalizedQuestionText(option)));
+}
+
 function deterministicGermanOption(option, entry, language) {
   const text = String(option || '').trim();
   const normalized = normalizedQuestionText(text);
@@ -3129,7 +3245,11 @@ function deterministicItalianSameLanguage(item, candidateLanguage) {
     }
     return null;
   }
-  if (applicationOptions.length && !optionsMatchCandidateLanguage(applicationOptions, candidateLanguage)) return null;
+  if (applicationOptions.length) {
+    const deterministicOptions = deterministicItalianOptionsMatch(label, applicationOptions);
+    if (deterministicOptions === false) return null;
+    if (deterministicOptions !== true && !optionsMatchCandidateLanguage(applicationOptions, candidateLanguage)) return null;
+  }
   return sameLanguagePortalQuestion(item, candidateLanguage);
 }
 
@@ -6221,6 +6341,7 @@ export async function readPortalRequirements(ctx) {
       pageTitle: sourceTitle,
       postingUrl: ctx.postingUrl,
       postingRouteProof: ctx.postingRouteProof,
+      vacancyIdentityContexts: currentVacancyIdentityContexts(snapshot),
     });
     const opened = await openApplicationForm(context, page, snapshot, {
       applyUrl: stageApplyUrl,
@@ -6521,6 +6642,7 @@ export async function submitViaPortal(ctx) {
       pageTitle: postingTitle,
       postingUrl: ctx.postingUrl,
       postingRouteProof: ctx.postingRouteProof,
+      vacancyIdentityContexts: currentVacancyIdentityContexts(snapshot),
     });
     if (postingVacancyMatched && isApplicationRegionUnsupported(initialPageText)
       && !hasApplicationEntryControl(snapshot, {

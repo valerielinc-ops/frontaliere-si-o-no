@@ -1,6 +1,7 @@
 import fs from 'node:fs';
 import {
   dropArtificialyFabricatedText,
+  fetchArtificialyCareerPage,
   fetchArtificialyDetailHtml,
   filterArtificialyListingsWithIndexableSourceBody,
 } from '../scripts/update-artificialy-jobs.mjs';
@@ -120,6 +121,7 @@ describe('Artificialy career parser', () => {
     ).join(' ');
     const result = parseArtificialyLinkedInJobPage(`
       <html><body>
+        <span class="topcard__flavor topcard__flavor--bullet">Zurich, Switzerland</span>
         <nav>Recommended jobs and account navigation</nav>
         <div class="description__text description__text--rich">
           <section class="show-more-less-html">
@@ -128,7 +130,11 @@ describe('Artificialy career parser', () => {
         </div>
       </body></html>`);
 
-    expect(result).toMatchObject({ blocked: false, description: expect.stringContaining('Build reliable') });
+    expect(result).toMatchObject({
+      blocked: false,
+      location: 'Zürich',
+      description: expect.stringContaining('Build reliable'),
+    });
     expect(result.description.split(/\s+/).length).toBeGreaterThanOrEqual(50);
   });
 
@@ -136,7 +142,7 @@ describe('Artificialy career parser', () => {
     const result = parseArtificialyLinkedInJobPage(`
       <div class="show-more-less-html__markup"><p>Short listing summary only.</p></div>`);
 
-    expect(result).toEqual({ description: '', blocked: false });
+    expect(result).toEqual({ description: '', location: '', blocked: false });
   });
 
   it('does not pass listing-only metadata into the crawler pipeline', () => {
@@ -150,6 +156,41 @@ describe('Artificialy career parser', () => {
     ])).toEqual([
       { title: 'Full source body', description: indexableBody },
     ]);
+  });
+});
+
+describe('Artificialy career discovery transport', () => {
+  it('uses the reachable official company careers section before the blocked legacy routes', async () => {
+    const companyHtml = `
+      <html><head>
+        <script type="application/ld+json">${JSON.stringify({
+          '@type': 'JobPosting',
+          title: 'AI Engineer',
+          jobLocation: { address: { addressLocality: 'Lugano', addressRegion: 'TI' } },
+          description: SOURCE_BODY,
+          url: 'https://www.linkedin.com/jobs/view/4462149285/',
+        })}</script>
+      </head><body>Official Artificialy company careers.</body></html>`;
+    const fetchImpl = vi.fn(async (url: string) => {
+      if (url === 'https://www.artificialy.com/company') return companyHtml;
+      throw Object.assign(new Error(`HTTP 403 from ${url}`), { status: 403 });
+    });
+    const result = await fetchArtificialyCareerPage(fetchImpl);
+
+    expect(fetchImpl).toHaveBeenCalledTimes(1);
+    expect(fetchImpl).toHaveBeenCalledWith('https://www.artificialy.com/company');
+    expect(result).toMatchObject({
+      discovered: 1,
+      parsed: 1,
+      fetchOutcome: 'ok',
+      abortKind: null,
+      items: [expect.objectContaining({
+        title: 'AI Engineer',
+        location: 'Lugano',
+        applyUrl: 'https://www.linkedin.com/jobs/view/4462149285/',
+        description: SOURCE_BODY,
+      })],
+    });
   });
 });
 

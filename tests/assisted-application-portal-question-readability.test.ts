@@ -3,7 +3,7 @@ import { JSDOM } from 'jsdom';
 import { readFileSync } from 'node:fs';
 import { extractFieldsInPage } from '../scripts/assisted-application/lib/portal/fields.mjs';
 import { guardPlan } from '../scripts/assisted-application/lib/portal/plan.mjs';
-import { applicationEntryControls, formPostingMatch, hasVacancySpecificPostingEvidence, localizePortalQuestions, portalReadAheadCapability, portalQuestionReductionHandoff, portalRequirementsForCandidate, portalRequirementsFromMissingRequired, readPortalRequirements, readPortalQuestions } from '../scripts/assisted-application/lib/portal/portal.mjs';
+import { applicationEntryControls, formPostingMatch, hasReadOnlyVacancyEvidence, hasVacancySpecificPostingEvidence, localizePortalQuestions, portalReadAheadCapability, portalQuestionReductionHandoff, portalRequirementsForCandidate, portalRequirementsFromMissingRequired, readPortalRequirements, readPortalQuestions } from '../scripts/assisted-application/lib/portal/portal.mjs';
 import { PORTAL_QUESTION_PLACEHOLDERS } from '../functions/src/lib/portalQuestionText.js';
 import { questionsForCandidate } from '../functions/src/assistedApplicationCandidateEdits.js';
 import { transition } from '../functions/src/assistedApplicationFlow.js';
@@ -727,8 +727,50 @@ it('requires vacancy evidence beyond a company match before trusting one externa
   expect(hasVacancySpecificPostingEvidence('Muster AG Karriere', job, {
     pageUrl: listingUrl, pageTitle: 'Muster AG — Application Manager', postingUrl,
   })).toBe(true);
-  expect(hasVacancySpecificPostingEvidence('Andere GmbH — Apply · Footer Muster AG', job, {
+  expect(hasVacancySpecificPostingEvidence('Muster AG Karriere — Apply', job, {
     pageUrl: listingUrl, pageTitle: 'Application Manager', postingUrl,
+    vacancyIdentityContexts: ['Application Manager — Muster AG'],
+  })).toBe(true);
+  const relatedVacancyJob = { company: 'Acme', title: 'Data Engineer' };
+  expect(hasVacancySpecificPostingEvidence('Related vacancies: Data Engineer — Acme', relatedVacancyJob, {
+    pageUrl: 'https://careers.example.ch/careers',
+    pageTitle: 'Data Engineer | Careers',
+    postingUrl: 'https://careers.example.ch/jobs/data-engineer-current',
+  })).toBe(false);
+  expect(hasVacancySpecificPostingEvidence('Related vacancies: Data Engineer — Acme', relatedVacancyJob, {
+    pageUrl: 'https://careers.example.ch/careers',
+    pageTitle: 'Data Engineer | Careers',
+    postingUrl: 'https://careers.example.ch/jobs/data-engineer-current',
+    vacancyIdentityContexts: ['Data Engineer — Acme'],
+  })).toBe(true);
+  expect(applicationEntryControls({
+    text: 'Muster AG Karriere — Apply',
+    links: [{ text: 'Apply', href: 'https://ats.example.test/apply', vacancyContext: 'Application Manager — Andere GmbH' }],
+  }, {
+    job, postingUrl, allowSingleExternalApplicationEntry: true,
+  })).toEqual([]);
+  expect(hasReadOnlyVacancyEvidence('Muster AG Karriere', job, {
+    pageUrl: listingUrl, pageTitle: 'Application Manager',
+  })).toBe(false);
+  expect(hasReadOnlyVacancyEvidence('Muster AG Karriere', job, {
+    pageUrl: postingUrl, pageTitle: 'Application Manager',
+  })).toBe(false);
+  expect(hasReadOnlyVacancyEvidence('Application form', { title: 'Application Manager' }, {
+    pageTitle: 'Application Manager',
+  })).toBe(false);
+  expect(hasReadOnlyVacancyEvidence('Application form', { company: 'AG', title: 'Application Manager' }, {
+    pageTitle: 'Application Manager',
+  })).toBe(false);
+  expect(hasReadOnlyVacancyEvidence('', { company: 'Hotel', title: 'Concierge' }, {
+    pageTitle: 'Concierge — Hotel',
+  })).toBe(false);
+  expect(hasReadOnlyVacancyEvidence('Application form', job, {
+    pageUrl: postingUrl, pageTitle: 'Muster AG — Application Manager',
+  })).toBe(true);
+  const rhbJob = { company: 'Ferrovia Retica (RhB)', title: 'Application Manager' };
+  expect(hasReadOnlyVacancyEvidence('Application form', rhbJob, {
+    pageUrl: 'https://rhb-career.talent-soft.com/application',
+    pageTitle: 'Application Manager',
   })).toBe(false);
   expect(hasVacancySpecificPostingEvidence('Application Manager', { ...job, organization: 'Muster AG' }, {
     pageUrl: listingUrl, pageTitle: 'Application Manager', postingUrl,
@@ -1177,6 +1219,62 @@ it('keeps known Italian EOC Umantis fields candidate-readable when localization 
       { candidate: 'Altro', application: 'Altro' },
     ],
   });
+});
+
+it('keeps the later Italian EOC Umantis controls candidate-readable when localization is unavailable', async () => {
+  const codex = vi.fn().mockRejectedValue(new Error('translation unavailable'));
+  const processingConsent = 'Dichiaro di aver letto e compreso la Dichiarazione sulla protezione dei dati dell’EOC. Acconsento che i miei dati personali vengano trattati e conservati in conformità con tale Dichiarazione e con le normative vigenti in materia di protezione dei dati in Svizzera.';
+  const retentionOptions = [
+    'Do il mio consenso affinché i miei dati vengano memorizzati anche successivamente a una concreta richiesta di occupazione e dopo essere stato informato di offerte di lavoro interessanti.',
+    'Desidero che i miei dati vengano eliminati dopo la procedura di candidatura corrente.',
+  ];
+  const permitOptionsOnPage = [
+    'Nazionalità svizzera', 'Permesso C', 'Permesso B', 'Permesso L',
+    'Permesso F/N', 'Permesso G (frontaliere)', 'Attualmente senza permesso',
+  ];
+  const questions = [
+    {
+      id: 'title', question: 'Quale appellativo vuoi usare nei moduli di candidatura?',
+      candidatePrompt: 'Quale appellativo vuoi usare nei moduli di candidatura?',
+      applicationQuestion: 'Titolo', type: 'choice', options: ['Signora', 'Signor'], applicationOptions: ['Signora', 'Signor'],
+    },
+    {
+      id: 'permit', question: permitStatusQuestion('it'), candidatePrompt: permitStatusQuestion('it'),
+      applicationQuestion: 'Statuto di soggiorno', type: 'choice', options: permitOptionsOnPage, applicationOptions: permitOptionsOnPage,
+    },
+    {
+      id: 'privacy', question: 'Confermi di aver letto e accettato l’informativa sulla protezione dei dati?',
+      candidatePrompt: 'Confermi di aver letto e accettato l’informativa sulla protezione dei dati?',
+      applicationQuestion: processingConsent, type: 'yes_no', options: ['Sì', 'No'], applicationOptions: ['Sì', 'No'],
+    },
+    {
+      id: 'retention', question: 'Per quanto tempo autorizzi l’EOC a conservare i tuoi dati personali?',
+      candidatePrompt: 'Per quanto tempo autorizzi l’EOC a conservare i tuoi dati personali?',
+      applicationQuestion: 'Attivazione dati', type: 'choice', options: retentionOptions, applicationOptions: retentionOptions,
+    },
+  ];
+
+  const request = await portalRequirementsForCandidate({ questions, documents: [] }, {
+    candidateLocale: 'it', applicationLocale: 'de', codex,
+  });
+
+  expect(codex).not.toHaveBeenCalled();
+  expect(request.questions).toHaveLength(questions.length);
+  expect(request.questions.every((question: any) => question.localizationStatus === 'same_language')).toBe(true);
+  expect(request.questions.map((question: any) => question.applicationQuestion)).toEqual([
+    'Titolo', 'Statuto di soggiorno', processingConsent, 'Attivazione dati',
+  ]);
+  expect(request.questions[0]).toMatchObject({
+    question: 'Quale appellativo vuoi usare nei moduli di candidatura?',
+    options: ['Signora', 'Signor'],
+    optionMap: [
+      { candidate: 'Signora', application: 'Signora' },
+      { candidate: 'Signor', application: 'Signor' },
+    ],
+  });
+  expect(request.questions[1].options).toEqual(permitOptionsOnPage);
+  expect(request.questions[2].options).toEqual(['Sì', 'No']);
+  expect(request.questions[3].options).toEqual(retentionOptions);
 });
 
 it('keeps Italian EOC country and nationality catalogues without the localization provider', async () => {

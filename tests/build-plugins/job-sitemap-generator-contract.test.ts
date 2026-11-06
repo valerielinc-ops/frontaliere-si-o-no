@@ -132,6 +132,23 @@ describe.each([undefined, 'it'] as const)('job sitemap generator contract (BUILD
     }
   });
 
+  it('keeps sibling-locale company hubs in the IT-owned sitemap when their files live in other shards', () => {
+    const blocks = sitemapFiles().flatMap(urlBlocks);
+    const companyHubBlocks = blocks.filter((block) =>
+      block.file === 'sitemap-jobs.xml'
+      && block.loc.includes('contract-example-2')
+      && block.alternates.length === 5,
+    );
+    const locales = companyHubBlocks.map(({ loc }) => {
+      const pathname = new URL(loc).pathname;
+      return /^\/en\//.test(pathname) ? 'en'
+        : /^\/de\//.test(pathname) ? 'de'
+          : /^\/fr\//.test(pathname) ? 'fr' : 'it';
+    }).sort();
+
+    expect(locales).toEqual(['de', 'en', 'fr', 'it']);
+  });
+
   it('never writes the build date as a <url> lastmod', () => {
     const today = new Date().toISOString().slice(0, 10);
     const stamped = sitemapFiles().flatMap(urlBlocks).filter((b) => b.lastmod?.slice(0, 10) === today);
