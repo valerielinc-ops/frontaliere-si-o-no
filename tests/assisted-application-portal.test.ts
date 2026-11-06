@@ -362,6 +362,30 @@ describe('assisted application profile history and file replacement', () => {
     const visibleNonWorkdayReceipt = { ...visibleWorkdayName, url: () => 'https://jobs.example/apply' };
     expect(await uploadReceipt(visibleNonWorkdayReceipt as any, locator as any, ['/tmp/CV.pdf'], { timeoutMs: 0 })).toBe(true);
   });
+
+  it('accepts a confirmed generic upload after the portal replaces the file input', async () => {
+    const locator = { evaluate: vi.fn(async () => []) };
+    const page = {
+      url: () => 'https://jobs.example/apply',
+      locator: () => ({ allInnerTexts: async () => [] }),
+      getByText: () => ({ first: () => ({ isVisible: async () => false }) }),
+      waitForTimeout: async () => {},
+    };
+
+    expect(await uploadReceipt(page as any, locator as any, ['/tmp/CV.pdf'], {
+      acceptedResponse: true,
+      timeoutMs: 0,
+    })).toBe(true);
+
+    const failedPage = {
+      ...page,
+      locator: () => ({ allInnerTexts: async () => ['Upload failed'] }),
+    };
+    expect(await uploadReceipt(failedPage as any, locator as any, ['/tmp/CV.pdf'], {
+      acceptedResponse: true,
+      timeoutMs: 0,
+    })).toBe(false);
+  });
 });
 
 describe('upload dialog frame safety', () => {

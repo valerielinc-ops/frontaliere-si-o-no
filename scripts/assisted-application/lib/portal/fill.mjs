@@ -815,7 +815,7 @@ function selectedUploadPaths(paths, multiple) {
   return paths.length > 1 && multiple ? paths : paths.slice(0, 1);
 }
 
-/** A Workday file needs a successful upload response; its selected filename is not a receipt. */
+/** A successful upload response is a receipt even when a portal replaces the file input after upload. */
 export async function uploadReceipt(page, locator, paths, { acceptedResponse = false, timeoutMs = 60_000 } = {}) {
   const names = paths.map((file) => path.basename(file));
   if (!names.length) return false;
@@ -827,7 +827,12 @@ export async function uploadReceipt(page, locator, paths, { acceptedResponse = f
     const inputNames = await locator.evaluate((element) => [...(element.files || [])].map((file) => file.name)).catch(() => []);
     const visibleNames = await Promise.all(names.map((name) => page.getByText(name, { exact: false }).first().isVisible().catch(() => false)));
     const inputHasFiles = names.every((name) => inputNames.includes(name));
-    if ((!requiresPortalReceipt && names.every((name, index) => visibleNames[index]))
+    // observeFileUpload sets acceptedResponse only after a recognized upload request
+    // receives a successful response; the alert check above still vetoes it. A
+    // portal may replace the input after that response, but a partially retained
+    // multi-file selection must still be checked against every requested name.
+    if ((acceptedResponse && inputNames.length === 0)
+      || (!requiresPortalReceipt && names.every((name, index) => visibleNames[index]))
       || (inputHasFiles && (!requiresPortalReceipt || acceptedResponse))) return true;
     if (Date.now() >= deadline) break;
     await page.waitForTimeout(250);
