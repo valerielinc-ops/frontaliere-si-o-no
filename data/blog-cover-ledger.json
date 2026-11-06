@@ -15,10 +15,10 @@
       "2": 197,
       "3": 0,
       "4": 0,
-      "5": 1056,
+      "5": 1059,
       "6": 5061
     },
-    "publishedCovers": 7799,
+    "publishedCovers": 7802,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 1,
     "inheritedRecordsMaterialized": 197,
@@ -213791,6 +213791,39 @@
         "evidence": "generated-engine-record"
       }
     },
+    "article-neuchatel-dossier-consiglio-stato": {
+      "cover": "/images/blog/article-neuchatel-dossier-consiglio-stato.webp",
+      "hash": "7ed2ca29c81b2eb03aac217d17160bd32f79616f3d5954d958ac62faf1cd9aa3",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-ne",
+          "id": "neuchatel-dossier-consiglio-stato",
+          "category": "novita",
+          "date": "2026-11-06T03:22:02.144Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-neuchatel-dossier-consiglio-stato.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1794,
+      "verifiedAt": "2026-11-06",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-neuchatel-dossier-consiglio-stato",
+        "imageUrl": "/images/blog/article-neuchatel-dossier-consiglio-stato.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
     "article-ofenberg-chiusura-notte": {
       "cover": "/images/blog/article-ofenberg-chiusura-notte.webp",
       "hash": "a5b36dc4352e132d7abb63d6d0061aedbbab7a3d9c0fc34e17f93fee91159616",
@@ -213953,6 +213986,39 @@
         "provider": "openai-codex",
         "assetId": "article-rheinfall-management-2026",
         "imageUrl": "/images/blog/article-rheinfall-management-2026.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-ricerca-fisco-aziende-svitto": {
+      "cover": "/images/blog/article-ricerca-fisco-aziende-svitto.webp",
+      "hash": "4e335629520059d517d6163c0cf29d061c11674e6259dcfe24ed6d8778caea34",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-sz",
+          "id": "ricerca-fisco-aziende-svitto",
+          "category": "fiscale",
+          "date": "2026-11-06T03:37:01.055Z",
+          "updatedAt": null,
+          "authorSlug": "marco-ferrari"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-ricerca-fisco-aziende-svitto.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1794,
+      "verifiedAt": "2026-11-06",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-ricerca-fisco-aziende-svitto",
+        "imageUrl": "/images/blog/article-ricerca-fisco-aziende-svitto.webp",
         "evidence": "generated-engine-record"
       }
     },
@@ -214448,6 +214514,39 @@
         "provider": "openai-codex",
         "assetId": "article-tassa-salute-ristorni-tavolo-lavoro",
         "imageUrl": "/images/blog/article-tassa-salute-ristorni-tavolo-lavoro.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-tasso-disoccupazione-ottobre-2026": {
+      "cover": "/images/blog/article-tasso-disoccupazione-ottobre-2026.webp",
+      "hash": "3e57e804b351af43efbab3fba695e03e4169b0ac823f111f79ccbad00db422e8",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-so",
+          "id": "tasso-disoccupazione-ottobre-2026",
+          "category": "novita",
+          "date": "2026-11-06T03:29:06.353Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-tasso-disoccupazione-ottobre-2026.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1794,
+      "verifiedAt": "2026-11-06",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-tasso-disoccupazione-ottobre-2026",
+        "imageUrl": "/images/blog/article-tasso-disoccupazione-ottobre-2026.webp",
         "evidence": "generated-engine-record"
       }
     },
