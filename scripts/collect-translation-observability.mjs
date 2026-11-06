@@ -4,6 +4,7 @@ import { realpathSync } from 'node:fs';
 import fs from 'node:fs';
 
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
+import { readJsonFile } from './lib/read-large-json.mjs';
 import {
   createTranslationObservabilitySnapshot,
   advanceTranslationObservabilityState,
@@ -22,11 +23,12 @@ function args(argv) {
   return out;
 }
 function json(file) { return JSON.parse(fs.readFileSync(file, 'utf8')); }
+function jobsJson(file) { return readJsonFile(file); }
 function existingJson(file) { return file && fs.existsSync(file) ? json(file) : null; }
 function run(argv) {
   const value = args(argv);
   if (value.mode === 'start') {
-    const snapshot = createTranslationObservabilitySnapshot(json(value.jobs), {
+    const snapshot = createTranslationObservabilitySnapshot(jobsJson(value.jobs), {
       now: Date.parse(value.now || '') || Date.now(),
       measureLanguageQuality: false,
     });
@@ -35,7 +37,7 @@ function run(argv) {
   }
   if (value.mode === 'finish') {
     const before = json(value.before);
-    const final = createTranslationObservabilitySnapshot(json(value.jobs), { measureLanguageQuality: true });
+    const final = createTranslationObservabilitySnapshot(jobsJson(value.jobs), { measureLanguageQuality: true });
     const finishedAt = value.finishedAt || new Date().toISOString();
     let previousState = null;
     let stateIssue = null;
