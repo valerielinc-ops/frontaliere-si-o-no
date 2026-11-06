@@ -6,7 +6,7 @@ import {
   isTrustedDomain,
 } from '../scripts/lib/walter-zoo-ag-gossau-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
-import { loadSpec } from '../scripts/lib/prospector/spec-crawler.mjs';
+import { loadSpec, runSpecInProduction } from '../scripts/lib/prospector/spec-crawler.mjs';
 
 describe('WALTER ZOO AG GOSSAU crawler parser', () => {
   // ── Constants ──
@@ -24,6 +24,69 @@ describe('WALTER ZOO AG GOSSAU crawler parser', () => {
       rescueOnEmptyListing: true,
       emptyListingOutcome: 'anti_bot_block',
     });
+  });
+
+  it('discovers allowlisted cross-origin Ostendis vacancies from the official page', async () => {
+    const seedUrl = 'https://www.walterzoo.ch/unser-zoo/';
+    const detailUrl = 'https://link.ostendis.com/publication/praktikant-in-tierpflege/source-token';
+    const unrelatedUrl = 'https://unrelated.example/publication/other-role/source-token';
+    const requests: string[] = [];
+    const detail = {
+      '@context': 'https://schema.org',
+      '@type': 'JobPosting',
+      title: 'Praktikant:in Tierpflege',
+      description: 'Du pflegst Tiere und unterstützt das erfahrene Team im täglichen Zoobetrieb mit abwechslungsreichen Aufgaben.',
+      hiringOrganization: { '@type': 'Organization', name: 'WALTER ZOO AG GOSSAU' },
+      jobLocation: {
+        '@type': 'Place',
+        address: {
+          streetAddress: 'Neuchlen 200',
+          postalCode: '9200',
+          addressLocality: 'Gossau',
+          addressRegion: 'SG',
+          addressCountry: 'CH',
+        },
+      },
+      url: detailUrl,
+    };
+    const fetchImpl = async (input: string | URL | Request) => {
+      const url = String(input);
+      requests.push(url);
+      if (url.endsWith('/robots.txt')) return new Response('User-agent: *\nAllow: /');
+      if (url === seedUrl) {
+        return new Response(
+          `<a href="${detailUrl}">Praktikant:in Tierpflege (100 %)</a>`
+          + `<a href="${unrelatedUrl}">Unrelated role</a>`,
+        );
+      }
+      if (url === detailUrl) {
+        return new Response(
+          '<h1>Praktikant:in Tierpflege (m/w/d | 100%)</h1>'
+          + `<script type="application/ld+json">${JSON.stringify(detail)}</script>`,
+        );
+      }
+      throw new Error(`unexpected fixture URL ${url}`);
+    };
+
+    const rows = await runSpecInProduction({
+      ...loadSpec(WALTER_ZOO_AG_GOSSAU_KEY),
+      seedUrls: [seedUrl],
+      sampleVacancyCount: 1,
+    } as any, {
+      fetchImpl,
+      lookupImpl: async () => [{ address: '93.184.216.34', family: 4 }],
+      sleepImpl: async () => {},
+      retries: 0,
+      disableWafProxy: true,
+    });
+
+    expect(rows).toEqual([expect.objectContaining({
+      title: 'Praktikant:in Tierpflege',
+      url: detailUrl,
+      location: 'Gossau, SG',
+      canton: 'SG',
+    })]);
+    expect(requests).not.toContain(unrelatedUrl);
   });
 
   // ── isCompanyJob ──
