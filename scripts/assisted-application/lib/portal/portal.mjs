@@ -2827,7 +2827,7 @@ const OPTION_FALLBACK_MARKERS = Object.freeze({
 // Several are too short or contain shared technical words for the language
 // detector to classify (for example "Via", "Diploma" and "Indirizzo e-mail/login").
 const DETERMINISTIC_ITALIAN_PORTAL_LABELS = new Set([
-  'foto', 'titolo accademico', 'nome', 'cognome', 'data di nascita',
+  'foto', 'titolo', 'titolo accademico', 'nome', 'cognome', 'data di nascita',
   'indirizzo e mail login', 'password', 'via', 'nap', 'localita', 'paese',
   'telefono', 'cellulare', 'profilo linkedin', 'profilo xing', 'nazionalita',
   'diploma', 'annotazioni sulla formazione',
@@ -2835,7 +2835,26 @@ const DETERMINISTIC_ITALIAN_PORTAL_LABELS = new Set([
   'come e venuto a conoscenza della nostra organizzazione',
   'attualmente ho un contratto con l eoc',
   'in passato ho gia lavorato per l eoc',
+  'statuto di soggiorno',
+  'dichiaro di aver letto e compreso la dichiarazione sulla protezione dei dati dell eoc acconsento che i miei dati personali vengano trattati e conservati in conformita con tale dichiarazione e con le normative vigenti in materia di protezione dei dati in svizzera',
+  'attivazione dati',
 ]);
+
+// These short Italian EOC catalogues are too sparse for the language detector
+// (and the retention copy is long but low-confidence). Keep the whitelist
+// exact so a changed or mixed-language option still fails closed.
+const DETERMINISTIC_ITALIAN_OPTION_CATALOGUES = new Map([
+  ['titolo', ['Signora', 'Signor']],
+  ['statuto di soggiorno', [
+    ...permitOptions('it'),
+    'Nazionalità svizzera', 'Permesso C', 'Permesso B', 'Permesso L',
+    'Permesso F/N', 'Permesso G (frontaliere)', 'Attualmente senza permesso',
+  ]],
+  ['attivazione dati', [
+    'Do il mio consenso affinché i miei dati vengano memorizzati anche successivamente a una concreta richiesta di occupazione e dopo essere stato informato di offerte di lavoro interessanti.',
+    'Desidero che i miei dati vengano eliminati dopo la procedura di candidatura corrente.',
+  ]],
+].map(([label, options]) => [label, new Set(options.map(normalizedQuestionText))]));
 
 function fallbackOption(option, language) {
   const text = String(option || '').trim();
@@ -3062,6 +3081,12 @@ function deterministicItalianCountryOption(option, key) {
   return null;
 }
 
+function deterministicItalianOptionsMatch(label, options) {
+  const catalogue = DETERMINISTIC_ITALIAN_OPTION_CATALOGUES.get(label);
+  if (!catalogue) return null;
+  return options.every((option) => catalogue.has(normalizedQuestionText(option)));
+}
+
 function deterministicGermanOption(option, entry, language) {
   const text = String(option || '').trim();
   const normalized = normalizedQuestionText(text);
@@ -3220,7 +3245,11 @@ function deterministicItalianSameLanguage(item, candidateLanguage) {
     }
     return null;
   }
-  if (applicationOptions.length && !optionsMatchCandidateLanguage(applicationOptions, candidateLanguage)) return null;
+  if (applicationOptions.length) {
+    const deterministicOptions = deterministicItalianOptionsMatch(label, applicationOptions);
+    if (deterministicOptions === false) return null;
+    if (deterministicOptions !== true && !optionsMatchCandidateLanguage(applicationOptions, candidateLanguage)) return null;
+  }
   return sameLanguagePortalQuestion(item, candidateLanguage);
 }
 
