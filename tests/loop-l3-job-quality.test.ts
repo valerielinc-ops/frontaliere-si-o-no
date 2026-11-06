@@ -237,7 +237,7 @@ describe('L3 Job Quality → Apply', () => {
 
     const verdict = validateJobSummaries([
       summary(),
-      summary({
+      {
         file: 'burkhalter-group.json',
         data: {
           ...summary().data,
@@ -246,17 +246,22 @@ describe('L3 Job Quality → Apply', () => {
             id: 'burkhalter-job',
             slug: 'burkhalter-job',
             url: 'https://jobs.example.test/burkhalter-job',
-            applyUrl: 'https://jobs.example.test/burkhalter-job/apply',
+            applyUrl: undefined,
           })],
         },
-      }),
+      },
     ], { outcomes: outcomes(), now: NOW, scheduledSummaryKeys });
 
-    expect(verdict.snapshot).toMatchObject({
-      summaryCount: 2,
-      ignoredInactiveSummaries: 0,
-      jobsInspected: 2,
-      invalidJobs: 0,
+    expect(verdict).toMatchObject({
+      ok: false,
+      quality: 'partial',
+      issues: [expect.stringContaining('applyUrl is missing or is not an HTTPS URL')],
+      snapshot: {
+        summaryCount: 2,
+        ignoredInactiveSummaries: 0,
+        jobsInspected: 2,
+        invalidJobs: 1,
+      },
     });
   });
 
