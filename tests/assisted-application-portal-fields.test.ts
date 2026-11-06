@@ -317,6 +317,90 @@ describe('portal field extraction', () => {
     expect(stage).toBe(2);
   });
 
+  it('opens Yellowshark Manage consent on a job page without a cookie-manager landmark', async () => {
+    const url = 'https://jobs.yellowshark.com/job/example/';
+    let stage = 0;
+    const currentSnapshot = () => stage === 0
+      ? {
+        url, fields: [],
+        buttons: [
+          { id: 'apply', text: 'JETZT BEWERBEN', disabled: false },
+          { id: 'manage-consent', text: 'Manage consent', disabled: false },
+        ],
+        dialogs: [], errors: [], captcha: false, passwordVisible: false, text: '',
+      }
+      : stage === 1
+        ? {
+          url, fields: [],
+          buttons: [{ id: 'reject', text: 'Reject all cookies', context: 'Cookie preferences', cookieSurface: 'banner', disabled: false }],
+          dialogs: [], errors: [], captcha: false, passwordVisible: false, text: 'Cookie preferences',
+        }
+        : {
+          url, fields: [], buttons: [{ id: 'apply', text: 'JETZT BEWERBEN', disabled: false }],
+          dialogs: [], errors: [], captcha: false, passwordVisible: false, text: 'Job posting',
+        };
+    const frame = {
+      url: () => url,
+      evaluate: vi.fn(async (_evaluateInPage: Function, args: any) => args?.surfacePattern ? false : currentSnapshot()),
+      locator: vi.fn((selector: string) => ({
+        first: () => ({ click: vi.fn(async () => {
+          expect(selector).toBe(stage === 0 ? '[data-aa-id="manage-consent"]' : '[data-aa-id="reject"]');
+          stage += 1;
+        }) }),
+      })),
+    };
+    const page = { url: () => url, frames: () => [frame], waitForTimeout: vi.fn(async () => {}) };
+
+    const result = await dismissCookieBanner(page as any, currentSnapshot() as any);
+
+    expect(result.status).toBe('dismissed');
+    expect(stage).toBe(2);
+  });
+
+  it('does not borrow Yellowshark Apply evidence from another frame', async () => {
+    const url = 'https://jobs.yellowshark.com/job/example/';
+    const snapshot = {
+      url, fields: [],
+      buttons: [
+        { id: 'apply', text: 'JETZT BEWERBEN', disabled: false, frame: 1 },
+        { id: 'manage-consent', text: 'Manage consent', disabled: false, frame: 0 },
+      ],
+      dialogs: [], errors: [], captcha: false, passwordVisible: false, text: '',
+    };
+    const frame = {
+      url: () => url,
+      evaluate: vi.fn(async (_evaluateInPage: Function, args: any) => args?.surfacePattern ? false : snapshot),
+    };
+    const otherFrame = { url: () => 'https://ats.example.test/apply' };
+    const page = { url: () => url, frames: () => [frame, otherFrame] };
+
+    const result = await dismissCookieBanner(page as any, snapshot as any);
+
+    expect(result.status).toBe('none');
+  });
+
+  it('does not use the Yellowshark fallback when the snapshot contains application fields', async () => {
+    const url = 'https://jobs.yellowshark.com/job/example/';
+    const snapshot = {
+      url,
+      fields: [{ id: 'first-name', kind: 'text', label: 'First name', formId: 'application', frame: 0 }],
+      buttons: [
+        { id: 'apply', text: 'JETZT BEWERBEN', disabled: false, frame: 0 },
+        { id: 'manage-consent', text: 'Manage consent', disabled: false, frame: 0 },
+      ],
+      dialogs: [], errors: [], captcha: false, passwordVisible: false, text: '',
+    };
+    const frame = {
+      url: () => url,
+      evaluate: vi.fn(async (_evaluateInPage: Function, args: any) => args?.surfacePattern ? false : snapshot),
+    };
+    const page = { url: () => url, frames: () => [frame] };
+
+    const result = await dismissCookieBanner(page as any, snapshot as any);
+
+    expect(result.status).toBe('none');
+  });
+
   it('does not open an application privacy action labelled Manage consent', async () => {
     const url = 'https://jobs.yellowshark.com/job/example/';
     const privacy = extract('<section class="cookie-consent"><span>This website uses cookies.</span><button type="button">Manage consent</button></section>', url);

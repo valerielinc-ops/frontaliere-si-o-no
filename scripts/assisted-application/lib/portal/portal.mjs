@@ -1794,6 +1794,27 @@ async function hasLiveCookieManagerSurface(page, button) {
   return surfaceIsLive === true;
 }
 
+function isYellowsharkJobCookiePreference(page, button, snapshot = {}) {
+  if (!COOKIE_MANAGE_CONSENT_RE.test(cookieControlLabel(button))
+    || button?.formId || button?.roleFormId) return false;
+  const fields = Array.isArray(snapshot?.fields) ? snapshot.fields : null;
+  if (!fields || fields.length) return false;
+  const frameNumber = Number(button.frame) || 0;
+  const hasJobApply = (snapshot.buttons || []).some((candidate) => !candidate.disabled
+    && (Number(candidate.frame) || 0) === frameNumber
+    && /^jetzt bewerben$/i.test(cookieControlLabel(candidate)));
+  if (!hasJobApply) return false;
+  const frames = typeof page?.frames === 'function' ? page.frames() : [];
+  const pageUrl = frames[frameNumber]?.url?.() || (frameNumber === 0 ? page?.url?.() : '');
+  try {
+    const url = new URL(String(pageUrl || ''));
+    return url.protocol === 'https:' && url.hostname === 'jobs.yellowshark.com'
+      && url.pathname.startsWith('/job/');
+  } catch {
+    return false;
+  }
+}
+
 async function cookieControlHasCookieContext(page, button, snapshot = {}) {
   const label = cookieControlLabel(button);
   const isPreferenceControl = COOKIE_CUSTOMIZE_RE.test(label)
@@ -1809,7 +1830,8 @@ async function cookieControlHasCookieContext(page, button, snapshot = {}) {
   if (manageConsent && (button.formId || button.roleFormId)) return false;
   // The live manager check is affirmative proof for this label. Do not fall
   // through to the generic Accept control check, which rejects "Manage consent".
-  if (manageConsent) return await hasLiveCookieManagerSurface(page, button);
+  if (manageConsent) return await hasLiveCookieManagerSurface(page, button)
+    || isYellowsharkJobCookiePreference(page, button, snapshot);
   if (button.dialog && /^d\d+$/.test(String(button.dialogId || ''))) {
     const frame = page.frames()[button.frame || 0] || page.mainFrame();
     try {
