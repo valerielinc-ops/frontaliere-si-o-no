@@ -2888,6 +2888,32 @@ function optionsMatchCandidateLanguage(options, candidateLanguage) {
   });
 }
 
+function verifiedItalianNationalityOptions(options) {
+  if (!Array.isArray(options) || !options.length) return false;
+  const normalizedOptions = options.map(normalizedQuestionText);
+  const hasItalianSelectLabel = normalizedOptions.some((option) => ['seleziona', 'selezionare'].includes(option));
+  if (!hasItalianSelectLabel) return false;
+  const hasCanonicalItalianNationality = options.some((option) => {
+    const normalized = normalizedQuestionText(option);
+    const nationality = nationalityOf(option);
+    return Boolean(nationality
+      && normalizedQuestionText(nationalityLabelOf(nationality.code, 'it')) === normalized);
+  });
+  if (!hasCanonicalItalianNationality) return false;
+  const foreignNationalityLabels = new Set([
+    'citizenship', 'nationality', 'nationalite', 'nationalitat', 'staatsangehorigkeit', 'staatsburgerschaft',
+  ]);
+  const hasKnownForeignMarker = options.some((option) => {
+    const normalized = normalizedQuestionText(option);
+    return foreignNationalityLabels.has(normalized)
+      || Object.entries(OPTION_LANGUAGE_MARKERS)
+        .some(([language, markers]) => language !== 'it' && markers.includes(normalized));
+  });
+  if (hasKnownForeignMarker) return false;
+  const detected = detectLanguageWithConfidence(options.join(' '), 'it');
+  return detected.lang === 'it' && detected.confidence >= SAME_LANGUAGE_ITEM_MIN_CONFIDENCE;
+}
+
 // A provider outage must not strand a standard ATS form whose labels are
 // already part of the portal contract. These are exact German field captions
 // observed on employer-site forms; arbitrary questions still require the
@@ -3225,7 +3251,7 @@ function deterministicItalianSameLanguage(item, candidateLanguage) {
   const countryKey = label === 'paese' ? 'country' : label === 'nazionalita' ? 'nationality' : '';
   if (countryKey && applicationOptions.length) {
     if (countryKey === 'nationality') {
-      if (!optionsMatchCandidateLanguage(applicationOptions, candidateLanguage)) return null;
+      if (!verifiedItalianNationalityOptions(applicationOptions)) return null;
       // EOC's Italian nationality catalogue contains duplicate visible labels
       // (for example «Dominicano»). Keep the portal's Italian labels verbatim
       // so the candidate can answer; the downstream exact-match guard still
