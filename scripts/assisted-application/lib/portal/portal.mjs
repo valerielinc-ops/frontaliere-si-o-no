@@ -1980,7 +1980,7 @@ async function confirmCookieChoiceDismissed(page, snapshot, origin, blockingCont
   if (!current || !origin || pageOrigin(page) !== origin) return { status: 'unresolved', snapshot: current || snapshot };
   if (await cookieChoice(page, current)
     || await findCookieControl(page, current, COOKIE_CUSTOMIZE_RE, {
-      genericPreferences: true, manageConsent: true, allowYellowsharkFallback: false,
+      genericPreferences: true, manageConsent: true,
     })
     || cookieDialogRemains(current, blockingControl)) return { status: 'unresolved', snapshot: current };
   if (verifyShadow) {
