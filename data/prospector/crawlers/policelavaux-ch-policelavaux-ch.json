@@ -1,0 +1,25 @@
+{
+  "companyKey": "policelavaux-ch-policelavaux-ch",
+  "companyName": "Police Lavaux",
+  "companyHost": "policelavaux.ch",
+  "verifiedEmployerDomain": "policelavaux.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://www.policelavaux.ch/emplois/offres-demploi/"
+  ],
+  "detailTemplate": "/emplois/offres-demploi/*/",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 3,
+  "sampleTitles": [
+    "POLICE LAVAUX RECRUTE DEUX SOUS-OFFICIERS OU SOUS-OFFICIÈRES SUPÉRIEUR-E-S",
+    "POLICE LAVAUX SE DÉVELOPPE ET RECRUTE DES POLICIÈRES ET POLICIERS !",
+    "UN-E ASSISTANT-E DE SÉCURITÉ PUBLIQUE"
+  ],
+  "canton": "VD",
+  "sourceLang": "fr",
+  "learnedAt": "2026-11-06T13:07:30.755Z",
+  "candidateKey": "police-lavaux@lutry"
+}

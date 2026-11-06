@@ -1,0 +1,25 @@
+{
+  "companyKey": "reseau-sante-haut-leman-ch",
+  "companyName": "Réseau Santé Haut-Léman",
+  "companyHost": "reseau-sante-haut-leman.ch",
+  "verifiedEmployerDomain": "reseau-sante-haut-leman.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://reseau-sante-haut-leman.ch/postes-vacants/"
+  ],
+  "detailTemplate": "/emplois/*/",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 3,
+  "sampleTitles": [
+    "Spécialiste en finance et comptabilité, 50%",
+    "Adjoint·e au·à la Responsable BRIO, 90%",
+    "Assistant·e médical·e CFC, 50-100%"
+  ],
+  "canton": "VD",
+  "sourceLang": "fr",
+  "learnedAt": "2026-11-06T13:09:13.007Z",
+  "candidateKey": "reseau-sante-haut-leman@rennaz"
+}
