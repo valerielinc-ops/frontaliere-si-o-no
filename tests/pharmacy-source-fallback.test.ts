@@ -121,7 +121,7 @@ describe('Ticino pharmacy PDF source fallback', () => {
       TICINO_PHARMACY_PDF_MIRROR_URL,
       TICINO_PHARMACY_PDF_CURRENT_URL,
     ]);
-    expect(fetchRangeSource).toHaveBeenCalledOnce();
+    expect(fetchRangeSource).toHaveBeenCalledTimes(2);
     expect(fetchDirectory).not.toHaveBeenCalled();
   });
 
