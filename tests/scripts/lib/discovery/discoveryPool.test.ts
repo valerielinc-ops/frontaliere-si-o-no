@@ -96,7 +96,7 @@ const stubTrends = async () => [
 describe('fetchAll', () => {
   it('parses only readable evidence dates and canonicalizes secure evidence URLs', () => {
     const pubDate = ' 2026-11-06T12:00:00.000Z ';
-    expect(parseEvidencePubDate(pubDate)).toBe(Date.parse(pubDate));
+    expect(parseEvidencePubDate(pubDate)).toBe(Date.parse(pubDate.trim()));
     expect(parseEvidencePubDate(null)).toBeNull();
     expect(parseEvidencePubDate('not-a-date')).toBeNull();
     expect(parseEvidencePubDate(new Date(pubDate))).toBeNull();
