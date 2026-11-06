@@ -64,7 +64,33 @@ const safeLocation = (value) => {
     return null;
   }
 };
-const stopContext = ({ event = {}, evidence = {} }) => ({
+const safePortalNavigationDiagnostic = (entry = {}) => {
+  const host = typeof entry.location?.host === 'string' && /^[a-z0-9.-]{1,253}$/i.test(entry.location.host)
+    ? entry.location.host : '';
+  const pathname = typeof entry.location?.path === 'string' && /^\/[a-z0-9_./-]{0,179}$/i.test(entry.location.path)
+    ? entry.location.path : '';
+  const count = (value, max) => Number.isInteger(value) ? Math.min(max, Math.max(0, value)) : 0;
+  return {
+    hop: count(entry.hop, 3),
+    phase: ['cookie_check', 'entry_selection', 'after_click', 'direct_route'].includes(entry.phase) ? entry.phase : 'cookie_check',
+    cookieStatus: ['none', 'dismissed', 'unresolved'].includes(entry.cookieStatus) ? entry.cookieStatus : 'unresolved',
+    location: host && pathname ? { host, path: pathname } : null,
+    applicationControlCandidateCount: count(entry.applicationControlCandidateCount, 50),
+    applicationEntryControlCount: count(entry.applicationEntryControlCount, 20),
+    ...(entry.entryResolution && typeof entry.entryResolution === 'object' ? { entryResolution: {
+      externalFallbackAllowed: entry.entryResolution.externalFallbackAllowed === true,
+      candidateCount: count(entry.entryResolution.candidateCount, 20),
+      boundedVacancyContextCount: count(entry.entryResolution.boundedVacancyContextCount, 20),
+      vacancyRoleMatchCount: count(entry.entryResolution.vacancyRoleMatchCount, 20),
+      vacancyEmployerMatchCount: count(entry.entryResolution.vacancyEmployerMatchCount, 20),
+      vacancyEmployerConflictCount: count(entry.entryResolution.vacancyEmployerConflictCount, 20),
+      vacancyContextMatchCount: count(entry.entryResolution.vacancyContextMatchCount, 20),
+    } } : {}),
+    selectedControlKind: ['none', 'button', 'manual_button', 'link'].includes(entry.selectedControlKind) ? entry.selectedControlKind : 'none',
+    linkVisible: entry.linkVisible === true,
+  };
+};
+const stopContext = ({ event = {}, evidence = {}, portalNavigationDiagnostics = [] }) => ({
   type: event.type, reason: event.reason, error: event.error, stage: event.stage,
   ...(evidence.finalFormGuardFailure ? { finalFormGuardFailure: evidence.finalFormGuardFailure } : {}),
   ...(Array.isArray(evidence.finalOutcomes) ? { finalOutcomes: evidence.finalOutcomes } : {}),
@@ -76,6 +102,8 @@ const stopContext = ({ event = {}, evidence = {} }) => ({
   })() } : {}),
   ...(evidence.finalButton ? { finalButton: { label: evidence.finalButton.label, by: evidence.finalButton.by } } : {}),
   ...(evidence.postingMatch ? { postingMatch: evidence.postingMatch, postingMatchVia: evidence.postingMatchVia } : {}),
+  ...(Array.isArray(portalNavigationDiagnostics) && portalNavigationDiagnostics.length
+    ? { portalNavigation: portalNavigationDiagnostics.slice(0, 12).map(safePortalNavigationDiagnostic) } : {}),
   questions: (Array.isArray(event.questions) ? event.questions : []).map(question =>
     typeof question === 'string' ? question : question.question || question.label || question.fieldId || question.id),
   steps: (evidence.steps || []).slice(-2).map(step => ({
@@ -1336,16 +1364,18 @@ async function main() {
   await writeFile(files.cv, '%PDF-1.4\n%%EOF\n');
   await writeFile(files.cover_letter, '%PDF-1.4\n%%EOF\n');
   const executablePath = process.env.PLAYWRIGHT_CHROMIUM_PATH || undefined;
-  const run = (extra = {}) => {
-    const applyUrl = bindReceiptJobId(extra.applyUrl || `${base}/job`);
+  const run = async (extra = {}) => {
+    const { capturePortalNavigationDiagnostics = false, ...runOptions } = extra;
+    const portalNavigationDiagnostics = [];
+    const applyUrl = bindReceiptJobId(runOptions.applyUrl || `${base}/job`);
     const fixturePath = new URL(applyUrl).pathname;
     // These posting pages are verified only when the test supplies the selected
     // role, just as the production runner receives it from the application order.
     const fixtureJob = fixturePath === '/job' ? { title: 'Pflegefachperson 80%' }
       : fixturePath === '/widget-job' ? { title: 'Pflegefachperson 60%' }
         : undefined;
-    const postingUrl = extra.postingUrl || (['/job', '/widget-job', '/coop-job', '/wd/job', '/hotel-job', '/hotel-job-closed'].includes(fixturePath) ? applyUrl : '');
-    return submitViaPortal({
+    const postingUrl = runOptions.postingUrl || (['/job', '/widget-job', '/coop-job', '/wd/job', '/hotel-job', '/hotel-job-closed'].includes(fixturePath) ? applyUrl : '');
+    const result = await submitViaPortal({
       language: 'de',
       candidateLocale: 'it',
       ...(fixtureJob ? { job: fixtureJob } : {}),
@@ -1355,9 +1385,15 @@ async function main() {
       codex: fakeCodex,
       accounts,
       launch: () => launchChromium({ headless: true, executablePath }),
-      ...extra,
+      ...runOptions,
+      ...(capturePortalNavigationDiagnostics ? {
+        onPortalNavigationDiagnostic: (entry) => {
+          if (portalNavigationDiagnostics.length < 12) portalNavigationDiagnostics.push(safePortalNavigationDiagnostic(entry));
+        },
+      } : {}),
       applyUrl,
     });
+    return capturePortalNavigationDiagnostics ? { ...result, portalNavigationDiagnostics } : result;
   };
 
   // hCaptcha's own host answered locally: the test never calls the real service.
@@ -1454,7 +1490,7 @@ async function main() {
     };
     const coopJob = { company: 'Coop Genossenschaft', title: 'Bäcker:in - Konditor:in (Schwerpunkt Bäckerei)', location: 'Rickenbach' };
     const coopCandidate = { identity: { email: ALIAS, firstName: 'Luca', lastName: 'Bianchi', phone: '+41 79 000 00 00' }, profile: { dateOfBirth: '1990-05-12', location: 'Lugano', address: { street: 'Via Esempio 1', postalCode: '6830', city: 'Lugano', country: 'Svizzera' } }, answers: { portal_anrede: 'Herr' }, portalQuestionsAnswered: [] };
-    const coopDry = await run({ applyUrl: `${base}/coop-job`, job: coopJob, accounts: coopAccounts, dryRun: true });
+    const coopDry = await run({ applyUrl: `${base}/coop-job`, job: coopJob, accounts: coopAccounts, dryRun: true, capturePortalNavigationDiagnostics: true });
     check('Coop: past the shadow cookie banner, «Jetzt bewerben» (never «Später bewerben») reaches SuccessFactors’ registration', coopDry.event.type === 'dry_run_ready'
       && coopDry.event.stage === 'account' && coop.later === 0 && coop.accounts.size === 0,
     stopContext(coopDry), { reportDiagnostic: true });

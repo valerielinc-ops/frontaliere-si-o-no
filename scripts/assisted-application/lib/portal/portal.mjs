@@ -2110,9 +2110,63 @@ async function openApplicationForm(context, page, snapshot, stageContext = null)
   // the generic form; it is not a blanket fallback for a direct apply URL.
   let enteredThroughApplicationEntry = false;
   const result = (extra = {}) => ({ page, snapshot, enteredThroughApplicationEntry, ...extra });
+  const reportNavigation = ({ hop, phase, cookieStatus, controls = [], ownedEntries = [], entryResolution = null, selectedControlKind = 'none', linkVisible = false }) => {
+    if (typeof stageContext?.onPortalNavigationDiagnostic !== 'function') return;
+    let location = null;
+    try {
+      const url = new URL(page.url());
+      location = { host: url.hostname.slice(0, 253), path: url.pathname.slice(0, 180) };
+    } catch {
+      // A location is optional; never pass the raw URL to the observer.
+    }
+    const boundedCount = (value, max) => Math.min(max, Math.max(0, Number.isInteger(value) ? value : 0));
+    try {
+      stageContext.onPortalNavigationDiagnostic({
+        hop: boundedCount(hop, 3),
+        phase: ['cookie_check', 'entry_selection', 'after_click', 'direct_route'].includes(phase) ? phase : 'cookie_check',
+        cookieStatus: ['none', 'dismissed', 'unresolved'].includes(cookieStatus) ? cookieStatus : 'unresolved',
+        location,
+        applicationControlCandidateCount: boundedCount(controls.length, 50),
+        applicationEntryControlCount: boundedCount(ownedEntries.length, 20),
+        ...(entryResolution ? { entryResolution } : {}),
+        selectedControlKind: ['none', 'button', 'manual_button', 'link'].includes(selectedControlKind) ? selectedControlKind : 'none',
+        linkVisible: linkVisible === true,
+      });
+    } catch {
+      // A test-only observer must not change the portal runner's behavior.
+    }
+  };
   for (let hop = 0; hop < 3; hop += 1) {
     const cookies = await dismissCookieBanner(page, snapshot);
     snapshot = cookies.snapshot || snapshot;
+    const allControls = [
+      ...(Array.isArray(snapshot.buttons) ? snapshot.buttons : []),
+      ...(Array.isArray(snapshot.links) ? snapshot.links : []),
+    ];
+    const applicationControls = allControls.filter((control) => !control?.disabled && !control?.chrome
+      && startsApplication(control?.text || control?.label));
+    const ownedEntries = applicationEntryControls(snapshot, stageContext);
+    const entryContextChecks = applicationControls.map((control) => {
+      const context = String(control?.vacancyContext || '').trim();
+      return {
+        hasBoundedContext: Boolean(context),
+        roleMatches: Boolean(context && stageContext?.job?.title && titleMatches(context, stageContext.job.title)),
+        employerMatches: Boolean(context && postingMatch(context, stageContext?.job || {}, stageContext?.postingUrl) === 'match'),
+        otherEmployerDetected: Boolean(context && namesAnotherEmployer(context, stageContext?.job || {}, { allowPostingLocation: true })),
+        contextMatches: applicationEntryContextMatchesPosting(control, stageContext),
+      };
+    });
+    const entryResolution = {
+      externalFallbackAllowed: stageContext?.allowSingleExternalApplicationEntry === true,
+      candidateCount: Math.min(20, entryContextChecks.length),
+      boundedVacancyContextCount: Math.min(20, entryContextChecks.filter((item) => item.hasBoundedContext).length),
+      vacancyRoleMatchCount: Math.min(20, entryContextChecks.filter((item) => item.roleMatches).length),
+      vacancyEmployerMatchCount: Math.min(20, entryContextChecks.filter((item) => item.employerMatches).length),
+      vacancyEmployerConflictCount: Math.min(20, entryContextChecks.filter((item) => item.otherEmployerDetected).length),
+      vacancyContextMatchCount: Math.min(20, entryContextChecks.filter((item) => item.contextMatches).length),
+    };
+    const cookieStatus = ['none', 'dismissed', 'unresolved'].includes(cookies.status) ? cookies.status : 'unresolved';
+    reportNavigation({ hop: hop + 1, phase: 'cookie_check', cookieStatus, controls: applicationControls, ownedEntries, entryResolution });
     if (cookies.status === 'unresolved') return result({ handoff: 'cookie_preferences_unresolved' });
     if (hasApplicationForm(snapshot)) {
       const applicantContext = verifiedUmantisApplicantContext(stageContext, page.url());
@@ -2129,7 +2183,6 @@ async function openApplicationForm(context, page, snapshot, stageContext = null)
       if (['receipt', 'review_navigation', 'final_review', 'posting_mismatch'].includes(stage.kind) || stage.prefinal
         || (REVIEW_URL_RE.test(new URL(page.url()).pathname) && findButton(snapshot.buttons, SUBMIT_RE))) return result();
     }
-    const ownedEntries = applicationEntryControls(snapshot, stageContext);
     const buttonEntries = ownedEntries.filter((control) => (snapshot.buttons || []).includes(control));
     const manual = buttonEntries.find((button) => MANUAL_APPLY_RE.test(button.text || button.label || '')) || null;
     const apply = manual ? null : buttonEntries[0] || null;
@@ -2140,6 +2193,12 @@ async function openApplicationForm(context, page, snapshot, stageContext = null)
     const linkVisible = link
       ? await link.waitFor({ state: 'visible', timeout: 6_000 }).then(() => true, () => false)
       : false;
+    const selectedControlKind = manual ? 'manual_button' : apply ? 'button' : linkVisible ? 'link' : 'none';
+    reportNavigation({
+      hop: hop + 1, phase: 'entry_selection', cookieStatus, controls: applicationControls, ownedEntries,
+      entryResolution,
+      selectedControlKind, linkVisible,
+    });
     if (!manual && !apply && !linkVisible) {
       // Some Jobs2Web postings render an empty shell (often only the language
       // selector) while their same-ID apply route is ready. Warm the posting
@@ -2157,6 +2216,7 @@ async function openApplicationForm(context, page, snapshot, stageContext = null)
           await settle(page);
           await page.waitForTimeout(1200);
           snapshot = await extractFields(page, NAVIGATION);
+          reportNavigation({ hop: hop + 1, phase: 'direct_route', cookieStatus, controls: applicationControls, ownedEntries });
           if (!isSuccessFactorsPostingEntry({
             applyUrl: page.url(),
             postingUrl: stageContext.postingUrl,
@@ -2173,6 +2233,7 @@ async function openApplicationForm(context, page, snapshot, stageContext = null)
         await settle(page);
         await page.waitForTimeout(1200);
         snapshot = await extractFields(page, NAVIGATION);
+        reportNavigation({ hop: hop + 1, phase: 'direct_route', cookieStatus, controls: applicationControls, ownedEntries });
         continue;
       }
       return result();
@@ -2189,6 +2250,10 @@ async function openApplicationForm(context, page, snapshot, stageContext = null)
     await settle(page);
     await page.waitForTimeout(1200); // a modal (Workday's apply dialog) finishes its animation
     snapshot = await extractFields(page, NAVIGATION);
+    reportNavigation({
+      hop: hop + 1, phase: 'after_click', cookieStatus, controls: applicationControls, ownedEntries,
+      selectedControlKind, linkVisible,
+    });
   }
   return result();
 }
@@ -2412,6 +2477,9 @@ export function namesAnotherEmployer(formText, job = {}, { allowPostingLocation 
     ...nameWords(job.title),
     ...postingLocationSuffixWords(text, ours, postingLocationWords),
     ...NOT_A_NAME,
+    // Vacancy cards can flatten their rows into one line («Coop Genossenschaft Standort Rickenbach»).
+    // On an already-bound posting, the location-field label is metadata, not another employer name.
+    ...(allowPostingLocation ? FIELD_LABEL_WORDS : []),
     ...FORM_VOCABULARY,
   ]);
   const title = normalizeWords(text.split(/\r?\n/)[0]).split(' ').filter(Boolean);
@@ -6783,6 +6851,7 @@ export async function submitViaPortal(ctx) {
       applyUrl: ctx.applyUrl, postingUrl: ctx.postingUrl || postingUrl, sourceProtocol,
       postingEntry: enteredFromMatchingPosting, postingRouteProof: ctx.postingRouteProof, job: ctx.job,
       allowSingleExternalApplicationEntry: postingVacancyMatched,
+      onPortalNavigationDiagnostic: ctx.onPortalNavigationDiagnostic,
     });
     ({ page, snapshot } = opened);
     let enteredThroughApplicationEntry = opened.enteredThroughApplicationEntry === true;
@@ -7092,6 +7161,7 @@ export async function submitViaPortal(ctx) {
             applyUrl: ctx.applyUrl, postingUrl: ctx.postingUrl || postingUrl, sourceProtocol,
             postingEntry: enteredFromMatchingPosting, postingRouteProof: ctx.postingRouteProof, job: ctx.job,
             allowSingleExternalApplicationEntry: postingVacancyMatched,
+            onPortalNavigationDiagnostic: ctx.onPortalNavigationDiagnostic,
           });
           ({ page, snapshot } = reopened);
           enteredThroughApplicationEntry = enteredThroughApplicationEntry || reopened.enteredThroughApplicationEntry === true;
@@ -7202,6 +7272,7 @@ export async function submitViaPortal(ctx) {
             applyUrl: ctx.applyUrl, postingUrl: ctx.postingUrl || postingUrl, sourceProtocol,
             postingEntry: enteredFromMatchingPosting, postingRouteProof: ctx.postingRouteProof, job: ctx.job,
             allowSingleExternalApplicationEntry: postingVacancyMatched,
+            onPortalNavigationDiagnostic: ctx.onPortalNavigationDiagnostic,
           });
           ({ page, snapshot } = reopened);
           enteredThroughApplicationEntry = enteredThroughApplicationEntry || reopened.enteredThroughApplicationEntry === true;
