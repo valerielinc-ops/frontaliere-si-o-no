@@ -192,10 +192,6 @@ jobs:
           checkpoint_active=0
           checkpoint_failed=0
 
-          has_dirty_slices() {
-            git status --porcelain -- data/jobs/by-crawler data/jobs/expired/by-crawler | grep . >/dev/null
-          }
-
           has_dirty_checkpoint() {
             git status --porcelain -- data/jobs/by-crawler data/jobs/expired/by-crawler "$progress_path" | grep . >/dev/null
           }
@@ -247,12 +243,13 @@ jobs:
               checkpoint_active=0
               return 1
             fi
-            # A false marker is a valid no-op only when this batch left no
-            # expired slice dirty. In particular, a busy shared writer (or any
-            # other path that returns success without a push) must not make us
-            # reset the batch counter and lose the workspace-only changes.
+            # A false marker is a valid no-op only when this batch left neither
+            # an expired slice nor its durable cursor dirty. In particular, a
+            # busy shared writer (or any other path that returns success
+            # without a push) must not make us reset the batch counter and lose
+            # the workspace-only checkpoint.
             checkpoint_dirty=0
-            if has_dirty_slices; then
+            if has_dirty_checkpoint; then
               checkpoint_dirty=1
             fi
             if grep -q '^has_changes=true$' "$checkpoint_output"; then

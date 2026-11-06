@@ -60,8 +60,12 @@ describe('backfill-expired-from-history.yml — durable checkpoints', () => {
     expect(block).toContain('checkpoint_cursor="${last_completed_key:--}"');
     expect(block).toContain('"$saved_last" != \'-\'');
     expect(block).toContain('checkpoint 1');
-    expect(block).toContain('has_dirty_slices');
     expect(block).toContain('has_dirty_checkpoint');
+    const checkpointOutputGuardStart = block.indexOf('checkpoint_dirty=0');
+    const checkpointOutputGuardEnd = block.indexOf('rm -f "$checkpoint_output"', checkpointOutputGuardStart);
+    const checkpointOutputGuard = block.slice(checkpointOutputGuardStart, checkpointOutputGuardEnd);
+    expect(checkpointOutputGuard).toContain('if has_dirty_checkpoint; then');
+    expect(checkpointOutputGuard).not.toContain('if has_dirty_slices; then');
     expect(block).toContain('data/jobs/by-crawler data/jobs/expired/by-crawler');
     expect(block).toContain('grep . >/dev/null');
     expect(block).not.toContain('rg -q');
