@@ -56,6 +56,14 @@ const portalTestCandidate = ({ dateOfBirth = '12.05.1990', permitAnswer = 'Yes' 
 });
 // Synthetic-portal diagnostics only: never serialize values, credentials or
 // arbitrary evidence when a checked lifecycle stops before its expected phase.
+const safeLocation = (value) => {
+  try {
+    const url = new URL(value);
+    return { host: url.hostname, path: url.pathname };
+  } catch {
+    return null;
+  }
+};
 const stopContext = ({ event = {}, evidence = {} }) => ({
   type: event.type, reason: event.reason, error: event.error, stage: event.stage,
   ...(evidence.finalFormGuardFailure ? { finalFormGuardFailure: evidence.finalFormGuardFailure } : {}),
@@ -71,7 +79,8 @@ const stopContext = ({ event = {}, evidence = {} }) => ({
   questions: (Array.isArray(event.questions) ? event.questions : []).map(question =>
     typeof question === 'string' ? question : question.question || question.label || question.fieldId || question.id),
   steps: (evidence.steps || []).slice(-2).map(step => ({
-    step: step.step, fields: step.fields, requiredFieldsUnfilled: step.requiredFieldsUnfilled,
+    step: step.step, ...(step.url ? { location: safeLocation(step.url) } : {}),
+    fields: step.fields, requiredFieldsUnfilled: step.requiredFieldsUnfilled,
     failures: (step.failures || []).length,
     actionDocuments: (step.actions || []).map(action => action.document).filter(Boolean),
     ...(step.auth ? { auth: { kind: step.auth.kind, outcome: step.auth.outcome, privacy: step.auth.privacy } } : {}),
