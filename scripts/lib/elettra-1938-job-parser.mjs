@@ -176,8 +176,9 @@ function parseCareerPage(html = '', pageUrl = '') {
     const descEl = card.querySelector('.vacancy__description');
     const description = normalizeSpace(descEl?.textContent || '');
     const isTargetLocation = /stabio|svizzera|switzerland/i.test(location);
+    const isExplicitlyNonTargetLocation = !isTargetLocation && /\b(?:italia|italy)\b/i.test(location);
 
-    if (location && !isTargetLocation) explicitlyNonTargetCards += 1;
+    if (isExplicitlyNonTargetLocation) explicitlyNonTargetCards += 1;
 
     // Only keep Stabio (TI) postings — the shared portal also lists
     // vacancies for other FIAMM group brands/countries.

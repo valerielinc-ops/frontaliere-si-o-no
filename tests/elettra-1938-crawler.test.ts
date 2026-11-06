@@ -47,6 +47,15 @@ const STABIO_CARD_WITH_RENAMED_LOCATION_FIELD = `
   </div>
 `;
 
+const UNKNOWN_LOCATION_CARD = `
+  <div class="vacancy__render">
+    <div class="vacancy__title"><h3><a href="/fiammcomponents/it/career/job-4">Operatore di produzione</a></h3></div>
+    <span class="subtitle__informations" title="Sede">Unknown</span>
+    <span class="subtitle__informations" title="Azienda">FZSONICK</span>
+    <div class="vacancy__description">Posizione aperta.</div>
+  </div>
+`;
+
 const FZSONICK_STABIO_SCOPE = `
   <section>
     <h3>Privacy - FZSonick SA</h3>
@@ -234,6 +243,13 @@ describe('Elettra 1938 crawler parser', () => {
 
     it('keeps a target card fail-closed when its location field is missing or renamed', async () => {
       fetchHtml.mockResolvedValueOnce(`<html><body>${STABIO_CARD_WITH_RENAMED_LOCATION_FIELD}${FZSONICK_STABIO_SCOPE}</body></html>`);
+      const jobs = await fetchAllElettra1938Jobs();
+      expect(jobs).toEqual([]);
+      expect(isAuthoritativeEmptySnapshot(jobs)).toBe(false);
+    });
+
+    it('keeps an unrecognized non-empty location fail-closed', async () => {
+      fetchHtml.mockResolvedValueOnce(`<html><body>${UNKNOWN_LOCATION_CARD}${FZSONICK_STABIO_SCOPE}</body></html>`);
       const jobs = await fetchAllElettra1938Jobs();
       expect(jobs).toEqual([]);
       expect(isAuthoritativeEmptySnapshot(jobs)).toBe(false);
