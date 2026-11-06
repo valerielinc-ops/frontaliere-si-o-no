@@ -212,6 +212,19 @@ describe('portal account pages', () => {
   });
 
   it.each([
+    'https://career5.successfactors.eu/career?company=Coop&career_ns=&job=123&jobid=&login_ns=',
+    'https://career5.successfactors.eu/career?company=&career_ns=job_application&career_job_req_id=1&login_ns=login',
+    'https://career5.successfactors.eu/career?company=company&career_ns=&career_job_req_id=1&login_ns=login',
+    'https://career5.successfactors.eu/career?company=company&career_ns=job_application&career_job_req_id=&login_ns=login',
+    'https://career5.successfactors.eu/career?company=company&career_ns=job_application&career_job_req_id=1&job=&login_ns=login',
+    'https://career5.successfactors.eu/career?company=company&career_ns=job_application&career_job_req_id=1&jobid=&login_ns=login',
+    'https://career5.successfactors.eu/career?company=company&career_ns=job_application&career_job_req_id=1&login_ns=',
+  ])('rejects a SuccessFactors route when a present selector or identifier is empty: %s', (url) => {
+    expect(successFactorsRegistrationTarget(url)).toBe('');
+    expect(successFactorsSignInTarget(url)).toBe('');
+  });
+
+  it.each([
     'https://career5.successfactors.eu/career?company=company&login_ns=login',
     'https://career5.successfactors.eu/career?company=company&career_ns=job_application&login_ns=login',
     'https://career5.successfactors.eu/career?company=company&career_ns=job_application&career_job_req_id=1&login_ns=register',

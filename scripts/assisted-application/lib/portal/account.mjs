@@ -279,18 +279,22 @@ function successFactorsJobApplicationRoute(currentUrl) {
     const legacyJob = singleQueryParam(params, 'job');
     const legacyJobId = singleQueryParam(params, 'jobid');
     const loginNamespace = singleQueryParam(params, 'login_ns');
-    if (!company.present || company.value === null || !company.value
-      || !/^[a-z0-9][a-z0-9 _-]{0,99}$/i.test(company.value)) return null;
-    if (namespace.present && (namespace.value === null || !namespace.value
-      || namespace.value.toLowerCase() !== 'job_application')) return null;
-    if (requisition.present && (requisition.value === null || !/^\d{1,20}$/.test(requisition.value))) return null;
-    if (legacyJob.present && (legacyJob.value === null || !/^\d{1,20}$/.test(legacyJob.value))) return null;
-    if (legacyJobId.present && (legacyJobId.value === null || !/^\d{1,20}$/.test(legacyJobId.value))) return null;
-    if (loginNamespace.present && (loginNamespace.value === null || !loginNamespace.value)) return null;
-    if ((legacyJob.value || legacyJobId.value) && !SUCCESSFACTORS_LEGACY_JOB_HOST_RE.test(current.hostname)) return null;
+    // URLSearchParams.get() (and the old helper) cannot distinguish a missing
+    // key from a present empty value. Empty route selectors or vacancy
+    // identifiers are malformed input, not the same as an omitted optional
+    // parameter, so reject them before choosing a route.
+    if ([company, namespace, requisition, legacyJob, legacyJobId, loginNamespace]
+      .some(({ present, value }) => present && value === '')) return null;
+    if (!company.present || !/^[a-z0-9][a-z0-9 _-]{0,99}$/i.test(company.value)) return null;
+    if (namespace.present && namespace.value.toLowerCase() !== 'job_application') return null;
+    if (requisition.present && !/^\d{1,20}$/.test(requisition.value)) return null;
+    if (legacyJob.present && !/^\d{1,20}$/.test(legacyJob.value)) return null;
+    if (legacyJobId.present && !/^\d{1,20}$/.test(legacyJobId.value)) return null;
+    if ((legacyJob.present || legacyJobId.present) && !SUCCESSFACTORS_LEGACY_JOB_HOST_RE.test(current.hostname)) return null;
     // Two different vacancy identifiers are ambiguous: do not choose a first match.
-    if ((requisition.value && (legacyJob.value || legacyJobId.value)) || (legacyJob.value && legacyJobId.value)) return null;
-    if (!requisition.value && !legacyJob.value && !legacyJobId.value) return null;
+    if ((requisition.present && (legacyJob.present || legacyJobId.present))
+      || (legacyJob.present && legacyJobId.present)) return null;
+    if (!requisition.present && !legacyJob.present && !legacyJobId.present) return null;
     return current;
   } catch {
     return null;
