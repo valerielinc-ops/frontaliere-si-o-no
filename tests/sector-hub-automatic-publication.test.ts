@@ -536,6 +536,20 @@ describe('automatic sector hub publication', () => {
       // A later non-IT leg sees an active but below-floor inventory snapshot.
       // It emits its locale pages, but must leave the IT-owned root sitemap
       // intact rather than replacing it with an empty view of that snapshot.
+      vi.stubEnv('BUILD_LOCALE', 'en');
+      vi.resetModules();
+      const { autoSectorHubPagesPlugin: makeActiveEnPlugin } = await import('../build-plugins/autoSectorHubPagesPlugin');
+      const activeEnPlugin = makeActiveEnPlugin(rootDir);
+      if (typeof activeEnPlugin.closeBundle !== 'function') throw new Error('Expected closeBundle handler.');
+      await (activeEnPlugin.closeBundle as () => Promise<void>)();
+      const localeManifestPath = path.join(distDir, 'sitemap-auto-sector-hubs-locale-manifest.xml');
+      const localeManifest = fs.readFileSync(localeManifestPath, 'utf-8');
+      const enLinks = listIndexableAutoSectorHubLinks(inventory, 'en');
+      expect(enLinks.length).toBeGreaterThan(0);
+      for (const link of enLinks) expect(localeManifest).toContain(`<loc>${BASE_URL}${link.href}</loc>`);
+      expect([...localeManifest.matchAll(/<loc>([^<]+)<\/loc>/g)].every((match) => new URL(match[1]).pathname.startsWith('/en/'))).toBe(true);
+      expect(fs.readFileSync(sitemapFile, 'utf-8')).toBe(sitemap);
+
       const belowFloorJobs = [
         ...jobsForCategory('Tecnica', 'tecnica-small', 4, 2, now),
         ...jobsForCategory('Amministrazione pubblica', 'public-admin-small', 4, 2, now),
@@ -550,6 +564,7 @@ describe('automatic sector hub publication', () => {
       if (typeof enPlugin.closeBundle !== 'function') throw new Error('Expected closeBundle handler.');
       await (enPlugin.closeBundle as () => Promise<void>)();
       expect(fs.readFileSync(sitemapFile, 'utf-8')).toBe(sitemap);
+      expect(fs.existsSync(localeManifestPath)).toBe(false);
     } finally {
       vi.unstubAllEnvs();
       vi.resetModules();

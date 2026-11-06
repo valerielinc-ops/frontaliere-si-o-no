@@ -247,6 +247,40 @@ describe('publisher fast provenance gate', () => {
     expect(result.errors.join('\n')).toContain('sitemap family coverage decreased for job-market: 4 -> 3');
   });
 
+  it('does not compare corpus-owned article sitemap coverage against this site deploy', () => {
+    const base = fixture();
+    base.previousSitemapSnapshot.perSitemap['sitemap-topics-frontaliere.xml'] = [
+      'https://frontaliereticino.ch/articoli-frontaliere/argomenti/assicurazioni/',
+      'https://frontaliereticino.ch/articoli-frontaliere/argomenti/lavoro/',
+    ];
+    base.currentSitemapSnapshot.perSitemap['sitemap-topics-frontaliere.xml'] = [
+      'https://frontaliereticino.ch/articoli-frontaliere/argomenti/lavoro/',
+    ];
+    fs.writeFileSync(
+      path.join(base.sitemapDir, 'new-sitemap-urls.json'),
+      JSON.stringify(base.currentSitemapSnapshot),
+    );
+
+    const result = validatePublisherFastGate({
+      sourceRunId: SOURCE_RUN_ID,
+      sourceSha: SOURCE_SHA,
+      publisherRunId: PUBLISHER_RUN_ID,
+      sitemapDir: base.sitemapDir,
+      previousSitemapSnapshot: base.previousSitemapSnapshot,
+      sitemapCoverageDeclarations: { version: 1, decreases: [] },
+      pageManifests: base.pageManifests,
+      sectionManifests: base.sectionManifests,
+      sourceArtifacts: { artifacts: base.sourceArtifacts },
+      publisherArtifacts: { artifacts: base.publisherArtifacts },
+      manifestArtifactNames: [
+        ...base.pageManifests.map((manifest) => manifest.manifestArtifactName),
+        ...base.sectionManifests.map((manifest) => manifest.manifestArtifactName),
+      ],
+    });
+
+    expect(result).toMatchObject({ passed: true, errorCount: 0 });
+  });
+
   it('fails closed when a shard manifest contains a page absent from every source manifest', () => {
     const base = fixture();
     base.sectionManifests[0].shards[0].pages.push({

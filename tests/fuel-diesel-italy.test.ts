@@ -11,14 +11,15 @@
  *      (orphan contract), and
  *   4. render the cross-border "verdict + value badge" banner.
  *
- * Stations without a Gasolio price must be excluded from diesel pages but
- * still appear on benzina pages.
+ * Stations without a Gasolio price must be excluded from indexable diesel
+ * pages, preserved as noindex bridges, and still appear on benzina pages.
  */
 
 import { describe, expect, it } from 'vitest';
 import {
   generateFuelItalianCityPages,
   generateFuelItalianStationPages,
+  generateFuelItalianStationAvailabilityBridges,
 } from '../build-plugins/fuelDailyPagesPlugin';
 import {
   generateFuelIndexPages,
@@ -195,6 +196,53 @@ describe('diesel Italian station pages — emitted per fuel', () => {
     const all = Object.keys(pages).join('\n');
     // Shell (b1) slug would contain "shell"/"rosselli"; assert no diesel page for it.
     expect(all).not.toMatch(/prezzi-diesel\/italia\/como\/stazioni\/[^/]*rosselli/);
+  });
+
+  it('keeps the benzina-only station route as a noindex bridge when diesel disappears', () => {
+    const bridges = generateFuelItalianStationAvailabilityBridges({ dataset: DATASET });
+    const bridge = Object.entries(bridges).find(([pagePath]) =>
+      pagePath.startsWith('/prezzi-diesel/italia/como/stazioni/') && /rosselli/.test(pagePath),
+    );
+
+    expect(bridge).toBeDefined();
+    const [bridgePath, html] = bridge!;
+    expect(html).toContain('<meta name="robots" content="noindex,follow">');
+    expect(pages[bridgePath]).toBeUndefined();
+  });
+
+  it('reserves the missing-price station slug so a colliding station keeps its prior URL', () => {
+    const collisionDataset = structuredClone(DATASET) as unknown as {
+      municipalities: Array<{
+        municipality?: string;
+        italy?: { stations?: Array<Record<string, unknown>> };
+      }>;
+    };
+    const como = collisionDataset.municipalities.find((municipality) => municipality.municipality === 'Como');
+    if (!como?.italy?.stations) throw new Error('Expected the Como station fixture.');
+    como.italy.stations.push({
+      id: 'b2',
+      brand: 'Shell',
+      stationName: 'Shell Como',
+      address: 'Viale Rosselli 19, 22100 Como',
+      priceEur: 1.969,
+      dieselPriceEur: 1.899,
+      isSelf: true,
+    });
+
+    const collisionPages = generateFuelItalianStationPages({ dataset: collisionDataset as never, today: TODAY });
+    const bridges = generateFuelItalianStationAvailabilityBridges({ dataset: collisionDataset as never });
+    const unavailablePath = Object.keys(bridges).find((pagePath) =>
+      pagePath.startsWith('/prezzi-diesel/italia/como/stazioni/') && /rosselli/.test(pagePath),
+    );
+    const indexablePath = Object.keys(collisionPages).find((pagePath) =>
+      pagePath.startsWith('/prezzi-diesel/italia/como/stazioni/') && /rosselli/.test(pagePath),
+    );
+
+    expect(unavailablePath).toBeDefined();
+    expect(indexablePath).toBeDefined();
+    expect(unavailablePath).not.toBe(indexablePath);
+    expect(unavailablePath).toMatch(/\/stazioni\/[^/]*rosselli[^/]*\/$/);
+    expect(indexablePath).toMatch(/\/stazioni\/[^/]*rosselli[^/]*-2\/$/);
   });
 });
 
