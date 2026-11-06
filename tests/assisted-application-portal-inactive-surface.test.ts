@@ -2,11 +2,11 @@ import { afterEach, describe, expect, it, vi } from 'vitest';
 import { JSDOM } from 'jsdom';
 import { extractFieldsInPage } from '../scripts/assisted-application/lib/portal/fields.mjs';
 import { markOptionalAutofillDeclineInPage } from '../scripts/assisted-application/lib/portal/optional-autofill.mjs';
-import { authPageKind } from '../scripts/assisted-application/lib/portal/account.mjs';
+import { authPageKind, hasExistingAccountPrompt } from '../scripts/assisted-application/lib/portal/account.mjs';
 
 let dom: JSDOM;
-function extract(html: string) {
-  dom = new JSDOM(html, { url: 'https://portal.example/career/' });
+function extract(html: string, url = 'https://portal.example/career/') {
+  dom = new JSDOM(html, { url });
   Object.defineProperty(dom.window.HTMLElement.prototype, 'innerText', { get() { return this.textContent || ''; } });
   // Inert elements retain layout boxes in browsers.
   dom.window.Element.prototype.getBoundingClientRect = () => ({ width: 20, height: 20 } as DOMRect);
@@ -35,6 +35,41 @@ const registration = (create: string, privacy: string) => `<form>
 </form>`;
 
 describe('portal inactive surface boundary', () => {
+  it.each(['inert', 'hidden', 'style="display:none"', 'style="visibility:hidden"'])('keeps the observed SuccessFactors registration isolated from an inactive step (%s)', state => {
+    const snapshot = extract(`<section ${state}>
+        <label>Previous required answer<input required></label>
+        <label>Previous password<input type="password" required></label>
+        <button>Continue</button>
+      </section>
+      <form>
+        <label>E-Mail-Adresse: *<input required></label>
+        <label>E-Mail-Adresse wiederholen: *<input required></label>
+        <label>Passwort *<input type="password" required></label>
+        <label>Passwort wiederholen: *<input type="password" required></label>
+        <label>Vorname: *<input required></label>
+        <label>Nachname: *<input required></label>
+        <label for="country">Land des Wohnorts:*</label><select id="country" required><option value="">Choose</option></select>
+        <button type="button">Lesen und akzeptieren Sie die Datenschutzerklärung</button>
+        <button>Bewerbungskonto erstellen</button>
+      </form>`, 'https://career74.sapsf.eu/career');
+
+    expect(snapshot.fields.map((field: any) => field.label)).toEqual([
+      'E-Mail-Adresse: *',
+      'E-Mail-Adresse wiederholen: *',
+      'Passwort *',
+      'Passwort wiederholen: *',
+      'Vorname: *',
+      'Nachname: *',
+      'Land des Wohnorts:*',
+    ]);
+    expect(snapshot.buttons.map((button: any) => button.text)).toEqual([
+      'Lesen und akzeptieren Sie die Datenschutzerklärung',
+      'Bewerbungskonto erstellen',
+    ]);
+    expect(authPageKind(snapshot)).toBe('create');
+    expect(hasExistingAccountPrompt(snapshot)).toBe(false);
+  });
+
   it.each(['inert', 'hidden', 'style="display:none"', 'style="visibility:hidden"'])('excludes mounted inactive controls (%s)', state => {
     const snapshot = extract(`<section ${state}>${registration('Konto anlegen', 'Lese und akzeptiere die Datenschutzerklärung.')}</section>
       <form><label>E-Mail<input type="email"></label><label>Password<input type="password"></label><button>Login</button></form>`);
