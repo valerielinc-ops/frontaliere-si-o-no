@@ -13333,10 +13333,10 @@ ${staticAnalyticsHtml}
  );
  if (sliceAugmented > 0) {
  console.log(`\x1b[36m[jobs-seo-pages]\x1b[0m Augmented expiredBySlug with ${sliceAugmented} in-memory per-crawler aliases and ${expiredSliceOverflow.size} disk-backed aliases for complete requested archive coverage`);
+ }
+ }
  const expiredArchiveOverflowPopulation = expiredSliceOverflow.size;
  const expiredArchivePublicationEvidence = createExpiredArchivePublicationEvidence();
- }
- }
 
  // The compatibility merge deliberately leaves a historical job's native
  // canton path authoritative, but its route slug can still be encountered in
