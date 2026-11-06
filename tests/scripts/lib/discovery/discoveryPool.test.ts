@@ -105,6 +105,8 @@ describe('fetchAll', () => {
     expect(canonicalizeEvidenceUrl('https://example.com/story?utm_source=rss&id=42')).toBe(
       'https://example.com/story?id=42',
     );
+    expect(canonicalizeEvidenceUrl('https://news.example/News/1')).toBe('https://news.example/News/1');
+    expect(canonicalizeEvidenceUrl('https://news.example/news/1')).toBe('https://news.example/news/1');
   });
 
   it('deduplicates trend evidence by canonical URL, not raw feed URL', async () => {

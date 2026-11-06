@@ -120,7 +120,8 @@ export function canonicalizeEvidenceUrl(value) {
   const raw = String(value ?? '').replace(/&amp;/gi, '&');
   try {
     const url = new URL(raw);
-    const base = `${url.protocol}//${url.hostname}${url.pathname}`.replace(/\/$/, '').toLowerCase();
+    const pathname = url.pathname.replace(/\/$/, '');
+    const base = `${url.protocol}//${url.hostname}${pathname}`;
     const identifyingParams = [];
     for (const [name, parameterValue] of url.searchParams) {
       if (isEvidenceTrackingParam(name) || !parameterValue) continue;
