@@ -46,20 +46,13 @@ function normalizeSpace(s = '') {
  * Used by the template to filter this company's jobs from the global dataset.
  */
 export function isSkanJob(job) {
-  const key = normalize(job?.companyKey || job?.company || '')
+  const key = normalize(job?.companyKey || '')
     .normalize('NFD')
     .replace(/[\u0300-\u036f]/g, '')
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/^-+|-+$/g, '');
-  const company = normalize(job?.company || '');
-  const url = normalize(job?.url || '');
 
-  return (
-    key === SKAN_KEY ||
-    key.startsWith('skan-') ||
-    company.includes('skan ag') ||
-    url.includes('jobs.skan.com')
-  );
+  return key === SKAN_KEY || isTrustedDomain(job?.url || '');
 }
 
 /**
