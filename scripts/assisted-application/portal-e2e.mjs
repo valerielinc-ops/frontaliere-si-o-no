@@ -82,6 +82,7 @@ const stopContext = ({ event = {}, evidence = {} }) => ({
     step: step.step, ...(step.url ? { location: safeLocation(step.url) } : {}),
     fields: step.fields, requiredFieldsUnfilled: step.requiredFieldsUnfilled,
     failures: (step.failures || []).length,
+    failureErrors: (step.failures || []).map((failure) => failure?.error).filter((error) => /^[a-z_]{1,80}$/.test(String(error || ''))).slice(0, 5),
     actionDocuments: (step.actions || []).map(action => action.document).filter(Boolean),
     ...(step.auth ? { auth: { kind: step.auth.kind, outcome: step.auth.outcome, privacy: step.auth.privacy } } : {}),
   })),
@@ -926,6 +927,10 @@ function fakePortal() {
         <p>Grand Hotel Esempio</p><a target="_blank" href="${umantisOrigin(server)}${UMANTIS_FORM}">Apply</a></section>
         <p>Pontresina</p><button type="button">ACCEPT COOKIES</button>`));
     }
+    if (route === 'GET /hotel-job-other-role') {
+      return send(page('Chef de Rang | Grand Hotel Esempio', `<section class="job-detail" data-job-id="hotel-chef-de-rang"><h1>Chef de Rang</h1>
+        <p>Grand Hotel Esempio</p><a target="_blank" href="${umantisOrigin(server)}${UMANTIS_FORM}">Apply</a></section>`));
+    }
     if (route === `GET ${UMANTIS_FORM}`) return send(umantisForm());
     if (route === 'GET /hotel-job-closed') {
       return send(page('Concierge Host (m/w/d) | Grand Hotel Esempio', `<section class="job-detail" data-job-id="hotel-concierge-closed"><h1>Concierge Host (m/w/d)</h1>
@@ -1426,9 +1431,9 @@ async function main() {
     { ...stopContext(hotel), accountCreated: hotelSaved.get(hotelHost)?.status === 'created', accountPasswordPresent: Boolean(hotelPassword) });
     check('the password is in no evidence, and no password field ever reached the planner', Boolean(hotelPassword)
       && !JSON.stringify(hotel.evidence).includes(hotelPassword) && !plannerSawPassword);
-    const otherRole = await run({ applyUrl: `${base}/hotel-job`, job: { company: 'Grand Hotel Esempio', title: 'Chef de Rang' }, accounts: hotelAccounts });
+    const otherRole = await run({ applyUrl: `${base}/hotel-job-other-role`, job: { company: 'Grand Hotel Esempio', title: 'Chef de Rang' }, accounts: hotelAccounts });
     check('umantis: the form of another role of the same employer is never filled', otherRole.event.type === 'submit_handoff'
-      && otherRole.event.reason === 'posting_mismatch' && umantis.applications.length === 1);
+      && otherRole.event.reason === 'posting_mismatch' && umantis.applications.length === 1, stopContext(otherRole));
     // Review of #11033: a password and «Submit final application» in sight, the CV field in a section still closed.
     const closedSections = await run({ applyUrl: `${base}/hotel-job-closed`, job: hotelJob, accounts: hotelAccounts, dryRun: true });
     const closedAuth = closedSections.evidence.steps.filter((step) => step.auth).map((step) => step.auth.kind);
@@ -1447,7 +1452,7 @@ async function main() {
       async waitForVerification() { return null; },
     };
     const coopJob = { company: 'Coop Genossenschaft', title: 'Bäcker:in - Konditor:in (Schwerpunkt Bäckerei)', location: 'Rickenbach' };
-    const coopCandidate = { identity: { email: ALIAS }, profile: { dateOfBirth: '1990-05-12', location: 'Lugano', address: { street: 'Via Esempio 1', postalCode: '6830', city: 'Lugano', country: 'Svizzera' } }, answers: { portal_anrede: 'Herr' }, portalQuestionsAnswered: [] };
+    const coopCandidate = { identity: { email: ALIAS, firstName: 'Luca', lastName: 'Bianchi', phone: '+41 79 000 00 00' }, profile: { dateOfBirth: '1990-05-12', location: 'Lugano', address: { street: 'Via Esempio 1', postalCode: '6830', city: 'Lugano', country: 'Svizzera' } }, answers: { portal_anrede: 'Herr' }, portalQuestionsAnswered: [] };
     const coopDry = await run({ applyUrl: `${base}/coop-job`, job: coopJob, accounts: coopAccounts, dryRun: true });
     check('Coop: past the shadow cookie banner, «Jetzt bewerben» (never «Später bewerben») reaches SuccessFactors’ registration', coopDry.event.type === 'dry_run_ready'
       && coopDry.event.stage === 'account' && coop.later === 0 && coop.accounts.size === 0,
