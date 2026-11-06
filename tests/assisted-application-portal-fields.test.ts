@@ -357,6 +357,75 @@ describe('portal field extraction', () => {
     expect(stage).toBe(2);
   });
 
+  it('uses an explicit shadow-root cookie choice after Yellowshark Manage consent', async () => {
+    const url = 'https://jobs.yellowshark.com/job/example/';
+    const { window } = new JSDOM('<!doctype html><html><body><cmp-controls></cmp-controls></body></html>', { url });
+    Object.defineProperty(window.HTMLElement.prototype, 'innerText', {
+      configurable: true,
+      get() { return this.textContent || ''; },
+    });
+    window.Element.prototype.getBoundingClientRect = function rect() {
+      return { width: 20, height: 20, top: 0, left: 0, right: 20, bottom: 20, x: 0, y: 0, toJSON: () => ({}) } as DOMRect;
+    };
+    const shadow = window.document.querySelector('cmp-controls')!.attachShadow({ mode: 'open' });
+    const showShadow = (label: string) => {
+      shadow.innerHTML = label ? `<p>This website uses cookies.</p><button>${label}</button>` : '<p>Cookies handled.</p>';
+    };
+    showShadow('');
+    vi.stubGlobal('window', window);
+    vi.stubGlobal('document', window.document);
+    vi.stubGlobal('location', window.location);
+
+    let stage = 0;
+    const currentSnapshot = () => ({
+      url, fields: [],
+      buttons: [
+        { id: 'apply', text: 'JETZT BEWERBEN', disabled: false, frame: 0 },
+        { id: 'manage-consent', text: 'Manage consent', disabled: false, frame: 0 },
+      ],
+      dialogs: [], errors: [], captcha: false, passwordVisible: false, text: '',
+    });
+    const frame = {
+      url: () => url,
+      evaluate: vi.fn(async (_evaluateInPage: Function, args: any) => args?.surfacePattern ? false : currentSnapshot()),
+      locator: vi.fn((selector: string) => ({
+        first: () => ({
+          click: vi.fn(async () => {
+            expect(selector).toBe('[data-aa-id="manage-consent"]');
+            stage = 1;
+            showShadow('Reject all cookies');
+          }),
+        }),
+      })),
+    };
+    const page = {
+      url: () => url,
+      frames: () => [frame],
+      evaluate: vi.fn(async (evaluateInPage: Function, args: unknown) => evaluateInPage(args)),
+      locator: vi.fn((selector: string) => ({
+        first: () => ({
+          click: vi.fn(async () => {
+            expect(selector).toBe('[data-aa-cookie="1"]');
+            expect(shadow.querySelector('button')?.textContent).toBe('Reject all cookies');
+            stage = 2;
+            showShadow('');
+          }),
+          evaluate: vi.fn(async (clear: (element: Element) => void) => {
+            const button = shadow.querySelector('[data-aa-cookie="1"]');
+            if (button) clear(button);
+          }),
+        }),
+      })),
+      waitForTimeout: vi.fn(async () => {}),
+    };
+
+    const result = await dismissCookieBanner(page as any, currentSnapshot() as any);
+
+    expect(result.status).toBe('dismissed');
+    expect(stage).toBe(2);
+    window.close();
+  });
+
   it('does not borrow Yellowshark Apply evidence from another frame', async () => {
     const url = 'https://jobs.yellowshark.com/job/example/';
     const snapshot = {
@@ -373,6 +442,31 @@ describe('portal field extraction', () => {
     };
     const otherFrame = { url: () => 'https://ats.example.test/apply' };
     const page = { url: () => url, frames: () => [frame, otherFrame] };
+
+    const result = await dismissCookieBanner(page as any, snapshot as any);
+
+    expect(result.status).toBe('none');
+  });
+
+  it('does not apply the Yellowshark fallback inside an embedded frame', async () => {
+    const url = 'https://jobs.yellowshark.com/job/example/';
+    const snapshot = {
+      url, fields: [],
+      buttons: [
+        { id: 'apply', text: 'JETZT BEWERBEN', disabled: false, frame: 1 },
+        { id: 'manage-consent', text: 'Manage consent', disabled: false, frame: 1 },
+      ],
+      dialogs: [], errors: [], captcha: false, passwordVisible: false, text: '',
+    };
+    const frame = {
+      url: () => url,
+      evaluate: vi.fn(async (_evaluateInPage: Function, args: any) => args?.surfacePattern ? false : snapshot),
+    };
+    const embeddedFrame = {
+      url: () => url,
+      evaluate: vi.fn(async (_evaluateInPage: Function, args: any) => args?.surfacePattern ? false : snapshot),
+    };
+    const page = { url: () => url, frames: () => [frame, embeddedFrame] };
 
     const result = await dismissCookieBanner(page as any, snapshot as any);
 

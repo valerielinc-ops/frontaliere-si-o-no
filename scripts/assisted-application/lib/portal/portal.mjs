@@ -1800,6 +1800,9 @@ function isYellowsharkJobCookiePreference(page, button, snapshot = {}) {
   const fields = Array.isArray(snapshot?.fields) ? snapshot.fields : null;
   if (!fields || fields.length) return false;
   const frameNumber = Number(button.frame) || 0;
+  // The post-choice origin check is page-level. Keep this fallback on the
+  // main document so an embedded frame cannot change origins between checks.
+  if (frameNumber !== 0) return false;
   const hasJobApply = (snapshot.buttons || []).some((candidate) => !candidate.disabled
     && (Number(candidate.frame) || 0) === frameNumber
     && /^jetzt bewerben$/i.test(cookieControlLabel(candidate)));
@@ -1815,7 +1818,7 @@ function isYellowsharkJobCookiePreference(page, button, snapshot = {}) {
   }
 }
 
-async function cookieControlHasCookieContext(page, button, snapshot = {}) {
+async function cookieControlHasCookieContext(page, button, snapshot = {}, { allowYellowsharkFallback = true } = {}) {
   const label = cookieControlLabel(button);
   const isPreferenceControl = COOKIE_CUSTOMIZE_RE.test(label)
     || COOKIE_GENERIC_PREFERENCES_RE.test(label)
@@ -1831,7 +1834,7 @@ async function cookieControlHasCookieContext(page, button, snapshot = {}) {
   // The live manager check is affirmative proof for this label. Do not fall
   // through to the generic Accept control check, which rejects "Manage consent".
   if (manageConsent) return await hasLiveCookieManagerSurface(page, button)
-    || isYellowsharkJobCookiePreference(page, button, snapshot);
+    || (allowYellowsharkFallback && isYellowsharkJobCookiePreference(page, button, snapshot));
   if (button.dialog && /^d\d+$/.test(String(button.dialogId || ''))) {
     const frame = page.frames()[button.frame || 0] || page.mainFrame();
     try {
@@ -1847,14 +1850,16 @@ async function cookieControlHasCookieContext(page, button, snapshot = {}) {
   return isPageCookieConsentControl(page, snapshot, button);
 }
 
-async function findCookieControl(page, snapshot, pattern, { genericPreferences = false, manageConsent = false } = {}) {
+async function findCookieControl(page, snapshot, pattern, {
+  genericPreferences = false, manageConsent = false, allowYellowsharkFallback = true,
+} = {}) {
   for (const button of snapshot?.buttons || []) {
     if (button.disabled || (button.chrome && button.cookieSurface !== 'banner')) continue;
     const label = cookieControlLabel(button);
     if (!pattern.test(label)
       && !(genericPreferences && COOKIE_GENERIC_PREFERENCES_RE.test(label))
       && !(manageConsent && COOKIE_MANAGE_CONSENT_RE.test(label))) continue;
-    if (await cookieControlHasCookieContext(page, button, snapshot)) return button;
+    if (await cookieControlHasCookieContext(page, button, snapshot, { allowYellowsharkFallback })) return button;
   }
   return null;
 }
@@ -1883,13 +1888,7 @@ async function clickCookieChoice(page, snapshot, button) {
   } catch {
     return { status: 'unresolved', snapshot };
   }
-  await page.waitForTimeout(800);
-  const current = await cookiePageSnapshot(page);
-  if (!current || !origin || pageOrigin(page) !== origin) return { status: 'unresolved', snapshot: current || snapshot };
-  if (await cookieChoice(page, current)
-    || await findCookieControl(page, current, COOKIE_CUSTOMIZE_RE, { genericPreferences: true, manageConsent: true })
-    || cookieDialogRemains(current, button)) return { status: 'unresolved', snapshot: current };
-  return { status: 'dismissed', snapshot: current };
+  return confirmCookieChoiceDismissed(page, snapshot, origin, button);
 }
 
 async function clearShadowCookieMarker(page) {
@@ -1975,6 +1974,30 @@ async function markShadowCookieButton(page, { includePreferences = false } = {})
   }
 }
 
+async function confirmCookieChoiceDismissed(page, snapshot, origin, blockingControl = null, { verifyShadow = false } = {}) {
+  await page.waitForTimeout(800);
+  const current = await cookiePageSnapshot(page);
+  if (!current || !origin || pageOrigin(page) !== origin) return { status: 'unresolved', snapshot: current || snapshot };
+  if (await cookieChoice(page, current)
+    || await findCookieControl(page, current, COOKIE_CUSTOMIZE_RE, {
+      genericPreferences: true, manageConsent: true, allowYellowsharkFallback: false,
+    })
+    || cookieDialogRemains(current, blockingControl)) return { status: 'unresolved', snapshot: current };
+  if (verifyShadow) {
+    let shadowAction = await markShadowCookieButton(page);
+    if (shadowAction) {
+      await clearShadowCookieMarker(page);
+      return { status: 'unresolved', snapshot: current };
+    }
+    shadowAction = await markShadowCookieButton(page, { includePreferences: true });
+    if (shadowAction) {
+      await clearShadowCookieMarker(page);
+      return { status: 'unresolved', snapshot: current };
+    }
+  }
+  return { status: 'dismissed', snapshot: current };
+}
+
 export async function dismissCookieBanner(page, snapshot) {
   let choice = await cookieChoice(page, snapshot);
   if (choice) return clickCookieChoice(page, snapshot, choice);
@@ -1991,7 +2014,14 @@ export async function dismissCookieBanner(page, snapshot) {
     let current = await cookiePageSnapshot(page);
     if (!current || !origin || pageOrigin(page) !== origin) return { status: 'unresolved', snapshot: current || snapshot };
     choice = await cookieChoice(page, current);
-    if (!choice) return { status: 'unresolved', snapshot: current };
+    if (!choice) {
+      // Manage consent can open a shadow-root preference center whose explicit
+      // Reject/Accept controls are absent from the regular DOM snapshot.
+      const shadowDecision = await markShadowCookieButton(page);
+      if (shadowDecision !== 'decision') return { status: 'unresolved', snapshot: current };
+      if (!await clickMarkedShadowCookie(page)) return { status: 'unresolved', snapshot: current };
+      return confirmCookieChoiceDismissed(page, current, origin, preferences, { verifyShadow: true });
+    }
     return clickCookieChoice(page, current, choice);
   }
 
