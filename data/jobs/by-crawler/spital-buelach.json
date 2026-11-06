@@ -821,9 +821,9 @@
       "slug": "parto-in-seconda-posizione-spital-bulach-bulach",
       "slugByLocale": {
         "it": "parto-in-seconda-posizione-spital-bulach-bulach",
-        "en": "midwife-nurse-as-second-specialist-in-the-birth-centre-spital-bulach",
+        "en": "two-themed-birthplace-spital-bulach-bulach",
         "de": "zweithebamme-geburtshaus-spital-buelach-bulach",
-        "fr": "maison-de-naissance-spital-bulach"
+        "fr": "sage-femme-de-garde-pour-accouchements-secondaires-spital-bulach-bulach"
       },
       "company": "Spital Bülach",
       "companyKey": "spital-buelach",
@@ -901,11 +901,11 @@
           "zweithebamme-geburtshaus-spital-bulach-bulach",
           "zweithebamme-geburtshaus-spital-bulach",
           "hebamme-pflegefachfrau-als-zweite-fachperson-im-geburtshaus-spital-bulach",
-          "two-themed-birthplace-spital-bulach-bulach"
+          "midwife-nurse-as-second-specialist-in-the-birth-centre-spital-bulach"
         ],
         "fr": [
           "maison-de-naissance-spital-bulach-bulach",
-          "sage-femme-de-garde-pour-accouchements-secondaires-spital-bulach-bulach"
+          "maison-de-naissance-spital-bulach"
         ]
       },
       "previousSlugs": [
@@ -916,8 +916,8 @@
         "zweithebamme-geburtshaus-spital-bulach",
         "hebamme-pflegefachfrau-als-zweite-fachperson-im-geburtshaus-spital-bulach",
         "hebamme-pflegefachfrau-als-zweite-fachperson-im-geburtshaus-spital-buelach-bulach",
-        "two-themed-birthplace-spital-bulach-bulach",
-        "sage-femme-de-garde-pour-accouchements-secondaires-spital-bulach-bulach"
+        "midwife-nurse-as-second-specialist-in-the-birth-centre-spital-bulach",
+        "maison-de-naissance-spital-bulach"
       ],
       "firstSeenAt": "2026-05-19T12:20:48.647Z",
       "salaryMin": 91500,
@@ -1708,10 +1708,10 @@
       "id": "spital-buelach-b83414e4d472",
       "slug": "elettricisti-commerciali-spital-bulach",
       "slugByLocale": {
-        "it": "elettricisti-commerciali-spital-bulach",
+        "it": "elettricista-in-business-elettricista-in-spital-bulach-bulach",
         "en": "electrician-in-business-electrician-in-spital-bulach-bulach",
         "de": "elektriker-in-betriebselektriker-in-spital-buelach-bulach",
-        "fr": "electriciens-d-affaires-spital-bulach"
+        "fr": "electricien-dans-entreprise-electricien-dans-spital-bulach-bulach"
       },
       "company": "Spital Bülach",
       "companyKey": "spital-buelach",
@@ -1758,16 +1758,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "elektriker-in-betriebselektriker-in-spital-buelach-bulach",
-        "elettricista-in-business-elettricista-in-spital-bulach-bulach",
-        "electricien-dans-entreprise-electricien-dans-spital-bulach-bulach"
+        "electriciens-d-affaires-spital-bulach"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "elektriker-in-betriebselektriker-in-spital-buelach-bulach",
-          "elettricista-in-business-elettricista-in-spital-bulach-bulach"
+          "elektriker-in-betriebselektriker-in-spital-buelach-bulach"
         ],
         "fr": [
-          "electricien-dans-entreprise-electricien-dans-spital-bulach-bulach"
+          "electriciens-d-affaires-spital-bulach"
         ]
       },
       "firstSeenAt": "2026-08-04T11:54:51.572Z",
@@ -5236,12 +5234,12 @@
     },
     {
       "id": "spital-buelach-bd96da830ecb",
-      "slug": "dipl-pflegefachperson-mit-zusatzfunktion-berufsbildner-in-spital-buelach-bulach",
+      "slug": "infermiere-a-diplomato-a-con-funzione-aggiuntiva-di-formatore-trice-professionale-spital-bulach-bulach",
       "slugByLocale": {
         "de": "dipl-pflegefachperson-mit-zusatzfunktion-berufsbildner-in-spital-buelach-bulach",
-        "it": "dipl-pflegefachperson-mit-zusatzfunktion-berufsbildner-in-spital-buelach-bulach",
-        "en": "dipl-pflegefachperson-mit-zusatzfunktion-berufsbildner-in-spital-buelach-bulach",
-        "fr": "dipl-pflegefachperson-mit-zusatzfunktion-berufsbildner-in-spital-buelach-bulach"
+        "it": "infermiere-a-diplomato-a-con-funzione-aggiuntiva-di-formatore-trice-professionale-spital-bulach-bulach",
+        "en": "registered-nurse-with-additional-role-as-vocational-trainer-spital-bulach-bulach",
+        "fr": "infirmier-ere-diplome-e-avec-fonction-supplementaire-de-formateur-trice-professionnel-le-spital-bulach-bulach"
       },
       "company": "Spital Bülach",
       "companyKey": "spital-buelach",
@@ -5304,7 +5302,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-02T21:47:00.523Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-05T21:47:00.523Z"
+      "firstSeenAt": "2026-11-05T21:47:00.523Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachperson-mit-zusatzfunktion-berufsbildner-in-spital-buelach-bulach"
+        ],
+        "en": [
+          "dipl-pflegefachperson-mit-zusatzfunktion-berufsbildner-in-spital-buelach-bulach"
+        ],
+        "fr": [
+          "dipl-pflegefachperson-mit-zusatzfunktion-berufsbildner-in-spital-buelach-bulach"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachperson-mit-zusatzfunktion-berufsbildner-in-spital-buelach-bulach"
+      ]
     },
     {
       "id": "spital-buelach-ce6f85cf0ea8",

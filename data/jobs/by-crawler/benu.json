@@ -256,12 +256,12 @@
     },
     {
       "id": "benu-7e2f7e526fac",
-      "slug": "pharma-assistent-w-m-60-benu-schwerzenbach-schwerzenbach-zurich-benu-ch",
+      "slug": "assistente-farmaceutico-m-f-60-benu-schwerzenbach-benu-schwerzenbach-zurich",
       "slugByLocale": {
         "de": "pharma-assistent-w-m-60-benu-schwerzenbach-schwerzenbach-zurich-benu-ch",
-        "it": "pharma-assistent-w-m-60-benu-schwerzenbach-schwerzenbach-zurich-benu-ch",
-        "en": "pharma-assistent-w-m-60-benu-schwerzenbach-schwerzenbach-zurich-benu-ch",
-        "fr": "pharma-assistent-w-m-60-benu-schwerzenbach-schwerzenbach-zurich-benu-ch"
+        "it": "assistente-farmaceutico-m-f-60-benu-schwerzenbach-benu-schwerzenbach-zurich",
+        "en": "pharmaceutical-assistant-m-f-60-benu-schwerzenbach-benu-schwerzenbach-zurich",
+        "fr": "assistant-pharmaceutique-h-f-60-benu-schwerzenbach-benu-schwerzenbach-zurich"
       },
       "company": "benu",
       "companyKey": "benu",
@@ -323,7 +323,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-03T21:36:07.108Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-05T21:36:07.108Z"
+      "firstSeenAt": "2026-11-05T21:36:07.108Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "pharma-assistent-w-m-60-benu-schwerzenbach-schwerzenbach-zurich-benu-ch"
+        ],
+        "en": [
+          "pharma-assistent-w-m-60-benu-schwerzenbach-schwerzenbach-zurich-benu-ch"
+        ],
+        "fr": [
+          "pharma-assistent-w-m-60-benu-schwerzenbach-schwerzenbach-zurich-benu-ch"
+        ]
+      },
+      "previousSlugs": [
+        "pharma-assistent-w-m-60-benu-schwerzenbach-schwerzenbach-zurich-benu-ch"
+      ]
     },
     {
       "id": "benu-3f9eaf424ad7",

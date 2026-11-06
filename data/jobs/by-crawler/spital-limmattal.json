@@ -5,12 +5,12 @@
   "jobs": [
     {
       "id": "spital-limmattal-f0c2fed43d37",
-      "slug": "med-praxisassistent-in-kardiologie-40-spital-limmattal-ch",
+      "slug": "assistente-di-studio-medico-in-cardiologia-40-spital-limmattal-schlieren",
       "slugByLocale": {
         "de": "med-praxisassistent-in-kardiologie-40-spital-limmattal-ch",
-        "it": "med-praxisassistent-in-kardiologie-40-spital-limmattal-ch",
-        "en": "med-praxisassistent-in-kardiologie-40-spital-limmattal-ch",
-        "fr": "med-praxisassistent-in-kardiologie-40-spital-limmattal-ch"
+        "it": "assistente-di-studio-medico-in-cardiologia-40-spital-limmattal-schlieren",
+        "en": "medical-practice-assistant-cardiology-40-spital-limmattal-schlieren",
+        "fr": "assistant-e-medical-e-en-cardiologie-40-spital-limmattal-schlieren"
       },
       "company": "Spital Limmattal",
       "companyKey": "spital-limmattal",
@@ -76,7 +76,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-03T21:25:15.915Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-05T21:25:15.915Z"
+      "firstSeenAt": "2026-11-05T21:25:15.915Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "med-praxisassistent-in-kardiologie-40-spital-limmattal-ch"
+        ],
+        "en": [
+          "med-praxisassistent-in-kardiologie-40-spital-limmattal-ch"
+        ],
+        "fr": [
+          "med-praxisassistent-in-kardiologie-40-spital-limmattal-ch"
+        ]
+      },
+      "previousSlugs": [
+        "med-praxisassistent-in-kardiologie-40-spital-limmattal-ch"
+      ]
     },
     {
       "id": "spital-limmattal-855777931532",
@@ -2916,7 +2930,7 @@
       "slug": "performance-manager-50-80-spital-limmattal-schlieren",
       "slugByLocale": {
         "it": "performance-manager-50-80-spital-limmattal-schlieren",
-        "en": "performance-manager-50-80-spital-limmattal-schlieren",
+        "en": "leistungsmanager-in-50-80-spital-limmattal-schlieren",
         "de": "leistungsmanager-in-50-80-spital-limmattal-ch",
         "fr": "gestionnaire-de-performance-50-80-spital-limmattal-schlieren"
       },
@@ -2980,9 +2994,6 @@
           "leistungsmanager-in-50-80-spital-limmattal-schlieren"
         ],
         "fr": [
-          "leistungsmanager-in-50-80-spital-limmattal-schlieren"
-        ],
-        "en": [
           "leistungsmanager-in-50-80-spital-limmattal-schlieren"
         ]
       },

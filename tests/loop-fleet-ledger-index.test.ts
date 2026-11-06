@@ -129,6 +129,45 @@ describe('loop-fleet durable ledger index', () => {
     }));
   });
 
+  it('keeps bulk tracked-ledger Git reads above the child-process default', () => {
+    const repo = fs.mkdtempSync(path.join(os.tmpdir(), 'loop-fleet-index-large-list-'));
+    try {
+      const ledgerDir = path.join(repo, 'data', 'loop-fleet', 'ledger');
+      fs.mkdirSync(ledgerDir, { recursive: true });
+      const trackedPaths = Array.from({ length: 17_000 }, (_, index) => (
+        `data/loop-fleet/ledger/loop-observations-run-${String(index).padStart(10, '0')}.jsonl`
+      ));
+      const trackedOutput = `${trackedPaths.join('\0')}\0`;
+      expect(Buffer.byteLength(trackedOutput)).toBeGreaterThan(1024 * 1024);
+
+      gitMock.mockImplementation((_command: string, args: string[], options?: {
+        input?: string;
+        maxBuffer?: number;
+      }) => {
+        if (args.includes('rev-parse')) return `${repo}\n`;
+        if (args.includes('ls-files')) {
+          if ((options?.maxBuffer ?? 1024 * 1024) < Buffer.byteLength(trackedOutput)) {
+            const error = new Error('spawnSync git ENOBUFS');
+            (error as NodeJS.ErrnoException).code = 'ENOBUFS';
+            throw error;
+          }
+          return trackedOutput;
+        }
+        if (args.includes('--stdin-paths')) {
+          expect(options?.maxBuffer).toBeGreaterThan(1024 * 1024);
+          const inputs = String(options?.input || '').trim().split('\n').filter(Boolean);
+          return `${inputs.map(() => 'a'.repeat(40)).join('\n')}\n`;
+        }
+        throw new Error(`unexpected git command: ${args.join(' ')}`);
+      });
+
+      const result = loadLedgerIndexForWriter(ledgerDir);
+      expect(result.trackedFileOids?.size).toBe(trackedPaths.length);
+    } finally {
+      fs.rmSync(repo, { recursive: true, force: true });
+    }
+  });
+
   it('rejects an unstaged rewrite of an indexed tracked shard', () => {
     const repo = fs.mkdtempSync(path.join(os.tmpdir(), 'loop-fleet-index-worktree-'));
     try {

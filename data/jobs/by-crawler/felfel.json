@@ -5,12 +5,12 @@
   "jobs": [
     {
       "id": "felfel-8ecc66e478e9",
-      "slug": "servicetechniker-in-felfel-zurich",
+      "slug": "tecnico-a-di-servizio-felfel-zurich",
       "slugByLocale": {
         "de": "servicetechniker-in-felfel-zurich",
-        "it": "servicetechniker-in-felfel-zurich",
-        "en": "servicetechniker-in-felfel-zurich",
-        "fr": "servicetechniker-in-felfel-zurich"
+        "it": "tecnico-a-di-servizio-felfel-zurich",
+        "en": "service-technician-felfel-zurich",
+        "fr": "technicien-ne-de-service-felfel-zurich"
       },
       "company": "FELFEL",
       "companyKey": "felfel",
@@ -74,7 +74,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-03T21:12:58.501Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-05T21:12:58.501Z"
+      "firstSeenAt": "2026-11-05T21:12:58.501Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "servicetechniker-in-felfel-zurich"
+        ],
+        "en": [
+          "servicetechniker-in-felfel-zurich"
+        ],
+        "fr": [
+          "servicetechniker-in-felfel-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "servicetechniker-in-felfel-zurich"
+      ]
     },
     {
       "id": "felfel-9db9f05a9193",

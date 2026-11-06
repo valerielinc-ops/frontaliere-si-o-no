@@ -6469,12 +6469,12 @@
     },
     {
       "id": "kanton-zuerich-fc42cafd1d3d",
-      "slug": "sozialarbeiter-in-im-kjz-horgen-kanton-zuerich-horgen",
+      "slug": "assistente-sociale-presso-il-kjz-horgen-kantonale-verwaltung-zurich-horgen-cfb412",
       "slugByLocale": {
         "de": "sozialarbeiter-in-im-kjz-horgen-kanton-zuerich-horgen",
-        "it": "sozialarbeiter-in-im-kjz-horgen-kanton-zuerich-horgen",
-        "en": "sozialarbeiter-in-im-kjz-horgen-kanton-zuerich-horgen",
-        "fr": "sozialarbeiter-in-im-kjz-horgen-kanton-zuerich-horgen"
+        "it": "assistente-sociale-presso-il-kjz-horgen-kantonale-verwaltung-zurich-horgen-cfb412",
+        "en": "social-worker-at-kjz-horgen-kantonale-verwaltung-zurich-horgen-cfb412",
+        "fr": "travailleur-euse-social-e-au-kjz-horgen-kantonale-verwaltung-zurich-horgen"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -6541,7 +6541,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-03T21:52:00.661Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-03T22:06:40.753Z"
+      "firstSeenAt": "2026-11-03T22:06:40.753Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sozialarbeiter-in-im-kjz-horgen-kanton-zuerich-horgen"
+        ],
+        "en": [
+          "sozialarbeiter-in-im-kjz-horgen-kanton-zuerich-horgen"
+        ],
+        "fr": [
+          "sozialarbeiter-in-im-kjz-horgen-kanton-zuerich-horgen"
+        ]
+      },
+      "previousSlugs": [
+        "sozialarbeiter-in-im-kjz-horgen-kanton-zuerich-horgen"
+      ]
     },
     {
       "id": "kanton-zuerich-9ea8faf3987b",
@@ -9727,12 +9741,12 @@
     },
     {
       "id": "kanton-zuerich-7d5200f3434c",
-      "slug": "hauswart-in-kanton-zuerich-8902-urdorf",
+      "slug": "custode-kantonale-verwaltung-zurich-8902-urdorf",
       "slugByLocale": {
         "de": "hauswart-in-kanton-zuerich-8902-urdorf",
-        "it": "hauswart-in-kanton-zuerich-8902-urdorf",
-        "en": "hauswart-in-kanton-zuerich-8902-urdorf",
-        "fr": "hauswart-in-kanton-zuerich-8902-urdorf"
+        "it": "custode-kantonale-verwaltung-zurich-8902-urdorf",
+        "en": "caretaker-kantonale-verwaltung-zurich-8902-urdorf",
+        "fr": "concierge-kantonale-verwaltung-zurich-8902-urdorf"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -9799,7 +9813,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-03T21:51:41.896Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-05T21:51:41.896Z"
+      "firstSeenAt": "2026-11-05T21:51:41.896Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "hauswart-in-kanton-zuerich-8902-urdorf"
+        ],
+        "en": [
+          "hauswart-in-kanton-zuerich-8902-urdorf"
+        ],
+        "fr": [
+          "hauswart-in-kanton-zuerich-8902-urdorf"
+        ]
+      },
+      "previousSlugs": [
+        "hauswart-in-kanton-zuerich-8902-urdorf"
+      ]
     },
     {
       "id": "kanton-zuerich-d285f34efbc8",
@@ -11447,12 +11475,12 @@
     },
     {
       "id": "kanton-zuerich-c2e2f439ebef",
-      "slug": "gerichtsschreiber-in-kantonale-verwaltung-zurich-hirschengraben-15",
+      "slug": "cancelliere-a-di-tribunale-kantonale-verwaltung-zurich-hirschengraben-15-8001-zurich",
       "slugByLocale": {
         "de": "gerichtsschreiber-in-kanton-zuerich-hirschengraben-15",
-        "it": "gerichtsschreiber-in-kantonale-verwaltung-zurich-hirschengraben-15",
-        "en": "gerichtsschreiber-in-kantonale-verwaltung-zurich-hirschengraben-15",
-        "fr": "gerichtsschreiber-in-kantonale-verwaltung-zurich-hirschengraben-15"
+        "it": "cancelliere-a-di-tribunale-kantonale-verwaltung-zurich-hirschengraben-15-8001-zurich",
+        "en": "court-clerk-kantonale-verwaltung-zurich-hirschengraben-15-8001-zurich",
+        "fr": "greffier-greffiere-kantonale-verwaltung-zurich-hirschengraben-15-8001-zurich"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -11504,11 +11532,19 @@
       "pensum": "100%",
       "previousSlugsByLocale": {
         "it": [
-          "gerichtsschreiber-in-kanton-zuerich-hirschengraben-15"
+          "gerichtsschreiber-in-kanton-zuerich-hirschengraben-15",
+          "gerichtsschreiber-in-kantonale-verwaltung-zurich-hirschengraben-15"
+        ],
+        "en": [
+          "gerichtsschreiber-in-kantonale-verwaltung-zurich-hirschengraben-15"
+        ],
+        "fr": [
+          "gerichtsschreiber-in-kantonale-verwaltung-zurich-hirschengraben-15"
         ]
       },
       "previousSlugs": [
-        "gerichtsschreiber-in-kanton-zuerich-hirschengraben-15"
+        "gerichtsschreiber-in-kanton-zuerich-hirschengraben-15",
+        "gerichtsschreiber-in-kantonale-verwaltung-zurich-hirschengraben-15"
       ],
       "salaryMin": 85000,
       "salaryMax": 145000,

@@ -5,12 +5,12 @@
   "jobs": [
     {
       "id": "zurich-insurance-sede-ticino-1376799157",
-      "slug": "responsable-d-equipe-assurances-de-personnes-prestations-maladie-h-f-d-zurich-insurance",
+      "slug": "responsabile-di-team-assicurazioni-di-persone-prestazioni-malattia-m-f-d-zurich-insurance-crissier-1376799157",
       "slugByLocale": {
         "fr": "responsable-d-equipe-assurances-de-personnes-prestations-maladie-h-f-d-zurich-insurance",
-        "it": "responsable-d-equipe-assurances-de-personnes-prestations-maladie-h-f-d-zurich-insurance",
-        "en": "responsable-d-equipe-assurances-de-personnes-prestations-maladie-h-f-d-zurich-insurance",
-        "de": "responsable-d-equipe-assurances-de-personnes-prestations-maladie-h-f-d-zurich-insurance"
+        "it": "responsabile-di-team-assicurazioni-di-persone-prestazioni-malattia-m-f-d-zurich-insurance-crissier-1376799157",
+        "en": "team-leader-personal-insurance-sickness-benefits-m-f-d-zurich-insurance-crissier-1376799157",
+        "de": "teamleiter-personliche-versicherung-krankengeld-m-w-d-zurich-insurance-crissier-1376799157"
       },
       "slugDisambiguator": "1376799157",
       "company": "Zurich Insurance",
@@ -74,16 +74,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-20T21:25:08.360Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-05T21:25:08.360Z"
+      "firstSeenAt": "2026-11-05T21:25:08.360Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "responsable-d-equipe-assurances-de-personnes-prestations-maladie-h-f-d-zurich-insurance"
+        ],
+        "en": [
+          "responsable-d-equipe-assurances-de-personnes-prestations-maladie-h-f-d-zurich-insurance"
+        ],
+        "de": [
+          "responsable-d-equipe-assurances-de-personnes-prestations-maladie-h-f-d-zurich-insurance"
+        ]
+      },
+      "previousSlugs": [
+        "responsable-d-equipe-assurances-de-personnes-prestations-maladie-h-f-d-zurich-insurance"
+      ]
     },
     {
       "id": "zurich-insurance-sede-ticino-1376802057",
-      "slug": "specialist-administrator-m-w-d-zurich-insurance-sede-ticino-zurich",
+      "slug": "specialista-administrator-m-w-d-zurich-insurance-zurich-1376802057",
       "slugByLocale": {
         "de": "specialist-administrator-m-w-d-zurich-insurance-sede-ticino-zurich",
-        "it": "specialist-administrator-m-w-d-zurich-insurance-sede-ticino-zurich",
+        "it": "specialista-administrator-m-w-d-zurich-insurance-zurich-1376802057",
         "en": "specialist-administrator-m-w-d-zurich-insurance-sede-ticino-zurich",
-        "fr": "specialist-administrator-m-w-d-zurich-insurance-sede-ticino-zurich"
+        "fr": "specialiste-administrator-m-w-d-zurich-insurance-zurich-1376802057"
       },
       "slugDisambiguator": "1376802057",
       "company": "Zurich Insurance",
@@ -146,7 +160,18 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-20T21:25:08.360Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-05T21:25:08.360Z"
+      "firstSeenAt": "2026-11-05T21:25:08.360Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "specialist-administrator-m-w-d-zurich-insurance-sede-ticino-zurich"
+        ],
+        "fr": [
+          "specialist-administrator-m-w-d-zurich-insurance-sede-ticino-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "specialist-administrator-m-w-d-zurich-insurance-sede-ticino-zurich"
+      ]
     },
     {
       "id": "zurich-insurance-sede-ticino-1376657457",

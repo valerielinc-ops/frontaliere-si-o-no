@@ -1695,12 +1695,12 @@
     },
     {
       "id": "grand-resort-bad-ragaz-8a5b9869da89",
-      "slug": "spa-rezeptionist-60-w-m-i-grand-resort-bad-ragaz-bad-ragaz",
+      "slug": "ricevitore-spa-60-f-m-i-grand-resort-bad-ragaz-bad-ragaz",
       "slugByLocale": {
         "de": "spa-rezeptionist-60-w-m-i-grand-resort-bad-ragaz-bad-ragaz",
-        "it": "spa-rezeptionist-60-w-m-i-grand-resort-bad-ragaz-bad-ragaz",
-        "en": "spa-rezeptionist-60-w-m-i-grand-resort-bad-ragaz-bad-ragaz",
-        "fr": "spa-rezeptionist-60-w-m-i-grand-resort-bad-ragaz-bad-ragaz"
+        "it": "ricevitore-spa-60-f-m-i-grand-resort-bad-ragaz-bad-ragaz",
+        "en": "spa-receptionist-60-f-m-i-grand-resort-bad-ragaz-bad-ragaz",
+        "fr": "receptionniste-du-spa-60-f-m-i-grand-resort-bad-ragaz-bad-ragaz"
       },
       "company": "Grand Resort Bad Ragaz",
       "companyKey": "grand-resort-bad-ragaz",
@@ -1762,7 +1762,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-03T21:19:59.766Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-05T21:19:59.766Z"
+      "firstSeenAt": "2026-11-05T21:19:59.766Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "spa-rezeptionist-60-w-m-i-grand-resort-bad-ragaz-bad-ragaz"
+        ],
+        "en": [
+          "spa-rezeptionist-60-w-m-i-grand-resort-bad-ragaz-bad-ragaz"
+        ],
+        "fr": [
+          "spa-rezeptionist-60-w-m-i-grand-resort-bad-ragaz-bad-ragaz"
+        ]
+      },
+      "previousSlugs": [
+        "spa-rezeptionist-60-w-m-i-grand-resort-bad-ragaz-bad-ragaz"
+      ]
     },
     {
       "id": "grand-resort-bad-ragaz-eaa718546643",

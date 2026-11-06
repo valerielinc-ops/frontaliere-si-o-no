@@ -3659,12 +3659,12 @@
     },
     {
       "id": "vaudoise-4cbe02cbefb9",
-      "slug": "conseiller-conseillere-h-f-x-100-vaudoise-ch",
+      "slug": "consigliere-consigliere-m-f-x-100-vaudoise-assurances-morges",
       "slugByLocale": {
         "fr": "conseiller-conseillere-h-f-x-100-vaudoise-ch",
-        "it": "conseiller-conseillere-h-f-x-100-vaudoise-ch",
-        "en": "conseiller-conseillere-h-f-x-100-vaudoise-ch",
-        "de": "conseiller-conseillere-h-f-x-100-vaudoise-ch"
+        "it": "consigliere-consigliere-m-f-x-100-vaudoise-assurances-morges",
+        "en": "counsellor-advisor-m-f-x-100-vaudoise-assurances-morges",
+        "de": "berater-berater-m-w-x-100-vaudoise-assurances-morges"
       },
       "company": "Vaudoise Assurances",
       "companyKey": "vaudoise",
@@ -3727,7 +3727,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-03T21:16:33.884Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-05-18T13:27:19.814Z"
+      "firstSeenAt": "2026-05-18T13:27:19.814Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "conseiller-conseillere-h-f-x-100-vaudoise-ch"
+        ],
+        "en": [
+          "conseiller-conseillere-h-f-x-100-vaudoise-ch"
+        ],
+        "de": [
+          "conseiller-conseillere-h-f-x-100-vaudoise-ch"
+        ]
+      },
+      "previousSlugs": [
+        "conseiller-conseillere-h-f-x-100-vaudoise-ch"
+      ]
     },
     {
       "id": "vaudoise-8e1318b96440",

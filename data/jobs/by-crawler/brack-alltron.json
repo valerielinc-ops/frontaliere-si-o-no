@@ -2441,12 +2441,12 @@
     },
     {
       "id": "brack-alltron-e34614759c52",
-      "slug": "deputy-teamlead-shipping-brack-alltron-willisau",
+      "slug": "vice-teamlead-spedizione-brack-alltron-ag-willisau",
       "slugByLocale": {
         "de": "deputy-teamlead-shipping-brack-alltron-willisau",
-        "it": "deputy-teamlead-shipping-brack-alltron-willisau",
+        "it": "vice-teamlead-spedizione-brack-alltron-ag-willisau",
         "en": "deputy-teamlead-shipping-brack-alltron-willisau",
-        "fr": "deputy-teamlead-shipping-brack-alltron-willisau"
+        "fr": "sous-chef-d-equipe-brack-alltron-ag-willisau"
       },
       "company": "Brack.Alltron AG",
       "companyKey": "brack-alltron",
@@ -2508,7 +2508,18 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-03T21:27:51.167Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-05T21:27:51.167Z"
+      "firstSeenAt": "2026-11-05T21:27:51.167Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "deputy-teamlead-shipping-brack-alltron-willisau"
+        ],
+        "fr": [
+          "deputy-teamlead-shipping-brack-alltron-willisau"
+        ]
+      },
+      "previousSlugs": [
+        "deputy-teamlead-shipping-brack-alltron-willisau"
+      ]
     }
   ]
 }

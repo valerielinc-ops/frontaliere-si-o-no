@@ -5,10 +5,10 @@
   "jobs": [
     {
       "id": "straumann-ac00663f66be",
-      "slug": "cdc-operations-manager-m-f-d-straumann-ch",
+      "slug": "direttore-operativo-cdc-m-f-d-straumann-basel",
       "slugByLocale": {
         "en": "cdc-operations-manager-m-f-d-straumann-ch",
-        "it": "cdc-operations-manager-m-f-d-straumann-ch",
+        "it": "direttore-operativo-cdc-m-f-d-straumann-basel",
         "de": "cdc-operations-manager-m-f-d-straumann-ch",
         "fr": "cdc-operations-manager-m-f-d-straumann-ch"
       },
@@ -73,7 +73,15 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-03T21:14:26.312Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-05T21:14:26.312Z"
+      "firstSeenAt": "2026-11-05T21:14:26.312Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "cdc-operations-manager-m-f-d-straumann-ch"
+        ]
+      },
+      "previousSlugs": [
+        "cdc-operations-manager-m-f-d-straumann-ch"
+      ]
     },
     {
       "id": "straumann-cf37fd5c8159",

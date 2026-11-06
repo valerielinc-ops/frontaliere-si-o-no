@@ -937,12 +937,12 @@
     },
     {
       "id": "strabag-d29117e86e02",
-      "slug": "schaler-in-maurer-in-strabag-thusis",
+      "slug": "carpentiere-a-da-casseratura-muratore-trice-strabag-ag-thusis",
       "slugByLocale": {
         "de": "schaler-in-maurer-in-strabag-thusis",
-        "it": "schaler-in-maurer-in-strabag-thusis",
-        "en": "schaler-in-maurer-in-strabag-thusis",
-        "fr": "schaler-in-maurer-in-strabag-thusis"
+        "it": "carpentiere-a-da-casseratura-muratore-trice-strabag-ag-thusis",
+        "en": "formwork-worker-bricklayer-strabag-ag-thusis",
+        "fr": "coffreur-euse-macon-ne-strabag-ag-thusis"
       },
       "company": "STRABAG AG",
       "companyKey": "strabag",
@@ -1005,7 +1005,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-03T21:47:32.459Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-05T21:47:32.459Z"
+      "firstSeenAt": "2026-11-05T21:47:32.459Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "schaler-in-maurer-in-strabag-thusis"
+        ],
+        "en": [
+          "schaler-in-maurer-in-strabag-thusis"
+        ],
+        "fr": [
+          "schaler-in-maurer-in-strabag-thusis"
+        ]
+      },
+      "previousSlugs": [
+        "schaler-in-maurer-in-strabag-thusis"
+      ]
     },
     {
       "id": "strabag-088bae0b704a",

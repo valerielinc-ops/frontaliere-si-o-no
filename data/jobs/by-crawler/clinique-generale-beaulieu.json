@@ -5,12 +5,12 @@
   "jobs": [
     {
       "id": "clinique-generale-beaulieu-ea72f9d9e404",
-      "slug": "aide-soignant-e-chirurgie-clinique-generale-beaulieu",
+      "slug": "cura-chirurgica-clinique-generale-beaulieu-geneve",
       "slugByLocale": {
         "fr": "aide-soignant-e-chirurgie-clinique-generale-beaulieu",
-        "it": "aide-soignant-e-chirurgie-clinique-generale-beaulieu",
-        "en": "aide-soignant-e-chirurgie-clinique-generale-beaulieu",
-        "de": "aide-soignant-e-chirurgie-clinique-generale-beaulieu"
+        "it": "cura-chirurgica-clinique-generale-beaulieu-geneve",
+        "en": "surgical-caregiver-clinique-generale-beaulieu-geneve",
+        "de": "chirurgische-pflegekraft-clinique-generale-beaulieu-geneve"
       },
       "company": "Clinique Générale-Beaulieu",
       "companyKey": "clinique-generale-beaulieu",
@@ -71,7 +71,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-03T21:28:11.800Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-05T21:28:11.800Z"
+      "firstSeenAt": "2026-11-05T21:28:11.800Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "aide-soignant-e-chirurgie-clinique-generale-beaulieu"
+        ],
+        "en": [
+          "aide-soignant-e-chirurgie-clinique-generale-beaulieu"
+        ],
+        "de": [
+          "aide-soignant-e-chirurgie-clinique-generale-beaulieu"
+        ]
+      },
+      "previousSlugs": [
+        "aide-soignant-e-chirurgie-clinique-generale-beaulieu"
+      ]
     },
     {
       "id": "clinique-generale-beaulieu-68278b541382",

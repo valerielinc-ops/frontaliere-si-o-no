@@ -10,7 +10,7 @@
         "it": "consulente-patrimoniale-raiffeisen-savosa",
         "en": "asset-consultant-raiffeisen-savosa",
         "de": "vermogensberater-raiffeisen-savosa",
-        "fr": "conseiller-en-gestion-patrimoniale-raiffeisen-savosa"
+        "fr": "consultant-en-biens-raiffeisen-savosa"
       },
       "company": "Raiffeisen",
       "companyKey": "raiffeisen",
@@ -56,11 +56,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "consultant-en-biens-raiffeisen-savosa"
+        "conseiller-en-gestion-patrimoniale-raiffeisen-savosa"
       ],
       "previousSlugsByLocale": {
         "fr": [
-          "consultant-en-biens-raiffeisen-savosa"
+          "conseiller-en-gestion-patrimoniale-raiffeisen-savosa"
         ]
       },
       "firstSeenAt": "2026-07-04T12:06:05.430Z",
@@ -260,7 +260,7 @@
       "slugByLocale": {
         "it": "consulente-clientela-privata-individuale-raiffeisen-gordola",
         "en": "individual-private-customer-advisor-raiffeisen-gordola",
-        "de": "berater-fur-individuelle-privatkunden-raiffeisen-gordola",
+        "de": "privatkundenberater-raiffeisen-gordola",
         "fr": "conseiller-client-prive-individuel-raiffeisen-gordola"
       },
       "company": "Raiffeisen",
@@ -319,7 +319,7 @@
         "individual-private-customer-advisor-h-f-raiffeisen-saignelegier",
         "privatkundenberater-h-f-raiffeisen-saignelegier",
         "conseiller-a-la-clientele-privee-individuelle-h-f-raiffeisen-saignelegier",
-        "privatkundenberater-raiffeisen-gordola"
+        "berater-fur-individuelle-privatkunden-raiffeisen-gordola"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -342,7 +342,7 @@
           "privatkundenberater-raiffeisen-poschiavo",
           "privatkundenberater-m-w-d-raiffeisen-thierrens",
           "privatkundenberater-h-f-raiffeisen-saignelegier",
-          "privatkundenberater-raiffeisen-gordola"
+          "berater-fur-individuelle-privatkunden-raiffeisen-gordola"
         ],
         "fr": [
           "conseiller-client-prive-individuel-raiffeisen-poschiavo",
@@ -452,7 +452,7 @@
       "slugByLocale": {
         "it": "consulente-clientela-aziendale-raiffeisen-savosa",
         "en": "corporate-customer-advisor-raiffeisen-savosa",
-        "de": "firmenkundenberater-raiffeisen-savosa",
+        "de": "corporate-customer-advisor-raiffeisen-savosa",
         "fr": "conseiller-client-d-entreprise-raiffeisen-savosa"
       },
       "company": "Raiffeisen",
@@ -502,7 +502,7 @@
         "consulente-clientela-aziendale-raiffeisen-bellinzona",
         "corporate-customer-advisor-raiffeisen-bellinzona",
         "conseiller-client-d-entreprise-raiffeisen-bellinzona",
-        "corporate-customer-advisor-raiffeisen-savosa"
+        "firmenkundenberater-raiffeisen-savosa"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -512,7 +512,7 @@
         ],
         "de": [
           "corporate-customer-advisor-raiffeisen-bellinzona",
-          "corporate-customer-advisor-raiffeisen-savosa"
+          "firmenkundenberater-raiffeisen-savosa"
         ],
         "fr": [
           "conseiller-client-d-entreprise-raiffeisen-bellinzona"
@@ -540,7 +540,7 @@
       "id": "raiffeisen-6f93c19ab091",
       "slug": "consulente-alla-clientela-privata-base-m-w-d-raiffeisen-villmergen",
       "slugByLocale": {
-        "it": "consulente-alla-clientela-privata-base-m-w-d-raiffeisen-villmergen",
+        "it": "consulenza-clienti-al-dettaglio-f-m-d-raiffeisen-villmergen",
         "en": "retail-client-advisor-basis-f-m-d-raiffeisen-villmergen",
         "de": "privatkundenberater-basis-w-m-d-raiffeisen-villmergen",
         "fr": "clientele-de-detail-f-m-d-raiffeisen-villmergen"
@@ -590,14 +590,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "consulente-alla-clientela-privata-base-m-f-d-raiffeisen-villmergen",
-        "privatkundenberater-basis-w-m-d-raiffeisen-villmergen",
-        "consulenza-clienti-al-dettaglio-f-m-d-raiffeisen-villmergen"
+        "privatkundenberater-basis-w-m-d-raiffeisen-villmergen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "consulente-alla-clientela-privata-base-m-f-d-raiffeisen-villmergen",
-          "privatkundenberater-basis-w-m-d-raiffeisen-villmergen",
-          "consulenza-clienti-al-dettaglio-f-m-d-raiffeisen-villmergen"
+          "privatkundenberater-basis-w-m-d-raiffeisen-villmergen"
         ]
       },
       "firstSeenAt": "2026-07-04T12:06:05.336Z",
@@ -797,7 +795,7 @@
         "it": "collaboratore-trice-kreditadministration-m-w-d-raiffeisen-egnach",
         "en": "employee-credit-administration-m-f-d-raiffeisen-egnach",
         "de": "mitarbeiter-kreditadministration-m-w-d-raiffeisen-egnach",
-        "fr": "responsable-adjoint-du-traitement-des-credits-m-w-d-raiffeisen-neukirch-egnach"
+        "fr": "administration-du-credit-aux-employes-m-f-d-raiffeisen-egnach"
       },
       "company": "Raiffeisen",
       "companyKey": "raiffeisen",
@@ -855,14 +853,14 @@
         ],
         "fr": [
           "stv-leiter-kreditverarbeitung-m-w-d-raiffeisen-neukirch-egnach",
-          "administration-du-credit-aux-employes-m-f-d-raiffeisen-egnach"
+          "responsable-adjoint-du-traitement-des-credits-m-w-d-raiffeisen-neukirch-egnach"
         ]
       },
       "previousSlugs": [
         "stv-leiter-kreditverarbeitung-w-m-d-raiffeisen-neukirch-egnach",
         "collaboratore-trice-kreditadministration-m-w-d-raiffeisen-egnach-uazwgk",
         "stv-leiter-kreditverarbeitung-m-w-d-raiffeisen-neukirch-egnach",
-        "administration-du-credit-aux-employes-m-f-d-raiffeisen-egnach"
+        "responsable-adjoint-du-traitement-des-credits-m-w-d-raiffeisen-neukirch-egnach"
       ],
       "firstSeenAt": "2026-10-22T09:33:25.776Z",
       "salaryMin": 110500,
@@ -11155,12 +11153,12 @@
     },
     {
       "id": "raiffeisen-1613d5953c2d",
-      "slug": "risorse-umane-e-bankleitungsassistenz-w-m-d-raiffeisen-merenschwand",
+      "slug": "assistente-hr-e-della-direzione-della-banca-w-m-d-raiffeisen-merenschwand",
       "slugByLocale": {
         "de": "hr-und-bankleitungsassistenz-w-m-d-raiffeisen-merenschwand",
-        "it": "risorse-umane-e-bankleitungsassistenz-w-m-d-raiffeisen-merenschwand",
-        "en": "hr-und-bankleitungsassistenz-w-m-d-raiffeisen-merenschwand",
-        "fr": "hr-und-bankleitungsassistenz-w-m-d-raiffeisen-merenschwand"
+        "it": "assistente-hr-e-della-direzione-della-banca-w-m-d-raiffeisen-merenschwand",
+        "en": "hr-and-bank-management-assistance-w-m-d-raiffeisen-merenschwand",
+        "fr": "assistant-e-rh-et-de-la-direction-bancaire-w-m-d-raiffeisen-merenschwand"
       },
       "company": "Raiffeisen",
       "companyKey": "raiffeisen",
@@ -11209,11 +11207,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "hr-und-bankleitungsassistenz-w-m-d-raiffeisen-merenschwand",
+          "risorse-umane-e-bankleitungsassistenz-w-m-d-raiffeisen-merenschwand"
+        ],
+        "en": [
+          "hr-und-bankleitungsassistenz-w-m-d-raiffeisen-merenschwand"
+        ],
+        "fr": [
           "hr-und-bankleitungsassistenz-w-m-d-raiffeisen-merenschwand"
         ]
       },
       "previousSlugs": [
-        "hr-und-bankleitungsassistenz-w-m-d-raiffeisen-merenschwand"
+        "hr-und-bankleitungsassistenz-w-m-d-raiffeisen-merenschwand",
+        "risorse-umane-e-bankleitungsassistenz-w-m-d-raiffeisen-merenschwand"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -11235,12 +11241,12 @@
     },
     {
       "id": "raiffeisen-87fe7c085024",
-      "slug": "marketing-manager-raiffeisen-baden",
+      "slug": "responsabile-marketing-raiffeisen-baden",
       "slugByLocale": {
         "de": "marketing-manager-raiffeisen-baden",
-        "it": "marketing-manager-raiffeisen-baden",
+        "it": "responsabile-marketing-raiffeisen-baden",
         "en": "marketing-manager-raiffeisen-baden",
-        "fr": "marketing-manager-raiffeisen-baden"
+        "fr": "directeur-du-marketing-raiffeisen-baden"
       },
       "company": "Raiffeisen",
       "companyKey": "raiffeisen",
@@ -11303,16 +11309,27 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-03T21:33:22.990Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-05T21:33:22.990Z"
+      "firstSeenAt": "2026-11-05T21:33:22.990Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "marketing-manager-raiffeisen-baden"
+        ],
+        "fr": [
+          "marketing-manager-raiffeisen-baden"
+        ]
+      },
+      "previousSlugs": [
+        "marketing-manager-raiffeisen-baden"
+      ]
     },
     {
       "id": "raiffeisen-5535cea431e5",
-      "slug": "privatkundenberater-individual-w-m-d-raiffeisen-wunnewil-flamatt",
+      "slug": "consulente-clienti-privato-individuale-m-f-d-raiffeisen-wunnewil-flamatt",
       "slugByLocale": {
         "de": "privatkundenberater-individual-w-m-d-raiffeisen-wunnewil-flamatt",
-        "it": "privatkundenberater-individual-w-m-d-raiffeisen-wunnewil-flamatt",
-        "en": "privatkundenberater-individual-w-m-d-raiffeisen-wunnewil-flamatt",
-        "fr": "privatkundenberater-individual-w-m-d-raiffeisen-wunnewil-flamatt"
+        "it": "consulente-clienti-privato-individuale-m-f-d-raiffeisen-wunnewil-flamatt",
+        "en": "private-client-advisor-individual-m-f-d-raiffeisen-wunnewil-flamatt",
+        "fr": "conseiller-client-prive-individuel-h-f-d-raiffeisen-wunnewil-flamatt"
       },
       "company": "Raiffeisen",
       "companyKey": "raiffeisen",
@@ -11374,7 +11391,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-03T21:33:22.988Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-05T21:33:22.988Z"
+      "firstSeenAt": "2026-11-05T21:33:22.988Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "privatkundenberater-individual-w-m-d-raiffeisen-wunnewil-flamatt"
+        ],
+        "en": [
+          "privatkundenberater-individual-w-m-d-raiffeisen-wunnewil-flamatt"
+        ],
+        "fr": [
+          "privatkundenberater-individual-w-m-d-raiffeisen-wunnewil-flamatt"
+        ]
+      },
+      "previousSlugs": [
+        "privatkundenberater-individual-w-m-d-raiffeisen-wunnewil-flamatt"
+      ]
     },
     {
       "id": "raiffeisen-4aac5710ad6b",
@@ -11383,7 +11414,7 @@
         "de": "mitarbeiter-leasing-advisory-amp-administration-w-m-d-raiffeisen-st-gallen",
         "it": "collaboratore-trice-leasing-advisory-administration-m-w-d-raiffeisen-st-gallen",
         "en": "mitarbeiter-leasing-advisory-amp-administration-w-m-d-raiffeisen-st-gallen",
-        "fr": "mitarbeiter-leasing-advisory-amp-administration-w-m-d-raiffeisen-st-gallen"
+        "fr": "avis-et-administration-de-location-bail-des-employes-h-f-d-raiffeisen-st-gallen"
       },
       "company": "Raiffeisen",
       "companyKey": "raiffeisen",
@@ -11432,6 +11463,9 @@
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-leasing-advisory-amp-administration-w-m-d-raiffeisen-st-gallen"
+        ],
+        "fr": [
+          "mitarbeiter-leasing-advisory-amp-administration-w-m-d-raiffeisen-st-gallen"
         ]
       },
       "previousSlugs": [
@@ -11456,12 +11490,12 @@
     },
     {
       "id": "raiffeisen-461a83baffbb",
-      "slug": "assistent-firmenkundenberatung-a-raiffeisen-chur",
+      "slug": "consulenza-clienti-aziendali-a-raiffeisen-chur",
       "slugByLocale": {
         "de": "assistent-firmenkundenberatung-a-raiffeisen-chur",
-        "it": "assistent-firmenkundenberatung-a-raiffeisen-chur",
-        "en": "assistent-firmenkundenberatung-a-raiffeisen-chur",
-        "fr": "assistent-firmenkundenberatung-a-raiffeisen-chur"
+        "it": "consulenza-clienti-aziendali-a-raiffeisen-chur",
+        "en": "assistant-corporate-client-consultancy-a-raiffeisen-chur",
+        "fr": "conseils-aux-clients-adjoints-a-raiffeisen-chur"
       },
       "company": "Raiffeisen",
       "companyKey": "raiffeisen",
@@ -11523,16 +11557,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-03T21:33:22.961Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-05T21:33:22.961Z"
+      "firstSeenAt": "2026-11-05T21:33:22.961Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistent-firmenkundenberatung-a-raiffeisen-chur"
+        ],
+        "en": [
+          "assistent-firmenkundenberatung-a-raiffeisen-chur"
+        ],
+        "fr": [
+          "assistent-firmenkundenberatung-a-raiffeisen-chur"
+        ]
+      },
+      "previousSlugs": [
+        "assistent-firmenkundenberatung-a-raiffeisen-chur"
+      ]
     },
     {
       "id": "raiffeisen-e412efded756",
-      "slug": "kundenberater-basis-w-m-d-raiffeisen-cham",
+      "slug": "consulente-clienti-basis-m-f-d-raiffeisen-cham",
       "slugByLocale": {
         "de": "kundenberater-basis-w-m-d-raiffeisen-cham",
-        "it": "kundenberater-basis-w-m-d-raiffeisen-cham",
-        "en": "kundenberater-basis-w-m-d-raiffeisen-cham",
-        "fr": "kundenberater-basis-w-m-d-raiffeisen-cham"
+        "it": "consulente-clienti-basis-m-f-d-raiffeisen-cham",
+        "en": "customer-advisor-basis-m-f-d-raiffeisen-cham",
+        "fr": "conseiller-client-base-h-f-d-raiffeisen-cham"
       },
       "company": "Raiffeisen",
       "companyKey": "raiffeisen",
@@ -11594,7 +11642,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-03T21:33:22.954Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-05T21:33:22.954Z"
+      "firstSeenAt": "2026-11-05T21:33:22.954Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "kundenberater-basis-w-m-d-raiffeisen-cham"
+        ],
+        "en": [
+          "kundenberater-basis-w-m-d-raiffeisen-cham"
+        ],
+        "fr": [
+          "kundenberater-basis-w-m-d-raiffeisen-cham"
+        ]
+      },
+      "previousSlugs": [
+        "kundenberater-basis-w-m-d-raiffeisen-cham"
+      ]
     },
     {
       "id": "raiffeisen-fe4aaca90465",

@@ -494,12 +494,12 @@
     },
     {
       "id": "planzer-7d25049e968e",
-      "slug": "sachbearbeiter-wareneingang-m-w-d-planzer-villmergen",
+      "slug": "agente-in-ricezione-delle-merci-m-f-d-planzer-villmergen",
       "slugByLocale": {
         "de": "sachbearbeiter-wareneingang-m-w-d-planzer-villmergen",
-        "it": "sachbearbeiter-wareneingang-m-w-d-planzer-villmergen",
-        "en": "sachbearbeiter-wareneingang-m-w-d-planzer-villmergen",
-        "fr": "sachbearbeiter-wareneingang-m-w-d-planzer-villmergen"
+        "it": "agente-in-ricezione-delle-merci-m-f-d-planzer-villmergen",
+        "en": "agent-in-receipt-of-goods-m-f-d-planzer-villmergen",
+        "fr": "agent-en-reception-des-marchandises-h-f-d-planzer-villmergen"
       },
       "company": "Planzer",
       "companyKey": "planzer",
@@ -562,7 +562,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-03T21:20:35.893Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-05T21:20:35.893Z"
+      "firstSeenAt": "2026-11-05T21:20:35.893Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeiter-wareneingang-m-w-d-planzer-villmergen"
+        ],
+        "en": [
+          "sachbearbeiter-wareneingang-m-w-d-planzer-villmergen"
+        ],
+        "fr": [
+          "sachbearbeiter-wareneingang-m-w-d-planzer-villmergen"
+        ]
+      },
+      "previousSlugs": [
+        "sachbearbeiter-wareneingang-m-w-d-planzer-villmergen"
+      ]
     },
     {
       "id": "planzer-34ce5aa6464c",
@@ -651,12 +665,12 @@
     },
     {
       "id": "planzer-843890ded2b0",
-      "slug": "collaboratore-trice-kommissionierung-m-w-d-planzer-harkingen",
+      "slug": "addetto-alla-preparazione-degli-ordini-m-f-d-planzer-harkingen",
       "slugByLocale": {
         "de": "mitarbeiter-kommissionierung-m-w-d-planzer-harkingen",
-        "it": "collaboratore-trice-kommissionierung-m-w-d-planzer-harkingen",
-        "en": "mitarbeiter-kommissionierung-m-w-d-planzer-harkingen",
-        "fr": "mitarbeiter-kommissionierung-m-w-d-planzer-harkingen"
+        "it": "addetto-alla-preparazione-degli-ordini-m-f-d-planzer-harkingen",
+        "en": "employee-picking-m-f-d-planzer-harkingen",
+        "fr": "selection-des-employes-h-f-d-planzer-harkingen"
       },
       "company": "Planzer",
       "companyKey": "planzer",
@@ -706,11 +720,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-kommissionierung-m-w-d-planzer-harkingen",
+          "collaboratore-trice-kommissionierung-m-w-d-planzer-harkingen"
+        ],
+        "en": [
+          "mitarbeiter-kommissionierung-m-w-d-planzer-harkingen"
+        ],
+        "fr": [
           "mitarbeiter-kommissionierung-m-w-d-planzer-harkingen"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-kommissionierung-m-w-d-planzer-harkingen"
+        "mitarbeiter-kommissionierung-m-w-d-planzer-harkingen",
+        "collaboratore-trice-kommissionierung-m-w-d-planzer-harkingen"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -731,12 +753,12 @@
     },
     {
       "id": "planzer-1697a025a14b",
-      "slug": "chauffeur-kat-be-m-w-d-planzer-basel-flughafen",
+      "slug": "chauffeur-cat-be-m-f-d-planzer-basel-flughafen",
       "slugByLocale": {
         "de": "chauffeur-kat-be-m-w-d-planzer-basel-flughafen",
-        "it": "chauffeur-kat-be-m-w-d-planzer-basel-flughafen",
+        "it": "chauffeur-cat-be-m-f-d-planzer-basel-flughafen",
         "en": "chauffeur-kat-be-m-w-d-planzer-basel-flughafen",
-        "fr": "chauffeur-kat-be-m-w-d-planzer-basel-flughafen"
+        "fr": "chauffeur-cat-be-h-f-d-planzer-basel-flughafen"
       },
       "company": "Planzer",
       "companyKey": "planzer",
@@ -799,7 +821,18 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-03T21:20:33.523Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-05T21:20:33.523Z"
+      "firstSeenAt": "2026-11-05T21:20:33.523Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "chauffeur-kat-be-m-w-d-planzer-basel-flughafen"
+        ],
+        "fr": [
+          "chauffeur-kat-be-m-w-d-planzer-basel-flughafen"
+        ]
+      },
+      "previousSlugs": [
+        "chauffeur-kat-be-m-w-d-planzer-basel-flughafen"
+      ]
     },
     {
       "id": "planzer-112179f73f10",

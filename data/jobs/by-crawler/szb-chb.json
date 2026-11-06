@@ -6651,12 +6651,12 @@
     },
     {
       "id": "szb-chb-bb10b51fc011",
-      "slug": "oberarztin-oberarzt-rheumatologie-60-100-szb-chb-biel-bienne",
+      "slug": "medico-senior-reumatologia-medico-senior-60-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
       "slugByLocale": {
         "de": "oberarztin-oberarzt-rheumatologie-60-100-szb-chb-biel-bienne",
-        "it": "oberarztin-oberarzt-rheumatologie-60-100-szb-chb-biel-bienne",
-        "en": "oberarztin-oberarzt-rheumatologie-60-100-szb-chb-biel-bienne",
-        "fr": "oberarztin-oberarzt-rheumatologie-60-100-szb-chb-biel-bienne"
+        "it": "medico-senior-reumatologia-medico-senior-60-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+        "en": "senior-physician-senior-physician-rheumatology-60-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+        "fr": "medecin-superieur-rhumatologie-medecin-superieur-60-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne"
       },
       "company": "Spitalzentrum Biel / Centre hospitalier Bienne",
       "companyKey": "szb-chb",
@@ -6719,16 +6719,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-03T21:19:00.057Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-05T21:19:00.057Z"
+      "firstSeenAt": "2026-11-05T21:19:00.057Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "oberarztin-oberarzt-rheumatologie-60-100-szb-chb-biel-bienne"
+        ],
+        "en": [
+          "oberarztin-oberarzt-rheumatologie-60-100-szb-chb-biel-bienne"
+        ],
+        "fr": [
+          "oberarztin-oberarzt-rheumatologie-60-100-szb-chb-biel-bienne"
+        ]
+      },
+      "previousSlugs": [
+        "oberarztin-oberarzt-rheumatologie-60-100-szb-chb-biel-bienne"
+      ]
     },
     {
       "id": "szb-chb-a1d8dcc19a94",
-      "slug": "arztsekretar-in-klinik-anasthesiologie-40-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+      "slug": "segretario-a-medico-a-clinica-di-anestesiologia-40-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
       "slugByLocale": {
         "de": "arztsekretar-in-klinik-anasthesiologie-40-100-szb-chb-biel-bienne",
-        "it": "arztsekretar-in-klinik-anasthesiologie-40-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
-        "en": "arztsekretar-in-klinik-anasthesiologie-40-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
-        "fr": "arztsekretar-in-klinik-anasthesiologie-40-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne"
+        "it": "segretario-a-medico-a-clinica-di-anestesiologia-40-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+        "en": "medical-secretary-anesthesiology-clinic-40-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+        "fr": "secretaire-medical-e-de-la-clinique-d-anesthesiologie-40-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne"
       },
       "company": "Spitalzentrum Biel / Centre hospitalier Bienne",
       "companyKey": "szb-chb",
@@ -6777,11 +6791,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "arztsekretar-in-klinik-anasthesiologie-40-100-szb-chb-biel-bienne"
+          "arztsekretar-in-klinik-anasthesiologie-40-100-szb-chb-biel-bienne",
+          "arztsekretar-in-klinik-anasthesiologie-40-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne"
+        ],
+        "en": [
+          "arztsekretar-in-klinik-anasthesiologie-40-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne"
+        ],
+        "fr": [
+          "arztsekretar-in-klinik-anasthesiologie-40-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne"
         ]
       },
       "previousSlugs": [
-        "arztsekretar-in-klinik-anasthesiologie-40-100-szb-chb-biel-bienne"
+        "arztsekretar-in-klinik-anasthesiologie-40-100-szb-chb-biel-bienne",
+        "arztsekretar-in-klinik-anasthesiologie-40-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne"
       ],
       "salaryMin": 85000,
       "salaryMax": 119000,

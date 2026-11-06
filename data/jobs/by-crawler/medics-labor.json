@@ -5,12 +5,12 @@
   "jobs": [
     {
       "id": "medics-labor-5c7b15764558",
-      "slug": "fachmitarbeiter-in-probenannahme-medics-labor-bern",
+      "slug": "specialista-nell-accettazione-dei-campioni-medics-labor-ag-bern",
       "slugByLocale": {
         "de": "fachmitarbeiter-in-probenannahme-medics-labor-bern",
-        "it": "fachmitarbeiter-in-probenannahme-medics-labor-bern",
-        "en": "fachmitarbeiter-in-probenannahme-medics-labor-bern",
-        "fr": "fachmitarbeiter-in-probenannahme-medics-labor-bern"
+        "it": "specialista-nell-accettazione-dei-campioni-medics-labor-ag-bern",
+        "en": "sample-intake-specialist-medics-labor-ag-bern",
+        "fr": "collaborateur-specialise-collaboratrice-specialisee-a-la-reception-des-echantillons-medics-labor-ag-bern"
       },
       "company": "Medics Labor AG",
       "companyKey": "medics-labor",
@@ -73,7 +73,21 @@
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-03T21:51:13.116Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachmitarbeiter-in-probenannahme-medics-labor-bern"
+        ],
+        "en": [
+          "fachmitarbeiter-in-probenannahme-medics-labor-bern"
+        ],
+        "fr": [
+          "fachmitarbeiter-in-probenannahme-medics-labor-bern"
+        ]
+      },
+      "previousSlugs": [
+        "fachmitarbeiter-in-probenannahme-medics-labor-bern"
+      ]
     },
     {
       "id": "medics-labor-2a8a66164fcc",

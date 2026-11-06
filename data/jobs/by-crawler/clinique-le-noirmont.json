@@ -5,7 +5,7 @@
   "jobs": [
     {
       "title": "Diététicien (F/H) 90%",
-      "slug": "dieteticien-f-h-90-clinique-le-noirmont",
+      "slug": "dietician-m-f-90-clinique-le-noirmont-le-noirmont",
       "url": "https://www.cliniquelenoirmont.ch/FileDownload/Download/1054",
       "applyUrl": "https://www.cliniquelenoirmont.ch/La-clinique/Offres-demploi",
       "company": "Clinique Le Noirmont",
@@ -43,9 +43,9 @@
       },
       "slugByLocale": {
         "fr": "dieteticien-f-h-90-clinique-le-noirmont",
-        "it": "dieteticien-f-h-90-clinique-le-noirmont",
+        "it": "dietician-m-f-90-clinique-le-noirmont-le-noirmont",
         "en": "dieteticien-f-h-90-clinique-le-noirmont",
-        "de": "dieteticien-f-h-90-clinique-le-noirmont"
+        "de": "diatetiker-m-w-90-clinique-le-noirmont-le-noirmont"
       },
       "_meta": {
         "sourceIdentifier": "dl:1054"
@@ -68,7 +68,18 @@
       "streetAddress": "Le Noirmont",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-05T21:40:49.345Z"
+      "firstSeenAt": "2026-11-05T21:40:49.345Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dieteticien-f-h-90-clinique-le-noirmont"
+        ],
+        "de": [
+          "dieteticien-f-h-90-clinique-le-noirmont"
+        ]
+      },
+      "previousSlugs": [
+        "dieteticien-f-h-90-clinique-le-noirmont"
+      ]
     },
     {
       "title": "ASSC (F/H) 80%-100%",

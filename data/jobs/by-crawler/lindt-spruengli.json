@@ -9,7 +9,7 @@
       "slugByLocale": {
         "it": "domanda-non-richiesta-lindt-sprungli-kilchberg",
         "en": "unsolicited-application-lindt-spruengli-kilchberg",
-        "de": "initiativbewerbung-lindt-sprungli-kilchberg",
+        "de": "unerbetene-anwendung-lindt-sprungli-kilchberg",
         "fr": "demande-spontanee-lindt-sprungli-kilchberg"
       },
       "company": "Lindt & Sprüngli",
@@ -67,7 +67,7 @@
         "personnel-militaire-lindt-sprungli-kilchberg",
         "servicemitarbeiter-in-lindt-sprungli-kilchberg",
         "patissier-in-90-lindt-sprungli-kilchberg",
-        "unerbetene-anwendung-lindt-sprungli-kilchberg"
+        "initiativbewerbung-lindt-sprungli-kilchberg"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -89,7 +89,7 @@
         "de": [
           "unsolicited-application-lindt-spruengli-kilchberg",
           "patissier-in-90-lindt-spruengli-kilchberg",
-          "unerbetene-anwendung-lindt-sprungli-kilchberg"
+          "initiativbewerbung-lindt-sprungli-kilchberg"
         ],
         "fr": [
           "unsolicited-application-lindt-spruengli-kilchberg",
@@ -1726,12 +1726,12 @@
     },
     {
       "id": "lindt-spruengli-872bca5c227c",
-      "slug": "betriebselektriker-in-lindt-sprungli-kilchberg",
+      "slug": "elettricista-di-stabilimento-lindt-sprungli-kilchberg",
       "slugByLocale": {
         "de": "betriebselektriker-in-lindt-spruengli-kilchberg",
-        "it": "betriebselektriker-in-lindt-sprungli-kilchberg",
-        "en": "betriebselektriker-in-lindt-sprungli-kilchberg",
-        "fr": "betriebselektriker-in-lindt-sprungli-kilchberg"
+        "it": "elettricista-di-stabilimento-lindt-sprungli-kilchberg",
+        "en": "industrial-electrician-lindt-sprungli-kilchberg",
+        "fr": "electricien-ne-d-exploitation-lindt-sprungli-kilchberg"
       },
       "company": "Lindt & Sprüngli",
       "companyKey": "lindt-spruengli",
@@ -1781,11 +1781,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "betriebselektriker-in-lindt-spruengli-kilchberg"
+          "betriebselektriker-in-lindt-spruengli-kilchberg",
+          "betriebselektriker-in-lindt-sprungli-kilchberg"
+        ],
+        "en": [
+          "betriebselektriker-in-lindt-sprungli-kilchberg"
+        ],
+        "fr": [
+          "betriebselektriker-in-lindt-sprungli-kilchberg"
         ]
       },
       "previousSlugs": [
-        "betriebselektriker-in-lindt-spruengli-kilchberg"
+        "betriebselektriker-in-lindt-spruengli-kilchberg",
+        "betriebselektriker-in-lindt-sprungli-kilchberg"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,

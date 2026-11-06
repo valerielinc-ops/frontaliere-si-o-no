@@ -207,12 +207,12 @@
     },
     {
       "id": "salina-reha-6224691450f6",
-      "slug": "collaboratore-trice-in-technischer-dienst-salina-rehaklinik-rheinfelden",
+      "slug": "collaboratore-trice-del-servizio-tecnico-salina-rehaklinik-rheinfelden-rheinfelden",
       "slugByLocale": {
         "de": "mitarbeiter-in-technischer-dienst-salina-rheinfelden",
-        "it": "collaboratore-trice-in-technischer-dienst-salina-rehaklinik-rheinfelden",
-        "en": "mitarbeiter-in-technischer-dienst-salina-rheinfelden",
-        "fr": "mitarbeiter-in-technischer-dienst-salina-rheinfelden"
+        "it": "collaboratore-trice-del-servizio-tecnico-salina-rehaklinik-rheinfelden-rheinfelden",
+        "en": "technical-services-employee-salina-rehaklinik-rheinfelden-rheinfelden",
+        "fr": "collaborateur-rice-du-service-technique-salina-rehaklinik-rheinfelden-rheinfelden"
       },
       "company": "Salina Rehaklinik Rheinfelden",
       "companyKey": "salina-reha",
@@ -260,11 +260,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-in-technischer-dienst-salina-rheinfelden",
+          "collaboratore-trice-in-technischer-dienst-salina-rehaklinik-rheinfelden"
+        ],
+        "en": [
+          "mitarbeiter-in-technischer-dienst-salina-rheinfelden"
+        ],
+        "fr": [
           "mitarbeiter-in-technischer-dienst-salina-rheinfelden"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-technischer-dienst-salina-rheinfelden"
+        "mitarbeiter-in-technischer-dienst-salina-rheinfelden",
+        "collaboratore-trice-in-technischer-dienst-salina-rehaklinik-rheinfelden"
       ],
       "salaryMin": 72500,
       "salaryMax": 110500,

@@ -2386,12 +2386,12 @@
     },
     {
       "id": "livit-d04f755188f3",
-      "slug": "teamleiter-in-administration-bewirtschaftung-geschaftsflachen-livit-zurich",
+      "slug": "responsabile-del-team-amministrazione-e-gestione-superfici-commerciali-livit-ag-zurich",
       "slugByLocale": {
         "de": "teamleiter-in-administration-bewirtschaftung-geschaftsflachen-livit-zurich",
-        "it": "teamleiter-in-administration-bewirtschaftung-geschaftsflachen-livit-zurich",
-        "en": "teamleiter-in-administration-bewirtschaftung-geschaftsflachen-livit-zurich",
-        "fr": "teamleiter-in-administration-bewirtschaftung-geschaftsflachen-livit-zurich"
+        "it": "responsabile-del-team-amministrazione-e-gestione-superfici-commerciali-livit-ag-zurich",
+        "en": "team-leader-property-management-administration-commercial-spaces-livit-ag-zurich",
+        "fr": "responsable-d-equipe-administration-de-la-gestion-immobiliere-surfaces-commerciales-livit-ag-zurich"
       },
       "company": "Livit AG",
       "companyKey": "livit",
@@ -2454,16 +2454,30 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-02T21:41:07.883Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-05T21:41:07.883Z"
+      "firstSeenAt": "2026-11-05T21:41:07.883Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "teamleiter-in-administration-bewirtschaftung-geschaftsflachen-livit-zurich"
+        ],
+        "en": [
+          "teamleiter-in-administration-bewirtschaftung-geschaftsflachen-livit-zurich"
+        ],
+        "fr": [
+          "teamleiter-in-administration-bewirtschaftung-geschaftsflachen-livit-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "teamleiter-in-administration-bewirtschaftung-geschaftsflachen-livit-zurich"
+      ]
     },
     {
       "id": "livit-c8ad94054ed2",
-      "slug": "juniorbewirtschafter-livit-st-gallen",
+      "slug": "junior-manager-livit-ag-st-gallen",
       "slugByLocale": {
         "de": "juniorbewirtschafter-livit-st-gallen",
-        "it": "juniorbewirtschafter-livit-st-gallen",
-        "en": "juniorbewirtschafter-livit-st-gallen",
-        "fr": "juniorbewirtschafter-livit-st-gallen"
+        "it": "junior-manager-livit-ag-st-gallen",
+        "en": "junior-managers-livit-ag-st-gallen",
+        "fr": "jeunes-cadres-livit-ag-st-gallen"
       },
       "company": "Livit AG",
       "companyKey": "livit",
@@ -2536,16 +2550,30 @@
       "streetAddressSource": "zefix-registry",
       "validThrough": "2027-02-02T21:41:07.869Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-05T21:41:07.869Z"
+      "firstSeenAt": "2026-11-05T21:41:07.869Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "juniorbewirtschafter-livit-st-gallen"
+        ],
+        "en": [
+          "juniorbewirtschafter-livit-st-gallen"
+        ],
+        "fr": [
+          "juniorbewirtschafter-livit-st-gallen"
+        ]
+      },
+      "previousSlugs": [
+        "juniorbewirtschafter-livit-st-gallen"
+      ]
     },
     {
       "id": "livit-1741a84f6652",
-      "slug": "immobilienbewirtschafter-in-50-60-livit-st-gallen",
+      "slug": "gestore-immobiliare-50-60-livit-ag-st-gallen",
       "slugByLocale": {
         "de": "immobilienbewirtschafter-in-50-60-livit-st-gallen",
-        "it": "immobilienbewirtschafter-in-50-60-livit-st-gallen",
-        "en": "immobilienbewirtschafter-in-50-60-livit-st-gallen",
-        "fr": "immobilienbewirtschafter-in-50-60-livit-st-gallen"
+        "it": "gestore-immobiliare-50-60-livit-ag-st-gallen",
+        "en": "property-manager-50-60-livit-ag-st-gallen",
+        "fr": "gerant-e-immobilier-50-60-livit-ag-st-gallen"
       },
       "company": "Livit AG",
       "companyKey": "livit",
@@ -2619,7 +2647,21 @@
       "streetAddressSource": "zefix-registry",
       "validThrough": "2027-02-02T21:41:07.848Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-05T21:41:07.848Z"
+      "firstSeenAt": "2026-11-05T21:41:07.848Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "immobilienbewirtschafter-in-50-60-livit-st-gallen"
+        ],
+        "en": [
+          "immobilienbewirtschafter-in-50-60-livit-st-gallen"
+        ],
+        "fr": [
+          "immobilienbewirtschafter-in-50-60-livit-st-gallen"
+        ]
+      },
+      "previousSlugs": [
+        "immobilienbewirtschafter-in-50-60-livit-st-gallen"
+      ]
     },
     {
       "id": "livit-4bbca53b6c02",

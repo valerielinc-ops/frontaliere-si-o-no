@@ -13207,7 +13207,7 @@
         "it": "tirocinio-professionale-scuola-media-professionale-infermieristica-sss-hoch-health-ostschweiz-uznach",
         "en": "professional-internship-fachmittelschule-pflege-hf-hoch-health-ostschweiz-uznach",
         "de": "berufspraktikum-fachmittelschule-pflege-hf-hoch-health-uznach",
-        "fr": "ecole-intermediaire-technique-de-stages-professionnels-care-hf-hoch-health-ostschweiz-uznach"
+        "fr": "stage-professionnel-fachmittelschule-pflege-hf-hoch-health-ostschweiz-uznach"
       },
       "company": "HOCH Health Ostschweiz",
       "companyKey": "hoch-health",
@@ -13259,7 +13259,7 @@
         "berufspraktikum-fachmittelschule-pflege-hf-hoch-health-st-gallen-2",
         "stage-professionale-per-scuola-professionale-assistenza-hf-hoch-health-ostschweiz-st-gallen",
         "berufspraktikum-fachmittelschule-pflege-hf-hoch-health-uznach",
-        "stage-professionnel-fachmittelschule-pflege-hf-hoch-health-ostschweiz-uznach"
+        "ecole-intermediaire-technique-de-stages-professionnels-care-hf-hoch-health-ostschweiz-uznach"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -13267,7 +13267,7 @@
           "berufspraktikum-fachmittelschule-pflege-hf-hoch-health-uznach"
         ],
         "fr": [
-          "stage-professionnel-fachmittelschule-pflege-hf-hoch-health-ostschweiz-uznach"
+          "ecole-intermediaire-technique-de-stages-professionnels-care-hf-hoch-health-ostschweiz-uznach"
         ]
       },
       "firstSeenAt": "2026-05-19T22:28:24.584Z",
@@ -15893,8 +15893,8 @@
       "slugByLocale": {
         "de": "psychologin-psychologe-fur-psychotherapie-50-100-hoch-health-st-gallen",
         "it": "psychologin-psychologe-per-psychotherapie-50-100-hoch-health-ostschweiz-st-gallen",
-        "en": "psychologin-psychologe-fur-psychotherapie-50-100-hoch-health-st-gallen",
-        "fr": "psychologin-psychologe-fur-psychotherapie-50-100-hoch-health-st-gallen"
+        "en": "psychologist-psychologist-50-100-hoch-health-ostschweiz-st-gallen",
+        "fr": "psychologue-psychologue-50-100-hoch-health-ostschweiz-st-gallen"
       },
       "company": "HOCH Health Ostschweiz",
       "companyKey": "hoch-health",
@@ -15941,6 +15941,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "psychologin-psychologe-fur-psychotherapie-50-100-hoch-health-st-gallen"
+        ],
+        "en": [
+          "psychologin-psychologe-fur-psychotherapie-50-100-hoch-health-st-gallen"
+        ],
+        "fr": [
           "psychologin-psychologe-fur-psychotherapie-50-100-hoch-health-st-gallen"
         ]
       },
@@ -16054,12 +16060,12 @@
     },
     {
       "id": "hoch-health-3779b3593a96",
-      "slug": "dipl-radiologiefachfrau-mann-hf-60-100-hoch-health-ostschweiz-st-gallen",
+      "slug": "tecnico-a-di-radiologia-medica-diplomato-a-sss-60-100-hoch-health-ostschweiz-st-gallen",
       "slugByLocale": {
         "de": "dipl-radiologiefachfrau-mann-hf-60-100-hoch-health-st-gallen",
-        "it": "dipl-radiologiefachfrau-mann-hf-60-100-hoch-health-ostschweiz-st-gallen",
-        "en": "dipl-radiologiefachfrau-mann-hf-60-100-hoch-health-st-gallen",
-        "fr": "dipl-radiologiefachfrau-mann-hf-60-100-hoch-health-st-gallen"
+        "it": "tecnico-a-di-radiologia-medica-diplomato-a-sss-60-100-hoch-health-ostschweiz-st-gallen",
+        "en": "radiology-technologist-hf-60-100-hoch-health-ostschweiz-st-gallen",
+        "fr": "technicienne-technicien-en-radiologie-diplome-e-es-60-100-hoch-health-ostschweiz-st-gallen"
       },
       "company": "HOCH Health Ostschweiz",
       "companyKey": "hoch-health",
@@ -16107,11 +16113,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "dipl-radiologiefachfrau-mann-hf-60-100-hoch-health-st-gallen",
+          "dipl-radiologiefachfrau-mann-hf-60-100-hoch-health-ostschweiz-st-gallen"
+        ],
+        "en": [
+          "dipl-radiologiefachfrau-mann-hf-60-100-hoch-health-st-gallen"
+        ],
+        "fr": [
           "dipl-radiologiefachfrau-mann-hf-60-100-hoch-health-st-gallen"
         ]
       },
       "previousSlugs": [
-        "dipl-radiologiefachfrau-mann-hf-60-100-hoch-health-st-gallen"
+        "dipl-radiologiefachfrau-mann-hf-60-100-hoch-health-st-gallen",
+        "dipl-radiologiefachfrau-mann-hf-60-100-hoch-health-ostschweiz-st-gallen"
       ],
       "salaryMin": 81500,
       "salaryMax": 114000,
@@ -16138,8 +16152,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-in-zentrales-patientenmanagement-zpm-80-100-hoch-health-st-gallen",
         "it": "collaboratore-trice-zentrales-patientenmanagement-zpm-80-100-hoch-health-ostschweiz-st-gallen",
-        "en": "mitarbeiter-in-zentrales-patientenmanagement-zpm-80-100-hoch-health-st-gallen",
-        "fr": "mitarbeiter-in-zentrales-patientenmanagement-zpm-80-100-hoch-health-st-gallen"
+        "en": "central-patient-management-employee-zpm-80-100-hoch-health-ostschweiz-st-gallen",
+        "fr": "collaborateur-trice-en-gestion-centrale-des-patients-zpm-80-100-hoch-health-ostschweiz-st-gallen"
       },
       "company": "HOCH Health Ostschweiz",
       "companyKey": "hoch-health",
@@ -16188,6 +16202,12 @@
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-zentrales-patientenmanagement-zpm-80-100-hoch-health-st-gallen"
+        ],
+        "en": [
+          "mitarbeiter-in-zentrales-patientenmanagement-zpm-80-100-hoch-health-st-gallen"
+        ],
+        "fr": [
+          "mitarbeiter-in-zentrales-patientenmanagement-zpm-80-100-hoch-health-st-gallen"
         ]
       },
       "previousSlugs": [
@@ -16214,12 +16234,12 @@
     },
     {
       "id": "hoch-health-07b53ea65055",
-      "slug": "dipl-pflegefachfrau-mann-come-dauernachtwache-50-100-hoch-health-ostschweiz-st-gallen",
+      "slug": "infermiere-a-diplomato-a-per-il-turno-notturno-fisso-50-100-hoch-health-ostschweiz-st-gallen",
       "slugByLocale": {
         "de": "dipl-pflegefachfrau-mann-als-dauernachtwache-50-100-hoch-health-st-gallen",
-        "it": "dipl-pflegefachfrau-mann-come-dauernachtwache-50-100-hoch-health-ostschweiz-st-gallen",
-        "en": "dipl-pflegefachfrau-mann-als-dauernachtwache-50-100-hoch-health-st-gallen",
-        "fr": "dipl-pflegefachfrau-mann-als-dauernachtwache-50-100-hoch-health-st-gallen"
+        "it": "infermiere-a-diplomato-a-per-il-turno-notturno-fisso-50-100-hoch-health-ostschweiz-st-gallen",
+        "en": "registered-nurse-permanent-night-shift-50-100-hoch-health-ostschweiz-st-gallen",
+        "fr": "infirmiere-infirmier-diplome-e-en-poste-de-nuit-permanent-50-100-hoch-health-ostschweiz-st-gallen"
       },
       "company": "HOCH Health Ostschweiz",
       "companyKey": "hoch-health",
@@ -16267,11 +16287,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "dipl-pflegefachfrau-mann-als-dauernachtwache-50-100-hoch-health-st-gallen",
+          "dipl-pflegefachfrau-mann-come-dauernachtwache-50-100-hoch-health-ostschweiz-st-gallen"
+        ],
+        "en": [
+          "dipl-pflegefachfrau-mann-als-dauernachtwache-50-100-hoch-health-st-gallen"
+        ],
+        "fr": [
           "dipl-pflegefachfrau-mann-als-dauernachtwache-50-100-hoch-health-st-gallen"
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachfrau-mann-als-dauernachtwache-50-100-hoch-health-st-gallen"
+        "dipl-pflegefachfrau-mann-als-dauernachtwache-50-100-hoch-health-st-gallen",
+        "dipl-pflegefachfrau-mann-come-dauernachtwache-50-100-hoch-health-ostschweiz-st-gallen"
       ],
       "salaryMin": 81500,
       "salaryMax": 114000,
@@ -16380,7 +16408,7 @@
       "slug": "salute-professionale-40-80-hoch-health-ostschweiz-st-gallen",
       "slugByLocale": {
         "it": "salute-professionale-40-80-hoch-health-ostschweiz-st-gallen",
-        "en": "specialist-man-health-40-100-hoch-health-ostschweiz-st-gallen",
+        "en": "professional-health-40-80-hoch-health-ostschweiz-st-gallen",
         "de": "fachfrau-mann-gesundheit-40-80-hoch-health-st-gallen",
         "fr": "sante-professionnelle-40-80-hoch-health-ostschweiz-st-gallen"
       },
@@ -16429,7 +16457,7 @@
       "previousSlugs": [
         "fachfrau-mann-gesundheit-40-100-hoch-health-ostschweiz-st-gallen",
         "fachfrau-mann-gesundheit-40-100-hoch-health-st-gallen",
-        "professional-health-40-80-hoch-health-ostschweiz-st-gallen"
+        "specialist-man-health-40-100-hoch-health-ostschweiz-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -16437,7 +16465,7 @@
         ],
         "en": [
           "fachfrau-mann-gesundheit-40-100-hoch-health-ostschweiz-st-gallen",
-          "professional-health-40-80-hoch-health-ostschweiz-st-gallen"
+          "specialist-man-health-40-100-hoch-health-ostschweiz-st-gallen"
         ],
         "fr": [
           "fachfrau-mann-gesundheit-40-100-hoch-health-ostschweiz-st-gallen"
@@ -17180,7 +17208,7 @@
         "de": "hr-trainee-80-100-hr-analytics-und-compensation-hoch-health-st-gallen",
         "it": "risorse-umane-apprendista-80-100-risorse-umane-analytics-e-compensation-hoch-health-ostschweiz-st-gallen",
         "en": "hr-trainee-80-100-hr-analytics-und-compensation-hoch-health-st-gallen",
-        "fr": "hr-trainee-80-100-hr-analytics-und-compensation-hoch-health-st-gallen"
+        "fr": "stagiaire-rh-80-100-analytique-rh-et-remuneration-hoch-health-ostschweiz-st-gallen"
       },
       "company": "HOCH Health Ostschweiz",
       "companyKey": "hoch-health",
@@ -17228,6 +17256,9 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "hr-trainee-80-100-hr-analytics-und-compensation-hoch-health-st-gallen"
+        ],
+        "fr": [
           "hr-trainee-80-100-hr-analytics-und-compensation-hoch-health-st-gallen"
         ]
       },
@@ -17339,8 +17370,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-in-pharma-logistik-60-100-hoch-health-st-gallen",
         "it": "collaboratore-trice-pharma-logistik-60-100-hoch-health-ostschweiz-st-gallen",
-        "en": "mitarbeiter-in-pharma-logistik-60-100-hoch-health-st-gallen",
-        "fr": "mitarbeiter-in-pharma-logistik-60-100-hoch-health-st-gallen"
+        "en": "pharmaceutical-logistics-employee-60-100-hoch-health-ostschweiz-st-gallen",
+        "fr": "collaborateur-collaboratrice-en-logistique-pharmaceutique-60-100-hoch-health-ostschweiz-st-gallen"
       },
       "company": "HOCH Health Ostschweiz",
       "companyKey": "hoch-health",
@@ -17389,6 +17420,12 @@
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-pharma-logistik-60-100-hoch-health-st-gallen"
+        ],
+        "en": [
+          "mitarbeiter-in-pharma-logistik-60-100-hoch-health-st-gallen"
+        ],
+        "fr": [
+          "mitarbeiter-in-pharma-logistik-60-100-hoch-health-st-gallen"
         ]
       },
       "previousSlugs": [
@@ -17415,12 +17452,12 @@
     },
     {
       "id": "hoch-health-5bbc4ab576e7",
-      "slug": "case-manager-in-zentrales-patientenmanagement-80-100-hoch-health-st-gallen",
+      "slug": "case-manager-della-gestione-centrale-dei-pazienti-80-100-hoch-health-ostschweiz-st-gallen",
       "slugByLocale": {
         "de": "case-manager-in-zentrales-patientenmanagement-80-100-hoch-health-st-gallen",
-        "it": "case-manager-in-zentrales-patientenmanagement-80-100-hoch-health-st-gallen",
-        "en": "case-manager-in-zentrales-patientenmanagement-80-100-hoch-health-st-gallen",
-        "fr": "case-manager-in-zentrales-patientenmanagement-80-100-hoch-health-st-gallen"
+        "it": "case-manager-della-gestione-centrale-dei-pazienti-80-100-hoch-health-ostschweiz-st-gallen",
+        "en": "case-manager-central-patient-management-80-100-hoch-health-ostschweiz-st-gallen",
+        "fr": "gestionnaire-de-cas-pour-la-gestion-centralisee-des-patients-80-100-hoch-health-ostschweiz-st-gallen"
       },
       "company": "HOCH Health Ostschweiz",
       "companyKey": "hoch-health",
@@ -17483,16 +17520,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-02T21:44:27.177Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-05T21:44:27.177Z"
+      "firstSeenAt": "2026-11-05T21:44:27.177Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "case-manager-in-zentrales-patientenmanagement-80-100-hoch-health-st-gallen"
+        ],
+        "en": [
+          "case-manager-in-zentrales-patientenmanagement-80-100-hoch-health-st-gallen"
+        ],
+        "fr": [
+          "case-manager-in-zentrales-patientenmanagement-80-100-hoch-health-st-gallen"
+        ]
+      },
+      "previousSlugs": [
+        "case-manager-in-zentrales-patientenmanagement-80-100-hoch-health-st-gallen"
+      ]
     },
     {
       "id": "hoch-health-ba4c25154079",
-      "slug": "oberarztin-arzt-100-hoch-health-grabs",
+      "slug": "medico-senior-100-hoch-health-ostschweiz-grabs",
       "slugByLocale": {
         "de": "oberarztin-arzt-100-hoch-health-grabs",
-        "it": "oberarztin-arzt-100-hoch-health-grabs",
-        "en": "oberarztin-arzt-100-hoch-health-grabs",
-        "fr": "oberarztin-arzt-100-hoch-health-grabs"
+        "it": "medico-senior-100-hoch-health-ostschweiz-grabs",
+        "en": "senior-physician-100-hoch-health-ostschweiz-grabs",
+        "fr": "medecin-superieur-100-hoch-health-ostschweiz-grabs"
       },
       "company": "HOCH Health Ostschweiz",
       "companyKey": "hoch-health",
@@ -17554,16 +17605,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-02T21:44:26.707Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-05T21:44:26.707Z"
+      "firstSeenAt": "2026-11-05T21:44:26.707Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "oberarztin-arzt-100-hoch-health-grabs"
+        ],
+        "en": [
+          "oberarztin-arzt-100-hoch-health-grabs"
+        ],
+        "fr": [
+          "oberarztin-arzt-100-hoch-health-grabs"
+        ]
+      },
+      "previousSlugs": [
+        "oberarztin-arzt-100-hoch-health-grabs"
+      ]
     },
     {
       "id": "hoch-health-8251fc1523d3",
-      "slug": "oberarztin-arzt-100-hoch-health-st-gallen",
+      "slug": "medico-senior-dottore-100-hoch-health-ostschweiz-st-gallen-973cc2",
       "slugByLocale": {
         "de": "oberarztin-arzt-100-hoch-health-st-gallen",
-        "it": "oberarztin-arzt-100-hoch-health-st-gallen",
-        "en": "oberarztin-arzt-100-hoch-health-st-gallen",
-        "fr": "oberarztin-arzt-100-hoch-health-st-gallen"
+        "it": "medico-senior-dottore-100-hoch-health-ostschweiz-st-gallen-973cc2",
+        "en": "senior-doctor-doctor-100-hoch-health-ostschweiz-st-gallen-973cc2",
+        "fr": "medecin-medecin-principal-100-hoch-health-ostschweiz-st-gallen-973cc2"
       },
       "company": "HOCH Health Ostschweiz",
       "companyKey": "hoch-health",
@@ -17625,16 +17690,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-02T21:44:26.257Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-06-23T22:28:20.382Z"
+      "firstSeenAt": "2026-06-23T22:28:20.382Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "oberarztin-arzt-100-hoch-health-st-gallen"
+        ],
+        "en": [
+          "oberarztin-arzt-100-hoch-health-st-gallen"
+        ],
+        "fr": [
+          "oberarztin-arzt-100-hoch-health-st-gallen"
+        ]
+      },
+      "previousSlugs": [
+        "oberarztin-arzt-100-hoch-health-st-gallen"
+      ]
     },
     {
       "id": "hoch-health-05de158f4682",
-      "slug": "logistiker-in-100-hoch-health-ostschweiz-st-gallen",
+      "slug": "addetto-a-alla-logistica-100-hoch-health-ostschweiz-st-gallen-7aa2c4",
       "slugByLocale": {
         "de": "logistiker-in-100-hoch-health-st-gallen",
-        "it": "logistiker-in-100-hoch-health-ostschweiz-st-gallen",
-        "en": "logistiker-in-100-hoch-health-st-gallen-2",
-        "fr": "logistiker-in-100-hoch-health-st-gallen-2"
+        "it": "addetto-a-alla-logistica-100-hoch-health-ostschweiz-st-gallen-7aa2c4",
+        "en": "logistics-specialist-100-hoch-health-ostschweiz-st-gallen-7aa2c4",
+        "fr": "logisticien-ne-100-hoch-health-ostschweiz-st-gallen-7aa2c4"
       },
       "company": "HOCH Health Ostschweiz",
       "companyKey": "hoch-health",
@@ -17683,12 +17762,20 @@
       "previousSlugsByLocale": {
         "it": [
           "logistiker-in-100-hoch-health-st-gallen",
+          "logistiker-in-100-hoch-health-st-gallen-2",
+          "logistiker-in-100-hoch-health-ostschweiz-st-gallen"
+        ],
+        "en": [
+          "logistiker-in-100-hoch-health-st-gallen-2"
+        ],
+        "fr": [
           "logistiker-in-100-hoch-health-st-gallen-2"
         ]
       },
       "previousSlugs": [
         "logistiker-in-100-hoch-health-st-gallen",
-        "logistiker-in-100-hoch-health-st-gallen-2"
+        "logistiker-in-100-hoch-health-st-gallen-2",
+        "logistiker-in-100-hoch-health-ostschweiz-st-gallen"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -18254,12 +18341,12 @@
     },
     {
       "id": "hoch-health-cf001f2f1f3a",
-      "slug": "klinische-r-fachspezialist-in-50-100-hoch-health-st-gallen",
+      "slug": "specialista-clinico-a-50-100-hoch-health-ostschweiz-st-gallen",
       "slugByLocale": {
         "de": "klinische-r-fachspezialist-in-50-100-hoch-health-st-gallen",
-        "it": "klinische-r-fachspezialist-in-50-100-hoch-health-st-gallen",
-        "en": "klinische-r-fachspezialist-in-50-100-hoch-health-st-gallen",
-        "fr": "klinische-r-fachspezialist-in-50-100-hoch-health-st-gallen"
+        "it": "specialista-clinico-a-50-100-hoch-health-ostschweiz-st-gallen",
+        "en": "clinical-specialist-50-100-hoch-health-ostschweiz-st-gallen",
+        "fr": "specialiste-clinique-50-100-hoch-health-ostschweiz-st-gallen"
       },
       "company": "HOCH Health Ostschweiz",
       "companyKey": "hoch-health",
@@ -18322,16 +18409,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-03T21:44:22.498Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-05T21:44:22.498Z"
+      "firstSeenAt": "2026-11-05T21:44:22.498Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "klinische-r-fachspezialist-in-50-100-hoch-health-st-gallen"
+        ],
+        "en": [
+          "klinische-r-fachspezialist-in-50-100-hoch-health-st-gallen"
+        ],
+        "fr": [
+          "klinische-r-fachspezialist-in-50-100-hoch-health-st-gallen"
+        ]
+      },
+      "previousSlugs": [
+        "klinische-r-fachspezialist-in-50-100-hoch-health-st-gallen"
+      ]
     },
     {
       "id": "hoch-health-36b21414c2f9",
-      "slug": "chefarztin-arzt-100-hoch-health-st-gallen",
+      "slug": "medico-capo-100-hoch-health-ostschweiz-st-gallen",
       "slugByLocale": {
         "de": "chefarztin-arzt-100-hoch-health-st-gallen",
-        "it": "chefarztin-arzt-100-hoch-health-st-gallen",
-        "en": "chefarztin-arzt-100-hoch-health-st-gallen",
-        "fr": "chefarztin-arzt-100-hoch-health-st-gallen"
+        "it": "medico-capo-100-hoch-health-ostschweiz-st-gallen",
+        "en": "chief-physician-100-hoch-health-ostschweiz-st-gallen",
+        "fr": "medecin-chef-100-hoch-health-ostschweiz-st-gallen"
       },
       "company": "HOCH Health Ostschweiz",
       "companyKey": "hoch-health",
@@ -18393,7 +18494,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-03T21:44:22.022Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-05T21:44:22.022Z"
+      "firstSeenAt": "2026-11-05T21:44:22.022Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "chefarztin-arzt-100-hoch-health-st-gallen"
+        ],
+        "en": [
+          "chefarztin-arzt-100-hoch-health-st-gallen"
+        ],
+        "fr": [
+          "chefarztin-arzt-100-hoch-health-st-gallen"
+        ]
+      },
+      "previousSlugs": [
+        "chefarztin-arzt-100-hoch-health-st-gallen"
+      ]
     },
     {
       "id": "hoch-health-0aa16e422d6e",

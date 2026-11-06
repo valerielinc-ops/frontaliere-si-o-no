@@ -5,12 +5,12 @@
   "jobs": [
     {
       "id": "arosa-lenzerheide-726881d50d40",
-      "slug": "parkplatzeinweiser-in-arosa-lenzerheide-lenzerheide",
+      "slug": "addetto-a-al-parcheggio-arosa-lenzerheide-lenzerheide",
       "slugByLocale": {
         "de": "parkplatzeinweiser-in-arosa-lenzerheide-lenzerheide",
-        "it": "parkplatzeinweiser-in-arosa-lenzerheide-lenzerheide",
-        "en": "parkplatzeinweiser-in-arosa-lenzerheide-lenzerheide",
-        "fr": "parkplatzeinweiser-in-arosa-lenzerheide-lenzerheide"
+        "it": "addetto-a-al-parcheggio-arosa-lenzerheide-lenzerheide",
+        "en": "parking-attendant-arosa-lenzerheide-lenzerheide",
+        "fr": "agent-e-d-orientation-du-parking-arosa-lenzerheide-lenzerheide"
       },
       "company": "Arosa Lenzerheide",
       "companyKey": "arosa-lenzerheide",
@@ -74,7 +74,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-03T21:19:23.738Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-05T21:19:23.738Z"
+      "firstSeenAt": "2026-11-05T21:19:23.738Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "parkplatzeinweiser-in-arosa-lenzerheide-lenzerheide"
+        ],
+        "en": [
+          "parkplatzeinweiser-in-arosa-lenzerheide-lenzerheide"
+        ],
+        "fr": [
+          "parkplatzeinweiser-in-arosa-lenzerheide-lenzerheide"
+        ]
+      },
+      "previousSlugs": [
+        "parkplatzeinweiser-in-arosa-lenzerheide-lenzerheide"
+      ]
     },
     {
       "id": "arosa-lenzerheide-b6b2549aa142",
