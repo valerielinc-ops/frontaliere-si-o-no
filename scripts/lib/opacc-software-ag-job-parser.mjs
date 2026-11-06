@@ -23,6 +23,7 @@ import {
   extractDetailFields,
   isSufficientVacancyDescription,
   textOf,
+  vacancyTitleIdentity,
 } from './prospector/extract.mjs';
 import {
   resolveSourceBackedSwissGeography,
@@ -48,13 +49,16 @@ function normalizeSpace(s = '') {
   return String(s || '').replace(/\s+/g, ' ').trim();
 }
 
-function identity(value = '') {
-  return normalizeSpace(value)
-    .toLowerCase()
-    .normalize('NFD')
-    .replace(/[\u0300-\u036f]/g, '')
-    .replace(/[^a-z0-9]+/g, ' ')
-    .trim();
+/**
+ * Match the detail heading against the listing title after applying the shared
+ * vacancy-title normalization (including presentation-only gender markers).
+ */
+export function titleMatchesListing(detailTitle = '', recordTitle = '') {
+  const titleIdentity = vacancyTitleIdentity(detailTitle);
+  const recordTitleIdentity = vacancyTitleIdentity(recordTitle);
+  return !recordTitleIdentity
+    || recordTitleIdentity === titleIdentity
+    || recordTitleIdentity.startsWith(`${titleIdentity} `);
 }
 
 function hasClasses(opening = '', ...wanted) {
@@ -85,12 +89,7 @@ export function extractOpaccSoftwareAgDetailFields(html = '', pageUrl = '', opts
   if (!block.complete) return generic;
 
   const title = textOf(/<h1\b[^>]*>([\s\S]{0,1000}?)<\/h1>/i.exec(block.html)?.[1] || '');
-  const titleIdentity = identity(title);
-  const recordTitleIdentity = identity(opts.recordTitle);
-  const titleMatchesListing = !recordTitleIdentity
-    || recordTitleIdentity === titleIdentity
-    || recordTitleIdentity.startsWith(`${titleIdentity} `);
-  if (!title || !titleMatchesListing) return generic;
+  if (!title || !titleMatchesListing(title, opts.recordTitle)) return generic;
 
   const description = bodyTextOf(block.html);
   if (!isSufficientVacancyDescription(description)) return generic;

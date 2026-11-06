@@ -162,6 +162,19 @@ describe('Opacc Software AG crawler parser', () => {
 
       expect(detail.description).toBe('');
     });
+
+    it('treats a detail-only gender marker as presentation metadata', () => {
+      const url = 'https://jobs.opacc.ch/fundament-ausbauen/software-engineer.html';
+      const detail = extractOpaccSoftwareAgDetailFields(
+        detailPage(url, 'Software Engineer (m/w/d)', 'Rothenburg', '6023'),
+        url,
+        { recordUrl: url, recordTitle: 'Software Engineer' },
+      );
+
+      expect(detail.title).toBe('Software Engineer (m/w/d)');
+      expect(detail.description).toContain('Dein Alltag');
+      expect(detail.location).toBe('Rothenburg');
+    });
   });
 
   // ── slugify (imported from crawler-template) ──
