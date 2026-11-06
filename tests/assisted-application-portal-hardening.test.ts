@@ -1183,6 +1183,9 @@ describe('portal: one employer under two names', () => {
     expect(namesAnotherEmployer('Coop Genossenschaft\nStandort Rickenbach', {
       company: 'Coop Genossenschaft', title: 'Bäckerin', location: 'Rickenbach',
     }, { allowPostingLocation: true })).toBe(false);
+    expect(namesAnotherEmployer('Bäckerin — Coop Genossenschaft Standort Rickenbach', {
+      company: 'Coop Genossenschaft', title: 'Bäckerin', location: 'Rickenbach',
+    }, { allowPostingLocation: true })).toBe(false);
   });
 });
 

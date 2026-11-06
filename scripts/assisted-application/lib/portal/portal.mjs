@@ -2447,6 +2447,9 @@ export function namesAnotherEmployer(formText, job = {}, { allowPostingLocation 
     ...nameWords(job.title),
     ...postingLocationSuffixWords(text, ours, postingLocationWords),
     ...NOT_A_NAME,
+    // Vacancy cards can flatten their rows into one line («Coop Genossenschaft Standort Rickenbach»).
+    // On an already-bound posting, the location-field label is metadata, not another employer name.
+    ...(allowPostingLocation ? FIELD_LABEL_WORDS : []),
     ...FORM_VOCABULARY,
   ]);
   const title = normalizeWords(text.split(/\r?\n/)[0]).split(' ').filter(Boolean);
