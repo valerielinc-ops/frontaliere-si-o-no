@@ -1,8 +1,13 @@
 import { describe, expect, it } from 'vitest';
 import {
+  buildFirebaseDeployArgs,
+  chunkFunctionNames,
   FIREBASE_DEPLOY_ARGS,
+  FUNCTION_NAMES,
+  parseFunctionNames,
   deployFunctions,
   isTransientFirebaseApiHtmlFailure,
+  isTransientFirebaseQuotaFailure,
 } from '../scripts/ci/deploy-cloud-functions-with-retry.mjs';
 
 const TRANSIENT_FAILURE = [
@@ -11,10 +16,44 @@ const TRANSIENT_FAILURE = [
 ].join('\n');
 
 describe('deploy-cloud-functions-with-retry', () => {
+  it('discovers every top-level trigger export and refuses unsupported exports', () => {
+    expect(FUNCTION_NAMES).toContain('jobsSourceRelay');
+    expect(FUNCTION_NAMES).toContain('purgeExpiredApplicationConciergeMetaAttribution');
+    expect(new Set(FUNCTION_NAMES).size).toBe(FUNCTION_NAMES.length);
+    expect(() => parseFunctionNames('export const helper = helper();')).toThrow(/partial deploy/u);
+  });
+
+  it('builds scoped Firebase targets without changing the deploy project or force mode', () => {
+    expect(buildFirebaseDeployArgs(['firstFunction', 'secondFunction'])).toEqual([
+      ...FIREBASE_DEPLOY_ARGS,
+      '--only',
+      'functions:firstFunction,functions:secondFunction',
+    ]);
+  });
+
+  it('keeps function batches bounded and covers every name exactly once', () => {
+    const batches = chunkFunctionNames(['one', 'two', 'three', 'four', 'five'], 2);
+    expect(batches).toEqual([
+      ['one', 'two'],
+      ['three', 'four'],
+      ['five'],
+    ]);
+    expect(batches.flat()).toEqual(['one', 'two', 'three', 'four', 'five']);
+  });
+
   it('recognizes only the observed HTML response parse failure', () => {
     expect(isTransientFirebaseApiHtmlFailure(TRANSIENT_FAILURE)).toBe(true);
     expect(isTransientFirebaseApiHtmlFailure('Error: permission denied')).toBe(false);
     expect(isTransientFirebaseApiHtmlFailure('Unable to parse JSON: unexpected token')).toBe(false);
+  });
+
+  it('recognizes quota exhaustion but not a generic IAM failure', () => {
+    expect(isTransientFirebaseQuotaFailure([
+      'HTTP Error: 429, Could not get Cloud Run service',
+      "Quota exceeded for quota metric 'Read requests'",
+    ].join('\n'))).toBe(true);
+    expect(isTransientFirebaseQuotaFailure('Failed to set invoker: permission denied')).toBe(false);
+    expect(isTransientFirebaseQuotaFailure('HTTP Error: 429 but no quota detail')).toBe(false);
   });
 
   it('retries the idempotent deploy once and returns success', async () => {
@@ -28,15 +67,40 @@ describe('deploy-cloud-functions-with-retry', () => {
           : { exitCode: 0, output: 'deploy succeeded' };
       },
       sleep: async (ms) => waits.push(ms),
+      functionNames: ['createReaderCheckout'],
+      batchDelayMs: 0,
       retryDelayMs: 17,
     });
 
     expect(result).toMatchObject({ exitCode: 0, attempts: 2 });
     expect(calls).toEqual([
-      { args: FIREBASE_DEPLOY_ARGS, attempt: 1 },
-      { args: FIREBASE_DEPLOY_ARGS, attempt: 2 },
+      { args: buildFirebaseDeployArgs(['createReaderCheckout']), attempt: 1 },
+      { args: buildFirebaseDeployArgs(['createReaderCheckout']), attempt: 2 },
     ]);
     expect(waits).toEqual([17]);
+  });
+
+  it('deploys each bounded batch in order and pauses only between batches', async () => {
+    const calls: string[][] = [];
+    const waits: number[] = [];
+    const result = await deployFunctions({
+      run: async (args) => {
+        calls.push(args);
+        return { exitCode: 0, output: 'deploy succeeded' };
+      },
+      sleep: async (ms) => waits.push(ms),
+      functionNames: ['one', 'two', 'three'],
+      batchSize: 2,
+      batchDelayMs: 23,
+      retryDelayMs: 17,
+    });
+
+    expect(result).toMatchObject({ exitCode: 0, attempts: 2, batches: 2 });
+    expect(calls).toEqual([
+      buildFirebaseDeployArgs(['one', 'two']),
+      buildFirebaseDeployArgs(['three']),
+    ]);
+    expect(waits).toEqual([23]);
   });
 
   it('does not retry a non-transient Firebase failure', async () => {
@@ -48,6 +112,8 @@ describe('deploy-cloud-functions-with-retry', () => {
         return { exitCode: 1, output: 'Error: permission denied' };
       },
       sleep: async (ms) => waits.push(ms),
+      functionNames: ['createReaderCheckout'],
+      batchDelayMs: 0,
       retryDelayMs: 17,
     });
 
@@ -64,6 +130,8 @@ describe('deploy-cloud-functions-with-retry', () => {
         return { exitCode: 1, output: TRANSIENT_FAILURE };
       },
       sleep: async () => {},
+      functionNames: ['createReaderCheckout'],
+      batchDelayMs: 0,
       retryDelayMs: 0,
     });
 
