@@ -1191,7 +1191,7 @@ function applicationEntryContextMatchesPosting(control, context = {}) {
   return Boolean(localContext && job.title
     && titleMatches(localContext, job.title)
     && postingMatch(localContext, job, context.postingUrl) === 'match'
-    && !namesAnotherEmployer(localContext, job));
+    && !namesAnotherEmployer(localContext, job, { allowPostingLocation: true }));
 }
 
 export function applicationEntryControls(snapshot = {}, context = {}) {
@@ -2248,7 +2248,7 @@ export function postingMatch(pageText, job = {}, pageUrl = '') {
 
 // A page's own vocabulary names no employer («Hotel application», «Bewerbung im Hotel Bereich»).
 const FORM_VOCABULARY = new Set([
-  'application', 'applications', 'apply', 'jetzt', 'now', 'maintenant', 'ora', 'subito', 'bewerbung', 'bewerbungen', 'bewerben', 'candidatura', 'candidature', 'candidati', 'postuler',
+  'application', 'applications', 'apply', 'jetzt', 'now', 'maintenant', 'ora', 'subito', 'spater', 'bewerbung', 'bewerbungen', 'bewerben', 'candidatura', 'candidature', 'candidati', 'postuler',
   'job', 'jobs', 'career', 'careers', 'karriere', 'carriera', 'carriere', 'stelle', 'stellen', 'offerta', 'offre', 'vacancy', 'vacancies',
   'portal', 'portale', 'portail', 'online', 'form', 'formular', 'formulaire', 'modulo', 'login', 'home', 'tracking', 'system',
   'team', 'bereich', 'welcome', 'willkommen', 'benvenuti', 'bienvenue',
@@ -2343,25 +2343,47 @@ const PHRASE_END_RE = /[\n\r—–|·•:;,.()\/]|\s-\s/;
  * Case and separators do not matter. The order's own whole name never gets
  * here: it is postingMatch's direct match.
  */
-export function namesAnotherEmployer(formText, job = {}) {
+function postingLocationSuffixWords(formText, ours, locationWords) {
+  if (!locationWords.size) return new Set();
+  const lines = String(formText || '').split(/\r?\n/).map((line) => normalizeWords(line).split(' ').filter(Boolean));
+  const employerLines = lines.map((words) => words.some((word) => ours.has(word)));
+  const neutral = new Set();
+  for (const [lineIndex, words] of lines.entries()) {
+    const locations = words.filter((word) => locationWords.has(word));
+    if (!locations.length) continue;
+    const employerBefore = employerLines.slice(Math.max(0, lineIndex - 2), lineIndex + 1).some(Boolean);
+    if (!employerBefore) continue;
+    const lastEmployer = Math.max(-1, ...words.map((word, index) => ours.has(word) ? index : -1));
+    if (lastEmployer >= 0 && words.findIndex((word) => locationWords.has(word)) < lastEmployer) continue;
+    locations.forEach((word) => neutral.add(word));
+  }
+  return neutral;
+}
+
+export function namesAnotherEmployer(formText, job = {}, { allowPostingLocation = false } = {}) {
   // With the name the posting's own data gives the employer (`organization`), when it is the same employer's.
   const ours = new Set([...nameWords(job.company), ...(sameEmployerFamily(job.organization, job.company) ? nameWords(job.organization) : [])]);
   if (!ours.size) return false;
-  // A posting card commonly puts its own place after the employer (for
-  // example «Coop Genossenschaft, Rickenbach»). A known posting location is
-  // metadata, not a second employer; keep it neutral in the identity guard
-  // while leaving unknown places fail-closed.
+  const text = String(formText || '');
+  const postingLocationWords = allowPostingLocation
+    ? new Set([
+      ...nameWords(job.location),
+      ...nameWords(job.addressLocality),
+      ...nameWords(job.city),
+      ...nameWords(job.workplace),
+    ])
+    : new Set();
+  // A bounded posting card can put its own place after the employer (for
+  // example «Coop Genossenschaft, Rickenbach»). Neutralize only that
+  // employer-bound suffix; an unbound employer named like the place remains a
+  // mismatch («Zurich AG» is not Coop's posting).
   const neutral = new Set([
     ...ours,
     ...nameWords(job.title),
-    ...nameWords(job.location),
-    ...nameWords(job.addressLocality),
-    ...nameWords(job.city),
-    ...nameWords(job.workplace),
+    ...postingLocationSuffixWords(text, ours, postingLocationWords),
     ...NOT_A_NAME,
     ...FORM_VOCABULARY,
   ]);
-  const text = String(formText || '');
   const title = normalizeWords(text.split(/\r?\n/)[0]).split(' ').filter(Boolean);
   if (title.some((word) => !filler(word) && !neutral.has(word) && !EMPLOYER_KIND_WORDS.has(word))) return true;
   for (const phrase of text.split(PHRASE_END_RE)) {
@@ -2420,10 +2442,11 @@ export function hasVacancySpecificPostingEvidence(pageText, job = {}, {
   const routeBound = samePostingAddress(pageUrl, postingUrl)
     || isPostingRouteBound({ pageUrl, postingUrl, postingRouteProof });
   // On an exact selected-posting route, the body also contains navigation and
-  // Apply labels (for example «Später bewerben»). Use the document title for
-  // the employer-conflict guard when available; page chrome must not turn a
-  // verified vacancy into a false mismatch.
-  if (!organizationCompatible || namesAnotherEmployer(routeBound ? (pageTitle || pageText) : sourceText, job)) return false;
+  // Apply labels (for example «Später bewerben»). Keep the conflict guard on
+  // rendered page text: a generic document title must not hide an unrelated
+  // role in the selected route, while a proven employer/location suffix in
+  // the posting body may be ignored.
+  if (!organizationCompatible || namesAnotherEmployer(routeBound ? pageText : sourceText, job, { allowPostingLocation: routeBound })) return false;
   if (routeBound) return true;
   const titleMatched = Boolean(job?.title && titleMatches(pageTitle, job.title));
   // The source page must identify the role in its title. Its employer may be
@@ -2496,7 +2519,7 @@ export function formPostingMatch(formText, job = {}, {
   // Do not apply this to another page on the same host: route identity must be
   // exact, and an apply route still goes through the employer-conflict guard.
   if (bound && samePostingAddress(pageUrl, postingUrl)) {
-    if (namesAnotherEmployer(boundPostingConflictText(formText, job, { pageUrl, postingUrl }), job)) return 'mismatch';
+    if (namesAnotherEmployer(boundPostingConflictText(formText, job, { pageUrl, postingUrl }), job, { allowPostingLocation: true })) return 'mismatch';
     return 'match';
   }
   if (direct !== 'mismatch' || !postingMatched) return direct;
