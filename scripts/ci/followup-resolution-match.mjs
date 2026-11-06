@@ -812,7 +812,7 @@ const FOLLOWUP_ITEM_HEADING_LINE_RE = /^(#{2,3})\s+(?:(FU-\d{4}-\d{2}-\d{2}-\d{3
 // caratteri letterali `\\n\\n`, invece di due newline Markdown. Accettarlo in
 // modo generico trasformerebbe testo o codice in struttura; il caso sicuro è
 // solo la sequenza immediatamente seguita da un heading FU stabile.
-const ESCAPED_DAILY_ITEM_BOUNDARY_RE = /(?:\\n)+[ \t]*(?=#{2,3}\s+FU-\d{4}-\d{2}-\d{2}-\d{3}\s*[—–-]\s*)/giu;
+const ESCAPED_DAILY_ITEM_BOUNDARY_RE = /(?:\\n)+[ \t]*(?=#{2,3}\s+FU-\d{4}-\d{2}-\d{2}-\d{3}\b)/giu;
 const ESCAPED_DAILY_ITEM_SUFFIX_RE = /(?:\\n)+[ \t]*$/u;
 
 /** Rimuove il separatore serializzato dalla coda di un item già riconosciuto. */
