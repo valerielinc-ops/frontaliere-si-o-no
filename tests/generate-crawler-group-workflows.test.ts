@@ -1124,6 +1124,10 @@ describe('crawler generation state cleanup', () => {
         if: 'always()',
         'continue-on-error': true,
       });
+      expect(finalCleanup.run).toContain('for _ in 1 2 3 4 5; do');
+      expect(finalCleanup.run).toContain('for _ in 1 2 3; do');
+      expect(finalCleanup.run).not.toContain('for attempt in');
+      expect(finalCleanup.run).not.toContain(' active attempt');
       execFileSync('bash', ['-e', '-c', startupCleanup.run], {
         encoding: 'utf8',
         env: { ...process.env, RUNNER_TEMP: temp },
@@ -1792,9 +1796,17 @@ describe('watchdog kill visibility (exit 124 without the in-script reporter)', (
   it('files from the quarantine aggregate too, as the in-script reporter would have', () => {
     const body = buildCrawlerAggregateShellBody([{ slug: 'sbb' }] as any, 15, { quarantine: { tolerated: new Map() } } as any);
     expect(body).toContain('### Crawler group 15 outcome (quarantine group)');
+    expect(body).not.toContain('quarantine_today=');
     expect(body).toContain('watchdog_status="$(cat "$state_dir/sbb.status" 2>/dev/null || true)"');
     expect(body).toContain('if [ -e "$watchdog_file" ] && { [ "$watchdog_status" = "124" ] || [ "$watchdog_status" = "137" ]; }; then');
     expect(body).toContain("node scripts/lib/github-issue-creator.mjs --title 'Crawler Failure: Run sbb'");
+  });
+
+  it('emits the quarantine date only when a crawler is actually tolerated', () => {
+    const body = buildCrawlerAggregateShellBody([{ slug: 'sbb' }] as any, 15, {
+      quarantine: { tolerated: new Map([['sbb', { deadline: '2099-01-01', issue: '123' }]]) },
+    } as any);
+    expect(body).toContain('quarantine_today="${CRAWLER_QUARANTINE_TODAY:-$(date -u +%F)}"');
   });
 
   it('looks up the watchdog marker by roster id while reporting by crawler slug', () => {
