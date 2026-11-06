@@ -146,6 +146,18 @@ describe('parseYoustyApprenticeshipHtml', () => {
     expect(parseYoustyApprenticeshipHtml(html).applyUrl).toBe('https://www.yousty.ch/jobs/2');
   });
 
+  it('ignores script-shaped text in an attribute before the real JSON-LD element', () => {
+    const html = `<div data-template='<script type="application/ld+json">{"@type":"JobPosting","directApply":true,"url":"bad"}</script>'><script type="application/ld+json">{"@type":"JobPosting","directApply":true,"url":"good"}</script></div>`;
+
+    expect(parseYoustyApprenticeshipHtml(html).applyUrl).toBe('good');
+  });
+
+  it('decodes entity-encoded JSON-LD type attributes like the browser does', () => {
+    const html = `<script type="application/ld&#x2B;json">{"@type":"JobPosting","directApply":true,"url":"https://apply.example/"}</script>`;
+
+    expect(parseYoustyApprenticeshipHtml(html).applyUrl).toBe('https://apply.example/');
+  });
+
   it('does not activate stylesheet parsing while reading a Yousty profile', () => {
     const consoleError = vi.spyOn(console, 'error').mockImplementation(() => {});
     const html = `${SAMPLE_HTML}<style>this is not valid { css: !!!</style>`;

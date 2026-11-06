@@ -1,4 +1,5 @@
 import { JSDOM } from 'jsdom';
+import { decode as decodeHtmlEntities } from 'html-entities';
 
 function normalizeSpace(value = '') {
   return String(value || '').replace(/\u00a0/g, ' ').replace(/\s+/g, ' ').trim();
@@ -100,15 +101,71 @@ function isJobPosting(value) {
   });
 }
 
-const SCRIPT_OPEN_START_RE = /<script\b/gi;
-const SCRIPT_CLOSE_RE = /<\/script\s*>/gi;
-
 function isHtmlSpace(character) {
   return character === ' ' || character === '\t' || character === '\n' || character === '\f' || character === '\r';
 }
 
+function isHtmlTagNameCharacter(character) {
+  if (!character) return false;
+  const code = character.charCodeAt(0);
+  return (code >= 0x41 && code <= 0x5a)
+    || (code >= 0x61 && code <= 0x7a)
+    || (code >= 0x30 && code <= 0x39)
+    || character === ':'
+    || character === '-'
+    || character === '_';
+}
+
+function readHtmlTagName(source, start) {
+  let index = start;
+  while (index < source.length && isHtmlTagNameCharacter(source[index])) index += 1;
+  return source.slice(start, index).toLowerCase();
+}
+
+function findHtmlTagEnd(source, start) {
+  let quote = '';
+  for (let index = start; index < source.length; index += 1) {
+    const character = source[index];
+    if (quote) {
+      if (character === quote) quote = '';
+      continue;
+    }
+    if (character === '"' || character === "'") {
+      quote = character;
+      continue;
+    }
+    if (character === '>') return index;
+  }
+  return -1;
+}
+
+function findHtmlClosingTag(source, start, wantedName) {
+  let searchStart = start;
+  while (searchStart < source.length) {
+    const candidate = source.indexOf('<', searchStart);
+    if (candidate < 0) return null;
+    if (source[candidate + 1] !== '/') {
+      searchStart = candidate + 1;
+      continue;
+    }
+
+    const nameStart = candidate + 2;
+    const name = readHtmlTagName(source, nameStart);
+    const boundary = source[nameStart + name.length];
+    if (name !== wantedName || (boundary !== '>' && !isHtmlSpace(boundary))) {
+      searchStart = candidate + 1;
+      continue;
+    }
+
+    const end = findHtmlTagEnd(source, nameStart + name.length);
+    return end < 0 ? null : { start: candidate, end: end + 1 };
+  }
+  return null;
+}
+
 function readHtmlAttribute(tag, wantedName) {
   let index = '<script'.length;
+  const normalizedWantedName = String(wantedName || '').toLowerCase();
   while (index < tag.length) {
     while (index < tag.length && isHtmlSpace(tag[index])) index += 1;
     if (tag[index] === '>' || tag[index] === '/' || index >= tag.length) break;
@@ -129,31 +186,67 @@ function readHtmlAttribute(tag, wantedName) {
     } else {
       while (index < tag.length && !isHtmlSpace(tag[index]) && tag[index] !== '>') index += 1;
     }
-    if (name === wantedName) return tag.slice(valueStart, index);
+    if (name === normalizedWantedName) return decodeHtmlEntities(tag.slice(valueStart, index));
     if (quote && tag[index] === quote) index += 1;
   }
   return '';
 }
 
+const RAW_TEXT_TAGS = new Set(['iframe', 'noembed', 'noframes', 'plaintext', 'style', 'textarea', 'title', 'xmp']);
+
 function* scriptOpeningTags(source) {
-  for (const opening of source.matchAll(SCRIPT_OPEN_START_RE)) {
-    const start = Number(opening.index || 0);
-    let quote = '';
-    for (let index = start + String(opening[0] || '').length; index < source.length; index += 1) {
-      const character = source[index];
-      if (quote) {
-        if (character === quote) quote = '';
-        continue;
-      }
-      if (character === '"' || character === "'") {
-        quote = character;
-        continue;
-      }
-      if (character === '>') {
-        yield { tag: source.slice(start, index + 1), end: index + 1 };
-        break;
-      }
+  let searchStart = 0;
+  while (searchStart < source.length) {
+    const start = source.indexOf('<', searchStart);
+    if (start < 0) return;
+
+    if (source.startsWith('<!--', start)) {
+      const commentEnd = source.indexOf('-->', start + 4);
+      searchStart = commentEnd < 0 ? source.length : commentEnd + 3;
+      continue;
     }
+
+    if (source.startsWith('<![CDATA[', start)) {
+      const cdataEnd = source.indexOf(']]>', start + 9);
+      searchStart = cdataEnd < 0 ? source.length : cdataEnd + 3;
+      continue;
+    }
+
+    const marker = source[start + 1];
+    if (marker === '/' || marker === '!' || marker === '?') {
+      const end = findHtmlTagEnd(source, start + 1);
+      if (end < 0) return;
+      searchStart = end + 1;
+      continue;
+    }
+
+    const tagName = readHtmlTagName(source, start + 1);
+    if (!tagName) {
+      searchStart = start + 1;
+      continue;
+    }
+
+    const end = findHtmlTagEnd(source, start + 1);
+    if (end < 0) return;
+
+    if (tagName === 'script') {
+      const closing = findHtmlClosingTag(source, end + 1, 'script');
+      yield {
+        tag: source.slice(start, end + 1),
+        end: end + 1,
+        contentEnd: closing?.start ?? -1,
+      };
+      searchStart = closing?.end ?? source.length;
+      continue;
+    }
+
+    if (RAW_TEXT_TAGS.has(tagName)) {
+      const closing = findHtmlClosingTag(source, end + 1, tagName);
+      searchStart = closing?.end ?? source.length;
+      continue;
+    }
+
+    searchStart = end + 1;
   }
 }
 
@@ -166,15 +259,12 @@ function* scriptOpeningTags(source) {
 function* jsonLdScriptBodies(html = '') {
   const source = String(html || '');
   for (const opening of scriptOpeningTags(source)) {
+    if (opening.contentEnd < 0) return;
     const tag = opening.tag;
     const type = normalizeSpace(readHtmlAttribute(tag, 'type')).toLowerCase();
     if (type !== 'application/ld+json') continue;
 
-    const contentStart = opening.end;
-    SCRIPT_CLOSE_RE.lastIndex = contentStart;
-    const closing = SCRIPT_CLOSE_RE.exec(source);
-    if (!closing) return;
-    yield source.slice(contentStart, closing.index);
+    yield source.slice(opening.end, opening.contentEnd);
   }
 }
 
