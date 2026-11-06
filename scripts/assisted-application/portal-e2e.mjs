@@ -472,9 +472,9 @@ function fakePortal() {
     // e-mail) comes first, a Usercentrics banner in a shadow root covers the
     // page, «Jetzt bewerben» opens the ATS redirect in a new tab.
     if (route === 'GET /coop-job') {
-      return send(page('Coop: Bäcker:in - Konditor:in', `<header><a role="button" tabindex="0" href="/coop-later">Später bewerben</a></header>
+      return send(page('Coop: Bäcker:in - Konditor:in (Schwerpunkt Bäckerei)', `<header><a role="button" tabindex="0" href="/coop-later">Später bewerben</a></header>
         <section class="job-detail">
-        <h1>Bäcker:in - Konditor:in (Schwerpunkt Bäckerei)</h1><p>Coop Genossenschaft, Rickenbach</p>
+        <h1>Bäcker:in - Konditor:in (Schwerpunkt Bäckerei)</h1><p>Coop Genossenschaft</p><p>Standort Rickenbach</p>
         <a class="main-btn apply" target="_blank" href="/ohws/redirect/20d53107-db26-4a35-8f4c-b4d15bb4bb31/ats/">Jetzt bewerben</a>
         </section>
         <div id="usercentrics-root"></div><script>
