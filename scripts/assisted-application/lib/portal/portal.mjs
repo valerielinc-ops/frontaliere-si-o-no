@@ -6667,13 +6667,16 @@ export async function submitViaPortal(ctx) {
     const namedByItsData = organizationCompatible
       && sameEmployerFamily(ctx.job?.organization, ctx.job?.company)
       && postingMatch(postingSeen, { title: ctx.job.title }, postingUrl) === 'match';
-    const postingVacancyMatched = hasVacancySpecificPostingEvidence(postingSeen, ctx.job, {
-      pageUrl: postingUrl,
-      pageTitle: postingTitle,
-      postingUrl: ctx.postingUrl,
-      postingRouteProof: ctx.postingRouteProof,
-      vacancyIdentityContexts: currentVacancyIdentityContexts(snapshot),
-    });
+    // A verified apply/posting URL pair is stronger than the title of a thin
+    // shell, which may still show a stale or generic role while it mounts.
+    const postingVacancyMatched = enteredFromMatchingPosting
+      || hasVacancySpecificPostingEvidence(postingSeen, ctx.job, {
+        pageUrl: postingUrl,
+        pageTitle: postingTitle,
+        postingUrl: ctx.postingUrl,
+        postingRouteProof: ctx.postingRouteProof,
+        vacancyIdentityContexts: currentVacancyIdentityContexts(snapshot),
+      });
     if (postingVacancyMatched && isApplicationRegionUnsupported(initialPageText)
       && !hasApplicationEntryControl(snapshot, {
         applyUrl: ctx.applyUrl, postingUrl, sourceProtocol, job: ctx.job,
