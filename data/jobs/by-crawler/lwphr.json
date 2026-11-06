@@ -581,7 +581,8 @@
       "postalCode": "7500",
       "streetAddress": "St. Moritz",
       "streetAddressSource": "to-enrich",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "title": "ESPERTA FISCALE",
