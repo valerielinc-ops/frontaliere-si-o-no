@@ -7,6 +7,8 @@ export const EXPIRED_ARCHIVE_EVIDENCE_VERSION = 1;
 export const EXPIRED_ARCHIVE_EVIDENCE_VALIDATOR = 'expired-archive-publication-v1';
 const LOCALES = ['it', 'en', 'de', 'fr'];
 const DEFAULT_CANARIES_PER_LOCALE = 4;
+const NOINDEX_ROBOTS_RE = /<meta\b(?=[^>]*\bname\s*=\s*["']?robots(?![a-z0-9_-])["']?)(?=[^>]*\bcontent\s*=\s*["']?[^"'>]*\bnoindex\b)[^>]*>/iu;
+const TITLE_RE = /<title(?:\s[^>]*)?>([\s\S]*?)<\/title\s*>/iu;
 const SECTION_SLUGS = JSON.parse(fs.readFileSync(
   path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../../scripts/lib/section-shard-slugs.json'),
   'utf8',
@@ -59,7 +61,9 @@ export function createExpiredArchivePublicationEvidence({
       const description = payloadDescription(payload, locale);
       const expiredAt = String(payload?.expiredAt ?? '').trim();
       const title = String(payload?.title ?? '').trim();
-      if (!title || !description || !Number.isFinite(Date.parse(expiredAt))) return;
+      const titleHtml = String(candidate.titleHtml ?? '').trim();
+      const metaDescriptionHtml = String(candidate.metaDescriptionHtml ?? '').trim();
+      if (!title || !description || !titleHtml || !metaDescriptionHtml || !Number.isFinite(Date.parse(expiredAt))) return;
 
       bucket.push({
         locale,
@@ -68,6 +72,8 @@ export function createExpiredArchivePublicationEvidence({
         payloadJson,
         description,
         expiredAt,
+        titleHtml,
+        metaDescriptionHtml,
         owner: candidate.owner ?? {},
       });
     },
@@ -93,6 +99,16 @@ export function createExpiredArchivePublicationEvidence({
           }
           if (!html.includes(`<link rel="canonical" href="${candidate.url}">`)) {
             throw new Error(`expired archive canary canonical differs from ${candidate.url}`);
+          }
+          if (!NOINDEX_ROBOTS_RE.test(html)) {
+            throw new Error(`expired archive canary must be noindex: ${candidate.path}`);
+          }
+          const publishedTitleHtml = TITLE_RE.exec(html)?.[1]?.trim() ?? '';
+          if (publishedTitleHtml !== candidate.titleHtml) {
+            throw new Error(`expired archive canary title differs from its rendered source: ${candidate.path}`);
+          }
+          if (!html.includes(`<meta name="description" content="${candidate.metaDescriptionHtml}">`)) {
+            throw new Error(`expired archive canary meta description differs from its rendered source: ${candidate.path}`);
           }
           const publishedPayloadJson = payloadFromHtml(html);
           if (publishedPayloadJson !== candidate.payloadJson) {

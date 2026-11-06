@@ -13955,6 +13955,10 @@ ${staticAnalyticsHtml}
  return [l, { nav, footer, listingPath: lp }];
  }));
 
+ const softLandingMetaDescription = (locale: keyof typeof localeOg, pageDesc: string): string =>
+  clampMetaDescription(pageDesc, undefined, locale)
+  || clampMetaDescription(expiredBannerCopy[locale]?.banner || expiredBannerCopy.it.banner, undefined, locale);
+
  // Assembler: builds a complete soft-landing HTML page from pre-computed parts + dynamic slots.
  // `__STATIC_BODY_HTML__` is no longer JSON-embedded in head (which used to duplicate the entire
  // body twice per page — once as HTML, once as JSON-stringified blob). Instead the snippet right
@@ -13971,8 +13975,7 @@ ${staticAnalyticsHtml}
  // already on in deploy.yml.
  const __tShellTpl = phaseTimer();
  const shell = localeShells[locale];
- const metaDescription = clampMetaDescription(pageDesc, undefined, locale)
-  || clampMetaDescription(expiredBannerCopy[locale]?.banner || expiredBannerCopy.it.banner, undefined, locale);
+ const metaDescription = softLandingMetaDescription(locale, pageDesc);
  const socialTitleHtml = socialPreview ? esc(socialPreview.title) : pageTitle;
  const socialDescription = socialPreview?.description || metaDescription;
  const hasArchivedJobOgImage = process.env.SKIP_JOB_OG_IMAGES !== '1';
@@ -14994,6 +14997,8 @@ ${staticAnalyticsHtml}
     path: `${relPath.replace(/^\/+|\/+$/g, '')}/index.html`,
     url: selfUrl,
     payloadJson: expiredWindowData,
+    titleHtml: pageTitle,
+    metaDescriptionHtml: esc(softLandingMetaDescription(locale, pageDesc)),
     owner: {
      slug: ejData?.slug || '',
      sourceIdentity: ejData?.sourceIdentity || '',

@@ -14,6 +14,8 @@ function fixture() {
   const route = 'cerca-lavoro-ticino/late-alias/index.html';
   const file = path.join(root, route);
   const url = 'https://frontaliereticino.ch/cerca-lavoro-ticino/late-alias/';
+  const titleHtml = 'Leitende Ärztin — Onkologie | Frontaliere Ticino';
+  const metaDescriptionHtml = 'Descrizione SEO dell’offerta archiviata';
   const payload = JSON.stringify({
     slug: 'late-alias',
     title: 'Leitende Ärztin — Onkologie',
@@ -21,8 +23,16 @@ function fixture() {
     expiredAt: '2026-10-01T00:00:00.000Z',
   });
   fs.mkdirSync(path.dirname(file), { recursive: true });
-  fs.writeFileSync(file, `<link rel="canonical" href="${url}"><script>window.__EXPIRED_JOB_DATA__=${payload};</script><main data-expired-static-body="true"></main>`);
-  return { root, route, file, url, payload };
+  fs.writeFileSync(file, `<title>${titleHtml}</title><meta name="description" content="${metaDescriptionHtml}"><meta name="robots" content="noindex,follow"><link rel="canonical" href="${url}"><script>window.__EXPIRED_JOB_DATA__=${payload};</script><main data-expired-static-body="true"></main>`);
+  return { root, route, file, url, payload, titleHtml, metaDescriptionHtml };
+}
+
+function recordFixture(evidence: ReturnType<typeof createExpiredArchivePublicationEvidence>, values: ReturnType<typeof fixture>) {
+  evidence.record({
+    locale: 'it', path: values.route, url: values.url, payloadJson: values.payload,
+    titleHtml: values.titleHtml, metaDescriptionHtml: values.metaDescriptionHtml,
+    owner: { slug: 'canonical-owner', sourceIdentity: 'source:42' },
+  });
 }
 
 afterEach(() => {
@@ -31,12 +41,10 @@ afterEach(() => {
 
 describe('expired archive publication evidence', () => {
   it('attests a disk-backed alias from source owner through the emitted HTML', () => {
-    const { root, route, url, payload } = fixture();
+    const values = fixture();
+    const { root, route, url } = values;
     const evidence = createExpiredArchivePublicationEvidence({ canariesPerLocale: 1 });
-    evidence.record({
-      locale: 'it', path: route, url, payloadJson: payload,
-      owner: { slug: 'canonical-owner', sourceIdentity: 'source:42' },
-    });
+    recordFixture(evidence, values);
 
     const manifests = evidence.write({
       distDir: root, indexedOverflowAliases: 201_656, sourceRunId: '101', sourceSha: SOURCE_SHA,
@@ -53,14 +61,40 @@ describe('expired archive publication evidence', () => {
   });
 
   it('fails closed when the written payload no longer belongs to the sampled owner', () => {
-    const { root, route, file, url, payload } = fixture();
+    const values = fixture();
+    const { root, file } = values;
     const evidence = createExpiredArchivePublicationEvidence({ canariesPerLocale: 1 });
-    evidence.record({ locale: 'it', path: route, url, payloadJson: payload, owner: { slug: 'owner' } });
+    recordFixture(evidence, values);
     fs.writeFileSync(file, fs.readFileSync(file, 'utf8').replace('Descrizione originale', 'Descrizione sostituita'));
 
     expect(() => evidence.write({
       distDir: root, indexedOverflowAliases: 1, sourceRunId: '101', sourceSha: SOURCE_SHA,
     })).toThrow('payload differs from its source owner');
+  });
+
+  it('fails closed when the sampled archive page is indexable', () => {
+    const values = fixture();
+    const evidence = createExpiredArchivePublicationEvidence({ canariesPerLocale: 1 });
+    recordFixture(evidence, values);
+    fs.writeFileSync(values.file, fs.readFileSync(values.file, 'utf8').replace('noindex,follow', 'index,follow'));
+
+    expect(() => evidence.write({
+      distDir: values.root, indexedOverflowAliases: 1, sourceRunId: '101', sourceSha: SOURCE_SHA,
+    })).toThrow('must be noindex');
+  });
+
+  it.each([
+    ['title', 'Leitende Ärztin — Onkologie | Frontaliere Ticino', 'Titolo stale'],
+    ['meta description', 'Descrizione SEO dell’offerta archiviata', 'Descrizione stale'],
+  ])('fails closed when the final %s differs from the rendered source', (_field, current, replacement) => {
+    const values = fixture();
+    const evidence = createExpiredArchivePublicationEvidence({ canariesPerLocale: 1 });
+    recordFixture(evidence, values);
+    fs.writeFileSync(values.file, fs.readFileSync(values.file, 'utf8').replace(current, replacement));
+
+    expect(() => evidence.write({
+      distDir: values.root, indexedOverflowAliases: 1, sourceRunId: '101', sourceSha: SOURCE_SHA,
+    })).toThrow(`${_field} differs from its rendered source`);
   });
 
   it('requires a complete canary when overflow-backed pages were rendered', () => {

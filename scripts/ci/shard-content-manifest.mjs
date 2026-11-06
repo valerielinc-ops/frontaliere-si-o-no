@@ -154,6 +154,10 @@ export function createSectionManifest({
       }
       const sourceSha256 = String(entry.sha256 ?? '').toLowerCase();
       if (!/^[0-9a-f]{64}$/u.test(sourceSha256)) throw new Error(`${section} expired archive canary has no source digest: ${entry.url}`);
+      const finalSha256 = digestFile(file);
+      if (finalSha256 !== sourceSha256) {
+        throw new Error(`${section} expired archive canary digest differs from its shard source: ${entry.url}`);
+      }
       const existing = byUrl.get(String(entry.url));
       if (existing) {
         const existingSourceSha256 = existing.sourceSha256 || existing.sha256;
@@ -168,7 +172,7 @@ export function createSectionManifest({
         path: webPath,
         url: String(entry.url),
         sourceSha256,
-        sha256: digestFile(file),
+        sha256: finalSha256,
         locale,
         section,
         evidenceKind: 'expired-archive',

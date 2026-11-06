@@ -227,6 +227,42 @@ describe('publisher fast provenance gate', () => {
     })]);
   });
 
+  it('rejects archive evidence whose digest differs from the shard source bytes', () => {
+    const root = tempRoot();
+    const pageRoot = path.join(root, 'cerca-lavoro-ticino');
+    const pagePath = path.join(pageRoot, 'late-alias', 'index.html');
+    fs.mkdirSync(path.dirname(pagePath), { recursive: true });
+    fs.writeFileSync(pagePath, '<html>final archive bytes</html>');
+    const pageManifestPath = path.join(root, 'page-manifest.json');
+    fs.writeFileSync(pageManifestPath, JSON.stringify({ version: 2, locale: 'it', entries: [] }));
+    const evidencePath = path.join(root, 'evidence.json');
+    fs.writeFileSync(evidencePath, JSON.stringify({
+      schemaVersion: 1,
+      kind: 'expired-archive-publication-evidence',
+      validatorVersion: 'expired-archive-publication-v1',
+      sourceRunId: SOURCE_RUN_ID,
+      sourceSha: SOURCE_SHA,
+      locale: 'it',
+      entries: [{
+        evidenceKind: 'expired-archive', locale: 'it', section: 'ticino',
+        url: 'https://frontaliereticino.ch/cerca-lavoro-ticino/late-alias/',
+        path: 'cerca-lavoro-ticino/late-alias/index.html', sha256: 'f'.repeat(64),
+      }],
+    }));
+
+    expect(() => createSectionManifest({
+      root: pageRoot,
+      prefix: 'cerca-lavoro-ticino',
+      locale: 'it',
+      section: 'ticino',
+      sourceRunId: SOURCE_RUN_ID,
+      sourceSha: SOURCE_SHA,
+      artifactRunId: SOURCE_RUN_ID,
+      pageManifestPath,
+      evidenceManifestPath: evidencePath,
+    })).toThrow('digest differs from its shard source');
+  });
+
   it('accepts complete sitemap, path, digest, and Ticino shard evidence', () => {
     expect(fixture().result).toMatchObject({ passed: true, errorCount: 0, sampleRate: 1 });
   });
