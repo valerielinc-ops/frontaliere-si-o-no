@@ -126,6 +126,16 @@ describe('parseYoustyApprenticeshipHtml', () => {
     expect(parseYoustyApprenticeshipHtml(html).applyUrl).toBe('https://www.yousty.ch/jobs/2');
   });
 
+  it('does not treat text inside another attribute as a JSON-LD type', () => {
+    const html = `<script data-note="type=application/ld+json">${JSON.stringify({
+      '@type': 'JobPosting',
+      directApply: true,
+      url: 'https://www.yousty.ch/jobs/2',
+    })}</script>`;
+
+    expect(parseYoustyApprenticeshipHtml(html).applyUrl).toBe('');
+  });
+
   it('does not activate stylesheet parsing while reading a Yousty profile', () => {
     const consoleError = vi.spyOn(console, 'error').mockImplementation(() => {});
     const html = `${SAMPLE_HTML}<style>this is not valid { css: !!!</style>`;
@@ -136,6 +146,13 @@ describe('parseYoustyApprenticeshipHtml', () => {
     } finally {
       consoleError.mockRestore();
     }
+  });
+
+  it('extracts the profile from a large application shell without parsing that shell as DOM', () => {
+    const shell = `<style>${'x'.repeat(100_000)}</style><script>${'x'.repeat(100_000)}</script>`;
+    const html = `${shell}<noscript><h2>Lehrstellenbeschreibung</h2><div><p>${'Eine abwechslungsreiche Lehrstelle mit guter Ausbildung. '.repeat(20)}</p></div></noscript>`;
+
+    expect(parseYoustyApprenticeshipHtml(html).description).toContain('Eine abwechslungsreiche Lehrstelle mit guter Ausbildung.');
   });
 });
 

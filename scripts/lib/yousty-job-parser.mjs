@@ -100,18 +100,66 @@ function isJobPosting(value) {
   });
 }
 
-function extractDirectApplyUrl(html) {
-  const fragment = JSDOM.fragment(String(html || ''));
-  const scripts = [...fragment.querySelectorAll('script[type]')]
-    .filter((script) => normalizeSpace(script.getAttribute('type')).toLowerCase() === 'application/ld+json');
+const SCRIPT_OPEN_RE = /<script\b[^>]*>/gi;
+const SCRIPT_CLOSE_RE = /<\/script\s*>/gi;
 
-  for (const script of scripts) {
-    let jsonLd;
-    try {
-      jsonLd = JSON.parse(String(script.textContent || '').trim());
-    } catch {
-      continue;
+function isHtmlSpace(character) {
+  return character === ' ' || character === '\t' || character === '\n' || character === '\f' || character === '\r';
+}
+
+function readHtmlAttribute(tag, wantedName) {
+  let index = '<script'.length;
+  while (index < tag.length) {
+    while (index < tag.length && isHtmlSpace(tag[index])) index += 1;
+    if (tag[index] === '>' || tag[index] === '/' || index >= tag.length) break;
+
+    const nameStart = index;
+    while (index < tag.length && !isHtmlSpace(tag[index]) && tag[index] !== '=' && tag[index] !== '>') index += 1;
+    const name = tag.slice(nameStart, index).toLowerCase();
+
+    while (index < tag.length && isHtmlSpace(tag[index])) index += 1;
+    if (tag[index] !== '=') continue;
+    index += 1;
+    while (index < tag.length && isHtmlSpace(tag[index])) index += 1;
+
+    const quote = tag[index] === '"' || tag[index] === "'" ? tag[index++] : '';
+    const valueStart = index;
+    if (quote) {
+      while (index < tag.length && tag[index] !== quote) index += 1;
+    } else {
+      while (index < tag.length && !isHtmlSpace(tag[index]) && tag[index] !== '>') index += 1;
     }
+    if (name === wantedName) return tag.slice(valueStart, index);
+    if (quote && tag[index] === quote) index += 1;
+  }
+  return '';
+}
+
+/**
+ * Yield only JSON-LD script bodies without building a DOM for the whole page.
+ * Yousty profile pages contain a large application shell; parsing that shell
+ * with JSDOM once for the JSON-LD and again for the noscript body made the
+ * Galenica loop's peak heap grow with every unusually large profile.
+ */
+function* jsonLdScriptBodies(html = '') {
+  const source = String(html || '');
+  for (const opening of source.matchAll(SCRIPT_OPEN_RE)) {
+    const tag = String(opening[0] || '');
+    const type = normalizeSpace(readHtmlAttribute(tag, 'type')).toLowerCase();
+    if (type !== 'application/ld+json') continue;
+
+    const contentStart = Number(opening.index || 0) + tag.length;
+    SCRIPT_CLOSE_RE.lastIndex = contentStart;
+    const closing = SCRIPT_CLOSE_RE.exec(source);
+    if (!closing) return;
+    yield source.slice(contentStart, closing.index);
+  }
+}
+
+function extractDirectApplyUrl(html) {
+  for (const scriptText of jsonLdScriptBodies(html)) {
+    let jsonLd;
+    try { jsonLd = JSON.parse(String(scriptText || '').trim()); } catch { continue; }
 
     const posting = flattenJsonLd(jsonLd).find((entry) => isJobPosting(entry) && entry.directApply === true);
     if (!posting) continue;
@@ -147,13 +195,14 @@ export function extractYoustyWidgetApplicationUrl(profileUrl = '') {
 export function parseYoustyApprenticeshipHtml(html, profileUrl = '') {
   const rawHtml = String(html || '');
   const applyUrl = extractDirectApplyUrl(rawHtml) || extractYoustyWidgetApplicationUrl(profileUrl);
-  const noscriptMatches = [...rawHtml.matchAll(/<noscript[^>]*>([\s\S]*?)<\/noscript>/gi)];
-  const noscriptHtml = (
-    noscriptMatches
-      .map((match) => String(match[1] || ''))
-      .find((chunk) => /lehrstellenbeschreibung|descrizione|description du poste|description de l|dein arbeitsort/i.test(chunk))
-    || ''
-  ).trim();
+  let noscriptHtml = '';
+  for (const match of rawHtml.matchAll(/<noscript[^>]*>([\s\S]*?)<\/noscript>/gi)) {
+    const candidate = String(match[1] || '').trim();
+    if (/lehrstellenbeschreibung|descrizione|description du poste|description de l|dein arbeitsort/i.test(candidate)) {
+      noscriptHtml = candidate;
+      break;
+    }
+  }
 
   if (!noscriptHtml) {
     return { description: '', applyUrl };
