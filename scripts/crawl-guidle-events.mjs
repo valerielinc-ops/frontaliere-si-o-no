@@ -466,17 +466,20 @@ function extractGuidleDomEventOccurrence(doc) {
   const root = guidleDomDetailRoot(doc);
   if (!root) return null;
   const date = root.querySelector('time.bigdate[datetime]')?.getAttribute('datetime')?.trim();
+  const semanticDate = GUIDLE_DOM_DATE_RE.test(date || '')
+    ? guidleIsoDate(...date.split('-').map(Number))
+    : null;
   const nativeDate = guidleNativeDateDeclaration(root);
   const textDateRange = nativeDate ? extractGuidleTextDateRange(text(nativeDate.wrap)) : null;
-  if (!GUIDLE_DOM_DATE_RE.test(date || '') && !textDateRange) return null;
+  if (!semanticDate && !textDateRange) return null;
   const timeMatch = /(?:^|\D)((?:[01]\d|2[0-3]):[0-5]\d)(?!\d)/.exec(text(root.querySelector('.time-label')));
   const addressLocality = text(root.querySelector('header > h3')) || undefined;
   return {
     '@type': 'Event',
     name: text(root.querySelector('[itemprop="summary"]')),
     description: text(root.querySelector('[itemprop="description"]')) || undefined,
-    startDate: date ? `${date}${timeMatch ? `T${timeMatch[1]}` : ''}` : textDateRange.startDate,
-    endDate: date ? undefined : textDateRange.endDate,
+    startDate: semanticDate ? `${semanticDate}${timeMatch ? `T${timeMatch[1]}` : ''}` : textDateRange.startDate,
+    endDate: semanticDate ? undefined : textDateRange.endDate,
     location: addressLocality ? { address: { addressLocality } } : undefined,
     image: doc.querySelector('meta[property="og:image"]')?.getAttribute('content') || undefined,
   };

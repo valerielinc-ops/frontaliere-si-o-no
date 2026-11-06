@@ -236,6 +236,9 @@ describe('Guidle server-rendered detail fallback', () => {
       imageSourceUrl: 'https://www.guidle.com/imagekit/dom-only.jpg',
       category: 'Festival',
     });
+
+    const invalidDate = DOM_ONLY_DETAIL_HTML.replace('datetime="2027-04-03"', 'datetime="2026-02-30"');
+    expect(mapDetailPageToLocaleData(invalidDate, 'de')).toBeNull();
   });
 
   it('maps an absolute native date range when Guidle omits semantic date markup', () => {
