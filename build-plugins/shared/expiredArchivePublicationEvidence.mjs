@@ -10,6 +10,8 @@ const DEFAULT_CANARIES_PER_LOCALE = 4;
 const NOINDEX_ROBOTS_RE = /<meta\b(?=[^>]*\bname\s*=\s*["']?robots(?![a-z0-9_-])["']?)(?=[^>]*\bcontent\s*=\s*["']?[^"'>]*\bnoindex\b)[^>]*>/iu;
 const EXPIRED_STATIC_BODY_MARKER_RE = /<main\b(?=[^>]*\sdata-expired-static-body\s*=\s*(?:"true"|'true'|true)(?=[\s/>]))[^>]*>/iu;
 const TITLE_RE = /<title(?:\s[^>]*)?>([\s\S]*?)<\/title\s*>/iu;
+const TAG_RE = /<([A-Za-z][A-Za-z0-9:-]*)\b((?:[^>"']|"[^"]*"|'[^']*')*)>/gu;
+const ATTRIBUTE_RE = /([^\s"'>/=]+)(?:\s*=\s*(?:"([^"]*)"|'([^']*)'|([^\s"'`=<>]*)))?/gu;
 const SECTION_SLUGS = JSON.parse(fs.readFileSync(
   path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../../scripts/lib/section-shard-slugs.json'),
   'utf8',
@@ -40,6 +42,28 @@ function payloadFromHtml(html) {
 
 function payloadDescription(payload, locale) {
   return String(payload?.descriptionByLocale?.[locale] ?? payload?.description ?? '').trim();
+}
+
+function tagAttributes(raw) {
+  const attributes = Object.create(null);
+  ATTRIBUTE_RE.lastIndex = 0;
+  let match;
+  while ((match = ATTRIBUTE_RE.exec(raw)) !== null) {
+    const name = match[1].toLowerCase();
+    if (!(name in attributes)) attributes[name] = match[2] ?? match[3] ?? match[4] ?? '';
+  }
+  return attributes;
+}
+
+function hasTagWithAttributes(html, tagName, expected) {
+  TAG_RE.lastIndex = 0;
+  let match;
+  while ((match = TAG_RE.exec(html)) !== null) {
+    if (match[1].toLowerCase() !== tagName) continue;
+    const attributes = tagAttributes(match[2]);
+    if (Object.entries(expected).every(([name, value]) => attributes[name] === value)) return true;
+  }
+  return false;
 }
 
 export function createExpiredArchivePublicationEvidence({
@@ -98,7 +122,7 @@ export function createExpiredArchivePublicationEvidence({
           if (!EXPIRED_STATIC_BODY_MARKER_RE.test(html)) {
             throw new Error(`expired archive canary lost its static body marker: ${candidate.path}`);
           }
-          if (!html.includes(`<link rel="canonical" href="${candidate.url}">`)) {
+          if (!hasTagWithAttributes(html, 'link', { rel: 'canonical', href: candidate.url })) {
             throw new Error(`expired archive canary canonical differs from ${candidate.url}`);
           }
           if (!NOINDEX_ROBOTS_RE.test(html)) {
@@ -108,7 +132,7 @@ export function createExpiredArchivePublicationEvidence({
           if (publishedTitleHtml !== candidate.titleHtml) {
             throw new Error(`expired archive canary title differs from its rendered source: ${candidate.path}`);
           }
-          if (!html.includes(`<meta name="description" content="${candidate.metaDescriptionHtml}">`)) {
+          if (!hasTagWithAttributes(html, 'meta', { name: 'description', content: candidate.metaDescriptionHtml })) {
             throw new Error(`expired archive canary meta description differs from its rendered source: ${candidate.path}`);
           }
           const publishedPayloadJson = payloadFromHtml(html);
