@@ -15,10 +15,10 @@
       "2": 197,
       "3": 0,
       "4": 0,
-      "5": 1055,
+      "5": 1056,
       "6": 5061
     },
-    "publishedCovers": 7798,
+    "publishedCovers": 7799,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 1,
     "inheritedRecordsMaterialized": 197,
@@ -213524,6 +213524,39 @@
         "provider": "openai-codex",
         "assetId": "article-kanti-rektor-draht-universitaet",
         "imageUrl": "/images/blog/article-kanti-rektor-draht-universitaet.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-kantonsrat-proroga-gav-due-anni": {
+      "cover": "/images/blog/article-kantonsrat-proroga-gav-due-anni.webp",
+      "hash": "58a773af9a67b22752d68544194efde8fd49d61c3f8a53c8571d59602632bdb1",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-so",
+          "id": "kantonsrat-proroga-gav-due-anni",
+          "category": "pratico",
+          "date": "2026-11-06T02:38:57.836Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-kantonsrat-proroga-gav-due-anni.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1794,
+      "verifiedAt": "2026-11-06",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-kantonsrat-proroga-gav-due-anni",
+        "imageUrl": "/images/blog/article-kantonsrat-proroga-gav-due-anni.webp",
         "evidence": "generated-engine-record"
       }
     },

@@ -1,8 +1,8 @@
 {
   "schema": 1,
   "cdnPrefix": "/images/blog/",
-  "assetCount": 1057,
-  "generatedAt": "2026-11-06T02:50:01.486Z",
+  "assetCount": 1058,
+  "generatedAt": "2026-11-06T03:40:58.603Z",
   "assets": [
     {
       "schema": 1,
@@ -43536,6 +43536,49 @@
         "is_photograph": false,
         "is_topic_relevant": true,
         "notes": "Generic synthetic editorial illustration of a modern lakeside university campus; no text, logos, people, or specific event."
+      }
+    },
+    {
+      "schema": 1,
+      "assetId": "article-kantonsrat-proroga-gav-due-anni",
+      "kind": "generated",
+      "provider": "openai-codex",
+      "model": "gpt-image-2.5",
+      "executorModel": "gpt-5.6-luna",
+      "promptVersion": "frontaliereticino.generated-image-policy.v1",
+      "promptHash": "61714ba5e18eb4ff27a8151b717167e72a2464262a67a99584906ef1e2ff9f71",
+      "license": "generated-provider",
+      "licenseUrl": "https://openai.com/policies/terms-of-use/",
+      "credit": "frontaliereticino.ch",
+      "sha256": "58a773af9a67b22752d68544194efde8fd49d61c3f8a53c8571d59602632bdb1",
+      "bytes": 161050,
+      "width": 1200,
+      "height": 675,
+      "format": "webp",
+      "generatedAt": "2026-11-06T02:38:46.405Z",
+      "verifiedAt": "2026-11-06T02:38:57.781Z",
+      "restrictions": [
+        "illustrative-only",
+        "no-real-recognizable-foreground-person",
+        "no-public-figure-face",
+        "no-logo-brand-or-text",
+        "no-specific-real-event-photojournalism"
+      ],
+      "scope": "article-hero",
+      "imageUrl": "/images/blog/article-kantonsrat-proroga-gav-due-anni.webp",
+      "area": "Swiss border region",
+      "season": "all seasons",
+      "variant": "article hero",
+      "vision": {
+        "ok": true,
+        "contains_text": false,
+        "contains_logo": false,
+        "contains_recognizable_face": false,
+        "contains_recognizable_foreground_person": false,
+        "looks_like_specific_real_event": false,
+        "is_photograph": false,
+        "is_topic_relevant": true,
+        "notes": "Photorealistic synthetic illustration of a generic Solothurn cantonal building; no people, text, signage, logos, or event documentation."
       }
     },
     {
