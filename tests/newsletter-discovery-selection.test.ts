@@ -8,6 +8,7 @@ import {
   chooseDiscoveryArticle,
   freezeCampaignDiscoverySelection,
   loadDiscoveryArticleIndexFromHttp,
+  loadOptionalDiscoveryArticleIndexFromHttp,
   omitDuplicateDiscoveryArticle,
   parseDiscoveryArticleIndex,
 } from '../scripts/lib/newsletter-discovery-selection.mjs';
@@ -147,6 +148,17 @@ describe('parseDiscoveryArticleIndex', () => {
       'it',
       { now },
     )).toBeNull();
+  });
+
+  it('allows the explicit Google News provider while keeping Reddit ineligible', () => {
+    const now = Date.now();
+    const parsed = parse(index(now, [
+      article('reddit-source', now, { provider: 'reddit' }),
+      article('google-news-source', now, { provider: 'google_news' }),
+    ]), now);
+
+    expect(chooseDiscoveryArticle(parsed, 'weekly_2026-11-23', 'it', { now }))
+      .toMatchObject({ articleId: 'google-news-source', provider: 'google_news' });
   });
 
   it('rejects providers outside the public index contract', () => {
@@ -321,6 +333,25 @@ describe('loadDiscoveryArticleIndexFromHttp', () => {
     } finally {
       rmSync(directory, { recursive: true, force: true });
     }
+  });
+
+  it('degrades an unavailable optional HTTP index to an empty slot', async () => {
+    const loaded = await loadOptionalDiscoveryArticleIndexFromHttp({
+      apiBase: 'https://api.example.test/corpus',
+      retries: 0,
+      manifestFilePath: '/missing/discovery-manifest.json',
+      indexFilePath: '/missing/discovery-index.json',
+      fetchImpl: async () => response('', 503),
+    });
+
+    expect(loaded).toBeNull();
+    const { db } = fakeFirestore();
+    await expect(freezeCampaignDiscoverySelection(
+      db,
+      'weekly_2026-11-23',
+      'it',
+      loaded,
+    )).resolves.toBeNull();
   });
 
   it('bounds a stalled HTTP request with the configured timeout', async () => {

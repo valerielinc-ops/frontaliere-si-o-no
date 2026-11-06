@@ -21,6 +21,7 @@ const steps = workflow.jobs['send-brief'].steps;
 describe('daily brief sent output', () => {
   it('derives the provider-accepted count and writes the GitHub output', () => {
     expect(sentCountFromResult({ sent: [{}, {}] })).toBe(2);
+    expect(sentCountFromResult({ sent: [{}, { ack: 'unidentifiable' }] })).toBe(1);
     expect(sentCountFromResult({ sent: [] })).toBe(0);
     expect(sentCountFromResult(undefined)).toBe(0);
 
