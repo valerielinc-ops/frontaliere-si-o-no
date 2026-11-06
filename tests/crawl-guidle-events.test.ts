@@ -205,6 +205,88 @@ describe('Guidle JSON-LD with raw control characters inside strings', () => {
   });
 });
 
+const DOM_ONLY_DETAIL_HTML = `<!doctype html><html><head>
+  <meta property="og:image" content="https://www.guidle.com/imagekit/dom-only.jpg">
+</head><body><main class="content"><section class="section-detailpage">
+  <offer-details-app offer-id="1324734280"></offer-details-app>
+  <header>
+    <h2><span itemprop="eventType">Pop, Konzerte &amp; Musikveranstaltungen</span></h2>
+    <h1><span itemprop="summary">Schlagerfestival St.Gallen</span></h1>
+    <h3>St. Gallen</h3>
+  </header>
+  <p itemprop="description">Ein Abend mit Live-Musik.</p>
+  <time class="bigdate" datetime="2027-04-03">Samstag 3. April 2027</time>
+  <div class="accordion-wrap"><h3>Datum</h3><div class="accordion">
+    <div class="schedule-row"><div class="date-label">03.04.2027 bis 04.04.2027</div><div class="time-label">19:00 - 01:00 Uhr</div></div>
+  </div></div>
+  <div class="accordion-wrap"><h3>Kategorie</h3><div class="accordion"><ul><li>Festival</li></ul></div></div>
+</section></main></body></html>`;
+
+describe('Guidle server-rendered detail fallback', () => {
+  it('maps the native semantic date when a real detail page omits JSON-LD', () => {
+    expect(extractEventJsonLdOccurrences(DOM_ONLY_DETAIL_HTML)).toEqual([]);
+    expect(mapDetailPageToLocaleData(DOM_ONLY_DETAIL_HTML, 'de')).toMatchObject({
+      title: 'Schlagerfestival St.Gallen',
+      description: 'Ein Abend mit Live-Musik.',
+      startDate: '2027-04-03',
+      startTime: '19:00',
+      endDate: '2027-04-03',
+      recurring: false,
+      addressLocality: 'St. Gallen',
+      imageSourceUrl: 'https://www.guidle.com/imagekit/dom-only.jpg',
+      category: 'Festival',
+    });
+
+    const semanticDateWithoutPresentationClass = DOM_ONLY_DETAIL_HTML.replace(
+      'class="bigdate" datetime="2027-04-03"',
+      'datetime="2026-11-06"',
+    );
+    expect(mapDetailPageToLocaleData(semanticDateWithoutPresentationClass, 'de')).toMatchObject({
+      startDate: '2026-11-06',
+    });
+
+    const invalidDate = DOM_ONLY_DETAIL_HTML.replace('datetime="2027-04-03"', 'datetime="2026-02-30"');
+    expect(mapDetailPageToLocaleData(invalidDate, 'de')).toBeNull();
+  });
+
+  it('maps an absolute native date range when Guidle omits semantic date markup', () => {
+    const textualDate = DOM_ONLY_DETAIL_HTML
+      .replace('<time class="bigdate" datetime="2027-04-03">Samstag 3. April 2027</time>', '')
+      .replace(
+        '<div class="schedule-row"><div class="date-label">03.04.2027 bis 04.04.2027</div><div class="time-label">19:00 - 01:00 Uhr</div></div>',
+        '</div><br>Sonntag, 10. Juli 17:00 Uhr – Freitag, 15. Juli 2022 12:00 Uhr<div>',
+      );
+    expect(mapDetailPageToLocaleData(textualDate, 'de')).toMatchObject({
+      startDate: '2022-07-10',
+      endDate: '2022-07-15',
+    });
+
+    const sharedMonthRange = textualDate.replace(
+      'Sonntag, 10. Juli 17:00 Uhr – Freitag, 15. Juli 2022 12:00 Uhr',
+      '18.–20. November 2026',
+    );
+    expect(mapDetailPageToLocaleData(sharedMonthRange, 'de')).toMatchObject({
+      startDate: '2026-11-18',
+      endDate: '2026-11-20',
+    });
+  });
+
+  it('distinguishes a genuinely undated detail from an unparsed absolute date', () => {
+    const undated = DOM_ONLY_DETAIL_HTML
+      .replace('<time class="bigdate" datetime="2027-04-03">Samstag 3. April 2027</time>', '')
+      .replace('<div class="schedule-row"><div class="date-label">03.04.2027 bis 04.04.2027</div><div class="time-label">19:00 - 01:00 Uhr</div></div>', '')
+      .replace('</div></div>\n  <div class="accordion-wrap"><h3>Kategorie</h3>', '</div><br>Mittwoch: 14.00 bis 16.00 Uhr</div>\n  <div class="accordion-wrap"><h3>Kategorie</h3>');
+    expect(isUndatedGuidleListing(undated, '/kurse/duebendorf/internationale-taenze_AbaBwNG')).toBe(true);
+
+    const brokenSemanticDate = undated.replace('Mittwoch: 14.00 bis 16.00 Uhr', '<div class="date-label">03.04.2027</div>');
+    expect(isUndatedGuidleListing(brokenSemanticDate, '/veranstaltungen/st-gallen/event_AyBvpP9')).toBe(false);
+
+    const missingNativeDateDeclaration = undated.replace(/<div class="accordion-wrap"><h3>Datum<\/h3>[\s\S]*?<div class="accordion-wrap"><h3>Kategorie<\/h3>/, '<div class="accordion-wrap"><h3>Kategorie</h3>');
+    expect(isUndatedGuidleListing(missingNativeDateDeclaration, '/eventi/foo_X')).toBe(false);
+    expect(isUndatedGuidleListing('<main><h1>Generic page</h1></main>', '/veranstaltungen/example_A123456')).toBe(false);
+  });
+});
+
 // Shape measured on the film catalog entries (`kino-nach-film/ohne-ortsangabe/…`)
 // sampled 2026-10-04: no JSON-LD at all, and the microdata block declares an
 // EMPTY startDate. The source publishes no schedule, so there is nothing to
