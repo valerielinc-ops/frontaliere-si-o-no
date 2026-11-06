@@ -10,10 +10,10 @@ const EVENT_ATTENDANCE_MODES = new Set([
   'OnlineEventAttendanceMode',
   'MixedEventAttendanceMode',
 ]);
-// Schema.org defines the complete ItemAvailability vocabulary. Keep this set
-// beside the Event status/mode policy so every Event consumer accepts the same
-// scalar code set instead of silently downgrading valid offers.
-export const GOOGLE_EVENT_AVAILABILITY_CODES = new Set([
+// The crawler preserves the complete Schema.org ItemAvailability vocabulary.
+// Google Event structured data has a narrower documented contract, so keep its
+// allowlist separate instead of making the publication gate accept every code.
+export const SCHEMA_ORG_ITEM_AVAILABILITY_CODES = new Set([
   'BackOrder',
   'Discontinued',
   'InStock',
@@ -27,6 +27,7 @@ export const GOOGLE_EVENT_AVAILABILITY_CODES = new Set([
   'Reserved',
   'SoldOut',
 ]);
+export const GOOGLE_EVENT_AVAILABILITY_CODES = new Set(['InStock', 'PreOrder', 'SoldOut']);
 
 export function areSupportedGoogleEventStatuses(value) {
   const statuses = Array.isArray(value) ? value : [value];

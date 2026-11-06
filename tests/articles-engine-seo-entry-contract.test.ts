@@ -31,6 +31,19 @@ describe('articles engine SEO-entry compatibility contract', () => {
     expect(readStructuredSeoBlock(block)).toContain("headline: 'Event headline'");
     expect(readStructuredSeoDescriptionState(block)).toMatchObject({ assigned: true, dynamic: true });
     expect(staticPropertyState(block, 'headline')).toMatchObject({ assigned: true, value: 'Event headline' });
+
+    const escapedTemplate = [
+      '{',
+      '  location: `${BASE_URL}/venue/\\${literal}\\',
+      'continued`,',
+      '}',
+    ].join('\n');
+    expect(hasInterpolatedStaticProperty(escapedTemplate, 'location', { allowBaseUrlTemplates: true })).toBe(false);
+    expect(hasInterpolatedStaticProperty(
+      escapedTemplate.replace('\\${literal}', '${dynamic}'),
+      'location',
+      { allowBaseUrlTemplates: true },
+    )).toBe(true);
   });
 
   it('uses the last top-level assignment while remaining fail-closed for JSON-LD templates', () => {
