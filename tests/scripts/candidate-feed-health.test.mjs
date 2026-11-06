@@ -1,5 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
+import { readFileSync } from 'node:fs';
 import {
   assessCandidateFeedHealth,
   CANDIDATE_FEED_MAX_AGE_MS,
@@ -7,6 +8,14 @@ import {
 
 const NOW = Date.parse('2026-11-06T12:00:00.000Z');
 const freshAt = (ageMs = 60_000) => new Date(NOW - ageMs).toISOString();
+const HEALTH_WORKFLOW = readFileSync(new URL('../../.github/workflows/topic-candidate-feed-health.yml', import.meta.url), 'utf8');
+
+test('recovery defers while a target workflow run is pending', () => {
+  const statusSets = [...HEALTH_WORKFLOW.matchAll(/\[([^\]]+)\]\.includes\(run\.status\)/gu)]
+    .map((match) => match[1]);
+  assert.equal(statusSets.length, 3);
+  for (const statuses of statusSets) assert.match(statuses, /['"]pending['"]/u);
+});
 
 function sourceFeed({
   generatedAt = freshAt(),

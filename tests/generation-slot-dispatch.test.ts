@@ -1,6 +1,7 @@
 import { describe, expect, it, vi } from 'vitest';
 import { generateKeyPairSync, sign as signJwt } from 'node:crypto';
 import { dispatchGenerationSlot, inspectGenerationWorkflowContract } from '../functions/src/generationSlotDispatch.js';
+import { getGenerationSlotClaim } from '../functions/src/generationSlotLedger.js';
 import { admitGenerationSlotClaim, claimGenerationSlot, handleGenerationSlotClaimRequest } from '../functions/src/generationSlotLedger.js';
 import { GENERATION_SLOT_ENTRIES } from '../functions/src/generationSlotSchedule.js';
 import {
@@ -231,6 +232,49 @@ describe('generation slot dispatch', () => {
       .find(([url]) => url.includes('/runs?'));
     expect(lookup?.[0]).toContain('created=%3E%3D2026-11-06');
     expect(lookup?.[0]).toContain('branch=main');
+  });
+
+  it('keeps an expired claim while a matching generation run is pending', async () => {
+    const entry = GENERATION_SLOT_ENTRIES.find((candidate) => candidate.generationSlot === 'frontaliere')!;
+    const db = memoryDb();
+    const slotKey = 'generate-article/frontaliere/2026-11-06T10:07Z';
+    const claim = await claimGenerationSlot(db, slotKey, {
+      now: Date.parse('2026-11-06T10:09:00Z'),
+      claimTokenFactory: () => '11111111-1111-4111-8111-111111111111',
+    });
+    const pendingRun = {
+      event: 'workflow_dispatch',
+      head_branch: 'main',
+      display_title: `Generate Blog Article [generation-slot ${slotKey}]`,
+      status: 'pending',
+      created_at: '2026-11-06T10:09:30Z',
+    };
+    const fetchImpl = vi.fn(async (url: string, init?: RequestInit) => (
+      url.includes('/contents/')
+        ? responseForWorkflow()
+        : url.includes('/runs?')
+          ? new Response(JSON.stringify({ workflow_runs: [pendingRun] }), { status: 200 })
+          : url.endsWith('/dispatches') && init?.method === 'POST'
+            ? new Response(null, { status: 204 })
+            : new Response('{}', { status: 404 })
+    ));
+
+    const result = await dispatchGenerationSlot({
+      entry,
+      scheduledAt: '2026-11-06T10:15:00Z',
+      now: Date.parse('2026-11-06T10:15:00Z'),
+      context: { pat: 'test-token', owner: 'nanakokyobashi-rgb', repo: 'frontaliere-articles' },
+      fetchImpl,
+      getAdminDbImpl: () => db,
+    });
+
+    expect(claim.claimed).toBe(true);
+    expect(result).toMatchObject({ dispatched: false, reason: 'matching_run_active', slotKey });
+    expect((fetchImpl.mock.calls as unknown as Array<[string, RequestInit?]>).some(([url]) => url.endsWith('/dispatches')))
+      .toBe(false);
+    const retained = await getGenerationSlotClaim(db, slotKey);
+    expect(retained).toMatchObject({ status: 'claimed', claimToken: claim.claimToken });
+    expect(Date.parse(String(retained?.leaseUntil))).toBeGreaterThan(Date.parse('2026-11-06T10:15:00Z'));
   });
 
   it('stays in shadow when the corpus workflow has not opted into cloud-clock ownership', async () => {

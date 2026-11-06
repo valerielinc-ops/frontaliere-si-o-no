@@ -78,7 +78,7 @@ jobs:
               per_page: 100,
             });
             const active = data.workflow_runs.some((run) =>
-              ['queued', 'in_progress', 'waiting', 'requested'].includes(run.status));
+              ['queued', 'pending', 'in_progress', 'waiting', 'requested'].includes(run.status));
             if (active) {
               core.notice('Candidate mining is already queued or running; recovery is deferred to the next health check.');
               return;
@@ -116,9 +116,9 @@ jobs:
               }),
             ]);
             const activeBuild = build.data.workflow_runs.some((run) =>
-              ['queued', 'in_progress', 'waiting', 'requested'].includes(run.status));
+              ['queued', 'pending', 'in_progress', 'waiting', 'requested'].includes(run.status));
             const activePublish = publish.data.workflow_runs.some((run) =>
-              ['queued', 'in_progress', 'waiting', 'requested'].includes(run.status));
+              ['queued', 'pending', 'in_progress', 'waiting', 'requested'].includes(run.status));
             if (activeBuild || activePublish) {
               core.notice('A Pages build or publish is already queued or running; recovery is deferred to the next health check.');
               return;

@@ -20,7 +20,12 @@ export function inspectGenerationWorkflowContract(source) {
   const text = String(source ?? '');
   const onLines = rootSection(text, 'on');
   const dispatchStart = onLines.findIndex((line) => /^  workflow_dispatch:\s*$/u.test(line));
-  const dispatchLines = dispatchStart < 0 ? [] : onLines.slice(dispatchStart + 1).filter((line) => !/^  [A-Za-z_][A-Za-z0-9_-]*:\s*$/u.test(line));
+  const dispatchEnd = dispatchStart < 0 ? -1 : onLines.findIndex((line, index) => (
+    index > dispatchStart && /^  [A-Za-z_][A-Za-z0-9_-]*:\s*$/u.test(line)
+  ));
+  const dispatchLines = dispatchStart < 0
+    ? []
+    : onLines.slice(dispatchStart + 1, dispatchEnd < 0 ? undefined : dispatchEnd);
   const hasInput = (name) => dispatchLines.some((line) => new RegExp(`^      ${name}:\\s*$`, 'u').test(line));
   const originStart = dispatchLines.findIndex((line) => line === '      dispatch_origin:');
   const originEnd = originStart < 0 ? -1 : dispatchLines.findIndex((line, index) => (
@@ -76,6 +81,7 @@ export function generationWorkflowSupportsOrigin(source, origin = 'editorial_sig
     && contract.hasUrlInput
     && contract.hasSectionInput
     && contract.hasDispatchOrigin
+    && contract.missingInputs.length === 0
     && contract.dispatchOrigins.includes(origin);
 }
 

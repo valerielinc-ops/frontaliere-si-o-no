@@ -27,6 +27,7 @@ import { fileURLToPath } from 'node:url';
 import { parse } from 'yaml';
 import {
   GENERATION_WORKFLOW_CONTRACT_MARKER,
+  inspectGenerationWorkflowContract,
   generationWorkflowSupportsOrigin,
 } from '../functions/src/generationWorkflowContract.js';
 
@@ -159,6 +160,30 @@ describe('contratto di origine sender/receiver', () => {
     expect(generationWorkflowSupportsOrigin(GENERATION_WORKFLOW, 'editorial_signal')).toBe(true);
     expect(generationWorkflowSupportsOrigin(GENERATION_WORKFLOW, 'cloud_scheduler')).toBe(true);
     expect(generationWorkflowSupportsOrigin(incomplete)).toBe(true);
+  });
+
+  it('non prende gli input di workflow_call per completare il payload workflow_dispatch', () => {
+    const withoutRecoveryInputs = GENERATION_WORKFLOW.replace(
+      /      recovery_slot:\n        required: false\n        type: string\n      recovery_claim:\n        required: false\n        type: string\n/u,
+      '',
+    );
+    const source = withoutRecoveryInputs.replace(
+      '\npermissions:',
+      '\n  workflow_call:\n    inputs:\n      recovery_slot:\n        required: false\n        type: string\n      recovery_claim:\n        required: false\n        type: string\npermissions:',
+    );
+
+    expect(inspectGenerationWorkflowContract(source)).toMatchObject({
+      ready: false,
+      reason: 'recovery_inputs_missing',
+      missingInputs: ['recovery_slot', 'recovery_claim'],
+    });
+    expect(generationWorkflowSupportsOrigin(source)).toBe(false);
+
+    const result = spawnSync(process.execPath, [fileURLToPath(ORIGIN_CONTRACT_HELPER)], {
+      input: source,
+      encoding: 'utf8',
+    });
+    expect(result.stdout.trim()).not.toBe('supported');
   });
 
   it('rende visibile un YAML non valido invece di permettere un dispatch o un ack', () => {
