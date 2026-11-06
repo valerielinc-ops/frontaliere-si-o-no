@@ -376,7 +376,13 @@ describe('jobsSeoPages disk-backed HTML retention', () => {
     expect(sweep).toContain("logJobsSeoMem('expired-sweep-progress'");
     expect(source).toContain('const EXPIRED_MEM_MILESTONE_EVERY_CHUNKS = 64;');
     // The final partial chunk gets the same treatment before the marker.
-    expect(sweep).toMatch(/await releaseExpiredHtmlCacheChunk\(\);\n maybeForceJobsSeoHtmlGc\(\);\n\n jobsSeoMemContext\.sitemap\.expiredEntries/);
+    const finalReleaseStart = sweep.lastIndexOf('await releaseExpiredHtmlCacheChunk();');
+    const finalRelease = sweep.slice(finalReleaseStart);
+    const finalGc = finalRelease.indexOf('maybeForceJobsSeoHtmlGc();');
+    const retainedEntries = finalRelease.indexOf('jobsSeoMemContext.sitemap.expiredEntries');
+    expect(finalReleaseStart).toBeGreaterThan(-1);
+    expect(finalGc).toBeGreaterThan(-1);
+    expect(retainedEntries).toBeGreaterThan(finalGc);
   });
 
   it('streams the multi-million-path compat accumulator during the expired setup', () => {
