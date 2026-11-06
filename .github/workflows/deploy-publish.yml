@@ -1052,6 +1052,7 @@ jobs:
               --artifact-run-id "$GITHUB_RUN_ID" \
               --tar "$RUNNER_TEMP/$section-dist-$loc.tar" \
               --page-manifest "$RUNNER_TEMP/locale-sitemap-manifest-$loc.json" \
+              --evidence-manifest "$PUBLISHER_DIST/assets/expired-archive-evidence-$loc.json" \
               --out "$RUNNER_TEMP/shard-content-manifests/$loc/$section.json"
             rm -rf "$src"
           }
