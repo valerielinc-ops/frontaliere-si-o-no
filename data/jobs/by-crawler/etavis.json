@@ -1,7 +1,7 @@
 {
   "crawlerKey": "etavis",
-  "assembledAt": "2026-11-05T21:53:57.344Z",
-  "runId": "42111558527",
+  "assembledAt": "2026-11-06T09:47:10.508Z",
+  "runId": "42194174376",
   "jobs": [
     {
       "id": "etavis-41691dd30a59",
@@ -34,7 +34,7 @@
       "url": "https://etavis.softgarden.io/job/64622908/Bauleitender-Monteur-Elektroinstallation-w-m-d-80%E2%80%93100-?jobDbPVId=287255737&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T21:53:49.132Z",
+      "crawledAt": "2026-11-06T09:47:01.588Z",
       "addressLocality": "Kloten",
       "postalCode": "8302",
       "streetAddress": "Frachtstrasse",
@@ -122,7 +122,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-08T21:53:49.132Z",
+      "validThrough": "2026-12-09T09:47:01.588Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -156,7 +156,7 @@
       "url": "https://etavis.softgarden.io/job/64588908/Lernende-Elektroinstallateure-EFZ-w-m-d-2027?jobDbPVId=287255802&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T21:53:48.075Z",
+      "crawledAt": "2026-11-06T09:47:00.816Z",
       "addressLocality": "Uetendorf",
       "postalCode": "3661",
       "streetAddress": "Gewerbestrasse 2",
@@ -212,7 +212,7 @@
         "streetAddressSource": "zefix-registry"
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-08T21:53:48.075Z",
+      "validThrough": "2026-12-09T09:47:00.816Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -246,7 +246,7 @@
       "url": "https://etavis.softgarden.io/job/52143564/Bauleitender-Monteur-w-m-d-80-100-?jobDbPVId=287255807&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T21:53:47.730Z",
+      "crawledAt": "2026-11-06T09:47:00.463Z",
       "addressLocality": "Uetendorf",
       "postalCode": "3661",
       "streetAddress": "Gewerbestrasse 2",
@@ -301,7 +301,7 @@
         "streetAddressSource": "zefix-registry"
       },
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-08T21:53:47.730Z",
+      "validThrough": "2026-12-09T09:47:00.463Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -335,7 +335,7 @@
       "url": "https://etavis.softgarden.io/job/52142914/Elektroinstallateur-w-m-d-80-100-?jobDbPVId=287255812&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T21:53:47.322Z",
+      "crawledAt": "2026-11-06T09:47:00.176Z",
       "addressLocality": "Uetendorf",
       "postalCode": "3661",
       "streetAddress": "Gewerbestrasse 2",
@@ -419,7 +419,7 @@
         "streetAddressSource": "zefix-registry"
       },
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-08T21:53:47.322Z",
+      "validThrough": "2026-12-09T09:47:00.176Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -453,7 +453,7 @@
       "url": "https://etavis.softgarden.io/job/64588878/Lernende-Montage-Elektriker-EFZ-w-m-d-2027?jobDbPVId=287255832&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T21:53:46.969Z",
+      "crawledAt": "2026-11-06T09:46:59.893Z",
       "addressLocality": "Uetendorf",
       "postalCode": "3661",
       "streetAddress": "Gewerbestrasse 2",
@@ -509,165 +509,7 @@
         "streetAddressSource": "zefix-registry"
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-08T21:53:46.969Z",
-      "validThroughSource": "last-observed-window"
-    },
-    {
-      "id": "etavis-e0594d46ef8a",
-      "slug": "apprendista-montage-elektriker-cfc-w-m-d-2026-etavis-jag-jakob-biel",
-      "slugByLocale": {
-        "it": "apprendista-montage-elektriker-cfc-w-m-d-2026-etavis-jag-jakob-biel",
-        "en": "apprentice-montage-elektriker-efz-w-m-d-2026-etavis-jag-jakob-biel",
-        "de": "lernende-montage-elektriker-efz-w-m-d-2026-etavis-biel",
-        "fr": "apprenti-e-montage-elektriker-efz-w-m-d-2026-etavis-jag-jakob-biel"
-      },
-      "company": "ETAVIS JAG JAKOB",
-      "companyKey": "etavis",
-      "companyDomain": "etavis.ch",
-      "title": "Lernende Montage-Elektriker EFZ (w/m/d) 2026",
-      "titleByLocale": {
-        "it": "Apprendista Montage-Elektriker CFC (w/m/d) 2026",
-        "en": "Apprentice Montage-Elektriker EFZ (w/m/d) 2026",
-        "de": "Lernende Montage-Elektriker EFZ (w/m/d) 2026",
-        "fr": "Apprenti/e Montage-Elektriker EFZ (w/m/d) 2026"
-      },
-      "description": "Deine Benefits bei ETAVIS\n• Schliesst du bald die Schule ab oder hast du sie bereits erfolgreich beendet?\n• Suchst du eine praktische Ausbildung mit wenig Theorie?\n• Interessierst du dich für Technik und bist handwerklich geschickt?\n• Hast du eine normale Farbsicht und arbeitest gerne an wechselnden Orten?\n• Arbeitest du gerne im Team und erreichst Ziele am liebsten gemeinsam? Dann bewirb dich jetzt um eine Lehrstelle als Montage-Elektriker:in EFZ bei ETAVIS! Für mehr Infos zum Lehrberuf klicke hier . Als attraktiver Lehrbetrieb bieten wir dir folgende Vorteile : 6 Wochen Ferien im 1. und 2. Lehrjahr, ein ÖV-Abo , das du auch in deiner Freizeit nutzen kannst, Beteiligung an den Kosten für deine Lernmittel , zusätzliche Schulungen sowie eine umfassende Vorbereitung auf das Qualifikationsverfahren und nicht zuletzt: ein cooles Team . Neugierig? Weitere Infos zu unseren Benefits und zu deiner Lehre bei ETAVIS findest du hier . Deine Bewerbung Werde Teil des ETAVIS-Teams und bewirke Grosses. Klicke auf \"Jetzt bewerben\" und sende mir über das Bewerbungsformular bitte die folgenden 4 Anhänge : Dein Bewerbungsschreiben , deinen Lebenslauf , deine Zeugnisse der Sekundarstufe I sowie deine Ergebnisse des Stellwerktests . Noch Fragen? Zögere nicht, mich über die unten angegebenen Kontaktmöglichkeiten zu erreichen. Falls ich telefonisch nicht sofort verfügbar bin, hinterlasse bitte eine Sprachnachricht, damit ich dich zurückrufen kann. Ich freue mich darauf, dich kennenzulernen!",
-      "descriptionByLocale": {
-        "it": "I tuoi vantaggi a ETAVIS\n• Hai finito la scuola presto o l'hai già completato con successo?\n• Stai cercando un'educazione pratica con poca teoria?\n• Sei interessato alla tecnologia e sei esperto nell'artigianato?\n• Hai una visione del colore normale e ti piace lavorare in luoghi mutevoli?\n• Ti piace lavorare in una squadra e raggiungere gli obiettivi insieme? Poi si applica per un apprendistato come elettricista di assemblaggio: in EFZ a ETAVIS! Per ulteriori informazioni sulla professione di insegnamento clicca qui. In qualità di azienda di insegnamento attraente, vi offriamo i seguenti vantaggi: 6 settimane di vacanze nel 1° e 2° anno di apprendistato, un abbonamento di trasporto pubblico che è possibile utilizzare anche nel vostro tempo libero, la partecipazione ai costi dei vostri strumenti di apprendimento, formazione aggiuntiva e una preparazione completa per il processo di qualificazione e, ultimo ma non meno importante: un team fresco. Curioso? Ulteriori informazioni sui nostri vantaggi e il vostro insegnamento a ETAVIS possono essere trovati qui . Diventa parte del team ETAVIS e fai una grande differenza. Clicca su \"Applica ora\" e inviami i seguenti 4 allegati tramite il modulo di richiesta: La tua lettera di candidatura, il tuo CV, i certificati di livello I secondario e i risultati del test di interlock. Ancora domande? Non esitate a contattarmi tramite le opzioni di contatto riportate di seguito. Se non sono immediatamente disponibile per telefono, si prega di lasciare un messaggio vocale in modo da poter richiamare. Non vedo l'ora di incontrarti!",
-        "en": "Your Benefits at ETAVIS\n• Are you finishing school soon or have you already completed it successfully?\n• Are you looking for a practical education with little theory?\n• Are you interested in technology and are skilled in craftsmanship?\n• Do you have a normal color vision and enjoy working in changing places?\n• Do you like to work in a team and achieve goals together? Then apply for an apprenticeship as an assembly electrician: in EFZ at ETAVIS! For more information about the teaching profession click here. As an attractive teaching company, we offer you the following advantages: 6 weeks of holidays in the 1st and 2nd year of apprenticeship, a public transport subscription that you can also use in your free time, participation in the costs of your learning tools, additional training as well as a comprehensive preparation for the qualification process and last but not least: a cool team. Curious? Further information about our benefits and your teaching at ETAVIS can be found here . Become part of the ETAVIS team and make a big difference. Click on \"Apply now\" and send me the following 4 attachments via the application form: Your application letter, your CV, your secondary level I certificates and your interlock test results. Still questions? Do not hesitate to reach me via the contact options given below. If I am not immediately available by phone, please leave a voice message so I can call you back. I look forward to meeting you!",
-        "de": "Deine Benefits bei ETAVIS\n• Schliesst du bald die Schule ab oder hast du sie bereits erfolgreich beendet?\n• Suchst du eine praktische Ausbildung mit wenig Theorie?\n• Interessierst du dich für Technik und bist handwerklich geschickt?\n• Hast du eine normale Farbsicht und arbeitest gerne an wechselnden Orten?\n• Arbeitest du gerne im Team und erreichst Ziele am liebsten gemeinsam? Dann bewirb dich jetzt um eine Lehrstelle als Montage-Elektriker:in EFZ bei ETAVIS! Für mehr Infos zum Lehrberuf klicke hier . Als attraktiver Lehrbetrieb bieten wir dir folgende Vorteile : 6 Wochen Ferien im 1. und 2. Lehrjahr, ein ÖV-Abo , das du auch in deiner Freizeit nutzen kannst, Beteiligung an den Kosten für deine Lernmittel , zusätzliche Schulungen sowie eine umfassende Vorbereitung auf das Qualifikationsverfahren und nicht zuletzt: ein cooles Team . Neugierig? Weitere Infos zu unseren Benefits und zu deiner Lehre bei ETAVIS findest du hier . Deine Bewerbung Werde Teil des ETAVIS-Teams und bewirke Grosses. Klicke auf \"Jetzt bewerben\" und sende mir über das Bewerbungsformular bitte die folgenden 4 Anhänge : Dein Bewerbungsschreiben , deinen Lebenslauf , deine Zeugnisse der Sekundarstufe I sowie deine Ergebnisse des Stellwerktests . Noch Fragen? Zögere nicht, mich über die unten angegebenen Kontaktmöglichkeiten zu erreichen. Falls ich telefonisch nicht sofort verfügbar bin, hinterlasse bitte eine Sprachnachricht, damit ich dich zurückrufen kann. Ich freue mich darauf, dich kennenzulernen!",
-        "fr": "Vos avantages chez ETAVIS\n• Avez-vous bientôt terminé l'école ou avez-vous déjà terminé avec succès?\n• Vous cherchez une éducation pratique avec peu de théorie ?\n• Êtes-vous intéressé par la technologie et êtes-vous qualifié en artisanat?\n• Avez-vous une vision de couleur normale et aimez-vous travailler dans des endroits changeants?\n• Vous aimez travailler en équipe et atteindre des objectifs ensemble ? Faites ensuite une demande d'apprentissage en tant qu'électricien d'assemblage : en EFZ à ETAVIS ! Pour plus d'informations sur la profession enseignante, cliquez ici. En tant qu'entreprise enseignante attractive, nous vous offrons les avantages suivants : 6 semaines de vacances en 1ère et 2ème année d'apprentissage, un abonnement de transport en commun que vous pouvez également utiliser dans votre temps libre, participation aux coûts de vos outils d'apprentissage, formation supplémentaire ainsi qu'une préparation complète au processus de qualification et enfin, une équipe cool. Curieux ? Plus d'informations sur nos avantages et votre enseignement à ETAVIS sont disponibles ici . Devenez membre de l'équipe ETAVIS et faites une grande différence. Cliquez sur \"Appliquer maintenant\" et envoyez-moi les 4 pièces jointes suivantes via le formulaire de demande: Votre lettre de candidature, votre CV, vos certificats de niveau secondaire I et les résultats de vos tests de verrouillage. Toujours des questions ? N'hésitez pas à me joindre via les options de contact indiquées ci-dessous. Si je ne suis pas immédiatement disponible par téléphone, laissez un message vocal pour que je puisse vous rappeler. J'ai hâte de vous rencontrer !"
-      },
-      "location": "Biel",
-      "canton": "BE",
-      "url": "https://etavis.softgarden.io/job/51169703/Lernende-Montage-Elektriker-EFZ-w-m-d-2026?jobDbPVId=287255837&l=de",
-      "source": "ETAVIS Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-05T21:53:46.581Z",
-      "addressLocality": "Biel",
-      "postalCode": "2504",
-      "streetAddress": "Mohnweg 5",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Apprendistato",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Impiantistica elettrica",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-09-09T15:39:55.335+02:00",
-      "postedDate": "2026-09-09T15:39:55.335+02:00",
-      "postingDateSource": "reported",
-      "applyUrl": "https://etavis.softgarden.io/job/51169703/Lernende-Montage-Elektriker-EFZ-w-m-d-2026?jobDbPVId=287255837&l=de",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "jobCategory": "Berufslehre",
-      "previousSlugs": [
-        "lernende-montage-elektriker-efz-w-m-d-2026-etavis-biel"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "lernende-montage-elektriker-efz-w-m-d-2026-etavis-biel"
-        ]
-      },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-07-04T10:51:46.529Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-08T21:53:46.581Z",
-      "validThroughSource": "last-observed-window"
-    },
-    {
-      "id": "etavis-5bb37450d607",
-      "slug": "apprendista-elektroinstallateure-cfc-w-m-d-2026-etavis-jag-jakob-biel",
-      "slugByLocale": {
-        "it": "apprendista-elektroinstallateure-cfc-w-m-d-2026-etavis-jag-jakob-biel",
-        "en": "apprentice-elektroinstallateure-efz-w-m-d-2026-etavis-jag-jakob-biel",
-        "de": "lernende-elektroinstallateure-efz-w-m-d-2026-etavis-biel",
-        "fr": "apprenti-e-elektroinstallateure-efz-w-m-d-2026-etavis-jag-jakob-biel"
-      },
-      "company": "ETAVIS JAG JAKOB",
-      "companyKey": "etavis",
-      "companyDomain": "etavis.ch",
-      "title": "Lernende Elektroinstallateure EFZ (w/m/d) 2026",
-      "titleByLocale": {
-        "it": "Apprendista Elektroinstallateure CFC (w/m/d) 2026",
-        "en": "Apprentice Elektroinstallateure EFZ (w/m/d) 2026",
-        "de": "Lernende Elektroinstallateure EFZ (w/m/d) 2026",
-        "fr": "Apprenti/e Elektroinstallateure EFZ (w/m/d) 2026"
-      },
-      "description": "Deine Benefits bei ETAVIS\n• Schliesst du bald die Schule ab oder hast du sie bereits erfolgreich beendet?\n• Bist du gut in Geometrie, Mathematik und Physik sowie an Technik interessiert?\n• Bist du handwerklich geschickt, erkennst alle Farben richtig und arbeitest gerne an verschiedenen Orten?\n• Arbeitest du gerne im Team, erreichst Ziele gemeinsam und trittst gerne mit Menschen in Kontakt? Dann bewirb dich jetzt um eine Lehrstelle als Elektroinstallateur:in EFZ bei ETAVIS! Für mehr Infos zum Lehrberuf klicke hier . Als attraktiver Lehrbetrieb bieten wir dir folgende Vorteile : 6 Wochen Ferien im 1. und 2. Lehrjahr, ein ÖV-Abo , das du auch in deiner Freizeit nutzen kannst, Beteiligung an den Kosten für deine Lernmittel , zusätzliche Schulungen sowie eine umfassende Vorbereitung auf das Qualifikationsverfahren und nicht zuletzt: ein cooles Team . Neugierig? Weitere Infos zu unseren Benefits und zu deiner Lehre bei ETAVIS findest du hier . Deine Bewerbung Werde Teil des ETAVIS-Teams und bewirke Grosses. Klicke auf \"Jetzt bewerben\" und sende mir über das Bewerbungsformular bitte die folgenden 4 Anhänge : Dein Bewerbungsschreiben , deinen Lebenslauf , deine Zeugnisse der Sekundarstufe I sowie deine Ergebnisse des Stellwerktests . Noch Fragen? Zögere nicht, mich über die unten angegebenen Kontaktmöglichkeiten zu erreichen. Falls ich telefonisch nicht sofort verfügbar bin, hinterlasse bitte eine Sprachnachricht, damit ich dich zurückrufen kann. Ich freue mich darauf, dich kennenzulernen!",
-      "descriptionByLocale": {
-        "it": "I tuoi vantaggi a ETAVIS\n• Hai finito la scuola presto o l'hai già completato con successo?\n• Sei bravo a geometria, matematica e fisica e tecnologia?\n• Siete abili, riconoscere tutti i colori correttamente e piace lavorare in luoghi diversi?\n• Ti piace lavorare in una squadra, raggiungere gli obiettivi insieme e mettersi in contatto con le persone? Poi si applica per un apprendistato come installatore elettrico: in EFZ a ETAVIS! Per ulteriori informazioni sulla professione di insegnamento clicca qui. In qualità di azienda di insegnamento attraente, vi offriamo i seguenti vantaggi: 6 settimane di vacanze nel 1° e 2° anno di apprendistato, un abbonamento di trasporto pubblico che è possibile utilizzare anche nel vostro tempo libero, la partecipazione ai costi dei vostri strumenti di apprendimento, formazione aggiuntiva e una preparazione completa per il processo di qualificazione e, ultimo ma non meno importante: un team fresco. Curioso? Ulteriori informazioni sui nostri vantaggi e il vostro insegnamento a ETAVIS possono essere trovati qui . Diventa parte del team ETAVIS e fai una grande differenza. Clicca su \"Applica ora\" e inviami i seguenti 4 allegati tramite il modulo di richiesta: La tua lettera di candidatura, il tuo CV, i certificati di livello I secondario e i risultati del test di interlock. Ancora domande? Non esitate a contattarmi tramite le opzioni di contatto riportate di seguito. Se non sono immediatamente disponibile per telefono, si prega di lasciare un messaggio vocale in modo da poter richiamare. Non vedo l'ora di incontrarti!",
-        "en": "Your Benefits at ETAVIS\n• Are you finishing school soon or have you already completed it successfully?\n• Are you good at geometry, mathematics and physics as well as technology?\n• Are you skilled, recognize all colors correctly and like to work in different places?\n• Do you like to work in a team, achieve goals together and get in touch with people? Then apply for an apprenticeship as an electrical installer: in EFZ at ETAVIS! For more information about the teaching profession click here. As an attractive teaching company, we offer you the following advantages: 6 weeks of holidays in the 1st and 2nd year of apprenticeship, a public transport subscription that you can also use in your free time, participation in the costs of your learning tools, additional training as well as a comprehensive preparation for the qualification process and last but not least: a cool team. Curious? Further information about our benefits and your teaching at ETAVIS can be found here . Become part of the ETAVIS team and make a big difference. Click on \"Apply now\" and send me the following 4 attachments via the application form: Your application letter, your CV, your secondary level I certificates and your interlock test results. Still questions? Do not hesitate to reach me via the contact options given below. If I am not immediately available by phone, please leave a voice message so I can call you back. I look forward to meeting you!",
-        "de": "Deine Benefits bei ETAVIS\n• Schliesst du bald die Schule ab oder hast du sie bereits erfolgreich beendet?\n• Bist du gut in Geometrie, Mathematik und Physik sowie an Technik interessiert?\n• Bist du handwerklich geschickt, erkennst alle Farben richtig und arbeitest gerne an verschiedenen Orten?\n• Arbeitest du gerne im Team, erreichst Ziele gemeinsam und trittst gerne mit Menschen in Kontakt? Dann bewirb dich jetzt um eine Lehrstelle als Elektroinstallateur:in EFZ bei ETAVIS! Für mehr Infos zum Lehrberuf klicke hier . Als attraktiver Lehrbetrieb bieten wir dir folgende Vorteile : 6 Wochen Ferien im 1. und 2. Lehrjahr, ein ÖV-Abo , das du auch in deiner Freizeit nutzen kannst, Beteiligung an den Kosten für deine Lernmittel , zusätzliche Schulungen sowie eine umfassende Vorbereitung auf das Qualifikationsverfahren und nicht zuletzt: ein cooles Team . Neugierig? Weitere Infos zu unseren Benefits und zu deiner Lehre bei ETAVIS findest du hier . Deine Bewerbung Werde Teil des ETAVIS-Teams und bewirke Grosses. Klicke auf \"Jetzt bewerben\" und sende mir über das Bewerbungsformular bitte die folgenden 4 Anhänge : Dein Bewerbungsschreiben , deinen Lebenslauf , deine Zeugnisse der Sekundarstufe I sowie deine Ergebnisse des Stellwerktests . Noch Fragen? Zögere nicht, mich über die unten angegebenen Kontaktmöglichkeiten zu erreichen. Falls ich telefonisch nicht sofort verfügbar bin, hinterlasse bitte eine Sprachnachricht, damit ich dich zurückrufen kann. Ich freue mich darauf, dich kennenzulernen!",
-        "fr": "Vos avantages chez ETAVIS\n• Avez-vous bientôt terminé l'école ou avez-vous déjà terminé avec succès?\n• Êtes-vous bon en géométrie, mathématiques et physique ainsi que la technologie?\n• Êtes-vous habile, reconnaissez-vous toutes les couleurs correctement et aimez-vous travailler dans différents endroits?\n• Vous aimez travailler en équipe, atteindre des objectifs ensemble et entrer en contact avec les gens? Faites ensuite une demande d'apprentissage en tant qu'installateur électrique: en EFZ à ETAVIS! Pour plus d'informations sur la profession enseignante, cliquez ici. En tant qu'entreprise enseignante attractive, nous vous offrons les avantages suivants : 6 semaines de vacances en 1ère et 2ème année d'apprentissage, un abonnement de transport en commun que vous pouvez également utiliser dans votre temps libre, participation aux coûts de vos outils d'apprentissage, formation supplémentaire ainsi qu'une préparation complète au processus de qualification et enfin, une équipe cool. Curieux ? Plus d'informations sur nos avantages et votre enseignement à ETAVIS sont disponibles ici . Devenez membre de l'équipe ETAVIS et faites une grande différence. Cliquez sur \"Appliquer maintenant\" et envoyez-moi les 4 pièces jointes suivantes via le formulaire de demande: Votre lettre de candidature, votre CV, vos certificats de niveau secondaire I et les résultats de vos tests de verrouillage. Toujours des questions ? N'hésitez pas à me joindre via les options de contact indiquées ci-dessous. Si je ne suis pas immédiatement disponible par téléphone, laissez un message vocal pour que je puisse vous rappeler. J'ai hâte de vous rencontrer !"
-      },
-      "location": "Biel",
-      "canton": "BE",
-      "url": "https://etavis.softgarden.io/job/51169698/Lernende-Elektroinstallateure-EFZ-w-m-d-2026?jobDbPVId=287255842&l=de",
-      "source": "ETAVIS Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-05T21:53:46.102Z",
-      "addressLocality": "Biel",
-      "postalCode": "2504",
-      "streetAddress": "Mohnweg 5",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Apprendistato",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Impiantistica elettrica",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-09-09T15:39:56.469+02:00",
-      "postedDate": "2026-09-09T15:39:56.469+02:00",
-      "postingDateSource": "reported",
-      "applyUrl": "https://etavis.softgarden.io/job/51169698/Lernende-Elektroinstallateure-EFZ-w-m-d-2026?jobDbPVId=287255842&l=de",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "jobCategory": "Berufslehre",
-      "previousSlugs": [
-        "lernende-elektroinstallateure-efz-w-m-d-2026-etavis-biel"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "lernende-elektroinstallateure-efz-w-m-d-2026-etavis-biel"
-        ]
-      },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-07-04T10:51:46.225Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-08T21:53:46.102Z",
+      "validThrough": "2026-12-09T09:46:59.893Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -701,7 +543,7 @@
       "url": "https://etavis.softgarden.io/job/58904663/Service-Techniker-w-m-d-80%E2%80%93100-am-Standort-Liestal?jobDbPVId=287255852&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T21:53:45.745Z",
+      "crawledAt": "2026-11-06T09:46:59.592Z",
       "addressLocality": "Liestal",
       "postalCode": "4410",
       "streetAddress": "Rheinstrasse 16",
@@ -745,7 +587,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-08T21:53:45.745Z",
+      "validThrough": "2026-12-09T09:46:59.592Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -779,7 +621,7 @@
       "url": "https://etavis.softgarden.io/job/64623718/Lernende-Montage-Elektriker-EFZ-w-m-d-2027?jobDbPVId=287255902&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T21:53:45.389Z",
+      "crawledAt": "2026-11-06T09:46:59.312Z",
       "addressLocality": "Wohlen bei Bern",
       "postalCode": "3033",
       "streetAddress": "Kappelenring 69",
@@ -824,7 +666,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-08T21:53:45.389Z",
+      "validThrough": "2026-12-09T09:46:59.312Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -858,7 +700,7 @@
       "url": "https://etavis.softgarden.io/job/64623753/Lernende-Elektroinstallateure-EFZ-w-m-d-2027?jobDbPVId=287255917&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T21:53:44.892Z",
+      "crawledAt": "2026-11-06T09:46:59.031Z",
       "addressLocality": "Wohlen bei Bern",
       "postalCode": "3033",
       "streetAddress": "Kappelenring 69",
@@ -905,7 +747,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-08T21:53:44.892Z",
+      "validThrough": "2026-12-09T09:46:59.031Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -939,7 +781,7 @@
       "url": "https://etavis.softgarden.io/job/65160773/Projektleiter-Junior-Projektleiter-Elektroinstallation-w-m-d-80%E2%80%93100-?jobDbPVId=287360077&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T21:53:44.537Z",
+      "crawledAt": "2026-11-06T09:46:58.743Z",
       "addressLocality": "Winterthur",
       "postalCode": "8400",
       "streetAddress": "Im Hölderli 26",
@@ -1020,7 +862,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-09T21:53:44.537Z",
+      "validThrough": "2026-12-10T09:46:58.743Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1054,7 +896,7 @@
       "url": "https://etavis.softgarden.io/job/64633753/Servicemonteur-w-m-d-80%E2%80%93100-?jobDbPVId=287360102&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T21:53:44.182Z",
+      "crawledAt": "2026-11-06T09:46:58.456Z",
       "addressLocality": "Uetendorf",
       "postalCode": "3661",
       "streetAddress": "Gewerbestrasse 2",
@@ -1115,7 +957,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-09T21:53:44.182Z",
+      "validThrough": "2026-12-10T09:46:58.456Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1149,7 +991,7 @@
       "url": "https://etavis.softgarden.io/job/68046702/Capo-progetto-infrastruttura-f-m-d-80-100-?jobDbPVId=287486482&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-11-05T21:53:43.659Z",
+      "crawledAt": "2026-11-06T09:46:58.125Z",
       "addressLocality": "Lugano",
       "postalCode": "6900",
       "streetAddress": "Via Giovanni Maraini 19",
@@ -1185,7 +1027,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-10T21:53:43.659Z",
+      "validThrough": "2027-01-11T09:46:58.125Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1219,7 +1061,7 @@
       "url": "https://etavis.softgarden.io/job/64672289/Projektleiter-Elektroinstallation-w-m-d-80%E2%80%93100-?jobDbPVId=287684201&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T21:53:43.289Z",
+      "crawledAt": "2026-11-06T09:46:57.837Z",
       "addressLocality": "Kloten",
       "postalCode": "8302",
       "streetAddress": "Frachtstrasse",
@@ -1265,7 +1107,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-12T21:53:43.289Z",
+      "validThrough": "2026-12-13T09:46:57.837Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1299,7 +1141,7 @@
       "url": "https://etavis.softgarden.io/job/51182698/Lernende-Elektroinstallateure-EFZ-w-m-d-?jobDbPVId=287684216&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T21:53:42.928Z",
+      "crawledAt": "2026-11-06T09:46:57.556Z",
       "addressLocality": "Muttenz",
       "postalCode": "4132",
       "streetAddress": "Sankt Jakob-Strasse 40",
@@ -1344,7 +1186,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-12T21:53:42.928Z",
+      "validThrough": "2026-12-13T09:46:57.556Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1378,7 +1220,7 @@
       "url": "https://etavis.softgarden.io/job/51571593/Lernende-Montage-Elektriker-EFZ-w-m-d-?jobDbPVId=287684221&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T21:53:42.422Z",
+      "crawledAt": "2026-11-06T09:46:57.275Z",
       "addressLocality": "Liestal",
       "postalCode": "4410",
       "streetAddress": "Rheinstrasse 16",
@@ -1423,7 +1265,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-12T21:53:42.422Z",
+      "validThrough": "2026-12-13T09:46:57.275Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1457,7 +1299,7 @@
       "url": "https://etavis.softgarden.io/job/51193313/Lernende-Montage-Elektriker-EFZ-w-m-d-?jobDbPVId=287684226&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T21:53:42.055Z",
+      "crawledAt": "2026-11-06T09:46:56.994Z",
       "addressLocality": "Muttenz",
       "postalCode": "4132",
       "streetAddress": "Sankt Jakob-Strasse 40",
@@ -1502,7 +1344,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-12T21:53:42.055Z",
+      "validThrough": "2026-12-13T09:46:56.994Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1536,7 +1378,7 @@
       "url": "https://etavis.softgarden.io/job/51183473/Lernende-Elektroinstallateure-EFZ-w-m-d-?jobDbPVId=287684236&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T21:53:41.692Z",
+      "crawledAt": "2026-11-06T09:46:56.714Z",
       "addressLocality": "Liestal",
       "postalCode": "4410",
       "streetAddress": "Rheinstrasse 16",
@@ -1581,7 +1423,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-12T21:53:41.692Z",
+      "validThrough": "2026-12-13T09:46:56.714Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1615,7 +1457,7 @@
       "url": "https://etavis.softgarden.io/job/51190623/Lernende-Elektroinstallateure-EFZ-w-m-d-?jobDbPVId=287684241&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T21:53:40.079Z",
+      "crawledAt": "2026-11-06T09:46:56.428Z",
       "addressLocality": "Basel",
       "postalCode": "4001",
       "streetAddress": "Wien-Strasse 2",
@@ -1660,7 +1502,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-12T21:53:40.079Z",
+      "validThrough": "2026-12-13T09:46:56.428Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1694,7 +1536,7 @@
       "url": "https://etavis.softgarden.io/job/51190918/Lernende-Montage-Elektriker-EFZ-w-m-d-?jobDbPVId=287684246&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T21:53:39.659Z",
+      "crawledAt": "2026-11-06T09:46:56.130Z",
       "addressLocality": "Basel",
       "postalCode": "4001",
       "streetAddress": "Wien-Strasse 2",
@@ -1739,7 +1581,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-12T21:53:39.659Z",
+      "validThrough": "2026-12-13T09:46:56.130Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1773,7 +1615,7 @@
       "url": "https://etavis.softgarden.io/job/51191343/Lernende-Automatiker-EFZ-w-m-d-?jobDbPVId=287684251&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T21:53:38.736Z",
+      "crawledAt": "2026-11-06T09:46:55.850Z",
       "addressLocality": "Basel",
       "postalCode": "4001",
       "streetAddress": "Wien-Strasse 2",
@@ -1818,7 +1660,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-12T21:53:38.736Z",
+      "validThrough": "2026-12-13T09:46:55.850Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1852,7 +1694,7 @@
       "url": "https://etavis.softgarden.io/job/51190973/Lernende-Automatikmonteure-EFZ-w-m-d-?jobDbPVId=287684266&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T21:53:38.382Z",
+      "crawledAt": "2026-11-06T09:46:55.565Z",
       "addressLocality": "Basel",
       "postalCode": "4001",
       "streetAddress": "Wien-Strasse 2",
@@ -1897,7 +1739,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-12T21:53:38.382Z",
+      "validThrough": "2026-12-13T09:46:55.565Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1931,7 +1773,7 @@
       "url": "https://etavis.softgarden.io/job/64698524/Bauleitender-Monteur-Elektroinstallation-w-m-d-80%E2%80%93100-?jobDbPVId=287934936&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T21:53:37.954Z",
+      "crawledAt": "2026-11-06T09:46:55.284Z",
       "addressLocality": "Neuhausen am Rheinfall",
       "postalCode": "8212",
       "streetAddress": "Schaffhauserstrasse 15",
@@ -2018,7 +1860,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-14T21:53:37.954Z",
+      "validThrough": "2026-12-15T09:46:55.284Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2052,7 +1894,7 @@
       "url": "https://etavis.softgarden.io/job/64698834/Teamleiter-Gruppenleiter-w-m-d-80%E2%80%93100-?jobDbPVId=287934941&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T21:53:37.111Z",
+      "crawledAt": "2026-11-06T09:46:55.006Z",
       "addressLocality": "Neuhausen am Rheinfall",
       "postalCode": "8212",
       "streetAddress": "Schaffhauserstrasse 15",
@@ -2096,7 +1938,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-14T21:53:37.111Z",
+      "validThrough": "2026-12-15T09:46:55.006Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2130,7 +1972,7 @@
       "url": "https://etavis.softgarden.io/job/64692079/Projektleiter-Elektroinstallation-w-m-d-80-100-?jobDbPVId=287934966&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T21:53:36.733Z",
+      "crawledAt": "2026-11-06T09:46:54.721Z",
       "addressLocality": "Zürich",
       "postalCode": "8001",
       "streetAddress": "Technoparkstrasse 1",
@@ -2176,7 +2018,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-14T21:53:36.733Z",
+      "validThrough": "2026-12-15T09:46:54.721Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2210,7 +2052,7 @@
       "url": "https://etavis.softgarden.io/job/64677789/Servicemonteur-Elektroinstallateur-EFZ-w-m-d-80%E2%80%93100-?jobDbPVId=287934976&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T21:53:36.267Z",
+      "crawledAt": "2026-11-06T09:46:54.435Z",
       "addressLocality": "Uster",
       "postalCode": "8610",
       "streetAddress": "Winterthurerstrasse 35",
@@ -2288,7 +2130,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-14T21:53:36.267Z",
+      "validThrough": "2026-12-15T09:46:54.435Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2322,7 +2164,7 @@
       "url": "https://etavis.softgarden.io/job/64691379/Bauleitender-Monteur-Elektroinstallation-w-m-d-80-100-?jobDbPVId=287934991&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T21:53:35.597Z",
+      "crawledAt": "2026-11-06T09:46:54.150Z",
       "addressLocality": "Zürich",
       "postalCode": "8001",
       "streetAddress": "Technoparkstrasse 1",
@@ -2409,7 +2251,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-14T21:53:35.597Z",
+      "validThrough": "2026-12-15T09:46:54.150Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2443,7 +2285,7 @@
       "url": "https://etavis.softgarden.io/job/64690859/Elektroinstallateur-w-m-d-80-100-?jobDbPVId=287935011&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T21:53:35.245Z",
+      "crawledAt": "2026-11-06T09:46:53.832Z",
       "addressLocality": "Zürich",
       "postalCode": "8001",
       "streetAddress": "Technoparkstrasse 1",
@@ -2515,7 +2357,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-14T21:53:35.245Z",
+      "validThrough": "2026-12-15T09:46:53.832Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2549,7 +2391,7 @@
       "url": "https://etavis.softgarden.io/job/64691444/Bauleitender-Monteur-Elektroinstallation-w-m-d-80-100-?jobDbPVId=287935026&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T21:53:34.878Z",
+      "crawledAt": "2026-11-06T09:46:53.526Z",
       "addressLocality": "Baden",
       "postalCode": "5400",
       "streetAddress": "Kehlstrasse 61B",
@@ -2625,7 +2467,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-14T21:53:34.878Z",
+      "validThrough": "2026-12-15T09:46:53.526Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2659,7 +2501,7 @@
       "url": "https://etavis.softgarden.io/job/64690814/Elektroinstallateur-w-m-d-80-100-?jobDbPVId=287935051&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T21:53:34.321Z",
+      "crawledAt": "2026-11-06T09:46:53.246Z",
       "addressLocality": "Baden",
       "postalCode": "5400",
       "streetAddress": "Kehlstrasse 61B",
@@ -2719,7 +2561,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-14T21:53:34.321Z",
+      "validThrough": "2026-12-15T09:46:53.246Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2753,7 +2595,7 @@
       "url": "https://etavis.softgarden.io/job/64692879/Servicemonteur-w-m-d-80-100-?jobDbPVId=287935066&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T21:53:33.952Z",
+      "crawledAt": "2026-11-06T09:46:52.969Z",
       "addressLocality": "Oftringen",
       "postalCode": "4665",
       "streetAddress": "Gärtnereiweg 4b",
@@ -2797,7 +2639,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-14T21:53:33.952Z",
+      "validThrough": "2026-12-15T09:46:52.969Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2831,7 +2673,7 @@
       "url": "https://etavis.softgarden.io/job/64690639/Elektroinstallateur-w-m-d-80-100-?jobDbPVId=287935086&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T21:53:33.597Z",
+      "crawledAt": "2026-11-06T09:46:52.349Z",
       "addressLocality": "Oftringen",
       "postalCode": "4665",
       "streetAddress": "Gärtnereiweg 4b",
@@ -2899,7 +2741,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-14T21:53:33.597Z",
+      "validThrough": "2026-12-15T09:46:52.349Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2933,7 +2775,7 @@
       "url": "https://etavis.softgarden.io/job/65309486/Projektleiter-Elektroinstallation-w-m-d-80%E2%80%93100-?jobDbPVId=287935106&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T21:53:32.962Z",
+      "crawledAt": "2026-11-06T09:46:52.069Z",
       "addressLocality": "Liestal",
       "postalCode": "4410",
       "streetAddress": "Rheinstrasse 16",
@@ -2979,7 +2821,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-14T21:53:32.962Z",
+      "validThrough": "2026-12-15T09:46:52.069Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3013,7 +2855,7 @@
       "url": "https://etavis.softgarden.io/job/59896845/Kalkulator-Schaltanlagenbau-w-m-d-80-100-?jobDbPVId=287935126&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T21:53:32.607Z",
+      "crawledAt": "2026-11-06T09:46:51.785Z",
       "addressLocality": "Basel",
       "postalCode": "4001",
       "streetAddress": "Wien-Strasse 2",
@@ -3057,7 +2899,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-14T21:53:32.607Z",
+      "validThrough": "2026-12-15T09:46:51.785Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3091,7 +2933,7 @@
       "url": "https://etavis.softgarden.io/job/51183648/Lernende-Montage-Elektriker-EFZ-w-m-d-?jobDbPVId=287999501&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T21:53:32.250Z",
+      "crawledAt": "2026-11-06T09:46:51.507Z",
       "addressLocality": "Baden",
       "postalCode": "5400",
       "streetAddress": "Kehlstrasse 61b",
@@ -3136,7 +2978,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-16T21:53:32.250Z",
+      "validThrough": "2026-12-17T09:46:51.507Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3170,7 +3012,7 @@
       "url": "https://etavis.softgarden.io/job/51186998/Lernende-Elektroinstallateure-EFZ-w-m-d-?jobDbPVId=287999506&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T21:53:31.791Z",
+      "crawledAt": "2026-11-06T09:46:51.009Z",
       "addressLocality": "Zürich",
       "postalCode": "8001",
       "streetAddress": "Technoparkstrasse 1",
@@ -3215,7 +3057,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-16T21:53:31.791Z",
+      "validThrough": "2026-12-17T09:46:51.009Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3249,7 +3091,7 @@
       "url": "https://etavis.softgarden.io/job/51183483/Lernende-Elektroinstallateure-EFZ-w-m-d-?jobDbPVId=287999516&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T21:53:31.434Z",
+      "crawledAt": "2026-11-06T09:46:50.721Z",
       "addressLocality": "Baden",
       "postalCode": "5400",
       "streetAddress": "Kehlstrasse 61b",
@@ -3294,7 +3136,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-16T21:53:31.434Z",
+      "validThrough": "2026-12-17T09:46:50.721Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3328,7 +3170,7 @@
       "url": "https://etavis.softgarden.io/job/51187003/Lernende-Montage-Elektriker-EFZ-w-m-d-?jobDbPVId=287999521&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T21:53:31.081Z",
+      "crawledAt": "2026-11-06T09:46:50.436Z",
       "addressLocality": "Zürich",
       "postalCode": "8001",
       "streetAddress": "Technoparkstrasse 1",
@@ -3373,7 +3215,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-16T21:53:31.081Z",
+      "validThrough": "2026-12-17T09:46:50.436Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3407,7 +3249,7 @@
       "url": "https://etavis.softgarden.io/job/51184078/Lernende-Elektroinstallateure-EFZ-w-m-d-?jobDbPVId=287999526&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T21:53:30.642Z",
+      "crawledAt": "2026-11-06T09:46:50.023Z",
       "addressLocality": "Oftringen",
       "postalCode": "4665",
       "streetAddress": "Gärtnereiweg 4b",
@@ -3452,7 +3294,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-16T21:53:30.642Z",
+      "validThrough": "2026-12-17T09:46:50.023Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3486,7 +3328,7 @@
       "url": "https://etavis.softgarden.io/job/68275271/Sachbearbeiter-Kreditoren-w-m-d-100-?jobDbPVId=288440231&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T21:53:30.288Z",
+      "crawledAt": "2026-11-06T09:46:49.718Z",
       "addressLocality": "Zürich",
       "postalCode": "8001",
       "streetAddress": "Pfingstweidstrasse 106",
@@ -3536,7 +3378,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-20T21:53:30.288Z",
+      "validThrough": "2027-01-21T09:46:49.718Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3570,7 +3412,7 @@
       "url": "https://etavis.softgarden.io/job/56797623/Bauleitender-Monteur-w-m-d-80-100-?jobDbPVId=288489686&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T21:53:29.928Z",
+      "crawledAt": "2026-11-06T09:46:49.436Z",
       "addressLocality": "Biel",
       "postalCode": "2504",
       "streetAddress": "Mohnweg 5",
@@ -3614,7 +3456,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-20T21:53:29.928Z",
+      "validThrough": "2026-12-21T09:46:49.436Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3648,7 +3490,7 @@
       "url": "https://etavis.softgarden.io/job/56797408/Elektroinstallateur-Industrie-Umgebung-Biel-sowie-Solothurn-w-m-d-80-100-?jobDbPVId=288489706&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T21:53:29.570Z",
+      "crawledAt": "2026-11-06T09:46:49.153Z",
       "addressLocality": "Biel",
       "postalCode": "2501",
       "streetAddress": "-",
@@ -3732,7 +3574,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-20T21:53:29.570Z",
+      "validThrough": "2026-12-21T09:46:49.153Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3766,7 +3608,7 @@
       "url": "https://etavis.softgarden.io/job/40351407/Elektroplaner-w-m-d-80%E2%80%93100-?jobDbPVId=288489721&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T21:53:29.217Z",
+      "crawledAt": "2026-11-06T09:46:48.867Z",
       "addressLocality": "Basel",
       "postalCode": "4001",
       "streetAddress": "Wien-Strasse 2",
@@ -3810,7 +3652,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-20T21:53:29.217Z",
+      "validThrough": "2026-12-21T09:46:48.867Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3844,7 +3686,7 @@
       "url": "https://etavis.softgarden.io/job/31805316/Projektleiter-Elektroinstallation-w-m-d-80%E2%80%93100-?jobDbPVId=288489736&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T21:53:28.867Z",
+      "crawledAt": "2026-11-06T09:46:48.588Z",
       "addressLocality": "Basel",
       "postalCode": "4001",
       "streetAddress": "Wien-Strasse 2",
@@ -3890,7 +3732,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-20T21:53:28.867Z",
+      "validThrough": "2026-12-21T09:46:48.588Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3924,7 +3766,7 @@
       "url": "https://etavis.softgarden.io/job/66883765/Planificateur-%C3%A9lectricien?jobDbPVId=288489771&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-05T21:53:28.513Z",
+      "crawledAt": "2026-11-06T09:46:48.304Z",
       "addressLocality": "Renens",
       "postalCode": "1020",
       "streetAddress": "Rue du Caudray 6",
@@ -3968,7 +3810,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-20T21:53:28.513Z",
+      "validThrough": "2026-12-21T09:46:48.304Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4002,7 +3844,7 @@
       "url": "https://etavis.softgarden.io/job/62056279/ICT-Systemtechniker-IPTV-Multimedia-HF-Netzwerk-w-m-d-80-100-?jobDbPVId=288489791&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T21:53:28.148Z",
+      "crawledAt": "2026-11-06T09:46:48.021Z",
       "addressLocality": "Basel",
       "postalCode": "4001",
       "streetAddress": "-",
@@ -4046,7 +3888,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-20T21:53:28.148Z",
+      "validThrough": "2026-12-21T09:46:48.021Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4080,7 +3922,7 @@
       "url": "https://etavis.softgarden.io/job/56776563/Elektroinstallateur-w-m-d-80%E2%80%93100-?jobDbPVId=288489811&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T21:53:27.791Z",
+      "crawledAt": "2026-11-06T09:46:47.681Z",
       "addressLocality": "Wohlen bei Bern",
       "postalCode": "3033",
       "streetAddress": "Kappelenring 69",
@@ -4160,7 +4002,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-20T21:53:27.791Z",
+      "validThrough": "2026-12-21T09:46:47.681Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4194,7 +4036,7 @@
       "url": "https://etavis.softgarden.io/job/67598172/Elektroinstallateur-EFZ-Infrastruktur-Projekte-w-m-d-80-100-?jobDbPVId=288622093&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T21:53:27.368Z",
+      "crawledAt": "2026-11-06T09:46:47.401Z",
       "addressLocality": "Zürich",
       "postalCode": "8001",
       "streetAddress": "Schaffhauserstrasse 611",
@@ -4240,7 +4082,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-22T21:53:27.368Z",
+      "validThrough": "2026-12-22T09:46:47.401Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4274,7 +4116,7 @@
       "url": "https://etavis.softgarden.io/job/65550956/Elektroinstallateur-w-m-d-80%E2%80%93100-?jobDbPVId=288799008&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T21:53:27.008Z",
+      "crawledAt": "2026-11-06T09:46:47.116Z",
       "addressLocality": "Frick",
       "postalCode": "5070",
       "streetAddress": "Bahnhofplatz 1",
@@ -4339,7 +4181,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-25T21:53:27.008Z",
+      "validThrough": "2026-12-26T09:46:47.116Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4373,7 +4215,7 @@
       "url": "https://etavis.softgarden.io/job/64736116/Montatrice-tore-di-servizio-f-m-d-80-100-?jobDbPVId=289115778&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-11-05T21:53:26.651Z",
+      "crawledAt": "2026-11-06T09:46:46.831Z",
       "addressLocality": "Bellinzona",
       "postalCode": "6500",
       "streetAddress": "Viale Portone 12",
@@ -4409,7 +4251,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-14T21:53:26.651Z",
+      "validThrough": "2026-12-15T09:46:46.831Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4443,7 +4285,7 @@
       "url": "https://etavis.softgarden.io/job/63115909/Lernende-Elektroinstallateure-EFZ-w-m-d-2027?jobDbPVId=289176972&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T21:53:26.287Z",
+      "crawledAt": "2026-11-06T09:46:46.536Z",
       "addressLocality": "Burgdorf",
       "postalCode": "3400",
       "streetAddress": "Buchmattstrasse 5",
@@ -4488,7 +4330,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-27T21:53:26.287Z",
+      "validThrough": "2026-12-28T09:46:46.536Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4522,7 +4364,7 @@
       "url": "https://etavis.softgarden.io/job/63115649/Lernende-Elektroinstallateure-EFZ-w-m-d-2027?jobDbPVId=289176992&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T21:53:25.921Z",
+      "crawledAt": "2026-11-06T09:46:46.247Z",
       "addressLocality": "Rüegsau",
       "postalCode": "3417",
       "streetAddress": "Rüegsaustrasse 2",
@@ -4567,7 +4409,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-27T21:53:25.921Z",
+      "validThrough": "2026-12-28T09:46:46.247Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4601,7 +4443,7 @@
       "url": "https://etavis.softgarden.io/job/63115729/Lernende-Montage-Elektriker-EFZ-w-m-d-2027?jobDbPVId=289176997&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T21:53:25.559Z",
+      "crawledAt": "2026-11-06T09:46:45.956Z",
       "addressLocality": "Burgdorf",
       "postalCode": "3400",
       "streetAddress": "Buchmattstrasse 5",
@@ -4646,7 +4488,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-27T21:53:25.559Z",
+      "validThrough": "2026-12-28T09:46:45.956Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4680,7 +4522,7 @@
       "url": "https://etavis.softgarden.io/job/63115294/Lernende-Montage-Elektriker-EFZ-w-m-d-2027?jobDbPVId=289177017&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T21:53:25.110Z",
+      "crawledAt": "2026-11-06T09:46:45.670Z",
       "addressLocality": "Rüegsau",
       "postalCode": "3417",
       "streetAddress": "Rüegsaustrasse 2",
@@ -4725,7 +4567,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-27T21:53:25.110Z",
+      "validThrough": "2026-12-28T09:46:45.670Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4759,7 +4601,7 @@
       "url": "https://etavis.softgarden.io/job/63648764/Servicemonteur-w-m-d-80%E2%80%93100-?jobDbPVId=289177032&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T21:53:24.753Z",
+      "crawledAt": "2026-11-06T09:46:45.387Z",
       "addressLocality": "Biel",
       "postalCode": "2504",
       "streetAddress": "Mohnweg 5",
@@ -4803,7 +4645,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-27T21:53:24.753Z",
+      "validThrough": "2026-12-28T09:46:45.387Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4837,7 +4679,7 @@
       "url": "https://etavis.softgarden.io/job/62954924/Projektleiter-in-Elektroplanung-w-m-d-80%E2%80%93100-?jobDbPVId=289177057&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T21:53:24.394Z",
+      "crawledAt": "2026-11-06T09:46:45.106Z",
       "addressLocality": "Basel",
       "postalCode": "4001",
       "streetAddress": "Wien-Strasse 2",
@@ -4883,7 +4725,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-27T21:53:24.394Z",
+      "validThrough": "2026-12-28T09:46:45.106Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4917,7 +4759,7 @@
       "url": "https://etavis.softgarden.io/job/56292322/Junior-Projektleiter-Elektroinstallation-w-m-d-80%E2%80%93100-?jobDbPVId=289177067&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T21:53:24.038Z",
+      "crawledAt": "2026-11-06T09:46:44.823Z",
       "addressLocality": "Basel",
       "postalCode": "4001",
       "streetAddress": "Wien-Strasse 2",
@@ -5000,7 +4842,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-27T21:53:24.038Z",
+      "validThrough": "2026-12-28T09:46:44.823Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -5034,7 +4876,7 @@
       "url": "https://etavis.softgarden.io/job/64303288/Chef-de-projet?jobDbPVId=289177072&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-05T21:53:23.680Z",
+      "crawledAt": "2026-11-06T09:46:44.537Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "streetAddress": "Karrweg 4",
@@ -5129,7 +4971,7 @@
         "streetAddressSource": "zefix-registry"
       },
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-27T21:53:23.680Z",
+      "validThrough": "2026-12-28T09:46:44.537Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -5163,7 +5005,7 @@
       "url": "https://etavis.softgarden.io/job/68441817/Strategischer-Eink%C3%A4ufer-Elektro-w-m-d-80%E2%80%93100-?jobDbPVId=289203917&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T21:53:23.320Z",
+      "crawledAt": "2026-11-06T09:46:44.223Z",
       "addressLocality": "Zürich",
       "postalCode": "8001",
       "streetAddress": "Pfingstweidstrasse 106",
@@ -5213,7 +5055,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-27T21:53:23.320Z",
+      "validThrough": "2027-01-28T09:46:44.223Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -5247,7 +5089,7 @@
       "url": "https://etavis.softgarden.io/job/68446067/Projektleiter-Elektroplanung-w-m-d-80-100-?jobDbPVId=289218127&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T21:53:22.860Z",
+      "crawledAt": "2026-11-06T09:46:43.934Z",
       "addressLocality": "St. Gallen",
       "postalCode": "9000",
       "streetAddress": "Harzbüchelstrasse 30A",
@@ -5299,7 +5141,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-28T21:53:22.860Z",
+      "validThrough": "2027-01-28T09:46:43.934Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -5333,7 +5175,7 @@
       "url": "https://etavis.softgarden.io/job/64851897/KNX-Systemintegrator-w-m-d-80%E2%80%93100-?jobDbPVId=289294562&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T21:53:22.492Z",
+      "crawledAt": "2026-11-06T09:46:43.646Z",
       "addressLocality": "Zürich",
       "postalCode": "8001",
       "streetAddress": "Technoparkstrasse 1",
@@ -5420,7 +5262,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-29T21:53:22.492Z",
+      "validThrough": "2026-12-30T09:46:43.646Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -5454,7 +5296,7 @@
       "url": "https://etavis.softgarden.io/job/64998038/Elektroinstallateur-Service-und-Kleininstallationen-w-m-d-80%E2%80%93100-?jobDbPVId=289392732&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T21:53:21.779Z",
+      "crawledAt": "2026-11-06T09:46:43.185Z",
       "addressLocality": "Wohlen bei Bern",
       "postalCode": "3033",
       "streetAddress": "Kappelenring 69",
@@ -5537,7 +5379,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-30T21:53:21.779Z",
+      "validThrough": "2026-12-31T09:46:43.185Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -5571,7 +5413,7 @@
       "url": "https://etavis.softgarden.io/job/64111368/Elektro-Projektleiter-w-m-d-80%E2%80%93100-?jobDbPVId=289392747&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T21:53:21.418Z",
+      "crawledAt": "2026-11-06T09:46:42.899Z",
       "addressLocality": "Wohlen bei Bern",
       "postalCode": "3033",
       "streetAddress": "Kappelenring 69",
@@ -5617,7 +5459,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-30T21:53:21.418Z",
+      "validThrough": "2026-12-31T09:46:42.899Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -5651,7 +5493,7 @@
       "url": "https://etavis.softgarden.io/job/68507612/Montage-Elektriker-Ladenbau-E-Mobility-w-m-d-80-100-%C3%BCberregionaler-Einsatz-ganze-Schweiz-?jobDbPVId=289531112&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T21:53:21.057Z",
+      "crawledAt": "2026-11-06T09:46:42.610Z",
       "addressLocality": "Wil",
       "postalCode": "9500",
       "streetAddress": "Toggenburgerstrasse 120",
@@ -5701,7 +5543,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-01T21:53:21.057Z",
+      "validThrough": "2027-02-01T09:46:42.610Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -5735,7 +5577,7 @@
       "url": "https://etavis.softgarden.io/job/68507447/Elektroinstallateur-Ladenbau-E-Mobility-w-m-d-80-100-%C3%BCberregionaler-Einsatz-ganze-Schweiz-?jobDbPVId=289530907&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T21:53:20.406Z",
+      "crawledAt": "2026-11-06T09:46:42.321Z",
       "addressLocality": "Wil",
       "postalCode": "9500",
       "streetAddress": "Toggenburgerstrasse 120",
@@ -5787,7 +5629,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-01T21:53:20.406Z",
+      "validThrough": "2027-02-01T09:46:42.321Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -5821,7 +5663,7 @@
       "url": "https://etavis.softgarden.io/job/68507417/Servicetechniker-Ladenbau-E-Mobility-w-m-d-80-100-%C3%BCberregionaler-Einsatz-ganze-Schweiz-?jobDbPVId=289530847&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T21:53:20.045Z",
+      "crawledAt": "2026-11-06T09:46:41.983Z",
       "addressLocality": "Wil",
       "postalCode": "9500",
       "streetAddress": "Toggenburgerstrasse 120",
@@ -5873,7 +5715,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-01T21:53:20.045Z",
+      "validThrough": "2027-02-01T09:46:41.983Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -5907,7 +5749,7 @@
       "url": "https://etavis.softgarden.io/job/68507412/Bauleitender-Elektroinstallateur-Ladenbau-E-Mobility-w-m-d-80-100-%C3%BCberregionaler-Einsatz-ganze-Schweiz-?jobDbPVId=289530842&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T21:53:19.683Z",
+      "crawledAt": "2026-11-06T09:46:41.700Z",
       "addressLocality": "Wil",
       "postalCode": "9500",
       "streetAddress": "Toggenburgerstrasse 120",
@@ -5959,7 +5801,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-01T21:53:19.683Z",
+      "validThrough": "2027-02-01T09:46:41.700Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -5993,7 +5835,7 @@
       "url": "https://etavis.softgarden.io/job/68507407/Elektroinstallateur-w-m-d-80-100-?jobDbPVId=289530807&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T21:53:19.331Z",
+      "crawledAt": "2026-11-06T09:46:41.349Z",
       "addressLocality": "Vaz/Obervaz",
       "postalCode": "7082",
       "streetAddress": "Voa Tgapalotta 11",
@@ -6043,7 +5885,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-01T21:53:19.331Z",
+      "validThrough": "2027-02-01T09:46:41.349Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -6077,7 +5919,7 @@
       "url": "https://etavis.softgarden.io/job/68507397/Bauleitender-Monteur-Elektroinstallation-w-m-d-80-100-?jobDbPVId=289530797&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T21:53:18.970Z",
+      "crawledAt": "2026-11-06T09:46:41.064Z",
       "addressLocality": "Vaz/Obervaz",
       "postalCode": "7082",
       "streetAddress": "Voa Tgapalotta",
@@ -6127,7 +5969,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-01T21:53:18.970Z",
+      "validThrough": "2027-02-01T09:46:41.064Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -6161,7 +6003,7 @@
       "url": "https://etavis.softgarden.io/job/68507307/Elektroinstallateur-w-m-d-80-100-?jobDbPVId=289530697&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T21:53:18.609Z",
+      "crawledAt": "2026-11-06T09:46:40.768Z",
       "addressLocality": "Widnau",
       "postalCode": "9443",
       "streetAddress": "Bahnhofstrasse 15",
@@ -6211,7 +6053,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-01T21:53:18.609Z",
+      "validThrough": "2027-02-01T09:46:40.768Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -6245,7 +6087,7 @@
       "url": "https://etavis.softgarden.io/job/68507247/Elektroinstallateur-w-m-d-80-100-?jobDbPVId=289530582&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T21:53:18.198Z",
+      "crawledAt": "2026-11-06T09:46:40.479Z",
       "addressLocality": "Buchs",
       "postalCode": "9470",
       "streetAddress": "Fabrikstrasse 19",
@@ -6295,7 +6137,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-01T21:53:18.198Z",
+      "validThrough": "2027-02-01T09:46:40.479Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -6329,7 +6171,7 @@
       "url": "https://etavis.softgarden.io/job/68507242/Elektroinstallateur-w-m-d-80-100-?jobDbPVId=289530507&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T21:53:17.827Z",
+      "crawledAt": "2026-11-06T09:46:40.172Z",
       "addressLocality": "Mels",
       "postalCode": "8887",
       "streetAddress": "Kirchstrasse 6",
@@ -6379,7 +6221,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-01T21:53:17.827Z",
+      "validThrough": "2027-02-01T09:46:40.172Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -6413,7 +6255,7 @@
       "url": "https://etavis.softgarden.io/job/68507047/Elektroinstallateur-w-m-d-80-100-?jobDbPVId=289530227&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T21:53:17.216Z",
+      "crawledAt": "2026-11-06T09:46:39.628Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "streetAddress": "Pulvermühlestrasse 93",
@@ -6463,7 +6305,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-01T21:53:17.216Z",
+      "validThrough": "2027-02-01T09:46:39.628Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -6497,7 +6339,7 @@
       "url": "https://etavis.softgarden.io/job/68507042/Servicetechniker-Elektroinstallation-w-m-d-80-100-?jobDbPVId=289530222&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T21:53:16.858Z",
+      "crawledAt": "2026-11-06T09:46:39.337Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "streetAddress": "Pulvermühlestrasse 93",
@@ -6549,7 +6391,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-01T21:53:16.858Z",
+      "validThrough": "2027-02-01T09:46:39.337Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -6583,7 +6425,7 @@
       "url": "https://etavis.softgarden.io/job/68507032/Bauleitender-Monteur-Elektroinstallation-w-m-d-80-100-?jobDbPVId=289530167&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T21:53:16.488Z",
+      "crawledAt": "2026-11-06T09:46:39.046Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "streetAddress": "Pulvermühlestrasse 93",
@@ -6633,7 +6475,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-01T21:53:16.488Z",
+      "validThrough": "2027-02-01T09:46:39.046Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -6667,7 +6509,7 @@
       "url": "https://etavis.softgarden.io/job/66095773/Systemtechniker-ICT-Servicetechniker-w-m-d-80-100-?jobDbPVId=289529982&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T21:53:16.073Z",
+      "crawledAt": "2026-11-06T09:46:38.739Z",
       "addressLocality": "St. Gallen",
       "postalCode": "9000",
       "streetAddress": "Oststrasse 25",
@@ -6719,7 +6561,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-01T21:53:16.073Z",
+      "validThrough": "2027-02-01T09:46:38.739Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -6753,7 +6595,7 @@
       "url": "https://etavis.softgarden.io/job/67216705/Elektroinstallateur-w-m-d-mit-Erfahrung-im-Bereich-Photovoltaik-80%E2%80%93100-?jobDbPVId=289716802&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T21:53:15.712Z",
+      "crawledAt": "2026-11-06T09:46:38.452Z",
       "addressLocality": "Baden",
       "postalCode": "5400",
       "streetAddress": "Kehlstrasse 61B",
@@ -6799,7 +6641,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-02T21:53:15.712Z",
+      "validThrough": "2027-01-03T09:46:38.452Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -6833,7 +6675,7 @@
       "url": "https://etavis.softgarden.io/job/65753281/Servicemonteur-w-m-d-80%E2%80%93100-?jobDbPVId=289716817&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T21:53:15.353Z",
+      "crawledAt": "2026-11-06T09:46:38.166Z",
       "addressLocality": "Neuhausen am Rheinfall",
       "postalCode": "8212",
       "streetAddress": "Schaffhauserstrasse 15",
@@ -6877,8 +6719,330 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-02T21:53:15.353Z",
+      "validThrough": "2027-01-03T09:46:38.166Z",
       "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "etavis-060aa59fbdfc",
+      "slug": "servicetechniker-elektroinstallation-m-w-d-80-100-etavis-grossenbacher-ag-arbon",
+      "slugByLocale": {
+        "de": "servicetechniker-elektroinstallation-w-m-d-80-100-etavis-arbon",
+        "it": "servicetechniker-elektroinstallation-m-w-d-80-100-etavis-grossenbacher-ag-arbon",
+        "en": "servicetechniker-elektroinstallation-w-m-d-80-100-etavis-arbon",
+        "fr": "servicetechniker-elektroinstallation-w-m-d-80-100-etavis-arbon"
+      },
+      "company": "ETAVIS Grossenbacher AG",
+      "companyKey": "etavis",
+      "companyDomain": "etavis.ch",
+      "title": "Servicetechniker Elektroinstallation (w/m/d) 80–100%",
+      "titleByLocale": {
+        "de": "Servicetechniker Elektroinstallation (w/m/d) 80–100%",
+        "it": "Servicetechniker Elektroinstallation (w/m/d) 80–100%",
+        "en": "Servicetechniker Elektroinstallation (w/m/d) 80–100%",
+        "fr": "Servicetechniker Elektroinstallation (w/m/d) 80–100%"
+      },
+      "description": "Die ETAVIS Grossenbacher AG ist eines der führenden Unternehmen im schweizerischen Elektroinstallations- und Telekommunikationsmarkt in der Ostschweiz. Um auch weiterhin unseren hohen Standard halten zu können, suchen wir eine kundenorientierte, flexible und engagierte Person wie dich! Dein Wirkungsbereich\n• Kundenberatung\n• Behebung von Störungen an anspruchsvollen Elektroanlagen in Industrie-, Gewerbe-, Verwaltungs- und Wohnbauten im gesamten Anwendungsbereich der modernen Elektrotechnik\n• Ausführung von Klein- und Serviceinstallationen Was Du mitbringst\n• Abgeschlossene Berufslehre als Elektroinstallateur:in EFZ oder gleichwertige in der Schweiz anerkannte Qualifikation\n• einige Jahre Berufserfahrung\n• ausgeprägtes Qualitätsdenken, repräsentatives Auftreten und selbständige Arbeitsweise Was dich erwartet\n• Du bist uns wichtig - wir bieten dir ein offenes, wertschätzendes und familiäres Umfeld.\n• Wir sind erfolgreich - bei uns hast du eine langfristige und sichere Perspektive.\n• Wir beteiligen dich an unserem Erfolg – mit Mitarbeiteraktien und Boni.\n• Kompetente Führungskräfte sorgen für spannende Projekte und funktionierende Arbeitsabläufe.\n• Bei uns hast du vielfältige Weiterbildungsmöglichkeiten – wir unterstützen dich gern.\n• Ein gut ausgerüstetes Servicefahrzeug ist selbstverständlich. Die Niederlassung in Arbon ist spezialisiert auf Industrieunterhalt, Umbau- und Sanierungsarbeiten von Klein- bis Grossprojekten, E-Mobilität für Privathaushalte sowie Gebäudeautomation. Noch Fragen? Dein Vorgesetzter Max Gmür, Leiter Business Unit 15326, hat die Antworten (+41 71 446 17 10). Bewirb dich bei uns, wir sind in Aufbruchstimmung und suchen dich! Ist diese Stelle nicht das Richtige für dich? Weitere aktuelle und spannungsreiche Stellenangebote bei ETAVIS findest du hier . Das sind wir ETAVIS ist der optimale Partner für innovative Elektrotechnik-, Kommunikations- und Automationslösungen in der Schweiz und Liechtenstein. Wir bieten massgeschneiderte, hochwertige Lösungen für Geschäftskunden aller Branchen und Grössen sowie individuell zugeschnittene Dienstleistungen für Privatkunden. Als Teil der VINCI-Gruppe profitieren wir von globaler Innovationskraft und sind gleichzeitig mit unseren rund 60 Geschäftsstellen lokal verankert. Als das grösste Kleinunternehmen ticken wir menschlicher und familiärer – hier zählt jede:r Einzelne. Mit über 2'400 Mitarbeitenden und mehreren hundert Lernenden arbeiten wir täglich an einer nachhaltigeren, besser vernetzten Welt. Werde Teil des ETAVIS-Teams und bewirke Grosses – in der Spitzenliga der Elektrotechnik!»",
+      "descriptionByLocale": {
+        "de": "Die ETAVIS Grossenbacher AG ist eines der führenden Unternehmen im schweizerischen Elektroinstallations- und Telekommunikationsmarkt in der Ostschweiz. Um auch weiterhin unseren hohen Standard halten zu können, suchen wir eine kundenorientierte, flexible und engagierte Person wie dich! Dein Wirkungsbereich\n• Kundenberatung\n• Behebung von Störungen an anspruchsvollen Elektroanlagen in Industrie-, Gewerbe-, Verwaltungs- und Wohnbauten im gesamten Anwendungsbereich der modernen Elektrotechnik\n• Ausführung von Klein- und Serviceinstallationen Was Du mitbringst\n• Abgeschlossene Berufslehre als Elektroinstallateur:in EFZ oder gleichwertige in der Schweiz anerkannte Qualifikation\n• einige Jahre Berufserfahrung\n• ausgeprägtes Qualitätsdenken, repräsentatives Auftreten und selbständige Arbeitsweise Was dich erwartet\n• Du bist uns wichtig - wir bieten dir ein offenes, wertschätzendes und familiäres Umfeld.\n• Wir sind erfolgreich - bei uns hast du eine langfristige und sichere Perspektive.\n• Wir beteiligen dich an unserem Erfolg – mit Mitarbeiteraktien und Boni.\n• Kompetente Führungskräfte sorgen für spannende Projekte und funktionierende Arbeitsabläufe.\n• Bei uns hast du vielfältige Weiterbildungsmöglichkeiten – wir unterstützen dich gern.\n• Ein gut ausgerüstetes Servicefahrzeug ist selbstverständlich. Die Niederlassung in Arbon ist spezialisiert auf Industrieunterhalt, Umbau- und Sanierungsarbeiten von Klein- bis Grossprojekten, E-Mobilität für Privathaushalte sowie Gebäudeautomation. Noch Fragen? Dein Vorgesetzter Max Gmür, Leiter Business Unit 15326, hat die Antworten (+41 71 446 17 10). Bewirb dich bei uns, wir sind in Aufbruchstimmung und suchen dich! Ist diese Stelle nicht das Richtige für dich? Weitere aktuelle und spannungsreiche Stellenangebote bei ETAVIS findest du hier . Das sind wir ETAVIS ist der optimale Partner für innovative Elektrotechnik-, Kommunikations- und Automationslösungen in der Schweiz und Liechtenstein. Wir bieten massgeschneiderte, hochwertige Lösungen für Geschäftskunden aller Branchen und Grössen sowie individuell zugeschnittene Dienstleistungen für Privatkunden. Als Teil der VINCI-Gruppe profitieren wir von globaler Innovationskraft und sind gleichzeitig mit unseren rund 60 Geschäftsstellen lokal verankert. Als das grösste Kleinunternehmen ticken wir menschlicher und familiärer – hier zählt jede:r Einzelne. Mit über 2'400 Mitarbeitenden und mehreren hundert Lernenden arbeiten wir täglich an einer nachhaltigeren, besser vernetzten Welt. Werde Teil des ETAVIS-Teams und bewirke Grosses – in der Spitzenliga der Elektrotechnik!»",
+        "it": "Die ETAVIS Grossenbacher AG ist eines der führenden Unternehmen im schweizerischen Elektroinstallations- und Telekommunikationsmarkt in der Ostschweiz. Um auch weiterhin unseren hohen Standard halten zu können, suchen wir eine kundenorientierte, flexible und engagierte Person wie dich! Dein Wirkungsbereich\n• Kundenberatung\n• Behebung von Störungen an anspruchsvollen Elektroanlagen in Industrie-, Gewerbe-, Verwaltungs- und Wohnbauten im gesamten Anwendungsbereich der modernen Elektrotechnik\n• Ausführung von Klein- und Serviceinstallationen Was Du mitbringst\n• Abgeschlossene Berufslehre als Elektroinstallateur:in EFZ oder gleichwertige in der Schweiz anerkannte Qualifikation\n• einige Jahre Berufserfahrung\n• ausgeprägtes Qualitätsdenken, repräsentatives Auftreten und selbständige Arbeitsweise Was dich erwartet\n• Du bist uns wichtig - wir bieten dir ein offenes, wertschätzendes und familiäres Umfeld.\n• Wir sind erfolgreich - bei uns hast du eine langfristige und sichere Perspektive.\n• Wir beteiligen dich an unserem Erfolg – mit Mitarbeiteraktien und Boni.\n• Kompetente Führungskräfte sorgen für spannende Projekte und funktionierende Arbeitsabläufe.\n• Bei uns hast du vielfältige Weiterbildungsmöglichkeiten – wir unterstützen dich gern.\n• Ein gut ausgerüstetes Servicefahrzeug ist selbstverständlich. Die Niederlassung in Arbon ist spezialisiert auf Industrieunterhalt, Umbau- und Sanierungsarbeiten von Klein- bis Grossprojekten, E-Mobilität für Privathaushalte sowie Gebäudeautomation. Noch Fragen? Dein Vorgesetzter Max Gmür, Leiter Business Unit 15326, hat die Antworten (+41 71 446 17 10). Bewirb dich bei uns, wir sind in Aufbruchstimmung und suchen dich! Ist diese Stelle nicht das Richtige für dich? Weitere aktuelle und spannungsreiche Stellenangebote bei ETAVIS findest du hier . Das sind wir ETAVIS ist der optimale Partner für innovative Elektrotechnik-, Kommunikations- und Automationslösungen in der Schweiz und Liechtenstein. Wir bieten massgeschneiderte, hochwertige Lösungen für Geschäftskunden aller Branchen und Grössen sowie individuell zugeschnittene Dienstleistungen für Privatkunden. Als Teil der VINCI-Gruppe profitieren wir von globaler Innovationskraft und sind gleichzeitig mit unseren rund 60 Geschäftsstellen lokal verankert. Als das grösste Kleinunternehmen ticken wir menschlicher und familiärer – hier zählt jede:r Einzelne. Mit über 2'400 Mitarbeitenden und mehreren hundert Lernenden arbeiten wir täglich an einer nachhaltigeren, besser vernetzten Welt. Werde Teil des ETAVIS-Teams und bewirke Grosses – in der Spitzenliga der Elektrotechnik!»",
+        "en": "Die ETAVIS Grossenbacher AG ist eines der führenden Unternehmen im schweizerischen Elektroinstallations- und Telekommunikationsmarkt in der Ostschweiz. Um auch weiterhin unseren hohen Standard halten zu können, suchen wir eine kundenorientierte, flexible und engagierte Person wie dich! Dein Wirkungsbereich\n• Kundenberatung\n• Behebung von Störungen an anspruchsvollen Elektroanlagen in Industrie-, Gewerbe-, Verwaltungs- und Wohnbauten im gesamten Anwendungsbereich der modernen Elektrotechnik\n• Ausführung von Klein- und Serviceinstallationen Was Du mitbringst\n• Abgeschlossene Berufslehre als Elektroinstallateur:in EFZ oder gleichwertige in der Schweiz anerkannte Qualifikation\n• einige Jahre Berufserfahrung\n• ausgeprägtes Qualitätsdenken, repräsentatives Auftreten und selbständige Arbeitsweise Was dich erwartet\n• Du bist uns wichtig - wir bieten dir ein offenes, wertschätzendes und familiäres Umfeld.\n• Wir sind erfolgreich - bei uns hast du eine langfristige und sichere Perspektive.\n• Wir beteiligen dich an unserem Erfolg – mit Mitarbeiteraktien und Boni.\n• Kompetente Führungskräfte sorgen für spannende Projekte und funktionierende Arbeitsabläufe.\n• Bei uns hast du vielfältige Weiterbildungsmöglichkeiten – wir unterstützen dich gern.\n• Ein gut ausgerüstetes Servicefahrzeug ist selbstverständlich. Die Niederlassung in Arbon ist spezialisiert auf Industrieunterhalt, Umbau- und Sanierungsarbeiten von Klein- bis Grossprojekten, E-Mobilität für Privathaushalte sowie Gebäudeautomation. Noch Fragen? Dein Vorgesetzter Max Gmür, Leiter Business Unit 15326, hat die Antworten (+41 71 446 17 10). Bewirb dich bei uns, wir sind in Aufbruchstimmung und suchen dich! Ist diese Stelle nicht das Richtige für dich? Weitere aktuelle und spannungsreiche Stellenangebote bei ETAVIS findest du hier . Das sind wir ETAVIS ist der optimale Partner für innovative Elektrotechnik-, Kommunikations- und Automationslösungen in der Schweiz und Liechtenstein. Wir bieten massgeschneiderte, hochwertige Lösungen für Geschäftskunden aller Branchen und Grössen sowie individuell zugeschnittene Dienstleistungen für Privatkunden. Als Teil der VINCI-Gruppe profitieren wir von globaler Innovationskraft und sind gleichzeitig mit unseren rund 60 Geschäftsstellen lokal verankert. Als das grösste Kleinunternehmen ticken wir menschlicher und familiärer – hier zählt jede:r Einzelne. Mit über 2'400 Mitarbeitenden und mehreren hundert Lernenden arbeiten wir täglich an einer nachhaltigeren, besser vernetzten Welt. Werde Teil des ETAVIS-Teams und bewirke Grosses – in der Spitzenliga der Elektrotechnik!»",
+        "fr": "Die ETAVIS Grossenbacher AG ist eines der führenden Unternehmen im schweizerischen Elektroinstallations- und Telekommunikationsmarkt in der Ostschweiz. Um auch weiterhin unseren hohen Standard halten zu können, suchen wir eine kundenorientierte, flexible und engagierte Person wie dich! Dein Wirkungsbereich\n• Kundenberatung\n• Behebung von Störungen an anspruchsvollen Elektroanlagen in Industrie-, Gewerbe-, Verwaltungs- und Wohnbauten im gesamten Anwendungsbereich der modernen Elektrotechnik\n• Ausführung von Klein- und Serviceinstallationen Was Du mitbringst\n• Abgeschlossene Berufslehre als Elektroinstallateur:in EFZ oder gleichwertige in der Schweiz anerkannte Qualifikation\n• einige Jahre Berufserfahrung\n• ausgeprägtes Qualitätsdenken, repräsentatives Auftreten und selbständige Arbeitsweise Was dich erwartet\n• Du bist uns wichtig - wir bieten dir ein offenes, wertschätzendes und familiäres Umfeld.\n• Wir sind erfolgreich - bei uns hast du eine langfristige und sichere Perspektive.\n• Wir beteiligen dich an unserem Erfolg – mit Mitarbeiteraktien und Boni.\n• Kompetente Führungskräfte sorgen für spannende Projekte und funktionierende Arbeitsabläufe.\n• Bei uns hast du vielfältige Weiterbildungsmöglichkeiten – wir unterstützen dich gern.\n• Ein gut ausgerüstetes Servicefahrzeug ist selbstverständlich. Die Niederlassung in Arbon ist spezialisiert auf Industrieunterhalt, Umbau- und Sanierungsarbeiten von Klein- bis Grossprojekten, E-Mobilität für Privathaushalte sowie Gebäudeautomation. Noch Fragen? Dein Vorgesetzter Max Gmür, Leiter Business Unit 15326, hat die Antworten (+41 71 446 17 10). Bewirb dich bei uns, wir sind in Aufbruchstimmung und suchen dich! Ist diese Stelle nicht das Richtige für dich? Weitere aktuelle und spannungsreiche Stellenangebote bei ETAVIS findest du hier . Das sind wir ETAVIS ist der optimale Partner für innovative Elektrotechnik-, Kommunikations- und Automationslösungen in der Schweiz und Liechtenstein. Wir bieten massgeschneiderte, hochwertige Lösungen für Geschäftskunden aller Branchen und Grössen sowie individuell zugeschnittene Dienstleistungen für Privatkunden. Als Teil der VINCI-Gruppe profitieren wir von globaler Innovationskraft und sind gleichzeitig mit unseren rund 60 Geschäftsstellen lokal verankert. Als das grösste Kleinunternehmen ticken wir menschlicher und familiärer – hier zählt jede:r Einzelne. Mit über 2'400 Mitarbeitenden und mehreren hundert Lernenden arbeiten wir täglich an einer nachhaltigeren, besser vernetzten Welt. Werde Teil des ETAVIS-Teams und bewirke Grosses – in der Spitzenliga der Elektrotechnik!»"
+      },
+      "location": "Arbon",
+      "canton": "TG",
+      "url": "https://etavis.softgarden.io/job/68588562/Servicetechniker-Elektroinstallation-w-m-d-80%E2%80%93100-?jobDbPVId=289852352&l=de",
+      "source": "ETAVIS Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-06T09:46:37.878Z",
+      "addressLocality": "Arbon",
+      "postalCode": "9320",
+      "streetAddress": "Berglistrasse 2",
+      "addressRegion": "TG",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Tecnica",
+      "contract": "part-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Impiantistica elettrica",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-11-06T07:12:07.654+01:00",
+      "postedDate": "2026-11-06T07:12:07.654+01:00",
+      "postingDateSource": "reported",
+      "applyUrl": "https://etavis.softgarden.io/job/68588562/Servicetechniker-Elektroinstallation-w-m-d-80%E2%80%93100-?jobDbPVId=289852352&l=de",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "jobCategory": "Ingenieure und technische Berufe",
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "servicetechniker-elektroinstallation-w-m-d-80-100-etavis-arbon"
+        ]
+      },
+      "previousSlugs": [
+        "servicetechniker-elektroinstallation-w-m-d-80-100-etavis-arbon"
+      ],
+      "salaryMin": 67000,
+      "salaryMax": 102000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 67000,
+          "maxValue": 102000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-02-04T09:46:37.878Z",
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-07-04T10:51:29.089Z"
+    },
+    {
+      "id": "etavis-5bb37450d607",
+      "slug": "apprendista-elektroinstallateure-cfc-w-m-d-2026-etavis-jag-jakob-biel",
+      "slugByLocale": {
+        "it": "apprendista-elektroinstallateure-cfc-w-m-d-2026-etavis-jag-jakob-biel",
+        "en": "apprentice-elektroinstallateure-efz-w-m-d-2026-etavis-jag-jakob-biel",
+        "de": "lernende-elektroinstallateure-efz-w-m-d-2026-etavis-biel",
+        "fr": "apprenti-e-elektroinstallateure-efz-w-m-d-2026-etavis-jag-jakob-biel"
+      },
+      "company": "ETAVIS JAG JAKOB",
+      "companyKey": "etavis",
+      "companyDomain": "etavis.ch",
+      "title": "Lernende Elektroinstallateure EFZ (w/m/d) 2027",
+      "titleByLocale": {
+        "it": "Apprendista Elektroinstallateure CFC (w/m/d) 2026",
+        "en": "Apprentice Elektroinstallateure EFZ (w/m/d) 2026",
+        "de": "Lernende Elektroinstallateure EFZ (w/m/d) 2027",
+        "fr": "Apprenti/e Elektroinstallateure EFZ (w/m/d) 2026"
+      },
+      "description": "Deine Benefits bei ETAVIS\n• Schliesst du bald die Schule ab oder hast du sie bereits erfolgreich beendet?\n• Bist du gut in Geometrie, Mathematik und Physik sowie an Technik interessiert?\n• Bist du handwerklich geschickt, erkennst alle Farben richtig und arbeitest gerne an verschiedenen Orten?\n• Arbeitest du gerne im Team, erreichst Ziele gemeinsam und trittst gerne mit Menschen in Kontakt? Dann bewirb dich jetzt um eine Lehrstelle als Elektroinstallateur:in EFZ bei ETAVIS! Für mehr Infos zum Lehrberuf klicke hier . Als attraktiver Lehrbetrieb bieten wir dir folgende Vorteile : 6 Wochen Ferien im 1. und 2. Lehrjahr, ein ÖV-Abo , das du auch in deiner Freizeit nutzen kannst, Beteiligung an den Kosten für deine Lernmittel , zusätzliche Schulungen sowie eine umfassende Vorbereitung auf das Qualifikationsverfahren und nicht zuletzt: ein cooles Team . Neugierig? Weitere Infos zu unseren Benefits und zu deiner Lehre bei ETAVIS findest du hier . Deine Bewerbung Werde Teil des ETAVIS-Teams und bewirke Grosses. Klicke auf \"Jetzt bewerben\" und sende mir über das Bewerbungsformular bitte die folgenden 4 Anhänge : Dein Bewerbungsschreiben , deinen Lebenslauf , deine Zeugnisse der Sekundarstufe I sowie deine Ergebnisse des Stellwerktests . Noch Fragen? Zögere nicht, mich über die unten angegebenen Kontaktmöglichkeiten zu erreichen. Falls ich telefonisch nicht sofort verfügbar bin, hinterlasse bitte eine Sprachnachricht, damit ich dich zurückrufen kann. Ich freue mich darauf, dich kennenzulernen!",
+      "descriptionByLocale": {
+        "it": "I tuoi vantaggi a ETAVIS\n• Hai finito la scuola presto o l'hai già completato con successo?\n• Sei bravo a geometria, matematica e fisica e tecnologia?\n• Siete abili, riconoscere tutti i colori correttamente e piace lavorare in luoghi diversi?\n• Ti piace lavorare in una squadra, raggiungere gli obiettivi insieme e mettersi in contatto con le persone? Poi si applica per un apprendistato come installatore elettrico: in EFZ a ETAVIS! Per ulteriori informazioni sulla professione di insegnamento clicca qui. In qualità di azienda di insegnamento attraente, vi offriamo i seguenti vantaggi: 6 settimane di vacanze nel 1° e 2° anno di apprendistato, un abbonamento di trasporto pubblico che è possibile utilizzare anche nel vostro tempo libero, la partecipazione ai costi dei vostri strumenti di apprendimento, formazione aggiuntiva e una preparazione completa per il processo di qualificazione e, ultimo ma non meno importante: un team fresco. Curioso? Ulteriori informazioni sui nostri vantaggi e il vostro insegnamento a ETAVIS possono essere trovati qui . Diventa parte del team ETAVIS e fai una grande differenza. Clicca su \"Applica ora\" e inviami i seguenti 4 allegati tramite il modulo di richiesta: La tua lettera di candidatura, il tuo CV, i certificati di livello I secondario e i risultati del test di interlock. Ancora domande? Non esitate a contattarmi tramite le opzioni di contatto riportate di seguito. Se non sono immediatamente disponibile per telefono, si prega di lasciare un messaggio vocale in modo da poter richiamare. Non vedo l'ora di incontrarti!",
+        "en": "Your Benefits at ETAVIS\n• Are you finishing school soon or have you already completed it successfully?\n• Are you good at geometry, mathematics and physics as well as technology?\n• Are you skilled, recognize all colors correctly and like to work in different places?\n• Do you like to work in a team, achieve goals together and get in touch with people? Then apply for an apprenticeship as an electrical installer: in EFZ at ETAVIS! For more information about the teaching profession click here. As an attractive teaching company, we offer you the following advantages: 6 weeks of holidays in the 1st and 2nd year of apprenticeship, a public transport subscription that you can also use in your free time, participation in the costs of your learning tools, additional training as well as a comprehensive preparation for the qualification process and last but not least: a cool team. Curious? Further information about our benefits and your teaching at ETAVIS can be found here . Become part of the ETAVIS team and make a big difference. Click on \"Apply now\" and send me the following 4 attachments via the application form: Your application letter, your CV, your secondary level I certificates and your interlock test results. Still questions? Do not hesitate to reach me via the contact options given below. If I am not immediately available by phone, please leave a voice message so I can call you back. I look forward to meeting you!",
+        "de": "Deine Benefits bei ETAVIS\n• Schliesst du bald die Schule ab oder hast du sie bereits erfolgreich beendet?\n• Bist du gut in Geometrie, Mathematik und Physik sowie an Technik interessiert?\n• Bist du handwerklich geschickt, erkennst alle Farben richtig und arbeitest gerne an verschiedenen Orten?\n• Arbeitest du gerne im Team, erreichst Ziele gemeinsam und trittst gerne mit Menschen in Kontakt? Dann bewirb dich jetzt um eine Lehrstelle als Elektroinstallateur:in EFZ bei ETAVIS! Für mehr Infos zum Lehrberuf klicke hier . Als attraktiver Lehrbetrieb bieten wir dir folgende Vorteile : 6 Wochen Ferien im 1. und 2. Lehrjahr, ein ÖV-Abo , das du auch in deiner Freizeit nutzen kannst, Beteiligung an den Kosten für deine Lernmittel , zusätzliche Schulungen sowie eine umfassende Vorbereitung auf das Qualifikationsverfahren und nicht zuletzt: ein cooles Team . Neugierig? Weitere Infos zu unseren Benefits und zu deiner Lehre bei ETAVIS findest du hier . Deine Bewerbung Werde Teil des ETAVIS-Teams und bewirke Grosses. Klicke auf \"Jetzt bewerben\" und sende mir über das Bewerbungsformular bitte die folgenden 4 Anhänge : Dein Bewerbungsschreiben , deinen Lebenslauf , deine Zeugnisse der Sekundarstufe I sowie deine Ergebnisse des Stellwerktests . Noch Fragen? Zögere nicht, mich über die unten angegebenen Kontaktmöglichkeiten zu erreichen. Falls ich telefonisch nicht sofort verfügbar bin, hinterlasse bitte eine Sprachnachricht, damit ich dich zurückrufen kann. Ich freue mich darauf, dich kennenzulernen!",
+        "fr": "Vos avantages chez ETAVIS\n• Avez-vous bientôt terminé l'école ou avez-vous déjà terminé avec succès?\n• Êtes-vous bon en géométrie, mathématiques et physique ainsi que la technologie?\n• Êtes-vous habile, reconnaissez-vous toutes les couleurs correctement et aimez-vous travailler dans différents endroits?\n• Vous aimez travailler en équipe, atteindre des objectifs ensemble et entrer en contact avec les gens? Faites ensuite une demande d'apprentissage en tant qu'installateur électrique: en EFZ à ETAVIS! Pour plus d'informations sur la profession enseignante, cliquez ici. En tant qu'entreprise enseignante attractive, nous vous offrons les avantages suivants : 6 semaines de vacances en 1ère et 2ème année d'apprentissage, un abonnement de transport en commun que vous pouvez également utiliser dans votre temps libre, participation aux coûts de vos outils d'apprentissage, formation supplémentaire ainsi qu'une préparation complète au processus de qualification et enfin, une équipe cool. Curieux ? Plus d'informations sur nos avantages et votre enseignement à ETAVIS sont disponibles ici . Devenez membre de l'équipe ETAVIS et faites une grande différence. Cliquez sur \"Appliquer maintenant\" et envoyez-moi les 4 pièces jointes suivantes via le formulaire de demande: Votre lettre de candidature, votre CV, vos certificats de niveau secondaire I et les résultats de vos tests de verrouillage. Toujours des questions ? N'hésitez pas à me joindre via les options de contact indiquées ci-dessous. Si je ne suis pas immédiatement disponible par téléphone, laissez un message vocal pour que je puisse vous rappeler. J'ai hâte de vous rencontrer !"
+      },
+      "location": "Biel",
+      "canton": "BE",
+      "url": "https://etavis.softgarden.io/job/51169698/Lernende-Elektroinstallateure-EFZ-w-m-d-2027?jobDbPVId=289860102&l=de",
+      "source": "ETAVIS Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-06T09:46:37.577Z",
+      "addressLocality": "Biel",
+      "postalCode": "2504",
+      "streetAddress": "Mohnweg 5",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Apprendistato",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Impiantistica elettrica",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-09-09T15:39:56.469+02:00",
+      "postedDate": "2026-09-09T15:39:56.469+02:00",
+      "postingDateSource": "reported",
+      "applyUrl": "https://etavis.softgarden.io/job/51169698/Lernende-Elektroinstallateure-EFZ-w-m-d-2027?jobDbPVId=289860102&l=de",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "jobCategory": "Berufslehre",
+      "previousSlugsByLocale": {
+        "it": [
+          "lernende-elektroinstallateure-efz-w-m-d-2026-etavis-biel",
+          "lernende-elektroinstallateure-efz-w-m-d-2027-etavis-biel"
+        ],
+        "de": [
+          "lernende-elektroinstallateure-efz-w-m-d-2027-etavis-biel"
+        ]
+      },
+      "previousSlugs": [
+        "lernende-elektroinstallateure-efz-w-m-d-2026-etavis-biel",
+        "lernende-elektroinstallateure-efz-w-m-d-2027-etavis-biel"
+      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-07-04T10:51:46.225Z",
+      "salaryMin": 57500,
+      "salaryMax": 87000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 57500,
+          "maxValue": 87000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-09T09:46:37.577Z",
+      "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "etavis-e0594d46ef8a",
+      "slug": "apprendista-montage-elektriker-cfc-w-m-d-2026-etavis-jag-jakob-biel",
+      "slugByLocale": {
+        "it": "apprendista-montage-elektriker-cfc-w-m-d-2026-etavis-jag-jakob-biel",
+        "en": "apprentice-montage-elektriker-efz-w-m-d-2026-etavis-jag-jakob-biel",
+        "de": "lernende-montage-elektriker-efz-w-m-d-2026-etavis-biel",
+        "fr": "apprenti-e-montage-elektriker-efz-w-m-d-2026-etavis-jag-jakob-biel"
+      },
+      "company": "ETAVIS JAG JAKOB",
+      "companyKey": "etavis",
+      "companyDomain": "etavis.ch",
+      "title": "Lernende Montage-Elektriker EFZ (w/m/d) 2027",
+      "titleByLocale": {
+        "it": "Apprendista Montage-Elektriker CFC (w/m/d) 2026",
+        "en": "Apprentice Montage-Elektriker EFZ (w/m/d) 2026",
+        "de": "Lernende Montage-Elektriker EFZ (w/m/d) 2027",
+        "fr": "Apprenti/e Montage-Elektriker EFZ (w/m/d) 2026"
+      },
+      "description": "Deine Benefits bei ETAVIS\n• Schliesst du bald die Schule ab oder hast du sie bereits erfolgreich beendet?\n• Suchst du eine praktische Ausbildung mit wenig Theorie?\n• Interessierst du dich für Technik und bist handwerklich geschickt?\n• Hast du eine normale Farbsicht und arbeitest gerne an wechselnden Orten?\n• Arbeitest du gerne im Team und erreichst Ziele am liebsten gemeinsam? Dann bewirb dich jetzt um eine Lehrstelle als Montage-Elektriker:in EFZ bei ETAVIS! Für mehr Infos zum Lehrberuf klicke hier . Als attraktiver Lehrbetrieb bieten wir dir folgende Vorteile : 6 Wochen Ferien im 1. und 2. Lehrjahr, ein ÖV-Abo , das du auch in deiner Freizeit nutzen kannst, Beteiligung an den Kosten für deine Lernmittel , zusätzliche Schulungen sowie eine umfassende Vorbereitung auf das Qualifikationsverfahren und nicht zuletzt: ein cooles Team . Neugierig? Weitere Infos zu unseren Benefits und zu deiner Lehre bei ETAVIS findest du hier . Deine Bewerbung Werde Teil des ETAVIS-Teams und bewirke Grosses. Klicke auf \"Jetzt bewerben\" und sende mir über das Bewerbungsformular bitte die folgenden 4 Anhänge : Dein Bewerbungsschreiben , deinen Lebenslauf , deine Zeugnisse der Sekundarstufe I sowie deine Ergebnisse des Stellwerktests . Noch Fragen? Zögere nicht, mich über die unten angegebenen Kontaktmöglichkeiten zu erreichen. Falls ich telefonisch nicht sofort verfügbar bin, hinterlasse bitte eine Sprachnachricht, damit ich dich zurückrufen kann. Ich freue mich darauf, dich kennenzulernen!",
+      "descriptionByLocale": {
+        "it": "I tuoi vantaggi a ETAVIS\n• Hai finito la scuola presto o l'hai già completato con successo?\n• Stai cercando un'educazione pratica con poca teoria?\n• Sei interessato alla tecnologia e sei esperto nell'artigianato?\n• Hai una visione del colore normale e ti piace lavorare in luoghi mutevoli?\n• Ti piace lavorare in una squadra e raggiungere gli obiettivi insieme? Poi si applica per un apprendistato come elettricista di assemblaggio: in EFZ a ETAVIS! Per ulteriori informazioni sulla professione di insegnamento clicca qui. In qualità di azienda di insegnamento attraente, vi offriamo i seguenti vantaggi: 6 settimane di vacanze nel 1° e 2° anno di apprendistato, un abbonamento di trasporto pubblico che è possibile utilizzare anche nel vostro tempo libero, la partecipazione ai costi dei vostri strumenti di apprendimento, formazione aggiuntiva e una preparazione completa per il processo di qualificazione e, ultimo ma non meno importante: un team fresco. Curioso? Ulteriori informazioni sui nostri vantaggi e il vostro insegnamento a ETAVIS possono essere trovati qui . Diventa parte del team ETAVIS e fai una grande differenza. Clicca su \"Applica ora\" e inviami i seguenti 4 allegati tramite il modulo di richiesta: La tua lettera di candidatura, il tuo CV, i certificati di livello I secondario e i risultati del test di interlock. Ancora domande? Non esitate a contattarmi tramite le opzioni di contatto riportate di seguito. Se non sono immediatamente disponibile per telefono, si prega di lasciare un messaggio vocale in modo da poter richiamare. Non vedo l'ora di incontrarti!",
+        "en": "Your Benefits at ETAVIS\n• Are you finishing school soon or have you already completed it successfully?\n• Are you looking for a practical education with little theory?\n• Are you interested in technology and are skilled in craftsmanship?\n• Do you have a normal color vision and enjoy working in changing places?\n• Do you like to work in a team and achieve goals together? Then apply for an apprenticeship as an assembly electrician: in EFZ at ETAVIS! For more information about the teaching profession click here. As an attractive teaching company, we offer you the following advantages: 6 weeks of holidays in the 1st and 2nd year of apprenticeship, a public transport subscription that you can also use in your free time, participation in the costs of your learning tools, additional training as well as a comprehensive preparation for the qualification process and last but not least: a cool team. Curious? Further information about our benefits and your teaching at ETAVIS can be found here . Become part of the ETAVIS team and make a big difference. Click on \"Apply now\" and send me the following 4 attachments via the application form: Your application letter, your CV, your secondary level I certificates and your interlock test results. Still questions? Do not hesitate to reach me via the contact options given below. If I am not immediately available by phone, please leave a voice message so I can call you back. I look forward to meeting you!",
+        "de": "Deine Benefits bei ETAVIS\n• Schliesst du bald die Schule ab oder hast du sie bereits erfolgreich beendet?\n• Suchst du eine praktische Ausbildung mit wenig Theorie?\n• Interessierst du dich für Technik und bist handwerklich geschickt?\n• Hast du eine normale Farbsicht und arbeitest gerne an wechselnden Orten?\n• Arbeitest du gerne im Team und erreichst Ziele am liebsten gemeinsam? Dann bewirb dich jetzt um eine Lehrstelle als Montage-Elektriker:in EFZ bei ETAVIS! Für mehr Infos zum Lehrberuf klicke hier . Als attraktiver Lehrbetrieb bieten wir dir folgende Vorteile : 6 Wochen Ferien im 1. und 2. Lehrjahr, ein ÖV-Abo , das du auch in deiner Freizeit nutzen kannst, Beteiligung an den Kosten für deine Lernmittel , zusätzliche Schulungen sowie eine umfassende Vorbereitung auf das Qualifikationsverfahren und nicht zuletzt: ein cooles Team . Neugierig? Weitere Infos zu unseren Benefits und zu deiner Lehre bei ETAVIS findest du hier . Deine Bewerbung Werde Teil des ETAVIS-Teams und bewirke Grosses. Klicke auf \"Jetzt bewerben\" und sende mir über das Bewerbungsformular bitte die folgenden 4 Anhänge : Dein Bewerbungsschreiben , deinen Lebenslauf , deine Zeugnisse der Sekundarstufe I sowie deine Ergebnisse des Stellwerktests . Noch Fragen? Zögere nicht, mich über die unten angegebenen Kontaktmöglichkeiten zu erreichen. Falls ich telefonisch nicht sofort verfügbar bin, hinterlasse bitte eine Sprachnachricht, damit ich dich zurückrufen kann. Ich freue mich darauf, dich kennenzulernen!",
+        "fr": "Vos avantages chez ETAVIS\n• Avez-vous bientôt terminé l'école ou avez-vous déjà terminé avec succès?\n• Vous cherchez une éducation pratique avec peu de théorie ?\n• Êtes-vous intéressé par la technologie et êtes-vous qualifié en artisanat?\n• Avez-vous une vision de couleur normale et aimez-vous travailler dans des endroits changeants?\n• Vous aimez travailler en équipe et atteindre des objectifs ensemble ? Faites ensuite une demande d'apprentissage en tant qu'électricien d'assemblage : en EFZ à ETAVIS ! Pour plus d'informations sur la profession enseignante, cliquez ici. En tant qu'entreprise enseignante attractive, nous vous offrons les avantages suivants : 6 semaines de vacances en 1ère et 2ème année d'apprentissage, un abonnement de transport en commun que vous pouvez également utiliser dans votre temps libre, participation aux coûts de vos outils d'apprentissage, formation supplémentaire ainsi qu'une préparation complète au processus de qualification et enfin, une équipe cool. Curieux ? Plus d'informations sur nos avantages et votre enseignement à ETAVIS sont disponibles ici . Devenez membre de l'équipe ETAVIS et faites une grande différence. Cliquez sur \"Appliquer maintenant\" et envoyez-moi les 4 pièces jointes suivantes via le formulaire de demande: Votre lettre de candidature, votre CV, vos certificats de niveau secondaire I et les résultats de vos tests de verrouillage. Toujours des questions ? N'hésitez pas à me joindre via les options de contact indiquées ci-dessous. Si je ne suis pas immédiatement disponible par téléphone, laissez un message vocal pour que je puisse vous rappeler. J'ai hâte de vous rencontrer !"
+      },
+      "location": "Biel",
+      "canton": "BE",
+      "url": "https://etavis.softgarden.io/job/51169703/Lernende-Montage-Elektriker-EFZ-w-m-d-2027?jobDbPVId=289860167&l=de",
+      "source": "ETAVIS Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-06T09:46:37.292Z",
+      "addressLocality": "Biel",
+      "postalCode": "2504",
+      "streetAddress": "Mohnweg 5",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Apprendistato",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Impiantistica elettrica",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-09-09T15:39:55.335+02:00",
+      "postedDate": "2026-09-09T15:39:55.335+02:00",
+      "postingDateSource": "reported",
+      "applyUrl": "https://etavis.softgarden.io/job/51169703/Lernende-Montage-Elektriker-EFZ-w-m-d-2027?jobDbPVId=289860167&l=de",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "jobCategory": "Berufslehre",
+      "previousSlugsByLocale": {
+        "it": [
+          "lernende-montage-elektriker-efz-w-m-d-2026-etavis-biel",
+          "lernende-montage-elektriker-efz-w-m-d-2027-etavis-biel"
+        ],
+        "de": [
+          "lernende-montage-elektriker-efz-w-m-d-2027-etavis-biel"
+        ]
+      },
+      "previousSlugs": [
+        "lernende-montage-elektriker-efz-w-m-d-2026-etavis-biel",
+        "lernende-montage-elektriker-efz-w-m-d-2027-etavis-biel"
+      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-07-04T10:51:46.529Z",
+      "salaryMin": 57500,
+      "salaryMax": 87000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 57500,
+          "maxValue": 87000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-09T09:46:37.292Z",
+      "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "etavis-e80c1d867bb7",
+      "slug": "head-of-it-operations-transformation-m-w-d-etavis-zurich",
+      "slugByLocale": {
+        "de": "head-of-it-operations-transformation-m-w-d-etavis-zurich",
+        "it": "head-of-it-operations-transformation-m-w-d-etavis-zurich",
+        "en": "head-of-it-operations-transformation-m-w-d-etavis-zurich",
+        "fr": "head-of-it-operations-transformation-m-w-d-etavis-zurich"
+      },
+      "company": "VINCI Energies Schweiz AG",
+      "companyKey": "etavis",
+      "companyDomain": "etavis.ch",
+      "title": "Head of IT Operations & Transformation (m/w/d)",
+      "titleByLocale": {
+        "de": "Head of IT Operations & Transformation (m/w/d)",
+        "it": "Responsabile IT Operations & Transformation (m/w/d)",
+        "en": "Head of IT Operations & Transformation (m/w/d)",
+        "fr": "Responsable IT Operations & Transformation (m/w/d)"
+      },
+      "description": "Du möchtest IT nicht nur am Laufen halten, sondern gemeinsam mit deinem Team wirklich weiterentwickeln? Als Head of IT Operations & Transformation übernimmst du die Führung von 12 Mitarbeitenden aus IT Services und IT Transformation. Du sorgst für einen stabilen, kundenorientierten IT-Betrieb und treibst gleichzeitig die Modernisierung unserer Services und Transformationsvorhaben voran. Als Bindeglied zwischen den IT-Teams und dem IT-Management übernimmst du Verantwortung und gestaltest die weitere Entwicklung unserer IT aktiv mit. Das bewirkst du\n• Du übernimmst die personelle und fachliche Führung unserer Teams in IT Services und IT Transformation und entwickelst deine Mitarbeitenden gezielt weiter.\n• Du verantwortest die Ressourcen-, Kapazitäts- und Einsatzplanung und sorgst für klare Rollen, Verantwortlichkeiten und Eskalationswege.\n• Du steuerst IT Services, Service Desk und Support und stellst eine hohe Servicequalität sicher.\n• Du setzt klare Prioritäten im operativen Tagesgeschäft und behältst bei Incidents und Eskalationen den Überblick.\n• Du treibst unsere IT-Transformation voran, von Systemeinführungen über Prozessoptimierungen bis hin zu Standardisierung und Automatisierung.\n• Du leitest größere IT-Projekte und sorgst dafür, dass neue Lösungen und Services strukturiert in den produktiven Betrieb überführt werden.\n• Du übersetzt strategische Vorgaben in konkrete Maßnahmen , bereitest Entscheidungsgrundlagen vor und vertrittst IT-Themen gegenüber Stakeholdern, Business Units und Gremien.\n• In definierten Bereichen übernimmst du die operative und organisatorische Stellvertretung des IT-Managers . Das erleichtert dir den Einstieg\n• Du verfügst über eine höhere Ausbildung in Informatik oder Wirtschaftsinformatik oder eine vergleichbare Qualifikation.\n• Du bringst mehrjährige Berufserfahrung in IT Operations oder IT Service Management mit.\n• Du hast bereits personelle und fachliche Führungsverantwortung übernommen und Erfahrung in der Entwicklung von Mitarbeitenden.\n• Du kennst dich mit IT-Transformation, Service- und Prozessoptimierung sowie Change Management aus.\n• Du verfügst über gute Kenntnisse in Microsoft 365, Intune, Autopilot und Entra ID und bringst ein gutes Verständnis für Cloud-, Hybrid- und Security-Themen mit.\n• Du kommunizierst fliessend auf Deutsch und Englisch . Französischkenntnisse sind ein Plus. Das erwartet dich\n• Bei uns findest du eine breit gefächerte und herausfordernde Tätigkeit mit grossem Handlungsspielraum in einem erfolgreichen Unternehmen, das zu den Branchenleadern zählt.\n• Eine strukturierte und sorgfältige Einarbeitung ist für uns selbstverständlich – dein erfolgreicher Einstieg liegt uns am Herzen.\n• Du kannst viel bewegen – dabei profitierst du vom Austausch mit engagierten Kolleginnen und Kollegen sowie vom starken Teamgeist.\n• Deinen Beitrag honorieren wir – durch Beteiligung am Unternehmenserfolg mittels Mitarbeiteraktien und Erfolgsbeteiligung.\n• Wir bauen auf gemeinsame Werte und leben diese auch im Alltag.\n• Bei uns erlebst du das Beste aus zwei Welten: die vielfältigen Möglichkeiten eines globalen Konzerns kombiniert mit den Vorzügen eines agilen KMUs.\n• Unsere erfahrenen Führungskräfte begleiten dich wertschätzend auf deinem Weg und schaffen ein professionelles Umfeld für deine persönliche Entwicklung.\n• Du bist uns wichtig - wir bieten dir ein offenes, wertschätzendes und familiäres Umfeld. Haben wir dich überzeugt? Dann bewirb dich noch heute bei uns. Für Fragen steht dir Phloi, Talent Acquisition Expert VESI DACH (phloiphan.hamelmann@vinci-energies.ch), zur Verfügung. Nur für Fragen, Bewerbungen bitte über über den Button \"Jetzt bewerben\". Ist diese Stelle nicht das Richtige für dich? Weitere aktuelle und spannungsreiche Stellenangebote bei ETAVIS/VINCI findest du hier . Wir verzichten auf die Unterstützung von Personalberatungsunternehmen und akzeptieren ausschliesslich Direktbewerbungen. Das sind wir VINCI Energies Schweiz gestaltet mit den Marken ETAVIS , Actemium und Axians die Energie- und Digitalzukunft der Schweiz. Mit umfassenden Lösungen in den Bereichen Gebäudetechnik, Industrie, Energieinfrastrukturen und ICT begleitet das Unternehmen seine Kundschaft entlang des gesamten Lebenszyklus von Anlagen und Systemen – von der Planung über die Realisierung bis zu Betrieb, Service und Optimierung. Mit den Marken ETAVIS, Actemium und Axians sowie über 4'000 Mitarbeitenden an über 70 Standorten begleitet VINCI Energies Schweiz Kundinnen und Kunden in allen Regionen der Schweiz bei der Energiewende und der digitalen Transformation.",
+      "descriptionByLocale": {
+        "de": "Du möchtest IT nicht nur am Laufen halten, sondern gemeinsam mit deinem Team wirklich weiterentwickeln? Als Head of IT Operations & Transformation übernimmst du die Führung von 12 Mitarbeitenden aus IT Services und IT Transformation. Du sorgst für einen stabilen, kundenorientierten IT-Betrieb und treibst gleichzeitig die Modernisierung unserer Services und Transformationsvorhaben voran. Als Bindeglied zwischen den IT-Teams und dem IT-Management übernimmst du Verantwortung und gestaltest die weitere Entwicklung unserer IT aktiv mit. Das bewirkst du\n• Du übernimmst die personelle und fachliche Führung unserer Teams in IT Services und IT Transformation und entwickelst deine Mitarbeitenden gezielt weiter.\n• Du verantwortest die Ressourcen-, Kapazitäts- und Einsatzplanung und sorgst für klare Rollen, Verantwortlichkeiten und Eskalationswege.\n• Du steuerst IT Services, Service Desk und Support und stellst eine hohe Servicequalität sicher.\n• Du setzt klare Prioritäten im operativen Tagesgeschäft und behältst bei Incidents und Eskalationen den Überblick.\n• Du treibst unsere IT-Transformation voran, von Systemeinführungen über Prozessoptimierungen bis hin zu Standardisierung und Automatisierung.\n• Du leitest größere IT-Projekte und sorgst dafür, dass neue Lösungen und Services strukturiert in den produktiven Betrieb überführt werden.\n• Du übersetzt strategische Vorgaben in konkrete Maßnahmen , bereitest Entscheidungsgrundlagen vor und vertrittst IT-Themen gegenüber Stakeholdern, Business Units und Gremien.\n• In definierten Bereichen übernimmst du die operative und organisatorische Stellvertretung des IT-Managers . Das erleichtert dir den Einstieg\n• Du verfügst über eine höhere Ausbildung in Informatik oder Wirtschaftsinformatik oder eine vergleichbare Qualifikation.\n• Du bringst mehrjährige Berufserfahrung in IT Operations oder IT Service Management mit.\n• Du hast bereits personelle und fachliche Führungsverantwortung übernommen und Erfahrung in der Entwicklung von Mitarbeitenden.\n• Du kennst dich mit IT-Transformation, Service- und Prozessoptimierung sowie Change Management aus.\n• Du verfügst über gute Kenntnisse in Microsoft 365, Intune, Autopilot und Entra ID und bringst ein gutes Verständnis für Cloud-, Hybrid- und Security-Themen mit.\n• Du kommunizierst fliessend auf Deutsch und Englisch . Französischkenntnisse sind ein Plus. Das erwartet dich\n• Bei uns findest du eine breit gefächerte und herausfordernde Tätigkeit mit grossem Handlungsspielraum in einem erfolgreichen Unternehmen, das zu den Branchenleadern zählt.\n• Eine strukturierte und sorgfältige Einarbeitung ist für uns selbstverständlich – dein erfolgreicher Einstieg liegt uns am Herzen.\n• Du kannst viel bewegen – dabei profitierst du vom Austausch mit engagierten Kolleginnen und Kollegen sowie vom starken Teamgeist.\n• Deinen Beitrag honorieren wir – durch Beteiligung am Unternehmenserfolg mittels Mitarbeiteraktien und Erfolgsbeteiligung.\n• Wir bauen auf gemeinsame Werte und leben diese auch im Alltag.\n• Bei uns erlebst du das Beste aus zwei Welten: die vielfältigen Möglichkeiten eines globalen Konzerns kombiniert mit den Vorzügen eines agilen KMUs.\n• Unsere erfahrenen Führungskräfte begleiten dich wertschätzend auf deinem Weg und schaffen ein professionelles Umfeld für deine persönliche Entwicklung.\n• Du bist uns wichtig - wir bieten dir ein offenes, wertschätzendes und familiäres Umfeld. Haben wir dich überzeugt? Dann bewirb dich noch heute bei uns. Für Fragen steht dir Phloi, Talent Acquisition Expert VESI DACH (phloiphan.hamelmann@vinci-energies.ch), zur Verfügung. Nur für Fragen, Bewerbungen bitte über über den Button \"Jetzt bewerben\". Ist diese Stelle nicht das Richtige für dich? Weitere aktuelle und spannungsreiche Stellenangebote bei ETAVIS/VINCI findest du hier . Wir verzichten auf die Unterstützung von Personalberatungsunternehmen und akzeptieren ausschliesslich Direktbewerbungen. Das sind wir VINCI Energies Schweiz gestaltet mit den Marken ETAVIS , Actemium und Axians die Energie- und Digitalzukunft der Schweiz. Mit umfassenden Lösungen in den Bereichen Gebäudetechnik, Industrie, Energieinfrastrukturen und ICT begleitet das Unternehmen seine Kundschaft entlang des gesamten Lebenszyklus von Anlagen und Systemen – von der Planung über die Realisierung bis zu Betrieb, Service und Optimierung. Mit den Marken ETAVIS, Actemium und Axians sowie über 4'000 Mitarbeitenden an über 70 Standorten begleitet VINCI Energies Schweiz Kundinnen und Kunden in allen Regionen der Schweiz bei der Energiewende und der digitalen Transformation.",
+        "it": "Du möchtest IT nicht nur am Laufen halten, sondern gemeinsam mit deinem Team wirklich weiterentwickeln? Als Head of IT Operations & Transformation übernimmst du die Führung von 12 Mitarbeitenden aus IT Services und IT Transformation. Du sorgst für einen stabilen, kundenorientierten IT-Betrieb und treibst gleichzeitig die Modernisierung unserer Services und Transformationsvorhaben voran. Als Bindeglied zwischen den IT-Teams und dem IT-Management übernimmst du Verantwortung und gestaltest die weitere Entwicklung unserer IT aktiv mit. Das bewirkst du\n• Du übernimmst die personelle und fachliche Führung unserer Teams in IT Services und IT Transformation und entwickelst deine Mitarbeitenden gezielt weiter.\n• Du verantwortest die Ressourcen-, Kapazitäts- und Einsatzplanung und sorgst für klare Rollen, Verantwortlichkeiten und Eskalationswege.\n• Du steuerst IT Services, Service Desk und Support und stellst eine hohe Servicequalität sicher.\n• Du setzt klare Prioritäten im operativen Tagesgeschäft und behältst bei Incidents und Eskalationen den Überblick.\n• Du treibst unsere IT-Transformation voran, von Systemeinführungen über Prozessoptimierungen bis hin zu Standardisierung und Automatisierung.\n• Du leitest größere IT-Projekte und sorgst dafür, dass neue Lösungen und Services strukturiert in den produktiven Betrieb überführt werden.\n• Du übersetzt strategische Vorgaben in konkrete Maßnahmen , bereitest Entscheidungsgrundlagen vor und vertrittst IT-Themen gegenüber Stakeholdern, Business Units und Gremien.\n• In definierten Bereichen übernimmst du die operative und organisatorische Stellvertretung des IT-Managers . Das erleichtert dir den Einstieg\n• Du verfügst über eine höhere Ausbildung in Informatik oder Wirtschaftsinformatik oder eine vergleichbare Qualifikation.\n• Du bringst mehrjährige Berufserfahrung in IT Operations oder IT Service Management mit.\n• Du hast bereits personelle und fachliche Führungsverantwortung übernommen und Erfahrung in der Entwicklung von Mitarbeitenden.\n• Du kennst dich mit IT-Transformation, Service- und Prozessoptimierung sowie Change Management aus.\n• Du verfügst über gute Kenntnisse in Microsoft 365, Intune, Autopilot und Entra ID und bringst ein gutes Verständnis für Cloud-, Hybrid- und Security-Themen mit.\n• Du kommunizierst fliessend auf Deutsch und Englisch . Französischkenntnisse sind ein Plus. Das erwartet dich\n• Bei uns findest du eine breit gefächerte und herausfordernde Tätigkeit mit grossem Handlungsspielraum in einem erfolgreichen Unternehmen, das zu den Branchenleadern zählt.\n• Eine strukturierte und sorgfältige Einarbeitung ist für uns selbstverständlich – dein erfolgreicher Einstieg liegt uns am Herzen.\n• Du kannst viel bewegen – dabei profitierst du vom Austausch mit engagierten Kolleginnen und Kollegen sowie vom starken Teamgeist.\n• Deinen Beitrag honorieren wir – durch Beteiligung am Unternehmenserfolg mittels Mitarbeiteraktien und Erfolgsbeteiligung.\n• Wir bauen auf gemeinsame Werte und leben diese auch im Alltag.\n• Bei uns erlebst du das Beste aus zwei Welten: die vielfältigen Möglichkeiten eines globalen Konzerns kombiniert mit den Vorzügen eines agilen KMUs.\n• Unsere erfahrenen Führungskräfte begleiten dich wertschätzend auf deinem Weg und schaffen ein professionelles Umfeld für deine persönliche Entwicklung.\n• Du bist uns wichtig - wir bieten dir ein offenes, wertschätzendes und familiäres Umfeld. Haben wir dich überzeugt? Dann bewirb dich noch heute bei uns. Für Fragen steht dir Phloi, Talent Acquisition Expert VESI DACH (phloiphan.hamelmann@vinci-energies.ch), zur Verfügung. Nur für Fragen, Bewerbungen bitte über über den Button \"Jetzt bewerben\". Ist diese Stelle nicht das Richtige für dich? Weitere aktuelle und spannungsreiche Stellenangebote bei ETAVIS/VINCI findest du hier . Wir verzichten auf die Unterstützung von Personalberatungsunternehmen und akzeptieren ausschliesslich Direktbewerbungen. Das sind wir VINCI Energies Schweiz gestaltet mit den Marken ETAVIS , Actemium und Axians die Energie- und Digitalzukunft der Schweiz. Mit umfassenden Lösungen in den Bereichen Gebäudetechnik, Industrie, Energieinfrastrukturen und ICT begleitet das Unternehmen seine Kundschaft entlang des gesamten Lebenszyklus von Anlagen und Systemen – von der Planung über die Realisierung bis zu Betrieb, Service und Optimierung. Mit den Marken ETAVIS, Actemium und Axians sowie über 4'000 Mitarbeitenden an über 70 Standorten begleitet VINCI Energies Schweiz Kundinnen und Kunden in allen Regionen der Schweiz bei der Energiewende und der digitalen Transformation.",
+        "en": "Du möchtest IT nicht nur am Laufen halten, sondern gemeinsam mit deinem Team wirklich weiterentwickeln? Als Head of IT Operations & Transformation übernimmst du die Führung von 12 Mitarbeitenden aus IT Services und IT Transformation. Du sorgst für einen stabilen, kundenorientierten IT-Betrieb und treibst gleichzeitig die Modernisierung unserer Services und Transformationsvorhaben voran. Als Bindeglied zwischen den IT-Teams und dem IT-Management übernimmst du Verantwortung und gestaltest die weitere Entwicklung unserer IT aktiv mit. Das bewirkst du\n• Du übernimmst die personelle und fachliche Führung unserer Teams in IT Services und IT Transformation und entwickelst deine Mitarbeitenden gezielt weiter.\n• Du verantwortest die Ressourcen-, Kapazitäts- und Einsatzplanung und sorgst für klare Rollen, Verantwortlichkeiten und Eskalationswege.\n• Du steuerst IT Services, Service Desk und Support und stellst eine hohe Servicequalität sicher.\n• Du setzt klare Prioritäten im operativen Tagesgeschäft und behältst bei Incidents und Eskalationen den Überblick.\n• Du treibst unsere IT-Transformation voran, von Systemeinführungen über Prozessoptimierungen bis hin zu Standardisierung und Automatisierung.\n• Du leitest größere IT-Projekte und sorgst dafür, dass neue Lösungen und Services strukturiert in den produktiven Betrieb überführt werden.\n• Du übersetzt strategische Vorgaben in konkrete Maßnahmen , bereitest Entscheidungsgrundlagen vor und vertrittst IT-Themen gegenüber Stakeholdern, Business Units und Gremien.\n• In definierten Bereichen übernimmst du die operative und organisatorische Stellvertretung des IT-Managers . Das erleichtert dir den Einstieg\n• Du verfügst über eine höhere Ausbildung in Informatik oder Wirtschaftsinformatik oder eine vergleichbare Qualifikation.\n• Du bringst mehrjährige Berufserfahrung in IT Operations oder IT Service Management mit.\n• Du hast bereits personelle und fachliche Führungsverantwortung übernommen und Erfahrung in der Entwicklung von Mitarbeitenden.\n• Du kennst dich mit IT-Transformation, Service- und Prozessoptimierung sowie Change Management aus.\n• Du verfügst über gute Kenntnisse in Microsoft 365, Intune, Autopilot und Entra ID und bringst ein gutes Verständnis für Cloud-, Hybrid- und Security-Themen mit.\n• Du kommunizierst fliessend auf Deutsch und Englisch . Französischkenntnisse sind ein Plus. Das erwartet dich\n• Bei uns findest du eine breit gefächerte und herausfordernde Tätigkeit mit grossem Handlungsspielraum in einem erfolgreichen Unternehmen, das zu den Branchenleadern zählt.\n• Eine strukturierte und sorgfältige Einarbeitung ist für uns selbstverständlich – dein erfolgreicher Einstieg liegt uns am Herzen.\n• Du kannst viel bewegen – dabei profitierst du vom Austausch mit engagierten Kolleginnen und Kollegen sowie vom starken Teamgeist.\n• Deinen Beitrag honorieren wir – durch Beteiligung am Unternehmenserfolg mittels Mitarbeiteraktien und Erfolgsbeteiligung.\n• Wir bauen auf gemeinsame Werte und leben diese auch im Alltag.\n• Bei uns erlebst du das Beste aus zwei Welten: die vielfältigen Möglichkeiten eines globalen Konzerns kombiniert mit den Vorzügen eines agilen KMUs.\n• Unsere erfahrenen Führungskräfte begleiten dich wertschätzend auf deinem Weg und schaffen ein professionelles Umfeld für deine persönliche Entwicklung.\n• Du bist uns wichtig - wir bieten dir ein offenes, wertschätzendes und familiäres Umfeld. Haben wir dich überzeugt? Dann bewirb dich noch heute bei uns. Für Fragen steht dir Phloi, Talent Acquisition Expert VESI DACH (phloiphan.hamelmann@vinci-energies.ch), zur Verfügung. Nur für Fragen, Bewerbungen bitte über über den Button \"Jetzt bewerben\". Ist diese Stelle nicht das Richtige für dich? Weitere aktuelle und spannungsreiche Stellenangebote bei ETAVIS/VINCI findest du hier . Wir verzichten auf die Unterstützung von Personalberatungsunternehmen und akzeptieren ausschliesslich Direktbewerbungen. Das sind wir VINCI Energies Schweiz gestaltet mit den Marken ETAVIS , Actemium und Axians die Energie- und Digitalzukunft der Schweiz. Mit umfassenden Lösungen in den Bereichen Gebäudetechnik, Industrie, Energieinfrastrukturen und ICT begleitet das Unternehmen seine Kundschaft entlang des gesamten Lebenszyklus von Anlagen und Systemen – von der Planung über die Realisierung bis zu Betrieb, Service und Optimierung. Mit den Marken ETAVIS, Actemium und Axians sowie über 4'000 Mitarbeitenden an über 70 Standorten begleitet VINCI Energies Schweiz Kundinnen und Kunden in allen Regionen der Schweiz bei der Energiewende und der digitalen Transformation.",
+        "fr": "Du möchtest IT nicht nur am Laufen halten, sondern gemeinsam mit deinem Team wirklich weiterentwickeln? Als Head of IT Operations & Transformation übernimmst du die Führung von 12 Mitarbeitenden aus IT Services und IT Transformation. Du sorgst für einen stabilen, kundenorientierten IT-Betrieb und treibst gleichzeitig die Modernisierung unserer Services und Transformationsvorhaben voran. Als Bindeglied zwischen den IT-Teams und dem IT-Management übernimmst du Verantwortung und gestaltest die weitere Entwicklung unserer IT aktiv mit. Das bewirkst du\n• Du übernimmst die personelle und fachliche Führung unserer Teams in IT Services und IT Transformation und entwickelst deine Mitarbeitenden gezielt weiter.\n• Du verantwortest die Ressourcen-, Kapazitäts- und Einsatzplanung und sorgst für klare Rollen, Verantwortlichkeiten und Eskalationswege.\n• Du steuerst IT Services, Service Desk und Support und stellst eine hohe Servicequalität sicher.\n• Du setzt klare Prioritäten im operativen Tagesgeschäft und behältst bei Incidents und Eskalationen den Überblick.\n• Du treibst unsere IT-Transformation voran, von Systemeinführungen über Prozessoptimierungen bis hin zu Standardisierung und Automatisierung.\n• Du leitest größere IT-Projekte und sorgst dafür, dass neue Lösungen und Services strukturiert in den produktiven Betrieb überführt werden.\n• Du übersetzt strategische Vorgaben in konkrete Maßnahmen , bereitest Entscheidungsgrundlagen vor und vertrittst IT-Themen gegenüber Stakeholdern, Business Units und Gremien.\n• In definierten Bereichen übernimmst du die operative und organisatorische Stellvertretung des IT-Managers . Das erleichtert dir den Einstieg\n• Du verfügst über eine höhere Ausbildung in Informatik oder Wirtschaftsinformatik oder eine vergleichbare Qualifikation.\n• Du bringst mehrjährige Berufserfahrung in IT Operations oder IT Service Management mit.\n• Du hast bereits personelle und fachliche Führungsverantwortung übernommen und Erfahrung in der Entwicklung von Mitarbeitenden.\n• Du kennst dich mit IT-Transformation, Service- und Prozessoptimierung sowie Change Management aus.\n• Du verfügst über gute Kenntnisse in Microsoft 365, Intune, Autopilot und Entra ID und bringst ein gutes Verständnis für Cloud-, Hybrid- und Security-Themen mit.\n• Du kommunizierst fliessend auf Deutsch und Englisch . Französischkenntnisse sind ein Plus. Das erwartet dich\n• Bei uns findest du eine breit gefächerte und herausfordernde Tätigkeit mit grossem Handlungsspielraum in einem erfolgreichen Unternehmen, das zu den Branchenleadern zählt.\n• Eine strukturierte und sorgfältige Einarbeitung ist für uns selbstverständlich – dein erfolgreicher Einstieg liegt uns am Herzen.\n• Du kannst viel bewegen – dabei profitierst du vom Austausch mit engagierten Kolleginnen und Kollegen sowie vom starken Teamgeist.\n• Deinen Beitrag honorieren wir – durch Beteiligung am Unternehmenserfolg mittels Mitarbeiteraktien und Erfolgsbeteiligung.\n• Wir bauen auf gemeinsame Werte und leben diese auch im Alltag.\n• Bei uns erlebst du das Beste aus zwei Welten: die vielfältigen Möglichkeiten eines globalen Konzerns kombiniert mit den Vorzügen eines agilen KMUs.\n• Unsere erfahrenen Führungskräfte begleiten dich wertschätzend auf deinem Weg und schaffen ein professionelles Umfeld für deine persönliche Entwicklung.\n• Du bist uns wichtig - wir bieten dir ein offenes, wertschätzendes und familiäres Umfeld. Haben wir dich überzeugt? Dann bewirb dich noch heute bei uns. Für Fragen steht dir Phloi, Talent Acquisition Expert VESI DACH (phloiphan.hamelmann@vinci-energies.ch), zur Verfügung. Nur für Fragen, Bewerbungen bitte über über den Button \"Jetzt bewerben\". Ist diese Stelle nicht das Richtige für dich? Weitere aktuelle und spannungsreiche Stellenangebote bei ETAVIS/VINCI findest du hier . Wir verzichten auf die Unterstützung von Personalberatungsunternehmen und akzeptieren ausschliesslich Direktbewerbungen. Das sind wir VINCI Energies Schweiz gestaltet mit den Marken ETAVIS , Actemium und Axians die Energie- und Digitalzukunft der Schweiz. Mit umfassenden Lösungen in den Bereichen Gebäudetechnik, Industrie, Energieinfrastrukturen und ICT begleitet das Unternehmen seine Kundschaft entlang des gesamten Lebenszyklus von Anlagen und Systemen – von der Planung über die Realisierung bis zu Betrieb, Service und Optimierung. Mit den Marken ETAVIS, Actemium und Axians sowie über 4'000 Mitarbeitenden an über 70 Standorten begleitet VINCI Energies Schweiz Kundinnen und Kunden in allen Regionen der Schweiz bei der Energiewende und der digitalen Transformation."
+      },
+      "location": "Zürich",
+      "canton": "ZH",
+      "url": "https://etavis.softgarden.io/job/68592592/Head-of-IT-Operations-Transformation-m-w-d-?jobDbPVId=289866537&l=de",
+      "source": "ETAVIS Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-06T09:46:36.971Z",
+      "addressLocality": "Zürich",
+      "postalCode": "8001",
+      "streetAddress": "Technoparkstrasse 1",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Risorse Umane",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "senior",
+      "sector": "Impiantistica elettrica",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-11-06T09:09:58.435+01:00",
+      "postedDate": "2026-11-06T09:09:58.435+01:00",
+      "postingDateSource": "reported",
+      "applyUrl": "https://etavis.softgarden.io/job/68592592/Head-of-IT-Operations-Transformation-m-w-d-?jobDbPVId=289866537&l=de",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "jobCategory": "Führungskräfte",
+      "needsRetranslation": true,
+      "salaryMin": 101500,
+      "salaryMax": 154000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 101500,
+          "maxValue": 154000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-02-04T09:46:36.971Z",
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-11-06T09:46:36.971Z"
     }
   ]
 }
