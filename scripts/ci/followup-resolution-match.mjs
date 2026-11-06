@@ -806,13 +806,13 @@ export function hasFalsifiableAcceptance(itemText) {
  * a H2 per leggere i bucket storici. Gli item numerati legacy restano limitati a H3.
  * I candidati devono essere heading completi a inizio riga e non protetti da quote/fence.
  */
-const FOLLOWUP_ITEM_HEADING_LINE_RE = /^(#{2,3})\s+(?:(FU-\d{4}-\d{2}-\d{2}-\d{3})\s*[—–-]\s*(.*?)|(\d+)\.\s*(.*))\s*$/i;
+const FOLLOWUP_ITEM_HEADING_LINE_RE = /^(#{2,3})\s+(?:(FU-\d{4}-\d{2}-\d{2}-\d{3})(?:\s*[—–-]\s*(.*?))?|(\d+)\.\s*(.*))\s*$/i;
 
 // Alcuni body storici hanno serializzato il separatore fra due item come i
 // caratteri letterali `\\n\\n`, invece di due newline Markdown. Accettarlo in
 // modo generico trasformerebbe testo o codice in struttura; il caso sicuro è
 // solo la sequenza immediatamente seguita da un heading FU stabile.
-const ESCAPED_DAILY_ITEM_BOUNDARY_RE = /(?:\\n)+[ \t]*(?=#{2,3}\s+FU-\d{4}-\d{2}-\d{2}-\d{3}\s*[—–-]\s*)/giu;
+const ESCAPED_DAILY_ITEM_BOUNDARY_RE = /(?:\\n)+[ \t]*(?=#{2,3}\s+FU-\d{4}-\d{2}-\d{2}-\d{3}\b)/giu;
 const ESCAPED_DAILY_ITEM_SUFFIX_RE = /(?:\\n)+[ \t]*$/u;
 
 /** Rimuove il separatore serializzato dalla coda di un item già riconosciuto. */
@@ -866,7 +866,9 @@ function itemHeadingRecords(text) {
   for (const record of records) {
     expanded.push(record);
     if (record.protected) continue;
+    const structuralLine = maskInlineCodeSpans(record.line);
     for (const boundary of record.line.matchAll(ESCAPED_DAILY_ITEM_BOUNDARY_RE)) {
+      if (structuralLine[boundary.index] === ' ') continue;
       const offset = boundary.index + boundary[0].length;
       const line = record.line.slice(offset);
       if (!FOLLOWUP_ITEM_HEADING_LINE_RE.test(line)) continue;
@@ -874,6 +876,7 @@ function itemHeadingRecords(text) {
         ...record,
         line,
         start: record.start + offset,
+        serializedBoundary: true,
       });
     }
   }
@@ -972,7 +975,13 @@ export function parseFollowupItems(body) {
     if (record.protected) continue;
     const match = FOLLOWUP_ITEM_HEADING_LINE_RE.exec(record.line);
     // Only stable IDs widen to H2. A generic H2 numbered section is not a follow-up item.
-    if (match && (match[1] === '###' || match[2])) matches.push({ ...match, index: record.start });
+    if (match && (match[1] === '###' || match[2])) {
+      matches.push({
+        ...match,
+        index: record.start,
+        serializedBoundary: record.serializedBoundary === true,
+      });
+    }
   }
   const parsed = matches.map((match, index) => {
     const heading = match[0];
@@ -984,7 +993,11 @@ export function parseFollowupItems(body) {
     const contentStart = match[4]
       ? start + heading.indexOf('.') + 1
       : start + heading.length;
-    const text = source.slice(contentStart, end);
+    const raw = source.slice(start, end);
+    const itemText = source.slice(contentStart, end);
+    const text = matches[index + 1]?.serializedBoundary
+      ? stripEscapedDailyItemBoundary(itemText)
+      : itemText;
     const id = match[2] || null;
     const number = match[4] ? Number(match[4]) : null;
     const title = (match[3] ?? match[5] ?? '').trim();
@@ -996,7 +1009,7 @@ export function parseFollowupItems(body) {
       start,
       end,
       text,
-      raw: source.slice(start, end),
+      raw,
       state: itemStateFromText(text),
       targetRepository: itemFieldFromText(text, 'Target repository'),
       targetFile: itemFieldFromText(text, 'Target file'),

@@ -217,10 +217,10 @@ export function pickNextSlots(volume, occupied, now) {
  *   #tag1 #tag2 ...
  */
 export function buildJobCaption(job, { socialCopy } = {}) {
-  // Never publish the source application title when its Italian translation
-  // is missing. The scheduler filters those offers before allocating slots.
+  // Never publish a missing or source-language Italian title. The scheduler
+  // filters those offers before allocating slots.
   const title = getItalianJobTitle(job);
-  if (!title) throw new Error('Facebook job posts require an Italian title');
+  if (!title) throw new Error('Facebook job posts require a translated Italian title');
   const company = (job?.hiringOrganization?.name || job?.company || '').trim();
   const city = (job?.jobLocation?.address?.addressLocality
     || job?.location
@@ -883,11 +883,11 @@ export async function run(opts = {}) {
   const postedSet = new Set(ledger.posted.map((e) => e?.id).filter(Boolean));
 
   // 2. Pick top-N never-posted jobs with a verified Italian title. Offers
-  // without titleByLocale.it stay unpublished until localization is ready.
+  // without a usable Italian localization stay unpublished until ready.
   const italianJobs = jobs.filter((job) => Boolean(getItalianJobTitle(job)));
   const missingItalianTitles = jobs.length - italianJobs.length;
   if (missingItalianTitles > 0) {
-    log('⚠️', `excluding ${missingItalianTitles} offer(s) from Facebook: Italian title is missing`);
+    log('⚠️', `excluding ${missingItalianTitles} offer(s) from Facebook: Italian title is missing or untranslated`);
   }
   const candidates = selectUnpostedJobs(italianJobs, postedSet, volume);
   if (candidates.length === 0) {

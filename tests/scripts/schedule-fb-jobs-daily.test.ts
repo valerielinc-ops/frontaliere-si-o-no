@@ -18,6 +18,9 @@ interface JobLike {
   id: string;
   title?: string;
   titleByLocale?: Record<string, string>;
+  sourceLang?: string;
+  sourceLangOriginal?: string;
+  source?: string;
   slug?: string;
   slugByLocale?: Record<string, string>;
   hiringOrganization?: { name?: string };
@@ -289,6 +292,16 @@ describe('buildJobCaption', () => {
     expect(c).toContain('CHF');
     expect(c).toContain("90'000");
     expect(c).toContain('📋 Tempo pieno');
+  });
+
+  it('refuses a source-language title copied into the Italian slot', () => {
+    const rawTitle = 'Verkäufer / Verkäuferin mit Schichtverantwortung';
+    expect(() => buildJobCaption({
+      ...fullJob,
+      sourceLang: 'de',
+      title: rawTitle,
+      titleByLocale: { it: rawTitle },
+    })).toThrow('Facebook job posts require a translated Italian title');
   });
 
   it('adds Codex hook and CTA without replacing verified job facts', () => {
@@ -664,6 +677,37 @@ describe('run() — DRY_RUN mode', () => {
     // Ledger untouched in dry-run.
     const ledger = loadPosted(tmp);
     expect(ledger.posted).toHaveLength(0);
+  });
+
+  it('does not schedule offers whose Italian slot still contains a foreign title', async () => {
+    const tmp = setupTmp([
+      {
+        id: 'job-it',
+        sourceLang: 'it',
+        title: 'Cuoco',
+        titleByLocale: { it: 'Cuoco' },
+        slugByLocale: { it: 'cuoco-lugano' },
+        firstSeenAt: '2026-05-04T00:00:00Z',
+      },
+      {
+        id: 'job-de',
+        sourceLang: 'de',
+        title: 'Verkäufer mit Schichtverantwortung',
+        titleByLocale: { it: 'Verkäufer mit Schichtverantwortung' },
+        slugByLocale: { it: 'verkaeufer-doettingen' },
+        firstSeenAt: '2026-05-05T00:00:00Z',
+      },
+    ]);
+    const result = await run({
+      env: { DRY_RUN: '1', FB_JOB_VOLUME: '24', FB_PAGE_ID: 'pid', FB_PAGE_ACCESS_TOKEN: 'tok' },
+      now: new Date(Date.UTC(2026, 4, 5, 6, 0, 0)),
+      repoRoot: tmp,
+      fetchImpl: vi.fn<typeof fetch>() as unknown as typeof fetch,
+      log: () => {},
+      warn: () => {},
+    });
+
+    expect(result.payloads.map((payload) => payload.jobId)).toEqual(['job-it']);
   });
 
   it('emits a real POST per job and updates the ledger when DRY_RUN is unset', async () => {

@@ -1,13 +1,13 @@
 {
   "crawlerKey": "see-spital",
-  "assembledAt": "2026-11-05T21:28:28.677Z",
-  "runId": "42110416358",
+  "assembledAt": "2026-11-06T09:32:17.283Z",
+  "runId": "42193218974",
   "jobs": [
     {
       "id": "see-spital-5c7a070a875d",
       "slug": "sub-assistant-pj-graduate-surgery-see-spital-horgen",
       "slugByLocale": {
-        "it": "assistente-pj-laureato-in-chirurgia-see-spital-horgen",
+        "it": "sub-assistant-pj-graduate-surgery-see-spital-horgen",
         "en": "sub-assistant-pj-graduate-surgery-see-spital-horgen",
         "de": "unterassistent-in-pj-absolvent-in-chirurgie-see-spital-ch",
         "fr": "sous-assistant-e-diplome-e-pj-en-chirurgie-see-spital-horgen"
@@ -34,7 +34,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/301/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T21:28:20.824Z",
+      "crawledAt": "2026-11-06T09:32:10.540Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -57,11 +57,13 @@
       "previousSlugs": [
         "unterassistent-in-pj-absolvent-in-chirurgie-see-spital-ch",
         "pj-absolvens-in-chirurgie-see-spital-horgen",
-        "pj-absolvent-in-chirurgies-see-spital-horgen"
+        "pj-absolvent-in-chirurgies-see-spital-horgen",
+        "assistente-pj-laureato-in-chirurgia-see-spital-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "unterassistent-in-pj-absolvent-in-chirurgie-see-spital-ch"
+          "unterassistent-in-pj-absolvent-in-chirurgie-see-spital-ch",
+          "assistente-pj-laureato-in-chirurgia-see-spital-horgen"
         ],
         "en": [
           "pj-absolvent-in-chirurgies-see-spital-horgen"
@@ -87,7 +89,7 @@
       "addressRegion": "ZH",
       "streetAddress": "Horgen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-05T21:28:20.824Z",
+      "validThrough": "2026-12-06T09:32:10.540Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -122,7 +124,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-11-05T21:28:19.796Z",
+      "crawledAt": "2026-11-06T09:32:09.488Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -179,7 +181,7 @@
       "addressRegion": "ZH",
       "streetAddress": "Horgen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-05T21:28:19.796Z",
+      "validThrough": "2026-12-06T09:32:09.488Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -214,7 +216,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-11-05T21:28:18.864Z",
+      "crawledAt": "2026-11-06T09:32:08.417Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -262,7 +264,7 @@
       "addressRegion": "ZH",
       "streetAddress": "Horgen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-05T21:28:18.864Z",
+      "validThrough": "2026-12-06T09:32:08.417Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -296,7 +298,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/688/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T21:28:17.873Z",
+      "crawledAt": "2026-11-06T09:32:07.428Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -407,7 +409,7 @@
       "addressRegion": "ZH",
       "streetAddress": "Horgen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-05T21:28:17.873Z",
+      "validThrough": "2026-12-06T09:32:07.428Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -441,7 +443,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/851/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T21:28:16.915Z",
+      "crawledAt": "2026-11-06T09:32:06.354Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -545,7 +547,7 @@
       "addressRegion": "ZH",
       "streetAddress": "Horgen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-05T21:28:16.915Z",
+      "validThrough": "2026-12-06T09:32:06.354Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -580,7 +582,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-11-05T21:28:15.877Z",
+      "crawledAt": "2026-11-06T09:32:05.307Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -647,7 +649,7 @@
       "addressRegion": "ZH",
       "streetAddress": "Horgen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-05T21:28:15.877Z",
+      "validThrough": "2026-12-06T09:32:05.307Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -682,7 +684,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-11-05T21:28:14.873Z",
+      "crawledAt": "2026-11-06T09:32:04.264Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -762,7 +764,7 @@
       "addressRegion": "ZH",
       "streetAddress": "Horgen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-05T21:28:14.873Z",
+      "validThrough": "2026-12-06T09:32:04.264Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -770,9 +772,9 @@
       "slug": "sanitario-di-emergenza-in-formazione-see-spital-horgen",
       "slugByLocale": {
         "it": "sanitario-di-emergenza-in-formazione-see-spital-horgen",
-        "en": "emergency-medical-technician-in-training-see-spital-horgen",
+        "en": "senior-physician-pediatric-rehabilitation-and-intervention-80-100-see-spital-horgen",
         "de": "rettungssanitater-in-in-ausbildung-see-spital-ch",
-        "fr": "technicien-en-soins-d-urgence-en-formation-see-spital-horgen"
+        "fr": "medecin-chef-reeducation-pediatrique-et-intervention-80-100-see-spital-horgen"
       },
       "company": "See-Spital",
       "companyKey": "see-spital",
@@ -797,7 +799,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-11-05T21:28:13.892Z",
+      "crawledAt": "2026-11-06T09:32:03.241Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -850,18 +852,18 @@
       "contractDuration": "temporary",
       "previousSlugs": [
         "rettungssanitater-in-in-ausbildung-see-spital-ch",
-        "senior-physician-pediatric-rehabilitation-and-intervention-80-100-see-spital-horgen",
-        "medecin-chef-reeducation-pediatrique-et-intervention-80-100-see-spital-horgen"
+        "emergency-medical-technician-in-training-see-spital-horgen",
+        "technicien-en-soins-d-urgence-en-formation-see-spital-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "rettungssanitater-in-in-ausbildung-see-spital-ch"
         ],
         "en": [
-          "senior-physician-pediatric-rehabilitation-and-intervention-80-100-see-spital-horgen"
+          "emergency-medical-technician-in-training-see-spital-horgen"
         ],
         "fr": [
-          "medecin-chef-reeducation-pediatrique-et-intervention-80-100-see-spital-horgen"
+          "technicien-en-soins-d-urgence-en-formation-see-spital-horgen"
         ]
       },
       "firstSeenAt": "2026-05-26T14:56:01.176Z",
@@ -881,7 +883,7 @@
       "addressRegion": "ZH",
       "streetAddress": "Horgen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-05T21:28:13.892Z",
+      "validThrough": "2026-12-06T09:32:03.241Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -916,7 +918,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-11-05T21:28:12.977Z",
+      "crawledAt": "2026-11-06T09:32:02.190Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -989,7 +991,7 @@
       "addressRegion": "ZH",
       "streetAddress": "Horgen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-05T21:28:12.977Z",
+      "validThrough": "2026-12-06T09:32:02.190Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1024,7 +1026,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-11-05T21:28:12.006Z",
+      "crawledAt": "2026-11-06T09:32:01.133Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -1093,7 +1095,7 @@
       "addressRegion": "ZH",
       "streetAddress": "Horgen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-05T21:28:12.006Z",
+      "validThrough": "2026-12-06T09:32:01.133Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1128,7 +1130,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-11-05T21:28:10.971Z",
+      "crawledAt": "2026-11-06T09:32:00.062Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -1204,7 +1206,7 @@
       "addressRegion": "ZH",
       "streetAddress": "Horgen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-05T21:28:10.971Z",
+      "validThrough": "2026-12-06T09:32:00.062Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1239,7 +1241,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-11-05T21:28:09.937Z",
+      "crawledAt": "2026-11-06T09:31:59.002Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -1318,7 +1320,7 @@
       "addressRegion": "ZH",
       "streetAddress": "Horgen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-05T21:28:09.937Z",
+      "validThrough": "2026-12-06T09:31:59.002Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1353,7 +1355,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-11-05T21:28:08.928Z",
+      "crawledAt": "2026-11-06T09:31:57.960Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -1430,7 +1432,7 @@
       "addressRegion": "ZH",
       "streetAddress": "Horgen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-05T21:28:08.928Z",
+      "validThrough": "2026-12-06T09:31:57.960Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1464,7 +1466,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/717/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T21:28:07.951Z",
+      "crawledAt": "2026-11-06T09:31:56.893Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -1543,7 +1545,7 @@
       "addressRegion": "ZH",
       "streetAddress": "Horgen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-05T21:28:07.951Z",
+      "validThrough": "2026-12-06T09:31:56.893Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1577,7 +1579,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1137/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T21:28:06.960Z",
+      "crawledAt": "2026-11-06T09:31:55.827Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -1644,7 +1646,7 @@
       "addressRegion": "ZH",
       "streetAddress": "Horgen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-05T21:28:06.960Z",
+      "validThrough": "2026-12-06T09:31:55.827Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1678,7 +1680,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1129/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T21:28:05.977Z",
+      "crawledAt": "2026-11-06T09:31:54.787Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -1758,7 +1760,7 @@
       "addressRegion": "ZH",
       "streetAddress": "Horgen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-05T21:28:05.977Z",
+      "validThrough": "2026-12-06T09:31:54.787Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1793,7 +1795,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-11-05T21:28:04.981Z",
+      "crawledAt": "2026-11-06T09:31:53.705Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -1868,7 +1870,7 @@
       "addressRegion": "ZH",
       "streetAddress": "Horgen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-05T21:28:04.981Z",
+      "validThrough": "2026-12-06T09:31:53.705Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1902,7 +1904,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1198/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T21:28:03.999Z",
+      "crawledAt": "2026-11-06T09:31:52.664Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -1978,7 +1980,7 @@
       "addressRegion": "ZH",
       "streetAddress": "Horgen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-05T21:28:03.999Z",
+      "validThrough": "2026-12-06T09:31:52.664Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2013,7 +2015,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-11-05T21:28:03.004Z",
+      "crawledAt": "2026-11-06T09:31:51.611Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -2087,7 +2089,7 @@
       "addressRegion": "ZH",
       "streetAddress": "Horgen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-05T21:28:03.004Z",
+      "validThrough": "2026-12-06T09:31:51.611Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2122,7 +2124,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-11-05T21:28:02.004Z",
+      "crawledAt": "2026-11-06T09:31:50.539Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -2212,7 +2214,7 @@
       "addressRegion": "ZH",
       "streetAddress": "Horgen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-05T21:28:02.004Z",
+      "validThrough": "2026-12-06T09:31:50.539Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2246,7 +2248,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1256/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T21:28:00.984Z",
+      "crawledAt": "2026-11-06T09:31:49.454Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -2324,7 +2326,7 @@
       "addressRegion": "ZH",
       "streetAddress": "Horgen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-05T21:28:00.984Z",
+      "validThrough": "2026-12-06T09:31:49.454Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2358,7 +2360,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1278/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T21:27:59.964Z",
+      "crawledAt": "2026-11-06T09:31:48.409Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -2409,7 +2411,7 @@
       "addressRegion": "ZH",
       "streetAddress": "Horgen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-05T21:27:59.964Z",
+      "validThrough": "2026-12-06T09:31:48.409Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2444,7 +2446,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-11-05T21:27:58.933Z",
+      "crawledAt": "2026-11-06T09:31:47.351Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -2495,7 +2497,7 @@
       "addressRegion": "ZH",
       "streetAddress": "Horgen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-05T21:27:58.933Z",
+      "validThrough": "2026-12-06T09:31:47.351Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2530,7 +2532,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-11-05T21:27:57.953Z",
+      "crawledAt": "2026-11-06T09:31:46.278Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -2581,7 +2583,7 @@
       "addressRegion": "ZH",
       "streetAddress": "Horgen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-05T21:27:57.953Z",
+      "validThrough": "2026-12-06T09:31:46.278Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2615,7 +2617,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1262/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T21:27:56.990Z",
+      "crawledAt": "2026-11-06T09:31:45.188Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -2666,7 +2668,7 @@
       "addressRegion": "ZH",
       "streetAddress": "Horgen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-05T21:27:56.990Z",
+      "validThrough": "2026-12-06T09:31:45.188Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2674,7 +2676,7 @@
       "slug": "esperto-di-cura-see-spital-horgen",
       "slugByLocale": {
         "it": "esperto-di-cura-see-spital-horgen",
-        "en": "nursing-expert-see-spital-horgen",
+        "en": "nursingexpert-see-spital-horgen",
         "de": "pflegeexpert-in-see-spital-ch",
         "fr": "specialiste-des-soins-see-spital-horgen"
       },
@@ -2701,7 +2703,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-11-05T21:27:55.967Z",
+      "crawledAt": "2026-11-06T09:31:44.113Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -2725,7 +2727,7 @@
         "pflegeexpert-in-see-spital-ch",
         "care-expert-see-spital-horgen",
         "pflegeexpert-in-see-spital-horgen",
-        "nursingexpert-see-spital-horgen"
+        "nursing-expert-see-spital-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2734,7 +2736,7 @@
         "en": [
           "care-expert-see-spital-horgen",
           "pflegeexpert-in-see-spital-horgen",
-          "nursingexpert-see-spital-horgen"
+          "nursing-expert-see-spital-horgen"
         ],
         "fr": [
           "pflegeexpert-in-see-spital-ch"
@@ -2757,7 +2759,7 @@
       "addressRegion": "ZH",
       "streetAddress": "Horgen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-05T21:27:55.967Z",
+      "validThrough": "2026-12-06T09:31:44.113Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2792,7 +2794,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-11-05T21:27:54.941Z",
+      "crawledAt": "2026-11-06T09:31:43.046Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -2845,7 +2847,7 @@
       "addressRegion": "ZH",
       "streetAddress": "Horgen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-05T21:27:54.941Z",
+      "validThrough": "2026-12-06T09:31:43.046Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2879,7 +2881,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1290/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T21:27:53.916Z",
+      "crawledAt": "2026-11-06T09:31:42.037Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -2945,7 +2947,7 @@
       "addressRegion": "ZH",
       "streetAddress": "Horgen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-05T21:27:53.916Z",
+      "validThrough": "2026-12-06T09:31:42.037Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2980,7 +2982,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-11-05T21:27:52.936Z",
+      "crawledAt": "2026-11-06T09:31:40.991Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -3031,7 +3033,7 @@
       "addressRegion": "ZH",
       "streetAddress": "Horgen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-05T21:27:52.936Z",
+      "validThrough": "2026-12-06T09:31:40.991Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3066,7 +3068,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-11-05T21:27:51.910Z",
+      "crawledAt": "2026-11-06T09:31:39.948Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -3117,7 +3119,7 @@
       "addressRegion": "ZH",
       "streetAddress": "Horgen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-10T21:27:51.910Z",
+      "validThrough": "2026-12-11T09:31:39.948Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3152,7 +3154,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-11-05T21:27:50.883Z",
+      "crawledAt": "2026-11-06T09:31:38.888Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -3203,7 +3205,7 @@
       "addressRegion": "ZH",
       "streetAddress": "Horgen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-19T21:27:50.883Z",
+      "validThrough": "2026-12-19T09:31:38.888Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3238,7 +3240,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-11-05T21:27:49.840Z",
+      "crawledAt": "2026-11-06T09:31:37.834Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -3296,7 +3298,7 @@
       "addressRegion": "ZH",
       "streetAddress": "Horgen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-06T21:27:49.840Z",
+      "validThrough": "2027-01-06T09:31:37.834Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3330,7 +3332,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1311/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T21:27:48.890Z",
+      "crawledAt": "2026-11-06T09:31:36.772Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -3383,7 +3385,7 @@
       "addressRegion": "ZH",
       "streetAddress": "Horgen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-07T21:27:48.890Z",
+      "validThrough": "2027-01-08T09:31:36.772Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3418,7 +3420,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-11-05T21:27:47.847Z",
+      "crawledAt": "2026-11-06T09:31:35.639Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -3474,7 +3476,7 @@
       "addressRegion": "ZH",
       "streetAddress": "Horgen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-11T21:27:47.847Z",
+      "validThrough": "2027-01-12T09:31:35.639Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3508,7 +3510,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1312/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T21:27:46.855Z",
+      "crawledAt": "2026-11-06T09:31:34.552Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -3561,7 +3563,7 @@
       "addressRegion": "ZH",
       "streetAddress": "Horgen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-11T21:27:46.855Z",
+      "validThrough": "2027-01-12T09:31:34.552Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3595,7 +3597,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1284/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T21:27:45.834Z",
+      "crawledAt": "2026-11-06T09:31:33.487Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -3646,7 +3648,7 @@
       "addressRegion": "ZH",
       "streetAddress": "Horgen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-21T21:27:45.834Z",
+      "validThrough": "2027-01-21T09:31:33.487Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3681,7 +3683,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-11-05T21:27:44.845Z",
+      "crawledAt": "2026-11-06T09:31:32.425Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -3731,7 +3733,7 @@
       "addressRegion": "ZH",
       "streetAddress": "Horgen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T21:27:44.845Z",
+      "validThrough": "2027-02-04T09:31:32.425Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3766,7 +3768,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-11-05T21:27:43.848Z",
+      "crawledAt": "2026-11-06T09:31:31.364Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -3817,7 +3819,7 @@
       "addressRegion": "ZH",
       "streetAddress": "Horgen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-25T21:27:43.848Z",
+      "validThrough": "2027-01-26T09:31:31.364Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3852,7 +3854,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-11-05T21:27:42.862Z",
+      "crawledAt": "2026-11-06T09:31:30.346Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -3903,7 +3905,7 @@
       "addressRegion": "ZH",
       "streetAddress": "Horgen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-25T21:27:42.862Z",
+      "validThrough": "2027-01-26T09:31:30.346Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3937,7 +3939,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1310/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T21:27:41.839Z",
+      "crawledAt": "2026-11-06T09:31:29.287Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -3988,7 +3990,7 @@
       "addressRegion": "ZH",
       "streetAddress": "Horgen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-27T21:27:41.839Z",
+      "validThrough": "2027-01-28T09:31:29.287Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4023,7 +4025,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-11-05T21:27:40.846Z",
+      "crawledAt": "2026-11-06T09:31:28.210Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -4078,7 +4080,7 @@
       "addressRegion": "ZH",
       "streetAddress": "Horgen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-28T21:27:40.846Z",
+      "validThrough": "2027-01-29T09:31:28.210Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4113,7 +4115,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": true,
-      "crawledAt": "2026-11-05T21:27:39.815Z",
+      "crawledAt": "2026-11-06T09:31:27.164Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -4166,7 +4168,7 @@
       "addressRegion": "ZH",
       "streetAddress": "Horgen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-02T21:27:39.815Z",
+      "validThrough": "2027-02-03T09:31:27.164Z",
       "validThroughSource": "last-observed-window"
     }
   ]
