@@ -49,7 +49,6 @@ import { candidateEditFlow, candidateEditSnapshot, candidateReviewFlow, sameCand
 import { ORDER_QUESTION_ANSWER_EVIDENCE_VERSION } from './assistedApplicationCandidateEdits.js';
 import { followupRefFor } from './assistedApplicationFollowup.js';
 import { fitNoticeOf } from './assistedApplicationFitNotice.js';
-import { portalApplicationContractView } from './lib/portalApplicationContract.js';
 import { answerMessage, validateAnswer } from './lib/answerRules.js';
 import { permitOmitted, permitStatusOf } from './lib/permitStatus.js';
 import { portalQuestionText, readablePortalQuestionText } from './lib/portalQuestionText.js';
@@ -460,9 +459,6 @@ export function buildReviewPayload({ order, orderId = '', flow, draft, round, co
       channel: channel.type || null,
       channelLabel: channel.label || null,
     },
-    // The preflight and (when available) submission protocol. Candidate-facing
-    // output keeps only counts/statuses; endpoint inventory stays owner-side.
-    portalContract: portalApplicationContractView(draft?.portalContract, { includeEndpoints: false }),
     postalSubmission: flow?.postalSubmission?.enabled === true ? {
       recipient: clean(flow.postalSubmission.recipient, 200),
       address: cleanBlock(flow.postalSubmission.address, 1000),

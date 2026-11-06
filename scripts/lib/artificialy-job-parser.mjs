@@ -148,7 +148,7 @@ function extractJsonLdJobs(html) {
 export function parseArtificialyLinkedInJobPage(html = '') {
   const source = String(html || '');
   if (!source || isArtificialyCloudflareBlockedPage(source)) {
-    return { description: '', blocked: Boolean(source) };
+    return { description: '', location: '', blocked: Boolean(source) };
   }
 
   const candidates = [];
@@ -180,7 +180,16 @@ export function parseArtificialyLinkedInJobPage(html = '') {
   const description = candidates
     .sort((a, b) => b.length - a.length)
     .find((text) => meetsSourceBodyFloor(text)) || '';
-  return { description, blocked: false };
+  let location = '';
+  const locationPattern = /<span\b[^>]*class=(['"])[^'"]*\btopcard__flavor--bullet\b[^'"]*\1[^>]*>([\s\S]*?)<\/span>/gi;
+  for (const match of source.matchAll(locationPattern)) {
+    location = swissCityFromLocationField(stripHtml(match[2] || ''), {
+      allowUnqualifiedEnglishExonyms: true,
+    });
+    if (location) break;
+  }
+
+  return { description, location, blocked: false };
 }
 
 /**

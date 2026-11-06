@@ -906,13 +906,15 @@ function fakePortal() {
     }
     // A hotel's own career page: «Apply» opens umantis, on another host, in a new tab.
     if (route === 'GET /hotel-job') {
-      return send(page('Concierge Host (m/w/d) | Grand Hotel Esempio', `<h1>Concierge Host (m/w/d)</h1><p>Grand Hotel Esempio, Pontresina</p>
-        <button type="button">ACCEPT COOKIES</button><a target="_blank" href="${umantisOrigin(server)}${UMANTIS_FORM}">Apply</a>`));
+      return send(page('Concierge Host (m/w/d) | Grand Hotel Esempio', `<section class="job-detail"><h1>Concierge Host (m/w/d)</h1>
+        <p>Grand Hotel Esempio</p><a target="_blank" href="${umantisOrigin(server)}${UMANTIS_FORM}">Apply</a></section>
+        <p>Pontresina</p><button type="button">ACCEPT COOKIES</button>`));
     }
     if (route === `GET ${UMANTIS_FORM}`) return send(umantisForm());
     if (route === 'GET /hotel-job-closed') {
-      return send(page('Concierge Host (m/w/d) | Grand Hotel Esempio', `<h1>Concierge Host (m/w/d)</h1><p>Grand Hotel Esempio, Pontresina</p>
-        <a target="_blank" href="${umantisOrigin(server)}${UMANTIS_CLOSED_FORM}">Apply</a>`));
+      return send(page('Concierge Host (m/w/d) | Grand Hotel Esempio', `<section class="job-detail"><h1>Concierge Host (m/w/d)</h1>
+        <p>Grand Hotel Esempio</p><a target="_blank" href="${umantisOrigin(server)}${UMANTIS_CLOSED_FORM}">Apply</a></section>
+        <p>Pontresina</p>`));
     }
     if (route === `GET ${UMANTIS_CLOSED_FORM}`) return send(umantisForm('', { closed: true }));
     if (route === 'POST /umantis-upload') {
