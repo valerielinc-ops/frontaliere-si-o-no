@@ -1,11 +1,4 @@
 {
   "version": 1,
-  "decreases": [
-    {
-      "family": "profession-cantons",
-      "previousCount": 1244,
-      "currentCount": 1240,
-      "reason": "The current job inventory replaced five eligible profession-canton pairs with four newly eligible pairs; all 1,240 generated routes remain present in the page manifests."
-    }
-  ]
+  "decreases": []
 }
