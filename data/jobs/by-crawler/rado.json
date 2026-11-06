@@ -1,7 +1,7 @@
 {
   "crawlerKey": "rado",
-  "assembledAt": "2026-11-06T09:27:27.308Z",
-  "runId": "42192538435",
+  "assembledAt": "2026-11-06T21:44:55.692Z",
+  "runId": "42293925771",
   "jobs": [
     {
       "id": "company-7uc4er",
@@ -30,7 +30,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "rado",
       "companyDomain": "swatchgroup.com",
-      "crawledAt": "2026-11-05T21:27:14.119Z",
+      "crawledAt": "2026-11-06T21:44:25.358Z",
       "firstSeenAt": "2026-11-04T21:26:25.205Z",
       "titleByLocale": {
         "it": "Paid Social Specialista",
@@ -90,9 +90,8 @@
       "addressRegion": "BE",
       "streetAddress": "Lengnau BE",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-02T21:27:14.119Z",
-      "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1
+      "validThrough": "2027-02-02T21:44:25.358Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }
