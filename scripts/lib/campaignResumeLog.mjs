@@ -133,7 +133,7 @@ export function createResumeWriter(db, opts, chunkState, { flushEvery = 50 } = {
   let written = 0;
   let ambiguousWritten = 0;
 
-  const flush = async () => {
+  const flushOnce = async () => {
     if (pending.length) {
       const batch = pending;
       pending = [];
@@ -158,6 +158,18 @@ export function createResumeWriter(db, opts, chunkState, { flushEvery = 50 } = {
         throw error;
       }
     }
+  };
+
+  // `record` and `recordAmbiguous` are called by concurrent send workers. Keep
+  // every flush on one promise chain so no writer observes the mutable
+  // `chunkState` halfway through another writer's Firestore append.
+  let flushChain = Promise.resolve();
+  const flush = () => {
+    const next = flushChain.then(flushOnce);
+    // A failed flush must not poison later recovery attempts, but the promise
+    // returned to the caller must still reject with the original error.
+    flushChain = next.catch(() => {});
+    return next;
   };
 
   return {

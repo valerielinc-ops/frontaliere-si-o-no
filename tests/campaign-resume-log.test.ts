@@ -18,7 +18,10 @@ import {
 import { filterUnsentSubscribers } from '@/scripts/send-newsletter.mjs';
 
 /** Minimal Firestore double: document-id range reads and arrayUnion merges. */
-function fakeDb(seed: Record<string, Record<string, unknown>> = {}) {
+function fakeDb(
+  seed: Record<string, Record<string, unknown>> = {},
+  { beforeSet = async () => {} }: { beforeSet?: (id: string, payload: Record<string, any>) => void | Promise<void> } = {},
+) {
   const docs = new Map<string, Record<string, any>>(Object.entries(seed));
   const writes: string[] = [];
 
@@ -40,6 +43,7 @@ function fakeDb(seed: Record<string, Record<string, unknown>> = {}) {
       return {
         async set(payload: Record<string, any>, opts: { merge?: boolean }) {
           writes.push(id);
+          await beforeSet(id, payload);
           const existing = opts?.merge ? docs.get(id) ?? {} : {};
           const merged: Record<string, any> = { ...existing };
           for (const [key, value] of Object.entries(payload)) {
@@ -256,5 +260,44 @@ describe('the buffered writer', () => {
     expect(writer.count()).toBe(1);
     expect(writer.ambiguousCount()).toBe(1);
     expect(db.__writes).toHaveLength(2);
+  });
+
+  it('serializes concurrent ambiguous flushes before advancing the chunk', async () => {
+    let activeWrites = 0;
+    let maxActiveWrites = 0;
+    const db = fakeDb({
+      [OPTS.campaignId]: { emails: ['seed@x.it'] },
+    }, {
+      beforeSet: async () => {
+        activeWrites += 1;
+        maxActiveWrites = Math.max(maxActiveWrites, activeWrites);
+        await new Promise((resolve) => setTimeout(resolve, 5));
+        activeWrites -= 1;
+      },
+    });
+    const writer = createResumeWriter(
+      db,
+      { ...OPTS, chunkMax: 2, ambiguousField: 'ambiguousEmails' },
+      resumeChunkState([1], 2),
+      { flushEvery: 99 },
+    );
+
+    await Promise.all([
+      writer.recordAmbiguous('a@x.it'),
+      writer.recordAmbiguous('b@x.it'),
+    ]);
+
+    expect(maxActiveWrites).toBe(1);
+    expect(db.__docs.get(OPTS.campaignId)).toMatchObject({
+      emails: ['seed@x.it'],
+      ambiguousEmails: ['a@x.it'],
+    });
+    expect(db.__docs.get(`${OPTS.campaignId}--2`)).toMatchObject({
+      ambiguousEmails: ['b@x.it'],
+    });
+    expect((await fetchAlreadySent(db, {
+      ...OPTS,
+      ambiguousField: 'ambiguousEmails',
+    })).chunkSizes).toEqual([2, 1]);
   });
 });
