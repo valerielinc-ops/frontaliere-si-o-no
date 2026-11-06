@@ -184,6 +184,45 @@ describe('isEscalationDriver — overlap-skip / pr-already-open sono scheduling,
   });
 });
 
+describe('isEscalationDriver — no-pr-unspecified è telemetria generica, non una regola', () => {
+  it('fix-outcome:no-pr-unspecified → mai driver, in entrambe le shape della chiave', () => {
+    expect(isEscalationDriver('fix-outcome', 'no-pr-unspecified')).toBe(false);
+    expect(isEscalationDriver('fix-outcome', 'fix-outcome:no-pr-unspecified')).toBe(false);
+  });
+
+  it('mantiene il bucket nel report ma non genera recurringDespiteRule', () => {
+    const key = 'fix-outcome:no-pr-unspecified';
+    const examples = Array.from({ length: 6 }, (_, i) => ({
+      issue: 17383 - i,
+      at: new Date().toISOString(),
+    }));
+    const bucketMeasures = new Map();
+    const [cluster] = considerBuckets({
+      source: 'fix-outcome',
+      counts: { [key]: examples.length },
+      examples: { [key]: examples },
+      corpus: 'no-pr-unspecified',
+      threshold: 1,
+      bucketMeasures,
+    });
+
+    expect(cluster).toMatchObject({
+      key,
+      count: 6,
+      effectiveCount: 6,
+      driver: false,
+      alreadyDocumented: true,
+      novel: false,
+      recurringDespiteRule: false,
+    });
+    expect(bucketMeasures.get('fix-outcome/fix-outcome:no-pr-unspecified')).toMatchObject({
+      windowCount: 6,
+      effectiveCount: 6,
+      driver: false,
+    });
+  });
+});
+
 describe('isEscalationDriver — blocked-secrets è un blocco esterno, non una regola violata (#13396 / corpus #2765)', () => {
   it('fix-outcome:blocked-secrets → mai driver, anche nella shape reale del call site', () => {
     expect(isEscalationDriver('fix-outcome', 'blocked-secrets')).toBe(false);
