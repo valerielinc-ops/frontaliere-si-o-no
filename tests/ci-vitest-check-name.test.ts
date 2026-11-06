@@ -232,17 +232,17 @@ describe('trusted GitHub CLI process deadline (#16248)', () => {
     expect(unbounded).toEqual([]);
 
     const boundedShellCalls = TESTS_YML.split('\n').filter((line) =>
-      line.includes('timeout --kill-after=1s "${TRUSTED_GH_TIMEOUT_SECONDS}s" "$TRUSTED_GH_BIN" api ') ||
-      line.includes('timeout --kill-after=1s "${TRUSTED_GH_TIMEOUT_SECONDS}s" "$TRUSTED_GH_BIN" pr view ') ||
-      line.includes('timeout --kill-after=1s "${TRUSTED_GH_TIMEOUT_SECONDS}s" "$TRUSTED_GH_BIN" pr comment ') ||
-      line.includes('timeout --kill-after=1s "${TRUSTED_GH_TIMEOUT_SECONDS}s" "$TRUSTED_GH_BIN" pr review '),
+      line.includes('timeout --kill-after=1s "${TRUSTED_GH_TIMEOUT_SECONDS:-60}s" "$TRUSTED_GH_BIN" api ') ||
+      line.includes('timeout --kill-after=1s "${TRUSTED_GH_TIMEOUT_SECONDS:-60}s" "$TRUSTED_GH_BIN" pr view ') ||
+      line.includes('timeout --kill-after=1s "${TRUSTED_GH_TIMEOUT_SECONDS:-60}s" "$TRUSTED_GH_BIN" pr comment ') ||
+      line.includes('timeout --kill-after=1s "${TRUSTED_GH_TIMEOUT_SECONDS:-60}s" "$TRUSTED_GH_BIN" pr review '),
     );
     // Keep the census explicit: a newly added trusted CLI call must update
     // this contract and carry the same process deadline.
     expect(boundedShellCalls).toHaveLength(23);
 
     expect(TESTS_YML).toContain("const raw = cp.execFileSync(\n                  'timeout',");
-    expect(TESTS_YML).toContain('process.env.TRUSTED_GH_TIMEOUT_SECONDS');
+    expect(TESTS_YML).toContain("`${process.env.TRUSTED_GH_TIMEOUT_SECONDS || '60'}s`");
     expect(REVIEW_GATE).toContain('process.env.TRUSTED_GH_TIMEOUT_SECONDS');
     expect(REVIEW_GATE).toContain('timeout: REVIEW_GATE_GH_TIMEOUT_MS');
     expect(REVIEW_GATE).toContain("killSignal: 'SIGKILL'");

@@ -140,8 +140,9 @@ permissions:
 
 # A hung GitHub API child must terminate before the job's broader timeout.
 # Keep this shared by every shell step and the pre-checkout Node probe below;
-# timeout is fail-closed at each existing caller, so no gate or retry policy is
-# weakened by the process bound.
+# each consumer also carries a local 60s default for extracted/test shells, so
+# a missing workflow env cannot remove the process bound or weaken fail-closed
+# gate/retry behavior.
 env:
   TRUSTED_GH_TIMEOUT_SECONDS: '60'
 
@@ -973,7 +974,7 @@ jobs:
                   'timeout',
                   [
                     '--kill-after=1s',
-                    `${process.env.TRUSTED_GH_TIMEOUT_SECONDS}s`,
+                    `${process.env.TRUSTED_GH_TIMEOUT_SECONDS || '60'}s`,
                     process.env.TRUSTED_GH_BIN,
                     'api',
                     `repos/${process.env.GITHUB_REPOSITORY}/pulls/${number}`,
@@ -1054,7 +1055,7 @@ jobs:
           if [ "${RECOVERY_IS:-false}" = "true" ]; then
             policy_ref="${RECOVERY_BASE_SHA:?recovery base SHA is required}"
           else
-            policy_ref="$(timeout --kill-after=1s "${TRUSTED_GH_TIMEOUT_SECONDS}s" "$TRUSTED_GH_BIN" api "repos/${GITHUB_REPOSITORY}/commits/main" \
+            policy_ref="$(timeout --kill-after=1s "${TRUSTED_GH_TIMEOUT_SECONDS:-60}s" "$TRUSTED_GH_BIN" api "repos/${GITHUB_REPOSITORY}/commits/main" \
               --jq '.sha' 2>/dev/null || true)"
           fi
           if ! grep -qE '^[0-9a-f]{40}$' <<<"$policy_ref"; then
@@ -1100,7 +1101,7 @@ jobs:
             mkdir -p "$(dirname "$destination")"
             for attempt in 1 2 3 4; do
               rm -f "$destination" "$error_file" "$validation_file"
-              if timeout --kill-after=1s "${TRUSTED_GH_TIMEOUT_SECONDS}s" "$TRUSTED_GH_BIN" api "repos/${GITHUB_REPOSITORY}/contents/${path}?ref=${POLICY_REF}" \
+              if timeout --kill-after=1s "${TRUSTED_GH_TIMEOUT_SECONDS:-60}s" "$TRUSTED_GH_BIN" api "repos/${GITHUB_REPOSITORY}/contents/${path}?ref=${POLICY_REF}" \
                 --header 'Accept: application/vnd.github.raw+json' \
                 > "$destination" 2>"$error_file"; then
                 if [[ ! -s "$destination" ]]; then
@@ -1467,7 +1468,7 @@ jobs:
             [[ "$current" =~ ^[0-9a-f]{40}$ ]] || continue
             [ "$current" = "$HEAD_SHA" ] && continue
             [ -e "$WATCH_DIR/stop" ] && exit 0
-            if ! api_head=$(timeout --kill-after=1s "${TRUSTED_GH_TIMEOUT_SECONDS}s" "$TRUSTED_GH_BIN" pr view "$PRN" --repo "$REPO" --json headRefOid --jq .headRefOid 2>"$WATCH_DIR/pr-view.err"); then
+            if ! api_head=$(timeout --kill-after=1s "${TRUSTED_GH_TIMEOUT_SECONDS:-60}s" "$TRUSTED_GH_BIN" pr view "$PRN" --repo "$REPO" --json headRefOid --jq .headRefOid 2>"$WATCH_DIR/pr-view.err"); then
               confirmations=$((confirmations + 1))
               if [ "$confirmations" -eq 1 ] || [ $((confirmations % 10)) -eq 0 ]; then
                 echo "$(date -u +%FT%TZ) PR #$PRN head API non disponibile ($confirmations); continuo senza cancel"
@@ -1500,7 +1501,7 @@ jobs:
             # che una conferma tardiva apra la finestra oltre lo step stop.
             [ -e "$WATCH_DIR/stop" ] && exit 0
             echo "$(date -u +%FT%TZ) PR #$PRN head ${HEAD_SHA:0:12} -> ${api_head:0:12}: confermata, cancel della run $RUN_ID"
-            if timeout --kill-after=1s "${TRUSTED_GH_TIMEOUT_SECONDS}s" "$TRUSTED_GH_BIN" api -X POST "repos/${REPO}/actions/runs/${RUN_ID}/cancel" --silent; then
+            if timeout --kill-after=1s "${TRUSTED_GH_TIMEOUT_SECONDS:-60}s" "$TRUSTED_GH_BIN" api -X POST "repos/${REPO}/actions/runs/${RUN_ID}/cancel" --silent; then
               printf '%s\n' "$api_head" > "$WATCH_DIR/superseded-by"
             else
               echo "cancel non riuscito"
@@ -2345,7 +2346,7 @@ jobs:
           printf '%s\n' unknown > changed-paths-status.txt
           cap=3000
           if [ -n "$PR_NUMBER" ]; then
-            if timeout --kill-after=1s "${TRUSTED_GH_TIMEOUT_SECONDS}s" "$TRUSTED_GH_BIN" api "repos/${GITHUB_REPOSITORY}/pulls/${PR_NUMBER}/files" \
+            if timeout --kill-after=1s "${TRUSTED_GH_TIMEOUT_SECONDS:-60}s" "$TRUSTED_GH_BIN" api "repos/${GITHUB_REPOSITORY}/pulls/${PR_NUMBER}/files" \
               --paginate -q '.[].filename' > changed-paths.txt 2>/dev/null; then
               printf '%s\n' complete > changed-paths-status.txt
             else
@@ -2380,7 +2381,7 @@ jobs:
             if [ "$GITHUB_EVENT_NAME" = "merge_group" ]; then
               compare_base="$MERGE_GROUP_BASE_SHA"
             fi
-            if timeout --kill-after=1s "${TRUSTED_GH_TIMEOUT_SECONDS}s" "$TRUSTED_GH_BIN" api "repos/${GITHUB_REPOSITORY}/compare/${compare_base}...${AFTER_SHA}" \
+            if timeout --kill-after=1s "${TRUSTED_GH_TIMEOUT_SECONDS:-60}s" "$TRUSTED_GH_BIN" api "repos/${GITHUB_REPOSITORY}/compare/${compare_base}...${AFTER_SHA}" \
               -q '.files[].filename' > changed-paths.txt 2>/dev/null; then
               printf '%s\n' complete > changed-paths-status.txt
             else
@@ -2883,7 +2884,7 @@ jobs:
         run: |
           set -uo pipefail
           [[ "$PRN" =~ ^[1-9][0-9]*$ ]] || exit 1
-          meta=$(timeout --kill-after=1s "${TRUSTED_GH_TIMEOUT_SECONDS}s" "$TRUSTED_GH_BIN" pr view "$PRN" --repo "$REPO" --json isDraft,title,labels,headRefOid)
+          meta=$(timeout --kill-after=1s "${TRUSTED_GH_TIMEOUT_SECONDS:-60}s" "$TRUSTED_GH_BIN" pr view "$PRN" --repo "$REPO" --json isDraft,title,labels,headRefOid)
           [ "$(echo "$meta" | jq -r '.headRefOid')" = "$HEAD_SHA" ] || { echo "::error::PR head changed; this run cannot review it."; exit 1; }
           stale_review=$(echo "$meta" | jq -r 'any(.labels[]?; .name == "stale-review")')
           echo "stale_review=$stale_review" >> "$GITHUB_OUTPUT"
@@ -2920,7 +2921,7 @@ jobs:
           PR_FILE: ${{ runner.temp }}/review-pr.json
         run: |
           set -euo pipefail
-          if ! timeout --kill-after=1s "${TRUSTED_GH_TIMEOUT_SECONDS}s" "$TRUSTED_GH_BIN" api "repos/$REPO/pulls/$PR_NUMBER" > "$PR_FILE"; then
+          if ! timeout --kill-after=1s "${TRUSTED_GH_TIMEOUT_SECONDS:-60}s" "$TRUSTED_GH_BIN" api "repos/$REPO/pulls/$PR_NUMBER" > "$PR_FILE"; then
             echo "::error::PR metadata/body non leggibile → review input unavailable, nessun Codex."
             exit 1
           fi
@@ -2951,7 +2952,7 @@ jobs:
           # Count every terminal managed review on this HEAD, not only LGTM.
           # An `edited` body/title event must not launch a second model review
           # on the same SHA (PRs #9066/#9074: LGTM then 🔴 Important).
-          if ! reviews=$(timeout --kill-after=1s "${TRUSTED_GH_TIMEOUT_SECONDS}s" "$TRUSTED_GH_BIN" api "repos/$REPO/pulls/$PR_NUMBER/reviews" --paginate --slurp 2>/dev/null); then
+          if ! reviews=$(timeout --kill-after=1s "${TRUSTED_GH_TIMEOUT_SECONDS:-60}s" "$TRUSTED_GH_BIN" api "repos/$REPO/pulls/$PR_NUMBER/reviews" --paginate --slurp 2>/dev/null); then
             echo "::error::Reviews API illeggibile → review input unavailable, nessun Codex."
             exit 1
           fi
@@ -2962,7 +2963,7 @@ jobs:
           # piena. `lastEditedAt` e' l'ultima modifica del body; vuoto = mai
           # modificato, e l'eccezione non scatta.
           # shellcheck disable=SC2016 # $owner/$name/$number sono variabili GraphQL, non shell.
-          body_edited_at=$(timeout --kill-after=1s "${TRUSTED_GH_TIMEOUT_SECONDS}s" "$TRUSTED_GH_BIN" api graphql \
+          body_edited_at=$(timeout --kill-after=1s "${TRUSTED_GH_TIMEOUT_SECONDS:-60}s" "$TRUSTED_GH_BIN" api graphql \
             -f query='query($owner:String!,$name:String!,$number:Int!){repository(owner:$owner,name:$name){pullRequest(number:$number){lastEditedAt}}}' \
             -F owner="${REPO%%/*}" -F name="${REPO#*/}" -F number="$PR_NUMBER" \
             --jq '.data.repository.pullRequest.lastEditedAt // empty' 2>/dev/null || true)
@@ -3138,10 +3139,10 @@ jobs:
           # "stesso input di review"; qui il contributo È cambiato, ma in modo
           # incrementale. Il prompt resta autorizzato a Read/grep i file pieni per il
           # contesto → le interazioni col code non-toccato restano coglibili.
-          lastRev=$(timeout --kill-after=1s "${TRUSTED_GH_TIMEOUT_SECONDS}s" "$TRUSTED_GH_BIN" api "repos/$REPO/pulls/$PR_NUMBER/reviews" --paginate \
+          lastRev=$(timeout --kill-after=1s "${TRUSTED_GH_TIMEOUT_SECONDS:-60}s" "$TRUSTED_GH_BIN" api "repos/$REPO/pulls/$PR_NUMBER/reviews" --paginate \
             --jq '[.[] | select((.user.login // "" | test("^(claude\\[bot\\]|frontaliere-automation\\[bot\\])$";"i")))] | last | .commit_id // empty' 2>/dev/null || true)
           if [ -n "$lastRev" ] && [ "$lastRev" != "$HEAD_SHA" ]; then
-            delta_code=$(timeout --kill-after=1s "${TRUSTED_GH_TIMEOUT_SECONDS}s" "$TRUSTED_GH_BIN" api "repos/$REPO/compare/$lastRev...$HEAD_SHA" --jq '.files[] | .filename, (.previous_filename // empty)' 2>/dev/null \
+            delta_code=$(timeout --kill-after=1s "${TRUSTED_GH_TIMEOUT_SECONDS:-60}s" "$TRUSTED_GH_BIN" api "repos/$REPO/compare/$lastRev...$HEAD_SHA" --jq '.files[] | .filename, (.previous_filename // empty)' 2>/dev/null \
               | grep -Fxf <(echo "$code_files") || true)
             # Il compare 2-dot vede anche il codice che main ha portato con un
             # merge di autorebase: su #9968 (review 5327152883) #9947 e #9949
@@ -3158,7 +3159,7 @@ jobs:
             # si fa la review.
             fp_head=$(node "$REVIEW_POLICY_ROOT/scripts/ci/pr-contribution-fingerprint.mjs" "$HEAD_SHA" 2>/dev/null || echo UNKNOWN)
             fp_prior=$(node "$REVIEW_POLICY_ROOT/scripts/ci/pr-contribution-fingerprint.mjs" "$lastRev" 2>/dev/null || echo UNKNOWN)
-            carry=$(timeout --kill-after=1s "${TRUSTED_GH_TIMEOUT_SECONDS}s" "$TRUSTED_GH_BIN" api "repos/$REPO/pulls/$PR_NUMBER/reviews" --paginate --slurp 2>/dev/null \
+            carry=$(timeout --kill-after=1s "${TRUSTED_GH_TIMEOUT_SECONDS:-60}s" "$TRUSTED_GH_BIN" api "repos/$REPO/pulls/$PR_NUMBER/reviews" --paginate --slurp 2>/dev/null \
               | node "$REVIEW_POLICY_ROOT/scripts/ci/lib/review-carry-forward.mjs" decide --head "$HEAD_SHA" --prior-commit "$lastRev" \
                   --fp-head "$fp_head" --fp-prior "$fp_prior" || echo 'carry_tier=full')
             carry_tier=$(printf '%s\n' "$carry" | sed -n 's/^carry_tier=//p' | tail -n 1)
@@ -3276,13 +3277,13 @@ jobs:
             exit 1
           fi
           jq '{title, body, labels}' "$PR_FILE" > "$CTX_DIR/pr.json"
-          timeout --kill-after=1s "${TRUSTED_GH_TIMEOUT_SECONDS}s" "$TRUSTED_GH_BIN" api "repos/$REPO/pulls/$PR_NUMBER/files" --paginate --jq '.[].filename' \
+          timeout --kill-after=1s "${TRUSTED_GH_TIMEOUT_SECONDS:-60}s" "$TRUSTED_GH_BIN" api "repos/$REPO/pulls/$PR_NUMBER/files" --paginate --jq '.[].filename' \
             > "$CTX_DIR/files.txt" 2>/dev/null || : > "$CTX_DIR/files.txt"
           # A re-review must see open Important findings from the whole bot-review
           # history, not only the immediately previous body. The gate persists the
           # same path+line anchors; this zero-Claude render gives the reviewer the
           # state it must carry forward before it can write `## LGTM`.
-          if ! timeout --kill-after=1s "${TRUSTED_GH_TIMEOUT_SECONDS}s" "$TRUSTED_GH_BIN" api "repos/$REPO/pulls/$PR_NUMBER/reviews" --paginate --slurp \
+          if ! timeout --kill-after=1s "${TRUSTED_GH_TIMEOUT_SECONDS:-60}s" "$TRUSTED_GH_BIN" api "repos/$REPO/pulls/$PR_NUMBER/reviews" --paginate --slurp \
             > "$CTX_DIR/reviews.json" 2>/dev/null; then
             echo "::error::Review history illeggibile → input unavailable, nessun Codex."
             exit 1
@@ -3414,7 +3415,7 @@ jobs:
             # patch must fail here, not force the model to rebuild it via API.
             node "$REVIEW_POLICY_ROOT/scripts/ci/prefetch-review-diff.mjs" || exit 1
           fi
-          timeout --kill-after=1s "${TRUSTED_GH_TIMEOUT_SECONDS}s" "$TRUSTED_GH_BIN" api "repos/$REPO/issues/$PR_NUMBER/comments" --paginate \
+          timeout --kill-after=1s "${TRUSTED_GH_TIMEOUT_SECONDS:-60}s" "$TRUSTED_GH_BIN" api "repos/$REPO/issues/$PR_NUMBER/comments" --paginate \
             --jq '[.[] | select(.body // "" | contains("<!-- sibling-check -->"))] | last | .body // empty' \
             > "$CTX_DIR/sibling-check.md" 2>/dev/null || true
           # Claude non ha bisogno dell'elenco completo dei file dati/statici:
@@ -3448,7 +3449,7 @@ jobs:
           # Solo una risposta successiva all'ultima review bot: quelle vecchie
           # sono già state giudicate.
           last_bot_review_at=$(jq -r '[.[][]? | select(.user.type == "Bot" and ((.user.login // "") | test("^(claude(\\[bot\\])?|frontaliere-automation\\[bot\\])$"; "i"))) | .submitted_at // empty] | max // ""' "$CTX_DIR/reviews.json" 2>/dev/null || echo "")
-          timeout --kill-after=1s "${TRUSTED_GH_TIMEOUT_SECONDS}s" "$TRUSTED_GH_BIN" api "repos/$REPO/issues/$PR_NUMBER/comments" --paginate \
+          timeout --kill-after=1s "${TRUSTED_GH_TIMEOUT_SECONDS:-60}s" "$TRUSTED_GH_BIN" api "repos/$REPO/issues/$PR_NUMBER/comments" --paginate \
             --jq '.[] | select(.user.type == "Bot" and ((.body // "") | startswith("<!-- REDFLAG_RESPONSE"))) | {created_at, body} | @json' \
             > "$CTX_DIR/fixer-responses.jsonl" 2>/dev/null || : > "$CTX_DIR/fixer-responses.jsonl"
           jq -rs --arg since "$last_bot_review_at" \
@@ -3785,7 +3786,7 @@ jobs:
             # literal content for the issue comment.
             # shellcheck disable=SC2016,SC1112
             BODY=$(printf '⚠️ **Review automatica fallita** (`terminal_reason=max_turns`, tier `%s`, cap %s turni, turni usati %s): Claude ha esaurito il budget di turni prima di poter postare un verdetto (`## LGTM` / 🔴). Nessuna review è stata pubblicata su questa PR — auto-merge non può scattare finché non ce n’è una.\n\nLog del run: %s\n\nPer sbloccare:\n- rilancia il job (rerun del run `tests` più recente di questa PR fa ripartire anche `pr-review-loop`), oppure\n- esegui la review in locale: checkout del branch, poi lancia la review con lo stesso contratto di `REVIEW.md` sul diff verso `main` (es. skill `/code-review` a effort alto) prima di mergiare a mano.\n\nSe questa PR ha già avuto una morte `max_turns` in precedenza, un retry raramente basta — dato osservato: le morti ripetute sono quasi tutte su PR con molti file indipendenti in un unico batch; valuta di splittarla in PR più piccole.' "${REVIEW_TIER:-?}" "${REVIEW_MAX_TURNS:-?}" "${NUM_TURNS:-?}" "$RUN_URL")
-            timeout --kill-after=1s "${TRUSTED_GH_TIMEOUT_SECONDS}s" "$TRUSTED_GH_BIN" pr comment "$PR_NUMBER" --body "$BODY" || echo "::warning::commento PR fallito (non bloccante)."
+            timeout --kill-after=1s "${TRUSTED_GH_TIMEOUT_SECONDS:-60}s" "$TRUSTED_GH_BIN" pr comment "$PR_NUMBER" --body "$BODY" || echo "::warning::commento PR fallito (non bloccante)."
             echo "::error::Codex review hit its turn cap (tier=${REVIEW_TIER:-?}, cap=${REVIEW_MAX_TURNS:-?}, turns=${NUM_TURNS:-?}) without posting a review — re-run this job, or split the PR if this recurs."
             exit 1
           fi
@@ -4079,7 +4080,7 @@ jobs:
             echo '::notice::Trusted main policy has no marker-repair command yet; deferring zero-agent repair until the policy merge.'
             exit 0
           fi
-          if ! timeout --kill-after=1s "${TRUSTED_GH_TIMEOUT_SECONDS}s" "$TRUSTED_GH_BIN" api "repos/$REPO/pulls/$PR_NUMBER/reviews" --paginate --slurp > "$reviews_file"; then
+          if ! timeout --kill-after=1s "${TRUSTED_GH_TIMEOUT_SECONDS:-60}s" "$TRUSTED_GH_BIN" api "repos/$REPO/pulls/$PR_NUMBER/reviews" --paginate --slurp > "$reviews_file"; then
             echo "::error::Reviews API unavailable before marker repair: no model retry is allowed."
             exit 1
           fi
@@ -4104,7 +4105,7 @@ jobs:
               # no-op; otherwise only the same review id may be copied. A
               # newly-arrived clean review must never replace the candidate
               # whose verdict was admitted by the first read.
-              if ! timeout --kill-after=1s "${TRUSTED_GH_TIMEOUT_SECONDS}s" "$TRUSTED_GH_BIN" api "repos/$REPO/pulls/$PR_NUMBER/reviews" --paginate --slurp > "$reviews_file"; then
+              if ! timeout --kill-after=1s "${TRUSTED_GH_TIMEOUT_SECONDS:-60}s" "$TRUSTED_GH_BIN" api "repos/$REPO/pulls/$PR_NUMBER/reviews" --paginate --slurp > "$reviews_file"; then
                 echo "::error::Reviews API unavailable during marker repair race check."
                 exit 1
               fi
@@ -4127,7 +4128,7 @@ jobs:
                 echo '::error::Marker repair returned an empty review body.'
                 exit 1
               fi
-              timeout --kill-after=1s "${TRUSTED_GH_TIMEOUT_SECONDS}s" "$TRUSTED_GH_BIN" pr review "$PR_NUMBER" --repo "$REPO" --comment --body-file "$body_file"
+              timeout --kill-after=1s "${TRUSTED_GH_TIMEOUT_SECONDS:-60}s" "$TRUSTED_GH_BIN" pr review "$PR_NUMBER" --repo "$REPO" --comment --body-file "$body_file"
               echo '✓ Added the missing Codex marker to the already-valid clean review; no model retry.'
               ;;
             *)
@@ -4153,7 +4154,7 @@ jobs:
           set -euo pipefail
           source "$RUNNER_TEMP/trusted-policy-downloader.sh"
           require_trusted_policy_module "$REVIEW_POLICY_ROOT" scripts/ci/review-marker-recovery.mjs
-          if ! reviews=$(timeout --kill-after=1s "${TRUSTED_GH_TIMEOUT_SECONDS}s" "$TRUSTED_GH_BIN" api "repos/$REPO/pulls/$PR_NUMBER/reviews" --paginate --slurp); then
+          if ! reviews=$(timeout --kill-after=1s "${TRUSTED_GH_TIMEOUT_SECONDS:-60}s" "$TRUSTED_GH_BIN" api "repos/$REPO/pulls/$PR_NUMBER/reviews" --paginate --slurp); then
             echo "::error::Reviews API unavailable after reviewer: marker non verificabile, nessun retry Codex."
             exit 1
           fi
@@ -4251,7 +4252,7 @@ jobs:
         run: |
           set +e
           classification='cancelled_external'
-          if [ -n "${PR_NUMBER:-}" ] && current_sha=$(timeout --kill-after=1s "${TRUSTED_GH_TIMEOUT_SECONDS}s" "$TRUSTED_GH_BIN" pr view "$PR_NUMBER" --repo "$REPO" --json headRefOid --jq .headRefOid 2>/dev/null); then
+          if [ -n "${PR_NUMBER:-}" ] && current_sha=$(timeout --kill-after=1s "${TRUSTED_GH_TIMEOUT_SECONDS:-60}s" "$TRUSTED_GH_BIN" pr view "$PR_NUMBER" --repo "$REPO" --json headRefOid --jq .headRefOid 2>/dev/null); then
             if [ -n "$current_sha" ] && [ "$current_sha" != "$HEAD_SHA" ]; then
               classification='superseded'
             fi
