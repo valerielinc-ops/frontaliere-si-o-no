@@ -2336,7 +2336,10 @@ export function hasVacancySpecificPostingEvidence(pageText, job = {}, {
     || isPostingRouteBound({ pageUrl, postingUrl, postingRouteProof });
   if (routeBound) return !namesAnotherEmployer(pageText, job);
   const titleMatched = Boolean(job?.title && titleMatches(pageTitle, job.title));
-  const sourceIdentityMatched = postingMatch(sourceText, job, pageUrl) === 'match';
+  // Without a route proof, require the employer as well as the role in the
+  // document title. A footer or related-job card elsewhere on the page cannot
+  // supply identity for this vacancy.
+  const sourceIdentityMatched = postingMatch(pageTitle, job, pageUrl) === 'match';
   return titleMatched && sourceIdentityMatched;
 }
 
