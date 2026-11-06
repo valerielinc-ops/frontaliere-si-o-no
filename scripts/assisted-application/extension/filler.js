@@ -1913,7 +1913,8 @@
   function cookieControlIsActive(button) {
     const element = button.element;
     const manageConsent = COOKIE_MANAGE_CONSENT_RE.test(button.text);
-    if (manageConsent && element.closest('form, [role="form"]')) return false;
+    const preferenceControl = COOKIE_CUSTOMIZE_RE.test(button.text) || manageConsent;
+    if (preferenceControl && element.closest('form, [role="form"]')) return false;
     if (element.closest('header, nav, footer, [role="navigation"], [role="contentinfo"]')) return false;
     if (manageConsent) return cookieManagerSurfaceIsLive(element);
     for (let node = element; node && node !== element.ownerDocument.body; node = node.parentElement) {
