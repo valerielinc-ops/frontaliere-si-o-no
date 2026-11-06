@@ -38,6 +38,8 @@ import {
   runFactualityGates,
   formatRemediation,
   normalizeRemediationIssues,
+  sourceQuoteBoundarySafe,
+  escapeRemediationQuote,
   formatItalianNumber,
   FACT_CHECK_CATEGORIES,
 } from '../scripts/lib/article-factuality-gates.mjs';
@@ -1700,6 +1702,27 @@ describe('formatRemediation', () => {
     });
 
     expect(out).not.toContain('ESTRATTO FONTE');
+  });
+
+  it('requires complete source-word boundaries before accepting a quote', () => {
+    const context = 'Informazione verificata sul procedimento amministrativo. '.repeat(3);
+    expect(sourceQuoteBoundarySafe('dato', `${context}undato verificato.`)).toBe(false);
+    expect(sourceQuoteBoundarySafe('dato', `${context} dato verificato.`)).toBe(true);
+  });
+
+  it('escapes quotes and line breaks before embedding source evidence in the prompt', () => {
+    const sourceQuote = 'Una "frase"\nsecond';
+    expect(escapeRemediationQuote(sourceQuote)).toBe(String.raw`Una \"frase\"\nsecond`);
+    const out = formatRemediation([{
+      claim: 'un claim di prova',
+      reason: 'affermazione da correggere',
+      severity: 'critical',
+      category: 'fatti_inventati',
+      sourceQuote,
+    }], {
+      sourceText: `${'contesto verificato. '.repeat(8)}${sourceQuote} fine della fonte.`,
+    });
+    expect(out).toContain(String.raw`ESTRATTO FONTE: "Una \"frase\"\nsecond"`);
   });
 });
 

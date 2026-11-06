@@ -1179,7 +1179,10 @@ describe('crawler generation state cleanup', () => {
     expect(body).toContain('flock -n "$slot_path" timeout --signal=TERM --kill-after=30s "${worker_watchdog_minutes}m" bash "$worker_path"');
     expect(body).toContain('timeout --signal=TERM --kill-after=30s "${worker_watchdog_minutes}m" bash "$worker_path"');
     expect(body).toContain('started_file="$RUNNER_TEMP/crawler-generation/group-02/bounded-crawler.started"');
-    expect(body).toContain('terminal_exit=143');
+    expect(body).toContain('started_present=0');
+    expect(body).toContain('classifyCrawlerTimeoutRace() {');
+    expect(body).toContain('validateGeneratedWorkerScript() {');
+    expect(body).toContain('bash -n "$candidate"');
   });
 
   it('splits the host-sensitive groups into a three-worker resource lane without quarantining members', () => {
@@ -1307,6 +1310,60 @@ describe('crawler generation state cleanup', () => {
       expect(fs.readFileSync(workerStatusFile, 'utf8')).toBe('0\n');
       expect(fs.existsSync(path.join(stateDir, 'timeout-race.watchdog'))).toBe(true);
       expect(body).toContain('resolveCrawlerTerminalStatus() {');
+    } finally {
+      fs.rmSync(temp, { recursive: true, force: true });
+    }
+  });
+
+  it('fails closed when the timeout wrapper exits zero without a worker status', () => {
+    const temp = fs.mkdtempSync(path.join(os.tmpdir(), 'crawler-missing-status-'));
+    const binDir = path.join(temp, 'bin');
+    fs.mkdirSync(binDir);
+    for (const name of ['bash', 'cat', 'env', 'mkdir', 'mv', 'nohup', 'rm']) {
+      const source = process.env.PATH?.split(path.delimiter)
+        .map((directory) => path.join(directory, name))
+        .find((candidate) => {
+          try {
+            fs.accessSync(candidate, fs.constants.X_OK);
+            return true;
+          } catch {
+            return false;
+          }
+        });
+      if (!source) throw new Error(`missing test executable: ${name}`);
+      fs.symlinkSync(source, path.join(binDir, name));
+    }
+    fs.writeFileSync(
+      path.join(binDir, 'timeout'),
+      [
+        '#!/usr/bin/env bash',
+        'while [[ "${1:-}" == --* ]]; do shift; done',
+        'shift',
+        'exit 0',
+        '',
+      ].join('\n'),
+      { mode: 0o755 },
+    );
+
+    const body = buildCrawlerLaunchShellBody({
+      slug: 'missing-status',
+      durationMs: 60_000,
+      runStep: { env: {}, run: 'true' },
+      postSteps: [],
+    } as any, 23);
+
+    try {
+      execFileSync('bash', ['-e', '-c', body], {
+        env: { ...process.env, PATH: binDir, RUNNER_TEMP: temp },
+        encoding: 'utf8',
+      });
+
+      const statusFile = path.join(temp, 'crawler-generation', 'group-23', 'missing-status.status');
+      const deadline = Date.now() + 5_000;
+      while (!fs.existsSync(statusFile) && Date.now() < deadline) {
+        execFileSync('sleep', ['0.05']);
+      }
+      expect(fs.readFileSync(statusFile, 'utf8')).toBe('1\n');
     } finally {
       fs.rmSync(temp, { recursive: true, force: true });
     }

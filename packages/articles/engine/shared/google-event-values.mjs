@@ -10,6 +10,23 @@ const EVENT_ATTENDANCE_MODES = new Set([
   'OnlineEventAttendanceMode',
   'MixedEventAttendanceMode',
 ]);
+// Schema.org defines the complete ItemAvailability vocabulary. Keep this set
+// beside the Event status/mode policy so every Event consumer accepts the same
+// scalar code set instead of silently downgrading valid offers.
+export const GOOGLE_EVENT_AVAILABILITY_CODES = new Set([
+  'BackOrder',
+  'Discontinued',
+  'InStock',
+  'InStoreOnly',
+  'LimitedAvailability',
+  'MadeToOrder',
+  'OnlineOnly',
+  'OutOfStock',
+  'PreOrder',
+  'PreSale',
+  'Reserved',
+  'SoldOut',
+]);
 
 export function areSupportedGoogleEventStatuses(value) {
   const statuses = Array.isArray(value) ? value : [value];
@@ -27,18 +44,43 @@ export function isGoogleEventStatusCompatible(status, attendanceMode) {
     || (attendanceModes.length === 1 && attendanceModes[0] === 'OnlineEventAttendanceMode');
 }
 
-function eventDateTimestamp(value) {
+function normalizedEventDate(value) {
+  if (typeof value !== 'string') return undefined;
   const trimmedValue = value.trim();
-  const hasExplicitTimezone = /(?:Z|[+-]\d{2}:?\d{2})$/iu.test(trimmedValue);
-  const isDateTime = /^\d{4}-\d{2}-\d{2}T/iu.test(trimmedValue);
   const normalized = trimmedValue.replace(/([+-]\d{2})(\d{2})$/u, '$1:$2');
-  const utcValue = isDateTime && !hasExplicitTimezone ? `${normalized}Z` : normalized;
-  return Date.parse(utcValue);
+  const dateOnly = /^\d{4}-\d{2}-\d{2}$/u.test(normalized);
+  const localDateTime = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}(?::\d{2}(?:\.\d+)?)?$/u.test(normalized);
+  const zonedDateTime = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}(?::\d{2}(?:\.\d+)?)?(?:Z|[+-]\d{2}:\d{2})$/u.test(normalized);
+  if (!dateOnly && !localDateTime && !zonedDateTime) return undefined;
+
+  // A timezone-free value has no recoverable wall-clock zone. Interpret a
+  // homogeneous pair as UTC, but never compare it to an explicit offset: that
+  // would invent a zone and can flip the range classification near midnight.
+  const policy = zonedDateTime ? 'explicit-offset' : 'timezone-free-utc';
+  const parseValue = zonedDateTime || dateOnly ? normalized : `${normalized}Z`;
+  const timestamp = Date.parse(parseValue);
+  if (!Number.isFinite(timestamp)) return undefined;
+  return { normalized, policy, timestamp };
+}
+
+/**
+ * Normalize an Event range under one timezone policy before comparing it.
+ * Mixed timezone-free/explicit-offset pairs are unknown rather than guessed.
+ */
+export function normalizeEventDateRange(startDate, endDate) {
+  const start = normalizedEventDate(startDate);
+  const end = normalizedEventDate(endDate);
+  if (!start || !end || start.policy !== end.policy) return undefined;
+  return {
+    startDate: start.normalized,
+    endDate: end.normalized,
+    startTime: start.timestamp,
+    endTime: end.timestamp,
+    policy: start.policy,
+  };
 }
 
 export function isValidEventDateRange(startDate, endDate) {
-  if (typeof startDate !== 'string' || typeof endDate !== 'string') return false;
-  const startTime = eventDateTimestamp(startDate);
-  const endTime = eventDateTimestamp(endDate);
-  return Number.isFinite(startTime) && Number.isFinite(endTime) && endTime >= startTime;
+  const range = normalizeEventDateRange(startDate, endDate);
+  return Boolean(range && range.endTime >= range.startTime);
 }
