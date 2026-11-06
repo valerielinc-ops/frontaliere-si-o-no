@@ -165,6 +165,11 @@ describe('expanded plate-auction connectors', () => {
       baseUrl: 'https://source.example.test/catalogue',
       pattern: /liste-auto\.pdf/i,
     })).toBe(wrappedPdf);
+    expect(resolveVariantPdfUrl({ pdfUrlPattern: /liste-auto\.pdf/i }, {
+      sourceKey: 'test',
+      pageUrl: 'https://source.example.test/catalogue',
+      indexHtml: html,
+    })).toBe(wrappedPdf);
   });
 
   it('retries transient catalogue fetch failures before degrading a source', async () => {
