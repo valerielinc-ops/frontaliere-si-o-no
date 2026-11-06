@@ -100,7 +100,7 @@ function isJobPosting(value) {
   });
 }
 
-const SCRIPT_OPEN_RE = /<script\b[^>]*>/gi;
+const SCRIPT_OPEN_START_RE = /<script\b/gi;
 const SCRIPT_CLOSE_RE = /<\/script\s*>/gi;
 
 function isHtmlSpace(character) {
@@ -135,6 +135,28 @@ function readHtmlAttribute(tag, wantedName) {
   return '';
 }
 
+function* scriptOpeningTags(source) {
+  for (const opening of source.matchAll(SCRIPT_OPEN_START_RE)) {
+    const start = Number(opening.index || 0);
+    let quote = '';
+    for (let index = start + String(opening[0] || '').length; index < source.length; index += 1) {
+      const character = source[index];
+      if (quote) {
+        if (character === quote) quote = '';
+        continue;
+      }
+      if (character === '"' || character === "'") {
+        quote = character;
+        continue;
+      }
+      if (character === '>') {
+        yield { tag: source.slice(start, index + 1), end: index + 1 };
+        break;
+      }
+    }
+  }
+}
+
 /**
  * Yield only JSON-LD script bodies without building a DOM for the whole page.
  * Yousty profile pages contain a large application shell; parsing that shell
@@ -143,12 +165,12 @@ function readHtmlAttribute(tag, wantedName) {
  */
 function* jsonLdScriptBodies(html = '') {
   const source = String(html || '');
-  for (const opening of source.matchAll(SCRIPT_OPEN_RE)) {
-    const tag = String(opening[0] || '');
+  for (const opening of scriptOpeningTags(source)) {
+    const tag = opening.tag;
     const type = normalizeSpace(readHtmlAttribute(tag, 'type')).toLowerCase();
     if (type !== 'application/ld+json') continue;
 
-    const contentStart = Number(opening.index || 0) + tag.length;
+    const contentStart = opening.end;
     SCRIPT_CLOSE_RE.lastIndex = contentStart;
     const closing = SCRIPT_CLOSE_RE.exec(source);
     if (!closing) return;
