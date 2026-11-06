@@ -19,6 +19,7 @@ import { tmpdir } from 'node:os';
 import { dirname, resolve } from 'node:path';
 import { promisify } from 'node:util';
 import { fileURLToPath } from 'node:url';
+import { Agent, fetch as undiciFetch } from 'undici';
 
 import { PHARMACY_TIME_ZONE } from '../services/pharmacies/time.mjs';
 import { validatePharmacyReleaseContract } from '../services/pharmacies/release-contract-validator.mjs';
@@ -85,6 +86,7 @@ const DUTIES_STATUS_INPUT_PATH = DUTY_STAGE_DIR
   ? resolve(DUTY_STAGE_DIR, 'pharmacy-duties-ticino-status.json')
   : DUTIES_STATUS_PATH;
 const USER_AGENT = 'FrontaliereTicino-Bot/1.0 (+https://frontaliereticino.ch/bot)';
+export const PHARMACY_SOURCE_CONNECT_TIMEOUT_MS = 60_000;
 const DAY_MS = 24 * 60 * 60 * 1000;
 const CATALOGUE_MAX_AGE_MS = 35 * DAY_MS;
 const DUTIES_MAX_AGE_MS = 2 * DAY_MS;
@@ -92,6 +94,12 @@ const DUTIES_MAX_AGE_MS = 2 * DAY_MS;
 export { BORDER_MINIMUMS, pharmacySnapshotSha256, verifyPharmacyReleaseContract };
 
 export const TICINO_SECONDARY_SOURCE_URLS = Object.freeze(OFCT_REGIONS.map((region) => region.url));
+
+export function createPharmacySourceDispatcher(connectTimeout = PHARMACY_SOURCE_CONNECT_TIMEOUT_MS) {
+  return new Agent({ connectTimeout });
+}
+
+const PHARMACY_SOURCE_DISPATCHER = createPharmacySourceDispatcher();
 
 function freshnessFor(fetchedAt, evaluatedAt, maxAgeMs) {
   const fetchedMs = typeof fetchedAt === 'string' ? Date.parse(fetchedAt) : NaN;
@@ -282,10 +290,12 @@ export async function fetchText(url, { timeoutMs = 60_000, accept = '*/*', metho
       method,
       headers: { 'User-Agent': USER_AGENT, Accept: accept, 'Accept-Language': 'it,en;q=0.8', ...headers },
       ...(body === undefined ? {} : { body }),
+      dispatcher: PHARMACY_SOURCE_DISPATCHER,
       redirect: 'follow',
     }, {
       timeout: timeoutMs,
       label: 'pharmacy official source',
+      fetchImpl: undiciFetch,
     });
   } catch (error) {
     const kind = transportErrorKind(error);
@@ -312,10 +322,12 @@ async function fetchBuffer(url) {
   try {
     response = await httpFetchWithRetry(url, {
       headers: { 'User-Agent': USER_AGENT, Accept: 'application/pdf,*/*' },
+      dispatcher: PHARMACY_SOURCE_DISPATCHER,
       redirect: 'follow',
     }, {
-      timeout: 60_000,
+      timeout: PHARMACY_SOURCE_CONNECT_TIMEOUT_MS,
       label: 'pharmacy official source',
+      fetchImpl: undiciFetch,
     });
   } catch (error) {
     const kind = transportErrorKind(error);

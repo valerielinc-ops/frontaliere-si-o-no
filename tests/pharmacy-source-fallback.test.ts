@@ -2,9 +2,11 @@ import { describe, expect, it, vi } from 'vitest';
 
 import {
   buildTicinoCatalogueSnapshot,
+  createPharmacySourceDispatcher,
   fetchTicinoPdfBuffer,
   fetchTicinoPdfDocument,
   fetchTicinoOfctCatalogue,
+  PHARMACY_SOURCE_CONNECT_TIMEOUT_MS,
 } from '../scripts/import-pharmacies-border.mjs';
 import { detectMissingSecondaryProvenance } from '../scripts/check-pharmacy-data-health.mjs';
 import {
@@ -21,6 +23,20 @@ import {
 import { OFCT_REGIONS } from '../scripts/lib/pharmacy-ticino-parser.mjs';
 
 describe('Ticino pharmacy PDF source fallback', () => {
+  it('gives the official-source connection the full declared fetch budget', async () => {
+    const dispatcher = createPharmacySourceDispatcher();
+    const optionsSymbol = Object.getOwnPropertySymbols(dispatcher)
+      .find((symbol) => symbol.toString() === 'Symbol(options)');
+
+    try {
+      expect(optionsSymbol).toBeDefined();
+      expect(optionsSymbol && (dispatcher as unknown as Record<symbol, { connectTimeout?: number }>)[optionsSymbol])
+        .toMatchObject({ connectTimeout: PHARMACY_SOURCE_CONNECT_TIMEOUT_MS });
+    } finally {
+      await dispatcher.close();
+    }
+  });
+
   it('rehydrates availability metadata when carrying forward an older catalogue', () => {
     const previousPharmacies = Array.from({ length: 200 }, (_, index) => ({
       id: `ti-previous-${index}`,
