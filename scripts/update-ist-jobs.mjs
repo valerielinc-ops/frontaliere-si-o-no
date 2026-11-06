@@ -236,6 +236,7 @@ function readInspiredRoleSummarySchoolIdentity(detail = {}) {
   const match = normalizeSpace(detail.description).match(INSPIRED_ROLE_SUMMARY_SCHOOL_RE);
   const identity = normalizeSpace(match?.[1]);
   if (!identity || INSPIRED_GENERIC_SCHOOL_IDENTITIES.has(normalize(identity))) return '';
+  if (/^(?:(?:this|that)\s+is\s+)?(?:an?\s+)?inspired\s+education(?:\s+group)?\s+school$/i.test(identity)) return '';
 
   const properNameTokens = identity.split(/\s+/).filter((token) => (
     /^[A-ZÀ-ÖØ-Þ][\p{L}\p{M}'’.-]*$/u.test(token)
