@@ -54,4 +54,18 @@ describe('discovery provider outcomes', () => {
     expect(funnel.balanced).toBe(true);
     expect(funnel.rows.find((row: { label: string }) => row.label.includes('discovery con esito'))).toMatchObject({ count: 1 });
   });
+
+  it('does not promote an unidentifiable accepted discovery into cadence-confirmed delivery', async () => {
+    const ref = { collection: () => ({ doc: () => ref }) };
+    __setFirestoreAdminForTest({ collection: () => ({ doc: () => ref }), runTransaction: async () => {} });
+    send.mockImplementation(async (items) => {
+      const unknown = { ...items[0], provider: 'resend', ack: 'unidentifiable' };
+      return { sent: [unknown], accepted: [unknown], failed: [], ambiguous: [] };
+    });
+    const result = await sendBatch([{ to: 'discovery@example.test', alertId: 'empty', subject: 'Popular', html: '<p>Popular</p>',
+      discoveryMode: true, discoveryClaim: { attemptId: 'claim', deliveryId: 'stable' } }]);
+
+    expect(result.confirmedDeliveryKeys.has('discovery@example.test\0empty')).toBe(false);
+    expect(result.confirmedDeliveryKeys.size).toBe(0);
+  });
 });
