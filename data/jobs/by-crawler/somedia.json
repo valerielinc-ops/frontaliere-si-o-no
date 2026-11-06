@@ -1,7 +1,7 @@
 {
   "crawlerKey": "somedia",
-  "assembledAt": "2026-11-06T09:24:35.892Z",
-  "runId": "42193629243",
+  "assembledAt": "2026-11-06T21:53:28.368Z",
+  "runId": "42295108529",
   "jobs": [
     {
       "id": "somedia-1a11ed37d96e",
@@ -34,7 +34,7 @@
       "url": "https://jobs.somedia.ch/Instructional-Designerin-E-Learning-80-100-de-j432.html",
       "source": "Somedia AG Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T09:24:28.730Z",
+      "crawledAt": "2026-11-06T21:53:20.547Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -122,7 +122,7 @@
       "url": "https://jobs.somedia.ch/Polygrafin-oder-Grafikerin-100-mit-Lernendenbetreuung-de-j427.html",
       "source": "Somedia AG Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T09:24:27.714Z",
+      "crawledAt": "2026-11-06T21:53:19.561Z",
       "addressLocality": "Ilanz",
       "addressCountry": "CH",
       "country": "CH",
@@ -228,7 +228,7 @@
       "url": "https://jobs.somedia.ch/Sales-Managerin-Aussendienst-80-100-de-j416.html",
       "source": "Somedia AG Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T09:24:26.783Z",
+      "crawledAt": "2026-11-06T21:53:18.633Z",
       "addressLocality": "Glarus",
       "addressCountry": "CH",
       "country": "CH",
@@ -322,7 +322,7 @@
       "url": "https://jobs.somedia.ch/Senior-Marketing-Automation-Managerin-80-100-de-j430.html",
       "source": "Somedia AG Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T09:24:25.790Z",
+      "crawledAt": "2026-11-06T21:53:17.622Z",
       "addressLocality": "Chur",
       "addressCountry": "CH",
       "country": "CH",
@@ -368,22 +368,22 @@
         "identifier": "",
         "hiringOrganization": "Somedia Press AG"
       },
+      "previousSlugs": [
+        "senior-subscription-digital-marketing-manager-in-80-100-somedia-ch",
+        "senior-marketing-automation-manager-in-80-100-somedia-ch"
+      ],
       "previousSlugsByLocale": {
-        "de": [
-          "senior-subscription-digital-marketing-manager-in-80-100-somedia-ch"
-        ],
         "it": [
           "senior-subscription-digital-marketing-manager-in-80-100-somedia-ch",
           "senior-marketing-automation-manager-in-80-100-somedia-ch"
+        ],
+        "de": [
+          "senior-subscription-digital-marketing-manager-in-80-100-somedia-ch"
         ],
         "fr": [
           "senior-subscription-digital-marketing-manager-in-80-100-somedia-ch"
         ]
       },
-      "previousSlugs": [
-        "senior-subscription-digital-marketing-manager-in-80-100-somedia-ch",
-        "senior-marketing-automation-manager-in-80-100-somedia-ch"
-      ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-10-22T09:32:43.209Z",
       "salaryMin": 79000,
