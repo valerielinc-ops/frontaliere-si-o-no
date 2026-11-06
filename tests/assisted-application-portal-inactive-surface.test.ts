@@ -1,12 +1,14 @@
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import { JSDOM } from 'jsdom';
+import { readFileSync } from 'node:fs';
 import { extractFieldsInPage } from '../scripts/assisted-application/lib/portal/fields.mjs';
 import { markOptionalAutofillDeclineInPage } from '../scripts/assisted-application/lib/portal/optional-autofill.mjs';
 import { authPageKind, hasExistingAccountPrompt } from '../scripts/assisted-application/lib/portal/account.mjs';
 
+const runnerFieldsSource = readFileSync(new URL('../scripts/assisted-application/extension/runner-fields.js', import.meta.url), 'utf8');
 let dom: JSDOM;
 function extract(html: string, url = 'https://portal.example/career/') {
-  dom = new JSDOM(html, { url });
+  dom = new JSDOM(html, { url, runScripts: 'outside-only' });
   Object.defineProperty(dom.window.HTMLElement.prototype, 'innerText', { get() { return this.textContent || ''; } });
   // Inert elements retain layout boxes in browsers.
   dom.window.Element.prototype.getBoundingClientRect = () => ({ width: 20, height: 20 } as DOMRect);
@@ -100,10 +102,23 @@ describe('portal inactive surface boundary', () => {
   });
 
   it('excludes controls explicitly marked inactive without an inactive ancestor', () => {
-    const snapshot = extract('<button inert>Accept All Cookies</button><input inert type="password"><label><input inert type="checkbox">Unknown approval</label>');
+    const snapshot = extract('<button inert>Accept All Cookies</button><input inert type="password"><label><input inert type="checkbox">Unknown approval</label><button style="visibility:collapse">Apply</button><input style="visibility:collapse" required>');
     expect(snapshot.fields).toEqual([]);
     expect(snapshot.buttons).toEqual([]);
     expect(snapshot.passwordVisible).toBe(false);
     expect(authPageKind(snapshot)).toBe('none');
+  });
+
+  it('excludes an own-element visibility collapse from source and generated snapshots', () => {
+    const snapshot = extract('<button style="visibility:collapse">Apply</button>');
+    expect(snapshot.buttons).toEqual([]);
+    dom.window.eval(runnerFieldsSource);
+    expect((dom.window as any).CompilaRunnerFields().buttons).toEqual([]);
+  });
+
+  it('does not mark a collapsed optional-parser decline with a retained layout box', () => {
+    extract('<div role="dialog">Artificial intelligence may analyse this document for automatic form filling. Proceeding without AI has no effect on this application.<button type="button" style="visibility:collapse">Decline</button></div>');
+    expect(markOptionalAutofillDeclineInPage()).toBe(false);
+    expect(document.querySelector('[data-aa-autofill-decline]')).toBeNull();
   });
 });

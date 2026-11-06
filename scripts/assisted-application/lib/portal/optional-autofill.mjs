@@ -8,7 +8,7 @@ export function markOptionalAutofillDeclineInPage() {
       if (style.display === 'none' || ['hidden', 'collapse'].includes(style.visibility)) return false;
     }
     const rect = element.getBoundingClientRect();
-    return rect.width > 0 && rect.height > 0 && getComputedStyle(element).visibility !== 'hidden';
+    return rect.width > 0 && rect.height > 0;
   };
   const ai = /\b(?:artificial intelligence|intelligenza artificiale|intelligence artificielle|kunstliche intelligenz|ai|ia|ki)\b/;
   const parser = /(?:fill|compil|riemp|ausfull|vorausfull|rempliss|auswert|evaluat|valutat|analys|parsing)/;

@@ -121,7 +121,7 @@ function nativeQuestionText(value, counter = null) {
     // ancestor must keep the file out of the current page snapshot.
     if (element.type === 'file') return !hiddenAncestor(element);
     const min = typedInto(element) ? MIN_TYPED_BOX_PX : 0;
-    const shown = style.visibility !== 'hidden' && style.display !== 'none' && rect.width > 0 && rect.height > 0 && rect.width >= min && rect.height >= min;
+    const shown = !['hidden', 'collapse'].includes(style.visibility) && style.display !== 'none' && rect.width > 0 && rect.height > 0 && rect.width >= min && rect.height >= min;
     if (shown || !['checkbox', 'radio'].includes(element.type)) return shown;
     // Custom-styled checkbox/radio: the native input is hidden, its label is what people click.
     const label = (element.id && document.querySelector(`label[for="${CSS.escape(element.id)}"]`)) || element.closest('label');
@@ -1418,7 +1418,7 @@ function nativeQuestionText(value, counter = null) {
       if (style.display === 'none' || ['hidden', 'collapse'].includes(style.visibility)) return false;
     }
     const rect = element.getBoundingClientRect();
-    return rect.width > 0 && rect.height > 0 && getComputedStyle(element).visibility !== 'hidden';
+    return rect.width > 0 && rect.height > 0;
   };
   const ai = /\b(?:artificial intelligence|intelligenza artificiale|intelligence artificielle|kunstliche intelligenz|ai|ia|ki)\b/;
   const parser = /(?:fill|compil|riemp|ausfull|vorausfull|rempliss|auswert|evaluat|valutat|analys|parsing)/;

@@ -131,7 +131,7 @@ function nativeQuestionText(value, counter = null) {
     // ancestor must keep the file out of the current page snapshot.
     if (element.type === 'file') return !hiddenAncestor(element);
     const min = typedInto(element) ? MIN_TYPED_BOX_PX : 0;
-    const shown = style.visibility !== 'hidden' && style.display !== 'none' && rect.width > 0 && rect.height > 0 && rect.width >= min && rect.height >= min;
+    const shown = !['hidden', 'collapse'].includes(style.visibility) && style.display !== 'none' && rect.width > 0 && rect.height > 0 && rect.width >= min && rect.height >= min;
     if (shown || !['checkbox', 'radio'].includes(element.type)) return shown;
     // Custom-styled checkbox/radio: the native input is hidden, its label is what people click.
     const label = (element.id && document.querySelector(`label[for="${CSS.escape(element.id)}"]`)) || element.closest('label');
