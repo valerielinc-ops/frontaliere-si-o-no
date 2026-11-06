@@ -15,7 +15,6 @@
 import { fetchOrphanCandidates } from './sources/orphanQuerySource.mjs';
 import { fetchSuggestDiscoveryCandidates } from './sources/googleSuggestSource.mjs';
 import {
-  ageHoursFromPubDate,
   fetchNewsRssDiscoveryCandidates,
   NEWS_RSS_MAX_SEED_DURATION_MS,
 } from './sources/googleNewsRssSource.mjs';
@@ -99,10 +98,11 @@ export function parseEvidencePubDate(pubDate) {
 
 function evidenceAgeHours(pubDate, nowMs) {
   const publishedAtMs = parseEvidencePubDate(pubDate);
-  if (publishedAtMs !== null && publishedAtMs > nowMs) return null;
-  const ageHours = ageHoursFromPubDate(pubDate, nowMs);
+  if (publishedAtMs === null) return null;
+  const ageHours = (nowMs - publishedAtMs) / (60 * 60 * 1000);
   if (ageHours > MAX_TREND_EVIDENCE_AGE_HOURS) return null;
-  return ageHours;
+  if (ageHours < 0) return null;
+  return Math.max(0, ageHours);
 }
 
 function isSecureHttpUrl(value) {

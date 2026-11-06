@@ -115,7 +115,7 @@ describe('fetchAll', () => {
   it.each([
     ['missing', undefined],
     ['unreadable', 'not-a-date'],
-  ])('applies the News 48h fallback to %s pubDate in News and Trends', async (_label, pubDate) => {
+  ])('keeps News fallback but excludes Trends for %s pubDate', async (_label, pubDate) => {
     const nowMs = Date.parse('2026-11-06T12:00:00.000Z');
     const signalHeadline = 'telelavoro frontalieri svizzera italia';
     const newsFn = async (_evidence: unknown, opts: { seeds?: string[]; nowMs?: number } = {}) => {
@@ -153,9 +153,9 @@ describe('fetchAll', () => {
     });
 
     expect(out.perSource.news).toBe(1);
-    expect(out.perSource.trends).toBe(1);
+    expect(out.perSource.trends).toBe(0);
     expect(out.candidates.find((candidate) => candidate.source === 'news')?.meta.ageHours).toBe(48);
-    expect(out.candidates.find((candidate) => candidate.source === 'trends')?.meta.evidenceAgeHours).toBe(48);
+    expect(out.candidates.find((candidate) => candidate.source === 'trends')).toBeUndefined();
   });
 
   it('deduplicates trend evidence by canonical URL, not raw feed URL', async () => {
@@ -194,7 +194,7 @@ describe('fetchAll', () => {
     expect(trendArticles[0].headline).toBe('Prima evidenza');
   });
 
-  it('uses the injected clock for both deadline admission and evidence age', async () => {
+  it('keeps a valid Trends pubDate and uses the injected clock for deadline admission and evidence age', async () => {
     const nowMs = Date.parse('2000-01-01T12:00:00.000Z');
     const deadlineMs = nowMs + (3 * NEWS_RSS_MAX_SEED_DURATION_MS);
     const evidenceCalls: Array<{ nowMs?: number }> = [];
