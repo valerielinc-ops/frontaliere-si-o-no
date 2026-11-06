@@ -43092,3 +43092,4 @@
 {"eventType":"candidate_attempt","key":"skan@allschwil","status":"awaiting_first_crawl","outcome":"updated","at":"2026-11-06T13:39:11.604Z","runId":"42206879216","runAttempt":1,"phase":"promote","eventId":"10fe63e8b23eb956af33f33c"}
 {"eventType":"candidate_attempt","key":"unidistance@brig","status":"awaiting_first_crawl","outcome":"updated","at":"2026-11-06T13:39:11.604Z","runId":"42206879216","runAttempt":1,"phase":"promote","eventId":"16f36e90aebdb6d8fe12515b"}
 {"eventType":"candidate_attempt","key":"creditx@sion","status":"awaiting_first_crawl","outcome":"updated","at":"2026-11-06T13:39:11.604Z","runId":"42206879216","runAttempt":1,"phase":"promote","eventId":"450bbf7452a78db81aecf386"}
+{"eventType":"candidate_transition","key":"a2nails.ch","from":"promoted","to":"promoting","at":"2026-11-06T13:39:46.203Z","runId":"42206879216","runAttempt":1,"phase":"promote","eventId":"6b6c0a272b953a9e92f73a13"}

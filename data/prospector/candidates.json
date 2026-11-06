@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-11-06T13:39:11.698Z",
+  "updatedAt": "2026-11-06T13:39:46.266Z",
   "candidates": {
     "2225": {
       "key": "2225",
@@ -8011,13 +8011,13 @@
     },
     "a2nails.ch": {
       "key": "a2nails.ch",
-      "status": "promoted",
+      "status": "promoting",
       "sources": [
         "osm",
         "seco"
       ],
       "firstSeenAt": "2026-08-29T10:19:03.315Z",
-      "updatedAt": "2026-11-06T13:19:51.491Z",
+      "updatedAt": "2026-11-06T13:39:46.203Z",
       "name": "A2 Nails Sàrl",
       "domain": "a2nails.ch",
       "city": "Nyon",
@@ -8250,7 +8250,9 @@
           "logoSourceUrl": "https://a2nails.ch/favicon.ico",
           "employerSiteName": "A2 Nails Nyon"
         }
-      ]
+      ],
+      "promotionPr": "17392",
+      "promotionBranch": "prospector/promote-2026-11-06"
     },
     "a3-betonpumpen@affoltern-am-albis": {
       "key": "a3-betonpumpen@affoltern-am-albis",
