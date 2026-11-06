@@ -2943,10 +2943,15 @@ jobs:
           always() &&
           steps.validate-owned-sitemap-pages.outcome == 'success' &&
           (
-            matrix.locale != 'it' ||
             (
+              matrix.locale != 'it' &&
+              steps.upload-locale-source.outcome == 'success'
+            ) ||
+            (
+              matrix.locale == 'it' &&
               steps.hreflang-index-manifest.outcome == 'success' &&
-              steps.upload-pages-artifact.outcome == 'success'
+              steps.upload-pages-artifact.outcome == 'success' &&
+              steps.upload-sitemaps-bundle.outcome == 'success'
             )
           )
         id: bind-sitemap-page-manifest
