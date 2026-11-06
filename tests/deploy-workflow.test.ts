@@ -238,13 +238,17 @@ describe('publisher integrity gate and asynchronous historical audits', () => {
     const selector = workflow.jobs['source-identity'].steps.find((step: any) => step.id === 'identity').run as string;
 
     expect(selector).toContain('select(.expired == false)');
+    expect(selector).toContain('actions/runs/$publisher_id/jobs?per_page=100');
+    expect(selector).toContain('select(.name == "deploy")');
+    expect(selector).toContain('publisher_deploy_conclusion');
+    expect(selector).toContain('[ "$publisher_deploy_conclusion" != \'success\' ]');
     expect(selector).toContain('complete=true');
     expect(selector).toContain('has_name "$source_names" "$name" || complete=false');
     expect(selector).toContain('has_name "$publisher_names" "locale-dist-$locale-$publisher_id" || complete=false');
     expect(selector).toContain('has_name "$publisher_names" "section-page-manifest-$locale-$publisher_id" || complete=false');
     expect(selector).toContain('if [ "$complete" = true ]; then');
-    expect(selector).toContain('No successful publisher run has a complete, unexpired source and shard artifact set.');
-    expect(selector).toMatch(/echo '::error::No successful publisher run[\s\S]*?exit 1/);
+    expect(selector).toContain('No publisher run with a successful deploy job has a complete, unexpired source and shard artifact set.');
+    expect(selector).toMatch(/echo '::error::No publisher run with a successful deploy job[\s\S]*?exit 1/);
   });
 
   it('records French tail step outcomes and distinguishes an unattributed job failure', () => {
