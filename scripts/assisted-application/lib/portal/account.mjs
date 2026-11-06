@@ -200,8 +200,23 @@ export function verifiedSignInTarget(href, currentUrl, portalHost) {
 }
 
 const SUCCESSFACTORS_AUTH_ROUTE_PARAMS = new Set([
-  'company', 'career_ns', 'career_job_req_id', 'login_ns', 'jobPipeline', 'lang', 'site',
+  'company', 'career_ns', 'career_job_req_id', 'job', 'jobid', 'login_ns', 'jobPipeline', 'lang', 'site',
 ]);
+const SUCCESSFACTORS_LEGACY_JOB_HOST_RE = /^career5\.successfactors\.eu$/i;
+
+function singleQueryParam(params, name) {
+  const values = [...params.entries()]
+    .filter(([key]) => key.toLowerCase() === name)
+    .map(([, value]) => value);
+  return values.length === 1 ? values[0] : '';
+}
+
+function setSingleQueryParam(url, name, value) {
+  for (const key of [...url.searchParams.keys()]) {
+    if (key.toLowerCase() === name) url.searchParams.delete(key);
+  }
+  url.searchParams.set(name, value);
+}
 
 /**
  * SuccessFactors can send an existing account back to a job's registration
@@ -212,8 +227,8 @@ const SUCCESSFACTORS_AUTH_ROUTE_PARAMS = new Set([
  */
 export function successFactorsSignInTarget(currentUrl) {
   const current = successFactorsJobApplicationRoute(currentUrl);
-  if (!current || current.searchParams.get('login_ns') !== 'register') return '';
-  current.searchParams.set('login_ns', 'login');
+  if (!current || singleQueryParam(current.searchParams, 'login_ns') !== 'register') return '';
+  setSingleQueryParam(current, 'login_ns', 'login');
   return current.href;
 }
 
@@ -224,8 +239,9 @@ export function successFactorsSignInTarget(currentUrl) {
  */
 export function successFactorsRegistrationTarget(currentUrl) {
   const current = successFactorsJobApplicationRoute(currentUrl);
-  if (!current || (current.searchParams.has('login_ns') && current.searchParams.get('login_ns') !== 'login')) return '';
-  current.searchParams.set('login_ns', 'register');
+  const loginNamespace = current && singleQueryParam(current.searchParams, 'login_ns');
+  if (!current || (loginNamespace && loginNamespace !== 'login')) return '';
+  setSingleQueryParam(current, 'login_ns', 'register');
   return current.href;
 }
 
@@ -235,11 +251,24 @@ function successFactorsJobApplicationRoute(currentUrl) {
     if (current.protocol !== 'https:' || current.username || current.password || current.hash
       || current.pathname !== '/career' || !usesOtpAccountCreation(current.hostname)) return null;
     const params = current.searchParams;
-    if ([...params.keys()].some(key => !SUCCESSFACTORS_AUTH_ROUTE_PARAMS.has(key))) return null;
-    for (const key of new Set(params.keys())) {
-      if (params.getAll(key).length !== 1) return null;
+    if ([...params.keys()].some(key => !SUCCESSFACTORS_AUTH_ROUTE_PARAMS.has(key.toLowerCase()))) return null;
+    for (const key of new Set([...params.keys()].map(key => key.toLowerCase()))) {
+      if ([...params.keys()].filter(candidate => candidate.toLowerCase() === key).length !== 1) return null;
     }
-    if (params.get('career_ns') !== 'job_application' || !params.get('career_job_req_id') || !params.get('company')) return null;
+    const company = singleQueryParam(params, 'company');
+    const namespace = singleQueryParam(params, 'career_ns');
+    const requisition = singleQueryParam(params, 'career_job_req_id');
+    const legacyJob = singleQueryParam(params, 'job');
+    const legacyJobId = singleQueryParam(params, 'jobid');
+    if (!company || !/^[a-z0-9][a-z0-9 _-]{0,99}$/i.test(company)) return null;
+    if (namespace && namespace.toLowerCase() !== 'job_application') return null;
+    if (requisition && !/^\d{1,20}$/.test(requisition)) return null;
+    if (legacyJob && !/^\d{1,20}$/.test(legacyJob)) return null;
+    if (legacyJobId && !/^\d{1,20}$/.test(legacyJobId)) return null;
+    if ((legacyJob || legacyJobId) && !SUCCESSFACTORS_LEGACY_JOB_HOST_RE.test(current.hostname)) return null;
+    // Two different vacancy identifiers are ambiguous: do not choose a first match.
+    if (requisition && (legacyJob || legacyJobId) || legacyJob && legacyJobId) return null;
+    if (!requisition && !legacyJob && !legacyJobId) return null;
     return current;
   } catch {
     return null;
