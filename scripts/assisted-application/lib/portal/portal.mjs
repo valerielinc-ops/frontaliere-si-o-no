@@ -2080,7 +2080,7 @@ async function openApplicationForm(context, page, snapshot, stageContext = null)
   // the generic form; it is not a blanket fallback for a direct apply URL.
   let enteredThroughApplicationEntry = false;
   const result = (extra = {}) => ({ page, snapshot, enteredThroughApplicationEntry, ...extra });
-  const reportNavigation = ({ hop, phase, cookieStatus, controls = [], ownedEntries = [], selectedControlKind = 'none', linkVisible = false }) => {
+  const reportNavigation = ({ hop, phase, cookieStatus, controls = [], ownedEntries = [], entryResolution = null, selectedControlKind = 'none', linkVisible = false }) => {
     if (typeof stageContext?.onPortalNavigationDiagnostic !== 'function') return;
     let location = null;
     try {
@@ -2098,6 +2098,7 @@ async function openApplicationForm(context, page, snapshot, stageContext = null)
         location,
         applicationControlCandidateCount: boundedCount(controls.length, 50),
         applicationEntryControlCount: boundedCount(ownedEntries.length, 20),
+        ...(entryResolution ? { entryResolution } : {}),
         selectedControlKind: ['none', 'button', 'manual_button', 'link'].includes(selectedControlKind) ? selectedControlKind : 'none',
         linkVisible: linkVisible === true,
       });
@@ -2115,8 +2116,27 @@ async function openApplicationForm(context, page, snapshot, stageContext = null)
     const applicationControls = allControls.filter((control) => !control?.disabled && !control?.chrome
       && startsApplication(control?.text || control?.label));
     const ownedEntries = applicationEntryControls(snapshot, stageContext);
+    const entryContextChecks = applicationControls.map((control) => {
+      const context = String(control?.vacancyContext || '').trim();
+      return {
+        hasBoundedContext: Boolean(context),
+        roleMatches: Boolean(context && stageContext?.job?.title && titleMatches(context, stageContext.job.title)),
+        employerMatches: Boolean(context && postingMatch(context, stageContext?.job || {}, stageContext?.postingUrl) === 'match'),
+        otherEmployerDetected: Boolean(context && namesAnotherEmployer(context, stageContext?.job || {}, { allowPostingLocation: true })),
+        contextMatches: applicationEntryContextMatchesPosting(control, stageContext),
+      };
+    });
+    const entryResolution = {
+      externalFallbackAllowed: stageContext?.allowSingleExternalApplicationEntry === true,
+      candidateCount: Math.min(20, entryContextChecks.length),
+      boundedVacancyContextCount: Math.min(20, entryContextChecks.filter((item) => item.hasBoundedContext).length),
+      vacancyRoleMatchCount: Math.min(20, entryContextChecks.filter((item) => item.roleMatches).length),
+      vacancyEmployerMatchCount: Math.min(20, entryContextChecks.filter((item) => item.employerMatches).length),
+      vacancyEmployerConflictCount: Math.min(20, entryContextChecks.filter((item) => item.otherEmployerDetected).length),
+      vacancyContextMatchCount: Math.min(20, entryContextChecks.filter((item) => item.contextMatches).length),
+    };
     const cookieStatus = ['none', 'dismissed', 'unresolved'].includes(cookies.status) ? cookies.status : 'unresolved';
-    reportNavigation({ hop: hop + 1, phase: 'cookie_check', cookieStatus, controls: applicationControls, ownedEntries });
+    reportNavigation({ hop: hop + 1, phase: 'cookie_check', cookieStatus, controls: applicationControls, ownedEntries, entryResolution });
     if (cookies.status === 'unresolved') return result({ handoff: 'cookie_preferences_unresolved' });
     if (hasApplicationForm(snapshot)) {
       const applicantContext = verifiedUmantisApplicantContext(stageContext, page.url());
@@ -2146,6 +2166,7 @@ async function openApplicationForm(context, page, snapshot, stageContext = null)
     const selectedControlKind = manual ? 'manual_button' : apply ? 'button' : linkVisible ? 'link' : 'none';
     reportNavigation({
       hop: hop + 1, phase: 'entry_selection', cookieStatus, controls: applicationControls, ownedEntries,
+      entryResolution,
       selectedControlKind, linkVisible,
     });
     if (!manual && !apply && !linkVisible) {

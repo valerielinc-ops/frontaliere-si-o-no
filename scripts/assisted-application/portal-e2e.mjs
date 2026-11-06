@@ -77,6 +77,15 @@ const safePortalNavigationDiagnostic = (entry = {}) => {
     location: host && pathname ? { host, path: pathname } : null,
     applicationControlCandidateCount: count(entry.applicationControlCandidateCount, 50),
     applicationEntryControlCount: count(entry.applicationEntryControlCount, 20),
+    ...(entry.entryResolution && typeof entry.entryResolution === 'object' ? { entryResolution: {
+      externalFallbackAllowed: entry.entryResolution.externalFallbackAllowed === true,
+      candidateCount: count(entry.entryResolution.candidateCount, 20),
+      boundedVacancyContextCount: count(entry.entryResolution.boundedVacancyContextCount, 20),
+      vacancyRoleMatchCount: count(entry.entryResolution.vacancyRoleMatchCount, 20),
+      vacancyEmployerMatchCount: count(entry.entryResolution.vacancyEmployerMatchCount, 20),
+      vacancyEmployerConflictCount: count(entry.entryResolution.vacancyEmployerConflictCount, 20),
+      vacancyContextMatchCount: count(entry.entryResolution.vacancyContextMatchCount, 20),
+    } } : {}),
     selectedControlKind: ['none', 'button', 'manual_button', 'link'].includes(entry.selectedControlKind) ? entry.selectedControlKind : 'none',
     linkVisible: entry.linkVisible === true,
   };
