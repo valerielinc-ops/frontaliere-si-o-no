@@ -1356,8 +1356,8 @@ async function main() {
   };
 
   const checks = [];
-  const check = (name, ok, actual) => {
-    checks.push({ name, ok });
+  const check = (name, ok, actual, { reportDiagnostic = false } = {}) => {
+    checks.push({ name, ok, ...(reportDiagnostic && actual ? { diagnostic: actual } : {}) });
     console.log(`${ok ? '✓' : '✗'} ${name}`);
     if (!ok && actual !== undefined) console.log(`  actual: ${JSON.stringify(actual)}`);
   };
@@ -1439,7 +1439,8 @@ async function main() {
     const coopCandidate = { identity: { email: ALIAS }, profile: { dateOfBirth: '1990-05-12', location: 'Lugano', address: { street: 'Via Esempio 1', postalCode: '6830', city: 'Lugano', country: 'Svizzera' } }, answers: { portal_anrede: 'Herr' }, portalQuestionsAnswered: [] };
     const coopDry = await run({ applyUrl: `${base}/coop-job`, job: coopJob, accounts: coopAccounts, dryRun: true });
     check('Coop: past the shadow cookie banner, «Jetzt bewerben» (never «Später bewerben») reaches SuccessFactors’ registration', coopDry.event.type === 'dry_run_ready'
-      && coopDry.event.stage === 'account' && coop.later === 0 && coop.accounts.size === 0);
+      && coopDry.event.stage === 'account' && coop.later === 0 && coop.accounts.size === 0,
+    stopContext(coopDry), { reportDiagnostic: true });
     check('Coop: SuccessFactors’ own cookie manager («Alle Cookies ablehnen») is refused, the sign-in page behind it is reached', coop.cookieManager === 'rejected');
     const coopFirst = await run({ applyUrl: `${base}/coop-job`, job: coopJob, accounts: coopAccounts, candidate: coopCandidate });
     const coopAuth = coopFirst.evidence.steps.filter((step) => step.auth).map((step) => step.auth);
@@ -1972,6 +1973,8 @@ async function main() {
       totalChecks: checks.length,
       passedChecks: checks.length - failed,
       failedChecks: checks.filter((item) => !item.ok).map((item) => item.name),
+      diagnostics: checks.filter((item) => !item.ok && item.diagnostic)
+        .map(({ name, diagnostic }) => ({ name, detail: diagnostic })),
     };
     await writeFile(process.env.AA_PORTAL_E2E_REPORT, `${JSON.stringify(report, null, 2)}\n`);
   }
