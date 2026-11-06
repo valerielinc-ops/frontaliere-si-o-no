@@ -30,7 +30,14 @@
 import fs from 'node:fs';
 import np from 'node:path';
 import type { Plugin } from 'vite';
-import { employerProfilesFlushed, staticPagesFlushed, type EmittedEmployerProfile } from './shared/buildSignals';
+import { filterEmployerProfileJobLinks } from './employerProfilePagesPlugin';
+import {
+  employerProfilesFlushed,
+  getJobSitemapAllowlist,
+  jobsSeoPagesFlushed,
+  staticPagesFlushed,
+  type EmittedEmployerProfile,
+} from './shared/buildSignals';
 import { injectBlockAfterMain } from './shared/injectAfterMain';
 import { shouldEmitLocale, type EmitLocale } from './shared/localeEmitFilter';
 import { SITE_MAP_PAGE_DIR as SITEMAP_PAGE_DIR } from './shared/siteMapPageDir';
@@ -137,12 +144,15 @@ export function employerProfilePagesLinksPlugin(rootDir: string): Plugin {
       const distDir = np.resolve(rootDir, 'dist');
       if (!fs.existsSync(distDir)) return;
 
-      // Wait for the profile emitter (gives us the emitted profiles) AND
-      // staticPagesPlugin (writes the sitemap pages we patch) so both
-      // producers have flushed to disk before we read+patch — mirrors
-      // professionCantonLandingsLinksPlugin's race fix.
+      // Wait for the profile emitter (gives us the emitted profiles), the
+      // staticPagesPlugin (writes the sitemap pages we patch), AND the jobs
+      // producer (publishes the all-locale self-canonical detail allowlist).
+      // This consumer is already registered after jobsSeoPagesPlugin, so the
+      // extra barrier is safe in the sequential profile and closes the race
+      // in the normal parallel closeBundle mode as well.
       const [profiles] = await Promise.all([
         employerProfilesFlushed,
+        jobsSeoPagesFlushed,
         staticPagesFlushed,
       ]);
 
@@ -150,6 +160,34 @@ export function employerProfilePagesLinksPlugin(rootDir: string): Plugin {
         console.log('\x1b[36m[employer-profile-pages-links]\x1b[0m No emitted profiles — nothing to link.');
         return;
       }
+
+      const jobSitemapAllowlist = getJobSitemapAllowlist();
+      if (jobSitemapAllowlist === null) {
+        throw new Error(
+          '[employer-profile-pages-links] jobs producer completed without publishing its detail allowlist',
+        );
+      }
+
+      const filteredProfilePaths = new Set<string>();
+      let filteredProfileFiles = 0;
+      for (const profile of profiles) {
+        if (filteredProfilePaths.has(profile.path)) continue;
+        filteredProfilePaths.add(profile.path);
+        for (const filePath of [
+          np.join(distDir, profile.path, 'index.html'),
+          np.join(distDir, profile.path.replace(/\/+$/, '') + '.html'),
+        ]) {
+          if (!fs.existsSync(filePath)) continue;
+          const html = fs.readFileSync(filePath, 'utf-8');
+          const filtered = filterEmployerProfileJobLinks(html, jobSitemapAllowlist);
+          if (filtered === html) continue;
+          fs.writeFileSync(filePath, filtered, 'utf-8');
+          filteredProfileFiles++;
+        }
+      }
+      console.log(
+        `\x1b[36m[employer-profile-pages-links]\x1b[0m Filtered active-detail links in ${filteredProfileFiles} profile file(s).`,
+      );
 
       const byLocale = buildEmployerLinkItems(profiles);
 

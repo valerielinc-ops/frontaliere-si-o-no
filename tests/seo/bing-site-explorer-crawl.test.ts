@@ -56,6 +56,7 @@ import { WEEKLY_EMPLOYERS_ARCHIVE_NOINDEX_MARKER } from '../../build-plugins/sha
 import { buildCanonicalJobDetailPath } from '../../build-plugins/shared/jobDetailPath';
 import { renderArticleInlineMarkup } from '../../build-plugins/articleSeoFallback';
 import { buildBorderWaitTodayPath } from '../../scripts/lib/borderWaitSections.mjs';
+import { filterEmployerProfileJobLinks } from '../../build-plugins/employerProfilePagesPlugin';
 
 const BASE = 'https://frontaliereticino.ch';
 const BORDER_WAIT_ARTICLES = [
@@ -1442,6 +1443,32 @@ describe('Bing-compatible full-tree crawler', () => {
     expect(result.findings.map((item) => item.code)).not.toContain(BING_FRONTIER_NOINDEX);
     expect(result.findings.map((item) => item.code)).not.toContain(BING_FRONTIER_REDIRECT);
     expect(result.findings.map((item) => item.code)).not.toContain(BING_FRONTIER_HTTP_ERROR);
+  });
+
+  it('removes stale T16→T5 employer-profile targets from cards and ItemList', () => {
+    const active = `${BASE}/cerca-lavoro-ticino/employer-active/`;
+    const stale = `${BASE}/cerca-lavoro-ticino/employer-stale/`;
+    const html = [
+      '<main><ul>',
+      `<li><article class="jc-card"><a href="${active}">Active</a></article></li>`,
+      `<li><article class="jc-card"><a href="${stale}">Stale</a></article></li>`,
+      '</ul></main>',
+      '<script type="application/ld+json">' + JSON.stringify({
+        '@type': 'ItemList',
+        numberOfItems: 2,
+        itemListElement: [
+          { '@type': 'ListItem', position: 1, item: { url: active } },
+          { '@type': 'ListItem', position: 2, item: { url: stale } },
+        ],
+      }) + '</script>',
+    ].join('');
+    const filtered = filterEmployerProfileJobLinks(html, new Set([active]));
+    const links = extractInternalLinks(filtered, `${BASE}/aziende/employer/`, BASE);
+    expect(links).toEqual([active]);
+    expect(filtered).not.toContain(stale);
+    const itemList = JSON.parse(filtered.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/)?.[1] ?? '{}');
+    expect(itemList.numberOfItems).toBe(1);
+    expect(itemList.itemListElement.map((item: { item: { url: string } }) => item.item.url)).toEqual([active]);
   });
 
   it('keeps category navigation on the same emitted inventory/path set', () => {

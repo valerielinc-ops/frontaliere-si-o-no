@@ -66,7 +66,11 @@ import { buildEmployerProfilePath, canonicalCompanyProfileSlug } from './shared/
 import { BRIDGE_FLOOR, MIN_ACTIVE_JOBS } from './shared/employerProfileConfig.mjs';
 import { loadEmployerDemandSlugs } from './shared/employerDemandSignal.mjs';
 import { buildCompanyOrganization } from './shared/jobPostingSchema';
-import { resolveEmployerProfilesFlushed, type EmittedEmployerProfile } from './shared/buildSignals';
+import {
+  getJobSitemapAllowlist,
+  resolveEmployerProfilesFlushed,
+  type EmittedEmployerProfile,
+} from './shared/buildSignals';
 import { composePlaceTitle, TITLE_MAX_CHARS } from './shared/titleSuffix';
 import { JOBLIST_AD_EVERY_N, JOBLIST_AD_MAX_PER_LIST } from '../services/adsenseSlots';
 import {
@@ -391,6 +395,120 @@ function jobDetailPath(job: CorpusJob, locale: Locale): string {
   const slug = localizedJobSlug(job, locale);
   if (!slug) return '';
   return buildCanonicalJobDetailPath(locale, job, slug);
+}
+
+/** Normalize a rendered internal href to the exact URL shape used by the job
+ * sitemap allowlist. Unknown, external, query-bearing or malformed targets
+ * stay unallowlisted so a stale/ambiguous card cannot leak through. */
+function normalizeAllowlistedJobHref(rawHref: unknown): string | null {
+  const raw = String(rawHref ?? '').trim().replace(/&amp;/g, '&');
+  if (!raw) return null;
+  try {
+    const url = new URL(raw, `${BASE_URL}/`);
+    if (url.origin !== BASE_URL || url.search || url.hash) return null;
+    const pathname = url.pathname.endsWith('/') ? url.pathname : `${url.pathname}/`;
+    return `${BASE_URL}${pathname}`;
+  } catch {
+    return null;
+  }
+}
+
+function isAllowlistedJobHref(rawHref: unknown, allowlist: ReadonlySet<string>): boolean {
+  const normalized = normalizeAllowlistedJobHref(rawHref);
+  return normalized !== null && allowlist.has(normalized);
+}
+
+/** The producer's all-locale allowlist is the source of truth for every
+ * localized card. A null registry means the employer emitter is ahead of the
+ * jobs producer in the closeBundle lifecycle; the post-emission consumer
+ * applies the same predicate once the producer has published it. */
+function isJobInActiveDetailRegistry(
+  job: CorpusJob,
+  allowlist: ReadonlySet<string> | null,
+): boolean {
+  if (allowlist === null) return true;
+  return LOCALES.every((locale) => {
+    const detail = jobDetailPath(job, locale);
+    return detail !== '' && isAllowlistedJobHref(`${BASE_URL}${detail}`, allowlist);
+  });
+}
+
+function filterJobsToActiveDetails(
+  jobs: readonly CorpusJob[],
+  allowlist: ReadonlySet<string> | null,
+): CorpusJob[] {
+  return jobs.filter((job) => isJobInActiveDetailRegistry(job, allowlist));
+}
+
+const EMPLOYER_CARD_ITEM_RE = /<li\b[^>]*>[\s\S]*?<article\b[^>]*>[\s\S]*?<\/article>[\s\S]*?<\/li>/gi;
+const EMPLOYER_CARD_CLASS_RE = /\bclass\s*=\s*(?:"[^"]*\bjc-card\b[^"]*"|'[^']*\bjc-card\b[^']*'|[^\s>]*\bjc-card\b)/i;
+const HREF_RE = /\bhref\s*=\s*(?:"([^"]*)"|'([^']*)'|([^\s>]+))/i;
+
+function isItemListType(value: unknown): boolean {
+  return value === 'ItemList' || (Array.isArray(value) && value.includes('ItemList'));
+}
+
+/**
+ * Apply the active-detail registry to an already-rendered employer profile.
+ * This is the final boundary for the sequential build: the profile emitter
+ * must run before jobsSeoPagesPlugin because that producer consumes the
+ * employer identity signal, so the post-consumer removes any cards and
+ * ItemList entries that were rendered before the allowlist existed.
+ */
+export function filterEmployerProfileJobLinks(
+  html: string,
+  allowlist: ReadonlySet<string>,
+): string {
+  let filtered = html.replace(EMPLOYER_CARD_ITEM_RE, (item) => {
+    if (!EMPLOYER_CARD_CLASS_RE.test(item)) return item;
+    const href = item.match(HREF_RE);
+    const rawHref = href?.[1] ?? href?.[2] ?? href?.[3] ?? null;
+    return isAllowlistedJobHref(rawHref, allowlist) ? item : '';
+  });
+
+  filtered = filtered.replace(
+    /<script\b([^>]*)>([\s\S]*?)<\/script>/gi,
+    (full, attrs: string, body: string) => {
+      const typeMatch = attrs.match(/\btype\s*=\s*(?:"([^"]*)"|'([^']*)'|([^\s>]+))/i);
+      const type = String(typeMatch?.[1] ?? typeMatch?.[2] ?? typeMatch?.[3] ?? '').toLowerCase();
+      if (type !== 'application/ld+json') return full;
+
+      let parsed: Record<string, unknown>;
+      try {
+        parsed = JSON.parse(body) as Record<string, unknown>;
+      } catch (error) {
+        if (/\bItemList\b/.test(body)) {
+          throw new Error(`[employer-profile-pages] invalid ItemList JSON-LD: ${String(error)}`);
+        }
+        return full;
+      }
+      if (!isItemListType(parsed['@type'])) return full;
+
+      const elements = Array.isArray(parsed.itemListElement) ? parsed.itemListElement : [];
+      const kept = elements
+        .filter((entry): entry is Record<string, unknown> => Boolean(entry && typeof entry === 'object'))
+        .filter((entry) => {
+          const item = entry.item;
+          const itemUrl = item && typeof item === 'object'
+            ? (item as Record<string, unknown>).url
+            : undefined;
+          const target = itemUrl ?? entry.url;
+          return isAllowlistedJobHref(target, allowlist);
+        })
+        .map((entry, index) => ({ ...entry, position: index + 1 }));
+
+      if (kept.length === 0) return '';
+      const unchanged = kept.length === elements.length
+        && Number(parsed.numberOfItems) === kept.length
+        && kept.every((entry, index) => Number(elements[index]?.position) === index + 1);
+      if (unchanged) return full;
+
+      parsed.numberOfItems = kept.length;
+      parsed.itemListElement = kept;
+      return `<script${attrs}>${inlineScriptJson(parsed)}</script>`;
+    },
+  );
+  return filtered;
 }
 
 /** Per-locale sentence builders for the intro prose — one map, shared assembly
@@ -845,6 +963,7 @@ export function employerProfilePagesPlugin(rootDir: string): Plugin {
       // producer has run), unparseable, stale, truncated — and an empty set
       // makes the gate below identical to what it was before demand existed.
       const demandBackedSlugs = loadEmployerDemandSlugs(rootDir);
+      const jobSitemapAllowlist = getJobSitemapAllowlist();
       let heldByDemand = 0;
 
       const dateStamp = new Date().toISOString().slice(0, 10);
@@ -875,7 +994,12 @@ export function employerProfilePagesPlugin(rootDir: string): Plugin {
         // Keep the repeated card + ItemList payload bounded. The live total
         // remains explicit in the stat tile and jobs heading below, so this is
         // a preview cap rather than a claim that the company has fewer roles.
-        const listed = group.slice(0, MAX_JOBS_LISTED);
+        // When the jobs producer has already published its registry (parallel
+        // closeBundle and direct tests), apply it before both renderers. In
+        // the production sequential profile the registry is published later;
+        // filterEmployerProfileJobLinks() applies the identical boundary after
+        // jobsSeoPagesPlugin has completed.
+        const listed = filterJobsToActiveDetails(group, jobSitemapAllowlist).slice(0, MAX_JOBS_LISTED);
         // Display the LIVE active count (corpus at build time) rather than the
         // committed snapshot, and gate indexability on it — so a dataset that
         // has drifted below the floor since it was generated auto-downgrades to

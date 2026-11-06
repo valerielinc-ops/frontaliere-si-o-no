@@ -3,6 +3,7 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import {
+  filterEmployerProfileJobLinks,
   employerProfileLogoSrc,
   employerProfilePagesPlugin,
   type EmployerProfile,
@@ -388,6 +389,35 @@ describe('employerProfilePagesPlugin', () => {
     expect(urls).not.toContain('https://frontaliereticino.ch/');
     const positions = itemList.itemListElement.map((el: { position: number }) => el.position);
     expect(positions).toEqual(Array.from({ length: positions.length }, (_, i) => i + 1));
+  });
+
+  it('filters stale detail targets from cards and ItemList at the same boundary', () => {
+    const active = 'https://frontaliereticino.ch/cerca-lavoro-ticino/active-job/';
+    const stale = 'https://frontaliereticino.ch/cerca-lavoro-ticino/stale-job/';
+    const html = [
+      '<main><ul>',
+      `<li><article class="jc-card"><a href="${active}">Active</a></article></li>`,
+      `<li><article class="jc-card"><a href="${stale}">Stale</a></article></li>`,
+      '</ul></main>',
+      '<script type="application/ld+json">' + JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'ItemList',
+        numberOfItems: 2,
+        itemListElement: [
+          { '@type': 'ListItem', position: 1, item: { '@type': 'WebPage', url: active } },
+          { '@type': 'ListItem', position: 2, item: { '@type': 'WebPage', url: stale } },
+        ],
+      }) + '</script>',
+    ].join('');
+
+    const filtered = filterEmployerProfileJobLinks(html, new Set([active]));
+    expect(filtered).toContain(active);
+    expect(filtered).not.toContain(stale);
+    const itemList = JSON.parse(filtered.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/)?.[1] ?? '{}');
+    expect(itemList.numberOfItems).toBe(1);
+    expect(itemList.itemListElement).toHaveLength(1);
+    expect(itemList.itemListElement[0].position).toBe(1);
+    expect(itemList.itemListElement[0].item.url).toBe(active);
   });
 
   // CompanyAlert (#5012 phase 2). The issue names this surface FIRST — "ogni
