@@ -12,6 +12,29 @@ vi.mock('../scripts/lib/ats-clients/greenhouse-client.mjs', async (importOrigina
   fetchGreenhouseJobs,
 }));
 
+// `crawler-template` imports this reporting helper for the full crawler run.
+// The parser tests do not execute that pipeline, so keep the observer focused
+// and avoid requiring the large URL-summary data set in sparse checkouts.
+vi.mock('../scripts/jobs-url-helper.mjs', () => ({
+  snapshotJobSlugs: () => new Map(),
+  computeCrawlDiff: () => ({}),
+  printCrawlChangeSummary: () => {},
+  writeCrawlChangeSummaryToGH: async () => {},
+  printPublishedJobUrls: () => {},
+  writeJobsSummary: async () => {},
+  setCrawlerStartTime: () => {},
+  getCrawlerElapsedMs: () => 0,
+}));
+
+// The location resolver imports the fallback catalogue for the full crawler
+// pipeline. Proton's source-backed/ambiguous distinction is exercised here;
+// fallback values are deliberately unavailable in this observer.
+vi.mock('../scripts/lib/canton-postal-fallback.mjs', () => ({
+  getCantonLocationFallback: () => '',
+  getCantonPostalFallback: () => '',
+  getDefaultCantonLocationFallback: () => '',
+}));
+
 import { fetchAllProtonJobs } from '../scripts/lib/proton-job-parser.mjs';
 import { nextCrawlerState } from '../scripts/check-crawler-health.mjs';
 
@@ -89,7 +112,7 @@ describe('Proton snapshot provenance observer', () => {
 
     const jobs = await fetchAllProtonJobs();
     expect(jobs).toHaveLength(1);
-    expect(jobs[0]).toMatchObject({ location: 'Geneva', canton: 'GE' });
+    expect(jobs[0]).toMatchObject({ location: 'Geneva, Switzerland', canton: 'GE' });
 
     const transition = nextCrawlerState(
       undefined,
