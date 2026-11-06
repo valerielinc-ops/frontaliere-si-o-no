@@ -7,6 +7,7 @@ import { permitOptions } from '../functions/src/lib/permitStatus.js';
 const planned = { fieldId: 'source', question: 'Come hai trovato questo lavoro?', type: 'text', options: [], why: '' };
 const field = { id: 'source', kind: 'select', label: 'Wie haben Sie uns gefunden?', required: true, options: [{ label: 'Homepage' }, { label: 'Empfehlung' }] };
 
+// The issue preserves field labels, not the live option values; these country labels are representative.
 const yellowsharkSurface = {
   buttons: ['JETZT BEWERBEN', 'Italien +39', 'WEITER', 'Manage consent'],
   fields: [
@@ -20,7 +21,11 @@ const yellowsharkSurface = {
     label,
     kind,
     required: true,
-    options: label === 'Anrede' ? [{ label: 'Frau' }, { label: 'Herr' }] : [],
+    options: label === 'Anrede'
+      ? [{ label: 'Frau' }, { label: 'Herr' }]
+      : ['Land', 'Nationalität'].includes(label)
+        ? ['Schweiz', 'Italien', 'Deutschland'].map((option) => ({ label: option }))
+        : [],
   })),
 };
 
@@ -61,7 +66,101 @@ describe('portal candidate question contract', () => {
       applicationQuestionLocale: 'de',
       localizationStatus: 'translated',
     });
+    for (const applicationQuestion of ['Land', 'Nationalität']) {
+      expect(request.questions.find((question) => question.applicationQuestion === applicationQuestion)).toMatchObject({
+        options: ['Svizzera', 'Italia', 'Germania'],
+        applicationOptions: ['Schweiz', 'Italien', 'Deutschland'],
+        optionMap: [
+          { candidate: 'Svizzera', application: 'Schweiz' },
+          { candidate: 'Italia', application: 'Italien' },
+          { candidate: 'Germania', application: 'Deutschland' },
+        ],
+        applicationQuestionLocale: 'de',
+        localizationStatus: 'translated',
+      });
+    }
     expect(request.questions.find((question) => question.applicationQuestion === 'Vorname')?.question).toBe('Nome');
+  });
+
+  it('localizes a verified German nationality adjective without a provider', async () => {
+    const [question] = await localizePortalQuestions([{
+      id: 'nationality',
+      question: 'Nationalität',
+      applicationQuestion: 'Nationalität',
+      options: ['Italienisch'],
+      applicationOptions: ['Italienisch'],
+      why: '',
+    }], {
+      candidateLocale: 'it',
+      applicationLocale: 'de',
+      codex: async () => { throw new Error('provider unavailable'); },
+    });
+
+    expect(question).toMatchObject({
+      options: ['italiana'],
+      applicationOptions: ['Italienisch'],
+      optionMap: [{ candidate: 'italiana', application: 'Italienisch' }],
+      localizationStatus: 'translated',
+    });
+  });
+
+  it('localizes canonical country codes and rejects a retired alias', async () => {
+    const [canonical] = await localizePortalQuestions([{
+      id: 'country-code',
+      question: 'Land',
+      applicationQuestion: 'Land',
+      options: ['DE'],
+      applicationOptions: ['DE'],
+      why: '',
+    }], {
+      candidateLocale: 'it',
+      applicationLocale: 'de',
+      codex: async () => { throw new Error('provider unavailable'); },
+    });
+    expect(canonical).toMatchObject({
+      options: ['Germania'],
+      applicationOptions: ['DE'],
+      optionMap: [{ candidate: 'Germania', application: 'DE' }],
+      localizationStatus: 'translated',
+    });
+
+    await expect(portalRequirementsForCandidate({
+      questions: [{
+        id: 'retired-country-code',
+        type: 'choice',
+        required: true,
+        question: 'Land',
+        applicationQuestion: 'Land',
+        options: ['DD'],
+        applicationOptions: ['DD'],
+        why: '',
+      }],
+      documents: [],
+    }, {
+      candidateLocale: 'it',
+      applicationLocale: 'de',
+      codex: async () => { throw new Error('provider unavailable'); },
+    })).rejects.toMatchObject({ code: 'portal_question_localization_unavailable' });
+  });
+
+  it('fails closed on an unrecognized German country option during a localization outage', async () => {
+    await expect(portalRequirementsForCandidate({
+      questions: [{
+        id: 'country',
+        type: 'choice',
+        required: true,
+        question: 'Land',
+        applicationQuestion: 'Land',
+        options: ['Unbekanntes Gebiet'],
+        applicationOptions: ['Unbekanntes Gebiet'],
+        why: '',
+      }],
+      documents: [],
+    }, {
+      candidateLocale: 'it',
+      applicationLocale: 'de',
+      codex: async () => { throw new Error('provider unavailable'); },
+    })).rejects.toMatchObject({ code: 'portal_question_localization_unavailable' });
   });
 
   it('uses a required live select and its full catalogue even when the planner describes text', () => {

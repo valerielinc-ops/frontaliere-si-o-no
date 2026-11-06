@@ -136,6 +136,7 @@ export const CLIENT_APP_ERROR_DROP_PATTERNS = [
   /^(?:Error: )?Script error\.?$/i,
   /Object Not Found Matching Id:\d+, MethodName:update, ParamCount:4/i,
   /Installations:.*Application offline\b/i,
+  /Installations:\s*Create Installation request failed with error ["']?400\s+INVA/i,
   /Remote Config:.*Original error:.*(Failed to fetch|Load failed|aborted|Database deleted|client is offline)/i,
   /Firebase:.*auth\/network-request-failed/i,
   /Connection to Indexed Database server lost/i,

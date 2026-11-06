@@ -54,6 +54,10 @@ export const UNIVERSAL_BENIGN_PATTERNS: readonly RegExp[] = [
 
   // ── Firebase Installations / Remote Config offline; SDK auto-retries ──
   /Installations:.*Application offline\b/i,
+  // A permanent client-configuration rejection is handled by the optional
+  // telemetry preflight. Keep the short status prefix because GA4 truncates
+  // the 100-character error value before the issue feeder sees it (#16807).
+  /Installations:\s*Create Installation request failed with error ["']?400\s+INVA/i,
   /Remote Config:.*Original error:.*(Failed to fetch|Load failed|aborted|Database deleted|client is offline)/i,
 
   // ── Firebase Auth network-request-failed — transient client connectivity ──

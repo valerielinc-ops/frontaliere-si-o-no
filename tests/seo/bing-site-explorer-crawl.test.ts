@@ -1482,6 +1482,46 @@ describe('Bing-compatible full-tree crawler', () => {
     expect(summary.coverageErrors.join(' ')).toMatch(/duplicata|mancante|diversa/);
   });
 
+  it.each([0, -1, 1.5, 'invalid', null, undefined, true, false])(
+    'fails closed for an invalid partition count %s in either scope', (partitions) => {
+      const report = { partition: 0, partitions, manifestCount: 1, partitionTotal: 1,
+        checkedCount: 1, findings: [], codeCounts: {}, statusCounts: {}, folderStats: {} };
+      const manifest = { baseUrl: BASE, sitemapCount: 1, manifestCount: 1, urls: [`${BASE}/`] };
+      const sitemap = aggregateCrawlReports([report], manifest);
+      const frontier = aggregateCrawlReports([{ ...report, partitions: 1 }], manifest, {
+        supplementalReports: [report],
+        supplementalManifest: { ...manifest, kind: 'discovered-frontier' },
+      });
+      for (const summary of [sitemap, frontier]) {
+        expect(summary.actionableCount).toBe(0);
+        expect(summary.coverageOk).toBe(false);
+        expect(summary.coverageErrors.join(' ')).toContain('numero di partizioni non valido');
+        expect(buildIssueBody(summary)).toContain('INCOMPLETA');
+      }
+    },
+  );
+
+  it.each([-1, 1, 0.5, 'invalid', null, undefined, '', ' ', false, true])(
+    'rejects an extra invalid partition index %s even when URL totals match', (partition) => {
+      const report = { partition: 0, partitions: 1, manifestCount: 1, partitionTotal: 1,
+        checkedCount: 1, findings: [], codeCounts: {}, statusCounts: {}, folderStats: {} };
+      const summary = aggregateCrawlReports([
+        report, { ...report, partition, partitionTotal: 0, checkedCount: 0 },
+      ], { baseUrl: BASE, sitemapCount: 1, manifestCount: 1, urls: [`${BASE}/`] });
+      expect(summary.coverageOk).toBe(false);
+      expect(summary.coverageErrors.join(' ')).toContain('indice partizione non valido');
+    },
+  );
+
+  it('does not coerce a later boolean partition count into the valid first count', () => {
+    const report = { partition: 0, partitions: 1, manifestCount: 1, partitionTotal: 1,
+      checkedCount: 1, findings: [] };
+    const summary = aggregateCrawlReports([
+      report, { ...report, partitions: true, partitionTotal: 0, checkedCount: 0 },
+    ], { baseUrl: BASE, sitemapCount: 1, manifestCount: 1 });
+    expect(summary.coverageErrors.join(' ')).toContain('numeri diversi di partizioni');
+  });
+
   it('aggregates sitemap coverage with the internally linked HTML frontier', () => {
     const sitemapUrl = `${BASE}/in-sitemap/`;
     const frontierUrl = `${BASE}/storico/settimanale-18-2026/`;

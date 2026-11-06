@@ -7,8 +7,9 @@
  * usually wrapped in the build-time `.ft-rail-grid`. index.tsx moves it INTO
  * `#root` right before `createRoot().render()`, so React replaces it in place
  * under the reserved height instead of App.tsx collapsing it from outside.
- * The bare Ticino listing keeps its external `.job-board-static-content` main
- * outside the root until the first real result set is ready.
+ * Bare canton and Switzerland-wide listings keep their external
+ * `.job-board-static-content` main outside the root until the first real
+ * result set is ready.
  *
  * Legacy generic hub fallbacks can also emit the static hub sub-nav
  * `nav.seo-hub-subnav` as a BODY-DIRECT sibling BETWEEN `#root` and the
@@ -59,6 +60,19 @@ function isArticleDetailRoute(route: AppRoute): boolean {
 }
 
 /**
+ * Every bare canton/aggregate job-board URL is emitted as an external static
+ * snapshot. Detail, city and sector routes have a different handoff contract.
+ */
+function isBareJobBoardRootRoute(route: AppRoute): boolean {
+  return route.activeTab === 'job-board'
+    && Boolean(route.jobBoardCanton)
+    && !route.jobSlug
+    && !route.jobBoardCity
+    && !route.jobBoardSector
+    && !route.staticOverlay;
+}
+
+/**
  * Single ownership decision for static fallbacks that must survive the first
  * React render. The caller supplies presence because this function is pure.
  */
@@ -70,12 +84,7 @@ export function shouldKeepStaticFallbackOutsideRoot(
   if (!fallbackPresent) return false;
   if (kind === 'article') return isArticleDetailRoute(route);
   if (kind === 'canton-topic') return route.activeTab === 'blog' && !!route.cantonTopic && !route.staticOverlay;
-  if (kind === 'job-board') {
-    return route.activeTab === 'job-board'
-      && route.jobBoardCanton === 'TI'
-      && !route.jobSlug
-      && !route.staticOverlay;
-  }
+  if (kind === 'job-board') return isBareJobBoardRootRoute(route);
   return false;
 }
 
