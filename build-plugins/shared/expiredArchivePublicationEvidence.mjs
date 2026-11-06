@@ -52,10 +52,33 @@ function startTagAttributes(tag) {
   return attributes;
 }
 
+function* startTagsNamed(html, tagName) {
+  const openingTagPattern = new RegExp(`<${tagName}\\b`, 'giu');
+  let match;
+  while ((match = openingTagPattern.exec(html)) !== null) {
+    let quote = '';
+    let end = openingTagPattern.lastIndex;
+    for (; end < html.length; end += 1) {
+      const character = html[end];
+      if (quote) {
+        if (character === quote) quote = '';
+        continue;
+      }
+      if (character === '"' || character === "'") {
+        quote = character;
+        continue;
+      }
+      if (character === '>') break;
+    }
+    if (end >= html.length) return;
+    yield html.slice(match.index, end + 1);
+    openingTagPattern.lastIndex = end + 1;
+  }
+}
+
 function hasTagWithAttributes(html, tagName, expected) {
-  const tagPattern = new RegExp(`<${tagName}\\b[^>]*>`, 'giu');
-  for (const match of html.matchAll(tagPattern)) {
-    const attributes = startTagAttributes(match[0]);
+  for (const tag of startTagsNamed(html, tagName)) {
+    const attributes = startTagAttributes(tag);
     if (Object.entries(expected).every(([name, value]) => attributes.get(name) === value)) return true;
   }
   return false;
