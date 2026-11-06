@@ -17,6 +17,12 @@ test('recovery defers while a target workflow run is pending', () => {
   for (const statuses of statusSets) assert.match(statuses, /['"]pending['"]/u);
 });
 
+test('candidate feed health has a native schedule as a fallback to the external loop clock', () => {
+  assert.match(HEALTH_WORKFLOW, /schedule:/u);
+  assert.match(HEALTH_WORKFLOW, /cron: '23 4,10,16,22 \* \* \*'/u);
+  assert.match(HEALTH_WORKFLOW, /workflow_dispatch:/u);
+});
+
 function sourceFeed({
   generatedAt = freshAt(),
   candidates = [],

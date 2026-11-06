@@ -1652,6 +1652,7 @@ async function sendSingle(email, forceProvider, finalizeForProvider, signal, ada
           // (#4911). Stop the cascade for this email instead of guessing.
           const ambiguousErr = new Error(`ambiguous delivery at [${provider.id}], not retried elsewhere: ${errors.join(' | ')}`);
           ambiguousErr.ambiguousDelivery = true;
+          ambiguousErr.provider = provider.id;
           throw ambiguousErr;
         }
         if (adaptiveThrottle && await adaptiveThrottle.retryAfter(provider.id, err)) {
@@ -1736,13 +1737,76 @@ async function sendSingleThrottled(email, forceProvider, lastSendMap, delayMs, f
 // ── Batch cascade ────────────────────────────────────────────
 
 /**
+ * One queued email and its caller-owned metadata. Extra properties are kept
+ * intact on the result objects so existing senders can attach their own
+ * tracking fields.
+ *
+ * @typedef {object} EmailCascadeItem
+ * @property {Record<string, unknown>} payload
+ * @property {{email?: string, [key: string]: unknown}} [recipient]
+ * @property {Record<string, unknown>} [meta]
+ * @property {string|null} [scheduledAt]
+ * @property {string|null} [scheduledFor]
+ */
+
+/**
+ * Provider acceptance details shared by the `sent`, `accepted`, and
+ * `ambiguous` result arrays.
+ *
+ * @typedef {object} EmailCascadeSendResult
+ * @property {string|null} messageId
+ * @property {string} provider
+ * @property {'identified'|'unidentifiable'} ack
+ * @property {string|null} scheduledFor
+ * @property {boolean} [persistFailed]
+ */
+
+/** Error details for a send whose provider outcome must not be retried. */
+/** @typedef {Error & {provider?: string|null, ambiguousDelivery?: boolean, ack?: 'identified'|'unidentifiable'}} EmailCascadeAmbiguousError */
+
+/** A send failure, or the original item if no provider was configured. */
+/** @typedef {EmailCascadeItem & {error?: string, provider?: string|null, ambiguousDelivery?: boolean, ambiguousPersistFailed?: boolean}} EmailCascadeFailure */
+
+/** Per-provider counts included in the batch summary. */
+/** @typedef {{identified: number, ambiguous: number, persistFailed: number}} EmailCascadeProviderStats */
+
+/**
+ * Options accepted by the batch sender. Named callback types keep the
+ * bookkeeping contract visible to JavaScript callers and TypeScript tests.
+ *
+ * @typedef {object} EmailCascadeOptions
+ * @property {number} [concurrency]
+ * @property {number} [delayMs]
+ * @property {{stepMs:number,maxDelayMs:number}} [adaptiveThrottle]
+ * @property {Record<string, number>} [providerMinIntervalMs]
+ * @property {string|string[]} [forceProvider]
+ * @property {(item: EmailCascadeItem, result: EmailCascadeSendResult) => void|Promise<void>} [onSent]
+ * @property {(item: EmailCascadeItem, error: EmailCascadeAmbiguousError) => void|Promise<void>} [onAmbiguous]
+ * @property {(payload: Record<string, unknown>, provider: string) => void} [finalizeForProvider]
+ * @property {AbortSignal} [signal]
+ * @property {boolean} [quiet]
+ */
+
+/**
+ * Result arrays preserve each queue item's fields alongside provider outcome.
+ *
+ * @typedef {object} EmailCascadeBatchResult
+ * @property {(EmailCascadeItem & EmailCascadeSendResult)[]} sent
+ * @property {(EmailCascadeItem & EmailCascadeSendResult)[]} accepted
+ * @property {(EmailCascadeItem & EmailCascadeSendResult)[]} ambiguous
+ * @property {EmailCascadeFailure[]} failed
+ * @property {Record<string, EmailCascadeProviderStats>} providerBreakdown
+ * @property {object} [adaptiveThrottle]
+ */
+
+/**
  * Send multiple emails through the cascade. Each email item must have:
  *   - payload: { from, to, subject, html, ... }
  *   - recipient: { email, ... } (for tracking)
  *   - meta: { campaignId, ... } (for tracking)
  *
- * @param {Array} emails - Array of { payload, recipient, meta }
- * @param {Object} [opts]
+ * @param {EmailCascadeItem[]} emails - Array of { payload, recipient, meta }
+ * @param {EmailCascadeOptions} [opts]
  * @param {number} [opts.concurrency=1] - Max parallel sends (default 1 to avoid rate limits)
  * @param {number} [opts.delayMs=1000] - Delay in ms between sends to the same provider
  * @param {{stepMs:number,maxDelayMs:number}} [opts.adaptiveThrottle] - Opt-in
@@ -1752,7 +1816,12 @@ async function sendSingleThrottled(email, forceProvider, lastSendMap, delayMs, f
  *   per-provider spacing floor in ms (see BULK_PROVIDER_MIN_INTERVAL_MS); the
  *   effective spacing is max(delay or adaptive delay, floor).
  * @param {string|string[]} [opts.forceProvider] - Restrict to one provider or an eligible subset (retains cascade priority)
- * @param {Function} [opts.onSent] - Called after each provider-accepted send, including ambiguous ack: (item, result) => void
+ * @param {(item: EmailCascadeItem, result: EmailCascadeSendResult) => void|Promise<void>} [opts.onSent]
+ *   Called after provider-identified acceptance; without `onAmbiguous`, also
+ *   receives legacy unidentifiable 2xx acknowledgements.
+ * @param {(item: EmailCascadeItem, error: EmailCascadeAmbiguousError) => void|Promise<void>} [opts.onAmbiguous]
+ *   Called for transport ambiguity and accepted 2xx responses without a durable
+ *   message ID. New queue claims pause while it runs; a write failure stops the run.
  * @param {Function} [opts.finalizeForProvider] - Called just before sending, once
  *   the provider is chosen: (payload, providerId) => void. May mutate the payload
  *   (e.g. swap the subject for that provider). Must not throw.
@@ -1763,10 +1832,10 @@ async function sendSingleThrottled(email, forceProvider, lastSendMap, delayMs, f
  * @param {boolean} [opts.quiet=false] - Sopprime le righe informative di ogni
  *   chiamata (cascade, provider, throttle, esito, scheduling). Avvisi ed errori
  *   restano: il chiamante stampa il proprio riepilogo per batch.
- * @returns {{ sent: Array, accepted: Array, ambiguous: Array, failed: Array, providerBreakdown: Object, adaptiveThrottle?: Object }}
+ * @returns {EmailCascadeBatchResult}
  */
 export async function sendEmailCascade(emails, opts = {}) {
-  const { concurrency = 1, delayMs = 1000, adaptiveThrottle: adaptiveConfig, providerMinIntervalMs, forceProvider, onSent, finalizeForProvider, signal, quiet = false } = opts;
+  const { concurrency = 1, delayMs = 1000, adaptiveThrottle: adaptiveConfig, providerMinIntervalMs, forceProvider, onSent, onAmbiguous, finalizeForProvider, signal, quiet = false } = opts;
   const sent = [];
   const accepted = [];
   const ambiguous = [];
@@ -1794,6 +1863,10 @@ export async function sendEmailCascade(emails, opts = {}) {
   // Per-provider last-send timestamps for throttling
   const _lastSend = {};
   const adaptiveThrottle = createAdaptiveThrottleController(adaptiveConfig, delayMs, _lastSend);
+  let ambiguousPersistenceFailure = false;
+  let activeAmbiguousCallbacks = 0;
+  let claimsPaused = null;
+  let releasePausedClaims = null;
 
   // `concurrency` workers pull from one queue. Safe without locks because the
   // `idx++` claim, the quota-slot reservation in sendSingle and the spacing-slot
@@ -1801,10 +1874,50 @@ export async function sendEmailCascade(emails, opts = {}) {
   // between read and write), so no two workers can take the same item, slot or
   // time window. Each item is sent at most once; onSent is per recipient.
   let idx = 0;
+  const beginAmbiguousCallback = () => {
+    activeAmbiguousCallbacks += 1;
+    if (!claimsPaused) {
+      claimsPaused = new Promise((resolve) => { releasePausedClaims = resolve; });
+    }
+  };
+  const endAmbiguousCallback = (persisted) => {
+    if (!persisted) ambiguousPersistenceFailure = true;
+    activeAmbiguousCallbacks -= 1;
+    if (activeAmbiguousCallbacks === 0) {
+      const release = releasePausedClaims;
+      claimsPaused = null;
+      releasePausedClaims = null;
+      release?.();
+    }
+  };
+  const quarantineAmbiguous = async (item, error) => {
+    if (typeof onAmbiguous !== 'function') return true;
+    beginAmbiguousCallback();
+    let persisted = false;
+    try {
+      await onAmbiguous(item, error);
+      persisted = true;
+      return true;
+    } catch (callbackError) {
+      console.error(`❌ Could not persist ambiguous delivery quarantine: ${redactEmailAddresses(callbackError?.message || callbackError).slice(0, 200)}`);
+      return false;
+    } finally {
+      endAmbiguousCallback(persisted);
+    }
+  };
+  const nextWorkItem = async () => {
+    while (claimsPaused && !ambiguousPersistenceFailure) {
+      await claimsPaused;
+    }
+    if (ambiguousPersistenceFailure || idx >= emails.length) return null;
+    const i = idx++;
+    return { i, item: emails[i] };
+  };
   const worker = async () => {
-    while (idx < emails.length) {
-      const i = idx++;
-      const item = emails[i];
+    while (true) {
+      const work = await nextWorkItem();
+      if (!work) return;
+      const { i, item } = work;
       try {
         const result = await sendSingleThrottled(item.payload, forceProvider, _lastSend, delayMs, finalizeForProvider, signal, adaptiveThrottle, providerMinIntervalMs);
         const outcome = { ...item, ...result };
@@ -1823,7 +1936,14 @@ export async function sendEmailCascade(emails, opts = {}) {
         // email whose provider accepted it but returned no usable identifier.
         // A bookkeeping callback cannot turn an already accepted send into a
         // failed delivery or make it eligible for a provider retry.
-        if (onSent) {
+        if (result?.ack === 'unidentifiable' && typeof onAmbiguous === 'function') {
+          const ambiguousAck = Object.assign(
+            new Error(`provider ${result.provider || 'unknown'} accepted email without a durable message identifier`),
+            result,
+            { ambiguousDelivery: true },
+          );
+          if (!await quarantineAmbiguous(item, ambiguousAck)) outcome.persistFailed = true;
+        } else if (onSent) {
           try {
             await onSent(item, result);
           } catch (callbackError) {
@@ -1839,13 +1959,31 @@ export async function sendEmailCascade(emails, opts = {}) {
         // via a provider that then failed on the response — surfaced here
         // instead of silently deducing failure, so callers can distinguish
         // "never sent" from "unknown, do not resend blindly".
-        failed.push({ ...item, error: err.message, ambiguousDelivery: !!err.ambiguousDelivery });
+        const failure = {
+          ...item,
+          error: err.message,
+          provider: err.provider || null,
+          ambiguousDelivery: !!err.ambiguousDelivery,
+        };
+        if (err.ambiguousDelivery && typeof onAmbiguous === 'function') {
+          if (!await quarantineAmbiguous(item, err)) {
+            // Without a durable quarantine marker, a later resume cannot know
+            // this address had an unknown provider outcome. Stop claiming new
+            // work and fail the run after the already-claimed sends settle.
+            failure.ambiguousPersistFailed = true;
+          }
+        }
+        failed.push(failure);
         console.warn(`❌ [${i + 1}/${emails.length}] destinatario: ${redactEmailAddresses(err.message).slice(0, 100)}`);
       }
     }
   };
 
   await Promise.all(Array.from({ length: Math.min(concurrency, emails.length) }, () => worker()));
+
+  if (ambiguousPersistenceFailure) {
+    throw new Error('Ambiguous email delivery could not be durably quarantined; campaign send stopped.');
+  }
 
   // Print summary
   const providerBreakdown = {};

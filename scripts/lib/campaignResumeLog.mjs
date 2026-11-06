@@ -58,14 +58,17 @@ export function chunkDocId(campaignId, index) {
 }
 
 /**
- * Every address this campaign has already reached, across all its chunks.
+ * Every address this campaign has already reached or must quarantine, across
+ * all its chunks. `sent` and `ambiguous` stay separate for accurate reporting;
+ * `attempted` is their union for resume filtering.
  *
  * @param {object} db Firestore admin instance
- * @param {{ campaignId: string, field: string }} opts `field` is the array key
- *        this channel writes (`emails` / `sentEmails`) — see the header.
- * @returns {Promise<{ sent: Set<string>, chunkSizes: number[] }>}
+ * @param {{ campaignId: string, field: string, ambiguousField?: string }} opts
+ *        `field` is the confirmed-send array key; `ambiguousField`, when set,
+ *        is a second array for provider outcomes that must not be retried.
+ * @returns {Promise<{ sent: Set<string>, ambiguous: Set<string>, attempted: Set<string>, chunkSizes: number[] }>}
  */
-export async function fetchAlreadySent(db, { campaignId, field }) {
+export async function fetchAlreadySent(db, { campaignId, field, ambiguousField = null }) {
   const { FieldPath } = await import('firebase-admin/firestore');
   const snap = await metaCampaignSends(db)
     .where(FieldPath.documentId(), '>=', campaignId)
@@ -74,13 +77,19 @@ export async function fetchAlreadySent(db, { campaignId, field }) {
     .get();
 
   const sent = new Set();
+  const ambiguous = new Set();
   const chunkSizes = [];
   for (const doc of snap.docs) {
-    const emails = doc.data()?.[field] || [];
-    chunkSizes.push(emails.length);
+    const data = doc.data() || {};
+    const emails = Array.isArray(data[field]) ? data[field] : [];
+    const ambiguousEmails = ambiguousField && Array.isArray(data[ambiguousField])
+      ? data[ambiguousField]
+      : [];
+    chunkSizes.push(new Set([...emails, ...ambiguousEmails]).size);
     for (const email of emails) sent.add(email);
+    for (const email of ambiguousEmails) ambiguous.add(email);
   }
-  return { sent, chunkSizes };
+  return { sent, ambiguous, attempted: new Set([...sent, ...ambiguous]), chunkSizes };
 }
 
 /**
@@ -120,22 +129,51 @@ export async function markSent(db, { campaignId, field, chunkMax = DEFAULT_CHUNK
  */
 export function createResumeWriter(db, opts, chunkState, { flushEvery = 50 } = {}) {
   let pending = [];
+  let pendingAmbiguous = [];
   let written = 0;
+  let ambiguousWritten = 0;
 
   const flush = async () => {
-    if (!pending.length) return;
-    const batch = pending;
-    pending = [];
-    written += batch.length;
-    await markSent(db, opts, batch, chunkState);
+    if (pending.length) {
+      const batch = pending;
+      pending = [];
+      try {
+        await markSent(db, opts, batch, chunkState);
+        written += batch.length;
+      } catch (error) {
+        pending = [...batch, ...pending];
+        throw error;
+      }
+    }
+
+    if (pendingAmbiguous.length) {
+      if (!opts.ambiguousField) throw new TypeError('ambiguousField is required to record an ambiguous send');
+      const batch = pendingAmbiguous;
+      pendingAmbiguous = [];
+      try {
+        await markSent(db, { ...opts, field: opts.ambiguousField }, batch, chunkState);
+        ambiguousWritten += batch.length;
+      } catch (error) {
+        pendingAmbiguous = [...batch, ...pendingAmbiguous];
+        throw error;
+      }
+    }
   };
 
   return {
     async record(email) {
       pending.push(email);
-      if (pending.length >= flushEvery) await flush();
+      if (pending.length + pendingAmbiguous.length >= flushEvery) await flush();
+    },
+    async recordAmbiguous(email) {
+      if (!opts.ambiguousField) throw new TypeError('ambiguousField is required to record an ambiguous send');
+      pendingAmbiguous.push(email);
+      // Unknown provider outcomes must be durable before the cascade moves on;
+      // buffering one could let tomorrow's resume send a possible duplicate.
+      await flush();
     },
     flush,
     count: () => written,
+    ambiguousCount: () => ambiguousWritten,
   };
 }

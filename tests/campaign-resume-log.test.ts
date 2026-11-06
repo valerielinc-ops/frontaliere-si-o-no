@@ -99,6 +99,26 @@ describe('reading the log back', () => {
     expect(sent.size).toBe(0);
     expect(chunkSizes).toEqual([]);
   });
+
+  it('keeps provider-ambiguous recipients out of future resumes without counting them as confirmed sends', async () => {
+    const db = fakeDb({
+      'newsletter-2026-W32': {
+        sentEmails: ['sent@x.it', 'overlap@x.it'],
+        ambiguousEmails: ['unknown@x.it', 'overlap@x.it'],
+      },
+    });
+
+    const { sent, ambiguous, attempted, chunkSizes } = await fetchAlreadySent(db, {
+      campaignId: 'newsletter-2026-W32',
+      field: 'sentEmails',
+      ambiguousField: 'ambiguousEmails',
+    });
+
+    expect([...sent].sort()).toEqual(['overlap@x.it', 'sent@x.it']);
+    expect([...ambiguous].sort()).toEqual(['overlap@x.it', 'unknown@x.it']);
+    expect([...attempted].sort()).toEqual(['overlap@x.it', 'sent@x.it', 'unknown@x.it']);
+    expect(chunkSizes).toEqual([3]);
+  });
 });
 
 describe('newsletter pre-filter', () => {
@@ -202,5 +222,21 @@ describe('the buffered writer', () => {
     await writer.flush();
     expect(db.__docs.get('daily-brief-2026-08-08').emails).toEqual(['a']);
     expect(db.__writes).toHaveLength(1);
+  });
+
+  it('flushes an ambiguous outcome immediately and tracks it separately', async () => {
+    const db = fakeDb();
+    const opts = { ...OPTS, ambiguousField: 'ambiguousEmails' };
+    const writer = createResumeWriter(db, opts, resumeChunkState([]));
+
+    await writer.record('sent@x.it');
+    await writer.recordAmbiguous('unknown@x.it');
+
+    const row = db.__docs.get(OPTS.campaignId);
+    expect(row.emails).toEqual(['sent@x.it']);
+    expect(row.ambiguousEmails).toEqual(['unknown@x.it']);
+    expect(writer.count()).toBe(1);
+    expect(writer.ambiguousCount()).toBe(1);
+    expect(db.__writes).toHaveLength(2);
   });
 });

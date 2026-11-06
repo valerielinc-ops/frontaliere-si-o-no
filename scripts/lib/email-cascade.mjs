@@ -180,6 +180,9 @@ function getRefDb() {
  * that keeps its own bookkeeping (send-job-alerts.mjs) sees no change in order.
  * It is idempotent (`merge: true`, keyed by message id), so a sender that still
  * writes its own record cannot conflict with this one.
+ *
+ * @param {Parameters<typeof baseSendEmailCascade>[0]} emails
+ * @param {Parameters<typeof baseSendEmailCascade>[1]} [opts]
  */
 export async function sendEmailCascade(emails, opts = {}) {
   const channel = resolveChannel();
@@ -197,6 +200,6 @@ export async function sendEmailCascade(emails, opts = {}) {
   // risultato invariato, com'era prima di questo campo.
   const quiet = opts.quiet === true;
   const audit = await auditCanarySend(emails, result, { quiet });
-  if (audit && quiet) result.linkAudit = { ok: audit.ok === true };
+  if (audit && quiet) return Object.assign(result, { linkAudit: { ok: audit.ok === true } });
   return result;
 }
