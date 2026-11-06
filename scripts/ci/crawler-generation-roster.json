@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "groupCount": 25,
-  "crawlerCount": 693,
+  "crawlerCount": 690,
   "groups": {
     "10": [
       "atec-personal",
@@ -481,10 +481,7 @@
       "zindel-united-swiss"
     ],
     "25": [
-      "bally",
-      "knowledge-lab",
-      "protectas",
-      "pzm-muensingen"
+      "protectas"
     ],
     "01": [
       "coop-ticino"
@@ -805,7 +802,6 @@
     "bachtelen": "data/jobs/by-crawler/bachtelen.json",
     "badrutts-palace": "data/jobs/by-crawler/badrutts-palace.json",
     "balgrist": "data/jobs/by-crawler/balgrist.json",
-    "bally": "data/jobs/by-crawler/bally.json",
     "baloise": "data/jobs/by-crawler/baloise.json",
     "banca-cler": "data/jobs/by-crawler/banca-cler.json",
     "banca-raiffeisen-vedeggio-cassarate": "data/jobs/by-crawler/banca-raiffeisen-vedeggio-cassarate.json",
@@ -1105,7 +1101,6 @@
     "klinik-susenberg": "data/jobs/by-crawler/klinik-susenberg.json",
     "klinik-wyssholzli": "data/jobs/by-crawler/klinik-wyssholzli.json",
     "kliniken-valens": "data/jobs/by-crawler/kliniken-valens.json",
-    "knowledge-lab": "data/jobs/by-crawler/knowledge-lab.json",
     "komax": "data/jobs/by-crawler/komax.json",
     "kone": "data/jobs/by-crawler/kone.json",
     "ksa": "data/jobs/by-crawler/ksa.json",
@@ -1243,7 +1238,6 @@
     "psgn": "data/jobs/by-crawler/psgn.json",
     "puk-zuerich": "data/jobs/by-crawler/puk-zuerich.json",
     "pwc": "data/jobs/by-crawler/pwc.json",
-    "pzm-muensingen": "data/jobs/by-crawler/pzm-muensingen.json",
     "raiffeisen": "data/jobs/by-crawler/raiffeisen.json",
     "rapelli": "data/jobs/by-crawler/rapelli.json",
     "reboot-monkey": "data/jobs/by-crawler/reboot-monkey.json",
@@ -1442,5 +1436,5 @@
     "zurich-insurance-sede-ticino": "data/jobs/by-crawler/zurich-insurance-sede-ticino.json",
     "zurzach-care": "data/jobs/by-crawler/zurzach-care.json"
   },
-  "digest": "sha256:b56b041f89dc18bb46e8ba5f6cd7475a902affbff34619a1d6dfca90ea8fa93e"
+  "digest": "sha256:52a1f368a3e60768dcc0aa98792fd0a8ca73b37dd5b7334226769f59be11f1f5"
 }
