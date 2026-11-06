@@ -131,20 +131,28 @@ function detectEmploymentType(text = '') {
  * carrying `.subtitle__informations[title]` fields for Sede/Azienda/Funzione.
  * We keep only the ones located in Stabio, Switzerland — Elettra 1938's
  * (and sibling brand FZSONICK's) site.
- * Returns `{ jobs, totalCards }` — `totalCards` is the portal-wide
- * `.vacancy__render` count (before the Stabio filter), used by the caller
- * to distinguish "selector matched nothing" from "no Stabio postings".
+ * Returns `{ jobs, totalCards, hasTargetScope, hasPagination,
+ * allCardsExplicitlyNonTarget }` — `totalCards` is the portal-wide
+ * `.vacancy__render` count (before the Stabio filter), while the other fields
+ * prove whether a zero-match page covers the complete live FZSONICK/Stabio
+ * recruiting scope and every card was classified rather than silently dropped.
  */
 function parseCareerPage(html = '', pageUrl = '') {
   if (!html) return { jobs: [], totalCards: 0 };
   const { document } = new JSDOM(html).window;
   const jobs = [];
+  let explicitlyNonTargetCards = 0;
+  const bodyText = normalizeSpace(document.body?.textContent || '');
+  const hasTargetScope = /privacy\s*-\s*fzsonick\s+sa/i.test(bodyText)
+    && /6855\s+stabio/i.test(bodyText);
+  const hasPagination = Boolean(document.querySelector(
+    '.container-pagination, .pagination_next, .pagination_previous',
+  ));
 
   const cards = document.querySelectorAll('.vacancy__render');
   for (const card of cards) {
     const titleEl = card.querySelector('.vacancy__title h3, .vacancy__title a');
     const title = normalizeSpace(titleEl?.textContent || '');
-    if (!title) continue;
 
     const linkEl = card.querySelector('.vacancy__title a[href]') || card.querySelector('a[href]');
     const href = linkEl?.getAttribute('href') || '';
@@ -167,15 +175,25 @@ function parseCareerPage(html = '', pageUrl = '') {
 
     const descEl = card.querySelector('.vacancy__description');
     const description = normalizeSpace(descEl?.textContent || '');
+    const isTargetLocation = /stabio|svizzera|switzerland/i.test(location);
+    const isExplicitlyNonTargetLocation = !isTargetLocation && /\b(?:italia|italy)\b/i.test(location);
+
+    if (isExplicitlyNonTargetLocation) explicitlyNonTargetCards += 1;
 
     // Only keep Stabio (TI) postings — the shared portal also lists
     // vacancies for other FIAMM group brands/countries.
-    if (!/stabio|svizzera|switzerland/i.test(location)) continue;
+    if (!title || !isTargetLocation) continue;
 
     jobs.push({ title, url: url || pageUrl, location, company, profession, description });
   }
 
-  return { jobs, totalCards: cards.length };
+  return {
+    jobs,
+    totalCards: cards.length,
+    hasTargetScope,
+    hasPagination,
+    allCardsExplicitlyNonTarget: cards.length > 0 && explicitlyNonTargetCards === cards.length,
+  };
 }
 
 function htmlBlockToText(html = '') {
@@ -291,7 +309,13 @@ export async function fetchAllElettra1938Jobs() {
     throw new Error(`Elettra 1938: failed to fetch the FIAMM Components career page: ${err.message}`, { cause: err });
   }
 
-  let { jobs: listings, totalCards } = parseCareerPage(html, CAREER_URL);
+  let {
+    jobs: listings,
+    totalCards,
+    hasTargetScope,
+    hasPagination,
+    allCardsExplicitlyNonTarget,
+  } = parseCareerPage(html, CAREER_URL);
   console.log(`  📋 Listings found (Stabio, Svizzera): ${listings.length} (of ${totalCards} total cards on the shared portal)`);
 
   // A zero-card page is accepted only when two independent surfaces agree:
@@ -316,6 +340,8 @@ export async function fetchAllElettra1938Jobs() {
     if (ajaxResult.totalCards > 0) {
       listings = ajaxResult.jobs;
       totalCards = ajaxResult.totalCards;
+      hasPagination = ajaxResult.hasPagination;
+      allCardsExplicitlyNonTarget = ajaxResult.allCardsExplicitlyNonTarget;
       console.log(`  📋 AJAX fallback found ${listings.length} Stabio listings (of ${totalCards} total cards)`);
     } else if (/\b(?:nessun annuncio disponibile|no vacancies available|keine stellenangebote verfügbar|aucune offre disponible)\b/i.test(normalizeSpace(new JSDOM(endpointMarkup).window.document.body?.textContent || ''))) {
       const evidence = 'FIAMM Components vacancy AJAX endpoint explicitly reported no vacancies available';
@@ -327,6 +353,11 @@ export async function fetchAllElettra1938Jobs() {
   }
 
   if (!listings.length) {
+    if (totalCards > 0 && hasTargetScope && !hasPagination && allCardsExplicitlyNonTarget) {
+      const evidence = `complete single-page FIAMM inventory exposed ${totalCards} non-Stabio vacancies while the page still declares the FZSONICK SA recruiting scope at 6855 Stabio`;
+      console.warn(`⚠️ Elettra 1938: the complete shared portal confirms no current Stabio vacancy — ${evidence}.`);
+      return markAuthoritativeEmptySnapshot([], evidence);
+    }
     console.warn('⚠️ No Elettra 1938 job listings found at the shared FIAMM Components portal (Stabio, Svizzera) — portal markup intact, just no matching postings right now.');
     return [];
   }
