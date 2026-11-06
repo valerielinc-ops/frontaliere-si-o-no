@@ -1,8 +1,80 @@
 {
   "crawlerKey": "givaudan",
-  "assembledAt": "2026-11-05T21:52:07.845Z",
-  "runId": "42111889361",
+  "assembledAt": "2026-11-06T10:01:50.538Z",
+  "runId": "42194460129",
   "jobs": [
+    {
+      "id": "givaudan-8813c58cc0f2",
+      "slug": "digital-automation-data-science-manager-givaudan-ch",
+      "slugByLocale": {
+        "en": "digital-automation-data-science-manager-givaudan-ch",
+        "it": "digital-automation-data-science-manager-givaudan-ch",
+        "de": "digital-automation-data-science-manager-givaudan-ch",
+        "fr": "digital-automation-data-science-manager-givaudan-ch"
+      },
+      "company": "Givaudan",
+      "companyKey": "givaudan",
+      "companyDomain": "givaudan.com",
+      "title": "Digital Automation Data Science Manager",
+      "titleByLocale": {
+        "en": "Digital Automation Data Science Manager",
+        "it": "Digital Automation Data Science Manager",
+        "de": "Digital Automation Data Science Manager",
+        "fr": "Digital Automation Data Science Manager"
+      },
+      "description": "Join us and celebrate the beauty of human experience. Create for happier, healthier lives, with love for nature. Together, with kindness and humility, we deliver food innovations, craft inspired fragrances and develop beauty and wellbeing solutions that make people look and feel good. There’s much to learn and many to learn from, with more than 17,000 employees around the world to explore ideas and ambitions with. Dive into varied, flexible, and stimulating environments. Meet empowered professionals to partner with, befriend, and stretch your skills alongside. Every day, your energy, your creativity, and your determination will shape our future, making a positive difference on billions of people. Every essence of you enriches our world. We are Givaudan. Human by nature.\n\n**Head of DADS (Digitalization, Automation, Data Science) - A Digital Automation Data Science Manager**\n\nPurpose: This role focuses on identifying manual bottlenecks in digital processes within Fragrance S&T and replacing them with automated, data-driven solutions. You will Lead a design data pipelines, deploy predictive models, and leverage modern AI tools to accelerate research and decision-making within S&T and the local Givaudan IT landscape.\n\n## You will\n\n- Lead the digital transformation and evolution at Givaudan in Fragrance S&T\n- Lead digitalisation, automation and data science projects within Fragrance S&T, in collaboration with scientists and IT.\n- Integrate modern AI tools like LLM and predictive models (QSAR, QSOR) into existing and new applications to accelerate decision-making for research eg. designing new molecules, new complex systems and optimising processes for more efficient and effective solutions\n- Scout and implement modeling tools facilitating scale up activities and any other research opportunities\n- Align with corporate IT and collaborators to deploy the solutions to production or other Givaudan infrastructure\n- Configure, deploy and integrate third party tools to facilitate daily research, development and industrialisation tasks\n- Design exploration applications and data pipelines to capture, analyse and visualise data generated across diverse research activities even finding links between CoE’s\n- Provide expertise, guidance and training to scientists (Fragrance S&T community) for data analysis and data visualisation.\n- In close collaboration with IT, follow-up the deployment of solutions directly with end users to address change management, bug-fixing and improvements in user experience.\n- Analyse and further improve existing workflow and processes\n- Collaborate tightly with scientists & labs to identify and replace manual bottlenecks in digital processes with automated workflows across the research organization.\n- Engage the teams in adopting new and efficient ways of working. Keep the S&T organisation up to date with latest best practice in the field\n\n## You are\n\n- Degree (MSc, PhD) in a Life Science discipline (Chemistry, Chemoinformatic, Biology)\n- 10+ years of experience in a research informatics environment. Proven track-record of successfully implementing research informatics projects\n- Strong experience in software development and machine learning with Python, combined with solid expertise in system architecture, SQL/database design, and integration with complex web APIs. Capable of working effectively in Linux environments when needed\n- Understanding of core cheminformatics principles (chemical structure formats, chemical structure searching, fingerprints, descriptors, complex formulations)\n\n- Understanding of hard chemical data with human responses across psychological, physiological and sensorial, and Ontologies (knowledge graph expertise) is a plus.\n\n- Willingness to learn new tools and technical skills\n- Strong communication and decision-making skills across diverse stakeholder groups\n- A knowledge of best practice within the current University ecosystem\n\nYour benefits in Kemptthal:\n\nExcellent opportunities for progressive learning and development\n\n40 hour working week\n\nAdditional paid days off\n\nFavourable pension fund contributions\n\nSubsidized meals in the staff restaurant\n\nSport and leisure club (amenities/showers on site)\n\nDiscounts at the company shop\n\nWorldwide private accident coverage and free choice of hospital\n\nAt Givaudan, you contribute to delightful taste and scent experiences that touch people’s lives.\n\nWe value the different perspectives that come from diverse cultures, backgrounds, and experiences.\n\nEveryone — regardless of race, gender identity, sexual orientation, age, disability, culture, religion, or any personal circumstances — is warmly welcomed at Givaudan, a place where we all love to be and grow.\n\nEvery essence of you enriches our world. Join us in making a difference together.",
+      "descriptionByLocale": {
+        "en": "Join us and celebrate the beauty of human experience. Create for happier, healthier lives, with love for nature. Together, with kindness and humility, we deliver food innovations, craft inspired fragrances and develop beauty and wellbeing solutions that make people look and feel good. There’s much to learn and many to learn from, with more than 17,000 employees around the world to explore ideas and ambitions with. Dive into varied, flexible, and stimulating environments. Meet empowered professionals to partner with, befriend, and stretch your skills alongside. Every day, your energy, your creativity, and your determination will shape our future, making a positive difference on billions of people. Every essence of you enriches our world. We are Givaudan. Human by nature.\n\n**Head of DADS (Digitalization, Automation, Data Science) - A Digital Automation Data Science Manager**\n\nPurpose: This role focuses on identifying manual bottlenecks in digital processes within Fragrance S&T and replacing them with automated, data-driven solutions. You will Lead a design data pipelines, deploy predictive models, and leverage modern AI tools to accelerate research and decision-making within S&T and the local Givaudan IT landscape.\n\n## You will\n\n- Lead the digital transformation and evolution at Givaudan in Fragrance S&T\n- Lead digitalisation, automation and data science projects within Fragrance S&T, in collaboration with scientists and IT.\n- Integrate modern AI tools like LLM and predictive models (QSAR, QSOR) into existing and new applications to accelerate decision-making for research eg. designing new molecules, new complex systems and optimising processes for more efficient and effective solutions\n- Scout and implement modeling tools facilitating scale up activities and any other research opportunities\n- Align with corporate IT and collaborators to deploy the solutions to production or other Givaudan infrastructure\n- Configure, deploy and integrate third party tools to facilitate daily research, development and industrialisation tasks\n- Design exploration applications and data pipelines to capture, analyse and visualise data generated across diverse research activities even finding links between CoE’s\n- Provide expertise, guidance and training to scientists (Fragrance S&T community) for data analysis and data visualisation.\n- In close collaboration with IT, follow-up the deployment of solutions directly with end users to address change management, bug-fixing and improvements in user experience.\n- Analyse and further improve existing workflow and processes\n- Collaborate tightly with scientists & labs to identify and replace manual bottlenecks in digital processes with automated workflows across the research organization.\n- Engage the teams in adopting new and efficient ways of working. Keep the S&T organisation up to date with latest best practice in the field\n\n## You are\n\n- Degree (MSc, PhD) in a Life Science discipline (Chemistry, Chemoinformatic, Biology)\n- 10+ years of experience in a research informatics environment. Proven track-record of successfully implementing research informatics projects\n- Strong experience in software development and machine learning with Python, combined with solid expertise in system architecture, SQL/database design, and integration with complex web APIs. Capable of working effectively in Linux environments when needed\n- Understanding of core cheminformatics principles (chemical structure formats, chemical structure searching, fingerprints, descriptors, complex formulations)\n\n- Understanding of hard chemical data with human responses across psychological, physiological and sensorial, and Ontologies (knowledge graph expertise) is a plus.\n\n- Willingness to learn new tools and technical skills\n- Strong communication and decision-making skills across diverse stakeholder groups\n- A knowledge of best practice within the current University ecosystem\n\nYour benefits in Kemptthal:\n\nExcellent opportunities for progressive learning and development\n\n40 hour working week\n\nAdditional paid days off\n\nFavourable pension fund contributions\n\nSubsidized meals in the staff restaurant\n\nSport and leisure club (amenities/showers on site)\n\nDiscounts at the company shop\n\nWorldwide private accident coverage and free choice of hospital\n\nAt Givaudan, you contribute to delightful taste and scent experiences that touch people’s lives.\n\nWe value the different perspectives that come from diverse cultures, backgrounds, and experiences.\n\nEveryone — regardless of race, gender identity, sexual orientation, age, disability, culture, religion, or any personal circumstances — is warmly welcomed at Givaudan, a place where we all love to be and grow.\n\nEvery essence of you enriches our world. Join us in making a difference together.",
+        "it": "Join us and celebrate the beauty of human experience. Create for happier, healthier lives, with love for nature. Together, with kindness and humility, we deliver food innovations, craft inspired fragrances and develop beauty and wellbeing solutions that make people look and feel good. There’s much to learn and many to learn from, with more than 17,000 employees around the world to explore ideas and ambitions with. Dive into varied, flexible, and stimulating environments. Meet empowered professionals to partner with, befriend, and stretch your skills alongside. Every day, your energy, your creativity, and your determination will shape our future, making a positive difference on billions of people. Every essence of you enriches our world. We are Givaudan. Human by nature.\n\n**Head of DADS (Digitalization, Automation, Data Science) - A Digital Automation Data Science Manager**\n\nPurpose: This role focuses on identifying manual bottlenecks in digital processes within Fragrance S&T and replacing them with automated, data-driven solutions. You will Lead a design data pipelines, deploy predictive models, and leverage modern AI tools to accelerate research and decision-making within S&T and the local Givaudan IT landscape.\n\n## You will\n\n- Lead the digital transformation and evolution at Givaudan in Fragrance S&T\n- Lead digitalisation, automation and data science projects within Fragrance S&T, in collaboration with scientists and IT.\n- Integrate modern AI tools like LLM and predictive models (QSAR, QSOR) into existing and new applications to accelerate decision-making for research eg. designing new molecules, new complex systems and optimising processes for more efficient and effective solutions\n- Scout and implement modeling tools facilitating scale up activities and any other research opportunities\n- Align with corporate IT and collaborators to deploy the solutions to production or other Givaudan infrastructure\n- Configure, deploy and integrate third party tools to facilitate daily research, development and industrialisation tasks\n- Design exploration applications and data pipelines to capture, analyse and visualise data generated across diverse research activities even finding links between CoE’s\n- Provide expertise, guidance and training to scientists (Fragrance S&T community) for data analysis and data visualisation.\n- In close collaboration with IT, follow-up the deployment of solutions directly with end users to address change management, bug-fixing and improvements in user experience.\n- Analyse and further improve existing workflow and processes\n- Collaborate tightly with scientists & labs to identify and replace manual bottlenecks in digital processes with automated workflows across the research organization.\n- Engage the teams in adopting new and efficient ways of working. Keep the S&T organisation up to date with latest best practice in the field\n\n## You are\n\n- Degree (MSc, PhD) in a Life Science discipline (Chemistry, Chemoinformatic, Biology)\n- 10+ years of experience in a research informatics environment. Proven track-record of successfully implementing research informatics projects\n- Strong experience in software development and machine learning with Python, combined with solid expertise in system architecture, SQL/database design, and integration with complex web APIs. Capable of working effectively in Linux environments when needed\n- Understanding of core cheminformatics principles (chemical structure formats, chemical structure searching, fingerprints, descriptors, complex formulations)\n\n- Understanding of hard chemical data with human responses across psychological, physiological and sensorial, and Ontologies (knowledge graph expertise) is a plus.\n\n- Willingness to learn new tools and technical skills\n- Strong communication and decision-making skills across diverse stakeholder groups\n- A knowledge of best practice within the current University ecosystem\n\nYour benefits in Kemptthal:\n\nExcellent opportunities for progressive learning and development\n\n40 hour working week\n\nAdditional paid days off\n\nFavourable pension fund contributions\n\nSubsidized meals in the staff restaurant\n\nSport and leisure club (amenities/showers on site)\n\nDiscounts at the company shop\n\nWorldwide private accident coverage and free choice of hospital\n\nAt Givaudan, you contribute to delightful taste and scent experiences that touch people’s lives.\n\nWe value the different perspectives that come from diverse cultures, backgrounds, and experiences.\n\nEveryone — regardless of race, gender identity, sexual orientation, age, disability, culture, religion, or any personal circumstances — is warmly welcomed at Givaudan, a place where we all love to be and grow.\n\nEvery essence of you enriches our world. Join us in making a difference together.",
+        "de": "Join us and celebrate the beauty of human experience. Create for happier, healthier lives, with love for nature. Together, with kindness and humility, we deliver food innovations, craft inspired fragrances and develop beauty and wellbeing solutions that make people look and feel good. There’s much to learn and many to learn from, with more than 17,000 employees around the world to explore ideas and ambitions with. Dive into varied, flexible, and stimulating environments. Meet empowered professionals to partner with, befriend, and stretch your skills alongside. Every day, your energy, your creativity, and your determination will shape our future, making a positive difference on billions of people. Every essence of you enriches our world. We are Givaudan. Human by nature.\n\n**Head of DADS (Digitalization, Automation, Data Science) - A Digital Automation Data Science Manager**\n\nPurpose: This role focuses on identifying manual bottlenecks in digital processes within Fragrance S&T and replacing them with automated, data-driven solutions. You will Lead a design data pipelines, deploy predictive models, and leverage modern AI tools to accelerate research and decision-making within S&T and the local Givaudan IT landscape.\n\n## You will\n\n- Lead the digital transformation and evolution at Givaudan in Fragrance S&T\n- Lead digitalisation, automation and data science projects within Fragrance S&T, in collaboration with scientists and IT.\n- Integrate modern AI tools like LLM and predictive models (QSAR, QSOR) into existing and new applications to accelerate decision-making for research eg. designing new molecules, new complex systems and optimising processes for more efficient and effective solutions\n- Scout and implement modeling tools facilitating scale up activities and any other research opportunities\n- Align with corporate IT and collaborators to deploy the solutions to production or other Givaudan infrastructure\n- Configure, deploy and integrate third party tools to facilitate daily research, development and industrialisation tasks\n- Design exploration applications and data pipelines to capture, analyse and visualise data generated across diverse research activities even finding links between CoE’s\n- Provide expertise, guidance and training to scientists (Fragrance S&T community) for data analysis and data visualisation.\n- In close collaboration with IT, follow-up the deployment of solutions directly with end users to address change management, bug-fixing and improvements in user experience.\n- Analyse and further improve existing workflow and processes\n- Collaborate tightly with scientists & labs to identify and replace manual bottlenecks in digital processes with automated workflows across the research organization.\n- Engage the teams in adopting new and efficient ways of working. Keep the S&T organisation up to date with latest best practice in the field\n\n## You are\n\n- Degree (MSc, PhD) in a Life Science discipline (Chemistry, Chemoinformatic, Biology)\n- 10+ years of experience in a research informatics environment. Proven track-record of successfully implementing research informatics projects\n- Strong experience in software development and machine learning with Python, combined with solid expertise in system architecture, SQL/database design, and integration with complex web APIs. Capable of working effectively in Linux environments when needed\n- Understanding of core cheminformatics principles (chemical structure formats, chemical structure searching, fingerprints, descriptors, complex formulations)\n\n- Understanding of hard chemical data with human responses across psychological, physiological and sensorial, and Ontologies (knowledge graph expertise) is a plus.\n\n- Willingness to learn new tools and technical skills\n- Strong communication and decision-making skills across diverse stakeholder groups\n- A knowledge of best practice within the current University ecosystem\n\nYour benefits in Kemptthal:\n\nExcellent opportunities for progressive learning and development\n\n40 hour working week\n\nAdditional paid days off\n\nFavourable pension fund contributions\n\nSubsidized meals in the staff restaurant\n\nSport and leisure club (amenities/showers on site)\n\nDiscounts at the company shop\n\nWorldwide private accident coverage and free choice of hospital\n\nAt Givaudan, you contribute to delightful taste and scent experiences that touch people’s lives.\n\nWe value the different perspectives that come from diverse cultures, backgrounds, and experiences.\n\nEveryone — regardless of race, gender identity, sexual orientation, age, disability, culture, religion, or any personal circumstances — is warmly welcomed at Givaudan, a place where we all love to be and grow.\n\nEvery essence of you enriches our world. Join us in making a difference together.",
+        "fr": "Join us and celebrate the beauty of human experience. Create for happier, healthier lives, with love for nature. Together, with kindness and humility, we deliver food innovations, craft inspired fragrances and develop beauty and wellbeing solutions that make people look and feel good. There’s much to learn and many to learn from, with more than 17,000 employees around the world to explore ideas and ambitions with. Dive into varied, flexible, and stimulating environments. Meet empowered professionals to partner with, befriend, and stretch your skills alongside. Every day, your energy, your creativity, and your determination will shape our future, making a positive difference on billions of people. Every essence of you enriches our world. We are Givaudan. Human by nature.\n\n**Head of DADS (Digitalization, Automation, Data Science) - A Digital Automation Data Science Manager**\n\nPurpose: This role focuses on identifying manual bottlenecks in digital processes within Fragrance S&T and replacing them with automated, data-driven solutions. You will Lead a design data pipelines, deploy predictive models, and leverage modern AI tools to accelerate research and decision-making within S&T and the local Givaudan IT landscape.\n\n## You will\n\n- Lead the digital transformation and evolution at Givaudan in Fragrance S&T\n- Lead digitalisation, automation and data science projects within Fragrance S&T, in collaboration with scientists and IT.\n- Integrate modern AI tools like LLM and predictive models (QSAR, QSOR) into existing and new applications to accelerate decision-making for research eg. designing new molecules, new complex systems and optimising processes for more efficient and effective solutions\n- Scout and implement modeling tools facilitating scale up activities and any other research opportunities\n- Align with corporate IT and collaborators to deploy the solutions to production or other Givaudan infrastructure\n- Configure, deploy and integrate third party tools to facilitate daily research, development and industrialisation tasks\n- Design exploration applications and data pipelines to capture, analyse and visualise data generated across diverse research activities even finding links between CoE’s\n- Provide expertise, guidance and training to scientists (Fragrance S&T community) for data analysis and data visualisation.\n- In close collaboration with IT, follow-up the deployment of solutions directly with end users to address change management, bug-fixing and improvements in user experience.\n- Analyse and further improve existing workflow and processes\n- Collaborate tightly with scientists & labs to identify and replace manual bottlenecks in digital processes with automated workflows across the research organization.\n- Engage the teams in adopting new and efficient ways of working. Keep the S&T organisation up to date with latest best practice in the field\n\n## You are\n\n- Degree (MSc, PhD) in a Life Science discipline (Chemistry, Chemoinformatic, Biology)\n- 10+ years of experience in a research informatics environment. Proven track-record of successfully implementing research informatics projects\n- Strong experience in software development and machine learning with Python, combined with solid expertise in system architecture, SQL/database design, and integration with complex web APIs. Capable of working effectively in Linux environments when needed\n- Understanding of core cheminformatics principles (chemical structure formats, chemical structure searching, fingerprints, descriptors, complex formulations)\n\n- Understanding of hard chemical data with human responses across psychological, physiological and sensorial, and Ontologies (knowledge graph expertise) is a plus.\n\n- Willingness to learn new tools and technical skills\n- Strong communication and decision-making skills across diverse stakeholder groups\n- A knowledge of best practice within the current University ecosystem\n\nYour benefits in Kemptthal:\n\nExcellent opportunities for progressive learning and development\n\n40 hour working week\n\nAdditional paid days off\n\nFavourable pension fund contributions\n\nSubsidized meals in the staff restaurant\n\nSport and leisure club (amenities/showers on site)\n\nDiscounts at the company shop\n\nWorldwide private accident coverage and free choice of hospital\n\nAt Givaudan, you contribute to delightful taste and scent experiences that touch people’s lives.\n\nWe value the different perspectives that come from diverse cultures, backgrounds, and experiences.\n\nEveryone — regardless of race, gender identity, sexual orientation, age, disability, culture, religion, or any personal circumstances — is warmly welcomed at Givaudan, a place where we all love to be and grow.\n\nEvery essence of you enriches our world. Join us in making a difference together."
+      },
+      "location": "Kemptthal",
+      "canton": "ZH",
+      "url": "https://careers.givaudan.com/global/en/job/GIVGIVGB120494EXTERNALENGLOBAL/digital-automation-data-science-manager",
+      "source": "Givaudan Dedicated Parser",
+      "sourceLang": "en",
+      "crawledAt": "2026-11-06T10:01:42.959Z",
+      "addressLocality": "Kemptthal",
+      "postalCode": "8310",
+      "streetAddress": "Kemptpark 50",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Flavors & Fragrances (chemicals / FMCG ingredients)",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-11-05T15:47:18.000+00:00",
+      "postedDate": "2026-11-05T15:47:18.000+00:00",
+      "postingDateSource": "reported",
+      "applyUrl": "https://careers.givaudan.com/global/en/job/GIVGIVGB120494EXTERNALENGLOBAL/digital-automation-data-science-manager",
+      "requirements": [],
+      "requirementsByLocale": {
+        "en": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 101500,
+      "salaryMax": 154000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 101500,
+          "maxValue": 154000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-02-04T10:01:42.959Z",
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-11-06T10:01:42.959Z"
+    },
     {
       "id": "givaudan-878f847674f8",
       "slug": "sweet-goods-product-development-tirocinante-m-f-d-givaudan-kemptthal",
@@ -34,7 +106,7 @@
       "url": "https://careers.givaudan.com/global/en/job/GIVGIVGB119972EXTERNALENGLOBAL/sweet-goods-product-development-intern-m-f-d",
       "source": "Givaudan Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-05T21:51:57.658Z",
+      "crawledAt": "2026-11-06T10:01:42.663Z",
       "addressLocality": "Kemptthal",
       "postalCode": "8310",
       "streetAddress": "Kemptpark 50",
@@ -83,8 +155,80 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-09T21:51:57.658Z",
+      "validThrough": "2026-12-09T10:01:42.663Z",
       "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "givaudan-a26b565a100f",
+      "slug": "global-marketing-intern-m-f-d-12-months-givaudan-ch",
+      "slugByLocale": {
+        "en": "global-marketing-intern-m-f-d-12-months-givaudan-ch",
+        "it": "global-marketing-intern-m-f-d-12-months-givaudan-ch",
+        "de": "global-marketing-intern-m-f-d-12-months-givaudan-ch",
+        "fr": "global-marketing-intern-m-f-d-12-months-givaudan-ch"
+      },
+      "company": "Givaudan",
+      "companyKey": "givaudan",
+      "companyDomain": "givaudan.com",
+      "title": "Global Marketing Intern (m/f/d) - 12 months",
+      "titleByLocale": {
+        "en": "Global Marketing Intern (m/f/d) - 12 months",
+        "it": "Global Marketing Tirocinante (m/f/d) - 12 months",
+        "de": "Global Marketing Praktikant (m/f/d) - 12 months",
+        "fr": "Global Marketing Stagiaire (m/f/d) - 12 months"
+      },
+      "description": "Join us and celebrate the beauty of human experience. Create for happier, healthier lives, with love for nature. Together, with passion and creativity, we deliver food innovations, craft inspired fragrances and develop beauty and wellbeing solutions. There’s much to learn and many to learn from, with more than 17,000 employees around the world to explore ideas and ambitions with. Every day, your talent, your innovative spirit, and your determination will shape our future, making a positive difference on billions of people. Every essence of you enriches our world. We are Givaudan. Human by nature.\n\nAs a Global Marketing Intern, you will support our Global Marketing team, and could contribute to either one of these exciting opportunities: Savoury & Snacks - supporting one of our largest growth platforms. Sweet Goods, Dairy, Nutrition & Strategic Digital Tools - helping drive innovation through digital solutions and strategic initiatives. Based in Kemptthal, Switzerland, you will be part of a supportive, diverse, and responsible team, reporting to the respective Global Marketing Manager within the Taste & Wellbeing business unit. **About the role**We are looking for a highly motivated, curious intern to support market intelligence, business analysis, innovation, digital enablement and internal storytelling. This role suits someone who combines analytical thinking with creativity and strong communication skills. Beyond academic excellence, we value a proactive, business-curious and adaptable person who can turn complex information into clear recommendations and compelling presentations. You will work in a dynamic international environment, collaborating with global and regional stakeholders across Science & Technology, Regional Innovation, Marketing & Communications and Commercial teams. **How You Will Make an Impact:***Market intelligence & strategy*Track market trends, consumer and customer needs, competitor activity and new food innovations across regions. Build a consistent view of the landscape for assigned categories, including market size and share, trends and competitive dynamics, to support commercialization. Use a broad market view to support strategy development and competitive differentiation, frame opportunities and challenge the status quo. Collect and analyse market, business, research and technical information, and turn it into clear business stories and opportunities. *Launches & digital tools*\n\nSupport execution of the Value Proposition Package for strategic launches, digital tools launches and other strategic initiatives. Act as a strategic power user of our sales enablement & content platform and help drive its further development. *Storytelling & stakeholder engagement*Help prepare business reviews, innovation assessments and strategic project updates for internal stakeholders. Create professional, visually engaging PowerPoint presentations for meetings, workshops, customer discussions and internal projects. Ensure strategic marketing materials are clear, well-structured and visually consistent. Coordinate and follow up with regional and global marketing, innovation and commercial teams on ongoing projects and priorities. **\n• Your profile:**Currently studying or recently graduated with a Bachelor’s or Master’s degree in Marketing, Business, Food Science, Consumer Insights or a related field (a science degree combined with marketing studies is also welcome). Excellent spoken and written English. Strong storytelling and presentation skills; able to transform analysis into clear, visually compelling business presentations. Strong analytical skills, with the ability to produce well-founded trend reports and derive relevant category insights. Digital savvy, with strong proficiency in PowerPoint, Excel and other Microsoft tools. Commercially aware, creative and solution-oriented; able to connect market insights with business opportunities. Comfortable navigating complex, multinational environments, with demonstrated learning agility and a proactive mindset. Nice to have: knowledge of market research, consumer insights or strategic analysis; familiarity with AI, visualization or design tools. **Your benefits in Kemptthal:**\n\nExcellent opportunities for progressive learning and development 40-hour working week with a flexible working model Additional paid days off Favourable pension fund contributions Subsidized meals in the staff restaurant and discounted catering (incl. lunch) Sport and leisure club (amenities/showers on site) Discounts at the company shop Free staff parking Subsidized REKA vouchers and SBB half-fare travelcard Worldwide private accident coverage and free choice of hospital Additional family/education allowance (if applicable)\n\nAt Givaudan, you contribute to delightful taste and scent experiences that touch people’s lives.\n\nWe value the different perspectives that come from diverse cultures, backgrounds, and experiences.\n\nEveryone — regardless of race, gender identity, sexual orientation, age, disability, culture, religion, or any personal circumstances — is warmly welcomed at Givaudan, a place where we all love to be and grow.\n\nEvery essence of you enriches our world. Join us in making a difference together.",
+      "descriptionByLocale": {
+        "en": "Join us and celebrate the beauty of human experience. Create for happier, healthier lives, with love for nature. Together, with passion and creativity, we deliver food innovations, craft inspired fragrances and develop beauty and wellbeing solutions. There’s much to learn and many to learn from, with more than 17,000 employees around the world to explore ideas and ambitions with. Every day, your talent, your innovative spirit, and your determination will shape our future, making a positive difference on billions of people. Every essence of you enriches our world. We are Givaudan. Human by nature.\n\nAs a Global Marketing Intern, you will support our Global Marketing team, and could contribute to either one of these exciting opportunities: Savoury & Snacks - supporting one of our largest growth platforms. Sweet Goods, Dairy, Nutrition & Strategic Digital Tools - helping drive innovation through digital solutions and strategic initiatives. Based in Kemptthal, Switzerland, you will be part of a supportive, diverse, and responsible team, reporting to the respective Global Marketing Manager within the Taste & Wellbeing business unit. **About the role**We are looking for a highly motivated, curious intern to support market intelligence, business analysis, innovation, digital enablement and internal storytelling. This role suits someone who combines analytical thinking with creativity and strong communication skills. Beyond academic excellence, we value a proactive, business-curious and adaptable person who can turn complex information into clear recommendations and compelling presentations. You will work in a dynamic international environment, collaborating with global and regional stakeholders across Science & Technology, Regional Innovation, Marketing & Communications and Commercial teams. **How You Will Make an Impact:***Market intelligence & strategy*Track market trends, consumer and customer needs, competitor activity and new food innovations across regions. Build a consistent view of the landscape for assigned categories, including market size and share, trends and competitive dynamics, to support commercialization. Use a broad market view to support strategy development and competitive differentiation, frame opportunities and challenge the status quo. Collect and analyse market, business, research and technical information, and turn it into clear business stories and opportunities. *Launches & digital tools*\n\nSupport execution of the Value Proposition Package for strategic launches, digital tools launches and other strategic initiatives. Act as a strategic power user of our sales enablement & content platform and help drive its further development. *Storytelling & stakeholder engagement*Help prepare business reviews, innovation assessments and strategic project updates for internal stakeholders. Create professional, visually engaging PowerPoint presentations for meetings, workshops, customer discussions and internal projects. Ensure strategic marketing materials are clear, well-structured and visually consistent. Coordinate and follow up with regional and global marketing, innovation and commercial teams on ongoing projects and priorities. **\n• Your profile:**Currently studying or recently graduated with a Bachelor’s or Master’s degree in Marketing, Business, Food Science, Consumer Insights or a related field (a science degree combined with marketing studies is also welcome). Excellent spoken and written English. Strong storytelling and presentation skills; able to transform analysis into clear, visually compelling business presentations. Strong analytical skills, with the ability to produce well-founded trend reports and derive relevant category insights. Digital savvy, with strong proficiency in PowerPoint, Excel and other Microsoft tools. Commercially aware, creative and solution-oriented; able to connect market insights with business opportunities. Comfortable navigating complex, multinational environments, with demonstrated learning agility and a proactive mindset. Nice to have: knowledge of market research, consumer insights or strategic analysis; familiarity with AI, visualization or design tools. **Your benefits in Kemptthal:**\n\nExcellent opportunities for progressive learning and development 40-hour working week with a flexible working model Additional paid days off Favourable pension fund contributions Subsidized meals in the staff restaurant and discounted catering (incl. lunch) Sport and leisure club (amenities/showers on site) Discounts at the company shop Free staff parking Subsidized REKA vouchers and SBB half-fare travelcard Worldwide private accident coverage and free choice of hospital Additional family/education allowance (if applicable)\n\nAt Givaudan, you contribute to delightful taste and scent experiences that touch people’s lives.\n\nWe value the different perspectives that come from diverse cultures, backgrounds, and experiences.\n\nEveryone — regardless of race, gender identity, sexual orientation, age, disability, culture, religion, or any personal circumstances — is warmly welcomed at Givaudan, a place where we all love to be and grow.\n\nEvery essence of you enriches our world. Join us in making a difference together.",
+        "it": "Join us and celebrate the beauty of human experience. Create for happier, healthier lives, with love for nature. Together, with passion and creativity, we deliver food innovations, craft inspired fragrances and develop beauty and wellbeing solutions. There’s much to learn and many to learn from, with more than 17,000 employees around the world to explore ideas and ambitions with. Every day, your talent, your innovative spirit, and your determination will shape our future, making a positive difference on billions of people. Every essence of you enriches our world. We are Givaudan. Human by nature.\n\nAs a Global Marketing Intern, you will support our Global Marketing team, and could contribute to either one of these exciting opportunities: Savoury & Snacks - supporting one of our largest growth platforms. Sweet Goods, Dairy, Nutrition & Strategic Digital Tools - helping drive innovation through digital solutions and strategic initiatives. Based in Kemptthal, Switzerland, you will be part of a supportive, diverse, and responsible team, reporting to the respective Global Marketing Manager within the Taste & Wellbeing business unit. **About the role**We are looking for a highly motivated, curious intern to support market intelligence, business analysis, innovation, digital enablement and internal storytelling. This role suits someone who combines analytical thinking with creativity and strong communication skills. Beyond academic excellence, we value a proactive, business-curious and adaptable person who can turn complex information into clear recommendations and compelling presentations. You will work in a dynamic international environment, collaborating with global and regional stakeholders across Science & Technology, Regional Innovation, Marketing & Communications and Commercial teams. **How You Will Make an Impact:***Market intelligence & strategy*Track market trends, consumer and customer needs, competitor activity and new food innovations across regions. Build a consistent view of the landscape for assigned categories, including market size and share, trends and competitive dynamics, to support commercialization. Use a broad market view to support strategy development and competitive differentiation, frame opportunities and challenge the status quo. Collect and analyse market, business, research and technical information, and turn it into clear business stories and opportunities. *Launches & digital tools*\n\nSupport execution of the Value Proposition Package for strategic launches, digital tools launches and other strategic initiatives. Act as a strategic power user of our sales enablement & content platform and help drive its further development. *Storytelling & stakeholder engagement*Help prepare business reviews, innovation assessments and strategic project updates for internal stakeholders. Create professional, visually engaging PowerPoint presentations for meetings, workshops, customer discussions and internal projects. Ensure strategic marketing materials are clear, well-structured and visually consistent. Coordinate and follow up with regional and global marketing, innovation and commercial teams on ongoing projects and priorities. **\n• Your profile:**Currently studying or recently graduated with a Bachelor’s or Master’s degree in Marketing, Business, Food Science, Consumer Insights or a related field (a science degree combined with marketing studies is also welcome). Excellent spoken and written English. Strong storytelling and presentation skills; able to transform analysis into clear, visually compelling business presentations. Strong analytical skills, with the ability to produce well-founded trend reports and derive relevant category insights. Digital savvy, with strong proficiency in PowerPoint, Excel and other Microsoft tools. Commercially aware, creative and solution-oriented; able to connect market insights with business opportunities. Comfortable navigating complex, multinational environments, with demonstrated learning agility and a proactive mindset. Nice to have: knowledge of market research, consumer insights or strategic analysis; familiarity with AI, visualization or design tools. **Your benefits in Kemptthal:**\n\nExcellent opportunities for progressive learning and development 40-hour working week with a flexible working model Additional paid days off Favourable pension fund contributions Subsidized meals in the staff restaurant and discounted catering (incl. lunch) Sport and leisure club (amenities/showers on site) Discounts at the company shop Free staff parking Subsidized REKA vouchers and SBB half-fare travelcard Worldwide private accident coverage and free choice of hospital Additional family/education allowance (if applicable)\n\nAt Givaudan, you contribute to delightful taste and scent experiences that touch people’s lives.\n\nWe value the different perspectives that come from diverse cultures, backgrounds, and experiences.\n\nEveryone — regardless of race, gender identity, sexual orientation, age, disability, culture, religion, or any personal circumstances — is warmly welcomed at Givaudan, a place where we all love to be and grow.\n\nEvery essence of you enriches our world. Join us in making a difference together.",
+        "de": "Join us and celebrate the beauty of human experience. Create for happier, healthier lives, with love for nature. Together, with passion and creativity, we deliver food innovations, craft inspired fragrances and develop beauty and wellbeing solutions. There’s much to learn and many to learn from, with more than 17,000 employees around the world to explore ideas and ambitions with. Every day, your talent, your innovative spirit, and your determination will shape our future, making a positive difference on billions of people. Every essence of you enriches our world. We are Givaudan. Human by nature.\n\nAs a Global Marketing Intern, you will support our Global Marketing team, and could contribute to either one of these exciting opportunities: Savoury & Snacks - supporting one of our largest growth platforms. Sweet Goods, Dairy, Nutrition & Strategic Digital Tools - helping drive innovation through digital solutions and strategic initiatives. Based in Kemptthal, Switzerland, you will be part of a supportive, diverse, and responsible team, reporting to the respective Global Marketing Manager within the Taste & Wellbeing business unit. **About the role**We are looking for a highly motivated, curious intern to support market intelligence, business analysis, innovation, digital enablement and internal storytelling. This role suits someone who combines analytical thinking with creativity and strong communication skills. Beyond academic excellence, we value a proactive, business-curious and adaptable person who can turn complex information into clear recommendations and compelling presentations. You will work in a dynamic international environment, collaborating with global and regional stakeholders across Science & Technology, Regional Innovation, Marketing & Communications and Commercial teams. **How You Will Make an Impact:***Market intelligence & strategy*Track market trends, consumer and customer needs, competitor activity and new food innovations across regions. Build a consistent view of the landscape for assigned categories, including market size and share, trends and competitive dynamics, to support commercialization. Use a broad market view to support strategy development and competitive differentiation, frame opportunities and challenge the status quo. Collect and analyse market, business, research and technical information, and turn it into clear business stories and opportunities. *Launches & digital tools*\n\nSupport execution of the Value Proposition Package for strategic launches, digital tools launches and other strategic initiatives. Act as a strategic power user of our sales enablement & content platform and help drive its further development. *Storytelling & stakeholder engagement*Help prepare business reviews, innovation assessments and strategic project updates for internal stakeholders. Create professional, visually engaging PowerPoint presentations for meetings, workshops, customer discussions and internal projects. Ensure strategic marketing materials are clear, well-structured and visually consistent. Coordinate and follow up with regional and global marketing, innovation and commercial teams on ongoing projects and priorities. **\n• Your profile:**Currently studying or recently graduated with a Bachelor’s or Master’s degree in Marketing, Business, Food Science, Consumer Insights or a related field (a science degree combined with marketing studies is also welcome). Excellent spoken and written English. Strong storytelling and presentation skills; able to transform analysis into clear, visually compelling business presentations. Strong analytical skills, with the ability to produce well-founded trend reports and derive relevant category insights. Digital savvy, with strong proficiency in PowerPoint, Excel and other Microsoft tools. Commercially aware, creative and solution-oriented; able to connect market insights with business opportunities. Comfortable navigating complex, multinational environments, with demonstrated learning agility and a proactive mindset. Nice to have: knowledge of market research, consumer insights or strategic analysis; familiarity with AI, visualization or design tools. **Your benefits in Kemptthal:**\n\nExcellent opportunities for progressive learning and development 40-hour working week with a flexible working model Additional paid days off Favourable pension fund contributions Subsidized meals in the staff restaurant and discounted catering (incl. lunch) Sport and leisure club (amenities/showers on site) Discounts at the company shop Free staff parking Subsidized REKA vouchers and SBB half-fare travelcard Worldwide private accident coverage and free choice of hospital Additional family/education allowance (if applicable)\n\nAt Givaudan, you contribute to delightful taste and scent experiences that touch people’s lives.\n\nWe value the different perspectives that come from diverse cultures, backgrounds, and experiences.\n\nEveryone — regardless of race, gender identity, sexual orientation, age, disability, culture, religion, or any personal circumstances — is warmly welcomed at Givaudan, a place where we all love to be and grow.\n\nEvery essence of you enriches our world. Join us in making a difference together.",
+        "fr": "Join us and celebrate the beauty of human experience. Create for happier, healthier lives, with love for nature. Together, with passion and creativity, we deliver food innovations, craft inspired fragrances and develop beauty and wellbeing solutions. There’s much to learn and many to learn from, with more than 17,000 employees around the world to explore ideas and ambitions with. Every day, your talent, your innovative spirit, and your determination will shape our future, making a positive difference on billions of people. Every essence of you enriches our world. We are Givaudan. Human by nature.\n\nAs a Global Marketing Intern, you will support our Global Marketing team, and could contribute to either one of these exciting opportunities: Savoury & Snacks - supporting one of our largest growth platforms. Sweet Goods, Dairy, Nutrition & Strategic Digital Tools - helping drive innovation through digital solutions and strategic initiatives. Based in Kemptthal, Switzerland, you will be part of a supportive, diverse, and responsible team, reporting to the respective Global Marketing Manager within the Taste & Wellbeing business unit. **About the role**We are looking for a highly motivated, curious intern to support market intelligence, business analysis, innovation, digital enablement and internal storytelling. This role suits someone who combines analytical thinking with creativity and strong communication skills. Beyond academic excellence, we value a proactive, business-curious and adaptable person who can turn complex information into clear recommendations and compelling presentations. You will work in a dynamic international environment, collaborating with global and regional stakeholders across Science & Technology, Regional Innovation, Marketing & Communications and Commercial teams. **How You Will Make an Impact:***Market intelligence & strategy*Track market trends, consumer and customer needs, competitor activity and new food innovations across regions. Build a consistent view of the landscape for assigned categories, including market size and share, trends and competitive dynamics, to support commercialization. Use a broad market view to support strategy development and competitive differentiation, frame opportunities and challenge the status quo. Collect and analyse market, business, research and technical information, and turn it into clear business stories and opportunities. *Launches & digital tools*\n\nSupport execution of the Value Proposition Package for strategic launches, digital tools launches and other strategic initiatives. Act as a strategic power user of our sales enablement & content platform and help drive its further development. *Storytelling & stakeholder engagement*Help prepare business reviews, innovation assessments and strategic project updates for internal stakeholders. Create professional, visually engaging PowerPoint presentations for meetings, workshops, customer discussions and internal projects. Ensure strategic marketing materials are clear, well-structured and visually consistent. Coordinate and follow up with regional and global marketing, innovation and commercial teams on ongoing projects and priorities. **\n• Your profile:**Currently studying or recently graduated with a Bachelor’s or Master’s degree in Marketing, Business, Food Science, Consumer Insights or a related field (a science degree combined with marketing studies is also welcome). Excellent spoken and written English. Strong storytelling and presentation skills; able to transform analysis into clear, visually compelling business presentations. Strong analytical skills, with the ability to produce well-founded trend reports and derive relevant category insights. Digital savvy, with strong proficiency in PowerPoint, Excel and other Microsoft tools. Commercially aware, creative and solution-oriented; able to connect market insights with business opportunities. Comfortable navigating complex, multinational environments, with demonstrated learning agility and a proactive mindset. Nice to have: knowledge of market research, consumer insights or strategic analysis; familiarity with AI, visualization or design tools. **Your benefits in Kemptthal:**\n\nExcellent opportunities for progressive learning and development 40-hour working week with a flexible working model Additional paid days off Favourable pension fund contributions Subsidized meals in the staff restaurant and discounted catering (incl. lunch) Sport and leisure club (amenities/showers on site) Discounts at the company shop Free staff parking Subsidized REKA vouchers and SBB half-fare travelcard Worldwide private accident coverage and free choice of hospital Additional family/education allowance (if applicable)\n\nAt Givaudan, you contribute to delightful taste and scent experiences that touch people’s lives.\n\nWe value the different perspectives that come from diverse cultures, backgrounds, and experiences.\n\nEveryone — regardless of race, gender identity, sexual orientation, age, disability, culture, religion, or any personal circumstances — is warmly welcomed at Givaudan, a place where we all love to be and grow.\n\nEvery essence of you enriches our world. Join us in making a difference together."
+      },
+      "location": "Kemptthal",
+      "canton": "ZH",
+      "url": "https://careers.givaudan.com/global/en/job/GIVGIVGB120448EXTERNALENGLOBAL/global-marketing-intern-m-f-d-12-months",
+      "source": "Givaudan Dedicated Parser",
+      "sourceLang": "en",
+      "crawledAt": "2026-11-06T10:01:40.757Z",
+      "addressLocality": "Kemptthal",
+      "postalCode": "8310",
+      "streetAddress": "Kemptpark 50",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Marketing",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "intern",
+      "sector": "Flavors & Fragrances (chemicals / FMCG ingredients)",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-11-04T15:24:46.000+00:00",
+      "postedDate": "2026-11-04T15:24:46.000+00:00",
+      "postingDateSource": "reported",
+      "applyUrl": "https://careers.givaudan.com/global/en/job/GIVGIVGB120448EXTERNALENGLOBAL/global-marketing-intern-m-f-d-12-months",
+      "requirements": [],
+      "requirementsByLocale": {
+        "en": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 63500,
+      "salaryMax": 112500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 63500,
+          "maxValue": 112500,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-02-03T10:01:40.757Z",
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-11-06T10:01:40.757Z"
     },
     {
       "id": "givaudan-b88aaa6c636d",
@@ -117,7 +261,7 @@
       "url": "https://careers.givaudan.com/global/en/job/GIVGIVGB120483EXTERNALENGLOBAL/talent-attraction-intern-m-f-d",
       "source": "Givaudan Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-05T21:51:53.613Z",
+      "crawledAt": "2026-11-06T10:01:39.591Z",
       "addressLocality": "Vernier",
       "postalCode": "1214",
       "streetAddress": "5, Ch. de la Parfumerie",
@@ -166,7 +310,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-28T21:51:53.613Z",
+      "validThrough": "2027-01-29T10:01:39.591Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -200,7 +344,7 @@
       "url": "https://careers.givaudan.com/global/en/job/GIVGIVGB120261EXTERNALENGLOBAL/consumer-and-sensory-project-leader",
       "source": "Givaudan Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-05T21:51:53.362Z",
+      "crawledAt": "2026-11-06T10:01:39.156Z",
       "addressLocality": "Kemptthal",
       "postalCode": "8310",
       "streetAddress": "Kemptpark 50",
@@ -249,7 +393,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-11T21:51:53.362Z",
+      "validThrough": "2027-01-12T10:01:39.156Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -283,7 +427,7 @@
       "url": "https://careers.givaudan.com/global/en/job/GIVGIVGB119373EXTERNALENGLOBAL/electromecanicien-h-f-d",
       "source": "Givaudan Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-05T21:51:52.815Z",
+      "crawledAt": "2026-11-06T10:01:38.814Z",
       "addressLocality": "Vernier",
       "postalCode": "1214",
       "streetAddress": "5, Ch. de la Parfumerie",
@@ -326,7 +470,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-05T21:51:52.815Z",
+      "validThrough": "2026-12-06T10:01:38.814Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -360,7 +504,7 @@
       "url": "https://careers.givaudan.com/global/en/job/GIVGIVGB120084EXTERNALENGLOBAL/principal-flavourist-lead-savoury-eu-m-f-d",
       "source": "Givaudan Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-05T21:51:51.773Z",
+      "crawledAt": "2026-11-06T10:01:36.241Z",
       "addressLocality": "Kemptthal",
       "postalCode": "8310",
       "streetAddress": "Kemptpark 50",
@@ -409,7 +553,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-07T21:51:51.773Z",
+      "validThrough": "2027-01-07T10:01:36.241Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -443,7 +587,7 @@
       "url": "https://careers.givaudan.com/global/en/job/GIVGIVGB120463EXTERNALENGLOBAL/ehs-manager-m-w-d-your-next-role",
       "source": "Givaudan Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-05T21:51:51.237Z",
+      "crawledAt": "2026-11-06T10:01:35.142Z",
       "addressLocality": "Vernier",
       "postalCode": "1214",
       "streetAddress": "5, Ch. de la Parfumerie",
@@ -493,7 +637,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-27T21:51:51.237Z",
+      "validThrough": "2027-01-28T10:01:35.142Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -527,7 +671,7 @@
       "url": "https://careers.givaudan.com/global/en/job/GIVGIVGB120354EXTERNALENGLOBAL/lab-specialist-analytics-mass-spectrometry-m-f-d",
       "source": "Givaudan Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-05T21:51:50.174Z",
+      "crawledAt": "2026-11-06T10:01:34.503Z",
       "addressLocality": "Kemptthal",
       "postalCode": "8310",
       "streetAddress": "Kemptpark 50",
@@ -576,7 +720,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-25T21:51:50.174Z",
+      "validThrough": "2027-01-26T10:01:34.503Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -610,7 +754,7 @@
       "url": "https://careers.givaudan.com/global/en/job/GIVGIVGB120438EXTERNALENGLOBAL/quality-assurance-intern-m-f-d",
       "source": "Givaudan Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-05T21:51:49.732Z",
+      "crawledAt": "2026-11-06T10:01:33.480Z",
       "addressLocality": "Vernier",
       "postalCode": "1214",
       "streetAddress": "5, Ch. de la Parfumerie",
@@ -659,7 +803,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-26T21:51:49.732Z",
+      "validThrough": "2027-01-26T10:01:33.480Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -693,7 +837,7 @@
       "url": "https://careers.givaudan.com/global/en/job/GIVGIVGB120360EXTERNALENGLOBAL/operator-sampling-m-w-d",
       "source": "Givaudan Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T21:51:48.079Z",
+      "crawledAt": "2026-11-06T10:01:31.821Z",
       "addressLocality": "Dübendorf",
       "postalCode": "8600",
       "streetAddress": "Neugutstrasse 46",
@@ -747,7 +891,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-13T21:51:48.079Z",
+      "validThrough": "2027-01-14T10:01:31.821Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -781,7 +925,7 @@
       "url": "https://careers.givaudan.com/global/en/job/GIVGIVGB120259EXTERNALENGLOBAL/fragrance-ingredients-business-portfolio-manager-m-f-d",
       "source": "Givaudan Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-05T21:51:46.850Z",
+      "crawledAt": "2026-11-06T10:01:30.441Z",
       "addressLocality": "Vernier",
       "postalCode": "1214",
       "streetAddress": "5, Ch. de la Parfumerie",
@@ -836,7 +980,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-12T21:51:46.850Z",
+      "validThrough": "2027-01-12T10:01:30.441Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -870,7 +1014,7 @@
       "url": "https://careers.givaudan.com/global/en/job/GIVGIVGB120193EXTERNALENGLOBAL/technicien-d-exploitation-2x8-h-f-d",
       "source": "Givaudan Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-05T21:51:44.685Z",
+      "crawledAt": "2026-11-06T10:01:28.551Z",
       "addressLocality": "Vernier",
       "postalCode": "1214",
       "streetAddress": "5, Ch. de la Parfumerie",
@@ -913,7 +1057,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-05T21:51:44.685Z",
+      "validThrough": "2027-01-06T10:01:28.551Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -947,7 +1091,7 @@
       "url": "https://careers.givaudan.com/global/en/job/GIVGIVGB120106EXTERNALENGLOBAL/fachkraft-produktion-m-w-d",
       "source": "Givaudan Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T21:51:42.738Z",
+      "crawledAt": "2026-11-06T10:01:27.997Z",
       "addressLocality": "Volketswil",
       "postalCode": "8604",
       "streetAddress": "Industriestrasse 8A",
@@ -994,7 +1138,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-28T21:51:42.738Z",
+      "validThrough": "2026-12-28T10:01:27.997Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1028,7 +1172,7 @@
       "url": "https://careers.givaudan.com/global/en/job/GIVGIVGB120173EXTERNALENGLOBAL/customer-care-front-office-manager-m-w-d",
       "source": "Givaudan Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-05T21:51:41.157Z",
+      "crawledAt": "2026-11-06T10:01:27.522Z",
       "addressLocality": "Vernier",
       "postalCode": "1214",
       "streetAddress": "5, Ch. de la Parfumerie",
@@ -1074,7 +1218,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-27T21:51:41.157Z",
+      "validThrough": "2026-12-27T10:01:27.522Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1108,7 +1252,7 @@
       "url": "https://careers.givaudan.com/global/en/job/GIVGIVGB120046EXTERNALENGLOBAL/chef-d-equipe-en-production-chimique-3x8-h-f-d",
       "source": "Givaudan Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-05T21:51:40.144Z",
+      "crawledAt": "2026-11-06T10:01:26.608Z",
       "addressLocality": "Vernier",
       "postalCode": "1214",
       "streetAddress": "5, Ch. de la Parfumerie",
@@ -1151,7 +1295,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-22T21:51:40.144Z",
+      "validThrough": "2026-12-23T10:01:26.608Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1185,7 +1329,7 @@
       "url": "https://careers.givaudan.com/global/en/job/GIVGIVGB120036EXTERNALENGLOBAL/savoury-product-development-intern-m-w-d",
       "source": "Givaudan Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-05T21:51:39.862Z",
+      "crawledAt": "2026-11-06T10:01:26.251Z",
       "addressLocality": "Kemptthal",
       "postalCode": "8310",
       "streetAddress": "Kemptpark 50",
@@ -1234,7 +1378,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-21T21:51:39.862Z",
+      "validThrough": "2026-12-22T10:01:26.251Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1268,7 +1412,7 @@
       "url": "https://careers.givaudan.com/global/en/job/GIVGIVGB119962EXTERNALENGLOBAL/dairy-product-development-intern-m-f-d",
       "source": "Givaudan Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-05T21:51:39.376Z",
+      "crawledAt": "2026-11-06T10:01:25.421Z",
       "addressLocality": "Kemptthal",
       "postalCode": "8310",
       "streetAddress": "Kemptpark 50",
@@ -1317,7 +1461,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-07T21:51:39.376Z",
+      "validThrough": "2026-12-08T10:01:25.421Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1351,7 +1495,7 @@
       "url": "https://careers.givaudan.com/global/en/job/GIVGIVGB119877EXTERNALENGLOBAL/site-operations-controller-ingredients-m-f-d",
       "source": "Givaudan Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-05T21:51:38.519Z",
+      "crawledAt": "2026-11-06T10:01:24.172Z",
       "addressLocality": "Vernier",
       "postalCode": "1214",
       "streetAddress": "5, Ch. de la Parfumerie",
@@ -1394,7 +1538,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-05T21:51:38.519Z",
+      "validThrough": "2026-12-06T10:01:24.172Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1428,7 +1572,7 @@
       "url": "https://careers.givaudan.com/global/en/job/GIVGIVGB119521EXTERNALENGLOBAL/ot-technical-lead-m-w-d-your-next-role",
       "source": "Givaudan Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-05T21:51:37.791Z",
+      "crawledAt": "2026-11-06T10:01:23.426Z",
       "addressLocality": "Vernier",
       "postalCode": "1214",
       "streetAddress": "5, Ch. de la Parfumerie",
@@ -1471,7 +1615,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-05T21:51:37.791Z",
+      "validThrough": "2026-12-06T10:01:23.426Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1505,7 +1649,7 @@
       "url": "https://careers.givaudan.com/global/en/job/GIVGIVGB116426EXTERNALENGLOBAL/talent-pool-operations-internship-m-w-d",
       "source": "Givaudan Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-05T21:51:37.170Z",
+      "crawledAt": "2026-11-06T10:01:21.385Z",
       "addressLocality": "Kemptthal",
       "postalCode": "8310",
       "streetAddress": "Kemptpark 50",
@@ -1553,7 +1697,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-05T21:51:37.170Z",
+      "validThrough": "2026-12-06T10:01:21.385Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1587,7 +1731,7 @@
       "url": "https://careers.givaudan.com/global/en/job/GIVGIVGB117803EXTERNALENGLOBAL/anlagenfuhrer-m-w-d",
       "source": "Givaudan Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T21:51:36.837Z",
+      "crawledAt": "2026-11-06T10:01:20.693Z",
       "addressLocality": "Burgdorf",
       "postalCode": "3400",
       "streetAddress": "Burgdorf factory",
@@ -1651,7 +1795,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-05T21:51:36.837Z",
+      "validThrough": "2026-12-06T10:01:20.693Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1685,7 +1829,7 @@
       "url": "https://careers.givaudan.com/global/en/job/GIVGIVGB119102EXTERNALENGLOBAL/agent-prevention-et-intervention-h-f-d-3x8-cdd-jusqu-au-31-12-2027",
       "source": "Givaudan Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-05T21:51:36.435Z",
+      "crawledAt": "2026-11-06T10:01:20.243Z",
       "addressLocality": "Vernier",
       "postalCode": "1214",
       "streetAddress": "5, Ch. de la Parfumerie",
@@ -1728,7 +1872,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-05T21:51:36.435Z",
+      "validThrough": "2026-12-06T10:01:20.243Z",
       "validThroughSource": "last-observed-window"
     }
   ]

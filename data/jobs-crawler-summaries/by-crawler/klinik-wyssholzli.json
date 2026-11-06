@@ -1,24 +1,26 @@
 {
   "key": "klinik-wyssholzli",
   "label": "Klinik Wysshölzli",
-  "generatedAt": "2026-11-05T21:50:23.212Z",
-  "total": 7,
+  "generatedAt": "2026-11-06T09:59:39.601Z",
+  "total": 6,
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
-  "newCount": 1,
+  "newCount": 0,
   "updatedCount": 0,
-  "removedCount": 0,
+  "removedCount": 1,
   "unchangedCount": 6,
-  "durationMs": 2837,
-  "avgDurationMs": 2837,
+  "durationMs": 3205,
+  "avgDurationMs": 3205,
   "durationHistory": [
-    2837
+    3205
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [],
+  "removedJobs": [
     {
-      "title": "Pflegefachfrau Hf Ca. 80 02/2027",
-      "slug": "pflegefachfrau-hf-ca-80-02-2027-klinik-wyssholzli",
-      "url": "https://www.wysshoelzli.ch/uploads/Stelleninserate/Pflegefachfrau-HF_ca.-80-_02_2027.pdf",
+      "title": "Pflegefachfrau Hf 80 2027",
+      "slug": "infermiera-hf-80-2027-klinik-wyssholzli-herzogenbuchsee",
+      "url": "https://www.wysshoelzli.ch/uploads/Stelleninserate/Pflegefachfrau-HF_80-_2027.pdf",
       "applyUrl": "https://www.wysshoelzli.ch/jobs-karriere",
       "company": "Klinik Wysshölzli",
       "companyKey": "klinik-wyssholzli",
@@ -39,12 +41,12 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "validThrough": "2027-02-03T21:50:09.090Z",
-      "needsRetranslation": true,
+      "validThrough": "2027-01-27T21:33:44.901Z",
       "_meta": {
-        "sourceFilename": "Pflegefachfrau-HF_ca.-80-_02_2027.pdf"
+        "sourceFilename": "Pflegefachfrau-HF_80-_2027.pdf"
       },
-      "id": "klinik-wyssholzli-43402ca80015",
+      "id": "klinik-wyssholzli-92e2006711aa",
+      "firstSeenAt": "2026-10-29T21:33:44.901Z",
       "salaryMin": 85000,
       "salaryMax": 119000,
       "currency": "CHF",
@@ -52,18 +54,16 @@
       "streetAddress": "Herzogenbuchsee",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-05T21:50:09.090Z",
-      "_qualityScore": 86,
+      "crawlerMissStreak": 2,
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 16,
+        "translation": 25,
         "completeness": 23
       }
     }
   ],
-  "updatedJobs": [],
-  "removedJobs": [],
   "unchangedJobs": [
     {
       "title": "Psychiater In Ambulatorium Bern 2026 Ab 10",
@@ -201,6 +201,51 @@
       }
     },
     {
+      "title": "Pflegefachfrau Hf Ca. 80 02/2027",
+      "slug": "infermiera-hf-circa-80-02-2027-klinik-wyssholzli-herzogenbuchsee",
+      "url": "https://www.wysshoelzli.ch/uploads/Stelleninserate/Pflegefachfrau-HF_ca.-80-_02_2027.pdf",
+      "applyUrl": "https://www.wysshoelzli.ch/jobs-karriere",
+      "company": "Klinik Wysshölzli",
+      "companyKey": "klinik-wyssholzli",
+      "companyDomain": "wysshoelzli.ch",
+      "location": "Herzogenbuchsee",
+      "addressLocality": "Herzogenbuchsee",
+      "addressRegion": "BE",
+      "postalCode": "3360",
+      "addressCountry": "CH",
+      "canton": "BE",
+      "country": "CH",
+      "category": "health",
+      "sector": "Psychiatrie und Psychotherapie",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "source": "klinik-wyssholzli-dedicated-crawler",
+      "sourceLang": "de",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "validThrough": "2027-02-03T21:50:09.090Z",
+      "_meta": {
+        "sourceFilename": "Pflegefachfrau-HF_ca.-80-_02_2027.pdf"
+      },
+      "id": "klinik-wyssholzli-43402ca80015",
+      "firstSeenAt": "2026-11-05T21:50:09.090Z",
+      "salaryMin": 85000,
+      "salaryMax": 119000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "streetAddress": "Herzogenbuchsee",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 25,
+        "completeness": 23
+      }
+    },
+    {
       "title": "Praktikantin Pflege",
       "slug": "infermieristica-klinik-wyssholzli-herzogenbuchsee",
       "url": "https://www.wysshoelzli.ch/uploads/Stelleninserate/Praktikantin-Pflege.pdf",
@@ -282,52 +327,6 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-05T09:43:02.827Z",
-      "crawlerMissStreak": 1,
-      "_qualityScore": 95,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 23
-      }
-    },
-    {
-      "title": "Pflegefachfrau Hf 80 2027",
-      "slug": "infermiera-hf-80-2027-klinik-wyssholzli-herzogenbuchsee",
-      "url": "https://www.wysshoelzli.ch/uploads/Stelleninserate/Pflegefachfrau-HF_80-_2027.pdf",
-      "applyUrl": "https://www.wysshoelzli.ch/jobs-karriere",
-      "company": "Klinik Wysshölzli",
-      "companyKey": "klinik-wyssholzli",
-      "companyDomain": "wysshoelzli.ch",
-      "location": "Herzogenbuchsee",
-      "addressLocality": "Herzogenbuchsee",
-      "addressRegion": "BE",
-      "postalCode": "3360",
-      "addressCountry": "CH",
-      "canton": "BE",
-      "country": "CH",
-      "category": "health",
-      "sector": "Psychiatrie und Psychotherapie",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "source": "klinik-wyssholzli-dedicated-crawler",
-      "sourceLang": "de",
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "validThrough": "2027-01-27T21:33:44.901Z",
-      "_meta": {
-        "sourceFilename": "Pflegefachfrau-HF_80-_2027.pdf"
-      },
-      "id": "klinik-wyssholzli-92e2006711aa",
-      "firstSeenAt": "2026-10-29T21:33:44.901Z",
-      "salaryMin": 85000,
-      "salaryMax": 119000,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "streetAddress": "Herzogenbuchsee",
-      "streetAddressSource": "to-enrich",
-      "validThroughSource": "last-observed-window",
       "crawlerMissStreak": 2,
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -338,5 +337,5 @@
       }
     }
   ],
-  "codeCommit": "a1060e0c6e0f3560033abbedf4c719e585e35225"
+  "codeCommit": "fcc02aa26827aced497af1a7ae17fb25a96e49c5"
 }

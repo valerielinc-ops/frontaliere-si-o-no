@@ -1,7 +1,7 @@
 {
   "crawlerKey": "hrc",
-  "assembledAt": "2026-11-05T21:49:49.850Z",
-  "runId": "42111889361",
+  "assembledAt": "2026-11-06T10:02:20.710Z",
+  "runId": "42194460129",
   "jobs": [
     {
       "id": "hrc-206aba495c80",
@@ -35,7 +35,7 @@
       "url": "https://emploi.hopitalrivierachablais.ch/fr/nos-offres/3-apprenti-logisticien-hf-cfc-option-stockage-660",
       "source": "HRC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-05T21:49:42.336Z",
+      "crawledAt": "2026-11-06T10:02:12.239Z",
       "addressLocality": "Rennaz",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -84,7 +84,7 @@
       },
       "streetAddress": "Rennaz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-10T21:49:42.336Z",
+      "validThrough": "2027-01-10T10:02:12.239Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -118,7 +118,7 @@
       "url": "https://emploi.hopitalrivierachablais.ch/fr/nos-offres/agent-dexploitation-hf-a-100-664",
       "source": "HRC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-05T21:49:42.334Z",
+      "crawledAt": "2026-11-06T10:02:12.234Z",
       "addressLocality": "Rennaz",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -167,7 +167,7 @@
       },
       "streetAddress": "Rennaz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-17T21:49:42.334Z",
+      "validThrough": "2027-01-18T10:02:12.234Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -202,7 +202,7 @@
       "url": "https://emploi.hopitalrivierachablais.ch/fr/nos-offres/apprenties-assistantes-en-soins-et-sante-communautaire-assc-cfc-656",
       "source": "HRC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-05T21:49:42.331Z",
+      "crawledAt": "2026-11-06T10:02:12.229Z",
       "addressLocality": "Rennaz",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -251,7 +251,7 @@
       },
       "streetAddress": "Rennaz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-17T21:49:42.331Z",
+      "validThrough": "2027-01-17T10:02:12.229Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -286,7 +286,7 @@
       "url": "https://emploi.hopitalrivierachablais.ch/fr/nos-offres/medecin-adjoint-hf-aux-permanences-medicales-a-60-100-666",
       "source": "HRC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-05T21:49:42.329Z",
+      "crawledAt": "2026-11-06T10:02:12.225Z",
       "addressLocality": "Rennaz",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -337,8 +337,80 @@
       },
       "streetAddress": "Rennaz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-21T21:49:42.329Z",
+      "validThrough": "2027-01-21T10:02:12.225Z",
       "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "hrc-1cb01ec457be",
+      "slug": "phel-assistant-en-pharmacie-h-f-a-60-100-hrc-rennaz",
+      "slugByLocale": {
+        "fr": "phel-assistant-en-pharmacie-h-f-a-60-100-hrc-rennaz",
+        "it": "phel-assistant-en-pharmacie-h-f-a-60-100-hrc-rennaz",
+        "en": "phel-assistant-en-pharmacie-h-f-a-60-100-hrc-rennaz",
+        "de": "phel-assistant-en-pharmacie-h-f-a-60-100-hrc-rennaz"
+      },
+      "company": "Hôpital Riviera-Chablais (HRC)",
+      "companyKey": "hrc",
+      "companyDomain": "hopitalrivierachablais.ch",
+      "title": "PHEL - Assistant en pharmacie H/F à 60%-100%",
+      "titleByLocale": {
+        "fr": "PHEL - Assistant en pharmacie H/F à 60%-100%",
+        "it": "PHEL - Assistant en pharmacie H/F à 60%-100%",
+        "en": "PHEL - Assistant en pharmacie H/F à 60%-100%",
+        "de": "PHEL - Assistent en pharmacie H/F à 60%-100%"
+      },
+      "description": "La Pharmacie des Hôpitaux de l’Est Lémanique (PHEL), répartie sur plusieurs sites, est responsable de l’approvisionnement en médicaments et de l’assistance pharmaceutique des hôpitaux, ainsi que de différents établissements de soins, de l’Est lémanique (dont l’Hôpital Riviera-Chablais, Vaud-Valais). Le secteur EMS de la PHEL est responsable de l'approvisionnement en médicaments et en prestations pharmaceutiques de ses établissements médico-sociaux (EMS) partenaires.\n\nPour différents établissements partenaires des districts vaudois de Lausanne, Lavaux-Oron, Riviera-Pays-d’Enhaut et Aigle, nous recherchons un/e :\n\nAssistant en pharmacie H/F à 60%-100%\n\nLes missions principales de ce poste sont\n\n• Assistant·e en pharmacie pooliste dans nos EMS partenaire répartis dans les districts vaudois de Lausanne, Lavaux-Oron, Riviera-Pays-d’Enhaut et Aigle (30% du cahier des charges)\n\n• Assistant·e en pharmacie dans un EMS partenaire encore à définir dans le Canton de Vaud : commandes des médicaments et du matériel de soin, gestion de stock, communications, collaboration étroite avec le personnel soignant (30 à 50% du cahier des charges)\n\n• Assistant·e en pharmacie sur le site de Rennaz pour diverses activités de Distribution ou de Facturation (10 à 20% du cahier des charges)\n\n• Participation à l’amélioration continue et aux documents qualité\n\n• Tâches administratives et de bureautique diverses\n\nNous demandons\n\n• Un·e candidat·e titulaire du CFC d’assistant(e) en pharmacie ou titre jugé équivalent\n\n• Une personne avec un bon esprit d’équipe, consciencieuse, autonome et bien organisée, avec une ouverture face à la nouveauté,\n\n• Une grande flexibilité au niveau des déplacements sera demandée pour ce poste précis\n\n• Une expérience en tant qu’APUS ou dans l’approvisionnement de médicaments à des EMS, ainsi que la maîtrise du logiciel de facturation Tactil, et des outils Word et Excel seraient un atout\n\nNous offrons\n\n• La chance de rejoindre une équipe passionnée et solidaire, reconnue pour son excellent climat social.\n\n• Un environnement moderne, stimulant et orienté qualité au sein d'une pharmacie hospitalière certifiée.\n\n• Des conditions salariales ainsi que des avantages sociaux selon la Convention collective de travail de l’HRC (6 semaines de vacances dès 40 ans, timbrage, etc.).\n\n• L’accès à des formations variées pour vous permettre d'évoluer au sein de l'entreprise.\n\n• Des avantages exclusifs, tels que des réductions dans des commerces et restaurants à proximité.\n\n• L'opportunité de contribuer à une activité essentielle au service des résidents de nos EMS partenaires.\n\nEntrée en fonction :\n\nAu 1er avril 2027 ou à convenir\n\nDurée :\n\nUn contrat d'une durée indéterminée\n\nPour davantage d'informations :\n\nMme Aude Hirschi, assistante responsable au Secteur EMS, au +41 58 773 43 80 ou par mail à : aude.hirschi@phel.ch\n\nRejoignez-nous !\n\nPostulez avec votre dossier de candidature complet avant le 16 novembre 2026 via notre plateforme carrière : https://emploi.hopitalrivierachablais.ch/",
+      "descriptionByLocale": {
+        "fr": "La Pharmacie des Hôpitaux de l’Est Lémanique (PHEL), répartie sur plusieurs sites, est responsable de l’approvisionnement en médicaments et de l’assistance pharmaceutique des hôpitaux, ainsi que de différents établissements de soins, de l’Est lémanique (dont l’Hôpital Riviera-Chablais, Vaud-Valais). Le secteur EMS de la PHEL est responsable de l'approvisionnement en médicaments et en prestations pharmaceutiques de ses établissements médico-sociaux (EMS) partenaires.\n\nPour différents établissements partenaires des districts vaudois de Lausanne, Lavaux-Oron, Riviera-Pays-d’Enhaut et Aigle, nous recherchons un/e :\n\nAssistant en pharmacie H/F à 60%-100%\n\nLes missions principales de ce poste sont\n\n• Assistant·e en pharmacie pooliste dans nos EMS partenaire répartis dans les districts vaudois de Lausanne, Lavaux-Oron, Riviera-Pays-d’Enhaut et Aigle (30% du cahier des charges)\n\n• Assistant·e en pharmacie dans un EMS partenaire encore à définir dans le Canton de Vaud : commandes des médicaments et du matériel de soin, gestion de stock, communications, collaboration étroite avec le personnel soignant (30 à 50% du cahier des charges)\n\n• Assistant·e en pharmacie sur le site de Rennaz pour diverses activités de Distribution ou de Facturation (10 à 20% du cahier des charges)\n\n• Participation à l’amélioration continue et aux documents qualité\n\n• Tâches administratives et de bureautique diverses\n\nNous demandons\n\n• Un·e candidat·e titulaire du CFC d’assistant(e) en pharmacie ou titre jugé équivalent\n\n• Une personne avec un bon esprit d’équipe, consciencieuse, autonome et bien organisée, avec une ouverture face à la nouveauté,\n\n• Une grande flexibilité au niveau des déplacements sera demandée pour ce poste précis\n\n• Une expérience en tant qu’APUS ou dans l’approvisionnement de médicaments à des EMS, ainsi que la maîtrise du logiciel de facturation Tactil, et des outils Word et Excel seraient un atout\n\nNous offrons\n\n• La chance de rejoindre une équipe passionnée et solidaire, reconnue pour son excellent climat social.\n\n• Un environnement moderne, stimulant et orienté qualité au sein d'une pharmacie hospitalière certifiée.\n\n• Des conditions salariales ainsi que des avantages sociaux selon la Convention collective de travail de l’HRC (6 semaines de vacances dès 40 ans, timbrage, etc.).\n\n• L’accès à des formations variées pour vous permettre d'évoluer au sein de l'entreprise.\n\n• Des avantages exclusifs, tels que des réductions dans des commerces et restaurants à proximité.\n\n• L'opportunité de contribuer à une activité essentielle au service des résidents de nos EMS partenaires.\n\nEntrée en fonction :\n\nAu 1er avril 2027 ou à convenir\n\nDurée :\n\nUn contrat d'une durée indéterminée\n\nPour davantage d'informations :\n\nMme Aude Hirschi, assistante responsable au Secteur EMS, au +41 58 773 43 80 ou par mail à : aude.hirschi@phel.ch\n\nRejoignez-nous !\n\nPostulez avec votre dossier de candidature complet avant le 16 novembre 2026 via notre plateforme carrière : https://emploi.hopitalrivierachablais.ch/",
+        "it": "La Pharmacie des Hôpitaux de l’Est Lémanique (PHEL), répartie sur plusieurs sites, est responsable de l’approvisionnement en médicaments et de l’assistance pharmaceutique des hôpitaux, ainsi que de différents établissements de soins, de l’Est lémanique (dont l’Hôpital Riviera-Chablais, Vaud-Valais). Le secteur EMS de la PHEL est responsable de l'approvisionnement en médicaments et en prestations pharmaceutiques de ses établissements médico-sociaux (EMS) partenaires.\n\nPour différents établissements partenaires des districts vaudois de Lausanne, Lavaux-Oron, Riviera-Pays-d’Enhaut et Aigle, nous recherchons un/e :\n\nAssistant en pharmacie H/F à 60%-100%\n\nLes missions principales de ce poste sont\n\n• Assistant·e en pharmacie pooliste dans nos EMS partenaire répartis dans les districts vaudois de Lausanne, Lavaux-Oron, Riviera-Pays-d’Enhaut et Aigle (30% du cahier des charges)\n\n• Assistant·e en pharmacie dans un EMS partenaire encore à définir dans le Canton de Vaud : commandes des médicaments et du matériel de soin, gestion de stock, communications, collaboration étroite avec le personnel soignant (30 à 50% du cahier des charges)\n\n• Assistant·e en pharmacie sur le site de Rennaz pour diverses activités de Distribution ou de Facturation (10 à 20% du cahier des charges)\n\n• Participation à l’amélioration continue et aux documents qualité\n\n• Tâches administratives et de bureautique diverses\n\nNous demandons\n\n• Un·e candidat·e titulaire du CFC d’assistant(e) en pharmacie ou titre jugé équivalent\n\n• Une personne avec un bon esprit d’équipe, consciencieuse, autonome et bien organisée, avec une ouverture face à la nouveauté,\n\n• Une grande flexibilité au niveau des déplacements sera demandée pour ce poste précis\n\n• Une expérience en tant qu’APUS ou dans l’approvisionnement de médicaments à des EMS, ainsi que la maîtrise du logiciel de facturation Tactil, et des outils Word et Excel seraient un atout\n\nNous offrons\n\n• La chance de rejoindre une équipe passionnée et solidaire, reconnue pour son excellent climat social.\n\n• Un environnement moderne, stimulant et orienté qualité au sein d'une pharmacie hospitalière certifiée.\n\n• Des conditions salariales ainsi que des avantages sociaux selon la Convention collective de travail de l’HRC (6 semaines de vacances dès 40 ans, timbrage, etc.).\n\n• L’accès à des formations variées pour vous permettre d'évoluer au sein de l'entreprise.\n\n• Des avantages exclusifs, tels que des réductions dans des commerces et restaurants à proximité.\n\n• L'opportunité de contribuer à une activité essentielle au service des résidents de nos EMS partenaires.\n\nEntrée en fonction :\n\nAu 1er avril 2027 ou à convenir\n\nDurée :\n\nUn contrat d'une durée indéterminée\n\nPour davantage d'informations :\n\nMme Aude Hirschi, assistante responsable au Secteur EMS, au +41 58 773 43 80 ou par mail à : aude.hirschi@phel.ch\n\nRejoignez-nous !\n\nPostulez avec votre dossier de candidature complet avant le 16 novembre 2026 via notre plateforme carrière : https://emploi.hopitalrivierachablais.ch/",
+        "en": "La Pharmacie des Hôpitaux de l’Est Lémanique (PHEL), répartie sur plusieurs sites, est responsable de l’approvisionnement en médicaments et de l’assistance pharmaceutique des hôpitaux, ainsi que de différents établissements de soins, de l’Est lémanique (dont l’Hôpital Riviera-Chablais, Vaud-Valais). Le secteur EMS de la PHEL est responsable de l'approvisionnement en médicaments et en prestations pharmaceutiques de ses établissements médico-sociaux (EMS) partenaires.\n\nPour différents établissements partenaires des districts vaudois de Lausanne, Lavaux-Oron, Riviera-Pays-d’Enhaut et Aigle, nous recherchons un/e :\n\nAssistant en pharmacie H/F à 60%-100%\n\nLes missions principales de ce poste sont\n\n• Assistant·e en pharmacie pooliste dans nos EMS partenaire répartis dans les districts vaudois de Lausanne, Lavaux-Oron, Riviera-Pays-d’Enhaut et Aigle (30% du cahier des charges)\n\n• Assistant·e en pharmacie dans un EMS partenaire encore à définir dans le Canton de Vaud : commandes des médicaments et du matériel de soin, gestion de stock, communications, collaboration étroite avec le personnel soignant (30 à 50% du cahier des charges)\n\n• Assistant·e en pharmacie sur le site de Rennaz pour diverses activités de Distribution ou de Facturation (10 à 20% du cahier des charges)\n\n• Participation à l’amélioration continue et aux documents qualité\n\n• Tâches administratives et de bureautique diverses\n\nNous demandons\n\n• Un·e candidat·e titulaire du CFC d’assistant(e) en pharmacie ou titre jugé équivalent\n\n• Une personne avec un bon esprit d’équipe, consciencieuse, autonome et bien organisée, avec une ouverture face à la nouveauté,\n\n• Une grande flexibilité au niveau des déplacements sera demandée pour ce poste précis\n\n• Une expérience en tant qu’APUS ou dans l’approvisionnement de médicaments à des EMS, ainsi que la maîtrise du logiciel de facturation Tactil, et des outils Word et Excel seraient un atout\n\nNous offrons\n\n• La chance de rejoindre une équipe passionnée et solidaire, reconnue pour son excellent climat social.\n\n• Un environnement moderne, stimulant et orienté qualité au sein d'une pharmacie hospitalière certifiée.\n\n• Des conditions salariales ainsi que des avantages sociaux selon la Convention collective de travail de l’HRC (6 semaines de vacances dès 40 ans, timbrage, etc.).\n\n• L’accès à des formations variées pour vous permettre d'évoluer au sein de l'entreprise.\n\n• Des avantages exclusifs, tels que des réductions dans des commerces et restaurants à proximité.\n\n• L'opportunité de contribuer à une activité essentielle au service des résidents de nos EMS partenaires.\n\nEntrée en fonction :\n\nAu 1er avril 2027 ou à convenir\n\nDurée :\n\nUn contrat d'une durée indéterminée\n\nPour davantage d'informations :\n\nMme Aude Hirschi, assistante responsable au Secteur EMS, au +41 58 773 43 80 ou par mail à : aude.hirschi@phel.ch\n\nRejoignez-nous !\n\nPostulez avec votre dossier de candidature complet avant le 16 novembre 2026 via notre plateforme carrière : https://emploi.hopitalrivierachablais.ch/",
+        "de": "La Pharmacie des Hôpitaux de l’Est Lémanique (PHEL), répartie sur plusieurs sites, est responsable de l’approvisionnement en médicaments et de l’assistance pharmaceutique des hôpitaux, ainsi que de différents établissements de soins, de l’Est lémanique (dont l’Hôpital Riviera-Chablais, Vaud-Valais). Le secteur EMS de la PHEL est responsable de l'approvisionnement en médicaments et en prestations pharmaceutiques de ses établissements médico-sociaux (EMS) partenaires.\n\nPour différents établissements partenaires des districts vaudois de Lausanne, Lavaux-Oron, Riviera-Pays-d’Enhaut et Aigle, nous recherchons un/e :\n\nAssistant en pharmacie H/F à 60%-100%\n\nLes missions principales de ce poste sont\n\n• Assistant·e en pharmacie pooliste dans nos EMS partenaire répartis dans les districts vaudois de Lausanne, Lavaux-Oron, Riviera-Pays-d’Enhaut et Aigle (30% du cahier des charges)\n\n• Assistant·e en pharmacie dans un EMS partenaire encore à définir dans le Canton de Vaud : commandes des médicaments et du matériel de soin, gestion de stock, communications, collaboration étroite avec le personnel soignant (30 à 50% du cahier des charges)\n\n• Assistant·e en pharmacie sur le site de Rennaz pour diverses activités de Distribution ou de Facturation (10 à 20% du cahier des charges)\n\n• Participation à l’amélioration continue et aux documents qualité\n\n• Tâches administratives et de bureautique diverses\n\nNous demandons\n\n• Un·e candidat·e titulaire du CFC d’assistant(e) en pharmacie ou titre jugé équivalent\n\n• Une personne avec un bon esprit d’équipe, consciencieuse, autonome et bien organisée, avec une ouverture face à la nouveauté,\n\n• Une grande flexibilité au niveau des déplacements sera demandée pour ce poste précis\n\n• Une expérience en tant qu’APUS ou dans l’approvisionnement de médicaments à des EMS, ainsi que la maîtrise du logiciel de facturation Tactil, et des outils Word et Excel seraient un atout\n\nNous offrons\n\n• La chance de rejoindre une équipe passionnée et solidaire, reconnue pour son excellent climat social.\n\n• Un environnement moderne, stimulant et orienté qualité au sein d'une pharmacie hospitalière certifiée.\n\n• Des conditions salariales ainsi que des avantages sociaux selon la Convention collective de travail de l’HRC (6 semaines de vacances dès 40 ans, timbrage, etc.).\n\n• L’accès à des formations variées pour vous permettre d'évoluer au sein de l'entreprise.\n\n• Des avantages exclusifs, tels que des réductions dans des commerces et restaurants à proximité.\n\n• L'opportunité de contribuer à une activité essentielle au service des résidents de nos EMS partenaires.\n\nEntrée en fonction :\n\nAu 1er avril 2027 ou à convenir\n\nDurée :\n\nUn contrat d'une durée indéterminée\n\nPour davantage d'informations :\n\nMme Aude Hirschi, assistante responsable au Secteur EMS, au +41 58 773 43 80 ou par mail à : aude.hirschi@phel.ch\n\nRejoignez-nous !\n\nPostulez avec votre dossier de candidature complet avant le 16 novembre 2026 via notre plateforme carrière : https://emploi.hopitalrivierachablais.ch/"
+      },
+      "needsRetranslation": true,
+      "location": "Rennaz",
+      "canton": "VD",
+      "url": "https://emploi.hopitalrivierachablais.ch/fr/nos-offres/phel-assistant-en-pharmacie-hf-a-60-100-677",
+      "source": "HRC Dedicated Parser (VD emploi platform)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-11-06T10:02:12.222Z",
+      "addressLocality": "Rennaz",
+      "addressRegion": "VD",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1847",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "junior",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://emploi.hopitalrivierachablais.ch/fr/nos-offres/phel-assistant-en-pharmacie-hf-a-60-100-677",
+      "requirements": [],
+      "requirementsByLocale": {
+        "fr": []
+      },
+      "salaryMin": 86500,
+      "salaryMax": 120500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 86500,
+          "maxValue": 120500,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Rennaz",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-02-04T10:02:12.222Z",
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-11-06T10:02:12.222Z"
     },
     {
       "id": "hrc-25df93342ef8",
@@ -372,7 +444,7 @@
       "url": "https://emploi.hopitalrivierachablais.ch/fr/nos-offres/ergotherapeute-hf-en-readaptation-geriatrique-a-80-669",
       "source": "HRC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-05T21:49:42.326Z",
+      "crawledAt": "2026-11-06T10:02:12.218Z",
       "addressLocality": "Rennaz",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -421,7 +493,7 @@
       },
       "streetAddress": "Rennaz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-27T21:49:42.326Z",
+      "validThrough": "2027-01-27T10:02:12.218Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -456,7 +528,7 @@
       "url": "https://emploi.hopitalrivierachablais.ch/fr/nos-offres/medecin-chef-de-clinique-specialiste-hf-en-hematologie-fmh-ou-equivalent-675",
       "source": "HRC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-05T21:49:42.306Z",
+      "crawledAt": "2026-11-06T10:02:12.189Z",
       "addressLocality": "Rennaz",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -505,7 +577,7 @@
       },
       "streetAddress": "Rennaz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-02T21:49:42.306Z",
+      "validThrough": "2027-02-02T10:02:12.189Z",
       "validThroughSource": "last-observed-window"
     }
   ]
