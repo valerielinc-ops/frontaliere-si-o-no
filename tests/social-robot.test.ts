@@ -1655,6 +1655,14 @@ describe('workflows', () => {
     expect(warn?.if).toBe("env.INSTAGRAM_ACCESS_TOKEN == '' && env.SOCIAL_ROBOT_MODE != 'live'");
   });
 
+  it('skips the scheduled Reel publish when Graph credentials are absent', () => {
+    const steps = wf('instagram-reel-experiment.yml').jobs.build.steps as Array<{ name?: string; if?: string }>;
+    const warn = steps.find((s) => /missing Instagram Graph API credentials/.test(s.name ?? ''));
+    const publish = steps.find((s) => /Render and publish controlled Reel through Graph API/.test(s.name ?? ''));
+    expect(warn?.if).toBe("env.DRY_RUN != 'true' && (env.INSTAGRAM_ACCESS_TOKEN == '' || env.INSTAGRAM_BUSINESS_ACCOUNT_ID == '')");
+    expect(publish?.if).toBe("env.DRY_RUN == 'true' || (env.INSTAGRAM_ACCESS_TOKEN != '' && env.INSTAGRAM_BUSINESS_ACCOUNT_ID != '')");
+  });
+
   it('reserves the scheduled Instagram Reel cadence before assembling daily-only data', () => {
     const workflow = wf('instagram-daily-broadcast.yml');
     const steps = workflow.jobs.post.steps as Array<{ name?: string; if?: string; run?: string }>;

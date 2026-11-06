@@ -91,7 +91,14 @@ jobs:
           node scripts/load-rc-env.mjs
           --only-env=INSTAGRAM_BUSINESS_ACCOUNT_ID,INSTAGRAM_ACCESS_TOKEN,GEMINI_API_KEY,SOCIAL_COPY_EXPERIMENT_CONFIG,GA4_PROPERTY_ID,R2_BUCKET,R2_S3_ENDPOINT,R2_ACCESS_KEY_ID,R2_SECRET_ACCESS_KEY
 
+      - name: Report missing Instagram Graph API credentials
+        if: env.DRY_RUN != 'true' && (env.INSTAGRAM_ACCESS_TOKEN == '' || env.INSTAGRAM_BUSINESS_ACCOUNT_ID == '')
+        run: |
+          set -euo pipefail
+          echo "::warning::Instagram Reel skipped: INSTAGRAM_ACCESS_TOKEN and INSTAGRAM_BUSINESS_ACCOUNT_ID are required in Remote Config"
+
       - name: Render and publish controlled Reel through Graph API
+        if: env.DRY_RUN == 'true' || (env.INSTAGRAM_ACCESS_TOKEN != '' && env.INSTAGRAM_BUSINESS_ACCOUNT_ID != '')
         run: |
           set -euo pipefail
           args=("--kind=$KIND")
