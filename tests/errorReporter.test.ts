@@ -251,6 +251,15 @@ describe('reportCaughtError', () => {
       expect(Analytics.trackAppError).not.toHaveBeenCalled();
     });
 
+    it('drops permanent Firebase Installations configuration failures', async () => {
+      reportCaughtError(
+        new Error('Installations: Create Installation request failed with error "400 INVALID_ARGUMENT: invalid client configuration"'),
+        'firebase.initRemoteConfig',
+      );
+      await settleAnalyticsImport();
+      expect(Analytics.trackAppError).not.toHaveBeenCalled();
+    });
+
     it('still drops a bare transport failure when a call site identifies its API source', async () => {
       reportCaughtError(new TypeError('Failed to fetch'), 'exchangeRate.cfFetch', {
         apiEndpoint: 'https://example.com/exchange-rate',

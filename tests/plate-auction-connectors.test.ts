@@ -156,6 +156,22 @@ describe('expanded plate-auction connectors', () => {
     expect(extractPdfUrl(html, { baseUrl: 'https://example.test/source' })).toBe('https://example.test/cars.pdf');
   });
 
+  it('matches a PDF pattern inside a URL-wrapped download link', () => {
+    const targetPdf = 'https://files.example.test/catalogue/liste-auto.pdf?version=2026';
+    const wrappedPdf = `https://source.example.test/api/download?url=${encodeURIComponent(targetPdf)}`;
+    const html = `<a href="${wrappedPdf}">PDF</a>`;
+
+    expect(extractPdfUrl(html, {
+      baseUrl: 'https://source.example.test/catalogue',
+      pattern: /liste-auto\.pdf/i,
+    })).toBe(wrappedPdf);
+    expect(resolveVariantPdfUrl({ pdfUrlPattern: /liste-auto\.pdf/i }, {
+      sourceKey: 'test',
+      pageUrl: 'https://source.example.test/catalogue',
+      indexHtml: html,
+    })).toBe(wrappedPdf);
+  });
+
   it('retries transient catalogue fetch failures before degrading a source', async () => {
     const fetchMock = vi.spyOn(globalThis, 'fetch')
       .mockRejectedValueOnce(new TypeError('temporary network reset'))

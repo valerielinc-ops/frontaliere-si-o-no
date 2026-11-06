@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest';
 
 import {
   BING_TEMPLATE_TABLE,
+  buildFrontierAttribution,
   buildTemplateInventory,
   classifyBingTemplate,
   templateIndexFor,
@@ -147,6 +148,26 @@ describe('Bing title/meta template inventory', () => {
     });
     expect(inventory.families[0].samples['meta-description-too-short']).toHaveLength(1);
     expect(inventory.families.find((family) => family.id === 'unknown')?.reasons).toEqual(['no-route-family']);
+  });
+
+  it('keeps frontier findings unowned when referrer indexes are invalid', () => {
+    const source = `${BASE}/en/find-jobs-geneva/source/`;
+    const target = `${BASE}/en/find-jobs-geneva/target/`;
+    const attribution = buildFrontierAttribution([
+      { scope: 'discovered-frontier', code: 'frontier-redirect', url: target },
+    ], {
+      frontierManifest: {
+        urls: [target],
+        referrerRefs: [[[1, templateIndexFor(source)], ['0', templateIndexFor(source)]]],
+        templateTable: BING_TEMPLATE_TABLE,
+      },
+      sitemapManifest: { urls: [source] },
+    });
+
+    expect(attribution.findingsWithReferrer).toBe(0);
+    expect(attribution.unreferencedFindings).toBe(1);
+    expect(attribution.rows).toHaveLength(1);
+    expect(attribution.rows[0].samples).toEqual([]);
   });
 
   it('publishes the inventory in the full-tree summary and issue body', () => {

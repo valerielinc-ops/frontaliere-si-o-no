@@ -111,16 +111,19 @@ function nativeQuestionText(value, counter = null) {
   const MIN_TYPED_BOX_PX = 2;
   const typedInto = (element) => element.tagName === 'TEXTAREA'
     || (element.tagName === 'INPUT' && !['checkbox', 'radio', 'file', 'range', 'color', 'hidden'].includes((element.getAttribute('type') || 'text').toLowerCase()));
-  const hiddenAncestor = (element) => {
+  const hiddenAncestor = (element, includeAriaHidden = true) => {
     for (let node = element.parentElement; node; node = node.parentElement) {
       if (node.hasAttribute('hidden') || node.hasAttribute('inert')
-        || node.getAttribute('aria-hidden')?.toLowerCase() === 'true') return true;
+        || (includeAriaHidden && node.getAttribute('aria-hidden')?.toLowerCase() === 'true')) return true;
       const ancestorStyle = window.getComputedStyle(node);
       if (ancestorStyle.display === 'none' || ['hidden', 'collapse'].includes(ancestorStyle.visibility)) return true;
     }
     return false;
   };
   const visible = (element) => {
+    // Mounted background steps can retain layout boxes. Their controls must
+    // not supply auth, cookie or candidate-question evidence for this step.
+    if (element.closest('[hidden], [inert]') || hiddenAncestor(element, false)) return false;
     const style = window.getComputedStyle(element);
     const rect = element.getBoundingClientRect();
     // Keep a file input hidden only by its own styling: many portals pair it
@@ -128,7 +131,7 @@ function nativeQuestionText(value, counter = null) {
     // ancestor must keep the file out of the current page snapshot.
     if (element.type === 'file') return !hiddenAncestor(element);
     const min = typedInto(element) ? MIN_TYPED_BOX_PX : 0;
-    const shown = style.visibility !== 'hidden' && style.display !== 'none' && rect.width > 0 && rect.height > 0 && rect.width >= min && rect.height >= min;
+    const shown = !['hidden', 'collapse'].includes(style.visibility) && style.display !== 'none' && rect.width > 0 && rect.height > 0 && rect.width >= min && rect.height >= min;
     if (shown || !['checkbox', 'radio'].includes(element.type)) return shown;
     // Custom-styled checkbox/radio: the native input is hidden, its label is what people click.
     const label = (element.id && document.querySelector(`label[for="${CSS.escape(element.id)}"]`)) || element.closest('label');
@@ -1213,6 +1216,27 @@ function nativeQuestionText(value, counter = null) {
       .join(' ');
     return clean(labelledBy || element.getAttribute('aria-label') || element.getAttribute('title') || '');
   };
+  const VACANCY_CARD_SELECTOR = 'article, li, [role="listitem"], [data-job-id], [data-vacancy-id], [data-posting-id], [class*="job-card"], [class*="job-listing"], [class*="job-detail"], [class*="vacancy-card"], [class*="vacancy-listing"], [class*="vacancy-detail"]';
+  const applicationEntryLabel = (value) => /(?:^|\s)[([{«»“”‘’"'›•*-]*(?:apply(?:-now)?|bewerben|bewerbung starten|zur bewerbung|candidati|candidarsi|invia (?:la (?:tua|sua) )?candidatura|invii la sua candidatura|candidatura\s+online|postuler|postulez|je postule)[.!?:,;)\]}«»“”‘’"']*(?=\s|$)/i.test(clean(value))
+    && !/(?:später|spaeter|\blater\b|più tardi|piu tardi|plus tard|merken)/i.test(clean(value));
+  // Text around an external Apply link is useful only inside a bounded job
+  // card. Never collect a form, dialog, or an entire page as vacancy evidence.
+  const vacancyContext = (element) => {
+    if (!applicationEntryLabel(buttonName(element)) || element.closest('form, [role="form"], dialog, [role="dialog"]')) return '';
+    for (let node = element.parentElement; node; node = node.parentElement) {
+      if (node.matches(VACANCY_CARD_SELECTOR)) {
+        if (node.querySelector('form, [role="form"], dialog, [role="dialog"]')) return '';
+        const text = clean(node.innerText || node.textContent);
+        return text.length <= 700 ? text : '';
+      }
+      if (node.matches('body, main, [role="main"]')) break;
+    }
+    return '';
+  };
+  const vacancyContextMetadata = (element) => {
+    const context = vacancyContext(element);
+    return context ? { vacancyContext: context } : {};
+  };
   const fileContext = (element) => {
     for (let node = element.parentElement, depth = 0; node && depth < 6; node = node.parentElement, depth += 1) {
       const text = clean(node.innerText || node.textContent);
@@ -1270,6 +1294,7 @@ function nativeQuestionText(value, counter = null) {
       text: buttonName(element),
       section: headingBefore(element),
       ...applicationOwnershipFor(element),
+      ...vacancyContextMetadata(element),
       // SuccessFactors can render the CV trigger as an icon-only button. Keep
       // the nearby label/section text so the runner can select it only when
       // the document context is explicit.
@@ -1309,6 +1334,7 @@ function nativeQuestionText(value, counter = null) {
       title: clean(element.getAttribute('title') || ''),
       ariaLabel: clean(element.getAttribute('aria-label') || ''),
       href: /^https?:/.test(element.href || '') ? element.href : '',
+      ...vacancyContextMetadata(element),
       ...noticeMetadata(element),
     }));
   // Saved after the buttons got their ids too, or the next scan hands them out again.

@@ -440,6 +440,51 @@ describe('portal field extraction', () => {
     expect(result.status).toBe('none');
   });
 
+  it('does not open SuccessFactors cookie settings from the registration dialog', async () => {
+    const url = 'https://career5.successfactors.eu/career';
+    const registration = extract(`<div role="dialog" aria-modal="true">
+      <form id="registration">
+        <label>E-Mail-Adresse: *<input type="text" required></label>
+        <label>E-Mail-Adresse erneut eingeben: *<input type="text" required></label>
+        <label>Wähle ein Kennwort: *<input type="password" required></label>
+        <label>Kennwort erneut eingeben: *<input type="password" required></label>
+        <label>Vorname: *<input type="text" required></label>
+        <label>Nachname: *<input type="text" required></label>
+        <label>Land/Region des Wohnorts:*<select required></select></label>
+        <label>Benachrichtigung: <input type="checkbox"></label>
+        <label>Mehr über Karrierechancen erfahren <input type="checkbox"></label>
+        <button type="button">Cookie-Einstellungen</button>
+        <button type="button">Lese und akzeptiere die Datenschutzerklärung.</button>
+        <button type="submit">Konto anlegen</button>
+      </form>
+    </div>`, url);
+    expect(registration.buttons.map((button: any) => button.text)).toEqual(expect.arrayContaining([
+      'Cookie-Einstellungen',
+      'Lese und akzeptiere die Datenschutzerklärung.',
+      'Konto anlegen',
+    ]));
+    expect(registration.fields.map((field: any) => field.label)).toEqual(expect.arrayContaining([
+      'E-Mail-Adresse: *',
+      'E-Mail-Adresse erneut eingeben: *',
+      'Wähle ein Kennwort: *',
+      'Kennwort erneut eingeben: *',
+      'Vorname: *',
+      'Nachname: *',
+      'Land/Region des Wohnorts:*',
+      'Benachrichtigung:',
+      'Mehr über Karrierechancen erfahren',
+    ]));
+    const preferences = registration.buttons.find((button: any) => button.text === 'Cookie-Einstellungen');
+    expect(preferences).toMatchObject({ dialog: true, formId: expect.any(String) });
+
+    const frame = { url: () => url, evaluate: vi.fn(async () => registration) };
+    const page = { url: () => url, frames: () => [frame] };
+    const result = await dismissCookieBanner(page as any, registration as any);
+
+    expect(result.status).toBe('none');
+    expect(frame.evaluate).not.toHaveBeenCalled();
+  });
+
   it('marks only an active cookie surface, not a persistent preferences section', () => {
     const active = extract('<div id="cookie-banner"><button type="button">Customise Cookies</button></div>');
     expect(active.buttons.find((button: any) => button.text === 'Customise Cookies')).toMatchObject({ cookieSurface: 'banner' });
@@ -1407,12 +1452,25 @@ describe('portal field extraction', () => {
 
   it('keeps the target of a plain application link for posting ownership checks', () => {
     const page = extract(
-      '<main><h1>Acme Careers</h1><a href="https://apply.example.test/jobs/42">Apply</a></main>'
+      '<main><h1>Acme Careers</h1><article><h2>Application Manager</h2><p>Acme AG</p>'
+      + '<a href="https://apply.example.test/jobs/42">Apply</a></article></main>'
     );
     expect(page.links).toContainEqual(expect.objectContaining({
       text: 'Apply',
       href: 'https://apply.example.test/jobs/42',
+      vacancyContext: expect.stringMatching(/Application Manager.*Acme AG/),
     }));
+  });
+
+  it('does not collect card context from an ancestor that contains an application form', () => {
+    const page = extract(
+      '<article><h2>Application Manager</h2><p>Acme AG</p>'
+      + '<a href="https://apply.example.test/jobs/42">Apply</a>'
+      + '<form><label>Candidate email</label><input value="private@example.test"></form></article>'
+    );
+    const apply = page.links.find((link: any) => link.text === 'Apply');
+    expect(apply).toBeDefined();
+    expect(apply).not.toHaveProperty('vacancyContext');
   });
 
   it('does not let a same-label content link hide a real submit control', () => {

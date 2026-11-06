@@ -107,6 +107,7 @@ function anonymousBrowserFixture({ script = rexxTimeZoneScript, extraPost = fals
   ], buttons: [], text: 'Example Motors', errors: [], captcha: false, passwordVisible: false };
   const frame: any = { url: () => applyUrl, evaluate: async () => nativeSnapshot };
   const page: any = { mainFrame: () => frame, frames: () => [frame], url: () => applyUrl,
+    title: async () => 'Application Engineer | Example Motors',
     evaluate: async () => [{ id: 'source', explicitlyOptional: true, nativeRequired: false }],
     waitForLoadState: async () => {}, waitForTimeout: async () => {},
     locator: () => ({ innerText: async () => 'Example Motors' }) };
@@ -131,13 +132,13 @@ function anonymousBrowserFixture({ script = rexxTimeZoneScript, extraPost = fals
   const browser: any = { newContext: async () => context, close: async () => {} };
   const lookup = vi.fn(async (_url: string, options: any) => { options.onRequest(); options.onBytes(response.body.length); return response; });
   const get = async (url: string) => ({ status: 200, url, headers: { 'content-type': url === applyUrl ? 'text/html' : 'text/javascript' }, body: Buffer.from(url === applyUrl ? html : script) });
-  return { browser, lookup, get, requestBodies, abort };
+  return { browser, lookup, get, requestBodies, abort, page };
 }
 
 describe('anonymous browser semantic-read boundary', () => {
   it('permits the one demonstrated lookup and stores only primary source identity in the proof', async () => {
     const fixture = anonymousBrowserFixture();
-    const result = await readOnlyPortalContracts({ applyUrl, job: { company: 'Example Motors' }, launch: async () => fixture.browser, get: fixture.get, lookup: fixture.lookup });
+    const result = await readOnlyPortalContracts({ applyUrl, job: { company: 'Example Motors', title: 'Application Engineer' }, launch: async () => fixture.browser, get: fixture.get, lookup: fixture.lookup });
     expect(result).toMatchObject({ complete: true, readOnlyProtocol: { name: 'rexx-timezone-lookup-v1', scriptUrl, lookupObserved: true } });
     expect(fixture.lookup).toHaveBeenCalledOnce();
     expect(fixture.requestBodies[2].postDataBuffer).toHaveBeenCalledOnce();
@@ -145,11 +146,19 @@ describe('anonymous browser semantic-read boundary', () => {
     expect(JSON.stringify(result)).not.toContain('Europe/Zurich');
   });
 
+  it('fails closed when the browser adapter cannot read a vacancy title', async () => {
+    const fixture = anonymousBrowserFixture();
+    delete fixture.page.title;
+    const result = await readOnlyPortalContracts({ applyUrl, job: { company: 'Example Motors', title: 'Application Engineer' },
+      launch: async () => fixture.browser, get: fixture.get, lookup: fixture.lookup });
+    expect(result).toMatchObject({ complete: false, reason: 'posting_mismatch' });
+  });
+
   it.each(['missing_protocol', 'additional_post', 'repeat_same_post', 'iframe_post', 'extra_body_field', 'extra_response_field', 'transient_lookup'])('keeps proof unknown for %s', async kind => {
     const fixture = anonymousBrowserFixture({ script: kind === 'missing_protocol' ? '/* no demonstrated protocol */' : rexxTimeZoneScript,
       extraPost: kind === 'additional_post', repeatPost: kind === 'repeat_same_post', iframePost: kind === 'iframe_post', extraBody: kind === 'extra_body_field', response: kind === 'extra_response_field' ? { ...validResponse, body: Buffer.from('{"success":true,"id":123,"marketing":true}') } : validResponse });
     if (kind === 'transient_lookup') fixture.lookup.mockImplementationOnce(async () => { throw Object.assign(new Error('temporary network failure'), { code: 'EAI_AGAIN' }); });
-    const result = await readOnlyPortalContracts({ applyUrl, job: { company: 'Example Motors' }, launch: async () => fixture.browser, get: fixture.get, lookup: fixture.lookup });
+    const result = await readOnlyPortalContracts({ applyUrl, job: { company: 'Example Motors', title: 'Application Engineer' }, launch: async () => fixture.browser, get: fixture.get, lookup: fixture.lookup });
     expect(result.complete).toBe(false);
     if (kind === 'transient_lookup') expect(result.reason).toBe('transient_probe_failure');
     expect(fixture.lookup).toHaveBeenCalledTimes(['missing_protocol', 'iframe_post', 'extra_body_field'].includes(kind) ? 0 : 1);

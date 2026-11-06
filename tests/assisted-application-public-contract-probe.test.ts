@@ -118,6 +118,7 @@ function browserFixture(requests: any[]) {
   const aborts: any[] = [];
   const page: any = {
     mainFrame: () => page,
+    title: async () => 'Application Engineer | Example Motors',
     goto: async () => {
       for (const request of requests) await routeHandler({ request: () => request, abort: async () => { aborts.push(request); }, fulfill: async () => {} });
     },
@@ -203,7 +204,7 @@ describe('read-only browser boundary', () => {
       return 'Example Motors';
     } });
     if (when === 'close') fixture.context.close.mockImplementationOnce(async () => { await fixture.dispatch(denied); });
-    const result = await readOnlyPortalContracts({ applyUrl: url, job: { company: 'Example Motors' }, launch: async () => fixture.browser,
+    const result = await readOnlyPortalContracts({ applyUrl: url, job: { company: 'Example Motors', title: 'Application Engineer' }, launch: async () => fixture.browser,
       get: async () => ({ status: 200, url, headers: { 'content-type': 'text/html' }, body: Buffer.from('<form>public</form>') }) });
     expect(result.complete).toBe(false);
     if (['late_marker', 'fingerprint_drift', 'marker_drift'].includes(when)) {
@@ -243,7 +244,7 @@ it.each(['cmp_cosmetic', 'employer_required', 'employer_removed', 'external_reas
     if (String(fn).includes('window.__portalNativeContractChanged === true')) return state.__portalNativeContractChanged;
     return [{ id: 'source', explicitlyOptional: true, nativeRequired: false }];
   };
-  const proof = await readOnlyPortalContracts({ applyUrl: url, job: { company: 'Example Motors' }, launch: async () => fixture.browser,
+  const proof = await readOnlyPortalContracts({ applyUrl: url, job: { company: 'Example Motors', title: 'Application Engineer' }, launch: async () => fixture.browser,
     get: async () => ({ status: 200, url, headers: { 'content-type': 'text/html' }, body: Buffer.from('<form>public</form>') }) });
   expect(proof.complete).toBe(kind === 'cmp_cosmetic');
   if (kind !== 'cmp_cosmetic') expect(proof.reason).toBe('native_contract_unstable');
@@ -272,7 +273,7 @@ it.each(['exact_remaining', 'per_asset_over', 'aggregate_over'])('bounds whole p
     caps.push(options.maxBytes);
     return { url: source, status: 200, headers: { 'content-type': 'application/javascript' }, body: Buffer.alloc(sizes[index], ' ') };
   };
-  const proof = await readOnlyPortalContracts({ applyUrl: url, job: { company: 'Example Motors' }, launch: async () => fixture.browser, get });
+  const proof = await readOnlyPortalContracts({ applyUrl: url, job: { company: 'Example Motors', title: 'Application Engineer' }, launch: async () => fixture.browser, get });
   expect(caps[0]).toBe(PUBLIC_CONTRACT_BYTE_BUDGET - html.length);
   if (kind !== 'per_asset_over') expect(caps[1]).toBe(remainder);
   expect(proof.complete).toBe(kind === 'exact_remaining');

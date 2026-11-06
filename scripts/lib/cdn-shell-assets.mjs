@@ -23,9 +23,9 @@
  * is pushed, an emitter uploads the files the CDN does not have, from the
  * module it renders with, and stops when it cannot.
  *
- * It never replaces an object. The bytes behind a stable name stay the full
- * deploy's business: rewriting one here would change every published page
- * ahead of the build that goes with it.
+ * It never changes the bytes behind a stable name. A content-addressed key
+ * may be PUT again only when its cache metadata is stale; the producer bytes
+ * are still the same content that the key names.
  *
  * An object on R2 is not yet a file the pages get. Each edge location keeps
  * the 404 it gave a browser while the object was missing (about three minutes
@@ -86,17 +86,20 @@ const variantLabel = (pageOrigin) => (pageOrigin ? `Origin ${pageOrigin}` : 'no 
 /**
  * The value the full deploy gives stable root aliases (`_r2_sync … assets`
  * in deploy-it-pages-prep.sh), so an object written here and one written by a
- * deploy are served alike. The build-scoped executable graph is published
- * separately with immutable URLs; fast emitters intentionally write only
- * stable root shell assets. tests/cdn-shell-assets.test.ts compares the two.
+ * deploy are served alike. The build-scoped executable graph uses immutable
+ * URLs; both the full deploy and fast emitters use the same classifier.
+ * tests/cdn-shell-assets.test.ts compares the two.
  */
 export const SHELL_ASSET_CACHE_CONTROL = 'public,max-age=600,must-revalidate';
+export const SHELL_ASSET_IMMUTABLE_CACHE_CONTROL = 'public,max-age=31536000,immutable';
+
+const isContentAddressedShellAsset = (key) =>
+  /(?:^|\/)(?:gtag-init|adsense-loader|partnerize-tag|site-support|meta-pixel-base-code)-[a-f0-9]{12}\.js$/.test(key);
 
 /** A digest in the filename makes these bytes immutable; stable aliases still
  * revalidate so already-published HTML can receive a corrected loader. */
 export function shellAssetCacheControl(key) {
-  return /(?:^|\/)(?:gtag-init|adsense-loader|partnerize-tag|site-support|meta-pixel-base-code)-[a-f0-9]{12}\.js$/.test(key)
-    ? 'public,max-age=31536000,immutable' : SHELL_ASSET_CACHE_CONTROL;
+  return isContentAddressedShellAsset(key) ? SHELL_ASSET_IMMUTABLE_CACHE_CONTROL : SHELL_ASSET_CACHE_CONTROL;
 }
 
 // fetch() sends no User-Agent of its own, and the zone challenges a request
@@ -165,16 +168,32 @@ export function shellAssetsFromStaticScripts(files) {
   return assets;
 }
 
-// 'present', 'absent' (the object is not there), or 'unknown' (anything that is
-// not an answer about the object — a challenge, a 5xx, a timeout).
+// 'present', 'stale' (the object is there with the wrong cache policy),
+// 'absent' (the object is not there), or 'unknown' (anything that is not an
+// answer about the object — a challenge, a 5xx, a timeout).
 function answerOf(response) {
   if (response.ok) return isHtml(response.headers?.get?.('content-type')) ? 'absent' : 'present';
   return response.status === 404 || response.status === 410 ? 'absent' : 'unknown';
 }
 
+const normalizedCacheControl = (value) => String(value ?? '').toLowerCase().replace(/\s+/g, '');
+
+function answerWithExpectedCacheControl(response, expectedCacheControl) {
+  const answer = answerOf(response);
+  if (answer !== 'present' || expectedCacheControl === undefined) return answer;
+  const actual = normalizedCacheControl(response.headers?.get?.('cache-control'));
+  const matchesImmutablePolicy = expectedCacheControl === SHELL_ASSET_IMMUTABLE_CACHE_CONTROL
+    && actual.includes('immutable')
+    && Number(actual.match(/(?:^|,)max-age=(\d+)(?:,|$)/)?.[1] ?? 0) >= 31536000;
+  return matchesImmutablePolicy || actual === normalizedCacheControl(expectedCacheControl)
+    ? 'present'
+    : 'stale';
+}
+
 /**
  * Whether the object behind `key` can be read through the CDN: 'present',
- * 'absent' or 'unknown'.
+ * 'stale', 'absent' or 'unknown'. A stale result means the object is there,
+ * but its response does not carry the expected cache policy.
  *
  * A HEAD, which this host passes to R2 every time, with a query string the
  * edge has never seen in case that changes: the answer is about the object,
@@ -186,6 +205,7 @@ export async function probeCdnAsset(key, {
   fetchImpl = fetch,
   now = Date.now,
   timeoutMs = PROBE_TIMEOUT_MS,
+  expectedCacheControl,
 } = {}) {
   try {
     const response = await fetchImpl(`${cdnOrigin}/${key}?ensure=${now()}`, {
@@ -193,7 +213,7 @@ export async function probeCdnAsset(key, {
       headers: { 'User-Agent': PROBE_USER_AGENT },
       signal: AbortSignal.timeout(timeoutMs),
     });
-    return answerOf(response);
+    return answerWithExpectedCacheControl(response, expectedCacheControl);
   } catch {
     return 'unknown';
   }
@@ -284,6 +304,17 @@ export function uploadShellAsset(key, content, options) {
 }
 
 /**
+ * Re-puts an existing content-addressed shell asset so R2 applies the
+ * immutable metadata even when the bytes and key have not changed. Stable
+ * aliases are deliberately a no-op: their mutable policy must remain the
+ * short-lived one.
+ */
+export function refreshShellAssetCacheControl(key, content, options) {
+  if (!isContentAddressedShellAsset(key)) return true;
+  return uploadShellAsset(key, content, options);
+}
+
+/**
  * Drops what the edge keeps for the pages' URL of each key, at every location
  * and in both cache variants. False unless cf-purge-cache.mjs confirmed it.
  *
@@ -335,9 +366,10 @@ const waitFor = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
  *
  * @param {{
  *   assets: Array<{ key: string, content: string }>,
- *   probe?: (key: string) => Promise<'present' | 'absent' | 'unknown'>,
+ *   probe?: (key: string, options?: { expectedCacheControl?: string }) => Promise<'present' | 'stale' | 'absent' | 'unknown'>,
  *   checkStored?: (key: string) => 'exists' | 'missing' | 'indeterminate' | Promise<'exists' | 'missing' | 'indeterminate'>,
  *   upload?: (key: string, content: string) => boolean | Promise<boolean>,
+ *   refreshCacheControl?: (key: string, content: string, options: { deadlineAt: number, now: () => number }) => boolean | Promise<boolean>,
  *   purge?: (keys: string[]) => boolean | Promise<boolean>,
  *   confirm?: (key: string, options: { pageOrigin?: string, timeoutMs?: number }) => Promise<'present' | 'absent' | 'unknown'>,
  *   wait?: (ms: number) => Promise<void>,
@@ -351,6 +383,7 @@ export async function ensureCdnShellAssets({
   probe = probeCdnAsset,
   checkStored = checkStoredAsset,
   upload = uploadShellAsset,
+  refreshCacheControl = refreshShellAssetCacheControl,
   purge = purgeCdnAssets,
   confirm = confirmCdnAsset,
   wait = waitFor,
@@ -376,7 +409,9 @@ export async function ensureCdnShellAssets({
     return result;
   };
 
-  const probed = await Promise.all(assets.map(({ key }) => probe(key)));
+  const probed = await Promise.all(assets.map(({ key }) => probe(key, {
+    expectedCacheControl: isContentAddressedShellAsset(key) ? SHELL_ASSET_IMMUTABLE_CACHE_CONTROL : undefined,
+  })));
   const results = [];
   for (const [index, { key, content }] of assets.entries()) {
     if (probed[index] === 'present') {
@@ -386,6 +421,12 @@ export async function ensureCdnShellAssets({
     const stored = await withR2Deadline(key, 'lookup', (options) => checkStored(key, options));
     if (stored === 'exists') {
       log(`${key}: on R2, not shown by the CDN (probe: ${probed[index]})`);
+      if (isContentAddressedShellAsset(key)) {
+        log(`${key}: refreshing immutable Cache-Control metadata on R2`);
+        if (!(await withR2Deadline(key, 'cache-control refresh', (options) => refreshCacheControl(key, content, options)))) {
+          throw new Error(`${key}: existing content-addressed asset could not refresh its immutable Cache-Control metadata — HTML that references it must not be published`);
+        }
+      }
       results.push({ key, outcome: 'stored' });
       continue;
     }

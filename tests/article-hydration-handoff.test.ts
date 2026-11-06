@@ -143,6 +143,28 @@ describe('frontaliere article first-render work', () => {
     expect(jobBoardSource).toContain('onInitialContentReady?.()');
   });
 
+  it('keeps every bare canton and aggregate snapshot outside #root (#17215)', () => {
+    for (const jobBoardCanton of ['_AGGREGATE_', 'ZH']) {
+      const route = { activeTab: 'job-board' as const, jobBoardCanton };
+
+      expect(shouldKeepStaticFallbackOutsideRoot(route, 'job-board', true)).toBe(true);
+      expect(shouldAdoptStaticFallbackIntoRoot(route, false, 'job-board', true)).toBe(false);
+    }
+
+    const cityRoute = {
+      activeTab: 'job-board' as const,
+      jobBoardCanton: 'ZH',
+      jobBoardCity: 'zurich',
+    };
+    expect(shouldKeepStaticFallbackOutsideRoot(cityRoute, 'job-board', true)).toBe(false);
+    expect(shouldKeepStaticFallbackOutsideRoot({
+      ...cityRoute,
+      jobBoardCity: undefined,
+      jobBoardSector: 'infermieri' as const,
+      staticOverlay: true,
+    }, 'job-board', true)).toBe(false);
+  });
+
   it('leaves the complete static article in charge without resolving or mounting a duplicate body', () => {
     expect(navigationSource).toMatch(/const initialFrontaliereStaticArticle = initialKeepsStaticArticle/);
     expect(navigationSource).toMatch(/\|\| initialFrontaliereStaticArticle/);

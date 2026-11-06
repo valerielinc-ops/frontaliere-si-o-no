@@ -156,6 +156,8 @@ export interface AssistedApplicationAutomationView {
     heldBy: string[];
     feedback: Array<{ round: number; at: number; text: string }>;
     answers: Record<string, string>;
+    requestedDocumentsOverride?: boolean;
+    requestedDocuments?: AutomationRequestedDocumentView[];
     postalSubmission?: PostalSubmissionView | null;
     /** The fields the candidate corrected on the review page. */
     formOverrides?: Record<string, string>;
@@ -491,6 +493,7 @@ export type AutomationAdminAction =
   | 'automationSetAnswers'
   | 'automationSetRequiredDocuments'
   | 'automationSetPostalSubmission'
+  | 'automationConfigurePostalPackage'
   | 'automationRevealAccount'
   | 'automationFillKit'
   | 'automationMarkClicked'
