@@ -97,13 +97,19 @@ export function operationalPortalRecoveryReady({ order, flow, draft }) {
   });
   if (!questions.length || !hasAssistedApplicationConsent(order)
     || flow.dispatch?.mode !== 'submit' || Number(flow.dispatch.round) !== Number(flow.round)
-    || !(Number(draft.completedAt) > 0) || !(Number(flow.dispatch.requestedAt) >= Number(draft.completedAt))
-    || questions.some(question => question?.source !== 'portal')) return false;
+    || !(Number(draft.completedAt) > 0) || !(Number(flow.dispatch.requestedAt) >= Number(draft.completedAt))) return false;
   if (questions.some(question => isUnknownAnswer(flow.answers?.[question.id])
     || isUnknownAnswer(flow.questionAnswers?.[candidateQuestionAnswerKey(question)]))) return false;
   const { answers } = candidateWithEdits({ order, draft, flow });
   const projected = withOperationalQuestionAnswers(questions, answers).answers;
-  return questions.every(question => operationalQuestionTopic(question)
-    ? operationalAnswerReadyForDiscovery(question, projected[question.id])
-    : explicitCandidateAnswerReadyForDiscovery(question, projected[question.id]));
+  return questions.every(question => {
+    // Draft-level match questions (for example availability) are not native
+    // portal controls. They may travel with a portal hold, but only an
+    // explicit, validated candidate answer can clear them; never use an
+    // operational default for this lane.
+    if (question?.source !== 'portal') return explicitCandidateAnswerReadyForDiscovery(question, projected[question.id]);
+    return operationalQuestionTopic(question)
+      ? operationalAnswerReadyForDiscovery(question, projected[question.id])
+      : explicitCandidateAnswerReadyForDiscovery(question, projected[question.id]);
+  });
 }
