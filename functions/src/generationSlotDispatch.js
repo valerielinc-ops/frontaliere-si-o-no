@@ -18,7 +18,7 @@ export const GENERATION_WORKFLOW_PATH = '.github/workflows/generate-article.yml'
 const GENERATION_WORKFLOW_ID = 'generate-article.yml';
 const GENERATION_RUN_MARKER = '[generation-slot ';
 const DISPATCH_TIMEOUT_MS = 20_000;
-const ACTIVE_RUN_STATUSES = new Set(['queued', 'in_progress', 'waiting', 'requested']);
+const ACTIVE_RUN_STATUSES = new Set(['queued', 'in_progress', 'waiting', 'requested', 'pending']);
 
 async function readGenerationWorkflow({ owner, repo, token, fetchImpl }) {
   const url = `${GITHUB_API}/repos/${owner}/${repo}/contents/${GENERATION_WORKFLOW_PATH}?ref=main`;

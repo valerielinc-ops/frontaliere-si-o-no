@@ -20,7 +20,13 @@ export function inspectGenerationWorkflowContract(source) {
   const text = String(source ?? '');
   const onLines = rootSection(text, 'on');
   const dispatchStart = onLines.findIndex((line) => /^  workflow_dispatch:\s*$/u.test(line));
-  const dispatchLines = dispatchStart < 0 ? [] : onLines.slice(dispatchStart + 1).filter((line) => !/^  [A-Za-z_][A-Za-z0-9_-]*:\s*$/u.test(line));
+  const dispatchLines = [];
+  if (dispatchStart >= 0) {
+    for (let index = dispatchStart + 1; index < onLines.length; index += 1) {
+      if (/^  [A-Za-z_][A-Za-z0-9_-]*:\s*(?:#.*)?$/u.test(onLines[index])) break;
+      dispatchLines.push(onLines[index]);
+    }
+  }
   const hasInput = (name) => dispatchLines.some((line) => new RegExp(`^      ${name}:\\s*$`, 'u').test(line));
   const originStart = dispatchLines.findIndex((line) => line === '      dispatch_origin:');
   const originEnd = originStart < 0 ? -1 : dispatchLines.findIndex((line, index) => (
