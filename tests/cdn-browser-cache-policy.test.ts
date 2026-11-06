@@ -46,9 +46,9 @@ describe('cdn-assets-revalidate leaves immutable URLs alone', () => {
 
 describe('content-addressed loaders on R2', () => {
   it('publishes them immutable and restores them to the stage for the purge ledger', () => {
-    expect(PREP).toContain(`_r2_sync 120 "$_hashed_assets_stage" assets "public,max-age=31536000,immutable"`);
+    expect(PREP).toContain(`_r2_sync 120 "$_hashed_assets_stage" assets "public,max-age=31536000,immutable" "$_hashed_assets_log" force-no-traverse`);
     expect(PREP).toContain(`mv "$_hashed_assets_stage"/* "$stage/assets/"`);
-    for (const name of ['gtag-init', 'adsense-loader', 'partnerize-tag', 'site-support']) {
+    for (const name of ['gtag-init', 'adsense-loader', 'partnerize-tag', 'site-support', 'meta-pixel-base-code']) {
       expect(PREP).toContain(`-name '${name}-*.js'`);
     }
   });
