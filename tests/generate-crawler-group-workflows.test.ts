@@ -1203,13 +1203,13 @@ describe('crawler generation state cleanup', () => {
   });
 
   it('gives group 24 enough bounded slots for its worker-watchdog worst case', () => {
-    expect(crawlerGroupMaxParallel(24)).toBe(6);
+    expect(crawlerGroupMaxParallel(24)).toBe(7);
     const group24Body = buildCrawlerLaunchShellBody({
       slug: 'group-24-member',
       runStep: { env: {}, run: 'true' },
       postSteps: [],
     }, 24);
-    expect(group24Body).toContain(`max_parallel="\${CRAWLER_GROUP_MAX_PARALLEL:-6}"`);
+    expect(group24Body).toContain(`max_parallel="\${CRAWLER_GROUP_MAX_PARALLEL:-7}"`);
 
     const workflow = fs.readFileSync(path.join(ROOT, '.github/corpus-workflows/crawler-group-24.yml'), 'utf8');
     const watchdogDurations = [...workflow.matchAll(
