@@ -4,11 +4,11 @@
   "generatorSha256": "384bb91edd01a6d85b71b1f968339a3da5f53bb6d163598dc2e34688d9e618d4",
   "sourceRepository": "valerielinc-ops/frontaliere-si-o-no",
   "sourceRef": "main",
-  "sourceCommit": "ca6ad8bb42615c5c110fc51d7aaa1dbc93e2b6c3",
+  "sourceCommit": "ac85ccc5fb3f84aec6e366c542d821041417ac6b",
   "artifactObservation": {
     "generatorSha256": "384bb91edd01a6d85b71b1f968339a3da5f53bb6d163598dc2e34688d9e618d4",
     "sourceRef": "main",
-    "sourceCommit": "ca6ad8bb42615c5c110fc51d7aaa1dbc93e2b6c3"
+    "sourceCommit": "ac85ccc5fb3f84aec6e366c542d821041417ac6b"
   },
   "groupCount": 25,
   "artifactCount": 26,
@@ -653,7 +653,7 @@
     {
       "source": "observers/workflows/crawler-generation-observer-shadow.yml",
       "target": ".github/workflows/crawler-generation-observer-shadow.yml",
-      "sha256": "a9a134a5912140a14e67b4cd70c231b0345eddadb26cc19b0544230d3da78b3e"
+      "sha256": "7562c9a19761a7453681d0b0b0b8874000aaa54175f9db282b3e83c47eced79a"
     },
     {
       "source": "observers/scripts/crawler-generation-observer-selector.mjs",

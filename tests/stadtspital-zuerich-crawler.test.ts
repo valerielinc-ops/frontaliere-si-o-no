@@ -246,7 +246,10 @@ describe('Stadtspital Zürich crawler parser', () => {
 
     it('does not publish a tile whose Referenz-Nr. has no official ad', async () => {
       stubFetchWith(FIXTURE, { ads: { '70001': '49951' } });
-      const jobs = await fetchAllStadtspitalZuerichJobs();
+      const jobs = await fetchAllStadtspitalZuerichJobs({
+        fetchCurrentOfficialIndexPage: async () => '',
+        fetchCurrentDetailPage: async () => ({ html: '', descriptionHtml: '' }),
+      });
       expect(jobs.map((j: any) => j.referenceNumber)).toEqual(['49951']);
     });
 
@@ -263,7 +266,10 @@ describe('Stadtspital Zürich crawler parser', () => {
           '70002': shortAd,
         },
       });
-      const jobs = await fetchAllStadtspitalZuerichJobs();
+      const jobs = await fetchAllStadtspitalZuerichJobs({
+        fetchCurrentOfficialIndexPage: async () => '',
+        fetchCurrentDetailPage: async () => ({ html: '', descriptionHtml: '' }),
+      });
 
       expect(jobs.map((j: any) => j.referenceNumber)).toEqual(['49951']);
       expect(jobs[0].description).toContain('Aufgaben');
@@ -278,6 +284,7 @@ describe('Stadtspital Zürich crawler parser', () => {
           detailCalls.push(url);
           return currentPortalAdFor(String(row.ref || ''), url);
         },
+        fetchCurrentOfficialIndexPage: async () => '',
       });
 
       expect(jobs).toHaveLength(2);

@@ -393,7 +393,7 @@ export function guardAgentStep(raw, candidate = null, grounded = new Set()) {
         ...metadata,
         kind: 'combobox',
         options: [],
-      });
+      }, { includeProfileWorkPermit: false });
       if (profileAnswer) {
         action.value = profileAnswer.value;
         action.answer = profileAnswer.value;

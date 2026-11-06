@@ -208,31 +208,37 @@ function italianCitySlugForRow(row: MunicipalityFuelRow): string | null {
 
 /**
  * Map each Italian station id to the slug of its emitted per-station detail
- * page. Mirrors `collectItalianStationContexts` in
- * build-plugins/fuelDailyPagesPlugin.ts byte-for-byte (dedupe by id keeping
- * the cheapest variant, then per-city slug disambiguation) so links resolve
- * to real `/prezzi-benzina/italia/{city}/stazioni/{slug}/` pages — never 404.
+ * page. Mirrors the route-slot order in `collectItalianStationContexts` in
+ * build-plugins/fuelDailyPagesPlugin.ts: dedupe by id, reserve slugs for every
+ * known station, then map only stations with a benzina price. Reserving the
+ * missing-price slots keeps colliding station URLs stable when data changes.
  * Benzina is used because that MIMIT cut covers every border station.
  */
 function buildItalianStationSlugMap(row: MunicipalityFuelRow): Map<string, string> {
- const byId = new Map<string, FuelStationItaly>();
+ const byId = new Map<string, FuelStationItaly[]>();
  for (const s of row.italy.stations) {
  if (!s.id) continue;
- if (typeof s.priceEur !== 'number' || !Number.isFinite(s.priceEur)) continue;
- const existing = byId.get(s.id);
- if (!existing || existing.priceEur > s.priceEur) byId.set(s.id, s);
+ const rows = byId.get(s.id) ?? [];
+ rows.push(s);
+ byId.set(s.id, rows);
  }
  const seen = new Set<string>();
  const out = new Map<string, string>();
- for (const s of byId.values()) {
- if (!s.brand && !s.stationName) continue;
- const baseSlug = buildStationSlug({ brand: s.brand, name: s.stationName, address: s.address });
+ for (const [id, rows] of byId) {
+ let selected: FuelStationItaly | undefined;
+ for (const s of rows) {
+ if (typeof s.priceEur !== 'number' || !Number.isFinite(s.priceEur)) continue;
+ if (!selected || selected.priceEur > s.priceEur) selected = s;
+ }
+ const routeStation = selected ?? rows[0];
+ if (!routeStation.brand && !routeStation.stationName) continue;
+ const baseSlug = buildStationSlug({ brand: routeStation.brand, name: routeStation.stationName, address: routeStation.address });
  if (!baseSlug) continue;
  let slug = baseSlug;
  let suffix = 2;
  while (seen.has(slug)) slug = `${baseSlug}-${suffix++}`;
  seen.add(slug);
- out.set(s.id, slug);
+ if (selected) out.set(id, slug);
  }
  return out;
 }

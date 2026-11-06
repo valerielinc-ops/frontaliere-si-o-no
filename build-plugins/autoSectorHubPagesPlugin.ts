@@ -341,11 +341,13 @@ export function autoSectorHubPagesPlugin(rootDir: string): Plugin {
       if (!fs.existsSync(distDir)) return;
       const { registry, jobsBySlug } = readAutoSectorHubInventory(rootDir);
       const sitemapFile = np.join(distDir, 'sitemap-auto-sector-hubs.xml');
+      const localeManifestPath = np.join(distDir, 'sitemap-auto-sector-hubs-locale-manifest.xml');
       // Root-level files are shared outputs owned by the IT leg. Other locale
       // legs can see a different inventory snapshot, so they must never
       // replace or remove this sitemap.
       const ownsSharedSitemap = shouldEmitLocale('it');
       if (registry.hubs.length === 0) {
+        if (!ownsSharedSitemap) fs.rmSync(localeManifestPath, { force: true });
         // Only a present, valid, empty registry retires the sitemap. A missing
         // source file reads as empty too, and must not delete a good sitemap.
         const registrySourcePresent = fs.existsSync(np.join(rootDir, 'data', 'sector-hub-publications.json'));
@@ -355,6 +357,7 @@ export function autoSectorHubPagesPlugin(rootDir: string): Plugin {
       const dateStamp = BUILD_DATE_STAMP;
       const collector = new WriteCollector({ distDir, pluginName: 'autoSectorHubPagesPlugin' });
       const sitemapEntries: string[] = [];
+      const localeManifestEntries: string[] = [];
       let emitted = 0;
       let indexable = 0;
       const autoOwnedSlugs = new Set(registry.hubs
@@ -379,10 +382,12 @@ export function autoSectorHubPagesPlugin(rootDir: string): Plugin {
           if (!shouldEmitLocale(locale)) continue;
           if (!publication.labelByLocale[locale]) continue;
           const page = buildAutoSectorHubPage(distDir, locale, publication, jobs, dateStamp);
-          const file = np.join(distDir, buildAutoSectorHubPath(locale, publication.slug, publication.routeKind).slice(1), 'index.html');
+          const pagePath = buildAutoSectorHubPath(locale, publication.slug, publication.routeKind);
+          const file = np.join(distDir, pagePath.slice(1), 'index.html');
           collector.add(file, page.html);
           emitted += 1;
           if (locale === 'it' && page.indexable) indexable += 1;
+          if (page.indexable) localeManifestEntries.push(`${BASE_URL}${pagePath}`);
         }
 
         const allIndexedLocales = indexableSlugsByLocale
@@ -401,9 +406,20 @@ export function autoSectorHubPagesPlugin(rootDir: string): Plugin {
 
       await collector.flush();
       if (!ownsSharedSitemap) {
+        const manifestUrls = [...new Set(localeManifestEntries)];
+        if (manifestUrls.length > 0) {
+          const localeManifestBlocks = manifestUrls
+            .map((url) => `  <url><loc>${url}</loc></url>`)
+            .join('\n');
+          const localeManifest = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${localeManifestBlocks}\n</urlset>\n`;
+          fs.writeFileSync(localeManifestPath, localeManifest, 'utf-8');
+        } else {
+          fs.rmSync(localeManifestPath, { force: true });
+        }
         console.log(`[auto-sector-hubs] emitted ${emitted} locale pages for ${registry.hubs.length} publications; shared sitemap belongs to the IT leg.`);
         return;
       }
+      fs.rmSync(localeManifestPath, { force: true });
       if (sitemapEntries.length === 0) {
         fs.rmSync(sitemapFile, { force: true });
         console.log(`[auto-sector-hubs] emitted ${emitted} locale pages for ${registry.hubs.length} publications; ${indexable} currently indexable; no separate sitemap needed.`);

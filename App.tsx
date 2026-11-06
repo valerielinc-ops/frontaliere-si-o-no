@@ -633,7 +633,7 @@ const App: React.FC = () => {
        staticMain.style.removeProperty('display');
        continue;
      }
- // An article, canton topic hub, and bare Ticino job board have React
+ // An article, canton topic hub, and bare canton/aggregate job board have React
  // equivalents, but their first HTML is the useful snapshot. Do not take that
      // snapshot away until the SPA view has rendered (for the hub: the runtime
      // payload with the matching edge commit); on a soft navigation the old
@@ -4514,7 +4514,11 @@ const App: React.FC = () => {
  <SafeLazy boundary="pdf-download-gate"><PdfDownloadGate /></SafeLazy>
  <SafeLazy boundary="newsletter-mount"><NewsletterMount /></SafeLazy>
  <SafeLazy boundary="company-follow-mount"><CompanyFollowMount /></SafeLazy>
- <SafeLazy boundary="job-save-mount"><JobSaveMount /></SafeLazy>
+ {/* The bare job-board snapshot is the temporary mobile LCP surface. Its
+     cards are replaced by JobBoard's authoritative cards, which already own
+     their save buttons; loading the static-card island here would scan and
+     portal every snapshot card before that handoff and compete with LCP. */}
+ {!jobBoardStaticFallback && <SafeLazy boundary="job-save-mount"><JobSaveMount /></SafeLazy>}
  {showWhatsNew && (
  <SafeLazy boundary="whats-new-modal">
  <WhatsNewModal

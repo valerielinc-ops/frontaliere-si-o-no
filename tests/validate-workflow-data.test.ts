@@ -150,6 +150,24 @@ describe('validate-workflow-data', () => {
     }
   });
 
+  it('reads a large existing HEAD blob without the child-process default buffer truncating it', () => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'validate-workflow-large-baseline-'));
+    try {
+      fs.mkdirSync(path.join(root, 'data'));
+      const raw = `{"padding":"${'x'.repeat(1_100_000)}"}\n`;
+      fs.writeFileSync(path.join(root, 'data/baseline.jsonl'), raw);
+      expect(spawnSync('git', ['init', '-q'], { cwd: root }).status).toBe(0);
+      expect(spawnSync('git', ['config', 'user.email', 'ci'], { cwd: root }).status).toBe(0);
+      expect(spawnSync('git', ['config', 'user.name', 'test'], { cwd: root }).status).toBe(0);
+      expect(spawnSync('git', ['add', 'data/baseline.jsonl'], { cwd: root }).status).toBe(0);
+      expect(spawnSync('git', ['commit', '-qm', 'large baseline'], { cwd: root }).status).toBe(0);
+
+      expect(readHeadFile(root, 'data/baseline.jsonl')).toBe(raw);
+    } finally {
+      fs.rmSync(root, { recursive: true, force: true });
+    }
+  });
+
   it.each(KINDS)('accepts a valid %s artifact', async (kind) => {
     expect(await validateWorkflowData(kind, fixtures()[kind], { now: NOW })).toEqual([]);
   });

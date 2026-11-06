@@ -1,7 +1,7 @@
 {
   "crawlerKey": "zaugg",
-  "assembledAt": "2026-11-05T09:45:05.183Z",
-  "runId": "42002139661",
+  "assembledAt": "2026-11-05T21:49:00.978Z",
+  "runId": "42112380936",
   "jobs": [
     {
       "id": "zaugg-497e71aa8479",
@@ -34,7 +34,7 @@
       "url": "https://www.zaugg.swiss/?section=2250&language=de_DE&itemid1541=3728&detail1541=1",
       "source": "ZAUGG AG official careers page",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T09:45:00.519Z",
+      "crawledAt": "2026-11-05T21:48:57.161Z",
       "addressLocality": "Eggiwil",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -79,7 +79,7 @@
       },
       "streetAddress": "Eggiwil",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-05T09:45:00.519Z",
+      "validThrough": "2026-12-05T21:48:57.161Z",
       "validThroughSource": "last-observed-window"
     }
   ]

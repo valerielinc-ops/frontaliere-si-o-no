@@ -3,12 +3,13 @@ import { JSDOM } from 'jsdom';
 import { readFileSync } from 'node:fs';
 import { extractFieldsInPage } from '../scripts/assisted-application/lib/portal/fields.mjs';
 import { guardPlan } from '../scripts/assisted-application/lib/portal/plan.mjs';
-import { localizePortalQuestions, portalQuestionReductionHandoff, portalRequirementsForCandidate, portalRequirementsFromMissingRequired, readPortalRequirements, readPortalQuestions } from '../scripts/assisted-application/lib/portal/portal.mjs';
+import { applicationEntryControls, formPostingMatch, hasReadOnlyVacancyEvidence, hasVacancySpecificPostingEvidence, localizePortalQuestions, portalReadAheadCapability, portalQuestionReductionHandoff, portalRequirementsForCandidate, portalRequirementsFromMissingRequired, readPortalRequirements, readPortalQuestions } from '../scripts/assisted-application/lib/portal/portal.mjs';
 import { PORTAL_QUESTION_PLACEHOLDERS } from '../functions/src/lib/portalQuestionText.js';
 import { questionsForCandidate } from '../functions/src/assistedApplicationCandidateEdits.js';
 import { transition } from '../functions/src/assistedApplicationFlow.js';
 import { createMemoryFirestore } from './helpers/memoryFirestore';
 import { reconcileOperationalAnswers } from '../scripts/assisted-application/reconcile-operational-answers.mjs';
+import { permitOptions, permitStatusQuestion, permitStatusQuestionWhy } from '../functions/src/lib/permitStatus.js';
 
 // Anonymous registration markup: an intentionally empty styled label and the
 // actual consent in the owned fieldset legend, as on the public Avature form.
@@ -426,6 +427,72 @@ it('asks for a separately required house number when the residence street has no
   expect(result.questions.map((question: any) => question.id)).toContain('portal_residence_house_number');
 });
 
+it('turns a required Umantis residence-status choice into the candidate permit question', async () => {
+  const applicationOptions = permitOptions('it');
+  const result = portalRequirementsFromMissingRequired([
+    { id: 'residence-status', kind: 'radio', label: 'Statuto di soggiorno', required: true, options: applicationOptions },
+  ], [], { candidate: { identity: {}, profile: {}, answers: {} }, candidateLocale: 'it' });
+
+  expect(result.unreadableFields).toBeUndefined();
+  expect(result.questions).toEqual([expect.objectContaining({
+    id: 'work_permit',
+    question: permitStatusQuestion('it'),
+    candidatePrompt: permitStatusQuestion('it'),
+    applicationQuestion: 'Statuto di soggiorno',
+    type: 'choice',
+    options: applicationOptions,
+    required: true,
+  })]);
+
+  const [localized] = await localizePortalQuestions(result.questions, { candidateLocale: 'it', applicationLocale: 'it' });
+  expect(localized).toMatchObject({
+    id: 'work_permit',
+    question: permitStatusQuestion('it'),
+    applicationQuestion: 'Statuto di soggiorno',
+  });
+});
+
+it('asks for current Swiss status when the CV alone names a permit', () => {
+  const field = { id: 'residence-status', kind: 'radio', label: 'Statuto di soggiorno', required: true, options: permitOptions('it') };
+  const fromCv = portalRequirementsFromMissingRequired([field], [], {
+    candidate: { identity: {}, profile: { workPermit: 'Permesso G' }, answers: {} }, candidateLocale: 'it',
+  });
+  expect(fromCv.questions).toMatchObject([{
+    id: 'work_permit', question: permitStatusQuestion('it'), applicationQuestion: 'Statuto di soggiorno', required: true,
+  }]);
+
+  for (const candidate of [
+    { identity: {}, profile: { permitStatus: 'permit_b' }, answers: {} },
+    { identity: {}, profile: {}, answers: {}, swissStatus: { code: 'permit_c' } },
+  ]) {
+    const result = portalRequirementsFromMissingRequired([field], [], { candidate, candidateLocale: 'it' });
+    expect(result.questions).toEqual([]);
+  }
+});
+
+it('asks for a missing Swiss status when stored status strings are not recognized and localizes the explanation', async () => {
+  const field = { id: 'residence-status', kind: 'radio', label: 'Statuto di soggiorno', required: true, options: permitOptions('it') };
+  for (const candidate of [
+    { identity: {}, profile: { permitStatus: 'pending' }, answers: {} },
+    { identity: {}, profile: {}, answers: {}, swissStatus: { code: 'pending' } },
+  ]) {
+    const result = portalRequirementsFromMissingRequired([field], [], { candidate, candidateLocale: 'de' });
+    expect(result.questions).toEqual([expect.objectContaining({
+      id: 'work_permit',
+      question: permitStatusQuestion('de'),
+      candidatePrompt: permitStatusQuestion('de'),
+      why: permitStatusQuestionWhy('de'),
+      applicationQuestion: 'Statuto di soggiorno',
+      applicationOptions: field.options,
+      required: true,
+    })]);
+    const [localized] = await localizePortalQuestions(result.questions, {
+      candidateLocale: 'de', applicationLocale: 'it', codex: vi.fn().mockRejectedValue(new Error('translation unavailable')),
+    });
+    expect(localized).toMatchObject({ question: permitStatusQuestion('de'), why: permitStatusQuestionWhy('de') });
+  }
+});
+
 it('asks for a missing residence country and reads it from a partial profile address', () => {
   const country = {
     id: 'residence-country', kind: 'select', label: 'Land/Region des Wohnorts:*', required: true,
@@ -491,7 +558,7 @@ it.each([false, true])('preserves a real document request and hard question with
     question: 'Do you hold a Swiss work permit?', applicationQuestionLocale: 'en', localizationStatus: 'same_language',
   });
   expect(request).not.toHaveProperty('answers');
-  expect(codex).toHaveBeenCalledTimes(withQuestion ? 1 : 0);
+  expect(codex).not.toHaveBeenCalled();
 });
 
 it('never treats an unreadable required field as an empty resolved reduction', async () => {
@@ -540,6 +607,37 @@ it('hands off an unreadable required field during the real pre-read before trans
   expect(await readPortalQuestions(ctx)).toEqual([]); // The legacy question-only caller stays safe.
 });
 
+it('defers a SuccessFactors account gate to the automatic submit runner', async () => {
+  const url = 'https://career5.successfactors.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=20604&lang=de_DE';
+  const snapshot = {
+    url, buttons: [], links: [], captcha: false, passwordVisible: true, errors: [],
+    text: 'Bewerbungskonto: Login',
+    fields: [
+      { id: 'email', kind: 'text', inputType: 'email', label: 'E-Mail-Adresse/login', required: true, formId: 'login-form' },
+      { id: 'password', kind: 'text', inputType: 'password', label: 'Passwort', required: true, formId: 'login-form' },
+    ],
+  };
+  const frame = { evaluate: vi.fn(async () => snapshot) };
+  const page = {
+    frames: () => [frame], url: () => url, goto: vi.fn(async () => {}),
+    evaluate: vi.fn(async () => false), waitForLoadState: vi.fn(async () => {}), waitForTimeout: vi.fn(async () => {}),
+  };
+  const browser = { newContext: vi.fn(async () => ({ newPage: async () => page })), close: vi.fn(async () => {}) };
+  const codex = vi.fn(async () => ({ actions: [], missingRequired: [] }));
+
+  const result = await readPortalRequirements({
+    channelType: 'successfactors', applyUrl: url, postingUrl: url, language: 'de', candidateLocale: 'it',
+    job: { title: 'Application Manager/-in', company: 'Swiss Armed Forces (VTG)' },
+    candidate: { identity: {}, profile: {}, answers: {} }, codex, launch: async () => browser,
+  });
+
+  expect(result.questions).toEqual([]);
+  expect(result.documents).toEqual([]);
+  expect(result.handoff).toBeUndefined();
+  expect(codex).not.toHaveBeenCalled();
+  expect(browser.close).toHaveBeenCalledOnce();
+});
+
 it('keeps a verified Umantis form when its accessibility text starts with skip-link chrome', async () => {
   const postingUrl = 'https://recruitingapp-2761.umantis.com/Vacancies/1153/Description/4';
   const applicationUrl = 'https://recruitingapp-2761.umantis.com/Vacancies/1153/Application/New/4';
@@ -570,6 +668,163 @@ it('keeps a verified Umantis form when its accessibility text starts with skip-l
   expect(browser.close).toHaveBeenCalledOnce();
 });
 
+it('pre-reads a public employer route without a planner and keeps unsafe channels out', async () => {
+  const url = 'https://apply.example.test/jobs/42';
+  expect(portalReadAheadCapability({ channelType: 'employer_site', entryUrl: url, applyUrl: url }))
+    .toEqual({ kind: 'mounted_read_only', source: 'public_application_route' });
+  expect(portalReadAheadCapability({ channelType: 'employer_site', entryUrl: 'http://apply.example.test/jobs/42', applyUrl: url }))
+    .toBeNull();
+  expect(portalReadAheadCapability({ channelType: 'pastahr', entryUrl: 'https://coop.pastahr.com/jobs/42', applyUrl: 'https://coop.pastahr.com/jobs/42' }))
+    .toBeNull();
+
+  const snapshot = {
+    url, buttons: [], links: [], captcha: false, passwordVisible: false, errors: [], text: 'Application form',
+    fields: [{ id: 'cv', kind: 'file', inputType: 'file', label: 'CV', required: true }],
+  };
+  const frame = { evaluate: vi.fn(async () => snapshot) };
+  const page = { frames: () => [frame], url: () => url, goto: vi.fn(async () => {}),
+    evaluate: vi.fn(async () => false), waitForLoadState: vi.fn(async () => {}) };
+  const context = { newPage: async () => page };
+  const browser = { newContext: vi.fn(async () => context), close: vi.fn(async () => {}) };
+  const launch = vi.fn(async () => browser);
+  const result = await readPortalRequirements({
+    channelType: 'employer_site', applyUrl: url, language: 'en', candidateLocale: 'it',
+    candidate: { identity: {}, profile: {}, answers: {} },
+    resolvePublicHost: vi.fn(async () => true), launch,
+  });
+
+  expect(result.handoff).toBe('planner_unavailable');
+  expect(result.portalContract).toMatchObject({
+    status: 'unavailable',
+    form: { observed: true, requiredFieldCount: 1, requiredFileCount: 1 },
+    background: { readOnly: true },
+  });
+  expect(launch).toHaveBeenCalledOnce();
+  expect(browser.close).toHaveBeenCalledOnce();
+});
+
+it('accepts a generic ATS form only after a matched posting Apply control was followed', () => {
+  const genericForm = 'Bewerbung\nVorname *\nE-Mail *\nhttps://ats.example/apply';
+  const job = { title: 'Pflegefachperson 80%' };
+  expect(formPostingMatch(genericForm, job, { postingMatched: true })).toBe('mismatch');
+  expect(formPostingMatch(genericForm, job, { postingMatched: true, applicationEntry: true })).toBe('match');
+  expect(formPostingMatch('Other employer\nBewerbung', { ...job, company: 'Muster AG' }, {
+    postingMatched: true, applicationEntry: true,
+  })).toBe('mismatch');
+});
+
+it('requires vacancy evidence beyond a company match before trusting one external Apply control', () => {
+  const job = { company: 'Muster AG', title: 'Application Manager' };
+  const listingUrl = 'https://careers.example.ch/jobs';
+  const postingUrl = 'https://careers.example.ch/jobs/application-manager-42';
+
+  expect(hasVacancySpecificPostingEvidence('Muster AG Karriere', job, {
+    pageUrl: listingUrl, postingUrl,
+  })).toBe(false);
+  expect(hasVacancySpecificPostingEvidence('Muster AG — Application Manager', job, {
+    pageUrl: listingUrl, pageTitle: 'Muster AG Karriere', postingUrl,
+  })).toBe(false);
+  expect(hasVacancySpecificPostingEvidence('Muster AG Karriere', job, {
+    pageUrl: listingUrl, pageTitle: 'Muster AG — Application Manager', postingUrl,
+  })).toBe(true);
+  expect(hasVacancySpecificPostingEvidence('Muster AG Karriere — Apply', job, {
+    pageUrl: listingUrl, pageTitle: 'Application Manager', postingUrl,
+    vacancyIdentityContexts: ['Application Manager — Muster AG'],
+  })).toBe(true);
+  const relatedVacancyJob = { company: 'Acme', title: 'Data Engineer' };
+  expect(hasVacancySpecificPostingEvidence('Related vacancies: Data Engineer — Acme', relatedVacancyJob, {
+    pageUrl: 'https://careers.example.ch/careers',
+    pageTitle: 'Data Engineer | Careers',
+    postingUrl: 'https://careers.example.ch/jobs/data-engineer-current',
+  })).toBe(false);
+  expect(hasVacancySpecificPostingEvidence('Related vacancies: Data Engineer — Acme', relatedVacancyJob, {
+    pageUrl: 'https://careers.example.ch/careers',
+    pageTitle: 'Data Engineer | Careers',
+    postingUrl: 'https://careers.example.ch/jobs/data-engineer-current',
+    vacancyIdentityContexts: ['Data Engineer — Acme'],
+  })).toBe(true);
+  expect(applicationEntryControls({
+    text: 'Muster AG Karriere — Apply',
+    links: [{ text: 'Apply', href: 'https://ats.example.test/apply', vacancyContext: 'Application Manager — Andere GmbH' }],
+  }, {
+    job, postingUrl, allowSingleExternalApplicationEntry: true,
+  })).toEqual([]);
+  expect(hasReadOnlyVacancyEvidence('Muster AG Karriere', job, {
+    pageUrl: listingUrl, pageTitle: 'Application Manager',
+  })).toBe(false);
+  expect(hasReadOnlyVacancyEvidence('Muster AG Karriere', job, {
+    pageUrl: postingUrl, pageTitle: 'Application Manager',
+  })).toBe(false);
+  expect(hasReadOnlyVacancyEvidence('Application form', { title: 'Application Manager' }, {
+    pageTitle: 'Application Manager',
+  })).toBe(false);
+  expect(hasReadOnlyVacancyEvidence('Application form', { company: 'AG', title: 'Application Manager' }, {
+    pageTitle: 'Application Manager',
+  })).toBe(false);
+  expect(hasReadOnlyVacancyEvidence('', { company: 'Hotel', title: 'Concierge' }, {
+    pageTitle: 'Concierge — Hotel',
+  })).toBe(false);
+  expect(hasReadOnlyVacancyEvidence('Application form', job, {
+    pageUrl: postingUrl, pageTitle: 'Muster AG — Application Manager',
+  })).toBe(true);
+  const rhbJob = { company: 'Ferrovia Retica (RhB)', title: 'Application Manager' };
+  expect(hasReadOnlyVacancyEvidence('Application form', rhbJob, {
+    pageUrl: 'https://rhb-career.talent-soft.com/application',
+    pageTitle: 'Application Manager',
+  })).toBe(false);
+  expect(hasVacancySpecificPostingEvidence('Application Manager', { ...job, organization: 'Muster AG' }, {
+    pageUrl: listingUrl, pageTitle: 'Application Manager', postingUrl,
+  })).toBe(false);
+  expect(hasVacancySpecificPostingEvidence('Application Manager', { ...job, organization: 'Andere GmbH' }, {
+    pageUrl: listingUrl, pageTitle: 'Application Manager', postingUrl,
+  })).toBe(false);
+  expect(hasVacancySpecificPostingEvidence('Andere GmbH — Application Manager', { ...job, organization: 'Muster AG' }, {
+    pageUrl: listingUrl, postingUrl,
+  })).toBe(false);
+  expect(hasVacancySpecificPostingEvidence('Andere GmbH', { ...job, organization: 'Muster AG' }, {
+    pageUrl: listingUrl, pageTitle: 'Application Manager', postingUrl,
+  })).toBe(false);
+  expect(hasVacancySpecificPostingEvidence('Muster AG Karriere', job, {
+    pageUrl: postingUrl, postingUrl,
+  })).toBe(true);
+  expect(hasVacancySpecificPostingEvidence('Andere GmbH — Bewerbung', job, {
+    pageUrl: postingUrl, pageTitle: 'Andere GmbH — Bewerbung', postingUrl,
+  })).toBe(false);
+});
+
+it('binds an unproved external Apply link to its own vacancy card', () => {
+  const postingUrl = 'https://careers.example.ch/jobs/application-manager-42';
+  const apply = { id: 'apply', text: 'Apply', href: 'https://ats.example.test/apply', vacancyContext: 'Application Manager — Muster AG' };
+  const context = {
+    postingUrl,
+    job: { title: 'Application Manager', company: 'Muster AG' },
+    allowSingleExternalApplicationEntry: true,
+  };
+
+  expect(applicationEntryControls({ links: [apply] }, context)).toEqual([apply]);
+  expect(applicationEntryControls({ links: [{ ...apply, vacancyContext: 'Application Manager — Andere GmbH' }] }, context)).toEqual([]);
+  expect(applicationEntryControls({ links: [{ ...apply, vacancyContext: '' }] }, context)).toEqual([]);
+  // A company match elsewhere in the page cannot lend its identity to this
+  // CTA; the control must carry the role and employer in its own card.
+  expect(applicationEntryControls({
+    text: 'Application Manager · Andere GmbH Apply · Footer Muster AG',
+    links: [{ ...apply, vacancyContext: 'Application Manager — Andere GmbH' }],
+  }, context)).toEqual([]);
+});
+
+it('does not launch a generic preflight when the public route cannot be resolved safely', async () => {
+  const launch = vi.fn();
+  const result = await readPortalRequirements({
+    channelType: 'employer_site', applyUrl: 'https://apply.example.test/jobs/42',
+    resolvePublicHost: vi.fn(async () => false), launch,
+  });
+  expect(result).toMatchObject({
+    handoff: 'public_route_unavailable',
+    portalContract: { status: 'unavailable', handoff: 'public_route_unavailable' },
+  });
+  expect(launch).not.toHaveBeenCalled();
+});
+
 it('binds the native Umantis applicant address when applyUrl is the direct posting URL', async () => {
   const postingUrl = 'https://recruitingapp-2761.umantis.com/Vacancies/1153/Description/4';
   const applicationUrl = 'https://recruitingapp-2761.umantis.com/Vacancies/1153/Application/New/4';
@@ -580,11 +835,14 @@ it('binds the native Umantis applicant address when applyUrl is the direct posti
       { id: 'f5', kind: 'text', inputType: 'text', label: 'Nome', form: 0, required: false },
       { id: 'f6', kind: 'text', inputType: 'text', label: 'Cognome', form: 0, required: false },
       { id: 'f8', kind: 'text', inputType: 'email', label: 'Indirizzo e-mail/login', form: 0, required: false },
-      { id: 'f10', kind: 'textarea', inputType: 'textarea', label: 'Via', form: 0, required: true },
-      { id: 'f11', kind: 'text', inputType: 'text', label: 'NAP', form: 0, required: false },
-      { id: 'f12', kind: 'text', inputType: 'text', label: 'Località', form: 0, required: true },
+      { id: 'f10', kind: 'textarea', inputType: 'textarea', label: 'Via', form: 0, required: true,
+        addressContext: { section: '', owners: [], unknown: false } },
+      { id: 'f11', kind: 'text', inputType: 'text', label: 'NAP', form: 0, required: false,
+        addressContext: { section: '', owners: [], unknown: false } },
+      { id: 'f12', kind: 'text', inputType: 'text', label: 'Località', form: 0, required: true,
+        addressContext: { section: '', owners: [], unknown: false } },
       { id: 'f13', kind: 'select', inputType: 'select', label: 'Paese', form: 0, required: true,
-        options: ['Selezionare', 'Svizzera', 'Italia'] },
+        options: ['Selezionare', 'Svizzera', 'Italia'], addressContext: { section: '', owners: [], unknown: false } },
       { id: 'cv', kind: 'file', inputType: 'file', label: 'Curriculum', form: 0, required: false },
     ],
   };
@@ -607,6 +865,142 @@ it('binds the native Umantis applicant address when applyUrl is the direct posti
   expect(result.handoff).toBeUndefined();
   expect(result.unreadableFields).toBeUndefined();
   expect(result.questions.map((question) => question.applicationQuestion)).toEqual(['Via', 'Località', 'Paese']);
+  expect(browser.close).toHaveBeenCalledOnce();
+});
+
+it('asks only for the missing EOC residence street and permit after resolving known profile facts', async () => {
+  const postingUrl = 'https://recruitingapp-2761.umantis.com/Vacancies/2806/Description/4';
+  const applicationUrl = 'https://recruitingapp-2761.umantis.com/Vacancies/2806/Application/New/4';
+  const processingConsent = 'Dichiaro di aver letto e compreso la Dichiarazione sulla protezione dei dati dell’EOC. Acconsento che i miei dati personali vengano trattati e conservati in conformità con tale Dichiarazione e con le normative vigenti in materia di protezione dei dati in Svizzera.';
+  const retentionQuestion = 'Per quanto tempo autorizzi l’EOC a conservare i tuoi dati personali?';
+  const retentionOptions = [
+    'Do il mio consenso affinché i miei dati vengano memorizzati anche successivamente a una concreta richiesta di occupazione e dopo essere stato informato di offerte di lavoro interessanti.',
+    'Desidero che i miei dati vengano eliminati dopo la procedura di candidatura corrente.',
+  ];
+  const snapshot = {
+    url: applicationUrl, buttons: [], captcha: false, passwordVisible: false, errors: [],
+    text: 'Assistente sociale (80–100%) - Candidatura EOC',
+    fields: [
+      { id: 'first-name', kind: 'text', inputType: 'text', label: 'Nome', form: 0, required: true },
+      { id: 'last-name', kind: 'text', inputType: 'text', label: 'Cognome', form: 0, required: true },
+      { id: 'email', kind: 'text', inputType: 'email', label: 'Indirizzo e-mail/login', form: 0, required: true },
+      { id: 'phone', kind: 'text', inputType: 'tel', label: 'Telefono', form: 0, required: true },
+      { id: 'street', kind: 'textarea', inputType: 'textarea', label: 'Via', form: 0, required: true,
+        addressContext: { section: '', owners: [], unknown: false } },
+      { id: 'postal', kind: 'text', inputType: 'text', label: 'NAP', form: 0, required: true,
+        addressContext: { section: '', owners: [], unknown: false } },
+      { id: 'city', kind: 'text', inputType: 'text', label: 'Località', form: 0, required: true,
+        addressContext: { section: '', owners: [], unknown: false } },
+      { id: 'country', kind: 'select', inputType: 'select', label: 'Paese', form: 0, required: true,
+        options: ['Selezionare', 'Svizzera', 'Italia'], addressContext: { section: '', owners: [], unknown: false } },
+      { id: 'nationality', kind: 'select', inputType: 'select', label: 'Nazionalità', form: 0, required: true,
+        options: ['Selezionare', 'Italia', 'Svizzera'] },
+      { id: 'salutation', kind: 'select', inputType: 'select', label: 'Appellativo', form: 0, required: true,
+        options: ['Signora', 'Signor'] },
+      { id: 'birth-date', kind: 'text', inputType: 'text', autocomplete: 'bday', label: 'Data di nascita', form: 0, required: true },
+      { id: 'residence-status', kind: 'radio', inputType: 'radio', label: 'Statuto di soggiorno', form: 0, required: true,
+        options: permitOptions('it') },
+      { id: 'privacy', kind: 'checkbox', inputType: 'checkbox', label: processingConsent, form: 0, required: true },
+      { id: 'retention', kind: 'select', inputType: 'select', label: retentionQuestion, form: 0, required: true,
+        options: retentionOptions },
+    ],
+  };
+  const frame = { evaluate: vi.fn(async () => snapshot) };
+  const page = {
+    frames: () => [frame], url: () => applicationUrl,
+    title: vi.fn(async () => 'Assistente sociale (80–100%) - Candidatura | EOC candiDati'),
+    goto: vi.fn(async () => {}), evaluate: vi.fn(async () => false), waitForLoadState: vi.fn(async () => {}),
+    waitForTimeout: vi.fn(async () => {}),
+  };
+  const browser = { newContext: vi.fn(async () => ({ newPage: async () => page })), close: vi.fn(async () => {}) };
+  const codex = vi.fn(async ({ prompt }: { prompt: string }) => {
+    if (prompt.includes('You localize questions from an online job application')) {
+      const start = prompt.lastIndexOf('\n\n{');
+      const end = prompt.indexOf('\n\nReturn exactly one JSON object', start);
+      const input = JSON.parse(prompt.slice(start + 2, end));
+      return { questions: (input.questions || []).map((question: any) => ({
+        id: question.id,
+        sourceLocale: 'it',
+        question: question.applicationQuestion,
+        why: '',
+        options: question.options || [],
+        optionMap: question.optionMap || [],
+        validationMessage: '',
+      })) };
+    }
+    return { actions: [], missingRequired: [] };
+  });
+  const address = { street: '', postalCode: '6830', city: 'Lugano', country: 'Svizzera' };
+
+  const result = await readPortalRequirements({
+    channelType: 'umantis', applyUrl: postingUrl, postingUrl, language: 'it', candidateLocale: 'it',
+    job: { title: 'Assistente sociale (80-100%)', company: 'EOC – Ente Ospedaliero Cantonale' },
+    candidate: {
+      identity: { name: 'Mario Rossi', firstName: 'Mario', lastName: 'Rossi', email: 'candidate@example.invalid', phone: '+41791234567', address },
+      profile: { dateOfBirth: '1990-05-12', nationality: 'Italia', location: 'Lugano', address, workPermit: 'Permesso B' },
+      answers: { salutation: 'Signor' },
+    },
+    codex, launch: async () => browser,
+  });
+
+  expect(result.handoff).toBeUndefined();
+  expect(result.unreadableFields).toBeUndefined();
+  expect(result.questions.map((question) => question.id)).toEqual(['portal_residence_address', 'work_permit']);
+  expect(result.questions.map((question) => question.applicationQuestion)).toEqual(['Via', 'Statuto di soggiorno']);
+  expect(browser.close).toHaveBeenCalledOnce();
+});
+
+it('pre-reads a unique external Apply link for an allowlisted ATS form', async () => {
+  const postingUrl = 'https://careers.example.test/jobs/42';
+  const applicationUrl = 'https://ats.example.test/apply/42';
+  const formSnapshot = {
+    url: applicationUrl, buttons: [], links: [], captcha: false, passwordVisible: false, errors: [],
+    text: 'Social worker application Acme AG',
+    fields: [
+      { id: 'question', kind: 'text', inputType: 'text', label: 'Do you have a license?', form: 0, required: true },
+      { id: 'cv', kind: 'file', inputType: 'file', label: 'CV', form: 0, required: false },
+    ],
+  };
+  const postingSnapshot = {
+    url: postingUrl, buttons: [], captcha: false, passwordVisible: false, errors: [],
+    text: 'Social worker at Acme AG',
+    fields: [],
+    links: [{ id: 'apply-link', text: 'Apply', href: applicationUrl, vacancyContext: 'Social worker — Acme AG', frame: 0, chrome: false }],
+  };
+  const state = { url: postingUrl, snapshot: postingSnapshot };
+  const applyLink = {
+    first: () => applyLink,
+    waitFor: vi.fn(async () => {}),
+    getAttribute: vi.fn(async (name: string) => name === 'href' ? applicationUrl : null),
+    click: vi.fn(async () => { state.url = applicationUrl; state.snapshot = formSnapshot; }),
+  };
+  const frame = {
+    evaluate: vi.fn(async () => state.snapshot),
+    locator: vi.fn(() => applyLink),
+  };
+  const page = {
+    frames: () => [frame], url: () => state.url,
+    title: vi.fn(async () => state.url === postingUrl ? 'Social worker | Acme AG' : 'Social worker application | Acme AG'),
+    goto: vi.fn(async (url: string) => {
+      state.url = url;
+      state.snapshot = url === postingUrl ? postingSnapshot : formSnapshot;
+    }),
+    evaluate: vi.fn(async () => false), waitForLoadState: vi.fn(async () => {}),
+    waitForTimeout: vi.fn(async () => {}),
+  };
+  const context = { newPage: async () => page, waitForEvent: () => Promise.resolve(null) };
+  const browser = { newContext: vi.fn(async () => context), close: vi.fn(async () => {}) };
+  const codex = vi.fn(async () => ({ actions: [], missingRequired: [{ fieldId: 'question', question: 'Do you have a license?' }] }));
+
+  const result = await readPortalRequirements({
+    channelType: 'umantis', applyUrl: postingUrl, postingUrl, language: 'en', candidateLocale: 'en',
+    job: { title: 'Social worker', company: 'Acme AG' },
+    candidate: { identity: {}, profile: {}, answers: {} }, codex, launch: async () => browser,
+  });
+
+  expect(applyLink.click).toHaveBeenCalledOnce();
+  expect(result.handoff).toBeUndefined();
+  expect(result.questions.map((question) => question.applicationQuestion)).toEqual(['Do you have a license?']);
   expect(browser.close).toHaveBeenCalledOnce();
 });
 
@@ -668,7 +1062,7 @@ it('batches mounted later-step ATS questions in one read-only pre-read', async (
   expect(browser.close).toHaveBeenCalledOnce();
 });
 
-it('does not expose fallback-language questions from a pre-read when localization is unavailable', async () => {
+it('retains native fallback-language questions for review when localization is unavailable', async () => {
   const url = 'https://jobs.lever.co/example/1/apply';
   const snapshot = {
     url, buttons: [], captcha: false, passwordVisible: false, errors: [], text: '',
@@ -688,9 +1082,292 @@ it('does not expose fallback-language questions from a pre-read when localizatio
     candidate: { identity: {}, profile: {}, answers: {} }, codex, launch: async () => browser };
 
   const result = await readPortalRequirements(ctx);
-  expect(result).toEqual({ questions: [], documents: [], handoff: 'requirements_unavailable' });
+  expect(result).toMatchObject({
+    documents: [],
+    questions: [expect.objectContaining({
+      question: 'Warum interessiert dich diese Stelle?',
+      applicationQuestion: 'Warum interessiert dich diese Stelle?',
+      localizationStatus: 'fallback',
+    })],
+  });
+  expect(result.handoff).toBeUndefined();
   expect(codex).toHaveBeenCalledTimes(2);
   expect(browser.close).toHaveBeenCalledOnce();
+});
+
+it('keeps a readable same-language Umantis batch usable when localization is unavailable', async () => {
+  const codex = vi.fn().mockRejectedValue(new Error('translation unavailable'));
+  const result = await localizePortalQuestions([
+    {
+      id: 'nationality', question: 'Nazionalità', applicationQuestion: 'Nazionalità',
+      type: 'choice', options: ['Italia', 'Svizzera'], applicationOptions: ['Italia', 'Svizzera'],
+    },
+    {
+      id: 'referral',
+      question: 'Come è venuto a conoscenza della nostra organizzazione?',
+      applicationQuestion: 'Come è venuto a conoscenza della nostra organizzazione?',
+      type: 'choice', options: ['Sito aziendale', 'Altro'], applicationOptions: ['Sito aziendale', 'Altro'],
+    },
+  ], { candidateLocale: 'it', applicationLocale: 'de', codex });
+
+  expect(codex).not.toHaveBeenCalled();
+  expect(result).toEqual(expect.arrayContaining([
+    expect.objectContaining({ id: 'nationality', applicationQuestionLocale: 'it', localizationStatus: 'same_language' }),
+    expect.objectContaining({ id: 'referral', applicationQuestionLocale: 'it', localizationStatus: 'same_language' }),
+  ]));
+  expect(result.every((question: any) => question.localizationStatus !== 'fallback')).toBe(true);
+});
+
+it('keeps long Italian country catalogues readable when localization is unavailable', async () => {
+  const codex = vi.fn().mockRejectedValue(new Error('translation unavailable'));
+  const countries = [
+    'Italia', 'Svizzera', 'Francia', 'Germania', 'Austria', 'Spagna', 'Portogallo',
+    'Belgio', 'Paesi Bassi', 'Regno Unito', 'Stati Uniti', 'Canada', 'Australia',
+    'Giappone', 'Brasile', 'Argentina',
+  ];
+  const result = await localizePortalQuestions([
+    {
+      id: 'country', question: 'Paese', applicationQuestion: 'Paese',
+      type: 'choice', options: countries, applicationOptions: countries,
+    },
+    {
+      id: 'nationality', question: 'Nazionalità', applicationQuestion: 'Nazionalità',
+      type: 'choice', options: countries, applicationOptions: countries,
+    },
+  ], { candidateLocale: 'it', applicationLocale: 'de', codex });
+
+  expect(codex).not.toHaveBeenCalled();
+  expect(result).toMatchObject([
+    {
+      id: 'country', applicationQuestionLocale: 'it', localizationStatus: 'same_language',
+      options: countries, optionMap: countries.map((country) => ({ candidate: country, application: country })),
+    },
+    {
+      id: 'nationality', applicationQuestionLocale: 'it', localizationStatus: 'same_language',
+      options: countries, optionMap: countries.map((country) => ({ candidate: country, application: country })),
+    },
+  ]);
+});
+
+it('translates recognized foreign country catalogues while preserving their exact application values', async () => {
+  const codex = vi.fn().mockRejectedValue(new Error('translation unavailable'));
+  const applicationOptions = ['Deutschland', 'Frankreich', 'Italien', 'Österreich', 'Schweiz', 'Vereinigte Staaten'];
+  const [result] = await localizePortalQuestions([{
+    id: 'country', question: 'Paese', applicationQuestion: 'Paese',
+    type: 'choice', options: applicationOptions, applicationOptions,
+  }], { candidateLocale: 'it', applicationLocale: 'de', codex });
+
+  expect(codex).not.toHaveBeenCalled();
+  expect(result).toMatchObject({
+    question: 'Paese', localizationStatus: 'translated', applicationQuestionLocale: null,
+    options: ['Germania', 'Francia', 'Italia', 'Austria', 'Svizzera', 'Stati Uniti'],
+    optionMap: applicationOptions.map((application, index) => ({
+      candidate: ['Germania', 'Francia', 'Italia', 'Austria', 'Svizzera', 'Stati Uniti'][index],
+      application,
+    })),
+  });
+});
+
+it('translates known foreign nationality labels without changing the application values', async () => {
+  const codex = vi.fn().mockRejectedValue(new Error('translation unavailable'));
+  const applicationOptions = ['deutsch', 'französisch', 'italienisch', 'österreichisch', 'schweizerisch', 'spanisch'];
+  const candidateOptions = ['tedesca', 'francese', 'italiana', 'austriaca', 'svizzera', 'spagnola'];
+  const [result] = await localizePortalQuestions([{
+    id: 'nationality', question: 'Nazionalità', applicationQuestion: 'Nazionalità',
+    type: 'choice', options: applicationOptions, applicationOptions,
+  }], { candidateLocale: 'it', applicationLocale: 'de', codex });
+
+  expect(codex).not.toHaveBeenCalled();
+  expect(result).toMatchObject({
+    localizationStatus: 'translated',
+    options: candidateOptions,
+    optionMap: candidateOptions.map((candidate, index) => ({ candidate, application: applicationOptions[index] })),
+  });
+});
+
+it('keeps known Italian EOC Umantis fields candidate-readable when localization is unavailable', async () => {
+  const codex = vi.fn().mockRejectedValue(new Error('translation unavailable'));
+  const labels = [
+    'Titolo accademico', 'Nome', 'Cognome', 'Data di nascita', 'Indirizzo e-mail/login',
+    'Via', 'NAP', 'Località', 'Paese', 'Telefono', 'Cellulare', 'Profilo LinkedIn',
+    'Profilo XING', 'Nazionalità', 'Diploma', 'Annotazioni sulla formazione',
+    'Il suo diploma di riferimento è stato ottenuto',
+    'Come è venuto a conoscenza della nostra organizzazione?',
+    "Attualmente ho un contratto con l'EOC",
+    "In passato ho già lavorato per l'EOC",
+  ];
+  const questions = labels.map((question, index) => ({
+    id: `eoc-${index}`,
+    question,
+    applicationQuestion: question,
+    type: question.startsWith('Come è venuto') ? 'choice' : 'text',
+    options: question.startsWith('Come è venuto') ? ['Sito aziendale', 'Altro'] : [],
+    applicationOptions: question.startsWith('Come è venuto') ? ['Sito aziendale', 'Altro'] : [],
+  }));
+  const request = await portalRequirementsForCandidate({ questions, documents: [] }, {
+    candidateLocale: 'it', applicationLocale: 'de', codex,
+  });
+
+  expect(codex).not.toHaveBeenCalled();
+  expect(request.questions).toHaveLength(labels.length);
+  expect(request.questions.every((question: any) => question.localizationStatus === 'same_language')).toBe(true);
+  expect(request.questions.map((question: any) => question.applicationQuestion)).toEqual(labels);
+  expect(request.questions.find((question: any) => question.applicationQuestion.startsWith('Come è venuto'))).toMatchObject({
+    options: ['Sito aziendale', 'Altro'],
+    optionMap: [
+      { candidate: 'Sito aziendale', application: 'Sito aziendale' },
+      { candidate: 'Altro', application: 'Altro' },
+    ],
+  });
+});
+
+it('keeps the later Italian EOC Umantis controls candidate-readable when localization is unavailable', async () => {
+  const codex = vi.fn().mockRejectedValue(new Error('translation unavailable'));
+  const processingConsent = 'Dichiaro di aver letto e compreso la Dichiarazione sulla protezione dei dati dell’EOC. Acconsento che i miei dati personali vengano trattati e conservati in conformità con tale Dichiarazione e con le normative vigenti in materia di protezione dei dati in Svizzera.';
+  const retentionOptions = [
+    'Do il mio consenso affinché i miei dati vengano memorizzati anche successivamente a una concreta richiesta di occupazione e dopo essere stato informato di offerte di lavoro interessanti.',
+    'Desidero che i miei dati vengano eliminati dopo la procedura di candidatura corrente.',
+  ];
+  const permitOptionsOnPage = [
+    'Nazionalità svizzera', 'Permesso C', 'Permesso B', 'Permesso L',
+    'Permesso F/N', 'Permesso G (frontaliere)', 'Attualmente senza permesso',
+  ];
+  const questions = [
+    {
+      id: 'title', question: 'Quale appellativo vuoi usare nei moduli di candidatura?',
+      candidatePrompt: 'Quale appellativo vuoi usare nei moduli di candidatura?',
+      applicationQuestion: 'Titolo', type: 'choice', options: ['Signora', 'Signor'], applicationOptions: ['Signora', 'Signor'],
+    },
+    {
+      id: 'permit', question: permitStatusQuestion('it'), candidatePrompt: permitStatusQuestion('it'),
+      applicationQuestion: 'Statuto di soggiorno', type: 'choice', options: permitOptionsOnPage, applicationOptions: permitOptionsOnPage,
+    },
+    {
+      id: 'privacy', question: 'Confermi di aver letto e accettato l’informativa sulla protezione dei dati?',
+      candidatePrompt: 'Confermi di aver letto e accettato l’informativa sulla protezione dei dati?',
+      applicationQuestion: processingConsent, type: 'yes_no', options: ['Sì', 'No'], applicationOptions: ['Sì', 'No'],
+    },
+    {
+      id: 'retention', question: 'Per quanto tempo autorizzi l’EOC a conservare i tuoi dati personali?',
+      candidatePrompt: 'Per quanto tempo autorizzi l’EOC a conservare i tuoi dati personali?',
+      applicationQuestion: 'Attivazione dati', type: 'choice', options: retentionOptions, applicationOptions: retentionOptions,
+    },
+  ];
+
+  const request = await portalRequirementsForCandidate({ questions, documents: [] }, {
+    candidateLocale: 'it', applicationLocale: 'de', codex,
+  });
+
+  expect(codex).not.toHaveBeenCalled();
+  expect(request.questions).toHaveLength(questions.length);
+  expect(request.questions.every((question: any) => question.localizationStatus === 'same_language')).toBe(true);
+  expect(request.questions.map((question: any) => question.applicationQuestion)).toEqual([
+    'Titolo', 'Statuto di soggiorno', processingConsent, 'Attivazione dati',
+  ]);
+  expect(request.questions[0]).toMatchObject({
+    question: 'Quale appellativo vuoi usare nei moduli di candidatura?',
+    options: ['Signora', 'Signor'],
+    optionMap: [
+      { candidate: 'Signora', application: 'Signora' },
+      { candidate: 'Signor', application: 'Signor' },
+    ],
+  });
+  expect(request.questions[1].options).toEqual(permitOptionsOnPage);
+  expect(request.questions[2].options).toEqual(['Sì', 'No']);
+  expect(request.questions[3].options).toEqual(retentionOptions);
+});
+
+it('keeps Italian EOC country and nationality catalogues without the localization provider', async () => {
+  const codex = vi.fn().mockRejectedValue(new Error('translation unavailable'));
+  const questions = [
+    {
+      id: 'country', question: 'Paese', applicationQuestion: 'Paese', type: 'choice',
+      options: ['Selezionare', 'Svizzera', 'Italia', 'Germania', 'Francia'],
+      applicationOptions: ['Selezionare', 'Svizzera', 'Italia', 'Germania', 'Francia'],
+    },
+    {
+      id: 'nationality', question: 'Nazionalità', applicationQuestion: 'Nazionalità', type: 'choice',
+      options: ['Selezionare', 'Svizzera', 'Italiana', 'Tedesca', 'Francese'],
+      applicationOptions: ['Selezionare', 'Svizzera', 'Italiana', 'Tedesca', 'Francese'],
+    },
+  ];
+
+  const request = await portalRequirementsForCandidate({ questions, documents: [] }, {
+    candidateLocale: 'it', applicationLocale: 'it', codex,
+  });
+
+  expect(codex).not.toHaveBeenCalled();
+  expect(request.questions).toEqual(questions.map((question) => expect.objectContaining({
+    id: question.id,
+    applicationQuestionLocale: 'it',
+    localizationStatus: 'same_language',
+    options: question.options,
+  })));
+
+  const foreignCodex = vi.fn().mockRejectedValue(new Error('translation unavailable'));
+  const foreignOptions = ['Bitte wählen', 'Schweiz', 'Italien', 'Deutschland', 'Frankreich'];
+  const translated = await portalRequirementsForCandidate({ documents: [], questions: [{
+    ...questions[1],
+    options: foreignOptions,
+    applicationOptions: foreignOptions,
+  }] }, { candidateLocale: 'it', applicationLocale: 'it', codex: foreignCodex });
+  expect(foreignCodex).not.toHaveBeenCalled();
+  expect(translated.questions).toEqual([expect.objectContaining({
+    id: 'nationality',
+    applicationQuestionLocale: null,
+    localizationStatus: 'translated',
+    options: ['Seleziona', 'Svizzera', 'Italia', 'Germania', 'Francia'],
+    optionMap: [
+      { candidate: 'Seleziona', application: 'Bitte wählen' },
+      { candidate: 'Svizzera', application: 'Schweiz' },
+      { candidate: 'Italia', application: 'Italien' },
+      { candidate: 'Germania', application: 'Deutschland' },
+      { candidate: 'Francia', application: 'Frankreich' },
+    ],
+  })]);
+
+  const unknownCodex = vi.fn().mockRejectedValue(new Error('translation unavailable'));
+  await expect(portalRequirementsForCandidate({ documents: [], questions: [{
+    ...questions[1],
+    options: ['Bitte wählen', 'Schweiz', 'Italien', 'Deutschland', 'Atlantide'],
+    applicationOptions: ['Bitte wählen', 'Schweiz', 'Italien', 'Deutschland', 'Atlantide'],
+  }] }, { candidateLocale: 'it', applicationLocale: 'it', codex: unknownCodex }))
+    .rejects.toMatchObject({ code: 'portal_question_localization_unavailable' });
+  expect(unknownCodex).toHaveBeenCalledOnce();
+});
+
+it('keeps deterministic German field copies when an unresolved same-language question shares the batch', async () => {
+  const codex = vi.fn().mockRejectedValue(new Error('translation unavailable'));
+  const result = await localizePortalQuestions([
+    { id: 'salutation', question: 'Anrede', applicationQuestion: 'Anrede', options: [] },
+    {
+      id: 'skills',
+      question: 'Quali requisiti e competenze hai per questa candidatura?',
+      applicationQuestion: 'Quali requisiti e competenze hai per questa candidatura?',
+      options: [],
+    },
+  ], { candidateLocale: 'it', applicationLocale: 'de', codex });
+
+  expect(codex).not.toHaveBeenCalled();
+  expect(result).toMatchObject([
+    { id: 'salutation', question: 'Come preferisci essere indicato/a?', applicationQuestionLocale: 'de', localizationStatus: 'translated' },
+    { id: 'skills', question: 'Quali requisiti e competenze hai per questa candidatura?', applicationQuestionLocale: 'it', localizationStatus: 'same_language' },
+  ]);
+});
+
+it('does not use the same-language fast path when options are in another language', async () => {
+  const codex = vi.fn().mockRejectedValue(new Error('translation unavailable'));
+  const result = await localizePortalQuestions([{
+    id: 'skills',
+    question: 'Quali requisiti e competenze hai per questa candidatura?',
+    applicationQuestion: 'Quali requisiti e competenze hai per questa candidatura?',
+    options: ['Ja', 'Nein'],
+    applicationOptions: ['Ja', 'Nein'],
+  }], { candidateLocale: 'it', applicationLocale: 'de', codex });
+
+  expect(codex).toHaveBeenCalledOnce();
+  expect(result[0]).toMatchObject({ localizationStatus: 'fallback', options: ['Sì', 'No'] });
+  expect(result[0].localizationStatus).not.toBe('same_language');
 });
 
 it('detects the ATS question language even when the posting language matches the candidate locale', async () => {

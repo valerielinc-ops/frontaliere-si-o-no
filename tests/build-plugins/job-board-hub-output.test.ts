@@ -411,7 +411,6 @@ describe('job-board emitted output', () => {
 
   it.each([
     ['archived-audit-position', archiveDates.posted, archiveDates.expired],
-    ['archived-future-expiry', archiveDates.posted, archiveDates.crawled],
     ['archived-short-description', archiveDates.posted, archiveDates.expired],
     ['archived-medium-description', archiveDates.posted, archiveDates.expired],
     ['archived-markup-short', archiveDates.posted, archiveDates.expired],
@@ -449,8 +448,33 @@ describe('job-board emitted output', () => {
     }
   });
 
-  it.each(['archived-first-seen', 'archived-unverified', 'archived-crawl-only', 'archived-source-on-expiry', 'archived-posted-only', 'archived-expiry-only', 'archived-late-posting', 'archived-sparse', 'archived-no-dates', 'archived-invalid-dates', 'archived-future-only', 'archived-no-employer', 'archived-no-title'])(
-    'keeps only archive metadata when real identity or past dates are unavailable: %s', (slug) => {
+  it.each(['archived-first-seen', 'archived-unverified', 'archived-crawl-only', 'archived-expiry-only', 'archived-sparse', 'archived-no-dates', 'archived-invalid-dates', 'archived-no-employer', 'archived-no-title'])(
+    'emits a complete closed JobPosting when archive evidence is incomplete: %s', (slug) => {
+      for (const locale of locales) {
+        const document = htmlDoc(`${hubPath(locale, 'TI')}${slug}/`);
+        const entries = structured(document);
+        expect(document.querySelector('h1')?.textContent?.trim()).toBeTruthy();
+        const postings = entries.filter((entry) => entry['@type'] === 'JobPosting');
+        expect(postings).toHaveLength(1);
+        const posting = postings[0];
+        expect(posting['@type']).toBe('JobPosting');
+        for (const field of ['title', 'description', 'datePosted', 'hiringOrganization', 'employmentType', 'baseSalary', 'jobLocation', 'validThrough']) {
+          expect(posting[field], `${slug} ${locale} ${field}`).toBeTruthy();
+        }
+        expect(posting.description.length).toBeGreaterThanOrEqual(50);
+        expect(posting.hiringOrganization.name).toBeTruthy();
+        expect(posting.jobLocation.address.postalCode).toMatch(/^\d{4,5}$/);
+        expect(posting.jobLocation.address.streetAddress).toBeTruthy();
+        expect(posting.directApply).toBe(false);
+        expect(Date.parse(posting.datePosted)).toBeLessThan(Date.parse(posting.validThrough));
+        expect(Date.parse(posting.validThrough)).toBeLessThan(Date.now());
+        expect(entries.flatMap(allTypes)).toEqual(expect.arrayContaining(['WebPage', 'BreadcrumbList']));
+      }
+    },
+  );
+
+  it.each(['archived-source-on-expiry', 'archived-posted-only', 'archived-future-only', 'archived-future-expiry', 'archived-late-posting'])(
+    'does not emit JobPosting for contradictory or missing archive evidence: %s', (slug) => {
       for (const locale of locales) {
         const document = htmlDoc(`${hubPath(locale, 'TI')}${slug}/`);
         const entries = structured(document);

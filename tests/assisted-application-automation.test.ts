@@ -23,7 +23,8 @@ const {
   startAutomation,
 } = await import('../functions/src/assistedApplicationAutomation.js');
 const { CANDIDATE_REMINDER_BEFORE_MS, CANDIDATE_REVIEW_MS, PORTAL_AUTO_RETRY_DELAYS_MS } = await import('../functions/src/assistedApplicationFlow.js');
-const { autoRetryDelaysForFlow } = await import('../functions/src/assistedApplicationPortalRetryPolicy.js');
+const { autoRetryDelaysForFlow, portalAutoRetryAttemptsRemaining, portalRetryDueAt } = await import('../functions/src/assistedApplicationPortalRetryPolicy.js');
+const { draftRetryDueAt } = await import('../functions/src/assistedApplicationDraftRetryPolicy.js');
 const { candidateQuestionAnswerKey } = await import('../functions/src/assistedApplicationCandidateEdits.js');
 const { saveAnswersWithCv } = await import('../functions/src/assistedApplicationCvCommit.js');
 const { answerConfirmationSnapshotsFor } = await import('../functions/src/assistedApplicationAnswerEvidence.js');
@@ -148,6 +149,49 @@ describe('starting the flow', () => {
 
     // A second verified CV write never restarts a live flow.
     expect(await startAutomation({ db: store.db, orderId: ORDER, runEffect, nowMs: T0 + 1 })).toMatchObject({ skipped: 'already_started_or_ineligible' });
+  });
+
+  it('reopens a withdrawn flow only after an explicit owner CV-replacement marker', async () => {
+    const oldKey = CV_KEY;
+    const newKey = `assisted-application-uploads/${ORDER}/reopen-eliana-cv-20261105.pdf`;
+    const before = paidOrder({
+      cvStorageKey: oldKey,
+      cvFileCheck: { key: oldKey, verdict: 'ok', detectedType: 'pdf' },
+      submissionStatus: 'withdrawn',
+      automationState: 'withdrawn',
+      withdrawnAt: T0 - 1,
+    });
+    const after = {
+      ...before,
+      cvStorageKey: newKey,
+      cvFileCheck: { key: newKey, verdict: 'ok', detectedType: 'pdf' },
+      submissionStatus: 'in_progress',
+      automationState: undefined,
+      reopenAfterWithdrawal: { status: 'pending', requestId: 'eliana-cv-20261105', cvSha256: 'sha256' },
+    };
+    store = createMemoryFirestore({
+      [ORDER_PATH]: after,
+      [`${ORDER_PATH}/automation/flow`]: {
+        state: 'withdrawn', round: 2, heldBy: [], feedback: [{ round: 2, text: 'old feedback' }],
+        history: [{ at: T0 - 1, event: 'candidate_withdraw', state: 'withdrawn' }],
+      },
+    });
+    rc.values.ASSISTED_APPLICATION_AUTOMATION = 'true';
+
+    const result = await maybeStartAutomation(before, after, ORDER, { db: store.db, runEffect, nowMs: T0 });
+
+    expect(result).toMatchObject({ started: true });
+    expect(store.read(`${ORDER_PATH}/automation/flow`)).toMatchObject({
+      state: 'drafting', round: 3, feedback: [], dispatch: { mode: 'draft', round: 3, reason: 'owner_reopen_after_withdrawal' },
+    });
+    expect(store.list(`${ORDER_PATH}/events/`).map((path) => store.read(path))).toEqual(
+      expect.arrayContaining([expect.objectContaining({ eventType: 'start:owner_reopen_after_withdrawal', round: 3 })]),
+    );
+    expect(store.read(ORDER_PATH)).toMatchObject({
+      automationState: 'drafting',
+      reopenAfterWithdrawal: { status: 'started', requestId: 'eliana-cv-20261105' },
+    });
+    expect(effects).toEqual([{ type: 'dispatch', mode: 'draft', reason: 'owner_reopen_after_withdrawal' }]);
   });
 
   it('automates only the orders the flag names during the trial run', async () => {
@@ -967,6 +1011,40 @@ describe('sweep', () => {
     expect(effects).toEqual([{ type: 'dispatch', mode: 'submit', reason: 'portal_auto_retry' }]);
   });
 
+  it('automatically re-dispatches one missing draft after a failed regeneration', async () => {
+    store = createMemoryFirestore({
+      [ORDER_PATH]: { ...paidOrder(), automationState: 'owner_takeover', automationDueAt: T0 },
+      [`${ORDER_PATH}/automation/flow`]: {
+        state: 'owner_takeover', round: 2, heldBy: ['draft_failed'], draftAutoRetryCount: 0,
+        draftAutoRetryAt: T0, dispatch: { mode: 'draft', round: 2, attempts: 1 },
+      },
+      [`${ORDER_PATH}/ai_drafts/current`]: { status: 'ready', round: 1 },
+      [`${ORDER_PATH}/automation/submission`]: { r1: { state: 'failed', channel: 'portal', confirmedNotSent: true } },
+    });
+    effects = [];
+
+    expect(await runAutomationSweep({ db: store.db, runEffect, nowMs: T0 })).toMatchObject({ redispatched: 1 });
+    expect(store.read(`${ORDER_PATH}/automation/flow`)).toMatchObject({
+      state: 'regenerating', round: 2, draftAutoRetryCount: 1, draftAutoRetryAt: null,
+      dispatch: { mode: 'draft', round: 2, reason: 'draft_auto_retry' },
+    });
+    expect(effects).toEqual([{ type: 'dispatch', mode: 'draft', reason: 'draft_auto_retry' }]);
+  });
+
+  it('does not expose a scheduler due time after the portal retry budget is exhausted', () => {
+    expect(computeDueAt({ state: 'owner_takeover', heldBy: ['portal:portal_needs_candidate'],
+      portalAutoRetryAt: T0, portalAutoRetryCount: PORTAL_AUTO_RETRY_DELAYS_MS.length })).toBeNull();
+  });
+
+  it('fails closed for malformed persisted portal retry counts', () => {
+    for (const portalAutoRetryCount of ['   ', true, [], ['1']]) {
+      const flow = { state: 'owner_takeover', heldBy: ['portal:portal_needs_candidate'], portalAutoRetryAt: T0, portalAutoRetryCount };
+      expect(portalAutoRetryAttemptsRemaining(flow)).toBe(false);
+      expect(portalRetryDueAt(flow)).toBeNull();
+      expect(computeDueAt(flow)).toBeNull();
+    }
+  });
+
   it('does not schedule legacy CAPTCHA provider failures for another automatic submit', async () => {
     await startAutomation({ db: store.db, orderId: ORDER, runEffect, nowMs: T0 });
     await store.db.collection('assisted_applications').doc(ORDER).collection('ai_drafts').doc('current').set(readyDraft());
@@ -1066,6 +1144,9 @@ describe('sweep', () => {
     expect(computeDueAt({ state: 'owner_takeover', heldBy: ['portal:captcha_provider_unavailable'], portalAutoRetryAt: T0 + 1_000 })).toBeNull();
     expect(computeDueAt({ state: 'owner_takeover', heldBy: ['portal:captcha_provider_unavailable'], portalAutoRetryAt: Infinity })).toBeNull();
     expect(computeDueAt({ state: 'owner_takeover', heldBy: ['portal:captcha'], portalAutoRetryAt: T0 + 1_000 })).toBeNull();
+    expect(draftRetryDueAt({ state: 'owner_takeover', heldBy: ['draft_failed'], draftAutoRetryCount: 0, draftAutoRetryAt: T0 + 1_000 })).toBe(T0 + 1_000);
+    expect(computeDueAt({ state: 'owner_takeover', heldBy: ['draft_failed'], draftAutoRetryCount: 0, draftAutoRetryAt: T0 + 1_000 })).toBe(T0 + 1_000);
+    expect(computeDueAt({ state: 'owner_takeover', heldBy: ['draft_failed'], draftAutoRetryCount: 1, draftAutoRetryAt: T0 + 1_000 })).toBeNull();
   });
 });
 

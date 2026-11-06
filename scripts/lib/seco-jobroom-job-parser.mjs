@@ -51,6 +51,7 @@ import { identicalAdvertisementKey } from './identical-posting-dedupe.mjs';
 import { absoluteJobUrl } from './job-url-host.mjs';
 import { isKnownAggregatorDomain } from './known-aggregator-domains.mjs';
 import { companyLogoKeyFromEmployer } from './company-logo-key.mjs';
+import { isHttpsUrl } from './https-url.mjs';
 import { normalizeCompanyName } from './prospector/coverage.mjs';
 import { registrableDomain } from './prospector/registrable.mjs';
 import { fetchSecoAdSnapshot } from './prospector/sources/seco-jobroom.mjs';
@@ -329,6 +330,7 @@ export function classifyAdvertisement(row, now) {
   const validThroughField = validThrough ? { validThrough } : {};
   const companyLogoKey = companyLogoKeyFromEmployer(employer.name);
   const companyDomain = verifiedEmployerDomain(jobContent);
+  const applicationUrl = urls.find((candidate) => isHttpsUrl(candidate) && !isKnownAggregatorDomain(candidate)) || url;
 
   return {
     candidate: {
@@ -356,7 +358,7 @@ export function classifyAdvertisement(row, now) {
         url,
         // A job board's page is not the employer's channel: the visitor stays
         // on the public register, which shows every channel of the ad.
-        applyUrl: urls.find((candidate) => !isKnownAggregatorDomain(candidate)) || url,
+        applyUrl: applicationUrl,
         source: SECO_JOBROOM_COMPANY_NAME,
         sourceLang: language,
         crawledAt: now.toISOString(),

@@ -1,0 +1,25 @@
+{
+  "companyKey": "allthingshrllc",
+  "companyName": "All Things HR, LLC",
+  "companyHost": "allthingshrllc.applytojob.com",
+  "platform": "applytojob.com",
+  "mode": "known-template",
+  "seedUrls": [
+    "https://allthingshrllc.applytojob.com/apply"
+  ],
+  "detailTemplate": "/apply/*/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": false,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 6,
+  "sampleTitles": [
+    "Accounts Payable Assistant",
+    "Administrative Assistant to the Regional Manager",
+    "Operations Assistant",
+    "Project Coordinator & Accounting Technician",
+    "Property Manager"
+  ],
+  "sourceLang": "en",
+  "learnedAt": "2026-11-05T13:42:08.397Z",
+  "candidateKey": "allthingshrllc@applytojob.com"
+}

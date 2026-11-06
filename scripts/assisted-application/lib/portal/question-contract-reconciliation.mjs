@@ -125,7 +125,11 @@ export function revalidatedPortalQuestions(context, proof, nowMs, { previouslyRe
       || (field.required === false && field.explicitlyOptional !== true)) return question;
     // Reuse the normal reduction's type, catalogue and mapping rules. The real
     // required flag is restored below; this clone only reads an optional control.
-    const result = portalRequirementsFromMissingRequired([{ ...field, required: true }], [{ ...question, fieldId: field.id }]);
+    const candidate = candidateWithEdits({ order, draft, flow: recoveryFlow, locale: order?.locale });
+    const result = portalRequirementsFromMissingRequired([{ ...field, required: true }], [{ ...question, fieldId: field.id }], {
+      candidate,
+      candidateLocale: order?.locale || 'it',
+    });
     if (result.unreadableFields?.length || result.questions.length !== 1 || result.documents.length) return question;
     const contract = result.questions[0];
     const next = {

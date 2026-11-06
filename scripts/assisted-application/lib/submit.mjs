@@ -26,7 +26,7 @@ import {
 import { rebuildLetterPdf } from '../../../functions/src/assistedApplicationLetterPdf.js';
 import { cvToSend } from '../../../functions/src/assistedApplicationDocxInPlace.js';
 import { candidateQuestionAnswerKey, candidateWithEdits, factSourcesNow, formAnswersWithEdits, questionsForCandidate, requiredPortalConsentAffirmed } from '../../../functions/src/assistedApplicationCandidateEdits.js';
-import { classifyApplicationChannel, isPlausibleEmail, resolveApplyUrl } from '../../../functions/src/assistedApplicationAiJob.js';
+import { classifyApplicationChannel, isPlausibleEmail, refreshApplicationChannel, resolveApplyUrl } from '../../../functions/src/assistedApplicationAiJob.js';
 import { extraDocumentFileName, extraDocumentsToSend, openRequiredDocuments } from '../../../functions/src/assistedApplicationExtraDocuments.js';
 import { ASSISTED_EMAIL_PROVIDERS, EMPLOYER_MAIL_FROM, replyThreadMessageId, senderName, textToHtml } from '../../../functions/src/assistedApplicationEmployerMail.js';
 import { operationalEmailBody, withOperationalQuestionAnswers } from '../../../functions/src/assistedApplicationOperationalAnswers.js';
@@ -35,12 +35,13 @@ import { emailInfrastructureFailure, navigationInfrastructureFailure } from '../
 import { mkdtemp, rm, writeFile } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import path from 'node:path';
-import { autoAnswersForPortalQuestions, candidateForForm, portalQuestionKey, submitViaPortal, WAVE1_CHANNELS } from './portal/portal.mjs';
+import { autoAnswersForPortalQuestions, candidateForForm, portalQuestionKey, postingAddressForPortal, submitViaPortal, WAVE1_CHANNELS } from './portal/portal.mjs';
 import { addressAnswerNeedsOwnership } from './portal/plan.mjs';
 import { checkPostingLiveness } from './posting-liveness.mjs';
 import { resolvePostingAddressOf, resolvePublishedPostingAddressOf } from './liveness.mjs';
 import { storeEvidence } from './secure-run.mjs';
 import { portalPassFrom } from './portal/stop-report.mjs';
+import { compactApplicationContract } from './portal/application-contract.mjs';
 import { adPackaging, dossierMode, draftCandidateType, packageAttachments } from './dossier.mjs';
 
 const OWNER_MAILBOX = EMPLOYER_MAIL_FROM;
@@ -226,7 +227,10 @@ export function portalUploads(evidence) {
 }
 
 export async function submitApplication(ctx) {
-  const { order, orderId, flow, draft, bucket, runKey, sendCascade } = ctx;
+  const { order, orderId, flow, bucket, runKey, sendCascade } = ctx;
+  let { draft } = ctx;
+  const fetchImpl = ctx.fetchImpl || fetch;
+  draft = await refreshApplicationChannel(draft, order, { fetchImpl, resolve: ctx.resolve });
   const { cvBuffer, cvType, cvSent, cvKey } = await chooseCv({ draft, flow, bucket, cvBuffer: ctx.cvBuffer, cvType: ctx.cvType, cvKey: order?.cvStorageKey || null });
   const nowMs = ctx.nowMs || Date.now();
   // Resolve facts that the CV already states before the generic required-question gate.
@@ -276,7 +280,6 @@ export async function submitApplication(ctx) {
     }
   };
 
-  const fetchImpl = ctx.fetchImpl || fetch;
   const publishedPostingUrl = await resolvePublishedPostingAddressOf(draft, order, { fetchImpl, resolve: ctx.resolve });
   const postingUrl = await resolvePostingAddressOf(draft, order, { fetchImpl, resolve: ctx.resolve, publishedPostingUrl });
   const liveness = await checkPostingLiveness({
@@ -424,28 +427,43 @@ export async function submitApplication(ctx) {
       await keepAttempt(null);
       return { type: 'submit_failed', error: 'answer_source_changed' };
     }
-    const { failed, sent } = await sendCascade(
+    const { failed = [], sent = [], ambiguous: unidentifiable = [] } = await sendCascade(
       [{ payload, recipient: { email: to }, meta: { orderId: String(orderId), key: 'employer_application' } }],
       { delayMs: 0, forceProvider: ASSISTED_EMAIL_PROVIDERS },
     );
-    if (failed.length) {
+    const provider = String(sent[0]?.provider || '').trim();
+    const providerMessageId = String(sent[0]?.messageId || '').trim();
+    // A provider can accept a message but omit its durable identifier. That
+    // is an unknown outcome, not a failed send: keep the guard locked so the
+    // next run cannot submit the application twice. The same applies to a
+    // transport error after the provider may already have accepted it.
+    const ambiguous = Boolean(
+      unidentifiable.length
+      || failed[0]?.ambiguousDelivery
+      || (sent.length > 0 && (!provider || !providerMessageId))
+      || (sent.length === 0 && failed.length === 0),
+    );
+    if (failed.length || ambiguous) {
       // An ambiguous delivery must never be retried blindly (career-ops: a
       // submit of unknown outcome is not re-submitted): the guard stays
       // "sending", so a later run reports it ambiguous too.
-      const ambiguous = Boolean(failed[0].ambiguousDelivery);
       if (guard && !ambiguous) await guard.release('email_failed', nowMs);
       // Failed for certain: nothing left, the attempt is no record. An ambiguous one keeps it.
       if (!ambiguous) await keepAttempt(null);
-      await storeEvidence({ bucket, orderId, name: 'submit-email-failed', payload: { to, subject: payload.subject, error: String(failed[0].error || '').slice(0, 200), ambiguous, sent: sentRecord }, key: runKey, nowMs });
-      return { type: 'submit_failed', error: ambiguous ? 'email_ambiguous' : emailInfrastructureFailure(failed[0]) ? 'email_provider_unavailable' : 'email_failed' };
+      const failure = failed[0] || {};
+      await storeEvidence({ bucket, orderId, name: 'submit-email-failed', payload: { to, subject: payload.subject, error: String(failure.error || (ambiguous ? 'provider_acceptance_unidentifiable' : '')).slice(0, 200), ambiguous, sent: sentRecord }, key: runKey, nowMs });
+      return { type: 'submit_failed', error: ambiguous ? 'email_ambiguous' : emailInfrastructureFailure(failure) ? 'email_provider_unavailable' : 'email_failed' };
     }
     const threadMessageId = replyThreadMessageId(sent[0], messageId);
     let receiptId = null;
     if (guard) {
-      const provider = String(sent[0]?.provider || '');
-      const receipt = await guard.markSent({ channel: 'email', to, subject: payload.subject, messageId: threadMessageId, provider: provider || null, sent: sentRecord }, nowMs, {
+      const receipt = await guard.markSent({ channel: 'email', to, subject: payload.subject, messageId: threadMessageId, provider, providerMessageId, sent: sentRecord }, nowMs, {
         kind: 'email_provider_accepted', observedAt: nowMs,
-        evidence: { provider, messageId: threadMessageId },
+        // Maileroo's reference_id proves provider acceptance but is not the
+        // RFC Message-ID used for reply threading. Keep the two contracts
+        // separate: follow-ups may have no In-Reply-To, while the receipt
+        // still has a durable provider reference.
+        evidence: { provider, messageId: providerMessageId },
       });
       receiptId = receipt?.receiptId || null;
     }
@@ -477,6 +495,9 @@ export async function submitApplication(ctx) {
   // or anything it must not bypass ends in the career-ops handoff below.
   let applyUrl = channel.applyUrl || draft.job?.applyUrl || postingUrl || '';
   let channelType = channel.type;
+  let postingRouteProof = channel.via === 'successfactors'
+    ? { via: 'successfactors', applyUrl: channel.applyUrl, postingUrl: channel.postingUrl || draft.job?.postingUrl || '' }
+    : null;
   const currentPostingRoute = publishedPostingUrl || channel.postingUrl || '';
   // Older employer-site drafts, and SuccessFactors routes synthesized from
   // page configuration, can keep an ATS URL that no longer opens this job.
@@ -491,14 +512,26 @@ export async function submitApplication(ctx) {
     if (directChannel !== 'employer_site' && WAVE1_CHANNELS.has(directChannel)) {
       applyUrl = routeUrl;
       channelType = directChannel;
+      postingRouteProof = null;
     } else {
       const target = await resolveApplyUrl(routeUrl, { fetchImpl, resolve: ctx.resolve });
       applyUrl = target.applyUrl || routeUrl;
+      postingRouteProof = target.via === 'successfactors'
+        ? { via: 'successfactors', applyUrl, postingUrl: routeUrl }
+        : null;
       if (target.via || channel.type !== 'employer_site') {
         channelType = classifyApplicationChannel({ applyUrl }).type;
       }
     }
   }
+  // Liveness can resolve a legacy Umantis address to the site's published
+  // canonical URL. Portal matching still needs the same-origin ATS vacancy
+  // route, otherwise a generic EOC form cannot be bound to this posting.
+  const portalPostingUrl = postingAddressForPortal({
+    applyUrl,
+    postingUrls: [draft.job?.postingUrl, channel.postingUrl, draft.job?.applyUrl, channel.applyUrl, order.jobUrl],
+    fallback: postingUrl,
+  });
   if (WAVE1_CHANNELS.has(channelType) && applyUrl && ctx.codex) {
     // The same durable guard as the e-mail: a re-dispatched run never submits
     // twice. A run may restart only after a confirmed pre-click failure
@@ -574,7 +607,8 @@ export async function submitApplication(ctx) {
       };
       const { event, evidence } = await (ctx.portalRunner || submitViaPortal)({
         applyUrl,
-        postingUrl,
+        postingUrl: portalPostingUrl,
+        postingRouteProof,
         channelType,
         // The form must be this posting's; Valerie's retry, after she looked at it, goes on.
         // `organization`: the employer as the posting's own data names it (posting-liveness.mjs), next to the order's name for it.
@@ -675,9 +709,10 @@ export async function submitApplication(ctx) {
       // Where the runner stopped, for the fix issue (agent.mjs strikes the candidate's values out first).
       const stopReport = evidence.stopReport ? { stopReport: { ...evidence.stopReport, channel: channelType } } : {};
       const pass = portalPass ? { portalPass } : {};
+      const applicationContract = compactApplicationContract(evidence.portalContract);
       return succeeded
-        ? { ...event, type: 'submit_succeeded', channel: channelType, portalAnswers, sent: sentRecord, ...(receiptId ? { receiptId } : {}), ...pass }
-        : { ...event, portalAnswers, ...stopReport, ...pass };
+        ? { ...event, type: 'submit_succeeded', channel: channelType, portalAnswers, sent: sentRecord, ...(receiptId ? { receiptId } : {}), ...(applicationContract ? { applicationContract } : {}), ...pass }
+        : { ...event, portalAnswers, ...(applicationContract ? { applicationContract } : {}), ...stopReport, ...pass };
     } catch (error) {
       if (receiptPersisted) {
         return {

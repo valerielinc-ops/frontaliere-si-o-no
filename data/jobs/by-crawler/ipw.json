@@ -1,7 +1,7 @@
 {
   "crawlerKey": "ipw",
-  "assembledAt": "2026-11-05T09:27:37.614Z",
-  "runId": "42000243373",
+  "assembledAt": "2026-11-05T21:20:03.413Z",
+  "runId": "42110247883",
   "jobs": [
     {
       "id": "ipw-555c187af2f2",
@@ -34,7 +34,7 @@
       "url": "https://live.solique.ch/ipw/de/jobs/Assistenzärztin---Assistenzarzt--4092062",
       "source": "Integrierte Psychiatrie Winterthur (ipw) Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T09:27:10.706Z",
+      "crawledAt": "2026-11-05T21:19:58.382Z",
       "addressLocality": "Bülach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -86,7 +86,7 @@
       },
       "streetAddress": "Bülach",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T09:27:10.706Z",
+      "validThrough": "2027-02-03T21:19:58.382Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -121,7 +121,7 @@
       "url": "https://live.solique.ch/ipw/de/jobs/Pflegefachfrau---Pflegefachmann-HF-oder-FH--4091620",
       "source": "Integrierte Psychiatrie Winterthur (ipw) Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T09:27:10.068Z",
+      "crawledAt": "2026-11-05T21:19:57.790Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -170,7 +170,7 @@
       },
       "streetAddress": "Winterthur",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-05T09:27:10.068Z",
+      "validThrough": "2026-12-05T21:19:57.790Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -204,7 +204,7 @@
       "url": "https://live.solique.ch/ipw/de/jobs/Ergotherapeutin---Ergotherapeut-FH---HF--4081452",
       "source": "Integrierte Psychiatrie Winterthur (ipw) Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T09:27:09.518Z",
+      "crawledAt": "2026-11-05T21:19:57.137Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -255,7 +255,7 @@
       },
       "streetAddress": "Winterthur",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-05T09:27:09.518Z",
+      "validThrough": "2027-01-05T21:19:57.137Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -289,7 +289,7 @@
       "url": "https://live.solique.ch/ipw/de/jobs/Assistenzärztin---Assistenzarzt--4097171",
       "source": "Integrierte Psychiatrie Winterthur (ipw) Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T09:27:08.978Z",
+      "crawledAt": "2026-11-05T21:19:56.547Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -344,7 +344,7 @@
       },
       "streetAddress": "Winterthur",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-19T09:27:08.978Z",
+      "validThrough": "2026-12-19T21:19:56.547Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -379,7 +379,7 @@
       "url": "https://live.solique.ch/ipw/de/jobs/Dipl.-Pflegefachfrau---Dipl.-Pflegfachmann-HF---FH--4094431",
       "source": "Integrierte Psychiatrie Winterthur (ipw) Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T09:27:08.437Z",
+      "crawledAt": "2026-11-05T21:19:55.950Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -432,16 +432,16 @@
       },
       "streetAddress": "Winterthur",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-29T09:27:08.437Z",
+      "validThrough": "2027-01-28T21:19:55.950Z",
       "validThroughSource": "last-observed-window"
     },
     {
       "id": "ipw-071bf2b2da56",
       "slug": "medico-senior-medico-senior-integrierte-psychiatrie-winterthur-ipw-glattbrugg-688f3e064e",
       "slugByLocale": {
-        "de": "oberarztin-oberarzt-ipw-glattbrugg",
         "it": "medico-senior-medico-senior-integrierte-psychiatrie-winterthur-ipw-glattbrugg-688f3e064e",
         "en": "senior-physician-senior-physician-integrierte-psychiatrie-winterthur-ipw-glattbrugg",
+        "de": "oberarztin-oberarzt-ipw-glattbrugg",
         "fr": "medecin-superieur-medecin-superieur-integrierte-psychiatrie-winterthur-ipw-glattbrugg"
       },
       "company": "Integrierte Psychiatrie Winterthur (ipw)",
@@ -456,18 +456,18 @@
       },
       "description": "Für das Ambulatorium und die Tagesklinik für ältere Menschen am Standort Glattbrugg suchen wir Sie Oberärztin / Oberarzt 80% Glattbrugg Jetzt bewerben Aufgaben\n• Leitung der medizinisch-therapeutischen Behandlung psychisch kranker Menschen, in der Regel im Pensionsalter oder mit für das Alter typischen Erkrankungen\n• Umsetzung fortschrittlicher Behandlungskonzepte sowie aktive Mitgestaltung und Vernetzung des Angebots\n• Teilnahme an der Mobilen Equipe (Behandlung zu Hause) im interprofessionellen Team\n• Konsiliar- und Liaisondienst in Alters- und Pflegezentren\n• Führung der Assistenzärzte\n• Integrative therapeutische Arbeit im interprofessionellen Team und Leistung von ambulantem Hintergrunddienst\n• Führen einer eigenen ambulanten Sprechstunde Profil\n• Abgeschlossener Facharzttitel in Psychiatrie und Psychotherapie oder fortgeschrittene Facharztausbildung, möglichst mit vorhandenem oder angestrebten Schwerpunkttitel „Alterspsychiatrie und -psychotherapie“ und guten somatischen Kenntnissen speziell bezogen auf das Alter\n• Teamfähige, belastbare und reflexionsfähige Persönlichkeit\n• Gute Beziehungs- und Kommunikationsfähigkeit\n• Sehr gute Deutschkenntnisse (Level C1)\n• CH- oder EU-Arztdiplom\n• Führerschein Kategorie B Angebot\n• Interessante, vielseitige Arbeit in einem erfahrenen, engagierten und motivierten Team\n• Gute, breitgefächerte fachliche und betriebliche Weiterbildungsmöglichkeiten und Übernahme von Supervisionskosten\n• Geregelte Arbeitszeiten\n• Möglichkeit zum Lunchcheck-Bezug\n• Zentraler Arbeitsplatz Eintritt Nach Vereinbarung Ihr Kontakt Frau Jeannette Werner, Chefärztin, T +41 52 264 35 37 Frau Dr. med. Ilyoung Choi, Leitende Ärztin, T +41 52 264 39 00 Bewerbung Bitte beachten Sie, dass nur vollständige Bewerbungsunterlagen berücksichtigt werden können. Massgebend sind dabei die unter den Themenschwerpunkten \"Das wünschen wir uns fürs Bewerbungsdossier\" aufgeführten Unterlagen. Die ipw verlangt kein Motivationsschreiben für Ihre Bewerbung. Dossiers von Personalvermittlern werden nicht berücksichtigt. Die ipw behandelt Jugendliche, Erwachsene und ältere Menschen mit unterschiedlichen psychischen Krankheitsbildern. Rund 1000 Mitarbeiterinnen und Mitarbeiter sind in den ambulanten, tagesklinischen und stationären Angeboten der ipw in Winterthur, Bülach, Dielsdorf und Glattbrugg tätig. Wirken Sie mit und bewirken Sie viel. Die ipw entdecken\n• Ihre Arbeitgeberin\n\nPensum: 80%",
       "descriptionByLocale": {
-        "it": "Per l'ambulatorio e la clinica diurna per le persone anziane nella posizione di Glattbrugg stiamo cercando voi Oberarztttin / Oberarzt 80%\n\nCompiti\n• Gestione del trattamento medico-terapeutico delle persone mentalmente ammalate, di solito in età pensionabile o con malattie tipiche della vecchiaia\n• Attuazione di concetti di trattamento avanzati e partecipazione attiva e networking dell'offerta\n• Partecipazione al Mobile Equipe (trattamento a casa) nel team interprofessionale\n• Servizi di consulenza e collegamento nei centri di pensionamento e di assistenza\n• Leadership dei medici assistenti\n• Lavoro terapeutico integrato nel team interprofessionale e le prestazioni del servizio di sfondo ambulatoriale\n• Mantenere il proprio profilo di consultazione ambulatoriale\n• Titolo specialistico completo in psichiatria e psicoterapia o formazione specialistica avanzata, se possibile con il titolo di messa a fuoco esistente o desiderato “Grande psichiatria e psicoterapia” e buona conoscenza somatica specificamente legata all’età\n• Personalità capace, resiliente e riflessiva\n• Buon rapporto e capacità di comunicazione\n• Ottima conoscenza del tedesco (Level C1)\n• CH o diploma del medico dell’UE\n• Offerta di patente di guida categoria B\n• Lavoro interessante e versatile in un team esperto, impegnato e motivato\n• Buone, ampie opportunità di formazione professionale e operativa e l'assunzione di costi di supervisione\n• Ore lavorative regolamentate\n• Opzione di controllo del pranzo\n• Per accordo il suo contatto con la signora Jeannette Werner, medico principale, T +41 52 264 35 37 Ms. Dr. med. Ilyoung Choi, medico capo, T +41 52 264 39 00 Applicazione Si prega di notare che solo i documenti di applicazione completi possono essere considerati. Decisive sono i documenti elencati sotto gli argomenti \"Questo è ciò che vogliamo per il dossier di applicazione\". ipw non richiede una lettera di motivazione per la vostra applicazione. Non sono considerati i dossier degli agenti di reclutamento. L'ipw tratta ora adolescenti, adulti e persone anziane con diverse malattie mentali. Circa 1000 dipendenti lavorano nei servizi clinici e ospedalieri giornalieri di ipw in Winterthur, Bülach, Dielsdorf e Glattbrugg. Fatti coinvolgere e fai la differenza.\n\nPenso: 80 %",
-        "en": "For the ambulatory and the day clinic for elderly people at the Glattbrugg location we are looking for you Oberarztttin / Oberarzt 80%\n\nTasks\n• Management of medical-therapeutic treatment of mentally ill people, usually at retirement age or with diseases typical of old age\n• Implementation of advanced treatment concepts as well as active participation and networking of the offer\n• Participation in the Mobile Equipe (treatment at home) in the interprofessional team\n• Counselling and liaison services in retirement and care centres\n• Leadership of assistant doctors\n• Integrative therapeutic work in the interprofessional team and performance of outpatient background service\n• Maintain your own outpatient consultation profile\n• Completed specialist title in psychiatry and psychotherapy or advanced specialist training, if possible with existing or desired focus title “Age psychiatry and psychotherapy” and good somatic knowledge specifically related to age\n• Team capable, resilient and reflective personality\n• Good relationship and communication skills\n• Very good knowledge of German (Level C1)\n• CH or EU doctor’s diploma\n• Category B driving licence offer\n• Interesting, versatile work in an experienced, committed and motivated team\n• Good, wide-ranging professional and operational training opportunities and assumption of supervision costs\n• Regulated working hours\n• Lunch-check option\n• By arrangement your contact Ms. Jeannette Werner, chief physician, T +41 52 264 35 37 Ms. Dr. med. Ilyoung Choi, Chief Physician, T +41 52 264 39 00 Application Please note that only complete application documents can be considered. Decisive are the documents listed under the topics \"This is what we want for the application dossier\". ipw does not require a letter of motivation for your application. Dossiers of recruitment agents are not considered. The ipw now treats adolescents, adults and older people with different mental illnesses. Around 1000 employees work in the outpatient, daily clinical and inpatient services of ipw in Winterthur, Bülach, Dielsdorf and Glattbrugg. Get involved and make a difference.\n\nPensum: 80 %",
+        "it": "Per l'ambulatorio e la clinica diurna per gli anziani nella posizione Glatttbrugg stiamo cercando voi Oberarzttin / Oberarzt 80% Glattbrugg Ora applicando compiti\n• Gestione del trattamento medico-terapeutico delle persone mentalmente ammalate, di solito in età pensionabile o con malattie tipiche della vecchiaia\n• Attuazione di concetti di trattamento avanzati e partecipazione attiva e networking dell'offerta\n• Partecipazione al Mobile Equipe (trattamento a casa) nel team interprofessionale\n• Servizi di consulenza e collegamento nei centri di pensionamento e di assistenza\n• Leadership dei medici assistenti\n• Lavoro terapeutico integrato nel team interprofessionale e le prestazioni del servizio di sfondo ambulatoriale\n• Mantenere il proprio profilo di consultazione ambulatoriale\n• Titolo specialistico completo in psichiatria e psicoterapia o formazione specialistica avanzata, se possibile con il titolo di messa a fuoco esistente o desiderato “Grande psichiatria e psicoterapia” e buona conoscenza somatica specificamente legata all’età\n• Personalità capace, resiliente e riflessiva\n• Buon rapporto e capacità di comunicazione\n• Ottima conoscenza del tedesco (Level C1)\n• CH o diploma del medico dell’UE\n• Offerta di patente di guida categoria B\n• Lavoro interessante e versatile in un team esperto, impegnato e motivato\n• Buone, ampie opportunità di formazione professionale e operativa e l'assunzione di costi di supervisione\n• Ore lavorative regolamentate\n• Opzione di controllo del pranzo\n• Per accordo il suo contatto con la signora Jeannette Werner, medico principale, T +41 52 264 35 37 Ms. Dr. med. Ilyoung Choi, medico capo, T +41 52 264 39 00 Applicazione Si prega di notare che solo i documenti di applicazione completi possono essere considerati. Decisive sono i documenti elencati sotto gli argomenti \"Questo è ciò che vogliamo per il dossier di applicazione\". ipw non richiede una lettera di motivazione per la vostra applicazione. Non sono considerati i dossier degli agenti di reclutamento. L'ipw tratta adolescenti, adulti e anziani con diverse malattie mentali. Circa 1000 dipendenti lavorano nei servizi clinici e ospedalieri giornalieri di ipw in Winterthur, Bülach, Dielsdorf e Glatttbrugg. Fatti coinvolgere e fai la differenza. Scopri l'IPW\n• Il tuo datore di lavoro\n\nPenso: 80 %",
+        "en": "For the ambulatory and day clinic for elderly people at the Glattbrugg location we are looking for you Oberarzttin / Oberarzt 80% Glattbrugg Now applying tasks\n• Management of medical-therapeutic treatment of mentally ill people, usually at retirement age or with diseases typical of old age\n• Implementation of advanced treatment concepts as well as active participation and networking of the offer\n• Participation in the Mobile Equipe (treatment at home) in the interprofessional team\n• Counselling and liaison services in retirement and care centres\n• Leadership of assistant doctors\n• Integrative therapeutic work in the interprofessional team and performance of outpatient background service\n• Maintain your own outpatient consultation profile\n• Completed specialist title in psychiatry and psychotherapy or advanced specialist training, if possible with existing or desired focus title “Age psychiatry and psychotherapy” and good somatic knowledge specifically related to age\n• Team capable, resilient and reflective personality\n• Good relationship and communication skills\n• Very good knowledge of German (Level C1)\n• CH or EU doctor’s diploma\n• Category B driving licence offer\n• Interesting, versatile work in an experienced, committed and motivated team\n• Good, wide-ranging professional and operational training opportunities and assumption of supervision costs\n• Regulated working hours\n• Lunch-check option\n• By arrangement your contact Ms. Jeannette Werner, chief physician, T +41 52 264 35 37 Ms. Dr. med. Ilyoung Choi, Chief Physician, T +41 52 264 39 00 Application Please note that only complete application documents can be considered. Decisive are the documents listed under the topics \"This is what we want for the application dossier\". ipw does not require a letter of motivation for your application. Dossiers of recruitment agents are not considered. The ipw treats adolescents, adults and older people with different mental illnesses. Around 1000 employees work in the outpatient, daily clinical and inpatient services of ipw in Winterthur, Bülach, Dielsdorf and Glattbrugg. Get involved and make a difference. Discover the IPW\n• Your employer\n\nPensum: 80 %",
         "de": "Für das Ambulatorium und die Tagesklinik für ältere Menschen am Standort Glattbrugg suchen wir Sie Oberärztin / Oberarzt 80% Glattbrugg Jetzt bewerben Aufgaben\n• Leitung der medizinisch-therapeutischen Behandlung psychisch kranker Menschen, in der Regel im Pensionsalter oder mit für das Alter typischen Erkrankungen\n• Umsetzung fortschrittlicher Behandlungskonzepte sowie aktive Mitgestaltung und Vernetzung des Angebots\n• Teilnahme an der Mobilen Equipe (Behandlung zu Hause) im interprofessionellen Team\n• Konsiliar- und Liaisondienst in Alters- und Pflegezentren\n• Führung der Assistenzärzte\n• Integrative therapeutische Arbeit im interprofessionellen Team und Leistung von ambulantem Hintergrunddienst\n• Führen einer eigenen ambulanten Sprechstunde Profil\n• Abgeschlossener Facharzttitel in Psychiatrie und Psychotherapie oder fortgeschrittene Facharztausbildung, möglichst mit vorhandenem oder angestrebten Schwerpunkttitel „Alterspsychiatrie und -psychotherapie“ und guten somatischen Kenntnissen speziell bezogen auf das Alter\n• Teamfähige, belastbare und reflexionsfähige Persönlichkeit\n• Gute Beziehungs- und Kommunikationsfähigkeit\n• Sehr gute Deutschkenntnisse (Level C1)\n• CH- oder EU-Arztdiplom\n• Führerschein Kategorie B Angebot\n• Interessante, vielseitige Arbeit in einem erfahrenen, engagierten und motivierten Team\n• Gute, breitgefächerte fachliche und betriebliche Weiterbildungsmöglichkeiten und Übernahme von Supervisionskosten\n• Geregelte Arbeitszeiten\n• Möglichkeit zum Lunchcheck-Bezug\n• Zentraler Arbeitsplatz Eintritt Nach Vereinbarung Ihr Kontakt Frau Jeannette Werner, Chefärztin, T +41 52 264 35 37 Frau Dr. med. Ilyoung Choi, Leitende Ärztin, T +41 52 264 39 00 Bewerbung Bitte beachten Sie, dass nur vollständige Bewerbungsunterlagen berücksichtigt werden können. Massgebend sind dabei die unter den Themenschwerpunkten \"Das wünschen wir uns fürs Bewerbungsdossier\" aufgeführten Unterlagen. Die ipw verlangt kein Motivationsschreiben für Ihre Bewerbung. Dossiers von Personalvermittlern werden nicht berücksichtigt. Die ipw behandelt Jugendliche, Erwachsene und ältere Menschen mit unterschiedlichen psychischen Krankheitsbildern. Rund 1000 Mitarbeiterinnen und Mitarbeiter sind in den ambulanten, tagesklinischen und stationären Angeboten der ipw in Winterthur, Bülach, Dielsdorf und Glattbrugg tätig. Wirken Sie mit und bewirken Sie viel. Die ipw entdecken\n• Ihre Arbeitgeberin\n\nPensum: 80%",
-        "fr": "Pour l'ambulatoire et la clinique de jour pour personnes âgées à l'emplacement Glattbrugg nous sommes à votre recherche Oberarztttin / Oberarzt 80%\n\nTâche\n• Prise en charge du traitement médical-thérapeutique des malades mentaux, généralement à l'âge de la retraite ou avec des maladies typiques de la vieillesse\n• Mise en œuvre de concepts de traitement avancés ainsi que la participation active et la mise en réseau de l'offre\n• Participation à l'équipe mobile (traitement à domicile) dans l'équipe interprofessionnelle\n• Services de conseil et de liaison dans les centres de retraite et de soins\n• Direction des médecins adjoints\n• Travail thérapeutique intégratif au sein de l'équipe interprofessionnelle et performance du service de formation externe\n• Maintenir votre propre profil de consultation externe\n• Achevé le titre de spécialiste en psychiatrie et psychothérapie ou une formation spécialisée avancée, si possible avec le titre de focale existant ou souhaité, l'âge la psychiatrie et la psychothérapie et de bonnes connaissances somatiques spécifiquement liées à l'âge\n• Personnalité capable, résistante et réfléchissante\n• Bonnes relations et compétences en communication\n• Très bonne connaissance de l'allemand (niveau C1)\n• Diplôme de CH ou de médecin de l'UE\n• Offre de permis de conduire de catégorie B\n• Travail intéressant, polyvalent dans une équipe expérimentée, engagée et motivée\n• Bonnes possibilités de formation professionnelle et opérationnelle et prise en charge des coûts de supervision\n• Heures de travail réglementées\n• Option de contrôle du déjeuner\n• Par arrangement, votre contact Mme Jeannette Werner, médecin en chef, T +41 52 264 35 37 Mme Dr. med. Ilyoung Choi, médecin en chef, T +41 52 264 39 00 Demande Veuillez noter que seuls les documents de demande complets peuvent être pris en considération. Ce sont les documents énumérés sous les thèmes « C'est ce que nous voulons pour le dossier de candidature ». ipw ne nécessite pas de lettre de motivation pour votre demande. Les dossiers des agents de recrutement ne sont pas pris en considération. L'ipw traite maintenant les adolescents, les adultes et les personnes âgées souffrant de maladies mentales différentes. Environ 1000 employés travaillent dans les services ambulatoires, cliniques quotidiens et hospitaliers d'ipw à Winterthur, Bülach, Dielsdorf et Glattbrugg. S'impliquer et faire une différence.\n\nPensum: 80 %"
+        "fr": "Pour la clinique ambulatoire et de jour pour les personnes âgées à l'emplacement Glattbrugg nous sommes à votre recherche Oberarzttin / Oberarzt 80% Glattbrugg Maintenant en appliquant les tâches\n• Prise en charge du traitement médical et thérapeutique des malades mentaux, généralement à l'âge de la retraite ou avec des maladies typiques de la vieillesse\n• Mise en œuvre de concepts de traitement avancés ainsi que la participation active et la mise en réseau de l'offre\n• Participation à l'équipe mobile (traitement à domicile) dans l'équipe interprofessionnelle\n• Services de conseil et de liaison dans les centres de retraite et de soins\n• Direction des médecins adjoints\n• Travail thérapeutique intégratif au sein de l'équipe interprofessionnelle et performance du service de formation externe\n• Maintenir votre propre profil de consultation externe\n• Achevé le titre de spécialiste en psychiatrie et psychothérapie ou une formation spécialisée avancée, si possible avec le titre de focale existant ou souhaité, l'âge psychiatrie et psychothérapie et de bonnes connaissances somatiques spécifiquement liées à l'âge\n• Personnalité capable, résistante et réfléchissante\n• Bonnes relations et compétences en communication\n• Très bonne connaissance de l'allemand (niveau C1)\n• Diplôme de CH ou de médecin de l'UE\n• Offre de permis de conduire de catégorie B\n• Travail intéressant, polyvalent dans une équipe expérimentée, engagée et motivée\n• Bonnes possibilités de formation professionnelle et opérationnelle et prise en charge des coûts de supervision\n• Heures de travail réglementées\n• Option de contrôle du déjeuner\n• Par arrangement, votre contact Mme Jeannette Werner, médecin en chef, T +41 52 264 35 37 Mme Dr. med. Ilyoung Choi, médecin en chef, T +41 52 264 39 00 Demande Veuillez noter que seuls les documents de demande complets peuvent être pris en considération. Ce sont les documents énumérés sous les thèmes « C'est ce que nous voulons pour le dossier de candidature ». ipw ne nécessite pas de lettre de motivation pour votre demande. Les dossiers des agents de recrutement ne sont pas pris en considération. L'ipw traite les adolescents, les adultes et les personnes âgées souffrant de maladies mentales différentes. Environ 1000 employés travaillent dans les services ambulatoires, cliniques quotidiens et hospitaliers d'ipw à Winterthur, Bülach, Dielsdorf et Glattbrugg. S'impliquer et faire une différence. Découvrez l'IPW\n• Votre employeur\n\nPensum: 80 %"
       },
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "location": "Glattbrugg",
       "canton": "ZH",
       "url": "https://live.solique.ch/ipw/de/jobs/Oberärztin---Oberarzt--4089564",
       "source": "Integrierte Psychiatrie Winterthur (ipw) Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T09:27:07.897Z",
+      "crawledAt": "2026-11-05T21:19:55.355Z",
       "addressLocality": "Glattbrugg",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -490,16 +490,17 @@
       "pensumMin": 80,
       "pensumMax": 80,
       "pensum": "80%",
+      "previousSlugs": [
+        "oberarztin-oberarzt-ipw-glattbrugg",
+        "medico-senior-medico-senior-integrierte-psychiatrie-winterthur-ipw-glattbrugg"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "oberarztin-oberarzt-ipw-glattbrugg",
           "medico-senior-medico-senior-integrierte-psychiatrie-winterthur-ipw-glattbrugg"
         ]
       },
-      "previousSlugs": [
-        "oberarztin-oberarzt-ipw-glattbrugg",
-        "medico-senior-medico-senior-integrierte-psychiatrie-winterthur-ipw-glattbrugg"
-      ],
+      "firstSeenAt": "2026-09-01T23:14:18.629Z",
       "salaryMin": 124000,
       "salaryMax": 173000,
       "salarySource": "estimated",
@@ -515,9 +516,8 @@
       },
       "streetAddress": "Glattbrugg",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-05T09:27:07.897Z",
-      "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-09-01T23:14:18.629Z"
+      "validThrough": "2026-12-05T21:19:55.355Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ipw-5876da8fbeae",
@@ -551,7 +551,7 @@
       "url": "https://live.solique.ch/ipw/de/jobs/Praktikantin---Praktikant-HMS--4088077",
       "source": "Integrierte Psychiatrie Winterthur (ipw) Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T09:27:07.301Z",
+      "crawledAt": "2026-11-05T21:19:54.747Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -604,7 +604,7 @@
       },
       "streetAddress": "Winterthur",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-19T09:27:07.301Z",
+      "validThrough": "2026-12-19T21:19:54.747Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -638,7 +638,7 @@
       "url": "https://live.solique.ch/ipw/de/jobs/Praktikantin---Praktikant-Kindertagesstätte--4096355",
       "source": "Integrierte Psychiatrie Winterthur (ipw) Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T09:27:06.760Z",
+      "crawledAt": "2026-11-05T21:19:54.153Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -691,7 +691,7 @@
       },
       "streetAddress": "Winterthur",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-02T09:27:06.760Z",
+      "validThrough": "2027-02-02T21:19:54.153Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -725,7 +725,7 @@
       "url": "https://live.solique.ch/ipw/de/jobs/Assistenzärztin---Assistenzarzt-Home-Treatment--4088037",
       "source": "Integrierte Psychiatrie Winterthur (ipw) Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T09:27:06.219Z",
+      "crawledAt": "2026-11-05T21:19:53.550Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -772,7 +772,7 @@
       },
       "streetAddress": "Winterthur",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-05T09:27:06.219Z",
+      "validThrough": "2026-12-05T21:19:53.550Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -807,7 +807,7 @@
       "url": "https://live.solique.ch/ipw/de/jobs/Dipl.-Pflegefachfrau---Dipl.-Pflegefachmann-für-die-zentrale-Berufsbildung--4090121",
       "source": "Integrierte Psychiatrie Winterthur (ipw) Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T09:27:05.620Z",
+      "crawledAt": "2026-11-05T21:19:52.891Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -862,7 +862,7 @@
       },
       "streetAddress": "Winterthur",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-20T09:27:05.620Z",
+      "validThrough": "2027-01-20T21:19:52.891Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -897,7 +897,7 @@
       "url": "https://live.solique.ch/ipw/de/jobs/Dipl.-Pflegefachfrau---Pflegefachmann-\r\nHF-oder-FH--4089515",
       "source": "Integrierte Psychiatrie Winterthur (ipw) Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T09:27:05.066Z",
+      "crawledAt": "2026-11-05T21:19:52.299Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -944,16 +944,16 @@
       },
       "streetAddress": "Winterthur",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-05T09:27:05.066Z",
+      "validThrough": "2026-12-05T21:19:52.299Z",
       "validThroughSource": "last-observed-window"
     },
     {
       "id": "ipw-ce2bbf5d0575",
       "slug": "psicologo-senior-psicologo-senior-integrierte-psychiatrie-winterthur-ipw-winterthur-953dced7a7",
       "slugByLocale": {
-        "de": "oberpsychologin-oberpsychologe-ipw-winterthur",
         "it": "psicologo-senior-psicologo-senior-integrierte-psychiatrie-winterthur-ipw-winterthur-953dced7a7",
         "en": "senior-psychologist-senior-psychologist-integrierte-psychiatrie-winterthur-ipw-winterthur",
+        "de": "oberpsychologin-oberpsychologe-ipw-winterthur",
         "fr": "psychologue-senior-psychologue-senior-integrierte-psychiatrie-winterthur-ipw-winterthur"
       },
       "company": "Integrierte Psychiatrie Winterthur (ipw)",
@@ -979,7 +979,7 @@
       "url": "https://live.solique.ch/ipw/de/jobs/Oberpsychologin---Oberpsychologe--4089311",
       "source": "Integrierte Psychiatrie Winterthur (ipw) Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T09:27:04.484Z",
+      "crawledAt": "2026-11-05T21:19:51.702Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1002,16 +1002,17 @@
       "pensumMin": 80,
       "pensumMax": 100,
       "pensum": "80 - 100%",
+      "previousSlugs": [
+        "oberpsychologin-oberpsychologe-ipw-winterthur",
+        "psicologo-senior-psicologo-senior-integrierte-psychiatrie-winterthur-ipw-winterthur"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "oberpsychologin-oberpsychologe-ipw-winterthur",
           "psicologo-senior-psicologo-senior-integrierte-psychiatrie-winterthur-ipw-winterthur"
         ]
       },
-      "previousSlugs": [
-        "oberpsychologin-oberpsychologe-ipw-winterthur",
-        "psicologo-senior-psicologo-senior-integrierte-psychiatrie-winterthur-ipw-winterthur"
-      ],
+      "firstSeenAt": "2026-09-05T22:50:52.903Z",
       "salaryMin": 124000,
       "salaryMax": 173000,
       "salarySource": "estimated",
@@ -1027,9 +1028,8 @@
       },
       "streetAddress": "Winterthur",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-05T09:27:04.484Z",
-      "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-09-05T22:50:52.903Z"
+      "validThrough": "2026-12-05T21:19:51.702Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ipw-f845d5ea268c",
@@ -1063,7 +1063,7 @@
       "url": "https://live.solique.ch/ipw/de/jobs/Lernende-Fachfrau-Hotellerie--Hauswirtschaft---Lernender-Fachmann-Hotellerie----Hauswirtschaft--4089463",
       "source": "Integrierte Psychiatrie Winterthur (ipw) Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T09:27:03.833Z",
+      "crawledAt": "2026-11-05T21:19:51.108Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1112,7 +1112,7 @@
       },
       "streetAddress": "Winterthur",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-05T09:27:03.833Z",
+      "validThrough": "2026-12-05T21:19:51.108Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1146,7 +1146,7 @@
       "url": "https://live.solique.ch/ipw/de/jobs/Oberneuropsychologin---Oberneuropsychologe--4081494",
       "source": "Integrierte Psychiatrie Winterthur (ipw) Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T09:27:02.726Z",
+      "crawledAt": "2026-11-05T21:19:49.923Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1203,7 +1203,7 @@
       },
       "streetAddress": "Winterthur",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-06T09:27:02.726Z",
+      "validThrough": "2027-01-06T21:19:49.923Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1237,7 +1237,7 @@
       "url": "https://live.solique.ch/ipw/de/jobs/Assistenzärztin---Assistenzarzt--4088252",
       "source": "Integrierte Psychiatrie Winterthur (ipw) Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T09:27:02.187Z",
+      "crawledAt": "2026-11-05T21:19:49.329Z",
       "addressLocality": "Glattbrugg",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1290,7 +1290,7 @@
       },
       "streetAddress": "Glattbrugg",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-19T09:27:02.187Z",
+      "validThrough": "2026-12-19T21:19:49.329Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1324,7 +1324,7 @@
       "url": "https://live.solique.ch/ipw/de/jobs/Physiotherapeutin---Physiotherapeut-FH--4081603",
       "source": "Integrierte Psychiatrie Winterthur (ipw) Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T09:27:01.486Z",
+      "crawledAt": "2026-11-05T21:19:48.704Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1375,7 +1375,7 @@
       },
       "streetAddress": "Winterthur",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-06T09:27:01.486Z",
+      "validThrough": "2027-01-06T21:19:48.704Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1410,7 +1410,7 @@
       "url": "https://live.solique.ch/ipw/de/jobs/Dipl.-Pflegefachfrau---Pflegefachmann-FH-HF-oder-Sozialpädagogin---Sozialpädagoge--4084879",
       "source": "Integrierte Psychiatrie Winterthur (ipw) Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T09:27:00.823Z",
+      "crawledAt": "2026-11-05T21:19:48.111Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1465,7 +1465,7 @@
       },
       "streetAddress": "Winterthur",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-12T09:27:00.823Z",
+      "validThrough": "2027-01-11T21:19:48.111Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1500,7 +1500,7 @@
       "url": "https://live.solique.ch/ipw/de/jobs/Pflegefachfrau---Pflegefachmann-HF--4081803",
       "source": "Integrierte Psychiatrie Winterthur (ipw) Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T09:27:00.197Z",
+      "crawledAt": "2026-11-05T21:19:47.514Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1549,7 +1549,7 @@
       },
       "streetAddress": "Winterthur",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-06T09:27:00.197Z",
+      "validThrough": "2027-01-06T21:19:47.514Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1635,7 +1635,7 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-04T21:32:37.683Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "ipw-087a85d59d9f",
@@ -1718,7 +1718,7 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-04T21:32:35.537Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "ipw-42600a1d9c87",
@@ -1802,7 +1802,7 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-05T21:32:32.694Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "ipw-4ca200282854",
@@ -1899,7 +1899,7 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T21:32:31.618Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "ipw-3ef744743543",
@@ -1981,7 +1981,7 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-04T21:32:29.226Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     }
   ]
 }

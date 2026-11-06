@@ -6,6 +6,7 @@ on:
       - main
     paths:
       - 'functions/**'
+      - 'scripts/assisted-application/reconcile-draft-failures.mjs'
       - 'firestore.indexes.json'
   workflow_dispatch:
 
@@ -141,6 +142,16 @@ jobs:
         run: |
           if [ -f scripts/reconcile-assisted-application-transport-holds.mjs ]; then
             timeout 180s node scripts/reconcile-assisted-application-transport-holds.mjs --apply
+          fi
+
+      - name: Queue one safe recovery for failed draft runs
+        # A failed regeneration has no send authority. Queue at most one new
+        # draft run through the normal five-minute clock; review and submit
+        # remain separate state-machine transitions.
+        if: ${{ steps.application_recovery.outputs.apply == 'true' }}
+        run: |
+          if [ -f scripts/assisted-application/reconcile-draft-failures.mjs ]; then
+            timeout 180s node scripts/assisted-application/reconcile-draft-failures.mjs --apply
           fi
 
       - name: Reconcile resolved operational preferences

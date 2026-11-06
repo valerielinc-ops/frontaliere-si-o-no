@@ -40,6 +40,7 @@ import {
   nationalityCodes,
   nationalityOf,
   permitOptionCode,
+  permitStatusFromCandidate,
   permitStatusOf,
 } from '../../../../functions/src/lib/permitStatus.js';
 import { addressQuestionAnswer, residenceCountryCode } from './residence-address.mjs';
@@ -84,7 +85,7 @@ ${candidateRules(candidateLocale)}`;
 export function candidateRules(candidateLocale) {
   return `- Use ONLY the candidate data given. Never invent facts, numbers, dates, employers, degrees or answers. Before marking a required field missing or asking the candidate, check all identity, profile and previous-answer data for the same fact under equivalent wording; reuse a supported answer instead of asking them to repeat CV information. Ask only when the required fact is genuinely absent or ambiguous.
 - Work permit, visa, nationality, date of birth, salary expectation, start date, availability, relocation, criminal record, disability, gender, ethnicity or any other legal or demographic question: answer only when the candidate data states it (answers or profile). Otherwise, for a demographic question (gender, ethnicity, disability) choose the "prefer not to say / keine Angabe" option when one exists; failing that, when the field is required, put it in missingRequired; when optional, skip it.
-- Swiss work permit, work authorisation, residence status, visa or sponsorship: swissStatus.statement is the candidate's own statement of their Swiss status today (null: the candidate did not choose one; then only what profile.workPermit states). Choose the option, or write the value, that says exactly that status, never one that says more (a permit pending, to be requested or not needed); never answer whether the candidate needs a permit, a visa or sponsorship, and never infer a status from the nationality, the address or the place of birth. When no option says it, the field is missing (required) or skipped (optional).
+- Swiss work permit, work authorisation, residence status, visa or sponsorship: use only a candidate-confirmed current status in swissStatus.statement, answers.work_permit or profile.permitStatus. profile.workPermit is CV wording, not confirmation of what the candidate holds today. When no confirmed status is available, put the question in missingRequired if required or skip it if optional. Choose the option, or write the value, that says exactly that status, never one that says more (a permit pending, to be requested or not needed); never answer whether the candidate needs a permit, a visa or sponsorship, and never infer a status from the nationality, the address or the place of birth. When no option says it, the field is missing (required) or skipped (optional).
 - Nationality or citizenship: only profile.nationality, choosing the option that names the same country (italiana = Italien = Italy); never from the address, the languages or the place of birth.
 - Age-threshold questions (for example, "under 26" / "meno di 26 anni"): derive the yes/no answer only from an explicit profile.dateOfBirth, calculated against today's date. If the date of birth is absent or invalid, put the required question in missingRequired; never infer age from education, dates of study, the name or the current year.
 - Eligibility questions (years of experience, degree or diploma, driving licence, language level, certificates, professional registration): answer only what the candidate data shows, and put in evidence a short exact quote of the candidate data (profile or answers) that supports the answer. Never answer "yes" or a level the data does not show to meet a requirement: when the data does not say, the question is missing (required) or skipped (optional). If profile.languagesExplicitList is true and every entry is individually recognized as a complete language entry, an absent language means the candidate does not speak it only when the form asks about current ability or proficiency in that specific language; answer "no" or "no knowledge" there. Ambiguous or unrecognized entries keep absence unknown. Absence does not say whether the candidate is willing, interested, or plans to learn or use that language. For those intent questions, use an explicit prior answer only; when missing, put required fields in missingRequired and skip optional fields. If a listed language explicitly says "no knowledge" or equivalent, answer no rather than yes. If the language is listed but its level is missing, do not invent the level. evidence is "" for every other field.
@@ -363,7 +364,7 @@ const NO_RE = /^(nein|no|non|ne|falso|false|✕|x)$/i;
 // Some ATSes put a qualification after the boolean label («No, I would have
 // to apply as EU/EFTA citizen»).  Keep this broader match scoped to permit
 // questions; a generic yes/no helper must not reinterpret a third choice.
-const PERMIT_YES_OPTION_RE = /^(?:ja|sì|si|yes|oui|vero|true)(?![\p{L}\p{N}])/iu;
+const PERMIT_YES_OPTION_RE = /^(?:ja|sì|sí|si|yes|oui|vero|true)(?![\p{L}\p{N}])/iu;
 const PERMIT_NO_OPTION_RE = /^(?:nein|no|non|ne|falso|false)(?![\p{L}\p{N}])/iu;
 const EXPLICIT_NEGATIVE_PERMIT_RE = /^(?:nein|no|non|ne|falso|false|✕|x)\b/iu;
 /** Resolve a qualified yes/no permit label after a lazy ATS list has loaded. */
@@ -606,19 +607,22 @@ export function ownStatusAnswer(candidate, label, value, { option = false } = {}
   const same = (left, right) => Boolean(String(left || '').trim()) && String(left).trim().toLowerCase() === String(right || '').trim().toLowerCase();
   if (ageQuestionTopic(label)) return ageAnswerMatches(candidate, label, value);
   if (isPermitField(label)) {
+    // Current status cannot answer whether a permit was received or held in
+    // the past. Exact candidate answers are preserved by the recorded-answer path.
+    if (isPermitHistoricalQuestion(label)) return false;
     // Whether the candidate needs a permit, a visa or sponsorship is never answered from the data: they say it.
     if (!asksHeldStatus(questionFromLabel(label))) return false;
-    const status = candidate.swissStatus?.code || permitStatusOf(profile.workPermit);
+    const swissStatus = permitStatusOf(candidate.swissStatus?.code);
+    const status = permitStatusFromCandidate(candidate, { includeProfileWorkPermit: false });
     const code = option ? permitOptionCode(value) : permitStatusOf(value) || permitOptionCode(value);
     if (status) {
-      if (code === status || same(value, candidate.swissStatus?.statement)) return true;
+      if (code === status || (swissStatus === status && same(value, candidate.swissStatus?.statement))) return true;
       const yesNo = booleanAnswer(value);
-      if (yesNo !== null) return yesNo === (status !== 'none');
+      if (yesNo !== null) return isYesNoPermitQuestion(label) && yesNo === (status !== 'none');
       return false;
     }
-    // Nothing chosen: only the CV's own words (decision 2).
-    const own = permitStatusOf(profile.workPermit);
-    return same(value, profile.workPermit) || (Boolean(own) && code === own);
+    // A CV can establish what was written there, not what the candidate holds today.
+    return false;
   }
   if (isNationalityField(label)) {
     // Every nationality the candidate gave (a dual national names two), and Swiss for the status «swiss».
@@ -652,7 +656,7 @@ const HOUSE_NUMBER_RE = /\b(house\s*(?:number|no)|street\s*(?:number|no)|numero\
 // «civique» or «de la rue». Keep the conjunction bounded so a phone number or
 // another unrelated number in a longer label cannot become an address alias.
 const STREET_NUMBER_PAIR_RE = /\b(?:address|adresse|indirizzo|via|rue|strasse|straße|street)\b\s*(?:and|et|e|und|&)\s*(?:(?:house|street|the|il|la|die|your|tuo|tua|vostro|vostra)\s*)*(?:number|no\.?|n[°ºo]?|numero|numéro|nummer)(?=\s|$|[?.,;:)])/i;
-const POSTAL_CODE_RE = /\b(?:cap|codice\s+(?:di\s+)?(?:avviamento\s+)?postale|postal\s*code|postcode|zip\s*code|postleitzahl|plz|code\s+postal|npa)\b/i;
+const POSTAL_CODE_RE = /\b(?:cap|codice\s+(?:di\s+)?(?:avviamento\s+)?postale|postal\s*code|postcode|zip\s*code|postleitzahl|plz|code\s+postal|nap|npa)\b/i;
 const COUNTRY_RE = /\b(?:country|land|pays|nazione|paese)\b/i;
 const CITY_RE = /(?<![\p{L}\p{N}_])(?:city|citt(?:à|a)|town|locality|ville|ort|comune|localit(?:à|a)|lieu)(?![\p{L}\p{N}_])/iu;
 const RESIDENCE_CONTEXT_RE = /\b(?:residen\w*|domicil\w*|address|adresse|indirizz\w*|abitaz\w*|home\s+(?:address|country|city)|wohn(?:sitz|ort|adresse)\w*)\b/i;
@@ -1135,6 +1139,15 @@ function recordedAnswerForQuestion(candidate, question, context = '', metadata =
   return matches.every((item) => equivalentAnswer(question, answer, item.answer, context, metadata)) ? answer : '';
 }
 
+function validatedAddressAnswer(candidate, topic, value) {
+  if (!value || !['address', 'address_street', 'address_house_number'].includes(topic)) return value;
+  const answer = addressQuestionAnswer(candidate, topic, value);
+  if (topic === 'address_street' && answer && !/\p{L}/u.test(answer)) return '';
+  if (topic === 'address' && answer
+    && (!/\p{L}/u.test(answer) || !addressQuestionAnswer(candidate, 'address_house_number', answer))) return '';
+  return answer;
+}
+
 export function candidateAnswerForQuestion(candidate, question, context = '', metadata = {}) {
   const topic = questionTopic(question, context, metadata);
   if (topic === 'phone') return formatInternationalPhone(candidate?.identity?.phone);
@@ -1142,9 +1155,10 @@ export function candidateAnswerForQuestion(candidate, question, context = '', me
   // Contact/address facts are canonical identity data. A prior portal answer
   // is only a compatibility fallback when the current candidate record has no
   // value; it must not overwrite a corrected country from the CV/profile.
-  return (addressQuestionAnswer(candidate, topic) && recordedAnswerForQuestion(candidate, question, context, metadata, true))
+  const answer = (addressQuestionAnswer(candidate, topic) && recordedAnswerForQuestion(candidate, question, context, metadata, true))
     || addressQuestionAnswer(candidate, topic)
     || recordedAnswerForQuestion(candidate, question, context, metadata);
+  return validatedAddressAnswer(candidate, topic, answer);
 }
 
 /**
@@ -1158,12 +1172,14 @@ export function candidateAnswerForQuestion(candidate, question, context = '', me
  * choice between EU/EFTA and non-EU/EFTA remains unknown rather than guessed.
  */
 function permitAnswerForStatus(field, status) {
+  if (isPermitHistoricalQuestion(field?.label)) return '';
   if (!status || questionTopic(field?.label, field?.context, field) !== 'permit') return '';
   const options = Array.isArray(field?.options) ? field.options : [];
   const labelOf = (option) => String(option?.label ?? option ?? '').trim();
   const exact = options.filter((option) => permitOptionCode(labelOf(option)) === status);
   if (exact.length === 1) return labelOf(exact[0]);
   if (!asksHeldStatus(questionFromLabel(field?.label))) return '';
+  if (!isYesNoPermitQuestion(field?.label)) return '';
   const yes = options.filter((option) => PERMIT_YES_OPTION_RE.test(labelOf(option)));
   const no = options.filter((option) => PERMIT_NO_OPTION_RE.test(labelOf(option)));
   const booleanOptions = options.every((option) => {
@@ -1417,8 +1433,126 @@ function languageAnswerForField(candidate, field) {
     : null;
 }
 
+const PERMIT_HISTORICAL_QUESTION_PATTERNS = [
+  /^have you(?:\s+(?:ever|previously))?\s+(?:held|had|possessed|owned|received|obtained|been\s+(?:granted|issued))\b/i,
+  /^did you(?:\s+(?:ever|previously))?\s+(?:hold|have|receive|obtain|possess)\b/i,
+  /^were you(?:\s+(?:ever|previously))?\s+(?:granted|issued|given)\b/i,
+  /^(?:est[- ]ce que\s*)?(?:vous|tu)\s+(?:avez|as)\s+(?:(?:deja|precedemment)\s+)?(?:recu(?:e)?|obtenu(?:e)?|accorde(?:e)?|delivre(?:e)?|detenu|possede|eu)\b/i,
+  /^(?:avez|as)[- ](?:vous|tu)\s+(?:(?:deja|precedemment)\s+)?(?:recu(?:e)?|obtenu(?:e)?|accorde(?:e)?|delivre(?:e)?|detenu|possede|eu)\b/i,
+  /^(?:haben sie|hast du)(?:\s+(?:schon|bereits|jemals|fruher))?\s+(?:ein(?:e|en|em|er)?|den|die|das)\b[^,?]*\b(?:erhalten|erhielt|bekommen|bekam|erteilt|ausgestellt|erworben|verliehen|gehabt)\b/i,
+  /^(?:hai|ha|avete|hanno)\s+(?:(?:mai|gia|precedentemente)\s+)?(?:ricevut[oaie]|ottenut[oaie]|concess[oaie]|rilasciat[oaie]|emess[oaie]|avuto|avuta|avuti|avute|posseduto|posseduta|detenuto|detenuta)\b/i,
+  /^(?:has|ha|han|habeis)\s+(?:(?:alguna vez|antes|previamente)\s+)?(?:recibid[oa]s?|obtenid[oa]s?|concedid[oa]s?|expedid[oa]s?|emitid[oa]s?|otorgad[oa]s?|tenid[oa]s?|poseid[oa]s?)\b/i,
+];
+
+function normalizePermitQuestion(label) {
+  return String(label || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/^[\s¿¡]+/, '');
+}
+
+const PERMIT_QUESTION_START_RE = /^(?:do you|does the candidate|are you|can you|did you|have you|were you|est-ce que|avez[- ]vous|etes[- ]vous|as[- ]tu|es[- ]tu|haben sie|hast du|sind sie|bist du|besitzen sie|verfugen sie|halten sie|haltst du|hai|possiedi|detieni|sei|e|tienes|tiene usted|eres|estas(?: usted)?|esta(?: usted)?|puedes)\b/i;
+
+function startsPermitQuestion(text) {
+  const question = String(text || '')
+    .replace(/^(?:(?:currently|at present|right now|as of (?:today|now))\s*[,;:]?\s*)+/i, '')
+    .replace(/^[\s¿¡]+/, '');
+  return PERMIT_QUESTION_START_RE.test(question)
+    || /^(?:please\s+)?(?:confirm|indicate|state)\s+(?:whether|if)\s+(?:you|the candidate)\b/i.test(question);
+}
+
+function permitQuestionText(label) {
+  const text = normalizePermitQuestion(label);
+  const separator = /(?:\s+[-–—]|\s*[:|])\s*/g;
+  for (const match of text.matchAll(separator)) {
+    const prefix = text.slice(0, match.index);
+    if (/[?¿!¡]/.test(prefix)) continue;
+    const question = text.slice(match.index + match[0].length).replace(/^[\s¿¡]+/, '');
+    if (startsPermitQuestion(question)) return question;
+  }
+  return text;
+}
+
+const PERMIT_HISTORICAL_MARKER_BEFORE_ACTION_RE = /\b(?:ever|previously|formerly|in the past|used to)\b[^?]{0,90}\b(?:hold|held|have|had|possess(?:ed)?|own(?:ed)?|receive(?:d)?|obtain(?:ed)?|acquir(?:e|ed)|grant(?:ed)?|issu(?:e|ed))\b/i;
+const PERMIT_ACTION_BEFORE_HISTORICAL_MARKER_RE = /\b(?:hold|held|have|had|possess(?:ed)?|own(?:ed)?|receive(?:d)?|obtain(?:ed)?|acquir(?:e|ed)|grant(?:ed)?|issu(?:e|ed))\b[^?]{0,90}\b(?:ever|previously|formerly|in the past|before)\b/i;
+const PERMIT_PROSPECTIVE_START_RE = /\bbefore\s+(?:(?:(?:you|the candidate)\s+)?(?:start(?:ing)?|begin(?:ning)?|commenc(?:e|ing))\b)/gi;
+
+export function isPermitHistoricalQuestion(label) {
+  const text = permitQuestionText(label);
+  if (PERMIT_HISTORICAL_QUESTION_PATTERNS.some((pattern) => pattern.test(text))) return true;
+  // A prospective deadline is current status context, not a past-tense clue.
+  const historyText = text.replace(PERMIT_PROSPECTIVE_START_RE, '');
+  return PERMIT_HISTORICAL_MARKER_BEFORE_ACTION_RE.test(historyText)
+    || PERMIT_ACTION_BEFORE_HISTORICAL_MARKER_RE.test(historyText);
+}
+
+const PERMIT_EVIDENCE_QUESTION_PATTERNS = [
+  /\b(?:proof|evidence)\b/i,
+  /\b(?:paperwork|papers?)\b/i,
+  /\bdocument(?:s|ation(?:s)?|azione|azioni|acion(?:es)?|o(?:s)?|i)?\b/i,
+  /\bcertificat(?:e|es|s|o|os|i)?\b/i,
+  /\b(?:cop(?:y|ies)|copi(?:a|as|e|es))\b/i,
+  /\bpreuve(?:s)?\b/i,
+  /\bpiece(?:s)?\b/i,
+  /\bjustificatif(?:s)?\b/i,
+  /\bjustificativ[ae]s?\b/i,
+  /\bjustificativo(?:s)?\b/i,
+  /\bjustificante(?:s)?\b/i,
+  /\battestation(?:s)?\b/i,
+  /\bnachweis(?:e|en)?\b/i,
+  /\bunterlag(?:e|en)\b/i,
+  /\bbeleg(?:e|en|s)?\b/i,
+  /\bdokument(?:e|en)?\b/i,
+  /\bbescheinigung(?:en)?\b/i,
+  /\bprov[ae]\b/i,
+  /\battestat(?:o|i)\b/i,
+  /\bcomprobante(?:s)?\b/i,
+  /\bpapel(?:es)?\b/i,
+  /\bprueba(?:s)?\b/i,
+  /\bevidencia(?:s)?\b/i,
+];
+
 function isYesNoPermitQuestion(label) {
-  return /\b(?:do you|does the candidate|are you|hold|have|hast du|haben sie|hältst|halten sie|avez[- ]vous|détenez|detenez|avez|hai|detieni|possiedi|è in possesso|in possesso)\b/i.test(String(label || ''));
+  // A later "do you hold" can belong to a wh-question asking which permit the
+  // candidate has. Require a held-status predicate, so neither that question
+  // nor an indirect "do you know which permit" converts status into a boolean.
+  const text = permitQuestionText(label);
+  if (isPermitHistoricalQuestion(text)) return false;
+  // A permit status does not establish that the candidate can produce its
+  // proof, certificate, or other supporting document.
+  if (PERMIT_EVIDENCE_QUESTION_PATTERNS.some((pattern) => pattern.test(text))) return false;
+  const currentPredicate = text
+    .replace(/^before\s+(?:starting|beginning|commencing)\s+(?:work|employment),\s*/i, '')
+    .replace(/^(?:(?:currently|at present|right now|as of (?:today|now))\s*[,;:]?\s*)+/i, '')
+    .replace(/^(?:work permit|work authorization|right to work|permit status)\s*:\s*/i, '');
+  const patterns = [
+    /^(?:please\s+)?(?:confirm|indicate|state)\s+(?:whether|if)\s+(?:you|the candidate)(?:\s+(?:currently|at present|right now))?\s+(?:hold|have(?!\s+to\b)|possess|own)\b/i,
+    /^(?:do you|does the candidate)(?:\s+(?:currently|at present))?\s+(?:hold|have(?!\s+to\b)|possess|own)\b/i,
+    /^are you(?:\s+(?:currently|legally))?\s+(?:authorized|authorised|permitted|entitled)\s+to\s+(?:work|be employed)\b/i,
+    /^are you(?:\s+legally)?\s+(?:allowed|able)\s+to\s+work\b/i,
+    /^can you(?:\s+legally)?\s+(?:work|be employed)\b/i,
+    /^are you(?:\s+(?:currently|legally))?\s+eligible\s+to\s+work\b/i,
+    /^(?:est[- ]ce que\s*)?vous\s+(?:avez|detenez|possedez)\s+(?:(?:un|une|le|la)\s+)?(?:permis|autorisation|visa|titre)\b/i,
+    /^(?:est[- ]ce que\s*)?vous\s+etes\s+(?:autorise|autorisee|habilite|habilitee|titulaire|en possession\s+(?:d['’]\s*|de\s+)(?:(?:un|une|le|la|du|des)\s+|l['’]|(?:mon|ma|ton|ta|son|sa|votre|notre|leur)\s+)?(?:permis|autorisation|visa|titre))\b/i,
+    /^(?:est[- ]ce que\s*)?vous\s+avez\s+le\s+droit\s+de\s+travailler\b/i,
+    /^(?:avez|detenez|possedez)[- ]vous\s+(?:(?:un|une|le|la)\s+)?(?:permis|autorisation|visa|titre)\b/i,
+    /^etes[- ]vous\s+(?:autorise|autorisee|habilite|habilitee|titulaire|en possession\s+(?:d['’]\s*|de\s+)(?:(?:un|une|le|la|du|des)\s+|l['’]|(?:mon|ma|ton|ta|son|sa|votre|notre|leur)\s+)?(?:permis|autorisation|visa|titre))\b/i,
+    /^avez[- ]vous\s+le\s+droit\s+de\s+travailler\b/i,
+    /^(?:est[- ]ce que\s*)?tu\s+(?:as|detiens|possedes)\s+(?:(?:un|une|le|la)\s+)?(?:permis|autorisation|visa|titre)\b/i,
+    /^(?:est[- ]ce que\s*)?tu\s+es\s+(?:autorise|autorisee|habilite|habilitee|titulaire|en possession\s+(?:d['’]\s*|de\s+)(?:(?:un|une|le|la|du|des)\s+|l['’]|(?:mon|ma|ton|ta|son|sa|votre|notre|leur)\s+)?(?:permis|autorisation|visa|titre))\b/i,
+    /^(?:est[- ]ce que\s*)?tu\s+as\s+le\s+droit\s+de\s+travailler\b/i,
+    /^(?:as|detiens|possedes)[- ]tu\s+(?:(?:un|une|le|la)\s+)?(?:permis|autorisation|visa|titre)\b/i,
+    /^es[- ]tu\s+(?:autorise|autorisee|habilite|habilitee|titulaire|en possession\s+(?:d['’]\s*|de\s+)(?:(?:un|une|le|la|du|des)\s+|l['’]|(?:mon|ma|ton|ta|son|sa|votre|notre|leur)\s+)?(?:permis|autorisation|visa|titre))\b/i,
+    /^as[- ]tu\s+le\s+droit\s+de\s+travailler\b/i,
+    /^(?:haben sie|hast du)(?:\s+(?:aktuell|derzeit|schon|bereits))?\s+(?:ein(?:e|en|em|er)?|den|die|das)\b/i,
+    /^(?:sind sie|bist du)\s+(?:berechtigt|autorisiert|im besitz)\b/i,
+    /^besitzen sie\s+(?:ein(?:e|en|em|er)?|den|die|das)\b/i,
+    /^verfugen sie\s+(?:uber|ueber)\b/i,
+    /^(?:haltst du|halten sie)\s+(?:ein(?:e|en|em|er)?|den|die|das)\b/i,
+    /^(?:hai|possiedi|detieni)\s+(?:(?:un|una|il|la)\s+)?(?:permesso|autorizzazione|visa)\b/i,
+    /^(?:sei|e)\s+(?:in possesso|autorizzat\w*|abilitat\w*|titolare)\b/i,
+    /^(?:tienes|tiene(?: usted)?)\s+(?:(?:un|una|el|la)\s+)?(?:permiso|visa|autorizacion|derecho)\b/i,
+    /^(?:eres|estas(?: usted)?|esta(?: usted)?)\s+(?:autorizad[oa]|habilitad[oa]|titular|en posesion)\b/i,
+    /^puedes\s+trabajar\b/i,
+  ];
+  return patterns.some((pattern) => pattern.test(currentPredicate));
 }
 
 const SALUTATION_FIELD_RE = /\b(?:anrede|salutation|appellativo|civilit[ée]|form of address|how (?:would|should) you like to be addressed|how should you be addressed in (?:your )?application|how do you want to be addressed|how would you like us to address you|preferred form of address|come vuoi essere indicat[oa] (?:nei|negli) moduli(?: di candidatura)?|wie m(?:ö|oe)chten sie angesprochen werden|comment souhaitez[- ]vous (?:être|etre) appel[ée]e?|comment devons[- ]nous vous appeler)\b/i;
@@ -1495,8 +1629,8 @@ function phoneCountryOption(candidate, field) {
   return selected || (!options.length ? phoneCountryLabel(phone) : '');
 }
 
-/** A safe answer already stated by the candidate, or the current institution from the CV. */
-export function candidateAnswerForField(candidate, field) {
+/** A safe answer from the candidate or their profile; CV-only permit evidence is opt-in. */
+export function candidateAnswerForField(candidate, field, { includeProfileWorkPermit = false } = {}) {
   const topic = questionTopic(field?.label, field?.context, field);
   const fieldKind = String(field?.kind || '').trim().toLowerCase();
   const inputType = String(field?.inputType || '').trim().toLowerCase();
@@ -1522,7 +1656,7 @@ export function candidateAnswerForField(candidate, field) {
   if (['address', 'address_street', 'address_house_number', 'residence_postal_code', 'residence_city', 'residence_country'].includes(topic)) {
     const canonical = addressQuestionAnswer(candidate, topic);
     const current = recordedAnswerForQuestion(candidate, field?.label, field?.context, field, true);
-    const stated = current || canonical || previous;
+    const stated = validatedAddressAnswer(candidate, topic, current || canonical || previous);
     if (!stated) return null;
     let value = field?.options?.length ? optionForAnswer(field, stated) : stated;
     // Workday and similar ATSs split «Street Name» from the house number.
@@ -1557,6 +1691,7 @@ export function candidateAnswerForField(candidate, field) {
     }
     if (topic === 'permit' || LANGUAGE_LEVEL_RE.test(String(field?.label || ''))) return null;
   }
+  if (topic === 'permit' && isPermitHistoricalQuestion(field?.label)) return null;
   const label = String(field?.label || '');
   const identity = candidate?.identity || {};
   const fieldOwnershipContext = [field?.context, field?.section, field?.autocomplete].filter(Boolean).join(' ');
@@ -1614,13 +1749,22 @@ export function candidateAnswerForField(candidate, field) {
   const language = languageAnswerForField(candidate, field);
   if (language) return language;
   if (topic === 'permit') {
-    const status = candidate?.swissStatus?.code || permitStatusOf(candidate?.profile?.workPermit);
+    const swissStatus = permitStatusOf(candidate?.swissStatus?.code);
+    const status = permitStatusFromCandidate(candidate, { includeProfileWorkPermit });
     if (!status || !asksHeldStatus(field?.label)) return null;
-    const statusSource = candidate?.swissStatus?.code ? 'rule' : 'profile';
+    const statusSource = swissStatus ? 'rule'
+      : permitStatusOf(candidate?.profile?.permitStatus) ? 'profile'
+        : permitStatusOf(candidate?.answers?.work_permit) ? 'answers' : 'profile';
     const options = Array.isArray(field?.options) ? field.options : [];
     const selected = permitAnswerForStatus(field, status);
     if (selected) return { value: selected, source: statusSource };
-    if (!options.length) return { value: candidate?.swissStatus?.statement || candidate?.profile?.workPermit || '', source: 'profile' };
+    if (!options.length) {
+      const rawStatus = swissStatus === status ? candidate?.swissStatus?.statement
+        : permitStatusOf(candidate?.profile?.permitStatus) ? candidate?.profile?.permitStatus
+          : permitStatusOf(candidate?.answers?.work_permit) ? candidate?.answers?.work_permit
+          : includeProfileWorkPermit ? candidate?.profile?.workPermit : '';
+      return { value: String(rawStatus || status).trim(), source: statusSource };
+    }
     return null;
   }
   const native = nativeLanguageOption(field, candidate);
@@ -1746,10 +1890,24 @@ export function guardPlan(plan, fields, candidate = null) {
   // The Swiss status the candidate chose, on a field that asks the permit held (decision 9): the one option that
   // says exactly that status, whatever the plan chose; none, or two, and the plan's answer is judged as any other.
   // A field that asks what the candidate needs or applies for is never answered by the code.
-  const status = candidate?.swissStatus?.code || '';
+  const status = permitStatusFromCandidate(candidate, { includeProfileWorkPermit: false });
   const statusPick = new Map(status ? fields
     .filter((field) => {
       if (!isPermitField(field.label) || !asksHeldStatus(questionFromLabel(field.label))) return false;
+      // A portal prefill is not candidate evidence. When its current value is
+      // nevertheless verified against the candidate's confirmed status, leave
+      // it alone: rewriting it would turn a prefill into a recorded portal
+      // answer (and can map a free-text status to a misleading «Yes»). A
+      // mismatching prefill still falls through and is corrected below.
+      const selectedOption = Array.isArray(field.options)
+        ? field.options.find((option) => typeof option === 'object'
+          && String(option?.value ?? '') === String(field.value ?? '')) : null;
+      const currentValue = selectedOption?.label ?? field.value;
+      const currentStatus = permitStatusOf(currentValue) || permitOptionCode(currentValue);
+      const matchesConfirmedStatus = currentStatus === status
+        || (isYesNoPermitQuestion(field.label)
+          && ownStatusAnswer(candidate, field.label, currentValue, { option: isChoiceField(field) }) === true);
+      if (holdsValue(field) && matchesConfirmedStatus) return false;
       const recorded = recordedAnswerForQuestion(candidate, field.label, field.context, field);
       // A saved portal answer such as «G Permit» is the candidate's own
       // status in free text, not a competing yes/no correction. Normalize it
@@ -1762,10 +1920,13 @@ export function guardPlan(plan, fields, candidate = null) {
     })
     .map((field) => [field.id, permitAnswerForStatus(field, status)])
     .filter(([, value]) => value) : []);
+  const statusSource = permitStatusOf(candidate?.swissStatus?.code) ? 'rule'
+    : permitStatusOf(candidate?.profile?.permitStatus) ? 'profile'
+      : permitStatusOf(candidate?.answers?.work_permit) ? 'answers' : 'profile';
   for (const [fieldId, value] of statusPick) {
     const field = byId.get(fieldId);
     const action = isChoiceField(field) ? 'select' : 'fill';
-    actions.push({ fieldId, action, value, document: 'none', source: 'rule', evidence: '' });
+    actions.push({ fieldId, action, value, document: 'none', source: statusSource, evidence: '' });
   }
   // A yes/no field that only asks whether the candidate holds a document attached to this application: its
   // «yes», whatever the plan says (attachedDocumentYes). Before the gates below, which would turn «a driving
@@ -1801,9 +1962,9 @@ export function guardPlan(plan, fields, candidate = null) {
     };
     if (!missing.some((other) => other.fieldId === withProvenance.fieldId)) missing.push(withProvenance);
   }
-  const ask = (field) => {
-    if (field.required && !missing.some((item) => item.fieldId === field.id)) {
-      missing.push({ fieldId: field.id, question: questionFromLabel(field.label), ...(field.context ? { context: String(field.context).slice(0, 240) } : {}), ...(field.section ? { section: String(field.section).slice(0, 240) } : {}), ...(field.autocomplete ? { autocomplete: String(field.autocomplete).slice(0, 100) } : {}), why: '', type: isDateField(field) ? 'date' : field.options ? 'choice' : 'text', options: (field.options || []).map((option) => typeof option === 'string' ? option : option.label) });
+  const ask = (field, { force = false } = {}) => {
+    if ((field.required || force) && !missing.some((item) => item.fieldId === field.id)) {
+      missing.push({ fieldId: field.id, question: questionFromLabel(field.label), ...(field.context ? { context: String(field.context).slice(0, 240) } : {}), ...(field.section ? { section: String(field.section).slice(0, 240) } : {}), ...(field.autocomplete ? { autocomplete: String(field.autocomplete).slice(0, 100) } : {}), why: '', type: isDateField(field) ? 'date' : field.options ? 'choice' : 'text', options: (field.options || []).map((option) => typeof option === 'string' ? option : option.label), required: true });
     }
   };
   // Once a candidate-only action has been rejected, the recovery pass below
@@ -1991,8 +2152,12 @@ export function guardPlan(plan, fields, candidate = null) {
   // The page may expose a renamed/reworded version of a question already
   // answered in the review. Reuse it before turning the field into a new hold.
   for (const field of fields) {
-    if (!field.required || answered.has(field.id) || holdsValue(field) || rejectedActionFields.has(field.id)) continue;
     const answer = candidateAnswerForField(candidate, field);
+    const exactHistoricalPermitAnswer = isPermitField(field.label)
+      && isPermitHistoricalQuestion(field.label) && Boolean(answer);
+    if ((!field.required && !exactHistoricalPermitAnswer) || answered.has(field.id)
+      || (holdsValue(field) && !exactHistoricalPermitAnswer)
+      || (rejectedActionFields.has(field.id) && !exactHistoricalPermitAnswer)) continue;
     if (!answer) continue;
     if (operationalAnswerAlreadyHeld(field, answer.value)) {
       answered.add(field.id);
@@ -2030,6 +2195,14 @@ export function guardPlan(plan, fields, candidate = null) {
       pendingUnchecks.add(field.id);
     }
     const holdsAfterActions = holdsValue(field) && !pendingUnchecks.has(field.id);
+    // A portal prefill is not the candidate's answer to a historical permit
+    // question. Current permit status cannot confirm whether one was held in
+    // the past; only a saved answer to this exact question can do that.
+    if (!answered.has(field.id) && isPermitField(field.label)
+      && isPermitHistoricalQuestion(field.label) && !answer && (field.required || holdsValue(field))) {
+      ask(field, { force: !field.required });
+      continue;
+    }
     // The application's own consent is no question for the candidate: the
     // mandate covers it, so the box the plan left alone is ticked here (umantis,
     // 2026-10-03: «I agree to the Privacy Policy Statement» came back skipped,

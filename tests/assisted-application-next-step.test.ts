@@ -67,7 +67,7 @@ describe('next step of an assisted-application order', () => {
     expect(heldLabel('portal:captcha')).toContain('risolvilo tu nella scheda');
     expect(heldLabel('portal:captcha_provider_unavailable')).toContain('risolvilo tu nella scheda');
     // A send of unknown outcome may be at the employer: checked first, never straight to a second send (review of #11016).
-    for (const held of ['portal_ambiguous', 'portal_antibot_ambiguous', 'email_ambiguous']) {
+    for (const held of ['portal_ambiguous', 'portal_antibot_ambiguous', 'email_ambiguous', 'submission_receipt_invalid']) {
       const check = step({ state: 'owner_takeover', heldBy: [held] });
       expect(check).toMatchObject({ group: 'owner', code: 'check_if_received', label: 'Verifica se è arrivata' });
       expect(check.detail).toContain('Controlla se il datore l’ha ricevuta');

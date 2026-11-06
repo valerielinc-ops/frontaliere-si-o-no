@@ -109,7 +109,11 @@ export function startPortalDiagnostics(context, httpFailures = []) {
   };
   const listen = (target, event, handler) => { target.on(event, handler); listeners.push(() => target.off(event, handler)); };
   const tracked = (request) => ['xhr', 'fetch'].includes(request.resourceType()) || /^(POST|PUT|PATCH)$/.test(request.method());
-  const metadata = (request) => ({ ...diagnosticLocation(request.url()), method: request.method(), resourceType: request.resourceType() });
+  const metadata = (request) => ({
+    ...diagnosticLocation(request.url()),
+    method: request.method(),
+    resourceType: request.resourceType(),
+  });
   const pages = new WeakSet();
   const requestAttempts = new WeakMap();
   const attach = (page) => {

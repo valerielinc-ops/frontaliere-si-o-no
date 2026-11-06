@@ -124,6 +124,13 @@ function registerRetiredSitemapAbsenceChecks(opts: {
   const { section, sitemapLabel, sitemapXml, itSitemapSlugs, articleIds, slugs } = opts;
 
   describe(`every fully edge-retired article is absent from ${sitemapLabel} (IT loc + EN/DE/FR hreflang)`, () => {
+    if (articleIds.size === 0) {
+      it('accepts an empty fully edge-retired article set', () => {
+        expect([...articleIds]).toEqual([]);
+      });
+      return;
+    }
+
     for (const id of articleIds) {
       const slugMap = slugs[id];
       it(`article "${id}" → IT slug is NOT in ${sitemapLabel}`, () => {

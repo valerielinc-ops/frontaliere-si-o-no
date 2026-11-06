@@ -64,6 +64,48 @@ export interface PostalSubmissionView {
   officialFormUrl: string;
 }
 
+export interface AutomationPortalContractView {
+  version: number;
+  phase: string;
+  channel: string;
+  status: string;
+  postingMatch: string;
+  observedAt: number | null;
+  handoff?: string;
+  form?: {
+    observed: boolean;
+    stable: boolean;
+    fieldCount: number;
+    requiredFieldCount: number;
+    requiredFileCount: number;
+  };
+  missing?: {
+    questionCount: number;
+    documentCount: number;
+    requiredQuestionCount: number;
+    requiredDocumentCount: number;
+  };
+  background?: {
+    status: string;
+    readOnly: boolean;
+    requestCount: number;
+    mutatingRequestCount: number;
+    requests?: Array<{
+      method: string;
+      endpoint: { origin: string; path: string };
+      resourceType: string;
+      protocol?: string;
+      status?: number;
+      count?: number;
+    }>;
+  };
+  submit?: {
+    capability: 'native_form' | 'server_action' | 'xhr_fetch' | 'candidate_handoff' | 'unknown';
+    status: string;
+    outcome?: string;
+  };
+}
+
 /** Automated flow + AI draft, as functions/src/assistedApplicationAutomationAdmin.js returns them. */
 export interface AtsReportView {
   structural: { score: number; grade: string; pass: boolean; issues: Array<{ code: string; severity: 'critical' | 'warning' | 'info' }>; notChecked: string[] };
@@ -114,6 +156,8 @@ export interface AssistedApplicationAutomationView {
     heldBy: string[];
     feedback: Array<{ round: number; at: number; text: string }>;
     answers: Record<string, string>;
+    requestedDocumentsOverride?: boolean;
+    requestedDocuments?: AutomationRequestedDocumentView[];
     postalSubmission?: PostalSubmissionView | null;
     /** The fields the candidate corrected on the review page. */
     formOverrides?: Record<string, string>;
@@ -129,6 +173,7 @@ export interface AssistedApplicationAutomationView {
     job: { source: string; title: string; applyUrl: string } | null;
     liveness: { result: string | null; code: string | null; datasetGone: boolean } | null;
     channel: { type: string; label: string; email: string; applyUrl: string; requiresAccount: boolean } | null;
+    portalContract?: AutomationPortalContractView | null;
     verdict: 'strong' | 'good' | 'weak' | 'poor' | null;
     summaryIt: string;
     checksIt: string[];
@@ -311,6 +356,10 @@ function errorMessage(error: unknown, status: number): string {
     already_submitted: 'La candidatura è già stata inviata e non è rimborsabile da questa coda.',
     payment_refund_failed: 'Il provider di pagamento non ha completato il rimborso; nessun dato è stato marcato come rimborsato.',
     invalid_cv_file: 'Il file non è un PDF, DOC o DOCX valido (max 5 MB).',
+    reopen_request_conflict: 'La richiesta di riapertura usa un CV diverso da quello già registrato; verifica il file prima di riprovare.',
+    reopen_in_progress: 'La sostituzione del CV è già in corso; attendi il controllo del file prima di riprovare.',
+    reopen_unavailable: 'Questa candidatura non può essere riaperta in sicurezza.',
+    concierge_reopen_not_supported: 'Le candidature del servizio concierge seguono un percorso diverso e non possono essere riaperte qui.',
     draft_not_ready: 'La bozza AI non è ancora pronta.',
     changed_meanwhile: 'Il candidato ha cambiato la bozza nel frattempo: ricarica e ripeti la modifica.',
     draft_submitted: 'La candidatura è già stata inviata: la bozza non si può più modificare.',
@@ -444,6 +493,7 @@ export type AutomationAdminAction =
   | 'automationSetAnswers'
   | 'automationSetRequiredDocuments'
   | 'automationSetPostalSubmission'
+  | 'automationConfigurePostalPackage'
   | 'automationRevealAccount'
   | 'automationFillKit'
   | 'automationMarkClicked'

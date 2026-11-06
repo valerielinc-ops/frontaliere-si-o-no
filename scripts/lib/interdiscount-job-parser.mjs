@@ -49,6 +49,7 @@ const API_BASE = 'https://ohws.prospective.ch/public/v1/medium/1000103';
  */
 const COMPANY_FILTER_ID = '1114048';
 const API_LIMIT = 100;
+const COOP_DETAIL_UUID_RE = /\/([0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12})\/?$/i;
 
 /* ── Helpers ───────────────────────────────────────────────── */
 
@@ -58,6 +59,25 @@ function normalize(value = '') {
 
 function normalizeSpace(s = '') {
   return String(s || '').replace(/\s+/g, ' ').trim();
+}
+
+/**
+ * The API's `sza_apply_link` is a legacy ATS bookmark. On a Coop-family
+ * detail page the authoritative «Candidatura online» control is the
+ * posting-bound Prospective redirect; the bookmark can be a SuccessFactors
+ * sign-in even when the live posting uses another channel (PastaHR for
+ * trial internships). Derive that redirect only from a canonical
+ * jobs.coopjobs.ch detail URL carrying its own UUID.
+ */
+function prospectiveAtsApplyUrl(publicUrl = '') {
+  try {
+    const url = new URL(publicUrl);
+    if (url.protocol !== 'https:' || url.hostname.toLowerCase() !== 'jobs.coopjobs.ch') return '';
+    const match = url.pathname.match(COOP_DETAIL_UUID_RE);
+    return match ? `https://ohws.prospective.ch/public/v1/redirect/${match[1]}/ats/` : '';
+  } catch {
+    return '';
+  }
 }
 
 /**
@@ -444,8 +464,8 @@ export async function fetchAllInterdiscountJobs({ fetchPage } = {}) {
 
     // URLs
     const directLink = (links.directlink || '').trim();
-    const applyUrl = (szas.sza_apply_link || '').trim();
     const publicUrl = directLink || `https://jobs.interdiscount.ch/`;
+    const applyUrl = prospectiveAtsApplyUrl(publicUrl) || (szas.sza_apply_link || '').trim();
 
     // Employment details
     const contractType = (attrs['40'] || [])[0] || szas.sza_employment_type || '';

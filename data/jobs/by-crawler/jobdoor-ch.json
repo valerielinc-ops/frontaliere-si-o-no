@@ -1,7 +1,7 @@
 {
   "crawlerKey": "jobdoor-ch",
-  "assembledAt": "2026-11-05T09:36:05.868Z",
-  "runId": "42002287075",
+  "assembledAt": "2026-11-05T21:52:22.770Z",
+  "runId": "42112545490",
   "jobs": [
     {
       "id": "jobdoor-ch-7bc38f16351f",
@@ -34,7 +34,7 @@
       "url": "https://jobdoor.ch/job/fage-efz-100/",
       "source": "Jobdoor AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T09:36:00.384Z",
+      "crawledAt": "2026-11-05T21:52:13.741Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -52,16 +52,16 @@
       "applyUrl": "https://jobdoor.ch/job/fage-efz-100/",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-11-04T21:49:45.980Z",
+      "previousSlugs": [
+        "fage-efz-100-bern-jobdoor-ch-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "fage-efz-100-bern-jobdoor-ch-ch"
         ]
       },
-      "previousSlugs": [
-        "fage-efz-100-bern-jobdoor-ch-ch"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-11-04T21:49:45.980Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -78,7 +78,7 @@
       "postalCode": "3004",
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T09:36:00.384Z",
+      "validThrough": "2027-02-02T21:52:13.741Z",
       "validThroughSource": "last-observed-window"
     }
   ]

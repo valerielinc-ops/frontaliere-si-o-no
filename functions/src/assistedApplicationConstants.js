@@ -12,6 +12,8 @@ export const ASSISTED_APPLICATION_RUNNER_EVENT_ARRAY_LIMIT = 20;
 export const ASSISTED_APPLICATION_PAYMENT_RECOVERY_COLLECTION = 'assisted_application_payment_recovery';
 /** Portal accounts the runner creates on an order's alias: `{order}/automation/accounts` (scripts/assisted-application/lib/portal/account.mjs). */
 export const PORTAL_ACCOUNTS_DOC_ID = 'accounts';
+/** Admin-only lifecycle audit: `{order}/events/{eventId}`. */
+export const ASSISTED_APPLICATION_AUDIT_SUBCOLLECTION = 'events';
 
 // The kinds of documents a posting may require besides the CV and the cover
 // letter (assistedApplicationExtraDocuments.js, the requirements schema).
@@ -50,8 +52,10 @@ export const ASSISTED_APPLICATION_EVENT_TYPES = Object.freeze([
   // Automated flow (assistedApplicationAutomation.js): one entry per transition,
   // plus the owner's edits of the AI draft and a CV she uploads for the customer.
   'automation_transition',
+  'automation_dispatch_recovery_scheduled',
   'automation_draft_edited',
   'automation_candidate_edited',
+  'automation_reopened_after_withdrawal',
   // The candidate's line-by-line choices on the tailored CV (review page).
   'automation_candidate_cv_reviewed',
   'cv_uploaded_by_owner',

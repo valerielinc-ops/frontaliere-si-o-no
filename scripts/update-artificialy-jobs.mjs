@@ -75,6 +75,7 @@ const COMPANY_NAME = 'Artificialy';
 const COMPANY_HOST = 'artificialy.com';
 const COMPANY_DOMAIN = 'artificialy.com';
 const CAREER_URLS = [
+  'https://www.artificialy.com/company',
   'https://www.artificialy.com/it/career',
   'https://www.artificialy.com/career',
 ];
@@ -219,7 +220,11 @@ async function enrichArtificialyListings(listings) {
       const detailHtml = await fetchArtificialyDetailHtml(listing.applyUrl);
       const detail = parseArtificialyLinkedInJobPage(detailHtml);
       if (detail.description) {
-        enriched.push({ ...listing, description: detail.description });
+        enriched.push({
+          ...listing,
+          description: detail.description,
+          location: detail.location || listing.location,
+        });
       } else {
         stats.selectorMisses += 1;
         enriched.push(listing);
@@ -237,7 +242,7 @@ async function enrichArtificialyListings(listings) {
   return { listings: enriched, stats };
 }
 
-async function fetchCareerPage() {
+export async function fetchArtificialyCareerPage(fetchImpl = fetchText) {
   let fetchedPage = false;
   let blockedPage = false;
   let discoveredCount = 0;
@@ -249,7 +254,7 @@ async function fetchCareerPage() {
     for (let attempt = 0; attempt <= MAX_RETRIES; attempt++) {
       try {
         console.log(`  Fetching ${url} (attempt ${attempt + 1})...`);
-        const html = await fetchText(url);
+        const html = await fetchImpl(url);
         fetchedPage = true;
         const { items: parsedItems, blocked } = parseArtificialyCareerPage(html);
 
@@ -322,7 +327,7 @@ async function fetchCareerPage() {
 async function fetchAllListings() {
   console.log('Fetching Artificialy career page...');
 
-  const result = await fetchCareerPage();
+  const result = await fetchArtificialyCareerPage();
   console.log(`Total jobs found: ${result.items.length}`);
 
   // Keep only jobs with a location in one of the 26 target cantons.

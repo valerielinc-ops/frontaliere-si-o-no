@@ -218,6 +218,13 @@ describe('pharmacy directory static pages', () => {
         closeBundle: () => Promise<void>;
       }).closeBundle();
 
+      const frenchManifestSitemap = path.join(frenchRoot, 'dist', 'sitemap-farmacie-locale-manifest.xml');
+      const frenchManifestXml = fs.readFileSync(frenchManifestSitemap, 'utf8');
+      const frenchManifestUrls = [...frenchManifestXml.matchAll(/<loc>([^<]+)<\/loc>/g)].map((match) => match[1]);
+      expect(frenchManifestUrls.length).toBeGreaterThan(0);
+      expect(frenchManifestUrls.every((url) => new URL(url).pathname.startsWith('/fr/'))).toBe(true);
+      expect(fs.readFileSync(path.join(frenchRoot, 'dist', 'sitemap.xml'), 'utf8')).toBe('<sitemapindex></sitemapindex>');
+
       vi.stubEnv('BUILD_LOCALE', 'it');
       vi.setSystemTime(new Date('2026-10-05T02:01:01.000Z'));
       vi.resetModules();

@@ -1,7 +1,7 @@
 {
   "key": "sune-egge",
   "label": "Fachspital Sune-Egge",
-  "generatedAt": "2026-11-05T09:33:46.913Z",
+  "generatedAt": "2026-11-05T22:00:34.225Z",
   "total": 4,
   "discovered": null,
   "parsed": 4,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 4,
-  "durationMs": 5861,
-  "avgDurationMs": 5861,
+  "durationMs": 7006,
+  "avgDurationMs": 7006,
   "durationHistory": [
-    5861
+    7006
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -37,7 +37,7 @@
       "url": "https://swsieber.jobs.personio.com/job/2814735",
       "source": "Fachspital Sune-Egge Dedicated Parser (Personio JSON)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T09:33:27.395Z",
+      "crawledAt": "2026-11-05T22:00:15.430Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -60,7 +60,7 @@
       "salarySource": "estimated",
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-24T09:33:27.395Z",
+      "validThrough": "2026-12-24T22:00:15.430Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -82,7 +82,7 @@
       "url": "https://swsieber.jobs.personio.com/job/2805911",
       "source": "Fachspital Sune-Egge Dedicated Parser (Personio JSON)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T09:33:27.072Z",
+      "crawledAt": "2026-11-05T22:00:15.184Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -106,7 +106,7 @@
       "salarySource": "estimated",
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-20T09:33:27.072Z",
+      "validThrough": "2026-12-20T22:00:15.184Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -128,7 +128,7 @@
       "url": "https://swsieber.jobs.personio.com/job/2763228",
       "source": "Fachspital Sune-Egge Dedicated Parser (Personio JSON)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T09:33:26.681Z",
+      "crawledAt": "2026-11-05T22:00:14.300Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -152,7 +152,7 @@
       "salarySource": "estimated",
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-05T09:33:26.681Z",
+      "validThrough": "2026-12-05T22:00:14.300Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -174,7 +174,7 @@
       "url": "https://swsieber.jobs.personio.com/job/2610155",
       "source": "Fachspital Sune-Egge Dedicated Parser (Personio JSON)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-05T09:33:26.353Z",
+      "crawledAt": "2026-11-05T22:00:14.059Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -198,7 +198,7 @@
       "salarySource": "estimated",
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-21T09:33:26.353Z",
+      "validThrough": "2026-12-21T22:00:14.059Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -209,5 +209,5 @@
       }
     }
   ],
-  "codeCommit": "3366ebe8b13c809dfa68b420c76fc519864235b2"
+  "codeCommit": "a1060e0c6e0f3560033abbedf4c719e585e35225"
 }

@@ -1,18 +1,70 @@
 {
   "key": "hes-so-valais",
   "label": "HES-SO Valais-Wallis",
-  "generatedAt": "2026-11-05T09:25:03.466Z",
-  "total": 2,
-  "newCount": 0,
+  "generatedAt": "2026-11-05T21:16:20.807Z",
+  "total": 3,
+  "newCount": 1,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 7076,
-  "avgDurationMs": 7076,
+  "durationMs": 11338,
+  "avgDurationMs": 11338,
   "durationHistory": [
-    7076
+    11338
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "url": "https://www.hevs.ch/fr/recruitee/collaboratrice-administrative-ou-collaborateur-administratif-60-215618",
+      "applyUrl": "https://www.hevs.ch/fr/recruitee/collaboratrice-administrative-ou-collaborateur-administratif-60-215618",
+      "title": "Collaboratrice administrative ou collaborateur administratif",
+      "company": "HES-SO Valais-Wallis",
+      "companyKey": "hes-so-valais",
+      "location": "Sion",
+      "postalCode": "1950",
+      "canton": "VS",
+      "country": "CH",
+      "slug": "collaboratrice-administrative-ou-collaborateur-administratif-hes-so-valais",
+      "category": "administration",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "source": "hes-so-valais-crawler",
+      "sourceLang": "fr",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "MID",
+      "sector": "Istruzione / Ricerca",
+      "_targetScope": {
+        "canton": "VS",
+        "location": "Sion"
+      },
+      "urlByLocale": {
+        "fr": "https://www.hevs.ch/fr/recruitee/collaboratrice-administrative-ou-collaborateur-administratif-60-215618",
+        "de": "https://www.hevs.ch/de/recruitee/collaboratrice-administrative-ou-collaborateur-administratif-60-215618",
+        "en": "https://www.hevs.ch/en/recruitee/collaboratrice-administrative-ou-collaborateur-administratif-60-215618"
+      },
+      "needsRetranslation": true,
+      "crawledAt": "2026-11-05T21:15:57.137Z",
+      "id": "hes-so-valais-60cf728c5753",
+      "salaryMin": 60500,
+      "salaryMax": 91500,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "addressLocality": "Sion",
+      "addressRegion": "VS",
+      "streetAddress": "Sion",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-02-03T21:15:57.137Z",
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-11-05T21:15:57.137Z",
+      "_qualityScore": 83,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 16,
+        "completeness": 20
+      }
+    }
+  ],
   "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [
@@ -47,7 +99,7 @@
       },
       "id": "hes-so-valais-6e6dcd0b615a",
       "firstSeenAt": "2026-10-29T21:38:55.675Z",
-      "crawledAt": "2026-11-05T09:24:54.057Z",
+      "crawledAt": "2026-11-05T21:15:57.137Z",
       "salaryMin": 51000,
       "salaryMax": 77500,
       "currency": "CHF",
@@ -56,7 +108,7 @@
       "addressRegion": "VS",
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-28T09:24:54.057Z",
+      "validThrough": "2027-01-28T21:15:57.137Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 92,
       "_qualityBreakdown": {
@@ -97,7 +149,7 @@
       },
       "id": "hes-so-valais-2f031ec3361d",
       "firstSeenAt": "2026-09-29T21:13:13.966Z",
-      "crawledAt": "2026-11-05T09:24:54.057Z",
+      "crawledAt": "2026-11-05T21:15:57.137Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
       "currency": "CHF",
@@ -106,7 +158,7 @@
       "addressRegion": "VS",
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-29T09:24:54.057Z",
+      "validThrough": "2026-12-28T21:15:57.137Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 92,
       "_qualityBreakdown": {
@@ -117,5 +169,5 @@
       }
     }
   ],
-  "codeCommit": "3366ebe8b13c809dfa68b420c76fc519864235b2"
+  "codeCommit": "a1060e0c6e0f3560033abbedf4c719e585e35225"
 }

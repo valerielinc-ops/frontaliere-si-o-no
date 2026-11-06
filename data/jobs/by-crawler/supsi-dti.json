@@ -1,7 +1,7 @@
 {
   "crawlerKey": "supsi-dti",
-  "assembledAt": "2026-11-05T09:42:02.501Z",
-  "runId": "42001694377",
+  "assembledAt": "2026-11-05T21:53:24.233Z",
+  "runId": "42111889361",
   "jobs": [
     {
       "id": "company-l4ti2z",
@@ -35,7 +35,7 @@
       },
       "companyKey": "supsi-dti",
       "companyDomain": "supsi.ch",
-      "crawledAt": "2026-11-05T09:41:40.749Z",
+      "crawledAt": "2026-11-05T21:53:06.451Z",
       "firstSeenAt": "2026-09-01T07:37:53.290Z",
       "slugByLocale": {
         "it": "concorso-generale-personale-educativo-servizio-prima-infanzia-2026-supsi-dti-ticino",
@@ -140,7 +140,7 @@
       "datePosted": "",
       "postingDateSource": "unknown",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-05T09:41:40.749Z",
+      "validThrough": "2026-12-05T21:53:06.451Z",
       "validThroughSource": "last-observed-window",
       "needsRetranslation": true
     },
@@ -174,7 +174,7 @@
       },
       "companyKey": "supsi-dti",
       "companyDomain": "supsi.ch",
-      "crawledAt": "2026-11-05T09:41:40.749Z",
+      "crawledAt": "2026-11-05T21:53:06.451Z",
       "firstSeenAt": "2026-10-05T09:36:12.464Z",
       "titleByLocale": {
         "it": "Stagista 52 settimane",
@@ -190,9 +190,9 @@
       },
       "slugByLocale": {
         "it": "stagista-52-settimane-supsi-dti-manno",
-        "en": "stagista-52-settimane-supsi-dti-manno",
-        "de": "stagista-52-settimane-supsi-dti-manno",
-        "fr": "stagista-52-settimane-supsi-dti-manno"
+        "en": "stagist-52-weeks-supsi-dti-manno",
+        "de": "stagist-52-wochen-supsi-dti-manno",
+        "fr": "stagiaire-52-semaines-supsi-dti-manno"
       },
       "requirementsByLocale": {
         "it": [
@@ -241,15 +241,6 @@
           "stagist-52-weeks-supsi-dti-manno",
           "stagist-52-wochen-supsi-dti-manno",
           "stagiaire-52-semaines-supsi-dti-manno"
-        ],
-        "en": [
-          "stagist-52-weeks-supsi-dti-manno"
-        ],
-        "de": [
-          "stagist-52-wochen-supsi-dti-manno"
-        ],
-        "fr": [
-          "stagiaire-52-semaines-supsi-dti-manno"
         ]
       },
       "previousSlugs": [
@@ -258,7 +249,7 @@
         "stagiaire-52-semaines-supsi-dti-manno"
       ],
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-03T09:41:40.749Z",
+      "validThrough": "2027-01-03T21:53:06.451Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -295,7 +286,7 @@
       },
       "companyKey": "supsi-dti",
       "companyDomain": "supsi.ch",
-      "crawledAt": "2026-11-05T09:41:40.749Z",
+      "crawledAt": "2026-11-05T21:53:06.451Z",
       "firstSeenAt": "2026-10-26T21:41:57.634Z",
       "titleByLocale": {
         "it": "Assistente con Bachelor presso il Corso di laurea in Comunicazione visiva",
@@ -313,7 +304,7 @@
         "it": "assistente-con-bachelor-presso-il-corso-di-laurea-in-comunicazione-visiva-supsi-dti-manno",
         "en": "assistant-with-bachelor-of-science-in-visual-communication-supsi-dti-manno",
         "de": "assistent-mit-bachelor-of-science-in-visual-communication-supsi-dti-manno",
-        "fr": "assistente-con-bachelor-presso-il-corso-di-laurea-in-comunicazione-visiva-supsi-dti-manno"
+        "fr": "assistante-titulaire-d-un-baccalaureat-es-sciences-en-communication-visuelle-supsi-dti-manno"
       },
       "requirementsByLocale": {
         "it": [
@@ -376,16 +367,13 @@
       "previousSlugsByLocale": {
         "it": [
           "assistante-titulaire-d-un-baccalaureat-es-sciences-en-communication-visuelle-supsi-dti-manno"
-        ],
-        "fr": [
-          "assistante-titulaire-d-un-baccalaureat-es-sciences-en-communication-visuelle-supsi-dti-manno"
         ]
       },
       "previousSlugs": [
         "assistante-titulaire-d-un-baccalaureat-es-sciences-en-communication-visuelle-supsi-dti-manno"
       ],
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-25T09:41:40.749Z",
+      "validThrough": "2027-01-24T21:53:06.451Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -426,7 +414,7 @@
       },
       "companyKey": "supsi-dti",
       "companyDomain": "supsi.ch",
-      "crawledAt": "2026-11-05T09:41:40.749Z",
+      "crawledAt": "2026-11-05T21:53:06.451Z",
       "firstSeenAt": "2026-10-26T21:41:57.634Z",
       "titleByLocale": {
         "it": "Responsabile della Formazione di base per il Dipartimento tecnologie innovative (DTI)",
@@ -530,7 +518,7 @@
       "needsRetranslation": true,
       "streetAddress": "Lugano",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-25T09:41:40.749Z",
+      "validThrough": "2027-01-24T21:53:06.451Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -574,7 +562,7 @@
       },
       "companyKey": "supsi-dti",
       "companyDomain": "supsi.ch",
-      "crawledAt": "2026-11-05T09:41:40.749Z",
+      "crawledAt": "2026-11-05T21:53:06.451Z",
       "firstSeenAt": "2026-10-27T22:00:22.154Z",
       "titleByLocale": {
         "it": "Assistente con Master in Robotica",
@@ -689,7 +677,7 @@
         "assistente-con-master-in-robotica-supsi-manno"
       ],
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-26T09:41:40.749Z",
+      "validThrough": "2027-01-26T21:53:06.451Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -733,7 +721,7 @@
       },
       "companyKey": "supsi-dti",
       "companyDomain": "supsi.ch",
-      "crawledAt": "2026-11-05T09:41:40.749Z",
+      "crawledAt": "2026-11-05T21:53:06.451Z",
       "firstSeenAt": "2026-10-28T09:37:15.628Z",
       "titleByLocale": {
         "it": "Dottoranda / Dottorando in Intelligenza Artificiale – Modellazione causale e sistemi multi-agente",
@@ -750,7 +738,7 @@
       "slugByLocale": {
         "it": "dottoranda-dottorando-in-intelligenza-artificiale-modellazione-causale-e-sistemi-multi-agente-supsi-dti-manno",
         "en": "phd-student-in-artificial-intelligence-causal-modelling-and-multi-agent-systems-supsi-dti-manno",
-        "de": "dottoranda-dottorando-in-intelligenza-artificiale-modellazione-causale-e-sistemi-multi-agente-supsi-dti-manno",
+        "de": "phd-phd-in-kunstlicher-intelligenz-kausalmodellierung-und-multiagentensysteme-supsi-dti-manno",
         "fr": "phd-phd-en-intelligence-artificielle-modelisation-causale-et-systemes-multi-agents-supsi-dti-manno"
       },
       "requirementsByLocale": {
@@ -840,16 +828,8 @@
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-26T09:41:40.749Z",
-      "validThroughSource": "last-observed-window",
-      "previousSlugsByLocale": {
-        "de": [
-          "phd-phd-in-kunstlicher-intelligenz-kausalmodellierung-und-multiagentensysteme-supsi-dti-manno"
-        ]
-      },
-      "previousSlugs": [
-        "phd-phd-in-kunstlicher-intelligenz-kausalmodellierung-und-multiagentensysteme-supsi-dti-manno"
-      ]
+      "validThrough": "2027-01-26T21:53:06.451Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-l4u562",
@@ -888,7 +868,7 @@
       },
       "companyKey": "supsi-dti",
       "companyDomain": "supsi.ch",
-      "crawledAt": "2026-11-05T09:41:40.749Z",
+      "crawledAt": "2026-11-05T21:53:06.451Z",
       "firstSeenAt": "2026-10-20T09:36:21.726Z",
       "titleByLocale": {
         "it": "Collaboratrice scientifica / Collaboratore scientifico nell’ambito dell’automazione e della robotica collaborativa applicate a sistemi di produzione human-centred”",
@@ -1007,7 +987,7 @@
       "employmentType": "FULL_TIME",
       "needsRetranslation": true,
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-18T09:41:40.749Z",
+      "validThrough": "2027-01-18T21:53:06.451Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1045,26 +1025,25 @@
       },
       "companyKey": "supsi-dti",
       "companyDomain": "supsi.ch",
-      "crawledAt": "2026-11-05T09:41:40.749Z",
+      "crawledAt": "2026-11-05T21:53:06.451Z",
       "firstSeenAt": "2026-11-05T09:41:40.749Z",
       "titleByLocale": {
         "it": "Assistente con Bachelor o Master per il Corso di laurea in Architettura",
-        "en": "Assistente con Bachelor o Master per il Corso di laurea in Architettura",
-        "de": "Assistente con Bachelor o Master per il Corso di laurea in Architettura",
-        "fr": "Assistente con Bachelor o Master per il Corso di laurea in Architettura"
+        "en": "Assistant with Bachelor or Master degree in Architecture",
+        "de": "Assistent mit Bachelor- oder Master-Abschluss in Architektur",
+        "fr": "Assistant avec baccalauréat ou maîtrise en architecture"
       },
       "descriptionByLocale": {
         "it": "# Assistente con Bachelor o Master per il Corso di laurea in Architettura\n\nLa Scuola Universitaria Professionale della Svizzera italiana (SUPSI), mette a concorso presso il Dipartimento ambiente costruzioni e design (DACD), per il\n\n## corso di laurea in Architettura\n, una posizione di\n\n## Assistente con Bachelor o Master\ncon un grado di occupazione del 100%. La sede principale di lavoro è presso il Campus di Mendrisio. Entrata in funzione dal 1° febbraio 2027.\n\n## Ambito e scopo della posizione\nNei 3 anni di attività presso il Corso di laurea in architettura, l’assistente accompagna le studentesse e gli studenti nelle loro attività di progetto, costruzione e in altri ambiti di studio. Collabora e affianca le e i docenti nelle loro attività di preparazione, svolgimento e tutoring (revisioni). Svolge attività amministrative e gestionali.\nIl suo contributo è centrale nel coadiuvare risorse e gestire strumenti a carattere disciplinare per le attività didattiche della formazione di base. Una percentuale della sua attività è dedicata alla formazione personale.\n\n## Mansioni\nNel campo della formazione\n- collaborare con le e i docenti nella preparazione dei documenti per le attività didattiche della formazione di base, sostenere le studen-tesse e gli studenti durante l’esecuzione degli esercizi e dei progetti.\n\nNel campo delle attività del corso di laurea\n- collaborare con le e i responsabili alla gestione amministrativa alla pianificazione delle attività semestrali e all’organizzazione di eventi quali ad esempio l’allestimento di mostre e la preparazione di conferenze nell’ambito della formazione di base.\n\n## Requisiti\n- Bachelor o Master in Architettura SUP/ETH/USI (o titolo affine) con meno di 3 anni di esperienza professionale dopo la fine degli studi.\n- Auspicata conoscenza del contesto delle SUP.\n- Auspicate conoscenze e interesse per i temi legati al progetto, costruzione e sostenibilità dell'architettura.\n- Ottime conoscenze dei programmi Office e comprovate esperienze nell’utilizzo dei programmi CAD e di preferenza anche BIM (Revit, Archicad).\n- Attitudine al lavoro di gruppo, con forte orientamento alla collaborazione.\n- Capacità di lavorare in autonomia rispettando le scadenze stabilite.\n- Disponibilità e flessibilità per il raggiungimento degli obiettivi.\n- Buona conoscenza della lingua italiana. La conoscenza di una seconda lingua nazionale e dell'inglese costituisce titolo preferenziale.\n\n## Offriamo\n- Contratto di durata massima di 3 anni.\n- Inserimento in un contesto di lavoro dinamico e in continua evoluzione.\n- Possibilità di perfezionamento professionale.\n\n## Informazioni aggiuntive\nInformazioni supplementari possono essere richieste a\nArch. Francesco Piatti\n.\nSaranno prese in considerazione unicamente le candidature inoltrate entro il\n\n## 30 novembre 2026\ntramite l'apposito formulario. Non sono accettate candidature incomplete, inviate ad altri indirizzi od oltre il termine stabilito.",
-        "en": "# Assistente con Bachelor o Master per il Corso di laurea in Architettura\n\nLa Scuola Universitaria Professionale della Svizzera italiana (SUPSI), mette a concorso presso il Dipartimento ambiente costruzioni e design (DACD), per il\n\n## corso di laurea in Architettura\n, una posizione di\n\n## Assistente con Bachelor o Master\ncon un grado di occupazione del 100%. La sede principale di lavoro è presso il Campus di Mendrisio. Entrata in funzione dal 1° febbraio 2027.\n\n## Ambito e scopo della posizione\nNei 3 anni di attività presso il Corso di laurea in architettura, l’assistente accompagna le studentesse e gli studenti nelle loro attività di progetto, costruzione e in altri ambiti di studio. Collabora e affianca le e i docenti nelle loro attività di preparazione, svolgimento e tutoring (revisioni). Svolge attività amministrative e gestionali.\nIl suo contributo è centrale nel coadiuvare risorse e gestire strumenti a carattere disciplinare per le attività didattiche della formazione di base. Una percentuale della sua attività è dedicata alla formazione personale.\n\n## Mansioni\nNel campo della formazione\n- collaborare con le e i docenti nella preparazione dei documenti per le attività didattiche della formazione di base, sostenere le studen-tesse e gli studenti durante l’esecuzione degli esercizi e dei progetti.\n\nNel campo delle attività del corso di laurea\n- collaborare con le e i responsabili alla gestione amministrativa alla pianificazione delle attività semestrali e all’organizzazione di eventi quali ad esempio l’allestimento di mostre e la preparazione di conferenze nell’ambito della formazione di base.\n\n## Requisiti\n- Bachelor o Master in Architettura SUP/ETH/USI (o titolo affine) con meno di 3 anni di esperienza professionale dopo la fine degli studi.\n- Auspicata conoscenza del contesto delle SUP.\n- Auspicate conoscenze e interesse per i temi legati al progetto, costruzione e sostenibilità dell'architettura.\n- Ottime conoscenze dei programmi Office e comprovate esperienze nell’utilizzo dei programmi CAD e di preferenza anche BIM (Revit, Archicad).\n- Attitudine al lavoro di gruppo, con forte orientamento alla collaborazione.\n- Capacità di lavorare in autonomia rispettando le scadenze stabilite.\n- Disponibilità e flessibilità per il raggiungimento degli obiettivi.\n- Buona conoscenza della lingua italiana. La conoscenza di una seconda lingua nazionale e dell'inglese costituisce titolo preferenziale.\n\n## Offriamo\n- Contratto di durata massima di 3 anni.\n- Inserimento in un contesto di lavoro dinamico e in continua evoluzione.\n- Possibilità di perfezionamento professionale.\n\n## Informazioni aggiuntive\nInformazioni supplementari possono essere richieste a\nArch. Francesco Piatti\n.\nSaranno prese in considerazione unicamente le candidature inoltrate entro il\n\n## 30 novembre 2026\ntramite l'apposito formulario. Non sono accettate candidature incomplete, inviate ad altri indirizzi od oltre il termine stabilito.",
-        "de": "# Assistente con Bachelor o Master per il Corso di laurea in Architettura\n\nLa Scuola Universitaria Professionale della Svizzera italiana (SUPSI), mette a concorso presso il Dipartimento ambiente costruzioni e design (DACD), per il\n\n## corso di laurea in Architettura\n, una posizione di\n\n## Assistente con Bachelor o Master\ncon un grado di occupazione del 100%. La sede principale di lavoro è presso il Campus di Mendrisio. Entrata in funzione dal 1° febbraio 2027.\n\n## Ambito e scopo della posizione\nNei 3 anni di attività presso il Corso di laurea in architettura, l’assistente accompagna le studentesse e gli studenti nelle loro attività di progetto, costruzione e in altri ambiti di studio. Collabora e affianca le e i docenti nelle loro attività di preparazione, svolgimento e tutoring (revisioni). Svolge attività amministrative e gestionali.\nIl suo contributo è centrale nel coadiuvare risorse e gestire strumenti a carattere disciplinare per le attività didattiche della formazione di base. Una percentuale della sua attività è dedicata alla formazione personale.\n\n## Mansioni\nNel campo della formazione\n- collaborare con le e i docenti nella preparazione dei documenti per le attività didattiche della formazione di base, sostenere le studen-tesse e gli studenti durante l’esecuzione degli esercizi e dei progetti.\n\nNel campo delle attività del corso di laurea\n- collaborare con le e i responsabili alla gestione amministrativa alla pianificazione delle attività semestrali e all’organizzazione di eventi quali ad esempio l’allestimento di mostre e la preparazione di conferenze nell’ambito della formazione di base.\n\n## Requisiti\n- Bachelor o Master in Architettura SUP/ETH/USI (o titolo affine) con meno di 3 anni di esperienza professionale dopo la fine degli studi.\n- Auspicata conoscenza del contesto delle SUP.\n- Auspicate conoscenze e interesse per i temi legati al progetto, costruzione e sostenibilità dell'architettura.\n- Ottime conoscenze dei programmi Office e comprovate esperienze nell’utilizzo dei programmi CAD e di preferenza anche BIM (Revit, Archicad).\n- Attitudine al lavoro di gruppo, con forte orientamento alla collaborazione.\n- Capacità di lavorare in autonomia rispettando le scadenze stabilite.\n- Disponibilità e flessibilità per il raggiungimento degli obiettivi.\n- Buona conoscenza della lingua italiana. La conoscenza di una seconda lingua nazionale e dell'inglese costituisce titolo preferenziale.\n\n## Offriamo\n- Contratto di durata massima di 3 anni.\n- Inserimento in un contesto di lavoro dinamico e in continua evoluzione.\n- Possibilità di perfezionamento professionale.\n\n## Informazioni aggiuntive\nInformazioni supplementari possono essere richieste a\nArch. Francesco Piatti\n.\nSaranno prese in considerazione unicamente le candidature inoltrate entro il\n\n## 30 novembre 2026\ntramite l'apposito formulario. Non sono accettate candidature incomplete, inviate ad altri indirizzi od oltre il termine stabilito.",
-        "fr": "# Assistente con Bachelor o Master per il Corso di laurea in Architettura\n\nLa Scuola Universitaria Professionale della Svizzera italiana (SUPSI), mette a concorso presso il Dipartimento ambiente costruzioni e design (DACD), per il\n\n## corso di laurea in Architettura\n, una posizione di\n\n## Assistente con Bachelor o Master\ncon un grado di occupazione del 100%. La sede principale di lavoro è presso il Campus di Mendrisio. Entrata in funzione dal 1° febbraio 2027.\n\n## Ambito e scopo della posizione\nNei 3 anni di attività presso il Corso di laurea in architettura, l’assistente accompagna le studentesse e gli studenti nelle loro attività di progetto, costruzione e in altri ambiti di studio. Collabora e affianca le e i docenti nelle loro attività di preparazione, svolgimento e tutoring (revisioni). Svolge attività amministrative e gestionali.\nIl suo contributo è centrale nel coadiuvare risorse e gestire strumenti a carattere disciplinare per le attività didattiche della formazione di base. Una percentuale della sua attività è dedicata alla formazione personale.\n\n## Mansioni\nNel campo della formazione\n- collaborare con le e i docenti nella preparazione dei documenti per le attività didattiche della formazione di base, sostenere le studen-tesse e gli studenti durante l’esecuzione degli esercizi e dei progetti.\n\nNel campo delle attività del corso di laurea\n- collaborare con le e i responsabili alla gestione amministrativa alla pianificazione delle attività semestrali e all’organizzazione di eventi quali ad esempio l’allestimento di mostre e la preparazione di conferenze nell’ambito della formazione di base.\n\n## Requisiti\n- Bachelor o Master in Architettura SUP/ETH/USI (o titolo affine) con meno di 3 anni di esperienza professionale dopo la fine degli studi.\n- Auspicata conoscenza del contesto delle SUP.\n- Auspicate conoscenze e interesse per i temi legati al progetto, costruzione e sostenibilità dell'architettura.\n- Ottime conoscenze dei programmi Office e comprovate esperienze nell’utilizzo dei programmi CAD e di preferenza anche BIM (Revit, Archicad).\n- Attitudine al lavoro di gruppo, con forte orientamento alla collaborazione.\n- Capacità di lavorare in autonomia rispettando le scadenze stabilite.\n- Disponibilità e flessibilità per il raggiungimento degli obiettivi.\n- Buona conoscenza della lingua italiana. La conoscenza di una seconda lingua nazionale e dell'inglese costituisce titolo preferenziale.\n\n## Offriamo\n- Contratto di durata massima di 3 anni.\n- Inserimento in un contesto di lavoro dinamico e in continua evoluzione.\n- Possibilità di perfezionamento professionale.\n\n## Informazioni aggiuntive\nInformazioni supplementari possono essere richieste a\nArch. Francesco Piatti\n.\nSaranno prese in considerazione unicamente le candidature inoltrate entro il\n\n## 30 novembre 2026\ntramite l'apposito formulario. Non sono accettate candidature incomplete, inviate ad altri indirizzi od oltre il termine stabilito."
+        "en": "# Assistant with Bachelor or Master degree in Architecture\n\nThe Professional University School of Italian Switzerland (SUPSI), competes at the Department of Environment Construction and Design (DACD), for the\n\n## Bachelor in Architecture\n, a position of\n\n## Assistant with Bachelor or Master\nwith a 100% employment degree. The main office is at the Mendrisio Campus. Starting from 1 February 2027.\n\n## Scope and purpose of position\nIn 3 years of activity at the Bachelor of Architecture, the assistant accompanies students and students in their project, construction and other fields of study. He collaborates and supports the teachers in their preparation, development and tutoring (revisions). It carries out administrative and management activities.\nIts contribution is central to assisting resources and managing disciplinary tools for basic training. A percentage of his activity is devoted to personal training.\n\n## Shipments\nIn the field of training\n- collaborate with the teachers in preparing documents for basic education activities, supporting studen-tesses and students during the execution of exercises and projects.\n\nIn the field of the activities of the degree program\n- collaborate with those responsible for administrative management in the planning of semi-annual activities and the organization of events such as the preparation of exhibitions and the preparation of conferences in the field of basic training.\n\n## Requirements\n- Bachelor or Master in Architecture SUP/ETH/USI (or business title) with less than 3 years of professional experience after the end of studies.\n- Improved knowledge of the context of SUPs.\n- Experience and interest in the themes related to the project, construction and sustainability of architecture.\n- Great knowledge of Office programs and proven experiences in the use of CAD programs and preferably also BIM (Revit, Archicad).\n- Group work attitude, with a strong focus on collaboration.\n- Ability to work independently respecting the established deadlines.\n- Availability and flexibility for achieving goals.\n- Good knowledge of Italian language. Knowledge of a second national language and English is a preferential title.\n\n## We offer\n- Maximum contract of 3 years.\n- Insertion in a dynamic and constantly changing working environment.\n- Possibility of vocational training.\n\n## Additional information\nAdditional information may be requested\nArch. Francesco Piatti\n.\nOnly applications submitted by the Commission will be considered\n\n## 30 November 2026\nvia the appropriate form. Incomplete applications are not accepted, sent to other addresses or beyond the agreed deadline.",
+        "de": "# Assistent mit Bachelor- oder Master-Abschluss in Architektur\n\nDie Professional University School of Italian Switzerland (SUPSI), konkurriert am Department of Environment Construction and Design (DACD), für die\n\n## Bachelor in Architektur\neine Position von\n\n## Assistent mit Bachelor oder Master\nmit einem 100% Beschäftigungsgrad. Der Hauptsitz befindet sich auf dem Mendrisio Campus. Ab 1. Februar 2027.\n\n## Anwendungsbereich und Zweck der Position\nIn 3 Jahren Tätigkeit am Bachelor of Architecture begleitet der Assistent Studierende und Studierende in ihren Projekt-, Bau- und anderen Studienrichtungen. Er arbeitet mit und unterstützt die Lehrer bei der Vorbereitung, Entwicklung und Betreuung (Revisionen). Sie führt Verwaltungs- und Managementtätigkeiten durch.\nSein Beitrag ist von zentraler Bedeutung für die Unterstützung von Ressourcen und die Verwaltung von disziplinarischen Instrumenten für die Grundausbildung. Ein Prozentsatz seiner Tätigkeit ist dem persönlichen Training gewidmet.\n\n## Sendungen\nIm Bereich der Ausbildung\n- Zusammenarbeit mit den Lehrern bei der Vorbereitung von Dokumenten für grundlegende Bildungsaktivitäten, Unterstützung von Schülerinnen und Schülern bei der Durchführung von Übungen und Projekten.\n\nIm Bereich der Aktivitäten des Studiengangs\n- Zusammenarbeit mit den Verantwortlichen für die Verwaltung bei der Planung von halbjährlichen Aktivitäten und der Organisation von Veranstaltungen wie der Vorbereitung von Ausstellungen und der Vorbereitung von Konferenzen im Bereich der Grundausbildung.\n\n## Anforderungen\n- Bachelor oder Master in Architektur SUP / ETH / USI (oder Business-Titel) mit weniger als 3 Jahren Berufserfahrung nach dem Studium.\n- Verbessertes Wissen über den Kontext von SUPs.\n- Erfahrung und Interesse an den Themen Projekt, Bau und Nachhaltigkeit der Architektur.\n- Großes Wissen über Office-Programme und nachgewiesene Erfahrungen im Einsatz von CAD-Programmen und vorzugsweise auch BIM (Revit, Archicad).\n- Gruppenarbeitseinstellung, mit einem starken Fokus auf Zusammenarbeit.\n- Fähigkeit, unabhängig zu arbeiten und die festgelegten Fristen einzuhalten.\n- Verfügbarkeit und Flexibilität, um Ziele zu erreichen.\n- Gute Kenntnisse der italienischen Sprache. Kenntnisse einer zweiten Landessprache und Englisch ist ein bevorzugter Titel.\n\n## Wir bieten\n- Maximaler Vertrag von 3 Jahren.\n- Einfügen in ein dynamisches und sich ständig veränderndes Arbeitsumfeld.\n- Möglichkeit der Berufsausbildung.\n\n## Zusätzliche Angaben\nZusätzliche Informationen können angefordert werden\nBogen. Francesco Piatti\n.\nNur Anträge der Kommission werden berücksichtigt\n\n## 30. November 2026\nüber die entsprechende Form. Unvollständige Anträge werden nicht angenommen, an andere Adressen oder über die vereinbarte Frist hinaus gesendet.",
+        "fr": "# Assistant avec baccalauréat ou maîtrise en architecture\n\nL'Ecole Universitaire Professionnelle de Suisse Italienne (SUPSI), concoure au Département de Construction et Design Environnement (DACD), pour la\n\n## Bachelor en Architecture\n, une position de\n\n## Assistant avec baccalauréat ou maîtrise\navec un diplôme d'emploi de 100%. Le bureau principal est au campus Mendrisio. À partir du 1er février 2027.\n\n## Portée et objet de la position\nEn 3 ans d'activité au baccalauréat en architecture, l'assistant accompagne les étudiants et les étudiants dans leur projet, la construction et d'autres domaines d'études. Il collabore et soutient les enseignants dans leur préparation, leur développement et leur tutorat (révisions). Elle mène des activités administratives et de gestion.\nSa contribution est essentielle pour aider les ressources et gérer les outils disciplinaires pour la formation de base. Un pourcentage de son activité est consacré à la formation personnelle.\n\n## Expéditions\nDans le domaine de la formation\n- Collaborer avec les enseignants à la préparation de documents pour les activités d'éducation de base, en soutenant les étudiants et les étudiants dans l'exécution d'exercices et de projets.\n\nDans le domaine des activités du programme de diplôme\n- collaborer avec les responsables de la gestion administrative à la planification des activités semestrielles et à l'organisation d'événements tels que la préparation d'expositions et la préparation de conférences dans le domaine de la formation de base.\n\n## Exigences\n- Baccalauréat ou maîtrise en architecture SUP/ETH/USI (ou titre d'entreprise) avec moins de 3 ans d'expérience professionnelle après la fin des études.\n- Meilleure connaissance du contexte des SUP.\n- Expérience et intérêt pour les thèmes liés au projet, à la construction et à la durabilité de l'architecture.\n- Bonne connaissance des programmes du Bureau et des expériences éprouvées dans l'utilisation des programmes CAO et de préférence aussi BIM (Revit, Archicad).\n- L'attitude de travail de groupe, avec un accent fort sur la collaboration.\n- Capacité de travailler de façon indépendante en respectant les délais établis.\n- Disponibilité et souplesse pour atteindre les objectifs.\n- Bonne connaissance de la langue italienne. La connaissance d'une deuxième langue nationale et de l'anglais est un titre préférentiel.\n\n## Nous offrons\n- Contrat maximum de 3 ans.\n- Insertion dans un environnement de travail dynamique et en constante évolution.\n- Possibilité de formation professionnelle.\n\n## Informations complémentaires\nDes renseignements supplémentaires peuvent être demandés\nArch. Francesco Piatti\n.\nSeules les demandes soumises par le Conseil seront examinées.\n\n## 30 novembre 2026\npar le formulaire approprié. Les demandes incomplètes ne sont pas acceptées, envoyées à d'autres adresses ou au-delà de la date limite convenue."
       },
-      "needsRetranslation": true,
       "slugByLocale": {
         "it": "assistente-con-bachelor-o-master-per-il-corso-di-laurea-in-architettura-supsi-dti-manno",
-        "en": "assistente-con-bachelor-o-master-per-il-corso-di-laurea-in-architettura-supsi-dti-manno",
-        "de": "assistente-con-bachelor-o-master-per-il-corso-di-laurea-in-architettura-supsi-dti-manno",
-        "fr": "assistente-con-bachelor-o-master-per-il-corso-di-laurea-in-architettura-supsi-dti-manno"
+        "en": "assistant-with-bachelor-or-master-degree-in-architecture-supsi-dti-manno",
+        "de": "assistent-mit-bachelor-oder-master-abschluss-in-architektur-supsi-dti-manno",
+        "fr": "assistant-avec-baccalaureat-ou-maitrise-en-architecture-supsi-dti-manno"
       },
       "requirementsByLocale": {
         "it": [
@@ -1129,7 +1108,7 @@
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-03T09:41:40.749Z",
+      "validThrough": "2027-02-03T21:53:06.451Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1321,7 +1300,7 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-02T21:43:30.372Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "needsRetranslation": true
     }
   ]

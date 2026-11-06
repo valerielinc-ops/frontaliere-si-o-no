@@ -12,6 +12,7 @@ import { retentionPurgeDueAt, talentPoolConsentActive } from '../../functions/sr
 import { getRemoteConfig } from 'firebase-admin/remote-config';
 import { PORTAL_NATIVE_CONTRACT_VERSION } from '../../functions/src/lib/portalNativeContract.js';
 import { portalCodeVersion, portalIdentityQuestionDefinitelyUnsent, portalRecoveryDefinitelyUnsent, operationalPortalRecoveryReady } from '../../functions/src/assistedApplicationPortalRecoveryPolicy.js';
+import { portalAutoRetryAttemptsRemaining } from '../../functions/src/assistedApplicationPortalRetryPolicy.js';
 import './extension/apply-control.js';
 import { candidateAnswerForField, isIdentityEmailConfirmationField } from './lib/portal/plan.mjs';
 
@@ -66,6 +67,15 @@ function hasUntrustedProfileOperationalAnswers({ profile, draft }) {
   });
 }
 
+function canRediscoverUnreadablePortalQuestions(flow, draft, flags) {
+  if (flow?.heldBy?.length !== 1 || flow.heldBy[0] !== 'portal:question_label_unreadable'
+    || !flags.candidate.length) return false;
+  const portalQuestionIds = new Set((Array.isArray(draft?.questions) ? draft.questions : [])
+    .filter(question => question?.source === 'portal' && question.required === true)
+    .map(question => String(question.id || '').trim()).filter(Boolean));
+  return flags.candidate.every(id => portalQuestionIds.has(String(id)));
+}
+
 export async function reconcilePortalCode({ db, version, apply = false, nowMs = Date.now(), isEnabled = null }) {
   if (!portalCodeVersion(version)) throw new Error('invalid_portal_code_version');
   if (!isEnabled) {
@@ -108,6 +118,17 @@ export async function reconcilePortalCode({ db, version, apply = false, nowMs = 
         if ((!ownerRecoveryReady && !identityQuestionReady) || !roundWasSent(flow) || flow.postingExpiredAt) return false;
         if (flow.heldBy[0] === 'portal:portal_needs_candidate'
           && !talentPoolConsentActive(order) && !(retentionPurgeDueAt(order) > nowMs)) return false;
+        // A source-version change may make a previously blocked portal
+        // technically recoverable, but it must never mint a new retry budget.
+        // The normal clock and this reconciler share the same policy helper so
+        // repeated deployments cannot keep resubmitting one application.
+        if (!identityQuestionReady && !portalAutoRetryAttemptsRemaining(flow)) {
+          if (apply) {
+            transaction.set(flowRef, { portalRecoveryVersion: version, portalAutoRetryAt: null, updatedAt: nowMs }, { merge: true });
+            transaction.set(doc.ref, { automationDueAt: null, automationUpdatedAt: new Date(nowMs) }, { merge: true });
+          }
+          return false;
+        }
         const answerContext = await loadRunnerAnswerContext({ db, orderId: doc.id, order, flow, draft, nowMs,
           profileRecord: profileDoc?.data() || {}, getDocument: ref => transaction.get(ref) });
         const trustedLocalAnswers = flow.orderQuestionAnswersEvidenceVersion === ORDER_QUESTION_ANSWER_EVIDENCE_VERSION;
@@ -132,7 +153,8 @@ export async function reconcilePortalCode({ db, version, apply = false, nowMs = 
           ? { ...(recoveryFlow.answers || {}), [identityAnswer.questionId]: identityAnswer.email }
           : recoveryFlow.answers || {};
         const flags = evaluateRedFlags(draft, eligibilityAnswers, flow.documents || {}, recoveryFlow.questionAnswers, recoveryFlow, order);
-        if (flags.owner.length || flags.candidate.length || flags.documents.length) return false;
+        const candidatePortalRediscovery = ownerRecoveryReady && canRediscoverUnreadablePortalQuestions(flow, draft, flags);
+        if (flags.owner.length || flags.documents.length || (flags.candidate.length && !candidatePortalRediscovery)) return false;
         if (receipt?.version === version && Number(receipt.round) === Number(flow.round || 1)) return false;
         if (apply) {
           if (identityQuestionReady) {
@@ -145,7 +167,7 @@ export async function reconcilePortalCode({ db, version, apply = false, nowMs = 
             const recoveryOrderAnswers = flow.heldBy[0] === 'portal:portal_needs_candidate' && !trustedLocalAnswers
               ? {} : trustedLocalAnswers ? answerContext.orderAnswers
                 : rememberCandidateQuestionAnswers({ questions: draft?.questions || [], answers: legacyLocalAnswers, changed: legacyLocalAnswers });
-            transaction.set(flowRef, { heldBy, questionAnswers: recoveryOrderAnswers, portalAutoRetryAt: nowMs, portalAutoRetryCount: 0,
+            transaction.set(flowRef, { heldBy, questionAnswers: recoveryOrderAnswers, portalAutoRetryAt: nowMs,
               portalRecoveryVersion: version, updatedAt: nowMs }, { merge: true });
           }
           transaction.set(doc.ref, { automationDueAt: nowMs, automationUpdatedAt: new Date(nowMs) }, { merge: true });

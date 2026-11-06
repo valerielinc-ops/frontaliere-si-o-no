@@ -174,6 +174,23 @@ describe('publisher integrity gate and asynchronous historical audits', () => {
     expect(auditStep.env.PUBLISHER_AUDIT_RECEIPT_DIR).toContain('publisher-audit-receipts');
   });
 
+  it('reconciles sitemap membership after shard rehydration and before final-dist audits', () => {
+    const workflow = YAML.parse(AUDIT_REPORT_YML) as any;
+    const steps = workflow.jobs.audit.steps;
+    const provenanceIndex = steps.findIndex((step: any) => step.name === 'Verify replay shard provenance after rehydrate');
+    const reconcileIndex = steps.findIndex((step: any) => step.id === 'reconcile_rehydrated_sitemaps');
+    const completeIndex = steps.findIndex((step: any) => step.name === 'Assert dist/ is the complete logical site');
+    const auditIndex = steps.findIndex((step: any) => step.id === 'audits');
+
+    expect(PACKAGE_JSON.scripts['validate:rehydrated-sitemaps'])
+      .toBe('npx tsx scripts/ci/reconcile-rehydrated-sitemaps.ts');
+    expect(reconcileIndex).toBeGreaterThan(provenanceIndex);
+    expect(reconcileIndex).toBeLessThan(completeIndex);
+    expect(auditIndex).toBeGreaterThan(completeIndex);
+    expect(steps[reconcileIndex]?.run).toBe('npm run validate:rehydrated-sitemaps');
+    expect(steps[reconcileIndex]?.['continue-on-error']).not.toBe(true);
+  });
+
   it('schedules a periodic full audit outside the publisher workflow', () => {
     const workflow = YAML.parse(AUDIT_FULL_YML) as any;
     expect(workflow.on.schedule).toHaveLength(1);
@@ -181,6 +198,53 @@ describe('publisher integrity gate and asynchronous historical audits', () => {
     expect(workflow.jobs.cadence.steps[0].run).toContain('604800');
     expect(workflow.jobs['full-audit'].with.full_scan).toBe(true);
     expect(workflow.jobs['full-audit'].with.audit_sample_rate).toBe('1');
+  });
+
+  it('keeps every artifact required by the weekly full audit for its full retention window', () => {
+    const retentionDays = 8;
+    const runId = '${{ github.run_id }}';
+    const matrixLocale = '${{ matrix.locale }}';
+    const sourceSteps = (YAML.parse(DEPLOY_YML) as any).jobs['build-locale'].steps;
+    const publisherSteps = (YAML.parse(DEPLOY_PUBLISH_YML) as any).jobs['publish-nonit-shards'].steps;
+    const upload = (steps: any[], name: string) => {
+      const matches = steps.filter((step) => step?.uses === 'actions/upload-artifact@v7' && step?.with?.name === name);
+      expect(matches, `missing unique upload step for ${name}`).toHaveLength(1);
+      return matches[0];
+    };
+    const assertRetention = (steps: any[], names: string[]) => {
+      for (const name of names) {
+        expect(Number(upload(steps, name).with['retention-days']), `${name} must survive the weekly replay window`)
+          .toBeGreaterThanOrEqual(retentionDays);
+      }
+    };
+
+    assertRetention(sourceSteps, [
+      'github-pages',
+      `sitemaps-${runId}`,
+      `jobs-master-${runId}`,
+      `sitemap-page-manifest-${matrixLocale}-${runId}`,
+      `section-page-manifest-it-${runId}`,
+      ...Array.from({ length: 6 }, (_, index) => `shard-batch-${index + 1}-dist-it-${runId}`),
+    ]);
+    assertRetention(publisherSteps, [
+      `locale-dist-${matrixLocale}-${runId}`,
+      `section-page-manifest-${matrixLocale}-${runId}`,
+      ...Array.from({ length: 6 }, (_, index) => `shard-batch-${index + 1}-dist-${matrixLocale}-${runId}`),
+    ]);
+  });
+
+  it('keeps the publisher selector fail-closed when any source or shard artifact is absent', () => {
+    const workflow = YAML.parse(AUDIT_FULL_YML) as any;
+    const selector = workflow.jobs['source-identity'].steps.find((step: any) => step.id === 'identity').run as string;
+
+    expect(selector).toContain('select(.expired == false)');
+    expect(selector).toContain('complete=true');
+    expect(selector).toContain('has_name "$source_names" "$name" || complete=false');
+    expect(selector).toContain('has_name "$publisher_names" "locale-dist-$locale-$publisher_id" || complete=false');
+    expect(selector).toContain('has_name "$publisher_names" "section-page-manifest-$locale-$publisher_id" || complete=false');
+    expect(selector).toContain('if [ "$complete" = true ]; then');
+    expect(selector).toContain('No successful publisher run has a complete, unexpired source and shard artifact set.');
+    expect(selector).toMatch(/echo '::error::No successful publisher run[\s\S]*?exit 1/);
   });
 
   it('records French tail step outcomes and distinguishes an unattributed job failure', () => {

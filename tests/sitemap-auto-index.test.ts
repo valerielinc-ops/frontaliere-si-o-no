@@ -486,4 +486,38 @@ describe('sitemapAliasPlugin — final fuel dist reconciliation', () => {
     expect(remaining).not.toContain(`<loc>${loc(missingCanonicalPath)}</loc>`);
     expect(remaining).not.toContain(`<loc>${loc(missingPath)}</loc>`);
   });
+
+  it('removes the Italian station bridge from the rehydrated sitemap graph while keeping its HTML', async () => {
+    const healthyPath = '/prezzi-benzina/italia/travedona-monate/stazioni/eni-travedona-001/';
+    const bridgePath = '/prezzi-benzina/italia/travedona-monate/stazioni/sommese-petroli-trieste-213/';
+    const loc = (urlPath: string) => `${BASE_URL}${urlPath}`;
+
+    seedSitemapWithLocs(distDir, 'sitemap-fuel-italian-stations.xml', [
+      loc(healthyPath),
+      loc(bridgePath),
+    ]);
+    seedSitemapWithLocs(distDir, 'sitemap-fuel-italian-stations-1.xml', [
+      loc(bridgePath),
+    ]);
+    seedHtmlPage(distDir, healthyPath);
+    seedHtmlPage(distDir, bridgePath, { noindex: true, canonical: null });
+
+    await expect(reconcileFinalSitemapsWithDist(distDir, [], {
+      keepMissing: false,
+      ignoreShardOwnership: true,
+    })).resolves.toBeUndefined();
+
+    const remaining = fs.readFileSync(
+      path.join(distDir, 'sitemap-fuel-italian-stations.xml'),
+      'utf-8',
+    );
+    expect(remaining).toContain(`<loc>${loc(healthyPath)}</loc>`);
+    expect(remaining).not.toContain(`<loc>${loc(bridgePath)}</loc>`);
+    expect(fs.existsSync(path.join(distDir, 'sitemap-fuel-italian-stations-1.xml'))).toBe(false);
+    expect(fs.existsSync(path.join(distDir, bridgePath.replace(/^\/+/, ''), 'index.html'))).toBe(true);
+
+    const indexXml = buildSitemapIndexXml(await discoverSitemapFiles(distDir), BASE_URL);
+    expect(indexXml).toContain(`${BASE_URL}/sitemap-fuel-italian-stations.xml`);
+    expect(indexXml).not.toContain('sitemap-fuel-italian-stations-1.xml');
+  });
 });

@@ -281,7 +281,7 @@ export function parsePatchHunks(patch) {
       continue;
     }
     if (current === null) continue;
-    if (line.startsWith('\\')) continue;
+    if (line === '\\ No newline at end of file') continue;
     if (oldLeft === 0 && newLeft === 0) {
       // Fine dell'hunk: resta solo il ritorno a capo finale della patch.
       if (line === '') continue;

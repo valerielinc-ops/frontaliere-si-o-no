@@ -26,6 +26,7 @@ import {
   isFetchablePublicUrl,
   isPrivateAddress,
   postingAtsRedirect,
+  refreshApplicationChannel,
   resolveApplyUrl,
   resolvesToPublicHost,
   successFactorsApplyUrlFromPosting,
@@ -329,6 +330,8 @@ describe('application channel', () => {
     expect(classifyApplicationChannel({ applyUrl: 'https://sunrise.wd3.myworkdayjobs.com/Sunrise/job/x/apply' })).toMatchObject({ type: 'workday', requiresAccount: true });
     expect(classifyApplicationChannel({ applyUrl: 'https://jobs.lever.co/tsmg/abc/apply' })).toMatchObject({ type: 'lever', requiresAccount: false });
     expect(classifyApplicationChannel({ applyUrl: 'https://recruitingapp-5181.umantis.com/Vacancies/1' }).type).toBe('umantis');
+    expect(classifyApplicationChannel({ applyUrl: 'https://www.careers-page.com/convit-holding-gmbh/job/4R7V6VW5/apply' }))
+      .toMatchObject({ type: 'manatal', label: 'Career Page (Manatal)', requiresAccount: false });
     expect(classifyApplicationChannel({ applyUrl: 'https://careers.example.ch/jobs/1' }).type).toBe('employer_site');
     expect(classifyApplicationChannel({}).type).toBe('unknown');
   });
@@ -353,6 +356,8 @@ describe('application channel', () => {
     expect(classifyApplicationChannel({ applyUrl: 'https://spital.wd3.myworkdayjobs.com/de-DE/Careers/job/x/apply', postingText: text, applicationEmail: 'jobs@spital.ch' }))
       .toMatchObject({ type: 'workday', email: '' });
     expect(classifyApplicationChannel({ applyUrl: 'https://jobs.lever.co/spital/abc/apply', postingText: text, applicationEmail: 'jobs@spital.ch' }).type).toBe('lever');
+    expect(classifyApplicationChannel({ applyUrl: 'https://www.careers-page.com/spital/job/123/apply', postingText: text, applicationEmail: 'jobs@spital.ch' }))
+      .toMatchObject({ type: 'manatal', email: '' });
     // Only the employer's own page, a job board or LinkedIn: the address is the way to apply.
     expect(classifyApplicationChannel({ applyUrl: 'https://www.spital.ch/jobs/pflege', postingText: text, applicationEmail: 'jobs@spital.ch' }).type).toBe('email');
     expect(classifyApplicationChannel({ applyUrl: 'https://www.jobs.ch/de/stellenangebote/detail/123/', postingText: text, applicationEmail: 'jobs@spital.ch' }).type).toBe('email');
@@ -363,6 +368,83 @@ describe('application channel', () => {
     const pasta = 'https://prod.pastahr.com/en/r/COFU2003?utm_medium=prospective-job-description';
     expect(classifyApplicationChannel({ applyUrl: pasta })).toMatchObject({ type: 'pastahr', label: 'PastaHR (WhatsApp)', requiresAccount: false });
     expect(classifyApplicationChannel({ applyUrl: pasta, postingText: 'Bewerbung an lehrstellen@coop.ch', applicationEmail: 'lehrstellen@coop.ch' }).type).toBe('email');
+  });
+
+  it('refreshes a stale persisted channel from the live posting before submission', async () => {
+    const id = 'aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee';
+    const jobId = `seco-jobroom-${id}`;
+    const jobUrl = `https://www.job-room.ch/job-search/${id}`;
+    const draft = {
+      job: { postingUrl: jobUrl, applyUrl: jobUrl },
+      channel: { type: 'employer_site', label: 'Sito del datore', applyUrl: jobUrl, email: '', host: 'www.job-room.ch', requiresAccount: false },
+      applicationEmail: { to: '', subject: 'Candidatura', body: 'Test' },
+    };
+    const refreshed = await refreshApplicationChannel(draft, { jobId, jobUrl }, {
+      fetchPosting: async () => ({
+        source: 'job_detail',
+        postingUrl: jobUrl,
+        applyUrl: 'mailto:info@acme.example',
+        jobRoomChannelResolved: true,
+        text: 'Descrizione del ruolo.',
+      }),
+    });
+
+    expect(refreshed.channel).toMatchObject({ type: 'email', email: 'info@acme.example', applyUrl: '' });
+    expect(refreshed.applicationEmail.to).toBe('info@acme.example');
+    expect(refreshed.job.applyUrl).toBe(jobUrl);
+    expect(draft.channel.type).toBe('employer_site');
+  });
+
+  it('does not downgrade a saved channel when the live channel lookup keeps the posting URL', async () => {
+    const id = 'aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee';
+    const jobUrl = `https://www.job-room.ch/job-search/${id}`;
+    const draft = {
+      job: { postingUrl: jobUrl, applyUrl: jobUrl },
+      channel: { type: 'email', email: 'info@acme.example', applyUrl: '', requiresAccount: false },
+      applicationEmail: { to: 'info@acme.example', subject: 'Candidatura', body: 'Test' },
+    };
+    const preserved = await refreshApplicationChannel(draft, { jobId: `seco-jobroom-${id}`, jobUrl }, {
+      fetchPosting: async () => ({ source: 'job_page', postingUrl: jobUrl, applyUrl: jobUrl, text: 'Descrizione del ruolo.' }),
+    });
+
+    expect(preserved).toBe(draft);
+  });
+
+  it('keeps the draft when the live Job-Room channel is malformed', async () => {
+    const id = 'aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee';
+    const jobUrl = `https://www.job-room.ch/job-search/${id}`;
+    const draft = {
+      job: { postingUrl: jobUrl, applyUrl: jobUrl },
+      channel: { type: 'employer_site', applyUrl: jobUrl },
+      applicationEmail: { to: '' },
+    };
+    const preserved = await refreshApplicationChannel(draft, { jobId: `seco-jobroom-${id}`, jobUrl }, {
+      fetchPosting: async () => ({ source: 'job_detail', postingUrl: jobUrl, applyUrl: 'mailto:hr%ZZ@example.com', jobRoomChannelResolved: true, text: 'Descrizione del ruolo.' }),
+    });
+
+    expect(preserved).toBe(draft);
+  });
+
+  it('keeps the verified channel when Job-Room exposes only a stale detail apply URL', async () => {
+    const id = 'aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee';
+    const jobUrl = `https://www.job-room.ch/job-search/${id}`;
+    const draft = {
+      job: { postingUrl: jobUrl, applyUrl: 'https://acme.wd3.myworkdayjobs.com/acme/job/x/apply' },
+      channel: { type: 'workday', applyUrl: 'https://acme.wd3.myworkdayjobs.com/acme/job/x/apply', requiresAccount: true },
+      applicationEmail: { to: '' },
+    };
+    const preserved = await refreshApplicationChannel(draft, { jobId: `seco-jobroom-${id}`, jobUrl }, {
+      fetchPosting: async () => ({
+        source: 'job_detail',
+        postingUrl: jobUrl,
+        applyUrl: 'https://www.job-room.ch/job-search/stale-detail-apply',
+        jobRoomChannelResolved: false,
+        text: 'Descrizione del ruolo.',
+      }),
+    });
+
+    expect(preserved).toBe(draft);
+    expect(preserved.channel.type).toBe('workday');
   });
 });
 
@@ -506,6 +588,77 @@ describe('job posting fetch', () => {
     });
     expect(calls).toEqual(['https://cdn.frontaliereticino.ch/data/job-detail/acme-123.json']);
     expect(posting).toMatchObject({ source: 'job_detail', postingUrl: 'https://acme.ch/jobs/1', text: 'Cerchiamo un infermiere.\n\n- Diploma SUP', location: 'Lugano', salary: 'CHF 70000–90000 / YEAR' });
+  });
+
+  it('reads the Job-Room application channel without publishing contact data', async () => {
+    const id = '11111111-2222-3333-4444-555555555555';
+    const jobId = `seco-jobroom-${id}`;
+    const jobUrl = `https://www.job-room.ch/job-search/${id}`;
+    const apiUrl = `https://www.job-room.ch/jobadservice/api/jobAdvertisements/${id}`;
+    const detailUrl = `https://cdn.frontaliereticino.ch/data/job-detail/${jobId}.json`;
+    const calls: string[] = [];
+    const resolve = async () => [{ address: '93.184.216.34', family: 4 }];
+    const posting = await fetchJobPosting({ jobId, jobUrl }, {
+      resolve,
+      fetchImpl: async (url: string, init: any = {}) => {
+        calls.push(`${init.method || 'GET'} ${url}`);
+        if (url === detailUrl) {
+          return new Response(JSON.stringify({
+            description: 'Cerchiamo un addetto alla logistica con esperienza.',
+            url: jobUrl,
+            applyUrl: jobUrl,
+          }), { status: 200 });
+        }
+        if (url === apiUrl) {
+          return new Response(JSON.stringify({
+            jobContent: { applyChannel: { formUrl: null, emailAddress: 'info@acme.example' } },
+            publicContact: { email: 'wrong@acme.example' },
+          }), { status: 200, headers: { 'content-type': 'application/json' } });
+        }
+        return new Response('', { status: 404 });
+      },
+    });
+
+    expect(calls).toEqual([`GET ${detailUrl}`, `GET ${apiUrl}`]);
+    expect(posting).toMatchObject({
+      source: 'job_detail',
+      postingUrl: jobUrl,
+      publishedPostingUrl: jobUrl,
+      applyUrl: 'mailto:info@acme.example',
+      jobRoomChannelResolved: true,
+    });
+    expect(classifyApplicationChannel({ applyUrl: posting.applyUrl })).toMatchObject({
+      type: 'email',
+      email: 'info@acme.example',
+    });
+  });
+
+  it('resolves the Job-Room channel when the published detail falls back to the job page', async () => {
+    const id = '66666666-7777-8888-9999-000000000000';
+    const jobId = `seco-jobroom-${id}`;
+    const jobUrl = `https://www.job-room.ch/job-search/${id}`;
+    const apiUrl = `https://www.job-room.ch/jobadservice/api/jobAdvertisements/${id}`;
+    const detailUrl = `https://cdn.frontaliereticino.ch/data/job-detail/${jobId}.json`;
+    const calls: string[] = [];
+    const resolve = async () => [{ address: '93.184.216.34', family: 4 }];
+    const page = `<html><body><h1>Job</h1><p>${'Descrizione del ruolo. '.repeat(20)}</p></body></html>`;
+    const posting = await fetchJobPosting({ jobId, jobUrl }, {
+      resolve,
+      fetchImpl: async (url: string, init: any = {}) => {
+        calls.push(`${init.method || 'GET'} ${url}`);
+        if (url === detailUrl) return new Response('', { status: 503 });
+        if (url === jobUrl) return new Response(page, { status: 200, headers: { 'content-type': 'text/html' } });
+        if (url === apiUrl) {
+          return new Response(JSON.stringify({
+            jobContent: { applyChannel: { formUrl: 'https://apply.acme.example/form', emailAddress: null } },
+          }), { status: 200, headers: { 'content-type': 'application/json' } });
+        }
+        return new Response('', { status: 404 });
+      },
+    });
+
+    expect(calls).toEqual([`GET ${detailUrl}`, `GET ${jobUrl}`, `GET ${apiUrl}`]);
+    expect(posting).toMatchObject({ source: 'job_page', postingUrl: jobUrl, applyUrl: 'https://apply.acme.example/form', jobRoomChannelResolved: true });
   });
 
   it('falls back to the order URL when a retained legacy detail has no posting URL', async () => {

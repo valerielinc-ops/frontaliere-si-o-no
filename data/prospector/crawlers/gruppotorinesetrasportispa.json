@@ -1,0 +1,21 @@
+{
+  "companyKey": "gruppotorinesetrasportispa",
+  "companyName": "GRUPPO TORINESE TRASPORTI S.p.A.",
+  "companyHost": "gruppotorinesetrasportispa.altamiraweb.com",
+  "platform": "altamiraweb.com",
+  "mode": "known-template",
+  "seedUrls": [
+    "https://gruppotorinesetrasportispa.altamiraweb.com/"
+  ],
+  "detailTemplate": "/annunci-lavoro/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": false,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 1,
+  "sampleTitles": [
+    "CONDUCENTI DI LINEA"
+  ],
+  "sourceLang": "it",
+  "learnedAt": "2026-11-05T13:42:04.064Z",
+  "candidateKey": "gruppotorinesetrasportispa@altamiraweb.com"
+}

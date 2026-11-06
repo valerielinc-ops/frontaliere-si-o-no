@@ -1,7 +1,7 @@
 {
   "crawlerKey": "geberit",
-  "assembledAt": "2026-11-03T09:48:19.565Z",
-  "runId": "41610444590",
+  "assembledAt": "2026-11-05T21:42:11.308Z",
+  "runId": "42112057761",
   "jobs": [
     {
       "id": "geberit-1918",
@@ -34,7 +34,7 @@
       "url": "https://jobs.geberit.com/job-invite/1918/?locale=de_DE",
       "source": "Geberit Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T09:48:11.130Z",
+      "crawledAt": "2026-11-05T21:42:01.988Z",
       "addressLocality": "Rapperswil-Jona",
       "postalCode": "8640",
       "streetAddress": "Schachenstrasse 77",
@@ -84,7 +84,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-03T09:48:11.130Z",
+      "validThrough": "2026-12-05T21:42:01.988Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-06-10T09:03:19.077Z"
     },
@@ -119,7 +119,7 @@
       "url": "https://jobs.geberit.com/job-invite/1829/?locale=de_DE",
       "source": "Geberit Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T09:48:11.129Z",
+      "crawledAt": "2026-11-05T21:42:01.986Z",
       "addressLocality": "Rapperswil-Jona",
       "postalCode": "8640",
       "streetAddress": "Schachenstrasse 77",
@@ -161,7 +161,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-03T09:48:11.129Z",
+      "validThrough": "2026-12-05T21:42:01.986Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-07-15T11:30:58.134Z"
     },
@@ -196,7 +196,7 @@
       "url": "https://jobs.geberit.com/job-invite/1968/?locale=de_DE",
       "source": "Geberit Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T09:48:11.128Z",
+      "crawledAt": "2026-11-05T21:42:01.985Z",
       "addressLocality": "Rapperswil-Jona",
       "postalCode": "8640",
       "streetAddress": "Schachenstrasse 77",
@@ -243,91 +243,9 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-03T09:48:11.128Z",
+      "validThrough": "2026-12-05T21:42:01.985Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-08-20T09:49:50.662Z"
-    },
-    {
-      "id": "geberit-1974",
-      "slug": "apprendista-polymechaniker-a-lehrbeginn-2027-geberit-rapperswil-jona",
-      "slugByLocale": {
-        "de": "lernender-polymechaniker-a-lehrbeginn-2027-geberit-ch",
-        "it": "apprendista-polymechaniker-a-lehrbeginn-2027-geberit-rapperswil-jona",
-        "en": "apprentice-polymechaniker-a-lehrbeginn-2027-geberit-rapperswil-jona",
-        "fr": "apprenti-e-polymechaniker-a-lehrbeginn-2027-geberit-rapperswil-jona"
-      },
-      "company": "Geberit",
-      "companyKey": "geberit",
-      "companyDomain": "geberit.com",
-      "title": "Lernender Polymechaniker (a) - Lehrbeginn 2027",
-      "titleByLocale": {
-        "it": "Apprendista polimeccanico (a) - inizio tirocinio 2027",
-        "en": "Apprentice Polymechanic (a) - Start of apprenticeship 2027",
-        "de": "Lernender Polymechaniker (a) - Lehrbeginn 2027",
-        "fr": "Apprenti polymécanicien (a) - début de l'apprentissage en 2027"
-      },
-      "description": "## HAUPTAUFGABEN​\n\nPolymechaniker/-innen fertigen Werkstücke und stellen Werkzeuge und Vorrichtungen für die Produktion her. Polymechaniker bauen Geräte, Apparate, Spritzgiesswerkzeuge, Maschinen oder Anlagen zusammen. In Zusammenarbeit mit anderen Fachleuten bearbeiten sie Aufträge oder Projekte. Sie arbeiten mit konventionellen Dreh-, Fräs-, Bohr- und Schleifmaschinen. Meistens setzten sie aber hochmoderne computergesteuerte CNC-Maschinen ein. Diese programmieren sie auf der Grundlage von Konstruktionszeichnungen. Mit präzisen Messinstrumenten überprüfen sie die Einhaltung der Qualitätsanforderungen der gefertigten Werkstücke. Die Hauptaufgaben sind:\n\n- Fertigung von Präzisionsbauteilen\n- Programmierung von Maschinen\n- Montage und Instandhaltung\n\n## PROFIL\n\nFolgende Eigenschaften und Fähigkeiten zeichnen dich aus:\n\n- Sekundarschule\n- Realschule möglich\n- Gute Leistungen in Mathematik und Geometrie\n- Technisches Verständnis\n- Räumliches Vorstellungsvermögen\n- Interesse an Mechanik und Metallbearbeitung\n- Teamfähigkeit\n- Handwerkliche Geschicklichkeit und Sorgfältigkeit",
-      "descriptionByLocale": {
-        "it": "## TASK PRINCIPALI\n\nLa polimeccanica produce pezzi e produce utensili e dispositivi per la produzione. Polymechanics assemblare attrezzature, apparati, utensili di stampaggio ad iniezione, macchine o impianti. In collaborazione con altri professionisti, gestiscono ordini o progetti. Lavorano con macchine tradizionali di tornitura, fresatura, foratura e rettifica. Tuttavia, per lo più hanno usato macchine CNC controllate da computer all'avanguardia. Essi programmano questi sulla base di disegni di costruzione. Con strumenti di misura precisi, controllano il rispetto dei requisiti di qualità dei pezzi finiti. I compiti principali sono:\n\n- Produzione di componenti di precisione\n- Servizi di programmazione di macchine\n- Montaggio e manutenzione\n\n## PROFESSIONALE\n\nLe seguenti caratteristiche e abilità ti distinguono:\n\n- Scuola secondaria\n- Scuola reale possibile\n- Buoni risultati in matematica e geometria\n- Competenze tecniche\n- L'immaginazione spaziale\n- Interessi della meccanica e della lavorazione dei metalli\n- Lavoro di squadra\n- Artigianato e cura",
-        "en": "## MAIN TASKS\n\nPolymechanics manufacture workpieces and manufacture tools and devices for production. Polymechanics assemble equipment, apparatus, injection molding tools, machines or plants. In cooperation with other professionals, they handle orders or projects. They work with conventional turning, milling, drilling and grinding machines. However, they mostly used state-of-the-art computer-controlled CNC machines. They program these on the basis of construction drawings. With precise measuring instruments, they check compliance with the quality requirements of the finished workpieces. The main tasks are:\n\n- Production of precision components\n- Machine programming services\n- Assembly and maintenance\n\n## PROFILE\n\nThe following characteristics and abilities distinguish you:\n\n- Secondary school\n- Real school possible\n- Good achievements in mathematics and geometry\n- Technical understanding\n- Spatial imagination\n- Interest in mechanics and metalworking\n- Teamwork\n- Craftsmanship and care",
-        "de": "## HAUPTAUFGABEN​\n\nPolymechaniker/-innen fertigen Werkstücke und stellen Werkzeuge und Vorrichtungen für die Produktion her. Polymechaniker bauen Geräte, Apparate, Spritzgiesswerkzeuge, Maschinen oder Anlagen zusammen. In Zusammenarbeit mit anderen Fachleuten bearbeiten sie Aufträge oder Projekte. Sie arbeiten mit konventionellen Dreh-, Fräs-, Bohr- und Schleifmaschinen. Meistens setzten sie aber hochmoderne computergesteuerte CNC-Maschinen ein. Diese programmieren sie auf der Grundlage von Konstruktionszeichnungen. Mit präzisen Messinstrumenten überprüfen sie die Einhaltung der Qualitätsanforderungen der gefertigten Werkstücke. Die Hauptaufgaben sind:\n\n- Fertigung von Präzisionsbauteilen\n- Programmierung von Maschinen\n- Montage und Instandhaltung\n\n## PROFIL\n\nFolgende Eigenschaften und Fähigkeiten zeichnen dich aus:\n\n- Sekundarschule\n- Realschule möglich\n- Gute Leistungen in Mathematik und Geometrie\n- Technisches Verständnis\n- Räumliches Vorstellungsvermögen\n- Interesse an Mechanik und Metallbearbeitung\n- Teamfähigkeit\n- Handwerkliche Geschicklichkeit und Sorgfältigkeit",
-        "fr": "## PRINCIPALES TÂCHES\n\nPolymécanique fabrique des pièces et fabrique des outils et des dispositifs pour la production. Les polymécaniques assemblent des équipements, des appareils, des outils de moulage par injection, des machines ou des usines. En collaboration avec d'autres professionnels, ils gèrent des commandes ou des projets. Ils travaillent avec des machines conventionnelles de tournage, de fraisage, de forage et de meulage. Cependant, ils utilisaient surtout des machines CNC à la fine pointe de la technologie. Ils les programment sur la base de plans de construction. Avec des instruments de mesure précis, ils vérifient la conformité aux exigences de qualité des pièces finies. Les principales tâches sont les suivantes:\n\n- Production de composants de précision\n- Services de programmation automatique\n- Montage et entretien\n\n## PROFIL\n\nLes caractéristiques et les capacités suivantes vous distinguent :\n\n- École secondaire\n- École réelle possible\n- Bonnes réalisations en mathématiques et en géométrie\n- Compréhension technique\n- L'imagination spatiale\n- Intérêt pour la mécanique et le travail des métaux\n- Travail d'équipe\n- Artisanat et soins"
-      },
-      "location": "Rapperswil-Jona",
-      "canton": "SG",
-      "url": "https://jobs.geberit.com/job-invite/1974/?locale=de_DE",
-      "source": "Geberit Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-03T09:48:11.127Z",
-      "addressLocality": "Rapperswil-Jona",
-      "postalCode": "8640",
-      "streetAddress": "Schachenstrasse 77",
-      "addressRegion": "SG",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "intern",
-      "sector": "Industrial / Sanitary technology (manufacturing)",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-08-19T11:19:08Z",
-      "postedDate": "2026-08-19T11:19:08Z",
-      "postingDateSource": "reported",
-      "applyUrl": "https://jobs.geberit.com/job-invite/1974/?locale=de_DE",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "lernender-polymechaniker-a-lehrbeginn-2027-geberit-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "lernender-polymechaniker-a-lehrbeginn-2027-geberit-ch"
-        ],
-        "en": [
-          "lernender-polymechaniker-a-lehrbeginn-2027-geberit-ch"
-        ],
-        "fr": [
-          "lernender-polymechaniker-a-lehrbeginn-2027-geberit-ch"
-        ]
-      },
-      "salaryMin": 48000,
-      "salaryMax": 73000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 48000,
-          "maxValue": 73000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-03T09:48:11.127Z",
-      "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-08-20T09:49:50.660Z"
     },
     {
       "id": "geberit-1969",
@@ -360,7 +278,7 @@
       "url": "https://jobs.geberit.com/job-invite/1969/?locale=de_DE",
       "source": "Geberit Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T09:48:11.127Z",
+      "crawledAt": "2026-11-05T21:42:01.983Z",
       "addressLocality": "Rapperswil-Jona",
       "postalCode": "8640",
       "streetAddress": "Schachenstrasse 77",
@@ -421,9 +339,91 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-03T09:48:11.127Z",
+      "validThrough": "2026-12-05T21:42:01.983Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-08-20T09:49:50.662Z"
+    },
+    {
+      "id": "geberit-1974",
+      "slug": "apprendista-polymechaniker-a-lehrbeginn-2027-geberit-rapperswil-jona",
+      "slugByLocale": {
+        "de": "lernender-polymechaniker-a-lehrbeginn-2027-geberit-ch",
+        "it": "apprendista-polymechaniker-a-lehrbeginn-2027-geberit-rapperswil-jona",
+        "en": "apprentice-polymechaniker-a-lehrbeginn-2027-geberit-rapperswil-jona",
+        "fr": "apprenti-e-polymechaniker-a-lehrbeginn-2027-geberit-rapperswil-jona"
+      },
+      "company": "Geberit",
+      "companyKey": "geberit",
+      "companyDomain": "geberit.com",
+      "title": "Lernender Polymechaniker (a) - Lehrbeginn 2027",
+      "titleByLocale": {
+        "it": "Apprendista polimeccanico (a) - inizio tirocinio 2027",
+        "en": "Apprentice Polymechanic (a) - Start of apprenticeship 2027",
+        "de": "Lernender Polymechaniker (a) - Lehrbeginn 2027",
+        "fr": "Apprenti polymécanicien (a) - début de l'apprentissage en 2027"
+      },
+      "description": "## HAUPTAUFGABEN​\n\nPolymechaniker/-innen fertigen Werkstücke und stellen Werkzeuge und Vorrichtungen für die Produktion her. Polymechaniker bauen Geräte, Apparate, Spritzgiesswerkzeuge, Maschinen oder Anlagen zusammen. In Zusammenarbeit mit anderen Fachleuten bearbeiten sie Aufträge oder Projekte. Sie arbeiten mit konventionellen Dreh-, Fräs-, Bohr- und Schleifmaschinen. Meistens setzten sie aber hochmoderne computergesteuerte CNC-Maschinen ein. Diese programmieren sie auf der Grundlage von Konstruktionszeichnungen. Mit präzisen Messinstrumenten überprüfen sie die Einhaltung der Qualitätsanforderungen der gefertigten Werkstücke. Die Hauptaufgaben sind:\n\n- Fertigung von Präzisionsbauteilen\n- Programmierung von Maschinen\n- Montage und Instandhaltung\n\n## PROFIL\n\nFolgende Eigenschaften und Fähigkeiten zeichnen dich aus:\n\n- Sekundarschule\n- Realschule möglich\n- Gute Leistungen in Mathematik und Geometrie\n- Technisches Verständnis\n- Räumliches Vorstellungsvermögen\n- Interesse an Mechanik und Metallbearbeitung\n- Teamfähigkeit\n- Handwerkliche Geschicklichkeit und Sorgfältigkeit",
+      "descriptionByLocale": {
+        "it": "## TASK PRINCIPALI\n\nLa polimeccanica produce pezzi e produce utensili e dispositivi per la produzione. Polymechanics assemblare attrezzature, apparati, utensili di stampaggio ad iniezione, macchine o impianti. In collaborazione con altri professionisti, gestiscono ordini o progetti. Lavorano con macchine tradizionali di tornitura, fresatura, foratura e rettifica. Tuttavia, per lo più hanno usato macchine CNC controllate da computer all'avanguardia. Essi programmano questi sulla base di disegni di costruzione. Con strumenti di misura precisi, controllano il rispetto dei requisiti di qualità dei pezzi finiti. I compiti principali sono:\n\n- Produzione di componenti di precisione\n- Servizi di programmazione di macchine\n- Montaggio e manutenzione\n\n## PROFESSIONALE\n\nLe seguenti caratteristiche e abilità ti distinguono:\n\n- Scuola secondaria\n- Scuola reale possibile\n- Buoni risultati in matematica e geometria\n- Competenze tecniche\n- L'immaginazione spaziale\n- Interessi della meccanica e della lavorazione dei metalli\n- Lavoro di squadra\n- Artigianato e cura",
+        "en": "## MAIN TASKS\n\nPolymechanics manufacture workpieces and manufacture tools and devices for production. Polymechanics assemble equipment, apparatus, injection molding tools, machines or plants. In cooperation with other professionals, they handle orders or projects. They work with conventional turning, milling, drilling and grinding machines. However, they mostly used state-of-the-art computer-controlled CNC machines. They program these on the basis of construction drawings. With precise measuring instruments, they check compliance with the quality requirements of the finished workpieces. The main tasks are:\n\n- Production of precision components\n- Machine programming services\n- Assembly and maintenance\n\n## PROFILE\n\nThe following characteristics and abilities distinguish you:\n\n- Secondary school\n- Real school possible\n- Good achievements in mathematics and geometry\n- Technical understanding\n- Spatial imagination\n- Interest in mechanics and metalworking\n- Teamwork\n- Craftsmanship and care",
+        "de": "## HAUPTAUFGABEN​\n\nPolymechaniker/-innen fertigen Werkstücke und stellen Werkzeuge und Vorrichtungen für die Produktion her. Polymechaniker bauen Geräte, Apparate, Spritzgiesswerkzeuge, Maschinen oder Anlagen zusammen. In Zusammenarbeit mit anderen Fachleuten bearbeiten sie Aufträge oder Projekte. Sie arbeiten mit konventionellen Dreh-, Fräs-, Bohr- und Schleifmaschinen. Meistens setzten sie aber hochmoderne computergesteuerte CNC-Maschinen ein. Diese programmieren sie auf der Grundlage von Konstruktionszeichnungen. Mit präzisen Messinstrumenten überprüfen sie die Einhaltung der Qualitätsanforderungen der gefertigten Werkstücke. Die Hauptaufgaben sind:\n\n- Fertigung von Präzisionsbauteilen\n- Programmierung von Maschinen\n- Montage und Instandhaltung\n\n## PROFIL\n\nFolgende Eigenschaften und Fähigkeiten zeichnen dich aus:\n\n- Sekundarschule\n- Realschule möglich\n- Gute Leistungen in Mathematik und Geometrie\n- Technisches Verständnis\n- Räumliches Vorstellungsvermögen\n- Interesse an Mechanik und Metallbearbeitung\n- Teamfähigkeit\n- Handwerkliche Geschicklichkeit und Sorgfältigkeit",
+        "fr": "## PRINCIPALES TÂCHES\n\nPolymécanique fabrique des pièces et fabrique des outils et des dispositifs pour la production. Les polymécaniques assemblent des équipements, des appareils, des outils de moulage par injection, des machines ou des usines. En collaboration avec d'autres professionnels, ils gèrent des commandes ou des projets. Ils travaillent avec des machines conventionnelles de tournage, de fraisage, de forage et de meulage. Cependant, ils utilisaient surtout des machines CNC à la fine pointe de la technologie. Ils les programment sur la base de plans de construction. Avec des instruments de mesure précis, ils vérifient la conformité aux exigences de qualité des pièces finies. Les principales tâches sont les suivantes:\n\n- Production de composants de précision\n- Services de programmation automatique\n- Montage et entretien\n\n## PROFIL\n\nLes caractéristiques et les capacités suivantes vous distinguent :\n\n- École secondaire\n- École réelle possible\n- Bonnes réalisations en mathématiques et en géométrie\n- Compréhension technique\n- L'imagination spatiale\n- Intérêt pour la mécanique et le travail des métaux\n- Travail d'équipe\n- Artisanat et soins"
+      },
+      "location": "Rapperswil-Jona",
+      "canton": "SG",
+      "url": "https://jobs.geberit.com/job-invite/1974/?locale=de_DE",
+      "source": "Geberit Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-05T21:42:01.982Z",
+      "addressLocality": "Rapperswil-Jona",
+      "postalCode": "8640",
+      "streetAddress": "Schachenstrasse 77",
+      "addressRegion": "SG",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "intern",
+      "sector": "Industrial / Sanitary technology (manufacturing)",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-08-19T11:19:08Z",
+      "postedDate": "2026-08-19T11:19:08Z",
+      "postingDateSource": "reported",
+      "applyUrl": "https://jobs.geberit.com/job-invite/1974/?locale=de_DE",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "lernender-polymechaniker-a-lehrbeginn-2027-geberit-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "lernender-polymechaniker-a-lehrbeginn-2027-geberit-ch"
+        ],
+        "en": [
+          "lernender-polymechaniker-a-lehrbeginn-2027-geberit-ch"
+        ],
+        "fr": [
+          "lernender-polymechaniker-a-lehrbeginn-2027-geberit-ch"
+        ]
+      },
+      "salaryMin": 48000,
+      "salaryMax": 73000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 48000,
+          "maxValue": 73000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-05T21:42:01.982Z",
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-08-20T09:49:50.660Z"
     },
     {
       "id": "geberit-1977",
@@ -456,7 +456,7 @@
       "url": "https://jobs.geberit.com/job-invite/1977/?locale=de_DE",
       "source": "Geberit Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T09:48:11.126Z",
+      "crawledAt": "2026-11-05T21:42:01.980Z",
       "addressLocality": "Rapperswil-Jona",
       "postalCode": "8640",
       "streetAddress": "Schachenstrasse 77",
@@ -505,7 +505,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-03T09:48:11.126Z",
+      "validThrough": "2026-12-05T21:42:01.980Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-08-20T09:49:50.659Z"
     },
@@ -540,7 +540,7 @@
       "url": "https://jobs.geberit.com/job-invite/2021/?locale=de_DE",
       "source": "Geberit Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T09:48:11.125Z",
+      "crawledAt": "2026-11-05T21:42:01.978Z",
       "addressLocality": "Rapperswil-Jona",
       "postalCode": "8640",
       "streetAddress": "Schachenstrasse 77",
@@ -584,7 +584,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-03T09:48:11.125Z",
+      "validThrough": "2026-12-05T21:42:01.978Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-08-20T09:49:50.655Z"
     },
@@ -619,7 +619,7 @@
       "url": "https://jobs.geberit.com/job-invite/2129/?locale=de_DE",
       "source": "Geberit Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T09:48:11.124Z",
+      "crawledAt": "2026-11-05T21:42:01.976Z",
       "addressLocality": "Rapperswil-Jona",
       "postalCode": "8640",
       "streetAddress": "Schachenstrasse 77",
@@ -666,7 +666,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-03T09:48:11.124Z",
+      "validThrough": "2026-12-05T21:42:01.976Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-08-20T09:49:50.651Z"
     },
@@ -701,7 +701,7 @@
       "url": "https://jobs.geberit.com/job-invite/1989/?locale=de_DE",
       "source": "Geberit Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T09:48:11.123Z",
+      "crawledAt": "2026-11-05T21:42:01.975Z",
       "addressLocality": "Rapperswil-Jona",
       "postalCode": "8640",
       "streetAddress": "Schachenstrasse 77",
@@ -747,7 +747,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-03T09:48:11.123Z",
+      "validThrough": "2026-12-05T21:42:01.975Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-08-24T10:20:40.708Z"
     },
@@ -782,7 +782,7 @@
       "url": "https://jobs.geberit.com/job-invite/2182/?locale=de_DE",
       "source": "Geberit Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T09:48:11.123Z",
+      "crawledAt": "2026-11-05T21:42:01.973Z",
       "addressLocality": "Rapperswil-Jona",
       "postalCode": "8640",
       "streetAddress": "Schachenstrasse 77",
@@ -833,7 +833,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-03T09:48:11.123Z",
+      "validThrough": "2026-12-05T21:42:01.973Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-08-27T20:14:41.323Z"
     },
@@ -868,7 +868,7 @@
       "url": "https://jobs.geberit.com/job-invite/1669/?locale=de_DE",
       "source": "Geberit Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T09:48:11.122Z",
+      "crawledAt": "2026-11-05T21:42:01.971Z",
       "addressLocality": "Rapperswil-Jona",
       "postalCode": "8640",
       "streetAddress": "Schachenstrasse 77",
@@ -922,7 +922,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-03T09:48:11.122Z",
+      "validThrough": "2026-12-05T21:42:01.971Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-08-31T17:40:41.665Z"
     },
@@ -957,7 +957,7 @@
       "url": "https://jobs.geberit.com/job-invite/2186/?locale=de_DE",
       "source": "Geberit Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T09:48:11.121Z",
+      "crawledAt": "2026-11-05T21:42:01.970Z",
       "addressLocality": "Rapperswil-Jona",
       "postalCode": "8640",
       "streetAddress": "Schachenstrasse 77",
@@ -1020,7 +1020,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-03T09:48:11.121Z",
+      "validThrough": "2026-12-05T21:42:01.970Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-09-03T13:50:14.076Z"
     },
@@ -1055,7 +1055,7 @@
       "url": "https://jobs.geberit.com/job-invite/2201/?locale=de_DE",
       "source": "Geberit Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T09:48:11.120Z",
+      "crawledAt": "2026-11-05T21:42:01.968Z",
       "addressLocality": "Rapperswil-Jona",
       "postalCode": "8640",
       "streetAddress": "Schachenstrasse 77",
@@ -1110,7 +1110,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-08T09:48:11.120Z",
+      "validThrough": "2026-12-07T21:42:01.968Z",
       "validThroughSource": "last-observed-window",
       "needsRetranslation": true,
       "firstSeenAt": "2026-09-08T13:53:23.828Z"
@@ -1146,7 +1146,7 @@
       "url": "https://jobs.geberit.com/job-invite/2229/?locale=de_DE",
       "source": "Geberit Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T09:48:11.119Z",
+      "crawledAt": "2026-11-05T21:42:01.966Z",
       "addressLocality": "Rapperswil-Jona",
       "postalCode": "8640",
       "streetAddress": "Schachenstrasse 77",
@@ -1193,7 +1193,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-19T09:48:11.119Z",
+      "validThrough": "2026-12-19T21:42:01.966Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-09-19T23:21:07.767Z"
     },
@@ -1228,7 +1228,7 @@
       "url": "https://jobs.geberit.com/job-invite/1987/?locale=de_DE",
       "source": "Geberit Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T09:48:11.118Z",
+      "crawledAt": "2026-11-05T21:42:01.964Z",
       "addressLocality": "Rapperswil-Jona",
       "postalCode": "8640",
       "streetAddress": "Schachenstrasse 77",
@@ -1273,99 +1273,9 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-21T09:48:11.118Z",
+      "validThrough": "2026-12-20T21:42:01.964Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-09-24T00:09:27.456Z"
-    },
-    {
-      "id": "geberit-2243",
-      "slug": "stratega-di-marketing-crm-con-focus-sul-portale-clienti-a-100-geberit-rapperswil-jona",
-      "slugByLocale": {
-        "de": "marketing-crm-strategist-mit-fokus-kundenportal-a-100-geberit-ch",
-        "it": "stratega-di-marketing-crm-con-focus-sul-portale-clienti-a-100-geberit-rapperswil-jona",
-        "en": "marketing-crm-strategist-with-focus-on-customer-portal-a-100-geberit-rapperswil-jona",
-        "fr": "marketing-crm-strategist-avec-l-accent-sur-le-portail-client-a-100-geberit-rapperswil-jona"
-      },
-      "company": "Geberit",
-      "companyKey": "geberit",
-      "companyDomain": "geberit.com",
-      "title": "Marketing CRM Strategist (mit Fokus Kundenportal) (a) 100%",
-      "titleByLocale": {
-        "it": "Stratega di marketing CRM (con focus sul portale clienti) (a) 100%",
-        "en": "Marketing CRM Strategist (with focus on customer portal) (a) 100%",
-        "de": "Marketing CRM Strategist (mit Fokus Kundenportal) (a) 100%",
-        "fr": "Marketing CRM Strategist (avec l'accent sur le portail client) (a) 100%"
-      },
-      "description": "## HAUPTAUFGABEN​\n\nIn der Funktion als Marketing CRM Strategist bist du verantwortlich für die fachliche Weiterentwicklung des gruppenweiten Kundenportals sowie der zentralen CIAM-Lösung (Geberit ID). In enger Zusammenarbeit mit den lokalen Märkten, der IT und externen Partnern treibst du die Weiterentwicklung dieser strategischen Plattformen voran. Dies beinhaltet insbesondere folgende Tätigkeiten:\n\n- Fachliche Verantwortung für den Betrieb und die Weiterentwicklung des gruppenweiten Kundenportals\n- Verantwortung für die Weiterentwicklung der zentralen Login-Lösung (CIAM; SAP Customer Data Cloud) unter Berücksichtigung von Benutzerfreundlichkeit, Datenschutz und Sicherheit\n- Sicherstellung der Integration des Kundenportals und der CIAM-Lösung mit Microsoft Dynamics 365 sowie weiteren digitalen Systemen und Plattformen\n- Aufnahme, Analyse und Priorisierung von Anforderungen sowie Erarbeitung geeigneter Lösungsansätze\n- Unterstützung internationaler Rollouts und Mitarbeit in Projekten zur Weiterentwicklung der digitalen Plattformen\n- Enge Zusammenarbeit mit Marketing, IT, Vertrieb und externen Partnern sowie Sicherstellung der Einhaltung globaler Standards und Vorgaben\n\n## PROFIL\n\nFür diese spannende Position verfügst du über ein abgeschlossenes Studium im Bereich Wirtschaft, Marketing, Wirtschaftsinformatik oder eine vergleichbare Ausbildung. Zudem bringst du mehrere Jahre Berufserfahrung im Umfeld von CRM-Systemen, digitalen Plattformen oder Customer-Identity-Lösungen mit. Darüber hinaus zeichnen dich folgende Eigenschaften und Fähigkeiten aus:\n\n- Mehrjährige Berufserfahrung in einer vergleichbaren Funktion, idealerweise in einem internationalen Unternehmensumfeld\n- Erfahrung mit CRM-Systemen, vorzugsweise Microsoft Dynamics 365 sowie digitalen Kundenplattformen\n- Kenntnisse im Bereich Customer Identity & Access Management, idealerweise mit SAP Customer Data Cloud\n- Starkes Verständnis für Datenschutz und Nutzerzentrierung in digitalen Prozessen\n- Technisches Verständnis für Systemarchitekturen, Schnittstellen und Datenflüsse\n- Ausgeprägte analytische und konzeptionelle Fähigkeiten sowie eine strukturierte und lösungsorientierte Arbeitsweise in einem agilen Setup\n- Sehr gute Deutsch- und Englischkenntnisse in Wort und Schrift\n\n## ERGÄNZENDE HINWEISE\n\nFür diese Position berücksichtigen wir ausschliesslich Direktbewerbungen.",
-      "descriptionByLocale": {
-        "it": "## TASK PRINCIPALI\n\nIn qualità di Marketing CRM Strategist, sei responsabile dello sviluppo professionale del portale clienti a livello di Gruppo e della soluzione centrale CIAM (Geberit ID). In stretta collaborazione con i mercati locali, IT e partner esterni, guiderai l'ulteriore sviluppo di queste piattaforme strategiche. Questo include in particolare le seguenti attività:\n\n- Responsabilità professionale per l'operazione e l'ulteriore sviluppo del portale clienti di Gruppo\n- Responsabilità per l'ulteriore sviluppo della soluzione di login centrale (CIAM; SAP Customer Data Cloud) tenendo conto della facilità d'uso, della protezione dei dati e della sicurezza\n- Garantire l'integrazione del portale clienti e della soluzione CIAM con Microsoft Dynamics 365 e altri sistemi e piattaforme digitali\n- Accettazione, analisi e priorità dei requisiti e sviluppo di soluzioni adeguate\n- Sostegno ai rollout internazionali e partecipazione a progetti per lo sviluppo di piattaforme digitali\n- Una stretta collaborazione con partner commerciali, IT, vendite e esterni, oltre a garantire il rispetto degli standard e delle linee guida globali\n\n## PROFESSIONALE\n\nPer questa posizione emozionante si ha una laurea completa in economia, marketing, informatica aziendale o una formazione comparabile. Si porterà anche diversi anni di esperienza professionale nel campo dei sistemi CRM, piattaforme digitali o soluzioni di identità cliente. Inoltre, le seguenti caratteristiche e abilità ti distinguono:\n\n- Diversi anni di esperienza professionale in una funzione paragonabile, idealmente in un ambiente aziendale internazionale\n- Esperienza con sistemi CRM, preferibilmente Microsoft Dynamics 365 e piattaforme digitali dei clienti\n- Conoscenza della Customer Identity & Access Management, idealmente con SAP Customer Data Cloud\n- Forte comprensione della protezione dei dati e del centramento degli utenti nei processi digitali\n- Comprensione tecnica di architetture di sistema, interfacce e flussi di dati\n- Forti competenze analitiche e concettuali e un metodo di lavoro strutturato e orientato alla soluzione in una configurazione agile\n- Molto buona conoscenza del tedesco e dell'inglese in parola e scrittura\n\n## NOTE ADDIZIONALI\n\nPer questa posizione, consideriamo solo applicazioni dirette.",
-        "en": "## MAIN TASKS\n\nAs a Marketing CRM Strategist, you are responsible for the professional development of the Group-wide customer portal and the central CIAM solution (Geberit ID). In close cooperation with local markets, IT and external partners, you will drive the further development of these strategic platforms. This includes in particular the following activities:\n\n- Professional responsibility for the operation and further development of the Group-wide customer portal\n- Responsibility for the further development of the central login solution (CIAM; SAP Customer Data Cloud) taking into account user-friendliness, data protection and security\n- Ensuring the integration of the customer portal and the CIAM solution with Microsoft Dynamics 365 and other digital systems and platforms\n- Acceptance, analysis and prioritization of requirements and development of suitable solutions\n- Support for international rollouts and participation in projects for the further development of digital platforms\n- Close cooperation with marketing, IT, sales and external partners as well as ensuring compliance with global standards and guidelines\n\n## PROFILE\n\nFor this exciting position you have a completed degree in economics, marketing, business informatics or a comparable education. You will also bring several years of professional experience in the field of CRM systems, digital platforms or customer identity solutions. In addition, the following characteristics and abilities distinguish you:\n\n- Several years of professional experience in a comparable function, ideally in an international corporate environment\n- Experience with CRM systems, preferably Microsoft Dynamics 365 and digital customer platforms\n- Knowledge of Customer Identity & Access Management, ideally with SAP Customer Data Cloud\n- Strong understanding of data protection and user centering in digital processes\n- Technical understanding of system architectures, interfaces and data flows\n- Strong analytical and conceptual skills as well as a structured and solution-oriented working method in an agile setup\n- Very good knowledge of German and English in word and writing\n\n## ADDITIONAL NOTES\n\nFor this position, we only consider direct applications.",
-        "de": "## HAUPTAUFGABEN​\n\nIn der Funktion als Marketing CRM Strategist bist du verantwortlich für die fachliche Weiterentwicklung des gruppenweiten Kundenportals sowie der zentralen CIAM-Lösung (Geberit ID). In enger Zusammenarbeit mit den lokalen Märkten, der IT und externen Partnern treibst du die Weiterentwicklung dieser strategischen Plattformen voran. Dies beinhaltet insbesondere folgende Tätigkeiten:\n\n- Fachliche Verantwortung für den Betrieb und die Weiterentwicklung des gruppenweiten Kundenportals\n- Verantwortung für die Weiterentwicklung der zentralen Login-Lösung (CIAM; SAP Customer Data Cloud) unter Berücksichtigung von Benutzerfreundlichkeit, Datenschutz und Sicherheit\n- Sicherstellung der Integration des Kundenportals und der CIAM-Lösung mit Microsoft Dynamics 365 sowie weiteren digitalen Systemen und Plattformen\n- Aufnahme, Analyse und Priorisierung von Anforderungen sowie Erarbeitung geeigneter Lösungsansätze\n- Unterstützung internationaler Rollouts und Mitarbeit in Projekten zur Weiterentwicklung der digitalen Plattformen\n- Enge Zusammenarbeit mit Marketing, IT, Vertrieb und externen Partnern sowie Sicherstellung der Einhaltung globaler Standards und Vorgaben\n\n## PROFIL\n\nFür diese spannende Position verfügst du über ein abgeschlossenes Studium im Bereich Wirtschaft, Marketing, Wirtschaftsinformatik oder eine vergleichbare Ausbildung. Zudem bringst du mehrere Jahre Berufserfahrung im Umfeld von CRM-Systemen, digitalen Plattformen oder Customer-Identity-Lösungen mit. Darüber hinaus zeichnen dich folgende Eigenschaften und Fähigkeiten aus:\n\n- Mehrjährige Berufserfahrung in einer vergleichbaren Funktion, idealerweise in einem internationalen Unternehmensumfeld\n- Erfahrung mit CRM-Systemen, vorzugsweise Microsoft Dynamics 365 sowie digitalen Kundenplattformen\n- Kenntnisse im Bereich Customer Identity & Access Management, idealerweise mit SAP Customer Data Cloud\n- Starkes Verständnis für Datenschutz und Nutzerzentrierung in digitalen Prozessen\n- Technisches Verständnis für Systemarchitekturen, Schnittstellen und Datenflüsse\n- Ausgeprägte analytische und konzeptionelle Fähigkeiten sowie eine strukturierte und lösungsorientierte Arbeitsweise in einem agilen Setup\n- Sehr gute Deutsch- und Englischkenntnisse in Wort und Schrift\n\n## ERGÄNZENDE HINWEISE\n\nFür diese Position berücksichtigen wir ausschliesslich Direktbewerbungen.",
-        "fr": "## PRINCIPAUX TÂCHES\n\nEn tant que stratège marketing CRM, vous êtes responsable du développement professionnel du portail client du Groupe et de la solution centrale CIAM (Geberit ID). En étroite collaboration avec les marchés locaux, l'informatique et les partenaires extérieurs, vous dirigerez le développement de ces plateformes stratégiques. Cela comprend notamment les activités suivantes:\n\n- Responsabilité professionnelle pour l'exploitation et le développement du portail client à l'échelle du Groupe\n- Responsabilité du développement de la solution de connexion centrale (CIAM; SAP Customer Data Cloud) en tenant compte de la convivialité, de la protection des données et de la sécurité\n- Assurer l'intégration du portail client et de la solution CIAM avec Microsoft Dynamics 365 et d'autres systèmes et plateformes numériques\n- Acceptation, analyse et hiérarchisation des besoins et élaboration de solutions appropriées\n- Appui au déploiement international et participation à des projets de développement des plateformes numériques\n- Coopération étroite avec les partenaires du marketing, de l'informatique, des ventes et de l'extérieur et respect des normes et lignes directrices mondiales\n\n## PROFIL\n\nPour ce poste passionnant, vous avez obtenu un diplôme en économie, marketing, informatique commerciale ou une formation comparable. Vous apporterez également plusieurs années d'expérience professionnelle dans le domaine des systèmes CRM, des plateformes numériques ou des solutions d'identité client. De plus, les caractéristiques et les capacités suivantes vous distinguent :\n\n- Plusieurs années d'expérience professionnelle dans une fonction comparable, idéalement dans un environnement d'entreprise international\n- Expérience avec les systèmes CRM, de préférence Microsoft Dynamics 365 et les plateformes client numériques\n- Connaissance de la gestion de l'identité et de l'accès des clients, idéalement avec SAP Customer Data Cloud\n- Une bonne compréhension de la protection des données et de la focalisation des utilisateurs dans les processus numériques\n- Compréhension technique des architectures, interfaces et flux de données du système\n- Fortes compétences analytiques et conceptuelles ainsi qu'une méthode de travail structurée et orientée vers la solution dans une configuration agile\n- Très bonne connaissance de l'allemand et de l'anglais en paroles et en écriture\n\n## NOTES SUPPLÉMENTAIRES\n\nPour cette position, nous ne considérons que les demandes directes."
-      },
-      "location": "Rapperswil-Jona",
-      "canton": "SG",
-      "url": "https://jobs.geberit.com/job-invite/2243/?locale=de_DE",
-      "source": "Geberit Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-03T09:48:11.116Z",
-      "addressLocality": "Rapperswil-Jona",
-      "postalCode": "8640",
-      "streetAddress": "Schachenstrasse 77",
-      "addressRegion": "SG",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Marketing",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Industrial / Sanitary technology (manufacturing)",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://jobs.geberit.com/job-invite/2243/?locale=de_DE",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "marketing-crm-strategist-mit-fokus-kundenportal-a-100-geberit-rapperswil-jona",
-        "marketing-crm-strategist-con-focus-sul-portale-clienti-a-100-geberit-rapperswil-jona",
-        "marketing-crm-strategist-con-focus-sul-portale-clienti-a-100-geberit-rapperswil-jona-bd3786828b",
-        "marketing-crm-strategist-avec-l-accent-sur-le-portail-client-a-100-geberit-rapperswil-jona-d7d8b7",
-        "marketing-crm-strategist-mit-fokus-kundenportal-a-100-geberit-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "marketing-crm-strategist-con-focus-sul-portale-clienti-a-100-geberit-rapperswil-jona",
-          "marketing-crm-strategist-con-focus-sul-portale-clienti-a-100-geberit-rapperswil-jona-bd3786828b",
-          "marketing-crm-strategist-mit-fokus-kundenportal-a-100-geberit-ch"
-        ],
-        "en": [
-          "marketing-crm-strategist-mit-fokus-kundenportal-a-100-geberit-rapperswil-jona",
-          "marketing-crm-strategist-mit-fokus-kundenportal-a-100-geberit-ch"
-        ],
-        "fr": [
-          "marketing-crm-strategist-avec-l-accent-sur-le-portail-client-a-100-geberit-rapperswil-jona-d7d8b7",
-          "marketing-crm-strategist-mit-fokus-kundenportal-a-100-geberit-ch"
-        ]
-      },
-      "salaryMin": 58500,
-      "salaryMax": 103500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 58500,
-          "maxValue": 103500,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-24T09:48:11.116Z",
-      "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-09-24T14:57:11.192Z"
     },
     {
       "id": "geberit-2245",
@@ -1398,7 +1308,7 @@
       "url": "https://jobs.geberit.com/job-invite/2245/?locale=de_DE",
       "source": "Geberit Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T09:48:11.116Z",
+      "crawledAt": "2026-11-05T21:42:01.961Z",
       "addressLocality": "Rapperswil-Jona",
       "postalCode": "8640",
       "streetAddress": "Schachenstrasse 77",
@@ -1459,85 +1369,99 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-23T09:48:11.116Z",
+      "validThrough": "2026-12-23T21:42:01.961Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-09-24T00:09:27.449Z"
     },
     {
-      "id": "geberit-2270",
-      "slug": "responsabile-tecnico-dell-informatica-aziendale-con-mansioni-dirigenziali-a-100-geberit-rapperswil-jona",
+      "id": "geberit-2243",
+      "slug": "stratega-di-marketing-crm-con-focus-sul-portale-clienti-a-100-geberit-rapperswil-jona",
       "slugByLocale": {
-        "de": "fachverantwortlicher-betriebsinformatik-mit-fuhrungsaufgabe-a-100-geberit-ch",
-        "en": "responsible-business-informatics-with-management-task-a-100-geberit-rapperswil-jona",
-        "fr": "informatique-commerciale-responsable-avec-tache-de-gestion-a-100-geberit-rapperswil-jona",
-        "it": "responsabile-tecnico-dell-informatica-aziendale-con-mansioni-dirigenziali-a-100-geberit-rapperswil-jona"
+        "de": "marketing-crm-strategist-mit-fokus-kundenportal-a-100-geberit-ch",
+        "it": "stratega-di-marketing-crm-con-focus-sul-portale-clienti-a-100-geberit-rapperswil-jona",
+        "en": "marketing-crm-strategist-with-focus-on-customer-portal-a-100-geberit-rapperswil-jona",
+        "fr": "marketing-crm-strategist-avec-l-accent-sur-le-portail-client-a-100-geberit-rapperswil-jona"
       },
       "company": "Geberit",
       "companyKey": "geberit",
       "companyDomain": "geberit.com",
-      "title": "Fachverantwortlicher Betriebsinformatik mit Führungsaufgabe (a) 100%",
+      "title": "Marketing CRM Strategist (mit Fokus Kundenportal) (a) 100%",
       "titleByLocale": {
-        "it": "Responsabile tecnico dell'informatica aziendale con mansioni dirigenziali (a) 100%",
-        "en": "Responsible business informatics with management task (a) 100%",
-        "de": "Fachverantwortlicher Betriebsinformatik mit Führungsaufgabe (a) 100%",
-        "fr": "Informatique commerciale responsable avec tâche de gestion (a) 100%"
+        "it": "Stratega di marketing CRM (con focus sul portale clienti) (a) 100%",
+        "en": "Marketing CRM Strategist (with focus on customer portal) (a) 100%",
+        "de": "Marketing CRM Strategist (mit Fokus Kundenportal) (a) 100%",
+        "fr": "Marketing CRM Strategist (avec l'accent sur le portail client) (a) 100%"
       },
-      "description": "## HAUPTAUFGABEN​\n\nWer unsere Produktion kennt, weiss: Stillstand ist keine Option. Deshalb suchen wir eine Hands-on-Persönlichkeit, die IT nicht vom Schreibtisch aus gestaltet. Du bist nahe an der Produktion, verstehst die Bedürfnisse unserer internen Kunden und findest pragmatische Lösungen mit echtem Mehrwert. Mit deiner Dienstleistungsorientierung, deinem technischen Verständnis und deinem Gespür für die Abläufe im Betrieb stellst du sicher, dass unsere produktionsnahen Systeme zuverlässig funktionieren und kontinuierlich weiterentwickelt werden. Dabei führst du ein kleines Team mit einem Mitarbeitenden. Deine Funktion beinhaltet insbesondere folgende Tätigkeiten:\n\n- Sicherstellen des Betriebs und Supports der produktionsnahen IT-, OT- und Produktionssysteme sowie von SAP-, MES- und weiteren Applikationen\n- Analysieren von Anforderungen aus der Produktion und den Fachbereichen sowie Koordination von Änderungen, Tests und Releases\n- Leiten und Umsetzen technischer Projekte im Produktionsumfeld\n- Führen und Entwickeln eines Mitarbeitenden sowie Planen der Ressourcen im Verantwortungsbereich\n- Zusammenarbeit mit Produktion, Fachbereichen, Gruppen-IT und externen Partnern sowie Umsetzung der Security-Vorgaben\n\n## PROFIL\n\nDu bringst einen Abschluss als ICT-Supporter EFZ, Informatiker EFZ oder eine vergleichbare Ausbildung mit Weiterbildung Stufe HF/FH, Weiterbildung in Führung und/oder von Vorteil im Projektmanagement mit. Zudem zeichnen dich folgende Eigenschaften und Fähigkeiten aus:\n\n- Erfahrung mit produktionsnahen IT-, OT- und Produktionssystemen, idealerweise im SAP- und MES-Umfeld\n- Gute Kenntnisse in Netzwerken, Datenbanken sowie IT- und OT-Security; gute Deutsch- und Englischkenntnisse\n- Hands-on-Mentalität, hohe Dienstleistungsorientierung und Freude daran, nahe an der Produktion zu arbeiten und gemeinsam mit den Fachbereichen pragmatische Lösungen umzusetzen\n- Erfahrung in der Führung oder Entwicklung von Mitarbeitenden\n\n## ERGÄNZENDE HINWEISE\n\nFür diese Position berücksichtigen wir ausschliesslich Direktbewerbungen.",
+      "description": "## HAUPTAUFGABEN​\n\nIn der Funktion als Marketing CRM Strategist bist du verantwortlich für die fachliche Weiterentwicklung des gruppenweiten Kundenportals sowie der zentralen CIAM-Lösung (Geberit ID). In enger Zusammenarbeit mit den lokalen Märkten, der IT und externen Partnern treibst du die Weiterentwicklung dieser strategischen Plattformen voran. Dies beinhaltet insbesondere folgende Tätigkeiten:\n\n- Fachliche Verantwortung für den Betrieb und die Weiterentwicklung des gruppenweiten Kundenportals\n- Verantwortung für die Weiterentwicklung der zentralen Login-Lösung (CIAM; SAP Customer Data Cloud) unter Berücksichtigung von Benutzerfreundlichkeit, Datenschutz und Sicherheit\n- Sicherstellung der Integration des Kundenportals und der CIAM-Lösung mit Microsoft Dynamics 365 sowie weiteren digitalen Systemen und Plattformen\n- Aufnahme, Analyse und Priorisierung von Anforderungen sowie Erarbeitung geeigneter Lösungsansätze\n- Unterstützung internationaler Rollouts und Mitarbeit in Projekten zur Weiterentwicklung der digitalen Plattformen\n- Enge Zusammenarbeit mit Marketing, IT, Vertrieb und externen Partnern sowie Sicherstellung der Einhaltung globaler Standards und Vorgaben\n\n## PROFIL\n\nFür diese spannende Position verfügst du über ein abgeschlossenes Studium im Bereich Wirtschaft, Marketing, Wirtschaftsinformatik oder eine vergleichbare Ausbildung. Zudem bringst du mehrere Jahre Berufserfahrung im Umfeld von CRM-Systemen, digitalen Plattformen oder Customer-Identity-Lösungen mit. Darüber hinaus zeichnen dich folgende Eigenschaften und Fähigkeiten aus:\n\n- Mehrjährige Berufserfahrung in einer vergleichbaren Funktion, idealerweise in einem internationalen Unternehmensumfeld\n- Erfahrung mit CRM-Systemen, vorzugsweise Microsoft Dynamics 365 sowie digitalen Kundenplattformen\n- Kenntnisse im Bereich Customer Identity & Access Management, idealerweise mit SAP Customer Data Cloud\n- Starkes Verständnis für Datenschutz und Nutzerzentrierung in digitalen Prozessen\n- Technisches Verständnis für Systemarchitekturen, Schnittstellen und Datenflüsse\n- Ausgeprägte analytische und konzeptionelle Fähigkeiten sowie eine strukturierte und lösungsorientierte Arbeitsweise in einem agilen Setup\n- Sehr gute Deutsch- und Englischkenntnisse in Wort und Schrift\n\n## ERGÄNZENDE HINWEISE\n\nFür diese Position berücksichtigen wir ausschliesslich Direktbewerbungen.",
       "descriptionByLocale": {
-        "it": "## TASK PRINCIPALI\n\nChi conosce la nostra produzione sa: stare fermo non è un'opzione. Ecco perché stiamo cercando una personalità pratica che non disegna l'IT dalla scrivania. Siete vicini alla produzione, comprendere le esigenze dei nostri clienti interni e trovare soluzioni pragmatiche con valore aggiunto reale. Con il vostro orientamento al servizio, la vostra comprensione tecnica e il vostro senso dei processi operativi, assicurate che i nostri sistemi legati alla produzione funzionino in modo affidabile e sono continuamente sviluppati. Tu guida una piccola squadra con un dipendente. La vostra funzione include in particolare le seguenti attività:\n\n- Garantire il funzionamento e il supporto dei sistemi IT, OT e di produzione legati alla produzione, nonché SAP, MES e altre applicazioni\n- Analizzare i requisiti delle aree di produzione e di specializzazione, nonché coordinare i cambiamenti, i test e i comunicati\n- Gestione e realizzazione di progetti tecnici nell'ambiente produttivo\n- Gestione e sviluppo di un dipendente e risorse di pianificazione nel settore della responsabilità\n- Cooperazione con la produzione, i dipartimenti, i gruppi IT e i partner esterni nonché l'attuazione dei requisiti di sicurezza\n\n## PROFESSIONALE\n\nSi porterà una laurea come ICT Supporter EFZ, Computer Scientist EFZ o una formazione comparabile con ulteriore livello di istruzione HF/FH, ulteriore formazione nella leadership e / o vantaggio nella gestione del progetto. Inoltre, le seguenti caratteristiche e abilità ti caratterizzano:\n\n- Esperienza con sistemi IT, OT e produzione legati alla produzione, idealmente nell'ambiente SAP e MES\n- Buona conoscenza delle reti, dei database e della sicurezza IT e OT; buona conoscenza del tedesco e dell'inglese\n- mentalità a mano, alto orientamento di servizio e piacere nel lavorare vicino alla produzione e nell'attuazione di soluzioni pragmatiche insieme alle aree specializzate\n- Esperienza nella gestione o nello sviluppo dei dipendenti\n\n## NOTE ADDIZIONALI\n\nPer questa posizione, consideriamo solo applicazioni dirette.",
-        "en": "## MAIN TASKS\n\nAnyone who knows our production knows: Standing still is not an option. This is why we are looking for a hands-on personality that does not design IT from the desk. You are close to production, understand the needs of our internal customers and find pragmatic solutions with real added value. With your service orientation, your technical understanding and your sense of operational processes, you ensure that our production-related systems function reliably and are continuously developed. You lead a small team with one employee. Your function includes in particular the following activities:\n\n- Ensuring the operation and support of production-related IT, OT and production systems as well as SAP, MES and other applications\n- Analyzing requirements from production and specialist areas as well as coordinating changes, tests and releases\n- Managing and implementing technical projects in the production environment\n- Managing and developing an employee and planning resources in the area of responsibility\n- Cooperation with production, departments, group IT and external partners as well as implementation of security requirements\n\n## PROFILE\n\nYou will bring a degree as ICT Supporter EFZ, Computer Scientist EFZ or a comparable education with further education level HF/FH, further education in leadership and/or advantage in project management. In addition, the following characteristics and abilities characterize you:\n\n- Experience with production-related IT, OT and production systems, ideally in the SAP and MES environment\n- Good knowledge of networks, databases and IT and OT security; good knowledge of German and English\n- Hands-on mentality, high service orientation and pleasure in working close to production and implementing pragmatic solutions together with the specialist areas\n- Experience in managing or developing employees\n\n## ADDITIONAL NOTES\n\nFor this position, we only consider direct applications.",
-        "de": "## HAUPTAUFGABEN​\n\nWer unsere Produktion kennt, weiss: Stillstand ist keine Option. Deshalb suchen wir eine Hands-on-Persönlichkeit, die IT nicht vom Schreibtisch aus gestaltet. Du bist nahe an der Produktion, verstehst die Bedürfnisse unserer internen Kunden und findest pragmatische Lösungen mit echtem Mehrwert. Mit deiner Dienstleistungsorientierung, deinem technischen Verständnis und deinem Gespür für die Abläufe im Betrieb stellst du sicher, dass unsere produktionsnahen Systeme zuverlässig funktionieren und kontinuierlich weiterentwickelt werden. Dabei führst du ein kleines Team mit einem Mitarbeitenden. Deine Funktion beinhaltet insbesondere folgende Tätigkeiten:\n\n- Sicherstellen des Betriebs und Supports der produktionsnahen IT-, OT- und Produktionssysteme sowie von SAP-, MES- und weiteren Applikationen\n- Analysieren von Anforderungen aus der Produktion und den Fachbereichen sowie Koordination von Änderungen, Tests und Releases\n- Leiten und Umsetzen technischer Projekte im Produktionsumfeld\n- Führen und Entwickeln eines Mitarbeitenden sowie Planen der Ressourcen im Verantwortungsbereich\n- Zusammenarbeit mit Produktion, Fachbereichen, Gruppen-IT und externen Partnern sowie Umsetzung der Security-Vorgaben\n\n## PROFIL\n\nDu bringst einen Abschluss als ICT-Supporter EFZ, Informatiker EFZ oder eine vergleichbare Ausbildung mit Weiterbildung Stufe HF/FH, Weiterbildung in Führung und/oder von Vorteil im Projektmanagement mit. Zudem zeichnen dich folgende Eigenschaften und Fähigkeiten aus:\n\n- Erfahrung mit produktionsnahen IT-, OT- und Produktionssystemen, idealerweise im SAP- und MES-Umfeld\n- Gute Kenntnisse in Netzwerken, Datenbanken sowie IT- und OT-Security; gute Deutsch- und Englischkenntnisse\n- Hands-on-Mentalität, hohe Dienstleistungsorientierung und Freude daran, nahe an der Produktion zu arbeiten und gemeinsam mit den Fachbereichen pragmatische Lösungen umzusetzen\n- Erfahrung in der Führung oder Entwicklung von Mitarbeitenden\n\n## ERGÄNZENDE HINWEISE\n\nFür diese Position berücksichtigen wir ausschliesslich Direktbewerbungen.",
-        "fr": "## PRINCIPALES TÂCHES\n\nQuiconque connaît notre production le sait : rester debout n'est pas une option. C'est pourquoi nous recherchons une personnalité pratique qui ne conçoit pas l'informatique depuis le bureau. Vous êtes proche de la production, comprenez les besoins de nos clients internes et trouvez des solutions pragmatiques à valeur ajoutée réelle. Avec votre orientation service, votre compréhension technique et votre sens des processus opérationnels, vous assurez que nos systèmes liés à la production fonctionnent de manière fiable et sont continuellement développés. Vous dirigez une petite équipe avec un employé. Votre fonction comprend notamment les activités suivantes:\n\n- Assurer le fonctionnement et le soutien des systèmes informatiques, OT et de production liés à la production ainsi que des applications SAP, MES et autres\n- Analyser les besoins des secteurs de production et des secteurs spécialisés et coordonner les changements, les essais et les rejets\n- Gestion et réalisation de projets techniques dans l'environnement de production\n- Gestion et perfectionnement des employés et planification des ressources dans le domaine de responsabilité\n- Coopération avec la production, les départements, le groupe TI et les partenaires externes ainsi que mise en œuvre des exigences de sécurité\n\n## PROFIL\n\nVous obtiendrez un diplôme en tant que support des TIC EFZ, Computer Scientist EFZ ou une formation comparable avec un niveau de formation complémentaire HF/FH, une formation complémentaire en leadership et/ou un avantage dans la gestion de projet. De plus, les caractéristiques et les capacités suivantes vous caractérisent :\n\n- Expérience des systèmes informatiques, OT et de production liés à la production, idéalement dans l'environnement SAP et MES\n- Bonne connaissance des réseaux, des bases de données et de la sécurité informatique et OT; bonne connaissance de l'allemand et de l'anglais\n- La mentalité pratique, l'orientation haut service et le plaisir de travailler près de la production et de mettre en œuvre des solutions pragmatiques avec les domaines spécialisés\n- Expérience en gestion ou en perfectionnement des employés\n\n## NOTES SUPPLÉMENTAIRES\n\nPour cette position, nous ne considérons que les demandes directes."
+        "it": "## TASK PRINCIPALI\n\nIn qualità di Marketing CRM Strategist, sei responsabile dello sviluppo professionale del portale clienti a livello di Gruppo e della soluzione centrale CIAM (Geberit ID). In stretta collaborazione con i mercati locali, IT e partner esterni, guiderai l'ulteriore sviluppo di queste piattaforme strategiche. Questo include in particolare le seguenti attività:\n\n- Responsabilità professionale per l'operazione e l'ulteriore sviluppo del portale clienti di Gruppo\n- Responsabilità per l'ulteriore sviluppo della soluzione di login centrale (CIAM; SAP Customer Data Cloud) tenendo conto della facilità d'uso, della protezione dei dati e della sicurezza\n- Garantire l'integrazione del portale clienti e della soluzione CIAM con Microsoft Dynamics 365 e altri sistemi e piattaforme digitali\n- Accettazione, analisi e priorità dei requisiti e sviluppo di soluzioni adeguate\n- Sostegno ai rollout internazionali e partecipazione a progetti per lo sviluppo di piattaforme digitali\n- Una stretta collaborazione con partner commerciali, IT, vendite e esterni, oltre a garantire il rispetto degli standard e delle linee guida globali\n\n## PROFESSIONALE\n\nPer questa posizione emozionante si ha una laurea completa in economia, marketing, informatica aziendale o una formazione comparabile. Si porterà anche diversi anni di esperienza professionale nel campo dei sistemi CRM, piattaforme digitali o soluzioni di identità cliente. Inoltre, le seguenti caratteristiche e abilità ti distinguono:\n\n- Diversi anni di esperienza professionale in una funzione paragonabile, idealmente in un ambiente aziendale internazionale\n- Esperienza con sistemi CRM, preferibilmente Microsoft Dynamics 365 e piattaforme digitali dei clienti\n- Conoscenza della Customer Identity & Access Management, idealmente con SAP Customer Data Cloud\n- Forte comprensione della protezione dei dati e del centramento degli utenti nei processi digitali\n- Comprensione tecnica di architetture di sistema, interfacce e flussi di dati\n- Forti competenze analitiche e concettuali e un metodo di lavoro strutturato e orientato alla soluzione in una configurazione agile\n- Molto buona conoscenza del tedesco e dell'inglese in parola e scrittura\n\n## NOTE ADDIZIONALI\n\nPer questa posizione, consideriamo solo applicazioni dirette.",
+        "en": "## MAIN TASKS\n\nAs a Marketing CRM Strategist, you are responsible for the professional development of the Group-wide customer portal and the central CIAM solution (Geberit ID). In close cooperation with local markets, IT and external partners, you will drive the further development of these strategic platforms. This includes in particular the following activities:\n\n- Professional responsibility for the operation and further development of the Group-wide customer portal\n- Responsibility for the further development of the central login solution (CIAM; SAP Customer Data Cloud) taking into account user-friendliness, data protection and security\n- Ensuring the integration of the customer portal and the CIAM solution with Microsoft Dynamics 365 and other digital systems and platforms\n- Acceptance, analysis and prioritization of requirements and development of suitable solutions\n- Support for international rollouts and participation in projects for the further development of digital platforms\n- Close cooperation with marketing, IT, sales and external partners as well as ensuring compliance with global standards and guidelines\n\n## PROFILE\n\nFor this exciting position you have a completed degree in economics, marketing, business informatics or a comparable education. You will also bring several years of professional experience in the field of CRM systems, digital platforms or customer identity solutions. In addition, the following characteristics and abilities distinguish you:\n\n- Several years of professional experience in a comparable function, ideally in an international corporate environment\n- Experience with CRM systems, preferably Microsoft Dynamics 365 and digital customer platforms\n- Knowledge of Customer Identity & Access Management, ideally with SAP Customer Data Cloud\n- Strong understanding of data protection and user centering in digital processes\n- Technical understanding of system architectures, interfaces and data flows\n- Strong analytical and conceptual skills as well as a structured and solution-oriented working method in an agile setup\n- Very good knowledge of German and English in word and writing\n\n## ADDITIONAL NOTES\n\nFor this position, we only consider direct applications.",
+        "de": "## HAUPTAUFGABEN​\n\nIn der Funktion als Marketing CRM Strategist bist du verantwortlich für die fachliche Weiterentwicklung des gruppenweiten Kundenportals sowie der zentralen CIAM-Lösung (Geberit ID). In enger Zusammenarbeit mit den lokalen Märkten, der IT und externen Partnern treibst du die Weiterentwicklung dieser strategischen Plattformen voran. Dies beinhaltet insbesondere folgende Tätigkeiten:\n\n- Fachliche Verantwortung für den Betrieb und die Weiterentwicklung des gruppenweiten Kundenportals\n- Verantwortung für die Weiterentwicklung der zentralen Login-Lösung (CIAM; SAP Customer Data Cloud) unter Berücksichtigung von Benutzerfreundlichkeit, Datenschutz und Sicherheit\n- Sicherstellung der Integration des Kundenportals und der CIAM-Lösung mit Microsoft Dynamics 365 sowie weiteren digitalen Systemen und Plattformen\n- Aufnahme, Analyse und Priorisierung von Anforderungen sowie Erarbeitung geeigneter Lösungsansätze\n- Unterstützung internationaler Rollouts und Mitarbeit in Projekten zur Weiterentwicklung der digitalen Plattformen\n- Enge Zusammenarbeit mit Marketing, IT, Vertrieb und externen Partnern sowie Sicherstellung der Einhaltung globaler Standards und Vorgaben\n\n## PROFIL\n\nFür diese spannende Position verfügst du über ein abgeschlossenes Studium im Bereich Wirtschaft, Marketing, Wirtschaftsinformatik oder eine vergleichbare Ausbildung. Zudem bringst du mehrere Jahre Berufserfahrung im Umfeld von CRM-Systemen, digitalen Plattformen oder Customer-Identity-Lösungen mit. Darüber hinaus zeichnen dich folgende Eigenschaften und Fähigkeiten aus:\n\n- Mehrjährige Berufserfahrung in einer vergleichbaren Funktion, idealerweise in einem internationalen Unternehmensumfeld\n- Erfahrung mit CRM-Systemen, vorzugsweise Microsoft Dynamics 365 sowie digitalen Kundenplattformen\n- Kenntnisse im Bereich Customer Identity & Access Management, idealerweise mit SAP Customer Data Cloud\n- Starkes Verständnis für Datenschutz und Nutzerzentrierung in digitalen Prozessen\n- Technisches Verständnis für Systemarchitekturen, Schnittstellen und Datenflüsse\n- Ausgeprägte analytische und konzeptionelle Fähigkeiten sowie eine strukturierte und lösungsorientierte Arbeitsweise in einem agilen Setup\n- Sehr gute Deutsch- und Englischkenntnisse in Wort und Schrift\n\n## ERGÄNZENDE HINWEISE\n\nFür diese Position berücksichtigen wir ausschliesslich Direktbewerbungen.",
+        "fr": "## PRINCIPAUX TÂCHES\n\nEn tant que stratège marketing CRM, vous êtes responsable du développement professionnel du portail client du Groupe et de la solution centrale CIAM (Geberit ID). En étroite collaboration avec les marchés locaux, l'informatique et les partenaires extérieurs, vous dirigerez le développement de ces plateformes stratégiques. Cela comprend notamment les activités suivantes:\n\n- Responsabilité professionnelle pour l'exploitation et le développement du portail client à l'échelle du Groupe\n- Responsabilité du développement de la solution de connexion centrale (CIAM; SAP Customer Data Cloud) en tenant compte de la convivialité, de la protection des données et de la sécurité\n- Assurer l'intégration du portail client et de la solution CIAM avec Microsoft Dynamics 365 et d'autres systèmes et plateformes numériques\n- Acceptation, analyse et hiérarchisation des besoins et élaboration de solutions appropriées\n- Appui au déploiement international et participation à des projets de développement des plateformes numériques\n- Coopération étroite avec les partenaires du marketing, de l'informatique, des ventes et de l'extérieur et respect des normes et lignes directrices mondiales\n\n## PROFIL\n\nPour ce poste passionnant, vous avez obtenu un diplôme en économie, marketing, informatique commerciale ou une formation comparable. Vous apporterez également plusieurs années d'expérience professionnelle dans le domaine des systèmes CRM, des plateformes numériques ou des solutions d'identité client. De plus, les caractéristiques et les capacités suivantes vous distinguent :\n\n- Plusieurs années d'expérience professionnelle dans une fonction comparable, idéalement dans un environnement d'entreprise international\n- Expérience avec les systèmes CRM, de préférence Microsoft Dynamics 365 et les plateformes client numériques\n- Connaissance de la gestion de l'identité et de l'accès des clients, idéalement avec SAP Customer Data Cloud\n- Une bonne compréhension de la protection des données et de la focalisation des utilisateurs dans les processus numériques\n- Compréhension technique des architectures, interfaces et flux de données du système\n- Fortes compétences analytiques et conceptuelles ainsi qu'une méthode de travail structurée et orientée vers la solution dans une configuration agile\n- Très bonne connaissance de l'allemand et de l'anglais en paroles et en écriture\n\n## NOTES SUPPLÉMENTAIRES\n\nPour cette position, nous ne considérons que les demandes directes."
       },
       "location": "Rapperswil-Jona",
       "canton": "SG",
-      "url": "https://jobs.geberit.com/job-invite/2270/?locale=de_DE",
+      "url": "https://jobs.geberit.com/job-invite/2243/?locale=de_DE",
       "source": "Geberit Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T09:48:11.115Z",
+      "crawledAt": "2026-11-05T21:42:01.960Z",
       "addressLocality": "Rapperswil-Jona",
       "postalCode": "8640",
       "streetAddress": "Schachenstrasse 77",
       "addressRegion": "SG",
       "addressCountry": "CH",
       "country": "CH",
-      "category": "Risorse Umane",
+      "category": "Marketing",
       "employmentType": "FULL_TIME",
       "experienceLevel": "mid",
       "sector": "Industrial / Sanitary technology (manufacturing)",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "2026-10-06T06:03:34Z",
-      "postedDate": "2026-10-06T06:03:34Z",
-      "postingDateSource": "reported",
-      "applyUrl": "https://jobs.geberit.com/job-invite/2270/?locale=de_DE",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://jobs.geberit.com/job-invite/2243/?locale=de_DE",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "fachverantwortlicher-betriebsinformatik-mit-fuhrungsaufgabe-a-100-geberit-ch"
+        "marketing-crm-strategist-mit-fokus-kundenportal-a-100-geberit-rapperswil-jona",
+        "marketing-crm-strategist-con-focus-sul-portale-clienti-a-100-geberit-rapperswil-jona",
+        "marketing-crm-strategist-con-focus-sul-portale-clienti-a-100-geberit-rapperswil-jona-bd3786828b",
+        "marketing-crm-strategist-avec-l-accent-sur-le-portail-client-a-100-geberit-rapperswil-jona-d7d8b7",
+        "marketing-crm-strategist-mit-fokus-kundenportal-a-100-geberit-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachverantwortlicher-betriebsinformatik-mit-fuhrungsaufgabe-a-100-geberit-ch"
+          "marketing-crm-strategist-con-focus-sul-portale-clienti-a-100-geberit-rapperswil-jona",
+          "marketing-crm-strategist-con-focus-sul-portale-clienti-a-100-geberit-rapperswil-jona-bd3786828b",
+          "marketing-crm-strategist-mit-fokus-kundenportal-a-100-geberit-ch"
+        ],
+        "en": [
+          "marketing-crm-strategist-mit-fokus-kundenportal-a-100-geberit-rapperswil-jona",
+          "marketing-crm-strategist-mit-fokus-kundenportal-a-100-geberit-ch"
+        ],
+        "fr": [
+          "marketing-crm-strategist-avec-l-accent-sur-le-portail-client-a-100-geberit-rapperswil-jona-d7d8b7",
+          "marketing-crm-strategist-mit-fokus-kundenportal-a-100-geberit-ch"
         ]
       },
-      "salaryMin": 79000,
-      "salaryMax": 120000,
+      "salaryMin": 58500,
+      "salaryMax": 103500,
       "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 79000,
-          "maxValue": 120000,
+          "minValue": 58500,
+          "maxValue": 103500,
           "unitText": "YEAR"
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-04T09:48:11.115Z",
+      "validThrough": "2026-12-23T21:42:01.960Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-10-06T09:39:54.630Z"
+      "firstSeenAt": "2026-09-24T14:57:11.192Z"
     },
     {
       "id": "geberit-2262",
@@ -1570,7 +1494,7 @@
       "url": "https://jobs.geberit.com/job-invite/2262/?locale=de_DE",
       "source": "Geberit Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T09:48:11.115Z",
+      "crawledAt": "2026-11-05T21:42:01.958Z",
       "addressLocality": "Rapperswil-Jona",
       "postalCode": "8640",
       "streetAddress": "Schachenstrasse 77",
@@ -1625,9 +1549,85 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-30T09:48:11.115Z",
+      "validThrough": "2026-12-30T21:42:01.958Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-10-01T09:35:17.669Z"
+    },
+    {
+      "id": "geberit-2270",
+      "slug": "responsabile-tecnico-dell-informatica-aziendale-con-mansioni-dirigenziali-a-100-geberit-rapperswil-jona",
+      "slugByLocale": {
+        "de": "fachverantwortlicher-betriebsinformatik-mit-fuhrungsaufgabe-a-100-geberit-ch",
+        "en": "responsible-business-informatics-with-management-task-a-100-geberit-rapperswil-jona",
+        "fr": "informatique-commerciale-responsable-avec-tache-de-gestion-a-100-geberit-rapperswil-jona",
+        "it": "responsabile-tecnico-dell-informatica-aziendale-con-mansioni-dirigenziali-a-100-geberit-rapperswil-jona"
+      },
+      "company": "Geberit",
+      "companyKey": "geberit",
+      "companyDomain": "geberit.com",
+      "title": "Fachverantwortlicher Betriebsinformatik mit Führungsaufgabe (a) 100%",
+      "titleByLocale": {
+        "it": "Responsabile tecnico dell'informatica aziendale con mansioni dirigenziali (a) 100%",
+        "en": "Responsible business informatics with management task (a) 100%",
+        "de": "Fachverantwortlicher Betriebsinformatik mit Führungsaufgabe (a) 100%",
+        "fr": "Informatique commerciale responsable avec tâche de gestion (a) 100%"
+      },
+      "description": "## HAUPTAUFGABEN​\n\nWer unsere Produktion kennt, weiss: Stillstand ist keine Option. Deshalb suchen wir eine Hands-on-Persönlichkeit, die IT nicht vom Schreibtisch aus gestaltet. Du bist nahe an der Produktion, verstehst die Bedürfnisse unserer internen Kunden und findest pragmatische Lösungen mit echtem Mehrwert. Mit deiner Dienstleistungsorientierung, deinem technischen Verständnis und deinem Gespür für die Abläufe im Betrieb stellst du sicher, dass unsere produktionsnahen Systeme zuverlässig funktionieren und kontinuierlich weiterentwickelt werden. Dabei führst du ein kleines Team mit einem Mitarbeitenden. Deine Funktion beinhaltet insbesondere folgende Tätigkeiten:\n\n- Sicherstellen des Betriebs und Supports der produktionsnahen IT-, OT- und Produktionssysteme sowie von SAP-, MES- und weiteren Applikationen\n- Analysieren von Anforderungen aus der Produktion und den Fachbereichen sowie Koordination von Änderungen, Tests und Releases\n- Leiten und Umsetzen technischer Projekte im Produktionsumfeld\n- Führen und Entwickeln eines Mitarbeitenden sowie Planen der Ressourcen im Verantwortungsbereich\n- Zusammenarbeit mit Produktion, Fachbereichen, Gruppen-IT und externen Partnern sowie Umsetzung der Security-Vorgaben\n\n## PROFIL\n\nDu bringst einen Abschluss als ICT-Supporter EFZ, Informatiker EFZ oder eine vergleichbare Ausbildung mit Weiterbildung Stufe HF/FH, Weiterbildung in Führung und/oder von Vorteil im Projektmanagement mit. Zudem zeichnen dich folgende Eigenschaften und Fähigkeiten aus:\n\n- Erfahrung mit produktionsnahen IT-, OT- und Produktionssystemen, idealerweise im SAP- und MES-Umfeld\n- Gute Kenntnisse in Netzwerken, Datenbanken sowie IT- und OT-Security; gute Deutsch- und Englischkenntnisse\n- Hands-on-Mentalität, hohe Dienstleistungsorientierung und Freude daran, nahe an der Produktion zu arbeiten und gemeinsam mit den Fachbereichen pragmatische Lösungen umzusetzen\n- Erfahrung in der Führung oder Entwicklung von Mitarbeitenden\n\n## ERGÄNZENDE HINWEISE\n\nFür diese Position berücksichtigen wir ausschliesslich Direktbewerbungen.",
+      "descriptionByLocale": {
+        "it": "## TASK PRINCIPALI\n\nChi conosce la nostra produzione sa: stare fermo non è un'opzione. Ecco perché stiamo cercando una personalità pratica che non disegna l'IT dalla scrivania. Siete vicini alla produzione, comprendere le esigenze dei nostri clienti interni e trovare soluzioni pragmatiche con valore aggiunto reale. Con il vostro orientamento al servizio, la vostra comprensione tecnica e il vostro senso dei processi operativi, assicurate che i nostri sistemi legati alla produzione funzionino in modo affidabile e sono continuamente sviluppati. Tu guida una piccola squadra con un dipendente. La vostra funzione include in particolare le seguenti attività:\n\n- Garantire il funzionamento e il supporto dei sistemi IT, OT e di produzione legati alla produzione, nonché SAP, MES e altre applicazioni\n- Analizzare i requisiti delle aree di produzione e di specializzazione, nonché coordinare i cambiamenti, i test e i comunicati\n- Gestione e realizzazione di progetti tecnici nell'ambiente produttivo\n- Gestione e sviluppo di un dipendente e risorse di pianificazione nel settore della responsabilità\n- Cooperazione con la produzione, i dipartimenti, i gruppi IT e i partner esterni nonché l'attuazione dei requisiti di sicurezza\n\n## PROFESSIONALE\n\nSi porterà una laurea come ICT Supporter EFZ, Computer Scientist EFZ o una formazione comparabile con ulteriore livello di istruzione HF/FH, ulteriore formazione nella leadership e / o vantaggio nella gestione del progetto. Inoltre, le seguenti caratteristiche e abilità ti caratterizzano:\n\n- Esperienza con sistemi IT, OT e produzione legati alla produzione, idealmente nell'ambiente SAP e MES\n- Buona conoscenza delle reti, dei database e della sicurezza IT e OT; buona conoscenza del tedesco e dell'inglese\n- mentalità a mano, alto orientamento di servizio e piacere nel lavorare vicino alla produzione e nell'attuazione di soluzioni pragmatiche insieme alle aree specializzate\n- Esperienza nella gestione o nello sviluppo dei dipendenti\n\n## NOTE ADDIZIONALI\n\nPer questa posizione, consideriamo solo applicazioni dirette.",
+        "en": "## MAIN TASKS\n\nAnyone who knows our production knows: Standing still is not an option. This is why we are looking for a hands-on personality that does not design IT from the desk. You are close to production, understand the needs of our internal customers and find pragmatic solutions with real added value. With your service orientation, your technical understanding and your sense of operational processes, you ensure that our production-related systems function reliably and are continuously developed. You lead a small team with one employee. Your function includes in particular the following activities:\n\n- Ensuring the operation and support of production-related IT, OT and production systems as well as SAP, MES and other applications\n- Analyzing requirements from production and specialist areas as well as coordinating changes, tests and releases\n- Managing and implementing technical projects in the production environment\n- Managing and developing an employee and planning resources in the area of responsibility\n- Cooperation with production, departments, group IT and external partners as well as implementation of security requirements\n\n## PROFILE\n\nYou will bring a degree as ICT Supporter EFZ, Computer Scientist EFZ or a comparable education with further education level HF/FH, further education in leadership and/or advantage in project management. In addition, the following characteristics and abilities characterize you:\n\n- Experience with production-related IT, OT and production systems, ideally in the SAP and MES environment\n- Good knowledge of networks, databases and IT and OT security; good knowledge of German and English\n- Hands-on mentality, high service orientation and pleasure in working close to production and implementing pragmatic solutions together with the specialist areas\n- Experience in managing or developing employees\n\n## ADDITIONAL NOTES\n\nFor this position, we only consider direct applications.",
+        "de": "## HAUPTAUFGABEN​\n\nWer unsere Produktion kennt, weiss: Stillstand ist keine Option. Deshalb suchen wir eine Hands-on-Persönlichkeit, die IT nicht vom Schreibtisch aus gestaltet. Du bist nahe an der Produktion, verstehst die Bedürfnisse unserer internen Kunden und findest pragmatische Lösungen mit echtem Mehrwert. Mit deiner Dienstleistungsorientierung, deinem technischen Verständnis und deinem Gespür für die Abläufe im Betrieb stellst du sicher, dass unsere produktionsnahen Systeme zuverlässig funktionieren und kontinuierlich weiterentwickelt werden. Dabei führst du ein kleines Team mit einem Mitarbeitenden. Deine Funktion beinhaltet insbesondere folgende Tätigkeiten:\n\n- Sicherstellen des Betriebs und Supports der produktionsnahen IT-, OT- und Produktionssysteme sowie von SAP-, MES- und weiteren Applikationen\n- Analysieren von Anforderungen aus der Produktion und den Fachbereichen sowie Koordination von Änderungen, Tests und Releases\n- Leiten und Umsetzen technischer Projekte im Produktionsumfeld\n- Führen und Entwickeln eines Mitarbeitenden sowie Planen der Ressourcen im Verantwortungsbereich\n- Zusammenarbeit mit Produktion, Fachbereichen, Gruppen-IT und externen Partnern sowie Umsetzung der Security-Vorgaben\n\n## PROFIL\n\nDu bringst einen Abschluss als ICT-Supporter EFZ, Informatiker EFZ oder eine vergleichbare Ausbildung mit Weiterbildung Stufe HF/FH, Weiterbildung in Führung und/oder von Vorteil im Projektmanagement mit. Zudem zeichnen dich folgende Eigenschaften und Fähigkeiten aus:\n\n- Erfahrung mit produktionsnahen IT-, OT- und Produktionssystemen, idealerweise im SAP- und MES-Umfeld\n- Gute Kenntnisse in Netzwerken, Datenbanken sowie IT- und OT-Security; gute Deutsch- und Englischkenntnisse\n- Hands-on-Mentalität, hohe Dienstleistungsorientierung und Freude daran, nahe an der Produktion zu arbeiten und gemeinsam mit den Fachbereichen pragmatische Lösungen umzusetzen\n- Erfahrung in der Führung oder Entwicklung von Mitarbeitenden\n\n## ERGÄNZENDE HINWEISE\n\nFür diese Position berücksichtigen wir ausschliesslich Direktbewerbungen.",
+        "fr": "## PRINCIPALES TÂCHES\n\nQuiconque connaît notre production le sait : rester debout n'est pas une option. C'est pourquoi nous recherchons une personnalité pratique qui ne conçoit pas l'informatique depuis le bureau. Vous êtes proche de la production, comprenez les besoins de nos clients internes et trouvez des solutions pragmatiques à valeur ajoutée réelle. Avec votre orientation service, votre compréhension technique et votre sens des processus opérationnels, vous assurez que nos systèmes liés à la production fonctionnent de manière fiable et sont continuellement développés. Vous dirigez une petite équipe avec un employé. Votre fonction comprend notamment les activités suivantes:\n\n- Assurer le fonctionnement et le soutien des systèmes informatiques, OT et de production liés à la production ainsi que des applications SAP, MES et autres\n- Analyser les besoins des secteurs de production et des secteurs spécialisés et coordonner les changements, les essais et les rejets\n- Gestion et réalisation de projets techniques dans l'environnement de production\n- Gestion et perfectionnement des employés et planification des ressources dans le domaine de responsabilité\n- Coopération avec la production, les départements, le groupe TI et les partenaires externes ainsi que mise en œuvre des exigences de sécurité\n\n## PROFIL\n\nVous obtiendrez un diplôme en tant que support des TIC EFZ, Computer Scientist EFZ ou une formation comparable avec un niveau de formation complémentaire HF/FH, une formation complémentaire en leadership et/ou un avantage dans la gestion de projet. De plus, les caractéristiques et les capacités suivantes vous caractérisent :\n\n- Expérience des systèmes informatiques, OT et de production liés à la production, idéalement dans l'environnement SAP et MES\n- Bonne connaissance des réseaux, des bases de données et de la sécurité informatique et OT; bonne connaissance de l'allemand et de l'anglais\n- La mentalité pratique, l'orientation haut service et le plaisir de travailler près de la production et de mettre en œuvre des solutions pragmatiques avec les domaines spécialisés\n- Expérience en gestion ou en perfectionnement des employés\n\n## NOTES SUPPLÉMENTAIRES\n\nPour cette position, nous ne considérons que les demandes directes."
+      },
+      "location": "Rapperswil-Jona",
+      "canton": "SG",
+      "url": "https://jobs.geberit.com/job-invite/2270/?locale=de_DE",
+      "source": "Geberit Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-05T21:42:01.956Z",
+      "addressLocality": "Rapperswil-Jona",
+      "postalCode": "8640",
+      "streetAddress": "Schachenstrasse 77",
+      "addressRegion": "SG",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Risorse Umane",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Industrial / Sanitary technology (manufacturing)",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-10-06T06:03:34Z",
+      "postedDate": "2026-10-06T06:03:34Z",
+      "postingDateSource": "reported",
+      "applyUrl": "https://jobs.geberit.com/job-invite/2270/?locale=de_DE",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "fachverantwortlicher-betriebsinformatik-mit-fuhrungsaufgabe-a-100-geberit-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "fachverantwortlicher-betriebsinformatik-mit-fuhrungsaufgabe-a-100-geberit-ch"
+        ]
+      },
+      "salaryMin": 79000,
+      "salaryMax": 120000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 79000,
+          "maxValue": 120000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-04T21:42:01.956Z",
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-10-06T09:39:54.630Z"
     },
     {
       "id": "geberit-2279",
@@ -1660,7 +1660,7 @@
       "url": "https://jobs.geberit.com/job-invite/2279/?locale=de_DE",
       "source": "Geberit Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T09:48:11.114Z",
+      "crawledAt": "2026-11-05T21:42:01.955Z",
       "addressLocality": "Rapperswil-Jona",
       "postalCode": "8640",
       "streetAddress": "Schachenstrasse 77",
@@ -1707,7 +1707,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-06T09:48:11.114Z",
+      "validThrough": "2027-01-06T21:42:01.955Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-10-08T09:41:25.644Z"
     },
@@ -1742,7 +1742,7 @@
       "url": "https://jobs.geberit.com/job-invite/1635/?locale=de_DE",
       "source": "Geberit Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T09:48:11.113Z",
+      "crawledAt": "2026-11-05T21:42:01.954Z",
       "addressLocality": "Rapperswil-Jona",
       "postalCode": "8640",
       "streetAddress": "Schachenstrasse 77",
@@ -1789,7 +1789,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-20T09:48:11.113Z",
+      "validThrough": "2027-01-19T21:42:01.954Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-10-21T10:02:58.783Z"
     },
@@ -1824,7 +1824,7 @@
       "url": "https://jobs.geberit.com/job-invite/2271/?locale=de_DE",
       "source": "Geberit Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T09:48:11.112Z",
+      "crawledAt": "2026-11-05T21:42:01.953Z",
       "addressLocality": "Rapperswil-Jona",
       "postalCode": "8640",
       "streetAddress": "Schachenstrasse 77",
@@ -1872,7 +1872,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-17T09:48:11.112Z",
+      "validThrough": "2027-01-17T21:42:01.953Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-10-19T09:47:49.153Z"
     },
@@ -1907,7 +1907,7 @@
       "url": "https://jobs.geberit.com/job-invite/2172/?locale=de_DE",
       "source": "Geberit Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T09:48:11.054Z",
+      "crawledAt": "2026-11-05T21:42:01.845Z",
       "addressLocality": "Rapperswil-Jona",
       "postalCode": "8640",
       "streetAddress": "Schachenstrasse 77",
@@ -1954,7 +1954,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-01T09:48:11.054Z",
+      "validThrough": "2027-02-03T21:42:01.845Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1988,7 +1988,7 @@
       "url": "https://jobs.geberit.com/job-invite/2148/?locale=de_DE",
       "source": "Geberit Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T09:48:11.053Z",
+      "crawledAt": "2026-11-05T21:42:01.844Z",
       "addressLocality": "Rapperswil-Jona",
       "postalCode": "8640",
       "streetAddress": "Schachenstrasse 77",
@@ -2030,91 +2030,9 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-03T09:48:11.053Z",
+      "validThrough": "2026-12-05T21:42:01.844Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-08-18T22:16:49.334Z"
-    },
-    {
-      "id": "geberit-2318",
-      "slug": "ingegneria-di-produzione-intern-project-management-a-100-geberit-rapperswil-jona",
-      "slugByLocale": {
-        "de": "praktikant-produktionsengineering-projektmanagement-a-100-geberit-ch",
-        "it": "ingegneria-di-produzione-intern-project-management-a-100-geberit-rapperswil-jona",
-        "en": "intern-production-engineering-project-management-a-100-geberit-rapperswil-jona",
-        "fr": "ingenierie-de-production-interne-et-gestion-de-projet-a-100-geberit-rapperswil-jona"
-      },
-      "company": "Geberit",
-      "companyKey": "geberit",
-      "companyDomain": "geberit.com",
-      "title": "Praktikant Produktionsengineering & Projektmanagement (a) 100%",
-      "titleByLocale": {
-        "it": "Ingegneria di produzione Intern & Project Management (a) 100%",
-        "en": "Intern Production Engineering & Project Management (a) 100%",
-        "de": "Praktikant Produktionsengineering & Projektmanagement (a) 100%",
-        "fr": "Ingénierie de production interne et gestion de projet (a) 100 %"
-      },
-      "description": "## HAUPTAUFGABEN​\n\nFür sechs Monate ab Januar 2027 unterstützt du unsere Abteilung Projektleitung Produkte (PLP) & Geberit Produktions-System (GPS) Engineering bei Projekten rund um neue Produkte, Prozesse und die Weiterentwicklung unserer manuellen Montage. Ein Schwerpunkt deines Praktikums ist die Kapazitätserweiterung einer Produktionslinie. Du analysierst bestehende Montageprozesse und Kapazitäten, entwickelst gemeinsam mit den Fachbereichen geeignete Optimierungslösungen und prüfst dabei auch mögliche Automatisierungspotenziale. Dabei übernimmst du Verantwortung für ein eigenes Projekt und treibst dieses proaktiv voran. Darüber hinaus gehören folgende Aufgaben zu deinem Praktikum:\n\n- Analyse und Optimierung von Produktions- und Montageprozessen\n- Durchführung und Auswertung von Prozess-, Zeit- und Datenanalysen\n- Identifikation von Optimierungs- und Automatisierungspotenzialen\n- Unterstützung bei Stammdatenpflege sowie technischen und organisatorischen Projektaufgaben\n\n## PROFIL\n\nDu studierst Maschinenbau, Maschinentechnik, Wirtschaftsingenieurwesen, Produktionstechnik oder einen vergleichbaren technischen Studiengang an einer Höheren Fachschule oder Fachhochschule. Idealerweise bringst du Interesse an Produktionsprozessen und Automatisierung mit.\n\n- Gutes technisches und analytisches Verständnis\n- Selbstständige, strukturierte und proaktive Arbeitsweise\n- Bereitschaft, Verantwortung für ein eigenes Projekt zu übernehmen und dieses konsequent voranzutreiben\n- Teamorientierte, zuverlässige Persönlichkeit mit Freude daran, praktische Aufgaben direkt im Produktionsumfeld anzupacken\n\n## ERGÄNZENDE HINWEISE\n\nFür diese Position berücksichtigen wir ausschliesslich Direktbewerbungen.",
-      "descriptionByLocale": {
-        "it": "## TASK PRINCIPALI\n\nPer sei mesi a partire dal gennaio 2027, supporterete il nostro reparto di Ingegneria dei Prodotti (PLP) & Geberit Production System (GPS) in progetti relativi a nuovi prodotti, processi e l'ulteriore sviluppo del nostro assemblaggio manuale. Un focus del tuo stage è l'espansione della capacità di una linea di produzione. Analizzerai i processi e le capacità di assemblaggio esistenti, svilupperai soluzioni di ottimizzazione adatte insieme alle aree specializzate e esaminerai anche possibili potenzialità di automazione. Si assume la responsabilità del proprio progetto e lo spinge proattivamente in avanti. Inoltre, i seguenti compiti sono parte del tuo stage:\n\n- Analisi e ottimizzazione dei processi di produzione e assemblaggio\n- Attuazione e valutazione delle analisi di processo, tempo e dati\n- Identificazione del potenziale di ottimizzazione e automazione\n- Supporto per la manutenzione dei dati master e le attività di progetto tecnico e organizzativo\n\n## PROFESSIONALE\n\nStudia ingegneria meccanica, ingegneria meccanica, ingegneria industriale, ingegneria di produzione o un corso di laurea tecnica comparabile in una scuola superiore o università di scienze applicate. Idealmente, siete interessati ai processi produttivi e all'automazione.\n\n- Buona comprensione tecnica e analitica\n- Metodo di lavoro indipendente, strutturato e proattivo\n- Volontà di assumersi la responsabilità del proprio progetto e portarlo avanti costantemente\n- Personalità orientata al team e affidabile con piacere nell'affrontare i compiti pratici direttamente nell'ambiente di produzione\n\n## NOTE ADDIZIONALI\n\nPer questa posizione, consideriamo solo applicazioni dirette.",
-        "en": "## MAIN TASKS\n\nFor six months from January 2027, you will be supporting our Products (PLP) & Geberit Production System (GPS) Engineering department in projects related to new products, processes and the further development of our manual assembly. One focus of your internship is the capacity expansion of a production line. You will analyze existing assembly processes and capacities, develop suitable optimization solutions together with the specialist areas and also examine possible automation potential. You take responsibility for your own project and proactively drive it forward. In addition, the following tasks are part of your internship:\n\n- Analysis and optimization of production and assembly processes\n- Implementation and evaluation of process, time and data analyses\n- Identification of optimization and automation potential\n- Support for master data maintenance as well as technical and organizational project tasks\n\n## PROFILE\n\nYou study mechanical engineering, mechanical engineering, industrial engineering, production engineering or a comparable technical degree program at a high school or university of applied sciences. Ideally, you are interested in production processes and automation.\n\n- Good technical and analytical understanding\n- Independent, structured and proactive working method\n- Willingness to take responsibility for your own project and drive it forward consistently\n- Team-oriented, reliable personality with pleasure in tackling practical tasks directly in the production environment\n\n## ADDITIONAL NOTES\n\nFor this position, we only consider direct applications.",
-        "de": "## HAUPTAUFGABEN​\n\nFür sechs Monate ab Januar 2027 unterstützt du unsere Abteilung Projektleitung Produkte (PLP) & Geberit Produktions-System (GPS) Engineering bei Projekten rund um neue Produkte, Prozesse und die Weiterentwicklung unserer manuellen Montage. Ein Schwerpunkt deines Praktikums ist die Kapazitätserweiterung einer Produktionslinie. Du analysierst bestehende Montageprozesse und Kapazitäten, entwickelst gemeinsam mit den Fachbereichen geeignete Optimierungslösungen und prüfst dabei auch mögliche Automatisierungspotenziale. Dabei übernimmst du Verantwortung für ein eigenes Projekt und treibst dieses proaktiv voran. Darüber hinaus gehören folgende Aufgaben zu deinem Praktikum:\n\n- Analyse und Optimierung von Produktions- und Montageprozessen\n- Durchführung und Auswertung von Prozess-, Zeit- und Datenanalysen\n- Identifikation von Optimierungs- und Automatisierungspotenzialen\n- Unterstützung bei Stammdatenpflege sowie technischen und organisatorischen Projektaufgaben\n\n## PROFIL\n\nDu studierst Maschinenbau, Maschinentechnik, Wirtschaftsingenieurwesen, Produktionstechnik oder einen vergleichbaren technischen Studiengang an einer Höheren Fachschule oder Fachhochschule. Idealerweise bringst du Interesse an Produktionsprozessen und Automatisierung mit.\n\n- Gutes technisches und analytisches Verständnis\n- Selbstständige, strukturierte und proaktive Arbeitsweise\n- Bereitschaft, Verantwortung für ein eigenes Projekt zu übernehmen und dieses konsequent voranzutreiben\n- Teamorientierte, zuverlässige Persönlichkeit mit Freude daran, praktische Aufgaben direkt im Produktionsumfeld anzupacken\n\n## ERGÄNZENDE HINWEISE\n\nFür diese Position berücksichtigen wir ausschliesslich Direktbewerbungen.",
-        "fr": "## PRINCIPAUX TÂCHES\n\nPendant six mois à partir de janvier 2027, vous soutiendrez notre département Produits (PLP) & Geberit Production System (GPS) Engineering dans des projets liés à de nouveaux produits, procédés et le développement de notre montage manuel. Un des objectifs de votre stage est l'expansion de la capacité d'une ligne de production. Vous analyserez les processus et les capacités de montage existants, développerez des solutions d'optimisation appropriées avec les domaines spécialisés et examinerez également le potentiel d'automatisation possible. Vous assumez la responsabilité de votre propre projet et la dirigez de façon proactive. De plus, les tâches suivantes font partie de votre stage :\n\n- Analyse et optimisation des processus de production et de montage\n- Mise en œuvre et évaluation des analyses de processus, de temps et de données\n- Identification du potentiel d'optimisation et d'automatisation\n- Appui à la maintenance des données de base ainsi qu'aux tâches techniques et organisationnelles des projets\n\n## PROFIL\n\nVous étudiez l'ingénierie mécanique, l'ingénierie mécanique, l'ingénierie industrielle, l'ingénierie de production ou un programme de diplôme technique comparable dans une école secondaire ou une université des sciences appliquées. Idéalement, vous êtes intéressé par les processus de production et l'automatisation.\n\n- Bonne compréhension technique et analytique\n- Méthode de travail indépendante, structurée et proactive\n- Volonté de prendre la responsabilité de votre propre projet et de le faire avancer de façon cohérente\n- Personnalité d'équipe et de fiabilité avec plaisir dans la prise en charge des tâches pratiques directement dans l'environnement de production\n\n## NOTES SUPPLÉMENTAIRES\n\nPour cette position, nous ne considérons que les demandes directes."
-      },
-      "location": "Rapperswil-Jona",
-      "canton": "SG",
-      "url": "https://jobs.geberit.com/job-invite/2318/?locale=de_DE",
-      "source": "Geberit Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-03T09:48:11.052Z",
-      "addressLocality": "Rapperswil-Jona",
-      "postalCode": "8640",
-      "streetAddress": "Schachenstrasse 77",
-      "addressRegion": "SG",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "intern",
-      "sector": "Industrial / Sanitary technology (manufacturing)",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://jobs.geberit.com/job-invite/2318/?locale=de_DE",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "praktikant-produktionsengineering-projektmanagement-a-100-geberit-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "praktikant-produktionsengineering-projektmanagement-a-100-geberit-ch"
-        ],
-        "en": [
-          "praktikant-produktionsengineering-projektmanagement-a-100-geberit-ch"
-        ],
-        "fr": [
-          "praktikant-produktionsengineering-projektmanagement-a-100-geberit-ch"
-        ]
-      },
-      "salaryMin": 48000,
-      "salaryMax": 73000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 48000,
-          "maxValue": 73000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-19T09:48:11.052Z",
-      "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-10-20T21:42:05.350Z"
     },
     {
       "id": "geberit-1560",
@@ -2147,7 +2065,7 @@
       "url": "https://jobs.geberit.com/job-invite/1560/?locale=de_DE",
       "source": "Geberit Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T09:48:11.051Z",
+      "crawledAt": "2026-11-05T21:42:01.843Z",
       "addressLocality": "Rapperswil-Jona",
       "postalCode": "8640",
       "streetAddress": "Schachenstrasse 77",
@@ -2194,9 +2112,91 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-22T09:48:11.051Z",
+      "validThrough": "2027-01-21T21:42:01.843Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-10-23T10:03:05.118Z"
+    },
+    {
+      "id": "geberit-2318",
+      "slug": "ingegneria-di-produzione-intern-project-management-a-100-geberit-rapperswil-jona",
+      "slugByLocale": {
+        "de": "praktikant-produktionsengineering-projektmanagement-a-100-geberit-ch",
+        "it": "ingegneria-di-produzione-intern-project-management-a-100-geberit-rapperswil-jona",
+        "en": "intern-production-engineering-project-management-a-100-geberit-rapperswil-jona",
+        "fr": "ingenierie-de-production-interne-et-gestion-de-projet-a-100-geberit-rapperswil-jona"
+      },
+      "company": "Geberit",
+      "companyKey": "geberit",
+      "companyDomain": "geberit.com",
+      "title": "Praktikant Produktionsengineering & Projektmanagement (a) 100%",
+      "titleByLocale": {
+        "it": "Ingegneria di produzione Intern & Project Management (a) 100%",
+        "en": "Intern Production Engineering & Project Management (a) 100%",
+        "de": "Praktikant Produktionsengineering & Projektmanagement (a) 100%",
+        "fr": "Ingénierie de production interne et gestion de projet (a) 100 %"
+      },
+      "description": "## HAUPTAUFGABEN​\n\nFür sechs Monate ab Januar 2027 unterstützt du unsere Abteilung Projektleitung Produkte (PLP) & Geberit Produktions-System (GPS) Engineering bei Projekten rund um neue Produkte, Prozesse und die Weiterentwicklung unserer manuellen Montage. Ein Schwerpunkt deines Praktikums ist die Kapazitätserweiterung einer Produktionslinie. Du analysierst bestehende Montageprozesse und Kapazitäten, entwickelst gemeinsam mit den Fachbereichen geeignete Optimierungslösungen und prüfst dabei auch mögliche Automatisierungspotenziale. Dabei übernimmst du Verantwortung für ein eigenes Projekt und treibst dieses proaktiv voran. Darüber hinaus gehören folgende Aufgaben zu deinem Praktikum:\n\n- Analyse und Optimierung von Produktions- und Montageprozessen\n- Durchführung und Auswertung von Prozess-, Zeit- und Datenanalysen\n- Identifikation von Optimierungs- und Automatisierungspotenzialen\n- Unterstützung bei Stammdatenpflege sowie technischen und organisatorischen Projektaufgaben\n\n## PROFIL\n\nDu studierst Maschinenbau, Maschinentechnik, Wirtschaftsingenieurwesen, Produktionstechnik oder einen vergleichbaren technischen Studiengang an einer Höheren Fachschule oder Fachhochschule. Idealerweise bringst du Interesse an Produktionsprozessen und Automatisierung mit.\n\n- Gutes technisches und analytisches Verständnis\n- Selbstständige, strukturierte und proaktive Arbeitsweise\n- Bereitschaft, Verantwortung für ein eigenes Projekt zu übernehmen und dieses konsequent voranzutreiben\n- Teamorientierte, zuverlässige Persönlichkeit mit Freude daran, praktische Aufgaben direkt im Produktionsumfeld anzupacken\n\n## ERGÄNZENDE HINWEISE\n\nFür diese Position berücksichtigen wir ausschliesslich Direktbewerbungen.",
+      "descriptionByLocale": {
+        "it": "## TASK PRINCIPALI\n\nPer sei mesi a partire dal gennaio 2027, supporterete il nostro reparto di Ingegneria dei Prodotti (PLP) & Geberit Production System (GPS) in progetti relativi a nuovi prodotti, processi e l'ulteriore sviluppo del nostro assemblaggio manuale. Un focus del tuo stage è l'espansione della capacità di una linea di produzione. Analizzerai i processi e le capacità di assemblaggio esistenti, svilupperai soluzioni di ottimizzazione adatte insieme alle aree specializzate e esaminerai anche possibili potenzialità di automazione. Si assume la responsabilità del proprio progetto e lo spinge proattivamente in avanti. Inoltre, i seguenti compiti sono parte del tuo stage:\n\n- Analisi e ottimizzazione dei processi di produzione e assemblaggio\n- Attuazione e valutazione delle analisi di processo, tempo e dati\n- Identificazione del potenziale di ottimizzazione e automazione\n- Supporto per la manutenzione dei dati master e le attività di progetto tecnico e organizzativo\n\n## PROFESSIONALE\n\nStudia ingegneria meccanica, ingegneria meccanica, ingegneria industriale, ingegneria di produzione o un corso di laurea tecnica comparabile in una scuola superiore o università di scienze applicate. Idealmente, siete interessati ai processi produttivi e all'automazione.\n\n- Buona comprensione tecnica e analitica\n- Metodo di lavoro indipendente, strutturato e proattivo\n- Volontà di assumersi la responsabilità del proprio progetto e portarlo avanti costantemente\n- Personalità orientata al team e affidabile con piacere nell'affrontare i compiti pratici direttamente nell'ambiente di produzione\n\n## NOTE ADDIZIONALI\n\nPer questa posizione, consideriamo solo applicazioni dirette.",
+        "en": "## MAIN TASKS\n\nFor six months from January 2027, you will be supporting our Products (PLP) & Geberit Production System (GPS) Engineering department in projects related to new products, processes and the further development of our manual assembly. One focus of your internship is the capacity expansion of a production line. You will analyze existing assembly processes and capacities, develop suitable optimization solutions together with the specialist areas and also examine possible automation potential. You take responsibility for your own project and proactively drive it forward. In addition, the following tasks are part of your internship:\n\n- Analysis and optimization of production and assembly processes\n- Implementation and evaluation of process, time and data analyses\n- Identification of optimization and automation potential\n- Support for master data maintenance as well as technical and organizational project tasks\n\n## PROFILE\n\nYou study mechanical engineering, mechanical engineering, industrial engineering, production engineering or a comparable technical degree program at a high school or university of applied sciences. Ideally, you are interested in production processes and automation.\n\n- Good technical and analytical understanding\n- Independent, structured and proactive working method\n- Willingness to take responsibility for your own project and drive it forward consistently\n- Team-oriented, reliable personality with pleasure in tackling practical tasks directly in the production environment\n\n## ADDITIONAL NOTES\n\nFor this position, we only consider direct applications.",
+        "de": "## HAUPTAUFGABEN​\n\nFür sechs Monate ab Januar 2027 unterstützt du unsere Abteilung Projektleitung Produkte (PLP) & Geberit Produktions-System (GPS) Engineering bei Projekten rund um neue Produkte, Prozesse und die Weiterentwicklung unserer manuellen Montage. Ein Schwerpunkt deines Praktikums ist die Kapazitätserweiterung einer Produktionslinie. Du analysierst bestehende Montageprozesse und Kapazitäten, entwickelst gemeinsam mit den Fachbereichen geeignete Optimierungslösungen und prüfst dabei auch mögliche Automatisierungspotenziale. Dabei übernimmst du Verantwortung für ein eigenes Projekt und treibst dieses proaktiv voran. Darüber hinaus gehören folgende Aufgaben zu deinem Praktikum:\n\n- Analyse und Optimierung von Produktions- und Montageprozessen\n- Durchführung und Auswertung von Prozess-, Zeit- und Datenanalysen\n- Identifikation von Optimierungs- und Automatisierungspotenzialen\n- Unterstützung bei Stammdatenpflege sowie technischen und organisatorischen Projektaufgaben\n\n## PROFIL\n\nDu studierst Maschinenbau, Maschinentechnik, Wirtschaftsingenieurwesen, Produktionstechnik oder einen vergleichbaren technischen Studiengang an einer Höheren Fachschule oder Fachhochschule. Idealerweise bringst du Interesse an Produktionsprozessen und Automatisierung mit.\n\n- Gutes technisches und analytisches Verständnis\n- Selbstständige, strukturierte und proaktive Arbeitsweise\n- Bereitschaft, Verantwortung für ein eigenes Projekt zu übernehmen und dieses konsequent voranzutreiben\n- Teamorientierte, zuverlässige Persönlichkeit mit Freude daran, praktische Aufgaben direkt im Produktionsumfeld anzupacken\n\n## ERGÄNZENDE HINWEISE\n\nFür diese Position berücksichtigen wir ausschliesslich Direktbewerbungen.",
+        "fr": "## PRINCIPAUX TÂCHES\n\nPendant six mois à partir de janvier 2027, vous soutiendrez notre département Produits (PLP) & Geberit Production System (GPS) Engineering dans des projets liés à de nouveaux produits, procédés et le développement de notre montage manuel. Un des objectifs de votre stage est l'expansion de la capacité d'une ligne de production. Vous analyserez les processus et les capacités de montage existants, développerez des solutions d'optimisation appropriées avec les domaines spécialisés et examinerez également le potentiel d'automatisation possible. Vous assumez la responsabilité de votre propre projet et la dirigez de façon proactive. De plus, les tâches suivantes font partie de votre stage :\n\n- Analyse et optimisation des processus de production et de montage\n- Mise en œuvre et évaluation des analyses de processus, de temps et de données\n- Identification du potentiel d'optimisation et d'automatisation\n- Appui à la maintenance des données de base ainsi qu'aux tâches techniques et organisationnelles des projets\n\n## PROFIL\n\nVous étudiez l'ingénierie mécanique, l'ingénierie mécanique, l'ingénierie industrielle, l'ingénierie de production ou un programme de diplôme technique comparable dans une école secondaire ou une université des sciences appliquées. Idéalement, vous êtes intéressé par les processus de production et l'automatisation.\n\n- Bonne compréhension technique et analytique\n- Méthode de travail indépendante, structurée et proactive\n- Volonté de prendre la responsabilité de votre propre projet et de le faire avancer de façon cohérente\n- Personnalité d'équipe et de fiabilité avec plaisir dans la prise en charge des tâches pratiques directement dans l'environnement de production\n\n## NOTES SUPPLÉMENTAIRES\n\nPour cette position, nous ne considérons que les demandes directes."
+      },
+      "location": "Rapperswil-Jona",
+      "canton": "SG",
+      "url": "https://jobs.geberit.com/job-invite/2318/?locale=de_DE",
+      "source": "Geberit Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-05T21:42:01.843Z",
+      "addressLocality": "Rapperswil-Jona",
+      "postalCode": "8640",
+      "streetAddress": "Schachenstrasse 77",
+      "addressRegion": "SG",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "intern",
+      "sector": "Industrial / Sanitary technology (manufacturing)",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://jobs.geberit.com/job-invite/2318/?locale=de_DE",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "praktikant-produktionsengineering-projektmanagement-a-100-geberit-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "praktikant-produktionsengineering-projektmanagement-a-100-geberit-ch"
+        ],
+        "en": [
+          "praktikant-produktionsengineering-projektmanagement-a-100-geberit-ch"
+        ],
+        "fr": [
+          "praktikant-produktionsengineering-projektmanagement-a-100-geberit-ch"
+        ]
+      },
+      "salaryMin": 48000,
+      "salaryMax": 73000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 48000,
+          "maxValue": 73000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-19T21:42:01.843Z",
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-10-20T21:42:05.350Z"
     },
     {
       "id": "geberit-2326",
@@ -2229,7 +2229,7 @@
       "url": "https://jobs.geberit.com/job-invite/2326/?locale=de_DE",
       "source": "Geberit Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T09:48:11.050Z",
+      "crawledAt": "2026-11-05T21:42:01.842Z",
       "addressLocality": "Rapperswil-Jona",
       "postalCode": "8640",
       "streetAddress": "Schachenstrasse 77",
@@ -2276,7 +2276,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-22T09:48:11.050Z",
+      "validThrough": "2027-01-21T21:42:01.842Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-10-23T21:30:48.028Z"
     },
@@ -2311,7 +2311,7 @@
       "url": "https://jobs.geberit.com/job-invite/2334/?locale=de_DE",
       "source": "Geberit Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-03T09:48:11.045Z",
+      "crawledAt": "2026-11-05T21:42:01.841Z",
       "addressLocality": "Rapperswil-Jona",
       "postalCode": "8640",
       "streetAddress": "Schachenstrasse 77",
@@ -2360,9 +2360,162 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-29T09:48:11.045Z",
+      "validThrough": "2027-01-29T21:42:01.841Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-10-30T21:54:01.368Z"
+    },
+    {
+      "id": "geberit-2323",
+      "slug": "ingegnere-di-processo-tecnica-delle-materie-plastiche-a-100-geberit-rapperswil-jona",
+      "slugByLocale": {
+        "de": "process-engineer-kunststofftechnik-a-100-geberit-ch",
+        "it": "ingegnere-di-processo-tecnica-delle-materie-plastiche-a-100-geberit-rapperswil-jona",
+        "en": "process-engineer-kunststofftechnik-a-100-geberit-ch",
+        "fr": "ingenieur-procedes-technologie-des-matieres-plastiques-a-100-geberit-rapperswil-jona"
+      },
+      "company": "Geberit",
+      "companyKey": "geberit",
+      "companyDomain": "geberit.com",
+      "title": "Process Engineer - Kunststofftechnik (a) 100%",
+      "titleByLocale": {
+        "de": "Process Engineer - Kunststofftechnik (a) 100%",
+        "it": "Ingegnere di processo - Tecnica delle materie plastiche (a) 100%",
+        "en": "Process Engineer - Plastics Technology (a) 100%",
+        "fr": "Ingénieur procédés - technologie des matières plastiques (a) 100%"
+      },
+      "description": "## HAUPTAUFGABEN​\n\nIn unserer hochautomatisierten Produktion von Kunststoffbauteilen verbindest du fundiertes Kunststoff- und Spritzgusswissen mit analytischer und methodischer Kompetenz. Du analysierst komplexe technische Fragestellungen rund um Material, Prozess, Werkzeug und Maschine und treibst Projekte mit internen oder externen Partnern aktiv voran. Dein Ziel ist es, technische Zusammenhänge ganzheitlich zu verstehen und daraus effiziente und zukunftsfähige Lösungen für unsere Produktion zu entwickeln. Dies beinhaltet insbesondere folgende Tätigkeiten:\n\n- Schnittstellenmanagement zwischen Verfahrenstechnik sowie Werkzeug- und Maschinenbeschaffung übernehmen und komplexe Themen fachlich vorantreiben\n- Beurteilung und Weiterentwicklung der Spritzgusswerkzeuge hinsichtlich Auslegung, Funktion und Prozessverhalten\n- Systematische Analyse der Spritzgussprozesse (mittels statistischer Versuchsplanung (DoE), technische Bewertung der Ergebnisse und Ableitung von Optimierungsmassnahmen)\n- Bewertung, Auslegung und Weiterentwicklung von Sensorik sowie Prozessüberwachungs- und Assistenzsystemen für den Spritzguss\n- Nutzung von Produktions- und Prozessdaten sowie Weiterentwicklung von Lösungen zur Analyse und Visualisierung von Daten\n- Fachliche Leitung und Umsetzung technischer Projekte sowie derer Koordination mit internen und externen Partnern\n- Bewertung innovativer Technologien und Lösungen, Überführung in die Produktion und Weiterentwicklung hinsichtlich Wirtschaftlichkeit, Qualität und Sicherheit\n- Unterstützung bei komplexen Fragestellungen im Produktionsumfeld sowie Weitergabe von Wissen an Fachabteilungen und Produktion\n\n## PROFIL\n\nDu bringst ein abgeschlossenes technisches Studium mit Schwerpunkt Kunststofftechnik mit; idealerweise hast du vor deinem Studium bereits eine Ausbildung als Kunststofftechnologe absolviert und kennst den Spritzguss dadurch sowohl aus der praktischen als auch aus der ingenieurtechnischen Perspektive. Weiter zeichnen dich folgende Punkte aus:\n\n- Mehrjährige Industrieerfahrung in der Kunststoffbranche sowie im Leiten technischer Projekte\n- Analytische, praxisorientierte Arbeitsweise sowie die Fähigkeit komplexe Herausforderungen im operativen Umfeld zu lösen\n- Ausgeprägte Kommunikationsfähigkeiten und Durchsetzungsvermögen\n- Eigenverantwortliche und strukturierte Arbeitsweise mit Blick für Wirtschaftlichkeit, Effizienz und Nachhaltigkeit\n- Sehr gute Deutsch- und Englischkenntnisse in Wort und Schrift\n\n## ERGÄNZENDE HINWEISE\n\nFür diese Position berücksichtigen wir ausschliesslich Direktbewerbungen.",
+      "descriptionByLocale": {
+        "de": "## HAUPTAUFGABEN​\n\nIn unserer hochautomatisierten Produktion von Kunststoffbauteilen verbindest du fundiertes Kunststoff- und Spritzgusswissen mit analytischer und methodischer Kompetenz. Du analysierst komplexe technische Fragestellungen rund um Material, Prozess, Werkzeug und Maschine und treibst Projekte mit internen oder externen Partnern aktiv voran. Dein Ziel ist es, technische Zusammenhänge ganzheitlich zu verstehen und daraus effiziente und zukunftsfähige Lösungen für unsere Produktion zu entwickeln. Dies beinhaltet insbesondere folgende Tätigkeiten:\n\n- Schnittstellenmanagement zwischen Verfahrenstechnik sowie Werkzeug- und Maschinenbeschaffung übernehmen und komplexe Themen fachlich vorantreiben\n- Beurteilung und Weiterentwicklung der Spritzgusswerkzeuge hinsichtlich Auslegung, Funktion und Prozessverhalten\n- Systematische Analyse der Spritzgussprozesse (mittels statistischer Versuchsplanung (DoE), technische Bewertung der Ergebnisse und Ableitung von Optimierungsmassnahmen)\n- Bewertung, Auslegung und Weiterentwicklung von Sensorik sowie Prozessüberwachungs- und Assistenzsystemen für den Spritzguss\n- Nutzung von Produktions- und Prozessdaten sowie Weiterentwicklung von Lösungen zur Analyse und Visualisierung von Daten\n- Fachliche Leitung und Umsetzung technischer Projekte sowie derer Koordination mit internen und externen Partnern\n- Bewertung innovativer Technologien und Lösungen, Überführung in die Produktion und Weiterentwicklung hinsichtlich Wirtschaftlichkeit, Qualität und Sicherheit\n- Unterstützung bei komplexen Fragestellungen im Produktionsumfeld sowie Weitergabe von Wissen an Fachabteilungen und Produktion\n\n## PROFIL\n\nDu bringst ein abgeschlossenes technisches Studium mit Schwerpunkt Kunststofftechnik mit; idealerweise hast du vor deinem Studium bereits eine Ausbildung als Kunststofftechnologe absolviert und kennst den Spritzguss dadurch sowohl aus der praktischen als auch aus der ingenieurtechnischen Perspektive. Weiter zeichnen dich folgende Punkte aus:\n\n- Mehrjährige Industrieerfahrung in der Kunststoffbranche sowie im Leiten technischer Projekte\n- Analytische, praxisorientierte Arbeitsweise sowie die Fähigkeit komplexe Herausforderungen im operativen Umfeld zu lösen\n- Ausgeprägte Kommunikationsfähigkeiten und Durchsetzungsvermögen\n- Eigenverantwortliche und strukturierte Arbeitsweise mit Blick für Wirtschaftlichkeit, Effizienz und Nachhaltigkeit\n- Sehr gute Deutsch- und Englischkenntnisse in Wort und Schrift\n\n## ERGÄNZENDE HINWEISE\n\nFür diese Position berücksichtigen wir ausschliesslich Direktbewerbungen.",
+        "it": "## TASK PRINCIPALI\n\nNella nostra produzione altamente automatizzata di componenti plastici, si combinano una conoscenza approfondita di plastiche e stampaggio ad iniezione con competenza analitica e metodologica. Analizzerai complesse questioni tecniche riguardanti materiali, processi, strumenti e macchine e promuoverai attivamente progetti con partner interni o esterni. Il vostro obiettivo è comprendere le connessioni tecniche in modo olistico e sviluppare soluzioni efficienti e sostenibili per la nostra produzione. Questo include in particolare le seguenti attività:\n\n- Gestione dell'interfaccia tra la tecnologia di processo e l'approvvigionamento di strumenti e macchine e argomenti complessi avanzati professionalmente\n- Valutazione e ulteriore sviluppo degli strumenti di stampaggio ad iniezione per quanto riguarda la progettazione, la funzione e il comportamento di processo\n- Analisi sistematica dei processi di stampaggio ad iniezione (per mezzo di pianificazione statistica sperimentale (DoE), valutazione tecnica dei risultati e derivazione delle misure di ottimizzazione)\n- Valutazione, progettazione e ulteriore sviluppo dei sensori, nonché sistemi di monitoraggio e assistenza dei processi per lo stampaggio ad iniezione\n- Utilizzo dei dati di produzione e di processo nonché ulteriore sviluppo di soluzioni per l'analisi e la visualizzazione dei dati\n- Gestione professionale e realizzazione di progetti tecnici e coordinamento con partner interni ed esterni\n- Valutazione delle tecnologie e delle soluzioni innovative, trasferimento alla produzione e ulteriore sviluppo in termini di economia, qualità e sicurezza\n- Sostegno a questioni complesse nell'ambiente di produzione e trasferimento di conoscenze ai dipartimenti specializzati e alla produzione\n\n## PROFESSIONALE\n\nSi porterà un grado tecnico completato con un focus sulla tecnologia di plastica; Idealmente, hai già completato un apprendistato come tecnologo di plastica prima dei tuoi studi e quindi conosci lo stampaggio ad iniezione sia da una prospettiva pratica che ingegneristica. Inoltre, i seguenti punti ti distinguono:\n\n- Diversi anni di esperienza industriale nell'industria della plastica e progetti tecnici leader\n- Metodi di lavoro analitici, orientati alla pratica e la capacità di risolvere complesse sfide nell'ambiente operativo\n- Forte capacità di comunicazione e di esecuzione\n- Metodo di lavoro autoresponsabile e strutturato con un occhio alla redditività, all'efficienza e alla sostenibilità\n- Molto buona conoscenza del tedesco e dell'inglese in parola e scrittura\n\n## NOTE ADDIZIONALI\n\nPer questa posizione, consideriamo solo applicazioni dirette.",
+        "en": "## MAIN TASKS\n\nIn our highly automated production of plastic components, you combine in-depth knowledge of plastics and injection molding with analytical and methodological competence. You will analyze complex technical issues around materials, processes, tools and machines and actively advance projects with internal or external partners. Your goal is to understand technical connections holistically and to develop efficient and sustainable solutions for our production. This includes in particular the following activities:\n\n- Interface management between process technology as well as tool and machine procurement and advance complex topics professionally\n- Assessment and further development of injection moulding tools with regard to design, function and process behavior\n- Systematic analysis of injection molding processes (by means of statistical experimental planning (DoE), technical evaluation of results and derivation of optimization measures)\n- Evaluation, design and further development of sensors as well as process monitoring and assistance systems for injection molding\n- Use of production and process data as well as further development of solutions for the analysis and visualization of data\n- Professional management and implementation of technical projects as well as their coordination with internal and external partners\n- Evaluation of innovative technologies and solutions, transfer to production and further development in terms of economy, quality and safety\n- Support for complex issues in the production environment as well as transfer of knowledge to specialist departments and production\n\n## PROFILE\n\nYou will bring a completed technical degree with a focus on plastics technology; Ideally, you have already completed an apprenticeship as a plastics technologist before your studies and therefore know injection molding from both a practical and an engineering perspective. Further, the following points distinguish you:\n\n- Several years of industrial experience in the plastics industry as well as leading technical projects\n- Analytical, practice-oriented working methods as well as the ability to solve complex challenges in the operational environment\n- Strong communication and enforcement skills\n- Self-responsible and structured working method with an eye for profitability, efficiency and sustainability\n- Very good knowledge of German and English in word and writing\n\n## ADDITIONAL NOTES\n\nFor this position, we only consider direct applications.",
+        "fr": "## PRINCIPALES TÂCHES\n\nDans notre production hautement automatisée de composants plastiques, vous combinez une connaissance approfondie des plastiques et du moulage par injection avec une compétence analytique et méthodologique. Vous analyserez des questions techniques complexes concernant les matériaux, les processus, les outils et les machines et avancerez activement des projets avec des partenaires internes ou externes. Votre objectif est de comprendre les connexions techniques de manière holistique et de développer des solutions efficaces et durables pour notre production. Cela comprend notamment les activités suivantes:\n\n- Gestion de l'interface entre la technologie des procédés ainsi que l'acquisition d'outils et de machines et progression professionnelle de sujets complexes\n- Évaluation et développement des outils de moulage par injection en ce qui concerne la conception, la fonction et le comportement du procédé\n- Analyse systématique des processus de moulage par injection (au moyen de la planification expérimentale statistique (DoE), évaluation technique des résultats et dérivation des mesures d'optimisation)\n- Évaluation, conception et développement des capteurs ainsi que des systèmes de surveillance et d'assistance pour le moulage par injection\n- Utilisation des données de production et de traitement ainsi que développement de solutions pour l'analyse et la visualisation des données\n- Gestion professionnelle et mise en œuvre des projets techniques ainsi que leur coordination avec les partenaires internes et externes\n- Évaluation des technologies et solutions innovantes, transfert à la production et développement ultérieur en termes d'économie, de qualité et de sécurité\n- Soutien à des questions complexes dans l'environnement de production ainsi qu'au transfert de connaissances aux services spécialisés et à la production\n\n## PROFIL\n\nVous obtiendrez un diplôme technique avec un accent sur la technologie des plastiques; Idéalement, vous avez déjà terminé un apprentissage en tant que technologue en matière plastique avant vos études et connaissez donc le moulage par injection du point de vue pratique et technique. De plus, les points suivants vous distinguent :\n\n- Plusieurs années d'expérience industrielle dans l'industrie plastique ainsi que des projets techniques de pointe\n- Méthodes de travail analytiques axées sur la pratique et capacité de résoudre des problèmes complexes dans l ' environnement opérationnel\n- Renforcement des compétences en matière de communication et d'application de la loi\n- Méthode de travail auto-responsable et structurée avec un souci de rentabilité, d'efficacité et de durabilité\n- Très bonne connaissance de l'allemand et de l'anglais en paroles et en écriture\n\n## NOTES SUPPLÉMENTAIRES\n\nPour cette position, nous ne considérons que les demandes directes."
+      },
+      "location": "Rapperswil-Jona",
+      "canton": "SG",
+      "url": "https://jobs.geberit.com/job-invite/2323/?locale=de_DE",
+      "source": "Geberit Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-05T21:42:01.840Z",
+      "addressLocality": "Rapperswil-Jona",
+      "postalCode": "8640",
+      "streetAddress": "Schachenstrasse 77",
+      "addressRegion": "SG",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Ingegneria",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Industrial / Sanitary technology (manufacturing)",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://jobs.geberit.com/job-invite/2323/?locale=de_DE",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 67000,
+      "salaryMax": 102000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 67000,
+          "maxValue": 102000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-02-03T21:42:01.840Z",
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-11-05T21:42:01.840Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "process-engineer-kunststofftechnik-a-100-geberit-ch"
+        ],
+        "fr": [
+          "process-engineer-kunststofftechnik-a-100-geberit-ch"
+        ]
+      },
+      "previousSlugs": [
+        "process-engineer-kunststofftechnik-a-100-geberit-ch"
+      ]
+    },
+    {
+      "id": "geberit-2344",
+      "slug": "process-engineer-production-data-a-100-geberit-ch",
+      "slugByLocale": {
+        "de": "process-engineer-production-data-a-100-geberit-ch",
+        "it": "process-engineer-production-data-a-100-geberit-ch",
+        "en": "process-engineer-production-data-a-100-geberit-ch",
+        "fr": "process-engineer-production-data-a-100-geberit-ch"
+      },
+      "company": "Geberit",
+      "companyKey": "geberit",
+      "companyDomain": "geberit.com",
+      "title": "Process Engineer - Production & Data (a) 100%",
+      "titleByLocale": {
+        "de": "Process Engineer - Production & Data (a) 100%",
+        "it": "Process Ingegnere - Production & Data (a) 100%",
+        "en": "Process Engineer - Production & Data (a) 100%",
+        "fr": "Process Ingénieur - Production & Data (a) 100%"
+      },
+      "description": "## HAUPTAUFGABEN​\n\nIn unserer hochautomatisierten Produktion von Kunststoffbauteilen verbindest du technisches Verständnis mit Datenkompetenz und entwickelst Prozesse und Technologien kontinuierlich weiter. Dabei analysierst du Produktions- und Prozessdaten, bringst dein technisches Know-how direkt an den Anlagen ein und treibst Projekte aktiv voran. Dein Ziel ist es, Technologie, Daten und praktische Erfahrung intelligent zusammenzubringen und daraus effiziente und zukunftsfähige Produktionsprozesse abzuleiten. Dies beinhaltet insbesondere folgende Tätigkeiten:\n\n- Evaluation und Überführung neuer Technologien bis zur Serienreife sowie Expertenunterstützung im laufenden Betrieb, insbesondere für Vision-Systeme, Codelesesysteme, Laseranlagen sowie Fügetechnologien von Kunststoffbauteilen\n- Nutzbarmachung von Produktions- und Prozessdaten durch den Aufbau und die Weiterentwicklung von Lösungen zur Verknüpfung, Analyse und Visualisierung von Daten\n- Leitung und Umsetzung technischer Projekte mit Fokus auf Effizienzsteigerung, Modernisierung und Weiterentwicklung bestehender Prozesse und Anlagen\n- Erarbeitung fundierter Entscheidungsgrundlagen, welche technische, datenbasierte und wirtschaftliche Aspekte zusammenführen\n- Anwendung statistischer Versuchsplanung, technische Bewertung der Ergebnisse sowie Ableitung klarer Handlungsempfehlungen\n- Einführung innovativer Technologien und Lösungen in die Produktion sowie konsequente Weiterentwicklung von Potenzialen hinsichtlich Wirtschaftlichkeit, Qualität und Sicherheit\n- Technischer Support als Experte im Produktionsumfeld sowie aktiver Wissenstransfer an Produktion und Fachabteilungen\n\n## PROFIL\n\nDu bringst ein abgeschlossenes Studium in einem technischen Bereich (Maschinenbau, Kunststofftechnik oder vergleichbar) sowie Berufserfahrung im Produktionsumfeld mit. Darüber hinaus zeichnen dich folgende Punkte aus:\n\n- Praxisnahes technisches Verständnis und Freude an der Lösung komplexer Herausforderungen in der Produktion\n- Hohe Datenaffinität sowie Kenntnisse in Data Engineering und Datenanalyse, z. B. SQL, Python oder Datenbanken\n- Analytische, lösungsorientierte Denkweise und die Fähigkeit, Prozessdaten und technische Zusammenhänge in konkrete Verbesserungen zu überführen\n- Kenntnisse in den genannten Technologien sowie grundlegendes Know-how im Kunststoffbereich sind von Vorteil\n- Eigenverantwortliche und strukturierte Arbeitsweise mit Blick für Wirtschaftlichkeit, Effizienz und Nachhaltigkeit\n- Deutsch und Englisch fliessend in Wort und Schrift\n\n## ERGÄNZENDE HINWEISE\n\nFür diese Position berücksichtigen wir ausschliesslich Direktbewerbungen.",
+      "descriptionByLocale": {
+        "de": "## HAUPTAUFGABEN​\n\nIn unserer hochautomatisierten Produktion von Kunststoffbauteilen verbindest du technisches Verständnis mit Datenkompetenz und entwickelst Prozesse und Technologien kontinuierlich weiter. Dabei analysierst du Produktions- und Prozessdaten, bringst dein technisches Know-how direkt an den Anlagen ein und treibst Projekte aktiv voran. Dein Ziel ist es, Technologie, Daten und praktische Erfahrung intelligent zusammenzubringen und daraus effiziente und zukunftsfähige Produktionsprozesse abzuleiten. Dies beinhaltet insbesondere folgende Tätigkeiten:\n\n- Evaluation und Überführung neuer Technologien bis zur Serienreife sowie Expertenunterstützung im laufenden Betrieb, insbesondere für Vision-Systeme, Codelesesysteme, Laseranlagen sowie Fügetechnologien von Kunststoffbauteilen\n- Nutzbarmachung von Produktions- und Prozessdaten durch den Aufbau und die Weiterentwicklung von Lösungen zur Verknüpfung, Analyse und Visualisierung von Daten\n- Leitung und Umsetzung technischer Projekte mit Fokus auf Effizienzsteigerung, Modernisierung und Weiterentwicklung bestehender Prozesse und Anlagen\n- Erarbeitung fundierter Entscheidungsgrundlagen, welche technische, datenbasierte und wirtschaftliche Aspekte zusammenführen\n- Anwendung statistischer Versuchsplanung, technische Bewertung der Ergebnisse sowie Ableitung klarer Handlungsempfehlungen\n- Einführung innovativer Technologien und Lösungen in die Produktion sowie konsequente Weiterentwicklung von Potenzialen hinsichtlich Wirtschaftlichkeit, Qualität und Sicherheit\n- Technischer Support als Experte im Produktionsumfeld sowie aktiver Wissenstransfer an Produktion und Fachabteilungen\n\n## PROFIL\n\nDu bringst ein abgeschlossenes Studium in einem technischen Bereich (Maschinenbau, Kunststofftechnik oder vergleichbar) sowie Berufserfahrung im Produktionsumfeld mit. Darüber hinaus zeichnen dich folgende Punkte aus:\n\n- Praxisnahes technisches Verständnis und Freude an der Lösung komplexer Herausforderungen in der Produktion\n- Hohe Datenaffinität sowie Kenntnisse in Data Engineering und Datenanalyse, z. B. SQL, Python oder Datenbanken\n- Analytische, lösungsorientierte Denkweise und die Fähigkeit, Prozessdaten und technische Zusammenhänge in konkrete Verbesserungen zu überführen\n- Kenntnisse in den genannten Technologien sowie grundlegendes Know-how im Kunststoffbereich sind von Vorteil\n- Eigenverantwortliche und strukturierte Arbeitsweise mit Blick für Wirtschaftlichkeit, Effizienz und Nachhaltigkeit\n- Deutsch und Englisch fliessend in Wort und Schrift\n\n## ERGÄNZENDE HINWEISE\n\nFür diese Position berücksichtigen wir ausschliesslich Direktbewerbungen.",
+        "it": "## TASK PRINCIPALI\n\nNella nostra produzione altamente automatizzata di componenti plastici, si combina la comprensione tecnica con la competenza dei dati e si sviluppa continuamente processi e tecnologie. Analizzerai i dati di produzione e di processo, porterà il tuo know-how tecnico direttamente agli impianti e promuoverai attivamente i progetti. Il vostro obiettivo è quello di riunire in modo intelligente tecnologia, dati e esperienza pratica e derivare processi produttivi efficienti e sostenibili da questo. Questo include in particolare le seguenti attività:\n\n- Valutazione e trasferimento di nuove tecnologie a maturità di serie e supporto esperto nel funzionamento in corso, in particolare per sistemi di visione, sistemi di lettura di codici, sistemi laser e tecnologie di unione di componenti plastici\n- Utilizzo dei dati di produzione e di processo mediante la costruzione e lo sviluppo di soluzioni per il collegamento, l'analisi e la visualizzazione dei dati\n- Gestione e realizzazione di progetti tecnici con l'obiettivo di aumentare l'efficienza, l'ammodernamento e lo sviluppo di processi e impianti esistenti\n- Sviluppo di principi decisionali ben fondati che combinano aspetti tecnici, basati sui dati ed economici\n- Applicazione della progettazione statistica sperimentale, valutazione tecnica dei risultati e derivazione di raccomandazioni chiare per l'azione\n- Introduzione di tecnologie e soluzioni innovative nella produzione e costante sviluppo del potenziale in termini di efficienza, qualità e sicurezza\n- Supporto tecnico come esperto nell'ambiente di produzione e trasferimento attivo di conoscenze ai dipartimenti di produzione e specialisti\n\n## PROFESSIONALE\n\nSi porterà un grado completato in un campo tecnico (ingegneria meccanica, tecnologia di plastica o simile) così come l'esperienza professionale nell'ambiente di produzione. Inoltre, i seguenti punti ti distinguono:\n\n- La comprensione tecnica pratica e il godimento della soluzione di complesse sfide di produzione\n- Alta affinità e conoscenza dei dati nell'ingegneria dei dati e nell'analisi dei dati, ad esempio SQL, Python o database\n- Il pensiero analitico, orientato alla soluzione e la capacità di tradurre i dati di processo e le relazioni tecniche in miglioramenti concreti\n- La conoscenza delle tecnologie menzionate e il know-how di base nel settore delle materie plastiche sono vantaggiose\n- Metodo di lavoro autoresponsabile e strutturato con un occhio alla redditività, all'efficienza e alla sostenibilità\n- fluente tedesco e inglese nella parola e nella scrittura\n\n## NOTE ADDIZIONALI\n\nPer questa posizione, consideriamo solo applicazioni dirette.",
+        "en": "## MAIN TASKS\n\nIn our highly automated production of plastic components, you combine technical understanding with data competence and continuously develop processes and technologies. You will analyze production and process data, bring your technical know-how directly to the plants and actively promote projects. Your goal is to intelligently bring together technology, data and practical experience and derive efficient and sustainable production processes from this. This includes in particular the following activities:\n\n- Evaluation and transfer of new technologies to series maturity as well as expert support in ongoing operation, in particular for vision systems, code reading systems, laser systems and joining technologies of plastic components\n- Utilization of production and process data by building and developing solutions for linking, analyzing and visualizing data\n- Management and implementation of technical projects with focus on increasing efficiency, modernization and further development of existing processes and plants\n- Development of well-founded decision-making principles that combine technical, data-based and economic aspects\n- Application of statistical experimental design, technical evaluation of results and derivation of clear recommendations for action\n- Introduction of innovative technologies and solutions into production and consistent further development of potential in terms of efficiency, quality and safety\n- Technical support as an expert in the production environment as well as active knowledge transfer to production and specialist departments\n\n## PROFILE\n\nYou will bring a completed degree in a technical field (mechanical engineering, plastics technology or similar) as well as professional experience in the production environment. In addition, the following points distinguish you:\n\n- Practical technical understanding and enjoyment of solving complex production challenges\n- High data affinity and knowledge in data engineering and data analysis, e.g. SQL, Python or databases\n- Analytical, solution-oriented thinking and the ability to translate process data and technical relationships into concrete improvements\n- Knowledge of the technologies mentioned as well as basic know-how in the plastics sector are advantageous\n- Self-responsible and structured working method with an eye for profitability, efficiency and sustainability\n- German and English fluent in word and writing\n\n## ADDITIONAL NOTES\n\nFor this position, we only consider direct applications.",
+        "fr": "## PRINCIPALES TÂCHES\n\nDans notre production hautement automatisée de composants plastiques, vous combinez la compréhension technique avec la compétence en matière de données et développez continuellement des processus et des technologies. Vous analyserez les données de production et de traitement, apporterez votre savoir-faire technique directement aux usines et favoriserez activement les projets. Votre objectif est de rassembler intelligemment la technologie, les données et l'expérience pratique et d'en tirer des processus de production efficaces et durables. Cela comprend notamment les activités suivantes:\n\n- Évaluation et transfert des nouvelles technologies à la maturité des séries ainsi qu'un appui spécialisé dans le fonctionnement en cours, en particulier pour les systèmes de vision, les systèmes de lecture de code, les systèmes laser et les technologies d'assemblage de composants plastiques\n- Utilisation des données de production et de traitement en élaborant et en développant des solutions pour relier, analyser et visualiser les données\n- Gestion et mise en œuvre de projets techniques visant à accroître l ' efficacité, la modernisation et le développement des procédés et installations existants\n- Élaboration de principes de prise de décisions fondés qui combinent aspects techniques, données et aspects économiques\n- Application de la conception statistique expérimentale, évaluation technique des résultats et élaboration de recommandations claires d'action\n- Introduction de technologies et de solutions innovantes dans la production et développement continu du potentiel en termes d'efficacité, de qualité et de sécurité\n- Soutien technique en tant qu'expert de l'environnement de production ainsi que transfert actif de connaissances aux départements de production et aux départements spécialisés\n\n## PROFIL\n\nVous obtiendrez un diplôme dans un domaine technique (ingénierie mécanique, technologie plastique ou similaire) ainsi qu'une expérience professionnelle dans l'environnement de production. De plus, les points suivants vous distinguent :\n\n- Compréhension technique pratique et jouissance de la résolution des problèmes complexes de production\n- Haute affinité des données et connaissances en ingénierie des données et en analyse des données, p.ex. SQL, Python ou bases de données\n- La réflexion analytique, axée sur la solution et la capacité de traduire les données de processus et les relations techniques en améliorations concrètes\n- La connaissance des technologies mentionnées ainsi que le savoir-faire de base dans le secteur des plastiques sont avantageux\n- Méthode de travail auto-responsable et structurée avec un souci de rentabilité, d'efficacité et de durabilité\n- Allemand et anglais parlant couramment le mot et l'écriture\n\n## NOTES SUPPLÉMENTAIRES\n\nPour cette position, nous ne considérons que les demandes directes."
+      },
+      "location": "Rapperswil-Jona",
+      "canton": "SG",
+      "url": "https://jobs.geberit.com/job-invite/2344/?locale=de_DE",
+      "source": "Geberit Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-05T21:42:01.832Z",
+      "addressLocality": "Rapperswil-Jona",
+      "postalCode": "8640",
+      "streetAddress": "Schachenstrasse 77",
+      "addressRegion": "SG",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Ingegneria",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Industrial / Sanitary technology (manufacturing)",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://jobs.geberit.com/job-invite/2344/?locale=de_DE",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 67000,
+      "salaryMax": 102000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 67000,
+          "maxValue": 102000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-02-03T21:42:01.832Z",
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-11-05T21:42:01.832Z"
     }
   ]
 }

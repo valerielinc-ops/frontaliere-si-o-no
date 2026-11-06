@@ -5,7 +5,9 @@
  * `scripts/lib/job-title-normalization.mjs`). Follow-up FU-2026-09-24-033 of
  * bucket #9609: the browser copy used a looser prefix (optional colon, no word
  * boundary) and cut real titles such as `Translation Specialist **Project
- * Manager**` down to `Project Manager` in the structured data only.
+ * Manager**` down to `Project Manager` in the structured data only. Issue
+ * #16063 also pins the first title-specific narrative introduction: a later
+ * bold fragment is explanatory text, even when its introducer is stronger.
  */
 import { describe, expect, it } from 'vitest';
 import { sanitizeBrowserJobTitle } from '../../build-plugins/shared/literalMarkdown';
@@ -41,8 +43,8 @@ const NARRATIVES: ReadonlyArray<readonly [string, string]> = [
   ['Here is the title: **Foo** and some **Bar** notes', 'Foo'],
   ['Traduzione: **Titolo vero**. Ecco: **nota**', 'Titolo vero'],
   ['Die Übersetzung: **Verkaufsberater:in**', 'Verkaufsberater:in'],
-  ['Based on the context, **Draft title**. The title appears to be **Final title**', 'Final title'],
-  ['Here is the title: **Draft title**. Translation: **Final title**', 'Final title'],
+  ['Based on the context, **Draft title**. The title appears to be **Final title**', 'Draft title'],
+  ['Here is the title: **Draft title**. Translation: **Final title**', 'Draft title'],
 ];
 
 const PLAIN: readonly string[] = [

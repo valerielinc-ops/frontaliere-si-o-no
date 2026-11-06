@@ -36,9 +36,10 @@
  * documented in the sibling parser). The vacancy text normally comes from
  * the city's official ad page with the same Referenz-Nr. ("Arbeiten für
  * Zürich", read with the sibling's `fetchOfficialAdTexts`). If that legacy
- * index is unavailable, the sibling parser reads the hydrated current detail
- * page instead. A tile without a source-backed body is not published
- * (issue 5253: the synthetic tile summary that stood in for it made 146/147
+ * index is unavailable, the sibling parser reads the server-rendered
+ * SuccessFactors detail by Referenz-Nr. before trying the hydrated current
+ * detail page. A tile without a source-backed body is not published (issue
+ * 5253: the synthetic tile summary that stood in for it made 146/147
  * descriptions the same boilerplate). Structured-data safe defaults (Non-Negotiable #3):
  * every job carries the Stadtspital Triemli main-site civic address
  * (Birmensdorferstrasse 497, 8063 Zürich, ZH).
@@ -203,7 +204,7 @@ async function fetchPage(url) {
  * Fetch all Stadtspital Zürich jobs from the facet-filtered city portal.
  * Returns an array of ParsedJob objects (source-locale only, German).
  */
-export async function fetchAllStadtspitalZuerichJobs({ fetchCurrentDetailPage } = {}) {
+export async function fetchAllStadtspitalZuerichJobs({ fetchCurrentDetailPage, fetchCurrentOfficialIndexPage } = {}) {
   console.log('🔍 Fetching Stadtspital Zürich jobs');
   console.log(`   Source: ${SEARCH_BASE}?${FACET_QUERY}\n`);
 
@@ -261,6 +262,7 @@ export async function fetchAllStadtspitalZuerichJobs({ fetchCurrentDetailPage } 
       publicationByRef,
       detailRows: rows,
       fetchCurrentDetailPage,
+      fetchCurrentOfficialIndexPage,
     },
   );
   let withoutText = 0;

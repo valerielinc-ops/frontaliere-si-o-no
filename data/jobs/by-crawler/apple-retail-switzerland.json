@@ -1,7 +1,7 @@
 {
   "crawlerKey": "apple-retail-switzerland",
-  "assembledAt": "2026-11-05T09:18:53.464Z",
-  "runId": "42000091665",
+  "assembledAt": "2026-11-05T21:34:21.625Z",
+  "runId": "42110076863",
   "jobs": [
     {
       "id": "apple-retail-switzerland-514c0e1f28a1",
@@ -34,7 +34,7 @@
       "url": "https://jobs.apple.com/en-us/details/200617889/aiml-apple-foundation-models-senior-ml-research-scientist-rl-agentic-reasoning?team=MLAI",
       "source": "Apple Retail Switzerland Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-05T09:18:41.947Z",
+      "crawledAt": "2026-11-05T21:34:14.177Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -99,7 +99,7 @@
       },
       "streetAddress": "c/o TMF Services SA, Zürich branch\nTalstrasse 83",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-05T09:18:41.947Z",
+      "validThrough": "2026-12-05T21:34:14.177Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -133,7 +133,7 @@
       "url": "https://jobs.apple.com/en-us/details/200617882/aiml-apple-foundation-models-ml-research-engineer-rl-agentic-reasoning?team=MLAI",
       "source": "Apple Retail Switzerland Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-05T09:18:40.502Z",
+      "crawledAt": "2026-11-05T21:34:12.701Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -198,7 +198,7 @@
       },
       "streetAddress": "c/o TMF Services SA, Zürich branch\nTalstrasse 83",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-05T09:18:40.502Z",
+      "validThrough": "2026-12-05T21:34:12.701Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -222,17 +222,17 @@
       },
       "description": "Summary\nApple's Security Engineering & Architecture organization is responsible for the security of all Apple products. Passionate about safeguarding users, we believe that the best defense requires a great offense. When it comes to securing more than a billion devices running the world's most sophisticated operating systems, that means finding vulnerabilities first. Our mission is to discover, understand, and exploit vulnerabilities across all layers of Apple’s platforms, and ML techniques have already significantly enhanced our ability to do so. We're hiring an AI/ML Engineer to join the team building and improving these systems. This position provides rare exposure to a full‑stack view of security along with direct access to expert knowledge, unique datasets, and cross‑domain experience. Your contributions will materially raise the security of products used by billions and strengthen Apple’s ability to defend against adversaries. Can you make a difference on this scale? Join our extraordinary group of security researchers, tool developers, and machine learning experts, and help protect all Apple users.\n\nDescription\nIn this role, you will design and develop AI-enhanced systems that help security researchers navigate vast codebases, reason about intricate attack surfaces, and identify subtle weaknesses. Your systems will sit alongside and amplify the techniques the field already relies on: fuzzing, static and dynamic analysis, code review, and more. The scope is unusually broad, spanning the full stack: custom silicon and micro-architecture, boot ROMs, firmware, kernels, system frameworks, browsers, and user applications. To keep Apple ahead of emerging techniques, you will track the state of the art in fundamental and applied AI, and translate the ideas that hold up into practical, production-grade security tools. Alongside security researchers, you will put those systems through real security evaluations, which is the only feedback signal that tells you what's actually landing. As part of a fast-moving team, you will help build the software that lets Apple's products defend against advanced threats, strengthen critical security processes, and protect customers around the world. If the idea of doing frontier ML work with direct, measurable impact on Apple's security posture, and doing it at one of the most diverse and inclusive companies in the world, excites you, we'd love to hear from you.\n\nMinimum Qualifications\n• Solid understanding of machine learning algorithms (supervised, unsupervised, and reinforcement learning) and evaluation methods\n• Hands-on experience with agents design and frameworks, including MCP/tools, observability, evaluations, and self-improvement loops\n• Strong software engineering and programming skills in languages like Python, C, C++, Swift and Objective-C\n• Collaborative and effective problem-solving and analytical skills\n\nPreferred Qualifications\n• Experience scaling LLM training and fine-tuning (pretraining, SFT, alignment)\n• Strong enthusiasm for security\n• Familiarity with software‑analysis techniques such as fuzzing, static analysis, code‑analysis tooling, reverse engineering and binary-analysis\n\nAt Apple, we're not all the same. And that's our greatest strength. We draw on the differences in who we are, what we've experienced, and how we think. Because to create products that serve everyone, we believe in including everyone. Therefore, we are committed to treating all applicants fairly and equally. We will work with applicants to make any reasonable accommodations.\n\nAt Apple, we believe accessibility is a fundamental human right. You’ll find that idea reflected in everything here — in our culture, our benefits and our digital tools. By welcoming as many perspectives as possible, we help you build a career where you feel like you belong.\n\nLearn about accessibility in Apple’s workplace",
       "descriptionByLocale": {
-        "it": "Sintesi\nL'organizzazione di Apple Security Engineering & Architecture è responsabile della sicurezza di tutti i prodotti Apple. Appassionato a salvaguardare gli utenti, crediamo che la migliore difesa richiede una grande offesa. Quando si tratta di garantire più di un miliardo di dispositivi che eseguono i sistemi operativi più sofisticati del mondo, questo significa trovare le vulnerabilità prima.\n\nLa nostra missione è scoprire, capire e sfruttare le vulnerabilità di tutti gli strati delle piattaforme di Apple, e crediamo che le tecniche ML migliorano significativamente la nostra capacità di farlo. Stiamo cercando un Ingegnere di Apprendimento della Macchina Applicata che ci aiuterà a inventare e fornire questi nuovi metodi e tecniche.\n\nQuesta posizione fornisce una rara esposizione a una visione completa della sicurezza insieme all'accesso diretto alle conoscenze di esperti, ai dataset unici e all'esperienza cross-domain. I vostri contributi aumenteranno materialmente la sicurezza dei prodotti utilizzati da miliardi e rafforzeranno la capacità di Apple di difendersi dagli avversari.\n\nPuoi fare la differenza su questa scala? Unisciti al nostro straordinario gruppo di ricercatori di sicurezza, sviluppatori di strumenti e esperti di machine learning e aiuta a proteggere tutti gli utenti Apple.\n\nDesignazione\nIn questo ruolo, si integra profondamente con i team di ricerca di sicurezza per capire le sfide di analizzare sistemi di grandi e complessi attraverso lo stack completo di Apple — da elementi di silicio e microarchitecturali personalizzati per avviare ROM, firmware, kernel, framework di sistema, browser web e applicazioni utente.\n\nProgettare e sviluppare sistemi ML-enhanced - utilizzando modelli di grande lingua, modellazione generativa, flussi di lavoro agentici e altri approcci - che completano altri metodi di analisi come fuzzing, analisi statica e dinamica e ispezione manuale. Il vostro lavoro leva i dati grezzi e il comportamento esperto per creare approcci pratici e scalabili per aiutare i ricercatori a navigare vaste basi di codice, la ragione su superfici di attacco intricate e identificare debolezze sottili che sono impegnati a rilevare manualmente. Potrai anche collaborare regolarmente con i ricercatori di sicurezza per convalidare e sfidare le tue innovazioni durante le valutazioni di sicurezza del mondo reale, assicurando che il tuo lavoro influenzerà direttamente impatto significativo.\n\nQualifiche minime\n• Competenza in ML, in particolare modelli di lingua e modellazione generativa\n• Esperienza con e/o forte entusiasmo per la sicurezza, soprattutto sicurezza offensiva\n• Fluency with software engineering utilizzando linguaggi come C, C++, Python, Swift, Objective-C, Rust\n• Capacità di problem solving ed analitiche collaborative ed efficaci\n\nQualificazioni predestinate\n• Familiarità con tecniche di analisi software come fuzzing, analisi statica, strumenti di code-analisi, reverse engineering, analisi binaria\n• Familiarità con le mitigazioni della sicurezza nei moderni sistemi operativi\n\nA Apple, non siamo tutti uguali. E questa e' la nostra piu' grande forza. Disegniamo le differenze di chi siamo, di ciò che abbiamo sperimentato e di come pensiamo. Perché per creare prodotti che servono tutti, crediamo in inclusi tutti. Pertanto, ci impegniamo a trattare tutti i candidati in modo equo ed equo. Collaboreremo con i candidati per fare qualsiasi alloggio ragionevole.\n\nA Apple, crediamo che l'accessibilità sia un diritto umano fondamentale. Troverete che l'idea riflessa in tutto qui — nella nostra cultura, i nostri benefici e i nostri strumenti digitali. Accogliendo quante più prospettive possibile, vi aiutiamo a costruire una carriera in cui vi sentite come voi appartenete.\n\nScopri l’accessibilità sul posto di lavoro di Apple",
+        "it": "Sintesi\nL'organizzazione di Apple Security Engineering & Architecture è responsabile della sicurezza di tutti i prodotti Apple. Appassionato a salvaguardare gli utenti, crediamo che la migliore difesa richiede una grande offesa. Quando si tratta di garantire più di un miliardo di dispositivi che eseguono i sistemi operativi più sofisticati del mondo, questo significa trovare le vulnerabilità prima. La nostra missione è scoprire, capire e sfruttare le vulnerabilità di tutti gli strati delle piattaforme di Apple, e le tecniche ML hanno già notevolmente migliorato la nostra capacità di farlo. Assumiamo un Ingegnere AI/ML per unire il team building e migliorare questi sistemi. Questa posizione fornisce una rara esposizione a una visione completa della sicurezza insieme all'accesso diretto alle conoscenze di esperti, ai dataset unici e all'esperienza cross-domain. I vostri contributi solleveranno materialmente la sicurezza dei prodotti utilizzati da miliardi e rafforzeranno la capacità di Apple di difendersi dagli avversari. Puoi fare la differenza su questa scala? Unisciti al nostro straordinario gruppo di ricercatori di sicurezza, sviluppatori di strumenti e esperti di machine learning e aiuta a proteggere tutti gli utenti Apple.\n\nDesignazione\nIn questo ruolo, si progetta e sviluppa sistemi potenziati dall'intelligenza artificiale che aiutano i ricercatori di sicurezza a navigare vaste basi di codice, la ragione su superfici di attacco intricate e identificare debolezze sottili. I vostri sistemi saranno affiancati e amplificare le tecniche che il campo già si basa su: analisi fuzzing, statica e dinamica, recensione del codice e altro ancora. Lo scopo è insolitamente ampio, che spazia dal pieno stack: silicio personalizzato e microarchitettura, ROM di avvio, firmware, kernel, framework di sistema, browser e applicazioni utente. Per tenere Apple al passo con le tecniche emergenti, seguirai lo stato dell'arte nell'intelligenza artificiale fondamentale e applicata e traduci le idee che reggono in strumenti di sicurezza pratici e di livello produttivo. Accanto ai ricercatori di sicurezza, metterete quei sistemi attraverso valutazioni di sicurezza reali, che è l'unico segnale di feedback che vi dice ciò che è realmente atterraggio. Come parte di un team in rapida evoluzione, aiuterà a costruire il software che consente ai prodotti di Apple di difendere dalle minacce avanzate, rafforzare i processi di sicurezza critici e proteggere i clienti in tutto il mondo. Se l'idea di fare frontiera ML lavorare con impatto diretto e misurabile sulla postura di sicurezza di Apple, e farlo in una delle aziende più diverse e inclusive del mondo, ti eccita, ci piacerebbe sentire da te.\n\nQualifiche minime\n• Solida comprensione degli algoritmi di apprendimento automatico (superviso, non supervisionato, e l'apprendimento del rinforzo) e dei metodi di valutazione\n• Esperienza pratica con agenti di progettazione e quadri, tra cui MCP/tools, osservabilità, valutazioni e loop di auto-miglioramento\n• Forte capacità di ingegneria e programmazione software in lingue come Python, C, C++, Swift e Objective-C\n• Capacità di problem solving ed analitiche collaborative ed efficaci\n\nPreferiti\n• Esperienza di scaling LLM formazione e perfezionamento (preformazione, SFT, allineamento)\n• Forte entusiasmo per la sicurezza\n• Familiarità con tecniche di analisi software come fuzzing, analisi statica, tooling code-analysis, reverse engineering e analisi binaria\n\nA Apple, non siamo tutti uguali. E questa e' la nostra piu' grande forza. Disegniamo le differenze di chi siamo, di ciò che abbiamo sperimentato e di come pensiamo. Perché per creare prodotti che servono tutti, crediamo in inclusi tutti. Pertanto, ci impegniamo a trattare tutti i candidati in modo equo ed equo. Collaboreremo con i candidati per fare qualsiasi alloggio ragionevole.\n\nA Apple, crediamo che l'accessibilità sia un diritto umano fondamentale. Troverete che l'idea riflessa in tutto qui — nella nostra cultura, i nostri benefici e i nostri strumenti digitali. Accogliendo quante più prospettive possibile, vi aiutiamo a costruire una carriera in cui vi sentite come voi appartenete.\n\nScopri l’accessibilità sul posto di lavoro di Apple",
         "en": "Summary\nApple's Security Engineering & Architecture organization is responsible for the security of all Apple products. Passionate about safeguarding users, we believe that the best defense requires a great offense. When it comes to securing more than a billion devices running the world's most sophisticated operating systems, that means finding vulnerabilities first. Our mission is to discover, understand, and exploit vulnerabilities across all layers of Apple’s platforms, and ML techniques have already significantly enhanced our ability to do so. We're hiring an AI/ML Engineer to join the team building and improving these systems. This position provides rare exposure to a full‑stack view of security along with direct access to expert knowledge, unique datasets, and cross‑domain experience. Your contributions will materially raise the security of products used by billions and strengthen Apple’s ability to defend against adversaries. Can you make a difference on this scale? Join our extraordinary group of security researchers, tool developers, and machine learning experts, and help protect all Apple users.\n\nDescription\nIn this role, you will design and develop AI-enhanced systems that help security researchers navigate vast codebases, reason about intricate attack surfaces, and identify subtle weaknesses. Your systems will sit alongside and amplify the techniques the field already relies on: fuzzing, static and dynamic analysis, code review, and more. The scope is unusually broad, spanning the full stack: custom silicon and micro-architecture, boot ROMs, firmware, kernels, system frameworks, browsers, and user applications. To keep Apple ahead of emerging techniques, you will track the state of the art in fundamental and applied AI, and translate the ideas that hold up into practical, production-grade security tools. Alongside security researchers, you will put those systems through real security evaluations, which is the only feedback signal that tells you what's actually landing. As part of a fast-moving team, you will help build the software that lets Apple's products defend against advanced threats, strengthen critical security processes, and protect customers around the world. If the idea of doing frontier ML work with direct, measurable impact on Apple's security posture, and doing it at one of the most diverse and inclusive companies in the world, excites you, we'd love to hear from you.\n\nMinimum Qualifications\n• Solid understanding of machine learning algorithms (supervised, unsupervised, and reinforcement learning) and evaluation methods\n• Hands-on experience with agents design and frameworks, including MCP/tools, observability, evaluations, and self-improvement loops\n• Strong software engineering and programming skills in languages like Python, C, C++, Swift and Objective-C\n• Collaborative and effective problem-solving and analytical skills\n\nPreferred Qualifications\n• Experience scaling LLM training and fine-tuning (pretraining, SFT, alignment)\n• Strong enthusiasm for security\n• Familiarity with software‑analysis techniques such as fuzzing, static analysis, code‑analysis tooling, reverse engineering and binary-analysis\n\nAt Apple, we're not all the same. And that's our greatest strength. We draw on the differences in who we are, what we've experienced, and how we think. Because to create products that serve everyone, we believe in including everyone. Therefore, we are committed to treating all applicants fairly and equally. We will work with applicants to make any reasonable accommodations.\n\nAt Apple, we believe accessibility is a fundamental human right. You’ll find that idea reflected in everything here — in our culture, our benefits and our digital tools. By welcoming as many perspectives as possible, we help you build a career where you feel like you belong.\n\nLearn about accessibility in Apple’s workplace",
-        "de": "Zusammenfassung\nDie Security Engineering & Architecture Organisation von Apple ist für die Sicherheit aller Apple-Produkte verantwortlich. Leidenschaftlich über den Schutz der Benutzer, glauben wir, dass die beste Verteidigung eine große Offensive erfordert. Wenn es darum geht, mehr als eine Milliarde Geräte mit den weltweit anspruchsvollsten Betriebssystemen zu sichern, bedeutet dies, Schwachstellen zuerst zu finden.\n\nUnsere Mission ist es, Schwachstellen auf allen Ebenen der Apple-Plattformen zu entdecken, zu verstehen und auszunutzen, und wir glauben, dass ML-Techniken unsere Fähigkeit dazu erheblich verbessern. Wir suchen einen Applied Machine Learning Engineer, der uns helfen wird, diese neuen Methoden und Techniken zu erfinden und zu liefern.\n\nDiese Position bietet eine seltene Exposition gegenüber einer Full-Stack-Sicht der Sicherheit zusammen mit direktem Zugriff auf Expertenwissen, einzigartige Datensätze und bereichsübergreifende Erfahrung. Ihre Beiträge werden die Sicherheit von Milliardenprodukten wesentlich erhöhen und die Fähigkeit von Apple stärken, sich gegen Gegner zu verteidigen.\n\nKönnen Sie auf dieser Skala einen Unterschied machen? Schließen Sie sich unserer außergewöhnlichen Gruppe von Sicherheitsforschern, Werkzeugentwicklern und Experten für maschinelles Lernen an und helfen Sie dabei, alle Apple-Benutzer zu schützen.\n\nBeschreibung\nIn dieser Rolle integrieren Sie sich intensiv in Sicherheitsforschungsteams, um die Herausforderungen der Analyse großer, komplexer Systeme im gesamten Apple-Stack zu verstehen - von benutzerdefinierten Silizium- und Mikroarchitekturelementen bis hin zu Boot-ROMs, Firmware, Kerneln, System-Frameworks, Webbrowser und Benutzeranwendungen.\n\nSie entwerfen und entwickeln ML-verbesserte Systeme - unter Verwendung großer Sprachmodelle, generativer Modellierung, agentischer Workflows und anderer Ansätze -, die andere Analysemethoden wie Fuzzing, statische & dynamische Analyse und manuelle Inspektion ergänzen. Ihre Arbeit nutzt Rohdaten und Expertenverhalten, um praktische, skalierbare Ansätze zu erstellen, die Forschern helfen, riesige Codebasen zu navigieren, komplizierte Angriffsflächen zu begründen und subtile Schwächen zu identifizieren, die manuell schwer zu erkennen sind. Sie werden auch regelmäßig mit Sicherheitsforschern zusammenarbeiten, um Ihre Innovationen während realer Sicherheitsbewertungen zu validieren und herauszufordern, um sicherzustellen, dass Ihre Arbeit sich direkt auf sinnvolle Auswirkungen auswirkt.\n\nMindestqualifikationen\n• Expertise in ML, insbesondere in großen Sprachmodellen und generativen Modellen\n• Erfahrung und/oder starke Begeisterung für Sicherheit, insbesondere offensive Sicherheit\n• Fließend mit Software Engineering mit Sprachen wie C, C++, Python, Swift, Objective-C, Rust\n• Kollaborative und effektive Problemlösungs- und Analysefähigkeiten\n\nBevorzugte Qualifikationen\n• Vertrautheit mit Softwareanalysetechniken wie Fuzzing, statische Analyse, Codeanalyse-Tooling, Reverse Engineering, Binäranalyse\n• Vertrautheit mit Sicherheitsminderungen in modernen Betriebssystemen\n\nBei Apple sind wir nicht alle gleich. Und das ist unsere größte Stärke. Wir beziehen uns auf die Unterschiede darin, wer wir sind, was wir erlebt haben und wie wir denken. Denn um Produkte zu schaffen, die allen dienen, glauben wir daran, alle einzubeziehen. Daher verpflichten wir uns, alle Bewerber fair und gleich zu behandeln. Wir werden mit Bewerbern zusammenarbeiten, um angemessene Unterkünfte zu schaffen.\n\nBei Apple glauben wir, dass Zugänglichkeit ein grundlegendes Menschenrecht ist. Diese Idee spiegelt sich hier in allem wider - in unserer Kultur, unseren Vorteilen und unseren digitalen Tools. Indem wir so viele Perspektiven wie möglich begrüßen, helfen wir Ihnen, eine Karriere aufzubauen, in der Sie sich wie Sie gehören fühlen.\n\nErfahren Sie mehr über die Zugänglichkeit am Arbeitsplatz von Apple",
-        "fr": "Résumé\nL'organisation d'Apple Security Engineering & Architecture est responsable de la sécurité de tous les produits Apple. Passionné de protéger les utilisateurs, nous croyons que la meilleure défense exige une grande offense. Lorsqu'il s'agit de sécuriser plus d'un milliard d'appareils utilisant les systèmes d'exploitation les plus sophistiqués du monde, cela signifie d'abord trouver des vulnérabilités.\n\nNotre mission est de découvrir, comprendre et exploiter les vulnérabilités de toutes les couches de plateformes Apple, et nous croyons que les techniques ML améliorent considérablement notre capacité à le faire. Nous sommes à la recherche d'un ingénieur en apprentissage automatique appliqué qui nous aidera à inventer et à livrer ces nouvelles méthodes et techniques.\n\nCe poste offre une exposition rare à une vue complète de la sécurité ainsi qu'un accès direct aux connaissances d'experts, à des ensembles de données uniques et à une expérience multidomaines. Vos contributions augmenteront matériellement la sécurité des produits utilisés par des milliards et renforceront la capacité d'Apple à se défendre contre les adversaires.\n\nPouvez-vous faire une différence sur cette échelle? Rejoignez notre groupe extraordinaire de chercheurs en sécurité, de développeurs d'outils et d'experts en apprentissage automatique, et aidez à protéger tous les utilisateurs d'Apple.\n\nDésignation des marchandises\nDans ce rôle, vous vous intégrerez profondément aux équipes de recherche sur la sécurité pour comprendre les défis de l'analyse des systèmes complexes de grande taille à travers la pile complète d'Apple: du silicium personnalisé et des éléments microarchitecturaux aux ROM de démarrage, au firmware, aux noyaux, aux cadres de système, au navigateur Web et aux applications utilisateur.\n\nVous concevrez et développerez des systèmes améliorés par ML — à l'aide de grands modèles de langage, de modélisation générative, de flux de travail d'agents et d'autres approches — qui complètent d'autres méthodes d'analyse telles que le flou, l'analyse statique et dynamique et l'inspection manuelle. Votre travail tirera parti des données brutes et du comportement d'expert pour créer des approches pratiques et évolutives pour aider les chercheurs à naviguer sur de vastes bases de code, à raisonner sur des surfaces d'attaque complexes et à identifier des faiblesses subtiles qui sont difficiles à détecter manuellement. Vous collaborerez également régulièrement avec des chercheurs en sécurité pour valider et remettre en question vos innovations lors d'évaluations de sécurité dans le monde réel, en veillant à ce que votre travail affecte directement un impact significatif.\n\nQualités minimales\n• Expertise en ML, en particulier les grands modèles linguistiques et la modélisation générative\n• Expérience et/ou grand enthousiasme pour la sécurité, en particulier la sécurité offensive\n• Connaissance du génie logiciel en utilisant des langages tels que C, C++, Python, Swift, Objective-C, Rust\n• Compétences collaboratives et efficaces en résolution de problèmes et en analyse\n\nQualifications privilégiées\n• Familiarité avec les techniques d'analyse logicielle comme le flou, l'analyse statique, l'outillage d'analyse de code, l'ingénierie inverse, l'analyse binaire\n• Familiarité avec les mesures de sécurité dans les systèmes d'exploitation modernes\n\nChez Apple, nous ne sommes pas tous les mêmes. Et c'est notre plus grande force. Nous tirons parti des différences dans notre identité, notre expérience et notre façon de penser. Parce que pour créer des produits qui servent tout le monde, nous croyons en l'inclusion de tous. Par conséquent, nous nous engageons à traiter tous les candidats de façon équitable et équitable. Nous travaillerons avec les demandeurs pour prendre des mesures d'adaptation raisonnables.\n\nChez Apple, nous croyons que l'accessibilité est un droit humain fondamental. Vous trouverez cette idée reflétée dans tout ici — dans notre culture, nos avantages et nos outils numériques. En accueillant autant de perspectives que possible, nous vous aidons à construire une carrière où vous vous sentez comme à votre place.\n\nDécouvrez l'accessibilité sur le lieu de travail Apple"
+        "de": "Zusammenfassung\nDie Security Engineering & Architecture Organisation von Apple ist für die Sicherheit aller Apple-Produkte verantwortlich. Leidenschaftlich über den Schutz der Benutzer, glauben wir, dass die beste Verteidigung eine große Offensive erfordert. Wenn es darum geht, mehr als eine Milliarde Geräte zu sichern, auf denen die weltweit anspruchsvollsten Betriebssysteme laufen, bedeutet dies, Schwachstellen zuerst zu finden. Unsere Mission ist es, Schwachstellen auf allen Ebenen der Apple-Plattformen zu entdecken, zu verstehen und auszunutzen, und ML-Techniken haben unsere Fähigkeit dazu bereits deutlich verbessert. Wir stellen einen AI / ML-Ingenieur ein, der sich dem Teamaufbau und der Verbesserung dieser Systeme anschließt. Diese Position bietet eine seltene Exposition gegenüber einer Full-Stack-Sicht der Sicherheit zusammen mit direktem Zugriff auf Expertenwissen, einzigartige Datensätze und bereichsübergreifende Erfahrung. Ihre Beiträge werden die Sicherheit von Milliardenprodukten wesentlich erhöhen und die Fähigkeit von Apple stärken, sich gegen Gegner zu verteidigen. Können Sie auf dieser Skala einen Unterschied machen? Schließen Sie sich unserer außergewöhnlichen Gruppe von Sicherheitsforschern, Werkzeugentwicklern und Experten für maschinelles Lernen an und helfen Sie dabei, alle Apple-Benutzer zu schützen.\n\nBeschreibung\nIn dieser Rolle entwerfen und entwickeln Sie KI-gestützte Systeme, die Sicherheitsforschern helfen, riesige Codebasen zu navigieren, komplizierte Angriffsflächen zu begründen und subtile Schwächen zu identifizieren. Ihre Systeme sitzen daneben und verstärken die Techniken, auf die sich das Feld bereits stützt: Fuzzing, statische und dynamische Analyse, Code-Review und mehr. Der Umfang ist ungewöhnlich breit und erstreckt sich über den gesamten Stapel: benutzerdefinierte Silizium- und Mikroarchitektur, Boot-ROMs, Firmware, Kernel, System-Frameworks, Browser und Benutzeranwendungen. Um Apple vor den aufkommenden Techniken zu halten, werden Sie den Stand der Technik in der grundlegenden und angewandten KI verfolgen und die Ideen, die sich halten, in praktische, produktionsfähige Sicherheitstools übersetzen. Neben Sicherheitsforschern werden Sie diese Systeme durch echte Sicherheitsbewertungen bringen, was das einzige Feedbacksignal ist, das Ihnen sagt, was tatsächlich landet. Als Teil eines schnelllebigen Teams helfen Sie bei der Entwicklung der Software, mit der sich Apple-Produkte gegen fortschrittliche Bedrohungen schützen, kritische Sicherheitsprozesse stärken und Kunden auf der ganzen Welt schützen können. Wenn die Idee, Border ML mit direkten, messbaren Auswirkungen auf die Sicherheitslage von Apple und bei einem der vielfältigsten und inklusivesten Unternehmen der Welt zu betreiben, Sie begeistert, würden wir uns freuen, von Ihnen zu hören.\n\nMindestqualifikationen\n• Solides Verständnis von Algorithmen des maschinellen Lernens (überwachtes, unbeaufsichtigtes und verstärkendes Lernen) und Bewertungsmethoden\n• Praktische Erfahrung mit Agentendesign und Frameworks, einschließlich MCP/Tools, Beobachtbarkeit, Auswertungen und Selbstverbesserungsschleifen\n• Starke Softwareentwicklung und Programmierkenntnisse in Sprachen wie Python, C, C++, Swift und Objective-C\n• Kollaborative und effektive Problemlösungs- und Analysefähigkeiten\n\nBevorzugte Qualifikationen\n• Erfahrung in der Skalierung von LLM-Training und Feinabstimmung (Vorschulung, SFT, Ausrichtung)\n• Starke Begeisterung für Sicherheit\n• Vertrautheit mit Softwareanalysetechniken wie Fuzzing, statischer Analyse, Codeanalyse-Tooling, Reverse Engineering und Binäranalyse\n\nBei Apple sind wir nicht alle gleich. Und das ist unsere größte Stärke. Wir beziehen uns auf die Unterschiede darin, wer wir sind, was wir erlebt haben und wie wir denken. Denn um Produkte zu schaffen, die allen dienen, glauben wir daran, alle einzubeziehen. Daher verpflichten wir uns, alle Bewerber fair und gleich zu behandeln. Wir werden mit Bewerbern zusammenarbeiten, um angemessene Unterkünfte zu schaffen.\n\nBei Apple glauben wir, dass Zugänglichkeit ein grundlegendes Menschenrecht ist. Sie werden diese Idee in allem hier finden - in unserer Kultur, unseren Vorteilen und unseren digitalen Tools. Indem wir so viele Perspektiven wie möglich begrüßen, helfen wir Ihnen, eine Karriere aufzubauen, in der Sie sich wie Sie gehören fühlen.\n\nErfahren Sie mehr über die Zugänglichkeit am Arbeitsplatz von Apple",
+        "fr": "Résumé\nL'organisation d'Apple Security Engineering & Architecture est responsable de la sécurité de tous les produits Apple. Passionné de protéger les utilisateurs, nous croyons que la meilleure défense exige une grande offense. Lorsqu'il s'agit de sécuriser plus d'un milliard d'appareils utilisant les systèmes d'exploitation les plus sophistiqués au monde, cela signifie d'abord trouver des vulnérabilités. Notre mission est de découvrir, comprendre et exploiter les vulnérabilités sur toutes les couches de plateformes Apple, et les techniques ML ont déjà considérablement amélioré notre capacité à le faire. Nous embauchons un ingénieur de l'IA/ML pour rejoindre l'équipe et améliorer ces systèmes. Ce poste offre une exposition rare à une vue complète de la sécurité ainsi qu'un accès direct à des connaissances spécialisées, à des ensembles de données uniques et à une expérience multidomaines. Vos contributions augmenteront matériellement la sécurité des produits utilisés par des milliards et renforceront la capacité d'Apple à se défendre contre les adversaires. Pouvez-vous faire une différence sur cette échelle ? Rejoignez notre groupe extraordinaire de chercheurs en sécurité, de développeurs d'outils et d'experts en apprentissage automatique, et aidez à protéger tous les utilisateurs d'Apple.\n\nDésignation des marchandises\nDans ce rôle, vous concevrez et développerez des systèmes améliorés par l'IA qui aident les chercheurs en sécurité à naviguer sur de vastes bases de code, à raisonner sur des surfaces d'attaque complexes et à identifier des faiblesses subtiles. Vos systèmes vont s'asseoir à côté et amplifier les techniques sur lesquelles repose déjà le champ : analyse floue, statique et dynamique, révision de code, etc. La portée est exceptionnellement large, couvrant toute la pile: silicium personnalisé et micro-architecture, ROM de démarrage, firmware, noyaux, cadres de système, navigateurs et applications utilisateur. Pour garder Apple en avance sur les techniques émergentes, vous suivrez l'état de l'art dans l'IA fondamentale et appliquée, et traduire les idées qui tiennent jusqu'à des outils de sécurité pratiques et de qualité de production. Aux côtés des chercheurs en sécurité, vous allez mettre ces systèmes à travers de véritables évaluations de sécurité, qui est le seul signal de rétroaction qui vous indique ce qui atterrit réellement. Dans le cadre d'une équipe en mouvement rapide, vous aiderez à construire le logiciel qui permet aux produits Apple de se défendre contre les menaces avancées, de renforcer les processus de sécurité critiques et de protéger les clients partout dans le monde. Si l'idée de faire la frontière ML fonctionne avec un impact direct et mesurable sur la posture de sécurité d'Apple, et de le faire dans l'une des entreprises les plus diversifiées et inclusives du monde, nous aimerions vous entendre.\n\nQualités minimales\n• Compréhension solide des algorithmes d'apprentissage automatique (supervisé, non supervisé et renforcement de l'apprentissage) et des méthodes d'évaluation\n• Expérience pratique de la conception et des cadres des agents, y compris les MCP/outils, l'observabilité, les évaluations et les boucles d'auto-amélioration\n• De solides compétences en ingénierie logicielle et en programmation dans des langues comme Python, C, C++, Swift et Objective-C\n• Compétences collaboratives et efficaces en résolution de problèmes et en analyse\n\nQualifications privilégiées\n• Formation à l'échelle LLM et réglage fin (préformation, SFT, alignement)\n• Un vif enthousiasme pour la sécurité\n• Familiarité avec les techniques d'analyse logicielle telles que le flou, l'analyse statique, l'outillage d'analyse de code, l'ingénierie inverse et l'analyse binaire\n\nChez Apple, nous ne sommes pas tous pareils. Et c'est notre plus grande force. Nous tirons parti des différences dans notre identité, notre expérience et notre façon de penser. Parce que pour créer des produits qui servent tout le monde, nous croyons en l'inclusion de tout le monde. Par conséquent, nous nous engageons à traiter tous les candidats de façon équitable et équitable. Nous travaillerons avec les demandeurs pour prendre des mesures d'adaptation raisonnables.\n\nChez Apple, nous pensons que l'accessibilité est un droit humain fondamental. Vous trouverez cette idée reflétée dans tout ici — dans notre culture, nos avantages et nos outils numériques. En accueillant autant de perspectives que possible, nous vous aidons à bâtir une carrière où vous vous sentez comme à votre place.\n\nDécouvrez l'accessibilité sur le lieu de travail d'Apple"
       },
       "location": "Zurich",
       "canton": "ZH",
       "url": "https://jobs.apple.com/en-us/details/200634000/ai-ml-engineer-ai-systems-for-security-sear?team=SFTWR",
       "source": "Apple Retail Switzerland Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-05T09:18:38.794Z",
+      "crawledAt": "2026-11-05T21:34:11.274Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -307,7 +307,7 @@
       },
       "streetAddress": "c/o TMF Services SA, Zürich branch\nTalstrasse 83",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-05T09:18:38.794Z",
+      "validThrough": "2026-12-05T21:34:11.274Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -341,7 +341,7 @@
       "url": "https://jobs.apple.com/en-us/details/200634821/aiml-senior-ml-rl-training-infrastructure-engineer-afm?team=MLAI",
       "source": "Apple Retail Switzerland Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-05T09:18:37.279Z",
+      "crawledAt": "2026-11-05T21:34:09.323Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -395,7 +395,7 @@
       },
       "streetAddress": "c/o TMF Services SA, Zürich branch\nTalstrasse 83",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-05T09:18:37.279Z",
+      "validThrough": "2026-12-05T21:34:09.323Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -429,7 +429,7 @@
       "url": "https://jobs.apple.com/en-us/details/200643040/ai-research-scientist-multimodal-intelligence?team=HRDWR",
       "source": "Apple Retail Switzerland Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-05T09:18:35.513Z",
+      "crawledAt": "2026-11-05T21:34:07.782Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -483,7 +483,7 @@
       },
       "streetAddress": "c/o TMF Services SA, Zürich branch\nTalstrasse 83",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-05T09:18:35.513Z",
+      "validThrough": "2026-12-05T21:34:07.782Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -517,7 +517,7 @@
       "url": "https://jobs.apple.com/en-us/details/200664779/aiml-machine-learning-researcher-mlr?team=MLAI",
       "source": "Apple Retail Switzerland Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-05T09:18:34.421Z",
+      "crawledAt": "2026-11-05T21:34:06.603Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -560,7 +560,7 @@
       "addressRegion": "VD",
       "streetAddress": "Lausanne",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-05T09:18:34.421Z",
+      "validThrough": "2026-12-05T21:34:06.603Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -594,7 +594,7 @@
       "url": "https://jobs.apple.com/en-us/details/200664795/aiml-research-scientist-health?team=MLAI",
       "source": "Apple Retail Switzerland Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-05T09:18:33.017Z",
+      "crawledAt": "2026-11-05T21:34:05.287Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -648,7 +648,7 @@
       },
       "streetAddress": "c/o TMF Services SA, Zürich branch\nTalstrasse 83",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-05T09:18:33.017Z",
+      "validThrough": "2026-12-05T21:34:05.287Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -682,7 +682,7 @@
       "url": "https://jobs.apple.com/en-us/details/200672455/research-scientist-llm-efficiency?team=MLAI",
       "source": "Apple Retail Switzerland Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-05T09:18:31.467Z",
+      "crawledAt": "2026-11-05T21:34:03.971Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -747,7 +747,7 @@
       },
       "streetAddress": "c/o TMF Services SA, Zürich branch\nTalstrasse 83",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-05T09:18:31.467Z",
+      "validThrough": "2026-12-05T21:34:03.971Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -781,7 +781,7 @@
       "url": "https://jobs.apple.com/en-us/details/200672941/research-scientist-engineer-special-projects?team=MLAI",
       "source": "Apple Retail Switzerland Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-05T09:18:29.723Z",
+      "crawledAt": "2026-11-05T21:34:02.290Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -835,7 +835,7 @@
       },
       "streetAddress": "c/o TMF Services SA, Zürich branch\nTalstrasse 83",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-05T09:18:29.723Z",
+      "validThrough": "2026-12-05T21:34:02.290Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -869,7 +869,7 @@
       "url": "https://jobs.apple.com/en-us/details/200679192/content-engineering-author-developer-publications?team=SFTWR",
       "source": "Apple Retail Switzerland Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-05T09:18:28.174Z",
+      "crawledAt": "2026-11-05T21:34:00.214Z",
       "addressLocality": "Dietlikon",
       "addressCountry": "CH",
       "country": "CH",
@@ -913,7 +913,7 @@
       "addressRegion": "ZH",
       "streetAddress": "Dietlikon",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-05T09:18:28.174Z",
+      "validThrough": "2026-12-05T21:34:00.214Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -947,7 +947,7 @@
       "url": "https://jobs.apple.com/en-us/details/200679630/aiml-foundation-model-post-training-research-scientist?team=MLAI",
       "source": "Apple Retail Switzerland Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-05T09:18:26.612Z",
+      "crawledAt": "2026-11-05T21:33:58.525Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1005,7 +1005,7 @@
       },
       "streetAddress": "c/o TMF Services SA, Zürich branch\nTalstrasse 83",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-05T09:18:26.612Z",
+      "validThrough": "2026-12-05T21:33:58.525Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1039,7 +1039,7 @@
       "url": "https://jobs.apple.com/en-us/details/200680814/senior-machine-learning-engineer-siri-ai?team=MLAI",
       "source": "Apple Retail Switzerland Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-05T09:18:25.142Z",
+      "crawledAt": "2026-11-05T21:33:57.206Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1098,7 +1098,7 @@
       },
       "streetAddress": "c/o TMF Services SA, Zürich branch\nTalstrasse 83",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-05T09:18:25.142Z",
+      "validThrough": "2026-12-05T21:33:57.206Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1132,7 +1132,7 @@
       "url": "https://jobs.apple.com/en-us/details/200683178/aiml-machine-learning-researcher-multimodal-foundation-models?team=MLAI",
       "source": "Apple Retail Switzerland Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-05T09:18:23.657Z",
+      "crawledAt": "2026-11-05T21:33:55.753Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1186,7 +1186,7 @@
       },
       "streetAddress": "c/o TMF Services SA, Zürich branch\nTalstrasse 83",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-11T09:18:23.657Z",
+      "validThrough": "2026-12-10T21:33:55.753Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1220,7 +1220,7 @@
       "url": "https://jobs.apple.com/en-us/details/200684066/channel-communications-manager-switzerland?team=SLDEV",
       "source": "Apple Retail Switzerland Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-05T09:18:21.865Z",
+      "crawledAt": "2026-11-05T21:33:54.152Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1266,7 +1266,7 @@
       },
       "streetAddress": "c/o TMF Services SA, Zürich branch\nTalstrasse 83",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-16T09:18:21.865Z",
+      "validThrough": "2026-12-15T21:33:54.152Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1300,7 +1300,7 @@
       "url": "https://jobs.apple.com/en-us/details/200685890/senior-ios-engineer-creativity-apps?team=SFTWR",
       "source": "Apple Retail Switzerland Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-05T09:18:20.416Z",
+      "crawledAt": "2026-11-05T21:33:52.776Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1354,7 +1354,7 @@
       },
       "streetAddress": "c/o TMF Services SA, Zürich branch\nTalstrasse 83",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-05T09:18:20.416Z",
+      "validThrough": "2027-01-04T21:33:52.776Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1388,7 +1388,7 @@
       "url": "https://jobs.apple.com/en-us/details/200687755/machine-learning-engineer-with-focus-on-generative-3d-representations-europe-vision-group?team=MLAI",
       "source": "Apple Retail Switzerland Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-05T09:18:18.897Z",
+      "crawledAt": "2026-11-05T21:33:50.477Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1450,7 +1450,7 @@
       },
       "streetAddress": "c/o TMF Services SA, Zürich branch\nTalstrasse 83",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-06T09:18:18.897Z",
+      "validThrough": "2027-01-05T21:33:50.477Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1484,7 +1484,7 @@
       "url": "https://jobs.apple.com/en-us/details/200685035/internship-machine-learning-foundation-models?team=MLAI",
       "source": "Apple Retail Switzerland Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-05T09:18:16.599Z",
+      "crawledAt": "2026-11-05T21:33:48.636Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1542,7 +1542,7 @@
       },
       "streetAddress": "c/o TMF Services SA, Zürich branch\nTalstrasse 83",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-12T09:18:16.599Z",
+      "validThrough": "2027-01-11T21:33:48.636Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1576,7 +1576,7 @@
       "url": "https://jobs.apple.com/en-us/details/200688770/vulnerability-researcher-sear?team=MLAI",
       "source": "Apple Retail Switzerland Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-05T09:18:14.433Z",
+      "crawledAt": "2026-11-05T21:33:46.799Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1636,7 +1636,7 @@
       },
       "streetAddress": "c/o TMF Services SA, Zürich branch\nTalstrasse 83",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-13T09:18:14.433Z",
+      "validThrough": "2027-01-12T21:33:46.799Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1670,7 +1670,7 @@
       "url": "https://jobs.apple.com/en-us/details/200690121/human-centric-modeling-internship?team=HRDWR",
       "source": "Apple Retail Switzerland Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-05T09:18:13.000Z",
+      "crawledAt": "2026-11-05T21:33:45.017Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1730,7 +1730,7 @@
       },
       "streetAddress": "c/o TMF Services SA, Zürich branch\nTalstrasse 83",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-18T09:18:13.000Z",
+      "validThrough": "2027-01-17T21:33:45.017Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1764,7 +1764,7 @@
       "url": "https://jobs.apple.com/en-us/details/200692868/ai-research-intern-foundation-models-multimodal-intelligence?team=HRDWR",
       "source": "Apple Retail Switzerland Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-05T09:18:11.492Z",
+      "crawledAt": "2026-11-05T21:33:43.440Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1824,7 +1824,7 @@
       },
       "streetAddress": "c/o TMF Services SA, Zürich branch\nTalstrasse 83",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-01T09:18:11.492Z",
+      "validThrough": "2027-01-31T21:33:43.440Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1858,7 +1858,7 @@
       "url": "https://jobs.apple.com/en-us/details/114438011/ch-operations-expert-m-f-d?team=APPST",
       "source": "Apple Retail Switzerland Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-05T09:18:09.893Z",
+      "crawledAt": "2026-11-05T21:33:41.941Z",
       "addressLocality": "Switzerland",
       "addressCountry": "CH",
       "country": "CH",
@@ -1899,7 +1899,7 @@
       },
       "streetAddress": "Switzerland",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-05T09:18:09.893Z",
+      "validThrough": "2026-12-05T21:33:41.941Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1933,7 +1933,7 @@
       "url": "https://jobs.apple.com/en-us/details/114438204/ch-technical-specialist-m-f-d?team=APPST",
       "source": "Apple Retail Switzerland Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-05T09:18:08.526Z",
+      "crawledAt": "2026-11-05T21:33:40.653Z",
       "addressLocality": "Switzerland",
       "addressCountry": "CH",
       "country": "CH",
@@ -1974,7 +1974,7 @@
       },
       "streetAddress": "Switzerland",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-05T09:18:08.526Z",
+      "validThrough": "2026-12-05T21:33:40.653Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2008,7 +2008,7 @@
       "url": "https://jobs.apple.com/en-us/details/114438017/ch-specialist-m-f-d?team=APPST",
       "source": "Apple Retail Switzerland Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-05T09:18:07.033Z",
+      "crawledAt": "2026-11-05T21:33:39.244Z",
       "addressLocality": "Switzerland",
       "addressCountry": "CH",
       "country": "CH",
@@ -2049,7 +2049,7 @@
       },
       "streetAddress": "Switzerland",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-05T09:18:07.033Z",
+      "validThrough": "2026-12-05T21:33:39.244Z",
       "validThroughSource": "last-observed-window"
     }
   ]
