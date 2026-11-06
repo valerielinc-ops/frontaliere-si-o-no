@@ -165,12 +165,12 @@
     },
     {
       "id": "barry-callebaut-616790429beb",
-      "slug": "global-lead-esg-integration-and-due-diligence-barry-callebaut-ch",
+      "slug": "leader-globale-integrazione-esg-e-due-diligence-barry-callebaut-zurich",
       "slugByLocale": {
         "en": "global-lead-esg-integration-and-due-diligence-barry-callebaut-ch",
-        "it": "global-lead-esg-integration-and-due-diligence-barry-callebaut-ch",
+        "it": "leader-globale-integrazione-esg-e-due-diligence-barry-callebaut-zurich",
         "de": "global-lead-esg-integration-and-due-diligence-barry-callebaut-ch",
-        "fr": "global-lead-esg-integration-and-due-diligence-barry-callebaut-ch"
+        "fr": "leader-mondial-integration-esg-et-diligence-raisonnable-barry-callebaut-zurich"
       },
       "company": "Barry Callebaut",
       "companyKey": "barry-callebaut",
@@ -233,7 +233,18 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-03T21:28:01.818Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-05T21:28:01.818Z"
+      "firstSeenAt": "2026-11-05T21:28:01.818Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "global-lead-esg-integration-and-due-diligence-barry-callebaut-ch"
+        ],
+        "fr": [
+          "global-lead-esg-integration-and-due-diligence-barry-callebaut-ch"
+        ]
+      },
+      "previousSlugs": [
+        "global-lead-esg-integration-and-due-diligence-barry-callebaut-ch"
+      ]
     },
     {
       "id": "barry-callebaut-5862b565774e",
@@ -409,7 +420,7 @@
       "slugByLocale": {
         "it": "commercio-di-derivati-del-cacao-senior-barry-callebaut-zurich",
         "en": "senior-cocoa-derivatives-trader-barry-callebaut-ch",
-        "de": "kakaoderivatehandler-barry-callebaut-zurich",
+        "de": "cocoa-derivatives-trader-barry-callebaut-zurich",
         "fr": "metier-principal-des-derives-du-cacao-barry-callebaut-zurich"
       },
       "company": "Barry Callebaut",
@@ -455,7 +466,7 @@
         "senior-cocoa-derivatives-trader-barry-callebaut-ch",
         "handler-fur-kakaoderivate-barry-callebaut-zurich",
         "cocoa-derivatives-trader-barry-callebaut-ch",
-        "cocoa-derivatives-trader-barry-callebaut-zurich"
+        "kakaoderivatehandler-barry-callebaut-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -465,7 +476,7 @@
         "de": [
           "senior-cocoa-derivatives-trader-barry-callebaut-ch",
           "handler-fur-kakaoderivate-barry-callebaut-zurich",
-          "cocoa-derivatives-trader-barry-callebaut-zurich"
+          "kakaoderivatehandler-barry-callebaut-zurich"
         ],
         "fr": [
           "senior-cocoa-derivatives-trader-barry-callebaut-ch"

@@ -1053,10 +1053,10 @@
     },
     {
       "id": "dormakaba-12639",
-      "slug": "helpdesk-100-w-m-d-dormakaba-ch",
+      "slug": "guida-al-100-m-f-d-dormakaba-rumlang",
       "slugByLocale": {
         "de": "helpdesk-100-w-m-d-dormakaba-ch",
-        "it": "helpdesk-100-w-m-d-dormakaba-ch",
+        "it": "guida-al-100-m-f-d-dormakaba-rumlang",
         "en": "helpdesk-100-w-m-d-dormakaba-ch",
         "fr": "helpdesk-100-w-m-d-dormakaba-ch"
       },
@@ -1121,7 +1121,15 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-03T21:40:20.383Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-05T21:40:20.383Z"
+      "firstSeenAt": "2026-11-05T21:40:20.383Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "helpdesk-100-w-m-d-dormakaba-ch"
+        ]
+      },
+      "previousSlugs": [
+        "helpdesk-100-w-m-d-dormakaba-ch"
+      ]
     },
     {
       "id": "dormakaba-11215",
@@ -1209,8 +1217,8 @@
       "slugByLocale": {
         "de": "automatiker-elektroinstallateur-100-m-w-d-dormakaba-ch",
         "it": "automatiker-installatore-trice-elettrico-a-100-m-w-d-dormakaba-wetzikon",
-        "en": "automatiker-elektroinstallateur-100-m-w-d-dormakaba-ch",
-        "fr": "automatiker-elektroinstallateur-100-m-w-d-dormakaba-ch"
+        "en": "automatic-electrical-installer-100-m-f-d-dormakaba-wetzikon",
+        "fr": "installation-automatique-electrique-100-h-f-d-dormakaba-wetzikon"
       },
       "company": "dormakaba",
       "companyKey": "dormakaba",
@@ -1259,6 +1267,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "automatiker-elektroinstallateur-100-m-w-d-dormakaba-ch"
+        ],
+        "en": [
+          "automatiker-elektroinstallateur-100-m-w-d-dormakaba-ch"
+        ],
+        "fr": [
           "automatiker-elektroinstallateur-100-m-w-d-dormakaba-ch"
         ]
       },

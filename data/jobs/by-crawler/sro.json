@@ -3057,12 +3057,12 @@
     },
     {
       "id": "sro-a2112ffe394d",
-      "slug": "apotheker-in-40-100-sro-langenthal",
+      "slug": "farmacista-40-100-sro-ag-spital-region-oberaargau-langenthal",
       "slugByLocale": {
         "de": "apotheker-in-40-100-sro-langenthal",
-        "it": "apotheker-in-40-100-sro-langenthal",
-        "en": "apotheker-in-40-100-sro-langenthal",
-        "fr": "apotheker-in-40-100-sro-langenthal"
+        "it": "farmacista-40-100-sro-ag-spital-region-oberaargau-langenthal",
+        "en": "pharmacist-40-100-sro-ag-spital-region-oberaargau-langenthal",
+        "fr": "pharmacien-ne-40-100-sro-ag-spital-region-oberaargau-langenthal"
       },
       "company": "SRO AG (Spital Region Oberaargau)",
       "companyKey": "sro",
@@ -3129,7 +3129,21 @@
       "streetAddress": "Langenthal",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "firstSeenAt": "2026-11-05T21:17:32.767Z"
+      "firstSeenAt": "2026-11-05T21:17:32.767Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "apotheker-in-40-100-sro-langenthal"
+        ],
+        "en": [
+          "apotheker-in-40-100-sro-langenthal"
+        ],
+        "fr": [
+          "apotheker-in-40-100-sro-langenthal"
+        ]
+      },
+      "previousSlugs": [
+        "apotheker-in-40-100-sro-langenthal"
+      ]
     },
     {
       "id": "sro-ddd5f2a80c45",

@@ -4789,12 +4789,12 @@
     },
     {
       "id": "balgrist-60427893516a",
-      "slug": "leitung-sekretariat-physikalische-medizin-e-rheumatologie-80-100-m-w-d-universitatsklinik-balgrist-zurich",
+      "slug": "responsabile-della-segreteria-medicina-fisica-e-reumatologia-80-100-m-f-d-universitatsklinik-balgrist-zurich",
       "slugByLocale": {
         "de": "leitung-sekretariat-physikalische-medizin-und-rheumatologie-80-100-w-m-d-balgrist-zurich",
-        "it": "leitung-sekretariat-physikalische-medizin-e-rheumatologie-80-100-m-w-d-universitatsklinik-balgrist-zurich",
-        "en": "leitung-sekretariat-physikalische-medizin-und-rheumatologie-80-100-w-m-d-balgrist-zurich",
-        "fr": "leitung-sekretariat-physikalische-medizin-und-rheumatologie-80-100-w-m-d-balgrist-zurich"
+        "it": "responsabile-della-segreteria-medicina-fisica-e-reumatologia-80-100-m-f-d-universitatsklinik-balgrist-zurich",
+        "en": "head-of-secretariat-physical-medicine-and-rheumatology-80-100-m-f-d-universitatsklinik-balgrist-zurich",
+        "fr": "chef-du-secretariat-medecine-physique-et-rhumatologie-80-100-h-f-d-universitatsklinik-balgrist-zurich"
       },
       "company": "Universitätsklinik Balgrist",
       "companyKey": "balgrist",
@@ -4843,11 +4843,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "leitung-sekretariat-physikalische-medizin-und-rheumatologie-80-100-w-m-d-balgrist-zurich",
+          "leitung-sekretariat-physikalische-medizin-e-rheumatologie-80-100-m-w-d-universitatsklinik-balgrist-zurich"
+        ],
+        "en": [
+          "leitung-sekretariat-physikalische-medizin-und-rheumatologie-80-100-w-m-d-balgrist-zurich"
+        ],
+        "fr": [
           "leitung-sekretariat-physikalische-medizin-und-rheumatologie-80-100-w-m-d-balgrist-zurich"
         ]
       },
       "previousSlugs": [
-        "leitung-sekretariat-physikalische-medizin-und-rheumatologie-80-100-w-m-d-balgrist-zurich"
+        "leitung-sekretariat-physikalische-medizin-und-rheumatologie-80-100-w-m-d-balgrist-zurich",
+        "leitung-sekretariat-physikalische-medizin-e-rheumatologie-80-100-m-w-d-universitatsklinik-balgrist-zurich"
       ],
       "salaryMin": 91500,
       "salaryMax": 128000,

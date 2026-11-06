@@ -81,12 +81,12 @@
     },
     {
       "id": "zkb-a7e8c3e1c658",
-      "slug": "solution-architect-cloud-engineer-genai-plattform-m-w-d-zkb-zurich",
+      "slug": "solution-architetto-cloud-ingegnere-genai-plattform-m-w-d-zurcher-kantonalbank-zurich",
       "slugByLocale": {
         "de": "solution-architect-cloud-engineer-genai-plattform-m-w-d-zkb-zurich",
-        "it": "solution-architect-cloud-engineer-genai-plattform-m-w-d-zkb-zurich",
+        "it": "solution-architetto-cloud-ingegnere-genai-plattform-m-w-d-zurcher-kantonalbank-zurich",
         "en": "solution-architect-cloud-engineer-genai-plattform-m-w-d-zkb-zurich",
-        "fr": "solution-architect-cloud-engineer-genai-plattform-m-w-d-zkb-zurich"
+        "fr": "solution-architecte-cloud-ingenieur-genai-plattform-m-w-d-zurcher-kantonalbank-zurich"
       },
       "company": "Zürcher Kantonalbank",
       "companyKey": "zkb",
@@ -152,16 +152,27 @@
       "streetAddressSource": "curated-company-city",
       "validThrough": "2027-02-03T21:20:47.202Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-05T21:20:47.202Z"
+      "firstSeenAt": "2026-11-05T21:20:47.202Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "solution-architect-cloud-engineer-genai-plattform-m-w-d-zkb-zurich"
+        ],
+        "fr": [
+          "solution-architect-cloud-engineer-genai-plattform-m-w-d-zkb-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "solution-architect-cloud-engineer-genai-plattform-m-w-d-zkb-zurich"
+      ]
     },
     {
       "id": "zkb-bc3e4c9d483a",
-      "slug": "senior-data-manager-client-lifecycle-management-m-w-d-zkb-zurich",
+      "slug": "gestione-del-ciclo-di-vita-client-di-gestione-dei-dati-senior-m-f-d-zurcher-kantonalbank-zurich",
       "slugByLocale": {
         "de": "senior-data-manager-client-lifecycle-management-m-w-d-zkb-zurich",
-        "it": "senior-data-manager-client-lifecycle-management-m-w-d-zkb-zurich",
+        "it": "gestione-del-ciclo-di-vita-client-di-gestione-dei-dati-senior-m-f-d-zurcher-kantonalbank-zurich",
         "en": "senior-data-manager-client-lifecycle-management-m-w-d-zkb-zurich",
-        "fr": "senior-data-manager-client-lifecycle-management-m-w-d-zkb-zurich"
+        "fr": "gestionnaire-de-donnees-principal-gestion-du-cycle-de-vie-des-clients-h-f-d-zurcher-kantonalbank-zurich"
       },
       "company": "Zürcher Kantonalbank",
       "companyKey": "zkb",
@@ -228,7 +239,18 @@
       "streetAddressSource": "curated-company-city",
       "validThrough": "2027-02-03T21:20:46.757Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-05T21:20:46.757Z"
+      "firstSeenAt": "2026-11-05T21:20:46.757Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-data-manager-client-lifecycle-management-m-w-d-zkb-zurich"
+        ],
+        "fr": [
+          "senior-data-manager-client-lifecycle-management-m-w-d-zkb-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "senior-data-manager-client-lifecycle-management-m-w-d-zkb-zurich"
+      ]
     },
     {
       "id": "zkb-25008d3875c3",
@@ -312,8 +334,8 @@
       "slugByLocale": {
         "de": "projektmitarbeiter-in-process-design-weiterentwicklung-hrba-zkb-zurich",
         "it": "projektmitarbeiter-in-process-design-weiterentwicklung-hrba-zurcher-kantonalbank-zurich",
-        "en": "projektmitarbeiter-in-process-design-weiterentwicklung-hrba-zurcher-kantonalbank-zurich",
-        "fr": "projektmitarbeiter-in-process-design-weiterentwicklung-hrba-zurcher-kantonalbank-zurich"
+        "en": "project-staff-member-process-design-development-hrba-zurcher-kantonalbank-zurich",
+        "fr": "collaboratrice-collaborateur-de-projet-process-design-developpement-hrba-zurcher-kantonalbank-zurich"
       },
       "company": "Zürcher Kantonalbank",
       "companyKey": "zkb",
@@ -392,12 +414,12 @@
     },
     {
       "id": "zkb-9e997d367ef5",
-      "slug": "legal-counsel-data-ai-outsourcing-zkb-zurich",
+      "slug": "dati-legali-del-consulente-ail-out-zurcher-kantonalbank-zurich",
       "slugByLocale": {
         "de": "legal-counsel-data-ai-outsourcing-zkb-zurich",
-        "it": "legal-counsel-data-ai-outsourcing-zkb-zurich",
+        "it": "dati-legali-del-consulente-ail-out-zurcher-kantonalbank-zurich",
         "en": "legal-counsel-data-ai-outsourcing-zkb-zurich",
-        "fr": "legal-counsel-data-ai-outsourcing-zkb-zurich"
+        "fr": "donnees-du-conseiller-juridique-ai-et-externalisation-zurcher-kantonalbank-zurich"
       },
       "company": "Zürcher Kantonalbank",
       "companyKey": "zkb",
@@ -463,7 +485,18 @@
       "streetAddressSource": "curated-company-city",
       "validThrough": "2027-02-03T21:20:45.420Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-05T21:20:45.420Z"
+      "firstSeenAt": "2026-11-05T21:20:45.420Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "legal-counsel-data-ai-outsourcing-zkb-zurich"
+        ],
+        "fr": [
+          "legal-counsel-data-ai-outsourcing-zkb-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "legal-counsel-data-ai-outsourcing-zkb-zurich"
+      ]
     },
     {
       "id": "zkb-7b11f5ebf7b5",
@@ -557,12 +590,12 @@
     },
     {
       "id": "zkb-eed0d5883b25",
-      "slug": "devops-ingegnere-workplace-client-engineering-m-w-d-zurcher-kantonalbank-zurich",
+      "slug": "ingegnere-devops-ambiente-di-lavoro-ingegneria-dei-clienti-m-f-d-zurcher-kantonalbank-zurich",
       "slugByLocale": {
-        "it": "devops-ingegnere-workplace-client-engineering-m-w-d-zurcher-kantonalbank-zurich",
+        "it": "ingegnere-devops-ambiente-di-lavoro-ingegneria-dei-clienti-m-f-d-zurcher-kantonalbank-zurich",
         "en": "devops-engineer-workplace-client-engineering-m-w-d-zurcher-kantonalbank-zurich",
         "de": "devops-engineer-workplace-client-engineering-m-w-d-zkb-zurich",
-        "fr": "devops-ingenieur-workplace-client-engineering-m-w-d-zurcher-kantonalbank-zurich"
+        "fr": "ingenieur-devops-lieu-de-travail-ingenierie-client-h-f-d-zurcher-kantonalbank-zurich"
       },
       "company": "Zürcher Kantonalbank",
       "companyKey": "zkb",
@@ -611,11 +644,17 @@
       "pensumMax": 80,
       "pensum": "80%",
       "previousSlugs": [
-        "devops-engineer-workplace-client-engineering-m-w-d-zkb-zurich"
+        "devops-engineer-workplace-client-engineering-m-w-d-zkb-zurich",
+        "devops-ingegnere-workplace-client-engineering-m-w-d-zurcher-kantonalbank-zurich",
+        "devops-ingenieur-workplace-client-engineering-m-w-d-zurcher-kantonalbank-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "devops-engineer-workplace-client-engineering-m-w-d-zkb-zurich"
+          "devops-engineer-workplace-client-engineering-m-w-d-zkb-zurich",
+          "devops-ingegnere-workplace-client-engineering-m-w-d-zurcher-kantonalbank-zurich"
+        ],
+        "fr": [
+          "devops-ingenieur-workplace-client-engineering-m-w-d-zurcher-kantonalbank-zurich"
         ]
       },
       "firstSeenAt": "2026-09-11T23:05:04.889Z",

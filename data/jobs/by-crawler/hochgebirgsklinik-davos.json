@@ -1400,8 +1400,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-patientensupport-m-w-d-80-hochgebirgsklinik-davos-ch",
         "it": "collaboratore-trice-patientensupport-m-w-d-80-hochgebirgsklinik-davos",
-        "en": "mitarbeiter-patientensupport-m-w-d-80-hochgebirgsklinik-davos-ch",
-        "fr": "mitarbeiter-patientensupport-m-w-d-80-hochgebirgsklinik-davos-ch"
+        "en": "employee-patient-support-m-f-d-80-hochgebirgsklinik-davos-davos",
+        "fr": "soutien-aux-patients-employes-h-f-d-80-hochgebirgsklinik-davos-davos"
       },
       "company": "Hochgebirgsklinik Davos",
       "companyKey": "hochgebirgsklinik-davos",
@@ -1455,6 +1455,12 @@
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-patientensupport-m-w-d-80-hochgebirgsklinik-davos-ch"
+        ],
+        "en": [
+          "mitarbeiter-patientensupport-m-w-d-80-hochgebirgsklinik-davos-ch"
+        ],
+        "fr": [
+          "mitarbeiter-patientensupport-m-w-d-80-hochgebirgsklinik-davos-ch"
         ]
       },
       "previousSlugs": [
@@ -1481,12 +1487,12 @@
     },
     {
       "id": "hochgebirgsklinik-davos-ddbf419e1fb0",
-      "slug": "medizinischer-masseur-m-w-60-80-hochgebirgsklinik-davos-ch",
+      "slug": "massaggiatore-medico-m-f-60-80-hochgebirgsklinik-davos-davos",
       "slugByLocale": {
         "de": "medizinischer-masseur-m-w-60-80-hochgebirgsklinik-davos-ch",
-        "it": "medizinischer-masseur-m-w-60-80-hochgebirgsklinik-davos-ch",
-        "en": "medizinischer-masseur-m-w-60-80-hochgebirgsklinik-davos-ch",
-        "fr": "medizinischer-masseur-m-w-60-80-hochgebirgsklinik-davos-ch"
+        "it": "massaggiatore-medico-m-f-60-80-hochgebirgsklinik-davos-davos",
+        "en": "medical-masseur-m-f-60-80-hochgebirgsklinik-davos-davos",
+        "fr": "masseur-medical-h-f-60-80-hochgebirgsklinik-davos-davos"
       },
       "company": "Hochgebirgsklinik Davos",
       "companyKey": "hochgebirgsklinik-davos",
@@ -1554,7 +1560,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-03T21:19:00.468Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-05T21:19:00.468Z"
+      "firstSeenAt": "2026-11-05T21:19:00.468Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "medizinischer-masseur-m-w-60-80-hochgebirgsklinik-davos-ch"
+        ],
+        "en": [
+          "medizinischer-masseur-m-w-60-80-hochgebirgsklinik-davos-ch"
+        ],
+        "fr": [
+          "medizinischer-masseur-m-w-60-80-hochgebirgsklinik-davos-ch"
+        ]
+      },
+      "previousSlugs": [
+        "medizinischer-masseur-m-w-60-80-hochgebirgsklinik-davos-ch"
+      ]
     },
     {
       "id": "hochgebirgsklinik-davos-acd10818a6e9",
@@ -1563,7 +1583,7 @@
         "de": "chief-financial-officer-cfo-mitglied-der-geschaftsleitung-100-hochgebirgsklinik-davos-ch",
         "it": "chief-financial-officer-cfo-mitglied-der-geschaftsleitung-100-hochgebirgsklinik-davos-ch",
         "en": "chief-financial-officer-cfo-mitglied-der-geschaftsleitung-100-hochgebirgsklinik-davos-ch",
-        "fr": "chief-financial-officer-cfo-mitglied-der-geschaftsleitung-100-hochgebirgsklinik-davos-ch"
+        "fr": "directeur-financier-cfo-membre-du-directoire-100-hochgebirgsklinik-davos-davos"
       },
       "company": "Hochgebirgsklinik Davos",
       "companyKey": "hochgebirgsklinik-davos",
@@ -1635,11 +1655,11 @@
     },
     {
       "id": "hochgebirgsklinik-davos-6110c639c043",
-      "slug": "praktikant-psychologie-m-w-d-60-100-hochgebirgsklinik-davos-ch",
+      "slug": "psicologia-dello-stage-m-f-d-60-100-hochgebirgsklinik-davos-davos",
       "slugByLocale": {
         "de": "praktikant-psychologie-m-w-d-60-100-hochgebirgsklinik-davos-ch",
-        "it": "praktikant-psychologie-m-w-d-60-100-hochgebirgsklinik-davos-ch",
-        "en": "praktikant-psychologie-m-w-d-60-100-hochgebirgsklinik-davos-ch",
+        "it": "psicologia-dello-stage-m-f-d-60-100-hochgebirgsklinik-davos-davos",
+        "en": "internship-psychology-m-f-d-60-100-hochgebirgsklinik-davos-davos",
         "fr": "praktikant-psychologie-m-w-d-60-100-hochgebirgsklinik-davos-ch"
       },
       "company": "Hochgebirgsklinik Davos",
@@ -1708,7 +1728,18 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-03T21:18:59.290Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-05T21:18:59.290Z"
+      "firstSeenAt": "2026-11-05T21:18:59.290Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "praktikant-psychologie-m-w-d-60-100-hochgebirgsklinik-davos-ch"
+        ],
+        "en": [
+          "praktikant-psychologie-m-w-d-60-100-hochgebirgsklinik-davos-ch"
+        ]
+      },
+      "previousSlugs": [
+        "praktikant-psychologie-m-w-d-60-100-hochgebirgsklinik-davos-ch"
+      ]
     },
     {
       "id": "hochgebirgsklinik-davos-f19d635ac1af",

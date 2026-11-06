@@ -504,12 +504,12 @@
     },
     {
       "id": "medimeo-fc402cb86320",
-      "slug": "oberarzt-oberarztin-notfall-teilzeit-60-80-e-ohne-nachtdienste-medimeo-ag-basel",
+      "slug": "medico-senior-medica-senior-al-pronto-soccorso-a-tempo-parziale-60-80-e-senza-turni-notturni-medimeo-ag-region-basel",
       "slugByLocale": {
         "de": "oberarzt-oberarztin-notfall-teilzeit-60-80-und-ohne-nachtdienste-region-basel-medimeo-ch",
-        "it": "oberarzt-oberarztin-notfall-teilzeit-60-80-e-ohne-nachtdienste-medimeo-ag-basel",
-        "en": "oberarzt-oberarztin-notfall-teilzeit-60-80-und-ohne-nachtdienste-region-basel-medimeo-ch",
-        "fr": "oberarzt-oberarztin-notfall-teilzeit-60-80-und-ohne-nachtdienste-region-basel-medimeo-ch"
+        "it": "medico-senior-medica-senior-al-pronto-soccorso-a-tempo-parziale-60-80-e-senza-turni-notturni-medimeo-ag-region-basel",
+        "en": "senior-physician-emergency-part-time-60-80-and-without-night-services-medimeo-ag-region-basel",
+        "fr": "medecin-principal-urgence-a-temps-partiel-60-80-et-sans-services-de-nuit-medimeo-ag-region-basel"
       },
       "company": "Medimeo AG",
       "companyKey": "medimeo",
@@ -556,11 +556,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "oberarzt-oberarztin-notfall-teilzeit-60-80-und-ohne-nachtdienste-region-basel-medimeo-ch",
+          "oberarzt-oberarztin-notfall-teilzeit-60-80-e-ohne-nachtdienste-medimeo-ag-basel"
+        ],
+        "en": [
+          "oberarzt-oberarztin-notfall-teilzeit-60-80-und-ohne-nachtdienste-region-basel-medimeo-ch"
+        ],
+        "fr": [
           "oberarzt-oberarztin-notfall-teilzeit-60-80-und-ohne-nachtdienste-region-basel-medimeo-ch"
         ]
       },
       "previousSlugs": [
-        "oberarzt-oberarztin-notfall-teilzeit-60-80-und-ohne-nachtdienste-region-basel-medimeo-ch"
+        "oberarzt-oberarztin-notfall-teilzeit-60-80-und-ohne-nachtdienste-region-basel-medimeo-ch",
+        "oberarzt-oberarztin-notfall-teilzeit-60-80-e-ohne-nachtdienste-medimeo-ag-basel"
       ],
       "salaryMin": 49600,
       "salaryMax": 75200,

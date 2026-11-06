@@ -1491,12 +1491,12 @@
     },
     {
       "id": "spitex-ch-46872f108dbe",
-      "slug": "teamleitung-fachstelle-fruhe-kindheit-e-erziehungsberatung-spitex-region-einsiedeln-ybrig-alpthal-einsiedeln",
+      "slug": "responsabile-del-team-del-servizio-specializzato-per-la-prima-infanzia-e-la-consulenza-educativa-spitex-region",
       "slugByLocale": {
         "de": "teamleitung-fachstelle-fruhe-kindheit-und-erziehungsberatung-spitex-ch-einsiedeln",
-        "it": "teamleitung-fachstelle-fruhe-kindheit-e-erziehungsberatung-spitex-region-einsiedeln-ybrig-alpthal-einsiedeln",
-        "en": "teamleitung-fachstelle-fruhe-kindheit-und-erziehungsberatung-spitex-ch-einsiedeln",
-        "fr": "teamleitung-fachstelle-fruhe-kindheit-und-erziehungsberatung-spitex-ch-einsiedeln"
+        "it": "responsabile-del-team-del-servizio-specializzato-per-la-prima-infanzia-e-la-consulenza-educativa-spitex-region",
+        "en": "team-management-specialist-centre-early-childhood-and-parental-counselling-spitex-region-einsiedeln-ybrig-alpthal",
+        "fr": "centre-specialise-en-gestion-d-equipes-spitex-region-einsiedeln-ybrig-alpthal-einsiedeln"
       },
       "company": "Spitex Region Einsiedeln Ybrig Alpthal",
       "companyKey": "spitex-ch",
@@ -1545,11 +1545,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "teamleitung-fachstelle-fruhe-kindheit-und-erziehungsberatung-spitex-ch-einsiedeln",
+          "teamleitung-fachstelle-fruhe-kindheit-e-erziehungsberatung-spitex-region-einsiedeln-ybrig-alpthal-einsiedeln"
+        ],
+        "en": [
+          "teamleitung-fachstelle-fruhe-kindheit-und-erziehungsberatung-spitex-ch-einsiedeln"
+        ],
+        "fr": [
           "teamleitung-fachstelle-fruhe-kindheit-und-erziehungsberatung-spitex-ch-einsiedeln"
         ]
       },
       "previousSlugs": [
-        "teamleitung-fachstelle-fruhe-kindheit-und-erziehungsberatung-spitex-ch-einsiedeln"
+        "teamleitung-fachstelle-fruhe-kindheit-und-erziehungsberatung-spitex-ch-einsiedeln",
+        "teamleitung-fachstelle-fruhe-kindheit-e-erziehungsberatung-spitex-region-einsiedeln-ybrig-alpthal-einsiedeln"
       ],
       "salaryMin": 74500,
       "salaryMax": 127000,
@@ -1571,12 +1579,12 @@
     },
     {
       "id": "spitex-ch-21fd9e3c5f2f",
-      "slug": "dipl-pflegefachperson-hf-fh-specializzazione-psychiatrie-50-spitex-region-frauenfeld",
+      "slug": "infermiere-a-diplomato-a-hf-fh-specializzazione-in-psichiatria-50-spitex-region-frauenfeld-frauenfeld",
       "slugByLocale": {
         "de": "dipl-pflegefachperson-hf-fh-fachrichtung-psychiatrie-50-spitex-ch-frauenfeld",
-        "it": "dipl-pflegefachperson-hf-fh-specializzazione-psychiatrie-50-spitex-region-frauenfeld",
-        "en": "dipl-pflegefachperson-hf-fh-fachrichtung-psychiatrie-50-spitex-ch-frauenfeld",
-        "fr": "dipl-pflegefachperson-hf-fh-fachrichtung-psychiatrie-50-spitex-ch-frauenfeld"
+        "it": "infermiere-a-diplomato-a-hf-fh-specializzazione-in-psichiatria-50-spitex-region-frauenfeld-frauenfeld",
+        "en": "dipl-nurse-hf-fh-specialty-psychiatry-50-spitex-region-frauenfeld-frauenfeld",
+        "fr": "dipl-infirmiere-hf-fh-psychiatrie-specialisee-50-spitex-region-frauenfeld-frauenfeld"
       },
       "company": "Spitex Region Frauenfeld",
       "companyKey": "spitex-ch",
@@ -1625,11 +1633,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "dipl-pflegefachperson-hf-fh-fachrichtung-psychiatrie-50-spitex-ch-frauenfeld",
+          "dipl-pflegefachperson-hf-fh-specializzazione-psychiatrie-50-spitex-region-frauenfeld"
+        ],
+        "en": [
+          "dipl-pflegefachperson-hf-fh-fachrichtung-psychiatrie-50-spitex-ch-frauenfeld"
+        ],
+        "fr": [
           "dipl-pflegefachperson-hf-fh-fachrichtung-psychiatrie-50-spitex-ch-frauenfeld"
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachperson-hf-fh-fachrichtung-psychiatrie-50-spitex-ch-frauenfeld"
+        "dipl-pflegefachperson-hf-fh-fachrichtung-psychiatrie-50-spitex-ch-frauenfeld",
+        "dipl-pflegefachperson-hf-fh-specializzazione-psychiatrie-50-spitex-region-frauenfeld"
       ],
       "salaryMin": 40800,
       "salaryMax": 57000,
@@ -1654,9 +1670,9 @@
       "slug": "dipl-pflegefachperson-hf-fh-regionaler-nachtdienst-spitex-regio-liestal",
       "slugByLocale": {
         "de": "dipl-pflegefachperson-hf-fh-regionaler-nachtdienst-spitex-ch-liestal",
-        "it": "dipl-pflegefachperson-hf-fh-regionaler-nachtdienst-spitex-regio-liestal",
-        "en": "dipl-pflegefachperson-hf-fh-regionaler-nachtdienst-spitex-regio-liestal",
-        "fr": "dipl-pflegefachperson-hf-fh-regionaler-nachtdienst-spitex-regio-liestal"
+        "it": "infermiere-sss-sup-servizio-notturno-regionale-spitex-regio-liestal-liestal",
+        "en": "qualified-nurse-hf-fh-regional-night-service-spitex-regio-liestal-liestal",
+        "fr": "infirmier-diplome-hf-fh-service-regional-de-nuit-spitex-regio-liestal-liestal"
       },
       "company": "Spitex Regio Liestal",
       "companyKey": "spitex-ch",
@@ -1705,21 +1721,11 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-hf-fh-regionaler-nachtdienst-spitex-ch-liestal",
-          "infermiere-sss-sup-servizio-notturno-regionale-spitex-regio-liestal-liestal"
-        ],
-        "en": [
-          "qualified-nurse-hf-fh-regional-night-service-spitex-regio-liestal-liestal"
-        ],
-        "fr": [
-          "infirmier-diplome-hf-fh-service-regional-de-nuit-spitex-regio-liestal-liestal"
+          "dipl-pflegefachperson-hf-fh-regionaler-nachtdienst-spitex-ch-liestal"
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachperson-hf-fh-regionaler-nachtdienst-spitex-ch-liestal",
-        "infermiere-sss-sup-servizio-notturno-regionale-spitex-regio-liestal-liestal",
-        "qualified-nurse-hf-fh-regional-night-service-spitex-regio-liestal-liestal",
-        "infirmier-diplome-hf-fh-service-regional-de-nuit-spitex-regio-liestal-liestal"
+        "dipl-pflegefachperson-hf-fh-regionaler-nachtdienst-spitex-ch-liestal"
       ],
       "salaryMin": 88000,
       "salaryMax": 123000,

@@ -248,8 +248,8 @@
       "slugByLocale": {
         "de": "elektriker-mitarbeiter-technischer-unterhalt-m-w-d-triaplus-elektriker-mitarbeiter",
         "it": "elektriker-collaboratore-trice-technischer-unterhalt-m-w-d-triaplus-ag-oberwil",
-        "en": "mitarbeiter-technischer-unterhalt-m-w-d-triaplus-ag-oberwil",
-        "fr": "mitarbeiter-technischer-unterhalt-m-w-d-triaplus-ag-oberwil"
+        "en": "electricians-technical-maintenance-staff-m-f-d-triaplus-ag-oberwil",
+        "fr": "electriciens-personnel-d-entretien-technique-m-f-d-triaplus-ag-oberwil"
       },
       "company": "Triaplus AG",
       "companyKey": "triaplus",
@@ -302,16 +302,15 @@
           "mitarbeiter-technischer-unterhalt-m-w-d-triaplus-elektriker-mitarbeiter-technischer"
         ],
         "en": [
-          "electricians-technical-maintenance-staff-m-f-d-triaplus-ag-oberwil"
+          "mitarbeiter-technischer-unterhalt-m-w-d-triaplus-ag-oberwil"
         ],
         "fr": [
-          "electriciens-personnel-d-entretien-technique-m-f-d-triaplus-ag-oberwil"
+          "mitarbeiter-technischer-unterhalt-m-w-d-triaplus-ag-oberwil"
         ]
       },
       "previousSlugs": [
         "mitarbeiter-technischer-unterhalt-m-w-d-triaplus-elektriker-mitarbeiter-technischer",
-        "electricians-technical-maintenance-staff-m-f-d-triaplus-ag-oberwil",
-        "electriciens-personnel-d-entretien-technique-m-f-d-triaplus-ag-oberwil"
+        "mitarbeiter-technischer-unterhalt-m-w-d-triaplus-ag-oberwil"
       ],
       "salaryMin": 78500,
       "salaryMax": 119000,
@@ -503,12 +502,12 @@
     },
     {
       "id": "triaplus-b16e05d2ab53",
-      "slug": "leitung-reinigung-m-w-d-triaplus-ag-oberwil",
+      "slug": "pulizia-della-linea-m-f-d-triaplus-ag-oberwil",
       "slugByLocale": {
         "de": "leitung-reinigung-m-w-d-triaplus-leitung-reinigung-m-w-d",
-        "it": "leitung-reinigung-m-w-d-triaplus-ag-oberwil",
-        "en": "leitung-reinigung-m-w-d-triaplus-ag-oberwil",
-        "fr": "leitung-reinigung-m-w-d-triaplus-ag-oberwil"
+        "it": "pulizia-della-linea-m-f-d-triaplus-ag-oberwil",
+        "en": "line-cleaning-m-f-d-triaplus-ag-oberwil",
+        "fr": "nettoyage-de-ligne-h-f-d-triaplus-ag-oberwil"
       },
       "company": "Triaplus AG",
       "companyKey": "triaplus",
@@ -555,11 +554,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "leitung-reinigung-m-w-d-triaplus-leitung-reinigung-m-w-d"
+          "leitung-reinigung-m-w-d-triaplus-leitung-reinigung-m-w-d",
+          "leitung-reinigung-m-w-d-triaplus-ag-oberwil"
+        ],
+        "en": [
+          "leitung-reinigung-m-w-d-triaplus-ag-oberwil"
+        ],
+        "fr": [
+          "leitung-reinigung-m-w-d-triaplus-ag-oberwil"
         ]
       },
       "previousSlugs": [
-        "leitung-reinigung-m-w-d-triaplus-leitung-reinigung-m-w-d"
+        "leitung-reinigung-m-w-d-triaplus-leitung-reinigung-m-w-d",
+        "leitung-reinigung-m-w-d-triaplus-ag-oberwil"
       ],
       "salaryMin": 69000,
       "salaryMax": 86500,
@@ -1178,7 +1185,7 @@
         "it": "consulente-nutrizionale-w-m-d-a-ore-triaplus-ag-oberwil",
         "en": "nutrition-consultant-w-m-d-hourly-triaplus-ag-oberwil",
         "de": "ernahrungsberaterin-w-m-d-im-stundenlohn-triaplus-ernaehrungsberaterin-w-m-d-im",
-        "fr": "dieteticien-ne-m-w-d-au-salaire-horaire-triaplus-ag-oberwil"
+        "fr": "consultant-en-nutrition-w-m-d-a-l-heure-triaplus-ag-oberwil"
       },
       "company": "Triaplus AG",
       "companyKey": "triaplus",
@@ -1251,7 +1258,7 @@
         "ernahrungsberaterin-w-m-d-im-stundenlohn-triaplus-ernaehrungsberaterin-w-m-d-im",
         "ernahrungsberaterin-w-m-d-im-stundenlohn-triaplus-ag-oberwil",
         "ernahrungsberaterin-hf-w-m-d-triaplus-ernaehrungsberaterin-w-m-d-im-stundenlohn",
-        "consultant-en-nutrition-w-m-d-a-l-heure-triaplus-ag-oberwil"
+        "dieteticien-ne-m-w-d-au-salaire-horaire-triaplus-ag-oberwil"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1262,7 +1269,7 @@
           "ernahrungsberaterin-w-m-d-im-stundenlohn-triaplus-ag-oberwil"
         ],
         "fr": [
-          "consultant-en-nutrition-w-m-d-a-l-heure-triaplus-ag-oberwil"
+          "dieteticien-ne-m-w-d-au-salaire-horaire-triaplus-ag-oberwil"
         ]
       },
       "firstSeenAt": "2026-05-19T21:17:13.784Z",
@@ -1492,7 +1499,7 @@
         "de": "leitende-arztin-leitender-arzt-stationar-mitglied-der-klinikleitung-triaplus-leitende",
         "it": "medico-senior-regista-membro-stazionario-della-gestione-clinica-triaplus-ag-oberwil",
         "en": "senior-physician-senior-physician-stationary-member-of-the-clinic-management-triaplus-ag-oberwil",
-        "fr": "leitende-arztin-leitender-arzt-stationar-mitglied-der-klinikleitung-triaplus-ag-oberwil"
+        "fr": "medecin-principal-medecin-principal-membre-permanent-de-la-direction-de-la-clinique-triaplus-ag-oberwil"
       },
       "company": "Triaplus AG",
       "companyKey": "triaplus",
@@ -1542,12 +1549,12 @@
           "leitende-arztin-leitender-arzt-stationar-mitglied-der-klinikleitung-triaplus-leitende"
         ],
         "fr": [
-          "medecin-principal-medecin-principal-membre-permanent-de-la-direction-de-la-clinique-triaplus-ag-oberwil"
+          "leitende-arztin-leitender-arzt-stationar-mitglied-der-klinikleitung-triaplus-ag-oberwil"
         ]
       },
       "previousSlugs": [
         "leitende-arztin-leitender-arzt-stationar-mitglied-der-klinikleitung-triaplus-leitende",
-        "medecin-principal-medecin-principal-membre-permanent-de-la-direction-de-la-clinique-triaplus-ag-oberwil"
+        "leitende-arztin-leitender-arzt-stationar-mitglied-der-klinikleitung-triaplus-ag-oberwil"
       ],
       "salaryMin": 86500,
       "salaryMax": 120500,
@@ -1738,7 +1745,7 @@
         "it": "medico-senior-m-f-d-ambulatorio-triaplus-ag-goldau",
         "en": "senior-physician-m-f-d-ambulatory-triaplus-ag-goldau",
         "de": "oberarztin-w-m-d-ambulant-triaplus-oberaerztin-w-m-d-ambulant",
-        "fr": "ophtalmologiste-m-w-d-ambulant-triaplus-ag-goldau"
+        "fr": "medecin-principal-h-f-d-ambulatoire-triaplus-ag-goldau"
       },
       "company": "Triaplus AG",
       "companyKey": "triaplus",
@@ -1783,7 +1790,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "oberarztin-w-m-d-ambulant-triaplus-oberaerztin-w-m-d-ambulant",
-        "medecin-principal-h-f-d-ambulatoire-triaplus-ag-goldau"
+        "ophtalmologiste-m-w-d-ambulant-triaplus-ag-goldau"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1794,7 +1801,7 @@
         ],
         "fr": [
           "oberarztin-w-m-d-ambulant-triaplus-oberaerztin-w-m-d-ambulant",
-          "medecin-principal-h-f-d-ambulatoire-triaplus-ag-goldau"
+          "ophtalmologiste-m-w-d-ambulant-triaplus-ag-goldau"
         ]
       },
       "firstSeenAt": "2026-08-31T17:07:24.738Z",

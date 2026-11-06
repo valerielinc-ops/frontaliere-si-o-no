@@ -5,12 +5,12 @@
   "jobs": [
     {
       "id": "gesundheitsnetz-kuesnacht-6b72e33594c3",
-      "slug": "aufgestellte-r-fachfrau-fachmann-gesundheit-gesundheitsnetz-kuesnacht-kusnacht",
+      "slug": "salute-professionale-salute-professionale-gesundheitsnetz-kusnacht-ag-kusnacht",
       "slugByLocale": {
         "de": "aufgestellte-r-fachfrau-fachmann-gesundheit-gesundheitsnetz-kuesnacht-kusnacht",
-        "it": "aufgestellte-r-fachfrau-fachmann-gesundheit-gesundheitsnetz-kuesnacht-kusnacht",
-        "en": "aufgestellte-r-fachfrau-fachmann-gesundheit-gesundheitsnetz-kuesnacht-kusnacht",
-        "fr": "aufgestellte-r-fachfrau-fachmann-gesundheit-gesundheitsnetz-kuesnacht-kusnacht"
+        "it": "salute-professionale-salute-professionale-gesundheitsnetz-kusnacht-ag-kusnacht",
+        "en": "health-professional-health-professional-gesundheitsnetz-kusnacht-ag-kusnacht",
+        "fr": "professionnels-de-la-sante-gesundheitsnetz-kusnacht-ag-kusnacht"
       },
       "company": "Gesundheitsnetz Küsnacht AG",
       "companyKey": "gesundheitsnetz-kuesnacht",
@@ -77,7 +77,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-05T21:47:50.972Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-05T21:47:50.972Z"
+      "firstSeenAt": "2026-11-05T21:47:50.972Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "aufgestellte-r-fachfrau-fachmann-gesundheit-gesundheitsnetz-kuesnacht-kusnacht"
+        ],
+        "en": [
+          "aufgestellte-r-fachfrau-fachmann-gesundheit-gesundheitsnetz-kuesnacht-kusnacht"
+        ],
+        "fr": [
+          "aufgestellte-r-fachfrau-fachmann-gesundheit-gesundheitsnetz-kuesnacht-kusnacht"
+        ]
+      },
+      "previousSlugs": [
+        "aufgestellte-r-fachfrau-fachmann-gesundheit-gesundheitsnetz-kuesnacht-kusnacht"
+      ]
     },
     {
       "id": "gesundheitsnetz-kuesnacht-d499e6b4a673",

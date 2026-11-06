@@ -3177,12 +3177,12 @@
     },
     {
       "id": "spital-maennedorf-eec4807b62e2",
-      "slug": "medizinische-praxisassistentin-mpa-dipl-pflegefachfrau-hf-fh-60-80-m-w-d-spital-mannedorf-mannedorf",
+      "slug": "assistente-di-pratica-medica-mpa-dipl-infermiera-hf-fh-60-80-m-f-d-spital-mannedorf-mannedorf",
       "slugByLocale": {
         "de": "medizinische-praxisassistentin-mpa-dipl-pflegefachfrau-hf-fh-60-80-m-w-d-spital-maennedorf",
-        "it": "medizinische-praxisassistentin-mpa-dipl-pflegefachfrau-hf-fh-60-80-m-w-d-spital-mannedorf-mannedorf",
-        "en": "medizinische-praxisassistentin-mpa-dipl-pflegefachfrau-hf-fh-60-80-m-w-d-spital-mannedorf-mannedorf",
-        "fr": "medizinische-praxisassistentin-mpa-dipl-pflegefachfrau-hf-fh-60-80-m-w-d-spital-mannedorf-mannedorf"
+        "it": "assistente-di-pratica-medica-mpa-dipl-infermiera-hf-fh-60-80-m-f-d-spital-mannedorf-mannedorf",
+        "en": "medical-practice-assistant-mpa-dipl-nurse-hf-fh-60-80-m-f-d-spital-mannedorf-mannedorf",
+        "fr": "assistante-au-cabinet-medical-mpa-infirmiere-diplomee-hf-fh-60-80-h-f-d-spital-mannedorf-mannedorf"
       },
       "company": "Spital Männedorf",
       "companyKey": "spital-maennedorf",
@@ -3232,11 +3232,19 @@
       "pensum": "60 - 80%",
       "previousSlugsByLocale": {
         "it": [
-          "medizinische-praxisassistentin-mpa-dipl-pflegefachfrau-hf-fh-60-80-m-w-d-spital-maennedorf"
+          "medizinische-praxisassistentin-mpa-dipl-pflegefachfrau-hf-fh-60-80-m-w-d-spital-maennedorf",
+          "medizinische-praxisassistentin-mpa-dipl-pflegefachfrau-hf-fh-60-80-m-w-d-spital-mannedorf-mannedorf"
+        ],
+        "en": [
+          "medizinische-praxisassistentin-mpa-dipl-pflegefachfrau-hf-fh-60-80-m-w-d-spital-mannedorf-mannedorf"
+        ],
+        "fr": [
+          "medizinische-praxisassistentin-mpa-dipl-pflegefachfrau-hf-fh-60-80-m-w-d-spital-mannedorf-mannedorf"
         ]
       },
       "previousSlugs": [
-        "medizinische-praxisassistentin-mpa-dipl-pflegefachfrau-hf-fh-60-80-m-w-d-spital-maennedorf"
+        "medizinische-praxisassistentin-mpa-dipl-pflegefachfrau-hf-fh-60-80-m-w-d-spital-maennedorf",
+        "medizinische-praxisassistentin-mpa-dipl-pflegefachfrau-hf-fh-60-80-m-w-d-spital-mannedorf-mannedorf"
       ],
       "salaryMin": 73200,
       "salaryMax": 102400,
@@ -3260,12 +3268,12 @@
     },
     {
       "id": "spital-maennedorf-45267ee10328",
-      "slug": "arztsekretarin-klinik-medizin-80-100-m-w-d-spital-maennedorf-ch",
+      "slug": "medicina-clinica-del-segretario-medico-80-100-m-f-d-spital-mannedorf-mannedorf",
       "slugByLocale": {
         "de": "arztsekretarin-klinik-medizin-80-100-m-w-d-spital-maennedorf-ch",
-        "it": "arztsekretarin-klinik-medizin-80-100-m-w-d-spital-maennedorf-ch",
-        "en": "arztsekretarin-klinik-medizin-80-100-m-w-d-spital-maennedorf-ch",
-        "fr": "arztsekretarin-klinik-medizin-80-100-m-w-d-spital-maennedorf-ch"
+        "it": "medicina-clinica-del-segretario-medico-80-100-m-f-d-spital-mannedorf-mannedorf",
+        "en": "medical-secretary-clinic-medicine-80-100-m-f-d-spital-mannedorf-mannedorf",
+        "fr": "secretaire-medical-medecine-clinique-80-100-h-f-d-spital-mannedorf-mannedorf"
       },
       "company": "Spital Männedorf",
       "companyKey": "spital-maennedorf",
@@ -3331,7 +3339,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-03T21:16:47.680Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-05T21:16:47.680Z"
+      "firstSeenAt": "2026-11-05T21:16:47.680Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "arztsekretarin-klinik-medizin-80-100-m-w-d-spital-maennedorf-ch"
+        ],
+        "en": [
+          "arztsekretarin-klinik-medizin-80-100-m-w-d-spital-maennedorf-ch"
+        ],
+        "fr": [
+          "arztsekretarin-klinik-medizin-80-100-m-w-d-spital-maennedorf-ch"
+        ]
+      },
+      "previousSlugs": [
+        "arztsekretarin-klinik-medizin-80-100-m-w-d-spital-maennedorf-ch"
+      ]
     }
   ]
 }

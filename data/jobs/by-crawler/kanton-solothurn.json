@@ -1908,12 +1908,12 @@
     },
     {
       "id": "kanton-solothurn-214870ea35e4",
-      "slug": "stv-lehrer-in-sonderschule-zyklus-2-34-kanton-solothurn-solothurn",
+      "slug": "insegnante-supplente-di-scuola-speciale-ciclo-2-34-kanton-solothurn-solothurn",
       "slugByLocale": {
         "de": "stv-lehrer-in-sonderschule-zyklus-2-34-kanton-solothurn-solothurn",
-        "it": "stv-lehrer-in-sonderschule-zyklus-2-34-kanton-solothurn-solothurn",
-        "en": "stv-lehrer-in-sonderschule-zyklus-2-34-kanton-solothurn-solothurn",
-        "fr": "stv-lehrer-in-sonderschule-zyklus-2-34-kanton-solothurn-solothurn"
+        "it": "insegnante-supplente-di-scuola-speciale-ciclo-2-34-kanton-solothurn-solothurn",
+        "en": "deputy-teacher-special-school-cycle-2-34-kanton-solothurn-solothurn",
+        "fr": "enseignant-e-remplacant-e-en-ecole-specialisee-cycle-2-34-kanton-solothurn-solothurn"
       },
       "company": "Kanton Solothurn",
       "companyKey": "kanton-solothurn",
@@ -1976,7 +1976,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-03T21:47:39.094Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-05T21:47:39.094Z"
+      "firstSeenAt": "2026-11-05T21:47:39.094Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "stv-lehrer-in-sonderschule-zyklus-2-34-kanton-solothurn-solothurn"
+        ],
+        "en": [
+          "stv-lehrer-in-sonderschule-zyklus-2-34-kanton-solothurn-solothurn"
+        ],
+        "fr": [
+          "stv-lehrer-in-sonderschule-zyklus-2-34-kanton-solothurn-solothurn"
+        ]
+      },
+      "previousSlugs": [
+        "stv-lehrer-in-sonderschule-zyklus-2-34-kanton-solothurn-solothurn"
+      ]
     }
   ]
 }

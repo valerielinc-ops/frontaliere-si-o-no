@@ -1036,12 +1036,12 @@
     },
     {
       "id": "imad-1ef1acc74d2e",
-      "slug": "assc-aux-uatr-unites-d-accueil-temporaire-de-repit-de-villereuse-a-100-en-cdi-imad-geneva",
+      "slug": "assc-al-uatr-cityreuse-temporary-respite-units-100-cdi-imad-geneva",
       "slugByLocale": {
         "fr": "assc-aux-uatr-unites-d-accueil-temporaire-de-repit-de-villereuse-a-100-en-cdi-imad-geneva",
-        "it": "assc-aux-uatr-unites-d-accueil-temporaire-de-repit-de-villereuse-a-100-en-cdi-imad-geneva",
-        "en": "assc-aux-uatr-unites-d-accueil-temporaire-de-repit-de-villereuse-a-100-en-cdi-imad-geneva",
-        "de": "assc-aux-uatr-unites-d-accueil-temporaire-de-repit-de-villereuse-a-100-en-cdi-imad-geneva"
+        "it": "assc-al-uatr-cityreuse-temporary-respite-units-100-cdi-imad-geneva",
+        "en": "assc-to-the-uatr-cityreuse-temporary-respite-units-100-cdi-imad-geneva",
+        "de": "assc-zur-uatr-cityreuse-temporary-rthrough-units-100-cdi-imad-geneva"
       },
       "company": "imad",
       "companyKey": "imad",
@@ -1104,7 +1104,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-03T21:24:31.798Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-05T21:24:31.798Z"
+      "firstSeenAt": "2026-11-05T21:24:31.798Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assc-aux-uatr-unites-d-accueil-temporaire-de-repit-de-villereuse-a-100-en-cdi-imad-geneva"
+        ],
+        "en": [
+          "assc-aux-uatr-unites-d-accueil-temporaire-de-repit-de-villereuse-a-100-en-cdi-imad-geneva"
+        ],
+        "de": [
+          "assc-aux-uatr-unites-d-accueil-temporaire-de-repit-de-villereuse-a-100-en-cdi-imad-geneva"
+        ]
+      },
+      "previousSlugs": [
+        "assc-aux-uatr-unites-d-accueil-temporaire-de-repit-de-villereuse-a-100-en-cdi-imad-geneva"
+      ]
     }
   ]
 }

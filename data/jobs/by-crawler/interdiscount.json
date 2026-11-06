@@ -24503,12 +24503,12 @@
     },
     {
       "id": "interdiscount-4e60797c-094",
-      "slug": "auxiliaire-de-noel-interdiscount-nyon",
+      "slug": "ausiliare-di-natale-interdiscount-nyon",
       "slugByLocale": {
         "fr": "auxiliaire-de-noel-interdiscount-nyon",
-        "it": "auxiliaire-de-noel-interdiscount-nyon",
-        "en": "auxiliaire-de-noel-interdiscount-nyon",
-        "de": "auxiliaire-de-noel-interdiscount-nyon"
+        "it": "ausiliare-di-natale-interdiscount-nyon",
+        "en": "christmas-auxiliary-interdiscount-nyon",
+        "de": "weihnachtshilfswerk-interdiscount-nyon"
       },
       "company": "Interdiscount",
       "companyKey": "interdiscount",
@@ -24584,7 +24584,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-01-04T21:15:29.802Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-05T21:15:29.802Z"
+      "firstSeenAt": "2026-11-05T21:15:29.802Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "auxiliaire-de-noel-interdiscount-nyon"
+        ],
+        "en": [
+          "auxiliaire-de-noel-interdiscount-nyon"
+        ],
+        "de": [
+          "auxiliaire-de-noel-interdiscount-nyon"
+        ]
+      },
+      "previousSlugs": [
+        "auxiliaire-de-noel-interdiscount-nyon"
+      ]
     },
     {
       "id": "interdiscount-90473afa-01a",
