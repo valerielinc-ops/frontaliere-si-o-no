@@ -217,7 +217,9 @@ describe('diesel Italian station pages — emitted per fuel', () => {
         italy?: { stations?: Array<Record<string, unknown>> };
       }>;
     };
-    collisionDataset.municipalities[0].italy!.stations!.push({
+    const como = collisionDataset.municipalities.find((municipality) => municipality.municipality === 'Como');
+    if (!como?.italy?.stations) throw new Error('Expected the Como station fixture.');
+    como.italy.stations.push({
       id: 'b2',
       brand: 'Shell',
       stationName: 'Shell Como',
