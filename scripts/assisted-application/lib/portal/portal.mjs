@@ -2289,6 +2289,22 @@ export function sameEmployerFamily(one, other) {
   const first = core(one);
   return first.some((word) => !EMPLOYER_KIND_WORDS.has(word) && !FORM_VOCABULARY.has(word)) && first.join(' ') === core(other).join(' ');
 }
+
+function hasDistinctiveCompanyIdentity(company) {
+  return nameWords(company).some((word) => !EMPLOYER_KIND_WORDS.has(word)
+    && !FORM_VOCABULARY.has(word) && !BRANCH_WORDS.has(word));
+}
+
+function currentVacancyIdentityContexts(snapshot = {}) {
+  const controls = [
+    ...(Array.isArray(snapshot.buttons) ? snapshot.buttons : []),
+    ...(Array.isArray(snapshot.links) ? snapshot.links : []),
+  ];
+  return [...new Set(controls.filter((control) => control && !control.disabled && !control.chrome
+    && startsApplication(control.text || control.label))
+    .map((control) => String(control.vacancyContext || '').trim())
+    .filter((context) => context && context.length <= 700))];
+}
 // The kind of employer, alone in a title, names nobody: «Hotel application» is a hotel's form, whoever
 // the hotel is (review of #11064). Next to a word of the order's company it is a name, though:
 // «Esempio Resort» is not «Grand Hotel Esempio» (the neighbour rule does not take these for neutral).
@@ -2378,8 +2394,14 @@ export function hasVacancySpecificPostingEvidence(pageText, job = {}, {
   pageTitle = '',
   postingUrl = '',
   postingRouteProof = null,
+  vacancyIdentityContexts = [],
 } = {}) {
   const sourceText = `${pageTitle}\n${pageText}`;
+  const contexts = Array.isArray(vacancyIdentityContexts)
+    ? vacancyIdentityContexts.filter((context) => typeof context === 'string' && context.trim() && context.length <= 700)
+    : [];
+  const company = String(job?.company || '').trim();
+  if (company && !hasDistinctiveCompanyIdentity(company)) return false;
   const organizationCompatible = !job?.company || !job?.organization
     || sameEmployerFamily(job.organization, job.company);
   if (!organizationCompatible || namesAnotherEmployer(sourceText, job)) return false;
@@ -2388,9 +2410,12 @@ export function hasVacancySpecificPostingEvidence(pageText, job = {}, {
   if (routeBound) return !namesAnotherEmployer(pageText, job);
   const titleMatched = Boolean(job?.title && titleMatches(pageTitle, job.title));
   // The source page must identify the role in its title. Its employer may be
-  // in the body; the external Apply fallback separately requires that same
-  // employer and role in the CTA's own bounded vacancy card.
-  const sourceIdentityMatched = postingMatch(sourceText, job, pageUrl) === 'match';
+  // in the Apply control's bounded vacancy card. Arbitrary page text can also
+  // contain a related vacancy, so it cannot prove this posting's employer.
+  const matchesCurrentIdentity = (text) => titleMatches(text, job.title)
+    && (!company || (hasDistinctiveCompanyIdentity(company) && postingMatch(text, job, pageUrl) === 'match'));
+  const sourceIdentityMatched = matchesCurrentIdentity(pageTitle)
+    || contexts.some(matchesCurrentIdentity);
   return titleMatched && sourceIdentityMatched;
 }
 
@@ -2398,7 +2423,7 @@ export function hasVacancySpecificPostingEvidence(pageText, job = {}, {
 export function hasReadOnlyVacancyEvidence(pageText, job = {}, { pageTitle = '' } = {}) {
   const sourceText = `${pageTitle}\n${pageText}`;
   const company = String(job?.company || '').trim();
-  if (!company || !nameWords(company).length) return false;
+  if (!company || !hasDistinctiveCompanyIdentity(company)) return false;
   const organizationCompatible = !job?.organization || sameEmployerFamily(job.organization, company);
   return Boolean(organizationCompatible && job?.title
     && !namesAnotherEmployer(sourceText, job)
@@ -6198,6 +6223,7 @@ export async function readPortalRequirements(ctx) {
       pageTitle: sourceTitle,
       postingUrl: ctx.postingUrl,
       postingRouteProof: ctx.postingRouteProof,
+      vacancyIdentityContexts: currentVacancyIdentityContexts(snapshot),
     });
     const opened = await openApplicationForm(context, page, snapshot, {
       applyUrl: stageApplyUrl,
@@ -6498,6 +6524,7 @@ export async function submitViaPortal(ctx) {
       pageTitle: postingTitle,
       postingUrl: ctx.postingUrl,
       postingRouteProof: ctx.postingRouteProof,
+      vacancyIdentityContexts: currentVacancyIdentityContexts(snapshot),
     });
     if (postingVacancyMatched && isApplicationRegionUnsupported(initialPageText)
       && !hasApplicationEntryControl(snapshot, {

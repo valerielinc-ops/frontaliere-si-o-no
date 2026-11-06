@@ -729,6 +729,19 @@ it('requires vacancy evidence beyond a company match before trusting one externa
   })).toBe(true);
   expect(hasVacancySpecificPostingEvidence('Muster AG Karriere — Apply', job, {
     pageUrl: listingUrl, pageTitle: 'Application Manager', postingUrl,
+    vacancyIdentityContexts: ['Application Manager — Muster AG'],
+  })).toBe(true);
+  const relatedVacancyJob = { company: 'Acme', title: 'Data Engineer' };
+  expect(hasVacancySpecificPostingEvidence('Related vacancies: Data Engineer — Acme', relatedVacancyJob, {
+    pageUrl: 'https://careers.example.ch/careers',
+    pageTitle: 'Data Engineer | Careers',
+    postingUrl: 'https://careers.example.ch/jobs/data-engineer-current',
+  })).toBe(false);
+  expect(hasVacancySpecificPostingEvidence('Related vacancies: Data Engineer — Acme', relatedVacancyJob, {
+    pageUrl: 'https://careers.example.ch/careers',
+    pageTitle: 'Data Engineer | Careers',
+    postingUrl: 'https://careers.example.ch/jobs/data-engineer-current',
+    vacancyIdentityContexts: ['Data Engineer — Acme'],
   })).toBe(true);
   expect(applicationEntryControls({
     text: 'Muster AG Karriere — Apply',
@@ -747,6 +760,9 @@ it('requires vacancy evidence beyond a company match before trusting one externa
   })).toBe(false);
   expect(hasReadOnlyVacancyEvidence('Application form', { company: 'AG', title: 'Application Manager' }, {
     pageTitle: 'Application Manager',
+  })).toBe(false);
+  expect(hasReadOnlyVacancyEvidence('', { company: 'Hotel', title: 'Concierge' }, {
+    pageTitle: 'Concierge — Hotel',
   })).toBe(false);
   expect(hasReadOnlyVacancyEvidence('Application form', job, {
     pageUrl: postingUrl, pageTitle: 'Muster AG — Application Manager',
