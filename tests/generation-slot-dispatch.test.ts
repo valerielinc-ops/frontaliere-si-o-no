@@ -93,6 +93,16 @@ describe('generation workflow readiness contract', () => {
     expect(inspectGenerationWorkflowContract(workflow.replace('# generation-cloud-clock-contract: v1\n', '')))
       .toMatchObject({ ready: false, reason: 'contract_marker_missing' });
   });
+
+  it('does not borrow recovery inputs from a later workflow trigger', () => {
+    const withoutRecoveryInputs = workflow
+      .replace(`      recovery_slot:\n        required: false\n        type: string\n`, '')
+      .replace(`      recovery_claim:\n        required: false\n        type: string\n`, '')
+      .replace('permissions:', `  workflow_call:\n    inputs:\n      recovery_slot:\n        required: true\n        type: string\n      recovery_claim:\n        required: true\n        type: string\npermissions:`);
+
+    expect(inspectGenerationWorkflowContract(withoutRecoveryInputs))
+      .toMatchObject({ ready: false, reason: 'recovery_inputs_missing' });
+  });
 });
 
 describe('generation claim endpoint authentication', () => {
