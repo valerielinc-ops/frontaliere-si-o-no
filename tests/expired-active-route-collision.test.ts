@@ -154,6 +154,7 @@ describe('repairExpiredRoutesAgainstActive', () => {
         title: active.title,
         company: active.company,
         location: active.location,
+        expiredAt: '2026-01-01T00:00:00.000Z',
       };
       const sliceDir = join(root, 'expired-slices');
       mkdirSync(sliceDir, { recursive: true });
@@ -161,7 +162,14 @@ describe('repairExpiredRoutesAgainstActive', () => {
         slug: `expired-filler-${index}`,
         expiredAt: '2026-10-20T00:00:00.000Z',
       }));
-      writeFileSync(join(sliceDir, 'ipersonal.json'), JSON.stringify([expired, ...filler]));
+      writeFileSync(join(sliceDir, 'ipersonal.json'), JSON.stringify([...filler, expired]));
+
+      const capped = assembleExpiredJobs({
+        sliceDir,
+        aggregatePath: join(root, 'expired-jobs.json'),
+      });
+      expect(capped).toHaveLength(5000);
+      expect(capped?.some((job: Job) => job.slug === COLLIDING_ROUTE)).toBe(false);
 
       const result = repairExpiredArchiveSlicesAgainstActive([active], { sliceDir });
       const persisted = JSON.parse(
