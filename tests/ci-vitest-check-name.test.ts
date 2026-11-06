@@ -38,6 +38,7 @@ const TYPECHECK_CONFIG = JSON.parse(readFileSync(resolve(ROOT, 'tsconfig.ci.json
   };
 };
 const ARTICLE_OVERLAY = readFileSync(resolve(ROOT, 'services/articlesOverlay.ts'), 'utf-8');
+const REVIEW_GATE = readFileSync(resolve(ROOT, 'scripts/ci/review-gate.mjs'), 'utf-8');
 
 function assembleDecision(
   input: Record<string, unknown>,
@@ -212,6 +213,39 @@ describe('tests.yml dataset assembly predicate (#B4)', () => {
 
     expect(RELATED_RUNNER).toContain('::warning::');
     expect(RELATED_RUNNER).toContain('decision.degraded');
+  });
+});
+
+describe('trusted GitHub CLI process deadline (#16248)', () => {
+  it('bounds every workflow GitHub CLI call and the pre-checkout probe', () => {
+    const workflow = YAML.parse(TESTS_YML, { logLevel: 'silent' }) as any;
+    expect(workflow.env?.TRUSTED_GH_TIMEOUT_SECONDS).toBe('60');
+
+    const unbounded = TESTS_YML.split('\n').filter((line) => {
+      const isCliCall =
+        line.includes('"$TRUSTED_GH_BIN" api ') ||
+        line.includes('"$TRUSTED_GH_BIN" pr view ') ||
+        line.includes('"$TRUSTED_GH_BIN" pr comment ') ||
+        line.includes('"$TRUSTED_GH_BIN" pr review ');
+      return isCliCall && !line.includes('timeout --kill-after=1s');
+    });
+    expect(unbounded).toEqual([]);
+
+    const boundedShellCalls = TESTS_YML.split('\n').filter((line) =>
+      line.includes('timeout --kill-after=1s "${TRUSTED_GH_TIMEOUT_SECONDS}s" "$TRUSTED_GH_BIN" api ') ||
+      line.includes('timeout --kill-after=1s "${TRUSTED_GH_TIMEOUT_SECONDS}s" "$TRUSTED_GH_BIN" pr view ') ||
+      line.includes('timeout --kill-after=1s "${TRUSTED_GH_TIMEOUT_SECONDS}s" "$TRUSTED_GH_BIN" pr comment ') ||
+      line.includes('timeout --kill-after=1s "${TRUSTED_GH_TIMEOUT_SECONDS}s" "$TRUSTED_GH_BIN" pr review '),
+    );
+    // Keep the census explicit: a newly added trusted CLI call must update
+    // this contract and carry the same process deadline.
+    expect(boundedShellCalls).toHaveLength(23);
+
+    expect(TESTS_YML).toContain("const raw = cp.execFileSync(\n                  'timeout',");
+    expect(TESTS_YML).toContain('process.env.TRUSTED_GH_TIMEOUT_SECONDS');
+    expect(REVIEW_GATE).toContain('process.env.TRUSTED_GH_TIMEOUT_SECONDS');
+    expect(REVIEW_GATE).toContain('timeout: REVIEW_GATE_GH_TIMEOUT_MS');
+    expect(REVIEW_GATE).toContain("killSignal: 'SIGKILL'");
   });
 });
 
