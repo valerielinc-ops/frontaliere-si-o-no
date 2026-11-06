@@ -1191,7 +1191,10 @@ function applicationEntryContextMatchesPosting(control, context = {}) {
   return Boolean(localContext && job.title
     && titleMatches(localContext, job.title)
     && postingMatch(localContext, job, context.postingUrl) === 'match'
-    && !namesAnotherEmployer(localContext, job, { allowPostingLocation: true }));
+    // A bounded vacancy card is body copy, not the document title. Keep the
+    // neighbouring-name conflict guard, but do not classify its location or
+    // CTA suffix as a second employer through the title-only heuristic.
+    && !namesAnotherEmployer(`\n${localContext}`, job, { allowPostingLocation: true }));
 }
 
 export function applicationEntryControls(snapshot = {}, context = {}) {
@@ -2397,7 +2400,10 @@ export function namesAnotherEmployer(formText, job = {}, { allowPostingLocation 
         let at = index + step;
         // A legal form is skipped like filler: «Rituals Cosmetics Germany GmbH» ends in no one's name.
         while (words[at] !== undefined && (filler(words[at]) || NOT_A_NAME.has(words[at]))) at += step;
-        if (words[at] !== undefined && !neutral.has(words[at]) && !labels?.has(words[at])) return true;
+        // Vacancy cards flatten labels such as «Standort» beside the employer;
+        // the label names metadata, not another company.
+        if (words[at] !== undefined && !neutral.has(words[at])
+          && !FIELD_LABEL_WORDS.has(words[at]) && !labels?.has(words[at])) return true;
       }
     }
   }
