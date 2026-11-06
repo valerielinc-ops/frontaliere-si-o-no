@@ -34,6 +34,26 @@ on:
         required: false
         type: boolean
         default: false
+      hreflang_source_run_id:
+        description: 'Investigation-only: rebuild the IT shard from this deploy run snapshot and measure hreflang staging; no deploy or publish occurs.'
+        required: false
+        type: string
+        default: ''
+      hreflang_source_run_attempt:
+        description: 'Attempt number for the source deploy run artifacts.'
+        required: false
+        type: string
+        default: '1'
+      source_sha:
+        description: 'Exact head SHA of the source deploy run; the benchmark rebuilds this commit and overlays only the fixed hreflang script.'
+        required: false
+        type: string
+        default: ''
+      source_parallel_plugins:
+        description: 'Value of the source deploy run parallel_plugins input; controls SEQUENTIAL_PROFILE in the production build env.'
+        required: false
+        type: boolean
+        default: false
 
 permissions:
   contents: read
@@ -56,6 +76,7 @@ env:
 
 jobs:
   build:
+    if: github.event.inputs.hreflang_source_run_id == ''
     runs-on: ubuntu-latest
     timeout-minutes: 120
     steps:
@@ -127,7 +148,7 @@ jobs:
 
   shards:
     needs: build
-    if: github.event.inputs.build_only != 'true'
+    if: github.event.inputs.build_only != 'true' && github.event.inputs.hreflang_source_run_id == ''
     runs-on: ubuntu-latest
     timeout-minutes: 15
     strategy:
@@ -288,10 +309,252 @@ jobs:
           if-no-files-found: ignore
           retention-days: 7
 
+  benchmark-hreflang-staging:
+    name: Rebuild IT shard and measure staging peak
+    if: github.event.inputs.hreflang_source_run_id != ''
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+    permissions:
+      contents: read
+      actions: read
+    steps:
+      - name: Checkout benchmark branch
+        uses: actions/checkout@v5
+
+      - name: Validate source run and commit
+        id: source-run
+        env:
+          GH_TOKEN: ${{ github.token }}
+          SOURCE_RUN_ID: ${{ github.event.inputs.hreflang_source_run_id }}
+          SOURCE_SHA: ${{ github.event.inputs.source_sha }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          if ! [[ "$SOURCE_SHA" =~ ^[0-9a-f]{40}$ ]]; then
+            echo "::error::source_sha must be the full 40-character commit SHA from the source deploy run"
+            exit 1
+          fi
+          run_sha="$(gh api "repos/${GITHUB_REPOSITORY}/actions/runs/${SOURCE_RUN_ID}" --jq .head_sha)"
+          if [ "$run_sha" != "$SOURCE_SHA" ]; then
+            echo "::error::source_sha does not match source run ${SOURCE_RUN_ID} (run head: ${run_sha})"
+            exit 1
+          fi
+          echo "sha=$SOURCE_SHA" >> "$GITHUB_OUTPUT"
+          echo "Validated source deploy run ${SOURCE_RUN_ID} at ${SOURCE_SHA}."
+
+      - name: Preserve fixed hreflang implementation from benchmark branch
+        id: preserve-hreflang-fix
+        run: cp scripts/ci/hreflang-index-manifest.mjs "$RUNNER_TEMP/hreflang-index-manifest.mjs"
+
+      - name: Checkout source deploy commit
+        uses: actions/checkout@v5
+        with:
+          ref: ${{ steps.source-run.outputs.sha }}
+
+      - name: Overlay fixed hreflang implementation
+        env:
+          SOURCE_SHA: ${{ steps.source-run.outputs.sha }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$(git rev-parse HEAD)" = "$SOURCE_SHA"
+          cp "$RUNNER_TEMP/hreflang-index-manifest.mjs" scripts/ci/hreflang-index-manifest.mjs
+          cmp "$RUNNER_TEMP/hreflang-index-manifest.mjs" scripts/ci/hreflang-index-manifest.mjs
+          changed_files="$(git diff --name-only)"
+          if [ "$changed_files" != 'scripts/ci/hreflang-index-manifest.mjs' ]; then
+            echo "::error::benchmark overlay changed unexpected source files: ${changed_files}"
+            exit 1
+          fi
+
+      - name: Free unused toolchains
+        shell: bash
+        run: |
+          set -euo pipefail
+          sudo rm -rf /usr/local/lib/android /usr/share/dotnet /opt/ghc \
+            /usr/local/share/boost /opt/hostedtoolcache/CodeQL /usr/share/swift
+
+      - name: Grow swap for the production build heap
+        run: bash scripts/ci/grow-build-swap.sh
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: '22'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Prepare Firebase credentials
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -n "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+            printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+            echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+          fi
+
+      - name: Load build secrets from Remote Config
+        run: node scripts/load-rc-env.mjs
+
+      - name: Download source run prepared snapshot
+        uses: actions/download-artifact@v7
+        with:
+          name: prepared-snapshot
+          run-id: ${{ github.event.inputs.hreflang_source_run_id }}
+          github-token: ${{ github.token }}
+          path: /tmp/source-snapshot
+
+      - name: Restore source run prepared snapshot
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -s /tmp/source-snapshot/prepared-snapshot.tgz
+          tar -xzf /tmp/source-snapshot/prepared-snapshot.tgz -C .
+          test -f data/jobs.json
+          test -f public/data/jobs.json
+
+      - name: Download source run hreflang manifest (en)
+        uses: actions/download-artifact@v7
+        with:
+          name: hreflang-index-manifest-en-${{ github.event.inputs.hreflang_source_run_id }}-${{ github.event.inputs.hreflang_source_run_attempt }}
+          run-id: ${{ github.event.inputs.hreflang_source_run_id }}
+          github-token: ${{ github.token }}
+          path: .cache/hreflang-index-manifest
+
+      - name: Download source run hreflang manifest (de)
+        uses: actions/download-artifact@v7
+        with:
+          name: hreflang-index-manifest-de-${{ github.event.inputs.hreflang_source_run_id }}-${{ github.event.inputs.hreflang_source_run_attempt }}
+          run-id: ${{ github.event.inputs.hreflang_source_run_id }}
+          github-token: ${{ github.token }}
+          path: .cache/hreflang-index-manifest
+
+      - name: Download source run hreflang manifest (fr)
+        uses: actions/download-artifact@v7
+        with:
+          name: hreflang-index-manifest-fr-${{ github.event.inputs.hreflang_source_run_id }}-${{ github.event.inputs.hreflang_source_run_attempt }}
+          run-id: ${{ github.event.inputs.hreflang_source_run_id }}
+          github-token: ${{ github.token }}
+          path: .cache/hreflang-index-manifest
+
+      - name: Set production-shaped build id
+        run: echo "BENCH_BUILD_ID=$(date +%s%3N)" >> "$GITHUB_ENV"
+
+      - name: Mirror build-locale environment from deploy workflow
+        env:
+          BENCH_REPOSITORY_VARS_JSON: ${{ toJSON(vars) }}
+          BENCH_SOURCE_PARALLEL_PLUGINS: ${{ github.event.inputs.source_parallel_plugins }}
+        shell: bash
+        run: |
+          node --input-type=module <<'NODE'
+          import { appendFileSync, readFileSync } from 'node:fs';
+          import { parse } from 'yaml';
+
+          const workflow = parse(readFileSync('.github/workflows/deploy.yml', 'utf8'));
+          const buildJob = workflow.jobs['build-locale'];
+          const jobEnv = buildJob?.env;
+          const buildStep = buildJob?.steps?.find(step => step.name?.startsWith('Build (BUILD_LOCALE='));
+          const stepEnv = buildStep?.env;
+          if (!jobEnv || typeof jobEnv !== 'object' || !stepEnv || typeof stepEnv !== 'object') {
+            throw new Error('deploy.yml is missing jobs.build-locale.env or its Build step env');
+          }
+          const repositoryVars = JSON.parse(process.env.BENCH_REPOSITORY_VARS_JSON || '{}');
+          const resolveExpression = (expression, key) => {
+            expression = expression.trim();
+            const comparison = /^vars\.([A-Z0-9_]+)\s*==\s*'([^']*)'\s*&&\s*'([^']*)'\s*\|\|\s*'([^']*)'$/u.exec(expression);
+            if (comparison) {
+              return String(repositoryVars[comparison[1]] ?? '') === comparison[2]
+                ? comparison[3]
+                : comparison[4];
+            }
+            const fallback = /^vars\.([A-Z0-9_]+)\s*\|\|\s*'([^']*)'$/u.exec(expression);
+            if (fallback) return String(repositoryVars[fallback[1]] ?? fallback[2]);
+            if (expression === 'matrix.locale') return 'it';
+            if (expression === 'needs.matrix-setup.outputs.build_id') return process.env.BENCH_BUILD_ID;
+            if (expression === 'runner.temp') {
+              if (!process.env.RUNNER_TEMP) throw new Error('RUNNER_TEMP is unavailable');
+              return process.env.RUNNER_TEMP;
+            }
+            if (expression.includes('parallel_plugins')) {
+              return process.env.BENCH_SOURCE_PARALLEL_PLUGINS === 'true' ? '' : '1';
+            }
+            throw new Error(`unsupported deploy build environment expression for ${key}`);
+          };
+          const resolveValue = (raw, key) => {
+            if (typeof raw !== 'string') return String(raw ?? '');
+            return raw.replace(/\$\{\{\s*([\s\S]*?)\s*\}\}/gu, (_match, expression) => resolveExpression(expression, key));
+          };
+
+          const lines = [];
+          for (const [key, raw] of Object.entries({ ...jobEnv, ...stepEnv })) {
+            const value = resolveValue(raw, key);
+            if (/[\r\n]/u.test(key) || /[\r\n]/u.test(value)) {
+              throw new Error(`multiline deploy build environment value is unsupported: ${key}`);
+            }
+            lines.push(`${key}=${value}`);
+          }
+          appendFileSync(process.env.GITHUB_ENV, `${lines.join('\n')}\n`);
+          console.log(`Loaded ${lines.length} production build environment values from deploy.yml.`);
+          NODE
+
+      - name: Build IT locale shard from source snapshot
+        env:
+          NODE_OPTIONS: '--max-old-space-size=14336 --expose-gc'
+        run: npm run build:ci 2>&1 | tee /tmp/build.log
+
+      - name: Validate build profile markers
+        run: node scripts/validate-build-profile-markers.mjs /tmp/build.log
+
+      - name: Prune to production IT locale shard
+        run: node scripts/ci/prune-locale-shard.mjs dist
+
+      - name: Validate locale shard output
+        run: node scripts/ci/validate-locale-shard-build.mjs dist
+
+      - name: Measure hreflang staging on the production-shaped shard
+        shell: bash
+        env:
+          BENCH_SOURCE_RUN_ID: ${{ github.event.inputs.hreflang_source_run_id }}
+          BENCH_SOURCE_RUN_ATTEMPT: ${{ github.event.inputs.hreflang_source_run_attempt }}
+          BENCH_SOURCE_SHA: ${{ github.event.inputs.source_sha }}
+          BENCH_HARNESS_SHA: ${{ github.sha }}
+        run: |
+          set -euo pipefail
+          echo "Source deploy run: $BENCH_SOURCE_RUN_ID attempt $BENCH_SOURCE_RUN_ATTEMPT"
+          echo "Source code SHA: $BENCH_SOURCE_SHA"
+          echo "Benchmark harness SHA: $BENCH_HARNESS_SHA"
+          echo "IT shard bytes: $(du -sb dist | awk '{print $1}')"
+          echo "IT shard files: $(find dist -type f | wc -l)"
+          rm -f .cache/hreflang-index-manifest/it.json
+          node scripts/ci/hreflang-index-manifest.mjs dist \
+            --manifest-dir .cache/hreflang-index-manifest \
+            --require-foreign-manifests 2>&1 | tee /tmp/hreflang-benchmark.log
+          {
+            echo "## Hreflang staging benchmark"
+            echo
+            echo "- Source deploy run: $BENCH_SOURCE_RUN_ID, attempt $BENCH_SOURCE_RUN_ATTEMPT"
+            echo "- Source code SHA: $BENCH_SOURCE_SHA"
+            echo "- Benchmark harness SHA: $BENCH_HARNESS_SHA"
+            echo "- IT shard bytes: $(du -sb dist | awk '{print $1}')"
+            echo "- IT shard files: $(find dist -type f | wc -l)"
+            echo
+            grep '^\[hreflang-index-manifest\]' /tmp/hreflang-benchmark.log
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Upload benchmark report
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: hreflang-enospc-benchmark-${{ github.event.inputs.hreflang_source_run_id }}-${{ github.event.inputs.hreflang_source_run_attempt }}
+          path: /tmp/hreflang-benchmark.log
+          retention-days: 7
+          if-no-files-found: ignore
+
   aggregate:
     needs: [build, shards]
     runs-on: ubuntu-latest
-    if: always() && github.event.inputs.build_only != 'true'
+    if: always() && github.event.inputs.build_only != 'true' && github.event.inputs.hreflang_source_run_id == ''
     steps:
       - uses: actions/download-artifact@v8
         with:

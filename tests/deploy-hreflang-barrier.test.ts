@@ -48,6 +48,22 @@ describe('deferred same-run hreflang exchange', () => {
     expect(retryPublish.with['retention-days']).toBe(3);
   });
 
+  it('binds sitemap receipts only after each locale\'s required source artifacts exist', () => {
+    const bind = step(buildSteps, 'Bind sitemap page manifest to uploaded artifact digests');
+    const uploadReceipt = step(buildSteps, 'Upload sitemap page manifest for publisher gate');
+
+    expect(bind).toBeDefined();
+    expect(bind.if).toContain("steps.validate-owned-sitemap-pages.outcome == 'success'");
+    expect(bind.if).toContain("matrix.locale != 'it'");
+    expect(bind.if).toContain("steps.upload-locale-source.outcome == 'success'");
+    expect(bind.if).toContain("matrix.locale == 'it'");
+    expect(bind.if).toContain("steps.hreflang-index-manifest.outcome == 'success'");
+    expect(bind.if).toContain("steps.upload-pages-artifact.outcome == 'success'");
+    expect(bind.if).toContain("steps.upload-sitemaps-bundle.outcome == 'success'");
+    expect(uploadReceipt).toBeDefined();
+    expect(uploadReceipt.if).toBe("always() && steps.bind-sitemap-page-manifest.outcome == 'success'");
+  });
+
   it('finalizes pending source tarballs in the deferred publisher with the exact source attempt', () => {
     const sourceValidator = step(publish.jobs['validate-source-build'].steps, 'Validate source build identity and inputs');
     const sourceAttempt = publish.jobs['validate-source-build'].outputs.source_run_attempt;
