@@ -29,6 +29,16 @@ on:
         required: false
         type: boolean
         default: false
+      hreflang_source_run_id:
+        description: 'Investigation-only: rebuild the IT shard from this deploy run snapshot and measure hreflang staging; no deploy or publish occurs.'
+        required: false
+        type: string
+        default: ''
+      hreflang_source_run_attempt:
+        description: 'Attempt number for the source deploy run artifacts.'
+        required: false
+        type: string
+        default: '1'
 
 permissions:
   contents: read
@@ -51,6 +61,7 @@ env:
 
 jobs:
   build:
+    if: github.event.inputs.hreflang_source_run_id == ''
     runs-on: ubuntu-latest
     timeout-minutes: 120
     steps:
@@ -120,7 +131,7 @@ jobs:
 
   shards:
     needs: build
-    if: github.event.inputs.build_only != 'true'
+    if: github.event.inputs.build_only != 'true' && github.event.inputs.hreflang_source_run_id == ''
     runs-on: ubuntu-latest
     timeout-minutes: 15
     strategy:
@@ -281,10 +292,182 @@ jobs:
           if-no-files-found: ignore
           retention-days: 7
 
+  benchmark-hreflang-staging:
+    name: Rebuild IT shard and measure staging peak
+    if: github.event.inputs.hreflang_source_run_id != ''
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+    permissions:
+      contents: read
+      actions: read
+    env:
+      BUILD_PROFILE: '1'
+      ASSET_CDN: 'https://cdn.frontaliereticino.ch'
+      POST_WALK_WORKERS: '2'
+      SEQUENTIAL_PROFILE: '1'
+      JOBS_SEO_PROFILE_PHASES: '1'
+      JOBS_SEO_FALLBACK_WORKERS: '1'
+      RELATED_SEARCH_CLUSTERS_NO_CACHE: '1'
+      RELATED_SEARCH_PREPASS_CONCURRENCY: '1'
+      DEPLOY_CONTENT_MANIFEST: '1'
+      MALLOC_ARENA_MAX: '2'
+      BUILD_LOCALE: 'it'
+      ARTICOLIFRONTALIERE_BUILD_EMIT_SKIP: ${{ vars.ARTICOLIFRONTALIERE_BUILD_EMIT_SKIP == 'false' && 'false' || 'true' }}
+      ARTICOLISVIZZERA_BUILD_EMIT_SKIP: ${{ vars.ARTICOLISVIZZERA_BUILD_EMIT_SKIP == 'false' && 'false' || 'true' }}
+      JOBS_SEO_REUSE: ${{ vars.JOBS_SEO_REUSE == '1' && '1' || '' }}
+      JOBS_SEO_REUSE_VERIFY: ${{ vars.JOBS_SEO_REUSE_VERIFY == '1' && '1' || '' }}
+      JOBS_SEO_REUSE_VERIFY_SAMPLE: ${{ vars.JOBS_SEO_REUSE_VERIFY_SAMPLE || '' }}
+      JOBS_SEO_REUSE_PROBE: ${{ vars.JOBS_SEO_REUSE_PROBE == '1' && '1' || '' }}
+      JOBS_SEO_SECTOR_MEMO: ${{ vars.JOBS_SEO_SECTOR_MEMO == '0' && '' || '1' }}
+      JOBS_SEO_SLUG_INFO_FAST: ${{ vars.JOBS_SEO_SLUG_INFO_FAST == '0' && '' || '1' }}
+      RELATED_SEARCH_POSTINGS_SPARSE: ${{ vars.RELATED_SEARCH_POSTINGS_SPARSE == '1' && '1' || '' }}
+      POST_WALK_INCREMENTAL: ${{ vars.POST_WALK_INCREMENTAL == '1' && '1' || '' }}
+      POST_WALK_INCREMENTAL_VERIFY: ${{ vars.POST_WALK_INCREMENTAL_VERIFY == '1' && '1' || '' }}
+      STATIC_BUILD_ID_META: ${{ vars.STATIC_BUILD_ID_META == 'off' && 'off' || '' }}
+    steps:
+      - name: Restore runner CA trust before checkout
+        shell: bash
+        run: |
+          set -euo pipefail
+          ca_file=/etc/ssl/certs/ca-certificates.crt
+          if [[ ! -s "$ca_file" ]]; then sudo update-ca-certificates --fresh; fi
+          test -s "$ca_file"
+          {
+            echo "GIT_SSL_CAINFO=$ca_file"
+            echo "GIT_SSL_CAPATH=/etc/ssl/certs"
+          } >> "$GITHUB_ENV"
+
+      - name: Checkout benchmark branch
+        uses: actions/checkout@v7
+
+      - name: Free unused toolchains
+        shell: bash
+        run: |
+          set -euo pipefail
+          sudo rm -rf /usr/local/lib/android /usr/share/dotnet /opt/ghc \
+            /usr/local/share/boost /opt/hostedtoolcache/CodeQL /usr/share/swift
+
+      - name: Grow swap for the production build heap
+        run: bash scripts/ci/grow-build-swap.sh
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: '22'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Prepare Firebase credentials
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -n "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+            printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+            echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+          fi
+
+      - name: Load build secrets from Remote Config
+        run: node scripts/load-rc-env.mjs
+
+      - name: Download source run prepared snapshot
+        uses: actions/download-artifact@v7
+        with:
+          name: prepared-snapshot
+          run-id: ${{ github.event.inputs.hreflang_source_run_id }}
+          github-token: ${{ github.token }}
+          path: /tmp/source-snapshot
+
+      - name: Restore source run prepared snapshot
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -s /tmp/source-snapshot/prepared-snapshot.tgz
+          tar -xzf /tmp/source-snapshot/prepared-snapshot.tgz -C .
+          test -f data/jobs.json
+          test -f public/data/jobs.json
+
+      - name: Download source run hreflang manifest (en)
+        uses: actions/download-artifact@v7
+        with:
+          name: hreflang-index-manifest-en-${{ github.event.inputs.hreflang_source_run_id }}-${{ github.event.inputs.hreflang_source_run_attempt }}
+          run-id: ${{ github.event.inputs.hreflang_source_run_id }}
+          github-token: ${{ github.token }}
+          path: .cache/hreflang-index-manifest
+
+      - name: Download source run hreflang manifest (de)
+        uses: actions/download-artifact@v7
+        with:
+          name: hreflang-index-manifest-de-${{ github.event.inputs.hreflang_source_run_id }}-${{ github.event.inputs.hreflang_source_run_attempt }}
+          run-id: ${{ github.event.inputs.hreflang_source_run_id }}
+          github-token: ${{ github.token }}
+          path: .cache/hreflang-index-manifest
+
+      - name: Download source run hreflang manifest (fr)
+        uses: actions/download-artifact@v7
+        with:
+          name: hreflang-index-manifest-fr-${{ github.event.inputs.hreflang_source_run_id }}-${{ github.event.inputs.hreflang_source_run_attempt }}
+          run-id: ${{ github.event.inputs.hreflang_source_run_id }}
+          github-token: ${{ github.token }}
+          path: .cache/hreflang-index-manifest
+
+      - name: Set production-shaped build id
+        run: echo "DEPLOY_BUILD_ID=$(date +%s%3N)" >> "$GITHUB_ENV"
+
+      - name: Build IT locale shard from source snapshot
+        env:
+          NODE_OPTIONS: '--max-old-space-size=14336 --expose-gc'
+        run: npm run build:ci 2>&1 | tee /tmp/build.log
+
+      - name: Validate build profile markers
+        run: node scripts/validate-build-profile-markers.mjs /tmp/build.log
+
+      - name: Prune to production IT locale shard
+        run: node scripts/ci/prune-locale-shard.mjs dist
+
+      - name: Validate locale shard output
+        run: node scripts/ci/validate-locale-shard-build.mjs dist
+
+      - name: Measure hreflang staging on the production-shaped shard
+        shell: bash
+        env:
+          SOURCE_RUN_ID: ${{ github.event.inputs.hreflang_source_run_id }}
+          SOURCE_RUN_ATTEMPT: ${{ github.event.inputs.hreflang_source_run_attempt }}
+        run: |
+          set -euo pipefail
+          echo "Source deploy run: $SOURCE_RUN_ID attempt $SOURCE_RUN_ATTEMPT"
+          echo "Benchmark code SHA: $(git rev-parse HEAD)"
+          echo "IT shard bytes: $(du -sb dist | awk '{print $1}')"
+          echo "IT shard files: $(find dist -type f | wc -l)"
+          rm -f .cache/hreflang-index-manifest/it.json
+          node scripts/ci/hreflang-index-manifest.mjs dist \
+            --manifest-dir .cache/hreflang-index-manifest \
+            --require-foreign-manifests 2>&1 | tee /tmp/hreflang-benchmark.log
+          {
+            echo "## Hreflang staging benchmark"
+            echo
+            echo "- Source deploy run: $SOURCE_RUN_ID, attempt $SOURCE_RUN_ATTEMPT"
+            echo "- Benchmark code SHA: $(git rev-parse HEAD)"
+            echo "- IT shard bytes: $(du -sb dist | awk '{print $1}')"
+            echo "- IT shard files: $(find dist -type f | wc -l)"
+            echo
+            grep '^\[hreflang-index-manifest\]' /tmp/hreflang-benchmark.log
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Upload benchmark report
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: hreflang-enospc-benchmark-${{ github.event.inputs.hreflang_source_run_id }}-${{ github.event.inputs.hreflang_source_run_attempt }}
+          path: /tmp/hreflang-benchmark.log
+          retention-days: 7
+          if-no-files-found: ignore
+
   aggregate:
     needs: [build, shards]
     runs-on: ubuntu-latest
-    if: always() && github.event.inputs.build_only != 'true'
+    if: always() && github.event.inputs.build_only != 'true' && github.event.inputs.hreflang_source_run_id == ''
     steps:
       - uses: actions/download-artifact@v8
         with:
