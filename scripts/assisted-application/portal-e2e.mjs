@@ -638,7 +638,7 @@ function fakePortal() {
           <label for="v">Vorname *</label><input id="v" name="first" required><label for="n">Nachname *</label><input id="n" name="last" required>
           <label for="m">E-Mail *</label><input id="m" type="email" name="mail" required>
           <div id="addr"></div><input type="hidden" name="country" id="countryValue" value="United States of America">
-          <label for="pcode">Country Phone Code*</label><input id="pcode" data-uxi-widget-type="selectinput" data-uxi-multiselect-id="pc1" autocomplete="off">
+          <label for="pcode">Country Phone Code*</label><input id="pcode" data-uxi-widget-type="selectinput" data-uxi-multiselect-id="pc1" autocomplete="off" aria-expanded="false">
           <ul role="listbox"><li id="pill" role="option" data-uxi-widget-type="selectinputlistitem" data-uxi-multiselect-id="pc1">United States of America (+1)</li></ul>
           <input type="hidden" name="phoneCode" id="phoneCodeValue" value="United States of America (+1)">
           <label for="letter">Cover Letter</label><input id="letter" type="file" name="letter">
@@ -731,7 +731,8 @@ function fakePortal() {
           el('pcode').onkeydown = (event) => {
             if (event.key !== 'Enter') return;
             event.preventDefault();
-            const choose = (code) => { el('phoneCodeValue').value = code; el('pill').textContent = code; el('pcode').value = ''; el('codes').style.display = 'none'; };
+            el('pcode').setAttribute('aria-expanded', 'true');
+            const choose = (code) => { el('phoneCodeValue').value = code; el('pill').textContent = code; el('pcode').value = code; el('pcode').setAttribute('aria-expanded', 'false'); el('codes').style.display = 'none'; };
             setTimeout(() => {
               const matches = ['Switzerland (+41)', 'Italy (+39)'].filter((code) => code.includes(el('pcode').value));
               if (matches.length === 1) return choose(matches[0]);
