@@ -908,9 +908,7 @@ export function employerProfilePagesPlugin(rootDir: string): Plugin {
         // the production sequential profile the registry is published later;
         // preserve the complete candidate group so the post-consumer can
         // reconcile stale entries before applying the preview cap.
-        const listed = jobSitemapAllowlist === null
-          ? group
-          : filterJobsToActiveDetails(group, jobSitemapAllowlist).slice(0, MAX_JOBS_LISTED);
+        const listed = filterJobsToActiveDetails(group, jobSitemapAllowlist).slice(0, MAX_JOBS_LISTED);
         // Display the LIVE active count (corpus at build time) rather than the
         // committed snapshot, and gate indexability on it — so a dataset that
         // has drifted below the floor since it was generated auto-downgrades to
