@@ -15007,6 +15007,7 @@ ${staticAnalyticsHtml}
     payloadJson: expiredWindowData,
     titleHtml: pageTitle,
     metaDescriptionHtml: esc(softLandingMetaDescription(locale, pageDesc)),
+    expectedNoindex: /\bnoindex\b/i.test(expiredRobotsTag),
     owner: {
      slug: ejData?.slug || '',
      sourceIdentity: ejData?.sourceIdentity || '',

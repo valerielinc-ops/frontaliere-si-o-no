@@ -69,6 +69,8 @@ export function createExpiredArchivePublicationEvidence({
       const locale = String(candidate?.locale ?? '');
       if (!candidates.has(locale)) throw new Error(`unsupported expired archive evidence locale ${JSON.stringify(locale)}`);
       renderedByLocale.set(locale, renderedByLocale.get(locale) + 1);
+      // The publication contract requires noindex; recent expired pages may still be indexable by policy.
+      if (candidate.expectedNoindex === false) return;
       const bucket = candidates.get(locale);
       if (bucket.length >= canariesPerLocale) return;
 
