@@ -14,7 +14,10 @@ import {
   scoreCandidates,
   fetchAll,
 } from '../../../../scripts/lib/discovery/discoveryPool.mjs';
-import { NEWS_RSS_MAX_SEED_DURATION_MS } from '../../../../scripts/lib/discovery/sources/googleNewsRssSource.mjs';
+import {
+  fetchNewsRssDiscoveryCandidates,
+  NEWS_RSS_MAX_SEED_DURATION_MS,
+} from '../../../../scripts/lib/discovery/sources/googleNewsRssSource.mjs';
 
 const evidence = {
   windowDays: 90,
@@ -109,6 +112,52 @@ describe('fetchAll', () => {
     expect(canonicalizeEvidenceUrl('https://news.example/news/1')).toBe('https://news.example/news/1');
   });
 
+  it.each([
+    ['missing', undefined],
+    ['unreadable', 'not-a-date'],
+  ])('applies the News 48h fallback to %s pubDate in News and Trends', async (_label, pubDate) => {
+    const nowMs = Date.parse('2026-11-06T12:00:00.000Z');
+    const signalHeadline = 'telelavoro frontalieri svizzera italia';
+    const newsFn = async (_evidence: unknown, opts: { seeds?: string[]; nowMs?: number } = {}) => {
+      const isTrendEvidence = Array.isArray(opts.seeds);
+      return fetchNewsRssDiscoveryCandidates(_evidence as object, {
+        nowMs: opts.nowMs,
+        seeds: opts.seeds,
+        newsFn: async () => ({
+          ok: true,
+          perSeed: {},
+          candidates: [{
+            keyword: isTrendEvidence ? 'Evidenza Trends con data degradata' : 'News con data degradata',
+            demandSignals: {
+              googleNewsRssSeed: isTrendEvidence ? signalHeadline : 'news ordinaria',
+              googleNewsRssLink: isTrendEvidence
+                ? 'https://news.example.test/trend-degraded-date'
+                : 'https://news.example.test/news-degraded-date',
+              ...(pubDate === undefined ? {} : { googleNewsRssPubDate: pubDate }),
+            },
+          }],
+        }),
+      });
+    };
+
+    const out = await fetchAll(evidence, {
+      suggestFn: async () => [],
+      newsFn,
+      trendsFn: async () => [{
+        headline: signalHeadline,
+        url: null,
+        source: 'trends' as const,
+        meta: { score: 80 },
+      }],
+      nowMs,
+    });
+
+    expect(out.perSource.news).toBe(1);
+    expect(out.perSource.trends).toBe(1);
+    expect(out.candidates.find((candidate) => candidate.source === 'news')?.meta.ageHours).toBe(48);
+    expect(out.candidates.find((candidate) => candidate.source === 'trends')?.meta.evidenceAgeHours).toBe(48);
+  });
+
   it('deduplicates trend evidence by canonical URL, not raw feed URL', async () => {
     const nowMs = Date.parse('2026-11-06T12:00:00.000Z');
     const newsFn = async (_evidence: unknown, opts: { seeds?: string[]; nowMs?: number } = {}) => {
@@ -198,7 +247,7 @@ describe('fetchAll', () => {
     expect(trendArticle?.meta.evidencePublisher).toBe('rsi.ch');
   });
 
-  it('does not pass a trend query to article generation without recent HTTPS news evidence', async () => {
+  it('does not pass a trend query to article generation with old, future, or non-HTTPS evidence', async () => {
     const nowMs = Date.now();
     const noEvidence = async (_evidence: unknown, opts: { seeds?: string[] } = {}) => {
       if (!opts.seeds) return [];
@@ -224,12 +273,6 @@ describe('fetchAll', () => {
           url: 'http://news.google.com/rss/articles/insecure',
           source: 'news' as const,
           meta: { seed: opts.seeds[0], pubDate: new Date(nowMs - 2 * 60 * 60 * 1000).toUTCString() },
-        },
-        {
-          headline: 'Notizia senza data frontalieri Ticino',
-          url: 'https://news.google.com/rss/articles/no-date',
-          source: 'news' as const,
-          meta: { seed: opts.seeds[0], pubDate: 'not-a-date' },
         },
       ];
     };
