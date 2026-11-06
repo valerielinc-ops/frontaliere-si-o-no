@@ -80,6 +80,11 @@ on:
         type: boolean
         required: false
         default: false
+      profile_job_phases:
+        description: 'Investigation-only: collect per-phase jobs SEO timings. Adds instrumentation to the per-page build path; off by default.'
+        required: false
+        type: boolean
+        default: false
       retention_probe:
         description: 'Investigation-only: release exactly one jobsSeo retention candidate and label its corpus-release gcFreed measurement'
         required: false
@@ -443,7 +448,7 @@ jobs:
       SEQUENTIAL_PROFILE: ${{ github.event.inputs.parallel_plugins == 'true' && '' || '1' }}
       BUILD_PROFILE: '1'
       POST_WALK_WORKERS: '2'
-      JOBS_SEO_PROFILE_PHASES: '1'
+      JOBS_SEO_PROFILE_PHASES: ${{ inputs.profile_job_phases == true && '1' || '' }}
       # Keep the no-deploy memory canary on the same canonical-fallback path
       # as production while validating the mitigation on every locale.
       JOBS_SEO_FALLBACK_WORKERS: ${{ inputs.fallback_workers }}
@@ -1180,7 +1185,7 @@ jobs:
       BUILD_PROFILE: '1'
       FAST_BUILD: ${{ github.event.inputs.fast_build == 'true' && '1' || '' }}
       POST_WALK_WORKERS: '2'
-      JOBS_SEO_PROFILE_PHASES: '1'
+      JOBS_SEO_PROFILE_PHASES: ${{ inputs.profile_job_phases == true && '1' || '' }}
       RELATED_SEARCH_CLUSTERS_NO_CACHE: '1'
       JOBS_SEO_RETENTION_PROBE: ${{ github.event.inputs.retention_probe }}
       BUILD_BENCH: '1'
