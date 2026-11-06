@@ -29,6 +29,10 @@ const {
   OFFICIAL_LISTING_CANONICAL_URL,
   fetchTichOfficialListingViaTranslate,
 } = await import('../scripts/scrape-concorsi-ti.mjs');
+const {
+  discoverCantonTicinoOscCandidates,
+  fetchCantonTicinoOscDetail,
+} = await import('../scripts/lib/canton-ticino-osc-job-parser.mjs');
 
 const LISTING_URL = 'https://www.concorsi.ti.ch/';
 const RSS_URL = 'https://www.concorsi.ti.ch/rss_generator-rss0.php?unit=act&lang=it';
@@ -424,6 +428,50 @@ describe('Ticino official listing transport', () => {
     } finally {
       vi.useRealTimers();
     }
+  });
+});
+
+describe('Canton Ticino OSC shared transport', () => {
+  it('uses the validated Morss listing after every direct discovery path is unavailable', async () => {
+    const fetchSourceHtml = vi.fn(async () => {
+      throw new TypeError('forced GitHub-runner Ti.CH egress failure');
+    });
+    const fetchTranslatedListing = vi.fn(async (_url, { onExhausted }) => {
+      onExhausted({ transport: true, fatal: false });
+      return null;
+    });
+    const fetchMorssListing = vi.fn(async () => morssListingHtml);
+
+    await expect(discoverCantonTicinoOscCandidates({
+      timeoutMs: 1_000,
+      fetchSourceHtml,
+      fetchTranslatedListing,
+      fetchMorssListing,
+    })).resolves.toEqual({
+      candidates: [{ yid: '4101', anchorText: 'Offerta' }],
+      preferMorss: true,
+    });
+
+    expect(fetchSourceHtml).toHaveBeenCalledTimes(3);
+    expect(fetchTranslatedListing).toHaveBeenCalledOnce();
+    expect(fetchMorssListing).toHaveBeenCalledOnce();
+  });
+
+  it('uses the identity-validated Morss detail before the failed direct path', async () => {
+    const fetchSourceHtml = vi.fn(async () => {
+      throw new TypeError('direct detail unavailable');
+    });
+    const fetchMorssDetail = vi.fn(async () => validTichDetailHtml);
+
+    await expect(fetchCantonTicinoOscDetail(TICH_DETAIL_URL, {
+      timeoutMs: 1_000,
+      preferMorss: true,
+      fetchSourceHtml,
+      fetchMorssDetail,
+    })).resolves.toBe(validTichDetailHtml);
+
+    expect(fetchMorssDetail).toHaveBeenCalledOnce();
+    expect(fetchSourceHtml).not.toHaveBeenCalled();
   });
 });
 
