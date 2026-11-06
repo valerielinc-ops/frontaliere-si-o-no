@@ -1251,7 +1251,27 @@ const MIN_UNIQUE_WORDS = 30;
 // below this floor the signal is too weak to justify bricking the whole run.
 // Keep small marker-only samples quarantineable: 8/8 is enough to remove the
 // bad records from the slice, but not enough to prove a fleet-wide parser break.
-const BOILERPLATE_MIN_ELIGIBLE = Number(process.env.JOBS_BOILERPLATE_MIN_ELIGIBLE) || 10;
+const BOILERPLATE_MIN_ELIGIBLE_FLOOR = 8;
+const BOILERPLATE_MIN_ELIGIBLE_DEFAULT = 10;
+
+/**
+ * Resolve the boilerplate guard's eligible-sample floor without allowing an
+ * environment override to weaken the small-sample protection.
+ *
+ * @param {unknown} rawValue
+ * @returns {number}
+ */
+export function resolveBoilerplateMinEligible(rawValue) {
+  const configured = Number(rawValue);
+  if (!Number.isFinite(configured) || configured <= 0) {
+    return BOILERPLATE_MIN_ELIGIBLE_DEFAULT;
+  }
+  return Math.max(BOILERPLATE_MIN_ELIGIBLE_FLOOR, configured);
+}
+
+const BOILERPLATE_MIN_ELIGIBLE = resolveBoilerplateMinEligible(
+  process.env.JOBS_BOILERPLATE_MIN_ELIGIBLE,
+);
 const BOILERPLATE_MIN_COUNT = Number(process.env.JOBS_BOILERPLATE_MIN_COUNT) || 2;
 
 // Anti-shrink guard thresholds (axa-svizzera incident, 2026-07-01): only
