@@ -1359,6 +1359,11 @@ describe('Mac host launch agent', () => {
     );
     fs.writeFileSync(path.join(socialDir, 'launchd.sh'), destinationLauncher);
     fs.copyFileSync(path.join(ROOT, 'scripts', 'social-robot', 'verify-snapshot.mjs'), path.join(socialDir, 'verify-snapshot.mjs'));
+    fs.cpSync(
+      path.join(ROOT, 'scripts', 'social-robot', 'runtime-shims'),
+      path.join(socialDir, 'runtime-shims'),
+      { recursive: true },
+    );
     fs.writeFileSync(
       path.join(socialDir, 'run.mjs'),
       runBody ?? [
@@ -1444,6 +1449,23 @@ describe('Mac host launch agent', () => {
     fs.chmodSync(path.join(bin, 'gh'), 0o755);
     return { bin, calls };
   }
+
+  it("falls back to Node's native AbortController when the host install is stale", () => {
+    const fixture = createLaunchFixture({
+      runBody: [
+        "import { createRequire } from 'node:module';",
+        "import { appendFileSync } from 'node:fs';",
+        "const AbortController = createRequire(import.meta.url)('abort-controller');",
+        "const namedExportMatches = AbortController.AbortController === AbortController;",
+        "appendFileSync(process.env.SOCIAL_ROBOT_RUN_LOG, `${new AbortController().signal.aborted}:${namedExportMatches}\\n`);",
+      ].join('\n'),
+    });
+    const gh = fakeGh(fixture.root, '9876');
+
+    runLauncher(fixture, launchEnv(fixture, { GH_CALLS: gh.calls, PATH: `${gh.bin}:${process.env.PATH}` }));
+
+    expect(fs.readFileSync(fixture.runLog, 'utf8').trim()).toBe('false:true');
+  });
 
   it('writes a plist with one calendar entry per window that runs the copy in the state folder', () => {
     const dir = tempDir();
