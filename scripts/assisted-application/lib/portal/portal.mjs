@@ -1160,8 +1160,9 @@ function controlPostingIdentity(control) {
     const explicit = normalizedPostingIdentity(value);
     return explicit ? [explicit] : postingIdentityMarkers(value);
   });
-  const context = [control?.section, control?.context].flatMap(postingIdentityMarkers);
-  return uniquePostingIdentity([...direct, ...context]);
+  const context = [control?.vacancyContext, control?.section, control?.context].flatMap(postingIdentityMarkers);
+  const markers = [...new Set([...direct, ...context].map(normalizedPostingIdentity).filter(Boolean))];
+  return markers.length > 1 ? null : markers[0] || '';
 }
 
 function applicationEntryBelongsToPosting(control, {
@@ -1194,6 +1195,19 @@ function applicationEntryContextMatchesPosting(control, context = {}) {
     && !namesAnotherEmployer(localContext, job, { allowPostingLocation: true }));
 }
 
+function fieldlessApplicationEntryContextMatchesPosting(control, context = {}) {
+  const localContext = [control?.vacancyContext, control?.section, control?.context]
+    .filter(Boolean)
+    .join(' ')
+    .trim();
+  const job = context.job || {};
+  if (controlPostingIdentity(control) !== '') return false;
+  if (!localContext || !job.title) return true;
+  if (postingMatch(localContext, job, context.postingUrl) !== 'match') return false;
+  if (namesAnotherEmployer(localContext, job)) return false;
+  return titleMatches(localContext, job.title);
+}
+
 export function applicationEntryControls(snapshot = {}, context = {}) {
   const controls = [
     ...(Array.isArray(snapshot.buttons) ? snapshot.buttons : []),
@@ -1209,6 +1223,22 @@ export function applicationEntryControls(snapshot = {}, context = {}) {
   // pages). A single explicit Apply link is enough provenance; a listing with
   // several such links remains unresolved rather than choosing one by position.
   const posting = comparablePortalRoute(context.postingUrl);
+  // A verified single-job detail may expose Apply as a script button, with
+  // neither href nor local posting markers. Never borrow this provenance on
+  // forms, listings, redirected pages, or ambiguous multiple-entry surfaces.
+  const current = comparablePortalRoute(snapshot.url);
+  const scriptEntries = controls.filter(control => !control?.disabled && !control?.chrome
+    && !control?.href && !control?.formId && (control.frame || 0) === 0
+    && startsApplication(control?.text || control?.label)
+    && controlPostingIdentity(control) === ''
+    && fieldlessApplicationEntryContextMatchesPosting(control, context));
+  const allEntries = controls.filter(control => !control?.disabled && !control?.chrome
+    && startsApplication(control?.text || control?.label));
+  if (posting && current && current.origin === posting.origin
+    && current.pathname === posting.pathname && current.search === posting.search
+    && /^(?:\/[a-zA-Z0-9%._-]+)?\/job\/[^/]+\/[^/]+\/?$/i.test(posting.pathname)
+    && Array.isArray(snapshot.fields) && snapshot.fields.length === 0
+    && scriptEntries.length === 1 && allEntries.length === 1) return scriptEntries;
   const unbound = controls.filter((control) => {
     if (control?.disabled || control?.chrome || !startsApplication(control?.text || control?.label)) return false;
     const target = comparablePortalRoute(control?.href);
@@ -2938,6 +2968,32 @@ function optionsMatchCandidateLanguage(options, candidateLanguage) {
   });
 }
 
+function verifiedItalianNationalityOptions(options) {
+  if (!Array.isArray(options) || !options.length) return false;
+  const normalizedOptions = options.map(normalizedQuestionText);
+  const hasItalianSelectLabel = normalizedOptions.some((option) => ['seleziona', 'selezionare'].includes(option));
+  if (!hasItalianSelectLabel) return false;
+  const hasCanonicalItalianNationality = options.some((option) => {
+    const normalized = normalizedQuestionText(option);
+    const nationality = nationalityOf(option);
+    return Boolean(nationality
+      && normalizedQuestionText(nationalityLabelOf(nationality.code, 'it')) === normalized);
+  });
+  if (!hasCanonicalItalianNationality) return false;
+  const foreignNationalityLabels = new Set([
+    'citizenship', 'nationality', 'nationalite', 'nationalitat', 'staatsangehorigkeit', 'staatsburgerschaft',
+  ]);
+  const hasKnownForeignMarker = options.some((option) => {
+    const normalized = normalizedQuestionText(option);
+    return foreignNationalityLabels.has(normalized)
+      || Object.entries(OPTION_LANGUAGE_MARKERS)
+        .some(([language, markers]) => language !== 'it' && markers.includes(normalized));
+  });
+  if (hasKnownForeignMarker) return false;
+  const detected = detectLanguageWithConfidence(options.join(' '), 'it');
+  return detected.lang === 'it' && detected.confidence >= SAME_LANGUAGE_ITEM_MIN_CONFIDENCE;
+}
+
 // A provider outage must not strand a standard ATS form whose labels are
 // already part of the portal contract. These are exact German field captions
 // observed on employer-site forms; arbitrary questions still require the
@@ -3274,6 +3330,45 @@ function deterministicItalianSameLanguage(item, candidateLanguage) {
   const label = normalizedQuestionText(nativePortalQuestion(item));
   const countryKey = label === 'paese' ? 'country' : label === 'nazionalita' ? 'nationality' : '';
   if (countryKey && applicationOptions.length) {
+    if (countryKey === 'nationality') {
+      const candidateOptions = applicationOptions.map((option) => deterministicItalianCountryOption(option, countryKey));
+      if (candidateOptions.every(Boolean)) {
+        const optionMap = portalOptionMap({
+          options: candidateOptions,
+          applicationOptions,
+          optionMap: applicationOptions.map((application, index) => ({ candidate: candidateOptions[index], application })),
+        });
+        if (optionMap.length === applicationOptions.length) {
+          const sameLanguage = candidateOptions.every((option, index) => option === applicationOptions[index]);
+          return {
+            ...item,
+            question: readablePortalQuestionText(item.candidatePrompt) || nativePortalQuestion(item),
+            applicationQuestion: nativePortalQuestion(item),
+            applicationOptions,
+            options: optionMap.map((pair) => pair.candidate),
+            optionMap,
+            ...(sameLanguage ? { applicationQuestionLocale: candidateLanguage } : { applicationQuestionLocale: null }),
+            localizationStatus: sameLanguage ? 'same_language' : 'translated',
+          };
+        }
+      }
+      if (!verifiedItalianNationalityOptions(applicationOptions)) return null;
+      // EOC's Italian nationality catalogue contains duplicate visible labels
+      // (for example «Dominicano»). Keep the portal's Italian labels verbatim
+      // so the candidate can answer; the downstream exact-match guard still
+      // refuses an answer whose label is ambiguous in that catalogue.
+      const optionMap = portalOptionMap({ options: applicationOptions, applicationOptions });
+      return {
+        ...item,
+        question: readablePortalQuestionText(item.candidatePrompt) || nativePortalQuestion(item),
+        applicationQuestion: nativePortalQuestion(item),
+        applicationOptions,
+        options: applicationOptions,
+        optionMap,
+        applicationQuestionLocale: candidateLanguage,
+        localizationStatus: 'same_language',
+      };
+    }
     const candidateOptions = applicationOptions.map((option) => deterministicItalianCountryOption(option, countryKey));
     if (candidateOptions.every(Boolean)) {
       const optionMap = portalOptionMap({
@@ -6691,13 +6786,16 @@ export async function submitViaPortal(ctx) {
     const namedByItsData = organizationCompatible
       && sameEmployerFamily(ctx.job?.organization, ctx.job?.company)
       && postingMatch(postingSeen, { title: ctx.job.title }, postingUrl) === 'match';
-    const postingVacancyMatched = hasVacancySpecificPostingEvidence(postingSeen, ctx.job, {
-      pageUrl: postingUrl,
-      pageTitle: postingTitle,
-      postingUrl: ctx.postingUrl,
-      postingRouteProof: ctx.postingRouteProof,
-      vacancyIdentityContexts: currentVacancyIdentityContexts(snapshot),
-    });
+    // A verified apply/posting URL pair is stronger than the title of a thin
+    // shell, which may still show a stale or generic role while it mounts.
+    const postingVacancyMatched = enteredFromMatchingPosting
+      || hasVacancySpecificPostingEvidence(postingSeen, ctx.job, {
+        pageUrl: postingUrl,
+        pageTitle: postingTitle,
+        postingUrl: ctx.postingUrl,
+        postingRouteProof: ctx.postingRouteProof,
+        vacancyIdentityContexts: currentVacancyIdentityContexts(snapshot),
+      });
     // When the selected posting URL is the page currently open, a failed
     // vacancy-identity check is terminal. Do not let a company-only match on
     // the same page turn a stale role into an application form.

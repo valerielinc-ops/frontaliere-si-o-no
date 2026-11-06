@@ -52,6 +52,10 @@ function isThisRepoMainRefPush(line: string): boolean {
   );
 }
 
+function isPushHelperInvocation(line: string): boolean {
+  return /\b(?:bash|sh)\s+scripts\/lib\/(?:git-push-with-retry|git-commit-data)\.sh\b/.test(line);
+}
+
 export function thisRepoMainPushes(src: string): PushSite[] {
   const lines = src.split('\n');
   const out: PushSite[] = [];
@@ -59,7 +63,7 @@ export function thisRepoMainPushes(src: string): PushSite[] {
     const raw = lines[i];
     const line = raw.trim();
     if (isCommentOrEcho(raw)) continue;
-    if (line.includes('git-push-with-retry.sh') || line.includes('git-commit-data.sh')) {
+    if (isPushHelperInvocation(line)) {
       out.push({ line: i, kind: 'helper', text: line });
       continue;
     }
@@ -169,6 +173,26 @@ describe('this-repo main writers have a ruleset-bypass credential path before th
       }
     }
     expect(missing, missing.join('\n')).toEqual([]);
+  });
+
+  it('does not treat a sparse-checkout helper path as a push before auth setup (#13622)', () => {
+    const yml = `
+      sparse-checkout: |
+        /scripts/load-rc-env.mjs
+        /scripts/lib/git-push-with-retry.sh
+      - name: Load push credentials
+        run: node scripts/load-rc-env.mjs
+      - name: Persist state
+        run: bash scripts/lib/git-push-with-retry.sh --soft-fail-exhausted
+    `;
+
+    expect(thisRepoMainPushes(yml)).toEqual([
+      expect.objectContaining({
+        kind: 'helper',
+        text: 'run: bash scripts/lib/git-push-with-retry.sh --soft-fail-exhausted',
+      }),
+    ]);
+    expect(missingAuthBeforePushes(yml)).toEqual([]);
   });
 
   it('prospector-loop.yml delegates its state push to the shared helper on the checked-out ref', () => {

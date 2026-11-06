@@ -405,6 +405,7 @@ describe('runner final guard across three application stages', () => {
       ...snapshot(applyUrl,
         'Acme AG. Leider können wir Bewerbungen aus Ihrer Region aktuell nicht unterstützen.',
         [{ id: 'other-apply', text: 'JETZT BEWERBEN', section: 'Acme AG — Junior Accountant', disabled: false }]),
+      title: 'Senior Engineer — Acme AG',
       text: 'Senior Engineer. Acme AG. Leider können wir Bewerbungen aus Ihrer Region aktuell nicht unterstützen.',
     };
     const f = fixture(unrelatedCta, null, review, null, { job: { company: 'Acme AG', title: 'Senior Engineer' } });
