@@ -1,20 +1,62 @@
 {
   "key": "jysk",
   "label": "JYSK",
-  "generatedAt": "2026-11-06T09:28:14.446Z",
-  "total": 38,
+  "generatedAt": "2026-11-06T21:57:50.852Z",
+  "total": 37,
   "newCount": 0,
   "updatedCount": 0,
-  "removedCount": 0,
-  "unchangedCount": 38,
-  "durationMs": 83988,
-  "avgDurationMs": 83988,
+  "removedCount": 1,
+  "unchangedCount": 37,
+  "durationMs": 78302,
+  "avgDurationMs": 78302,
   "durationHistory": [
-    83988
+    78302
   ],
   "newJobs": [],
   "updatedJobs": [],
-  "removedJobs": [],
+  "removedJobs": [
+    {
+      "id": "company-44r1dl",
+      "slug": "verkaufer-in-con-schwerpunkt-magazzino-warenannahme-a-40-80-in-der-filiale-widnau-jysk-widnau-44r1dl",
+      "company": "JYSK",
+      "title": "Verkäufer/in mit Schwerpunkt Lager & Warenannahme (a) 40-80% in der Filiale Widnau",
+      "location": "Widnau",
+      "canton": "SG",
+      "category": "admin",
+      "contract": "part-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "",
+      "url": "https://jobs.de.jysk.ch/offene-stellen/verkaeuferin-mit-schwerpunkt-lager-warenannahme-40-80-der-filiale-widnau",
+      "source": "Company Careers Crawler",
+      "companyKey": "jysk",
+      "companyDomain": "jysk.ch",
+      "crawledAt": "2026-09-07T15:11:04.375Z",
+      "firstSeenAt": "2026-08-14T21:39:43.868Z",
+      "sourceLang": "de",
+      "employmentType": "FULL_TIME",
+      "addressLocality": "Widnau",
+      "addressRegion": "SG",
+      "salarySource": "estimated",
+      "salaryMin": 46000,
+      "salaryMax": 69600,
+      "applyUrl": "https://jobs.de.jysk.ch/offene-stellen/verkaeuferin-mit-schwerpunkt-lager-warenannahme-40-80-der-filiale-widnau",
+      "datePosted": "",
+      "postingDateSource": "unknown",
+      "postalCode": "9443",
+      "streetAddress": "Widnau",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-11-13T15:11:04.375Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 25,
+        "completeness": 23
+      }
+    }
+  ],
   "unchangedJobs": [
     {
       "id": "company-w76zez",
@@ -1259,5 +1301,5 @@
       }
     }
   ],
-  "codeCommit": "fcc02aa26827aced497af1a7ae17fb25a96e49c5"
+  "codeCommit": "83864a2067a1cd4cb74a7630816798617e7b37f9"
 }

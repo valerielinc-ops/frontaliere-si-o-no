@@ -1,7 +1,7 @@
 {
   "crawlerKey": "crr-suva-sion",
-  "assembledAt": "2026-11-06T09:25:56.368Z",
-  "runId": "42193218974",
+  "assembledAt": "2026-11-06T21:50:57.502Z",
+  "runId": "42294672013",
   "jobs": [
     {
       "id": "crr-suva-sion-1ef627a9dcec",
@@ -35,7 +35,7 @@
       "url": "https://www.crr-suva.ch/clinique-readaptation/assistant-qualite-processus-2396.html",
       "source": "Clinique romande de réadaptation (CRR Suva) Dedicated Parser (Custom HTML)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-06T09:25:50.791Z",
+      "crawledAt": "2026-11-06T21:50:50.710Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -84,7 +84,7 @@
       },
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-15T09:25:50.791Z",
+      "validThrough": "2027-01-14T21:50:50.710Z",
       "validThroughSource": "last-observed-window"
     }
   ]
