@@ -29,13 +29,12 @@ export function getItalianJobTitle(job) {
     || 'it';
 
   // Some crawled and publisher-submitted records copy the raw application title
-  // into titleByLocale.it while the job is marked as Italian. A decisive
-  // foreign-language dictionary hint means the candidate is not Italian, even
-  // when a publisher source-language pin would otherwise bypass this check.
+  // into titleByLocale.it even when the job's declared source language is not
+  // Italian. A decisive foreign-language dictionary hint means the candidate
+  // is not Italian, regardless of the source-language pin.
   const titleLanguage = detectJobTitleLocaleDetails(cleanTitle, sourceLang);
   if (
-    sourceLang === 'it'
-    && titleLanguage.lang !== 'it'
+    titleLanguage.lang !== 'it'
     && titleLanguage.confidence >= TITLE_LANG_DECISION_CONFIDENCE
     && titleLanguage.method.startsWith('title-hints')
   ) {
