@@ -23,9 +23,11 @@ import { realpathSync } from 'node:fs';
  *     iniziale `open|in-progress|done|blocked` (il resto diventa
  *     `- Nota sullo stato:`); backtick attorno al `Target repository`.
  * Non indovina mai: uno `State` che non comincia con una delle quattro parole,
- * due `State` nello stesso item, ID fuori dalla daily key o un repository di
- * item diverso dalla testa → rifiuto, nessuna scrittura. Il risultato deve
- * superare `bucketStructuralVeto` e conservare ID, ordine e stati.
+ * due `State` nello stesso item o ID fuori dalla daily key → rifiuto, nessuna
+ * scrittura. Un repository di item diverso dalla testa si ripara solo quando
+ * è uno shorthand same-owner dimostrato da titolo, testa e un item canonico;
+ * ogni altro mismatch resta rifiutato. Il risultato deve superare
+ * `bucketStructuralVeto` e conservare ID, ordine e stati.
  *
  *   node scripts/ci/rebuild-daily-bucket.mjs --issue <N> --repo <owner/repo> [--out <file>] [--write]
  *
