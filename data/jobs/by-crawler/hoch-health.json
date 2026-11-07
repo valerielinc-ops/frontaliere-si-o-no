@@ -12165,7 +12165,7 @@
         "it": "tirocinio-professionale-scuola-media-professionale-infermieristica-sss-hoch-health-ostschweiz-uznach",
         "en": "professional-internship-fachmittelschule-pflege-hf-hoch-health-ostschweiz-uznach",
         "de": "berufspraktikum-fachmittelschule-pflege-hf-hoch-health-uznach",
-        "fr": "ecole-intermediaire-technique-de-stages-professionnels-care-hf-hoch-health-ostschweiz-uznach"
+        "fr": "stage-professionnel-fachmittelschule-pflege-hf-hoch-health-ostschweiz-uznach"
       },
       "company": "HOCH Health Ostschweiz",
       "companyKey": "hoch-health",
@@ -12217,7 +12217,7 @@
         "berufspraktikum-fachmittelschule-pflege-hf-hoch-health-st-gallen-2",
         "stage-professionale-per-scuola-professionale-assistenza-hf-hoch-health-ostschweiz-st-gallen",
         "berufspraktikum-fachmittelschule-pflege-hf-hoch-health-uznach",
-        "stage-professionnel-fachmittelschule-pflege-hf-hoch-health-ostschweiz-uznach"
+        "ecole-intermediaire-technique-de-stages-professionnels-care-hf-hoch-health-ostschweiz-uznach"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -12225,7 +12225,7 @@
           "berufspraktikum-fachmittelschule-pflege-hf-hoch-health-uznach"
         ],
         "fr": [
-          "stage-professionnel-fachmittelschule-pflege-hf-hoch-health-ostschweiz-uznach"
+          "ecole-intermediaire-technique-de-stages-professionnels-care-hf-hoch-health-ostschweiz-uznach"
         ]
       },
       "firstSeenAt": "2026-05-19T22:28:24.584Z",
@@ -15274,7 +15274,7 @@
       "slug": "salute-professionale-40-80-hoch-health-ostschweiz-st-gallen",
       "slugByLocale": {
         "it": "salute-professionale-40-80-hoch-health-ostschweiz-st-gallen",
-        "en": "specialist-man-health-40-100-hoch-health-ostschweiz-st-gallen",
+        "en": "professional-health-40-80-hoch-health-ostschweiz-st-gallen",
         "de": "fachfrau-mann-gesundheit-40-80-hoch-health-st-gallen",
         "fr": "sante-professionnelle-40-80-hoch-health-ostschweiz-st-gallen"
       },
@@ -15323,7 +15323,7 @@
       "previousSlugs": [
         "fachfrau-mann-gesundheit-40-100-hoch-health-ostschweiz-st-gallen",
         "fachfrau-mann-gesundheit-40-100-hoch-health-st-gallen",
-        "professional-health-40-80-hoch-health-ostschweiz-st-gallen"
+        "specialist-man-health-40-100-hoch-health-ostschweiz-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -15331,7 +15331,7 @@
         ],
         "en": [
           "fachfrau-mann-gesundheit-40-100-hoch-health-ostschweiz-st-gallen",
-          "professional-health-40-80-hoch-health-ostschweiz-st-gallen"
+          "specialist-man-health-40-100-hoch-health-ostschweiz-st-gallen"
         ],
         "fr": [
           "fachfrau-mann-gesundheit-40-100-hoch-health-ostschweiz-st-gallen"
@@ -18241,11 +18241,11 @@
     },
     {
       "id": "hoch-health-9236ca53590a",
-      "slug": "collaboratore-trice-reinigung-50-hoch-health-ostschweiz-uznach",
+      "slug": "addetti-alle-pulizie-50-hoch-health-ostschweiz-uznach",
       "slugByLocale": {
-        "it": "collaboratore-trice-reinigung-50-hoch-health-ostschweiz-uznach",
-        "en": "employee-cleaning-50-hoch-health-ostschweiz-uznach",
         "de": "mitarbeiter-in-reinigung-50-hoch-health-uznach",
+        "it": "addetti-alle-pulizie-50-hoch-health-ostschweiz-uznach",
+        "en": "employee-cleaning-50-hoch-health-ostschweiz-uznach",
         "fr": "employe-e-nettoyage-50-hoch-health-ostschweiz-uznach"
       },
       "company": "HOCH Health Ostschweiz",
@@ -18292,7 +18292,8 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-reinigung-50-hoch-health-uznach"
+          "mitarbeiter-in-reinigung-50-hoch-health-uznach",
+          "collaboratore-trice-reinigung-50-hoch-health-ostschweiz-uznach"
         ],
         "en": [
           "mitarbeiter-in-reinigung-50-hoch-health-uznach"
@@ -18302,7 +18303,8 @@
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-reinigung-50-hoch-health-uznach"
+        "mitarbeiter-in-reinigung-50-hoch-health-uznach",
+        "collaboratore-trice-reinigung-50-hoch-health-ostschweiz-uznach"
       ],
       "salaryMin": 31000,
       "salaryMax": 39000,
@@ -18327,9 +18329,9 @@
       "id": "hoch-health-60721aa242fc",
       "slug": "specialista-in-hr-analytics-compensation-con-funzione-di-supplente-80-100-hoch-health-ostschweiz-st-gallen",
       "slugByLocale": {
+        "de": "fachspezialist-in-hr-analytics-compensation-mit-stellvertretungsfunktion-80-100-hoch",
         "it": "specialista-in-hr-analytics-compensation-con-funzione-di-supplente-80-100-hoch-health-ostschweiz-st-gallen",
         "en": "specialist-hr-analytics-compensation-with-deputy-function-80-100-hoch-health-ostschweiz-st-gallen",
-        "de": "fachspezialist-in-hr-analytics-compensation-mit-stellvertretungsfunktion-80-100-hoch",
         "fr": "specialiste-rh-analytics-compensation-avec-fonction-de-suppleant-80-100-hoch-health-ostschweiz-st-gallen"
       },
       "company": "HOCH Health Ostschweiz",
@@ -18409,11 +18411,11 @@
     },
     {
       "id": "hoch-health-b6d0cddd2033",
-      "slug": "disponent-in-collaboratore-trice-zentrales-patientenmanagement-80-hoch-health-ostschweiz-st-gallen",
+      "slug": "responsabile-collaboratore-gestione-centrale-dei-pazienti-80-hoch-health-ostschweiz-st-gallen",
       "slugByLocale": {
-        "it": "disponent-in-collaboratore-trice-zentrales-patientenmanagement-80-hoch-health-ostschweiz-st-gallen",
-        "en": "dispatcher-employee-central-patient-management-80-hoch-health-ostschweiz-st-gallen",
         "de": "disponent-in-mitarbeiter-in-zentrales-patientenmanagement-80-hoch-health-st-gallen",
+        "it": "responsabile-collaboratore-gestione-centrale-dei-pazienti-80-hoch-health-ostschweiz-st-gallen",
+        "en": "dispatcher-employee-central-patient-management-80-hoch-health-ostschweiz-st-gallen",
         "fr": "organisateur-employee-gestion-centrale-des-patients-80-hoch-health-ostschweiz-st-gallen"
       },
       "company": "HOCH Health Ostschweiz",
@@ -18460,7 +18462,8 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "it": [
-          "disponent-in-mitarbeiter-in-zentrales-patientenmanagement-80-hoch-health-st-gallen"
+          "disponent-in-mitarbeiter-in-zentrales-patientenmanagement-80-hoch-health-st-gallen",
+          "disponent-in-collaboratore-trice-zentrales-patientenmanagement-80-hoch-health-ostschweiz-st-gallen"
         ],
         "en": [
           "disponent-in-mitarbeiter-in-zentrales-patientenmanagement-80-hoch-health-st-gallen"
@@ -18470,7 +18473,8 @@
         ]
       },
       "previousSlugs": [
-        "disponent-in-mitarbeiter-in-zentrales-patientenmanagement-80-hoch-health-st-gallen"
+        "disponent-in-mitarbeiter-in-zentrales-patientenmanagement-80-hoch-health-st-gallen",
+        "disponent-in-collaboratore-trice-zentrales-patientenmanagement-80-hoch-health-ostschweiz-st-gallen"
       ],
       "salaryMin": 88400,
       "salaryMax": 123200,
@@ -18495,9 +18499,9 @@
       "id": "hoch-health-8c3fc951f2ce",
       "slug": "gestione-delle-applicazioni-ict-medical-information-systems-80-100-hoch-health-ostschweiz-st-gallen",
       "slugByLocale": {
+        "de": "ict-applikationsverantwortliche-r-medizinische-informationssysteme-80-100-hoch-health-st",
         "it": "gestione-delle-applicazioni-ict-medical-information-systems-80-100-hoch-health-ostschweiz-st-gallen",
         "en": "ict-application-manager-medical-information-systems-80-100-hoch-health-ostschweiz-st-gallen",
-        "de": "ict-applikationsverantwortliche-r-medizinische-informationssysteme-80-100-hoch-health-st",
         "fr": "gestionnaire-d-applications-tic-systemes-d-information-medicale-80-100-hoch-health-ostschweiz-st-gallen"
       },
       "company": "HOCH Health Ostschweiz",

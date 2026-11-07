@@ -1630,9 +1630,9 @@
       "id": "ksgl-de20794177ff",
       "slug": "medico-principale-clinica-principale-delle-donne-kantonsspital-glarus-ksgl-glarus",
       "slugByLocale": {
+        "de": "chefarztin-chefarzt-frauenklinik-ksgl-glarus",
         "it": "medico-principale-clinica-principale-delle-donne-kantonsspital-glarus-ksgl-glarus",
         "en": "chief-physician-chief-physician-women-s-clinic-kantonsspital-glarus-ksgl-glarus",
-        "de": "chefarztin-chefarzt-frauenklinik-ksgl-glarus",
         "fr": "medecin-en-chef-medecin-en-chef-clinique-pour-femmes-kantonsspital-glarus-ksgl-glarus"
       },
       "company": "Kantonsspital Glarus (KSGL)",
@@ -1711,11 +1711,11 @@
     },
     {
       "id": "ksgl-fd09c6862ec0",
-      "slug": "fachfrau-mann-gesundheit-medizinische-r-praxisassistent-in-kardiologie-kantonsspital-glarus-ksgl-glarus",
+      "slug": "specialista-in-salute-assistente-medico-in-cardiologia-kantonsspital-glarus-ksgl-glarus",
       "slugByLocale": {
-        "it": "fachfrau-mann-gesundheit-medizinische-r-praxisassistent-in-kardiologie-kantonsspital-glarus-ksgl-glarus",
-        "en": "specialist-in-health-medical-practice-assistantin-cardiology-kantonsspital-glarus-ksgl-glarus",
         "de": "fachfrau-mann-gesundheit-medizinische-r-praxisassistent-in-kardiologie-ksgl-glarus",
+        "it": "specialista-in-salute-assistente-medico-in-cardiologia-kantonsspital-glarus-ksgl-glarus",
+        "en": "specialist-in-health-medical-practice-assistantin-cardiology-kantonsspital-glarus-ksgl-glarus",
         "fr": "specialiste-en-sante-assistant-e-medical-e-en-cardiologie-kantonsspital-glarus-ksgl-glarus"
       },
       "company": "Kantonsspital Glarus (KSGL)",
@@ -1762,7 +1762,8 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "it": [
-          "fachfrau-mann-gesundheit-medizinische-r-praxisassistent-in-kardiologie-ksgl-glarus"
+          "fachfrau-mann-gesundheit-medizinische-r-praxisassistent-in-kardiologie-ksgl-glarus",
+          "fachfrau-mann-gesundheit-medizinische-r-praxisassistent-in-kardiologie-kantonsspital-glarus-ksgl-glarus"
         ],
         "en": [
           "fachfrau-mann-gesundheit-medizinische-r-praxisassistent-in-kardiologie-ksgl-glarus"
@@ -1772,7 +1773,8 @@
         ]
       },
       "previousSlugs": [
-        "fachfrau-mann-gesundheit-medizinische-r-praxisassistent-in-kardiologie-ksgl-glarus"
+        "fachfrau-mann-gesundheit-medizinische-r-praxisassistent-in-kardiologie-ksgl-glarus",
+        "fachfrau-mann-gesundheit-medizinische-r-praxisassistent-in-kardiologie-kantonsspital-glarus-ksgl-glarus"
       ],
       "salaryMin": 81000,
       "salaryMax": 113000,

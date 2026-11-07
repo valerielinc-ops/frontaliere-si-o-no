@@ -1167,10 +1167,10 @@
       "id": "globus-fbb8980ec907",
       "slug": "consulente-di-vendita-age-per-il-nostro-settore-beauty-accessories-al-100-cdd-di-3-mesi-globus-lausanne",
       "slugByLocale": {
+        "fr": "conseiller-ere-de-vente-pour-notre-secteur-beauty-accessoires-a-100-cdd-de-3-mois-globus",
         "it": "consulente-di-vendita-age-per-il-nostro-settore-beauty-accessories-al-100-cdd-di-3-mesi-globus-lausanne",
         "en": "sales-advisor-age-for-our-100-beauty-accessories-sector-cdd-of-3-months-globus-lausanne",
-        "de": "verkaufsberater-alter-fur-unseren-100-beauty-accessories-sektor-cdd-von-3-monaten-globus-lausanne",
-        "fr": "conseiller-ere-de-vente-pour-notre-secteur-beauty-accessoires-a-100-cdd-de-3-mois-globus"
+        "de": "verkaufsberater-alter-fur-unseren-100-beauty-accessories-sektor-cdd-von-3-monaten-globus-lausanne"
       },
       "company": "Globus",
       "companyKey": "globus",
@@ -1250,9 +1250,9 @@
       "id": "globus-b58efa929275",
       "slug": "stellvertretende-r-verkaufsleiter-in-wine-more-100-w-m-d-globus-ch",
       "slugByLocale": {
+        "de": "stellvertretende-r-verkaufsleiter-in-wine-more-100-w-m-d-globus-ch",
         "it": "stellvertretende-r-verkaufsleiter-in-wine-more-100-w-m-d-globus-ch",
         "en": "deputy-sales-manager-wine-more-100-m-f-d-globus-bern",
-        "de": "stellvertretende-r-verkaufsleiter-in-wine-more-100-w-m-d-globus-ch",
         "fr": "stellvertretende-r-verkaufsleiter-in-wine-more-100-w-m-d-globus-ch"
       },
       "company": "Globus",
@@ -1318,12 +1318,12 @@
     },
     {
       "id": "globus-9840652003a6",
-      "slug": "adjoint-e-du-chef-de-vente-pour-les-secteurs-beauty-accessoires-a-100-globus-lausanne",
+      "slug": "assistente-al-chief-sales-officer-di-beauty-accessories-100-globus-lausanne",
       "slugByLocale": {
-        "it": "adjoint-e-du-chef-de-vente-pour-les-secteurs-beauty-accessoires-a-100-globus-lausanne",
-        "en": "adjoint-e-du-chef-de-vente-pour-les-secteurs-beauty-accessoires-a-100-globus-ch",
-        "de": "adjoint-e-du-chef-de-vente-pour-les-secteurs-beauty-accessoires-a-100-globus-ch",
-        "fr": "adjoint-e-du-chef-de-vente-pour-les-secteurs-beauty-accessoires-a-100-globus-ch"
+        "fr": "adjoint-e-du-chef-de-vente-pour-les-secteurs-beauty-accessoires-a-100-globus-ch",
+        "it": "assistente-al-chief-sales-officer-di-beauty-accessories-100-globus-lausanne",
+        "en": "assistant-to-the-chief-sales-officer-for-beauty-accessories-100-globus-lausanne",
+        "de": "assistent-des-chief-sales-officer-fur-beauty-accessories-100-globus-lausanne"
       },
       "company": "Globus",
       "companyKey": "globus",
@@ -1369,11 +1369,19 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "it": [
+          "adjoint-e-du-chef-de-vente-pour-les-secteurs-beauty-accessoires-a-100-globus-ch",
+          "adjoint-e-du-chef-de-vente-pour-les-secteurs-beauty-accessoires-a-100-globus-lausanne"
+        ],
+        "en": [
+          "adjoint-e-du-chef-de-vente-pour-les-secteurs-beauty-accessoires-a-100-globus-ch"
+        ],
+        "de": [
           "adjoint-e-du-chef-de-vente-pour-les-secteurs-beauty-accessoires-a-100-globus-ch"
         ]
       },
       "previousSlugs": [
-        "adjoint-e-du-chef-de-vente-pour-les-secteurs-beauty-accessoires-a-100-globus-ch"
+        "adjoint-e-du-chef-de-vente-pour-les-secteurs-beauty-accessoires-a-100-globus-ch",
+        "adjoint-e-du-chef-de-vente-pour-les-secteurs-beauty-accessoires-a-100-globus-lausanne"
       ],
       "salaryMin": 83500,
       "salaryMax": 126500,

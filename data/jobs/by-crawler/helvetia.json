@@ -1532,7 +1532,7 @@
         "it": "consulente-del-cliente-f-m-d-assicurazione-langenthal-part-time-fulltime-helvetia-versicherungen-langenthal",
         "en": "customer-consultant-f-m-d-langenthal-insurance-part-time-full-time-helvetia-versicherungen-langenthal",
         "de": "kundenberater-w-m-d-versicherungen-langenthal-teilzeit-vollzeit-helvetia-langenthal",
-        "fr": "conseiller-a-la-clientele-assurances-langenthal-helvetia-versicherungen-langenthal"
+        "fr": "consultant-client-f-m-d-helvetia-versicherungen-langenthal"
       },
       "company": "Helvetia Versicherungen",
       "companyKey": "helvetia",
@@ -1601,14 +1601,14 @@
       },
       "previousSlugs": [
         "kundenberater-w-m-d-versicherungen-langenthal-teilzeit-vollzeit-helvetia-langenthal",
-        "consultant-client-f-m-d-helvetia-versicherungen-langenthal"
+        "conseiller-a-la-clientele-assurances-langenthal-helvetia-versicherungen-langenthal"
       ],
       "previousSlugsByLocale": {
         "it": [
           "kundenberater-w-m-d-versicherungen-langenthal-teilzeit-vollzeit-helvetia-langenthal"
         ],
         "fr": [
-          "consultant-client-f-m-d-helvetia-versicherungen-langenthal"
+          "conseiller-a-la-clientele-assurances-langenthal-helvetia-versicherungen-langenthal"
         ]
       },
       "firstSeenAt": "2026-08-05T11:27:42.887Z",
@@ -6849,10 +6849,10 @@
       "id": "helvetia-9e1d12aa6d7d",
       "slug": "specialista-m-w-d-in-cura-dei-bambini-80-helvetia-versicherungen-basel",
       "slugByLocale": {
-        "it": "specialista-m-w-d-in-cura-dei-bambini-80-helvetia-versicherungen-basel",
-        "en": "childcare-specialist-m-w-d-80-helvetia-versicherungen-basel",
+        "it": "professional-m-f-d-child-care-80-helvetia-versicherungen-basel",
+        "en": "professional-m-f-d-child-care-80-helvetia-versicherungen-basel",
         "de": "fachperson-m-w-d-kinderbetreuung-80-helvetia-basel",
-        "fr": "specialiste-en-garde-d-enfants-m-w-d-80-helvetia-versicherungen-basel"
+        "fr": "soins-professionnels-h-f-d-80-helvetia-versicherungen-basel"
       },
       "company": "Helvetia Versicherungen",
       "companyKey": "helvetia",
@@ -6927,21 +6927,20 @@
       },
       "previousSlugs": [
         "fachperson-m-w-d-kinderbetreuung-80-helvetia-basel",
-        "professional-m-f-d-child-care-80-helvetia-versicherungen-basel",
-        "soins-professionnels-h-f-d-80-helvetia-versicherungen-basel"
+        "childcare-specialist-m-w-d-80-helvetia-versicherungen-basel",
+        "specialiste-en-garde-d-enfants-m-w-d-80-helvetia-versicherungen-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachperson-m-w-d-kinderbetreuung-80-helvetia-basel",
-          "professional-m-f-d-child-care-80-helvetia-versicherungen-basel"
+          "fachperson-m-w-d-kinderbetreuung-80-helvetia-basel"
         ],
         "en": [
           "fachperson-m-w-d-kinderbetreuung-80-helvetia-basel",
-          "professional-m-f-d-child-care-80-helvetia-versicherungen-basel"
+          "childcare-specialist-m-w-d-80-helvetia-versicherungen-basel"
         ],
         "fr": [
           "fachperson-m-w-d-kinderbetreuung-80-helvetia-basel",
-          "soins-professionnels-h-f-d-80-helvetia-versicherungen-basel"
+          "specialiste-en-garde-d-enfants-m-w-d-80-helvetia-versicherungen-basel"
         ]
       },
       "firstSeenAt": "2026-10-13T09:10:58.294Z",
@@ -11206,12 +11205,12 @@
     },
     {
       "id": "helvetia-f95d55c09fa3",
-      "slug": "apprentissage-d-employe-de-commerce-tous-genres-2027-agence-generale-lausanne-la-cote-helvetia-versicherungen-nyon",
+      "slug": "apprendimento-dei-dipendenti-aziendali-tutti-i-tipi-2027-agenzia-generale-losanna-la-cote-helvetia-versicherungen-nyon",
       "slugByLocale": {
-        "it": "apprentissage-d-employe-de-commerce-tous-genres-2027-agence-generale-lausanne-la-cote-helvetia-versicherungen-nyon",
-        "en": "apprentissage-d-39-employe-de-commerce-tous-genres-2027-agence-generale-lausanne-la-cote",
-        "de": "apprentissage-d-39-employe-de-commerce-tous-genres-2027-agence-generale-lausanne-la-cote",
-        "fr": "apprentissage-d-39-employe-de-commerce-tous-genres-2027-agence-generale-lausanne-la-cote"
+        "fr": "apprentissage-d-39-employe-de-commerce-tous-genres-2027-agence-generale-lausanne-la-cote",
+        "it": "apprendimento-dei-dipendenti-aziendali-tutti-i-tipi-2027-agenzia-generale-losanna-la-cote-helvetia-versicherungen-nyon",
+        "en": "business-employee-learning-all-kinds-2027-general-agency-lausanne-la-cote-helvetia-versicherungen-nyon",
+        "de": "business-employee-learning-alle-arten-2027-allgemeine-agentur-lausanne-la-cote-helvetia-versicherungen-nyon"
       },
       "company": "Helvetia Versicherungen",
       "companyKey": "helvetia",
@@ -11257,11 +11256,19 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "it": [
+          "apprentissage-d-39-employe-de-commerce-tous-genres-2027-agence-generale-lausanne-la-cote",
+          "apprentissage-d-employe-de-commerce-tous-genres-2027-agence-generale-lausanne-la-cote-helvetia-versicherungen-nyon"
+        ],
+        "en": [
+          "apprentissage-d-39-employe-de-commerce-tous-genres-2027-agence-generale-lausanne-la-cote"
+        ],
+        "de": [
           "apprentissage-d-39-employe-de-commerce-tous-genres-2027-agence-generale-lausanne-la-cote"
         ]
       },
       "previousSlugs": [
-        "apprentissage-d-39-employe-de-commerce-tous-genres-2027-agence-generale-lausanne-la-cote"
+        "apprentissage-d-39-employe-de-commerce-tous-genres-2027-agence-generale-lausanne-la-cote",
+        "apprentissage-d-employe-de-commerce-tous-genres-2027-agence-generale-lausanne-la-cote-helvetia-versicherungen-nyon"
       ],
       "salaryMin": 51000,
       "salaryMax": 94500,
@@ -11924,9 +11931,9 @@
       "id": "helvetia-8c27d7a55d63",
       "slug": "junior-real-estate-manager-basel-m-f-d-part-time-full-time-helvetia-versicherungen-basel",
       "slugByLocale": {
+        "de": "junior-immobilienbewirtschafter-basel-w-m-d-teilzeit-vollzeit-helvetia-basel",
         "it": "junior-real-estate-manager-basel-m-f-d-part-time-full-time-helvetia-versicherungen-basel",
         "en": "junior-real-estate-manager-basel-m-f-d-part-time-full-time-helvetia-versicherungen-basel",
-        "de": "junior-immobilienbewirtschafter-basel-w-m-d-teilzeit-vollzeit-helvetia-basel",
         "fr": "junior-responsable-immobilier-bale-h-f-d-temps-partiel-temps-plein-helvetia-versicherungen-basel"
       },
       "company": "Helvetia Versicherungen",
@@ -12090,9 +12097,9 @@
       "id": "helvetia-2e803ca40b69",
       "slug": "m-f-d-private-banking-basel-helvetia-versicherungen-basel",
       "slugByLocale": {
+        "de": "berater-w-m-d-private-banking-basel-helvetia-basel",
         "it": "m-f-d-private-banking-basel-helvetia-versicherungen-basel",
         "en": "m-f-d-private-banking-basel-helvetia-versicherungen-basel",
-        "de": "berater-w-m-d-private-banking-basel-helvetia-basel",
         "fr": "h-f-d-banque-privee-bale-helvetia-versicherungen-basel"
       },
       "company": "Helvetia Versicherungen",
@@ -12173,10 +12180,10 @@
       "id": "helvetia-ac8036aca9e3",
       "slug": "consigliere-m-f-d-clienti-privati-ginevra-helvetia-versicherungen-geneve",
       "slugByLocale": {
+        "fr": "conseiller-f-m-d-clientele-privee-geneve-helvetia-geneve",
         "it": "consigliere-m-f-d-clienti-privati-ginevra-helvetia-versicherungen-geneve",
         "en": "adviser-m-f-d-private-customers-geneva-helvetia-versicherungen-geneve",
-        "de": "berater-m-w-d-privatkunden-genf-helvetia-versicherungen-geneve",
-        "fr": "conseiller-f-m-d-clientele-privee-geneve-helvetia-geneve"
+        "de": "berater-m-w-d-privatkunden-genf-helvetia-versicherungen-geneve"
       },
       "company": "Helvetia Versicherungen",
       "companyKey": "helvetia",
@@ -12254,12 +12261,12 @@
     },
     {
       "id": "helvetia-70be8b88eee0",
-      "slug": "claims-manager-m-w-d-technische-versicherungen-vollzeit-o-teilzeit-helvetia-versicherungen-basel",
+      "slug": "claims-manager-m-f-d-assicurazioni-tecniche-a-tempo-pieno-o-part-time-helvetia-versicherungen-basel",
       "slugByLocale": {
-        "it": "claims-manager-m-w-d-technische-versicherungen-vollzeit-o-teilzeit-helvetia-versicherungen-basel",
-        "en": "claims-manager-w-m-d-technische-versicherungen-vollzeit-oder-teilzeit-helvetia-basel",
         "de": "claims-manager-w-m-d-technische-versicherungen-vollzeit-oder-teilzeit-helvetia-basel",
-        "fr": "claims-manager-w-m-d-technische-versicherungen-vollzeit-oder-teilzeit-helvetia-basel"
+        "it": "claims-manager-m-f-d-assicurazioni-tecniche-a-tempo-pieno-o-part-time-helvetia-versicherungen-basel",
+        "en": "claims-manager-m-f-d-technical-insurance-full-time-or-part-time-helvetia-versicherungen-basel",
+        "fr": "gestionnaire-des-reclamations-h-f-d-technique-assurance-a-temps-plein-ou-a-temps-partiel-helvetia-versicherungen-basel"
       },
       "company": "Helvetia Versicherungen",
       "companyKey": "helvetia",
@@ -12306,11 +12313,19 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "it": [
+          "claims-manager-w-m-d-technische-versicherungen-vollzeit-oder-teilzeit-helvetia-basel",
+          "claims-manager-m-w-d-technische-versicherungen-vollzeit-o-teilzeit-helvetia-versicherungen-basel"
+        ],
+        "en": [
+          "claims-manager-w-m-d-technische-versicherungen-vollzeit-oder-teilzeit-helvetia-basel"
+        ],
+        "fr": [
           "claims-manager-w-m-d-technische-versicherungen-vollzeit-oder-teilzeit-helvetia-basel"
         ]
       },
       "previousSlugs": [
-        "claims-manager-w-m-d-technische-versicherungen-vollzeit-oder-teilzeit-helvetia-basel"
+        "claims-manager-w-m-d-technische-versicherungen-vollzeit-oder-teilzeit-helvetia-basel",
+        "claims-manager-m-w-d-technische-versicherungen-vollzeit-o-teilzeit-helvetia-versicherungen-basel"
       ],
       "salaryMin": 99500,
       "salaryMax": 151000,
@@ -12334,9 +12349,9 @@
       "id": "helvetia-bff50060ba72",
       "slug": "young-insurance-professional-m-w-d-2027-agenzia-generale-zug-helvetia-versicherungen-zug",
       "slugByLocale": {
+        "de": "young-insurance-professional-w-m-d-2027-generalagentur-zug-helvetia-zug",
         "it": "young-insurance-professional-m-w-d-2027-agenzia-generale-zug-helvetia-versicherungen-zug",
         "en": "young-insurance-professional-m-f-d-2027-general-agency-zug-helvetia-versicherungen-zug",
-        "de": "young-insurance-professional-w-m-d-2027-generalagentur-zug-helvetia-zug",
         "fr": "jeune-professionnel-d-assurance-h-f-d-2027-agence-generale-zug-helvetia-versicherungen-zug"
       },
       "company": "Helvetia Versicherungen",
@@ -12415,11 +12430,11 @@
     },
     {
       "id": "helvetia-6c4d5510ff88",
-      "slug": "collaboratore-trice-m-w-d-verkaufssupport-im-servizio-interno-versicherungen-teilzeit-vollzeit-helvetia-versicherungen-rheinfelden",
+      "slug": "dipendente-m-f-d-supporto-vendite-interno-assicurazioni-part-time-full-time-helvetia-versicherungen-rheinfelden",
       "slugByLocale": {
-        "it": "collaboratore-trice-m-w-d-verkaufssupport-im-servizio-interno-versicherungen-teilzeit-vollzeit-helvetia-versicherungen-rheinfelden",
-        "en": "employee-m-f-d-sales-support-in-house-insurance-part-time-full-time-helvetia-versicherungen-rheinfelden",
         "de": "mitarbeiter-w-m-d-verkaufssupport-im-innendienst-versicherungen-teilzeit-vollzeit-helvetia",
+        "it": "dipendente-m-f-d-supporto-vendite-interno-assicurazioni-part-time-full-time-helvetia-versicherungen-rheinfelden",
+        "en": "employee-m-f-d-sales-support-in-house-insurance-part-time-full-time-helvetia-versicherungen-rheinfelden",
         "fr": "salarie-h-f-d-soutien-des-ventes-dans-l-assurance-interne-temps-partiel-temps-plein-helvetia-versicherungen-rheinfelden"
       },
       "company": "Helvetia Versicherungen",
@@ -12467,7 +12482,8 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-w-m-d-verkaufssupport-im-innendienst-versicherungen-teilzeit-vollzeit-helvetia"
+          "mitarbeiter-w-m-d-verkaufssupport-im-innendienst-versicherungen-teilzeit-vollzeit-helvetia",
+          "collaboratore-trice-m-w-d-verkaufssupport-im-servizio-interno-versicherungen-teilzeit-vollzeit-helvetia-versicherungen-rheinfelden"
         ],
         "en": [
           "mitarbeiter-w-m-d-verkaufssupport-im-innendienst-versicherungen-teilzeit-vollzeit-helvetia"
@@ -12477,7 +12493,8 @@
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-w-m-d-verkaufssupport-im-innendienst-versicherungen-teilzeit-vollzeit-helvetia"
+        "mitarbeiter-w-m-d-verkaufssupport-im-innendienst-versicherungen-teilzeit-vollzeit-helvetia",
+        "collaboratore-trice-m-w-d-verkaufssupport-im-servizio-interno-versicherungen-teilzeit-vollzeit-helvetia-versicherungen-rheinfelden"
       ],
       "salaryMin": 88000,
       "salaryMax": 123000,
@@ -12603,9 +12620,9 @@
       "id": "helvetia-b66817b515e0",
       "slug": "specialista-w-m-d-executive-corporate-services-specialty-lines-teilzeit-helvetia-versicherungen-basel",
       "slugByLocale": {
+        "de": "specialist-w-m-d-executive-amp-corporate-services-specialty-lines-teilzeit-helvetia-basel",
         "it": "specialista-w-m-d-executive-corporate-services-specialty-lines-teilzeit-helvetia-versicherungen-basel",
         "en": "specialist-m-f-d-executive-corporate-services-specialty-lines-part-time-helvetia-versicherungen-basel",
-        "de": "specialist-w-m-d-executive-amp-corporate-services-specialty-lines-teilzeit-helvetia-basel",
         "fr": "specialiste-h-f-d-executive-corporate-services-specialty-lines-temps-partiel-helvetia-versicherungen-basel"
       },
       "company": "Helvetia Versicherungen",
@@ -12687,9 +12704,9 @@
       "id": "helvetia-988c491bcaf2",
       "slug": "consulente-clienti-m-f-d-assicurazione-munsingen-part-time-full-time-helvetia-versicherungen-burgdorf",
       "slugByLocale": {
+        "de": "kundenberater-w-m-d-versicherungen-munsingen-teilzeit-vollzeit-helvetia-burgdorf",
         "it": "consulente-clienti-m-f-d-assicurazione-munsingen-part-time-full-time-helvetia-versicherungen-burgdorf",
         "en": "customer-advisor-m-f-d-insurance-munsingen-part-time-full-time-helvetia-versicherungen-burgdorf",
-        "de": "kundenberater-w-m-d-versicherungen-munsingen-teilzeit-vollzeit-helvetia-burgdorf",
         "fr": "conseiller-client-h-f-d-assurance-munsingen-temps-partiel-temps-plein-helvetia-versicherungen-burgdorf"
       },
       "company": "Helvetia Versicherungen",
@@ -12770,10 +12787,10 @@
       "id": "helvetia-cfdc25f9673a",
       "slug": "esperto-tutti-i-tipi-nella-gestione-dei-disastri-regione-di-ginevra-tempo-pieno-o-parziale-helvetia-versicherungen",
       "slugByLocale": {
+        "fr": "expert-tous-genres-en-sinistres-choses-de-direction-region-geneve-temps-plein-ou-partiel",
         "it": "esperto-tutti-i-tipi-nella-gestione-dei-disastri-regione-di-ginevra-tempo-pieno-o-parziale-helvetia-versicherungen",
         "en": "expert-all-kinds-in-disaster-management-geneva-region-full-or-part-time-helvetia-versicherungen-geneve",
-        "de": "experte-alle-arten-im-katastrophenmanagement-region-genf-vollzeit-oder-teilzeit-helvetia-versicherungen-geneve",
-        "fr": "expert-tous-genres-en-sinistres-choses-de-direction-region-geneve-temps-plein-ou-partiel"
+        "de": "experte-alle-arten-im-katastrophenmanagement-region-genf-vollzeit-oder-teilzeit-helvetia-versicherungen-geneve"
       },
       "company": "Helvetia Versicherungen",
       "companyKey": "helvetia",
@@ -12853,9 +12870,9 @@
       "id": "helvetia-96d4ec040d31",
       "slug": "senior-istituzionale-sales-manager-m-f-d-part-time-fulltime-helvetia-versicherungen-basel",
       "slugByLocale": {
+        "de": "senior-institutional-sales-manager-w-m-d-teilzeit-vollzeit-helvetia-basel",
         "it": "senior-istituzionale-sales-manager-m-f-d-part-time-fulltime-helvetia-versicherungen-basel",
         "en": "senior-institutional-sales-manager-m-f-d-part-time-full-time-helvetia-versicherungen-basel",
-        "de": "senior-institutional-sales-manager-w-m-d-teilzeit-vollzeit-helvetia-basel",
         "fr": "senior-institutional-sales-manager-h-f-d-temps-partiel-temps-plein-helvetia-versicherungen-basel"
       },
       "company": "Helvetia Versicherungen",
@@ -12936,9 +12953,9 @@
       "id": "helvetia-7a554e636719",
       "slug": "responsabile-del-team-sap-finance-operations-m-f-d-part-time-full-time-helvetia-versicherungen-basel",
       "slugByLocale": {
+        "de": "teamleiter-sap-finance-operations-w-m-d-teilzeit-vollzeit-helvetia-basel",
         "it": "responsabile-del-team-sap-finance-operations-m-f-d-part-time-full-time-helvetia-versicherungen-basel",
         "en": "team-leader-sap-finance-operations-m-f-d-part-time-full-time-helvetia-versicherungen-basel",
-        "de": "teamleiter-sap-finance-operations-w-m-d-teilzeit-vollzeit-helvetia-basel",
         "fr": "chef-d-equipe-sap-finance-operations-h-f-d-temps-partiel-temps-plein-helvetia-versicherungen-basel"
       },
       "company": "Helvetia Versicherungen",
@@ -13020,9 +13037,9 @@
       "id": "helvetia-e1ff94de38c2",
       "slug": "attuario-m-f-d-non-life-part-time-full-time-helvetia-versicherungen-basel",
       "slugByLocale": {
+        "de": "aktuar-m-w-d-nichtleben-teilzeit-vollzeit-helvetia-basel",
         "it": "attuario-m-f-d-non-life-part-time-full-time-helvetia-versicherungen-basel",
         "en": "actuary-m-f-d-non-life-part-time-full-time-helvetia-versicherungen-basel",
-        "de": "aktuar-m-w-d-nichtleben-teilzeit-vollzeit-helvetia-basel",
         "fr": "actuaire-h-f-d-temps-partiel-temps-plein-helvetia-versicherungen-basel"
       },
       "company": "Helvetia Versicherungen",
@@ -13101,12 +13118,12 @@
     },
     {
       "id": "helvetia-5446f5f2acc7",
-      "slug": "fachspezialist-previdenza-patrimonio-eigenheim-im-servizio-interno-m-w-d-teilzeit-vollzeit-helvetia-versicherungen-frick",
+      "slug": "specialista-in-previdenza-patrimonio-e-abitazione-di-proprieta-nel-servizio-interno-m-f-d-part-time-full-time-helvetia",
       "slugByLocale": {
-        "it": "fachspezialist-previdenza-patrimonio-eigenheim-im-servizio-interno-m-w-d-teilzeit-vollzeit-helvetia-versicherungen-frick",
-        "en": "fachspezialist-vorsorge-vermogen-amp-eigenheim-im-innendienst-w-m-d-teilzeit-vollzeit",
         "de": "fachspezialist-vorsorge-vermogen-amp-eigenheim-im-innendienst-w-m-d-teilzeit-vollzeit",
-        "fr": "fachspezialist-vorsorge-vermogen-amp-eigenheim-im-innendienst-w-m-d-teilzeit-vollzeit"
+        "it": "specialista-in-previdenza-patrimonio-e-abitazione-di-proprieta-nel-servizio-interno-m-f-d-part-time-full-time-helvetia",
+        "en": "specialist-provision-property-home-owning-m-f-d-part-time-full-time-helvetia-versicherungen-frick",
+        "fr": "fourniture-propriete-et-propriete-de-specialistes-h-f-d-temps-partiel-temps-plein-helvetia-versicherungen-frick"
       },
       "company": "Helvetia Versicherungen",
       "companyKey": "helvetia",
@@ -13153,11 +13170,19 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "it": [
+          "fachspezialist-vorsorge-vermogen-amp-eigenheim-im-innendienst-w-m-d-teilzeit-vollzeit",
+          "fachspezialist-previdenza-patrimonio-eigenheim-im-servizio-interno-m-w-d-teilzeit-vollzeit-helvetia-versicherungen-frick"
+        ],
+        "en": [
+          "fachspezialist-vorsorge-vermogen-amp-eigenheim-im-innendienst-w-m-d-teilzeit-vollzeit"
+        ],
+        "fr": [
           "fachspezialist-vorsorge-vermogen-amp-eigenheim-im-innendienst-w-m-d-teilzeit-vollzeit"
         ]
       },
       "previousSlugs": [
-        "fachspezialist-vorsorge-vermogen-amp-eigenheim-im-innendienst-w-m-d-teilzeit-vollzeit"
+        "fachspezialist-vorsorge-vermogen-amp-eigenheim-im-innendienst-w-m-d-teilzeit-vollzeit",
+        "fachspezialist-previdenza-patrimonio-eigenheim-im-servizio-interno-m-w-d-teilzeit-vollzeit-helvetia-versicherungen-frick"
       ],
       "salaryMin": 88000,
       "salaryMax": 123000,
@@ -13179,11 +13204,11 @@
     },
     {
       "id": "helvetia-a466bafb4a8e",
-      "slug": "kundenbetreuer-m-w-d-berufliche-previdenza-teilzeit-vollzeit-helvetia-versicherungen-basel",
+      "slug": "assistente-alla-clientela-m-f-d-previdenza-professionale-part-time-full-time-helvetia-versicherungen-basel",
       "slugByLocale": {
-        "it": "kundenbetreuer-m-w-d-berufliche-previdenza-teilzeit-vollzeit-helvetia-versicherungen-basel",
-        "en": "customer-manager-m-f-d-professional-pension-part-time-full-time-helvetia-versicherungen-basel",
         "de": "kundenbetreuer-w-m-d-berufliche-vorsorge-teilzeit-vollzeit-helvetia-basel",
+        "it": "assistente-alla-clientela-m-f-d-previdenza-professionale-part-time-full-time-helvetia-versicherungen-basel",
+        "en": "customer-manager-m-f-d-professional-pension-part-time-full-time-helvetia-versicherungen-basel",
         "fr": "chef-de-clientele-h-f-d-pension-professionnelle-helvetia-versicherungen-basel"
       },
       "company": "Helvetia Versicherungen",
@@ -13231,7 +13256,8 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "it": [
-          "kundenbetreuer-w-m-d-berufliche-vorsorge-teilzeit-vollzeit-helvetia-basel"
+          "kundenbetreuer-w-m-d-berufliche-vorsorge-teilzeit-vollzeit-helvetia-basel",
+          "kundenbetreuer-m-w-d-berufliche-previdenza-teilzeit-vollzeit-helvetia-versicherungen-basel"
         ],
         "en": [
           "kundenbetreuer-w-m-d-berufliche-vorsorge-teilzeit-vollzeit-helvetia-basel"
@@ -13241,7 +13267,8 @@
         ]
       },
       "previousSlugs": [
-        "kundenbetreuer-w-m-d-berufliche-vorsorge-teilzeit-vollzeit-helvetia-basel"
+        "kundenbetreuer-w-m-d-berufliche-vorsorge-teilzeit-vollzeit-helvetia-basel",
+        "kundenbetreuer-m-w-d-berufliche-previdenza-teilzeit-vollzeit-helvetia-versicherungen-basel"
       ],
       "salaryMin": 119000,
       "salaryMax": 166000,
@@ -13265,9 +13292,9 @@
       "id": "helvetia-929ea20cf465",
       "slug": "consulente-clienti-m-f-d-regione-di-assicurazione-nidwalden-a-tempo-pieno-part-time-helvetia-versicherungen-stans",
       "slugByLocale": {
+        "de": "kundenberater-w-m-d-versicherung-region-nidwalden-vollzeit-teilzeit-helvetia-stans",
         "it": "consulente-clienti-m-f-d-regione-di-assicurazione-nidwalden-a-tempo-pieno-part-time-helvetia-versicherungen-stans",
         "en": "customer-consultant-m-f-d-insurance-region-nidwalden-full-time-part-time-helvetia-versicherungen-stans",
-        "de": "kundenberater-w-m-d-versicherung-region-nidwalden-vollzeit-teilzeit-helvetia-stans",
         "fr": "consultant-client-h-f-d-assurance-region-nidwalden-temps-plein-temps-partiel-helvetia-versicherungen-stans"
       },
       "company": "Helvetia Versicherungen",
@@ -13348,9 +13375,9 @@
       "id": "helvetia-c8a016f191bb",
       "slug": "consulente-clienti-m-f-d-regione-di-assicurazione-schwyz-part-time-fulltime-helvetia-versicherungen-schwyz",
       "slugByLocale": {
+        "de": "kundenberater-w-m-d-versicherung-region-schwyz-teilzeit-vollzeit-helvetia-schwyz",
         "it": "consulente-clienti-m-f-d-regione-di-assicurazione-schwyz-part-time-fulltime-helvetia-versicherungen-schwyz",
         "en": "customer-consultant-m-f-d-insurance-region-schwyz-part-time-full-time-helvetia-versicherungen-schwyz",
-        "de": "kundenberater-w-m-d-versicherung-region-schwyz-teilzeit-vollzeit-helvetia-schwyz",
         "fr": "consultant-client-h-f-d-region-assurance-schwyz-temps-partiel-temps-plein-helvetia-versicherungen-schwyz"
       },
       "company": "Helvetia Versicherungen",
@@ -13542,10 +13569,10 @@
       "id": "helvetia-ad4616cbc1a1",
       "slug": "international-risorse-umane-operations-global-mobility-specialista-m-w-d-teilzeit-o-vollzeit-helvetia-versicherungen-st-gallen",
       "slugByLocale": {
-        "it": "international-risorse-umane-operations-global-mobility-specialista-m-w-d-teilzeit-o-vollzeit-helvetia-versicherungen-st-gallen",
-        "en": "international-hr-operations-amp-global-mobility-specialist-w-m-d-teilzeit-oder-vollzeit",
         "de": "international-hr-operations-amp-global-mobility-specialist-w-m-d-teilzeit-oder-vollzeit",
-        "fr": "international-hr-operations-amp-global-mobility-specialist-w-m-d-teilzeit-oder-vollzeit"
+        "it": "international-risorse-umane-operations-global-mobility-specialista-m-w-d-teilzeit-o-vollzeit-helvetia-versicherungen-st-gallen",
+        "en": "international-hr-operations-global-mobility-specialist-m-f-d-part-time-or-full-time-helvetia-versicherungen-st-gallen",
+        "fr": "international-hr-operations-global-mobility-specialist-h-f-d-a-temps-partiel-ou-a-temps-plein-helvetia-versicherungen-st"
       },
       "company": "Helvetia Versicherungen",
       "companyKey": "helvetia",
@@ -13593,6 +13620,12 @@
       "previousSlugsByLocale": {
         "it": [
           "international-hr-operations-amp-global-mobility-specialist-w-m-d-teilzeit-oder-vollzeit"
+        ],
+        "en": [
+          "international-hr-operations-amp-global-mobility-specialist-w-m-d-teilzeit-oder-vollzeit"
+        ],
+        "fr": [
+          "international-hr-operations-amp-global-mobility-specialist-w-m-d-teilzeit-oder-vollzeit"
         ]
       },
       "previousSlugs": [
@@ -13620,9 +13653,9 @@
       "id": "helvetia-ced44158d372",
       "slug": "specialista-dell-assicurazione-proprieta-m-f-d-part-time-fulltime-helvetia-versicherungen-st-gallen",
       "slugByLocale": {
+        "de": "schadenspezialist-sachversicherung-w-m-d-teilzeit-vollzeit-helvetia-st-gallen",
         "it": "specialista-dell-assicurazione-proprieta-m-f-d-part-time-fulltime-helvetia-versicherungen-st-gallen",
         "en": "property-insurance-specialist-m-f-d-part-time-full-time-helvetia-versicherungen-st-gallen",
-        "de": "schadenspezialist-sachversicherung-w-m-d-teilzeit-vollzeit-helvetia-st-gallen",
         "fr": "specialiste-en-assurance-immobiliere-h-f-d-temps-partiel-temps-plein-helvetia-versicherungen-st-gallen"
       },
       "company": "Helvetia Versicherungen",
@@ -13703,9 +13736,9 @@
       "id": "helvetia-2d626b4011eb",
       "slug": "team-leader-damage-veicolo-motore-m-f-d-part-time-fulltime-helvetia-versicherungen-basel",
       "slugByLocale": {
+        "de": "teamleiter-schaden-motorfahrzeug-w-m-d-teilzeit-vollzeit-helvetia-basel",
         "it": "team-leader-damage-veicolo-motore-m-f-d-part-time-fulltime-helvetia-versicherungen-basel",
         "en": "team-leader-damage-motor-vehicle-m-f-d-part-time-full-time-helvetia-versicherungen-basel",
-        "de": "teamleiter-schaden-motorfahrzeug-w-m-d-teilzeit-vollzeit-helvetia-basel",
         "fr": "chef-d-equipe-dommages-vehicule-a-moteur-h-f-d-temps-partiel-temps-plein-helvetia-versicherungen-basel"
       },
       "company": "Helvetia Versicherungen",
@@ -14783,7 +14816,7 @@
       "id": "helvetia-a0e74f7477fc",
       "slug": "responsabile-gestione-immobiliare-losanna-m-w-d-tempo-parziale-pieno-helvetia-versicherungen-lausanne",
       "slugByLocale": {
-        "it": "responsabile-gestione-immobiliare-losanna-m-w-d-tempo-parziale-pieno-helvetia-versicherungen-lausanne",
+        "it": "team-leader-real-estate-management-lausanne-m-f-d-part-time-fulltime-helvetia-versicherungen-lausanne",
         "en": "team-leader-real-estate-management-lausanne-m-f-d-part-time-full-time-helvetia-versicherungen-lausanne",
         "de": "teamleiter-immobilienbewirtschaftung-lausanne-w-m-d-teilzeit-vollzeit-helvetia-lausanne",
         "fr": "chef-d-equipe-gestion-immobiliere-lausanne-h-f-d-temps-partiel-temps-plein-helvetia-versicherungen-lausanne"
@@ -14862,13 +14895,11 @@
         ]
       },
       "previousSlugs": [
-        "teamleiter-immobilienbewirtschaftung-lausanne-w-m-d-teilzeit-vollzeit-helvetia-lausanne",
-        "team-leader-real-estate-management-lausanne-m-f-d-part-time-fulltime-helvetia-versicherungen-lausanne"
+        "teamleiter-immobilienbewirtschaftung-lausanne-w-m-d-teilzeit-vollzeit-helvetia-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "teamleiter-immobilienbewirtschaftung-lausanne-w-m-d-teilzeit-vollzeit-helvetia-lausanne",
-          "team-leader-real-estate-management-lausanne-m-f-d-part-time-fulltime-helvetia-versicherungen-lausanne"
+          "teamleiter-immobilienbewirtschaftung-lausanne-w-m-d-teilzeit-vollzeit-helvetia-lausanne"
         ],
         "en": [
           "teamleiter-immobilienbewirtschaftung-lausanne-w-m-d-teilzeit-vollzeit-helvetia-lausanne"

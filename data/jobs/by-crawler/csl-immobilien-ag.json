@@ -5,12 +5,12 @@
   "jobs": [
     {
       "id": "csl-immobilien-ag-357439cd0cff",
-      "slug": "referentea-beta-zurigo-csl-immobilien-ag-zurich",
+      "slug": "referentea-beta-zurigo-csl-immobilien-ag-zurich-zh",
       "slugByLocale": {
-        "it": "referentea-beta-zurigo-csl-immobilien-ag-zurich",
-        "en": "beta-zurich-clerk-csl-immobilien-ag-zurich",
         "de": "sachbearbeiter-in-beta-zurich-zurich-zh-csl-immobilien-ag-ch",
-        "fr": "responsable-beta-zurich-csl-immobilien-ag-zurich"
+        "it": "referentea-beta-zurigo-csl-immobilien-ag-zurich-zh",
+        "en": "beta-zurich-clerk-csl-immobilien-ag-zurich-zh",
+        "fr": "responsable-beta-zurich-csl-immobilien-ag-zurich-zh"
       },
       "company": "CSL Immobilien AG",
       "companyKey": "csl-immobilien-ag",
@@ -74,17 +74,23 @@
       "firstSeenAt": "2026-11-06T22:04:36.681Z",
       "previousSlugsByLocale": {
         "it": [
-          "sachbearbeiter-in-beta-zurich-zurich-zh-csl-immobilien-ag-ch"
+          "sachbearbeiter-in-beta-zurich-zurich-zh-csl-immobilien-ag-ch",
+          "referentea-beta-zurigo-csl-immobilien-ag-zurich"
         ],
         "en": [
-          "sachbearbeiter-in-beta-zurich-zurich-zh-csl-immobilien-ag-ch"
+          "sachbearbeiter-in-beta-zurich-zurich-zh-csl-immobilien-ag-ch",
+          "beta-zurich-clerk-csl-immobilien-ag-zurich"
         ],
         "fr": [
-          "sachbearbeiter-in-beta-zurich-zurich-zh-csl-immobilien-ag-ch"
+          "sachbearbeiter-in-beta-zurich-zurich-zh-csl-immobilien-ag-ch",
+          "responsable-beta-zurich-csl-immobilien-ag-zurich"
         ]
       },
       "previousSlugs": [
-        "sachbearbeiter-in-beta-zurich-zurich-zh-csl-immobilien-ag-ch"
+        "sachbearbeiter-in-beta-zurich-zurich-zh-csl-immobilien-ag-ch",
+        "referentea-beta-zurigo-csl-immobilien-ag-zurich",
+        "beta-zurich-clerk-csl-immobilien-ag-zurich",
+        "responsable-beta-zurich-csl-immobilien-ag-zurich"
       ]
     },
     {

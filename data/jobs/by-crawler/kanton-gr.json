@@ -5,12 +5,12 @@
   "jobs": [
     {
       "id": "kanton-gr-ef2ead279254",
-      "slug": "apprendistato-come-informatiker-in-cfc-plattformentwicklung-kantonale-verwaltung-graubunden-thusis",
+      "slug": "apprendistato-come-informatico-a-afc-sviluppo-della-piattaforma-kantonale-verwaltung-graubunden-thusis",
       "slugByLocale": {
-        "it": "apprendistato-come-informatiker-in-cfc-plattformentwicklung-kantonale-verwaltung-graubunden-thusis",
-        "en": "lehrstelle-als-informatiker-in-efz-plattformentwicklung-kantonale-verwaltung-graubunden-thusis",
         "de": "lehrstelle-als-informatiker-in-efz-plattformentwicklung-kanton-gr-ch",
-        "fr": "lehrstelle-als-informatiker-in-efz-plattformentwicklung-kantonale-verwaltung-graubunden-thusis"
+        "it": "apprendistato-come-informatico-a-afc-sviluppo-della-piattaforma-kantonale-verwaltung-graubunden-thusis",
+        "en": "apprenticeship-as-a-computer-scientist-efz-platform-development-kantonale-verwaltung-graubunden-thusis",
+        "fr": "place-d-apprentissage-en-tant-qu-informaticien-ne-cfc-developpement-de-plateformes-kantonale-verwaltung-graubunden"
       },
       "company": "Kantonale Verwaltung Graubünden",
       "companyKey": "kanton-gr",
@@ -57,11 +57,20 @@
       "needsRetranslation": false,
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-als-informatiker-in-efz-plattformentwicklung-kanton-gr-ch"
+          "lehrstelle-als-informatiker-in-efz-plattformentwicklung-kanton-gr-ch",
+          "apprendistato-come-informatiker-in-cfc-plattformentwicklung-kantonale-verwaltung-graubunden-thusis"
+        ],
+        "en": [
+          "lehrstelle-als-informatiker-in-efz-plattformentwicklung-kantonale-verwaltung-graubunden-thusis"
+        ],
+        "fr": [
+          "lehrstelle-als-informatiker-in-efz-plattformentwicklung-kantonale-verwaltung-graubunden-thusis"
         ]
       },
       "previousSlugs": [
-        "lehrstelle-als-informatiker-in-efz-plattformentwicklung-kanton-gr-ch"
+        "lehrstelle-als-informatiker-in-efz-plattformentwicklung-kanton-gr-ch",
+        "apprendistato-come-informatiker-in-cfc-plattformentwicklung-kantonale-verwaltung-graubunden-thusis",
+        "lehrstelle-als-informatiker-in-efz-plattformentwicklung-kantonale-verwaltung-graubunden-thusis"
       ],
       "salaryMin": 41600,
       "salaryMax": 76000,
@@ -961,9 +970,9 @@
       "id": "kanton-gr-211beb60cd97",
       "slug": "custode-a-stradale-kantonale-verwaltung-graubunden-thusis",
       "slugByLocale": {
+        "de": "strassenwart-in-kanton-gr-ch",
         "it": "custode-a-stradale-kantonale-verwaltung-graubunden-thusis",
         "en": "street-attendant-kantonale-verwaltung-graubunden-thusis",
-        "de": "strassenwart-in-kanton-gr-ch",
         "fr": "gardien-ne-de-route-kantonale-verwaltung-graubunden-thusis"
       },
       "company": "Kantonale Verwaltung Graubünden",
@@ -1048,12 +1057,12 @@
     },
     {
       "id": "kanton-gr-642a1f5944e6",
-      "slug": "jurist-in-come-gerichtsschreiber-in-kantonale-verwaltung-graubunden-landquart",
+      "slug": "giurista-trice-in-qualita-di-cancelliere-trice-kantonale-verwaltung-graubunden-landquart",
       "slugByLocale": {
-        "it": "jurist-in-come-gerichtsschreiber-in-kantonale-verwaltung-graubunden-landquart",
-        "en": "jurist-in-als-gerichtsschreiber-in-kantonale-verwaltung-graubunden-landquart",
         "de": "jurist-in-als-gerichtsschreiber-in-kanton-gr-ch",
-        "fr": "jurist-in-als-gerichtsschreiber-in-kantonale-verwaltung-graubunden-landquart"
+        "it": "giurista-trice-in-qualita-di-cancelliere-trice-kantonale-verwaltung-graubunden-landquart",
+        "en": "lawyer-as-court-clerk-kantonale-verwaltung-graubunden-landquart",
+        "fr": "juriste-en-tant-que-greffier-greffiere-kantonale-verwaltung-graubunden-landquart"
       },
       "company": "Kantonale Verwaltung Graubünden",
       "companyKey": "kanton-gr",
@@ -1103,11 +1112,20 @@
       "needsRetranslation": false,
       "previousSlugsByLocale": {
         "it": [
-          "jurist-in-als-gerichtsschreiber-in-kanton-gr-ch"
+          "jurist-in-als-gerichtsschreiber-in-kanton-gr-ch",
+          "jurist-in-come-gerichtsschreiber-in-kantonale-verwaltung-graubunden-landquart"
+        ],
+        "en": [
+          "jurist-in-als-gerichtsschreiber-in-kantonale-verwaltung-graubunden-landquart"
+        ],
+        "fr": [
+          "jurist-in-als-gerichtsschreiber-in-kantonale-verwaltung-graubunden-landquart"
         ]
       },
       "previousSlugs": [
-        "jurist-in-als-gerichtsschreiber-in-kanton-gr-ch"
+        "jurist-in-als-gerichtsschreiber-in-kanton-gr-ch",
+        "jurist-in-come-gerichtsschreiber-in-kantonale-verwaltung-graubunden-landquart",
+        "jurist-in-als-gerichtsschreiber-in-kantonale-verwaltung-graubunden-landquart"
       ],
       "salaryMin": 65000,
       "salaryMax": 111500,
@@ -1131,12 +1149,12 @@
     },
     {
       "id": "kanton-gr-422f748630f7",
-      "slug": "collaboratore-trice-in-umgebungspflege-e-unterhaltsarbeiten-kantonale-verwaltung-graubunden-landquart",
+      "slug": "dipendente-nella-cura-dell-ambiente-e-nei-lavori-di-manutenzione-kantonale-verwaltung-graubunden-landquart",
       "slugByLocale": {
-        "it": "collaboratore-trice-in-umgebungspflege-e-unterhaltsarbeiten-kantonale-verwaltung-graubunden-landquart",
-        "en": "mitarbeiter-in-umgebungspflege-und-unterhaltsarbeiten-kantonale-verwaltung-graubunden-landquart",
         "de": "mitarbeiter-in-umgebungspflege-und-unterhaltsarbeiten-kanton-gr-ch",
-        "fr": "mitarbeiter-in-umgebungspflege-und-unterhaltsarbeiten-kantonale-verwaltung-graubunden-landquart"
+        "it": "dipendente-nella-cura-dell-ambiente-e-nei-lavori-di-manutenzione-kantonale-verwaltung-graubunden-landquart",
+        "en": "employees-in-environmental-care-and-maintenance-work-kantonale-verwaltung-graubunden-landquart",
+        "fr": "employes-travaillant-dans-le-domaine-des-soins-et-de-l-entretien-de-l-environnement-kantonale-verwaltung-graubunden"
       },
       "company": "Kantonale Verwaltung Graubünden",
       "companyKey": "kanton-gr",
@@ -1186,11 +1204,20 @@
       "needsRetranslation": false,
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-umgebungspflege-und-unterhaltsarbeiten-kanton-gr-ch"
+          "mitarbeiter-in-umgebungspflege-und-unterhaltsarbeiten-kanton-gr-ch",
+          "collaboratore-trice-in-umgebungspflege-e-unterhaltsarbeiten-kantonale-verwaltung-graubunden-landquart"
+        ],
+        "en": [
+          "mitarbeiter-in-umgebungspflege-und-unterhaltsarbeiten-kantonale-verwaltung-graubunden-landquart"
+        ],
+        "fr": [
+          "mitarbeiter-in-umgebungspflege-und-unterhaltsarbeiten-kantonale-verwaltung-graubunden-landquart"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-umgebungspflege-und-unterhaltsarbeiten-kanton-gr-ch"
+        "mitarbeiter-in-umgebungspflege-und-unterhaltsarbeiten-kanton-gr-ch",
+        "collaboratore-trice-in-umgebungspflege-e-unterhaltsarbeiten-kantonale-verwaltung-graubunden-landquart",
+        "mitarbeiter-in-umgebungspflege-und-unterhaltsarbeiten-kantonale-verwaltung-graubunden-landquart"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -1214,12 +1241,12 @@
     },
     {
       "id": "kanton-gr-9cb28d93103d",
-      "slug": "product-owner-servicemanagement-e-support-kantonale-verwaltung-graubunden-chur",
+      "slug": "product-owner-gestione-e-supporto-del-servizio-kantonale-verwaltung-graubunden-chur",
       "slugByLocale": {
-        "it": "product-owner-servicemanagement-e-support-kantonale-verwaltung-graubunden-chur",
-        "en": "product-owner-servicemanagement-und-support-kantonale-verwaltung-graubunden-chur",
         "de": "product-owner-servicemanagement-und-support-kanton-gr-ch",
-        "fr": "product-owner-servicemanagement-und-support-kantonale-verwaltung-graubunden-chur"
+        "it": "product-owner-gestione-e-supporto-del-servizio-kantonale-verwaltung-graubunden-chur",
+        "en": "product-owner-servicemanagement-und-support-kantonale-verwaltung-graubunden-chur",
+        "fr": "gestion-et-soutien-du-service-au-proprietaire-du-produit-kantonale-verwaltung-graubunden-chur"
       },
       "company": "Kantonale Verwaltung Graubünden",
       "companyKey": "kanton-gr",
@@ -1269,11 +1296,17 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "product-owner-servicemanagement-und-support-kanton-gr-ch"
+          "product-owner-servicemanagement-und-support-kanton-gr-ch",
+          "product-owner-servicemanagement-e-support-kantonale-verwaltung-graubunden-chur"
+        ],
+        "fr": [
+          "product-owner-servicemanagement-und-support-kantonale-verwaltung-graubunden-chur"
         ]
       },
       "previousSlugs": [
-        "product-owner-servicemanagement-und-support-kanton-gr-ch"
+        "product-owner-servicemanagement-und-support-kanton-gr-ch",
+        "product-owner-servicemanagement-e-support-kantonale-verwaltung-graubunden-chur",
+        "product-owner-servicemanagement-und-support-kantonale-verwaltung-graubunden-chur"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -1297,12 +1330,12 @@
     },
     {
       "id": "kanton-gr-e52a1d25007e",
-      "slug": "laborant-in-veterinardiagnostik-kantonale-verwaltung-graubunden-chur",
+      "slug": "laboratorio-di-diagnostica-veterinaria-kantonale-verwaltung-graubunden-chur",
       "slugByLocale": {
-        "it": "laborant-in-veterinardiagnostik-kantonale-verwaltung-graubunden-chur",
-        "en": "laborant-in-veterinardiagnostik-kantonale-verwaltung-graubunden-chur",
         "de": "laborant-in-veterinardiagnostik-kanton-gr-ch",
-        "fr": "laborant-in-veterinardiagnostik-kantonale-verwaltung-graubunden-chur"
+        "it": "laboratorio-di-diagnostica-veterinaria-kantonale-verwaltung-graubunden-chur",
+        "en": "laboratory-technician-veterinary-diagnostics-kantonale-verwaltung-graubunden-chur",
+        "fr": "diagnostic-veterinaire-du-de-la-laborantin-e-kantonale-verwaltung-graubunden-chur"
       },
       "company": "Kantonale Verwaltung Graubünden",
       "companyKey": "kanton-gr",
@@ -1352,11 +1385,19 @@
       "needsRetranslation": false,
       "previousSlugsByLocale": {
         "it": [
-          "laborant-in-veterinardiagnostik-kanton-gr-ch"
+          "laborant-in-veterinardiagnostik-kanton-gr-ch",
+          "laborant-in-veterinardiagnostik-kantonale-verwaltung-graubunden-chur"
+        ],
+        "en": [
+          "laborant-in-veterinardiagnostik-kantonale-verwaltung-graubunden-chur"
+        ],
+        "fr": [
+          "laborant-in-veterinardiagnostik-kantonale-verwaltung-graubunden-chur"
         ]
       },
       "previousSlugs": [
-        "laborant-in-veterinardiagnostik-kanton-gr-ch"
+        "laborant-in-veterinardiagnostik-kanton-gr-ch",
+        "laborant-in-veterinardiagnostik-kantonale-verwaltung-graubunden-chur"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -1382,9 +1423,9 @@
       "id": "kanton-gr-21a7531a3e7a",
       "slug": "collaboratore-trice-in-holzplatz-kantonale-verwaltung-graubunden-cazis",
       "slugByLocale": {
-        "it": "collaboratore-trice-in-holzplatz-kantonale-verwaltung-graubunden-cazis",
-        "en": "mitarbeiter-in-holzplatz-kantonale-verwaltung-graubunden-cazis",
         "de": "mitarbeiter-in-holzplatz-kanton-gr-ch",
+        "it": "collaboratore-trice-in-holzplatz-kantonale-verwaltung-graubunden-cazis",
+        "en": "wooden-yard-employee-kantonale-verwaltung-graubunden-cazis",
         "fr": "mitarbeiter-in-holzplatz-kantonale-verwaltung-graubunden-cazis"
       },
       "company": "Kantonale Verwaltung Graubünden",
@@ -1436,10 +1477,14 @@
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-holzplatz-kanton-gr-ch"
+        ],
+        "en": [
+          "mitarbeiter-in-holzplatz-kantonale-verwaltung-graubunden-cazis"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-holzplatz-kanton-gr-ch"
+        "mitarbeiter-in-holzplatz-kanton-gr-ch",
+        "mitarbeiter-in-holzplatz-kantonale-verwaltung-graubunden-cazis"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -1465,9 +1510,9 @@
       "id": "kanton-gr-46655fd86203",
       "slug": "cuocere-cucinare-kantonale-verwaltung-graubunden-cazis",
       "slugByLocale": {
+        "de": "koch-kochin-kanton-gr-ch",
         "it": "cuocere-cucinare-kantonale-verwaltung-graubunden-cazis",
         "en": "cook-cook-kantonale-verwaltung-graubunden-cazis",
-        "de": "koch-kochin-kanton-gr-ch",
         "fr": "cuire-faire-cuire-kantonale-verwaltung-graubunden-cazis"
       },
       "company": "Kantonale Verwaltung Graubünden",
@@ -1553,9 +1598,9 @@
       "id": "kanton-gr-0e4c1938e9d5",
       "slug": "specialista-ict-posto-di-lavoro-digitale-e-collaborazione-kantonale-verwaltung-graubunden-chur",
       "slugByLocale": {
+        "de": "ict-spezialist-in-digitaler-arbeitsplatz-kollaboration-kanton-gr-ch",
         "it": "specialista-ict-posto-di-lavoro-digitale-e-collaborazione-kantonale-verwaltung-graubunden-chur",
         "en": "ict-specialist-digital-workplace-collaboration-kantonale-verwaltung-graubunden-chur",
-        "de": "ict-spezialist-in-digitaler-arbeitsplatz-kollaboration-kanton-gr-ch",
         "fr": "specialiste-tic-poste-de-travail-numerique-et-collaboration-kantonale-verwaltung-graubunden-chur"
       },
       "company": "Kantonale Verwaltung Graubünden",
@@ -2770,7 +2815,7 @@
       "slug": "consulente-del-personale-kantonale-verwaltung-graubunden-chur",
       "slugByLocale": {
         "it": "consulente-del-personale-kantonale-verwaltung-graubunden-chur",
-        "en": "personnel-advisor-kantonale-verwaltung-graubunden-chur",
+        "en": "hr-consultant-kantonale-verwaltung-graubunden-chur",
         "de": "personalberater-in-kanton-gr-ch",
         "fr": "conseiller-conseillere-en-personnel-kantonale-verwaltung-graubunden-chur"
       },
@@ -2822,7 +2867,7 @@
       "previousSlugs": [
         "personalberater-in-kanton-gr-ch",
         "personalberater-in-kantonale-verwaltung-graubunden-chur",
-        "hr-consultant-kantonale-verwaltung-graubunden-chur"
+        "personnel-advisor-kantonale-verwaltung-graubunden-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2831,7 +2876,7 @@
         ],
         "en": [
           "personalberater-in-kantonale-verwaltung-graubunden-chur",
-          "hr-consultant-kantonale-verwaltung-graubunden-chur"
+          "personnel-advisor-kantonale-verwaltung-graubunden-chur"
         ],
         "fr": [
           "personalberater-in-kantonale-verwaltung-graubunden-chur"

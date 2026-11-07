@@ -9359,8 +9359,8 @@
       "id": "uzh-4222acb2d7d0",
       "slug": "assistente-accademico-progetto-nella-psicologia-didattica-universitat-zurich-zurich",
       "slugByLocale": {
-        "it": "assistente-accademico-progetto-nella-psicologia-didattica-universitat-zurich-zurich",
         "en": "academic-project-assistant-in-instructional-psychology-uzh-zurich",
+        "it": "assistente-accademico-progetto-nella-psicologia-didattica-universitat-zurich-zurich",
         "de": "academic-project-assistent-in-instructional-psychology-universitat-zurich-zurich",
         "fr": "assistant-academique-projet-en-psychologie-pedagogique-universitat-zurich-zurich"
       },
@@ -9440,11 +9440,11 @@
     },
     {
       "id": "uzh-115293fe7a0d",
-      "slug": "wissenschaftliche-r-collaboratore-trice-bzw-projektassistent-in-im-bereich-padagogische-psychologie-universitat-zurich",
+      "slug": "collaboratore-trice-scientifico-a-o-assistente-di-progetto-nel-campo-della-psicologia-pedagogica-universitat-zurich",
       "slugByLocale": {
-        "it": "wissenschaftliche-r-collaboratore-trice-bzw-projektassistent-in-im-bereich-padagogische-psychologie-universitat-zurich",
-        "en": "researchassociate-or-project-assistantin-educational-psychology-universitat-zurich-zurich",
         "de": "wissenschaftliche-r-mitarbeiter-in-bzw-projektassistent-in-im-bereich-padagogische",
+        "it": "collaboratore-trice-scientifico-a-o-assistente-di-progetto-nel-campo-della-psicologia-pedagogica-universitat-zurich",
+        "en": "researchassociate-or-project-assistantin-educational-psychology-universitat-zurich-zurich",
         "fr": "collaborateur-scientifique-ou-assistant-de-projet-dans-le-domaine-de-la-psychologie-de-l-education-universitat-zurich"
       },
       "company": "Universität Zürich",
@@ -9492,7 +9492,8 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "it": [
-          "wissenschaftliche-r-mitarbeiter-in-bzw-projektassistent-in-im-bereich-padagogische"
+          "wissenschaftliche-r-mitarbeiter-in-bzw-projektassistent-in-im-bereich-padagogische",
+          "wissenschaftliche-r-collaboratore-trice-bzw-projektassistent-in-im-bereich-padagogische-psychologie-universitat-zurich"
         ],
         "en": [
           "wissenschaftliche-r-mitarbeiter-in-bzw-projektassistent-in-im-bereich-padagogische"
@@ -9502,7 +9503,8 @@
         ]
       },
       "previousSlugs": [
-        "wissenschaftliche-r-mitarbeiter-in-bzw-projektassistent-in-im-bereich-padagogische"
+        "wissenschaftliche-r-mitarbeiter-in-bzw-projektassistent-in-im-bereich-padagogische",
+        "wissenschaftliche-r-collaboratore-trice-bzw-projektassistent-in-im-bereich-padagogische-psychologie-universitat-zurich"
       ],
       "salaryMin": 91500,
       "salaryMax": 128000,
@@ -9524,12 +9526,12 @@
     },
     {
       "id": "uzh-6c53a932ada5",
-      "slug": "verwaltungsassistenz-universitat-zurich-zurich",
+      "slug": "assistenza-amministrativa-universitat-zurich-zurich",
       "slugByLocale": {
-        "it": "verwaltungsassistenz-universitat-zurich-zurich",
-        "en": "verwaltungsassistenz-universitat-zurich-zurich",
         "de": "verwaltungsassistenz-uzh-zurich",
-        "fr": "verwaltungsassistenz-universitat-zurich-zurich"
+        "it": "assistenza-amministrativa-universitat-zurich-zurich",
+        "en": "administrative-assistance-universitat-zurich-zurich",
+        "fr": "assistance-administrative-universitat-zurich-zurich"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",
@@ -9575,11 +9577,19 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "it": [
-          "verwaltungsassistenz-uzh-zurich"
+          "verwaltungsassistenz-uzh-zurich",
+          "verwaltungsassistenz-universitat-zurich-zurich"
+        ],
+        "en": [
+          "verwaltungsassistenz-universitat-zurich-zurich"
+        ],
+        "fr": [
+          "verwaltungsassistenz-universitat-zurich-zurich"
         ]
       },
       "previousSlugs": [
-        "verwaltungsassistenz-uzh-zurich"
+        "verwaltungsassistenz-uzh-zurich",
+        "verwaltungsassistenz-universitat-zurich-zurich"
       ],
       "salaryMin": 91500,
       "salaryMax": 128000,
@@ -9601,11 +9611,11 @@
     },
     {
       "id": "uzh-d026ff414dc5",
-      "slug": "medizinstudierende-r-m-w-d-per-das-forschungsprojekt-sinergia-universitat-zurich",
+      "slug": "studenti-di-medicina-m-f-d-per-il-progetto-di-ricerca-sinergia-universitat-zurich-zurich",
       "slugByLocale": {
-        "it": "medizinstudierende-r-m-w-d-per-das-forschungsprojekt-sinergia-universitat-zurich",
-        "en": "medicalstudent-m-f-d-for-the-research-project-sinergia-universitat-zurich-zurich",
         "de": "medizinstudierende-r-w-m-d-fur-das-forschungsprojekt-sinergia-uzh-zurich",
+        "it": "studenti-di-medicina-m-f-d-per-il-progetto-di-ricerca-sinergia-universitat-zurich-zurich",
+        "en": "medicalstudent-m-f-d-for-the-research-project-sinergia-universitat-zurich-zurich",
         "fr": "etudiant-e-en-medecine-h-f-d-pour-le-projet-de-recherche-sinergia-universitat-zurich-zurich"
       },
       "company": "Universität Zürich",
@@ -9653,7 +9663,8 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "it": [
-          "medizinstudierende-r-w-m-d-fur-das-forschungsprojekt-sinergia-uzh-zurich"
+          "medizinstudierende-r-w-m-d-fur-das-forschungsprojekt-sinergia-uzh-zurich",
+          "medizinstudierende-r-m-w-d-per-das-forschungsprojekt-sinergia-universitat-zurich"
         ],
         "en": [
           "medizinstudierende-r-w-m-d-fur-das-forschungsprojekt-sinergia-uzh-zurich"
@@ -9663,7 +9674,8 @@
         ]
       },
       "previousSlugs": [
-        "medizinstudierende-r-w-m-d-fur-das-forschungsprojekt-sinergia-uzh-zurich"
+        "medizinstudierende-r-w-m-d-fur-das-forschungsprojekt-sinergia-uzh-zurich",
+        "medizinstudierende-r-m-w-d-per-das-forschungsprojekt-sinergia-universitat-zurich"
       ],
       "salaryMin": 91500,
       "salaryMax": 128000,

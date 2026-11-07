@@ -6156,12 +6156,12 @@
     },
     {
       "id": "epfl-2cf91ba588a5",
-      "slug": "apprenti-e-automaticien-ne-epfl-lausanne",
+      "slug": "apprendimento-automatico-epfl-lausanne",
       "slugByLocale": {
         "fr": "apprenti-e-automaticien-ne-epfl-lausanne",
-        "it": "apprenti-e-automaticien-ne-epfl-lausanne",
-        "en": "apprenti-e-automaticien-ne-epfl-lausanne",
-        "de": "apprenti-e-automaticien-ne-epfl-lausanne"
+        "it": "apprendimento-automatico-epfl-lausanne",
+        "en": "automatic-learning-epfl-lausanne",
+        "de": "automatisches-lernen-epfl-lausanne"
       },
       "company": "EPFL",
       "companyKey": "epfl",
@@ -6224,7 +6224,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-21T10:02:29.647Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-06T22:04:42.381Z"
+      "firstSeenAt": "2026-11-06T22:04:42.381Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "apprenti-e-automaticien-ne-epfl-lausanne"
+        ],
+        "en": [
+          "apprenti-e-automaticien-ne-epfl-lausanne"
+        ],
+        "de": [
+          "apprenti-e-automaticien-ne-epfl-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "apprenti-e-automaticien-ne-epfl-lausanne"
+      ]
     },
     {
       "id": "epfl-dcd7c2eaaa52",

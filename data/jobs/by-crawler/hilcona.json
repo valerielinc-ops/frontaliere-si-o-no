@@ -5,12 +5,12 @@
   "jobs": [
     {
       "id": "hilcona-06a46facf41e",
-      "slug": "anlagefuehrer-anlagefuehrerin-convenience-100-bell-schweiz-ag-zell",
+      "slug": "gestione-degli-investimenti-convenienza-100-bell-schweiz-ag-zell",
       "slugByLocale": {
-        "it": "anlagefuehrer-anlagefuehrerin-convenience-100-bell-schweiz-ag-zell",
-        "en": "anlagefuehrer-anlagefuehrerin-convenience-100-bell-schweiz-ag-zell",
         "de": "anlagefuehrer-anlagefuehrerin-convenience-100-hilcona-zell",
-        "fr": "anlagefuehrer-anlagefuehrerin-convenience-100-bell-schweiz-ag-zell"
+        "it": "gestione-degli-investimenti-convenienza-100-bell-schweiz-ag-zell",
+        "en": "investment-manager-convenience-100-bell-schweiz-ag-zell",
+        "fr": "gestionnaire-d-investissement-pratique-100-bell-schweiz-ag-zell"
       },
       "company": "Bell Schweiz AG",
       "companyKey": "hilcona",
@@ -50,11 +50,19 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "anlagefuehrer-anlagefuehrerin-convenience-100-hilcona-zell"
+          "anlagefuehrer-anlagefuehrerin-convenience-100-hilcona-zell",
+          "anlagefuehrer-anlagefuehrerin-convenience-100-bell-schweiz-ag-zell"
+        ],
+        "en": [
+          "anlagefuehrer-anlagefuehrerin-convenience-100-bell-schweiz-ag-zell"
+        ],
+        "fr": [
+          "anlagefuehrer-anlagefuehrerin-convenience-100-bell-schweiz-ag-zell"
         ]
       },
       "previousSlugs": [
-        "anlagefuehrer-anlagefuehrerin-convenience-100-hilcona-zell"
+        "anlagefuehrer-anlagefuehrerin-convenience-100-hilcona-zell",
+        "anlagefuehrer-anlagefuehrerin-convenience-100-bell-schweiz-ag-zell"
       ],
       "salaryMin": 127000,
       "salaryMax": 171000,
