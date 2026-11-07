@@ -363,5 +363,5 @@ export async function fetchAllSchweizerhofFlimsJobs() {
   }
 
   console.log(`\n📋 Total Schweizerhof jobs discovered: ${jobs.length}`);
-  return copySpecFetchMetadata(jobs, listings);
+  return copySpecFetchMetadata(jobs, listings || []);
 }

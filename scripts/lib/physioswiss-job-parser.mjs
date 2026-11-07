@@ -266,5 +266,5 @@ export async function fetchAllPhysioswissJobs() {
   }
 
   console.log(`\n📋 Total Physio swiss jobs discovered: ${jobs.length}`);
-  return copySpecFetchMetadata(jobs, listings);
+  return copySpecFetchMetadata(jobs, listings || []);
 }

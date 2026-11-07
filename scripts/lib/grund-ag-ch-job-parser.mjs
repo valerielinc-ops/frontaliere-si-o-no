@@ -241,5 +241,5 @@ export async function fetchAllGrundAgChJobs() {
   }
 
   console.log(`\n📋 Total Grund AG Fahrzeuge jobs discovered: ${jobs.length}`);
-  return copySpecFetchMetadata(jobs, listings);
+  return copySpecFetchMetadata(jobs, listings || []);
 }

@@ -211,5 +211,5 @@ export async function fetchAllOpusPersonalJobs() {
   }
 
   console.log(`\n📋 Total Opus Personal AG, Zweigniederlassung Altdorf jobs discovered: ${jobs.length}`);
-  return copySpecFetchMetadata(jobs, listings);
+  return copySpecFetchMetadata(jobs, listings || []);
 }

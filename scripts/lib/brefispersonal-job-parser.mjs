@@ -276,5 +276,5 @@ export async function fetchAllBrefispersonalJobs() {
   }
 
   console.log(`\n📋 Total brefis personal ag jobs discovered: ${jobs.length}`);
-  return copySpecFetchMetadata(jobs, listings);
+  return copySpecFetchMetadata(jobs, listings || []);
 }

@@ -230,5 +230,5 @@ export async function fetchAllHanseisenringJobs() {
   }
 
   console.log(`\n📋 Total Hans Eisenring AG jobs discovered: ${jobs.length}`);
-  return copySpecFetchMetadata(jobs, listings);
+  return copySpecFetchMetadata(jobs, listings || []);
 }

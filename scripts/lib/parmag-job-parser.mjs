@@ -203,5 +203,5 @@ export async function fetchAllParmagJobs() {
   }
 
   console.log(`\n📋 Total ParMag AG jobs discovered: ${jobs.length}`);
-  return copySpecFetchMetadata(jobs, listings);
+  return copySpecFetchMetadata(jobs, listings || []);
 }

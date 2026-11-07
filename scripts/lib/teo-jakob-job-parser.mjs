@@ -241,5 +241,5 @@ export async function fetchAllTeoJakobJobs() {
   }
 
   console.log(`\n📋 Total Einrichtung & Innenarchitektur – Designberatung | teo jakob jobs discovered: ${jobs.length}`);
-  return copySpecFetchMetadata(jobs, listings);
+  return copySpecFetchMetadata(jobs, listings || []);
 }

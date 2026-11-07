@@ -203,5 +203,5 @@ export async function fetchAllMcmGroupJobs() {
   }
 
   console.log(`\n📋 Total Medizinisches Center Bonaduz jobs discovered: ${jobs.length}`);
-  return copySpecFetchMetadata(jobs, listings);
+  return copySpecFetchMetadata(jobs, listings || []);
 }

@@ -224,5 +224,5 @@ export async function fetchAllMuellerSteinmaurJobs() {
   }
 
   console.log(`\n📋 Total mueller-steinmaur jobs discovered: ${jobs.length}`);
-  return copySpecFetchMetadata(jobs, listings);
+  return copySpecFetchMetadata(jobs, listings || []);
 }

@@ -230,5 +230,5 @@ export async function fetchAllA2nailsChJobs() {
   }
 
   console.log(`\n📋 Total A2 Nails Nyon jobs discovered: ${jobs.length}`);
-  return copySpecFetchMetadata(jobs, listings);
+  return copySpecFetchMetadata(jobs, listings || []);
 }

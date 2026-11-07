@@ -230,5 +230,5 @@ export async function fetchAllFavresaChJobs() {
   }
 
   console.log(`\n📋 Total Favre SA jobs discovered: ${jobs.length}`);
-  return copySpecFetchMetadata(jobs, listings);
+  return copySpecFetchMetadata(jobs, listings || []);
 }

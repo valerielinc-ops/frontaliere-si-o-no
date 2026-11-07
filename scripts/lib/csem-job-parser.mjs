@@ -230,5 +230,5 @@ export async function fetchAllCsemJobs() {
   }
 
   console.log(`\n📋 Total CSEM Landquart jobs discovered: ${jobs.length}`);
-  return copySpecFetchMetadata(jobs, listings);
+  return copySpecFetchMetadata(jobs, listings || []);
 }

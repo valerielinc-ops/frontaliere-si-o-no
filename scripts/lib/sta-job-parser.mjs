@@ -250,5 +250,5 @@ export async function fetchAllStaJobs() {
   }
 
   console.log(`\n📋 Total STA Personal AG jobs discovered: ${jobs.length}`);
-  return copySpecFetchMetadata(jobs, listings);
+  return copySpecFetchMetadata(jobs, listings || []);
 }

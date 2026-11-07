@@ -348,5 +348,5 @@ export async function fetchAllOkjobJobs(runtime = {}) {
     value: geoEligible,
     enumerable: false,
   });
-  return copySpecFetchMetadata(jobs, listings);
+  return copySpecFetchMetadata(jobs, listings || []);
 }

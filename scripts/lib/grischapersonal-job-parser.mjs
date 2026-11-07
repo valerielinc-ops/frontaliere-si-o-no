@@ -265,5 +265,5 @@ export async function fetchAllGrischapersonalJobs() {
   }
 
   console.log(`\n📋 Total Grischa Personal AG jobs discovered: ${jobs.length}`);
-  return copySpecFetchMetadata(jobs, listings);
+  return copySpecFetchMetadata(jobs, listings || []);
 }

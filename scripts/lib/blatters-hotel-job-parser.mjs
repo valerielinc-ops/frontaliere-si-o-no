@@ -260,5 +260,5 @@ export async function fetchAllBlattersHotelJobs({ fetchListings = fetchJobListin
   }
 
   console.log(`\n📋 Total Blatter's Arosa Hotel jobs discovered: ${jobs.length}`);
-  return copySpecFetchMetadata(jobs, listings);
+  return copySpecFetchMetadata(jobs, listings || []);
 }
