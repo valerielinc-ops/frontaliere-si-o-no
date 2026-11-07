@@ -152,6 +152,11 @@ export interface GptAdSlotProps {
   collapseOnEmpty?: boolean;
 }
 
+/** Keep the public slot label compatible with browsers without Array#at. */
+export function gptHouseName(adUnitPath: string): string {
+  return adUnitPath.split('/').filter(Boolean).pop() || 'gpt-display';
+}
+
 const GptAdSlot: React.FC<GptAdSlotProps> = ({
   adUnitPath,
   sizes,
@@ -410,7 +415,7 @@ const GptAdSlot: React.FC<GptAdSlotProps> = ({
   if (!active) return null;
 
   return (
-    <div ref={houseFrameRef} className={className} data-house={adUnitPath.split('/').filter(Boolean).pop() || 'gpt-display'} data-ft-house-library="gpt" data-ft-house-height={Math.max(minHeight, ...sizes.map(size => size === 'fluid' ? 250 : size[1]))}>
+    <div ref={houseFrameRef} className={className} data-house={gptHouseName(adUnitPath)} data-ft-house-library="gpt" data-ft-house-height={Math.max(minHeight, ...sizes.map(size => size === 'fluid' ? 250 : size[1]))}>
     <div
       ref={wrapperRef}
       data-ft-house-google=""

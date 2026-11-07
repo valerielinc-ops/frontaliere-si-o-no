@@ -3,7 +3,7 @@
 import React from 'react';
 import { act, cleanup, render } from '@testing-library/react';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
-import GptAdSlot, { type GptSize } from '@/components/shared/GptAdSlot';
+import GptAdSlot, { gptHouseName, type GptSize } from '@/components/shared/GptAdSlot';
 import { AD_FILL_TIMEOUT_MS } from '@/services/adsenseSlots';
 
 const { trackAdEvent, consent, bidding, requestHeaderBids } = vi.hoisted(() => ({ trackAdEvent: vi.fn(), consent: { granted: true, denied: false }, bidding: { active: false }, requestHeaderBids: vi.fn() }));
@@ -67,8 +67,8 @@ describe('GPT manual reserve lifecycle', () => {
     const descriptor = Object.getOwnPropertyDescriptor(Array.prototype, 'at');
     try {
       Object.defineProperty(Array.prototype, 'at', { configurable: true, value: undefined, writable: true });
-      const { container } = mount();
-      expect(container.querySelector('[data-house]')?.getAttribute('data-house')).toBe('rail');
+      expect(gptHouseName('/test/rail')).toBe('rail');
+      expect(gptHouseName('///')).toBe('gpt-display');
     } finally {
       if (descriptor) Object.defineProperty(Array.prototype, 'at', descriptor);
       else delete (Array.prototype as Array<unknown> & { at?: unknown }).at;
