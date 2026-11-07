@@ -24,8 +24,12 @@ describe('Ronda AG crawler parser', () => {
       expect(isRondaChJob({ company: 'Ronda AG' })).toBe(true);
     });
 
-    it('matches by URL domain', () => {
-      expect(isRondaChJob({ url: 'https://yousty.ch/jobs/123' })).toBe(true);
+    it('rejects shared Yousty URLs without Ronda identity', () => {
+      expect(isRondaChJob({
+        companyKey: '',
+        company: 'Other AG',
+        url: 'https://www.yousty.ch/de-CH/lehrstellen/firmen/other',
+      })).toBe(false);
     });
 
     it('rejects unrelated jobs', () => {

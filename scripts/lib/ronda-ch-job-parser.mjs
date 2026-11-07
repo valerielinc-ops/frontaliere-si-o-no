@@ -52,13 +52,11 @@ export function isRondaChJob(job) {
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/^-+|-+$/g, '');
   const company = normalize(job?.company || '');
-  const url = normalize(job?.url || '');
 
   return (
     key === RONDA_CH_KEY ||
     key.startsWith('ronda-ch-') ||
-    company.includes('ronda ag') ||
-    url.includes('yousty.ch')
+    company.includes('ronda ag')
   );
 }
 
