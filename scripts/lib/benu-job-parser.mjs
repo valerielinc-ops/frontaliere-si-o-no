@@ -203,5 +203,5 @@ export async function fetchAllBenuJobs() {
   }
 
   console.log(`\n📋 Total benu jobs discovered: ${jobs.length}`);
-  return copySpecFetchMetadata(jobs, listings);
+  return copySpecFetchMetadata(jobs, listings || []);
 }

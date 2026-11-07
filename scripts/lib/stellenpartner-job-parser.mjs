@@ -207,5 +207,5 @@ export async function fetchAllStellenpartnerJobs() {
   }
 
   console.log(`\n📋 Total Stellenpartner AG jobs discovered: ${jobs.length}`);
-  return copySpecFetchMetadata(jobs, listings);
+  return copySpecFetchMetadata(jobs, listings || []);
 }

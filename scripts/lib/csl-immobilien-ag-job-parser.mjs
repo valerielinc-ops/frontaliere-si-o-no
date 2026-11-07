@@ -240,5 +240,5 @@ export async function fetchAllCslImmobilienAgJobs() {
   }
 
   console.log(`\n📋 Total CSL Immobilien AG jobs discovered: ${jobs.length}`);
-  return copySpecFetchMetadata(jobs, listings);
+  return copySpecFetchMetadata(jobs, listings || []);
 }

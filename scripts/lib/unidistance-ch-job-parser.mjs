@@ -11,14 +11,14 @@
  *   - slugify() / stripHtml()     — Re-exported from crawler-template.mjs
  */
 import { createHash } from 'node:crypto';
-import { detectLang } from './dedicated-crawler-common.mjs';
+import { canonicalizeJobUrl, detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
 import { mergeSourcePostingDates } from './source-posting-date.mjs';
 import { copySpecFetchMetadata, loadSpec, runSpecInProduction } from './prospector/spec-crawler.mjs';
 import {
   resolveSourceBackedSwissGeography,
-  sourceBackedSwissGeographyFields,
+  sourceBackedSwissJobAddressFields,
 } from './prospector/location-evidence.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
@@ -154,9 +154,7 @@ export async function fetchAllUnidistanceChJobs() {
     };
     const resolvedGeography = resolveSourceBackedSwissGeography(listing);
     const geography = resolvedGeography
-      && (typeof sourceBackedSwissGeographyFields === 'function'
-        ? sourceBackedSwissGeographyFields(sourceGeographyEvidence, resolvedGeography)
-        : resolvedGeography);
+      && sourceBackedSwissJobAddressFields(sourceGeographyEvidence, resolvedGeography);
     // Required structured-data geography must come from the vacancy source.
     // Missing, foreign or non-specific values are not replaced with an HQ.
     if (!geography) continue;
@@ -174,8 +172,9 @@ export async function fetchAllUnidistanceChJobs() {
     if (!descriptionText) continue;
     // The detail URL is the vacancy identity: falling back to the listing page
     // would give every posting the same `url`, `applyUrl` and `id` hash.
-    if (!listing.url) continue;
-    const publicUrl = listing.url;
+    const rawUrl = String(listing.url || '').trim();
+    if (!rawUrl) continue;
+    const publicUrl = canonicalizeJobUrl(rawUrl) || rawUrl;
     const employmentType = detectEmploymentType(listing.timeType || title);
 
     const sourceLang = detectLang(descriptionText || title, 'de');
@@ -230,5 +229,5 @@ export async function fetchAllUnidistanceChJobs() {
   }
 
   console.log(`\n📋 Total UniDistance Suisse jobs discovered: ${jobs.length}`);
-  return copySpecFetchMetadata(jobs, listings);
+  return copySpecFetchMetadata(jobs, listings || []);
 }

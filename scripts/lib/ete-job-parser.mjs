@@ -276,5 +276,5 @@ export async function fetchAllEteJobs(runtime = {}) {
   }
 
   console.log(`\n📋 Total Emil Egger AG jobs discovered: ${jobs.length}`);
-  return copySpecFetchMetadata(jobs, listings);
+  return copySpecFetchMetadata(jobs, listings || []);
 }

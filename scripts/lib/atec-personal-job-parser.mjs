@@ -203,5 +203,5 @@ export async function fetchAllAtecPersonalJobs() {
   }
 
   console.log(`\n📋 Total ATEC Personal AG jobs discovered: ${jobs.length}`);
-  return copySpecFetchMetadata(jobs, listings);
+  return copySpecFetchMetadata(jobs, listings || []);
 }

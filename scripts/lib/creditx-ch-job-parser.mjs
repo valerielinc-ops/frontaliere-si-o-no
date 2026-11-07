@@ -230,5 +230,5 @@ export async function fetchAllCreditxChJobs() {
   }
 
   console.log(`\n📋 Total CreditX Sàrl jobs discovered: ${jobs.length}`);
-  return copySpecFetchMetadata(jobs, listings);
+  return copySpecFetchMetadata(jobs, listings || []);
 }

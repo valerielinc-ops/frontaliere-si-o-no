@@ -243,5 +243,5 @@ export async function fetchAllBbTradingWerbeartikelAgJobs() {
   }
 
   console.log(`\n📋 Total bb trading werbeartikel ag jobs discovered: ${jobs.length}`);
-  return copySpecFetchMetadata(jobs, listings);
+  return copySpecFetchMetadata(jobs, listings || []);
 }
