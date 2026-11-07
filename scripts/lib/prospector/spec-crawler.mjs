@@ -253,6 +253,12 @@ const SPEC_FETCH_METADATA_KEYS = [
 export function copySpecFetchMetadata(target, source) {
   for (const key of SPEC_FETCH_METADATA_KEYS) {
     if (!Object.prototype.hasOwnProperty.call(source || {}, key)) continue;
+    // Some source adapters deliberately attach a non-configurable value after
+    // their own filtering (for example, a geography-eligible count). That
+    // adapter-owned verdict is already authoritative for the returned array;
+    // preserve it instead of turning metadata forwarding into a TypeError.
+    const existing = Object.getOwnPropertyDescriptor(target, key);
+    if (existing && !existing.configurable) continue;
     Object.defineProperty(target, key, {
       value: source[key],
       enumerable: false,

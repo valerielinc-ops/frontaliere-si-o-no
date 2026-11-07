@@ -27,7 +27,12 @@ import {
 } from './prospector/location-evidence.mjs';
 import { politeFetch } from './prospector/polite-fetch.mjs';
 import { resolveProspectorFetch } from './prospector/public-fetch-policy.mjs';
-import { createSpecUrlPolicy, loadSpec, runSpecInProduction } from './prospector/spec-crawler.mjs';
+import {
+  copySpecFetchMetadata,
+  createSpecUrlPolicy,
+  loadSpec,
+  runSpecInProduction,
+} from './prospector/spec-crawler.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
