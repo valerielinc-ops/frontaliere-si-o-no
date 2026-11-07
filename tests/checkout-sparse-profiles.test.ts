@@ -331,6 +331,32 @@ describe('profili di sparse-checkout', () => {
     expect(stripSourceComments(source)).toBe(expected);
   });
 
+  it('preserva regex su una nuova riga dopo ASI', () => {
+    const source = 'const n = 1\n/[/*]/;\nconst x = import("./real.mjs");';
+    const code = stripSourceComments(source);
+    expect(code).toContain('/[/*]/;');
+    expect(code).toContain('const x = import("./real.mjs");');
+  });
+
+  it('non scambia una divisione a capo per una regex senza chiusura sulla riga', () => {
+    const source = 'const n = 1\n/2;\nconst x = import("./real.mjs");';
+    expect(stripSourceComments(source)).toBe(source);
+  });
+
+  it('mantiene entrambi i terminatori CRLF di un commento di riga', () => {
+    const source = '// comment\r\nconst after = 1;';
+    const expected = source.replace('// comment', ' '.repeat('// comment'.length));
+    expect(stripSourceComments(source)).toBe(expected);
+  });
+
+  it('riprende il template dopo graffe annidate e un commento nel placeholder', () => {
+    const source = 'const value = `outer ${(() => { /* } */ return { nested: { value: 1 } }; })()}`;\nconst after = import("./real.mjs");';
+    const code = stripSourceComments(source);
+    expect(code).toContain('return { nested: { value: 1 } };');
+    expect(code).toContain('const after = import("./real.mjs");');
+    expect(code).not.toContain('/* } */');
+  });
+
   it('preserva gli offset UTF-16 del codice dopo emoji nei commenti', () => {
     const source = `const label = "📣"; // data/jobs-ai-cache.json\nimport content from 'data/live.json';`;
     const code = stripSourceComments(source);

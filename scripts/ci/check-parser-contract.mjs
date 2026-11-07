@@ -89,12 +89,12 @@ const MAX_EXPRESSION_LINES = 8;
 export function lexSource(source) {
   const src = String(source ?? '');
   const masked = src.split('');
-  const blank = (i) => { if (src[i] !== '\n') masked[i] = ' '; };
-  const mask = (i) => { if (i < src.length && src[i] !== '\n') masked[i] = 'x'; };
+  const blank = (i) => { if (src[i] !== '\n' && src[i] !== '\r') masked[i] = ' '; };
+  const mask = (i) => { if (i < src.length && src[i] !== '\n' && src[i] !== '\r') masked[i] = 'x'; };
   for (let i = 0; i < src.length; i += 1) {
     const c = src[i];
     if (c === '/' && src[i + 1] === '/') {
-      while (i < src.length && src[i] !== '\n') { blank(i); i += 1; }
+      while (i < src.length && src[i] !== '\n' && src[i] !== '\r') { blank(i); i += 1; }
       continue;
     }
     if (c === '/' && src[i + 1] === '*') {

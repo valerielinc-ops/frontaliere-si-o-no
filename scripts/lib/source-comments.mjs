@@ -31,6 +31,7 @@ export function stripSourceComments(source) {
   function skipRegex(start) {
     let inClass = false;
     for (let i = start + 1; i < src.length; i += 1) {
+      if (src[i] === '\n' || src[i] === '\r') return null;
       if (src[i] === '\\') {
         i += 1;
       } else if (src[i] === '[') {
@@ -101,8 +102,11 @@ export function stripSourceComments(source) {
         continue;
       }
       if (character === '/' && isRegexLiteralStart(src, i, out)) {
-        i = skipRegex(i) - 1;
-        continue;
+        const end = skipRegex(i);
+        if (end !== null) {
+          i = end - 1;
+          continue;
+        }
       }
       if (stopAtBrace && character === '}' && braceDepth === 0) return i + 1;
       if (character === '{') {

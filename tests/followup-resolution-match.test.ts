@@ -245,6 +245,15 @@ describe('detectAlreadyResolved (end-to-end matcher)', () => {
     expect(res.evidence).toEqual([{ file: 'scripts/ci/parser.mjs', tok: 'markStale()' }]);
   });
 
+  it('does not let a regex containing a comment opener hide a later executable call', () => {
+    const source = 'const n = 1\n/[/*]/;\nmarkStale();';
+    const io = {
+      fileExists: (p: string) => p === 'scripts/ci/parser.mjs',
+      readFile: () => source,
+    };
+    expect(detectAlreadyResolved(body, io, { acceptanceToken: 'markStale()' }).resolved).toBe(true);
+  });
+
   it('uses the explicit Acceptance token and matches a real call with arguments', () => {
     const explicitBody = [
       '- Target file: `scripts/update-manor-jobs.mjs`',

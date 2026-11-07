@@ -226,6 +226,14 @@ describe('lexer ed eccezione', () => {
     expect(masked).toContain('const after = 1;');
   });
 
+  it('preserva i confini regex e CRLF dopo una riga con commento', () => {
+    const source = '// comment\r\nconst n = 1\r\n/[/*]/;\r\nconst after = 1;';
+    const { masked } = lexSource(source);
+    expect(masked).toContain('\r\n');
+    expect(masked).toContain('/xxxx/;');
+    expect(masked).toContain('const after = 1;');
+  });
+
   it('ignora commenti e stringhe', () => {
     const src = `// postedDate: listing.postedDate || new Date()\n// const sourceCanton = inferSwissTargetCanton(addressRegionRaw);\nconst s = "validThrough: detail.validThrough";\nconst t = "canonicalChCountry(listing.addressCountry ?? listing.country)";\n/* sourcePostingDateFields(a.date || b.date) */\n`;
     expect(rulesOf(src)).toEqual([]);
