@@ -1,0 +1,79 @@
+{
+  "crawlerKey": "a2nails-ch",
+  "assembledAt": "2026-11-07T09:48:27.341Z",
+  "runId": "42359674600",
+  "jobs": [
+    {
+      "id": "a2nails-ch-1352b4d181e6",
+      "slug": "specialiste-en-manucure-et-pedicure-nyon-vaud-a2nails-ch-ch",
+      "slugByLocale": {
+        "fr": "specialiste-en-manucure-et-pedicure-nyon-vaud-a2nails-ch-ch",
+        "it": "specialiste-en-manucure-et-pedicure-nyon-vaud-a2nails-ch-ch",
+        "en": "specialiste-en-manucure-et-pedicure-nyon-vaud-a2nails-ch-ch",
+        "de": "specialiste-en-manucure-et-pedicure-nyon-vaud-a2nails-ch-ch"
+      },
+      "company": "A2 Nails Nyon",
+      "companyKey": "a2nails-ch",
+      "companyDomain": "a2nails.ch",
+      "title": "Spécialiste en manucure et pédicure",
+      "titleByLocale": {
+        "fr": "Spécialiste en manucure et pédicure",
+        "it": "Spécialiste en manucure et pédicure",
+        "en": "Spécialiste en manucure et pédicure",
+        "de": "Spécialiste en manucure et pédicure"
+      },
+      "description": "A2 Nails recrute pour un poste en manucure et pédicure dans son salon au centre de Nyon.\nLe poste comprend la réalisation de prestations professionnelles, le respect strict de l'hygiène, l'accueil attentif des clientes, la ponctualité et la participation au bon fonctionnement du salon.\nNous recherchons une personne précise, fiable et à l'aise dans un environnement international. Une expérience professionnelle en salon et un portfolio de travaux sont demandés. Un diplôme est apprécié; la qualité du travail pratique et l'expérience sont également évaluées.\nLe taux d'activité et l'organisation du travail sont discutés pendant l'entretien.",
+      "descriptionByLocale": {
+        "fr": "A2 Nails recrute pour un poste en manucure et pédicure dans son salon au centre de Nyon.\nLe poste comprend la réalisation de prestations professionnelles, le respect strict de l'hygiène, l'accueil attentif des clientes, la ponctualité et la participation au bon fonctionnement du salon.\nNous recherchons une personne précise, fiable et à l'aise dans un environnement international. Une expérience professionnelle en salon et un portfolio de travaux sont demandés. Un diplôme est apprécié; la qualité du travail pratique et l'expérience sont également évaluées.\nLe taux d'activité et l'organisation du travail sont discutés pendant l'entretien.",
+        "it": "A2 Nails recrute pour un poste en manucure et pédicure dans son salon au centre de Nyon.\nLe poste comprend la réalisation de prestations professionnelles, le respect strict de l'hygiène, l'accueil attentif des clientes, la ponctualité et la participation au bon fonctionnement du salon.\nNous recherchons une personne précise, fiable et à l'aise dans un environnement international. Une expérience professionnelle en salon et un portfolio de travaux sont demandés. Un diplôme est apprécié; la qualité du travail pratique et l'expérience sont également évaluées.\nLe taux d'activité et l'organisation du travail sont discutés pendant l'entretien.",
+        "en": "A2 Nails recrute pour un poste en manucure et pédicure dans son salon au centre de Nyon.\nLe poste comprend la réalisation de prestations professionnelles, le respect strict de l'hygiène, l'accueil attentif des clientes, la ponctualité et la participation au bon fonctionnement du salon.\nNous recherchons une personne précise, fiable et à l'aise dans un environnement international. Une expérience professionnelle en salon et un portfolio de travaux sont demandés. Un diplôme est apprécié; la qualité du travail pratique et l'expérience sont également évaluées.\nLe taux d'activité et l'organisation du travail sont discutés pendant l'entretien.",
+        "de": "A2 Nails recrute pour un poste en manucure et pédicure dans son salon au centre de Nyon.\nLe poste comprend la réalisation de prestations professionnelles, le respect strict de l'hygiène, l'accueil attentif des clientes, la ponctualité et la participation au bon fonctionnement du salon.\nNous recherchons une personne précise, fiable et à l'aise dans un environnement international. Une expérience professionnelle en salon et un portfolio de travaux sont demandés. Un diplôme est apprécié; la qualité du travail pratique et l'expérience sont également évaluées.\nLe taux d'activité et l'organisation du travail sont discutés pendant l'entretien."
+      },
+      "location": "Nyon, Vaud",
+      "canton": "VD",
+      "url": "https://a2nails.ch/jobs/",
+      "source": "A2 Nails Nyon Dedicated Parser",
+      "sourceLang": "fr",
+      "crawledAt": "2026-11-07T09:48:11.755Z",
+      "addressLocality": "Nyon",
+      "addressRegion": "VD",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1260",
+      "streetAddress": "Rue Neuve 14",
+      "category": "Altro",
+      "contract": "other",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-07-29",
+      "postedDate": "2026-07-29",
+      "postingDateSource": "reported",
+      "applyUrl": "https://a2nails.ch/jobs/",
+      "requirements": [],
+      "requirementsByLocale": {
+        "fr": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 60500,
+      "salaryMax": 91500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 60500,
+          "maxValue": 91500,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-07T09:48:11.755Z",
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-11-07T09:48:11.755Z"
+    }
+  ]
+}
