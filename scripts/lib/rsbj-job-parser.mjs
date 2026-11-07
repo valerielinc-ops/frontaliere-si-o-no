@@ -20,7 +20,7 @@ import { extractJobPostingLd } from './jsonld-jobposting.mjs';
  */
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
-import { slugify } from './crawler-template.mjs';
+import { fetchHtml, slugify } from './crawler-template.mjs';
 import { extractBalancedTagBlock } from './hospital-custom-html-helpers.mjs';
 import { htmlToTextLines } from './html-to-text-lines.mjs';
 
@@ -75,20 +75,11 @@ export function isTrustedDomain(rawUrl = '') {
   }
 }
 
-async function fetchHtml(url) {
-  const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20000;
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), timeoutMs);
-  try {
-    const res = await fetch(url, {
-      headers: { Accept: 'text/html,application/xhtml+xml', 'User-Agent': USER_AGENT },
-      signal: controller.signal,
-    });
-    if (!res.ok) throw new Error(`HTTP ${res.status} from ${url}`);
-    return await res.text();
-  } finally {
-    clearTimeout(timer);
-  }
+function fetchOptions() {
+  return {
+    timeoutMs: Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20000,
+    headers: { Accept: 'text/html,application/xhtml+xml', 'User-Agent': USER_AGENT },
+  };
 }
 
 export function parseRsbjListing(html) {
@@ -199,7 +190,7 @@ export function extractRsbjDetailText(html = '') {
 
 async function fetchDetailContent(detailUrl) {
   try {
-    const html = await fetchHtml(detailUrl);
+    const html = await fetchHtml(detailUrl, fetchOptions());
     return { body: extractRsbjDetailText(html), ...sourcePostingDateFields(extractJobPostingLd(html)?.datePosted) };
   } catch {
     return { body: '', ...sourcePostingDateFields('') };
@@ -210,7 +201,7 @@ export async function fetchAllRsbjJobs() {
   console.log(`🏥 Fetching ${RSBJ_COMPANY_NAME} jobs`);
   console.log(`   Source: ${LISTING_URL}\n`);
 
-  const html = await fetchHtml(LISTING_URL);
+  const html = await fetchHtml(LISTING_URL, fetchOptions());
   const entries = parseRsbjListing(html);
   console.log(`  ✓ ${entries.length} vignettes found`);
   if (entries.length > 0) console.log(`  📄 Fetching detail pages for rich descriptions...`);
