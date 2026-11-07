@@ -26,7 +26,11 @@ import { FieldValue } from 'firebase-admin/firestore';
 import { getStorage } from 'firebase-admin/storage';
 import { ASSISTED_APPLICATION_STORAGE_BUCKET } from './assistedApplicationCvCheck.js';
 import { getAdminDb } from './newsletterResendWebhookCore.js';
-import { PUBLIC_PLATE_AUCTION_SOURCE_REGISTRY } from './plateAuctionSourceRegistry.js';
+import {
+  PUBLIC_PLATE_AUCTION_SOURCE_REGISTRY,
+  resolvePlateAuctionSource,
+  resolvePlateAuctionSourceStatus,
+} from './plateAuctionSourceRegistry.js';
 import { normalizePlateAuctionRedirectUrl } from './plateAuctionUrlNormalization.js';
 import { BE_AUCTION_URLS, FR_ECARI_CATALOGUE_URL, GR_ECARI_CATALOGUE_URL, TG_AUCTION_URLS } from './plateAuctionSourceUrls.js';
 import { chunkPlateAuctionWrites } from './plateAuctionBatch.js';
@@ -50,11 +54,11 @@ function canonicalPlateCode(value) {
   return String(value || '').trim().toUpperCase();
 }
 
-export function resolvePublicPlateAuctionSourceKey(value) {
+export function resolvePublicPlateAuctionSourceKey(value, now = new Date()) {
   if (Array.isArray(value) || typeof value !== 'string') return null;
   const sourceKey = value.trim().toLowerCase();
   const source = PUBLIC_PLATE_AUCTION_SOURCE_REGISTRY[sourceKey];
-  return source?.status === 'active' ? sourceKey : null;
+  return resolvePlateAuctionSourceStatus(source, now) === 'active' ? sourceKey : null;
 }
 
 function makeEcariConnector({ canton, plateCode, url, parserVersion = '2.0.0' }) {
@@ -553,7 +557,7 @@ async function readSourceRows(db, sourceKey) {
   return [...documents.values()].sort((left, right) => String(left.id).localeCompare(String(right.id)));
 }
 
-export async function getPublicPlateAuctionSnapshot(db = getAdminDb()) {
+export async function getPublicPlateAuctionSnapshot(db = getAdminDb(), now = new Date()) {
   const [auctionRows, sourceRows] = await Promise.all([
     // Basel-Stadt publishes a large official fixed-price catalogue. Read all
     // pages and fail closed above the defensive cap instead of silently
@@ -574,28 +578,30 @@ export async function getPublicPlateAuctionSnapshot(db = getAdminDb()) {
     console.warn('[getPublicPlateAuctionSnapshot:history]', error instanceof Error ? error.message : String(error));
   }
   const activeSourceCodes = new Set(Object.values(PUBLIC_PLATE_AUCTION_SOURCE_REGISTRY)
-    .filter((source) => source.status === 'active')
+    .filter((source) => resolvePlateAuctionSourceStatus(source, now) === 'active')
     .map((source) => canonicalPlateCode(source.plateCode)));
   const auctions = auctionRows.map(publicAuction).filter(Boolean)
     .filter((auction) => activeSourceCodes.has(canonicalPlateCode(auction.sourceKey || auction.platePrefix)))
     .map((auction) => {
-    const closed = closeExpiredObservation(auction, new Date());
+    const closed = closeExpiredObservation(auction, now);
     return closed ? publicAuction(closed) : auction;
   }).filter(Boolean);
   const history = historyRows.map(publicAuction).filter(Boolean)
     .filter((auction) => activeSourceCodes.has(canonicalPlateCode(auction.sourceKey || auction.platePrefix)));
-  const sources = Object.fromEntries(Object.entries(PUBLIC_PLATE_AUCTION_SOURCE_REGISTRY).map(([key, source]) => [key, { ...source, rowCount: 0 }]));
+  const sources = Object.fromEntries(Object.entries(PUBLIC_PLATE_AUCTION_SOURCE_REGISTRY)
+    .map(([key, source]) => [key, { ...resolvePlateAuctionSource(source, now), rowCount: 0 }]));
   for (const source of sourceRows) {
     const publicValue = publicSource(source);
     if (!publicValue) continue;
     const registrySource = PUBLIC_PLATE_AUCTION_SOURCE_REGISTRY[source.id];
-    if (registrySource && registrySource.status !== 'active') {
+    const effectiveRegistrySource = resolvePlateAuctionSource(registrySource, now);
+    if (effectiveRegistrySource && effectiveRegistrySource.status !== 'active') {
       // A stale Firestore document must not resurrect a source that the
       // registry has explicitly blocked or marked as having no public
       // catalogue. Keep the last check timestamp, but publish the registry
       // state and zero current rows immediately after deployment.
       sources[source.id] = {
-        ...registrySource,
+        ...effectiveRegistrySource,
         rowCount: 0,
         ...(publicValue.lastCheckedAt ? { lastCheckedAt: publicValue.lastCheckedAt } : {}),
       };
@@ -606,7 +612,7 @@ export async function getPublicPlateAuctionSnapshot(db = getAdminDb()) {
   return {
     schema: PLATE_AUCTION_API_SCHEMA,
     complete: true,
-    generatedAt: new Date().toISOString(),
+    generatedAt: now.toISOString(),
     sources,
     auctions,
     history,
@@ -629,19 +635,25 @@ export async function getPublicPlateAuctionSnapshot(db = getAdminDb()) {
  * must not rebuild the 17k-row catalogue just to recover FR, TI or SZ after a
  * cold start or a missing published object.
  */
-export async function getPublicPlateAuctionSourceSnapshot({ db = getAdminDb(), sourceKey } = {}) {
-  const normalizedSourceKey = resolvePublicPlateAuctionSourceKey(sourceKey);
+export async function getPublicPlateAuctionSourceSnapshot({ db = getAdminDb(), sourceKey, now = new Date() } = {}) {
+  const normalizedSourceKey = resolvePublicPlateAuctionSourceKey(sourceKey, now);
   if (!normalizedSourceKey) throw new Error(`Unknown active plate-auction source: ${String(sourceKey || '')}`);
-  const registrySource = PUBLIC_PLATE_AUCTION_SOURCE_REGISTRY[normalizedSourceKey];
+  const registrySource = resolvePlateAuctionSource(PUBLIC_PLATE_AUCTION_SOURCE_REGISTRY[normalizedSourceKey], now);
   const sourceCode = canonicalPlateCode(registrySource.plateCode);
   const [auctionRows, sourceRows] = await Promise.all([
     readSourceRows(db, sourceCode),
     readCollection(db, PLATE_AUCTION_SOURCE_COLLECTION, { pageSize: 50, maxRows: 50 }),
   ]);
   const sourceDocument = sourceRows.find((source) => String(source.id || '').toLowerCase() === normalizedSourceKey);
-  const source = publicSource(sourceDocument) || { ...registrySource, rowCount: 0 };
-  const now = new Date();
-  const auctions = sourceDocument && source.status === 'active'
+  const publicValue = publicSource(sourceDocument);
+  const source = registrySource.status !== 'active'
+    ? {
+      ...registrySource,
+      rowCount: 0,
+      ...(publicValue?.lastCheckedAt ? { lastCheckedAt: publicValue.lastCheckedAt } : {}),
+    }
+    : publicValue || { ...registrySource, rowCount: 0 };
+  const auctions = sourceDocument && registrySource.status === 'active' && sourceDocument.status === 'active'
     ? auctionRows.map((doc) => ({ id: doc.id, ...doc.data() })).map(publicAuction).filter(Boolean).map((auction) => {
       const closed = closeExpiredObservation(auction, now);
       return closed ? publicAuction(closed) : auction;
@@ -690,6 +702,11 @@ let cachedSnapshotBody = null;
 let pendingSnapshotBody = null;
 const cachedSourceBodies = new Map();
 const pendingSourceBodies = new Map();
+
+function hasExpiredFinitePlateAuctionSource(now) {
+  return Object.values(PUBLIC_PLATE_AUCTION_SOURCE_REGISTRY)
+    .some((source) => source.status === 'active' && resolvePlateAuctionSourceStatus(source, now) !== 'active');
+}
 
 /**
  * Where refreshPlateAuctions publishes the built public snapshot, gzip-
@@ -765,15 +782,21 @@ export async function loadPublishedPlateAuctionSnapshot({ bucket, now = Date.now
  * Firestore build).
  */
 export function getCachedPublicPlateAuctionSnapshotBody({ db, bucket, now = Date.now, ttlMs = PLATE_AUCTION_SNAPSHOT_CACHE_MS } = {}) {
-  if (cachedSnapshotBody && cachedSnapshotBody.expiresAt > now()) return Promise.resolve(cachedSnapshotBody.bodies);
+  const nowMs = now();
+  const expiredFiniteSession = hasExpiredFinitePlateAuctionSource(new Date(nowMs));
+  if (cachedSnapshotBody
+    && cachedSnapshotBody.expiresAt > nowMs
+    && cachedSnapshotBody.expiredFiniteSession === expiredFiniteSession) {
+    return Promise.resolve(cachedSnapshotBody.bodies);
+  }
   if (!pendingSnapshotBody) {
     pendingSnapshotBody = (async () => {
-      let bodies = bucket === null ? null : await loadPublishedPlateAuctionSnapshot({ bucket, now });
+      let bodies = bucket === null || expiredFiniteSession ? null : await loadPublishedPlateAuctionSnapshot({ bucket, now });
       if (!bodies) {
-        const body = Buffer.from(JSON.stringify(await getPublicPlateAuctionSnapshot(db)));
+        const body = Buffer.from(JSON.stringify(await getPublicPlateAuctionSnapshot(db, new Date(nowMs))));
         bodies = { body, gzip: await gzipAsync(body) };
       }
-      cachedSnapshotBody = { bodies, expiresAt: now() + ttlMs };
+      cachedSnapshotBody = { bodies, expiresAt: now() + ttlMs, expiredFiniteSession };
       return bodies;
     })().finally(() => {
       pendingSnapshotBody = null;
@@ -806,13 +829,13 @@ export function resetPublicPlateAuctionSnapshotCache() {
 }
 
 export function getCachedPublicPlateAuctionSourceBody({ sourceKey, db, now = Date.now, ttlMs = PLATE_AUCTION_SNAPSHOT_CACHE_MS } = {}) {
-  const normalizedSourceKey = resolvePublicPlateAuctionSourceKey(sourceKey);
+  const normalizedSourceKey = resolvePublicPlateAuctionSourceKey(sourceKey, new Date(now()));
   if (!normalizedSourceKey) return Promise.reject(new Error(`Unknown active plate-auction source: ${String(sourceKey || '')}`));
   const cached = cachedSourceBodies.get(normalizedSourceKey);
   if (cached && cached.expiresAt > now()) return Promise.resolve(cached.bodies);
   if (!pendingSourceBodies.has(normalizedSourceKey)) {
     const pending = (async () => {
-      const snapshot = await getPublicPlateAuctionSourceSnapshot({ db, sourceKey: normalizedSourceKey });
+      const snapshot = await getPublicPlateAuctionSourceSnapshot({ db, sourceKey: normalizedSourceKey, now: new Date(now()) });
       const body = Buffer.from(JSON.stringify(snapshot));
       const bodies = { body, gzip: await gzipAsync(body) };
       cachedSourceBodies.set(normalizedSourceKey, { bodies, expiresAt: now() + ttlMs });
@@ -909,7 +932,7 @@ export async function refreshPlateAuctions({ db = getAdminDb(), fetcher, now = n
   const summaries = {};
   for (const key of plateAuctionRefreshOrder(Object.keys(CONNECTORS))) {
     const config = CONNECTORS[key];
-    if (PUBLIC_PLATE_AUCTION_SOURCE_REGISTRY[key]?.status !== 'active') continue;
+    if (resolvePlateAuctionSourceStatus(PUBLIC_PLATE_AUCTION_SOURCE_REGISTRY[key], now) !== 'active') continue;
     try {
       const parsedRows = typeof config.fetchSource === 'function'
         ? await config.fetchSource({ fetchedAt, injectedFetcher: fetcher })
@@ -1123,7 +1146,8 @@ export async function refreshPlateAuctions({ db = getAdminDb(), fetcher, now = n
   // that are known to be blocked or that do not publish a public auction
   // catalogue. This is deliberately explicit: a missing connector is an
   // implementation error, while a blocked/no-public source is a known state.
-  for (const [key, source] of Object.entries(PUBLIC_PLATE_AUCTION_SOURCE_REGISTRY)) {
+  for (const [key, rawSource] of Object.entries(PUBLIC_PLATE_AUCTION_SOURCE_REGISTRY)) {
+    const source = resolvePlateAuctionSource(rawSource, now);
     if (CONNECTORS[key] && source.status === 'active') continue;
     const patch = source.status === 'active'
       ? { status: 'degraded', errorCode: 'missing_connector' }

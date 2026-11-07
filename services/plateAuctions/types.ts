@@ -86,6 +86,8 @@ export interface PlateAuctionSourceEntry {
   termsOfUse: string;
   owner: string;
   status: PlateAuctionSourceStatus;
+  /** Optional inclusive UTC cutoff for a finite source session. */
+  activeUntil?: string;
   /** Optional per-source freshness stamps supplied by the registry refresh. */
   lastVerifiedAt?: string;
   sourceFetchedAt?: string;
@@ -150,6 +152,10 @@ export function validatePlateAuctionSourceEntry(key: string, entry: unknown): st
 
   if (typeof e.status === 'string' && !SOURCE_STATUSES.includes(e.status as PlateAuctionSourceStatus)) {
     errors.push(`${key}: invalid status "${e.status}"`);
+  }
+
+  if (e.activeUntil !== undefined && !isIsoDate(e.activeUntil)) {
+    errors.push(`${key}: "activeUntil" must be an ISO-compatible date when present`);
   }
 
   return errors;

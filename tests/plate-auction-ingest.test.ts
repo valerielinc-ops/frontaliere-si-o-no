@@ -3,7 +3,7 @@ import { mkdtempSync, readFileSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
 import registry from '../data/plate-auction-sources-registry.json';
 import { parseExpandedCard, parseExpandedEcari } from '../scripts/plate-auctions/connectors/expanded.mjs';
 import { collectPlateAuctions, PLATE_AUCTION_MISSING_GRACE_MS, recognizeCatalogueSales } from '../scripts/plate-auctions/ingest.mjs';
@@ -17,6 +17,25 @@ const previousRow = {
 };
 
 describe('plate-auction ingest resilience', () => {
+  it('blocks an expired finite session before fetching and removes its prior rows', async () => {
+    const fetchGe = vi.fn(async () => [{ id: 'should-not-be-fetched' }]);
+    const previousRows = Array.from({ length: 23 }, (_unused, index) => ({
+      id: `ge-${index}`,
+      sourceKey: 'GE',
+      auctionStatus: 'active',
+    }));
+    const snapshot = await collectPlateAuctions({
+      selectedCantons: ['ge'],
+      fetchers: { ge: fetchGe },
+      previous: { generatedAt: '2026-11-25T12:00:00.000Z', auctions: previousRows },
+      now: new Date('2026-11-26T10:00:00.000Z'),
+    });
+
+    expect(fetchGe).not.toHaveBeenCalled();
+    expect(snapshot.sources.ge).toMatchObject({ status: 'blocked', rowCount: 0 });
+    expect(snapshot.auctions.filter((row) => row.sourceKey === 'GE')).toEqual([]);
+  });
+
   it('does not carry stale rows for a blocked source into the snapshot', async () => {
     const snapshot = await collectPlateAuctions({
       selectedCantons: ['ne'],
