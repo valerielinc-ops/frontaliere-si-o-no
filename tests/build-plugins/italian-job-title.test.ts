@@ -71,6 +71,23 @@ describe('getItalianJobTitle', () => {
     expect(getItalianJobTitle(job)).toBe('');
   });
 
+  it.each([
+    ['de', 'Projektmanager'],
+    ['en', 'Project Manager'],
+    ['fr', 'Chef de projet'],
+  ])('rejects a foreign Italian-slot title when the publisher source language is %s', (sourceLang, applicationTitle) => {
+    const title = 'Project Manager';
+    expect(getItalianJobTitle({
+      source: 'publisher-submitted',
+      sourceLang,
+      title: applicationTitle,
+      titleByLocale: {
+        [sourceLang]: applicationTitle,
+        it: title,
+      },
+    })).toBe('');
+  });
+
   it('keeps a publisher-pinned title when its Italian text is already translated', () => {
     const title = 'Responsabile di progetto';
     expect(getItalianJobTitle({
