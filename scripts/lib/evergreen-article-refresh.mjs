@@ -82,13 +82,33 @@ function writeRefreshFile(file, content) {
 function stageRefreshFile(file, content) {
   assertRefreshText(content, file);
   const target = resolveRefreshTarget(file);
+  const existed = fs.existsSync(target);
+  const previous = existed ? fs.readFileSync(target) : null;
   const temporary = `${target}.${process.pid}.${writeTmpSeq++}.tmp`;
   try {
     fs.writeFileSync(temporary, content, 'utf-8');
-    return { file, target, temporary };
+    return { file, target, temporary, existed, previous, committed: false };
   } catch (error) {
     try { fs.unlinkSync(temporary); } catch { /* best-effort cleanup */ }
     throw error;
+  }
+}
+
+function rollbackEvergreenBodyOutputs(staged) {
+  for (const entry of [...staged].reverse()) {
+    if (!entry.committed) continue;
+    if (!entry.existed) {
+      try { fs.unlinkSync(entry.target); } catch { /* best-effort cleanup */ }
+      continue;
+    }
+
+    const restorePath = `${entry.target}.${process.pid}.${writeTmpSeq++}.rollback.tmp`;
+    try {
+      fs.writeFileSync(restorePath, entry.previous);
+      fs.renameSync(restorePath, entry.target);
+    } catch {
+      try { fs.unlinkSync(restorePath); } catch { /* best-effort cleanup */ }
+    }
   }
 }
 
@@ -102,11 +122,13 @@ function writeEvergreenBodyOutputs(outputs, repoRoot, log) {
       staged.push(stageRefreshFile(file, source));
     }
 
-    for (const { file, target, temporary } of staged) {
-      fs.renameSync(temporary, target);
-      log(`  ✅ ${path.relative(repoRoot, file)}`);
+    for (const entry of staged) {
+      fs.renameSync(entry.temporary, entry.target);
+      entry.committed = true;
+      log(`  ✅ ${path.relative(repoRoot, entry.file)}`);
     }
   } catch (error) {
+    rollbackEvergreenBodyOutputs(staged);
     for (const { temporary } of staged) {
       try { fs.unlinkSync(temporary); } catch { /* already renamed or cleaned */ }
     }

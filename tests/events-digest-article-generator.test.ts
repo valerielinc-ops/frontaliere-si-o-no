@@ -66,8 +66,12 @@ describe('events digest article generator', () => {
       writeFileSync(file, source);
     }
 
-    const rename = vi.spyOn(fs, 'renameSync').mockImplementationOnce(() => {
-      throw new Error('simulated body rename failure');
+    const originalRename = fs.renameSync.bind(fs);
+    let renameCalls = 0;
+    const rename = vi.spyOn(fs, 'renameSync').mockImplementation((from, to) => {
+      renameCalls += 1;
+      if (renameCalls === 2) throw new Error('simulated body rename failure');
+      return originalRename(from, to);
     });
     try {
       expect(() => refreshBodyFiles(data, root, () => {})).toThrow('simulated body rename failure');
