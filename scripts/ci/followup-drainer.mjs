@@ -5086,11 +5086,10 @@ export function runDrain() {
       const dailyIssue = dailyBucketInfo(iss.title || '') !== null;
       const canUnparkWithoutVerdict = outcome === null
         && (!dailyIssue || dailyBucketQueueDecision(iss).eligible);
-      const deliveredParked = !dailyIssue
-        && outcome === 'pr-created'
-        && mergedFixPrAt(iss.number) !== null;
+      const deliveredParked = outcome === 'pr-created' && mergedFixPrAt(iss.number) !== null;
 
-      if ((canUnparkWithoutVerdict || deliveredParked) && !isUnparkedOnce(iss)) {
+      if ((outcome === null || deliveredParked) && !isUnparkedOnce(iss)) {
+        if (canUnparkWithoutVerdict || (deliveredParked && !dailyIssue)) {
         attempted++;
         if (DRY) {
           succeeded++;
@@ -5121,6 +5120,7 @@ export function runDrain() {
         // `pr-created`. Stessa ternaria del ramo DRY, di proposito.
         console.log(`UNPARK #${iss.number} (${deliveredParked ? 'aveva consegnato' : 'parked senza verdetto'}) → ${LBL_QUEUED} — "${iss.title?.slice(0, 50)}"`);
         continue;
+        }
       }
 
       // A daily issue is only a container. Apply an attributable outcome to
@@ -5191,14 +5191,14 @@ export function runDrain() {
         }
 
         if (DRY) {
-          succeeded++;
+          succeeded += 1;
           console.log(`[dry] daily outcome #${iss.number}: ${finalTransition.itemId} → ${finalTransition.state}; ${action}${finalTransition.nextItem ? `, prossimo ${finalTransition.nextItem.id}` : ''}`);
           continue;
         }
 
         const labelIssue = readDailyIssueSnapshot(iss.number) || liveIssue;
         if (!applyDailyTransitionLabels(labelIssue, action)) continue;
-        succeeded++;
+        succeeded += 1;
         if (finalTransition.action === 'outcome-consumed') {
           console.log(`DAILY-OUTCOME-RECOVER #${iss.number}: body già terminale e label riconciliate (${finalTransition.itemId} → ${action})`);
           continue;
