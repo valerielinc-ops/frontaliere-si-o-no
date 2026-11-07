@@ -233,6 +233,45 @@ describe('issue #6759 reconciliation', () => {
     expect(routes.has(`de:${sharedHistory}`)).toBe(true);
   });
 
+  it('keeps distinct source postings separate when their history exceeds the merge cap', () => {
+    const sharedHistory = 'fachfrau-fachmann-betriebsunterhalt-in-ausbildung-w-m-d-soh-solothurner-spitaeler';
+    const newer = {
+      companyKey: 'soh-solothurner-spitaeler',
+      sourceIdentity: 'url:https://jobs.example.test/soh/newer',
+      url: 'https://jobs.example.test/soh/newer',
+      slug: 'newer-posting',
+      expiredAt: '2026-11-07T00:00:00.000Z',
+      slugByLocale: { it: 'newer-posting', de: 'newer-posting-de' },
+      previousSlugs: [sharedHistory],
+      previousSlugsByLocale: { it: [sharedHistory] },
+    };
+    const older = {
+      companyKey: 'soh-solothurner-spitaeler',
+      sourceIdentity: 'url:https://jobs.example.test/soh/older',
+      url: 'https://jobs.example.test/soh/older',
+      slug: 'older-posting',
+      expiredAt: '2026-10-17T00:00:00.000Z',
+      slugByLocale: { it: 'older-posting', de: 'older-posting-de' },
+      previousSlugs: Array.from({ length: LEGACY_PREV_SLUGS_CAP }, (_, index) => (
+        index === 0 ? sharedHistory : `older-history-${index}`
+      )),
+      previousSlugsByLocale: { it: [sharedHistory] },
+    };
+
+    const result = collapseDuplicateRouteEntries([older, newer], { source: 'test/issue-17512' });
+
+    expect(result.entries).toHaveLength(2);
+    expect(result.collapsed).toBe(0);
+    expect(result.repairedRoutes).toBe(1);
+    expect(result.capRefused).toBe(0);
+    expect(older.previousSlugs[0]).toMatch(new RegExp(`^${sharedHistory}-[0-9a-f]{8}$`));
+    expect(() => assertNoDuplicateRoutesWithin(result.entries, 'issue #17512')).not.toThrow();
+
+    const repeat = collapseDuplicateRouteEntries(result.entries, { source: 'test/issue-17512' });
+    expect(repeat.repairedRoutes).toBe(0);
+    expect(repeat.entries).toEqual(result.entries);
+  });
+
   it('audits previous-route overlap across distinct slices, without cross-company false positives', () => {
     const make = (companyKey: string, slug: string, file: string) => ({
       file,

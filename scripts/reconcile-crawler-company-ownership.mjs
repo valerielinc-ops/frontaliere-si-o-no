@@ -37,6 +37,7 @@ import {
   collapseDuplicateRouteEntries,
   localeRouteKeys,
   normalizeExpiredAtEntries,
+  repairExpiredRoutesWithinArchive,
   transferSlugHistory,
 } from './lib/expired-jobs-archive.mjs';
 
@@ -166,6 +167,23 @@ export function mergeRetiredCrawlerArchive(canonicalJobs, retiredJobs, canonical
   let canonicalCollapsed = 0;
   let rehomed = 0;
   let slugsTransferred = 0;
+  const canonicalCompany = canonicalJobs[0]?.company || '';
+  const normalizedCanonical = canonicalJobs.map((job) => ({
+    ...structuredClone(job),
+    companyKey: canonicalKey,
+  }));
+  const normalizedRetired = retiredJobs.map((job) => ({
+    ...structuredClone(job),
+    company: canonicalCompany || job.company,
+    companyKey: canonicalKey,
+  }));
+  const canonicalRouteRepair = repairExpiredRoutesWithinArchive(normalizedCanonical, {
+    source: `${canonicalKey}.canonical-archive-route-repair`,
+  });
+  const retiredRouteRepair = repairExpiredRoutesWithinArchive(normalizedRetired, {
+    source: `${canonicalKey}.retired-archive-route-repair`,
+  });
+  const repairedRoutes = canonicalRouteRepair.repairedRoutes + retiredRouteRepair.repairedRoutes;
 
   const rebuildRouteOwners = () => {
     routeOwners = new Map();
@@ -175,14 +193,10 @@ export function mergeRetiredCrawlerArchive(canonicalJobs, retiredJobs, canonical
   };
 
   for (const { job, retired } of [
-    ...canonicalJobs.map((job) => ({ job, retired: false })),
-    ...retiredJobs.map((job) => ({ job, retired: true })),
+    ...normalizedCanonical.map((job) => ({ job, retired: false })),
+    ...normalizedRetired.map((job) => ({ job, retired: true })),
   ]) {
-    const normalized = {
-      ...structuredClone(job),
-      company: retired ? (canonicalJobs[0]?.company || job.company) : job.company,
-      companyKey: canonicalKey,
-    };
+    const normalized = job;
     const owners = new Set(
       [...localeRouteKeys(normalized)].map((route) => routeOwners.get(route)).filter(Boolean),
     );
@@ -214,7 +228,15 @@ export function mergeRetiredCrawlerArchive(canonicalJobs, retiredJobs, canonical
     out,
     `${canonicalKey} archive merge`,
   );
-  return { jobs: out, collapsed, canonicalCollapsed, rehomed, slugsTransferred, routesBefore };
+  return {
+    jobs: out,
+    collapsed,
+    canonicalCollapsed,
+    rehomed,
+    slugsTransferred,
+    repairedRoutes,
+    routesBefore,
+  };
 }
 
 /** Reconcile one canonical archive, including the no-retired-slice repair path. */
@@ -227,7 +249,10 @@ export function reconcileExpiredArchive(canonicalJobs, retiredJobs, canonicalKey
   return {
     ...result,
     repaired,
-    needsWrite: Boolean(retiredJobs?.length) || result.canonicalCollapsed > 0 || repaired > 0,
+    needsWrite: Boolean(retiredJobs?.length)
+      || result.canonicalCollapsed > 0
+      || result.repairedRoutes > 0
+      || repaired > 0,
   };
 }
 
@@ -453,18 +478,19 @@ export function sweepExpiredArchiveSlices({ dir = EXPIRED_SLICES_DIR, apply = fa
       result.entries,
       { source: `expired-sweep/${slice.file}` },
     );
-    const changed = result.collapsed > 0 || repairedInSlice > 0;
+    const changed = result.collapsed > 0 || result.repairedRoutes > 0 || repairedInSlice > 0;
     // A cap refusal returns a sorted view containing the original entries.
     // Do not substitute that view for the candidate when nothing was actually
     // repaired: the refusal is an explicit "leave this component untouched".
     slice.candidateJobs = changed ? result.entries : slice.jobs;
     collapsed += result.collapsed;
-    repaired += repairedInSlice;
+    repaired += repairedInSlice + result.repairedRoutes;
     capRefused += result.capRefused;
     report.push({
       file: slice.file,
       collapsed: result.collapsed,
-      repaired: repairedInSlice,
+      repaired: repairedInSlice + result.repairedRoutes,
+      repairedRoutes: result.repairedRoutes,
       capRefused: result.capRefused,
       changed,
     });

@@ -5,6 +5,7 @@ import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import {
   assembleExpiredJobs,
+  normalizeAndPersistExpiredSlice,
   persistExpiredArchive,
   repairExpiredArchiveSlicesAgainstActive,
 } from '../scripts/assemble-jobs-dataset.mjs';
@@ -135,6 +136,52 @@ describe('repairExpiredRoutesAgainstActive', () => {
       expect(persisted[0].slug).toMatch(/^same-title-company-lugano-[0-9a-f]{8}$/);
       expect(persisted[0].slug).not.toBe(COLLIDING_ROUTE);
       expect(active.slug).toBe(COLLIDING_ROUTE);
+    } finally {
+      rmSync(root, { recursive: true, force: true });
+    }
+  });
+
+  it('repairs distinct source postings in a persisted slice without merging their history', () => {
+    const root = mkdtempSync(join(tmpdir(), 'expired-distinct-source-route-'));
+    try {
+      const sharedRoute = 'same-title-company-lugano';
+      const entries = [
+        {
+          companyKey: 'example-company',
+          sourceIdentity: 'url:https://jobs.example.test/newer',
+          url: 'https://jobs.example.test/newer',
+          slug: 'newer-posting',
+          expiredAt: '2026-11-07T00:00:00.000Z',
+          slugByLocale: { it: 'newer-posting', de: 'newer-posting-de' },
+          previousSlugs: [sharedRoute],
+          previousSlugsByLocale: { it: [sharedRoute] },
+        },
+        {
+          companyKey: 'example-company',
+          sourceIdentity: 'url:https://jobs.example.test/older',
+          url: 'https://jobs.example.test/older',
+          slug: 'older-posting',
+          expiredAt: '2026-10-07T00:00:00.000Z',
+          slugByLocale: { it: 'older-posting', de: 'older-posting-de' },
+          previousSlugs: [sharedRoute],
+          previousSlugsByLocale: { it: [sharedRoute] },
+        },
+      ];
+      const slicePath = join(root, 'example-company.json');
+
+      expect(normalizeAndPersistExpiredSlice(slicePath, entries, {
+        source: 'test/issue-17512',
+      })).toBe(1);
+
+      const persisted = JSON.parse(readFileSync(slicePath, 'utf8'));
+      expect(persisted).toHaveLength(2);
+      const owners = persisted.flatMap((entry: Record<string, unknown>) => [
+        ...(Array.isArray(entry.previousSlugs) ? entry.previousSlugs : []),
+      ]).filter((route: string) => route === sharedRoute);
+      expect(owners).toHaveLength(1);
+      expect(normalizeAndPersistExpiredSlice(slicePath, entries, {
+        source: 'test/issue-17512',
+      })).toBe(0);
     } finally {
       rmSync(root, { recursive: true, force: true });
     }
