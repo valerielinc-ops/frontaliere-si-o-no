@@ -73,6 +73,18 @@ describe('parseYoustyApprenticeshipHtml', () => {
     expect(parseYoustyApprenticeshipHtml(html).applyUrl).toBe(applyUrl);
   });
 
+  it('does not let a self-closing SVG script consume the following JSON-LD', () => {
+    const html = '<svg><script /></svg><script type="application/ld+json">{"@type":"JobPosting","directApply":true,"url":"https://example.test/apply"}</script>';
+
+    expect(parseYoustyApprenticeshipHtml(html).applyUrl).toBe('https://example.test/apply');
+  });
+
+  it('skips JSON-LD scripts inside inert template content', () => {
+    const html = '<template><script type="application/ld+json">{"@type":"JobPosting","directApply":true,"url":"https://example.test/template"}</script></template><script type="application/ld+json">{"@type":"JobPosting","directApply":true,"url":"https://example.test/live"}</script>';
+
+    expect(parseYoustyApprenticeshipHtml(html).applyUrl).toBe('https://example.test/live');
+  });
+
   it('does not use a JobPosting URL without directApply evidence', () => {
     const html = `<script type="application/ld+json">${JSON.stringify({
       '@type': 'JobPosting',

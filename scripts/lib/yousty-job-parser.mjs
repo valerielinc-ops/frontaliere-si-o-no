@@ -163,8 +163,8 @@ function findHtmlClosingTag(source, start, wantedName) {
   return null;
 }
 
-function readHtmlAttribute(tag, wantedName) {
-  let index = '<script'.length;
+function readHtmlAttribute(tag, wantedName, elementName = 'script') {
+  let index = 1 + String(elementName || '').length;
   const normalizedWantedName = String(wantedName || '').toLowerCase();
   while (index < tag.length) {
     while (index < tag.length && isHtmlSpace(tag[index])) index += 1;
@@ -193,9 +193,42 @@ function readHtmlAttribute(tag, wantedName) {
 }
 
 const RAW_TEXT_TAGS = new Set(['iframe', 'noembed', 'noframes', 'plaintext', 'style', 'textarea', 'title', 'xmp']);
+const HTML_VOID_TAGS = new Set(['area', 'base', 'br', 'col', 'embed', 'hr', 'img', 'input', 'link', 'meta', 'param', 'source', 'track', 'wbr']);
+const SVG_HTML_INTEGRATION_POINTS = new Set(['desc', 'foreignobject', 'title']);
+const MATHML_HTML_INTEGRATION_POINTS = new Set(['mi', 'mo', 'mn', 'ms', 'mtext']);
+
+function isSelfClosingTag(tag) {
+  let index = tag.length - 2;
+  while (index >= 0 && isHtmlSpace(tag[index])) index -= 1;
+  return tag[index] === '/';
+}
+
+function elementContext(tagName, tag, openElements) {
+  const parentNamespace = openElements.at(-1)?.childNamespace || 'html';
+  const namespace = parentNamespace === 'html'
+    ? (tagName === 'svg' ? 'svg' : tagName === 'math' ? 'math' : 'html')
+    : parentNamespace;
+  const childNamespace = (namespace === 'svg' && SVG_HTML_INTEGRATION_POINTS.has(tagName))
+    || (namespace === 'math' && MATHML_HTML_INTEGRATION_POINTS.has(tagName))
+    || (namespace === 'math'
+      && tagName === 'annotation-xml'
+      && readHtmlAttribute(tag, 'encoding', tagName).toLowerCase() === 'text/html')
+    ? 'html'
+    : namespace;
+  return { tagName, namespace, childNamespace };
+}
+
+function closeElement(openElements, tagName) {
+  for (let index = openElements.length - 1; index >= 0; index -= 1) {
+    if (openElements[index].tagName !== tagName) continue;
+    openElements.length = index;
+    return;
+  }
+}
 
 function* scriptOpeningTags(source) {
   let searchStart = 0;
+  const openElements = [];
   while (searchStart < source.length) {
     const start = source.indexOf('<', searchStart);
     if (start < 0) return;
@@ -213,7 +246,16 @@ function* scriptOpeningTags(source) {
     }
 
     const marker = source[start + 1];
-    if (marker === '/' || marker === '!' || marker === '?') {
+    if (marker === '/') {
+      const tagName = readHtmlTagName(source, start + 2);
+      const end = findHtmlTagEnd(source, start + 1);
+      if (end < 0) return;
+      if (tagName) closeElement(openElements, tagName);
+      searchStart = end + 1;
+      continue;
+    }
+
+    if (marker === '!' || marker === '?') {
       const end = findHtmlTagEnd(source, start + 1);
       if (end < 0) return;
       searchStart = end + 1;
@@ -230,12 +272,21 @@ function* scriptOpeningTags(source) {
     if (end < 0) return;
 
     if (tagName === 'script') {
+      const context = elementContext(tagName, source.slice(start, end + 1), openElements);
+      const selfClosing = isSelfClosingTag(source.slice(start, end + 1));
+      if (context.namespace !== 'html' && selfClosing) {
+        searchStart = end + 1;
+        continue;
+      }
+
       const closing = findHtmlClosingTag(source, end + 1, 'script');
-      yield {
-        tag: source.slice(start, end + 1),
-        end: end + 1,
-        contentEnd: closing?.start ?? -1,
-      };
+      if (!openElements.some(({ tagName: openTagName }) => openTagName === 'template')) {
+        yield {
+          tag: source.slice(start, end + 1),
+          end: end + 1,
+          contentEnd: closing?.start ?? -1,
+        };
+      }
       searchStart = closing?.end ?? source.length;
       continue;
     }
@@ -246,6 +297,13 @@ function* scriptOpeningTags(source) {
       continue;
     }
 
+    const tag = source.slice(start, end + 1);
+    const context = elementContext(tagName, tag, openElements);
+    const selfClosing = isSelfClosingTag(tag);
+    const shouldPush = context.namespace === 'html'
+      ? !HTML_VOID_TAGS.has(tagName)
+      : !selfClosing;
+    if (shouldPush) openElements.push(context);
     searchStart = end + 1;
   }
 }
