@@ -34,7 +34,7 @@
 import { sourcePostingDateFields } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
-import { slugify, stripHtml, normalizeSpace } from './crawler-template.mjs';
+import { fetchHtml, slugify, stripHtml, normalizeSpace } from './crawler-template.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
 import { dropRepostedListings, selectProspectiveDetailDescription } from './prospective-ch-job-parser-common.mjs';
 import { extractJobPostingNodesFromJson } from './jobposting-jsonld.mjs';
@@ -144,20 +144,11 @@ function pensumFromTitle(title = '') {
 
 /* ── HTTP ─────────────────────────────────────────────────── */
 
-async function fetchHtml(url) {
-  const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20000;
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), timeoutMs);
-  try {
-    const res = await fetch(url, {
-      headers: { Accept: 'text/html,application/xhtml+xml', 'User-Agent': USER_AGENT },
-      signal: controller.signal,
-    });
-    if (!res.ok) throw new Error(`HTTP ${res.status} from ${url}`);
-    return await res.text();
-  } finally {
-    clearTimeout(timer);
-  }
+function fetchOptions() {
+  return {
+    timeoutMs: Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20000,
+    headers: { Accept: 'text/html,application/xhtml+xml', 'User-Agent': USER_AGENT },
+  };
 }
 
 /* ── Listing parser ───────────────────────────────────────── */
@@ -225,7 +216,7 @@ export async function fetchAllSroJobs() {
   console.log(`   Listing:    ${LISTING_URL}`);
   console.log(`   Detail src: ${PROSPECTIVE_JOB_PREFIX}{UUID}\n`);
 
-  const listingHtml = await fetchHtml(LISTING_URL);
+  const listingHtml = await fetchHtml(LISTING_URL, fetchOptions());
   const tiles = parseSroListing(listingHtml);
   console.log(`  ✓ ${tiles.length} job tiles parsed from SRO listing`);
   if (!tiles.length) return [];
@@ -238,7 +229,7 @@ export async function fetchAllSroJobs() {
     const detailUrl = `${PROSPECTIVE_JOB_PREFIX}${tile.uuid}`;
     let detailHtml = '';
     try {
-      detailHtml = await fetchHtml(detailUrl);
+      detailHtml = await fetchHtml(detailUrl, fetchOptions());
     } catch (err) {
       console.warn(`  ⚠️ detail fetch failed for ${tile.uuid}: ${err?.message || err}`);
     }

@@ -38,7 +38,7 @@ import { sourcePostingDateFields } from './source-posting-date.mjs';
 import { extractJobPostingField } from './jobposting-jsonld.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
-import { slugify } from './crawler-template.mjs';
+import { fetchHtml, slugify } from './crawler-template.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
 
 export const KSBL_KEY = 'ksbl';
@@ -104,20 +104,11 @@ export function isTrustedDomain(rawUrl = '') {
   }
 }
 
-async function fetchHtml(url) {
-  const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20000;
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), timeoutMs);
-  try {
-    const res = await fetch(url, {
-      headers: { Accept: 'text/html,application/xhtml+xml', 'User-Agent': USER_AGENT },
-      signal: controller.signal,
-    });
-    if (!res.ok) throw new Error(`HTTP ${res.status} from ${url}`);
-    return await res.text();
-  } finally {
-    clearTimeout(timer);
-  }
+function fetchOptions() {
+  return {
+    timeoutMs: Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20000,
+    headers: { Accept: 'text/html,application/xhtml+xml', 'User-Agent': USER_AGENT },
+  };
 }
 
 /**
@@ -289,7 +280,7 @@ export async function fetchAllKsblJobs() {
 
   for (let page = 1; page <= MAX_PAGES; page++) {
     const url = `${AJAX_BASE}&page=${page}`;
-    const html = await fetchHtml(url);
+    const html = await fetchHtml(url, fetchOptions());
     const entries = parseKsblPage(html);
     const fresh = entries.filter((e) => !seenUuids.has(e.uuid));
     if (fresh.length === 0) {
@@ -317,7 +308,7 @@ export async function fetchAllKsblJobs() {
     let detailContent = '';
     let postingDates = sourcePostingDateFields('');
     try {
-      const detailHtml = await fetchHtml(e.detailUrl);
+      const detailHtml = await fetchHtml(e.detailUrl, fetchOptions());
       detailContent = extractKsblDetailContent(detailHtml, e);
       postingDates = sourcePostingDateFields(extractJobPostingField(detailHtml, 'datePosted'));
       detailCount++;
