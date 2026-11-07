@@ -1,0 +1,23 @@
+{
+  "companyKey": "pizzakuriernord-ch",
+  "companyName": "Pizzakurier Nord",
+  "companyHost": "pizzakuriernord.ch",
+  "verifiedEmployerDomain": "pizzakuriernord.ch",
+  "platform": "",
+  "mode": "jsonld",
+  "seedUrls": [
+    "https://pizzakuriernord.ch/jobs/marketing"
+  ],
+  "detailTemplate": "/jobs/marketing",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 1,
+  "sampleTitles": [
+    "Marketing-Mitarbeiter:in"
+  ],
+  "canton": "GL",
+  "sourceLang": "de",
+  "learnedAt": "2026-11-07T12:56:19.680Z",
+  "candidateKey": "pizzakurier-nord@niederurnen"
+}

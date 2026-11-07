@@ -1,0 +1,24 @@
+{
+  "companyKey": "primetechnologies-ch",
+  "companyName": "Prime Technologies SA",
+  "companyHost": "primetechnologies.ch",
+  "verifiedEmployerDomain": "primetechnologies.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://primetechnologies.ch/lentreprise/carrieres/"
+  ],
+  "detailTemplate": "/offre-d-emploi/*/",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 2,
+  "sampleTitles": [
+    "Consultant·e Applicatif innosolv – Mix Technique & Métier ?",
+    "Consultant applicatif métier - Abacus ?"
+  ],
+  "canton": "VD",
+  "sourceLang": "fr",
+  "learnedAt": "2026-11-07T12:50:31.203Z",
+  "candidateKey": "prime-technologies@bussigny"
+}

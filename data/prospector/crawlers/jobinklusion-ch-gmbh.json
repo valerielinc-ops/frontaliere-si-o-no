@@ -1,0 +1,25 @@
+{
+  "companyKey": "jobinklusion-ch-gmbh",
+  "companyName": "Jobinklusion.ch GmbH",
+  "companyHost": "jobs.aldi.ch",
+  "verifiedEmployerDomain": "jobinklusion.ch",
+  "platform": "aldi.ch",
+  "mode": "template",
+  "seedUrls": [
+    "https://www.jobs.aldi.ch/"
+  ],
+  "detailTemplate": "/karriere/taetigkeitsbereiche/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 3,
+  "sampleTitles": [
+    "Buying & Quality Management",
+    "Logistics & Supply Chain Management",
+    "Objektbetreuung & Reinigung"
+  ],
+  "canton": "AG",
+  "sourceLang": "de",
+  "learnedAt": "2026-11-07T12:56:04.764Z",
+  "candidateKey": "jobinklusion-ch@st-gallen"
+}

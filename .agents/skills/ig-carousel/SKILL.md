@@ -70,10 +70,11 @@ and verified source fields into the bounded renderer input.
 
 The slide-by-slide copy first, as a numbered list the user can read in ten
 seconds and edit before anything is rendered. Then the **caption**, which for a
-carousel is Job B in `/ig-caption`: the caption is doing work here, because the
-cover has already used its six words.
+carousel follows the `ig-caption` guidance: the caption is doing work here,
+because the cover has already used its six words. In the scheduled workflow,
+the publisher composes it from selected copy and verified source fields.
 
-Use `/ig-human` only as an advisory editorial pass. In the scheduled flow, the
+Use the `ig-human` guidance only as an advisory editorial pass. In the scheduled flow, the
 publisher compiles a bounded render kit from validated copy and verified
 source fields; do not add a per-post approval gate or invent facts. For a
 one-off request, show the copy before creating an asset.

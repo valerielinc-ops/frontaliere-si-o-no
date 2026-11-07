@@ -1,0 +1,25 @@
+{
+  "companyKey": "grossmansolutions",
+  "companyName": "Grossman Solutions",
+  "companyHost": "grossmansolutions.applytojob.com",
+  "platform": "applytojob.com",
+  "mode": "known-template",
+  "seedUrls": [
+    "https://grossmansolutions.applytojob.com/apply"
+  ],
+  "detailTemplate": "/apply/*/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": false,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 9,
+  "sampleTitles": [
+    "Black Men Vote - Director of Development",
+    "Connecticut Breast Health Initiative - Executive Director",
+    "Demand Justice - Senior Communications Advisor",
+    "Future Now - Vice President of People & Culture",
+    "League of Conservation Voters - Chief Operating Officer"
+  ],
+  "sourceLang": "en",
+  "learnedAt": "2026-11-07T12:43:56.243Z",
+  "candidateKey": "grossmansolutions@applytojob.com"
+}

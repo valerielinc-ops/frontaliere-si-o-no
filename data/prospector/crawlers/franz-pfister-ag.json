@@ -1,0 +1,23 @@
+{
+  "companyKey": "franz-pfister-ag",
+  "companyName": "Franz Pfister AG",
+  "companyHost": "my.jobalino.ch",
+  "verifiedEmployerDomain": "franzpfister.ch",
+  "platform": "jobalino.ch",
+  "mode": "jsonld",
+  "seedUrls": [
+    "https://my.jobalino.ch/job/af2d709294ce19b28d316d6c2a60dfbb/spontanbewerbung_1703"
+  ],
+  "detailTemplate": "/job/af2d709294ce19b28d316d6c2a60dfbb/spontanbewerbung_1703",
+  "detailEnrichment": false,
+  "employerSiteLocationFallback": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 1,
+  "sampleTitles": [
+    "Spontanbewerbung / 100%"
+  ],
+  "canton": "ZH",
+  "sourceLang": "de",
+  "learnedAt": "2026-11-07T12:56:06.144Z",
+  "candidateKey": "franz-pfister@rumlang"
+}

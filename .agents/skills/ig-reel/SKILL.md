@@ -86,11 +86,11 @@ hook:       #3 Nobody Tells You, selected for clarity and source fit
 length:     estimated; confirm by reading aloud
 on-screen:  6 cards
 review:     factual and editorial check complete
-caption:    run /ig-caption next
+caption:    publisher composes it from the selected hook, CTA, and verified source fields
 
-For a one-off draft, offer a revision. Scheduled posts are produced through the
-validated weekly copy pack and publisher; do not wait for a per-post approval
-or call a second Codex run for every scheduled Reel.
+For a one-off draft, offer a revision. Scheduled posts use the validated
+weekly copy pack and publisher; the publisher composes the final caption from
+the selected copy and verified source fields, without a per-post Codex call.
 ```
 
 **7. Do not publish directly from this skill.** The scheduled publisher handles
@@ -133,9 +133,8 @@ Write it separately, every time. It is read before it is heard.
 
 ## Example
 
-```
-/ig-reel we cut proposal time from 5 hours to 20 minutes with one template
-```
+Example request: turn a verified workflow change supplied by the user into a
+Reel. Any numbers or outcomes in the script must come from that source.
 
 UPSTREAM HEURISTIC EXAMPLE ONLY — the numbers and outcomes below are not
 account evidence and must not be reused as facts.

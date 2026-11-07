@@ -64,9 +64,12 @@ function response(body: unknown, status = 200) {
 describe('Instagram Insights snapshot collector', () => {
   it('loads only the Remote Config decision keys used by the evaluator', () => {
     const workflow = readFileSync(new URL('../.github/workflows/instagram-insights-snapshot.yml', import.meta.url), 'utf8');
-    expect([...workflow.matchAll(/load-rc-env\.mjs/gu)]).toHaveLength(1);
-    const allowlist = workflow.match(/(?:node\s+)?(?:\.\/)?scripts\/load-rc-env\.mjs\s+--only-env=([A-Z0-9_,]+)/u)?.[1];
-    expect(allowlist).toBe('INSTAGRAM_INSIGHTS_AUTONOMOUS_DECISIONS_ENABLED,INSTAGRAM_INSIGHTS_DECISION_WINDOW_HOURS,INSTAGRAM_INSIGHTS_MIN_OBSERVATIONS,INSTAGRAM_INSIGHTS_MIN_RELATIVE_LIFT,INSTAGRAM_INSIGHTS_MIN_ABSOLUTE_LIFT,INSTAGRAM_AUTONOMOUS_CREATIVE_WINNERS,INSTAGRAM_CAROUSEL_BACKGROUND_AB_WINNERS');
+    const allowlists = [...workflow.matchAll(/--only-env=([A-Z0-9_,]+)/gu)].map((match) => match[1]);
+    expect(allowlists).toHaveLength(2);
+    expect(allowlists).toEqual(expect.arrayContaining([
+      'SOCIAL_ROBOT_INSIGHTS_SOURCE,META_INSTAGRAM_BROWSER_INSIGHTS_APPROVED',
+      'INSTAGRAM_INSIGHTS_AUTONOMOUS_DECISIONS_ENABLED,INSTAGRAM_INSIGHTS_DECISION_WINDOW_HOURS,INSTAGRAM_INSIGHTS_MIN_OBSERVATIONS,INSTAGRAM_INSIGHTS_MIN_RELATIVE_LIFT,INSTAGRAM_INSIGHTS_MIN_ABSOLUTE_LIFT,INSTAGRAM_AUTONOMOUS_CREATIVE_WINNERS,INSTAGRAM_CAROUSEL_BACKGROUND_AB_WINNERS',
+    ]));
   });
 
   it('groups carousel ledger rows and skips a window already recorded', () => {

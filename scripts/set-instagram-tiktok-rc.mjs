@@ -19,8 +19,10 @@ const PARAMS = {
   INSTAGRAM_CAROUSEL_BACKGROUND_AB_ROLLOUT_PERCENT: '100',
   INSTAGRAM_CAROUSEL_BACKGROUND_AB_VARIANTS: '["navy-gradient","paper-amber","mint-ink","coral-night"]',
   INSTAGRAM_CAROUSEL_BACKGROUND_AB_EXPLORATION_PERCENT: '20',
-  // The authenticated Chrome Professional Dashboard is the current Insights
-  // source; Graph remains an explicit fallback when Meta grants a token.
+  // Select the Chrome Professional Dashboard as the Insights source. Actual
+  // browser collection stays disabled until META_INSTAGRAM_BROWSER_INSIGHTS_APPROVED
+  // is explicitly provisioned after verifying Meta permission; this selector
+  // does not grant that permission. Graph remains a separate API route.
   SOCIAL_ROBOT_INSIGHTS_SOURCE: 'browser',
   INSTAGRAM_INSIGHTS_WINDOWS: '[24,72]',
   INSTAGRAM_INSIGHTS_DECISION_WINDOW_HOURS: '72',

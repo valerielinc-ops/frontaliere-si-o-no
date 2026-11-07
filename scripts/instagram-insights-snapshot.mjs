@@ -2,9 +2,10 @@
 
 /**
  * Legacy Graph collector for one stable Instagram Insights observation per
- * eligible creative post. The Mac launch agent uses the Chrome collector in
- * scripts/social-robot/run.mjs by default; this command remains available for
- * explicit compatibility and diagnostics.
+ * eligible creative post. The Mac launch agent selects the Chrome collector
+ * in scripts/social-robot/run.mjs, but browser collection remains held until
+ * its explicit Meta permission flag is verified. This command remains
+ * available for Graph API compatibility and diagnostics.
  */
 import {
   existsSync,

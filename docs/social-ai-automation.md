@@ -142,7 +142,7 @@ remain fail-closed.
 
 | Channel | Delivery state | Integrated formats | Existing delivery path |
 |---|---|---|---|
-| Instagram | `live` | existing feed schedule: at most two feed posts/Reels per day; at most six follow-up Stories per day | Carousels are queued for the Mac Playwright robot when the Graph token is unavailable; Reels are Graph API only and record Meta's returned media ID. As of 2026-11-04, `INSTAGRAM_ACCESS_TOKEN` is absent from Remote Config, so `live` does not mean Graph-ready or that the scheduled workflow published a post. The browser publisher and Insights reader also lack a verified Meta express-permission basis; see residual item 32. |
+| Instagram | `live` | existing feed schedule: at most two feed posts/Reels per day; at most six follow-up Stories per day | Reels use Graph API and record Meta's returned media ID. Carousels use Graph API when ready; browser queueing, publishing, Insights, and community access each fail closed behind a separate Meta-permission flag. As of 2026-11-06, `INSTAGRAM_ACCESS_TOKEN` is absent from Remote Config, so `live` does not mean Graph-ready or that the scheduled workflow published a post; see residual item 32. |
 | TikTok | `draft-only` | daily article/job carousels and weekly border content | automated delivery is held pending an eligible, policy-compliant use case; read-only native measurement remains separate |
 | Facebook | `live` | articles, events/digests, scheduled jobs | existing Graph API schedulers |
 | LinkedIn member | `live` | member-profile article/job posts | member token and Posts API share an atomic 2/day member cap |
@@ -153,12 +153,12 @@ remain fail-closed.
 
 The weekly scorecard repeats these four delivery states next to analytics
 readiness so copy-pack coverage cannot be mistaken for a live publisher. For
-Instagram, `live` means the existing browser carousel route can run; it does
-not mean the scheduled workflow published the post, that every format has an
-authorized Graph publisher, that the browser route is policy-cleared, or that
-ambiguous browser outcomes recover without an operator. A green carousel
-workflow can mean only that content reached the queue. The robot ledger records
-a publish only after its confirmation path.
+Instagram, `live` means the repository has an existing publisher; it does not
+establish valid credentials, permission, or a successful publication. Browser
+carousel queueing and browser reads remain disabled until their specific
+Meta-permission flags are verified. A green scheduled workflow can therefore
+mean that Graph publishing succeeded or that delivery was intentionally
+skipped. The robot ledger records browser publication only after confirmation.
 
 Instagram feed posts and Reels share a two-per-day cap across Graph API,
 manual workflow dispatches, and the Mac robot. Story follow-ups use a separate
@@ -370,12 +370,13 @@ current readiness probe, which verifies the Page link and content-creation
 task (`CREATE_CONTENT` or `PROFILE_PLUS_CREATE_CONTENT`), the
 `instagram_content_publish` grant, that the publisher token matches
 the Page token returned for the same user token, and the target account ID; a
-missing field or unavailable permission check remains unverified. The
-existing `SOCIAL_ROBOT_MODE` and publisher
+missing field or unavailable permission check remains unverified. The Remote Config `SOCIAL_ROBOT_MODE` and publisher
 credentials stay in their existing publisher/robot processes; this change
-neither exposes them to Codex nor changes the mode. The upstream skill itself
+does not expose them to Codex. The daily Instagram workflow forces an
+effective Graph-only mode while browser publishing permission is unverified,
+without rewriting the stored Remote Config value. The upstream skill itself
 warns that browser-based posting may violate Instagram's Terms, so its
-copy-only design is not treated as authorization for a new browser route. No
+copy-only design is not treated as authorization for a browser route. No
 post-volume increase is part of this change. The scheduled Facebook jobs
 workflow requests 24 posts per day; manual dispatch still offers 1, 24, 72, or
 144 jobs, but all Facebook formats now share the 144/day hard Page ceiling.
@@ -883,7 +884,7 @@ same guardrails.
 | 29 | Keep credentialed social workflow manual dispatches on the production ref. | **in questa PR. Motivo:** each credentialed social collector, publisher, topic miner, experiment configuration, and reconciliation job with `workflow_dispatch` now has a job-level `refs/heads/main` guard; a feature-ref dispatch skips before checkout and secret loading. This is defense in depth against accidental ref selection, not a boundary against a branch that changes its workflow. **Prossimo passo:** retain the workflow contract test whenever a social workflow gains manual dispatch or Remote Config access.** |
 | 30 | Restrict shared Firebase/Remote Config credentials to protected production workflow code. | **blocked: repository-level shared secret cannot be migrated without its consumers and credential source. Motivo:** `FIREBASE_SERVICE_ACCOUNT_JSON` is repository-scoped and shared by many workflows; an environment branch policy would protect only environment secrets and would not constrain code that reads this repository secret. **Prossimo passo:** provision the same service account as an environment-scoped secret with a `main` deployment branch policy (or configure equivalent cloud workload identity), migrate every consumer, validate scheduled and manual runs, then remove the repository-level secret.** |
 | 31 | Feed privacy-safe demand discovery into the weekly social topic brief. | **in questa PR. Motivo:** the brief now reads weekly demand vocabulary only as closed-cluster counts after a 10-keyword floor, and reads only Google News candidates with a valid HTTPS source host, a publication date within 14 days, at least three distinct items, and at least two source domains per cluster. It emits only category names and count bands; raw GSC/Suggest queries, headlines, URLs, publisher names, Reddit text, and identifiers stay out of Codex input. The prompt labels both feeds as ideation context, never search volume, audience evidence, a current trend, or a factual source. **Prossimo passo:** after merge, inspect the first scheduled brief for fresh category coverage; keep suppressed or stale categories unknown and verify every content claim against a current authoritative source.** |
-| 32 | Verify platform authorization for browser-based Instagram publishing and Dashboard Insights. | **blocked: Meta express permission for the browser route is unverified. Motivo:** Instagram's Terms of Use restrict automated access or collection without Meta's express permission, and the current record does not show that the account's Playwright publisher or Insights reader is covered; owner authorization alone does not establish Meta authorization. The supported Graph publishing token is absent from Remote Config. ([Instagram Terms of Use](https://help.instagram.com/581066165581870)) **Prossimo passo:** use the documented Graph publish/Insights path after app review, or obtain written Meta authorization that explicitly covers the browser route; until then, do not treat browser automation as policy-cleared or increase its cadence.** |
+| 32 | Verify platform authorization for browser-based Instagram publishing, Insights, and community access. | **blocked: Meta app/token grant is unavailable. Motivo:** the poster now refuses browser queueing unless `META_INSTAGRAM_BROWSER_PUBLISHING_APPROVED=true`; the robot independently holds browser publishing, Dashboard Insights, and community access behind three separate flags, each defaulting off. Autonomous winner writes also stop when Insights is disabled or browser collection lacks its separate permission flag, even if older snapshots remain stored. The daily workflow forces Graph-only routing while browser publishing is unapproved, and launchd will not persist a stale browser Insights snapshot without the Insights flag. Read-only Remote Config/Graph checks found a Page token and Instagram account ID but no `FB_USER_ACCESS_TOKEN`, direct Instagram token, Meta app credentials, or browser-permission flags; the Page-token v26 query returned no `instagram_business_account`, and the configured Instagram ID was not readable with that token (code 100/subcode 33). No publication was attempted. Owner authorization does not create a Meta grant. Meta documents Facebook Login and the separate Instagram Login API; the latter supports professional accounts with `instagram_business_basic` and `instagram_business_content_publish`, but still requires a Meta app and Instagram OAuth consent. ([Instagram Terms of Use](https://help.instagram.com/581066165581870), [Meta Instagram API](https://www.postman.com/meta/instagram/documentation/6yqw8pt/instagram-api?entity=request-23987686-3fe78620-2258-44b6-893f-42d76c7200d7), [Meta Instagram Login API](https://www.postman.com/meta/instagram/folder/1z5vxzu/instagram-api-with-instagram-login)) **Prossimo passo:** configure a Page-scoped user token with required grants and confirm the Page link, or configure a Meta Instagram Login app and its authorized Instagram token; then rerun the read-only readiness probes. Enable each browser flag only after written Meta permission covers that specific use.** |
 
 ## Integrazione Growth e Feedback Codex
 

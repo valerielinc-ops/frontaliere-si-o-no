@@ -1,8 +1,10 @@
 # Robot social (Instagram; TikTok in sola lettura)
 
-Il robot pubblica i caroselli giornalieri su Instagram dal browser del Mac
-agenti. I Reel sperimentali usano la Graph API ufficiale e non passano dal
-browser. TikTok è escluso dalla pubblicazione automatica:
+Il robot può pubblicare i caroselli giornalieri su Instagram dal browser del
+Mac agenti solo dopo la verifica dell'autorizzazione Meta per quel percorso. In
+assenza del flag dedicato, la coda browser resta bloccata e il poster prova
+solo la Graph API ufficiale. I Reel sperimentali usano già quella API e non
+passano dal browser. TikTok è escluso dalla pubblicazione automatica:
 il workflow `tiktok-daily-broadcast.yml` è ora solo un'anteprima manuale,
 `post-to-tiktok.mjs` blocca ogni invio reale e il robot filtra TikTok anche
 quando viene richiesto esplicitamente. La raccolta TikTok usa un workflow
@@ -16,8 +18,8 @@ TikTok alla luce delle linee guida correnti per i client di pubblicazione.
 
 1. Il poster Instagram (`scripts/post-to-instagram.mjs`, workflow
    `instagram-daily-broadcast.yml`) sceglie il carosello, genera le slide,
-   le carica sulla CDN e, quando il robot è il
-   trasporto, mettono il post pronto in `data/<canale>-queue.json` su `main`
+   le carica sulla CDN e, solo se la pubblicazione browser è autorizzata,
+   mette il post pronto in `data/<canale>-queue.json` su `main`
    (`scripts/lib/social-publish-queue.mjs`). Il workflow schedulato
    `instagram-reel-experiment.yml` usa `scripts/post-to-instagram-reel.mjs` per
    generare cover e MP4, pubblicarli con il container Graph API `REELS`, e
@@ -35,10 +37,10 @@ TikTok alla luce delle linee guida correnti per i client di pubblicazione.
    `unconfirmed`: il robot non lo ripubblica, apre una issue `needs-human` e
    **si ferma su quella piattaforma** finché un umano non risolve la riga.
    Non preme nemmeno un post successivo che ripete gli stessi articoli di un
-   clic non ancora arrivato nel ledger. Subito dopo la pubblicazione il
-   worker Chrome apre Inbox Instagram/Business Suite in sola lettura e registra
-   gli Insights leggendo le metriche visibili nel Professional Dashboard. Le
-   risposte community passano solo dal Graph API esplicitamente selezionato.
+   clic non ancora arrivato nel ledger. Dashboard Insights e community via
+   browser vengono eseguiti solo se i rispettivi flag Meta sono attivi; in
+   alternativa il community worker usa soltanto il Graph API esplicitamente
+   selezionato.
 
 Non c'è approvazione preventiva per i post ordinari. Un esito browser ambiguo è
 un'eccezione di recupero: mette in pausa Instagram e richiede una verifica
@@ -64,16 +66,18 @@ Parametro `SOCIAL_ROBOT_MODE`, letto dai poster in Actions e dal robot sul Mac:
 
 | Valore | Caroselli | Reel | Robot |
 |---|---|---|---|
-| `off` | solo API | Graph API se le credenziali sono configurate | non fa nulla |
-| `dry` (default: assente, vuoto o sconosciuto) | API se ha le credenziali, altrimenti coda | Graph API se le credenziali sono configurate | arriva al bottone dei caroselli, screenshot, non preme |
-| `live` | sempre coda | Graph API se le credenziali sono configurate | pubblica solo caroselli Instagram in coda; TikTok è filtrato |
+| `off` | solo API | Graph API se le credenziali sono configurate | non pubblica dal browser |
+| `dry` (default: assente, vuoto o sconosciuto) | API se ha le credenziali; altrimenti coda solo con approvazione browser | Graph API se le credenziali sono configurate | preview browser solo con approvazione browser |
+| `live` | robot se approvato; altrimenti Graph API only | Graph API se le credenziali sono configurate | pubblica caroselli in coda solo con approvazione browser; TikTok è filtrato |
 
-In `live`, la stessa finestra avvia il worker browser di community e Insights.
-Il profilo Chrome persistente è la sola autenticazione necessaria; se la
-sessione mostra login o challenge il worker si ferma senza insistere e apre la
-diagnosi locale. `SOCIAL_ROBOT_INSIGHTS_SOURCE` vale `browser` di default;
-`graph` mantiene il vecchio percorso solo come fallback esplicito per la
-community.
+Tre flag Remote Config, tutti assenti/disabilitati di default, controllano
+separatamente `META_INSTAGRAM_BROWSER_PUBLISHING_APPROVED`,
+`META_INSTAGRAM_BROWSER_INSIGHTS_APPROVED` e
+`META_INSTAGRAM_BROWSER_COMMUNITY_APPROVED`. Impostarne uno a `true` soltanto
+dopo aver verificato che il permesso Meta copra quello specifico uso. La
+sessione Chrome non costituisce un'autorizzazione. `SOCIAL_ROBOT_INSIGHTS_SOURCE`
+seleziona ancora `browser`, `graph` oppure `off`, ma `browser` resta bloccato
+senza il relativo flag.
 
 I valori sono tutti più corti di sei caratteri: il loader di Remote Config non
 li maschera nei log di CI.
@@ -100,10 +104,12 @@ non passano quei gate, i candidati restano descrittivi e l'assegnazione resta
 deterministica. Il dettaglio del protocollo è in
 `docs/social-ai-automation.md#learning-cadence-and-data-freshness`.
 
-Il percorso browser è la fonte attualmente configurata per gli Insights del
-robot; Graph API è separata e richiede i grant documentati. Un esito browser
-vuoto, incompleto o ambiguo resta non misurato: non viene convertito in zero e
-non abilita un vincitore.
+La configurazione `SOCIAL_ROBOT_INSIGHTS_SOURCE=browser` è solo una selezione:
+il Dashboard reader resta spento finché
+`META_INSTAGRAM_BROWSER_INSIGHTS_APPROVED` non è esattamente `true`. Graph API
+è separata e richiede i grant documentati. Un esito browser vuoto, incompleto o
+ambiguo resta non misurato: non viene convertito in zero e non abilita un
+vincitore.
 
 ### Esperimento audio TikTok (archiviato)
 

@@ -1,0 +1,24 @@
+{
+  "companyKey": "denogent-ch",
+  "companyName": "Denogent SA",
+  "companyHost": "denogent.ch",
+  "verifiedEmployerDomain": "denogent.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://denogent.ch/fr/emplois"
+  ],
+  "detailTemplate": "/fr/emplois/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 2,
+  "sampleTitles": [
+    "Un/e Architecte Paysagiste",
+    "Un/e Technicien Paysagiste ou Génie-civil"
+  ],
+  "canton": "VD",
+  "sourceLang": "fr",
+  "learnedAt": "2026-11-07T12:48:32.832Z",
+  "candidateKey": "denogent@prangins"
+}

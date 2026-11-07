@@ -1,0 +1,22 @@
+{
+  "companyKey": "jointtechnologysolutioninc",
+  "companyName": "Joint Technology Solution, Inc.",
+  "companyHost": "jointtechnologysolutioninc.applytojob.com",
+  "platform": "applytojob.com",
+  "mode": "known-template",
+  "seedUrls": [
+    "https://jointtechnologysolutioninc.applytojob.com/apply"
+  ],
+  "detailTemplate": "/apply/*/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": false,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 2,
+  "sampleTitles": [
+    "Employment Outreach Coordinator",
+    "PeopleSoft Administrator"
+  ],
+  "sourceLang": "en",
+  "learnedAt": "2026-11-07T12:44:17.375Z",
+  "candidateKey": "jointtechnologysolutioninc@applytojob.com"
+}

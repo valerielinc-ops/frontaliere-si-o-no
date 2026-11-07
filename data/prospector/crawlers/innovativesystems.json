@@ -1,0 +1,25 @@
+{
+  "companyKey": "innovativesystems",
+  "companyName": "Innovative Systems",
+  "companyHost": "innovativesystems.applytojob.com",
+  "platform": "applytojob.com",
+  "mode": "known-template",
+  "seedUrls": [
+    "https://innovativesystems.applytojob.com/apply"
+  ],
+  "detailTemplate": "/apply/*/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": false,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 5,
+  "sampleTitles": [
+    "Application Support Analyst - EMEA",
+    "Intern/Co-op- Summer 2027 - Software Engineering",
+    "Marketing Coordinator",
+    "Product Manager",
+    "Software Support Analyst"
+  ],
+  "sourceLang": "en",
+  "learnedAt": "2026-11-07T12:44:11.181Z",
+  "candidateKey": "innovativesystems@applytojob.com"
+}
