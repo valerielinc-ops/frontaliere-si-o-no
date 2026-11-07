@@ -137,6 +137,23 @@ describe('clinique CIC JobCloud parser', () => {
     )).toBe(false);
   });
 
+  it.each([
+    ['a detail URL with a new non-UUID slug', '<a href="/fr/jobs/nouveau-poste">Poste</a>'],
+    ['a job URL in an unrecognized data attribute', '<article data-job-url="/fr/role-nouveau-format">Poste</article>'],
+  ])('keeps a no-open message fail-closed when %s is present', async (_label, jobMarkup) => {
+    const currentEmpty = `<html><body><main><p>Aucun poste ouvert actuellement</p></main>${jobMarkup}</body></html>`;
+    expect(isJobCloudListingProvenEmpty(currentEmpty)).toBe(false);
+    vi.stubGlobal('fetch', vi.fn(async (input: unknown) => {
+      if (String(input) === LISTING_URL) return response(currentEmpty);
+      throw new Error(`unexpected URL ${input}`);
+    }));
+
+    const jobs = await fetchAllCicJobs();
+
+    expect(jobs).toEqual([]);
+    expect(isAuthoritativeEmptySnapshot(jobs)).toBe(false);
+  });
+
   it('throws when every discovered detail fetch fails instead of publishing a zero', async () => {
     vi.stubGlobal('fetch', vi.fn(async (input: unknown) => {
       if (String(input) === LISTING_URL) return response(listingHtml([DETAIL_URL]), 200);

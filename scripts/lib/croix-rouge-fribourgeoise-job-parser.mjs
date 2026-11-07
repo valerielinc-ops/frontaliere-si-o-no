@@ -85,6 +85,7 @@ import { inferAnyCanton } from './target-swiss-locations.mjs';
 import { parseSwissShortDate } from './hospital-custom-html-helpers.mjs';
 import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 import { markAuthoritativeEmptySnapshot } from './authoritative-empty-snapshot.mjs';
+import { hasPotentialJobData } from './jobcloud-empty-state.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -118,10 +119,9 @@ const JOBUP_PROFILE_JOB_LIST_SELECTORS = [
   '[class~="company-jobs"]',
 ].join(',');
 // The source's own "no open positions" states. JobCloud's current Company
-// Page renders the visible message without always serialising `initialJobs`;
-// if that payload is present, an explicitly non-empty list still vetoes the
-// empty proof. Jobup has used both a dedicated block and plain text.
-const JOBCLOUD_NON_EMPTY_INITIAL_JOBS_RE = /\\?"initialJobs\\?"\s*:\s*\[\s*[^\]\s]/;
+// Page renders the visible message without always serialising a job payload;
+// the shared proof helper rejects any explicitly non-empty collection. Jobup
+// has used both a dedicated block and plain text.
 const JOBCLOUD_NO_POSITIONS_TEXT_RE = /Aucun poste ouvert actuellement/i;
 const JOBUP_NO_VACANCIES_SELECTOR = '[data-cy="company-no-vacancies"]';
 const JOBUP_NO_VACANCIES_TEXT_RE = /Il\s+n['’]y\s+a\s+actuellement\s+aucune\s+offre\s+d['’]emploi/i;
@@ -308,21 +308,22 @@ export function extractListingLinks(html = '') {
 
 /**
  * True only when the JobCloud company page itself states it has no open
- * position: the source-owned "Aucun poste ouvert actuellement" message, no
- * non-empty `initialJobs` payload when one is present, and no detail link. A
- * page missing any of these is unreadable (markup drift), not empty.
+ * position: the source-owned "Aucun poste ouvert actuellement" message and
+ * no job evidence anywhere in the document. A page missing this proof or
+ * containing ambiguous job data is unreadable (markup drift), not empty.
  */
 export function isJobCloudListingProvenEmpty(html = '') {
   const source = String(html || '');
   if (!source) return false;
-  return !JOBCLOUD_NON_EMPTY_INITIAL_JOBS_RE.test(source)
-    && JOBCLOUD_NO_POSITIONS_TEXT_RE.test(stripScriptsAndStyles(source))
-    && extractListingLinks(source).length === 0;
+  return JOBCLOUD_NO_POSITIONS_TEXT_RE.test(stripScriptsAndStyles(source))
+    && extractListingLinks(source).length === 0
+    && !hasPotentialJobData(source, 'jobcloud');
 }
 
 /**
  * True only when the Jobup company profile renders its own "no vacancies"
- * block or message, with no job-list container or detail link.
+ * block or message, with no job-list container or job evidence in any
+ * recognized or unrecognized URL/attribute/card shape.
  */
 export function isJobupProfileProvenEmpty(html = '') {
   if (!html) return false;
@@ -332,11 +333,9 @@ export function isJobupProfileProvenEmpty(html = '') {
     const bodyText = doc.body?.textContent || '';
     const hasNoVacanciesMarker = Boolean(doc.querySelector(JOBUP_NO_VACANCIES_SELECTOR))
       || JOBUP_NO_VACANCIES_TEXT_RE.test(bodyText);
-    const hasDetailLink = [...doc.querySelectorAll('a[href]')]
-      .some((anchor) => isJobupDetailUrl(anchor.getAttribute('href') || ''));
     return hasNoVacanciesMarker
       && !doc.querySelector(JOBUP_PROFILE_JOB_LIST_SELECTORS)
-      && !hasDetailLink;
+      && !hasPotentialJobData(html, 'jobup');
   } finally {
     dom.window.close();
   }
@@ -579,7 +578,7 @@ export async function fetchAllCroixRougeFribourgeoiseJobs() {
         console.log('  ✅ Both JobCloud and Jobup state that no position is open.');
         return markAuthoritativeEmptySnapshot(
           [],
-          'JobCloud company page says "Aucun poste ouvert actuellement" with no detail links; Jobup profile says there is no current offer',
+          'JobCloud company page says "Aucun poste ouvert actuellement" with no job-bearing links or attributes; Jobup profile says there is no current offer',
         );
       }
       console.warn('⚠️ No job listings found, and the sources do not both state an empty board (markup drift?).');
