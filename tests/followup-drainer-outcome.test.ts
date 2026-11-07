@@ -9,16 +9,40 @@
 
 import { describe, it, expect } from 'vitest';
 import {
+  dailyBucketOutcomeTransition,
+  dailyOutcomeItemId,
   latestFixOutcomeFromComments,
   latestFixRunOutcomeEntryFromComments,
   NON_RETRYABLE,
   isAgeOutEligible,
   isPinnedOutsideDrainerQueue,
   isSettlingPromotion,
+  selectMergedDailyItemPr,
 } from '../scripts/ci/followup-drainer.mjs';
 
 type Comment = { body?: string; createdAt?: string };
 const at = (n: number) => new Date(2026, 0, n).toISOString();
+
+const DAILY_DAY = '2026-11-07';
+const DAILY_REPO = 'valerielinc-ops/frontaliere-si-o-no';
+const dailyBody = (states: string[]) => [
+  `- Daily key: ${DAILY_DAY}`,
+  '- State: sealed',
+  `- Target repository: ${DAILY_REPO}`,
+  '',
+  ...states.map((state, index) => [
+    `### FU-${DAILY_DAY}-${String(index + 1).padStart(3, '0')} — item ${index + 1}`,
+    `- State: ${state}`,
+    `- Target repository: ${DAILY_REPO}`,
+  ].join('\n')),
+].join('\n\n');
+const dailyIssue = (states: string[]) => ({
+  number: 17515,
+  title: `follow-up(daily:${DAILY_DAY}): ${states.length} items — ${DAILY_REPO}`,
+  body: dailyBody(states),
+});
+const itemId = (n: number) => `FU-${DAILY_DAY}-${String(n).padStart(3, '0')}`;
+const outcomeMarker = (n: number) => `<!-- FOLLOWUP_ITEM: ${itemId(n)} -->`;
 
 describe('latestFixOutcomeFromComments', () => {
   it('estrae il codice del marker', () => {
@@ -104,6 +128,71 @@ describe('NON_RETRYABLE (quali esiti → park immediato)', () => {
     for (const code of ['overlap-skip', 'pr-already-open', 'pr-created']) {
       expect(NON_RETRYABLE.has(code)).toBe(false);
     }
+  });
+});
+
+describe('daily bucket outcome — lease per item e transizione idempotente', () => {
+  it('richiede un solo FU stabile e instrada al primo item open successivo', () => {
+    expect(dailyOutcomeItemId(`${outcomeMarker(1)}\ncommento fixer`)).toBe(itemId(1));
+    expect(dailyOutcomeItemId(`${outcomeMarker(1)}\n\n${outcomeMarker(2)}`)).toBeNull();
+
+    const transition = dailyBucketOutcomeTransition(
+      dailyIssue(['open', 'open']),
+      'no-root-cause',
+      outcomeMarker(1),
+    );
+    expect(transition).toMatchObject({ action: 'requeue', itemId: itemId(1), state: 'blocked' });
+    expect(transition.nextItem?.id).toBe(itemId(2));
+    expect(transition.body).toContain(`### ${itemId(1)} — item 1\n- State: blocked`);
+  });
+
+  it('non applica un esito transient a un item diverso da quello attualmente open', () => {
+    const transition = dailyBucketOutcomeTransition(
+      dailyIssue(['blocked', 'open']),
+      'overlap-skip',
+      outcomeMarker(1),
+    );
+    expect(transition).toMatchObject({ action: 'stale-attribution', itemId: itemId(1) });
+  });
+
+  it('pr-created richiede la prova di merge della stessa item, mentre already-fixed chiude solo quell item', () => {
+    const issue = dailyIssue(['open', 'open']);
+    expect(dailyBucketOutcomeTransition(issue, 'pr-created', outcomeMarker(1)))
+      .toMatchObject({ action: 'awaiting-merged-pr', itemId: itemId(1) });
+
+    const delivered = dailyBucketOutcomeTransition(issue, 'pr-created', outcomeMarker(1), {
+      verifiedMergedItemId: itemId(1),
+    });
+    expect(delivered).toMatchObject({ action: 'requeue', itemId: itemId(1), state: 'done' });
+    expect(delivered.nextItem?.id).toBe(itemId(2));
+  });
+
+  it('non rimuove un esito già consumato e calcola il routing dal body attuale', () => {
+    const transition = dailyBucketOutcomeTransition(
+      dailyIssue(['done', 'open']),
+      'already-fixed',
+      outcomeMarker(1),
+    );
+    expect(transition).toMatchObject({
+      action: 'outcome-consumed',
+      itemId: itemId(1),
+      reconcileAction: 'requeue',
+      nextItem: { id: itemId(2) },
+    });
+    expect(transition.body).toBeUndefined();
+  });
+});
+
+describe('selectMergedDailyItemPr — prova di consegna per item', () => {
+  const cutoff = Date.parse('2026-11-07T00:00:00Z');
+
+  it('accetta una sola marker FU dopo il verdetto e rifiuta marker duplicati o item diversa', () => {
+    expect(selectMergedDailyItemPr([
+      { number: 1, mergedAt: '2026-11-07T00:01:00Z', body: `Follow-up item: ${itemId(1)}` },
+      { number: 2, mergedAt: '2026-11-07T00:02:00Z', body: `Follow-up item: ${itemId(1)}\nFollow-up item: ${itemId(1)}` },
+      { number: 3, mergedAt: '2026-11-07T00:03:00Z', body: `Follow-up item: ${itemId(2)}` },
+      { number: 4, mergedAt: '2026-11-07T00:04:00Z', body: `Follow-up item: ${itemId(1)}` },
+    ], itemId(1), cutoff)).toMatchObject({ number: 4, itemId: itemId(1) });
   });
 });
 
