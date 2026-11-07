@@ -15,7 +15,7 @@ import { mergeSourcePostingDates } from './source-posting-date.mjs';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
-import { loadSpec, runSpecInProduction } from './prospector/spec-crawler.mjs';
+import { copySpecFetchMetadata, loadSpec, runSpecInProduction } from './prospector/spec-crawler.mjs';
 import { textFragmentUrl } from './text-fragment-url.mjs';
 import {
   resolveDetailOrListingSwissGeography,
@@ -177,7 +177,7 @@ export async function fetchAllGrischapersonalJobs() {
   const listings = await fetchJobListings();
   if (!listings || listings.length === 0) {
     console.warn('⚠️ No job listings returned.');
-    return [];
+    return copySpecFetchMetadata([], listings || []);
   }
 
   console.log(`  📋 Listings found: ${listings.length}`);
@@ -265,5 +265,5 @@ export async function fetchAllGrischapersonalJobs() {
   }
 
   console.log(`\n📋 Total Grischa Personal AG jobs discovered: ${jobs.length}`);
-  return jobs;
+  return copySpecFetchMetadata(jobs, listings);
 }

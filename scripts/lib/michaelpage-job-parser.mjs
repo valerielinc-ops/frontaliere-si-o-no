@@ -20,7 +20,7 @@ import {
   resolveSourceBackedSwissGeography,
   sourceBackedSwissGeographyFields,
 } from './prospector/location-evidence.mjs';
-import { loadSpec, runSpecInProduction } from './prospector/spec-crawler.mjs';
+import { copySpecFetchMetadata, loadSpec, runSpecInProduction } from './prospector/spec-crawler.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -136,7 +136,7 @@ export async function fetchAllMichaelpageJobs() {
   const listings = await fetchJobListings();
   if (!listings || listings.length === 0) {
     console.warn('⚠️ No job listings returned.');
-    return [];
+    return copySpecFetchMetadata([], listings || []);
   }
 
   console.log(`  📋 Listings found: ${listings.length}`);
@@ -213,5 +213,5 @@ export async function fetchAllMichaelpageJobs() {
   }
 
   console.log(`\n📋 Total Michael Page jobs discovered: ${jobs.length}`);
-  return jobs;
+  return copySpecFetchMetadata(jobs, listings);
 }
