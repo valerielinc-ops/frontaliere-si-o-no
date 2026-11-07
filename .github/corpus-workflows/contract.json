@@ -4,18 +4,18 @@
   "generatorSha256": "fdb030bbf39ca408ce40ba0c64a85867e92a8fed3e4bf922daf2847a61f12687",
   "sourceRepository": "valerielinc-ops/frontaliere-si-o-no",
   "sourceRef": "main",
-  "sourceCommit": "ea2a07801bb07a41d06f7ad2252bf636055e1fbd",
+  "sourceCommit": "07dd300ee7dd4a3d03cd1776693e66183d8bbe1c",
   "artifactObservation": {
     "generatorSha256": "fdb030bbf39ca408ce40ba0c64a85867e92a8fed3e4bf922daf2847a61f12687",
     "sourceRef": "main",
-    "sourceCommit": "ea2a07801bb07a41d06f7ad2252bf636055e1fbd"
+    "sourceCommit": "07dd300ee7dd4a3d03cd1776693e66183d8bbe1c"
   },
   "groupCount": 25,
   "artifactCount": 26,
   "observerCount": 8,
   "crawlerCount": 695,
   "crawlerRosterCardinality": {
-    "sourceCommit": "ea2a07801bb07a41d06f7ad2252bf636055e1fbd",
+    "sourceCommit": "07dd300ee7dd4a3d03cd1776693e66183d8bbe1c",
     "groupCount": 25,
     "artifactCount": 26,
     "crawlerCount": 695
@@ -23,7 +23,7 @@
   "crawlerGeneration": {
     "mode": "shadow",
     "rosterPath": "scripts/ci/crawler-generation-roster.json",
-    "rosterDigest": "sha256:2e19ad380559ce4b0667a711d6d290984b5b45ee212b18af658edbd31e70f051",
+    "rosterDigest": "sha256:f5347709f52e88c79e7e58281fe51a92eaec19d81ec7346679e5caef7f365094",
     "artifactRetentionDays": 14,
     "dispatchesTranslation": false
   },
@@ -735,8 +735,8 @@
     {
       "file": "crawler-group-02.yml",
       "sourceLogic": "crawler-group-02-logic.yml",
-      "sourceSha256": "cc8960cc40a31d54ae52f136a043432ace7212a16ee9437fd6614231ddef0ac0",
-      "artifactSha256": "90564476b6072234b2807de2d62787ba97b0f69032df1312f1b8a0c16a085e24",
+      "sourceSha256": "8e0bee24d8de2a1daed91534b49a53dd1e57b4d551d9e6052f267f3e79a52843",
+      "artifactSha256": "03b2fdc71a5397c11c704f5cd8974c34b4b4b2757e35653d9ab75c9ef3c22a97",
       "generatorSha256": "fdb030bbf39ca408ce40ba0c64a85867e92a8fed3e4bf922daf2847a61f12687",
       "members": [
         "roche",
@@ -768,14 +768,15 @@
         "mcm-group",
         "grischapersonal",
         "oscam",
-        "fondazione-san-gottardo"
+        "fondazione-san-gottardo",
+        "ronda-ch"
       ]
     },
     {
       "file": "crawler-group-03.yml",
       "sourceLogic": "crawler-group-03-logic.yml",
-      "sourceSha256": "b7a67bf20076f1180b9dd02af59efaaffdaa6a088512ed945a58ebb24a094857",
-      "artifactSha256": "d3de75a3c28601d8676c78d48c3b83d29ba13bc1e0637a7f7a77db638e2ce82d",
+      "sourceSha256": "82f8b21aedd11173ecc827eff9e5d81ab93d69e9280b8d2aef544d3a6af109b6",
+      "artifactSha256": "e518ef8571ff659cfedbaa6b1dc2f2152bfa8d6a0ecae85d389487c91b8ff27a",
       "generatorSha256": "fdb030bbf39ca408ce40ba0c64a85867e92a8fed3e4bf922daf2847a61f12687",
       "members": [
         "felfel",
@@ -807,7 +808,8 @@
         "arosa-lenzerheide",
         "schweizerhof-flims",
         "schindler",
-        "nishcom"
+        "nishcom",
+        "swiss-education-company-ch"
       ]
     },
     {
@@ -1596,8 +1598,8 @@
     {
       "file": "crawler-group-24.yml",
       "sourceLogic": "crawler-group-24-logic.yml",
-      "sourceSha256": "b247cedf212bae068aed60351d517e3714ae2511f7c8363881dd37ee14188d07",
-      "artifactSha256": "2840f39aa17f5a7c0844a85f94621c9014aa529d45def381930db1cc387fd580",
+      "sourceSha256": "82b6fb9f01c371d6ef69c1993ef937a9bfbd4ff4557381fc54ee4deb5e96aa3a",
+      "artifactSha256": "b76566f10e9d2e509e2bcec4152b94cd5f1c86e022791680a67ebe6bd1da5c22",
       "generatorSha256": "fdb030bbf39ca408ce40ba0c64a85867e92a8fed3e4bf922daf2847a61f12687",
       "members": [
         "seco-jobroom",
@@ -1627,9 +1629,7 @@
         "a2nails-ch",
         "assura-ch",
         "freestarinformatik",
-        "richnerstutz-ch",
-        "ronda-ch",
-        "swiss-education-company-ch"
+        "richnerstutz-ch"
       ]
     },
     {
