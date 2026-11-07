@@ -9042,7 +9042,7 @@
       "slugByLocale": {
         "it": "responsabile-relazioni-wm-ubs-zurich",
         "en": "relationship-manager-wm-ubs-zurich",
-        "de": "relationship-manager-wm-osteuropa-ubs-zurich",
+        "de": "responsabile-relazioni-wm-ubs-zurich",
         "fr": "gestionnaire-de-relations-wm-ubs-zurich"
       },
       "company": "UBS",
@@ -9095,11 +9095,15 @@
         "jobType": ""
       },
       "previousSlugs": [
-        "relationship-manager-wm-eastern-europe-ubs-zurich"
+        "relationship-manager-wm-eastern-europe-ubs-zurich",
+        "relationship-manager-wm-osteuropa-ubs-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "relationship-manager-wm-eastern-europe-ubs-zurich"
+        ],
+        "de": [
+          "relationship-manager-wm-osteuropa-ubs-zurich"
         ]
       },
       "firstSeenAt": "2026-10-23T09:26:39.470Z",
@@ -11978,9 +11982,9 @@
       "id": "ubs-224588aaba0e",
       "slug": "consulente-cliente-privato-affluent-regensdorf-80-100-ubs-zurich",
       "slugByLocale": {
+        "de": "privatkundenberater-affluent-regensdorf-80-100-ubs-zurich",
         "it": "consulente-cliente-privato-affluent-regensdorf-80-100-ubs-zurich",
         "en": "private-client-consultant-affluent-regensdorf-80-100-ubs-zurich",
-        "de": "privatkundenberater-affluent-regensdorf-80-100-ubs-zurich",
         "fr": "consultant-client-prive-affluent-regensdorf-80-100-ubs-zurich"
       },
       "company": "UBS",

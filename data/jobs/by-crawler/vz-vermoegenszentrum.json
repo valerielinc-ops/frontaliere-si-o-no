@@ -6413,11 +6413,11 @@
     },
     {
       "id": "vz-vermoegenszentrum-6d3c192b7a0d",
-      "slug": "collaboratore-trice-in-kundensupport-digital-banking-befristet-per-sofort-4-6-monate-con-moglichkeit-auf-festanstellung-vz-vermogenszentrum-zug",
+      "slug": "collaboratore-trice-assistenza-clienti-digital-banking-a-tempo-determinato-con-effetto-immediato-4-6-mesi-con",
       "slugByLocale": {
-        "it": "collaboratore-trice-in-kundensupport-digital-banking-befristet-per-sofort-4-6-monate-con-moglichkeit-auf-festanstellung-vz-vermogenszentrum-zug",
-        "en": "digital-banking-customer-support-employee-for-a-limited-period-of-time-as-of-now-4-6-months-with-the-possibility-of",
         "de": "mitarbeiter-in-kundensupport-digital-banking-befristet-per-sofort-4-6-monate-mit",
+        "it": "collaboratore-trice-assistenza-clienti-digital-banking-a-tempo-determinato-con-effetto-immediato-4-6-mesi-con",
+        "en": "digital-banking-customer-support-employee-for-a-limited-period-of-time-as-of-now-4-6-months-with-the-possibility-of",
         "fr": "employe-e-de-service-a-la-clientele-digital-banking-pour-une-duree-determinee-avec-effet-immediat-4-a-6-mois-avec"
       },
       "company": "VZ VermögensZentrum",
@@ -6486,7 +6486,8 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-kundensupport-digital-banking-befristet-per-sofort-4-6-monate-mit"
+          "mitarbeiter-in-kundensupport-digital-banking-befristet-per-sofort-4-6-monate-mit",
+          "collaboratore-trice-in-kundensupport-digital-banking-befristet-per-sofort-4-6-monate-con-moglichkeit-auf-festanstellung-vz-vermogenszentrum-zug"
         ],
         "en": [
           "mitarbeiter-in-kundensupport-digital-banking-befristet-per-sofort-4-6-monate-mit"
@@ -6496,7 +6497,8 @@
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-kundensupport-digital-banking-befristet-per-sofort-4-6-monate-mit"
+        "mitarbeiter-in-kundensupport-digital-banking-befristet-per-sofort-4-6-monate-mit",
+        "collaboratore-trice-in-kundensupport-digital-banking-befristet-per-sofort-4-6-monate-con-moglichkeit-auf-festanstellung-vz-vermogenszentrum-zug"
       ],
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -6518,12 +6520,12 @@
     },
     {
       "id": "vz-vermoegenszentrum-1ae819b724e6",
-      "slug": "nachwuchstalent-schaden-privatversicherungen-vz-vermogenszentrum-zurich",
+      "slug": "giovani-talenti-danno-assicurazione-privata-vz-vermogenszentrum-zurich-zurich",
       "slugByLocale": {
-        "it": "nachwuchstalent-schaden-privatversicherungen-vz-vermogenszentrum-zurich",
-        "en": "nachwuchstalent-schaden-privatversicherungen-vz-vermogenszentrum-zurich",
         "de": "nachwuchstalent-schaden-privatversicherungen-vz-vermoegenszentrum-ch",
-        "fr": "nachwuchstalent-schaden-privatversicherungen-vz-vermogenszentrum-zurich"
+        "it": "giovani-talenti-danno-assicurazione-privata-vz-vermogenszentrum-zurich-zurich",
+        "en": "young-talent-damage-private-insurance-vz-vermogenszentrum-zurich-zurich",
+        "fr": "dommages-aux-jeunes-talents-assurance-privee-vz-vermogenszentrum-zurich-zurich"
       },
       "company": "VZ VermögensZentrum",
       "companyKey": "vz-vermoegenszentrum",
@@ -6582,11 +6584,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "nachwuchstalent-schaden-privatversicherungen-vz-vermoegenszentrum-ch"
+          "nachwuchstalent-schaden-privatversicherungen-vz-vermoegenszentrum-ch",
+          "nachwuchstalent-schaden-privatversicherungen-vz-vermogenszentrum-zurich"
+        ],
+        "en": [
+          "nachwuchstalent-schaden-privatversicherungen-vz-vermogenszentrum-zurich"
+        ],
+        "fr": [
+          "nachwuchstalent-schaden-privatversicherungen-vz-vermogenszentrum-zurich"
         ]
       },
       "previousSlugs": [
-        "nachwuchstalent-schaden-privatversicherungen-vz-vermoegenszentrum-ch"
+        "nachwuchstalent-schaden-privatversicherungen-vz-vermoegenszentrum-ch",
+        "nachwuchstalent-schaden-privatversicherungen-vz-vermogenszentrum-zurich"
       ],
       "salaryMin": 79000,
       "salaryMax": 131000,

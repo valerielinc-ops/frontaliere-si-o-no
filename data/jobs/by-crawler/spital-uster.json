@@ -4173,11 +4173,11 @@
     },
     {
       "id": "spital-uster-397b223a2474",
-      "slug": "mitarbeiterin-collaboratore-trice-restaurant-70-spital-uster",
+      "slug": "dipendente-del-ristorante-70-spital-uster-uster",
       "slugByLocale": {
-        "it": "mitarbeiterin-collaboratore-trice-restaurant-70-spital-uster",
-        "en": "employee-employee-restaurant-70-spital-uster-uster",
         "de": "mitarbeiterin-mitarbeiter-restaurant-70-spital-uster-ch",
+        "it": "dipendente-del-ristorante-70-spital-uster-uster",
+        "en": "employee-employee-restaurant-70-spital-uster-uster",
         "fr": "restaurant-pour-employes-employes-70-spital-uster-uster"
       },
       "company": "Spital Uster",
@@ -4186,7 +4186,7 @@
       "title": "Mitarbeiterin / Mitarbeiter Restaurant 70%",
       "titleByLocale": {
         "de": "Mitarbeiterin / Mitarbeiter Restaurant 70%",
-        "it": "Mitarbeiterin / Collaboratore/trice Restaurant 70%",
+        "it": "Dipendente del ristorante 70%",
         "en": "Employee / Employee Restaurant 70%",
         "fr": "Restaurant pour employés / employés 70%"
       },
@@ -4225,7 +4225,8 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiterin-mitarbeiter-restaurant-70-spital-uster-ch"
+          "mitarbeiterin-mitarbeiter-restaurant-70-spital-uster-ch",
+          "mitarbeiterin-collaboratore-trice-restaurant-70-spital-uster"
         ],
         "en": [
           "mitarbeiterin-mitarbeiter-restaurant-70-spital-uster-ch"
@@ -4235,7 +4236,8 @@
         ]
       },
       "previousSlugs": [
-        "mitarbeiterin-mitarbeiter-restaurant-70-spital-uster-ch"
+        "mitarbeiterin-mitarbeiter-restaurant-70-spital-uster-ch",
+        "mitarbeiterin-collaboratore-trice-restaurant-70-spital-uster"
       ],
       "salaryMin": 51100,
       "salaryMax": 64000,

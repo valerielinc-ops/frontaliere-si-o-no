@@ -97,6 +97,11 @@ jobs:
       - name: Export private Instagram Insights to runner temp
         run: node scripts/social-native-insights-export.mjs --output="$RUNNER_TEMP/instagram-insights.json"
 
+      - name: Load browser Insights policy state
+        run: >-
+          node scripts/load-rc-env.mjs
+          --only-env=SOCIAL_ROBOT_INSIGHTS_SOURCE,META_INSTAGRAM_BROWSER_INSIGHTS_APPROVED
+
       - name: Load Remote Config decision settings
         if: env.APPLY == 'true'
         run: >-

@@ -4098,11 +4098,11 @@
     },
     {
       "id": "srg-ssr-981f5c5712d2",
-      "slug": "collaboratore-trice-innen-liveticker-srg-ssr-bern",
+      "slug": "dipendenti-liveticker-srg-ssr-bern",
       "slugByLocale": {
-        "it": "collaboratore-trice-innen-liveticker-srg-ssr-bern",
-        "en": "employee-live-ticker-srg-ssr-bern",
         "de": "mitarbeiter-innen-liveticker-srg-ssr-bern",
+        "it": "dipendenti-liveticker-srg-ssr-bern",
+        "en": "employee-live-ticker-srg-ssr-bern",
         "fr": "collaborateurs-trices-liveticker-srg-ssr-bern"
       },
       "company": "SRG SSR",
@@ -4167,7 +4167,8 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-innen-liveticker-srg-ssr-bern"
+          "mitarbeiter-innen-liveticker-srg-ssr-bern",
+          "collaboratore-trice-innen-liveticker-srg-ssr-bern"
         ],
         "en": [
           "mitarbeiter-innen-liveticker-srg-ssr-bern"
@@ -4177,7 +4178,8 @@
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-innen-liveticker-srg-ssr-bern"
+        "mitarbeiter-innen-liveticker-srg-ssr-bern",
+        "collaboratore-trice-innen-liveticker-srg-ssr-bern"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -4202,10 +4204,10 @@
       "id": "srg-ssr-c2978e20934f",
       "slug": "agente-operativo-srg-ssr-bern",
       "slugByLocale": {
+        "fr": "agente-ou-agent-d-39-exploitation-srg-ssr-bern",
         "it": "agente-operativo-srg-ssr-bern",
         "en": "operating-agent-srg-ssr-bern",
-        "de": "operating-agent-srg-ssr-bern",
-        "fr": "agente-ou-agent-d-39-exploitation-srg-ssr-bern"
+        "de": "operating-agent-srg-ssr-bern"
       },
       "company": "SRG SSR",
       "companyKey": "srg-ssr",

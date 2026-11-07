@@ -96,7 +96,7 @@ python3 caption.py draft.txt --keywords "client proposals,agency pricing"
 2. Draft it.
 3. Review natural Italian, verified facts, and whether the CTA is supported by
    the active integration.
-4. Use `/ig-human` and `caption.py` only as advisory heuristics. Review every
+4. Use the `ig-human` guidance and `caption.py` only as advisory heuristics. Review every
    flag against the publisher contract; do not treat upstream estimates as
    automatic publishing gates.
 5. Print the copy-ready block, then the receipt:

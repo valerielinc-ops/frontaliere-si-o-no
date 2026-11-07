@@ -50,6 +50,7 @@ import {
   umantisVacancyIdentity,
 } from './umantis-detail.mjs';
 import { extractRuntimeDetailFields, listingEvidenceFields, runtimeDetailFallbackUrl } from './detail-extract.mjs';
+import { markAuthoritativeEmptySnapshot } from '../authoritative-empty-snapshot.mjs';
 import { platformListingExtractorFor } from './platform-extractors.mjs';
 import {
   rawDetailTitleEvidence,
@@ -233,6 +234,7 @@ const SPEC_FETCH_METADATA_KEYS = [
   'expectedFilterCount',
   'expectedFilters',
   'authoritativeEmptyState',
+  'authoritativeEmptyEvidence',
   'observedDetailsByUrl',
   'titleEvidenceByUrl',
   'freeTextApplications',
@@ -295,6 +297,24 @@ function configuredEmptyListingOutcome(spec) {
   return typeof outcome === 'string' && CRAWLER_FETCH_OUTCOMES.has(outcome)
     ? outcome
     : null;
+}
+
+/**
+ * A source may publish an explicit, source-native no-vacancies sentence. It is
+ * deliberately configured as normalized text rather than a free-form regex:
+ * a source-specific marker is evidence only when the fetched page contains the
+ * exact reviewed phrase, and a malformed expression must never broaden a zero
+ * into an authoritative snapshot.
+ *
+ * @param {import('./synthesize.mjs').CrawlerSpec} spec
+ * @param {string} html
+ * @returns {boolean}
+ */
+function matchesConfiguredAuthoritativeEmptyText(spec, html) {
+  const marker = String(spec?.authoritativeEmptyText || '').replace(/\s+/g, ' ').trim().toLowerCase();
+  if (!marker) return false;
+  const sourceText = textOf(html).replace(/\s+/g, ' ').trim().toLowerCase();
+  return sourceText.includes(marker);
 }
 
 /** @param {any[]} rows */
@@ -1716,6 +1736,8 @@ export async function collectSpecListingRows(spec, runtime, validateUrl) {
   // those specs opt into counting the source rows after URL/template guards,
   // before de-duplication, so a complete walk is not rejected as truncated.
   let listingRowsForCoverage = 0;
+  let observedListingPageCount = 0;
+  const authoritativeEmptySources = [];
   const templateRx = spec.detailTemplate?.length ? templateToRegex(spec.detailTemplate) : null;
   const emptyOutcome = spec.rescueOnEmptyListing === true
     && runtime.disableWafProxy !== true
@@ -2056,6 +2078,12 @@ export async function collectSpecListingRows(spec, runtime, validateUrl) {
         );
       }
     }
+    observedListingPageCount += 1;
+    if (!candidates.length
+      && !looksLikeAntiBotChallenge(html)
+      && matchesConfiguredAuthoritativeEmptyText(spec, html)) {
+      authoritativeEmptySources.push(effectiveSeedUrl);
+    }
     await addListingCandidates(candidates, umantisListingEvidence);
 
     // Opt-in pagination (`spec.pagination`). A listing that shows only its
@@ -2355,6 +2383,26 @@ export async function collectSpecListingRows(spec, runtime, validateUrl) {
     }
     copySpecFetchMetadata(rows, metadata);
   }
+  const seedCount = Array.isArray(spec.seedUrls) ? spec.seedUrls.length : 0;
+  const existingOutcome = rows.fetchOutcome;
+  const safeExistingOutcome = existingOutcome === undefined
+    || existingOutcome === null
+    || existingOutcome === 'ok'
+    || existingOutcome === 'filtered_empty';
+  if (rows.length === 0
+    && !listingEndpoint
+    && !spec.pagination
+    && seedCount > 0
+    && observedListingPageCount === seedCount
+    && authoritativeEmptySources.length === seedCount
+    && safeExistingOutcome) {
+    copySpecFetchMetadata(rows, {
+      fetchOutcome: 'ok',
+      discoveredCount: 0,
+      authoritativeEmptyState: 'authoritative-source-zero',
+      authoritativeEmptyEvidence: `${spec.companyName || spec.companyKey} listing page(s) rendered the configured source-empty marker "${spec.authoritativeEmptyText}" at ${authoritativeEmptySources.join(', ')}`,
+    });
+  }
   return rows;
 }
 
@@ -2522,6 +2570,12 @@ export async function runSpecInProduction(spec, runtime = {}) {
         ...(detailPagesByUrl ? { observedDetailsByUrl: detailPagesByUrl } : {}),
         ...(titleEvidenceByUrl ? { titleEvidenceByUrl } : {}),
       });
+      const stampedOutput = output.length === 0
+        && listingOutcome.authoritativeEmpty
+        && rows.authoritativeEmptyState === 'authoritative-source-zero'
+        && typeof rows.authoritativeEmptyEvidence === 'string'
+        ? markAuthoritativeEmptySnapshot(output, rows.authoritativeEmptyEvidence)
+        : output;
       if (!snapshotAccepted && runtime.failOnIncomplete !== false && !preserveEmptyListingResult) {
         const incompleteReason = listingOutcome.failed
           ? `fetch outcome ${listingOutcome.outcome || 'unknown'} is not successful`
@@ -2539,8 +2593,8 @@ export async function runSpecInProduction(spec, runtime = {}) {
         throw error;
       }
       return runtime.returnObservation === true
-        ? { vacancies: output, observation, detailPagesByUrl, titleEvidenceByUrl }
-        : output;
+        ? { vacancies: stampedOutput, observation, detailPagesByUrl, titleEvidenceByUrl }
+        : stampedOutput;
     }
 
     // Template extraction has no per-row semantics. Visit the detail pages with
@@ -2852,9 +2906,15 @@ export async function runSpecInProduction(spec, runtime = {}) {
       ...(detailPagesByUrl ? { observedDetailsByUrl: detailPagesByUrl } : {}),
       ...(titleEvidenceByUrl ? { titleEvidenceByUrl } : {}),
     });
-    return runtime.returnObservation === true
-      ? { vacancies: output, observation, detailPagesByUrl, titleEvidenceByUrl }
+    const stampedOutput = output.length === 0
+      && listingOutcome.authoritativeEmpty
+      && rows.authoritativeEmptyState === 'authoritative-source-zero'
+      && typeof rows.authoritativeEmptyEvidence === 'string'
+      ? markAuthoritativeEmptySnapshot(output, rows.authoritativeEmptyEvidence)
       : output;
+    return runtime.returnObservation === true
+      ? { vacancies: stampedOutput, observation, detailPagesByUrl, titleEvidenceByUrl }
+      : stampedOutput;
   } finally {
     try {
       await validateUrl.dispatcher.close();

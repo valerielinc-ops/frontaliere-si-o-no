@@ -391,7 +391,7 @@
       "slug": "gruppenleiter-in-pflege-e-betreuung-tertianum-wattwil",
       "slugByLocale": {
         "it": "gruppenleiter-in-pflege-e-betreuung-tertianum-wattwil",
-        "en": "team-management-dipl-nursing-professional-hf-dnii-80-100-tertianum-wattwil",
+        "en": "group-leader-care-and-care-tertianum-wattwil",
         "de": "gruppenleiter-in-pflege-und-betreuung-tertianum-wattwil",
         "fr": "chef-de-groupe-soins-et-soins-tertianum-wattwil"
       },
@@ -447,7 +447,7 @@
         ],
         "en": [
           "gruppenleiter-in-pflege-und-betreuung-tertianum-wattwil",
-          "group-leader-care-and-care-tertianum-wattwil"
+          "team-management-dipl-nursing-professional-hf-dnii-80-100-tertianum-wattwil"
         ],
         "fr": [
           "gruppenleiter-in-pflege-und-betreuung-tertianum-wattwil"
@@ -456,7 +456,7 @@
       "previousSlugs": [
         "gruppenleiter-in-pflege-und-betreuung-tertianum-wattwil",
         "teamleitung-dipl-pflegefachfrau-pflegefachmann-hf-dnii-80-100-tertianum-wattwil",
-        "group-leader-care-and-care-tertianum-wattwil"
+        "team-management-dipl-nursing-professional-hf-dnii-80-100-tertianum-wattwil"
       ],
       "firstSeenAt": "2026-08-20T22:13:18.526Z",
       "salaryMin": 81500,
@@ -3469,7 +3469,7 @@
       "id": "tertianum-32ca17a198df",
       "slug": "infermiere-a-diplomato-a-all-80-tertianum-delemont",
       "slugByLocale": {
-        "it": "infermiere-a-diplomato-a-all-80-tertianum-delemont",
+        "it": "80-laurea-in-infermiera-tertianum-delemont",
         "en": "80-graduate-nurse-tertianum-delemont",
         "de": "80-diplom-krankenschwester-tertianum-delemont",
         "fr": "infirmier-ere-diplome-e-a-80-tertianum-delemont"
@@ -3542,13 +3542,11 @@
         ]
       },
       "previousSlugs": [
-        "infirmier-ere-diplome-e-a-80-tertianum-delemont",
-        "80-laurea-in-infermiera-tertianum-delemont"
+        "infirmier-ere-diplome-e-a-80-tertianum-delemont"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "infirmier-ere-diplome-e-a-80-tertianum-delemont",
-          "80-laurea-in-infermiera-tertianum-delemont"
+          "infirmier-ere-diplome-e-a-80-tertianum-delemont"
         ],
         "de": [
           "infirmier-ere-diplome-e-a-80-tertianum-delemont"
@@ -3950,9 +3948,9 @@
       "slug": "dipl-infermieristica-professionale-hf-60-100-tertianum-zollikerberg",
       "slugByLocale": {
         "it": "dipl-infermieristica-professionale-hf-60-100-tertianum-zollikerberg",
-        "en": "registered-nurse-hf-60-100-tertianum-zollikerberg",
+        "en": "nursing-professional-tertianum-zollikerberg",
         "de": "pflegefachfrau-mann-tertianum-zollikerberg",
-        "fr": "infirmiere-infirmier-diplome-hf-60-100-tertianum-zollikerberg"
+        "fr": "professionnels-des-soins-infirmiers-tertianum-zollikerberg"
       },
       "company": "Tertianum",
       "companyKey": "tertianum",
@@ -4029,11 +4027,11 @@
         ],
         "en": [
           "pflegefachfrau-mann-tertianum-zollikerberg",
-          "nursing-professional-tertianum-zollikerberg"
+          "registered-nurse-hf-60-100-tertianum-zollikerberg"
         ],
         "fr": [
           "pflegefachfrau-mann-tertianum-zollikerberg",
-          "professionnels-des-soins-infirmiers-tertianum-zollikerberg"
+          "infirmiere-infirmier-diplome-hf-60-100-tertianum-zollikerberg"
         ]
       },
       "previousSlugs": [
@@ -4041,8 +4039,8 @@
         "pflegefachfrau-mann-tertianum-zollikerberg",
         "dipl-pflegefachfrau-pflegefachmann-hf-60-100-tertianum-zollikerberg",
         "dipl-pflegefachfrau-pflegefachmann-hf-fh-dnii-60-100-tertianum-zollikerberg",
-        "nursing-professional-tertianum-zollikerberg",
-        "professionnels-des-soins-infirmiers-tertianum-zollikerberg"
+        "registered-nurse-hf-60-100-tertianum-zollikerberg",
+        "infirmiere-infirmier-diplome-hf-60-100-tertianum-zollikerberg"
       ],
       "firstSeenAt": "2026-08-04T11:53:59.236Z",
       "salaryMin": 91500,
@@ -4152,9 +4150,9 @@
       "slug": "dipl-pflegefachfrau-pflegefachmann-hf-fh-80-100-tertianum-rheinfelden",
       "slugByLocale": {
         "it": "dipl-pflegefachfrau-pflegefachmann-hf-fh-80-100-tertianum-rheinfelden",
-        "en": "registered-nurse-hf-fh-80-100-tertianum-rheinfelden",
+        "en": "nursing-professional-tertianum-rheinfelden",
         "de": "pflegefachfrau-mann-tertianum-rheinfelden",
-        "fr": "infirmiere-infirmier-diplome-e-hf-fh-80-100-tertianum-rheinfelden"
+        "fr": "professionnels-des-soins-infirmiers-tertianum-rheinfelden"
       },
       "company": "Tertianum",
       "companyKey": "tertianum",
@@ -4233,17 +4231,17 @@
           "infermieristica-professionale-tertianum-rheinfelden"
         ],
         "en": [
-          "nursing-professional-tertianum-rheinfelden"
+          "registered-nurse-hf-fh-80-100-tertianum-rheinfelden"
         ],
         "fr": [
-          "professionnels-des-soins-infirmiers-tertianum-rheinfelden"
+          "infirmiere-infirmier-diplome-e-hf-fh-80-100-tertianum-rheinfelden"
         ]
       },
       "previousSlugs": [
         "pflegefachfrau-mann-tertianum-rheinfelden",
         "infermieristica-professionale-tertianum-rheinfelden",
-        "nursing-professional-tertianum-rheinfelden",
-        "professionnels-des-soins-infirmiers-tertianum-rheinfelden"
+        "registered-nurse-hf-fh-80-100-tertianum-rheinfelden",
+        "infirmiere-infirmier-diplome-e-hf-fh-80-100-tertianum-rheinfelden"
       ],
       "firstSeenAt": "2026-07-29T22:58:06.026Z",
       "salaryMin": 88000,
@@ -4662,7 +4660,7 @@
       "slug": "apprendista-cuoco-cuoca-tertianum-luzern",
       "slugByLocale": {
         "it": "apprendista-cuoco-cuoca-tertianum-luzern",
-        "en": "apprenticeship-as-cook-efz-or-kitchen-assistant-eba-tertianum-luzern",
+        "en": "apprentice-koch-kochin-tertianum-luzern",
         "de": "lernende-r-koch-kochin-tertianum-luzern",
         "fr": "apprenti-e-cuisinier-cuisiniere-tertianum-luzern"
       },
@@ -4749,14 +4747,14 @@
         ],
         "en": [
           "apprentice-cook-tertianum-luzern",
-          "apprentice-koch-kochin-tertianum-luzern"
+          "apprenticeship-as-cook-efz-or-kitchen-assistant-eba-tertianum-luzern"
         ]
       },
       "previousSlugs": [
         "lernende-r-koch-kochin-tertianum-luzern",
         "apprentice-cook-tertianum-luzern",
         "lehrstelle-als-kochin-koch-efz-oder-als-kuchenangestellte-kuchenangestellter-eba-tertianum",
-        "apprentice-koch-kochin-tertianum-luzern"
+        "apprenticeship-as-cook-efz-or-kitchen-assistant-eba-tertianum-luzern"
       ],
       "firstSeenAt": "2026-05-19T12:22:02.750Z",
       "salaryMin": 58500,
@@ -4782,7 +4780,7 @@
       "slug": "cuoco-cuoca-tertianum-horgen",
       "slugByLocale": {
         "it": "cuoco-cuoca-tertianum-horgen",
-        "en": "cook-efz-80-100-tertianum-horgen",
+        "en": "chef-co-chef-tertianum-horgen",
         "de": "kochin-koch-tertianum-horgen",
         "fr": "cuisinier-chef-cuisinier-tertianum-horgen"
       },
@@ -4862,7 +4860,7 @@
         "kochin-koch-tertianum-horgen",
         "kochin-koch-efz-80-100-tertianum-bern",
         "kochin-koch-efz-80-100-tertianum-horgen",
-        "chef-co-chef-tertianum-horgen"
+        "cook-efz-80-100-tertianum-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4871,7 +4869,7 @@
           "kochin-koch-efz-80-100-tertianum-horgen"
         ],
         "en": [
-          "chef-co-chef-tertianum-horgen"
+          "cook-efz-80-100-tertianum-horgen"
         ]
       },
       "firstSeenAt": "2026-05-19T12:21:06.890Z",
@@ -6203,9 +6201,9 @@
       "slug": "infermieristica-professionale-tertianum-stadel",
       "slugByLocale": {
         "it": "infermieristica-professionale-tertianum-stadel",
-        "en": "dipl-nursing-specialist-hf-fh-dnii-on-night-duty-60-100-tertianum-stadel",
+        "en": "nurse-tertianum-stadel",
         "de": "pflegefachfrau-mann-tertianum-stadel",
-        "fr": "dipl-specialiste-des-soins-infirmiers-hf-fh-dnii-en-service-de-nuit-60-100-tertianum-stadel"
+        "fr": "infirmier-infirmiere-tertianum-stadel"
       },
       "company": "Tertianum",
       "companyKey": "tertianum",
@@ -6261,10 +6259,10 @@
           "dipl-pflegefachfrau-pflegefachmann-hf-fh-dnii-im-nachtdienst-40-60-tertianum-stadel"
         ],
         "en": [
-          "nurse-tertianum-stadel"
+          "dipl-nursing-specialist-hf-fh-dnii-on-night-duty-60-100-tertianum-stadel"
         ],
         "fr": [
-          "infirmier-infirmiere-tertianum-stadel"
+          "dipl-specialiste-des-soins-infirmiers-hf-fh-dnii-en-service-de-nuit-60-100-tertianum-stadel"
         ]
       },
       "previousSlugs": [
@@ -6272,8 +6270,8 @@
         "pflegefachfrau-mann-tertianum-stadel-mqcj0r",
         "dipl-pflegefachfrau-pflegefachmann-hf-fh-dnii-im-nachtdienst-60-100-tertianum-stadel",
         "dipl-pflegefachfrau-pflegefachmann-hf-fh-dnii-im-nachtdienst-40-60-tertianum-stadel",
-        "nurse-tertianum-stadel",
-        "infirmier-infirmiere-tertianum-stadel"
+        "dipl-nursing-specialist-hf-fh-dnii-on-night-duty-60-100-tertianum-stadel",
+        "dipl-specialiste-des-soins-infirmiers-hf-fh-dnii-en-service-de-nuit-60-100-tertianum-stadel"
       ],
       "firstSeenAt": "2026-09-01T14:28:03.699Z",
       "salaryMin": 91500,
@@ -8175,10 +8173,10 @@
     },
     {
       "id": "tertianum-d4ceb455bb33",
-      "slug": "kuchenchefin-kuchenchef-80-100-tertianum-bern",
+      "slug": "chef-chef-80-100-tertianum-bern",
       "slugByLocale": {
         "de": "kuchenchefin-kuchenchef-80-100-tertianum-bern",
-        "it": "kuchenchefin-kuchenchef-80-100-tertianum-bern",
+        "it": "chef-chef-80-100-tertianum-bern",
         "en": "kuchenchefin-kuchenchef-80-100-tertianum-bern",
         "fr": "kuchenchefin-kuchenchef-80-100-tertianum-bern"
       },
@@ -8188,18 +8186,17 @@
       "title": "Küchenchefin / Küchenchef 80-100%",
       "titleByLocale": {
         "de": "Küchenchefin / Küchenchef 80-100%",
-        "it": "Küchenchefin / Küchenchef 80-100%",
-        "en": "Küchenchefin / Küchenchef 80-100%",
-        "fr": "Küchenchefin / Küchenchef 80-100%"
+        "it": "Chef / Chef 80-100 %",
+        "en": "Chef / Chef 80-100 %",
+        "fr": "Chef / Chef 80-100 %"
       },
       "description": "Ihr Herz schlägt für ältere Menschen? Ist der Kochberuf Ihre Berufung? Sehen Sie Möglichkeiten, Ihre Fähigkeiten und Erfahrungen sinnstiftend bei uns einzubringen, um einen positiven Einfluss auf das Leben unserer Kundinnen und Kunden zu haben? Dann passen Sie perfekt zu uns!\n\nFür das Tertianum Résidence in Bern suchen wir per 01. Februar 2027 oder nach Vereinbarung eine/einen\n\nKüchenchefin / Küchenchef 80–100%\n\nIhre Aufgaben\n\n• Verantwortlich für eine abwechslungsreiche, genussvolle und zielgruppengerechte Verpflegung sowohl der internen Gäste wie auch im öffentlichen Restaurant\n\n• Verantwortlich für das Catering in einen benachbarten Tertianum-Betrieb\n\n• Verantwortlich für die Führung des Küchenteams: operationelle Führung und Planung sowie Mithilfe bei der Personalrekrutierung\n\n• Wareneinkauf (Frisch- und Lagerprodukte) und die Überwachung der Lagerbewirtschaftung inklusive Inventur gemäss Tertianum Richtlinien\n\n• Angebotsplanung und -gestaltung inklusive Preisgestaltung in Absprache mit der Leitung\n\n• Pflege und Weiterentwicklung der betrieblichen Rezepturen\n\n• Überwachung und Kontrolle der Einhaltung von Bestimmungen der Lebensmittelgesetzgebung, der Arbeitssicherheit sowie der Hygienevorschriften und des TAG - HACCP – Konzeptes\n\nIhr Profil\n\n• Abgeschlossene Ausbildung als Koch EFZ und mehrjährige Berufserfahrung in vergleichbarem Jobprofil / Dipl. Chefköchin/Chefkoch oder Führungsweiterbildung von Vorteil\n\n• Mehrjährige Führungserfahrung in der System- oder gehobenen Gastronomie\n\n• Sehr gute EDV-Kenntnisse\n\n• Fahrausweis Kat. B\n\n• Aktive Mitarbeit in der Küche\n\n• Eine herzliche und humorvolle Grundeinstellung\n\n• Freude an vielseitigen Herausforderungen\n\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n\nWarum Tertianum?\n\nUns ist wichtig, dass unsere Mitarbeitenden Beruf und Privatleben gut miteinander vereinbaren können. Dazu gehört ein vielfältiges Angebot an unterschiedlichen Benefits, z.B.:\n\n• Interne und externe Weiterbildungsmöglichkeiten\n\n• Keine Zimmerstunde und keine Abendarbeit\n\n• Zusätzlicher freier Tag im Geburtstagsmonat\n\n• Tägliches Mittagessen für CHF 10\n\n• Vergünstigte Mobile- und Internet-Abos bei Sunrise\n\n• Rabatte auf ausgewählte Krankenkassen-Zusatzversicherungen\n\n• SBB-Halbtaxabonnement\n\n• Diverse Flottenrabatte\n\nWeitere Benefits finden Sie auf unserer Website .\n\nSind Sie interessiert?\n\nWir bieten Ihnen eine spannende Perspektive: Bei uns können Sie Ihre Fähigkeiten und Ihr Fachwissen in einem motivierten und flexiblen Team einsetzen. Sie übernehmen Verantwortung und helfen mit, die Zukunft von Tertianum zu gestalten. Bewerben Sie sich jetzt und werden Sie Teil unseres Teams.\n\nBei Fragen steht Ihnen Micha Blatti, Geschäftsführer, unter der Nummer 031 300 36 03 gerne zur Verfügung.\n\nWir freuen uns auf Ihre vollständige Online-Bewerbung über unser Bewerbungs-Tool. Klicken Sie auf «Jetzt bewerben» und erstellen Sie Ihr persönliches Konto.",
       "descriptionByLocale": {
         "de": "Ihr Herz schlägt für ältere Menschen? Ist der Kochberuf Ihre Berufung? Sehen Sie Möglichkeiten, Ihre Fähigkeiten und Erfahrungen sinnstiftend bei uns einzubringen, um einen positiven Einfluss auf das Leben unserer Kundinnen und Kunden zu haben? Dann passen Sie perfekt zu uns!\n\nFür das Tertianum Résidence in Bern suchen wir per 01. Februar 2027 oder nach Vereinbarung eine/einen\n\nKüchenchefin / Küchenchef 80–100%\n\nIhre Aufgaben\n\n• Verantwortlich für eine abwechslungsreiche, genussvolle und zielgruppengerechte Verpflegung sowohl der internen Gäste wie auch im öffentlichen Restaurant\n\n• Verantwortlich für das Catering in einen benachbarten Tertianum-Betrieb\n\n• Verantwortlich für die Führung des Küchenteams: operationelle Führung und Planung sowie Mithilfe bei der Personalrekrutierung\n\n• Wareneinkauf (Frisch- und Lagerprodukte) und die Überwachung der Lagerbewirtschaftung inklusive Inventur gemäss Tertianum Richtlinien\n\n• Angebotsplanung und -gestaltung inklusive Preisgestaltung in Absprache mit der Leitung\n\n• Pflege und Weiterentwicklung der betrieblichen Rezepturen\n\n• Überwachung und Kontrolle der Einhaltung von Bestimmungen der Lebensmittelgesetzgebung, der Arbeitssicherheit sowie der Hygienevorschriften und des TAG - HACCP – Konzeptes\n\nIhr Profil\n\n• Abgeschlossene Ausbildung als Koch EFZ und mehrjährige Berufserfahrung in vergleichbarem Jobprofil / Dipl. Chefköchin/Chefkoch oder Führungsweiterbildung von Vorteil\n\n• Mehrjährige Führungserfahrung in der System- oder gehobenen Gastronomie\n\n• Sehr gute EDV-Kenntnisse\n\n• Fahrausweis Kat. B\n\n• Aktive Mitarbeit in der Küche\n\n• Eine herzliche und humorvolle Grundeinstellung\n\n• Freude an vielseitigen Herausforderungen\n\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n\nWarum Tertianum?\n\nUns ist wichtig, dass unsere Mitarbeitenden Beruf und Privatleben gut miteinander vereinbaren können. Dazu gehört ein vielfältiges Angebot an unterschiedlichen Benefits, z.B.:\n\n• Interne und externe Weiterbildungsmöglichkeiten\n\n• Keine Zimmerstunde und keine Abendarbeit\n\n• Zusätzlicher freier Tag im Geburtstagsmonat\n\n• Tägliches Mittagessen für CHF 10\n\n• Vergünstigte Mobile- und Internet-Abos bei Sunrise\n\n• Rabatte auf ausgewählte Krankenkassen-Zusatzversicherungen\n\n• SBB-Halbtaxabonnement\n\n• Diverse Flottenrabatte\n\nWeitere Benefits finden Sie auf unserer Website .\n\nSind Sie interessiert?\n\nWir bieten Ihnen eine spannende Perspektive: Bei uns können Sie Ihre Fähigkeiten und Ihr Fachwissen in einem motivierten und flexiblen Team einsetzen. Sie übernehmen Verantwortung und helfen mit, die Zukunft von Tertianum zu gestalten. Bewerben Sie sich jetzt und werden Sie Teil unseres Teams.\n\nBei Fragen steht Ihnen Micha Blatti, Geschäftsführer, unter der Nummer 031 300 36 03 gerne zur Verfügung.\n\nWir freuen uns auf Ihre vollständige Online-Bewerbung über unser Bewerbungs-Tool. Klicken Sie auf «Jetzt bewerben» und erstellen Sie Ihr persönliches Konto.",
-        "it": "Ihr Herz schlägt für ältere Menschen? Ist der Kochberuf Ihre Berufung? Sehen Sie Möglichkeiten, Ihre Fähigkeiten und Erfahrungen sinnstiftend bei uns einzubringen, um einen positiven Einfluss auf das Leben unserer Kundinnen und Kunden zu haben? Dann passen Sie perfekt zu uns!\n\nFür das Tertianum Résidence in Bern suchen wir per 01. Februar 2027 oder nach Vereinbarung eine/einen\n\nKüchenchefin / Küchenchef 80–100%\n\nIhre Aufgaben\n\n• Verantwortlich für eine abwechslungsreiche, genussvolle und zielgruppengerechte Verpflegung sowohl der internen Gäste wie auch im öffentlichen Restaurant\n\n• Verantwortlich für das Catering in einen benachbarten Tertianum-Betrieb\n\n• Verantwortlich für die Führung des Küchenteams: operationelle Führung und Planung sowie Mithilfe bei der Personalrekrutierung\n\n• Wareneinkauf (Frisch- und Lagerprodukte) und die Überwachung der Lagerbewirtschaftung inklusive Inventur gemäss Tertianum Richtlinien\n\n• Angebotsplanung und -gestaltung inklusive Preisgestaltung in Absprache mit der Leitung\n\n• Pflege und Weiterentwicklung der betrieblichen Rezepturen\n\n• Überwachung und Kontrolle der Einhaltung von Bestimmungen der Lebensmittelgesetzgebung, der Arbeitssicherheit sowie der Hygienevorschriften und des TAG - HACCP – Konzeptes\n\nIhr Profil\n\n• Abgeschlossene Ausbildung als Koch EFZ und mehrjährige Berufserfahrung in vergleichbarem Jobprofil / Dipl. Chefköchin/Chefkoch oder Führungsweiterbildung von Vorteil\n\n• Mehrjährige Führungserfahrung in der System- oder gehobenen Gastronomie\n\n• Sehr gute EDV-Kenntnisse\n\n• Fahrausweis Kat. B\n\n• Aktive Mitarbeit in der Küche\n\n• Eine herzliche und humorvolle Grundeinstellung\n\n• Freude an vielseitigen Herausforderungen\n\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n\nWarum Tertianum?\n\nUns ist wichtig, dass unsere Mitarbeitenden Beruf und Privatleben gut miteinander vereinbaren können. Dazu gehört ein vielfältiges Angebot an unterschiedlichen Benefits, z.B.:\n\n• Interne und externe Weiterbildungsmöglichkeiten\n\n• Keine Zimmerstunde und keine Abendarbeit\n\n• Zusätzlicher freier Tag im Geburtstagsmonat\n\n• Tägliches Mittagessen für CHF 10\n\n• Vergünstigte Mobile- und Internet-Abos bei Sunrise\n\n• Rabatte auf ausgewählte Krankenkassen-Zusatzversicherungen\n\n• SBB-Halbtaxabonnement\n\n• Diverse Flottenrabatte\n\nWeitere Benefits finden Sie auf unserer Website .\n\nSind Sie interessiert?\n\nWir bieten Ihnen eine spannende Perspektive: Bei uns können Sie Ihre Fähigkeiten und Ihr Fachwissen in einem motivierten und flexiblen Team einsetzen. Sie übernehmen Verantwortung und helfen mit, die Zukunft von Tertianum zu gestalten. Bewerben Sie sich jetzt und werden Sie Teil unseres Teams.\n\nBei Fragen steht Ihnen Micha Blatti, Geschäftsführer, unter der Nummer 031 300 36 03 gerne zur Verfügung.\n\nWir freuen uns auf Ihre vollständige Online-Bewerbung über unser Bewerbungs-Tool. Klicken Sie auf «Jetzt bewerben» und erstellen Sie Ihr persönliches Konto.",
-        "en": "Ihr Herz schlägt für ältere Menschen? Ist der Kochberuf Ihre Berufung? Sehen Sie Möglichkeiten, Ihre Fähigkeiten und Erfahrungen sinnstiftend bei uns einzubringen, um einen positiven Einfluss auf das Leben unserer Kundinnen und Kunden zu haben? Dann passen Sie perfekt zu uns!\n\nFür das Tertianum Résidence in Bern suchen wir per 01. Februar 2027 oder nach Vereinbarung eine/einen\n\nKüchenchefin / Küchenchef 80–100%\n\nIhre Aufgaben\n\n• Verantwortlich für eine abwechslungsreiche, genussvolle und zielgruppengerechte Verpflegung sowohl der internen Gäste wie auch im öffentlichen Restaurant\n\n• Verantwortlich für das Catering in einen benachbarten Tertianum-Betrieb\n\n• Verantwortlich für die Führung des Küchenteams: operationelle Führung und Planung sowie Mithilfe bei der Personalrekrutierung\n\n• Wareneinkauf (Frisch- und Lagerprodukte) und die Überwachung der Lagerbewirtschaftung inklusive Inventur gemäss Tertianum Richtlinien\n\n• Angebotsplanung und -gestaltung inklusive Preisgestaltung in Absprache mit der Leitung\n\n• Pflege und Weiterentwicklung der betrieblichen Rezepturen\n\n• Überwachung und Kontrolle der Einhaltung von Bestimmungen der Lebensmittelgesetzgebung, der Arbeitssicherheit sowie der Hygienevorschriften und des TAG - HACCP – Konzeptes\n\nIhr Profil\n\n• Abgeschlossene Ausbildung als Koch EFZ und mehrjährige Berufserfahrung in vergleichbarem Jobprofil / Dipl. Chefköchin/Chefkoch oder Führungsweiterbildung von Vorteil\n\n• Mehrjährige Führungserfahrung in der System- oder gehobenen Gastronomie\n\n• Sehr gute EDV-Kenntnisse\n\n• Fahrausweis Kat. B\n\n• Aktive Mitarbeit in der Küche\n\n• Eine herzliche und humorvolle Grundeinstellung\n\n• Freude an vielseitigen Herausforderungen\n\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n\nWarum Tertianum?\n\nUns ist wichtig, dass unsere Mitarbeitenden Beruf und Privatleben gut miteinander vereinbaren können. Dazu gehört ein vielfältiges Angebot an unterschiedlichen Benefits, z.B.:\n\n• Interne und externe Weiterbildungsmöglichkeiten\n\n• Keine Zimmerstunde und keine Abendarbeit\n\n• Zusätzlicher freier Tag im Geburtstagsmonat\n\n• Tägliches Mittagessen für CHF 10\n\n• Vergünstigte Mobile- und Internet-Abos bei Sunrise\n\n• Rabatte auf ausgewählte Krankenkassen-Zusatzversicherungen\n\n• SBB-Halbtaxabonnement\n\n• Diverse Flottenrabatte\n\nWeitere Benefits finden Sie auf unserer Website .\n\nSind Sie interessiert?\n\nWir bieten Ihnen eine spannende Perspektive: Bei uns können Sie Ihre Fähigkeiten und Ihr Fachwissen in einem motivierten und flexiblen Team einsetzen. Sie übernehmen Verantwortung und helfen mit, die Zukunft von Tertianum zu gestalten. Bewerben Sie sich jetzt und werden Sie Teil unseres Teams.\n\nBei Fragen steht Ihnen Micha Blatti, Geschäftsführer, unter der Nummer 031 300 36 03 gerne zur Verfügung.\n\nWir freuen uns auf Ihre vollständige Online-Bewerbung über unser Bewerbungs-Tool. Klicken Sie auf «Jetzt bewerben» und erstellen Sie Ihr persönliches Konto.",
-        "fr": "Ihr Herz schlägt für ältere Menschen? Ist der Kochberuf Ihre Berufung? Sehen Sie Möglichkeiten, Ihre Fähigkeiten und Erfahrungen sinnstiftend bei uns einzubringen, um einen positiven Einfluss auf das Leben unserer Kundinnen und Kunden zu haben? Dann passen Sie perfekt zu uns!\n\nFür das Tertianum Résidence in Bern suchen wir per 01. Februar 2027 oder nach Vereinbarung eine/einen\n\nKüchenchefin / Küchenchef 80–100%\n\nIhre Aufgaben\n\n• Verantwortlich für eine abwechslungsreiche, genussvolle und zielgruppengerechte Verpflegung sowohl der internen Gäste wie auch im öffentlichen Restaurant\n\n• Verantwortlich für das Catering in einen benachbarten Tertianum-Betrieb\n\n• Verantwortlich für die Führung des Küchenteams: operationelle Führung und Planung sowie Mithilfe bei der Personalrekrutierung\n\n• Wareneinkauf (Frisch- und Lagerprodukte) und die Überwachung der Lagerbewirtschaftung inklusive Inventur gemäss Tertianum Richtlinien\n\n• Angebotsplanung und -gestaltung inklusive Preisgestaltung in Absprache mit der Leitung\n\n• Pflege und Weiterentwicklung der betrieblichen Rezepturen\n\n• Überwachung und Kontrolle der Einhaltung von Bestimmungen der Lebensmittelgesetzgebung, der Arbeitssicherheit sowie der Hygienevorschriften und des TAG - HACCP – Konzeptes\n\nIhr Profil\n\n• Abgeschlossene Ausbildung als Koch EFZ und mehrjährige Berufserfahrung in vergleichbarem Jobprofil / Dipl. Chefköchin/Chefkoch oder Führungsweiterbildung von Vorteil\n\n• Mehrjährige Führungserfahrung in der System- oder gehobenen Gastronomie\n\n• Sehr gute EDV-Kenntnisse\n\n• Fahrausweis Kat. B\n\n• Aktive Mitarbeit in der Küche\n\n• Eine herzliche und humorvolle Grundeinstellung\n\n• Freude an vielseitigen Herausforderungen\n\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n\nWarum Tertianum?\n\nUns ist wichtig, dass unsere Mitarbeitenden Beruf und Privatleben gut miteinander vereinbaren können. Dazu gehört ein vielfältiges Angebot an unterschiedlichen Benefits, z.B.:\n\n• Interne und externe Weiterbildungsmöglichkeiten\n\n• Keine Zimmerstunde und keine Abendarbeit\n\n• Zusätzlicher freier Tag im Geburtstagsmonat\n\n• Tägliches Mittagessen für CHF 10\n\n• Vergünstigte Mobile- und Internet-Abos bei Sunrise\n\n• Rabatte auf ausgewählte Krankenkassen-Zusatzversicherungen\n\n• SBB-Halbtaxabonnement\n\n• Diverse Flottenrabatte\n\nWeitere Benefits finden Sie auf unserer Website .\n\nSind Sie interessiert?\n\nWir bieten Ihnen eine spannende Perspektive: Bei uns können Sie Ihre Fähigkeiten und Ihr Fachwissen in einem motivierten und flexiblen Team einsetzen. Sie übernehmen Verantwortung und helfen mit, die Zukunft von Tertianum zu gestalten. Bewerben Sie sich jetzt und werden Sie Teil unseres Teams.\n\nBei Fragen steht Ihnen Micha Blatti, Geschäftsführer, unter der Nummer 031 300 36 03 gerne zur Verfügung.\n\nWir freuen uns auf Ihre vollständige Online-Bewerbung über unser Bewerbungs-Tool. Klicken Sie auf «Jetzt bewerben» und erstellen Sie Ihr persönliches Konto."
+        "it": "Il tuo cuore batte per le persone anziane? La professione di cucina ti chiama? Vedete le opportunità di utilizzare le vostre competenze e la vostra esperienza in modo significativo per avere un impatto positivo sulla vita dei nostri clienti? Allora si adatta perfettamente a noi!\n\nPer il Tertianum Résidence a Berna stiamo cercando 01. Febbraio 2027 o per accordo uno/uno\n\nChef / Chef 80-100 %\n\nI loro compiti\n\n• Responsabile per un pasto vario, divertente e mirato orientato al gruppo sia degli ospiti interni che del ristorante pubblico\n\n• Responsabile catering per un'operazione Tertianum vicina\n\n• Responsabile per la gestione del team di cucina: gestione operativa e pianificazione e assistenza nel reclutamento\n\n• Acquisizione di merci (prodotti freschi e di stoccaggio) e monitoraggio della gestione del magazzino, compreso l'inventario secondo le linee guida di Tertianum\n\n• Pianificazione e progettazione dell'offerta compresi i prezzi in accordo con la gestione\n\n• Manutenzione e sviluppo delle ricette aziendali\n\n• Monitoraggio e controllo del rispetto delle disposizioni della legislazione alimentare, della sicurezza e dell'igiene sul lavoro e del concetto TAG - HACCP\n\nIl tuo profilo\n\n• Completato la formazione come chef EFZ e diversi anni di esperienza professionale in profilo professionale / dipl comparabile. Chef/chef o formazione manageriale benefico\n\n• Diversi anni di esperienza gestionale nel sistema o gastronomia di lusso\n\n• Molto buone competenze informatiche\n\n• Biglietto Cat. B\n\n• Partecipazione attiva in cucina\n\n• Un atteggiamento di base caldo e umoristico\n\n• Godere di molteplici sfide\n\n• Molto buona conoscenza del tedesco in parola e scrittura\n\nPerché Tertianum?\n\nÈ importante per noi che i nostri dipendenti possano conciliare bene il lavoro e la vita privata. Questo include una vasta gamma di diversi vantaggi, come:\n\n• Opportunità di formazione interna ed esterna\n\n• Nessun orario di camera e nessun lavoro serale\n\n• Ulteriore giorno libero nel mese di compleanno\n\n• Pranzo giornaliero di CHF 10\n\n• Abbonamenti Mobile e Internet ridotti a Sunrise\n\n• Sconti sull'assicurazione malattia selezionata\n\n• Abbonamento FFS a metà ax\n\n• Riduzioni varie della flotta\n\nUlteriori vantaggi possono essere trovati sul nostro sito web.\n\nSei interessato?\n\nVi offriamo una prospettiva emozionante: con noi, è possibile utilizzare le vostre competenze e competenze in un team motivato e flessibile. Si prendono la responsabilità e aiutano a plasmare il futuro di Tertianum. Applicare ora e diventare parte della nostra squadra.\n\nSe avete domande, Micha Blatti, Managing Director, è a vostra disposizione sotto il numero 031 300 36 03.\n\nAttendiamo con ansia la vostra applicazione online completa tramite il nostro strumento di applicazione. Clicca su “Applica ora” e crea il tuo account personale.",
+        "en": "Your heart beats for older people? Is the cooking profession your calling? Do you see opportunities to use your skills and experience in a meaningful way in order to have a positive impact on the lives of our customers? Then you fit perfectly with us!\n\nFor the Tertianum Résidence in Bern we are looking for 01. February 2027 or by arrangement one/one\n\nChef / Chef 80-100 %\n\nTheir tasks\n\n• Responsible for a varied, enjoyable and target group-oriented meal of both internal guests and in the public restaurant\n\n• Responsible for catering to a neighbouring Tertianum operation\n\n• Responsible for the management of the kitchen team: operational management and planning as well as assistance in recruitment\n\n• Purchasing of goods (fresh and storage products) and monitoring of warehouse management including inventory according to Tertianum guidelines\n\n• Offer planning and design including pricing in agreement with the management\n\n• Maintenance and further development of company recipes\n\n• Monitoring and controlling compliance with provisions of food legislation, occupational safety and hygiene regulations and the TAG - HACCP - concept\n\nYour profile\n\n• Completed training as a chef EFZ and several years of professional experience in comparable job profile / dipl. Chef/chef or management training beneficial\n\n• Several years of management experience in the system or upscale gastronomy\n\n• Very good computer skills\n\n• Ticket Cat. B\n\n• Active participation in the kitchen\n\n• A warm and humorous basic attitude\n\n• Enjoying multiple challenges\n\n• Very good knowledge of German in word and writing\n\nWhy Tertianum?\n\nIt is important to us that our employees can reconcile work and private life well. This includes a diverse range of different benefits, such as:\n\n• Internal and external training opportunities\n\n• No room hours and no evening work\n\n• Additional free day in the birthday month\n\n• Daily lunch for CHF 10\n\n• Reduced Mobile and Internet Subscriptions at Sunrise\n\n• Discounts on selected health insurance supplementary insurance\n\n• SBB half-ax subscription\n\n• Miscellaneous fleet rebates\n\nFurther benefits can be found on our website.\n\nAre you interested?\n\nWe offer you an exciting perspective: With us, you can use your skills and expertise in a motivated and flexible team. They take responsibility and help shape the future of Tertianum. Apply now and become part of our team.\n\nIf you have any questions, Micha Blatti, Managing Director, is at your disposal under the number 031 300 36 03.\n\nWe look forward to your complete online application via our application tool. Click on “Apply now” and create your personal account.",
+        "fr": "Votre coeur bat pour les personnes âgées ? La profession de cuisinier est-elle à vous ? Voyez-vous des occasions d'utiliser vos compétences et votre expérience de manière significative afin d'avoir un impact positif sur la vie de nos clients? Alors vous vous mariez parfaitement avec nous !\n\nPour la résidence Tertianum à Berne nous sommes à la recherche de 01. Février 2027 ou par arrangement un/un\n\nChef / Chef 80-100 %\n\nLeurs tâches\n\n• Responsable d'un repas varié, agréable et axé sur le groupe cible des invités internes et dans le restaurant public\n\n• Responsable de la restauration d'une exploitation voisine de Tertianum\n\n• Responsable de la gestion de l'équipe de cuisine : gestion et planification opérationnelles et assistance au recrutement\n\n• Achat de biens (produits frais et de stockage) et contrôle de la gestion des entrepôts, y compris les stocks, conformément aux directives Tertianum\n\n• Offrir la planification et la conception, y compris les prix en accord avec la direction\n\n• Entretien et développement des recettes de l'entreprise\n\n• Surveillance et contrôle du respect des dispositions de la législation alimentaire, de la réglementation en matière de sécurité et d'hygiène au travail et du concept TAG - HACCP -\n\nVotre profil\n\n• Achevé la formation comme chef EFZ et plusieurs années d'expérience professionnelle dans un profil d'emploi comparable / dipl. Formation de chef/chef ou de gestion bénéfique\n\n• Plusieurs années d'expérience en gestion dans le système ou la gastronomie haut de gamme\n\n• Très bonnes compétences en informatique\n\n• Billet Cat. B\n\n• Participation active à la cuisine\n\n• Une attitude de base chaleureuse et humoristique\n\n• Des défis multiples\n\n• Très bonne connaissance de l'allemand en paroles et en écriture\n\nPourquoi Tertianum ?\n\nIl est important pour nous que nos employés puissent bien concilier le travail et la vie privée. Cela comprend une gamme variée de différents avantages, tels que:\n\n• Possibilités de formation internes et externes\n\n• Pas d'heures de chambre et pas de travail du soir\n\n• Jour gratuit supplémentaire dans le mois d'anniversaire\n\n• Déjeuner quotidien pour CHF 10\n\n• Réduction des abonnements mobiles et Internet à Sunrise\n\n• Réductions sur certaines assurances complémentaires\n\n• Abonnement CFF demi-axe\n\n• Remboursements divers au titre de la flotte\n\nD'autres avantages peuvent être trouvés sur notre site Web.\n\nÇa t'intéresse ?\n\nNous vous offrons une perspective passionnante: Avec nous, vous pouvez utiliser vos compétences et votre expertise dans une équipe motivée et flexible. Ils prennent la responsabilité et aident à façonner l'avenir de Tertianum. Postulez maintenant et faites partie de notre équipe.\n\nSi vous avez des questions, Micha Blatti, directrice générale, est à votre disposition sous le numéro 031 300 36 03.\n\nNous attendons avec impatience votre candidature complète en ligne via notre outil d'application. Cliquez sur \"Appliquer maintenant\" et créez votre compte personnel."
       },
-      "needsRetranslation": true,
       "location": "Bern",
       "canton": "BE",
       "url": "https://jobs.tertianum.ch/job/Bern-K%C3%BCchenchefin-K%C3%BCchenchef-80-100-BE-3012/1455160333/",
@@ -8243,7 +8240,15 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-05T09:35:42.357Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-07T09:35:42.357Z"
+      "firstSeenAt": "2026-11-07T09:35:42.357Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "kuchenchefin-kuchenchef-80-100-tertianum-bern"
+        ]
+      },
+      "previousSlugs": [
+        "kuchenchefin-kuchenchef-80-100-tertianum-bern"
+      ]
     },
     {
       "id": "tertianum-7c8459fc5cce",
@@ -8813,7 +8818,7 @@
       "slug": "specialista-della-salute-tertianum-zollikerberg",
       "slugByLocale": {
         "it": "specialista-della-salute-tertianum-zollikerberg",
-        "en": "professional-health-efz-80-100-tertianum-zollikerberg",
+        "en": "healthcare-specialist-tertianum-zollikerberg",
         "de": "fachfrau-fachmann-gesundheit-efz-80-100-tertianum-zollikerberg",
         "fr": "specialiste-en-sante-tertianum-zollikerberg"
       },
@@ -8860,14 +8865,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "fachfrau-fachmann-gesundheit-efz-80-100-tertianum-zollikerberg",
-        "healthcare-specialist-tertianum-zollikerberg"
+        "professional-health-efz-80-100-tertianum-zollikerberg"
       ],
       "previousSlugsByLocale": {
         "it": [
           "fachfrau-fachmann-gesundheit-efz-80-100-tertianum-zollikerberg"
         ],
         "en": [
-          "healthcare-specialist-tertianum-zollikerberg"
+          "professional-health-efz-80-100-tertianum-zollikerberg"
         ]
       },
       "firstSeenAt": "2026-09-26T14:11:58.181Z",
@@ -10602,7 +10607,7 @@
         "it": "specialista-ristorante-20-60-tertianum-solothurn",
         "en": "restaurant-specialist-20-60-tertianum-solothurn",
         "de": "restaurantfachmann-frau-20-60-tertianum-solothurn",
-        "fr": "employe-e-de-restaurant-20-60-tertianum-solothurn"
+        "fr": "specialiste-en-restauration-20-60-tertianum-solothurn"
       },
       "company": "Tertianum",
       "companyKey": "tertianum",
@@ -10649,7 +10654,7 @@
       "previousSlugs": [
         "specialiste-des-restaurants-20-60-tertianum-solothurn",
         "restaurantfachmann-frau-20-60-tertianum-solothurn",
-        "specialiste-en-restauration-20-60-tertianum-solothurn"
+        "employe-e-de-restaurant-20-60-tertianum-solothurn"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -10658,7 +10663,7 @@
         "fr": [
           "specialiste-des-restaurants-20-60-tertianum-solothurn",
           "restaurantfachmann-frau-20-60-tertianum-solothurn",
-          "specialiste-en-restauration-20-60-tertianum-solothurn"
+          "employe-e-de-restaurant-20-60-tertianum-solothurn"
         ]
       },
       "firstSeenAt": "2026-09-19T23:06:38.859Z",
@@ -11663,9 +11668,9 @@
       "slug": "apprendista-di-hoteleria-e-servizi-alberghieri-tertianum-zurich",
       "slugByLocale": {
         "it": "apprendista-di-hoteleria-e-servizi-alberghieri-tertianum-zurich",
-        "en": "apprenticeship-as-a-housekeeping-specialist-efz-tertianum-zurich",
+        "en": "apprentice-hotelfachfrau-mann-tertianum-zurich",
         "de": "lehrstelle-als-fachfrau-fachmann-hotellerie-hauswirtschaft-efz-tertianum-zurich",
-        "fr": "apprentissage-en-tant-que-specialiste-en-economie-domestique-efz-tertianum-zurich"
+        "fr": "apprenti-en-service-hotelier-tertianum-zurich"
       },
       "company": "Tertianum",
       "companyKey": "tertianum",
@@ -11743,8 +11748,8 @@
         "lernende-r-hotelfachfrau-mann-tertianum-zurich",
         "hotel-services-apprentice-tertianum-zurich",
         "lehrstelle-als-fachfrau-fachmann-hotellerie-hauswirtschaft-efz-tertianum-zurich",
-        "apprentice-hotelfachfrau-mann-tertianum-zurich",
-        "apprenti-en-service-hotelier-tertianum-zurich"
+        "apprenticeship-as-a-housekeeping-specialist-efz-tertianum-zurich",
+        "apprentissage-en-tant-que-specialiste-en-economie-domestique-efz-tertianum-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -11753,13 +11758,13 @@
         ],
         "en": [
           "hotel-services-apprentice-tertianum-zurich",
-          "apprentice-hotelfachfrau-mann-tertianum-zurich"
+          "apprenticeship-as-a-housekeeping-specialist-efz-tertianum-zurich"
         ],
         "de": [
           "lernende-r-hotelfachfrau-mann-tertianum-zurich"
         ],
         "fr": [
-          "apprenti-en-service-hotelier-tertianum-zurich"
+          "apprentissage-en-tant-que-specialiste-en-economie-domestique-efz-tertianum-zurich"
         ]
       },
       "firstSeenAt": "2026-05-19T12:21:54.881Z",
@@ -14775,7 +14780,7 @@
         "it": "dipl-infermieristica-professionale-infermieristica-tertianum-lenzburg",
         "en": "diploma-in-nursing-nurse-tertianum-lenzburg",
         "de": "dipl-pflegefachfrau-pflegefachmann-tertianum-lenzburg",
-        "fr": "inf-dipl-tertianum-lenzburg"
+        "fr": "diplome-e-en-soins-infirmiers-infirmier-e-tertianum-lenzburg"
       },
       "company": "Tertianum",
       "companyKey": "tertianum",
@@ -14857,7 +14862,7 @@
         "dipl-pflegefachfrau-pflegefachmann-im-spatdienst-60-100-tertianum-winterthur",
         "dipl-specialiste-des-soins-infirmiers-60-100-tertianum-winterthur",
         "dipl-pflegefachfrau-pflegefachmann-tertianum-lenzburg",
-        "diplome-e-en-soins-infirmiers-infirmier-e-tertianum-lenzburg"
+        "inf-dipl-tertianum-lenzburg"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -14865,7 +14870,7 @@
           "dipl-pflegefachfrau-pflegefachmann-tertianum-lenzburg"
         ],
         "fr": [
-          "diplome-e-en-soins-infirmiers-infirmier-e-tertianum-lenzburg"
+          "inf-dipl-tertianum-lenzburg"
         ]
       },
       "firstSeenAt": "2026-05-19T12:22:44.364Z",
@@ -17192,7 +17197,7 @@
       "slug": "ristorazione-professionale-tertianum-meilen",
       "slugByLocale": {
         "it": "ristorazione-professionale-tertianum-meilen",
-        "en": "restaurant-specialist-tertianum-meilen",
+        "en": "restoration-professional-tertianum-meilen",
         "de": "restaurationsfachfrau-mann-tertianum-meilen",
         "fr": "professionnel-de-restauration-tertianum-meilen"
       },
@@ -17269,14 +17274,14 @@
       },
       "previousSlugs": [
         "restaurationsfachfrau-mann-tertianum-meilen",
-        "restoration-professional-tertianum-meilen"
+        "restaurant-specialist-tertianum-meilen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "restaurationsfachfrau-mann-tertianum-meilen"
         ],
         "en": [
-          "restoration-professional-tertianum-meilen"
+          "restaurant-specialist-tertianum-meilen"
         ],
         "fr": [
           "restaurationsfachfrau-mann-tertianum-meilen"
@@ -20902,7 +20907,7 @@
         "it": "sous-chef-cuoco-100-tertianum-horgen",
         "en": "second-sous-chef-tertianum-horgen",
         "de": "sous-chefin-sous-chef-tertianum-horgen",
-        "fr": "sous-chef-sous-cheffe-ou-cuisinier-cuisiniere-100-tertianum-horgen"
+        "fr": "second-de-cuisine-tertianum-horgen"
       },
       "company": "Tertianum",
       "companyKey": "tertianum",
@@ -20980,7 +20985,7 @@
       "previousSlugs": [
         "sous-chefin-sous-chef-tertianum-horgen",
         "sous-chefin-sous-chef-oder-kochin-koch-100-tertianum-horgen",
-        "second-de-cuisine-tertianum-horgen"
+        "sous-chef-sous-cheffe-ou-cuisinier-cuisiniere-100-tertianum-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -20988,7 +20993,7 @@
           "sous-chefin-sous-chef-oder-kochin-koch-100-tertianum-horgen"
         ],
         "fr": [
-          "second-de-cuisine-tertianum-horgen"
+          "sous-chef-sous-cheffe-ou-cuisinier-cuisiniere-100-tertianum-horgen"
         ]
       },
       "firstSeenAt": "2026-05-19T12:21:05.773Z",
@@ -21549,10 +21554,10 @@
       },
       "description": "Möchten Sie Ihre Führungsqualitäten in einem grossen, urbanen Haus einsetzen? Gehören Organisation und Flexibilität zu Ihren Stärken? Ihr Herz schlägt für ältere Menschen? Ist der Pflegeberuf Ihre Berufung? Sehen Sie Möglichkeiten, Ihre Erfahrungen sinnstiftend bei uns einzubringen, um einen positiven Einfluss auf das Leben unserer Kundinnen und Kunden zu haben? Dann passen Sie perfekt zu uns!\n\nFür das Tertianum «Fischermätteli» in Bern suchen wir per sofort oder nach Vereinbarung eine/einen\n\nLeiterin / Leiter Pflege und Betreuung 100%\n\nIhre Aufgaben\n\n• Verantwortlich für die Qualität und Umsetzung des Leistungsauftrages und des Pflegeprozesses\n\n• Weiterentwicklung des Bereiches Pflege & Betreuung für unsere Pflegegäste\n\n• Controlling von Qualität und Produktivität (Bettenbelegung, Leistungserfassung im CareCoach)\n\n• Einhalten der Budgetvorgaben und die Zielerreichung des Bereichs\n\n• Organisation und Koordination der verschiedenen Anspruchsgruppen (Angehörige, Hausärzte, andere Organisationen und Institutionen wie auch Versicherungen)\n\n• Führung von Pflegemitarbeitenden\n\n• Rekrutierungs- und Weiterentwicklungsprozess der Mitarbeitenden\n\n• Enge Zusammenarbeit mit der Geschäftsführung und den Teamleitungen\n\nIhr Profil\n\n• Abgeschlossene Ausbildung zur/zum Dipl. Pflegefachfrau/-fachmann FH/HF/DNII oder eine gleichwertig, durch den SRK anerkannte Ausbildung\n\n• Kantonale Berufsausübungsbewilligung und im NAREG eingetragene GLN-Nummer\n\n• Berufs- und Führungserfahrung in der Langzeitpflege\n\n• Mindestens 1-2 Jahre Führungserfahrung als Leitung Pflege & Betreuung oder mindestens 3-4 Jahre Berufserfahrung als Teamleitung\n\n• RAI LTCF Kenntnisse von Vorteil\n\n• Dynamische Führungspersönlichkeit\n\n• Sichere Kommunikation in der deutschen Sprache in Wort und Schrift\n\n• Eine herzliche und humorvolle Grundeinstellung\n\n• Hohe Empathie- und besondere Teamfähigkeit\n\nWarum Tertianum?\n\nEin regionales Netzwerk mit weiteren Leitungen Pflege und Betreuung gibt Ihnen Austauschmöglichkeiten und gegenseitige Unterstützung. Tertianum bietet zudem interessante Möglichkeiten in der Fach- und Führungskarriere.\n\nUns ist wichtig , dass unsere Mitarbeitenden Beruf und Privatleben gut miteinander vereinbaren können. Dazu gehört ein vielfältiges Angebot an unterschiedlichen Benefits, z.B.:\n\n• Interne und externe Weiterbildungsmöglichkeiten\n\n• Zusätzlicher freier Tag im Geburtstagsmonat\n\n• Tägliches Mittagessen für CHF 10\n\n• Vergünstigte Mobile- und Internet-Abos bei Sunrise\n\n• Rabatte auf ausgewählte Krankenkassen-Zusatzversicherungen\n\n• SBB-Halbtaxabonnement\n\n• Diverse Flottenrabatte\n\nWeitere Benefits finden Sie auf unserer Website .\n\nSind Sie interessiert?\nWir bieten Ihnen eine spannende Perspektive: Bei uns können Sie Ihre Fähigkeiten und Ihr Fachwissen in einem motivierten und flexiblen Team einsetzen. Sie übernehmen Verantwortung und helfen mit, die Zukunft von Tertianum zu gestalten. Bewerben Sie sich jetzt und werden Sie Teil unseres Teams.\n\nWir freuen uns auf Ihre vollständige Online-Bewerbung über unser Bewerbungs-Tool. Klicken Sie auf «Jetzt bewerben» und erstellen Sie Ihr persönliches Konto.",
       "descriptionByLocale": {
-        "it": "Vuoi usare le tue capacità di leadership in una grande casa urbana? L'organizzazione e la flessibilità sono tra i vostri punti di forza? Il tuo cuore batte per le persone anziane? La professione di infermieristica ti chiama? Vedete le opportunità di contribuire la vostra esperienza in modo significativo per avere un impatto positivo sulla vita dei nostri clienti? Allora si adatta perfettamente a noi!\n\nPer il Tertianum «Fischermätteli» a Berna, stiamo cercando un\n\nTesta di cura e cura 100%\n\nI loro compiti\n\n• Responsabile per la qualità e l'attuazione del mandato di servizio e del processo di manutenzione\n\n• Ulteriore sviluppo della zona di cura e cura per il nostro numero di ospiti di cura\n\n• Controllo della qualità e della produttività (occupazione letto, registrazione delle prestazioni nella CareCoach)\n\n• osservanza dei requisiti di bilancio e realizzazione degli obiettivi del settore\n\n• Organizzazione e coordinamento delle varie parti interessate (membri, medici di famiglia, altre organizzazioni e istituzioni, nonché assicurazioni)\n\n• Gestione delle infermiere\n\n• Reclutamento e ulteriore processo di sviluppo dei dipendenti\n\n• Una stretta collaborazione con la direzione e i leader del team\n\nIl tuo profilo\n\n• Formazione completa per/per dipl. FH/HF/DNII infermiera o formazione equivalente riconosciuta dal CCR\n\n• Esperienza professionale e leadership nella cura a lungo termine\n\n• Almeno 1-2 anni di esperienza manageriale come responsabile della cura e dell'assistenza o almeno 3-4 anni di esperienza professionale come Team Leader\n\n• La conoscenza di RAI LTCF è utile\n\n• Leader dinamico\n\n• Comunicazione sicura nella lingua tedesca in parola e scrittura\n\n• Un atteggiamento di base caldo e umoristico\n\n• Alta empatia e abilità di squadra speciali\n\nPerché Tertianum?\n\nUna rete regionale con ulteriori linee di assistenza e di sostegno ti offre opportunità di scambio e supporto reciproco. Tertianum offre anche interessanti opportunità nelle carriere specialistiche e gestionali.\n\nÈ importante per noi che i nostri dipendenti possano conciliare bene il lavoro e la vita privata. Questo include una vasta gamma di diversi vantaggi, come:\n\n• Opportunità di formazione interna ed esterna\n\n• Ulteriore giorno libero nel mese di compleanno\n\n• Pranzo giornaliero di CHF 10\n\n• Abbonamenti Mobile e Internet ridotti a Sunrise\n\n• Sconti su assicurazione malattia selezionata assicurazione integrativa\n\n• Abbonamento FFS a metà ax\n\n• Vari sconti della flotta\n\nUlteriori vantaggi possono essere trovati sul nostro sito web.\n\nSei interessato?\nVi offriamo una prospettiva emozionante: con noi, è possibile utilizzare le vostre competenze e competenze in un team motivato e flessibile. Si prendono la responsabilità e aiutano a plasmare il futuro di Tertianum. Applicare ora e diventare parte della nostra squadra.\n\nAttendiamo con ansia la vostra applicazione online completa tramite il nostro strumento di applicazione. Clicca su “Applica ora” e crea il tuo account personale.",
-        "en": "Do you want to use your leadership skills in a large, urban house? Are organization and flexibility among your strengths? Your heart beats for older people? Is the nursing profession your calling? Do you see opportunities to contribute your experience to us in a meaningful way in order to have a positive impact on the lives of our customers? Then you fit perfectly with us!\n\nFor the Tertianum «Fischermätteli» in Bern, we are looking for a\n\nHead of Care and Care 100%\n\nTheir tasks\n\n• Responsible for the quality and implementation of the service mandate and the maintenance process\n\n• Further development of the area of care & care for our number of care guests\n\n• Controlling quality and productivity (bed occupancy, performance recording in the CareCoach)\n\n• Adherence to budgetary requirements and achievement of the objectives of the area\n\n• Organisation and coordination of the various stakeholders (members, family doctors, other organisations and institutions as well as insurance companies)\n\n• Management of nurses\n\n• Recruitment and further development process of employees\n\n• Close cooperation with the management and team leaders\n\nYour profile\n\n• Completed training for/for dipl. FH/HF/DNII nurse or equivalent training recognised by the SRC\n\n• Professional and leadership experience in long-term care\n\n• At least 1-2 years of management experience as Head of Care & Assistance or at least 3-4 years of professional experience as Team Leader\n\n• RAI LTCF knowledge is beneficial\n\n• Dynamic leader\n\n• Secure communication in the German language in word and writing\n\n• A warm and humorous basic attitude\n\n• High empathy and special team skills\n\nWhy Tertianum?\n\nA regional network with further lines of care and support gives you exchange opportunities and mutual support. Tertianum also offers interesting opportunities in specialist and management careers.\n\nIt is important to us that our employees can reconcile work and private life well. This includes a diverse range of different benefits, such as:\n\n• Internal and external training opportunities\n\n• Additional free day in the birthday month\n\n• Daily lunch for CHF 10\n\n• Reduced Mobile and Internet Subscriptions at Sunrise\n\n• Discounts on selected health insurance supplementary insurance\n\n• SBB half-ax subscription\n\n• Miscellaneous fleet rebates\n\nFurther benefits can be found on our website.\n\nAre you interested?\nWe offer you an exciting perspective: With us, you can use your skills and expertise in a motivated and flexible team. They take responsibility and help shape the future of Tertianum. Apply now and become part of our team.\n\nWe look forward to your complete online application via our application tool. Click on “Apply now” and create your personal account.",
+        "it": "Vuoi usare le tue capacità di leadership in una grande casa urbana? Sono l'organizzazione e la flessibilità tra i vostri punti di forza? Il tuo cuore batte per le persone anziane? La professione di infermieristica ti chiama? Vedete le opportunità di contribuire la vostra esperienza in modo significativo per avere un impatto positivo sulla vita dei nostri clienti? Allora si adatta perfettamente a noi!\n\nPer il Tertianum «Fischermätteli» a Berna, stiamo cercando un\n\nTesta di cura e cura 100%\n\nI loro compiti\n\n• Responsabile per la qualità e l'attuazione del mandato di servizio e del processo di manutenzione\n\n• Ulteriori sviluppi della zona di cura e cura per i nostri ospiti cura\n\n• Controllo della qualità e della produttività (occupazione letto, registrazione delle prestazioni nella CareCoach)\n\n• osservanza dei requisiti di bilancio e realizzazione degli obiettivi del settore\n\n• Organizzazione e coordinamento delle varie parti interessate (membri, medici di famiglia, altre organizzazioni e istituzioni, nonché assicurazioni)\n\n• Gestione delle infermiere\n\n• Reclutamento e ulteriore processo di sviluppo dei dipendenti\n\n• Una stretta collaborazione con la direzione e i leader del team\n\nIl tuo profilo\n\n• Formazione completa per/per dipl. FH/HF/DNII infermiera o formazione equivalente riconosciuta dal CCR\n\n• Licenza professionale cantonale e numero GLN registrato nel NAREG\n\n• Esperienza professionale e manageriale nella cura a lungo termine\n\n• Almeno 1-2 anni di esperienza manageriale come responsabile della cura e dell'assistenza o almeno 3-4 anni di esperienza professionale come Team Leader\n\n• La conoscenza di RAI LTCF è utile\n\n• Leader dinamico\n\n• Comunicazione sicura nella lingua tedesca in parola e scrittura\n\n• Un atteggiamento di base caldo e umoristico\n\n• Alta empatia e abilità di squadra speciali\n\nPerché Tertianum?\n\nUna rete regionale con ulteriori linee di assistenza e supporto ti offre opportunità di scambio e supporto reciproco. Tertianum offre anche interessanti opportunità nelle carriere specialistiche e gestionali.\n\nÈ importante per noi che i nostri dipendenti possano conciliare bene il lavoro e la vita privata. Questo include una vasta gamma di diversi vantaggi, come:\n\n• Opportunità di formazione interna ed esterna\n\n• Ulteriore giorno libero nel mese di compleanno\n\n• Pranzo giornaliero di CHF 10\n\n• Abbonamenti Mobile e Internet ridotti a Sunrise\n\n• Sconti sull'assicurazione malattia selezionata\n\n• Abbonamento FFS a metà ax\n\n• Riduzioni varie della flotta\n\nUlteriori vantaggi possono essere trovati sul nostro sito web.\n\nSei interessato?\nVi offriamo una prospettiva emozionante: con noi, è possibile utilizzare le vostre competenze e competenze in un team motivato e flessibile. Si prendono la responsabilità e aiutano a plasmare il futuro di Tertianum. Applicare ora e diventare parte della nostra squadra.\n\nAttendiamo con ansia la vostra applicazione online completa tramite il nostro strumento di applicazione. Clicca su “Applica ora” e crea il tuo account personale.",
+        "en": "Do you want to use your leadership skills in a large, urban house? Are organization and flexibility among your strengths? Your heart beats for older people? Is the nursing profession your calling? Do you see opportunities to contribute your experience to us in a meaningful way in order to have a positive impact on the lives of our customers? Then you fit perfectly with us!\n\nFor the Tertianum «Fischermätteli» in Bern, we are looking for a\n\nHead of Care and Care 100%\n\nTheir tasks\n\n• Responsible for the quality and implementation of the service mandate and the maintenance process\n\n• Further development of the area of care & care for our care guests\n\n• Controlling quality and productivity (bed occupancy, performance recording in the CareCoach)\n\n• Adherence to budgetary requirements and achievement of the objectives of the area\n\n• Organisation and coordination of the various stakeholders (members, family doctors, other organisations and institutions as well as insurance companies)\n\n• Management of nurses\n\n• Recruitment and further development process of employees\n\n• Close cooperation with the management and team leaders\n\nYour profile\n\n• Completed training for/for dipl. FH/HF/DNII nurse or equivalent training recognised by the SRC\n\n• Cantonal professional licence and GLN number registered in the NAREG\n\n• Professional and managerial experience in long-term care\n\n• At least 1-2 years of management experience as Head of Care & Assistance or at least 3-4 years of professional experience as Team Leader\n\n• RAI LTCF knowledge is beneficial\n\n• Dynamic leader\n\n• Secure communication in the German language in word and writing\n\n• A warm and humorous basic attitude\n\n• High empathy and special team skills\n\nWhy Tertianum?\n\nA regional network with further lines of care and support gives you exchange opportunities and mutual support. Tertianum also offers interesting opportunities in specialist and management careers.\n\nIt is important to us that our employees can reconcile work and private life well. This includes a diverse range of different benefits, such as:\n\n• Internal and external training opportunities\n\n• Additional free day in the birthday month\n\n• Daily lunch for CHF 10\n\n• Reduced Mobile and Internet Subscriptions at Sunrise\n\n• Discounts on selected health insurance supplementary insurance\n\n• SBB half-ax subscription\n\n• Miscellaneous fleet rebates\n\nFurther benefits can be found on our website.\n\nAre you interested?\nWe offer you an exciting perspective: With us, you can use your skills and expertise in a motivated and flexible team. They take responsibility and help shape the future of Tertianum. Apply now and become part of our team.\n\nWe look forward to your complete online application via our application tool. Click on “Apply now” and create your personal account.",
         "de": "Möchten Sie Ihre Führungsqualitäten in einem grossen, urbanen Haus einsetzen? Gehören Organisation und Flexibilität zu Ihren Stärken? Ihr Herz schlägt für ältere Menschen? Ist der Pflegeberuf Ihre Berufung? Sehen Sie Möglichkeiten, Ihre Erfahrungen sinnstiftend bei uns einzubringen, um einen positiven Einfluss auf das Leben unserer Kundinnen und Kunden zu haben? Dann passen Sie perfekt zu uns!\n\nFür das Tertianum «Fischermätteli» in Bern suchen wir per sofort oder nach Vereinbarung eine/einen\n\nLeiterin / Leiter Pflege und Betreuung 100%\n\nIhre Aufgaben\n\n• Verantwortlich für die Qualität und Umsetzung des Leistungsauftrages und des Pflegeprozesses\n\n• Weiterentwicklung des Bereiches Pflege & Betreuung für unsere Pflegegäste\n\n• Controlling von Qualität und Produktivität (Bettenbelegung, Leistungserfassung im CareCoach)\n\n• Einhalten der Budgetvorgaben und die Zielerreichung des Bereichs\n\n• Organisation und Koordination der verschiedenen Anspruchsgruppen (Angehörige, Hausärzte, andere Organisationen und Institutionen wie auch Versicherungen)\n\n• Führung von Pflegemitarbeitenden\n\n• Rekrutierungs- und Weiterentwicklungsprozess der Mitarbeitenden\n\n• Enge Zusammenarbeit mit der Geschäftsführung und den Teamleitungen\n\nIhr Profil\n\n• Abgeschlossene Ausbildung zur/zum Dipl. Pflegefachfrau/-fachmann FH/HF/DNII oder eine gleichwertig, durch den SRK anerkannte Ausbildung\n\n• Kantonale Berufsausübungsbewilligung und im NAREG eingetragene GLN-Nummer\n\n• Berufs- und Führungserfahrung in der Langzeitpflege\n\n• Mindestens 1-2 Jahre Führungserfahrung als Leitung Pflege & Betreuung oder mindestens 3-4 Jahre Berufserfahrung als Teamleitung\n\n• RAI LTCF Kenntnisse von Vorteil\n\n• Dynamische Führungspersönlichkeit\n\n• Sichere Kommunikation in der deutschen Sprache in Wort und Schrift\n\n• Eine herzliche und humorvolle Grundeinstellung\n\n• Hohe Empathie- und besondere Teamfähigkeit\n\nWarum Tertianum?\n\nEin regionales Netzwerk mit weiteren Leitungen Pflege und Betreuung gibt Ihnen Austauschmöglichkeiten und gegenseitige Unterstützung. Tertianum bietet zudem interessante Möglichkeiten in der Fach- und Führungskarriere.\n\nUns ist wichtig , dass unsere Mitarbeitenden Beruf und Privatleben gut miteinander vereinbaren können. Dazu gehört ein vielfältiges Angebot an unterschiedlichen Benefits, z.B.:\n\n• Interne und externe Weiterbildungsmöglichkeiten\n\n• Zusätzlicher freier Tag im Geburtstagsmonat\n\n• Tägliches Mittagessen für CHF 10\n\n• Vergünstigte Mobile- und Internet-Abos bei Sunrise\n\n• Rabatte auf ausgewählte Krankenkassen-Zusatzversicherungen\n\n• SBB-Halbtaxabonnement\n\n• Diverse Flottenrabatte\n\nWeitere Benefits finden Sie auf unserer Website .\n\nSind Sie interessiert?\nWir bieten Ihnen eine spannende Perspektive: Bei uns können Sie Ihre Fähigkeiten und Ihr Fachwissen in einem motivierten und flexiblen Team einsetzen. Sie übernehmen Verantwortung und helfen mit, die Zukunft von Tertianum zu gestalten. Bewerben Sie sich jetzt und werden Sie Teil unseres Teams.\n\nWir freuen uns auf Ihre vollständige Online-Bewerbung über unser Bewerbungs-Tool. Klicken Sie auf «Jetzt bewerben» und erstellen Sie Ihr persönliches Konto.",
-        "fr": "Voulez-vous utiliser vos compétences en leadership dans une grande maison urbaine? L'organisation et la souplesse sont-elles au cœur de vos forces? Votre coeur bat pour les personnes âgées ? La profession d'infirmière est à vous ? Voyez-vous des occasions de nous apporter votre expérience de manière significative afin d'avoir un impact positif sur la vie de nos clients? Alors vous vous mariez parfaitement avec nous !\n\nPour le Tertianum «Fischermätteli» à Berne, nous recherchons\n\nResponsable des soins et des soins 100%\n\nLeurs tâches\n\n• Responsable de la qualité et de la mise en œuvre du mandat de service et du processus de maintenance\n\n• Poursuite du développement de la zone de soins et soins pour notre nombre de soins\n\n• Contrôler la qualité et la productivité (occupation du lit, enregistrement des performances dans le CareCoach)\n\n• Respect des besoins budgétaires et réalisation des objectifs de la zone\n\n• Organisation et coordination des différentes parties prenantes (membres, médecins de famille, autres organisations et institutions ainsi que compagnies d'assurance)\n\n• Gestion du personnel infirmier\n\n• Recrutement et perfectionnement des employés\n\n• Coopération étroite avec la direction et les chefs d'équipe\n\nVotre profil\n\n• Formation complète pour/pour dipl. Infirmière FH/HF/DNII ou formation équivalente reconnue par le SRC\n\n• Expérience professionnelle et de leadership en soins de longue durée\n\n• Au moins 1 à 2 ans d'expérience en gestion en tant que chef de soins et d'assistance ou au moins 3 à 4 ans d'expérience professionnelle en tant que chef d'équipe\n\n• RAI LTCF connaissances est bénéfique\n\n• Leader dynamique\n\n• Sécurité de la communication écrite et écrite en allemand\n\n• Une attitude de base chaleureuse et humoristique\n\n• Haute empathie et compétences spéciales en équipe\n\nPourquoi Tertianum ?\n\nUn réseau régional avec d'autres lignes de soins et de soutien vous permet d'échanger des opportunités et un soutien mutuel. Tertianum offre également des opportunités intéressantes dans les carrières de spécialiste et de gestion.\n\nIl est important pour nous que nos employés puissent bien concilier le travail et la vie privée. Cela comprend une gamme variée d'avantages, tels que:\n\n• Possibilités de formation internes et externes\n\n• Jour gratuit supplémentaire dans le mois d'anniversaire\n\n• Déjeuner quotidien pour CHF 10\n\n• Réduction des abonnements mobiles et Internet à Sunrise\n\n• Réductions sur certaines assurances complémentaires\n\n• Abonnement demi-axe CFF\n\n• Remises diverses sur la flotte\n\nD'autres avantages peuvent être trouvés sur notre site Web.\n\nÇa t'intéresse ?\nNous vous offrons une perspective passionnante: Avec nous, vous pouvez utiliser vos compétences et votre expertise dans une équipe motivée et flexible. Ils prennent la responsabilité et aident à façonner l'avenir de Tertianum. Postulez maintenant et faites partie de notre équipe.\n\nNous attendons avec impatience votre candidature complète en ligne via notre outil d'application. Cliquez sur \"Appliquer maintenant\" et créer votre compte personnel."
+        "fr": "Voulez-vous utiliser vos compétences en leadership dans une grande maison urbaine? L'organisation et la souplesse sont-elles au cœur de vos forces? Votre coeur bat pour les personnes âgées ? La profession d'infirmière est à vous ? Voyez-vous des occasions de nous apporter votre expérience de manière significative afin d'avoir un impact positif sur la vie de nos clients? Alors vous vous mariez parfaitement avec nous !\n\nPour le Tertianum «Fischermätteli» à Berne, nous cherchons\n\nResponsable des soins et des soins 100%\n\nLeurs tâches\n\n• Responsable de la qualité et de la mise en œuvre du mandat de service et du processus de maintenance\n\n• Poursuite du développement du domaine de soins et soins pour nos clients de soins\n\n• Contrôler la qualité et la productivité (occupation du lit, enregistrement des performances dans le CareCoach)\n\n• Respect des besoins budgétaires et réalisation des objectifs de la zone\n\n• Organisation et coordination des différentes parties prenantes (membres, médecins de famille, autres organisations et institutions ainsi que compagnies d'assurance)\n\n• Gestion du personnel infirmier\n\n• Recrutement et perfectionnement des employés\n\n• Coopération étroite avec la direction et les chefs d'équipe\n\nVotre profil\n\n• Formation complète pour/pour le dipl. Infirmière FH/HF/DNII ou formation équivalente reconnue par le SRC\n\n• Licence professionnelle cantonale et numéro GLN inscrits au NAREG\n\n• Expérience professionnelle et de gestion en soins de longue durée\n\n• Au moins 1-2 ans d'expérience en gestion en tant que chef de soins et d'assistance ou au moins 3-4 ans d'expérience professionnelle en tant que chef d'équipe\n\n• RAI LTCF connaissances est bénéfique\n\n• Leader dynamique\n\n• Communication sécurisée en langue allemande par écrit et par écrit\n\n• Une attitude de base chaleureuse et humoristique\n\n• Haute empathie et compétences spéciales en équipe\n\nPourquoi Tertianum ?\n\nUn réseau régional avec d'autres lignes de soins et de soutien vous offre des possibilités d'échanges et un soutien mutuel. Tertianum offre également des opportunités intéressantes dans les carrières de spécialiste et de gestion.\n\nIl est important pour nous que nos employés puissent bien concilier le travail et la vie privée. Cela comprend une gamme variée de différents avantages, tels que:\n\n• Possibilités de formation internes et externes\n\n• Jour gratuit supplémentaire dans le mois d'anniversaire\n\n• Déjeuner quotidien pour CHF 10\n\n• Réduction des abonnements mobiles et Internet à Sunrise\n\n• Réductions sur certaines assurances complémentaires\n\n• Abonnement CFF demi-axe\n\n• Remboursements divers au titre de la flotte\n\nD'autres avantages peuvent être trouvés sur notre site Web.\n\nÇa t'intéresse ?\nNous vous offrons une perspective passionnante: Avec nous, vous pouvez utiliser vos compétences et votre expertise dans une équipe motivée et flexible. Ils prennent la responsabilité et aident à façonner l'avenir de Tertianum. Postulez maintenant et faites partie de notre équipe.\n\nNous attendons avec impatience votre candidature complète en ligne via notre outil d'application. Cliquez sur \"Appliquer maintenant\" et créez votre compte personnel."
       },
       "needsRetranslation": false,
       "location": "Bern",
@@ -23720,9 +23725,9 @@
       "slug": "dipl-infermieristica-professionale-hf-80-100-tertianum-unterterzen",
       "slugByLocale": {
         "it": "dipl-infermieristica-professionale-hf-80-100-tertianum-unterterzen",
-        "en": "dipl-nurse-hf-80-100-tertianum-unterterzen",
+        "en": "nursing-professional-tertianum-unterterzen",
         "de": "dipl-pflegefachfrau-pflegefachmann-hf-80-100-tertianum-unterterzen",
-        "fr": "dipl-infirmiere-infirmier-hf-80-100-tertianum-unterterzen"
+        "fr": "professionnels-des-soins-infirmiers-tertianum-unterterzen"
       },
       "company": "Tertianum",
       "companyKey": "tertianum",
@@ -23808,8 +23813,8 @@
         "dipl-pflegefachfrau-pflegefachmann-hf-als-berufsbildungsverantwortliche-r-80-100-tertianum",
         "dipl-pflegefachfrau-pflegefachmann-hf-mit-berufsbildungsverantwortung-80-100-tertianum",
         "dipl-pflegefachfrau-pflegefachmann-hf-80-100-tertianum-unterterzen",
-        "nursing-professional-tertianum-unterterzen",
-        "professionnels-des-soins-infirmiers-tertianum-unterterzen"
+        "dipl-nurse-hf-80-100-tertianum-unterterzen",
+        "dipl-infirmiere-infirmier-hf-80-100-tertianum-unterterzen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -23830,7 +23835,7 @@
         "en": [
           "pflegefachfrau-mann-tertianum-unterterzen",
           "dipl-care-professional-hf-as-vocational-training-responsible-80-100-tertianum-bern",
-          "nursing-professional-tertianum-unterterzen"
+          "dipl-nurse-hf-80-100-tertianum-unterterzen"
         ],
         "de": [
           "pflegefachfrau-mann-tertianum-unterterzen",
@@ -23839,7 +23844,7 @@
         "fr": [
           "pflegefachfrau-mann-tertianum-unterterzen",
           "diplome-e-en-soins-infirmiers-hf-en-tant-que-responsable-de-la-formation-professionnelle-80-100-tertianum-bern",
-          "professionnels-des-soins-infirmiers-tertianum-unterterzen"
+          "dipl-infirmiere-infirmier-hf-80-100-tertianum-unterterzen"
         ]
       },
       "firstSeenAt": "2026-05-19T23:48:30.250Z",
@@ -25028,7 +25033,7 @@
       "id": "tertianum-57f61878cf77",
       "slug": "infermiere-a-professionale-tertianum-uster",
       "slugByLocale": {
-        "it": "infermiere-a-professionale-tertianum-uster",
+        "it": "infermiera-tertianum-uster",
         "en": "nursing-professional-tertianum-uster",
         "de": "pflegefachfrau-mann-tertianum-uster",
         "fr": "professionnels-des-soins-infirmiers-tertianum-uster"
@@ -25077,14 +25082,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "infermieristica-professionale-tertianum-uster",
-        "pflegefachfrau-mann-tertianum-uster",
-        "infermiera-tertianum-uster"
+        "pflegefachfrau-mann-tertianum-uster"
       ],
       "previousSlugsByLocale": {
         "it": [
           "infermieristica-professionale-tertianum-uster",
-          "pflegefachfrau-mann-tertianum-uster",
-          "infermiera-tertianum-uster"
+          "pflegefachfrau-mann-tertianum-uster"
         ]
       },
       "firstSeenAt": "2026-09-04T13:49:28.804Z",

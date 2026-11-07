@@ -188,6 +188,15 @@ describe('publisher integrity gate and asynchronous historical audits', () => {
     expect(auditStep.env.PUBLISHER_AUDIT_RECEIPT_DIR).toContain('publisher-audit-receipts');
   });
 
+  it('serializes full-audit shard rehydration to stay within runner disk', () => {
+    const workflow = YAML.parse(AUDIT_REPORT_YML) as any;
+    const rehydrateStep = workflow.jobs.audit.steps.find((step: any) => (
+      step.name === 'Rehydrate locale then section shards into dist/ (when sharding active)'
+    ));
+
+    expect(rehydrateStep?.env?.REHYDRATE_MAX_PARALLEL).toBe('1');
+  });
+
   it('reconciles sitemap membership after shard rehydration and before final-dist audits', () => {
     const workflow = YAML.parse(AUDIT_REPORT_YML) as any;
     const steps = workflow.jobs.audit.steps;

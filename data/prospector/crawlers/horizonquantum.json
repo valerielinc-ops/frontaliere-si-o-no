@@ -1,0 +1,25 @@
+{
+  "companyKey": "horizonquantum",
+  "companyName": "Horizon Quantum Computing",
+  "companyHost": "horizonquantum.applytojob.com",
+  "platform": "applytojob.com",
+  "mode": "known-template",
+  "seedUrls": [
+    "https://horizonquantum.applytojob.com/apply"
+  ],
+  "detailTemplate": "/apply/*/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": false,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 6,
+  "sampleTitles": [
+    "Director of Business Operations",
+    "General Expression of Interest: Join Our Talent Community",
+    "General Expression of Interest: Join Our Talent Community",
+    "Quantum Computing Partnerships Manager",
+    "Quantum Computing Partnerships Manager"
+  ],
+  "sourceLang": "en",
+  "learnedAt": "2026-11-07T12:44:02.459Z",
+  "candidateKey": "horizonquantum@applytojob.com"
+}

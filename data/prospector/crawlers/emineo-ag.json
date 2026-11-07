@@ -1,0 +1,25 @@
+{
+  "companyKey": "emineo-ag",
+  "companyName": "emineo AG",
+  "companyHost": "emineo.ch",
+  "verifiedEmployerDomain": "emineo.ch",
+  "platform": "umantis.com",
+  "mode": "template",
+  "seedUrls": [
+    "https://emineo.ch/"
+  ],
+  "detailTemplate": "/karriere/offene-stellen/job-description/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 3,
+  "sampleTitles": [
+    "Weiterlesen",
+    "Weiterlesen",
+    "Weiterlesen"
+  ],
+  "canton": "VD",
+  "sourceLang": "de",
+  "learnedAt": "2026-11-07T12:48:11.889Z",
+  "candidateKey": "emineo@lausanne"
+}

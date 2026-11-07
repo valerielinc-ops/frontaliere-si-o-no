@@ -1,0 +1,25 @@
+{
+  "companyKey": "lastmilehealth",
+  "companyName": "Last Mile Health",
+  "companyHost": "lastmilehealth.applytojob.com",
+  "platform": "applytojob.com",
+  "mode": "known-template",
+  "seedUrls": [
+    "https://lastmilehealth.applytojob.com/apply"
+  ],
+  "detailTemplate": "/apply/*/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": false,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 12,
+  "sampleTitles": [
+    "Advisor, Health Financing (Ethiopia)",
+    "Clinician Consultant (Ethiopia)",
+    "Coordinator, Digital Health (Ethiopia)",
+    "Field Program Coordinator (Ethiopia)",
+    "Enumerators: Mothers-to-Mothers"
+  ],
+  "sourceLang": "en",
+  "learnedAt": "2026-11-07T12:44:20.065Z",
+  "candidateKey": "lastmilehealth@applytojob.com"
+}

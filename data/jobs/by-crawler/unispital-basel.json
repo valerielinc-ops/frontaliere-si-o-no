@@ -2501,7 +2501,7 @@
       "slug": "fisioterapista-fisioterapista-universitatsspital-basel-basel",
       "slugByLocale": {
         "it": "fisioterapista-fisioterapista-universitatsspital-basel-basel",
-        "en": "physiotherapist-universitatsspital-basel",
+        "en": "physiotherapeutin-physiotherapeut-universitatsspital-basel",
         "de": "physiotherapeutin-physiotherapeut-unispital-basel-ch",
         "fr": "physiotherapeute-physiotherapiste-universitatsspital-basel-basel"
       },
@@ -2550,7 +2550,7 @@
         "physiotherapeutin-physiotherapeut-unispital-basel-ch",
         "physiotherapeutin-physiotherapeut-universitatsspital-basel-basel",
         "physiotherapist-physiotherapist-universitatsspital-basel-basel",
-        "physiotherapeutin-physiotherapeut-universitatsspital-basel"
+        "physiotherapist-universitatsspital-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2560,7 +2560,7 @@
         "en": [
           "physiotherapeutin-physiotherapeut-universitatsspital-basel-basel",
           "physiotherapist-physiotherapist-universitatsspital-basel-basel",
-          "physiotherapeutin-physiotherapeut-universitatsspital-basel"
+          "physiotherapist-universitatsspital-basel"
         ],
         "fr": [
           "physiotherapeutin-physiotherapeut-universitatsspital-basel-basel"
@@ -10508,7 +10508,7 @@
       "slug": "platform-manager-platform-manager-op-universitatsspital-basel-basel",
       "slugByLocale": {
         "it": "platform-manager-platform-manager-op-universitatsspital-basel-basel",
-        "en": "platform-manager-op-universitatsspital-basel",
+        "en": "plattformmanagerin-plattformmanager-op-universitatsspital-basel-basel",
         "de": "plattformmanagerin-plattformmanager-op-unispital-basel-ch",
         "fr": "gestionnaire-de-plateforme-gestionnaire-de-plateforme-op-universitatsspital-basel-basel"
       },
@@ -10555,7 +10555,8 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "plattformmanagerin-plattformmanager-op-unispital-basel-ch",
-        "plattformmanagerin-plattformmanager-op-universitatsspital-basel-basel"
+        "plattformmanagerin-plattformmanager-op-universitatsspital-basel-basel",
+        "platform-manager-op-universitatsspital-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -10563,7 +10564,7 @@
           "plattformmanagerin-plattformmanager-op-universitatsspital-basel-basel"
         ],
         "en": [
-          "plattformmanagerin-plattformmanager-op-universitatsspital-basel-basel"
+          "platform-manager-op-universitatsspital-basel"
         ],
         "fr": [
           "plattformmanagerin-plattformmanager-op-universitatsspital-basel-basel"
@@ -11421,12 +11422,12 @@
     },
     {
       "id": "unispital-basel-67d62b841b77",
-      "slug": "assistent-in-gesundheit-e-soziales-pflegeassistent-in-augenklinik-universitatsspital-basel",
+      "slug": "assistente-in-salute-e-assistenza-sociale-assistente-infermieristico-clinica-oculistica-universitatsspital-basel-basel",
       "slugByLocale": {
-        "it": "assistent-in-gesundheit-e-soziales-pflegeassistent-in-augenklinik-universitatsspital-basel",
-        "en": "assistent-in-gesundheit-und-soziales-pflegeassistent-in-augenklinik-universitatsspital-basel-basel",
         "de": "assistent-in-gesundheit-und-soziales-pflegeassistent-in-augenklinik-unispital-basel-ch",
-        "fr": "assistent-in-gesundheit-und-soziales-pflegeassistent-in-augenklinik-universitatsspital-basel-basel"
+        "it": "assistente-in-salute-e-assistenza-sociale-assistente-infermieristico-clinica-oculistica-universitatsspital-basel-basel",
+        "en": "health-and-social-care-assistant-nursingassistant-eye-clinic-universitatsspital-basel-basel",
+        "fr": "assistant-e-sante-et-social-assistant-e-infirmier-e-clinique-ophtalmologique-universitatsspital-basel-basel"
       },
       "company": "Universitätsspital Basel",
       "companyKey": "unispital-basel",
@@ -11472,11 +11473,20 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "assistent-in-gesundheit-und-soziales-pflegeassistent-in-augenklinik-unispital-basel-ch"
+          "assistent-in-gesundheit-und-soziales-pflegeassistent-in-augenklinik-unispital-basel-ch",
+          "assistent-in-gesundheit-e-soziales-pflegeassistent-in-augenklinik-universitatsspital-basel"
+        ],
+        "en": [
+          "assistent-in-gesundheit-und-soziales-pflegeassistent-in-augenklinik-universitatsspital-basel-basel"
+        ],
+        "fr": [
+          "assistent-in-gesundheit-und-soziales-pflegeassistent-in-augenklinik-universitatsspital-basel-basel"
         ]
       },
       "previousSlugs": [
-        "assistent-in-gesundheit-und-soziales-pflegeassistent-in-augenklinik-unispital-basel-ch"
+        "assistent-in-gesundheit-und-soziales-pflegeassistent-in-augenklinik-unispital-basel-ch",
+        "assistent-in-gesundheit-e-soziales-pflegeassistent-in-augenklinik-universitatsspital-basel",
+        "assistent-in-gesundheit-und-soziales-pflegeassistent-in-augenklinik-universitatsspital-basel-basel"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -11499,12 +11509,12 @@
     },
     {
       "id": "unispital-basel-58974882ead2",
-      "slug": "mitarbeiterin-collaboratore-trice-administration-universitatsspital-basel",
+      "slug": "amministrazione-dei-dipendenti-universitatsspital-basel-basel",
       "slugByLocale": {
-        "it": "mitarbeiterin-collaboratore-trice-administration-universitatsspital-basel",
-        "en": "mitarbeiterin-mitarbeiter-administration-universitatsspital-basel-basel",
         "de": "mitarbeiterin-mitarbeiter-administration-unispital-basel-ch",
-        "fr": "mitarbeiterin-mitarbeiter-administration-universitatsspital-basel-basel"
+        "it": "amministrazione-dei-dipendenti-universitatsspital-basel-basel",
+        "en": "employee-staff-administration-universitatsspital-basel-basel",
+        "fr": "employe-administration-du-personnel-universitatsspital-basel-basel"
       },
       "company": "Universitätsspital Basel",
       "companyKey": "unispital-basel",
@@ -11512,7 +11522,7 @@
       "title": "Mitarbeiterin / Mitarbeiter Administration",
       "titleByLocale": {
         "de": "Mitarbeiterin / Mitarbeiter Administration",
-        "it": "Mitarbeiterin / Collaboratore/trice Administration",
+        "it": "Amministrazione dei dipendenti",
         "en": "Employee / Staff Administration",
         "fr": "Employé / Administration du personnel"
       },
@@ -11550,11 +11560,20 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiterin-mitarbeiter-administration-unispital-basel-ch"
+          "mitarbeiterin-mitarbeiter-administration-unispital-basel-ch",
+          "mitarbeiterin-collaboratore-trice-administration-universitatsspital-basel"
+        ],
+        "en": [
+          "mitarbeiterin-mitarbeiter-administration-universitatsspital-basel-basel"
+        ],
+        "fr": [
+          "mitarbeiterin-mitarbeiter-administration-universitatsspital-basel-basel"
         ]
       },
       "previousSlugs": [
-        "mitarbeiterin-mitarbeiter-administration-unispital-basel-ch"
+        "mitarbeiterin-mitarbeiter-administration-unispital-basel-ch",
+        "mitarbeiterin-mitarbeiter-administration-universitatsspital-basel-basel",
+        "mitarbeiterin-collaboratore-trice-administration-universitatsspital-basel"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -11577,12 +11596,12 @@
     },
     {
       "id": "unispital-basel-e4d5a4c00e27",
-      "slug": "arztin-arzt-medizinconsulting-universitatsspital-basel-basel",
+      "slug": "dottore-consulenza-medica-universitatsspital-basel-basel",
       "slugByLocale": {
-        "it": "arztin-arzt-medizinconsulting-universitatsspital-basel-basel",
-        "en": "arztin-arzt-medizinconsulting-universitatsspital-basel-basel",
         "de": "arztin-arzt-medizinconsulting-unispital-basel-ch",
-        "fr": "arztin-arzt-medizinconsulting-universitatsspital-basel-basel"
+        "it": "dottore-consulenza-medica-universitatsspital-basel-basel",
+        "en": "doctor-medical-consulting-universitatsspital-basel-basel",
+        "fr": "docteur-conseil-medical-universitatsspital-basel-basel"
       },
       "company": "Universitätsspital Basel",
       "companyKey": "unispital-basel",
@@ -11627,11 +11646,19 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "it": [
-          "arztin-arzt-medizinconsulting-unispital-basel-ch"
+          "arztin-arzt-medizinconsulting-unispital-basel-ch",
+          "arztin-arzt-medizinconsulting-universitatsspital-basel-basel"
+        ],
+        "en": [
+          "arztin-arzt-medizinconsulting-universitatsspital-basel-basel"
+        ],
+        "fr": [
+          "arztin-arzt-medizinconsulting-universitatsspital-basel-basel"
         ]
       },
       "previousSlugs": [
-        "arztin-arzt-medizinconsulting-unispital-basel-ch"
+        "arztin-arzt-medizinconsulting-unispital-basel-ch",
+        "arztin-arzt-medizinconsulting-universitatsspital-basel-basel"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,

@@ -2167,11 +2167,11 @@
     },
     {
       "id": "stadt-bern-6988248bb3d5",
-      "slug": "sozialarbeiter-in-intake-stadt-bern-bern",
+      "slug": "reclutamento-per-assistenti-sociali-stadt-bern-bern",
       "slugByLocale": {
-        "it": "sozialarbeiter-in-intake-stadt-bern-bern",
-        "en": "socialworker-intake-stadt-bern-bern",
         "de": "sozialarbeiter-in-intake-stadt-bern-bern",
+        "it": "reclutamento-per-assistenti-sociali-stadt-bern-bern",
+        "en": "socialworker-intake-stadt-bern-bern",
         "fr": "travailleursocial-intake-stadt-bern-bern"
       },
       "company": "Stadt Bern",
@@ -2180,7 +2180,7 @@
       "title": "Sozialarbeiter*in Intake",
       "titleByLocale": {
         "de": "Sozialarbeiter*in Intake",
-        "it": "Sozialarbeiter*in Intake",
+        "it": "Reclutamento per assistenti sociali",
         "en": "Socialworker intake",
         "fr": "Travailleursocial Intake"
       },
@@ -2233,15 +2233,23 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-05T09:17:27.516Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-06T21:19:36.503Z"
+      "firstSeenAt": "2026-11-06T21:19:36.503Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sozialarbeiter-in-intake-stadt-bern-bern"
+        ]
+      },
+      "previousSlugs": [
+        "sozialarbeiter-in-intake-stadt-bern-bern"
+      ]
     },
     {
       "id": "stadt-bern-0235628a9cc2",
       "slug": "addetto-a-al-recupero-crediti-1-stadt-bern-bern",
       "slugByLocale": {
+        "de": "sachbearbeiter-in-inkasso-1-stadt-bern-bern",
         "it": "addetto-a-al-recupero-crediti-1-stadt-bern-bern",
         "en": "clerk-debt-collection-1-stadt-bern-bern",
-        "de": "sachbearbeiter-in-inkasso-1-stadt-bern-bern",
         "fr": "collaborateur-trice-en-recouvrement-1-stadt-bern-bern"
       },
       "company": "Stadt Bern",
@@ -2323,9 +2331,9 @@
       "id": "stadt-bern-6a0234844e39",
       "slug": "addetto-a-all-assistenza-all-infanzia-e-all-adolescenza-stadt-bern-bern",
       "slugByLocale": {
+        "de": "kinder-amp-jugendbetreuer-in-stadt-bern-bern",
         "it": "addetto-a-all-assistenza-all-infanzia-e-all-adolescenza-stadt-bern-bern",
         "en": "child-youth-caregiver-stadt-bern-bern",
-        "de": "kinder-amp-jugendbetreuer-in-stadt-bern-bern",
         "fr": "animateur-trice-d-enfants-et-de-jeunes-stadt-bern-bern"
       },
       "company": "Stadt Bern",
@@ -2407,9 +2415,9 @@
       "id": "stadt-bern-e60b5feebca5",
       "slug": "pedagogia-sociale-stadt-bern-bern",
       "slugByLocale": {
+        "de": "sozialpadagog-in-stadt-bern-bern",
         "it": "pedagogia-sociale-stadt-bern-bern",
         "en": "socialworker-stadt-bern-bern",
-        "de": "sozialpadagog-in-stadt-bern-bern",
         "fr": "pedagogue-social-ne-stadt-bern-bern"
       },
       "company": "Stadt Bern",
@@ -2491,9 +2499,9 @@
       "id": "stadt-bern-b57e24768ad2",
       "slug": "giardiniere-a-stadt-bern-bern",
       "slugByLocale": {
+        "de": "gartenbauarbeiter-in-stadt-bern-bern",
         "it": "giardiniere-a-stadt-bern-bern",
         "en": "horticultural-worker-stadt-bern-bern",
-        "de": "gartenbauarbeiter-in-stadt-bern-bern",
         "fr": "ouvrier-horticole-stadt-bern-bern"
       },
       "company": "Stadt Bern",
@@ -2574,9 +2582,9 @@
       "id": "stadt-bern-dd817eb15539",
       "slug": "terziario-professionale-stadt-bern-bern",
       "slugByLocale": {
+        "de": "betreuungsfachperson-tertiar-stadt-bern-bern",
         "it": "terziario-professionale-stadt-bern-bern",
         "en": "tertiary-care-professional-stadt-bern-bern",
-        "de": "betreuungsfachperson-tertiar-stadt-bern-bern",
         "fr": "specialiste-des-soins-tertiaires-stadt-bern-bern"
       },
       "company": "Stadt Bern",

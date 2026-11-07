@@ -8,6 +8,7 @@ import {
   AUTONOMOUS_PROMOTION_PROTOCOL_READY,
   buildAutonomousDecisions,
   decisionStateChanges,
+  instagramDecisionApplyBlocker,
   mergeAutonomousDecisionState,
   resolveInstagramDecisionConfig,
 } from './lib/instagram-insights-decision.mjs';
@@ -15,6 +16,8 @@ import {
   buildCreativeReport,
   parseInstagramInsightsCsv,
 } from './lib/instagram-insights-report.mjs';
+import { resolveInstagramInsightsSource } from './lib/instagram-experiment-status.mjs';
+import { isInstagramBrowserInsightsApproved } from './lib/social-automation-policy.mjs';
 import { stageRcParamValue, updateRcTemplateWithEtag } from './lib/remote-config-rest.mjs';
 
 const DEFAULT_LEDGER = 'data/instagram-posted.json';
@@ -161,6 +164,13 @@ export async function run(argv = process.argv.slice(2)) {
   }
 
   const configured = resolveInstagramDecisionConfig(process.env);
+  const insightsSource = resolveInstagramInsightsSource(process.env);
+  const applyBlocker = options.apply
+    ? instagramDecisionApplyBlocker({
+      insightsSource,
+      browserInsightsApproved: isInstagramBrowserInsightsApproved(process.env),
+    })
+    : null;
   const report = buildCreativeReport(
     readInput(options.input),
     {
@@ -217,10 +227,13 @@ export async function run(argv = process.argv.slice(2)) {
     schemaVersion: decisions.schemaVersion,
     status: options.apply && !configured.enabled
       ? 'disabled'
+      : options.apply && applyBlocker
+      ? applyBlocker
       : options.apply && configured.enabled && !AUTONOMOUS_PROMOTION_PROTOCOL_READY
       ? 'unqualified'
       : options.apply ? 'ready-to-apply' : 'dry-run',
     autonomyEnabled: configured.enabled,
+    insightsSource,
     promotionQualification: {
       eligible: AUTONOMOUS_PROMOTION_PROTOCOL_READY,
       status: AUTONOMOUS_PROMOTION_PROTOCOL_READY ? 'qualified' : 'protocol-not-implemented',
@@ -239,7 +252,7 @@ export async function run(argv = process.argv.slice(2)) {
     changes,
   };
 
-  if (options.apply && configured.enabled && AUTONOMOUS_PROMOTION_PROTOCOL_READY) {
+  if (options.apply && configured.enabled && !applyBlocker && AUTONOMOUS_PROMOTION_PROTOCOL_READY) {
     const published = await publishWinnerMaps(nextState, changes);
     result.status = published.published ? 'published' : 'no-change';
     result.published = published;
@@ -247,9 +260,11 @@ export async function run(argv = process.argv.slice(2)) {
     result.published = {
       published: false,
       changed: 0,
-      ...(options.apply && configured.enabled && !AUTONOMOUS_PROMOTION_PROTOCOL_READY
-        ? { reason: result.promotionQualification.reason }
-        : {}),
+      ...(options.apply && applyBlocker
+        ? { reason: applyBlocker }
+        : options.apply && configured.enabled && !AUTONOMOUS_PROMOTION_PROTOCOL_READY
+          ? { reason: result.promotionQualification.reason }
+          : {}),
     };
   }
 

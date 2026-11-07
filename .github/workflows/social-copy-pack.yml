@@ -11,6 +11,8 @@ on:
       - '.agents/skills/ig-plan/**'
       - '.agents/skills/ig-audit/**'
       - '.agents/skills/ig-human/**'
+      - '.agents/skills/ig-repurpose/**'
+      - '.agents/skills/ig-story/**'
       - '.github/workflows/social-copy-pack.yml'
       - 'docs/instagram-creative-study.md'
       - 'docs/social-ai-automation.md'

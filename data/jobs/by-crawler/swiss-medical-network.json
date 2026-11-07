@@ -29,7 +29,9 @@
         "fr": "Directeur adjoint de la région du Tessin"
       },
       "slugByLocale": {
-        "it": "deputy-cfo-regione-ticino-swiss-medical-network"
+        "it": "deputy-cfo-regione-ticino-swiss-medical-network",
+        "de": "stellvertretender-cfo-region-tessin-swiss-medical-network-gravesano",
+        "fr": "directeur-adjoint-de-la-region-du-tessin-swiss-medical-network-gravesano"
       },
       "slug": "deputy-cfo-regione-ticino-swiss-medical-network",
       "category": "healthcare",
@@ -92,7 +94,10 @@
         "fr": "Spécialiste médical en anestésie ou médecine intensive"
       },
       "slugByLocale": {
-        "it": "medico-a-specialista-in-anestesiologia-o-medicina-intensiva-swiss-medical-network"
+        "it": "medico-a-specialista-in-anestesiologia-o-medicina-intensiva-swiss-medical-network",
+        "en": "medical-specialist-in-anestesiology-or-intensive-medicine-swiss-medical-network-sorengo",
+        "de": "facharzt-fur-anestesiologie-oder-intensivmedizin-swiss-medical-network-sorengo",
+        "fr": "specialiste-medical-en-anestesie-ou-medecine-intensive-swiss-medical-network-sorengo"
       },
       "slug": "medico-a-specialista-in-anestesiologia-o-medicina-intensiva-swiss-medical-network",
       "category": "medical",
@@ -155,9 +160,12 @@
         "de": "Trainee - NMS Programm Praktikum"
       },
       "slugByLocale": {
-        "fr": "stagiaire-programme-smn-internship-swiss-medical-network"
+        "fr": "stagiaire-programme-smn-internship-swiss-medical-network",
+        "it": "trainee-stage-di-programma-nms-swiss-medical-network-echandens",
+        "en": "trainee-nms-program-internship-swiss-medical-network-echandens",
+        "de": "trainee-nms-programm-praktikum-swiss-medical-network-echandens"
       },
-      "slug": "stagiaire-programme-smn-internship-swiss-medical-network",
+      "slug": "trainee-stage-di-programma-nms-swiss-medical-network-echandens",
       "category": "healthcare",
       "datePosted": "2026-11-06T10:25:09.153Z",
       "postedDate": "2026-11-06T10:25:09.153Z",
@@ -190,7 +198,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-11-06T21:49:48.401Z"
+      "firstSeenAt": "2026-11-06T21:49:48.401Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "stagiaire-programme-smn-internship-swiss-medical-network"
+        ]
+      },
+      "previousSlugs": [
+        "stagiaire-programme-smn-internship-swiss-medical-network"
+      ]
     },
     {
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000159904959-dipl-fachperson-operationstechnik-toa-ota-",
@@ -2755,7 +2771,7 @@
         "fr": "Spécialiste en médecine interne générale"
       },
       "slugByLocale": {
-        "it": "specialista-medicina-interna-swiss-medical-network-wengen-244df2ecf9",
+        "it": "specialista-medicina-interna-swiss-medical-network-wengen",
         "en": "specialist-general-internal-medicine-swiss-medical-network-wengen",
         "de": "facharzt-in-allgemeine-innere-medizin-swiss-medical-network",
         "fr": "specialiste-en-medecine-interne-generale-swiss-medical-network-wengen"
@@ -2776,13 +2792,11 @@
       },
       "sourceLang": "de",
       "previousSlugs": [
-        "facharzt-in-allgemeine-innere-medizin-swiss-medical-network",
-        "specialista-medicina-interna-swiss-medical-network-wengen"
+        "facharzt-in-allgemeine-innere-medizin-swiss-medical-network"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "facharzt-in-allgemeine-innere-medizin-swiss-medical-network",
-          "specialista-medicina-interna-swiss-medical-network-wengen"
+          "facharzt-in-allgemeine-innere-medizin-swiss-medical-network"
         ]
       },
       "firstSeenAt": "2026-09-23T23:43:24.352Z",

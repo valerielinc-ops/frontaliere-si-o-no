@@ -1,0 +1,24 @@
+{
+  "companyKey": "samsic-ch",
+  "companyName": "Samsic AG",
+  "companyHost": "samsic.ch",
+  "verifiedEmployerDomain": "samsic.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://www.samsic.ch/jobs/"
+  ],
+  "detailTemplate": "/jobs/*/",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 2,
+  "sampleTitles": [
+    "See the offer",
+    "See the offer"
+  ],
+  "canton": "BS",
+  "sourceLang": "fr",
+  "learnedAt": "2026-11-07T12:54:44.793Z",
+  "candidateKey": "samsic@zurich"
+}

@@ -1,0 +1,25 @@
+{
+  "companyKey": "calida-ag",
+  "companyName": "Calida AG",
+  "companyHost": "apply.refline.ch",
+  "verifiedEmployerDomain": "calida.com",
+  "platform": "refline.ch",
+  "mode": "template",
+  "seedUrls": [
+    "https://apply.refline.ch/626828/jobmail.html"
+  ],
+  "detailTemplate": "/626828/jobmail.html",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 3,
+  "sampleTitles": [
+    "Deutsch",
+    "English",
+    "Français"
+  ],
+  "canton": "BS",
+  "sourceLang": "de",
+  "learnedAt": "2026-11-07T12:51:02.393Z",
+  "candidateKey": "calida@basel"
+}

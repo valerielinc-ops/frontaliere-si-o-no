@@ -4072,11 +4072,11 @@
     },
     {
       "id": "siemens-5de61cb64bb0",
-      "slug": "projektingenieur-in-niederspannungsschaltanlagen-60-100-siemens-zuerich",
+      "slug": "ingegnere-di-progetto-centrali-a-bassa-tensione-60-100-siemens-zuerich",
       "slugByLocale": {
-        "it": "projektingenieur-in-niederspannungsschaltanlagen-60-100-siemens-zuerich",
-        "en": "low-voltage-switchgear-project-engineer-60-100-siemens-zuerich",
         "de": "projektingenieur-in-niederspannungsschaltanlagen-60-100-siemens-zuerich",
+        "it": "ingegnere-di-progetto-centrali-a-bassa-tensione-60-100-siemens-zuerich",
+        "en": "low-voltage-switchgear-project-engineer-60-100-siemens-zuerich",
         "fr": "ingenieur-de-projet-dans-les-appareillages-electriques-basse-tension-60-100-siemens-zuerich"
       },
       "company": "Siemens",
@@ -4085,7 +4085,7 @@
       "title": "Projektingenieur:in Niederspannungsschaltanlagen 60-100%",
       "titleByLocale": {
         "de": "Projektingenieur:in Niederspannungsschaltanlagen 60-100%",
-        "it": "Projektingenieur:in Niederspannungsschaltanlagen 60-100%",
+        "it": "Ingegnere di progetto Centrali a bassa tensione 60-100%",
         "en": "Low Voltage Switchgear Project Engineer 60-100%",
         "fr": "Ingénieur de projet :dans les appareillages électriques basse tension 60-100 %"
       },
@@ -4140,14 +4140,22 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-04T09:23:54.968Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-06T21:27:34.786Z"
+      "firstSeenAt": "2026-11-06T21:27:34.786Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "projektingenieur-in-niederspannungsschaltanlagen-60-100-siemens-zuerich"
+        ]
+      },
+      "previousSlugs": [
+        "projektingenieur-in-niederspannungsschaltanlagen-60-100-siemens-zuerich"
+      ]
     },
     {
       "id": "siemens-0f13102c09dc",
       "slug": "studente-di-lavoro-cybersecurity-governance-ot-it-40-60-siemens-zug",
       "slugByLocale": {
-        "it": "studente-di-lavoro-cybersecurity-governance-ot-it-40-60-siemens-zug",
         "en": "working-student-cybersecurity-governance-ot-it-40-60-siemens-zug",
+        "it": "studente-di-lavoro-cybersecurity-governance-ot-it-40-60-siemens-zug",
         "de": "arbeitsstudenten-cybersecurity-governance-ot-it-40-60-siemens-zug",
         "fr": "etudiants-en-activite-cybersecurite-governance-ot-it-40-60-siemens-zug"
       },

@@ -636,12 +636,12 @@
     },
     {
       "id": "ikea-1916797f359f",
-      "slug": "amministratore-di-accordo-60-ikea-pratteln",
+      "slug": "amministratore-di-accordo-60-ikea-pratteln-bl",
       "slugByLocale": {
-        "it": "amministratore-di-accordo-60-ikea-pratteln",
         "en": "agreement-administrator-60-ikea-ch",
-        "de": "vertrag-administrator-60-ikea-pratteln",
-        "fr": "administrateur-de-l-entente-60-ikea-pratteln"
+        "it": "amministratore-di-accordo-60-ikea-pratteln-bl",
+        "de": "vertrag-administrator-60-ikea-pratteln-bl",
+        "fr": "administrateur-de-l-entente-60-ikea-pratteln-bl"
       },
       "company": "IKEA",
       "companyKey": "ikea",
@@ -704,17 +704,23 @@
       "firstSeenAt": "2026-11-06T21:21:14.343Z",
       "previousSlugsByLocale": {
         "it": [
-          "agreement-administrator-60-ikea-ch"
+          "agreement-administrator-60-ikea-ch",
+          "amministratore-di-accordo-60-ikea-pratteln"
         ],
         "de": [
-          "agreement-administrator-60-ikea-ch"
+          "agreement-administrator-60-ikea-ch",
+          "vertrag-administrator-60-ikea-pratteln"
         ],
         "fr": [
-          "agreement-administrator-60-ikea-ch"
+          "agreement-administrator-60-ikea-ch",
+          "administrateur-de-l-entente-60-ikea-pratteln"
         ]
       },
       "previousSlugs": [
-        "agreement-administrator-60-ikea-ch"
+        "agreement-administrator-60-ikea-ch",
+        "amministratore-di-accordo-60-ikea-pratteln",
+        "vertrag-administrator-60-ikea-pratteln",
+        "administrateur-de-l-entente-60-ikea-pratteln"
       ]
     },
     {
@@ -810,10 +816,10 @@
       "id": "ikea-64978b79d78f",
       "slug": "collaboratore-logistico-60-ikea-riddes-valais",
       "slugByLocale": {
+        "fr": "collaborateur-trice-logistique-60-ikea-ch",
         "it": "collaboratore-logistico-60-ikea-riddes-valais",
         "en": "logistics-contributor-60-ikea-riddes-valais",
-        "de": "logistikkoordinator-60-ikea-vernier",
-        "fr": "collaborateur-trice-logistique-60-ikea-ch"
+        "de": "logistikbeitrag-60-ikea-riddes-valais"
       },
       "company": "IKEA",
       "companyKey": "ikea",
@@ -865,14 +871,14 @@
           "collaborateur-trice-logistique-60-ikea-vernier"
         ],
         "de": [
-          "logistikbeitrag-60-ikea-riddes-valais",
-          "collaborateur-trice-logistique-60-ikea-vernier"
+          "collaborateur-trice-logistique-60-ikea-vernier",
+          "logistikkoordinator-60-ikea-vernier"
         ]
       },
       "previousSlugs": [
         "collaborateur-trice-logistique-60-ikea-ch",
-        "logistikbeitrag-60-ikea-riddes-valais",
-        "collaborateur-trice-logistique-60-ikea-vernier"
+        "collaborateur-trice-logistique-60-ikea-vernier",
+        "logistikkoordinator-60-ikea-vernier"
       ],
       "salaryMin": 36300,
       "salaryMax": 54900,
@@ -908,10 +914,10 @@
       "id": "ikea-d25efc3361c3",
       "slug": "canada-canada-canada-canada-canada-canada-canada-canada-canada-canada-canada-canada-canada-canada-canada-canada-canada",
       "slugByLocale": {
-        "it": "canada-canada-canada-canada-canada-canada-canada-canada-canada-canada-canada-canada-canada-canada-canada-canada-canada",
         "en": "collaborateur-trice-visual-merchandising-activity-100-ikea-ch",
+        "it": "canada-canada-canada-canada-canada-canada-canada-canada-canada-canada-canada-canada-canada-canada-canada-canada-canada",
         "de": "mitarbeiter-in-trice-visual-merchandising-aktivitat-100-ikea-riddes",
-        "fr": "collaborateur-trice-marchandises-et-activites-visuelles-100-ikea-riddes"
+        "fr": "collaborateur-trice-marchandises-et-activites-visuelles-100-ikea-riddes-valais"
       },
       "company": "IKEA",
       "companyKey": "ikea",
@@ -992,21 +998,23 @@
           "collaborateur-trice-visual-merchandising-activity-100-ikea-ch"
         ],
         "fr": [
-          "collaborateur-trice-visual-merchandising-activity-100-ikea-ch"
+          "collaborateur-trice-visual-merchandising-activity-100-ikea-ch",
+          "collaborateur-trice-marchandises-et-activites-visuelles-100-ikea-riddes"
         ]
       },
       "previousSlugs": [
-        "collaborateur-trice-visual-merchandising-activity-100-ikea-ch"
+        "collaborateur-trice-visual-merchandising-activity-100-ikea-ch",
+        "collaborateur-trice-marchandises-et-activites-visuelles-100-ikea-riddes"
       ]
     },
     {
       "id": "ikea-1314478ab851",
       "slug": "vendite-associate-60-ikea-vernier-geneve-switzerland",
       "slugByLocale": {
+        "fr": "collaborateur-trice-de-vente-60-ikea-ch",
         "it": "vendite-associate-60-ikea-vernier-geneve-switzerland",
         "en": "sales-associate-60-ikea-vernier-geneve-switzerland",
-        "de": "vendite-associate-60-ikea-vernier-geneve-switzerland",
-        "fr": "collaborateur-trice-de-vente-60-ikea-ch"
+        "de": "sales-associate-60-ikea-aubonne-vaud"
       },
       "company": "IKEA",
       "companyKey": "ikea",
@@ -1083,12 +1091,12 @@
     },
     {
       "id": "ikea-c39cf3d96761",
-      "slug": "addetto-a-alla-logistica-picking-50-spatschicht-17-00-21-00-16-00-20-00-ikea-dietlikon",
+      "slug": "logistica-picking-dipendenti-50-turno-di-notte-17-00-21-00-16-00-20-00-ikea-dietlikon-zurich",
       "slugByLocale": {
-        "it": "addetto-a-alla-logistica-picking-50-spatschicht-17-00-21-00-16-00-20-00-ikea-dietlikon",
-        "en": "logistics-picking-employee-50-late-shift-17-00-21-00-16-00-20-00-ikea-dietlikon",
         "de": "mitarbeiter-in-logistik-picking-50-spatschicht-17-00-21-00-16-00-20-00-ikea-ch",
-        "fr": "collaborateur-en-logistique-picking-50-equipe-de-nuit-17-h-00-21-h-00-16-h-00-20-h-00-ikea-dietlikon"
+        "it": "logistica-picking-dipendenti-50-turno-di-notte-17-00-21-00-16-00-20-00-ikea-dietlikon-zurich",
+        "en": "logistics-picking-employee-50-late-shift-17-00-21-00-16-00-20-00-ikea-dietlikon-zurich",
+        "fr": "collaborateur-en-logistique-picking-50-equipe-de-nuit-17-h-00-21-h-00-16-h-00-20-h-00-ikea-dietlikon-zurich"
       },
       "company": "IKEA",
       "companyKey": "ikea",
@@ -1096,7 +1104,7 @@
       "title": "Mitarbeiter:in Logistik Picking 50% - (Spätschicht 17:00-21:00 / 16:00-20:00)",
       "titleByLocale": {
         "de": "Mitarbeiter:in Logistik Picking 50% - (Spätschicht 17:00-21:00 / 16:00-20:00)",
-        "it": "Addetto/a alla logistica Picking 50% - (Spätschicht 17:00-21:00 / 16:00-20:00)",
+        "it": "Logistica Picking Dipendenti 50% - (Turno di notte 17:00-21:00 / 16:00-20:00)",
         "en": "Logistics picking employee 50% - (late shift 17:00-21:00 / 16:00-20:00)",
         "fr": "Collaborateur :en logistique Picking 50 % - (équipe de nuit 17 h 00-21 h 00 / 16 h 00-20 h 00)"
       },
@@ -1134,17 +1142,23 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-logistik-picking-50-spatschicht-17-00-21-00-16-00-20-00-ikea-ch"
+          "mitarbeiter-in-logistik-picking-50-spatschicht-17-00-21-00-16-00-20-00-ikea-ch",
+          "addetto-a-alla-logistica-picking-50-spatschicht-17-00-21-00-16-00-20-00-ikea-dietlikon"
         ],
         "en": [
-          "mitarbeiter-in-logistik-picking-50-spatschicht-17-00-21-00-16-00-20-00-ikea-ch"
+          "mitarbeiter-in-logistik-picking-50-spatschicht-17-00-21-00-16-00-20-00-ikea-ch",
+          "logistics-picking-employee-50-late-shift-17-00-21-00-16-00-20-00-ikea-dietlikon"
         ],
         "fr": [
-          "mitarbeiter-in-logistik-picking-50-spatschicht-17-00-21-00-16-00-20-00-ikea-ch"
+          "mitarbeiter-in-logistik-picking-50-spatschicht-17-00-21-00-16-00-20-00-ikea-ch",
+          "collaborateur-en-logistique-picking-50-equipe-de-nuit-17-h-00-21-h-00-16-h-00-20-h-00-ikea-dietlikon"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-logistik-picking-50-spatschicht-17-00-21-00-16-00-20-00-ikea-ch"
+        "mitarbeiter-in-logistik-picking-50-spatschicht-17-00-21-00-16-00-20-00-ikea-ch",
+        "logistics-picking-employee-50-late-shift-17-00-21-00-16-00-20-00-ikea-dietlikon",
+        "collaborateur-en-logistique-picking-50-equipe-de-nuit-17-h-00-21-h-00-16-h-00-20-h-00-ikea-dietlikon",
+        "addetto-a-alla-logistica-picking-50-spatschicht-17-00-21-00-16-00-20-00-ikea-dietlikon"
       ],
       "salaryMin": 36800,
       "salaryMax": 55800,
@@ -1250,12 +1264,12 @@
     },
     {
       "id": "ikea-6172cf3323be",
-      "slug": "informazioni-sicurezza-e-data-privacy-leader-ikea-spreitenbach",
+      "slug": "informazioni-sicurezza-e-data-privacy-leader-ikea-spreitenbach-aargau",
       "slugByLocale": {
-        "it": "informazioni-sicurezza-e-data-privacy-leader-ikea-spreitenbach",
         "en": "information-security-and-data-privacy-leader-ikea-ch",
-        "de": "informationssicherheit-und-datenschutz-leader-ikea-spreitenbach",
-        "fr": "securite-de-l-information-et-protection-des-donnees-ikea-spreitenbach"
+        "it": "informazioni-sicurezza-e-data-privacy-leader-ikea-spreitenbach-aargau",
+        "de": "informationssicherheit-und-datenschutz-leader-ikea-spreitenbach-aargau",
+        "fr": "securite-de-l-information-et-protection-des-donnees-ikea-spreitenbach-aargau"
       },
       "company": "IKEA",
       "companyKey": "ikea",
@@ -1329,17 +1343,23 @@
       "firstSeenAt": "2026-11-06T21:21:14.315Z",
       "previousSlugsByLocale": {
         "it": [
-          "information-security-and-data-privacy-leader-ikea-ch"
+          "information-security-and-data-privacy-leader-ikea-ch",
+          "informazioni-sicurezza-e-data-privacy-leader-ikea-spreitenbach"
         ],
         "de": [
-          "information-security-and-data-privacy-leader-ikea-ch"
+          "information-security-and-data-privacy-leader-ikea-ch",
+          "informationssicherheit-und-datenschutz-leader-ikea-spreitenbach"
         ],
         "fr": [
-          "information-security-and-data-privacy-leader-ikea-ch"
+          "information-security-and-data-privacy-leader-ikea-ch",
+          "securite-de-l-information-et-protection-des-donnees-ikea-spreitenbach"
         ]
       },
       "previousSlugs": [
-        "information-security-and-data-privacy-leader-ikea-ch"
+        "information-security-and-data-privacy-leader-ikea-ch",
+        "informazioni-sicurezza-e-data-privacy-leader-ikea-spreitenbach",
+        "informationssicherheit-und-datenschutz-leader-ikea-spreitenbach",
+        "securite-de-l-information-et-protection-des-donnees-ikea-spreitenbach"
       ]
     },
     {
@@ -1696,12 +1716,12 @@
     },
     {
       "id": "ikea-2c85eb4bfc04",
-      "slug": "addetto-a-alle-vendite-wohnzimmer-e-buroabteilung-60-ikea-lyssach",
+      "slug": "vendite-dipendenti-soggiorno-e-ufficio-60-ikea-lyssach-bern",
       "slugByLocale": {
         "de": "mitarbeiter-in-verkauf-wohnzimmer-und-buroabteilung-60-ikea-ch",
-        "it": "addetto-a-alle-vendite-wohnzimmer-e-buroabteilung-60-ikea-lyssach",
-        "en": "living-room-and-office-department-sales-associate-60-ikea-lyssach",
-        "fr": "employe-e-en-vente-salon-et-bureau-60-ikea-lyssach"
+        "it": "vendite-dipendenti-soggiorno-e-ufficio-60-ikea-lyssach-bern",
+        "en": "living-room-and-office-department-sales-associate-60-ikea-lyssach-bern",
+        "fr": "employe-e-en-vente-salon-et-bureau-60-ikea-lyssach-bern"
       },
       "company": "IKEA",
       "companyKey": "ikea",
@@ -1709,7 +1729,7 @@
       "title": "Mitarbeiter:in Verkauf Wohnzimmer und Büroabteilung 60%",
       "titleByLocale": {
         "de": "Mitarbeiter:in Verkauf Wohnzimmer und Büroabteilung 60%",
-        "it": "Addetto/a alle vendite Wohnzimmer e Büroabteilung 60%",
+        "it": "Vendite Dipendenti, Soggiorno e Ufficio: 60%",
         "en": "Living Room and Office Department Sales Associate 60%",
         "fr": "Employé (e) en vente Salon et bureau 60 %"
       },
@@ -1749,17 +1769,23 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-verkauf-wohnzimmer-und-buroabteilung-60-ikea-ch"
+          "mitarbeiter-in-verkauf-wohnzimmer-und-buroabteilung-60-ikea-ch",
+          "addetto-a-alle-vendite-wohnzimmer-e-buroabteilung-60-ikea-lyssach"
         ],
         "en": [
-          "mitarbeiter-in-verkauf-wohnzimmer-und-buroabteilung-60-ikea-ch"
+          "mitarbeiter-in-verkauf-wohnzimmer-und-buroabteilung-60-ikea-ch",
+          "living-room-and-office-department-sales-associate-60-ikea-lyssach"
         ],
         "fr": [
-          "mitarbeiter-in-verkauf-wohnzimmer-und-buroabteilung-60-ikea-ch"
+          "mitarbeiter-in-verkauf-wohnzimmer-und-buroabteilung-60-ikea-ch",
+          "employe-e-en-vente-salon-et-bureau-60-ikea-lyssach"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-verkauf-wohnzimmer-und-buroabteilung-60-ikea-ch"
+        "mitarbeiter-in-verkauf-wohnzimmer-und-buroabteilung-60-ikea-ch",
+        "living-room-and-office-department-sales-associate-60-ikea-lyssach",
+        "employe-e-en-vente-salon-et-bureau-60-ikea-lyssach",
+        "addetto-a-alle-vendite-wohnzimmer-e-buroabteilung-60-ikea-lyssach"
       ],
       "salaryMin": 46500,
       "salaryMax": 71100,

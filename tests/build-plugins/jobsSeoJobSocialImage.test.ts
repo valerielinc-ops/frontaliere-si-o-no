@@ -20,6 +20,14 @@ describe('active job social image metadata', () => {
     expect(ACTIVE_JOB_HEAD).toContain('<meta property="og:image:height" content="${italianJobImageUrl ? \'1350\' : \'630\'}">');
   });
 
+  it('uses a verified Italian title in the Italian link preview', () => {
+    expect(SOURCE).toContain("const socialTitle = locale === 'it'");
+    expect(SOURCE).toContain("stripLiteralMarkdownFromTitle(getItalianJobTitle(job)) || 'Offerta di lavoro'");
+    expect(SOURCE).toContain("const socialTitleProbe = locale === 'it'");
+    expect(SOURCE).toContain('const ogTitle = truncateHeadline(socialTitleProbe, OG_TITLE_MAX_CHARS)');
+    expect(ACTIVE_JOB_HEAD).toContain('<meta property="og:title" content="${esc(ogTitle)}">');
+  });
+
   it('includes the chosen social image in the incremental page input', () => {
     const start = SOURCE.indexOf('const activeJobManifestInput = incrementalManifests');
     const end = SOURCE.indexOf('const activeJobReuseInput =', start);

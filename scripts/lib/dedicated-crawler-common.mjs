@@ -4781,16 +4781,43 @@ export async function runDedicatedBaseCrawler({
   // cross-process race with sibling crawlers.
   env.JOBS_CRAWLER_DATA_JOBS_PATH = resolvedDataJobsPath;
 
-  // Seed each scoped crawler's slice from the freshly-merged data/jobs.json
-  // BEFORE the shared crawler runs. In slice-only CI mode the shared crawler
-  // reads each crawler's jobs back via its committed slice, which is still the
-  // PREVIOUS run's snapshot — so without this it would localize+rewrite the
-  // stale subset and collapse a freshly-expanded crawl (e.g. UBS merged 44 →
-  // localized 4). Centralised here so every dedicated runner (interroll,
-  // lafonte, … and the standard template) is covered without per-script seeds.
-  seedCrawlerSlicesFromDataJobs(root, scopedCompanyKeys, resolvedDataJobsPath);
+  // The standard template has already written this run's merged working set to
+  // its explicit scratch path. In localize-only mode the shared crawler reads
+  // that path directly, so reseeding the committed slice is redundant. More
+  // importantly, a legitimate source-backed shrink would hit the raw slice
+  // writer's byte guard here, before the template's final verified writer can
+  // corroborate the disappearance against the source. Keep the seed for
+  // callers that do not provide an existing working-set file: in that mode the
+  // shared crawler still needs the committed slice as its input.
+  if (shouldSeedCrawlerSlicesFromDataJobs({ localizeExistingOnly, dataJobsPath, resolvedDataJobsPath })) {
+    seedCrawlerSlicesFromDataJobs(root, scopedCompanyKeys, resolvedDataJobsPath);
+  } else {
+    console.log('⏭️ Slice seed skipped: localize-only run already has an explicit working-set file.');
+  }
 
   return runSharedCrawlerInProcess({ root, env, detailPageCache });
+}
+
+/**
+ * Decide whether the raw committed-slice seed is still needed.
+ *
+ * The standard crawler template supplies an explicit scratch file and invokes
+ * the shared crawler with `JOBS_CRAWLER_LOCALIZE_EXISTING_ONLY=1`; the shared
+ * crawler consumes that file directly. The committed slice must remain the
+ * previous-run baseline until the template's evidence-gated final write.
+ */
+export function shouldSeedCrawlerSlicesFromDataJobs({
+  localizeExistingOnly = false,
+  dataJobsPath,
+  resolvedDataJobsPath,
+} = {}) {
+  return !(
+    localizeExistingOnly
+    && typeof dataJobsPath === 'string'
+    && dataJobsPath.trim()
+    && typeof resolvedDataJobsPath === 'string'
+    && fs.existsSync(resolvedDataJobsPath)
+  );
 }
 
 /**

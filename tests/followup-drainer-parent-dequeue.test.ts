@@ -85,7 +85,7 @@ describe('PARENT-DEQUEUE: un commento solo, il riaccodamento resta un segnale', 
         posted.push(body);
         comments?.push({ body });
       },
-      removeLabels: (num: number) => { removed.push(num); },
+      removeLabels: (num: number) => { removed.push(num); return true; },
       body: BODY,
       log: (line: string) => { logs.push(line); },
     };
@@ -94,15 +94,15 @@ describe('PARENT-DEQUEUE: un commento solo, il riaccodamento resta un segnale', 
 
   it('primo giro: commento col marker in testa, label tolte', () => {
     const h = harness([{ body: 'un commento qualsiasi' }]);
-    expect(applyParentDequeue({ number: 9443 }, h.io)).toBe('comment');
+    expect(applyParentDequeue({ number: 9443 }, h.io)).toMatchObject({ decision: 'comment', labelsRemoved: true });
     expect(h.posted).toEqual([`${PARENT_DEQUEUED_MARKER}\n${BODY}`]);
     expect(h.removed).toEqual([9443]);
   });
 
   it('secondo giro (label rimessa): label tolte, ZERO commenti, decisione `repeat` con warning', () => {
     const h = harness([]);
-    expect(applyParentDequeue({ number: 9443 }, h.io)).toBe('comment');
-    expect(applyParentDequeue({ number: 9443 }, h.io)).toBe('repeat');
+    expect(applyParentDequeue({ number: 9443 }, h.io)).toMatchObject({ decision: 'comment', labelsRemoved: true });
+    expect(applyParentDequeue({ number: 9443 }, h.io)).toMatchObject({ decision: 'repeat', labelsRemoved: true });
     expect(h.posted).toHaveLength(1); // cron-count-ok: un solo commento è il contratto dell'idempotenza
     expect(h.removed).toEqual([9443, 9443]);
     expect(h.logs.some((l) => l.startsWith('::warning::parent-dequeue ripetuto #9443'))).toBe(true);
@@ -110,13 +110,13 @@ describe('PARENT-DEQUEUE: un commento solo, il riaccodamento resta un segnale', 
 
   it('lettura dei commenti fallita (null o eccezione): zero commenti, label tolte comunque', () => {
     const asNull = harness(null);
-    expect(applyParentDequeue({ number: 9508 }, asNull.io)).toBe('unreadable');
+    expect(applyParentDequeue({ number: 9508 }, asNull.io)).toMatchObject({ decision: 'unreadable', labelsRemoved: true });
     expect(asNull.posted).toEqual([]);
     expect(asNull.removed).toEqual([9508]);
 
     const throwing = harness([]);
     throwing.io.readComments = () => { throw new Error('gh: HTTP 502'); };
-    expect(applyParentDequeue({ number: 9508 }, throwing.io)).toBe('unreadable');
+    expect(applyParentDequeue({ number: 9508 }, throwing.io)).toMatchObject({ decision: 'unreadable', labelsRemoved: true });
     expect(throwing.posted).toEqual([]);
     expect(throwing.removed).toEqual([9508]);
   });
@@ -124,8 +124,16 @@ describe('PARENT-DEQUEUE: un commento solo, il riaccodamento resta un segnale', 
   it('un commento fallito non impedisce la rimozione delle label', () => {
     const h = harness([]);
     h.io.postComment = () => { throw new Error('gh: HTTP 500'); };
-    expect(applyParentDequeue({ number: 9443 }, h.io)).toBe('comment');
+    expect(applyParentDequeue({ number: 9443 }, h.io)).toMatchObject({ decision: 'comment', labelsRemoved: true });
     expect(h.removed).toEqual([9443]);
+  });
+
+  it('se la rimozione fallisce non pubblica il marker e lascia il retry al tick dopo', () => {
+    const h = harness([]);
+    h.io.removeLabels = (num: number) => { h.removed.push(num); return false; };
+    expect(applyParentDequeue({ number: 9443 }, h.io)).toMatchObject({ decision: 'comment', labelsRemoved: false });
+    expect(h.posted).toEqual([]);
+    expect(h.logs.some((line) => line.includes('marker non postato'))).toBe(true);
   });
 
   it('i commenti senza marker (i 13 storici) non contano come dequeue già annunciato', () => {

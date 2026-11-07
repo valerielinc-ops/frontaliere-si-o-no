@@ -289,12 +289,12 @@
     },
     {
       "id": "pole-sante-pays-enhaut-1813988c0422",
-      "slug": "infirmier-ere-cdi-80-a-100-pole-sante-pays-enhaut-chateau-d-oex",
+      "slug": "infermiera-cdi-80-al-100-pole-sante-pays-d-enhaut-chateau-d-oex",
       "slugByLocale": {
-        "it": "infirmier-ere-cdi-80-a-100-pole-sante-pays-enhaut-chateau-d-oex",
-        "en": "infirmier-ere-cdi-80-a-100-pole-sante-pays-enhaut-chateau-d-oex",
-        "de": "krankenschwester-cdi-80-bis-100-pole-sante-pays-d-enhaut-chateau-d-oex",
-        "fr": "infirmier-ere-cdi-80-a-100-pole-sante-pays-enhaut-chateau-d-oex"
+        "fr": "infirmier-ere-cdi-80-a-100-pole-sante-pays-enhaut-chateau-d-oex",
+        "it": "infermiera-cdi-80-al-100-pole-sante-pays-d-enhaut-chateau-d-oex",
+        "en": "nurse-cdi-80-to-100-pole-sante-pays-d-enhaut-chateau-d-oex",
+        "de": "krankenschwester-cdi-80-bis-100-pole-sante-pays-d-enhaut-chateau-d-oex"
       },
       "company": "Pôle Santé Pays-d'Enhaut",
       "companyKey": "pole-sante-pays-enhaut",
@@ -354,7 +354,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-05T10:00:48.611Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-06T21:23:39.705Z"
+      "firstSeenAt": "2026-11-06T21:23:39.705Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "infirmier-ere-cdi-80-a-100-pole-sante-pays-enhaut-chateau-d-oex"
+        ],
+        "en": [
+          "infirmier-ere-cdi-80-a-100-pole-sante-pays-enhaut-chateau-d-oex"
+        ],
+        "de": [
+          "infirmier-ere-cdi-80-a-100-pole-sante-pays-enhaut-chateau-d-oex"
+        ]
+      },
+      "previousSlugs": [
+        "infirmier-ere-cdi-80-a-100-pole-sante-pays-enhaut-chateau-d-oex"
+      ]
     },
     {
       "id": "pole-sante-pays-enhaut-b434c2ee628a",
