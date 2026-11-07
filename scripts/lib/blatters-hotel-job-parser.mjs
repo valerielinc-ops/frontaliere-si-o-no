@@ -184,7 +184,7 @@ export async function fetchAllBlattersHotelJobs({ fetchListings = fetchJobListin
   }
   if (!listings || listings.length === 0) {
     console.warn('⚠️ No job listings returned.');
-    return [];
+    return Array.isArray(listings) ? listings : [];
   }
 
   console.log(`  📋 Listings found: ${listings.length}`);
