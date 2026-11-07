@@ -6,7 +6,9 @@ import {
   buildEcariDetailUrl,
   extractEcariTabSection,
   fetchHtml,
+  isExplicitlyEmptyCatalogue,
   parseEcariAuctionRows,
+  requireEcariCatalogueRows,
   withEcariEmptyState,
 } from '../../../functions/src/plateAuctionsCore.js';
 import { GR_ECARI_CATALOGUE_URL } from '../../../functions/src/plateAuctionSourceUrls.js';
@@ -46,8 +48,18 @@ export async function fetchGrPlateAuctions({ fetchPage = fetchHtml, now = new Da
     now,
     logLabel: 'fetchGrPlateAuctions',
     direct: async () => {
-      const html = await fetchPage(GR_ECARI_CATALOGUE_URL);
-      return parseGrAuctionRows(html, { fetchedAt: new Date().toISOString() });
+      for (let attempt = 0; attempt < 2; attempt += 1) {
+        const html = await fetchPage(GR_ECARI_CATALOGUE_URL);
+        const rows = parseGrAuctionRows(html, { fetchedAt: new Date().toISOString() });
+        if (rows.length > 0 || isExplicitlyEmptyCatalogue(rows)) return rows;
+        if (attempt === 1) {
+          return requireEcariCatalogueRows(rows, {
+            plateCode: GR_PLATE_CODE,
+            officialAuctionUrl: GR_ECARI_CATALOGUE_URL,
+          });
+        }
+      }
+      throw new Error('GR eCari fetch exhausted without a result');
     },
   });
 }

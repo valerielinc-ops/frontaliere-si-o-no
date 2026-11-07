@@ -178,6 +178,25 @@ function makeFixedPriceConnector({ sourceKey, parse }) {
   };
 }
 
+function parseGrSource(html, fetchedAt) {
+  const tabs = [
+    ['tabContent1', 'active', 'auction', 'gr'],
+    ['tabContent2', 'upcoming', 'future-registration', 'gr-future'],
+    ['tabContent3', 'active', 'fixed-price', 'gr-fixed'],
+    ['tabContent4', 'upcoming', 'wanted', 'gr-wanted'],
+  ];
+  return withEcariEmptyState(tabs.flatMap(([tab, auctionStatus, listingType, idPrefix]) => parseEcariAuctionRows(extractEcariTabSection(html, tab), {
+    canton: 'Grigioni',
+    plateCode: 'GR',
+    officialAuctionUrl: GR_ECARI_CATALOGUE_URL,
+    fetchedAt,
+    auctionStatus,
+    listingType,
+    idPrefix,
+    detailUrlBuilder: (sourceRecordId) => buildEcariDetailUrl(GR_ECARI_CATALOGUE_URL, sourceRecordId),
+  })), html, tabs.map(([tab]) => tab));
+}
+
 const CONNECTORS = {
   ag: makeCardConnector({
     canton: 'Argovia',
@@ -214,23 +233,19 @@ const CONNECTORS = {
     plateCode: 'GR',
     url: GR_ECARI_CATALOGUE_URL,
     parserVersion: '2.0.0',
-    parse(html, fetchedAt) {
-      const tabs = [
-        ['tabContent1', 'active', 'auction', 'gr'],
-        ['tabContent2', 'upcoming', 'future-registration', 'gr-future'],
-        ['tabContent3', 'active', 'fixed-price', 'gr-fixed'],
-        ['tabContent4', 'upcoming', 'wanted', 'gr-wanted'],
-      ];
-      return withEcariEmptyState(tabs.flatMap(([tab, auctionStatus, listingType, idPrefix]) => parseEcariAuctionRows(extractEcariTabSection(html, tab), {
-        canton: 'Grigioni',
-        plateCode: 'GR',
-        officialAuctionUrl: GR_ECARI_CATALOGUE_URL,
-        fetchedAt,
-        auctionStatus,
-        listingType,
-        idPrefix,
-        detailUrlBuilder: (sourceRecordId) => buildEcariDetailUrl(GR_ECARI_CATALOGUE_URL, sourceRecordId),
-      })), html, tabs.map(([tab]) => tab));
+    parse: parseGrSource,
+    async fetchSource({ fetchedAt, injectedFetcher } = {}) {
+      const fetchPage = injectedFetcher || fetchHtml;
+      // eCari can answer a transient maintenance shell with HTTP 200. A
+      // second semantic read lets the Cloud Function recover before it marks
+      // the relay source degraded; an explicit empty catalogue still returns
+      // immediately and remains authoritative.
+      for (let attempt = 0; attempt < 2; attempt += 1) {
+        const html = await fetchPage(GR_ECARI_CATALOGUE_URL, { timeoutMs: 20000 });
+        const rows = parseGrSource(html, fetchedAt);
+        if (rows.length > 0 || isExplicitlyEmptyCatalogue(rows) || attempt === 1) return rows;
+      }
+      return [];
     },
   },
   nw: makeEcariConnector({ canton: 'Nidvaldo', plateCode: 'NW', url: 'https://ecarinwprod.ilz.info/ecari-auction/ui/app/init?locale=de_CH' }),
