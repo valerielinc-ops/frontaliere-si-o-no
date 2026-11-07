@@ -34,6 +34,14 @@ describe('classifyJobPhoto', () => {
     })).toBe('healthcare');
   });
 
+  it('does not let a conflicting source-language title override the Italian role', () => {
+    expect(classifyJobPhoto({
+      category: 'Sanità / Ospedali',
+      titleByLocale: { it: 'Venditore / venditrice' },
+      title: 'Pflegefachfrau / Pflegefachmann',
+    })).toBe('office');
+  });
+
   it('falls back to sector metadata when the title has no occupational clue', () => {
     const job = {
       category: 'Sanità / Ospedali',

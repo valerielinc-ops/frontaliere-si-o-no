@@ -68,9 +68,13 @@ function findJobPhotoKey(
 
 /** Prefer occupational words in the title; employer-sector metadata is only a fallback. */
 export function classifyJobPhoto(job: JobPhotoClassificationInput): JobFallbackPhotoKey {
-  const roleText = normalizePhotoSearchText(job.titleByLocale?.it, job.title);
-  const rolePhotoKey = findJobPhotoKey(roleText);
-  if (rolePhotoKey) return rolePhotoKey;
+  const italianRolePhotoKey = findJobPhotoKey(
+    normalizePhotoSearchText(job.titleByLocale?.it),
+  );
+  if (italianRolePhotoKey) return italianRolePhotoKey;
+
+  const sourceRolePhotoKey = findJobPhotoKey(normalizePhotoSearchText(job.title));
+  if (sourceRolePhotoKey) return sourceRolePhotoKey;
 
   const sectorText = normalizePhotoSearchText(job.category, job.sector);
   return findJobPhotoKey(sectorText) ?? 'office';
