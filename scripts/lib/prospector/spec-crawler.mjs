@@ -255,6 +255,10 @@ const SPEC_FETCH_METADATA_KEYS = [
 export function copySpecFetchMetadata(target, source) {
   for (const key of SPEC_FETCH_METADATA_KEYS) {
     if (!Object.prototype.hasOwnProperty.call(source || {}, key)) continue;
+    // Preserve adapter-owned metadata that was deliberately made
+    // non-configurable instead of turning forwarding into a TypeError.
+    const existing = Object.getOwnPropertyDescriptor(target, key);
+    if (existing && !existing.configurable) continue;
     Object.defineProperty(target, key, {
       value: source[key],
       enumerable: false,

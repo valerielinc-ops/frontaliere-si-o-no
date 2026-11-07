@@ -15,7 +15,7 @@ import { mergeSourcePostingDates } from './source-posting-date.mjs';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
-import { loadSpec, runSpecInProduction } from './prospector/spec-crawler.mjs';
+import { copySpecFetchMetadata, loadSpec, runSpecInProduction } from './prospector/spec-crawler.mjs';
 import { resolveSourceBackedSwissGeography } from './prospector/location-evidence.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
@@ -128,7 +128,7 @@ export async function fetchAllBenuJobs() {
   const listings = await fetchJobListings();
   if (!listings || listings.length === 0) {
     console.warn('⚠️ No job listings returned.');
-    return Array.isArray(listings) ? listings : [];
+    return copySpecFetchMetadata([], listings || []);
   }
 
   console.log(`  📋 Listings found: ${listings.length}`);
@@ -203,5 +203,5 @@ export async function fetchAllBenuJobs() {
   }
 
   console.log(`\n📋 Total benu jobs discovered: ${jobs.length}`);
-  return jobs;
+  return copySpecFetchMetadata(jobs, listings || []);
 }

@@ -22,6 +22,7 @@ import { fetchAllLemcoPrecisionComJobs } from '../scripts/lib/lemco-precision-co
 import { fetchAllLipsuisseChJobs } from '../scripts/lib/lipsuisse-ch-job-parser.mjs';
 import { fetchAllMountainsChJobs } from '../scripts/lib/mountains-ch-job-parser.mjs';
 import { fetchAllSkanComJobs } from '../scripts/lib/skan-com-job-parser.mjs';
+import { fetchAllUnidistanceChJobs } from '../scripts/lib/unidistance-ch-job-parser.mjs';
 import { fetchAllZindelUnitedSwissJobs } from '../scripts/lib/zindel-united-swiss-job-parser.mjs';
 
 const parsers = [
@@ -39,6 +40,7 @@ const parsers = [
   fetchAllLipsuisseChJobs,
   fetchAllMountainsChJobs,
   fetchAllSkanComJobs,
+  fetchAllUnidistanceChJobs,
   fetchAllZindelUnitedSwissJobs,
 ];
 

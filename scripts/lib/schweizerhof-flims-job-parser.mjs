@@ -18,6 +18,7 @@ import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
 import { extractRuntimeDetailFields } from './prospector/detail-extract.mjs';
 import {
   fetchHtmlViaBrowser,
+  copySpecFetchMetadata,
   loadSpec,
   runSpecInProduction,
 } from './prospector/spec-crawler.mjs';
@@ -287,7 +288,7 @@ export async function fetchAllSchweizerhofFlimsJobs() {
   const listings = await fetchJobListings();
   if (!listings || listings.length === 0) {
     console.warn('⚠️ No job listings returned.');
-    return Array.isArray(listings) ? listings : [];
+    return copySpecFetchMetadata([], listings || []);
   }
 
   console.log(`  📋 Listings found: ${listings.length}`);
@@ -362,5 +363,5 @@ export async function fetchAllSchweizerhofFlimsJobs() {
   }
 
   console.log(`\n📋 Total Schweizerhof jobs discovered: ${jobs.length}`);
-  return jobs;
+  return copySpecFetchMetadata(jobs, listings || []);
 }

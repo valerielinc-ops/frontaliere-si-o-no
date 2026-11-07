@@ -21,6 +21,7 @@ import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
 import {
   createSpecUrlPolicy,
   fetchRuntimePage,
+  copySpecFetchMetadata,
   loadSpec,
   runSpecInProduction,
 } from './prospector/spec-crawler.mjs';
@@ -277,7 +278,7 @@ export async function fetchAllPremiumpflege24Jobs() {
   const listings = await fetchJobListings();
   if (!listings || listings.length === 0) {
     console.warn('⚠️ No job listings returned.');
-    return Array.isArray(listings) ? listings : [];
+    return copySpecFetchMetadata([], listings || []);
   }
 
   console.log(`  📋 Listings found: ${listings.length}`);
@@ -358,5 +359,5 @@ export async function fetchAllPremiumpflege24Jobs() {
   }
 
   console.log(`\n📋 Total PremiumPflege24 GmbH jobs discovered: ${jobs.length}`);
-  return hardenJobsWithStructuredSalary(jobs).jobs;
+  return copySpecFetchMetadata(hardenJobsWithStructuredSalary(jobs).jobs, listings || []);
 }

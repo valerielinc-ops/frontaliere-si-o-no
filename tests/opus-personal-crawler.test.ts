@@ -8,7 +8,8 @@ import {
 } from '../scripts/lib/opus-personal-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
 
-vi.mock('../scripts/lib/prospector/spec-crawler.mjs', () => ({
+vi.mock('../scripts/lib/prospector/spec-crawler.mjs', async (importOriginal) => ({
+  ...(await importOriginal()),
   loadSpec: () => ({ key: 'opus-personal' }),
   runSpecInProduction: async () => [{
     title: 'IT-Systemadministrator',
