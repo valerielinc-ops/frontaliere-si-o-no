@@ -10,6 +10,7 @@ import {
   groupPostedLedger,
   snapshotRows,
 } from './instagram-insights-snapshot.mjs';
+import { isInstagramBrowserInsightsApproved } from './social-automation-policy.mjs';
 
 export const EXPERIMENT_STATUS_SCHEMA_VERSION = 1;
 export const DEFAULT_MINIMUM_OBSERVATIONS = 3;
@@ -20,11 +21,12 @@ const DEFAULT_MISSING_CREDENTIALS = Object.freeze([
   'INSTAGRAM_ACCESS_TOKEN',
 ]);
 
-/** Browser is the Mac-host default; Graph is retained only as an explicit fallback. */
+/** Resolve the configured collector; permission readiness is reported separately. */
 export function resolveInstagramInsightsSource(env = process.env) {
   const configured = firstText(env.SOCIAL_ROBOT_INSIGHTS_SOURCE)?.toLowerCase();
-  if (configured === 'graph' || configured === 'browser' || configured === 'off') return configured;
-  return 'browser';
+  return configured === 'graph' || configured === 'browser' || configured === 'off'
+    ? configured
+    : 'browser';
 }
 
 function isRecord(value) {
@@ -241,10 +243,19 @@ function addObservationToCohort(cohort, group, windowHours) {
   cohort.observedWindowsByPost.set(group.identity, observedWindows);
 }
 
-function statusForCohort(cohort, { asOfMs, hasCredentials, insightsAvailable, minimumObservations }) {
+function statusForCohort(cohort, {
+  asOfMs,
+  hasCredentials,
+  browserPermissionRequired = false,
+  sourceDisabled = false,
+  insightsAvailable,
+  minimumObservations,
+}) {
   const publishedPosts = cohort.publishedPostKeys.size;
   const observedPosts = cohort.observedPostKeys.size;
   if (observedPosts >= minimumObservations) return 'ready-to-compare';
+  if (browserPermissionRequired && observedPosts < publishedPosts) return 'awaiting-browser-permission';
+  if (sourceDisabled && observedPosts < publishedPosts) return 'insights-disabled';
   if (!hasCredentials && observedPosts < publishedPosts) return 'awaiting-meta-credentials';
   if (observedPosts === 0 && !insightsAvailable) return 'awaiting-insights';
   if (cohort.nextEligibleAtMs !== null && cohort.nextEligibleAtMs > asOfMs) {
@@ -328,9 +339,22 @@ function addAction(actions, code, detail) {
   actions.push({ code, detail });
 }
 
-function buildNextActions({ pending, publishedPosts, cohorts, blockers, hasCredentials }) {
+function buildNextActions({
+  pending,
+  publishedPosts,
+  cohorts,
+  blockers,
+  hasCredentials,
+  insightsSource,
+  browserPermissionRequired,
+  sourceDisabled,
+}) {
   const actions = [];
-  if (!hasCredentials && publishedPosts.length > 0) {
+  if (browserPermissionRequired && publishedPosts.length > 0) {
+    addAction(actions, 'verify-meta-browser-insights-permission', 'Verificare il permesso Meta per il collector browser prima di attivare il relativo flag Remote Config.');
+  } else if (insightsSource === 'off' && publishedPosts.length > 0) {
+    addAction(actions, 'select-meta-insights-source', 'Selezionare un collector Meta autorizzato per riprendere le misurazioni.');
+  } else if (!hasCredentials && publishedPosts.length > 0) {
     addAction(actions, 'configure-meta-insights', 'Impostare INSTAGRAM_BUSINESS_ACCOUNT_ID e INSTAGRAM_ACCESS_TOKEN senza stamparli nei log.');
   }
   if (pending.length > 0) {
@@ -345,7 +369,10 @@ function buildNextActions({ pending, publishedPosts, cohorts, blockers, hasCrede
   if (cohorts.some((cohort) => cohort.status.startsWith('needs-'))) {
     addAction(actions, 'collect-more-comparable-posts', 'Continuare la rotazione fino ad avere tre osservazioni indipendenti per variante.');
   }
-  if (publishedPosts.length > 0 && blockers.some((blocker) => blocker.code === 'insights-snapshot-missing')) {
+  if (publishedPosts.length > 0
+    && !browserPermissionRequired
+    && !sourceDisabled
+    && blockers.some((blocker) => blocker.code === 'insights-snapshot-missing')) {
     addAction(actions, 'collect-72h-insights', 'Eseguire il collector read-only quando le credenziali Meta sono disponibili.');
   }
   if (actions.length === 0) {
@@ -368,6 +395,8 @@ export function buildExperimentStatus({
   windowHours = DEFAULT_WINDOW_HOURS,
   hasCredentials = false,
   missingCredentials = DEFAULT_MISSING_CREDENTIALS,
+  insightsSource,
+  browserInsightsPermissionApproved,
 } = {}) {
   validatePositiveInteger(minimumObservations, 'minimumObservations');
   validatePositiveNumber(windowHours, 'windowHours');
@@ -376,6 +405,19 @@ export function buildExperimentStatus({
 
   const groups = groupPostedLedger(ledger);
   const publishedPosts = groups.map((group) => serializePublishedGroup(group));
+  const requestedInsightsSource = typeof insightsSource === 'string'
+    ? insightsSource.trim().toLowerCase()
+    : null;
+  const selectedInsightsSource = ['browser', 'graph', 'off'].includes(requestedInsightsSource)
+    ? requestedInsightsSource
+    : resolveInstagramInsightsSource();
+  const browserPermissionApproved = typeof browserInsightsPermissionApproved === 'boolean'
+    ? browserInsightsPermissionApproved
+    : isInstagramBrowserInsightsApproved();
+  const browserPermissionRequired = selectedInsightsSource === 'browser' && !browserPermissionApproved;
+  const sourceDisabled = selectedInsightsSource === 'off';
+  const apiCredentialsRequired = selectedInsightsSource === 'graph';
+  const credentialsMissing = apiCredentialsRequired && !hasCredentials;
   const groupLookup = buildGroupLookup(groups);
   const observedWindowsByGroup = new Map();
   const cohortsByKey = new Map();
@@ -479,6 +521,8 @@ export function buildExperimentStatus({
     .map((cohort) => serializeCohort(cohort, {
       asOfMs,
       hasCredentials: Boolean(hasCredentials),
+      browserPermissionRequired,
+      sourceDisabled,
       insightsAvailable: rows.length > 0,
       minimumObservations,
     }));
@@ -495,11 +539,21 @@ export function buildExperimentStatus({
       detail: `${metadataProblems.length} post sperimentali non ha metadati coerenti o completi.`,
     });
   }
-  if (publishedPosts.length > 0 && !hasCredentials) {
+  if (publishedPosts.length > 0 && browserPermissionRequired) {
+    blockers.push({
+      code: 'browser-insights-permission-required',
+      detail: 'Il collector browser resta disabilitato finché non viene verificato il relativo permesso Meta.',
+    });
+  } else if (publishedPosts.length > 0 && sourceDisabled) {
+    blockers.push({
+      code: 'insights-source-disabled',
+      detail: 'La raccolta Instagram Insights è disattivata nella configurazione Remote Config.',
+    });
+  } else if (publishedPosts.length > 0 && credentialsMissing) {
     blockers.push({
       code: 'meta-credentials-missing',
       missing: [...missingCredentials],
-      detail: 'Il collector non può leggere gli Insights finché le credenziali Meta non sono configurate.',
+      detail: 'Il collector Graph non può leggere gli Insights finché le credenziali Meta non sono configurate.',
     });
   }
   if (publishedPosts.length > 0 && rows.length === 0) {
@@ -520,6 +574,9 @@ export function buildExperimentStatus({
     cohorts: serializedCohorts,
     blockers,
     hasCredentials: Boolean(hasCredentials),
+    insightsSource: selectedInsightsSource,
+    browserPermissionRequired,
+    sourceDisabled,
   });
   const pending = pendingCreatives(queue, ledger);
 
@@ -529,14 +586,21 @@ export function buildExperimentStatus({
     minimumObservations,
     windowHours,
     credentials: {
-      configured: Boolean(hasCredentials),
-      missing: Boolean(hasCredentials) ? [] : [...missingCredentials],
+      configured: apiCredentialsRequired && Boolean(hasCredentials),
+      missing: apiCredentialsRequired && !hasCredentials ? [...missingCredentials] : [],
     },
     pending,
     publishedPosts: publishedWithObservations,
     cohorts: serializedCohorts,
     insights: {
-      source: resolveInstagramInsightsSource(),
+      source: browserPermissionRequired ? 'browser-held' : selectedInsightsSource,
+      sourceStatus: browserPermissionRequired
+        ? 'permission-required'
+        : sourceDisabled
+          ? 'disabled'
+          : credentialsMissing
+            ? 'credentials-missing'
+            : 'available',
       sourceRows: rows.length,
       independentObservations: serializedCohorts.reduce((sum, cohort) => sum + cohort.observedPosts, 0),
       acceptedRows,
@@ -554,7 +618,8 @@ export function formatExperimentStatus(status) {
     `   As of: ${status.asOf}`,
     `   Published experimental posts: ${status.publishedPosts.length} · pending: ${status.pending.length} · target: ${status.windowHours}h`,
     '   Unit of analysis: one Instagram post/media per observation; carousel cards stay grouped.',
-    `   Meta Insights credentials: ${status.credentials.configured ? 'configured' : 'missing'}`,
+    `   Meta Insights source: ${status.insights.source} (${status.insights.sourceStatus})`,
+    `   Meta Insights credentials: ${status.credentials.configured ? 'configured' : status.credentials.missing.length ? 'missing' : 'not required for this source'}`,
     '',
   ];
   if (status.cohorts.length === 0) {
