@@ -875,6 +875,35 @@ describe('native auto-merge gate (#8512)', () => {
     expect(isAlreadyInProgressOutput('GraphQL: Pull request is not mergeable')).toBe(false);
   });
 
+  it('retries not-mergeable only while GitHub mergeability is still unknown', () => {
+    const transient = {
+      state: 'OPEN',
+      isDraft: false,
+      baseRefName: 'main',
+      headRefOid: HEAD,
+      autoMergeRequest: null,
+      mergeable: 'UNKNOWN',
+      mergeStateStatus: 'UNKNOWN',
+    };
+    expect(isRetryableNativeAutoMergeMutationError(
+      'GraphQL: Pull request is not mergeable (mergePullRequest)',
+      transient,
+    )).toBe(true);
+    expect(isRetryableNativeAutoMergeMutationError(
+      'GraphQL: Pull request is not mergeable (mergePullRequest)',
+      transient,
+      'c'.repeat(40),
+    )).toBe(false);
+    expect(isRetryableNativeAutoMergeMutationError(
+      'GraphQL: Pull request is not mergeable (mergePullRequest)',
+      { ...transient, mergeable: 'CONFLICTING', mergeStateStatus: 'DIRTY' },
+    )).toBe(false);
+    expect(isRetryableNativeAutoMergeMutationError(
+      'GraphQL: Pull request is not mergeable (mergePullRequest)',
+      { ...transient, autoMergeRequest: { enabledAt: '2026-09-13T12:00:00Z' } },
+    )).toBe(false);
+  });
+
   it('retries known base-branch and transient transport/API failures from the native mutation', () => {
     expect(isRetryableNativeAutoMergeMutationError(
       'GraphQL: Base branch was modified. Review and try the merge again. (mergePullRequest)',
@@ -921,6 +950,22 @@ describe('native auto-merge gate (#8512)', () => {
       throw new Error('GraphQL: Pull request is not mergeable');
     }, { sleep: () => undefined })).toThrow('not mergeable');
     expect(permanentAttempts).toBe(1);
+  });
+
+  it('allows a caller to add a state-aware transient mutation classifier', () => {
+    let attempts = 0;
+    const result = withNativeAutoMergeMutationRetry(() => {
+      attempts += 1;
+      if (attempts < 2) throw new Error('GraphQL: Pull request is not mergeable');
+      return 'accepted';
+    }, {
+      delaysMs: [11],
+      sleep: () => undefined,
+      shouldRetryError: (error) => String(error).includes('not mergeable'),
+    });
+
+    expect(result).toBe('accepted');
+    expect(attempts).toBe(2);
   });
 
   it('retries only transient GitHub read failures with a bounded schedule', () => {
@@ -1026,6 +1071,9 @@ describe('native auto-merge gate (#8512)', () => {
     expect(gateSource).toContain('withTransientGithubReadRetry');
     expect(gateSource).toContain('withNativeAutoMergeMutationRetry');
     expect(gateSource).toContain('isRetryableNativeAutoMergeMutationError');
+    expect(gateSource).toContain('nativeAutoMergeMutationMergeability');
+    expect(gateSource).toContain('mergeStateStatus');
+    expect(gateSource).toContain('Dettaglio:');
     expect(gateSource).toContain('MAX_NATIVE_AUTO_MERGE_MUTATION_ATTEMPTS');
     expect(gateSource).toContain('const response = ghJsonOnce');
     expect(gateSource).toContain("stdio: ['ignore', 'pipe', 'pipe']");
