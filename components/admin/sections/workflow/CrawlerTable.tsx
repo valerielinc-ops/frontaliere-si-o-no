@@ -270,7 +270,7 @@ export function CrawlerTable({
  .map(r => r.summary?.generatedAt)
  .filter((t): t is string => Boolean(t))
  .sort()
- .at(-1) ?? null;
+ .pop() ?? null;
 
  const toggleExpand = (key: string, type: 'new' | 'updated' | 'removed' | 'unchanged' | 'active') => {
  setExpandedCrawlerDetail(prev => ({

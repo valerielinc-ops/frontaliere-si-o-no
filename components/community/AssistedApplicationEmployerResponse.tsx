@@ -8,7 +8,7 @@ export function AssistedApplicationEmployerResponse({ response, timeline = [], c
   const updates = (Array.isArray(timeline) && timeline.length ? timeline : [response])
     .map(parseEmployerResponse)
     .filter((value): value is EmployerResponse => Boolean(value));
-  const update = updates.at(-1) || parseEmployerResponse(response);
+  const update = updates[updates.length - 1] || parseEmployerResponse(response);
   if (!update) return null;
   const received = new Date(update.receivedAt);
   const Icon = update.category === 'auto_acknowledgement' ? CheckCircle2 : MessageSquare;
