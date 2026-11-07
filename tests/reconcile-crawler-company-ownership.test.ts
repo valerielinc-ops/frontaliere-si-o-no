@@ -36,7 +36,10 @@ import {
   LegacyRouteCapError,
   promotePreviousSlugToLegacy,
 } from '../scripts/lib/dedicated-crawler-common.mjs';
-import { collapseDuplicateRouteEntries } from '../scripts/lib/expired-jobs-archive.mjs';
+import {
+  archiveRemovedJobsToSlice,
+  collapseDuplicateRouteEntries,
+} from '../scripts/lib/expired-jobs-archive.mjs';
 import { COMPANY_HQ } from '../scripts/lib/crawler-location-config.mjs';
 import { resolveBrandCanonical } from '../build-plugins/shared/brandCanonicalMap.mjs';
 import { SKIP_LIVE_DATA } from './helpers/live-data';
@@ -270,6 +273,42 @@ describe('issue #6759 reconciliation', () => {
     const repeat = collapseDuplicateRouteEntries(result.entries, { source: 'test/issue-17512' });
     expect(repeat.repairedRoutes).toBe(0);
     expect(repeat.entries).toEqual(result.entries);
+  });
+
+  it('persists a distinct-source repair even when the archive writer receives no new rows', () => {
+    const dir = mkdtempSync(join(tmpdir(), 'issue-17512-archive-writer-'));
+    try {
+      const sharedHistory = 'same-title-company-lugano';
+      const file = join(dir, 'soh.json');
+      writeFileSync(file, JSON.stringify([
+        {
+          companyKey: 'soh',
+          sourceIdentity: 'url:https://jobs.example.test/soh/newer',
+          url: 'https://jobs.example.test/soh/newer',
+          slug: 'newer-posting',
+          expiredAt: '2026-11-07T00:00:00.000Z',
+          slugByLocale: { it: 'newer-posting' },
+          previousSlugs: [sharedHistory],
+        },
+        {
+          companyKey: 'soh',
+          sourceIdentity: 'url:https://jobs.example.test/soh/older',
+          url: 'https://jobs.example.test/soh/older',
+          slug: 'older-posting',
+          expiredAt: '2026-10-17T00:00:00.000Z',
+          slugByLocale: { it: 'older-posting' },
+          previousSlugs: [sharedHistory],
+        },
+      ]));
+
+      expect(archiveRemovedJobsToSlice([], 'soh', { dir })).toBe(0);
+      const persisted = JSON.parse(readFileSync(file, 'utf8'));
+      expect(persisted).toHaveLength(2);
+      expect(new Set(persisted.flatMap((entry: FixtureJob) => [...localeRouteKeys(entry)])).size)
+        .toBe(persisted.flatMap((entry: FixtureJob) => [...localeRouteKeys(entry)]).length);
+    } finally {
+      rmSync(dir, { recursive: true, force: true });
+    }
   });
 
   it('audits previous-route overlap across distinct slices, without cross-company false positives', () => {
