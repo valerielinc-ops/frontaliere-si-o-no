@@ -483,8 +483,22 @@ function hasConflictingUmantisVacancyRoute(applyUrl, candidates) {
   if (!application) return false;
   return candidates.some((candidate) => {
     const route = umantisVacancyRoute(candidate);
-    return route?.origin === application.origin && route.vacancyId !== application.vacancyId;
+    return route && (route.origin !== application.origin || route.vacancyId !== application.vacancyId);
   });
+}
+
+/**
+ * A direct Umantis form still carries the selected vacancy in its own route.
+ * Submit-time liveness can retain the published site URL (or the Application/New
+ * URL itself) instead of the Description route, so recover the same-origin
+ * posting address for route binding. An explicit different Umantis vacancy stays
+ * authoritative and is never rewritten into a match.
+ */
+function umantisFormPostingUrl(pageUrl, postingUrl) {
+  const inferred = umantisPostingAddressFromApplication(pageUrl);
+  const saved = String(postingUrl || '').trim();
+  if (!inferred || hasConflictingUmantisVacancyRoute(pageUrl, [saved])) return saved;
+  return inferred;
 }
 
 /**
@@ -2668,7 +2682,8 @@ export function formPostingMatch(formText, job = {}, {
   postingRouteProof = null,
 } = {}) {
   const direct = postingMatch(formText, job, pageUrl);
-  const bound = isPostingRouteBound({ pageUrl, postingUrl, postingRouteProof });
+  const formPostingUrl = umantisFormPostingUrl(pageUrl, postingUrl);
+  const bound = isPostingRouteBound({ pageUrl, postingUrl: formPostingUrl, postingRouteProof });
   // A source-backed SuccessFactors module must still carry the requisition
   // captured from that posting. Do not let its employer query alone turn a
   // different or incomplete `/career` route into a generic form match.
@@ -2680,7 +2695,7 @@ export function formPostingMatch(formText, job = {}, {
   // labels that describe the application itself.
   const heading = String(formText || '').split(/\r?\n/, 1)[0];
   const boundUmantisApplication = bound && isUmantisApplicationRoute(pageUrl)
-    && isUmantisPostingEntry({ applyUrl: pageUrl, postingUrl });
+    && isUmantisPostingEntry({ applyUrl: pageUrl, postingUrl: formPostingUrl });
   if (boundUmantisApplication) {
     if (namesAnotherEmployer(heading, job)) return 'mismatch';
     return 'match';
@@ -2689,8 +2704,8 @@ export function formPostingMatch(formText, job = {}, {
   // exposes only site chrome (for example, Stadt Zürich's «Sprache» control).
   // Do not apply this to another page on the same host: route identity must be
   // exact, and an apply route still goes through the employer-conflict guard.
-  if (bound && samePostingAddress(pageUrl, postingUrl)) {
-    if (namesAnotherEmployer(boundPostingConflictText(formText, job, { pageUrl, postingUrl }), job, { allowPostingLocation: true })) return 'mismatch';
+  if (bound && samePostingAddress(pageUrl, formPostingUrl)) {
+    if (namesAnotherEmployer(boundPostingConflictText(formText, job, { pageUrl, postingUrl: formPostingUrl }), job, { allowPostingLocation: true })) return 'mismatch';
     return 'match';
   }
   if (direct !== 'mismatch' || !postingMatched) return direct;
