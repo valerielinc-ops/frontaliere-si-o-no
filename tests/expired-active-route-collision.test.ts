@@ -228,4 +228,43 @@ describe('repairExpiredRoutesAgainstActive', () => {
       rmSync(root, { recursive: true, force: true });
     }
   });
+
+  it('persists internal expired-route collapse with an empty active assembly', () => {
+    const root = mkdtempSync(join(tmpdir(), 'expired-slice-empty-active-collapse-'));
+    try {
+      const sliceDir = join(root, 'expired-slices');
+      mkdirSync(sliceDir, { recursive: true });
+      const duplicateSlug = 'ipersonal-empty-active-duplicate-route';
+      const entries = [
+        {
+          companyKey: 'ipersonal',
+          slug: duplicateSlug,
+          slugByLocale: { it: duplicateSlug },
+          previousSlugs: [],
+          expiredAt: '2026-10-02T00:00:00.000Z',
+          sourceIdentity: 'url:https://jobs.example.test/expired-empty-older',
+        },
+        {
+          companyKey: 'ipersonal',
+          slug: duplicateSlug,
+          slugByLocale: { it: duplicateSlug },
+          previousSlugs: [],
+          expiredAt: '2026-10-03T00:00:00.000Z',
+          sourceIdentity: 'url:https://jobs.example.test/expired-empty-newer',
+        },
+      ];
+      writeFileSync(join(sliceDir, 'ipersonal.json'), JSON.stringify(entries));
+
+      const result = repairExpiredArchiveSlicesAgainstActive([], { sliceDir });
+
+      const persisted = JSON.parse(
+        readFileSync(join(sliceDir, 'ipersonal.json'), 'utf8'),
+      );
+      expect(result.collapsedRoutes).toBe(1);
+      expect(persisted).toHaveLength(1);
+      expect(persisted[0].slug).toBe(duplicateSlug);
+    } finally {
+      rmSync(root, { recursive: true, force: true });
+    }
+  });
 });

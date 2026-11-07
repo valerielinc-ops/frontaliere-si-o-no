@@ -4186,7 +4186,9 @@ export function normalizeAndPersistExpiredSlice(slicePath, entries, options = {}
  * that exist only in the old aggregate file.
  */
 export function repairExpiredArchiveSlicesAgainstActive(activeJobs, { sliceDir = EXPIRED_SLICES_DIR } = {}) {
-  if (!Array.isArray(activeJobs) || activeJobs.length === 0) {
+  // An empty active assembly is valid: the uncapped slice still needs route
+  // canonicalization before the live route-recovery observer reads it.
+  if (!Array.isArray(activeJobs)) {
     return {
       changed: 0,
       repairedRoutes: 0,
