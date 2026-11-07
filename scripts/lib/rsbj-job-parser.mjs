@@ -20,7 +20,7 @@ import { extractJobPostingLd } from './jsonld-jobposting.mjs';
  */
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
-import { fetchHtml, slugify } from './crawler-template.mjs';
+import { fetchHtml as fetchHtmlResilient, slugify } from './crawler-template.mjs';
 import { extractBalancedTagBlock } from './hospital-custom-html-helpers.mjs';
 import { htmlToTextLines } from './html-to-text-lines.mjs';
 
@@ -75,11 +75,11 @@ export function isTrustedDomain(rawUrl = '') {
   }
 }
 
-function fetchOptions() {
-  return {
+async function fetchHtml(url) {
+  return fetchHtmlResilient(url, {
     timeoutMs: Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20000,
     headers: { Accept: 'text/html,application/xhtml+xml', 'User-Agent': USER_AGENT },
-  };
+  });
 }
 
 export function parseRsbjListing(html) {
@@ -190,7 +190,7 @@ export function extractRsbjDetailText(html = '') {
 
 async function fetchDetailContent(detailUrl) {
   try {
-    const html = await fetchHtml(detailUrl, fetchOptions());
+    const html = await fetchHtml(detailUrl);
     return { body: extractRsbjDetailText(html), ...sourcePostingDateFields(extractJobPostingLd(html)?.datePosted) };
   } catch {
     return { body: '', ...sourcePostingDateFields('') };
@@ -201,7 +201,7 @@ export async function fetchAllRsbjJobs() {
   console.log(`🏥 Fetching ${RSBJ_COMPANY_NAME} jobs`);
   console.log(`   Source: ${LISTING_URL}\n`);
 
-  const html = await fetchHtml(LISTING_URL, fetchOptions());
+  const html = await fetchHtml(LISTING_URL);
   const entries = parseRsbjListing(html);
   console.log(`  ✓ ${entries.length} vignettes found`);
   if (entries.length > 0) console.log(`  📄 Fetching detail pages for rich descriptions...`);

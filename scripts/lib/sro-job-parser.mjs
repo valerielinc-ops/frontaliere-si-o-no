@@ -34,7 +34,7 @@
 import { sourcePostingDateFields } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
-import { fetchHtml, slugify, stripHtml, normalizeSpace } from './crawler-template.mjs';
+import { fetchHtml as fetchHtmlResilient, slugify, stripHtml, normalizeSpace } from './crawler-template.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
 import { dropRepostedListings, selectProspectiveDetailDescription } from './prospective-ch-job-parser-common.mjs';
 import { extractJobPostingNodesFromJson } from './jobposting-jsonld.mjs';
@@ -144,11 +144,11 @@ function pensumFromTitle(title = '') {
 
 /* ── HTTP ─────────────────────────────────────────────────── */
 
-function fetchOptions() {
-  return {
+async function fetchHtml(url) {
+  return fetchHtmlResilient(url, {
     timeoutMs: Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20000,
     headers: { Accept: 'text/html,application/xhtml+xml', 'User-Agent': USER_AGENT },
-  };
+  });
 }
 
 /* ── Listing parser ───────────────────────────────────────── */
@@ -216,7 +216,7 @@ export async function fetchAllSroJobs() {
   console.log(`   Listing:    ${LISTING_URL}`);
   console.log(`   Detail src: ${PROSPECTIVE_JOB_PREFIX}{UUID}\n`);
 
-  const listingHtml = await fetchHtml(LISTING_URL, fetchOptions());
+  const listingHtml = await fetchHtml(LISTING_URL);
   const tiles = parseSroListing(listingHtml);
   console.log(`  ✓ ${tiles.length} job tiles parsed from SRO listing`);
   if (!tiles.length) return [];
@@ -229,7 +229,7 @@ export async function fetchAllSroJobs() {
     const detailUrl = `${PROSPECTIVE_JOB_PREFIX}${tile.uuid}`;
     let detailHtml = '';
     try {
-      detailHtml = await fetchHtml(detailUrl, fetchOptions());
+      detailHtml = await fetchHtml(detailUrl);
     } catch (err) {
       console.warn(`  ⚠️ detail fetch failed for ${tile.uuid}: ${err?.message || err}`);
     }

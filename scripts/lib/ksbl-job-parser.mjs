@@ -38,7 +38,7 @@ import { sourcePostingDateFields } from './source-posting-date.mjs';
 import { extractJobPostingField } from './jobposting-jsonld.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
-import { fetchHtml, slugify } from './crawler-template.mjs';
+import { fetchHtml as fetchHtmlResilient, slugify } from './crawler-template.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
 
 export const KSBL_KEY = 'ksbl';
@@ -104,11 +104,11 @@ export function isTrustedDomain(rawUrl = '') {
   }
 }
 
-function fetchOptions() {
-  return {
+async function fetchHtml(url) {
+  return fetchHtmlResilient(url, {
     timeoutMs: Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20000,
     headers: { Accept: 'text/html,application/xhtml+xml', 'User-Agent': USER_AGENT },
-  };
+  });
 }
 
 /**
@@ -280,7 +280,7 @@ export async function fetchAllKsblJobs() {
 
   for (let page = 1; page <= MAX_PAGES; page++) {
     const url = `${AJAX_BASE}&page=${page}`;
-    const html = await fetchHtml(url, fetchOptions());
+    const html = await fetchHtml(url);
     const entries = parseKsblPage(html);
     const fresh = entries.filter((e) => !seenUuids.has(e.uuid));
     if (fresh.length === 0) {
@@ -308,7 +308,7 @@ export async function fetchAllKsblJobs() {
     let detailContent = '';
     let postingDates = sourcePostingDateFields('');
     try {
-      const detailHtml = await fetchHtml(e.detailUrl, fetchOptions());
+      const detailHtml = await fetchHtml(e.detailUrl);
       detailContent = extractKsblDetailContent(detailHtml, e);
       postingDates = sourcePostingDateFields(extractJobPostingField(detailHtml, 'datePosted'));
       detailCount++;
