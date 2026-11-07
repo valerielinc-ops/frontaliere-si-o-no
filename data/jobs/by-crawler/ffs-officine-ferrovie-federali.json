@@ -631,7 +631,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-03T21:47:12.472Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 1,
+      "needsRetranslation": true
     },
     {
       "id": "sbb-6eb1004dd0e5",
@@ -5218,7 +5219,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-26T21:47:33.470Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 1,
+      "needsRetranslation": true
     },
     {
       "id": "sbb-267b05aacbe5",
@@ -5320,7 +5322,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-26T21:47:33.979Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 1,
+      "needsRetranslation": true
     },
     {
       "id": "sbb-48fdac3fd924",
