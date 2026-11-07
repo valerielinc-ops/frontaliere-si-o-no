@@ -230,5 +230,5 @@ export async function fetchAllCaisseDesMedecinsChJobs() {
   }
 
   console.log(`\n📋 Total Caisse des médecins jobs discovered: ${jobs.length}`);
-  return copySpecFetchMetadata(jobs, listings);
+  return copySpecFetchMetadata(jobs, listings || []);
 }

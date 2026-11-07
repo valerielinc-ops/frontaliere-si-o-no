@@ -22,6 +22,7 @@ import { fetchAllLemcoPrecisionComJobs } from '../scripts/lib/lemco-precision-co
 import { fetchAllLipsuisseChJobs } from '../scripts/lib/lipsuisse-ch-job-parser.mjs';
 import { fetchAllMountainsChJobs } from '../scripts/lib/mountains-ch-job-parser.mjs';
 import { fetchAllSkanComJobs } from '../scripts/lib/skan-com-job-parser.mjs';
+import { fetchAllUnidistanceChJobs } from '../scripts/lib/unidistance-ch-job-parser.mjs';
 import { fetchAllZindelUnitedSwissJobs } from '../scripts/lib/zindel-united-swiss-job-parser.mjs';
 
 const parsers = [
@@ -39,6 +40,7 @@ const parsers = [
   fetchAllLipsuisseChJobs,
   fetchAllMountainsChJobs,
   fetchAllSkanComJobs,
+  fetchAllUnidistanceChJobs,
   fetchAllZindelUnitedSwissJobs,
 ];
 
@@ -112,5 +114,14 @@ describe('promoted Prospector parser contract', () => {
       expect(empty.fetchOutcome).toBe('filtered_empty');
       expect(empty.discoveredCount).toBe(1);
     }
+  });
+
+  it('drops UniDistance listings with whitespace-only vacancy URLs', async () => {
+    setMockListings([listing('   ')]);
+
+    const jobs = await fetchAllUnidistanceChJobs();
+
+    expect(jobs).toHaveLength(0);
+    expect(jobs.every((job) => job.url && job.applyUrl)).toBe(true);
   });
 });

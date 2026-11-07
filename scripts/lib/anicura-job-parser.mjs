@@ -228,5 +228,5 @@ export async function fetchAllAnicuraJobs() {
   }
 
   console.log(`\n📋 Total anicura jobs discovered: ${jobs.length}`);
-  return copySpecFetchMetadata(jobs, listings);
+  return copySpecFetchMetadata(jobs, listings || []);
 }

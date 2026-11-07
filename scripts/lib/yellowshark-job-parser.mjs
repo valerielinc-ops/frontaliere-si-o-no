@@ -263,5 +263,5 @@ export async function fetchAllYellowsharkJobs() {
   }
 
   console.log(`\n📋 Total yellowshark AG jobs discovered: ${jobs.length}`);
-  return copySpecFetchMetadata(jobs, listings);
+  return copySpecFetchMetadata(jobs, listings || []);
 }

@@ -203,5 +203,5 @@ export async function fetchAllStellentreffJobs() {
   }
 
   console.log(`\n📋 Total Stellentreff AG jobs discovered: ${jobs.length}`);
-  return copySpecFetchMetadata(jobs, listings);
+  return copySpecFetchMetadata(jobs, listings || []);
 }

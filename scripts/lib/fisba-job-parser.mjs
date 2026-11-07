@@ -228,5 +228,5 @@ export async function fetchAllFisbaJobs() {
   }
 
   console.log(`\n📋 Total FISBA AG jobs discovered: ${jobs.length}`);
-  return copySpecFetchMetadata(jobs, listings);
+  return copySpecFetchMetadata(jobs, listings || []);
 }

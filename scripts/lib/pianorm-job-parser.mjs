@@ -234,5 +234,5 @@ export async function fetchAllPianormJobs() {
     .filter(Boolean);
 
   console.log(`\n📋 Total pianorm jobs discovered: ${jobs.length}`);
-  return copySpecFetchMetadata(jobs, listings);
+  return copySpecFetchMetadata(jobs, listings || []);
 }

@@ -230,5 +230,5 @@ export async function fetchAllCdgBeratungenJobs() {
   }
 
   console.log(`\n📋 Total cdg Beratungen AG jobs discovered: ${jobs.length}`);
-  return copySpecFetchMetadata(jobs, listings);
+  return copySpecFetchMetadata(jobs, listings || []);
 }
