@@ -30,7 +30,7 @@ import { realpathSync } from 'node:fs';
  */
 import path from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
-import { mkdirSync, writeFileSync } from 'node:fs';
+import { writeFileSync, mkdirSync } from 'node:fs';
 import { computeRanking, computeTrend, computeFunFacts, computeWeekWindow, computeMovers } from './lib/border-wait-ranking.mjs';
 import { buildBorderWaitRankingArticle } from './lib/border-wait-ranking-content.mjs';
 import {
