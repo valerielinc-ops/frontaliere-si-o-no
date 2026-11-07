@@ -1,7 +1,7 @@
 {
   "key": "elektriker-elektromonteur-jobs-ch",
   "label": "elektriker-elektromonteur-jobs",
-  "generatedAt": "2026-11-06T22:00:17.145Z",
+  "generatedAt": "2026-11-07T09:38:42.093Z",
   "total": 2,
   "discovered": null,
   "parsed": 2,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 6167,
-  "avgDurationMs": 6167,
+  "durationMs": 5939,
+  "avgDurationMs": 5939,
   "durationHistory": [
-    6167
+    5939
   ],
   "newJobs": [
     {
@@ -34,7 +34,7 @@
       "url": "https://www.pks-personal.ch/stellen/berater-in-abacus-80-100-lohn-hr/basel/hrm/d6f62e50",
       "source": "elektriker-elektromonteur-jobs Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T22:00:01.493Z",
+      "crawledAt": "2026-11-07T09:38:30.846Z",
       "addressLocality": "Binningen",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -57,9 +57,9 @@
       "salaryMax": 94000,
       "salarySource": "estimated",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-04T22:00:01.493Z",
+      "validThrough": "2027-02-05T09:38:30.846Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-06T22:00:01.493Z",
+      "firstSeenAt": "2026-11-07T09:38:30.846Z",
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -84,7 +84,7 @@
       "url": "https://www.pks-personal.ch/stellen/hr-professional-60-mit-payroll-erfahrung/basel/hrm/15cad6a3",
       "source": "elektriker-elektromonteur-jobs Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T22:00:01.492Z",
+      "crawledAt": "2026-11-07T09:38:30.845Z",
       "addressLocality": "Binningen",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -107,7 +107,7 @@
       "salaryMax": 56400,
       "salarySource": "estimated",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-02T22:00:01.492Z",
+      "validThrough": "2027-02-03T09:38:30.845Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -118,5 +118,5 @@
       }
     }
   ],
-  "codeCommit": "83864a2067a1cd4cb74a7630816798617e7b37f9"
+  "codeCommit": "dae4367441abe10a497d7d52ebb4540c014e1e8c"
 }
