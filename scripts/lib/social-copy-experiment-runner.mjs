@@ -13,6 +13,7 @@ import {
 } from './social-experiment-protocol.mjs';
 import {
   SOCIAL_COPY_EXPERIMENT_PROTOCOL_VERSION,
+  isGeneratedSocialCopyMode,
   socialCopyExperimentRegistrationId,
   socialCopyExperimentTreatmentFingerprint,
 } from './social-copy-pack.mjs';
@@ -184,6 +185,7 @@ export function listSocialCopyExperimentCohorts(pack) {
         && /^[a-f0-9]{64}$/u.test(treatmentFingerprint)) cohorts.push({
         experimentId: SOCIAL_COPY_EXPERIMENT_ID,
         packId: String(pack.packId || ''),
+        generationProvider: pack.generationProvider || 'codex',
         channel: 'instagram',
         measurementChannel: 'instagram',
         slot,
@@ -203,6 +205,7 @@ export function listSocialCopyExperimentCohorts(pack) {
       && /^[a-f0-9]{64}$/u.test(linkedinFingerprint)) cohorts.push({
       experimentId: SOCIAL_COPY_EXPERIMENT_ID,
       packId: String(pack.packId || ''),
+      generationProvider: pack.generationProvider || 'codex',
       channel: 'linkedin',
       measurementChannel: 'linkedin-member',
       slot,
@@ -222,7 +225,8 @@ function baselineRows(posts, cohort, asOf) {
   return (Array.isArray(posts) ? posts : []).flatMap((row) => {
     if (!isRecord(row) || row.channel !== cohort.measurementChannel) return [];
     const copy = copyOf(row);
-    if (String(copy.copyMode || '') !== 'codex'
+    if (!isGeneratedSocialCopyMode(copy.copyMode)
+      || String(copy.copyMode || '') !== String(cohort.generationProvider || 'codex')
       || String(copy.copySlot || '') !== cohort.slot
       || String(copy.copyPackId || '') === ''
       || String(copy.copyTemplateId || '') === ''

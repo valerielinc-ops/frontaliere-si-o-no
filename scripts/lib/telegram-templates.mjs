@@ -24,7 +24,7 @@ import {
   TELEGRAM_CAMPAIGN_JOBS,
   TELEGRAM_CAMPAIGN_PREFERRED_SOURCE,
 } from './telegram-links.mjs';
-import { socialCopyTrackingContent } from './social-copy-pack.mjs';
+import { isGeneratedSocialCopyMode, socialCopyTrackingContent } from './social-copy-pack.mjs';
 
 // Deep link al pannello "Fonti preferite" di Google, dominio canonico senza
 // `www` in `q` (AGENTS.md -> Architecture). Gemello di PREFERRED_SOURCE_URL in
@@ -94,7 +94,7 @@ export function buildDailyJobsDigest(jobs, { limit = DEFAULT_JOBS_LIMIT, dateLab
   }
 
   const header = `💼 <b>Offerte di lavoro in Ticino${dateLabel ? ` — ${escapeHtml(dateLabel)}` : ''}</b>`;
-  const generatedCopy = socialCopy?.copyMode === 'codex' ? socialCopy : null;
+  const generatedCopy = isGeneratedSocialCopyMode(socialCopy?.copyMode) ? socialCopy : null;
   const entries = usable.map((job, i) => jobEntry(job, i, generatedCopy));
   const ctaUrl = telegramUrl(
     JOB_BOARD_HUB_URL,
