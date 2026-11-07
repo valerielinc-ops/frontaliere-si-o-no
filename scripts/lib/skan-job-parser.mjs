@@ -224,5 +224,5 @@ export async function fetchAllSkanJobs() {
   }
 
   console.log(`\n📋 Total Skan AG jobs discovered: ${jobs.length}`);
-  return copySpecFetchMetadata(jobs, listings);
+  return copySpecFetchMetadata(jobs, listings || []);
 }

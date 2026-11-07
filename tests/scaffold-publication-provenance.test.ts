@@ -5,7 +5,12 @@ import { createHash } from 'node:crypto';
 import { describe, expect, it, vi } from 'vitest';
 import { normalizeGreenhouseJob } from '../scripts/lib/ats-clients/greenhouse-client.mjs';
 import { normalizeLeverJob } from '../scripts/lib/ats-clients/lever-client.mjs';
+import { canonicalizeJobUrl } from '../scripts/lib/dedicated-crawler-common.mjs';
 import { constPrefix, pascalIdentifier } from '../scripts/lib/crawler-identifier.mjs';
+import {
+  resolveSourceBackedSwissGeography,
+  sourceBackedSwissJobAddressFields,
+} from '../scripts/lib/prospector/location-evidence.mjs';
 import { mergeSourcePostingDates, sourcePostingDateFields } from '../scripts/lib/source-posting-date.mjs';
 
 const { politeFetch } = vi.hoisted(() => ({ politeFetch: vi.fn() }));
@@ -41,7 +46,7 @@ async function generatedJobs(tier: string, input: Record<string, unknown>) {
   const listing = { title: 'Software Engineer', location: 'Lugano', applyUrl: 'https://fixtureemployer.ch/job/1/', url: 'https://fixtureemployer.ch/job/1/', descriptionHtml: description, description, ...input };
   const code = stripImports(generatedParser(tier)).replace(/^export\s+/gm, '');
   const context = {
-    console: { log: () => {}, warn: () => {}, error: () => {} }, URL, createHash,
+    console: { log: () => {}, warn: () => {}, error: () => {} }, URL, createHash, canonicalizeJobUrl,
     mergeSourcePostingDates, detectLang: () => 'en', slugify: (value: string) => value.toLowerCase().replace(/\W+/g, '-'),
     stripHtml: (value: string) => value.replace(/<[^>]*>/g, ''), inferSwissTargetCanton: () => 'TI',
     fetchGreenhouseJobs: async () => [listing], extractGreenhouseBoardToken: () => 'fixture',
@@ -49,7 +54,7 @@ async function generatedJobs(tier: string, input: Record<string, unknown>) {
     detectSuccessFactorsKind: () => 'html-career', SuccessFactorsAuthError: Error,
     fetchSuccessFactorsJobs: async function* () { yield listing; },
     copySpecFetchMetadata, loadSpec: () => ({}), runSpecInProduction: async () => [listing],
-    resolveSourceBackedSwissGeography: () => ({ location: 'Lugano', canton: 'TI' }),
+    resolveSourceBackedSwissGeography, sourceBackedSwissJobAddressFields,
   };
   return await vm.runInNewContext(`${code}\nfetchAllFixtureEmployerJobs()`, context) as Array<Record<string, unknown>>;
 }
@@ -66,6 +71,51 @@ describe('generated crawler publication provenance', () => {
   });
   it('does not invent a SuccessFactors description to emit a job', async () => {
     expect(await generatedJobs('successfactors', { ...sourcePostingDateFields(day), descriptionHtml: '' })).toEqual([]);
+  });
+  it('prospected parsers preserve source address fields and canonicalize vacancy identity URLs', async () => {
+    const common = {
+      title: 'Role',
+      location: 'Lugano',
+      postalCode: '6900',
+      streetAddress: 'Via 1',
+      description: 'text',
+    };
+    const [first] = await generatedJobs('prospected', {
+      ...common,
+      url: 'https://example.test/job?utm_source=a',
+    });
+    const [second] = await generatedJobs('prospected', {
+      ...common,
+      url: 'https://example.test/job?utm_source=b',
+    });
+    const [differentVacancy] = await generatedJobs('prospected', {
+      ...common,
+      url: 'https://example.test/job?vacancy=2&utm_source=a',
+    });
+
+    expect(first).toMatchObject({
+      postalCode: '6900',
+      streetAddress: 'Via 1',
+      url: 'https://example.test/job',
+      applyUrl: 'https://example.test/job',
+    });
+    expect(second.url).toBe(first.url);
+    expect(second.id).toBe(first.id);
+    expect(first.id).toMatch(/-[0-9a-f]{12}$/);
+    expect(differentVacancy.url).toBe('https://example.test/job?vacancy=2');
+    expect(differentVacancy.id).not.toBe(first.id);
+  });
+  it('prospected parsers drop listings with whitespace-only vacancy URLs', async () => {
+    const jobs = await generatedJobs('prospected', {
+      title: 'Role',
+      location: 'Lugano',
+      postalCode: '6900',
+      streetAddress: 'Via 1',
+      description: 'text',
+      url: '   ',
+    });
+
+    expect(jobs).toEqual([]);
   });
   it('preserves real Greenhouse first_published through normalization and generated output', async () => {
     const normalized = normalizeGreenhouseJob({ id: 1, title: 'Software Engineer', location: { name: 'Lugano' }, absolute_url: 'https://fixtureemployer.ch/job/1/', content: description.repeat(4), first_published: day }, { includeContent: true });

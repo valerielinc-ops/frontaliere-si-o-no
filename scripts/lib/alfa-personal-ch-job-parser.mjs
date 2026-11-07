@@ -230,5 +230,5 @@ export async function fetchAllAlfaPersonalChJobs() {
   }
 
   console.log(`\n📋 Total Alfa Personal GmbH jobs discovered: ${jobs.length}`);
-  return copySpecFetchMetadata(jobs, listings);
+  return copySpecFetchMetadata(jobs, listings || []);
 }

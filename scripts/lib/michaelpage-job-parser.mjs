@@ -213,5 +213,5 @@ export async function fetchAllMichaelpageJobs() {
   }
 
   console.log(`\n📋 Total Michael Page jobs discovered: ${jobs.length}`);
-  return copySpecFetchMetadata(jobs, listings);
+  return copySpecFetchMetadata(jobs, listings || []);
 }

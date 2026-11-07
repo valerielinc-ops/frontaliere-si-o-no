@@ -216,5 +216,5 @@ export async function fetchAllBuerstenTechnikJobs() {
   }
 
   console.log(`\n📋 Total buersten-technik jobs discovered: ${jobs.length}`);
-  return copySpecFetchMetadata(hardenJobsWithStructuredSalary(jobs).jobs, listings);
+  return copySpecFetchMetadata(hardenJobsWithStructuredSalary(jobs).jobs, listings || []);
 }

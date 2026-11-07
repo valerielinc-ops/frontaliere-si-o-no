@@ -228,5 +228,5 @@ export async function fetchAllServicekuhnChJobs() {
   }
 
   console.log(`\n📋 Total servicekuhn jobs discovered: ${jobs.length}`);
-  return copySpecFetchMetadata(jobs, listings);
+  return copySpecFetchMetadata(jobs, listings || []);
 }

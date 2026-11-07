@@ -225,5 +225,5 @@ export async function fetchAllSintioChJobs() {
   }
 
   console.log(`\n📋 Total Sintio jobs discovered: ${jobs.length}`);
-  return copySpecFetchMetadata(jobs, listings);
+  return copySpecFetchMetadata(jobs, listings || []);
 }

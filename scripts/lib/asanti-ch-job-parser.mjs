@@ -230,5 +230,5 @@ export async function fetchAllAsantiChJobs() {
   }
 
   console.log(`\n📋 Total Asanti AG jobs discovered: ${jobs.length}`);
-  return copySpecFetchMetadata(jobs, listings);
+  return copySpecFetchMetadata(jobs, listings || []);
 }

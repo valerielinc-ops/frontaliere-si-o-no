@@ -225,5 +225,5 @@ export async function fetchAllBodmerfischerChJobs() {
   }
 
   console.log(`\n📋 Total BodmerFischer AG – Rechtsanwälte jobs discovered: ${jobs.length}`);
-  return copySpecFetchMetadata(jobs, listings);
+  return copySpecFetchMetadata(jobs, listings || []);
 }

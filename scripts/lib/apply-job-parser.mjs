@@ -216,5 +216,5 @@ export async function fetchAllApplyJobs() {
   }
 
   console.log(`\n📋 Total LEITpuls AG jobs discovered: ${jobs.length}`);
-  return copySpecFetchMetadata(jobs, listings);
+  return copySpecFetchMetadata(jobs, listings || []);
 }

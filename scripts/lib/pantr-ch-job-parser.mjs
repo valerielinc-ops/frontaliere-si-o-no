@@ -233,5 +233,5 @@ export async function fetchAllPantrChJobs() {
   console.log(`  📋 Listings found: ${listings.length}`);
   const jobs = listings.map(buildPantrChJobFromListing).filter(Boolean);
   console.log(`\n📋 Total Pantr GmbH jobs discovered: ${jobs.length}`);
-  return copySpecFetchMetadata(jobs, listings);
+  return copySpecFetchMetadata(jobs, listings || []);
 }

@@ -225,5 +225,5 @@ export async function fetchAllAvantgartenChJobs() {
   }
 
   console.log(`\n📋 Total AvantGarten jobs discovered: ${jobs.length}`);
-  return copySpecFetchMetadata(jobs, listings);
+  return copySpecFetchMetadata(jobs, listings || []);
 }

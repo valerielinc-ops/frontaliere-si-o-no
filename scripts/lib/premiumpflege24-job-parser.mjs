@@ -359,5 +359,5 @@ export async function fetchAllPremiumpflege24Jobs() {
   }
 
   console.log(`\n📋 Total PremiumPflege24 GmbH jobs discovered: ${jobs.length}`);
-  return copySpecFetchMetadata(hardenJobsWithStructuredSalary(jobs).jobs, listings);
+  return copySpecFetchMetadata(hardenJobsWithStructuredSalary(jobs).jobs, listings || []);
 }

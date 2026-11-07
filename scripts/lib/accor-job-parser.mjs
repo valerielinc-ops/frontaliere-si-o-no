@@ -398,5 +398,5 @@ export async function fetchAllAccorJobs(runtime = {}) {
   }
 
   console.log(`\n📋 Total Ibis Budget jobs discovered: ${jobs.length}`);
-  return copySpecFetchMetadata(jobs, listings);
+  return copySpecFetchMetadata(jobs, listings || []);
 }

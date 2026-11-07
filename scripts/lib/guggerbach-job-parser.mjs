@@ -209,5 +209,5 @@ export async function fetchAllGuggerbachJobs() {
   }
 
   console.log(`\n📋 Total Bistro Guggerzyt jobs discovered: ${jobs.length}`);
-  return copySpecFetchMetadata(jobs, listings);
+  return copySpecFetchMetadata(jobs, listings || []);
 }

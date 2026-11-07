@@ -231,5 +231,5 @@ export async function fetchAllNeoproconseilsJobs() {
     .filter(Boolean);
 
   console.log(`\n📋 Total NEO Pro conseils SA jobs discovered: ${jobs.length}`);
-  return copySpecFetchMetadata(jobs, listings);
+  return copySpecFetchMetadata(jobs, listings || []);
 }
