@@ -207,14 +207,18 @@ jobs:
           fi
           echo "Contratto dispatch corpus: $origin_contract"
           echo "Dispatch generate-article.yml → nanakokyobashi-rgb/frontaliere-articles (url=stats-bfs://${NEW_QUARTER})"
+          # GitHub can return a transient 5xx after the receiver contract was
+          # read successfully. Keep the retry policy shared with ASTRA; 4xx,
+          # timeouts and unclassified failures remain visible immediately.
+          source scripts/lib/github-workflow-dispatch-with-retry.sh
           dispatch_corpus_article() {
             if [ "$origin_contract" = "supported" ]; then
-              GH_TOKEN="$GITHUB_PAT_NANAKO" gh workflow run generate-article.yml \
-                --repo nanakokyobashi-rgb/frontaliere-articles \
+              dispatch_workflow_with_retry generate-article.yml \
+                nanakokyobashi-rgb/frontaliere-articles \
                 -f dispatch_origin=editorial_signal "$@"
             else
-              GH_TOKEN="$GITHUB_PAT_NANAKO" gh workflow run generate-article.yml \
-                --repo nanakokyobashi-rgb/frontaliere-articles "$@"
+              dispatch_workflow_with_retry generate-article.yml \
+                nanakokyobashi-rgb/frontaliere-articles "$@"
             fi
           }
           dispatch_corpus_article -f url="stats-bfs://${NEW_QUARTER}" -f section=frontaliere

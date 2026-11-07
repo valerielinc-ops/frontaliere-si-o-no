@@ -142,14 +142,15 @@ jobs:
             echo "GITHUB_PAT_NANAKO non presente nell'ambiente Remote Config."
             exit 1
           fi
+          source scripts/lib/github-workflow-dispatch-with-retry.sh
           dispatch_article() {
             if [ "${DISPATCH_ORIGIN_SUPPORTED:-false}" = "true" ]; then
-              GH_TOKEN="$GITHUB_PAT_NANAKO" gh workflow run generate-article.yml \
-                --repo nanakokyobashi-rgb/frontaliere-articles \
+              dispatch_workflow_with_retry generate-article.yml \
+                nanakokyobashi-rgb/frontaliere-articles \
                 -f dispatch_origin=editorial_signal "$@"
             else
-              GH_TOKEN="$GITHUB_PAT_NANAKO" gh workflow run generate-article.yml \
-                --repo nanakokyobashi-rgb/frontaliere-articles "$@"
+              dispatch_workflow_with_retry generate-article.yml \
+                nanakokyobashi-rgb/frontaliere-articles "$@"
             fi
           }
           failed=0
@@ -176,14 +177,15 @@ jobs:
             echo "GITHUB_PAT_NANAKO non presente nell'ambiente Remote Config."
             exit 1
           fi
+          source scripts/lib/github-workflow-dispatch-with-retry.sh
           dispatch_article() {
             if [ "${DISPATCH_ORIGIN_SUPPORTED:-false}" = "true" ]; then
-              GH_TOKEN="$GITHUB_PAT_NANAKO" gh workflow run generate-article.yml \
-                --repo nanakokyobashi-rgb/frontaliere-articles \
+              dispatch_workflow_with_retry generate-article.yml \
+                nanakokyobashi-rgb/frontaliere-articles \
                 -f dispatch_origin=editorial_signal "$@"
             else
-              GH_TOKEN="$GITHUB_PAT_NANAKO" gh workflow run generate-article.yml \
-                --repo nanakokyobashi-rgb/frontaliere-articles "$@"
+              dispatch_workflow_with_retry generate-article.yml \
+                nanakokyobashi-rgb/frontaliere-articles "$@"
             fi
           }
           failed=0
@@ -210,14 +212,15 @@ jobs:
             echo "GITHUB_PAT_NANAKO non presente nell'ambiente Remote Config."
             exit 1
           fi
+          source scripts/lib/github-workflow-dispatch-with-retry.sh
           dispatch_article() {
             if [ "${DISPATCH_ORIGIN_SUPPORTED:-false}" = "true" ]; then
-              GH_TOKEN="$GITHUB_PAT_NANAKO" gh workflow run generate-article.yml \
-                --repo nanakokyobashi-rgb/frontaliere-articles \
+              dispatch_workflow_with_retry generate-article.yml \
+                nanakokyobashi-rgb/frontaliere-articles \
                 -f dispatch_origin=editorial_signal "$@"
             else
-              GH_TOKEN="$GITHUB_PAT_NANAKO" gh workflow run generate-article.yml \
-                --repo nanakokyobashi-rgb/frontaliere-articles "$@"
+              dispatch_workflow_with_retry generate-article.yml \
+                nanakokyobashi-rgb/frontaliere-articles "$@"
             fi
           }
           failed=0
