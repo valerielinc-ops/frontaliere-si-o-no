@@ -75,11 +75,18 @@ import {
   REDFLAG_IMPORTANT_RE,
   REVIEW_WORKFLOW_DRIFT_FILES,
   formatSquashCommitSubject,
-  isReviewerBot,
 } from './lib/constants.mjs';
 import {
   latestCompletedVitestRun,
 } from './lib/vitestCheck.mjs';
+import {
+  isTerminalManagedReview,
+  parseReviewPages,
+} from './lib/pr-review-admission.mjs';
+import {
+  acceptedReviewInputRevisionsFromBody,
+  reviewHasInputRevision,
+} from './lib/review-input-revision.mjs';
 import { fetchPrFiles } from './lib/fetchPrFiles.mjs';
 import { classifyAutomationRisk } from './lib/automation-risk-policy.mjs';
 import { checkClosesLines } from '../lib/pr-body-closes-check.mjs';
@@ -308,6 +315,53 @@ export function reviewCommitMatchesHead(reviewCommit, head) {
 }
 
 /**
+ * Fence a managed review to the complete input consumed by the reviewer.
+ *
+ * The old evaluator checked only the review's commit id. A PR-body edit keeps
+ * the same HEAD, so that check could accept an LGTM which was emitted for an
+ * earlier body. The native gate already uses the same accepted body-revision
+ * schemas; the legacy evaluator must apply that fence before its merge path as
+ * well. `isTerminalManagedReview` is the shared identity/state oracle, so a
+ * human review or an unknown bot cannot enter this path by shape alone.
+ *
+ * The options form is the canonical call shape. The positional form remains
+ * accepted for small pure callers and keeps this helper easy to exercise.
+ */
+export function isManagedReview(review, headOrOptions, reviewRevision) {
+  const options = headOrOptions && typeof headOrOptions === 'object'
+    ? headOrOptions
+    : { head: headOrOptions, reviewRevision };
+  const head = options.head;
+  const revision = options.reviewRevision;
+  if (!isTerminalManagedReview(review)) return false;
+  if (!reviewCommitMatchesHead(review?.commit_id, head)) return false;
+  try {
+    return reviewHasInputRevision(review?.body, revision);
+  } catch {
+    return false;
+  }
+}
+
+/**
+ * Site adapter for the required CI verdict.
+ *
+ * The corpus twin has a path-conditional `generator-ci` check. This repository
+ * has no `generator/` surface or `generator-ci` job: its required, complete
+ * check is `VITEST_CHECK_NAME` for every PR. Keep the same fail-closed shape:
+ * a missing, stale, pending or non-success site check never authorizes a
+ * merge, and no corpus-only check is invented here.
+ */
+export function siteRequiredCheckVerdict(checkRuns, head) {
+  const selected = latestCompletedVitestRun(checkRuns);
+  const conclusion = selected?.head_sha === head ? selected?.conclusion || '' : '';
+  return {
+    allow: conclusion === 'success',
+    conclusion,
+    run: selected || null,
+  };
+}
+
+/**
  * True se l'autore della PR è fidato per il drift-fallback (merge senza review
  * Claude): l'owner/membro/collaboratore del repo, oppure uno dei bot di
  * automazione interni (claude[bot], github-actions[bot], frontaliere-automation
@@ -524,11 +578,33 @@ function main() {
   } catch (e) {
     return fail(`Impossibile leggere reviews PR #${PR}: ${String(e).slice(0, 160)} — skip.`);
   }
-  const botReviews = (reviews || []).filter(
-    (r) => isReviewerBot(r.user)
-  );
-  const lastBot = findTestOnlyApproval(reviews, head, { ghFn: gh, repo: REPO, pr: PR })
-    || (botReviews.length ? botReviews[botReviews.length - 1] : null);
+  const parsedReviews = parseReviewPages(reviews);
+  if (!parsedReviews) {
+    return fail(`Reviews PR #${PR} non verificabili (JSON/pagine/entry malformate) — skip fail-closed.`);
+  }
+  let reviewRevision;
+  try {
+    // Il consumer gira da main mentre il review producer gira dal branch della
+    // PR: verifica tutte le serializzazioni ancora accettate, come il native
+    // gate, così un cambio di schema non rende il fence cieco alle review in
+    // volo senza mai accettare un digest di un body diverso.
+    reviewRevision = acceptedReviewInputRevisionsFromBody(pr.body);
+  } catch (e) {
+    return fail(`Body PR #${PR} non verificabile per il fence review (${String(e).slice(0, 160)}) — skip fail-closed.`);
+  }
+  const testOnlyApproval = findTestOnlyApproval(parsedReviews, head, {
+    ghFn: gh,
+    repo: REPO,
+    pr: PR,
+    reviewRevision,
+  });
+  const managedReviews = parsedReviews.filter((review) => isManagedReview(review, {
+    head,
+    reviewRevision,
+  }));
+  const headManagedReviews = parsedReviews.filter((review) => isTerminalManagedReview(review)
+    && reviewCommitMatchesHead(review?.commit_id, head));
+  const lastBot = testOnlyApproval || managedReviews.at(-1) || null;
   const body = lastBot ? (lastBot.body || '') : '';
   // Un 🔴 Important reale del reviewer BLOCCA sempre, anche su una PR drift (se il
   // 🔴 c'è, il reviewer HA girato e ha trovato qualcosa). Marker tollerante al
@@ -541,12 +617,14 @@ function main() {
   if (lastBot && body.includes('## LGTM')) {
     // Percorso normale: `## LGTM` presente sulla HEAD corrente. Un verdict su
     // un commit precedente è sempre stale: anche un rebase di solo main può
-    // cambiare la risoluzione, i file testati o il contesto del finding.
-    if (!reviewCommitMatchesHead(lastBot.commit_id, head)) {
-      return fail(`Ultima review claude-bot riferita a ${lastBot.commit_id || '<commit_id assente>'} ≠ HEAD ${head} — review stantia o non verificabile; serve una review nuova sulla HEAD corrente.`);
-    } else {
-      console.log('Gate review: ## LGTM presente, nessun 🔴 Important ✔');
+    // cambiare la risoluzione, i file testati o il contesto del finding. Il
+    // fence `isManagedReview` ha già verificato HEAD + body revision; questa
+    // guardia resta esplicita nel punto di consumo per mantenere il fail-closed
+    // se il selettore viene modificato in futuro.
+    if (!isManagedReview(lastBot, { head, reviewRevision })) {
+      return fail(`Review PR #${PR} non riferita alla HEAD ${head} e alla revisione body corrente — review stantia o non verificabile; serve una review nuova.`);
     }
+    console.log('Gate review: ## LGTM presente, HEAD + body revision correnti, nessun 🔴 Important ✔');
   } else {
     // Nessun `## LGTM` utilizzabile E nessun 🔴. Il drift-fallback vale SOLO
     // quando il reviewer NON ha postato ALCUNA review (non ha potuto girare:
@@ -560,6 +638,9 @@ function main() {
     // precedente, prima che la PR aggiungesse la modifica a `pr-review-loop.yml`).
     if (lastBot) {
       return fail(`Esiste una review claude-bot non-approvante (no '## LGTM', no 🔴 — es. ❓/🟡 aperto) — skip; il drift-fallback non scavalca una review esistente, serve un push fresco o risoluzione manuale.`);
+    }
+    if (headManagedReviews.length > 0) {
+      return fail(`Esiste una review sulla HEAD ${head}, ma nessuna è riferita alla revisione body corrente — skip fail-closed; serve una review nuova sul body corrente.`);
     }
     // Nessuna review affatto, incluso il caso in cui claude-code-action venga
     // saltata per workflow validation: i gate deterministici non sostituiscono
@@ -579,10 +660,7 @@ function main() {
       throw new Error('payload check-runs paginato non verificabile');
     }
     allCheckRuns = pages.flatMap((page) => page.check_runs);
-    const selectedVitest = latestCompletedVitestRun(allCheckRuns);
-    conclusion = selectedVitest?.head_sha === head
-      ? selectedVitest.conclusion || ''
-      : '';
+    conclusion = siteRequiredCheckVerdict(allCheckRuns, head).conclusion;
   } catch (e) {
     return fail(`Impossibile leggere check-runs HEAD ${head}: ${String(e).slice(0, 160)} — skip.`);
   }
