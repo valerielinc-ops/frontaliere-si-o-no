@@ -15,6 +15,7 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import { spawnSync, execFileSync } from 'node:child_process';
+import { pathToFileURL } from 'node:url';
 
 import { listSliceFileNames } from '../lib/crawler-slice-files.mjs';
 import { titleRepairQueueLocales } from '../lib/untranslated-title-repair.mjs';
@@ -306,7 +307,13 @@ async function main() {
   throw new Error('usage: --init | --record --stage <name> -- <command...> | --finalize');
 }
 
-if (import.meta.url === `file://${path.resolve(process.argv[1] || '')}`) {
+if ((() => {
+  try {
+    return import.meta.url === pathToFileURL(fs.realpathSync(process.argv[1])).href;
+  } catch {
+    return false;
+  }
+})()) {
   main().catch((error) => {
     console.error(`❌ translate-pending budget benchmark: ${error.message}`);
     process.exitCode = 1;
