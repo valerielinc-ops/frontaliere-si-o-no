@@ -2,6 +2,7 @@ import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
 import { readFileSync } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { hydrateGhBodyFileArgs } from './helpers/ghBodyFile';
 
 /**
  * Regression tests for the recency gate in scripts/cf-5xx-issue-sync.mjs
@@ -32,7 +33,10 @@ import { fileURLToPath } from 'node:url';
 
 const execFileSync = vi.fn();
 vi.mock('node:child_process', () => {
-  const mock = { execFileSync: (...args: unknown[]) => execFileSync(...args) };
+  const mock = {
+    execFileSync: (cmd: string, args: string[], ...rest: unknown[]) =>
+      execFileSync(cmd, hydrateGhBodyFileArgs(args), ...rest),
+  };
   return { ...mock, default: mock };
 });
 

@@ -1,6 +1,7 @@
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
 import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
+import { hydrateGhBodyFileArgs } from '../helpers/ghBodyFile';
 
 /**
  * Reporter diagnostico dei fallimenti validate-dist (issue #5414, Parte B).
@@ -19,7 +20,10 @@ import { resolve } from 'node:path';
 // ai test di resolveMode; le funzioni pure non toccano child_process.
 const execFileSync = vi.fn();
 vi.mock('node:child_process', () => {
-  const mock = { execFileSync: (...args: unknown[]) => execFileSync(...args) };
+  const mock = {
+    execFileSync: (cmd: string, args: string[], ...rest: unknown[]) =>
+      execFileSync(cmd, hydrateGhBodyFileArgs(args), ...rest),
+  };
   return { ...mock, default: mock };
 });
 

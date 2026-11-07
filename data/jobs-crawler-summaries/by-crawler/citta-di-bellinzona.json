@@ -1,7 +1,7 @@
 {
   "key": "citta-di-bellinzona",
   "label": "Bellinzona",
-  "generatedAt": "2026-11-07T09:21:15.959Z",
+  "generatedAt": "2026-11-07T21:18:34.731Z",
   "total": 6,
   "sourceBodyFailureCount": 1,
   "sourceBodyFailures": [
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 6,
-  "durationMs": 6536,
-  "avgDurationMs": 6536,
+  "durationMs": 7288,
+  "avgDurationMs": 7288,
   "durationHistory": [
-    6536
+    7288
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -52,10 +52,10 @@
       "applyUrl": "https://bellinz.pi-asp.de/bewerber-web/?company=*-FIRMA-ID&tenant=&lang=IS#position,id=76648689-f8a1-4fee-a1dd-7b7214db47c6,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "source": "Bellinzona Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-11-07T09:20:59.310Z",
+      "crawledAt": "2026-11-07T21:18:19.404Z",
       "firstSeenAt": "2026-10-30T09:48:40.338Z",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-28T09:20:59.310Z",
+      "validThrough": "2027-01-28T21:18:19.404Z",
       "validThroughSource": "last-observed-window",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -95,10 +95,10 @@
       "applyUrl": "https://bellinz.pi-asp.de/bewerber-web/?company=*-FIRMA-ID&tenant=&lang=IS#position,id=6e333017-34f2-4666-b96f-b9823f48d74f,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "source": "Bellinzona Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-11-07T09:20:59.082Z",
+      "crawledAt": "2026-11-07T21:18:19.043Z",
       "firstSeenAt": "2026-10-28T09:16:22.746Z",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-26T09:20:59.082Z",
+      "validThrough": "2027-01-26T21:18:19.043Z",
       "validThroughSource": "last-observed-window",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -138,10 +138,10 @@
       "applyUrl": "https://bellinz.pi-asp.de/bewerber-web/?company=*-FIRMA-ID&tenant=&lang=IS#position,id=92523e3b-33f8-479f-bdd2-2483250bc177,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "source": "Bellinzona Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-11-07T09:20:57.866Z",
+      "crawledAt": "2026-11-07T21:18:17.271Z",
       "firstSeenAt": "2026-10-16T09:13:58.210Z",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-14T09:20:57.866Z",
+      "validThrough": "2027-01-14T21:18:17.271Z",
       "validThroughSource": "last-observed-window",
       "salaryMin": 41600,
       "salaryMax": 63000,
@@ -181,10 +181,10 @@
       "applyUrl": "https://bellinz.pi-asp.de/bewerber-web/?company=*-FIRMA-ID&tenant=&lang=IS#position,id=5185f2b9-4a36-4d7f-b778-e9fc8f25b387,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "source": "Bellinzona Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-11-07T09:20:58.100Z",
+      "crawledAt": "2026-11-07T21:18:17.610Z",
       "firstSeenAt": "2026-10-16T09:13:58.418Z",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-14T09:20:58.100Z",
+      "validThrough": "2027-01-14T21:18:17.610Z",
       "validThroughSource": "last-observed-window",
       "salaryMin": 41600,
       "salaryMax": 63000,
@@ -224,10 +224,10 @@
       "applyUrl": "https://bellinz.pi-asp.de/bewerber-web/?company=*-FIRMA-ID&tenant=&lang=IS#position,id=cff3878f-e39c-460e-910b-60cbe704fd30,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "source": "Bellinzona Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-11-07T09:20:57.501Z",
+      "crawledAt": "2026-11-07T21:18:16.916Z",
       "firstSeenAt": "2026-06-29T21:52:24.302Z",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-11T09:20:57.501Z",
+      "validThrough": "2027-01-11T21:18:16.916Z",
       "validThroughSource": "last-observed-window",
       "salaryMin": 68000,
       "salaryMax": 103000,
@@ -275,7 +275,7 @@
       "salaryMin": 49500,
       "salaryMax": 75000,
       "salarySource": "estimated",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -285,5 +285,5 @@
       }
     }
   ],
-  "codeCommit": "dae4367441abe10a497d7d52ebb4540c014e1e8c"
+  "codeCommit": "f149ed523035737e5146c13e7338b8dd6b0c5f04"
 }
