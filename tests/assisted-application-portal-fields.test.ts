@@ -1822,6 +1822,28 @@ describe('portal field extraction', () => {
     expect(page.fields.map((field: any) => `${field.label} (${field.kind})`)).toEqual(['Country* (select)']);
   });
 
+  it('marks an unwrapped Stadt Zürich language button as site chrome', () => {
+    const page = extract(
+      '<main><button type="button">Sprache</button></main>',
+      'https://jobs.stadt-zuerich.ch/job/Application-Manager/1373719857/',
+      { channelType: 'successfactors' },
+    );
+
+    expect(page.fields).toEqual([]);
+    expect(page.buttons).toEqual([expect.objectContaining({ text: 'Sprache', formId: '', chrome: true })]);
+  });
+
+  it('keeps a language-labelled button in an application form candidate-owned', () => {
+    const page = extract(
+      '<main><form><button type="button">Sprache</button></form></main>',
+      'https://jobs.stadt-zuerich.ch/job/Application-Manager/1373719857/',
+      { channelType: 'successfactors' },
+    );
+
+    expect(page.buttons).toEqual([expect.objectContaining({ text: 'Sprache', formId: expect.any(String) })]);
+    expect(page.buttons[0]).not.toHaveProperty('chrome');
+  });
+
   it('keeps a required language-labeled select in site chrome when the label carries the marker', () => {
     const page = extract('<header><form><label for="language">Lingua*</label><select id="language"></select></form></header>');
 

@@ -541,20 +541,31 @@ function nativeQuestionText(value, counter = null) {
     if (form && !isSiteSearchForm(form)) return true;
     return element.matches('button[type="submit"], input[type="submit"]') && !isSiteSearchForm(form);
   };
-  const isSiteChromeControl = (element) => inSiteChrome(element) && !isApplicationOwnedControl(element);
   const SITE_LANGUAGE_LABEL_RE = /^(?:language|lingua|langue|sprache|idioma|sprachauswahl)(?:\s+(?:selector|menu|select))?\s*[:*]?$/i;
   const isSiteLanguageControl = (element) => {
-    const label = clean(labelFor(element));
+    const tag = element.tagName.toLowerCase();
+    const buttonLike = tag === 'button' || element.getAttribute('role') === 'button';
+    const label = clean(labelFor(element) || (buttonLike
+      ? element.innerText || element.textContent || element.getAttribute('aria-label') || element.getAttribute('title')
+      : '')).normalize('NFKC');
+    const nativeLanguageSelect = tag === 'select' && inSiteChrome(element);
+    // Some employer shells render the language menu in the page content
+    // rather than inside a header/nav landmark. An unowned button with an
+    // exact language label is still site chrome; a button in an application
+    // form remains candidate-owned through the form guard below.
+    const ownerlessLanguageButton = buttonLike && !element.closest('form');
     // Native language selectors are sometimes wrapped in a header form. That
     // form makes isApplicationOwnedControl true, although the select remains
     // site chrome rather than an application question. Required controls keep
     // the application-owned precedence even when placed in a header/footer.
-    if (element.tagName.toLowerCase() !== 'select' || !inSiteChrome(element)
+    if ((!nativeLanguageSelect && !ownerlessLanguageButton)
       || !SITE_LANGUAGE_LABEL_RE.test(label)
       || element.required || hasAriaRequired(element) || element.hasAttribute('data-required')
       || hasRequiredMarker(element, label)) return false;
     return true;
   };
+  const isSiteChromeControl = (element) => isSiteLanguageControl(element)
+    || (inSiteChrome(element) && !isApplicationOwnedControl(element));
   const isSiteGlobalSearchField = (element) => {
     if (element.getAttribute('data-uxi-widget-type') === 'selectinput') return false;
     const inSearchLandmark = Boolean(element.closest('[role="search"]'));
