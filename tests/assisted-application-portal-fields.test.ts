@@ -1822,6 +1822,39 @@ describe('portal field extraction', () => {
     expect(page.fields.map((field: any) => `${field.label} (${field.kind})`)).toEqual(['Country* (select)']);
   });
 
+  it('marks an unwrapped Stadt Zürich language button as site chrome', () => {
+    const page = extract(
+      '<main><button type="button">Sprache</button></main>',
+      'https://jobs.stadt-zuerich.ch/job/Application-Manager/1373719857/',
+      { channelType: 'successfactors' },
+    );
+
+    expect(page.fields).toEqual([]);
+    expect(page.buttons).toEqual([expect.objectContaining({ text: 'Sprache', formId: '', chrome: true })]);
+  });
+
+  it('keeps a language-labelled button in an application form candidate-owned', () => {
+    const page = extract(
+      '<main><form><button type="button">Sprache</button></form></main>',
+      'https://jobs.stadt-zuerich.ch/job/Application-Manager/1373719857/',
+      { channelType: 'successfactors' },
+    );
+
+    expect(page.buttons).toEqual([expect.objectContaining({ text: 'Sprache', formId: expect.any(String) })]);
+    expect(page.buttons[0]).not.toHaveProperty('chrome');
+  });
+
+  it('keeps a form-associated language button candidate-owned outside the form subtree', () => {
+    const page = extract(
+      '<form id="application"></form><main><button type="button" form="application">Sprache</button></main>',
+      'https://jobs.stadt-zuerich.ch/job/Application-Manager/1373719857/',
+      { channelType: 'successfactors' },
+    );
+
+    expect(page.buttons).toEqual([expect.objectContaining({ text: 'Sprache', formId: expect.any(String) })]);
+    expect(page.buttons[0]).not.toHaveProperty('chrome');
+  });
+
   it('keeps a required language-labeled select in site chrome when the label carries the marker', () => {
     const page = extract('<header><form><label for="language">Lingua*</label><select id="language"></select></form></header>');
 
@@ -1832,6 +1865,15 @@ describe('portal field extraction', () => {
     const page = extract('<header><form><select aria-label="Lingua" aria-required="TRUE"></select></form></header>');
 
     expect(page.fields).toEqual([expect.objectContaining({ kind: 'select', label: 'Lingua', required: true })]);
+  });
+
+  it.each([
+    ['data-required', '<header><select aria-label="Sprache" data-required></select></header>'],
+    ['an adjacent required marker', '<header><label for="language">Sprache</label><span>*</span><select id="language"></select></header>'],
+  ])('retains a required language select in site chrome without a form (%s)', (_case, html) => {
+    const page = extract(html);
+
+    expect(page.fields).toEqual([expect.objectContaining({ kind: 'select', label: 'Sprache', required: true })]);
   });
 
   // «Select One» was offered to the candidate as a marital status (dry run of 2026-10-07).
