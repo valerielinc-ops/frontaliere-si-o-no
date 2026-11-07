@@ -15,10 +15,10 @@
       "2": 197,
       "3": 0,
       "4": 0,
-      "5": 1103,
+      "5": 1104,
       "6": 5061
     },
-    "publishedCovers": 7846,
+    "publishedCovers": 7847,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 1,
     "inheritedRecordsMaterialized": 197,
@@ -213227,6 +213227,39 @@
         "provider": "openai-codex",
         "assetId": "article-decima-fiera-apprendistati-innerrhoden",
         "imageUrl": "/images/blog/article-decima-fiera-apprendistati-innerrhoden.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-disoccupazione-stabile-ottobre": {
+      "cover": "/images/blog/article-disoccupazione-stabile-ottobre.webp",
+      "hash": "6bb4a258f6cae8b59e0f5573eeccdc51b67427bf78ddb51a1b3fa4f7f66c714b",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "disoccupazione-stabile-ottobre",
+          "category": "pratico",
+          "date": "2026-11-07T15:49:33.061Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-disoccupazione-stabile-ottobre.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1794,
+      "verifiedAt": "2026-11-07",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-disoccupazione-stabile-ottobre",
+        "imageUrl": "/images/blog/article-disoccupazione-stabile-ottobre.webp",
         "evidence": "generated-engine-record"
       }
     },

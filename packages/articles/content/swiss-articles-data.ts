@@ -30235,6 +30235,16 @@ const RAW_SWISS_ARTICLES_CHUNK_12: Article[] = [
     authorSlug: 'laura-bianchi',
     authorName: 'Laura Bianchi',
    },
+   {
+    id: 'disoccupazione-stabile-ottobre',
+    category: 'pratico',
+    date: '2026-11-07T15:49:33.061Z',
+    image: '/images/blog/article-disoccupazione-stabile-ottobre.webp',
+    hasCalculator: true,
+    articleType: 'news',
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 const RAW_SWISS_ARTICLES: Article[] = [

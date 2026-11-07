@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "commit": "90692f8edc9f0b1b5f93e91fb2db0aae08206774",
+  "commit": "8799172f45e3098d4468f5bf003d8862b87b72a7",
   "generated": {
     "/images/blog/139-frontalieri-ticino-special-olympics.webp": {
       "schema": 1,
@@ -48821,6 +48821,49 @@
         "is_photograph": false,
         "is_topic_relevant": true,
         "notes": "Generic synthetic home-office illustration relevant to teleworking and administrative documents; no readable text, logos, people, or specific event."
+      }
+    },
+    "/images/blog/article-disoccupazione-stabile-ottobre.webp": {
+      "schema": 1,
+      "assetId": "article-disoccupazione-stabile-ottobre",
+      "kind": "generated",
+      "provider": "openai-codex",
+      "model": "gpt-image-2.5",
+      "executorModel": "gpt-5.6-luna",
+      "promptVersion": "frontaliereticino.generated-image-policy.v1",
+      "promptHash": "531d292a37ea75fb0ead233c30a489a4189711e1414b32126e0534085d0bb956",
+      "license": "generated-provider",
+      "licenseUrl": "https://openai.com/policies/terms-of-use/",
+      "credit": "frontaliereticino.ch",
+      "sha256": "6bb4a258f6cae8b59e0f5573eeccdc51b67427bf78ddb51a1b3fa4f7f66c714b",
+      "bytes": 192056,
+      "width": 1200,
+      "height": 675,
+      "format": "webp",
+      "generatedAt": "2026-11-07T15:49:14.645Z",
+      "verifiedAt": "2026-11-07T15:49:32.444Z",
+      "restrictions": [
+        "illustrative-only",
+        "no-real-recognizable-foreground-person",
+        "no-public-figure-face",
+        "no-logo-brand-or-text",
+        "no-specific-real-event-photojournalism"
+      ],
+      "scope": "article-hero",
+      "imageUrl": "/images/blog/article-disoccupazione-stabile-ottobre.webp",
+      "area": "Svizzera",
+      "season": "all seasons",
+      "variant": "article hero",
+      "vision": {
+        "ok": true,
+        "contains_text": false,
+        "contains_logo": false,
+        "contains_recognizable_face": false,
+        "contains_recognizable_foreground_person": false,
+        "looks_like_specific_real_event": false,
+        "is_photograph": false,
+        "is_topic_relevant": true,
+        "notes": "Generic synthetic photorealistic Swiss urban illustration with no readable text, logos, recognizable faces, or foreground persons."
       }
     },
     "/images/places/lugano-view.webp": {

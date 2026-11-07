@@ -8693,6 +8693,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.telelavoro-frontaliere-quadro-svizzero.title': 'Télétravail et travailleurs frontaliers : règles suisses',
     'blog.article.telelavoro-frontaliere-quadro-svizzero.excerpt': 'La Suisse organise le prélèvement fiscal sur trois niveaux : impôt fédéral direct, impôt cantonal et impôt communal.',
     'blog.article.telelavoro-frontaliere-quadro-svizzero.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
+    'blog.article.disoccupazione-stabile-ottobre.title': 'Taux de chômage stable à 3 % en octobre',
+    'blog.article.disoccupazione-stabile-ottobre.excerpt': 'Selon les données publiées jeudi par le Secrétariat d’État à l’économie (SECO), le nombre d’inscrits auprès des offices régionaux de placement (ORP) a augmenté de 535 personnes en octobre par rapport à septembre.',
+    'blog.article.disoccupazione-stabile-ottobre.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
 };
 
 export default blogMetaChFr;

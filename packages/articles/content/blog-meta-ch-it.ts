@@ -8693,6 +8693,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.telelavoro-frontaliere-quadro-svizzero.title': 'Telelavoro e lavoratori frontalieri: regole svizzere',
     'blog.article.telelavoro-frontaliere-quadro-svizzero.excerpt': 'La Svizzera organizza il prelievo fiscale su tre livelli: imposta federale diretta, imposta cantonale e imposta comunale.',
     'blog.article.telelavoro-frontaliere-quadro-svizzero.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
+    'blog.article.disoccupazione-stabile-ottobre.title': 'Tasso di disoccupazione stabile al 3% in ottobre',
+    'blog.article.disoccupazione-stabile-ottobre.excerpt': 'Secondo i dati diffusi giovedì dalla Segreteria di Stato per l’economia (SECO), in ottobre gli iscritti agli Uffici regionali di collocamento (URC) sono aumentati di 535 persone rispetto a settembre.',
+    'blog.article.disoccupazione-stabile-ottobre.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
 };
 
 export default blogMetaChIt;

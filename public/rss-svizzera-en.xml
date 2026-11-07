@@ -9,7 +9,7 @@
     <link>https://frontaliereticino.ch</link>
     <description>News and guides about Switzerland: economy, work, taxes and daily life</description>
     <language>en</language>
-    <lastBuildDate>Sat, 07 Nov 2026 15:02:30 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 07 Nov 2026 15:49:33 GMT</lastBuildDate>
     <image>
       <url>https://frontaliereticino.ch/icons/icon-512x512.png</url>
       <title>Frontaliere Ticino — Switzerland</title>
@@ -17,6 +17,70 @@
     </image>
     <atom:link href="https://frontaliereticino.ch/rss-svizzera-en.xml" rel="self" type="application/rss+xml"/>
     <atom:link rel="hub" href="https://pubsubhubbub.appspot.com/"/>
+    <item>
+      <title>Unemployment rate steady at 3% in October</title>
+      <link>https://frontaliereticino.ch/en/swiss-articles/stable-unemployment-october/</link>
+      <description><![CDATA[According to data released on Thursday by the State Secretariat for Economic Affairs (SECO), the number of people registered with the Regional]]></description>
+      <content:encoded><![CDATA[## TL;DR
+- URC registrations at 141’015: up 0,4% in October
+- Unemployment rate steady at 3%
+- Young people: 679 fewer unemployed people, rate at 3,2%
+- Vacancies at 40’462, down 8,5%
+
+## Key facts
+| Term | Value |
+| --- | --- |
+| Period | October |
+| Registered with the RCOs | 141’015; +0,4%, equal to 535 people |
+| Unemployment rate | 3% |
+| Seasonally adjusted rate | 3,1% |
+| Unemployed young people | -679; -4,7%; rate at 3,2% |
+| People seeking work | 230’001; rate at 4,9% |
+| Vacancies | 40’462; -8,5% |
+| Short-time work | 7’068 people in July |
+
+### The October figure
+According to data released on Thursday by the State Secretariat for Economic Affairs (SECO), in October the number of people registered with the Regional Employment Centres (RCOs) increased by 535 compared with September. The increase is 0,4%, bringing the total to 141’015. The month-on-month comparison therefore shows a limited change, not a jump in the number of people reported as unemployed.
+
+The unemployment rate remained at 3% compared with September. Alongside the ordinary rate, the statement also gives the percentage calculated excluding seasonal effects: in October, both remained unchanged from September, but the second figure was 3,1%.
+
+The breakdown by age, however, shows a different movement. The number of unemployed young people fell by 679, or 4,7%, and their rate declined by 0,1 percentage points, to 3,2%. Among older people, by contrast, the number registered with the RCOs increased by 239, or 0,6%, to 38’721. The corresponding rate rose from 2,6% in September to 2,7%.
+
+The overall figure therefore does not represent a uniform movement among the groups observed: the younger component declined, the older component increased, while the general rate remained unchanged. SECO’s communication describes these changes but does not attribute a cause to them. The comparison with September should therefore be read separately for the total, the seasonally adjusted figure and the age groups.
+## Three indicators, three readings
+The number of people registered with the URC does not automatically coincide with the number of people looking for work or with the number of vacancies: the release presents them as distinct measures. This separation is useful for interpreting October without attributing the entire trend in the labor market to the 3% rate alone.
+
+### The figures are not interchangeable
+| Indicator | October | Comparison with the previous month |
+| --- | --- | --- |
+| People registered with the URC | 141’015 | +535 people; +0,4% compared with September |
+| People looking for work | 230’001 | increase of 1,1%; rate at 4,9%, up from 4,8% |
+| Vacancies | 40’462 | decrease of 8,5% |
+
+The picture that emerges from the table is misaligned: URC registrations increase slightly, the number of people looking for work rises by 1,1%, while vacancies decrease by 8,5%. The rate associated with people looking for work rises from 4,8% to 4,9%, so it does not follow the stability of the unemployment rate. The source does not present these changes as causing one another and does not make it possible to infer an automatic effect on the number of hires.
+
+A purely arithmetic comparison helps measure the distance between the figures: for October, 230’001 ÷ 40’462 is approximately 5,7. It is only a descriptive ratio, not a placement rate. The text does not state that every person looking for work is a candidate for every position, nor that the two series have the same composition.
+
+Of the 40’462 vacancies, 25’803 fall under the reporting requirement, introduced in 2018 for sectors with high unemployment. The figure adds detail about the composition of job openings, but does not indicate which occupations or which geographic areas are involved.
+## Other signals, but for different periods
+The data on short-time work and the exhaustion of entitlement to unemployment benefits supplement the release, but do not pertain to the same month as the main figure. Short-time work refers to July, while the exhaustion of entitlement refers to August; the unemployment rate and those registered with the URCs, on the other hand, concern October.
+
+### July and August
+In July, short-time work affected 7’068 people: 1’295 fewer than in the previous month. The number of sectors affected by reduced working hours fell by more than a quarter, to 473. These are two different measures: one counts the people involved, while the other counts the sectors in which the reduction was recorded.
+
+In August, 2’718 people exhausted their entitlement to unemployment benefits, 9,5% fewer than in July. The comparison is therefore between August and July, while the comparison of those registered with the URCs is between October and September. Mixing these time bases would produce a single reading that the source does not present.
+
+The reported content does not indicate the causes of the changes, does not make forecasts for the following months, and does not offer a breakdown by regions, professions, or individual sectors. It therefore does not document a causal link between the reduction in working hours in July, the exhaustion of benefits in August, and the unemployment rate in October. SECO provides a series of indicators to be read separately, with their respective reference period.
+
+For a separate search for professional opportunities: job listings.
+
+*Source: [rsi.ch](https://www.rsi.ch/s/4218526)*]]></content:encoded>
+      <pubDate>Sat, 07 Nov 2026 15:49:33 GMT</pubDate>
+      <dc:creator><![CDATA[Redazione Frontaliere Ticino]]></dc:creator>
+      <guid isPermaLink="false">https://frontaliereticino.ch/en/swiss-articles/disoccupazione-stabile-ottobre</guid>
+      <category>Notizie</category>
+      <media:content url="https://cdn.frontaliereticino.ch/images/blog/article-disoccupazione-stabile-ottobre.webp" medium="image"/>
+    </item>
     <item>
       <title>Teleworking and cross-border workers: Swiss rules</title>
       <link>https://frontaliereticino.ch/en/swiss-articles/cross-border-workers-teleworking-swiss-rules/</link>
@@ -3322,70 +3386,6 @@ The verifiable picture thus remains limited: Switzerland has authorized for the 
       <guid isPermaLink="false">https://frontaliereticino.ch/en/swiss-articles/finma-etf-bitcoin-primo-fondo</guid>
       <category>Notizie</category>
       <media:content url="https://cdn.frontaliereticino.ch/images/blog/article-finma-etf-bitcoin-primo-fondo.webp" medium="image"/>
-    </item>
-    <item>
-      <title>Workplace harassment in SMEs: the data and the KMU konkret+ project</title>
-      <link>https://frontaliereticino.ch/en/swiss-articles/workplace-harassment-swiss-smes/</link>
-      <description><![CDATA[Since COVID, reports in Swiss SMEs have increased.]]></description>
-      <content:encoded><![CDATA[## TL;DR
-- Since COVID-19, reports in Swiss SMEs have increased.
-- 44% of women report harassment at work.
-- The harasser often holds a position of power.
-- Eight services are launching the KMU konkret+ project.
-
-## Key facts
-- Period → since COVID-19
-- Women affected → 44% at least once during their careers
-- Men affected → 17% at least once during their careers
-- Companies most at risk → small and medium-sized enterprises
-- People most at risk → apprentices, new hires and workers in insecure employment
-- Project → KMU konkret+
-- Target audience → companies with up to 250 employees
-
-On October 20, 2026, the source reported a sharp increase in sexual harassment at work in small and medium-sized enterprises following the pandemic and with the return to the office. The observation comes from the equal opportunities offices of German-speaking Switzerland and is also reported by the Berner Zeitung.
-
-Yet the phenomenon is more widespread than one might imagine: according to a study by the State Secretariat for Economic Affairs (Seco), 44% of women and 17% of men have experienced sexual harassment at work at least once during their careers. Moreover, one employee in five would like their company to do more.
-
-### A problem related to power relations
-
-> “Harassment is still too often passed off as a flirt that went wrong or a distasteful compliment.”
-
-Voloder observes that it is not only the harasser’s intention that matters: the consequences for the victim and the work group must also be considered. It is often someone with greater power, whether a supervisor, colleague or customer.
-
-The source describes apprentices, new hires and workers in insecure employment as the most at risk. In these conditions, people subjected to harassing behavior may prefer to remain silent, especially when they believe that the person responsible is unlikely to face consequences. The picture presented therefore concerns both the prevalence of the phenomenon and the way hierarchical relationships can affect the possibility of speaking out and reacting.
-## What the data and procedures show
-
-The comparison between the Seco data is clear: 44% of women and 17% of men report having experienced sexual harassment at work at least once during their careers. The difference is 27 percentage points. This is a comparison between two groups over the same time period, not a change recorded from one year to the next. The cited study is not presented as a ranking among sectors or as a measure of SMEs alone.
-
-Alongside these percentages is another indicator: one in five employees believes that their company should do more. The source places it alongside the figure for the people involved, showing that the issue concerns both those who experience harassment and the organizational response of companies.
-
-### Two aspects to be assessed separately
-
-Victims can take action under employment law and criminal law. The article does, however, identify a company practice considered wrong: waiting for a judgment before taking measures. The two procedures, according to Voloder, must be assessed separately. The source does not establish an automatic link between a report and dismissal, nor does it present every ill-judged remark as sufficient grounds for ending an employment relationship.
-
-For those who report, the text identifies evidence as decisive. The elements mentioned include messages, chat conversations, and detailed notes about what happened, specifying when and where it occurred. Thus, no single form of documentation is indicated, but rather a series of traces that can reconstruct the incident.
-
-The everyday conduct of managers is also identified as part of the response. A policy posted on a bulletin board is not enough if those in charge then use vulgar language. Managers must intervene immediately and set a good example. Colleagues, on the other hand, can show concern by asking the person involved whether they would like to talk about it. If someone realizes that they have offended another person, the conduct indicated by the source is to apologize and not repeat the behavior.
-## The sectors mentioned and the response for SMEs
-
-The Zeitung article focuses primarily on three sectors in which the issue is more pronounced due to the lack of prevention bodies: construction, industry and the hospitality sector. The source does not assign specific percentages to these areas or establish which records the highest number of cases. It presents them as sectors mentioned in the discussion of preventive shortcomings.
-
-### KMU konkret+
-
-To fill the gap, the KMU konkret+ project was launched by eight equal-opportunity offices in German-speaking Switzerland, including that of the Canton of Bern. The initiative offers training, model regulations and advice to companies with up to 250 employees.
-
-The project therefore directly targets the companies identified by the source as most at risk of neglecting the issue: SMEs. Its scope is defined both by the tools made available and by the size limit specified for the target companies. The source does not, however, provide data on companies’ participation, results already achieved or any reduction in reports following the launch.
-
-The geographical context must be understood by distinguishing the article’s different references. The phenomenon is described as widespread throughout Switzerland, and the study’s data come from Seco. The observations on the increase in reports and the difficulties faced by companies, however, come from the equal-opportunity offices in German-speaking Switzerland, while the project also includes the office of the Canton of Bern.
-
-No separate figures are provided by canton, sector or company size, nor are individual cases or court decisions described. The influence of positions of power, the greater exposure of apprentices, newly hired employees and precarious workers, and the need—identified by the source—for a corporate response that does not automatically wait until the end of criminal proceedings nevertheless remain documented.
-
-*Source: [tio.ch](https://www.tio.ch/svizzera/attualita/1957721/voloder-molestie-carriera-imprese-vittima)*]]></content:encoded>
-      <pubDate>Wed, 21 Oct 2026 01:06:01 GMT</pubDate>
-      <dc:creator><![CDATA[Redazione Frontaliere Ticino]]></dc:creator>
-      <guid isPermaLink="false">https://frontaliereticino.ch/en/swiss-articles/molestie-lavoro-pmi-svizzere</guid>
-      <category>Notizie</category>
-      <media:content url="https://cdn.frontaliereticino.ch/images/blog/article-molestie-lavoro-pmi-svizzere.webp" medium="image"/>
     </item>
   </channel>
 </rss>

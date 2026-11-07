@@ -109895,6 +109895,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-disoccupazione-stabile-ottobre': {
+    title: 'Tasso di disoccupazione stabile al 3% in ottobre',
+    description: 'In ottobre, gli iscritti agli URC sono 141’015 (+0,4%) e il tasso di disoccupazione è al 3%. I posti vacanti sono 40’462 (-8,5%).',
+    keywords: 'disoccupazione svizzera, URC ottobre, tasso disoccupazione 3%, posti vacanti, SECO, mercato del lavoro',
+    ogTitle: 'Disoccupazione stabile al 3% in ottobre',
+    ogDescription: 'Dati SECO di ottobre: 141’015 iscritti agli URC (+0,4%) e tasso di disoccupazione al 3%. I posti vacanti sono 40’462 (-8,5%).',
+    canonicalPath: '/articoli-svizzera/disoccupazione-stabile-ottobre/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Tasso di disoccupazione stabile al 3% in ottobre",
+      "description": "In ottobre, gli iscritti agli URC sono 141’015 (+0,4%) e il tasso di disoccupazione è al 3%. I posti vacanti sono 40’462 (-8,5%).",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-disoccupazione-stabile-ottobre.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine illustrativa pertinente al tema dell’articolo"
+      },
+      "datePublished": "2026-11-07T15:49:33+00:00",
+      "dateModified": "2026-11-07T15:49:33+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/disoccupazione-stabile-ottobre/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

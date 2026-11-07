@@ -8693,6 +8693,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.telelavoro-frontaliere-quadro-svizzero.title': 'Telearbeit und Grenzgänger: Schweizer Regeln',
     'blog.article.telelavoro-frontaliere-quadro-svizzero.excerpt': 'Die Schweiz organisiert die Besteuerung auf drei Ebenen: direkte Bundessteuer, Kantonssteuer und Gemeindesteuer.',
     'blog.article.telelavoro-frontaliere-quadro-svizzero.imageAlt': 'Illustratives Bild zum Thema des Artikels',
+    'blog.article.disoccupazione-stabile-ottobre.title': 'Arbeitslosenquote im Oktober stabil bei 3%',
+    'blog.article.disoccupazione-stabile-ottobre.excerpt': 'Nach den am Donnerstag vom Staatssekretariat für Wirtschaft (SECO) veröffentlichten Daten ist die Zahl der bei den Regionalen Arbeitsvermittlungszentren (RAV) registrierten Personen im Oktober gegenüber September um 535 Personen gestiegen.',
+    'blog.article.disoccupazione-stabile-ottobre.imageAlt': 'Illustratives Bild zum Thema des Artikels',
 };
 
 export default blogMetaChDe;

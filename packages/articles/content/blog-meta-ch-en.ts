@@ -8693,6 +8693,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.telelavoro-frontaliere-quadro-svizzero.title': 'Teleworking and cross-border workers: Swiss rules',
     'blog.article.telelavoro-frontaliere-quadro-svizzero.excerpt': 'Switzerland levies taxes at three levels: direct federal tax, cantonal tax and municipal tax.',
     'blog.article.telelavoro-frontaliere-quadro-svizzero.imageAlt': 'Illustrative image relevant to the article topic',
+    'blog.article.disoccupazione-stabile-ottobre.title': 'Unemployment rate steady at 3% in October',
+    'blog.article.disoccupazione-stabile-ottobre.excerpt': 'According to data released on Thursday by the State Secretariat for Economic Affairs (SECO), the number of people registered with the Regional Employment Centers (URCs) increased by 535 in October compared with September.',
+    'blog.article.disoccupazione-stabile-ottobre.imageAlt': 'Illustrative image relevant to the article topic',
 };
 
 export default blogMetaChEn;
