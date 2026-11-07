@@ -1,16 +1,16 @@
 {
   "key": "engel-voelkers",
   "label": "Engel & Völkers",
-  "generatedAt": "2026-11-06T21:53:51.421Z",
+  "generatedAt": "2026-11-07T09:49:19.078Z",
   "total": 10,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 10,
-  "durationMs": 20648,
-  "avgDurationMs": 20648,
+  "durationMs": 20381,
+  "avgDurationMs": 20381,
   "durationHistory": [
-    20648
+    20381
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -431,7 +431,7 @@
       "postingDateSource": "unknown",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "validThrough": "2027-02-04T21:53:36.134Z",
+      "validThrough": "2027-02-05T09:49:06.514Z",
       "id": "engel-voelkers-aa68475ac16c",
       "salaryMin": 54000,
       "salaryMax": 82500,
@@ -502,5 +502,5 @@
       }
     }
   ],
-  "codeCommit": "83864a2067a1cd4cb74a7630816798617e7b37f9"
+  "codeCommit": "dae4367441abe10a497d7d52ebb4540c014e1e8c"
 }
