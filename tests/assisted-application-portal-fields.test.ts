@@ -90,6 +90,30 @@ describe('portal field extraction', () => {
     expect(operationalQuestionTopic(refreshed.questions[0])).toBeNull();
   });
 
+  it('marks an empty first option as a placeholder when required is expressed through aria', () => {
+    const required = extract('<form>'
+      + '<label for="country">Land</label>'
+      + '<select id="country" aria-required="true">'
+      + '<option value="">Land</option><option value="CH">Schweiz</option>'
+      + '</select>'
+      + '</form>').fields.find((field: any) => field.label === 'Land');
+    expect(required).toMatchObject({
+      kind: 'select', required: true,
+      options: [
+        { value: '', label: 'Land', placeholder: true },
+        { value: 'CH', label: 'Schweiz' },
+      ],
+    });
+
+    const optional = extract('<form>'
+      + '<label for="choice">Optional</label>'
+      + '<select id="choice">'
+      + '<option value="">Blank is valid</option><option value="one">One</option>'
+      + '</select>'
+      + '</form>').fields.find((field: any) => field.label === 'Optional');
+    expect(optional?.options?.[0]).toEqual({ value: '', label: 'Blank is valid' });
+  });
+
   it('fails closed when accessible metadata exceeds extraction limits', () => {
     const prompt = 'Select this checkbox to confirm that you have read the Privacy Notice for Candidates.';
     const longEmailLabel = 'x'.repeat(296) + ' Email';
