@@ -58,6 +58,14 @@ const CLIENT_GLOBS = [
 const LOOKBEHIND_RE = /\(\?<[=!]/;
 const SOURCE_EXTENSIONS = ['', '.ts', '.tsx', '.mjs', '.js'];
 
+function isFile(candidate) {
+  try {
+    return fs.statSync(candidate).isFile();
+  } catch {
+    return false;
+  }
+}
+
 export const stripComments = stripSourceComments;
 
 /**
@@ -79,17 +87,16 @@ function resolveLocalImport(fromFile, specifier) {
 
   for (const extension of SOURCE_EXTENSIONS) {
     const candidate = `${base}${extension}`;
-    if (fs.existsSync(candidate) && fs.statSync(candidate).isFile()) return path.relative(process.cwd(), candidate);
+    if (isFile(candidate)) return path.relative(process.cwd(), candidate);
   }
   for (const extension of SOURCE_EXTENSIONS.slice(1)) {
     const candidate = path.join(base, `index${extension}`);
-    if (fs.existsSync(candidate) && fs.statSync(candidate).isFile()) return path.relative(process.cwd(), candidate);
+    if (isFile(candidate)) return path.relative(process.cwd(), candidate);
   }
   return null;
 }
 
-export function importedSpecifiers(source) {
-  const code = stripComments(source);
+function importedSpecifiersFromCode(code) {
   const specifiers = [];
   const patterns = [
     /(?:import|export)\s+(?:type\s+)?(?:[^'\"]*?\s+from\s+)?['\"]([^'\"]+)['\"]/g,
@@ -107,31 +114,43 @@ export function importedSpecifiers(source) {
   return specifiers;
 }
 
-export function clientImportClosure() {
+export function importedSpecifiers(source) {
+  return importedSpecifiersFromCode(stripComments(source));
+}
+
+function clientImportSources() {
   const roots = execFileSync(
     'git', ['ls-files', '--cached', '--others', '--exclude-standard', '--', ...CLIENT_GLOBS],
     { encoding: 'utf-8', maxBuffer: 32 * 1024 * 1024 },
   ).split('\n').filter(Boolean);
   const seen = new Set();
+  const sources = new Map();
   const queue = [...roots];
-  while (queue.length) {
-    const file = queue.shift();
+  for (let next = 0; next < queue.length; next += 1) {
+    const file = queue[next];
     if (seen.has(file) || !fs.existsSync(file)) continue;
     seen.add(file);
     const source = fs.readFileSync(file, 'utf-8');
-    for (const specifier of importedSpecifiers(source)) {
+    const code = stripComments(source);
+    sources.set(file, { source, code });
+    for (const specifier of importedSpecifiersFromCode(code)) {
       const imported = resolveLocalImport(file, specifier);
       if (imported && !seen.has(imported)) queue.push(imported);
     }
   }
-  return [...seen].sort();
+  return sources;
+}
+
+export function clientImportClosure() {
+  return [...clientImportSources().keys()].sort();
 }
 
 export function findViolations() {
   const violations = [];
-  for (const file of clientImportClosure()) {
-    const source = fs.readFileSync(file, 'utf-8');
-    const codeLines = stripComments(source).split('\n');
+  const sources = clientImportSources();
+  for (const file of [...sources.keys()].sort()) {
+    const { source, code } = sources.get(file);
+    const codeLines = code.split('\n');
     const sourceLines = source.split('\n');
     codeLines.forEach((content, index) => {
       if (LOOKBEHIND_RE.test(content)) {

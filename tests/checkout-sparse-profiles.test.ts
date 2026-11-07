@@ -331,6 +331,11 @@ describe('profili di sparse-checkout', () => {
     expect(stripSourceComments(source)).toBe(expected);
   });
 
+  it('restituisce invariato il sorgente senza delimitatori di commento', () => {
+    const source = 'const value = 1;\nexport const label = "plain";';
+    expect(stripSourceComments(source)).toBe(source);
+  });
+
   it('preserva regex su una nuova riga dopo ASI', () => {
     const source = 'const n = 1\n/[/*]/;\nconst x = import("./real.mjs");';
     const code = stripSourceComments(source);

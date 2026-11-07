@@ -12,6 +12,7 @@ function blankCommentCharacter(character) {
 
 export function stripSourceComments(source) {
   const src = String(source ?? '');
+  if (!src.includes('//') && !src.includes('/*')) return src;
   // Lexer offsets are JavaScript string offsets (UTF-16 code units), so the
   // mutable output must use the same indexing model even when source has emoji.
   const out = src.split('');
@@ -118,7 +119,6 @@ export function stripSourceComments(source) {
         continue;
       }
 
-      if (/\s/.test(character)) continue;
     }
     return src.length;
   }

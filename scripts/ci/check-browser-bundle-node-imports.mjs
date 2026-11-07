@@ -87,8 +87,8 @@ function walk() {
   const queue = ENTRIES.map((e) => path.join(ROOT, e));
   for (const entry of queue) visited.add(entry);
 
-  while (queue.length) {
-    const file = queue.shift();
+  for (let next = 0; next < queue.length; next += 1) {
+    const file = queue[next];
     for (const spec of readEdges(file)) {
       if (isBuiltin(spec)) {
         leaves.push({ file: path.relative(ROOT, file), builtin: spec });
