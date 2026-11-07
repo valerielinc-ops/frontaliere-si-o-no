@@ -2887,7 +2887,11 @@ const JobBoard: React.FC<JobBoardProps> = ({
    }
    if (event.type === 'keydown' && activeBoardControl) noteJobBoardInteraction();
   };
-  if (navigator.userActivation?.hasBeenActive) noteJobBoardInteraction();
+  // The browser's `userActivation.hasBeenActive` flag is page-wide and also remains
+  // true after unrelated activation. It cannot prove that the reader asked
+  // for the full job catalog; Lighthouse can observe that flag before the
+  // static snapshot's LCP has settled. Only events targeted at the board (or
+  // an already-active board filter) may release the deferred shard.
   const eventTypes = ['pointerdown', 'touchstart', 'keydown', 'wheel', 'touchmove', 'scroll', 'focusin'] as const;
   for (const type of eventTypes) document.addEventListener(type, onIntent, { capture: true, passive: true });
   return () => {
