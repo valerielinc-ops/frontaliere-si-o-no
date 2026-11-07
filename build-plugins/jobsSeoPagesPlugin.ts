@@ -428,6 +428,12 @@ export function buildNativeJobPrefixIndex(
 ): Map<string, string> {
  const index = new Map<string, string>();
  const prefixes = new Map<string, string>();
+ const legacyPrefixByLocale = Object.fromEntries(
+  JOB_SEO_LOCALES.map((locale) => [
+   locale,
+   normalizedRoutePath(`${localePrefix[locale]}/${sectionByLocale[locale]}`),
+  ]),
+ ) as Record<JobSeoLocale, string>;
  for (const trackingSlug in tracking) {
   if (!Object.prototype.hasOwnProperty.call(tracking, trackingSlug)) continue;
   if (compatEligibleTrackingSlugs && !compatEligibleTrackingSlugs.has(trackingSlug)) continue;
@@ -439,10 +445,12 @@ export function buildNativeJobPrefixIndex(
    const value = paths?.[locale];
    if (!value) continue;
    const normalized = normalizedRoutePath(value);
-   const legacyPrefix = normalizedRoutePath(`${localePrefix[locale]}/${sectionByLocale[locale]}`);
+   const legacyPrefix = legacyPrefixByLocale[locale];
    const rest = normalized.slice(legacyPrefix.length);
    if (normalized.startsWith(legacyPrefix) && rest.length > 1 && !rest.slice(0, -1).includes('/')) continue;
-   const slug = normalized.split('/').filter(Boolean).pop();
+   const slugEnd = normalized.length - 1;
+   const slugStart = normalized.lastIndexOf('/', slugEnd - 1) + 1;
+   const slug = normalized.slice(slugStart, slugEnd);
    if (!slug) continue;
    // For the same locale+slug, path inequality is exactly prefix inequality.
    // Intern arbitrary prefixes rather than retaining one full path per key.
@@ -466,7 +474,9 @@ export function nativeJobPathRecoveredByWorker(
  const normalized = normalizedRoutePath(relPath);
  const registryPath = tracking[slug]?.[locale];
  if (registryPath && normalizedRoutePath(registryPath) !== normalized) return true;
- const routeSlug = normalized.split('/').filter(Boolean).pop();
+ const routeEnd = normalized.length - 1;
+ const routeStart = normalized.lastIndexOf('/', routeEnd - 1) + 1;
+ const routeSlug = normalized.slice(routeStart, routeEnd);
  if (!routeSlug) return false;
  const nativePrefix = nativeJobPrefixByLocaleAndSlug.get(`${locale}:${routeSlug}`);
  return nativePrefix !== undefined && nativePrefix !== normalized.slice(0, -(routeSlug.length + 1));
