@@ -21,6 +21,7 @@ describe('plate-auction deploy registry parity', () => {
         owner: expected.owner,
         status: expected.status,
       });
+      expect(actual.activeUntil, `${key}.activeUntil`).toBe(expected.activeUntil);
       // Le note sono testo pubblico: l'API le serve per ogni fonte non attiva
       // (`...registrySource` in plateAuctions.js), quindi una copia divergente
       // mostrava «Live eCari catalogue revalidated» su TI bloccato. `toBe` e

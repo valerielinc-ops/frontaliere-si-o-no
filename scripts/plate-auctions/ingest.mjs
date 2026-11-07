@@ -29,6 +29,7 @@ import {
   fetchUrFixedPrice,
 } from './connectors/fixed-price.mjs';
 import { fetchGePlateAuctions } from './connectors/ge.mjs';
+import { resolvePlateAuctionSource } from '../../functions/src/plateAuctionSourceRegistry.js';
 import {
   checkPlateAuctionQuality,
   derivePlateAuctionDataConfidence,
@@ -226,7 +227,7 @@ export async function collectPlateAuctions({
   const previousRows = Array.isArray(previous?.auctions) ? previous.auctions.map(normalizePublicRow) : [];
   const results = {};
   for (const key of selectedCantons) {
-    const source = registry.sources[key];
+    const source = resolvePlateAuctionSource(registry.sources[key], now);
     if (!source || source.status !== 'active' || typeof fetchers[key] !== 'function') continue;
     const fetchedAt = now.toISOString();
     try {
@@ -388,7 +389,7 @@ export async function collectPlateAuctions({
 
   const outputAuctions = [];
   const sources = {};
-  for (const [key, source] of Object.entries(registry.sources)) {
+  for (const [key, source] of Object.entries(registry.sources).map(([key, value]) => [key, resolvePlateAuctionSource(value, now)])) {
     const result = results[key];
     if (result) {
       const rows = result.error ? result.previousRows : result.rows;
