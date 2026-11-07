@@ -9,7 +9,10 @@ const SCRIPT_PATH = path.join(ROOT, 'scripts/ci/translate-pending-budget-benchma
 
 function workflow() {
   return YAML.parse(fs.readFileSync(WORKFLOW_PATH, 'utf8')) as {
-    on: { workflow_dispatch: { inputs: Record<string, { default?: string; type?: string; required?: boolean }> } };
+    on: {
+      push?: { branches?: string[]; paths?: string[] };
+      workflow_dispatch: { inputs: Record<string, { default?: string; type?: string; required?: boolean }> };
+    };
     jobs: Record<string, { 'timeout-minutes': number; steps: Array<{ name?: string; run?: string; uses?: string; with?: Record<string, string>; env?: Record<string, string>; if?: string }> }>;
   };
 }
@@ -17,12 +20,14 @@ function workflow() {
 describe('translate-pending budget benchmark', () => {
   it('is manual, ref-selectable and retains the production job cap', () => {
     const parsed = workflow();
+    expect(parsed.on.push?.branches).toContain('fix/issue-17555');
+    expect(parsed.on.push?.paths).toContain('.github/workflows/translate-pending-budget-benchmark.yml');
     expect(parsed.on.workflow_dispatch.inputs.source_ref).toMatchObject({ type: 'string', required: true });
     expect(parsed.on.workflow_dispatch.inputs.phase).toMatchObject({ type: 'choice', required: true });
     expect(parsed.jobs.benchmark['timeout-minutes']).toBe(350);
     const checkout = parsed.jobs.benchmark.steps.find((step) => step.name === 'Checkout benchmark ref');
     expect(checkout?.uses).toBe('actions/checkout@v7');
-    expect(checkout?.with?.ref).toBe('${{ inputs.source_ref }}');
+    expect(checkout?.with?.ref).toBe("${{ inputs.source_ref || github.sha }}");
   });
 
   it('runs the real lane and every persistence barrier against a local remote', () => {
