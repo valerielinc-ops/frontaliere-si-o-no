@@ -1,17 +1,66 @@
-import { describe, it, expect } from 'vitest';
+import { afterEach, describe, it, expect, vi } from 'vitest';
+
+const specCrawlerMocks = vi.hoisted(() => ({
+  copySpecFetchMetadata: vi.fn((target, source) => {
+    for (const key of ['fetchOutcome', 'discoveredCount']) {
+      if (!Object.prototype.hasOwnProperty.call(source || {}, key)) continue;
+      Object.defineProperty(target, key, {
+        value: source[key],
+        enumerable: false,
+        configurable: true,
+      });
+    }
+    return target;
+  }),
+  loadSpec: vi.fn(),
+  runSpecInProduction: vi.fn(),
+}));
+
+vi.mock('../scripts/lib/prospector/spec-crawler.mjs', () => specCrawlerMocks);
+
 import {
   SKAN_COM_KEY,
   SKAN_COM_COMPANY_NAME,
+  fetchAllSkanComJobs,
   isSkanComJob,
   isTrustedDomain,
 } from '../scripts/lib/skan-com-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
+
+afterEach(() => {
+  specCrawlerMocks.loadSpec.mockReset();
+  specCrawlerMocks.runSpecInProduction.mockReset();
+});
 
 describe('SKAN AG crawler parser', () => {
   // ── Constants ──
   it('exports valid company key and name', () => {
     expect(SKAN_COM_KEY).toBe('skan-com');
     expect(SKAN_COM_COMPANY_NAME).toBe('SKAN AG');
+  });
+
+  describe('fetchAllSkanComJobs', () => {
+    it('preserves spec metadata when the listing result is empty', async () => {
+      const listings = [];
+      Object.defineProperty(listings, 'fetchOutcome', {
+        value: 'selector_miss',
+        enumerable: false,
+      });
+      Object.defineProperty(listings, 'discoveredCount', {
+        value: 0,
+        enumerable: false,
+      });
+      specCrawlerMocks.loadSpec.mockReturnValue({ companyKey: SKAN_COM_KEY });
+      specCrawlerMocks.runSpecInProduction.mockResolvedValue(listings);
+
+      const jobs = await fetchAllSkanComJobs();
+
+      expect(jobs).toEqual([]);
+      expect(Object.getOwnPropertyDescriptor(jobs, 'fetchOutcome')?.value)
+        .toBe('selector_miss');
+      expect(Object.getOwnPropertyDescriptor(jobs, 'discoveredCount')?.value)
+        .toBe(0);
+    });
   });
 
   // ── isCompanyJob ──

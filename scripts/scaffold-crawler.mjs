@@ -283,7 +283,11 @@ function buildAtsParserSection(tier) {
     // l'estrazione qui e' LA STESSA che il gate ha giudicato — se divergesse,
     // il voto di qualita' parlerebbe di un altro programma.
     return {
-      imports: `import { loadSpec, runSpecInProduction } from './prospector/spec-crawler.mjs';
+      imports: `import {
+  copySpecFetchMetadata,
+  loadSpec,
+  runSpecInProduction,
+} from './prospector/spec-crawler.mjs';
 import {
   resolveSourceBackedSwissGeography,
   sourceBackedSwissGeographyFields,
@@ -512,6 +516,12 @@ const recommendedGeographyFields = atsTier === 'prospected'
       country: normalizeSpace(listing.addressCountry || 'CH'),
       ...(listing.postalCode ? { postalCode: normalizeSpace(listing.postalCode) } : {}),
       ...(listing.streetAddress ? { streetAddress: normalizeSpace(listing.streetAddress) } : {}),`;
+const emptyListingsReturn = atsTier === 'prospected'
+  ? 'return copySpecFetchMetadata([], listings || []);'
+  : 'return Array.isArray(listings) ? listings : [];';
+const parsedJobsReturn = atsTier === 'prospected'
+  ? 'return copySpecFetchMetadata(jobs, listings || []);'
+  : 'return jobs;';
 
 /* ── Template: Parser ────────────────────────────────────────── */
 
@@ -727,7 +737,7 @@ export async function fetchAll${pascalKey}Jobs() {
   const listings = await fetchJobListings();
   if (!listings || listings.length === 0) {
     console.warn('⚠️ No job listings returned.');
-    return Array.isArray(listings) ? listings : [];
+    ${emptyListingsReturn}
   }
 
   console.log(\`  📋 Listings found: \${listings.length}\`);
@@ -796,7 +806,7 @@ ${recommendedGeographyFields}
   }
 
   console.log(\`\\n📋 Total ${companyName} jobs discovered: \${jobs.length}\`);
-  return jobs;
+  ${parsedJobsReturn}
 }
 `;
 

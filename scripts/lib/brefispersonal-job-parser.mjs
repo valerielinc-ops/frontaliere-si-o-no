@@ -15,7 +15,7 @@ import { mergeSourcePostingDates } from './source-posting-date.mjs';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
 import { inferSwissTargetCanton, rescueSwissCityFromText } from './target-swiss-locations.mjs';
-import { loadSpec, runSpecInProduction } from './prospector/spec-crawler.mjs';
+import { copySpecFetchMetadata, loadSpec, runSpecInProduction } from './prospector/spec-crawler.mjs';
 import { BREFISPERSONAL_PAGINATION } from './prospector/brefispersonal-contract.mjs';
 import { resolveSourceBackedSwissGeography } from './prospector/location-evidence.mjs';
 
@@ -198,7 +198,7 @@ export async function fetchAllBrefispersonalJobs() {
   const listings = await fetchJobListings();
   if (!listings || listings.length === 0) {
     console.warn('⚠️ No job listings returned.');
-    return Array.isArray(listings) ? listings : [];
+    return copySpecFetchMetadata([], listings || []);
   }
 
   console.log(`  📋 Listings found: ${listings.length}`);
@@ -276,5 +276,5 @@ export async function fetchAllBrefispersonalJobs() {
   }
 
   console.log(`\n📋 Total brefis personal ag jobs discovered: ${jobs.length}`);
-  return jobs;
+  return copySpecFetchMetadata(jobs, listings);
 }
