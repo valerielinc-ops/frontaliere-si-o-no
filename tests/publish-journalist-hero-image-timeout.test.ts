@@ -25,6 +25,7 @@ const src = readFileSync(resolve(ROOT, 'scripts/publish-journalist-article.mjs')
 // (see that script's own bounded-fetch coverage in
 // tests/notify-journalist-article-live.test.ts).
 const notifySrc = readFileSync(resolve(ROOT, 'scripts/notify-journalist-article-live.mjs'), 'utf8');
+const EXISTING_CATALOG_IMAGE_PATH = '/images/blog/controlli-velocita-ticino-aprile-maggio.webp';
 
 describe('publish-journalist-article.mjs fetch calls are all bounded (issue #3209 item 3)', () => {
   it('bounds the hero-image download with AbortSignal.timeout(...)', () => {
@@ -80,14 +81,30 @@ describe('resolveHeroImage — graceful fallback on timeout', () => {
     vi.stubGlobal('fetch', fetchSpy);
 
     const data = { id: 'articolo-catalogo', category: 'novita', content: { it: { title: 'Test' } }, seo: {} };
-    const doc = { image: '/images/blog/lugano-view.webp' };
+    const doc = { image: EXISTING_CATALOG_IMAGE_PATH };
 
     const result = await resolveHeroImage(data, doc, {
-      catalogEntries: [{ path: doc.image, words: ['lugano', 'view'] }],
+      catalogEntries: [{ path: doc.image, words: ['controlli', 'velocita'] }],
     });
 
     expect(fetchSpy).not.toHaveBeenCalled();
-    expect(result).toEqual({ source: 'catalog-pick', path: '/images/blog/lugano-view.webp' });
+    expect(result).toEqual({ source: 'catalog-pick', path: EXISTING_CATALOG_IMAGE_PATH });
+  });
+
+  it('falls back when a catalog record points to a missing local image', async () => {
+    const fetchSpy = vi.fn();
+    vi.stubGlobal('fetch', fetchSpy);
+
+    const data = { id: 'articolo-catalogo-stale', category: 'novita', content: { it: { title: 'Test' } }, seo: {} };
+    const doc = { image: '/images/blog/missing.webp' };
+
+    const result = await resolveHeroImage(data, doc, {
+      catalogEntries: [{ path: doc.image, words: ['missing', 'hero'] }],
+    });
+
+    expect(fetchSpy).not.toHaveBeenCalled();
+    expect(['keyword-fallback', 'static-fallback']).toContain(result.source);
+    expect(data._generatedImagePath).not.toBe(doc.image);
   });
 
   it('does not trust a local image path that has no catalog provenance record', async () => {

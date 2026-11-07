@@ -105,11 +105,21 @@ function readJournalistImageCatalog() {
 
 /** A catalog path is trusted only when the committed catalog carries its record. */
 function hasCatalogImageRecord(imagePath, catalog = readJournalistImageCatalog()) {
-  return CATALOG_IMAGE_PATH_RE.test(imagePath)
-    && Array.isArray(catalog)
-    && catalog.some((entry) => entry?.path === imagePath
-      && Array.isArray(entry.words)
-      && entry.words.some((word) => typeof word === 'string' && word.trim().length >= 4));
+  if (typeof imagePath !== 'string'
+    || !CATALOG_IMAGE_PATH_RE.test(imagePath)
+    || !Array.isArray(catalog)) {
+    return false;
+  }
+
+  try {
+    if (!fs.statSync(path.join(PROJECT_ROOT, imagePath.slice(1))).isFile()) return false;
+  } catch {
+    return false;
+  }
+
+  return catalog.some((entry) => entry?.path === imagePath
+    && Array.isArray(entry.words)
+    && entry.words.some((word) => typeof word === 'string' && word.trim().length >= 4));
 }
 
 function isImageContentType(contentType) {
