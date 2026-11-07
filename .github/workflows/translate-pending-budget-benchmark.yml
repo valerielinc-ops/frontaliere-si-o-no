@@ -1,0 +1,216 @@
+name: Translate Pending Budget Benchmark
+
+on:
+  push:
+    branches:
+      - fix/issue-17555
+    paths:
+      - .github/workflows/translate-pending-budget-benchmark.yml
+      - scripts/ci/translate-pending-budget-benchmark.mjs
+  workflow_dispatch:
+    inputs:
+      source_ref:
+        description: 'Branch or commit to benchmark; use the PR head SHA/ref.'
+        required: true
+        type: string
+        default: main
+      phase:
+        description: 'Repair lane to execute against the checked-out population.'
+        required: true
+        type: choice
+        options:
+          - titles
+          - descriptions
+        default: descriptions
+      max_candidates:
+        description: 'Maximum description candidates when phase=descriptions.'
+        required: true
+        type: string
+        default: '2000'
+
+permissions:
+  contents: read
+
+jobs:
+  benchmark:
+    runs-on: ubuntu-latest
+    timeout-minutes: 350
+    env:
+      NODE_OPTIONS: '--disable-warning=DEP0040 --disable-warning=DEP0169 --max-old-space-size=12288'
+      TRANSLATE_RUN_CLOCK_REQUIRED: '1'
+      BENCHMARK_PHASE: ${{ inputs.phase || 'descriptions' }}
+      BENCHMARK_MAX_CANDIDATES: ${{ inputs.max_candidates || '2000' }}
+      BENCHMARK_SOURCE_REF: ${{ inputs.source_ref || github.sha }}
+      BENCHMARK_BASELINE_RUN: '42348235004'
+      BENCHMARK_BASELINE_LANE_MINUTES: '73'
+      BENCHMARK_BASELINE_NOTE: 'Historical Phase 2e lane duration; the downstream persistence queue did not complete before the 350min cap.'
+      BENCHMARK_REPORT: ${{ runner.temp }}/translate-pending-budget-benchmark.json
+
+    steps:
+      - name: Checkout benchmark ref
+        uses: actions/checkout@v7
+        with:
+          repository: valerielinc-ops/frontaliere-si-o-no
+          ref: ${{ inputs.source_ref || github.sha }}
+          fetch-depth: 50
+          persist-credentials: false
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: bash scripts/ci/crawler-retry-cmd.sh npm ci --ignore-scripts
+
+      - name: Initialize benchmark report
+        env:
+          BENCHMARK_RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: node scripts/ci/translate-pending-budget-benchmark.mjs --init --phase "$BENCHMARK_PHASE" --source-ref "$BENCHMARK_SOURCE_REF" --run-url "$BENCHMARK_RUN_URL" --report "$BENCHMARK_REPORT"
+
+      - name: Prepare Firebase credentials for Remote Config
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -z "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+            echo '::error::Firebase credentials are required to load the translation provider configuration.'
+            exit 1
+          fi
+          printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > "$RUNNER_TEMP/firebase-sa.json"
+          echo "GOOGLE_APPLICATION_CREDENTIALS=$RUNNER_TEMP/firebase-sa.json" >> "$GITHUB_ENV"
+
+      - name: Load Remote Config secrets
+        run: node scripts/load-rc-env.mjs
+
+      - name: Start Codex reserve broker
+        id: codex_broker
+        uses: ./.github/actions/setup-claude-haiku-fallback
+        with:
+          codex_auth_json: ${{ secrets.CODEX_AUTH_JSON }}
+          broker_idle_ttl_ms: '12600000'
+          broker_max_concurrency: '3'
+          broker_max_timeout_ms: '900000'
+
+      - name: Prepare isolated benchmark remote
+        env:
+          BENCHMARK_ORIGIN: ${{ runner.temp }}/translate-pending-budget-origin.git
+        run: |
+          git init --bare "$BENCHMARK_ORIGIN"
+          git push "$BENCHMARK_ORIGIN" HEAD:refs/heads/main
+          git remote set-url origin "$BENCHMARK_ORIGIN"
+          git fetch --no-tags origin main
+          git config user.name 'translate-pending-budget-benchmark'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+
+      - name: Initialize shared translation clock
+        run: |
+          node --input-type=module <<'NODE'
+          import { markRunStart, readRunStartMs } from './scripts/lib/translate-run-clock.mjs';
+          markRunStart(Date.now());
+          if (readRunStartMs() === null) throw new Error('translation benchmark clock was not initialized');
+          NODE
+
+      - name: Run initial assembly
+        run: node scripts/ci/translate-pending-budget-benchmark.mjs --record --stage assemble --report "$BENCHMARK_REPORT" -- bash -euo pipefail -c 'JOBS_SKIP_RECONCILIATION=1 node scripts/assemble-jobs-dataset.mjs'
+
+      - name: Capture before statistics
+        run: node scripts/ci/translate-pending-budget-benchmark.mjs --record --stage stats-before --report "$BENCHMARK_REPORT" -- node scripts/log-translation-stats.mjs before
+
+      - name: Run budget gate
+        env:
+          REPAIR_LANE_DEADLINE_MS: '12600000'
+          REPAIR_LANE_MIN_REMAINING_MS: '5400000'
+          BENCHMARK_GATE_OUTPUT: ${{ runner.temp }}/translate-pending-budget-gate.out
+        run: |
+          : > "$BENCHMARK_GATE_OUTPUT"
+          GITHUB_OUTPUT="$BENCHMARK_GATE_OUTPUT" node scripts/ci/translate-pending-budget-benchmark.mjs --record --stage budget-gate --report "$BENCHMARK_REPORT" -- bash -euo pipefail -c 'node scripts/translate-repair-lane-gate.mjs && grep -qx "run=true" "$BENCHMARK_GATE_OUTPUT"'
+
+      - name: Run Phase 2d title lane
+        if: inputs.phase == 'titles'
+        env:
+          CODEX_AUTH_BROKER_SOCKET: ${{ steps.codex_broker.outputs.codex_auth_broker_socket }}
+          FREE_TRANSLATE_CODEX_CALL_TIMEOUT_MS: '480000'
+          FREE_TRANSLATE_CODEX_MAX_MS: '900000'
+          FREE_TRANSLATE_CODEX_LANES: '3'
+          FREE_TRANSLATE_CODEX_BATCH_MAX_TEXTS: '10'
+          FREE_TRANSLATE_CODEX_BATCH_MAX_CHARS: '3000'
+          TRANSLATE_CODEX_RESERVE_DIR: ${{ runner.temp }}/translation-codex-reserve
+          UNTRANSLATED_TITLE_FIX_DEADLINE_MS: '12600000'
+        run: node scripts/ci/translate-pending-budget-benchmark.mjs --record --stage lane --report "$BENCHMARK_REPORT" -- node scripts/fix-untranslated-titles.mjs
+
+      - name: Run Phase 2e description lane
+        if: inputs.phase == 'descriptions'
+        env:
+          AZURE_TRANSLATOR_KEY: ''
+          AZURE_TRANSLATOR_KEY_2: ''
+          CODEX_AUTH_BROKER_SOCKET: ${{ steps.codex_broker.outputs.codex_auth_broker_socket }}
+          FREE_TRANSLATE_CODEX_CALL_TIMEOUT_MS: '480000'
+          FREE_TRANSLATE_CODEX_MAX_MS: '900000'
+          FREE_TRANSLATE_CODEX_LANES: '3'
+          FREE_TRANSLATE_CODEX_BATCH_MAX_TEXTS: '25'
+          FREE_TRANSLATE_CODEX_BATCH_MAX_CHARS: '3000'
+          TRANSLATE_CODEX_RESERVE_DIR: ${{ runner.temp }}/translation-codex-reserve
+          UNTRANSLATED_DESCRIPTION_FIX_DEADLINE_MS: '12600000'
+        run: node scripts/ci/translate-pending-budget-benchmark.mjs --record --stage lane --report "$BENCHMARK_REPORT" -- node scripts/fix-untranslated-descriptions.mjs --max "$BENCHMARK_MAX_CANDIDATES"
+
+      - name: Commit selected repair lane
+        env:
+          SKIP_AI_TRANSLATION: '1'
+        run: |
+          if [ "$BENCHMARK_PHASE" = 'titles' ]; then
+            node scripts/ci/translate-pending-budget-benchmark.mjs --record --stage lane-commit --report "$BENCHMARK_REPORT" -- bash scripts/lib/git-commit-data.sh --slice-only '🔤 Benchmark title repair lane' data/jobs/by-crawler/ data/translation-title-fix-attempts.json
+          else
+            node scripts/ci/translate-pending-budget-benchmark.mjs --record --stage lane-commit --report "$BENCHMARK_REPORT" -- bash scripts/lib/git-commit-data.sh --slice-only '📝 Benchmark description repair lane'
+          fi
+
+      - name: Cleanup Codex reserve broker
+        if: always()
+        continue-on-error: true
+        env:
+          CODEX_AUTH_BROKER_SOCKET: ${{ steps.codex_broker.outputs.codex_auth_broker_socket }}
+        run: |
+          if [ -n "$CODEX_AUTH_BROKER_SOCKET" ] && [ -S "$CODEX_AUTH_BROKER_SOCKET" ]; then
+            node .github/actions/setup-claude-haiku-fallback/codex-auth-broker.mjs --cleanup --socket "$CODEX_AUTH_BROKER_SOCKET"
+          fi
+
+      - name: Run final assembly
+        run: node scripts/ci/translate-pending-budget-benchmark.mjs --record --stage assemble-final --report "$BENCHMARK_REPORT" -- bash -euo pipefail -c 'JOBS_SKIP_RECONCILIATION=1 node scripts/assemble-jobs-dataset.mjs'
+
+      - name: Commit after statistics
+        env:
+          SKIP_AI_TRANSLATION: '1'
+          TRANSLATION_STATS_AFTER_TREE: '1'
+          TRANSLATE_CODEX_RESERVE_DIR: ${{ runner.temp }}/translation-codex-reserve
+        run: node scripts/ci/translate-pending-budget-benchmark.mjs --record --stage stats-after --report "$BENCHMARK_REPORT" -- bash scripts/lib/git-commit-data.sh --slice-only '📊 Benchmark translation stats (after)' data/translation-stats-history.json
+
+      - name: Regenerate locale slugs
+        run: node scripts/ci/translate-pending-budget-benchmark.mjs --record --stage slugs --report "$BENCHMARK_REPORT" -- node scripts/regenerate-slugs-by-locale.mjs
+
+      - name: Commit locale slugs
+        env:
+          SKIP_AI_TRANSLATION: '1'
+        run: node scripts/ci/translate-pending-budget-benchmark.mjs --record --stage slug-commit --report "$BENCHMARK_REPORT" -- bash scripts/lib/git-commit-data.sh --slice-only '🔗 Benchmark locale slug regeneration'
+
+      - name: Complete translation deploy handoff
+        run: |
+          node scripts/ci/translate-pending-budget-benchmark.mjs --record --stage handoff --report "$BENCHMARK_REPORT" -- bash -euo pipefail -c '
+            if node scripts/validate-translation-completeness.mjs 2>/dev/null; then
+              TRANSLATION_DEPLOY_HANDOFF_STATE=complete bash scripts/lib/git-commit-data.sh --slice-only "✅ Benchmark complete translation deploy handoff" data/translation-deploy-handoff.json
+            else
+              TRANSLATION_DEPLOY_HANDOFF_STATE=fallback bash scripts/lib/git-commit-data.sh --slice-only "⚠️ Benchmark translation deploy fallback" data/translation-deploy-handoff.json
+            fi
+          '
+
+      - name: Finalize benchmark report
+        if: always()
+        run: node scripts/ci/translate-pending-budget-benchmark.mjs --finalize --report "$BENCHMARK_REPORT"
+
+      - name: Upload benchmark report
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: translate-pending-budget-benchmark-${{ github.run_id }}
+          path: ${{ runner.temp }}/translate-pending-budget-benchmark.json
+          if-no-files-found: error
+          retention-days: 30
