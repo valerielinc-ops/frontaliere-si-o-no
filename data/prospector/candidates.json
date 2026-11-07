@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-11-07T13:26:25.460Z",
+  "updatedAt": "2026-11-07T13:26:58.283Z",
   "candidates": {
     "2225": {
       "key": "2225",
@@ -102516,12 +102516,12 @@
     },
     "assura@lausanne": {
       "key": "assura@lausanne",
-      "status": "promoted",
+      "status": "promoting",
       "sources": [
         "seco"
       ],
       "firstSeenAt": "2026-10-07T10:31:19.498Z",
-      "updatedAt": "2026-11-07T13:00:54.033Z",
+      "updatedAt": "2026-11-07T13:26:58.217Z",
       "name": "Assura",
       "city": "Lausanne",
       "zip": "1007",
@@ -102806,7 +102806,9 @@
           "logoSourceUrl": "https://www.assura.ch/apple-touch-icon.png",
           "employerSiteName": "Assura, l’assicurazione malattie al suo fianco"
         }
-      ]
+      ],
+      "promotionPr": "17533",
+      "promotionBranch": "prospector/promote-2026-11-07"
     },
     "assura@pratteln": {
       "key": "assura@pratteln",
@@ -414266,12 +414268,12 @@
     },
     "education-company@zurich": {
       "key": "education-company@zurich",
-      "status": "promoted",
+      "status": "promoting",
       "sources": [
         "seco"
       ],
       "firstSeenAt": "2026-09-17T08:54:12.860Z",
-      "updatedAt": "2026-11-07T13:00:35.749Z",
+      "updatedAt": "2026-11-07T13:26:58.217Z",
       "name": "Swiss Education Company GmbH",
       "city": "Zürich",
       "zip": "8051",
@@ -414552,7 +414554,9 @@
           "logoSourceUrl": "https://swiss-education-company.ch/wp-content/uploads/2021/08/swiss_edu_nur_logo-150x150.png",
           "employerSiteName": "Swiss Education Company"
         }
-      ]
+      ],
+      "promotionPr": "17533",
+      "promotionBranch": "prospector/promote-2026-11-07"
     },
     "education21.ch": {
       "key": "education21.ch",
@@ -526943,12 +526947,12 @@
     },
     "freestar-informatik@geneve": {
       "key": "freestar-informatik@geneve",
-      "status": "promoted",
+      "status": "promoting",
       "sources": [
         "seco"
       ],
       "firstSeenAt": "2026-10-08T10:45:07.236Z",
-      "updatedAt": "2026-11-07T13:00:20.724Z",
+      "updatedAt": "2026-11-07T13:26:58.217Z",
       "name": "Freestar-Informatik AG",
       "city": "Genève",
       "zip": "1207",
@@ -527190,7 +527194,9 @@
           "logoSourceUrl": "https://www.freestarinformatik.ch/favicon.ico",
           "employerSiteName": "Freestar-Informatik AG"
         }
-      ]
+      ],
+      "promotionPr": "17533",
+      "promotionBranch": "prospector/promote-2026-11-07"
     },
     "freestar-informatik@goldau": {
       "key": "freestar-informatik@goldau",
@@ -1182679,14 +1182685,14 @@
     },
     "richnerstutz.ch": {
       "key": "richnerstutz.ch",
-      "status": "promoted",
+      "status": "promoting",
       "sources": [
         "web",
         "osm",
         "seco"
       ],
       "firstSeenAt": "2026-08-23T04:15:59.729Z",
-      "updatedAt": "2026-11-07T13:01:38.120Z",
+      "updatedAt": "2026-11-07T13:26:58.217Z",
       "name": "Richnerstutz AG",
       "domain": "richnerstutz.ch",
       "careersUrl": "https://richnerstutz.ch/jobs",
@@ -1182964,7 +1182970,9 @@
           "logoSourceUrl": "https://richnerstutz.ch/typo3conf/ext/richnerstutz_theme/Resources/Public/Icons/favicon.svg",
           "employerSiteName": "Richnerstutz"
         }
-      ]
+      ],
+      "promotionPr": "17533",
+      "promotionBranch": "prospector/promote-2026-11-07"
     },
     "richnerwaffen.ch": {
       "key": "richnerwaffen.ch",
@@ -1946881,12 +1946889,12 @@
     },
     "ronda@stabio": {
       "key": "ronda@stabio",
-      "status": "promoted",
+      "status": "promoting",
       "sources": [
         "seco"
       ],
       "firstSeenAt": "2026-11-06T11:04:43.846Z",
-      "updatedAt": "2026-11-07T13:00:13.925Z",
+      "updatedAt": "2026-11-07T13:26:58.217Z",
       "name": "Ronda AG",
       "secoEmployerName": "Ronda AG",
       "secoEmployerClassification": "direct",
@@ -1947165,7 +1947173,9 @@
           "logoSourceUrl": "https://www.ronda.ch/gui/Logo_ronda.svg",
           "employerSiteName": "Ronda"
         }
-      ]
+      ],
+      "promotionPr": "17533",
+      "promotionBranch": "prospector/promote-2026-11-07"
     },
     "consorzio-depurazione-acque-del-verbano-cdv@solduno": {
       "key": "consorzio-depurazione-acque-del-verbano-cdv@solduno",
