@@ -1570,7 +1570,7 @@ jobs:
       # build render the same corpus again. Cache storage is optional and must
       # not hold up publication if the cache service stalls.
       - name: Check jobs SEO HTML cache contents
-        if: success() && env.JOBS_SEO_REUSE == '1'
+        if: always() && env.JOBS_SEO_REUSE == '1'
         id: jobs-seo-html-content
         shell: bash
         run: |
@@ -1583,6 +1583,29 @@ jobs:
 
       - name: Save jobs SEO HTML cache
         if: success() && env.JOBS_SEO_REUSE == '1' && steps.jobs-seo-html-content.outputs.has_files == 'true' && hashFiles(format('.cache/incremental-manifest/{0}.jsonl', matrix.locale)) != ''
+        timeout-minutes: 30
+        continue-on-error: true
+        uses: actions/cache/save@v6
+        with:
+          path: .cache/incremental-html
+          key: jobs-seo-html-${{ matrix.locale }}-${{ hashFiles(format('.cache/incremental-manifest/{0}.jsonl', matrix.locale)) }}-${{ steps.jobs-seo-html-fingerprint.outputs.fingerprint }}
+
+      # Keep the fully rendered IT cache if another locale dies at the
+      # same-run hreflang barrier. This fallback is eligible only after IT's
+      # build and all preceding local validation/manifest steps succeeded; it
+      # stores renderer output, not the published artifact, so the barrier and
+      # post-rewrite validation remain mandatory on the next publish.
+      - name: Save jobs SEO HTML cache after hreflang barrier failure
+        if: >-
+          ${{ always() &&
+              matrix.locale == 'it' &&
+              env.JOBS_SEO_REUSE == '1' &&
+              steps.exchange-hreflang-index-manifests.outcome == 'failure' &&
+              steps.jobs-seo-html-content.outputs.has_files == 'true' &&
+              steps.build_step.outcome == 'success' &&
+              steps.validate-owned-sitemap-pages.outcome == 'success' &&
+              steps.hreflang-index-manifest-pre.outcome == 'success' &&
+              hashFiles(format('.cache/incremental-manifest/{0}.jsonl', matrix.locale)) != '' }}
         timeout-minutes: 30
         continue-on-error: true
         uses: actions/cache/save@v6
