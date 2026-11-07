@@ -91,12 +91,12 @@ describe('portal field extraction', () => {
   });
 
   it('marks an empty first option as a placeholder when required is expressed through aria', () => {
-    const required = extract(\`<form>
-      <label for="country">Land</label>
-      <select id="country" aria-required="true">
-        <option value="">Land</option><option value="CH">Schweiz</option>
-      </select>
-    </form>\`).fields.find((field: any) => field.label === 'Land');
+    const required = extract('<form>'
+      + '<label for="country">Land</label>'
+      + '<select id="country" aria-required="true">'
+      + '<option value="">Land</option><option value="CH">Schweiz</option>'
+      + '</select>'
+      + '</form>').fields.find((field: any) => field.label === 'Land');
     expect(required).toMatchObject({
       kind: 'select', required: true,
       options: [
@@ -105,12 +105,12 @@ describe('portal field extraction', () => {
       ],
     });
 
-    const optional = extract(\`<form>
-      <label for="choice">Optional</label>
-      <select id="choice">
-        <option value="">Blank is valid</option><option value="one">One</option>
-      </select>
-    </form>\`).fields.find((field: any) => field.label === 'Optional');
+    const optional = extract('<form>'
+      + '<label for="choice">Optional</label>'
+      + '<select id="choice">'
+      + '<option value="">Blank is valid</option><option value="one">One</option>'
+      + '</select>'
+      + '</form>').fields.find((field: any) => field.label === 'Optional');
     expect(optional?.options?.[0]).toEqual({ value: '', label: 'Blank is valid' });
   });
 

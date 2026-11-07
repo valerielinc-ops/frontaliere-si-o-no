@@ -44,7 +44,7 @@ import { sanitizeValidation } from '../../../../functions/src/lib/answerRules.js
 import { operationalAnswerForOption, operationalDefaultAnswer, operationalQuestionTopic } from '../../../../functions/src/assistedApplicationOperationalAnswers.js';
 import { isoDateOf } from '../../../../functions/src/lib/cvPeriod.js';
 import { asksHeldStatus, isPermitField, nationalityLabelOf, nationalityOf, permitOptions, permitStatusFromCandidate, permitStatusOf, permitStatement, permitStatusQuestion, permitStatusQuestionWhy, printedPermitText } from '../../../../functions/src/lib/permitStatus.js';
-import { countryCodeOfLabel, countryLabelForCode, formatInternationalPhone, phoneCountryLabel } from '../../../../functions/src/lib/phoneNormalization.js';
+import { formatInternationalPhone, phoneCountryLabel } from '../../../../functions/src/lib/phoneNormalization.js';
 import { serializeAccountFailure } from '../../../../functions/src/assistedApplicationSubmissionGuard.js';
 import { addressQuestionAnswer, residenceCountryCode, resolveResidenceAddress } from './residence-address.mjs';
 import { CONFIRM_RE, NEXT_RE, REFUSED_RE, SUBMIT_RE, VALIDATION_RE, applyActions, chooseChooserFiles, documentPaths, findButton, locatorFor, uploadReceipt } from './fill.mjs';
@@ -3389,16 +3389,17 @@ function deterministicGermanOption(option, entry, language, applicationOptionVal
   const known = DETERMINISTIC_GERMAN_OPTION_COPIES[entry.key]?.[normalized]?.[language];
   if (known) return known;
   const codeFromValue = String(applicationOptionValue || '').trim().toUpperCase();
-  if (entry.key === 'nationality') {
-    const code = REGION_CODE_RE.test(codeFromValue) ? codeFromValue : nationalityOf(text)?.code;
-    const localized = code ? nationalityLabelOf(code, language) : '';
+  const verifiedCodeFromValue = REGION_CODE_RE.test(codeFromValue)
+    ? regionCodeForOption(codeFromValue)
+    : '';
+  if (entry.key === 'nationality' && verifiedCodeFromValue) {
+    const localized = nationalityLabelOf(verifiedCodeFromValue, language);
     if (localized) return localized;
-    const region = code ? localizedRegionLabel(code, language) : '';
+    const region = localizedRegionLabel(verifiedCodeFromValue, language);
     if (region) return region;
   }
-  if (entry.key === 'country') {
-    const code = REGION_CODE_RE.test(codeFromValue) ? codeFromValue : residenceCountryCode(text) || countryCodeOfLabel(text);
-    const localized = codeFromValue ? localizedRegionLabel(code, language) : (code ? countryLabelForCode(code, language) : '');
+  if (entry.key === 'country' && verifiedCodeFromValue) {
+    const localized = localizedRegionLabel(verifiedCodeFromValue, language);
     if (localized) return localized;
   }
   if (entry.key === 'country' || entry.key === 'nationality') {
