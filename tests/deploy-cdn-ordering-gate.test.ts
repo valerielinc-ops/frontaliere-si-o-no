@@ -102,13 +102,13 @@ describe('deploy.yml — the IT CDN push runs BEFORE anything publishes (#5251)'
     expect(again).toBeLessThan(sections);
   });
 
-  // Run 41579534959: og/ outlasted two 900s attempts inside the early step's
-  // 45 minutes, and the IT leg then hit the 6h job cap.
-  it('the early push fails fast on og/ and leaves the long og/ bound to the retry', () => {
+  // Run 42313737885: the 300s override timed out twice on a cold OG delta;
+  // the default 900s retry completed the full CDN push in 33m18s.
+  it('uses the measured OG bound on the first push and keeps the bounded retry', () => {
     const early = step('Push generated assets to CDN (early — ahead of the shard pushes)');
-    expect(early).toMatch(/R2_TIMEOUT_OG_S: '300'/);
+    expect(early).toMatch(/R2_TIMEOUT_OG_S: '900'/);
     const retry = step('Retry early CDN push (before the section shards give up)');
-    expect(retry, 'the retry keeps the script default for og/').not.toMatch(/R2_TIMEOUT_OG_S/);
+    expect(retry, 'the retry keeps the same script default for og/').not.toMatch(/R2_TIMEOUT_OG_S/);
   });
 
   it('the #2569 invariant itself is unchanged: the shard publish is still gated on the marker', () => {
