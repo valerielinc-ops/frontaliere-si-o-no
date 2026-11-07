@@ -132,7 +132,7 @@ export async function fetchAllChristinavassalliJobs() {
   const listings = await fetchJobListings();
   if (!listings || listings.length === 0) {
     console.warn('⚠️ No job listings returned.');
-    return [];
+    return Array.isArray(listings) ? listings : [];
   }
 
   console.log(`  📋 Listings found: ${listings.length}`);

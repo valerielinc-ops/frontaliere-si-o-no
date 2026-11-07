@@ -243,7 +243,7 @@ export async function fetchAllOkjobJobs(runtime = {}) {
   const listings = await fetchJobListings(runtime);
   if (!listings || listings.length === 0) {
     console.warn('⚠️ No job listings returned.');
-    return [];
+    return Array.isArray(listings) ? listings : [];
   }
 
   console.log(`  📋 Listings found: ${listings.length}`);
