@@ -1,7 +1,7 @@
 {
   "crawlerKey": "ipersonal",
-  "assembledAt": "2026-11-06T21:22:33.935Z",
-  "runId": "42293765278",
+  "assembledAt": "2026-11-07T09:19:17.655Z",
+  "runId": "42358216515",
   "jobs": [
     {
       "id": "ipersonal-b14d0297131a",
@@ -34,7 +34,7 @@
       "url": "https://med-ipersonal.ch/jobs/offene-stellen-fuer-fachpersonen-langzeitpflege-betreuung-in-littenheid-jetzt-bewerben/",
       "source": "MediPersonal Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T21:22:20.131Z",
+      "crawledAt": "2026-11-07T09:18:55.405Z",
       "addressLocality": "Littenheid",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -90,7 +90,7 @@
       },
       "streetAddress": "Littenheid",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-24T21:22:20.131Z",
+      "validThrough": "2027-01-24T09:18:55.405Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -124,7 +124,7 @@
       "url": "https://med-ipersonal.ch/jobs/advanced-practice-nurse-apn-master-of-science-in-pflege-80-100-in-sursee-und-umgebung-gesucht/",
       "source": "MediPersonal Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T21:22:19.830Z",
+      "crawledAt": "2026-11-07T09:18:55.104Z",
       "addressLocality": "Sursee",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -169,7 +169,7 @@
       },
       "streetAddress": "Sursee",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-24T21:22:19.830Z",
+      "validThrough": "2027-01-24T09:18:55.104Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -203,7 +203,7 @@
       "url": "https://med-ipersonal.ch/jobs/offene-stellen-fuer-betreuung-in-aarberg-werde-teil-eines-engagierten-teams/",
       "source": "MediPersonal Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T21:22:19.529Z",
+      "crawledAt": "2026-11-07T09:18:54.802Z",
       "addressLocality": "Aarberg",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -230,8 +230,8 @@
           "offene-stellen-per-betreuung-medipersonal-aarberg-bern",
           "fachfrau-mann-betreuung-medipersonal-aarberg-und-umgebung-einsatzbeginn-ab-sofort-oder-nach-vereinbarung",
           "posizioni-aperte-per-l-assistenza-medipersonal-aarberg-bern",
-          "posizioni-aperte-per-l-assistenza-medipersonal-aarberg-462f871861",
           "posizioni-aperte-per-l-assistenza-medipersonal-berna-b3cbe3",
+          "posizioni-aperte-per-l-assistenza-medipersonal-aarberg-462f871861",
           "posizioni-aperte-per-l-assistenza-medipersonal-berna"
         ],
         "en": [
@@ -251,8 +251,8 @@
         "care-vacancies-medipersonal-aarberg-bern",
         "emplois-vacants-medipersonal-aarberg-bern",
         "posizioni-aperte-per-l-assistenza-medipersonal-aarberg-bern",
-        "posizioni-aperte-per-l-assistenza-medipersonal-aarberg-462f871861",
         "posizioni-aperte-per-l-assistenza-medipersonal-berna-b3cbe3",
+        "posizioni-aperte-per-l-assistenza-medipersonal-aarberg-462f871861",
         "posizioni-aperte-per-l-assistenza-medipersonal-berna"
       ],
       "firstSeenAt": "2026-11-04T09:17:17.925Z",
@@ -272,7 +272,7 @@
       "postalCode": "3270",
       "streetAddress": "Aarberg",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-24T21:22:19.529Z",
+      "validThrough": "2027-01-24T09:18:54.802Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -306,7 +306,7 @@
       "url": "https://med-ipersonal.ch/jobs/offene-stellen-fuer-pflege-in-langenthal-dein-engagement-zaehlt/",
       "source": "MediPersonal Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T21:22:19.227Z",
+      "crawledAt": "2026-11-07T09:18:54.502Z",
       "addressLocality": "Langenthal",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -384,7 +384,7 @@
       },
       "streetAddress": "Langenthal",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-24T21:22:19.227Z",
+      "validThrough": "2027-01-24T09:18:54.502Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -418,7 +418,7 @@
       "url": "https://med-ipersonal.ch/jobs/personalberater-in-fuer-die-medizinbranche-gesucht-m-w-d-100-in-region-baeretswil/",
       "source": "MediPersonal Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T21:22:18.926Z",
+      "crawledAt": "2026-11-07T09:18:54.200Z",
       "addressLocality": "Wallisellen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -475,7 +475,7 @@
       "postalCode": "8304",
       "streetAddress": "Wallisellen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-24T21:22:18.926Z",
+      "validThrough": "2027-01-24T09:18:54.200Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -509,7 +509,7 @@
       "url": "https://med-ipersonal.ch/jobs/fachmann-fachfrau-gesundheit-efz-m-w-d-temporaerstellen-fuer-pflege-st-gallen-mit-zukunft/",
       "source": "MediPersonal Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T21:22:18.625Z",
+      "crawledAt": "2026-11-07T09:18:53.895Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -567,7 +567,7 @@
       "postalCode": "9000",
       "streetAddress": "St. Gallen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-24T21:22:18.625Z",
+      "validThrough": "2027-01-24T09:18:53.895Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -601,7 +601,7 @@
       "url": "https://med-ipersonal.ch/jobs/offene-stellen-fuer-betreuung-in-bern-werde-teil-eines-engagierten-teams/",
       "source": "MediPersonal Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T21:22:18.324Z",
+      "crawledAt": "2026-11-07T09:18:53.594Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -628,8 +628,8 @@
           "offene-stellen-per-betreuung-medipersonal-bern-bern",
           "fachfrau-mann-betreuung-medipersonal-bern-und-umgebung-einsatzbeginn-ab-sofort-oder-nach-vereinbarung",
           "posizioni-aperte-per-l-assistenza-medipersonal-bern-bern",
-          "posizioni-aperte-per-l-assistenza-medipersonal-bern-1cb64a7a44",
           "posizioni-aperte-per-l-assistenza-medipersonal-berna-746cd4",
+          "posizioni-aperte-per-l-assistenza-medipersonal-bern-1cb64a7a44",
           "posizioni-aperte-per-l-assistenza-medipersonal-berna"
         ],
         "en": [
@@ -649,8 +649,8 @@
         "care-vacancies-medipersonal-bern-bern",
         "emplois-vacants-medipersonal-bern-bern",
         "posizioni-aperte-per-l-assistenza-medipersonal-bern-bern",
-        "posizioni-aperte-per-l-assistenza-medipersonal-bern-1cb64a7a44",
         "posizioni-aperte-per-l-assistenza-medipersonal-berna-746cd4",
+        "posizioni-aperte-per-l-assistenza-medipersonal-bern-1cb64a7a44",
         "posizioni-aperte-per-l-assistenza-medipersonal-berna"
       ],
       "firstSeenAt": "2026-11-04T09:17:16.716Z",
@@ -670,7 +670,7 @@
       "postalCode": "3004",
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-24T21:22:18.324Z",
+      "validThrough": "2027-01-24T09:18:53.594Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -704,7 +704,7 @@
       "url": "https://med-ipersonal.ch/jobs/offene-stellen-fuer-pflege-in-frauenfeld-dein-engagement-zaehlt/",
       "source": "MediPersonal Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T21:22:18.022Z",
+      "crawledAt": "2026-11-07T09:18:53.292Z",
       "addressLocality": "Frauenfeld",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -780,7 +780,7 @@
       },
       "streetAddress": "Frauenfeld",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-24T21:22:18.022Z",
+      "validThrough": "2027-01-24T09:18:53.292Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -814,7 +814,7 @@
       "url": "https://med-ipersonal.ch/jobs/pflegefachmann-frau-hf-100-bern-i-2026-0006/",
       "source": "MediPersonal Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T21:22:17.721Z",
+      "crawledAt": "2026-11-07T09:18:52.988Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -864,7 +864,7 @@
       "postalCode": "3004",
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-27T21:22:17.721Z",
+      "validThrough": "2027-01-27T09:18:52.988Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -898,7 +898,7 @@
       "url": "https://med-ipersonal.ch/jobs/fachmann-frau-gesundheit-efz-100-flawil-i-2026-0009/",
       "source": "MediPersonal Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T21:22:17.419Z",
+      "crawledAt": "2026-11-07T09:18:52.685Z",
       "addressLocality": "Flawil",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -950,33 +950,33 @@
       "postalCode": "9230",
       "streetAddress": "Flawil",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-01T21:22:17.419Z",
+      "validThrough": "2027-02-01T09:18:52.685Z",
       "validThroughSource": "last-observed-window"
     },
     {
       "id": "ipersonal-56357df50830",
-      "slug": "pflegefachmann-frau-hf-80-100-medipersonal-region-stein-am-rhein-sh",
+      "slug": "infermiere-a-sss-80-100-medipersonal-region-stein-am-rhein-sh",
       "slugByLocale": {
+        "it": "infermiere-a-sss-80-100-medipersonal-region-stein-am-rhein-sh",
+        "en": "nursing-specialist-hf-80-100-medipersonal-region-stein-am-rhein-sh",
         "de": "pflegefachmann-frau-hf-80-100-medipersonal-region-stein-am-rhein-sh",
-        "it": "pflegefachmann-frau-hf-80-100-medipersonal-region-stein-am-rhein-sh",
-        "en": "pflegefachmann-frau-hf-80-100-medipersonal-region-stein-am-rhein-sh",
-        "fr": "pflegefachmann-frau-hf-80-100-medipersonal-region-stein-am-rhein-sh"
+        "fr": "infirmier-infirmiere-hf-80-100-medipersonal-region-stein-am-rhein-sh"
       },
       "company": "MediPersonal",
       "companyKey": "ipersonal",
       "companyDomain": "med-ipersonal.ch",
       "title": "Pflegefachmann/frau HF 80–100 %",
       "titleByLocale": {
-        "de": "Pflegefachmann/frau HF 80–100 %",
         "it": "Infermiere/a SSS 80-100%",
         "en": "Nursing specialist HF 80-100%",
+        "de": "Pflegefachmann/frau HF 80–100 %",
         "fr": "Infirmier/infirmière HF 80–100 %"
       },
       "description": "Aus dem Ausland? Diplom noch nicht anerkannt? Bewerben Sie sich trotzdem. Wir helfen Ihnen bei der Anerkennung beim Schweizerischen Roten Kreuz (SRK) oder bei der MEBEKO und bei der Bewilligung.\nDiese Tätigkeiten erwarten Sie\n• Beratung von Patientinnen, Patienten und Angehörigen\n• Mitarbeit bei Ein- und Austritten\n• Pflegerische Verrichtungen wie Wundversorgung und Infusionen\n• Mitwirken bei der Qualitätssicherung der Pflege\nIhre Stärken\n• Diplom als Pflegefachmann/frau HF (ausländische Diplome mit Anerkennung des SRK)\n• Freude an der Zusammenarbeit im interprofessionellen Team\n• Erfahrung mit elektronischer Pflegedokumentation\n• Belastbar auch in hektischen Momenten\nIhre Vorteile mit MediPersonal\n• Wöchentliche Lohnauszahlung, auch bei kurzen Einsätzen\n• Ihre Kontaktperson bei MediPersonal begleitet Sie persönlich, vom ersten Gespräch bis zum letzten Dienst\n• Dienste, Pensum und Einsatzort planen wir mit Ihnen zusammen\n• Spätere Festanstellung in der Institution möglich, wenn beide Seiten wollen\n• Unterstützung bei der Anerkennung Ihres Diploms beim SRK und bei der Bewilligung\n• Vertrag, Lohnabrechnung und Versicherungen über die iPersonal AG\n• Für Fachpersonen kostenlos\nIhr Arbeitsumfeld\nBerufsgruppe Pflege\nDienste nach Dienstplan der Institution, wir besprechen ihn vorher mit Ihnen\nDen Namen der Institution erfahren Sie im persönlichen Gespräch.\nIhr Beruf: Pflegefachmann /frau\nAls diplomierte Pflegefachfrau oder diplomierter Pflegefachmann HF oder FH tragen Sie die Verantwortung für den Pflegeprozess. Sie erfassen den Pflegebedarf, planen Massnahmen, führen anspruchsvolle Pflege durch, überwachen Patientinnen und Patienten und arbeiten eng mit Ärzteschaft, Therapien und Angehörigen zusammen.",
       "descriptionByLocale": {
-        "de": "Aus dem Ausland? Diplom noch nicht anerkannt? Bewerben Sie sich trotzdem. Wir helfen Ihnen bei der Anerkennung beim Schweizerischen Roten Kreuz (SRK) oder bei der MEBEKO und bei der Bewilligung.\nDiese Tätigkeiten erwarten Sie\n• Beratung von Patientinnen, Patienten und Angehörigen\n• Mitarbeit bei Ein- und Austritten\n• Pflegerische Verrichtungen wie Wundversorgung und Infusionen\n• Mitwirken bei der Qualitätssicherung der Pflege\nIhre Stärken\n• Diplom als Pflegefachmann/frau HF (ausländische Diplome mit Anerkennung des SRK)\n• Freude an der Zusammenarbeit im interprofessionellen Team\n• Erfahrung mit elektronischer Pflegedokumentation\n• Belastbar auch in hektischen Momenten\nIhre Vorteile mit MediPersonal\n• Wöchentliche Lohnauszahlung, auch bei kurzen Einsätzen\n• Ihre Kontaktperson bei MediPersonal begleitet Sie persönlich, vom ersten Gespräch bis zum letzten Dienst\n• Dienste, Pensum und Einsatzort planen wir mit Ihnen zusammen\n• Spätere Festanstellung in der Institution möglich, wenn beide Seiten wollen\n• Unterstützung bei der Anerkennung Ihres Diploms beim SRK und bei der Bewilligung\n• Vertrag, Lohnabrechnung und Versicherungen über die iPersonal AG\n• Für Fachpersonen kostenlos\nIhr Arbeitsumfeld\nBerufsgruppe Pflege\nDienste nach Dienstplan der Institution, wir besprechen ihn vorher mit Ihnen\nDen Namen der Institution erfahren Sie im persönlichen Gespräch.\nIhr Beruf: Pflegefachmann /frau\nAls diplomierte Pflegefachfrau oder diplomierter Pflegefachmann HF oder FH tragen Sie die Verantwortung für den Pflegeprozess. Sie erfassen den Pflegebedarf, planen Massnahmen, führen anspruchsvolle Pflege durch, überwachen Patientinnen und Patienten und arbeiten eng mit Ärzteschaft, Therapien und Angehörigen zusammen.",
         "it": "Dall'estero? Diploma non ancora riconosciuto? Si prega di applicare comunque. Vi aiutiamo con il riconoscimento della Croce Rossa svizzera (SRC) o MEBEKO e l'approvazione.\nQueste attività vi aspettano\n• Consulenza per pazienti, pazienti e parenti\n• Cooperazione in materia di entrate e prelievi\n• Servizi infermieri come la cura delle ferite e infusioni\n• Partecipazione alla garanzia di qualità della cura\nLe loro forze\n• Diploma di infermiere/donna HF (diplomi stranieri riconosciuti dal CCR)\n• Divertimento della cooperazione nel team interprofessionale\n• Esperienza con documentazione di manutenzione elettronica\n• Resilienza anche nei momenti frenetici\nI tuoi vantaggi con MediPersonal\n• Pagamento settimanale, anche per brevi incarichi\n• La tua persona di contatto a MediPersonal ti accompagna personalmente, dalla prima conversazione all'ultimo servizio\n• Servizi, carico di lavoro e posizione che pianifichiamo insieme a voi\n• Lavoro permanente più tardi nell'istituzione possibile se entrambe le parti vogliono\n• Assistenza nel riconoscimento del diploma con la SRC e nel concederlo\n• Contratto, payroll e assicurazione tramite iPersonal AG\n• Gratis per i professionisti\nIl tuo ambiente di lavoro\nCura del gruppo professionale\nServizi secondo il calendario dell'istituzione, ne parliamo con voi in anticipo\nScoprirai il nome dell'istituzione in una conversazione personale.\nLa tua professione: Infermieristica professionale /frau\nCome infermiera qualificata o infermiera qualificata HF o FH, sei responsabile del processo di allattamento. Essi registrano la necessità di cure, misure di piano, effettuare cure esigenti, monitorare i pazienti e lavorare a stretto contatto con la professione medica, terapie e parenti.",
         "en": "From abroad? Diploma not yet recognized? Please apply anyway. We help you with the recognition of the Swiss Red Cross (SRC) or MEBEKO and the approval.\nThese activities await you\n• Advice for patients, patients and relatives\n• Cooperation on entries and withdrawals\n• Nursing services such as wound care and infusions\n• Participation in quality assurance of care\nTheir strengths\n• Diploma as nurse/woman HF (foreign diplomas recognised by the SRC)\n• Enjoyment of cooperation in the interprofessional team\n• Experience with electronic maintenance documentation\n• Resilience even in hectic moments\nYour advantages with MediPersonal\n• Weekly payout, even for short assignments\n• Your contact person at MediPersonal accompanies you personally, from the first conversation to the last service\n• Services, workload and location we plan together with you\n• Later permanent employment in the institution possible if both sides want\n• Assistance in the recognition of your diploma with the SRC and in granting it\n• Contract, payroll and insurance through iPersonal AG\n• Free of charge for professionals\nYour working environment\nProfessional group care\nServices according to the schedule of the institution, we discuss it with you beforehand\nYou will find out the name of the institution in a personal conversation.\nYour profession: Nursing professional /frau\nAs a qualified nurse or qualified nurse HF or FH, you are responsible for the nursing process. They record the need for care, plan measures, carry out demanding care, monitor patients and work closely with the medical profession, therapies and relatives.",
+        "de": "Aus dem Ausland? Diplom noch nicht anerkannt? Bewerben Sie sich trotzdem. Wir helfen Ihnen bei der Anerkennung beim Schweizerischen Roten Kreuz (SRK) oder bei der MEBEKO und bei der Bewilligung.\nDiese Tätigkeiten erwarten Sie\n• Beratung von Patientinnen, Patienten und Angehörigen\n• Mitarbeit bei Ein- und Austritten\n• Pflegerische Verrichtungen wie Wundversorgung und Infusionen\n• Mitwirken bei der Qualitätssicherung der Pflege\nIhre Stärken\n• Diplom als Pflegefachmann/frau HF (ausländische Diplome mit Anerkennung des SRK)\n• Freude an der Zusammenarbeit im interprofessionellen Team\n• Erfahrung mit elektronischer Pflegedokumentation\n• Belastbar auch in hektischen Momenten\nIhre Vorteile mit MediPersonal\n• Wöchentliche Lohnauszahlung, auch bei kurzen Einsätzen\n• Ihre Kontaktperson bei MediPersonal begleitet Sie persönlich, vom ersten Gespräch bis zum letzten Dienst\n• Dienste, Pensum und Einsatzort planen wir mit Ihnen zusammen\n• Spätere Festanstellung in der Institution möglich, wenn beide Seiten wollen\n• Unterstützung bei der Anerkennung Ihres Diploms beim SRK und bei der Bewilligung\n• Vertrag, Lohnabrechnung und Versicherungen über die iPersonal AG\n• Für Fachpersonen kostenlos\nIhr Arbeitsumfeld\nBerufsgruppe Pflege\nDienste nach Dienstplan der Institution, wir besprechen ihn vorher mit Ihnen\nDen Namen der Institution erfahren Sie im persönlichen Gespräch.\nIhr Beruf: Pflegefachmann /frau\nAls diplomierte Pflegefachfrau oder diplomierter Pflegefachmann HF oder FH tragen Sie die Verantwortung für den Pflegeprozess. Sie erfassen den Pflegebedarf, planen Massnahmen, führen anspruchsvolle Pflege durch, überwachen Patientinnen und Patienten und arbeiten eng mit Ärzteschaft, Therapien und Angehörigen zusammen.",
         "fr": "De l'étranger ? Diplôme non encore reconnu? Veuillez postuler de toute façon. Nous vous aidons avec la reconnaissance de la Croix-Rouge Suisse (SRC) ou MEBEKO et l'approbation.\nCes activités vous attendent\n• Conseils aux patients, patients et proches\n• Coopération concernant les entrées et retraits\n• Services de soins infirmiers tels que soins des plaies et perfusions\n• Participation à l'assurance qualité des soins\nLeurs forces\n• Diplôme d'infirmière/femme HF (diplômes étrangers reconnus par le SRC)\n• Profitez de la coopération dans l'équipe interprofessionnelle\n• Expérience de la documentation électronique de maintenance\n• La résilience même dans les moments agités\nVos avantages avec MediPersonal\n• Paiement hebdomadaire, même pour les missions courtes\n• Votre contact chez MediPersonal vous accompagne personnellement, de la première conversation au dernier service\n• Services, charge de travail et emplacement que nous planifions avec vous\n• Emploi permanent ultérieur dans l'institution possible si les deux parties veulent\n• Assistance à la reconnaissance de votre diplôme auprès du SRC et à son octroi\n• Contrats, salaires et assurances par l'intermédiaire de iPersonal AG\n• Gratuit pour les professionnels\nVotre environnement de travail\nSoins de groupe professionnels\nServices selon le calendrier de l'institution, nous en discutons avec vous au préalable\nVous trouverez le nom de l'institution dans une conversation personnelle.\nVotre profession: Professionnels des soins infirmiers /frau\nEn tant qu'infirmière ou infirmière qualifiée HF ou FH, vous êtes responsable du processus infirmier. Ils enregistrent les besoins en soins, planifient les mesures, effectuent des soins exigeants, surveillent les patients et travaillent en étroite collaboration avec la profession médicale, les thérapies et les proches."
       },
       "location": "Region Stein am Rhein (SH)",
@@ -984,7 +984,7 @@
       "url": "https://med-ipersonal.ch/jobs/pflegefachmann-frau-hf-80-100-stein-am-rhein-i-2026-0026/",
       "source": "MediPersonal Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T21:22:17.118Z",
+      "crawledAt": "2026-11-07T09:18:52.384Z",
       "addressLocality": "Stein am Rhein",
       "addressRegion": "SH",
       "addressCountry": "CH",
@@ -1000,7 +1000,30 @@
       "postedDate": "2026-11-06",
       "postingDateSource": "reported",
       "applyUrl": "https://med-ipersonal.ch/jobs/pflegefachmann-frau-hf-80-100-stein-am-rhein-i-2026-0026/",
+      "previousSlugs": [
+        "pflegefachmann-frau-hf-80-100-medipersonal-stein-am-rhein",
+        "pflegefachmann-frau-hf-80-100-medipersonal-region-stein-am-rhein-sh",
+        "nursing-specialist-hf-80-100-medipersonal-stein-am-rhein",
+        "infirmier-infirmiere-hf-80-100-medipersonal-stein-am-rhein",
+        "infermiere-a-sss-80-100-medipersonal-stein-am-rhein"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "pflegefachmann-frau-hf-80-100-medipersonal-stein-am-rhein",
+          "pflegefachmann-frau-hf-80-100-medipersonal-region-stein-am-rhein-sh",
+          "infermiere-a-sss-80-100-medipersonal-stein-am-rhein"
+        ],
+        "en": [
+          "pflegefachmann-frau-hf-80-100-medipersonal-region-stein-am-rhein-sh",
+          "nursing-specialist-hf-80-100-medipersonal-stein-am-rhein"
+        ],
+        "fr": [
+          "pflegefachmann-frau-hf-80-100-medipersonal-region-stein-am-rhein-sh",
+          "infirmier-infirmiere-hf-80-100-medipersonal-stein-am-rhein"
+        ]
+      },
       "needsRetranslation": true,
+      "firstSeenAt": "2026-11-06T21:22:17.118Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -1017,42 +1040,33 @@
       "postalCode": "8260",
       "streetAddress": "Stein am Rhein",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-04T21:22:17.118Z",
-      "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-06T21:22:17.118Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "pflegefachmann-frau-hf-80-100-medipersonal-stein-am-rhein"
-        ]
-      },
-      "previousSlugs": [
-        "pflegefachmann-frau-hf-80-100-medipersonal-stein-am-rhein"
-      ]
+      "validThrough": "2027-02-04T09:18:52.384Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ipersonal-8f7c5b3fdffe",
-      "slug": "fachmann-frau-gesundheit-cfc-80-100-medipersonal-region-biel-bienne-be",
+      "slug": "specialista-a-salute-afc-80-100-medipersonal-region-biel-bienne-be",
       "slugByLocale": {
+        "it": "specialista-a-salute-afc-80-100-medipersonal-region-biel-bienne-be",
+        "en": "professional-health-efz-80-100-medipersonal-region-biel-bienne-be",
         "de": "fachmann-frau-gesundheit-efz-80-100-medipersonal-region-biel-bienne-be",
-        "it": "fachmann-frau-gesundheit-cfc-80-100-medipersonal-region-biel-bienne-be",
-        "en": "fachmann-frau-gesundheit-efz-80-100-medipersonal-region-biel-bienne-be",
-        "fr": "fachmann-frau-gesundheit-efz-80-100-medipersonal-region-biel-bienne-be"
+        "fr": "professionnel-de-la-sante-cfc-80-100-medipersonal-region-biel-bienne-be"
       },
       "company": "MediPersonal",
       "companyKey": "ipersonal",
       "companyDomain": "med-ipersonal.ch",
       "title": "Fachmann/frau Gesundheit EFZ 80–100 %",
       "titleByLocale": {
-        "de": "Fachmann/frau Gesundheit EFZ 80–100 %",
         "it": "Specialista/a Salute AFC 80-100%",
         "en": "Professional health EFZ 80-100%",
+        "de": "Fachmann/frau Gesundheit EFZ 80–100 %",
         "fr": "Professionnel de la santé CFC 80–100 %"
       },
       "description": "Aus dem Ausland? Diplom noch nicht anerkannt? Bewerben Sie sich trotzdem. Wir helfen Ihnen bei der Anerkennung beim Schweizerischen Roten Kreuz (SRK) oder bei der MEBEKO und bei der Bewilligung.\nDiese Tätigkeiten erwarten Sie\n• Sie arbeiten eng mit dem Pflegeteam zusammen.\n• Sie richten Untersuchungen vor und begleiten diese fachgerecht.\n• Sie unterstützen bei der Wundversorgung im Rahmen Ihrer Kompetenzen.\n• Sie übernehmen administrative Arbeiten auf der Abteilung.\nIhre Stärken\n• Sie verfügen über einen Abschluss als Fachmann/frau Gesundheit EFZ.\n• Sie arbeiten zuverlässig und sorgfältig.\n• Sie haben gute Deutschkenntnisse.\n• Sie sind gern Teil eines Teams.\nIhre Vorteile mit MediPersonal\n• Die Lohnauszahlung erfolgt wöchentlich, auch bei kurzen Einsätzen.\n• Ihre Ansprechperson bei MediPersonal begleitet Sie persönlich vom ersten Gespräch bis zum letzten Dienst.\n• Dienste, Pensum und Einsatzort planen wir gemeinsam mit Ihnen.\n• Eine spätere Festanstellung in der Institution ist möglich, wenn beide Seiten dies wollen.\n• Wir unterstützen Sie bei der Anerkennung Ihres Diploms beim SRK und bei der Bewilligung.\n• Vertrag, Lohnabrechnung und Versicherungen laufen über die iPersonal AG.\n• Die Vermittlung ist für Fachpersonen kostenlos.\nIhr Arbeitsumfeld\nBerufsgruppe Pflege\nDienste nach Dienstplan der Institution, wir besprechen ihn vorher mit Ihnen\nDen Namen der Institution erfahren Sie im persönlichen Gespräch.\nIhr Beruf: Fachmann/frau Gesundheit\nAls Fachfrau oder Fachmann Gesundheit EFZ sind Sie nah bei den Menschen. Sie unterstützen bei der Körperpflege, messen Vitalzeichen, richten und verabreichen Medikamente nach ärztlicher Verordnung, wechseln Verbände und dokumentieren sorgfältig, was Sie beobachten.",
       "descriptionByLocale": {
-        "de": "Aus dem Ausland? Diplom noch nicht anerkannt? Bewerben Sie sich trotzdem. Wir helfen Ihnen bei der Anerkennung beim Schweizerischen Roten Kreuz (SRK) oder bei der MEBEKO und bei der Bewilligung.\nDiese Tätigkeiten erwarten Sie\n• Sie arbeiten eng mit dem Pflegeteam zusammen.\n• Sie richten Untersuchungen vor und begleiten diese fachgerecht.\n• Sie unterstützen bei der Wundversorgung im Rahmen Ihrer Kompetenzen.\n• Sie übernehmen administrative Arbeiten auf der Abteilung.\nIhre Stärken\n• Sie verfügen über einen Abschluss als Fachmann/frau Gesundheit EFZ.\n• Sie arbeiten zuverlässig und sorgfältig.\n• Sie haben gute Deutschkenntnisse.\n• Sie sind gern Teil eines Teams.\nIhre Vorteile mit MediPersonal\n• Die Lohnauszahlung erfolgt wöchentlich, auch bei kurzen Einsätzen.\n• Ihre Ansprechperson bei MediPersonal begleitet Sie persönlich vom ersten Gespräch bis zum letzten Dienst.\n• Dienste, Pensum und Einsatzort planen wir gemeinsam mit Ihnen.\n• Eine spätere Festanstellung in der Institution ist möglich, wenn beide Seiten dies wollen.\n• Wir unterstützen Sie bei der Anerkennung Ihres Diploms beim SRK und bei der Bewilligung.\n• Vertrag, Lohnabrechnung und Versicherungen laufen über die iPersonal AG.\n• Die Vermittlung ist für Fachpersonen kostenlos.\nIhr Arbeitsumfeld\nBerufsgruppe Pflege\nDienste nach Dienstplan der Institution, wir besprechen ihn vorher mit Ihnen\nDen Namen der Institution erfahren Sie im persönlichen Gespräch.\nIhr Beruf: Fachmann/frau Gesundheit\nAls Fachfrau oder Fachmann Gesundheit EFZ sind Sie nah bei den Menschen. Sie unterstützen bei der Körperpflege, messen Vitalzeichen, richten und verabreichen Medikamente nach ärztlicher Verordnung, wechseln Verbände und dokumentieren sorgfältig, was Sie beobachten.",
         "it": "Dall'estero? Diploma non ancora riconosciuto? Si prega di applicare comunque. Vi aiutiamo con il riconoscimento della Croce Rossa svizzera (SRC) o MEBEKO e l'approvazione.\nQueste attività vi aspettano\n• Lavorano a stretto contatto con la squadra di cura.\n• Preparano e accompagnano gli esami in modo professionale.\n• Supporti la cura delle ferite nell'ambito delle tue competenze.\n• Si occupa del lavoro amministrativo nel dipartimento.\nLe loro forze\n• Hai una laurea in salute professionale / donna EFZ.\n• Lavorano con sicurezza e attenzione.\n• Hai una buona conoscenza del tedesco.\n• Ti piace fare parte di una squadra.\nI tuoi vantaggi con MediPersonal\n• Il pagamento avviene settimanalmente, anche per brevi incarichi.\n• Il tuo referente di MediPersonal ti accompagna personalmente dalla prima intervista all'ultimo servizio.\n• Organizziamo servizi, carico di lavoro e posizione insieme a voi.\n• Una successiva posizione permanente nell'istituzione è possibile se entrambe le parti vogliono questo.\n• Vi sosteniamo nel riconoscimento del vostro diploma con la SRC e nell'approvazione.\n• Contratto, payroll e assicurazione eseguito attraverso iPersonal AG.\n• Il posizionamento è gratuito per i professionisti.\nIl tuo ambiente di lavoro\nCura del gruppo professionale\nServizi secondo il calendario dell'istituzione, ne parliamo con voi in anticipo\nScoprirai il nome dell'istituzione in una conversazione personale.\nLa tua professione: salute professionale/donna\nCome specialista o assistenza sanitaria EFZ sei vicino alla gente. Aiutano con la cura personale, misurano segni vitali, diretti e amministrano farmaci secondo prescrizione medica, cambiano bende e documentano attentamente ciò che osservate.",
         "en": "From abroad? Diploma not yet recognized? Please apply anyway. We help you with the recognition of the Swiss Red Cross (SRC) or MEBEKO and the approval.\nThese activities await you\n• They work closely with the care team.\n• They prepare and accompany examinations in a professional manner.\n• You support wound care within the scope of your competences.\n• You take on administrative work in the department.\nTheir strengths\n• You have a degree as a professional / woman health EFZ.\n• They work reliably and carefully.\n• You have good knowledge of German.\n• You like to be part of a team.\nYour advantages with MediPersonal\n• The payout takes place weekly, even for short assignments.\n• Your contact person at MediPersonal accompanies you personally from the first interview to the last service.\n• We plan services, workload and location together with you.\n• A later permanent position in the institution is possible if both sides want this.\n• We support you in the recognition of your diploma with the SRC and in the approval.\n• Contract, payroll and insurance run through iPersonal AG.\n• The placement is free of charge for professionals.\nYour working environment\nProfessional group care\nServices according to the schedule of the institution, we discuss it with you beforehand\nYou will find out the name of the institution in a personal conversation.\nYour profession: professional/woman health\nAs a specialist or health care EFZ you are close to the people. They assist with personal care, measure vital signs, direct and administer medications according to medical prescription, change bandages and carefully document what you observe.",
+        "de": "Aus dem Ausland? Diplom noch nicht anerkannt? Bewerben Sie sich trotzdem. Wir helfen Ihnen bei der Anerkennung beim Schweizerischen Roten Kreuz (SRK) oder bei der MEBEKO und bei der Bewilligung.\nDiese Tätigkeiten erwarten Sie\n• Sie arbeiten eng mit dem Pflegeteam zusammen.\n• Sie richten Untersuchungen vor und begleiten diese fachgerecht.\n• Sie unterstützen bei der Wundversorgung im Rahmen Ihrer Kompetenzen.\n• Sie übernehmen administrative Arbeiten auf der Abteilung.\nIhre Stärken\n• Sie verfügen über einen Abschluss als Fachmann/frau Gesundheit EFZ.\n• Sie arbeiten zuverlässig und sorgfältig.\n• Sie haben gute Deutschkenntnisse.\n• Sie sind gern Teil eines Teams.\nIhre Vorteile mit MediPersonal\n• Die Lohnauszahlung erfolgt wöchentlich, auch bei kurzen Einsätzen.\n• Ihre Ansprechperson bei MediPersonal begleitet Sie persönlich vom ersten Gespräch bis zum letzten Dienst.\n• Dienste, Pensum und Einsatzort planen wir gemeinsam mit Ihnen.\n• Eine spätere Festanstellung in der Institution ist möglich, wenn beide Seiten dies wollen.\n• Wir unterstützen Sie bei der Anerkennung Ihres Diploms beim SRK und bei der Bewilligung.\n• Vertrag, Lohnabrechnung und Versicherungen laufen über die iPersonal AG.\n• Die Vermittlung ist für Fachpersonen kostenlos.\nIhr Arbeitsumfeld\nBerufsgruppe Pflege\nDienste nach Dienstplan der Institution, wir besprechen ihn vorher mit Ihnen\nDen Namen der Institution erfahren Sie im persönlichen Gespräch.\nIhr Beruf: Fachmann/frau Gesundheit\nAls Fachfrau oder Fachmann Gesundheit EFZ sind Sie nah bei den Menschen. Sie unterstützen bei der Körperpflege, messen Vitalzeichen, richten und verabreichen Medikamente nach ärztlicher Verordnung, wechseln Verbände und dokumentieren sorgfältig, was Sie beobachten.",
         "fr": "De l'étranger ? Diplôme non encore reconnu? Veuillez postuler de toute façon. Nous vous aidons avec la reconnaissance de la Croix-Rouge Suisse (SRC) ou MEBEKO et l'approbation.\nCes activités vous attendent\n• Ils travaillent en étroite collaboration avec l'équipe de soins.\n• Ils préparent et accompagnent les examens de manière professionnelle.\n• Vous soutenez les soins des plaies dans le cadre de vos compétences.\n• Vous faites du travail administratif dans le département.\nLeurs forces\n• Vous avez un diplôme comme professionnel / femme santé EFZ.\n• Ils fonctionnent de manière fiable et prudente.\n• Vous connaissez bien l'allemand.\n• Tu aimes faire partie d'une équipe.\nVos avantages avec MediPersonal\n• Le paiement a lieu chaque semaine, même pour de courtes affectations.\n• Votre contact chez MediPersonal vous accompagne personnellement de la première entrevue au dernier service.\n• Nous planifions les services, la charge de travail et l'emplacement avec vous.\n• Une position permanente ultérieure dans l'institution est possible si les deux parties le souhaitent.\n• Nous vous soutenons dans la reconnaissance de votre diplôme auprès du SRC et dans l'approbation.\n• Contrats, états de paie et assurances exécutés par iPersonal AG.\n• Le placement est gratuit pour les professionnels.\nVotre environnement de travail\nSoins de groupe professionnels\nServices selon le calendrier de l'institution, nous en discutons avec vous au préalable\nVous trouverez le nom de l'institution dans une conversation personnelle.\nVotre profession: la santé professionnelle / féminine\nEn tant que spécialiste ou de soins de santé EFZ, vous êtes proche des gens. Ils aident aux soins personnels, mesurent les signes vitaux, dirigent et administrent les médicaments selon les prescriptions médicales, changent les bandages et documentent soigneusement ce que vous observez."
       },
       "location": "Region Biel/Bienne (BE)",
@@ -1060,7 +1074,7 @@
       "url": "https://med-ipersonal.ch/jobs/fachmann-frau-gesundheit-efz-80-100-biel-bienne-i-2026-0027/",
       "source": "MediPersonal Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T21:22:16.816Z",
+      "crawledAt": "2026-11-07T09:18:52.081Z",
       "addressLocality": "Region Biel",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1076,17 +1090,26 @@
       "postedDate": "2026-11-06",
       "postingDateSource": "reported",
       "applyUrl": "https://med-ipersonal.ch/jobs/fachmann-frau-gesundheit-efz-80-100-biel-bienne-i-2026-0027/",
-      "needsRetranslation": true,
+      "previousSlugs": [
+        "fachmann-frau-gesundheit-efz-80-100-medipersonal-region-biel-bienne-be",
+        "fachmann-frau-gesundheit-cfc-80-100-medipersonal-region-biel",
+        "fachmann-frau-gesundheit-cfc-80-100-medipersonal-region-biel-bienne-be"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "fachmann-frau-gesundheit-efz-80-100-medipersonal-region-biel-bienne-be",
-          "fachmann-frau-gesundheit-cfc-80-100-medipersonal-region-biel"
+          "fachmann-frau-gesundheit-cfc-80-100-medipersonal-region-biel",
+          "fachmann-frau-gesundheit-cfc-80-100-medipersonal-region-biel-bienne-be"
+        ],
+        "en": [
+          "fachmann-frau-gesundheit-efz-80-100-medipersonal-region-biel-bienne-be"
+        ],
+        "fr": [
+          "fachmann-frau-gesundheit-efz-80-100-medipersonal-region-biel-bienne-be"
         ]
       },
-      "previousSlugs": [
-        "fachmann-frau-gesundheit-efz-80-100-medipersonal-region-biel-bienne-be",
-        "fachmann-frau-gesundheit-cfc-80-100-medipersonal-region-biel"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-11-06T21:22:16.816Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -1103,9 +1126,8 @@
       "postalCode": "3001",
       "streetAddress": "Region Biel",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-04T21:22:16.816Z",
-      "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-06T21:22:16.816Z"
+      "validThrough": "2027-02-04T09:18:52.081Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }

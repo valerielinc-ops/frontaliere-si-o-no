@@ -1546,6 +1546,33 @@ jobs:
       # sooner than the 6 h job timeout. On expiry the step fails,
       # continue-on-error keeps the leg going, and "Deploy prep" below
       # retries the push as it does for any failed early push.
+      # Persist the fully rendered, already validated jobs SEO pages before
+      # remote publication starts. Run 42313737885 missed this cache, spent
+      # 4909s in jobs-seo-pages, then timed out before the old save step near
+      # the end of the job. A later CDN/shard failure must not make the next
+      # build render the same corpus again. Cache storage is optional and must
+      # not hold up publication if the cache service stalls.
+      - name: Check jobs SEO HTML cache contents
+        if: success() && env.JOBS_SEO_REUSE == '1'
+        id: jobs-seo-html-content
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [ -d .cache/incremental-html ] && test -n "$(find .cache/incremental-html -type f -print -quit 2>/dev/null)"; then
+            echo "has_files=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "has_files=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Save jobs SEO HTML cache
+        if: success() && env.JOBS_SEO_REUSE == '1' && steps.jobs-seo-html-content.outputs.has_files == 'true' && hashFiles(format('.cache/incremental-manifest/{0}.jsonl', matrix.locale)) != ''
+        timeout-minutes: 30
+        continue-on-error: true
+        uses: actions/cache/save@v6
+        with:
+          path: .cache/incremental-html
+          key: jobs-seo-html-${{ matrix.locale }}-${{ hashFiles(format('.cache/incremental-manifest/{0}.jsonl', matrix.locale)) }}
+
       - name: Push generated assets to CDN (early — ahead of the shard pushes)
         id: cdn-push-early
         if: matrix.locale == 'it'
@@ -2918,27 +2945,6 @@ jobs:
           path: ${{ runner.temp }}/build-history-rows/
           if-no-files-found: ignore
           retention-days: 3
-
-      - name: Check jobs SEO HTML cache contents
-        if: success() && env.JOBS_SEO_REUSE == '1'
-        id: jobs-seo-html-content
-        shell: bash
-        run: |
-          set -euo pipefail
-          if [ -d .cache/incremental-html ] && test -n "$(find .cache/incremental-html -type f -print -quit 2>/dev/null)"; then
-            echo "has_files=true" >> "$GITHUB_OUTPUT"
-          else
-            echo "has_files=false" >> "$GITHUB_OUTPUT"
-          fi
-
-      # Keep the blobs alongside the manifest snapshot for the next opt-in
-      # run. A failed/incomplete build must never become the reusable source.
-      - name: Save jobs SEO HTML cache
-        if: success() && env.JOBS_SEO_REUSE == '1' && steps.jobs-seo-html-content.outputs.has_files == 'true' && hashFiles(format('.cache/incremental-manifest/{0}.jsonl', matrix.locale)) != ''
-        uses: actions/cache/save@v6
-        with:
-          path: .cache/incremental-html
-          key: jobs-seo-html-${{ matrix.locale }}-${{ hashFiles(format('.cache/incremental-manifest/{0}.jsonl', matrix.locale)) }}
 
       # Small, immutable receipt consumed by deploy-publish.yml. It is written
       # when the owned-page validation and required source artifact succeeded,
