@@ -1,0 +1,15 @@
+{
+  "schema": 1,
+  "commit": "f544e49c703f81d085aa7674f4d5eb779678c557",
+  "files": {
+    "data/discovery-articles.json": 130
+  },
+  "counts": {
+    "discoveryArticles": 0
+  },
+  "routeReadiness": {
+    "schema": 1,
+    "algorithm": "sha256-discovery-article-v2",
+    "entries": {}
+  }
+}
