@@ -168,7 +168,8 @@ export function parseDiscoveryArticleIndex(raw, {
     const label = `${DISCOVERY_ARTICLES_ARTIFACT}.articles[${index}]`;
     if (!hasExactKeys(article, ['id', 'publishedAt', 'provider', 'title', 'excerpt', 'url'])
       || typeof article.id !== 'string'
-      || !/^[a-z0-9][a-z0-9_-]{0,199}$/iu.test(article.id)
+      || article.id.length === 0
+      || /[\u0000-\u001f\u007f]/u.test(article.id)
       || seenIds.has(article.id)
       || typeof article.publishedAt !== 'string'
       || !Number.isFinite(Date.parse(article.publishedAt))

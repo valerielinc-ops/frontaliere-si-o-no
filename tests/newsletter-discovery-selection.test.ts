@@ -171,6 +171,20 @@ describe('parseDiscoveryArticleIndex', () => {
       .toMatchObject({ articleId: 'google-news-source', provider: 'google_news' });
   });
 
+  it('accepts publisher-supported Unicode ids and rejects empty or control-character ids', () => {
+    const now = Date.now();
+    const unicodeId = 'articolo-é🚲';
+    const parsed = parse(index(now, [article(unicodeId, now)]), now);
+    expect(parsed.articles[0].id).toBe(unicodeId);
+    expect(chooseDiscoveryArticle(parsed, 'weekly_2026-11-23', 'it', { now }))
+      .toMatchObject({ articleId: unicodeId });
+
+    expect(() => parse(index(now, [article('', now)]), now))
+      .toThrow(/invalid article contract/);
+    expect(() => parse(index(now, [article('articolo\n-é', now)]), now))
+      .toThrow(/invalid article contract/);
+  });
+
   it('rejects providers outside the public index contract', () => {
     const now = Date.now();
     expect(() => parse(index(now, [article('unknown-source', now, { provider: 'unknown' })]), now))
