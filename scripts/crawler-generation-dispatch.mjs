@@ -30,6 +30,10 @@ import {
   deriveCrawlerGroupIdsFromContract,
   isCrawlerGroupId,
 } from './lib/crawler-generation-group-ids.mjs';
+import {
+  CRAWLER_ROSTER_PATH,
+  validateCrawlerRosterCardinalityDeclaration,
+} from './lib/crawler-contract-cardinality.mjs';
 
 export const GITHUB_API_VERSION = CRAWLER_GENERATION_GITHUB_API_VERSION;
 const OBSERVER_WORKFLOW_FILE = 'crawler-generation-observer-shadow.yml';
@@ -764,12 +768,21 @@ function crawlerGenerationContractReasons(contract, observerBytes, remoteArtifac
     const actualArtifacts = Array.isArray(contract?.artifacts)
       ? contract.artifacts.map((entry) => entry?.file).sort(compareCodePoint)
       : [];
+    const cardinality = validateCrawlerRosterCardinalityDeclaration({
+      declared: contract?.crawlerRosterCardinality,
+      sourceCommit: contract?.sourceCommit,
+      groupCount: groupIds.length,
+      artifactCount: expectedArtifacts.length,
+      crawlerCount: contract?.crawlerCount,
+    });
     contractShapeValid = contract?.schemaVersion === 1
       && contract?.groupCount === groupIds.length
       && contract?.artifactCount === expectedArtifacts.length
       && canonicalJson(actualArtifacts) === canonicalJson(expectedArtifacts)
+      && cardinality.valid
       && contract?.observerCount === observers.length
       && contract?.crawlerGeneration?.mode === 'shadow'
+      && contract?.crawlerGeneration?.rosterPath === CRAWLER_ROSTER_PATH
       && contract?.crawlerGeneration?.dispatchesTranslation === false
       && Boolean(observer)
       && observer.source === 'observers/workflows/crawler-generation-observer-shadow.yml';

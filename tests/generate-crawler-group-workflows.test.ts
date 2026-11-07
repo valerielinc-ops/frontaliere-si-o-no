@@ -2774,6 +2774,12 @@ describe('cross-repo crawler execution artifacts', () => {
       sourceRef: contract.sourceRef,
       sourceCommit: contract.sourceCommit,
     });
+    expect(contract.crawlerRosterCardinality).toEqual({
+      sourceCommit: contract.sourceCommit,
+      groupCount: GROUP_COUNT,
+      artifactCount: GROUP_COUNT + 1,
+      crawlerCount: contract.crawlerCount,
+    });
     expect(contract.artifacts.every((artifact: any) => artifact.generatorSha256 === contract.generatorSha256)).toBe(true);
     const cleanupArtifacts = contract.artifacts.filter((artifact: any) => {
       const generated = YAML.parse(fs.readFileSync(path.join(outDir, artifact.file), 'utf8'));

@@ -92,6 +92,10 @@ import {
   validateCrawlerGenerationRoster,
 } from './lib/crawler-generation-contract.mjs';
 import {
+  CRAWLER_ROSTER_PATH,
+  buildCrawlerRosterCardinality,
+} from './lib/crawler-contract-cardinality.mjs';
+import {
   GLOBAL_DATA_PIPELINE_LEASE_BUSY_EXIT,
   GLOBAL_DATA_PIPELINE_LEASE_TRANSIENT_ERROR_EXIT,
 } from './lib/global-data-pipeline-lease.mjs';
@@ -3963,6 +3967,11 @@ export function generateCrossRepoExecutionArtifacts({
   const bucketTable = loadJson(CHECKOUT_BUCKETS_PATH);
   const excluded = bucketTable.buckets.filter((bucket) => CROSS_REPO_SAFE_EXCLUDED_BUCKETS.has(bucket.id));
   const crawlerMembers = artifacts.flatMap((artifact) => artifact.members);
+  const crawlerRosterCardinality = buildCrawlerRosterCardinality({
+    sourceCommit: source.sourceCommit,
+    roster: groupResults.generationRoster,
+    artifactFiles: artifacts.map((artifact) => artifact.file),
+  });
   const observerPayloads = [];
   const observers = CORPUS_OBSERVER_FILES.map(({ source, target }) => {
     const siteSource = CORPUS_OBSERVER_SITE_SOURCES.get(source);
@@ -3995,9 +4004,10 @@ export function generateCrossRepoExecutionArtifacts({
     artifactCount: artifacts.length,
     observerCount: observers.length,
     crawlerCount: crawlerMembers.length,
+    crawlerRosterCardinality,
     crawlerGeneration: {
       mode: 'shadow',
-      rosterPath: 'scripts/ci/crawler-generation-roster.json',
+      rosterPath: CRAWLER_ROSTER_PATH,
       rosterDigest: groupResults.generationRoster.digest,
       artifactRetentionDays: CRAWLER_GENERATION_ARTIFACT_RETENTION_DAYS,
       dispatchesTranslation: false,
