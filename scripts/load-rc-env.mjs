@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 import { pathToFileURL } from 'node:url';
 import { realpathSync } from 'node:fs';
+import { fetchWithRefTimeout } from './lib/fetch-with-ref-timeout.mjs';
 
 
 /**
@@ -674,6 +675,61 @@ export const RC_FETCH_ATTEMPTS = 7;
 // lib/google-service-account-token.mjs, the sibling call one hop upstream.
 export const RC_FETCH_TIMEOUT_MS = 30_000;
 
+function isRetryableRcFetchError(error) {
+  return error?.name === 'TypeError'
+    || error?.name === 'AbortError'
+    || error?.name === 'TimeoutError';
+}
+
+function normalizeRcFetchError(error) {
+  return error?.name === 'AbortError' || error?.name === 'TimeoutError'
+    ? new Error(`Remote Config REST fetch timed out after ${RC_FETCH_TIMEOUT_MS}ms`)
+    : error;
+}
+
+/**
+ * Read the Remote Config template with one bounded retry budget for both
+ * response statuses and transport failures. Keeping the response-body read in
+ * the same attempt is important: a connection can fail after headers arrive,
+ * and a timeout must cover json()/text() as well as fetch().
+ *
+ * @param {{projectId: string, accessToken: string, fetchImpl?: typeof fetch,
+ *   sleepImpl?: (ms: number) => Promise<void>}} options
+ */
+export async function fetchRemoteConfigTemplate({
+  projectId,
+  accessToken,
+  fetchImpl = globalThis.fetch,
+  sleepImpl = (ms) => new Promise((resolve) => setTimeout(resolve, ms)),
+}) {
+  let lastErr;
+  for (let attempt = 1; attempt <= RC_FETCH_ATTEMPTS; attempt++) {
+    try {
+      const rcRes = await fetchWithRefTimeout(
+        `https://firebaseremoteconfig.googleapis.com/v1/projects/${encodeURIComponent(projectId)}/remoteConfig`,
+        {
+          headers: { Authorization: `Bearer ${accessToken}`, 'Accept-Encoding': 'gzip' },
+        },
+        RC_FETCH_TIMEOUT_MS,
+        fetchImpl,
+      );
+      if (rcRes.ok) return await rcRes.json();
+
+      const bodyText = await rcRes.text();
+      const reason = extractGoogleErrorReason(bodyText);
+      lastErr = new Error(`Remote Config REST fetch failed: ${rcRes.status}${reason ? ` (${reason})` : ''}`);
+      if (!isRetryableRcFetchStatus(rcRes.status, reason)) throw lastErr;
+    } catch (err) {
+      if (!isRetryableRcFetchError(err)) throw err;
+      lastErr = normalizeRcFetchError(err);
+    }
+    if (attempt < RC_FETCH_ATTEMPTS) {
+      await sleepImpl(rcFetchBackoffMs(attempt));
+    }
+  }
+  throw lastErr;
+}
+
 /**
  * Fetch the Remote Config template WITHOUT firebase-admin, using the REST API
  * and a service-account-signed JWT (same technique as scripts/lib/indexing-api.mjs,
@@ -704,42 +760,7 @@ async function fetchTemplateViaRest() {
     creds,
     'https://www.googleapis.com/auth/firebase.remoteconfig',
   );
-
-  let lastErr;
-  for (let attempt = 1; attempt <= RC_FETCH_ATTEMPTS; attempt++) {
-    let rcRes;
-    try {
-      rcRes = await fetch(
-        `https://firebaseremoteconfig.googleapis.com/v1/projects/${encodeURIComponent(creds.project_id)}/remoteConfig`,
-        {
-          headers: { Authorization: `Bearer ${accessToken}`, 'Accept-Encoding': 'gzip' },
-          signal: AbortSignal.timeout(RC_FETCH_TIMEOUT_MS),
-        },
-      );
-    } catch (err) {
-      // Same class of bug as the OAuth exchange one hop upstream (see
-      // exchangeAssertionForToken in lib/google-service-account-token.mjs):
-      // AbortSignal.timeout() rejects the fetch instead of resolving a status,
-      // so without this catch a slow-but-never-erroring endpoint would fail on
-      // the FIRST timeout instead of spending the RC_FETCH_ATTEMPTS/~63s budget.
-      lastErr = err?.name === 'AbortError' || err?.name === 'TimeoutError'
-        ? new Error(`Remote Config REST fetch timed out after ${RC_FETCH_TIMEOUT_MS}ms`)
-        : err;
-      if (attempt < RC_FETCH_ATTEMPTS) {
-        await new Promise((r) => setTimeout(r, rcFetchBackoffMs(attempt)));
-      }
-      continue;
-    }
-    if (rcRes.ok) return rcRes.json();
-    const bodyText = await rcRes.text().catch(() => '');
-    const reason = extractGoogleErrorReason(bodyText);
-    lastErr = new Error(`Remote Config REST fetch failed: ${rcRes.status}${reason ? ` (${reason})` : ''}`);
-    if (!isRetryableRcFetchStatus(rcRes.status, reason)) throw lastErr;
-    if (attempt < RC_FETCH_ATTEMPTS) {
-      await new Promise((r) => setTimeout(r, rcFetchBackoffMs(attempt)));
-    }
-  }
-  throw lastErr;
+  return fetchRemoteConfigTemplate({ projectId: creds.project_id, accessToken });
 }
 
 // ─── Main ────────────────────────────────────────────────────────────────

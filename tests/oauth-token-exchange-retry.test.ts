@@ -11,6 +11,7 @@ import {
   RC_FETCH_ATTEMPTS,
   RC_FETCH_TIMEOUT_MS,
   extractGoogleErrorReason,
+  fetchRemoteConfigTemplate,
   isRetryableRcFetchStatus,
   rcFetchBackoffMs,
 } from '../scripts/load-rc-env.mjs';
@@ -251,5 +252,48 @@ describe('load-rc-env: il salto a valle ha lo stesso budget del salto a monte', 
 
   it('stesso tetto di clock del salto OAuth: un solo numero, non due', () => {
     expect(RC_FETCH_TIMEOUT_MS).toBe(TOKEN_EXCHANGE_TIMEOUT_MS);
+  });
+
+  it('un errore TypeError di rete durante il fetch RC viene ritentato', async () => {
+    const networkErr = Object.assign(new Error('fetch failed'), { name: 'TypeError' });
+    const fetchMock = vi.fn()
+      .mockRejectedValueOnce(networkErr)
+      .mockResolvedValueOnce({ ok: true, status: 200, json: async () => ({ parameters: {} }) });
+
+    await expect(fetchRemoteConfigTemplate({
+      projectId: 'frontaliere-test',
+      accessToken: 'ya29.test',
+      fetchImpl: fetchMock,
+      sleepImpl: async () => {},
+    })).resolves.toEqual({ parameters: {} });
+    expect(fetchMock).toHaveBeenCalledTimes(2);
+  });
+
+  it('un 403 di quota RC viene ritentato, ma un 403 di permesso resta terminale', async () => {
+    const quota = JSON.stringify({ error: { errors: [{ reason: 'userRateLimitExceeded' }] } });
+    const quotaFetch = vi.fn()
+      .mockResolvedValueOnce({ ok: false, status: 403, text: async () => quota })
+      .mockResolvedValueOnce({ ok: true, status: 200, json: async () => ({ parameters: {} }) });
+
+    await expect(fetchRemoteConfigTemplate({
+      projectId: 'frontaliere-test',
+      accessToken: 'ya29.test',
+      fetchImpl: quotaFetch,
+      sleepImpl: async () => {},
+    })).resolves.toEqual({ parameters: {} });
+    expect(quotaFetch).toHaveBeenCalledTimes(2);
+
+    const permissionFetch = vi.fn().mockResolvedValue({
+      ok: false,
+      status: 403,
+      text: async () => JSON.stringify({ error: { status: 'PERMISSION_DENIED' } }),
+    });
+    await expect(fetchRemoteConfigTemplate({
+      projectId: 'frontaliere-test',
+      accessToken: 'ya29.test',
+      fetchImpl: permissionFetch,
+      sleepImpl: async () => {},
+    })).rejects.toThrow('Remote Config REST fetch failed: 403 (PERMISSION_DENIED)');
+    expect(permissionFetch).toHaveBeenCalledTimes(1);
   });
 });
