@@ -1,6 +1,17 @@
 import { afterEach, describe, it, expect, vi } from 'vitest';
 
 const specCrawlerMocks = vi.hoisted(() => ({
+  copySpecFetchMetadata: vi.fn((target, source) => {
+    for (const key of ['fetchOutcome', 'discoveredCount']) {
+      if (!Object.prototype.hasOwnProperty.call(source || {}, key)) continue;
+      Object.defineProperty(target, key, {
+        value: source[key],
+        enumerable: false,
+        configurable: true,
+      });
+    }
+    return target;
+  }),
   loadSpec: vi.fn(),
   runSpecInProduction: vi.fn(),
 }));
