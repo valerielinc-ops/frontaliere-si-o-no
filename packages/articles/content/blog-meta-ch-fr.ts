@@ -8687,6 +8687,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.riserva-elettrica-risparmio-cdf.title': 'Réserve d’électricité : le CDF identifie une économie de 220 millions',
     'blog.article.riserva-elettrica-risparmio-cdf.excerpt': 'Le CDF chiffre à 220 millions de francs le potentiel d’économies encore inexploité dans la constitution de la réserve d’énergie électrique pour l’hiver.',
     'blog.article.riserva-elettrica-risparmio-cdf.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
+    'blog.article.iva-aumento-famiglie-redditi-bassi.title': 'Hausse TVA: impact plus fort sur ménages à faibles revenus',
+    'blog.article.iva-aumento-famiglie-redditi-bassi.excerpt': 'À Zurich, le 6 novembre 2026, une analyse d\'UBS a examiné la hausse de la taxe sur la valeur ajoutée, la TVA, proposée pour financer partiellement la 13e rente AVS/AHV.',
+    'blog.article.iva-aumento-famiglie-redditi-bassi.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
 };
 
 export default blogMetaChFr;

@@ -109817,6 +109817,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-iva-aumento-famiglie-redditi-bassi': {
+    title: 'Aumento IVA: studio UBS evidenzia impatto maggiore su famiglie a reddito basso',
+    description: 'Studio UBS: l\'aumento dell\'IVA (8,1% a 8,5% dal 2028) per la 13esima AVS pesa di più sui redditi bassi. Voto il 29 novembre.',
+    keywords: 'IVA, AVS, aumento IVA, redditi bassi, 13esima rendita, voto svizzera, UBS',
+    ogTitle: 'Aumento IVA: studio UBS impatto su redditi bassi',
+    ogDescription: 'L\'aumento dell\'IVA, da 8,1% a 8,5% dal 1 gennaio 2028, è legato al finanziamento della 13esima rendita AVS. UBS evidenzia come colpisca maggiormente le famiglie più fragili. Voto il 29 novembre.',
+    canonicalPath: '/articoli-svizzera/iva-aumento-famiglie-redditi-bassi/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Aumento IVA: studio UBS evidenzia impatto maggiore su famiglie a reddito basso",
+      "description": "Studio UBS: l'aumento dell'IVA (8,1% a 8,5% dal 2028) per la 13esima AVS pesa di più sui redditi bassi. Voto il 29 novembre.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-avs-voto-iva-il-29-novembre-per-la-13esima-rendita.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine illustrativa pertinente al tema dell’articolo"
+      },
+      "datePublished": "2026-11-07T03:12:11+00:00",
+      "dateModified": "2026-11-07T03:12:11+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/iva-aumento-famiglie-redditi-bassi/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

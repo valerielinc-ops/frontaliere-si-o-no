@@ -30215,6 +30215,16 @@ const RAW_SWISS_ARTICLES_CHUNK_12: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'iva-aumento-famiglie-redditi-bassi',
+    category: 'fiscale',
+    date: '2026-11-07T03:12:11.346Z',
+    image: '/images/blog/article-avs-voto-iva-il-29-novembre-per-la-13esima-rendita.webp',
+    hasCalculator: true,
+    articleType: 'news',
+    authorSlug: 'laura-bianchi',
+    authorName: 'Laura Bianchi',
+   },
 ];
 
 const RAW_SWISS_ARTICLES: Article[] = [

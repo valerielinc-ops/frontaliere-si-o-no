@@ -8687,6 +8687,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.riserva-elettrica-risparmio-cdf.title': 'Electricity reserve: CDF identifies savings of 220 million',
     'blog.article.riserva-elettrica-risparmio-cdf.excerpt': 'The CDF puts the untapped savings potential in establishing the electricity reserve for the winter at 220 million francs.',
     'blog.article.riserva-elettrica-risparmio-cdf.imageAlt': 'Illustrative image relevant to the article topic',
+    'blog.article.iva-aumento-famiglie-redditi-bassi.title': 'VAT increase: UBS study highlights greater impact on low-income households',
+    'blog.article.iva-aumento-famiglie-redditi-bassi.excerpt': 'In Zurich, on November 6, 2026, a UBS analysis examined the proposed increase in value-added tax, VAT, to partially finance the 13th AVS/AHV pension payment.',
+    'blog.article.iva-aumento-famiglie-redditi-bassi.imageAlt': 'Illustrative image relevant to the article topic',
 };
 
 export default blogMetaChEn;

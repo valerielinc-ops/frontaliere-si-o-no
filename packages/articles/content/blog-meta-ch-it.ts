@@ -8687,6 +8687,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.riserva-elettrica-risparmio-cdf.title': 'Riserva elettrica: CDF individua risparmio di 220 milioni',
     'blog.article.riserva-elettrica-risparmio-cdf.excerpt': 'Il CDF quantifica in 220 milioni di franchi il margine di risparmio ancora inutilizzato nella costituzione della riserva di energia elettrica per l\'inverno.',
     'blog.article.riserva-elettrica-risparmio-cdf.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
+    'blog.article.iva-aumento-famiglie-redditi-bassi.title': 'Aumento IVA: studio UBS evidenzia impatto maggiore su famiglie a reddito basso',
+    'blog.article.iva-aumento-famiglie-redditi-bassi.excerpt': 'A Zurigo, il 6 novembre 2026, un\'analisi dell\'UBS ha esaminato l\'aumento dell\'imposta sul valore aggiunto, l\'IVA, proposto per finanziare parzialmente la 13esima rendita AVS/AHV.',
+    'blog.article.iva-aumento-famiglie-redditi-bassi.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
 };
 
 export default blogMetaChIt;

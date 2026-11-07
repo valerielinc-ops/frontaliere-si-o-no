@@ -2918,6 +2918,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'riforma-assicurazione-invalidita-ai': { it: 'riforma-assicurazione-invalidita-ai', en: 'ai-insurance-reform', de: 'ai-versicherungsreform', fr: 'reforme-assurance-invalidite' },
  'previdenza-lpp-tasso-2-percento': { it: 'previdenza-lpp-tasso-2-percento', en: 'pension-lpp-interest-rate-2-percent', de: 'rente-lpp-zins-2-prozent', fr: 'retraite-lpp-taux-2-pourcent' },
  'riserva-elettrica-risparmio-cdf': { it: 'riserva-elettrica-risparmio-cdf', en: 'swiss-electricity-reserve-savings', de: 'stromreserve-sparpotenzial-cdf', fr: 'reserve-electrique-economies-cdf' },
+ 'iva-aumento-famiglie-redditi-bassi': { it: 'iva-aumento-famiglie-redditi-bassi', en: 'iva-increase-low-income-families', de: 'iva-erhoehung-niedriglohn-familien', fr: 'augmentation-tva-familles-revenus-bas' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */

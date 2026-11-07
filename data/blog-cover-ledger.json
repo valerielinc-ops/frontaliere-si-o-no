@@ -15,10 +15,10 @@
       "2": 197,
       "3": 0,
       "4": 0,
-      "5": 1082,
+      "5": 1083,
       "6": 5061
     },
-    "publishedCovers": 7825,
+    "publishedCovers": 7826,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 1,
     "inheritedRecordsMaterialized": 197,
@@ -213788,6 +213788,39 @@
         "provider": "openai-codex",
         "assetId": "article-lausanna-credito-colonnine-2031",
         "imageUrl": "/images/blog/article-lausanna-credito-colonnine-2031.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-lavoro-vallese-ottobre-2026": {
+      "cover": "/images/blog/article-lavoro-vallese-ottobre-2026.webp",
+      "hash": "7c9aded4307b3c56281ce5938af3b7150f4f9717b650b4c9fdcad10987bd7427",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-vs",
+          "id": "lavoro-vallese-ottobre-2026",
+          "category": "novita",
+          "date": "2026-11-07T03:35:00.194Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-lavoro-vallese-ottobre-2026.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1794,
+      "verifiedAt": "2026-11-07",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-lavoro-vallese-ottobre-2026",
+        "imageUrl": "/images/blog/article-lavoro-vallese-ottobre-2026.webp",
         "evidence": "generated-engine-record"
       }
     },

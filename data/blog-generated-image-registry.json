@@ -1,8 +1,8 @@
 {
   "schema": 1,
   "cdnPrefix": "/images/blog/",
-  "assetCount": 1084,
-  "generatedAt": "2026-11-07T03:11:55.623Z",
+  "assetCount": 1085,
+  "generatedAt": "2026-11-07T04:09:09.293Z",
   "assets": [
     {
       "schema": 1,
@@ -43880,6 +43880,49 @@
         "is_photograph": false,
         "is_topic_relevant": true,
         "notes": "Generic synthetic editorial illustration of an electric vehicle charging station."
+      }
+    },
+    {
+      "schema": 1,
+      "assetId": "article-lavoro-vallese-ottobre-2026",
+      "kind": "generated",
+      "provider": "openai-codex",
+      "model": "gpt-image-2.5",
+      "executorModel": "gpt-5.6-luna",
+      "promptVersion": "frontaliereticino.generated-image-policy.v1",
+      "promptHash": "70a91d09774310ec8b4ac13230118e2dccca680c1ac02882d829bb7befffd7f2",
+      "license": "generated-provider",
+      "licenseUrl": "https://openai.com/policies/terms-of-use/",
+      "credit": "frontaliereticino.ch",
+      "sha256": "7c9aded4307b3c56281ce5938af3b7150f4f9717b650b4c9fdcad10987bd7427",
+      "bytes": 198330,
+      "width": 1200,
+      "height": 675,
+      "format": "webp",
+      "generatedAt": "2026-11-07T03:34:48.435Z",
+      "verifiedAt": "2026-11-07T03:35:00.123Z",
+      "restrictions": [
+        "illustrative-only",
+        "no-real-recognizable-foreground-person",
+        "no-public-figure-face",
+        "no-logo-brand-or-text",
+        "no-specific-real-event-photojournalism"
+      ],
+      "scope": "article-hero",
+      "imageUrl": "/images/blog/article-lavoro-vallese-ottobre-2026.webp",
+      "area": "Swiss border region",
+      "season": "all seasons",
+      "variant": "article hero",
+      "vision": {
+        "ok": true,
+        "contains_text": false,
+        "contains_logo": false,
+        "contains_recognizable_face": false,
+        "contains_recognizable_foreground_person": false,
+        "looks_like_specific_real_event": false,
+        "is_photograph": false,
+        "is_topic_relevant": true,
+        "notes": "Generic synthetic editorial illustration of an Alpine regional employment-office setting; no readable text, logos, people, or specific event."
       }
     },
     {

@@ -8687,6 +8687,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.riserva-elettrica-risparmio-cdf.title': 'Stromreserve: EFK ermittelt Einsparpotenzial von 220 Millionen',
     'blog.article.riserva-elettrica-risparmio-cdf.excerpt': 'Die EFK beziffert den noch ungenutzten Einsparspielraum beim Aufbau der Stromreserve für den Winter auf 220 Millionen Franken.',
     'blog.article.riserva-elettrica-risparmio-cdf.imageAlt': 'Illustratives Bild zum Thema des Artikels',
+    'blog.article.iva-aumento-famiglie-redditi-bassi.title': 'Mehrwertsteuererhöhung: Stärkerer Effekt auf einkommensschwache Familien',
+    'blog.article.iva-aumento-famiglie-redditi-bassi.excerpt': 'In Zürich hat eine UBS-Analyse am 6. November 2026 die Erhöhung der Mehrwertsteuer, der MwSt., untersucht, die zur teilweisen Finanzierung der 13. AVS/AHV-Rente vorgeschlagen wurde.',
+    'blog.article.iva-aumento-famiglie-redditi-bassi.imageAlt': 'Illustratives Bild zum Thema des Artikels',
 };
 
 export default blogMetaChDe;
