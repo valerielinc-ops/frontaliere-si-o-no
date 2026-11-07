@@ -841,16 +841,7 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          node --input-type=module <<'NODE' >> "$GITHUB_OUTPUT"
-          import { createHash } from 'node:crypto';
-          import { computeJobsSeoEmitterFingerprints } from './build-plugins/shared/incrementalHtmlReuse.mjs';
-          const fingerprints = computeJobsSeoEmitterFingerprints(process.cwd());
-          const stable = JSON.stringify(Object.fromEntries(
-            Object.entries(fingerprints).sort(([left], [right]) => (left < right ? -1 : left > right ? 1 : 0)),
-          ));
-          const digest = createHash('sha256').update(stable).digest('hex');
-          console.log(`fingerprint=${digest}`);
-          NODE
+          node scripts/ci/jobs-seo-html-cache-fingerprint.mjs >> "$GITHUB_OUTPUT"
 
       # Opt-in only. The key includes the restored previous manifest and
       # current renderer fingerprint, so only a matching HTML snapshot is
