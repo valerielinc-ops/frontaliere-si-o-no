@@ -1,151 +1,7 @@
 const bodyLamalVsSsnDecisione: Record<string, string> = {
- 'blog.article.lamal-vs-ssn-decisione.body1': `## In breve
-- **Diritto di opzione**: se vivi in Italia e lavori in Svizzera, scegli entro tre mesi dall'inizio del lavoro fra LAMal svizzera e Servizio sanitario italiano. La scelta è definitiva.
-- **Premi LAMal**: nel 2026 un adulto paga da **CHF 279,00 a CHF 487,20** al mese: un premio per assicuratore, senza franchigie o modelli a scelta.
-- **Servizio sanitario italiano**: i nuovi frontalieri non pagano un contributo sanitario specifico; per i «vecchi» la legge prevede una quota fra il **3% e il 6%** del netto, da **30 a 200 euro** al mese.
-- **Cure**: la LAMal permette di curarti in Svizzera e in Italia; con il Servizio sanitario italiano in Svizzera hai le cure necessarie durante il soggiorno.
+ 'blog.article.lamal-vs-ssn-decisione.body1': `## In breve\n- **Diritto di opzione**: se vivi in Italia e lavori in Svizzera, scegli entro tre mesi dall'inizio del lavoro fra LAMal svizzera e Servizio sanitario italiano. La scelta è definitiva.\n- **Premi LAMal**: nel 2026 un adulto paga da **CHF 279,00 a CHF 487,20** al mese: un premio per assicuratore, senza franchigie o modelli a scelta.\n- La L. 213/2023, art. 1, commi 237–238, non assoggetta indistintamente tutti i frontalieri. Rientrano: (a) i residenti in Italia che lavorano e soggiornano in Svizzera e usano il SSN; (b) i frontalieri di cui all’art. 9, par. 1, dell’Accordo Italia–Svizzera, con redditi imponibili soltanto in Svizzera, che hanno esercitato il diritto di opzione per l’assicurazione malattie; e (c) i familiari a carico delle due categorie. Il comma 238 prevede una quota progressiva del 3–6% del salario netto svizzero, con un minimo di €30 e un massimo ordinario di €200 per ogni mese lavorato dal 2024. Il tetto può essere raddoppiato nei casi di omesso pagamento o omessa comunicazione previsti dall’art. 1, comma 100, L. 207/2024. La Regione di residenza determina ogni anno aliquote e modalità.\n- **Cure**: la LAMal permette di curarti in Svizzera e in Italia; con il Servizio sanitario italiano in Svizzera hai le cure necessarie durante il soggiorno.\n\n## Fatti chiave\n- **Diritto di opzione**: domanda entro 3 mesi dall'inizio del lavoro all'autorità cantonale (in Ticino l'Istituto delle assicurazioni sociali); senza domanda resta l'obbligo LAMal.\n- **Scelta definitiva**: non la riaprono il cambio di datore di lavoro o di Cantone né la variazione del reddito.\n- **Premi LAMal 2026, adulti**: da CHF 279,00 a CHF 487,20 al mese senza infortuni (da CHF 300,00 a CHF 513,30 con infortuni).\n- **Premi LAMal 2026, giovani adulti e minorenni**: da CHF 239,60 a CHF 475,30 e da CHF 64,20 a CHF 203,70 al mese.\n- **Premi LAMal 2027, adulti**: da CHF 306,90 a CHF 509,40 al mese senza infortuni.\n- **Partecipazione ai costi**: franchigia di CHF 300 più il 10% fino a CHF 700 l'anno; nessuna franchigia opzionale per chi risiede in Italia.\n- **Servizio sanitario, nuovi frontalieri**: nessun contributo sanitario specifico.\n- **Servizio sanitario, «vecchi» frontalieri**: quota dal 3% al 6% del salario netto, minimo 30 e massimo 200 euro al mese; Lombardia 3%.\n- **Familiari**: se lavora un solo genitore, tutta la famiglia segue la sua scelta.\n- **Cure in Svizzera con il Servizio sanitario**: cure necessarie con la tessera europea, partecipazione di CHF 92 ogni 30 giorni.\n\n## LAMal vs SSN: il diritto di opzione sanitario del frontaliere\n\nLa **LAMal** (Legge federale sull'assicurazione malattie) è l'assicurazione sanitaria obbligatoria svizzera, mentre il **Servizio sanitario italiano (SSN)** è il sistema sanitario pubblico italiano. Se inizi a lavorare in Svizzera e vivi in Italia, hai un **diritto di opzione**: puoi scegliere fra LAMal svizzera e Servizio sanitario italiano entro tre mesi dall'inizio dell'attività.\n\nLa scelta è definitiva per tutta la durata dell'attività ininterrotta come frontaliere. Prima di decidere devi sapere in quale regime rientri, se sei un nuovo o un «vecchio» frontaliere, com'è composta la tua famiglia e dove vuoi curarti.\n\nI tre fattori decisivi sono il regime fiscale e assicurativo, la famiglia e il luogo delle cure. Valuta insieme questi elementi, perché un premio individuale, i familiari e l'accesso alle cure possono cambiare il risultato.\n\nQuesta guida mette a confronto le due opzioni con premi, partecipazione ai costi, copertura territoriale e scenari concreti, così puoi scegliere con informazioni verificabili.\n\n## Come funziona la LAMal per i frontalieri\n\n### L'obbligo assicurativo e la deroga frontaliera\n\nChi lavora in Svizzera è soggetto all'obbligo LAMal. Se hai il domicilio in Italia puoi chiedere l'esenzione e restare nel sistema italiano. La domanda va presentata entro **tre mesi** dall'inizio dell'attività all'autorità cantonale; in Ticino se ne occupa l'Istituto delle assicurazioni sociali.\n\nSenza domanda formale non c'è opzione: resti soggetto all'obbligo svizzero con effetto retroattivo dall'inizio del lavoro. La scelta è definitiva per tutta la durata dell'attività ininterrotta: non la riaprono il cambio di datore di lavoro o di Cantone, né la variazione del reddito o del premio. Si riapre solo dopo un periodo di assoggettamento in un altro Stato o quando diventi beneficiario di rendita.\n\n### Premi mensili LAMal: quanto costa davvero\n\nChi risiede in Italia non paga i premi del Canton Ticino: paga il premio che ogni assicuratore calcola per l'Italia. Il premio dipende da tre cose: l'assicuratore, la classe d'età e la copertura infortuni. I 14 assicuratori sono Agrisano, Aquilana, Assura, Concordia, CSS, Helsana, KPT, Mutuel, ÖKK, Sanitas, Sodalis, Swica, Visana e Vivao Sympany.\n\nChi lavora almeno otto ore la settimana presso lo stesso datore è già assicurato anche contro gli infortuni non professionali e può scegliere il premio senza infortuni. Per chi risiede in uno Stato UE non esistono franchigie opzionali o modelli assicurativi a scelta.\n\n**Premi mensili 2026 per residenti in Italia, senza infortuni:**\n\n| Assicuratore | Adulti (da 26 anni) | Giovani adulti (19-25) | Minorenni |\n|---|---:|---:|---:|\n| Agrisano | CHF 390,50 | CHF 390,50 | CHF 136,80 |\n| Aquilana | CHF 428,50 | CHF 317,20 | CHF 82,40 |\n| Assura | CHF 475,30 | CHF 475,30 | CHF 153,20 |\n| Concordia | CHF 487,20 | CHF 389,80 | CHF 121,90 |\n| CSS | CHF 427,80 | CHF 320,90 | CHF 94,10 |\n| Helsana | CHF 279,00 | CHF 251,10 | CHF 64,20 |\n| KPT | CHF 362,70 | CHF 334,80 | CHF 108,80 |\n| Mutuel | CHF 299,40 | CHF 239,60 | CHF 114,80 |\n| ÖKK | CHF 439,90 | CHF 439,90 | CHF 110,10 |\n| Sanitas | CHF 465,50 | CHF 395,70 | CHF 139,70 |\n| Sodalis | CHF 454,00 | CHF 385,90 | CHF 118,40 |\n| Swica | CHF 331,90 | CHF 248,90 | CHF 79,80 |\n| Visana | CHF 464,20 | CHF 325,10 | CHF 130,30 |\n| Vivao Sympany | CHF 407,40 | CHF 293,40 | CHF 203,70 |\n\n(Fonte: <a href="https://www.priminfo.admin.ch/downloads/praemien_eu_2026.pdf" target="_blank" rel="noopener">Priminfo, premi UE 2026</a>.)\n\nNel 2027 gli adulti pagano da CHF 306,90 a CHF 509,40 al mese senza infortuni. Il costo reale è il premio più la partecipazione ai costi, che per un adulto può arrivare al massimo a CHF 1.000 l'anno.\n\n### Come funziona la franchigia LAMal\n\nPer chi risiede in Italia c'è una sola franchigia ordinaria: **CHF 300 l'anno** per gli adulti e nessuna per i minorenni. Poi paghi il **10%** dei costi oltre la franchigia, fino a **CHF 700 l'anno** per gli adulti e CHF 350 per i minorenni.\n\n**Esempio pratico**: con spese mediche in Svizzera di CHF 3.000:\n- Paghi: CHF 300 di franchigia + CHF 270, cioè il 10% di CHF 2.700 = **CHF 570**.\n- La cassa malati copre **CHF 2.430**.\n\nPer un adulto la partecipazione massima è CHF 1.000 l'anno e vale per le cure ricevute in Svizzera. Per le cure in Italia paghi solo l'eventuale ticket italiano.\n\n### Copertura territoriale LAMal\n\nIn Svizzera hai accesso completo al sistema sanitario. In Italia ti registri presso l'ASL con l'attestato rilasciato dalla cassa malati svizzera e ricevi le prestazioni secondo le regole italiane, pagando solo l'eventuale ticket.\n\nLe strutture private che non accettano la tessera non sono coperte. La stessa regola vale per i familiari senza attività lucrativa assicurati con il frontaliere.`,
 
-## Fatti chiave
-- **Diritto di opzione**: domanda entro 3 mesi dall'inizio del lavoro all'autorità cantonale (in Ticino l'Istituto delle assicurazioni sociali); senza domanda resta l'obbligo LAMal.
-- **Scelta definitiva**: non la riaprono il cambio di datore di lavoro o di Cantone né la variazione del reddito.
-- **Premi LAMal 2026, adulti**: da CHF 279,00 a CHF 487,20 al mese senza infortuni (da CHF 300,00 a CHF 513,30 con infortuni).
-- **Premi LAMal 2026, giovani adulti e minorenni**: da CHF 239,60 a CHF 475,30 e da CHF 64,20 a CHF 203,70 al mese.
-- **Premi LAMal 2027, adulti**: da CHF 306,90 a CHF 509,40 al mese senza infortuni.
-- **Partecipazione ai costi**: franchigia di CHF 300 più il 10% fino a CHF 700 l'anno; nessuna franchigia opzionale per chi risiede in Italia.
-- **Servizio sanitario, nuovi frontalieri**: nessun contributo sanitario specifico.
-- **Servizio sanitario, «vecchi» frontalieri**: quota dal 3% al 6% del salario netto, minimo 30 e massimo 200 euro al mese; Lombardia 3%.
-- **Familiari**: se lavora un solo genitore, tutta la famiglia segue la sua scelta.
-- **Cure in Svizzera con il Servizio sanitario**: cure necessarie con la tessera europea, partecipazione di CHF 92 ogni 30 giorni.
-
-## LAMal vs SSN: il diritto di opzione sanitario del frontaliere
-
-La **LAMal** (Legge federale sull'assicurazione malattie) è l'assicurazione sanitaria obbligatoria svizzera, mentre il **Servizio sanitario italiano (SSN)** è il sistema sanitario pubblico italiano. Se inizi a lavorare in Svizzera e vivi in Italia, hai un **diritto di opzione**: puoi scegliere fra LAMal svizzera e Servizio sanitario italiano entro tre mesi dall'inizio dell'attività.
-
-La scelta è definitiva per tutta la durata dell'attività ininterrotta come frontaliere. Prima di decidere devi sapere in quale regime rientri, se sei un nuovo o un «vecchio» frontaliere, com'è composta la tua famiglia e dove vuoi curarti.
-
-I tre fattori decisivi sono il regime fiscale e assicurativo, la famiglia e il luogo delle cure. Valuta insieme questi elementi, perché un premio individuale, i familiari e l'accesso alle cure possono cambiare il risultato.
-
-Questa guida mette a confronto le due opzioni con premi, partecipazione ai costi, copertura territoriale e scenari concreti, così puoi scegliere con informazioni verificabili.
-
-## Come funziona la LAMal per i frontalieri
-
-### L'obbligo assicurativo e la deroga frontaliera
-
-Chi lavora in Svizzera è soggetto all'obbligo LAMal. Se hai il domicilio in Italia puoi chiedere l'esenzione e restare nel sistema italiano. La domanda va presentata entro **tre mesi** dall'inizio dell'attività all'autorità cantonale; in Ticino se ne occupa l'Istituto delle assicurazioni sociali.
-
-Senza domanda formale non c'è opzione: resti soggetto all'obbligo svizzero con effetto retroattivo dall'inizio del lavoro. La scelta è definitiva per tutta la durata dell'attività ininterrotta: non la riaprono il cambio di datore di lavoro o di Cantone, né la variazione del reddito o del premio. Si riapre solo dopo un periodo di assoggettamento in un altro Stato o quando diventi beneficiario di rendita.
-
-### Premi mensili LAMal: quanto costa davvero
-
-Chi risiede in Italia non paga i premi del Canton Ticino: paga il premio che ogni assicuratore calcola per l'Italia. Il premio dipende da tre cose: l'assicuratore, la classe d'età e la copertura infortuni. I 14 assicuratori sono Agrisano, Aquilana, Assura, Concordia, CSS, Helsana, KPT, Mutuel, ÖKK, Sanitas, Sodalis, Swica, Visana e Vivao Sympany.
-
-Chi lavora almeno otto ore la settimana presso lo stesso datore è già assicurato anche contro gli infortuni non professionali e può scegliere il premio senza infortuni. Per chi risiede in uno Stato UE non esistono franchigie opzionali o modelli assicurativi a scelta.
-
-**Premi mensili 2026 per residenti in Italia, senza infortuni:**
-
-| Assicuratore | Adulti (da 26 anni) | Giovani adulti (19-25) | Minorenni |
-|---|---:|---:|---:|
-| Agrisano | CHF 390,50 | CHF 390,50 | CHF 136,80 |
-| Aquilana | CHF 428,50 | CHF 317,20 | CHF 82,40 |
-| Assura | CHF 475,30 | CHF 475,30 | CHF 153,20 |
-| Concordia | CHF 487,20 | CHF 389,80 | CHF 121,90 |
-| CSS | CHF 427,80 | CHF 320,90 | CHF 94,10 |
-| Helsana | CHF 279,00 | CHF 251,10 | CHF 64,20 |
-| KPT | CHF 362,70 | CHF 334,80 | CHF 108,80 |
-| Mutuel | CHF 299,40 | CHF 239,60 | CHF 114,80 |
-| ÖKK | CHF 439,90 | CHF 439,90 | CHF 110,10 |
-| Sanitas | CHF 465,50 | CHF 395,70 | CHF 139,70 |
-| Sodalis | CHF 454,00 | CHF 385,90 | CHF 118,40 |
-| Swica | CHF 331,90 | CHF 248,90 | CHF 79,80 |
-| Visana | CHF 464,20 | CHF 325,10 | CHF 130,30 |
-| Vivao Sympany | CHF 407,40 | CHF 293,40 | CHF 203,70 |
-
-(Fonte: <a href="https://www.priminfo.admin.ch/downloads/praemien_eu_2026.pdf" target="_blank" rel="noopener">Priminfo, premi UE 2026</a>.)
-
-Nel 2027 gli adulti pagano da CHF 306,90 a CHF 509,40 al mese senza infortuni. Il costo reale è il premio più la partecipazione ai costi, che per un adulto può arrivare al massimo a CHF 1.000 l'anno.
-
-### Come funziona la franchigia LAMal
-
-Per chi risiede in Italia c'è una sola franchigia ordinaria: **CHF 300 l'anno** per gli adulti e nessuna per i minorenni. Poi paghi il **10%** dei costi oltre la franchigia, fino a **CHF 700 l'anno** per gli adulti e CHF 350 per i minorenni.
-
-**Esempio pratico**: con spese mediche in Svizzera di CHF 3.000:
-- Paghi: CHF 300 di franchigia + CHF 270, cioè il 10% di CHF 2.700 = **CHF 570**.
-- La cassa malati copre **CHF 2.430**.
-
-Per un adulto la partecipazione massima è CHF 1.000 l'anno e vale per le cure ricevute in Svizzera. Per le cure in Italia paghi solo l'eventuale ticket italiano.
-
-### Copertura territoriale LAMal
-
-In Svizzera hai accesso completo al sistema sanitario. In Italia ti registri presso l'ASL con l'attestato rilasciato dalla cassa malati svizzera e ricevi le prestazioni secondo le regole italiane, pagando solo l'eventuale ticket.
-
-Le strutture private che non accettano la tessera non sono coperte. La stessa regola vale per i familiari senza attività lucrativa assicurati con il frontaliere.`,
-
- 'blog.article.lamal-vs-ssn-decisione.body2': `## Come funziona il SSN per i frontalieri
-
-### Iscrizione e contributi
-
-Con l'opzione per il Servizio sanitario italiano resti iscritto all'ASL di residenza. Il costo dipende dal regime in cui rientri.
-
-I nuovi frontalieri, assunti dal **17 luglio 2023** e tassati anche in Italia, non pagano un contributo sanitario specifico: il Servizio sanitario si finanzia con la fiscalità generale. I «vecchi» frontalieri, in attività fra il **31 dicembre 2018** e il 17 luglio 2023 e tassati solo in Svizzera, che hanno scelto il Servizio sanitario, seguono la quota prevista dalla legge.
-
-La legge 213/2023 (art. 1, commi 237-239) prevede per i «vecchi» una quota di compartecipazione da versare alla Regione di residenza: fra il **3% e il 6%** del salario netto percepito in Svizzera, progressiva rispetto a reddito e carichi familiari, con un minimo di **30 euro** e un massimo di **200 euro** per ogni mese lavorato. La quota riguarda anche i familiari a carico.
-
-Il decreto attuativo è del **14 novembre 2025**, pubblicato nella Gazzetta Ufficiale del **18 dicembre 2025**. La Lombardia ha scelto il **3%** sui redditi 2025 e senza effetto retroattivo. L'avvio della riscossione non è confermato: per lo stato aggiornato consulta la pagina del sito sulla tassa sulla salute.
-
-| Chi | Cosa prevede la legge |
-|---|---|
-| Nuovi frontalieri | Nessun contributo sanitario specifico: il Servizio sanitario si finanzia con la fiscalità generale. |
-| «Vecchi» frontalieri che hanno scelto il Servizio sanitario | Quota fra il 3% e il 6% del salario netto, con minimo 30 e massimo 200 euro al mese; la quota riguarda anche i familiari a carico. |
-| Lombardia | Aliquota del 3% sui redditi 2025, senza effetto retroattivo. |
-
-Non esiste un contributo sanitario del **7,5% del reddito** per i frontalieri: i casi sono i due descritti sopra.
-
-### Cosa copre il Servizio sanitario italiano
-
-Il Servizio sanitario italiano offre una **copertura sanitaria universale** in Italia:
-- **Medico di medicina generale**: visite gratuite senza limiti.
-- **Visite specialistiche**: con impegnativa, pagando il **ticket** regionale, da €0 a €36,15 secondo prestazione e Regione.
-- **Ricoveri ospedalieri**: completamente gratuiti negli ospedali pubblici.
-- **Farmaci**: fascia A gratuita o con ticket; fascia C a carico del paziente.
-- **Pronto soccorso**: gratuito per i codici di urgenza, ticket per i codici bianchi.
-- **Maternità**: copertura completa per gravidanza e parto.
-- **Prevenzione**: screening oncologici, vaccinazioni e medicina del lavoro.
-
-### Copertura all'estero con il Servizio sanitario italiano
-
-Con la tessera europea di assicurazione malattia (TEAM) hai diritto in Svizzera e negli altri Stati UE/AELS alle cure medicalmente necessarie durante il soggiorno.
-
-In Svizzera paghi una partecipazione forfettaria di **CHF 92 ogni 30 giorni di cura**; per i minorenni è di CHF 33. Le cure programmate, anche in Svizzera, richiedono l'autorizzazione preventiva dell'ASL con il modello S2.
-
-Gli infortuni sul lavoro e le malattie professionali restano coperti dall'assicurazione infortuni del datore di lavoro svizzero.
-
-### Vantaggi specifici del Servizio sanitario per famiglie
-
-Se lavora un solo genitore, tutta la famiglia segue la sua scelta. Se l'altro genitore lavora o riceve una rendita in Italia, i figli restano assicurati in Italia. Se entrambi lavorano in Svizzera, ciascuno sceglie per sé e i figli seguono un solo sistema.
-
-Con la LAMal una famiglia di due adulti e due minorenni paga, presso lo stesso assicuratore, almeno **2 × 279,00 + 2 × 64,20 = CHF 686,40 al mese**, cioè **CHF 8.236,80 l'anno**. Con l'assicuratore più caro per questa famiglia arriva a **CHF 1.257,00 al mese** (2 × 475,30 + 2 × 153,20).
-
-## Tabella comparativa completa: LAMal vs SSN
-
-| Criterio | LAMal (Svizzera) | Servizio sanitario italiano (SSN) |
-|---|---|---|
-| **Costo per singolo** | CHF 279,00-487,20 al mese (adulti, 2026) | Nuovi frontalieri: nessun contributo specifico; «vecchi»: quota 3-6% del netto, 30-200 euro al mese |
-| **Costo per famiglia** | Ogni membro paga un premio (minorenni CHF 64,20-203,70) | Vedi sopra; la quota dei «vecchi» riguarda anche i familiari a carico |
-| **Franchigia annuale** | CHF 300 (nessuna per i minori), non modificabile | Nessuna |
-| **Partecipazione ai costi** | 10% fino a CHF 700 l'anno | Ticket |
-| **Cure in Svizzera** | Accesso completo | Cure necessarie durante il soggiorno con la tessera europea (CHF 92 ogni 30 giorni); programmate con autorizzazione dell'ASL |
-| **Cure in Italia** | Tramite l'ASL con l'attestato della cassa malati; si paga il ticket | Accesso completo |
-| **Tempi di attesa** | In genere più brevi | Variabili secondo Regione e specialità |
-| **Scelta del medico** | Libera | Medico di base e impegnativa |
-| **Cure dentarie** | Non coperte dalla base, serve una complementare | Parzialmente coperte secondo il sistema pubblico |
-| **Maternità** | Coperta integralmente | Coperta integralmente |
-| **Farmaci** | Coperti secondo le regole LAMal con partecipazione | Fascia A gratuita o con ticket; fascia C a carico |
-| **Cambio sistema** | Scelta definitiva, salvo la riapertura prevista dopo assoggettamento in un altro Stato o con la rendita | Scelta definitiva, con la stessa precisazione |
-| **Sussidi** | Riduzione dei premi da chiedere al Cantone di lavoro | Esenzioni dal ticket secondo reddito o patologia |
-| **Copertura UE** | Tessera assicurativa secondo le regole del sistema svizzero | Tessera europea per le cure necessarie durante il soggiorno |
-| **Assicurazione complementare** | Disponibile, ma distinta dalla LAMal di base | Possibile anche in Italia |
-
-(Fonti: UFSP, assicurazione malattie dei lavoratori frontalieri; UFSP, premi UE/AELS/UK; Priminfo, premi UE 2026; OAMal artt. 101a e 103; legge 213/2023.)`,
+ 'blog.article.lamal-vs-ssn-decisione.body2': `## Come funziona il SSN per i frontalieri\n\n### Iscrizione e contributi\n\nCon l'opzione per il Servizio sanitario italiano resti iscritto all'ASL di residenza. Il costo dipende dal regime in cui rientri.\n\nLa L. 213/2023, art. 1, commi 237–238, non assoggetta indistintamente tutti i frontalieri. Rientrano: (a) i residenti in Italia che lavorano e soggiornano in Svizzera e usano il SSN; (b) i frontalieri di cui all’art. 9, par. 1, dell’Accordo Italia–Svizzera, con redditi imponibili soltanto in Svizzera, che hanno esercitato il diritto di opzione per l’assicurazione malattie; e (c) i familiari a carico delle due categorie. Il comma 238 prevede una quota progressiva del 3–6% del salario netto svizzero, con un minimo di €30 e un massimo ordinario di €200 per ogni mese lavorato dal 2024. Il tetto può essere raddoppiato nei casi di omesso pagamento o omessa comunicazione previsti dall’art. 1, comma 100, L. 207/2024. La Regione di residenza determina ogni anno aliquote e modalità. I «vecchi» frontalieri, in attività fra il **31 dicembre 2018** e il 17 luglio 2023 e tassati solo in Svizzera, che hanno scelto il Servizio sanitario, seguono la quota prevista dalla legge.\n\nLa [legge 213/2023](https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:legge:2023-12-30;213~art1!vig=2026-10-31) (art. 1, commi 237-239) prevede per i «vecchi» una quota di compartecipazione da versare alla Regione di residenza: fra il **3% e il 6%** del salario netto percepito in Svizzera, progressiva rispetto a reddito e carichi familiari, con un minimo di **30 euro** e un massimo di **200 euro** per ogni mese lavorato. La quota riguarda anche i familiari a carico.\n\nIl decreto attuativo è del **14 novembre 2025**, pubblicato nella Gazzetta Ufficiale del **18 dicembre 2025**. La Lombardia ha scelto il **3%** sui redditi 2025 e senza effetto retroattivo. L'avvio della riscossione non è confermato: per lo stato aggiornato consulta la pagina del sito sulla tassa sulla salute.\n\n| Chi | Cosa prevede la legge |\n|---|---|\n| Nuovi frontalieri | Nessun contributo sanitario specifico: il Servizio sanitario si finanzia con la fiscalità generale. |\n| «Vecchi» frontalieri che hanno scelto il Servizio sanitario | Quota fra il 3% e il 6% del salario netto, con minimo 30 e massimo 200 euro al mese; la quota riguarda anche i familiari a carico. |\n| Lombardia | Aliquota del 3% sui redditi 2025, senza effetto retroattivo. |\n\nNon esiste un contributo sanitario del **7,5% del reddito** per i frontalieri: i casi sono i due descritti sopra.\n\n### Cosa copre il Servizio sanitario italiano\n\nIl Servizio sanitario italiano offre una **copertura sanitaria universale** in Italia:\n- **Medico di medicina generale**: visite gratuite senza limiti.\n- **Visite specialistiche**: con impegnativa, pagando il **ticket** regionale, da €0 a €36,15 secondo prestazione e Regione.\n- **Ricoveri ospedalieri**: completamente gratuiti negli ospedali pubblici.\n- **Farmaci**: fascia A gratuita o con ticket; fascia C a carico del paziente.\n- **Pronto soccorso**: gratuito per i codici di urgenza, ticket per i codici bianchi.\n- **Maternità**: copertura completa per gravidanza e parto.\n- **Prevenzione**: screening oncologici, vaccinazioni e medicina del lavoro.\n\n### Copertura all'estero con il Servizio sanitario italiano\n\nCon la tessera europea di assicurazione malattia (TEAM) hai diritto in Svizzera e negli altri Stati UE/AELS alle cure medicalmente necessarie durante il soggiorno.\n\nIn Svizzera paghi una partecipazione forfettaria di **CHF 92 ogni 30 giorni di cura**; per i minorenni è di CHF 33. Le cure programmate, anche in Svizzera, richiedono l'autorizzazione preventiva dell'ASL con il modello S2.\n\nGli infortuni sul lavoro e le malattie professionali restano coperti dall'assicurazione infortuni del datore di lavoro svizzero.\n\n### Vantaggi specifici del Servizio sanitario per famiglie\n\nSe lavora un solo genitore, tutta la famiglia segue la sua scelta. Se l'altro genitore lavora o riceve una rendita in Italia, i figli restano assicurati in Italia. Se entrambi lavorano in Svizzera, ciascuno sceglie per sé e i figli seguono un solo sistema.\n\nCon la LAMal una famiglia di due adulti e due minorenni paga, presso lo stesso assicuratore, almeno **2 × 279,00 + 2 × 64,20 = CHF 686,40 al mese**, cioè **CHF 8.236,80 l'anno**. Con l'assicuratore più caro per questa famiglia arriva a **CHF 1.257,00 al mese** (2 × 475,30 + 2 × 153,20).\n\n## Tabella comparativa completa: LAMal vs SSN\n\n| Criterio | LAMal (Svizzera) | Servizio sanitario italiano (SSN) |\n|---|---|---|\n| **Costo per singolo** | CHF 279,00-487,20 al mese (adulti, 2026) | Nuovi frontalieri: nessun contributo specifico; «vecchi»: quota 3-6% del netto, 30-200 euro al mese |\n| **Costo per famiglia** | Ogni membro paga un premio (minorenni CHF 64,20-203,70) | Vedi sopra; la quota dei «vecchi» riguarda anche i familiari a carico |\n| **Franchigia annuale** | CHF 300 (nessuna per i minori), non modificabile | Nessuna |\n| **Partecipazione ai costi** | 10% fino a CHF 700 l'anno | Ticket |\n| **Cure in Svizzera** | Accesso completo | Cure necessarie durante il soggiorno con la tessera europea (CHF 92 ogni 30 giorni); programmate con autorizzazione dell'ASL |\n| **Cure in Italia** | Tramite l'ASL con l'attestato della cassa malati; si paga il ticket | Accesso completo |\n| **Tempi di attesa** | In genere più brevi | Variabili secondo Regione e specialità |\n| **Scelta del medico** | Libera | Medico di base e impegnativa |\n| **Cure dentarie** | Non coperte dalla base, serve una complementare | Parzialmente coperte secondo il sistema pubblico |\n| **Maternità** | Coperta integralmente | Coperta integralmente |\n| **Farmaci** | Coperti secondo le regole LAMal con partecipazione | Fascia A gratuita o con ticket; fascia C a carico |\n| **Cambio sistema** | Scelta definitiva, salvo la riapertura prevista dopo assoggettamento in un altro Stato o con la rendita | Scelta definitiva, con la stessa precisazione |\n| **Sussidi** | Riduzione dei premi da chiedere al Cantone di lavoro | Esenzioni dal ticket secondo reddito o patologia |\n| **Copertura UE** | Tessera assicurativa secondo le regole del sistema svizzero | Tessera europea per le cure necessarie durante il soggiorno |\n| **Assicurazione complementare** | Disponibile, ma distinta dalla LAMal di base | Possibile anche in Italia |\n\n(Fonti: UFSP, assicurazione malattie dei lavoratori frontalieri; UFSP, premi UE/AELS/UK; Priminfo, premi UE 2026; OAMal artt. 101a e 103; legge 213/2023.)`,
 
  'blog.article.lamal-vs-ssn-decisione.body3': `## Scenari concreti: quanto costa davvero ogni opzione
 
@@ -319,7 +175,9 @@ La scelta fra LAMal e Servizio sanitario italiano non ha una risposta uguale per
 2. **Verifica il tuo regime** e la situazione dei familiari con l'autorità competente.
 3. **Rispetta il termine dei tre mesi** dall'inizio del lavoro e conserva la conferma della scelta.
 
-*Fonti principali: UFSP, assicurazione malattie dei lavoratori frontalieri; UFSP, premi UE/AELS/UK; Priminfo, premi UE 2026 e 2027; OAMal artt. 101a e 103; Istituto delle assicurazioni sociali del Cantone Ticino, obbligo assicurativo dei familiari; legge 213/2023, art. 1, commi 237-239.*`,
+*Fonti principali: UFSP, assicurazione malattie dei lavoratori frontalieri; UFSP, premi UE/AELS/UK; Priminfo, premi UE 2026 e 2027; OAMal artt. 101a e 103; Istituto delle assicurazioni sociali del Cantone Ticino, obbligo assicurativo dei familiari; legge 213/2023, art. 1, commi 237-239.*
+
+La [legge 213/2023](https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:legge:2023-12-30;213~art1!vig=2026-10-31) (art. 1, commi 237–238) comprende: (a) le persone residenti in Italia che lavorano e soggiornano in Svizzera e usano il SSN italiano; (b) i frontalieri dell’art. 9, par. 1, dell’accordo Italia–Svizzera, con redditi imponibili soltanto in Svizzera, che hanno esercitato il diritto di opzione; e (c) i familiari a carico di queste due categorie. Il comma 238 prevede una quota progressiva dal 3% al 6% del salario netto svizzero, con un minimo di 30 euro e un massimo ordinario di 200 euro per ogni mese lavorato dal 2024. Il limite può raddoppiare nei casi di omesso pagamento o comunicazione previsti dall’art. 1, comma 100, della legge 207/2024. La Regione di residenza stabilisce ogni anno aliquote e modalità.`,
 
  'blog.article.lamal-vs-ssn-decisione.faq': '[{"q":"Come funziona il diritto di opzione per i frontalieri che lavorano in Svizzera?","a":"Devi scegliere fra LAMal svizzera e Servizio sanitario italiano entro tre mesi dall\'inizio del lavoro. La scelta è definitiva per tutta l\'attività ininterrotta come frontaliere."},{"q":"La scelta fra LAMal e Servizio sanitario italiano si può cambiare?","a":"No, il cambio di datore di lavoro o di Cantone non riapre la scelta. Si riapre solo dopo un periodo di assoggettamento in un altro Stato o quando diventi beneficiario di rendita."},{"q":"Quali cure in Italia sono coperte dalla LAMal svizzera per i frontalieri?","a":"Ti registri presso l\'ASL con l\'attestato della cassa malati svizzera e ricevi le prestazioni secondo le regole italiane, pagando l\'eventuale ticket. Le strutture private che non accettano la tessera non sono coperte."},{"q":"Come funzionano i contributi del Servizio sanitario italiano per un frontaliere?","a":"Non esiste un contributo del 7,5% del reddito. I nuovi frontalieri non hanno un contributo sanitario specifico; per i «vecchi» la quota è fra il 3% e il 6%, con minimo 30 e massimo 200 euro al mese. In Lombardia è del 3% e l\'avvio della riscossione non è confermato."},{"q":"Cosa succede se un frontaliere con LAMal ha bisogno di cure in Italia?","a":"Le cure passano dall\'ASL con l\'attestato della cassa malati svizzera o dal pronto soccorso secondo le regole italiane. Paghi l\'eventuale ticket; le strutture private che non accettano la tessera non sono coperte."}]',
 };

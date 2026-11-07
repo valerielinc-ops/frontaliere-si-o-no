@@ -88,7 +88,7 @@ With the option for the Italian National Health Service, you remain registered w
 
 “New” cross-border workers, hired from **17 July 2023** and taxed in Italy as well, pay no specific health contribution: the service is funded through general taxation. “Old” cross-border workers, active between **31 December 2018** and 17 July 2023 and taxed only in Switzerland, who chose the Italian National Health Service, follow the contribution provided by law.
 
-Law 213/2023 (Article 1, paragraphs 237-239) provides for “old” cross-border workers a contribution paid to the region of residence: **3% to 6%** of net salary received in Switzerland, progressive according to income and family responsibilities, with a minimum of **€30** and a maximum of **€200** for each month worked. The contribution also covers dependent family members.
+[Law 213/2023](https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:legge:2023-12-30;213~art1!vig=2026-10-31) (Article 1, paragraphs 237-239) provides for “old” cross-border workers a contribution paid to the region of residence: **3% to 6%** of net salary received in Switzerland, progressive according to income and family responsibilities, with a minimum of **€30** and a maximum of **€200** for each month worked. The contribution also covers dependent family members.
 
 The implementing decree is dated **14 November 2025** and was published in the Official Gazette on **18 December 2025**. Lombardy chose **3%**, on 2025 income and without retroactive effect. Collection has not been confirmed: for the current status, see the site's page on the health contribution.
 
@@ -265,61 +265,7 @@ LAMal is basic insurance. Supplementary insurance is optional and covers additio
 ### 6. Thinking a new employer lets you change your mind
 The choice remains final for the entire period of uninterrupted cross-border work. Changing employer does not reopen it. A new contract alone is not enough, even if the workplace or income changes. Reopening requires one of the specific cases described above, not a personal decision alone.`,
 
- 'blog.article.lamal-vs-ssn-decisione.body5': `## Frequently asked questions about choosing LAMal vs the Italian National Health Service
-
-### Can I switch from the Italian National Health Service to LAMal after the initial choice?
-No. The choice is final for the entire period of uninterrupted cross-border work. It reopens only after a period subject to another state’s system or when you become a pension beneficiary; changing employer is not enough. For a new family member, a person insured under LAMal can request an exemption within three months of the event.
-
-### Can I switch from LAMal to the Italian National Health Service?
-No, the same rule applies: the choice is final. Reopening is possible only in the cases provided for after a period subject to another state’s system or with a pension.
-
-### What happens if my spouse works in Italy?
-If the other parent works or receives a pension in Italy, the children remain insured in Italy and LAMal applies only to the cross-border worker.
-
-### Does LAMal cover care in Italy?
-Yes. Register with the ASL using the Swiss health insurer’s certificate and receive services under Italian rules, paying any ticket. Private facilities that do not accept the card are not covered.
-
-### Does the Italian National Health Service cover care in Switzerland?
-For medically necessary care during a stay, use the European card and pay **CHF 92 every 30 days of care**. Planned care requires prior ASL authorisation using form S2.
-
-### How long do I have to decide?
-You have **three months** from the start of work in Switzerland. Submit the application to the cantonal authority; in Ticino, the Social Insurance Institute is responsible. Without an application, the LAMal obligation remains retroactive.
-
-### Can I have both LAMal and private Italian insurance?
-Yes, you can take out Italian supplementary insurance. It is separate from basic cover and should be assessed according to the services you need.
-
-### How does the choice affect my Italian tax return?
-We have not found official confirmation that LAMal premiums are deductible. Ask a CAF or tax adviser to assess your situation.
-
-## Quick decision guide
-
-**Choose LAMal if:**
-- You mainly receive care in Switzerland.
-- You want access to care in both countries.
-- You need planned care in Switzerland.
-- You want a known limit for cost-sharing for care in Switzerland.
-
-**Choose the Italian National Health Service if:**
-- You fall under a regime with no specific contribution or a contribution compatible with your situation.
-- You have family members who follow your choice.
-- You mainly receive care in Italy.
-- You have a chronic condition with a ticket exemption.
-
-**Assess case by case:**
-- Where the specialists supporting you are located.
-- How your family and regime are structured.
-
-## Conclusion: a choice that deserves analysis, not guesswork
-
-There is no single answer for choosing between LAMal and the Italian National Health Service. It depends on your tax and insurance regime, your family, the applicable premium and where you want to receive care.
-
-**Three concrete steps to take now:**
-
-1. **Compare premiums** with the [health insurance comparator](nav:health), which compares the premiums of the 14 insurers.
-2. **Check your regime** and your family members’ situation with the competent authority.
-3. **Meet the three-month deadline** from the start of work and keep the confirmation of your choice.
-
-*Main sources: FOPH, health insurance for cross-border workers; FOPH, EU/EFTA/UK premiums; Priminfo, EU premiums 2026 and 2027; OAMal Articles 101a and 103; Social Insurance Institute of the Canton of Ticino, insurance obligation for family members; Law 213/2023, Article 1, paragraphs 237-239.*`,
+ 'blog.article.lamal-vs-ssn-decisione.body5': `## Frequently asked questions about choosing LAMal vs the Italian National Health Service\n\n### Can I switch from the Italian National Health Service to LAMal after the initial choice?\nNo. The choice is final for the entire period of uninterrupted cross-border work. It reopens only after a period subject to another state’s system or when you become a pension beneficiary; changing employer is not enough. For a new family member, a person insured under LAMal can request an exemption within three months of the event.\n\n### Can I switch from LAMal to the Italian National Health Service?\nNo, the same rule applies: the choice is final. Reopening is possible only in the cases provided for after a period subject to another state’s system or with a pension.\n\n### What happens if my spouse works in Italy?\nIf the other parent works or receives a pension in Italy, the children remain insured in Italy and LAMal applies only to the cross-border worker.\n\n### Does LAMal cover care in Italy?\nYes. Register with the ASL using the Swiss health insurer’s certificate and receive services under Italian rules, paying any ticket. Private facilities that do not accept the card are not covered.\n\n### Does the Italian National Health Service cover care in Switzerland?\nFor medically necessary care during a stay, use the European card and pay **CHF 92 every 30 days of care**. Planned care requires prior ASL authorisation using form S2.\n\n### How long do I have to decide?\nYou have **three months** from the start of work in Switzerland. Submit the application to the cantonal authority; in Ticino, the Social Insurance Institute is responsible. Without an application, the LAMal obligation remains retroactive.\n\n### Can I have both LAMal and private Italian insurance?\nYes, you can take out Italian supplementary insurance. It is separate from basic cover and should be assessed according to the services you need.\n\n### How does the choice affect my Italian tax return?\nWe have not found official confirmation that LAMal premiums are deductible. Ask a CAF or tax adviser to assess your situation.\n\n## Quick decision guide\n\n**Choose LAMal if:**\n- You mainly receive care in Switzerland.\n- You want access to care in both countries.\n- You need planned care in Switzerland.\n- You want a known limit for cost-sharing for care in Switzerland.\n\n**Choose the Italian National Health Service if:**\n- You fall under a regime with no specific contribution or a contribution compatible with your situation.\n- You have family members who follow your choice.\n- You mainly receive care in Italy.\n- You have a chronic condition with a ticket exemption.\n\n**Assess case by case:**\n- Where the specialists supporting you are located.\n- How your family and regime are structured.\n\n## Conclusion: a choice that deserves analysis, not guesswork\n\nThere is no single answer for choosing between LAMal and the Italian National Health Service. It depends on your tax and insurance regime, your family, the applicable premium and where you want to receive care.\n\n**Three concrete steps to take now:**\n\n1. **Compare premiums** with the [health insurance comparator](nav:health), which compares the premiums of the 14 insurers.\n2. **Check your regime** and your family members’ situation with the competent authority.\n3. **Meet the three-month deadline** from the start of work and keep the confirmation of your choice.\n\n*Main sources: FOPH, health insurance for cross-border workers; FOPH, EU/EFTA/UK premiums; Priminfo, EU premiums 2026 and 2027; OAMal Articles 101a and 103; Social Insurance Institute of the Canton of Ticino, insurance obligation for family members; Law 213/2023, Article 1, paragraphs 237-239.*\n\nArticle 1(237–238) of Italian Law No. 213/2023 does not apply indiscriminately to all cross-border workers. It covers: (a) Italian residents who work and stay in Switzerland and use the Italian SSN; (b) frontier workers under Article 9(1) of the Italy–Switzerland Agreement whose income is taxable only in Switzerland and who exercised the legal right to choose health insurance; and (c) dependants of those two categories. Paragraph 238 sets a progressive 3–6% share of net Swiss salary, with a €30 minimum and an ordinary €200 maximum for each month worked from 2024. The cap may be doubled in cases of omitted payment or omitted communication specified in Article 1(100) of Law No. 207/2024. The Region of residence sets the rates and procedure each year.`,
 
  'blog.article.lamal-vs-ssn-decisione.faq': '[{"q":"How does the right of option work for cross-border workers in Switzerland?","a":"Choose between Swiss LAMal and the Italian National Health Service within three months of starting work. The choice is final for the entire period of uninterrupted cross-border work."},{"q":"Can the choice between LAMal and the Italian National Health Service be changed?","a":"No. Changing employer or canton does not reopen the choice. It reopens only after a period subject to another state’s system or when you become a pension beneficiary."},{"q":"Which care in Italy is covered by Swiss LAMal for cross-border workers?","a":"Register with the ASL using the Swiss health insurer’s certificate and receive services under Italian rules, paying any ticket. Private facilities that do not accept the card are not covered."},{"q":"How do Italian National Health Service contributions work for a cross-border worker?","a":"There is no 7.5% contribution on income. “New” workers have no specific health contribution; “old” workers pay 3% to 6%, with a minimum of €30 and maximum of €200 per month. In Lombardy the rate is 3%, and collection has not been confirmed."},{"q":"What happens if a cross-border worker with LAMal needs care in Italy?","a":"Care is provided through the ASL using the Swiss health insurer’s certificate or through emergency services under Italian rules. You pay any ticket; private facilities that do not accept the card are not covered."}]',
 };

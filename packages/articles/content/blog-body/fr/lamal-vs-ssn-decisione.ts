@@ -88,7 +88,7 @@ Avec l'option pour le service de santé italien, vous restez inscrit auprès de 
 
 Les « nouveaux » frontaliers, embauchés à partir du **17 juillet 2023** et imposés aussi en Italie, ne paient aucune contribution sanitaire spécifique : le service est financé par la fiscalité générale. Les « anciens » frontaliers, actifs entre le **31 décembre 2018** et le 17 juillet 2023, imposés uniquement en Suisse et ayant choisi le service de santé italien, sont soumis à la quote-part prévue par la loi.
 
-La loi 213/2023 (art. 1, alinéas 237-239) prévoit pour les « anciens » une quote-part à verser à la région de résidence : **3 % à 6 %** du salaire net perçu en Suisse, progressive selon le revenu et les charges familiales, avec un minimum de **30 euros** et un maximum de **200 euros** pour chaque mois travaillé. La quote-part concerne aussi les membres de la famille à charge.
+La [loi 213/2023](https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:legge:2023-12-30;213~art1!vig=2026-10-31) (art. 1, alinéas 237-239) prévoit pour les « anciens » une quote-part à verser à la région de résidence : **3 % à 6 %** du salaire net perçu en Suisse, progressive selon le revenu et les charges familiales, avec un minimum de **30 euros** et un maximum de **200 euros** pour chaque mois travaillé. La quote-part concerne aussi les membres de la famille à charge.
 
 Le décret d'application date du **14 novembre 2025** et a été publié au Journal officiel le **18 décembre 2025**. La Lombardie a choisi **3 %**, sur les revenus 2025 et sans effet rétroactif. Le début de la perception n'est pas confirmé : consultez la page du site consacrée à la contribution sanitaire pour connaître l'état actualisé.
 
@@ -265,61 +265,7 @@ La LAMal est l'assurance de base. Une complémentaire est facultative et couvre 
 ### 6. Penser qu'un nouvel employeur permet de changer d'avis
 Le choix reste définitif pendant toute la durée de l'activité ininterrompue comme frontalier. Un changement d'employeur ne le rouvre pas. Un nouveau contrat ne suffit pas à lui seul, même si le lieu de travail ou le revenu change. La réouverture exige l'un des cas spécifiques décrits ci-dessus, et pas une simple décision personnelle.`,
 
- 'blog.article.lamal-vs-ssn-decisione.body5': `## Questions fréquentes sur le choix entre LAMal et service de santé italien
-
-### Puis-je passer du service de santé italien à la LAMal après le choix initial ?
-Non. Le choix est définitif pendant toute la durée de l'activité ininterrompue comme frontalier. Il ne se rouvre qu'après une période d'assujettissement dans un autre État ou lorsque vous devenez bénéficiaire d'une rente ; un changement d'employeur ne suffit pas. Pour un nouveau membre de la famille, une personne assurée à la LAMal peut demander l'exemption dans les trois mois suivant l'événement.
-
-### Puis-je passer de la LAMal au service de santé italien ?
-Non, la même règle s'applique : le choix est définitif. La réouverture n'est possible que dans les cas prévus après une période d'assujettissement dans un autre État ou avec une rente.
-
-### Que se passe-t-il si mon conjoint travaille en Italie ?
-Si l'autre parent travaille ou perçoit une rente en Italie, les enfants restent assurés en Italie et la LAMal ne concerne que le frontalier.
-
-### La LAMal couvre-t-elle les soins en Italie ?
-Oui. Inscrivez-vous auprès de l'ASL avec l'attestation de la caisse-maladie suisse et recevez les prestations selon les règles italiennes, en payant l'éventuel ticket. Les structures privées qui n'acceptent pas la carte ne sont pas couvertes.
-
-### Le service de santé italien couvre-t-il les soins en Suisse ?
-Pour les soins médicalement nécessaires pendant un séjour, utilisez la carte européenne et payez **CHF 92 tous les 30 jours de soins**. Les soins programmés nécessitent l'autorisation préalable de l'ASL avec le formulaire S2.
-
-### De combien de temps est-ce que je dispose pour décider ?
-Vous disposez de **trois mois** à partir du début du travail en Suisse. Présentez la demande à l'autorité cantonale ; au Tessin, l'Istituto delle assicurazioni sociali est compétent. Sans demande, l'obligation LAMal reste rétroactive.
-
-### Puis-je avoir à la fois la LAMal et une assurance privée italienne ?
-Oui, vous pouvez souscrire une assurance complémentaire italienne. Elle est distincte de la couverture de base et doit être évaluée selon les prestations dont vous avez besoin.
-
-### Comment le choix influence-t-il ma déclaration fiscale italienne ?
-Nous n'avons pas trouvé de confirmation officielle de la déductibilité des primes LAMal. Demandez à un CAF ou à un conseiller fiscal d'évaluer votre situation.
-
-## Guide rapide pour décider
-
-**Choisissez la LAMal si :**
-- Vous vous faites soigner surtout en Suisse.
-- Vous voulez accéder aux soins dans les deux pays.
-- Vous avez besoin de soins programmés en Suisse.
-- Vous voulez une limite connue pour la quote-part des soins en Suisse.
-
-**Choisissez le service de santé italien si :**
-- Vous relevez d'un régime sans contribution spécifique ou avec une quote-part compatible avec votre situation.
-- Des membres de votre famille suivent votre choix.
-- Vous vous faites soigner surtout en Italie.
-- Vous avez une maladie chronique avec exonération du ticket.
-
-**Évaluez au cas par cas :**
-- Le lieu où se trouvent les spécialistes qui vous suivent.
-- La composition de votre famille et votre régime.
-
-## Conclusion : un choix qui mérite une analyse, pas l'improvisation
-
-Il n'existe pas de réponse unique pour choisir entre la LAMal et le service de santé italien. Tout dépend de votre régime fiscal et d'assurance, de votre famille, de la prime applicable et du lieu où vous souhaitez recevoir les soins.
-
-**Trois étapes concrètes à suivre :**
-
-1. **Comparez les primes** avec le [comparateur d'assurance maladie](nav:health), qui compare les primes des 14 caisses-maladie.
-2. **Vérifiez votre régime** et la situation des membres de votre famille auprès de l'autorité compétente.
-3. **Respectez le délai de trois mois** à partir du début du travail et conservez la confirmation de votre choix.
-
-*Sources principales : OFSP, assurance-maladie des travailleurs frontaliers ; OFSP, primes UE/AELE/Royaume-Uni ; Priminfo, primes UE 2026 et 2027 ; OAMal art. 101a et 103 ; Istituto delle assicurazioni sociali du canton du Tessin, obligation d'assurance des membres de la famille ; loi 213/2023, art. 1, alinéas 237-239.*`,
+ 'blog.article.lamal-vs-ssn-decisione.body5': `## Questions fréquentes sur le choix entre LAMal et service de santé italien\n\n### Puis-je passer du service de santé italien à la LAMal après le choix initial ?\nNon. Le choix est définitif pendant toute la durée de l'activité ininterrompue comme frontalier. Il ne se rouvre qu'après une période d'assujettissement dans un autre État ou lorsque vous devenez bénéficiaire d'une rente ; un changement d'employeur ne suffit pas. Pour un nouveau membre de la famille, une personne assurée à la LAMal peut demander l'exemption dans les trois mois suivant l'événement.\n\n### Puis-je passer de la LAMal au service de santé italien ?\nNon, la même règle s'applique : le choix est définitif. La réouverture n'est possible que dans les cas prévus après une période d'assujettissement dans un autre État ou avec une rente.\n\n### Que se passe-t-il si mon conjoint travaille en Italie ?\nSi l'autre parent travaille ou perçoit une rente en Italie, les enfants restent assurés en Italie et la LAMal ne concerne que le frontalier.\n\n### La LAMal couvre-t-elle les soins en Italie ?\nOui. Inscrivez-vous auprès de l'ASL avec l'attestation de la caisse-maladie suisse et recevez les prestations selon les règles italiennes, en payant l'éventuel ticket. Les structures privées qui n'acceptent pas la carte ne sont pas couvertes.\n\n### Le service de santé italien couvre-t-il les soins en Suisse ?\nPour les soins médicalement nécessaires pendant un séjour, utilisez la carte européenne et payez **CHF 92 tous les 30 jours de soins**. Les soins programmés nécessitent l'autorisation préalable de l'ASL avec le formulaire S2.\n\n### De combien de temps est-ce que je dispose pour décider ?\nVous disposez de **trois mois** à partir du début du travail en Suisse. Présentez la demande à l'autorité cantonale ; au Tessin, l'Istituto delle assicurazioni sociali est compétent. Sans demande, l'obligation LAMal reste rétroactive.\n\n### Puis-je avoir à la fois la LAMal et une assurance privée italienne ?\nOui, vous pouvez souscrire une assurance complémentaire italienne. Elle est distincte de la couverture de base et doit être évaluée selon les prestations dont vous avez besoin.\n\n### Comment le choix influence-t-il ma déclaration fiscale italienne ?\nNous n'avons pas trouvé de confirmation officielle de la déductibilité des primes LAMal. Demandez à un CAF ou à un conseiller fiscal d'évaluer votre situation.\n\n## Guide rapide pour décider\n\n**Choisissez la LAMal si :**\n- Vous vous faites soigner surtout en Suisse.\n- Vous voulez accéder aux soins dans les deux pays.\n- Vous avez besoin de soins programmés en Suisse.\n- Vous voulez une limite connue pour la quote-part des soins en Suisse.\n\n**Choisissez le service de santé italien si :**\n- Vous relevez d'un régime sans contribution spécifique ou avec une quote-part compatible avec votre situation.\n- Des membres de votre famille suivent votre choix.\n- Vous vous faites soigner surtout en Italie.\n- Vous avez une maladie chronique avec exonération du ticket.\n\n**Évaluez au cas par cas :**\n- Le lieu où se trouvent les spécialistes qui vous suivent.\n- La composition de votre famille et votre régime.\n\n## Conclusion : un choix qui mérite une analyse, pas l'improvisation\n\nIl n'existe pas de réponse unique pour choisir entre la LAMal et le service de santé italien. Tout dépend de votre régime fiscal et d'assurance, de votre famille, de la prime applicable et du lieu où vous souhaitez recevoir les soins.\n\n**Trois étapes concrètes à suivre :**\n\n1. **Comparez les primes** avec le [comparateur d'assurance maladie](nav:health), qui compare les primes des 14 caisses-maladie.\n2. **Vérifiez votre régime** et la situation des membres de votre famille auprès de l'autorité compétente.\n3. **Respectez le délai de trois mois** à partir du début du travail et conservez la confirmation de votre choix.\n\n*Sources principales : OFSP, assurance-maladie des travailleurs frontaliers ; OFSP, primes UE/AELE/Royaume-Uni ; Priminfo, primes UE 2026 et 2027 ; OAMal art. 101a et 103 ; Istituto delle assicurazioni sociali du canton du Tessin, obligation d'assurance des membres de la famille ; loi 213/2023, art. 1, alinéas 237-239.*\n\nL’art. 1, al. 237–238, de la loi italienne n° 213/2023 ne s’applique pas indistinctement à tous les frontaliers. Sont concernés : (a) les résidents d’Italie qui travaillent et séjournent en Suisse et utilisent le SSN italien ; (b) les frontaliers relevant de l’art. 9, al. 1, de l’accord Italie–Suisse, dont les revenus sont imposables uniquement en Suisse et qui ont exercé leur droit légal d’option en matière d’assurance maladie ; et (c) les personnes à charge de ces deux catégories. L’alinéa 238 prévoit une part progressive de 3 à 6 % du salaire net suisse, avec un minimum de 30 € et un maximum ordinaire de 200 € par mois travaillé à partir de 2024. Le plafond peut être doublé en cas d’omission du paiement ou de la communication prévue par l’art. 1, al. 100, de la loi n° 207/2024. La Région de résidence fixe chaque année les taux et les modalités.`,
 
  'blog.article.lamal-vs-ssn-decisione.faq': '[{"q":"Comment fonctionne le droit d’option pour les frontaliers qui travaillent en Suisse ?","a":"Vous devez choisir entre la LAMal suisse et le service de santé italien dans les trois mois suivant le début du travail. Le choix est définitif pendant toute la durée de l’activité ininterrompue comme frontalier."},{"q":"Le choix entre la LAMal et le service de santé italien peut-il être modifié ?","a":"Non. Un changement d’employeur ou de canton ne rouvre pas le choix. Il ne se rouvre qu’après une période d’assujettissement dans un autre État ou lorsque vous devenez bénéficiaire d’une rente."},{"q":"Quels soins en Italie sont couverts par la LAMal suisse pour les frontaliers ?","a":"Inscrivez-vous auprès de l’ASL avec l’attestation de la caisse-maladie suisse et recevez les prestations selon les règles italiennes, en payant l’éventuel ticket. Les structures privées qui n’acceptent pas la carte ne sont pas couvertes."},{"q":"Comment fonctionnent les contributions au service de santé italien pour un frontalier ?","a":"Il n’existe pas de contribution de 7,5 % du revenu. Les « nouveaux » frontaliers n’ont pas de contribution sanitaire spécifique ; les « anciens » paient 3 % à 6 %, avec un minimum de 30 et un maximum de 200 euros par mois. En Lombardie, le taux est de 3 % et le début de la perception n’est pas confirmé."},{"q":"Que se passe-t-il si un frontalier assuré à la LAMal a besoin de soins en Italie ?","a":"Les soins passent par l’ASL avec l’attestation de la caisse-maladie suisse ou par les urgences selon les règles italiennes. Vous payez l’éventuel ticket ; les structures privées qui n’acceptent pas la carte ne sont pas couvertes."}]',
 };
