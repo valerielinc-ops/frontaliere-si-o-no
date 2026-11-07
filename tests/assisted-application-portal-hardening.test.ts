@@ -354,6 +354,27 @@ describe('portal runner hardening (career-ops apply.md)', () => {
     })).toBe('match');
   });
 
+  it('binds a direct Umantis form when submit liveness retained the published URL', () => {
+    const applicationUrl = umantisAccountStepFixture.url;
+    const publishedUrl = 'https://frontaliereticino.ch/it/lavoro/impiegato-amministrativo-eoc/';
+    const conflictingPostingUrl = applicationUrl.replace('/Application/New/4', '/Description/4').replace('/2806/', '/2807/');
+    const job = { company: 'EOC – Ente Ospedaliero Cantonale', title: 'Impiegato/a amministrativo' };
+    const form = [
+      'Application Tracking System',
+      ...umantisAccountStepFixture.fields.map(field => field.label),
+      'Avanti',
+    ].join('\n');
+
+    expect(formPostingMatch(form, job, {
+      pageUrl: applicationUrl,
+      postingUrl: publishedUrl,
+    })).toBe('match');
+    expect(formPostingMatch(form, job, {
+      pageUrl: applicationUrl,
+      postingUrl: conflictingPostingUrl,
+    })).toBe('mismatch');
+  });
+
   it('uses a bound Umantis vacancy route when EOC application questions mention the employer', () => {
     const postingUrl = 'https://recruitingapp-2761.umantis.com/Vacancies/1153/Description/4';
     const applyUrl = 'https://recruitingapp-2761.umantis.com/Vacancies/1153/Application/New/4';
