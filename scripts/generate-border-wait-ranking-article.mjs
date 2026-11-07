@@ -126,7 +126,19 @@ export function assertRankingReadyForWrite(data) {
   );
 }
 
-export function refreshBodyFiles(data, repoRoot = REPO_ROOT, log = console.log) {
+function buildRankingJsonOutput(repoRoot, rankingJson) {
+  const file = path.join(repoRoot, 'public', 'data', 'border-wait-ranking.json');
+  return {
+    dir: path.dirname(file),
+    file,
+    source: `${JSON.stringify(rankingJson, null, 2)}\n`,
+  };
+}
+
+export function refreshBodyFiles(data, repoRoot = REPO_ROOT, log = console.log, rankingJson = null) {
+  const additionalOutputs = rankingJson == null
+    ? []
+    : [buildRankingJsonOutput(repoRoot, rankingJson)];
   return refreshEvergreenBodyFiles(
     data,
     repoRoot,
@@ -134,6 +146,7 @@ export function refreshBodyFiles(data, repoRoot = REPO_ROOT, log = console.log) 
     buildBodyFile,
     assertRankingReadyForWrite,
     log,
+    additionalOutputs,
   );
 }
 
@@ -183,14 +196,12 @@ async function main() {
     return;
   }
 
-  mkdirSync(path.dirname(RANKING_JSON_PATH), { recursive: true });
-  writeFileSync(
-    RANKING_JSON_PATH,
-    JSON.stringify(buildRankingJson({ ranking, trend, funFacts, todayIso, weekStart, weekEnd, movers }), null, 2) + '\n',
-  );
-  console.log(`  ✅ ${path.relative(REPO_ROOT, RANKING_JSON_PATH)}`);
+  const rankingJson = buildRankingJson({ ranking, trend, funFacts, todayIso, weekStart, weekEnd, movers });
 
   if (!exists) {
+    mkdirSync(path.dirname(RANKING_JSON_PATH), { recursive: true });
+    writeFileSync(RANKING_JSON_PATH, `${JSON.stringify(rankingJson, null, 2)}\n`);
+    console.log(`  ✅ ${path.relative(REPO_ROOT, RANKING_JSON_PATH)}`);
     assertRankingReadyForWrite(data);
     console.log('📂 first run — registering the evergreen article across the blog system…');
     await registerArticleFiles(data, { skipNews: true }); // evergreen → not a Google News item
@@ -203,7 +214,7 @@ async function main() {
   // regenerated on a body refresh — that would churn ~4 MB of feed files for
   // no content change (same rationale as generate-events-digest-article.mjs).
   console.log('♻️  refreshing body files (article already registered)…');
-  refreshBodyFiles(data);
+  refreshBodyFiles(data, REPO_ROOT, console.log, rankingJson);
   if (!bumpUpdatedAt(data.id, todayIso)) console.warn('⚠️  updatedAt not bumped (entry not matched).');
   if (!bumpDateModified(data.id, `${todayIso}T00:00:00+02:00`)) {
     console.warn('⚠️  dateModified not bumped (entry/regex not matched) — freshness signal may be stale.');

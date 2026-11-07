@@ -94,7 +94,7 @@ function stageRefreshFile(file, content) {
   }
 }
 
-function rollbackEvergreenBodyOutputs(staged) {
+function rollbackEvergreenOutputs(staged) {
   for (const entry of [...staged].reverse()) {
     if (!entry.committed) continue;
     if (!entry.existed) {
@@ -112,11 +112,11 @@ function rollbackEvergreenBodyOutputs(staged) {
   }
 }
 
-function writeEvergreenBodyOutputs(outputs, repoRoot, log) {
+function writeEvergreenOutputs(outputs, repoRoot, log) {
   const staged = [];
   try {
-    // Prepare every locale before replacing any live body file. A render or
-    // temp-write failure therefore leaves the previous locale set untouched.
+    // Prepare every output before replacing any live file. A render or
+    // temp-write failure therefore leaves the previous output set untouched.
     for (const { dir, file, source } of outputs) {
       fs.mkdirSync(dir, { recursive: true });
       staged.push(stageRefreshFile(file, source));
@@ -128,7 +128,7 @@ function writeEvergreenBodyOutputs(outputs, repoRoot, log) {
       log(`  ✅ ${path.relative(repoRoot, entry.file)}`);
     }
   } catch (error) {
-    rollbackEvergreenBodyOutputs(staged);
+    rollbackEvergreenOutputs(staged);
     for (const { temporary } of staged) {
       try { fs.unlinkSync(temporary); } catch { /* already renamed or cleaned */ }
     }
@@ -171,7 +171,10 @@ export function evergreenRefreshLockPath(articleId) {
   return path.join(tmpdir(), `${REFRESH_LOCK_PREFIX}-${safeId}.lock`);
 }
 
-/** Render and refresh all locale body files under one single-flight lock. */
+/**
+ * Render and refresh all locale body files plus any producer-owned outputs
+ * under one single-flight lock and rollback boundary.
+ */
 export function refreshEvergreenBodyFiles(
   data,
   repoRoot,
@@ -179,11 +182,15 @@ export function refreshEvergreenBodyFiles(
   buildBodyFile,
   assertReady,
   log = console.log,
+  additionalOutputs = [],
 ) {
   assertReady(data);
   const result = withSingleFlightLock(evergreenRefreshLockPath(data.id), () => {
-    const outputs = buildEvergreenBodyOutputs(data, repoRoot, locales, buildBodyFile);
-    writeEvergreenBodyOutputs(outputs, repoRoot, log);
+    const outputs = [
+      ...buildEvergreenBodyOutputs(data, repoRoot, locales, buildBodyFile),
+      ...additionalOutputs,
+    ];
+    writeEvergreenOutputs(outputs, repoRoot, log);
   });
   if (!result.acquired) {
     throw new Error(`evergreen article refresh for "${data.id}" is already running; no files were written`);
