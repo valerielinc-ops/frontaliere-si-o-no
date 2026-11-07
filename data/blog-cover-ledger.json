@@ -15,10 +15,10 @@
       "2": 197,
       "3": 0,
       "4": 0,
-      "5": 1083,
+      "5": 1085,
       "6": 5061
     },
-    "publishedCovers": 7826,
+    "publishedCovers": 7828,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 1,
     "inheritedRecordsMaterialized": 197,
@@ -213659,6 +213659,39 @@
         "evidence": "generated-engine-record"
       }
     },
+    "article-iva-aumento-famiglie-redditi-bassi": {
+      "cover": "/images/blog/article-iva-aumento-famiglie-redditi-bassi.webp",
+      "hash": "86413d17f595c793f949c0b9eae7d439bd82fe20e2c9263e1baca20f8be8481b",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "iva-aumento-famiglie-redditi-bassi",
+          "category": "fiscale",
+          "date": "2026-11-07T03:12:11.346Z",
+          "updatedAt": null,
+          "authorSlug": "laura-bianchi"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-iva-aumento-famiglie-redditi-bassi.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1794,
+      "verifiedAt": "2026-11-07",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-iva-aumento-famiglie-redditi-bassi",
+        "imageUrl": "/images/blog/article-iva-aumento-famiglie-redditi-bassi.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
     "article-kanti-rektor-draht-universitaet": {
       "cover": "/images/blog/article-kanti-rektor-draht-universitaet.webp",
       "hash": "ba0fbdcf4304df26358a2a5cec882dc2a7e0336a4dc325b9ff04b79475921027",
@@ -215471,6 +215504,39 @@
         "provider": "openai-codex",
         "assetId": "article-vallo-protezione-sorte-lostallo",
         "imageUrl": "/images/blog/article-vallo-protezione-sorte-lostallo.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-versamento-avs-dicembre-importi": {
+      "cover": "/images/blog/article-versamento-avs-dicembre-importi.webp",
+      "hash": "b1d66858141fdb262071c574fb25e79aa2ca1ef00cde1eedbceac91ef8dab7be",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "versamento-avs-dicembre-importi",
+          "category": "pensione",
+          "date": "2026-11-03T13:45:05.597Z",
+          "updatedAt": null,
+          "authorSlug": "laura-bianchi"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-versamento-avs-dicembre-importi.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1794,
+      "verifiedAt": "2026-11-07",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-versamento-avs-dicembre-importi",
+        "imageUrl": "/images/blog/article-versamento-avs-dicembre-importi.webp",
         "evidence": "generated-engine-record"
       }
     },

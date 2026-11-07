@@ -109836,7 +109836,7 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
         "license": "https://openai.com/policies/terms-of-use/",
         "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
         "creditText": "frontaliereticino.ch",
-        "url": `${BASE_URL}/images/blog/article-avs-voto-iva-il-29-novembre-per-la-13esima-rendita.webp`,
+        "url": `${BASE_URL}/images/blog/article-iva-aumento-famiglie-redditi-bassi.webp`,
         "width": 1200,
         "height": 675,
         "caption": "Immagine illustrativa pertinente al tema dell’articolo"

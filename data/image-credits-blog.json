@@ -85777,6 +85777,80 @@
         }
       }
     },
+    "generated:article-iva-aumento-famiglie-redditi-bassi": {
+      "source": "generated-provider",
+      "commons": {
+        "title": "Generated editorial illustration",
+        "pageUrl": "https://openai.com/policies/terms-of-use/",
+        "width": 1200,
+        "height": 675,
+        "revision": "2026-11-07T06:52:47.385Z"
+      },
+      "author": {
+        "text": "frontaliereticino.ch",
+        "name": "frontaliereticino.ch",
+        "url": null,
+        "type": "Organization"
+      },
+      "attribution": null,
+      "licence": {
+        "name": "Generated media — provider terms apply",
+        "family": "other-attribution",
+        "attributionRequired": true,
+        "url": "https://openai.com/policies/terms-of-use/"
+      },
+      "restrictions": [
+        "illustrative-only",
+        "no-real-recognizable-foreground-person",
+        "no-public-figure-face",
+        "no-logo-brand-or-text",
+        "no-specific-real-event-photojournalism"
+      ],
+      "fetchedAt": "2026-11-07",
+      "generated": {
+        "schema": 1,
+        "assetId": "article-iva-aumento-famiglie-redditi-bassi",
+        "kind": "generated",
+        "provider": "openai-codex",
+        "model": "gpt-image-2.5",
+        "executorModel": "gpt-5.6-luna",
+        "promptVersion": "frontaliereticino.generated-image-policy.v1",
+        "promptHash": "857b61d57a519ea323b9ecfc73e63b276cf87ca6199967a82a6d7c0845816d6d",
+        "license": "generated-provider",
+        "licenseUrl": "https://openai.com/policies/terms-of-use/",
+        "credit": "frontaliereticino.ch",
+        "sha256": "86413d17f595c793f949c0b9eae7d439bd82fe20e2c9263e1baca20f8be8481b",
+        "bytes": 110234,
+        "width": 1200,
+        "height": 675,
+        "format": "webp",
+        "generatedAt": "2026-11-07T06:52:47.385Z",
+        "verifiedAt": "2026-11-07T06:53:05.314Z",
+        "restrictions": [
+          "illustrative-only",
+          "no-real-recognizable-foreground-person",
+          "no-public-figure-face",
+          "no-logo-brand-or-text",
+          "no-specific-real-event-photojournalism"
+        ],
+        "scope": "article-hero",
+        "imageUrl": "/images/blog/article-iva-aumento-famiglie-redditi-bassi.webp",
+        "area": "Svizzera",
+        "season": "all seasons",
+        "variant": "article hero",
+        "vision": {
+          "ok": true,
+          "contains_text": false,
+          "contains_logo": false,
+          "contains_recognizable_face": false,
+          "contains_recognizable_foreground_person": false,
+          "looks_like_specific_real_event": false,
+          "is_photograph": false,
+          "is_topic_relevant": true,
+          "notes": "Generic synthetic editorial still life clearly depicting household groceries, budgeting, receipts, and money."
+        }
+      }
+    },
     "generated:article-kanti-rektor-draht-universitaet": {
       "source": "generated-provider",
       "commons": {
@@ -89844,6 +89918,80 @@
           "is_photograph": false,
           "is_topic_relevant": true,
           "notes": "Generic synthetic editorial illustration of Alpine construction work; no text, logos, people, or specific-event cues."
+        }
+      }
+    },
+    "generated:article-versamento-avs-dicembre-importi": {
+      "source": "generated-provider",
+      "commons": {
+        "title": "Generated editorial illustration",
+        "pageUrl": "https://openai.com/policies/terms-of-use/",
+        "width": 1200,
+        "height": 675,
+        "revision": "2026-11-07T06:51:02.017Z"
+      },
+      "author": {
+        "text": "frontaliereticino.ch",
+        "name": "frontaliereticino.ch",
+        "url": null,
+        "type": "Organization"
+      },
+      "attribution": null,
+      "licence": {
+        "name": "Generated media — provider terms apply",
+        "family": "other-attribution",
+        "attributionRequired": true,
+        "url": "https://openai.com/policies/terms-of-use/"
+      },
+      "restrictions": [
+        "illustrative-only",
+        "no-real-recognizable-foreground-person",
+        "no-public-figure-face",
+        "no-logo-brand-or-text",
+        "no-specific-real-event-photojournalism"
+      ],
+      "fetchedAt": "2026-11-07",
+      "generated": {
+        "schema": 1,
+        "assetId": "article-versamento-avs-dicembre-importi",
+        "kind": "generated",
+        "provider": "openai-codex",
+        "model": "gpt-image-2.5",
+        "executorModel": "gpt-5.6-luna",
+        "promptVersion": "frontaliereticino.generated-image-policy.v1",
+        "promptHash": "c75add275e3fcaabdcbd08f077b50eb51d22294b83e2ea692bcd484df8b18979",
+        "license": "generated-provider",
+        "licenseUrl": "https://openai.com/policies/terms-of-use/",
+        "credit": "frontaliereticino.ch",
+        "sha256": "b1d66858141fdb262071c574fb25e79aa2ca1ef00cde1eedbceac91ef8dab7be",
+        "bytes": 72466,
+        "width": 1200,
+        "height": 675,
+        "format": "webp",
+        "generatedAt": "2026-11-07T06:51:02.017Z",
+        "verifiedAt": "2026-11-07T06:51:33.332Z",
+        "restrictions": [
+          "illustrative-only",
+          "no-real-recognizable-foreground-person",
+          "no-public-figure-face",
+          "no-logo-brand-or-text",
+          "no-specific-real-event-photojournalism"
+        ],
+        "scope": "article-hero",
+        "imageUrl": "/images/blog/article-versamento-avs-dicembre-importi.webp",
+        "area": "Ticino e pendolarismo transfrontaliero",
+        "season": "all seasons",
+        "variant": "article hero",
+        "vision": {
+          "ok": true,
+          "contains_text": false,
+          "contains_logo": false,
+          "contains_recognizable_face": false,
+          "contains_recognizable_foreground_person": false,
+          "looks_like_specific_real_event": false,
+          "is_photograph": false,
+          "is_topic_relevant": true,
+          "notes": "Generic synthetic editorial scene with coins, wallet, envelope, and a commuter train; no visible text, branding, or identifiable person."
         }
       }
     },
@@ -131419,6 +131567,10 @@
       "file": "generated:article-innhub-la-punt-rinvio-apertura",
       "modified": "resized"
     },
+    "article-iva-aumento-famiglie-redditi-bassi": {
+      "file": "generated:article-iva-aumento-famiglie-redditi-bassi",
+      "modified": "resized"
+    },
     "article-kanti-rektor-draht-universitaet": {
       "file": "generated:article-kanti-rektor-draht-universitaet",
       "modified": "resized"
@@ -131637,6 +131789,10 @@
     },
     "article-vallo-protezione-sorte-lostallo": {
       "file": "generated:article-vallo-protezione-sorte-lostallo",
+      "modified": "resized"
+    },
+    "article-versamento-avs-dicembre-importi": {
+      "file": "generated:article-versamento-avs-dicembre-importi",
       "modified": "resized"
     },
     "article-vionnaz-revoca-divieti-acqua": {
