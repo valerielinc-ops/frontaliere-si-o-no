@@ -172,12 +172,12 @@
     },
     {
       "id": "mountains-ch-279e62aab124",
-      "slug": "ricevitore-engadin-st-moritz-mountains-ag-st-moritz",
+      "slug": "ricevitore-engadin-st-moritz-mountains-ag-7500-st-moritz",
       "slugByLocale": {
-        "it": "ricevitore-engadin-st-moritz-mountains-ag-st-moritz",
-        "en": "receptionist-engadin-st-moritz-mountains-ag-st-moritz",
         "de": "reception-ist-7500-st-moritz-mountains-ch-ch",
-        "fr": "receptionniste-engadin-st-moritz-mountains-ag-st-moritz"
+        "it": "ricevitore-engadin-st-moritz-mountains-ag-7500-st-moritz",
+        "en": "receptionist-engadin-st-moritz-mountains-ag-7500-st-moritz",
+        "fr": "receptionniste-engadin-st-moritz-mountains-ag-7500-st-moritz"
       },
       "company": "Engadin St. Moritz Mountains AG",
       "companyKey": "mountains-ch",
@@ -240,17 +240,23 @@
       "firstSeenAt": "2026-11-06T22:06:09.994Z",
       "previousSlugsByLocale": {
         "it": [
-          "reception-ist-7500-st-moritz-mountains-ch-ch"
+          "reception-ist-7500-st-moritz-mountains-ch-ch",
+          "ricevitore-engadin-st-moritz-mountains-ag-st-moritz"
         ],
         "en": [
-          "reception-ist-7500-st-moritz-mountains-ch-ch"
+          "reception-ist-7500-st-moritz-mountains-ch-ch",
+          "receptionist-engadin-st-moritz-mountains-ag-st-moritz"
         ],
         "fr": [
-          "reception-ist-7500-st-moritz-mountains-ch-ch"
+          "reception-ist-7500-st-moritz-mountains-ch-ch",
+          "receptionniste-engadin-st-moritz-mountains-ag-st-moritz"
         ]
       },
       "previousSlugs": [
-        "reception-ist-7500-st-moritz-mountains-ch-ch"
+        "reception-ist-7500-st-moritz-mountains-ch-ch",
+        "ricevitore-engadin-st-moritz-mountains-ag-st-moritz",
+        "receptionist-engadin-st-moritz-mountains-ag-st-moritz",
+        "receptionniste-engadin-st-moritz-mountains-ag-st-moritz"
       ]
     },
     {

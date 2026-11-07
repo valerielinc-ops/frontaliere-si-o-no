@@ -505,12 +505,12 @@
     },
     {
       "id": "seiro-808ac777691c",
-      "slug": "senior-doctor-senior-physician-angiology-60-100-rapperswil-seiro-seiro-gmbh-lachen",
+      "slug": "senior-doctor-senior-physician-angiology-60-100-rapperswil-seiro-seiro-gmbh-lachen-sz",
       "slugByLocale": {
-        "it": "senior-doctor-senior-physician-angiology-60-100-rapperswil-seiro-seiro-gmbh-lachen",
-        "en": "senior-doctor-senior-physician-angiology-60-100-rapperswil-seiro-seiro-gmbh-lachen",
         "de": "leitende-arztin-leitender-arzt-angiologie-60-100-rapperswil-seiro-lachen-sz-seiro-ch",
-        "fr": "docteur-senior-medecin-senior-angiologie-60-100-rapperswil-seiro-gmbh-lachen"
+        "it": "senior-doctor-senior-physician-angiology-60-100-rapperswil-seiro-seiro-gmbh-lachen-sz",
+        "en": "senior-doctor-senior-physician-angiology-60-100-rapperswil-seiro-seiro-gmbh-lachen",
+        "fr": "docteur-senior-medecin-senior-angiologie-60-100-rapperswil-seiro-gmbh-lachen-sz"
       },
       "company": "SEIRO GmbH",
       "companyKey": "seiro",
@@ -579,20 +579,22 @@
           "leitende-arztin-leitender-arzt-angiologie-60-100-rapperswil-seiro-lachen-sz-seiro-ch"
         ],
         "fr": [
-          "leitende-arztin-leitender-arzt-angiologie-60-100-rapperswil-seiro-lachen-sz-seiro-ch"
+          "leitende-arztin-leitender-arzt-angiologie-60-100-rapperswil-seiro-lachen-sz-seiro-ch",
+          "docteur-senior-medecin-senior-angiologie-60-100-rapperswil-seiro-gmbh-lachen"
         ]
       },
       "previousSlugs": [
-        "leitende-arztin-leitender-arzt-angiologie-60-100-rapperswil-seiro-lachen-sz-seiro-ch"
+        "leitende-arztin-leitender-arzt-angiologie-60-100-rapperswil-seiro-lachen-sz-seiro-ch",
+        "docteur-senior-medecin-senior-angiologie-60-100-rapperswil-seiro-gmbh-lachen"
       ]
     },
     {
       "id": "seiro-0c3e33b23e9e",
       "slug": "specialista-medicina-interna-specialista-pratica-di-famiglia-davos-seiro-seiro-gmbh-davos-platz",
       "slugByLocale": {
+        "de": "facharztin-facharzt-innere-medizin-hausarztpraxis-davos-seiro-davos-platz-seiro-ch",
         "it": "specialista-medicina-interna-specialista-pratica-di-famiglia-davos-seiro-seiro-gmbh-davos-platz",
         "en": "specialist-specialist-internal-medicine-family-practice-davos-seiro-seiro-gmbh-davos-platz",
-        "de": "facharztin-facharzt-innere-medizin-hausarztpraxis-davos-seiro-davos-platz-seiro-ch",
         "fr": "specialiste-specialiste-en-medecine-interne-pratique-familiale-davosseiro-seiro-gmbh-davos-platz"
       },
       "company": "SEIRO GmbH",
@@ -671,12 +673,12 @@
     },
     {
       "id": "seiro-21307175a1e8",
-      "slug": "medico-senior-radiology-breast-imaging-zurich-seiro-seiro-gmbh-zurich",
+      "slug": "medico-senior-radiology-breast-imaging-zurich-seiro-seiro-gmbh-zurich-zurich",
       "slugByLocale": {
-        "it": "medico-senior-radiology-breast-imaging-zurich-seiro-seiro-gmbh-zurich",
-        "en": "senior-physician-radiology-breast-imaging-zurich-seiro-seiro-gmbh-zurich",
         "de": "oberarztin-oberarzt-radiologie-brustbildgebung-zurich-seiro-zurich-zurich-seiro-ch",
-        "fr": "medecin-principal-radiologie-imagerie-du-sein-zurich-seiro-gmbh-zurich"
+        "it": "medico-senior-radiology-breast-imaging-zurich-seiro-seiro-gmbh-zurich-zurich",
+        "en": "senior-physician-radiology-breast-imaging-zurich-seiro-seiro-gmbh-zurich-zurich",
+        "fr": "medecin-principal-radiologie-imagerie-du-sein-zurich-seiro-gmbh-zurich-zurich"
       },
       "company": "SEIRO GmbH",
       "companyKey": "seiro",
@@ -739,27 +741,33 @@
       "firstSeenAt": "2026-11-06T21:55:35.004Z",
       "previousSlugsByLocale": {
         "it": [
-          "oberarztin-oberarzt-radiologie-brustbildgebung-zurich-seiro-zurich-zurich-seiro-ch"
+          "oberarztin-oberarzt-radiologie-brustbildgebung-zurich-seiro-zurich-zurich-seiro-ch",
+          "medico-senior-radiology-breast-imaging-zurich-seiro-seiro-gmbh-zurich"
         ],
         "en": [
-          "oberarztin-oberarzt-radiologie-brustbildgebung-zurich-seiro-zurich-zurich-seiro-ch"
+          "oberarztin-oberarzt-radiologie-brustbildgebung-zurich-seiro-zurich-zurich-seiro-ch",
+          "senior-physician-radiology-breast-imaging-zurich-seiro-seiro-gmbh-zurich"
         ],
         "fr": [
-          "oberarztin-oberarzt-radiologie-brustbildgebung-zurich-seiro-zurich-zurich-seiro-ch"
+          "oberarztin-oberarzt-radiologie-brustbildgebung-zurich-seiro-zurich-zurich-seiro-ch",
+          "medecin-principal-radiologie-imagerie-du-sein-zurich-seiro-gmbh-zurich"
         ]
       },
       "previousSlugs": [
-        "oberarztin-oberarzt-radiologie-brustbildgebung-zurich-seiro-zurich-zurich-seiro-ch"
+        "oberarztin-oberarzt-radiologie-brustbildgebung-zurich-seiro-zurich-zurich-seiro-ch",
+        "medico-senior-radiology-breast-imaging-zurich-seiro-seiro-gmbh-zurich",
+        "senior-physician-radiology-breast-imaging-zurich-seiro-seiro-gmbh-zurich",
+        "medecin-principal-radiologie-imagerie-du-sein-zurich-seiro-gmbh-zurich"
       ]
     },
     {
       "id": "seiro-c20210b958a0",
-      "slug": "specialista-rappresentante-di-radiologia-specialista-lucerna-seiro-seiro-gmbh-luzern",
+      "slug": "specialista-rappresentante-di-radiologia-specialista-lucerna-seiro-seiro-gmbh-luzern-luzern",
       "slugByLocale": {
-        "it": "specialista-rappresentante-di-radiologia-specialista-lucerna-seiro-seiro-gmbh-luzern",
-        "en": "specialist-specialist-radiology-representative-lucerne-seiro-seiro-gmbh-luzern",
         "de": "facharztin-facharzt-radiologie-vertretung-luzern-seiro-luzern-luzern-seiro-ch",
-        "fr": "specialiste-specialiste-representant-en-radiologie-lucerne-seiro-seiro-gmbh-luzern"
+        "it": "specialista-rappresentante-di-radiologia-specialista-lucerna-seiro-seiro-gmbh-luzern-luzern",
+        "en": "specialist-specialist-radiology-representative-lucerne-seiro-seiro-gmbh-luzern-luzern",
+        "fr": "specialiste-specialiste-representant-en-radiologie-lucerne-seiro-seiro-gmbh-luzern-luzern"
       },
       "company": "SEIRO GmbH",
       "companyKey": "seiro",
@@ -822,17 +830,23 @@
       "firstSeenAt": "2026-11-06T21:55:35.000Z",
       "previousSlugsByLocale": {
         "it": [
-          "facharztin-facharzt-radiologie-vertretung-luzern-seiro-luzern-luzern-seiro-ch"
+          "facharztin-facharzt-radiologie-vertretung-luzern-seiro-luzern-luzern-seiro-ch",
+          "specialista-rappresentante-di-radiologia-specialista-lucerna-seiro-seiro-gmbh-luzern"
         ],
         "en": [
-          "facharztin-facharzt-radiologie-vertretung-luzern-seiro-luzern-luzern-seiro-ch"
+          "facharztin-facharzt-radiologie-vertretung-luzern-seiro-luzern-luzern-seiro-ch",
+          "specialist-specialist-radiology-representative-lucerne-seiro-seiro-gmbh-luzern"
         ],
         "fr": [
-          "facharztin-facharzt-radiologie-vertretung-luzern-seiro-luzern-luzern-seiro-ch"
+          "facharztin-facharzt-radiologie-vertretung-luzern-seiro-luzern-luzern-seiro-ch",
+          "specialiste-specialiste-representant-en-radiologie-lucerne-seiro-seiro-gmbh-luzern"
         ]
       },
       "previousSlugs": [
-        "facharztin-facharzt-radiologie-vertretung-luzern-seiro-luzern-luzern-seiro-ch"
+        "facharztin-facharzt-radiologie-vertretung-luzern-seiro-luzern-luzern-seiro-ch",
+        "specialista-rappresentante-di-radiologia-specialista-lucerna-seiro-seiro-gmbh-luzern",
+        "specialist-specialist-radiology-representative-lucerne-seiro-seiro-gmbh-luzern",
+        "specialiste-specialiste-representant-en-radiologie-lucerne-seiro-seiro-gmbh-luzern"
       ]
     },
     {

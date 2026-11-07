@@ -861,7 +861,7 @@
         "it": "assistente-di-studio-medico-80-luzerner-kantonsspital-luks-luzern",
         "en": "medical-practice-assistant-80-luzerner-kantonsspital-luks-luzern",
         "de": "medizinische-praxisassistentin-medizinischer-praxisassistent-80-luks-luzern",
-        "fr": "assistante-medicale-chirurgicale-luzerner-kantonsspital-luks-luzern"
+        "fr": "assistant-e-en-cabinet-medical-80-luzerner-kantonsspital-luks-luzern"
       },
       "company": "Luzerner Kantonsspital (LUKS)",
       "companyKey": "luks",
@@ -908,7 +908,7 @@
       "previousSlugs": [
         "medizinische-praxisassistentin-medizinischer-praxisassistent-80-luks-luzern",
         "assistente-di-studio-medico-assistente-di-studio-medico-40-60-luzerner-kantonsspital-luks-luzern",
-        "assistant-e-en-cabinet-medical-80-luzerner-kantonsspital-luks-luzern"
+        "assistante-medicale-chirurgicale-luzerner-kantonsspital-luks-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -916,7 +916,7 @@
           "assistente-di-studio-medico-assistente-di-studio-medico-40-60-luzerner-kantonsspital-luks-luzern"
         ],
         "fr": [
-          "assistant-e-en-cabinet-medical-80-luzerner-kantonsspital-luks-luzern"
+          "assistante-medicale-chirurgicale-luzerner-kantonsspital-luks-luzern"
         ]
       },
       "firstSeenAt": "2026-07-04T11:37:36.406Z",
@@ -17855,9 +17855,9 @@
       "id": "luks-57e7301f5c1a",
       "slug": "analista-biomedicale-analista-biomedicale-hf-microbiologia-80-100-luzerner-kantonsspital-luks-luzern",
       "slugByLocale": {
+        "de": "biomedizinische-analytikerin-biomedizinischer-analytiker-hf-mikrobiologie-80-100-luks",
         "it": "analista-biomedicale-analista-biomedicale-hf-microbiologia-80-100-luzerner-kantonsspital-luks-luzern",
         "en": "biomedical-analyst-biomedical-analyst-hf-microbiology-80-100-luzerner-kantonsspital-luks-luzern",
-        "de": "biomedizinische-analytikerin-biomedizinischer-analytiker-hf-mikrobiologie-80-100-luks",
         "fr": "analyste-biomedical-analyste-biomedical-hf-microbiologie-80-100-luzerner-kantonsspital-luks-luzern"
       },
       "company": "Luzerner Kantonsspital (LUKS)",
@@ -17938,9 +17938,9 @@
       "id": "luks-407afa2bdaa1",
       "slug": "farmacista-farmacista-60-100-luzerner-kantonsspital-luks-luzern",
       "slugByLocale": {
+        "de": "apothekerin-apotheker-60-100-luks-luzern",
         "it": "farmacista-farmacista-60-100-luzerner-kantonsspital-luks-luzern",
         "en": "pharmacist-pharmacist-60-100-luzerner-kantonsspital-luks-luzern",
-        "de": "apothekerin-apotheker-60-100-luks-luzern",
         "fr": "pharmacienne-pharmacienne-60-100-luzerner-kantonsspital-luks-luzern"
       },
       "company": "Luzerner Kantonsspital (LUKS)",
@@ -18019,11 +18019,11 @@
     },
     {
       "id": "luks-5cdb69ea9d7d",
-      "slug": "apothekerin-apotheker-klinikbetreuung-80-come-mutterschaftsvertretung-luzerner-kantonsspital-luks-luzern",
+      "slug": "farmacista-farmacista-assistenza-clinica-80-come-rappresentante-della-maternita-luzerner-kantonsspital-luks-luzern",
       "slugByLocale": {
-        "it": "apothekerin-apotheker-klinikbetreuung-80-come-mutterschaftsvertretung-luzerner-kantonsspital-luks-luzern",
-        "en": "pharmacist-pharmacist-clinical-care-80-as-maternity-representation-luzerner-kantonsspital-luks-luzern",
         "de": "apothekerin-apotheker-klinikbetreuung-80-als-mutterschaftsvertretung-luks-luzern",
+        "it": "farmacista-farmacista-assistenza-clinica-80-come-rappresentante-della-maternita-luzerner-kantonsspital-luks-luzern",
+        "en": "pharmacist-pharmacist-clinical-care-80-as-maternity-representation-luzerner-kantonsspital-luks-luzern",
         "fr": "pharmacienne-pharmacienne-soins-cliniques-80-comme-representation-de-la-maternite-luzerner-kantonsspital-luks-luzern"
       },
       "company": "Luzerner Kantonsspital (LUKS)",
@@ -18071,7 +18071,8 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "it": [
-          "apothekerin-apotheker-klinikbetreuung-80-als-mutterschaftsvertretung-luks-luzern"
+          "apothekerin-apotheker-klinikbetreuung-80-als-mutterschaftsvertretung-luks-luzern",
+          "apothekerin-apotheker-klinikbetreuung-80-come-mutterschaftsvertretung-luzerner-kantonsspital-luks-luzern"
         ],
         "en": [
           "apothekerin-apotheker-klinikbetreuung-80-als-mutterschaftsvertretung-luks-luzern"
@@ -18081,7 +18082,8 @@
         ]
       },
       "previousSlugs": [
-        "apothekerin-apotheker-klinikbetreuung-80-als-mutterschaftsvertretung-luks-luzern"
+        "apothekerin-apotheker-klinikbetreuung-80-als-mutterschaftsvertretung-luks-luzern",
+        "apothekerin-apotheker-klinikbetreuung-80-come-mutterschaftsvertretung-luzerner-kantonsspital-luks-luzern"
       ],
       "salaryMin": 69200,
       "salaryMax": 96400,
@@ -18103,11 +18105,11 @@
     },
     {
       "id": "luks-13dd183f7095",
-      "slug": "dipl-radiologiefachperson-hf-fh-come-fachexpertin-fachexperte-interventionelle-radiologie-80-100-luzerner-kantonsspital-luks-luzern",
+      "slug": "specialista-in-radiologia-sss-sup-come-esperto-in-radiologia-interventistica-80-100-luzerner-kantonsspital-luks-luzern",
       "slugByLocale": {
-        "it": "dipl-radiologiefachperson-hf-fh-come-fachexpertin-fachexperte-interventionelle-radiologie-80-100-luzerner-kantonsspital-luks-luzern",
-        "en": "dipl-radiology-specialist-hf-fh-as-expert-expert-interventional-radiology-80-100-luzerner-kantonsspital-luks-luzern",
         "de": "dipl-radiologiefachperson-hf-fh-als-fachexpertin-fachexperte-interventionelle-radiologie",
+        "it": "specialista-in-radiologia-sss-sup-come-esperto-in-radiologia-interventistica-80-100-luzerner-kantonsspital-luks-luzern",
+        "en": "dipl-radiology-specialist-hf-fh-as-expert-expert-interventional-radiology-80-100-luzerner-kantonsspital-luks-luzern",
         "fr": "dipl-specialiste-en-radiologie-hf-fh-en-tant-qu-expert-expert-en-radiologie-interventionnelle-80-100-luzerner"
       },
       "company": "Luzerner Kantonsspital (LUKS)",
@@ -18155,7 +18157,8 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "it": [
-          "dipl-radiologiefachperson-hf-fh-als-fachexpertin-fachexperte-interventionelle-radiologie"
+          "dipl-radiologiefachperson-hf-fh-als-fachexpertin-fachexperte-interventionelle-radiologie",
+          "dipl-radiologiefachperson-hf-fh-come-fachexpertin-fachexperte-interventionelle-radiologie-80-100-luzerner-kantonsspital-luks-luzern"
         ],
         "en": [
           "dipl-radiologiefachperson-hf-fh-als-fachexpertin-fachexperte-interventionelle-radiologie"
@@ -18165,7 +18168,8 @@
         ]
       },
       "previousSlugs": [
-        "dipl-radiologiefachperson-hf-fh-als-fachexpertin-fachexperte-interventionelle-radiologie"
+        "dipl-radiologiefachperson-hf-fh-als-fachexpertin-fachexperte-interventionelle-radiologie",
+        "dipl-radiologiefachperson-hf-fh-come-fachexpertin-fachexperte-interventionelle-radiologie-80-100-luzerner-kantonsspital-luks-luzern"
       ],
       "salaryMin": 86500,
       "salaryMax": 120500,
@@ -18187,12 +18191,12 @@
     },
     {
       "id": "luks-b21bb52a57e0",
-      "slug": "facharztin-facharzt-radiologie-fellowship-padiatrische-radiologie-80-100-befristet-bis-august-2027-verlangerung-auf-12-monate-ggf-moglich-luzerner-kantonsspital-luks-luzern",
+      "slug": "radiologia-specialistica-radiologia-pediatrica-80-100-limitata-ad-agosto-2027-prolungata-a-12-mesi-se-possibile-luzerner",
       "slugByLocale": {
-        "it": "facharztin-facharzt-radiologie-fellowship-padiatrische-radiologie-80-100-befristet-bis-august-2027-verlangerung-auf-12-monate-ggf-moglich-luzerner-kantonsspital-luks-luzern",
-        "en": "facharztin-facharzt-radiologie-fellowship-padiatrische-radiologie-80-100-befristet-bis",
         "de": "facharztin-facharzt-radiologie-fellowship-padiatrische-radiologie-80-100-befristet-bis",
-        "fr": "facharztin-facharzt-radiologie-fellowship-padiatrische-radiologie-80-100-befristet-bis"
+        "it": "radiologia-specialistica-radiologia-pediatrica-80-100-limitata-ad-agosto-2027-prolungata-a-12-mesi-se-possibile-luzerner",
+        "en": "specialist-radiology-fellowship-pediatric-radiology-80-100-limited-to-august-2027-extension-to-12-months-if-possible",
+        "fr": "radiologie-specialisee-bourse-radiologie-pediatrique-80-100-limitee-a-aout-2027-prolongation-de-12-mois-si-possible"
       },
       "company": "Luzerner Kantonsspital (LUKS)",
       "companyKey": "luks",
@@ -18238,11 +18242,19 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "it": [
+          "facharztin-facharzt-radiologie-fellowship-padiatrische-radiologie-80-100-befristet-bis",
+          "facharztin-facharzt-radiologie-fellowship-padiatrische-radiologie-80-100-befristet-bis-august-2027-verlangerung-auf-12-monate-ggf-moglich-luzerner-kantonsspital-luks-luzern"
+        ],
+        "en": [
+          "facharztin-facharzt-radiologie-fellowship-padiatrische-radiologie-80-100-befristet-bis"
+        ],
+        "fr": [
           "facharztin-facharzt-radiologie-fellowship-padiatrische-radiologie-80-100-befristet-bis"
         ]
       },
       "previousSlugs": [
-        "facharztin-facharzt-radiologie-fellowship-padiatrische-radiologie-80-100-befristet-bis"
+        "facharztin-facharzt-radiologie-fellowship-padiatrische-radiologie-80-100-befristet-bis",
+        "facharztin-facharzt-radiologie-fellowship-padiatrische-radiologie-80-100-befristet-bis-august-2027-verlangerung-auf-12-monate-ggf-moglich-luzerner-kantonsspital-luks-luzern"
       ],
       "salaryMin": 86500,
       "salaryMax": 120500,
@@ -18266,9 +18278,9 @@
       "id": "luks-76fa2f4e6b89",
       "slug": "analista-biomedico-analista-biomedicale-hf-80-100-luzerner-kantonsspital-luks-luzern",
       "slugByLocale": {
+        "de": "biomedizinische-analytikerin-biomedizinischer-analytiker-hf-80-100-luks-luzern",
         "it": "analista-biomedico-analista-biomedicale-hf-80-100-luzerner-kantonsspital-luks-luzern",
         "en": "biomedical-analyst-biomedical-analyst-hf-80-100-luzerner-kantonsspital-luks-luzern",
-        "de": "biomedizinische-analytikerin-biomedizinischer-analytiker-hf-80-100-luks-luzern",
         "fr": "analyste-biomedical-analyste-biomedical-hf-80-100-luzerner-kantonsspital-luks-luzern"
       },
       "company": "Luzerner Kantonsspital (LUKS)",
@@ -18349,9 +18361,9 @@
       "id": "luks-626c824b3792",
       "slug": "segretario-medico-segretario-medico-mba-histology-100-luzerner-kantonsspital-luks-luzern",
       "slugByLocale": {
+        "de": "arztsekretarin-arztsekretar-mba-histologie-100-luks-luzern",
         "it": "segretario-medico-segretario-medico-mba-histology-100-luzerner-kantonsspital-luks-luzern",
         "en": "medical-secretary-medical-secretary-mba-histology-100-luzerner-kantonsspital-luks-luzern",
-        "de": "arztsekretarin-arztsekretar-mba-histologie-100-luks-luzern",
         "fr": "secretaire-medical-secretaire-medical-mba-histologie-100-luzerner-kantonsspital-luks-luzern"
       },
       "company": "Luzerner Kantonsspital (LUKS)",

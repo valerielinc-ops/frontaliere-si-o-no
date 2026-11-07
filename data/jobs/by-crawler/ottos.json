@@ -2603,10 +2603,10 @@
       "id": "ottos-6b7ad896a9da",
       "slug": "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-haag",
       "slugByLocale": {
-        "it": "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-haag",
-        "en": "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-haag",
         "de": "verkaufsmitarbeiter-in-mit-allroundfunktion-ottos-haag",
-        "fr": "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-haag"
+        "it": "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-haag",
+        "en": "all-round-sales-associate-otto-s-ag-haag",
+        "fr": "employe-e-commercial-e-avec-une-fonction-polyvalente-otto-s-ag-haag"
       },
       "company": "OTTO'S AG",
       "companyKey": "ottos",
@@ -4236,9 +4236,9 @@
       "slug": "impiegata-impiegato-in-logistica-otto-s-ag-sursee",
       "slugByLocale": {
         "it": "impiegata-impiegato-in-logistica-otto-s-ag-sursee",
-        "en": "logistics-specialist-otto-s-ag-sursee",
+        "en": "logistiker-in-otto-s-ag-sursee",
         "de": "logistiker-in-ottos-sursee",
-        "fr": "logisticien-ne-otto-s-ag-sursee"
+        "fr": "logistiker-in-otto-s-ag-sursee"
       },
       "company": "OTTO'S AG",
       "companyKey": "ottos",
@@ -4289,17 +4289,18 @@
       "pensum": "100%",
       "previousSlugs": [
         "logistiker-in-ottos-sursee",
-        "logistiker-in-otto-s-ag-sursee"
+        "logistics-specialist-otto-s-ag-sursee",
+        "logisticien-ne-otto-s-ag-sursee"
       ],
       "previousSlugsByLocale": {
         "it": [
           "logistiker-in-ottos-sursee"
         ],
         "en": [
-          "logistiker-in-otto-s-ag-sursee"
+          "logistics-specialist-otto-s-ag-sursee"
         ],
         "fr": [
-          "logistiker-in-otto-s-ag-sursee"
+          "logisticien-ne-otto-s-ag-sursee"
         ]
       },
       "firstSeenAt": "2026-07-04T11:27:19.725Z",
@@ -5419,9 +5420,9 @@
       "id": "ottos-5fa17c0b9a1c",
       "slug": "business-ingegnere-otto-s-ag-sursee",
       "slugByLocale": {
+        "de": "business-engineer-ottos-sursee",
         "it": "business-ingegnere-otto-s-ag-sursee",
         "en": "business-engineer-ottos-sursee",
-        "de": "business-engineer-ottos-sursee",
         "fr": "business-ingenieur-otto-s-ag-sursee"
       },
       "company": "OTTO'S AG",
@@ -8899,9 +8900,9 @@
       "id": "ottos-5ca0029629a0",
       "slug": "responsabile-delle-applicazioni-ict-otto-s-ag-sursee",
       "slugByLocale": {
+        "de": "ict-application-manager-in-ottos-sursee",
         "it": "responsabile-delle-applicazioni-ict-otto-s-ag-sursee",
         "en": "ict-applicationmanager-otto-s-ag-sursee",
-        "de": "ict-application-manager-in-ottos-sursee",
         "fr": "gestionnaire-d-applications-tic-otto-s-ag-sursee"
       },
       "company": "OTTO'S AG",
@@ -11117,9 +11118,9 @@
       "id": "ottos-6fe938094c3b",
       "slug": "responsabile-di-progetto-otto-s-ag-sursee",
       "slugByLocale": {
+        "de": "projektleiter-in-ottos-sursee",
         "it": "responsabile-di-progetto-otto-s-ag-sursee",
         "en": "project-manager-otto-s-ag-sursee",
-        "de": "projektleiter-in-ottos-sursee",
         "fr": "chef-de-projet-otto-s-ag-sursee"
       },
       "company": "OTTO'S AG",

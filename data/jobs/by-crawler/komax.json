@@ -88,7 +88,7 @@
       "slugByLocale": {
         "de": "specialist-operations-planning-m-w-d-befristet-bis-ende-2027-komax-ch",
         "it": "specialista-operations-planning-m-w-d-befristet-bis-ende-2027-komax-dierikon",
-        "en": "specialist-operations-planning-m-w-d-befristet-bis-ende-2027-komax-ch",
+        "en": "specialist-operations-planning-m-f-d-temporary-until-the-end-of-2027-komax-dierikon",
         "fr": "specialist-operations-planning-m-w-d-befristet-bis-ende-2027-komax-ch"
       },
       "company": "Komax",
@@ -139,6 +139,9 @@
       "previousSlugsByLocale": {
         "it": [
           "specialist-operations-planning-m-w-d-befristet-bis-ende-2027-komax-ch"
+        ],
+        "en": [
+          "specialist-operations-planning-m-w-d-befristet-bis-ende-2027-komax-ch"
         ]
       },
       "previousSlugs": [
@@ -168,7 +171,7 @@
       "slugByLocale": {
         "de": "specialist-internal-sales-equipment-m-w-d-befristet-bis-ende-2027-komax-ch",
         "it": "specialista-internal-sales-equipment-m-w-d-befristet-bis-ende-2027-komax-dierikon",
-        "en": "specialist-internal-sales-equipment-m-w-d-befristet-bis-ende-2027-komax-ch",
+        "en": "specialist-internal-sales-equipment-m-f-d-temporary-until-the-end-of-2027-komax-dierikon",
         "fr": "specialist-internal-sales-equipment-m-w-d-befristet-bis-ende-2027-komax-ch"
       },
       "company": "Komax",
@@ -218,6 +221,9 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "specialist-internal-sales-equipment-m-w-d-befristet-bis-ende-2027-komax-ch"
+        ],
+        "en": [
           "specialist-internal-sales-equipment-m-w-d-befristet-bis-ende-2027-komax-ch"
         ]
       },
@@ -481,7 +487,7 @@
       "id": "komax-2050d42cdaf9",
       "slug": "sales-switzerland-technical-sales-ingegnere-w-m-d-komax-dierikon-509aa8c23a",
       "slugByLocale": {
-        "it": "sales-switzerland-technical-sales-ingegnere-w-m-d-komax-dierikon-509aa8c23a",
+        "it": "sales-switzerland-technical-sales-ingegnere-w-m-d-komax-dierikon",
         "en": "sales-switzerland-technical-sales-ingegnere-w-m-d-komax-dierikon",
         "de": "sales-switzerland-technical-sales-engineer-w-m-d-komax-ch",
         "fr": "sales-switzerland-technical-sales-ingenieur-w-m-d-komax-dierikon"
@@ -530,15 +536,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "sales-switzerland-technical-sales-engineer-w-m-d-komax-ch",
-        "sales-switzerland-technical-sales-ingegnere-w-m-d-komax-dierikon-509aa8c23a",
-        "sales-switzerland-technical-sales-ingegnere-w-m-d-komax-dierikon"
+        "sales-switzerland-technical-sales-engineer-w-m-d-komax-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sales-switzerland-technical-sales-engineer-w-m-d-komax-ch",
-          "sales-switzerland-technical-sales-ingegnere-w-m-d-komax-dierikon-509aa8c23a",
-          "sales-switzerland-technical-sales-ingegnere-w-m-d-komax-dierikon"
+          "sales-switzerland-technical-sales-engineer-w-m-d-komax-ch"
         ]
       },
       "needsRetranslation": true,
@@ -567,7 +569,7 @@
         "it": "gestione-della-funzionalita-m-f-d-komax-dierikon",
         "en": "facility-manager-w-m-d-komax-dierikon",
         "de": "facility-manager-w-m-d-komax-ch",
-        "fr": "responsable-de-l-installation-m-w-d-komax-dierikon"
+        "fr": "gestionnaire-d-installations-h-f-d-komax-dierikon"
       },
       "company": "Komax",
       "companyKey": "komax",
@@ -618,7 +620,8 @@
         "facility-manager-w-m-d-komax-ch-68e9421a",
         "gestionnaire-d-installations-h-f-d-komax-dierikon",
         "facility-manager-w-m-d-komax-ch-ji9uhd",
-        "facility-manager-m-w-d-komax-dierikon"
+        "facility-manager-m-w-d-komax-dierikon",
+        "responsable-de-l-installation-m-w-d-komax-dierikon"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -636,7 +639,7 @@
           "facility-manager-w-m-d-komax-ch-68e9421a"
         ],
         "fr": [
-          "gestionnaire-d-installations-h-f-d-komax-dierikon"
+          "responsable-de-l-installation-m-w-d-komax-dierikon"
         ]
       },
       "firstSeenAt": "2026-09-21T16:17:37.993Z",
@@ -893,7 +896,7 @@
       "slug": "sales-switzerland-technical-sales-ingegnere-w-m-d-komax-dierikon-a51b55e71b",
       "slugByLocale": {
         "de": "sales-switzerland-technical-sales-engineer-w-m-d-komax-ch",
-        "it": "sales-switzerland-technical-sales-ingegnere-w-m-d-komax-dierikon-a51b55e71b",
+        "it": "sales-switzerland-technical-sales-ingegnere-w-m-d-komax-dierikon",
         "fr": "sales-switzerland-technical-sales-ingenieur-w-m-d-komax-dierikon",
         "en": "sales-switzerland-technical-sales-engineer-w-m-d-komax-ch-ij2xjh"
       },
@@ -942,15 +945,11 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "it": [
-          "sales-switzerland-technical-sales-engineer-w-m-d-komax-ch",
-          "sales-switzerland-technical-sales-ingegnere-w-m-d-komax-dierikon-a51b55e71b",
-          "sales-switzerland-technical-sales-ingegnere-w-m-d-komax-dierikon"
+          "sales-switzerland-technical-sales-engineer-w-m-d-komax-ch"
         ]
       },
       "previousSlugs": [
-        "sales-switzerland-technical-sales-engineer-w-m-d-komax-ch",
-        "sales-switzerland-technical-sales-ingegnere-w-m-d-komax-dierikon-a51b55e71b",
-        "sales-switzerland-technical-sales-ingegnere-w-m-d-komax-dierikon"
+        "sales-switzerland-technical-sales-engineer-w-m-d-komax-ch"
       ],
       "needsRetranslation": true,
       "salaryMin": 78500,

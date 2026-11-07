@@ -277,12 +277,12 @@
     },
     {
       "id": "bcv-7b97993c9e65",
-      "slug": "gestionnaire-roa-banque-cantonale-vaudoise-lausanne",
+      "slug": "manager-roa-banque-cantonale-vaudoise-lausanne",
       "slugByLocale": {
-        "it": "gestionnaire-roa-banque-cantonale-vaudoise-lausanne",
+        "fr": "gestionnaire-roa-bcv-lausanne",
+        "it": "manager-roa-banque-cantonale-vaudoise-lausanne",
         "en": "manager-roa-banque-cantonale-vaudoise-lausanne",
-        "de": "manager-roa-banque-cantonale-vaudoise-lausanne",
-        "fr": "gestionnaire-roa-bcv-lausanne"
+        "de": "manager-roa-banque-cantonale-vaudoise-lausanne"
       },
       "company": "Banque Cantonale Vaudoise",
       "companyKey": "bcv",
@@ -329,7 +329,8 @@
       "sfJobId": "1455274933",
       "previousSlugsByLocale": {
         "it": [
-          "gestionnaire-roa-bcv-lausanne"
+          "gestionnaire-roa-bcv-lausanne",
+          "gestionnaire-roa-banque-cantonale-vaudoise-lausanne"
         ],
         "en": [
           "gestionnaire-roa-bcv-lausanne"
@@ -339,7 +340,8 @@
         ]
       },
       "previousSlugs": [
-        "gestionnaire-roa-bcv-lausanne"
+        "gestionnaire-roa-bcv-lausanne",
+        "gestionnaire-roa-banque-cantonale-vaudoise-lausanne"
       ],
       "salaryMin": 83500,
       "salaryMax": 126500,
@@ -361,12 +363,12 @@
     },
     {
       "id": "bcv-db9241ae070e",
-      "slug": "administratrice-ou-administrateur-hopex-banque-cantonale-vaudoise-lausanne",
+      "slug": "amministratore-hopex-banque-cantonale-vaudoise-lausanne",
       "slugByLocale": {
-        "it": "administratrice-ou-administrateur-hopex-banque-cantonale-vaudoise-lausanne",
-        "en": "administratrice-ou-administrateur-hopex-banque-cantonale-vaudoise-lausanne",
-        "de": "administrator-hopex-banque-cantonale-vaudoise-lausanne",
-        "fr": "administratrice-ou-administrateur-hopex-bcv-lausanne"
+        "fr": "administratrice-ou-administrateur-hopex-bcv-lausanne",
+        "it": "amministratore-hopex-banque-cantonale-vaudoise-lausanne",
+        "en": "administrator-hopex-banque-cantonale-vaudoise-lausanne",
+        "de": "administrator-hopex-banque-cantonale-vaudoise-lausanne"
       },
       "company": "Banque Cantonale Vaudoise",
       "companyKey": "bcv",
@@ -413,14 +415,19 @@
       "sfJobId": "1455264733",
       "previousSlugsByLocale": {
         "it": [
-          "administratrice-ou-administrateur-hopex-bcv-lausanne"
+          "administratrice-ou-administrateur-hopex-bcv-lausanne",
+          "administratrice-ou-administrateur-hopex-banque-cantonale-vaudoise-lausanne"
         ],
         "de": [
           "administratrice-ou-administrateur-hopex-bcv-lausanne"
+        ],
+        "en": [
+          "administratrice-ou-administrateur-hopex-banque-cantonale-vaudoise-lausanne"
         ]
       },
       "previousSlugs": [
-        "administratrice-ou-administrateur-hopex-bcv-lausanne"
+        "administratrice-ou-administrateur-hopex-bcv-lausanne",
+        "administratrice-ou-administrateur-hopex-banque-cantonale-vaudoise-lausanne"
       ],
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -1836,10 +1843,10 @@
       "id": "bcv-81a5f6b63514",
       "slug": "consulente-esperto-o-consulente-esperto-real-estate-clientele-banque-cantonale-vaudoise-lausanne",
       "slugByLocale": {
+        "fr": "conseillere-experte-ou-conseiller-expert-clientele-immobiliere-bcv-lausanne",
         "it": "consulente-esperto-o-consulente-esperto-real-estate-clientele-banque-cantonale-vaudoise-lausanne",
         "en": "expert-adviser-or-expert-adviser-real-estate-clientele-banque-cantonale-vaudoise-lausanne",
-        "de": "fachberater-oder-fachberater-immobilienkunden-banque-cantonale-vaudoise-lausanne",
-        "fr": "conseillere-experte-ou-conseiller-expert-clientele-immobiliere-bcv-lausanne"
+        "de": "fachberater-oder-fachberater-immobilienkunden-banque-cantonale-vaudoise-lausanne"
       },
       "company": "Banque Cantonale Vaudoise",
       "companyKey": "bcv",
@@ -2347,7 +2354,7 @@
       "slugByLocale": {
         "it": "fx-vendite-banque-cantonale-vaudoise-lausanne",
         "en": "business-sales-rates-and-exchange-rates-banque-cantonale-vaudoise-lausanne",
-        "de": "firmenkundenvertrieb-zinsen-und-devisen-banque-cantonale-vaudoise-lausanne",
+        "de": "fx-verkaufe-banque-cantonale-vaudoise-lausanne",
         "fr": "fx-sales-bcv-lausanne"
       },
       "company": "Banque Cantonale Vaudoise",
@@ -2408,7 +2415,7 @@
           "fx-sales-bcv-lausanne",
           "unternehmensumsatzraten-fx-banque-cantonale-vaudoise-lausanne",
           "corporate-sales-rates-fx-banque-cantonale-vaudoise-lausanne",
-          "fx-verkaufe-banque-cantonale-vaudoise-lausanne"
+          "firmenkundenvertrieb-zinsen-und-devisen-banque-cantonale-vaudoise-lausanne"
         ]
       },
       "previousSlugs": [
@@ -2417,7 +2424,7 @@
         "unternehmensumsatzraten-fx-banque-cantonale-vaudoise-lausanne",
         "corporate-sales-rates-fx-banque-cantonale-vaudoise-lausanne",
         "fx-sales-banque-cantonale-vaudoise-lausanne",
-        "fx-verkaufe-banque-cantonale-vaudoise-lausanne"
+        "firmenkundenvertrieb-zinsen-und-devisen-banque-cantonale-vaudoise-lausanne"
       ],
       "firstSeenAt": "2026-07-04T10:16:12.392Z",
       "salaryMin": 72000,

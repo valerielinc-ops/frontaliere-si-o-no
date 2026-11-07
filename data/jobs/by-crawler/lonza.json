@@ -6498,7 +6498,7 @@
       "slugByLocale": {
         "it": "linea-meccanica-m-f-d-lonza-visp",
         "en": "line-mechanic-f-m-d-lonza-ch",
-        "de": "streckenmechaniker-m-w-d-lonza-visp",
+        "de": "line-mechanic-m-w-d-lonza-visp",
         "fr": "mecanicien-de-ligne-h-f-d-lonza-visp"
       },
       "company": "Lonza",
@@ -6545,7 +6545,7 @@
         "line-mechanic-f-m-d-lonza-ch",
         "line-mechanic-f-m-d-lonza-visp",
         "leitungsmechaniker-m-w-d-lonza-visp",
-        "line-mechanic-m-w-d-lonza-visp"
+        "streckenmechaniker-m-w-d-lonza-visp"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -6554,7 +6554,7 @@
         "de": [
           "line-mechanic-f-m-d-lonza-visp",
           "leitungsmechaniker-m-w-d-lonza-visp",
-          "line-mechanic-m-w-d-lonza-visp"
+          "streckenmechaniker-m-w-d-lonza-visp"
         ],
         "fr": [
           "line-mechanic-f-m-d-lonza-ch"
@@ -17382,11 +17382,11 @@
     },
     {
       "id": "lonza-6e538fc1561a",
-      "slug": "anlagen-e-apparatebauer-konstruktionstechnik-montage-m-w-d-lonza-visp",
+      "slug": "costruttore-di-impianti-e-apparecchiature-ingegneria-strutturale-montaggio-m-f-d-lonza-visp",
       "slugByLocale": {
-        "it": "anlagen-e-apparatebauer-konstruktionstechnik-montage-m-w-d-lonza-visp",
-        "en": "plant-and-apparatus-manufacturer-construction-technology-assembly-m-f-d-lonza-visp",
         "de": "anlagen-und-apparatebauer-konstruktionstechnik-montage-m-w-d-lonza-ch",
+        "it": "costruttore-di-impianti-e-apparecchiature-ingegneria-strutturale-montaggio-m-f-d-lonza-visp",
+        "en": "plant-and-apparatus-manufacturer-construction-technology-assembly-m-f-d-lonza-visp",
         "fr": "fabricant-d-installations-et-d-appareils-technologie-de-construction-montage-h-f-d-lonza-visp"
       },
       "company": "Lonza",
@@ -17432,7 +17432,8 @@
       "needsRetranslation": false,
       "previousSlugsByLocale": {
         "it": [
-          "anlagen-und-apparatebauer-konstruktionstechnik-montage-m-w-d-lonza-ch"
+          "anlagen-und-apparatebauer-konstruktionstechnik-montage-m-w-d-lonza-ch",
+          "anlagen-e-apparatebauer-konstruktionstechnik-montage-m-w-d-lonza-visp"
         ],
         "en": [
           "anlagen-und-apparatebauer-konstruktionstechnik-montage-m-w-d-lonza-ch"
@@ -17442,7 +17443,8 @@
         ]
       },
       "previousSlugs": [
-        "anlagen-und-apparatebauer-konstruktionstechnik-montage-m-w-d-lonza-ch"
+        "anlagen-und-apparatebauer-konstruktionstechnik-montage-m-w-d-lonza-ch",
+        "anlagen-e-apparatebauer-konstruktionstechnik-montage-m-w-d-lonza-visp"
       ],
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -17480,8 +17482,8 @@
       "id": "lonza-9d5f532c9940",
       "slug": "responsabile-qa-bioconjugates-f-m-d-lonza-visp",
       "slugByLocale": {
-        "it": "responsabile-qa-bioconjugates-f-m-d-lonza-visp",
         "en": "head-of-qa-bioconjugates-f-m-d-lonza-ch",
+        "it": "responsabile-qa-bioconjugates-f-m-d-lonza-visp",
         "de": "leiter-qa-bioconjugates-f-m-d-lonza-visp",
         "fr": "responsable-qa-bioconjugates-f-m-d-lonza-visp"
       },

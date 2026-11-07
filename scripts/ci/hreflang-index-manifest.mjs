@@ -31,11 +31,15 @@
  * Usage:
  *   node scripts/ci/hreflang-index-manifest.mjs [distDir]
  *     [--manifest-dir .cache/hreflang-index-manifest] [--dry-run]
+ *     [--manifest-only]
+ *     [--prepass-cache <path> | --reuse-prepass-cache <path>]
  *     [--require-foreign-manifests]
  *     [--base-url https://frontaliereticino.ch] [--concurrency 64]
  */
 import fs from 'node:fs';
 import path from 'node:path';
+import { once } from 'node:events';
+import { createInterface } from 'node:readline';
 import { fileURLToPath } from 'node:url';
 import { readHeadOrAll } from '../lib/readHead.mjs';
 import { distFileToUrlPath } from '../lib/externally-served-paths.mjs';
@@ -52,6 +56,7 @@ import {
 
 const SKIP_DIRS = new Set(['assets', 'data', 'images']);
 export const HREFLANG_REWRITE_BATCH_SIZE = 64;
+const HREFLANG_PREPASS_CACHE_VERSION = 1;
 
 export function ownedLocalesFromEnv(raw = process.env.BUILD_LOCALE) {
   const wanted = String(raw || '')
@@ -77,6 +82,130 @@ function* walkHtml(dir) {
       yield p;
     }
   }
+}
+
+async function writePrepassCache(cachePath, {
+  distDir,
+  ownedLocales,
+  runId,
+  pagesScanned,
+  pagesByReason,
+  withHreflang,
+  manifestCounts,
+}) {
+  const target = path.resolve(cachePath);
+  const temp = `${target}.${process.pid}.tmp`;
+  await fs.promises.mkdir(path.dirname(target), { recursive: true });
+  const output = fs.createWriteStream(temp, { encoding: 'utf-8' });
+
+  try {
+    const header = {
+      kind: 'header',
+      version: HREFLANG_PREPASS_CACHE_VERSION,
+      ownedLocales,
+      runId,
+      pagesScanned,
+      pagesByReason,
+      recordCount: withHreflang.length,
+      manifestCounts,
+    };
+    output.write(`${JSON.stringify(header)}\n`);
+    for (const item of withHreflang) {
+      const record = {
+        file: path.relative(distDir, item.file),
+        urlPath: item.urlPath,
+      };
+      if (!output.write(`${JSON.stringify(record)}\n`)) await once(output, 'drain');
+    }
+    output.end();
+    await once(output, 'finish');
+    await fs.promises.rename(temp, target);
+  } catch (error) {
+    output.destroy();
+    await fs.promises.rm(temp, { force: true }).catch(() => {});
+    throw error;
+  }
+}
+
+async function readPrepassCache(cachePath, {
+  distDir,
+  manifestDir,
+  ownedLocales,
+  runId,
+}) {
+  const root = path.resolve(distDir);
+  const owned = new Set(ownedLocales);
+  const current = new Map(MANIFEST_LOCALES.map((locale) => [locale, new Map()]));
+  const manifestCounts = {};
+
+  for (const locale of owned) {
+    const manifestPath = path.join(manifestDir, `${locale}.json`);
+    const parsed = parseHreflangManifest(fs.readFileSync(manifestPath, 'utf-8'), locale);
+    if ('error' in parsed) throw new Error(`prepass manifest ${locale} invalid: ${parsed.error}`);
+    if ((parsed.runId || '') !== (runId || '')) {
+      throw new Error(`prepass manifest ${locale} belongs to run ${parsed.runId || '(empty)'}, expected ${runId || '(empty)'}`);
+    }
+    manifestCounts[locale] = parsed.entries.size;
+    current.set(locale, parsed.entries);
+  }
+
+  const input = fs.createReadStream(cachePath, { encoding: 'utf-8' });
+  const lines = createInterface({ input, crlfDelay: Infinity });
+  const withHreflang = [];
+  let header = null;
+
+  for await (const line of lines) {
+    if (!line) continue;
+    let record;
+    try {
+      record = JSON.parse(line);
+    } catch (error) {
+      throw new Error(`invalid hreflang prepass cache JSON: ${error instanceof Error ? error.message : String(error)}`);
+    }
+
+    if (header === null) {
+      header = record;
+      continue;
+    }
+    if (typeof record.file !== 'string' || typeof record.urlPath !== 'string') {
+      throw new Error('invalid hreflang prepass cache record');
+    }
+    const file = path.resolve(root, record.file);
+    if (file === root || !file.startsWith(`${root}${path.sep}`)) {
+      throw new Error(`hreflang prepass path escapes dist: ${record.file}`);
+    }
+    if (!owned.has(localeOfPath(record.urlPath))) {
+      throw new Error(`hreflang prepass contains an unowned locale path: ${record.urlPath}`);
+    }
+    withHreflang.push({ file, urlPath: record.urlPath });
+  }
+
+  if (
+    header?.kind !== 'header'
+    || header.version !== HREFLANG_PREPASS_CACHE_VERSION
+    || JSON.stringify(header.ownedLocales) !== JSON.stringify(ownedLocales)
+    || (header.runId || '') !== (runId || '')
+    || !Number.isSafeInteger(header.pagesScanned)
+    || !Number.isSafeInteger(header.recordCount)
+    || header.recordCount !== withHreflang.length
+    || !header.pagesByReason
+    || typeof header.pagesByReason !== 'object'
+    || Array.isArray(header.pagesByReason)
+  ) {
+    throw new Error('hreflang prepass cache header is missing or incompatible');
+  }
+  for (const locale of owned) {
+    if (header.manifestCounts?.[locale] !== manifestCounts[locale]) {
+      throw new Error(`prepass manifest count mismatch for ${locale}`);
+    }
+  }
+
+  return {
+    current,
+    pagesScanned: header.pagesScanned,
+    pagesByReason: header.pagesByReason,
+    withHreflang,
+  };
 }
 
 async function mapPool(items, concurrency, fn) {
@@ -152,56 +281,81 @@ export async function runHreflangIndexManifest({
   ownedLocales = MANIFEST_LOCALES.slice(),
   baseUrl = DEFAULT_BASE_URL,
   dryRun = false,
+  manifestOnly = false,
   requireForeignManifests = false,
+  prepassCachePath = null,
+  reusePrepassCachePath = null,
   concurrency = 64,
   runId = process.env.GITHUB_RUN_ID || '',
   rewriteBatchSize = HREFLANG_REWRITE_BATCH_SIZE,
   log = (line) => console.log(line),
 }) {
+  if (manifestOnly && !dryRun) throw new Error('--manifest-only requires --dry-run');
   const batchSize = normaliseRewriteBatchSize(rewriteBatchSize);
   const owned = new Set(ownedLocales);
-  const files = [];
-  for (const file of walkHtml(distDir)) {
-    const urlPath = distFileToUrlPath(file, distDir);
-    if (urlPath === null) continue;
-    if (!owned.has(localeOfPath(urlPath))) continue;
-    files.push({ file, urlPath });
-  }
-  // `foo/index.html` and a flat `foo.html` serve the same normalised path;
-  // the directory index is the document the canonical URL (trailing slash)
-  // resolves to, so it is the one recorded in the manifest. Decided here,
-  // synchronously, so the result never depends on read completion order.
-  const isIndex = (file) => path.basename(file) === 'index.html';
-  const primaryByPath = new Map();
-  for (const item of files) {
-    const seen = primaryByPath.get(item.urlPath);
-    if (seen === undefined || (!isIndex(seen.file) && isIndex(item.file))) primaryByPath.set(item.urlPath, item);
+  let files = [];
+  let current = new Map(MANIFEST_LOCALES.map((l) => [l, new Map()]));
+  let pagesByReason = {};
+  let withHreflang = [];
+  let pagesScanned = 0;
+  let prepassCache = 'unused';
+  const readFailures = [];
+
+  if (reusePrepassCachePath) {
+    try {
+      ({ current, pagesScanned, pagesByReason, withHreflang } = await readPrepassCache(reusePrepassCachePath, {
+        distDir,
+        manifestDir,
+        ownedLocales,
+        runId,
+      }));
+      prepassCache = 'reused';
+    } catch (error) {
+      prepassCache = 'fallback';
+      log(`::warning title=hreflang prepass cache unavailable::${error instanceof Error ? error.message : String(error)}; scanning dist again`);
+    }
   }
 
-  // ── Pass 1: classify every owned page from its head ─────────────────────
-  // Only what the decision needs survives the pass: the manifest entry of an
-  // eligible page and the PATH of a page carrying hreflang (its head is read
-  // again in pass 2 — retaining every parsed block of a ~700k-page shard
-  // would cost far more memory than a second head read costs time).
-  const current = new Map(MANIFEST_LOCALES.map((l) => [l, new Map()]));
-  const pagesByReason = {};
-  const withHreflang = [];
-  const readFailures = [];
-  await mapPool(files, concurrency, async (item) => {
-    const head = await readHeadOrAll(item.file);
-    if (head === null) {
-      readFailures.push(item.file);
-      return;
+  if (prepassCache !== 'reused') {
+    files = [];
+    for (const file of walkHtml(distDir)) {
+      const urlPath = distFileToUrlPath(file, distDir);
+      if (urlPath === null) continue;
+      if (!owned.has(localeOfPath(urlPath))) continue;
+      files.push({ file, urlPath });
     }
-    const page = classifyHreflangPage(head, item.urlPath, { baseUrl });
-    bump(pagesByReason, page.reason);
-    if (page.eligible && primaryByPath.get(item.urlPath) === item) {
-      current.get(localeOfPath(page.path)).set(item.urlPath, page.clusterKey);
+
+    // `foo/index.html` and a flat `foo.html` serve the same normalised path;
+    // the directory index is the document the canonical URL (trailing slash)
+    // resolves to, so it is the one recorded in the manifest. Decided here,
+    // synchronously, so the result never depends on read completion order.
+    const isIndex = (file) => path.basename(file) === 'index.html';
+    const primaryByPath = new Map();
+    for (const item of files) {
+      const seen = primaryByPath.get(item.urlPath);
+      if (seen === undefined || (!isIndex(seen.file) && isIndex(item.file))) primaryByPath.set(item.urlPath, item);
     }
-    if (page.hasHreflang) withHreflang.push(item);
-  });
-  if (readFailures.length > 0) {
-    throw new Error(`${readFailures.length} HTML file(s) unreadable, first: ${readFailures[0]}`);
+
+    // ── Pass 1: classify every owned page from its head ───────────────────
+    // Only what the decision needs survives the pass: the manifest entry of
+    // an eligible page and the PATH of a page carrying hreflang.
+    await mapPool(files, concurrency, async (item) => {
+      const head = await readHeadOrAll(item.file);
+      if (head === null) {
+        readFailures.push(item.file);
+        return;
+      }
+      const page = classifyHreflangPage(head, item.urlPath, { baseUrl });
+      bump(pagesByReason, page.reason);
+      if (page.eligible && primaryByPath.get(item.urlPath) === item) {
+        current.get(localeOfPath(page.path)).set(item.urlPath, page.clusterKey);
+      }
+      if (page.hasHreflang) withHreflang.push(item);
+    });
+    if (readFailures.length > 0) {
+      throw new Error(`${readFailures.length} HTML file(s) unreadable, first: ${readFailures[0]}`);
+    }
+    pagesScanned = files.length;
   }
 
   // ── Manifests of the locales this leg does not own ───────────────────────
@@ -243,22 +397,24 @@ export async function runHreflangIndexManifest({
   const blocksByDecision = {};
   const unknownMembers = {};
   const changes = [];
-  await mapPool(withHreflang, concurrency, async (item) => {
-    const head = await readHeadOrAll(item.file);
-    if (head === null) {
-      readFailures.push(item.file);
-      return;
+  if (!manifestOnly) {
+    await mapPool(withHreflang, concurrency, async (item) => {
+      const head = await readHeadOrAll(item.file);
+      if (head === null) {
+        readFailures.push(item.file);
+        return;
+      }
+      const page = classifyHreflangPage(head, item.urlPath, { baseUrl });
+      const decision = decideHreflangBlock(page, lookup);
+      bump(blocksByDecision, `${decision.action}:${decision.reason}`);
+      for (const reason of decision.unknown) bump(unknownMembers, reason);
+      if (decision.action === 'strip' || decision.xDefault !== null) {
+        changes.push({ file: item.file, decision: { action: decision.action, reason: decision.reason, xDefault: decision.xDefault } });
+      }
+    });
+    if (readFailures.length > 0) {
+      throw new Error(`${readFailures.length} HTML file(s) unreadable in pass 2, first: ${readFailures[0]}`);
     }
-    const page = classifyHreflangPage(head, item.urlPath, { baseUrl });
-    const decision = decideHreflangBlock(page, lookup);
-    bump(blocksByDecision, `${decision.action}:${decision.reason}`);
-    for (const reason of decision.unknown) bump(unknownMembers, reason);
-    if (decision.action === 'strip' || decision.xDefault !== null) {
-      changes.push({ file: item.file, decision: { action: decision.action, reason: decision.reason, xDefault: decision.xDefault } });
-    }
-  });
-  if (readFailures.length > 0) {
-    throw new Error(`${readFailures.length} HTML file(s) unreadable in pass 2, first: ${readFailures[0]}`);
   }
 
   // ── Pass 3: write ──────────────────────────────────────────────────────
@@ -331,13 +487,33 @@ export async function runHreflangIndexManifest({
     fs.renameSync(tmp, target);
   }
 
+  if (dryRun && prepassCachePath) {
+    try {
+      await writePrepassCache(prepassCachePath, {
+        distDir,
+        ownedLocales,
+        runId,
+        pagesScanned,
+        pagesByReason,
+        withHreflang,
+        manifestCounts,
+      });
+      prepassCache = 'written';
+    } catch (error) {
+      prepassCache = 'write-failed';
+      log(`::warning title=hreflang prepass cache write failed::${error instanceof Error ? error.message : String(error)}; final pass will scan dist again`);
+    }
+  }
+
   const stagingBenchmark = dryRun ? null : benchmarkHreflangStaging(stagingRecords, batchSize);
   const summary = {
     owned: [...owned],
     dryRun,
-    pagesScanned: files.length,
+    manifestOnly,
+    pagesScanned,
     pagesByReason,
     pagesWithHreflang: withHreflang.length,
+    prepassCache,
     blocksByDecision,
     unknownMembers,
     manifestSources,
@@ -360,13 +536,16 @@ export async function runHreflangIndexManifest({
 }
 
 function parseArgs(argv) {
-  const args = { distDir: 'dist', manifestDir: '.cache/hreflang-index-manifest', dryRun: false, requireForeignManifests: false, baseUrl: DEFAULT_BASE_URL, concurrency: 64 };
+  const args = { distDir: 'dist', manifestDir: '.cache/hreflang-index-manifest', dryRun: false, manifestOnly: false, requireForeignManifests: false, baseUrl: DEFAULT_BASE_URL, concurrency: 64 };
   const rest = [];
   for (let i = 0; i < argv.length; i++) {
     const a = argv[i];
     if (a === '--dry-run') args.dryRun = true;
+    else if (a === '--manifest-only') args.manifestOnly = true;
     else if (a === '--require-foreign-manifests') args.requireForeignManifests = true;
     else if (a === '--manifest-dir') args.manifestDir = argv[++i];
+    else if (a === '--prepass-cache') args.prepassCachePath = argv[++i];
+    else if (a === '--reuse-prepass-cache') args.reusePrepassCachePath = argv[++i];
     else if (a === '--base-url') args.baseUrl = argv[++i];
     else if (a === '--concurrency') args.concurrency = Number(argv[++i]) || 64;
     else rest.push(a);
@@ -395,7 +574,10 @@ if (invokedDirectly) {
     ownedLocales: ownedLocalesFromEnv(),
     baseUrl: args.baseUrl,
     dryRun: args.dryRun,
+    manifestOnly: args.manifestOnly,
     requireForeignManifests: args.requireForeignManifests,
+    prepassCachePath: args.prepassCachePath ? path.resolve(args.prepassCachePath) : null,
+    reusePrepassCachePath: args.reusePrepassCachePath ? path.resolve(args.reusePrepassCachePath) : null,
     concurrency: args.concurrency,
   }).catch((error) => {
     console.error(`[hreflang-index-manifest] failed: ${error instanceof Error ? error.stack : String(error)}`);

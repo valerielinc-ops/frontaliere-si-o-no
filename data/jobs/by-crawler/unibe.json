@@ -1117,7 +1117,7 @@
       "slug": "wissenschaftliche-mitarbeiterin-wissenschaftlicher-collaboratore-trice-universitat-bern-bern-0fc57adcf6",
       "slugByLocale": {
         "it": "wissenschaftliche-mitarbeiterin-wissenschaftlicher-collaboratore-trice-universitat-bern-bern-0fc57adcf6",
-        "en": "research-assistant-universitat-bern",
+        "en": "scientific-scientific-staff-member-universitat-bern-bern",
         "de": "wissenschaftliche-mitarbeiterin-wissenschaftlicher-mitarbeiter-unibe-bern",
         "fr": "membre-du-personnel-scientifique-universitat-bern-bern"
       },
@@ -1167,7 +1167,7 @@
       "previousSlugs": [
         "wissenschaftliche-mitarbeiterin-wissenschaftlicher-mitarbeiter-unibe-bern",
         "wissenschaftliche-mitarbeiterin-wissenschaftlicher-collaboratore-trice-universitat-bern",
-        "scientific-scientific-staff-member-universitat-bern-bern"
+        "research-assistant-universitat-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1176,7 +1176,7 @@
         ],
         "en": [
           "wissenschaftliche-mitarbeiterin-wissenschaftlicher-mitarbeiter-unibe-bern",
-          "scientific-scientific-staff-member-universitat-bern-bern"
+          "research-assistant-universitat-bern"
         ],
         "fr": [
           "wissenschaftliche-mitarbeiterin-wissenschaftlicher-mitarbeiter-unibe-bern"
@@ -4498,12 +4498,12 @@
     },
     {
       "id": "unibe-7427acc398cf",
-      "slug": "sachbearbeiterin-sachbearbeiter-universitat-bern-bern",
+      "slug": "manipolatore-di-cassa-universitat-bern-bern",
       "slugByLocale": {
         "de": "sachbearbeiterin-sachbearbeiter-unibe-bern",
-        "it": "sachbearbeiterin-sachbearbeiter-universitat-bern-bern",
-        "en": "sachbearbeiterin-sachbearbeiter-universitat-bern-bern",
-        "fr": "sachbearbeiterin-sachbearbeiter-universitat-bern-bern"
+        "it": "manipolatore-di-cassa-universitat-bern-bern",
+        "en": "case-handler-universitat-bern-bern",
+        "fr": "gestionnaire-de-cas-universitat-bern-bern"
       },
       "company": "Universität Bern",
       "companyKey": "unibe",
@@ -4551,11 +4551,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "sachbearbeiterin-sachbearbeiter-unibe-bern"
+          "sachbearbeiterin-sachbearbeiter-unibe-bern",
+          "sachbearbeiterin-sachbearbeiter-universitat-bern-bern"
+        ],
+        "en": [
+          "sachbearbeiterin-sachbearbeiter-universitat-bern-bern"
+        ],
+        "fr": [
+          "sachbearbeiterin-sachbearbeiter-universitat-bern-bern"
         ]
       },
       "previousSlugs": [
-        "sachbearbeiterin-sachbearbeiter-unibe-bern"
+        "sachbearbeiterin-sachbearbeiter-unibe-bern",
+        "sachbearbeiterin-sachbearbeiter-universitat-bern-bern"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -4577,12 +4585,12 @@
     },
     {
       "id": "unibe-bad148d798de",
-      "slug": "communications-and-br-marketing-officer-unibe-bern",
+      "slug": "comunicazioni-e-responsabile-marketing-universitat-bern-bern",
       "slugByLocale": {
         "en": "communications-and-br-marketing-officer-unibe-bern",
-        "it": "communications-and-br-marketing-officer-unibe-bern",
-        "de": "communications-and-br-marketing-officer-unibe-bern",
-        "fr": "communications-and-br-marketing-officer-unibe-bern"
+        "it": "comunicazioni-e-responsabile-marketing-universitat-bern-bern",
+        "de": "kommunikation-und-br-marketing-officer-universitat-bern-bern",
+        "fr": "communications-et-br-specialiste-du-marketing-universitat-bern-bern"
       },
       "company": "Universität Bern",
       "companyKey": "unibe",
@@ -4644,7 +4652,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-04T22:04:51.318Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-06T22:04:51.318Z"
+      "firstSeenAt": "2026-11-06T22:04:51.318Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "communications-and-br-marketing-officer-unibe-bern"
+        ],
+        "de": [
+          "communications-and-br-marketing-officer-unibe-bern"
+        ],
+        "fr": [
+          "communications-and-br-marketing-officer-unibe-bern"
+        ]
+      },
+      "previousSlugs": [
+        "communications-and-br-marketing-officer-unibe-bern"
+      ]
     },
     {
       "id": "unibe-d488deb6cf3a",

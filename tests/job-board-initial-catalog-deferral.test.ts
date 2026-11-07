@@ -28,6 +28,7 @@ describe('job-board catalog loading after the first listing paint', () => {
     expect(JOB_BOARD_SOURCE).toContain('&& (targetElement?.closest(interactionSurface) || pageScroll)');
     expect(JOB_BOARD_SOURCE).toContain("input, select, textarea, nav button, [role=\"group\"] button, [data-job-board-filter-control]");
     expect(JOB_BOARD_SOURCE).toContain('data-job-board-filter-control');
+    expect(JOB_BOARD_SOURCE).not.toContain('navigator.userActivation?.hasBeenActive');
     expect(JOB_BOARD_SOURCE).not.toContain("'pointerdown', 'keydown', 'wheel', 'touchstart', 'focusin'");
     expect(JOB_BOARD_SOURCE).toContain('if (jobBoardInteractionSeenRef.current)');
   });

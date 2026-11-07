@@ -5,11 +5,11 @@
   "jobs": [
     {
       "id": "spital-zollikerberg-db01ec6c0fb2",
-      "slug": "ergotherapeut-ergotherapeutin-therapie-e-beratung-spital-zollikerberg",
+      "slug": "terapista-occupazionale-terapia-e-consulenza-occupazionale-spital-zollikerberg-zollikerberg",
       "slugByLocale": {
-        "it": "ergotherapeut-ergotherapeutin-therapie-e-beratung-spital-zollikerberg",
-        "en": "occupational-therapist-occupational-therapist-therapy-and-counselling-spital-zollikerberg-zollikerberg",
         "de": "ergotherapeut-ergotherapeutin-therapie-und-beratung-spital-zollikerberg-zollikerberg",
+        "it": "terapista-occupazionale-terapia-e-consulenza-occupazionale-spital-zollikerberg-zollikerberg",
+        "en": "occupational-therapist-occupational-therapist-therapy-and-counselling-spital-zollikerberg-zollikerberg",
         "fr": "ergotherapie-ergotherapie-et-counseling-spital-zollikerberg-zollikerberg"
       },
       "company": "Spital Zollikerberg",
@@ -56,7 +56,8 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "it": [
-          "ergotherapeut-ergotherapeutin-therapie-und-beratung-spital-zollikerberg-zollikerberg"
+          "ergotherapeut-ergotherapeutin-therapie-und-beratung-spital-zollikerberg-zollikerberg",
+          "ergotherapeut-ergotherapeutin-therapie-e-beratung-spital-zollikerberg"
         ],
         "en": [
           "ergotherapeut-ergotherapeutin-therapie-und-beratung-spital-zollikerberg-zollikerberg"
@@ -66,7 +67,8 @@
         ]
       },
       "previousSlugs": [
-        "ergotherapeut-ergotherapeutin-therapie-und-beratung-spital-zollikerberg-zollikerberg"
+        "ergotherapeut-ergotherapeutin-therapie-und-beratung-spital-zollikerberg-zollikerberg",
+        "ergotherapeut-ergotherapeutin-therapie-e-beratung-spital-zollikerberg"
       ],
       "salaryMin": 91500,
       "salaryMax": 128000,
@@ -91,9 +93,9 @@
       "id": "spital-zollikerberg-8e27a6c59731",
       "slug": "infermiere-diplomato-infermiere-diplomato-in-oncologia-con-orari-di-lavoro-regolamentati-spital-zollikerberg",
       "slugByLocale": {
+        "de": "dipl-pflegefachfrau-dipl-pflegefachmann-onkologie-mit-geregelten-arbeitszeiten-spital",
         "it": "infermiere-diplomato-infermiere-diplomato-in-oncologia-con-orari-di-lavoro-regolamentati-spital-zollikerberg",
         "en": "dipl-nursing-professional-dipl-nursing-specialist-oncology-with-regulated-working-hours-spital-zollikerberg-zollikerberg",
-        "de": "dipl-pflegefachfrau-dipl-pflegefachmann-onkologie-mit-geregelten-arbeitszeiten-spital",
         "fr": "dipl-professionnels-des-soins-infirmiers-dipl-specialiste-en-oncologie-avec-horaires-de-travail-reglementes-spital"
       },
       "company": "Spital Zollikerberg",
@@ -173,12 +175,12 @@
     },
     {
       "id": "spital-zollikerberg-f5cfa379a09c",
-      "slug": "augenoptiker-augenoptikerin-o-mpa-con-erfahrung-in-der-ophthalmologie-50-60-pflege-support-e-administration-spital-zollikerberg",
+      "slug": "ottico-optometrista-o-mpa-con-esperienza-in-oftalmologia-50-60-assistenza-infermieristica-supporto-e-amministrazione",
       "slugByLocale": {
-        "it": "augenoptiker-augenoptikerin-o-mpa-con-erfahrung-in-der-ophthalmologie-50-60-pflege-support-e-administration-spital-zollikerberg",
-        "en": "augenoptiker-augenoptikerin-oder-mpa-mit-erfahrung-in-der-ophthalmologie-50-60-pflege",
         "de": "augenoptiker-augenoptikerin-oder-mpa-mit-erfahrung-in-der-ophthalmologie-50-60-pflege",
-        "fr": "augenoptiker-augenoptikerin-oder-mpa-mit-erfahrung-in-der-ophthalmologie-50-60-pflege"
+        "it": "ottico-optometrista-o-mpa-con-esperienza-in-oftalmologia-50-60-assistenza-infermieristica-supporto-e-amministrazione",
+        "en": "optometrist-or-mpa-with-experience-in-ophthalmology-50-60-care-support-and-administration-spital-zollikerberg",
+        "fr": "optometriste-ou-mpa-ayant-une-experience-en-ophtalmologie-50-60-soutien-et-administration-des-soins-spital-zollikerberg"
       },
       "company": "Spital Zollikerberg",
       "companyKey": "spital-zollikerberg",
@@ -224,11 +226,19 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "it": [
+          "augenoptiker-augenoptikerin-oder-mpa-mit-erfahrung-in-der-ophthalmologie-50-60-pflege",
+          "augenoptiker-augenoptikerin-o-mpa-con-erfahrung-in-der-ophthalmologie-50-60-pflege-support-e-administration-spital-zollikerberg"
+        ],
+        "en": [
+          "augenoptiker-augenoptikerin-oder-mpa-mit-erfahrung-in-der-ophthalmologie-50-60-pflege"
+        ],
+        "fr": [
           "augenoptiker-augenoptikerin-oder-mpa-mit-erfahrung-in-der-ophthalmologie-50-60-pflege"
         ]
       },
       "previousSlugs": [
-        "augenoptiker-augenoptikerin-oder-mpa-mit-erfahrung-in-der-ophthalmologie-50-60-pflege"
+        "augenoptiker-augenoptikerin-oder-mpa-mit-erfahrung-in-der-ophthalmologie-50-60-pflege",
+        "augenoptiker-augenoptikerin-o-mpa-con-erfahrung-in-der-ophthalmologie-50-60-pflege-support-e-administration-spital-zollikerberg"
       ],
       "salaryMin": 54900,
       "salaryMax": 76800,
@@ -253,9 +263,9 @@
       "id": "spital-zollikerberg-0f33050ab078",
       "slug": "infermiere-diplomato-infermiere-diplomato-dipl-ostetrica-maternite-con-cuore-spital-zollikerberg-zollikerberg",
       "slugByLocale": {
+        "de": "dipl-pflegefachfrau-dipl-pflegefachmann-dipl-hebamme-maternite-mit-herz-spital",
         "it": "infermiere-diplomato-infermiere-diplomato-dipl-ostetrica-maternite-con-cuore-spital-zollikerberg-zollikerberg",
         "en": "dipl-nursing-professional-dipl-nursing-professional-dipl-midwife-maternite-with-heart-spital-zollikerberg-zollikerberg",
-        "de": "dipl-pflegefachfrau-dipl-pflegefachmann-dipl-hebamme-maternite-mit-herz-spital",
         "fr": "dipl-professionnels-des-soins-infirmiers-dipl-professionnels-des-soins-infirmiers-dipl-sage-femme-maternite-au-c-ur"
       },
       "company": "Spital Zollikerberg",
@@ -336,9 +346,9 @@
       "id": "spital-zollikerberg-c499cd1e7a79",
       "slug": "specialist-health-private-station-1-spital-zollikerberg-zollikerberg",
       "slugByLocale": {
+        "de": "fachfrau-fachmann-gesundheit-privatstation-1-spital-zollikerberg-zollikerberg",
         "it": "specialist-health-private-station-1-spital-zollikerberg-zollikerberg",
         "en": "specialist-health-private-station-1-spital-zollikerberg-zollikerberg",
-        "de": "fachfrau-fachmann-gesundheit-privatstation-1-spital-zollikerberg-zollikerberg",
         "fr": "station-privee-specialisee-en-sante-1-spital-zollikerberg-zollikerberg"
       },
       "company": "Spital Zollikerberg",
@@ -419,9 +429,9 @@
       "id": "spital-zollikerberg-5a6895f1d257",
       "slug": "centro-vecchio-hottingen-dipl-infermieristica-professionale-dipl-infermieristica-spitex-old-age-center-hottingen-spital",
       "slugByLocale": {
+        "de": "alterszentrum-hottingen-dipl-pflegefachmann-dipl-pflegefachfrau-spitex-alterszentrum",
         "it": "centro-vecchio-hottingen-dipl-infermieristica-professionale-dipl-infermieristica-spitex-old-age-center-hottingen-spital",
         "en": "old-age-center-hottingen-dipl-nursing-professional-dipl-nursing-specialist-spitex-old-age-center-hottingen-spital",
-        "de": "alterszentrum-hottingen-dipl-pflegefachmann-dipl-pflegefachfrau-spitex-alterszentrum",
         "fr": "centre-de-vieillesse-hottingen-dipl-professionnels-des-soins-infirmiers-dipl-specialiste-des-soins-infirmiers-spitex-old"
       },
       "company": "Spital Zollikerberg",
