@@ -1,4 +1,5 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
+import { hydrateGhBodyFileArgs } from './helpers/ghBodyFile';
 
 // Regression coverage for #12443. The five real incidents in the issue were
 // cancelled runs whose timeout annotation was invisible to every in-job
@@ -6,7 +7,10 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 // cancellations and must not produce a false positive.
 const execFileSync = vi.fn();
 vi.mock('node:child_process', () => {
-  const mock = { execFileSync: (...args: unknown[]) => execFileSync(...args) };
+  const mock = {
+    execFileSync: (cmd: string, args: string[], ...rest: unknown[]) =>
+      execFileSync(cmd, hydrateGhBodyFileArgs(args), ...rest),
+  };
   return { ...mock, default: mock };
 });
 
