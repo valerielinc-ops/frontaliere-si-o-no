@@ -38,7 +38,12 @@ import { peelDanglingClauseTail } from './shared/clauseTail.mjs';
 import { Worker } from 'worker_threads';
 import type { Plugin } from 'vite';
 import { shouldEmitLocale } from './shared/localeEmitFilter';
-import { JOB_OG_PHOTO_FILES, getJobOgPhotoKey } from './shared/jobOgImageCatalog.mjs';
+import { JOB_OG_PHOTO_FILES } from './shared/jobOgImageCatalog.mjs';
+import {
+  JOB_PHOTO_KEYS,
+  selectJobOgPhoto,
+  type JobFallbackPhotoKey,
+} from './shared/jobPhotoClassification';
 import { getItalianJobTitle } from './shared/italianJobTitle.mjs';
 import { JOB_EMPLOYMENT_LABELS_BY_LOCALE } from '../scripts/lib/job-employment-type.mjs';
 import {
@@ -150,51 +155,7 @@ function readJobsJson(rootDir: string): JobMinimal[] {
   return [];
 }
 
-const JOB_PHOTO_KEYS = ['healthcare', 'hospitality', 'trades', 'office'] as const;
-type JobFallbackPhotoKey = (typeof JOB_PHOTO_KEYS)[number];
 type JobPhotoKey = string;
-
-const JOB_PHOTO_KEYWORDS: Record<JobFallbackPhotoKey, string[]> = {
-  healthcare: [
-    'health', 'sanit', 'inferm', 'medic', 'farmac', 'pharma', 'biotech',
-    'osped', 'clinica', 'assistenz', 'cura', 'pflege', 'soins', 'sante',
-    'nursing', 'nurse', 'arzt',
-  ],
-  hospitality: [
-    'hotel', 'hospitality', 'albergo', 'ristor', 'restaurant', 'camerier',
-    'cuoc', 'chef', 'cucina', 'barista', 'housekeep', 'reception', 'turism',
-    'catering', 'gastronom', 'servicefach', 'restauration', 'hoteller',
-  ],
-  trades: [
-    'tecnic', 'elettric', 'idraulic', 'meccanic', 'ingegner', 'engineer',
-    'manutenz', 'montator', 'saldat', 'produzion', 'magazzin', 'operator',
-    'logistic', 'liefer', 'lager', 'werkstatt', 'bau', 'construction',
-    'instandhalt', 'automation', 'technicien', 'atelier', 'installator',
-    'technical', 'tech', 'manufacturing', 'industr', 'agricol', 'farm',
-  ],
-  office: [
-    'office', 'admin', 'amministr', 'administr', 'contab', 'segreter',
-    'commercial', 'marketing', 'sales', 'vendit', 'commerc', 'retail',
-    'dettaglio', 'back-office', 'risorse umane', 'human resources', 'hr',
-    'analyst', 'finanz', 'finance', 'assicuraz', 'insurance', 'account',
-    'legal', 'bureau', 'impiegat', 'assistant', 'education', 'formazione',
-    'it',
-  ],
-};
-
-function classifyJobPhoto(job: JobMinimal): JobFallbackPhotoKey {
-  const searchText = [job.category, job.sector, job.titleByLocale?.it, job.title]
-    .filter(Boolean)
-    .join(' ')
-    .toLocaleLowerCase('it')
-    .normalize('NFD')
-    .replace(/[\u0300-\u036f]/g, '');
-  const searchTerms = new Set(searchText.split(/[^a-z0-9]+/).filter(Boolean));
-  return JOB_PHOTO_KEYS.find((key) => JOB_PHOTO_KEYWORDS[key].some((keyword) => {
-    if (keyword.length <= 3) return searchTerms.has(keyword);
-    return searchText.includes(keyword);
-  })) ?? 'office';
-}
 
 interface JobPhotoSources {
   fallbackDataUrls: Record<JobFallbackPhotoKey, string>;
@@ -682,7 +643,7 @@ export default function jobOgImagesPlugin(): Plugin {
           continue;
         }
         const outPath = path.join(rootDir, outDir, ogPathForSlug(slug));
-        const photoKey = getJobOgPhotoKey(slug) ?? classifyJobPhoto(job);
+        const { photoKey } = selectJobOgPhoto(job, slug);
         // See the doc-comment above the deleted cacheKeyForJob for why
         // we cache by slug + photo key + version (not job.id + visualHash).
         const cachePath = path.join(

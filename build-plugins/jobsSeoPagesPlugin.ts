@@ -88,6 +88,7 @@ import { buildSoftLandingThinHtml } from './shared/softLandingThinShell';
 import { buildGscKeywordThinBody, GSC_KEYWORD_THIN_HEAD_SCRIPT } from './shared/gscKeywordThinShell';
 import { shouldEmitLocale } from './shared/localeEmitFilter';
 import { archivedJobOgImageUrl, versionedJobOgImageUrl } from './shared/jobOgImageVersion.mjs';
+import { selectJobOgPhoto } from './shared/jobPhotoClassification';
 import { getItalianJobTitle } from './shared/italianJobTitle.mjs';
 import {
  buildActiveJobPageInput,
@@ -3900,8 +3901,12 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  de: localizedSlug(job, 'de'),
  fr: localizedSlug(job, 'fr'),
  };
- const italianJobImageUrl = getItalianJobTitle(job)
-  ? versionedJobOgImageUrl(BASE_URL, perLocaleSlug.it)
+ const italianJobTitle = getItalianJobTitle(job);
+ const italianJobPhoto = italianJobTitle
+  ? selectJobOgPhoto(job, perLocaleSlug.it)
+  : null;
+ const italianJobImageUrl = italianJobPhoto
+  ? versionedJobOgImageUrl(BASE_URL, perLocaleSlug.it, italianJobPhoto.urlPhotoKey)
   : null;
  const socialImage = italianJobImageUrl || `${BASE_URL}/og-image.png`;
  const jobCanton = sharedResolveJobCanton(job as { canton?: string; location?: string });
