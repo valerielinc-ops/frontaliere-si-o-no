@@ -175,7 +175,7 @@ describe('parseDiscoveryArticleIndex', () => {
     const now = Date.now();
     const unicodeId = 'articolo-é🚲';
     const parsed = parse(index(now, [article(unicodeId, now)]), now);
-    expect(parsed.articles[0].id).toBe(unicodeId);
+    expect(parsed.articles[0]).toMatchObject({ id: unicodeId });
     expect(chooseDiscoveryArticle(parsed, 'weekly_2026-11-23', 'it', { now }))
       .toMatchObject({ articleId: unicodeId });
 
