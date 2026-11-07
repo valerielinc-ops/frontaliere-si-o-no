@@ -21,7 +21,16 @@
  * To force regeneration, bump OG_RENDER_VERSION.
  */
 
-import { copyFileSync, existsSync, mkdirSync, readdirSync, readFileSync, unlinkSync, writeFileSync } from 'fs';
+import {
+  copyFileSync,
+  existsSync,
+  mkdirSync,
+  readdirSync,
+  readFileSync,
+  renameSync,
+  unlinkSync,
+  writeFileSync,
+} from 'fs';
 import { cpus } from 'os';
 import path from 'path';
 import { fileURLToPath } from 'url';
@@ -42,6 +51,23 @@ const OUT_SUBDIR = 'og/jobs';
 // Persistent cache dir survives `dist/` cleanup. Cache step in deploy.yml
 // restores this between CI runs so unchanged jobs keep their WebP.
 const CACHE_SUBDIR = '.cache/og-jobs';
+const CACHE_COMPLETION_MARKER = '.complete';
+
+function writeFileAtomically(filePath: string, data: Buffer | string): void {
+function writeFileAtomicallySync(filePath: string, data: Buffer | string): void {
+  const temporaryPath = `${filePath}.tmp-${process.pid}`;
+  try {
+    writeFileSync(temporaryPath, data);
+    renameSync(temporaryPath, filePath);
+  } catch (err) {
+    try {
+      unlinkSync(temporaryPath);
+    } catch {
+      /* best-effort cleanup after a failed write */
+    }
+    throw err;
+  }
+}
 
 /**
  * Bump this string when the rendering pipeline changes shape (layout,
@@ -581,6 +607,14 @@ export default function jobOgImagesPlugin(): Plugin {
     configResolved(cfg) {
       outDir = cfg.build?.outDir ?? 'dist';
       rootDir = cfg.root ?? process.cwd();
+      // A restored marker only describes the previous build. Remove it before
+      // the new build so the workflow saves a cache only after this plugin has
+      // finished processing the current image set.
+      try {
+        unlinkSync(path.join(rootDir, CACHE_SUBDIR, CACHE_COMPLETION_MARKER));
+      } catch {
+        /* marker absent on a cold cache */
+      }
     },
     async closeBundle() {
       if (!outDir || !rootDir) return;
@@ -749,8 +783,10 @@ export default function jobOgImagesPlugin(): Plugin {
           try {
             mkdirSync(path.dirname(job.cachePath), { recursive: true });
             mkdirSync(path.dirname(job.outPath), { recursive: true });
-            writeFileSync(job.cachePath, webp);
-            writeFileSync(job.outPath, webp);
+            // A cancelled runner may save its partial cache on the way out.
+            // Publish only whole WebP files so every cached entry is reusable.
+            writeFileAtomicallySync(job.cachePath, webp);
+            copyFileSync(job.cachePath, job.outPath);
             stats.rendered += 1;
           } catch (err) {
             stats.errors += 1;
@@ -852,6 +888,14 @@ export default function jobOgImagesPlugin(): Plugin {
       let prunedBytes = 0;
       try {
         for (const entry of readdirSync(cacheRoot)) {
+          if (/\.tmp-\d+$/.test(entry)) {
+            try {
+              unlinkSync(path.join(cacheRoot, entry));
+            } catch {
+              /* ignore stale interrupted-write temporary files */
+            }
+            continue;
+          }
           if (versionSuffixes.some((suffix) => entry.endsWith(suffix))) continue;
           if (!entry.endsWith('.png') && !entry.endsWith('.webp')) continue;
           const orphaned = path.join(cacheRoot, entry);
@@ -874,6 +918,12 @@ export default function jobOgImagesPlugin(): Plugin {
       console.log(
         `[job-og-images] rendered=${stats.rendered} cached=${stats.cached} skipped=${stats.skipped} errors=${stats.errors} pruned-stale=${pruned} (~${(prunedBytes / 1_048_576).toFixed(0)}MB) in ${(elapsedMs / 1000).toFixed(1)}s`,
       );
+      if (stats.rendered + stats.cached > 0) {
+        writeFileAtomicallySync(
+          path.join(cacheRoot, CACHE_COMPLETION_MARKER),
+          `${JSON.stringify({ rendered: stats.rendered, cached: stats.cached, skipped: stats.skipped, errors: stats.errors })}\n`,
+        );
+      }
     },
   };
 }
