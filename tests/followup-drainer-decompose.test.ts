@@ -194,7 +194,7 @@ describe('decompose reservation lease — circuit breaker bounded e fail-closed'
   });
 
   it('non conta una reservation precedente al floor e non considera un marker umano come reset', () => {
-    const old = lease('old', 'reserved', -120);
+    const old = lease('old', 'reserved', -480);
     const human = {
       createdAt: new Date(base + 90 * 60_000).toISOString(),
       user: { login: 'untrusted-human' },
