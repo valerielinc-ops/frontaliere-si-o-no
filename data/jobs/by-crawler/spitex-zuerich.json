@@ -1,7 +1,7 @@
 {
   "crawlerKey": "spitex-zuerich",
-  "assembledAt": "2026-11-06T21:55:47.428Z",
-  "runId": "42295400532",
+  "assembledAt": "2026-11-07T09:30:26.047Z",
+  "runId": "42359067791",
   "jobs": [
     {
       "id": "spitex-zuerich-aa734f3415ba",
@@ -35,7 +35,7 @@
       "url": "https://spitex-zuerich.onlyfy.jobs/de/job/43jag5jtai5x0utbf4ywxr8l5payjlq",
       "source": "Spitex Zürich Dedicated Parser (softgarden onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T21:55:42.062Z",
+      "crawledAt": "2026-11-07T09:30:20.522Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -87,7 +87,7 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-04T21:55:42.062Z",
+      "validThrough": "2027-02-05T09:30:20.522Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -122,7 +122,7 @@
       "url": "https://spitex-zuerich.onlyfy.jobs/de/job/yokseq8dxgpbtffdcsdh3mm658g4o84",
       "source": "Spitex Zürich Dedicated Parser (softgarden onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T21:55:40.779Z",
+      "crawledAt": "2026-11-07T09:30:19.551Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -165,7 +165,7 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-04T21:55:40.779Z",
+      "validThrough": "2027-01-04T09:30:19.551Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -200,7 +200,7 @@
       "url": "https://spitex-zuerich.onlyfy.jobs/de/job/cjo4ai0y4m3ynl7pxfi0qinbgdwkm1e",
       "source": "Spitex Zürich Dedicated Parser (softgarden onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T21:55:39.498Z",
+      "crawledAt": "2026-11-07T09:30:18.137Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -253,7 +253,7 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-24T21:55:39.498Z",
+      "validThrough": "2026-12-25T09:30:18.137Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -288,7 +288,7 @@
       "url": "https://spitex-zuerich.onlyfy.jobs/de/job/jzni3a9y33rycfe1yv6io2sh48gqojf",
       "source": "Spitex Zürich Dedicated Parser (softgarden onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T21:55:38.204Z",
+      "crawledAt": "2026-11-07T09:30:16.765Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -315,6 +315,7 @@
           "berufsbildner-in-fur-fage-auszubildende-70-100-a-spitex-zuerich-zurich"
         ]
       },
+      "firstSeenAt": "2026-11-06T21:55:38.204Z",
       "salaryMin": 82000,
       "salaryMax": 114500,
       "salarySource": "estimated",
@@ -330,9 +331,8 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-04T21:55:38.204Z",
-      "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-06T21:55:38.204Z"
+      "validThrough": "2027-02-05T09:30:16.765Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "spitex-zuerich-f43b449766e9",
@@ -366,7 +366,7 @@
       "url": "https://spitex-zuerich.onlyfy.jobs/de/job/5771uviifporguue2ei1cz0s4hfatvk",
       "source": "Spitex Zürich Dedicated Parser (softgarden onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T21:55:36.924Z",
+      "crawledAt": "2026-11-07T09:30:15.392Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -417,16 +417,16 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-17T21:55:36.924Z",
+      "validThrough": "2027-01-18T09:30:15.392Z",
       "validThroughSource": "last-observed-window"
     },
     {
       "id": "spitex-zuerich-26799eb4590a",
       "slug": "salute-professionale-fage-servizio-serale-nella-piscina-interna-30-60-a-spitex-zurich-zurich",
       "slugByLocale": {
-        "de": "fachfrau-mann-gesundheit-fage-abenddienst-im-internen-pool-30-60-a-spitex-zuerich-zurich",
         "it": "salute-professionale-fage-servizio-serale-nella-piscina-interna-30-60-a-spitex-zurich-zurich",
         "en": "professional-health-fage-evening-service-in-the-internal-pool-30-60-a-spitex-zurich-zurich",
+        "de": "fachfrau-mann-gesundheit-fage-abenddienst-im-internen-pool-30-60-a-spitex-zuerich-zurich",
         "fr": "sante-professionnelle-fage-service-en-soiree-dans-la-piscine-interne-30-60-a-spitex-zurich-zurich"
       },
       "company": "Spitex Zürich",
@@ -446,13 +446,13 @@
         "en": "For long sleepers: Care in the evening service, how it suits you.\n\n(a)lle are addressed. Gender, origin, age? We are interested in your qualification and enthusiasm for work.\n\nMorgen's Sleep, Evening Works\n\nYou are not an early riser – but wide awake when others go to work?\nThen the evening service in the internal Spitex pool suits you perfectly.\nWith us, you decide when you work – without a rigid operational plan:\n• Do you prefer to start the day comfortably and start at night?\n• Do you like the calm mood when the city is slowly coming to rest?\n• You are looking for stakes with meaning, but without 100% clocking?\nThen take care of it as it fits your rhythm.\n\nYou find us.\n• Care with evening sun: You accompany customers into the evening – with closeness, structure and heart.\n• Variety guaranteed: Operations in four Zurich regions possible, little administration, a lot of practice.\n• Free planning: Using our pool tool, you can choose your own services – spontaneously or in the long term.\n• Support guaranteed: Our coach trio is at your side with feedback, tips and support.\n• Fixed employment, flexible reality: employment on an hourly or monthly basis with attractive benefits\n\nYou bring with you\n• Independence, openness and responsibility\n• Joy at work in the evening and at real encounters\n• Good German in Word and Writing\nSpitex Zurich – Care rethought.\nIn the internal pool you will find freedom, meaning and real quality of life – for you and the people you accompany.\nReady to make your evening meaningful? Then we look forward to you – long sleepers welcome!\n\n• Working hours: part-time / full-time",
         "fr": "Pour les longs dormants: soins dans le service du soir, comme il vous convient.\n\n(a)lle sont adressées. Sexe, origine, âge ? Nous sommes intéressés par votre qualification et votre enthousiasme pour le travail.\n\nMorgen dort, travaille le soir\n\nVous n'êtes pas un éveil précoce – mais un grand réveil quand les autres vont travailler?\nPuis le service du soir dans la piscine interne Spitex vous convient parfaitement.\nAvec nous, vous décidez quand vous travaillez – sans plan opérationnel rigide:\n• Vous préférez commencer la journée confortablement et commencer la nuit?\n• Vous aimez le calme quand la ville se repose lentement ?\n• Vous cherchez des enjeux avec un sens, mais sans 100% d'horloge ?\nAlors prenez soin de lui comme il correspond à votre rythme.\n\nTrouvez-nous.\n• Soin du soleil du soir: Vous accompagnez les clients dans la soirée – avec proximité, structure et cœur.\n• Variété garantie : Opérations dans quatre régions de Zurich possibles, peu d'administration, beaucoup de pratique.\n• Planification gratuite : Avec notre outil de piscine, vous pouvez choisir vos propres services – spontanément ou à long terme.\n• Support garanti: Notre trio coach est à vos côtés avec des commentaires, des conseils et du soutien.\n• Emploi fixe, réalité flexible: emploi horaire ou mensuel bénéficiant d'avantages intéressants\n\nTu amènes avec toi\n• Indépendance, ouverture et responsabilité\n• Joy au travail le soir et lors de vraies rencontres\n• Bon allemand dans la Parole et l'écriture\nSpitex Zurich – Repensé soin.\nDans la piscine interne vous trouverez la liberté, le sens et la qualité de vie réelle – pour vous et les personnes que vous accompagnez.\nPrêt à rendre votre soirée significative ? Ensuite, nous vous attendons avec impatience – de longs sommeils bienvenus!\n\n• Heures de travail: temps partiel / temps plein"
       },
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "location": "Zürich",
       "canton": "ZH",
       "url": "https://spitex-zuerich.onlyfy.jobs/de/job/pu8ir3fqh979nrk70plj684tmjxle2t",
       "source": "Spitex Zürich Dedicated Parser (softgarden onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T21:55:35.643Z",
+      "crawledAt": "2026-11-07T09:30:14.451Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -470,9 +470,7 @@
       "postingDateSource": "unknown",
       "applyUrl": "https://spitex-zuerich.onlyfy.jobs/de/job/pu8ir3fqh979nrk70plj684tmjxle2t",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "it": [
           "fachfrau-mann-gesundheit-fage-abenddienst-im-internen-pool-30-60-a-spitex-zuerich-zurich"
@@ -496,7 +494,7 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-08T21:55:35.643Z",
+      "validThrough": "2026-12-09T09:30:14.451Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-09-09T13:54:38.538Z"
     },
@@ -504,9 +502,9 @@
       "id": "spitex-zuerich-a59dee97e623",
       "slug": "ausbildungsplatz-fachfrau-mann-betreuung-fabe-cfc-specializzazione-mia-august-2027-a-spitex-zurich",
       "slugByLocale": {
-        "de": "ausbildungsplatz-fachfrau-mann-betreuung-fabe-efz-fachrichtung-mia-august-2027-a-spitex",
         "it": "ausbildungsplatz-fachfrau-mann-betreuung-fabe-cfc-specializzazione-mia-august-2027-a-spitex-zurich",
         "en": "ausbildungsplatz-fachfrau-mann-betreuung-fabe-cfc-specializzazione-mia-august-2027-a-spitex-zurich",
+        "de": "ausbildungsplatz-fachfrau-mann-betreuung-fabe-efz-fachrichtung-mia-august-2027-a-spitex",
         "fr": "ausbildungsplatz-fachfrau-mann-betreuung-fabe-cfc-specializzazione-mia-august-2027-a-spitex-zurich"
       },
       "company": "Spitex Zürich",
@@ -532,7 +530,7 @@
       "url": "https://spitex-zuerich.onlyfy.jobs/de/job/py24tr8kcwhav0qwm3dfaqbpuitj0rs",
       "source": "Spitex Zürich Dedicated Parser (softgarden onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T21:55:34.365Z",
+      "crawledAt": "2026-11-07T09:30:13.088Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -550,9 +548,7 @@
       "postingDateSource": "unknown",
       "applyUrl": "https://spitex-zuerich.onlyfy.jobs/de/job/py24tr8kcwhav0qwm3dfaqbpuitj0rs",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "it": [
           "ausbildungsplatz-fachfrau-mann-betreuung-fabe-efz-fachrichtung-mia-august-2027-a-spitex"
@@ -576,17 +572,18 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-04T21:55:34.365Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-02-05T09:30:13.088Z",
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-11-07T09:30:13.088Z"
     },
     {
       "id": "spitex-zuerich-a80d399a2ad3",
       "slug": "project-manager-staff-del-direttore-generale-a-80-100-vitrea-gesundheit-seewis-im-prattigau",
       "slugByLocale": {
         "de": "projektleiterin-stabstelle-des-geschaftsfuhrers-a-80-100-vitrea-gesundheit-seewis-im",
+        "it": "project-manager-staff-del-direttore-generale-a-80-100-vitrea-gesundheit-seewis-im-prattigau",
         "en": "project-manager-ceo-s-office-a-80-100-vitrea-gesundheit-seewis-im-prattigau",
-        "fr": "responsable-de-projet-bureau-du-directeur-general-a-80-100-vitrea-gesundheit-seewis-im-prattigau",
-        "it": "project-manager-staff-del-direttore-generale-a-80-100-vitrea-gesundheit-seewis-im-prattigau"
+        "fr": "responsable-de-projet-bureau-du-directeur-general-a-80-100-vitrea-gesundheit-seewis-im-prattigau"
       },
       "company": "Spitex Zürich",
       "companyKey": "spitex-zuerich",
@@ -605,13 +602,13 @@
         "en": "Take care of it as it suits you!\n\n(a)lle are addressed. Gender, origin, age? We are interested in your qualification and enthusiasm for work.\n\nYou Decide the Act - We Deliver the FRAMEWORK\n• You want to work, but not stuck in the rigid working time system? With us you are free:\n• Only in the morning after your children start school?\n• Only night services or weekend assignments?\n• Available seasonally, e.g. March to October?\n• You are continuing to educate yourself and still want to remain active in the nursing profession and earn money?\nWe adapt to your life. As a care professional in the internal Spitex pool, you design when and where you work – with support, structure and meaning.\n\nYou find us.\n• Diversity instead of routine: You work in changing teams in four regions in the city of Zurich and are less involved in administrative tasks – always where your skills are in demand.\n• Spontaneous or planned: You take over services flexibly via our pool tool – according to your calendar.\n• Learning with every effort: Whether memory care with closeness and everyday life or somatic care with technique and speed – you are in the middle of life and develop professionally.\n• You are never alone: A dedicated coach trio accompanies you. Feedback, questions or new goals – we are there\n• Fixed employment, flexible reality: hourly or monthly wage with attractive benefits\n\nYou bring with you\n• Training as a qualified nurse (HF/FH/AKP/DN II)\n• Independence, sense of responsibility and openness\n• Good German in Word and Writing\n• On the way with the e-bike – in any weather\n• Enjoy flexible working – and supporting people The internal pool is more than a side job. It is your space for meaningful care with quality of life – for your customers and for you.\n\n• Working hours: part-time / full-time",
         "fr": "Prends soin de ça comme il te convient !\n\n(a)lle sont adressées. Sexe, origine, âge ? Nous sommes intéressés par votre qualification et votre enthousiasme pour le travail.\n\nVous décidez de la loi - Nous livrons le cadre\n• Vous voulez travailler, mais pas coincé dans le système de temps de travail rigide? Avec nous vous êtes libres:\n• Seulement le matin après le début de l'école ?\n• Seulement des services de nuit ou des affectations de week-end?\n• Disponibles en saison, par exemple de mars à octobre?\n• Vous continuez à vous éduquer et voulez toujours rester actif dans la profession infirmière et gagner de l'argent?\nNous nous adaptons à votre vie. En tant que professionnel de soins dans la piscine interne Spitex, vous concevez quand et où vous travaillez – avec support, structure et signification.\n\nTrouvez-nous.\n• Diversité au lieu de routine : Vous travaillez dans des équipes changeantes dans quatre régions de la ville de Zurich et êtes moins impliqués dans des tâches administratives – toujours là où vos compétences sont en demande.\n• Spontaneous or planified: Vous prenez en charge les services avec souplesse via notre outil de piscine – selon votre calendrier.\n• Apprendre avec tous les efforts : que ce soit le soin de la mémoire avec proximité et la vie quotidienne ou le soin somatique avec la technique et la vitesse – vous êtes au milieu de la vie et développez professionnellement.\n• Vous n'êtes jamais seul : un trio de coach dédié vous accompagne. Commentaires, questions ou nouveaux objectifs – nous sommes là\n• Emploi fixe, réalité flexible: salaire horaire ou mensuel avec avantages attractifs\n\nTu amènes avec toi\n• Formation en tant qu ' infirmière qualifiée (HF/FH/AKP/DN II)\n• Indépendance, sens des responsabilités et ouverture\n• Bon allemand dans la Parole et l'écriture\n• En route avec l'e-bike – par tous les temps\n• Profitez d'un travail flexible – et d'un soutien personnel La piscine interne est plus qu'un travail secondaire. C'est votre espace pour un soin significatif avec la qualité de vie – pour vos clients et pour vous.\n\n• Heures de travail: temps partiel / temps plein"
       },
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "location": "Zürich",
       "canton": "ZH",
       "url": "https://spitex-zuerich.onlyfy.jobs/de/job/0fvlry9hj8ewyuwwbwjwojxpwte083e",
       "source": "Spitex Zürich Dedicated Parser (softgarden onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T21:55:33.460Z",
+      "crawledAt": "2026-11-07T09:30:11.702Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -629,9 +626,7 @@
       "postingDateSource": "unknown",
       "applyUrl": "https://spitex-zuerich.onlyfy.jobs/de/job/0fvlry9hj8ewyuwwbwjwojxpwte083e",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachfrau-mann-mit-fallfuhrung-psychiatrie-60-a-spitex-zuerich-zurich",
@@ -661,16 +656,17 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-04T21:55:33.460Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-02-05T09:30:11.702Z",
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-11-07T09:30:11.702Z"
     },
     {
       "id": "spitex-zuerich-f1b81bf1d50f",
       "slug": "psichiatria-professionale-infermieristica-con-responsabilita-diurna-tav-60-100-a-spitex-zurich-zurich",
       "slugByLocale": {
-        "de": "dipl-pflegefachfrau-mann-psychiatrie-mit-tagesverantwortung-tav-60-100-a-spitex-zuerich",
         "it": "psichiatria-professionale-infermieristica-con-responsabilita-diurna-tav-60-100-a-spitex-zurich-zurich",
         "en": "dipl-nursing-professional-psychiatry-with-daytime-responsibility-tav-60-100-a-spitex-zurich-zurich",
+        "de": "dipl-pflegefachfrau-mann-psychiatrie-mit-tagesverantwortung-tav-60-100-a-spitex-zuerich",
         "fr": "dipl-psychiatrie-professionnelle-infirmiere-avec-responsabilite-diurne-tav-60-100-a-spitex-zurich-zurich"
       },
       "company": "Spitex Zürich",
@@ -690,13 +686,13 @@
         "en": "Do you want to combine coordination, advisory and direct nursing tasks in one function? Then this job could be just right for you!\nIn this versatile role, you combine psychiatric care with triage, customer management and professional advice. At the same time, you accompany people in demanding life situations and actively participate in the further development of our offer Mental Care.\n\n(a)lle are addressed. Gender, origin, age? We are interested in your qualification and enthusiasm for work.\n\nYOUR TASKS\n• Case management and needs assessment in the area of mental care\n• Triage, prioritization and coordination of customer registrations\n• Networking and cooperation with all mental care teams\n• Participation in the development of the new team and participation in the implementation and further development of processes\n\nYou find us.\n• Working days from Monday to Friday\n• A versatile and meaningful function with a lot of responsibility, independence and scope for design\n• A well-established offer in psychosocial care for the city of Zurich\n• Attractive employment conditions, excellent social benefits and a wide range of further education and training opportunities. Further benefits can be found here: https://jobs.spitex-zuerich.ch/benefits/\n\nYou bring with you\n• Courage to try things and go new ways\n• Completed nursing training at tertiary level, at least 2 years of professional experience in psychiatry and NANDA skills\n• Experience in case management, triage or intake processes is beneficial\n• Safety in the assessment of complex psychosocial situations as well as affinity for people in psychologically stressful situations\n• Independent, structured and solution-oriented working method with high decision-making and organizational competence\n• Very good knowledge of German in word and writing (min. B2)\nIsn't that the right job for you? Then take a look at our other positions or contact an HR coach to discuss further possibilities.\n\n• Working hours: part-time / full-time",
         "fr": "Voulez-vous combiner les tâches de coordination, de conseil et de soins infirmiers directs dans une fonction? Alors ce travail pourrait être juste pour vous !\nDans ce rôle polyvalent, vous combinez soins psychiatriques avec triage, gestion de la clientèle et conseils professionnels. En même temps, vous accompagnez les gens dans des situations de vie exigeantes et participez activement au développement de notre offre de soins mentaux.\n\n(a)lle sont adressées. Sexe, origine, âge ? Nous sommes intéressés par votre qualification et votre enthousiasme pour le travail.\n\nVos tâches\n• Gestion des cas et évaluation des besoins dans le domaine des soins mentaux\n• Triage, hiérarchisation et coordination des inscriptions des clients\n• Réseautage et coopération avec toutes les équipes de soins mentaux\n• Participation au développement de la nouvelle équipe et participation à la mise en œuvre et au développement des processus\n\nTrouvez-nous.\n• Jours ouvrables du lundi au vendredi\n• Une fonction polyvalente et significative avec beaucoup de responsabilités, d'indépendance et de possibilités de conception\n• Une offre bien établie en soins psychosociaux pour la ville de Zurich\n• Des conditions d'emploi attrayantes, d'excellentes prestations sociales et un large éventail de possibilités d'éducation et de formation complémentaires. D'autres avantages peuvent être trouvés ici: https://jobs.spitex-zuerich.ch/ benefits/\n\nTu amènes avec toi\n• Courage pour essayer les choses et aller de nouvelles façons\n• Achevé la formation en sciences infirmières au niveau tertiaire, au moins 2 ans d'expérience professionnelle en psychiatrie et en compétences NANDA\n• L'expérience en gestion de cas, triage ou processus d'admission est bénéfique\n• Sécurité dans l'évaluation des situations psychosociales complexes ainsi que l'affinité pour les personnes en situation psychologiquement stressante\n• Méthode de travail indépendante, structurée et axée sur les solutions, avec une haute compétence en matière de prise de décisions et d'organisation\n• Très bonne connaissance de l'allemand dans la parole et l'écriture (min. B2)\nCe n'est pas le bon boulot pour toi ? Ensuite, jetez un oeil à nos autres postes ou contactez un entraîneur RH pour discuter d'autres possibilités.\n\n• Heures de travail: temps partiel / temps plein"
       },
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "location": "Zürich",
       "canton": "ZH",
       "url": "https://spitex-zuerich.onlyfy.jobs/de/job/o2zrmakgo0d30685qtppv1tq8orjk7m",
       "source": "Spitex Zürich Dedicated Parser (softgarden onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T21:55:30.920Z",
+      "crawledAt": "2026-11-07T09:30:09.513Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -714,9 +710,7 @@
       "postingDateSource": "unknown",
       "applyUrl": "https://spitex-zuerich.onlyfy.jobs/de/job/o2zrmakgo0d30685qtppv1tq8orjk7m",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachfrau-mann-psychiatrie-mit-tagesverantwortung-tav-60-100-a-spitex-zuerich"
@@ -740,7 +734,7 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-10T21:55:30.920Z",
+      "validThrough": "2026-12-10T09:30:09.513Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-09-10T23:17:30.321Z"
     },
@@ -824,7 +818,7 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-19T09:31:44.389Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "spitex-zuerich-3d14b35acd0a",
@@ -903,7 +897,7 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-04T09:31:43.385Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "spitex-zuerich-6ad30252704c",
@@ -985,7 +979,7 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-13T09:31:42.605Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "spitex-zuerich-fa06da56b8bf",
@@ -1064,7 +1058,7 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-29T09:31:41.552Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "spitex-zuerich-c92d56fb2361",
@@ -1155,7 +1149,7 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-25T09:31:40.728Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     }
   ]
 }

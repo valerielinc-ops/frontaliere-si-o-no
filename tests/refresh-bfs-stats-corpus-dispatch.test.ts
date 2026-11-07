@@ -87,24 +87,14 @@ beforeAll(() => {
 describe('il dispatch punta al corpus, non a questo repo (#5289 non si ripete)', () => {
   it('esiste uno step che dispaccia generate-article.yml sul repo del corpus', () => {
     expect(dispatch).toBeDefined();
-    expect(dispatch.run).toContain('gh workflow run generate-article.yml');
-    expect(dispatch.run).toContain(`--repo ${CORPUS}`);
+    expect(dispatch.run).toContain('dispatch_workflow_once generate-article.yml');
+    expect(dispatch.run).toContain('source scripts/lib/github-workflow-dispatch-with-retry.sh');
   });
 
-  it('OGNI `gh workflow run` ESEGUITO dal workflow è indirizzato al corpus', () => {
-    // È l'invariante che impedisce il ritorno di #5289: un dispatch senza `--repo`
-    // colpisce il repo corrente, cioè il produttore ritirato che si ri-dispaccia.
-    // Si guardano gli step ESEGUITI, non il testo grezzo: i commenti e i corpi delle
-    // issue citano legittimamente il comando senza eseguirlo.
-    const dispatching = steps.filter((s) => s.run?.includes('gh workflow run'));
-    expect(dispatching.length).toBeGreaterThan(0);
-    for (const step of dispatching) {
-      for (const line of step.run!.split('\n').filter((l) => l.includes('gh workflow run'))) {
-        // Il comando è multi-riga (continuazioni con `\`), quindi si verifica il blocco.
-        expect(line).toContain('generate-article.yml');
-      }
-      expect(step.run).toContain(`--repo ${CORPUS}`);
-    }
+  it('il helper comune riceve sempre il repo del corpus', () => {
+    expect(dispatch.run).toContain('dispatch_workflow_once generate-article.yml');
+    expect(dispatch.run).toContain(CORPUS);
+    expect(dispatch.run).not.toContain('GH_TOKEN="$GITHUB_PAT_NANAKO" gh workflow run');
   });
 
   it('il workflow non richiede `actions: write` locale: il dispatch è cross-repo e PAT-autenticato', () => {
@@ -127,18 +117,23 @@ describe('il dispatch scatta SOLO sulla transizione di trimestre', () => {
   it('rileva il contratto sul branch main e non invia input sconosciuti', () => {
     expect(dispatch.run).toContain('gh workflow view generate-article.yml');
     expect(dispatch.run).toContain('node functions/src/generationWorkflowContract.js');
+    expect(dispatch.run).toContain("grep -Eq '^      source_key:'");
+    expect(dispatch.run).toContain('workflow_dispatch_source_key');
+    expect(dispatch.run).toContain('-f "source_key=$source_key"');
     expect(dispatch.run).toContain('dispatch_corpus_article() {');
     expect(dispatch.run).toContain('-f dispatch_origin=editorial_signal "$@"');
     expect(dispatch.run).toContain('dispatch_corpus_article -f url=');
+    expect(dispatch.run).toContain('if ! dispatch_corpus_article -f url=');
+    expect(dispatch.run).toContain('Dispatch corpus fallito');
     expect(dispatch.run).not.toContain('origin_args[@]');
-    expect(dispatch.run.indexOf('gh workflow view')).toBeLessThan(dispatch.run.indexOf('gh workflow run'));
+    expect(dispatch.run.indexOf('gh workflow view')).toBeLessThan(dispatch.run.indexOf('dispatch_workflow_once'));
   });
 });
 
 describe('gli altri segnali editoriali dichiarano la propria origine', () => {
   it('i tre dispatch Astra rilevano il contratto prima di passare l’origine', () => {
     const astra = readFileSync(ASTRA_WORKFLOW, 'utf8');
-    const dispatches = astra.match(/gh workflow run generate-article\.yml/g) || [];
+    const dispatches = astra.match(/dispatch_workflow_once generate-article\.yml/g) || [];
     const origins = astra.match(/-f dispatch_origin=editorial_signal "\$@"/g) || [];
     const dispatchFunctions = astra.match(/dispatch_article\(\) \{/g) || [];
     const calls = astra.match(/if dispatch_article -f url=/g) || [];
@@ -149,6 +144,8 @@ describe('gli altri segnali editoriali dichiarano la propria origine', () => {
     expect(dispatches).toHaveLength(dispatchFunctions.length * 2);
     expect(astra).not.toContain('origin_args[@]');
     expect(astra).toContain('node functions/src/generationWorkflowContract.js');
+    expect(astra).toContain("grep -Eq '^      source_key:'");
+    expect(astra).toContain('workflow_dispatch_source_key');
   });
 });
 
@@ -244,7 +241,8 @@ describe('il PAT viene da Remote Config e non finisce nei log', () => {
 
   it('GITHUB_PAT_NANAKO è referenziata per NOME, mai interpolata da Actions', () => {
     // `${{ env.GITHUB_PAT_NANAKO }}` metterebbe il segreto nella command line espansa.
-    expect(dispatch.run).toContain('GH_TOKEN="$GITHUB_PAT_NANAKO"');
+    expect(dispatch.run).toContain('source scripts/lib/github-workflow-dispatch-with-retry.sh');
+    expect(dispatch.run).toContain('${GITHUB_PAT_NANAKO:-}');
     expect(raw).not.toContain('${{ env.GITHUB_PAT_NANAKO }}');
     expect(raw).not.toContain('secrets.GITHUB_PAT_NANAKO');
   });

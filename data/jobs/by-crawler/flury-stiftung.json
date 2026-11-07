@@ -1,7 +1,7 @@
 {
   "crawlerKey": "flury-stiftung",
-  "assembledAt": "2026-11-06T21:58:53.703Z",
-  "runId": "42296148190",
+  "assembledAt": "2026-11-07T09:44:40.449Z",
+  "runId": "42359452033",
   "jobs": [
     {
       "id": "flury-stiftung-e3c629d4f6e6",
@@ -34,7 +34,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2026-02/Lehrstelle%20Fachfperson%20Hotellerie-Hauswirtschaft%202027.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T21:58:45.148Z",
+      "crawledAt": "2026-11-07T09:44:28.695Z",
       "addressLocality": "Schiers",
       "postalCode": "7220",
       "addressCountry": "CH",
@@ -100,7 +100,7 @@
       },
       "streetAddress": "Tersierstrasse",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-06T21:58:45.148Z",
+      "validThrough": "2026-12-07T09:44:28.695Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -134,7 +134,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2026-10/MPA_MZK.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T21:58:43.160Z",
+      "crawledAt": "2026-11-07T09:44:28.342Z",
       "addressLocality": "Klosters",
       "postalCode": "7250",
       "addressCountry": "CH",
@@ -187,7 +187,7 @@
       "addressRegion": "GR",
       "streetAddress": "Klosters",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-01T21:58:43.160Z",
+      "validThrough": "2027-01-01T09:44:28.342Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -221,7 +221,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2026-03/Praxisassistenz%20Hausarztmedizin%2050-100%25.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T21:58:41.031Z",
+      "crawledAt": "2026-11-07T09:44:27.987Z",
       "addressLocality": "Klosters",
       "postalCode": "7250",
       "addressCountry": "CH",
@@ -286,7 +286,7 @@
       "addressRegion": "GR",
       "streetAddress": "Klosters",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-06T21:58:41.031Z",
+      "validThrough": "2026-12-07T09:44:27.987Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -320,7 +320,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2026-07/Inserat_Dipl_Pflegefachperson_Fachperson%20Gesundheit_80-100_0.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T21:58:40.647Z",
+      "crawledAt": "2026-11-07T09:44:27.627Z",
       "addressLocality": "Jenaz",
       "postalCode": "7233",
       "addressCountry": "CH",
@@ -423,7 +423,7 @@
       "addressRegion": "GR",
       "streetAddress": "Jenaz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-06T21:58:40.647Z",
+      "validThrough": "2026-12-07T09:44:27.627Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -457,7 +457,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2026-10/Inserat_Stationsleitung_AHJ_Demenz_80-100_0_1.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T21:58:40.269Z",
+      "crawledAt": "2026-11-07T09:44:27.245Z",
       "addressLocality": "Jenaz",
       "postalCode": "7233",
       "addressCountry": "CH",
@@ -512,17 +512,17 @@
       "addressRegion": "GR",
       "streetAddress": "Jenaz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-18T21:58:40.269Z",
+      "validThrough": "2027-01-19T09:44:27.245Z",
       "validThroughSource": "last-observed-window"
     },
     {
       "id": "flury-stiftung-de2dfd255ba9",
       "slug": "fachperson-gesundheit-o-dipl-pflegefachperson-hf-fh-50-im-nachtdienst-altersheim-schiers-flury-stiftung-schiers",
       "slugByLocale": {
-        "de": "fachperson-gesundheit-oder-dipl-pflegefachperson-hf-fh-50-im-nachtdienst-altersheim",
         "it": "fachperson-gesundheit-o-dipl-pflegefachperson-hf-fh-50-im-nachtdienst-altersheim-schiers-flury-stiftung-schiers",
-        "en": "fachperson-gesundheit-oder-dipl-pflegefachperson-hf-fh-50-im-nachtdienst-altersheim",
-        "fr": "fachperson-gesundheit-oder-dipl-pflegefachperson-hf-fh-50-im-nachtdienst-altersheim"
+        "en": "specialist-health-or-dipl-nursing-professional-hf-fh-50-on-night-work-schiers-retirement-home-flury-stiftung-schiers",
+        "de": "fachperson-gesundheit-oder-dipl-pflegefachperson-hf-fh-50-im-nachtdienst-altersheim",
+        "fr": "specialiste-sante-ou-dipl-soins-infirmiers-professionnels-hf-fh-50-sur-le-travail-de-nuit-schiers-maison-de-retraite"
       },
       "company": "Flury Stiftung",
       "companyKey": "flury-stiftung",
@@ -546,7 +546,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2026-11/FaGe%20oder%20Dipl.%20Pflegefachperson%20HF_FH%20%28w_m%29%2050%25%20AHS_%20Nachtdienst.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T21:58:37.261Z",
+      "crawledAt": "2026-11-07T09:44:26.868Z",
       "addressLocality": "Schiers",
       "postalCode": "7220",
       "addressCountry": "CH",
@@ -563,16 +563,20 @@
       "postingDateSource": "unknown",
       "applyUrl": "https://www.flurystiftung.ch/sites/default/files/2026-11/FaGe%20oder%20Dipl.%20Pflegefachperson%20HF_FH%20%28w_m%29%2050%25%20AHS_%20Nachtdienst.pdf",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "department": "Altersheime",
       "pensum": "50%",
       "pensumMin": 50,
       "pensumMax": 50,
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "previousSlugsByLocale": {
         "it": [
+          "fachperson-gesundheit-oder-dipl-pflegefachperson-hf-fh-50-im-nachtdienst-altersheim"
+        ],
+        "en": [
+          "fachperson-gesundheit-oder-dipl-pflegefachperson-hf-fh-50-im-nachtdienst-altersheim"
+        ],
+        "fr": [
           "fachperson-gesundheit-oder-dipl-pflegefachperson-hf-fh-50-im-nachtdienst-altersheim"
         ]
       },
@@ -606,7 +610,7 @@
       },
       "streetAddress": "Tersierstrasse",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-04T21:58:37.261Z",
+      "validThrough": "2027-02-05T09:44:26.868Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-06T21:58:37.261Z"
     },
@@ -641,7 +645,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2026-10/Dipl.%20Pflegefachperson%20HF_FH%20%28w_m%29%2080-100%25%20AHS.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T21:58:34.428Z",
+      "crawledAt": "2026-11-07T09:44:26.486Z",
       "addressLocality": "Schiers",
       "postalCode": "7220",
       "addressCountry": "CH",
@@ -705,7 +709,7 @@
       },
       "streetAddress": "Tersierstrasse",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-04T21:58:34.428Z",
+      "validThrough": "2027-01-04T09:44:26.486Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -739,7 +743,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2026-08/FAGE%2080-100%25%20Altersheim%20Schiers.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T21:58:31.696Z",
+      "crawledAt": "2026-11-07T09:44:26.093Z",
       "addressLocality": "Schiers",
       "postalCode": "7220",
       "addressCountry": "CH",
@@ -806,17 +810,17 @@
       },
       "streetAddress": "Tersierstrasse",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-06T21:58:31.696Z",
+      "validThrough": "2026-12-07T09:44:26.093Z",
       "validThroughSource": "last-observed-window"
     },
     {
       "id": "flury-stiftung-1fcbb4730196",
       "slug": "fachperson-gesundheit-o-pflegefachperson-hf-fh-80-100-altersheim-klosters-flury-stiftung-klosters",
       "slugByLocale": {
-        "de": "fachperson-gesundheit-oder-pflegefachperson-hf-fh-80-100-altersheim-klosters-flury",
         "it": "fachperson-gesundheit-o-pflegefachperson-hf-fh-80-100-altersheim-klosters-flury-stiftung-klosters",
-        "en": "fachperson-gesundheit-oder-pflegefachperson-hf-fh-80-100-altersheim-klosters-flury",
-        "fr": "fachperson-gesundheit-oder-pflegefachperson-hf-fh-80-100-altersheim-klosters-flury"
+        "en": "health-care-professional-hf-fh-80-100-retirement-home-klosters-flury-stiftung-klosters",
+        "de": "fachperson-gesundheit-oder-pflegefachperson-hf-fh-80-100-altersheim-klosters-flury",
+        "fr": "professionnels-de-la-sante-hf-fh-80-100-maisons-de-retraite-klosters-flury-stiftung-klosters"
       },
       "company": "Flury Stiftung",
       "companyKey": "flury-stiftung",
@@ -840,7 +844,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2026-11/26_11_06_FAGE%20oder%20HF%2080-100%25%20Altersheim%20Klosters_1.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T21:58:31.310Z",
+      "crawledAt": "2026-11-07T09:44:25.720Z",
       "addressLocality": "Klosters",
       "postalCode": "7250",
       "addressCountry": "CH",
@@ -857,16 +861,20 @@
       "postingDateSource": "unknown",
       "applyUrl": "https://www.flurystiftung.ch/sites/default/files/2026-11/26_11_06_FAGE%20oder%20HF%2080-100%25%20Altersheim%20Klosters_1.pdf",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "department": "Altersheime",
       "pensum": "80 - 100%",
       "pensumMin": 80,
       "pensumMax": 100,
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "previousSlugsByLocale": {
         "it": [
+          "fachperson-gesundheit-oder-pflegefachperson-hf-fh-80-100-altersheim-klosters-flury"
+        ],
+        "en": [
+          "fachperson-gesundheit-oder-pflegefachperson-hf-fh-80-100-altersheim-klosters-flury"
+        ],
+        "fr": [
           "fachperson-gesundheit-oder-pflegefachperson-hf-fh-80-100-altersheim-klosters-flury"
         ]
       },
@@ -889,18 +897,18 @@
       "addressRegion": "GR",
       "streetAddress": "Klosters",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-04T21:58:31.310Z",
+      "validThrough": "2027-02-05T09:44:25.720Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-06T21:58:31.310Z"
     },
     {
       "id": "flury-stiftung-148bb6f6b9d5",
-      "slug": "fachperson-gesundheit-nachtwache-30-50-altersheim-klosters-flury-stiftung-ch",
+      "slug": "specialist-health-night-watch-30-50-casa-di-riposo-klosters-flury-stiftung-klosters",
       "slugByLocale": {
+        "it": "specialist-health-night-watch-30-50-casa-di-riposo-klosters-flury-stiftung-klosters",
+        "en": "specialist-health-night-watch-30-50-retirement-home-klosters-flury-stiftung-klosters",
         "de": "fachperson-gesundheit-nachtwache-30-50-altersheim-klosters-flury-stiftung-ch",
-        "it": "fachperson-gesundheit-nachtwache-30-50-altersheim-klosters-flury-stiftung-ch",
-        "en": "fachperson-gesundheit-nachtwache-30-50-altersheim-klosters-flury-stiftung-ch",
-        "fr": "fachperson-gesundheit-nachtwache-30-50-altersheim-klosters-flury-stiftung-ch"
+        "fr": "garde-de-nuit-specialise-en-sante-30-50-maison-de-retraite-klosters-flury-stiftung-klosters"
       },
       "company": "Flury Stiftung",
       "companyKey": "flury-stiftung",
@@ -924,7 +932,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2026-11/2026_11_06_Inserat%20FaGe%20Nachtwache%2030-50%25_AHK_0.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T21:58:29.091Z",
+      "crawledAt": "2026-11-07T09:44:24.132Z",
       "addressLocality": "Klosters",
       "postalCode": "7250",
       "addressCountry": "CH",
@@ -941,9 +949,7 @@
       "postingDateSource": "unknown",
       "applyUrl": "https://www.flurystiftung.ch/sites/default/files/2026-11/2026_11_06_Inserat%20FaGe%20Nachtwache%2030-50%25_AHK_0.pdf",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "department": "Altersheime",
       "pensum": "30 - 50%",
       "pensumMin": 30,
@@ -964,18 +970,32 @@
       "addressRegion": "GR",
       "streetAddress": "Klosters",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-04T21:58:29.091Z",
+      "validThrough": "2027-02-05T09:44:24.132Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-06T21:58:29.091Z"
+      "firstSeenAt": "2026-11-06T21:58:29.091Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachperson-gesundheit-nachtwache-30-50-altersheim-klosters-flury-stiftung-ch"
+        ],
+        "en": [
+          "fachperson-gesundheit-nachtwache-30-50-altersheim-klosters-flury-stiftung-ch"
+        ],
+        "fr": [
+          "fachperson-gesundheit-nachtwache-30-50-altersheim-klosters-flury-stiftung-ch"
+        ]
+      },
+      "previousSlugs": [
+        "fachperson-gesundheit-nachtwache-30-50-altersheim-klosters-flury-stiftung-ch"
+      ]
     },
     {
       "id": "flury-stiftung-5d66327c13a9",
-      "slug": "fachperson-gesundheit-nachtwache-100-flury-stiftung-ch",
+      "slug": "professional-health-night-watch-100-flury-stiftung-schiers",
       "slugByLocale": {
+        "it": "professional-health-night-watch-100-flury-stiftung-schiers",
+        "en": "professional-health-night-watch-100-flury-stiftung-schiers",
         "de": "fachperson-gesundheit-nachtwache-100-flury-stiftung-ch",
-        "it": "fachperson-gesundheit-nachtwache-100-flury-stiftung-ch",
-        "en": "fachperson-gesundheit-nachtwache-100-flury-stiftung-ch",
-        "fr": "fachperson-gesundheit-nachtwache-100-flury-stiftung-ch"
+        "fr": "surveillance-de-la-sante-professionnelle-100-flury-stiftung-schiers"
       },
       "company": "Flury Stiftung",
       "companyKey": "flury-stiftung",
@@ -999,7 +1019,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2026-11/2026_11_%2006_Inserat%20FaGe%20Nachtwache-Splitting_100%25_AHK-AHS.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T21:58:27.049Z",
+      "crawledAt": "2026-11-07T09:44:22.582Z",
       "addressLocality": "Schiers",
       "postalCode": "7220",
       "addressCountry": "CH",
@@ -1016,9 +1036,7 @@
       "postingDateSource": "unknown",
       "applyUrl": "https://www.flurystiftung.ch/sites/default/files/2026-11/2026_11_%2006_Inserat%20FaGe%20Nachtwache-Splitting_100%25_AHK-AHS.pdf",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "department": "Altersheime",
       "pensum": "100%",
       "pensumMin": 100,
@@ -1050,9 +1068,23 @@
       },
       "streetAddress": "Tersierstrasse",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-04T21:58:27.049Z",
+      "validThrough": "2027-02-05T09:44:22.582Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-06T21:58:27.049Z"
+      "firstSeenAt": "2026-11-06T21:58:27.049Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachperson-gesundheit-nachtwache-100-flury-stiftung-ch"
+        ],
+        "en": [
+          "fachperson-gesundheit-nachtwache-100-flury-stiftung-ch"
+        ],
+        "fr": [
+          "fachperson-gesundheit-nachtwache-100-flury-stiftung-ch"
+        ]
+      },
+      "previousSlugs": [
+        "fachperson-gesundheit-nachtwache-100-flury-stiftung-ch"
+      ]
     },
     {
       "id": "flury-stiftung-d2d90052d654",
@@ -1085,7 +1117,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2022-07/20220719Unterassistenz%20Chirurgie_0.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T21:58:24.780Z",
+      "crawledAt": "2026-11-07T09:44:22.209Z",
       "addressLocality": "Schiers",
       "postalCode": "7220",
       "addressCountry": "CH",
@@ -1149,7 +1181,7 @@
       },
       "streetAddress": "Tersierstrasse",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-06T21:58:24.780Z",
+      "validThrough": "2026-12-07T09:44:22.209Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1183,7 +1215,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2023-06/20230426_unterassistenz_innere_medizin.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T21:58:24.355Z",
+      "crawledAt": "2026-11-07T09:44:21.818Z",
       "addressLocality": "Schiers",
       "postalCode": "7220",
       "addressCountry": "CH",
@@ -1248,7 +1280,7 @@
       },
       "streetAddress": "Tersierstrasse",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-06T21:58:24.355Z",
+      "validThrough": "2026-12-07T09:44:21.818Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1282,7 +1314,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2026-02/20220719%20Unterassistenz%20An%C3%A4sthesie.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T21:58:23.981Z",
+      "crawledAt": "2026-11-07T09:44:21.430Z",
       "addressLocality": "Schiers",
       "postalCode": "7220",
       "addressCountry": "CH",
@@ -1352,7 +1384,7 @@
       },
       "streetAddress": "Tersierstrasse",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-06T21:58:23.981Z",
+      "validThrough": "2026-12-07T09:44:21.430Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1386,7 +1418,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2023-08/assistenzarzt_innere_medizin_m_w_100.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T21:58:23.579Z",
+      "crawledAt": "2026-11-07T09:44:21.066Z",
       "addressLocality": "Schiers",
       "postalCode": "7220",
       "addressCountry": "CH",
@@ -1457,7 +1489,7 @@
       },
       "streetAddress": "Tersierstrasse",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-06T21:58:23.579Z",
+      "validThrough": "2026-12-07T09:44:21.066Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1491,7 +1523,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2026-03/Assistenz%C3%A4rztin_Assistenzarzt%20Chirurgie%20%28w_m%29_Neu_0.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T21:58:23.178Z",
+      "crawledAt": "2026-11-07T09:44:20.694Z",
       "addressLocality": "Schiers",
       "postalCode": "7220",
       "addressCountry": "CH",
@@ -1570,7 +1602,7 @@
       },
       "streetAddress": "Tersierstrasse",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-06T21:58:23.178Z",
+      "validThrough": "2026-12-07T09:44:20.694Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1604,7 +1636,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2026-10/Hebamme.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T21:58:19.631Z",
+      "crawledAt": "2026-11-07T09:44:20.312Z",
       "addressLocality": "Schiers",
       "postalCode": "7220",
       "addressCountry": "CH",
@@ -1668,7 +1700,7 @@
       },
       "streetAddress": "Tersierstrasse",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-26T21:58:19.631Z",
+      "validThrough": "2027-01-27T09:44:20.312Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1702,7 +1734,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2026-08/FaGe%20f%C3%BCr%20Tagesklinik%20Aufwachraum%20Notfall%20IMC%2080-100%25.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T21:58:16.922Z",
+      "crawledAt": "2026-11-07T09:44:19.941Z",
       "addressLocality": "Schiers",
       "postalCode": "7220",
       "addressCountry": "CH",
@@ -1766,7 +1798,7 @@
       },
       "streetAddress": "Tersierstrasse",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-06T21:58:16.922Z",
+      "validThrough": "2026-12-07T09:44:19.941Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1800,7 +1832,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2026-10/MPA%20oder%20FaGe%2080%20-%20100%25.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T21:58:16.527Z",
+      "crawledAt": "2026-11-07T09:44:19.559Z",
       "addressLocality": "Schiers",
       "postalCode": "7220",
       "addressCountry": "CH",
@@ -1858,7 +1890,7 @@
       },
       "streetAddress": "Tersierstrasse",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-24T21:58:16.527Z",
+      "validThrough": "2027-01-25T09:44:19.559Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1892,7 +1924,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2026-07/Radiologiefachperson_MTRA%2080%20-%20100%25%20Radiologie_Angiologie.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T21:58:13.859Z",
+      "crawledAt": "2026-11-07T09:44:19.156Z",
       "addressLocality": "Schiers",
       "postalCode": "7220",
       "addressCountry": "CH",
@@ -1956,17 +1988,17 @@
       },
       "streetAddress": "Tersierstrasse",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-06T21:58:13.859Z",
+      "validThrough": "2026-12-07T09:44:19.156Z",
       "validThroughSource": "last-observed-window"
     },
     {
       "id": "flury-stiftung-c2748dc1f60a",
       "slug": "dipl-pflegefachperson-notfall-imc-e-awr-50-100-flury-stiftung-schiers",
       "slugByLocale": {
-        "de": "dipl-pflegefachperson-notfall-imc-und-awr-50-100-flury-stiftung-ch",
         "it": "dipl-pflegefachperson-notfall-imc-e-awr-50-100-flury-stiftung-schiers",
-        "en": "dipl-pflegefachperson-notfall-imc-und-awr-50-100-flury-stiftung-ch",
-        "fr": "dipl-pflegefachperson-notfall-imc-und-awr-50-100-flury-stiftung-ch"
+        "en": "dipl-emergency-care-professional-imc-and-awr-50-100-flury-stiftung-schiers",
+        "de": "dipl-pflegefachperson-notfall-imc-und-awr-50-100-flury-stiftung-ch",
+        "fr": "dipl-professionnels-des-soins-d-urgence-imc-et-awr-50-100-flury-stiftung-schiers"
       },
       "company": "Flury Stiftung",
       "companyKey": "flury-stiftung",
@@ -1990,7 +2022,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2026-11/Dipl.%20Pflegefachperson%2050%25-100%25%20mit%20Zusatzm%C3%B6glichkeiten.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T21:58:13.450Z",
+      "crawledAt": "2026-11-07T09:44:18.786Z",
       "addressLocality": "Schiers",
       "postalCode": "7220",
       "addressCountry": "CH",
@@ -2007,16 +2039,20 @@
       "postingDateSource": "unknown",
       "applyUrl": "https://www.flurystiftung.ch/sites/default/files/2026-11/Dipl.%20Pflegefachperson%2050%25-100%25%20mit%20Zusatzm%C3%B6glichkeiten.pdf",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "department": "Spital Schiers",
       "pensum": "50%",
       "pensumMin": 50,
       "pensumMax": 50,
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "previousSlugsByLocale": {
         "it": [
+          "dipl-pflegefachperson-notfall-imc-und-awr-50-100-flury-stiftung-ch"
+        ],
+        "en": [
+          "dipl-pflegefachperson-notfall-imc-und-awr-50-100-flury-stiftung-ch"
+        ],
+        "fr": [
           "dipl-pflegefachperson-notfall-imc-und-awr-50-100-flury-stiftung-ch"
         ]
       },
@@ -2050,7 +2086,7 @@
       },
       "streetAddress": "Tersierstrasse",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-04T21:58:13.450Z",
+      "validThrough": "2027-02-05T09:44:18.786Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-06T21:58:13.450Z"
     },
@@ -2085,7 +2121,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2026-11/Dipl.%20Pflegefachperson%20An%C3%A4sthesie%2060%20-%20100%25%202026.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T21:58:11.395Z",
+      "crawledAt": "2026-11-07T09:44:18.393Z",
       "addressLocality": "Schiers",
       "postalCode": "7220",
       "addressCountry": "CH",
@@ -2149,7 +2185,7 @@
       },
       "streetAddress": "Tersierstrasse",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-03T21:58:11.395Z",
+      "validThrough": "2027-02-04T09:44:18.393Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2183,7 +2219,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2026-11/Wundfachperson.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T21:58:09.210Z",
+      "crawledAt": "2026-11-07T09:44:17.910Z",
       "addressLocality": "Schiers",
       "postalCode": "7220",
       "addressCountry": "CH",
@@ -2243,7 +2279,7 @@
       },
       "streetAddress": "Tersierstrasse",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-18T21:58:09.210Z",
+      "validThrough": "2027-01-18T09:44:17.910Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2277,7 +2313,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2026-08/Stelleninserat_Applikationsmanager.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T21:58:06.235Z",
+      "crawledAt": "2026-11-07T09:44:17.527Z",
       "addressLocality": "Schiers",
       "postalCode": "7220",
       "addressCountry": "CH",
@@ -2335,7 +2371,7 @@
       },
       "streetAddress": "Tersierstrasse",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-06T21:58:06.235Z",
+      "validThrough": "2026-12-07T09:44:17.527Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2369,7 +2405,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2026-11/Dipl.%20Pflegefachperson%20HF%20in%20Ausbildung.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T21:58:03.923Z",
+      "crawledAt": "2026-11-07T09:44:17.153Z",
       "addressLocality": "Schiers",
       "postalCode": "7220",
       "addressCountry": "CH",
@@ -2427,7 +2463,7 @@
       },
       "streetAddress": "Tersierstrasse",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-06T21:58:03.923Z",
+      "validThrough": "2026-12-07T09:44:17.153Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2461,7 +2497,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2026-06/Fachperson%20Gesundheit%20im%20Personalpool%2040-80%25.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T21:58:01.389Z",
+      "crawledAt": "2026-11-07T09:44:16.786Z",
       "addressLocality": "Schiers",
       "postalCode": "7220",
       "addressCountry": "CH",
@@ -2525,7 +2561,7 @@
       },
       "streetAddress": "Tersierstrasse",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-06T21:58:01.389Z",
+      "validThrough": "2026-12-07T09:44:16.786Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2559,7 +2595,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2026-10/Mitarbeiterin%20Kundenadministration%2080%25_0.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T21:58:00.986Z",
+      "crawledAt": "2026-11-07T09:44:16.429Z",
       "addressLocality": "Schiers",
       "postalCode": "7220",
       "addressCountry": "CH",
@@ -2619,7 +2655,7 @@
       },
       "streetAddress": "Tersierstrasse",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-18T21:58:00.986Z",
+      "validThrough": "2027-01-18T09:44:16.429Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2653,7 +2689,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2026-09/Mitarbeiter_in%20Patientenanmeldung%2080%25.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T21:58:00.564Z",
+      "crawledAt": "2026-11-07T09:44:16.016Z",
       "addressLocality": "Schiers",
       "postalCode": "7220",
       "addressCountry": "CH",
@@ -2719,7 +2755,7 @@
       },
       "streetAddress": "Tersierstrasse",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-23T21:58:00.564Z",
+      "validThrough": "2026-12-23T09:44:16.016Z",
       "validThroughSource": "last-observed-window"
     }
   ]

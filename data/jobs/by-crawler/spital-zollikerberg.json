@@ -1,16 +1,16 @@
 {
   "crawlerKey": "spital-zollikerberg",
-  "assembledAt": "2026-11-06T21:16:30.740Z",
-  "runId": "42293312576",
+  "assembledAt": "2026-11-07T09:11:24.152Z",
+  "runId": "42357979819",
   "jobs": [
     {
       "id": "spital-zollikerberg-db01ec6c0fb2",
       "slug": "ergotherapeut-ergotherapeutin-therapie-e-beratung-spital-zollikerberg",
       "slugByLocale": {
-        "de": "ergotherapeut-ergotherapeutin-therapie-und-beratung-spital-zollikerberg-zollikerberg",
         "it": "ergotherapeut-ergotherapeutin-therapie-e-beratung-spital-zollikerberg",
-        "en": "ergotherapeut-ergotherapeutin-therapie-und-beratung-spital-zollikerberg-zollikerberg",
-        "fr": "ergotherapeut-ergotherapeutin-therapie-und-beratung-spital-zollikerberg-zollikerberg"
+        "en": "occupational-therapist-occupational-therapist-therapy-and-counselling-spital-zollikerberg-zollikerberg",
+        "de": "ergotherapeut-ergotherapeutin-therapie-und-beratung-spital-zollikerberg-zollikerberg",
+        "fr": "ergotherapie-ergotherapie-et-counseling-spital-zollikerberg-zollikerberg"
       },
       "company": "Spital Zollikerberg",
       "companyKey": "spital-zollikerberg",
@@ -35,7 +35,7 @@
       "url": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=b8bb3862-52c3-4363-bd8a-87ce3dbace37,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "source": "Spital Zollikerberg Dedicated Parser (Next.js SSR listing + PI-ASP Playwright detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T21:16:21.451Z",
+      "crawledAt": "2026-11-07T09:11:16.350Z",
       "addressLocality": "Zollikerberg",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -53,11 +53,15 @@
       "postingDateSource": "unknown",
       "applyUrl": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=b8bb3862-52c3-4363-bd8a-87ce3dbace37,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "it": [
+          "ergotherapeut-ergotherapeutin-therapie-und-beratung-spital-zollikerberg-zollikerberg"
+        ],
+        "en": [
+          "ergotherapeut-ergotherapeutin-therapie-und-beratung-spital-zollikerberg-zollikerberg"
+        ],
+        "fr": [
           "ergotherapeut-ergotherapeutin-therapie-und-beratung-spital-zollikerberg-zollikerberg"
         ]
       },
@@ -79,18 +83,18 @@
       },
       "streetAddress": "Zollikerberg",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-06T21:16:21.451Z",
+      "validThrough": "2026-12-07T09:11:16.350Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-05-19T12:20:47.142Z"
     },
     {
       "id": "spital-zollikerberg-8e27a6c59731",
-      "slug": "dipl-pflegefachfrau-dipl-pflegefachmann-onkologie-mit-geregelten-arbeitszeiten-spital",
+      "slug": "infermiere-diplomato-infermiere-diplomato-in-oncologia-con-orari-di-lavoro-regolamentati-spital-zollikerberg",
       "slugByLocale": {
+        "it": "infermiere-diplomato-infermiere-diplomato-in-oncologia-con-orari-di-lavoro-regolamentati-spital-zollikerberg",
+        "en": "dipl-nursing-professional-dipl-nursing-specialist-oncology-with-regulated-working-hours-spital-zollikerberg-zollikerberg",
         "de": "dipl-pflegefachfrau-dipl-pflegefachmann-onkologie-mit-geregelten-arbeitszeiten-spital",
-        "it": "dipl-pflegefachfrau-dipl-pflegefachmann-onkologie-mit-geregelten-arbeitszeiten-spital",
-        "en": "dipl-pflegefachfrau-dipl-pflegefachmann-onkologie-mit-geregelten-arbeitszeiten-spital",
-        "fr": "dipl-pflegefachfrau-dipl-pflegefachmann-onkologie-mit-geregelten-arbeitszeiten-spital"
+        "fr": "dipl-professionnels-des-soins-infirmiers-dipl-specialiste-en-oncologie-avec-horaires-de-travail-reglementes-spital"
       },
       "company": "Spital Zollikerberg",
       "companyKey": "spital-zollikerberg",
@@ -109,13 +113,13 @@
         "en": "Dipl. Nursing professional / Dipl. Nursing specialist oncology (with regular working hours) — Spital Zollikerberg, Zollikerberg (ZH).\n\nArea: Nursing professions.\n\nWelcome to your new place of work.\n\nDr. Tammo Bartnick, Medical Director Oncological Ambulatorium of Oncology Bellevue at the Zollikerberg site You are now working for a 40 -80% job as\n\nDipl. Nursing professional / Dipl. Nursing specialist oncology (with regulated working hours)\n\nIf you too want to make a difference in people’s lives, these are your tasks:\n\n• Working as a reference nurse in a family care team, coordinating patient care\n\n• Administration/planning of antitumor therapies/chemotherapies\n\n• Controlling the care process from entry to exit\n\n• Complex care and care situations of oncological patients / relatives are a positive challenge for you\n\n• Active participation in internal projects\n\nYour work is also possible and desirable at both Oncologie Bellevue sites, Zollikerberg and Bellevue (Stadelhofen). This opens up a wide range of all oncological treatment options and expands your knowledge in the treatment of patients with cancer.\n\nThe cooperation with specialists in integrative oncology and the specialist departments of the Zollikerberg Hospital with internal medicine (continued education status A) which cares for more than 2,500 inpatient patients, over 6,000 emergencies and more than 450 patients in the interdisciplinary intensive care unit as well as with the interdisciplinary stations with a focus on palliative medicine, acute care and surgery are the basis for the holistic care of our patients. Their cooperation and exchange with these departments is elementary and exciting aspect of their work.\n\nIn our 360° tour, get a first impression of your new place of work.\n\nTo make you feel comfortable with us, many benefits are waiting for you. Just to name a few:\n\n• Ecobonus of up to CHF 650 per year\n\n• Generous financial and time support for further training\n\n• Free use of the fitness room on the Zollikerberg site\n\n• Possibility of cross-shifts into other areas or development into further specialization - even across several companies\n\nAll amenities for employees can be found here. If you also want to be the best version of yourself, you will find the possibilities with us.\n\nThis convinces us:\n\n• Completed training as a Dipl. Nursing professional / Dipl. Nursing professional\n\n• Oncology experience and training\n\n• Sharing joy, knowledge and experience with teammates and supporting them in their learning processes\n\n• Resilience, high level of teamwork and service orientation towards our patients and their relatives\n\nYou are welcome to receive further information from Dr. Tammo Bartnick, Medical Director Oncological Ambulatorium,\n\nT 044 397 27 22.\n\nPlease apply via our online tool.\n\nWe would like to fill this position with direct applications, without the support of recruitment consultancies. Thank you in advance for your understanding.\n\nAbout the Zollikerberg hospital #LI-PZ1\n\nWe stand for a comprehensive range of services and strong cooperation partners. With a public service mandate and 173 beds, the Zollikerberg Hospital contributes to the optimal medical care of the greater Zurich area. Every year, more than 11,000 inpatients and 75,000 outpatients in all insurance classes can feel comfortable and in good hands. Our broadly based primary care includes internal medicine, gynecology and obstetrics with neonatology, general surgery, an interdisciplinary emergency center and orthopedics with specialized spinal surgery.\n\nSource of application\n\nSpeech *\n\nFirst name *\n\nSurname *\n\nDate of birth *\n\nUsername\n\nEmail *\n\nTelephone\n\nRoad *\n\nNumber *\n\nPLZ*\n\nPlace of residence *\n\nCountry *\n\nCV / Complete documentation *\n\nLetter of motivation\n\nEducation and training\n\nEmployment certificate\n\nHow did you come to our attention? *\n\nWhich employee drew your attention to this position?\n\nAvailable from\n\nFurther information about us can be found on our homepage.\n\nApply now\n\nThe installations shall be tested.\nPlease note the following information",
         "fr": "Dipl. Professionnels des soins infirmiers / Dipl. Spécialiste de l'oncologie (avec heures de travail régulières) — Spital Zollikerberg, Zollikerberg (ZH).\n\nDomaine: professions infirmières.\n\nBienvenue dans votre nouveau lieu de travail.\n\nDr. Tammo Bartnick, Directeur Médical Ambulatoire Oncologique d'Oncologie Bellevue au site Zollikerberg Vous travaillez maintenant pour un emploi de 40 -80% comme\n\nDipl. Professionnels des soins infirmiers / Dipl. Spécialiste en oncologie (avec horaires de travail réglementés)\n\nSi vous aussi voulez faire une différence dans la vie des gens, ce sont vos tâches:\n\n• Travaillant comme infirmière de référence dans une équipe de soins familiaux, coordonnant les soins aux patients\n\n• Administration/planification des traitements antitumoraux/chimothérapeutes\n\n• Contrôle du processus de soins de l'entrée à la sortie\n\n• Les soins complexes et les situations de soins des patients oncologiques / parents sont un défi positif pour vous\n\n• Participation active aux projets internes\n\nVotre travail est également possible et souhaitable sur les sites Oncologie Bellevue, Zollikerberg et Bellevue (Stadelhofen). Cela ouvre un large éventail d'options de traitement oncologique et élargit vos connaissances dans le traitement des patients atteints de cancer.\n\nLa coopération avec les spécialistes de l'oncologie intégrative et les départements spécialisés de l'Hôpital Zollikerberg avec la médecine interne (statut d'éducation continue A) qui s'occupe de plus de 2 500 patients hospitalisés, de plus de 6 000 urgences et de plus de 450 patients dans l'unité interdisciplinaire de soins intensifs ainsi qu'avec les stations interdisciplinaires axées sur la médecine palliative, les soins aigus et la chirurgie sont la base des soins holistiques de nos patients. Leur coopération et leur échange avec ces départements sont des aspects élémentaires et passionnants de leur travail.\n\nLors de notre visite à 360°, obtenez une première impression de votre nouveau lieu de travail.\n\nPour vous sentir à l'aise avec nous, de nombreux avantages vous attendent. Pour en citer quelques-uns :\n\n• Ecobonus jusqu'à CHF 650 par an\n\n• Un soutien financier et temporel généreux pour la formation continue\n\n• Utilisation gratuite de la salle de fitness sur le site de Zollikerberg\n\n• Possibilité de postes croisés dans d'autres domaines ou développement d'une spécialisation plus poussée - même dans plusieurs entreprises\n\nToutes les commodités pour les employés peuvent être trouvées ici. Si vous voulez aussi être la meilleure version de vous-même, vous trouverez les possibilités avec nous.\n\nCela nous convainc:\n\n• La formation terminée en tant que dipl. Professionnels des soins infirmiers / Dipl. Professionnels des soins infirmiers\n\n• Expérience et formation en oncologie\n\n• Partager la joie, les connaissances et l'expérience avec les coéquipiers et les soutenir dans leurs processus d'apprentissage\n\n• Résilience, haut niveau de travail d'équipe et d'orientation du service envers nos patients et leurs proches\n\nVous êtes invités à recevoir de plus amples informations du Dr Tammo Bartnick, Directeur médical Oncological Ambulatorium,\n\nT 044 397 27 22.\n\nVeuillez postuler via notre outil en ligne.\n\nNous aimerions pourvoir ce poste avec des candidatures directes, sans l'appui de consultants en recrutement. Merci d'avance pour votre compréhension.\n\nÀ propos de l'hôpital de Zollikerberg #LI-PZ1\n\nNous défendons une gamme complète de services et de solides partenaires de coopération. Avec un mandat de service public et 173 lits, l'hôpital Zollikerberg contribue aux soins médicaux optimaux de la grande région de Zurich. Chaque année, plus de 11 000 malades hospitalisés et 75 000 malades externes de toutes les classes d'assurance peuvent se sentir à l'aise et entre de bonnes mains. Nos soins primaires largement basés comprennent la médecine interne, la gynécologie et l'obstétrique avec néonatologie, chirurgie générale, un centre interdisciplinaire d'urgence et l'orthopédie avec chirurgie spinale spécialisée.\n\nSource de la demande\n\nDiscours *\n\nPrénom *\n\nNom *\n\nDate de naissance *\n\nNom d'utilisateur\n\nCourriel *\n\nTéléphone\n\nRoute *\n\nNuméro *\n\nZLP*\n\nLieu de résidence *\n\nPays *\n\nCV / Documentation complète *\n\nLettre de motivation\n\nÉducation et formation\n\nCertificat de travail\n\nComment avez - vous attiré notre attention? *\n\nQuel employé a attiré votre attention sur ce poste?\n\nDisponible à partir de\n\nDe plus amples informations sur nous sont disponibles sur notre page d'accueil.\n\nAppliquer maintenant\n\nLes installations doivent être soumises à des essais.\nVeuillez noter les informations suivantes:"
       },
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "location": "Zollikerberg",
       "canton": "ZH",
       "url": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=d280f6e3-17c0-411d-bf4d-b119e5b26010,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "source": "Spital Zollikerberg Dedicated Parser (Next.js SSR listing + PI-ASP Playwright detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T21:16:21.450Z",
+      "crawledAt": "2026-11-07T09:11:16.349Z",
       "addressLocality": "Zollikerberg",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -133,9 +137,7 @@
       "postingDateSource": "unknown",
       "applyUrl": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=d280f6e3-17c0-411d-bf4d-b119e5b26010,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "salaryMin": 91500,
       "salaryMax": 128000,
       "salarySource": "estimated",
@@ -151,17 +153,31 @@
       },
       "streetAddress": "Zollikerberg",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-04T21:16:21.450Z",
+      "validThrough": "2027-02-05T09:11:16.349Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-06T21:16:21.450Z"
+      "firstSeenAt": "2026-11-06T21:16:21.450Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachfrau-dipl-pflegefachmann-onkologie-mit-geregelten-arbeitszeiten-spital"
+        ],
+        "en": [
+          "dipl-pflegefachfrau-dipl-pflegefachmann-onkologie-mit-geregelten-arbeitszeiten-spital"
+        ],
+        "fr": [
+          "dipl-pflegefachfrau-dipl-pflegefachmann-onkologie-mit-geregelten-arbeitszeiten-spital"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachfrau-dipl-pflegefachmann-onkologie-mit-geregelten-arbeitszeiten-spital"
+      ]
     },
     {
       "id": "spital-zollikerberg-f5cfa379a09c",
       "slug": "augenoptiker-augenoptikerin-o-mpa-con-erfahrung-in-der-ophthalmologie-50-60-pflege-support-e-administration-spital-zollikerberg",
       "slugByLocale": {
-        "de": "augenoptiker-augenoptikerin-oder-mpa-mit-erfahrung-in-der-ophthalmologie-50-60-pflege",
         "it": "augenoptiker-augenoptikerin-o-mpa-con-erfahrung-in-der-ophthalmologie-50-60-pflege-support-e-administration-spital-zollikerberg",
         "en": "augenoptiker-augenoptikerin-oder-mpa-mit-erfahrung-in-der-ophthalmologie-50-60-pflege",
+        "de": "augenoptiker-augenoptikerin-oder-mpa-mit-erfahrung-in-der-ophthalmologie-50-60-pflege",
         "fr": "augenoptiker-augenoptikerin-oder-mpa-mit-erfahrung-in-der-ophthalmologie-50-60-pflege"
       },
       "company": "Spital Zollikerberg",
@@ -181,13 +197,13 @@
         "en": "Optometrist or MPA with experience in ophthalmology 50 - 60 % Care Support and Administration – Spital Zollikerberg, Zollikerberg (ZH).\n\nThat you are there – welcome to our team.\n\nWith heart, competence and team spirit, we ensure the best possible care for our patients every day. Do you want to be part of our dedicated team? Then we look forward to meeting you.\n\nTo strengthen our eye center, we are looking for a committed personality as soon as possible or by agreement.\n\nOptometrist or MPA with experience in ophthalmology (50 – 60 %)\n\nFor us, the focus is on people. If you want to work with heart, precision and team spirit, these are your tasks:\n\n• Conducting visual diagnostics using state-of-the-art devices in close cooperation with our doctors.\n\n• Assistance in the planning and organization of consultation hours as well as in team and quality management. They contribute to a smooth and well-coordinated everyday practice.\n\n• Actively contribute ideas for a modern and patient-oriented practice design.\n\nBecome part of the Zollikerberg Eye Centre, which in cooperation with the Eye Clinic of the Waid and Triemli City Hospitals offers a wide range of services in the fields of ophthalmology.\n\nIn our 360° tour, get a first impression of your new place of work.\n\nTo make you feel comfortable with us, many benefits are waiting for you. Just to name a few:\n\n• Own pension fund with super-compulsory participation of the employer\n\n• Financial support to public transport subscription or bicycle\n\n• Free use of the fitness room on the Zollikerberg site\n\n• Worldwide private insurance in case of accident\n\nAll amenities for employees can be found\nhere . If you also want to be the best version of yourself, you will find the possibilities with us.\n\nThis convinces us:\n\n• Completed training as optometrist:in or as medical practice assistant:in (MPA) with experience in ophthalmology\n\n• They have a very good knowledge of medical terminology as well as safe and well-versed PC user knowledge and quickly get into new systems\n\n• Even in a lively and demanding everyday life You always have an overview, work structured, reliable and with a high level of personal responsibility\n\n• A respectful, appreciative and heartfelt treatment of our patients and the entire team is a matter of course for you – You actively contribute to a positive, supportive working environment\n\nGrace Cisneros, Operational Head of Eye Centre, is available for further information.T 044 397 33 11 / Email: grace.cisneros@spitalzollikerberg.ch\n\nPlease apply via our online tool.\n\nWe would like to fill this position with direct applications, without the support of recruitment consultancies. Thank you in advance for your understanding.\n\nAbout the Zollikerberg Hospital\nWe stand for a comprehensive range of services and strong cooperation partners. With a public service mandate and 173 beds, the Zollikerberg Hospital contributes to the optimal medical care of the greater Zurich area. Every year, more than 11,000 inpatients and 75,000 outpatients in all insurance classes can feel comfortable and in good hands. Our broadly based primary care includes internal medicine, gynecology and obstetrics with neonatology, general surgery, an interdisciplinary emergency center and orthopedics with specialized spinal surgery.\n\nSource of application\n\nSpeech *\n\nFirst name *\n\nSurname *\n\nDate of birth *\n\nUsername\n\nEmail *\n\nTelephone\n\nRoad *\n\nNumber *\n\nPLZ*\n\nPlace of residence *\n\nCountry *\n\nCV / Complete documentation *\n\nLetter of motivation\n\nEducation and training\n\nEmployment certificate\n\nHow did you come to our attention? *\n\nWhich employee drew your attention to this position?\n\nAvailable from\n\nFurther information about us can be found on our homepage.\n\nApply now\n\nThe installations shall be tested.\nPlease note the following information",
         "fr": "Optométriste ou MPA avec une expérience en ophtalmologie 50 - 60 % Care Support and Administration – Spital Zollikerberg, Zollikerberg (ZH).\n\nQue vous êtes là – bienvenue dans notre équipe.\n\nAvec cœur, compétence et esprit d'équipe, nous assurons le meilleur soin possible à nos patients chaque jour. Voulez-vous faire partie de notre équipe dédiée ? Alors nous avons hâte de vous rencontrer.\n\nPour renforcer notre centre oculaire, nous cherchons une personnalité engagée dès que possible ou d'un commun accord.\n\nOptométriste ou MPA ayant une expérience en ophtalmologie (50 – 60 %)\n\nPour nous, l'accent est mis sur les gens. Si vous voulez travailler avec cœur, précision et esprit d'équipe, ce sont vos tâches :\n\n• Effectuer des diagnostics visuels à l'aide de dispositifs de pointe en étroite collaboration avec nos médecins.\n\n• Aide à la planification et à l'organisation des heures de consultation ainsi qu'à la gestion en équipe et de la qualité. Ils contribuent à une pratique quotidienne harmonieuse et bien coordonnée.\n\n• Contribuer activement à la conception d'une pratique moderne axée sur le patient.\n\nDevenez membre du Zollikerberg Eye Centre, qui, en collaboration avec la clinique des yeux des hôpitaux de la ville de Waid et de Triemli, offre un large éventail de services dans les domaines de l'ophtalmologie.\n\nLors de notre visite à 360°, obtenez une première impression de votre nouveau lieu de travail.\n\nPour vous sentir à l'aise avec nous, de nombreux avantages vous attendent. Pour en citer quelques-uns :\n\n• Fonds de pension propre avec participation superobligatoire de l'employeur\n\n• Soutien financier à l'abonnement aux transports publics ou à la bicyclette\n\n• Utilisation gratuite de la salle de fitness sur le site de Zollikerberg\n\n• Assurance privée mondiale en cas d'accident\n\nToutes les commodités pour les employés peuvent être trouvées\nIci. Si vous voulez aussi être la meilleure version de vous-même, vous trouverez les possibilités avec nous.\n\nCela nous convainc:\n\n• Achevé la formation en tant qu'optométriste:in ou en tant qu'assistant en médecine:in (MPA) avec une expérience en ophtalmologie\n\n• Ils ont une très bonne connaissance de la terminologie médicale ainsi que des connaissances sûres et bien inversées des utilisateurs de PC et rapidement entrer dans de nouveaux systèmes\n\n• Même dans une vie quotidienne animée et exigeante Vous avez toujours un aperçu, travail structuré, fiable et avec un haut niveau de responsabilité personnelle\n\n• Un traitement respectueux, reconnaissant et sincère de nos patients et de toute l'équipe est bien sûr une question pour vous – Vous contribuez activement à un environnement de travail positif et favorable\n\nGrace Cisneros, chef opérationnel du centre des yeux, est disponible pour plus d'informations.T 044 397 33 11 / Email: grace.cisneros@spitalzollikerberg.ch\n\nVeuillez postuler via notre outil en ligne.\n\nNous aimerions pourvoir ce poste avec des candidatures directes, sans l'appui de consultants en recrutement. Merci d'avance pour votre compréhension.\n\nÀ propos de l'hôpital Zollikerberg\nNous défendons une gamme complète de services et de solides partenaires de coopération. Avec un mandat de service public et 173 lits, l'hôpital Zollikerberg contribue aux soins médicaux optimaux de la grande région de Zurich. Chaque année, plus de 11 000 malades hospitalisés et 75 000 malades externes de toutes les classes d'assurance peuvent se sentir à l'aise et entre de bonnes mains. Nos soins primaires largement basés comprennent la médecine interne, la gynécologie et l'obstétrique avec néonatologie, chirurgie générale, un centre interdisciplinaire d'urgence et l'orthopédie avec chirurgie spinale spécialisée.\n\nSource de la demande\n\nDiscours *\n\nPrénom *\n\nNom *\n\nDate de naissance *\n\nNom d'utilisateur\n\nCourriel *\n\nTéléphone\n\nRoute *\n\nNuméro *\n\nZLP*\n\nLieu de résidence *\n\nPays *\n\nCV / Documentation complète *\n\nLettre de motivation\n\nÉducation et formation\n\nCertificat de travail\n\nComment avez - vous attiré notre attention? *\n\nQuel employé a attiré votre attention sur ce poste?\n\nDisponible à partir de\n\nDe plus amples informations sur nous sont disponibles sur notre page d'accueil.\n\nAppliquer maintenant\n\nLes installations doivent être soumises à des essais.\nVeuillez noter les informations suivantes:"
       },
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "location": "Zollikerberg",
       "canton": "ZH",
       "url": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=af543a42-ab46-4da6-bd92-78b1f01c93eb,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "source": "Spital Zollikerberg Dedicated Parser (Next.js SSR listing + PI-ASP Playwright detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T21:16:21.449Z",
+      "crawledAt": "2026-11-07T09:11:16.348Z",
       "addressLocality": "Zollikerberg",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -205,9 +221,7 @@
       "postingDateSource": "unknown",
       "applyUrl": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=af543a42-ab46-4da6-bd92-78b1f01c93eb,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "it": [
           "augenoptiker-augenoptikerin-oder-mpa-mit-erfahrung-in-der-ophthalmologie-50-60-pflege"
@@ -231,18 +245,18 @@
       },
       "streetAddress": "Zollikerberg",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-04T21:16:21.449Z",
+      "validThrough": "2027-02-05T09:11:16.348Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-06T21:16:21.449Z"
     },
     {
       "id": "spital-zollikerberg-0f33050ab078",
-      "slug": "dipl-pflegefachfrau-dipl-pflegefachmann-dipl-hebamme-maternite-mit-herz-spital",
+      "slug": "infermiere-diplomato-infermiere-diplomato-dipl-ostetrica-maternite-con-cuore-spital-zollikerberg-zollikerberg",
       "slugByLocale": {
+        "it": "infermiere-diplomato-infermiere-diplomato-dipl-ostetrica-maternite-con-cuore-spital-zollikerberg-zollikerberg",
+        "en": "dipl-nursing-professional-dipl-nursing-professional-dipl-midwife-maternite-with-heart-spital-zollikerberg-zollikerberg",
         "de": "dipl-pflegefachfrau-dipl-pflegefachmann-dipl-hebamme-maternite-mit-herz-spital",
-        "it": "dipl-pflegefachfrau-dipl-pflegefachmann-dipl-hebamme-maternite-mit-herz-spital",
-        "en": "dipl-pflegefachfrau-dipl-pflegefachmann-dipl-hebamme-maternite-mit-herz-spital",
-        "fr": "dipl-pflegefachfrau-dipl-pflegefachmann-dipl-hebamme-maternite-mit-herz-spital"
+        "fr": "dipl-professionnels-des-soins-infirmiers-dipl-professionnels-des-soins-infirmiers-dipl-sage-femme-maternite-au-c-ur"
       },
       "company": "Spital Zollikerberg",
       "companyKey": "spital-zollikerberg",
@@ -261,13 +275,13 @@
         "en": "Dipl. Nursing professional / Dipl. Nursing professional / Dipl. Midwife Maternité mit Herz — Spital Zollikerberg, Zollikerberg (ZH).\n\nArea: Nursing professions.\n\nWelcome to your new place of work.\n\nVera Benz & Monika Stirnimann offer you at 1. January 2027 or by agreement an 80-100% position as\n\nDipl. Nursing professional / Dipl. Nursing professional / Dipl. Midwife Maternité with heart\n\nIf you too want to make a difference in people’s lives, these are your tasks:\n\n• Care of women who have recently given birth with their infants, patients with high-risk pregnancies and gynecological patients\n\n• Care for the assigned patients\n\n• Care and support for students, health professionals and trainees\n\nBecome part of the Department of Women's, Child and Obstetric Medicine at the Zollikerberg Hospital. On our postpartum ward we accompany mothers, newborns and their families individually and family-oriented in the first days after birth. The close interprofessional cooperation with obstetrics and neonatology enables comprehensive care of mother and child. The focus is on individual needs and the well-being of families.\n\nIn our 360° tour, get a first impression of your new place of work.\n\nTo make you feel comfortable with us, many benefits are waiting for you. Just to name a few:\n\n• Own pension fund with super-compulsory participation of the employer\n\n• Ecobonus of up to CHF 650 per year\n\n• Free use of the fitness room on the site\n\n• generous financial and time support for further training\n\nAll amenities for employees can be found\nhere . If you also want to be the best version of yourself, you will find the possibilities with us.\n\nThis convinces us:\n\n• Degree as a Dipl. Nursing professional / Dipl. Nursing professional (FH,HF) with professional experience in the field of obstetrics (week bed station) in an acute hospital or dipl. Midwife\n\n• Social, professionally competent and resilient personality\n\n• High customer orientation, flexibility, team spirit and resilience as well as the ability and willingness for interdisciplinary cooperation\n\nFurther information is available to Vera Benz under T 044 397 74 25 and Monika Stirnimann under\n\nT 044 397 23 49 , co-directors Care Maternité.\n\nPlease apply via our online tool.\n\nWe would like to fill this position with direct applications, without the support of recruitment consultancies. Thank you in advance for your understanding.\n\nAbout the Zollikerberg hospital #LI-PZ1\n\nWe stand for a comprehensive range of services and strong cooperation partners. With a public service mandate and 173 beds, the Zollikerberg Hospital contributes to the optimal medical care of the greater Zurich area. Every year, more than 11,000 inpatients and 75,000 outpatients in all insurance classes can feel comfortable and in good hands. Our broadly based primary care includes internal medicine, gynecology and obstetrics with neonatology, general surgery, an interdisciplinary emergency center and orthopedics with specialized spinal surgery.\n\nSource of application\n\nSpeech *\n\nFirst name *\n\nSurname *\n\nDate of birth *\n\nUsername\n\nEmail *\n\nTelephone\n\nRoad *\n\nNumber *\n\nPLZ*\n\nPlace of residence *\n\nCountry *\n\nCV / Complete documentation *\n\nLetter of motivation\n\nEducation and training\n\nEmployment certificate\n\nHow did you come to our attention? *\n\nWhich employee drew your attention to this position?\n\nAvailable from\n\nFurther information about us can be found on our homepage.\n\nApply now\n\nThe installations shall be tested.\nPlease note the following information",
         "fr": "Dipl. Professionnels des soins infirmiers / Dipl. Professionnels des soins infirmiers / Dipl. Sage-femme Maternité mit Herz — Spital Zollikerberg, Zollikerberg (ZH).\n\nDomaine: professions infirmières.\n\nBienvenue dans votre nouveau lieu de travail.\n\nVera Benz & Monika Stirnimann vous offrent à 1. Janvier 2027 ou, par accord, une position de 80-100%\n\nDipl. Professionnels des soins infirmiers / Dipl. Professionnels des soins infirmiers / Dipl. Sage-femme Maternité au cœur\n\nSi vous aussi voulez faire une différence dans la vie des gens, ce sont vos tâches:\n\n• Prise en charge des femmes qui ont récemment accouché avec leurs nourrissons, des patientes ayant des grossesses à haut risque et des patientes gynécologiques\n\n• Soins pour les patients assignés\n\n• Soins et soutien aux étudiants, aux professionnels de la santé et aux stagiaires\n\nDevenez membre du Département de médecine féminine, infantile et obstétrique de l'hôpital Zollikerberg. Dans notre service postnatal, nous accompagnons les mères, les nouveau-nés et leur famille individuellement et en famille dans les premiers jours suivant la naissance. L'étroite coopération interprofessionnelle avec l'obstétrique et la néonatologie permet de prendre soin de la mère et de l'enfant. L'accent est mis sur les besoins individuels et le bien-être des familles.\n\nLors de notre visite à 360°, obtenez une première impression de votre nouveau lieu de travail.\n\nPour vous sentir à l'aise avec nous, de nombreux avantages vous attendent. Pour en citer quelques-uns :\n\n• Fonds de pension propre avec participation superobligatoire de l'employeur\n\n• Ecobonus jusqu'à CHF 650 par an\n\n• Utilisation gratuite de la salle de fitness sur le site\n\n• généreux soutien financier et en temps utile pour la formation continue\n\nToutes les commodités pour les employés peuvent être trouvées\nIci. Si vous voulez aussi être la meilleure version de vous-même, vous trouverez les possibilités avec nous.\n\nCela nous convainc:\n\n• Diplôme de diplômé. Professionnels des soins infirmiers / Dipl. Professionnels des soins infirmiers (FH, HF) ayant une expérience professionnelle dans le domaine de l'obstétrique (station-lit hebdomadaire) dans un hôpital ou un dipl. Une sage-femme\n\n• Personnalité sociale, professionnellement compétente et résistante\n\n• Orientation client élevée, flexibilité, esprit d'équipe et résilience ainsi que la capacité et la volonté de coopération interdisciplinaire\n\nDe plus amples informations sont disponibles pour Vera Benz sous T 044 397 74 25 et Monika Stirnimann sous\n\nT 044 397 23 49 , codirecteurs Care Maternité.\n\nVeuillez postuler via notre outil en ligne.\n\nNous aimerions pourvoir ce poste avec des candidatures directes, sans l'appui de consultants en recrutement. Merci d'avance pour votre compréhension.\n\nÀ propos de l'hôpital de Zollikerberg #LI-PZ1\n\nNous défendons une gamme complète de services et de solides partenaires de coopération. Avec un mandat de service public et 173 lits, l'hôpital Zollikerberg contribue aux soins médicaux optimaux de la grande région de Zurich. Chaque année, plus de 11 000 malades hospitalisés et 75 000 malades externes de toutes les classes d'assurance peuvent se sentir à l'aise et entre de bonnes mains. Nos soins primaires largement basés comprennent la médecine interne, la gynécologie et l'obstétrique avec néonatologie, chirurgie générale, un centre interdisciplinaire d'urgence et l'orthopédie avec chirurgie spinale spécialisée.\n\nSource de la demande\n\nDiscours *\n\nPrénom *\n\nNom *\n\nDate de naissance *\n\nNom d'utilisateur\n\nCourriel *\n\nTéléphone\n\nRoute *\n\nNuméro *\n\nZLP*\n\nLieu de résidence *\n\nPays *\n\nCV / Documentation complète *\n\nLettre de motivation\n\nÉducation et formation\n\nCertificat de travail\n\nComment avez - vous attiré notre attention? *\n\nQuel employé a attiré votre attention sur ce poste?\n\nDisponible à partir de\n\nDe plus amples informations sur nous sont disponibles sur notre page d'accueil.\n\nAppliquer maintenant\n\nLes installations doivent être soumises à des essais.\nVeuillez noter les informations suivantes:"
       },
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "location": "Zollikerberg",
       "canton": "ZH",
       "url": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=a07c2afa-1650-4c7a-9c16-30465f973071,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "source": "Spital Zollikerberg Dedicated Parser (Next.js SSR listing + PI-ASP Playwright detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T21:16:21.448Z",
+      "crawledAt": "2026-11-07T09:11:16.347Z",
       "addressLocality": "Zollikerberg",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -285,9 +299,7 @@
       "postingDateSource": "unknown",
       "applyUrl": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=a07c2afa-1650-4c7a-9c16-30465f973071,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "salaryMin": 91500,
       "salaryMax": 128000,
       "salarySource": "estimated",
@@ -303,17 +315,31 @@
       },
       "streetAddress": "Zollikerberg",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-04T21:16:21.448Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-02-05T09:11:16.347Z",
+      "validThroughSource": "last-observed-window",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachfrau-dipl-pflegefachmann-dipl-hebamme-maternite-mit-herz-spital"
+        ],
+        "en": [
+          "dipl-pflegefachfrau-dipl-pflegefachmann-dipl-hebamme-maternite-mit-herz-spital"
+        ],
+        "fr": [
+          "dipl-pflegefachfrau-dipl-pflegefachmann-dipl-hebamme-maternite-mit-herz-spital"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachfrau-dipl-pflegefachmann-dipl-hebamme-maternite-mit-herz-spital"
+      ]
     },
     {
       "id": "spital-zollikerberg-c499cd1e7a79",
-      "slug": "fachfrau-fachmann-gesundheit-privatstation-1-spital-zollikerberg-zollikerberg",
+      "slug": "specialist-health-private-station-1-spital-zollikerberg-zollikerberg",
       "slugByLocale": {
+        "it": "specialist-health-private-station-1-spital-zollikerberg-zollikerberg",
+        "en": "specialist-health-private-station-1-spital-zollikerberg-zollikerberg",
         "de": "fachfrau-fachmann-gesundheit-privatstation-1-spital-zollikerberg-zollikerberg",
-        "it": "fachfrau-fachmann-gesundheit-privatstation-1-spital-zollikerberg-zollikerberg",
-        "en": "fachfrau-fachmann-gesundheit-privatstation-1-spital-zollikerberg-zollikerberg",
-        "fr": "fachfrau-fachmann-gesundheit-privatstation-1-spital-zollikerberg-zollikerberg"
+        "fr": "station-privee-specialisee-en-sante-1-spital-zollikerberg-zollikerberg"
       },
       "company": "Spital Zollikerberg",
       "companyKey": "spital-zollikerberg",
@@ -337,7 +363,7 @@
       "url": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=f55f25a8-e1c6-43f5-89d9-2cee5699a9d2,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "source": "Spital Zollikerberg Dedicated Parser (Next.js SSR listing + PI-ASP Playwright detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T21:16:21.446Z",
+      "crawledAt": "2026-11-07T09:11:16.345Z",
       "addressLocality": "Zollikerberg",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -355,9 +381,7 @@
       "postingDateSource": "unknown",
       "applyUrl": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=f55f25a8-e1c6-43f5-89d9-2cee5699a9d2,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "salaryMin": 91500,
       "salaryMax": 128000,
       "salarySource": "estimated",
@@ -373,18 +397,32 @@
       },
       "streetAddress": "Zollikerberg",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-04T21:16:21.446Z",
+      "validThrough": "2027-02-05T09:11:16.345Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-06T21:16:21.446Z"
+      "firstSeenAt": "2026-11-06T21:16:21.446Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachfrau-fachmann-gesundheit-privatstation-1-spital-zollikerberg-zollikerberg"
+        ],
+        "en": [
+          "fachfrau-fachmann-gesundheit-privatstation-1-spital-zollikerberg-zollikerberg"
+        ],
+        "fr": [
+          "fachfrau-fachmann-gesundheit-privatstation-1-spital-zollikerberg-zollikerberg"
+        ]
+      },
+      "previousSlugs": [
+        "fachfrau-fachmann-gesundheit-privatstation-1-spital-zollikerberg-zollikerberg"
+      ]
     },
     {
       "id": "spital-zollikerberg-5a6895f1d257",
-      "slug": "alterszentrum-hottingen-dipl-pflegefachmann-dipl-pflegefachfrau-spitex-alterszentrum",
+      "slug": "centro-vecchio-hottingen-dipl-infermieristica-professionale-dipl-infermieristica-spitex-old-age-center-hottingen-spital",
       "slugByLocale": {
+        "it": "centro-vecchio-hottingen-dipl-infermieristica-professionale-dipl-infermieristica-spitex-old-age-center-hottingen-spital",
+        "en": "old-age-center-hottingen-dipl-nursing-professional-dipl-nursing-specialist-spitex-old-age-center-hottingen-spital",
         "de": "alterszentrum-hottingen-dipl-pflegefachmann-dipl-pflegefachfrau-spitex-alterszentrum",
-        "it": "alterszentrum-hottingen-dipl-pflegefachmann-dipl-pflegefachfrau-spitex-alterszentrum",
-        "en": "alterszentrum-hottingen-dipl-pflegefachmann-dipl-pflegefachfrau-spitex-alterszentrum",
-        "fr": "alterszentrum-hottingen-dipl-pflegefachmann-dipl-pflegefachfrau-spitex-alterszentrum"
+        "fr": "centre-de-vieillesse-hottingen-dipl-professionnels-des-soins-infirmiers-dipl-specialiste-des-soins-infirmiers-spitex-old"
       },
       "company": "Spital Zollikerberg",
       "companyKey": "spital-zollikerberg",
@@ -408,7 +446,7 @@
       "url": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=f8c53ec0-1091-4ad0-89c0-1026f613a779,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "source": "Spital Zollikerberg Dedicated Parser (Next.js SSR listing + PI-ASP Playwright detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T21:16:21.444Z",
+      "crawledAt": "2026-11-07T09:11:16.343Z",
       "addressLocality": "Zollikerberg",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -426,9 +464,7 @@
       "postingDateSource": "unknown",
       "applyUrl": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=f8c53ec0-1091-4ad0-89c0-1026f613a779,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "salaryMin": 91500,
       "salaryMax": 128000,
       "salarySource": "estimated",
@@ -444,9 +480,23 @@
       },
       "streetAddress": "Zollikerberg",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-04T21:16:21.444Z",
+      "validThrough": "2027-02-05T09:11:16.343Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-06T21:16:21.444Z"
+      "firstSeenAt": "2026-11-06T21:16:21.444Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "alterszentrum-hottingen-dipl-pflegefachmann-dipl-pflegefachfrau-spitex-alterszentrum"
+        ],
+        "en": [
+          "alterszentrum-hottingen-dipl-pflegefachmann-dipl-pflegefachfrau-spitex-alterszentrum"
+        ],
+        "fr": [
+          "alterszentrum-hottingen-dipl-pflegefachmann-dipl-pflegefachfrau-spitex-alterszentrum"
+        ]
+      },
+      "previousSlugs": [
+        "alterszentrum-hottingen-dipl-pflegefachmann-dipl-pflegefachfrau-spitex-alterszentrum"
+      ]
     },
     {
       "id": "spital-zollikerberg-bcd0ac6372cf",
@@ -531,7 +581,7 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-26T21:18:20.112Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "spital-zollikerberg-c606f47ca1ea",
@@ -616,7 +666,7 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-26T21:18:20.111Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "spital-zollikerberg-4a9a6bb6dec8",
@@ -698,7 +748,7 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-26T21:18:20.110Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "spital-zollikerberg-daf6bc864081",
@@ -783,7 +833,7 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-26T21:18:20.110Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "spital-zollikerberg-ccc1fec8b932",
@@ -897,7 +947,7 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-28T21:18:20.107Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "spital-zollikerberg-e33a3ddeff3a",
@@ -984,7 +1034,7 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-28T21:18:20.105Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     }
   ]
 }

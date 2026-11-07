@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest';
 import {
   buildFirebaseDeployArgs,
   chunkFunctionNames,
+  FIREBASE_FUNCTIONS_CODEBASE,
   FIREBASE_DEPLOY_ARGS,
   FUNCTION_NAMES,
   parseFunctionNames,
@@ -27,7 +28,7 @@ describe('deploy-cloud-functions-with-retry', () => {
     expect(buildFirebaseDeployArgs(['firstFunction', 'secondFunction'])).toEqual([
       ...FIREBASE_DEPLOY_ARGS,
       '--only',
-      'functions:firstFunction,functions:secondFunction',
+      `functions:${FIREBASE_FUNCTIONS_CODEBASE}:firstFunction,functions:${FIREBASE_FUNCTIONS_CODEBASE}:secondFunction`,
     ]);
   });
 

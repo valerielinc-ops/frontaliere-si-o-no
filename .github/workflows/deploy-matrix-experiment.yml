@@ -979,6 +979,43 @@ jobs:
         # plain variant benches it cost ~5.5 min of sha256 over 1.5M files.
         if: inputs.compare_monolith == true || inputs.compare_variants == true
         run: node scripts/ci/dist-hash-manifest.mjs dist "/tmp/manifest-${{ matrix.locale }}.txt"
+
+      # Persist validated chain inputs before optional diagnostic artifact
+      # uploads. A failed artifact upload must not force the next benchmark in
+      # the same chain to rebuild the jobs SEO corpus.
+      - name: Check chained jobs SEO HTML cache contents
+        if: success() && inputs.chain != '' && env.JOBS_SEO_REUSE == '1'
+        id: bench-jobs-seo-html-content
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [ -d .cache/incremental-html ] && test -n "$(find .cache/incremental-html -type f -print -quit 2>/dev/null)"; then
+            echo "has_files=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "has_files=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      # Save only benchmark-namespaced cache keys.
+      - name: Save chained jobs SEO HTML cache
+        if: success() && inputs.chain != '' && env.JOBS_SEO_REUSE == '1' && steps.bench-jobs-seo-html-content.outputs.has_files == 'true' && hashFiles(format('.cache/incremental-manifest/{0}.jsonl', matrix.locale)) != ''
+        id: bench-jobs-seo-html-save
+        timeout-minutes: 30
+        continue-on-error: true
+        uses: actions/cache/save@v6
+        with:
+          path: .cache/incremental-html
+          key: bench-${{ inputs.chain }}-${{ matrix.variant }}-${{ matrix.locale }}-${{ hashFiles(format('.cache/incremental-manifest/{0}.jsonl', matrix.locale)) }}
+
+      - name: Save chained incremental manifest
+        if: success() && inputs.chain != '' && hashFiles(format('.cache/incremental-manifest/{0}.jsonl', matrix.locale)) != ''
+        id: bench-incremental-manifest-save
+        timeout-minutes: 30
+        continue-on-error: true
+        uses: actions/cache/save@v6
+        with:
+          path: .cache/incremental-manifest
+          key: bench-${{ inputs.chain }}-${{ matrix.variant }}-${{ matrix.locale }}-${{ github.run_id }}
+
       - name: Upload build manifest
         if: inputs.compare_monolith == true
         uses: actions/upload-artifact@v7
@@ -1095,37 +1132,9 @@ jobs:
           retention-days: 7
           if-no-files-found: warn
 
-      - name: Check chained jobs SEO HTML cache contents
-        if: success() && inputs.chain != '' && env.JOBS_SEO_REUSE == '1'
-        id: bench-jobs-seo-html-content
-        shell: bash
-        run: |
-          set -euo pipefail
-          if [ -d .cache/incremental-html ] && test -n "$(find .cache/incremental-html -type f -print -quit 2>/dev/null)"; then
-            echo "has_files=true" >> "$GITHUB_OUTPUT"
-          else
-            echo "has_files=false" >> "$GITHUB_OUTPUT"
-          fi
-
       # Chained bench writes are opt-in and namespaced. These are the only
       # carry-over states consumed by postWalkIncremental and
       # incrementalHtmlReuse; production cache keys are never written here.
-      - name: Save chained jobs SEO HTML cache
-        if: success() && inputs.chain != '' && env.JOBS_SEO_REUSE == '1' && steps.bench-jobs-seo-html-content.outputs.has_files == 'true' && hashFiles(format('.cache/incremental-manifest/{0}.jsonl', matrix.locale)) != ''
-        id: bench-jobs-seo-html-save
-        uses: actions/cache/save@v6
-        with:
-          path: .cache/incremental-html
-          key: bench-${{ inputs.chain }}-${{ matrix.variant }}-${{ matrix.locale }}-${{ hashFiles(format('.cache/incremental-manifest/{0}.jsonl', matrix.locale)) }}
-
-      - name: Save chained incremental manifest
-        if: success() && inputs.chain != '' && hashFiles(format('.cache/incremental-manifest/{0}.jsonl', matrix.locale)) != ''
-        id: bench-incremental-manifest-save
-        uses: actions/cache/save@v6
-        with:
-          path: .cache/incremental-manifest
-          key: bench-${{ inputs.chain }}-${{ matrix.variant }}-${{ matrix.locale }}-${{ github.run_id }}
-
       - name: Document chained cache saves
         if: always()
         env:

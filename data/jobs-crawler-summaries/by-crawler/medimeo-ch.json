@@ -1,7 +1,7 @@
 {
   "key": "medimeo-ch",
   "label": "Medimeo AG",
-  "generatedAt": "2026-11-06T22:01:05.965Z",
+  "generatedAt": "2026-11-07T09:48:03.358Z",
   "total": 4,
   "discovered": null,
   "parsed": 4,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 16364,
-  "avgDurationMs": 16364,
+  "durationMs": 15643,
+  "avgDurationMs": 15643,
   "durationHistory": [
-    16364
+    15643
   ],
   "newJobs": [
     {
@@ -34,7 +34,7 @@
       "url": "https://medimeo.ch/job/oberaerztin-oberarzt-radiologie-90-100-bereit-fuer-die-erste-oberarztstelle-3711/",
       "source": "Medimeo AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T22:00:47.908Z",
+      "crawledAt": "2026-11-07T09:47:47.441Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -57,9 +57,9 @@
       "postalCode": "4500",
       "streetAddress": "Solothurn",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-02T22:00:47.908Z",
+      "validThrough": "2027-02-02T09:47:47.441Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-06T22:00:47.908Z",
+      "firstSeenAt": "2026-11-07T09:47:47.441Z",
       "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -80,7 +80,7 @@
       "url": "https://medimeo.ch/job/fachaerztin-facharzt-radiologie-80-100-volles-spektrum-eigener-schwerpunkt-3710/",
       "source": "Medimeo AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T22:00:47.907Z",
+      "crawledAt": "2026-11-07T09:47:47.439Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -103,9 +103,9 @@
       "postalCode": "3004",
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-02T22:00:47.907Z",
+      "validThrough": "2027-02-02T09:47:47.439Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-06T22:00:47.907Z",
+      "firstSeenAt": "2026-11-07T09:47:47.439Z",
       "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -126,7 +126,7 @@
       "url": "https://medimeo.ch/job/oberarzt-oberaerztin-notfall-teilzeit-60-80-und-ohne-nachtdienste-3712/",
       "source": "Medimeo AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T22:00:47.904Z",
+      "crawledAt": "2026-11-07T09:47:47.437Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -149,9 +149,9 @@
       "postalCode": "4001",
       "streetAddress": "Basel",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T22:00:47.904Z",
+      "validThrough": "2027-02-03T09:47:47.437Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-06T22:00:47.904Z",
+      "firstSeenAt": "2026-11-07T09:47:47.437Z",
       "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -172,7 +172,7 @@
       "url": "https://medimeo.ch/job/fachaerztin-facharzt-allgemeine-innere-medizin-80-100-gemeinsam-arbeiten-vom-eigenen-einsatz-profitieren-3716/",
       "source": "Medimeo AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T22:00:47.902Z",
+      "crawledAt": "2026-11-07T09:47:47.435Z",
       "addressLocality": "Olten",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -195,9 +195,9 @@
       "postalCode": "4600",
       "streetAddress": "Olten",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-04T22:00:47.902Z",
+      "validThrough": "2027-02-04T09:47:47.435Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-06T22:00:47.902Z",
+      "firstSeenAt": "2026-11-07T09:47:47.435Z",
       "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -210,5 +210,5 @@
   "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [],
-  "codeCommit": "83864a2067a1cd4cb74a7630816798617e7b37f9"
+  "codeCommit": "dae4367441abe10a497d7d52ebb4540c014e1e8c"
 }

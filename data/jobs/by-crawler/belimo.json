@@ -1,7 +1,7 @@
 {
   "crawlerKey": "belimo",
-  "assembledAt": "2026-11-06T21:20:06.365Z",
-  "runId": "42293312576",
+  "assembledAt": "2026-11-07T09:13:50.410Z",
+  "runId": "42357979819",
   "jobs": [
     {
       "id": "belimo-24c351acfe38",
@@ -34,7 +34,7 @@
       "url": "https://jobsredirect.belimo.com/job/Hinwil-Logistikerin-%28tempor%C3%A4r%29-Z%C3%BCri-8340/1165121155/",
       "source": "Belimo Dedicated Parser (SuccessFactors Career Site Builder)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T21:19:59.272Z",
+      "crawledAt": "2026-11-07T09:13:43.073Z",
       "addressLocality": "Hinwil",
       "addressRegion": "Zürich",
       "streetAddress": "Brunnenbachstrasse 1",
@@ -107,7 +107,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-06T21:19:59.272Z",
+      "validThrough": "2026-12-07T09:13:43.073Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -141,7 +141,7 @@
       "url": "https://jobsredirect.belimo.com/job/Hinwil-Equipment-Process-Engineer-Zuri-8340/1165693755/",
       "source": "Belimo Dedicated Parser (SuccessFactors Career Site Builder)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T21:19:58.276Z",
+      "crawledAt": "2026-11-07T09:13:41.824Z",
       "addressLocality": "Hinwil",
       "addressRegion": "Zürich",
       "streetAddress": "Brunnenbachstrasse 1",
@@ -189,7 +189,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-26T21:19:58.276Z",
+      "validThrough": "2027-01-26T09:13:41.824Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -223,7 +223,7 @@
       "url": "https://jobsredirect.belimo.com/job/Hinwil-Team-Leader-Export-%2880-100%29-Z%C3%BCri-8340/1165663555/",
       "source": "Belimo Dedicated Parser (SuccessFactors Career Site Builder)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T21:19:57.744Z",
+      "crawledAt": "2026-11-07T09:13:41.228Z",
       "addressLocality": "Hinwil",
       "addressRegion": "Zürich",
       "streetAddress": "Brunnenbachstrasse 1",
@@ -272,17 +272,17 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-20T21:19:57.744Z",
+      "validThrough": "2027-01-20T09:13:41.228Z",
       "validThroughSource": "last-observed-window"
     },
     {
       "id": "belimo-bcac88bf5192",
-      "slug": "tax-manager-80-100-belimo-hinwil",
+      "slug": "gestione-fiscale-80-100-belimo-hinwil",
       "slugByLocale": {
-        "de": "tax-manager-80-100-belimo-hinwil",
-        "it": "tax-manager-80-100-belimo-hinwil",
+        "it": "gestione-fiscale-80-100-belimo-hinwil",
         "en": "tax-manager-80-100-belimo-hinwil",
-        "fr": "tax-manager-80-100-belimo-hinwil"
+        "de": "tax-manager-80-100-belimo-hinwil",
+        "fr": "gestionnaire-des-impots-80-100-belimo-hinwil"
       },
       "company": "Belimo",
       "companyKey": "belimo",
@@ -306,7 +306,7 @@
       "url": "https://jobsredirect.belimo.com/job/Hinwil-Tax-Manager-%2880-100%29-Z%C3%BCri-8340/1165739255/",
       "source": "Belimo Dedicated Parser (SuccessFactors Career Site Builder)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T21:19:57.199Z",
+      "crawledAt": "2026-11-07T09:13:40.629Z",
       "addressLocality": "Hinwil",
       "addressRegion": "Zürich",
       "streetAddress": "Brunnenbachstrasse 1",
@@ -326,9 +326,7 @@
       "applyUrl": "https://jobsredirect.belimo.com/job/Hinwil-Tax-Manager-%2880-100%29-Z%C3%BCri-8340/1165739255/",
       "jobReqId": "1165739255",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
@@ -344,9 +342,20 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-02T21:19:57.199Z",
+      "validThrough": "2027-02-02T09:13:40.629Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-06T21:19:57.199Z"
+      "firstSeenAt": "2026-11-06T21:19:57.199Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "tax-manager-80-100-belimo-hinwil"
+        ],
+        "fr": [
+          "tax-manager-80-100-belimo-hinwil"
+        ]
+      },
+      "previousSlugs": [
+        "tax-manager-80-100-belimo-hinwil"
+      ]
     },
     {
       "id": "belimo-94020a05abe3",
@@ -379,7 +388,7 @@
       "url": "https://jobsredirect.belimo.com/job/Hinwil-Produktionsmitarbeiterin-Montage-Tagesschicht-%280600-1500-Uhr%29-%28tempor%C3%A4r%29-Z%C3%BCri-8340/1165653555/",
       "source": "Belimo Dedicated Parser (SuccessFactors Career Site Builder)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T21:19:56.663Z",
+      "crawledAt": "2026-11-07T09:13:40.029Z",
       "addressLocality": "Hinwil",
       "addressRegion": "Zürich",
       "streetAddress": "Brunnenbachstrasse 1",
@@ -429,7 +438,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-06T21:19:56.663Z",
+      "validThrough": "2026-12-07T09:13:40.029Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -463,7 +472,7 @@
       "url": "https://jobsredirect.belimo.com/job/Hinwil-Montagemitarbeiterin-f%C3%BCr-verl%C3%A4ngerte-Wochenendschichten%2C-Tag-oder-Nachtschicht-%2812-Stunden-Pr%C3%A4senz%29-Z%C3%BCri-8340/1165654355/",
       "source": "Belimo Dedicated Parser (SuccessFactors Career Site Builder)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T21:19:56.129Z",
+      "crawledAt": "2026-11-07T09:13:39.421Z",
       "addressLocality": "Hinwil",
       "addressRegion": "Zürich",
       "streetAddress": "Brunnenbachstrasse 1",
@@ -515,15 +524,15 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-19T21:19:56.129Z",
+      "validThrough": "2027-01-19T09:13:39.421Z",
       "validThroughSource": "last-observed-window"
     },
     {
       "id": "belimo-46e29834bc34",
-      "slug": "quality-project-manager-80-100-belimo-hinwil",
+      "slug": "responsabile-del-progetto-di-qualita-80-100-belimo-hinwil",
       "slugByLocale": {
+        "it": "responsabile-del-progetto-di-qualita-80-100-belimo-hinwil",
         "en": "quality-project-manager-80-100-belimo-hinwil",
-        "it": "quality-project-manager-80-100-belimo-hinwil",
         "de": "quality-project-manager-80-100-belimo-hinwil",
         "fr": "quality-project-manager-80-100-belimo-hinwil"
       },
@@ -549,7 +558,7 @@
       "url": "https://jobsredirect.belimo.com/job/Hinwil-Quality-Project-Manager-%2880-100%29-Zuri-8340/1165750155/",
       "source": "Belimo Dedicated Parser (SuccessFactors Career Site Builder)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-06T21:19:55.581Z",
+      "crawledAt": "2026-11-07T09:13:38.820Z",
       "addressLocality": "Hinwil",
       "addressRegion": "Zürich",
       "streetAddress": "Brunnenbachstrasse 1",
@@ -569,9 +578,7 @@
       "applyUrl": "https://jobsredirect.belimo.com/job/Hinwil-Quality-Project-Manager-%2880-100%29-Zuri-8340/1165750155/",
       "jobReqId": "1165750155",
       "requirements": [],
-      "requirementsByLocale": {
-        "en": []
-      },
+      "requirementsByLocale": {},
       "salaryMin": 101500,
       "salaryMax": 154000,
       "salarySource": "estimated",
@@ -586,17 +593,25 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-03T21:19:55.581Z",
+      "validThrough": "2027-02-03T09:13:38.820Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-06T21:19:55.581Z"
+      "firstSeenAt": "2026-11-06T21:19:55.581Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "quality-project-manager-80-100-belimo-hinwil"
+        ]
+      },
+      "previousSlugs": [
+        "quality-project-manager-80-100-belimo-hinwil"
+      ]
     },
     {
       "id": "belimo-2f4af22f4de6",
       "slug": "asic-development-ingegnere-80-100-belimo-hinwil",
       "slugByLocale": {
-        "de": "asic-development-engineer-80-100-belimo-hinwil-6albzu",
         "it": "asic-development-ingegnere-80-100-belimo-hinwil",
         "en": "asic-development-engineer-80-100-belimo-hinwil-2",
+        "de": "asic-development-engineer-80-100-belimo-hinwil-6albzu",
         "fr": "asic-development-ingenieur-80-100-belimo-hinwil"
       },
       "company": "Belimo",
@@ -604,9 +619,9 @@
       "companyDomain": "belimo.com",
       "title": "ASIC Development Engineer (80-100%)",
       "titleByLocale": {
-        "de": "ASIC Development Engineer (80-100%)",
         "it": "ASIC Development Ingegnere (80-100%)",
         "en": "ASIC Development Engineer (80-100%)",
+        "de": "ASIC Development Engineer (80-100%)",
         "fr": "ASIC Development Ingénieur (80-100%)"
       },
       "description": "Einführung\n\nGemeinsam mit einem hochmotivierten Team entwickelst du Mixed-Signal-ASICs, die das Herzstück jedes Belimo-Antriebs und -Sensors bilden und millionenfach produziert werden. Dabei übernimmst du die technische Verantwortung für den Analogteil, der von unserem ASIC-Lieferanten extern entwickelt wird.\n\nHauptverantwortlichkeiten\n\n• Spezifikation und Verifikation des Analogteils unserer ASICs\n\n• Enge Zusammenarbeit mit unserem ASIC-Lieferanten sowie gemeinsames Lösen technischer Herausforderungen bei der Entwicklung des Analogteils\n\n• Technische Schnittstelle zum internen Team für den Digitalteil sowie zum Systemverifikationsteam, das die ASICs innerhalb von Belimo-Geräten prüft\n\n• Entwicklung und Pflege von Leiterplatten für die Entwicklung und Qualifizierung der ASICs\n\n• Analoges Schaltungsdesign neuer Funktionen\n\nErforderliche Fachkenntnisse\n\n•\n Masterabschluss in Elektrotechnik, idealerweise mit Schwerpunkt Mikroelektronik oder Analogelektronik\n\n•\n Mehrjährige Erfahrung im analogen Schaltungsdesign sowie in der Messtechnik, einschliesslich Requirements Engineering und Verifikationsmethoden\n\n•\n Erfahrung im Bereich Mikroelektronik ist ein grosser Pluspunkt\n\n•\n Interesse an digitalem Schaltungsdesign (Verilog oder VHDL)\n\n•\n Begeisterung für neue Technologien und innovative Ideen, hohe Eigeninitiative, ausgeprägtes Qualitätsbewusstsein sowie eine selbstständige Arbeitsweise\n\n•\n Offene, kommunikative Persönlichkeit mit verhandlungssicheren Deutsch- und Englischkenntnissen\n\nMenschen bei Belimo\n\nIntelligente Gebäude entstehen durch engagierte Menschen. Wir bringen talentierte Menschen zusammen und schaffen ein Umfeld, in dem sie erfolgreich sein können. Bei Belimo tragen Respekt, Vertrauen und gegenseitige Unterstützung über Abteilungsgrenzen hinweg dazu bei, dass aus Ideen rasch praktische Lösungen werden. Denn gemeinsam erreichen wir mehr, als wir alleine je erreichen könnten.\n\nÜber Belimo\n\nBelimo ist Weltmarktführer in Entwicklung, Herstellung und Vertrieb von Feldgeräten zur energieeffizienten Regelung von Heizungs-, Lüftungs- und Klimaanlagen. Klappenantriebe, Regelventile, Sensoren und Zähler bilden dabei unser Kerngeschäft. Das 1975 gegründete Unternehmen ist seit 1995 an der Schweizer Börse (SIX) kotiert.\n\nVergütung und Zusatzleistungen\n\nWir bei Belimo glauben an eine faire, gerechte und wettbewerbsfähige Vergütung. Wir bieten ein Gehalt, das deinen Fähigkeiten, deiner Erfahrung, deiner Ausbildung und deinem Einsatzort entspricht. Neben der Vergütung profitierst du von umfassenden Zusatzleistungen, die dein mentales, körperliches, finanzielles und soziales Wohlbefinden unterstützen. Belimo ist stolz darauf, eine Arbeitgeberin zu sein, die Chancengleichheit fördert.",
@@ -621,7 +636,7 @@
       "url": "https://jobsredirect.belimo.com/job/Hinwil-ASIC-Development-Engineer-%2880-100%29-Z%C3%BCri-8340/1165363155/",
       "source": "Belimo Dedicated Parser (SuccessFactors Career Site Builder)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T21:19:55.047Z",
+      "crawledAt": "2026-11-07T09:13:38.220Z",
       "addressLocality": "Hinwil",
       "addressRegion": "Zürich",
       "streetAddress": "Brunnenbachstrasse 1",
@@ -641,9 +656,7 @@
       "applyUrl": "https://jobsredirect.belimo.com/job/Hinwil-ASIC-Development-Engineer-%2880-100%29-Z%C3%BCri-8340/1165363155/",
       "jobReqId": "1165363155",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
@@ -670,7 +683,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-26T21:19:55.047Z",
+      "validThrough": "2027-01-26T09:13:38.220Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-08-31T17:00:01.159Z"
     },
@@ -678,8 +691,8 @@
       "id": "belimo-fbe98deda206",
       "slug": "analog-electronic-development-engineer-80-100-belimo-hinwil",
       "slugByLocale": {
-        "en": "asic-development-engineer-80-100-belimo-hinwil",
         "it": "analog-electronic-development-engineer-80-100-belimo-hinwil",
+        "en": "asic-development-engineer-80-100-belimo-hinwil",
         "de": "analog-electronic-development-engineer-80-100-belimo-hinwil",
         "fr": "analog-electronic-development-engineer-80-100-belimo-hinwil"
       },
@@ -688,8 +701,8 @@
       "companyDomain": "belimo.com",
       "title": "Analog Electronic Development Engineer (80-100%)",
       "titleByLocale": {
-        "en": "Analog Electronic Development Engineer (80-100%)",
         "it": "Analog Electronic Development Ingegnere (80-100%)",
+        "en": "Analog Electronic Development Engineer (80-100%)",
         "de": "Analog Electronic Development Ingenieur (80-100%)",
         "fr": "Analog Electronic Development Ingénieur (80-100%)"
       },
@@ -705,7 +718,7 @@
       "url": "https://jobsredirect.belimo.com/job/Hinwil-Analog-Electronic-Development-Engineer-%2880-100%29-Zuri-8340/1165363055/",
       "source": "Belimo Dedicated Parser (SuccessFactors Career Site Builder)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-06T21:19:54.507Z",
+      "crawledAt": "2026-11-07T09:13:37.623Z",
       "addressLocality": "Hinwil",
       "addressRegion": "Zürich",
       "streetAddress": "Brunnenbachstrasse 1",
@@ -725,9 +738,7 @@
       "applyUrl": "https://jobsredirect.belimo.com/job/Hinwil-Analog-Electronic-Development-Engineer-%2880-100%29-Zuri-8340/1165363055/",
       "jobReqId": "1165363055",
       "requirements": [],
-      "requirementsByLocale": {
-        "en": []
-      },
+      "requirementsByLocale": {},
       "salaryMin": 83000,
       "salaryMax": 126000,
       "salarySource": "estimated",
@@ -742,7 +753,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-26T21:19:54.507Z",
+      "validThrough": "2027-01-26T09:13:37.623Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-06T21:19:54.507Z"
     },
@@ -750,10 +761,10 @@
       "id": "belimo-4ea672b6b1d6",
       "slug": "senior-entwicklungsingenieur-in-mechanik-technische-projektleitung-80-100-belimo-hinwil",
       "slugByLocale": {
-        "de": "senior-entwicklungsingenieur-in-mechanik-technische-projektleitung-80-100-belimo-hinwil",
         "it": "senior-entwicklungsingenieur-in-mechanik-technische-projektleitung-80-100-belimo-hinwil",
-        "en": "senior-entwicklungsingenieur-in-mechanik-technische-projektleitung-80-100-belimo-hinwil",
-        "fr": "senior-entwicklungsingenieur-in-mechanik-technische-projektleitung-80-100-belimo-hinwil"
+        "en": "senior-development-engineer-mechanics-technical-project-management-80-100-belimo-hinwil",
+        "de": "senior-entwicklungsingenieur-in-mechanik-technische-projektleitung-80-100-belimo-hinwil",
+        "fr": "ingenieur-developpement-senior-en-mecanique-gestion-de-projet-technique-80-100-belimo-hinwil"
       },
       "company": "Belimo",
       "companyKey": "belimo",
@@ -777,7 +788,7 @@
       "url": "https://jobsredirect.belimo.com/job/Hinwil-Senior-Entwicklungsingenieurin-Mechanik-Technische-Projektleitung-%2880-100-%29-Z%C3%BCri-8340/1165744155/",
       "source": "Belimo Dedicated Parser (SuccessFactors Career Site Builder)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T21:19:53.628Z",
+      "crawledAt": "2026-11-07T09:13:36.316Z",
       "addressLocality": "Hinwil",
       "addressRegion": "Zürich",
       "streetAddress": "Brunnenbachstrasse 1",
@@ -797,9 +808,7 @@
       "applyUrl": "https://jobsredirect.belimo.com/job/Hinwil-Senior-Entwicklungsingenieurin-Mechanik-Technische-Projektleitung-%2880-100-%29-Z%C3%BCri-8340/1165744155/",
       "jobReqId": "1165744155",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "needsRetranslation": true,
       "salaryMin": 113500,
       "salaryMax": 172000,
@@ -815,7 +824,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-03T21:19:53.628Z",
+      "validThrough": "2027-02-03T09:13:36.316Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-06T21:19:53.628Z"
     },
@@ -850,7 +859,7 @@
       "url": "https://jobsredirect.belimo.com/job/Hinwil-HSE-Manager-%28100%29-Z%C3%BCri-8340/1165043155/",
       "source": "Belimo Dedicated Parser (SuccessFactors Career Site Builder)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T21:19:53.090Z",
+      "crawledAt": "2026-11-07T09:13:35.725Z",
       "addressLocality": "Hinwil",
       "addressRegion": "Zürich",
       "streetAddress": "Brunnenbachstrasse 1",
@@ -898,7 +907,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-30T21:19:53.090Z",
+      "validThrough": "2026-12-30T09:13:35.725Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -932,7 +941,7 @@
       "url": "https://jobsredirect.belimo.com/job/Hinwil-Produktionsmitarbeiterin-Montage-Nachtschicht-%282300-0600-Uhr%29-%28tempor%C3%A4r%29-Z%C3%BCri-8340/1165653755/",
       "source": "Belimo Dedicated Parser (SuccessFactors Career Site Builder)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T21:19:52.541Z",
+      "crawledAt": "2026-11-07T09:13:35.103Z",
       "addressLocality": "Hinwil",
       "addressRegion": "Zürich",
       "streetAddress": "Brunnenbachstrasse 1",
@@ -982,7 +991,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-06T21:19:52.541Z",
+      "validThrough": "2026-12-07T09:13:35.103Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1016,7 +1025,7 @@
       "url": "https://jobsredirect.belimo.com/job/Hinwil-Embedded-Security-Verification-Engineer-%2880-100%29-Zuri-8340/1165337955/",
       "source": "Belimo Dedicated Parser (SuccessFactors Career Site Builder)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-06T21:19:52.005Z",
+      "crawledAt": "2026-11-07T09:13:34.503Z",
       "addressLocality": "Hinwil",
       "addressRegion": "Zürich",
       "streetAddress": "Brunnenbachstrasse 1",
@@ -1052,7 +1061,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-23T21:19:52.005Z",
+      "validThrough": "2026-12-23T09:13:34.503Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1086,7 +1095,7 @@
       "url": "https://jobsredirect.belimo.com/job/Hinwil-Produktionsmitarbeiterin-Montage-Abendschicht-%281400-2300-Uhr%29-%28tempor%C3%A4r%29-Z%C3%BCri-8340/1165653655/",
       "source": "Belimo Dedicated Parser (SuccessFactors Career Site Builder)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T21:19:51.465Z",
+      "crawledAt": "2026-11-07T09:13:33.905Z",
       "addressLocality": "Hinwil",
       "addressRegion": "Zürich",
       "streetAddress": "Brunnenbachstrasse 1",
@@ -1136,7 +1145,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-06T21:19:51.465Z",
+      "validThrough": "2026-12-07T09:13:33.905Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1170,7 +1179,7 @@
       "url": "https://jobsredirect.belimo.com/job/Granges-Paccot-Fachspezialistin-technischer-Kundensupport-%2880-100%29-Frei-1763/1165551755/",
       "source": "Belimo Dedicated Parser (SuccessFactors Career Site Builder)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T21:19:50.924Z",
+      "crawledAt": "2026-11-07T09:13:33.303Z",
       "addressLocality": "Granges-Paccot",
       "addressRegion": "Frei",
       "streetAddress": "Granges-Paccot",
@@ -1220,7 +1229,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-03T21:19:50.924Z",
+      "validThrough": "2027-01-03T09:13:33.303Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1254,7 +1263,7 @@
       "url": "https://jobsredirect.belimo.com/job/Hinwil-Abteilungsleiterin-Logistik-%28100%29-Z%C3%BCri-8340/1165397955/",
       "source": "Belimo Dedicated Parser (SuccessFactors Career Site Builder)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T21:19:50.391Z",
+      "crawledAt": "2026-11-07T09:13:32.705Z",
       "addressLocality": "Hinwil",
       "addressRegion": "Zürich",
       "streetAddress": "Brunnenbachstrasse 1",
@@ -1298,7 +1307,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-24T21:19:50.391Z",
+      "validThrough": "2027-01-24T09:13:32.705Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1332,7 +1341,7 @@
       "url": "https://jobsredirect.belimo.com/job/Hinwil-PIM-Application-Manager-%2880-100%29-Z%C3%BCri-8340/1165473855/",
       "source": "Belimo Dedicated Parser (SuccessFactors Career Site Builder)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T21:19:49.846Z",
+      "crawledAt": "2026-11-07T09:13:32.102Z",
       "addressLocality": "Hinwil",
       "addressRegion": "Zürich",
       "streetAddress": "Brunnenbachstrasse 1",
@@ -1380,7 +1389,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-20T21:19:49.846Z",
+      "validThrough": "2026-12-20T09:13:32.102Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1414,7 +1423,7 @@
       "url": "https://jobsredirect.belimo.com/job/Hinwil-Lehrstelle-als-Fachfrau-mann-Betriebsunterhalt-EFZ-Z%C3%BCri-8340/1165066855/",
       "source": "Belimo Dedicated Parser (SuccessFactors Career Site Builder)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T21:19:49.308Z",
+      "crawledAt": "2026-11-07T09:13:31.496Z",
       "addressLocality": "Hinwil",
       "addressRegion": "Zürich",
       "streetAddress": "Brunnenbachstrasse 1",
@@ -1479,7 +1488,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-02T21:19:49.308Z",
+      "validThrough": "2027-01-02T09:13:31.496Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1513,7 +1522,7 @@
       "url": "https://jobsredirect.belimo.com/job/Hinwil-Development-Engineer-Electronics-%2880-100%29-Zuri-8340/1165271655/",
       "source": "Belimo Dedicated Parser (SuccessFactors Career Site Builder)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-06T21:19:48.768Z",
+      "crawledAt": "2026-11-07T09:13:30.891Z",
       "addressLocality": "Hinwil",
       "addressRegion": "Zürich",
       "streetAddress": "Brunnenbachstrasse 1",
@@ -1549,7 +1558,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-01T21:19:48.768Z",
+      "validThrough": "2027-01-01T09:13:30.891Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1583,7 +1592,7 @@
       "url": "https://jobsredirect.belimo.com/job/Hinwil-Product-Compliance-Engineer-%28100%29-Zuri-8340/1165719355/",
       "source": "Belimo Dedicated Parser (SuccessFactors Career Site Builder)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-06T21:19:48.233Z",
+      "crawledAt": "2026-11-07T09:13:30.286Z",
       "addressLocality": "Hinwil",
       "addressRegion": "Zürich",
       "streetAddress": "Brunnenbachstrasse 1",
@@ -1619,7 +1628,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-28T21:19:48.233Z",
+      "validThrough": "2027-01-28T09:13:30.286Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1653,7 +1662,7 @@
       "url": "https://jobsredirect.belimo.com/job/Hinwil-Product-Compliance-Lead-%2880-100%29-Zuri-8340/1165719255/",
       "source": "Belimo Dedicated Parser (SuccessFactors Career Site Builder)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-06T21:19:47.694Z",
+      "crawledAt": "2026-11-07T09:13:29.687Z",
       "addressLocality": "Hinwil",
       "addressRegion": "Zürich",
       "streetAddress": "Brunnenbachstrasse 1",
@@ -1703,7 +1712,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-28T21:19:47.694Z",
+      "validThrough": "2027-01-28T09:13:29.687Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1737,7 +1746,7 @@
       "url": "https://jobsredirect.belimo.com/job/Hinwil-Assistant-to-Group-General-CounselParalegal-%2840-60%29-Z%C3%BCri-8340/1165604255/",
       "source": "Belimo Dedicated Parser (SuccessFactors Career Site Builder)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T21:19:47.152Z",
+      "crawledAt": "2026-11-07T09:13:29.077Z",
       "addressLocality": "Hinwil",
       "addressRegion": "Zürich",
       "streetAddress": "Brunnenbachstrasse 1",
@@ -1787,7 +1796,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-10T21:19:47.152Z",
+      "validThrough": "2027-01-10T09:13:29.077Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1821,7 +1830,7 @@
       "url": "https://jobsredirect.belimo.com/job/Hinwil-Head-of-Group-Treasury-100-Zuri-8340/1165511855/",
       "source": "Belimo Dedicated Parser (SuccessFactors Career Site Builder)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-06T21:19:46.609Z",
+      "crawledAt": "2026-11-07T09:13:28.479Z",
       "addressLocality": "Hinwil",
       "addressRegion": "Zürich",
       "streetAddress": "Brunnenbachstrasse 1",
@@ -1873,7 +1882,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-24T21:19:46.609Z",
+      "validThrough": "2026-12-24T09:13:28.479Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1907,7 +1916,7 @@
       "url": "https://jobsredirect.belimo.com/job/Hinwil-Konstrukteurin-Arbeitsplatz-Systembau-%2880-100%29-Z%C3%BCri-8340/1165689755/",
       "source": "Belimo Dedicated Parser (SuccessFactors Career Site Builder)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T21:19:46.063Z",
+      "crawledAt": "2026-11-07T09:13:27.875Z",
       "addressLocality": "Hinwil",
       "addressRegion": "Zürich",
       "streetAddress": "Brunnenbachstrasse 1",
@@ -1957,7 +1966,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-25T21:19:46.063Z",
+      "validThrough": "2027-01-25T09:13:27.875Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1991,7 +2000,7 @@
       "url": "https://jobsredirect.belimo.com/job/Hinwil-Instandhaltungsfachmann-frau-%28100%29-Z%C3%BCri-8340/1164972655/",
       "source": "Belimo Dedicated Parser (SuccessFactors Career Site Builder)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T21:19:45.524Z",
+      "crawledAt": "2026-11-07T09:13:27.274Z",
       "addressLocality": "Hinwil",
       "addressRegion": "Zürich",
       "streetAddress": "Brunnenbachstrasse 1",
@@ -2035,7 +2044,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-22T21:19:45.524Z",
+      "validThrough": "2026-12-22T09:13:27.274Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2069,7 +2078,7 @@
       "url": "https://jobsredirect.belimo.com/job/Hinwil-Instandhaltungsfachmann-frau-Wochenendschicht-Z%C3%BCri-8340/1165695655/",
       "source": "Belimo Dedicated Parser (SuccessFactors Career Site Builder)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T21:19:44.980Z",
+      "crawledAt": "2026-11-07T09:13:26.673Z",
       "addressLocality": "Hinwil",
       "addressRegion": "Zürich",
       "streetAddress": "Brunnenbachstrasse 1",
@@ -2119,7 +2128,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-26T21:19:44.980Z",
+      "validThrough": "2027-01-26T09:13:26.673Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2153,7 +2162,7 @@
       "url": "https://jobsredirect.belimo.com/job/Hinwil-Expert-Supply-Chain-Planning-&-Operations-%2880-100%29-Z%C3%BCri-8340/1165616455/",
       "source": "Belimo Dedicated Parser (SuccessFactors Career Site Builder)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T21:19:44.431Z",
+      "crawledAt": "2026-11-07T09:13:26.066Z",
       "addressLocality": "Hinwil",
       "addressRegion": "Zürich",
       "streetAddress": "Brunnenbachstrasse 1",
@@ -2204,7 +2213,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-12T21:19:44.431Z",
+      "validThrough": "2027-01-12T09:13:26.066Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2238,7 +2247,7 @@
       "url": "https://jobsredirect.belimo.com/job/Hinwil-Teamleader-Order-Processing-%28100%29-Z%C3%BCri-8340/1165488655/",
       "source": "Belimo Dedicated Parser (SuccessFactors Career Site Builder)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T21:19:43.893Z",
+      "crawledAt": "2026-11-07T09:13:25.457Z",
       "addressLocality": "Hinwil",
       "addressRegion": "Zürich",
       "streetAddress": "Brunnenbachstrasse 1",
@@ -2293,7 +2302,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-22T21:19:43.893Z",
+      "validThrough": "2026-12-22T09:13:25.457Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2327,7 +2336,7 @@
       "url": "https://jobsredirect.belimo.com/job/Hinwil-Logistikerin-EFZ-%28100%29-Z%C3%BCri-8340/1165196555/",
       "source": "Belimo Dedicated Parser (SuccessFactors Career Site Builder)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T21:19:43.353Z",
+      "crawledAt": "2026-11-07T09:13:24.837Z",
       "addressLocality": "Hinwil",
       "addressRegion": "Zürich",
       "streetAddress": "Brunnenbachstrasse 1",
@@ -2377,7 +2386,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-24T21:19:43.353Z",
+      "validThrough": "2026-12-24T09:13:24.837Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2411,7 +2420,7 @@
       "url": "https://jobsredirect.belimo.com/job/Hinwil-System-Engineer-Cloud-Technologies-%2880-100%29-Z%C3%BCri-8340/1165657455/",
       "source": "Belimo Dedicated Parser (SuccessFactors Career Site Builder)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T21:19:42.678Z",
+      "crawledAt": "2026-11-07T09:13:24.049Z",
       "addressLocality": "Hinwil",
       "addressRegion": "Zürich",
       "streetAddress": "Brunnenbachstrasse 1",
@@ -2459,7 +2468,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-19T21:19:42.678Z",
+      "validThrough": "2027-01-19T09:13:24.049Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2493,7 +2502,7 @@
       "url": "https://jobsredirect.belimo.com/job/Hinwil-Mechanikerin-Versuchswerkstatt-&-Stv_-Leiterin-Werkstatt-%28100%29-Z%C3%BCri-8340/1164948755/",
       "source": "Belimo Dedicated Parser (SuccessFactors Career Site Builder)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T21:19:42.139Z",
+      "crawledAt": "2026-11-07T09:13:23.445Z",
       "addressLocality": "Hinwil",
       "addressRegion": "Zürich",
       "streetAddress": "Brunnenbachstrasse 1",
@@ -2547,7 +2556,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-22T21:19:42.139Z",
+      "validThrough": "2026-12-22T09:13:23.445Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2581,7 +2590,7 @@
       "url": "https://jobsredirect.belimo.com/job/Hinwil-Senior-SAP-Solution-Architect-EWM-%2880-100%29-Z%C3%BCri-8340/1165476355/",
       "source": "Belimo Dedicated Parser (SuccessFactors Career Site Builder)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T21:19:41.572Z",
+      "crawledAt": "2026-11-07T09:13:22.828Z",
       "addressLocality": "Hinwil",
       "addressRegion": "Zürich",
       "streetAddress": "Brunnenbachstrasse 1",
@@ -2633,7 +2642,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-20T21:19:41.572Z",
+      "validThrough": "2026-12-20T09:13:22.828Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2667,7 +2676,7 @@
       "url": "https://jobsredirect.belimo.com/job/Granges-Paccot-Sp%C3%A9cialiste-support-technique-clients-%2880-100-%29-bon-niveau-d%E2%80%99allemand-requis-Frib-1763/1165634755/",
       "source": "Belimo Dedicated Parser (SuccessFactors Career Site Builder)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-06T21:19:40.988Z",
+      "crawledAt": "2026-11-07T09:13:22.202Z",
       "addressLocality": "Granges-Paccot",
       "addressRegion": "Frib",
       "streetAddress": "Granges-Paccot",
@@ -2717,7 +2726,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-14T21:19:40.988Z",
+      "validThrough": "2027-01-14T09:13:22.202Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2831,7 +2840,7 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-31T21:18:39.985Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     }
   ]
 }

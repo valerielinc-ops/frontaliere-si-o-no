@@ -1,16 +1,16 @@
 {
   "crawlerKey": "walter-zoo-ag-gossau",
-  "assembledAt": "2026-11-06T21:30:12.973Z",
-  "runId": "42294369177",
+  "assembledAt": "2026-11-07T09:46:09.850Z",
+  "runId": "42358522306",
   "jobs": [
     {
       "id": "walter-zoo-ag-gossau-a221fb1d5a9b",
-      "slug": "kochin-koch-40-60-im-stundenlohn-gossau-sg-sg-walter-zoo-ag-gossau-ch",
+      "slug": "cuocere-40-60-in-salari-orali-walter-zoo-ag-gossau-gossau-sg",
       "slugByLocale": {
+        "it": "cuocere-40-60-in-salari-orali-walter-zoo-ag-gossau-gossau-sg",
+        "en": "cook-40-60-in-hourly-wages-walter-zoo-ag-gossau-gossau-sg",
         "de": "kochin-koch-40-60-im-stundenlohn-gossau-sg-sg-walter-zoo-ag-gossau-ch",
-        "it": "kochin-koch-40-60-im-stundenlohn-gossau-sg-sg-walter-zoo-ag-gossau-ch",
-        "en": "kochin-koch-40-60-im-stundenlohn-gossau-sg-sg-walter-zoo-ag-gossau-ch",
-        "fr": "kochin-koch-40-60-im-stundenlohn-gossau-sg-sg-walter-zoo-ag-gossau-ch"
+        "fr": "cuisson-40-60-en-salaires-horaires-walter-zoo-ag-gossau-gossau-sg"
       },
       "company": "WALTER ZOO AG GOSSAU",
       "companyKey": "walter-zoo-ag-gossau",
@@ -34,7 +34,7 @@
       "url": "https://link.ostendis.com/publication/koechin-koch-im-stundenlohn/ft6ay0tp0lvitfsfmjmccsgobolfhzvjhl7eaubzkdj1osa7lrfrcwbp5wqsqofn",
       "source": "WALTER ZOO AG GOSSAU Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T21:30:06.415Z",
+      "crawledAt": "2026-11-07T09:46:04.480Z",
       "addressLocality": "Gossau SG",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -53,9 +53,7 @@
       "postingDateSource": "reported",
       "applyUrl": "https://link.ostendis.com/publication/koechin-koch-im-stundenlohn/ft6ay0tp0lvitfsfmjmccsgobolfhzvjhl7eaubzkdj1osa7lrfrcwbp5wqsqofn",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "salaryMin": 34500,
       "salaryMax": 52200,
       "salarySource": "estimated",
@@ -70,18 +68,32 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-21T21:30:06.415Z",
+      "validThrough": "2027-01-21T09:46:04.480Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-06T21:30:06.415Z"
+      "firstSeenAt": "2026-11-06T21:30:06.415Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "kochin-koch-40-60-im-stundenlohn-gossau-sg-sg-walter-zoo-ag-gossau-ch"
+        ],
+        "en": [
+          "kochin-koch-40-60-im-stundenlohn-gossau-sg-sg-walter-zoo-ag-gossau-ch"
+        ],
+        "fr": [
+          "kochin-koch-40-60-im-stundenlohn-gossau-sg-sg-walter-zoo-ag-gossau-ch"
+        ]
+      },
+      "previousSlugs": [
+        "kochin-koch-40-60-im-stundenlohn-gossau-sg-sg-walter-zoo-ag-gossau-ch"
+      ]
     },
     {
       "id": "walter-zoo-ag-gossau-566ac5cfcdc0",
       "slug": "praktikant-in-tierpflege-gossau-sg-sg-walter-zoo-ag-gossau-ch",
       "slugByLocale": {
-        "de": "praktikant-in-tierpflege-gossau-sg-sg-walter-zoo-ag-gossau-ch",
         "it": "praktikant-in-tierpflege-gossau-sg-sg-walter-zoo-ag-gossau-ch",
-        "en": "praktikant-in-tierpflege-gossau-sg-sg-walter-zoo-ag-gossau-ch",
-        "fr": "praktikant-in-tierpflege-gossau-sg-sg-walter-zoo-ag-gossau-ch"
+        "en": "animal-care-intern-walter-zoo-ag-gossau-gossau-sg",
+        "de": "praktikant-in-tierpflege-gossau-sg-sg-walter-zoo-ag-gossau-ch",
+        "fr": "stagiaire-en-soins-aux-animaux-walter-zoo-ag-gossau-gossau-sg"
       },
       "company": "WALTER ZOO AG GOSSAU",
       "companyKey": "walter-zoo-ag-gossau",
@@ -105,7 +117,7 @@
       "url": "https://link.ostendis.com/publication/praktikant-in-tierpflege/ifxcx5w7j27ktusu6yw8b7qjgwq4sj426s7hakpf1ecsofijiafrjlo6ylec7rth",
       "source": "WALTER ZOO AG GOSSAU Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T21:30:06.414Z",
+      "crawledAt": "2026-11-07T09:46:04.479Z",
       "addressLocality": "Gossau SG",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -124,9 +136,7 @@
       "postingDateSource": "reported",
       "applyUrl": "https://link.ostendis.com/publication/praktikant-in-tierpflege/ifxcx5w7j27ktusu6yw8b7qjgwq4sj426s7hakpf1ecsofijiafrjlo6ylec7rth",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "needsRetranslation": true,
       "salaryMin": 48000,
       "salaryMax": 73000,
@@ -142,7 +152,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-21T21:30:06.414Z",
+      "validThrough": "2027-01-21T09:46:04.479Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-06T21:30:06.414Z"
     },
@@ -227,7 +237,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-27T21:21:50.478Z",
       "validThroughSource": "last-observed-window"

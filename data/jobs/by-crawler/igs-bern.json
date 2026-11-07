@@ -1,7 +1,7 @@
 {
   "crawlerKey": "igs-bern",
-  "assembledAt": "2026-11-06T21:52:15.880Z",
-  "runId": "42294672013",
+  "assembledAt": "2026-11-07T09:38:46.908Z",
+  "runId": "42358680855",
   "jobs": [
     {
       "id": "igs-bern-52ea00b2fd44",
@@ -35,7 +35,7 @@
       "url": "https://www.publicjobs.ch/jobs/behinderung-beeintr%C3%A4chtigung-agogik/~job167324?ext",
       "source": "Interessengemeinschaft Sozialpsychiatrie Bern Dedicated Parser (PastaHR / publicjobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T21:52:09.256Z",
+      "crawledAt": "2026-11-07T09:38:40.711Z",
       "addressLocality": "Bern",
       "postalCode": "3004",
       "addressCountry": "CH",
@@ -90,17 +90,17 @@
       "addressRegion": "BE",
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-18T21:52:09.256Z",
+      "validThrough": "2027-01-18T09:38:40.711Z",
       "validThroughSource": "last-observed-window"
     },
     {
       "id": "igs-bern-8f5e38e49e6c",
-      "slug": "fachfrau-fachmann-betreuung-fabe-gesundheit-fage-efz-50-70-igs-bern-ch",
+      "slug": "specialista-assistenza-fabe-salute-fage-afc-50-70-interessengemeinschaft-sozialpsychiatrie-bern-moosseedorf",
       "slugByLocale": {
+        "it": "specialista-assistenza-fabe-salute-fage-afc-50-70-interessengemeinschaft-sozialpsychiatrie-bern-moosseedorf",
+        "en": "professional-care-fabe-health-fage-efz-50-70-interessengemeinschaft-sozialpsychiatrie-bern-moosseedorf",
         "de": "fachfrau-fachmann-betreuung-fabe-gesundheit-fage-efz-50-70-igs-bern-ch",
-        "it": "fachfrau-fachmann-betreuung-fabe-gesundheit-fage-efz-50-70-igs-bern-ch",
-        "en": "fachfrau-fachmann-betreuung-fabe-gesundheit-fage-efz-50-70-igs-bern-ch",
-        "fr": "fachfrau-fachmann-betreuung-fabe-gesundheit-fage-efz-50-70-igs-bern-ch"
+        "fr": "soins-professionnels-fabe-sante-fage-efz-50-70-interessengemeinschaft-sozialpsychiatrie-bern-moosseedorf"
       },
       "company": "Interessengemeinschaft Sozialpsychiatrie Bern",
       "companyKey": "igs-bern",
@@ -125,7 +125,7 @@
       "url": "https://www.publicjobs.ch/jobs/behinderung-beeintr%C3%A4chtigung-agogik/~job168872?ext",
       "source": "Interessengemeinschaft Sozialpsychiatrie Bern Dedicated Parser (PastaHR / publicjobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T21:52:08.733Z",
+      "crawledAt": "2026-11-07T09:38:40.146Z",
       "addressLocality": "Moosseedorf",
       "postalCode": "3302",
       "addressCountry": "CH",
@@ -142,9 +142,7 @@
       "postingDateSource": "unknown",
       "applyUrl": "https://www.publicjobs.ch/jobs/behinderung-beeintr%C3%A4chtigung-agogik/~job168872?ext",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "pensumMin": 50,
       "pensumMax": 50,
       "pensum": "50%",
@@ -164,9 +162,23 @@
       "addressRegion": "BE",
       "streetAddress": "Moosseedorf",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-04T21:52:08.733Z",
+      "validThrough": "2027-02-05T09:38:40.146Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-06T21:52:08.733Z"
+      "firstSeenAt": "2026-11-06T21:52:08.733Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachfrau-fachmann-betreuung-fabe-gesundheit-fage-efz-50-70-igs-bern-ch"
+        ],
+        "en": [
+          "fachfrau-fachmann-betreuung-fabe-gesundheit-fage-efz-50-70-igs-bern-ch"
+        ],
+        "fr": [
+          "fachfrau-fachmann-betreuung-fabe-gesundheit-fage-efz-50-70-igs-bern-ch"
+        ]
+      },
+      "previousSlugs": [
+        "fachfrau-fachmann-betreuung-fabe-gesundheit-fage-efz-50-70-igs-bern-ch"
+      ]
     }
   ]
 }
