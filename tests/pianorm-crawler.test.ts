@@ -7,12 +7,25 @@ import {
   isTrustedDomain,
 } from '../scripts/lib/pianorm-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
+import { loadSpec, templateToRegex } from '../scripts/lib/prospector/spec-crawler.mjs';
 
 describe('pianorm crawler parser', () => {
   // ── Constants ──
   it('exports valid company key and name', () => {
     expect(PIANORM_KEY).toBe('pianorm');
     expect(PIANORM_COMPANY_NAME).toBe('pianorm');
+  });
+
+  it('uses the official jobs index and a variable detail template', () => {
+    const spec = loadSpec(PIANORM_KEY);
+    const detailPattern = templateToRegex(spec.detailTemplate);
+
+    expect(spec.mode).toBe('template');
+    expect(spec.seedUrls).toEqual(['https://www.pianorm.ch/jobs/']);
+    expect(spec.detailTemplate).toBe('/job/*/');
+    expect(spec.detailEnrichment).toBe(true);
+    expect(detailPattern.test('/job/cnc-maschinist-m-w-100/')).toBe(true);
+    expect(detailPattern.test('/jobs/')).toBe(false);
   });
 
   // ── isCompanyJob ──
