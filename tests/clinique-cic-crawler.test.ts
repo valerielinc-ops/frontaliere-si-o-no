@@ -129,6 +129,14 @@ describe('clinique CIC JobCloud parser', () => {
     expect(isAuthoritativeEmptySnapshot(jobs)).toBe(false);
   });
 
+  it('recognises the current JobCloud empty message without the legacy initialJobs payload', () => {
+    const currentEmpty = '<html><body><main><p>Aucun poste ouvert actuellement</p><p>Revenez bientôt.</p></main></body></html>';
+    expect(isJobCloudListingProvenEmpty(currentEmpty)).toBe(true);
+    expect(isJobCloudListingProvenEmpty(
+      currentEmpty.replace('</main>', '<script>self.__next_f.push([1,"{\\"initialJobs\\":[{\\"id\\":1}]}" ])</script></main>'),
+    )).toBe(false);
+  });
+
   it('throws when every discovered detail fetch fails instead of publishing a zero', async () => {
     vi.stubGlobal('fetch', vi.fn(async (input: unknown) => {
       if (String(input) === LISTING_URL) return response(listingHtml([DETAIL_URL]), 200);
