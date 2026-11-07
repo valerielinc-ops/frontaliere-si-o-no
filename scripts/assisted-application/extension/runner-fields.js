@@ -32,7 +32,8 @@ function nativeQuestionText(value, counter = null) {
   const nativeOption = (option, select) => ({
     value: option.value,
     label: clean(option.textContent),
-    ...(select.required && !select.multiple && select.size <= 1 && select.options[0] === option
+    ...((select.required || String(select.getAttribute('aria-required') || '').toLowerCase() === 'true')
+      && !select.multiple && select.size <= 1 && select.options[0] === option
       && option.parentElement === select && option.value === '' ? { placeholder: true } : {}),
   });
   const EMPTY_PICKLIST_RE = /^(bitte (aus)?wählen|please select|select|seleziona(re)?|sélectionne[rz]?|choisi(r|ssez)|aucune\s+(?:sélection|selection)(?:née|nee)?|keine\s+auswahl|no\s+selection|nothing\s+selected)\b/i;

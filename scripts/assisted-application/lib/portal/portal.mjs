@@ -1685,6 +1685,9 @@ function questionsFrom(missingRequired, stableQuestionIds = new Map()) {
       : Array.isArray(item.applicationOptions) && item.applicationOptions.length
         ? item.applicationOptions
         : item.options || []).map((option) => String(option || '').trim()).filter(Boolean);
+    const applicationOptionValues = Array.isArray(item.applicationOptionValues)
+      ? item.applicationOptionValues.map((value) => String(value || '').trim())
+      : [];
     const options = (Array.isArray(item.options) ? item.options : []).map((option) => String(option || '').trim()).filter(Boolean);
     const optionMap = portalOptionMap({ options, applicationOptions, optionMap: item.optionMap });
     questions.push({
@@ -1692,6 +1695,8 @@ function questionsFrom(missingRequired, stableQuestionIds = new Map()) {
       question: readableQuestionCandidate(item.question) || applicationQuestion,
       applicationQuestion,
       ...(applicationOptions.length ? { applicationOptions } : {}),
+      ...(applicationOptions.length > 0 && applicationOptionValues.length === applicationOptions.length && applicationOptionValues.every(Boolean)
+        ? { applicationOptionValues } : {}),
       ...(optionMap.length ? { optionMap } : {}),
       ...(item.context ? { context: String(item.context).slice(0, 240) } : {}),
       ...(item.section ? { section: String(item.section).slice(0, 240) } : {}),
@@ -1800,6 +1805,27 @@ function fallbackOption(option, language) {
   return text;
 }
 
+const REGION_CODE_RE = /^[A-Z]{2}$/;
+const REGION_LABEL_CACHE = new Map();
+
+function localizedRegionLabel(code, language) {
+  const normalizedCode = String(code || '').trim().toUpperCase();
+  if (!REGION_CODE_RE.test(normalizedCode)) return '';
+  const cacheKey = `${language}:${normalizedCode}`;
+  if (REGION_LABEL_CACHE.has(cacheKey)) return REGION_LABEL_CACHE.get(cacheKey);
+  let label = '';
+  try {
+    if (typeof Intl.DisplayNames === 'function') {
+      const display = new Intl.DisplayNames([language], { type: 'region' }).of(normalizedCode);
+      label = display && display !== normalizedCode ? String(display).trim() : '';
+    }
+  } catch {
+    label = '';
+  }
+  REGION_LABEL_CACHE.set(cacheKey, label);
+  return label;
+}
+
 // A provider outage must not strand a standard ATS form whose labels are
 // already part of the portal contract. These are exact German field captions
 // observed on employer-site forms; arbitrary questions still require the
@@ -1859,24 +1885,27 @@ function deterministicGermanQuestionEntry(item) {
   return DETERMINISTIC_GERMAN_QUESTION_COPIES[normalizedQuestionText(sourceQuestion)] || null;
 }
 
-function deterministicGermanOption(option, entry, language) {
+function deterministicGermanOption(option, entry, language, applicationOptionValue = '') {
   const text = String(option || '').trim();
   const normalized = normalizedQuestionText(text);
   const known = DETERMINISTIC_GERMAN_OPTION_COPIES[entry.key]?.[normalized]?.[language];
   if (known) return known;
+  const codeFromValue = String(applicationOptionValue || '').trim().toUpperCase();
   if (entry.key === 'nationality') {
-    const code = nationalityOf(text)?.code;
+    const code = REGION_CODE_RE.test(codeFromValue) ? codeFromValue : nationalityOf(text)?.code;
     const localized = code ? nationalityLabelOf(code, language) : '';
     if (localized) return localized;
+    const region = code ? localizedRegionLabel(code, language) : '';
+    if (region) return region;
   }
   if (entry.key === 'country') {
-    const code = residenceCountryCode(text) || countryCodeOfLabel(text);
-    const localized = code ? countryLabelForCode(code, language) : '';
+    const code = REGION_CODE_RE.test(codeFromValue) ? codeFromValue : residenceCountryCode(text) || countryCodeOfLabel(text);
+    const localized = codeFromValue ? localizedRegionLabel(code, language) : (code ? countryLabelForCode(code, language) : '');
     if (localized) return localized;
   }
   const booleanOrPlaceholder = fallbackOption(text, language);
   if (booleanOrPlaceholder !== text) return booleanOrPlaceholder;
-  if (/^\d{1,4}$/.test(text)) return text;
+  if (/^\d{1,4}\.?$/.test(text)) return text;
   return null;
 }
 
@@ -1887,7 +1916,9 @@ function deterministicGermanLocalization(item, language) {
   const applicationOptions = (Array.isArray(item.applicationOptions) && item.applicationOptions.length
     ? item.applicationOptions
     : item.options || []).map((option) => String(option || '').trim()).filter(Boolean);
-  const candidateOptions = applicationOptions.map((option) => deterministicGermanOption(option, entry, language));
+  const applicationOptionValues = Array.isArray(item.applicationOptionValues) && item.applicationOptionValues.length === applicationOptions.length
+    ? item.applicationOptionValues : [];
+  const candidateOptions = applicationOptions.map((option, index) => deterministicGermanOption(option, entry, language, applicationOptionValues[index]));
   // A known label is safe to translate, but an unknown option is not: keep
   // the old fail-closed behavior instead of showing a mixed-language choice.
   if (candidateOptions.some((option) => !option)) return null;
@@ -4674,11 +4705,15 @@ export function portalRequirementsFromMissingRequired(fields, missingRequired, {
           continue;
         }
         const editableCombobox = field?.kind === 'combobox' && field.selectLike === false && !field.nativeSelectId;
-        const applicationOptions = (field ? editableCombobox ? [] : field.options || [] : item.applicationOptions || item.options || [])
-          .filter(option => option?.placeholder !== true)
+        const liveOptions = field ? editableCombobox ? [] : field.options || [] : item.applicationOptions || item.options || [];
+        const readableOptions = liveOptions.filter(option => option?.placeholder !== true);
+        const applicationOptions = readableOptions
           .map((option) => typeof option === 'string' ? option : option?.label)
           .map((option) => String(option || '').trim())
           .filter(Boolean);
+        const applicationOptionValues = field && readableOptions.length === applicationOptions.length
+          && readableOptions.every(option => typeof option !== 'string' && String(option?.value || '').trim())
+          ? readableOptions.map(option => String(option.value).trim()) : [];
         const optionMap = portalOptionMap({ options: item.options, applicationOptions, optionMap: item.optionMap });
         let type = item.type;
         if (field) {
@@ -4708,6 +4743,7 @@ export function portalRequirementsFromMissingRequired(fields, missingRequired, {
           validation: field && (type !== item.type || ['choice', 'yes_no'].includes(type)) ? {} : item.validation,
           required: true,
           applicationOptions,
+          ...(applicationOptionValues.length ? { applicationOptionValues } : {}),
           applicationOptionsKnown: Boolean(field),
           options: field ? optionMap.length ? optionMap.map((pair) => pair.candidate) : applicationOptions : item.options,
           optionMap,
