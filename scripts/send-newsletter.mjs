@@ -93,6 +93,8 @@ import { localePathPrefix as localePrefix, loadBlogMeta, localizeArticle } from 
 import { resolveNewsletterArticle } from './lib/newsletter-article-selection.mjs';
 import {
   alignDiscoveryIndexWithSitePull,
+  checkDiscoveryArticleRoute,
+  chooseDiscoveryArticle,
   freezeCampaignDiscoverySelection,
   loadDiscoveryArticleIndex,
   loadOptionalDiscoveryArticleIndexFromHttp,
@@ -2636,11 +2638,37 @@ async function main() {
         // recipient is sent. A resumed campaign reuses its existing snapshot;
         // if it predates this feature (or its resume ledger is unreadable), a
         // frozen null prevents the new slot appearing only for the unsent tail.
+        const candidate = allowNewDiscoverySelection
+          ? chooseDiscoveryArticle(discoveryIndex, campaignId, locale)
+          : null;
+        let allowLocaleSelection = allowNewDiscoverySelection;
+        let candidateWasVerified = false;
+        if (candidate) {
+          const candidateRoute = await checkDiscoveryArticleRoute(candidate.article, locale);
+          candidateWasVerified = candidateRoute.ready;
+          if (!candidateRoute.ready) {
+            console.warn(`[newsletter] discovery candidate ${candidate.articleId}/${locale} not selected: ${candidateRoute.reason}`);
+            allowLocaleSelection = false;
+          }
+        }
+        const frozen = await freezeCampaignDiscoverySelection(db, campaignId, locale, discoveryIndex, {
+          allowNewSelection: allowLocaleSelection,
+        });
+        const frozenMatchesVerifiedCandidate = candidateWasVerified
+          && frozen?.articleId === candidate?.articleId
+          && frozen.article.title === candidate?.article.title
+          && frozen.article.url === candidate?.article.url;
+        if (frozen && !frozenMatchesVerifiedCandidate) {
+          const frozenRoute = await checkDiscoveryArticleRoute(frozen.article, locale);
+          if (!frozenRoute.ready) {
+            console.warn(`[newsletter] frozen discovery article ${frozen.articleId}/${locale} suppressed for this run; selection remains unchanged: ${frozenRoute.reason}`);
+            discoveryByLocale.set(locale, null);
+            continue;
+          }
+        }
         discoveryByLocale.set(
           locale,
-          await freezeCampaignDiscoverySelection(db, campaignId, locale, discoveryIndex, {
-            allowNewSelection: allowNewDiscoverySelection,
-          }),
+          frozen,
         );
       } else {
         discoveryByLocale.set(locale, null);

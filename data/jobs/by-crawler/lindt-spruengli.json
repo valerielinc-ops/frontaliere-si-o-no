@@ -1,7 +1,7 @@
 {
   "crawlerKey": "lindt-spruengli",
-  "assembledAt": "2026-11-06T09:31:53.752Z",
-  "runId": "42193356249",
+  "assembledAt": "2026-11-06T22:00:07.896Z",
+  "runId": "42294820477",
   "jobs": [
     {
       "id": "lindt-spruengli-22b6ca6b4b2c",
@@ -9,7 +9,7 @@
       "slugByLocale": {
         "it": "domanda-non-richiesta-lindt-sprungli-kilchberg",
         "en": "unsolicited-application-lindt-spruengli-kilchberg",
-        "de": "unerbetene-anwendung-lindt-sprungli-kilchberg",
+        "de": "initiativbewerbung-lindt-sprungli-kilchberg",
         "fr": "demande-spontanee-lindt-sprungli-kilchberg"
       },
       "company": "Lindt & Sprüngli",
@@ -34,7 +34,7 @@
       "url": "https://lindtspruengli.wd103.myworkdayjobs.com/LindtSpruengliGroupCareers/job/Kilchberg-Switzerland/Spontaneous-Application_JR102189",
       "source": "Lindt & Sprüngli Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-06T09:31:47.443Z",
+      "crawledAt": "2026-11-06T21:59:59.857Z",
       "addressLocality": "Kilchberg",
       "addressRegion": "ZH",
       "streetAddress": "Seestrasse 204",
@@ -67,7 +67,7 @@
         "personnel-militaire-lindt-sprungli-kilchberg",
         "servicemitarbeiter-in-lindt-sprungli-kilchberg",
         "patissier-in-90-lindt-sprungli-kilchberg",
-        "initiativbewerbung-lindt-sprungli-kilchberg"
+        "unerbetene-anwendung-lindt-sprungli-kilchberg"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -89,7 +89,7 @@
         "de": [
           "unsolicited-application-lindt-spruengli-kilchberg",
           "patissier-in-90-lindt-spruengli-kilchberg",
-          "initiativbewerbung-lindt-sprungli-kilchberg"
+          "unerbetene-anwendung-lindt-sprungli-kilchberg"
         ],
         "fr": [
           "unsolicited-application-lindt-spruengli-kilchberg",
@@ -111,7 +111,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-06T09:31:47.443Z",
+      "validThrough": "2026-12-06T21:59:59.857Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -145,7 +145,7 @@
       "url": "https://lindtspruengli.wd103.myworkdayjobs.com/LindtSpruengliGroupCareers/job/Altendorf-Switzerland/Lehrstelle-als-Logistiker-in-EFZ-Lehrbeginn-Sommer-2027_JR101256-1",
       "source": "Lindt & Sprüngli Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T09:31:46.794Z",
+      "crawledAt": "2026-11-06T21:59:59.184Z",
       "addressLocality": "Altendorf",
       "addressRegion": "SZ",
       "streetAddress": "Altendorf",
@@ -195,7 +195,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-06T09:31:46.794Z",
+      "validThrough": "2026-12-06T21:59:59.184Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -229,7 +229,7 @@
       "url": "https://lindtspruengli.wd103.myworkdayjobs.com/LindtSpruengliGroupCareers/job/Kilchberg-Switzerland/Lehrstelle-als-Lebensmitteltechnologe--login-EFZ---Lehrbeginn-ab-Sommer-2027_JR102079",
       "source": "Lindt & Sprüngli Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T09:31:46.143Z",
+      "crawledAt": "2026-11-06T21:59:58.500Z",
       "addressLocality": "Kilchberg",
       "addressRegion": "ZH",
       "streetAddress": "Seestrasse 204",
@@ -280,7 +280,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-06T09:31:46.143Z",
+      "validThrough": "2026-12-06T21:59:58.500Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -314,7 +314,7 @@
       "url": "https://lindtspruengli.wd103.myworkdayjobs.com/LindtSpruengliGroupCareers/job/Kilchberg-Switzerland/Lehrstelle-als-Lebensmittelpraktiker-in-EBA---Lehrbeginn-ab-Sommer-2027_JR102101",
       "source": "Lindt & Sprüngli Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T09:31:45.470Z",
+      "crawledAt": "2026-11-06T21:59:57.800Z",
       "addressLocality": "Kilchberg",
       "addressRegion": "ZH",
       "streetAddress": "Seestrasse 204",
@@ -365,7 +365,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-06T09:31:45.470Z",
+      "validThrough": "2026-12-06T21:59:57.800Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -399,7 +399,7 @@
       "url": "https://lindtspruengli.wd103.myworkdayjobs.com/LindtSpruengliGroupCareers/job/LCH---CHE---Retail---Lindt-Shop-City---Luzern/Retail-Store-Manager_JR101237",
       "source": "Lindt & Sprüngli Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T09:31:44.800Z",
+      "crawledAt": "2026-11-06T21:59:57.081Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "streetAddress": "Luzern",
@@ -443,7 +443,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-06T09:31:44.800Z",
+      "validThrough": "2026-12-06T21:59:57.081Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -477,7 +477,7 @@
       "url": "https://lindtspruengli.wd103.myworkdayjobs.com/LindtSpruengliGroupCareers/job/Olten-Switzerland/Lehrstelle-als-Lebensmittelpraktiker-in-EBA---Lehrbeginn-ab-Sommer-2027_JR102995-2",
       "source": "Lindt & Sprüngli Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T09:31:44.120Z",
+      "crawledAt": "2026-11-06T21:59:56.360Z",
       "addressLocality": "Olten",
       "addressRegion": "SO",
       "streetAddress": "Olten",
@@ -530,7 +530,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-06T09:31:44.120Z",
+      "validThrough": "2026-12-06T21:59:56.360Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -564,7 +564,7 @@
       "url": "https://lindtspruengli.wd103.myworkdayjobs.com/LindtSpruengliGroupCareers/job/Kilchberg-Switzerland/Lindt-Chocolate-Advisor---Verkufer-in-Lindt-Shop_JR103256-1",
       "source": "Lindt & Sprüngli Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T09:31:43.456Z",
+      "crawledAt": "2026-11-06T21:59:55.670Z",
       "addressLocality": "Kilchberg",
       "addressRegion": "ZH",
       "streetAddress": "Seestrasse 204",
@@ -614,7 +614,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-06T09:31:43.456Z",
+      "validThrough": "2026-12-06T21:59:55.670Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -648,7 +648,7 @@
       "url": "https://lindtspruengli.wd103.myworkdayjobs.com/LindtSpruengliGroupCareers/job/Landquart-Switzerland/Assistant-Shop-Manager--60-80--_JR103772-1",
       "source": "Lindt & Sprüngli Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T09:31:42.797Z",
+      "crawledAt": "2026-11-06T21:59:54.994Z",
       "addressLocality": "Landquart",
       "addressRegion": "GR",
       "streetAddress": "Landquart",
@@ -696,7 +696,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-30T09:31:42.797Z",
+      "validThrough": "2026-12-30T21:59:54.994Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -730,7 +730,7 @@
       "url": "https://lindtspruengli.wd103.myworkdayjobs.com/LindtSpruengliGroupCareers/job/Kilchberg-Switzerland/Anlagenfhrer-in-Grundfabrikation_JR103638-1",
       "source": "Lindt & Sprüngli Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T09:31:42.137Z",
+      "crawledAt": "2026-11-06T21:59:54.311Z",
       "addressLocality": "Kilchberg",
       "addressRegion": "ZH",
       "streetAddress": "Seestrasse 204",
@@ -781,7 +781,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-31T09:31:42.137Z",
+      "validThrough": "2026-12-31T21:59:54.311Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -815,7 +815,7 @@
       "url": "https://lindtspruengli.wd103.myworkdayjobs.com/LindtSpruengliGroupCareers/job/Kilchberg-Switzerland/Betriebsmechaniker-in_JR103724-1",
       "source": "Lindt & Sprüngli Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T09:31:41.481Z",
+      "crawledAt": "2026-11-06T21:59:53.624Z",
       "addressLocality": "Kilchberg",
       "addressRegion": "ZH",
       "streetAddress": "Seestrasse 204",
@@ -867,7 +867,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-04T09:31:41.481Z",
+      "validThrough": "2027-01-04T21:59:53.624Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -901,7 +901,7 @@
       "url": "https://lindtspruengli.wd103.myworkdayjobs.com/LindtSpruengliGroupCareers/job/Aubonne-Switzerland/Assistant-Shop-Manager-Aubonne--80--_JR103769-1",
       "source": "Lindt & Sprüngli Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T09:31:40.817Z",
+      "crawledAt": "2026-11-06T21:59:52.945Z",
       "addressLocality": "Aubonne",
       "addressRegion": "VD",
       "streetAddress": "Aubonne",
@@ -951,7 +951,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-14T09:31:40.817Z",
+      "validThrough": "2027-01-14T21:59:52.945Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -985,7 +985,7 @@
       "url": "https://lindtspruengli.wd103.myworkdayjobs.com/LindtSpruengliGroupCareers/job/Kilchberg-Switzerland/Aushilfsmitarbeiter-in-Personalrestaurant_JR103978-1",
       "source": "Lindt & Sprüngli Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T09:31:40.158Z",
+      "crawledAt": "2026-11-06T21:59:52.248Z",
       "addressLocality": "Kilchberg",
       "addressRegion": "ZH",
       "streetAddress": "Seestrasse 204",
@@ -1053,7 +1053,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-11T09:31:40.158Z",
+      "validThrough": "2027-01-11T21:59:52.248Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1087,7 +1087,7 @@
       "url": "https://lindtspruengli.wd103.myworkdayjobs.com/LindtSpruengliGroupCareers/job/Kilchberg-Switzerland/Group-Category-Manager-Business-Services_JR103887-1",
       "source": "Lindt & Sprüngli Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-06T09:31:39.490Z",
+      "crawledAt": "2026-11-06T21:59:51.551Z",
       "addressLocality": "Kilchberg",
       "addressRegion": "ZH",
       "streetAddress": "Seestrasse 204",
@@ -1137,7 +1137,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-18T09:31:39.490Z",
+      "validThrough": "2027-01-18T21:59:51.551Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1171,7 +1171,7 @@
       "url": "https://lindtspruengli.wd103.myworkdayjobs.com/LindtSpruengliGroupCareers/job/Zermatt-Switzerland/Lindt-Chocolate-Advisor-40-60----Saisonaushilfe-_JR104112-1",
       "source": "Lindt & Sprüngli Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T09:31:38.832Z",
+      "crawledAt": "2026-11-06T21:59:50.795Z",
       "addressLocality": "Zermatt",
       "addressRegion": "VS",
       "streetAddress": "Zermatt",
@@ -1221,7 +1221,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-31T09:31:38.832Z",
+      "validThrough": "2027-01-31T21:59:50.795Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1255,7 +1255,7 @@
       "url": "https://lindtspruengli.wd103.myworkdayjobs.com/LindtSpruengliGroupCareers/job/Kilchberg-Switzerland/Internship---Finance---Controlling---6-months--100---_JR104255-1",
       "source": "Lindt & Sprüngli Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-06T09:31:38.170Z",
+      "crawledAt": "2026-11-06T21:59:50.097Z",
       "addressLocality": "Kilchberg",
       "addressRegion": "ZH",
       "streetAddress": "Seestrasse 204",
@@ -1302,7 +1302,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-31T09:31:38.170Z",
+      "validThrough": "2027-01-31T21:59:50.097Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1336,7 +1336,7 @@
       "url": "https://lindtspruengli.wd103.myworkdayjobs.com/LindtSpruengliGroupCareers/job/Landquart-Switzerland/Lindt-Chocolate-Advisor--40-60--_JR104108-1",
       "source": "Lindt & Sprüngli Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T09:31:37.490Z",
+      "crawledAt": "2026-11-06T21:59:49.417Z",
       "addressLocality": "Landquart",
       "addressRegion": "GR",
       "streetAddress": "Landquart",
@@ -1388,7 +1388,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-26T09:31:37.490Z",
+      "validThrough": "2027-01-26T21:59:49.417Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1422,7 +1422,7 @@
       "url": "https://lindtspruengli.wd103.myworkdayjobs.com/LindtSpruengliGroupCareers/job/Landquart-Switzerland/Lindt-Chocolate-Advisor--20-40--_JR104109-1",
       "source": "Lindt & Sprüngli Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T09:31:36.806Z",
+      "crawledAt": "2026-11-06T21:59:48.720Z",
       "addressLocality": "Landquart",
       "addressRegion": "GR",
       "streetAddress": "Landquart",
@@ -1474,7 +1474,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-26T09:31:36.806Z",
+      "validThrough": "2027-01-26T21:59:48.720Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1508,7 +1508,7 @@
       "url": "https://lindtspruengli.wd103.myworkdayjobs.com/LindtSpruengliGroupCareers/job/Zermatt-Switzerland/Lindt-Chocolate-Advisor-80-100-_JR104114-1",
       "source": "Lindt & Sprüngli Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T09:31:36.141Z",
+      "crawledAt": "2026-11-06T21:59:48.027Z",
       "addressLocality": "Zermatt",
       "addressRegion": "VS",
       "streetAddress": "Zermatt",
@@ -1556,7 +1556,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-31T09:31:36.141Z",
+      "validThrough": "2027-01-31T21:59:48.027Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1590,7 +1590,7 @@
       "url": "https://lindtspruengli.wd103.myworkdayjobs.com/LindtSpruengliGroupCareers/job/Kilchberg-Switzerland/Anlagenfhrer-in-Formanlage_JR104217-1",
       "source": "Lindt & Sprüngli Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T09:31:35.447Z",
+      "crawledAt": "2026-11-06T21:59:47.328Z",
       "addressLocality": "Kilchberg",
       "addressRegion": "ZH",
       "streetAddress": "Seestrasse 204",
@@ -1640,7 +1640,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-01T09:31:35.447Z",
+      "validThrough": "2027-02-01T21:59:47.328Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1674,7 +1674,7 @@
       "url": "https://lindtspruengli.wd103.myworkdayjobs.com/LindtSpruengliGroupCareers/job/Kilchberg-Switzerland/Channel-Activation-Manager-Global-Travel-Retail---Available-Immediately_JR104264-1",
       "source": "Lindt & Sprüngli Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-06T09:31:34.795Z",
+      "crawledAt": "2026-11-06T21:59:46.623Z",
       "addressLocality": "Kilchberg",
       "addressRegion": "ZH",
       "streetAddress": "Seestrasse 204",
@@ -1721,7 +1721,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-02T09:31:34.795Z",
+      "validThrough": "2027-02-02T21:59:46.623Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1755,7 +1755,7 @@
       "url": "https://lindtspruengli.wd103.myworkdayjobs.com/LindtSpruengliGroupCareers/job/LCH---CHE---Plant---Kilchberg---Plant/Betriebselektriker-in_JR104298-2",
       "source": "Lindt & Sprüngli Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T09:31:34.131Z",
+      "crawledAt": "2026-11-06T21:59:45.934Z",
       "addressLocality": "Kilchberg",
       "addressRegion": "ZH",
       "streetAddress": "Seestrasse 204",
@@ -1808,7 +1808,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-03T09:31:34.131Z",
+      "validThrough": "2027-02-03T21:59:45.934Z",
       "validThroughSource": "last-observed-window"
     }
   ]

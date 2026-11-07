@@ -46,11 +46,17 @@ export function reattestCrawlerContract(contract, sourceCommit) {
     || Array.isArray(contract.artifactObservation)) {
     throw new Error('crawler contract artifactObservation must be a JSON object');
   }
+  if (!contract.crawlerRosterCardinality
+    || typeof contract.crawlerRosterCardinality !== 'object'
+    || Array.isArray(contract.crawlerRosterCardinality)) {
+    throw new Error('crawler contract crawlerRosterCardinality must be a JSON object');
+  }
 
   const normalized = assertSourceCommit(sourceCommit);
   const next = cloneDocument(contract);
   next.sourceCommit = normalized;
   next.artifactObservation.sourceCommit = normalized;
+  next.crawlerRosterCardinality.sourceCommit = normalized;
   return next;
 }
 

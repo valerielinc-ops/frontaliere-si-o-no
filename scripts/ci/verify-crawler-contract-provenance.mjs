@@ -18,6 +18,10 @@ import { execFileSync } from 'node:child_process';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import {
+  CRAWLER_ROSTER_PATH,
+  validateCrawlerContractCardinality,
+} from '../lib/crawler-contract-cardinality.mjs';
 
 export const DEFAULT_CONTRACT_PATH = '.github/corpus-workflows/contract.json';
 export const DEFAULT_ARTIFACT_DIRECTORY = '.github/corpus-workflows';
@@ -190,6 +194,13 @@ function validateContract(contract, expectedRepository) {
   if (contract.sourceRef !== 'main') {
     throw new Error(`crawler contract sourceRef must be main, got ${JSON.stringify(contract.sourceRef)}`);
   }
+  if (!isRecord(contract.crawlerGeneration)
+      || contract.crawlerGeneration.rosterPath !== CRAWLER_ROSTER_PATH) {
+    throw new Error(`crawler contract crawlerGeneration.rosterPath must be ${CRAWLER_ROSTER_PATH}`);
+  }
+  if (!isRecord(contract.crawlerRosterCardinality)) {
+    throw new Error('crawler contract crawlerRosterCardinality is missing or malformed');
+  }
   if (!isRecord(contract.artifactObservation)
       || contract.artifactObservation.sourceRepository !== undefined
       || contract.artifactObservation.sourceCommit !== sourceCommit
@@ -276,6 +287,32 @@ export async function verifyCrawlerContractProvenance({
     : lineage.artifacts;
   if (artifacts.length === 0) throw new Error(`crawler contract has no artifact ${selectedFile}`);
 
+  let cardinality;
+  try {
+    const rosterBytes = await fetchRemoteBytes({
+      repository: lineage.repository,
+      filePath: CRAWLER_ROSTER_PATH,
+      ref: lineage.sourceCommit,
+      apiBase,
+      token,
+      fetchImpl,
+      transport,
+      timeoutMs,
+    });
+    const roster = JSON.parse(rosterBytes.toString('utf8'));
+    cardinality = validateCrawlerContractCardinality({
+      contract,
+      sourceCommit: lineage.sourceCommit,
+      roster,
+    });
+  } catch (error) {
+    cardinality = {
+      valid: false,
+      errors: ['crawler_roster_provenance_read_failed'],
+      error: error instanceof Error ? error.message : String(error),
+    };
+  }
+
   const results = [];
   for (const artifact of artifacts) {
     const localPath = path.resolve(absoluteRoot, DEFAULT_ARTIFACT_DIRECTORY, artifact.file);
@@ -303,10 +340,11 @@ export async function verifyCrawlerContractProvenance({
   }
 
   return {
-    ok: results.every((result) => result.ok),
+    ok: cardinality.valid && results.every((result) => result.ok),
     repository: lineage.repository,
     sourceRef: contract.sourceRef,
     sourceCommit: lineage.sourceCommit,
+    cardinality,
     artifacts: results,
   };
 }
@@ -345,9 +383,13 @@ export async function runCli(argv = process.argv.slice(2)) {
   const result = await verifyCrawlerContractProvenance(options);
   process.stdout.write(`${JSON.stringify(result, null, 2)}\n`);
   if (options.strict && !result.ok) {
+    const cardinalityFailure = result.cardinality?.valid === false
+      ? [`crawler roster: ${(result.cardinality.errors || ['unknown']).join(', ')}`]
+      : [];
     const failed = result.artifacts
       .filter((artifact) => !artifact.ok)
       .map((artifact) => `${artifact.file}: ${(artifact.reasons || ['unknown']).join(', ')}`)
+      .concat(cardinalityFailure)
       .join('; ');
     throw new Error(`crawler contract provenance failed in strict mode: ${failed}`);
   }

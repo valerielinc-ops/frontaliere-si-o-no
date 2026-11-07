@@ -21,6 +21,8 @@ const SOURCE_INPUTS = [
   'scripts/check-crawler-group-live-run.mjs',
   'scripts/generate-crawler-group-workflows.mjs',
   'scripts/ci/crawler-generation-roster.json',
+  'scripts/lib/canonical-json-digest.mjs',
+  'scripts/lib/crawler-contract-cardinality.mjs',
   'scripts/ci/crawler-retry-cmd.sh',
   'scripts/ci/prepare-crawler-workflow-corpus-sync.mjs',
   'scripts/ci/translate-recovery-successor-guard.mjs',
@@ -39,6 +41,12 @@ function fixture() {
       sourceCommit: OLD_SHA,
       generatorSha256: 'generator-digest',
     },
+    crawlerRosterCardinality: {
+      sourceCommit: OLD_SHA,
+      groupCount: 1,
+      artifactCount: 2,
+      crawlerCount: 1,
+    },
     artifacts: [{ file: 'crawler-group-01.yml', artifactSha256: 'artifact-digest' }],
   };
 }
@@ -49,9 +57,11 @@ test('reattest updates both lineage pins and preserves generated digests', () =>
 
   assert.equal(after.sourceCommit, NEW_SHA);
   assert.equal(after.artifactObservation.sourceCommit, NEW_SHA);
+  assert.equal(after.crawlerRosterCardinality.sourceCommit, NEW_SHA);
   assert.equal(after.artifacts[0].artifactSha256, before.artifacts[0].artifactSha256);
   assert.equal(before.sourceCommit, OLD_SHA);
   assert.equal(before.artifactObservation.sourceCommit, OLD_SHA);
+  assert.equal(before.crawlerRosterCardinality.sourceCommit, OLD_SHA);
 });
 
 test('reattest text is deterministic and idempotent', () => {

@@ -11,6 +11,7 @@
  */
 import { stripScriptsAndStyles } from './lib/crawler-template.mjs';
 import { intFromEnv } from './lib/int-from-env.mjs';
+import { LIVE_ARTICLE_META_USER_AGENT, normalizeArticlePageText } from './lib/live-article-meta.mjs';
 import { parseAttributes } from './lib/meta-description-extract.mjs';
 
 const [, , rawUrl, expectedOgTitle = '', expectedOgImage = ''] = process.argv;
@@ -141,7 +142,7 @@ function sleep(ms) {
 
 const requestedUrl = new URL(url);
 const expectedPath = normalizePathname(requestedUrl.pathname);
-const expectedOgTitleNormalized = normalize(expectedOgTitle);
+const expectedOgTitleNormalized = normalizeArticlePageText(expectedOgTitle);
 const expectedOgImageNormalized = normalizeUrlForCompare(expectedOgImage);
 
 let titlePathMatchCount = 0;
@@ -154,15 +155,15 @@ while (Date.now() < deadline) {
     const res = await fetch(cacheBustUrl.href, {
       redirect: 'follow',
       headers: {
-        'user-agent': 'FrontaliereTicinoMetaWait/1.0 (+https://frontaliereticino.ch)',
+        'user-agent': LIVE_ARTICLE_META_USER_AGENT,
         'cache-control': 'no-cache',
         pragma: 'no-cache',
       },
     });
 
     const html = await res.text();
-    const title = normalize(extractTitle(html));
-    const ogTitle = normalize(extractMeta(html, 'og:title'));
+    const title = normalizeArticlePageText(extractTitle(html));
+    const ogTitle = normalizeArticlePageText(extractMeta(html, 'og:title'));
     const ogImage = normalize(extractMeta(html, 'og:image'));
     const ogUrl = normalize(extractMeta(html, 'og:url'));
     const canonicalUrl = normalize(extractCanonicalUrl(html));
@@ -187,15 +188,15 @@ while (Date.now() < deadline) {
         const canonRes = await fetch(canonicalUrl, {
           redirect: 'follow',
           headers: {
-            'user-agent': 'FrontaliereTicinoMetaWait/1.0 (+https://frontaliereticino.ch)',
+            'user-agent': LIVE_ARTICLE_META_USER_AGENT,
             'cache-control': 'no-cache',
             pragma: 'no-cache',
           },
         });
         if (canonRes.ok) {
           effectiveHtml = await canonRes.text();
-          effectiveTitle = normalize(extractTitle(effectiveHtml));
-          effectiveOgTitle = normalize(extractMeta(effectiveHtml, 'og:title'));
+          effectiveTitle = normalizeArticlePageText(extractTitle(effectiveHtml));
+          effectiveOgTitle = normalizeArticlePageText(extractMeta(effectiveHtml, 'og:title'));
           effectiveOgImage = normalize(extractMeta(effectiveHtml, 'og:image'));
           effectiveOgUrl = normalize(extractMeta(effectiveHtml, 'og:url'));
           effectiveCanonical = normalize(extractCanonicalUrl(effectiveHtml));

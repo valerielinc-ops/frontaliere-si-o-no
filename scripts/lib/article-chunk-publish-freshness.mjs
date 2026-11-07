@@ -14,6 +14,8 @@ export const GIT_SHA_RE = /^[0-9a-f]{40}$/iu;
 // Keep this list in lockstep with the push trigger in the sync workflow. The
 // workflow test compares the two lists so this safety decision cannot drift
 // away from the event that schedules the replay.
+// Discovery snapshots publish through their own stable PR, so their merge must
+// not restart the full article sync and chunk replay.
 export const ARTICLE_SURFACE_PATHS = Object.freeze([
   'packages/articles/content/**',
   'public/sitemap-blog.xml',
@@ -23,8 +25,6 @@ export const ARTICLE_SURFACE_PATHS = Object.freeze([
   'public/sitemap.xml',
   'public/rss*.xml',
   'public/news-ticker-live.json',
-  'public/data/discovery-articles.json',
-  'public/data/discovery-articles-manifest.json',
   '.github/workflows/sync-articles-sitemaps.yml',
 ]);
 
