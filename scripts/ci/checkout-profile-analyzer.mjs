@@ -40,6 +40,8 @@ import { realpathSync } from 'node:fs';
 import fs from 'node:fs';
 import path from 'node:path';
 import YAML from 'yaml';
+import { stripSourceComments } from '../lib/source-comments.mjs';
+import { SOCIAL_COPY_REQUIRED_SPARSE_PATHS } from './checkout-profile-contracts.mjs';
 
 export const ROOT = process.env.CHECKOUT_ANALYZER_ROOT || process.cwd();
 const WF_DIR = path.join(ROOT, '.github/workflows');
@@ -483,8 +485,9 @@ export function bucketAliasPaths() {
 
 /** Un testo nomina questo bucket? Forma piena/spezzata, indizio debole, alias-symlink, o enumerazione del padre. */
 export function bucketsReferencedBy(text) {
-  const norm = normalizeJoins(text);
-  const rawEnum = enumerationTargets(text).join('\n');
+  const source = String(text ?? '');
+  const norm = normalizeJoins(source);
+  const rawEnum = enumerationTargets(source).join('\n');
   const enumArgs = normalizeJoins(rawEnum);
   const matches = (p, hay) => new RegExp(`['"\`(\\s=,\\[:!]${esc(p)}(?:['"\`/\\s),\\]*]|$)`, 'm').test(hay);
   // Si cerca sul testo GREZZO e su quello normalizzato, e si prende l'unione.
@@ -498,20 +501,20 @@ export function bucketsReferencedBy(text) {
   const hit = new Set();
   for (const b of BUCKETS) {
     const clean = b.id.replace(/\/$/, '');
-    if (refersTo(clean, norm, text)) { hit.add(b.id); continue; }
+    if (refersTo(clean, norm, source)) { hit.add(b.id); continue; }
     const aliasPaths = bucketAliasPaths().get(b.id);
     if (aliasPaths) {
       let aliased = false;
-      for (const alias of aliasPaths) { if (refersTo(alias, norm, text)) { aliased = true; break; } }
+      for (const alias of aliasPaths) { if (refersTo(alias, norm, source)) { aliased = true; break; } }
       if (aliased) { hit.add(b.id); continue; }
     }
     const par = parentOf(b.id);
-    if (!par || !refersTo(par, norm, text)) continue;
+    if (!par || !refersTo(par, norm, source)) continue;
     // Indizio debole: il padre e' nominato e il segmento finale compare come token
     // quotato — tipico di `una costante di cartella piu' il segmento finale`, dove la variabile nasconde
     // il prefisso.
     const last = clean.split('/').pop();
-    if (new RegExp(`['"]${esc(last)}['"]`).test(text)) { hit.add(b.id); continue; }
+    if (new RegExp(`['"]${esc(last)}['"]`).test(source)) { hit.add(b.id); continue; }
     // Oppure: qualcuno enumera il padre, quindi non nomina i figli.
     if (refersTo(par, enumArgs, rawEnum) || new RegExp(`(?:^|[\\s'"\`(=,\\[])${esc(par)}[/*]`, 'm').test(enumArgs)) hit.add(b.id);
   }
@@ -526,7 +529,7 @@ export function bucketsReferencedBy(text) {
 const EXTRA_ONLY_DATA_COMMIT = /\b(?:bash|sh)\s+scripts\/lib\/git-commit-data\.sh\s+(?:\\\s+)*--extra-only\b/;
 
 /** Analizza un singolo job. */
-function analyzeJobCheckout(jobId, job, workflowEnvText, npmScripts) {
+function analyzeJobCheckout(jobId, job, workflowEnvText, npmScripts, workflowFile) {
   const exec = textOfSteps(job?.steps) + '\n' + workflowEnvText + '\n' +
     (job?.env && typeof job.env === 'object' ? Object.values(job.env).filter((v) => typeof v === 'string').join('\n') : '');
   const opaqueText = exec + resolveNpmRunBodies(exec, npmScripts);
@@ -538,8 +541,23 @@ function analyzeJobCheckout(jobId, job, workflowEnvText, npmScripts) {
   const bucketResolved = extraOnlyDataCommit
     ? resolved.filter((r) => r.rel !== 'scripts/lib/git-commit-data.sh')
     : resolved;
-  const corpus = exec + '\n' + bucketResolved.map((r) => r.src).join('\n');
-  const needs = opaqueBy.length ? new Set(BUCKETS.map((b) => b.id)) : bucketsReferencedBy(corpus);
+  const codeCorpus = bucketResolved.map((r) => r.src).join('\n');
+  const corpus = exec + '\n' + codeCorpus;
+  let needs = opaqueBy.length ? new Set(BUCKETS.map((b) => b.id)) : bucketsReferencedBy(corpus);
+  if (workflowFile === 'social-copy-pack.yml' && jobId === 'generate') {
+    const executableCode = bucketResolved.map((r) => stripSourceComments(r.src)).join('\n');
+    needs = bucketsReferencedBy(exec + '\n' + executableCode);
+    const exactDocInputsPresent = SOCIAL_COPY_REQUIRED_SPARSE_PATHS
+      .every((rel) => corpus.includes(rel.slice(1)));
+    const docsEnumerated = enumerationTargets(executableCode)
+      .some((target) => /(?:^|[/'"`\s])docs(?:\/|['"`\s),]|$)/.test(target));
+    // The workflow re-includes the three source documents individually. The
+    // verifier checks every literal opened path against those sparse rules;
+    // requiring all 706 docs because those exact files are read is a bucket
+    // granularity false positive. Directory enumeration still keeps the full
+    // docs bucket in `needs`.
+    if (exactDocInputsPresent && !docsEnumerated) needs.delete('docs/');
+  }
   if (needs.has('public/images/')) needs.add('public/data/');
   const exclude = BUCKETS.filter((b) => !needs.has(b.id));
   // Se anche escludendo tutto il possibile resta piu' di CROSSOVER_MB, lo sparse
@@ -590,7 +608,7 @@ function analyzeWorkflowUncached(file, npmScripts) {
   const envText = doc?.env && typeof doc.env === 'object'
     ? Object.values(doc.env).filter((v) => typeof v === 'string').join('\n') : '';
   const jobs = doc?.jobs && typeof doc.jobs === 'object'
-    ? Object.entries(doc.jobs).map(([id, j]) => analyzeJobCheckout(id, j, envText, npmScripts)) : [];
+    ? Object.entries(doc.jobs).map(([id, j]) => analyzeJobCheckout(id, j, envText, npmScripts, path.basename(file))) : [];
   return { file: path.basename(file), parsed: doc !== null, jobs };
 }
 

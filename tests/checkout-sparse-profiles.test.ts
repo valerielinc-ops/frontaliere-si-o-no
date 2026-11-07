@@ -37,9 +37,11 @@ import {
   CROSSOVER_MB,
   checkoutEntryPoints,
   analyzeAll,
+  bucketsReferencedBy,
   inlineModuleEntryPoints,
   transitiveClosure,
 } from '../scripts/ci/checkout-profile-analyzer.mjs';
+import { stripSourceComments } from '../scripts/lib/source-comments.mjs';
 import { importSpecifiers } from '../scripts/ci/check-dependency-free-import-closure.mjs';
 import {
   computeProfiledText,
@@ -307,6 +309,41 @@ describe('profili di sparse-checkout', () => {
     expect([...literalPathsIn("readFileSync('../data/z.json')")]).toEqual(['data/z.json']);
     // una URL non e' un percorso locale: il chiamante la scarta col set dei file tracciati
     expect([...literalPathsIn('`${CDN}/data/blog-index.json`')]).toEqual([]);
+    expect([...literalPathsIn("// data/jobs-ai-cache.json\nconst file = 'docs/social-ai-automation.md'; // docs/ignored.md")])
+      .toEqual(['docs/social-ai-automation.md']);
+    expect([...literalPathsIn("pattern=data/jobs/*\nneeded='public/data/needed.json'", 'scripts/check.sh')])
+      .toContain('public/data/needed.json');
+  });
+
+  it('non conta percorsi citati solo nei commenti del codice', () => {
+    const source = stripSourceComments("// data/jobs-ai-cache.json\nconst file = readFileSync('scripts/a.mjs');");
+    expect([...bucketsReferencedBy(source)])
+      .not.toContain('data/jobs-ai-cache.json');
+    expect([...literalPathsIn("// docs/ignored.md\nconst file = 'docs/social-ai-automation.md';")])
+      .toEqual(['docs/social-ai-automation.md']);
+    expect([...importedDataOrPublicPathsIn("// import content from 'data/ignored.json';\nconst content = 'ok';")])
+      .toEqual([]);
+  });
+
+  it('preserva regex dopo un commento a blocco e il codice successivo', () => {
+    const source = 'const r = /* c */ /[/*]/;\nconst x = import("./real.mjs");';
+    const expected = source.replace('/* c */', '       ');
+    expect(stripSourceComments(source)).toBe(expected);
+  });
+
+  it('preserva gli offset UTF-16 del codice dopo emoji nei commenti', () => {
+    const source = `const label = "📣"; // data/jobs-ai-cache.json\nimport content from 'data/live.json';`;
+    const code = stripSourceComments(source);
+    expect(code).toHaveLength(source.length);
+    expect(code).toContain("import content from 'data/live.json';");
+    expect(code).not.toContain('data/jobs-ai-cache.json');
+  });
+
+  it('il job social esclude docs solo quando gli input editoriali puntuali restano coperti', () => {
+    const workflow = analyzeAll().find((w) => w.file === 'social-copy-pack.yml');
+    const job = workflow?.jobs.find((j) => j.jobId === 'generate');
+    expect(job?.needs).not.toContain('docs/');
+    expect(job?.exclude).toContain('docs/');
   });
 
   it('nessun job resta sparse sopra la soglia di convenienza', () => {

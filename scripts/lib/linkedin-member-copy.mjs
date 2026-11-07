@@ -19,6 +19,7 @@ import {
   stripLeadingSectionLabel,
   truncateBody,
 } from './social-post-utils.mjs';
+import { isGeneratedSocialCopyMode } from './social-copy-pack.mjs';
 
 /** LinkedIn hard-rejects commentary over 3000 chars; stay under it. */
 export const COMMENTARY_MAX = 2900;
@@ -298,7 +299,7 @@ export function buildMemberCommentary(opts = {}) {
     company,
   });
 
-  const generatedCopy = opts.socialCopy?.copyMode === 'codex' ? opts.socialCopy : null;
+  const generatedCopy = isGeneratedSocialCopyMode(opts.socialCopy?.copyMode) ? opts.socialCopy : null;
   const ctx = { title, excerpt, location, url, company, companyMention, includeFallbackCta: !generatedCopy };
   const body =
     kind === 'job'
