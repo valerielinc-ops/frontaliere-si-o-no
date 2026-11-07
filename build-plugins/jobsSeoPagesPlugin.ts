@@ -14711,7 +14711,12 @@ ${staticAnalyticsHtml}
  // (jobCanton, sameCompanyActiveJobs, etc. are hoisted above; displayCanton
  // is resolved per-locale earlier in this loop iteration, not hoisted.)
  const staticBodyParts: string[] = [];
-
+ if (__slAction === 'thin') {
+  // The existing thin-shell conversion keeps this H1 and discards the rest.
+  // Avoid building that discarded body; robots, metadata and the final shell
+  // still follow the same path below.
+  staticBodyParts.push(`<h1>${esc(jobTitle)}${jobCompany ? ` — ${esc(jobCompany)}` : ''}</h1>`);
+ } else {
  // Keep the crawler-first-paint version visually aligned with the hydrated
  // JobExpiredView: one readable column, a clear identity block, then the
  // full description and the supporting facts. The class names are intentionally
@@ -14874,6 +14879,7 @@ ${staticAnalyticsHtml}
  // Audit opt-out marker: text-html-ratio (and other content-quality gates)
  // skip pages carrying this marker, since prose has been deliberately stripped.
  if (STRIP_EXPIRED_JOB_PROSE) staticBodyParts.push(EJP_STRIPPED_MARKER);
+ }
  const staticBody = staticBodyParts.join('\n');
  recordPhase('ejp:body', __tEjpBody);
 
