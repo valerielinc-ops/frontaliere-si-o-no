@@ -14,8 +14,15 @@ import {
   omitDuplicateDiscoveryArticle,
   parseDiscoveryArticleIndex,
 } from '../scripts/lib/newsletter-discovery-selection.mjs';
+import { normalizeArticlePageText } from '../scripts/lib/live-article-meta.mjs';
 
 const COMMIT = '0123456789abcdef0123456789abcdef01234567';
+
+describe('normalizeArticlePageText', () => {
+  it('decodes hexadecimal numeric apostrophes', () => {
+    expect(normalizeArticlePageText('L&#x27;articolo')).toBe("L'articolo");
+  });
+});
 
 function article(id: string, now: number, overrides: Record<string, unknown> = {}) {
   return {
@@ -479,6 +486,28 @@ describe('checkDiscoveryArticleRoute', () => {
     const page = `<html><head><title>${encoded} | Frontaliere Ticino</title>
       <meta property="og:title" content="${encoded}">
       <link rel="canonical" href="/articoli-frontaliere/punctuation-check/"></head>
+      <body><article class="ft-blog-article"><p>${'Contenuto articolo. '.repeat(10)}</p></article></body></html>`;
+    const result = await checkDiscoveryArticleRoute(localized, 'it', {
+      retries: 0,
+      now,
+      fetchImpl: async (input) => ({ ...fetchResponse(page), url: String(input) }),
+    });
+
+    expect(result.ready).toBe(true);
+  });
+
+  it('accepts an article title with a hexadecimal numeric apostrophe', async () => {
+    const now = Date.now();
+    const expectedTitle = "L'articolo di oggi";
+    const localized = article('hex-entity-check', now, {
+      title: { it: expectedTitle },
+      excerpt: { it: 'Estratto' },
+      url: { it: '/articoli-frontaliere/hex-entity-check/' },
+    });
+    const encoded = 'L&#x27;articolo di oggi';
+    const page = `<html><head><title>${encoded} | Frontaliere Ticino</title>
+      <meta property="og:title" content="${encoded}">
+      <link rel="canonical" href="/articoli-frontaliere/hex-entity-check/"></head>
       <body><article class="ft-blog-article"><p>${'Contenuto articolo. '.repeat(10)}</p></article></body></html>`;
     const result = await checkDiscoveryArticleRoute(localized, 'it', {
       retries: 0,
