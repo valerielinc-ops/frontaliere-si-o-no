@@ -137,7 +137,7 @@ export default function CrawlerSection() {
     }
   }, [loadData, refresh]);
 
-  const latestCrawlerUpdate = crawlerSummaries.map((summary) => summary.generatedAt).filter(Boolean).sort().at(-1) || null;
+  const latestCrawlerUpdate = crawlerSummaries.map((summary) => summary.generatedAt).filter(Boolean).sort().pop() || null;
   const orchestratorRunning = isWorkflowRunDispatchLocked(getWorkflowState('orchestrate-crawlers.yml'));
   const sectionHeader = (
     <AdminSectionHeader

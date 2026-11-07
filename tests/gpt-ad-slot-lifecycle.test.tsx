@@ -63,6 +63,18 @@ function leaveViewport() {
 }
 
 describe('GPT manual reserve lifecycle', () => {
+  it('renders house metadata when Array.prototype.at is unavailable', () => {
+    const descriptor = Object.getOwnPropertyDescriptor(Array.prototype, 'at');
+    try {
+      Object.defineProperty(Array.prototype, 'at', { configurable: true, value: undefined, writable: true });
+      const { container } = mount();
+      expect(container.querySelector('[data-house]')?.getAttribute('data-house')).toBe('rail');
+    } finally {
+      if (descriptor) Object.defineProperty(Array.prototype, 'at', descriptor);
+      else delete (Array.prototype as Array<unknown> & { at?: unknown }).at;
+    }
+  });
+
   it('restores the rail for an eligible house creative after an explicit consent refusal', async () => {
     consent.granted = false; consent.denied = true;
     const { container, box, onEmptyChange } = mount();

@@ -18,7 +18,7 @@ export default function GiornalistiSection() {
   const [email, setEmail] = useState('');
   const [pending, setPending] = useState(false);
   const [message, setMessage] = useState<AdminMessage | null>(null);
-  const latestGrant = grants.map((grant) => grant.grantedAt).filter((value): value is string => Boolean(value)).sort().at(-1) || null;
+  const latestGrant = grants.map((grant) => grant.grantedAt).filter((value): value is string => Boolean(value)).sort().pop() || null;
 
   const loadGrants = async () => {
     setLoading(true); setError(null);
