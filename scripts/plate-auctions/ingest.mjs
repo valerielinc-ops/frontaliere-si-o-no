@@ -28,6 +28,7 @@ import {
   fetchLuFixedPrice,
   fetchUrFixedPrice,
 } from './connectors/fixed-price.mjs';
+import { fetchGePlateAuctions } from './connectors/ge.mjs';
 import {
   checkPlateAuctionQuality,
   derivePlateAuctionDataConfidence,
@@ -54,12 +55,9 @@ export const FETCHERS = {
   // CI: le righe arrivano dal relay della Cloud Function di Zurigo quando la
   // fetch ufficiale del runner fallisce (connectors/api-relay.mjs), come per SZ.
   fr: () => fetchExpandedEcari('fr'),
-  // GE ha il connettore (connectors/ge.mjs) ma non ancora il fetcher: resta
-  // `blocked` finché ge.ch non pubblica la lista d'autunno 2026. Fra due
-  // sessioni la lista dà il catalogo esplicitamente vuoto, e una fonte attiva
-  // senza nessuna riga nello snapshot è fatale per check-health.mjs; con le
-  // righe della prima sessione (poi chiuse e conservate) non lo è più.
-  // Attivarla = registry `active` in entrambe le copie + una riga qui.
+  // GE uses the official OCV PDF for the current session; Ricardo remains a
+  // link only and is never fetched by the connector.
+  ge: fetchGePlateAuctions,
   gl: fetchGlFixedPrice,
   gr: fetchGrPlateAuctions,
   lu: fetchLuFixedPrice,
