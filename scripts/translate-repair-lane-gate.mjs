@@ -20,11 +20,13 @@ import { realpathSync } from 'node:fs';
  *   · 35897636278 (pre-broker): Phase 2e at 304min, lane 0s, commit 713s, then
  *     the same 350min kill.
  * Every start with budget measured instead had >= 57min left (2d/2e at
- * 99-153min). A lane that starts with less than one Codex budget
- * (FREE_TRANSLATE_CODEX_MAX_MS, 15min) cannot spend it, and its fixed costs
- * (broker + Codex CLI install ~21s, lane start-up, a commit step of 2-14min
- * even when nothing changed) then come out of the 140min queue that the slug
- * regeneration, the translation-cache save and the deploy trigger depend on.
+ * 99-153min). The 15min per-call Codex budget is not a sufficient lane guard:
+ * run 42348235004 spent about 73min in the description lane and then still had
+ * to pay the slow slice commits, final statistics and the durable handoff. A
+ * lane that starts with less than 90min left can consume the reserved queue
+ * before slug regeneration, the translation-cache save and the deploy trigger
+ * finish. The gate therefore reserves 90min for the complete repair lane, not
+ * just one provider call.
  *
  * Output: `run=true|false` on $GITHUB_OUTPUT, plus a ::notice:: when the lanes
  * are skipped. A missing run-clock marker is not decided here: with
@@ -33,14 +35,16 @@ import { realpathSync } from 'node:fs';
  *
  * Env:
  *   REPAIR_LANE_DEADLINE_MS       — run-wide deadline shared with the lanes.
- *   REPAIR_LANE_MIN_REMAINING_MS  — minimum budget left for the lanes to start.
+ *   REPAIR_LANE_MIN_REMAINING_MS  — minimum budget left for a complete repair
+ *     lane to start (default 90min; includes the observed 73min lane plus
+ *     bounded in-flight/request overhead).
  */
 import fs from 'node:fs';
 
 import { resolveRunStartMs } from './lib/translate-run-clock.mjs';
 
 export const DEFAULT_REPAIR_LANE_DEADLINE_MS = 210 * 60 * 1000;
-export const DEFAULT_REPAIR_LANE_MIN_REMAINING_MS = 15 * 60 * 1000;
+export const DEFAULT_REPAIR_LANE_MIN_REMAINING_MS = 90 * 60 * 1000;
 
 function positiveMs(value, fallback) {
   const parsed = Number(value);
