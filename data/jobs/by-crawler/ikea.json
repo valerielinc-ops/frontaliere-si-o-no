@@ -812,7 +812,7 @@
       "slugByLocale": {
         "it": "collaboratore-logistico-60-ikea-riddes-valais",
         "en": "logistics-contributor-60-ikea-riddes-valais",
-        "de": "logistikkoordinator-60-ikea-vernier",
+        "de": "logistikbeitrag-60-ikea-riddes-valais",
         "fr": "collaborateur-trice-logistique-60-ikea-ch"
       },
       "company": "IKEA",
@@ -859,7 +859,7 @@
       "previousSlugs": [
         "collaborateur-trice-logistique-60-ikea-ch",
         "collaborateur-trice-logistique-60-ikea-vernier",
-        "logistikbeitrag-60-ikea-riddes-valais"
+        "logistikkoordinator-60-ikea-vernier"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -871,7 +871,7 @@
         ],
         "de": [
           "collaborateur-trice-logistique-60-ikea-vernier",
-          "logistikbeitrag-60-ikea-riddes-valais"
+          "logistikkoordinator-60-ikea-vernier"
         ]
       },
       "firstSeenAt": "2026-08-26T09:53:00.147Z",
@@ -2416,12 +2416,12 @@
     },
     {
       "id": "ikea-9f7f503c12fe",
-      "slug": "service-execution-team-leader-m-f-100-ikea-ch",
+      "slug": "service-execution-capo-squadra-m-f-100-ikea-spreitenbach-aargau",
       "slugByLocale": {
         "en": "service-execution-team-leader-m-f-100-ikea-ch",
-        "it": "service-execution-team-leader-m-f-100-ikea-ch",
+        "it": "service-execution-capo-squadra-m-f-100-ikea-spreitenbach-aargau",
         "de": "service-execution-team-leader-m-f-100-ikea-ch",
-        "fr": "service-execution-team-leader-m-f-100-ikea-ch"
+        "fr": "chef-d-equipe-d-execution-du-service-h-f-100-ikea-spreitenbach-aargau"
       },
       "company": "IKEA",
       "companyKey": "ikea",
@@ -2494,7 +2494,18 @@
       "streetAddressSource": "zefix-registry",
       "validThrough": "2027-02-04T21:17:59.993Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-07T21:17:59.993Z"
+      "firstSeenAt": "2026-11-07T21:17:59.993Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "service-execution-team-leader-m-f-100-ikea-ch"
+        ],
+        "fr": [
+          "service-execution-team-leader-m-f-100-ikea-ch"
+        ]
+      },
+      "previousSlugs": [
+        "service-execution-team-leader-m-f-100-ikea-ch"
+      ]
     },
     {
       "id": "ikea-c1824890a1d1",
