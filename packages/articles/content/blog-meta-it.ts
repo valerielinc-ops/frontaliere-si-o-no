@@ -13679,6 +13679,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.frontalieri-telelavoro-protocollo-2026.title': 'Frontalieri e telelavoro: organizzare la postazione a casa',
     'blog.article.frontalieri-telelavoro-protocollo-2026.excerpt': 'Il telelavoro arriva fino al 25% del tempo di lavoro. Il protocollo è entrato in vigore il 9 febbraio 2026.',
     'blog.article.frontalieri-telelavoro-protocollo-2026.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
+    'blog.article.roma-cambia-proposta-tassa.title': 'Roma cambia proposta tassa salute per vecchi frontalieri',
+    'blog.article.roma-cambia-proposta-tassa.excerpt': 'Roma vuole cambiare le regole della cosiddetta tassa sulla salute prima ancora di applicarla.',
+    'blog.article.roma-cambia-proposta-tassa.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
 };
 
 export default blogMetaIt;

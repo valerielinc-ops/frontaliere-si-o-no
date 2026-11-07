@@ -15,10 +15,10 @@
       "2": 197,
       "3": 0,
       "4": 0,
-      "5": 1085,
+      "5": 1089,
       "6": 5061
     },
-    "publishedCovers": 7828,
+    "publishedCovers": 7832,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 1,
     "inheritedRecordsMaterialized": 197,
@@ -213956,6 +213956,39 @@
         "evidence": "generated-engine-record"
       }
     },
+    "article-martinimarkt-principale-strada-chiusa": {
+      "cover": "/images/blog/article-martinimarkt-principale-strada-chiusa.webp",
+      "hash": "6ac359c060b40246eb4cddf8b3d93d3ef6dc11c3e785c173c43d7d96a702c9f8",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-sz",
+          "id": "martinimarkt-principale-strada-chiusa",
+          "category": "pratico",
+          "date": "2026-11-07T08:08:34.915Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-martinimarkt-principale-strada-chiusa.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1794,
+      "verifiedAt": "2026-11-07",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-martinimarkt-principale-strada-chiusa",
+        "imageUrl": "/images/blog/article-martinimarkt-principale-strada-chiusa.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
     "article-massagno-moltiplicatore-2027": {
       "cover": "/images/blog/article-massagno-moltiplicatore-2027.webp",
       "hash": "651228807d3efff3d4d8f79d560189909ee61e79a2401172e9af4c5caad4793f",
@@ -214646,6 +214679,39 @@
         "provider": "openai-codex",
         "assetId": "article-riserva-elettrica-risparmio-cdf",
         "imageUrl": "/images/blog/article-riserva-elettrica-risparmio-cdf.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-roma-cambia-proposta-tassa": {
+      "cover": "/images/blog/article-roma-cambia-proposta-tassa.webp",
+      "hash": "8f9e8bfc70189cd3a4231d8ee811f5d79750c55106077e214b423295e5773abd",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "roma-cambia-proposta-tassa",
+          "category": "fiscale",
+          "date": "2026-11-07T08:19:18.120Z",
+          "updatedAt": null,
+          "authorSlug": "marco-ferrari"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-roma-cambia-proposta-tassa.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1794,
+      "verifiedAt": "2026-11-07",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-roma-cambia-proposta-tassa",
+        "imageUrl": "/images/blog/article-roma-cambia-proposta-tassa.webp",
         "evidence": "generated-engine-record"
       }
     },
@@ -215507,6 +215573,39 @@
         "evidence": "generated-engine-record"
       }
     },
+    "article-vaud-salari-pubblici-2027": {
+      "cover": "/images/blog/article-vaud-salari-pubblici-2027.webp",
+      "hash": "e4eb8ba14d0597c81884a88e527031cb567f06632a95c5bd13b3fea49ccf5e91",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-vd",
+          "id": "vaud-salari-pubblici-2027",
+          "category": "novita",
+          "date": "2026-11-07T07:36:45.180Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-vaud-salari-pubblici-2027.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1794,
+      "verifiedAt": "2026-11-07",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-vaud-salari-pubblici-2027",
+        "imageUrl": "/images/blog/article-vaud-salari-pubblici-2027.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
     "article-versamento-avs-dicembre-importi": {
       "cover": "/images/blog/article-versamento-avs-dicembre-importi.webp",
       "hash": "b1d66858141fdb262071c574fb25e79aa2ca1ef00cde1eedbceac91ef8dab7be",
@@ -215669,6 +215768,39 @@
         "provider": "openai-codex",
         "assetId": "article-voto-iva-13esima-avs-novembre",
         "imageUrl": "/images/blog/article-voto-iva-13esima-avs-novembre.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-voto-regolamento-fondo-gas-wil": {
+      "cover": "/images/blog/article-voto-regolamento-fondo-gas-wil.webp",
+      "hash": "1b09439d3868c2bf7971bbe74a75565eeb95879753a5e7afa102ac7918de2934",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-sg",
+          "id": "voto-regolamento-fondo-gas-wil",
+          "category": "pratico",
+          "date": "2026-11-07T08:11:06.917Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-voto-regolamento-fondo-gas-wil.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1794,
+      "verifiedAt": "2026-11-07",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-voto-regolamento-fondo-gas-wil",
+        "imageUrl": "/images/blog/article-voto-regolamento-fondo-gas-wil.webp",
         "evidence": "generated-engine-record"
       }
     },

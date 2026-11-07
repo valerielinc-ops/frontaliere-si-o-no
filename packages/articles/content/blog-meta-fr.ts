@@ -13680,6 +13680,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.frontalieri-telelavoro-protocollo-2026.title': 'Frontaliers et télétravail : organiser son poste de travail à la maison',
     'blog.article.frontalieri-telelavoro-protocollo-2026.excerpt': 'Le télétravail représente jusqu’à 25 % du temps de travail. Le protocole est entré en vigueur le 9 février 2026.',
     'blog.article.frontalieri-telelavoro-protocollo-2026.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
+    'blog.article.roma-cambia-proposta-tassa.title': 'Rome change sa proposition de taxe de santé pour les anciens frontaliers',
+    'blog.article.roma-cambia-proposta-tassa.excerpt': 'Rome veut changer les règles de la soi-disant taxe de santé avant même de l\'appliquer.',
+    'blog.article.roma-cambia-proposta-tassa.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
 };
 
 export default blogMetaFr;

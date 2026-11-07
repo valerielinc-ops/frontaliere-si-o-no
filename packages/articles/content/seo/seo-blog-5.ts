@@ -114303,6 +114303,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-roma-cambia-proposta-tassa': {
+    title: 'Roma cambia proposta tassa salute per vecchi frontalieri',
+    description: 'La bozza del progetto di legge di bilancio 2027 modifica la tassa salute per vecchi frontalieri, fissando il contributo tra 30 e 150 euro al mese.',
+    keywords: 'tassa salute, frontalieri, progetto di legge 2027, contributo fisso, Ticino, regioni italiane di confine',
+    ogTitle: 'Roma cambia proposta tassa salute per frontalieri',
+    ogDescription: 'La bozza del progetto di legge di bilancio 2027 modifica la tassa salute per vecchi frontalieri, fissando il contributo tra 30 e 150 euro al mese.',
+    canonicalPath: '/articoli-frontaliere/roma-cambia-proposta-tassa/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Roma cambia proposta tassa salute per vecchi frontalieri",
+      "description": "La bozza del progetto di legge di bilancio 2027 modifica la tassa salute per vecchi frontalieri, fissando il contributo tra 30 e 150 euro al mese.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-roma-cambia-proposta-tassa.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine illustrativa pertinente al tema dell’articolo"
+      },
+      "datePublished": "2026-11-07T08:19:18+00:00",
+      "dateModified": "2026-11-07T08:19:18+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/roma-cambia-proposta-tassa/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

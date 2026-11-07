@@ -48100,6 +48100,16 @@ const RAW_ARTICLES_CHUNK_19: Article[] = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'roma-cambia-proposta-tassa',
+ category: 'fiscale',
+ date: '2026-11-07T08:19:18.120Z',
+ image: '/images/blog/article-roma-cambia-proposta-tassa.webp',
+ hasCalculator: true,
+ articleType: 'news',
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ];
 
 const RAW_ARTICLES: Article[] = [
