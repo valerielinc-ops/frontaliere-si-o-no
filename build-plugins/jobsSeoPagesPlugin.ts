@@ -15190,6 +15190,14 @@ ${staticAnalyticsHtml}
  // cross-locale pass below will read these pages from disk as needed.
  await releaseExpiredHtmlCacheChunk();
  maybeForceJobsSeoHtmlGc();
+ if (expiredArchiveOverflowPopulation > 0) {
+  // The no-cache chunk path drains in-flight writes but deliberately leaves
+  // the collector's sub-threshold buffer queued. The evidence writer reads
+  // canary files from dist, so flush that final buffer first; otherwise it
+  // can validate an older file at the same route instead of the page emitted
+  // by this archive sweep.
+  await collector.flush();
+ }
  expiredArchivePublicationEvidence.write({
   distDir,
   indexedOverflowAliases: expiredArchiveOverflowPopulation,
