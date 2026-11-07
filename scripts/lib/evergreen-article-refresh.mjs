@@ -9,12 +9,15 @@
  */
 import fs from 'node:fs';
 import path from 'node:path';
+import { tmpdir } from 'node:os';
 import { fileURLToPath } from 'node:url';
 import ts from 'typescript';
+import { withSingleFlightLock } from './single-flight-lock.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const DEFAULT_REPO_ROOT = path.resolve(__dirname, '..', '..');
 let writeTmpSeq = 0;
+const REFRESH_LOCK_PREFIX = 'frontaliere-evergreen-article-refresh';
 
 function assertRefreshText(content, file) {
   const invalid = [];
@@ -51,18 +54,62 @@ function assertRefreshText(content, file) {
   }
 }
 
+function resolveRefreshTarget(file) {
+  try {
+    return fs.realpathSync(file);
+  } catch (error) {
+    if (error?.code !== 'ENOENT') throw error;
+    return path.join(fs.realpathSync(path.dirname(file)), path.basename(file));
+  }
+}
+
 function writeRefreshFile(file, content) {
   assertRefreshText(content, file);
   // data/blog-articles-data.ts is a symlink in the site checkout. Renaming on
   // the public path would replace the symlink itself, so stage beside the
   // canonical target and atomically replace that target instead.
-  const target = fs.realpathSync(file);
+  const target = resolveRefreshTarget(file);
   const temporary = `${target}.${process.pid}.${writeTmpSeq++}.tmp`;
   try {
     fs.writeFileSync(temporary, content, 'utf-8');
     fs.renameSync(temporary, target);
   } catch (error) {
     try { fs.unlinkSync(temporary); } catch { /* best-effort cleanup */ }
+    throw error;
+  }
+}
+
+function stageRefreshFile(file, content) {
+  assertRefreshText(content, file);
+  const target = resolveRefreshTarget(file);
+  const temporary = `${target}.${process.pid}.${writeTmpSeq++}.tmp`;
+  try {
+    fs.writeFileSync(temporary, content, 'utf-8');
+    return { file, target, temporary };
+  } catch (error) {
+    try { fs.unlinkSync(temporary); } catch { /* best-effort cleanup */ }
+    throw error;
+  }
+}
+
+function writeEvergreenBodyOutputs(outputs, repoRoot, log) {
+  const staged = [];
+  try {
+    // Prepare every locale before replacing any live body file. A render or
+    // temp-write failure therefore leaves the previous locale set untouched.
+    for (const { dir, file, source } of outputs) {
+      fs.mkdirSync(dir, { recursive: true });
+      staged.push(stageRefreshFile(file, source));
+    }
+
+    for (const { file, target, temporary } of staged) {
+      fs.renameSync(temporary, target);
+      log(`  ✅ ${path.relative(repoRoot, file)}`);
+    }
+  } catch (error) {
+    for (const { temporary } of staged) {
+      try { fs.unlinkSync(temporary); } catch { /* already renamed or cleaned */ }
+    }
     throw error;
   }
 }
@@ -95,6 +142,30 @@ export function buildEvergreenBodyOutputs(data, repoRoot, locales, buildBodyFile
     file: path.join(repoRoot, 'services', 'locales', 'blog-body', locale, `${data.id}.ts`),
     source: buildBodyFile(data, locale),
   }));
+}
+
+export function evergreenRefreshLockPath(articleId) {
+  const safeId = String(articleId).replace(/[^a-z0-9._-]+/gi, '-');
+  return path.join(tmpdir(), `${REFRESH_LOCK_PREFIX}-${safeId}.lock`);
+}
+
+/** Render and refresh all locale body files under one single-flight lock. */
+export function refreshEvergreenBodyFiles(
+  data,
+  repoRoot,
+  locales,
+  buildBodyFile,
+  assertReady,
+  log = console.log,
+) {
+  assertReady(data);
+  const result = withSingleFlightLock(evergreenRefreshLockPath(data.id), () => {
+    const outputs = buildEvergreenBodyOutputs(data, repoRoot, locales, buildBodyFile);
+    writeEvergreenBodyOutputs(outputs, repoRoot, log);
+  });
+  if (!result.acquired) {
+    throw new Error(`evergreen article refresh for "${data.id}" is already running; no files were written`);
+  }
 }
 
 function parseTypeScript(source, file) {

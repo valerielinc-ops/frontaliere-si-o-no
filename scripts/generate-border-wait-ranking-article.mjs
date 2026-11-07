@@ -30,7 +30,7 @@ import { realpathSync } from 'node:fs';
  */
 import path from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
-import { writeFileSync, mkdirSync } from 'node:fs';
+import { mkdirSync, writeFileSync } from 'node:fs';
 import { computeRanking, computeTrend, computeFunFacts, computeWeekWindow, computeMovers } from './lib/border-wait-ranking.mjs';
 import { buildBorderWaitRankingArticle } from './lib/border-wait-ranking-content.mjs';
 import {
@@ -41,7 +41,7 @@ import {
 } from './create-article.mjs';
 import {
   assertEvergreenArticleReadyForWrite,
-  buildEvergreenBodyOutputs,
+  refreshEvergreenBodyFiles,
   bumpUpdatedAt,
   bumpDateModified,
   bumpSitemapLastmod,
@@ -127,13 +127,14 @@ export function assertRankingReadyForWrite(data) {
 }
 
 export function refreshBodyFiles(data, repoRoot = REPO_ROOT, log = console.log) {
-  assertRankingReadyForWrite(data);
-  const outputs = buildEvergreenBodyOutputs(data, repoRoot, LOCALES, buildBodyFile);
-  for (const { dir, file, source } of outputs) {
-    mkdirSync(dir, { recursive: true });
-    writeFileSync(file, source);
-    log(`  ✅ ${path.relative(repoRoot, file)}`);
-  }
+  return refreshEvergreenBodyFiles(
+    data,
+    repoRoot,
+    LOCALES,
+    buildBodyFile,
+    assertRankingReadyForWrite,
+    log,
+  );
 }
 
 /**
