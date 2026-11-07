@@ -4166,12 +4166,21 @@ function assembleSummaries() {
 
 /**
  * Normalize a source slice and persist the repair before aggregation can cap it.
- * Returns the number of date/title/description repairs, including zero for an already-clean
- * slice so callers can keep their existing aggregation flow unchanged.
+ * Route ownership is repaired here too, while the source slice is still the
+ * complete population. Returns the number of persisted repairs, including zero
+ * for an already-clean slice so callers can keep their existing flow unchanged.
  */
 export function normalizeAndPersistExpiredSlice(slicePath, entries, options = {}) {
-  const repaired = normalizeExpiredAtEntries(entries, options)
+  const normalized = normalizeExpiredAtEntries(entries, options)
     + entries.reduce((count, job) => count + repairJobTranslationSemanticsInPlace(job), 0);
+  const routeResult = collapseDuplicateRouteEntries(entries, {
+    source: `${options.source || 'assemble-expired-slice'}/route-repair`,
+  });
+  const routeChanged = routeResult.collapsed > 0 || routeResult.repairedRoutes > 0;
+  if (routeChanged) entries.splice(0, entries.length, ...routeResult.entries);
+  const repaired = normalized + (routeChanged
+    ? routeResult.collapsed + routeResult.repairedRoutes
+    : 0);
   // `writeJson` is the writeJsonAtomic import above. Keep the repair atomic:
   // this helper runs before the aggregate cap and must not leave a truncated
   // source slice if the process is interrupted during persistence.

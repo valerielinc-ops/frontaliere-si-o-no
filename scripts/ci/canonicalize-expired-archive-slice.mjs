@@ -63,10 +63,10 @@ try {
   });
 
   // A cap refusal is an explicit decision to leave that component untouched.
-  // Only persist a candidate when the shared primitive actually collapsed a
-  // route component; this mirrors sweepExpiredArchiveSlices' fail-closed
-  // handling and avoids turning a refused component into a sorted rewrite.
-  if (result.collapsed === 0) {
+  // A source-proven distinct posting is a different repair class: it keeps
+  // both records and receives a deterministic route, so it must be persisted
+  // even though no entry was collapsed.
+  if (result.collapsed === 0 && result.repairedRoutes === 0) {
     process.exit(0);
   }
 
@@ -93,6 +93,7 @@ try {
     baseEntryCount: original.length,
     candidateEntryCount: result.entries.length,
     collapsed: result.collapsed,
+    repairedRoutes: result.repairedRoutes,
     removedIdentities: baseIdentities.filter((identity) => !candidateIdentitySet.has(identity)),
     routeCount: routeUnion.length,
     routeDigest: sha256(JSON.stringify(routeUnion)),
@@ -110,7 +111,8 @@ try {
   }
   console.log(
     `  🔁 canonicalized expired archive slice ${label}: `
-      + `${result.collapsed} duplicate route(s) collapsed`,
+      + `${result.collapsed} duplicate route(s) collapsed, `
+      + `${result.repairedRoutes} distinct route collision(s) repaired`,
   );
 } catch (error) {
   console.error(`❌ Could not canonicalize expired archive slice ${label}: ${error.message}`);
