@@ -197,6 +197,10 @@ jobs:
             echo "::error::Contratto workflow corpus non valido; dispatch non eseguito."
             exit 1
           fi
+          source_key_supported=false
+          if printf '%s' "$corpus_workflow_yaml" | grep -Eq '^      source_key:'; then
+            source_key_supported=true
+          fi
           if [ "$origin_contract" = "supported" ]; then
             dispatch_origin_note="con origine editorial_signal"
           elif [ "$origin_contract" != "legacy" ]; then
@@ -207,17 +211,36 @@ jobs:
           fi
           echo "Contratto dispatch corpus: $origin_contract"
           echo "Dispatch generate-article.yml → nanakokyobashi-rgb/frontaliere-articles (url=stats-bfs://${NEW_QUARTER})"
+          # A workflow_dispatch POST is side-effectful and a transient 5xx is
+          # ambiguous: the receiver may already have queued the article. The
+          # shared helper is at-most-once until the receiver proves a stable-URL
+          # idempotency guard; 4xx, timeouts and unclassified failures remain
+          # visible immediately as well.
+          source scripts/lib/github-workflow-dispatch-with-retry.sh
           dispatch_corpus_article() {
             if [ "$origin_contract" = "supported" ]; then
-              GH_TOKEN="$GITHUB_PAT_NANAKO" gh workflow run generate-article.yml \
-                --repo nanakokyobashi-rgb/frontaliere-articles \
+              dispatch_workflow_once generate-article.yml \
+                nanakokyobashi-rgb/frontaliere-articles \
                 -f dispatch_origin=editorial_signal "$@"
             else
-              GH_TOKEN="$GITHUB_PAT_NANAKO" gh workflow run generate-article.yml \
-                --repo nanakokyobashi-rgb/frontaliere-articles "$@"
+              dispatch_workflow_once generate-article.yml \
+                nanakokyobashi-rgb/frontaliere-articles "$@"
             fi
           }
-          dispatch_corpus_article -f url="stats-bfs://${NEW_QUARTER}" -f section=frontaliere
+          source_key_args=()
+          if [ "$source_key_supported" = "true" ]; then
+            if ! source_key="$(workflow_dispatch_source_key "stats-bfs://${NEW_QUARTER}")"; then
+              echo "::error::Impossibile calcolare la chiave bounded del dispatch BFS."
+              exit 1
+            fi
+            source_key_args=(-f "source_key=$source_key")
+          else
+            source_key_args=()
+          fi
+          if ! dispatch_corpus_article -f url="stats-bfs://${NEW_QUARTER}" "${source_key_args[@]}" -f section=frontaliere; then
+            echo "::error::Dispatch corpus fallito: il nuovo trimestre BFS non è stato consegnato al receiver."
+            exit 1
+          fi
           {
             echo "## 🚀 Articolo di annuncio dispacciato"
             echo ""
