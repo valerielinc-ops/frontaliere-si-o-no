@@ -120,6 +120,8 @@ describe('il dispatch scatta SOLO sulla transizione di trimestre', () => {
     expect(dispatch.run).toContain('dispatch_corpus_article() {');
     expect(dispatch.run).toContain('-f dispatch_origin=editorial_signal "$@"');
     expect(dispatch.run).toContain('dispatch_corpus_article -f url=');
+    expect(dispatch.run).toContain('if ! dispatch_corpus_article -f url=');
+    expect(dispatch.run).toContain('Dispatch corpus fallito');
     expect(dispatch.run).not.toContain('origin_args[@]');
     expect(dispatch.run.indexOf('gh workflow view')).toBeLessThan(dispatch.run.indexOf('dispatch_workflow_with_retry'));
   });

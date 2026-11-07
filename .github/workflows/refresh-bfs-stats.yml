@@ -221,7 +221,10 @@ jobs:
                 nanakokyobashi-rgb/frontaliere-articles "$@"
             fi
           }
-          dispatch_corpus_article -f url="stats-bfs://${NEW_QUARTER}" -f section=frontaliere
+          if ! dispatch_corpus_article -f url="stats-bfs://${NEW_QUARTER}" -f section=frontaliere; then
+            echo "::error::Dispatch corpus fallito: il nuovo trimestre BFS non è stato consegnato al receiver."
+            exit 1
+          fi
           {
             echo "## 🚀 Articolo di annuncio dispacciato"
             echo ""
