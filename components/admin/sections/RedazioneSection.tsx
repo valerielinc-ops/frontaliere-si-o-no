@@ -38,7 +38,7 @@ export default function RedazioneSection() {
   const [articlePage, setArticlePage] = useState(1);
   const [selectedArticleId, setSelectedArticleId] = useState('');
   const [selectedAuthorSlug, setSelectedAuthorSlug] = useState('');
-  const latestArticleUpdate = data?.journalistArticles.map((article) => article.updatedAt).filter((value): value is string => Boolean(value)).sort().at(-1) || null;
+  const latestArticleUpdate = data?.journalistArticles.map((article) => article.updatedAt).filter((value): value is string => Boolean(value)).sort().pop() || null;
 
   const loadData = async () => {
     setLoading(true);

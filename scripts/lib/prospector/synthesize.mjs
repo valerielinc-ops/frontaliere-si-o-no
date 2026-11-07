@@ -112,6 +112,7 @@ function careerLinksFromPage(body, baseUrl) {
  *   disambiguate the canton; the shared Swiss geography resolver still validates them.
  * @property {boolean} [rescueOnEmptyListing] Retry a zero-candidate seed through the clean-IP rescue
  * @property {boolean} [rescueOnPartialListing] Retry a source-specific listing through the browser rescue when direct transport may expose only a partial population
+ * @property {string} [authoritativeEmptyText] Exact source-native text that proves the fetched listing is intentionally empty when no candidates are accepted
  * @property {'ok'|'filtered_empty'|'anti_bot_block'|'selector_miss'|'connection_error'} [emptyListingOutcome]
  *   Outcome to attach when the spec has no accepted listing after its configured rescue path
  * @property {number} [detailFetchWorkers] Maximum concurrent detail fetches

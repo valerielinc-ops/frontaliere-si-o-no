@@ -193,7 +193,11 @@ export function createSectionManifest({
         const sourceInvariant = String(entry.cdnInvariantSha256 ?? '').toLowerCase();
         const finalInvariant = expiredArchiveCdnInvariantSha256(fs.readFileSync(file, 'utf8'));
         if (!/^[0-9a-f]{64}$/u.test(sourceInvariant) || finalInvariant !== sourceInvariant) {
-          throw new Error(`${section} expired archive canary digest differs from its shard source: ${entry.url}`);
+          throw new Error(
+            `${section} expired archive canary digest differs from its shard source: ${entry.url} `
+            + `(source=${sourceSha256}, final=${finalSha256}, `
+            + `sourceInvariant=${sourceInvariant || 'missing'}, finalInvariant=${finalInvariant})`,
+          );
         }
       }
       const existing = byUrl.get(String(entry.url));

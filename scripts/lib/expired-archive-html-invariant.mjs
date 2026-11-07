@@ -50,7 +50,15 @@ function removeGeneratedCdnEnvelopeFromHead(html) {
   const preconnect = new RegExp(`<link rel="preconnect" href="${escapedOrigin}" crossorigin>`, 'g');
   const dnsPrefetch = new RegExp(`<link rel="dns-prefetch" href="${escapedOrigin}">`, 'g');
   const marker = new RegExp(`<script>window\\.__CDN_DATA_BASE__="${escapedOrigin}"<\\/script>`, 'g');
-  const normalizedHead = head.replace(preconnect, '').replace(dnsPrefetch, '').replace(marker, '');
+  // Match the standalone assignment the deploy rewrite removes, including a
+  // stale base or formatting from an older deploy. Other page bytes stay in
+  // the digest.
+  const assignmentMarker = /<script\b[^>]*>\s*window\.__CDN_DATA_BASE__\s*=\s*(?:"(?:[^"\\]|\\.)*"|'(?:[^'\\]|\\.)*')\s*;?\s*<\/script>/gu;
+  const normalizedHead = head
+    .replace(preconnect, '')
+    .replace(dnsPrefetch, '')
+    .replace(marker, '')
+    .replace(assignmentMarker, '');
   return html.slice(0, contentStart) + normalizedHead + html.slice(contentEnd);
 }
 

@@ -135,7 +135,7 @@ function fields(journey: Journey) {
   journey_path: path.join('>'),
   // One GA4 dimension fits the property quota. Bounded categorical values,
   // no job/user identifier; longest valid context stays below 100 characters.
-  journey_context: [cohort, journey.source, journey.entry, journey.steps.at(-1) || 'entry', path.map((step) => PATH_CODES[step]).join('>')].join('|'),
+  journey_context: [cohort, journey.source, journey.entry, journey.steps[journey.steps.length - 1] || 'entry', path.map((step) => PATH_CODES[step]).join('>')].join('|'),
  };
 }
 
@@ -148,7 +148,7 @@ export function recordJobJourneyStep(identity: JobJourneyIdentity, step: JobJour
  if (!identity.jobSlug) return null;
  const journey = journeyFor(identity, step === 'list_select');
  if (journey.steps.includes(step)) return null;
- const previous = journey.steps.at(-1) || 'entry';
+ const previous = journey.steps[journey.steps.length - 1] || 'entry';
  journey.steps.push(step);
  persist();
  return { ...fields(journey), journey_step: step, previous_step: previous, step_index: journey.steps.length };

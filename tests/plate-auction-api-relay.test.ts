@@ -236,6 +236,15 @@ describe('connectors read the relay when the direct fetch is unavailable', () =>
     expect(fetchPage).toHaveBeenCalledWith(SO_URL, expect.any(Object));
   });
 
+  it('expanded eCari: a transient 200 shell is retried before using the relay', async () => {
+    serveRelay(relayPayload({ so: { status: 'active', rowCount: 1, lastSuccessAt: FRESH } }, [row('SO', 'so-1768')]));
+    const fetchPage = vi.fn(async () => '<html><title>maintenance</title></html>');
+    const rows = await fetchExpandedEcari('so', { fetchPage, now: NOW });
+    expect(rows).toEqual([expect.objectContaining({ id: 'so-1768', sourceKey: 'SO', officialAuctionUrl: SO_URL })]);
+    expect(fetchPage).toHaveBeenCalledTimes(2);
+    expect(relayCalls).toEqual([sourceRelayUrl('so')]);
+  });
+
   it('TI: the 200 "Pagina non disponibile" page is a direct failure, not an empty catalogue', async () => {
     serveRelay(relayPayload({ ti: { status: 'active', rowCount: 1, lastSuccessAt: FRESH } }, [row('TI', 'ti-1532')]));
     const rows = await fetchTiPlateAuctions({ fetchPage: async () => TI_GEO_BLOCK_PAGE, now: NOW });
@@ -273,6 +282,15 @@ describe('connectors read the relay when the direct fetch is unavailable', () =>
     const rows = await fetchGrPlateAuctions({ fetchPage, now: NOW });
     expect(rows).toEqual([expect.objectContaining({ id: 'gr-2230', sourceKey: 'GR', officialAuctionUrl: GR_ECARI_CATALOGUE_URL })]);
     expect(fetchPage).toHaveBeenCalledWith(GR_ECARI_CATALOGUE_URL);
+    expect(relayCalls).toEqual([sourceRelayUrl('gr')]);
+  });
+
+  it('GR: a transient 200 shell retries, then uses a fresh relay snapshot', async () => {
+    serveRelay(relayPayload({ gr: { status: 'active', rowCount: 1, lastSuccessAt: FRESH } }, [row('GR', 'gr-2230')]));
+    const fetchPage = vi.fn(async () => '<html><title>maintenance</title></html>');
+    const rows = await fetchGrPlateAuctions({ fetchPage, now: NOW });
+    expect(rows).toEqual([expect.objectContaining({ id: 'gr-2230', sourceKey: 'GR', officialAuctionUrl: GR_ECARI_CATALOGUE_URL })]);
+    expect(fetchPage).toHaveBeenCalledTimes(2);
     expect(relayCalls).toEqual([sourceRelayUrl('gr')]);
   });
 
