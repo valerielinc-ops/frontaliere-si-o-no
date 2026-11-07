@@ -1358,8 +1358,14 @@ export function isRetryableNativeAutoMergeMutationError(value, mergeability = nu
       || mergeability.baseRefName !== 'main'
       || (expectedHead && mergeability.headRefOid !== expectedHead)
       || mergeability.autoMergeRequest !== null) return false;
-  return [mergeability.mergeable, mergeability.mergeStateStatus]
-    .some((state) => String(state || '').toUpperCase() === 'UNKNOWN');
+  const mergeabilityStates = [mergeability.mergeable, mergeability.mergeStateStatus]
+    .map((state) => String(state || '').toUpperCase());
+  // A mixed snapshot with a decisive conflict/block result is never a safe
+  // UNKNOWN retry, even when the other field has not settled yet.
+  if (mergeabilityStates.some((state) => ['BLOCKED', 'DIRTY', 'CONFLICTING'].includes(state))) {
+    return false;
+  }
+  return mergeabilityStates.includes('UNKNOWN');
 }
 
 function capturedErrorOutput(error) {

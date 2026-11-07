@@ -895,9 +895,28 @@ describe('native auto-merge gate (#8512)', () => {
       'c'.repeat(40),
     )).toBe(false);
     expect(isRetryableNativeAutoMergeMutationError(
-      'GraphQL: Pull request is not mergeable (mergePullRequest)',
-      { ...transient, mergeable: 'CONFLICTING', mergeStateStatus: 'DIRTY' },
+      'Pull request is not mergeable',
+      {
+        state: 'OPEN',
+        isDraft: false,
+        baseRefName: 'main',
+        headRefOid: 'h',
+        autoMergeRequest: null,
+        mergeable: 'UNKNOWN',
+        mergeStateStatus: 'BLOCKED',
+      },
+      'h',
     )).toBe(false);
+    for (const mixedState of [
+      { mergeable: 'UNKNOWN', mergeStateStatus: 'BLOCKED' },
+      { mergeable: 'UNKNOWN', mergeStateStatus: 'DIRTY' },
+      { mergeable: 'CONFLICTING', mergeStateStatus: 'UNKNOWN' },
+    ]) {
+      expect(isRetryableNativeAutoMergeMutationError(
+        'GraphQL: Pull request is not mergeable (mergePullRequest)',
+        { ...transient, ...mixedState },
+      )).toBe(false);
+    }
     expect(isRetryableNativeAutoMergeMutationError(
       'GraphQL: Pull request is not mergeable (mergePullRequest)',
       { ...transient, autoMergeRequest: { enabledAt: '2026-09-13T12:00:00Z' } },
