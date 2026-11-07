@@ -753,8 +753,8 @@ ${locationBlock}
     if (!descriptionText) continue;
     // The detail URL is the vacancy identity: falling back to the listing page
     // would give every posting the same \`url\`, \`applyUrl\` and \`id\` hash.
-    if (!listing.url) continue;
     const rawUrl = String(listing.url || '').trim();
+    if (!rawUrl) continue;
     const publicUrl = canonicalizeJobUrl(rawUrl) || rawUrl;
     const employmentType = detectEmploymentType(listing.timeType || title);
 

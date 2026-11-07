@@ -115,4 +115,13 @@ describe('promoted Prospector parser contract', () => {
       expect(empty.discoveredCount).toBe(1);
     }
   });
+
+  it('drops UniDistance listings with whitespace-only vacancy URLs', async () => {
+    setMockListings([listing('   ')]);
+
+    const jobs = await fetchAllUnidistanceChJobs();
+
+    expect(jobs).toHaveLength(0);
+    expect(jobs.every((job) => job.url && job.applyUrl)).toBe(true);
+  });
 });

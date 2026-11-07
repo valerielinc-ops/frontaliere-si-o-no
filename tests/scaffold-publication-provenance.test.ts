@@ -105,6 +105,18 @@ describe('generated crawler publication provenance', () => {
     expect(differentVacancy.url).toBe('https://example.test/job?vacancy=2');
     expect(differentVacancy.id).not.toBe(first.id);
   });
+  it('prospected parsers drop listings with whitespace-only vacancy URLs', async () => {
+    const jobs = await generatedJobs('prospected', {
+      title: 'Role',
+      location: 'Lugano',
+      postalCode: '6900',
+      streetAddress: 'Via 1',
+      description: 'text',
+      url: '   ',
+    });
+
+    expect(jobs).toEqual([]);
+  });
   it('preserves real Greenhouse first_published through normalization and generated output', async () => {
     const normalized = normalizeGreenhouseJob({ id: 1, title: 'Software Engineer', location: { name: 'Lugano' }, absolute_url: 'https://fixtureemployer.ch/job/1/', content: description.repeat(4), first_published: day }, { includeContent: true });
     const [job] = await generatedJobs('greenhouse', normalized);
