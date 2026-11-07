@@ -6284,17 +6284,23 @@ export function runDrain() {
   // e i candidati già marcati come membri vengono lasciati intatti.
   const activeGroupScan = listIssues(LBL_FIX);
   const activeGroupScanComplete = activeGroupScan.complete === true;
+  const queuedGroupLabels = queued.some((issue) => names(issue).some((name) => ISSUE_GROUP_LABEL_RE.test(name)));
   const activeGroupLabels = activeGroupScanComplete
     && activeGroupScan.rows.some((issue) => names(issue).some((name) => ISSUE_GROUP_LABEL_RE.test(name)));
-  const activeGroupPrScan = activeGroupLabels ? loadOpenPrsForGroupMutex() : { ok: true, prs: [] };
-  const activeGroupDigestsSet = activeGroupScanComplete
-    ? activeGroupDigests(activeGroupScan.rows, activeGroupPrScan.ok ? activeGroupPrScan.prs : [], { repository: REPO })
+  const groupMutexNeeded = activeGroupLabels || queuedGroupLabels;
+  const activeGroupPrScan = groupMutexNeeded ? loadOpenPrsForGroupMutex() : { ok: true, prs: [] };
+  const activeGroupMutexComplete = !groupMutexNeeded || activeGroupPrScan.ok;
+  const activeGroupEvidence = activeGroupScanComplete
+    ? [...activeGroupScan.rows, ...queued]
+    : [];
+  const activeGroupDigestsSet = activeGroupScanComplete && activeGroupMutexComplete
+    ? activeGroupDigests(activeGroupEvidence, activeGroupPrScan.prs, { repository: REPO })
     : new Set();
   const groupsByMember = new Map();
   const groupStates = new Map();
   const queuedWithBodiesScan = listIssuesWithBodies(LBL_QUEUED);
   const queuedWithBodies = queuedWithBodiesScan.complete === true ? queuedWithBodiesScan.rows : null;
-  if (queuedWithBodies !== null && activeGroupScanComplete) {
+  if (queuedWithBodies !== null && activeGroupScanComplete && activeGroupMutexComplete) {
     const groupable = queuedWithBodies
       .filter((i) => queuedNumbers.has(Number(i.number)))
       // A daily bucket is already an aggregate with its own one-item circuit
@@ -6380,6 +6386,10 @@ export function runDrain() {
     }
     if (!activeGroupScanComplete && candidateGroupDigests.length) {
       console.log(`GROUP-SKIP #${cand.number}: snapshot dei gruppi attivi incompleta → nessuna promozione singola del membro in questo tick.`);
+      continue;
+    }
+    if (!activeGroupMutexComplete && candidateGroupDigests.length) {
+      console.log(`GROUP-SKIP #${cand.number}: ownership PR dei gruppi non verificabile → nessuna promozione singola del membro in questo tick.`);
       continue;
     }
     if (plannedGroup) {
