@@ -232,5 +232,5 @@ export async function fetchAllChristinavassalliJobs() {
   }
 
   console.log(`\n📋 Total CHRISTINA VASSALLI Services, Inhaberin Denise Tschäppät jobs discovered: ${jobs.length}`);
-  return copySpecFetchMetadata(hardenJobsWithStructuredSalary(jobs).jobs, listings);
+  return copySpecFetchMetadata(hardenJobsWithStructuredSalary(jobs).jobs, listings || []);
 }

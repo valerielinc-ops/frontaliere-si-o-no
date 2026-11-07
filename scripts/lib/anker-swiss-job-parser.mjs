@@ -404,5 +404,5 @@ export async function fetchAllAnkerSwissJobs() {
     throw new Error(`Anker Swiss source returned ${listings.length} listings but no source-backed Swiss job was publishable`);
   }
   console.log(`\n📋 Total Anker Swiss Ticino AG jobs discovered: ${jobs.length}`);
-  return copySpecFetchMetadata(jobs, listings);
+  return copySpecFetchMetadata(jobs, listings || []);
 }

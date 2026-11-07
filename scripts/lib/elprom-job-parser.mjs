@@ -228,5 +228,5 @@ export async function fetchAllElpromJobs() {
   }
 
   console.log(`\n📋 Total elprom jobs discovered: ${jobs.length}`);
-  return copySpecFetchMetadata(hardenJobsWithStructuredSalary(jobs).jobs, listings);
+  return copySpecFetchMetadata(hardenJobsWithStructuredSalary(jobs).jobs, listings || []);
 }

@@ -253,5 +253,5 @@ export async function fetchAllRehaklinikSeewisJobs() {
   }
 
   console.log(`\n📋 Total Kurhaus jobs discovered: ${jobs.length}`);
-  return copySpecFetchMetadata(jobs, listings);
+  return copySpecFetchMetadata(jobs, listings || []);
 }

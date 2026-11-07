@@ -243,5 +243,5 @@ export async function fetchAllChJobs() {
   }
 
   console.log(`\n📋 Total Global Sana jobs discovered: ${jobs.length}`);
-  return copySpecFetchMetadata(jobs, listings);
+  return copySpecFetchMetadata(jobs, listings || []);
 }

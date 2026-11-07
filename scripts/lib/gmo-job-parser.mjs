@@ -266,5 +266,5 @@ export async function fetchAllGmoJobs() {
     value: geoEligible,
     enumerable: false,
   });
-  return copySpecFetchMetadata(jobs, listings);
+  return copySpecFetchMetadata(jobs, listings || []);
 }

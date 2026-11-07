@@ -228,5 +228,5 @@ export async function fetchAllMyJobs() {
   }
 
   console.log(`\n📋 Total Teo Jakob AG jobs discovered: ${jobs.length}`);
-  return copySpecFetchMetadata(jobs, listings);
+  return copySpecFetchMetadata(jobs, listings || []);
 }

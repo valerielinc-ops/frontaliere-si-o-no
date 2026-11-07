@@ -228,5 +228,5 @@ export async function fetchAllWalterZooAgGossauJobs() {
   }
 
   console.log(`\n📋 Total WALTER ZOO AG GOSSAU jobs discovered: ${jobs.length}`);
-  return copySpecFetchMetadata(jobs, listings);
+  return copySpecFetchMetadata(jobs, listings || []);
 }
