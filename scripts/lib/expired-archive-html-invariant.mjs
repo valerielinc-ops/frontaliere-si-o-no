@@ -37,7 +37,9 @@ function rewriteKnownCdnReferences(html) {
   return normalized;
 }
 
-function removeGeneratedCdnBootstrapFromHead(html) {
+// Hashes ignore only the exact resource hints and runtime-base bootstrap
+// emitted by offload-generated-images-cdn.mjs; unrelated head/body bytes stay.
+function removeGeneratedCdnEnvelopeFromHead(html) {
   const opening = /<head\b[^>]*>/iu.exec(html);
   if (!opening) return html;
   const contentStart = opening.index + opening[0].length;
@@ -45,18 +47,21 @@ function removeGeneratedCdnBootstrapFromHead(html) {
   const contentEnd = closing ? contentStart + closing.index : html.length;
   const head = html.slice(contentStart, contentEnd);
   const escapedOrigin = escapeRegExp(CDN_ASSET_ORIGIN);
+  const preconnect = new RegExp(`<link rel="preconnect" href="${escapedOrigin}" crossorigin>`, 'g');
+  const dnsPrefetch = new RegExp(`<link rel="dns-prefetch" href="${escapedOrigin}">`, 'g');
   const marker = new RegExp(`<script>window\\.__CDN_DATA_BASE__="${escapedOrigin}"<\\/script>`, 'g');
-  return html.slice(0, contentStart) + head.replace(marker, '') + html.slice(contentEnd);
+  const normalizedHead = head.replace(preconnect, '').replace(dnsPrefetch, '').replace(marker, '');
+  return html.slice(0, contentStart) + normalizedHead + html.slice(contentEnd);
 }
 
 /**
- * Hash HTML after applying only the deterministic deploy-time CDN rewrites.
- * Every other byte, including page body, canonical, title, description and
- * robots directives, remains part of the digest. The Hreflang result is
- * refreshed into the evidence after its own decision pass.
+ * Hash HTML after applying only the deterministic deploy-time CDN rewrites and
+ * removing the exact generated CDN head envelope. Every other byte, including
+ * page body, canonical, title, description and robots directives, remains part
+ * of the digest. The Hreflang result is refreshed after its decision pass.
  */
 export function expiredArchiveCdnInvariantSha256(html) {
   const source = String(html ?? '');
-  const normalized = removeGeneratedCdnBootstrapFromHead(rewriteKnownCdnReferences(source));
+  const normalized = removeGeneratedCdnEnvelopeFromHead(rewriteKnownCdnReferences(source));
   return sha256(normalized);
 }
