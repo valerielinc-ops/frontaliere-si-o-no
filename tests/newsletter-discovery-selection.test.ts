@@ -5,15 +5,24 @@ import path from 'node:path';
 import {
   DISCOVERY_ARTICLES_ARTIFACT,
   DISCOVERY_ARTICLES_MAX_AGE_MS,
+  checkDiscoveryArticleRoute,
   chooseDiscoveryArticle,
   freezeCampaignDiscoverySelection,
   loadDiscoveryArticleIndexFromHttp,
   loadOptionalDiscoveryArticleIndexFromHttp,
+  loadDiscoveryArticleSnapshotFromHttp,
   omitDuplicateDiscoveryArticle,
   parseDiscoveryArticleIndex,
 } from '../scripts/lib/newsletter-discovery-selection.mjs';
+import { normalizeArticlePageText } from '../scripts/lib/live-article-meta.mjs';
 
 const COMMIT = '0123456789abcdef0123456789abcdef01234567';
+
+describe('normalizeArticlePageText', () => {
+  it('decodes hexadecimal numeric apostrophes', () => {
+    expect(normalizeArticlePageText('L&#x27;articolo')).toBe("L'articolo");
+  });
+});
 
 function article(id: string, now: number, overrides: Record<string, unknown> = {}) {
   return {
@@ -48,6 +57,14 @@ function parse(payload: ReturnType<typeof index>, now = Date.now()) {
     expectedCommit: COMMIT,
     now,
   });
+}
+
+function fetchResponse(body: string, status = 200) {
+  return {
+    ok: status >= 200 && status < 300,
+    status,
+    text: async () => body,
+  };
 }
 
 type FrozenSelection = {
@@ -159,6 +176,20 @@ describe('parseDiscoveryArticleIndex', () => {
 
     expect(chooseDiscoveryArticle(parsed, 'weekly_2026-11-23', 'it', { now }))
       .toMatchObject({ articleId: 'google-news-source', provider: 'google_news' });
+  });
+
+  it('accepts publisher-supported Unicode ids and rejects empty or control-character ids', () => {
+    const now = Date.now();
+    const unicodeId = 'articolo-é🚲';
+    const parsed = parse(index(now, [article(unicodeId, now)]), now);
+    expect(parsed.articles[0]).toMatchObject({ id: unicodeId });
+    expect(chooseDiscoveryArticle(parsed, 'weekly_2026-11-23', 'it', { now }))
+      .toMatchObject({ articleId: unicodeId });
+
+    expect(() => parse(index(now, [article('', now)]), now))
+      .toThrow(/invalid article contract/);
+    expect(() => parse(index(now, [article('articolo\n-é', now)]), now))
+      .toThrow(/invalid article contract/);
   });
 
   it('rejects providers outside the public index contract', () => {
@@ -363,6 +394,168 @@ describe('loadDiscoveryArticleIndexFromHttp', () => {
       indexFilePath: '/missing/discovery-index.json',
       fetchImpl: async () => new Promise(() => {}),
     })).rejects.toThrow(/after 1 attempts/);
+  });
+
+  it('pins the writer pull across manifest-index-manifest and retries a moving release', async () => {
+    const now = Date.now();
+    const payload = index(now);
+    const { manifestRaw, indexRaw } = apiFixtures(payload);
+    const requests: string[] = [];
+    const bodies = [manifestRaw, indexRaw, JSON.stringify({
+      schema: 1,
+      commit: 'f'.repeat(40),
+      files: { [DISCOVERY_ARTICLES_ARTIFACT]: Buffer.byteLength(indexRaw, 'utf8') },
+      counts: { discoveryArticles: 1 },
+    }), manifestRaw, indexRaw, manifestRaw];
+    const delays: number[] = [];
+
+    const loaded = await loadDiscoveryArticleSnapshotFromHttp({
+      apiBase: 'https://api.example.test/corpus',
+      now,
+      retries: 1,
+      retryDelayMs: 17,
+      sleepImpl: async (ms) => { delays.push(ms); },
+      fetchImpl: async (input) => {
+        requests.push(String(input));
+        return response(bodies.shift() || '');
+      },
+    });
+
+    expect(loaded.index).toEqual(payload);
+    expect(loaded.rawIndex).toBe(indexRaw);
+    expect(loaded.compactManifest).toMatchObject({ commit: COMMIT, counts: { discoveryArticles: 1 } });
+    expect(requests.map((url) => url.split('/').at(-1))).toEqual([
+      'manifest.json', 'discovery-articles.json', 'manifest.json',
+      'manifest.json', 'discovery-articles.json', 'manifest.json',
+    ]);
+    expect(delays).toEqual([17]);
+  });
+});
+
+describe('checkDiscoveryArticleRoute', () => {
+  const html = (title: string, canonical: string, body = 'A'.repeat(120)) => `<!doctype html>
+    <html><head><title>${title} | Frontaliere Ticino</title>
+    <meta property="og:title" content="${title}">
+    <link rel="canonical" href="${canonical}"></head>
+    <body><main><article class="ft-blog-article"><h1>${title}</h1><p>${body}</p></article></main></body></html>`;
+
+  it('accepts a localized canonical page with its article body and uses the allowlisted probe identity', async () => {
+    const now = Date.now();
+    const selected = article('route-check', now);
+    const requested: string[] = [];
+    const result = await checkDiscoveryArticleRoute(selected, 'it', {
+      retries: 0,
+      now,
+      fetchImpl: async (input, init) => {
+        requested.push(String(input));
+        expect(init?.headers?.['User-Agent']).toContain('FrontaliereTicinoMetaWait/1.0');
+        return { ...fetchResponse(html('Titolo route-check', selected.url.it)), url: String(input) };
+      },
+    });
+
+    expect(result.ready).toBe(true);
+    expect(new URL(requested[0]).pathname).toBe('/articoli-frontaliere/route-check/');
+  });
+
+  it('accepts the already-localized article shape returned by the campaign selector', async () => {
+    const now = Date.now();
+    const payload = parse(index(now, [article('route-check', now)]), now);
+    const selected = chooseDiscoveryArticle(payload, 'weekly_2026-11-02', 'it', { now });
+    expect(selected).not.toBeNull();
+    const result = await checkDiscoveryArticleRoute(selected!.article, 'it', {
+      retries: 0,
+      now,
+      fetchImpl: async (input) => ({
+        ...fetchResponse(html(selected!.article.title, selected!.article.url)),
+        url: String(input),
+      }),
+    });
+
+    expect(result.ready).toBe(true);
+  });
+
+  it('matches HTML encoded typographic punctuation against the localized title', async () => {
+    const now = Date.now();
+    const expectedTitle = 'Titolo d’oggi – prova';
+    const localized = article('punctuation-check', now, {
+      title: { it: expectedTitle },
+      excerpt: { it: 'Estratto' },
+      url: { it: '/articoli-frontaliere/punctuation-check/' },
+    });
+    const encoded = 'Titolo d&rsquo;oggi &ndash; prova';
+    const page = `<html><head><title>${encoded} | Frontaliere Ticino</title>
+      <meta property="og:title" content="${encoded}">
+      <link rel="canonical" href="/articoli-frontaliere/punctuation-check/"></head>
+      <body><article class="ft-blog-article"><p>${'Contenuto articolo. '.repeat(10)}</p></article></body></html>`;
+    const result = await checkDiscoveryArticleRoute(localized, 'it', {
+      retries: 0,
+      now,
+      fetchImpl: async (input) => ({ ...fetchResponse(page), url: String(input) }),
+    });
+
+    expect(result.ready).toBe(true);
+  });
+
+  it('accepts an article title with a hexadecimal numeric apostrophe', async () => {
+    const now = Date.now();
+    const expectedTitle = "L'articolo di oggi";
+    const localized = article('hex-entity-check', now, {
+      title: { it: expectedTitle },
+      excerpt: { it: 'Estratto' },
+      url: { it: '/articoli-frontaliere/hex-entity-check/' },
+    });
+    const encoded = 'L&#x27;articolo di oggi';
+    const page = `<html><head><title>${encoded} | Frontaliere Ticino</title>
+      <meta property="og:title" content="${encoded}">
+      <link rel="canonical" href="/articoli-frontaliere/hex-entity-check/"></head>
+      <body><article class="ft-blog-article"><p>${'Contenuto articolo. '.repeat(10)}</p></article></body></html>`;
+    const result = await checkDiscoveryArticleRoute(localized, 'it', {
+      retries: 0,
+      now,
+      fetchImpl: async (input) => ({ ...fetchResponse(page), url: String(input) }),
+    });
+
+    expect(result.ready).toBe(true);
+  });
+
+  it.each([
+    ['WAF response', 403, html('Titolo route-check', '/articoli-frontaliere/route-check/')],
+    ['soft 404', 200, html('Pagina non trovata', '/404/')],
+    ['empty article shell', 200, html('Titolo route-check', '/articoli-frontaliere/route-check/', 'breve')],
+  ])('rejects a %s as an unready route', async (_label, status, body) => {
+    const now = Date.now();
+    const selected = article('route-check', now);
+    const result = await checkDiscoveryArticleRoute(selected, 'it', {
+      retries: 0,
+      now,
+      fetchImpl: async (input) => ({ ...fetchResponse(body, status), url: String(input) }),
+    });
+
+    expect(result.ready).toBe(false);
+  });
+
+  it('classifies a 403 as an indeterminate WAF result and stops retrying', async () => {
+    const now = Date.now();
+    const selected = article('route-check', now);
+    let requests = 0;
+    const sleeps: number[] = [];
+    const result = await checkDiscoveryArticleRoute(selected, 'it', {
+      retries: 4,
+      retryDelayMs: 10,
+      sleepImpl: async (ms) => { sleeps.push(ms); },
+      fetchImpl: async (input) => {
+        requests += 1;
+        return {
+          ...fetchResponse('challenge', 403),
+          url: String(input),
+          headers: { get: (name: string) => name === 'cf-ray' ? 'a1b2c3-XYZ' : null },
+        };
+      },
+    });
+
+    expect(result).toMatchObject({ ready: false, reason: 'indeterminate_waf: HTTP 403 (cf-ray a1b2c3-XYZ)' });
+    expect(requests).toBe(1);
+    expect(sleeps).toEqual([]);
   });
 });
 

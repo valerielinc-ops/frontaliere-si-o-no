@@ -129,8 +129,6 @@ const SURFACE_PATHS = [
   ['root sitemap', 'public/sitemap.xml'],
   ['RSS glob', 'public/rss-it.xml'],
   ['news ticker', 'public/news-ticker-live.json'],
-  ['discovery article index', 'public/data/discovery-articles.json'],
-  ['discovery article manifest snapshot', 'public/data/discovery-articles-manifest.json'],
   ['workflow trigger', '.github/workflows/sync-articles-sitemaps.yml'],
 ] as const;
 
@@ -154,7 +152,12 @@ describe('article chunk publish freshness fence', () => {
 
   it('classifies an advance with no article-surface changes as unrelated', () => {
     expect(classifyPublishSource(OLD_SHA, NEW_SHA, [])).toBe('unrelated-advance');
-    expect(classifyPublishSource(OLD_SHA, NEW_SHA, ['README.md', 'scripts/lib/example.mjs'])).toBe(
+    expect(classifyPublishSource(OLD_SHA, NEW_SHA, [
+      'README.md',
+      'scripts/lib/example.mjs',
+      'public/data/discovery-articles.json',
+      'public/data/discovery-articles-manifest.json',
+    ])).toBe(
       'unrelated-advance',
     );
   });
@@ -172,8 +175,8 @@ describe('article chunk publish freshness fence', () => {
 
     expect(workflow.on.push.paths).toEqual([...ARTICLE_SURFACE_PATHS]);
     expect(isArticleSurfacePath('public/rss-it.xml')).toBe(true);
-    expect(isArticleSurfacePath('public/data/discovery-articles.json')).toBe(true);
-    expect(isArticleSurfacePath('public/data/discovery-articles-manifest.json')).toBe(true);
+    expect(isArticleSurfacePath('public/data/discovery-articles.json')).toBe(false);
+    expect(isArticleSurfacePath('public/data/discovery-articles-manifest.json')).toBe(false);
     expect(isArticleSurfacePath('packages/articles/content/blog-body/it/x.ts')).toBe(true);
     expect(isArticleSurfacePath('public/rss-it.txt')).toBe(false);
     expect(isArticleSurfacePath('packages/articles/engine/index.mjs')).toBe(false);

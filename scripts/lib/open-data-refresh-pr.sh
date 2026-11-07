@@ -15,6 +15,7 @@
 #     --path data/example.json [--path data/example.meta.json] \
 #     [--optional-path data/example-dir] \
 #     [--force] [--resolve-symlinks] [--reconcile-main] [--reconcile-refresh-paths] \
+#     [--reset-refresh-path-to-main <path>]... \
 #     --branch chore/example-refresh \
 #     --commit-message "chore(data): refresh example" \
 #     --title "chore(data): refresh example" \
@@ -34,6 +35,7 @@ RECONCILE_REFRESH_PATHS=false
 REQUIRE_NEW_BRANCH="${EVENTS_REFRESH_REQUIRE_NEW_BRANCH:-false}"
 PATHS=()
 OPTIONAL_PATHS=()
+RESET_REFRESH_PATHS=()
 
 case "$REQUIRE_NEW_BRANCH" in
   true|false) ;;
@@ -93,6 +95,14 @@ while [ "$#" -gt 0 ]; do
       RECONCILE_REFRESH_PATHS=true
       shift
       ;;
+    --reset-refresh-path-to-main)
+      [ "$#" -ge 2 ] || { echo "::error::--reset-refresh-path-to-main requires a value"; exit 2; }
+      case "$2" in
+        ''|/*|.|./*|..|../*|*/./*|*/../*|*/..|*//*) echo "::error::Unsafe refresh path: $2"; exit 2 ;;
+      esac
+      RESET_REFRESH_PATHS+=("$2")
+      shift 2
+      ;;
     *)
       echo "::error::Unknown argument: $1"
       exit 2
@@ -103,6 +113,14 @@ done
 [ "${#PATHS[@]}" -gt 0 ] || { echo "::error::At least one --path is required"; exit 2; }
 [ "$RECONCILE_REFRESH_PATHS" = false ] || [ "$RECONCILE_MAIN" = true ] || {
   echo "::error::--reconcile-refresh-paths requires --reconcile-main"
+  exit 2
+}
+[ "${#RESET_REFRESH_PATHS[@]}" -eq 0 ] || [ "$RECONCILE_MAIN" = true ] || {
+  echo "::error::--reset-refresh-path-to-main requires --reconcile-main"
+  exit 2
+}
+[ "${#RESET_REFRESH_PATHS[@]}" -eq 0 ] || [ "$RECONCILE_REFRESH_PATHS" = true ] || {
+  echo "::error::--reset-refresh-path-to-main requires --reconcile-refresh-paths"
   exit 2
 }
 [ -n "$BRANCH" ] || { echo "::error::--branch is required"; exit 2; }
@@ -585,6 +603,9 @@ if [ "$RECONCILE_REFRESH_PATHS" = true ] && [ -n "$REFRESH_COMMIT" ]; then
     RECONCILE_PATHS+=("$refresh_path")
   done < <(git diff --name-only -z "$REFRESH_BASE" "$REFRESH_COMMIT")
 fi
+if [ "$RECONCILE_REFRESH_PATHS" = true ] && [ "${#RESET_REFRESH_PATHS[@]}" -gt 0 ]; then
+  RECONCILE_PATHS+=("${RESET_REFRESH_PATHS[@]}")
+fi
 
 if [ -n "$REMOTE_HEAD" ] && [ "$RESET_STALE_STABLE_BRANCH" = false ]; then
   # The workflow checkout is intentionally shallow. The non-compat path needs
@@ -609,6 +630,9 @@ if [ -n "$REMOTE_HEAD" ] && [ "$RESET_STALE_STABLE_BRANCH" = false ]; then
       while IFS= read -r -d '' refresh_path; do
         PUBLISH_PATHS+=("$refresh_path")
       done < <(git diff --name-only -z "$REFRESH_BASE" "$REFRESH_COMMIT")
+    fi
+    if [ "${#RESET_REFRESH_PATHS[@]}" -gt 0 ]; then
+      PUBLISH_PATHS+=("${RESET_REFRESH_PATHS[@]}")
     fi
     REFRESH_PUBLISH_WORKTREE="$MERGE_REFRESH_SCRIPT_DIR/publish"
     git worktree add --detach --no-checkout "$REFRESH_PUBLISH_WORKTREE" "$REMOTE_HEAD"
@@ -638,6 +662,18 @@ if [ -n "$REMOTE_HEAD" ] && [ "$RESET_STALE_STABLE_BRANCH" = false ]; then
     RESOLVE_SYMLINKS=false
   fi
 fi
+
+reset_refresh_paths_to_main() {
+  [ "${#RESET_REFRESH_PATHS[@]}" -gt 0 ] || return 0
+  local reset_path
+  for reset_path in "${RESET_REFRESH_PATHS[@]}"; do
+    if git cat-file -e "${REFRESH_BASE}:${reset_path}" 2>/dev/null; then
+      git checkout --quiet "$REFRESH_BASE" -- "$reset_path"
+    else
+      git rm -f --ignore-unmatch -- "$reset_path" >/dev/null
+    fi
+  done
+}
 
 if [ "$RECONCILE_COMPAT" = true ]; then
   # The 404 producers share the sharded compat accumulator but publish through
@@ -677,20 +713,25 @@ if [ "$RECONCILE_COMPAT" = true ]; then
   # main parent; the history guard can then verify the exact publish commit.
   PUBLISH_BASE="$COMPAT_MAIN_HEAD"
   squash_compat_head_onto_publish_base
-elif [ -n "$REMOTE_HEAD" ] && [ -n "$REFRESH_COMMIT" ] && [ "$RESET_STALE_STABLE_BRANCH" = false ]; then
+elif [ -n "$REMOTE_HEAD" ] \
+  && [ "$RESET_STALE_STABLE_BRANCH" = false ] \
+  && { [ -n "$REFRESH_COMMIT" ] || [ "${#RESET_REFRESH_PATHS[@]}" -gt 0 ]; }; then
   # The current refresh was committed from the workflow checkout before the
   # isolated stable-branch checkout was created. Reconcile with path-aware rules:
   # JSONL histories and Telegram ledgers union both runs, while complete
   # snapshots use the current run as the authoritative value.
-  MERGE_ARGS=(
-    --base "$REFRESH_BASE"
-    --remote "$REMOTE_HEAD"
-    --refresh "$REFRESH_COMMIT"
-  )
-  for refresh_path in "${PATHS[@]}"; do
-    MERGE_ARGS+=(--path "$refresh_path")
-  done
-  node "$MERGE_REFRESH_SCRIPT_DIR/scripts/ci/merge-open-data-refresh.mjs" "${MERGE_ARGS[@]}"
+  if [ -n "$REFRESH_COMMIT" ]; then
+    MERGE_ARGS=(
+      --base "$REFRESH_BASE"
+      --remote "$REMOTE_HEAD"
+      --refresh "$REFRESH_COMMIT"
+    )
+    for refresh_path in "${PATHS[@]}"; do
+      MERGE_ARGS+=(--path "$refresh_path")
+    done
+    node "$MERGE_REFRESH_SCRIPT_DIR/scripts/ci/merge-open-data-refresh.mjs" "${MERGE_ARGS[@]}"
+  fi
+  reset_refresh_paths_to_main
   # PATHS here are the files of this run's own commit, listed by this helper
   # and not typed by a caller. One that the refresh deleted and the stable
   # branch never carried is neither on disk nor in this index: `git add`
@@ -921,15 +962,18 @@ while :; do
       PUBLISH_BASE="$COMPAT_MAIN_HEAD"
       squash_compat_head_onto_publish_base
     else
-      MERGE_ARGS=(
-        --base "$REFRESH_BASE"
-        --remote "$REMOTE_HEAD"
-        --refresh "$REFRESH_COMMIT"
-      )
-      for refresh_path in "${PATHS[@]}"; do
-        MERGE_ARGS+=(--path "$refresh_path")
-      done
-      node "$MERGE_REFRESH_SCRIPT_DIR/scripts/ci/merge-open-data-refresh.mjs" "${MERGE_ARGS[@]}"
+      if [ -n "$REFRESH_COMMIT" ]; then
+        MERGE_ARGS=(
+          --base "$REFRESH_BASE"
+          --remote "$REMOTE_HEAD"
+          --refresh "$REFRESH_COMMIT"
+        )
+        for refresh_path in "${PATHS[@]}"; do
+          MERGE_ARGS+=(--path "$refresh_path")
+        done
+        node "$MERGE_REFRESH_SCRIPT_DIR/scripts/ci/merge-open-data-refresh.mjs" "${MERGE_ARGS[@]}"
+      fi
+      reset_refresh_paths_to_main
       stage_paths
       if git diff --cached --quiet; then
         echo "No new refresh changes after the concurrent stable-branch update."
