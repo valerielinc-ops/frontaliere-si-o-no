@@ -1,7 +1,7 @@
 {
   "crawlerKey": "jobdoor-ch",
-  "assembledAt": "2026-11-07T09:46:45.438Z",
-  "runId": "42359674600",
+  "assembledAt": "2026-11-07T21:45:06.870Z",
+  "runId": "42415902184",
   "jobs": [
     {
       "id": "jobdoor-ch-7bc38f16351f",
@@ -31,14 +31,16 @@
       },
       "location": "Bern",
       "canton": "BE",
-      "url": "https://jobdoor.ch/job/fage-efz-100/",
+      "url": "https://jobdoor.ch/job/fage-efz-100",
       "source": "Jobdoor AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-07T09:46:36.003Z",
+      "crawledAt": "2026-11-07T21:45:02.025Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
       "country": "CH",
+      "postalCode": "3004",
+      "streetAddress": "Bern",
       "category": "Altro",
       "contract": "other",
       "employmentType": "OTHER",
@@ -49,7 +51,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "applyUrl": "https://jobdoor.ch/job/fage-efz-100/",
+      "applyUrl": "https://jobdoor.ch/job/fage-efz-100",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
@@ -75,10 +77,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "3004",
-      "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T09:46:36.003Z",
+      "validThrough": "2027-02-03T21:45:02.025Z",
       "validThroughSource": "last-observed-window"
     }
   ]

@@ -64401,20 +64401,22 @@
       "lastAttemptAt": "2026-10-05T23:40:52.792Z"
     },
     "ikea-d7fdbc0f2039|fr|de": {
-      "attempts": 3,
-      "lastAttemptAt": "2026-10-29T23:45:19.546Z",
+      "attempts": 4,
+      "lastAttemptAt": "2026-11-07T21:56:10.612Z",
       "source": "2bb0d0823f5c",
-      "rung": "codex"
+      "rung": "myMemory"
     },
     "ikea-d7fdbc0f2039|fr|en": {
-      "attempts": 4,
-      "lastAttemptAt": "2026-10-29T07:09:56.037Z",
-      "source": "2bb0d0823f5c"
+      "attempts": 5,
+      "lastAttemptAt": "2026-11-07T21:56:19.858Z",
+      "source": "2bb0d0823f5c",
+      "rung": "unserved"
     },
     "ikea-d7fdbc0f2039|fr|it": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-10-23T10:59:16.377Z",
-      "source": "2bb0d0823f5c"
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-07T21:56:16.410Z",
+      "source": "2bb0d0823f5c",
+      "rung": "mozhiGoogle"
     },
     "szb-chb-6548f7400859|de|en": {
       "attempts": 1,
@@ -227072,14 +227074,16 @@
       "source": "7039ff69bc60"
     },
     "ikea-c1824890a1d1|en|de": {
-      "attempts": 3,
-      "lastAttemptAt": "2026-10-29T11:53:21.140Z",
-      "source": "1ea4b73cae25"
+      "attempts": 4,
+      "lastAttemptAt": "2026-11-07T21:56:18.031Z",
+      "source": "1ea4b73cae25",
+      "rung": "mozhiDdg"
     },
     "ikea-c1824890a1d1|en|it": {
-      "attempts": 3,
-      "lastAttemptAt": "2026-10-29T11:53:16.839Z",
-      "source": "1ea4b73cae25"
+      "attempts": 4,
+      "lastAttemptAt": "2026-11-07T21:56:19.011Z",
+      "source": "1ea4b73cae25",
+      "rung": "mozhiDdg"
     },
     "ksa-5d14d0b84949|de|it": {
       "attempts": 2,

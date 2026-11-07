@@ -34,7 +34,7 @@
 import { sourcePostingDateFields } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
-import { slugify, stripHtml, normalizeSpace } from './crawler-template.mjs';
+import { fetchHtml as fetchHtmlResilient, slugify, stripHtml, normalizeSpace } from './crawler-template.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
 import { dropRepostedListings, selectProspectiveDetailDescription } from './prospective-ch-job-parser-common.mjs';
 import { extractJobPostingNodesFromJson } from './jobposting-jsonld.mjs';
@@ -145,19 +145,10 @@ function pensumFromTitle(title = '') {
 /* ── HTTP ─────────────────────────────────────────────────── */
 
 async function fetchHtml(url) {
-  const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20000;
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), timeoutMs);
-  try {
-    const res = await fetch(url, {
-      headers: { Accept: 'text/html,application/xhtml+xml', 'User-Agent': USER_AGENT },
-      signal: controller.signal,
-    });
-    if (!res.ok) throw new Error(`HTTP ${res.status} from ${url}`);
-    return await res.text();
-  } finally {
-    clearTimeout(timer);
-  }
+  return fetchHtmlResilient(url, {
+    timeoutMs: Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20000,
+    headers: { Accept: 'text/html,application/xhtml+xml', 'User-Agent': USER_AGENT },
+  });
 }
 
 /* ── Listing parser ───────────────────────────────────────── */

@@ -1,7 +1,7 @@
 {
   "crawlerKey": "weisse-arena",
-  "assembledAt": "2026-11-07T09:46:38.208Z",
-  "runId": "42358522306",
+  "assembledAt": "2026-11-07T21:19:12.703Z",
+  "runId": "42414623952",
   "jobs": [
     {
       "id": "weisse-arena-f7612f0c6123",
@@ -34,7 +34,7 @@
       "url": "https://www.weissearena.com/jobs/details.html?jobId=4824&jobTitle=Restaurantleiter%3Ain",
       "source": "Weisse Arena Gruppe Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-07T09:46:33.263Z",
+      "crawledAt": "2026-11-07T21:19:06.299Z",
       "addressLocality": "Laax",
       "postalCode": "7031",
       "addressCountry": "CH",
@@ -89,7 +89,94 @@
       "addressRegion": "GR",
       "streetAddress": "Laax",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-28T09:46:33.263Z",
+      "validThrough": "2026-12-28T21:19:06.299Z",
+      "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "weisse-arena-cab7cb13bc09",
+      "slug": "team-dell-armadio-del-club-weisse-arena-gruppe-laax",
+      "slugByLocale": {
+        "it": "team-dell-armadio-del-club-weisse-arena-gruppe-laax",
+        "en": "club-wardrobe-team-weisse-arena-gruppe-laax",
+        "de": "club-garderoben-team-weisse-arena-ch",
+        "fr": "club-armoire-equipe-weisse-arena-gruppe-laax"
+      },
+      "company": "Weisse Arena Gruppe",
+      "companyKey": "weisse-arena",
+      "companyDomain": "weissearena.com",
+      "title": "Club Garderoben Team",
+      "titleByLocale": {
+        "it": "Team dell'armadio del club",
+        "en": "Club Wardrobe Team",
+        "de": "Club Garderoben Team",
+        "fr": "Club Armoire Équipe"
+      },
+      "description": "Die Weisse Arena Gruppe in LAAX ist Vorreiter im alpinen Tourismus und eine begeisterte Community für einmalige Bergabenteuer. Mit Bergbahnen, Hotels, Gastronomie, Sport- und Rental-Shops sowie der LAAX School schaffen wir unvergessliche Erlebnisse für unsere Gäste - und attraktive Arbeitsplätze für unsere Mitarbeitenden. | Das Riders Hotel ist kein Hotel wie jedes andere. Mitten in LAAX, nah an der Halfpipe und am Snowpark LAAX, treffen sich hier Rider:innen, Kreative, Musikbegeisterte, Familien und Freund:innen. Die Riders Lobby ist Wohnzimmer vom frühen Morgen bis spät am Abend und bietet ein kuratiertes Menü direkt an der Bar. Im Restaurant wird zusammen gegessen, im Club bis in die Nacht gefeiert. Reduziert aufs Wesentliche: Schnee, Musik, Community. Das Freestyle-Zentrum von LAAX. | Am Anfang der Nacht kommen die Jacken fast gleichzeitig rein – und am Ende wollen alle ihre Sachen gleichzeitig wieder zurück. Du sorgst dafür, dass unsere Garderobe auch dann organisiert bleibt, alles seinen Platz hat und unsere Gäste schnell und freundlich bedient werden. Dazwischen behältst du deinen Bereich im Blick und unterstützt das Clubteam dort, wo gerade eine zusätzliche Hand gebraucht wird. | Was du bewegst:\n• Du nimmst Jacken und persönliche Gegenstände unserer Gäste entgegen und sorgst für eine schnelle und organisierte Ausgabe.\n• Du betreust die Garderobenkasse und stellst sicher, dass Zahlungen und Garderobentickets korrekt abgewickelt werden.\n• Du hältst die Garderobe während der gesamten Clubnacht sauber, übersichtlich und gut organisiert.\n• Du gehst sorgfältig und verantwortungsvoll mit den persönlichen Gegenständen unserer Gäste um.\n• In ruhigeren Phasen unterstützt du flexibel in anderen Clubbereichen und übernimmst bei Bedarf Pausenvertretungen. | Was dich ausmacht:\n• Du bist freundlich, aufmerksam und hast Freude am Kontakt mit unseren Gästen.\n• Du arbeitest schnell und sehr organisiert und behältst auch dann den Überblick, wenn viele Gäste gleichzeitig kommen.\n• Du bist zuverlässig und verantwortungsbewusst und gehst sorgfältig mit Geld und persönlichen Gegenständen um.\n• Du bist flexibel, packst gerne mit an und hast kein Problem damit, auch ausserhalb deines direkten Bereichs zu unterstützen.\n• Du bist ein Teamplayer und hast Lust auf Clubkultur, Musik und die besondere Atmosphäre einer Riders Clubnacht. | Ein attraktiver Arbeitsplatz inmitten einer aussergewöhnlichen Bergwelt ist dir gewiss. Du wirst Teil eines dynamischen, aufgeweckten Teams und kannst die Weiterentwicklung von LAAX mitprägen. Bei uns findest du ein Umfeld, in dem Professionalität, Tempo, Pragmatismus und Menschlichkeit zusammengehören. Freue dich auf zahlreiche Mitarbeitervergünstigungen , wie freie Bergfahrten, Vergünstigungen in unseren Shops, Hotels und Gastronomiebetrieben sowie Vorteile für deine Familie. Starte dein berufliches Abenteuer bei der Weissen Arena Gruppe mit deiner vollständigen Online-Bewerbung. Wir freuen uns auf dich. | Weisse Arena Hospitality AG Riders Hotel Valeria Luengo Erbin www.weissearena.com I www.laax.com I Riders Hotel",
+      "descriptionByLocale": {
+        "it": "Il White Arena Group di LAAX è un pioniere nel turismo alpino e una comunità entusiasta per avventure di montagna uniche. Con ferrovie di montagna, hotel, gastronomia, negozi di sport e noleggio e la Scuola LAAX, creiamo esperienze indimenticabili per i nostri ospiti - e luoghi di lavoro attraenti per i nostri dipendenti. # Il Riders Hotel non è un hotel come nessun altro. Nel mezzo di LAAX, vicino alla mezza pipa e allo snowpark LAAX, piloti, creativi, appassionati di musica, famiglie e amici si incontrano qui. Il Riders Lobby è soggiorno dal mattino presto fino a tarda sera e offre un menu curato proprio al bar. Il ristorante mangia insieme, il club festeggia fino alla notte. Ridotto agli essenziali: neve, musica, comunità. Il centro freestyle di LAAX. | All'inizio della notte, le giacche arrivano quasi allo stesso tempo – e alla fine, tutte le loro cose vogliono tornare allo stesso tempo. Assicurarsi che il nostro guardaroba rimane organizzato, tutto ha il suo posto e i nostri ospiti sono serviti rapidamente e cordiale. In mezzo, si tiene d'occhio la vostra zona e sostenere la squadra club dove è necessaria una mano in più. Che cosa si muove:\n• Prendere giacche e oggetti personali dei nostri ospiti e garantire un'edizione veloce e organizzata.\n• Gestisci il registro di cassa e assicurati che i pagamenti e i biglietti del guardaroba siano gestiti correttamente.\n• Tenere il guardaroba pulito, chiaro e ben organizzato durante la notte del club.\n• Gestisci gli effetti personali dei nostri ospiti con attenzione e responsabilmente.\n• Nelle fasi più tranquille, è possibile fornire un supporto flessibile in altre aree del club e prendere le pause, se necessario. Cosa ti fa:\n• Siete cordiali, attenti e godetevi il contatto con i nostri ospiti.\n• Si lavora rapidamente e molto organizzato e mantenere la panoramica anche se molti ospiti vengono allo stesso tempo.\n• Sei affidabile e responsabile e gestire con attenzione i soldi e gli effetti personali.\n• Sei flessibile, come entrare in contatto e non avere problemi a supporto al di fuori della tua area diretta.\n• Sei un giocatore di squadra e hai il desiderio di cultura del club, musica e l'atmosfera speciale di una serata club Riders. # Un posto di lavoro attraente nel mezzo di un mondo di montagna straordinario è certo per voi. Si diventa parte di un team dinamico e luminoso e può aiutare a plasmare l'ulteriore sviluppo di LAAX. Con noi troverete un ambiente in cui professionalità, velocità, pragmatismo e umanità vanno insieme. Attendere con ansia numerosi vantaggi per i dipendenti, come gite in montagna gratuite, vantaggi nei nostri negozi, hotel e ristoranti, e benefici per la vostra famiglia. Inizia la tua avventura professionale con il Weissen Arena Group con la tua applicazione online completa. Non vediamo l'ora di vederti. | Weisse Arena Hospitality AG Riders Hotel Valeria Luengo Erbin www.weissearena.com I www.laax.com I Riders Hotel",
+        "en": "The White Arena Group in LAAX is a pioneer in alpine tourism and an enthusiastic community for unique mountain adventures. With mountain railways, hotels, gastronomy, sports and rental shops and the LAAX School, we create unforgettable experiences for our guests - and attractive workplaces for our employees. | The Riders Hotel is not a hotel like any other. In the middle of LAAX, close to the halfpipe and the snowpark LAAX, riders, creatives, music enthusiasts, families and friends meet here. The Riders Lobby is living room from early morning until late in the evening and offers a curated menu right at the bar. The restaurant eats together, the club celebrates until the night. Reduced to the essentials: snow, music, community. The freestyle center of LAAX. | At the beginning of the night, the jackets come in almost at the same time – and in the end, all their things want to come back at the same time. You ensure that our wardrobe remains organized, everything has its place and our guests are served quickly and friendly. In between, you keep an eye on your area and support the club team where an extra hand is needed. What You Move:\n• You take jackets and personal belongings of our guests and ensure a fast and organized edition.\n• You manage the cash register and make sure that payments and wardrobe tickets are handled correctly.\n• You keep the wardrobe clean, clear and well organized throughout the club night.\n• You handle the personal belongings of our guests carefully and responsibly.\n• In quieter phases, you can provide flexible support in other club areas and take over breaks if necessary. What makes you:\n• You are friendly, attentive and enjoy contact with our guests.\n• You work quickly and very organized and keep the overview even if many guests come at the same time.\n• You are reliable and responsible and handle money and personal belongings carefully.\n• You are flexible, like to get involved and have no problem supporting outside your direct area.\n• You are a team player and have a desire for club culture, music and the special atmosphere of a Riders club night. | An attractive workplace in the middle of an extraordinary mountain world is certain for you. You become part of a dynamic, bright team and can help shape the further development of LAAX. With us you will find an environment in which professionalism, speed, pragmatism and humanity go together. Look forward to numerous employee benefits, such as free mountain rides, perks in our shops, hotels and restaurants, and benefits for your family. Start your professional adventure with the Weissen Arena Group with your complete online application. We look forward to seeing you. | Weisse Arena Hospitality AG Riders Hotel Valeria Luengo Erbin www.weissearena.com I www.laax.com I Riders Hotel",
+        "de": "Die Weisse Arena Gruppe in LAAX ist Vorreiter im alpinen Tourismus und eine begeisterte Community für einmalige Bergabenteuer. Mit Bergbahnen, Hotels, Gastronomie, Sport- und Rental-Shops sowie der LAAX School schaffen wir unvergessliche Erlebnisse für unsere Gäste - und attraktive Arbeitsplätze für unsere Mitarbeitenden. | Das Riders Hotel ist kein Hotel wie jedes andere. Mitten in LAAX, nah an der Halfpipe und am Snowpark LAAX, treffen sich hier Rider:innen, Kreative, Musikbegeisterte, Familien und Freund:innen. Die Riders Lobby ist Wohnzimmer vom frühen Morgen bis spät am Abend und bietet ein kuratiertes Menü direkt an der Bar. Im Restaurant wird zusammen gegessen, im Club bis in die Nacht gefeiert. Reduziert aufs Wesentliche: Schnee, Musik, Community. Das Freestyle-Zentrum von LAAX. | Am Anfang der Nacht kommen die Jacken fast gleichzeitig rein – und am Ende wollen alle ihre Sachen gleichzeitig wieder zurück. Du sorgst dafür, dass unsere Garderobe auch dann organisiert bleibt, alles seinen Platz hat und unsere Gäste schnell und freundlich bedient werden. Dazwischen behältst du deinen Bereich im Blick und unterstützt das Clubteam dort, wo gerade eine zusätzliche Hand gebraucht wird. | Was du bewegst:\n• Du nimmst Jacken und persönliche Gegenstände unserer Gäste entgegen und sorgst für eine schnelle und organisierte Ausgabe.\n• Du betreust die Garderobenkasse und stellst sicher, dass Zahlungen und Garderobentickets korrekt abgewickelt werden.\n• Du hältst die Garderobe während der gesamten Clubnacht sauber, übersichtlich und gut organisiert.\n• Du gehst sorgfältig und verantwortungsvoll mit den persönlichen Gegenständen unserer Gäste um.\n• In ruhigeren Phasen unterstützt du flexibel in anderen Clubbereichen und übernimmst bei Bedarf Pausenvertretungen. | Was dich ausmacht:\n• Du bist freundlich, aufmerksam und hast Freude am Kontakt mit unseren Gästen.\n• Du arbeitest schnell und sehr organisiert und behältst auch dann den Überblick, wenn viele Gäste gleichzeitig kommen.\n• Du bist zuverlässig und verantwortungsbewusst und gehst sorgfältig mit Geld und persönlichen Gegenständen um.\n• Du bist flexibel, packst gerne mit an und hast kein Problem damit, auch ausserhalb deines direkten Bereichs zu unterstützen.\n• Du bist ein Teamplayer und hast Lust auf Clubkultur, Musik und die besondere Atmosphäre einer Riders Clubnacht. | Ein attraktiver Arbeitsplatz inmitten einer aussergewöhnlichen Bergwelt ist dir gewiss. Du wirst Teil eines dynamischen, aufgeweckten Teams und kannst die Weiterentwicklung von LAAX mitprägen. Bei uns findest du ein Umfeld, in dem Professionalität, Tempo, Pragmatismus und Menschlichkeit zusammengehören. Freue dich auf zahlreiche Mitarbeitervergünstigungen , wie freie Bergfahrten, Vergünstigungen in unseren Shops, Hotels und Gastronomiebetrieben sowie Vorteile für deine Familie. Starte dein berufliches Abenteuer bei der Weissen Arena Gruppe mit deiner vollständigen Online-Bewerbung. Wir freuen uns auf dich. | Weisse Arena Hospitality AG Riders Hotel Valeria Luengo Erbin www.weissearena.com I www.laax.com I Riders Hotel",
+        "fr": "Le White Arena Group de LAAX est un pionnier du tourisme alpin et une communauté enthousiaste pour des aventures de montagne uniques. Avec les chemins de fer de montagne, les hôtels, la gastronomie, les magasins de sport et de location et l'école LAAX, nous créons des expériences inoubliables pour nos clients - et des lieux de travail attrayants pour nos employés. Autres L'hôtel Riders n'est pas un hôtel comme les autres. Au milieu de LAAX, à proximité du halfpipe et du snowpark LAAX, coureurs, créatifs, amateurs de musique, familles et amis se rencontrent ici. Le Lobby des cavaliers est salon de tôt le matin jusqu'à tard dans la soirée et offre un menu au bar. Le restaurant mange ensemble, le club célèbre jusqu'à la nuit. Réduit à l'essentiel : neige, musique, communauté. Le centre de freestyle de LAAX. Au début de la nuit, les vestes entrent presque en même temps – et à la fin, toutes leurs choses veulent revenir en même temps. Vous assurez que notre garde-robe reste organisé, tout a sa place et nos invités sont servis rapidement et amicalement. Entre-temps, vous gardez un œil sur votre région et de soutenir l'équipe du club où une main supplémentaire est nécessaire. Ce que vous déplacez :\n• Vous prenez des vestes et des effets personnels de nos invités et assurez une édition rapide et organisée.\n• Vous gérez la caisse enregistreuse et assurez-vous que les paiements et les billets d'armoire sont traités correctement.\n• Vous gardez la garde-robe propre, claire et bien organisée tout au long de la nuit du club.\n• Vous gérez les effets personnels de nos invités avec soin et responsabilité.\n• Dans les phases plus calmes, vous pouvez fournir un soutien flexible dans d'autres zones de club et prendre des pauses si nécessaire. Qu'est-ce qui vous fait :\n• Vous êtes amical, attentif et profitez du contact avec nos invités.\n• Vous travaillez rapidement et très organisé et gardez l'aperçu même si de nombreux invités viennent en même temps.\n• Vous êtes fiable et responsable et gérez soigneusement l'argent et les effets personnels.\n• Vous êtes flexible, comme pour vous impliquer et n'avez aucun problème à soutenir en dehors de votre zone directe.\n• Vous êtes un joueur d'équipe et avez un désir de culture de club, de musique et l'atmosphère spéciale d'une soirée de club Riders. Autres Un lieu de travail attrayant au milieu d'un monde montagneux extraordinaire est certain pour vous. Vous devenez membre d'une équipe dynamique et lumineuse et pouvez aider à façonner le développement ultérieur de LAAX. Avec nous, vous trouverez un environnement où le professionnalisme, la vitesse, le pragmatisme et l'humanité vont ensemble. Profitez de nombreux avantages pour les employés, comme des promenades en montagne gratuites, des avantages dans nos magasins, hôtels et restaurants, et des avantages pour votre famille. Commencez votre aventure professionnelle avec le groupe Weissen Arena avec votre application complète en ligne. Nous avons hâte de vous voir. Weisse Arena Hospitality AG Riders Hotel Valeria Luengo Erbin www.weissearena.com I www.laax.com I Riders Hotel"
+      },
+      "location": "Laax",
+      "canton": "GR",
+      "url": "https://www.weissearena.com/jobs/details.html?jobId=4848&jobTitle=Club+Garderoben+Team",
+      "source": "Weisse Arena Gruppe Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-07T21:19:06.298Z",
+      "addressLocality": "Laax",
+      "postalCode": "7031",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Hotellerie",
+      "contract": "part-time",
+      "employmentType": "CONTRACTOR",
+      "experienceLevel": "mid",
+      "sector": "Turismo / Sport",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://emea3.recruitmentplatform.com/apply-app/pages/application-form?jobId=PD6FK026203F3VBQBLO8NV79D-4848&langCode=de_DE",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "department": "Riders Hotel",
+      "jobNumber": "WAG02601",
+      "pensum": "10 - 20%",
+      "contractLabel": "Saisonanstellung",
+      "previousSlugs": [
+        "club-garderoben-team-weisse-arena-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "club-garderoben-team-weisse-arena-ch"
+        ],
+        "en": [
+          "club-garderoben-team-weisse-arena-ch"
+        ],
+        "fr": [
+          "club-garderoben-team-weisse-arena-ch"
+        ]
+      },
+      "firstSeenAt": "2026-10-23T09:37:35.566Z",
+      "salaryMin": 57500,
+      "salaryMax": 87000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 57500,
+          "maxValue": 87000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "GR",
+      "streetAddress": "Laax",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-22T21:19:06.298Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -123,7 +210,7 @@
       "url": "https://www.weissearena.com/jobs/details.html?jobId=4850&jobTitle=Club+Host",
       "source": "Weisse Arena Gruppe Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-07T09:46:33.262Z",
+      "crawledAt": "2026-11-07T21:19:06.298Z",
       "addressLocality": "Laax",
       "postalCode": "7031",
       "addressCountry": "CH",
@@ -163,7 +250,7 @@
       "addressRegion": "GR",
       "streetAddress": "Laax",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-22T09:46:33.262Z",
+      "validThrough": "2026-12-22T21:19:06.298Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -197,7 +284,7 @@
       "url": "https://www.weissearena.com/jobs/details.html?jobId=4845&jobTitle=Club+Light+Technician",
       "source": "Weisse Arena Gruppe Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-07T09:46:33.262Z",
+      "crawledAt": "2026-11-07T21:19:06.298Z",
       "addressLocality": "Laax",
       "postalCode": "7031",
       "addressCountry": "CH",
@@ -247,7 +334,7 @@
       "addressRegion": "GR",
       "streetAddress": "Laax",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-22T09:46:33.262Z",
+      "validThrough": "2026-12-22T21:19:06.298Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -281,7 +368,7 @@
       "url": "https://www.weissearena.com/jobs/details.html?jobId=4840&jobTitle=Mitarbeiter%3Ain+Vermietung",
       "source": "Weisse Arena Gruppe Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-07T09:46:33.262Z",
+      "crawledAt": "2026-11-07T21:19:06.298Z",
       "addressLocality": "Laax",
       "postalCode": "7031",
       "addressCountry": "CH",
@@ -336,7 +423,7 @@
       "addressRegion": "GR",
       "streetAddress": "Laax",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-07T09:46:33.262Z",
+      "validThrough": "2026-12-07T21:19:06.298Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -370,7 +457,7 @@
       "url": "https://www.weissearena.com/jobs/details.html?jobId=4833&jobTitle=Servicemitarbeiter%3Ain",
       "source": "Weisse Arena Gruppe Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-07T09:46:33.262Z",
+      "crawledAt": "2026-11-07T21:19:06.298Z",
       "addressLocality": "Laax",
       "postalCode": "7031",
       "addressCountry": "CH",
@@ -417,7 +504,7 @@
       "addressRegion": "GR",
       "streetAddress": "Laax",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-07T09:46:33.262Z",
+      "validThrough": "2026-12-07T21:19:06.298Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -451,7 +538,7 @@
       "url": "https://www.weissearena.com/jobs/details.html?jobId=4846&jobTitle=Club+Allrounder",
       "source": "Weisse Arena Gruppe Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-07T09:46:33.261Z",
+      "crawledAt": "2026-11-07T21:19:06.297Z",
       "addressLocality": "Laax",
       "postalCode": "7031",
       "addressCountry": "CH",
@@ -508,7 +595,7 @@
       "addressRegion": "GR",
       "streetAddress": "Laax",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-22T09:46:33.261Z",
+      "validThrough": "2026-12-22T21:19:06.297Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -542,7 +629,7 @@
       "url": "https://www.weissearena.com/jobs/details.html?jobId=4844&jobTitle=Club+Bartender",
       "source": "Weisse Arena Gruppe Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-07T09:46:33.261Z",
+      "crawledAt": "2026-11-07T21:19:06.297Z",
       "addressLocality": "Laax",
       "postalCode": "7031",
       "addressCountry": "CH",
@@ -589,7 +676,7 @@
       "addressRegion": "GR",
       "streetAddress": "Laax",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-22T09:46:33.261Z",
+      "validThrough": "2026-12-22T21:19:06.297Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -623,7 +710,7 @@
       "url": "https://www.weissearena.com/jobs/details.html?jobId=4849&jobTitle=Club+Entrance+Team",
       "source": "Weisse Arena Gruppe Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-07T09:46:33.261Z",
+      "crawledAt": "2026-11-07T21:19:06.297Z",
       "addressLocality": "Laax",
       "postalCode": "7031",
       "addressCountry": "CH",
@@ -673,7 +760,7 @@
       "addressRegion": "GR",
       "streetAddress": "Laax",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-22T09:46:33.261Z",
+      "validThrough": "2026-12-22T21:19:06.297Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -707,7 +794,7 @@
       "url": "https://www.weissearena.com/jobs/details.html?jobId=4847&jobTitle=Club+Food+Corner+Team",
       "source": "Weisse Arena Gruppe Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-07T09:46:33.261Z",
+      "crawledAt": "2026-11-07T21:19:06.297Z",
       "addressLocality": "Laax",
       "postalCode": "7031",
       "addressCountry": "CH",
@@ -755,94 +842,7 @@
       "addressRegion": "GR",
       "streetAddress": "Laax",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-22T09:46:33.261Z",
-      "validThroughSource": "last-observed-window"
-    },
-    {
-      "id": "weisse-arena-cab7cb13bc09",
-      "slug": "team-dell-armadio-del-club-weisse-arena-gruppe-laax",
-      "slugByLocale": {
-        "it": "team-dell-armadio-del-club-weisse-arena-gruppe-laax",
-        "en": "club-wardrobe-team-weisse-arena-gruppe-laax",
-        "de": "club-garderoben-team-weisse-arena-ch",
-        "fr": "club-armoire-equipe-weisse-arena-gruppe-laax"
-      },
-      "company": "Weisse Arena Gruppe",
-      "companyKey": "weisse-arena",
-      "companyDomain": "weissearena.com",
-      "title": "Club Garderoben Team",
-      "titleByLocale": {
-        "it": "Team dell'armadio del club",
-        "en": "Club Wardrobe Team",
-        "de": "Club Garderoben Team",
-        "fr": "Club Armoire Équipe"
-      },
-      "description": "Die Weisse Arena Gruppe in LAAX ist Vorreiter im alpinen Tourismus und eine begeisterte Community für einmalige Bergabenteuer. Mit Bergbahnen, Hotels, Gastronomie, Sport- und Rental-Shops sowie der LAAX School schaffen wir unvergessliche Erlebnisse für unsere Gäste - und attraktive Arbeitsplätze für unsere Mitarbeitenden. | Das Riders Hotel ist kein Hotel wie jedes andere. Mitten in LAAX, nah an der Halfpipe und am Snowpark LAAX, treffen sich hier Rider:innen, Kreative, Musikbegeisterte, Familien und Freund:innen. Die Riders Lobby ist Wohnzimmer vom frühen Morgen bis spät am Abend und bietet ein kuratiertes Menü direkt an der Bar. Im Restaurant wird zusammen gegessen, im Club bis in die Nacht gefeiert. Reduziert aufs Wesentliche: Schnee, Musik, Community. Das Freestyle-Zentrum von LAAX. | Am Anfang der Nacht kommen die Jacken fast gleichzeitig rein – und am Ende wollen alle ihre Sachen gleichzeitig wieder zurück. Du sorgst dafür, dass unsere Garderobe auch dann organisiert bleibt, alles seinen Platz hat und unsere Gäste schnell und freundlich bedient werden. Dazwischen behältst du deinen Bereich im Blick und unterstützt das Clubteam dort, wo gerade eine zusätzliche Hand gebraucht wird. | Was du bewegst:\n• Du nimmst Jacken und persönliche Gegenstände unserer Gäste entgegen und sorgst für eine schnelle und organisierte Ausgabe.\n• Du betreust die Garderobenkasse und stellst sicher, dass Zahlungen und Garderobentickets korrekt abgewickelt werden.\n• Du hältst die Garderobe während der gesamten Clubnacht sauber, übersichtlich und gut organisiert.\n• Du gehst sorgfältig und verantwortungsvoll mit den persönlichen Gegenständen unserer Gäste um.\n• In ruhigeren Phasen unterstützt du flexibel in anderen Clubbereichen und übernimmst bei Bedarf Pausenvertretungen. | Was dich ausmacht:\n• Du bist freundlich, aufmerksam und hast Freude am Kontakt mit unseren Gästen.\n• Du arbeitest schnell und sehr organisiert und behältst auch dann den Überblick, wenn viele Gäste gleichzeitig kommen.\n• Du bist zuverlässig und verantwortungsbewusst und gehst sorgfältig mit Geld und persönlichen Gegenständen um.\n• Du bist flexibel, packst gerne mit an und hast kein Problem damit, auch ausserhalb deines direkten Bereichs zu unterstützen.\n• Du bist ein Teamplayer und hast Lust auf Clubkultur, Musik und die besondere Atmosphäre einer Riders Clubnacht. | Ein attraktiver Arbeitsplatz inmitten einer aussergewöhnlichen Bergwelt ist dir gewiss. Du wirst Teil eines dynamischen, aufgeweckten Teams und kannst die Weiterentwicklung von LAAX mitprägen. Bei uns findest du ein Umfeld, in dem Professionalität, Tempo, Pragmatismus und Menschlichkeit zusammengehören. Freue dich auf zahlreiche Mitarbeitervergünstigungen , wie freie Bergfahrten, Vergünstigungen in unseren Shops, Hotels und Gastronomiebetrieben sowie Vorteile für deine Familie. Starte dein berufliches Abenteuer bei der Weissen Arena Gruppe mit deiner vollständigen Online-Bewerbung. Wir freuen uns auf dich. | Weisse Arena Hospitality AG Riders Hotel Valeria Luengo Erbin www.weissearena.com I www.laax.com I Riders Hotel",
-      "descriptionByLocale": {
-        "it": "Il White Arena Group di LAAX è un pioniere nel turismo alpino e una comunità entusiasta per avventure di montagna uniche. Con ferrovie di montagna, hotel, gastronomia, negozi di sport e noleggio e la Scuola LAAX, creiamo esperienze indimenticabili per i nostri ospiti - e luoghi di lavoro attraenti per i nostri dipendenti. # Il Riders Hotel non è un hotel come nessun altro. Nel mezzo di LAAX, vicino alla mezza pipa e allo snowpark LAAX, piloti, creativi, appassionati di musica, famiglie e amici si incontrano qui. Il Riders Lobby è soggiorno dal mattino presto fino a tarda sera e offre un menu curato proprio al bar. Il ristorante mangia insieme, il club festeggia fino alla notte. Ridotto agli essenziali: neve, musica, comunità. Il centro freestyle di LAAX. | All'inizio della notte, le giacche arrivano quasi allo stesso tempo – e alla fine, tutte le loro cose vogliono tornare allo stesso tempo. Assicurarsi che il nostro guardaroba rimane organizzato, tutto ha il suo posto e i nostri ospiti sono serviti rapidamente e cordiale. In mezzo, si tiene d'occhio la vostra zona e sostenere la squadra club dove è necessaria una mano in più. Che cosa si muove:\n• Prendere giacche e oggetti personali dei nostri ospiti e garantire un'edizione veloce e organizzata.\n• Gestisci il registro di cassa e assicurati che i pagamenti e i biglietti del guardaroba siano gestiti correttamente.\n• Tenere il guardaroba pulito, chiaro e ben organizzato durante la notte del club.\n• Gestisci gli effetti personali dei nostri ospiti con attenzione e responsabilmente.\n• Nelle fasi più tranquille, è possibile fornire un supporto flessibile in altre aree del club e prendere le pause, se necessario. Cosa ti fa:\n• Siete cordiali, attenti e godetevi il contatto con i nostri ospiti.\n• Si lavora rapidamente e molto organizzato e mantenere la panoramica anche se molti ospiti vengono allo stesso tempo.\n• Sei affidabile e responsabile e gestire con attenzione i soldi e gli effetti personali.\n• Sei flessibile, come entrare in contatto e non avere problemi a supporto al di fuori della tua area diretta.\n• Sei un giocatore di squadra e hai il desiderio di cultura del club, musica e l'atmosfera speciale di una serata club Riders. # Un posto di lavoro attraente nel mezzo di un mondo di montagna straordinario è certo per voi. Si diventa parte di un team dinamico e luminoso e può aiutare a plasmare l'ulteriore sviluppo di LAAX. Con noi troverete un ambiente in cui professionalità, velocità, pragmatismo e umanità vanno insieme. Attendere con ansia numerosi vantaggi per i dipendenti, come gite in montagna gratuite, vantaggi nei nostri negozi, hotel e ristoranti, e benefici per la vostra famiglia. Inizia la tua avventura professionale con il Weissen Arena Group con la tua applicazione online completa. Non vediamo l'ora di vederti. | Weisse Arena Hospitality AG Riders Hotel Valeria Luengo Erbin www.weissearena.com I www.laax.com I Riders Hotel",
-        "en": "The White Arena Group in LAAX is a pioneer in alpine tourism and an enthusiastic community for unique mountain adventures. With mountain railways, hotels, gastronomy, sports and rental shops and the LAAX School, we create unforgettable experiences for our guests - and attractive workplaces for our employees. | The Riders Hotel is not a hotel like any other. In the middle of LAAX, close to the halfpipe and the snowpark LAAX, riders, creatives, music enthusiasts, families and friends meet here. The Riders Lobby is living room from early morning until late in the evening and offers a curated menu right at the bar. The restaurant eats together, the club celebrates until the night. Reduced to the essentials: snow, music, community. The freestyle center of LAAX. | At the beginning of the night, the jackets come in almost at the same time – and in the end, all their things want to come back at the same time. You ensure that our wardrobe remains organized, everything has its place and our guests are served quickly and friendly. In between, you keep an eye on your area and support the club team where an extra hand is needed. What You Move:\n• You take jackets and personal belongings of our guests and ensure a fast and organized edition.\n• You manage the cash register and make sure that payments and wardrobe tickets are handled correctly.\n• You keep the wardrobe clean, clear and well organized throughout the club night.\n• You handle the personal belongings of our guests carefully and responsibly.\n• In quieter phases, you can provide flexible support in other club areas and take over breaks if necessary. What makes you:\n• You are friendly, attentive and enjoy contact with our guests.\n• You work quickly and very organized and keep the overview even if many guests come at the same time.\n• You are reliable and responsible and handle money and personal belongings carefully.\n• You are flexible, like to get involved and have no problem supporting outside your direct area.\n• You are a team player and have a desire for club culture, music and the special atmosphere of a Riders club night. | An attractive workplace in the middle of an extraordinary mountain world is certain for you. You become part of a dynamic, bright team and can help shape the further development of LAAX. With us you will find an environment in which professionalism, speed, pragmatism and humanity go together. Look forward to numerous employee benefits, such as free mountain rides, perks in our shops, hotels and restaurants, and benefits for your family. Start your professional adventure with the Weissen Arena Group with your complete online application. We look forward to seeing you. | Weisse Arena Hospitality AG Riders Hotel Valeria Luengo Erbin www.weissearena.com I www.laax.com I Riders Hotel",
-        "de": "Die Weisse Arena Gruppe in LAAX ist Vorreiter im alpinen Tourismus und eine begeisterte Community für einmalige Bergabenteuer. Mit Bergbahnen, Hotels, Gastronomie, Sport- und Rental-Shops sowie der LAAX School schaffen wir unvergessliche Erlebnisse für unsere Gäste - und attraktive Arbeitsplätze für unsere Mitarbeitenden. | Das Riders Hotel ist kein Hotel wie jedes andere. Mitten in LAAX, nah an der Halfpipe und am Snowpark LAAX, treffen sich hier Rider:innen, Kreative, Musikbegeisterte, Familien und Freund:innen. Die Riders Lobby ist Wohnzimmer vom frühen Morgen bis spät am Abend und bietet ein kuratiertes Menü direkt an der Bar. Im Restaurant wird zusammen gegessen, im Club bis in die Nacht gefeiert. Reduziert aufs Wesentliche: Schnee, Musik, Community. Das Freestyle-Zentrum von LAAX. | Am Anfang der Nacht kommen die Jacken fast gleichzeitig rein – und am Ende wollen alle ihre Sachen gleichzeitig wieder zurück. Du sorgst dafür, dass unsere Garderobe auch dann organisiert bleibt, alles seinen Platz hat und unsere Gäste schnell und freundlich bedient werden. Dazwischen behältst du deinen Bereich im Blick und unterstützt das Clubteam dort, wo gerade eine zusätzliche Hand gebraucht wird. | Was du bewegst:\n• Du nimmst Jacken und persönliche Gegenstände unserer Gäste entgegen und sorgst für eine schnelle und organisierte Ausgabe.\n• Du betreust die Garderobenkasse und stellst sicher, dass Zahlungen und Garderobentickets korrekt abgewickelt werden.\n• Du hältst die Garderobe während der gesamten Clubnacht sauber, übersichtlich und gut organisiert.\n• Du gehst sorgfältig und verantwortungsvoll mit den persönlichen Gegenständen unserer Gäste um.\n• In ruhigeren Phasen unterstützt du flexibel in anderen Clubbereichen und übernimmst bei Bedarf Pausenvertretungen. | Was dich ausmacht:\n• Du bist freundlich, aufmerksam und hast Freude am Kontakt mit unseren Gästen.\n• Du arbeitest schnell und sehr organisiert und behältst auch dann den Überblick, wenn viele Gäste gleichzeitig kommen.\n• Du bist zuverlässig und verantwortungsbewusst und gehst sorgfältig mit Geld und persönlichen Gegenständen um.\n• Du bist flexibel, packst gerne mit an und hast kein Problem damit, auch ausserhalb deines direkten Bereichs zu unterstützen.\n• Du bist ein Teamplayer und hast Lust auf Clubkultur, Musik und die besondere Atmosphäre einer Riders Clubnacht. | Ein attraktiver Arbeitsplatz inmitten einer aussergewöhnlichen Bergwelt ist dir gewiss. Du wirst Teil eines dynamischen, aufgeweckten Teams und kannst die Weiterentwicklung von LAAX mitprägen. Bei uns findest du ein Umfeld, in dem Professionalität, Tempo, Pragmatismus und Menschlichkeit zusammengehören. Freue dich auf zahlreiche Mitarbeitervergünstigungen , wie freie Bergfahrten, Vergünstigungen in unseren Shops, Hotels und Gastronomiebetrieben sowie Vorteile für deine Familie. Starte dein berufliches Abenteuer bei der Weissen Arena Gruppe mit deiner vollständigen Online-Bewerbung. Wir freuen uns auf dich. | Weisse Arena Hospitality AG Riders Hotel Valeria Luengo Erbin www.weissearena.com I www.laax.com I Riders Hotel",
-        "fr": "Le White Arena Group de LAAX est un pionnier du tourisme alpin et une communauté enthousiaste pour des aventures de montagne uniques. Avec les chemins de fer de montagne, les hôtels, la gastronomie, les magasins de sport et de location et l'école LAAX, nous créons des expériences inoubliables pour nos clients - et des lieux de travail attrayants pour nos employés. Autres L'hôtel Riders n'est pas un hôtel comme les autres. Au milieu de LAAX, à proximité du halfpipe et du snowpark LAAX, coureurs, créatifs, amateurs de musique, familles et amis se rencontrent ici. Le Lobby des cavaliers est salon de tôt le matin jusqu'à tard dans la soirée et offre un menu au bar. Le restaurant mange ensemble, le club célèbre jusqu'à la nuit. Réduit à l'essentiel : neige, musique, communauté. Le centre de freestyle de LAAX. Au début de la nuit, les vestes entrent presque en même temps – et à la fin, toutes leurs choses veulent revenir en même temps. Vous assurez que notre garde-robe reste organisé, tout a sa place et nos invités sont servis rapidement et amicalement. Entre-temps, vous gardez un œil sur votre région et de soutenir l'équipe du club où une main supplémentaire est nécessaire. Ce que vous déplacez :\n• Vous prenez des vestes et des effets personnels de nos invités et assurez une édition rapide et organisée.\n• Vous gérez la caisse enregistreuse et assurez-vous que les paiements et les billets d'armoire sont traités correctement.\n• Vous gardez la garde-robe propre, claire et bien organisée tout au long de la nuit du club.\n• Vous gérez les effets personnels de nos invités avec soin et responsabilité.\n• Dans les phases plus calmes, vous pouvez fournir un soutien flexible dans d'autres zones de club et prendre des pauses si nécessaire. Qu'est-ce qui vous fait :\n• Vous êtes amical, attentif et profitez du contact avec nos invités.\n• Vous travaillez rapidement et très organisé et gardez l'aperçu même si de nombreux invités viennent en même temps.\n• Vous êtes fiable et responsable et gérez soigneusement l'argent et les effets personnels.\n• Vous êtes flexible, comme pour vous impliquer et n'avez aucun problème à soutenir en dehors de votre zone directe.\n• Vous êtes un joueur d'équipe et avez un désir de culture de club, de musique et l'atmosphère spéciale d'une soirée de club Riders. Autres Un lieu de travail attrayant au milieu d'un monde montagneux extraordinaire est certain pour vous. Vous devenez membre d'une équipe dynamique et lumineuse et pouvez aider à façonner le développement ultérieur de LAAX. Avec nous, vous trouverez un environnement où le professionnalisme, la vitesse, le pragmatisme et l'humanité vont ensemble. Profitez de nombreux avantages pour les employés, comme des promenades en montagne gratuites, des avantages dans nos magasins, hôtels et restaurants, et des avantages pour votre famille. Commencez votre aventure professionnelle avec le groupe Weissen Arena avec votre application complète en ligne. Nous avons hâte de vous voir. Weisse Arena Hospitality AG Riders Hotel Valeria Luengo Erbin www.weissearena.com I www.laax.com I Riders Hotel"
-      },
-      "location": "Laax",
-      "canton": "GR",
-      "url": "https://www.weissearena.com/jobs/details.html?jobId=4848&jobTitle=Club+Garderoben+Team",
-      "source": "Weisse Arena Gruppe Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-07T09:46:33.261Z",
-      "addressLocality": "Laax",
-      "postalCode": "7031",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Hotellerie",
-      "contract": "part-time",
-      "employmentType": "CONTRACTOR",
-      "experienceLevel": "mid",
-      "sector": "Turismo / Sport",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://emea3.recruitmentplatform.com/apply-app/pages/application-form?jobId=PD6FK026203F3VBQBLO8NV79D-4848&langCode=de_DE",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "department": "Riders Hotel",
-      "jobNumber": "WAG02601",
-      "pensum": "10 - 20%",
-      "contractLabel": "Saisonanstellung",
-      "previousSlugs": [
-        "club-garderoben-team-weisse-arena-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "club-garderoben-team-weisse-arena-ch"
-        ],
-        "en": [
-          "club-garderoben-team-weisse-arena-ch"
-        ],
-        "fr": [
-          "club-garderoben-team-weisse-arena-ch"
-        ]
-      },
-      "firstSeenAt": "2026-10-23T09:37:35.566Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "GR",
-      "streetAddress": "Laax",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-22T09:46:33.261Z",
+      "validThrough": "2026-12-22T21:19:06.297Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -876,7 +876,7 @@
       "url": "https://www.weissearena.com/jobs/details.html?jobId=4852&jobTitle=Betriebsassistent%3Ain",
       "source": "Weisse Arena Gruppe Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-07T09:46:33.260Z",
+      "crawledAt": "2026-11-07T21:19:06.296Z",
       "addressLocality": "Laax",
       "postalCode": "7031",
       "addressCountry": "CH",
@@ -931,7 +931,7 @@
       "addressRegion": "GR",
       "streetAddress": "Laax",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-07T09:46:33.260Z",
+      "validThrough": "2026-12-07T21:19:06.296Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -965,7 +965,7 @@
       "url": "https://www.weissearena.com/jobs/details.html?jobId=4855&jobTitle=Mitarbeiter%3Ain+Reinigung+Aushilfe",
       "source": "Weisse Arena Gruppe Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-07T09:46:33.259Z",
+      "crawledAt": "2026-11-07T21:19:06.295Z",
       "addressLocality": "Laax",
       "postalCode": "7031",
       "addressCountry": "CH",
@@ -1018,7 +1018,7 @@
       "addressRegion": "GR",
       "streetAddress": "Laax",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-07T09:46:33.259Z",
+      "validThrough": "2026-12-07T21:19:06.295Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1052,7 +1052,7 @@
       "url": "https://www.weissearena.com/jobs/details.html?jobId=4856&jobTitle=Restaurant+Service+Team",
       "source": "Weisse Arena Gruppe Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-07T09:46:33.258Z",
+      "crawledAt": "2026-11-07T21:19:06.294Z",
       "addressLocality": "Laax",
       "postalCode": "7031",
       "addressCountry": "CH",
@@ -1103,7 +1103,7 @@
       "addressRegion": "GR",
       "streetAddress": "Laax",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-05T09:46:33.258Z",
+      "validThrough": "2027-01-05T21:19:06.294Z",
       "validThroughSource": "last-observed-window"
     }
   ]
