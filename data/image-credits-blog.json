@@ -85777,6 +85777,80 @@
         }
       }
     },
+    "generated:article-incendio-sins-linea-s26": {
+      "source": "generated-provider",
+      "commons": {
+        "title": "Generated editorial illustration",
+        "pageUrl": "https://openai.com/policies/terms-of-use/",
+        "width": 1200,
+        "height": 675,
+        "revision": "2026-11-07T14:58:50.330Z"
+      },
+      "author": {
+        "text": "frontaliereticino.ch",
+        "name": "frontaliereticino.ch",
+        "url": null,
+        "type": "Organization"
+      },
+      "attribution": null,
+      "licence": {
+        "name": "Generated media — provider terms apply",
+        "family": "other-attribution",
+        "attributionRequired": true,
+        "url": "https://openai.com/policies/terms-of-use/"
+      },
+      "restrictions": [
+        "illustrative-only",
+        "no-real-recognizable-foreground-person",
+        "no-public-figure-face",
+        "no-logo-brand-or-text",
+        "no-specific-real-event-photojournalism"
+      ],
+      "fetchedAt": "2026-11-07",
+      "generated": {
+        "schema": 1,
+        "assetId": "article-incendio-sins-linea-s26",
+        "kind": "generated",
+        "provider": "openai-codex",
+        "model": "gpt-image-2.5",
+        "executorModel": "gpt-5.6-luna",
+        "promptVersion": "frontaliereticino.generated-image-policy.v1",
+        "promptHash": "4cc033445814a36d1e1520ad78ac6e08fcb2b4f7d6c40111a6cd3b878b035cf1",
+        "license": "generated-provider",
+        "licenseUrl": "https://openai.com/policies/terms-of-use/",
+        "credit": "frontaliereticino.ch",
+        "sha256": "bdeccadad209a4b3143c0cf8c7c552cd2a19ad0fc4794cf4f040b031c72f0b30",
+        "bytes": 168184,
+        "width": 1200,
+        "height": 675,
+        "format": "webp",
+        "generatedAt": "2026-11-07T14:58:50.330Z",
+        "verifiedAt": "2026-11-07T14:59:05.065Z",
+        "restrictions": [
+          "illustrative-only",
+          "no-real-recognizable-foreground-person",
+          "no-public-figure-face",
+          "no-logo-brand-or-text",
+          "no-specific-real-event-photojournalism"
+        ],
+        "scope": "article-hero",
+        "imageUrl": "/images/blog/article-incendio-sins-linea-s26.webp",
+        "area": "Swiss border region",
+        "season": "all seasons",
+        "variant": "article hero",
+        "vision": {
+          "ok": true,
+          "contains_text": false,
+          "contains_logo": false,
+          "contains_recognizable_face": false,
+          "contains_recognizable_foreground_person": false,
+          "looks_like_specific_real_event": false,
+          "is_photograph": false,
+          "is_topic_relevant": true,
+          "notes": "Generic synthetic editorial illustration relevant to a replacement bus, railway interruption, and distant smoke plume; no people, text, signage, logos, or identifiable event markers."
+        }
+      }
+    },
     "generated:article-incendio-tunnel-fluelen": {
       "source": "generated-provider",
       "commons": {
@@ -90140,6 +90214,80 @@
           "is_photograph": false,
           "is_topic_relevant": true,
           "notes": "Original generic synthetic office illustration with no people, text, logos, or event-specific cues; relevant to Swiss economic activity."
+        }
+      }
+    },
+    "generated:article-telelavoro-frontaliere-quadro-svizzero": {
+      "source": "generated-provider",
+      "commons": {
+        "title": "Generated editorial illustration",
+        "pageUrl": "https://openai.com/policies/terms-of-use/",
+        "width": 1200,
+        "height": 675,
+        "revision": "2026-11-07T15:02:17.652Z"
+      },
+      "author": {
+        "text": "frontaliereticino.ch",
+        "name": "frontaliereticino.ch",
+        "url": null,
+        "type": "Organization"
+      },
+      "attribution": null,
+      "licence": {
+        "name": "Generated media — provider terms apply",
+        "family": "other-attribution",
+        "attributionRequired": true,
+        "url": "https://openai.com/policies/terms-of-use/"
+      },
+      "restrictions": [
+        "illustrative-only",
+        "no-real-recognizable-foreground-person",
+        "no-public-figure-face",
+        "no-logo-brand-or-text",
+        "no-specific-real-event-photojournalism"
+      ],
+      "fetchedAt": "2026-11-07",
+      "generated": {
+        "schema": 1,
+        "assetId": "article-telelavoro-frontaliere-quadro-svizzero",
+        "kind": "generated",
+        "provider": "openai-codex",
+        "model": "gpt-image-2.5",
+        "executorModel": "gpt-5.6-luna",
+        "promptVersion": "frontaliereticino.generated-image-policy.v1",
+        "promptHash": "f21a19f7b1fc5ce3f7ab8d5d2738dc4be4275b600f2afb00b89f39797b7b14cd",
+        "license": "generated-provider",
+        "licenseUrl": "https://openai.com/policies/terms-of-use/",
+        "credit": "frontaliereticino.ch",
+        "sha256": "21ac2017dc4758e176ff60f7194897bbae048a425caeef86b96c342c91eea06f",
+        "bytes": 65496,
+        "width": 1200,
+        "height": 675,
+        "format": "webp",
+        "generatedAt": "2026-11-07T15:02:17.652Z",
+        "verifiedAt": "2026-11-07T15:02:30.017Z",
+        "restrictions": [
+          "illustrative-only",
+          "no-real-recognizable-foreground-person",
+          "no-public-figure-face",
+          "no-logo-brand-or-text",
+          "no-specific-real-event-photojournalism"
+        ],
+        "scope": "article-hero",
+        "imageUrl": "/images/blog/article-telelavoro-frontaliere-quadro-svizzero.webp",
+        "area": "Svizzera",
+        "season": "all seasons",
+        "variant": "article hero",
+        "vision": {
+          "ok": true,
+          "contains_text": false,
+          "contains_logo": false,
+          "contains_recognizable_face": false,
+          "contains_recognizable_foreground_person": false,
+          "looks_like_specific_real_event": false,
+          "is_photograph": false,
+          "is_topic_relevant": true,
+          "notes": "Generic synthetic home-office illustration relevant to teleworking and administrative documents; no readable text, logos, people, or specific event."
         }
       }
     },
@@ -132751,6 +132899,10 @@
       "file": "generated:article-hergiswil-bergstrasse-gru",
       "modified": "resized"
     },
+    "article-incendio-sins-linea-s26": {
+      "file": "generated:article-incendio-sins-linea-s26",
+      "modified": "resized"
+    },
     "article-incendio-tunnel-fluelen": {
       "file": "generated:article-incendio-tunnel-fluelen",
       "modified": "resized"
@@ -132985,6 +133137,10 @@
     },
     "article-tasso-disoccupazione-ottobre-2026": {
       "file": "generated:article-tasso-disoccupazione-ottobre-2026",
+      "modified": "resized"
+    },
+    "article-telelavoro-frontaliere-quadro-svizzero": {
+      "file": "generated:article-telelavoro-frontaliere-quadro-svizzero",
       "modified": "resized"
     },
     "article-tunnel-sonnenberg-chiusura-notte": {

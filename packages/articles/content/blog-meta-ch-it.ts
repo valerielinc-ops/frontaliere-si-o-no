@@ -8690,6 +8690,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.iva-aumento-famiglie-redditi-bassi.title': 'Aumento IVA: studio UBS evidenzia impatto maggiore su famiglie a reddito basso',
     'blog.article.iva-aumento-famiglie-redditi-bassi.excerpt': 'A Zurigo, il 6 novembre 2026, un\'analisi dell\'UBS ha esaminato l\'aumento dell\'imposta sul valore aggiunto, l\'IVA, proposto per finanziare parzialmente la 13esima rendita AVS/AHV.',
     'blog.article.iva-aumento-famiglie-redditi-bassi.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
+    'blog.article.telelavoro-frontaliere-quadro-svizzero.title': 'Telelavoro e lavoratori frontalieri: regole svizzere',
+    'blog.article.telelavoro-frontaliere-quadro-svizzero.excerpt': 'La Svizzera organizza il prelievo fiscale su tre livelli: imposta federale diretta, imposta cantonale e imposta comunale.',
+    'blog.article.telelavoro-frontaliere-quadro-svizzero.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
 };
 
 export default blogMetaChIt;

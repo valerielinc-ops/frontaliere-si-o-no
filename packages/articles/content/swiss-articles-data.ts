@@ -30225,6 +30225,16 @@ const RAW_SWISS_ARTICLES_CHUNK_12: Article[] = [
     authorSlug: 'laura-bianchi',
     authorName: 'Laura Bianchi',
    },
+   {
+    id: 'telelavoro-frontaliere-quadro-svizzero',
+    category: 'pratico',
+    date: '2026-11-07T15:02:30.657Z',
+    image: '/images/blog/article-telelavoro-frontaliere-quadro-svizzero.webp',
+    hasCalculator: true,
+    articleType: 'evergreen',
+    authorSlug: 'laura-bianchi',
+    authorName: 'Laura Bianchi',
+   },
 ];
 
 const RAW_SWISS_ARTICLES: Article[] = [

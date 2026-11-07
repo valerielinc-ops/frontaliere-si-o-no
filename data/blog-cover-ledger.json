@@ -15,10 +15,10 @@
       "2": 197,
       "3": 0,
       "4": 0,
-      "5": 1101,
+      "5": 1103,
       "6": 5061
     },
-    "publishedCovers": 7844,
+    "publishedCovers": 7846,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 1,
     "inheritedRecordsMaterialized": 197,
@@ -213659,6 +213659,39 @@
         "evidence": "generated-engine-record"
       }
     },
+    "article-incendio-sins-linea-s26": {
+      "cover": "/images/blog/article-incendio-sins-linea-s26.webp",
+      "hash": "bdeccadad209a4b3143c0cf8c7c552cd2a19ad0fc4794cf4f040b031c72f0b30",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-ag",
+          "id": "incendio-sins-linea-s26",
+          "category": "pratico",
+          "date": "2026-11-07T14:59:05.149Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-incendio-sins-linea-s26.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1794,
+      "verifiedAt": "2026-11-07",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-incendio-sins-linea-s26",
+        "imageUrl": "/images/blog/article-incendio-sins-linea-s26.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
     "article-incendio-tunnel-fluelen": {
       "cover": "/images/blog/article-incendio-tunnel-fluelen.webp",
       "hash": "c47510506ddd514ac0ee96a8668ba7a74205a5d213dd74f056d6d974199d79b1",
@@ -215603,6 +215636,39 @@
         "provider": "openai-codex",
         "assetId": "article-tasso-disoccupazione-ottobre-2026",
         "imageUrl": "/images/blog/article-tasso-disoccupazione-ottobre-2026.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-telelavoro-frontaliere-quadro-svizzero": {
+      "cover": "/images/blog/article-telelavoro-frontaliere-quadro-svizzero.webp",
+      "hash": "21ac2017dc4758e176ff60f7194897bbae048a425caeef86b96c342c91eea06f",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "telelavoro-frontaliere-quadro-svizzero",
+          "category": "pratico",
+          "date": "2026-11-07T15:02:30.657Z",
+          "updatedAt": null,
+          "authorSlug": "laura-bianchi"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-telelavoro-frontaliere-quadro-svizzero.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1794,
+      "verifiedAt": "2026-11-07",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-telelavoro-frontaliere-quadro-svizzero",
+        "imageUrl": "/images/blog/article-telelavoro-frontaliere-quadro-svizzero.webp",
         "evidence": "generated-engine-record"
       }
     },

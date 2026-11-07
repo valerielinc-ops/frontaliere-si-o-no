@@ -9,7 +9,7 @@
     <link>https://frontaliereticino.ch</link>
     <description>Nachrichten und Leitfäden zur Schweiz: Wirtschaft, Arbeit, Steuern und Alltag</description>
     <language>de</language>
-    <lastBuildDate>Sat, 07 Nov 2026 03:12:11 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 07 Nov 2026 15:02:30 GMT</lastBuildDate>
     <image>
       <url>https://frontaliereticino.ch/icons/icon-512x512.png</url>
       <title>Frontaliere Ticino — Schweiz</title>
@@ -17,6 +17,83 @@
     </image>
     <atom:link href="https://frontaliereticino.ch/rss-svizzera-de.xml" rel="self" type="application/rss+xml"/>
     <atom:link rel="hub" href="https://pubsubhubbub.appspot.com/"/>
+    <item>
+      <title>Telearbeit und Grenzgänger: Schweizer Regeln</title>
+      <link>https://frontaliereticino.ch/de/schweiz-artikel/grenzgaenger-telearbeit-schweizer-regeln/</link>
+      <description><![CDATA[Die Schweiz organisiert die Besteuerung auf drei Ebenen: direkte Bundessteuer, Kantonssteuer und Gemeindesteuer.]]></description>
+      <content:encoded><![CDATA[## Auf einen Blick
+- Der Schweizer Fiskus hat drei Ebenen
+- AHV/IV/EO: 5,3% zu Lasten des Arbeitnehmers
+- KVG obligatorisch für Personen mit Wohnsitz in der Schweiz
+- Viele Dienstleistungen sind von Kantonen und Gemeinden abhängig
+
+## Wichtige Fakten
+- Steuern → Bundes-, Kantons- und Gemeinde-IFD
+- AVS/AI/IPG → 5,3 % Mitarbeiter; 10,6 % insgesamt
+- AD/AC → 1,1 % bis zum Jahresmaximum
+- Bewilligung G → Kategorie für Grenzgänger
+- Mietkaution → maximal drei Monatsmieten
+
+### Das Schweizer System trennt Steuern und Sozialversicherung
+
+Die Schweiz organisiert die Steuererhebung auf drei Ebenen: direkte Bundessteuer, Kantonssteuer und Gemeindesteuer. Jeder Kanton wendet sein eigenes Recht und seinen eigenen Multiplikator an; Die Gemeinde wendet einen Multiplikator auf die Kantonssteuer an. Für grenzüberschreitende Telearbeit ist diese Architektur der Ausgangspunkt, um eine Verwechslung von Büroaufgaben mit der beruflichen Position zu vermeiden.
+
+Die ESTV befasst sich mit der direkten Bundessteuer und der Mehrwertsteuer. Die kantonalen Verwaltungen verwalten die kantonalen und kommunalen Steuern. Die UFAS/BSV deckt die Sozialversicherung, einschließlich AHV/IV und BVG/BVG, ab, legt jedoch keine Steuern fest. Das BFS erstellt Statistiken und legt keine Tarife fest. Die Unterscheidung ist auch nützlich, wenn ein Arbeitnehmer einen Vertrag oder eine Lohnabrechnung liest: Ein Sozialbeitrag und eine Steuer sind weder derselbe Posten noch gehören sie zur gleichen institutionellen Ebene.
+
+AVS/AI/IPG erbringt 5,3 % des vom Arbeitnehmer gezahlten Lohns und insgesamt 10,6 % vom Arbeitgeber. Der AD/AC beträgt 1,1 % bis zum Jahresmaximum. Der UVG/LAA variiert je nach Branche zwischen 0,7 % und 1,5 %. Für die BVG, angewendet auf den koordinierten Lohn, betragen die angegebenen Sätze 7 % zwischen 25 und 34 Jahren, 10 % zwischen 35 und 44 Jahren, 15 % zwischen 45 und 54 Jahren und 18 % ab 55 Jahren bis zum Referenzalter. Dabei handelt es sich um Parameter, die sich von der Gemeindesteuer und der Krankenversicherungsprämie unterscheiden.
+
+### Aufenthalt, Gesundheit und Genehmigungen
+
+Die KVG/KVG ist die obligatorische Krankenversicherung für Einwohner. Sie muss innerhalb von drei Monaten nach der Ankunft vereinbart werden; Die Prämie gilt pro Kopf, keine Steuer und kein Lohnbeitrag. Die Prämien variieren je nach Kanton und Region, wobei es sich bei der Prämienverbilligung um einen kantonalen Zuschuss handelt. Für Erwachsene betragen die Selbstbehalte CHF 300, 500, 1000, 1500, 2000 oder 2500.
+
+Laut SEM deckt die L-Bewilligung kurzfristige Aufenthalte von bis zu einem Jahr ab, während die B-Bewilligung den Aufenthalt betrifft und verlängerbar ist. Die Bewilligung C bescheinigt den Wohnsitz und die Bewilligung G ist für Grenzgänger gedacht. In der Regel wird die C-Bewilligung nach zehnjährigem Aufenthalt erteilt; Für EU/EFTA-Bürger beträgt die Regelfrist fünf Jahre. Genehmigungen legen den Aufenthaltsstatus fest, ohne selbst Steuer- und Sozialversicherungspflichten festzulegen.
+## Vergleich einer Abgabe mit einer Prämie
+
+Der nützlichste Unterschied für Grenzgänger, die Home-Office leisten, betrifft die Grundlage der Belastung. Die Beiträge AVS/AI/IPG, AD/AC, LAINF/LAA und LPP/BVG werden als Prozentsätze des Lohns oder des koordinierten Lohns ausgedrückt. Die LAMal/KVG folgt hingegen Pro-Kopf-Prämien, die kantonal und regional differenziert sind. Alles unter der allgemeinen Bezeichnung Steuern zusammenzufassen, kann die Lohn- und Lebenshaltungskostenanalyse verzerren, da das System unterschiedliche Grundlagen und Behörden verwendet.
+
+### Eine Kompetenzkarte
+
+| Bereich | Überprüfte Regel | Zuständiges Niveau |
+|---|---|---|
+| IFD und MWST | Bundesabzüge | AFC/ESTV |
+| Kantonal- und Gemeindesteuer | Jeder Kanton hat eigene Gesetze und Multiplikatoren; die Gemeinde wendet einen Multiplikator auf den kantonalen an | Kantonsverwaltungen |
+| Vorsorge | AVS/AI/LPP und Sozialversicherung | UFAS/BSV |
+| LAMal/KVG | Obligatorisch für Einwohner; Pro-Kopf-Prämien nach Kanton und Region; kantonale Prämienreduktion | Kanton für die Subvention |
+| Bewilligungen | L, B, C und G mit unterschiedlichen Merkmalen | SEM |
+| Statistiken | Statistische Daten, keine Sätze | UST/BFS |
+
+Die Karte dient dazu zu verstehen, welche Frage von welchem Niveau beantwortet werden kann. Eine Frage zur MWST oder zur direkten Bundessteuer hat nicht dieselbe Referenzautorität wie eine Frage zum kommunalen Multiplikator. Ebenso betrifft UFAS/BSV die Sozialversicherung und entscheidet nicht über Steuerquoten. Für die Vorsorge und Referenzen zum Home-Office ist die offizielle Referenz die Seite der [UFAS](https://www.bsv.admin.ch/it/telelavoro).
+
+Die G-Bewilligung identifiziert die Kategorie der Grenzgänger, aber der bereitgestellte Rahmen ordnet dieser Abkürzung keinen spezifischen Home-Office-Prozentsatz zu. Die Aufenthaltsbewilligung allein erlaubt daher nicht abzuleiten, dass eine steuerliche oder versicherungsrechtliche Summe existiert, die nicht in den verfügbaren Daten angegeben ist. Die Unterscheidung zwischen Wohnsitz, Arbeit und Vorsorge muss getrennt bleiben, auch wenn die Tätigkeit auf mehrere Orte verteilt ist.
+
+### Das Haus folgt einer anderen Logik
+
+Die Miete wird durch das Bundesrecht geregelt, das in allen Kantonen gleich ist, gemäss OR Art. 253 ff. Die Kaution darf maximal drei Monatsmieten betragen und muss auf ein auf den Mieter begünstigtes Sperrkonto eingezahlt werden. Die Kündigung des Vermieters ist nur gültig, wenn das offizielle kantonale Formular verwendet wird. Der Mieter kann dies innerhalb von 30 Tagen bei der Schlichtungsbehörde anfechten.
+
+Dieser Vergleich zeigt eine wiederkehrende Kombination im Schweizer System: Die Grundregel kann eidgenössisch sein, während das Formular, die Subvention, der Multiplikator oder die zuständige Behörde kantonal oder kommunal abhängen können. Bei grenzüberschreitendem Home-Office verhindert das separate Lesen dieser Bereiche, dass eine Angabe auf der Lohnabrechnung zu einer automatischen Schlussfolgerung über Wohnen, Gesundheit oder Steuern führt.
+## Das Arbeitsverhältnis hat eine gemeinsame Grundlage, jedoch keinen bundesstaatlichen Mindestlohn
+
+In der Schweiz gibt es keinen eidgenössischen Mindestlohn; Einige Kantone haben ihre eigenen. Die maximale Arbeitszeit beträgt in Industrie, Büro und Verkauf 45 Stunden pro Woche, in anderen Branchen 50 Stunden. Der Mindesturlaub beträgt vier Wochen, für Personen unter 20 Jahren fünf Wochen.
+
+Die angegebenen nationalen Regelungen umfassen auch eine 14-wöchige Mutterschaft zu 80 % über IPG und eine zweiwöchige Vaterschaft. Als Kündigungsfristen gelten im ersten Jahr ein Monat, im zweiten bis neunten Jahr zwei Monate und im zehnten Jahr drei Monate. Diese Parameter beschreiben das Beschäftigungsverhältnis und sind kein Maß für den Tätigkeitsanteil der Telearbeit.
+
+### Dienstleistungen, die von Kanton zu Kanton unterschiedlich sind
+
+Die Sozialhilfe wird in der Regel von den Kantonen und Gemeinden je nach Bedarf verwaltet. Auch die Kfz-Steuer, die Energieförderung, die Baubewilligung und die Weiterbildungsbeiträge richten sich nach den kantonalen Vorschriften und Ämtern. Anforderungen, Bedingungen und Beträge müssen daher mit der zuständigen offiziellen Quelle überprüft werden und dürfen nicht aus einer einzigen nationalen Regelung abgeleitet werden.
+
+Die Regulierung verschiedener Dienste ist territorial. Je nach Kanton kann die Gebäudeversicherung obligatorisch sein oder eine andere Organisation haben. Der Bevölkerungsschutz fällt zwar in den Rahmen des Bundesrechts, wird jedoch auf kantonaler Ebene koordiniert: Vorladungen und Entschädigungen müssen bei der zuständigen Behörde abgeklärt werden.
+
+### Indizierte Zahlen sollten nicht ohne Jahresangabe festgelegt werden
+
+Einige Werte ändern sich jedes Jahr: das Maximum der 3. Säule 3a, die BVG-Koordinationsgrenze bzw. -abzug, das AD/AC-Maximum, die durchschnittlichen KVG-Prämien und der Medianlohn. Der überprüfte Rahmen sieht keine genauen anzuwendenden Beträge ohne Angabe des Jahres vor, daher ist es nicht korrekt, diese Mengen in dauerhafte Zahlen umzuwandeln.
+
+Die gleiche Grenze gilt für grenzüberschreitende Telearbeit. In den verfügbaren Daten gibt es weder einen einheitlichen prozentualen Schwellenwert noch einen allgemeinen Betrag oder eine Frist, die eine automatische Berechnung der steuerlichen und sozialversicherungsrechtlichen Auswirkungen des aus der Ferne durchgeführten Teils ermöglicht. Festgelegt sind jedoch die Zuständigkeiten, die Bemessungsgrundlage der Beiträge, die KVG-Regelung für Einwohner, die Bewilligungskategorien und die kantonalen Unterschiede. Für eine indikative Berechnung des Verhältnisses zwischen Vergütung und Aufwand steht Lohn- und Steuerrechner zur Verfügung.]]></content:encoded>
+      <pubDate>Sat, 07 Nov 2026 15:02:30 GMT</pubDate>
+      <dc:creator><![CDATA[Laura Bianchi]]></dc:creator>
+      <guid isPermaLink="false">https://frontaliereticino.ch/de/schweiz-artikel/telelavoro-frontaliere-quadro-svizzero</guid>
+      <category>Notizie</category>
+      <media:content url="https://cdn.frontaliereticino.ch/images/blog/article-telelavoro-frontaliere-quadro-svizzero.webp" medium="image"/>
+    </item>
     <item>
       <title>Mehrwertsteuererhöhung: Stärkerer Effekt auf einkommensschwache Familien</title>
       <link>https://frontaliereticino.ch/de/schweiz-artikel/iva-erhoehung-niedriglohn-familien/</link>
@@ -3310,85 +3387,6 @@ Es werden weder getrennte Zahlen nach Kanton, Branche oder Unternehmensgrösse a
       <guid isPermaLink="false">https://frontaliereticino.ch/de/schweiz-artikel/molestie-lavoro-pmi-svizzere</guid>
       <category>Notizie</category>
       <media:content url="https://cdn.frontaliereticino.ch/images/blog/article-molestie-lavoro-pmi-svizzere.webp" medium="image"/>
-    </item>
-    <item>
-      <title>Schweizer Uhren: Exporte im September bei 2,2 Milliarden, +11,7%</title>
-      <link>https://frontaliereticino.ch/de/schweiz-artikel/schweizer-uhren-exporte-im-september-bei-2-2-milliarden-11-7/</link>
-      <description><![CDATA[Im September 2026 steigen die Exporte um 11,7% auf 2,2 Milliarden Franken; 1,4 Millionen Stück (+19,9%).]]></description>
-      <content:encoded><![CDATA[## Auf einen Blick
-- September 2026: Exporte bei 2,2 Milliarden Franken
-- Wert steigt um 11,7% gegenüber September 2025
-- 1,4 Millionen Uhren: +19,9%
-- Die Vereinigten Staaten führen die Märkte mit 293 Millionen an
-
-## Wichtige Fakten
-| Posten | Wert |
-|---|---|
-| Zeitraum | September 2026 |
-| Ort | Bienne (BE) |
-| Datenquelle | Verband der Schweizerischen Uhrenindustrie (FH) |
-| Exporte | 2,2 Milliarden Franken |
-| Jährliches Wertwachstum | 11,7% |
-| Exportierte Zeitmesser | 1,4 Millionen |
-| Wachstum der Stückzahl | 19,9% |
-| Erste neun Monate | +2,7%, auf 19,5 Milliarden Franken |
-
-### Die September-Zahl
-
-Im September 2026 beliefen sich die Schweizer Uhrenexporte ins Ausland auf 2,2 Milliarden Franken. Den von der Schweizerischen Uhrenindustrie (FH) veröffentlichten Daten zufolge ist der Wert gegenüber dem gleichen Zeitraum 2025 um 11,7% gestiegen. Aus Bienne (BE) meldet die Quelle somit eine Zunahme von über 11%, während die Zahl der abgesetzten Zeitmesser um 19,9% auf 1,4 Millionen gestiegen ist.
-
-Der arithmetische Vergleich zwischen 19,9% und 11,7% ergibt 8,2 Prozentpunkte: Die Menge ist in der Monatszahl stärker gewachsen als der Wert. Beide Messgrößen sind somit gestiegen, doch der Unterschied zwischen den Raten ist als Abstand zwischen dem Wachstum der Stückzahl und dem Wachstum des Wertes zu lesen, nicht als eine zweite Exportzahl.
-
-Die Entwicklung im September folgt derjenigen der drei vorangegangenen Monate, die von der Quelle bereits als bestätigter Trend bezeichnet wurde: Im August wurden +9,1%, im Juli +9,6% und im Juni +11,2% verzeichnet. Zur monatlichen Entwicklung gehört auch die kleine Erholung im Mai von +0,4% nach einem sehr schwierigen April mit -16,6%. Zwischen August und September stieg die Rate von +9,1% auf +11,7%, was einem anhand der angegebenen Raten berechneten Anstieg um 2,6 Prozentpunkte entspricht.
-
-Für den Zeitraum Januar bis September bleibt die Bilanz positiv: Die Schweizer Uhrenexporte stiegen auf Jahresbasis wertmäßig um 2,7% und erreichten 19,5 Milliarden Franken. Die kumulierte Angabe beschreibt die ersten neun Monate, während sich die 2,2 Milliarden auf September beziehen: Die beiden Zahlen beziehen sich somit auf unterschiedliche Zeiträume.
-## Die Geografie der Verkäufe
-
-### Sechs Märkte, ein gemeinsames Gewicht
-
-Das Gesamtergebnis bildet nicht alle Absatzmärkte gleichermaßen ab. Für September ergänzt die Föderation der Uhrenindustrie den Verkaufswert um eine prozentuale Veränderung für die wichtigsten Märkte. Die von der Quelle angegebene Reihenfolge beginnt mit den Vereinigten Staaten und setzt sich mit Frankreich, Japan, dem Vereinigten Königreich, Hongkong und dem chinesischen Festland fort.
-
-| Markt | Verkäufe im September | Angegebene Veränderung |
-|---|---:|---:|
-| Vereinigte Staaten | 293 Millionen Franken | +85,7% |
-| Frankreich | 247 Millionen Franken | +11,1% |
-| Japan | 177 Millionen Franken | +8% |
-| Vereinigtes Königreich | 164 Millionen Franken | -5,2% |
-| Hongkong | 161 Millionen Franken | +3% |
-| Chinesisches Festland | 130 Millionen Franken | +5,8% |
-
-Der erste Vergleich betrifft die für den Monat angegebenen absoluten Werte. Zwischen den Vereinigten Staaten und Frankreich liegen 46 Millionen Franken, berechnet als Differenz zwischen 293 und 247 Millionen. Zwischen dem ersten Markt und dem chinesischen Festland steigt der Abstand auf 163 Millionen, die durch die Subtraktion von 130 von 293 ermittelt wurden. Es handelt sich um Differenzen bei den aufgeführten Monatswerten, nicht um individuelle Anteile an den Exporten.
-
-Der zweite Vergleich betrifft hingegen die Wachstumsraten. Die Vereinigten Staaten verzeichnen den höchsten Anstieg, +85,7%, während Frankreich +11,1% und Japan +8% verzeichnen. Hongkong wächst um +3% und das chinesische Festland um +5,8%; das Vereinigte Königreich ist der einzige der sechs genannten Märkte mit einer negativen Veränderung von -5,2%.
-
-Die Quelle präzisiert außerdem, dass diese sechs Märkte zusammen 53% der grenzüberschreitenden Verkäufe ausmachen. Die 53% messen das kombinierte Gewicht der Gruppe, während die 85,7% die Veränderung in den Vereinigten Staaten messen: Die beiden Prozentsätze beruhen auf unterschiedlichen Grundlagen und sind nicht direkt austauschbar. Die angegebenen Daten schlüsseln den Gesamtanstieg von +11,7% nicht nach einzelnen Märkten auf und beziffern daher nicht den Beitrag jedes einzelnen Marktes zum Gesamtwachstum.
-## Preisstufen und Grenzen der Momentaufnahme
-
-### Das Wachstum nach Segment
-
-Die zweite von der Quelle bereitgestellte Betrachtungsweise betrifft die Preisstufen. In diesem Fall wird der Vergleich wertmäßig ausgedrückt und umfasst vier Gruppen: Uhren unter 200 Franken, Produkte zwischen 200 und 500 Franken, Artikel zwischen 500 und 3000 Franken und Zeitmesser über 3000 Franken.
-
-| Preisstufe | Wachstum wertmäßig |
-|---|---:|
-| Weniger als 200 Franken | +30,2% |
-| Von 200 bis 500 Franken | +52,1% |
-| Von 500 bis 3000 Franken | +11,8% |
-| Über 3000 Franken | +9,9% |
-
-Alle Preisstufen verzeichnen ein Wachstum, jedoch mit unterschiedlicher Intensität. Die Gruppe von 200 bis 500 Franken weist mit +52,1% die höchste Rate auf, gefolgt von den Uhren unter 200 Franken mit +30,2%. Die Preisstufe zwischen 500 und 3000 Franken wächst um 11,8%, während diejenige über 3000 Franken +9,9% verzeichnet.
-
-Auch hier bietet der Zahlenvergleich eine nützliche Unterscheidung: Zwischen dem höchsten und dem niedrigsten Wachstum liegen 42,2 Prozentpunkte, berechnet als 52,1 minus 9,9. Der Abstand zwischen dem Segment 500-3000 und demjenigen über 3000 beträgt dagegen 1,9 Punkte. Diese Berechnungen betreffen ausschließlich die Wachstumsraten nach Wert; die Quelle nennt keine absoluten Exportbeträge für die einzelnen Preisstufen.
-
-Die monatliche Gesamtsumme von 2,2 Milliarden Franken und die Gesamtzahl von 1,4 Millionen Zeitmessern sind nicht nach Segment aufgeschlüsselt. Daher lässt sich aus den angegebenen Daten weder ableiten, wie viele Einheiten zu jeder Preisstufe gehören, noch, wie hoch der durchschnittliche Wert einer Uhr pro Gruppe ist. Ebenso wenig stellt der Text Preisstufen und geografische Märkte gegenüber.
-
-Das verfügbare Bild bleibt somit auf die Entwicklung des Exports beschränkt: das Wachstum im September, die Bilanz der ersten neun Monate und die Veränderungen der Segmente. Der Text dokumentiert weder die Ursachen des Wachstums noch Margen, Beschäftigung, Verkäufe auf dem Binnenmarkt oder Prognosen für das Gesamtjahr. Das monatliche Plus von 11,7% und das Plus von 2,7% in den ersten neun Monaten beschreiben unterschiedliche Zeiträume und erlauben es allein nicht, das Ergebnis über die angegebenen Daten hinaus zu projizieren.
-
-*Quelle: [tio.ch](https://www.tio.ch/svizzera/economia/1957908/settembre-orologi-esportazioni-franchi-vendite)*]]></content:encoded>
-      <pubDate>Tue, 20 Oct 2026 23:39:40 GMT</pubDate>
-      <dc:creator><![CDATA[Redazione Frontaliere Ticino]]></dc:creator>
-      <guid isPermaLink="false">https://frontaliereticino.ch/de/schweiz-artikel/orologi-svizzeri-export-a-2-2-miliardi-a-settembre-11-7</guid>
-      <category>Notizie</category>
-      <media:content url="https://cdn.frontaliereticino.ch/images/blog/article-orologi-svizzeri-export-a-2-2-miliardi-a-settembre-11-7.webp" medium="image"/>
     </item>
   </channel>
 </rss>

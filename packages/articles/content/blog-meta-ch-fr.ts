@@ -8690,6 +8690,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.iva-aumento-famiglie-redditi-bassi.title': 'Hausse TVA: impact plus fort sur ménages à faibles revenus',
     'blog.article.iva-aumento-famiglie-redditi-bassi.excerpt': 'À Zurich, le 6 novembre 2026, une analyse d\'UBS a examiné la hausse de la taxe sur la valeur ajoutée, la TVA, proposée pour financer partiellement la 13e rente AVS/AHV.',
     'blog.article.iva-aumento-famiglie-redditi-bassi.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
+    'blog.article.telelavoro-frontaliere-quadro-svizzero.title': 'Télétravail et travailleurs frontaliers : règles suisses',
+    'blog.article.telelavoro-frontaliere-quadro-svizzero.excerpt': 'La Suisse organise le prélèvement fiscal sur trois niveaux : impôt fédéral direct, impôt cantonal et impôt communal.',
+    'blog.article.telelavoro-frontaliere-quadro-svizzero.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
 };
 
 export default blogMetaChFr;

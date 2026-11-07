@@ -8690,6 +8690,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.iva-aumento-famiglie-redditi-bassi.title': 'Mehrwertsteuererhöhung: Stärkerer Effekt auf einkommensschwache Familien',
     'blog.article.iva-aumento-famiglie-redditi-bassi.excerpt': 'In Zürich hat eine UBS-Analyse am 6. November 2026 die Erhöhung der Mehrwertsteuer, der MwSt., untersucht, die zur teilweisen Finanzierung der 13. AVS/AHV-Rente vorgeschlagen wurde.',
     'blog.article.iva-aumento-famiglie-redditi-bassi.imageAlt': 'Illustratives Bild zum Thema des Artikels',
+    'blog.article.telelavoro-frontaliere-quadro-svizzero.title': 'Telearbeit und Grenzgänger: Schweizer Regeln',
+    'blog.article.telelavoro-frontaliere-quadro-svizzero.excerpt': 'Die Schweiz organisiert die Besteuerung auf drei Ebenen: direkte Bundessteuer, Kantonssteuer und Gemeindesteuer.',
+    'blog.article.telelavoro-frontaliere-quadro-svizzero.imageAlt': 'Illustratives Bild zum Thema des Artikels',
 };
 
 export default blogMetaChDe;

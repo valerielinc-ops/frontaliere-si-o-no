@@ -8690,6 +8690,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.iva-aumento-famiglie-redditi-bassi.title': 'VAT increase: UBS study highlights greater impact on low-income households',
     'blog.article.iva-aumento-famiglie-redditi-bassi.excerpt': 'In Zurich, on November 6, 2026, a UBS analysis examined the proposed increase in value-added tax, VAT, to partially finance the 13th AVS/AHV pension payment.',
     'blog.article.iva-aumento-famiglie-redditi-bassi.imageAlt': 'Illustrative image relevant to the article topic',
+    'blog.article.telelavoro-frontaliere-quadro-svizzero.title': 'Teleworking and cross-border workers: Swiss rules',
+    'blog.article.telelavoro-frontaliere-quadro-svizzero.excerpt': 'Switzerland levies taxes at three levels: direct federal tax, cantonal tax and municipal tax.',
+    'blog.article.telelavoro-frontaliere-quadro-svizzero.imageAlt': 'Illustrative image relevant to the article topic',
 };
 
 export default blogMetaChEn;

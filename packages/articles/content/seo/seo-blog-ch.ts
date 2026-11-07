@@ -109856,6 +109856,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-telelavoro-frontaliere-quadro-svizzero': {
+    title: 'Telelavoro e lavoratori frontalieri: regole svizzere',
+    description: 'Fisco a tre livelli, contributi AVS/AI/IPG, LAMal, permessi e lavoro: il quadro svizzero per lavoratori frontalieri e telelavoro.',
+    keywords: 'telelavoro transfrontaliero, lavoratori frontalieri Svizzera, cross-border worker and teleworking, fiscalità svizzera, AVS AI IPG, LAMal, LPP, permesso G',
+    ogTitle: 'Telelavoro transfrontaliero: il quadro svizzero',
+    ogDescription: 'Dalle tre componenti fiscali ai contributi AVS/AI/IPG, dalla LAMal ai permessi SEM: il quadro svizzero distingue imposte, previdenza, salute e lavoro, indicando anche quali regole e importi dipendono dai Cantoni.',
+    canonicalPath: '/articoli-svizzera/telelavoro-frontaliere-quadro-svizzero/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Telelavoro e lavoratori frontalieri: regole svizzere",
+      "description": "Fisco a tre livelli, contributi AVS/AI/IPG, LAMal, permessi e lavoro: il quadro svizzero per lavoratori frontalieri e telelavoro.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-telelavoro-frontaliere-quadro-svizzero.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine illustrativa pertinente al tema dell’articolo"
+      },
+      "datePublished": "2026-11-07T15:02:30+00:00",
+      "dateModified": "2026-11-07T15:02:30+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/telelavoro-frontaliere-quadro-svizzero/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
