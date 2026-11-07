@@ -12,6 +12,7 @@ import { realpathSync } from 'node:fs';
 import registry from '../../data/plate-auction-sources-registry.json' with { type: 'json' };
 import { intFromEnv } from '../lib/int-from-env.mjs';
 import { fetchGePlateAuctions, GE_PLATE_AUCTION_SOURCE } from './connectors/ge.mjs';
+import { resolvePlateAuctionSource } from '../../functions/src/plateAuctionSourceRegistry.js';
 
 const DEFAULT_TIMEOUT_MS = 12_000;
 const AUCTION_TERMS = /\b(auktion|eauktion|auction|asta|ench[eè]re|ecari|offert(?:e|en)?|angebot(?:e|en)?)\b/i;
@@ -385,8 +386,11 @@ export async function discoverSources({
 async function main() {
   const blockedOnly = process.argv.includes('--blocked-only');
   const geSitemap = process.argv.includes('--ge-sitemap');
+  const now = new Date();
   const sources = blockedOnly
-    ? Object.fromEntries(Object.entries(registry.sources).filter(([, source]) => source.status !== 'active'))
+    ? Object.fromEntries(Object.entries(registry.sources)
+      .map(([key, source]) => [key, resolvePlateAuctionSource(source, now)])
+      .filter(([, source]) => source.status !== 'active'))
     : registry.sources;
   const results = await discoverSources({
     sources,
