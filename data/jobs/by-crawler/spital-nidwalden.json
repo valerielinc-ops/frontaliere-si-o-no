@@ -924,11 +924,11 @@
     },
     {
       "id": "spital-nidwalden-f44a088be4be",
-      "slug": "sozialarbeiter-in-sozial-e-austrittsberatung-spital-nidwalden-stans",
+      "slug": "assistente-sociale-a-consulenza-sociale-e-di-uscita-spital-nidwalden-stans",
       "slugByLocale": {
-        "it": "sozialarbeiter-in-sozial-e-austrittsberatung-spital-nidwalden-stans",
-        "en": "social-worker-social-and-exit-counsellor-spital-nidwalden-stans",
         "de": "sozialarbeiter-in-sozial-und-austrittsberatung-spital-nidwalden-stans",
+        "it": "assistente-sociale-a-consulenza-sociale-e-di-uscita-spital-nidwalden-stans",
+        "en": "social-worker-social-and-exit-counsellor-spital-nidwalden-stans",
         "fr": "travailleur-e-social-le-consultation-sociale-et-de-sortie-spital-nidwalden-stans"
       },
       "company": "Spital Nidwalden",
@@ -976,7 +976,8 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "it": [
-          "sozialarbeiter-in-sozial-und-austrittsberatung-spital-nidwalden-stans"
+          "sozialarbeiter-in-sozial-und-austrittsberatung-spital-nidwalden-stans",
+          "sozialarbeiter-in-sozial-e-austrittsberatung-spital-nidwalden-stans"
         ],
         "en": [
           "sozialarbeiter-in-sozial-und-austrittsberatung-spital-nidwalden-stans"
@@ -986,7 +987,8 @@
         ]
       },
       "previousSlugs": [
-        "sozialarbeiter-in-sozial-und-austrittsberatung-spital-nidwalden-stans"
+        "sozialarbeiter-in-sozial-und-austrittsberatung-spital-nidwalden-stans",
+        "sozialarbeiter-in-sozial-e-austrittsberatung-spital-nidwalden-stans"
       ],
       "salaryMin": 86500,
       "salaryMax": 120500,

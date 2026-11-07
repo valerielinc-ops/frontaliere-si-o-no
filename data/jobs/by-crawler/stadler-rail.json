@@ -805,7 +805,7 @@
       "id": "stadler-rail-bfa214fd04b1",
       "slug": "system-ingegnere-cbtc-stadler-rail-wallisellen-cb2fa13430",
       "slugByLocale": {
-        "it": "system-ingegnere-cbtc-stadler-rail-wallisellen-cb2fa13430",
+        "it": "system-ingegnere-cbtc-stadler-rail-wallisellen",
         "en": "system-ingegnere-cbtc-stadler-rail-wallisellen",
         "de": "system-engineer-cbtc-stadler-rail-ch",
         "fr": "system-ingenieur-cbtc-stadler-rail-wallisellen"
@@ -856,18 +856,14 @@
         "system-engineer-cbtc-stadler-rail-ch-2",
         "system-engineer-cbtc-stadler-rail-wallisellen",
         "system-ingegnere-cbtc-stadler-rail-wallisellen-3kv6vv",
-        "system-engineer-cbtc-stadler-rail-ch-3kv6vv",
-        "system-ingegnere-cbtc-stadler-rail-wallisellen-cb2fa13430",
-        "system-ingegnere-cbtc-stadler-rail-wallisellen"
+        "system-engineer-cbtc-stadler-rail-ch-3kv6vv"
       ],
       "previousSlugsByLocale": {
         "it": [
           "system-engineer-cbtc-stadler-rail-ch",
           "system-engineer-cbtc-stadler-rail-ch-2",
           "system-engineer-cbtc-stadler-rail-wallisellen",
-          "system-ingegnere-cbtc-stadler-rail-wallisellen-3kv6vv",
-          "system-ingegnere-cbtc-stadler-rail-wallisellen-cb2fa13430",
-          "system-ingegnere-cbtc-stadler-rail-wallisellen"
+          "system-ingegnere-cbtc-stadler-rail-wallisellen-3kv6vv"
         ],
         "de": [
           "system-engineer-cbtc-stadler-rail-ch-3kv6vv"
@@ -1993,9 +1989,9 @@
       "slug": "reclutamento-stadler-rail-wallisellen",
       "slugByLocale": {
         "it": "reclutamento-stadler-rail-wallisellen",
-        "en": "testing-and-commissioning-engineer-stadler-rail-wallisellen",
+        "en": "recruiting-stadler-rail-wallisellen",
         "de": "testing-commissioning-engineer-stadler-rail-wallisellen",
-        "fr": "testing-commissioning-ingenieur-stadler-rail-wallisellen"
+        "fr": "recrutement-stadler-rail-wallisellen"
       },
       "company": "Stadler Rail",
       "companyKey": "stadler-rail",
@@ -2043,8 +2039,7 @@
         "testing-commissioning-ingenieur-stadler-rail-wallisellen",
         "recruiting-stadler-rail-ch",
         "testing-commissioning-engineer-stadler-rail-wallisellen",
-        "recruiting-stadler-rail-wallisellen",
-        "recrutement-stadler-rail-wallisellen"
+        "testing-and-commissioning-engineer-stadler-rail-wallisellen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2052,7 +2047,7 @@
         ],
         "en": [
           "testing-commissioning-engineer-stadler-rail-wallisellen",
-          "recruiting-stadler-rail-wallisellen"
+          "testing-and-commissioning-engineer-stadler-rail-wallisellen"
         ],
         "de": [
           "testing-commissioning-engineer-stadler-rail-ch",
@@ -2060,7 +2055,7 @@
           "recruiting-stadler-rail-ch"
         ],
         "fr": [
-          "recrutement-stadler-rail-wallisellen"
+          "testing-commissioning-ingenieur-stadler-rail-wallisellen"
         ]
       },
       "firstSeenAt": "2026-06-10T07:53:08.867Z",
@@ -4309,7 +4304,7 @@
       "slug": "saldatori-in-alluminio-stadler-rail-altenrhein",
       "slugByLocale": {
         "it": "saldatori-in-alluminio-stadler-rail-altenrhein",
-        "en": "aluminum-welder-stadler-rail-altenrhein",
+        "en": "aluminium-welders-stadler-rail-altenrhein",
         "de": "aluminiumschweisser-in-stadler-rail-ch",
         "fr": "soudeurs-en-aluminium-stadler-rail-altenrhein"
       },
@@ -4357,7 +4352,7 @@
       "previousSlugs": [
         "aluminiumschweisser-in-stadler-rail-ch",
         "aluminiumschweisser-in-stadler-rail-altenrhein",
-        "aluminium-welders-stadler-rail-altenrhein"
+        "aluminum-welder-stadler-rail-altenrhein"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4365,7 +4360,7 @@
         ],
         "en": [
           "aluminiumschweisser-in-stadler-rail-altenrhein",
-          "aluminium-welders-stadler-rail-altenrhein"
+          "aluminum-welder-stadler-rail-altenrhein"
         ],
         "fr": [
           "aluminiumschweisser-in-stadler-rail-altenrhein"
@@ -4475,9 +4470,9 @@
       "slug": "verniciatore-in-stadler-rail-bussnang",
       "slugByLocale": {
         "it": "verniciatore-in-stadler-rail-bussnang",
-        "en": "painter-stadler-rail-bussnang",
+        "en": "painters-in-stadler-rail-bussnang",
         "de": "lackierer-in-stadler-rail-ch",
-        "fr": "peintre-stadler-rail-bussnang"
+        "fr": "peintres-en-stadler-rail-bussnang"
       },
       "company": "Stadler Rail",
       "companyKey": "stadler-rail",
@@ -4523,8 +4518,8 @@
       "previousSlugs": [
         "lackierer-in-stadler-rail-ch",
         "lackierer-in-stadler-rail-bussnang",
-        "painters-in-stadler-rail-bussnang",
-        "peintres-en-stadler-rail-bussnang"
+        "painter-stadler-rail-bussnang",
+        "peintre-stadler-rail-bussnang"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4532,10 +4527,10 @@
           "lackierer-in-stadler-rail-bussnang"
         ],
         "en": [
-          "painters-in-stadler-rail-bussnang"
+          "painter-stadler-rail-bussnang"
         ],
         "fr": [
-          "peintres-en-stadler-rail-bussnang"
+          "peintre-stadler-rail-bussnang"
         ]
       },
       "firstSeenAt": "2026-08-07T10:29:56.318Z",
@@ -6637,9 +6632,9 @@
       "slug": "responsabile-contratti-procurement-stadler-rail-bussnang",
       "slugByLocale": {
         "it": "responsabile-contratti-procurement-stadler-rail-bussnang",
-        "en": "contract-manager-purchasing-stadler-rail-bussnang",
+        "en": "the-commission-s-proposal-is-not-yet-in-force-stadler-rail-bussnang",
         "de": "contract-manager-procurement-stadler-rail-ch",
-        "fr": "responsable-contrats-et-achats-stadler-rail-bussnang"
+        "fr": "gestion-des-marches-stadler-rail-bussnang"
       },
       "company": "Stadler Rail",
       "companyKey": "stadler-rail",
@@ -6685,8 +6680,8 @@
       "previousSlugs": [
         "contract-manager-procurement-stadler-rail-ch",
         "contract-manager-procurement-stadler-rail-bussnang",
-        "the-commission-s-proposal-is-not-yet-in-force-stadler-rail-bussnang",
-        "gestion-des-marches-stadler-rail-bussnang"
+        "contract-manager-purchasing-stadler-rail-bussnang",
+        "responsable-contrats-et-achats-stadler-rail-bussnang"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -6695,11 +6690,11 @@
         "en": [
           "contract-manager-procurement-stadler-rail-ch",
           "contract-manager-procurement-stadler-rail-bussnang",
-          "the-commission-s-proposal-is-not-yet-in-force-stadler-rail-bussnang"
+          "contract-manager-purchasing-stadler-rail-bussnang"
         ],
         "fr": [
           "contract-manager-procurement-stadler-rail-bussnang",
-          "gestion-des-marches-stadler-rail-bussnang"
+          "responsable-contrats-et-achats-stadler-rail-bussnang"
         ]
       },
       "firstSeenAt": "2026-06-10T07:52:36.596Z",
@@ -8992,9 +8987,9 @@
       "slug": "smaltimento-dei-materiali-stadler-rail-st-margrethen",
       "slugByLocale": {
         "it": "smaltimento-dei-materiali-stadler-rail-st-margrethen",
-        "en": "material-dispatcher-stadler-rail-st-margrethen",
+        "en": "disposal-of-materials-stadler-rail-st-margrethen",
         "de": "materialdisponent-in-stadler-rail-ch",
-        "fr": "detecteur-de-materiau-en-stadler-rail-st-margrethen"
+        "fr": "expedition-du-materiel-en-stadler-rail-st-margrethen"
       },
       "company": "Stadler Rail",
       "companyKey": "stadler-rail",
@@ -9042,8 +9037,8 @@
         "materialdisponent-in-stadler-rail-st-margrethen",
         "materiale-di-spedizione-in-stadler-rail-st-margrethen",
         "material-dispatch-in-stadler-rail-st-margrethen",
-        "disposal-of-materials-stadler-rail-st-margrethen",
-        "expedition-du-materiel-en-stadler-rail-st-margrethen"
+        "material-dispatcher-stadler-rail-st-margrethen",
+        "detecteur-de-materiau-en-stadler-rail-st-margrethen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -9054,11 +9049,11 @@
         "en": [
           "materialdisponent-in-stadler-rail-st-margrethen",
           "material-dispatch-in-stadler-rail-st-margrethen",
-          "disposal-of-materials-stadler-rail-st-margrethen"
+          "material-dispatcher-stadler-rail-st-margrethen"
         ],
         "fr": [
           "materialdisponent-in-stadler-rail-st-margrethen",
-          "expedition-du-materiel-en-stadler-rail-st-margrethen"
+          "detecteur-de-materiau-en-stadler-rail-st-margrethen"
         ]
       },
       "firstSeenAt": "2026-09-01T14:23:53.477Z",
@@ -12473,7 +12468,7 @@
         "it": "acquirente-principale-stadler-rail-bussnang",
         "en": "lead-pukir-stadler-rail-bussnang",
         "de": "lead-buyer-stadler-rail-ch",
-        "fr": "responsable-achats-stadler-rail-bussnang"
+        "fr": "acheteur-principal-stadler-rail-bussnang"
       },
       "company": "Stadler Rail",
       "companyKey": "stadler-rail",
@@ -12520,7 +12515,7 @@
         "lead-buyer-stadler-rail-ch",
         "responsable-des-achats-stadler-rail-bussnang",
         "lead-buyer-stadler-rail-bussnang",
-        "acheteur-principal-stadler-rail-bussnang"
+        "responsable-achats-stadler-rail-bussnang"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -12533,7 +12528,7 @@
           "lead-buyer-stadler-rail-ch",
           "responsable-des-achats-stadler-rail-bussnang",
           "lead-buyer-stadler-rail-bussnang",
-          "acheteur-principal-stadler-rail-bussnang"
+          "responsable-achats-stadler-rail-bussnang"
         ]
       },
       "firstSeenAt": "2026-10-05T21:47:16.367Z",
@@ -14514,12 +14509,12 @@
     },
     {
       "id": "stadler-rail-fc495d97fa56",
-      "slug": "systemingenieur-sicherheitssysteme-stadler-rail-ch",
+      "slug": "sistemi-di-sicurezza-dell-ingegnere-di-sistema-stadler-rail-bussnang",
       "slugByLocale": {
         "de": "systemingenieur-sicherheitssysteme-stadler-rail-ch",
-        "it": "systemingenieur-sicherheitssysteme-stadler-rail-ch",
-        "en": "systemingenieur-sicherheitssysteme-stadler-rail-ch",
-        "fr": "systemingenieur-sicherheitssysteme-stadler-rail-ch"
+        "it": "sistemi-di-sicurezza-dell-ingegnere-di-sistema-stadler-rail-bussnang",
+        "en": "system-engineer-safety-systems-stadler-rail-bussnang",
+        "fr": "systemes-de-securite-de-l-ingenieur-systeme-stadler-rail-bussnang"
       },
       "company": "Stadler Rail",
       "companyKey": "stadler-rail",
@@ -14581,16 +14576,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-04T22:12:13.165Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-06T22:12:13.165Z"
+      "firstSeenAt": "2026-11-06T22:12:13.165Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "systemingenieur-sicherheitssysteme-stadler-rail-ch"
+        ],
+        "en": [
+          "systemingenieur-sicherheitssysteme-stadler-rail-ch"
+        ],
+        "fr": [
+          "systemingenieur-sicherheitssysteme-stadler-rail-ch"
+        ]
+      },
+      "previousSlugs": [
+        "systemingenieur-sicherheitssysteme-stadler-rail-ch"
+      ]
     },
     {
       "id": "stadler-rail-0e7732495f09",
-      "slug": "schweissfachmann-iws-ews-stadler-rail-ch",
+      "slug": "specialista-saldatura-iws-ews-stadler-rail-steinach",
       "slugByLocale": {
         "de": "schweissfachmann-iws-ews-stadler-rail-ch",
-        "it": "schweissfachmann-iws-ews-stadler-rail-ch",
-        "en": "schweissfachmann-iws-ews-stadler-rail-ch",
-        "fr": "schweissfachmann-iws-ews-stadler-rail-ch"
+        "it": "specialista-saldatura-iws-ews-stadler-rail-steinach",
+        "en": "welding-specialist-iws-ews-stadler-rail-steinach",
+        "fr": "specialiste-du-soudage-iws-ews-stadler-rail-steinach"
       },
       "company": "Stadler Rail",
       "companyKey": "stadler-rail",
@@ -14652,7 +14661,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-04T22:12:01.207Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-06T22:12:01.207Z"
+      "firstSeenAt": "2026-11-06T22:12:01.207Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "schweissfachmann-iws-ews-stadler-rail-ch"
+        ],
+        "en": [
+          "schweissfachmann-iws-ews-stadler-rail-ch"
+        ],
+        "fr": [
+          "schweissfachmann-iws-ews-stadler-rail-ch"
+        ]
+      },
+      "previousSlugs": [
+        "schweissfachmann-iws-ews-stadler-rail-ch"
+      ]
     },
     {
       "id": "stadler-rail-e40f4ac4365d",
@@ -15453,7 +15476,7 @@
       "id": "stadler-rail-fad1bfc65d48",
       "slug": "system-ingegnere-cbtc-stadler-rail-wallisellen-0cc05de06c",
       "slugByLocale": {
-        "it": "system-ingegnere-cbtc-stadler-rail-wallisellen-0cc05de06c",
+        "it": "system-ingegnere-cbtc-stadler-rail-wallisellen",
         "en": "system-engineer-cbtc-stadler-rail-wallisellen",
         "de": "system-ingenieur-cbtc-stadler-rail-wallisellen",
         "fr": "system-engineer-cbtc-stadler-rail-ch-c74w3g"
@@ -15502,17 +15525,13 @@
       "previousSlugs": [
         "system-engineer-cbtc-stadler-rail-ch",
         "system-ingegnere-cbtc-stadler-rail-wallisellen-c74w3g",
-        "system-engineer-cbtc-stadler-rail-ch-c74w3g",
-        "system-ingegnere-cbtc-stadler-rail-wallisellen-0cc05de06c",
-        "system-ingegnere-cbtc-stadler-rail-wallisellen"
+        "system-engineer-cbtc-stadler-rail-ch-c74w3g"
       ],
       "previousSlugsByLocale": {
         "it": [
           "system-engineer-cbtc-stadler-rail-ch",
           "system-ingegnere-cbtc-stadler-rail-wallisellen-c74w3g",
-          "system-engineer-cbtc-stadler-rail-ch-c74w3g",
-          "system-ingegnere-cbtc-stadler-rail-wallisellen-0cc05de06c",
-          "system-ingegnere-cbtc-stadler-rail-wallisellen"
+          "system-engineer-cbtc-stadler-rail-ch-c74w3g"
         ],
         "fr": [
           "system-engineer-cbtc-stadler-rail-ch"

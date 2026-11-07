@@ -2,7 +2,7 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import fs from 'fs';
 import os from 'os';
 import path from 'path';
-import { getCompanyBoilerplateIT, hardenJobLocaleFields, mergeAndDeduplicate, mergePreserveLocaleData, eocContinuityKey, seedCrawlerSlicesFromDataJobs, addPreviousSlugForLocale, captureLostSlugs, hasFullLocaleCoverage, hasCompleteLocaleTextCoverage, hasCorrectLocaleCoverage, normalizeContract, mergeLocaleTextMap, pickMergedPostedDate, pickMergedCrawledAt, isActiveJobPastRetirement, ACTIVE_JOB_RETIREMENT_DAYS, DEFAULT_PREV_SLUG_CAP, LEGACY_PREV_SLUGS_CAP } from '../scripts/lib/dedicated-crawler-common.mjs';
+import { getCompanyBoilerplateIT, hardenJobLocaleFields, mergeAndDeduplicate, mergePreserveLocaleData, eocContinuityKey, seedCrawlerSlicesFromDataJobs, shouldSeedCrawlerSlicesFromDataJobs, addPreviousSlugForLocale, captureLostSlugs, hasFullLocaleCoverage, hasCompleteLocaleTextCoverage, hasCorrectLocaleCoverage, normalizeContract, mergeLocaleTextMap, pickMergedPostedDate, pickMergedCrawledAt, isActiveJobPastRetirement, ACTIVE_JOB_RETIREMENT_DAYS, DEFAULT_PREV_SLUG_CAP, LEGACY_PREV_SLUGS_CAP } from '../scripts/lib/dedicated-crawler-common.mjs';
 
 const daysAgoIso = (days: number) => new Date(Date.now() - days * 86_400_000).toISOString();
 import { canonicalizeCompanyDefinition, legacyTruncatedCompanyKey, normalizeCompanyKey } from '../scripts/lib/company-key.mjs';
@@ -1593,6 +1593,28 @@ describe('seedCrawlerSlicesFromDataJobs (#3089 items 2 + 3)', () => {
 
   const sliceDir = (root: string) => path.join(root, 'data', 'jobs', 'by-crawler');
   const dataJobsPath = (root: string) => path.join(root, 'data', 'jobs.json');
+
+  it('keeps the previous committed slice as the baseline when localize-only already has an explicit working set', () => {
+    const root = makeRoot();
+    const workingSet = dataJobsPath(root);
+    fs.writeFileSync(workingSet, '[]');
+
+    expect(shouldSeedCrawlerSlicesFromDataJobs({
+      localizeExistingOnly: true,
+      dataJobsPath: workingSet,
+      resolvedDataJobsPath: workingSet,
+    })).toBe(false);
+    expect(shouldSeedCrawlerSlicesFromDataJobs({
+      localizeExistingOnly: false,
+      dataJobsPath: workingSet,
+      resolvedDataJobsPath: workingSet,
+    })).toBe(true);
+    expect(shouldSeedCrawlerSlicesFromDataJobs({
+      localizeExistingOnly: true,
+      dataJobsPath: path.join(root, 'missing.json'),
+      resolvedDataJobsPath: path.join(root, 'missing.json'),
+    })).toBe(true);
+  });
 
   afterEach(() => {
     vi.restoreAllMocks();

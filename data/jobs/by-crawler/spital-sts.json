@@ -5,12 +5,12 @@
   "jobs": [
     {
       "id": "spital-sts-ee37d7bd09b9",
-      "slug": "praktikant-in-pflege-chirurgie-o-medizin-spital-sts-thun",
+      "slug": "tirocinante-infermieristica-chirurgia-o-medicina-spital-sts-thun",
       "slugByLocale": {
-        "it": "praktikant-in-pflege-chirurgie-o-medizin-spital-sts-thun",
-        "en": "praktikant-in-pflege-chirurgie-oder-medizin-spital-sts-thun",
         "de": "praktikant-in-pflege-chirurgie-oder-medizin-spital-sts-thun",
-        "fr": "praktikant-in-pflege-chirurgie-oder-medizin-spital-sts-thun"
+        "it": "tirocinante-infermieristica-chirurgia-o-medicina-spital-sts-thun",
+        "en": "intern-nursing-surgery-or-medicine-spital-sts-thun",
+        "fr": "stagiaire-en-soins-infirmiers-en-chirurgie-ou-en-medecine-spital-sts-thun"
       },
       "company": "Spital STS",
       "companyKey": "spital-sts",
@@ -57,11 +57,19 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "it": [
+          "praktikant-in-pflege-chirurgie-oder-medizin-spital-sts-thun",
+          "praktikant-in-pflege-chirurgie-o-medizin-spital-sts-thun"
+        ],
+        "en": [
+          "praktikant-in-pflege-chirurgie-oder-medizin-spital-sts-thun"
+        ],
+        "fr": [
           "praktikant-in-pflege-chirurgie-oder-medizin-spital-sts-thun"
         ]
       },
       "previousSlugs": [
-        "praktikant-in-pflege-chirurgie-oder-medizin-spital-sts-thun"
+        "praktikant-in-pflege-chirurgie-oder-medizin-spital-sts-thun",
+        "praktikant-in-pflege-chirurgie-o-medizin-spital-sts-thun"
       ],
       "salaryMin": 76000,
       "salaryMax": 106000,
@@ -83,12 +91,12 @@
     },
     {
       "id": "spital-sts-99e46862c85b",
-      "slug": "dipl-pflegefachfrau-mann-con-ohne-nds-notfallpflege-spital-sts-zweisimmen",
+      "slug": "infermiere-a-diplomato-a-con-senza-nds-cure-d-emergenza-spital-sts-zweisimmen",
       "slugByLocale": {
-        "it": "dipl-pflegefachfrau-mann-con-ohne-nds-notfallpflege-spital-sts-zweisimmen",
-        "en": "dipl-pflegefachfrau-mann-mit-ohne-nds-notfallpflege-spital-sts-zweisimmen",
         "de": "dipl-pflegefachfrau-mann-mit-ohne-nds-notfallpflege-spital-sts-zweisimmen",
-        "fr": "dipl-pflegefachfrau-mann-mit-ohne-nds-notfallpflege-spital-sts-zweisimmen"
+        "it": "infermiere-a-diplomato-a-con-senza-nds-cure-d-emergenza-spital-sts-zweisimmen",
+        "en": "qualified-nurse-with-without-nds-emergency-care-spital-sts-zweisimmen",
+        "fr": "infirmiere-infirmier-diplome-e-avec-sans-soins-d-urgence-nds-spital-sts-zweisimmen"
       },
       "company": "Spital STS",
       "companyKey": "spital-sts",
@@ -135,11 +143,19 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "it": [
+          "dipl-pflegefachfrau-mann-mit-ohne-nds-notfallpflege-spital-sts-zweisimmen",
+          "dipl-pflegefachfrau-mann-con-ohne-nds-notfallpflege-spital-sts-zweisimmen"
+        ],
+        "en": [
+          "dipl-pflegefachfrau-mann-mit-ohne-nds-notfallpflege-spital-sts-zweisimmen"
+        ],
+        "fr": [
           "dipl-pflegefachfrau-mann-mit-ohne-nds-notfallpflege-spital-sts-zweisimmen"
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachfrau-mann-mit-ohne-nds-notfallpflege-spital-sts-zweisimmen"
+        "dipl-pflegefachfrau-mann-mit-ohne-nds-notfallpflege-spital-sts-zweisimmen",
+        "dipl-pflegefachfrau-mann-con-ohne-nds-notfallpflege-spital-sts-zweisimmen"
       ],
       "salaryMin": 85000,
       "salaryMax": 119000,
@@ -163,9 +179,9 @@
       "id": "spital-sts-8d6c23edfbbb",
       "slug": "assistente-medico-assistente-medico-psichiatria-spital-sts-thun",
       "slugByLocale": {
+        "de": "assistenzarzt-assistenzarztin-psychiatrie-spital-sts-thun",
         "it": "assistente-medico-assistente-medico-psichiatria-spital-sts-thun",
         "en": "assistant-doctor-assistant-doctor-psychiatry-spital-sts-thun",
-        "de": "assistenzarzt-assistenzarztin-psychiatrie-spital-sts-thun",
         "fr": "assistant-medecin-assistant-medecin-psychiatrie-spital-sts-thun"
       },
       "company": "Spital STS",
@@ -247,9 +263,9 @@
       "id": "spital-sts-2bc90eaaa2c9",
       "slug": "student-bsc-in-cura-modulo-aggiuntivo-b-spital-sts-thun",
       "slugByLocale": {
+        "de": "studierende-studierender-bsc-in-pflege-zusatzmodul-b-spital-sts-thun",
         "it": "student-bsc-in-cura-modulo-aggiuntivo-b-spital-sts-thun",
         "en": "student-bsc-in-care-additional-module-b-spital-sts-thun",
-        "de": "studierende-studierender-bsc-in-pflege-zusatzmodul-b-spital-sts-thun",
         "fr": "baccalaureat-etudiant-en-soins-module-supplementaire-b-spital-sts-thun"
       },
       "company": "Spital STS",
@@ -331,9 +347,9 @@
       "id": "spital-sts-7a73f25ea571",
       "slug": "assistente-medico-assistente-medico-medicina-spital-sts-zweisimmen",
       "slugByLocale": {
+        "de": "assistenzarztin-assistenzarzt-medizin-spital-sts-zweisimmen",
         "it": "assistente-medico-assistente-medico-medicina-spital-sts-zweisimmen",
         "en": "assistant-doctor-assistant-doctor-medicine-spital-sts-zweisimmen",
-        "de": "assistenzarztin-assistenzarzt-medizin-spital-sts-zweisimmen",
         "fr": "assistant-medecin-assistant-medecin-medecine-spital-sts-zweisimmen"
       },
       "company": "Spital STS",
@@ -415,9 +431,9 @@
       "id": "spital-sts-51e4f04c92ff",
       "slug": "specialista-a-emergenza-sanitaria-spital-sts-zweisimmen",
       "slugByLocale": {
+        "de": "fachfrau-mann-gesundheit-notfall-spital-sts-zweisimmen",
         "it": "specialista-a-emergenza-sanitaria-spital-sts-zweisimmen",
         "en": "specialist-man-health-emergency-spital-sts-zweisimmen",
-        "de": "fachfrau-mann-gesundheit-notfall-spital-sts-zweisimmen",
         "fr": "specialiste-de-la-sante-urgence-spital-sts-zweisimmen"
       },
       "company": "Spital STS",
@@ -499,9 +515,9 @@
       "id": "spital-sts-3cb64ac5fdc3",
       "slug": "specialista-in-tecnica-chirurgica-impiego-a-tempo-determinato-spital-sts-thun",
       "slugByLocale": {
+        "de": "fachfrau-mann-operationstechnik-befristete-anstellung-spital-sts-thun",
         "it": "specialista-in-tecnica-chirurgica-impiego-a-tempo-determinato-spital-sts-thun",
         "en": "specialist-in-surgical-technology-temporary-employment-spital-sts-thun",
-        "de": "fachfrau-mann-operationstechnik-befristete-anstellung-spital-sts-thun",
         "fr": "specialiste-en-technique-chirurgicale-emploi-a-duree-determinee-spital-sts-thun"
       },
       "company": "Spital STS",
@@ -583,9 +599,9 @@
       "id": "spital-sts-2de00c449818",
       "slug": "infermiere-a-dipl-unita-di-monitoraggio-spital-sts-zweisimmen",
       "slugByLocale": {
+        "de": "dipl-pflegefachfrau-mann-uberwachungseinheit-spital-sts-zweisimmen",
         "it": "infermiere-a-dipl-unita-di-monitoraggio-spital-sts-zweisimmen",
         "en": "qualified-nurse-man-monitoring-unit-spital-sts-zweisimmen",
-        "de": "dipl-pflegefachfrau-mann-uberwachungseinheit-spital-sts-zweisimmen",
         "fr": "infirmiere-infirmiere-diplomee-unite-de-surveillance-spital-sts-zweisimmen"
       },
       "company": "Spital STS",
@@ -667,9 +683,9 @@
       "id": "spital-sts-74458989aa38",
       "slug": "dipl-expert-in-anasthesiepflege-spital-sts-thun",
       "slugByLocale": {
+        "de": "dipl-expert-in-anasthesiepflege-spital-sts-thun",
         "it": "dipl-expert-in-anasthesiepflege-spital-sts-thun",
         "en": "certified-expert-in-anaesthesia-care-spital-sts-thun",
-        "de": "dipl-expert-in-anasthesiepflege-spital-sts-thun",
         "fr": "expert-diplome-en-soins-anesthesiques-spital-sts-thun"
       },
       "company": "Spital STS",
@@ -737,9 +753,9 @@
       "id": "spital-sts-8a1d88b6ace6",
       "slug": "specialista-in-tecnica-chirurgica-spital-sts-thun",
       "slugByLocale": {
+        "de": "fachfrau-mann-operationstechnik-spital-sts-thun",
         "it": "specialista-in-tecnica-chirurgica-spital-sts-thun",
         "en": "specialist-in-surgical-technology-spital-sts-thun",
-        "de": "fachfrau-mann-operationstechnik-spital-sts-thun",
         "fr": "specialiste-en-technique-chirurgicale-spital-sts-thun"
       },
       "company": "Spital STS",
@@ -821,9 +837,9 @@
       "id": "spital-sts-4a29c74e14cc",
       "slug": "psichiatria-medico-senior-spital-sts-thun",
       "slugByLocale": {
+        "de": "oberarztin-oberarzt-psychiatrie-spital-sts-thun",
         "it": "psichiatria-medico-senior-spital-sts-thun",
         "en": "senior-physician-psychiatry-spital-sts-thun",
-        "de": "oberarztin-oberarzt-psychiatrie-spital-sts-thun",
         "fr": "medecin-psychiatrie-spital-sts-thun"
       },
       "company": "Spital STS",
@@ -905,9 +921,9 @@
       "id": "spital-sts-ad910e222786",
       "slug": "technische-r-sterilisationsassistent-in-medizinproduktetechnologe-in-efz-spital-sts-thun",
       "slugByLocale": {
+        "de": "technische-r-sterilisationsassistent-in-medizinproduktetechnologe-in-efz-spital-sts-thun",
         "it": "technische-r-sterilisationsassistent-in-medizinproduktetechnologe-in-efz-spital-sts-thun",
         "en": "technical-sterilization-assistant-medical-device-technologist-efz-spital-sts-thun",
-        "de": "technische-r-sterilisationsassistent-in-medizinproduktetechnologe-in-efz-spital-sts-thun",
         "fr": "assistant-e-technique-de-sterilisation-technologue-en-dispositifs-medicaux-cfc-spital-sts-thun"
       },
       "company": "Spital STS",
@@ -975,9 +991,9 @@
       "id": "spital-sts-c5edb509e763",
       "slug": "specialista-in-chirurgia-sanitaria-spital-sts-thun",
       "slugByLocale": {
+        "de": "fachfrau-mann-gesundheit-chirurgie-spital-sts-thun",
         "it": "specialista-in-chirurgia-sanitaria-spital-sts-thun",
         "en": "specialist-in-health-surgery-spital-sts-thun",
-        "de": "fachfrau-mann-gesundheit-chirurgie-spital-sts-thun",
         "fr": "specialiste-en-chirurgie-de-la-sante-spital-sts-thun"
       },
       "company": "Spital STS",
@@ -1057,12 +1073,12 @@
     },
     {
       "id": "spital-sts-a075cd738399",
-      "slug": "apprendistato-fachfrau-fachmann-gesundheit-cfc-2027-spital-sts-zweisimmen",
+      "slug": "apprendistato-specialista-specialista-salute-afc-2027-spital-sts-zweisimmen",
       "slugByLocale": {
-        "it": "apprendistato-fachfrau-fachmann-gesundheit-cfc-2027-spital-sts-zweisimmen",
-        "en": "lehrstelle-fachfrau-fachmann-gesundheit-efz-2027-spital-sts-zweisimmen",
         "de": "lehrstelle-fachfrau-fachmann-gesundheit-efz-2027-spital-sts-zweisimmen",
-        "fr": "lehrstelle-fachfrau-fachmann-gesundheit-efz-2027-spital-sts-zweisimmen"
+        "it": "apprendistato-specialista-specialista-salute-afc-2027-spital-sts-zweisimmen",
+        "en": "apprenticeship-professional-health-efz-2027-spital-sts-zweisimmen",
+        "fr": "apprentissage-sante-professionnelle-efz-2027-spital-sts-zweisimmen"
       },
       "company": "Spital STS",
       "companyKey": "spital-sts",
@@ -1109,11 +1125,19 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "it": [
+          "lehrstelle-fachfrau-fachmann-gesundheit-efz-2027-spital-sts-zweisimmen",
+          "apprendistato-fachfrau-fachmann-gesundheit-cfc-2027-spital-sts-zweisimmen"
+        ],
+        "en": [
+          "lehrstelle-fachfrau-fachmann-gesundheit-efz-2027-spital-sts-zweisimmen"
+        ],
+        "fr": [
           "lehrstelle-fachfrau-fachmann-gesundheit-efz-2027-spital-sts-zweisimmen"
         ]
       },
       "previousSlugs": [
-        "lehrstelle-fachfrau-fachmann-gesundheit-efz-2027-spital-sts-zweisimmen"
+        "lehrstelle-fachfrau-fachmann-gesundheit-efz-2027-spital-sts-zweisimmen",
+        "apprendistato-fachfrau-fachmann-gesundheit-cfc-2027-spital-sts-zweisimmen"
       ],
       "salaryMin": 76000,
       "salaryMax": 106000,
@@ -1137,9 +1161,9 @@
       "id": "spital-sts-3dc1587cb769",
       "slug": "spettacolo-di-pulizia-specialista-dell-hotel-spital-sts-zweisimmen",
       "slugByLocale": {
+        "de": "fachfrau-hauswirtschaft-hotellerie-spital-sts-zweisimmen",
         "it": "spettacolo-di-pulizia-specialista-dell-hotel-spital-sts-zweisimmen",
         "en": "housekeeping-hotelry-specialist-spital-sts-zweisimmen",
-        "de": "fachfrau-hauswirtschaft-hotellerie-spital-sts-zweisimmen",
         "fr": "specialiste-de-l-entretien-et-de-l-hotellerie-spital-sts-zweisimmen"
       },
       "company": "Spital STS",
@@ -1221,9 +1245,9 @@
       "id": "spital-sts-96bb2130dc6f",
       "slug": "invito-a-un-caffe-familiare-spital-sts-thun",
       "slugByLocale": {
+        "de": "einladung-zu-einem-kennenlern-kaffee-spital-sts-thun",
         "it": "invito-a-un-caffe-familiare-spital-sts-thun",
         "en": "invitation-to-a-familiar-coffee-spital-sts-thun",
-        "de": "einladung-zu-einem-kennenlern-kaffee-spital-sts-thun",
         "fr": "invitation-a-un-cafe-familier-spital-sts-thun"
       },
       "company": "Spital STS",
@@ -1304,10 +1328,10 @@
       "id": "spital-sts-194e1f6c949a",
       "slug": "psicologo-nella-cura-psichiatrica-dell-acuto-a-casa-pah-spital-sts-thun",
       "slugByLocale": {
-        "it": "psicologo-nella-cura-psichiatrica-dell-acuto-a-casa-pah-spital-sts-thun",
-        "en": "psicologo-nella-cura-psichiatrica-dell-acuto-a-casa-pah-spital-sts-thun",
         "de": "psycholog-in-psychiatrische-akutbehandlung-zu-hause-pah-spital-sts-thun",
-        "fr": "psicologo-nella-cura-psichiatrica-dell-acuto-a-casa-pah-spital-sts-thun"
+        "it": "psicologo-nella-cura-psichiatrica-dell-acuto-a-casa-pah-spital-sts-thun",
+        "en": "psychologist-acute-psychiatric-treatment-at-home-pah-spital-sts-thun",
+        "fr": "psychologue-en-traitement-psychiatrique-aigu-a-domicile-htap-spital-sts-thun"
       },
       "company": "Spital STS",
       "companyKey": "spital-sts",
@@ -1381,10 +1405,10 @@
       "id": "spital-sts-f75193e156a3",
       "slug": "esperto-a-di-terapia-intensiva-nds-hf-spital-sts-thun",
       "slugByLocale": {
-        "it": "esperto-a-di-terapia-intensiva-nds-hf-spital-sts-thun",
-        "en": "esperto-a-di-terapia-intensiva-nds-hf-spital-sts-thun",
         "de": "experte-expertin-intensivpflege-nds-hf-spital-sts-thun",
-        "fr": "expert-en-soins-intensifs-nds-hf-spital-sts-thun"
+        "fr": "expert-en-soins-intensifs-nds-hf-spital-sts-thun",
+        "it": "esperto-a-di-terapia-intensiva-nds-hf-spital-sts-thun",
+        "en": "expert-expert-intensive-care-nds-hf-spital-sts-thun"
       },
       "company": "Spital STS",
       "companyKey": "spital-sts",
@@ -1458,9 +1482,9 @@
       "id": "spital-sts-69f6cb995fca",
       "slug": "assistenza-sanitaria-professionale-due-semplici-spital-sts-zweisimmen",
       "slugByLocale": {
+        "de": "fachfrau-mann-gesundheit-pflege-zweisimmen-spital-sts-zweisimmen",
         "it": "assistenza-sanitaria-professionale-due-semplici-spital-sts-zweisimmen",
         "en": "professional-health-care-two-simples-spital-sts-zweisimmen",
-        "de": "fachfrau-mann-gesundheit-pflege-zweisimmen-spital-sts-zweisimmen",
         "fr": "soins-de-sante-professionnels-deux-simples-spital-sts-zweisimmen"
       },
       "company": "Spital STS",
@@ -1854,10 +1878,10 @@
       "id": "spital-sts-ae25f9397091",
       "slug": "specialista-di-radiologia-specialista-di-radiologia-hf-spital-sts-zweisimmen",
       "slugByLocale": {
-        "it": "specialista-di-radiologia-specialista-di-radiologia-hf-spital-sts-zweisimmen",
-        "en": "radiology-specialist-radiology-specialist-hf-spital-sts-zweisimmen",
         "de": "radiologiefachfrau-radiologiefachmann-hf-spital-sts-zweisimmen",
-        "fr": "specialiste-en-radiologie-specialiste-en-radiologie-hf-spital-sts-zweisimmen"
+        "en": "radiology-specialist-radiology-specialist-hf-spital-sts-zweisimmen",
+        "fr": "specialiste-en-radiologie-specialiste-en-radiologie-hf-spital-sts-zweisimmen",
+        "it": "specialista-di-radiologia-specialista-di-radiologia-hf-spital-sts-zweisimmen"
       },
       "company": "Spital STS",
       "companyKey": "spital-sts",
@@ -1903,13 +1927,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
-        "it": [
-          "radiologiefachfrau-radiologiefachmann-hf-spital-sts-zweisimmen"
-        ],
         "en": [
           "radiologiefachfrau-radiologiefachmann-hf-spital-sts-zweisimmen"
         ],
         "fr": [
+          "radiologiefachfrau-radiologiefachmann-hf-spital-sts-zweisimmen"
+        ],
+        "it": [
           "radiologiefachfrau-radiologiefachmann-hf-spital-sts-zweisimmen"
         ]
       },
@@ -1938,9 +1962,9 @@
       "id": "spital-sts-41366f25fdfb",
       "slug": "medico-r-assistente-pratico-in-angiologia-spital-sts-thun",
       "slugByLocale": {
+        "de": "medizinische-r-praxisassistent-in-angiologie-spital-sts-thun",
         "it": "medico-r-assistente-pratico-in-angiologia-spital-sts-thun",
         "en": "medical-r-practical-assistant-in-angiology-spital-sts-thun",
-        "de": "medizinische-r-praxisassistent-in-angiologie-spital-sts-thun",
         "fr": "assistante-pratique-medicale-en-angiologie-spital-sts-thun"
       },
       "company": "Spital STS",
@@ -2018,9 +2042,9 @@
       "id": "spital-sts-d189caacfb23",
       "slug": "salute-professionale-spital-sts-thun",
       "slugByLocale": {
+        "de": "fachfrau-fachmann-gesundheit-spital-sts-thun",
         "it": "salute-professionale-spital-sts-thun",
         "en": "professional-health-spital-sts-thun",
-        "de": "fachfrau-fachmann-gesundheit-spital-sts-thun",
         "fr": "sante-professionnelle-spital-sts-thun"
       },
       "company": "Spital STS",
@@ -2103,9 +2127,9 @@
       "id": "spital-sts-7a0da6b9787b",
       "slug": "dipl-specialista-di-radiologia-specialista-di-radiologia-hf-spital-sts-thun",
       "slugByLocale": {
+        "de": "dipl-radiologiefachfrau-radiologiefachmann-hf-spital-sts-thun",
         "it": "dipl-specialista-di-radiologia-specialista-di-radiologia-hf-spital-sts-thun",
         "en": "dipl-radiology-specialist-radiology-specialist-hf-spital-sts-thun",
-        "de": "dipl-radiologiefachfrau-radiologiefachmann-hf-spital-sts-thun",
         "fr": "dipl-specialiste-en-radiologie-specialiste-en-radiologie-hf-spital-sts-thun"
       },
       "company": "Spital STS",
@@ -2186,9 +2210,9 @@
       "id": "spital-sts-c3a6c4f02ee3",
       "slug": "responsabile-dell-istruzione-r-anesthesia-care-spital-sts-thun",
       "slugByLocale": {
+        "de": "bildungsverantwortliche-r-anasthesiepflege-spital-sts-thun",
         "it": "responsabile-dell-istruzione-r-anesthesia-care-spital-sts-thun",
         "en": "responsible-for-education-r-anesthesia-care-spital-sts-thun",
-        "de": "bildungsverantwortliche-r-anasthesiepflege-spital-sts-thun",
         "fr": "responsable-de-l-education-soins-anesthesiques-spital-sts-thun"
       },
       "company": "Spital STS",
@@ -2268,9 +2292,9 @@
       "id": "spital-sts-383c1c35c376",
       "slug": "medico-di-servizio-medicina-di-servizio-spital-sts-zweisimmen",
       "slugByLocale": {
+        "de": "dienstarztin-dienstarzt-medizin-spital-sts-zweisimmen",
         "it": "medico-di-servizio-medicina-di-servizio-spital-sts-zweisimmen",
         "en": "service-doctor-service-doctor-medicine-spital-sts-zweisimmen",
-        "de": "dienstarztin-dienstarzt-medizin-spital-sts-zweisimmen",
         "fr": "medecin-de-service-medecin-de-service-medecine-spital-sts-zweisimmen"
       },
       "company": "Spital STS",
@@ -2351,9 +2375,9 @@
       "id": "spital-sts-415591b28a8b",
       "slug": "dipl-infermieristica-professionale-dipl-infermieristica-professionale-temporanea-spital-sts-thun",
       "slugByLocale": {
+        "de": "dipl-pflegefachfrau-dipl-pflegefachmann-befristet-spital-sts-thun",
         "it": "dipl-infermieristica-professionale-dipl-infermieristica-professionale-temporanea-spital-sts-thun",
         "en": "dipl-nursing-professional-dipl-nursing-professional-temporary-spital-sts-thun",
-        "de": "dipl-pflegefachfrau-dipl-pflegefachmann-befristet-spital-sts-thun",
         "fr": "dipl-professionnels-des-soins-infirmiers-dipl-professionnels-des-soins-infirmiers-temporaires-spital-sts-thun"
       },
       "company": "Spital STS",
@@ -2434,9 +2458,9 @@
       "id": "spital-sts-637a3256afe9",
       "slug": "specialista-centro-di-emergenza-specializzato-spital-sts-thun",
       "slugByLocale": {
+        "de": "facharztin-facharzt-notfallzentrum-spital-sts-thun",
         "it": "specialista-centro-di-emergenza-specializzato-spital-sts-thun",
         "en": "specialist-specialist-emergency-center-spital-sts-thun",
-        "de": "facharztin-facharzt-notfallzentrum-spital-sts-thun",
         "fr": "specialiste-centre-d-urgence-specialise-spital-sts-thun"
       },
       "company": "Spital STS",
@@ -2517,9 +2541,9 @@
       "id": "spital-sts-9d1a00acea99",
       "slug": "psycholog-in-fsp-sbap-triage-ambulatorium-spital-sts-thun",
       "slugByLocale": {
+        "de": "psycholog-in-fsp-sbap-triage-ambulatorium-spital-sts-thun",
         "it": "psycholog-in-fsp-sbap-triage-ambulatorium-spital-sts-thun",
         "en": "psychologist-fsp-sbap-triage-ambulatory-spital-sts-thun",
-        "de": "psycholog-in-fsp-sbap-triage-ambulatorium-spital-sts-thun",
         "fr": "psychologue-fsp-sbap-triage-ambulatoire-spital-sts-thun"
       },
       "company": "Spital STS",
@@ -2587,9 +2611,9 @@
       "id": "spital-sts-6b06021ab08b",
       "slug": "dipl-ostetrica-nella-camera-di-nascita-spital-sts-thun",
       "slugByLocale": {
+        "de": "dipl-hebamme-im-gebarsaal-spital-sts-thun",
         "it": "dipl-ostetrica-nella-camera-di-nascita-spital-sts-thun",
         "en": "dipl-midwife-in-the-birth-room-spital-sts-thun",
-        "de": "dipl-hebamme-im-gebarsaal-spital-sts-thun",
         "fr": "dipl-une-sage-femme-dans-la-salle-de-naissance-spital-sts-thun"
       },
       "company": "Spital STS",
@@ -3576,11 +3600,11 @@
     },
     {
       "id": "spital-sts-32382235547a",
-      "slug": "pflegefachfachperson-dipl-o-fage-come-springer-in-chirurgie-spital-sts-thun",
+      "slug": "specialista-infermieristico-dipl-o-fage-come-saltatore-trice-in-chirurgia-spital-sts-thun",
       "slugByLocale": {
-        "it": "pflegefachfachperson-dipl-o-fage-come-springer-in-chirurgie-spital-sts-thun",
-        "en": "pflegefachfachperson-dipl-oder-fage-als-springer-in-chirurgie-spital-sts-thun",
         "de": "pflegefachfachperson-dipl-oder-fage-als-springer-in-chirurgie-spital-sts-thun",
+        "it": "specialista-infermieristico-dipl-o-fage-come-saltatore-trice-in-chirurgia-spital-sts-thun",
+        "en": "pflegefachfachperson-dipl-oder-fage-als-springer-in-chirurgie-spital-sts-thun",
         "fr": "specialiste-en-soins-infirmiers-diplome-ou-assc-en-tant-que-chirurgien-sauteur-spital-sts-thun"
       },
       "company": "Spital STS",
@@ -3628,14 +3652,16 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "it": [
-          "pflegefachfachperson-dipl-oder-fage-als-springer-in-chirurgie-spital-sts-thun"
+          "pflegefachfachperson-dipl-oder-fage-als-springer-in-chirurgie-spital-sts-thun",
+          "pflegefachfachperson-dipl-o-fage-come-springer-in-chirurgie-spital-sts-thun"
         ],
         "fr": [
           "pflegefachfachperson-dipl-oder-fage-als-springer-in-chirurgie-spital-sts-thun"
         ]
       },
       "previousSlugs": [
-        "pflegefachfachperson-dipl-oder-fage-als-springer-in-chirurgie-spital-sts-thun"
+        "pflegefachfachperson-dipl-oder-fage-als-springer-in-chirurgie-spital-sts-thun",
+        "pflegefachfachperson-dipl-o-fage-come-springer-in-chirurgie-spital-sts-thun"
       ],
       "salaryMin": 85000,
       "salaryMax": 119000,
@@ -3659,9 +3685,9 @@
       "id": "spital-sts-f6a3170b4eeb",
       "slug": "stellvertretende-r-responsabile-pflege-onkologie-spital-sts-thun",
       "slugByLocale": {
+        "de": "stellvertretende-r-leiter-in-pflege-onkologie-spital-sts-thun",
         "it": "stellvertretende-r-responsabile-pflege-onkologie-spital-sts-thun",
         "en": "deputy-head-of-nursing-oncology-spital-sts-thun",
-        "de": "stellvertretende-r-leiter-in-pflege-onkologie-spital-sts-thun",
         "fr": "responsable-adjoint-e-des-soins-en-oncologie-spital-sts-thun"
       },
       "company": "Spital STS",
@@ -3741,11 +3767,11 @@
     },
     {
       "id": "spital-sts-4c677666b194",
-      "slug": "fachfrau-mann-gesundheit-medizin-orthopala-spital-sts-thun",
+      "slug": "specialista-in-medicina-ortopedia-spital-sts-thun",
       "slugByLocale": {
-        "it": "fachfrau-mann-gesundheit-medizin-orthopala-spital-sts-thun",
-        "en": "specialist-health-medicine-orthopaedics-spital-sts-thun",
         "de": "fachfrau-mann-gesundheit-medizin-orthopadie-spital-sts-thun",
+        "it": "specialista-in-medicina-ortopedia-spital-sts-thun",
+        "en": "specialist-health-medicine-orthopaedics-spital-sts-thun",
         "fr": "specialiste-en-medecine-de-la-sante-orthopedie-spital-sts-thun"
       },
       "company": "Spital STS",
@@ -3793,7 +3819,8 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "it": [
-          "fachfrau-mann-gesundheit-medizin-orthopadie-spital-sts-thun"
+          "fachfrau-mann-gesundheit-medizin-orthopadie-spital-sts-thun",
+          "fachfrau-mann-gesundheit-medizin-orthopala-spital-sts-thun"
         ],
         "en": [
           "fachfrau-mann-gesundheit-medizin-orthopadie-spital-sts-thun"
@@ -3803,7 +3830,8 @@
         ]
       },
       "previousSlugs": [
-        "fachfrau-mann-gesundheit-medizin-orthopadie-spital-sts-thun"
+        "fachfrau-mann-gesundheit-medizin-orthopadie-spital-sts-thun",
+        "fachfrau-mann-gesundheit-medizin-orthopala-spital-sts-thun"
       ],
       "salaryMin": 85000,
       "salaryMax": 119000,
@@ -3827,9 +3855,9 @@
       "id": "spital-sts-747ac0afc740",
       "slug": "dipl-infermieristica-professionale-dipl-infermieristica-professionale-spital-sts-thun",
       "slugByLocale": {
+        "de": "dipl-pflegefachfrau-dipl-pflegefachmann-spital-sts-thun",
         "it": "dipl-infermieristica-professionale-dipl-infermieristica-professionale-spital-sts-thun",
         "en": "dipl-nursing-professional-dipl-nursing-professional-spital-sts-thun",
-        "de": "dipl-pflegefachfrau-dipl-pflegefachmann-spital-sts-thun",
         "fr": "dipl-professionnels-des-soins-infirmiers-dipl-professionnels-des-soins-infirmiers-spital-sts-thun"
       },
       "company": "Spital STS",
@@ -3910,9 +3938,9 @@
       "id": "spital-sts-047306fbcf37",
       "slug": "assistente-medico-assistente-medico-centro-di-emergenza-spital-sts-thun",
       "slugByLocale": {
+        "de": "assistenzarztin-assistenzarzt-notfallzentrum-spital-sts-thun",
         "it": "assistente-medico-assistente-medico-centro-di-emergenza-spital-sts-thun",
         "en": "assistant-doctor-assistant-doctor-emergency-center-spital-sts-thun",
-        "de": "assistenzarztin-assistenzarzt-notfallzentrum-spital-sts-thun",
         "fr": "assistant-medecin-assistant-medecin-centre-d-urgence-spital-sts-thun"
       },
       "company": "Spital STS",
@@ -3993,9 +4021,9 @@
       "id": "spital-sts-75d9b43314b1",
       "slug": "med-praxisassistent-in-walk-in-praxis-spital-sts-thun",
       "slugByLocale": {
+        "de": "med-praxisassistent-in-walk-in-praxis-spital-sts-thun",
         "it": "med-praxisassistent-in-walk-in-praxis-spital-sts-thun",
         "en": "medical-practice-assistant-walk-in-practice-spital-sts-thun",
-        "de": "med-praxisassistent-in-walk-in-praxis-spital-sts-thun",
         "fr": "assistant-e-medical-e-au-cabinet-de-walk-in-spital-sts-thun"
       },
       "company": "Spital STS",

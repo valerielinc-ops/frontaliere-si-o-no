@@ -385,9 +385,9 @@
       "id": "senevita-0b235656663f",
       "slug": "formazione-per-diplomato-a-in-assistenza-infermieristica-hf-senevita-arbon-tg",
       "slugByLocale": {
+        "de": "ausbildung-zur-dipl-pflegefachperson-hf-senevita-arbon-tg",
         "it": "formazione-per-diplomato-a-in-assistenza-infermieristica-hf-senevita-arbon-tg",
         "en": "training-for-dipl-care-professional-hf-senevita-arbon-tg",
-        "de": "ausbildung-zur-dipl-pflegefachperson-hf-senevita-arbon-tg",
         "fr": "formation-pour-devenir-assistant-e-en-soins-infirmiers-hf-senevita-arbon-tg"
       },
       "company": "Senevita",
@@ -8826,7 +8826,7 @@
         "it": "apprendistato-assistent-in-gesundheit-e-soziales-afp-senevita-ittigen-be",
         "en": "assistant-in-health-and-social-affairs-eba-senevita-ittigen-be",
         "de": "lehrstelle-assistent-in-gesundheit-und-soziales-eba-senevita-ittigen-be",
-        "fr": "place-d-apprentissage-d-aide-en-soins-et-accompagnement-afp-senevita-be-ittigen"
+        "fr": "assistant-en-sante-et-affaires-sociales-eba-senevita-ittigen-be"
       },
       "company": "Senevita",
       "companyKey": "senevita",
@@ -8872,7 +8872,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "lehrstelle-assistent-in-gesundheit-und-soziales-eba-senevita-be-ittigen",
-        "assistant-en-sante-et-affaires-sociales-eba-senevita-ittigen-be"
+        "place-d-apprentissage-d-aide-en-soins-et-accompagnement-afp-senevita-be-ittigen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -8882,7 +8882,7 @@
           "lehrstelle-assistent-in-gesundheit-und-soziales-eba-senevita-be-ittigen"
         ],
         "fr": [
-          "assistant-en-sante-et-affaires-sociales-eba-senevita-ittigen-be"
+          "place-d-apprentissage-d-aide-en-soins-et-accompagnement-afp-senevita-be-ittigen"
         ]
       },
       "salaryMin": 66000,
@@ -9145,11 +9145,11 @@
     },
     {
       "id": "senevita-ab87165956c1",
-      "slug": "apprendistato-fachfrau-mann-betriebsunterhalt-cfc-senevita-bs-basel",
+      "slug": "apprendistato-manutenzione-aziendale-afc-senevita-bs-basel",
       "slugByLocale": {
-        "it": "apprendistato-fachfrau-mann-betriebsunterhalt-cfc-senevita-bs-basel",
-        "en": "apprenticeship-as-a-specialist-in-operational-maintenance-efz-senevita-bs-basel",
         "de": "lehrstelle-fachfrau-mann-betriebsunterhalt-efz-senevita-bs-basel",
+        "it": "apprendistato-manutenzione-aziendale-afc-senevita-bs-basel",
+        "en": "apprenticeship-as-a-specialist-in-operational-maintenance-efz-senevita-bs-basel",
         "fr": "poste-d-apprentissage-de-specialiste-en-entretien-d-entreprise-cfc-senevita-bs-basel"
       },
       "company": "Senevita",
@@ -9197,7 +9197,8 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-fachfrau-mann-betriebsunterhalt-efz-senevita-bs-basel"
+          "lehrstelle-fachfrau-mann-betriebsunterhalt-efz-senevita-bs-basel",
+          "apprendistato-fachfrau-mann-betriebsunterhalt-cfc-senevita-bs-basel"
         ],
         "en": [
           "lehrstelle-fachfrau-mann-betriebsunterhalt-efz-senevita-bs-basel"
@@ -9207,7 +9208,8 @@
         ]
       },
       "previousSlugs": [
-        "lehrstelle-fachfrau-mann-betriebsunterhalt-efz-senevita-bs-basel"
+        "lehrstelle-fachfrau-mann-betriebsunterhalt-efz-senevita-bs-basel",
+        "apprendistato-fachfrau-mann-betriebsunterhalt-cfc-senevita-bs-basel"
       ],
       "salaryMin": 52000,
       "salaryMax": 78500,
@@ -12503,11 +12505,11 @@
     },
     {
       "id": "senevita-50c7ff21efa9",
-      "slug": "collaboratore-trice-in-hauswirtschaft-im-stundenlohn-40-senevita-be-thun",
+      "slug": "impiegato-a-di-economia-domestica-con-retribuzione-oraria-del-40-senevita-be-thun",
       "slugByLocale": {
-        "it": "collaboratore-trice-in-hauswirtschaft-im-stundenlohn-40-senevita-be-thun",
-        "en": "housekeeping-employee-at-an-hourly-wage-40-senevita-be-thun",
         "de": "mitarbeiter-in-hauswirtschaft-im-stundenlohn-40-senevita-be-thun",
+        "it": "impiegato-a-di-economia-domestica-con-retribuzione-oraria-del-40-senevita-be-thun",
+        "en": "housekeeping-employee-at-an-hourly-wage-40-senevita-be-thun",
         "fr": "employe-e-de-menage-remunere-e-a-l-heure-40-senevita-be-thun"
       },
       "company": "Senevita",
@@ -12555,7 +12557,8 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-hauswirtschaft-im-stundenlohn-40-senevita-be-thun"
+          "mitarbeiter-in-hauswirtschaft-im-stundenlohn-40-senevita-be-thun",
+          "collaboratore-trice-in-hauswirtschaft-im-stundenlohn-40-senevita-be-thun"
         ],
         "en": [
           "mitarbeiter-in-hauswirtschaft-im-stundenlohn-40-senevita-be-thun"
@@ -12565,7 +12568,8 @@
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-hauswirtschaft-im-stundenlohn-40-senevita-be-thun"
+        "mitarbeiter-in-hauswirtschaft-im-stundenlohn-40-senevita-be-thun",
+        "collaboratore-trice-in-hauswirtschaft-im-stundenlohn-40-senevita-be-thun"
       ],
       "salaryMin": 27000,
       "salaryMax": 33800,

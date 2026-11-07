@@ -711,12 +711,12 @@
     },
     {
       "id": "ete-c11986411b2b",
-      "slug": "chauffeur-chauffeuse-kat-c-e-m-w-d-abloser-springer-vollzeit-o-teilzeit-emil-egger-ag-harkingen",
+      "slug": "autista-chauffeuse-cat-c-e-m-f-d-distaccatore-springer-tempo-pieno-o-part-time-emil-egger-ag-harkingen-c1198641",
       "slugByLocale": {
         "de": "chauffeur-chauffeuse-kat-c-e-m-w-d-abloser-springer-vollzeit-oder-teilzeit-emil-egger-ag-harkingen-c1198641",
-        "it": "chauffeur-chauffeuse-kat-c-e-m-w-d-abloser-springer-vollzeit-o-teilzeit-emil-egger-ag-harkingen",
-        "en": "chauffeur-chauffeuse-kat-c-e-m-w-d-abloser-springer-vollzeit-oder-teilzeit-emil-egger-ag-harkingen-c1198641",
-        "fr": "chauffeur-chauffeuse-kat-c-e-m-w-d-abloser-springer-vollzeit-oder-teilzeit-emil-egger-ag-harkingen-c1198641"
+        "it": "autista-chauffeuse-cat-c-e-m-f-d-distaccatore-springer-tempo-pieno-o-part-time-emil-egger-ag-harkingen-c1198641",
+        "en": "chauffeur-chauffeuse-cat-c-e-m-f-d-soldier-springer-full-time-or-part-time-emil-egger-ag-harkingen-c1198641",
+        "fr": "chauffeur-chauffeuse-cat-c-e-h-f-d-soldat-springer-soldat-a-temps-plein-ou-a-temps-partiel-emil-egger-ag-c1198641"
       },
       "slugDisambiguator": "c1198641",
       "company": "Emil Egger AG",
@@ -762,11 +762,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "chauffeur-chauffeuse-kat-c-e-m-w-d-abloser-springer-vollzeit-oder-teilzeit-emil-egger-ag-harkingen-c1198641",
+          "chauffeur-chauffeuse-kat-c-e-m-w-d-abloser-springer-vollzeit-o-teilzeit-emil-egger-ag-harkingen"
+        ],
+        "en": [
+          "chauffeur-chauffeuse-kat-c-e-m-w-d-abloser-springer-vollzeit-oder-teilzeit-emil-egger-ag-harkingen-c1198641"
+        ],
+        "fr": [
           "chauffeur-chauffeuse-kat-c-e-m-w-d-abloser-springer-vollzeit-oder-teilzeit-emil-egger-ag-harkingen-c1198641"
         ]
       },
       "previousSlugs": [
-        "chauffeur-chauffeuse-kat-c-e-m-w-d-abloser-springer-vollzeit-oder-teilzeit-emil-egger-ag-harkingen-c1198641"
+        "chauffeur-chauffeuse-kat-c-e-m-w-d-abloser-springer-vollzeit-oder-teilzeit-emil-egger-ag-harkingen-c1198641",
+        "chauffeur-chauffeuse-kat-c-e-m-w-d-abloser-springer-vollzeit-o-teilzeit-emil-egger-ag-harkingen"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -1468,12 +1476,12 @@
     },
     {
       "id": "ete-9d77545a14c0",
-      "slug": "ausnahmetransportbegleiter-in-100-emil-egger-ag-avenches-9d77545a",
+      "slug": "accompagnatore-di-trasporto-eccezionale-100-emil-egger-ag-avenches-9d77545a",
       "slugByLocale": {
         "de": "ausnahmetransportbegleiter-in-100-emil-egger-ag-avenches-9d77545a",
-        "it": "ausnahmetransportbegleiter-in-100-emil-egger-ag-avenches-9d77545a",
-        "en": "ausnahmetransportbegleiter-in-100-emil-egger-ag-avenches-9d77545a",
-        "fr": "ausnahmetransportbegleiter-in-100-emil-egger-ag-avenches-9d77545a"
+        "it": "accompagnatore-di-trasporto-eccezionale-100-emil-egger-ag-avenches-9d77545a",
+        "en": "exceptional-transport-companion-100-emil-egger-ag-avenches-9d77545a",
+        "fr": "accompagnateur-trice-de-transport-d-exception-100-emil-egger-ag-avenches-9d77545a"
       },
       "slugDisambiguator": "9d77545a",
       "company": "Emil Egger AG",
@@ -1535,16 +1543,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-01T09:48:47.097Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-02T21:28:27.102Z"
+      "firstSeenAt": "2026-11-02T21:28:27.102Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "ausnahmetransportbegleiter-in-100-emil-egger-ag-avenches-9d77545a"
+        ],
+        "en": [
+          "ausnahmetransportbegleiter-in-100-emil-egger-ag-avenches-9d77545a"
+        ],
+        "fr": [
+          "ausnahmetransportbegleiter-in-100-emil-egger-ag-avenches-9d77545a"
+        ]
+      },
+      "previousSlugs": [
+        "ausnahmetransportbegleiter-in-100-emil-egger-ag-avenches-9d77545a"
+      ]
     },
     {
       "id": "ete-c82204245f74",
-      "slug": "accompagnateur-trice-de-transport-exceptionnel-ne-100-emil-egger-ag-avenches-c8220424",
+      "slug": "eccezionale-trasporto-escort-100-emil-egger-ag-avenches-c8220424",
       "slugByLocale": {
         "fr": "accompagnateur-trice-de-transport-exceptionnel-ne-100-emil-egger-ag-avenches-c8220424",
-        "it": "accompagnateur-trice-de-transport-exceptionnel-ne-100-emil-egger-ag-avenches-c8220424",
-        "en": "accompagnateur-trice-de-transport-exceptionnel-ne-100-emil-egger-ag-avenches-c8220424",
-        "de": "accompagnateur-trice-de-transport-exceptionnel-ne-100-emil-egger-ag-avenches-c8220424"
+        "it": "eccezionale-trasporto-escort-100-emil-egger-ag-avenches-c8220424",
+        "en": "exceptional-transport-escort-100-emil-egger-ag-avenches-c8220424",
+        "de": "au-ergewohnliche-transportbegleitung-100-emil-egger-ag-avenches-c8220424"
       },
       "slugDisambiguator": "c8220424",
       "company": "Emil Egger AG",
@@ -1605,7 +1627,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-05T09:48:47.097Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-06T21:31:42.866Z"
+      "firstSeenAt": "2026-11-06T21:31:42.866Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "accompagnateur-trice-de-transport-exceptionnel-ne-100-emil-egger-ag-avenches-c8220424"
+        ],
+        "en": [
+          "accompagnateur-trice-de-transport-exceptionnel-ne-100-emil-egger-ag-avenches-c8220424"
+        ],
+        "de": [
+          "accompagnateur-trice-de-transport-exceptionnel-ne-100-emil-egger-ag-avenches-c8220424"
+        ]
+      },
+      "previousSlugs": [
+        "accompagnateur-trice-de-transport-exceptionnel-ne-100-emil-egger-ag-avenches-c8220424"
+      ]
     },
     {
       "id": "ete-fdeaf0694e27",

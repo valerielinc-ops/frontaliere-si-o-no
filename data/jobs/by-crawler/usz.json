@@ -17935,12 +17935,12 @@
     },
     {
       "id": "usz-021bf1a70567",
-      "slug": "spezialpflege-pflegeexpertin-pflegeexperte-m-w-d-per-unser-imc-stroke-center-neurochirurgie-80-universitatsspital-zurich-usz-zurich",
+      "slug": "cure-speciali-infermiera-esperta-infermiera-esperta-m-f-d-per-il-nostro-imc-stroke-center-neurochirurgia-80",
       "slugByLocale": {
-        "it": "spezialpflege-pflegeexpertin-pflegeexperte-m-w-d-per-unser-imc-stroke-center-neurochirurgie-80-universitatsspital-zurich-usz-zurich",
-        "en": "spezialpflege-pflegeexpertin-pflegeexperte-w-m-d-fur-unser-imc-stroke-center",
         "de": "spezialpflege-pflegeexpertin-pflegeexperte-w-m-d-fur-unser-imc-stroke-center",
-        "fr": "spezialpflege-pflegeexpertin-pflegeexperte-w-m-d-fur-unser-imc-stroke-center"
+        "it": "cure-speciali-infermiera-esperta-infermiera-esperta-m-f-d-per-il-nostro-imc-stroke-center-neurochirurgia-80",
+        "en": "special-care-nursing-expert-nursing-expert-m-f-d-for-our-imc-stroke-center-neurosurgery-80-universitatsspital-zurich-usz",
+        "fr": "soins-speciaux-expert-en-soins-infirmiers-expert-en-soins-infirmiers-h-f-d-pour-notre-imc-centre-d-avc-neurochirurgie-80"
       },
       "company": "Universitätsspital Zürich (USZ)",
       "companyKey": "usz",
@@ -17986,11 +17986,19 @@
       "needsRetranslation": false,
       "previousSlugsByLocale": {
         "it": [
+          "spezialpflege-pflegeexpertin-pflegeexperte-w-m-d-fur-unser-imc-stroke-center",
+          "spezialpflege-pflegeexpertin-pflegeexperte-m-w-d-per-unser-imc-stroke-center-neurochirurgie-80-universitatsspital-zurich-usz-zurich"
+        ],
+        "en": [
+          "spezialpflege-pflegeexpertin-pflegeexperte-w-m-d-fur-unser-imc-stroke-center"
+        ],
+        "fr": [
           "spezialpflege-pflegeexpertin-pflegeexperte-w-m-d-fur-unser-imc-stroke-center"
         ]
       },
       "previousSlugs": [
-        "spezialpflege-pflegeexpertin-pflegeexperte-w-m-d-fur-unser-imc-stroke-center"
+        "spezialpflege-pflegeexpertin-pflegeexperte-w-m-d-fur-unser-imc-stroke-center",
+        "spezialpflege-pflegeexpertin-pflegeexperte-m-w-d-per-unser-imc-stroke-center-neurochirurgie-80-universitatsspital-zurich-usz-zurich"
       ],
       "salaryMin": 58800,
       "salaryMax": 89200,

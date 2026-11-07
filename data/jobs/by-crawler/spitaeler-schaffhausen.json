@@ -4505,12 +4505,12 @@
     },
     {
       "id": "spitaeler-schaffhausen-d77298c96e01",
-      "slug": "oberarzt-oberarztin-pneumologie-spitaeler-schaffhausen-schaffhausen",
+      "slug": "pneumologia-del-medico-senior-spitaler-schaffhausen-schaffhausen",
       "slugByLocale": {
         "de": "oberarzt-oberarztin-pneumologie-spitaeler-schaffhausen-schaffhausen",
-        "it": "oberarzt-oberarztin-pneumologie-spitaeler-schaffhausen-schaffhausen",
-        "en": "oberarzt-oberarztin-pneumologie-spitaeler-schaffhausen-schaffhausen",
-        "fr": "oberarzt-oberarztin-pneumologie-spitaeler-schaffhausen-schaffhausen"
+        "it": "pneumologia-del-medico-senior-spitaler-schaffhausen-schaffhausen",
+        "en": "senior-physician-pneumology-spitaler-schaffhausen-schaffhausen",
+        "fr": "pneumologie-chez-le-medecin-principal-spitaler-schaffhausen-schaffhausen"
       },
       "company": "Spitäler Schaffhausen",
       "companyKey": "spitaeler-schaffhausen",
@@ -4572,7 +4572,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-04T22:04:55.323Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-06T22:04:55.323Z"
+      "firstSeenAt": "2026-11-06T22:04:55.323Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "oberarzt-oberarztin-pneumologie-spitaeler-schaffhausen-schaffhausen"
+        ],
+        "en": [
+          "oberarzt-oberarztin-pneumologie-spitaeler-schaffhausen-schaffhausen"
+        ],
+        "fr": [
+          "oberarzt-oberarztin-pneumologie-spitaeler-schaffhausen-schaffhausen"
+        ]
+      },
+      "previousSlugs": [
+        "oberarzt-oberarztin-pneumologie-spitaeler-schaffhausen-schaffhausen"
+      ]
     }
   ]
 }

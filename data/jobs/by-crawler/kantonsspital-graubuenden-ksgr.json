@@ -99,9 +99,12 @@
       "employmentType": "60 - 100%",
       "category": "Gesundheitswesen",
       "crawledAt": "2026-11-07T09:28:09.358Z",
-      "slug": "pflegefachfrau-pflegefachmann-akutgeriatrie-kantonsspital-graubunden-walenstadt",
+      "slug": "infermiera-nurse-specialista-geriatria-acuta-kantonsspital-graubunden-walenstadt",
       "slugByLocale": {
-        "de": "pflegefachfrau-pflegefachmann-akutgeriatrie-kantonsspital-graubunden-walenstadt"
+        "de": "pflegefachfrau-pflegefachmann-akutgeriatrie-kantonsspital-graubunden-walenstadt",
+        "it": "infermiera-nurse-specialista-geriatria-acuta-kantonsspital-graubunden-walenstadt",
+        "en": "nurse-nurse-specialist-acute-geriatrics-kantonsspital-graubunden-walenstadt",
+        "fr": "infirmiere-infirmiere-specialiste-de-la-geriatrie-aigue-kantonsspital-graubunden-walenstadt"
       },
       "titleByLocale": {
         "de": "Pflegefachfrau / Pflegefachmann Akutgeriatrie",
@@ -135,7 +138,15 @@
       "salaryMax": 114000,
       "currency": "CHF",
       "salarySource": "reported",
-      "firstSeenAt": "2026-11-06T21:49:32.612Z"
+      "firstSeenAt": "2026-11-06T21:49:32.612Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "pflegefachfrau-pflegefachmann-akutgeriatrie-kantonsspital-graubunden-walenstadt"
+        ]
+      },
+      "previousSlugs": [
+        "pflegefachfrau-pflegefachmann-akutgeriatrie-kantonsspital-graubunden-walenstadt"
+      ]
     },
     {
       "id": "10252994",

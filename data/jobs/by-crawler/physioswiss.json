@@ -19159,12 +19159,12 @@
     },
     {
       "id": "physioswiss-39e7b2162785",
-      "slug": "physiotherapeut-in-w-m-d-40-100-physio-swiss-richterswil",
+      "slug": "fisioterapista-m-f-d-40-100-physio-swiss-zurigo",
       "slugByLocale": {
-        "it": "physiotherapeut-in-w-m-d-40-100-physio-swiss-richterswil",
-        "en": "physiotherapeut-in-w-m-d-40-100-physio-swiss-richterswil",
         "de": "physiotherapeut-in-w-m-d-40-100-physiotherapie-schenk-ag-seestrasse-13-8805-richterswil",
-        "fr": "physiotherapeut-in-w-m-d-40-100-physio-swiss-richterswil"
+        "it": "fisioterapista-m-f-d-40-100-physio-swiss-zurigo",
+        "en": "physiotherapist-m-f-d-40-100-physio-swiss-zurigo",
+        "fr": "physiotherapeute-h-f-d-40-100-physio-swiss-zurigo"
       },
       "company": "Physio swiss",
       "companyKey": "physioswiss",
@@ -19208,11 +19208,19 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "it": [
-          "physiotherapeut-in-w-m-d-40-100-physiotherapie-schenk-ag-seestrasse-13-8805-richterswil"
+          "physiotherapeut-in-w-m-d-40-100-physiotherapie-schenk-ag-seestrasse-13-8805-richterswil",
+          "physiotherapeut-in-w-m-d-40-100-physio-swiss-richterswil"
+        ],
+        "en": [
+          "physiotherapeut-in-w-m-d-40-100-physio-swiss-richterswil"
+        ],
+        "fr": [
+          "physiotherapeut-in-w-m-d-40-100-physio-swiss-richterswil"
         ]
       },
       "previousSlugs": [
-        "physiotherapeut-in-w-m-d-40-100-physiotherapie-schenk-ag-seestrasse-13-8805-richterswil"
+        "physiotherapeut-in-w-m-d-40-100-physiotherapie-schenk-ag-seestrasse-13-8805-richterswil",
+        "physiotherapeut-in-w-m-d-40-100-physio-swiss-richterswil"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -19407,12 +19415,12 @@
     },
     {
       "id": "physioswiss-bab5e00256a5",
-      "slug": "physiotherapeute-a-80-100-physio-swiss-etoy",
+      "slug": "fisioterapia-a-80-100-physio-swiss-1163-etoy",
       "slugByLocale": {
-        "it": "physiotherapeute-a-80-100-physio-swiss-etoy",
-        "en": "physiotherapeute-a-80-100-physio-swiss-etoy",
-        "de": "physiotherapie-bei-80-100-physio-swiss-etoy",
-        "fr": "physiotherapeute-a-80-100-1163-etoy-physioswiss-ch"
+        "fr": "physiotherapeute-a-80-100-1163-etoy-physioswiss-ch",
+        "it": "fisioterapia-a-80-100-physio-swiss-1163-etoy",
+        "en": "physiotherapy-at-80-100-physio-swiss-1163-etoy",
+        "de": "physiotherapie-bei-80-100-physio-swiss-1163-etoy"
       },
       "company": "Physio swiss",
       "companyKey": "physioswiss",
@@ -19457,14 +19465,21 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "it": [
-          "physiotherapeute-a-80-100-1163-etoy-physioswiss-ch"
+          "physiotherapeute-a-80-100-1163-etoy-physioswiss-ch",
+          "physiotherapeute-a-80-100-physio-swiss-etoy"
         ],
         "de": [
-          "physiotherapeute-a-80-100-1163-etoy-physioswiss-ch"
+          "physiotherapeute-a-80-100-1163-etoy-physioswiss-ch",
+          "physiotherapie-bei-80-100-physio-swiss-etoy"
+        ],
+        "en": [
+          "physiotherapeute-a-80-100-physio-swiss-etoy"
         ]
       },
       "previousSlugs": [
-        "physiotherapeute-a-80-100-1163-etoy-physioswiss-ch"
+        "physiotherapeute-a-80-100-1163-etoy-physioswiss-ch",
+        "physiotherapeute-a-80-100-physio-swiss-etoy",
+        "physiotherapie-bei-80-100-physio-swiss-etoy"
       ],
       "salaryMin": 60500,
       "salaryMax": 91500,
