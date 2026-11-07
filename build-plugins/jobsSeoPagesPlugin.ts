@@ -84,7 +84,6 @@ import { hasRecordedJobIdentity, unverifiedJobCopy } from './shared/jobArchiveEv
 import { augmentExpiredSliceIndex, ExpiredSliceOverflow } from './shared/expiredSliceOverflow';
 import { createExpiredArchivePublicationEvidence } from './shared/expiredArchivePublicationEvidence.mjs';
 import { truncateCodeUnits } from './shared/safeTruncate';
-import { buildSoftLandingThinHtml } from './shared/softLandingThinShell';
 import { buildGscKeywordThinBody, GSC_KEYWORD_THIN_HEAD_SCRIPT } from './shared/gscKeywordThinShell';
 import { shouldEmitLocale } from './shared/localeEmitFilter';
 import { archivedJobOgImageUrl, versionedJobOgImageUrl } from './shared/jobOgImageVersion.mjs';
@@ -1495,15 +1494,14 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  let bridgeFullCount = 0;
  let bridgeThinCount = 0;
  let softLandingFullCount = 0;
- let softLandingThinCount = 0;
- // Track ACTUAL bytes saved per page (full length − thin length). The
- // counters above record FILTER DECISIONS — when buildBridgeThinHtml /
- // buildSoftLandingThinHtml's regex doesn't match (e.g. PR #729 bug
- // before that fix landed), the helper returns the cached HTML
- // unchanged, the decision still says "thin" but the byte saving is
- // zero. These two trackers surface that discrepancy in the build log.
+ // Keep the soft-landing tier fields in aggregate build logs. Expired pages
+ // now always emit the full body, so these two values remain zero by design.
+ const softLandingThinCount = 0;
+ const softLandingBytesSaved = 0;
+ // Track ACTUAL bytes saved per page for the bridge and GSC tiers. Their
+ // counters record filter decisions; a converter can return unchanged HTML,
+ // so these deltas are the ground truth for output-size savings.
  let bridgeBytesSaved = 0;
- let softLandingBytesSaved = 0;
  let skippedFilesystemLimitPaths = 0;
  let skippedUnsafeDistPaths = 0;
  // GSC keyword landings (`/cerca-lavoro-X/ricerca-Y/`, `/en/find-jobs-X/
@@ -14539,43 +14537,18 @@ ${staticAnalyticsHtml}
  const expiredWindowData = inlineScriptJson(expiredDataObj);
 
  recordPhase('ejp:title', __tEjpTitle);
- // Substantial-content retention (memory-safe): keep the full frontalier
- // prose + FAQ ONLY on expired pages with REAL 90d GSC/GA4 traffic
- // (decideMulti reason 'has-traffic'), so the recently-trafficked-now-expired
- // URLs stay above the thin-content threshold and retain ranking + the search
- // traffic the ad RPM already monetises. Deliberately gated on reason, NOT
- // action!=='thin': the prior attempt (#2005, reverted by #2027) OOMed the
- // build because action!=='thin' also kept prose for every freshly-emitted
- // page in the minAgeDays 'grace' window (~900 expired/build) — too many ~2KB
- // strings in the write collector. 'has-traffic' is the small, high-value set
- // (the pages that actually had traffic), so the per-build prose count — and
- // memory — is bounded. Grace/no-traffic pages stay stripped + thin-shelled.
+ // Substantial-content retention (memory-safe): keep the supplemental frontalier
+ // prose + FAQ only on expired pages with real 90d GSC/GA4 traffic. This gate also
+ // controls the Auto Ads snippet. It no longer controls shell replacement: every
+ // expired URL publishes the complete static body assembled below.
  //
- // Two gates, two DELIBERATELY DIFFERENT path-sets — built from ONE shared base
- // (the candidate builder, hoisted above the body) so the per-locale legacy-path
- // evidence idiom lives in exactly one place (no drift by construction):
- //   • Thin-shell gate (__slDecision) probes __slCandidatePaths:
- //     relPath + the current locale's own legacy bridge (only when locale!=='it',
- //     because the IT legacy section IS the canonical relPath for a TI IT page) +
- //     every OTHER locale's legacy section path.
- //   • Prose / Auto-Ads gate (__slKeepProse) probes __slProsePaths = the candidate
- //     set PLUS the IT-locale legacy mirror `/cerca-lavoro-ticino/${slug}`
- //     UNCONDITIONALLY. This restores the original __slProsePaths semantics, which
- //     looped over ALL locales (incl. the current one) and so ALWAYS included the IT
- //     legacy section path. gsc-job-urls / gsc-orphan-job-slugs are IT-only sources
- //     stored at `/cerca-lavoro-ticino/${slug}/`, so for an IT-locale canton-aware
- //     page (relPath = `/cerca-lavoro-argovia/${slug}` etc.) that IT mirror is the
- //     ONLY historical signal — dropping it from the prose gate would strip prose +
- //     Auto Ads from genuinely-trafficked expired pages (reviewer 🔴, PR #2397).
- //     The two sets are NOT set-equal for the IT locale: that gap is intentional and
- //     scope-correct, not duplication — so we keep distinct sets but a single builder.
- // The IT mirror is appended (with dedup) rather than folded into __slCandidatePaths
- // so the THIN gate's set stays byte-identical to its prior behaviour (widening it
- // would flip some IT canton-aware pages thin→full, changing the emitted shell +
- // build footprint — out of scope here).
+ // Candidate paths include the current locale path, its legacy bridge (when
+ // distinct), and the other locales' legacy paths. The prose/Auto-Ads gate adds
+ // the IT legacy mirror unconditionally because GSC orphan sources are IT-only.
+ // For an IT canton-aware path, that mirror can be the only historical traffic
+ // signal; preserve it so real traffic retains the supplemental prose and ads.
  // PR #743 lesson: non-IT locale legacy paths remain valid traffic candidates
- // because old requests are redirected by the edge — probe relPath + every
- // locale variant without materialising another expired page here.
+ // because old requests are redirected by the edge.
  const __slCandidatePaths: string[] = [relPath];
  if (locale !== 'it') {
  const __slLegacyRel = `/${localePrefix[locale]}/${sectionByLocale[locale]}/${slug}`.replace(/\/+/g, '/');
@@ -14595,10 +14568,9 @@ ${staticAnalyticsHtml}
  : [...__slCandidatePaths, __slItLegacyMirror];
  const __slKeepProse = trafficFilter.decideMulti(__slProsePaths, 'soft-landing-expired').reason === 'has-traffic';
  const __tEjpDecide = phaseTimer();
- const __slDecision = trafficFilter.decideMulti(__slCandidatePaths, 'soft-landing-expired');
- // Owner contract: traffic volume cannot remove a recorded job's content.
- const __slAction: 'full' | 'thin' =
- hasRealTitle ? 'full' : __slDecision.action === 'thin' ? 'thin' : 'full';
+ // Owner contract: every expired URL keeps the complete generated body.
+ // `action` is part of the reuse input so older cached thin shells are invalidated.
+ const __slAction: 'full' = 'full';
  recordPhase('ejp:decide', __tEjpDecide);
  // `expiredPayloadJson` is the SAME string the template below interpolates into
  // `<script>window.__EXPIRED_JOB_DATA__=…</script>`, and `postalCode` the same
@@ -14711,13 +14683,6 @@ ${staticAnalyticsHtml}
  // (jobCanton, sameCompanyActiveJobs, etc. are hoisted above; displayCanton
  // is resolved per-locale earlier in this loop iteration, not hoisted.)
  const staticBodyParts: string[] = [];
- if (__slAction === 'thin') {
-  // The existing thin-shell conversion keeps this H1 and discards the rest.
-  // Avoid building that discarded body; robots, metadata and the final shell
-  // still follow the same path below.
-  staticBodyParts.push(`<h1>${esc(jobTitle)}${jobCompany ? ` — ${esc(jobCompany)}` : ''}</h1>`);
-  if (STRIP_EXPIRED_JOB_PROSE) staticBodyParts.push(EJP_STRIPPED_MARKER);
- } else {
  // Keep the crawler-first-paint version visually aligned with the hydrated
  // JobExpiredView: one readable column, a clear identity block, then the
  // full description and the supporting facts. The class names are intentionally
@@ -14880,7 +14845,6 @@ ${staticAnalyticsHtml}
  // Audit opt-out marker: text-html-ratio (and other content-quality gates)
  // skip pages carrying this marker, since prose has been deliberately stripped.
  if (STRIP_EXPIRED_JOB_PROSE) staticBodyParts.push(EJP_STRIPPED_MARKER);
- }
  const staticBody = staticBodyParts.join('\n');
  recordPhase('ejp:body', __tEjpBody);
 
@@ -14966,33 +14930,11 @@ ${staticAnalyticsHtml}
  );
  recordPhase('ejp:shell', __tEjpShell);
 
- // Tiered emission for soft-landings. Same filter + evidence flow as
- // previousSlug bridges: URL with traffic stays full; URL without and
- // matching an approved pattern becomes a thin shell (HEAD verbatim,
- // article body replaced by a slim h1+p≥50 words). See
- // build-plugins/shared/softLandingThinShell.ts.
- // Reuses the hoisted `__slCandidatePaths` (built above the body, single
- // source of truth) — same candidate set that gated `__slKeepProse`, so the
- // prose gate and the thin-shell gate can never diverge. (Reviewer HIGH #1
- // cross-locale safety net + PR #743 legacy-locale bridge probe are baked
- // into that builder.)
- //
- // Timed separately (ph:ejp:thin): it re-scans the whole freshly-built
- // document — stripScriptsAndStyles + an <h1> match + a canonical match + a
- // JSON-LD parse + a lazy `[\s\S]*?` article replace — on 149k pages, and
- // none of that was attributable before.
- const __tEjpThin = phaseTimer();
- softLandingHtml =
- __slAction === 'thin'
- ? buildSoftLandingThinHtml(__slFullHtml, locale)
- : __slFullHtml;
- recordPhase('ejp:thin', __tEjpThin);
- if (__slAction === 'thin') {
- softLandingThinCount++;
- softLandingBytesSaved += __slFullHtml.length - softLandingHtml.length;
- } else {
+ // Publish the complete static article for every expired URL. The former
+ // thin-shell transform discarded this body after it had already been built;
+ // complete archived content stays on its canonical URL now.
+ softLandingHtml = __slFullHtml;
  softLandingFullCount++;
- }
  } else {
   softLandingHtml = jobsSeoReuse.reusedHtml(softLandingReuse, STATIC_PAGE_BUILD_ID) || softLandingReuse.html;
   // A cache hit already carries the robots directive computed for identical manifest inputs.
@@ -15000,8 +14942,7 @@ ${staticAnalyticsHtml}
   if (locale === 'it') {
    itBodyWordCount = htmlHasIndexableRobots(softLandingHtml) ? MIN_INDEXABLE_WORDS : 0;
   }
-  if (__slAction === 'thin') softLandingThinCount++;
-  else softLandingFullCount++;
+  softLandingFullCount++;
  }
  jobsSeoReuse?.finish(softLandingReuse, softLandingHtml);
 
