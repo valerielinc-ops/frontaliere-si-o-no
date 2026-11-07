@@ -1557,10 +1557,13 @@ jobs:
           DEPLOY_BUILD_ID: ${{ needs.matrix-setup.outputs.build_id }}
           # Runs ONLY step_push_cdn (+ nothing else) and returns.
           DEPLOY_CDN_PUSH_ONLY: '1'
-          # Fail fast here: og/ can exceed 900s, and two 900s attempts outlast
-          # this step's 45 minutes. Run 41579534959 lost them that way and the IT
-          # leg hit the 6h job cap. The retry below keeps the 900s default.
-          R2_TIMEOUT_OG_S: '300'
+          # Use the regular per-attempt OG bound on the first push. On run
+          # 42313737885 the 300s override timed out twice on a 33,243-file,
+          # 1.23 GB OG delta; the whole early step reached 45m. Its retry with
+          # the 900s default completed the full CDN push in 33m18s. Keeping the
+          # measured bound here avoids spending one full step on a known-short
+          # per-attempt limit; the existing 45m step timeout remains the cap.
+          R2_TIMEOUT_OG_S: '900'
         run: bash scripts/lib/deploy-it-pages-prep.sh
 
       # One more try BEFORE the section fan-out gives up. A failed early push
