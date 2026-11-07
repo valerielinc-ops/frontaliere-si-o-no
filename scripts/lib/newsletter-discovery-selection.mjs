@@ -11,6 +11,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { ARTICLES_API_BASE } from './articles-api-base.mjs';
+import { LIVE_ARTICLE_META_USER_AGENT, normalizeArticlePageText } from './live-article-meta.mjs';
 import { parseAttributes } from './meta-description-extract.mjs';
 
 export const DISCOVERY_ARTICLES_ARTIFACT = 'data/discovery-articles.json';
@@ -41,7 +42,6 @@ const DEFAULT_HTTP_TIMEOUT_MS = 5_000;
 const DEFAULT_HTTP_RETRIES = 2;
 const MAX_HTTP_RETRIES = 5;
 const DEFAULT_ROUTE_RETRIES = 1;
-const ROUTE_CHECK_USER_AGENT = 'FrontaliereTicinoMetaWait/1.0 (+https://frontaliereticino.ch)';
 const MIN_ARTICLE_BODY_TEXT_LENGTH = 80;
 
 /**
@@ -405,31 +405,6 @@ export async function loadOptionalDiscoveryArticleIndexFromHttp(options = {}) {
   }
 }
 
-function normalizePageText(value) {
-  return String(value || '')
-    .replace(/&(?:amp|lt|gt|quot|apos|nbsp|#39|rsquo|lsquo|ndash|mdash);/giu, (entity) => {
-      const normalized = entity.toLowerCase();
-      switch (normalized) {
-        case '&amp;': return '&';
-        case '&lt;': return '<';
-        case '&gt;': return '>';
-        case '&quot;': return '"';
-        case '&apos;':
-        case '&#39;': return "'";
-        case '&rsquo;': return '’';
-        case '&lsquo;': return '‘';
-        case '&nbsp;': return ' ';
-        case '&ndash;': return '–';
-        case '&mdash;': return '—';
-        default: return entity;
-      }
-    })
-    .normalize('NFKC')
-    .replace(/\u00a0/gu, ' ')
-    .replace(/\s+/gu, ' ')
-    .trim();
-}
-
 function findArticlePageValue(html, tagName, predicate, attributeName) {
   const tagRx = new RegExp(`<${tagName}\\b((?:[^>"']|"[^"]*"|'[^']*')*)>`, 'giu');
   let match;
@@ -448,12 +423,12 @@ function pageTitleMatches(html, expectedTitle) {
     'content',
   );
   const title = html.match(/<title\b[^>]*>([\s\S]*?)<\/title>/iu)?.[1] || '';
-  const expected = normalizePageText(expectedTitle);
-  const candidates = [normalizePageText(ogTitle), normalizePageText(title)].filter(Boolean);
+  const expected = normalizeArticlePageText(expectedTitle);
+  const candidates = [normalizeArticlePageText(ogTitle), normalizeArticlePageText(title)].filter(Boolean);
   return candidates.some((candidate) => {
     if (candidate === expected) return true;
     if (candidate.includes('|')) {
-      return normalizePageText(candidate.split('|').slice(0, -1).join('|')) === expected;
+      return normalizeArticlePageText(candidate.split('|').slice(0, -1).join('|')) === expected;
     }
     return false;
   });
@@ -470,7 +445,7 @@ function articlePageHasBody(html) {
       .replace(/<(script|style)\b[^>]*>[\s\S]*?<\/\1\s*>/giu, ' ')
       .replace(/<!--([\s\S]*?)-->/gu, ' ')
       .replace(/<[^>]*>/gu, ' ');
-    return normalizePageText(text).length >= MIN_ARTICLE_BODY_TEXT_LENGTH;
+    return normalizeArticlePageText(text).length >= MIN_ARTICLE_BODY_TEXT_LENGTH;
   }
   return false;
 }
@@ -531,7 +506,7 @@ export async function checkDiscoveryArticleRoute(article, locale, {
       const responsePromise = Promise.resolve().then(() => fetchImpl(requestUrl, {
         redirect: 'follow',
         headers: {
-          'User-Agent': ROUTE_CHECK_USER_AGENT,
+          'User-Agent': LIVE_ARTICLE_META_USER_AGENT,
           'Cache-Control': 'no-cache',
           Pragma: 'no-cache',
         },
