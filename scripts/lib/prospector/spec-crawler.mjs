@@ -1277,11 +1277,13 @@ function parseListingEndpointResponse(body, companyKey, endpoint = {}) {
  * corresponding source-backed terminal guard for generated `rel="next"` links.
  * `numberedPagePattern` is an explicit source contract for indexes whose
  * continuation is exposed as adjacent numeric `<a>` controls instead of
- * `rel="next"`; it is applied to the URL pathname and must capture the page
- * number in group 1.
+ * `rel="next"`; it is applied to the URL pathname by default and must capture
+ * the page number in group 1. `numberedPageQueryParam` moves that match to a
+ * declared query parameter for sources whose pagination state is not in the
+ * pathname.
  *
  * @param {import('./synthesize.mjs').CrawlerSpec} spec
- * @returns {{ maxPages: number, minCoverage: number, declaredTotalRx: RegExp|null, declaredPageCountRx: RegExp|null, numberedPageRx: RegExp|null, stopAfterDeclaredPageCount: boolean, pageStateParams: string[], selfNextIsTerminal: boolean, countDuplicateRowsForCoverage: boolean }}
+ * @returns {{ maxPages: number, minCoverage: number, declaredTotalRx: RegExp|null, declaredPageCountRx: RegExp|null, numberedPageRx: RegExp|null, numberedPageQueryParam: string, stopAfterDeclaredPageCount: boolean, pageStateParams: string[], selfNextIsTerminal: boolean, countDuplicateRowsForCoverage: boolean }}
  */
 export function normalizeSpecPagination(spec) {
   const raw = spec?.pagination && typeof spec.pagination === 'object' ? spec.pagination : {};
@@ -1298,6 +1300,9 @@ export function normalizeSpecPagination(spec) {
   const numberedPageRx = raw.numberedPagePattern
     ? new RegExp(String(raw.numberedPagePattern), 'i')
     : null;
+  const numberedPageQueryParam = typeof raw.numberedPageQueryParam === 'string'
+    ? raw.numberedPageQueryParam.trim()
+    : '';
   const stopAfterDeclaredPageCount = raw.stopAfterDeclaredPageCount === true;
   const pageStateParams = Array.isArray(raw.pageStateParams)
     ? raw.pageStateParams.map((name) => String(name || '').trim()).filter(Boolean)
@@ -1310,6 +1315,7 @@ export function normalizeSpecPagination(spec) {
     declaredTotalRx,
     declaredPageCountRx,
     numberedPageRx,
+    numberedPageQueryParam,
     stopAfterDeclaredPageCount,
     pageStateParams,
     selfNextIsTerminal,
@@ -1405,11 +1411,12 @@ function listingIdentityUrl(rawUrl) {
  *
  * @param {string} html
  * @param {string} pageUrl
- * @param {{ numberedPageRx?: RegExp|null }} [pagination]
+ * @param {{ numberedPageRx?: RegExp|null, numberedPageQueryParam?: string }} [pagination]
  * @returns {string|null}
  */
 function findNumberedNextListingPageUrl(html, pageUrl, pagination) {
   const numberedPageRx = pagination?.numberedPageRx;
+  const numberedPageQueryParam = pagination?.numberedPageQueryParam || '';
   if (!(numberedPageRx instanceof RegExp)) return null;
   let current;
   try {
@@ -1417,7 +1424,7 @@ function findNumberedNextListingPageUrl(html, pageUrl, pagination) {
   } catch {
     return null;
   }
-  const currentPage = numberedPageNumber(current, numberedPageRx) ?? 1;
+  const currentPage = numberedPageNumber(current, numberedPageRx, numberedPageQueryParam) ?? 1;
   const sourceHtml = String(html || '');
   const tagRx = /<(?:a|link)\b[^>]*>/gi;
   let tag;
@@ -1431,7 +1438,7 @@ function findNumberedNextListingPageUrl(html, pageUrl, pagination) {
       continue;
     }
     if (next.origin !== current.origin) continue;
-    if (numberedPageNumber(next, numberedPageRx) !== currentPage + 1) continue;
+    if (numberedPageNumber(next, numberedPageRx, numberedPageQueryParam) !== currentPage + 1) continue;
     next.hash = '';
     return next.href;
   }
@@ -1447,7 +1454,7 @@ function findNumberedNextListingPageUrl(html, pageUrl, pagination) {
  *
  * @param {string} html
  * @param {string} pageUrl
- * @param {{ numberedPageRx?: RegExp|null }} [pagination]
+ * @param {{ numberedPageRx?: RegExp|null, numberedPageQueryParam?: string }} [pagination]
  * @returns {string|null}
  */
 export function findNextListingPageUrl(html, pageUrl, pagination) {
@@ -1581,10 +1588,14 @@ function extractNumberedListingControl(sourceHtml, tag, tagEnd) {
   return { tagName, hrefValue };
 }
 
-function numberedPageNumber(url, numberedPageRx) {
+function numberedPageNumber(url, numberedPageRx, numberedPageQueryParam = '') {
   if (!(numberedPageRx instanceof RegExp)) return null;
+  const pageValue = numberedPageQueryParam
+    ? url.searchParams.get(numberedPageQueryParam)
+    : url.pathname;
+  if (pageValue == null) return null;
   numberedPageRx.lastIndex = 0;
-  const match = numberedPageRx.exec(url.pathname);
+  const match = numberedPageRx.exec(pageValue);
   numberedPageRx.lastIndex = 0;
   const number = Number(match?.[1] || '');
   return Number.isInteger(number) && number > 0 ? number : null;

@@ -40,6 +40,7 @@ function fixtures(subject: Subject, datePosted: unknown, listingDate: unknown = 
     if (subject === 'etavis') return url.includes('/job/') ? detail : listing;
     if (subject === 'josef-mueller') return url.includes('/companies/') ? listing : detail;
     if (subject === 'kispi') return url.includes('/offene-stellen/') ? detail : listing;
+    if (subject === 'sro') return url.includes('/karriere/stellenangebote/') ? listing : detail;
     return detail;
   });
   io.json.mockImplementation(async () => subject === 'givaudan'

@@ -679,7 +679,10 @@ describe('wait-cdn-build-id.sh — #7049 keeps readiness time out of the marker 
     expect(r.code).toBe(1);
     expect(r.outputs.cdn_ready_result).toBe('timeout');
     expect(r.outputs.cdn_wait_result).toBe('it_ready_timeout');
-    expect(r.outputs.cdn_ready_waited_s).toBe('1');
+    // Bash SECONDS has one-second granularity, and runner scheduling can make
+    // the measured duration exceed the nominal timeout by a tick. The
+    // fail-closed result and untouched marker budget are the actual contract.
+    expect(Number(r.outputs.cdn_ready_waited_s)).toBeGreaterThanOrEqual(1);
     expect(r.outputs.cdn_waited_s).toBe('0');
     expect(r.stdout).not.toMatch(/phase 2\/2: gating shard publish/);
   });

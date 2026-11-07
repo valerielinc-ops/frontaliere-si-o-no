@@ -1,7 +1,7 @@
 {
   "crawlerKey": "valora",
-  "assembledAt": "2026-11-07T09:20:32.885Z",
-  "runId": "42358216515",
+  "assembledAt": "2026-11-07T21:15:43.939Z",
+  "runId": "42414277814",
   "jobs": [
     {
       "id": "valora-8f50a504dbf4",
@@ -34,7 +34,7 @@
       "url": "https://career.valora.com/en/job/12939/agenturpartnerin-agenturpartner-kanton-graubunden",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-07T09:20:22.962Z",
+      "crawledAt": "2026-11-07T21:15:35.680Z",
       "addressLocality": "Graubünden",
       "addressRegion": "Graubünden",
       "streetAddress": "Graubünden",
@@ -84,7 +84,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-07T09:20:22.962Z",
+      "validThrough": "2026-12-07T21:15:35.680Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -118,7 +118,7 @@
       "url": "https://career.valora.com/en/job/21041/verkauferin-verkaufer-k-kiosk-15-std",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-07T09:20:22.961Z",
+      "crawledAt": "2026-11-07T21:15:35.678Z",
       "addressLocality": "Uetendorf",
       "addressRegion": "Bern",
       "streetAddress": "Dorfstrasse 32",
@@ -168,7 +168,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-07T09:20:22.961Z",
+      "validThrough": "2026-12-07T21:15:35.678Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -202,7 +202,7 @@
       "url": "https://career.valora.com/en/job/20001/agenturpartnerin-agenturpartner-prattigau",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-07T09:20:22.961Z",
+      "crawledAt": "2026-11-07T21:15:35.678Z",
       "addressLocality": "Graubünden",
       "addressRegion": "Graubünden",
       "streetAddress": "Graubünden",
@@ -253,7 +253,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-07T09:20:22.961Z",
+      "validThrough": "2026-12-07T21:15:35.678Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -287,7 +287,7 @@
       "url": "https://career.valora.com/en/job/21161/mitarbeiter-instandhaltung-w-m-d",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-07T09:20:22.959Z",
+      "crawledAt": "2026-11-07T21:15:35.677Z",
       "addressLocality": "Emmenbrücke",
       "addressRegion": "Luzern",
       "streetAddress": "Neuenkirchstrasse 91",
@@ -331,7 +331,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-07T09:20:22.959Z",
+      "validThrough": "2026-12-07T21:15:35.677Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -365,7 +365,7 @@
       "url": "https://career.valora.com/en/job/21590/verkauferin-verkaufer-k-kiosk-15-std",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-07T09:20:22.942Z",
+      "crawledAt": "2026-11-07T21:15:35.657Z",
       "addressLocality": "Kandersteg",
       "addressRegion": "Bern",
       "streetAddress": "Bahnhofstrasse 7",
@@ -415,7 +415,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-07T09:20:22.942Z",
+      "validThrough": "2026-12-07T21:15:35.657Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -449,7 +449,7 @@
       "url": "https://career.valora.com/en/job/12937/agenturpartnerin-agenturpartner-kanton-bern",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-07T09:20:22.941Z",
+      "crawledAt": "2026-11-07T21:15:35.656Z",
       "addressLocality": "Bern",
       "addressRegion": "Bern",
       "streetAddress": "Bahnhof",
@@ -499,7 +499,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-07T09:20:22.941Z",
+      "validThrough": "2026-12-07T21:15:35.656Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -533,7 +533,7 @@
       "url": "https://career.valora.com/en/job/12938/agenturpartnerin-agenturpartner-kanton-solothurn",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-07T09:20:22.940Z",
+      "crawledAt": "2026-11-07T21:15:35.655Z",
       "addressLocality": "Solothurn",
       "addressRegion": "Solothurn",
       "streetAddress": "Bahnhof",
@@ -585,7 +585,89 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-07T09:20:22.940Z",
+      "validThrough": "2026-12-07T21:15:35.655Z",
+      "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "valora-99fef9aece64",
+      "slug": "expansion-lease-svizzera-valora-group-muttenz",
+      "slugByLocale": {
+        "it": "expansion-lease-svizzera-valora-group-muttenz",
+        "en": "lead-expansion-lease-switzerland-valora-muttenz",
+        "de": "lead-expansion-lease-switzerland-valora-muttenz",
+        "fr": "expansion-et-location-de-plomb-suisse-valora-group-muttenz"
+      },
+      "company": "Valora Group",
+      "companyKey": "valora",
+      "companyDomain": "valora.com",
+      "title": "Lead Expansion & Lease Switzerland",
+      "titleByLocale": {
+        "it": "Expansion & Lease Svizzera",
+        "en": "Lead Expansion & Lease Switzerland",
+        "de": "Lead Expansion & Lease Switzerland",
+        "fr": "Expansion et location de plomb Suisse"
+      },
+      "description": "Aufgaben, die Dir gefallen werden\n• Umsetzung der Expansionsstrategie mit Schwerpunkt auf Neueröffnungen und Optimierung bestehender Standorte für unsere Retail und Food Service Formate in der Schweiz\n• Suche, Analyse und Bewertung neuer Standorte hinsichtlich ihrer Wirtschaftlichkeit und Eignung\n• Führen der Mietabteilung, Überwachung der SOX-Kontrollen und Pflege der Verträge im Tradenet-System\n• Verhandlung und Abschluss von Mietverträgen mit Vermietern und Eigentümern zur Sicherstellung optimaler Konditionen\n• Fachliche und disziplinarische Führung des Expansions- und Mietteams (Expansion sowie administrative Unterstützung im Leasemanagement) zur Umsetzung der Expansionsstrategie\n• Koordination und Management von Projekten im Zusammenhang mit der Eröffnung neuer Verkaufsstellen\n• Durchführung von Marktanalysen und Wettbewerbsbeobachtung, um Trends und Expansionsmöglichkeiten zu identifizieren\n• Erstellung und Überwachung von Budgets für Expansionsprojekte sowie Sicherstellung der Einhaltung finanzieller Vorgaben\n• Zusammenarbeit mit internen Abteilungen (u.a. Bau, Verkauf, Facility Management und Controlling), externen Partnern und Behörden, um den Expansionsprozess effizient zu unterstützen Voraussetzungen, die Du mitbringst\n• Nachgewiesene Erfahrung in einer vergleichbaren Position mit Schwerpunkt auf Expansion und Leasemanagement im Detailhandel und Convenience Geschäft\n• Ausgeprägter Unternehmergeist, hohe Kundenorientierung und Durchsetzungsstärke sowie Erfahrung in der Führung von Teams\n• Selbstständige, strukturierte Arbeitsweise sowie strategisches und vernetztes Denken\n• Freude, sich immer wieder neuen Herausforderungen zu stellen und in einem dynamischen Umfeld zu arbeiten\n• Verhandlungssichere Deutsch- sowie gute Englischkenntnisse, Französisch von Vorteil Vorteile, die wir Dir bieten\n• Ein dynamisches Arbeitsumfeld mit Freiraum für Ideen und Kreativität\n• Eine DU-Kultur\n• Persönliche Entwicklungs- und Weiterbildungsmöglichkeiten\n• Mitarbeitervergünstigungen und Rabatte bei den Valora Formaten\n• Faire Anstellungsbedingungen\n• Homeofficeregelung",
+      "descriptionByLocale": {
+        "it": "Compiti che ti piacerà\n• Attuazione della strategia di espansione con focus sulle nuove aperture e l'ottimizzazione delle sedi esistenti per i nostri formati di servizi al dettaglio e alimentare in Svizzera\n• Ricerca, analisi e valutazione di nuove sedi per quanto riguarda l'efficienza economica e l'idoneità\n• Gestione del reparto noleggio, monitoraggio dei controlli SOX e mantenimento dei contratti nel sistema Tradenet\n• Negoziazione e conclusione di contratti di locazione con proprietari e proprietari per garantire condizioni ottimali\n• Gestione professionale e disciplinare del team di espansione e noleggio (espansione e supporto amministrativo nella gestione delle locazioni) per implementare la strategia di espansione\n• Coordinamento e gestione dei progetti relativi all'apertura di nuovi punti vendita\n• Condurre l'analisi del mercato e l'osservazione competitiva per identificare le tendenze e le opportunità di espansione\n• Preparazione e monitoraggio dei bilanci per i progetti di espansione e garantire il rispetto dei requisiti finanziari\n• Collaborazione con i dipartimenti interni (compresa la costruzione, le vendite, la gestione delle strutture e il controllo), partner esterni e autorità per sostenere efficacemente il processo di espansione\n• Esperienza comprovata in una posizione paragonabile con un focus sull'espansione e la gestione del contratto di vendita al dettaglio e convenienza\n• Forte spirito imprenditoriale, alto orientamento e assertività del cliente e l'esperienza nei principali team\n• Metodo di lavoro indipendente, strutturato e pensiero strategico e in rete\n• Il piacere di affrontare costantemente nuove sfide e di lavorare in un ambiente dinamico\n• A prova di negoziazione tedesco e buone abilità inglese, francese vantaggi vantaggiosi che vi offriamo\n• Un ambiente di lavoro dinamico con libertà di idee e creatività\n• Una cultura DU\n• Opportunità di sviluppo personale e formazione\n• Vantaggi e sconti dei dipendenti nei formati Valora\n• Condizioni dell'occupazione\n• Home Ufficio Scheme",
+        "en": "Tasks you will like\n• Implementation of the expansion strategy with focus on new openings and optimization of existing locations for our retail and food service formats in Switzerland\n• Search, analysis and evaluation of new locations with regard to their economic efficiency and suitability\n• Managing the rental department, monitoring SOX controls and maintaining contracts in the Tradenet system\n• Negotiation and conclusion of lease contracts with landlords and owners to ensure optimal conditions\n• Professional and disciplinary management of the expansion and rental team (expansion and administrative support in lease management) to implement the expansion strategy\n• Coordination and management of projects related to the opening of new outlets\n• Conducting market analysis and competitive observation to identify trends and expansion opportunities\n• Preparation and monitoring of budgets for expansion projects and ensuring compliance with financial requirements\n• Collaboration with internal departments (including construction, sales, facility management and controlling), external partners and authorities to efficiently support the expansion process\n• Proven experience in a comparable position with a focus on expansion and lease management in the retail and convenience business\n• Strong entrepreneurial spirit, high customer orientation and assertiveness as well as experience in leading teams\n• Independent, structured working method as well as strategic and networked thinking\n• The pleasure of constantly facing new challenges and working in a dynamic environment\n• Negotiation-proof German and good English skills, French advantageous advantages that we offer you\n• A dynamic working environment with freedom for ideas and creativity\n• A DU culture\n• Personal development and training opportunities\n• Employee benefits and discounts in the Valora formats\n• Fair employment conditions\n• Home Office Scheme",
+        "de": "Aufgaben, die Dir gefallen werden\n• Umsetzung der Expansionsstrategie mit Schwerpunkt auf Neueröffnungen und Optimierung bestehender Standorte für unsere Retail und Food Service Formate in der Schweiz\n• Suche, Analyse und Bewertung neuer Standorte hinsichtlich ihrer Wirtschaftlichkeit und Eignung\n• Führen der Mietabteilung, Überwachung der SOX-Kontrollen und Pflege der Verträge im Tradenet-System\n• Verhandlung und Abschluss von Mietverträgen mit Vermietern und Eigentümern zur Sicherstellung optimaler Konditionen\n• Fachliche und disziplinarische Führung des Expansions- und Mietteams (Expansion sowie administrative Unterstützung im Leasemanagement) zur Umsetzung der Expansionsstrategie\n• Koordination und Management von Projekten im Zusammenhang mit der Eröffnung neuer Verkaufsstellen\n• Durchführung von Marktanalysen und Wettbewerbsbeobachtung, um Trends und Expansionsmöglichkeiten zu identifizieren\n• Erstellung und Überwachung von Budgets für Expansionsprojekte sowie Sicherstellung der Einhaltung finanzieller Vorgaben\n• Zusammenarbeit mit internen Abteilungen (u.a. Bau, Verkauf, Facility Management und Controlling), externen Partnern und Behörden, um den Expansionsprozess effizient zu unterstützen Voraussetzungen, die Du mitbringst\n• Nachgewiesene Erfahrung in einer vergleichbaren Position mit Schwerpunkt auf Expansion und Leasemanagement im Detailhandel und Convenience Geschäft\n• Ausgeprägter Unternehmergeist, hohe Kundenorientierung und Durchsetzungsstärke sowie Erfahrung in der Führung von Teams\n• Selbstständige, strukturierte Arbeitsweise sowie strategisches und vernetztes Denken\n• Freude, sich immer wieder neuen Herausforderungen zu stellen und in einem dynamischen Umfeld zu arbeiten\n• Verhandlungssichere Deutsch- sowie gute Englischkenntnisse, Französisch von Vorteil Vorteile, die wir Dir bieten\n• Ein dynamisches Arbeitsumfeld mit Freiraum für Ideen und Kreativität\n• Eine DU-Kultur\n• Persönliche Entwicklungs- und Weiterbildungsmöglichkeiten\n• Mitarbeitervergünstigungen und Rabatte bei den Valora Formaten\n• Faire Anstellungsbedingungen\n• Homeofficeregelung",
+        "fr": "Tâches que vous aimerez\n• Mise en œuvre de la stratégie d'expansion en mettant l'accent sur les nouvelles ouvertures et l'optimisation des emplacements existants pour nos formats de vente et de services alimentaires en Suisse\n• Recherche, analyse et évaluation de nouveaux sites en ce qui concerne leur efficacité économique et leur adéquation\n• Gestion du service de location, surveillance des contrôles SOX et maintien des contrats dans le système Tradenet\n• Négociation et conclusion de contrats de location avec les propriétaires et les propriétaires pour assurer des conditions optimales\n• Gestion professionnelle et disciplinaire de l ' équipe chargée de l ' expansion et de la location (appui administratif à la gestion des contrats de location) pour mettre en œuvre la stratégie d ' expansion\n• Coordination et gestion des projets liés à l'ouverture de nouveaux points de vente\n• Analyse du marché et observation de la concurrence pour identifier les tendances et les possibilités d'expansion\n• Élaboration et suivi des budgets des projets d'expansion et respect des exigences financières\n• Collaboration avec les ministères internes (y compris la construction, les ventes, la gestion et le contrôle des installations), les partenaires externes et les autorités pour appuyer efficacement le processus d'expansion\n• Expérience éprouvée dans une position comparable avec un accent sur l'expansion et la gestion de la location dans le commerce de détail et de commodité\n• Un esprit d'entreprise fort, une grande orientation client et une assurance ainsi qu'une expérience dans les équipes dirigeantes\n• Méthode de travail indépendante et structurée ainsi que pensée stratégique et en réseau\n• Le plaisir de faire constamment face à de nouveaux défis et de travailler dans un environnement dynamique\n• L'allemand résistant aux négociations et les bonnes compétences en anglais, le français avantages que nous vous offrons\n• Un environnement de travail dynamique avec liberté d'idées et de créativité\n• Une culture du DU\n• Possibilités de perfectionnement personnel et de formation\n• Avantages sociaux et réductions en format Valora\n• Conditions d'emploi équitables\n• Régime des bureaux extérieurs"
+      },
+      "location": "Muttenz",
+      "canton": "BL",
+      "url": "https://career.valora.com/en/job/21864/lead-expansion-lease-switzerland",
+      "source": "Valora Group Dedicated Parser (Custom)",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-07T21:15:35.654Z",
+      "addressLocality": "Muttenz",
+      "addressRegion": "Baselland",
+      "streetAddress": "Hofackerstr. 40",
+      "postalCode": "4132",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Facility Management",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "senior",
+      "sector": "Retail / Foodvenience",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-09-01",
+      "postedDate": "2026-09-01",
+      "postingDateSource": "reported",
+      "applyUrl": "https://recruitingapp-2538.umantis.com/Vacancies/21864/Application/CheckLogin/1?lang=ger&DesignID=10004",
+      "jobReqId": "21864",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "lead-expansion-lease-switzerland-valora-muttenz"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "lead-expansion-lease-switzerland-valora-muttenz"
+        ],
+        "fr": [
+          "lead-expansion-lease-switzerland-valora-muttenz"
+        ]
+      },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-10-29T14:33:01.447Z",
+      "salaryMin": 65500,
+      "salaryMax": 88500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 65500,
+          "maxValue": 88500,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-07T21:15:35.654Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -619,7 +701,7 @@
       "url": "https://career.valora.com/en/job/21148/verkauferin-verkaufer-k-kiosk-8-6-std",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-07T09:20:22.939Z",
+      "crawledAt": "2026-11-07T21:15:35.653Z",
       "addressLocality": "Bern",
       "addressRegion": "Bern",
       "streetAddress": "Murtenstrasse 1",
@@ -669,89 +751,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-09T09:20:22.939Z",
-      "validThroughSource": "last-observed-window"
-    },
-    {
-      "id": "valora-99fef9aece64",
-      "slug": "expansion-lease-svizzera-valora-group-muttenz",
-      "slugByLocale": {
-        "it": "expansion-lease-svizzera-valora-group-muttenz",
-        "en": "lead-expansion-lease-switzerland-valora-muttenz",
-        "de": "lead-expansion-lease-switzerland-valora-muttenz",
-        "fr": "expansion-et-location-de-plomb-suisse-valora-group-muttenz"
-      },
-      "company": "Valora Group",
-      "companyKey": "valora",
-      "companyDomain": "valora.com",
-      "title": "Lead Expansion & Lease Switzerland",
-      "titleByLocale": {
-        "it": "Expansion & Lease Svizzera",
-        "en": "Lead Expansion & Lease Switzerland",
-        "de": "Lead Expansion & Lease Switzerland",
-        "fr": "Expansion et location de plomb Suisse"
-      },
-      "description": "Aufgaben, die Dir gefallen werden\n• Umsetzung der Expansionsstrategie mit Schwerpunkt auf Neueröffnungen und Optimierung bestehender Standorte für unsere Retail und Food Service Formate in der Schweiz\n• Suche, Analyse und Bewertung neuer Standorte hinsichtlich ihrer Wirtschaftlichkeit und Eignung\n• Führen der Mietabteilung, Überwachung der SOX-Kontrollen und Pflege der Verträge im Tradenet-System\n• Verhandlung und Abschluss von Mietverträgen mit Vermietern und Eigentümern zur Sicherstellung optimaler Konditionen\n• Fachliche und disziplinarische Führung des Expansions- und Mietteams (Expansion sowie administrative Unterstützung im Leasemanagement) zur Umsetzung der Expansionsstrategie\n• Koordination und Management von Projekten im Zusammenhang mit der Eröffnung neuer Verkaufsstellen\n• Durchführung von Marktanalysen und Wettbewerbsbeobachtung, um Trends und Expansionsmöglichkeiten zu identifizieren\n• Erstellung und Überwachung von Budgets für Expansionsprojekte sowie Sicherstellung der Einhaltung finanzieller Vorgaben\n• Zusammenarbeit mit internen Abteilungen (u.a. Bau, Verkauf, Facility Management und Controlling), externen Partnern und Behörden, um den Expansionsprozess effizient zu unterstützen Voraussetzungen, die Du mitbringst\n• Nachgewiesene Erfahrung in einer vergleichbaren Position mit Schwerpunkt auf Expansion und Leasemanagement im Detailhandel und Convenience Geschäft\n• Ausgeprägter Unternehmergeist, hohe Kundenorientierung und Durchsetzungsstärke sowie Erfahrung in der Führung von Teams\n• Selbstständige, strukturierte Arbeitsweise sowie strategisches und vernetztes Denken\n• Freude, sich immer wieder neuen Herausforderungen zu stellen und in einem dynamischen Umfeld zu arbeiten\n• Verhandlungssichere Deutsch- sowie gute Englischkenntnisse, Französisch von Vorteil Vorteile, die wir Dir bieten\n• Ein dynamisches Arbeitsumfeld mit Freiraum für Ideen und Kreativität\n• Eine DU-Kultur\n• Persönliche Entwicklungs- und Weiterbildungsmöglichkeiten\n• Mitarbeitervergünstigungen und Rabatte bei den Valora Formaten\n• Faire Anstellungsbedingungen\n• Homeofficeregelung",
-      "descriptionByLocale": {
-        "it": "Compiti che ti piacerà\n• Attuazione della strategia di espansione con focus sulle nuove aperture e l'ottimizzazione delle sedi esistenti per i nostri formati di servizi al dettaglio e alimentare in Svizzera\n• Ricerca, analisi e valutazione di nuove sedi per quanto riguarda l'efficienza economica e l'idoneità\n• Gestione del reparto noleggio, monitoraggio dei controlli SOX e mantenimento dei contratti nel sistema Tradenet\n• Negoziazione e conclusione di contratti di locazione con proprietari e proprietari per garantire condizioni ottimali\n• Gestione professionale e disciplinare del team di espansione e noleggio (espansione e supporto amministrativo nella gestione delle locazioni) per implementare la strategia di espansione\n• Coordinamento e gestione dei progetti relativi all'apertura di nuovi punti vendita\n• Condurre l'analisi del mercato e l'osservazione competitiva per identificare le tendenze e le opportunità di espansione\n• Preparazione e monitoraggio dei bilanci per i progetti di espansione e garantire il rispetto dei requisiti finanziari\n• Collaborazione con i dipartimenti interni (compresa la costruzione, le vendite, la gestione delle strutture e il controllo), partner esterni e autorità per sostenere efficacemente il processo di espansione\n• Esperienza comprovata in una posizione paragonabile con un focus sull'espansione e la gestione del contratto di vendita al dettaglio e convenienza\n• Forte spirito imprenditoriale, alto orientamento e assertività del cliente e l'esperienza nei principali team\n• Metodo di lavoro indipendente, strutturato e pensiero strategico e in rete\n• Il piacere di affrontare costantemente nuove sfide e di lavorare in un ambiente dinamico\n• A prova di negoziazione tedesco e buone abilità inglese, francese vantaggi vantaggiosi che vi offriamo\n• Un ambiente di lavoro dinamico con libertà di idee e creatività\n• Una cultura DU\n• Opportunità di sviluppo personale e formazione\n• Vantaggi e sconti dei dipendenti nei formati Valora\n• Condizioni dell'occupazione\n• Home Ufficio Scheme",
-        "en": "Tasks you will like\n• Implementation of the expansion strategy with focus on new openings and optimization of existing locations for our retail and food service formats in Switzerland\n• Search, analysis and evaluation of new locations with regard to their economic efficiency and suitability\n• Managing the rental department, monitoring SOX controls and maintaining contracts in the Tradenet system\n• Negotiation and conclusion of lease contracts with landlords and owners to ensure optimal conditions\n• Professional and disciplinary management of the expansion and rental team (expansion and administrative support in lease management) to implement the expansion strategy\n• Coordination and management of projects related to the opening of new outlets\n• Conducting market analysis and competitive observation to identify trends and expansion opportunities\n• Preparation and monitoring of budgets for expansion projects and ensuring compliance with financial requirements\n• Collaboration with internal departments (including construction, sales, facility management and controlling), external partners and authorities to efficiently support the expansion process\n• Proven experience in a comparable position with a focus on expansion and lease management in the retail and convenience business\n• Strong entrepreneurial spirit, high customer orientation and assertiveness as well as experience in leading teams\n• Independent, structured working method as well as strategic and networked thinking\n• The pleasure of constantly facing new challenges and working in a dynamic environment\n• Negotiation-proof German and good English skills, French advantageous advantages that we offer you\n• A dynamic working environment with freedom for ideas and creativity\n• A DU culture\n• Personal development and training opportunities\n• Employee benefits and discounts in the Valora formats\n• Fair employment conditions\n• Home Office Scheme",
-        "de": "Aufgaben, die Dir gefallen werden\n• Umsetzung der Expansionsstrategie mit Schwerpunkt auf Neueröffnungen und Optimierung bestehender Standorte für unsere Retail und Food Service Formate in der Schweiz\n• Suche, Analyse und Bewertung neuer Standorte hinsichtlich ihrer Wirtschaftlichkeit und Eignung\n• Führen der Mietabteilung, Überwachung der SOX-Kontrollen und Pflege der Verträge im Tradenet-System\n• Verhandlung und Abschluss von Mietverträgen mit Vermietern und Eigentümern zur Sicherstellung optimaler Konditionen\n• Fachliche und disziplinarische Führung des Expansions- und Mietteams (Expansion sowie administrative Unterstützung im Leasemanagement) zur Umsetzung der Expansionsstrategie\n• Koordination und Management von Projekten im Zusammenhang mit der Eröffnung neuer Verkaufsstellen\n• Durchführung von Marktanalysen und Wettbewerbsbeobachtung, um Trends und Expansionsmöglichkeiten zu identifizieren\n• Erstellung und Überwachung von Budgets für Expansionsprojekte sowie Sicherstellung der Einhaltung finanzieller Vorgaben\n• Zusammenarbeit mit internen Abteilungen (u.a. Bau, Verkauf, Facility Management und Controlling), externen Partnern und Behörden, um den Expansionsprozess effizient zu unterstützen Voraussetzungen, die Du mitbringst\n• Nachgewiesene Erfahrung in einer vergleichbaren Position mit Schwerpunkt auf Expansion und Leasemanagement im Detailhandel und Convenience Geschäft\n• Ausgeprägter Unternehmergeist, hohe Kundenorientierung und Durchsetzungsstärke sowie Erfahrung in der Führung von Teams\n• Selbstständige, strukturierte Arbeitsweise sowie strategisches und vernetztes Denken\n• Freude, sich immer wieder neuen Herausforderungen zu stellen und in einem dynamischen Umfeld zu arbeiten\n• Verhandlungssichere Deutsch- sowie gute Englischkenntnisse, Französisch von Vorteil Vorteile, die wir Dir bieten\n• Ein dynamisches Arbeitsumfeld mit Freiraum für Ideen und Kreativität\n• Eine DU-Kultur\n• Persönliche Entwicklungs- und Weiterbildungsmöglichkeiten\n• Mitarbeitervergünstigungen und Rabatte bei den Valora Formaten\n• Faire Anstellungsbedingungen\n• Homeofficeregelung",
-        "fr": "Tâches que vous aimerez\n• Mise en œuvre de la stratégie d'expansion en mettant l'accent sur les nouvelles ouvertures et l'optimisation des emplacements existants pour nos formats de vente et de services alimentaires en Suisse\n• Recherche, analyse et évaluation de nouveaux sites en ce qui concerne leur efficacité économique et leur adéquation\n• Gestion du service de location, surveillance des contrôles SOX et maintien des contrats dans le système Tradenet\n• Négociation et conclusion de contrats de location avec les propriétaires et les propriétaires pour assurer des conditions optimales\n• Gestion professionnelle et disciplinaire de l ' équipe chargée de l ' expansion et de la location (appui administratif à la gestion des contrats de location) pour mettre en œuvre la stratégie d ' expansion\n• Coordination et gestion des projets liés à l'ouverture de nouveaux points de vente\n• Analyse du marché et observation de la concurrence pour identifier les tendances et les possibilités d'expansion\n• Élaboration et suivi des budgets des projets d'expansion et respect des exigences financières\n• Collaboration avec les ministères internes (y compris la construction, les ventes, la gestion et le contrôle des installations), les partenaires externes et les autorités pour appuyer efficacement le processus d'expansion\n• Expérience éprouvée dans une position comparable avec un accent sur l'expansion et la gestion de la location dans le commerce de détail et de commodité\n• Un esprit d'entreprise fort, une grande orientation client et une assurance ainsi qu'une expérience dans les équipes dirigeantes\n• Méthode de travail indépendante et structurée ainsi que pensée stratégique et en réseau\n• Le plaisir de faire constamment face à de nouveaux défis et de travailler dans un environnement dynamique\n• L'allemand résistant aux négociations et les bonnes compétences en anglais, le français avantages que nous vous offrons\n• Un environnement de travail dynamique avec liberté d'idées et de créativité\n• Une culture du DU\n• Possibilités de perfectionnement personnel et de formation\n• Avantages sociaux et réductions en format Valora\n• Conditions d'emploi équitables\n• Régime des bureaux extérieurs"
-      },
-      "location": "Muttenz",
-      "canton": "BL",
-      "url": "https://career.valora.com/en/job/21864/lead-expansion-lease-switzerland",
-      "source": "Valora Group Dedicated Parser (Custom)",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-07T09:20:22.939Z",
-      "addressLocality": "Muttenz",
-      "addressRegion": "Baselland",
-      "streetAddress": "Hofackerstr. 40",
-      "postalCode": "4132",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Facility Management",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "senior",
-      "sector": "Retail / Foodvenience",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-09-01",
-      "postedDate": "2026-09-01",
-      "postingDateSource": "reported",
-      "applyUrl": "https://recruitingapp-2538.umantis.com/Vacancies/21864/Application/CheckLogin/1?lang=ger&DesignID=10004",
-      "jobReqId": "21864",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "lead-expansion-lease-switzerland-valora-muttenz"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "lead-expansion-lease-switzerland-valora-muttenz"
-        ],
-        "fr": [
-          "lead-expansion-lease-switzerland-valora-muttenz"
-        ]
-      },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-10-29T14:33:01.447Z",
-      "salaryMin": 65500,
-      "salaryMax": 88500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 65500,
-          "maxValue": 88500,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-07T09:20:22.939Z",
+      "validThrough": "2026-12-09T21:15:35.653Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -785,7 +785,7 @@
       "url": "https://career.valora.com/en/job/17836/agenturpartnerin-agenturpartner-region-berner-oberland",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-07T09:20:22.938Z",
+      "crawledAt": "2026-11-07T21:15:35.652Z",
       "addressLocality": "Bern",
       "addressRegion": "Bern",
       "streetAddress": "Bern",
@@ -835,7 +835,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-22T09:20:22.938Z",
+      "validThrough": "2026-12-22T21:15:35.652Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -869,7 +869,7 @@
       "url": "https://career.valora.com/en/job/18331/agenturpartnerin-agenturpartner-region-oberwallis",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-07T09:20:22.936Z",
+      "crawledAt": "2026-11-07T21:15:35.651Z",
       "addressLocality": "Wallis",
       "addressRegion": "Wallis",
       "streetAddress": "Wallis",
@@ -919,7 +919,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-22T09:20:22.936Z",
+      "validThrough": "2026-12-22T21:15:35.651Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -953,7 +953,7 @@
       "url": "https://career.valora.com/en/job/20004/agenturpartnerin-agenturpartner-imboden",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-07T09:20:22.933Z",
+      "crawledAt": "2026-11-07T21:15:35.649Z",
       "addressLocality": "Graubünden",
       "addressRegion": "Graubünden",
       "streetAddress": "Graubünden",
@@ -1003,7 +1003,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-22T09:20:22.933Z",
+      "validThrough": "2026-12-22T21:15:35.649Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1037,7 +1037,7 @@
       "url": "https://career.valora.com/en/job/20005/agenturpartnerin-agenturpartner-sarganserland",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-07T09:20:22.930Z",
+      "crawledAt": "2026-11-07T21:15:35.647Z",
       "addressLocality": "St.Gallen",
       "addressRegion": "St.Gallen",
       "streetAddress": "St.Gallen",
@@ -1087,7 +1087,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-22T09:20:22.930Z",
+      "validThrough": "2026-12-22T21:15:35.647Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1121,7 +1121,7 @@
       "url": "https://career.valora.com/en/job/20569/agenturpartnerin-agenturpartner-kanton-st-gallen",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-07T09:20:22.928Z",
+      "crawledAt": "2026-11-07T21:15:35.645Z",
       "addressLocality": "St.Gallen",
       "addressRegion": "St.Gallen",
       "streetAddress": "St.Gallen",
@@ -1171,7 +1171,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-22T09:20:22.928Z",
+      "validThrough": "2026-12-22T21:15:35.645Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1205,7 +1205,7 @@
       "url": "https://career.valora.com/en/job/21083/agenturpartnerin-agenturpartner-kanton-basel-stadt-baselland",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-07T09:20:22.925Z",
+      "crawledAt": "2026-11-07T21:15:35.643Z",
       "addressLocality": "Basel",
       "addressRegion": "Basel-Stadt",
       "streetAddress": "Bahnhof",
@@ -1257,7 +1257,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-22T09:20:22.925Z",
+      "validThrough": "2026-12-22T21:15:35.643Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1291,7 +1291,7 @@
       "url": "https://career.valora.com/en/job/20945/it-program-manager-w-m-d",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-07T09:20:22.923Z",
+      "crawledAt": "2026-11-07T21:15:35.642Z",
       "addressLocality": "Muttenz",
       "addressRegion": "Baselland",
       "streetAddress": "Hofackerstrasse 40",
@@ -1327,7 +1327,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-27T09:20:22.923Z",
+      "validThrough": "2026-12-27T21:15:35.642Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1361,7 +1361,7 @@
       "url": "https://career.valora.com/en/job/21039/verkauferin-verkaufer-k-kiosk-10-std",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-07T09:20:22.921Z",
+      "crawledAt": "2026-11-07T21:15:35.640Z",
       "addressLocality": "Uetendorf",
       "addressRegion": "Bern",
       "streetAddress": "Dorfstrasse 21",
@@ -1411,7 +1411,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-30T09:20:22.921Z",
+      "validThrough": "2026-12-30T21:15:35.640Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1445,7 +1445,7 @@
       "url": "https://career.valora.com/en/job/22063/geschaftsfuhrerin-geschaftsfuhrer-k-kiosk-100",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-07T09:20:22.919Z",
+      "crawledAt": "2026-11-07T21:15:35.638Z",
       "addressLocality": "Kandersteg",
       "addressRegion": "Bern",
       "streetAddress": "Bahnhofstrasse 2",
@@ -1495,7 +1495,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-17T09:20:22.919Z",
+      "validThrough": "2027-01-17T21:15:35.638Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1529,7 +1529,7 @@
       "url": "https://career.valora.com/en/job/21758/strategischer-einkaufer-w-m-d",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-07T09:20:22.915Z",
+      "crawledAt": "2026-11-07T21:15:35.636Z",
       "addressLocality": "Muttenz",
       "addressRegion": "Baselland",
       "streetAddress": "Hofackerstr. 40",
@@ -1579,7 +1579,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-18T09:20:22.915Z",
+      "validThrough": "2027-01-18T21:15:35.636Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1613,7 +1613,7 @@
       "url": "https://career.valora.com/en/job/22043/verkauferin-verkaufer-k-kiosk-10-std",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-07T09:20:22.913Z",
+      "crawledAt": "2026-11-07T21:15:35.635Z",
       "addressLocality": "Thun",
       "addressRegion": "Bern",
       "streetAddress": "Bälliz 15",
@@ -1663,7 +1663,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-19T09:20:22.913Z",
+      "validThrough": "2027-01-19T21:15:35.635Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1697,7 +1697,7 @@
       "url": "https://career.valora.com/en/job/22105/service-delivery-pos-specialist-w-m-d",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-07T09:20:22.911Z",
+      "crawledAt": "2026-11-07T21:15:35.634Z",
       "addressLocality": "Muttenz",
       "addressRegion": "Baselland",
       "streetAddress": "Hofackerstrasse 40",
@@ -1744,7 +1744,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-21T09:20:22.911Z",
+      "validThrough": "2027-01-21T21:15:35.634Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1778,7 +1778,7 @@
       "url": "https://career.valora.com/en/job/21040/verkauferin-verkaufer-k-kiosk-10-std",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-07T09:20:22.908Z",
+      "crawledAt": "2026-11-07T21:15:35.632Z",
       "addressLocality": "Uetendorf",
       "addressRegion": "Bern",
       "streetAddress": "Dorfstrasse 21",
@@ -1833,7 +1833,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-24T09:20:22.908Z",
+      "validThrough": "2027-01-24T21:15:35.632Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1867,7 +1867,7 @@
       "url": "https://career.valora.com/en/job/21042/verkauferin-verkaufer-k-kiosk-15-std",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-07T09:20:22.905Z",
+      "crawledAt": "2026-11-07T21:15:35.630Z",
       "addressLocality": "Uetendorf",
       "addressRegion": "Bern",
       "streetAddress": "Dorfstrasse 32",
@@ -1922,7 +1922,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-24T09:20:22.905Z",
+      "validThrough": "2027-01-24T21:15:35.630Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1956,7 +1956,7 @@
       "url": "https://career.valora.com/en/job/21220/verkauferin-verkaufer-press-books-21-5-std",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-07T09:20:22.899Z",
+      "crawledAt": "2026-11-07T21:15:35.626Z",
       "addressLocality": "Bern",
       "addressRegion": "Bern",
       "streetAddress": "Bahnhofplatz 10",
@@ -2006,7 +2006,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-24T09:20:22.899Z",
+      "validThrough": "2027-01-24T21:15:35.626Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2040,7 +2040,7 @@
       "url": "https://career.valora.com/en/job/21622/verkauferin-verkaufer-k-kiosk-10-std",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-07T09:20:22.896Z",
+      "crawledAt": "2026-11-07T21:15:35.624Z",
       "addressLocality": "Bern",
       "addressRegion": "Bern",
       "streetAddress": "Bubenbergplatz 11",
@@ -2090,7 +2090,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-24T09:20:22.896Z",
+      "validThrough": "2027-01-24T21:15:35.624Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2124,7 +2124,7 @@
       "url": "https://career.valora.com/en/job/21701/verkauferin-verkaufer-backwerk-24-6-std",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-07T09:20:22.894Z",
+      "crawledAt": "2026-11-07T21:15:35.623Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Sihlquai C5",
@@ -2174,7 +2174,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-24T09:20:22.894Z",
+      "validThrough": "2027-01-24T21:15:35.623Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2208,7 +2208,7 @@
       "url": "https://career.valora.com/en/job/21847/verkauferin-verkaufer-press-books-22-std",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-07T09:20:22.888Z",
+      "crawledAt": "2026-11-07T21:15:35.621Z",
       "addressLocality": "Bern",
       "addressRegion": "Bern",
       "streetAddress": "Bahnhofplatz 10",
@@ -2258,7 +2258,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-24T09:20:22.888Z",
+      "validThrough": "2027-01-24T21:15:35.621Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2292,7 +2292,7 @@
       "url": "https://career.valora.com/en/job/21923/verkauferin-verkaufer-k-kiosk-30-std",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-07T09:20:22.885Z",
+      "crawledAt": "2026-11-07T21:15:35.620Z",
       "addressLocality": "Bern",
       "addressRegion": "Bern",
       "streetAddress": "Bahnhofplatz 10",
@@ -2342,7 +2342,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-24T09:20:22.885Z",
+      "validThrough": "2027-01-24T21:15:35.620Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2376,7 +2376,7 @@
       "url": "https://career.valora.com/en/job/21265/produktionsmitarbeiter-w-m-d",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-07T09:20:22.879Z",
+      "crawledAt": "2026-11-07T21:15:35.619Z",
       "addressLocality": "Emmenbrücke",
       "addressRegion": "Luzern",
       "streetAddress": "Neuenkirchstrasse 91",
@@ -2428,7 +2428,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-31T09:20:22.879Z",
+      "validThrough": "2027-01-31T21:15:35.619Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2462,7 +2462,7 @@
       "url": "https://career.valora.com/en/job/22072/verkauferin-verkaufer-avec-20-std",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-07T09:20:22.815Z",
+      "crawledAt": "2026-11-07T21:15:35.595Z",
       "addressLocality": "Ittigen",
       "addressRegion": "Bern",
       "streetAddress": "Worblentalstrasse 103",
@@ -2512,7 +2512,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-01T09:20:22.815Z",
+      "validThrough": "2027-02-01T21:15:35.595Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2546,7 +2546,7 @@
       "url": "https://career.valora.com/en/job/21792/internal-control-risk-specialist-80-w-m-d",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-07T09:20:22.803Z",
+      "crawledAt": "2026-11-07T21:15:35.591Z",
       "addressLocality": "Muttenz",
       "addressRegion": "Baselland",
       "streetAddress": "Hofackerstrasse 40",
@@ -2607,7 +2607,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-14T09:20:22.803Z",
+      "validThrough": "2027-01-14T21:15:35.591Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2641,7 +2641,7 @@
       "url": "https://career.valora.com/en/job/22004/consumer-finance-specialist-w-m-d",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-07T09:20:22.801Z",
+      "crawledAt": "2026-11-07T21:15:35.590Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Hardturmstrasse 161",
@@ -2688,7 +2688,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-02T09:20:22.801Z",
+      "validThrough": "2027-02-02T21:15:35.590Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2722,7 +2722,7 @@
       "url": "https://career.valora.com/en/job/22005/specialist-collections-payments-w-m-d",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-07T09:20:22.798Z",
+      "crawledAt": "2026-11-07T21:15:35.589Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Hardturmstrasse 161",
@@ -2769,7 +2769,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-02T09:20:22.798Z",
+      "validThrough": "2027-02-02T21:15:35.589Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2803,7 +2803,7 @@
       "url": "https://career.valora.com/en/job/22064/compliance-officer-legal-counsel-w-m-d",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-07T09:20:22.790Z",
+      "crawledAt": "2026-11-07T21:15:35.584Z",
       "addressLocality": "Muttenz",
       "addressRegion": "Baselland",
       "streetAddress": "Hofackerstrasse 40",
@@ -2851,7 +2851,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-02T09:20:22.790Z",
+      "validThrough": "2027-02-02T21:15:35.584Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2937,7 +2937,7 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-15T21:21:18.299Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "valora-bc2197ece47f",
@@ -3022,7 +3022,7 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-24T21:21:18.295Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "valora-021776e11c83",
@@ -3112,7 +3112,7 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-01-17T21:21:18.291Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "valora-ae5803ddcaae",
@@ -3197,7 +3197,7 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-01-19T21:21:18.288Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "valora-857477338b6a",
@@ -3282,7 +3282,7 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-01-24T21:21:18.271Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     }
   ]
 }

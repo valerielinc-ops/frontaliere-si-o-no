@@ -1,7 +1,7 @@
 {
   "key": "honegger",
   "label": "Honegger AG",
-  "generatedAt": "2026-11-07T09:58:23.071Z",
+  "generatedAt": "2026-11-07T21:20:15.519Z",
   "total": 8,
   "discovered": null,
   "parsed": 9,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 8,
-  "durationMs": 41061,
-  "avgDurationMs": 41061,
+  "durationMs": 42035,
+  "avgDurationMs": 42035,
   "durationHistory": [
-    41061
+    42035
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -37,7 +37,7 @@
       "url": "https://honegger.ch/job/fachfrau-fachmann-betriebsunterhalt-m-w-d-region-obwalden-nidwalden-luzern-80-100/",
       "source": "Honegger AG Dedicated Parser (custom WordPress board)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-07T09:58:04.043Z",
+      "crawledAt": "2026-11-07T21:19:58.460Z",
       "addressLocality": "Sarnen",
       "postalCode": "6060",
       "addressRegion": "OW",
@@ -64,7 +64,7 @@
       "salarySource": "estimated",
       "streetAddress": "Sarnen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-07T09:58:04.043Z",
+      "validThrough": "2026-12-07T21:19:58.460Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 98,
       "_qualityBreakdown": {
@@ -86,7 +86,7 @@
       "url": "https://honegger.ch/job/gaertner-in-m-w-d-stadt-zuerich-umgebung-100/",
       "source": "Honegger AG Dedicated Parser (custom WordPress board)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-07T09:58:00.030Z",
+      "crawledAt": "2026-11-07T21:19:54.814Z",
       "addressLocality": "Zürich",
       "postalCode": "8001",
       "addressRegion": "ZH",
@@ -112,7 +112,7 @@
       "salarySource": "estimated",
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-07T09:58:00.030Z",
+      "validThrough": "2026-12-07T21:19:54.814Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 98,
       "_qualityBreakdown": {
@@ -134,7 +134,7 @@
       "url": "https://honegger.ch/job/mitarbeiter-in-unterhaltsreinigung-m-w-d-25-50-zuerich/",
       "source": "Honegger AG Dedicated Parser (custom WordPress board)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-07T09:57:58.654Z",
+      "crawledAt": "2026-11-07T21:19:53.640Z",
       "addressLocality": "Zürich",
       "postalCode": "8001",
       "addressRegion": "ZH",
@@ -160,7 +160,7 @@
       "salarySource": "estimated",
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-07T09:57:58.654Z",
+      "validThrough": "2026-12-07T21:19:53.640Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 98,
       "_qualityBreakdown": {
@@ -182,7 +182,7 @@
       "url": "https://honegger.ch/job/vorarbeiter-in-spezialreinigung-m-w-d-region-bern-100-3/",
       "source": "Honegger AG Dedicated Parser (custom WordPress board)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-07T09:57:57.480Z",
+      "crawledAt": "2026-11-07T21:19:52.344Z",
       "addressLocality": "Bern",
       "postalCode": "3004",
       "addressRegion": "BE",
@@ -208,7 +208,7 @@
       "salarySource": "estimated",
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-07T09:57:57.480Z",
+      "validThrough": "2026-12-07T21:19:52.344Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 98,
       "_qualityBreakdown": {
@@ -230,7 +230,7 @@
       "url": "https://honegger.ch/job/inspektor-in-unterhaltsreinigung-m-w-d-kanton-schwyz-von-thalwil-bis-uznach-100/",
       "source": "Honegger AG Dedicated Parser (custom WordPress board)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-07T09:57:55.990Z",
+      "crawledAt": "2026-11-07T21:19:51.110Z",
       "addressLocality": "Schwyz",
       "postalCode": "6430",
       "addressRegion": "SZ",
@@ -256,7 +256,7 @@
       "salarySource": "estimated",
       "streetAddress": "Schwyz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-07T09:57:55.990Z",
+      "validThrough": "2026-12-07T21:19:51.110Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 98,
       "_qualityBreakdown": {
@@ -278,7 +278,7 @@
       "url": "https://honegger.ch/job/teamleiter-in-spezialreinigung-hoehenarbeiten-m-w-d-region-aargau-und-zuerich-100/",
       "source": "Honegger AG Dedicated Parser (custom WordPress board)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-07T09:57:46.722Z",
+      "crawledAt": "2026-11-07T21:19:41.889Z",
       "addressLocality": "Zürich",
       "postalCode": "8001",
       "addressRegion": "ZH",
@@ -304,7 +304,7 @@
       "salarySource": "estimated",
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-23T09:57:46.722Z",
+      "validThrough": "2026-12-23T21:19:41.889Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 98,
       "_qualityBreakdown": {
@@ -326,7 +326,7 @@
       "url": "https://honegger.ch/job/mitarbeiter-in-spezialreinigung-m-w-d-region-aargau-und-zuerich-100/",
       "source": "Honegger AG Dedicated Parser (custom WordPress board)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-07T09:57:45.413Z",
+      "crawledAt": "2026-11-07T21:19:40.682Z",
       "addressLocality": "Zürich",
       "postalCode": "8001",
       "addressRegion": "ZH",
@@ -352,7 +352,7 @@
       "salarySource": "estimated",
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-23T09:57:45.413Z",
+      "validThrough": "2026-12-23T21:19:40.682Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 98,
       "_qualityBreakdown": {
@@ -374,7 +374,7 @@
       "url": "https://honegger.ch/job/mitarbeiter-in-reinigung-m-w-d-stans-30/",
       "source": "Honegger AG Dedicated Parser (custom WordPress board)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-07T09:57:41.477Z",
+      "crawledAt": "2026-11-07T21:19:36.341Z",
       "addressLocality": "Stans",
       "postalCode": "6370",
       "addressRegion": "NW",
@@ -400,7 +400,7 @@
       "salarySource": "estimated",
       "streetAddress": "Stans",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-07T09:57:41.477Z",
+      "validThrough": "2026-12-07T21:19:36.341Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 98,
       "_qualityBreakdown": {
@@ -411,5 +411,5 @@
       }
     }
   ],
-  "codeCommit": "dae4367441abe10a497d7d52ebb4540c014e1e8c"
+  "codeCommit": "f149ed523035737e5146c13e7338b8dd6b0c5f04"
 }

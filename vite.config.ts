@@ -778,6 +778,10 @@ export default defineConfig(({ mode }) => {
  },
  },
  rollupOptions: {
+ // Rollup defaults to 1000 concurrent file operations. The deploy's 16 GiB
+ // runners approach 13 GiB RSS while Vite loads this graph; cap the transient
+ // file-operation fan-out to preserve memory headroom without changing output.
+ maxParallelFileOps: 64,
  output: {
  // Keep CROSS-CHUNK EXPORT NAMES stable across builds (root-cause fix for the
  // version-skew TypeError class, e.g. "ls(...).then is not a function" on

@@ -56,9 +56,9 @@ function expectBudget(step: Step) {
   expect(step.env?.FREE_TRANSLATE_CODEX_BATCH_MAX_TEXTS, step.name).toBe(/Phase 2[be]:/.test(String(step.name)) ? '25' : '10');
   expect(step.env?.FREE_TRANSLATE_CODEX_BATCH_MAX_CHARS, step.name).toBe('3000');
   expect(ms, step.name).toBeGreaterThan(0);
-  // La 2b ha una finestra di 30 minuti e puo' spenderne 25; le corsie di
-  // riparazione restano a 15: la 2d/2e partono con almeno 15 minuti residui
-  // (gate), la 2a.2 ne lascia 10 dei suoi 25 agli altri tier.
+  // La 2b ha una finestra di 30 minuti e puo' spenderne 25; il budget Codex
+  // per singola chiamata delle corsie di riparazione resta a 15. Il gate
+  // run-wide della 2d/2e richiede invece 90 minuti per l'intera lane.
   const maxMs = step.name === PHASE_2B ? 25 * 60 * 1000 : 15 * 60 * 1000;
   expect(ms, step.name).toBeLessThanOrEqual(maxMs);
 }
