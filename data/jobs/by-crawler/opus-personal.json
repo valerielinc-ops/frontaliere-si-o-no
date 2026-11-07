@@ -2945,9 +2945,9 @@
       "companyDomain": "opus-personal.ch",
       "title": "Chauffeur CE",
       "titleByLocale": {
+        "de": "Chauffeur CE",
         "it": "CE Chauffeur",
         "en": "Driver CE",
-        "de": "Chauffeur CE",
         "fr": "Chauffeur CE"
       },
       "description": "zurück zur Übersicht\nChauffeur CE\nStellenantritt\nPer sofort oder nach Vereinbarung\nBeschäftigungsgrad\n100%\nArbeitsort/Region\nUR-Uri\nWir suchen per sofort oder nach Vereinbarung eine initiative und selbständige Person als:\nChauffeur CE mit Anhängerzug\nIhre Aufgaben:\n- Sie führen selbständig arbeiten aus, nach Tourenplan und beliefern unsere Kunden.\n- Sie Pflegen Ihr Fahrzeug\nIhr Profil:\n- Sie sind Flexibel einsetzbar für die Ausführung verschiedener Transporte\n- Sie übernehmen gerne Verantwortung und handeln unternehmerisch\n- Sie sind körperlich fit und packen gerne an\n- Sie verfügen über ein Fahrausweis der Kategorie: CE mit Anhänger ink. CZV\nFalls wir Ihr Interesse geweckt haben, kontaktieren Sie uns noch heute und lassen Sie sich von uns unverbindlich beraten und informieren.\naltdorf@opus-personal.ch\nOpus Personal AG\nFlüelerstrasse 12\nCH-6460 Altdorf\nT +41 (0)41 500 58 90\nJetzt Online bewerben\nJetzt bewerben",
@@ -2982,6 +2982,7 @@
       "applyUrl": "https://opus-personal.ch/aktuelle-jobs/job.aspx/v-112489/f-op/",
       "requirements": [],
       "requirementsByLocale": {},
+      "needsRetranslation": true,
       "previousSlugs": [
         "ce-driver-opus-personal-ag-zweigniederlassung-altdorf-region-ur-uri",
         "autista-ce-opus-personal-ag-zweigniederlassung-altdorf-region-ur-uri"
@@ -2994,8 +2995,6 @@
           "ce-driver-opus-personal-ag-zweigniederlassung-altdorf-region-ur-uri"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-10-14T09:35:35.429Z",
       "salaryMin": 69500,
       "salaryMax": 106000,
       "salarySource": "estimated",
@@ -3011,7 +3010,8 @@
       },
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-12T09:42:41.930Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-10-14T09:35:35.429Z"
     },
     {
       "id": "opus-personal-c7382dce0044",

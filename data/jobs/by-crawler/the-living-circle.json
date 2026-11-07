@@ -2256,18 +2256,6 @@
         "fr": "salle-d-assistance-80-100-tous-les-sexes-the-living-circle-zurich"
       },
       "id": "the-living-circle-7513062990f3",
-      "firstSeenAt": "2026-11-06T21:29:28.778Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "room-attendant-80-100-all-genders-the-living-circle-zurich"
-        ],
-        "fr": [
-          "room-attendant-80-100-all-genders-the-living-circle-zurich"
-        ]
-      },
-      "previousSlugs": [
-        "room-attendant-80-100-all-genders-the-living-circle-zurich"
-      ],
       "salaryMin": 73000,
       "salaryMax": 91500,
       "currency": "CHF",
@@ -2285,7 +2273,19 @@
       "postalCode": "8001",
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-11-06T21:29:28.778Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "room-attendant-80-100-all-genders-the-living-circle-zurich"
+        ],
+        "fr": [
+          "room-attendant-80-100-all-genders-the-living-circle-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "room-attendant-80-100-all-genders-the-living-circle-zurich"
+      ]
     }
   ]
 }

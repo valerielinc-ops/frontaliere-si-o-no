@@ -43,7 +43,6 @@
         "fr": "nouvelles-initiatives-et-services-commerciaux-lwp-ledermann-wieting-partners"
       },
       "id": "lwphr-0147806bdac8",
-      "firstSeenAt": "2026-11-06T21:32:06.078Z",
       "salaryMin": 51500,
       "salaryMax": 88000,
       "currency": "CHF",
@@ -60,7 +59,8 @@
       },
       "streetAddress": "Ticino",
       "streetAddressSource": "to-enrich",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-11-06T21:32:06.078Z"
     },
     {
       "title": "Im Auftrag eines strukturierten Industrieunternehmens im Bereich",
