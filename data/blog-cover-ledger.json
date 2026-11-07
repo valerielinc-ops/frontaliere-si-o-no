@@ -15,10 +15,10 @@
       "2": 197,
       "3": 0,
       "4": 0,
-      "5": 1089,
+      "5": 1096,
       "6": 5061
     },
-    "publishedCovers": 7832,
+    "publishedCovers": 7839,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 1,
     "inheritedRecordsMaterialized": 197,
@@ -213428,6 +213428,39 @@
         "evidence": "generated-engine-record"
       }
     },
+    "article-giura-regain-fiducia-imprese": {
+      "cover": "/images/blog/article-giura-regain-fiducia-imprese.webp",
+      "hash": "4bbf080205a844afd4d851d49f02a4150ba5d3574aabc676ca09f7053a46c6e5",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-ju",
+          "id": "giura-regain-fiducia-imprese",
+          "category": "novita",
+          "date": "2026-11-07T10:11:35.777Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-giura-regain-fiducia-imprese.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1794,
+      "verifiedAt": "2026-11-07",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-giura-regain-fiducia-imprese",
+        "imageUrl": "/images/blog/article-giura-regain-fiducia-imprese.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
     "article-glarona-detrazioni-energia-2029": {
       "cover": "/images/blog/article-glarona-detrazioni-energia-2029.webp",
       "hash": "50125c9397aaa8b62dff48a809c076b6594c7a8ffe140b10c676c2a928d35d5e",
@@ -214187,6 +214220,39 @@
         "evidence": "generated-engine-record"
       }
     },
+    "article-nav-kita-proroga-fino-2030": {
+      "cover": "/images/blog/article-nav-kita-proroga-fino-2030.webp",
+      "hash": "da9df20b14f159015a5d3918a53a969af1137e416c318ce9fecd156689e95b20",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-lu",
+          "id": "nav-kita-proroga-fino-2030",
+          "category": "pratico",
+          "date": "2026-11-07T10:23:39.187Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-nav-kita-proroga-fino-2030.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1794,
+      "verifiedAt": "2026-11-07",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-nav-kita-proroga-fino-2030",
+        "imageUrl": "/images/blog/article-nav-kita-proroga-fino-2030.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
     "article-neuchatel-dossier-consiglio-stato": {
       "cover": "/images/blog/article-neuchatel-dossier-consiglio-stato.webp",
       "hash": "7ed2ca29c81b2eb03aac217d17160bd32f79616f3d5954d958ac62faf1cd9aa3",
@@ -214316,6 +214382,39 @@
         "provider": "openai-codex",
         "assetId": "article-ofenberg-chiusura-notte",
         "imageUrl": "/images/blog/article-ofenberg-chiusura-notte.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-ostaj-stagnazione-frontalieri": {
+      "cover": "/images/blog/article-ostaj-stagnazione-frontalieri.webp",
+      "hash": "361882035c1cf7ef6743e1b9bd1c11f5462a0236b77e27ad8283adcd23d88ef5",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-ne",
+          "id": "ostaj-stagnazione-frontalieri",
+          "category": "novita",
+          "date": "2026-11-07T11:35:41.176Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-ostaj-stagnazione-frontalieri.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1794,
+      "verifiedAt": "2026-11-07",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-ostaj-stagnazione-frontalieri",
+        "imageUrl": "/images/blog/article-ostaj-stagnazione-frontalieri.webp",
         "evidence": "generated-engine-record"
       }
     },
@@ -214847,6 +214946,39 @@
         "evidence": "generated-engine-record"
       }
     },
+    "article-semal-st-klemens-ebikon": {
+      "cover": "/images/blog/article-semal-st-klemens-ebikon.webp",
+      "hash": "aee2d53375eba15a8a83933dd2d1cafc6a000b0516f21c19433ed24a255e2e29",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-lu",
+          "id": "semal-st-klemens-ebikon",
+          "category": "pratico",
+          "date": "2026-11-07T09:26:29.750Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-semal-st-klemens-ebikon.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1794,
+      "verifiedAt": "2026-11-07",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-semal-st-klemens-ebikon",
+        "imageUrl": "/images/blog/article-semal-st-klemens-ebikon.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
     "article-siccita-fislisbach-forniture": {
       "cover": "/images/blog/article-siccita-fislisbach-forniture.webp",
       "hash": "0a2f04c3576eef341571ee841146f3ab0078dafb283e63628d55589abea9fb4c",
@@ -215207,6 +215339,39 @@
         "provider": "openai-codex",
         "assetId": "article-tariffe-mediche-appenzello-2026",
         "imageUrl": "/images/blog/article-tariffe-mediche-appenzello-2026.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-tassa-circolazione-veicoli-categoria-a": {
+      "cover": "/images/blog/article-tassa-circolazione-veicoli-categoria-a.webp",
+      "hash": "41ab03aab7fdecc202d3f2c1b40a37be2d0d78b4c18487ffdb3153f9690dc345",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-nw",
+          "id": "tassa-circolazione-veicoli-categoria-a",
+          "category": "fiscale",
+          "date": "2026-11-07T11:05:42.871Z",
+          "updatedAt": null,
+          "authorSlug": "marco-ferrari"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-tassa-circolazione-veicoli-categoria-a.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1794,
+      "verifiedAt": "2026-11-07",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-tassa-circolazione-veicoli-categoria-a",
+        "imageUrl": "/images/blog/article-tassa-circolazione-veicoli-categoria-a.webp",
         "evidence": "generated-engine-record"
       }
     },
@@ -215804,6 +215969,39 @@
         "evidence": "generated-engine-record"
       }
     },
+    "article-voto-wil-29-novembre-2026": {
+      "cover": "/images/blog/article-voto-wil-29-novembre-2026.webp",
+      "hash": "8a67718d9b8db6d6e4db78049aa7fccc4ca8b53f6abaf9d265eff6f8c5e9a941",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-sg",
+          "id": "voto-wil-29-novembre-2026",
+          "category": "pratico",
+          "date": "2026-11-07T09:39:57.626Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-voto-wil-29-novembre-2026.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1794,
+      "verifiedAt": "2026-11-07",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-voto-wil-29-novembre-2026",
+        "imageUrl": "/images/blog/article-voto-wil-29-novembre-2026.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
     "article-wil-piano-finanziario-2027-2031": {
       "cover": "/images/blog/article-wil-piano-finanziario-2027-2031.webp",
       "hash": "21ce5320cd3bbcbeda61a24a7f20f61237d2c70943977fd60f0ca9e2d3e642f1",
@@ -215834,6 +216032,39 @@
         "provider": "openai-codex",
         "assetId": "article-wil-piano-finanziario-2027-2031",
         "imageUrl": "/images/blog/article-wil-piano-finanziario-2027-2031.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-zug-fondo-zukunftskapital-900m": {
+      "cover": "/images/blog/article-zug-fondo-zukunftskapital-900m.webp",
+      "hash": "ec22709fa2af4edfb7a42555d824c248acab0c6d68a755b3322034033e39746b",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-zg",
+          "id": "zug-fondo-zukunftskapital-900m",
+          "category": "fiscale",
+          "date": "2026-11-07T11:06:15.874Z",
+          "updatedAt": null,
+          "authorSlug": "marco-ferrari"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-zug-fondo-zukunftskapital-900m.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1794,
+      "verifiedAt": "2026-11-07",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-zug-fondo-zukunftskapital-900m",
+        "imageUrl": "/images/blog/article-zug-fondo-zukunftskapital-900m.webp",
         "evidence": "generated-engine-record"
       }
     },
