@@ -22,7 +22,7 @@ describe('active job social image metadata', () => {
 
   it('uses a verified Italian title in the Italian link preview', () => {
     expect(SOURCE).toContain("const socialTitle = locale === 'it'");
-    expect(SOURCE).toContain("stripLiteralMarkdownFromTitle(getItalianJobTitle(job) || 'Offerta di lavoro')");
+    expect(SOURCE).toContain("stripLiteralMarkdownFromTitle(getItalianJobTitle(job)) || 'Offerta di lavoro'");
     expect(SOURCE).toContain("const socialTitleProbe = locale === 'it'");
     expect(SOURCE).toContain('const ogTitle = truncateHeadline(socialTitleProbe, OG_TITLE_MAX_CHARS)');
     expect(ACTIVE_JOB_HEAD).toContain('<meta property="og:title" content="${esc(ogTitle)}">');

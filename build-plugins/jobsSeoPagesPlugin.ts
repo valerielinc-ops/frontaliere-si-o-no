@@ -4237,7 +4237,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  // link preview shown below the attached vertical image. If no reliable
  // Italian title exists, use a clearly Italian generic heading.
  const socialTitle = locale === 'it'
-  ? stripLiteralMarkdownFromTitle(getItalianJobTitle(job) || 'Offerta di lavoro')
+  ? stripLiteralMarkdownFromTitle(getItalianJobTitle(job)) || 'Offerta di lavoro'
   : localizedTitle;
  const socialTitleProbe = locale === 'it'
   ? composeJobPageTitle(
