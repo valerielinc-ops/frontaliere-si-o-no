@@ -4,26 +4,26 @@
   "generatorSha256": "fdb030bbf39ca408ce40ba0c64a85867e92a8fed3e4bf922daf2847a61f12687",
   "sourceRepository": "valerielinc-ops/frontaliere-si-o-no",
   "sourceRef": "main",
-  "sourceCommit": "dc6da519c9ff6f83fe84a0551e9480c23f929eda",
+  "sourceCommit": "07dd300ee7dd4a3d03cd1776693e66183d8bbe1c",
   "artifactObservation": {
     "generatorSha256": "fdb030bbf39ca408ce40ba0c64a85867e92a8fed3e4bf922daf2847a61f12687",
     "sourceRef": "main",
-    "sourceCommit": "dc6da519c9ff6f83fe84a0551e9480c23f929eda"
+    "sourceCommit": "07dd300ee7dd4a3d03cd1776693e66183d8bbe1c"
   },
   "groupCount": 25,
   "artifactCount": 26,
   "observerCount": 8,
-  "crawlerCount": 690,
+  "crawlerCount": 695,
   "crawlerRosterCardinality": {
-    "sourceCommit": "dc6da519c9ff6f83fe84a0551e9480c23f929eda",
+    "sourceCommit": "07dd300ee7dd4a3d03cd1776693e66183d8bbe1c",
     "groupCount": 25,
     "artifactCount": 26,
-    "crawlerCount": 690
+    "crawlerCount": 695
   },
   "crawlerGeneration": {
     "mode": "shadow",
     "rosterPath": "scripts/ci/crawler-generation-roster.json",
-    "rosterDigest": "sha256:52a1f368a3e60768dcc0aa98792fd0a8ca73b37dd5b7334226769f59be11f1f5",
+    "rosterDigest": "sha256:f5347709f52e88c79e7e58281fe51a92eaec19d81ec7346679e5caef7f365094",
     "artifactRetentionDays": 14,
     "dispatchesTranslation": false
   },
@@ -116,6 +116,7 @@
     "scripts/update-asana-spital-jobs.mjs",
     "scripts/update-asanti-ch-jobs.mjs",
     "scripts/update-asile-des-aveugles-jobs.mjs",
+    "scripts/update-assura-ch-jobs.mjs",
     "scripts/update-atec-personal-jobs.mjs",
     "scripts/update-audemars-piguet-jobs.mjs",
     "scripts/update-avantgarten-ch-jobs.mjs",
@@ -259,6 +260,7 @@
     "scripts/update-fondazione-san-gottardo-jobs.mjs",
     "scripts/update-forel-klinik-jobs.mjs",
     "scripts/update-franklin-university-jobs.mjs",
+    "scripts/update-freestarinformatik-jobs.mjs",
     "scripts/update-fusalp-jobs.mjs",
     "scripts/update-galderma-jobs.mjs",
     "scripts/update-galliker-jobs.mjs",
@@ -496,6 +498,7 @@
     "scripts/update-rheinmetall-air-defence-jobs.mjs",
     "scripts/update-rhne-reseau-hospitalier-neuchatelois-jobs.mjs",
     "scripts/update-richemont-jobs.mjs",
+    "scripts/update-richnerstutz-ch-jobs.mjs",
     "scripts/update-ricola-jobs.mjs",
     "scripts/update-rieter-jobs.mjs",
     "scripts/update-riri-jobs.mjs",
@@ -504,6 +507,7 @@
     "scripts/update-roche-jobs.mjs",
     "scripts/update-rohrer-gartenbau-und-hauswartungen-jobs.mjs",
     "scripts/update-rolex-jobs.mjs",
+    "scripts/update-ronda-ch-jobs.mjs",
     "scripts/update-rsbj-jobs.mjs",
     "scripts/update-rss-surselva-jobs.mjs",
     "scripts/update-saint-gobain-weber-isover-jobs.mjs",
@@ -586,6 +590,7 @@
     "scripts/update-suva-jobs.mjs",
     "scripts/update-svar-spitalverbund-ar-jobs.mjs",
     "scripts/update-swica-jobs.mjs",
+    "scripts/update-swiss-education-company-ch-jobs.mjs",
     "scripts/update-swiss-life-jobs.mjs",
     "scripts/update-swiss-re-jobs.mjs",
     "scripts/update-swisslog-jobs.mjs",
@@ -730,8 +735,8 @@
     {
       "file": "crawler-group-02.yml",
       "sourceLogic": "crawler-group-02-logic.yml",
-      "sourceSha256": "cc8960cc40a31d54ae52f136a043432ace7212a16ee9437fd6614231ddef0ac0",
-      "artifactSha256": "90564476b6072234b2807de2d62787ba97b0f69032df1312f1b8a0c16a085e24",
+      "sourceSha256": "8e0bee24d8de2a1daed91534b49a53dd1e57b4d551d9e6052f267f3e79a52843",
+      "artifactSha256": "03b2fdc71a5397c11c704f5cd8974c34b4b4b2757e35653d9ab75c9ef3c22a97",
       "generatorSha256": "fdb030bbf39ca408ce40ba0c64a85867e92a8fed3e4bf922daf2847a61f12687",
       "members": [
         "roche",
@@ -763,14 +768,15 @@
         "mcm-group",
         "grischapersonal",
         "oscam",
-        "fondazione-san-gottardo"
+        "fondazione-san-gottardo",
+        "ronda-ch"
       ]
     },
     {
       "file": "crawler-group-03.yml",
       "sourceLogic": "crawler-group-03-logic.yml",
-      "sourceSha256": "b7a67bf20076f1180b9dd02af59efaaffdaa6a088512ed945a58ebb24a094857",
-      "artifactSha256": "d3de75a3c28601d8676c78d48c3b83d29ba13bc1e0637a7f7a77db638e2ce82d",
+      "sourceSha256": "82f8b21aedd11173ecc827eff9e5d81ab93d69e9280b8d2aef544d3a6af109b6",
+      "artifactSha256": "e518ef8571ff659cfedbaa6b1dc2f2152bfa8d6a0ecae85d389487c91b8ff27a",
       "generatorSha256": "fdb030bbf39ca408ce40ba0c64a85867e92a8fed3e4bf922daf2847a61f12687",
       "members": [
         "felfel",
@@ -802,7 +808,8 @@
         "arosa-lenzerheide",
         "schweizerhof-flims",
         "schindler",
-        "nishcom"
+        "nishcom",
+        "swiss-education-company-ch"
       ]
     },
     {
@@ -1591,8 +1598,8 @@
     {
       "file": "crawler-group-24.yml",
       "sourceLogic": "crawler-group-24-logic.yml",
-      "sourceSha256": "d90a61e1d5ab7e711083105c1fe71b7d695756750c72be67922741e3ec2f7d70",
-      "artifactSha256": "809118ab370eb3dca73bbb1c04155b1604a3d22e6c196dc27665e4c1e32e5029",
+      "sourceSha256": "82b6fb9f01c371d6ef69c1993ef937a9bfbd4ff4557381fc54ee4deb5e96aa3a",
+      "artifactSha256": "b76566f10e9d2e509e2bcec4152b94cd5f1c86e022791680a67ebe6bd1da5c22",
       "generatorSha256": "fdb030bbf39ca408ce40ba0c64a85867e92a8fed3e4bf922daf2847a61f12687",
       "members": [
         "seco-jobroom",
@@ -1619,7 +1626,10 @@
         "favresa-ch",
         "skan",
         "unidistance-ch",
-        "a2nails-ch"
+        "a2nails-ch",
+        "assura-ch",
+        "freestarinformatik",
+        "richnerstutz-ch"
       ]
     },
     {
