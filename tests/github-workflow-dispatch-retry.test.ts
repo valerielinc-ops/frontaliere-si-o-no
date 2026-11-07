@@ -32,13 +32,30 @@ function runHelper(
   );
 }
 
+function runDispatchKey(sourceUrl: string) {
+  return spawnSync(
+    '/bin/bash',
+    ['-c', 'source "$1"; workflow_dispatch_source_key "$2"', 'dispatch-key-test', HELPER, sourceUrl],
+    { cwd: ROOT, encoding: 'utf8' },
+  );
+}
+
 describe('shared cross-repository workflow dispatch retry', () => {
   it('is sourced by BFS and all ASTRA dispatch paths', () => {
     const bfs = readFileSync(BFS_WORKFLOW, 'utf8');
     const astra = readFileSync(ASTRA_WORKFLOW, 'utf8');
     expect(bfs).toContain('source scripts/lib/github-workflow-dispatch-with-retry.sh');
+    expect(bfs).toContain('workflow_dispatch_source_key');
     expect(astra.match(/source scripts\/lib\/github-workflow-dispatch-with-retry\.sh/g)).toHaveLength(3);
+    expect(astra).toContain('workflow_dispatch_source_key');
     expect(astra).toContain('dispatch_workflow_with_retry generate-article.yml');
+  });
+
+  it('derives a bounded stable key from the exact source URL', () => {
+    const result = runDispatchKey('stats-bfs://2026-Q2');
+    expect(result.status).toBe(0);
+    expect(result.stdout.trim()).toBe('aa5e695bead71bddb621e11e39e38398');
+    expect(result.stdout.trim()).toHaveLength(32);
   });
 
   it('retries transient 5xx responses and stops after the bounded budget', () => {

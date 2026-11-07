@@ -89,6 +89,11 @@ jobs:
             legacy) echo "dispatch_origin_supported=false" >> "$GITHUB_OUTPUT" ;;
             *) echo "::error::Stato inatteso del contratto corpus: $origin_contract"; exit 1 ;;
           esac
+          if printf '%s' "$workflow_yaml" | grep -Eq '^      source_key:'; then
+            echo "source_key_supported=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "source_key_supported=false" >> "$GITHUB_OUTPUT"
+          fi
           echo "Contratto dispatch corpus: $origin_contract"
 
       - name: Job summary
@@ -137,6 +142,7 @@ jobs:
         env:
           PENDING_WEEK: ${{ steps.refresh.outputs.pending_week }}
           DISPATCH_ORIGIN_SUPPORTED: ${{ steps.corpus_origin.outputs.dispatch_origin_supported }}
+          SOURCE_KEY_SUPPORTED: ${{ steps.corpus_origin.outputs.source_key_supported }}
         run: |
           if [ -z "${GITHUB_PAT_NANAKO:-}" ]; then
             echo "GITHUB_PAT_NANAKO non presente nell'ambiente Remote Config."
@@ -155,7 +161,17 @@ jobs:
           }
           failed=0
           for url in $PENDING_WEEK; do
-            if dispatch_article -f url="$url" -f section=frontaliere; then
+            source_key_args=()
+            if [ "${SOURCE_KEY_SUPPORTED:-false}" = "true" ]; then
+              if ! source_key="$(workflow_dispatch_source_key "$url")"; then
+                failed=1
+                continue
+              fi
+              source_key_args=(-f "source_key=$source_key")
+            else
+              source_key_args=()
+            fi
+            if dispatch_article -f url="$url" "${source_key_args[@]}" -f section=frontaliere; then
               if ! node scripts/ack-astra-article-dispatch.mjs "$url"; then
                 failed=1
               fi
@@ -172,6 +188,7 @@ jobs:
         env:
           PENDING_MONTH_CH: ${{ steps.refresh.outputs.pending_month_ch }}
           DISPATCH_ORIGIN_SUPPORTED: ${{ steps.corpus_origin.outputs.dispatch_origin_supported }}
+          SOURCE_KEY_SUPPORTED: ${{ steps.corpus_origin.outputs.source_key_supported }}
         run: |
           if [ -z "${GITHUB_PAT_NANAKO:-}" ]; then
             echo "GITHUB_PAT_NANAKO non presente nell'ambiente Remote Config."
@@ -190,7 +207,17 @@ jobs:
           }
           failed=0
           for url in $PENDING_MONTH_CH; do
-            if dispatch_article -f url="$url" -f section=svizzera; then
+            source_key_args=()
+            if [ "${SOURCE_KEY_SUPPORTED:-false}" = "true" ]; then
+              if ! source_key="$(workflow_dispatch_source_key "$url")"; then
+                failed=1
+                continue
+              fi
+              source_key_args=(-f "source_key=$source_key")
+            else
+              source_key_args=()
+            fi
+            if dispatch_article -f url="$url" "${source_key_args[@]}" -f section=svizzera; then
               if ! node scripts/ack-astra-article-dispatch.mjs "$url"; then
                 failed=1
               fi
@@ -207,6 +234,7 @@ jobs:
         env:
           PENDING_MONTH_TI: ${{ steps.refresh.outputs.pending_month_ti }}
           DISPATCH_ORIGIN_SUPPORTED: ${{ steps.corpus_origin.outputs.dispatch_origin_supported }}
+          SOURCE_KEY_SUPPORTED: ${{ steps.corpus_origin.outputs.source_key_supported }}
         run: |
           if [ -z "${GITHUB_PAT_NANAKO:-}" ]; then
             echo "GITHUB_PAT_NANAKO non presente nell'ambiente Remote Config."
@@ -225,7 +253,17 @@ jobs:
           }
           failed=0
           for url in $PENDING_MONTH_TI; do
-            if dispatch_article -f url="$url" -f section=frontaliere; then
+            source_key_args=()
+            if [ "${SOURCE_KEY_SUPPORTED:-false}" = "true" ]; then
+              if ! source_key="$(workflow_dispatch_source_key "$url")"; then
+                failed=1
+                continue
+              fi
+              source_key_args=(-f "source_key=$source_key")
+            else
+              source_key_args=()
+            fi
+            if dispatch_article -f url="$url" "${source_key_args[@]}" -f section=frontaliere; then
               if ! node scripts/ack-astra-article-dispatch.mjs "$url"; then
                 failed=1
               fi

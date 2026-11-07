@@ -117,6 +117,9 @@ describe('il dispatch scatta SOLO sulla transizione di trimestre', () => {
   it('rileva il contratto sul branch main e non invia input sconosciuti', () => {
     expect(dispatch.run).toContain('gh workflow view generate-article.yml');
     expect(dispatch.run).toContain('node functions/src/generationWorkflowContract.js');
+    expect(dispatch.run).toContain("grep -Eq '^      source_key:'");
+    expect(dispatch.run).toContain('workflow_dispatch_source_key');
+    expect(dispatch.run).toContain('-f "source_key=$source_key"');
     expect(dispatch.run).toContain('dispatch_corpus_article() {');
     expect(dispatch.run).toContain('-f dispatch_origin=editorial_signal "$@"');
     expect(dispatch.run).toContain('dispatch_corpus_article -f url=');
@@ -141,6 +144,8 @@ describe('gli altri segnali editoriali dichiarano la propria origine', () => {
     expect(dispatches).toHaveLength(dispatchFunctions.length * 2);
     expect(astra).not.toContain('origin_args[@]');
     expect(astra).toContain('node functions/src/generationWorkflowContract.js');
+    expect(astra).toContain("grep -Eq '^      source_key:'");
+    expect(astra).toContain('workflow_dispatch_source_key');
   });
 });
 

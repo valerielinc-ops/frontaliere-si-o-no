@@ -4,6 +4,25 @@
 # the retry budget small and never retries authentication, input, timeout, or
 # otherwise unclassified failures.
 
+workflow_dispatch_source_key() {
+  if [ "$#" -ne 1 ] || [ -z "$1" ]; then
+    echo "usage: workflow_dispatch_source_key <source-url>" >&2
+    return 2
+  fi
+
+  local digest
+  if ! digest="$(printf '%s' "$1" | sha256sum | cut -d ' ' -f 1)"; then
+    echo "unable to hash workflow dispatch source URL" >&2
+    return 1
+  fi
+  digest="${digest:0:32}"
+  if [[ ! "$digest" =~ ^[a-f0-9]{32}$ ]]; then
+    echo "workflow dispatch source URL hash is invalid" >&2
+    return 1
+  fi
+  printf '%s\n' "$digest"
+}
+
 dispatch_workflow_with_retry() {
   if [ "$#" -lt 2 ]; then
     echo "usage: dispatch_workflow_with_retry <workflow-file> <owner/repo> [gh workflow run args...]" >&2
