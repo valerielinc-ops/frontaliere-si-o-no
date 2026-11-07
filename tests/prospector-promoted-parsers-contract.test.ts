@@ -2,7 +2,8 @@ import { describe, expect, it, vi } from 'vitest';
 
 const { mockListings } = vi.hoisted(() => ({ mockListings: [] as Array<Record<string, string>> }));
 
-vi.mock('../scripts/lib/prospector/spec-crawler.mjs', () => ({
+vi.mock('../scripts/lib/prospector/spec-crawler.mjs', async (importOriginal) => ({
+  ...(await importOriginal()),
   loadSpec: vi.fn((companyKey: string) => ({ companyKey })),
   runSpecInProduction: vi.fn(async () => mockListings),
 }));
