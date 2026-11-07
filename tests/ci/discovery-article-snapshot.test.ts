@@ -120,7 +120,6 @@ describe('syncDiscoveryArticleSnapshot', () => {
       fetchImpl,
       now: new Date(now),
       retries: 0,
-      routeRetries: 0,
     });
 
     expect(first).toMatchObject({ status: 'ready', changed: true, commit: COMMIT, count: 3 });
