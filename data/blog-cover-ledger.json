@@ -15,10 +15,10 @@
       "2": 197,
       "3": 0,
       "4": 0,
-      "5": 1074,
+      "5": 1082,
       "6": 5061
     },
-    "publishedCovers": 7817,
+    "publishedCovers": 7825,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 1,
     "inheritedRecordsMaterialized": 197,
@@ -213032,6 +213032,39 @@
         "evidence": "generated-engine-record"
       }
     },
+    "article-chiusura-imbocco-dorfstrasse": {
+      "cover": "/images/blog/article-chiusura-imbocco-dorfstrasse.webp",
+      "hash": "ca950ece800058fb508d56a905ee181b078a289b604b1e7d5f0b49a6b332a0fe",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-nw",
+          "id": "chiusura-imbocco-dorfstrasse",
+          "category": "pratico",
+          "date": "2026-11-07T00:43:15.544Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-chiusura-imbocco-dorfstrasse.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1794,
+      "verifiedAt": "2026-11-07",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-chiusura-imbocco-dorfstrasse",
+        "imageUrl": "/images/blog/article-chiusura-imbocco-dorfstrasse.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
     "article-chiusura-invernale-gottardo": {
       "cover": "/images/blog/article-chiusura-invernale-gottardo.webp",
       "hash": "5e20f336a956853cf1e0d5a26b2c53512c9d4da4fb5d08f7d3c11bdefe29c410",
@@ -213692,6 +213725,39 @@
         "evidence": "generated-engine-record"
       }
     },
+    "article-kriens-riduce-imposte": {
+      "cover": "/images/blog/article-kriens-riduce-imposte.webp",
+      "hash": "03412d5b68124944bcfebdd92ab0bf063da408c383f9a332f014b5591f1c7c3d",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-lu",
+          "id": "kriens-riduce-imposte",
+          "category": "fiscale",
+          "date": "2026-11-07T00:45:28.812Z",
+          "updatedAt": null,
+          "authorSlug": "marco-ferrari"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-kriens-riduce-imposte.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1794,
+      "verifiedAt": "2026-11-07",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-kriens-riduce-imposte",
+        "imageUrl": "/images/blog/article-kriens-riduce-imposte.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
     "article-lausanna-credito-colonnine-2031": {
       "cover": "/images/blog/article-lausanna-credito-colonnine-2031.webp",
       "hash": "f66ce4e47f8312c4e39a35a0a93c4ce6aeeb5d4a5a2dcb3ee512e702ca5d8d27",
@@ -213722,6 +213788,39 @@
         "provider": "openai-codex",
         "assetId": "article-lausanna-credito-colonnine-2031",
         "imageUrl": "/images/blog/article-lausanna-credito-colonnine-2031.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-lavoro-zurigo-imprese": {
+      "cover": "/images/blog/article-lavoro-zurigo-imprese.webp",
+      "hash": "03880a3054dd1d2dd75a37ca62a158aa0e6c77ac9f803fc72fe9f401fa27329b",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-zh",
+          "id": "lavoro-zurigo-imprese",
+          "category": "novita",
+          "date": "2026-11-07T01:22:38.462Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-lavoro-zurigo-imprese.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1794,
+      "verifiedAt": "2026-11-07",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-lavoro-zurigo-imprese",
+        "imageUrl": "/images/blog/article-lavoro-zurigo-imprese.webp",
         "evidence": "generated-engine-record"
       }
     },
@@ -213821,6 +213920,39 @@
         "provider": "openai-codex",
         "assetId": "article-massagno-moltiplicatore-2027",
         "imageUrl": "/images/blog/article-massagno-moltiplicatore-2027.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-meno-cercatori-lavoro-ottobre": {
+      "cover": "/images/blog/article-meno-cercatori-lavoro-ottobre.webp",
+      "hash": "16889f67c2dad34f54730db4e3b2f9635b774c8a009b3500c8c1d1e3a4d917ac",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-sg",
+          "id": "meno-cercatori-lavoro-ottobre",
+          "category": "pratico",
+          "date": "2026-11-07T01:00:43.057Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-meno-cercatori-lavoro-ottobre.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1794,
+      "verifiedAt": "2026-11-07",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-meno-cercatori-lavoro-ottobre",
+        "imageUrl": "/images/blog/article-meno-cercatori-lavoro-ottobre.webp",
         "evidence": "generated-engine-record"
       }
     },
@@ -214022,6 +214154,39 @@
         "evidence": "generated-engine-record"
       }
     },
+    "article-oelrainstrasse-chiusura-5-novembre": {
+      "cover": "/images/blog/article-oelrainstrasse-chiusura-5-novembre.webp",
+      "hash": "1c08dd8a605361b8f7a789ca1c6c7686c2a6c89443acc26a233101f2de7bc84e",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-ag",
+          "id": "oelrainstrasse-chiusura-5-novembre",
+          "category": "pratico",
+          "date": "2026-11-07T01:08:28.390Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-oelrainstrasse-chiusura-5-novembre.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1794,
+      "verifiedAt": "2026-11-07",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-oelrainstrasse-chiusura-5-novembre",
+        "imageUrl": "/images/blog/article-oelrainstrasse-chiusura-5-novembre.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
     "article-ofenberg-chiusura-notte": {
       "cover": "/images/blog/article-ofenberg-chiusura-notte.webp",
       "hash": "a5b36dc4352e132d7abb63d6d0061aedbbab7a3d9c0fc34e17f93fee91159616",
@@ -214184,6 +214349,72 @@
         "provider": "openai-codex",
         "assetId": "article-quota-regionale-salute-2027",
         "imageUrl": "/images/blog/article-quota-regionale-salute-2027.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-reclutamento-infermieri-varese": {
+      "cover": "/images/blog/article-reclutamento-infermieri-varese.webp",
+      "hash": "3d10a254b4877d3473c83da32e0376a0a3364ba7882dd19a4c2ed6b87bc1ed29",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-ti",
+          "id": "reclutamento-infermieri-varese",
+          "category": "novita",
+          "date": "2026-11-06T22:55:12.637Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-reclutamento-infermieri-varese.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1794,
+      "verifiedAt": "2026-11-06",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-reclutamento-infermieri-varese",
+        "imageUrl": "/images/blog/article-reclutamento-infermieri-varese.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-revisione-legge-personale-berna": {
+      "cover": "/images/blog/article-revisione-legge-personale-berna.webp",
+      "hash": "0ac39c5a4c9868098a96b6701cf9b6dd07a91321d435218c60f8d28a57588c3a",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-be",
+          "id": "revisione-legge-personale-berna",
+          "category": "novita",
+          "date": "2026-11-06T23:39:10.303Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-revisione-legge-personale-berna.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1794,
+      "verifiedAt": "2026-11-06",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-revisione-legge-personale-berna",
+        "imageUrl": "/images/blog/article-revisione-legge-personale-berna.webp",
         "evidence": "generated-engine-record"
       }
     },
@@ -215372,6 +215603,39 @@
         "provider": "openai-codex",
         "assetId": "article-wil-piano-finanziario-2027-2031",
         "imageUrl": "/images/blog/article-wil-piano-finanziario-2027-2031.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-zurigo-budget-rivalutazione-immobili": {
+      "cover": "/images/blog/article-zurigo-budget-rivalutazione-immobili.webp",
+      "hash": "2507441abfc73abf9602566d701bc2602ce968ea67191216362c0ade9db1ea0b",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-zh",
+          "id": "zurigo-budget-rivalutazione-immobili",
+          "category": "novita",
+          "date": "2026-11-07T00:01:51.984Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-zurigo-budget-rivalutazione-immobili.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1794,
+      "verifiedAt": "2026-11-07",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-zurigo-budget-rivalutazione-immobili",
+        "imageUrl": "/images/blog/article-zurigo-budget-rivalutazione-immobili.webp",
         "evidence": "generated-engine-record"
       }
     },
