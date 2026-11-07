@@ -103,7 +103,7 @@ function readJournalistImageCatalog() {
   }
 }
 
-/** A catalog path is trusted only when the committed catalog carries its record. */
+/** A catalog path is trusted only when its record and committed file exist. */
 function hasCatalogImageRecord(imagePath, catalog = readJournalistImageCatalog()) {
   if (typeof imagePath !== 'string'
     || !CATALOG_IMAGE_PATH_RE.test(imagePath)
@@ -112,7 +112,7 @@ function hasCatalogImageRecord(imagePath, catalog = readJournalistImageCatalog()
   }
 
   try {
-    if (!fs.statSync(path.join(PROJECT_ROOT, imagePath.slice(1))).isFile()) return false;
+    if (!fs.statSync(path.join(PROJECT_ROOT, 'public', imagePath.slice(1))).isFile()) return false;
   } catch {
     return false;
   }
