@@ -4231,7 +4231,26 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  // is preserved for the vast majority of titles and only the genuine tail
  // outliers get an ellipsis instead of a mid-word FB cut.
  const OG_TITLE_MAX_CHARS = 100;
- const ogTitle = truncateHeadline(baseTitleProbe, OG_TITLE_MAX_CHARS);
+ // The Italian Facebook job card has its own verified title translation.
+ // Keep the employer's original title in the page's <title>/H1, but do not
+ // repeat a German/French/English application title in the Italian social
+ // link preview shown below the attached vertical image. If no reliable
+ // Italian title exists, use a clearly Italian generic heading.
+ const socialTitle = locale === 'it'
+  ? stripLiteralMarkdownFromTitle(getItalianJobTitle(job) || 'Offerta di lavoro')
+  : localizedTitle;
+ const socialTitleProbe = locale === 'it'
+  ? composeJobPageTitle(
+   socialTitle,
+   String(job.company || ''),
+   jobLocation,
+   locale,
+   undefined,
+   undefined,
+   (s) => esc(s).length,
+  )
+  : baseTitleProbe;
+ const ogTitle = truncateHeadline(socialTitleProbe, OG_TITLE_MAX_CHARS);
  recordPhase('title', __tPh_title);
  // stripLeadingSectionLabel: crawlers flatten the source page's
  // "Descrizione/Description/Beschreibung" heading into the first sentence
