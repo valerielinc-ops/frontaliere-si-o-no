@@ -8,6 +8,7 @@ import {
 } from '../services/plateAuctions/types';
 import { normalizePlateAuctionRedirectUrl } from '../functions/src/plateAuctionUrlNormalization.js';
 import { FR_ECARI_CATALOGUE_URL } from '../functions/src/plateAuctionSourceUrls.js';
+import { resolvePlateAuctionSourceStatus } from '../functions/src/plateAuctionSourceRegistry.js';
 
 /**
  * Schema guard for `data/plate-auction-sources-registry.json` (#6355, prereq
@@ -71,7 +72,7 @@ describe('plate-auction sources registry schema', () => {
     expect(Object.entries(registry.sources)
       .filter(([, entry]) => entry.status === 'active')
       .map(([key]) => key)
-      .sort()).toEqual(['ag', 'ai', 'ar', 'be', 'bl', 'bs', 'fr', 'gl', 'gr', 'lu', 'nw', 'ow', 'sg', 'sh', 'so', 'sz', 'tg', 'ti', 'ur', 'vd', 'vs', 'zh']);
+      .sort()).toEqual(['ag', 'ai', 'ar', 'be', 'bl', 'bs', 'fr', 'ge', 'gl', 'gr', 'lu', 'nw', 'ow', 'sg', 'sh', 'so', 'sz', 'tg', 'ti', 'ur', 'vd', 'vs', 'zh']);
   });
 
   it('never activates a source that has no fetcher, and never leaves a fetcher unbacked', async () => {
@@ -105,9 +106,9 @@ describe('plate-auction sources registry schema', () => {
     expect(FR_ECARI_CATALOGUE_URL).toBe('https://appls.ocn.ch/ecari-auction?locale=fr_ch');
     expect(registry.sources.fr.officialUrl).toBe(FR_ECARI_CATALOGUE_URL);
     expect(registry.sources.ne.status).toBe('blocked');
-    // GE: connettore pronto (lista PDF dell'OCV su ge.ch), attivato quando
-    // esce la lista d'autunno 2026; Ricardo resta solo un link.
-    expect(registry.sources.ge.status).toBe('blocked');
+    // GE: attivo solo per la sessione OCV corrente; Ricardo resta solo un link.
+    expect(registry.sources.ge.status).toBe('active');
+    expect(registry.sources.ge.activeUntil).toBe('2026-11-26T10:00:00.000Z');
     expect(registry.sources.ge.officialUrl).toBe('https://www.ge.ch/plaques/vente-aux-encheres-plaques');
     expect(registry.sources.ju.status).toBe('blocked');
     expect(registry.sources.ai.status).toBe('active');
@@ -120,6 +121,11 @@ describe('plate-auction sources registry schema', () => {
     expect(registry.sources.lu.status).toBe('active');
     expect(registry.sources.ur.status).toBe('active');
     expect(registry.sources.zg.status).toBe('no-public-auction');
+  });
+
+  it('blocks GE at the inclusive end of its finite session', () => {
+    expect(resolvePlateAuctionSourceStatus(registry.sources.ge, new Date('2026-11-26T09:59:59.999Z'))).toBe('active');
+    expect(resolvePlateAuctionSourceStatus(registry.sources.ge, new Date('2026-11-26T10:00:00.000Z'))).toBe('blocked');
   });
 
   it('keeps current and historical rows aligned with canonical audited sources', () => {
