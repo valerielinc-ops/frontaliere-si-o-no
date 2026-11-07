@@ -44751,3 +44751,8 @@
 {"eventType":"candidate_attempt","key":"rosta@hunzenschwil","status":"validated","outcome":"weak","at":"2026-11-07T13:24:40.537Z","runId":"42363492367","runAttempt":1,"phase":"validate","eventId":"6c13128e5bcbea589b552f85"}
 {"eventType":"candidate_attempt","key":"next-work@zurich","status":"validated","outcome":"weak","at":"2026-11-07T13:25:00.591Z","runId":"42363492367","runAttempt":1,"phase":"validate","eventId":"b4ead2a4d136b0b81ce810f2"}
 {"eventType":"phase_finished","at":"2026-11-07T13:25:01.369Z","outcome":"complete","durationMs":1625558,"inputCount":64,"successCount":20,"retryCount":44,"runId":"42363492367","runAttempt":1,"phase":"validate","eventId":"0fcc2e756d579831be97151c"}
+{"eventType":"phase_started","at":"2026-11-07T13:26:22.436Z","runId":"42363492367","runAttempt":1,"phase":"promote","eventId":"f19b619bff70e9bd4ea9e78a"}
+{"eventType":"candidate_transition","key":"a2nails.ch","from":"promoting","to":"awaiting_first_crawl","at":"2026-11-07T13:26:25.335Z","runId":"42363492367","runAttempt":1,"phase":"promote","eventId":"d4ca2a488b5d8eabc0b548da"}
+{"eventType":"candidate_transition","key":"a2nails.ch","from":"awaiting_first_crawl","to":"production","at":"2026-11-07T13:26:25.364Z","runId":"42363492367","runAttempt":1,"phase":"promote","eventId":"ea2ff571ad57bd903d238a7c"}
+{"eventType":"candidate_attempt","key":"sintio.ch","status":"awaiting_first_crawl","outcome":"updated","at":"2026-11-07T13:26:25.365Z","runId":"42363492367","runAttempt":1,"phase":"promote","eventId":"c9f1b6d4695a228d59fae947"}
+{"eventType":"candidate_attempt","key":"creditx@sion","status":"awaiting_first_crawl","outcome":"updated","at":"2026-11-07T13:26:25.365Z","runId":"42363492367","runAttempt":1,"phase":"promote","eventId":"db11c28f792f75fe35419c37"}

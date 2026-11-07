@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-11-07T13:25:00.704Z",
+  "updatedAt": "2026-11-07T13:26:25.460Z",
   "candidates": {
     "2225": {
       "key": "2225",
@@ -8041,13 +8041,13 @@
     },
     "a2nails.ch": {
       "key": "a2nails.ch",
-      "status": "promoting",
+      "status": "production",
       "sources": [
         "osm",
         "seco"
       ],
       "firstSeenAt": "2026-08-29T10:19:03.315Z",
-      "updatedAt": "2026-11-06T13:39:46.203Z",
+      "updatedAt": "2026-11-07T13:26:25.364Z",
       "name": "A2 Nails Sàrl",
       "domain": "a2nails.ch",
       "city": "Nyon",
@@ -8282,7 +8282,13 @@
         }
       ],
       "promotionPr": "17392",
-      "promotionBranch": "prospector/promote-2026-11-06"
+      "promotionBranch": "prospector/promote-2026-11-06",
+      "promotedAt": "2026-11-06T22:53:04Z",
+      "firstCrawlerOutputStatus": "published",
+      "firstCrawlerOutputAttention": false,
+      "firstCrawlerOutputReason": null,
+      "firstCrawlerOutputAt": "2026-11-07T09:48:27.341Z",
+      "firstCrawlerJobCount": 1
     },
     "a3-betonpumpen@affoltern-am-albis": {
       "key": "a3-betonpumpen@affoltern-am-albis",
@@ -1294276,7 +1294282,7 @@
         "web"
       ],
       "firstSeenAt": "2026-10-19T21:46:32.730Z",
-      "updatedAt": "2026-11-06T13:39:11.604Z",
+      "updatedAt": "2026-11-07T13:26:25.365Z",
       "name": "sintio",
       "domain": "sintio.ch",
       "careersUrl": "https://join.com/companies/sintio/16868238-technische-r-verkaufsberater-in-und-projektleiter-in-e-mobility",
@@ -1294497,7 +1294503,7 @@
       "firstCrawlerOutputStatus": "empty",
       "firstCrawlerOutputAttention": true,
       "firstCrawlerOutputReason": null,
-      "firstCrawlerOutputAt": "2026-11-05T21:51:27.698Z",
+      "firstCrawlerOutputAt": "2026-11-07T09:48:08.472Z",
       "firstCrawlerJobCount": 0,
       "firstCrawlerOutputAttentionAt": "2026-11-04T13:55:58.168Z"
     },
@@ -1914969,7 +1914975,7 @@
         "seco"
       ],
       "firstSeenAt": "2026-11-03T11:02:22.714Z",
-      "updatedAt": "2026-11-06T13:39:11.604Z",
+      "updatedAt": "2026-11-07T13:26:25.365Z",
       "name": "CreditX Sàrl",
       "secoEmployerName": "CreditX Sàrl",
       "secoEmployerClassification": "direct",
@@ -1915234,10 +1915240,11 @@
       "promotionBranch": "prospector/promote-2026-11-04",
       "promotedAt": "2026-11-04T15:45:06Z",
       "firstCrawlerOutputStatus": "empty",
-      "firstCrawlerOutputAttention": false,
+      "firstCrawlerOutputAttention": true,
       "firstCrawlerOutputReason": null,
-      "firstCrawlerOutputAt": "2026-11-05T21:52:11.387Z",
-      "firstCrawlerJobCount": 0
+      "firstCrawlerOutputAt": "2026-11-07T09:47:25.878Z",
+      "firstCrawlerJobCount": 0,
+      "firstCrawlerOutputAttentionAt": "2026-11-07T13:26:25.335Z"
     },
     "garage-pro-service@ardon": {
       "key": "garage-pro-service@ardon",
