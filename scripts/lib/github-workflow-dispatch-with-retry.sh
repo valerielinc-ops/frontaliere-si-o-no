@@ -29,7 +29,7 @@ dispatch_workflow_with_retry() {
         1) delay=5 ;;
         2) delay=15 ;;
       esac
-      echo "::warning::workflow dispatch returned a transient HTTP 5xx response (attempt $attempt/3); retrying in ${delay}s."
+      echo "::warning::workflow dispatch returned a transient HTTP 5xx response (attempt $attempt/3); retrying in ${delay}s." >&2
       sleep "$delay"
       continue
     fi
