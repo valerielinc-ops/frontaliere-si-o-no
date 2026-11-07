@@ -1,7 +1,7 @@
 {
   "crawlerKey": "spitex-zuerich",
-  "assembledAt": "2026-11-06T21:55:47.428Z",
-  "runId": "42295400532",
+  "assembledAt": "2026-11-07T09:30:26.047Z",
+  "runId": "42359067791",
   "jobs": [
     {
       "id": "spitex-zuerich-aa734f3415ba",
@@ -35,7 +35,7 @@
       "url": "https://spitex-zuerich.onlyfy.jobs/de/job/43jag5jtai5x0utbf4ywxr8l5payjlq",
       "source": "Spitex Zürich Dedicated Parser (softgarden onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T21:55:42.062Z",
+      "crawledAt": "2026-11-07T09:30:20.522Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -87,7 +87,7 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-04T21:55:42.062Z",
+      "validThrough": "2027-02-05T09:30:20.522Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -122,7 +122,7 @@
       "url": "https://spitex-zuerich.onlyfy.jobs/de/job/yokseq8dxgpbtffdcsdh3mm658g4o84",
       "source": "Spitex Zürich Dedicated Parser (softgarden onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T21:55:40.779Z",
+      "crawledAt": "2026-11-07T09:30:19.551Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -165,7 +165,7 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-04T21:55:40.779Z",
+      "validThrough": "2027-01-04T09:30:19.551Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -200,7 +200,7 @@
       "url": "https://spitex-zuerich.onlyfy.jobs/de/job/cjo4ai0y4m3ynl7pxfi0qinbgdwkm1e",
       "source": "Spitex Zürich Dedicated Parser (softgarden onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T21:55:39.498Z",
+      "crawledAt": "2026-11-07T09:30:18.137Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -253,7 +253,7 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-24T21:55:39.498Z",
+      "validThrough": "2026-12-25T09:30:18.137Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -288,7 +288,7 @@
       "url": "https://spitex-zuerich.onlyfy.jobs/de/job/jzni3a9y33rycfe1yv6io2sh48gqojf",
       "source": "Spitex Zürich Dedicated Parser (softgarden onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T21:55:38.204Z",
+      "crawledAt": "2026-11-07T09:30:16.765Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -315,6 +315,7 @@
           "berufsbildner-in-fur-fage-auszubildende-70-100-a-spitex-zuerich-zurich"
         ]
       },
+      "firstSeenAt": "2026-11-06T21:55:38.204Z",
       "salaryMin": 82000,
       "salaryMax": 114500,
       "salarySource": "estimated",
@@ -330,9 +331,8 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-04T21:55:38.204Z",
-      "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-06T21:55:38.204Z"
+      "validThrough": "2027-02-05T09:30:16.765Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "spitex-zuerich-f43b449766e9",
@@ -366,7 +366,7 @@
       "url": "https://spitex-zuerich.onlyfy.jobs/de/job/5771uviifporguue2ei1cz0s4hfatvk",
       "source": "Spitex Zürich Dedicated Parser (softgarden onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T21:55:36.924Z",
+      "crawledAt": "2026-11-07T09:30:15.392Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -417,16 +417,16 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-17T21:55:36.924Z",
+      "validThrough": "2027-01-18T09:30:15.392Z",
       "validThroughSource": "last-observed-window"
     },
     {
       "id": "spitex-zuerich-26799eb4590a",
       "slug": "salute-professionale-fage-servizio-serale-nella-piscina-interna-30-60-a-spitex-zurich-zurich",
       "slugByLocale": {
-        "de": "fachfrau-mann-gesundheit-fage-abenddienst-im-internen-pool-30-60-a-spitex-zuerich-zurich",
         "it": "salute-professionale-fage-servizio-serale-nella-piscina-interna-30-60-a-spitex-zurich-zurich",
         "en": "professional-health-fage-evening-service-in-the-internal-pool-30-60-a-spitex-zurich-zurich",
+        "de": "fachfrau-mann-gesundheit-fage-abenddienst-im-internen-pool-30-60-a-spitex-zuerich-zurich",
         "fr": "sante-professionnelle-fage-service-en-soiree-dans-la-piscine-interne-30-60-a-spitex-zurich-zurich"
       },
       "company": "Spitex Zürich",
@@ -434,25 +434,25 @@
       "companyDomain": "spitex-zuerich.ch",
       "title": "Fachfrau/-mann Gesundheit (FaGe) – Abenddienst im internen Pool 30-60% (a)",
       "titleByLocale": {
-        "de": "Fachfrau/-mann Gesundheit (FaGe) – Abenddienst im internen Pool 30-60% (a)",
         "it": "Specialista in salute (FaGe) – servizio serale nel pool interno 30-60% (a)",
         "en": "Specialist health (FaGe) – evening shift in the internal pool 30-60% (a)",
+        "de": "Fachfrau/-mann Gesundheit (FaGe) – Abenddienst im internen Pool 30-60% (a)",
         "fr": "Spécialiste en santé (ASSC) – Service du soir dans la piscine interne 30-60 % (a)"
       },
       "description": "Für Langschläfer/innen: Pflege im Abenddienst, wie sie zu dir passt.\n\n(a)lle sind angesprochen. Geschlecht, Herkunft, Alter? Uns interessieren deine Qualifikation und Begeisterung für die Arbeit.\n\nMORGENS SCHLAFEN, ABENDS WIRKEN\n\nDu bist kein/e Frühaufsteher/in – dafür hellwach, wenn andere Feierabend machen?\nDann passt der Abenddienst im internen Spitex-Pool perfekt zu dir.\nBei uns entscheidest du, wann du arbeitest – ganz ohne starren Einsatzplan:\n• Du startest lieber gemütlich in den Tag und legst abends los?\n• Du magst die ruhige Stimmung, wenn die Stadt langsam zur Ruhe kommt?\n• Du suchst Einsätze mit Sinn, aber ohne 100%-Taktung?\nDann mach Pflege so, wie sie zu deinem Rhythmus passt.\n\nDU FINDEST BEI UNS\n• Pflege mit Abendsonne: Du begleitest Kundinnen und Kunden in den Abend – mit Nähe, Struktur und Herz.\n• Abwechslung garantiert: Einsätze in vier Zürcher Regionen möglich, wenig Administration, viel Praxis.\n• Freie Planung: Über unser Pool-Tool wählst du deine Dienste selbst – spontan oder langfristig.\n• Rückhalt garantiert: Unser Coach-Trio steht dir mit Feedback, Tipps und Support zur Seite.\n• Feste Anstellung, flexible Realität: Anstellung im Stunden- oder Monatslohn mit attraktiven Benefits\n\nDU BRINGST MIT\n• Eigenständigkeit, Offenheit und Verantwortungsbewusstsein\n• Freude an der Arbeit am Abend und an echten Begegnungen\n• Gutes Deutsch in Wort und Schrift\nSpitex Zürich – Pflege neu gedacht.\nIm internen Pool findest du Freiheit, Sinn und echte Lebensqualität – für dich und die Menschen, die du begleitest.\nBereit, deinen Abend sinnvoll zu gestalten? Dann freuen wir uns auf dich – Langschläfer/innen willkommen!\n\n• Arbeitszeit: Teilzeit / Vollzeit",
       "descriptionByLocale": {
-        "de": "Für Langschläfer/innen: Pflege im Abenddienst, wie sie zu dir passt.\n\n(a)lle sind angesprochen. Geschlecht, Herkunft, Alter? Uns interessieren deine Qualifikation und Begeisterung für die Arbeit.\n\nMORGENS SCHLAFEN, ABENDS WIRKEN\n\nDu bist kein/e Frühaufsteher/in – dafür hellwach, wenn andere Feierabend machen?\nDann passt der Abenddienst im internen Spitex-Pool perfekt zu dir.\nBei uns entscheidest du, wann du arbeitest – ganz ohne starren Einsatzplan:\n• Du startest lieber gemütlich in den Tag und legst abends los?\n• Du magst die ruhige Stimmung, wenn die Stadt langsam zur Ruhe kommt?\n• Du suchst Einsätze mit Sinn, aber ohne 100%-Taktung?\nDann mach Pflege so, wie sie zu deinem Rhythmus passt.\n\nDU FINDEST BEI UNS\n• Pflege mit Abendsonne: Du begleitest Kundinnen und Kunden in den Abend – mit Nähe, Struktur und Herz.\n• Abwechslung garantiert: Einsätze in vier Zürcher Regionen möglich, wenig Administration, viel Praxis.\n• Freie Planung: Über unser Pool-Tool wählst du deine Dienste selbst – spontan oder langfristig.\n• Rückhalt garantiert: Unser Coach-Trio steht dir mit Feedback, Tipps und Support zur Seite.\n• Feste Anstellung, flexible Realität: Anstellung im Stunden- oder Monatslohn mit attraktiven Benefits\n\nDU BRINGST MIT\n• Eigenständigkeit, Offenheit und Verantwortungsbewusstsein\n• Freude an der Arbeit am Abend und an echten Begegnungen\n• Gutes Deutsch in Wort und Schrift\nSpitex Zürich – Pflege neu gedacht.\nIm internen Pool findest du Freiheit, Sinn und echte Lebensqualität – für dich und die Menschen, die du begleitest.\nBereit, deinen Abend sinnvoll zu gestalten? Dann freuen wir uns auf dich – Langschläfer/innen willkommen!\n\n• Arbeitszeit: Teilzeit / Vollzeit",
         "it": "Per i dormienti lunghi: Cura nel servizio serale, come ti si addice.\n\n(a)lle sono indirizzate. Genere, origine, età? Siamo interessati alla vostra qualifica ed entusiasmo per il lavoro.\n\nIl sonno di Morgen, la sera funziona\n\nNon sei un alzatore precoce – ma sveglio quando gli altri vanno al lavoro?\nPoi il servizio serale nella piscina interna Spitex si adatta perfettamente.\nCon noi, si decide quando si lavora – senza un piano operativo rigido:\n• Preferisci iniziare la giornata comodamente e iniziare la notte?\n• Ti piace l'umore calmo quando la città sta lentamente venendo a riposare?\n• Siete alla ricerca di pali con significato, ma senza 100% orologio?\nPoi prendersi cura di esso come si adatta al vostro ritmo.\n\nCi trovi.\n• Cura con il sole serale: accompagni i clienti alla sera – con vicinanza, struttura e cuore.\n• Varietà garantita: possibilità di operazioni in quattro regioni di Zurigo, poca amministrazione, molta pratica.\n• Pianificazione gratuita: Utilizzando il nostro strumento di piscina, è possibile scegliere i propri servizi – spontaneamente o a lungo termine.\n• Supporto garantito: Il nostro coach trio è al tuo fianco con feedback, consigli e supporto.\n• Occupazione fissa, realtà flessibile: occupazione su base oraria o mensile con benefici attraenti\n\nPorta con te\n• Indipendenza, apertura e responsabilità\n• Gioia al lavoro la sera e agli incontri reali\n• Buon tedesco in parola e scrittura\nSpitex Zurigo – Ripensare la cura.\nNella piscina interna troverete libertà, significato e vera qualità della vita – per voi e per le persone che accompagnate.\nPronto a rendere la vostra serata significativa? Allora non vediamo l'ora di voi – i sonniferi lunghi benvenuto!\n\n• Ore lavorative: part-time / full-time",
         "en": "For long sleepers: Care in the evening service, how it suits you.\n\n(a)lle are addressed. Gender, origin, age? We are interested in your qualification and enthusiasm for work.\n\nMorgen's Sleep, Evening Works\n\nYou are not an early riser – but wide awake when others go to work?\nThen the evening service in the internal Spitex pool suits you perfectly.\nWith us, you decide when you work – without a rigid operational plan:\n• Do you prefer to start the day comfortably and start at night?\n• Do you like the calm mood when the city is slowly coming to rest?\n• You are looking for stakes with meaning, but without 100% clocking?\nThen take care of it as it fits your rhythm.\n\nYou find us.\n• Care with evening sun: You accompany customers into the evening – with closeness, structure and heart.\n• Variety guaranteed: Operations in four Zurich regions possible, little administration, a lot of practice.\n• Free planning: Using our pool tool, you can choose your own services – spontaneously or in the long term.\n• Support guaranteed: Our coach trio is at your side with feedback, tips and support.\n• Fixed employment, flexible reality: employment on an hourly or monthly basis with attractive benefits\n\nYou bring with you\n• Independence, openness and responsibility\n• Joy at work in the evening and at real encounters\n• Good German in Word and Writing\nSpitex Zurich – Care rethought.\nIn the internal pool you will find freedom, meaning and real quality of life – for you and the people you accompany.\nReady to make your evening meaningful? Then we look forward to you – long sleepers welcome!\n\n• Working hours: part-time / full-time",
+        "de": "Für Langschläfer/innen: Pflege im Abenddienst, wie sie zu dir passt.\n\n(a)lle sind angesprochen. Geschlecht, Herkunft, Alter? Uns interessieren deine Qualifikation und Begeisterung für die Arbeit.\n\nMORGENS SCHLAFEN, ABENDS WIRKEN\n\nDu bist kein/e Frühaufsteher/in – dafür hellwach, wenn andere Feierabend machen?\nDann passt der Abenddienst im internen Spitex-Pool perfekt zu dir.\nBei uns entscheidest du, wann du arbeitest – ganz ohne starren Einsatzplan:\n• Du startest lieber gemütlich in den Tag und legst abends los?\n• Du magst die ruhige Stimmung, wenn die Stadt langsam zur Ruhe kommt?\n• Du suchst Einsätze mit Sinn, aber ohne 100%-Taktung?\nDann mach Pflege so, wie sie zu deinem Rhythmus passt.\n\nDU FINDEST BEI UNS\n• Pflege mit Abendsonne: Du begleitest Kundinnen und Kunden in den Abend – mit Nähe, Struktur und Herz.\n• Abwechslung garantiert: Einsätze in vier Zürcher Regionen möglich, wenig Administration, viel Praxis.\n• Freie Planung: Über unser Pool-Tool wählst du deine Dienste selbst – spontan oder langfristig.\n• Rückhalt garantiert: Unser Coach-Trio steht dir mit Feedback, Tipps und Support zur Seite.\n• Feste Anstellung, flexible Realität: Anstellung im Stunden- oder Monatslohn mit attraktiven Benefits\n\nDU BRINGST MIT\n• Eigenständigkeit, Offenheit und Verantwortungsbewusstsein\n• Freude an der Arbeit am Abend und an echten Begegnungen\n• Gutes Deutsch in Wort und Schrift\nSpitex Zürich – Pflege neu gedacht.\nIm internen Pool findest du Freiheit, Sinn und echte Lebensqualität – für dich und die Menschen, die du begleitest.\nBereit, deinen Abend sinnvoll zu gestalten? Dann freuen wir uns auf dich – Langschläfer/innen willkommen!\n\n• Arbeitszeit: Teilzeit / Vollzeit",
         "fr": "Pour les longs dormants: soins dans le service du soir, comme il vous convient.\n\n(a)lle sont adressées. Sexe, origine, âge ? Nous sommes intéressés par votre qualification et votre enthousiasme pour le travail.\n\nMorgen dort, travaille le soir\n\nVous n'êtes pas un éveil précoce – mais un grand réveil quand les autres vont travailler?\nPuis le service du soir dans la piscine interne Spitex vous convient parfaitement.\nAvec nous, vous décidez quand vous travaillez – sans plan opérationnel rigide:\n• Vous préférez commencer la journée confortablement et commencer la nuit?\n• Vous aimez le calme quand la ville se repose lentement ?\n• Vous cherchez des enjeux avec un sens, mais sans 100% d'horloge ?\nAlors prenez soin de lui comme il correspond à votre rythme.\n\nTrouvez-nous.\n• Soin du soleil du soir: Vous accompagnez les clients dans la soirée – avec proximité, structure et cœur.\n• Variété garantie : Opérations dans quatre régions de Zurich possibles, peu d'administration, beaucoup de pratique.\n• Planification gratuite : Avec notre outil de piscine, vous pouvez choisir vos propres services – spontanément ou à long terme.\n• Support garanti: Notre trio coach est à vos côtés avec des commentaires, des conseils et du soutien.\n• Emploi fixe, réalité flexible: emploi horaire ou mensuel bénéficiant d'avantages intéressants\n\nTu amènes avec toi\n• Indépendance, ouverture et responsabilité\n• Joy au travail le soir et lors de vraies rencontres\n• Bon allemand dans la Parole et l'écriture\nSpitex Zurich – Repensé soin.\nDans la piscine interne vous trouverez la liberté, le sens et la qualité de vie réelle – pour vous et les personnes que vous accompagnez.\nPrêt à rendre votre soirée significative ? Ensuite, nous vous attendons avec impatience – de longs sommeils bienvenus!\n\n• Heures de travail: temps partiel / temps plein"
       },
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "location": "Zürich",
       "canton": "ZH",
       "url": "https://spitex-zuerich.onlyfy.jobs/de/job/pu8ir3fqh979nrk70plj684tmjxle2t",
       "source": "Spitex Zürich Dedicated Parser (softgarden onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T21:55:35.643Z",
+      "crawledAt": "2026-11-07T09:30:14.451Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -470,17 +470,16 @@
       "postingDateSource": "unknown",
       "applyUrl": "https://spitex-zuerich.onlyfy.jobs/de/job/pu8ir3fqh979nrk70plj684tmjxle2t",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "fachfrau-mann-gesundheit-fage-abenddienst-im-internen-pool-30-60-a-spitex-zuerich-zurich"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "fachfrau-mann-gesundheit-fage-abenddienst-im-internen-pool-30-60-a-spitex-zuerich-zurich"
         ]
       },
-      "previousSlugs": [
-        "fachfrau-mann-gesundheit-fage-abenddienst-im-internen-pool-30-60-a-spitex-zuerich-zurich"
-      ],
+      "firstSeenAt": "2026-09-09T13:54:38.538Z",
       "salaryMin": 54900,
       "salaryMax": 76800,
       "salarySource": "estimated",
@@ -496,17 +495,16 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-08T21:55:35.643Z",
-      "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-09-09T13:54:38.538Z"
+      "validThrough": "2026-12-09T09:30:14.451Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "spitex-zuerich-a59dee97e623",
       "slug": "ausbildungsplatz-fachfrau-mann-betreuung-fabe-cfc-specializzazione-mia-august-2027-a-spitex-zurich",
       "slugByLocale": {
-        "de": "ausbildungsplatz-fachfrau-mann-betreuung-fabe-efz-fachrichtung-mia-august-2027-a-spitex",
         "it": "ausbildungsplatz-fachfrau-mann-betreuung-fabe-cfc-specializzazione-mia-august-2027-a-spitex-zurich",
         "en": "ausbildungsplatz-fachfrau-mann-betreuung-fabe-cfc-specializzazione-mia-august-2027-a-spitex-zurich",
+        "de": "ausbildungsplatz-fachfrau-mann-betreuung-fabe-efz-fachrichtung-mia-august-2027-a-spitex",
         "fr": "ausbildungsplatz-fachfrau-mann-betreuung-fabe-cfc-specializzazione-mia-august-2027-a-spitex-zurich"
       },
       "company": "Spitex Zürich",
@@ -514,16 +512,16 @@
       "companyDomain": "spitex-zuerich.ch",
       "title": "Ausbildungsplatz Fachfrau/-mann Betreuung (FaBe) EFZ Fachrichtung MiA August 2027 (a)",
       "titleByLocale": {
-        "de": "Ausbildungsplatz Fachfrau/-mann Betreuung (FaBe) EFZ Fachrichtung MiA August 2027 (a)",
         "it": "Posto di formazione Specialista/-mann Assistenza (FaBe) AFC Specializzazione MiA Agosto 2027 (a)",
         "en": "Apprenticeship Professional Supervision (FaBe) EFZ Specialization MiA August 2027 (a)",
+        "de": "Ausbildungsplatz Fachfrau/-mann Betreuung (FaBe) EFZ Fachrichtung MiA August 2027 (a)",
         "fr": "Poste de formation d'assistante/assistante en soins (FaBe) CFC Spécialisation MiA août 2027 (a)"
       },
       "description": "Als Auszubildende oder Auszubildender FaBe MiA bringst du Lebensfreude direkt nach Hause. Du unterstützt ältere Zürcherinnen und Zürcher, damit sie selbstständig und bei hoher Lebensqualität weiterhin zu Hause wohnen können. Du begleitest sie in verschiedenen Lebenslagen und bist spezialisiert auf ihre Bedürfnisse. Wir bilden den neuen Berufszweig FaBe (Fachrichtung MiA - Menschen im Alter) aus. Unsere hauptberuflichen und engagierten Berufsbildnerinnen und Berufsbildner bieten dir individuelle Förderung und Begleitung in einem lebendigen Umfeld.\n\n(a)lle sind angesprochen. Geschlecht, Herkunft, Alter? Uns interessieren deine Qualifikation und Begeisterung für die Arbeit.\n\nGUTE GRÜNDE FÜR DEINE LEHRE BEI UNS\n• Deine Aufgaben sind sehr abwechslungsreich und spannend: Von Aktivitätsgestaltung bis zur Gesprächsführung sowie hochstehende spitalexterne Pflege und Betreuung.\n• Du erhältst eine strukturierte Ausbildung mit einer umfassenden Einführung in deinen Tätigkeitsbereich\n• Unsere motivierten und qualifizierten Berufsbildnerinnen und Berufsbildner begleiten dich zu eigenverantwortlichem und selbständigem Arbeiten und du wirst theoretisch und praktisch auf deinem aktuellen Wissenstand abgeholt, gefördert sowie entwickelt.\n• In der Projektwoche am Anfang deiner Ausbildung lernst du alle neuen Lernenden kennen und ihr startet zusammen ins Berufsleben.\n• Dich erwartet eine Arbeitsumgebung mit modernen Tools (Smartphone oder Tablet) und tägliche Fortbewegung mit dem E-Bike.\n• Im 3. Lehrjahr erweiterst du deine Erfahrungen mit einem externen Praktikum im Langzeitpflegebereich.\n• 6 Wochen Ferien und geregelte Arbeitszeiten.\n• Du erhältst bei uns die Möglichkeit, parallel zur Ausbildung die BMS zu absolvieren.\n• Du kannst dich auch nach der Ausbildung bei uns weiterentwickeln (Festanstellung, Studium).\n\nDAS ZEICHNET DICH AUS\n• Du hast Freude am Umgang, der Betreuung und Unterstützung älterer Menschen aus verschiedenen Kulturkreisen\n• Du bringst ein hohes Mass an Verantwortungsbewusstsein und Einfühlungsvermögen mit\n• Du bist zuverlässig sowie flexibel und schätzt die Abwechslung in deiner Arbeit\n• Du arbeitest gerne selbständig sowie auch im Team\n• Du bist kommunikativ und kannst dich auf unterschiedliche Situationen schnell einstellen sowie kreativ in der Lösungsfindung handeln\n• Du bist gesund und körperlich wie auch psychisch belastbar\n• Du hast einen Schulabschluss Sek A, Sek B oder 10. Schuljahr mit guten Noten\n• Deine Deutschkenntnisse sind gut (mind. Niveau B2)\n• Du kannst Velofahren und bist gerne an der frischen Luft mit dem E-Bike unterwegs\nBist du interessiert, ein Teil von Spitex Zürich zu werden?\nDann lade deine Onlinebewerbung mit vollständigen Unterlagen (Motivationsschreiben, Lebenslauf, Schulzeugnisse sowie Schnupperberichte) und wenn vorhanden Multicheck (Gesundheit und Soziales) hoch und wir melden uns gerne bei dir. Deinen Lebenslauf kannst du optional mit einem QR-Code zu deinem Talentbooster-Video ergänzen.\nBei Fragen steht dir Christina Müller, Bildungsverantwortliche gerne zur Verfügung.\n\n• Arbeitszeit: Ausbildung",
       "descriptionByLocale": {
-        "de": "Als Auszubildende oder Auszubildender FaBe MiA bringst du Lebensfreude direkt nach Hause. Du unterstützt ältere Zürcherinnen und Zürcher, damit sie selbstständig und bei hoher Lebensqualität weiterhin zu Hause wohnen können. Du begleitest sie in verschiedenen Lebenslagen und bist spezialisiert auf ihre Bedürfnisse. Wir bilden den neuen Berufszweig FaBe (Fachrichtung MiA - Menschen im Alter) aus. Unsere hauptberuflichen und engagierten Berufsbildnerinnen und Berufsbildner bieten dir individuelle Förderung und Begleitung in einem lebendigen Umfeld.\n\n(a)lle sind angesprochen. Geschlecht, Herkunft, Alter? Uns interessieren deine Qualifikation und Begeisterung für die Arbeit.\n\nGUTE GRÜNDE FÜR DEINE LEHRE BEI UNS\n• Deine Aufgaben sind sehr abwechslungsreich und spannend: Von Aktivitätsgestaltung bis zur Gesprächsführung sowie hochstehende spitalexterne Pflege und Betreuung.\n• Du erhältst eine strukturierte Ausbildung mit einer umfassenden Einführung in deinen Tätigkeitsbereich\n• Unsere motivierten und qualifizierten Berufsbildnerinnen und Berufsbildner begleiten dich zu eigenverantwortlichem und selbständigem Arbeiten und du wirst theoretisch und praktisch auf deinem aktuellen Wissenstand abgeholt, gefördert sowie entwickelt.\n• In der Projektwoche am Anfang deiner Ausbildung lernst du alle neuen Lernenden kennen und ihr startet zusammen ins Berufsleben.\n• Dich erwartet eine Arbeitsumgebung mit modernen Tools (Smartphone oder Tablet) und tägliche Fortbewegung mit dem E-Bike.\n• Im 3. Lehrjahr erweiterst du deine Erfahrungen mit einem externen Praktikum im Langzeitpflegebereich.\n• 6 Wochen Ferien und geregelte Arbeitszeiten.\n• Du erhältst bei uns die Möglichkeit, parallel zur Ausbildung die BMS zu absolvieren.\n• Du kannst dich auch nach der Ausbildung bei uns weiterentwickeln (Festanstellung, Studium).\n\nDAS ZEICHNET DICH AUS\n• Du hast Freude am Umgang, der Betreuung und Unterstützung älterer Menschen aus verschiedenen Kulturkreisen\n• Du bringst ein hohes Mass an Verantwortungsbewusstsein und Einfühlungsvermögen mit\n• Du bist zuverlässig sowie flexibel und schätzt die Abwechslung in deiner Arbeit\n• Du arbeitest gerne selbständig sowie auch im Team\n• Du bist kommunikativ und kannst dich auf unterschiedliche Situationen schnell einstellen sowie kreativ in der Lösungsfindung handeln\n• Du bist gesund und körperlich wie auch psychisch belastbar\n• Du hast einen Schulabschluss Sek A, Sek B oder 10. Schuljahr mit guten Noten\n• Deine Deutschkenntnisse sind gut (mind. Niveau B2)\n• Du kannst Velofahren und bist gerne an der frischen Luft mit dem E-Bike unterwegs\nBist du interessiert, ein Teil von Spitex Zürich zu werden?\nDann lade deine Onlinebewerbung mit vollständigen Unterlagen (Motivationsschreiben, Lebenslauf, Schulzeugnisse sowie Schnupperberichte) und wenn vorhanden Multicheck (Gesundheit und Soziales) hoch und wir melden uns gerne bei dir. Deinen Lebenslauf kannst du optional mit einem QR-Code zu deinem Talentbooster-Video ergänzen.\nBei Fragen steht dir Christina Müller, Bildungsverantwortliche gerne zur Verfügung.\n\n• Arbeitszeit: Ausbildung",
         "it": "Come apprendista o apprendista FaBe MiA, porti la gioia della vita direttamente a casa. Sostenete le persone anziane a Zurigo in modo che possano continuare a vivere a casa in modo indipendente e con un'alta qualità della vita. Li accompagni in diverse situazioni di vita e sei specializzato nelle loro esigenze. Stiamo formando il nuovo ramo professionale FaBe (specialismo MiA - persone in età avanzata). I nostri formatori professionali a tempo pieno e dedicati offrono supporto e supporto individuale in un ambiente vivace.\n\n(a)lle sono indirizzate. Genere, origine, età? Siamo interessati alla vostra qualifica ed entusiasmo per il lavoro.\n\nBuoni motivi per i vostri insegnamenti in noi\n• I vostri compiti sono molto vari ed eccitanti: dal design di attività alla conversazione così come assistenza e supporto ospedaliero di alto livello.\n• Riceverai una formazione strutturata con un'introduzione completa al tuo campo di attività\n• I nostri formatori professionali motivati e qualificati vi accompagnano a lavorare in modo indipendente e indipendente e sarete raccolti, sostenuti e sviluppati teoricamente e praticamente sul vostro attuale stato di conoscenza.\n• Nella settimana del progetto all'inizio del tuo apprendistato, puoi conoscere tutti i nuovi studenti e iniziare a lavorare insieme.\n• Ci si può aspettare un ambiente di lavoro con strumenti moderni (smartphone o tablet) e la mobilità quotidiana con l'e-bike.\n• Nel 3° anno di apprendistato, espandi la tua esperienza con uno stage esterno nel settore della cura a lungo termine.\n• 6 settimane vacanze e orario di lavoro regolamentato.\n• Avrai l'opportunità di completare il BMS in parallelo con l'allenamento.\n• Si può anche sviluppare ulteriormente dopo l'allenamento con noi (posizione fissa, studio).\n\nQuesto ti tira fuori\n• Ti piace avere a che fare, prenderti cura e sostenere persone anziane provenienti da culture diverse\n• Porti un alto grado di responsabilità ed empatia\n• Sei affidabile e flessibile e apprezzi la varietà del tuo lavoro\n• Ti piace lavorare in modo indipendente così come in una squadra\n• Lei è comunicativo e può rapidamente adattarsi a situazioni diverse e agire creativamente nel trovare soluzioni\n• Sei sano e fisicamente e psicologicamente resiliente\n• Hai una laurea Sek A, Sek B o 10. Anno scolastico con buoni voti\n• Le tue competenze tedesche sono buone (livello minimo B2)\n• È possibile pedalare e come essere in aria fresca con l'e-bike\nSei interessato a diventare parte di Spitex Zurich?\nQuindi carica la tua domanda online con documenti completi (lettera di motivazione, CV, certificati scolastici e rapporti di prova) e, se disponibile, multicheck (salute e questioni sociali) e saremo lieti di contattarti. È possibile aggiungere facoltativamente un codice QR al vostro video booster talento.\nSe avete domande, Christina Müller, responsabile dell'educazione, è a vostra disposizione.\n\n• Tempo di lavoro: formazione",
         "en": "As an apprentice or apprentice FaBe MiA, you bring the joy of life directly home. You support older people in Zurich so that they can continue to live at home independently and with a high quality of life. You accompany them in different life situations and are specialized in their needs. We are training the new professional branch FaBe (specialism MiA - people in old age). Our full-time and dedicated vocational trainers offer you individual support and support in a lively environment.\n\n(a)lle are addressed. Gender, origin, age? We are interested in your qualification and enthusiasm for work.\n\nGood Reasons for Your Teachings in Us\n• Your tasks are very varied and exciting: from activity design to conversation as well as high-level hospital care and support.\n• You will receive a structured education with a comprehensive introduction to your field of activity\n• Our motivated and qualified vocational trainers accompany you to work independently and independently and you will be picked up, supported and developed theoretically and practically on your current state of knowledge.\n• In the project week at the beginning of your apprenticeship, you get to know all new learners and you start working together.\n• You can expect a working environment with modern tools (smartphone or tablet) and daily mobility with the e-bike.\n• In the 3rd year of apprenticeship, you expand your experience with an external internship in the long-term care sector.\n• 6 weeks holidays and regulated working hours.\n• You will get the opportunity to complete the BMS in parallel with the training.\n• You can also develop further after training with us (fixed position, study).\n\nThat draws you out\n• You enjoy dealing with, caring for and supporting older people from different cultures\n• You bring a high degree of responsibility and empathy\n• You are reliable and flexible and appreciate the variety in your work\n• You like to work independently as well as in a team\n• You are communicative and can quickly adjust to different situations and act creatively in finding solutions\n• You are healthy and physically and psychologically resilient\n• You have a school degree Sek A, Sek B or 10. School year with good grades\n• Your German skills are good (minor level B2)\n• You can cycle and like to be in the fresh air with the e-bike\nAre you interested in becoming a part of Spitex Zurich?\nThen upload your online application with complete documents (motivation letter, CV, school certificates and trial reports) and, if available, multicheck (health and social matters) and we will be happy to contact you. You can optionally add a QR code to your talent booster video.\nIf you have any questions, Christina Müller, who is responsible for education, is at your disposal.\n\n• Working time: training",
+        "de": "Als Auszubildende oder Auszubildender FaBe MiA bringst du Lebensfreude direkt nach Hause. Du unterstützt ältere Zürcherinnen und Zürcher, damit sie selbstständig und bei hoher Lebensqualität weiterhin zu Hause wohnen können. Du begleitest sie in verschiedenen Lebenslagen und bist spezialisiert auf ihre Bedürfnisse. Wir bilden den neuen Berufszweig FaBe (Fachrichtung MiA - Menschen im Alter) aus. Unsere hauptberuflichen und engagierten Berufsbildnerinnen und Berufsbildner bieten dir individuelle Förderung und Begleitung in einem lebendigen Umfeld.\n\n(a)lle sind angesprochen. Geschlecht, Herkunft, Alter? Uns interessieren deine Qualifikation und Begeisterung für die Arbeit.\n\nGUTE GRÜNDE FÜR DEINE LEHRE BEI UNS\n• Deine Aufgaben sind sehr abwechslungsreich und spannend: Von Aktivitätsgestaltung bis zur Gesprächsführung sowie hochstehende spitalexterne Pflege und Betreuung.\n• Du erhältst eine strukturierte Ausbildung mit einer umfassenden Einführung in deinen Tätigkeitsbereich\n• Unsere motivierten und qualifizierten Berufsbildnerinnen und Berufsbildner begleiten dich zu eigenverantwortlichem und selbständigem Arbeiten und du wirst theoretisch und praktisch auf deinem aktuellen Wissenstand abgeholt, gefördert sowie entwickelt.\n• In der Projektwoche am Anfang deiner Ausbildung lernst du alle neuen Lernenden kennen und ihr startet zusammen ins Berufsleben.\n• Dich erwartet eine Arbeitsumgebung mit modernen Tools (Smartphone oder Tablet) und tägliche Fortbewegung mit dem E-Bike.\n• Im 3. Lehrjahr erweiterst du deine Erfahrungen mit einem externen Praktikum im Langzeitpflegebereich.\n• 6 Wochen Ferien und geregelte Arbeitszeiten.\n• Du erhältst bei uns die Möglichkeit, parallel zur Ausbildung die BMS zu absolvieren.\n• Du kannst dich auch nach der Ausbildung bei uns weiterentwickeln (Festanstellung, Studium).\n\nDAS ZEICHNET DICH AUS\n• Du hast Freude am Umgang, der Betreuung und Unterstützung älterer Menschen aus verschiedenen Kulturkreisen\n• Du bringst ein hohes Mass an Verantwortungsbewusstsein und Einfühlungsvermögen mit\n• Du bist zuverlässig sowie flexibel und schätzt die Abwechslung in deiner Arbeit\n• Du arbeitest gerne selbständig sowie auch im Team\n• Du bist kommunikativ und kannst dich auf unterschiedliche Situationen schnell einstellen sowie kreativ in der Lösungsfindung handeln\n• Du bist gesund und körperlich wie auch psychisch belastbar\n• Du hast einen Schulabschluss Sek A, Sek B oder 10. Schuljahr mit guten Noten\n• Deine Deutschkenntnisse sind gut (mind. Niveau B2)\n• Du kannst Velofahren und bist gerne an der frischen Luft mit dem E-Bike unterwegs\nBist du interessiert, ein Teil von Spitex Zürich zu werden?\nDann lade deine Onlinebewerbung mit vollständigen Unterlagen (Motivationsschreiben, Lebenslauf, Schulzeugnisse sowie Schnupperberichte) und wenn vorhanden Multicheck (Gesundheit und Soziales) hoch und wir melden uns gerne bei dir. Deinen Lebenslauf kannst du optional mit einem QR-Code zu deinem Talentbooster-Video ergänzen.\nBei Fragen steht dir Christina Müller, Bildungsverantwortliche gerne zur Verfügung.\n\n• Arbeitszeit: Ausbildung",
         "fr": "En tant qu'apprenti ou apprenti FaBe MiA, vous apportez la joie de vivre directement à la maison. Vous aidez les personnes âgées à Zurich afin qu'elles puissent continuer à vivre à la maison indépendamment et avec une qualité de vie élevée. Vous les accompagnez dans différentes situations de vie et vous êtes spécialisé dans leurs besoins. Nous formons la nouvelle branche professionnelle FaBe (spécialisme MiA - personnes âgées). Nos formateurs professionnels spécialisés à plein temps vous offrent un soutien individuel dans un environnement animé.\n\n(a)lle sont adressées. Sexe, origine, âge ? Nous sommes intéressés par votre qualification et votre enthousiasme pour le travail.\n\nBonnes raisons de vos enseignements en nous\n• Vos tâches sont très variées et passionnantes : de la conception d'activités à la conversation ainsi qu'aux soins et au soutien hospitaliers de haut niveau.\n• Vous recevrez une éducation structurée avec une introduction complète à votre domaine d'activité\n• Nos formateurs professionnels motivés et qualifiés vous accompagnent pour travailler de manière indépendante et indépendante et vous seront repris, soutenus et développés théoriquement et pratiquement sur votre état actuel des connaissances.\n• Dans la semaine du projet au début de votre apprentissage, vous apprenez à connaître tous les nouveaux apprenants et vous commencez à travailler ensemble.\n• Vous pouvez vous attendre à un environnement de travail avec des outils modernes (smartphone ou tablette) et la mobilité quotidienne avec l'e-bike.\n• En 3e année d'apprentissage, vous développez votre expérience avec un stage externe dans le secteur des soins de longue durée.\n• 6 semaines de congés et horaires de travail réglementés.\n• Vous aurez l'occasion de compléter le BMS en parallèle avec la formation.\n• Vous pouvez également développer davantage après la formation avec nous (position fixe, étude).\n\nÇa t'attire.\n• Vous aimez traiter, prendre soin et soutenir les personnes âgées de différentes cultures\n• Vous apportez un haut degré de responsabilité et d'empathie\n• Vous êtes fiable et flexible et appréciez la variété de votre travail\n• Vous aimez travailler indépendamment aussi bien que dans une équipe\n• Vous êtes communicatif et pouvez rapidement vous adapter à différentes situations et agir de manière créative pour trouver des solutions\n• Vous êtes en bonne santé, physiquement et psychologiquement résistant\n• Vous avez un diplôme scolaire Sek A, Sek B ou 10. Année scolaire avec de bonnes notes\n• Vos compétences en allemand sont bonnes (niveau B2)\n• Vous pouvez faire du vélo et aimer être dans l'air frais avec l'e-bike\nVous souhaitez devenir membre de Spitex Zurich ?\nEnsuite, téléchargez votre demande en ligne avec des documents complets (lettre de motivation, CV, certificats scolaires et rapports d'essai) et, si disponible, multicheck (questions sanitaires et sociales) et nous serons heureux de vous contacter. Vous pouvez en option ajouter un code QR à votre vidéo de booster de talents.\nSi vous avez des questions, Christina Müller, responsable de l'éducation, est à votre disposition.\n\n• Temps de travail: formation"
       },
       "needsRetranslation": true,
@@ -532,7 +530,7 @@
       "url": "https://spitex-zuerich.onlyfy.jobs/de/job/py24tr8kcwhav0qwm3dfaqbpuitj0rs",
       "source": "Spitex Zürich Dedicated Parser (softgarden onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T21:55:34.365Z",
+      "crawledAt": "2026-11-07T09:30:13.088Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -550,17 +548,15 @@
       "postingDateSource": "unknown",
       "applyUrl": "https://spitex-zuerich.onlyfy.jobs/de/job/py24tr8kcwhav0qwm3dfaqbpuitj0rs",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "ausbildungsplatz-fachfrau-mann-betreuung-fabe-efz-fachrichtung-mia-august-2027-a-spitex"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "ausbildungsplatz-fachfrau-mann-betreuung-fabe-efz-fachrichtung-mia-august-2027-a-spitex"
         ]
       },
-      "previousSlugs": [
-        "ausbildungsplatz-fachfrau-mann-betreuung-fabe-efz-fachrichtung-mia-august-2027-a-spitex"
-      ],
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -576,42 +572,43 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-04T21:55:34.365Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-02-05T09:30:13.088Z",
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-11-07T09:30:13.088Z"
     },
     {
       "id": "spitex-zuerich-a80d399a2ad3",
       "slug": "project-manager-staff-del-direttore-generale-a-80-100-vitrea-gesundheit-seewis-im-prattigau",
       "slugByLocale": {
         "de": "projektleiterin-stabstelle-des-geschaftsfuhrers-a-80-100-vitrea-gesundheit-seewis-im",
+        "it": "project-manager-staff-del-direttore-generale-a-80-100-vitrea-gesundheit-seewis-im-prattigau",
         "en": "project-manager-ceo-s-office-a-80-100-vitrea-gesundheit-seewis-im-prattigau",
-        "fr": "responsable-de-projet-bureau-du-directeur-general-a-80-100-vitrea-gesundheit-seewis-im-prattigau",
-        "it": "project-manager-staff-del-direttore-generale-a-80-100-vitrea-gesundheit-seewis-im-prattigau"
+        "fr": "responsable-de-projet-bureau-du-directeur-general-a-80-100-vitrea-gesundheit-seewis-im-prattigau"
       },
       "company": "Spitex Zürich",
       "companyKey": "spitex-zuerich",
       "companyDomain": "spitex-zuerich.ch",
       "title": "Dipl. Pflegefachfrau/-mann – interner Pool 20-100% (a)",
       "titleByLocale": {
-        "de": "Dipl. Pflegefachfrau/-mann – interner Pool 20-100% (a)",
         "it": "Infermiere/a diplomato/a – piscina interna 20-100% (a)",
         "en": "Qualified nurse – internal pool 20-100% (a)",
+        "de": "Dipl. Pflegefachfrau/-mann – interner Pool 20-100% (a)",
         "fr": "Infirmière/infirmier diplômé (e) – piscine interne 20-100 % (a)"
       },
       "description": "Mach Pflege so, wie sie zu dir passt!\n\n(a)lle sind angesprochen. Geschlecht, Herkunft, Alter? Uns interessieren deine Qualifikation und Begeisterung für die Arbeit.\n\nDU BESTIMMST DEN TAKT - WIR LIEFERN DEN RAHMEN\n• Du willst arbeiten, aber nicht im starren Arbeitszeit-System feststecken? Bei uns bist du frei:\n• Nur morgens nach dem Schulstart deiner Kinder?\n• Ausschliesslich Nachtdienste oder Wochenendeinsätze?\n• Saisonweise verfügbar, z.B. März bis Oktober?\n• Du bildest dich gerade weiter und willst trotzdem im Pflegeberuf aktiv bleiben und Geld verdienen?\nWir passen uns an dein Leben an. Als Pflegeprofi im internen Spitex-Pool gestaltest du , wann und wo du arbeitest – mit Rückhalt, Struktur und Sinn.\n\nDU FINDEST BEI UNS\n• Vielfalt statt Routine: Du arbeitest in wechselnden Teams in vier Regionen in der Stadt Zürich und bist weniger an administrativen Aufgaben beteiligt – immer dort, wo deine Skills gefragt sind.\n• Spontan oder geplant: Dienste übernimmst du flexibel über unser Pool-Tool – ganz nach deinem Kalender.\n• Lernen mit jedem Einsatz: Ob Memory Care mit Nähe und Alltag oder Somatic Care mit Technik und Tempo – du bist mitten im Leben und entwickelst dich fachlich weiter.\n• Du bist nie allein: Ein engagiertes Coach-Trio begleitet dich. Feedback, Fragen oder neue Ziele – wir sind da\n• Feste Anstellung, flexible Realität: Stunden- oder Monatslohn mit attraktiven Benefits\n\nDU BRINGST MIT\n• Ausbildung als Dipl. Pflegefachperson (HF/FH/AKP/DN II)\n• Eigenständigkeit, Verantwortungsgefühl und Offenheit\n• Gutes Deutsch in Wort und Schrift\n• Unterwegs mit dem E-Bike – bei jedem Wetter\n• Freude am flexiblen Arbeiten – und daran, Menschen zu unterstützen Der interne Pool ist mehr als ein Nebenjob. Es ist dein Raum für sinnstiftende Pflege mit Lebensqualität – für deine Kundinnen und Kunden und für dich.\n\n• Arbeitszeit: Teilzeit / Vollzeit",
       "descriptionByLocale": {
-        "de": "Mach Pflege so, wie sie zu dir passt!\n\n(a)lle sind angesprochen. Geschlecht, Herkunft, Alter? Uns interessieren deine Qualifikation und Begeisterung für die Arbeit.\n\nDU BESTIMMST DEN TAKT - WIR LIEFERN DEN RAHMEN\n• Du willst arbeiten, aber nicht im starren Arbeitszeit-System feststecken? Bei uns bist du frei:\n• Nur morgens nach dem Schulstart deiner Kinder?\n• Ausschliesslich Nachtdienste oder Wochenendeinsätze?\n• Saisonweise verfügbar, z.B. März bis Oktober?\n• Du bildest dich gerade weiter und willst trotzdem im Pflegeberuf aktiv bleiben und Geld verdienen?\nWir passen uns an dein Leben an. Als Pflegeprofi im internen Spitex-Pool gestaltest du , wann und wo du arbeitest – mit Rückhalt, Struktur und Sinn.\n\nDU FINDEST BEI UNS\n• Vielfalt statt Routine: Du arbeitest in wechselnden Teams in vier Regionen in der Stadt Zürich und bist weniger an administrativen Aufgaben beteiligt – immer dort, wo deine Skills gefragt sind.\n• Spontan oder geplant: Dienste übernimmst du flexibel über unser Pool-Tool – ganz nach deinem Kalender.\n• Lernen mit jedem Einsatz: Ob Memory Care mit Nähe und Alltag oder Somatic Care mit Technik und Tempo – du bist mitten im Leben und entwickelst dich fachlich weiter.\n• Du bist nie allein: Ein engagiertes Coach-Trio begleitet dich. Feedback, Fragen oder neue Ziele – wir sind da\n• Feste Anstellung, flexible Realität: Stunden- oder Monatslohn mit attraktiven Benefits\n\nDU BRINGST MIT\n• Ausbildung als Dipl. Pflegefachperson (HF/FH/AKP/DN II)\n• Eigenständigkeit, Verantwortungsgefühl und Offenheit\n• Gutes Deutsch in Wort und Schrift\n• Unterwegs mit dem E-Bike – bei jedem Wetter\n• Freude am flexiblen Arbeiten – und daran, Menschen zu unterstützen Der interne Pool ist mehr als ein Nebenjob. Es ist dein Raum für sinnstiftende Pflege mit Lebensqualität – für deine Kundinnen und Kunden und für dich.\n\n• Arbeitszeit: Teilzeit / Vollzeit",
         "it": "Prenditi cura di esso come si adatta a te!\n\n(a)lle sono indirizzate. Genere, origine, età? Siamo interessati alla vostra qualifica ed entusiasmo per il lavoro.\n\nDecidi tu la legge - Forniamo il FRAMEWORK\n• Vuoi lavorare, ma non bloccato nel rigido sistema di tempo di lavoro? Con noi siete liberi:\n• Solo la mattina dopo che i tuoi figli iniziano la scuola?\n• Solo servizi notturni o incarichi per il fine settimana?\n• Disponibile stagionale, ad esempio da marzo a ottobre?\n• Stai continuando a educare te stesso e ancora vuole rimanere attivo nella professione di cura e guadagnare soldi?\nCi adattiamo alla tua vita. Come professionista della cura nella piscina interna Spitex, si progetta quando e dove si lavora – con supporto, struttura e significato.\n\nCi trovi.\n• Diversità invece di routine: si lavora in squadre mutevoli in quattro regioni della città di Zurigo e sono meno coinvolti in compiti amministrativi – sempre dove le vostre competenze sono richieste.\n• Spontaneo o pianificato: Lei assume i servizi in modo flessibile attraverso il nostro strumento di piscina – secondo il Suo calendario.\n• Imparare con ogni sforzo: Sia la cura della memoria con la vicinanza e la vita quotidiana o la cura somatica con la tecnica e la velocità – siete nel mezzo della vita e sviluppare professionalmente.\n• Non sei mai solo: un allenatore dedicato ti accompagna. Feedback, domande o nuovi obiettivi – siamo lì\n• Occupazione fissa, realtà flessibile: salario orario o mensile con benefici attraenti\n\nPorta con te\n• Formazione come infermiera qualificata (HF/FH/AKP/DN II)\n• Indipendenza, senso di responsabilità e apertura\n• Buon tedesco in parola e scrittura\n• Sulla strada con l'e-bike – in qualsiasi tempo\n• Goditi un lavoro flessibile e supporta le persone La piscina interna è più di un lavoro laterale. È il vostro spazio per una cura significativa con la qualità della vita – per i vostri clienti e per voi.\n\n• Ore lavorative: part-time / full-time",
         "en": "Take care of it as it suits you!\n\n(a)lle are addressed. Gender, origin, age? We are interested in your qualification and enthusiasm for work.\n\nYou Decide the Act - We Deliver the FRAMEWORK\n• You want to work, but not stuck in the rigid working time system? With us you are free:\n• Only in the morning after your children start school?\n• Only night services or weekend assignments?\n• Available seasonally, e.g. March to October?\n• You are continuing to educate yourself and still want to remain active in the nursing profession and earn money?\nWe adapt to your life. As a care professional in the internal Spitex pool, you design when and where you work – with support, structure and meaning.\n\nYou find us.\n• Diversity instead of routine: You work in changing teams in four regions in the city of Zurich and are less involved in administrative tasks – always where your skills are in demand.\n• Spontaneous or planned: You take over services flexibly via our pool tool – according to your calendar.\n• Learning with every effort: Whether memory care with closeness and everyday life or somatic care with technique and speed – you are in the middle of life and develop professionally.\n• You are never alone: A dedicated coach trio accompanies you. Feedback, questions or new goals – we are there\n• Fixed employment, flexible reality: hourly or monthly wage with attractive benefits\n\nYou bring with you\n• Training as a qualified nurse (HF/FH/AKP/DN II)\n• Independence, sense of responsibility and openness\n• Good German in Word and Writing\n• On the way with the e-bike – in any weather\n• Enjoy flexible working – and supporting people The internal pool is more than a side job. It is your space for meaningful care with quality of life – for your customers and for you.\n\n• Working hours: part-time / full-time",
+        "de": "Mach Pflege so, wie sie zu dir passt!\n\n(a)lle sind angesprochen. Geschlecht, Herkunft, Alter? Uns interessieren deine Qualifikation und Begeisterung für die Arbeit.\n\nDU BESTIMMST DEN TAKT - WIR LIEFERN DEN RAHMEN\n• Du willst arbeiten, aber nicht im starren Arbeitszeit-System feststecken? Bei uns bist du frei:\n• Nur morgens nach dem Schulstart deiner Kinder?\n• Ausschliesslich Nachtdienste oder Wochenendeinsätze?\n• Saisonweise verfügbar, z.B. März bis Oktober?\n• Du bildest dich gerade weiter und willst trotzdem im Pflegeberuf aktiv bleiben und Geld verdienen?\nWir passen uns an dein Leben an. Als Pflegeprofi im internen Spitex-Pool gestaltest du , wann und wo du arbeitest – mit Rückhalt, Struktur und Sinn.\n\nDU FINDEST BEI UNS\n• Vielfalt statt Routine: Du arbeitest in wechselnden Teams in vier Regionen in der Stadt Zürich und bist weniger an administrativen Aufgaben beteiligt – immer dort, wo deine Skills gefragt sind.\n• Spontan oder geplant: Dienste übernimmst du flexibel über unser Pool-Tool – ganz nach deinem Kalender.\n• Lernen mit jedem Einsatz: Ob Memory Care mit Nähe und Alltag oder Somatic Care mit Technik und Tempo – du bist mitten im Leben und entwickelst dich fachlich weiter.\n• Du bist nie allein: Ein engagiertes Coach-Trio begleitet dich. Feedback, Fragen oder neue Ziele – wir sind da\n• Feste Anstellung, flexible Realität: Stunden- oder Monatslohn mit attraktiven Benefits\n\nDU BRINGST MIT\n• Ausbildung als Dipl. Pflegefachperson (HF/FH/AKP/DN II)\n• Eigenständigkeit, Verantwortungsgefühl und Offenheit\n• Gutes Deutsch in Wort und Schrift\n• Unterwegs mit dem E-Bike – bei jedem Wetter\n• Freude am flexiblen Arbeiten – und daran, Menschen zu unterstützen Der interne Pool ist mehr als ein Nebenjob. Es ist dein Raum für sinnstiftende Pflege mit Lebensqualität – für deine Kundinnen und Kunden und für dich.\n\n• Arbeitszeit: Teilzeit / Vollzeit",
         "fr": "Prends soin de ça comme il te convient !\n\n(a)lle sont adressées. Sexe, origine, âge ? Nous sommes intéressés par votre qualification et votre enthousiasme pour le travail.\n\nVous décidez de la loi - Nous livrons le cadre\n• Vous voulez travailler, mais pas coincé dans le système de temps de travail rigide? Avec nous vous êtes libres:\n• Seulement le matin après le début de l'école ?\n• Seulement des services de nuit ou des affectations de week-end?\n• Disponibles en saison, par exemple de mars à octobre?\n• Vous continuez à vous éduquer et voulez toujours rester actif dans la profession infirmière et gagner de l'argent?\nNous nous adaptons à votre vie. En tant que professionnel de soins dans la piscine interne Spitex, vous concevez quand et où vous travaillez – avec support, structure et signification.\n\nTrouvez-nous.\n• Diversité au lieu de routine : Vous travaillez dans des équipes changeantes dans quatre régions de la ville de Zurich et êtes moins impliqués dans des tâches administratives – toujours là où vos compétences sont en demande.\n• Spontaneous or planified: Vous prenez en charge les services avec souplesse via notre outil de piscine – selon votre calendrier.\n• Apprendre avec tous les efforts : que ce soit le soin de la mémoire avec proximité et la vie quotidienne ou le soin somatique avec la technique et la vitesse – vous êtes au milieu de la vie et développez professionnellement.\n• Vous n'êtes jamais seul : un trio de coach dédié vous accompagne. Commentaires, questions ou nouveaux objectifs – nous sommes là\n• Emploi fixe, réalité flexible: salaire horaire ou mensuel avec avantages attractifs\n\nTu amènes avec toi\n• Formation en tant qu ' infirmière qualifiée (HF/FH/AKP/DN II)\n• Indépendance, sens des responsabilités et ouverture\n• Bon allemand dans la Parole et l'écriture\n• En route avec l'e-bike – par tous les temps\n• Profitez d'un travail flexible – et d'un soutien personnel La piscine interne est plus qu'un travail secondaire. C'est votre espace pour un soin significatif avec la qualité de vie – pour vos clients et pour vous.\n\n• Heures de travail: temps partiel / temps plein"
       },
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "location": "Zürich",
       "canton": "ZH",
       "url": "https://spitex-zuerich.onlyfy.jobs/de/job/0fvlry9hj8ewyuwwbwjwojxpwte083e",
       "source": "Spitex Zürich Dedicated Parser (softgarden onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T21:55:33.460Z",
+      "crawledAt": "2026-11-07T09:30:11.702Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -629,9 +626,7 @@
       "postingDateSource": "unknown",
       "applyUrl": "https://spitex-zuerich.onlyfy.jobs/de/job/0fvlry9hj8ewyuwwbwjwojxpwte083e",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachfrau-mann-mit-fallfuhrung-psychiatrie-60-a-spitex-zuerich-zurich",
@@ -661,16 +656,17 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-04T21:55:33.460Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-02-05T09:30:11.702Z",
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-11-07T09:30:11.702Z"
     },
     {
       "id": "spitex-zuerich-f1b81bf1d50f",
       "slug": "psichiatria-professionale-infermieristica-con-responsabilita-diurna-tav-60-100-a-spitex-zurich-zurich",
       "slugByLocale": {
-        "de": "dipl-pflegefachfrau-mann-psychiatrie-mit-tagesverantwortung-tav-60-100-a-spitex-zuerich",
         "it": "psichiatria-professionale-infermieristica-con-responsabilita-diurna-tav-60-100-a-spitex-zurich-zurich",
         "en": "dipl-nursing-professional-psychiatry-with-daytime-responsibility-tav-60-100-a-spitex-zurich-zurich",
+        "de": "dipl-pflegefachfrau-mann-psychiatrie-mit-tagesverantwortung-tav-60-100-a-spitex-zuerich",
         "fr": "dipl-psychiatrie-professionnelle-infirmiere-avec-responsabilite-diurne-tav-60-100-a-spitex-zurich-zurich"
       },
       "company": "Spitex Zürich",
@@ -678,25 +674,25 @@
       "companyDomain": "spitex-zuerich.ch",
       "title": "Dipl. Pflegefachfrau/-mann Psychiatrie mit Tagesverantwortung (TAV) 60-100% (a)",
       "titleByLocale": {
-        "de": "Dipl. Pflegefachfrau/-mann Psychiatrie mit Tagesverantwortung (TAV) 60-100% (a)",
         "it": "Infermiere/a diplomato/a in psichiatria con responsabilità giornaliera (TAV) 60-100% (a)",
         "en": "Certified nurse/psychiatrist with day-to-day responsibility (TAV) 60-100% (a)",
+        "de": "Dipl. Pflegefachfrau/-mann Psychiatrie mit Tagesverantwortung (TAV) 60-100% (a)",
         "fr": "Infirmière/infirmière diplômée en psychiatrie avec responsabilité journalière (TAV) 60-100 % (a)"
       },
       "description": "Du möchtest koordinative, beratende und direkt pflegerische Aufgaben in einer Funktion vereinen? Dann könnte diese Stelle genau das Richtige für dich sein!\nIn dieser vielseitigen Rolle verbindest du psychiatrische Fachpflege mit Triage, Kundensteuerung und fachlicher Beratung. Gleichzeitig begleitest du Menschen in anspruchsvollen Lebenssituationen und gestaltest die Weiterentwicklung unseres Angebots Mental Care aktiv mit.\n\n(a)lle sind angesprochen. Geschlecht, Herkunft, Alter? Uns interessieren deine Qualifikation und Begeisterung für die Arbeit.\n\nDEINE AUFGABEN\n• Fallführung und Bedarfsabklärungen im Bereich Mental Care\n• Triage, Priorisierung und Koordination von Kundenanmeldungen\n• Vernetzung und Zusammenarbeit mit allen Mental Care Teams\n• Mitgestaltung beim Aufbau des neuen Teams und Mitarbeit bei der Implementierung und Weiterentwicklung von Prozessen\n\nDU FINDEST BEI UNS\n• Arbeitstage von Montag bis Freitag\n• Eine vielseitige und sinnstiftende Funktion mit viel Verantwortung, Eigenständigkeit und Gestaltungsspielraum\n• Ein gut etabliertes Angebot in der psychosozialen Pflege für die Stadt Zürich\n• Attraktive Anstellungsbedingungen, ausgezeichnete Sozialleistungen und vielfältige Fort- und Weiterbildungsmöglichkeiten. Weitere Vorteile findest du hier: https://jobs.spitex-zuerich.ch/vorteile/\n\nDU BRINGST MIT\n• Mut, Dinge auszuprobieren und neue Wege zu gehen\n• Abgeschlossene Pflegeausbildung auf Tertiärstufe, mindestens 2 Jahre Berufserfahrung im Bereich Psychiatrie sowie NANDA-Kenntnisse\n• Erfahrung in Fallführung, Triage oder Intake-Prozessen von Vorteil\n• Sicherheit in der Einschätzung komplexer psychosozialer Situationen sowie Affinität für Menschen in psychisch belastenden Situationen\n• Selbstständige, strukturierte und lösungsorientierte Arbeitsweise mit hoher Entscheidungs- und Organisationskompetenz\n• Sehr gute Deutschkenntnisse in Wort und Schrift (mind. B2)\nDas ist noch nicht der richtige Job für dich? Dann schau dir gerne unsere weiteren Stellen an oder melde dich bei einem HR-Coach, um weitere Möglichkeiten zu besprechen.\n\n• Arbeitszeit: Teilzeit / Vollzeit",
       "descriptionByLocale": {
-        "de": "Du möchtest koordinative, beratende und direkt pflegerische Aufgaben in einer Funktion vereinen? Dann könnte diese Stelle genau das Richtige für dich sein!\nIn dieser vielseitigen Rolle verbindest du psychiatrische Fachpflege mit Triage, Kundensteuerung und fachlicher Beratung. Gleichzeitig begleitest du Menschen in anspruchsvollen Lebenssituationen und gestaltest die Weiterentwicklung unseres Angebots Mental Care aktiv mit.\n\n(a)lle sind angesprochen. Geschlecht, Herkunft, Alter? Uns interessieren deine Qualifikation und Begeisterung für die Arbeit.\n\nDEINE AUFGABEN\n• Fallführung und Bedarfsabklärungen im Bereich Mental Care\n• Triage, Priorisierung und Koordination von Kundenanmeldungen\n• Vernetzung und Zusammenarbeit mit allen Mental Care Teams\n• Mitgestaltung beim Aufbau des neuen Teams und Mitarbeit bei der Implementierung und Weiterentwicklung von Prozessen\n\nDU FINDEST BEI UNS\n• Arbeitstage von Montag bis Freitag\n• Eine vielseitige und sinnstiftende Funktion mit viel Verantwortung, Eigenständigkeit und Gestaltungsspielraum\n• Ein gut etabliertes Angebot in der psychosozialen Pflege für die Stadt Zürich\n• Attraktive Anstellungsbedingungen, ausgezeichnete Sozialleistungen und vielfältige Fort- und Weiterbildungsmöglichkeiten. Weitere Vorteile findest du hier: https://jobs.spitex-zuerich.ch/vorteile/\n\nDU BRINGST MIT\n• Mut, Dinge auszuprobieren und neue Wege zu gehen\n• Abgeschlossene Pflegeausbildung auf Tertiärstufe, mindestens 2 Jahre Berufserfahrung im Bereich Psychiatrie sowie NANDA-Kenntnisse\n• Erfahrung in Fallführung, Triage oder Intake-Prozessen von Vorteil\n• Sicherheit in der Einschätzung komplexer psychosozialer Situationen sowie Affinität für Menschen in psychisch belastenden Situationen\n• Selbstständige, strukturierte und lösungsorientierte Arbeitsweise mit hoher Entscheidungs- und Organisationskompetenz\n• Sehr gute Deutschkenntnisse in Wort und Schrift (mind. B2)\nDas ist noch nicht der richtige Job für dich? Dann schau dir gerne unsere weiteren Stellen an oder melde dich bei einem HR-Coach, um weitere Möglichkeiten zu besprechen.\n\n• Arbeitszeit: Teilzeit / Vollzeit",
         "it": "Vuoi combinare i compiti di coordinamento, consulenza e allattamento diretto in una sola funzione? Allora questo lavoro potrebbe essere giusto per te!\nIn questo ruolo versatile, si combina la cura psichiatrica con triage, la gestione del cliente e consulenza professionale. Allo stesso tempo, accompagni le persone in situazioni di vita impegnative e partecipi attivamente all'ulteriore sviluppo della nostra offerta Mental Care.\n\n(a)lle sono indirizzate. Genere, origine, età? Siamo interessati alla vostra qualifica ed entusiasmo per il lavoro.\n\nLe tue domande\n• Gestione dei casi e valutazione delle esigenze nel settore della cura mentale\n• Triage, priorità e coordinamento delle registrazioni dei clienti\n• Networking e collaborazione con tutti i team di assistenza mentale\n• Partecipazione allo sviluppo del nuovo team e partecipazione alla realizzazione e allo sviluppo dei processi\n\nCi trovi.\n• Giorni lavorativi da lunedì a venerdì\n• Una funzione versatile e significativa con molta responsabilità, indipendenza e portata per il design\n• Un'offerta consolidata nella cura psicosociale per la città di Zurigo\n• Condizioni di lavoro attraenti, benefici sociali eccellenti e una vasta gamma di ulteriori opportunità di istruzione e formazione. Ulteriori vantaggi sono disponibili qui: https://jobs.spitex-zuerich.ch/benefits/\n\nPorta con te\n• Coraggio per provare le cose e andare nuovi modi\n• Formazione completa a livello terziario, almeno 2 anni di esperienza professionale in psichiatria e NANDA competenze\n• L'esperienza nel caso di gestione, triage o processi di assunzione è utile\n• Sicurezza nella valutazione di situazioni psicosociali complesse e affinità per le persone in situazioni psicologicamente stressanti\n• Metodo di lavoro indipendente, strutturato e orientato alla soluzione con elevata competenza decisionale e organizzativa\n• Molto buona conoscenza del tedesco in parola e scrittura (min. B2)\nNon e' il lavoro giusto per te? Date un'occhiata alle nostre altre posizioni o contattate un allenatore HR per discutere ulteriori possibilità.\n\n• Ore lavorative: part-time / full-time",
         "en": "Do you want to combine coordination, advisory and direct nursing tasks in one function? Then this job could be just right for you!\nIn this versatile role, you combine psychiatric care with triage, customer management and professional advice. At the same time, you accompany people in demanding life situations and actively participate in the further development of our offer Mental Care.\n\n(a)lle are addressed. Gender, origin, age? We are interested in your qualification and enthusiasm for work.\n\nYOUR TASKS\n• Case management and needs assessment in the area of mental care\n• Triage, prioritization and coordination of customer registrations\n• Networking and cooperation with all mental care teams\n• Participation in the development of the new team and participation in the implementation and further development of processes\n\nYou find us.\n• Working days from Monday to Friday\n• A versatile and meaningful function with a lot of responsibility, independence and scope for design\n• A well-established offer in psychosocial care for the city of Zurich\n• Attractive employment conditions, excellent social benefits and a wide range of further education and training opportunities. Further benefits can be found here: https://jobs.spitex-zuerich.ch/benefits/\n\nYou bring with you\n• Courage to try things and go new ways\n• Completed nursing training at tertiary level, at least 2 years of professional experience in psychiatry and NANDA skills\n• Experience in case management, triage or intake processes is beneficial\n• Safety in the assessment of complex psychosocial situations as well as affinity for people in psychologically stressful situations\n• Independent, structured and solution-oriented working method with high decision-making and organizational competence\n• Very good knowledge of German in word and writing (min. B2)\nIsn't that the right job for you? Then take a look at our other positions or contact an HR coach to discuss further possibilities.\n\n• Working hours: part-time / full-time",
+        "de": "Du möchtest koordinative, beratende und direkt pflegerische Aufgaben in einer Funktion vereinen? Dann könnte diese Stelle genau das Richtige für dich sein!\nIn dieser vielseitigen Rolle verbindest du psychiatrische Fachpflege mit Triage, Kundensteuerung und fachlicher Beratung. Gleichzeitig begleitest du Menschen in anspruchsvollen Lebenssituationen und gestaltest die Weiterentwicklung unseres Angebots Mental Care aktiv mit.\n\n(a)lle sind angesprochen. Geschlecht, Herkunft, Alter? Uns interessieren deine Qualifikation und Begeisterung für die Arbeit.\n\nDEINE AUFGABEN\n• Fallführung und Bedarfsabklärungen im Bereich Mental Care\n• Triage, Priorisierung und Koordination von Kundenanmeldungen\n• Vernetzung und Zusammenarbeit mit allen Mental Care Teams\n• Mitgestaltung beim Aufbau des neuen Teams und Mitarbeit bei der Implementierung und Weiterentwicklung von Prozessen\n\nDU FINDEST BEI UNS\n• Arbeitstage von Montag bis Freitag\n• Eine vielseitige und sinnstiftende Funktion mit viel Verantwortung, Eigenständigkeit und Gestaltungsspielraum\n• Ein gut etabliertes Angebot in der psychosozialen Pflege für die Stadt Zürich\n• Attraktive Anstellungsbedingungen, ausgezeichnete Sozialleistungen und vielfältige Fort- und Weiterbildungsmöglichkeiten. Weitere Vorteile findest du hier: https://jobs.spitex-zuerich.ch/vorteile/\n\nDU BRINGST MIT\n• Mut, Dinge auszuprobieren und neue Wege zu gehen\n• Abgeschlossene Pflegeausbildung auf Tertiärstufe, mindestens 2 Jahre Berufserfahrung im Bereich Psychiatrie sowie NANDA-Kenntnisse\n• Erfahrung in Fallführung, Triage oder Intake-Prozessen von Vorteil\n• Sicherheit in der Einschätzung komplexer psychosozialer Situationen sowie Affinität für Menschen in psychisch belastenden Situationen\n• Selbstständige, strukturierte und lösungsorientierte Arbeitsweise mit hoher Entscheidungs- und Organisationskompetenz\n• Sehr gute Deutschkenntnisse in Wort und Schrift (mind. B2)\nDas ist noch nicht der richtige Job für dich? Dann schau dir gerne unsere weiteren Stellen an oder melde dich bei einem HR-Coach, um weitere Möglichkeiten zu besprechen.\n\n• Arbeitszeit: Teilzeit / Vollzeit",
         "fr": "Voulez-vous combiner les tâches de coordination, de conseil et de soins infirmiers directs dans une fonction? Alors ce travail pourrait être juste pour vous !\nDans ce rôle polyvalent, vous combinez soins psychiatriques avec triage, gestion de la clientèle et conseils professionnels. En même temps, vous accompagnez les gens dans des situations de vie exigeantes et participez activement au développement de notre offre de soins mentaux.\n\n(a)lle sont adressées. Sexe, origine, âge ? Nous sommes intéressés par votre qualification et votre enthousiasme pour le travail.\n\nVos tâches\n• Gestion des cas et évaluation des besoins dans le domaine des soins mentaux\n• Triage, hiérarchisation et coordination des inscriptions des clients\n• Réseautage et coopération avec toutes les équipes de soins mentaux\n• Participation au développement de la nouvelle équipe et participation à la mise en œuvre et au développement des processus\n\nTrouvez-nous.\n• Jours ouvrables du lundi au vendredi\n• Une fonction polyvalente et significative avec beaucoup de responsabilités, d'indépendance et de possibilités de conception\n• Une offre bien établie en soins psychosociaux pour la ville de Zurich\n• Des conditions d'emploi attrayantes, d'excellentes prestations sociales et un large éventail de possibilités d'éducation et de formation complémentaires. D'autres avantages peuvent être trouvés ici: https://jobs.spitex-zuerich.ch/ benefits/\n\nTu amènes avec toi\n• Courage pour essayer les choses et aller de nouvelles façons\n• Achevé la formation en sciences infirmières au niveau tertiaire, au moins 2 ans d'expérience professionnelle en psychiatrie et en compétences NANDA\n• L'expérience en gestion de cas, triage ou processus d'admission est bénéfique\n• Sécurité dans l'évaluation des situations psychosociales complexes ainsi que l'affinité pour les personnes en situation psychologiquement stressante\n• Méthode de travail indépendante, structurée et axée sur les solutions, avec une haute compétence en matière de prise de décisions et d'organisation\n• Très bonne connaissance de l'allemand dans la parole et l'écriture (min. B2)\nCe n'est pas le bon boulot pour toi ? Ensuite, jetez un oeil à nos autres postes ou contactez un entraîneur RH pour discuter d'autres possibilités.\n\n• Heures de travail: temps partiel / temps plein"
       },
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "location": "Zürich",
       "canton": "ZH",
       "url": "https://spitex-zuerich.onlyfy.jobs/de/job/o2zrmakgo0d30685qtppv1tq8orjk7m",
       "source": "Spitex Zürich Dedicated Parser (softgarden onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T21:55:30.920Z",
+      "crawledAt": "2026-11-07T09:30:09.513Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -714,17 +710,16 @@
       "postingDateSource": "unknown",
       "applyUrl": "https://spitex-zuerich.onlyfy.jobs/de/job/o2zrmakgo0d30685qtppv1tq8orjk7m",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "dipl-pflegefachfrau-mann-psychiatrie-mit-tagesverantwortung-tav-60-100-a-spitex-zuerich"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachfrau-mann-psychiatrie-mit-tagesverantwortung-tav-60-100-a-spitex-zuerich"
         ]
       },
-      "previousSlugs": [
-        "dipl-pflegefachfrau-mann-psychiatrie-mit-tagesverantwortung-tav-60-100-a-spitex-zuerich"
-      ],
+      "firstSeenAt": "2026-09-10T23:17:30.321Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
       "salarySource": "estimated",
@@ -740,9 +735,8 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-10T21:55:30.920Z",
-      "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-09-10T23:17:30.321Z"
+      "validThrough": "2026-12-10T09:30:09.513Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "spitex-zuerich-9bcfae89e904",
@@ -824,7 +818,7 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-19T09:31:44.389Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "spitex-zuerich-3d14b35acd0a",
@@ -903,7 +897,7 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-04T09:31:43.385Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "spitex-zuerich-6ad30252704c",
@@ -985,7 +979,7 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-13T09:31:42.605Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "spitex-zuerich-fa06da56b8bf",
@@ -1064,7 +1058,7 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-29T09:31:41.552Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "spitex-zuerich-c92d56fb2361",
@@ -1155,7 +1149,7 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-25T09:31:40.728Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     }
   ]
 }
