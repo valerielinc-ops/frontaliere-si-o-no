@@ -41,6 +41,19 @@ const JOB_PHOTO_KEYWORDS: Record<JobFallbackPhotoKey, string[]> = {
 const NEW_CONSTRUCTION_KEYWORDS = new Set([
   'edil', 'cantiere', 'costruzion', 'building', 'architett',
 ]);
+
+// These words occur in many titles without identifying the visual role. For
+// example, "operatore socio-sanitario" and "assistente di cura" are
+// healthcare roles, while "cura del verde" is a trade. Let the employer
+// sector/category break those ties instead of changing the cache key for a
+// large set of otherwise stable cards.
+const AMBIGUOUS_TITLE_KEYWORDS = new Set(['operator', 'assistant', 'cura']);
+const JOB_TITLE_PHOTO_KEYWORDS: Record<JobFallbackPhotoKey, string[]> = Object.fromEntries(
+  JOB_PHOTO_KEYS.map((key) => [
+    key,
+    JOB_PHOTO_KEYWORDS[key].filter((keyword) => !AMBIGUOUS_TITLE_KEYWORDS.has(keyword)),
+  ]),
+) as Record<JobFallbackPhotoKey, string[]>;
 const LEGACY_JOB_PHOTO_KEYWORDS: Record<JobFallbackPhotoKey, string[]> = {
   ...JOB_PHOTO_KEYWORDS,
   trades: JOB_PHOTO_KEYWORDS.trades.filter((keyword) => !NEW_CONSTRUCTION_KEYWORDS.has(keyword)),
@@ -70,10 +83,14 @@ function findJobPhotoKey(
 export function classifyJobPhoto(job: JobPhotoClassificationInput): JobFallbackPhotoKey {
   const italianRolePhotoKey = findJobPhotoKey(
     normalizePhotoSearchText(job.titleByLocale?.it),
+    JOB_TITLE_PHOTO_KEYWORDS,
   );
   if (italianRolePhotoKey) return italianRolePhotoKey;
 
-  const sourceRolePhotoKey = findJobPhotoKey(normalizePhotoSearchText(job.title));
+  const sourceRolePhotoKey = findJobPhotoKey(
+    normalizePhotoSearchText(job.title),
+    JOB_TITLE_PHOTO_KEYWORDS,
+  );
   if (sourceRolePhotoKey) return sourceRolePhotoKey;
 
   const sectorText = normalizePhotoSearchText(job.category, job.sector);

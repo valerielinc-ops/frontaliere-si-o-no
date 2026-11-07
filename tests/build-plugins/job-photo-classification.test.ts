@@ -34,6 +34,29 @@ describe('classifyJobPhoto', () => {
     })).toBe('healthcare');
   });
 
+  it('uses employer metadata when the title contains only an ambiguous role word', () => {
+    const healthcareOperator = {
+      category: 'Sanità / Ospedali',
+      titleByLocale: { it: 'Operatore / operatrice' },
+    };
+    const healthcareAssistant = {
+      category: 'Sanità / Ospedali',
+      titleByLocale: { it: 'Assistant' },
+    };
+
+    expect(classifyJobPhoto(healthcareOperator)).toBe('healthcare');
+    expect(classifyJobPhoto(healthcareAssistant)).toBe('healthcare');
+    expect(selectJobOgPhoto(healthcareOperator, 'healthcare-operator').urlPhotoKey).toBeUndefined();
+    expect(selectJobOgPhoto(healthcareAssistant, 'healthcare-assistant').urlPhotoKey).toBeUndefined();
+  });
+
+  it('does not treat a generic care verb as a healthcare occupation', () => {
+    expect(classifyJobPhoto({
+      category: 'Agricoltura / Ambiente',
+      titleByLocale: { it: 'Addetto alla cura del verde' },
+    })).toBe('trades');
+  });
+
   it('does not let a conflicting source-language title override the Italian role', () => {
     expect(classifyJobPhoto({
       category: 'Sanità / Ospedali',
