@@ -1312,8 +1312,16 @@ describe('generation checkpoint and preflight', () => {
   function preflightFixture(observer: Buffer, groupArtifacts = groupArtifactFixture()) {
     return {
       schemaVersion: 1,
+      sourceCommit: 'a'.repeat(40),
       groupCount: GROUP_IDS.length,
       artifactCount: GROUP_IDS.length + 1,
+      crawlerCount: 0,
+      crawlerRosterCardinality: {
+        sourceCommit: 'a'.repeat(40),
+        groupCount: GROUP_IDS.length,
+        artifactCount: GROUP_IDS.length + 1,
+        crawlerCount: 0,
+      },
       artifacts: [
         ...GROUP_IDS.map((group) => {
           const file = `crawler-group-${group}.yml`;
