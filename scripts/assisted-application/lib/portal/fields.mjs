@@ -515,6 +515,9 @@ function nativeQuestionText(value, counter = null) {
       return Boolean(sibling && marker(sibling, true));
     }));
   };
+  const hasRequiredControlSignal = (element, labelText) =>
+    element.required || hasAriaRequired(element) || element.hasAttribute('data-required')
+      || hasRequiredMarker(element, labelText ?? labelFor(element));
   const SITE_SEARCH_TEXT_RE = /\b(?:search|suche|suchen|find(?:en)?|recherche|rechercher|cerca|buscar|busca|query)\b/i;
   const hasSiteSearchIdentity = (element) => [
     element.getAttribute('type'),
@@ -536,7 +539,7 @@ function nativeQuestionText(value, counter = null) {
     });
   };
   const isApplicationOwnedControl = (element) => {
-    if (element.required || hasAriaRequired(element)) return true;
+    if (hasRequiredControlSignal(element)) return true;
     const form = element.form || element.closest('form');
     if (form && !isSiteSearchForm(form)) return true;
     return element.matches('button[type="submit"], input[type="submit"]') && !isSiteSearchForm(form);
@@ -560,8 +563,7 @@ function nativeQuestionText(value, counter = null) {
     // the application-owned precedence even when placed in a header/footer.
     if ((!nativeLanguageSelect && !ownerlessLanguageButton)
       || !SITE_LANGUAGE_LABEL_RE.test(label)
-      || element.required || hasAriaRequired(element) || element.hasAttribute('data-required')
-      || hasRequiredMarker(element, label)) return false;
+      || hasRequiredControlSignal(element, label)) return false;
     return true;
   };
   const isSiteChromeControl = (element) => isSiteLanguageControl(element)

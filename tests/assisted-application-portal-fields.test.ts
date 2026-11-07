@@ -1867,6 +1867,15 @@ describe('portal field extraction', () => {
     expect(page.fields).toEqual([expect.objectContaining({ kind: 'select', label: 'Lingua', required: true })]);
   });
 
+  it.each([
+    ['data-required', '<header><select aria-label="Sprache" data-required></select></header>'],
+    ['an adjacent required marker', '<header><label for="language">Sprache</label><span>*</span><select id="language"></select></header>'],
+  ])('retains a required language select in site chrome without a form (%s)', (_case, html) => {
+    const page = extract(html);
+
+    expect(page.fields).toEqual([expect.objectContaining({ kind: 'select', label: 'Sprache', required: true })]);
+  });
+
   // «Select One» was offered to the candidate as a marital status (dry run of 2026-10-07).
   it('knows a list’s prompt from its options', () => {
     for (const prompt of ['Select One', 'Select one', 'Please select', 'Bitte auswählen', 'Bitte wählen', 'Seleziona', 'Sélectionnez', 'Choisir']) expect(LIST_PROMPT_RE.test(prompt)).toBe(true);
