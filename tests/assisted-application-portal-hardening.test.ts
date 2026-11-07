@@ -375,6 +375,17 @@ describe('portal runner hardening (career-ops apply.md)', () => {
     })).toBe('mismatch');
   });
 
+  it('keeps an explicit cross-tenant Umantis vacancy authoritative', () => {
+    const pageUrl = 'https://tenant-a.umantis.com/Vacancies/123/Application/New/1';
+    const postingUrl = 'https://tenant-b.umantis.com/Vacancies/999/Description/1';
+    const job = { title: 'EOC', company: 'EOC' };
+
+    expect(formPostingMatch('Application', job, {
+      pageUrl,
+      postingUrl,
+    })).toBe('mismatch');
+  });
+
   it('uses a bound Umantis vacancy route when EOC application questions mention the employer', () => {
     const postingUrl = 'https://recruitingapp-2761.umantis.com/Vacancies/1153/Description/4';
     const applyUrl = 'https://recruitingapp-2761.umantis.com/Vacancies/1153/Application/New/4';

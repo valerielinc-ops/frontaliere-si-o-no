@@ -483,7 +483,7 @@ function hasConflictingUmantisVacancyRoute(applyUrl, candidates) {
   if (!application) return false;
   return candidates.some((candidate) => {
     const route = umantisVacancyRoute(candidate);
-    return route?.origin === application.origin && route.vacancyId !== application.vacancyId;
+    return route && (route.origin !== application.origin || route.vacancyId !== application.vacancyId);
   });
 }
 
