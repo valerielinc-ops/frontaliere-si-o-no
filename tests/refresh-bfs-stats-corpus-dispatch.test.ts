@@ -87,12 +87,12 @@ beforeAll(() => {
 describe('il dispatch punta al corpus, non a questo repo (#5289 non si ripete)', () => {
   it('esiste uno step che dispaccia generate-article.yml sul repo del corpus', () => {
     expect(dispatch).toBeDefined();
-    expect(dispatch.run).toContain('dispatch_workflow_with_retry generate-article.yml');
+    expect(dispatch.run).toContain('dispatch_workflow_once generate-article.yml');
     expect(dispatch.run).toContain('source scripts/lib/github-workflow-dispatch-with-retry.sh');
   });
 
   it('il helper comune riceve sempre il repo del corpus', () => {
-    expect(dispatch.run).toContain('dispatch_workflow_with_retry generate-article.yml');
+    expect(dispatch.run).toContain('dispatch_workflow_once generate-article.yml');
     expect(dispatch.run).toContain(CORPUS);
     expect(dispatch.run).not.toContain('GH_TOKEN="$GITHUB_PAT_NANAKO" gh workflow run');
   });
@@ -126,14 +126,14 @@ describe('il dispatch scatta SOLO sulla transizione di trimestre', () => {
     expect(dispatch.run).toContain('if ! dispatch_corpus_article -f url=');
     expect(dispatch.run).toContain('Dispatch corpus fallito');
     expect(dispatch.run).not.toContain('origin_args[@]');
-    expect(dispatch.run.indexOf('gh workflow view')).toBeLessThan(dispatch.run.indexOf('dispatch_workflow_with_retry'));
+    expect(dispatch.run.indexOf('gh workflow view')).toBeLessThan(dispatch.run.indexOf('dispatch_workflow_once'));
   });
 });
 
 describe('gli altri segnali editoriali dichiarano la propria origine', () => {
   it('i tre dispatch Astra rilevano il contratto prima di passare l’origine', () => {
     const astra = readFileSync(ASTRA_WORKFLOW, 'utf8');
-    const dispatches = astra.match(/dispatch_workflow_with_retry generate-article\.yml/g) || [];
+    const dispatches = astra.match(/dispatch_workflow_once generate-article\.yml/g) || [];
     const origins = astra.match(/-f dispatch_origin=editorial_signal "\$@"/g) || [];
     const dispatchFunctions = astra.match(/dispatch_article\(\) \{/g) || [];
     const calls = astra.match(/if dispatch_article -f url=/g) || [];

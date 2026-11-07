@@ -23,7 +23,7 @@ function runHelper(
   const pathEnv = `${directory}:${process.env.PATH || ''}`;
   return spawnSync(
     '/usr/bin/bash',
-    ['-c', 'source "$1"; shift; dispatch_workflow_with_retry "$@"', 'dispatch-test', HELPER, ...helperArgs],
+    ['-c', 'source "$1"; shift; dispatch_workflow_once "$@"', 'dispatch-test', HELPER, ...helperArgs],
     {
       cwd: ROOT,
       encoding: 'utf8',
@@ -40,7 +40,7 @@ function runDispatchKey(sourceUrl: string) {
   );
 }
 
-describe('shared cross-repository workflow dispatch retry', () => {
+describe('shared cross-repository workflow dispatch safety', () => {
   it('is sourced by BFS and all ASTRA dispatch paths', () => {
     const bfs = readFileSync(BFS_WORKFLOW, 'utf8');
     const astra = readFileSync(ASTRA_WORKFLOW, 'utf8');
@@ -48,7 +48,9 @@ describe('shared cross-repository workflow dispatch retry', () => {
     expect(bfs).toContain('workflow_dispatch_source_key');
     expect(astra.match(/source scripts\/lib\/github-workflow-dispatch-with-retry\.sh/g)).toHaveLength(3);
     expect(astra).toContain('workflow_dispatch_source_key');
-    expect(astra).toContain('dispatch_workflow_with_retry generate-article.yml');
+    expect(astra).toContain('dispatch_workflow_once generate-article.yml');
+    expect(bfs).not.toContain('dispatch_workflow_with_retry');
+    expect(astra).not.toContain('dispatch_workflow_with_retry');
   });
 
   it('derives a bounded stable key from the exact source URL', () => {
@@ -58,7 +60,7 @@ describe('shared cross-repository workflow dispatch retry', () => {
     expect(result.stdout.trim()).toHaveLength(32);
   });
 
-  it('retries transient 5xx responses and stops after the bounded budget', () => {
+  it('does not retry an ambiguous transient 5xx response', () => {
     const directory = mkdtempSync(join(tmpdir(), 'workflow-dispatch-retry-'));
     const calls = join(directory, 'calls');
     try {
@@ -78,10 +80,11 @@ echo 'workflow-dispatched'
       const result = runHelper(directory, ['generate-article.yml', 'owner/repo', '-f', 'url=stats-bfs://2026-Q2'], {
         CALLS_FILE: calls,
       });
-      expect(result.status).toBe(0);
-      expect(readFileSync(calls, 'utf8')).toBe('3');
-      expect(result.stdout).toContain('workflow-dispatched');
-      expect(result.stderr).toContain('transient HTTP 5xx');
+      expect(result.status).not.toBe(0);
+      expect(readFileSync(calls, 'utf8')).toBe('1');
+      expect(result.stdout).not.toContain('workflow-dispatched');
+      expect(result.stderr).toContain('ambiguous HTTP 5xx');
+      expect(result.stderr).toContain('not retrying');
     } finally {
       rmSync(directory, { recursive: true, force: true });
     }

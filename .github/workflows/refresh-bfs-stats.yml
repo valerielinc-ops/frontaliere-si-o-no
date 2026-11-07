@@ -211,17 +211,19 @@ jobs:
           fi
           echo "Contratto dispatch corpus: $origin_contract"
           echo "Dispatch generate-article.yml → nanakokyobashi-rgb/frontaliere-articles (url=stats-bfs://${NEW_QUARTER})"
-          # GitHub can return a transient 5xx after the receiver contract was
-          # read successfully. Keep the retry policy shared with ASTRA; 4xx,
-          # timeouts and unclassified failures remain visible immediately.
+          # A workflow_dispatch POST is side-effectful and a transient 5xx is
+          # ambiguous: the receiver may already have queued the article. The
+          # shared helper is at-most-once until the receiver proves a stable-URL
+          # idempotency guard; 4xx, timeouts and unclassified failures remain
+          # visible immediately as well.
           source scripts/lib/github-workflow-dispatch-with-retry.sh
           dispatch_corpus_article() {
             if [ "$origin_contract" = "supported" ]; then
-              dispatch_workflow_with_retry generate-article.yml \
+              dispatch_workflow_once generate-article.yml \
                 nanakokyobashi-rgb/frontaliere-articles \
                 -f dispatch_origin=editorial_signal "$@"
             else
-              dispatch_workflow_with_retry generate-article.yml \
+              dispatch_workflow_once generate-article.yml \
                 nanakokyobashi-rgb/frontaliere-articles "$@"
             fi
           }

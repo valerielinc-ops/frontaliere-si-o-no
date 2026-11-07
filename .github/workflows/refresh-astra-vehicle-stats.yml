@@ -17,6 +17,10 @@ concurrency:
   group: refresh-astra-vehicle-stats
   cancel-in-progress: false
 
+# Cross-repository workflow_dispatch is a side effect. The shared helper is
+# deliberately at-most-once until the corpus receiver exposes and proves a
+# stable-URL idempotency guard; a source_key input alone is not that proof.
+
 jobs:
   refresh:
     runs-on: ubuntu-latest
@@ -151,11 +155,11 @@ jobs:
           source scripts/lib/github-workflow-dispatch-with-retry.sh
           dispatch_article() {
             if [ "${DISPATCH_ORIGIN_SUPPORTED:-false}" = "true" ]; then
-              dispatch_workflow_with_retry generate-article.yml \
+              dispatch_workflow_once generate-article.yml \
                 nanakokyobashi-rgb/frontaliere-articles \
                 -f dispatch_origin=editorial_signal "$@"
             else
-              dispatch_workflow_with_retry generate-article.yml \
+              dispatch_workflow_once generate-article.yml \
                 nanakokyobashi-rgb/frontaliere-articles "$@"
             fi
           }
@@ -197,11 +201,11 @@ jobs:
           source scripts/lib/github-workflow-dispatch-with-retry.sh
           dispatch_article() {
             if [ "${DISPATCH_ORIGIN_SUPPORTED:-false}" = "true" ]; then
-              dispatch_workflow_with_retry generate-article.yml \
+              dispatch_workflow_once generate-article.yml \
                 nanakokyobashi-rgb/frontaliere-articles \
                 -f dispatch_origin=editorial_signal "$@"
             else
-              dispatch_workflow_with_retry generate-article.yml \
+              dispatch_workflow_once generate-article.yml \
                 nanakokyobashi-rgb/frontaliere-articles "$@"
             fi
           }
@@ -243,11 +247,11 @@ jobs:
           source scripts/lib/github-workflow-dispatch-with-retry.sh
           dispatch_article() {
             if [ "${DISPATCH_ORIGIN_SUPPORTED:-false}" = "true" ]; then
-              dispatch_workflow_with_retry generate-article.yml \
+              dispatch_workflow_once generate-article.yml \
                 nanakokyobashi-rgb/frontaliere-articles \
                 -f dispatch_origin=editorial_signal "$@"
             else
-              dispatch_workflow_with_retry generate-article.yml \
+              dispatch_workflow_once generate-article.yml \
                 nanakokyobashi-rgb/frontaliere-articles "$@"
             fi
           }
