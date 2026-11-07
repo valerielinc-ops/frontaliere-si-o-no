@@ -44,7 +44,7 @@ import { sanitizeValidation } from '../../../../functions/src/lib/answerRules.js
 import { operationalAnswerForOption, operationalDefaultAnswer, operationalQuestionTopic } from '../../../../functions/src/assistedApplicationOperationalAnswers.js';
 import { isoDateOf } from '../../../../functions/src/lib/cvPeriod.js';
 import { asksHeldStatus, isPermitField, nationalityLabelOf, nationalityOf, permitOptions, permitStatusFromCandidate, permitStatusOf, permitStatement, permitStatusQuestion, permitStatusQuestionWhy, printedPermitText } from '../../../../functions/src/lib/permitStatus.js';
-import { formatInternationalPhone, phoneCountryLabel } from '../../../../functions/src/lib/phoneNormalization.js';
+import { countryCodeOfLabel, countryLabelForCode, formatInternationalPhone, phoneCountryLabel } from '../../../../functions/src/lib/phoneNormalization.js';
 import { serializeAccountFailure } from '../../../../functions/src/assistedApplicationSubmissionGuard.js';
 import { addressQuestionAnswer, residenceCountryCode, resolveResidenceAddress } from './residence-address.mjs';
 import { CONFIRM_RE, NEXT_RE, REFUSED_RE, SUBMIT_RE, VALIDATION_RE, applyActions, chooseChooserFiles, documentPaths, findButton, locatorFor, uploadReceipt } from './fill.mjs';
@@ -2925,6 +2925,9 @@ function questionsFrom(missingRequired, stableQuestionIds = new Map()) {
       : Array.isArray(item.applicationOptions) && item.applicationOptions.length
         ? item.applicationOptions
         : item.options || []).map((option) => String(option || '').trim()).filter(Boolean);
+    const applicationOptionValues = Array.isArray(item.applicationOptionValues)
+      ? item.applicationOptionValues.map((value) => String(value || '').trim())
+      : [];
     const options = (Array.isArray(item.options) ? item.options : []).map((option) => String(option || '').trim()).filter(Boolean);
     const optionMap = portalOptionMap({ options, applicationOptions, optionMap: item.optionMap });
     questions.push({
@@ -2933,6 +2936,8 @@ function questionsFrom(missingRequired, stableQuestionIds = new Map()) {
       applicationQuestion,
       ...(readableQuestionCandidate(item.candidatePrompt) ? { candidatePrompt: readableQuestionCandidate(item.candidatePrompt) } : {}),
       ...(applicationOptions.length ? { applicationOptions } : {}),
+      ...(applicationOptions.length > 0 && applicationOptionValues.length === applicationOptions.length && applicationOptionValues.every(Boolean)
+        ? { applicationOptionValues } : {}),
       ...(optionMap.length ? { optionMap } : {}),
       ...(item.context ? { context: String(item.context).slice(0, 240) } : {}),
       ...(item.section ? { section: String(item.section).slice(0, 240) } : {}),
@@ -3090,6 +3095,27 @@ function fallbackOption(option, language) {
   if (OPTION_FALLBACK_MARKERS.no.includes(normalized)) return fallback.no;
   if (OPTION_FALLBACK_MARKERS.placeholder.includes(normalized)) return fallback.placeholder;
   return text;
+}
+
+const REGION_CODE_RE = /^[A-Z]{2}$/;
+const REGION_LABEL_CACHE = new Map();
+
+function localizedRegionLabel(code, language) {
+  const normalizedCode = String(code || '').trim().toUpperCase();
+  if (!REGION_CODE_RE.test(normalizedCode)) return '';
+  const cacheKey = [language, normalizedCode].join(':');
+  if (REGION_LABEL_CACHE.has(cacheKey)) return REGION_LABEL_CACHE.get(cacheKey);
+  let label = '';
+  try {
+    if (typeof Intl.DisplayNames === 'function') {
+      const display = new Intl.DisplayNames([language], { type: 'region' }).of(normalizedCode);
+      label = display && display !== normalizedCode ? String(display).trim() : '';
+    }
+  } catch {
+    label = '';
+  }
+  REGION_LABEL_CACHE.set(cacheKey, label);
+  return label;
 }
 
 function optionsMatchCandidateLanguage(options, candidateLanguage) {
@@ -3357,11 +3383,24 @@ function deterministicItalianOptionsMatch(label, options) {
   return options.every((option) => catalogue.has(normalizedQuestionText(option)));
 }
 
-function deterministicGermanOption(option, entry, language) {
+function deterministicGermanOption(option, entry, language, applicationOptionValue = '') {
   const text = String(option || '').trim();
   const normalized = normalizedQuestionText(text);
   const known = DETERMINISTIC_GERMAN_OPTION_COPIES[entry.key]?.[normalized]?.[language];
   if (known) return known;
+  const codeFromValue = String(applicationOptionValue || '').trim().toUpperCase();
+  if (entry.key === 'nationality') {
+    const code = REGION_CODE_RE.test(codeFromValue) ? codeFromValue : nationalityOf(text)?.code;
+    const localized = code ? nationalityLabelOf(code, language) : '';
+    if (localized) return localized;
+    const region = code ? localizedRegionLabel(code, language) : '';
+    if (region) return region;
+  }
+  if (entry.key === 'country') {
+    const code = REGION_CODE_RE.test(codeFromValue) ? codeFromValue : residenceCountryCode(text) || countryCodeOfLabel(text);
+    const localized = codeFromValue ? localizedRegionLabel(code, language) : (code ? countryLabelForCode(code, language) : '');
+    if (localized) return localized;
+  }
   if (entry.key === 'country' || entry.key === 'nationality') {
     const region = localizedGermanRegionOption(text, language);
     if (region) return region;
@@ -3372,7 +3411,7 @@ function deterministicGermanOption(option, entry, language) {
   }
   const booleanOrPlaceholder = fallbackOption(text, language);
   if (booleanOrPlaceholder !== text) return booleanOrPlaceholder;
-  if (/^\d{1,4}$/.test(text)) return text;
+  if (/^\d{1,4}\.?$/.test(text)) return text;
   return null;
 }
 
@@ -3384,7 +3423,9 @@ function deterministicGermanLocalization(item, language) {
   const applicationOptions = (Array.isArray(item.applicationOptions) && item.applicationOptions.length
     ? item.applicationOptions
     : item.options || []).map((option) => String(option || '').trim()).filter(Boolean);
-  const candidateOptions = applicationOptions.map((option) => deterministicGermanOption(option, entry, language));
+  const applicationOptionValues = Array.isArray(item.applicationOptionValues) && item.applicationOptionValues.length === applicationOptions.length
+    ? item.applicationOptionValues : [];
+  const candidateOptions = applicationOptions.map((option, index) => deterministicGermanOption(option, entry, language, applicationOptionValues[index]));
   // A known label is safe to translate, but an unknown option is not: keep
   // the old fail-closed behavior instead of showing a mixed-language choice.
   if (candidateOptions.some((option) => !option)) return null;
@@ -6433,11 +6474,15 @@ export function portalRequirementsFromMissingRequired(fields, missingRequired, {
           unreadableFields.push(field?.id || item.fieldId || 'unknown');
           continue;
         }
-        const applicationOptions = (field ? editableCombobox(field) ? [] : field.options || [] : item.applicationOptions || item.options || [])
-          .filter(portalUsableChoiceOption)
+        const liveOptions = field ? editableCombobox(field) ? [] : field.options || [] : item.applicationOptions || item.options || [];
+        const readableOptions = liveOptions.filter(portalUsableChoiceOption);
+        const applicationOptions = readableOptions
           .map((option) => typeof option === 'string' ? option : option?.label)
           .map((option) => String(option || '').trim())
           .filter(Boolean);
+        const applicationOptionValues = field && readableOptions.length === applicationOptions.length
+          && readableOptions.every(option => typeof option !== 'string' && String(option?.value || '').trim())
+          ? readableOptions.map(option => String(option.value).trim()) : [];
         const nativeChoiceField = Boolean(field && fieldRequiresNativeOptions(field) && (
           ['select', 'radio', 'listbox'].includes(field.kind)
           || field.selectLike === true
@@ -6475,6 +6520,7 @@ export function portalRequirementsFromMissingRequired(fields, missingRequired, {
           validation: field && (type !== item.type || ['choice', 'yes_no'].includes(type)) ? {} : item.validation,
           required: true,
           applicationOptions,
+          ...(applicationOptionValues.length ? { applicationOptionValues } : {}),
           applicationOptionsKnown: Boolean(field),
           options: field
             ? optionMap.length
