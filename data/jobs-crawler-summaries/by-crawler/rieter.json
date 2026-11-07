@@ -1,7 +1,7 @@
 {
   "key": "rieter",
   "label": "Rieter",
-  "generatedAt": "2026-11-07T09:30:22.725Z",
+  "generatedAt": "2026-11-07T21:12:47.565Z",
   "total": 11,
   "discovered": null,
   "parsed": 9,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 11,
-  "durationMs": 12043,
-  "avgDurationMs": 12043,
+  "durationMs": 11595,
+  "avgDurationMs": 11595,
   "durationHistory": [
-    12043
+    11595
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -37,7 +37,7 @@
       "url": "https://live.solique.ch/rieter/en/jobs/Trainer-Customer-Training--4076949",
       "source": "Rieter Dedicated Parser (Solique)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-07T09:29:56.845Z",
+      "crawledAt": "2026-11-07T21:12:26.771Z",
       "addressLocality": "Winterthur",
       "addressRegion": "Zürich",
       "streetAddress": "Klosterstrasse 20",
@@ -60,7 +60,7 @@
       "salaryMax": 126000,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-05T09:29:56.845Z",
+      "validThrough": "2027-02-05T21:12:26.771Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -82,7 +82,7 @@
       "url": "https://live.solique.ch/rieter/en/jobs/Senior-Financial-Accountant-100-wmd---4097977",
       "source": "Rieter Dedicated Parser (Solique)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-07T09:29:56.214Z",
+      "crawledAt": "2026-11-07T21:12:26.101Z",
       "addressLocality": "Winterthur",
       "addressRegion": "Zürich",
       "streetAddress": "Klosterstrasse 20",
@@ -106,7 +106,7 @@
       "salaryMax": 331500,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-21T09:29:56.214Z",
+      "validThrough": "2026-12-21T21:12:26.101Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -128,7 +128,7 @@
       "url": "https://live.solique.ch/rieter/en/jobs/SAP-Senior-Consultant-Service-and-Repair-CS-100-wmd---4094537",
       "source": "Rieter Dedicated Parser (Solique)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-07T09:29:55.582Z",
+      "crawledAt": "2026-11-07T21:12:25.434Z",
       "addressLocality": "Winterthur",
       "addressRegion": "Zürich",
       "streetAddress": "Klosterstrasse 20",
@@ -152,7 +152,7 @@
       "salaryMax": 172000,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-15T09:29:55.582Z",
+      "validThrough": "2026-12-15T21:12:25.434Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -174,7 +174,7 @@
       "url": "https://live.solique.ch/rieter/en/jobs/Mitarbeiter-Produktionsplanung-mwd---4090712",
       "source": "Rieter Dedicated Parser (Solique)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-07T09:29:54.932Z",
+      "crawledAt": "2026-11-07T21:12:24.766Z",
       "addressLocality": "Pfäffikon",
       "addressRegion": "Zürich",
       "streetAddress": "Obermattstrasse 65",
@@ -198,7 +198,7 @@
       "salaryMax": 111500,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-08T09:29:54.932Z",
+      "validThrough": "2026-12-07T21:12:24.766Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -220,7 +220,7 @@
       "url": "https://live.solique.ch/rieter/en/jobs/Head-Supply-Chain-Operations-Graf-Group-100-mwd---4096509",
       "source": "Rieter Dedicated Parser (Solique)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-07T09:29:54.124Z",
+      "crawledAt": "2026-11-07T21:12:24.153Z",
       "addressLocality": "Rapperswil",
       "addressRegion": "SG",
       "streetAddress": "Bildaustrasse 6",
@@ -245,7 +245,7 @@
       "salaryMax": 140000,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-19T09:29:54.124Z",
+      "validThrough": "2026-12-19T21:12:24.153Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -267,7 +267,7 @@
       "url": "https://live.solique.ch/rieter/en/jobs/Finance-Manager-80-100-wmd---4097696",
       "source": "Rieter Dedicated Parser (Solique)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-07T09:29:53.460Z",
+      "crawledAt": "2026-11-07T21:12:23.540Z",
       "addressLocality": "Winterthur",
       "addressRegion": "Zürich",
       "streetAddress": "Klosterstrasse 20",
@@ -291,7 +291,7 @@
       "salaryMax": 331500,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-21T09:29:53.460Z",
+      "validThrough": "2026-12-21T21:12:23.540Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -313,7 +313,7 @@
       "url": "https://live.solique.ch/rieter/en/jobs/Export-Sachbearbeiter-in-80-100-12-Monate-befristet--4073960",
       "source": "Rieter Dedicated Parser (Solique)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-07T09:29:52.784Z",
+      "crawledAt": "2026-11-07T21:12:22.812Z",
       "addressLocality": "Winterthur",
       "addressRegion": "Zürich",
       "streetAddress": "Klosterstrasse 20",
@@ -337,7 +337,7 @@
       "salaryMax": 111500,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-07T09:29:52.784Z",
+      "validThrough": "2026-12-07T21:12:22.812Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -359,7 +359,7 @@
       "url": "https://live.solique.ch/rieter/en/jobs/Entwicklungsingenieur-80-100-mwd---4096515",
       "source": "Rieter Dedicated Parser (Solique)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-07T09:29:52.059Z",
+      "crawledAt": "2026-11-07T21:12:22.158Z",
       "addressLocality": "Rapperswil",
       "addressRegion": "SG",
       "streetAddress": "Bildaustrasse 6",
@@ -383,7 +383,7 @@
       "salaryMax": 102000,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-19T09:29:52.059Z",
+      "validThrough": "2026-12-19T21:12:22.158Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -405,7 +405,7 @@
       "url": "https://live.solique.ch/rieter/en/jobs/ERP-System-Administratorin-Prozess-Spezialist-mwd-60-100--4080167",
       "source": "Rieter Dedicated Parser (Solique)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-07T09:29:51.443Z",
+      "crawledAt": "2026-11-07T21:12:21.543Z",
       "addressLocality": "Winterthur/ Wädenswil",
       "addressRegion": "Zürich",
       "streetAddress": "Klosterstrasse 20",
@@ -428,7 +428,7 @@
       "salaryMax": 198500,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-02T09:29:51.443Z",
+      "validThrough": "2027-01-02T21:12:21.543Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -475,7 +475,7 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-21T21:29:26.868Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -522,7 +522,7 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-06T21:29:25.074Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -532,5 +532,5 @@
       }
     }
   ],
-  "codeCommit": "dae4367441abe10a497d7d52ebb4540c014e1e8c"
+  "codeCommit": "f149ed523035737e5146c13e7338b8dd6b0c5f04"
 }
