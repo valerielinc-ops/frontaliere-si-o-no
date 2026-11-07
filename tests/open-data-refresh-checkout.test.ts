@@ -150,6 +150,11 @@ function fixture() {
     '  echo "$patch_sha"',
     '  exit 0',
     'fi',
+    'if [ "$1" = "api" ] && [ -n "${REFRESH_FIXTURE_COMPARE_BASE:-}" ]; then',
+    '  for arg in "$@"; do',
+    '    case "$arg" in */compare/*) echo "$REFRESH_FIXTURE_COMPARE_BASE"; exit 0 ;; esac',
+    '  done',
+    'fi',
     `if [ "$1 $2" = "pr list" ] && { [ "\${REFRESH_FIXTURE_OPEN_PR:-1}" = 1 ] || [ -f "\${REFRESH_FIXTURE_PR_EXISTS_MARKER:-}" ]; }; then echo 42; fi`,
     `if [ "$1 $2" = "pr create" ] && [ "\${REFRESH_FIXTURE_CREATE_502_ONCE:-0}" = 1 ] && [ ! -f "\${REFRESH_FIXTURE_CREATE_ATTEMPT_MARKER:-}" ]; then touch "\${REFRESH_FIXTURE_CREATE_ATTEMPT_MARKER}"; if [ "\${REFRESH_FIXTURE_CREATE_MAKES_PR:-0}" = 1 ]; then touch "\${REFRESH_FIXTURE_PR_EXISTS_MARKER}"; fi; echo 'pull request create failed: HTTP 502: 502 Bad Gateway' >&2; exit 1; fi`,
     'if [ "$1 $2" = "pr create" ]; then echo created; fi',
@@ -479,7 +484,7 @@ describe('optional refresh paths (sync run 37515283217)', () => {
     expect(result.stdout).toContain(
       'Optional refresh path absent and untracked, nothing to stage: public/images/generated',
     );
-    expect(git(setup.remote, ['show', 'chore/refresh:data/cache.json'])).toBe('{"version":"current"}');
+    expect(git(setup.remote, ['show', 'chore/refresh:data/cache.json']), `${result.stdout}\n${result.stderr}`).toBe('{"version":"current"}');
   });
 
   it('stages an optional path once the producer has created it', () => {
@@ -614,6 +619,50 @@ describe('refresh push identity fallback', () => {
 });
 
 describe('data publisher preserves its source checkout', () => {
+  it('resets explicitly retired snapshot paths to current main while preserving the pending corpus diff', () => {
+    const setup = fixture();
+    const indexPath = 'public/data/discovery-articles.json';
+    const manifestPath = 'public/data/discovery-articles-manifest.json';
+
+    write(setup.repo, indexPath, '{"snapshot":"A"}\n');
+    write(setup.repo, manifestPath, '{"snapshot":"A"}\n');
+    git(setup.repo, ['add', indexPath, manifestPath]);
+    git(setup.repo, ['commit', '-q', '-m', 'main snapshot A']);
+    git(setup.repo, ['push', '-q', 'origin', 'main']);
+
+    write(setup.repo, indexPath, '{"snapshot":"current C"}\n');
+    write(setup.repo, manifestPath, '{"snapshot":"current C"}\n');
+    git(setup.repo, ['add', indexPath, manifestPath]);
+    git(setup.repo, ['commit', '-q', '-m', 'main snapshot C']);
+    git(setup.repo, ['push', '-q', 'origin', 'main']);
+
+    // Model the stable branch after main has advanced: its PR contains a
+    // stale snapshot commit and corpus diff based on the current main tree.
+    git(setup.repo, ['checkout', '-q', '-B', 'chore/refresh', 'main']);
+    git(setup.repo, ['checkout', '-q', 'chore/refresh']);
+    write(setup.repo, indexPath, '{"snapshot":"stale B"}\n');
+    write(setup.repo, manifestPath, '{"snapshot":"stale B"}\n');
+    write(setup.repo, 'packages/articles/content/discovery-new.ts', 'export default "pending corpus article";\n');
+    git(setup.repo, ['add', indexPath, manifestPath, 'packages/articles/content/discovery-new.ts']);
+    git(setup.repo, ['commit', '-q', '-m', 'legacy refresh with stale discovery snapshot']);
+    git(setup.repo, ['checkout', '-q', 'main']);
+    git(setup.repo, ['push', '-q', '--force', 'origin', 'chore/refresh']);
+    const currentMain = git(setup.repo, ['rev-parse', 'HEAD']);
+
+    const result = publishPlain(setup, [
+      '--reconcile-main',
+      '--reconcile-refresh-paths',
+      '--reset-refresh-path-to-main', indexPath,
+      '--reset-refresh-path-to-main', manifestPath,
+    ], { REFRESH_FIXTURE_COMPARE_BASE: currentMain });
+
+    expect(result.status, result.stderr).toBe(0);
+    expect(git(setup.remote, ['show', `chore/refresh:${indexPath}`])).toBe('{"snapshot":"current C"}');
+    expect(git(setup.remote, ['show', `chore/refresh:${manifestPath}`])).toBe('{"snapshot":"current C"}');
+    expect(git(setup.remote, ['show', 'chore/refresh:packages/articles/content/discovery-new.ts']))
+      .toBe('export default "pending corpus article";');
+  });
+
   it('carries destination-only image-credit records into a stable branch with old deletions', () => {
     const setup = fixture();
     // Simulate the failed historical refresh: the stable branch deleted a

@@ -59,6 +59,11 @@ describe('protected data refreshes publish through pull requests', () => {
     }
 
     expect(sync).toContain('--branch chore/sync-articles-sitemaps');
+    expect(sync).toContain('--reset-refresh-path-to-main public/data/discovery-articles.json');
+    expect(sync).toContain('--reset-refresh-path-to-main public/data/discovery-articles-manifest.json');
+    expect(sync).toContain('snapshot-discovery-articles:');
+    expect(sync).toContain('scripts/ci/pull-discovery-article-snapshot.mjs');
+    expect(sync).toContain('--branch chore/sync-discovery-articles');
     expect(rerender).toContain('--branch "chore/rerender-article-hub-sitemap-$INPUT_SECTION"');
     expect(rerender).toContain('--path "public/$REL"');
     expect(fastPublish).toContain('--branch "chore/fast-publish-article-sitemap-${{ inputs.section }}"');

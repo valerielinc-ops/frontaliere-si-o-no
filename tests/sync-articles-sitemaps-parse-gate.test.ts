@@ -30,6 +30,7 @@ const workflow = parse(fs.readFileSync(WORKFLOW_PATH, 'utf8')) as {
   jobs: {
     sync: WorkflowJob;
     'replay-after-article-sync': WorkflowJob;
+    'snapshot-discovery-articles': WorkflowJob;
   };
 };
 const steps = workflow.jobs.sync.steps;
@@ -219,15 +220,25 @@ describe('post-merge replay edge recheck (executed step script)', () => {
 });
 
 describe('article corpus sync parser gate', () => {
-  it('commits the discovery article index and replays it after merge', () => {
+  it('keeps discovery snapshots out of the full corpus PR and publishes them only after route checks', () => {
     const commitRun = stepNamed('Commit if changed').run ?? '';
-    const occurrences = commitRun.split('public/data/discovery-articles.json').length - 1;
-    const manifestOccurrences = commitRun.split('public/data/discovery-articles-manifest.json').length - 1;
+    const snapshotJob = workflow.jobs['snapshot-discovery-articles'];
 
-    expect(occurrences).toBe(2); // git staging allowlist and open-data-refresh-pr path.
-    expect(manifestOccurrences).toBe(2); // The LKG pin must travel with its index.
-    expect(workflow.on.push.paths).toContain('public/data/discovery-articles.json');
-    expect(workflow.on.push.paths).toContain('public/data/discovery-articles-manifest.json');
+    expect(commitRun).not.toContain('--path public/data/discovery-articles.json');
+    expect(commitRun).not.toContain('--path public/data/discovery-articles-manifest.json');
+    expect(commitRun).toContain('--reset-refresh-path-to-main public/data/discovery-articles.json');
+    expect(commitRun).toContain('--reset-refresh-path-to-main public/data/discovery-articles-manifest.json');
+    expect(commitRun).toContain("has_refresh_changes=false");
+    expect(commitRun).toContain('if [ "$has_refresh_changes" = true ]; then');
+    expect(workflow.on.push.paths).not.toContain('public/data/discovery-articles.json');
+    expect(workflow.on.push.paths).not.toContain('public/data/discovery-articles-manifest.json');
+    expect(snapshotJob.if).toContain("needs.replay-after-article-sync.result == 'success'");
+    expect(snapshotJob.if).toContain("needs.sync.result == 'success'");
+    expect(snapshotJob.steps.find((step) => step.name === 'Pull and verify ready discovery article routes')?.run)
+      .toContain('scripts/ci/pull-discovery-article-snapshot.mjs');
+    expect(workflowSource).toContain('--branch chore/sync-discovery-articles');
+    expect(workflowSource).toContain('--path public/data/discovery-articles.json');
+    expect(workflowSource).toContain('--path public/data/discovery-articles-manifest.json');
     expect(workflow.jobs['replay-after-article-sync'].if).toBe("github.event_name == 'push'");
   });
 

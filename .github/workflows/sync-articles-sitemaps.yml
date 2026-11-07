@@ -51,8 +51,6 @@ on:
       - 'public/sitemap.xml'
       - 'public/rss*.xml'
       - 'public/news-ticker-live.json'
-      - 'public/data/discovery-articles.json'
-      - 'public/data/discovery-articles-manifest.json'
       - '.github/workflows/sync-articles-sitemaps.yml'
   schedule:
     # Twice a day, offset off the hour to stay clear of the deploy cron.
@@ -619,8 +617,6 @@ jobs:
             public/sitemap-news.xml
             public/sitemap.xml
             public/canton-articles.json
-            public/data/discovery-articles.json
-            public/data/discovery-articles-manifest.json
             public/images/blog
             public/images/generated
             data/blog-cover-ledger.json
@@ -631,10 +627,11 @@ jobs:
             data/blog-cover-corpus-baseline.json
           )
 
+          has_refresh_changes=true
           if git diff --quiet -- "${FILES[@]}" && git diff --quiet --cached -- "${FILES[@]}" \
              && [ -z "$(git ls-files --others --exclude-standard -- "${FILES[@]}")" ]; then
-            echo "published artifacts already current — nothing to commit"
-            exit 0
+            has_refresh_changes=false
+            echo 'Published artifacts are current; reconciling only the retired discovery paths.'
           fi
 
           # Report what moved, so the run log carries the numbers a human would
@@ -684,8 +681,6 @@ jobs:
             --path public/sitemap-news.xml \
             --path public/sitemap.xml \
             --path public/canton-articles.json \
-            --path public/data/discovery-articles.json \
-            --path public/data/discovery-articles-manifest.json \
             --path public/images/blog \
             --optional-path public/images/generated \
             --path data/blog-cover-ledger.json \
@@ -696,11 +691,15 @@ jobs:
             --path data/blog-cover-corpus-baseline.json \
             --reconcile-main \
             --reconcile-refresh-paths \
+            --reset-refresh-path-to-main public/data/discovery-articles.json \
+            --reset-refresh-path-to-main public/data/discovery-articles-manifest.json \
             --branch chore/sync-articles-sitemaps \
             --commit-message "🗺️ Sync article sitemaps, feeds and ticker from the articles API" \
             --title "chore(data): sync article corpus and public feeds" \
             --body-file "$body"
-          echo "published-via-pr=true" >> "$GITHUB_OUTPUT"
+          if [ "$has_refresh_changes" = true ]; then
+            echo "published-via-pr=true" >> "$GITHUB_OUTPUT"
+          fi
 
       # The corpus sync is the automatic writer for packages/articles/content,
       # but the SPA reads the stable CDN registry/companion chunks rather than
@@ -1472,6 +1471,132 @@ jobs:
           fi
           node scripts/lib/r2-section-lock.mjs release --section frontaliere,svizzera --owner "$LOCK_OWNER" || release_status=$?
           exit "$release_status"
+
+  snapshot-discovery-articles:
+    needs: [sync, replay-after-article-sync]
+    if: >-
+      always() &&
+      ((github.event_name == 'push' && needs.replay-after-article-sync.result == 'success') ||
+       (github.event_name != 'push' && needs.sync.result == 'success' &&
+        inputs.dry_run != true && inputs.dry_run != 'true'))
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+      - name: Checkout current article snapshot
+        uses: actions/checkout@v7
+        with:
+          ref: ${{ github.sha }}
+          persist-credentials: false
+          # checkout sparse: generato da scripts/ci/apply-checkout-profiles.mjs
+          sparse-checkout: |
+            /*
+            !/public/images/
+            !/data/jobs/
+            !/data/translation-cache/
+            !/data/all-known-job-slugs/
+            !/data/orphan-enriched-data/
+            !/data/related-search-candidates.json
+            !/data/cf-hot-404s.json
+            !/data/jobs-ai-cache.json
+            !/data/dist-size-history.jsonl
+            !/data/jobs-stats-history.json
+            !/data/url-first-seen.json
+            !/data/jobs-snapshots-history/
+            !/data/slug-registry.json
+            !/data/evidence-index.json
+            !/data/health-premiums/
+            !/data/jobs-crawler-summaries/
+          sparse-checkout-cone-mode: false
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version: '22'
+          cache: npm
+
+      - name: Install snapshot publisher dependencies
+        run: npm ci --no-audit --no-fund
+
+      - name: Prepare Firebase credentials for PR publishing
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          set -euo pipefail
+          if [ -z "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+            echo "::error::FIREBASE_SERVICE_ACCOUNT_JSON is required to load GITHUB_PAT for the discovery snapshot PR"
+            exit 1
+          fi
+          printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > "$RUNNER_TEMP/firebase-sa.json"
+          echo "GOOGLE_APPLICATION_CREDENTIALS=$RUNNER_TEMP/firebase-sa.json" >> "$GITHUB_ENV"
+
+      - name: Load publishing credentials from Remote Config
+        run: node scripts/load-rc-env.mjs
+
+      # The legacy stable PR still contains the two discovery paths until the
+      # sync job above resets them to its pinned main tree. Do not let the new
+      # writer overlap that migration or restore the old full-corpus snapshot.
+      - name: Confirm the legacy refresh branch is clean for discovery paths
+        id: legacy_branch
+        run: |
+          set -euo pipefail
+          git fetch --no-tags origin main
+          legacy_head="$(git ls-remote --heads origin refs/heads/chore/sync-articles-sitemaps | cut -f1)"
+          if [ -z "$legacy_head" ]; then
+            echo 'clean=true' >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          git fetch --no-tags origin \
+            refs/heads/chore/sync-articles-sitemaps:refs/remotes/origin/chore/sync-articles-sitemaps
+          if git diff --quiet refs/remotes/origin/main refs/remotes/origin/chore/sync-articles-sitemaps -- \
+            public/data/discovery-articles.json \
+            public/data/discovery-articles-manifest.json; then
+            echo 'clean=true' >> "$GITHUB_OUTPUT"
+          else
+            echo 'clean=false' >> "$GITHUB_OUTPUT"
+            echo '::notice::Discovery snapshot is waiting for the legacy stable PR branch cleanup.'
+          fi
+
+      - name: Pull and verify ready discovery article routes
+        id: snapshot
+        if: steps.legacy_branch.outputs.clean == 'true'
+        run: node scripts/ci/pull-discovery-article-snapshot.mjs
+
+      - name: Publish discovery-only snapshot through a stable PR
+        if: steps.legacy_branch.outputs.clean == 'true' && steps.snapshot.outputs.status == 'ready' && steps.snapshot.outputs.changed == 'true'
+        run: |
+          set -euo pipefail
+          body="$RUNNER_TEMP/discovery-articles-pr-body.md"
+          cat > "$body" <<'EOF'
+          Auto-generated after every published article surface sync.
+
+          ## Implementato
+          - Pubblica soltanto l'indice discovery e il manifest dopo aver verificato le pagine canoniche localizzate, così la newsletter non seleziona un collegamento non ancora servito.
+          - Mantiene il pin commit, byte e conteggio tra API e snapshot del sito; la newsletter ricontrolla il collegamento prima del freeze della campagna.
+
+          ## Non implementato (ancora)
+          - Il corpus completo e le altre superfici restano nel branch stabile dedicato, in questa PR si aggiornano solo i due file dello snapshot discovery.
+          EOF
+          GH_TOKEN="${GITHUB_PAT:-}" bash scripts/lib/open-data-refresh-pr.sh \
+            --path public/data/discovery-articles.json \
+            --path public/data/discovery-articles-manifest.json \
+            --reconcile-main \
+            --reconcile-refresh-paths \
+            --branch chore/sync-discovery-articles \
+            --commit-message "📰 Sync verified discovery article snapshot" \
+            --title "chore(data): sync verified discovery article snapshot" \
+            --body-file "$body"
+
+      - name: Summarize discovery snapshot status
+        if: always()
+        run: |
+          {
+            echo '### Discovery article snapshot'
+            echo "- Legacy branch clean: \`${{ steps.legacy_branch.outputs.clean || 'not checked' }}\`"
+            echo "- Writer status: \`${{ steps.snapshot.outputs.status || 'not run' }}\`"
+            echo "- Snapshot changed: \`${{ steps.snapshot.outputs.changed || 'false' }}\`"
+          } >> "$GITHUB_STEP_SUMMARY"
 
   # Keep failure reporting outside the producer jobs so the Jobs API can serve
   # their completed logs to the diagnostic action. This also covers a sync
