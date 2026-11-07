@@ -20,11 +20,12 @@
  * parameter SOCIAL_ROBOT_MODE (mapped in scripts/load-rc-env.mjs):
  *   off   the API pipeline only, as before the robot existed
  *   dry   default (absent, empty or unknown value): the posters still use the
- *         API when it has credentials, and otherwise queue the post; the robot
- *         goes up to the publish button and never presses it, even when it is
- *         launched with --publish
- *   live  the posters never call the API and always queue; the robot launched
- *         with --publish presses the button
+ *         API when it has credentials, and otherwise queue only when that
+ *         channel's browser route is approved; the robot never presses it
+ *   live  the posters normally queue for the robot; a channel can instead
+ *         fail closed to its official API when browser delivery is not approved
+ * The Instagram poster requires META_INSTAGRAM_BROWSER_PUBLISHING_APPROVED=true
+ * before queueing. Other channel policy is applied by the delivery policy.
  * Every value is shorter than six characters on purpose: the loader masks any
  * longer RC value in CI logs (isTrivialSecret), and a masked "publish" would
  * turn every log line containing that word into `***`.
@@ -90,18 +91,19 @@ export function resolveSocialRobotMode(env = process.env) {
 
 /**
  * What a poster does with a finished carousel.
- *   api      call the platform API (only with credentials, never in live mode)
+ *   api      call the platform API when credentials exist and that mode allows it
  *   enqueue  put the post in the robot's queue when the API did not publish it
  *   render   whether rendering + uploading the slides is worth doing at all
  *
- * @param {{ mode: string, apiReady: boolean, apiOnly?: boolean }} opts
+ * @param {{ mode: string, apiReady: boolean, apiOnly?: boolean, browserDeliveryAllowed?: boolean }} opts
  */
-export function socialPublishRoute({ mode, apiReady, apiOnly = false }) {
+export function socialPublishRoute({ mode, apiReady, apiOnly = false, browserDeliveryAllowed = false }) {
   const ready = Boolean(apiReady);
   if (apiOnly) return { api: ready, enqueue: false, render: ready };
   if (mode === 'off') return { api: ready, enqueue: false, render: ready };
-  if (mode === 'live') return { api: false, enqueue: true, render: true };
-  return { api: ready, enqueue: true, render: true };
+  if (mode === 'live' && browserDeliveryAllowed) return { api: false, enqueue: true, render: true };
+  if (mode === 'live') return { api: ready, enqueue: false, render: ready };
+  return { api: ready, enqueue: Boolean(browserDeliveryAllowed), render: ready || Boolean(browserDeliveryAllowed) };
 }
 
 /** @typedef {{ ok: true, mediaId: string, postId?: never, publishId?: never, uncertain?: false } | { ok: true, postId: string, mediaId?: never, publishId?: string, uncertain?: false } | { ok: true, publishId: string, mediaId?: never, postId?: never, uncertain?: false }} AcceptedSocialPublishResult */

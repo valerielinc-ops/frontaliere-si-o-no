@@ -9,9 +9,10 @@ description: >-
 
 # Frontaliere Ticino social content
 
-Use the upstream Instagram-agent-skill as a source of creative patterns, then
-adapt every idea to the site's data, audience, publishing code, and platform
-access. The upstream revision and license are recorded in
+Use the pinned Instagram-agent-skill as a source of editorial patterns, then
+adapt each skill to the site's verified sources, Codex workflow, publisher
+capabilities, and platform grants. All thirteen upstream skills are
+project-versioned; the source revision and license are recorded in
 docs/third-party/instagram-agent-skill/UPSTREAM.md.
 
 ## Editorial contract
@@ -43,9 +44,10 @@ docs/third-party/instagram-agent-skill/UPSTREAM.md.
 
 ## Automation contract
 
-The weekly Codex workflow generates a validated JSON copy pack plus a
-structured editorial plan with three pillars and three measured angle IDs for
-each configured channel/format. This is editorial coverage, not proof that
+The weekly Codex workflow uses the repurpose guidance to turn the sanitized
+published-topic inventory into specific editorial angles, then generates a
+validated JSON copy pack plus a structured editorial plan with three pillars
+and three measured angle IDs for each configured channel/format. This is editorial coverage, not proof that
 every channel has a live publisher: TikTok and Reddit are draft-preparation
 only while held, and LinkedIn means the member profile rather than the held
 Company Page. Every template references an angle. Publishers
@@ -74,6 +76,16 @@ intact.
 ## Community and platform boundaries
 
 - Reuse the existing Instagram community worker for inbound replies.
+- Use `ig-comment`, `ig-dm`, `ig-reply`, and `ig-profile` only for user-supplied,
+  sanitized drafting or analysis. They never log in, scrape, contact accounts,
+  or send content. Raw comments and private messages stay outside Codex.
+- Use `ig-viral` only with the project's sanitized, own-account performance
+  brief. Competitor scraping, downloading, and third-party swipe files are not
+  part of the automated workflow.
+- `ig-story` constrains the current static Graph follow-up: the publisher
+  reuses the feed post's rendered cover and selected hook as one Story frame.
+  It has no separate Story copy slot or interactive stickers, so don't add a
+  second template or imply replies, sticker metrics, or separate attribution.
 - Respond only to user-started conversations within the existing API windows;
   never cold-message, scrape, follow, like, or comment on unrelated accounts.
 - Do not simulate interactive Story stickers where the current publishing API

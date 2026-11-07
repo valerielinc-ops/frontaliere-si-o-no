@@ -9,9 +9,10 @@
  *   node scripts/social-robot/run.mjs --platform=tiktok  # policy-held, no upload
  *   node scripts/social-robot/run.mjs --login            # owner: log in once, then close the window
  *
- * Instagram's Insights reader uses the authenticated Chrome UI. Business Suite
- * Inbox is read-only because it does not reliably identify inbound direction
- * and message age; permitted community actions and static Stories use the
+ * Instagram's Insights and Community browser routes stay held until their
+ * separate Meta permission flags are verified. Business Suite Inbox is
+ * read-only because it does not reliably identify inbound direction and
+ * message age; permitted community actions and static Stories use the
  * explicitly selected Graph API path. TikTok's current
  * Content Sharing Guidelines make this internal team uploader ineligible, so
  * the browser robot skips TikTok even when a pending queue exists.
@@ -28,13 +29,20 @@
  *
  * Env:
  *   SOCIAL_ROBOT_MODE          off | dry | live (Remote Config; launchd.sh loads it)
+ *   META_INSTAGRAM_BROWSER_PUBLISHING_APPROVED
+ *                              browser queue is held unless exactly `true`
+ *   META_INSTAGRAM_BROWSER_INSIGHTS_APPROVED
+ *                              Dashboard reader is held unless exactly `true`
+ *   META_INSTAGRAM_BROWSER_COMMUNITY_APPROVED
+ *                              browser inbox worker is held unless exactly `true`
  *   SOCIAL_ROBOT_SITE_REPO     the site checkout whose origin/main holds the queue
  *                              (default: the repository this file is in)
  *   SOCIAL_ROBOT_STATE_DIR     profile, journal, diagnostics
  *                              (default: ~/Library/Application Support/frontaliere/social-robot)
  *   SOCIAL_ROBOT_BROWSER_PATH  browser binary (default: Google Chrome, else cached Chromium)
- *   SOCIAL_ROBOT_INSIGHTS_SOURCE browser (default) | graph | off
- *                              browser Insights; Graph community only if selected
+ *   SOCIAL_ROBOT_INSIGHTS_SOURCE browser (selected by default) | graph | off
+ *                              browser Insights/community need separate flags;
+ *                              Graph community is an explicit selection
  *   INSTAGRAM_ACCESS_TOKEN / INSTAGRAM_BUSINESS_ACCOUNT_ID
  *                              optional explicit Graph fallback credentials
  *   FB_PAGE_ID / FB_PAGE_ACCESS_TOKEN
@@ -58,7 +66,12 @@ import { getFirestoreDb } from '../lib/firestore-admin.mjs';
 import { mergeInstagramCommunityOutcomeSnapshots } from '../lib/instagram-community-outcomes.mjs';
 import { buildSocialRobotDeliverySnapshot } from '../lib/social-robot-delivery-health.mjs';
 import { SOCIAL_CHANNELS, resolveSocialRobotMode } from '../lib/social-publish-queue.mjs';
-import { partitionAutomatedDeliveryChannels } from '../lib/social-automation-policy.mjs';
+import {
+  isInstagramBrowserCommunityApproved,
+  isInstagramBrowserInsightsApproved,
+  isInstagramBrowserPublishingApproved,
+  partitionAutomatedDeliveryChannels,
+} from '../lib/social-automation-policy.mjs';
 import {
   loadPrivateSocialNativeInsights,
   mergePrivateInstagramStoryState,
@@ -107,8 +120,10 @@ export function runHasErrors({ results = [], confirmationRetries = [], community
     || insights?.status === 'page-error';
 }
 
-export function filterAutomatedDeliveryPlatforms(platforms) {
-  return partitionAutomatedDeliveryChannels(platforms);
+export function filterAutomatedDeliveryPlatforms(platforms, env = process.env) {
+  return partitionAutomatedDeliveryChannels(platforms, {
+    instagramBrowserPublishingApproved: isInstagramBrowserPublishingApproved(env),
+  });
 }
 
 function readLocalJson(file) {
@@ -129,7 +144,14 @@ function writeJsonAtomically(file, value) {
 
 function resolveInsightsSource(env = process.env) {
   const source = String(env.SOCIAL_ROBOT_INSIGHTS_SOURCE || '').trim().toLowerCase();
-  return ['browser', 'graph', 'off'].includes(source) ? source : 'browser';
+  const selected = ['browser', 'graph', 'off'].includes(source) ? source : 'browser';
+  return selected === 'browser' && !isInstagramBrowserInsightsApproved(env) ? 'off' : selected;
+}
+
+function resolveCommunitySource(env = process.env) {
+  const selected = String(env.SOCIAL_ROBOT_INSIGHTS_SOURCE || '').trim().toLowerCase();
+  if (selected === 'graph' || selected === 'off') return selected;
+  return isInstagramBrowserCommunityApproved(env) ? 'browser' : 'off';
 }
 
 function resolveInsightsWindows(env = process.env) {
@@ -391,10 +413,10 @@ async function main() {
       }
       let community = null;
       let insights = null;
-      if (opts.platforms.includes('instagram')) {
+      if (requestedPlatforms.includes('instagram') && rcMode !== 'off') {
         const communityMode = resolveInstagramCommunityMode({ ...process.env, SOCIAL_ROBOT_MODE: rcMode });
-        context ||= await openProfile({ stateDir, launch });
-        if (resolveInsightsSource() === 'graph') {
+        const communitySource = resolveCommunitySource();
+        if (communitySource === 'graph') {
           community = await runInstagramCommunityAutomation({
             accountId: process.env.INSTAGRAM_BUSINESS_ACCOUNT_ID,
             accessToken: process.env.INSTAGRAM_ACCESS_TOKEN,
@@ -404,12 +426,20 @@ async function main() {
             mode: communityMode,
             log: console,
           });
-        } else {
+        } else if (communitySource === 'browser') {
+          context ||= await openProfile({ stateDir, launch });
           community = await runInstagramCommunityBrowserAutomation({
             context,
             mode: communityMode,
             log: console,
           });
+        } else if (String(process.env.SOCIAL_ROBOT_INSIGHTS_SOURCE || '').trim().toLowerCase() !== 'off') {
+          community = {
+            status: 'disabled',
+            reason: 'Meta express permission for browser-based community automation is unverified',
+          };
+        } else {
+          community = { status: 'disabled' };
         }
         const publishedStories = Array.isArray(community?.publishedStories) ? community.publishedStories : [];
         if (community?.outcomes || publishedStories.length > 0) {
@@ -441,7 +471,14 @@ async function main() {
           community.storyPublicationCount = publishedStories.length;
           delete community.publishedStories;
         }
+        if (resolveInsightsSource() === 'browser') {
+          context ||= await openProfile({ stateDir, launch });
+        }
         insights = await runBrowserInsights({ context, reader, stateDir, mode: rcMode, log: console });
+        if (resolveInsightsSource() === 'off'
+          && String(process.env.SOCIAL_ROBOT_INSIGHTS_SOURCE || '').trim().toLowerCase() !== 'off') {
+          insights.reason = 'Meta express permission for browser-based Insights collection is unverified';
+        }
       }
       console.log(JSON.stringify({ results, community, insights, deliveryTelemetry }));
       return runHasErrors({ results, confirmationRetries, community, insights, deliveryTelemetry }) ? 1 : 0;
