@@ -3325,6 +3325,11 @@ function deterministicItalianCountryOption(option, key) {
   const text = String(option || '').trim();
   if (!text) return null;
   const normalized = normalizedQuestionText(text);
+  // Umantis separates sections in its Italian country catalogue with a
+  // non-selectable rule. It carries no candidate meaning, so preserve it
+  // verbatim instead of sending an otherwise verified catalogue to the
+  // provider. Do not treat arbitrary unknown labels as Italian options.
+  if (/^[-\u2013\u2014_=]{3,}$/.test(text)) return text;
   if (OPTION_FALLBACK_MARKERS.placeholder.includes(normalized)
     && OPTION_LANGUAGE_MARKERS.it.includes(normalized)) return text;
   const italianRegion = localizedRegionOption(text, 'it');
