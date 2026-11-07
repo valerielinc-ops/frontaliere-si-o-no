@@ -1844,6 +1844,17 @@ describe('portal field extraction', () => {
     expect(page.buttons[0]).not.toHaveProperty('chrome');
   });
 
+  it('keeps a form-associated language button candidate-owned outside the form subtree', () => {
+    const page = extract(
+      '<form id="application"></form><main><button type="button" form="application">Sprache</button></main>',
+      'https://jobs.stadt-zuerich.ch/job/Application-Manager/1373719857/',
+      { channelType: 'successfactors' },
+    );
+
+    expect(page.buttons).toEqual([expect.objectContaining({ text: 'Sprache', formId: expect.any(String) })]);
+    expect(page.buttons[0]).not.toHaveProperty('chrome');
+  });
+
   it('keeps a required language-labeled select in site chrome when the label carries the marker', () => {
     const page = extract('<header><form><label for="language">Lingua*</label><select id="language"></select></form></header>');
 

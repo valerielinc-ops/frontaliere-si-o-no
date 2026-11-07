@@ -553,7 +553,7 @@ function nativeQuestionText(value, counter = null) {
     // rather than inside a header/nav landmark. An unowned button with an
     // exact language label is still site chrome; a button in an application
     // form remains candidate-owned through the form guard below.
-    const ownerlessLanguageButton = buttonLike && !element.closest('form');
+    const ownerlessLanguageButton = buttonLike && !element.form && !element.closest('form');
     // Native language selectors are sometimes wrapped in a header form. That
     // form makes isApplicationOwnedControl true, although the select remains
     // site chrome rather than an application question. Required controls keep
