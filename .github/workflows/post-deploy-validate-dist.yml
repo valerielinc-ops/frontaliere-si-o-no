@@ -56,6 +56,7 @@ jobs:
             scripts/validate-sitemap-links.mjs
             scripts/lib/auditReport.mjs
             scripts/lib/externally-served-paths.mjs
+            scripts/lib/expired-archive-html-invariant.mjs
             scripts/lib/flat-string.mjs
             scripts/lib/is-invoked-directly.mjs
             scripts/lib/sitemap-family-coverage.mjs
@@ -70,6 +71,8 @@ jobs:
             scripts/lib/borderWaitSections.mjs
             build-plugins/shared/redirectStubMarker.mjs
             build-plugins/shared/fuelRouteSlugs.mjs
+            build-plugins/shared/cdnAssetOffloadRx.mjs
+            build-plugins/shared/cdnOffloadTargets.mjs
           sparse-checkout-cone-mode: false
 
       - name: Prepare deploy-ref skew guard

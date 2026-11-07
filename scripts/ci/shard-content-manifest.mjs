@@ -3,6 +3,7 @@ import crypto from 'node:crypto';
 import fs from 'node:fs';
 import path from 'node:path';
 import { isInvokedDirectly } from '../lib/is-invoked-directly.mjs';
+import { expiredArchiveCdnInvariantSha256 } from '../lib/expired-archive-html-invariant.mjs';
 
 export const SHARD_MANIFEST_VERSION = 2;
 export const SHARD_VALIDATOR_VERSION = 'publisher-shard-content-v2';
@@ -67,6 +68,39 @@ export function sectionBatch(section) {
     if (sections.includes(section)) return Number(batch);
   }
   throw new Error(`unknown section shard ${JSON.stringify(section)}`);
+}
+
+export function refreshExpiredArchiveEvidence({ root, locale, evidenceManifestPath }) {
+  if (!LOCALES.has(locale)) throw new Error(`unsupported locale ${JSON.stringify(locale)}`);
+  const manifest = JSON.parse(fs.readFileSync(evidenceManifestPath, 'utf8'));
+  if (manifest?.schemaVersion !== 1
+    || manifest?.kind !== 'expired-archive-publication-evidence'
+    || manifest?.validatorVersion !== 'expired-archive-publication-v1'
+    || manifest?.locale !== locale
+    || !Array.isArray(manifest?.entries)) {
+    throw new Error(`invalid expired archive publication evidence for ${locale}`);
+  }
+  const rootDir = path.resolve(root);
+  for (const entry of manifest.entries) {
+    if (entry?.locale !== locale) throw new Error(`expired archive evidence locale mismatch for ${entry?.url ?? 'unknown URL'}`);
+    const webPath = String(entry.path ?? '');
+    const file = path.resolve(rootDir, webPath);
+    const relative = path.relative(rootDir, file);
+    if (!webPath || !relative || relative.startsWith('..') || path.isAbsolute(relative)
+      || !fs.existsSync(file) || !fs.statSync(file).isFile()) {
+      throw new Error(`expired archive evidence page is absent or escapes its root: ${webPath}`);
+    }
+    entry.cdnInvariantSha256 = expiredArchiveCdnInvariantSha256(fs.readFileSync(file, 'utf8'));
+  }
+  const temporaryPath = `${evidenceManifestPath}.tmp-${process.pid}`;
+  try {
+    fs.writeFileSync(temporaryPath, `${JSON.stringify(manifest, null, 2)}\n`);
+    fs.renameSync(temporaryPath, evidenceManifestPath);
+  } catch (error) {
+    fs.rmSync(temporaryPath, { force: true });
+    throw error;
+  }
+  return manifest.entries.length;
 }
 
 export function createSectionManifest({
@@ -156,7 +190,11 @@ export function createSectionManifest({
       if (!/^[0-9a-f]{64}$/u.test(sourceSha256)) throw new Error(`${section} expired archive canary has no source digest: ${entry.url}`);
       const finalSha256 = digestFile(file);
       if (finalSha256 !== sourceSha256) {
-        throw new Error(`${section} expired archive canary digest differs from its shard source: ${entry.url}`);
+        const sourceInvariant = String(entry.cdnInvariantSha256 ?? '').toLowerCase();
+        const finalInvariant = expiredArchiveCdnInvariantSha256(fs.readFileSync(file, 'utf8'));
+        if (!/^[0-9a-f]{64}$/u.test(sourceInvariant) || finalInvariant !== sourceInvariant) {
+          throw new Error(`${section} expired archive canary digest differs from its shard source: ${entry.url}`);
+        }
       }
       const existing = byUrl.get(String(entry.url));
       if (existing) {
@@ -354,6 +392,15 @@ function readJson(file) { return JSON.parse(fs.readFileSync(file, 'utf8')); }
 async function main() {
   const [command, ...rest] = process.argv.slice(2);
   const args = parseArgs(rest);
+  if (command === 'refresh-expired-archive-evidence') {
+    const count = refreshExpiredArchiveEvidence({
+      root: args.root,
+      locale: args.locale,
+      evidenceManifestPath: args['evidence-manifest'],
+    });
+    console.log(`[shard-manifest] ${args.locale}: refreshed CDN invariant for ${count} expired archive canary page(s)`);
+    return;
+  }
   if (command === 'create-section') {
     const manifest = createSectionManifest({
       root: args.root,
@@ -411,7 +458,7 @@ async function main() {
     console.log(`[page-manifest] ${manifest.locale}: ${manifest.entries.length} sitemap page(s), ${manifest.artifactRefs.length} artifact ref(s)`);
     return;
   }
-  throw new Error('usage: shard-content-manifest.mjs create-section|finalize-sections|bind-page ...');
+  throw new Error('usage: shard-content-manifest.mjs refresh-expired-archive-evidence|create-section|finalize-sections|bind-page ...');
 }
 
 if (isInvokedDirectly(import.meta.url)) {
