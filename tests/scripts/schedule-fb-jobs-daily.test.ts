@@ -689,6 +689,8 @@ describe('run() — DRY_RUN mode', () => {
   });
 
   it('does not schedule offers whose Italian slot still contains a foreign title', async () => {
+    const now = new Date(Date.UTC(2026, 4, 5, 6, 0, 0));
+    const firstSeenAt = new Date(now.getTime() - 24 * 60 * 60 * 1000).toISOString();
     const tmp = setupTmp([
       {
         id: 'job-it',
@@ -696,7 +698,7 @@ describe('run() — DRY_RUN mode', () => {
         title: 'Cuoco',
         titleByLocale: { it: 'Cuoco' },
         slugByLocale: { it: 'cuoco-lugano' },
-        firstSeenAt: '2026-05-04T00:00:00Z',
+        firstSeenAt,
       },
       {
         id: 'job-de',
@@ -704,12 +706,30 @@ describe('run() — DRY_RUN mode', () => {
         title: 'Verkäufer mit Schichtverantwortung',
         titleByLocale: { it: 'Verkäufer mit Schichtverantwortung' },
         slugByLocale: { it: 'verkaeufer-doettingen' },
-        firstSeenAt: '2026-05-05T00:00:00Z',
+        firstSeenAt,
+      },
+      {
+        id: 'job-publisher-source-title',
+        source: 'publisher-submitted',
+        sourceLang: 'it',
+        title: 'Project Manager',
+        titleByLocale: { it: 'Project Manager' },
+        slugByLocale: { it: 'project-manager-lugano' },
+        firstSeenAt,
+      },
+      {
+        id: 'job-publisher-german-source-title',
+        source: 'publisher-submitted',
+        sourceLang: 'de',
+        title: 'Projektmanager',
+        titleByLocale: { de: 'Projektmanager', it: 'Project Manager' },
+        slugByLocale: { it: 'project-manager-zurigo' },
+        firstSeenAt,
       },
     ]);
     const result = await run({
       env: { DRY_RUN: '1', FB_JOB_VOLUME: '24', FB_PAGE_ID: 'pid', FB_PAGE_ACCESS_TOKEN: 'tok' },
-      now: new Date(Date.UTC(2026, 4, 5, 6, 0, 0)),
+      now,
       repoRoot: tmp,
       fetchImpl: vi.fn<typeof fetch>() as unknown as typeof fetch,
       log: () => {},

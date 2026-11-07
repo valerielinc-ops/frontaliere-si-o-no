@@ -434,10 +434,14 @@ const CRAWLER_TARGET_TIMEOUT_MAX_MINUTES = CRAWLER_WORKER_WATCHDOG_MAX_MINUTES -
 // group wall-clock comfortably below the 340-minute job budget. Groups 15 and
 // 16 are explicitly placed in a three-body resource lane: this is a concurrency
 // split, not a quarantine, and every member remains scheduled and attributable.
+// Group 24 is the roster-sensitive exception: its current 25 members all use
+// the 74-minute fallback watchdog, so seven slots bound the worst case to four
+// waves (296 minutes) instead of seven waves (518 minutes) at the generic cap.
 export const CRAWLER_GROUP_MAX_PARALLEL = 4;
 export const CRAWLER_GROUP_PARALLEL_CAPS = Object.freeze({
   15: 3,
   16: 3,
+  24: 7,
 });
 
 export function crawlerGroupMaxParallel(groupIndex) {

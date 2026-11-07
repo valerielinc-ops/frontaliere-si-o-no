@@ -1250,35 +1250,38 @@ describe('crawler generation state cleanup', () => {
     expect(group15Body).not.toContain(`max_parallel="\${CRAWLER_GROUP_MAX_PARALLEL:-4}"`);
   });
 
-  it('keeps group 24 on the four-body resource lane with its committed roster', async () => {
-    expect(crawlerGroupMaxParallel(24)).toBe(CRAWLER_GROUP_MAX_PARALLEL);
+  it('keeps group 24 within the default watchdog budget with its committed roster', async () => {
+    expect(crawlerGroupMaxParallel(24)).toBe(7);
     const group24Body = buildCrawlerLaunchShellBody({
       slug: 'group-24-member',
       runStep: { env: {}, run: 'true' },
       postSteps: [],
     }, 24);
-    expect(group24Body).toContain(`max_parallel="\${CRAWLER_GROUP_MAX_PARALLEL:-4}"`);
+    expect(group24Body).toContain(`max_parallel="\${CRAWLER_GROUP_MAX_PARALLEL:-7}"`);
 
     const assignments = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/crawler-group-assignments.json'), 'utf8'));
     const baseline = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/crawler-workflow-duration-baseline.json'), 'utf8'));
     const group24Members = assignments.groups[23];
+    const defaultWatchdogMinutes = 74;
+    const worstCaseWaves = Math.ceil(group24Members.length / crawlerGroupMaxParallel(24));
+    expect(worstCaseWaves * defaultWatchdogMinutes).toBeLessThanOrEqual(340);
     const durations = group24Members.map((slug: string) => (
       baseline.crawlers[`update-jobs-${slug}`]?.avgDurationMs ?? baseline.medianDurationMs
     ));
     const timeoutMs = 340 * 60 * 1000;
     expect(durations).toHaveLength(group24Members.length);
-    const cap4 = await runScaledCrawlerLane(durations, CRAWLER_GROUP_MAX_PARALLEL);
+    const cap7 = await runScaledCrawlerLane(durations, crawlerGroupMaxParallel(24));
     const benchmark = {
       runId: process.env.GITHUB_RUN_ID ?? 'local',
       group: 24,
       members: durations.length,
-      cap4,
+      cap7,
     };
     console.info(`[crawler-capacity-benchmark] ${JSON.stringify(benchmark)}`);
 
-    expect(cap4.projectedMinutes * 60_000).toBeLessThanOrEqual(timeoutMs);
-    expect(cap4.timeoutExitCount).toBe(0);
-    expect(cap4.exitCodes.every((code) => code === 0)).toBe(true);
+    expect(cap7.projectedMinutes * 60_000).toBeLessThanOrEqual(timeoutMs);
+    expect(cap7.timeoutExitCount).toBe(0);
+    expect(cap7.exitCodes.every((code) => code === 0)).toBe(true);
   }, 15_000);
 
   it('benchmarks the committed group 15/16 rosters below the 340-minute job budget', () => {
