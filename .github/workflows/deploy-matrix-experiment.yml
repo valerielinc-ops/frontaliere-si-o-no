@@ -995,9 +995,7 @@ jobs:
             echo "has_files=false" >> "$GITHUB_OUTPUT"
           fi
 
-      # Chained bench writes are opt-in and namespaced. These are the only
-      # carry-over states consumed by postWalkIncremental and
-      # incrementalHtmlReuse; production cache keys are never written here.
+      # Save only benchmark-namespaced cache keys.
       - name: Save chained jobs SEO HTML cache
         if: success() && inputs.chain != '' && env.JOBS_SEO_REUSE == '1' && steps.bench-jobs-seo-html-content.outputs.has_files == 'true' && hashFiles(format('.cache/incremental-manifest/{0}.jsonl', matrix.locale)) != ''
         id: bench-jobs-seo-html-save
@@ -1134,6 +1132,9 @@ jobs:
           retention-days: 7
           if-no-files-found: warn
 
+      # Chained bench writes are opt-in and namespaced. These are the only
+      # carry-over states consumed by postWalkIncremental and
+      # incrementalHtmlReuse; production cache keys are never written here.
       - name: Document chained cache saves
         if: always()
         env:
