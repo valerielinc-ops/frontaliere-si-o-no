@@ -218,8 +218,10 @@ describe('Croix-Rouge fribourgeoise keeps fetch failure, proven empty and unread
   const JOBUP_URL_RE = /www\.jobup\.ch\/fr\/societes\//;
   const JOBCLOUD_EMPTY = '<html><body><script>self.__next_f.push([1,"{\\"initialJobs\\":[],\\"categories\\":[]}"])</script>'
     + '<div><p class="text-lg">Aucun poste ouvert actuellement</p></div></body></html>';
+  const JOBCLOUD_CURRENT_EMPTY = '<html><body><main><p>Aucun poste ouvert actuellement</p><p>Revenez bientôt.</p></main></body></html>';
   const JOBCLOUD_DRIFTED = '<html><body><div id="app"></div></body></html>';
   const JOBUP_EMPTY = '<html><body><div data-cy="company-no-vacancies"><h2>De nouveaux emplois</h2></div></body></html>';
+  const JOBUP_CURRENT_EMPTY = '<html><body><main><p>Il n\'y a actuellement aucune offre d\'emploi.</p></main></body></html>';
   const JOBCLOUD_ONE_JOB = '<html><body><a href="/fr/jobs/11111111-2222-3333-4444-555555555555">Job</a></body></html>';
 
   function routeFetch(routes: Array<[RegExp, string | Error]>) {
@@ -261,6 +263,13 @@ describe('Croix-Rouge fribourgeoise keeps fetch failure, proven empty and unread
     expect(isAuthoritativeEmptySnapshot(jobs)).toBe(true);
   });
 
+  it('stamps the current source empty markup without requiring the legacy payload or selector', async () => {
+    routeFetch([[JOBCLOUD_URL_RE, JOBCLOUD_CURRENT_EMPTY], [JOBUP_URL_RE, JOBUP_CURRENT_EMPTY]]);
+    const jobs = await fetchAllCroixRougeFribourgeoiseJobs();
+    expect(jobs).toEqual([]);
+    expect(isAuthoritativeEmptySnapshot(jobs)).toBe(true);
+  });
+
   it('keeps an unreadable JobCloud page as the fail-closed unstamped zero', async () => {
     routeFetch([[JOBCLOUD_URL_RE, JOBCLOUD_DRIFTED], [JOBUP_URL_RE, JOBUP_EMPTY]]);
     const jobs = await fetchAllCroixRougeFribourgeoiseJobs();
@@ -278,12 +287,14 @@ describe('Croix-Rouge fribourgeoise keeps fetch failure, proven empty and unread
 
   it('recognises each source empty state only with its own marker', () => {
     expect(isJobCloudListingProvenEmpty(JOBCLOUD_EMPTY)).toBe(true);
+    expect(isJobCloudListingProvenEmpty(JOBCLOUD_CURRENT_EMPTY)).toBe(true);
     expect(isJobCloudListingProvenEmpty(JOBCLOUD_DRIFTED)).toBe(false);
     expect(isJobCloudListingProvenEmpty(JOBCLOUD_EMPTY.replace('Aucun poste ouvert actuellement', ''))).toBe(false);
     expect(isJobCloudListingProvenEmpty(
       JOBCLOUD_EMPTY.replace('\\"categories', '\\"x\\":0,\\"initialJobs\\":[{\\"id\\":1}],\\"categories'),
     )).toBe(false);
     expect(isJobupProfileProvenEmpty(JOBUP_EMPTY)).toBe(true);
+    expect(isJobupProfileProvenEmpty(JOBUP_CURRENT_EMPTY)).toBe(true);
     expect(isJobupProfileProvenEmpty('<html><body></body></html>')).toBe(false);
     expect(isJobupProfileProvenEmpty(
       `${JOBUP_EMPTY}<div data-cy="company-jobs-list"><a href="/fr/emplois/detail/x/">x</a></div>`,
