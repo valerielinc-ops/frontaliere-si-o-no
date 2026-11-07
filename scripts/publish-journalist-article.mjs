@@ -298,8 +298,7 @@ async function resolveHeroImage(data, doc, options = {}) {
         throw new Error(`optimized hero image exceeds hard cap: ${size} bytes`);
       }
       const generatedImagePath = `/images/blog/${data.id}.webp`;
-      appendCatalogEntry(generatedImagePath);
-      if (!hasCatalogImageRecord(generatedImagePath)) {
+      if (!appendCatalogEntry(generatedImagePath) || !hasCatalogImageRecord(generatedImagePath)) {
         throw new Error('optimized hero image has no catalog provenance record');
       }
       data._generatedImagePath = generatedImagePath;
