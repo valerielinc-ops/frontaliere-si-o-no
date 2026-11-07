@@ -1,0 +1,25 @@
+{
+  "companyKey": "clarunis-ch",
+  "companyName": "Clarunis AG",
+  "companyHost": "unispital-basel.ch",
+  "verifiedEmployerDomain": "clarunis.ch",
+  "platform": "unispital-basel.ch",
+  "mode": "template",
+  "seedUrls": [
+    "https://www.unispital-basel.ch/jobs-und-karriere/Jobs"
+  ],
+  "detailTemplate": "/jobs-und-karriere/Berufsbilder/MTT/Medizinisch-technische-Berufe/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 3,
+  "sampleTitles": [
+    "Medizinische Praxisassistent*innen (MPA)",
+    "Weitere Berufe im medizinisch-technischen Bereich",
+    "OP-Pflege und Technik"
+  ],
+  "canton": "BS",
+  "sourceLang": "de",
+  "learnedAt": "2026-11-07T12:51:04.337Z",
+  "candidateKey": "clarunis@basel"
+}

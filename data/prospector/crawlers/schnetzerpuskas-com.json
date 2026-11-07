@@ -1,0 +1,26 @@
+{
+  "companyKey": "schnetzerpuskas-com",
+  "companyName": "Schnetzer Puskas Ingenieure AG",
+  "companyHost": "schnetzerpuskas.com",
+  "verifiedEmployerDomain": "schnetzerpuskas.com",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://www.schnetzerpuskas.com/de/buero/arbeiten-bei-uns"
+  ],
+  "detailTemplate": "/de/jobsdetails/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 4,
+  "sampleTitles": [
+    "Projektleiter:in / Bauingenieur:in",
+    "Konstrukteur:in/Zeichner:in EFZ Fachrichtung Ingenieurbau",
+    "Konstrukteur:in / Zeichner:in EFZ Fachrichtung Ingenieurbau",
+    "Konstrukteur:in / Zeichner:in EFZ Fachrichtung Ingenieurbau"
+  ],
+  "canton": "BS",
+  "sourceLang": "de",
+  "learnedAt": "2026-11-07T12:54:56.367Z",
+  "candidateKey": "schnetzer-puskas-ingenieure@basel"
+}

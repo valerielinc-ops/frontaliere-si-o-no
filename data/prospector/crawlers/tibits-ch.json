@@ -1,0 +1,24 @@
+{
+  "companyKey": "tibits-ch",
+  "companyName": "tibits ag",
+  "companyHost": "tibits.ch",
+  "verifiedEmployerDomain": "tibits.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://www.tibits.ch/de/about/jobs-bei-tibits"
+  ],
+  "detailTemplate": "/tl_files/content/img/Jobs/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 2,
+  "sampleTitles": [
+    "We Are Family",
+    "Mitarbeitende werben Mitarbeitende"
+  ],
+  "canton": "BS",
+  "sourceLang": "de",
+  "learnedAt": "2026-11-07T12:54:55.004Z",
+  "candidateKey": "tibits@basel"
+}

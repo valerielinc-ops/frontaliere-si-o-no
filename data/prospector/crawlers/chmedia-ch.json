@@ -1,0 +1,23 @@
+{
+  "companyKey": "chmedia-ch",
+  "companyName": "CH Media",
+  "companyHost": "chmedia.recruitee.com",
+  "verifiedEmployerDomain": "chmedia.ch",
+  "platform": "recruitee.com",
+  "mode": "jsonld",
+  "seedUrls": [
+    "https://chmedia.recruitee.com/o/initiativbewerbung/c/new"
+  ],
+  "detailTemplate": "/o/initiativbewerbung/c/new",
+  "detailEnrichment": false,
+  "employerSiteLocationFallback": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 1,
+  "sampleTitles": [
+    "Spontanbewerbung"
+  ],
+  "canton": "BS",
+  "sourceLang": "de",
+  "learnedAt": "2026-11-07T12:51:05.892Z",
+  "candidateKey": "ch-media@basel"
+}
