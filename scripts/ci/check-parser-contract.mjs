@@ -116,10 +116,7 @@ export function lexSource(source) {
       continue;
     }
     if (c === '/') {
-      const lineStart = src.lastIndexOf('\n', i - 1) + 1;
-      const lineEnd = src.indexOf('\n', i);
-      const line = src.slice(lineStart, lineEnd === -1 ? src.length : lineEnd);
-      if (isRegexLiteralStart(line, i - lineStart)) {
+      if (isRegexLiteralStart(src, i, masked)) {
         let j = i + 1;
         let inClass = false;
         for (; j < src.length && src[j] !== '\n'; j += 1) {

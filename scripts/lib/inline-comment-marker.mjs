@@ -82,14 +82,30 @@ function isQuoteStart(line, index) {
   return !(previous && /[\p{L}\p{N}_]/u.test(previous));
 }
 
-export function isRegexLiteralStart(line, index) {
-  const prefix = line.slice(0, index).trimEnd();
-  const previous = prefix.at(-1) || '';
+const REGEX_LITERAL_AFTER_KEYWORDS = new Set([
+  'case', 'delete', 'do', 'else', 'in', 'instanceof', 'of', 'return', 'throw', 'typeof', 'void', 'yield', 'await',
+]);
+const REGEX_WORD_CHARACTER = /[A-Za-z0-9_]/;
+const charAt = (source, offset) => source[offset] || '';
+
+export function isRegexLiteralStart(line, index, lexicalContext = line) {
+  let end = index - 1;
+  while (end >= 0 && /\s/u.test(charAt(lexicalContext, end))) end -= 1;
+
+  const previous = charAt(lexicalContext, end);
   if (!previous) return true;
-  if (previous === '<' && line[index - 1] === '<' && /[\p{L}\p{N}]/u.test(line[index + 1] || '')) return false;
-  if (/(?:\+\+|--)$/.test(prefix)) return false;
+  if (previous === '<' && charAt(lexicalContext, index - 1) === '<' &&
+      /[\p{L}\p{N}]/u.test(charAt(line, index + 1))) return false;
+  if ((previous === '+' && charAt(lexicalContext, end - 1) === '+') ||
+      (previous === '-' && charAt(lexicalContext, end - 1) === '-')) return false;
   if (/[=([{,:;!&|?+\-*%^~<>]/.test(previous)) return true;
-  return /\b(?:case|delete|do|else|in|instanceof|of|return|throw|typeof|void|yield|await)\s*$/u.test(prefix);
+
+  let wordStart = end;
+  while (wordStart >= 0 && REGEX_WORD_CHARACTER.test(charAt(lexicalContext, wordStart))) wordStart -= 1;
+  const previousWord = typeof lexicalContext === 'string'
+    ? lexicalContext.slice(wordStart + 1, end + 1)
+    : lexicalContext.slice(wordStart + 1, end + 1).join('');
+  return REGEX_LITERAL_AFTER_KEYWORDS.has(previousWord);
 }
 
 /** The actual context-sensitive implementation behind both public APIs. */

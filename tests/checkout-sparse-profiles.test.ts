@@ -325,6 +325,12 @@ describe('profili di sparse-checkout', () => {
       .toEqual([]);
   });
 
+  it('preserva regex dopo un commento a blocco e il codice successivo', () => {
+    const source = 'const r = /* c */ /[/*]/;\nconst x = import("./real.mjs");';
+    const expected = source.replace('/* c */', '       ');
+    expect(stripSourceComments(source)).toBe(expected);
+  });
+
   it('preserva gli offset UTF-16 del codice dopo emoji nei commenti', () => {
     const source = `const label = "📣"; // data/jobs-ai-cache.json\nimport content from 'data/live.json';`;
     const code = stripSourceComments(source);

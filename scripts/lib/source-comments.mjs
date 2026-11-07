@@ -100,7 +100,7 @@ export function stripSourceComments(source) {
         i = scanTemplate(i + 1) - 1;
         continue;
       }
-      if (character === '/' && isRegexLiteralStart(src, i)) {
+      if (character === '/' && isRegexLiteralStart(src, i, out)) {
         i = skipRegex(i) - 1;
         continue;
       }
