@@ -60,7 +60,7 @@ function setMockListings(
   metadata: Record<string, unknown> = {},
 ) {
   for (const key of ['fetchOutcome', 'discoveredCount']) {
-    delete (mockListings as Array<Record<string, unknown>> & Record<string, unknown>)[key];
+    Reflect.deleteProperty(mockListings, key);
   }
   mockListings.splice(0, mockListings.length, ...entries);
   for (const [key, value] of Object.entries(metadata)) {
