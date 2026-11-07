@@ -240,12 +240,12 @@ describe('load-rc-env: il salto a valle ha lo stesso budget del salto a monte', 
   });
 
   it('il fetch RC ritenta anche un errore di rete nudo e legge il body dei 403', () => {
-    const fnStart = RC_SOURCE.indexOf('async function fetchTemplateViaRest');
+    const fnStart = RC_SOURCE.indexOf('export async function fetchRemoteConfigTemplate');
     expect(fnStart).toBeGreaterThanOrEqual(0);
     const fnBody = RC_SOURCE.slice(fnStart, RC_SOURCE.indexOf('\n// ─── Main', fnStart));
     expect(fnBody).not.toMatch(/if\s*\(err\?\.name\s*!==\s*'AbortError'\s*&&\s*err\?\.name\s*!==\s*'TimeoutError'\)\s*throw err;/);
-    expect(fnBody).toMatch(/lastErr\s*=\s*err\?\.name\s*===\s*'AbortError'[\s\S]*:\s*err;/);
-    expect(fnBody).toMatch(/const bodyText\s*=\s*await rcRes\.text\(\)\.catch\(\(\)\s*=>\s*''\)/);
+    expect(fnBody).toContain('lastErr = normalizeRcFetchError(err);');
+    expect(fnBody).toMatch(/const bodyText\s*=\s*await rcRes\.text\(\)/);
     expect(fnBody).toMatch(/extractGoogleErrorReason\(bodyText\)/);
     expect(fnBody).toMatch(/isRetryableRcFetchStatus\(rcRes\.status,\s*reason\)/);
   });
@@ -258,6 +258,21 @@ describe('load-rc-env: il salto a valle ha lo stesso budget del salto a monte', 
     const networkErr = Object.assign(new Error('fetch failed'), { name: 'TypeError' });
     const fetchMock = vi.fn()
       .mockRejectedValueOnce(networkErr)
+      .mockResolvedValueOnce({ ok: true, status: 200, json: async () => ({ parameters: {} }) });
+
+    await expect(fetchRemoteConfigTemplate({
+      projectId: 'frontaliere-test',
+      accessToken: 'ya29.test',
+      fetchImpl: fetchMock,
+      sleepImpl: async () => {},
+    })).resolves.toEqual({ parameters: {} });
+    expect(fetchMock).toHaveBeenCalledTimes(2);
+  });
+
+  it('un errore TypeError durante la lettura del body RC consuma lo stesso retry', async () => {
+    const networkErr = Object.assign(new Error('body fetch failed'), { name: 'TypeError' });
+    const fetchMock = vi.fn()
+      .mockResolvedValueOnce({ ok: true, status: 200, json: async () => { throw networkErr; } })
       .mockResolvedValueOnce({ ok: true, status: 200, json: async () => ({ parameters: {} }) });
 
     await expect(fetchRemoteConfigTemplate({
