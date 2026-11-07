@@ -3050,6 +3050,26 @@ jobs:
             --output "$RUNNER_TEMP/locale-publish-provenance/${BUILD_LOCALE}.json" \
             --dist-dir dist
 
+      # By this point the Pages tar, collision report, and locale provenance
+      # have captured every dist consumer in this job. Drop the rendered tree
+      # before the remaining receipts/cache uploads, which need only small
+      # metadata and the incremental manifest. This returns several GB to the
+      # runner without changing any published or validation artifact.
+      - name: Release rendered dist after provenance capture
+        if: always()
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [ ! -d dist ]; then
+            echo "[dist-cleanup] no dist tree to remove"
+            exit 0
+          fi
+          echo "[dist-cleanup] before"
+          df -h /
+          rm -rf -- dist
+          echo "[dist-cleanup] after"
+          df -h /
+
       # The IT section shards are pushed by this build leg. Record that fact
       # immediately after the provenance file; Pages itself is recorded later
       # by deploy-publish, after the GitHub Pages deployment reports success.
