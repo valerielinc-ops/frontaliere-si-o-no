@@ -1,7 +1,7 @@
 {
   "key": "walter-zoo-ag-gossau",
   "label": "WALTER ZOO AG GOSSAU",
-  "generatedAt": "2026-11-06T21:30:21.092Z",
+  "generatedAt": "2026-11-07T09:46:19.008Z",
   "total": 3,
   "discovered": null,
   "parsed": 2,
@@ -12,19 +12,20 @@
   "resurrectedJobs": 0,
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
-  "newCount": 2,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 8228,
-  "avgDurationMs": 8228,
+  "durationMs": 7855,
+  "avgDurationMs": 7855,
   "durationHistory": [
-    8228
+    7855
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "walter-zoo-ag-gossau-a221fb1d5a9b",
-      "slug": "kochin-koch-40-60-im-stundenlohn-gossau-sg-sg-walter-zoo-ag-gossau-ch",
+      "slug": "cuocere-40-60-in-salari-orali-walter-zoo-ag-gossau-gossau-sg",
       "company": "WALTER ZOO AG GOSSAU",
       "companyKey": "walter-zoo-ag-gossau",
       "companyDomain": "link.ostendis.com",
@@ -34,7 +35,7 @@
       "url": "https://link.ostendis.com/publication/koechin-koch-im-stundenlohn/ft6ay0tp0lvitfsfmjmccsgobolfhzvjhl7eaubzkdj1osa7lrfrcwbp5wqsqofn",
       "source": "WALTER ZOO AG GOSSAU Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T21:30:06.415Z",
+      "crawledAt": "2026-11-07T09:46:04.480Z",
       "addressLocality": "Gossau SG",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -52,19 +53,18 @@
       "postedDate": "2026-10-23",
       "postingDateSource": "reported",
       "applyUrl": "https://link.ostendis.com/publication/koechin-koch-im-stundenlohn/ft6ay0tp0lvitfsfmjmccsgobolfhzvjhl7eaubzkdj1osa7lrfrcwbp5wqsqofn",
-      "needsRetranslation": true,
+      "firstSeenAt": "2026-11-06T21:30:06.415Z",
       "salaryMin": 34500,
       "salaryMax": 52200,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-21T21:30:06.415Z",
+      "validThrough": "2027-01-21T09:46:04.480Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-06T21:30:06.415Z",
-      "_qualityScore": 88,
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 16,
+        "translation": 25,
         "completeness": 25
       }
     },
@@ -80,7 +80,7 @@
       "url": "https://link.ostendis.com/publication/praktikant-in-tierpflege/ifxcx5w7j27ktusu6yw8b7qjgwq4sj426s7hakpf1ecsofijiafrjlo6ylec7rth",
       "source": "WALTER ZOO AG GOSSAU Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T21:30:06.414Z",
+      "crawledAt": "2026-11-07T09:46:04.479Z",
       "addressLocality": "Gossau SG",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -99,23 +99,22 @@
       "postingDateSource": "reported",
       "applyUrl": "https://link.ostendis.com/publication/praktikant-in-tierpflege/ifxcx5w7j27ktusu6yw8b7qjgwq4sj426s7hakpf1ecsofijiafrjlo6ylec7rth",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-11-06T21:30:06.414Z",
       "salaryMin": 48000,
       "salaryMax": 73000,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-21T21:30:06.414Z",
+      "validThrough": "2027-01-21T09:46:04.479Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-06T21:30:06.414Z",
-      "_qualityScore": 88,
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 16,
+        "translation": 25,
         "completeness": 25
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [
     {
@@ -152,7 +151,7 @@
       "salaryMin": 48000,
       "salaryMax": 73000,
       "salarySource": "estimated",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-27T21:21:50.478Z",
       "validThroughSource": "last-observed-window",
@@ -165,5 +164,5 @@
       }
     }
   ],
-  "codeCommit": "83864a2067a1cd4cb74a7630816798617e7b37f9"
+  "codeCommit": "dae4367441abe10a497d7d52ebb4540c014e1e8c"
 }
