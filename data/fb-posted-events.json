@@ -2,21 +2,6 @@
   "schemaVersion": 1,
   "posted": [
     {
-      "id": "tio-agenda:63442",
-      "viaDigest": "weekend-digest-2026-11-07",
-      "postedAt": "2026-11-06T16:23:14.526Z"
-    },
-    {
-      "id": "tio-agenda:64721",
-      "viaDigest": "weekend-digest-2026-11-07",
-      "postedAt": "2026-11-06T16:23:14.526Z"
-    },
-    {
-      "id": "tio-agenda:64288",
-      "viaDigest": "weekend-digest-2026-11-07",
-      "postedAt": "2026-11-06T16:23:14.526Z"
-    },
-    {
       "id": "tio-agenda:64517",
       "viaDigest": "weekend-digest-2026-11-07",
       "postedAt": "2026-11-06T16:23:14.526Z"
@@ -5060,6 +5045,57 @@
       "id": "ge-agenda:visite-langue-signes-francaise-sasa-mamco-0",
       "viaDigest": "weekend-digest-GE-2026-11-07",
       "postedAt": "2026-11-06T21:49:23.277Z"
+    },
+    {
+      "id": "myswitzerland:e5955a176fa94905a6d8d2906b0bad80",
+      "url": "https://frontaliereticino.ch/eventi/svitto/einsiedeln/",
+      "postId": "951226518080080_122130795645272498",
+      "postedAt": "2026-11-07T15:14:59.043Z",
+      "copyMode": "codex",
+      "copySlot": "event",
+      "copyPromptVersion": "frontaliere-social-copy-v4",
+      "copyPackId": "1fb417e247af2a71",
+      "copyTemplateId": "fb-event-conference",
+      "copyAssignmentMode": "deterministic",
+      "copyAngleId": "domanda-comune",
+      "copyPillarId": "strumenti-utili",
+      "copyAngleIntent": "both",
+      "copyHook": "Una conferenza locale da valutare con le informazioni aggiornate.",
+      "copyCta": "Apri le informazioni."
+    },
+    {
+      "id": "myswitzerland:57110207133c492b8c6136eec361d59e",
+      "url": "https://frontaliereticino.ch/eventi/svitto/einsiedeln/",
+      "postId": "951226518080080_122130795687272498",
+      "postedAt": "2026-11-07T15:15:10.128Z",
+      "copyMode": "codex",
+      "copySlot": "event",
+      "copyPromptVersion": "frontaliere-social-copy-v4",
+      "copyPackId": "1fb417e247af2a71",
+      "copyTemplateId": "fb-event-conference",
+      "copyAssignmentMode": "deterministic",
+      "copyAngleId": "domanda-comune",
+      "copyPillarId": "strumenti-utili",
+      "copyAngleIntent": "both",
+      "copyHook": "Una conferenza locale da valutare con le informazioni aggiornate.",
+      "copyCta": "Apri le informazioni."
+    },
+    {
+      "id": "myswitzerland:b237f770c8da4bfc96ccfcfebefca97a",
+      "url": "https://frontaliereticino.ch/eventi/turgovia/weinfelden/",
+      "postId": "951226518080080_122130795717272498",
+      "postedAt": "2026-11-07T15:15:21.965Z",
+      "copyMode": "codex",
+      "copySlot": "event",
+      "copyPromptVersion": "frontaliere-social-copy-v4",
+      "copyPackId": "1fb417e247af2a71",
+      "copyTemplateId": "fb-event-theatre",
+      "copyAssignmentMode": "deterministic",
+      "copyAngleId": "contesto-chiaro",
+      "copyPillarId": "vita-oltreconfine",
+      "copyAngleIntent": "searchable",
+      "copyHook": "Una proposta di teatro da controllare prima di inserirla in agenda.",
+      "copyCta": "Scopri l'evento."
     }
   ]
 }
