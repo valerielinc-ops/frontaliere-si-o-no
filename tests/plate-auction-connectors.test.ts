@@ -293,6 +293,17 @@ describe('expanded plate-auction connectors', () => {
     }
   });
 
+  it('retries a transient 200 eCari shell before degrading GR', async () => {
+    let calls = 0;
+    const fetchPage = vi.fn(async () => new Response(
+      calls++ === 0 ? '<html><title>maintenance</title></html>' : GR_SAMPLE,
+      { status: 200 },
+    ));
+
+    await expect(fetchGrPlateAuctions({ fetchPage: async () => (await fetchPage()).text() })).resolves.toHaveLength(1);
+    expect(fetchPage).toHaveBeenCalledTimes(2);
+  });
+
   it('propagates an optional configured request identity through eCari fetches', async () => {
     const userAgent = 'eCari test browser';
     const fetchMock = vi.spyOn(globalThis, 'fetch')

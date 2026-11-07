@@ -297,6 +297,24 @@ describe('plate-auction Firestore batching', () => {
     expect(agMetadata?.availableFields).not.toContain('startingPriceChf');
   });
 
+  it('retries a transient GR eCari shell before marking the source degraded', async () => {
+    const firestore = fakeFirestore([]);
+    let grAttempts = 0;
+    const result = await refreshPlateAuctions({
+      db: firestore.db as never,
+      fetcher: async (url) => {
+        if (url !== GR_ECARI_CATALOGUE_URL) return '';
+        grAttempts += 1;
+        return grAttempts === 1 ? '<html><title>maintenance</title></html>' : GR_PARTIAL_FEED;
+      },
+      now: new Date('2026-09-13T12:00:00.000Z'),
+    });
+
+    expect(grAttempts).toBe(2);
+    expect(result.summaries.gr).toMatchObject({ status: 'active', rowCount: 1 });
+    expect(firestore.sourceSets.find((entry) => entry.id === 'gr')?.value).toMatchObject({ status: 'active', rowCount: 1 });
+  });
+
   it('closes expired rows even when the upstream feed returns zero rows', async () => {
     const firestore = fakeFirestore([{
       id: 'gr-expired', sourceKey: 'GR', canton: 'Grigioni', platePrefix: 'GR', normalizedPlate: 'GR2',
