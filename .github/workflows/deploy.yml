@@ -756,6 +756,13 @@ jobs:
             echo "✖ data/jobs.json missing after restore"
             exit 1
           fi
+          # The extracted files are now in the checkout. Later build steps use
+          # those paths, so keep the compressed artifact out of the build's
+          # limited disk budget.
+          snapshot_bytes="$(stat -c '%s' /tmp/snapshot/prepared-snapshot.tgz)"
+          rm -f -- /tmp/snapshot/prepared-snapshot.tgz
+          echo "[prepared-snapshot] removed extracted archive bytes=${snapshot_bytes}"
+          df -h /
 
       - name: Resolve job OG image cache version
         if: matrix.locale == 'it'
@@ -825,9 +832,29 @@ jobs:
           restore-keys: |
             incremental-manifest-${{ matrix.locale }}-
 
-      # Opt-in only. The key is derived from the restored previous manifest,
-      # so a matching input-hash snapshot brings back the corresponding raw
-      # HTML blobs without cloning a previous dist/shard.
+      # Bind the cache to the renderer's current code/assets contract. A
+      # changed renderer cannot reuse the old pack; making the fingerprint part
+      # of the key avoids downloading a GB-scale cache that the probe will drop.
+      - name: Fingerprint jobs SEO renderer for HTML cache
+        if: env.JOBS_SEO_REUSE == '1'
+        id: jobs-seo-html-fingerprint
+        shell: bash
+        run: |
+          set -euo pipefail
+          node --input-type=module <<'NODE' >> "$GITHUB_OUTPUT"
+          import { createHash } from 'node:crypto';
+          import { computeJobsSeoEmitterFingerprints } from './build-plugins/shared/incrementalHtmlReuse.mjs';
+          const fingerprints = computeJobsSeoEmitterFingerprints(process.cwd());
+          const stable = JSON.stringify(Object.fromEntries(
+            Object.entries(fingerprints).sort(([left], [right]) => (left < right ? -1 : left > right ? 1 : 0)),
+          ));
+          const digest = createHash('sha256').update(stable).digest('hex');
+          console.log(`fingerprint=${digest}`);
+          NODE
+
+      # Opt-in only. The key includes the restored previous manifest and
+      # current renderer fingerprint, so only a matching HTML snapshot is
+      # restored without cloning a previous dist/shard.
       - name: Restore previous jobs SEO HTML cache
         if: env.JOBS_SEO_REUSE == '1'
         id: jobs-seo-html-cache
@@ -837,7 +864,7 @@ jobs:
           # Exact key only (review #8940): a prefix fallback could restore
           # the HTML snapshot of a different run than the previous manifest
           # restored above, and lookup() only checks the per-entry hash.
-          key: jobs-seo-html-${{ matrix.locale }}-${{ hashFiles(format('.cache/incremental-manifest/{0}.jsonl', matrix.locale)) }}
+          key: jobs-seo-html-${{ matrix.locale }}-${{ hashFiles(format('.cache/incremental-manifest/{0}.jsonl', matrix.locale)) }}-${{ steps.jobs-seo-html-fingerprint.outputs.fingerprint }}
 
       - name: Stash previous incremental manifest before build overwrites it
         shell: bash
@@ -1577,7 +1604,7 @@ jobs:
         uses: actions/cache/save@v6
         with:
           path: .cache/incremental-html
-          key: jobs-seo-html-${{ matrix.locale }}-${{ hashFiles(format('.cache/incremental-manifest/{0}.jsonl', matrix.locale)) }}
+          key: jobs-seo-html-${{ matrix.locale }}-${{ hashFiles(format('.cache/incremental-manifest/{0}.jsonl', matrix.locale)) }}-${{ steps.jobs-seo-html-fingerprint.outputs.fingerprint }}
 
       - name: Push generated assets to CDN (early — ahead of the shard pushes)
         id: cdn-push-early
