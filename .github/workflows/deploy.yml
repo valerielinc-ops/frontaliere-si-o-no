@@ -757,8 +757,9 @@ jobs:
             exit 1
           fi
           # The extracted files are now in the checkout. Later build steps use
-          # those paths, so keep the compressed artifact out of the build's
-          # limited disk budget.
+          # those paths; the source artifact remains available remotely for
+          # recovery, so keep its compressed copy out of the runner's disk
+          # budget. Run 42383391917 showed this archive still occupied ~982 MB.
           snapshot_bytes="$(stat -c '%s' /tmp/snapshot/prepared-snapshot.tgz)"
           rm -f -- /tmp/snapshot/prepared-snapshot.tgz
           echo "[prepared-snapshot] removed extracted archive bytes=${snapshot_bytes}"
