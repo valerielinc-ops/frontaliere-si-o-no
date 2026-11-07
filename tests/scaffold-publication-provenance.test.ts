@@ -12,7 +12,7 @@ const { politeFetch } = vi.hoisted(() => ({ politeFetch: vi.fn() }));
 vi.mock('../scripts/lib/prospector/polite-fetch.mjs', async (original) => ({
   ...(await original<Record<string, unknown>>()), politeFetch,
 }));
-import { runSpecInProduction } from '../scripts/lib/prospector/spec-crawler.mjs';
+import { copySpecFetchMetadata, runSpecInProduction } from '../scripts/lib/prospector/spec-crawler.mjs';
 
 const source = fs.readFileSync(path.resolve(__dirname, '../scripts/scaffold-crawler.mjs'), 'utf8');
 const day = new Date(Date.now() - 3 * 86400000).toISOString();
@@ -48,6 +48,7 @@ async function generatedJobs(tier: string, input: Record<string, unknown>) {
     fetchLeverJobs: async () => [listing], extractLeverCompanySlug: () => 'fixture',
     detectSuccessFactorsKind: () => 'html-career', SuccessFactorsAuthError: Error,
     fetchSuccessFactorsJobs: async function* () { yield listing; },
+    copySpecFetchMetadata,
     loadSpec: () => ({}), runSpecInProduction: async () => [listing],
     resolveSourceBackedSwissGeography: () => ({ location: 'Lugano', canton: 'TI' }),
   };
