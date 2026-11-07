@@ -17,6 +17,8 @@ on:
       - 'scripts/check-crawler-group-live-run.mjs'
       - 'scripts/generate-crawler-group-workflows.mjs'
       - 'scripts/ci/crawler-generation-roster.json'
+      - 'scripts/lib/canonical-json-digest.mjs'
+      - 'scripts/lib/crawler-contract-cardinality.mjs'
       - 'scripts/ci/crawler-retry-cmd.sh'
       - 'scripts/ci/prepare-crawler-workflow-corpus-sync.mjs'
       - 'scripts/ci/translate-recovery-successor-guard.mjs'
@@ -57,6 +59,8 @@ jobs:
             /.github/corpus-workflows/
             /scripts/ci/reattest-crawler-contract.mjs
             /scripts/ci/verify-crawler-contract-provenance.mjs
+            /scripts/lib/canonical-json-digest.mjs
+            /scripts/lib/crawler-contract-cardinality.mjs
             /scripts/ci/check-sibling-patterns.mjs
             /scripts/ci/pr-body-check-gate.mjs
             /scripts/ci/lib/false-positive-declaration.mjs

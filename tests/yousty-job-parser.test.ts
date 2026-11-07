@@ -73,6 +73,18 @@ describe('parseYoustyApprenticeshipHtml', () => {
     expect(parseYoustyApprenticeshipHtml(html).applyUrl).toBe(applyUrl);
   });
 
+  it('does not let a self-closing SVG script consume the following JSON-LD', () => {
+    const html = '<svg><script /></svg><script type="application/ld+json">{"@type":"JobPosting","directApply":true,"url":"https://example.test/apply"}</script>';
+
+    expect(parseYoustyApprenticeshipHtml(html).applyUrl).toBe('https://example.test/apply');
+  });
+
+  it('skips JSON-LD scripts inside inert template content', () => {
+    const html = '<template><script type="application/ld+json">{"@type":"JobPosting","directApply":true,"url":"https://example.test/template"}</script></template><script type="application/ld+json">{"@type":"JobPosting","directApply":true,"url":"https://example.test/live"}</script>';
+
+    expect(parseYoustyApprenticeshipHtml(html).applyUrl).toBe('https://example.test/live');
+  });
+
   it('does not use a JobPosting URL without directApply evidence', () => {
     const html = `<script type="application/ld+json">${JSON.stringify({
       '@type': 'JobPosting',
@@ -126,6 +138,38 @@ describe('parseYoustyApprenticeshipHtml', () => {
     expect(parseYoustyApprenticeshipHtml(html).applyUrl).toBe('https://www.yousty.ch/jobs/2');
   });
 
+  it('does not treat text inside another attribute as a JSON-LD type', () => {
+    const html = `<script data-note="type=application/ld+json">${JSON.stringify({
+      '@type': 'JobPosting',
+      directApply: true,
+      url: 'https://www.yousty.ch/jobs/2',
+    })}</script>`;
+
+    expect(parseYoustyApprenticeshipHtml(html).applyUrl).toBe('');
+  });
+
+  it('finds a real JSON-LD type after a quoted attribute containing a tag delimiter', () => {
+    const html = `<script data-note="contains > here" type="application/ld+json">${JSON.stringify({
+      '@type': 'JobPosting',
+      directApply: true,
+      url: 'https://www.yousty.ch/jobs/2',
+    })}</script>`;
+
+    expect(parseYoustyApprenticeshipHtml(html).applyUrl).toBe('https://www.yousty.ch/jobs/2');
+  });
+
+  it('ignores script-shaped text in an attribute before the real JSON-LD element', () => {
+    const html = `<div data-template='<script type="application/ld+json">{"@type":"JobPosting","directApply":true,"url":"bad"}</script>'><script type="application/ld+json">{"@type":"JobPosting","directApply":true,"url":"good"}</script></div>`;
+
+    expect(parseYoustyApprenticeshipHtml(html).applyUrl).toBe('good');
+  });
+
+  it('decodes entity-encoded JSON-LD type attributes like the browser does', () => {
+    const html = `<script type="application/ld&#x2B;json">{"@type":"JobPosting","directApply":true,"url":"https://apply.example/"}</script>`;
+
+    expect(parseYoustyApprenticeshipHtml(html).applyUrl).toBe('https://apply.example/');
+  });
+
   it('does not activate stylesheet parsing while reading a Yousty profile', () => {
     const consoleError = vi.spyOn(console, 'error').mockImplementation(() => {});
     const html = `${SAMPLE_HTML}<style>this is not valid { css: !!!</style>`;
@@ -136,6 +180,13 @@ describe('parseYoustyApprenticeshipHtml', () => {
     } finally {
       consoleError.mockRestore();
     }
+  });
+
+  it('extracts the profile from a large application shell without parsing that shell as DOM', () => {
+    const shell = `<style>${'x'.repeat(100_000)}</style><script>${'x'.repeat(100_000)}</script>`;
+    const html = `${shell}<noscript><h2>Lehrstellenbeschreibung</h2><div><p>${'Eine abwechslungsreiche Lehrstelle mit guter Ausbildung. '.repeat(20)}</p></div></noscript>`;
+
+    expect(parseYoustyApprenticeshipHtml(html).description).toContain('Eine abwechslungsreiche Lehrstelle mit guter Ausbildung.');
   });
 });
 
