@@ -127,7 +127,7 @@ jobs:
           GITHUB_OUTPUT="$BENCHMARK_GATE_OUTPUT" node scripts/ci/translate-pending-budget-benchmark.mjs --record --stage budget-gate --report "$BENCHMARK_REPORT" -- bash -euo pipefail -c 'node scripts/translate-repair-lane-gate.mjs && grep -qx "run=true" "$BENCHMARK_GATE_OUTPUT"'
 
       - name: Run Phase 2d title lane
-        if: inputs.phase == 'titles'
+        if: env.BENCHMARK_PHASE == 'titles'
         env:
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.codex_broker.outputs.codex_auth_broker_socket }}
           FREE_TRANSLATE_CODEX_CALL_TIMEOUT_MS: '480000'
@@ -140,7 +140,7 @@ jobs:
         run: node scripts/ci/translate-pending-budget-benchmark.mjs --record --stage lane --report "$BENCHMARK_REPORT" -- node scripts/fix-untranslated-titles.mjs
 
       - name: Run Phase 2e description lane
-        if: inputs.phase == 'descriptions'
+        if: env.BENCHMARK_PHASE == 'descriptions'
         env:
           AZURE_TRANSLATOR_KEY: ''
           AZURE_TRANSLATOR_KEY_2: ''
@@ -211,6 +211,6 @@ jobs:
         uses: actions/upload-artifact@v7
         with:
           name: translate-pending-budget-benchmark-${{ github.run_id }}
-          path: ${{ runner.temp }}/translate-pending-budget-benchmark.json
+          path: ${{ github.workspace }}/translate-pending-budget-benchmark.json
           if-no-files-found: error
           retention-days: 30

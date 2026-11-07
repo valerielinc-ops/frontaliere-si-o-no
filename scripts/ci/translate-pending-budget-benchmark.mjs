@@ -250,7 +250,13 @@ function finalize(filePath) {
     && failed.length === 0
     && result.samePopulation
     && result.underJobCap
-    && result.candidateCountBefore > 0;
+    && result.candidateCountBefore > 0
+    && result.handoffState === 'complete'
+    && Boolean(
+      result.populationBefore
+      && result.populationAfter
+      && result.populationAfter.candidateFingerprint !== result.populationBefore.candidateFingerprint,
+    );
   writeReport(filePath, result);
 
   const baselineText = result.baseline.runId

@@ -1,4 +1,6 @@
+import { spawnSync } from 'node:child_process';
 import fs from 'node:fs';
+import os from 'node:os';
 import path from 'node:path';
 import { describe, expect, it } from 'vitest';
 import YAML from 'yaml';
@@ -17,6 +19,57 @@ function workflow() {
   };
 }
 
+function reportWith({ handoffState = 'complete', candidateFingerprintAfter = 'changed' } = {}) {
+  const stages = [
+    'budget-gate', 'assemble', 'stats-before', 'lane', 'lane-commit',
+    'assemble-final', 'stats-after', 'slugs', 'slug-commit', 'handoff',
+  ].map((name) => ({ name, status: 0, finishedAt: 1_000 }));
+  const lane = stages.find((stage) => stage.name === 'lane');
+  const handoff = stages.find((stage) => stage.name === 'handoff');
+  Object.assign(lane!, {
+    startedAt: 0,
+    elapsedMs: 1_000,
+    populationBefore: {
+      phase: 'descriptions',
+      fileCount: 1,
+      jobCount: 1,
+      candidateCount: 1,
+      sliceFingerprint: 'slice-before',
+      candidateFingerprint: 'candidates-before',
+    },
+    populationAfter: {
+      phase: 'descriptions',
+      fileCount: 1,
+      jobCount: 1,
+      candidateCount: 1,
+      sliceFingerprint: 'slice-after',
+      candidateFingerprint: candidateFingerprintAfter,
+    },
+  });
+  Object.assign(handoff!, { handoffState });
+  return {
+    schemaVersion: 1,
+    phase: 'descriptions',
+    sourceRef: 'test',
+    sourceCommit: 'test',
+    runUrl: '',
+    startedAt: 0,
+    jobCapMs: 350 * 60_000,
+    baseline: { runId: '', laneMinutes: null, note: '' },
+    stages,
+  };
+}
+
+function finalizeReport(report: ReturnType<typeof reportWith>) {
+  const directory = fs.mkdtempSync(path.join(os.tmpdir(), 'translate-pending-budget-'));
+  const reportPath = path.join(directory, 'report.json');
+  fs.writeFileSync(reportPath, `${JSON.stringify(report)}\n`, 'utf8');
+  const result = spawnSync(process.execPath, [SCRIPT_PATH, '--finalize', '--report', reportPath], {
+    encoding: 'utf8',
+  });
+  return { result, report: JSON.parse(fs.readFileSync(reportPath, 'utf8')) };
+}
+
 describe('translate-pending budget benchmark', () => {
   it('is manual, ref-selectable and retains the production job cap', () => {
     const parsed = workflow();
@@ -30,6 +83,12 @@ describe('translate-pending budget benchmark', () => {
     const checkout = parsed.jobs.benchmark.steps.find((step) => step.name === 'Checkout benchmark ref');
     expect(checkout?.uses).toBe('actions/checkout@v7');
     expect(checkout?.with?.ref).toBe("${{ inputs.source_ref || github.sha }}");
+    expect(parsed.jobs.benchmark.steps.find((step) => step.name === 'Run Phase 2d title lane')?.if)
+      .toBe("env.BENCHMARK_PHASE == 'titles'");
+    expect(parsed.jobs.benchmark.steps.find((step) => step.name === 'Run Phase 2e description lane')?.if)
+      .toBe("env.BENCHMARK_PHASE == 'descriptions'");
+    expect(parsed.jobs.benchmark.steps.find((step) => step.name === 'Upload benchmark report')?.with?.path)
+      .toBe('${{ github.workspace }}/translate-pending-budget-benchmark.json');
   });
 
   it('runs the real lane and every persistence barrier against a local remote', () => {
@@ -58,5 +117,17 @@ describe('translate-pending budget benchmark', () => {
     expect(steps.find((step) => step.name === 'Commit selected repair lane')?.run).toContain('git-commit-data.sh --slice-only');
     expect(steps.find((step) => step.name === 'Commit after statistics')?.env?.TRANSLATION_STATS_AFTER_TREE).toBe('1');
     expect(steps.find((step) => step.name === 'Complete translation deploy handoff')?.run).toContain('validate-translation-completeness.mjs');
+  });
+
+  it('rejects fallback handoff evidence even when every stage exits successfully', () => {
+    const { result, report } = finalizeReport(reportWith({ handoffState: 'fallback' }));
+    expect(result.status).toBe(1);
+    expect(report.accepted).toBe(false);
+  });
+
+  it('rejects a no-op lane whose candidate fingerprint is unchanged', () => {
+    const { result, report } = finalizeReport(reportWith({ candidateFingerprintAfter: 'candidates-before' }));
+    expect(result.status).toBe(1);
+    expect(report.accepted).toBe(false);
   });
 });
