@@ -7,7 +7,11 @@ import { JSDOM } from 'jsdom';
 // a posting by itself.
 const JOB_DATA_ATTRIBUTE_RE = /(?:^|[-_:])(?:job|jobs|position|positions|vacancy|vacancies|opening|openings|posting|postings|offer|offers|emploi|emplois|stelle|stellen)(?:[-_:](?:id|url|href|link|key|slug|uuid|ref|value))?$/i;
 const JOB_CARD_TOKEN_RE = /\b(?:job|jobs|position|positions|vacancy|vacancies|opening|openings|posting|postings|offer|offers|emploi|emplois|stelle|stellen)[-_ ](?:card|item|tile|row|result|link|posting)\b/i;
-const URL_ATTRIBUTE_RE = /^(?:href|src|action|onclick|data-(?:href|url|link|target|job-url|detail-url))$/i;
+// Source templates can move a detail route between data-href, data-url,
+// data-path, data-route, and other data-* attributes without changing the
+// visible card. Treat every data-* attribute as URL-capable; only values that
+// match the source-specific detail-route grammar veto an empty proof.
+const URL_ATTRIBUTE_RE = /^(?:href|src|action|onclick|data-[\w:-]+)$/i;
 const NON_EMPTY_JOB_COLLECTION_RE = /\\?"(?:initialJobs|jobs|positions|vacancies|openings|jobListings)\\?"\s*:\s*(?:\[\s*[^\]\s]|\{\s*[^}])/i;
 
 function decodeNumericEntities(value = '') {

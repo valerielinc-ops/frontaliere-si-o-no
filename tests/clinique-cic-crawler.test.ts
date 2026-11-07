@@ -140,6 +140,7 @@ describe('clinique CIC JobCloud parser', () => {
   it.each([
     ['a detail URL with a new non-UUID slug', '<a href="/fr/jobs/nouveau-poste">Poste</a>'],
     ['a job URL in an unrecognized data attribute', '<article data-job-url="/fr/role-nouveau-format">Poste</article>'],
+    ['a detail URL in a data-path attribute', '<article data-path="/fr/jobs/job-42">Poste</article>'],
   ])('keeps a no-open message fail-closed when %s is present', async (_label, jobMarkup) => {
     const currentEmpty = `<html><body><main><p>Aucun poste ouvert actuellement</p></main>${jobMarkup}</body></html>`;
     expect(isJobCloudListingProvenEmpty(currentEmpty)).toBe(false);
