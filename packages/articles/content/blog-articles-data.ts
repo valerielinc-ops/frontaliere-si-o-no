@@ -47990,7 +47990,7 @@ const RAW_ARTICLES_CHUNK_19: Article[] = [
  category: 'novita',
  date: '2026-10-31T09:38:45.209Z',
  updatedAt: '2026-10-31',
- image: '/images/blog/article-assemblea-ccti-rotta-economia.webp',
+ image: '/images/blog/article-infermieri-osc-sindacati-stipendi.webp',
  hasCalculator: true,
  articleType: 'news',
  authorSlug: 'redazione',

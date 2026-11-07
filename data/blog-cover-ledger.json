@@ -15,10 +15,10 @@
       "2": 197,
       "3": 0,
       "4": 0,
-      "5": 1096,
+      "5": 1101,
       "6": 5061
     },
-    "publishedCovers": 7839,
+    "publishedCovers": 7844,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 1,
     "inheritedRecordsMaterialized": 197,
@@ -213098,6 +213098,39 @@
         "evidence": "generated-engine-record"
       }
     },
+    "article-consiglio-stato-approva-pratiche": {
+      "cover": "/images/blog/article-consiglio-stato-approva-pratiche.webp",
+      "hash": "6a32a8d858150be89dd2046a29121ae99481e6abce2c9b9cb09fdd1bc1d6654b",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-be",
+          "id": "consiglio-stato-approva-pratiche",
+          "category": "novita",
+          "date": "2026-11-07T13:23:00.798Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-consiglio-stato-approva-pratiche.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1794,
+      "verifiedAt": "2026-11-07",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-consiglio-stato-approva-pratiche",
+        "imageUrl": "/images/blog/article-consiglio-stato-approva-pratiche.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
     "article-consultazione-piano-zugo": {
       "cover": "/images/blog/article-consultazione-piano-zugo.webp",
       "hash": "b416c912e008634adbec840b347f3cd55fa74bb4786099c4aa9fec26905d057d",
@@ -213227,6 +213260,39 @@
         "provider": "openai-codex",
         "assetId": "article-domanda-edilizia-meisenweg",
         "imageUrl": "/images/blog/article-domanda-edilizia-meisenweg.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-due-generazioni-immobiliare-mellingen": {
+      "cover": "/images/blog/article-due-generazioni-immobiliare-mellingen.webp",
+      "hash": "aec38daa3a67fb0158ca8d0c1a2e953d99ae77d56d1930d6ab785d461b4f2537",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-ag",
+          "id": "due-generazioni-immobiliare-mellingen",
+          "category": "pratico",
+          "date": "2026-11-07T13:46:13.665Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-due-generazioni-immobiliare-mellingen.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1794,
+      "verifiedAt": "2026-11-07",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-due-generazioni-immobiliare-mellingen",
+        "imageUrl": "/images/blog/article-due-generazioni-immobiliare-mellingen.webp",
         "evidence": "generated-engine-record"
       }
     },
@@ -213623,6 +213689,39 @@
         "provider": "openai-codex",
         "assetId": "article-incendio-tunnel-fluelen",
         "imageUrl": "/images/blog/article-incendio-tunnel-fluelen.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-infermieri-osc-sindacati-stipendi": {
+      "cover": "/images/blog/article-infermieri-osc-sindacati-stipendi.webp",
+      "hash": "d4ec0197536399588c7dde530073da29ef6ac3008fbe4226755466f4b32e4a33",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "infermieri-osc-sindacati-stipendi",
+          "category": "novita",
+          "date": "2026-10-31T09:38:45.209Z",
+          "updatedAt": "2026-10-31",
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-infermieri-osc-sindacati-stipendi.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-11-07",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-infermieri-osc-sindacati-stipendi",
+        "imageUrl": "/images/blog/article-infermieri-osc-sindacati-stipendi.webp",
         "evidence": "generated-engine-record"
       }
     },
@@ -214286,6 +214385,39 @@
         "evidence": "generated-engine-record"
       }
     },
+    "article-neyruz-strada-cantonale-valtraloc": {
+      "cover": "/images/blog/article-neyruz-strada-cantonale-valtraloc.webp",
+      "hash": "29a02bb027423919a2e629ea125bcf1a87a94bcc46b373beb6242382cce3a070",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-fr",
+          "id": "neyruz-strada-cantonale-valtraloc",
+          "category": "pratico",
+          "date": "2026-11-07T12:34:37.204Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-neyruz-strada-cantonale-valtraloc.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1794,
+      "verifiedAt": "2026-11-07",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-neyruz-strada-cantonale-valtraloc",
+        "imageUrl": "/images/blog/article-neyruz-strada-cantonale-valtraloc.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
     "article-niederwil-aumento-imposta-2027": {
       "cover": "/images/blog/article-niederwil-aumento-imposta-2027.webp",
       "hash": "c6597238f050e12737ad653e6aa7ecdb934998479a945b0f924ff51427408592",
@@ -214415,6 +214547,39 @@
         "provider": "openai-codex",
         "assetId": "article-ostaj-stagnazione-frontalieri",
         "imageUrl": "/images/blog/article-ostaj-stagnazione-frontalieri.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-osttangente-riapertura-basilea": {
+      "cover": "/images/blog/article-osttangente-riapertura-basilea.webp",
+      "hash": "ad3a4fcc1df4904b8520484d03903e47491971841d934d662bfbfa563413cd67",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-basilea",
+          "id": "osttangente-riapertura-basilea",
+          "category": "pratico",
+          "date": "2026-11-07T12:34:26.574Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-osttangente-riapertura-basilea.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1794,
+      "verifiedAt": "2026-11-07",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-osttangente-riapertura-basilea",
+        "imageUrl": "/images/blog/article-osttangente-riapertura-basilea.webp",
         "evidence": "generated-engine-record"
       }
     },
