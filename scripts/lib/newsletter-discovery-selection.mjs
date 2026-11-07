@@ -11,6 +11,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { ARTICLES_API_BASE } from './articles-api-base.mjs';
+import { parseAttributes } from './meta-description-extract.mjs';
 
 export const DISCOVERY_ARTICLES_ARTIFACT = 'data/discovery-articles.json';
 export const DISCOVERY_ARTICLES_DESTINATION = 'data/discovery-articles.json';
@@ -39,10 +40,13 @@ const DEFAULT_LAST_KNOWN_GOOD_MANIFEST_PATH = path.join(
 const DEFAULT_HTTP_TIMEOUT_MS = 5_000;
 const DEFAULT_HTTP_RETRIES = 2;
 const MAX_HTTP_RETRIES = 5;
+const DEFAULT_ROUTE_RETRIES = 1;
+const ROUTE_CHECK_USER_AGENT = 'FrontaliereTicinoMetaWait/1.0 (+https://frontaliereticino.ch)';
+const MIN_ARTICLE_BODY_TEXT_LENGTH = 80;
 
 /**
- * @typedef {{ok:boolean,status:number,text:()=>Promise<string>}} DiscoveryFetchResponse
- * @typedef {(input:string|URL,init?:{signal?:AbortSignal})=>Promise<DiscoveryFetchResponse>} DiscoveryFetch
+ * @typedef {{ok:boolean,status:number,url?:string,headers?:{get?:(name:string)=>string|null},text:()=>Promise<string>}} DiscoveryFetchResponse
+ * @typedef {(input:string|URL,init?:{signal?:AbortSignal,headers?:Record<string,string>,redirect?:string})=>Promise<DiscoveryFetchResponse>} DiscoveryFetch
  */
 
 const isRecord = (value) => Boolean(value) && typeof value === 'object' && !Array.isArray(value);
@@ -178,7 +182,7 @@ export function parseDiscoveryArticleIndex(raw, {
   return payload;
 }
 
-function parseDiscoveryManifest(raw) {
+export function parseDiscoveryManifest(raw) {
   if (typeof raw !== 'string') throw new Error('manifest.json is not text');
   let manifest;
   try {
@@ -202,6 +206,82 @@ function parseDiscoveryManifest(raw) {
     throw new Error('manifest.json does not declare a valid discovery index');
   }
   return { manifest, expectedBytes, expectedCount, expectedCommit: manifest.commit };
+}
+
+/**
+ * Pull one coherent API release for the site snapshot writer. Unlike the
+ * newsletter's optional reader this never falls back to a local copy: a
+ * writer must pin manifest → index → manifest and skip if the release moves.
+ *
+ * @param {{apiBase?:string,fetchImpl?:DiscoveryFetch,now?:Date|number,timeoutMs?:number,
+ *   retries?:number,retryDelayMs?:number,sleepImpl?:(ms:number)=>Promise<void>}} options
+ * @returns {Promise<{index:object,rawIndex:string,compactManifest:object}>}
+ */
+export async function loadDiscoveryArticleSnapshotFromHttp({
+  apiBase = ARTICLES_API_BASE,
+  fetchImpl = globalThis.fetch,
+  now = Date.now(),
+  timeoutMs = DEFAULT_HTTP_TIMEOUT_MS,
+  retries = DEFAULT_HTTP_RETRIES,
+  retryDelayMs = 250,
+  sleepImpl = (ms) => new Promise((resolve) => setTimeout(resolve, ms)),
+} = {}) {
+  if (typeof apiBase !== 'string' || !apiBase.trim()) throw new TypeError('apiBase is required');
+  if (typeof fetchImpl !== 'function') throw new TypeError('fetchImpl is required');
+  if (!Number.isSafeInteger(timeoutMs) || timeoutMs < 1 || timeoutMs > 60_000) {
+    throw new RangeError('timeoutMs must be an integer between 1 and 60000');
+  }
+  if (!Number.isSafeInteger(retries) || retries < 0 || retries > MAX_HTTP_RETRIES) {
+    throw new RangeError(`retries must be an integer between 0 and ${MAX_HTTP_RETRIES}`);
+  }
+  if (!Number.isSafeInteger(retryDelayMs) || retryDelayMs < 0 || retryDelayMs > 10_000) {
+    throw new RangeError('retryDelayMs must be an integer between 0 and 10000');
+  }
+  if (typeof sleepImpl !== 'function') throw new TypeError('sleepImpl must be a function');
+
+  const base = apiBase.replace(/\/+$/u, '');
+  const manifestUrl = new URL(`${base}/manifest.json`);
+  const discoveryUrl = new URL(`${base}/${DISCOVERY_ARTICLES_ARTIFACT}`);
+  if (!['http:', 'https:'].includes(manifestUrl.protocol)
+    || !['http:', 'https:'].includes(discoveryUrl.protocol)) {
+    throw new TypeError('apiBase must use HTTP or HTTPS');
+  }
+
+  let lastFailure = null;
+  for (let attempt = 0; attempt <= retries; attempt += 1) {
+    try {
+      const manifestRaw = await fetchText(fetchImpl, manifestUrl, timeoutMs);
+      const first = parseDiscoveryManifest(manifestRaw);
+      const rawIndex = await fetchText(fetchImpl, discoveryUrl, timeoutMs);
+      const index = parseDiscoveryArticleIndex(rawIndex, {
+        expectedBytes: first.expectedBytes,
+        expectedCount: first.expectedCount,
+        expectedCommit: first.expectedCommit,
+        now,
+      });
+      const manifestAfterRaw = await fetchText(fetchImpl, manifestUrl, timeoutMs);
+      const after = parseDiscoveryManifest(manifestAfterRaw);
+      if (after.expectedCommit !== first.expectedCommit
+        || after.expectedBytes !== first.expectedBytes
+        || after.expectedCount !== first.expectedCount) {
+        throw new Error('manifest moved while the discovery index was being pulled');
+      }
+      return {
+        index,
+        rawIndex,
+        compactManifest: {
+          schema: 1,
+          commit: first.expectedCommit,
+          files: { [DISCOVERY_ARTICLES_ARTIFACT]: first.expectedBytes },
+          counts: { discoveryArticles: first.expectedCount },
+        },
+      };
+    } catch (error) {
+      lastFailure = error instanceof Error ? error : new Error(String(error));
+      if (attempt < retries) await sleepImpl(retryDelayMs * (attempt + 1));
+    }
+  }
+  throw new Error(`discovery snapshot API pull failed after ${retries + 1} attempts: ${lastFailure?.message || 'unknown error'}`);
 }
 
 function readLocalLastKnownGood({ manifestFilePath, indexFilePath, now }) {
@@ -324,6 +404,196 @@ export async function loadOptionalDiscoveryArticleIndexFromHttp(options = {}) {
   }
 }
 
+function normalizePageText(value) {
+  return String(value || '')
+    .replace(/&(?:amp|lt|gt|quot|apos|nbsp|#39|rsquo|lsquo|ndash|mdash);/giu, (entity) => {
+      const normalized = entity.toLowerCase();
+      switch (normalized) {
+        case '&amp;': return '&';
+        case '&lt;': return '<';
+        case '&gt;': return '>';
+        case '&quot;': return '"';
+        case '&apos;':
+        case '&#39;': return "'";
+        case '&rsquo;': return '’';
+        case '&lsquo;': return '‘';
+        case '&nbsp;': return ' ';
+        case '&ndash;': return '–';
+        case '&mdash;': return '—';
+        default: return entity;
+      }
+    })
+    .normalize('NFKC')
+    .replace(/\u00a0/gu, ' ')
+    .replace(/\s+/gu, ' ')
+    .trim();
+}
+
+function findArticlePageValue(html, tagName, predicate, attributeName) {
+  const tagRx = new RegExp(`<${tagName}\\b((?:[^>"']|"[^"]*"|'[^']*')*)>`, 'giu');
+  let match;
+  while ((match = tagRx.exec(html))) {
+    const attrs = parseAttributes(match[1]);
+    if (predicate(attrs)) return attrs[String(attributeName || '').toLowerCase()] || '';
+  }
+  return '';
+}
+
+function pageTitleMatches(html, expectedTitle) {
+  const ogTitle = findArticlePageValue(
+    html,
+    'meta',
+    (attrs) => attrs.property === 'og:title',
+    'content',
+  );
+  const title = html.match(/<title\b[^>]*>([\s\S]*?)<\/title>/iu)?.[1] || '';
+  const expected = normalizePageText(expectedTitle);
+  const candidates = [normalizePageText(ogTitle), normalizePageText(title)].filter(Boolean);
+  return candidates.some((candidate) => {
+    if (candidate === expected) return true;
+    if (candidate.includes('|')) {
+      return normalizePageText(candidate.split('|').slice(0, -1).join('|')) === expected;
+    }
+    return false;
+  });
+}
+
+function articlePageHasBody(html) {
+  const articleRx = /<article\b((?:[^>"']|"[^"]*"|'[^']*')*)>([\s\S]*?)<\/article\s*>/giu;
+  let match;
+  while ((match = articleRx.exec(html))) {
+    const attrs = parseAttributes(match[1]);
+    const classes = String(attrs.class || '').split(/\s+/u);
+    if (!classes.includes('ft-blog-article')) continue;
+    const text = match[2]
+      .replace(/<(script|style)\b[^>]*>[\s\S]*?<\/\1\s*>/giu, ' ')
+      .replace(/<!--([\s\S]*?)-->/gu, ' ')
+      .replace(/<[^>]*>/gu, ' ');
+    return normalizePageText(text).length >= MIN_ARTICLE_BODY_TEXT_LENGTH;
+  }
+  return false;
+}
+
+/**
+ * Verify that one localized canonical URL resolves to the expected article,
+ * rather than a challenge page, shell, or soft 404. The allowlisted User-Agent
+ * is the one used by the site's existing live article metadata probe.
+ *
+ * @param {{title?:string|Record<string,string>,url?:string|Record<string,string>}} article
+ * @param {'it'|'en'|'de'|'fr'} locale
+ * @param {{fetchImpl?:DiscoveryFetch,timeoutMs?:number,retries?:number,retryDelayMs?:number,
+ *   sleepImpl?:(ms:number)=>Promise<void>,now?:Date|number}} options
+ * @returns {Promise<{ready:boolean,reason:string}>}
+ */
+export async function checkDiscoveryArticleRoute(article, locale, {
+  fetchImpl = globalThis.fetch,
+  timeoutMs = 8_000,
+  retries = DEFAULT_ROUTE_RETRIES,
+  retryDelayMs = 250,
+  sleepImpl = (ms) => new Promise((resolve) => setTimeout(resolve, ms)),
+  now = Date.now(),
+} = {}) {
+  const url = typeof article?.url === 'string' ? article.url : article?.url?.[locale];
+  const title = typeof article?.title === 'string' ? article.title : article?.title?.[locale];
+  if (!LOCALES.has(locale) || !isCanonicalArticleUrl(url) || !isSafeText(title)) {
+    return { ready: false, reason: 'localized title or canonical URL is invalid' };
+  }
+  if (typeof fetchImpl !== 'function') throw new TypeError('fetchImpl is required');
+  if (!Number.isSafeInteger(timeoutMs) || timeoutMs < 1 || timeoutMs > 60_000) {
+    throw new RangeError('timeoutMs must be an integer between 1 and 60000');
+  }
+  if (!Number.isSafeInteger(retries) || retries < 0 || retries > MAX_HTTP_RETRIES) {
+    throw new RangeError(`retries must be an integer between 0 and ${MAX_HTTP_RETRIES}`);
+  }
+  if (!Number.isSafeInteger(retryDelayMs) || retryDelayMs < 0 || retryDelayMs > 10_000) {
+    throw new RangeError('retryDelayMs must be an integer between 0 and 10000');
+  }
+  if (typeof sleepImpl !== 'function') throw new TypeError('sleepImpl must be a function');
+
+  const expected = new URL(url, SITE_ORIGIN);
+  const nowMs = now instanceof Date ? now.getTime() : Number(now);
+  let lastReason = 'request failed';
+  for (let attempt = 0; attempt <= retries; attempt += 1) {
+    let retryableFailure = true;
+    const requestUrl = new URL(expected.href);
+    const cacheBust = Number.isFinite(nowMs) ? nowMs + attempt : Date.now() + attempt;
+    requestUrl.searchParams.set('_discovery_check', cacheBust.toString(36));
+    const controller = new AbortController();
+    let timer;
+    try {
+      const timeout = new Promise((_, reject) => {
+        timer = setTimeout(() => {
+          controller.abort();
+          reject(new Error('request timed out'));
+        }, timeoutMs);
+      });
+      const responsePromise = Promise.resolve().then(() => fetchImpl(requestUrl, {
+        redirect: 'follow',
+        headers: {
+          'User-Agent': ROUTE_CHECK_USER_AGENT,
+          'Cache-Control': 'no-cache',
+          Pragma: 'no-cache',
+        },
+        signal: controller.signal,
+      })).then(async (response) => ({ response, html: await response.text() }));
+      const { response, html } = await Promise.race([responsePromise, timeout]);
+      if (response.status !== 200) {
+        const status = Number(response.status) || 0;
+        if (status === 403) {
+          let cfRay = '';
+          try { cfRay = response.headers?.get?.('cf-ray') || ''; } catch { /* optional diagnostic */ }
+          const safeCfRay = /^[A-Za-z0-9-]{1,80}$/u.test(cfRay) ? ` (cf-ray ${cfRay})` : '';
+          lastReason = `indeterminate_waf: HTTP 403${safeCfRay}`;
+          retryableFailure = false;
+        } else {
+          lastReason = `HTTP ${status}`;
+          retryableFailure = status === 404 || status === 408 || status === 425 || status === 429 || status >= 500;
+        }
+      } else {
+        const canonical = findArticlePageValue(
+          html,
+          'link',
+          (attrs) => String(attrs.rel || '').toLowerCase().split(/\s+/u).includes('canonical'),
+          'href',
+        );
+        let canonicalUrl;
+        let finalUrl;
+        try {
+          canonicalUrl = new URL(canonical, SITE_ORIGIN);
+          finalUrl = new URL(response.url || requestUrl.href, SITE_ORIGIN);
+        } catch {
+          canonicalUrl = null;
+          finalUrl = null;
+        }
+        const sameCanonicalPath = canonicalUrl
+          && canonicalUrl.origin === expected.origin
+          && canonicalUrl.pathname === expected.pathname
+          && !canonicalUrl.search
+          && !canonicalUrl.hash;
+        const sameServedPath = finalUrl
+          && finalUrl.origin === expected.origin
+          && finalUrl.pathname === expected.pathname;
+        if (!sameCanonicalPath || !sameServedPath) {
+          lastReason = 'canonical or final URL does not match the requested article';
+        } else if (!pageTitleMatches(html, title)) {
+          lastReason = 'served page title does not match the localized index';
+        } else if (!articlePageHasBody(html)) {
+          lastReason = 'served page has no article body';
+        } else {
+          return { ready: true, reason: 'article route, title, canonical, and body verified' };
+        }
+      }
+    } catch (error) {
+      lastReason = error instanceof Error ? error.message : String(error);
+    } finally {
+      clearTimeout(timer);
+    }
+    if (!retryableFailure || attempt >= retries) break;
+    await sleepImpl(retryDelayMs * (attempt + 1));
+  }
+  return { ready: false, reason: lastReason };
+}
+
 /**
  * Keep a new newsletter selection on the same corpus release the site pulled.
  * The local discovery index is paired with its manifest snapshot by the pull
@@ -426,9 +696,31 @@ export function omitDuplicateDiscoveryArticle(selection, personalizedArticle) {
  * Send mode persists this result before sending and reuses it on every resume.
  */
 export function chooseDiscoveryArticle(index, campaignId, locale, { now = Date.now() } = {}) {
-  if (!index || !Array.isArray(index.articles) || !LOCALES.has(locale)) return null;
+  const candidates = getDiscoveryArticleCandidates(index, locale, { now });
+  if (!candidates.length) return null;
+  const picked = candidates[fnv1a32(`${campaignId}\u0000${locale}`) % candidates.length];
+  return {
+    articleId: picked.id,
+    provider: picked.provider,
+    article: {
+      id: picked.id,
+      provider: picked.provider,
+      title: picked.title[locale],
+      excerpt: picked.excerpt[locale],
+      url: picked.url[locale],
+    },
+  };
+}
+
+/**
+ * Return the exact bounded pool used by the weekly selector. Snapshot
+ * readiness checks use this to avoid making a stale, non-eligible row block a
+ * current newsletter candidate.
+ */
+export function getDiscoveryArticleCandidates(index, locale, { now = Date.now() } = {}) {
+  if (!index || !Array.isArray(index.articles) || !LOCALES.has(locale)) return [];
   const nowMs = now instanceof Date ? now.getTime() : Number(now);
-  const candidates = index.articles
+  return index.articles
     .filter((article) => {
       // Reddit and legacy `other` rows can be valid in the public feed, but
       // newsletter eligibility is a separate editorial policy. Filter per row
@@ -444,19 +736,6 @@ export function chooseDiscoveryArticle(index, campaignId, locale, { now = Date.n
     })
     .sort((a, b) => Date.parse(b.publishedAt) - Date.parse(a.publishedAt) || a.id.localeCompare(b.id))
     .slice(0, MAX_ROTATION_POOL);
-  if (!candidates.length) return null;
-  const picked = candidates[fnv1a32(`${campaignId}\u0000${locale}`) % candidates.length];
-  return {
-    articleId: picked.id,
-    provider: picked.provider,
-    article: {
-      id: picked.id,
-      provider: picked.provider,
-      title: picked.title[locale],
-      excerpt: picked.excerpt[locale],
-      url: picked.url[locale],
-    },
-  };
 }
 
 function validateStoredSelection(value, locale) {
