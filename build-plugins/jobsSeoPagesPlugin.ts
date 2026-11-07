@@ -14716,6 +14716,7 @@ ${staticAnalyticsHtml}
   // Avoid building that discarded body; robots, metadata and the final shell
   // still follow the same path below.
   staticBodyParts.push(`<h1>${esc(jobTitle)}${jobCompany ? ` — ${esc(jobCompany)}` : ''}</h1>`);
+  if (STRIP_EXPIRED_JOB_PROSE) staticBodyParts.push(EJP_STRIPPED_MARKER);
  } else {
  // Keep the crawler-first-paint version visually aligned with the hydrated
  // JobExpiredView: one readable column, a clear identity block, then the
