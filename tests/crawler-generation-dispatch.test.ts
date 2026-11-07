@@ -1333,7 +1333,11 @@ describe('generation checkpoint and preflight', () => {
         { file: 'translate-pending.yml' },
       ],
       observerCount: 1,
-      crawlerGeneration: { mode: 'shadow', dispatchesTranslation: false },
+      crawlerGeneration: {
+        mode: 'shadow',
+        rosterPath: 'scripts/ci/crawler-generation-roster.json',
+        dispatchesTranslation: false,
+      },
       observers: [{
         source: 'observers/workflows/crawler-generation-observer-shadow.yml',
         target: '.github/workflows/crawler-generation-observer-shadow.yml',
@@ -1529,6 +1533,10 @@ describe('generation checkpoint and preflight', () => {
     const remoteContract = {
       ...localContract,
       sourceCommit: 'b'.repeat(40),
+      crawlerRosterCardinality: {
+        ...localContract.crawlerRosterCardinality,
+        sourceCommit: 'b'.repeat(40),
+      },
       generatorSha256: 'c'.repeat(64),
     };
     const contractPath = path.join(root, 'contract.json');
@@ -1786,12 +1794,20 @@ describe('generation checkpoint and preflight', () => {
       ...preflightFixture(observer, localArtifacts),
       sourceRepository: 'valerielinc-ops/frontaliere-si-o-no',
       sourceCommit: '48207b409aef44cded1e4b04510aaadad0549df0',
+      crawlerRosterCardinality: {
+        ...preflightFixture(observer, localArtifacts).crawlerRosterCardinality,
+        sourceCommit: '48207b409aef44cded1e4b04510aaadad0549df0',
+      },
       generatorSha256: 'ca6de7edbb725fa6cb7fdb508ee51888025c39696c01bdbde20b71dba06fe4c4',
     };
     const staleRemoteContract = {
       ...preflightFixture(observer, remoteArtifacts),
       sourceRepository: 'valerielinc-ops/frontaliere-si-o-no',
       sourceCommit: '12a413d1f42a9958cc7e0b0d142423f18d169878',
+      crawlerRosterCardinality: {
+        ...preflightFixture(observer, remoteArtifacts).crawlerRosterCardinality,
+        sourceCommit: '12a413d1f42a9958cc7e0b0d142423f18d169878',
+      },
       generatorSha256: '9fb227fa39c74241ca722a49708158dd2d2e50fbfbbde939bd2c2fa3d7eaf1f5',
     };
     const contractPath = path.join(root, 'contract.json');

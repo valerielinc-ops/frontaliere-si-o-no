@@ -91,7 +91,10 @@ import {
   createCrawlerGenerationRoster,
   validateCrawlerGenerationRoster,
 } from './lib/crawler-generation-contract.mjs';
-import { buildCrawlerRosterCardinality } from './lib/crawler-contract-cardinality.mjs';
+import {
+  CRAWLER_ROSTER_PATH,
+  buildCrawlerRosterCardinality,
+} from './lib/crawler-contract-cardinality.mjs';
 import {
   GLOBAL_DATA_PIPELINE_LEASE_BUSY_EXIT,
   GLOBAL_DATA_PIPELINE_LEASE_TRANSIENT_ERROR_EXIT,
@@ -4000,7 +4003,7 @@ export function generateCrossRepoExecutionArtifacts({
     crawlerRosterCardinality,
     crawlerGeneration: {
       mode: 'shadow',
-      rosterPath: 'scripts/ci/crawler-generation-roster.json',
+      rosterPath: CRAWLER_ROSTER_PATH,
       rosterDigest: groupResults.generationRoster.digest,
       artifactRetentionDays: CRAWLER_GENERATION_ARTIFACT_RETENTION_DAYS,
       dispatchesTranslation: false,

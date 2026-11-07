@@ -9,7 +9,9 @@ import {
   verifyCrawlerContractProvenance,
 } from '../scripts/ci/verify-crawler-contract-provenance.mjs';
 import {
+  buildCrawlerRosterCardinality,
   CRAWLER_ROSTER_PATH,
+  crawlerArtifactFiles,
   validateCrawlerContractCardinality,
 } from '../scripts/lib/crawler-contract-cardinality.mjs';
 
@@ -105,6 +107,7 @@ describe('crawler contract provenance verifier', () => {
   it('fails closed when the source roster cardinality disagrees with the contract', () => {
     const malformed = structuredClone(CONTRACT);
     malformed.crawlerCount -= 1;
+    malformed.crawlerRosterCardinality.crawlerCount -= 1;
     const result = validateCrawlerContractCardinality({
       contract: malformed,
       sourceCommit: CONTRACT.sourceCommit,
@@ -114,5 +117,17 @@ describe('crawler contract provenance verifier', () => {
     assert.equal(result.valid, false);
     assert.ok(result.errors.includes('crawler_contract_crawlerCount_mismatch'));
     assert.ok(result.errors.includes('crawler_roster_cardinality_crawlerCount_mismatch'));
+  });
+
+  it('builds the emitted cardinality from the pinned roster and artifact set', () => {
+    assert.deepEqual(
+      buildCrawlerRosterCardinality({
+        sourceCommit: CONTRACT.sourceCommit,
+        roster: ROSTER,
+        artifactFiles: CONTRACT.artifacts.map(({ file }) => file),
+      }),
+      CONTRACT.crawlerRosterCardinality,
+    );
+    assert.deepEqual(crawlerArtifactFiles(ROSTER.groupCount), CONTRACT.artifacts.map(({ file }) => file).sort());
   });
 });
