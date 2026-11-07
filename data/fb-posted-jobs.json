@@ -2,14 +2,6 @@
   "schemaVersion": 1,
   "posted": [
     {
-      "id": "mcdonald-s-switzerland-fba1aea8f20b",
-      "url": "https://frontaliereticino.ch/cerca-lavoro-sciaffusa/crew-mcdonald-s-switzerland-schaffhausen/",
-      "ts": "2026-09-11T17:12:47.135Z",
-      "fbPostId": "951226518080080_122125255497272498",
-      "scheduledFor": "2026-09-12T08:05:00.000Z",
-      "actualPublishedAt": "2026-09-12T08:05:01.000Z"
-    },
-    {
       "id": "mcdonald-s-switzerland-647d5f09b932",
       "url": "https://frontaliereticino.ch/cerca-lavoro-vaud/crew-mcdonalds-switzerland-nyon-p8-317977-2/",
       "ts": "2026-09-11T17:13:00.782Z",
@@ -8012,7 +8004,8 @@
       "copyPillarId": "opportunita-concrete",
       "copyAngleIntent": "both",
       "copyHook": "Un'offerta da confrontare con ciò che stai cercando.",
-      "copyCta": "Controlla i dettagli della candidatura."
+      "copyCta": "Controlla i dettagli della candidatura.",
+      "actualPublishedAt": "2026-11-06T22:05:00.000Z"
     },
     {
       "id": "georg-fischer-12b2871e8228",
@@ -8030,7 +8023,26 @@
       "copyPillarId": "strumenti-utili",
       "copyAngleIntent": "both",
       "copyHook": "Stai cercando un ruolo che corrisponda alle tue competenze?",
-      "copyCta": "Trova la risposta nell'annuncio."
+      "copyCta": "Trova la risposta nell'annuncio.",
+      "actualPublishedAt": "2026-11-07T02:05:00.000Z"
+    },
+    {
+      "id": "puk-zuerich-45f7083384de",
+      "url": "https://frontaliereticino.ch/cerca-lavoro-zurigo/projektleiterin-bau-projektleiter-bau-come-bauherrenvertretung-psychiatrische-universitatsklinik-zurich/",
+      "ts": "2026-11-07T11:47:08.022Z",
+      "fbPostId": "951226518080080_122130780765272498",
+      "scheduledFor": "2026-11-07T12:05:00.000Z",
+      "copyMode": "codex",
+      "copySlot": "job",
+      "copyPromptVersion": "frontaliere-social-copy-v4",
+      "copyPackId": "1fb417e247af2a71",
+      "copyTemplateId": "fb-job-context-path",
+      "copyAssignmentMode": "deterministic",
+      "copyAngleId": "contesto-chiaro",
+      "copyPillarId": "vita-oltreconfine",
+      "copyAngleIntent": "searchable",
+      "copyHook": "Una posizione da considerare nel tuo percorso professionale.",
+      "copyCta": "Approfondisci il percorso richiesto."
     }
   ]
 }

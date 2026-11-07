@@ -16,6 +16,7 @@ const FUNCTIONS_INDEX_URL = new URL('../../functions/index.js', import.meta.url)
  */
 export const FUNCTION_BATCH_SIZE = 8;
 export const FUNCTION_BATCH_DELAY_MS = 2_000;
+export const FIREBASE_FUNCTIONS_CODEBASE = 'newsletter-webhooks';
 
 export const FIREBASE_DEPLOY_ARGS = Object.freeze([
   'deploy',
@@ -105,7 +106,7 @@ export function buildFirebaseDeployArgs(names) {
   return [
     ...FIREBASE_DEPLOY_ARGS,
     '--only',
-    batch[0].map((name) => `functions:${name}`).join(','),
+    batch[0].map((name) => `functions:${FIREBASE_FUNCTIONS_CODEBASE}:${name}`).join(','),
   ];
 }
 
