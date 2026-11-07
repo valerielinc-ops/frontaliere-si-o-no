@@ -13547,6 +13547,21 @@ ${staticAnalyticsHtml}
  console.log(`\x1b[36m[jobs-seo-pages]\x1b[0m Fuzzy-matched ${fuzzyMatched} orphan slugs to active jobs as implicit previousSlugs (rejected ${cityLockRejections} cross-city candidates)`);
  }
 
+ // These indexes are only read by the fuzzy-match pass above. In production,
+ // release them before the much larger expired-route sweep so their token sets
+ // do not overlap the archive indexes and page buffers. The opt-in gcFreed
+ // probe deliberately retains them until its final checkpoint for attribution.
+ if (extraGcFreedProbeCandidate === null) {
+  const fuzzyJobTokenEntries = jobsByToken.size;
+  const fuzzyJobCityRows = jobCityTokens.length;
+  jobsByToken.clear();
+  jobCityTokens.length = 0;
+  logJobsSeoMem('after-orphan-fuzzy-index-release', {
+   fuzzyJobTokenEntries,
+   fuzzyJobCityRows,
+  });
+ }
+
  // Collect IT paths of all previous slugs so we can also exclude their
  // locale-variant tracking keys (e.g. EN/DE/FR slug for the same old job).
  // The tracking file stores one key per locale slug, all pointing to the
