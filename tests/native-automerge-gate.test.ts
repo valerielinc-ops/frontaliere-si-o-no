@@ -950,6 +950,17 @@ describe('native auto-merge gate (#8512)', () => {
       throw new Error('GraphQL: Pull request is not mergeable');
     }, { sleep: () => undefined })).toThrow('not mergeable');
     expect(permanentAttempts).toBe(1);
+
+    let baseRaceAttempts = 0;
+    expect(() => withNativeAutoMergeMutationRetry(() => {
+      baseRaceAttempts += 1;
+      throw new Error('GraphQL: Base branch was modified. Review and try the merge again. (mergePullRequest)');
+    }, {
+      attemptLimit: 2,
+      delaysMs: [11],
+      sleep: () => undefined,
+    })).toThrow('Base branch was modified');
+    expect(baseRaceAttempts).toBe(2);
   });
 
   it('allows a caller to add a state-aware transient mutation classifier', () => {

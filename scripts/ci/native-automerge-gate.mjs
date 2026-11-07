@@ -72,8 +72,10 @@ const TRANSIENT_GH_READ_ERROR_RE = /(?:\bHTTP\s+5\d{2}\b|\b5\d{2}\s+(?:bad gatew
 // `gh pr merge --auto` can reach the immediate merge mutation when all
 // requirements are already green. A concurrent merge on `main` then makes
 // GitHub reject that otherwise valid, same-HEAD request with a base-branch
-// race. Retry only that exact transient mutation error; exhaustion remains a
-// failure so a real inability to opt in cannot be hidden.
+// race. Retry only known transient mutation errors. Transport/base-race
+// exhaustion remains a failure; the one exception is GitHub's explicit
+// UNKNOWN mergeability state, which is handed to the scheduled retry after a
+// bounded recheck because it has no durable merge decision to report yet.
 const MAX_NATIVE_AUTO_MERGE_MUTATION_ATTEMPTS = 3;
 const NATIVE_AUTO_MERGE_MUTATION_RETRY_DELAYS_MS = Object.freeze([750, 2000]);
 const BASE_BRANCH_MODIFIED_MUTATION_ERROR_RE = /(?:GraphQL:\s*)?Base branch was modified\.\s*Review and try the merge again\.\s*\(mergePullRequest\)/iu;
@@ -1978,19 +1980,19 @@ function main() {
       console.log(`Native auto-merge guard: opt-in concorrente confermato per PR #${prNumber} sulla HEAD corrente`);
       return;
     }
-    let deferredTransient = isRetryableNativeAutoMergeMutationError(details);
-    if (!deferredTransient && NOT_MERGEABLE_MUTATION_ERROR_RE.test(details)) {
+    let deferredUnknownMergeability = false;
+    if (NOT_MERGEABLE_MUTATION_ERROR_RE.test(details)) {
       try {
-        deferredTransient = isRetryableNativeAutoMergeMutationError(
+        deferredUnknownMergeability = isRetryableNativeAutoMergeMutationError(
           details,
           nativeAutoMergeMutationMergeability(repo, prNumber),
           beforeMutation.headRefOid,
         );
       } catch {
-        deferredTransient = false;
+        deferredUnknownMergeability = false;
       }
     }
-    if (deferredTransient) {
+    if (deferredUnknownMergeability) {
       console.warn(`::warning::native auto-merge mutation rinviata dopo retry bounded; la retry schedulata rivaluterà la PR #${prNumber}. Dettaglio: ${details.replace(/\s+/gu, ' ').slice(0, 360)}`);
       return;
     }
