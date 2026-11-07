@@ -103,9 +103,9 @@
     {
       "key": "reviewer-finding/fp:scripts-funnel-treats-any",
       "outcome": "declined",
-      "decidedAt": "2026-10-22T10:24:27Z",
-      "ref": "#14470, #14069, #13194",
-      "reason": "Ricorrenza della stessa classe gia' coperta da AGENTS.md #6: parser e guard funnel-critical non classificano shape generiche (`any`/`non-empty`), ma validano dominio, contesto, unknown, ambigui e vicino non-target."
+      "decidedAt": "2026-11-07T11:54:26Z",
+      "ref": "#17135, #17104, #16583",
+      "reason": "Gia' coperto da AGENTS.md #6: parser e guard funnel-critical non trattano truthy/non-empty come prova, ma validano dominio, contesto, unknown/ambigui e vicino non-target; nessuna nuova riga."
     },
     {
       "key": "reviewer-finding/fp:scripts-scripts-scripts-correctness",
@@ -124,9 +124,9 @@
     {
       "key": "reviewer-finding/fp:scripts-correctness-treats-any",
       "outcome": "declined",
-      "decidedAt": "2026-10-18T09:47:17Z",
-      "ref": "#13670, #13411, #13229",
-      "reason": "Gia' coperto da AGENTS.md #6: parser e guard non trattano campi parziali, regex o heading come prova senza validare dominio/contesto e gestire unknown, ambigui e vicino non-target."
+      "decidedAt": "2026-11-07T11:54:26Z",
+      "ref": "#17166, #16609, #16218",
+      "reason": "Gia' coperto da AGENTS.md #6: parser e guard non classificano shape generiche (`any`/`non-empty`/occorrenze) come semantica senza dominio/contesto e gestione di unknown/ambigui; nessuna nuova riga."
     },
     {
       "key": "reviewer-finding/fp:body-contract-body-claims",
