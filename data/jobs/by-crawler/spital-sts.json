@@ -681,10 +681,10 @@
     },
     {
       "id": "spital-sts-74458989aa38",
-      "slug": "dipl-expert-in-anasthesiepflege-spital-sts-thun",
+      "slug": "esperto-certificato-in-infermieristica-anestesia-spital-sts-thun",
       "slugByLocale": {
         "de": "dipl-expert-in-anasthesiepflege-spital-sts-thun",
-        "it": "dipl-expert-in-anasthesiepflege-spital-sts-thun",
+        "it": "esperto-certificato-in-infermieristica-anestesia-spital-sts-thun",
         "en": "certified-expert-in-anaesthesia-care-spital-sts-thun",
         "fr": "expert-diplome-en-soins-anesthesiques-spital-sts-thun"
       },
@@ -747,7 +747,15 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-05T09:49:05.705Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-06T21:30:46.396Z"
+      "firstSeenAt": "2026-11-06T21:30:46.396Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-expert-in-anasthesiepflege-spital-sts-thun"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-expert-in-anasthesiepflege-spital-sts-thun"
+      ]
     },
     {
       "id": "spital-sts-8a1d88b6ace6",
@@ -919,10 +927,10 @@
     },
     {
       "id": "spital-sts-ad910e222786",
-      "slug": "technische-r-sterilisationsassistent-in-medizinproduktetechnologe-in-efz-spital-sts-thun",
+      "slug": "assistente-tecnico-alla-sterilizzazione-tecnico-dei-dispositivi-medici-efz-spital-sts-thun",
       "slugByLocale": {
         "de": "technische-r-sterilisationsassistent-in-medizinproduktetechnologe-in-efz-spital-sts-thun",
-        "it": "technische-r-sterilisationsassistent-in-medizinproduktetechnologe-in-efz-spital-sts-thun",
+        "it": "assistente-tecnico-alla-sterilizzazione-tecnico-dei-dispositivi-medici-efz-spital-sts-thun",
         "en": "technical-sterilization-assistant-medical-device-technologist-efz-spital-sts-thun",
         "fr": "assistant-e-technique-de-sterilisation-technologue-en-dispositifs-medicaux-cfc-spital-sts-thun"
       },
@@ -985,7 +993,15 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-05T09:49:05.703Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-06T21:30:46.392Z"
+      "firstSeenAt": "2026-11-06T21:30:46.392Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "technische-r-sterilisationsassistent-in-medizinproduktetechnologe-in-efz-spital-sts-thun"
+        ]
+      },
+      "previousSlugs": [
+        "technische-r-sterilisationsassistent-in-medizinproduktetechnologe-in-efz-spital-sts-thun"
+      ]
     },
     {
       "id": "spital-sts-c5edb509e763",
@@ -3604,7 +3620,7 @@
       "slugByLocale": {
         "de": "pflegefachfachperson-dipl-oder-fage-als-springer-in-chirurgie-spital-sts-thun",
         "it": "specialista-infermieristico-dipl-o-fage-come-saltatore-trice-in-chirurgia-spital-sts-thun",
-        "en": "pflegefachfachperson-dipl-oder-fage-als-springer-in-chirurgie-spital-sts-thun",
+        "en": "nurse-dipl-or-fage-as-a-substitute-for-surgery-spital-sts-thun",
         "fr": "specialiste-en-soins-infirmiers-diplome-ou-assc-en-tant-que-chirurgien-sauteur-spital-sts-thun"
       },
       "company": "Spital STS",
@@ -3657,6 +3673,9 @@
         ],
         "fr": [
           "pflegefachfachperson-dipl-oder-fage-als-springer-in-chirurgie-spital-sts-thun"
+        ],
+        "en": [
+          "pflegefachfachperson-dipl-oder-fage-als-springer-in-chirurgie-spital-sts-thun"
         ]
       },
       "previousSlugs": [
@@ -3683,10 +3702,10 @@
     },
     {
       "id": "spital-sts-f6a3170b4eeb",
-      "slug": "stellvertretende-r-responsabile-pflege-onkologie-spital-sts-thun",
+      "slug": "vice-capo-dell-infermieristica-oncologica-spital-sts-thun",
       "slugByLocale": {
         "de": "stellvertretende-r-leiter-in-pflege-onkologie-spital-sts-thun",
-        "it": "stellvertretende-r-responsabile-pflege-onkologie-spital-sts-thun",
+        "it": "vice-capo-dell-infermieristica-oncologica-spital-sts-thun",
         "en": "deputy-head-of-nursing-oncology-spital-sts-thun",
         "fr": "responsable-adjoint-e-des-soins-en-oncologie-spital-sts-thun"
       },
@@ -3735,7 +3754,8 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "it": [
-          "stellvertretende-r-leiter-in-pflege-onkologie-spital-sts-thun"
+          "stellvertretende-r-leiter-in-pflege-onkologie-spital-sts-thun",
+          "stellvertretende-r-responsabile-pflege-onkologie-spital-sts-thun"
         ],
         "en": [
           "stellvertretende-r-leiter-in-pflege-onkologie-spital-sts-thun"
@@ -3745,7 +3765,8 @@
         ]
       },
       "previousSlugs": [
-        "stellvertretende-r-leiter-in-pflege-onkologie-spital-sts-thun"
+        "stellvertretende-r-leiter-in-pflege-onkologie-spital-sts-thun",
+        "stellvertretende-r-responsabile-pflege-onkologie-spital-sts-thun"
       ],
       "salaryMin": 115000,
       "salaryMax": 160000,
@@ -4019,10 +4040,10 @@
     },
     {
       "id": "spital-sts-75d9b43314b1",
-      "slug": "med-praxisassistent-in-walk-in-praxis-spital-sts-thun",
+      "slug": "pratica-di-assistente-medico-senza-appuntamento-spital-sts-thun",
       "slugByLocale": {
         "de": "med-praxisassistent-in-walk-in-praxis-spital-sts-thun",
-        "it": "med-praxisassistent-in-walk-in-praxis-spital-sts-thun",
+        "it": "pratica-di-assistente-medico-senza-appuntamento-spital-sts-thun",
         "en": "medical-practice-assistant-walk-in-practice-spital-sts-thun",
         "fr": "assistant-e-medical-e-au-cabinet-de-walk-in-spital-sts-thun"
       },
@@ -4085,7 +4106,15 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-05T09:49:05.671Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-06T21:30:46.342Z"
+      "firstSeenAt": "2026-11-06T21:30:46.342Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "med-praxisassistent-in-walk-in-praxis-spital-sts-thun"
+        ]
+      },
+      "previousSlugs": [
+        "med-praxisassistent-in-walk-in-praxis-spital-sts-thun"
+      ]
     }
   ]
 }

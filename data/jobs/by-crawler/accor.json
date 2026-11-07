@@ -2450,12 +2450,12 @@
     },
     {
       "id": "accor-594dfb2dccb8",
-      "slug": "commis-de-cuisine-f-h-x-cdi-ibis-budget-fairmont-le-montreux-palace-montreux-switzerland-594dfb2d",
+      "slug": "cucina-clerk-m-f-x-cdi-ibis-budget-fairmont-le-montreux-palace-montreux-switzerland-594dfb2d",
       "slugByLocale": {
         "fr": "commis-de-cuisine-f-h-x-cdi-ibis-budget-fairmont-le-montreux-palace-montreux-switzerland-594dfb2d",
-        "it": "commis-de-cuisine-f-h-x-cdi-ibis-budget-fairmont-le-montreux-palace-montreux-switzerland-594dfb2d",
-        "en": "commis-de-cuisine-f-h-x-cdi-ibis-budget-fairmont-le-montreux-palace-montreux-switzerland-594dfb2d",
-        "de": "commis-de-cuisine-f-h-x-cdi-ibis-budget-fairmont-le-montreux-palace-montreux-switzerland-594dfb2d"
+        "it": "cucina-clerk-m-f-x-cdi-ibis-budget-fairmont-le-montreux-palace-montreux-switzerland-594dfb2d",
+        "en": "kitchen-clerk-m-f-x-cdi-ibis-budget-fairmont-le-montreux-palace-montreux-switzerland-594dfb2d",
+        "de": "kuchenschreiber-m-w-x-cdi-ibis-budget-fairmont-le-montreux-palace-montreux-switzerland-594dfb2d"
       },
       "slugDisambiguator": "594dfb2d",
       "company": "Ibis Budget",
@@ -2518,7 +2518,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-04T09:30:59.475Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-07T09:30:59.475Z"
+      "firstSeenAt": "2026-11-07T09:30:59.475Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "commis-de-cuisine-f-h-x-cdi-ibis-budget-fairmont-le-montreux-palace-montreux-switzerland-594dfb2d"
+        ],
+        "en": [
+          "commis-de-cuisine-f-h-x-cdi-ibis-budget-fairmont-le-montreux-palace-montreux-switzerland-594dfb2d"
+        ],
+        "de": [
+          "commis-de-cuisine-f-h-x-cdi-ibis-budget-fairmont-le-montreux-palace-montreux-switzerland-594dfb2d"
+        ]
+      },
+      "previousSlugs": [
+        "commis-de-cuisine-f-h-x-cdi-ibis-budget-fairmont-le-montreux-palace-montreux-switzerland-594dfb2d"
+      ]
     }
   ]
 }

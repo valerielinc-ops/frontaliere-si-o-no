@@ -7062,12 +7062,12 @@
     },
     {
       "id": "etavis-42aaa686802a",
-      "slug": "sachbearbeiterin-kreditorenbuchhaltung-40-w-m-d-etavis-basel",
+      "slug": "contabilita-del-titolare-del-conto-40-m-f-d-etavis-ag-basel",
       "slugByLocale": {
         "de": "sachbearbeiterin-kreditorenbuchhaltung-40-w-m-d-etavis-basel",
-        "it": "sachbearbeiterin-kreditorenbuchhaltung-40-w-m-d-etavis-basel",
-        "en": "sachbearbeiterin-kreditorenbuchhaltung-40-w-m-d-etavis-basel",
-        "fr": "sachbearbeiterin-kreditorenbuchhaltung-40-w-m-d-etavis-basel"
+        "it": "contabilita-del-titolare-del-conto-40-m-f-d-etavis-ag-basel",
+        "en": "account-holder-accounting-40-m-f-d-etavis-ag-basel",
+        "fr": "titulaire-de-compte-comptable-40-h-f-d-etavis-ag-basel"
       },
       "company": "ETAVIS AG",
       "companyKey": "etavis",
@@ -7130,7 +7130,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-05T09:37:34.776Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-07T09:37:34.776Z"
+      "firstSeenAt": "2026-11-07T09:37:34.776Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeiterin-kreditorenbuchhaltung-40-w-m-d-etavis-basel"
+        ],
+        "en": [
+          "sachbearbeiterin-kreditorenbuchhaltung-40-w-m-d-etavis-basel"
+        ],
+        "fr": [
+          "sachbearbeiterin-kreditorenbuchhaltung-40-w-m-d-etavis-basel"
+        ]
+      },
+      "previousSlugs": [
+        "sachbearbeiterin-kreditorenbuchhaltung-40-w-m-d-etavis-basel"
+      ]
     }
   ]
 }

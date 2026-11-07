@@ -1311,12 +1311,12 @@
     },
     {
       "id": "spitex-ch-eb9830378051",
-      "slug": "fachfrau-fachmann-gesundheit-fage-efz-im-nachtdienst-spitex-ch-liestal",
+      "slug": "specialista-specialista-in-sanita-apf-afc-in-servizio-notturno-rotes-kreuz-baselland-liestal",
       "slugByLocale": {
         "de": "fachfrau-fachmann-gesundheit-fage-efz-im-nachtdienst-spitex-ch-liestal",
-        "it": "fachfrau-fachmann-gesundheit-fage-efz-im-nachtdienst-spitex-ch-liestal",
-        "en": "fachfrau-fachmann-gesundheit-fage-efz-im-nachtdienst-spitex-ch-liestal",
-        "fr": "fachfrau-fachmann-gesundheit-fage-efz-im-nachtdienst-spitex-ch-liestal"
+        "it": "specialista-specialista-in-sanita-apf-afc-in-servizio-notturno-rotes-kreuz-baselland-liestal",
+        "en": "professional-health-fage-efz-on-night-duty-rotes-kreuz-baselland-liestal",
+        "fr": "sante-professionnelle-fage-efz-en-service-de-nuit-rotes-kreuz-baselland-liestal"
       },
       "company": "Rotes Kreuz Baselland",
       "companyKey": "spitex-ch",
@@ -1379,7 +1379,21 @@
       "streetAddress": "Liestal",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "firstSeenAt": "2026-10-01T09:15:38.941Z"
+      "firstSeenAt": "2026-10-01T09:15:38.941Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachfrau-fachmann-gesundheit-fage-efz-im-nachtdienst-spitex-ch-liestal"
+        ],
+        "en": [
+          "fachfrau-fachmann-gesundheit-fage-efz-im-nachtdienst-spitex-ch-liestal"
+        ],
+        "fr": [
+          "fachfrau-fachmann-gesundheit-fage-efz-im-nachtdienst-spitex-ch-liestal"
+        ]
+      },
+      "previousSlugs": [
+        "fachfrau-fachmann-gesundheit-fage-efz-im-nachtdienst-spitex-ch-liestal"
+      ]
     },
     {
       "id": "spitex-ch-6584a81d1e87",

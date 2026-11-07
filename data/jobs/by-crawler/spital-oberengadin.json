@@ -708,12 +708,12 @@
     },
     {
       "id": "spital-oberengadin-b6ccf156f4fb",
-      "slug": "hebamme-spital-oberengadin-samedan",
+      "slug": "mutua-spital-oberengadin-samedan",
       "slugByLocale": {
         "de": "hebamme-spital-oberengadin-samedan",
-        "it": "hebamme-spital-oberengadin-samedan",
-        "en": "hebamme-spital-oberengadin-samedan",
-        "fr": "hebamme-spital-oberengadin-samedan"
+        "it": "mutua-spital-oberengadin-samedan",
+        "en": "midwife-spital-oberengadin-samedan",
+        "fr": "une-sage-femme-spital-oberengadin-samedan"
       },
       "company": "Spital Oberengadin",
       "companyKey": "spital-oberengadin",
@@ -779,7 +779,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-01T09:49:42.656Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-07T09:49:42.656Z"
+      "firstSeenAt": "2026-11-07T09:49:42.656Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "hebamme-spital-oberengadin-samedan"
+        ],
+        "en": [
+          "hebamme-spital-oberengadin-samedan"
+        ],
+        "fr": [
+          "hebamme-spital-oberengadin-samedan"
+        ]
+      },
+      "previousSlugs": [
+        "hebamme-spital-oberengadin-samedan"
+      ]
     },
     {
       "id": "spital-oberengadin-a5ec184795c9",

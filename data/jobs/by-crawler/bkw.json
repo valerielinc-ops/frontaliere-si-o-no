@@ -24256,10 +24256,10 @@
     },
     {
       "id": "bkw-c1925d6f9653",
-      "slug": "product-manager-in-kundenprozesse-alle-bkw-ch",
+      "slug": "product-manager-processi-clienti-tutti-bkw-nidau",
       "slugByLocale": {
         "de": "product-manager-in-kundenprozesse-alle-bkw-ch",
-        "it": "product-manager-in-kundenprozesse-alle-bkw-ch",
+        "it": "product-manager-processi-clienti-tutti-bkw-nidau",
         "en": "product-manager-customer-processes-all-bkw-nidau",
         "fr": "product-manager-dans-les-processus-clients-tous-bkw-nidau"
       },
@@ -24322,7 +24322,15 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-01T09:21:20.210Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-06T21:24:11.302Z"
+      "firstSeenAt": "2026-11-06T21:24:11.302Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "product-manager-in-kundenprozesse-alle-bkw-ch"
+        ]
+      },
+      "previousSlugs": [
+        "product-manager-in-kundenprozesse-alle-bkw-ch"
+      ]
     },
     {
       "id": "bkw-969002e0ea38",
@@ -25345,10 +25353,10 @@
     },
     {
       "id": "bkw-416c09652d99",
-      "slug": "abteilungsleiter-in-luftung-alle-bkw-ch",
+      "slug": "capo-del-dipartimento-ventilazione-tutti-bkw-beringen",
       "slugByLocale": {
         "de": "abteilungsleiter-in-luftung-alle-bkw-ch",
-        "it": "abteilungsleiter-in-luftung-alle-bkw-ch",
+        "it": "capo-del-dipartimento-ventilazione-tutti-bkw-beringen",
         "en": "head-of-department-ventilation-all-bkw-beringen",
         "fr": "chef-de-service-en-ventilation-tous-bkw-beringen"
       },
@@ -25411,7 +25419,15 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-02T09:21:20.197Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-06T21:24:11.283Z"
+      "firstSeenAt": "2026-11-06T21:24:11.283Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "abteilungsleiter-in-luftung-alle-bkw-ch"
+        ]
+      },
+      "previousSlugs": [
+        "abteilungsleiter-in-luftung-alle-bkw-ch"
+      ]
     },
     {
       "id": "bkw-c0345fa2ef0f",
@@ -25570,10 +25586,10 @@
     },
     {
       "id": "bkw-124b5a7a739f",
-      "slug": "sanitarinsallateur-in-cfc-alle-bkw-saanen",
+      "slug": "idraulica-sallalatein-efz-tutti-bkw-saanen",
       "slugByLocale": {
         "de": "sanitarinsallateur-in-efz-alle-bkw-ch",
-        "it": "sanitarinsallateur-in-cfc-alle-bkw-saanen",
+        "it": "idraulica-sallalatein-efz-tutti-bkw-saanen",
         "en": "sanitary-plumber-efz-all-bkw-saanen",
         "fr": "salariesanitaire-en-cfc-tous-bkw-saanen"
       },
@@ -25639,7 +25655,8 @@
       "firstSeenAt": "2026-11-06T21:24:11.279Z",
       "previousSlugsByLocale": {
         "it": [
-          "sanitarinsallateur-in-efz-alle-bkw-ch"
+          "sanitarinsallateur-in-efz-alle-bkw-ch",
+          "sanitarinsallateur-in-cfc-alle-bkw-saanen"
         ],
         "en": [
           "sanitarinsallateur-in-efz-alle-bkw-ch"
@@ -25649,7 +25666,8 @@
         ]
       },
       "previousSlugs": [
-        "sanitarinsallateur-in-efz-alle-bkw-ch"
+        "sanitarinsallateur-in-efz-alle-bkw-ch",
+        "sanitarinsallateur-in-cfc-alle-bkw-saanen"
       ]
     },
     {

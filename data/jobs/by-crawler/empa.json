@@ -1843,12 +1843,12 @@
     },
     {
       "id": "empa-f5a4d8952c49",
-      "slug": "ingenieur-in-akustik-a-empa-dubendorf",
+      "slug": "ingegnere-a-acustica-a-empa-dubendorf",
       "slugByLocale": {
         "de": "ingenieur-in-akustik-a-empa-dubendorf",
-        "it": "ingenieur-in-akustik-a-empa-dubendorf",
-        "en": "ingenieur-in-akustik-a-empa-dubendorf",
-        "fr": "ingenieur-in-akustik-a-empa-dubendorf"
+        "it": "ingegnere-a-acustica-a-empa-dubendorf",
+        "en": "engineer-acoustics-a-empa-dubendorf",
+        "fr": "ingenieur-e-en-acoustique-a-empa-dubendorf"
       },
       "company": "Empa",
       "companyKey": "empa",
@@ -1913,7 +1913,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-05T09:35:20.813Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-07T09:35:20.813Z"
+      "firstSeenAt": "2026-11-07T09:35:20.813Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "ingenieur-in-akustik-a-empa-dubendorf"
+        ],
+        "en": [
+          "ingenieur-in-akustik-a-empa-dubendorf"
+        ],
+        "fr": [
+          "ingenieur-in-akustik-a-empa-dubendorf"
+        ]
+      },
+      "previousSlugs": [
+        "ingenieur-in-akustik-a-empa-dubendorf"
+      ]
     },
     {
       "id": "empa-7d5be632017c",

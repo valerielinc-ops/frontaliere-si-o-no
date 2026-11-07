@@ -1460,12 +1460,12 @@
       "postedDate": "",
       "source": "company-website",
       "sourceLang": "de",
-      "slug": "supporto-ict-senior-stv-supporto-ict-proprietario-del-prodotto-m-f-d-galenica-galenica-bern",
+      "slug": "supporto-ict-senior-vice-product-owner-supporto-ict-m-f-d-galenica-galenica-bern",
       "slugByLocale": {
-        "it": "supporto-ict-senior-stv-supporto-ict-proprietario-del-prodotto-m-f-d-galenica-galenica-bern",
+        "it": "supporto-ict-senior-vice-product-owner-supporto-ict-m-f-d-galenica-galenica-bern",
         "en": "galenica-galenica-senior-ict-supporter-stv-product-owner-ict-support-w-m-d-bern",
         "de": "galenica-galenica-senior-ict-supporter-stv-product-owner-ict-support-w-m-d-bern",
-        "fr": "support-tic-senior-stv-proprietaire-de-produit-support-tic-h-f-d-galenica-galenica-bern"
+        "fr": "soutien-principal-tic-sous-proprietaire-du-produit-support-tic-h-f-d-galenica-galenica-bern"
       },
       "titleByLocale": {
         "it": "Supporto ICT Senior / Vice Product Owner Supporto ICT (m/f/d)",
@@ -1498,14 +1498,18 @@
       "firstSeenAt": "2026-11-06T21:23:39.767Z",
       "previousSlugsByLocale": {
         "it": [
-          "galenica-galenica-senior-ict-supporter-stv-product-owner-ict-support-w-m-d-bern"
+          "galenica-galenica-senior-ict-supporter-stv-product-owner-ict-support-w-m-d-bern",
+          "supporto-ict-senior-stv-supporto-ict-proprietario-del-prodotto-m-f-d-galenica-galenica-bern"
         ],
         "fr": [
-          "galenica-galenica-senior-ict-supporter-stv-product-owner-ict-support-w-m-d-bern"
+          "galenica-galenica-senior-ict-supporter-stv-product-owner-ict-support-w-m-d-bern",
+          "support-tic-senior-stv-proprietaire-de-produit-support-tic-h-f-d-galenica-galenica-bern"
         ]
       },
       "previousSlugs": [
-        "galenica-galenica-senior-ict-supporter-stv-product-owner-ict-support-w-m-d-bern"
+        "galenica-galenica-senior-ict-supporter-stv-product-owner-ict-support-w-m-d-bern",
+        "supporto-ict-senior-stv-supporto-ict-proprietario-del-prodotto-m-f-d-galenica-galenica-bern",
+        "support-tic-senior-stv-proprietaire-de-produit-support-tic-h-f-d-galenica-galenica-bern"
       ]
     },
     {
@@ -25574,12 +25578,12 @@
       "postedDate": "",
       "source": "company-website",
       "sourceLang": "de",
-      "slug": "galenica-galenica-apotheker-apothekerin-w-m-d-zurich",
+      "slug": "farmacista-farmacista-m-f-d-galenica-galenica-zurich-5da89c",
       "slugByLocale": {
-        "it": "galenica-galenica-apotheker-apothekerin-w-m-d-zurich",
-        "en": "galenica-galenica-apotheker-apothekerin-w-m-d-zurich",
+        "it": "farmacista-farmacista-m-f-d-galenica-galenica-zurich-5da89c",
+        "en": "pharmacist-pharmacist-m-f-d-galenica-galenica-zurich-5da89c",
         "de": "galenica-galenica-apotheker-apothekerin-w-m-d-zurich",
-        "fr": "galenica-galenica-apotheker-apothekerin-w-m-d-zurich"
+        "fr": "pharmacienne-pharmacienne-h-f-d-galenica-galenica-zurich-5da89c"
       },
       "titleByLocale": {
         "it": "Farmacista / farmacista (m/f/d)",
@@ -25608,7 +25612,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2026-07-12T21:44:00.314Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-04-13T21:44:00.314Z"
+      "firstSeenAt": "2026-04-13T21:44:00.314Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "galenica-galenica-apotheker-apothekerin-w-m-d-zurich"
+        ],
+        "en": [
+          "galenica-galenica-apotheker-apothekerin-w-m-d-zurich"
+        ],
+        "fr": [
+          "galenica-galenica-apotheker-apothekerin-w-m-d-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "galenica-galenica-apotheker-apothekerin-w-m-d-zurich"
+      ]
     },
     {
       "title": "Apotheker / Apothekerin (w/m/d)",

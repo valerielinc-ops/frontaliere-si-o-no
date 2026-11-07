@@ -19930,12 +19930,12 @@
     },
     {
       "id": "physioswiss-e9e50e749e37",
-      "slug": "physiotherapeutin-60-100-in-der-aktiv-physio-in-hinwil-physio-swiss-hinwil",
+      "slug": "fisioterapista-60-100-in-fisioterapia-attiva-a-hinwil-physio-swiss-8340-hinwil",
       "slugByLocale": {
         "de": "physiotherapeutin-60-100-in-der-aktiv-physio-in-hinwil-8340-hinwil-physioswiss-ch",
-        "it": "physiotherapeutin-60-100-in-der-aktiv-physio-in-hinwil-physio-swiss-hinwil",
-        "en": "physiotherapeutin-60-100-in-der-aktiv-physio-in-hinwil-physio-swiss-hinwil",
-        "fr": "physiotherapeutin-60-100-in-der-aktiv-physio-in-hinwil-physio-swiss-hinwil"
+        "it": "fisioterapista-60-100-in-fisioterapia-attiva-a-hinwil-physio-swiss-8340-hinwil",
+        "en": "physiotherapist-60-100-in-active-physio-in-hinwil-physio-swiss-8340-hinwil",
+        "fr": "physiotherapeute-60-100-en-physio-actif-en-hinwil-physio-swiss-8340-hinwil"
       },
       "company": "Physio swiss",
       "companyKey": "physioswiss",
@@ -19982,11 +19982,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "physiotherapeutin-60-100-in-der-aktiv-physio-in-hinwil-8340-hinwil-physioswiss-ch"
+          "physiotherapeutin-60-100-in-der-aktiv-physio-in-hinwil-8340-hinwil-physioswiss-ch",
+          "physiotherapeutin-60-100-in-der-aktiv-physio-in-hinwil-physio-swiss-hinwil"
+        ],
+        "en": [
+          "physiotherapeutin-60-100-in-der-aktiv-physio-in-hinwil-physio-swiss-hinwil"
+        ],
+        "fr": [
+          "physiotherapeutin-60-100-in-der-aktiv-physio-in-hinwil-physio-swiss-hinwil"
         ]
       },
       "previousSlugs": [
-        "physiotherapeutin-60-100-in-der-aktiv-physio-in-hinwil-8340-hinwil-physioswiss-ch"
+        "physiotherapeutin-60-100-in-der-aktiv-physio-in-hinwil-8340-hinwil-physioswiss-ch",
+        "physiotherapeutin-60-100-in-der-aktiv-physio-in-hinwil-physio-swiss-hinwil"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -20086,12 +20094,12 @@
     },
     {
       "id": "physioswiss-ede63feb5a27",
-      "slug": "physiotherapeut-in-90-100-physio-swiss-chur",
+      "slug": "fisioterapista-in-90-100-physio-swiss-7000-chur",
       "slugByLocale": {
         "de": "physiotherapeut-in-90-100-7000-chur-physioswiss-ch",
-        "it": "physiotherapeut-in-90-100-physio-swiss-chur",
-        "en": "physiotherapeut-in-90-100-physio-swiss-chur",
-        "fr": "physiotherapeut-in-90-100-physio-swiss-chur"
+        "it": "fisioterapista-in-90-100-physio-swiss-7000-chur",
+        "en": "physiotherapist-90-100-physio-swiss-7000-chur",
+        "fr": "physiotherapeute-dans-90-100-physio-swiss-7000-chur"
       },
       "company": "Physio swiss",
       "companyKey": "physioswiss",
@@ -20139,11 +20147,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "physiotherapeut-in-90-100-7000-chur-physioswiss-ch"
+          "physiotherapeut-in-90-100-7000-chur-physioswiss-ch",
+          "physiotherapeut-in-90-100-physio-swiss-chur"
+        ],
+        "en": [
+          "physiotherapeut-in-90-100-physio-swiss-chur"
+        ],
+        "fr": [
+          "physiotherapeut-in-90-100-physio-swiss-chur"
         ]
       },
       "previousSlugs": [
-        "physiotherapeut-in-90-100-7000-chur-physioswiss-ch"
+        "physiotherapeut-in-90-100-7000-chur-physioswiss-ch",
+        "physiotherapeut-in-90-100-physio-swiss-chur"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -20166,12 +20182,12 @@
     },
     {
       "id": "physioswiss-99469b62ba27",
-      "slug": "dipl-physiotherapeut-in-40-100-physio-swiss-unteriberg",
+      "slug": "fisioterapista-diplomato-40-100-physio-swiss-8842-unteriberg-be5e56",
       "slugByLocale": {
         "de": "dipl-physiotherapeut-in-40-100-8842-unteriberg-physioswiss-ch",
-        "it": "dipl-physiotherapeut-in-40-100-physio-swiss-unteriberg",
-        "en": "dipl-physiotherapeut-in-40-100-physio-swiss-unteriberg",
-        "fr": "dipl-physiotherapeut-in-40-100-physio-swiss-unteriberg"
+        "it": "fisioterapista-diplomato-40-100-physio-swiss-8842-unteriberg-be5e56",
+        "en": "certified-physiotherapist-40-100-physio-swiss-8842-unteriberg-be5e56",
+        "fr": "physiotherapeute-diplome-40-100-physio-swiss-8842-unteriberg-be5e56"
       },
       "company": "Physio swiss",
       "companyKey": "physioswiss",
@@ -20220,12 +20236,20 @@
       "previousSlugsByLocale": {
         "it": [
           "dipl-physiotherapeut-in-40-100-8842-unteriberg-physioswiss-ch",
-          "dipl-physiotherapeut-in-40-100-8842-unteriberg-physioswiss-ch-2"
+          "dipl-physiotherapeut-in-40-100-8842-unteriberg-physioswiss-ch-2",
+          "dipl-physiotherapeut-in-40-100-physio-swiss-unteriberg"
+        ],
+        "en": [
+          "dipl-physiotherapeut-in-40-100-physio-swiss-unteriberg"
+        ],
+        "fr": [
+          "dipl-physiotherapeut-in-40-100-physio-swiss-unteriberg"
         ]
       },
       "previousSlugs": [
         "dipl-physiotherapeut-in-40-100-8842-unteriberg-physioswiss-ch",
-        "dipl-physiotherapeut-in-40-100-8842-unteriberg-physioswiss-ch-2"
+        "dipl-physiotherapeut-in-40-100-8842-unteriberg-physioswiss-ch-2",
+        "dipl-physiotherapeut-in-40-100-physio-swiss-unteriberg"
       ],
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -20248,12 +20272,12 @@
     },
     {
       "id": "physioswiss-0d70aa51edfc",
-      "slug": "physiotherapeutin-25-40-unbefristet-nach-vereinbarung-physio-swiss-henggart",
+      "slug": "terapeuta-fisica-25-40-perpetuo-d-accordo-physio-swiss-8444-henggart",
       "slugByLocale": {
         "de": "physiotherapeutin-25-40-unbefristet-nach-vereinbarung-8444-henggart-physioswiss-ch",
-        "it": "physiotherapeutin-25-40-unbefristet-nach-vereinbarung-physio-swiss-henggart",
-        "en": "physiotherapeutin-25-40-unbefristet-nach-vereinbarung-physio-swiss-henggart",
-        "fr": "physiotherapeutin-25-40-unbefristet-nach-vereinbarung-physio-swiss-henggart"
+        "it": "terapeuta-fisica-25-40-perpetuo-d-accordo-physio-swiss-8444-henggart",
+        "en": "physical-therapist-25-40-perpetual-by-agreement-physio-swiss-8444-henggart",
+        "fr": "physiotherapeute-25-40-perpetuel-d-accord-physio-swiss-8444-henggart"
       },
       "company": "Physio swiss",
       "companyKey": "physioswiss",
@@ -20300,11 +20324,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "physiotherapeutin-25-40-unbefristet-nach-vereinbarung-8444-henggart-physioswiss-ch"
+          "physiotherapeutin-25-40-unbefristet-nach-vereinbarung-8444-henggart-physioswiss-ch",
+          "physiotherapeutin-25-40-unbefristet-nach-vereinbarung-physio-swiss-henggart"
+        ],
+        "en": [
+          "physiotherapeutin-25-40-unbefristet-nach-vereinbarung-physio-swiss-henggart"
+        ],
+        "fr": [
+          "physiotherapeutin-25-40-unbefristet-nach-vereinbarung-physio-swiss-henggart"
         ]
       },
       "previousSlugs": [
-        "physiotherapeutin-25-40-unbefristet-nach-vereinbarung-8444-henggart-physioswiss-ch"
+        "physiotherapeutin-25-40-unbefristet-nach-vereinbarung-8444-henggart-physioswiss-ch",
+        "physiotherapeutin-25-40-unbefristet-nach-vereinbarung-physio-swiss-henggart"
       ],
       "salaryMin": 29400,
       "salaryMax": 44600,
@@ -20331,8 +20363,8 @@
       "slugByLocale": {
         "de": "dipl-physiotherapeut-in-80-100-8044-zurich-physioswiss-ch",
         "it": "dipl-physiotherapeut-in-80-100-physio-swiss-zurich",
-        "en": "dipl-physiotherapeut-in-80-100-physio-swiss-zurich",
-        "fr": "dipl-physiotherapeut-in-80-100-physio-swiss-zurich"
+        "en": "certified-physiotherapist-80-100-physio-swiss-8044-zurich",
+        "fr": "physiotherapeute-diplome-80-100-physio-swiss-8044-zurich"
       },
       "company": "Physio swiss",
       "companyKey": "physioswiss",
@@ -20407,12 +20439,12 @@
     },
     {
       "id": "physioswiss-4d1f77acddb2",
-      "slug": "physiotherapeut-in-40-100-mit-perspektive-auf-teilhaberschaft-physio-swiss-fraubrunnen",
+      "slug": "fisioterapista-40-100-con-prospettiva-di-partecipazione-physio-swiss-3312-fraubrunnen",
       "slugByLocale": {
         "de": "physiotherapeut-in-40-100-mit-perspektive-auf-teilhaberschaft-3312-fraubrunnen-physioswiss",
-        "it": "physiotherapeut-in-40-100-mit-perspektive-auf-teilhaberschaft-physio-swiss-fraubrunnen",
-        "en": "physiotherapeut-in-40-100-mit-perspektive-auf-teilhaberschaft-physio-swiss-fraubrunnen",
-        "fr": "physiotherapeut-in-40-100-mit-perspektive-auf-teilhaberschaft-physio-swiss-fraubrunnen"
+        "it": "fisioterapista-40-100-con-prospettiva-di-partecipazione-physio-swiss-3312-fraubrunnen",
+        "en": "physiotherapist-40-100-with-perspective-on-partnership-physio-swiss-3312-fraubrunnen",
+        "fr": "physiotherapeute-40-100-avec-perspective-d-affiliation-physio-swiss-3312-fraubrunnen"
       },
       "company": "Physio swiss",
       "companyKey": "physioswiss",
@@ -20460,11 +20492,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "physiotherapeut-in-40-100-mit-perspektive-auf-teilhaberschaft-3312-fraubrunnen-physioswiss"
+          "physiotherapeut-in-40-100-mit-perspektive-auf-teilhaberschaft-3312-fraubrunnen-physioswiss",
+          "physiotherapeut-in-40-100-mit-perspektive-auf-teilhaberschaft-physio-swiss-fraubrunnen"
+        ],
+        "en": [
+          "physiotherapeut-in-40-100-mit-perspektive-auf-teilhaberschaft-physio-swiss-fraubrunnen"
+        ],
+        "fr": [
+          "physiotherapeut-in-40-100-mit-perspektive-auf-teilhaberschaft-physio-swiss-fraubrunnen"
         ]
       },
       "previousSlugs": [
-        "physiotherapeut-in-40-100-mit-perspektive-auf-teilhaberschaft-3312-fraubrunnen-physioswiss"
+        "physiotherapeut-in-40-100-mit-perspektive-auf-teilhaberschaft-3312-fraubrunnen-physioswiss",
+        "physiotherapeut-in-40-100-mit-perspektive-auf-teilhaberschaft-physio-swiss-fraubrunnen"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,

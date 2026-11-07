@@ -871,14 +871,12 @@
           "collaborateur-trice-logistique-60-ikea-vernier"
         ],
         "de": [
-          "logistikbeitrag-60-ikea-riddes-valais",
           "collaborateur-trice-logistique-60-ikea-vernier",
           "logistikkoordinator-60-ikea-vernier"
         ]
       },
       "previousSlugs": [
         "collaborateur-trice-logistique-60-ikea-ch",
-        "logistikbeitrag-60-ikea-riddes-valais",
         "collaborateur-trice-logistique-60-ikea-vernier",
         "logistikkoordinator-60-ikea-vernier"
       ],
@@ -1066,15 +1064,11 @@
         ],
         "en": [
           "collaborateur-trice-de-vente-60-ikea-aubonne"
-        ],
-        "de": [
-          "vendite-associate-60-ikea-vernier-geneve-switzerland"
         ]
       },
       "previousSlugs": [
         "collaborateur-trice-de-vente-60-ikea-ch",
-        "collaborateur-trice-de-vente-60-ikea-aubonne",
-        "vendite-associate-60-ikea-vernier-geneve-switzerland"
+        "collaborateur-trice-de-vente-60-ikea-aubonne"
       ],
       "salaryMin": 36300,
       "salaryMax": 54900,
@@ -1097,10 +1091,10 @@
     },
     {
       "id": "ikea-c39cf3d96761",
-      "slug": "addetto-a-alla-logistica-picking-50-spatschicht-17-00-21-00-16-00-20-00-ikea-dietlikon",
+      "slug": "logistica-picking-dipendenti-50-turno-di-notte-17-00-21-00-16-00-20-00-ikea-dietlikon-zurich",
       "slugByLocale": {
         "de": "mitarbeiter-in-logistik-picking-50-spatschicht-17-00-21-00-16-00-20-00-ikea-ch",
-        "it": "addetto-a-alla-logistica-picking-50-spatschicht-17-00-21-00-16-00-20-00-ikea-dietlikon",
+        "it": "logistica-picking-dipendenti-50-turno-di-notte-17-00-21-00-16-00-20-00-ikea-dietlikon-zurich",
         "en": "logistics-picking-employee-50-late-shift-17-00-21-00-16-00-20-00-ikea-dietlikon-zurich",
         "fr": "collaborateur-en-logistique-picking-50-equipe-de-nuit-17-h-00-21-h-00-16-h-00-20-h-00-ikea-dietlikon-zurich"
       },
@@ -1148,7 +1142,8 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-logistik-picking-50-spatschicht-17-00-21-00-16-00-20-00-ikea-ch"
+          "mitarbeiter-in-logistik-picking-50-spatschicht-17-00-21-00-16-00-20-00-ikea-ch",
+          "addetto-a-alla-logistica-picking-50-spatschicht-17-00-21-00-16-00-20-00-ikea-dietlikon"
         ],
         "en": [
           "mitarbeiter-in-logistik-picking-50-spatschicht-17-00-21-00-16-00-20-00-ikea-ch",
@@ -1162,7 +1157,8 @@
       "previousSlugs": [
         "mitarbeiter-in-logistik-picking-50-spatschicht-17-00-21-00-16-00-20-00-ikea-ch",
         "logistics-picking-employee-50-late-shift-17-00-21-00-16-00-20-00-ikea-dietlikon",
-        "collaborateur-en-logistique-picking-50-equipe-de-nuit-17-h-00-21-h-00-16-h-00-20-h-00-ikea-dietlikon"
+        "collaborateur-en-logistique-picking-50-equipe-de-nuit-17-h-00-21-h-00-16-h-00-20-h-00-ikea-dietlikon",
+        "addetto-a-alla-logistica-picking-50-spatschicht-17-00-21-00-16-00-20-00-ikea-dietlikon"
       ],
       "salaryMin": 36800,
       "salaryMax": 55800,
@@ -1720,10 +1716,10 @@
     },
     {
       "id": "ikea-2c85eb4bfc04",
-      "slug": "addetto-a-alle-vendite-wohnzimmer-e-buroabteilung-60-ikea-lyssach",
+      "slug": "vendite-dipendenti-soggiorno-e-ufficio-60-ikea-lyssach-bern",
       "slugByLocale": {
         "de": "mitarbeiter-in-verkauf-wohnzimmer-und-buroabteilung-60-ikea-ch",
-        "it": "addetto-a-alle-vendite-wohnzimmer-e-buroabteilung-60-ikea-lyssach",
+        "it": "vendite-dipendenti-soggiorno-e-ufficio-60-ikea-lyssach-bern",
         "en": "living-room-and-office-department-sales-associate-60-ikea-lyssach-bern",
         "fr": "employe-e-en-vente-salon-et-bureau-60-ikea-lyssach-bern"
       },
@@ -1773,7 +1769,8 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-verkauf-wohnzimmer-und-buroabteilung-60-ikea-ch"
+          "mitarbeiter-in-verkauf-wohnzimmer-und-buroabteilung-60-ikea-ch",
+          "addetto-a-alle-vendite-wohnzimmer-e-buroabteilung-60-ikea-lyssach"
         ],
         "en": [
           "mitarbeiter-in-verkauf-wohnzimmer-und-buroabteilung-60-ikea-ch",
@@ -1787,7 +1784,8 @@
       "previousSlugs": [
         "mitarbeiter-in-verkauf-wohnzimmer-und-buroabteilung-60-ikea-ch",
         "living-room-and-office-department-sales-associate-60-ikea-lyssach",
-        "employe-e-en-vente-salon-et-bureau-60-ikea-lyssach"
+        "employe-e-en-vente-salon-et-bureau-60-ikea-lyssach",
+        "addetto-a-alle-vendite-wohnzimmer-e-buroabteilung-60-ikea-lyssach"
       ],
       "salaryMin": 46500,
       "salaryMax": 71100,

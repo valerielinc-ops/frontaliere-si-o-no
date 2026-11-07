@@ -178,12 +178,12 @@
     },
     {
       "id": "stellentreff-9c9f669c97fc",
-      "slug": "zimmermann-zimmerin-per-fenstermontage-e-sicherheit-stellentreff-ag-hochdorf",
+      "slug": "carpentiere-a-per-il-montaggio-delle-finestre-e-la-sicurezza-stellentreff-ag-hochdorf-luzern",
       "slugByLocale": {
         "de": "zimmermann-zimmerin-fur-fenstermontage-und-sicherheit-hochdorf-luzern-stellentreff-ch",
-        "it": "zimmermann-zimmerin-per-fenstermontage-e-sicherheit-stellentreff-ag-hochdorf",
-        "en": "zimmermann-zimmerin-fur-fenstermontage-und-sicherheit-hochdorf-luzern-stellentreff-ch",
-        "fr": "zimmermann-zimmerin-fur-fenstermontage-und-sicherheit-hochdorf-luzern-stellentreff-ch"
+        "it": "carpentiere-a-per-il-montaggio-delle-finestre-e-la-sicurezza-stellentreff-ag-hochdorf-luzern",
+        "en": "carpenter-for-window-assembly-and-security-stellentreff-ag-hochdorf-luzern",
+        "fr": "charpentier-charpentiere-pour-le-montage-de-fenetres-et-la-securite-stellentreff-ag-hochdorf-luzern"
       },
       "company": "Stellentreff AG",
       "companyKey": "stellentreff",
@@ -230,11 +230,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "zimmermann-zimmerin-fur-fenstermontage-und-sicherheit-hochdorf-luzern-stellentreff-ch",
+          "zimmermann-zimmerin-per-fenstermontage-e-sicherheit-stellentreff-ag-hochdorf"
+        ],
+        "en": [
+          "zimmermann-zimmerin-fur-fenstermontage-und-sicherheit-hochdorf-luzern-stellentreff-ch"
+        ],
+        "fr": [
           "zimmermann-zimmerin-fur-fenstermontage-und-sicherheit-hochdorf-luzern-stellentreff-ch"
         ]
       },
       "previousSlugs": [
-        "zimmermann-zimmerin-fur-fenstermontage-und-sicherheit-hochdorf-luzern-stellentreff-ch"
+        "zimmermann-zimmerin-fur-fenstermontage-und-sicherheit-hochdorf-luzern-stellentreff-ch",
+        "zimmermann-zimmerin-per-fenstermontage-e-sicherheit-stellentreff-ag-hochdorf"
       ],
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -255,7 +263,7 @@
       "validThrough": "2027-02-02T09:44:18.854Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-07T09:44:18.854Z",
-      "translationHoldSince": "2026-11-07T09:44:39.942Z"
+      "translationHoldReleasedAt": "2026-11-07T14:13:59.870Z"
     },
     {
       "id": "stellentreff-f242e8204bc5",
@@ -435,8 +443,8 @@
       "slugByLocale": {
         "de": "zimmermann-zimmerin-fur-holzbaukonstruktionen-und-fassadenmontage-willisau-luzern",
         "it": "zimmermann-zimmerin-per-holzbaukonstruktionen-e-fassadenmontage-stellentreff-ag-willisau",
-        "en": "zimmermann-zimmerin-fur-holzbaukonstruktionen-und-fassadenmontage-stellentreff-ag-willisau",
-        "fr": "zimmermann-zimmerin-fur-holzbaukonstruktionen-und-fassadenmontage-stellentreff-ag-willisau"
+        "en": "carpenter-for-timber-constructions-and-facade-assembly-stellentreff-ag-willisau-luzern",
+        "fr": "charpentier-pour-constructions-en-bois-et-montage-de-facades-stellentreff-ag-willisau-luzern"
       },
       "company": "Stellentreff AG",
       "companyKey": "stellentreff",
@@ -486,16 +494,15 @@
           "zimmermann-zimmerin-fur-holzbaukonstruktionen-und-fassadenmontage-willisau-luzern"
         ],
         "en": [
-          "carpenter-for-timber-constructions-and-facade-assembly-stellentreff-ag-willisau-luzern"
+          "zimmermann-zimmerin-fur-holzbaukonstruktionen-und-fassadenmontage-stellentreff-ag-willisau"
         ],
         "fr": [
-          "charpentier-pour-constructions-en-bois-et-montage-de-facades-stellentreff-ag-willisau-luzern"
+          "zimmermann-zimmerin-fur-holzbaukonstruktionen-und-fassadenmontage-stellentreff-ag-willisau"
         ]
       },
       "previousSlugs": [
         "zimmermann-zimmerin-fur-holzbaukonstruktionen-und-fassadenmontage-willisau-luzern",
-        "carpenter-for-timber-constructions-and-facade-assembly-stellentreff-ag-willisau-luzern",
-        "charpentier-pour-constructions-en-bois-et-montage-de-facades-stellentreff-ag-willisau-luzern"
+        "zimmermann-zimmerin-fur-holzbaukonstruktionen-und-fassadenmontage-stellentreff-ag-willisau"
       ],
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -515,7 +522,7 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-10T09:44:18.854Z",
       "validThroughSource": "last-observed-window",
-      "translationHoldSince": "2026-11-07T09:44:39.942Z"
+      "translationHoldReleasedAt": "2026-11-07T14:13:59.870Z"
     },
     {
       "id": "stellentreff-3020a455ccc6",

@@ -5913,12 +5913,12 @@
     },
     {
       "id": "kanton-aargau-940e16658bf3",
-      "slug": "mittelschullehrperson-schulmusik-50-100-kanton-aargau-ch",
+      "slug": "insegnante-di-scuola-musica-scolastica-50-100-kanton-aargau-wettingen",
       "slugByLocale": {
         "de": "mittelschullehrperson-schulmusik-50-100-kanton-aargau-ch",
-        "it": "mittelschullehrperson-schulmusik-50-100-kanton-aargau-ch",
-        "en": "mittelschullehrperson-schulmusik-50-100-kanton-aargau-ch",
-        "fr": "mittelschullehrperson-schulmusik-50-100-kanton-aargau-ch"
+        "it": "insegnante-di-scuola-musica-scolastica-50-100-kanton-aargau-wettingen",
+        "en": "secondary-school-teacher-school-music-50-100-kanton-aargau-wettingen",
+        "fr": "professeur-d-ecole-secondaire-musique-scolaire-50-100-kanton-aargau-wettingen"
       },
       "company": "Kanton Aargau",
       "companyKey": "kanton-aargau",
@@ -5981,16 +5981,30 @@
       },
       "streetAddressSource": "listing-source",
       "validThroughSource": "source",
-      "firstSeenAt": "2026-11-07T09:42:07.037Z"
+      "firstSeenAt": "2026-11-07T09:42:07.037Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "mittelschullehrperson-schulmusik-50-100-kanton-aargau-ch"
+        ],
+        "en": [
+          "mittelschullehrperson-schulmusik-50-100-kanton-aargau-ch"
+        ],
+        "fr": [
+          "mittelschullehrperson-schulmusik-50-100-kanton-aargau-ch"
+        ]
+      },
+      "previousSlugs": [
+        "mittelschullehrperson-schulmusik-50-100-kanton-aargau-ch"
+      ]
     },
     {
       "id": "kanton-aargau-7b7932532415",
-      "slug": "lehrperson-berufskunde-fage-80-100-auch-aufteilbar-kanton-aargau-ch",
+      "slug": "master-professional-studies-fage-80-100-anche-splittable-kanton-aargau-schulstandorte-brugg-und-aussenstandorte",
       "slugByLocale": {
         "de": "lehrperson-berufskunde-fage-80-100-auch-aufteilbar-kanton-aargau-ch",
-        "it": "lehrperson-berufskunde-fage-80-100-auch-aufteilbar-kanton-aargau-ch",
-        "en": "lehrperson-berufskunde-fage-80-100-auch-aufteilbar-kanton-aargau-ch",
-        "fr": "lehrperson-berufskunde-fage-80-100-auch-aufteilbar-kanton-aargau-ch"
+        "it": "master-professional-studies-fage-80-100-anche-splittable-kanton-aargau-schulstandorte-brugg-und-aussenstandorte",
+        "en": "teacher-professional-studies-fage-80-100-also-splittable-kanton-aargau-schulstandorte-brugg-und-aussenstandorte",
+        "fr": "enseignant-etudes-professionnelles-fage-80-100-egalement-divisable-kanton-aargau-schulstandorte-brugg-und"
       },
       "company": "Kanton Aargau",
       "companyKey": "kanton-aargau",
@@ -6053,7 +6067,21 @@
       },
       "streetAddressSource": "listing-source",
       "validThroughSource": "source",
-      "firstSeenAt": "2026-11-07T09:42:05.533Z"
+      "firstSeenAt": "2026-11-07T09:42:05.533Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "lehrperson-berufskunde-fage-80-100-auch-aufteilbar-kanton-aargau-ch"
+        ],
+        "en": [
+          "lehrperson-berufskunde-fage-80-100-auch-aufteilbar-kanton-aargau-ch"
+        ],
+        "fr": [
+          "lehrperson-berufskunde-fage-80-100-auch-aufteilbar-kanton-aargau-ch"
+        ]
+      },
+      "previousSlugs": [
+        "lehrperson-berufskunde-fage-80-100-auch-aufteilbar-kanton-aargau-ch"
+      ]
     },
     {
       "id": "kanton-aargau-c4ee67aa9227",

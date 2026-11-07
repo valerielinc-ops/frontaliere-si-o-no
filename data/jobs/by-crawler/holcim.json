@@ -2809,12 +2809,12 @@
     },
     {
       "id": "holcim-327372fbec4c",
-      "slug": "commercial-traineeship-french-holcim-ch",
+      "slug": "formazione-commerciale-francese-holcim-group-zurich",
       "slugByLocale": {
         "en": "commercial-traineeship-french-holcim-ch",
-        "it": "commercial-traineeship-french-holcim-ch",
+        "it": "formazione-commerciale-francese-holcim-group-zurich",
         "de": "commercial-traineeship-french-holcim-ch",
-        "fr": "commercial-traineeship-french-holcim-ch"
+        "fr": "stage-commercial-francais-holcim-group-zurich"
       },
       "company": "Holcim Group",
       "companyKey": "holcim",
@@ -2876,7 +2876,18 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-04T09:39:45.106Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-07T09:39:45.106Z"
+      "firstSeenAt": "2026-11-07T09:39:45.106Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "commercial-traineeship-french-holcim-ch"
+        ],
+        "fr": [
+          "commercial-traineeship-french-holcim-ch"
+        ]
+      },
+      "previousSlugs": [
+        "commercial-traineeship-french-holcim-ch"
+      ]
     }
   ]
 }
