@@ -53,7 +53,6 @@ const OUT_SUBDIR = 'og/jobs';
 const CACHE_SUBDIR = '.cache/og-jobs';
 const CACHE_COMPLETION_MARKER = '.complete';
 
-function writeFileAtomically(filePath: string, data: Buffer | string): void {
 function writeFileAtomicallySync(filePath: string, data: Buffer | string): void {
   const temporaryPath = `${filePath}.tmp-${process.pid}`;
   try {

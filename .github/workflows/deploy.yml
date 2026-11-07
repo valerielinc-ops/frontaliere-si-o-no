@@ -1074,8 +1074,8 @@ jobs:
       # its completed pass, even if that later gate fails. Each WebP is atomic;
       # a missing entry is rendered on the next run. The marker avoids saving a
       # cold/empty cache when the build failed before the plugin ran.
-      - name: Save completed per-job OG image cache
-        if: ${{ always() && matrix.locale == 'it' && steps.job_og_images_cache.outcome == 'success' && (steps.build_step.outcome == 'success' || steps.build_step.outcome == 'failure') && hashFiles('.cache/og-jobs/.complete') != '' }}
+      - name: Save per-job OG images after successful build
+        if: ${{ always() && matrix.locale == 'it' && steps.job_og_images_cache.outcome == 'success' && hashFiles('.cache/og-jobs/.complete') != '' && (steps.build_step.outcome == 'success' || steps.build_step.outcome == 'failure') }}
         uses: actions/cache/save@v6
         continue-on-error: true
         with:
