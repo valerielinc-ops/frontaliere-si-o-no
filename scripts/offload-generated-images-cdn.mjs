@@ -57,9 +57,14 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { Worker, isMainThread, parentPort, workerData } from 'node:worker_threads';
 import {
-  ASSET_EXT_ALTERNATION,
   ASSETS_SAME_ORIGIN_RX,
 } from '../build-plugins/shared/cdnAssetOffloadRx.mjs';
+import {
+  CDN_OFFLOAD_ASSET_FILE_PATTERN,
+  CDN_OFFLOAD_DATA_FILE_PATTERN,
+  CDN_OFFLOAD_IMAGE_FILE_PATTERN,
+  CDN_OFFLOADED_IMAGE_TARGETS,
+} from '../build-plugins/shared/cdnOffloadTargets.mjs';
 import {
   CDN_ASSET_CHECK_BUDGET_MS,
   formatCdnAssetReport,
@@ -157,8 +162,9 @@ async function retryCdnAssetProbe(
   return response;
 }
 
-// Offload targets: [dist subdir, url path prefix]. Only these prefixes are
-// rewritten/guarded/deleted.
+// Offload targets are defined in cdnOffloadTargets.mjs so the rewrite and its
+// publication invariant use the same prefixes and file suffixes. Only these
+// prefixes are rewritten/guarded/deleted.
 //
 // Per-job OG cards + blog 480w thumbnails.
 //  • OG refs (`<meta property="og:image">`) are in static HTML so the rewrite
@@ -186,24 +192,6 @@ async function retryCdnAssetProbe(
 //    `/images/places/` is NOT here: it stays same-origin (blog hero places), not
 //    pushed to the CDN. (MUST stay in sync with CDN_OFFLOADED_IMAGE_PREFIXES in
 //    services/cdnImageBase.ts and the deploy.yml CDN-push staging step.)
-const TARGETS = [
-  { dir: ['og'], url: '/og/' },
-  { dir: ['images', 'blog', 'thumbnails'], url: '/images/blog/thumbnails/' },
-  { dir: ['images', 'brands'], url: '/images/brands/' },
-  { dir: ['images', 'insurers'], url: '/images/insurers/' },
-  { dir: ['images', 'providers'], url: '/images/providers/' },
-  { dir: ['images', 'logos'], url: '/images/logos/' },
-  { dir: ['images', 'authors'], url: '/images/authors/' },
-  { dir: ['images', 'publisher'], url: '/images/publisher/' },
-  { dir: ['images', 'job-search-campaign'], url: '/images/job-search-campaign/' },
-  // Nationwide events feature (issue #3125): no-hotlink mirrored source images
-  // (scripts/lib/events-utils.mjs mirrorEventImage -> public/images/events/).
-  // MUST stay in sync with CDN_OFFLOADED_IMAGE_PREFIXES in
-  // services/cdnImageBase.ts, the deploy-it-pages-prep.sh CDN-push staging
-  // loop, and ensure-image-cdn-redirect.mjs OFFLOADED_PREFIXES.
-  { dir: ['images', 'events'], url: '/images/events/' },
-];
-
 function isHtmlWhitespace(char) {
   return char === ' ' || char === '\t' || char === '\n' || char === '\r' || char === '\f';
 }
@@ -582,8 +570,8 @@ function walkAll(dir, fn) {
 // File-tail patterns (capture group 1 = the relative path under the prefix).
 // OG_FILE covers og cards AND the brand/logo/author image TARGETS, so its
 // extension set spans every image type those dirs hold (incl. .ico/.gif).
-const OG_FILE = "([^\"'\\s)?]+?\\.(?:webp|png|jpe?g|avif|svg|ico|gif))";
-const ASSET_FILE = `([^\"'\\s)?]+?\\.(?:${ASSET_EXT_ALTERNATION}))`;
+const OG_FILE = CDN_OFFLOAD_IMAGE_FILE_PATTERN;
+const ASSET_FILE = CDN_OFFLOAD_ASSET_FILE_PATTERN;
 // Guard-B parity: the SUPERSET regex the deploy "Drop dist/assets" step greps
 // for, kept 1:1 with its bash ERE. A same-origin /assets/<file>.<ext> ref that
 // SURVIVES the rewrite below (e.g. a custom SSG path that didn't go through
@@ -597,7 +585,7 @@ const ASSET_FILE = `([^\"'\\s)?]+?\\.(?:${ASSET_EXT_ALTERNATION}))`;
 // matching bash ERE (ASSETS_SAME_ORIGIN_ERE) consumed by the deploy "Drop dist/assets"
 // step — so the marker producer and the workflow grep can never drift (a divergence
 // would 404 offloaded /assets/ refs). See that module's header.
-const DATA_FILE = "([^\"'\\s)?<>]+?\\.(?:json|csv))";
+const DATA_FILE = CDN_OFFLOAD_DATA_FILE_PATTERN;
 
 // ── Single-pass offload over dist HTML/XML/TXT ───────────────────────────────
 // Reads each emitted HTML/XML/TXT file ONCE and applies every CDN rewrite +
@@ -630,8 +618,8 @@ async function offloadAll(distDir, cdnBase, onlyFiles = null, { chunk = false } 
   // Googlebot-Image) while /assets/ + /data/ rewrites on the SAME pages did
   // apply. Dir presence only matters for the guarded DELETE below (can't
   // delete what isn't there) — that's what ogTargets gates.
-  const ogTargets = TARGETS.filter((t) => fs.existsSync(path.join(distDir, ...t.dir)));
-  const ogCompiled = TARGETS.map((t) => {
+  const ogTargets = CDN_OFFLOADED_IMAGE_TARGETS.filter((t) => fs.existsSync(path.join(distDir, ...t.dir)));
+  const ogCompiled = CDN_OFFLOADED_IMAGE_TARGETS.map((t) => {
     const escUrl = t.url.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
     return {
       t,
