@@ -1,7 +1,7 @@
 {
   "crawlerKey": "siegfried",
-  "assembledAt": "2026-11-07T09:30:38.378Z",
-  "runId": "42358293493",
+  "assembledAt": "2026-11-07T21:21:52.163Z",
+  "runId": "42414365362",
   "jobs": [
     {
       "id": "siegfried-b2e1fb16eb0f",
@@ -34,7 +34,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Oprateur-de-production-4-8_R26_173",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-07T09:30:30.019Z",
+      "crawledAt": "2026-11-07T21:21:42.901Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -84,7 +84,7 @@
       "addressRegion": "VS",
       "streetAddress": "Evionnaz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-07T09:30:30.019Z",
+      "validThrough": "2026-12-07T21:21:42.901Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -92,7 +92,7 @@
       "slug": "tecnico-di-laboratorio-ad-siegfried-evionnaz",
       "slugByLocale": {
         "it": "tecnico-di-laboratorio-ad-siegfried-evionnaz",
-        "en": "lab-technician-ad-siegfried-evionnaz",
+        "en": "nb-t-a-siegfried-evionnaz",
         "de": "lab-techniker-ad-siegfried-evionnaz",
         "fr": "lab-technician-ad-siegfried-ch"
       },
@@ -118,7 +118,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Lab-Technician-AD_R26_315",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-07T09:30:29.319Z",
+      "crawledAt": "2026-11-07T21:21:42.323Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -163,14 +163,14 @@
         "change-over-techniker-3-8-siegfried-evionnaz",
         "changement-de-technicien-3-8-siegfried-evionnaz",
         "tecnico-di-cambio-3-8-siegfried-evionnaz",
-        "nb-t-a-siegfried-evionnaz"
+        "lab-technician-ad-siegfried-evionnaz"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lab-technician-ad-siegfried-ch"
         ],
         "en": [
-          "nb-t-a-siegfried-evionnaz"
+          "lab-technician-ad-siegfried-evionnaz"
         ],
         "de": [
           "labotechniker-ad-siegfried-evionnaz"
@@ -197,7 +197,7 @@
       "addressRegion": "VS",
       "streetAddress": "Evionnaz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-07T09:30:29.319Z",
+      "validThrough": "2026-12-07T21:21:42.323Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -231,7 +231,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Maintenance-Technician-III_R26_278",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-07T09:30:28.619Z",
+      "crawledAt": "2026-11-07T21:21:41.720Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -284,7 +284,7 @@
       "addressRegion": "VS",
       "streetAddress": "Evionnaz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-07T09:30:28.619Z",
+      "validThrough": "2026-12-07T21:21:41.720Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -318,7 +318,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Intern-Commercial-Excellence_R26_511",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-07T09:30:27.910Z",
+      "crawledAt": "2026-11-07T21:21:41.138Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -369,7 +369,7 @@
       "addressRegion": "AG",
       "streetAddress": "Zofingen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-07T09:30:27.910Z",
+      "validThrough": "2026-12-07T21:21:41.138Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -403,7 +403,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/CAD-Designer_R26_592",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-07T09:30:27.167Z",
+      "crawledAt": "2026-11-07T21:21:40.517Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -451,7 +451,7 @@
       "addressRegion": "VS",
       "streetAddress": "Evionnaz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-07T09:30:27.167Z",
+      "validThrough": "2026-12-07T21:21:40.517Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -485,7 +485,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Stage---Digitalisation-des-Processus-en-Environnement-Pharma_R26_661",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-07T09:30:26.472Z",
+      "crawledAt": "2026-11-07T21:21:39.945Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -536,7 +536,7 @@
       "addressRegion": "VS",
       "streetAddress": "Evionnaz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-07T09:30:26.472Z",
+      "validThrough": "2026-12-07T21:21:39.945Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -570,7 +570,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Ingnieur-en-chimie---Expertise-QC_R26_679",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-07T09:30:25.767Z",
+      "crawledAt": "2026-11-07T21:21:39.371Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -621,7 +621,7 @@
       "addressRegion": "VS",
       "streetAddress": "Evionnaz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-07T09:30:25.767Z",
+      "validThrough": "2026-12-07T21:21:39.371Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -655,7 +655,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Asset-Reliability-Engineer--a-_R26_713",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-07T09:30:25.099Z",
+      "crawledAt": "2026-11-07T21:21:38.773Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -704,7 +704,7 @@
       "addressRegion": "AG",
       "streetAddress": "Zofingen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-07T09:30:25.099Z",
+      "validThrough": "2026-12-07T21:21:38.773Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -714,7 +714,7 @@
         "it": "manutenzione-testa-siegfried-zofingen",
         "en": "head-maintenance-siegfried-zofingen",
         "de": "head-maintenance-siegfried-ch",
-        "fr": "entretien-de-la-tete-siegfried-zofingen"
+        "fr": "responsable-de-la-maintenance-de-production-siegfried-zofingen"
       },
       "company": "Siegfried",
       "companyKey": "siegfried",
@@ -738,7 +738,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Head-Maintenance_R26_655",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-07T09:30:24.398Z",
+      "crawledAt": "2026-11-07T21:21:38.166Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -767,14 +767,14 @@
         "fr": [
           "directeur-de-la-maintenance-de-la-production-siegfried-zofingen",
           "production-maintenance-manager-siegfried-zofingen",
-          "responsable-de-la-maintenance-de-production-siegfried-zofingen"
+          "entretien-de-la-tete-siegfried-zofingen"
         ]
       },
       "previousSlugs": [
         "production-maintenance-manager-siegfried-ch",
         "directeur-de-la-maintenance-de-la-production-siegfried-zofingen",
         "production-maintenance-manager-siegfried-zofingen",
-        "responsable-de-la-maintenance-de-production-siegfried-zofingen"
+        "entretien-de-la-tete-siegfried-zofingen"
       ],
       "firstSeenAt": "2026-09-09T14:06:01.758Z",
       "salaryMin": 85500,
@@ -794,7 +794,7 @@
       "addressRegion": "AG",
       "streetAddress": "Zofingen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-08T09:30:24.398Z",
+      "validThrough": "2026-12-08T21:21:38.166Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -828,7 +828,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/CAD-Konstrukteur--m-w-d-_R26_621",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-07T09:30:23.741Z",
+      "crawledAt": "2026-11-07T21:21:37.569Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -878,7 +878,7 @@
       "addressRegion": "AG",
       "streetAddress": "Zofingen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-13T09:30:23.741Z",
+      "validThrough": "2026-12-13T21:21:37.569Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -912,7 +912,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Senior-Maintenance-Manager_R26_795",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-07T09:30:23.030Z",
+      "crawledAt": "2026-11-07T21:21:36.996Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -963,7 +963,7 @@
       "addressRegion": "VS",
       "streetAddress": "Evionnaz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-18T09:30:23.030Z",
+      "validThrough": "2027-01-18T21:21:36.996Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -997,7 +997,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Stagiaire-HSE_R26_804",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-07T09:30:22.401Z",
+      "crawledAt": "2026-11-07T21:21:36.394Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -1048,7 +1048,7 @@
       "addressRegion": "VS",
       "streetAddress": "Evionnaz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-24T09:30:22.401Z",
+      "validThrough": "2027-01-24T21:21:36.394Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1082,7 +1082,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Chemielaborant-in-analytische-Entwicklung_R26_805",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-07T09:30:21.701Z",
+      "crawledAt": "2026-11-07T21:21:35.792Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -1133,7 +1133,7 @@
       "addressRegion": "AG",
       "streetAddress": "Zofingen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-26T09:30:21.701Z",
+      "validThrough": "2027-01-26T21:21:35.792Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1167,7 +1167,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Head-of-Engineering---Maintenance_R26_818",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-07T09:30:21.055Z",
+      "crawledAt": "2026-11-07T21:21:35.180Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -1218,7 +1218,7 @@
       "addressRegion": "VS",
       "streetAddress": "Evionnaz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-31T09:30:21.055Z",
+      "validThrough": "2027-01-31T21:21:35.180Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1252,7 +1252,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Stage---Engineering---Maintenance_R26_827",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-07T09:30:20.352Z",
+      "crawledAt": "2026-11-07T21:21:34.577Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -1303,7 +1303,7 @@
       "addressRegion": "VS",
       "streetAddress": "Evionnaz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-02T09:30:20.352Z",
+      "validThrough": "2027-02-02T21:21:34.577Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1337,7 +1337,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Senior-Manager-Business-Development-DP_R26_830",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-07T09:30:19.721Z",
+      "crawledAt": "2026-11-07T21:21:33.993Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -1389,7 +1389,7 @@
       "addressRegion": "AG",
       "streetAddress": "Zofingen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T09:30:19.721Z",
+      "validThrough": "2027-02-03T21:21:33.993Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1397,7 +1397,7 @@
       "slug": "lab-supervisore-stability-siegfried-evionnaz",
       "slugByLocale": {
         "it": "lab-supervisore-stability-siegfried-evionnaz",
-        "en": "nb-ntsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltslts",
+        "en": "nb-ntsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltslts",
         "de": "lab-vorgesetzter-stability-siegfried-evionnaz",
         "fr": "lab-supervisor-stability-siegfried-ch"
       },
@@ -1423,7 +1423,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Lab-Supervisor-Stability_R26_813",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-07T09:30:19.103Z",
+      "crawledAt": "2026-11-07T21:21:33.339Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -1444,14 +1444,14 @@
       "hiringOrganization": "Siegfried Evionnaz SA",
       "previousSlugs": [
         "lab-supervisor-stability-siegfried-ch",
-        "nb-ntsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltslts"
+        "nb-ntsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltslts"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lab-supervisor-stability-siegfried-ch"
         ],
         "en": [
-          "nb-ntsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltslts"
+          "nb-ntsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltslts"
         ],
         "de": [
           "lab-supervisor-stability-siegfried-ch"
@@ -1475,15 +1475,15 @@
       "addressRegion": "VS",
       "streetAddress": "Evionnaz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-27T09:30:19.103Z",
+      "validThrough": "2027-01-27T21:21:33.339Z",
       "validThroughSource": "last-observed-window"
     },
     {
       "id": "siegfried-3ed8e4d54221",
       "slug": "assistente-esecutivo-siegfried-zofingen",
       "slugByLocale": {
-        "en": "executive-assistant-siegfried-ch",
         "it": "assistente-esecutivo-siegfried-zofingen",
+        "en": "executive-assistant-siegfried-ch",
         "de": "executive-assistent-siegfried-zofingen",
         "fr": "assistant-executif-siegfried-zofingen"
       },
@@ -1492,24 +1492,24 @@
       "companyDomain": "siegfried.ch",
       "title": "Executive Assistant",
       "titleByLocale": {
-        "en": "Executive Assistant",
         "it": "Assistente esecutivo",
+        "en": "Executive Assistant",
         "de": "Executive Assistent",
         "fr": "Assistant exécutif"
       },
       "description": "\"Expect to grow\", personally and professionally: At Siegfried, we offer exciting challenges and ample opportunities to showcase your talents. As a trusted and respected partner to the pharmaceutical industry, we uphold the highest standards in safety, quality and sustainability, while fostering a culture that empowers you to thrive. Join a rapidly expanding global company, where diverse perspectives and experiences come together in a collaborative environment. Here, you'll find a workplace that values both collective success and your individual contributions—offering long-term opportunities to grow and make an impact.\n\nYour Role:\nYour Role\n\nIn this highly responsible and varied position, you will take on an exciting mix of administrative, coordination and organisational responsibilities. As a key point of contact, you will ensure smooth day-to-day operations while providing comprehensive support to members of the Executive Board and Senior Management, enabling them to focus on their core responsibilities.\n\nThis is a full-time position, starting in December or by mutual agreement.\n\nYour responsibilities include:\n\n-Providing administrative and organisational support to designated members of Senior Management and the Executive Board\n\n-Managing and coordinating appointments, including comprehensive calendar management\n\n-Organising and booking business travel and customer visits\n\n-Preparing meeting documentation, creating presentations and taking meeting minutes\n\n-Managing expense claims and reimbursements\n\n-Organising customer events and internal corporate functions\n\n-Maintaining internal process databases and contributing to various projects\n\n-Acting as a central point of contact and key interface for internal and external stakeholders\n\n-Handling general correspondence in German and English\n\n-Proactively resolving day-to-day operational issues and addressing unexpected challenges\n Your Profile:\n\nProfessional Qualifications\n\n• At least 3 years of experience in a similar role within an international business environment\n\n• Successfully completed commercial or business administration education, ideally complemented by further education in Executive Assistance, Office Management or Management Support (a recognised Executive Assistant qualification is an advantage)\n\n• Very good written and spoken German and English skills; French or Spanish is an advantage\n\n• Strong IT affinity and excellent command of standard MS Office applications\n\nPersonal Attributes\n\n• Service-oriented, proactive and self-motivated, with a strong sense of initiative\n\n• A collaborative team player with strong communication skills, an ability to think across functions and a natural talent for interacting with people from diverse backgrounds\n\n• Highly organised and flexible, with a structured and solution-oriented approach to work\n\nYour Benefits:\n\n• Pension Fund: Our attractive company pension scheme offers flexible options for tailoring your contribution levels to your individual needs.\n\n• Employee Share Purchase Plan: Benefit from a generous employee share purchase plan with flexible participation options.\n\n• Child Allowance: Siegfried AG provides a child allowance that is 10% higher than the statutory cantonal rate.\n\n• REKA Money: Siegfried AG offers employees a 20% discount on REKA money.\n\n• Staff Restaurant / Cafeteria: Enjoy meals at preferential rates.\n\n• Parking: Benefit from discounted parking facilities.\n\n• Central Location: Conveniently located close to the railway station, with excellent public transport connections.\n\nFounded in 1873 in Zofingen, Switzerland, Siegfried has grown into a global network of 16 sites across three continents. With a team of more than 4,200 highly skilled professionals, we take the innovations of our pharmaceutical customers to industrial scale and manufacture safe drugs for patients worldwide. As a fully integrated CDMO, Siegfried is one of the few organizations today that can carry out the development and manufacturing of APIs and finished dosage forms under one roof. This unique combination of know-how and experience makes us the most trusted partner in the pharmaceutical industry.\n\nSiegfried is a leading CDMO (Contract Development & Manufacturing Organization) headquartered in Zofingen, Switzerland. The company operates manufacturing sites in Evionnaz (Valais), Zofingen (Aargau), and Schlieren (Zurich).",
       "descriptionByLocale": {
+        "it": "\"Aspetta di crescere\", personalmente e professionalmente: A Siegfried, offriamo interessanti sfide e ampie opportunità per mostrare i vostri talenti. In qualità di partner affidabile e rispettato per l'industria farmaceutica, sosteniamo i più elevati standard di sicurezza, qualità e sostenibilità, promuovendo al contempo una cultura che ti consente di prosperare. Unisciti a una società globale in rapida espansione, dove prospettive e esperienze diverse si uniscono in un ambiente collaborativo. Qui, troverete un posto di lavoro che valorizzi il successo collettivo e i vostri contributi individuali, offrendo opportunità a lungo termine per crescere e fare un impatto.\n\nIl tuo ruolo:\nIl tuo ruolo\n\nIn questa posizione altamente responsabile e varia, si assume un mix emozionante di responsabilità amministrative, di coordinamento e organizzative. Come punto di contatto chiave, garantirai operazioni quotidiane e fluide, fornendo un supporto completo ai membri del comitato esecutivo e della direzione senior, consentendo loro di concentrarsi sulle loro responsabilità principali.\n\nSi tratta di una posizione a tempo pieno, a partire da dicembre o di comune accordo.\n\nLe tue responsabilità includono:\n\n- Fornire supporto amministrativo e organizzativo ai membri designati di Senior Management e del Executive Board\n\n-gestione e coordinamento degli appuntamenti, compresa la gestione completa del calendario\n\n- Organizzazione e prenotazione di viaggi d'affari e visite ai clienti\n\n-Preparare la documentazione di riunione, creare presentazioni e prendere i minuti di riunione\n\n-Gestione delle spese e rimborsi\n\n- Organizzazione eventi e funzioni aziendali interne\n\n- Mantenere database di processo interni e contribuire a vari progetti\n\n-Agitare come punto centrale di contatto e interfaccia chiave per gli stakeholder interni ed esterni\n\n-Mantenere la corrispondenza generale in tedesco e inglese\n\n-Risolvere attivamente questioni operative quotidiane e affrontare sfide inaspettate\nIl tuo profilo:\n\nQualifiche professionali\n\n• Almeno 3 anni di esperienza in un ruolo simile all'interno di un ambiente aziendale internazionale\n\n• Completato con successo l'istruzione commerciale o di amministrazione aziendale, idealmente completato da un'ulteriore formazione in Assistenza esecutiva, Office Management o Management Support (una qualifica riconosciuta Executive Assistant è un vantaggio)\n\n• Molto buono scritto e parlato tedesco e inglese competenze; francese o spagnolo è un vantaggio\n\n• Forte affinità IT e ottimo comando delle applicazioni standard MS Office\n\nAttributi personali\n\n• Servizio orientato, proattivo e automotivato, con un forte senso di iniziativa\n\n• Un team player collaborativo con forti capacità di comunicazione, una capacità di pensare attraverso funzioni e un talento naturale per interagire con persone di diversa provenienza\n\n• Altamente organizzato e flessibile, con un approccio strutturato e orientato alla soluzione al lavoro\n\nI vostri vantaggi:\n\n• Pension Fund: Il nostro attraente sistema pensionistico aziendale offre opzioni flessibili per personalizzare i livelli di contributo alle vostre esigenze individuali.\n\n• Piano di acquisto dei dipendenti: Approfitta di un generoso piano di acquisto azionario dei dipendenti con opzioni di partecipazione flessibili.\n\n• Consentimento del bambino: Siegfried AG fornisce un'indennità per bambini superiore al 10% rispetto al tasso cantonale legale.\n\n• REKA Money: Siegfried AG offre ai dipendenti uno sconto del 20% sui soldi REKA.\n\n• Staff Ristorante / Caffetteria: Godetevi i pasti a tariffe preferenziali.\n\n• Parcheggio: Approfitta dei servizi di parcheggio scontati.\n\n• Posizione centrale: Situato in posizione strategica vicino alla stazione ferroviaria, con ottimi collegamenti con i mezzi pubblici.\n\nFondata nel 1873 a Zofingen, in Svizzera, Siegfried è cresciuta in una rete globale di 16 siti in tre continenti. Con un team di oltre 4.200 professionisti altamente qualificati, portiamo le innovazioni dei nostri clienti farmaceutici a scala industriale e produciamo farmaci sicuri per i pazienti in tutto il mondo. Come CDMO completamente integrato, Siegfried è una delle poche organizzazioni oggi in grado di effettuare lo sviluppo e la produzione di API e forme di dosaggio finito sotto un unico tetto. Questa combinazione unica di know-how ed esperienza ci rende il partner più affidabile nel settore farmaceutico.\n\nSiegfried è un CDMO leader (Contract Development & Manufacturing Organization) con sede a Zofingen, in Svizzera. L'azienda gestisce stabilimenti produttivi a Evionnaz (Valais), Zofingen (Aargau), e Schlieren (Zurich).",
         "en": "\"Expect to grow\", personally and professionally: At Siegfried, we offer exciting challenges and ample opportunities to showcase your talents. As a trusted and respected partner to the pharmaceutical industry, we uphold the highest standards in safety, quality and sustainability, while fostering a culture that empowers you to thrive. Join a rapidly expanding global company, where diverse perspectives and experiences come together in a collaborative environment. Here, you'll find a workplace that values both collective success and your individual contributions—offering long-term opportunities to grow and make an impact.\n\nYour Role:\nYour Role\n\nIn this highly responsible and varied position, you will take on an exciting mix of administrative, coordination and organisational responsibilities. As a key point of contact, you will ensure smooth day-to-day operations while providing comprehensive support to members of the Executive Board and Senior Management, enabling them to focus on their core responsibilities.\n\nThis is a full-time position, starting in December or by mutual agreement.\n\nYour responsibilities include:\n\n-Providing administrative and organisational support to designated members of Senior Management and the Executive Board\n\n-Managing and coordinating appointments, including comprehensive calendar management\n\n-Organising and booking business travel and customer visits\n\n-Preparing meeting documentation, creating presentations and taking meeting minutes\n\n-Managing expense claims and reimbursements\n\n-Organising customer events and internal corporate functions\n\n-Maintaining internal process databases and contributing to various projects\n\n-Acting as a central point of contact and key interface for internal and external stakeholders\n\n-Handling general correspondence in German and English\n\n-Proactively resolving day-to-day operational issues and addressing unexpected challenges\nYour Profile:\n\nProfessional Qualifications\n\n• At least 3 years of experience in a similar role within an international business environment\n\n• Successfully completed commercial or business administration education, ideally complemented by further education in Executive Assistance, Office Management or Management Support (a recognised Executive Assistant qualification is an advantage)\n\n• Very good written and spoken German and English skills; French or Spanish is an advantage\n\n• Strong IT affinity and excellent command of standard MS Office applications\n\nPersonal Attributes\n\n• Service-oriented, proactive and self-motivated, with a strong sense of initiative\n\n• A collaborative team player with strong communication skills, an ability to think across functions and a natural talent for interacting with people from diverse backgrounds\n\n• Highly organised and flexible, with a structured and solution-oriented approach to work\n\nYour Benefits:\n\n• Pension Fund: Our attractive company pension scheme offers flexible options for tailoring your contribution levels to your individual needs.\n\n• Employee Share Purchase Plan: Benefit from a generous employee share purchase plan with flexible participation options.\n\n• Child Allowance: Siegfried AG provides a child allowance that is 10% higher than the statutory cantonal rate.\n\n• REKA Money: Siegfried AG offers employees a 20% discount on REKA money.\n\n• Staff Restaurant / Cafeteria: Enjoy meals at preferential rates.\n\n• Parking: Benefit from discounted parking facilities.\n\n• Central Location: Conveniently located close to the railway station, with excellent public transport connections.\n\nFounded in 1873 in Zofingen, Switzerland, Siegfried has grown into a global network of 16 sites across three continents. With a team of more than 4,200 highly skilled professionals, we take the innovations of our pharmaceutical customers to industrial scale and manufacture safe drugs for patients worldwide. As a fully integrated CDMO, Siegfried is one of the few organizations today that can carry out the development and manufacturing of APIs and finished dosage forms under one roof. This unique combination of know-how and experience makes us the most trusted partner in the pharmaceutical industry.\n\nSiegfried is a leading CDMO (Contract Development & Manufacturing Organization) headquartered in Zofingen, Switzerland. The company operates manufacturing sites in Evionnaz (Valais), Zofingen (Aargau), and Schlieren (Zurich).",
-        "it": "\"Aspetta di crescere\", personalmente e professionalmente: A Siegfried, offriamo interessanti sfide e ampie opportunità per mostrare i vostri talenti. In qualità di partner affidabile e rispettato per l'industria farmaceutica, sosteniamo i più elevati standard di sicurezza, qualità e sostenibilità, promuovendo al contempo una cultura che ti consente di prosperare. Unisciti a una società globale in rapida espansione, dove prospettive e esperienze diverse si uniscono in un ambiente collaborativo. Qui, troverete un posto di lavoro che valorizzi il successo collettivo e i vostri contributi individuali, offrendo opportunità a lungo termine per crescere e fare un impatto.\n\nIl tuo ruolo:\nIl tuo ruolo\n\nIn questa posizione altamente responsabile e varia, si assume un mix emozionante di responsabilità amministrative, di coordinamento e organizzative. Come punto di contatto chiave, garantirai operazioni quotidiane e fluide, fornendo un supporto completo ai membri del comitato esecutivo e della direzione senior, consentendo loro di concentrarsi sulle loro responsabilità principali.\n\nSi tratta di una posizione a tempo pieno, a partire da dicembre o di comune accordo.\n\nLe tue responsabilità includono:\n\n- Fornire supporto amministrativo e organizzativo ai membri designati di Senior Management e del Executive Board\n\n-gestione e coordinamento degli appuntamenti, compresa la gestione completa del calendario\n\n- Organizzazione e prenotazione di viaggi d'affari e visite ai clienti\n\n-Preparare la documentazione di riunione, creare presentazioni e prendere i minuti di riunione\n\n-Gestione delle spese e rimborsi\n\n- Organizzazione eventi e funzioni aziendali interne\n\n- Mantenere database di processo interni e contribuire a vari progetti\n\n-Agitare come punto centrale di contatto e interfaccia chiave per gli stakeholder interni ed esterni\n\n-Mantenere la corrispondenza generale in tedesco e inglese\n\n-Risolvere attivamente questioni operative quotidiane e affrontare sfide inaspettate\n Il tuo profilo:\n\nQualifiche professionali\n\n• Almeno 3 anni di esperienza in un ruolo simile all'interno di un ambiente aziendale internazionale\n\n• Completato con successo l'istruzione commerciale o di amministrazione aziendale, idealmente completato da un'ulteriore formazione in Assistenza esecutiva, Office Management o Management Support (una qualifica riconosciuta Executive Assistant è un vantaggio)\n\n• Molto buono scritto e parlato tedesco e inglese competenze; francese o spagnolo è un vantaggio\n\n• Forte affinità IT e ottimo comando delle applicazioni standard MS Office\n\nAttributi personali\n\n• Servizio orientato, proattivo e automotivato, con un forte senso di iniziativa\n\n• Un team player collaborativo con forti capacità di comunicazione, una capacità di pensare attraverso funzioni e un talento naturale per interagire con persone di diversa provenienza\n\n• Altamente organizzato e flessibile, con un approccio strutturato e orientato alla soluzione al lavoro\n\nI vostri vantaggi:\n\n• Pension Fund: Il nostro attraente sistema pensionistico aziendale offre opzioni flessibili per personalizzare i livelli di contributo alle vostre esigenze individuali.\n\n• Piano di acquisto dei dipendenti: Approfitta di un generoso piano di acquisto azionario dei dipendenti con opzioni di partecipazione flessibili.\n\n• Consentimento del bambino: Siegfried AG fornisce un'indennità per bambini superiore al 10% rispetto al tasso cantonale legale.\n\n• REKA Money: Siegfried AG offre ai dipendenti uno sconto del 20% sui soldi REKA.\n\n• Staff Ristorante / Caffetteria: Godetevi i pasti a tariffe preferenziali.\n\n• Parcheggio: Approfitta dei servizi di parcheggio scontati.\n\n• Posizione centrale: Situato in posizione strategica vicino alla stazione ferroviaria, con ottimi collegamenti con i mezzi pubblici.\n\nFondata nel 1873 a Zofingen, in Svizzera, Siegfried è cresciuta in una rete globale di 16 siti in tre continenti. Con un team di oltre 4.200 professionisti altamente qualificati, portiamo le innovazioni dei nostri clienti farmaceutici a scala industriale e produciamo farmaci sicuri per i pazienti in tutto il mondo. Come CDMO completamente integrato, Siegfried è una delle poche organizzazioni oggi in grado di effettuare lo sviluppo e la produzione di API e forme di dosaggio finito sotto un unico tetto. Questa combinazione unica di know-how ed esperienza ci rende il partner più affidabile nel settore farmaceutico.\n\nSiegfried è un CDMO leader (Contract Development & Manufacturing Organization) con sede a Zofingen, in Svizzera. L'azienda gestisce stabilimenti produttivi a Evionnaz (Valais), Zofingen (Aargau), e Schlieren (Zurich).",
-        "de": "\"Erwarten zu wachsen\", persönlich und beruflich: Bei Siegfried bieten wir spannende Herausforderungen und reichlich Möglichkeiten, Ihre Talente zu präsentieren. Als vertrauenswürdiger und angesehener Partner der Pharmaindustrie halten wir die höchsten Standards in Bezug auf Sicherheit, Qualität und Nachhaltigkeit ein und fördern gleichzeitig eine Kultur, die es Ihnen ermöglicht, erfolgreich zu sein. Treten Sie einem schnell wachsenden globalen Unternehmen bei, in dem vielfältige Perspektiven und Erfahrungen in einem kollaborativen Umfeld zusammenkommen. Hier finden Sie einen Arbeitsplatz, der sowohl den kollektiven Erfolg als auch Ihre individuellen Beiträge wertschätzt und langfristige Wachstumschancen bietet.\n\nIhre Rolle:\nDeine Rolle\n\nIn dieser sehr verantwortungsvollen und abwechslungsreichen Position übernehmen Sie eine spannende Mischung aus administrativen, koordinierenden und organisatorischen Verantwortlichkeiten. Als zentraler Ansprechpartner sorgen Sie für einen reibungslosen Tagesablauf und unterstützen die Mitglieder des Vorstands und der Geschäftsleitung umfassend, sodass sie sich auf ihre Kernaufgaben konzentrieren können.\n\nDies ist eine Vollzeitstelle, beginnend im Dezember oder im gegenseitigen Einvernehmen.\n\nIhre Aufgaben umfassen:\n\nBereitstellung administrativer und organisatorischer Unterstützung für designierte Mitglieder der Geschäftsleitung und des Vorstands\n\n-Verwaltung und Koordination von Terminen, einschließlich umfassender Kalenderverwaltung\n\nOrganisation und Buchung von Geschäftsreisen und Kundenbesuchen\n\n-Vorbereiten von Besprechungsdokumentationen, Erstellen von Präsentationen und Erstellen von Besprechungsprotokollen\n\n-Verwaltung von Aufwandsforderungen und Erstattungen\n\n-Organisation von Kundenevents und internen Unternehmensfunktionen\n\nPflege von internen Prozessdatenbanken und Beitrag zu verschiedenen Projekten\n\n-Als zentrale Anlaufstelle und zentrale Schnittstelle für interne und externe Stakeholder\n\n-Verarbeitung der allgemeinen Korrespondenz in Deutsch und Englisch\n\nProaktive Lösung der täglichen operativen Probleme und Bewältigung unerwarteter Herausforderungen\n Ihr Profil:\n\nBerufsqualifikationen\n\n• Mindestens 3 Jahre Erfahrung in einer ähnlichen Rolle in einem internationalen Geschäftsumfeld\n\n• Erfolgreich abgeschlossene kaufmännische oder betriebswirtschaftliche Ausbildung, ideal ergänzt durch Weiterbildungen in Executive Assistance, Office Management oder Management Support (eine anerkannte Executive Assistant Qualifikation ist von Vorteil)\n\n• Sehr gute schriftliche und gesprochene Deutsch- und Englischkenntnisse; Französisch oder Spanisch ist von Vorteil\n\n• Starke IT-Affinität und hervorragende Beherrschung von Standard-MS Office-Anwendungen\n\nPersönliche Attribute\n\n• Serviceorientiert, proaktiv und selbstmotiviert, mit einem starken Sinn für Initiative\n\n• Ein kollaborativer Teamplayer mit starken Kommunikationsfähigkeiten, der Fähigkeit, über Funktionen hinweg zu denken, und einem natürlichen Talent für die Interaktion mit Menschen mit unterschiedlichen Hintergründen\n\n• Hoch organisiert und flexibel, mit einem strukturierten und lösungsorientierten Arbeitsansatz\n\nIhre Vorteile:\n\n• Pensionskasse: Unsere attraktive betriebliche Altersvorsorge bietet flexible Möglichkeiten, Ihre Beitragshöhen auf Ihre individuellen Bedürfnisse abzustimmen.\n\n• Employee Share Purchase Plan: Profitieren Sie von einem großzügigen Mitarbeiteraktienkaufplan mit flexiblen Beteiligungsoptionen.\n\n• Kinderzulage: Die Siegfried AG gewährt eine Kinderzulage, die 10% über dem gesetzlichen kantonalen Satz liegt.\n\n• REKA Money: Siegfried AG bietet Mitarbeitern 20% Rabatt auf REKA Geld.\n\n• Staff Restaurant / Cafeteria: Genießen Sie Mahlzeiten zu Vorzugspreisen.\n\n• Parken: Profitieren Sie von ermäßigten Parkmöglichkeiten.\n\n• Zentrale Lage: Günstig in der Nähe des Bahnhofs gelegen, mit hervorragender Anbindung an die öffentlichen Verkehrsmittel.\n\n1873 in Zofingen, Schweiz, gegründet, hat sich Siegfried zu einem globalen Netzwerk von 16 Standorten auf drei Kontinenten entwickelt. Mit einem Team von mehr als 4.200 hochqualifizierten Fachkräften bringen wir die Innovationen unserer Pharmakunden in den industriellen Maßstab und stellen sichere Medikamente für Patienten weltweit her. Als voll integriertes CDMO ist Siegfried heute eine der wenigen Organisationen, die die Entwicklung und Herstellung von APIs und fertigen Darreichungsformen unter einem Dach durchführen können. Diese einzigartige Kombination aus Know-how und Erfahrung macht uns zum vertrauenswürdigsten Partner in der Pharmaindustrie.\n\nSiegfried ist eine führende CDMO (Contract Development & Manufacturing Organization) mit Sitz in Zofingen, Schweiz. Das Unternehmen betreibt Produktionsstätten in Evionnaz (Valais), Zofingen (Aargau) und Schlieren (Zürich).",
-        "fr": "\"S'attendre à grandir\", personnellement et professionnellement: Chez Siegfried, nous offrons des défis passionnants et de nombreuses occasions de mettre en valeur vos talents. En tant que partenaire de confiance et respecté de l'industrie pharmaceutique, nous respectons les normes les plus élevées en matière de sécurité, de qualité et de durabilité, tout en favorisant une culture qui vous donne les moyens de prospérer. Rejoignez une entreprise mondiale en expansion rapide, où des perspectives et des expériences diversifiées se réunissent dans un environnement collaboratif. Ici, vous trouverez un milieu de travail qui valorise à la fois la réussite collective et votre contribution individuelle, offrant des occasions à long terme de grandir et d'avoir un impact.\n\nVotre rôle :\nVotre rôle\n\nDans cette position hautement responsable et variée, vous assumerez un ensemble passionnant de responsabilités administratives, de coordination et d'organisation. En tant que point de contact clé, vous assurerez la fluidité des opérations quotidiennes tout en offrant un soutien complet aux membres du Conseil d'administration et à la haute direction, leur permettant de se concentrer sur leurs responsabilités essentielles.\n\nIl s'agit d'un poste à temps plein, à compter de décembre ou d'un commun accord.\n\nVos responsabilités comprennent :\n\n- Fournir un soutien administratif et organisationnel aux membres désignés de la haute direction et au directoire\n\n-Gestion et coordination des nominations, y compris la gestion complète du calendrier\n\n-Organisation et réservation de voyages d'affaires et visites de clients\n\n-Préparer la documentation des réunions, créer des présentations et prendre des comptes rendus de réunions\n\n-Gestion des demandes de remboursement\n\n-Organisation d'événements clients et de fonctions internes\n\n-Maintien des bases de données internes sur les processus et contribution à divers projets\n\n-En tant que point de contact central et interface clé pour les parties prenantes internes et externes\n\nCorrespondance générale en allemand et en anglais\n\n-Résoudre proactivement les problèmes opérationnels quotidiens et relever les défis inattendus\n Votre profil:\n\nCompétences professionnelles\n\n• Au moins 3 ans d'expérience dans un rôle similaire dans un environnement commercial international\n\n• Une formation en administration commerciale ou en administration des affaires, complétée idéalement par une formation continue en aide aux cadres, en gestion de bureau ou en soutien à la gestion (une qualification reconnue d'assistant exécutif est un avantage)\n\n• Très bonnes compétences écrites et parlées en allemand et en anglais; le français ou l'espagnol est un avantage\n\n• Forte affinité informatique et excellente maîtrise des applications standard MS Office\n\nAttributs personnels\n\n• Service orienté, proactif et automotivé, avec un fort sens de l'initiative\n\n• Un joueur d'équipe collaborative avec de solides compétences en communication, une capacité de penser à travers les fonctions et un talent naturel pour interagir avec des personnes de divers horizons\n\n• Très organisé et flexible, avec une approche du travail structurée et orientée vers la solution\n\nVos avantages :\n\n• Caisse de retraite: Notre régime de retraite attrayant offre des options flexibles pour adapter vos niveaux de cotisation à vos besoins individuels.\n\n• Régime d'achat d'actions des employés : Bénéficiez d'un généreux régime d'achat d'actions des employés avec des options de participation flexibles.\n\n• Allocation pour enfant: Siegfried AG verse une allocation pour enfant supérieure de 10 % au taux cantonal légal.\n\n• REKA Money: Siegfried AG offre aux employés une réduction de 20% sur l'argent REKA.\n\n• Restaurant du personnel / Cafétéria: Profitez des repas à des tarifs préférentiels.\n\n• Parking: Bénéficiez d'un parking à prix réduit.\n\n• Situation centrale: Idéalement situé à proximité de la gare, avec d'excellentes connexions de transport en commun.\n\nFondé en 1873 à Zofingen, en Suisse, Siegfried est devenu un réseau mondial de 16 sites répartis sur trois continents. Avec une équipe de plus de 4 200 professionnels hautement qualifiés, nous apportons les innovations de nos clients pharmaceutiques à l'échelle industrielle et fabriquons des médicaments sûrs pour les patients du monde entier. En tant que CDMO entièrement intégré, Siegfried est l'une des rares organisations aujourd'hui à pouvoir réaliser le développement et la fabrication d'API et de formes posologiques finies sous un même toit. Cette combinaison unique de savoir-faire et d'expérience fait de nous le partenaire le plus fiable de l'industrie pharmaceutique.\n\nSiegfried est l'un des principaux CDMO (Contract Development & Manufacturing Organization) dont le siège est à Zofingen, en Suisse. La société exploite des sites de fabrication à Evionnaz (Valais), Zofingen (Aargau) et Schlieren (Zurich)."
+        "de": "\"Erwarten zu wachsen\", persönlich und beruflich: Bei Siegfried bieten wir spannende Herausforderungen und reichlich Möglichkeiten, Ihre Talente zu präsentieren. Als vertrauenswürdiger und angesehener Partner der Pharmaindustrie halten wir die höchsten Standards in Bezug auf Sicherheit, Qualität und Nachhaltigkeit ein und fördern gleichzeitig eine Kultur, die es Ihnen ermöglicht, erfolgreich zu sein. Treten Sie einem schnell wachsenden globalen Unternehmen bei, in dem vielfältige Perspektiven und Erfahrungen in einem kollaborativen Umfeld zusammenkommen. Hier finden Sie einen Arbeitsplatz, der sowohl den kollektiven Erfolg als auch Ihre individuellen Beiträge wertschätzt und langfristige Wachstumschancen bietet.\n\nIhre Rolle:\nDeine Rolle\n\nIn dieser sehr verantwortungsvollen und abwechslungsreichen Position übernehmen Sie eine spannende Mischung aus administrativen, koordinierenden und organisatorischen Verantwortlichkeiten. Als zentraler Ansprechpartner sorgen Sie für einen reibungslosen Tagesablauf und unterstützen die Mitglieder des Vorstands und der Geschäftsleitung umfassend, sodass sie sich auf ihre Kernaufgaben konzentrieren können.\n\nDies ist eine Vollzeitstelle, beginnend im Dezember oder im gegenseitigen Einvernehmen.\n\nIhre Aufgaben umfassen:\n\nBereitstellung administrativer und organisatorischer Unterstützung für designierte Mitglieder der Geschäftsleitung und des Vorstands\n\n-Verwaltung und Koordination von Terminen, einschließlich umfassender Kalenderverwaltung\n\nOrganisation und Buchung von Geschäftsreisen und Kundenbesuchen\n\n-Vorbereiten von Besprechungsdokumentationen, Erstellen von Präsentationen und Erstellen von Besprechungsprotokollen\n\n-Verwaltung von Aufwandsforderungen und Erstattungen\n\n-Organisation von Kundenevents und internen Unternehmensfunktionen\n\nPflege von internen Prozessdatenbanken und Beitrag zu verschiedenen Projekten\n\n-Als zentrale Anlaufstelle und zentrale Schnittstelle für interne und externe Stakeholder\n\n-Verarbeitung der allgemeinen Korrespondenz in Deutsch und Englisch\n\nProaktive Lösung der täglichen operativen Probleme und Bewältigung unerwarteter Herausforderungen\nIhr Profil:\n\nBerufsqualifikationen\n\n• Mindestens 3 Jahre Erfahrung in einer ähnlichen Rolle in einem internationalen Geschäftsumfeld\n\n• Erfolgreich abgeschlossene kaufmännische oder betriebswirtschaftliche Ausbildung, ideal ergänzt durch Weiterbildungen in Executive Assistance, Office Management oder Management Support (eine anerkannte Executive Assistant Qualifikation ist von Vorteil)\n\n• Sehr gute schriftliche und gesprochene Deutsch- und Englischkenntnisse; Französisch oder Spanisch ist von Vorteil\n\n• Starke IT-Affinität und hervorragende Beherrschung von Standard-MS Office-Anwendungen\n\nPersönliche Attribute\n\n• Serviceorientiert, proaktiv und selbstmotiviert, mit einem starken Sinn für Initiative\n\n• Ein kollaborativer Teamplayer mit starken Kommunikationsfähigkeiten, der Fähigkeit, über Funktionen hinweg zu denken, und einem natürlichen Talent für die Interaktion mit Menschen mit unterschiedlichen Hintergründen\n\n• Hoch organisiert und flexibel, mit einem strukturierten und lösungsorientierten Arbeitsansatz\n\nIhre Vorteile:\n\n• Pensionskasse: Unsere attraktive betriebliche Altersvorsorge bietet flexible Möglichkeiten, Ihre Beitragshöhen auf Ihre individuellen Bedürfnisse abzustimmen.\n\n• Employee Share Purchase Plan: Profitieren Sie von einem großzügigen Mitarbeiteraktienkaufplan mit flexiblen Beteiligungsoptionen.\n\n• Kinderzulage: Die Siegfried AG gewährt eine Kinderzulage, die 10% über dem gesetzlichen kantonalen Satz liegt.\n\n• REKA Money: Siegfried AG bietet Mitarbeitern 20% Rabatt auf REKA Geld.\n\n• Staff Restaurant / Cafeteria: Genießen Sie Mahlzeiten zu Vorzugspreisen.\n\n• Parken: Profitieren Sie von ermäßigten Parkmöglichkeiten.\n\n• Zentrale Lage: Günstig in der Nähe des Bahnhofs gelegen, mit hervorragender Anbindung an die öffentlichen Verkehrsmittel.\n\n1873 in Zofingen, Schweiz, gegründet, hat sich Siegfried zu einem globalen Netzwerk von 16 Standorten auf drei Kontinenten entwickelt. Mit einem Team von mehr als 4.200 hochqualifizierten Fachkräften bringen wir die Innovationen unserer Pharmakunden in den industriellen Maßstab und stellen sichere Medikamente für Patienten weltweit her. Als voll integriertes CDMO ist Siegfried heute eine der wenigen Organisationen, die die Entwicklung und Herstellung von APIs und fertigen Darreichungsformen unter einem Dach durchführen können. Diese einzigartige Kombination aus Know-how und Erfahrung macht uns zum vertrauenswürdigsten Partner in der Pharmaindustrie.\n\nSiegfried ist eine führende CDMO (Contract Development & Manufacturing Organization) mit Sitz in Zofingen, Schweiz. Das Unternehmen betreibt Produktionsstätten in Evionnaz (Valais), Zofingen (Aargau) und Schlieren (Zürich).",
+        "fr": "\"S'attendre à grandir\", personnellement et professionnellement: Chez Siegfried, nous offrons des défis passionnants et de nombreuses occasions de mettre en valeur vos talents. En tant que partenaire de confiance et respecté de l'industrie pharmaceutique, nous respectons les normes les plus élevées en matière de sécurité, de qualité et de durabilité, tout en favorisant une culture qui vous donne les moyens de prospérer. Rejoignez une entreprise mondiale en expansion rapide, où des perspectives et des expériences diversifiées se réunissent dans un environnement collaboratif. Ici, vous trouverez un milieu de travail qui valorise à la fois la réussite collective et votre contribution individuelle, offrant des occasions à long terme de grandir et d'avoir un impact.\n\nVotre rôle :\nVotre rôle\n\nDans cette position hautement responsable et variée, vous assumerez un ensemble passionnant de responsabilités administratives, de coordination et d'organisation. En tant que point de contact clé, vous assurerez la fluidité des opérations quotidiennes tout en offrant un soutien complet aux membres du Conseil d'administration et à la haute direction, leur permettant de se concentrer sur leurs responsabilités essentielles.\n\nIl s'agit d'un poste à temps plein, à compter de décembre ou d'un commun accord.\n\nVos responsabilités comprennent :\n\n- Fournir un soutien administratif et organisationnel aux membres désignés de la haute direction et au directoire\n\n-Gestion et coordination des nominations, y compris la gestion complète du calendrier\n\n-Organisation et réservation de voyages d'affaires et visites de clients\n\n-Préparer la documentation des réunions, créer des présentations et prendre des comptes rendus de réunions\n\n-Gestion des demandes de remboursement\n\n-Organisation d'événements clients et de fonctions internes\n\n-Maintien des bases de données internes sur les processus et contribution à divers projets\n\n-En tant que point de contact central et interface clé pour les parties prenantes internes et externes\n\nCorrespondance générale en allemand et en anglais\n\n-Résoudre proactivement les problèmes opérationnels quotidiens et relever les défis inattendus\nVotre profil:\n\nCompétences professionnelles\n\n• Au moins 3 ans d'expérience dans un rôle similaire dans un environnement commercial international\n\n• Une formation en administration commerciale ou en administration des affaires, complétée idéalement par une formation continue en aide aux cadres, en gestion de bureau ou en soutien à la gestion (une qualification reconnue d'assistant exécutif est un avantage)\n\n• Très bonnes compétences écrites et parlées en allemand et en anglais; le français ou l'espagnol est un avantage\n\n• Forte affinité informatique et excellente maîtrise des applications standard MS Office\n\nAttributs personnels\n\n• Service orienté, proactif et automotivé, avec un fort sens de l'initiative\n\n• Un joueur d'équipe collaborative avec de solides compétences en communication, une capacité de penser à travers les fonctions et un talent naturel pour interagir avec des personnes de divers horizons\n\n• Très organisé et flexible, avec une approche du travail structurée et orientée vers la solution\n\nVos avantages :\n\n• Caisse de retraite: Notre régime de retraite attrayant offre des options flexibles pour adapter vos niveaux de cotisation à vos besoins individuels.\n\n• Régime d'achat d'actions des employés : Bénéficiez d'un généreux régime d'achat d'actions des employés avec des options de participation flexibles.\n\n• Allocation pour enfant: Siegfried AG verse une allocation pour enfant supérieure de 10 % au taux cantonal légal.\n\n• REKA Money: Siegfried AG offre aux employés une réduction de 20% sur l'argent REKA.\n\n• Restaurant du personnel / Cafétéria: Profitez des repas à des tarifs préférentiels.\n\n• Parking: Bénéficiez d'un parking à prix réduit.\n\n• Situation centrale: Idéalement situé à proximité de la gare, avec d'excellentes connexions de transport en commun.\n\nFondé en 1873 à Zofingen, en Suisse, Siegfried est devenu un réseau mondial de 16 sites répartis sur trois continents. Avec une équipe de plus de 4 200 professionnels hautement qualifiés, nous apportons les innovations de nos clients pharmaceutiques à l'échelle industrielle et fabriquons des médicaments sûrs pour les patients du monde entier. En tant que CDMO entièrement intégré, Siegfried est l'une des rares organisations aujourd'hui à pouvoir réaliser le développement et la fabrication d'API et de formes posologiques finies sous un même toit. Cette combinaison unique de savoir-faire et d'expérience fait de nous le partenaire le plus fiable de l'industrie pharmaceutique.\n\nSiegfried est l'un des principaux CDMO (Contract Development & Manufacturing Organization) dont le siège est à Zofingen, en Suisse. La société exploite des sites de fabrication à Evionnaz (Valais), Zofingen (Aargau) et Schlieren (Zurich)."
       },
       "location": "Zofingen",
       "canton": "AG",
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Executive-Assistant_R26_833",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-07T09:30:18.370Z",
+      "crawledAt": "2026-11-07T21:21:32.667Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -1528,6 +1528,20 @@
       "requirementsByLocale": {},
       "jobReqId": "R26_833",
       "hiringOrganization": "Siegfried AG",
+      "previousSlugs": [
+        "executive-assistant-siegfried-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "executive-assistant-siegfried-ch"
+        ],
+        "de": [
+          "executive-assistant-siegfried-ch"
+        ],
+        "fr": [
+          "executive-assistant-siegfried-ch"
+        ]
+      },
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -1545,55 +1559,41 @@
       "addressRegion": "AG",
       "streetAddress": "Zofingen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-04T09:30:18.370Z",
-      "validThroughSource": "last-observed-window",
-      "previousSlugsByLocale": {
-        "it": [
-          "executive-assistant-siegfried-ch"
-        ],
-        "de": [
-          "executive-assistant-siegfried-ch"
-        ],
-        "fr": [
-          "executive-assistant-siegfried-ch"
-        ]
-      },
-      "previousSlugs": [
-        "executive-assistant-siegfried-ch"
-      ]
+      "validThrough": "2027-02-04T21:21:32.667Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "siegfried-b09b8dc22123",
       "slug": "stabilita-tecnica-del-laboratorio-siegfried-evionnaz",
       "slugByLocale": {
-        "fr": "lab-technician-stability-siegfried-ch",
         "it": "stabilita-tecnica-del-laboratorio-siegfried-evionnaz",
         "en": "nbb-tel-siegfried-evionnaz",
-        "de": "lab-techniker-stability-siegfried-evionnaz"
+        "de": "lab-techniker-stability-siegfried-evionnaz",
+        "fr": "lab-technician-stability-siegfried-ch"
       },
       "company": "Siegfried",
       "companyKey": "siegfried",
       "companyDomain": "siegfried.ch",
       "title": "Lab Technician Stability",
       "titleByLocale": {
-        "fr": "Lab Technician Stability",
         "it": "Stabilità tecnica del laboratorio",
         "en": "NBB Tel.",
-        "de": "Lab Techniker Stability"
+        "de": "Lab Techniker Stability",
+        "fr": "Lab Technician Stability"
       },
       "description": "\"Expect to grow\", personnellement et professionnellement : Chez Siegfried, nous offrons des défis passionnants et de nombreuses opportunités de mettre en valeur vos talents. En tant que partenaire de confiance et respecté de l'industrie pharmaceutique, nous respectons les normes les plus élevées en matière de sécurité, de qualité et de durabilité, tout en cultivant une culture qui vous permet de vous épanouir. Rejoignez une entreprise mondiale en pleine expansion, où des perspectives et des expériences diverses se rassemblent dans un environnement collaboratif. Ici, vous trouverez un lieu de travail qui valorise autant le succès collectif que vos contributions individuelles—offrant des opportunités à long terme pour évoluer et avoir un impact.\n\nYour Role:\nVous souhaitez mettre votre expertise analytique au service de l’industrie pharmaceutique ? Rejoignez notre laboratoire Stabilités et substances de référence.\n\nRattaché·e au Manager Stabilités et substances de référence, vous réalisez les analyses instrumentales et physico-chimiques liées aux études de stabilité et aux standards, dans le respect des procédures, des exigences GMP et des règles de sécurité.\n\nVos responsabilités\n\nRéaliser et contrôler les analyses instrumentales, notamment par GC, HPLC, GC-HS et UPLC, ainsi que les analyses physico-chimiques.\n\nSaisir et vérifier les résultats dans le LIMS et contrôler les analyses dans Empower.\n\nAssurer la mise en stabilité et la sortie des échantillons selon le planning établi.\n\nContribuer à la gestion des substances de référence.\n\nParticiper aux investigations liées aux résultats hors spécifications et aux déviations analytiques, proposer des tests d’hypothèses et contribuer aux actions correctives et préventives.\n\nAssurer l’entretien du laboratoire et la maintenance des appareils.\n\nParticiper à la rédaction et à la mise à jour des procédures et instructions de travail.\n\nFormer les nouveaux laborants aux techniques d’analyse.\n\nSoutenir, selon les besoins, les analyses des matières premières et de libération des produits finis, en collaboration avec les autres laboratoires de contrôle qualité.\n Your Profile:\n\n• Vous êtes titulaire d’un CFC de laborant·e en chimie ou d’une formation équivalente.\n\n• Vous disposez d’une expérience confirmée en laboratoire et maîtrisez les techniques d’analyse mentionnées.\n\n• Vous organisez vos analyses de manière autonome et savez gérer les priorités.\n\n• Vous faites preuve de rigueur, de sens critique et d’initiative face aux problèmes techniques du quotidien.\n\n• Vous êtes capable de contribuer aux investigations analytiques et de proposer des solutions concrètes.\n\n• Vous appréciez le travail en équipe et la transmission de vos connaissances.\n\n• Vous appliquez avec soin les exigences GMP ainsi que les règles d’hygiène et de sécurité.\n\nYour Benefits:\n Poste à engagement temporaire avec possibilité de passage en fixe\n\nFondée en 1873 à Zofingue, en Suisse, Siegfried est devenue un réseau mondial de 16 sites répartis sur trois continents. Avec une équipe de plus de 4 200 professionnels hautement qualifiés, nous portons les innovations de nos clients pharmaceutiques à l’échelle industrielle et fabriquons des médicaments sûrs pour les patients du monde entier. En tant que CDMO entièrement intégrée, Siegfried est l’une des rares organisations capables aujourd’hui d’assurer le développement et la production de principes actifs (APIs) et de formes galéniques finies sous un même toit. Cette combinaison unique de savoir-faire et d’expérience fait de nous le partenaire le plus fiable de l’industrie pharmaceutique.\n\nSiegfried is a leading CDMO (Contract Development & Manufacturing Organization) headquartered in Zofingen, Switzerland. The company operates manufacturing sites in Evionnaz (Valais), Zofingen (Aargau), and Schlieren (Zurich).",
       "descriptionByLocale": {
-        "fr": "\"Expect to grow\", personnellement et professionnellement : Chez Siegfried, nous offrons des défis passionnants et de nombreuses opportunités de mettre en valeur vos talents. En tant que partenaire de confiance et respecté de l'industrie pharmaceutique, nous respectons les normes les plus élevées en matière de sécurité, de qualité et de durabilité, tout en cultivant une culture qui vous permet de vous épanouir. Rejoignez une entreprise mondiale en pleine expansion, où des perspectives et des expériences diverses se rassemblent dans un environnement collaboratif. Ici, vous trouverez un lieu de travail qui valorise autant le succès collectif que vos contributions individuelles—offrant des opportunités à long terme pour évoluer et avoir un impact.\n\nYour Role:\nVous souhaitez mettre votre expertise analytique au service de l’industrie pharmaceutique ? Rejoignez notre laboratoire Stabilités et substances de référence.\n\nRattaché·e au Manager Stabilités et substances de référence, vous réalisez les analyses instrumentales et physico-chimiques liées aux études de stabilité et aux standards, dans le respect des procédures, des exigences GMP et des règles de sécurité.\n\nVos responsabilités\n\nRéaliser et contrôler les analyses instrumentales, notamment par GC, HPLC, GC-HS et UPLC, ainsi que les analyses physico-chimiques.\n\nSaisir et vérifier les résultats dans le LIMS et contrôler les analyses dans Empower.\n\nAssurer la mise en stabilité et la sortie des échantillons selon le planning établi.\n\nContribuer à la gestion des substances de référence.\n\nParticiper aux investigations liées aux résultats hors spécifications et aux déviations analytiques, proposer des tests d’hypothèses et contribuer aux actions correctives et préventives.\n\nAssurer l’entretien du laboratoire et la maintenance des appareils.\n\nParticiper à la rédaction et à la mise à jour des procédures et instructions de travail.\n\nFormer les nouveaux laborants aux techniques d’analyse.\n\nSoutenir, selon les besoins, les analyses des matières premières et de libération des produits finis, en collaboration avec les autres laboratoires de contrôle qualité.\nYour Profile:\n\n• Vous êtes titulaire d’un CFC de laborant·e en chimie ou d’une formation équivalente.\n\n• Vous disposez d’une expérience confirmée en laboratoire et maîtrisez les techniques d’analyse mentionnées.\n\n• Vous organisez vos analyses de manière autonome et savez gérer les priorités.\n\n• Vous faites preuve de rigueur, de sens critique et d’initiative face aux problèmes techniques du quotidien.\n\n• Vous êtes capable de contribuer aux investigations analytiques et de proposer des solutions concrètes.\n\n• Vous appréciez le travail en équipe et la transmission de vos connaissances.\n\n• Vous appliquez avec soin les exigences GMP ainsi que les règles d’hygiène et de sécurité.\n\nYour Benefits:\nPoste à engagement temporaire avec possibilité de passage en fixe\n\nFondée en 1873 à Zofingue, en Suisse, Siegfried est devenue un réseau mondial de 16 sites répartis sur trois continents. Avec une équipe de plus de 4 200 professionnels hautement qualifiés, nous portons les innovations de nos clients pharmaceutiques à l’échelle industrielle et fabriquons des médicaments sûrs pour les patients du monde entier. En tant que CDMO entièrement intégrée, Siegfried est l’une des rares organisations capables aujourd’hui d’assurer le développement et la production de principes actifs (APIs) et de formes galéniques finies sous un même toit. Cette combinaison unique de savoir-faire et d’expérience fait de nous le partenaire le plus fiable de l’industrie pharmaceutique.\n\nSiegfried is a leading CDMO (Contract Development & Manufacturing Organization) headquartered in Zofingen, Switzerland. The company operates manufacturing sites in Evionnaz (Valais), Zofingen (Aargau), and Schlieren (Zurich).",
-        "it": "\"Aspetta di crescere\", personalmente e professionalmente: A Siegfried, offriamo interessanti sfide e molte opportunità per mostrare i vostri talenti. Come partner affidabile e rispettato nel settore farmaceutico, incontriamo i più elevati standard di sicurezza, qualità e sostenibilità, coltivando una cultura che ti permette di prosperare. Unisciti a un'azienda globale in cui diverse prospettive ed esperienze si fondono in un ambiente collaborativo. Qui troverete un posto di lavoro che valorizza il successo collettivo tanto quanto i vostri contributi individuali, offrendo opportunità a lungo termine per evolversi e avere un impatto.\n\nIl tuo ruolo:\nVuoi mettere la tua esperienza analitica al servizio dell'industria farmaceutica? Unisciti al nostro Laboratorio Stabilità e Sostanze di Riferimento.\n\nIn allegato al Manager Stabilitys and Reference Substances, si esegue analisi strumentali e fisico-chimiche relative a studi di stabilità e standard in conformità con le procedure, requisiti GMP e regole di sicurezza.\n\nLe tue responsabilità\n\nCondurre e controllare analisi strumentali, tra cui GC, HPLC, GC-HS e UPLC, nonché analisi fisico-chimiche.\n\nImmettere e verificare i risultati nella LIMS e controllare le analisi in Empower.\n\nAssicurare la stabilità e l'uscita dei campioni secondo il programma stabilito.\n\nContribuire alla gestione delle sostanze di riferimento.\n\nPartecipare alle indagini relative a risultati non specifici e deviazioni analitiche, proporre prove di ipotesi e contribuire a azioni correttive e preventive.\n\nFornire manutenzione di laboratorio e manutenzione attrezzature.\n\nPartecipa alla redazione e all'aggiornamento delle procedure e delle istruzioni di lavoro.\n\nFormare nuovi lavoratori in tecniche analitiche.\n\nIl supporto, come richiesto, la materia prima e le analisi di rilascio dei prodotti finiti in collaborazione con altri laboratori di controllo della qualità.\n Il tuo profilo:\n\n• Hai un laboratorio chimico CFC o una formazione equivalente.\n\n• Hai una comprovata esperienza di laboratorio e padroneggia le tecniche analitiche di cui sopra.\n\n• Organizzate le vostre analisi in modo indipendente e gestite le priorità.\n\n• Siete rigorosi, critici e proattivi nel trattare i problemi tecnici della vita quotidiana.\n\n• Sei in grado di contribuire a indagini analitiche e proporre soluzioni concrete.\n\n• Apprezzi il lavoro di squadra e la trasmissione delle tue conoscenze.\n\n• Applicare attentamente i requisiti GMP e le regole di igiene e sicurezza.\n\nI vostri vantaggi:\n Posto di appuntamento temporaneo con possibilità di passaggio fisso\n\nFondata nel 1873 a Zofingue, in Svizzera, Siegfried è diventata una rete globale di 16 siti distribuiti su tre continenti. Con un team di oltre 4.200 professionisti altamente qualificati, portiamo le innovazioni dei nostri clienti farmaceutici a livello industriale e produciamo farmaci sicuri per i pazienti di tutto il mondo. Come CDMO completamente integrato, Siegfried è una delle poche organizzazioni in grado oggi di garantire lo sviluppo e la produzione di principi attivi (API) e forme galeniche finite sotto un unico tetto. Questa combinazione unica di know-how ed esperienza ci rende il partner più affidabile nel settore farmaceutico.\n\nSiegfried è un CDMO leader (Contract Development & Manufacturing Organization) con sede a Zofingen, in Svizzera. Gli operatori dell'azienda si trovano a Evionnaz (Valais), Zofingen (Aargau), e Schlieren (Zurich).",
-        "en": "\"Expect to grow\", personally and professionally: At Siegfried, we offer exciting challenges and many opportunities to showcase your talents. As a trusted and respected partner in the pharmaceutical industry, we meet the highest standards of safety, quality and sustainability, while cultivating a culture that allows you to thrive. Join a growing global company where diverse perspectives and experiences come together in a collaborative environment. Here you will find a workplace that values collective success as much as your individual contributions—giving long-term opportunities to evolve and have an impact.\n\nYour Role:\nDo you want to put your analytical expertise at the service of the pharmaceutical industry? Join our Laboratory Stabilitys and Reference Substances.\n\nAttached to the Manager Stabilitys and Reference Substances, you perform instrumental and physico-chemical analyses related to stability studies and standards in accordance with procedures, GMP requirements and safety rules.\n\nYour responsibilities\n\nConduct and control instrumental analyses, including GC, HPLC, GC-HS and UPLC, as well as physico-chemical analyses.\n\nEnter and verify the results in the LIMS and control the analyses in Empower.\n\nEnsure the stability and exit of samples according to the established schedule.\n\nContribute to the management of reference substances.\n\nParticipate in investigations related to non-specific results and analytical deviations, propose hypothesis tests and contribute to corrective and preventive actions.\n\nProvide laboratory maintenance and equipment maintenance.\n\nParticipate in drafting and updating working procedures and instructions.\n\nTrain new workers in analytical techniques.\n\nSupport, as required, raw material and finished product release analyses in collaboration with other quality control laboratories.\n Your Profile:\n\n• You have a chemical laboratory CFC or equivalent training.\n\n• You have a proven laboratory experience and master the above-mentioned analytical techniques.\n\n• You organize your analyses independently and manage priorities.\n\n• You are rigorous, critical and proactive in dealing with the technical problems of everyday life.\n\n• You are able to contribute to analytical investigations and propose concrete solutions.\n\n• You appreciate teamwork and the transmission of your knowledge.\n\n• You carefully apply GMP requirements as well as hygiene and safety rules.\n\nYour Benefits:\n Temporary appointment post with possibility of fixed passage\n\nFounded in 1873 in Zofingue, Switzerland, Siegfried has become a global network of 16 sites spread over three continents. With a team of more than 4,200 highly qualified professionals, we bring the innovations of our pharmaceutical customers to the industrial scale and manufacture safe medicines for patients around the world. As a fully integrated CDMO, Siegfried is one of the few organizations able today to ensure the development and production of active ingredients (APIs) and finished galenic forms under one roof. This unique combination of know-how and experience makes us the most reliable partner in the pharmaceutical industry.\n\nSiegfried is a leading CDMO (Contract Development & Manufacturing Organization) headquartered in Zofingen, Switzerland. The company operators manufacturing sites in Evionnaz (Valais), Zofingen (Aargau), and Schlieren (Zurich).",
-        "de": "\"Erwarten zu wachsen\", persönlich und beruflich: Bei Siegfried bieten wir spannende Herausforderungen und viele Möglichkeiten, Ihre Talente zu präsentieren. Als vertrauenswürdiger und angesehener Partner in der Pharmaindustrie erfüllen wir die höchsten Standards in Bezug auf Sicherheit, Qualität und Nachhaltigkeit und pflegen eine Kultur, die es Ihnen ermöglicht, erfolgreich zu sein. Treten Sie einem wachsenden globalen Unternehmen bei, in dem vielfältige Perspektiven und Erfahrungen in einem kollaborativen Umfeld zusammenkommen. Hier finden Sie einen Arbeitsplatz, der den kollektiven Erfolg ebenso schätzt wie Ihre individuellen Beiträge - und langfristige Möglichkeiten bietet, sich zu entwickeln und etwas zu bewirken.\n\nIhre Rolle:\nMöchten Sie Ihre analytische Expertise in den Dienst der Pharmaindustrie stellen? Treten Sie unseren Laborstabilitäten und Referenzsubstanzen bei.\n\nAngefügt an die Managerstabilitäten und Referenzsubstanzen führen Sie instrumentelle und physikalisch-chemische Analysen im Zusammenhang mit Stabilitätsstudien und -standards gemäß Verfahren, GMP-Anforderungen und Sicherheitsregeln durch.\n\nIhre Verantwortung\n\nDurchführung und Kontrolle von instrumentellen Analysen, einschließlich GC, HPLC, GC-HS und UPLC, sowie physikalisch-chemische Analysen.\n\nGeben und überprüfen Sie die Ergebnisse im LIMS und steuern Sie die Analysen in Empower.\n\nGewährleistung der Stabilität und des Austritts der Proben gemäß dem festgelegten Zeitplan.\n\nBeitrag zur Verwaltung von Referenzsubstanzen.\n\nBeteiligen Sie sich an Untersuchungen zu unspezifischen Ergebnissen und analytischen Abweichungen, schlagen Sie Hypothesentests vor und tragen Sie zu Korrektur- und Präventionsmaßnahmen bei.\n\nBereitstellung von Labor- und Gerätewartung.\n\nBeteiligen Sie sich an der Ausarbeitung und Aktualisierung von Arbeitsverfahren und -anweisungen.\n\nTrainieren Sie neue Mitarbeiter in analytischen Techniken.\n\nUnterstützung bei Bedarf von Rohmaterial und fertigen Produktfreigabeanalysen in Zusammenarbeit mit anderen Qualitätskontrolllabors.\n Ihr Profil:\n\n• Sie haben ein chemisches Labor CFC oder eine gleichwertige Ausbildung.\n\n• Sie haben eine nachgewiesene Laborerfahrung und beherrschen die oben genannten Analysetechniken.\n\n• Sie organisieren Ihre Analysen unabhängig und verwalten Prioritäten.\n\n• Sie sind streng, kritisch und proaktiv im Umgang mit den technischen Problemen des Alltags.\n\n• Sie können zu analytischen Untersuchungen beitragen und konkrete Lösungen vorschlagen.\n\n• Sie schätzen Teamwork und die Weitergabe Ihres Wissens.\n\n• Sie wenden die GMP-Anforderungen sowie die Hygiene- und Sicherheitsregeln sorgfältig an.\n\nIhre Vorteile:\n Vorübergehende Ernennungsstelle mit Möglichkeit der festen Passage\n\n1873 in Zofingue, Schweiz, gegründet, hat sich Siegfried zu einem globalen Netzwerk von 16 Standorten auf drei Kontinenten entwickelt. Mit einem Team von mehr als 4.200 hochqualifizierten Fachkräften bringen wir die Innovationen unserer pharmazeutischen Kunden in den industriellen Maßstab und stellen sichere Medikamente für Patienten auf der ganzen Welt her. Als voll integriertes CDMO ist Siegfried eine der wenigen Organisationen, die heute die Entwicklung und Produktion von Wirkstoffen (APIs) und fertigen Galenikformen unter einem Dach sicherstellen können. Diese einzigartige Kombination aus Know-how und Erfahrung macht uns zum zuverlässigsten Partner in der Pharmaindustrie.\n\nSiegfried ist eine führende CDMO (Contract Development & Manufacturing Organization) mit Sitz in Zofingen, Schweiz. Das Unternehmen betreibt Produktionsstätten in Evionnaz (Valais), Zofingen (Aargau) und Schlieren (Zürich)."
+        "it": "\"Aspetta di crescere\", personalmente e professionalmente: A Siegfried, offriamo interessanti sfide e molte opportunità per mostrare i vostri talenti. Come partner affidabile e rispettato nel settore farmaceutico, incontriamo i più elevati standard di sicurezza, qualità e sostenibilità, coltivando una cultura che ti permette di prosperare. Unisciti a un'azienda globale in cui diverse prospettive ed esperienze si fondono in un ambiente collaborativo. Qui troverete un posto di lavoro che valorizza il successo collettivo tanto quanto i vostri contributi individuali, offrendo opportunità a lungo termine per evolversi e avere un impatto.\n\nIl tuo ruolo:\nVuoi mettere la tua esperienza analitica al servizio dell'industria farmaceutica? Unisciti al nostro Laboratorio Stabilità e Sostanze di Riferimento.\n\nIn allegato al Manager Stabilitys and Reference Substances, si esegue analisi strumentali e fisico-chimiche relative a studi di stabilità e standard in conformità con le procedure, requisiti GMP e regole di sicurezza.\n\nLe tue responsabilità\n\nCondurre e controllare analisi strumentali, tra cui GC, HPLC, GC-HS e UPLC, nonché analisi fisico-chimiche.\n\nImmettere e verificare i risultati nella LIMS e controllare le analisi in Empower.\n\nAssicurare la stabilità e l'uscita dei campioni secondo il programma stabilito.\n\nContribuire alla gestione delle sostanze di riferimento.\n\nPartecipare alle indagini relative a risultati non specifici e deviazioni analitiche, proporre prove di ipotesi e contribuire a azioni correttive e preventive.\n\nFornire manutenzione di laboratorio e manutenzione attrezzature.\n\nPartecipa alla redazione e all'aggiornamento delle procedure e delle istruzioni di lavoro.\n\nFormare nuovi lavoratori in tecniche analitiche.\n\nIl supporto, come richiesto, la materia prima e le analisi di rilascio dei prodotti finiti in collaborazione con altri laboratori di controllo della qualità.\nIl tuo profilo:\n\n• Hai un laboratorio chimico CFC o una formazione equivalente.\n\n• Hai una comprovata esperienza di laboratorio e padroneggia le tecniche analitiche di cui sopra.\n\n• Organizzate le vostre analisi in modo indipendente e gestite le priorità.\n\n• Siete rigorosi, critici e proattivi nel trattare i problemi tecnici della vita quotidiana.\n\n• Sei in grado di contribuire a indagini analitiche e proporre soluzioni concrete.\n\n• Apprezzi il lavoro di squadra e la trasmissione delle tue conoscenze.\n\n• Applicare attentamente i requisiti GMP e le regole di igiene e sicurezza.\n\nI vostri vantaggi:\nPosto di appuntamento temporaneo con possibilità di passaggio fisso\n\nFondata nel 1873 a Zofingue, in Svizzera, Siegfried è diventata una rete globale di 16 siti distribuiti su tre continenti. Con un team di oltre 4.200 professionisti altamente qualificati, portiamo le innovazioni dei nostri clienti farmaceutici a livello industriale e produciamo farmaci sicuri per i pazienti di tutto il mondo. Come CDMO completamente integrato, Siegfried è una delle poche organizzazioni in grado oggi di garantire lo sviluppo e la produzione di principi attivi (API) e forme galeniche finite sotto un unico tetto. Questa combinazione unica di know-how ed esperienza ci rende il partner più affidabile nel settore farmaceutico.\n\nSiegfried è un CDMO leader (Contract Development & Manufacturing Organization) con sede a Zofingen, in Svizzera. Gli operatori dell'azienda si trovano a Evionnaz (Valais), Zofingen (Aargau), e Schlieren (Zurich).",
+        "en": "\"Expect to grow\", personally and professionally: At Siegfried, we offer exciting challenges and many opportunities to showcase your talents. As a trusted and respected partner in the pharmaceutical industry, we meet the highest standards of safety, quality and sustainability, while cultivating a culture that allows you to thrive. Join a growing global company where diverse perspectives and experiences come together in a collaborative environment. Here you will find a workplace that values collective success as much as your individual contributions—giving long-term opportunities to evolve and have an impact.\n\nYour Role:\nDo you want to put your analytical expertise at the service of the pharmaceutical industry? Join our Laboratory Stabilitys and Reference Substances.\n\nAttached to the Manager Stabilitys and Reference Substances, you perform instrumental and physico-chemical analyses related to stability studies and standards in accordance with procedures, GMP requirements and safety rules.\n\nYour responsibilities\n\nConduct and control instrumental analyses, including GC, HPLC, GC-HS and UPLC, as well as physico-chemical analyses.\n\nEnter and verify the results in the LIMS and control the analyses in Empower.\n\nEnsure the stability and exit of samples according to the established schedule.\n\nContribute to the management of reference substances.\n\nParticipate in investigations related to non-specific results and analytical deviations, propose hypothesis tests and contribute to corrective and preventive actions.\n\nProvide laboratory maintenance and equipment maintenance.\n\nParticipate in drafting and updating working procedures and instructions.\n\nTrain new workers in analytical techniques.\n\nSupport, as required, raw material and finished product release analyses in collaboration with other quality control laboratories.\nYour Profile:\n\n• You have a chemical laboratory CFC or equivalent training.\n\n• You have a proven laboratory experience and master the above-mentioned analytical techniques.\n\n• You organize your analyses independently and manage priorities.\n\n• You are rigorous, critical and proactive in dealing with the technical problems of everyday life.\n\n• You are able to contribute to analytical investigations and propose concrete solutions.\n\n• You appreciate teamwork and the transmission of your knowledge.\n\n• You carefully apply GMP requirements as well as hygiene and safety rules.\n\nYour Benefits:\nTemporary appointment post with possibility of fixed passage\n\nFounded in 1873 in Zofingue, Switzerland, Siegfried has become a global network of 16 sites spread over three continents. With a team of more than 4,200 highly qualified professionals, we bring the innovations of our pharmaceutical customers to the industrial scale and manufacture safe medicines for patients around the world. As a fully integrated CDMO, Siegfried is one of the few organizations able today to ensure the development and production of active ingredients (APIs) and finished galenic forms under one roof. This unique combination of know-how and experience makes us the most reliable partner in the pharmaceutical industry.\n\nSiegfried is a leading CDMO (Contract Development & Manufacturing Organization) headquartered in Zofingen, Switzerland. The company operators manufacturing sites in Evionnaz (Valais), Zofingen (Aargau), and Schlieren (Zurich).",
+        "de": "\"Erwarten zu wachsen\", persönlich und beruflich: Bei Siegfried bieten wir spannende Herausforderungen und viele Möglichkeiten, Ihre Talente zu präsentieren. Als vertrauenswürdiger und angesehener Partner in der Pharmaindustrie erfüllen wir die höchsten Standards in Bezug auf Sicherheit, Qualität und Nachhaltigkeit und pflegen eine Kultur, die es Ihnen ermöglicht, erfolgreich zu sein. Treten Sie einem wachsenden globalen Unternehmen bei, in dem vielfältige Perspektiven und Erfahrungen in einem kollaborativen Umfeld zusammenkommen. Hier finden Sie einen Arbeitsplatz, der den kollektiven Erfolg ebenso schätzt wie Ihre individuellen Beiträge - und langfristige Möglichkeiten bietet, sich zu entwickeln und etwas zu bewirken.\n\nIhre Rolle:\nMöchten Sie Ihre analytische Expertise in den Dienst der Pharmaindustrie stellen? Treten Sie unseren Laborstabilitäten und Referenzsubstanzen bei.\n\nAngefügt an die Managerstabilitäten und Referenzsubstanzen führen Sie instrumentelle und physikalisch-chemische Analysen im Zusammenhang mit Stabilitätsstudien und -standards gemäß Verfahren, GMP-Anforderungen und Sicherheitsregeln durch.\n\nIhre Verantwortung\n\nDurchführung und Kontrolle von instrumentellen Analysen, einschließlich GC, HPLC, GC-HS und UPLC, sowie physikalisch-chemische Analysen.\n\nGeben und überprüfen Sie die Ergebnisse im LIMS und steuern Sie die Analysen in Empower.\n\nGewährleistung der Stabilität und des Austritts der Proben gemäß dem festgelegten Zeitplan.\n\nBeitrag zur Verwaltung von Referenzsubstanzen.\n\nBeteiligen Sie sich an Untersuchungen zu unspezifischen Ergebnissen und analytischen Abweichungen, schlagen Sie Hypothesentests vor und tragen Sie zu Korrektur- und Präventionsmaßnahmen bei.\n\nBereitstellung von Labor- und Gerätewartung.\n\nBeteiligen Sie sich an der Ausarbeitung und Aktualisierung von Arbeitsverfahren und -anweisungen.\n\nTrainieren Sie neue Mitarbeiter in analytischen Techniken.\n\nUnterstützung bei Bedarf von Rohmaterial und fertigen Produktfreigabeanalysen in Zusammenarbeit mit anderen Qualitätskontrolllabors.\nIhr Profil:\n\n• Sie haben ein chemisches Labor CFC oder eine gleichwertige Ausbildung.\n\n• Sie haben eine nachgewiesene Laborerfahrung und beherrschen die oben genannten Analysetechniken.\n\n• Sie organisieren Ihre Analysen unabhängig und verwalten Prioritäten.\n\n• Sie sind streng, kritisch und proaktiv im Umgang mit den technischen Problemen des Alltags.\n\n• Sie können zu analytischen Untersuchungen beitragen und konkrete Lösungen vorschlagen.\n\n• Sie schätzen Teamwork und die Weitergabe Ihres Wissens.\n\n• Sie wenden die GMP-Anforderungen sowie die Hygiene- und Sicherheitsregeln sorgfältig an.\n\nIhre Vorteile:\nVorübergehende Ernennungsstelle mit Möglichkeit der festen Passage\n\n1873 in Zofingue, Schweiz, gegründet, hat sich Siegfried zu einem globalen Netzwerk von 16 Standorten auf drei Kontinenten entwickelt. Mit einem Team von mehr als 4.200 hochqualifizierten Fachkräften bringen wir die Innovationen unserer pharmazeutischen Kunden in den industriellen Maßstab und stellen sichere Medikamente für Patienten auf der ganzen Welt her. Als voll integriertes CDMO ist Siegfried eine der wenigen Organisationen, die heute die Entwicklung und Produktion von Wirkstoffen (APIs) und fertigen Galenikformen unter einem Dach sicherstellen können. Diese einzigartige Kombination aus Know-how und Erfahrung macht uns zum zuverlässigsten Partner in der Pharmaindustrie.\n\nSiegfried ist eine führende CDMO (Contract Development & Manufacturing Organization) mit Sitz in Zofingen, Schweiz. Das Unternehmen betreibt Produktionsstätten in Evionnaz (Valais), Zofingen (Aargau) und Schlieren (Zürich).",
+        "fr": "\"Expect to grow\", personnellement et professionnellement : Chez Siegfried, nous offrons des défis passionnants et de nombreuses opportunités de mettre en valeur vos talents. En tant que partenaire de confiance et respecté de l'industrie pharmaceutique, nous respectons les normes les plus élevées en matière de sécurité, de qualité et de durabilité, tout en cultivant une culture qui vous permet de vous épanouir. Rejoignez une entreprise mondiale en pleine expansion, où des perspectives et des expériences diverses se rassemblent dans un environnement collaboratif. Ici, vous trouverez un lieu de travail qui valorise autant le succès collectif que vos contributions individuelles—offrant des opportunités à long terme pour évoluer et avoir un impact.\n\nYour Role:\nVous souhaitez mettre votre expertise analytique au service de l’industrie pharmaceutique ? Rejoignez notre laboratoire Stabilités et substances de référence.\n\nRattaché·e au Manager Stabilités et substances de référence, vous réalisez les analyses instrumentales et physico-chimiques liées aux études de stabilité et aux standards, dans le respect des procédures, des exigences GMP et des règles de sécurité.\n\nVos responsabilités\n\nRéaliser et contrôler les analyses instrumentales, notamment par GC, HPLC, GC-HS et UPLC, ainsi que les analyses physico-chimiques.\n\nSaisir et vérifier les résultats dans le LIMS et contrôler les analyses dans Empower.\n\nAssurer la mise en stabilité et la sortie des échantillons selon le planning établi.\n\nContribuer à la gestion des substances de référence.\n\nParticiper aux investigations liées aux résultats hors spécifications et aux déviations analytiques, proposer des tests d’hypothèses et contribuer aux actions correctives et préventives.\n\nAssurer l’entretien du laboratoire et la maintenance des appareils.\n\nParticiper à la rédaction et à la mise à jour des procédures et instructions de travail.\n\nFormer les nouveaux laborants aux techniques d’analyse.\n\nSoutenir, selon les besoins, les analyses des matières premières et de libération des produits finis, en collaboration avec les autres laboratoires de contrôle qualité.\nYour Profile:\n\n• Vous êtes titulaire d’un CFC de laborant·e en chimie ou d’une formation équivalente.\n\n• Vous disposez d’une expérience confirmée en laboratoire et maîtrisez les techniques d’analyse mentionnées.\n\n• Vous organisez vos analyses de manière autonome et savez gérer les priorités.\n\n• Vous faites preuve de rigueur, de sens critique et d’initiative face aux problèmes techniques du quotidien.\n\n• Vous êtes capable de contribuer aux investigations analytiques et de proposer des solutions concrètes.\n\n• Vous appréciez le travail en équipe et la transmission de vos connaissances.\n\n• Vous appliquez avec soin les exigences GMP ainsi que les règles d’hygiène et de sécurité.\n\nYour Benefits:\nPoste à engagement temporaire avec possibilité de passage en fixe\n\nFondée en 1873 à Zofingue, en Suisse, Siegfried est devenue un réseau mondial de 16 sites répartis sur trois continents. Avec une équipe de plus de 4 200 professionnels hautement qualifiés, nous portons les innovations de nos clients pharmaceutiques à l’échelle industrielle et fabriquons des médicaments sûrs pour les patients du monde entier. En tant que CDMO entièrement intégrée, Siegfried est l’une des rares organisations capables aujourd’hui d’assurer le développement et la production de principes actifs (APIs) et de formes galéniques finies sous un même toit. Cette combinaison unique de savoir-faire et d’expérience fait de nous le partenaire le plus fiable de l’industrie pharmaceutique.\n\nSiegfried is a leading CDMO (Contract Development & Manufacturing Organization) headquartered in Zofingen, Switzerland. The company operates manufacturing sites in Evionnaz (Valais), Zofingen (Aargau), and Schlieren (Zurich)."
       },
       "location": "Evionnaz",
       "canton": "VS",
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Lab-Technician-Stability_R26_835",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-07T09:30:17.653Z",
+      "crawledAt": "2026-11-07T21:21:32.021Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -1612,6 +1612,21 @@
       "requirementsByLocale": {},
       "jobReqId": "R26_835",
       "hiringOrganization": "Siegfried Evionnaz SA",
+      "previousSlugs": [
+        "lab-technician-stability-siegfried-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "lab-technician-stability-siegfried-ch"
+        ],
+        "en": [
+          "lab-technician-stability-siegfried-ch"
+        ],
+        "de": [
+          "lab-technician-stability-siegfried-ch"
+        ]
+      },
+      "firstSeenAt": "2026-11-06T21:32:06.414Z",
       "salaryMin": 71000,
       "salaryMax": 107500,
       "salarySource": "estimated",
@@ -1629,23 +1644,8 @@
       "addressRegion": "VS",
       "streetAddress": "Evionnaz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-04T09:30:17.653Z",
-      "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-06T21:32:06.414Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "lab-technician-stability-siegfried-ch"
-        ],
-        "en": [
-          "lab-technician-stability-siegfried-ch"
-        ],
-        "de": [
-          "lab-technician-stability-siegfried-ch"
-        ]
-      },
-      "previousSlugs": [
-        "lab-technician-stability-siegfried-ch"
-      ]
+      "validThrough": "2027-02-04T21:21:32.021Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }
