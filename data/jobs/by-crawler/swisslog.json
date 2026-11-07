@@ -1,7 +1,7 @@
 {
   "crawlerKey": "swisslog",
-  "assembledAt": "2026-11-07T09:34:26.686Z",
-  "runId": "42358371584",
+  "assembledAt": "2026-11-07T21:18:15.644Z",
+  "runId": "42414448839",
   "jobs": [
     {
       "id": "swisslog-34572dec2de5",
@@ -34,7 +34,7 @@
       "url": "https://www.swisslog.com/de-de/karriere/offene-stellen/automatikerin-efz-4097",
       "source": "Swisslog Dedicated Parser (custom Sitecore job API)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-07T09:34:18.449Z",
+      "crawledAt": "2026-11-07T21:18:07.420Z",
       "addressLocality": "Buchs",
       "addressRegion": "AG",
       "streetAddress": "Webereiweg 3",
@@ -86,7 +86,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-07T09:34:18.449Z",
+      "validThrough": "2026-12-07T21:18:07.420Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -120,7 +120,7 @@
       "url": "https://www.swisslog.com/de-de/karriere/offene-stellen/apprentice-computer-scientist-mwd-4458",
       "source": "Swisslog Dedicated Parser (custom Sitecore job API)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-07T09:34:18.448Z",
+      "crawledAt": "2026-11-07T21:18:07.419Z",
       "addressLocality": "Buchs",
       "addressRegion": "AG",
       "streetAddress": "Webereiweg 3",
@@ -167,7 +167,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-03T09:34:18.448Z",
+      "validThrough": "2027-01-03T21:18:07.419Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -201,7 +201,7 @@
       "url": "https://www.swisslog.com/de-de/karriere/offene-stellen/controls-project-manager-3751",
       "source": "Swisslog Dedicated Parser (custom Sitecore job API)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-07T09:34:18.446Z",
+      "crawledAt": "2026-11-07T21:18:07.418Z",
       "addressLocality": "Buchs",
       "addressRegion": "AG",
       "streetAddress": "Webereiweg 3",
@@ -246,7 +246,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-03T09:34:18.446Z",
+      "validThrough": "2027-02-02T21:18:07.418Z",
       "validThroughSource": "last-observed-window"
     }
   ]
