@@ -24,7 +24,7 @@ import { listSliceFileNames } from './crawler-slice-files.mjs';
 import { excludeHeldFromPublication } from './translation-publication-hold.mjs';
 import { parseLedger } from './social-publish-queue.mjs';
 import { GRAPH_API, GRAPH_API_VERSION } from './instagram-graph-constants.mjs';
-import { isGeneratedSocialCopyMode } from './social-copy-pack.mjs';
+import { isGeneratedSocialCopyMode } from './social-copy-mode.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..', '..');

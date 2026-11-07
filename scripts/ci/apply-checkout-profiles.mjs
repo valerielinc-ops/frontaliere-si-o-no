@@ -16,6 +16,9 @@ import fs from 'node:fs';
 import path from 'node:path';
 import YAML from 'yaml';
 import { analyzeWorkflow, TREE_MB, ROOT } from './checkout-profile-analyzer.mjs';
+import { SOCIAL_COPY_REQUIRED_SPARSE_PATHS } from './checkout-profile-contracts.mjs';
+
+export { SOCIAL_COPY_REQUIRED_SPARSE_PATHS } from './checkout-profile-contracts.mjs';
 
 const WF_DIR = path.join(ROOT, '.github/workflows');
 const DRY = process.argv.includes('--dry-run');
@@ -34,16 +37,6 @@ export const TYPECHECK_REQUIRED_SPARSE_PATHS = [
   '/packages/articles/content/blog-articles-data.ts',
   '/packages/articles/content/blogImageCdnMirror.ts',
 ];
-
-// The Codex copy-pack job reads these editorial references from its prompt.
-// They are not statically imported by the Node scripts, so bucket analysis
-// would otherwise prune the whole `docs/` tree and leave the agent without
-// its declared source material.
-export const SOCIAL_COPY_REQUIRED_SPARSE_PATHS = Object.freeze([
-  '/docs/instagram-creative-study.md',
-  '/docs/social-ai-automation.md',
-  '/docs/third-party/instagram-agent-skill/UPSTREAM.md',
-]);
 
 /**
  * Input letti dal build globale mentre gira nel job `vitest`.

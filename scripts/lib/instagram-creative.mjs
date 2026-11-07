@@ -17,7 +17,7 @@ import { createHash } from 'node:crypto';
 
 import { instagramEngagementMechanic } from './instagram-engagement.mjs';
 import { AUTONOMOUS_PROMOTION_PROTOCOL_READY } from './instagram-insights-decision.mjs';
-import { isGeneratedSocialCopyMode } from './social-copy-pack.mjs';
+import { isGeneratedSocialCopyMode } from './social-copy-mode.mjs';
 
 export const INSTAGRAM_CREATIVE_FORMATS = Object.freeze({
   proof: Object.freeze({

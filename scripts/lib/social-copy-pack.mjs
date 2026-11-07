@@ -2,6 +2,9 @@ import { createHash, randomUUID } from 'node:crypto';
 import { existsSync, readFileSync } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { SOCIAL_COPY_GENERATION_PROVIDERS, isGeneratedSocialCopyMode } from './social-copy-mode.mjs';
+
+export { isGeneratedSocialCopyMode } from './social-copy-mode.mjs';
 
 export const SOCIAL_COPY_PACK_SCHEMA_VERSION = 5;
 export const SOCIAL_COPY_PROMPT_VERSION = 'frontaliere-social-copy-v5';
@@ -17,7 +20,6 @@ const SECOND_PREVIOUS_SOCIAL_COPY_PACK_SCHEMA_VERSION = 3;
 const SECOND_PREVIOUS_SOCIAL_COPY_PROMPT_VERSION = 'frontaliere-social-copy-v3';
 const PREVIOUS_SOCIAL_COPY_PACK_SCHEMA_VERSION = 4;
 const PREVIOUS_SOCIAL_COPY_PROMPT_VERSION = 'frontaliere-social-copy-v4';
-const SOCIAL_COPY_GENERATION_PROVIDERS = Object.freeze(['codex', 'github', 'gemini', 'groq', 'openrouter']);
 
 export const SOCIAL_COPY_CHANNELS = Object.freeze({
   instagram: Object.freeze(['article', 'job', 'border', 'reel']),
@@ -92,10 +94,6 @@ export function socialCopyTemplateCount(channel, kind, schemaVersion = SOCIAL_CO
       : 9;
   }
   return TEMPLATE_COUNT_OVERRIDES[channel]?.[kind] || MAX_TEMPLATES_PER_KIND;
-}
-
-export function isGeneratedSocialCopyMode(value) {
-  return SOCIAL_COPY_GENERATION_PROVIDERS.includes(String(value || '').trim());
 }
 
 function stableJson(value) {
