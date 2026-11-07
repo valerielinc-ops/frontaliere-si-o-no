@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "commit": "8799172f45e3098d4468f5bf003d8862b87b72a7",
+  "commit": "ffdc06af5f1e31cd344fdfa2656a50531d6c7db1",
   "generated": {
     "/images/blog/139-frontalieri-ticino-special-olympics.webp": {
       "schema": 1,
@@ -48864,6 +48864,49 @@
         "is_photograph": false,
         "is_topic_relevant": true,
         "notes": "Generic synthetic photorealistic Swiss urban illustration with no readable text, logos, recognizable faces, or foreground persons."
+      }
+    },
+    "/images/blog/article-avs-iva-tredicesima-rendita.webp": {
+      "schema": 1,
+      "assetId": "article-avs-iva-tredicesima-rendita",
+      "kind": "generated",
+      "provider": "openai-codex",
+      "model": "gpt-image-2.5",
+      "executorModel": "gpt-5.6-luna",
+      "promptVersion": "frontaliereticino.generated-image-policy.v1",
+      "promptHash": "3d2ec7c6262736bca93e14bcc87b6237e2863e6f3930a4b76d63f5db0dcefc07",
+      "license": "generated-provider",
+      "licenseUrl": "https://openai.com/policies/terms-of-use/",
+      "credit": "frontaliereticino.ch",
+      "sha256": "783060df2e036118688dafc6e338f5a67cee972463a81b6b7040af6ccb0c7313",
+      "bytes": 152500,
+      "width": 1200,
+      "height": 675,
+      "format": "webp",
+      "generatedAt": "2026-11-07T16:49:14.895Z",
+      "verifiedAt": "2026-11-07T16:49:26.874Z",
+      "restrictions": [
+        "illustrative-only",
+        "no-real-recognizable-foreground-person",
+        "no-public-figure-face",
+        "no-logo-brand-or-text",
+        "no-specific-real-event-photojournalism"
+      ],
+      "scope": "article-hero",
+      "imageUrl": "/images/blog/article-avs-iva-tredicesima-rendita.webp",
+      "area": "Svizzera",
+      "season": "all seasons",
+      "variant": "article hero",
+      "vision": {
+        "ok": true,
+        "contains_text": false,
+        "contains_logo": false,
+        "contains_recognizable_face": false,
+        "contains_recognizable_foreground_person": false,
+        "looks_like_specific_real_event": false,
+        "is_photograph": false,
+        "is_topic_relevant": true,
+        "notes": "Generic synthetic editorial illustration of a ballot box overlooking a Swiss Alpine town; no text, branding, people, or specific event."
       }
     },
     "/images/places/lugano-view.webp": {

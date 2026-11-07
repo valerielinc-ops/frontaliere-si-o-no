@@ -8696,6 +8696,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.disoccupazione-stabile-ottobre.title': 'Tasso di disoccupazione stabile al 3% in ottobre',
     'blog.article.disoccupazione-stabile-ottobre.excerpt': 'Secondo i dati diffusi giovedì dalla Segreteria di Stato per l’economia (SECO), in ottobre gli iscritti agli Uffici regionali di collocamento (URC) sono aumentati di 535 persone rispetto a settembre.',
     'blog.article.disoccupazione-stabile-ottobre.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
+    'blog.article.avs-iva-tredicesima-rendita.title': 'Popolo vota sull\'aumento IVA per coprire costi tredicesima AVS',
+    'blog.article.avs-iva-tredicesima-rendita.excerpt': 'Il 29 novembre il popolo sarà chiamato a esprimersi sull\'aumento dell\'IVA scelto dal Parlamento federale per contribuire a coprire i costi della tredicesima rendita AVS.',
+    'blog.article.avs-iva-tredicesima-rendita.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
 };
 
 export default blogMetaChIt;

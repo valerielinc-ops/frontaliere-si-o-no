@@ -8696,6 +8696,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.disoccupazione-stabile-ottobre.title': 'Taux de chômage stable à 3 % en octobre',
     'blog.article.disoccupazione-stabile-ottobre.excerpt': 'Selon les données publiées jeudi par le Secrétariat d’État à l’économie (SECO), le nombre d’inscrits auprès des offices régionaux de placement (ORP) a augmenté de 535 personnes en octobre par rapport à septembre.',
     'blog.article.disoccupazione-stabile-ottobre.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
+    'blog.article.avs-iva-tredicesima-rendita.title': 'Vote sur hausse TVA pour coûts 13e AVS',
+    'blog.article.avs-iva-tredicesima-rendita.excerpt': 'Le 29 novembre, le peuple sera appelé à s\'exprimer sur l\'augmentation de la TVA choisie par le Parlement fédéral pour contribuer à couvrir les coûts de la treizième rente AVS.',
+    'blog.article.avs-iva-tredicesima-rendita.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
 };
 
 export default blogMetaChFr;

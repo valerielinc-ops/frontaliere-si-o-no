@@ -15,10 +15,10 @@
       "2": 197,
       "3": 0,
       "4": 0,
-      "5": 1104,
+      "5": 1105,
       "6": 5061
     },
-    "publishedCovers": 7847,
+    "publishedCovers": 7848,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 1,
     "inheritedRecordsMaterialized": 197,
@@ -212666,6 +212666,39 @@
         "provider": "openai-codex",
         "assetId": "article-aumento-tasso-disoccupazione-ottobre",
         "imageUrl": "/images/blog/article-aumento-tasso-disoccupazione-ottobre.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-avs-iva-tredicesima-rendita": {
+      "cover": "/images/blog/article-avs-iva-tredicesima-rendita.webp",
+      "hash": "783060df2e036118688dafc6e338f5a67cee972463a81b6b7040af6ccb0c7313",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "avs-iva-tredicesima-rendita",
+          "category": "pensione",
+          "date": "2026-11-07T16:49:27.646Z",
+          "updatedAt": null,
+          "authorSlug": "laura-bianchi"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-avs-iva-tredicesima-rendita.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1794,
+      "verifiedAt": "2026-11-07",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-avs-iva-tredicesima-rendita",
+        "imageUrl": "/images/blog/article-avs-iva-tredicesima-rendita.webp",
         "evidence": "generated-engine-record"
       }
     },

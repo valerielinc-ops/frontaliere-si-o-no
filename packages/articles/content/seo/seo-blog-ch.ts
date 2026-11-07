@@ -109934,6 +109934,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-avs-iva-tredicesima-rendita': {
+    title: 'Popolo vota sull\'aumento IVA per coprire costi tredicesima AVS',
+    description: 'Il popolo vota il 29 novembre sull\'aumento IVA scelto dal Parlamento per finanziare la tredicesima rendita AVS approvata.',
+    keywords: 'AVS, tredicesima rendita, aumento IVA, voto 29 novembre, Sara Demir, previdenza svizzera',
+    ogTitle: 'Voto IVA per tredicesima AVS 29 novembre',
+    ogDescription: 'Il 29 novembre si voterà sull\'aumento dell\'IVA per coprire i costi della tredicesima rendita AVS, scelta parlamentare discussa da Sara Demir.',
+    canonicalPath: '/articoli-svizzera/avs-iva-tredicesima-rendita/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Popolo vota sull'aumento IVA per coprire costi tredicesima AVS",
+      "description": "Il popolo vota il 29 novembre sull'aumento IVA scelto dal Parlamento per finanziare la tredicesima rendita AVS approvata.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-avs-iva-tredicesima-rendita.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine illustrativa pertinente al tema dell’articolo"
+      },
+      "datePublished": "2026-11-07T16:49:28+00:00",
+      "dateModified": "2026-11-07T16:49:28+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/avs-iva-tredicesima-rendita/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

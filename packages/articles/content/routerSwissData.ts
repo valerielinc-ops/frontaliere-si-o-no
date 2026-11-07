@@ -2921,6 +2921,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'iva-aumento-famiglie-redditi-bassi': { it: 'iva-aumento-famiglie-redditi-bassi', en: 'iva-increase-low-income-families', de: 'iva-erhoehung-niedriglohn-familien', fr: 'augmentation-tva-familles-revenus-bas' },
  'telelavoro-frontaliere-quadro-svizzero': { it: 'telelavoro-frontaliere-quadro-svizzero', en: 'cross-border-workers-teleworking-swiss-rules', de: 'grenzgaenger-telearbeit-schweizer-regeln', fr: 'travailleur-frontalier-teletravail-suisse' },
  'disoccupazione-stabile-ottobre': { it: 'disoccupazione-stabile-ottobre', en: 'stable-unemployment-october', de: 'disoccupationsstabil-oktober', fr: 'chomage-stable-octobre' },
+ 'avs-iva-tredicesima-rendita': { it: 'avs-iva-tredicesima-rendita', en: 'avs-iva-thirteenth-pension', de: 'avs-iva-dreizehnte-rente', fr: 'avs-iva-treizieme-rente' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */

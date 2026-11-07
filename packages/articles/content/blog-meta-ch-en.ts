@@ -8696,6 +8696,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.disoccupazione-stabile-ottobre.title': 'Unemployment rate steady at 3% in October',
     'blog.article.disoccupazione-stabile-ottobre.excerpt': 'According to data released on Thursday by the State Secretariat for Economic Affairs (SECO), the number of people registered with the Regional Employment Centers (URCs) increased by 535 in October compared with September.',
     'blog.article.disoccupazione-stabile-ottobre.imageAlt': 'Illustrative image relevant to the article topic',
+    'blog.article.avs-iva-tredicesima-rendita.title': 'People vote on VAT increase to cover AVS 13th-pension costs',
+    'blog.article.avs-iva-tredicesima-rendita.excerpt': 'On November 29, the people will be called upon to vote on the VAT increase chosen by the Federal Parliament to help cover the costs of the 13th AHV pension.',
+    'blog.article.avs-iva-tredicesima-rendita.imageAlt': 'Illustrative image relevant to the article topic',
 };
 
 export default blogMetaChEn;

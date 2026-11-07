@@ -8696,6 +8696,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.disoccupazione-stabile-ottobre.title': 'Arbeitslosenquote im Oktober stabil bei 3%',
     'blog.article.disoccupazione-stabile-ottobre.excerpt': 'Nach den am Donnerstag vom Staatssekretariat für Wirtschaft (SECO) veröffentlichten Daten ist die Zahl der bei den Regionalen Arbeitsvermittlungszentren (RAV) registrierten Personen im Oktober gegenüber September um 535 Personen gestiegen.',
     'blog.article.disoccupazione-stabile-ottobre.imageAlt': 'Illustratives Bild zum Thema des Artikels',
+    'blog.article.avs-iva-tredicesima-rendita.title': 'Volksabstimmung: Mehrwertsteuererhöhung für 13. AHV-Rente',
+    'blog.article.avs-iva-tredicesima-rendita.excerpt': 'Am 29. November wird das Volk über die vom eidgenössischen Parlament beschlossene Erhöhung der Mehrwertsteuer zur Mitfinanzierung der Kosten der 13. AHV-Rente abstimmen.',
+    'blog.article.avs-iva-tredicesima-rendita.imageAlt': 'Illustratives Bild zum Thema des Artikels',
 };
 
 export default blogMetaChDe;
