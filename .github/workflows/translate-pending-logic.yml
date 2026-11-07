@@ -349,7 +349,8 @@ jobs:
           #   ~110   re-assemble + Argos commit + flags + baseline (~7min)
           #   110-140 2b cascade (30min window, 150min ceiling)
           #   140-170 2c Argos mop-up (170min ceiling)
-          #   ~175   commit; gate needs >= 15min: 35min left for 2d/2e
+          #   ~175   commit; the repair gate now needs >= 90min, so this late
+          #          run skips 2d/2e and preserves the final persistence queue
           #   175-210 2d titles (07:00 run) / 2e descriptions
           # Budget arithmetic, measured from the shared run-start marker:
           # 350min hard job cap − 210min run-wide deadline = 140min queue, of
@@ -651,15 +652,18 @@ jobs:
       # before Phase 2b) and the commit step still re-merged every diverged
       # slice to find nothing (137-850s).
       # Corpus runs 36240711198 (2d at 215min) and 36169299281 (2e at 252min,
-      # later killed at the 350min cap). Measured productive starts all had
-      # >= 57min left, so below one Codex budget (15min) nothing starts and a
-      # ::notice:: says why. See scripts/translate-repair-lane-gate.mjs.
+      # later killed at the 350min cap). Run 42348235004 then spent ~73min in
+      # the description lane before the slow commit/stat/handoff queue. The old
+      # 15min threshold guarded one Codex call, not the complete repair lane;
+      # reserve 90min so a late lane is skipped with a notice instead of
+      # consuming the final persistence window. See
+      # scripts/translate-repair-lane-gate.mjs.
       - name: Gate Phase 2d/2e repair lanes on remaining run budget
         id: repair_lane_budget
         if: always() && !cancelled() && steps.checkout.outcome == 'success' && github.event_name == 'schedule' && inputs.skip_translate != true && inputs.dry_run != true
         env:
           REPAIR_LANE_DEADLINE_MS: '12600000' # same 210min envelope as Phases 2a-2e.
-          REPAIR_LANE_MIN_REMAINING_MS: '900000' # 15min = FREE_TRANSLATE_CODEX_MAX_MS.
+          REPAIR_LANE_MIN_REMAINING_MS: '5400000' # 90min: complete lane + bounded in-flight overhead.
         run: node scripts/translate-repair-lane-gate.mjs
 
       # ── Phase 2d: Fix source-copy titles (once-daily repair lane)

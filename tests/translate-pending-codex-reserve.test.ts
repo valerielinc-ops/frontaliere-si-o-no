@@ -175,8 +175,8 @@ describe('translate-pending 2b: riserva Codex quando falliscono le chiavi', () =
       const step = steps.find((candidate) => candidate.name === phase);
       expect(step?.env).toMatchObject({
         FREE_TRANSLATE_CODEX_CALL_TIMEOUT_MS: '480000',
-        // La 2b ha una finestra di 30 minuti; 2d/2e partono con almeno 15
-        // minuti residui (gate) e non devono essere saltate piu' spesso.
+        // La 2b ha una finestra di 30 minuti; 2d/2e partono con almeno 90
+        // minuti residui, cioe' il tempo della lane completa osservata.
         FREE_TRANSLATE_CODEX_MAX_MS: phase === PHASE_2B ? '1500000' : '900000',
         FREE_TRANSLATE_CODEX_LANES: '3',
         // Descrizioni (2b, 2e): 25 righe per richiesta; titoli (2a.2, 2d): 10.
@@ -185,7 +185,7 @@ describe('translate-pending 2b: riserva Codex quando falliscono le chiavi', () =
       });
     }
     const gate = steps.find((candidate) => candidate.id === 'repair_lane_budget');
-    expect(gate?.env?.REPAIR_LANE_MIN_REMAINING_MS).toBe('900000');
+    expect(gate?.env?.REPAIR_LANE_MIN_REMAINING_MS).toBe('5400000');
   });
 
   it('senza la riserva (la 2b com\'era) i tre tier a chiave giu\' danno `incomplete`', async () => {
