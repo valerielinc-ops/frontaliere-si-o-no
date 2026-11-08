@@ -17,6 +17,8 @@ import {
  setModeForTest,
  clearDeclarationsForTest,
  WriteCollisionError,
+ DistPathCollisionError,
+ getOutputShapeDirCount,
 } from '@/build-plugins/sharedWriteRegistry';
 
 describe('sharedWriteRegistry', () => {
@@ -303,6 +305,25 @@ describe('sharedWriteRegistry', () => {
  expect(() => claim(path.join(root, 'guide'), 'pluginB', 'file')).toThrow();
  reset();
  expect(claim(path.join(root, 'guide'), 'pluginB', 'file')).toBe('allow-write');
+ });
+
+ it('derives an index page directory instead of storing one directory per page', () => {
+ const root = path.resolve(os.tmpdir(), 'retained-shape-index-fixture');
+ claim(path.join(root, 'jobs', 'first', 'index.html'), 'pluginA', 'html');
+ const storedDirs = getOutputShapeDirCount();
+ const secondIndex = path.join(root, 'jobs', 'second', 'index.html');
+ claim(secondIndex, 'pluginA', 'html');
+ expect(getOutputShapeDirCount()).toBe(storedDirs);
+
+ let error: unknown;
+ try {
+ claim(path.join(root, 'jobs', 'second'), 'pluginB', 'file');
+ } catch (caught) {
+ error = caught;
+ }
+ expect(error).toBeInstanceOf(DistPathCollisionError);
+ expect((error as DistPathCollisionError).blockingPath).toBe(secondIndex);
+ expect(() => claim(path.join(root, 'jobs'), 'pluginB', 'file')).toThrow(DistPathCollisionError);
  });
  });
 });
