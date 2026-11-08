@@ -865,12 +865,21 @@ describe('deploy.yml — shard push mode and advisory delta verification', () =>
     }
   });
 
-  it('bounds each section-shard push and logs timeouts without stripping its content', () => {
+  it('bounds each section-shard push above its historical successful high-water and logs it', () => {
     for (const name of sectionSteps) {
       const run = String(pushStep(name).run ?? '');
-      expect(run, `${name}: missing the measured 30 min worker deadline`).toContain(
-        'timeout --verbose --signal=TERM --kill-after=600s 1800s bash scripts/lib/push-section-shard.sh',
+      const timeoutMatch = run.match(
+        /timeout --verbose --signal=TERM --kill-after=(\d+)s (\d+)s bash scripts\/lib\/push-section-shard\.sh/,
       );
+      expect(timeoutMatch, `${name}: missing the bounded section worker`).not.toBeNull();
+      const cleanupGraceSeconds = Number(timeoutMatch![1]);
+      const timeoutSeconds = Number(timeoutMatch![2]);
+      // Run 37728960699 completed a full-overlay ticino-fr push (9.9 GB,
+      // 558,573 files) in 2,524s. Leave 18 min for corpus growth.
+      expect(timeoutSeconds, `${name}: deadline must exceed the 2,524s historical success`).toBeGreaterThan(2524);
+      expect(timeoutSeconds, `${name}: keep the reviewed 60 min cap`).toBe(3600);
+      expect(cleanupGraceSeconds, `${name}: preserve signal-cleanup grace`).toBe(600);
+      expect(run).toContain(`timeout_seconds=${timeoutSeconds} cleanup_grace_seconds=${cleanupGraceSeconds}`);
       expect(run, `${name}: missing per-section start telemetry`).toContain('[section-push] event=start');
       expect(run, `${name}: missing explicit timeout telemetry`).toContain('event=timeout');
       expect(run, `${name}: forced termination must be distinguishable from a timeout`).toContain('event=forced-termination');
