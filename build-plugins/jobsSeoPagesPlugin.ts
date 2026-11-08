@@ -13997,7 +13997,27 @@ ${staticAnalyticsHtml}
  };
 
  let expiredCount = 0;
- const expiredSitemapEntries: string[] = [];
+ const EXPIRED_SITEMAP_CHUNK_ENTRIES = 10_000;
+ const expiredSitemapBuffer: string[] = [];
+ const expiredSitemapPath = np.join(distDir, 'sitemap-jobs-expired.xml');
+ const expiredSitemapHeader = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"\n xmlns:xhtml="http://www.w3.org/1999/xhtml">\n`;
+ let expiredSitemapEntryCount = 0;
+ let expiredSitemapInitialized = false;
+ const flushExpiredSitemapBuffer = (): void => {
+  if (expiredSitemapBuffer.length === 0) return;
+  const chunk = `${expiredSitemapBuffer.join('\n')}\n`;
+  if (expiredSitemapInitialized) fs.appendFileSync(expiredSitemapPath, chunk, 'utf-8');
+  else {
+   fs.writeFileSync(expiredSitemapPath, `${expiredSitemapHeader}${chunk}`, 'utf-8');
+   expiredSitemapInitialized = true;
+  }
+  expiredSitemapBuffer.length = 0;
+ };
+ const appendExpiredSitemapEntries = (entries: string[]): void => {
+  for (const entry of entries) expiredSitemapBuffer.push(entry);
+  expiredSitemapEntryCount += entries.length;
+  if (expiredSitemapBuffer.length >= EXPIRED_SITEMAP_CHUNK_ENTRIES) flushExpiredSitemapBuffer();
+ };
 
  // Pre-compute invariant HTML fragments for soft-landing pages (~69K pages).
  // Avoids re-building the same ~2KB of boilerplate for each page.
@@ -15122,8 +15142,8 @@ ${staticAnalyticsHtml}
  expiredSitemapLocales.add(l);
  }
  const lastmod = renderSitemapLastmod(ejData?.expiredAt);
- expiredSitemapEntries.push(
-  ...buildExpiredSitemapClusterEntries(paths, expiredClusterClaim, {
+ appendExpiredSitemapEntries(
+  buildExpiredSitemapClusterEntries(paths, expiredClusterClaim, {
    eligibleLocales: expiredSitemapLocales,
    emitAlternates: expiredClusterHasHreflang,
    hrefFor: (locale) => `${BASE_URL}${withSlash(paths[locale] ?? '')}`,
@@ -15184,7 +15204,7 @@ ${staticAnalyticsHtml}
   sourceSha: process.env.GITHUB_SHA || '',
  });
 
- jobsSeoMemContext.sitemap.expiredEntries = expiredSitemapEntries.length;
+ jobsSeoMemContext.sitemap.expiredEntries = expiredSitemapEntryCount;
  logJobsSeoMem('after-expired-cache-population', {
   expiredCount,
   jobsSeoHtmlGcRuns,
@@ -15193,15 +15213,14 @@ ${staticAnalyticsHtml}
   expiredHtmlCachePeakEntries,
   expiredHtmlCacheChunks,
   expiredHtmlCacheReleasedEntries,
-  expiredSitemapEntries: expiredSitemapEntries.length,
-  sitemapEntries: expiredSitemapEntries.length,
+  expiredSitemapEntries: expiredSitemapEntryCount,
+  sitemapEntries: expiredSitemapEntryCount,
  });
 
  // Write expired jobs sitemap
- if (expiredSitemapEntries.length > 0) {
- const sitemapExpired = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"\n xmlns:xhtml="http://www.w3.org/1999/xhtml">\n${expiredSitemapEntries.join('\n')}\n</urlset>\n`;
- const sitemapExpiredPath = np.join(distDir, 'sitemap-jobs-expired.xml');
- fs.writeFileSync(sitemapExpiredPath, sitemapExpired, 'utf-8');
+ if (expiredSitemapEntryCount > 0) {
+ flushExpiredSitemapBuffer();
+ fs.appendFileSync(expiredSitemapPath, '</urlset>\n', 'utf-8');
 
  // Register in sitemap index
  const sitemapIndexPath = np.join(distDir, 'sitemap.xml');
@@ -15225,12 +15244,12 @@ ${staticAnalyticsHtml}
  await collector.awaitDrainSlot(2);
  }
 
- jobsSeoMemContext.sitemap.expiredEntries = expiredSitemapEntries.length;
- jobsSeoMemContext.sitemap.entries = expiredSitemapEntries.length;
+ jobsSeoMemContext.sitemap.expiredEntries = expiredSitemapEntryCount;
+ jobsSeoMemContext.sitemap.entries = expiredSitemapEntryCount;
  logJobsSeoMem('after-expired-softlandings', {
   expiredCount,
-  expiredSitemapEntries: expiredSitemapEntries.length,
-  sitemapEntries: expiredSitemapEntries.length,
+  expiredSitemapEntries: expiredSitemapEntryCount,
+  sitemapEntries: expiredSitemapEntryCount,
  });
 
  // Last-reader release, proven by the marker immediately above: the expired
@@ -15401,8 +15420,8 @@ ${staticAnalyticsHtml}
  logBuildMem('jobsSeoPages: before-expired-cleanup', collector, jobsSeoMemDetails({
   expiredJobsData: expiredJobsData.length,
   crossLocaleExpiredCount,
-  expiredSitemapEntries: expiredSitemapEntries.length,
-  sitemapEntries: expiredSitemapEntries.length,
+  expiredSitemapEntries: expiredSitemapEntryCount,
+  sitemapEntries: expiredSitemapEntryCount,
  }));
 
  // Cross-locale-expired-bridge was the last reader of the bounded
@@ -15437,8 +15456,8 @@ ${staticAnalyticsHtml}
   expiredCacheEntries: expiredSoftLandingCache.size,
   expiredHtmlCacheChunks,
   expiredHtmlCacheReleasedEntries,
-  expiredSitemapEntries: expiredSitemapEntries.length,
-  sitemapEntries: expiredSitemapEntries.length,
+  expiredSitemapEntries: expiredSitemapEntryCount,
+  sitemapEntries: expiredSitemapEntryCount,
  }));
 
  // This is the last point before the previous-slug peak where `tracking` is
@@ -16160,23 +16179,23 @@ ${staticAnalyticsHtml}
  // pesanti dentro) — i run del 19/20-08 sono morti li' senza una riga [mem]
  // che dicesse dove. Pre-cleanup di proposito, come la coppia di checkpoint
  // del blocco cross-locale-expired (#6139 item 6).
- jobsSeoMemContext.sitemap.entries = sitemapEligibleJobs.length + prevSlugEntries.length + expiredSitemapEntries.length;
+ jobsSeoMemContext.sitemap.entries = sitemapEligibleJobs.length + prevSlugEntries.length + expiredSitemapEntryCount;
  jobsSeoMemContext.sitemap.eligibleJobs = sitemapEligibleJobs.length;
  jobsSeoMemContext.sitemap.previousSlugEntries = prevSlugEntries.length;
- jobsSeoMemContext.sitemap.expiredEntries = expiredSitemapEntries.length;
+ jobsSeoMemContext.sitemap.expiredEntries = expiredSitemapEntryCount;
  logBuildMem('jobsSeoPages: before-active-corpus-release', collector, jobsSeoMemDetails({
   crossLocaleActiveCount: crossLocaleCount,
   sitemapEligibleJobs: sitemapEligibleJobs.length,
   previousSlugEntries: prevSlugEntries.length,
-  expiredSitemapEntries: expiredSitemapEntries.length,
+  expiredSitemapEntries: expiredSitemapEntryCount,
  }));
 
  // Last-reader release, after the existing checkpoint: the cross-locale-active
- // loop above is the final reader of both sets, while the checkpoint itself is
- // the final reader of the sitemap arrays. Keep pathHistory untouched.
+ // loop above is the final reader of both sets. Expired sitemap rows are
+ // streamed to disk during the archive sweep, so no row array remains here.
+ // Keep pathHistory untouched.
  crossLocaleCacheReads.clear();
  emittedActiveJobPaths.clear();
- expiredSitemapEntries.length = 0;
  prevSlugEntries.length = 0;
 
  // `jobHtmlCache` (populated during the ~85k active-job-page render
