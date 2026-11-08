@@ -286,7 +286,10 @@ export function renderSummary(report, {
   }
 
   if (report.markerLines.length > 0) {
-    output.push('Selected raw markers:', '', '```text', ...report.markerLines, '```', '');
+    output.push(
+      `Selected raw markers: ${report.markerLines.length} lines. The full marker set is attached as a workflow artifact.`,
+      '',
+    );
   }
 
   return `${output.join('\n')}\n`;
