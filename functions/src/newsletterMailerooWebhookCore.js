@@ -1,7 +1,7 @@
 import { FieldValue, getFirestore } from 'firebase-admin/firestore';
 import crypto from 'crypto';
-import { refreshEngagementScore } from './lib/engagementScore.js';
 import { refreshPreferredSendHour } from './lib/preferredSendHour.js';
+import { buildNewsletterEventMetricsUpdate } from './lib/newsletterEventMetrics.js';
 import { classifyBounceSeverity, bounceUpdateFields, softBounceRecoveryFields, maybeEscalateSoftBounce } from './lib/bounceClassification.js';
 import { campaignIdFromTags, tagValue } from './lib/mailerooRef.js';
 import {
@@ -188,7 +188,7 @@ async function persistMailerooEventAtomically({
     const current = subscriberSnapshot.data() || {};
     const update = { ...(subscriberUpdate || {}) };
     if (typeof buildDynamicUpdate === 'function') {
-      Object.assign(update, buildDynamicUpdate(current));
+      Object.assign(update, await buildDynamicUpdate(current, tx, update));
     }
     if (shouldWriteSubscriber(update, current)) {
       tx.set(subscriberRef, protectAccountDeletedSubscriberUpdate(update, current), { merge: true });
@@ -370,14 +370,25 @@ export async function persistMailerooEvent(db, event) {
     occurred_at: occurredAt,
   };
 
-  const buildSubscriberRecoveryUpdate = type === 'delivered' || type === 'open' || type === 'click'
-    ? (current) => positiveEventRecoveryFields({
-      subscriber: current,
-      currentStatus: current.status,
-      bounceSeverity: current.bounce_severity,
-      event: type,
-    })
-    : null;
+  const buildSubscriberRecoveryUpdate = async (current, transaction, update) => ({
+    ...(type === 'delivered' || type === 'open' || type === 'click'
+      ? positiveEventRecoveryFields({
+        subscriber: current,
+        currentStatus: current.status,
+        bounceSeverity: current.bounce_severity,
+        event: type,
+      })
+      : {}),
+    ...await buildNewsletterEventMetricsUpdate({
+      transaction,
+      subscriberRef,
+      current,
+      FieldValue,
+      subscriberUpdate: update || subscriberUpdate,
+      type,
+      occurredAt,
+    }),
+  });
 
   if (eventId) {
     const outcome = await persistMailerooEventAtomically({
@@ -414,17 +425,6 @@ export async function persistMailerooEvent(db, event) {
       if (!eventId) throw error;
       console.warn('[mailerooWebhook] soft-bounce escalation failed after atomic event:', error?.message || error);
     }
-  }
-
-  // Refresh engagement score after counter changes (FRO-17)
-  if (type === 'open' || type === 'click' || type === 'send') {
-    await refreshEngagementScore(subscriberRef, FieldValue);
-  }
-
-  // Refresh preferred send hour after the event log write. Only open/click
-  // events belong to the preferred-send-hour window.
-  if (type === 'open' || type === 'click') {
-    await refreshPreferredSendHour(subscriberRef, FieldValue, { type, occurredAt });
   }
 
   return { processed: true, type, email, campaignId };

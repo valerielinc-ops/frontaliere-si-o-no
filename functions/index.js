@@ -181,6 +181,12 @@ import { handleVerifyPublisherDomain } from './src/publisherDomainVerifyCore.js'
 import { enforceFreeTierCap } from './src/publisherFreeCapCore.js';
 import { syncAuthAccountForSubscriber } from './src/newsletterSubscriberAuthSync.js';
 import {
+ hasRelevantNewsletterSubscriberFieldChange,
+ WELCOME_TRIGGER_FIELDS,
+ NEWSLETTER_AUTH_TRIGGER_FIELDS,
+ JOB_ALERT_BACKFILL_TRIGGER_FIELDS,
+} from './src/lib/newsletterSubscriberTriggerDiff.js';
+import {
   cleanupUserDataForDeletedAccount,
   isAccountDeletedTombstone,
   writeApplicationIntentAccountDeletionBarrier,
@@ -1286,6 +1292,7 @@ export const welcomeOnConfirmation = onDocumentWritten(
   async (event) => {
     const before = event.data?.before?.data() || null;
     const after = event.data?.after?.data() || null;
+    if (!hasRelevantNewsletterSubscriberFieldChange(before, after, WELCOME_TRIGGER_FIELDS)) return;
     if (!shouldAttemptWelcome({ before, after })) return;
 
     const email = String(after.email || event.params?.email || '').trim().toLowerCase();
@@ -2741,6 +2748,11 @@ export const syncNewsletterSubscriberAuth = onDocumentWritten(
  const after = event.data?.after;
  if (!after?.exists) return;
  const isNewDocument = !before?.exists;
+ if (!isNewDocument && !hasRelevantNewsletterSubscriberFieldChange(
+  before.data(),
+  after.data(),
+  NEWSLETTER_AUTH_TRIGGER_FIELDS,
+ )) return;
  const wasAccountDeleted = before?.exists && isAccountDeletedTombstone(before.data());
  const clearedAccountDeletion = wasAccountDeleted && !isAccountDeletedTombstone(after.data());
  if (isNewDocument && isAccountDeletedTombstone(after.data())) return;
@@ -2813,16 +2825,22 @@ export const backfillJobAlertOnNewsletterSignup = onDocumentWritten(
  if (emailId === '_meta_') return;
  const after = event.data?.after;
  if (!after?.exists) return; // ignore deletes
+ const before = event.data?.before;
+ const beforeData = before?.exists ? before.data() : null;
+ const created = !beforeData;
  const afterData = after.data();
+ if (!created && !hasRelevantNewsletterSubscriberFieldChange(
+  beforeData,
+  afterData,
+  JOB_ALERT_BACKFILL_TRIGGER_FIELDS,
+ )) return;
  // A bare profile/auth write is not a newsletter subscription. Once the
  // document carries the normal subscriber shape, legacy rows without the
  // newer registration marker follow the same no-proof-gate path as new rows.
  if (!hasNewsletterSubscriberRecord(afterData)) return;
- const beforeData = event.data?.before?.exists ? event.data.before.data() : null;
  const clearedAccountDeletion = beforeData
   && isAccountDeletedTombstone(beforeData)
   && !isAccountDeletedTombstone(afterData);
- const created = !beforeData;
  const subscriberRecordAppeared = !hasNewsletterSubscriberRecord(beforeData);
  // A fresh registration can reuse the old signal fields, so the tier itself
  // may not change. The first complete subscriber record and a cleared

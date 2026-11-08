@@ -1,6 +1,6 @@
 import { FieldValue, getFirestore } from 'firebase-admin/firestore';
-import { refreshEngagementScore } from './lib/engagementScore.js';
 import { refreshPreferredSendHour } from './lib/preferredSendHour.js';
+import { buildNewsletterEventMetricsUpdate } from './lib/newsletterEventMetrics.js';
 import { classifyBounceSeverity, bounceUpdateFields, softBounceRecoveryFields, maybeEscalateSoftBounce } from './lib/bounceClassification.js';
 import {
  positiveEventRecoveryFields,
@@ -177,25 +177,31 @@ export async function persistMailtrapEvent(db, eventData) {
  const merged = await mergeAccountDeletedSubscriberUpdate(
  subscriberRef,
  subscriberUpdate,
- type === 'delivered' || type === 'open' || type === 'click'
- ? (current) => positiveEventRecoveryFields({
- subscriber: current,
- currentStatus: current.status,
- bounceSeverity: current.bounce_severity,
- event: type,
- })
- : null,
+ async (current, transaction) => ({
+  ...(type === 'delivered' || type === 'open' || type === 'click'
+   ? positiveEventRecoveryFields({
+    subscriber: current,
+    currentStatus: current.status,
+    bounceSeverity: current.bounce_severity,
+    event: type,
+   })
+   : {}),
+  ...await buildNewsletterEventMetricsUpdate({
+   transaction,
+   subscriberRef,
+   current,
+   FieldValue,
+   subscriberUpdate,
+   type,
+   occurredAt,
+  }),
+ }),
  db,
  );
  if (merged === null) return { skipped: true, reason: UNKNOWN_RECIPIENT };
 
  if (bounceSeverity === 'soft') {
  await maybeEscalateSoftBounce(subscriberRef, bounceReasonText);
- }
-
- // Refresh engagement score after counter changes (FRO-17)
- if (type === 'open' || type === 'click' || type === 'send') {
- await refreshEngagementScore(subscriberRef, FieldValue);
  }
 
  // Update campaign delivery doc
@@ -244,12 +250,6 @@ export async function persistMailtrapEvent(db, eventData) {
  timestamp: FieldValue.serverTimestamp(),
  occurred_at: occurredAt,
  });
-
- // Refresh preferred send hour after the event log write. Only open/click
- // events belong to the preferred-send-hour window.
- if (type === 'open' || type === 'click') {
- await refreshPreferredSendHour(subscriberRef, FieldValue, { type, occurredAt });
- }
 
  return { processed: true, type, email, campaignId };
 }
