@@ -2,30 +2,6 @@
   "schemaVersion": 1,
   "posted": [
     {
-      "id": "spreco-alimentare-giovani-social",
-      "url": "https://frontaliereticino.ch/articoli-frontaliere/spreco-alimentare-giovani-social/",
-      "ts": "2026-05-07T06:07:12.701Z",
-      "seed": true
-    },
-    {
-      "id": "nuova-axenstrasse-svitto-2026",
-      "url": "https://frontaliereticino.ch/articoli-frontaliere/nuova-axenstrasse-svitto-2026/",
-      "ts": "2026-05-07T06:13:29.433Z",
-      "seed": true
-    },
-    {
-      "id": "spreco-alimentare-svizzera-obiettivo-fallito",
-      "url": "https://frontaliereticino.ch/articoli-frontaliere/spreco-alimentare-svizzera-obiettivo-fallito/",
-      "ts": "2026-05-07T06:18:45.500Z",
-      "seed": true
-    },
-    {
-      "id": "elon-musk-svizzero-processo-friburgo",
-      "url": "https://frontaliereticino.ch/articoli-frontaliere/elon-musk-svizzero-processo-friburgo/",
-      "ts": "2026-05-07T06:26:43.255Z",
-      "seed": true
-    },
-    {
       "id": "fedpol-talpa-accesso-dossier-inchiesta",
       "url": "https://frontaliereticino.ch/articoli-frontaliere/fedpol-talpa-accesso-dossier-inchiesta/",
       "ts": "2026-05-07T06:32:16.128Z",
@@ -6000,6 +5976,74 @@
       "url": "https://frontaliereticino.ch/articoli-frontaliere/stipendio-veterinario-frontaliere-ticino/",
       "ts": "2026-07-20T04:12:59.256Z",
       "fbPostId": "951226518080080_122120161977272498"
+    },
+    {
+      "id": "avs-iva-tredicesima-rendita",
+      "url": "https://frontaliereticino.ch/articoli-svizzera/avs-iva-tredicesima-rendita/",
+      "ts": "2026-11-08T15:23:53.518Z",
+      "fbPostId": "951226518080080_122130884055272498",
+      "copyMode": "codex",
+      "copySlot": "article",
+      "copyPromptVersion": "frontaliere-social-copy-v4",
+      "copyPackId": "1fb417e247af2a71",
+      "copyTemplateId": "fb-article-practical",
+      "copyAssignmentMode": "deterministic",
+      "copyAngleId": "passo-pratico",
+      "copyPillarId": "opportunita-concrete",
+      "copyAngleIntent": "both",
+      "copyHook": "Un passaggio pratico per leggere un tema oltreconfine con più chiarezza.",
+      "copyCta": "Leggi l'approfondimento."
+    },
+    {
+      "id": "disoccupazione-stabile-ottobre",
+      "url": "https://frontaliereticino.ch/articoli-svizzera/disoccupazione-stabile-ottobre/",
+      "ts": "2026-11-08T15:24:00.859Z",
+      "fbPostId": "951226518080080_122130884085272498",
+      "copyMode": "codex",
+      "copySlot": "article",
+      "copyPromptVersion": "frontaliere-social-copy-v4",
+      "copyPackId": "1fb417e247af2a71",
+      "copyTemplateId": "fb-article-context",
+      "copyAssignmentMode": "deterministic",
+      "copyAngleId": "contesto-chiaro",
+      "copyPillarId": "vita-oltreconfine",
+      "copyAngleIntent": "searchable",
+      "copyHook": "Il contesto utile prima di valutare una scelta oltreconfine.",
+      "copyCta": "Approfondisci il tema."
+    },
+    {
+      "id": "telelavoro-frontaliere-quadro-svizzero",
+      "url": "https://frontaliereticino.ch/articoli-svizzera/telelavoro-frontaliere-quadro-svizzero/",
+      "ts": "2026-11-08T15:24:07.172Z",
+      "fbPostId": "951226518080080_122130884109272498",
+      "copyMode": "codex",
+      "copySlot": "article",
+      "copyPromptVersion": "frontaliere-social-copy-v4",
+      "copyPackId": "1fb417e247af2a71",
+      "copyTemplateId": "fb-article-practical",
+      "copyAssignmentMode": "deterministic",
+      "copyAngleId": "passo-pratico",
+      "copyPillarId": "opportunita-concrete",
+      "copyAngleIntent": "both",
+      "copyHook": "Un passaggio pratico per leggere un tema oltreconfine con più chiarezza.",
+      "copyCta": "Leggi l'approfondimento."
+    },
+    {
+      "id": "roma-cambia-proposta-tassa",
+      "url": "https://frontaliereticino.ch/articoli-frontaliere/roma-cambia-proposta-tassa/",
+      "ts": "2026-11-08T15:24:13.586Z",
+      "fbPostId": "951226518080080_122130884145272498",
+      "copyMode": "codex",
+      "copySlot": "article",
+      "copyPromptVersion": "frontaliere-social-copy-v4",
+      "copyPackId": "1fb417e247af2a71",
+      "copyTemplateId": "fb-article-context",
+      "copyAssignmentMode": "deterministic",
+      "copyAngleId": "contesto-chiaro",
+      "copyPillarId": "vita-oltreconfine",
+      "copyAngleIntent": "searchable",
+      "copyHook": "Il contesto utile prima di valutare una scelta oltreconfine.",
+      "copyCta": "Approfondisci il tema."
     }
   ]
 }
