@@ -1,7 +1,7 @@
 {
   "crawlerKey": "decathlon",
-  "assembledAt": "2026-11-07T21:30:25.474Z",
-  "runId": "42415224192",
+  "assembledAt": "2026-11-08T09:33:12.478Z",
+  "runId": "42466498730",
   "jobs": [
     {
       "id": "decathlon-00b691867916",
@@ -34,7 +34,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/3885171-store-leader-incubation-mwd-ost-und-zentralschweiz-zurich",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-07T21:30:16.019Z",
+      "crawledAt": "2026-11-08T09:33:04.763Z",
       "addressLocality": "Zürich",
       "postalCode": "8001",
       "addressRegion": "ZH",
@@ -93,7 +93,7 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-07T21:30:16.019Z",
+      "validThrough": "2026-12-08T09:33:04.763Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -127,7 +127,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4067317-sports-leader-verkaufsberater-mwd-50-70-decathlon-spreitenbach-8957-spreitenbach",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-07T21:30:15.444Z",
+      "crawledAt": "2026-11-08T09:33:04.158Z",
       "addressLocality": "Spreitenbach",
       "postalCode": "8957",
       "addressRegion": "AG",
@@ -184,7 +184,7 @@
       },
       "streetAddress": "Spreitenbach",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-07T21:30:15.444Z",
+      "validThrough": "2026-12-08T09:33:04.158Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -218,7 +218,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4278405-store-leader-incubation-mwd-nord-und-westschweiz-bern",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-07T21:30:14.803Z",
+      "crawledAt": "2026-11-08T09:33:03.493Z",
       "addressLocality": "Bern",
       "postalCode": "3004",
       "addressRegion": "BE",
@@ -275,7 +275,7 @@
       },
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-07T21:30:14.803Z",
+      "validThrough": "2026-12-08T09:33:03.493Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -309,7 +309,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4505065-conseiller-ere-sportif-futur-team-leader-velo-routegravel-hf-cdi-80-avry-matran",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-07T21:30:14.268Z",
+      "crawledAt": "2026-11-08T09:33:00.385Z",
       "addressLocality": "Matran",
       "postalCode": "1753",
       "addressRegion": "FR",
@@ -351,7 +351,7 @@
       },
       "streetAddress": "Matran",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-07T21:30:14.268Z",
+      "validThrough": "2026-12-08T09:33:00.385Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -385,7 +385,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4521591-mecanicien-ne-technicien-ne-cycle-et-sports-hf-cdi-100-bienne-2504-biel",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-07T21:30:13.700Z",
+      "crawledAt": "2026-11-08T09:32:59.769Z",
       "addressLocality": "Biel",
       "postalCode": "2504",
       "addressRegion": "BE",
@@ -458,7 +458,7 @@
       },
       "streetAddress": "Biel",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-07T21:30:13.700Z",
+      "validThrough": "2026-12-08T09:32:59.769Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -492,7 +492,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4522013-befristet-sport-leader-verkaufsberater-mwd-50-auf-stundenlohnbasis-3800-interlaken",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-07T21:30:13.123Z",
+      "crawledAt": "2026-11-08T09:32:59.136Z",
       "addressLocality": "Interlaken",
       "postalCode": "3800",
       "addressRegion": "BE",
@@ -593,7 +593,7 @@
       },
       "streetAddress": "Interlaken",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-07T21:30:13.123Z",
+      "validThrough": "2026-12-08T09:32:59.136Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -627,7 +627,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4526547-sport-leader-verkaufsberater-wasser-winter-mwd-80-emmen-6020-emmen",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-07T21:30:12.534Z",
+      "crawledAt": "2026-11-08T09:32:58.485Z",
       "addressLocality": "Emmen",
       "postalCode": "6032",
       "addressRegion": "LU",
@@ -686,7 +686,7 @@
       },
       "streetAddress": "Emmen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-07T21:30:12.534Z",
+      "validThrough": "2026-12-08T09:32:58.485Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -720,7 +720,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4529033-conseiller-ere-sportif-ve-cycle-expert-cdd-30-decathlon-lausanne-1003-lausanne",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-07T21:30:11.850Z",
+      "crawledAt": "2026-11-08T09:32:57.813Z",
       "addressLocality": "Lausanne",
       "postalCode": "1003",
       "addressRegion": "VD",
@@ -764,7 +764,7 @@
       },
       "streetAddress": "Lausanne",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-07T21:30:11.850Z",
+      "validThrough": "2026-12-08T09:32:57.813Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -798,7 +798,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4542241-conseiller-ere-sportif-montagne-ski-hf-cdi-30-yverdon-1442-montagny-pres-yverdon",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-07T21:30:11.238Z",
+      "crawledAt": "2026-11-08T09:32:57.144Z",
       "addressLocality": "Montagny-près-Yverdon",
       "postalCode": "1442",
       "addressRegion": "VD",
@@ -840,7 +840,7 @@
       },
       "streetAddress": "Montagny-près-Yverdon",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-07T21:30:11.238Z",
+      "validThrough": "2026-12-08T09:32:57.144Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -874,7 +874,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4543543-sport-leader-verkaufsberater-mwd-befristet-60-hinwil-8340-hinwil",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-07T21:30:10.682Z",
+      "crawledAt": "2026-11-08T09:32:56.529Z",
       "addressLocality": "Hinwil",
       "postalCode": "8340",
       "addressRegion": "ZH",
@@ -918,7 +918,7 @@
       },
       "streetAddress": "Hinwil",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-07T21:30:10.682Z",
+      "validThrough": "2026-12-08T09:32:56.529Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -952,7 +952,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4550115-stagiaire-cycle-atelier-location-hf-stage-6-mois-martigny-1920-martigny",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-07T21:30:10.113Z",
+      "crawledAt": "2026-11-08T09:32:55.917Z",
       "addressLocality": "Martigny",
       "postalCode": "1920",
       "addressRegion": "VS",
@@ -1027,7 +1027,7 @@
       },
       "streetAddress": "Martigny",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-07T21:30:10.113Z",
+      "validThrough": "2026-12-08T09:32:55.917Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1061,7 +1061,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4557787-conseiller-ere-glisse-hf-cdd-80-conthey-novembre-a-janvier-1964-conthey",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-07T21:30:09.556Z",
+      "crawledAt": "2026-11-08T09:32:55.297Z",
       "addressLocality": "Conthey",
       "postalCode": "1964",
       "addressRegion": "VS",
@@ -1111,7 +1111,7 @@
       },
       "streetAddress": "Conthey",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-07T21:30:09.556Z",
+      "validThrough": "2026-12-08T09:32:55.297Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1145,7 +1145,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4557833-conseiller-ere-location-hf-cdd-60-conthey-1964-conthey",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-07T21:30:08.939Z",
+      "crawledAt": "2026-11-08T09:32:54.549Z",
       "addressLocality": "Conthey",
       "postalCode": "1964",
       "addressRegion": "VS",
@@ -1187,7 +1187,7 @@
       },
       "streetAddress": "Conthey",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-07T21:30:08.939Z",
+      "validThrough": "2026-12-08T09:32:54.549Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1221,7 +1221,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4577437-sport-leader-verkaufsberater-mwd-befristet-50-wintersport-heimberg-3627-heimberg",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-07T21:30:08.301Z",
+      "crawledAt": "2026-11-08T09:32:53.876Z",
       "addressLocality": "Heimberg",
       "postalCode": "3627",
       "addressRegion": "BE",
@@ -1265,7 +1265,7 @@
       },
       "streetAddress": "Heimberg",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-07T21:30:08.301Z",
+      "validThrough": "2026-12-08T09:32:53.876Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1299,7 +1299,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4577465-sport-leader-verkaufsberater-mwd-befristet-40-outdoorsport-heimberg-3627-heimberg",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-07T21:30:07.634Z",
+      "crawledAt": "2026-11-08T09:32:53.211Z",
       "addressLocality": "Heimberg",
       "postalCode": "3627",
       "addressRegion": "BE",
@@ -1343,7 +1343,7 @@
       },
       "streetAddress": "Heimberg",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-07T21:30:07.634Z",
+      "validThrough": "2026-12-08T09:32:53.211Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1377,7 +1377,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4507567-team-leader-abteilungsleiter-mwd-100-fahrrad-und-workshop-3627-heimberg",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-07T21:30:07.006Z",
+      "crawledAt": "2026-11-08T09:32:52.533Z",
       "addressLocality": "Heimberg",
       "postalCode": "3627",
       "addressRegion": "BE",
@@ -1421,7 +1421,7 @@
       },
       "streetAddress": "Heimberg",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-07T21:30:07.006Z",
+      "validThrough": "2026-12-08T09:32:52.533Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1455,7 +1455,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4588085-sport-leader-verkaufsberater-mwd-20-decathlon-rickenbach-9532-rickenbach",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-07T21:30:06.424Z",
+      "crawledAt": "2026-11-08T09:32:51.917Z",
       "addressLocality": "Rickenbach",
       "postalCode": "9532",
       "addressRegion": "GE",
@@ -1499,7 +1499,7 @@
       },
       "streetAddress": "Rickenbach",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-07T21:30:06.424Z",
+      "validThrough": "2026-12-08T09:32:51.917Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1533,7 +1533,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4599639-verkaufsberaterin-ski-20-40-befristet-bern-shoppyland-3321-urtenen-schonbuhl",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-07T21:30:05.870Z",
+      "crawledAt": "2026-11-08T09:32:51.330Z",
       "addressLocality": "Urtenen-Schönbühl",
       "postalCode": "3322",
       "addressRegion": "BE",
@@ -1588,7 +1588,7 @@
       },
       "streetAddress": "Urtenen-Schönbühl",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T21:30:05.870Z",
+      "validThrough": "2026-12-14T09:32:51.330Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1622,7 +1622,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4603695-sport-leader-verkaufsberater-mwd-40-decathlon-rickenbach-befristet-9532-rickenbach",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-07T21:30:05.316Z",
+      "crawledAt": "2026-11-08T09:32:50.725Z",
       "addressLocality": "Rickenbach",
       "postalCode": "9532",
       "addressRegion": "GE",
@@ -1666,7 +1666,7 @@
       },
       "streetAddress": "Rickenbach",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-16T21:30:05.316Z",
+      "validThrough": "2026-12-16T09:32:50.725Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1700,7 +1700,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4527715-mecanicien-ne-technicien-ne-cycle-et-sports-hf-cdi-80-100-1763-granges-paccot",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-07T21:30:04.745Z",
+      "crawledAt": "2026-11-08T09:32:50.122Z",
       "addressLocality": "Granges-Paccot",
       "postalCode": "1763",
       "addressRegion": "FR",
@@ -1748,7 +1748,7 @@
       },
       "streetAddress": "Granges-Paccot",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-07T21:30:04.745Z",
+      "validThrough": "2026-12-08T09:32:50.122Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1782,7 +1782,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4617405-candidature-spontanee-stage-sport-leader-1204-geneve",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-07T21:30:04.172Z",
+      "crawledAt": "2026-11-08T09:32:49.512Z",
       "addressLocality": "Genève",
       "postalCode": "1201",
       "addressRegion": "GE",
@@ -1824,7 +1824,7 @@
       },
       "streetAddress": "Genève",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-24T21:30:04.172Z",
+      "validThrough": "2026-12-24T09:32:49.512Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1858,7 +1858,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4618167-sport-leader-verkaufsberater-mwd-60-100-decathlon-luzern-city-6004-luzern",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-07T21:30:03.518Z",
+      "crawledAt": "2026-11-08T09:32:48.853Z",
       "addressLocality": "Luzern",
       "postalCode": "6003",
       "addressRegion": "LU",
@@ -1902,7 +1902,7 @@
       },
       "streetAddress": "Luzern",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-25T21:30:03.518Z",
+      "validThrough": "2026-12-25T09:32:48.853Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1936,7 +1936,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4619393-sportberaterin-mwd-stundenlohnvertrag-20-oder-flexibel-5034-suhr",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-07T21:30:02.872Z",
+      "crawledAt": "2026-11-08T09:32:48.181Z",
       "addressLocality": "Suhr",
       "postalCode": "5034",
       "addressRegion": "AG",
@@ -1984,7 +1984,7 @@
       },
       "streetAddress": "Suhr",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-27T21:30:02.872Z",
+      "validThrough": "2026-12-27T09:32:48.181Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2018,7 +2018,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4628335-mutterschaftsvertretung-e-commerce-category-manager-mwd-100-1030-bussigny",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-07T21:30:02.317Z",
+      "crawledAt": "2026-11-08T09:32:47.563Z",
       "addressLocality": "Bussigny",
       "postalCode": "1030",
       "addressRegion": "VD",
@@ -2063,7 +2063,7 @@
       },
       "streetAddress": "Bussigny",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-31T21:30:02.317Z",
+      "validThrough": "2026-12-31T09:32:47.563Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2097,7 +2097,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4630203-retail-it-specialist-deeng-mwd-100-1425-onnens",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-07T21:30:01.768Z",
+      "crawledAt": "2026-11-08T09:32:46.978Z",
       "addressLocality": "Onnens",
       "postalCode": "1425",
       "addressRegion": "GE",
@@ -2141,7 +2141,7 @@
       },
       "streetAddress": "Onnens",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-03T21:30:01.768Z",
+      "validThrough": "2027-01-03T09:32:46.978Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2175,7 +2175,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4645429-warehouse-3pl-coordinator-logistics-wmd-100-bern",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-07T21:30:01.200Z",
+      "crawledAt": "2026-11-08T09:32:46.354Z",
       "addressLocality": "Bern",
       "postalCode": "3004",
       "addressRegion": "BE",
@@ -2217,7 +2217,7 @@
       },
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-12T21:30:01.200Z",
+      "validThrough": "2027-01-12T09:32:46.354Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2251,7 +2251,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4648829-sport-leader-verkaufsberater-mwd-40-60-7000-chur",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-07T21:30:00.633Z",
+      "crawledAt": "2026-11-08T09:32:45.772Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressRegion": "GR",
@@ -2299,7 +2299,7 @@
       },
       "streetAddress": "Chur",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-13T21:30:00.633Z",
+      "validThrough": "2027-01-13T09:32:45.772Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2333,7 +2333,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4648847-befristet-sport-leader-verkaufsberater-mwd-50-decathlon-interlaken-3800-interlaken",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-07T21:30:00.050Z",
+      "crawledAt": "2026-11-08T09:32:45.157Z",
       "addressLocality": "Interlaken",
       "postalCode": "3800",
       "addressRegion": "BE",
@@ -2383,7 +2383,7 @@
       },
       "streetAddress": "Interlaken",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-13T21:30:00.050Z",
+      "validThrough": "2027-01-13T09:32:45.157Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2417,7 +2417,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4650551-team-leader-abteilungsleiter-mwd-100-outdoor-wasser-zurich",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-07T21:29:59.411Z",
+      "crawledAt": "2026-11-08T09:32:44.463Z",
       "addressLocality": "Zürich",
       "postalCode": "8001",
       "addressRegion": "ZH",
@@ -2465,7 +2465,7 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-14T21:29:59.411Z",
+      "validThrough": "2027-01-14T09:32:44.463Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2499,7 +2499,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4654991-sport-leader-verkaufsberater-mwd-befristet-80-brig-3902-brig-glis",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-07T21:29:58.834Z",
+      "crawledAt": "2026-11-08T09:32:43.830Z",
       "addressLocality": "Brig-Glis",
       "postalCode": "3902",
       "addressRegion": "VS",
@@ -2549,7 +2549,7 @@
       },
       "streetAddress": "Brig-Glis",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-18T21:29:58.834Z",
+      "validThrough": "2027-01-18T09:32:43.830Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2583,7 +2583,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4655605-conseiller-ere-sportif-cycle-hf-cdi-60-80-villeneuve-1844-villeneuve",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-07T21:29:58.281Z",
+      "crawledAt": "2026-11-08T09:32:43.225Z",
       "addressLocality": "Villeneuve",
       "postalCode": "1844",
       "addressRegion": "VD",
@@ -2631,7 +2631,7 @@
       },
       "streetAddress": "Villeneuve",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-18T21:29:58.281Z",
+      "validThrough": "2027-01-18T09:32:43.225Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2665,7 +2665,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4657651-senior-accountant-accounts-payable-mfd-100-1030-bussigny",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-07T21:29:57.543Z",
+      "crawledAt": "2026-11-08T09:32:42.596Z",
       "addressLocality": "Bussigny",
       "postalCode": "1030",
       "addressRegion": "VD",
@@ -2711,7 +2711,7 @@
       },
       "streetAddress": "Bussigny",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-20T21:29:57.543Z",
+      "validThrough": "2027-01-20T09:32:42.596Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2745,7 +2745,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4658843-conseiller-ere-ski-hf-cdd-40-1201-geneve",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-07T21:29:56.742Z",
+      "crawledAt": "2026-11-08T09:32:41.976Z",
       "addressLocality": "Genève",
       "postalCode": "1201",
       "addressRegion": "GE",
@@ -2793,7 +2793,7 @@
       },
       "streetAddress": "Genève",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-20T21:29:56.742Z",
+      "validThrough": "2027-01-20T09:32:41.976Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2827,7 +2827,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4659021-befristet-sport-leader-verkaufsberater-mwd-50-8001-zurich",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-07T21:29:56.076Z",
+      "crawledAt": "2026-11-08T09:32:38.817Z",
       "addressLocality": "Zürich",
       "postalCode": "8001",
       "addressRegion": "ZH",
@@ -2879,7 +2879,7 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-20T21:29:56.076Z",
+      "validThrough": "2027-01-20T09:32:38.817Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2913,7 +2913,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4659031-befristet-sport-leader-verkaufsberater-ski-wintersport-mwd-70-8001-zurich",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-07T21:29:55.445Z",
+      "crawledAt": "2026-11-08T09:32:37.806Z",
       "addressLocality": "Zürich",
       "postalCode": "8001",
       "addressRegion": "ZH",
@@ -2967,7 +2967,7 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-20T21:29:55.445Z",
+      "validThrough": "2027-01-20T09:32:37.806Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3001,7 +3001,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4665031-sport-leader-verkaufsberater-efz-mwd-100-6004-luzern",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-07T21:29:54.845Z",
+      "crawledAt": "2026-11-08T09:32:37.074Z",
       "addressLocality": "Luzern",
       "postalCode": "6003",
       "addressRegion": "LU",
@@ -3046,7 +3046,7 @@
       },
       "streetAddress": "Luzern",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-25T21:29:54.845Z",
+      "validThrough": "2027-01-25T09:32:37.074Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3080,7 +3080,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4669909-sport-leader-verkaufsberater-mwd-fitness-outdoor-80-3627-heimberg",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-07T21:29:54.226Z",
+      "crawledAt": "2026-11-08T09:32:36.307Z",
       "addressLocality": "Heimberg",
       "postalCode": "3627",
       "addressRegion": "BE",
@@ -3125,7 +3125,7 @@
       },
       "streetAddress": "Heimberg",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-27T21:29:54.226Z",
+      "validThrough": "2027-01-27T09:32:36.307Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3159,7 +3159,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4670115-befristet-sport-leader-verkaufsberater-mwd-werkstatt-velo-ski-80-3627-heimberg",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-07T21:29:53.675Z",
+      "crawledAt": "2026-11-08T09:32:35.540Z",
       "addressLocality": "Heimberg",
       "postalCode": "3627",
       "addressRegion": "BE",
@@ -3209,7 +3209,7 @@
       },
       "streetAddress": "Heimberg",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-27T21:29:53.675Z",
+      "validThrough": "2027-01-27T09:32:35.540Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3243,7 +3243,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4670335-conseiller-ere-ski-hf-cdd-50-ski-2504-biel",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-07T21:29:53.059Z",
+      "crawledAt": "2026-11-08T09:32:34.341Z",
       "addressLocality": "Biel",
       "postalCode": "2504",
       "addressRegion": "BE",
@@ -3291,7 +3291,7 @@
       },
       "streetAddress": "Biel",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-27T21:29:53.059Z",
+      "validThrough": "2027-01-27T09:32:34.341Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3325,7 +3325,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4674097-team-leader-abteilungsleiter-mwd-100-4053-basel",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-07T21:29:52.511Z",
+      "crawledAt": "2026-11-08T09:32:33.002Z",
       "addressLocality": "Basel",
       "postalCode": "4001",
       "addressRegion": "BS",
@@ -3373,7 +3373,7 @@
       },
       "streetAddress": "Basel",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-31T21:29:52.511Z",
+      "validThrough": "2027-01-31T09:32:33.002Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3407,7 +3407,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4640281-sport-leader-verkaufsberater-mwd-80-decathlon-altstetten-zurich",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-07T21:29:51.953Z",
+      "crawledAt": "2026-11-08T09:32:31.393Z",
       "addressLocality": "Zürich",
       "postalCode": "8001",
       "addressRegion": "ZH",
@@ -3452,7 +3452,7 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-07T21:29:51.953Z",
+      "validThrough": "2027-01-07T09:32:31.393Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3486,7 +3486,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4675683-sport-leader-verkaufsberater-mit-efz-mwd-100-decathlon-kreuzlingen-8280-kreuzlingen",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-07T21:29:51.311Z",
+      "crawledAt": "2026-11-08T09:32:29.503Z",
       "addressLocality": "Kreuzlingen",
       "postalCode": "8280",
       "addressRegion": "TG",
@@ -3535,7 +3535,7 @@
       },
       "streetAddress": "Kreuzlingen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-01T21:29:51.311Z",
+      "validThrough": "2027-02-01T09:32:29.503Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3569,7 +3569,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4676993-conseiller-ere-sportif-ve-ski-decathlon-avry-cdd-20-60-novembre-a-mars-matran",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-07T21:29:50.734Z",
+      "crawledAt": "2026-11-08T09:32:27.733Z",
       "addressLocality": "Matran",
       "postalCode": "1753",
       "addressRegion": "FR",
@@ -3619,7 +3619,7 @@
       },
       "streetAddress": "Matran",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-01T21:29:50.734Z",
+      "validThrough": "2027-02-01T09:32:27.733Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3653,7 +3653,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4229037-verkaufsberaterin-warenannahme-mwd-40-60-decathlon-schweiz-8957-spreitenbach",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-07T21:29:50.155Z",
+      "crawledAt": "2026-11-08T09:32:26.964Z",
       "addressLocality": "Spreitenbach",
       "postalCode": "8957",
       "addressRegion": "AG",
@@ -3702,7 +3702,7 @@
       },
       "streetAddress": "Spreitenbach",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-07T21:29:50.155Z",
+      "validThrough": "2026-12-08T09:32:26.964Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3736,7 +3736,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4677393-kasseempfang-decathlon-bern-shoppyland-mwd-stundenlohnvertrag-3321-urtenen-schonbuhl",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-07T21:29:49.502Z",
+      "crawledAt": "2026-11-08T09:32:26.031Z",
       "addressLocality": "Urtenen-Schönbühl",
       "postalCode": "3322",
       "addressRegion": "BE",
@@ -3784,7 +3784,7 @@
       },
       "streetAddress": "Urtenen-Schönbühl",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-01T21:29:49.502Z",
+      "validThrough": "2027-02-01T09:32:26.031Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3818,7 +3818,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4577101-conseiller-ere-sportif-avec-cfc-glisse-etehiver-hf-cdi-100-bussigny-1030-bussigny",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-07T21:29:48.915Z",
+      "crawledAt": "2026-11-08T09:32:25.346Z",
       "addressLocality": "Bussigny",
       "postalCode": "1030",
       "addressRegion": "VD",
@@ -3866,7 +3866,7 @@
       },
       "streetAddress": "Bussigny",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-07T21:29:48.915Z",
+      "validThrough": "2026-12-08T09:32:25.346Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3900,7 +3900,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4682341-conseiller-ere-ski-hf-cdd-50-crans-montana-3963-crans-montana",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-07T21:29:48.243Z",
+      "crawledAt": "2026-11-08T09:32:24.431Z",
       "addressLocality": "Crans-Montana",
       "postalCode": "3963",
       "addressRegion": "VS",
@@ -3948,7 +3948,7 @@
       },
       "streetAddress": "Crans-Montana",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-04T21:29:48.243Z",
+      "validThrough": "2027-02-04T09:32:24.431Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3982,7 +3982,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4683801-hote-esse-de-caisse-et-daccueil-cdi-60-decathlon-lausanne-bel-air-1003-lausanne",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-07T21:29:47.687Z",
+      "crawledAt": "2026-11-08T09:32:23.620Z",
       "addressLocality": "Lausanne",
       "postalCode": "1003",
       "addressRegion": "VD",
@@ -4030,7 +4030,7 @@
       },
       "streetAddress": "Lausanne",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-04T21:29:47.687Z",
+      "validThrough": "2027-02-04T09:32:23.620Z",
       "validThroughSource": "last-observed-window"
     }
   ]
