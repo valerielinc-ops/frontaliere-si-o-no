@@ -34,6 +34,15 @@
       ]
     },
     {
+      "collectionGroup": "alerts",
+      "queryScope": "COLLECTION_GROUP",
+      "fields": [
+        { "fieldPath": "active", "order": "ASCENDING" },
+        { "fieldPath": "frequency", "order": "ASCENDING" },
+        { "fieldPath": "hasDeferredCompanyAlertWork", "order": "ASCENDING" }
+      ]
+    },
+    {
       "collectionGroup": "campaign_deliveries",
       "queryScope": "COLLECTION_GROUP",
       "fields": [

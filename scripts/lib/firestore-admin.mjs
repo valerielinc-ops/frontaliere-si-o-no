@@ -14,6 +14,7 @@ import { getServiceAccountAccessToken } from './google-service-account-token.mjs
 
 export const FIRESTORE_READ_METRIC = 'custom.googleapis.com/firestore/reads_by_caller';
 export const FIRESTORE_PROJECT_ID = 'frontaliere-ticino';
+export const DEFAULT_LOCAL_REPORT_READ_CAP = 5_000;
 const MONITORING_API = 'https://monitoring.googleapis.com/v3';
 const MONITORING_WRITE_SCOPE = 'https://www.googleapis.com/auth/monitoring.write';
 const MONITORING_TIMEOUT_MS = 30_000;
@@ -63,22 +64,96 @@ function readCountFromAggregate(snapshot) {
 
 /** Mutable per-process read counter. It never stores or serializes documents. */
 export class FirestoreReadCounter {
-  constructor({ caller = buildFirestoreCaller() } = {}) {
+  constructor({ caller = buildFirestoreCaller(), maxReads = null } = {}) {
     this.caller = caller;
     this.reads = 0;
+    this.maxReads = maxReads;
+    if (maxReads != null && (!Number.isSafeInteger(maxReads) || maxReads < 1)) {
+      throw new TypeError('FirestoreReadCounter maxReads must be a positive safe integer or null');
+    }
+  }
+
+  remainingReads() {
+    return this.maxReads == null ? Infinity : Math.max(0, this.maxReads - this.reads);
+  }
+
+  assertCanRead(count = 1) {
+    if (this.maxReads != null && this.reads + count > this.maxReads) {
+      throw this.budgetError();
+    }
+  }
+
+  budgetError({ exhausted = false } = {}) {
+    return new FirestoreReadBudgetExceededError({
+      maxReads: this.maxReads,
+      reads: this.reads,
+      caller: this.caller,
+      exhausted,
+    });
   }
 
   addReturnedDocuments(value, { minimumOne = true } = {}) {
-    this.reads += readCountFromSnapshot(value, minimumOne);
+    const count = readCountFromSnapshot(value, minimumOne);
+    this.reads += count;
+    if (this.maxReads != null && this.reads > this.maxReads) throw this.budgetError();
+    return count;
   }
 
   addAggregation(value) {
     this.reads += readCountFromAggregate(value);
+    if (this.maxReads != null && this.reads > this.maxReads) throw this.budgetError();
   }
 }
 
 export function createFirestoreReadCounter(options = {}) {
   return new FirestoreReadCounter(options);
+}
+
+const LOCAL_REPORT_SCRIPTS = new Set([
+  'newsletter-ab-report.mjs',
+  'report-confirmation-copy-experiment.mjs',
+  'report-daily-brief-cadence.mjs',
+  'report-email-engagement.mjs',
+  'report-job-alert-subject-ab.mjs',
+  'report-job-email-ranking-experiment.mjs',
+]);
+const ACTION_REPORT_READ_CAPS = new Map([
+  // Existing scheduled reports read about 108k and 100k documents per run.
+  // Keep headroom for normal volume while bounding accidental wide windows.
+  ['report-daily-brief-cadence.mjs', 150_000],
+  ['report-email-engagement.mjs', 150_000],
+]);
+
+/** Resolve an opt-in or safe local default cap for expensive report scripts. */
+export function resolveFirestoreReadCap(env = process.env, scriptPath = process.argv[1]) {
+  const configured = env.FIRESTORE_READ_CAP;
+  if (configured != null && String(configured).trim() !== '') {
+    const maxReads = Number(configured);
+    if (!Number.isSafeInteger(maxReads) || maxReads < 1) {
+      throw new Error('FIRESTORE_READ_CAP deve essere un intero positivo.');
+    }
+    return maxReads;
+  }
+
+  const script = path.basename(scriptPath || '');
+  if (env.GITHUB_ACTIONS !== 'true' && LOCAL_REPORT_SCRIPTS.has(script)) {
+    return DEFAULT_LOCAL_REPORT_READ_CAP;
+  }
+  if (env.GITHUB_ACTIONS === 'true') return ACTION_REPORT_READ_CAPS.get(script) ?? null;
+  return null;
+}
+
+export class FirestoreReadBudgetExceededError extends Error {
+  constructor({ maxReads, reads, caller, exhausted = false }) {
+    const reason = exhausted
+      ? `il risultato ha raggiunto il limite e potrebbe essere troncato`
+      : `la prossima lettura supererebbe il limite`;
+    super(`Firestore read budget exceeded for ${caller}: ${reason} (${reads}/${maxReads}). Nessun report parziale scritto. Riduci la finestra o aumenta FIRESTORE_READ_CAP in modo esplicito.`);
+    this.name = 'FirestoreReadBudgetExceededError';
+    this.maxReads = maxReads;
+    this.reads = reads;
+    this.caller = caller;
+  }
 }
 
 function isPromiseLike(value) {
@@ -100,6 +175,7 @@ function isDocumentReferenceLike(value) {
 function createFirestoreWrapperContext(counter) {
   const firestoreCache = new WeakMap();
   const queryCache = new WeakMap();
+  const queryLimitCache = new WeakMap();
   const documentCache = new WeakMap();
   const aggregateCache = new WeakMap();
   const transactionCache = new WeakMap();
@@ -107,6 +183,30 @@ function createFirestoreWrapperContext(counter) {
 
   const unwrap = (value) => proxyTargets.get(value) || value;
   const unwrapArgs = (args) => args.map(unwrap);
+
+  function boundedQueryForRead(query) {
+    counter.assertCanRead();
+    if (counter.maxReads == null) return { query, budgetLimited: false, limit: null };
+    const remaining = counter.remainingReads();
+    const explicitLimit = queryLimitCache.get(query);
+    if (explicitLimit != null && explicitLimit < remaining) {
+      return { query, budgetLimited: false, limit: explicitLimit };
+    }
+    if (explicitLimit === remaining) {
+      return { query, budgetLimited: true, limit: remaining };
+    }
+    return { query: query.limit(remaining), budgetLimited: true, limit: remaining };
+  }
+
+  function recordQueryRead(snapshot, bounded) {
+    const returned = counter.addReturnedDocuments(snapshot);
+    if (bounded.budgetLimited && returned >= bounded.limit) {
+      // Treat a full budget-sized page as possibly truncated. The caller must
+      // narrow the query or explicitly raise the cap before writing a report.
+      throw counter.budgetError({ exhausted: true });
+    }
+    return snapshot;
+  }
 
   function remember(cache, target, proxy) {
     cache.set(target, proxy);
@@ -130,16 +230,35 @@ function createFirestoreWrapperContext(counter) {
       get(transaction, property) {
         const value = Reflect.get(transaction, property, transaction);
         if (property === 'get') {
-          return (...args) => Promise.resolve(value.apply(transaction, unwrapArgs(args))).then((snapshot) => {
-            counter.addReturnedDocuments(snapshot);
-            return snapshot;
-          });
+          return (...args) => {
+            const unwrapped = unwrapArgs(args);
+            const target = unwrapped[0];
+            let bounded = null;
+            try {
+              bounded = isQueryLike(target) ? boundedQueryForRead(target) : null;
+              if (!bounded) counter.assertCanRead();
+            } catch (error) {
+              return Promise.reject(error);
+            }
+            if (bounded) unwrapped[0] = bounded.query;
+            return Promise.resolve(value.apply(transaction, unwrapped))
+              .then((snapshot) => (bounded
+                ? recordQueryRead(snapshot, bounded)
+                : (counter.addReturnedDocuments(snapshot), snapshot)));
+          };
         }
         if (property === 'getAll') {
-          return (...args) => Promise.resolve(value.apply(transaction, unwrapArgs(args))).then((snapshots) => {
-            counter.addReturnedDocuments(snapshots, { minimumOne: false });
-            return snapshots;
-          });
+          return (...args) => {
+            try {
+              counter.assertCanRead(args.length);
+            } catch (error) {
+              return Promise.reject(error);
+            }
+            return Promise.resolve(value.apply(transaction, unwrapArgs(args))).then((snapshots) => {
+              counter.addReturnedDocuments(snapshots, { minimumOne: false });
+              return snapshots;
+            });
+          };
         }
         if (typeof value === 'function') return (...args) => value.apply(transaction, unwrapArgs(args));
         return value;
@@ -172,11 +291,18 @@ function createFirestoreWrapperContext(counter) {
       get(reference, property) {
         const value = Reflect.get(reference, property, reference);
         if (property === 'get') {
-          return (...args) => Promise.resolve(value.apply(reference, unwrapArgs(args))).then((snapshot) => {
-            // A missing document is still one billed document read.
-            counter.addReturnedDocuments([snapshot]);
-            return snapshot;
-          });
+          return (...args) => {
+            try {
+              counter.assertCanRead();
+            } catch (error) {
+              return Promise.reject(error);
+            }
+            return Promise.resolve(value.apply(reference, unwrapArgs(args))).then((snapshot) => {
+              // A missing document is still one billed document read.
+              counter.addReturnedDocuments([snapshot]);
+              return snapshot;
+            });
+          };
         }
         if (property === 'collection') {
           return (...args) => wrapQuery(value.apply(reference, unwrapArgs(args)));
@@ -199,10 +325,17 @@ function createFirestoreWrapperContext(counter) {
       get(query, property) {
         const value = Reflect.get(query, property, query);
         if (property === 'get') {
-          return (...args) => Promise.resolve(value.apply(query, unwrapArgs(args))).then((snapshot) => {
-            counter.addReturnedDocuments(snapshot);
-            return snapshot;
-          });
+          return (...args) => {
+            let bounded;
+            try {
+              bounded = boundedQueryForRead(query);
+            } catch (error) {
+              return Promise.reject(error);
+            }
+            const readArgs = unwrapArgs(args);
+            return Promise.resolve(bounded.query.get(...readArgs))
+              .then((snapshot) => recordQueryRead(snapshot, bounded));
+          };
         }
         if (property === 'stream') {
           return (...args) => wrapStream(value.apply(query, unwrapArgs(args)));
@@ -215,7 +348,11 @@ function createFirestoreWrapperContext(counter) {
             const result = value.apply(query, unwrapArgs(args));
             if (property === 'doc') return wrapDocument(result);
             if (property === 'collection' || property === 'collectionGroup') return wrapQuery(result);
-            if (isQueryLike(result)) return wrapQuery(result);
+            if (isQueryLike(result)) {
+              if (property === 'limit') queryLimitCache.set(result, Number(args[0]));
+              else if (queryLimitCache.has(query)) queryLimitCache.set(result, queryLimitCache.get(query));
+              return wrapQuery(result);
+            }
             if (isDocumentReferenceLike(result)) return wrapDocument(result);
             return result;
           };
@@ -234,10 +371,17 @@ function createFirestoreWrapperContext(counter) {
       get(firestore, property) {
         const value = Reflect.get(firestore, property, firestore);
         if (property === 'getAll') {
-          return (...args) => Promise.resolve(value.apply(firestore, unwrapArgs(args))).then((snapshots) => {
-            counter.addReturnedDocuments(snapshots, { minimumOne: false });
-            return snapshots;
-          });
+          return (...args) => {
+            try {
+              counter.assertCanRead(args.length);
+            } catch (error) {
+              return Promise.reject(error);
+            }
+            return Promise.resolve(value.apply(firestore, unwrapArgs(args))).then((snapshots) => {
+              counter.addReturnedDocuments(snapshots, { minimumOne: false });
+              return snapshots;
+            });
+          };
         }
         if (property === 'doc') {
           return (...args) => wrapDocument(value.apply(firestore, unwrapArgs(args)));
@@ -400,7 +544,10 @@ let activeFirestoreDb;
 
 function getActiveCounter(env = process.env) {
   if (!activeCounter) {
-    activeCounter = createFirestoreReadCounter({ caller: buildFirestoreCaller(env) });
+    activeCounter = createFirestoreReadCounter({
+      caller: buildFirestoreCaller(env),
+      maxReads: resolveFirestoreReadCap(env),
+    });
     registerProcessAccounting(activeCounter, env);
   }
   return activeCounter;

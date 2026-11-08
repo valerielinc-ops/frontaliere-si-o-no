@@ -27,7 +27,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { DAILY_BRIEF_TIERS, estimateDailyVolume, utcDayOf } from './lib/dailyBriefCadence.mjs';
-import { getFirestoreDb } from './lib/firestore-admin.mjs';
+import { FirestoreReadBudgetExceededError, getFirestoreDb } from './lib/firestore-admin.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -136,6 +136,7 @@ async function main() {
       });
     }
   } catch (error) {
+    if (error instanceof FirestoreReadBudgetExceededError) throw error;
     console.warn(`⚠️ delivery scan unavailable (${error?.message}) — tier population reported, CTR and the cross-channel invariant skipped.`);
     console.warn('   Needs a collection-group index on campaign_deliveries.sent_at.');
   }

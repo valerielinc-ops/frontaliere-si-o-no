@@ -16,6 +16,8 @@
  * the one that moves — one alert a week, instead of the whole newsletter.
  */
 
+import { normalizeEmailAddress } from './parseEmailField.mjs';
+
 export const JOB_ALERT_COOLDOWN_MS = 36 * 60 * 60 * 1000;
 export const JOB_ALERT_COOLDOWN_MAX_DEFER_DAYS = 2;
 
@@ -33,4 +35,43 @@ export function jobAlertCooldownApplies({ campaignId, nowMs }) {
   const startMs = Date.parse(`${m[1]}T00:00:00Z`);
   if (!Number.isFinite(startMs)) return true;
   return nowMs < startMs + JOB_ALERT_COOLDOWN_MAX_DEFER_DAYS * DAY_MS;
+}
+
+function timestampMillis(value) {
+  if (typeof value?.toMillis === 'function') return value.toMillis();
+  if (value instanceof Date) return value.getTime();
+  if (typeof value === 'number') return new Date(value).getTime();
+  if (typeof value === 'string') return new Date(value).getTime();
+  return Number.NaN;
+}
+
+/**
+ * Find only job-alert subscribers whose last send can still trigger the
+ * newsletter cooldown. Timestamp and ISO-string queries cover the canonical
+ * writer and the legacy string shape; callers still check the parsed instant
+ * before excluding a newsletter recipient.
+ * @param {FirebaseFirestore.Firestore} db
+ * @param {number} cutoffMs
+ * @returns {Promise<Set<string>>}
+ */
+export async function loadRecentJobAlertCooldownEmails(db, cutoffMs) {
+  if (!Number.isFinite(cutoffMs)) throw new TypeError('cutoffMs must be a finite timestamp');
+  const collection = db.collection('job_alert_subscribers');
+  const cutoffDate = new Date(cutoffMs);
+  const [timestampSnapshot, stringSnapshot] = await Promise.all([
+    collection.where('last_sent_at', '>=', cutoffDate).get(),
+    collection.where('last_sent_at', '>=', cutoffDate.toISOString()).get(),
+  ]);
+
+  const emails = new Set();
+  for (const snapshot of [timestampSnapshot, stringSnapshot]) {
+    for (const document of snapshot.docs || []) {
+      const sentAt = timestampMillis(document.data()?.last_sent_at);
+      if (sentAt >= cutoffMs) {
+        const email = normalizeEmailAddress(document.id);
+        if (email) emails.add(email);
+      }
+    }
+  }
+  return emails;
 }
