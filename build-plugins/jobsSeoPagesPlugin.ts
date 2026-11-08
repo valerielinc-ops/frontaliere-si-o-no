@@ -415,7 +415,20 @@ export const JOB_SEO_LOCALES = ['it', 'en', 'de', 'fr'] as const;
 
 type JobSeoLocale = (typeof JOB_SEO_LOCALES)[number];
 type JobRouteTracking = Record<string, Partial<Record<JobSeoLocale, string>>>;
-const normalizedRoutePath = (value: string): string => `/${String(value || '').replace(/^\/+|\/+$/g, '')}/`;
+const normalizedRoutePath = (value: string): string => {
+ const raw = String(value || '');
+ // Registry paths are already normalized in the common case. Returning the
+ // existing string avoids allocating another full path for every row while
+ // the million-entry native-route index is built.
+ if (
+  raw.startsWith('/')
+  && raw.endsWith('/')
+  && raw.length >= 2
+  && raw[1] !== '/'
+  && raw[raw.length - 2] !== '/'
+ ) return raw;
+ return `/${raw.replace(/^\/+|\/+$/g, '')}/`;
+};
 
 /** Snapshot native ownership for a bounded set of tracking rows.
  * The caller may pass the active or historical slug candidates relevant to
@@ -459,6 +472,54 @@ export function buildNativeJobPrefixIndex(
    const sharedPrefix = prefixes.get(prefix) ?? prefix;
    prefixes.set(sharedPrefix, sharedPrefix);
    index.set(`${locale}:${slug}`, sharedPrefix);
+  }
+ }
+ return index;
+}
+
+/** Append historical ownership in place, keeping active route owners intact. */
+export function appendNativeJobPrefixIndex(
+ index: Map<string, string>,
+ tracking: JobRouteTracking,
+ localePrefix: Record<JobSeoLocale, string>,
+ sectionByLocale: Record<JobSeoLocale, string>,
+ compatEligibleTrackingSlugs: ReadonlySet<string>,
+): Map<string, string> {
+ // Snapshot only the smaller active index. The historical candidate set can
+ // contribute millions of entries, so building a second map before merging
+ // it would temporarily double that retained set.
+ const existingKeys = new Set(index.keys());
+ const prefixes = new Map<string, string>();
+ const legacyPrefixByLocale = Object.fromEntries(
+  JOB_SEO_LOCALES.map((locale) => [
+   locale,
+   normalizedRoutePath(`${localePrefix[locale]}/${sectionByLocale[locale]}`),
+  ]),
+ ) as Record<JobSeoLocale, string>;
+ for (const trackingSlug in tracking) {
+  if (!Object.prototype.hasOwnProperty.call(tracking, trackingSlug)) continue;
+  if (!compatEligibleTrackingSlugs.has(trackingSlug)) continue;
+  const paths = tracking[trackingSlug];
+  for (const locale of JOB_SEO_LOCALES) {
+   if (locale === 'it') continue;
+   const value = paths?.[locale];
+   if (!value) continue;
+   const normalized = normalizedRoutePath(value);
+   const legacyPrefix = legacyPrefixByLocale[locale];
+   const rest = normalized.slice(legacyPrefix.length);
+   if (normalized.startsWith(legacyPrefix) && rest.length > 1 && !rest.slice(0, -1).includes('/')) continue;
+   const slugEnd = normalized.length - 1;
+   const slugStart = normalized.lastIndexOf('/', slugEnd - 1) + 1;
+   const slug = normalized.slice(slugStart, slugEnd);
+   if (!slug) continue;
+   const key = `${locale}:${slug}`;
+   if (existingKeys.has(key)) continue;
+   const prefix = normalized.slice(0, -(slug.length + 1));
+   const sharedPrefix = prefixes.get(prefix) ?? prefix;
+   prefixes.set(sharedPrefix, sharedPrefix);
+   // Later expired rows retain the same last-owner-wins behavior as the
+   // standalone index; only pre-existing active owners are protected.
+   index.set(key, sharedPrefix);
   }
  }
  return index;
@@ -13383,17 +13444,13 @@ ${staticAnalyticsHtml}
  const expiredNativeRouteSlugs = new Set(expiredBySlug.keys());
  for (const slug of expiredSliceOverflow.keys()) expiredNativeRouteSlugs.add(slug);
  if (expiredNativeRouteSlugs.size > 0) {
-  const expiredNativeIndex = buildNativeJobPrefixIndex(
+  appendNativeJobPrefixIndex(
+   nativeJobPrefixByLocaleAndSlug,
    tracking,
    localePrefix,
    sectionByLocale,
    expiredNativeRouteSlugs,
   );
-  for (const [key, prefix] of expiredNativeIndex) {
-   // Active ownership was captured before the compat merge and wins when a
-   // route slug is shared by an active posting and an archived record.
-   if (!nativeJobPrefixByLocaleAndSlug.has(key)) nativeJobPrefixByLocaleAndSlug.set(key, prefix);
-  }
   logJobsSeoMem('after-expired-native-route-index', {
    expiredNativeRouteSlugs: expiredNativeRouteSlugs.size,
    nativeJobPrefixEntries: nativeJobPrefixByLocaleAndSlug.size,
@@ -16522,6 +16579,7 @@ ${staticAnalyticsHtml}
  if (skippedUnsafeDistPaths > 0) {
   console.warn(`[jobs-seo-pages] skipped ${skippedUnsafeDistPaths} paths with unsafe dist path segments`);
  }
+ nativeJobPrefixByLocaleAndSlug.clear();
  // #6134: issue #5864 (run 31798646143) e' morta "right after the self-heal
  // log line" senza un [mem] a dire con quanto heap ci era arrivata. Chiude
  // l'ultima finestra cieca del plugin: da qui a fine closeBundle restano

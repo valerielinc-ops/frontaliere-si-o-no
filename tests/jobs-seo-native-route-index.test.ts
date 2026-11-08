@@ -4,6 +4,7 @@ import { pathToFileURL } from 'node:url';
 import { describe, expect, it } from 'vitest';
 import {
   JOB_SEO_LOCALES,
+ appendNativeJobPrefixIndex,
   buildCantonAwareJobDetailPath,
   buildNativeJobPrefixIndex,
   nativeJobPathRecoveredByWorker,
@@ -49,6 +50,33 @@ function oldRecovered(locale: Locale, slug: string, relPath: string, tracking: T
 }
 
 describe('native job route ownership with interned prefixes', () => {
+  it('appends expired owners in place while preserving active owners and expired last-wins order', () => {
+    const active = buildNativeJobPrefixIndex({
+      'active-owner': { de: '/de/jobs-in-bern/shared-active' },
+    }, prefixes, sections, new Set(['active-owner']));
+    const expired: Tracking = {
+      'expired-first': {
+        de: '/de/jobs-in-zurich/shared-active',
+        en: '/en/jobs-in-zug/shared-expired',
+      },
+      'expired-last': {
+        de: '/de/jobs-in-luzern/shared-active',
+        en: '/en/jobs-in-bern/shared-expired',
+      },
+    };
+    const candidates = new Set(Object.keys(expired));
+    const standaloneExpired = buildNativeJobPrefixIndex(expired, prefixes, sections, candidates);
+    const expected = new Map(active);
+    for (const [key, prefix] of standaloneExpired) {
+      if (!expected.has(key)) expected.set(key, prefix);
+    }
+
+    expect(appendNativeJobPrefixIndex(active, expired, prefixes, sections, candidates)).toBe(active);
+    expect([...active]).toEqual([...expected]);
+    expect(active.get('de:shared-active')).toBe('/de/jobs-in-bern/');
+    expect(active.get('en:shared-expired')).toBe('/en/jobs-in-bern/');
+  });
+
   it('retains arbitrary prefixes and the last route for each locale + route slug', () => {
     const routes = [
       'single', '', '/', '///', '///one//two/job///', '/emploi/équipe/%2f/',
@@ -268,20 +296,34 @@ describe('native job route ownership with interned prefixes', () => {
     }
   });
 
-  // CI is Node 22. Do not add a noisy heap assertion or run this on the
-  // pressure-constrained developer host: print measured samples for review.
-  it.skipIf(process.env.CI !== 'true')('reports isolated Node 22 A/B retained heaps with tracking alive', { timeout: 120_000 }, () => {
-    expect(process.versions.node.split('.')[0]).toBe('22');
+  // Keep heap measurements observational, opt-in, and comparable within a
+  // single runtime. The sample records the Node version for interpretation.
+ it.skipIf(process.env.CI !== 'true')('reports isolated native-route index peak and retained heaps', { timeout: 120_000 }, () => {
     const pluginUrl = pathToFileURL(path.resolve(__dirname, '../build-plugins/jobsSeoPagesPlugin.ts')).href;
-    const samples: Array<{ mode: string; heapDelta: number; keys: number }> = [];
+    const samples: Array<{ mode: string; heapDelta: number; peakHeapDelta: number; keys: number }> = [];
     for (let repeat = 0; repeat < 3; repeat++) {
-      for (const mode of ['prefix', 'active']) {
+      for (const mode of ['prefix', 'active', 'temporary-merge', 'in-place-append']) {
         const indexExpression = mode === 'prefix'
           ? 'buildNativeJobPrefixIndex(tracking, prefixes, sections)'
-          : 'buildNativeJobPrefixIndex(tracking, prefixes, sections, activeTrackingSlugs)';
+          : mode === 'active'
+            ? 'buildNativeJobPrefixIndex(tracking, prefixes, sections, activeTrackingSlugs)'
+            : `(() => {
+                const index = buildNativeJobPrefixIndex(tracking, prefixes, sections, activeTrackingSlugs);
+                const expiredTrackingSlugs = new Set(Object.keys(tracking).filter(slug => !activeTrackingSlugs.has(slug)));
+                if (${JSON.stringify(mode)} === 'temporary-merge') {
+                  const expiredIndex = buildNativeJobPrefixIndex(tracking, prefixes, sections, expiredTrackingSlugs);
+                  for (const [key, prefix] of expiredIndex) {
+                    if (!index.has(key)) index.set(key, prefix);
+                  }
+                  globalThis.expiredIndexForPeak = expiredIndex;
+                } else {
+                  appendNativeJobPrefixIndex(index, tracking, prefixes, sections, expiredTrackingSlugs);
+                }
+                peakHeapUsed = process.memoryUsage().heapUsed;
+                return index;
+              })()`;
         const script = `
-          const { buildNativeJobPrefixIndex } = await import(${JSON.stringify(pluginUrl)});
-          const oldBuildIndex = ${oldBuildIndex.toString()};
+          const { buildNativeJobPrefixIndex, appendNativeJobPrefixIndex } = await import(${JSON.stringify(pluginUrl)});
           const prefixes = ${JSON.stringify(prefixes)};
           const sections = ${JSON.stringify(sections)};
           let tracking = {};
@@ -300,8 +342,12 @@ describe('native job route ownership with interned prefixes', () => {
           globalThis.retainedTracking = tracking;
           for (let i = 0; i < 3; i++) global.gc();
           const before = process.memoryUsage().heapUsed;
+          let peakHeapUsed = before;
           const index = ${indexExpression};
+          if (peakHeapUsed === before) peakHeapUsed = process.memoryUsage().heapUsed;
           globalThis.retainedIndex = index;
+          const peakHeapDelta = peakHeapUsed - before;
+          globalThis.expiredIndexForPeak = undefined;
           for (let i = 0; i < 3; i++) global.gc();
           const after = process.memoryUsage().heapUsed;
           console.log('NATIVE_ROUTE_HEAP_SAMPLE ' + JSON.stringify({
@@ -309,6 +355,7 @@ describe('native job route ownership with interned prefixes', () => {
             trackingKeys: Object.keys(tracking).length, keys: index.size,
             uniqueValues: new Set(index.values()).size,
             heapDelta: after - before,
+            peakHeapDelta,
           }));
         `;
         const result = spawnSync(process.execPath, ['--expose-gc', '--import', 'tsx', '--input-type=module', '-e', script], {
@@ -322,7 +369,7 @@ describe('native job route ownership with interned prefixes', () => {
         expect(sample.trackingKeys).toBe(24000);
         // Active rows contribute 3 foreign locales each; 142 legacy rows
         // (i % 17 === 0, including zero) are excluded in each locale.
-        expect(sample.keys).toBe(mode === 'prefix' ? 67764 : 6774);
+        expect(sample.keys).toBe(mode === 'active' ? 6774 : 67764);
         console.log('NATIVE_ROUTE_HEAP_SAMPLE', sample);
         samples.push(sample);
       }
