@@ -1886,7 +1886,7 @@ describe('Bing-compatible full-tree crawler', () => {
       link: resolveArticleRouteHref(legacy, { redirects }),
     }));
     const nearby = `${BASE}/eventi/ticino/altri-eventi/kino-tschlin-syngue-sabour-stein-der-geduld-2026-10-15/`;
-    const eventTemplateIndex = templateIndexFor(cases[0]![1]);
+    const eventTemplateIndex = templateIndexFor(cases[0]!.legacy);
 
     expect([...new Set(cases.map(({ source }) => templateIndexFor(source)))])
       .toEqual([0]);
