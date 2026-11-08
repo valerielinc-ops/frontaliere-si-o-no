@@ -22,7 +22,7 @@ describe('classifyJobPhoto', () => {
     expect(classifyJobPhoto(job)).toBe('trades');
     expect(selectJobOgPhoto(job, 'puk-project-manager')).toEqual({
       photoKey: 'trades',
-      urlPhotoKey: 'trades',
+      urlPhotoKey: undefined,
     });
   });
 
@@ -32,6 +32,36 @@ describe('classifyJobPhoto', () => {
       titleByLocale: { it: 'Infermiere / infermiera in cure generali' },
       title: 'Pflegefachfrau / Pflegefachmann',
     })).toBe('healthcare');
+  });
+
+  it('uses employer metadata when the title contains only an ambiguous role word', () => {
+    const healthcareOperator = {
+      category: 'Sanità / Ospedali',
+      titleByLocale: { it: 'Operatore / operatrice' },
+    };
+    const healthcareAssistant = {
+      category: 'Sanità / Ospedali',
+      titleByLocale: { it: 'Assistant' },
+    };
+
+    expect(classifyJobPhoto(healthcareOperator)).toBe('healthcare');
+    expect(classifyJobPhoto(healthcareAssistant)).toBe('healthcare');
+    expect(selectJobOgPhoto(healthcareOperator, 'healthcare-operator').urlPhotoKey).toBeUndefined();
+    expect(selectJobOgPhoto(healthcareAssistant, 'healthcare-assistant').urlPhotoKey).toBeUndefined();
+  });
+
+  it('does not rewrite the fallback URL for an ambiguous title without catalog metadata', () => {
+    expect(selectJobOgPhoto({ title: 'operatore' }, 'missing-catalog-operatore')).toEqual({
+      photoKey: 'office',
+      urlPhotoKey: undefined,
+    });
+  });
+
+  it('does not treat a generic care verb as a healthcare occupation', () => {
+    expect(classifyJobPhoto({
+      category: 'Agricoltura / Ambiente',
+      titleByLocale: { it: 'Addetto alla cura del verde' },
+    })).toBe('trades');
   });
 
   it('does not let a conflicting source-language title override the Italian role', () => {
