@@ -155,6 +155,10 @@ scripts/lib/journalist-article-identity.mjs
 # corpus already carries its generator-side twin, so the transport must carry
 # the site source at the same relative path.
 scripts/lib/sanitize-body-braces.mjs
+# Added 2026-11-08: both FAQ writers import the shared control-character
+# validator at top level; carry it so the transported writer can load before
+# main() instead of failing with ERR_MODULE_NOT_FOUND on the corpus.
+scripts/lib/sanitize-control-chars.mjs
 # Added 2026-10-04, stessa classe di unescape-ts-string.mjs sopra. La #10973
 # ha fatto importare `../scripts/lib/borderWaitSections.mjs` a
 # `build-plugins/borderWaitData.ts`, che e' in questo manifest (sezione
