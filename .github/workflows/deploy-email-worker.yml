@@ -75,7 +75,9 @@ jobs:
       # load-rc-env.mjs only needs firebase-admin — install it standalone
       # instead of a full `npm ci` (the repo's install is heavy and unneeded).
       - name: Install firebase-admin (for RC read)
-        run: npm install --no-save firebase-admin@14.5.0
+        run: |
+          npm install --prefix "$RUNNER_TEMP/firebase-admin-deps" --no-save --ignore-scripts --no-fund --no-audit firebase-admin@14.5.0
+          ln -s "$RUNNER_TEMP/firebase-admin-deps/node_modules" node_modules
 
       - name: Prepare Firebase credentials
         env:

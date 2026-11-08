@@ -113,7 +113,14 @@ jobs:
 
       - name: Install firebase-admin
         if: inputs.dry_run != true && inputs.dry_run != 'true'
-        run: npm install --no-save firebase-admin@14.5.0
+        # Installing at the repository root also resolves the app dependency
+        # tree, whose onnxruntime-node postinstall downloads a large NuGet
+        # archive and can fail before the fuel job starts. Keep this SDK-only
+        # install isolated and script-free, as the loader needs no native
+        # package lifecycle hooks.
+        run: |
+          npm install --prefix "$RUNNER_TEMP/firebase-admin-deps" --no-save --ignore-scripts --no-fund --no-audit firebase-admin@14.5.0
+          ln -s "$RUNNER_TEMP/firebase-admin-deps/node_modules" node_modules
 
       - name: Detect daily run
         id: schedule
