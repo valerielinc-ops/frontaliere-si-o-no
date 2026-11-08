@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { realpathSync } from 'node:fs';
+import { pathToFileURL } from 'node:url';
 /**
  * send-onboarding-drip.mjs — post-signup onboarding drip runner (#4451).
  *
@@ -155,8 +157,8 @@ function resolveDueStep(data, now, enrollWindowMs) {
 }
 
 // ── Build the queue of due drip emails ───────────────────────
-async function buildQueue(globalHour, now) {
-  const { docs } = await loadOnboardingDripCandidates(db, {
+export async function buildQueue(globalHour, now, firestoreDb = db) {
+  const { docs } = await loadOnboardingDripCandidates(firestoreDb, {
     now,
     enrollWindowDays: ENROLL_WINDOW_DAYS,
   });
@@ -168,7 +170,7 @@ async function buildQueue(globalHour, now) {
     if (!due) continue;
 
     const subscriber = subscriberFromFirestoreRow({ ...data, email: data.email || doc.id });
-    if (!subscriber) return;
+    if (!subscriber) continue;
     const locale = subscriber.locale || 'it';
     const interest = inferInterest(subscriber);
     const acquisitionSource = subscriber.source || subscriber.sourceComponent || subscriber.sourceChannel || null;
@@ -350,7 +352,12 @@ async function main() {
   return runScan();
 }
 
-main().catch((e) => {
-  console.error('❌ Onboarding drip failed:', e?.stack || e?.message || e);
-  process.exit(1);
-});
+if (process.argv[1] && (() => {
+  try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; }
+  catch { return false; }
+})()) {
+  main().catch((e) => {
+    console.error('❌ Onboarding drip failed:', e?.stack || e?.message || e);
+    process.exit(1);
+  });
+}
