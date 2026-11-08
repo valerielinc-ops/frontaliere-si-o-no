@@ -458,7 +458,7 @@ describe('immediate cadence — the two senders partition the alerts (#5012 phas
     // costlier run, never a silent never-send — the exact defect #5151 exists
     // to kill.
     const sender = readRepoFile('scripts/send-company-alerts.mjs');
-    expect(sender).toContain('async function loadImmediateAlertDocs(db)');
+    expect(sender).toContain('async function loadImmediateAlertDocs(db,');
     expect(sender).toContain('return base.get();');
   });
 });

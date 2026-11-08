@@ -1093,7 +1093,10 @@ export async function updateAlert(
   if ('cantonFilter' in changes) {
     updateData.cantonFilter = normalizeCantonFilter(changes.cantonFilter);
   }
-  if (changes.frequency) updateData.frequency = changes.frequency;
+  if (changes.frequency) {
+    updateData.frequency = changes.frequency;
+    if (changes.frequency === 'immediate') updateData.hasDeferredCompanyAlertWork = true;
+  }
   // Use `in` so callers can deliberately reset to engine-managed (`false`),
   // not just pin (`true`) — see components/community/JobAlertForm.tsx.
   if ('frequencyOverride' in changes) {

@@ -34,6 +34,15 @@
       ]
     },
     {
+      "collectionGroup": "alerts",
+      "queryScope": "COLLECTION_GROUP",
+      "fields": [
+        { "fieldPath": "active", "order": "ASCENDING" },
+        { "fieldPath": "frequency", "order": "ASCENDING" },
+        { "fieldPath": "hasDeferredCompanyAlertWork", "order": "ASCENDING" }
+      ]
+    },
+    {
       "collectionGroup": "campaign_deliveries",
       "queryScope": "COLLECTION_GROUP",
       "fields": [
@@ -120,6 +129,14 @@
       "fields": [
         { "fieldPath": "status", "order": "ASCENDING" },
         { "fieldPath": "updatedAt", "order": "DESCENDING" }
+      ]
+    },
+    {
+      "collectionGroup": "newsletter_subscribers",
+      "queryScope": "COLLECTION",
+      "fields": [
+        { "fieldPath": "drip_last_step", "order": "ASCENDING" },
+        { "fieldPath": "drip_started_at", "order": "ASCENDING" }
       ]
     },
     {

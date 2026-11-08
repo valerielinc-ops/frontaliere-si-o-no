@@ -272,4 +272,13 @@ describe('updateAlert — cantonFilter toggling', () => {
     expect(payload).not.toHaveProperty('cantonFilter');
     expect(payload.frequency).toBe('daily');
   });
+
+  it('marks an alert for the immediate sender backlog index when switching to immediate', async () => {
+    await updateAlert('a@b.com', 'alert-1', { frequency: 'immediate' });
+    const payload = (updateDocMock.mock.calls[0] as unknown[])[1] as Record<string, unknown>;
+    expect(payload).toMatchObject({
+      frequency: 'immediate',
+      hasDeferredCompanyAlertWork: true,
+    });
+  });
 });

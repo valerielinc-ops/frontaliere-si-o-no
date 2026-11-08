@@ -1429,6 +1429,7 @@ export async function handleSubscriptionManagement({ action, email, token, local
  return { status: 400, json: { success: false, error: 'invalid_frequency' } };
  }
  patch.frequency = freq;
+ if (freq === 'immediate') patch.hasDeferredCompanyAlertWork = true;
  fields.push('frequency');
  }
 

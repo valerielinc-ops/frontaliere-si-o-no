@@ -547,6 +547,25 @@ describe('the runner plans, it does not remember', () => {
     expect(bucketed).toBe(plan.total);
   });
 
+  it('keeps the full denominator with pending candidates plus aggregate terminal counts', () => {
+    const pending = [
+      { id: 'fresh@example.com', data: pendingDoc({ created_at: hoursAgo(1) }) },
+      { id: 'old@example.com', data: pendingDoc({ created_at: '2026-04-01T00:00:00.000Z' }) },
+    ];
+
+    const plan = planConfirmationFollowups(pending, {
+      ...ctx,
+      totalDocuments: 10,
+      alreadyExpiredDocuments: 2,
+    });
+
+    expect(plan.total).toBe(10);
+    expect(plan.send.map((item: any) => item.id)).toEqual(['fresh@example.com']);
+    expect(plan.skipped).toEqual({ backlog: 1, 'not-pending': 6, 'already-expired': 2 });
+    expect(plan.send.length + plan.expire.length
+      + Object.values(plan.skipped).reduce((sum: number, value: any) => sum + value, 0)).toBe(10);
+  });
+
   it('answers from the document as it is now, so yesterday\'s plan cannot mail today\'s confirmer', () => {
     // Issue rule 6, as behaviour rather than as a comment: the same input
     // document, plus the confirmation that arrived overnight, changes bucket.
