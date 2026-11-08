@@ -834,20 +834,22 @@ jobs:
           restore-keys: |
             incremental-manifest-${{ matrix.locale }}-
 
-      # Bind the cache to the renderer's current code/assets contract. A
-      # changed renderer cannot reuse the old pack; making the fingerprint part
-      # of the key avoids downloading a GB-scale cache that the probe will drop.
+      # Compute the current renderer fingerprint for cache saves. When the
+      # output probe is enabled, the restore key below uses the fingerprint in
+      # the exact previous manifest so the probe can validate renderer changes.
       - name: Fingerprint jobs SEO renderer for HTML cache
         if: env.JOBS_SEO_REUSE == '1'
         id: jobs-seo-html-fingerprint
         shell: bash
+        env:
+          JOBS_SEO_HTML_CACHE_LOCALE: ${{ matrix.locale }}
         run: |
           set -euo pipefail
           node scripts/ci/jobs-seo-html-cache-fingerprint.mjs >> "$GITHUB_OUTPUT"
 
-      # Opt-in only. The key includes the restored previous manifest and
-      # current renderer fingerprint, so only a matching HTML snapshot is
-      # restored without cloning a previous dist/shard.
+      # Opt-in only. The exact manifest hash pairs this HTML snapshot with the
+      # previous manifest. The restore fingerprint comes from that manifest
+      # when output probing is enabled; cache saves below use the current one.
       - name: Restore previous jobs SEO HTML cache
         if: env.JOBS_SEO_REUSE == '1'
         id: jobs-seo-html-cache
@@ -856,8 +858,9 @@ jobs:
           path: .cache/incremental-html
           # Exact key only (review #8940): a prefix fallback could restore
           # the HTML snapshot of a different run than the previous manifest
-          # restored above, and lookup() only checks the per-entry hash.
-          key: jobs-seo-html-${{ matrix.locale }}-${{ hashFiles(format('.cache/incremental-manifest/{0}.jsonl', matrix.locale)) }}-${{ steps.jobs-seo-html-fingerprint.outputs.fingerprint }}
+          # restored above. Keep the manifest hash exact; lookup() and the
+          # output probe still validate each page before it can be reused.
+          key: jobs-seo-html-${{ matrix.locale }}-${{ hashFiles(format('.cache/incremental-manifest/{0}.jsonl', matrix.locale)) }}-${{ steps.jobs-seo-html-fingerprint.outputs.restore_fingerprint }}
 
       - name: Stash previous incremental manifest before build overwrites it
         shell: bash
