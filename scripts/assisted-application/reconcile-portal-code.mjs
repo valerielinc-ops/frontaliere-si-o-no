@@ -172,6 +172,7 @@ export async function reconcilePortalCode({ db, version, apply = false, nowMs = 
         const legacyLocalAnswers = !trustedLocalAnswers
           ? object(flow.answers)
           : explicitMatchAnswers({ draft, flow });
+        const recoveryMatchAnswerIds = trustedLocalAnswers ? Object.keys(legacyLocalAnswers) : [];
         const recoveryFlow = {
           ...answerContext.flow,
           answers: { ...(answerContext.flow.answers || {}), ...legacyLocalAnswers },
@@ -192,7 +193,9 @@ export async function reconcilePortalCode({ db, version, apply = false, nowMs = 
         if (apply) {
           if (identityQuestionReady) {
             transaction.set(flowRef, {
-              answers: { ...object(flow.answers), [identityAnswer.questionId]: identityAnswer.email },
+              answers: { ...object(recoveryFlow.answers), [identityAnswer.questionId]: identityAnswer.email },
+              portalRecoveryMatchAnswerIds: recoveryMatchAnswerIds,
+              portalRecoveryMatchAnswerRound: Number(flow.round) || 1,
               portalRecoveryVersion: version, updatedAt: nowMs,
             }, { merge: true });
           } else {
@@ -200,7 +203,15 @@ export async function reconcilePortalCode({ db, version, apply = false, nowMs = 
             const recoveryOrderAnswers = flow.heldBy[0] === 'portal:portal_needs_candidate' && !trustedLocalAnswers
               ? {} : trustedLocalAnswers ? answerContext.orderAnswers
                 : rememberCandidateQuestionAnswers({ questions: draft?.questions || [], answers: legacyLocalAnswers, changed: legacyLocalAnswers });
-            transaction.set(flowRef, { heldBy, questionAnswers: recoveryOrderAnswers, portalAutoRetryAt: nowMs,
+            transaction.set(flowRef, { heldBy,
+              // The trusted projection intentionally omits same-order match
+              // answers. Persist only those explicit, validated answers so
+              // the submit runner receives the same compatibility decision
+              // that authorized this recovery; never widen legacy evidence.
+              ...(trustedLocalAnswers ? { answers: { ...object(answerContext.flow?.answers), ...legacyLocalAnswers } } : {}),
+              ...(trustedLocalAnswers ? { portalRecoveryMatchAnswerIds: recoveryMatchAnswerIds,
+                portalRecoveryMatchAnswerRound: Number(flow.round) || 1 } : {}),
+              questionAnswers: recoveryOrderAnswers, portalAutoRetryAt: nowMs,
               portalRecoveryVersion: version,
               ...(exhaustedRepair ? { portalExhaustedRecoveryVersion: version } : {}),
               updatedAt: nowMs }, { merge: true });

@@ -197,6 +197,19 @@ export function orderQuestionAnswerContext({ orderId, order = {}, flow = {}, dra
   const oldConfirmations = trusted ? object(flow.questionAnswerConfirmationHashes) : {};
   const oldSources = trusted ? object(flow.questionAnswerSources) : {};
   const flowAnswers = trusted ? object(flow.answers) : {};
+  // A source-version recovery may have validated an explicit same-order match
+  // answer without creating candidate-wide evidence. Keep that narrow
+  // execution-only allowance across the runner reload, but bind it to the
+  // exact published recovery version and round that authorized it.
+  const recoveryMatchAnswerRound = Number(flow?.portalRecoveryMatchAnswerRound) || 0;
+  const recoveryMatchAnswerIds = trusted
+    && /^[a-f0-9]{64}$/.test(String(flow?.portalRecoveryVersion || ''))
+    && recoveryMatchAnswerRound > 0
+    && recoveryMatchAnswerRound === (Number(flow?.round) || 1)
+    && recoveryMatchAnswerRound === (Number(draft?.round) || 1)
+    && Array.isArray(flow?.portalRecoveryMatchAnswerIds)
+    ? new Set(flow.portalRecoveryMatchAnswerIds.filter(id => typeof id === 'string' && id.length > 0 && id.length <= 160))
+    : new Set();
   const previous = {};
   const answers = {};
   const snapshots = {};
@@ -209,6 +222,12 @@ export function orderQuestionAnswerContext({ orderId, order = {}, flow = {}, dra
   for (const question of snapshotQuestions) {
     const key = candidateQuestionAnswerKey(question);
     if (key) groups.set(key, [...(groups.get(key) || []), question]);
+  }
+  // This recovery proof is independent of candidate-wide evidence snapshots:
+  // a match question is allowed to have no reusable ledger key at all.
+  for (const question of snapshotQuestions) {
+    if (question.source === 'match' && recoveryMatchAnswerIds.has(question.id)
+      && hasAnswer(flowAnswers[question.id])) answers[question.id] = flowAnswers[question.id];
   }
   for (const [key, group] of groups) {
     const questionHashes = group.map(question => answerQuestionSnapshotHash({ orderId, question, draft, nowMs }));
@@ -237,13 +256,21 @@ export function orderQuestionAnswerContext({ orderId, order = {}, flow = {}, dra
     confirmations[key] = oldConfirmations[key];
     sources[key] = oldSource;
     if (Object.hasOwn(oldAnswers, key)) previous[key] = oldAnswers[key];
-    for (const question of group) if (confirmedIds.includes(question.id) && oldSnapshots[key] === hashes[0]
-      && Object.hasOwn(flowAnswers, question.id)) answers[question.id] = flowAnswers[question.id];
+    for (const question of group) {
+      if (confirmedIds.includes(question.id) && oldSnapshots[key] === hashes[0]
+        && Object.hasOwn(flowAnswers, question.id)) answers[question.id] = flowAnswers[question.id];
+    }
   }
   // An old flow without the writer marker is not evidence for either the
   // candidate-wide ledger or the owner fill kit. Only the confirmed snapshot
   // path above may project answers into the current order.
-  const orderAnswers = rememberCandidateQuestionAnswers({ questions: snapshotQuestions, answers, previous, changed: answers });
+  const orderLedgerQuestions = snapshotQuestions.filter(question => question.source !== 'match');
+  const orderLedgerIds = new Set(orderLedgerQuestions.map(question => question.id));
+  const orderLedgerKeys = new Set(orderLedgerQuestions.map(candidateQuestionAnswerKey).filter(Boolean));
+  const orderPrevious = Object.fromEntries(Object.entries(previous).filter(([key]) => orderLedgerKeys.has(key)));
+  const orderChanged = Object.fromEntries(Object.entries(answers).filter(([id]) => orderLedgerIds.has(id)));
+  const orderAnswers = rememberCandidateQuestionAnswers({ questions: orderLedgerQuestions, answers,
+    previous: orderPrevious, changed: orderChanged });
   return { answers, orderAnswers, questionAnswerSnapshots: snapshots, questionAnswerSnapshotIds: snapshotIds,
     questionAnswerCompatibility: compatibility, questionAnswerConfirmationHashes: confirmations, questionAnswerSources: sources };
 }
