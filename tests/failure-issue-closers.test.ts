@@ -382,6 +382,7 @@ describe('apertura e chiusura delle issue di fallimento sono accoppiate (#5437)'
       // stesso che scrive la scansione centrale: un solo thread, chiuso dal
       // reconciler al primo verde del cron giornaliero.
       'secret-scanning-sweep.yml': 'close-recovered-failure-issues',
+      'social-copy-pack.yml': 'close-recovered-failure-issues',
       'sync-articles-sitemaps.yml': 'close-recovered-failure-issues',
     };
     // A workflow can keep an existing custom reporter and add the canonical
