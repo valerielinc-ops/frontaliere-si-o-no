@@ -72,6 +72,10 @@ describe('Bing title/meta template inventory', () => {
       [`${BASE}/en/aziende/eoc-ente-ospedaliero/`, 'employer-profile-pages'],
       [`${BASE}/meteo-frontalieri/lugano/`, 'weather-pages'],
       [`${BASE}/fr/alertes/orages/`, 'weather-pages'],
+      [`${BASE}/stipendio-infermiere-zurigo/`, 'salary-profession-canton-pages'],
+      [`${BASE}/en/salary-nurse-zurich/`, 'salary-profession-canton-pages'],
+      [`${BASE}/de/gehalt-ingenieur-genf/`, 'salary-profession-canton-pages'],
+      [`${BASE}/fr/salaire-assistant-social-geneve/`, 'salary-profession-canton-pages'],
     ] as const;
 
     for (const [url, family] of positiveCases) {
@@ -84,6 +88,10 @@ describe('Bing title/meta template inventory', () => {
       `${BASE}/blog/traffico-dogane/chiasso-brogeda/oggi/`,
       `${BASE}/en/aziende/not-a-profile/nested/`,
       `${BASE}/meteo-frontalieri-old/lugano/`,
+      `${BASE}/stipendi-zurigo/`,
+      `${BASE}/lavoro-zurigo-infermiere-extra/`,
+      `${BASE}/stipendio-infermiere-ticino/`,
+      `${BASE}/de/gehalt-ingenieur-genf-extra/`,
     ];
     for (const url of nearbyNonTargets) {
       expect(classifyBingTemplate(url).id, url).toBe('unknown');
@@ -110,6 +118,8 @@ describe('Bing title/meta template inventory', () => {
       .toEqual(expect.arrayContaining(['build-plugins/employerProfilePagesPlugin.ts']));
     expect(BING_TEMPLATE_TABLE.find((family) => family.id === 'weather-pages')?.sourcePaths)
       .toEqual(expect.arrayContaining(['build-plugins/weatherAlertPagesPlugin.ts']));
+    expect(BING_TEMPLATE_TABLE.find((family) => family.id === 'salary-profession-canton-pages')?.sourcePaths)
+      .toEqual(expect.arrayContaining(['build-plugins/salaryProfessionCantonPages.ts']));
   });
 
   it('preserves unknown paths instead of assigning a guessed first match', () => {
@@ -168,6 +178,47 @@ describe('Bing title/meta template inventory', () => {
     expect(attribution.unreferencedFindings).toBe(1);
     expect(attribution.rows).toHaveLength(1);
     expect(attribution.rows[0].samples).toEqual([]);
+  });
+
+  it('attributes salary-intent frontier redirects to the exact emitter', () => {
+    const source = `${BASE}/stipendio-infermiere-zurigo/`;
+    const jobBoardTarget = `${BASE}/en/find-jobs-geneva/lugano/`;
+    const professionTarget = `${BASE}/lavoro-ticino-infermiere/`;
+    const targets = [jobBoardTarget, professionTarget].sort();
+    const sourceTemplate = templateIndexFor(source);
+    const unknownTemplate = BING_TEMPLATE_TABLE.findIndex((family) => family.id === 'unknown');
+
+    expect(BING_TEMPLATE_TABLE[sourceTemplate].id).toBe('salary-profession-canton-pages');
+
+    const attribution = buildFrontierAttribution([
+      { scope: 'discovered-frontier', code: 'frontier-redirect', url: jobBoardTarget },
+      { scope: 'discovered-frontier', code: 'frontier-redirect', url: professionTarget },
+    ], {
+      frontierManifest: {
+        urls: targets,
+        referrerRefs: targets.map(() => [[0, sourceTemplate]]),
+        templateTable: BING_TEMPLATE_TABLE,
+      },
+      sitemapManifest: { urls: [source] },
+    });
+
+    expect(attribution.rows).toEqual(expect.arrayContaining([
+      expect.objectContaining({
+        referrerTemplate: sourceTemplate,
+        targetTemplate: templateIndexFor(jobBoardTarget),
+        code: 'frontier-redirect',
+        findingCount: 1,
+        samples: [[source, jobBoardTarget]],
+      }),
+      expect.objectContaining({
+        referrerTemplate: sourceTemplate,
+        targetTemplate: templateIndexFor(professionTarget),
+        code: 'frontier-redirect',
+        findingCount: 1,
+        samples: [[source, professionTarget]],
+      }),
+    ]));
+    expect(attribution.rows.some((row) => row.referrerTemplate === unknownTemplate)).toBe(false);
   });
 
   it('publishes the inventory in the full-tree summary and issue body', () => {
