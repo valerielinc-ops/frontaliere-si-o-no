@@ -197,6 +197,18 @@ describe("la guardia è sul percorso, non accanto ad esso", () => {
     })).toBe(true);
   });
 
+  it('un CAS incompleto non può autorizzare una mutazione', () => {
+    const complete = {
+      headSha: 'a'.repeat(40),
+      reviewRevision: 'body:first',
+      reviewerSnapshot: { verdict: 'lgtm', key: 'review:first' },
+    };
+    expect(reviewInputChanged({ ...complete, headSha: '' }, complete)).toBe(true);
+    expect(reviewInputChanged({ ...complete, reviewRevision: '' }, complete)).toBe(true);
+    expect(reviewInputChanged(complete, { ...complete, reviewRevision: undefined })).toBe(true);
+    expect(reviewInputChanged({ headSha: complete.headSha }, { headSha: complete.headSha })).toBe(true);
+  });
+
   it('rilegge il CAS prima del commento, della label e della coppia close+reopen', () => {
     const guard = script.slice(script.indexOf('function guardedReopen'),
       script.indexOf('function reviewGateRedOnFreshVerdict'));
