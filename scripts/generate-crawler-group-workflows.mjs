@@ -1397,6 +1397,7 @@ export function buildCrawlerLaunchShellBody(crawler, groupIndex, { compact = fal
   // Launch order (and therefore the pinned member order) stays unchanged.
   const dedicatedSlot = SOURCE_RELAY_SLUG_SET.has(slug);
   const body = buildCrawlerShellBody(crawler, { compact });
+  const needsShellcheckUnicodeQuoteDisable = /[“”‘’]/u.test(body);
   // Keyed by the roster crawler id (JOBS_HOUSEKEEPING_SCOPE, the identity the
   // receipts carry), not by the slug: for the step-id overrides the two differ
   // and a slug-keyed file would read as `unknown`. See MEMBER_CRAWL_EXIT_FILE_ENV.
@@ -1549,6 +1550,7 @@ export function buildCrawlerLaunchShellBody(crawler, groupIndex, { compact = fal
     'rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"',
     // A leftover crawl-exit would be positive proof this launch never gave.
     ...(crawlExitFileName === null ? [] : [`rm -f "$state_dir/${crawlExitFileName}"`]),
+    ...(needsShellcheckUnicodeQuoteDisable ? ['# shellcheck disable=SC1112'] : []),
     `printf '%s\\n' ${shellQuote(body)} > "$script_path"`,
     `printf '%s\\n' ${shellQuote(worker)} > "$worker_path"`,
     'validateGeneratedWorkerScript() { [ -s "$1" ] && bash -n "$1"; }',
@@ -2688,16 +2690,20 @@ function translatePendingQueueGuardJob() {
         '  local reason="${1:-unknown}"',
         '  local detail="${2:-}"',
         '  echo "::warning::translate-pending queue guard could not inspect GitHub Actions (${reason}${detail:+; ${detail}}); skipping the heavy run to keep the queue bounded."',
-        '  echo "run=false" >> "$GITHUB_OUTPUT"',
-        '  echo "waiting_runs=-1" >> "$GITHUB_OUTPUT"',
-        '  echo "guard_error=${reason}" >> "$GITHUB_OUTPUT"',
+        '  {',
+        '    echo "run=false"',
+        '    echo "waiting_runs=-1"',
+        '    echo "guard_error=${reason}"',
+        '  } >> "$GITHUB_OUTPUT"',
         '  exit 0',
         '}',
         'if [ "$GITHUB_EVENT_NAME" = "workflow_dispatch" ] && [ "$TRANSLATION_MANUAL_OVERRIDE" = "true" ]; then',
         '  echo "::warning::translate-pending manual workflow_dispatch input detected; bypassing the duplicate guard by request."',
-        '  echo "run=true" >> "$GITHUB_OUTPUT"',
-        '  echo "waiting_runs=0" >> "$GITHUB_OUTPUT"',
-        '  echo "guard_error=" >> "$GITHUB_OUTPUT"',
+        '  {',
+        '    echo "run=true"',
+        '    echo "waiting_runs=0"',
+        '    echo "guard_error="',
+        '  } >> "$GITHUB_OUTPUT"',
         '  exit 0',
         'fi',
         'guard_started_at=$SECONDS',
@@ -2897,14 +2903,18 @@ function translatePendingQueueGuardJob() {
         'other_waiting=$((candidate_count - 1))',
         'if [ "$oldest_run_id" = "$GITHUB_RUN_ID" ]; then',
         '  echo "✅ translate-pending queue guard admits the oldest waiting run; ${active_heavy_runs} heavy run(s) currently active and ${other_waiting} waiting behind it."',
-        '  echo "run=true" >> "$GITHUB_OUTPUT"',
-        '  echo "waiting_runs=$other_waiting" >> "$GITHUB_OUTPUT"',
-        '  echo "guard_error=" >> "$GITHUB_OUTPUT"',
+        '  {',
+        '    echo "run=true"',
+        '    echo "waiting_runs=$other_waiting"',
+        '    echo "guard_error="',
+        '  } >> "$GITHUB_OUTPUT"',
         'else',
         '  echo "::warning::translate-pending queue guard found older run ${oldest_run_id}; skipping this duplicate. The oldest run will process the backlog."',
-        '  echo "run=false" >> "$GITHUB_OUTPUT"',
-        '  echo "waiting_runs=$other_waiting" >> "$GITHUB_OUTPUT"',
-        '  echo "guard_error=" >> "$GITHUB_OUTPUT"',
+        '  {',
+        '    echo "run=false"',
+        '    echo "waiting_runs=$other_waiting"',
+        '    echo "guard_error="',
+        '  } >> "$GITHUB_OUTPUT"',
         'fi',
       ].join('\n'),
     }, {

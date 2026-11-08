@@ -77,16 +77,20 @@ jobs:
             local reason="${1:-unknown}"
             local detail="${2:-}"
             echo "::warning::translate-pending queue guard could not inspect GitHub Actions (${reason}${detail:+; ${detail}}); skipping the heavy run to keep the queue bounded."
-            echo "run=false" >> "$GITHUB_OUTPUT"
-            echo "waiting_runs=-1" >> "$GITHUB_OUTPUT"
-            echo "guard_error=${reason}" >> "$GITHUB_OUTPUT"
+            {
+              echo "run=false"
+              echo "waiting_runs=-1"
+              echo "guard_error=${reason}"
+            } >> "$GITHUB_OUTPUT"
             exit 0
           }
           if [ "$GITHUB_EVENT_NAME" = "workflow_dispatch" ] && [ "$TRANSLATION_MANUAL_OVERRIDE" = "true" ]; then
             echo "::warning::translate-pending manual workflow_dispatch input detected; bypassing the duplicate guard by request."
-            echo "run=true" >> "$GITHUB_OUTPUT"
-            echo "waiting_runs=0" >> "$GITHUB_OUTPUT"
-            echo "guard_error=" >> "$GITHUB_OUTPUT"
+            {
+              echo "run=true"
+              echo "waiting_runs=0"
+              echo "guard_error="
+            } >> "$GITHUB_OUTPUT"
             exit 0
           fi
           guard_started_at=$SECONDS
@@ -286,14 +290,18 @@ jobs:
           other_waiting=$((candidate_count - 1))
           if [ "$oldest_run_id" = "$GITHUB_RUN_ID" ]; then
             echo "✅ translate-pending queue guard admits the oldest waiting run; ${active_heavy_runs} heavy run(s) currently active and ${other_waiting} waiting behind it."
-            echo "run=true" >> "$GITHUB_OUTPUT"
-            echo "waiting_runs=$other_waiting" >> "$GITHUB_OUTPUT"
-            echo "guard_error=" >> "$GITHUB_OUTPUT"
+            {
+              echo "run=true"
+              echo "waiting_runs=$other_waiting"
+              echo "guard_error="
+            } >> "$GITHUB_OUTPUT"
           else
             echo "::warning::translate-pending queue guard found older run ${oldest_run_id}; skipping this duplicate. The oldest run will process the backlog."
-            echo "run=false" >> "$GITHUB_OUTPUT"
-            echo "waiting_runs=$other_waiting" >> "$GITHUB_OUTPUT"
-            echo "guard_error=" >> "$GITHUB_OUTPUT"
+            {
+              echo "run=false"
+              echo "waiting_runs=$other_waiting"
+              echo "guard_error="
+            } >> "$GITHUB_OUTPUT"
           fi
       - name: Fail the run when the queue guard was blind
         if: steps.translate_queue_guard.outputs.guard_error != ''
