@@ -297,6 +297,33 @@ describe('guardia di esistenza degli /assets/ riscritti sul CDN', () => {
     expect(result.reason).toMatch(/durante la richiesta HEAD/);
   });
 
+  it('rispetta il budget se fetchImpl non risolve e ignora AbortController', async () => {
+    vi.useFakeTimers();
+    try {
+      const fetchImpl = vi.fn(() => new Promise(() => {}));
+      const pending = verifyCdnAssetRefs({
+        urls: ['https://cdn.example.test/assets/hung.js'],
+        fetchImpl: fetchImpl as unknown as typeof fetch,
+        budgetMs: 5,
+        timeoutMs: 1000,
+      });
+
+      await vi.advanceTimersByTimeAsync(5);
+
+      await expect(pending).resolves.toEqual([
+        {
+          url: 'https://cdn.example.test/assets/hung.js',
+          state: 'skipped',
+          status: null,
+          reason: 'budget di 5ms esaurito durante la richiesta HEAD',
+        },
+      ]);
+      expect(fetchImpl).toHaveBeenCalledTimes(1);
+    } finally {
+      vi.useRealTimers();
+    }
+  });
+
   it('classifica SKIPPED anche una risposta GET di fallback arrivata dopo la deadline', async () => {
     let clock = 0;
     const fetchImpl = vi.fn().mockImplementation(async (_url, options) => {
