@@ -1,7 +1,7 @@
 {
   "key": "wokin",
   "label": "WOKIN GmbH",
-  "generatedAt": "2026-11-07T21:33:46.483Z",
+  "generatedAt": "2026-11-08T09:35:49.936Z",
   "total": 1,
   "discovered": null,
   "parsed": 1,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 3842,
-  "avgDurationMs": 3842,
+  "durationMs": 3987,
+  "avgDurationMs": 3987,
   "durationHistory": [
-    3842
+    3987
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -44,7 +44,7 @@
       "applyUrl": "https://wokin.ch/stellen/",
       "source": "WOKIN Dedicated Parser (official Stellen and employer context)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-07T21:33:27.273Z",
+      "crawledAt": "2026-11-08T09:35:36.261Z",
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
@@ -61,7 +61,7 @@
       "salaryMax": 87000,
       "salarySource": "estimated",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-13T21:33:27.273Z",
+      "validThrough": "2027-01-14T09:35:36.261Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -72,5 +72,5 @@
       }
     }
   ],
-  "codeCommit": "f149ed523035737e5146c13e7338b8dd6b0c5f04"
+  "codeCommit": "b019e69684c909d5fd747961cb84c9c400bc8446"
 }

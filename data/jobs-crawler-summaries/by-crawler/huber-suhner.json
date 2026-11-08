@@ -1,7 +1,7 @@
 {
   "key": "huber-suhner",
   "label": "Huber+Suhner AG",
-  "generatedAt": "2026-11-07T21:31:38.428Z",
+  "generatedAt": "2026-11-08T09:35:08.316Z",
   "total": 1,
   "discovered": null,
   "parsed": 1,
@@ -14,68 +14,16 @@
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
   "updatedCount": 0,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 6189,
-  "avgDurationMs": 6189,
+  "durationMs": 4972,
+  "avgDurationMs": 4972,
   "durationHistory": [
-    6189
+    4972
   ],
   "newJobs": [],
   "updatedJobs": [],
-  "removedJobs": [
-    {
-      "id": "huber-suhner-ac81693fa4d4",
-      "slug": "gestione-dell-installazione-estrusione-huber-suhner-ag-herisau",
-      "company": "Huber+Suhner AG",
-      "companyKey": "huber-suhner",
-      "companyDomain": "hubersuhner.com",
-      "title": "Anlagenführer Extrusion",
-      "needsRetranslation": false,
-      "location": "Herisau",
-      "canton": "AR",
-      "url": "https://recruiting.hubersuhner.com/Vacancies/8273/Description/1",
-      "source": "Huber+Suhner AG Dedicated Parser (Umantis @ recruiting.hubersuhner.com)",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-05T21:52:06.015Z",
-      "addressLocality": "Herisau",
-      "addressRegion": "AR",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "9100",
-      "streetAddress": "Degersheimerstrasse 14",
-      "category": "Produzione",
-      "contract": "full-time",
-      "contractDuration": "permanent",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Industria / Manifattura",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-10-07",
-      "postedDate": "2026-10-07",
-      "postingDateSource": "reported",
-      "applyUrl": "https://recruiting.hubersuhner.com/Vacancies/8273/Application/CheckLogin/1",
-      "pensumMin": 100,
-      "pensumMax": 100,
-      "pensum": "100%",
-      "firstSeenAt": "2026-10-07T21:50:20.403Z",
-      "salaryMin": 118500,
-      "salaryMax": 159500,
-      "salarySource": "estimated",
-      "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-05T21:52:06.015Z",
-      "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 2,
-      "_qualityScore": 93,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 25
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": [
     {
       "id": "huber-suhner-450aeb48d698",
@@ -90,7 +38,7 @@
       "url": "https://recruiting.hubersuhner.com/Vacancies/8333/Description/1",
       "source": "Huber+Suhner AG Dedicated Parser (Umantis @ recruiting.hubersuhner.com)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-07T21:31:21.417Z",
+      "crawledAt": "2026-11-08T09:34:53.129Z",
       "addressLocality": "Pfäffikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -117,7 +65,7 @@
       "salaryMax": 102500,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-21T21:31:21.417Z",
+      "validThrough": "2027-01-21T09:34:53.129Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -128,5 +76,5 @@
       }
     }
   ],
-  "codeCommit": "f149ed523035737e5146c13e7338b8dd6b0c5f04"
+  "codeCommit": "b019e69684c909d5fd747961cb84c9c400bc8446"
 }
