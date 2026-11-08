@@ -92,6 +92,10 @@
     },
     "sector": "Tecnologia / Data Center",
     "expiredAt": "2026-10-08T21:25:22.123Z",
+    "previousSlugs": [
+      "data-center-technician-neuchatel-on-site-reboot-monkey-neuchatel",
+      "data-center-technician-neuchatel-on-site-reboot-monkey-neuchatel-d5003cc3"
+    ],
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "dedupArchive": true,
@@ -110,11 +114,7 @@
       "fr": [
         "data-center-technician-neuchatel-on-site-reboot-monkey-neuchatel"
       ]
-    },
-    "previousSlugs": [
-      "data-center-technician-neuchatel-on-site-reboot-monkey-neuchatel",
-      "data-center-technician-neuchatel-on-site-reboot-monkey-neuchatel-d5003cc3"
-    ]
+    }
   },
   {
     "slug": "data-center-technician-switzerland-rotkreuz-on-site-reboot-monkey-rotkreuz",

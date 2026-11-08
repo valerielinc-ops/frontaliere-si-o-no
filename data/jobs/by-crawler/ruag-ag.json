@@ -207,7 +207,7 @@
       "slugByLocale": {
         "it": "construction-manager-building-80-100-f-m-d-ruag-ag-altdorf",
         "en": "construction-manager-building-80-100-f-m-d-ruag-ag-altdorf",
-        "de": "project-manager-construction-bau-projektleiterin-hochbau-80-100-w-m-d-ruag-ag-schattdorf",
+        "de": "bau-projektleiterin-hochbau-80-100-w-m-d-ruag-ag-schattdorf",
         "fr": "directeur-de-la-construction-batiment-80-100-f-m-j-ruag-ag-altdorf"
       },
       "id": "ruag-ag-1766d61933ec",
@@ -241,7 +241,7 @@
         "de": [
           "bauleiterin-hochbau-80-100-w-m-d-ruag-ag-altdorf",
           "bau-projektleiterin-hochbau-80-100-w-m-d-ruag-ag-altdorf",
-          "bau-projektleiterin-hochbau-80-100-w-m-d-ruag-ag-schattdorf"
+          "project-manager-construction-bau-projektleiterin-hochbau-80-100-w-m-d-ruag-ag-schattdorf"
         ]
       },
       "previousSlugs": [
@@ -1761,7 +1761,8 @@
       },
       "previousSlugs": [
         "senior-finance-business-partner-100-w-m-d-ruag-ag-emmen"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "ICT Application Manager 80-100% (w/m/d)",
@@ -3445,7 +3446,8 @@
       },
       "previousSlugs": [
         "manager-communications-external-affairs-80-100-80-100-w-m-d-ruag-ag-bern"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Logistiker/in EFZ 100 % (w/m/d)",
@@ -4041,7 +4043,8 @@
       "streetAddress": "Thun",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-10-09T09:25:55.099Z"
+      "firstSeenAt": "2026-10-09T09:25:55.099Z",
+      "needsRetranslation": true
     },
     {
       "title": "InstandhaltungstechnikerIn optische Instrumente 100% (w/m/d)",

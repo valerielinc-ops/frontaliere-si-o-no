@@ -1,11 +1,6 @@
 {
-  "run": 283,
+  "run": 284,
   "companies": {
-    "fielmann": {
-      "sterile": 0,
-      "signature": "8d912bf111bc74eb",
-      "skipUntilRun": 286
-    },
     "migrolino": {
       "sterile": 0,
       "signature": "b7c5f981ef83f8c3",
@@ -16,16 +11,29 @@
       "signature": "42670fdf54acbb36"
     },
     "pemsa": {
+      "sterile": 0,
+      "signature": "d4cdb525ea223104",
+      "skipUntilRun": 287
+    },
+    "spruengli": {
       "sterile": 1,
-      "signature": "d4cdb525ea223104"
+      "signature": "64d5949b3bedf71e"
+    },
+    "fielmann": {
+      "sterile": 1,
+      "signature": "8d912bf111bc74eb"
+    },
+    "planzer": {
+      "sterile": 1,
+      "signature": "276cff9c22659ff8"
     },
     "bosch-thermotechnik-ag": {
       "sterile": 1,
       "signature": "7265c545ae9fe9c4"
     },
-    "spruengli": {
+    "spital-thurgau": {
       "sterile": 1,
-      "signature": "64d5949b3bedf71e"
+      "signature": "048dd3dd126cb10d"
     }
   }
 }

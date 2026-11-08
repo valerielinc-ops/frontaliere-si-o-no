@@ -160,7 +160,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-06-10T22:13:21.437Z"
+      "firstSeenAt": "2026-06-10T22:13:21.437Z",
+      "needsRetranslation": true
     },
     {
       "title": "Geschäftsstellenleiter:in für die Geschäftsstelle Laufen",
@@ -5556,7 +5557,6 @@
         "fr": "conseiller-en-retraite-pour-le-bureau-des-pensions-et-des-actifs-a-soleure-axa-svizzera-solothurn"
       },
       "id": "axa-svizzera-5c3315e9ab53",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "en": [
           "vorsorgeberater-in-fur-die-geschafsstelle-vorsorge-vermogen-solothurn-axa-svizzera-solothurn"
@@ -7169,7 +7169,8 @@
       },
       "previousSlugs": [
         "conseiller-ere-en-assurances-pour-l-agence-principale-du-landeron-entre-deux-lacs-3yyywh"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Conseiller-ère en prévoyance et en finance à Delémont",

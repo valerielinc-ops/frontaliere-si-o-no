@@ -228,7 +228,8 @@
       "retranslationAttempts": 0,
       "streetAddress": "Wil SG",
       "streetAddressSource": "to-enrich",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "title": "Detailhandelsfachmann/-frau EFZ - Zug Bundesplatz",
@@ -475,7 +476,8 @@
       "retranslationAttempts": 0,
       "streetAddress": "Uster",
       "streetAddressSource": "to-enrich",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "title": "Detailhandelsfachmann/-frau EFZ - Wallisellen Glattzentrum",
@@ -1223,7 +1225,8 @@
       "retranslationAttempts": 0,
       "streetAddress": "Oerlikon Sternen",
       "streetAddressSource": "to-enrich",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "title": "Apprenti/e Gestionnaire du commerce de détail CFC - Monthey",

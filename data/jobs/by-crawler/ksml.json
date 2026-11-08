@@ -5685,7 +5685,9 @@
       },
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-08T09:36:07.270Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true,
+      "retranslationAttempts": 0
     },
     {
       "id": "ksml-c2aeaa6a3603",
@@ -9325,7 +9327,6 @@
           "logopade-padin-25-28-lektionen-oder-auf-wunsch-auch-ein-kleineres-pensum-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-ruegsauschachen"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-01T14:25:26.143Z",
       "salaryMin": 59000,
       "salaryMax": 108500,
@@ -11308,7 +11309,6 @@
           "lehrperson-fur-den-berufskundlichen-unterricht-der-gartner-innen-efz-fachrichtung-40682"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-11-07T09:34:47.748Z",
       "salaryMin": 11800,
       "salaryMax": 21700,
@@ -11473,7 +11473,6 @@
           "lehrperson-fur-informatik-40-50-kombinierbar-mit-mitarbeiter-in-informatikdienste-40-50-40660"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-11-04T21:54:05.878Z",
       "salaryMin": 29500,
       "salaryMax": 54300,
@@ -12994,7 +12993,6 @@
           "lehrperson-w-m-d-60-fur-alle-die-gerne-neue-wege-gehen-klinikschule-kjp-des-upz-bern-40595"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-10-27T22:00:32.397Z",
       "salaryMin": 35400,
       "salaryMax": 65100,
@@ -14628,7 +14626,6 @@
           "klassenlehrperson-6-klasse-ca-19-lektionen-teambewerbung-oder-bewerbung-fur-teilpensum-36953"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-10-20T21:32:24.955Z",
       "salaryMin": 59000,
       "salaryMax": 108500,
@@ -19535,7 +19532,6 @@
           "8-lektionen-logopadie-primarschule-worben-40701"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-11-05T21:47:55.845Z",
       "salaryMin": 59000,
       "salaryMax": 108500,
@@ -20905,7 +20901,6 @@
           "20-25l-logopadie-in-reichenbach-i-k-pensum-aufteilbar-mr-kander-und-engstligental-frutigen-40656"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-11-02T21:56:23.634Z",
       "salaryMin": 59000,
       "salaryMax": 108500,

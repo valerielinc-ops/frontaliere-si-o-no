@@ -578,7 +578,8 @@
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-04T09:25:27.646Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "sbb-b4ec8ebaee0f",
@@ -4224,7 +4225,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-26T21:28:45.873Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 1,
+      "needsRetranslation": true
     },
     {
       "id": "sbb-267b05aacbe5",
@@ -4326,7 +4328,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-26T21:28:46.881Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 1,
+      "needsRetranslation": true
     },
     {
       "id": "sbb-48fdac3fd924",
@@ -8415,7 +8418,8 @@
       "validThrough": "2026-12-21T21:29:15.852Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-07T21:29:15.852Z",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 1,
+      "needsRetranslation": true
     },
     {
       "id": "sbb-83c61f0a4674",

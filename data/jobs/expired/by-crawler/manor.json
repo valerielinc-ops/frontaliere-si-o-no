@@ -21,6 +21,10 @@
     "slugByLocale": {},
     "sector": "",
     "expiredAt": "2026-10-10T21:34:41.340Z",
+    "previousSlugs": [
+      "manor-head-of-retail-media-100-basel",
+      "manor-head-of-retail-media-100-basel-faca2d13"
+    ],
     "postalCode": "4001",
     "salaryMin": 103500,
     "salaryMax": 159500,
@@ -54,11 +58,7 @@
       "fr": [
         "manor-head-of-retail-media-100-basel"
       ]
-    },
-    "previousSlugs": [
-      "manor-head-of-retail-media-100-basel",
-      "manor-head-of-retail-media-100-basel-faca2d13"
-    ]
+    }
   },
   {
     "slug": "collaboratore-trice-in-vendita-damenkonfektion-30-manor-ag-biel-hf2am5",
@@ -1044,6 +1044,12 @@
     "slugByLocale": {},
     "sector": "",
     "expiredAt": "2026-10-03T21:27:08.249Z",
+    "previousSlugs": [
+      "manor-collaborateur-trice-caisse-food-50-geneve-2",
+      "manor-collaborateur-trice-caisse-food-50-geneve",
+      "manor-collaborateur-trice-caisse-food-50-geneve-2-8630db74",
+      "manor-collaborateur-trice-caisse-food-50-geneve-72f7704e"
+    ],
     "previousSlugsByLocale": {
       "it": [
         "manor-collaborateur-trice-caisse-food-50-geneve-2-8630db74",
@@ -1069,13 +1075,7 @@
     "salaryPeriod": "YEAR",
     "dedupArchive": true,
     "sourceIdentity": "url:https://positions.manor.ch/job/gen%c3%a8ve-1-collaborateurtrice-caisse-%28food%29-50/1370324555",
-    "firstSeenAt": "2026-10-03T09:29:03.390Z",
-    "previousSlugs": [
-      "manor-collaborateur-trice-caisse-food-50-geneve-2",
-      "manor-collaborateur-trice-caisse-food-50-geneve",
-      "manor-collaborateur-trice-caisse-food-50-geneve-2-8630db74",
-      "manor-collaborateur-trice-caisse-food-50-geneve-72f7704e"
-    ]
+    "firstSeenAt": "2026-10-03T09:29:03.390Z"
   },
   {
     "slug": "manor-mitarbeiter-in-logistik-kommissionierung-100-hochdorf-mitarbeiterin-logistik-0oxm1u",
