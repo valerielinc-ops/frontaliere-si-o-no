@@ -15,6 +15,7 @@ const REMOTE_CONFIG_WORKFLOWS = [
   '.github/workflows/update-fuel-station-inventory.yml',
   '.github/workflows/update-health-premiums.yml',
   '.github/workflows/update-pension-parameters.yml',
+  '.github/workflows/here-usage-reconcile.yml',
 ];
 
 describe('Firebase Admin workflow installation', () => {

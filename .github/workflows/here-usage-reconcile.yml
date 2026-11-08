@@ -66,10 +66,14 @@ jobs:
         uses: actions/setup-node@v7
         with:
           node-version: '22'
-          cache: npm
 
-      - name: Install dependencies
-        run: npm ci
+      # This job only needs firebase-admin for Remote Config and the Firestore
+      # seed. Installing the whole site tree pulls in unrelated native/AI/UI
+      # packages and was the source of the 8-minute timeout (issue #17692).
+      - name: Install firebase-admin (for Remote Config and Firestore)
+        run: |
+          npm install --prefix "$RUNNER_TEMP/firebase-admin-deps" --no-save --ignore-scripts --no-fund --no-audit firebase-admin@14.5.0
+          ln -s "$RUNNER_TEMP/firebase-admin-deps/node_modules" node_modules
 
       - name: Prepare Firebase credentials
         env:
