@@ -12,6 +12,7 @@ import {
 } from '../../build-plugins/shared/incrementalManifest.mjs';
 import {
   collectSourceModuleFiles,
+  computeJobsSeoHtmlCacheFingerprint,
   computeJobsSeoEmitterFingerprints,
   JOBS_SEO_FINGERPRINT_INERT_MODULES,
   createJobsSeoHtmlReuse,
@@ -151,6 +152,14 @@ async function createReuse(
 }
 
 describe('jobs SEO disk HTML reuse', () => {
+  it('binds the HTML cache key to the packed storage format', () => {
+    const fingerprints = { active: 'renderer-v1', expired: 'renderer-v1' };
+    expect(computeJobsSeoHtmlCacheFingerprint(fingerprints, 'pack@1'))
+      .not.toBe(computeJobsSeoHtmlCacheFingerprint(fingerprints, 'pack@2'));
+    expect(computeJobsSeoHtmlCacheFingerprint({ ...fingerprints, active: 'renderer-v2' }))
+      .not.toBe(computeJobsSeoHtmlCacheFingerprint(fingerprints));
+  });
+
   it.each(['unknown', 'reported', undefined] as const)('refreshes mixed provenance %s through the cache contract without dropping JobPosting', (postingDateSource) => {
     const sourceDate = new Date(Date.now() - 3 * 86400000).toISOString();
     const firstSeenAt = new Date(Date.now() - 5 * 86400000).toISOString();
@@ -809,7 +818,7 @@ describe('jobs SEO disk HTML reuse', () => {
     const rootDir = fixtureRoot();
     const pagePath = '/cerca-lavoro-ticino/pack-round-trip/';
     const input = { value: 'pack' };
-    const html = '<html><body>pack round-trip</body></html>';
+    const html = `<html><body>${'Job posting details, requirements, and employer information. '.repeat(4096)}</body></html>`;
     try {
       writePreviousManifest(rootDir, pagePath, 'active-job', input);
       const reuse = await createReuse(rootDir);
@@ -818,6 +827,8 @@ describe('jobs SEO disk HTML reuse', () => {
       reuse.finish(candidate, html);
       expect(fs.existsSync(htmlReusePackPath(rootDir, 'it', 'active'))).toBe(true);
       expect(fs.existsSync(htmlReusePackIndexPath(rootDir, 'it', 'active'))).toBe(true);
+      expect(fs.statSync(htmlReusePackPath(rootDir, 'it', 'active')).size)
+        .toBeLessThan(Buffer.byteLength(html) / 2);
       expect(fs.readdirSync(path.join(rootDir, '.cache', 'incremental-html', 'it')))
         .not.toContain(expect.stringMatching(/\.html$/u));
 
@@ -876,6 +887,32 @@ describe('jobs SEO disk HTML reuse', () => {
       const reread = await createReuse(rootDir);
       const truncated = reread.lookup('it', pagePath, 'active-job', input, 'active');
       expect(truncated).toMatchObject({ hit: false, html: null });
+      expect(reread.summary().active.missReasons).toMatchObject({ 'html-unavailable': 1 });
+    } finally {
+      fs.rmSync(rootDir, { recursive: true, force: true });
+    }
+  });
+
+  it('treats a corrupt compressed payload as a clean cache miss', async () => {
+    const rootDir = fixtureRoot();
+    const pagePath = '/cerca-lavoro-ticino/pack-corrupt/';
+    const input = { value: 'corrupt' };
+    try {
+      writePreviousManifest(rootDir, pagePath, 'active-job', input);
+      const reuse = await createReuse(rootDir);
+      const candidate = reuse.lookup('it', pagePath, 'active-job', input, 'active');
+      reuse.finish(candidate, '<html>compressed cache entry</html>');
+
+      const packPath = htmlReusePackPath(rootDir, 'it', 'active');
+      const indexPath = htmlReusePackIndexPath(rootDir, 'it', 'active');
+      const entry = fs.readFileSync(indexPath, 'utf8').trim().split('\n').at(-1)!.split('\t');
+      const pack = fs.readFileSync(packPath);
+      pack[Number(entry[1])] ^= 0xff;
+      fs.writeFileSync(packPath, pack);
+
+      const reread = await createReuse(rootDir);
+      const corrupt = reread.lookup('it', pagePath, 'active-job', input, 'active');
+      expect(corrupt).toMatchObject({ hit: false, html: null });
       expect(reread.summary().active.missReasons).toMatchObject({ 'html-unavailable': 1 });
     } finally {
       fs.rmSync(rootDir, { recursive: true, force: true });
