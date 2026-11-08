@@ -3199,6 +3199,7 @@ jobs:
             /scripts/ci/merge-json-first-seen.mjs
             /scripts/ci/phase-timing-observer.mjs
             /scripts/load-rc-env.mjs
+            /scripts/lib/remote-config-template-url.mjs
           sparse-checkout-cone-mode: false
 
       - name: Setup Node.js

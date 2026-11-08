@@ -114,6 +114,7 @@ jobs:
             /scripts/fetch-thin-page-promotions.mjs
             /scripts/lib/
             /scripts/load-rc-env.mjs
+            /scripts/lib/remote-config-template-url.mjs
           sparse-checkout-cone-mode: false
         timeout-minutes: 7
 
@@ -173,6 +174,7 @@ jobs:
             /scripts/fetch-thin-page-promotions.mjs
             /scripts/lib/
             /scripts/load-rc-env.mjs
+            /scripts/lib/remote-config-template-url.mjs
           sparse-checkout-cone-mode: false
         timeout-minutes: 7
 
@@ -255,6 +257,7 @@ jobs:
             /scripts/fetch-thin-page-promotions.mjs
             /scripts/lib/
             /scripts/load-rc-env.mjs
+            /scripts/lib/remote-config-template-url.mjs
           sparse-checkout-cone-mode: false
         # Tetto Checkout (classe #5145/#5144/#5162): senza, un fetch degenere
         # consuma l'intero budget e il job muore `cancelled` — stato invisibile
