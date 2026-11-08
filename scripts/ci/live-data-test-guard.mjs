@@ -600,6 +600,12 @@ export const LIVE_DATA_SCAN_EXEMPTIONS = Object.freeze([
     evidence: 'review',
     reason: 'the matching path is a string in a synthetic selector fixture created under mkdtemp; the test never reads the checkout data file',
   },
+  {
+    file: 'tests/translate-pending-budget-benchmark.test.ts',
+    roots: ['data/jobs/'],
+    evidence: 'review',
+    reason: 'data/jobs/by-crawler/test.json is a synthetic candidate reference in the report fixture; the test reads only the workflow and benchmark script from the checkout',
+  },
   // ─── 2026-09-19: falsi positivi emersi quando la scansione e' diventata
   // ricorsiva. Ognuno nomina una radice viva nel sorgente, e la traccia a
   // runtime dell'intera suite (hook su fs + moduli + processi figli) non ha

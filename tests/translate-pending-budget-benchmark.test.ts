@@ -4,6 +4,7 @@ import os from 'node:os';
 import path from 'node:path';
 import { describe, expect, it } from 'vitest';
 import YAML from 'yaml';
+import { selectedCandidateIssue } from '../scripts/ci/translate-pending-budget-benchmark.mjs';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
 const WORKFLOW_PATH = path.join(ROOT, '.github/workflows/translate-pending-budget-benchmark.yml');
@@ -44,6 +45,7 @@ function reportWith({ handoffState = 'complete', candidateFingerprintAfter = 'ch
       candidateCount: 1,
       sliceFingerprint: 'slice-before',
       candidateFingerprint: 'candidates-before',
+      candidateRefs: [{ relative: 'data/jobs/by-crawler/test.json', index: 0, locale: 'it' }],
     },
     populationAfter: {
       phase: 'descriptions',
@@ -55,6 +57,7 @@ function reportWith({ handoffState = 'complete', candidateFingerprintAfter = 'ch
     },
   });
   Object.assign(handoff!, { handoffState });
+  Object.assign(lane!, { selectedLaneComplete: true });
   return {
     schemaVersion: 1,
     phase: 'descriptions',
@@ -79,6 +82,24 @@ function finalizeReport(report: ReturnType<typeof reportWith>) {
 }
 
 describe('translate-pending budget benchmark', () => {
+  it('rejects an unchanged source-copy title even when it clears the character floor', () => {
+    const job = {
+      sourceLang: 'de',
+      title: 'Lagermitarbeiter Logistik 100%',
+      titleByLocale: {
+        de: 'Lagermitarbeiter Logistik 100%',
+        it: 'Lagermitarbeiter Logistik 100%',
+      },
+    };
+
+    expect(selectedCandidateIssue(job, 'titles', 'it'))
+      .toBe('title still matches the repair-lane detector');
+    expect(selectedCandidateIssue({
+      ...job,
+      titleByLocale: { ...job.titleByLocale, it: 'Magazziniere logistica 100%' },
+    }, 'titles', 'it')).toBeNull();
+  });
+
   it('is manual, ref-selectable and retains the production job cap', () => {
     const parsed = workflow();
     expect(parsed.on.pull_request?.paths).toEqual(expect.arrayContaining([
@@ -132,11 +153,16 @@ describe('translate-pending budget benchmark', () => {
       .toBeGreaterThan(names.indexOf('Load Remote Config secrets'));
     expect(names.indexOf('Resolve Codex reserve budget'))
       .toBeLessThan(names.indexOf('Start Codex reserve broker'));
+    const prepareRemote = steps.find((step) => step.name === 'Prepare isolated benchmark remote')?.run;
+    expect(prepareRemote).toContain('receive.shallowUpdate true');
+    expect(prepareRemote).toContain('git push --no-thin');
 
     const source = fs.readFileSync(SCRIPT_PATH, 'utf8');
     expect(source).toContain('same-population anchor');
     expect(source).toContain('candidateFingerprint');
     expect(source).toContain('underJobCap');
+    expect(source).toContain('Selected-lane handoff');
+    expect(steps.find((step) => step.name === 'Complete translation deploy handoff')?.run).toContain('--verify-selected-lane');
     expect(source).toContain("candidateCountBefore > 0");
     expect(steps.find((step) => step.name === 'Commit selected repair lane')?.run).toContain('git-commit-data.sh --slice-only');
     expect(steps.find((step) => step.name === 'Commit after statistics')?.env?.TRANSLATION_STATS_AFTER_TREE).toBe('1');
