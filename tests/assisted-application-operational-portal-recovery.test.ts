@@ -51,6 +51,7 @@ describe('source-version recovery of positively identified operational portal qu
     store.docs.set(`${base}/automation/flow`, { ...store.read(`${base}/automation/flow`),
       answers: { availability: '2026-11-20' }, orderQuestionAnswersEvidenceVersion: ORDER_QUESTION_ANSWER_EVIDENCE_VERSION });
     expect(await reconcilePortalCode({ ...context(store), apply: true })).toMatchObject({ eligible: 1, queued: 1 });
+    expect(store.read(`${base}/automation/flow`).answers).toMatchObject({ availability: '2026-11-20' });
     expect(store.read(base).automationDueAt).toBe(now);
   });
 

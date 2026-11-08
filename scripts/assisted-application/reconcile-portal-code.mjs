@@ -200,7 +200,13 @@ export async function reconcilePortalCode({ db, version, apply = false, nowMs = 
             const recoveryOrderAnswers = flow.heldBy[0] === 'portal:portal_needs_candidate' && !trustedLocalAnswers
               ? {} : trustedLocalAnswers ? answerContext.orderAnswers
                 : rememberCandidateQuestionAnswers({ questions: draft?.questions || [], answers: legacyLocalAnswers, changed: legacyLocalAnswers });
-            transaction.set(flowRef, { heldBy, questionAnswers: recoveryOrderAnswers, portalAutoRetryAt: nowMs,
+            transaction.set(flowRef, { heldBy,
+              // The trusted projection intentionally omits same-order match
+              // answers. Persist only those explicit, validated answers so
+              // the submit runner receives the same compatibility decision
+              // that authorized this recovery; never widen legacy evidence.
+              ...(trustedLocalAnswers ? { answers: { ...object(answerContext.flow?.answers), ...legacyLocalAnswers } } : {}),
+              questionAnswers: recoveryOrderAnswers, portalAutoRetryAt: nowMs,
               portalRecoveryVersion: version,
               ...(exhaustedRepair ? { portalExhaustedRecoveryVersion: version } : {}),
               updatedAt: nowMs }, { merge: true });
