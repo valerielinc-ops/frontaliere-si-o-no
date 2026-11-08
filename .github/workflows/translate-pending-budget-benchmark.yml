@@ -87,6 +87,21 @@ jobs:
       - name: Load Remote Config secrets
         run: node scripts/load-rc-env.mjs
 
+      # Keep the benchmark's reserve budget identical to the production
+      # reusable workflow. Remote Config/input values win; the repository
+      # variable is the rollback lever and 350 is the bounded default.
+      - name: Resolve Codex reserve budget
+        env:
+          FREE_TRANSLATE_CODEX_MAX_CALLS_REPO: ${{ vars.FREE_TRANSLATE_CODEX_MAX_CALLS }}
+        run: |
+          if [ -n "${FREE_TRANSLATE_CODEX_MAX_CALLS:-}" ]; then
+            echo "FREE_TRANSLATE_CODEX_MAX_CALLS already set; preserving effective setting"
+          elif [ -n "$FREE_TRANSLATE_CODEX_MAX_CALLS_REPO" ]; then
+            printf 'FREE_TRANSLATE_CODEX_MAX_CALLS=%s\n' "$FREE_TRANSLATE_CODEX_MAX_CALLS_REPO" >> "$GITHUB_ENV"
+          else
+            printf 'FREE_TRANSLATE_CODEX_MAX_CALLS=350\n' >> "$GITHUB_ENV"
+          fi
+
       - name: Start Codex reserve broker
         id: codex_broker
         uses: ./.github/actions/setup-claude-haiku-fallback
