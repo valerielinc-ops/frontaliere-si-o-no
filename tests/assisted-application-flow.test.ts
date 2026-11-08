@@ -582,6 +582,20 @@ describe('career-ops handoff, closed ads and owner regeneration', () => {
 
     step = transition(step.flow, { type: 'submit_handoff', reason: 'portal_needs_candidate' }, { draft: roundDraft, nowMs: secondHandoffAt + PORTAL_AUTO_RETRY_DELAYS_MS[1] + 1_000 });
     expect(step.flow).toMatchObject({ state: 'owner_takeover', portalAutoRetryCount: 2, portalAutoRetryAt: null });
+
+    const repairVersion = 'c'.repeat(64);
+    const repair = transition({
+      ...step.flow,
+      portalAutoRetryAt: secondHandoffAt,
+      portalRecoveryVersion: repairVersion,
+      portalExhaustedRecoveryVersion: repairVersion,
+      dispatch: retryDispatch,
+    }, { type: 'portal_auto_retry' }, { draft: roundDraft, nowMs: secondHandoffAt });
+    expect(repair.flow).toMatchObject({ state: 'submitting', portalAutoRetryCount: 3, portalAutoRetryAt: null,
+      portalExhaustedRecoveryVersion: repairVersion });
+    expect(repair.effects).toEqual([{ type: 'dispatch', mode: 'submit', reason: 'portal_auto_retry' }]);
+    expect(transition({ ...step.flow, portalAutoRetryAt: secondHandoffAt, dispatch: retryDispatch },
+      { type: 'portal_auto_retry' }, { draft: roundDraft, nowMs: secondHandoffAt }).ignored).toBe('portal_retry_not_due');
     const captcha = transition(submitting, { type: 'submit_handoff', reason: 'captcha' }, { draft: roundDraft, nowMs: T0 });
     expect(captcha.flow).toMatchObject({ state: 'owner_takeover', heldBy: ['portal:captcha'], portalAutoRetryAt: null });
   });

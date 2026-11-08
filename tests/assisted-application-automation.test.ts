@@ -1036,6 +1036,15 @@ describe('sweep', () => {
       portalAutoRetryAt: T0, portalAutoRetryCount: PORTAL_AUTO_RETRY_DELAYS_MS.length })).toBeNull();
   });
 
+  it('exposes the due time for the single queued exhausted-budget repair', () => {
+    const version = 'c'.repeat(64);
+    const flow = { state: 'owner_takeover', heldBy: ['portal:portal_needs_candidate'], portalAutoRetryAt: T0,
+      portalAutoRetryCount: PORTAL_AUTO_RETRY_DELAYS_MS.length, portalRecoveryVersion: version,
+      portalExhaustedRecoveryVersion: version };
+    expect(portalRetryDueAt(flow)).toBe(T0);
+    expect(computeDueAt(flow)).toBe(T0);
+  });
+
   it('fails closed for malformed persisted portal retry counts', () => {
     for (const portalAutoRetryCount of ['   ', true, [], ['1']]) {
       const flow = { state: 'owner_takeover', heldBy: ['portal:portal_needs_candidate'], portalAutoRetryAt: T0, portalAutoRetryCount };
