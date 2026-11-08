@@ -802,11 +802,13 @@
       "medical-specialist-in-rheumatology-m-f-ensemble-hospitalier-de-la-cote-ehc-morges-0fa0a5ec",
       "medical-specialist-in-rheumatology-m-f-ensemble-hospitalier-de-la-cote-ehc-morges-8d451805",
       "medical-specialist-in-rheumatology-m-f-ensemble-hospitalier-de-la-cote-ehc-morges-f010cd6b",
-      "medical-specialist-in-rheumatology-m-f-ensemble-hospitalier-de-la-cote-ehc-morges"
+      "medical-specialist-in-rheumatology-m-f-ensemble-hospitalier-de-la-cote-ehc-morges",
+      "medical-specialist-in-rheumatology-m-f-ensemble-hospitalier-de-la-cote-ehc-morges-9621b165"
     ],
     "previousSlugsByLocale": {
       "it": [
-        "medecin-specialiste-en-rhumatologie-f-h-ehc-vd-morges-5b612ef5"
+        "medecin-specialiste-en-rhumatologie-f-h-ehc-vd-morges-5b612ef5",
+        "medical-specialist-in-rheumatology-m-f-ensemble-hospitalier-de-la-cote-ehc-morges"
       ],
       "en": [
         "medecin-specialiste-en-rhumatologie-m-w-d-ensemble-hospitalier-de-la-cote-ehc-morges-770b3a05",
@@ -883,10 +885,15 @@
         "medical-specialist-in-rheumatology-m-f-ensemble-hospitalier-de-la-cote-ehc-morges-0fa0a5ec",
         "medical-specialist-in-rheumatology-m-f-ensemble-hospitalier-de-la-cote-ehc-morges-8d451805",
         "medical-specialist-in-rheumatology-m-f-ensemble-hospitalier-de-la-cote-ehc-morges-f010cd6b",
+        "medical-specialist-in-rheumatology-m-f-ensemble-hospitalier-de-la-cote-ehc-morges-9621b165",
         "medical-specialist-in-rheumatology-m-f-ensemble-hospitalier-de-la-cote-ehc-morges"
       ],
       "de": [
-        "medecin-specialiste-en-rhumatologie-m-w-d-ensemble-hospitalier-de-la-cote-ehc-morges-770b3a05"
+        "medecin-specialiste-en-rhumatologie-m-w-d-ensemble-hospitalier-de-la-cote-ehc-morges-770b3a05",
+        "medical-specialist-in-rheumatology-m-f-ensemble-hospitalier-de-la-cote-ehc-morges"
+      ],
+      "fr": [
+        "medical-specialist-in-rheumatology-m-f-ensemble-hospitalier-de-la-cote-ehc-morges"
       ]
     },
     "postalCode": "1110",
@@ -1439,7 +1446,11 @@
       "medico-assistente-medicina-interna-f-h-maggio-2028-ensemble-hospitalier-de-la-cote-ehc-morges",
       "physician-assistant-internal-medicine-f-m-may-2028-ensemble-hospitalier-de-la-cote-ehc-morges",
       "assistenzarzt-innere-medizin-f-h-mai-2028-ensemble-hospitalier-de-la-cote-ehc-morges",
-      "medecin-assistant-medecine-interne-f-h-mai-2028-ehc-vd-morges"
+      "medecin-assistant-medecine-interne-f-h-mai-2028-ehc-vd-morges",
+      "medico-assistente-medicina-interna-f-h-maggio-2028-ensemble-hospitalier-de-la-cote-ehc-morges-59a45f2c",
+      "medecin-assistant-medecine-interne-f-h-mai-2028-ehc-vd-morges-9bea5bd6",
+      "assistenzarzt-innere-medizin-f-h-mai-2028-ensemble-hospitalier-de-la-cote-ehc-morges-7ea5096b",
+      "physician-assistant-internal-medicine-f-m-may-2028-ensemble-hospitalier-de-la-cote-ehc-morges-4a011f41"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -1461,10 +1472,30 @@
         "medecin-assistant-medecine-interne-f-h-novembre-2027-ehc-vd-morges",
         "assistente-di-tirocinante-f-h-ensemble-hospitalier-de-la-cote-ehc-morges",
         "medical-assistant-internal-medicine-f-h-november-2027-ensemble-hospitalier-de-la-cote-ehc-morges",
-        "assistant-medical-f-h-ehc-vd-morges"
+        "assistant-medical-f-h-ehc-vd-morges",
+        "medico-assistente-medicina-interna-f-h-maggio-2028-ensemble-hospitalier-de-la-cote-ehc-morges-59a45f2c",
+        "medecin-assistant-medecine-interne-f-h-mai-2028-ehc-vd-morges-9bea5bd6",
+        "physician-assistant-internal-medicine-f-m-may-2028-ensemble-hospitalier-de-la-cote-ehc-morges",
+        "assistenzarzt-innere-medizin-f-h-mai-2028-ensemble-hospitalier-de-la-cote-ehc-morges"
       ],
       "de": [
-        "medizinischer-assistent-f-m-ensemble-hospitalier-de-la-cote-ehc-morges"
+        "medizinischer-assistent-f-m-ensemble-hospitalier-de-la-cote-ehc-morges",
+        "medico-assistente-medicina-interna-f-h-maggio-2028-ensemble-hospitalier-de-la-cote-ehc-morges",
+        "medecin-assistant-medecine-interne-f-h-mai-2028-ehc-vd-morges",
+        "physician-assistant-internal-medicine-f-m-may-2028-ensemble-hospitalier-de-la-cote-ehc-morges",
+        "assistenzarzt-innere-medizin-f-h-mai-2028-ensemble-hospitalier-de-la-cote-ehc-morges-7ea5096b"
+      ],
+      "en": [
+        "medico-assistente-medicina-interna-f-h-maggio-2028-ensemble-hospitalier-de-la-cote-ehc-morges",
+        "medecin-assistant-medecine-interne-f-h-mai-2028-ehc-vd-morges",
+        "physician-assistant-internal-medicine-f-m-may-2028-ensemble-hospitalier-de-la-cote-ehc-morges-4a011f41",
+        "assistenzarzt-innere-medizin-f-h-mai-2028-ensemble-hospitalier-de-la-cote-ehc-morges"
+      ],
+      "fr": [
+        "medico-assistente-medicina-interna-f-h-maggio-2028-ensemble-hospitalier-de-la-cote-ehc-morges",
+        "medecin-assistant-medecine-interne-f-h-mai-2028-ehc-vd-morges-9bea5bd6",
+        "physician-assistant-internal-medicine-f-m-may-2028-ensemble-hospitalier-de-la-cote-ehc-morges",
+        "assistenzarzt-innere-medizin-f-h-mai-2028-ensemble-hospitalier-de-la-cote-ehc-morges"
       ]
     },
     "postalCode": "1110",
@@ -1691,13 +1722,28 @@
       "infirmier-en-chirurgie-f-h-ehc-vd-morges-d6db4da5",
       "infirmier-en-chirurgie-f-h-ehc-vd-morges-991b53e1",
       "infirmier-en-chirurgie-f-h-ehc-vd-morges-0fb8fb6f",
-      "infirmier-en-chirurgie-f-h-ehc-vd-morges"
+      "infirmier-en-chirurgie-f-h-ehc-vd-morges",
+      "infirmier-en-chirurgie-f-h-ehc-vd-morges-4782da8d"
     ],
     "postalCode": "1110",
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "dedupArchive": true,
-    "sourceIdentity": "url:https://emploi.ehc-vd.ch/fr/nos-offres/infirmier-en-chirurgie-fh-3785"
+    "sourceIdentity": "url:https://emploi.ehc-vd.ch/fr/nos-offres/infirmier-en-chirurgie-fh-3785",
+    "previousSlugsByLocale": {
+      "it": [
+        "infirmier-en-chirurgie-f-h-ehc-vd-morges-4782da8d"
+      ],
+      "en": [
+        "infirmier-en-chirurgie-f-h-ehc-vd-morges"
+      ],
+      "de": [
+        "infirmier-en-chirurgie-f-h-ehc-vd-morges"
+      ],
+      "fr": [
+        "infirmier-en-chirurgie-f-h-ehc-vd-morges-4782da8d"
+      ]
+    }
   },
   {
     "slug": "stagiaire-mpc-f-h-ehc-vd-morges-x5egwp",
@@ -1821,13 +1867,28 @@
       "stagiaire-mpc-f-h-ehc-vd-morges-604a2c1e",
       "stagiaire-mpc-f-h-ehc-vd-morges-66e2c1e7",
       "stagiaire-mpc-f-h-ehc-vd-morges-2dde49f0",
-      "stagiaire-mpc-f-h-ehc-vd-morges"
+      "stagiaire-mpc-f-h-ehc-vd-morges",
+      "stagiaire-mpc-f-h-ehc-vd-morges-89dda983"
     ],
     "postalCode": "1110",
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "dedupArchive": true,
-    "sourceIdentity": "url:https://emploi.ehc-vd.ch/fr/nos-offres/stagiaire-mpc-fh-3766"
+    "sourceIdentity": "url:https://emploi.ehc-vd.ch/fr/nos-offres/stagiaire-mpc-fh-3766",
+    "previousSlugsByLocale": {
+      "it": [
+        "stagiaire-mpc-f-h-ehc-vd-morges-89dda983"
+      ],
+      "en": [
+        "stagiaire-mpc-f-h-ehc-vd-morges"
+      ],
+      "de": [
+        "stagiaire-mpc-f-h-ehc-vd-morges"
+      ],
+      "fr": [
+        "stagiaire-mpc-f-h-ehc-vd-morges-89dda983"
+      ]
+    }
   },
   {
     "slug": "agente-di-pulizia-m-f-ensemble-hospitalier-de-la-cote-ehc-aubonne",
@@ -2043,7 +2104,8 @@
       "assistant-soins-et-sante-communautaire-assc-medecine-f-h-ehc-vd-morges-c6e4b38b",
       "assistant-soins-et-sante-communautaire-assc-medecine-f-h-ehc-vd-morges-e796f33e",
       "assistant-soins-et-sante-communautaire-assc-medecine-f-h-ehc-vd-morges-31f30929",
-      "assistant-soins-et-sante-communautaire-assc-medecine-f-h-ehc-vd-morges"
+      "assistant-soins-et-sante-communautaire-assc-medecine-f-h-ehc-vd-morges",
+      "assistant-soins-et-sante-communautaire-assc-medecine-f-h-ehc-vd-morges-fc1796fd"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -2170,13 +2232,16 @@
         "assistant-soins-et-sante-communautaire-assc-medecine-f-h-ehc-vd-morges-c6e4b38b",
         "assistant-soins-et-sante-communautaire-assc-medecine-f-h-ehc-vd-morges-e796f33e",
         "assistant-soins-et-sante-communautaire-assc-medecine-f-h-ehc-vd-morges-31f30929",
+        "assistant-soins-et-sante-communautaire-assc-medecine-f-h-ehc-vd-morges-fc1796fd",
         "assistant-soins-et-sante-communautaire-assc-medecine-f-h-ehc-vd-morges"
       ],
       "en": [
-        "community-care-and-health-assistant-assc-in-ctr-m-f-ensemble-hospitalier-de-la-cote-ehc-aubonne"
+        "community-care-and-health-assistant-assc-in-ctr-m-f-ensemble-hospitalier-de-la-cote-ehc-aubonne",
+        "assistant-soins-et-sante-communautaire-assc-medecine-f-h-ehc-vd-morges"
       ],
       "de": [
-        "gesundheits-und-sozialassistent-in-assc-in-ctr-f-h-ensemble-hospitalier-de-la-cote-ehc-aubonne"
+        "gesundheits-und-sozialassistent-in-assc-in-ctr-f-h-ensemble-hospitalier-de-la-cote-ehc-aubonne",
+        "assistant-soins-et-sante-communautaire-assc-medecine-f-h-ehc-vd-morges"
       ],
       "fr": [
         "assistant-soins-et-sante-communautaire-assc-en-ctr-f-h-ehc-vd-aubonne",
@@ -2299,6 +2364,7 @@
         "assistant-soins-et-sante-communautaire-assc-medecine-f-h-ehc-vd-morges-c6e4b38b",
         "assistant-soins-et-sante-communautaire-assc-medecine-f-h-ehc-vd-morges-e796f33e",
         "assistant-soins-et-sante-communautaire-assc-medecine-f-h-ehc-vd-morges-31f30929",
+        "assistant-soins-et-sante-communautaire-assc-medecine-f-h-ehc-vd-morges-fc1796fd",
         "assistant-soins-et-sante-communautaire-assc-medecine-f-h-ehc-vd-morges"
       ]
     },
@@ -2993,7 +3059,8 @@
       "apprenti-assc-assistant-soins-et-sante-communautaire-f-h-ehc-vd-morges-f7465381",
       "apprenti-assc-assistant-soins-et-sante-communautaire-f-h-ehc-vd-morges-84fccff3",
       "apprenti-assc-assistant-soins-et-sante-communautaire-f-h-ehc-vd-morges-86de8ab0",
-      "apprenti-assc-assistant-soins-et-sante-communautaire-f-h-ehc-vd-morges"
+      "apprenti-assc-assistant-soins-et-sante-communautaire-f-h-ehc-vd-morges",
+      "apprenti-assc-assistant-soins-et-sante-communautaire-f-h-ehc-vd-morges-d8f55e8f"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -3116,7 +3183,17 @@
         "apprenti-assc-assistant-soins-et-sante-communautaire-f-h-ehc-vd-morges-f7465381",
         "apprenti-assc-assistant-soins-et-sante-communautaire-f-h-ehc-vd-morges-84fccff3",
         "apprenti-assc-assistant-soins-et-sante-communautaire-f-h-ehc-vd-morges-86de8ab0",
+        "apprenti-assc-assistant-soins-et-sante-communautaire-f-h-ehc-vd-morges-d8f55e8f",
         "apprenti-assc-assistant-soins-et-sante-communautaire-f-h-ehc-vd-morges"
+      ],
+      "en": [
+        "apprenti-assc-assistant-soins-et-sante-communautaire-f-h-ehc-vd-morges"
+      ],
+      "de": [
+        "apprenti-assc-assistant-soins-et-sante-communautaire-f-h-ehc-vd-morges"
+      ],
+      "fr": [
+        "apprenti-assc-assistant-soins-et-sante-communautaire-f-h-ehc-vd-morges-c8098d71"
       ]
     },
     "postalCode": "1110",
@@ -3403,7 +3480,8 @@
       "assistant-soins-et-sante-communautaire-assc-chirurgie-f-h-ehc-vd-morges-aa923e40",
       "assistant-soins-et-sante-communautaire-assc-chirurgie-f-h-ehc-vd-morges-608ba770",
       "assistant-soins-et-sante-communautaire-assc-chirurgie-f-h-ehc-vd-morges-29f375d2",
-      "assistant-soins-et-sante-communautaire-assc-chirurgie-f-h-ehc-vd-morges"
+      "assistant-soins-et-sante-communautaire-assc-chirurgie-f-h-ehc-vd-morges",
+      "assistant-soins-et-sante-communautaire-assc-chirurgie-f-h-ehc-vd-morges-b68a948a"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -3526,7 +3604,17 @@
         "assistant-soins-et-sante-communautaire-assc-chirurgie-f-h-ehc-vd-morges-aa923e40",
         "assistant-soins-et-sante-communautaire-assc-chirurgie-f-h-ehc-vd-morges-608ba770",
         "assistant-soins-et-sante-communautaire-assc-chirurgie-f-h-ehc-vd-morges-29f375d2",
+        "assistant-soins-et-sante-communautaire-assc-chirurgie-f-h-ehc-vd-morges-b68a948a",
         "assistant-soins-et-sante-communautaire-assc-chirurgie-f-h-ehc-vd-morges"
+      ],
+      "en": [
+        "assistant-soins-et-sante-communautaire-assc-chirurgie-f-h-ehc-vd-morges"
+      ],
+      "de": [
+        "assistant-soins-et-sante-communautaire-assc-chirurgie-f-h-ehc-vd-morges"
+      ],
+      "fr": [
+        "assistant-soins-et-sante-communautaire-assc-chirurgie-f-h-ehc-vd-morges-301fed0d"
       ]
     },
     "postalCode": "1110",
@@ -3776,7 +3864,8 @@
       "apprenti-ghi-gestionnaire-en-hotellerie-intendance-f-h-ehc-vd-morges-ccb2760d",
       "apprenti-ghi-gestionnaire-en-hotellerie-intendance-f-h-ehc-vd-morges-10663278",
       "apprenti-ghi-gestionnaire-en-hotellerie-intendance-f-h-ehc-vd-morges-8e9b2995",
-      "apprenti-ghi-gestionnaire-en-hotellerie-intendance-f-h-ehc-vd-morges"
+      "apprenti-ghi-gestionnaire-en-hotellerie-intendance-f-h-ehc-vd-morges",
+      "apprenti-ghi-gestionnaire-en-hotellerie-intendance-f-h-ehc-vd-morges-83012277"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -3899,7 +3988,17 @@
         "apprenti-ghi-gestionnaire-en-hotellerie-intendance-f-h-ehc-vd-morges-ccb2760d",
         "apprenti-ghi-gestionnaire-en-hotellerie-intendance-f-h-ehc-vd-morges-10663278",
         "apprenti-ghi-gestionnaire-en-hotellerie-intendance-f-h-ehc-vd-morges-8e9b2995",
+        "apprenti-ghi-gestionnaire-en-hotellerie-intendance-f-h-ehc-vd-morges-83012277",
         "apprenti-ghi-gestionnaire-en-hotellerie-intendance-f-h-ehc-vd-morges"
+      ],
+      "en": [
+        "apprenti-ghi-gestionnaire-en-hotellerie-intendance-f-h-ehc-vd-morges"
+      ],
+      "de": [
+        "apprenti-ghi-gestionnaire-en-hotellerie-intendance-f-h-ehc-vd-morges"
+      ],
+      "fr": [
+        "apprenti-ghi-gestionnaire-en-hotellerie-intendance-f-h-ehc-vd-morges-b03c2526"
       ]
     },
     "postalCode": "1110",

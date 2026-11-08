@@ -550,14 +550,29 @@
     },
     "sector": "Vending / Food & Coffee Tech",
     "expiredAt": "2026-10-07T21:39:55.365Z",
-    "previousSlugs": [
-      "sales-support-associate-m-w-d-selecta-kirchberg-be"
-    ],
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "dedupArchive": true,
     "sourceIdentity": "url:https://careers.selecta.ch/job/4589",
-    "firstSeenAt": "2026-08-24T21:43:13.112Z"
+    "firstSeenAt": "2026-08-24T21:43:13.112Z",
+    "previousSlugsByLocale": {
+      "it": [
+        "sales-support-associate-m-w-d-selecta-kirchberg-be"
+      ],
+      "en": [
+        "sales-support-associate-m-w-d-selecta-kirchberg-be-2464cec9"
+      ],
+      "de": [
+        "sales-support-associate-m-w-d-selecta-kirchberg-be"
+      ],
+      "fr": [
+        "sales-support-associate-m-w-d-selecta-kirchberg-be"
+      ]
+    },
+    "previousSlugs": [
+      "sales-support-associate-m-w-d-selecta-kirchberg-be",
+      "sales-support-associate-m-w-d-selecta-kirchberg-be-2464cec9"
+    ]
   },
   {
     "slug": "tecnico-del-progetto-m-f-d-selecta-zurich-aargau-solothurn",
