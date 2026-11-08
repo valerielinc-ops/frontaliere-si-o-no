@@ -462,6 +462,9 @@ const MANUAL_SEO_CTR_FAMILIES = [
     id: 'aziende',
     label: 'Aziende (profili datori di lavoro)',
     pathContains: '/aziende/',
+    // The profile builder keeps the same normalized segment for every locale;
+    // record that shared alias explicitly without inventing translated paths.
+    pathAliases: ['/aziende/'],
     kind: 'template',
     targetCtr: 0.03,
     monitored: true,
@@ -711,7 +714,7 @@ export function effectiveTargetCtr(family, avgPosition) {
  * measure every locale of the family, not just the Italian slug.
  */
 export function familyPathPrefixes(family) {
-  return [family?.pathContains, ...(family?.pathAliases || [])].filter(Boolean);
+  return [...new Set([family?.pathContains, ...(family?.pathAliases || [])].filter(Boolean))];
 }
 
 /**
