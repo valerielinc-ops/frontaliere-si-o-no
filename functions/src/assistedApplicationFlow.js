@@ -32,7 +32,7 @@
 import { operationalDefaultAnswer, withOperationalQuestionAnswers } from './assistedApplicationOperationalAnswers.js';
 import { portalCodeVersion } from './assistedApplicationPortalRecoveryPolicy.js';
 import { openRequiredDocuments, requiredDocumentsFor } from './assistedApplicationExtraDocuments.js';
-import { autoRetryDelaysForFlow, isAutoRetryablePortalHold, isCaptchaHandoffReason, isCaptchaPortalHold, isInfrastructureRetryHold, portalAutoRetryCountValue, portalRetryDueAt } from './assistedApplicationPortalRetryPolicy.js';
+import { autoRetryDelaysForFlow, isAutoRetryablePortalHold, isCaptchaHandoffReason, isCaptchaPortalHold, isInfrastructureRetryHold, portalAutoRetryCountValue, portalExhaustedRecoveryPending, portalRetryDueAt } from './assistedApplicationPortalRetryPolicy.js';
 import { DRAFT_AUTO_RETRY_MAX_ATTEMPTS, draftAutoRetryCountValue, draftRetryDueAt } from './assistedApplicationDraftRetryPolicy.js';
 import { dispatchRecoveryCountValue, dispatchRecoveryDueAt } from './assistedApplicationDispatchRetryPolicy.js';
 export { PORTAL_AUTO_RETRY_DELAYS_MS } from './assistedApplicationPortalRetryPolicy.js';
@@ -310,6 +310,8 @@ function base(flow) {
     dispatchRecoveryCount: dispatchRecoveryCountValue(flow) ?? -1,
     portalCodeVersion: portalCodeVersion(flow?.portalCodeVersion),
     portalRecoveryVersion: portalCodeVersion(flow?.portalRecoveryVersion),
+    ...(portalCodeVersion(flow?.portalExhaustedRecoveryVersion)
+      ? { portalExhaustedRecoveryVersion: portalCodeVersion(flow.portalExhaustedRecoveryVersion) } : {}),
     transportAutoRetryCount: Number(flow?.transportAutoRetryCount) || 0,
     factRepairAttempts: Number(flow?.factRepairAttempts) || 0,
   };
@@ -852,7 +854,8 @@ export function transition(flow, event, { order = {}, draft = null, answers = {}
       if (!roundWasSent(flow, current.round)) return ignore('not_approved');
       const infrastructure = isInfrastructureRetryHold(current);
       const attempts = Number(infrastructure ? current.transportAutoRetryCount : current.portalAutoRetryCount) || 0;
-      if (!infrastructure && attempts >= autoRetryDelaysForFlow(current).length) return ignore('portal_retry_limit');
+      if (!infrastructure && attempts >= autoRetryDelaysForFlow(current).length
+        && !portalExhaustedRecoveryPending(current)) return ignore('portal_retry_limit');
       if (!Number.isSafeInteger(attempts) || attempts < 0) return ignore('invalid_retry_count');
       next[infrastructure ? 'transportAutoRetryCount' : 'portalAutoRetryCount'] = attempts + 1;
       next.portalAutoRetryAt = null;

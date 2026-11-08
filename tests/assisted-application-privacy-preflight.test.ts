@@ -41,7 +41,11 @@ function document_(markup: string, url = 'https://careers.example.test/register'
   return window;
 }
 
-function fakePage(markups: string[], { boxRegisters = true, url = undefined as string | undefined } = {}) {
+function fakePage(markups: string[], {
+  boxRegisters = true,
+  url = undefined as string | undefined,
+  onWait = undefined as ((context: { ms: number; skew: number; window: any }) => void) | undefined,
+} = {}) {
   const windows = markups.map((markup) => document_(markup, url));
   let skew = 0;
   const timers: Array<{ at: number; run: () => void }> = [];
@@ -98,6 +102,7 @@ function fakePage(markups: string[], { boxRegisters = true, url = undefined as s
         if (timer.at <= skew) timer.run();
         else timers.push(timer);
       }
+      onWait?.({ ms, skew, window: windows[0] });
     },
     getByRole: () => {
       const handle: any = { first: () => handle, filter: () => handle, waitFor: async () => { throw new Error('none'); }, isVisible: async () => false };
@@ -680,6 +685,23 @@ describe('the registration, through the real handleAuth', () => {
     const fixture = fakePage([`${REGISTRATION_WITH_PAGE_LEVEL_NOTICE}${SUCCESSFACTORS_NOTICE_DIALOG}`]);
     const seen = wireAccount(fixture);
     const { auth, accounts } = await runRegistration(fixture);
+    expect(auth).toMatchObject({ outcome: 'ok', privacy: 'accepted' });
+    expect(seen).toEqual({ noticeClicks: 1, accepted: 1, ctaClicks: 1, requests: 1 });
+    expect(accounts).toEqual(['save', 'mark:created']);
+  });
+
+  it('does not hand off while SuccessFactors repaints password policy metadata', async () => {
+    let policyTick = 0;
+    let fixture!: ReturnType<typeof fakePage>;
+    fixture = fakePage([ACCOUNT_FORM(NOTICE_LINK, NATIVE_CTA)], {
+      onWait: () => {
+        const password = fixture.element('p1');
+        if (password?.value) password.setAttribute('aria-description', `password policy update ${++policyTick}`);
+      },
+    });
+    const seen = wireAccount(fixture);
+    const { auth, accounts } = await runRegistration(fixture);
+    expect(policyTick).toBeGreaterThan(0);
     expect(auth).toMatchObject({ outcome: 'ok', privacy: 'accepted' });
     expect(seen).toEqual({ noticeClicks: 1, accepted: 1, ctaClicks: 1, requests: 1 });
     expect(accounts).toEqual(['save', 'mark:created']);

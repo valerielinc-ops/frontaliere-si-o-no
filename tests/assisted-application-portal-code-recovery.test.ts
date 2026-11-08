@@ -138,19 +138,28 @@ describe('automatic recovery after a portal fix', () => {
     expect(store.list(`${base}/events/`)).toHaveLength(1);
   });
 
-  it('does not mint a new retry after the portal budget is exhausted', async () => {
+  it('allows one bounded repair after the portal budget is exhausted', async () => {
     const store = fixture();
     const flowPath = `${base}/automation/flow`;
     store.docs.set(flowPath, { ...store.read(flowPath), portalAutoRetryCount: 2, portalAutoRetryAt: now });
     store.docs.set(base, { ...store.read(base), automationDueAt: now });
     const ctx = { db: store.db, version, apply: true, nowMs: now, isEnabled: async () => true };
 
-    expect(await reconcilePortalCode(ctx)).toMatchObject({ eligible: 0, queued: 0 });
-    expect(store.read(base).automationDueAt).toBeNull();
-    expect(store.read(flowPath)).toMatchObject({
-      portalAutoRetryCount: 2, portalAutoRetryAt: null, portalRecoveryVersion: version,
+    expect(await reconcilePortalCode(ctx)).toMatchObject({ eligible: 1, queued: 1 });
+    const flow = store.read(flowPath);
+    expect(store.read(base).automationDueAt).toBe(now);
+    expect(flow).toMatchObject({
+      portalAutoRetryCount: 2, portalAutoRetryAt: now, portalRecoveryVersion: version,
+      portalExhaustedRecoveryVersion: version,
     });
-    expect(store.list(`${base}/events/`)).toHaveLength(0);
+    expect(store.read(`${base}/automation/submission`).portalCodeRecovery).toMatchObject({
+      version, round: 1, queuedAt: now, kind: 'exhausted_budget_repair',
+    });
+    expect(transition(flow, { type: 'portal_auto_retry' }, {
+      draft: store.read(`${base}/ai_drafts/current`), nowMs: now,
+    }).effects).toEqual([{ type: 'dispatch', mode: 'submit', reason: 'portal_auto_retry' }]);
+    expect(await reconcilePortalCode(ctx)).toMatchObject({ eligible: 0, queued: 0 });
+    expect(store.list(`${base}/events/`)).toHaveLength(1);
   });
 
   it.each(['not_approved', 'same_code', 'withdrawn', 'sent', 'ambiguous', 'clicked', 'hard_question', 'captcha', 'expired', 'disabled'])('does not resume %s', async kind => {
