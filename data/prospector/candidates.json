@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-11-08T13:22:49.056Z",
+  "updatedAt": "2026-11-08T13:25:07.489Z",
   "candidates": {
     "2225": {
       "key": "2225",
@@ -103172,12 +103172,12 @@
     },
     "assura@lausanne": {
       "key": "assura@lausanne",
-      "status": "promoting",
+      "status": "production",
       "sources": [
         "seco"
       ],
       "firstSeenAt": "2026-10-07T10:31:19.498Z",
-      "updatedAt": "2026-11-07T13:26:58.217Z",
+      "updatedAt": "2026-11-08T13:25:07.362Z",
       "name": "Assura",
       "city": "Lausanne",
       "zip": "1007",
@@ -103464,7 +103464,13 @@
         }
       ],
       "promotionPr": "17533",
-      "promotionBranch": "prospector/promote-2026-11-07"
+      "promotionBranch": "prospector/promote-2026-11-07",
+      "promotedAt": "2026-11-07T16:28:28Z",
+      "firstCrawlerOutputStatus": "published",
+      "firstCrawlerOutputAttention": false,
+      "firstCrawlerOutputReason": null,
+      "firstCrawlerOutputAt": "2026-11-08T09:39:05.952Z",
+      "firstCrawlerJobCount": 3
     },
     "assura@pratteln": {
       "key": "assura@pratteln",
@@ -416997,12 +417003,12 @@
     },
     "education-company@zurich": {
       "key": "education-company@zurich",
-      "status": "promoting",
+      "status": "production",
       "sources": [
         "seco"
       ],
       "firstSeenAt": "2026-09-17T08:54:12.860Z",
-      "updatedAt": "2026-11-07T13:26:58.217Z",
+      "updatedAt": "2026-11-08T13:25:07.363Z",
       "name": "Swiss Education Company GmbH",
       "city": "Zürich",
       "zip": "8051",
@@ -417285,7 +417291,13 @@
         }
       ],
       "promotionPr": "17533",
-      "promotionBranch": "prospector/promote-2026-11-07"
+      "promotionBranch": "prospector/promote-2026-11-07",
+      "promotedAt": "2026-11-07T16:28:28Z",
+      "firstCrawlerOutputStatus": "published",
+      "firstCrawlerOutputAttention": false,
+      "firstCrawlerOutputReason": null,
+      "firstCrawlerOutputAt": "2026-11-08T09:14:59.702Z",
+      "firstCrawlerJobCount": 7
     },
     "education21.ch": {
       "key": "education21.ch",
@@ -530336,12 +530348,12 @@
     },
     "freestar-informatik@geneve": {
       "key": "freestar-informatik@geneve",
-      "status": "promoting",
+      "status": "production",
       "sources": [
         "seco"
       ],
       "firstSeenAt": "2026-10-08T10:45:07.236Z",
-      "updatedAt": "2026-11-07T13:26:58.217Z",
+      "updatedAt": "2026-11-08T13:25:07.363Z",
       "name": "Freestar-Informatik AG",
       "city": "Genève",
       "zip": "1207",
@@ -530585,7 +530597,13 @@
         }
       ],
       "promotionPr": "17533",
-      "promotionBranch": "prospector/promote-2026-11-07"
+      "promotionBranch": "prospector/promote-2026-11-07",
+      "promotedAt": "2026-11-07T16:28:28Z",
+      "firstCrawlerOutputStatus": "published",
+      "firstCrawlerOutputAttention": false,
+      "firstCrawlerOutputReason": null,
+      "firstCrawlerOutputAt": "2026-11-08T09:38:28.676Z",
+      "firstCrawlerJobCount": 1
     },
     "freestar-informatik@goldau": {
       "key": "freestar-informatik@goldau",
@@ -1189800,14 +1189818,14 @@
     },
     "richnerstutz.ch": {
       "key": "richnerstutz.ch",
-      "status": "promoting",
+      "status": "production",
       "sources": [
         "web",
         "osm",
         "seco"
       ],
       "firstSeenAt": "2026-08-23T04:15:59.729Z",
-      "updatedAt": "2026-11-07T13:26:58.217Z",
+      "updatedAt": "2026-11-08T13:25:07.364Z",
       "name": "Richnerstutz AG",
       "domain": "richnerstutz.ch",
       "careersUrl": "https://richnerstutz.ch/jobs",
@@ -1190087,7 +1190105,13 @@
         }
       ],
       "promotionPr": "17533",
-      "promotionBranch": "prospector/promote-2026-11-07"
+      "promotionBranch": "prospector/promote-2026-11-07",
+      "promotedAt": "2026-11-07T16:28:28Z",
+      "firstCrawlerOutputStatus": "published",
+      "firstCrawlerOutputAttention": false,
+      "firstCrawlerOutputReason": null,
+      "firstCrawlerOutputAt": "2026-11-08T09:38:45.793Z",
+      "firstCrawlerJobCount": 4
     },
     "richnerwaffen.ch": {
       "key": "richnerwaffen.ch",
@@ -1304319,7 +1304343,7 @@
         "seco"
       ],
       "firstSeenAt": "2026-08-21T08:26:26.774Z",
-      "updatedAt": "2026-11-06T13:39:11.604Z",
+      "updatedAt": "2026-11-08T13:25:07.364Z",
       "name": "Skan AG",
       "city": "",
       "zip": "",
@@ -1304917,10 +1304941,11 @@
       "promotionBranch": "prospector/promote-2026-11-05",
       "promotedAt": "2026-11-06T06:23:01Z",
       "firstCrawlerOutputStatus": "missing",
-      "firstCrawlerOutputAttention": false,
+      "firstCrawlerOutputAttention": true,
       "firstCrawlerOutputReason": null,
       "firstCrawlerOutputAt": null,
-      "firstCrawlerJobCount": 0
+      "firstCrawlerJobCount": 0,
+      "firstCrawlerOutputAttentionAt": "2026-11-08T13:25:07.327Z"
     },
     "skan@allschwil": {
       "key": "skan@allschwil",
@@ -1868573,7 +1868598,7 @@
         "seco"
       ],
       "firstSeenAt": "2026-10-28T09:54:20.180Z",
-      "updatedAt": "2026-11-06T13:39:11.604Z",
+      "updatedAt": "2026-11-08T13:25:07.364Z",
       "name": "UniDistance Suisse",
       "secoEmployerName": "UniDistance Suisse",
       "city": "Brig",
@@ -1868982,10 +1869007,11 @@
       "promotionBranch": "prospector/promote-2026-11-05",
       "promotedAt": "2026-11-06T06:23:01Z",
       "firstCrawlerOutputStatus": "missing",
-      "firstCrawlerOutputAttention": false,
+      "firstCrawlerOutputAttention": true,
       "firstCrawlerOutputReason": null,
       "firstCrawlerOutputAt": null,
-      "firstCrawlerJobCount": 0
+      "firstCrawlerJobCount": 0,
+      "firstCrawlerOutputAttentionAt": "2026-11-08T13:25:07.327Z"
     },
     "we-make-it@reinach-bl": {
       "key": "we-make-it@reinach-bl",
@@ -1925552,7 +1925578,7 @@
         "seco"
       ],
       "firstSeenAt": "2026-11-03T11:02:22.714Z",
-      "updatedAt": "2026-11-07T13:26:25.365Z",
+      "updatedAt": "2026-11-08T13:25:07.364Z",
       "name": "CreditX Sàrl",
       "secoEmployerName": "CreditX Sàrl",
       "secoEmployerClassification": "direct",
@@ -1925819,7 +1925845,7 @@
       "firstCrawlerOutputStatus": "empty",
       "firstCrawlerOutputAttention": true,
       "firstCrawlerOutputReason": null,
-      "firstCrawlerOutputAt": "2026-11-07T09:47:25.878Z",
+      "firstCrawlerOutputAt": "2026-11-08T09:38:09.963Z",
       "firstCrawlerJobCount": 0,
       "firstCrawlerOutputAttentionAt": "2026-11-07T13:26:25.335Z"
     },
@@ -1957916,12 +1957942,12 @@
     },
     "ronda@stabio": {
       "key": "ronda@stabio",
-      "status": "promoting",
+      "status": "production",
       "sources": [
         "seco"
       ],
       "firstSeenAt": "2026-11-06T11:04:43.846Z",
-      "updatedAt": "2026-11-07T13:26:58.217Z",
+      "updatedAt": "2026-11-08T13:25:07.365Z",
       "name": "Ronda AG",
       "secoEmployerName": "Ronda AG",
       "secoEmployerClassification": "direct",
@@ -1958202,7 +1958228,13 @@
         }
       ],
       "promotionPr": "17533",
-      "promotionBranch": "prospector/promote-2026-11-07"
+      "promotionBranch": "prospector/promote-2026-11-07",
+      "promotedAt": "2026-11-07T16:28:28Z",
+      "firstCrawlerOutputStatus": "published",
+      "firstCrawlerOutputAttention": false,
+      "firstCrawlerOutputReason": null,
+      "firstCrawlerOutputAt": "2026-11-08T09:16:01.039Z",
+      "firstCrawlerJobCount": 3
     },
     "consorzio-depurazione-acque-del-verbano-cdv@solduno": {
       "key": "consorzio-depurazione-acque-del-verbano-cdv@solduno",
