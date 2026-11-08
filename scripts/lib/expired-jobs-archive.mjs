@@ -1026,12 +1026,26 @@ export function collapseDuplicateRouteEntries(entries, options = {}) {
   let collapsed = 0;
   let slugsTransferred = 0;
   let firstPassCapRefused = 0;
+  let repairedRoutes = routeRepair.repairedRoutes;
+  const repairDetails = [...routeRepair.details];
 
   for (let pass = 0; pass < MAX_COLLAPSE_PASSES; pass += 1) {
     const result = collapseDuplicateRouteEntriesOnce(current, options);
     if (pass === 0) firstPassCapRefused = result.capRefused;
     collapsed += result.collapsed;
     slugsTransferred += result.slugsTransferred;
+
+    // Collapsing a component can transfer a route from one survivor to
+    // another. That transfer is route-preserving for the component, but it
+    // can expose a distinct archive posting that now owns the same route as
+    // the survivor. Repair the post-collapse state before deciding that the
+    // archive reached a fixed point; otherwise the first writer pass can
+    // persist a slice that a second read immediately changes again.
+    const postCollapseRepair = repairExpiredRoutesWithinArchive(result.entries, options);
+    repairedRoutes += postCollapseRepair.repairedRoutes;
+    if (repairDetails.length < 20) {
+      repairDetails.push(...postCollapseRepair.details.slice(0, 20 - repairDetails.length));
+    }
 
     const nextSignature = archiveEntriesSignature(result.entries);
     if (nextSignature === currentSignature) {
@@ -1044,8 +1058,8 @@ export function collapseDuplicateRouteEntries(entries, options = {}) {
         // pass is exposed separately for convergence diagnostics.
         capRefused: firstPassCapRefused,
         finalCapRefused: result.capRefused,
-        repairedRoutes: routeRepair.repairedRoutes,
-        repairDetails: routeRepair.details,
+        repairedRoutes,
+        repairDetails,
       };
     }
 
