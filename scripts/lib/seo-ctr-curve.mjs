@@ -454,6 +454,22 @@ const MANUAL_SEO_CTR_FAMILIES = [
     measuredOn: '2026-09-13',
   },
   {
+    // Flagged unregistered by discoverUnregisteredFamilies (issue #17716):
+    // `/aziende/<slug>/` is emitted by employerProfilePagesPlugin for every
+    // locale using the same `/aziende/` segment. The plugin owns shared
+    // title/description generators, so this is one actionable template family,
+    // not a heterogeneous editorial listing.
+    id: 'aziende',
+    label: 'Aziende (profili datori di lavoro)',
+    pathContains: '/aziende/',
+    kind: 'template',
+    targetCtr: 0.03,
+    monitored: true,
+    // GSC 90-day discovery volume from issue #17716 (all locales).
+    impressions90d: 51016,
+    measuredOn: '2026-11-08',
+  },
+  {
     // Il template fuel-price giornaliero (`build-plugins/fuelDailyPagesPlugin.ts`
     // + `fuelDailyData.ts`, sezione `FUEL_SECTION_SLUG.benzina`): un generator
     // condiviso di title/description, quindi una famiglia sorvegliabile come le

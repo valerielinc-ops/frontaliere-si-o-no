@@ -162,6 +162,27 @@ describe('seo-ctr-curve (issue #4300)', () => {
       expect(discoverUnregisteredFamilies(localizedRows)).toEqual([]);
     });
 
+    it('registers the employer-profile template and suppresses every locale discovery candidate', () => {
+      const fam = SEO_CTR_FAMILIES.find((f) => f.id === 'aziende');
+      expect(fam).toMatchObject({
+        pathContains: '/aziende/',
+        kind: 'template',
+        monitored: true,
+        targetCtr: 0.03,
+        impressions90d: 51016,
+        measuredOn: '2026-11-08',
+      });
+      expect(familyPathPrefixes(fam!)).toEqual(['/aziende/']);
+
+      const localizedRows = [
+        { path: '/aziende/acme-sa/', impressions: MIN_IMPRESSIONS_TO_MONITOR * 2 },
+        { path: '/en/aziende/acme-sa/', impressions: MIN_IMPRESSIONS_TO_MONITOR * 2 },
+        { path: '/de/aziende/acme-sa/', impressions: MIN_IMPRESSIONS_TO_MONITOR * 2 },
+        { path: '/fr/aziende/acme-sa/', impressions: MIN_IMPRESSIONS_TO_MONITOR * 2 },
+      ];
+      expect(discoverUnregisteredFamilies(localizedRows)).toEqual([]);
+    });
+
     it('every family carries a measured 90-day impression volume', () => {
       // The invariant below is only as good as its input: a family with no
       // `impressions90d` would slip under any volume threshold for free.
