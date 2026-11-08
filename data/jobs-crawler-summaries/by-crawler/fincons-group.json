@@ -1,7 +1,7 @@
 {
   "key": "fincons-group",
   "label": "Fincons Group",
-  "generatedAt": "2026-11-07T21:20:17.732Z",
+  "generatedAt": "2026-11-08T09:18:59.070Z",
   "total": 36,
   "authoritativeEmptySnapshot": false,
   "authoritativeSnapshotVerified": false,
@@ -9,10 +9,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 36,
-  "durationMs": 11647,
-  "avgDurationMs": 11647,
+  "durationMs": 12309,
+  "avgDurationMs": 12309,
   "durationHistory": [
-    11647
+    12309
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -1387,7 +1387,7 @@
       "source": "fincons-dedicated-crawler",
       "sourceLang": "de",
       "postedDate": "2026-08-10",
-      "validThrough": "2026-11-08T00:00:00.000Z",
+      "validThrough": "2026-11-08T23:16:19.604Z",
       "employmentType": "full-time",
       "contractType": "full-time",
       "metadata": {
@@ -1405,7 +1405,7 @@
       "datePosted": "2026-08-10",
       "postingDateSource": "reported",
       "streetAddressSource": "listing-source",
-      "validThroughSource": "source",
+      "validThroughSource": "last-observed-window",
       "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1463,5 +1463,5 @@
       }
     }
   ],
-  "codeCommit": "f149ed523035737e5146c13e7338b8dd6b0c5f04"
+  "codeCommit": "b019e69684c909d5fd747961cb84c9c400bc8446"
 }

@@ -1,17 +1,17 @@
 {
   "key": "rado",
   "label": "rado",
-  "generatedAt": "2026-11-07T21:28:17.226Z",
+  "generatedAt": "2026-11-08T09:29:06.434Z",
   "total": 1,
-  "authoritativeEmptySnapshot": false,
+  "authoritativeEmptySnapshot": true,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 316590,
-  "avgDurationMs": 316590,
+  "durationMs": 376034,
+  "avgDurationMs": 376034,
   "durationHistory": [
-    316590
+    376034
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -50,6 +50,7 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-02T21:27:28.735Z",
       "validThroughSource": "last-observed-window",
+      "crawlerMissStreak": 1,
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -59,5 +60,5 @@
       }
     }
   ],
-  "codeCommit": "f149ed523035737e5146c13e7338b8dd6b0c5f04"
+  "codeCommit": "b019e69684c909d5fd747961cb84c9c400bc8446"
 }
