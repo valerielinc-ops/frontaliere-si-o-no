@@ -21,6 +21,10 @@ describe('Firestore storage estimate', () => {
     expect(firestoreValueSize({ stringValue: 'è' })).toBe(3);
   });
 
+  it('includes the Firestore array container overhead', () => {
+    expect(firestoreValueSize({ arrayValue: { values: [] } })).toBe(32);
+  });
+
   it('includes parent document names in collection-scope single-field entries', () => {
     const document = {
       name: 'projects/example/databases/(default)/documents/users/jeff/tasks/my_task_id',
@@ -39,7 +43,7 @@ describe('Firestore storage estimate', () => {
       },
     };
 
-    expect(firestoreIndexSize(document, 'cities', { indexes: [], fieldOverrides: [] })).toBe(266 + 362);
+    expect(firestoreIndexSize(document, 'cities', { indexes: [], fieldOverrides: [] })).toBe(330 + 362);
   });
 
   it('applies single-field exemptions and configured collection-group composites', () => {
