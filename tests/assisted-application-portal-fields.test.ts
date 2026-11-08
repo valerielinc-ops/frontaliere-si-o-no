@@ -491,6 +491,55 @@ describe('portal field extraction', () => {
     expect(stage).toBe(1);
   });
 
+  it('keeps Yellowshark consent unresolved if a distinct same-ID Manage consent remains', async () => {
+    const url = 'https://jobs.yellowshark.com/job/example/';
+    let stage = 0;
+    const currentSnapshot = () => stage === 0
+      ? {
+        url, fields: [],
+        buttons: [
+          { id: 'apply', text: 'JETZT BEWERBEN', disabled: false, frame: 0 },
+          { id: 'manage-consent', domId: 'consent-opener', text: 'Manage consent', disabled: false, frame: 0 },
+        ],
+        dialogs: [], errors: [], captcha: false, passwordVisible: false, text: '',
+      }
+      : {
+        url, fields: [],
+        buttons: [
+          { id: 'apply', text: 'JETZT BEWERBEN', disabled: false, frame: 0 },
+          ...(stage === 1 ? [
+            { id: 'manage-consent', domId: 'consent-opener', text: 'Manage consent', disabled: false, frame: 0 },
+            { id: 'reject', text: 'Reject all cookies', context: 'Cookie preferences', cookieSurface: 'banner', disabled: false, frame: 0 },
+          ] : [
+            { id: 'manage-consent', domId: 'consent-opener', text: 'Manage consent', disabled: false, frame: 0 },
+            { id: 'manage-consent', domId: 'consent-opener', text: 'Manage consent', disabled: false, frame: 0 },
+          ]),
+        ],
+        dialogs: [], errors: [], captcha: false, passwordVisible: false, text: '',
+      };
+    const frame = {
+      url: () => url,
+      evaluate: vi.fn(async (_evaluateInPage: Function, args: any) => args?.surfacePattern ? false : currentSnapshot()),
+      locator: vi.fn((selector: string) => ({
+        first: () => ({ click: vi.fn(async () => {
+          if (stage === 0) {
+            expect(selector).toBe('[data-aa-id="manage-consent"]');
+            stage = 1;
+          } else {
+            expect(selector).toBe('[data-aa-id="reject"]');
+            stage = 2;
+          }
+        }) }),
+      })),
+    };
+    const page = { url: () => url, frames: () => [frame], waitForTimeout: vi.fn(async () => {}) };
+
+    const result = await dismissCookieBanner(page as any, currentSnapshot() as any);
+
+    expect(result.status).toBe('unresolved');
+    expect(stage).toBe(2);
+  });
+
   it('keeps Yellowshark consent unresolved if a distinct preference control follows the opener', async () => {
     const url = 'https://jobs.yellowshark.com/job/example/';
     let stage = 0;
