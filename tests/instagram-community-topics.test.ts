@@ -4,6 +4,7 @@ import {
   INSTAGRAM_COMMUNITY_TOPIC_MINIMUM,
   classifyInstagramCommunityQuestion,
   instagramCommunityTopicSignalKey,
+  instagramDirectMessageTopicSignalKey,
   normalizeInstagramCommunityTopicSignals,
   summarizeInstagramCommunityQuestionDemand,
 } from '../scripts/lib/instagram-community-topics.mjs';
@@ -90,8 +91,43 @@ describe('privacy-safe Instagram community topic signals', () => {
     ];
     const normalized = normalizeInstagramCommunityTopicSignals(signals, { asOf: AS_OF });
     expect(normalized).toHaveLength(INSTAGRAM_COMMUNITY_TOPIC_MINIMUM - 1);
+    expect(normalized[0].surface).toBe('comments');
     expect(summarizeInstagramCommunityQuestionDemand(normalized, { asOf: AS_OF }))
       .toMatchObject({ status: 'suppressed', categories: [] });
+  });
+
+  it('applies the ten-signal floor independently and deduplicates DM topics by conversation', () => {
+    const category = 'permessi-amministrazione';
+    const comments = Array.from({ length: 9 }, (_, index) => ({
+      key: instagramCommunityTopicSignalKey(`comment-${index}`),
+      category,
+      surface: 'comments',
+      receivedAt: '2026-11-01T10:00:00.000Z',
+    }));
+    const directMessages = Array.from({ length: 9 }, (_, index) => ({
+      key: instagramDirectMessageTopicSignalKey(`conversation-${index}`, category),
+      category,
+      surface: 'directMessages',
+      receivedAt: '2026-11-01T10:00:00.000Z',
+    }));
+    expect(summarizeInstagramCommunityQuestionDemand([...comments, ...directMessages], { asOf: AS_OF }))
+      .toMatchObject({ status: 'suppressed', categories: [] });
+
+    const qualifiedDmSignals = Array.from({ length: 10 }, (_, index) => ({
+      key: instagramDirectMessageTopicSignalKey(`qualified-conversation-${index}`, category),
+      category,
+      surface: 'directMessages',
+      receivedAt: '2026-11-01T10:00:00.000Z',
+    }));
+    qualifiedDmSignals.push({ ...qualifiedDmSignals[0] });
+    expect(summarizeInstagramCommunityQuestionDemand(qualifiedDmSignals, { asOf: AS_OF }))
+      .toMatchObject({
+        status: 'available',
+        source: 'instagram-comments-and-direct-messages-local-closed-taxonomy',
+        categories: [{ category, countBand: '10-24' }],
+      });
+    expect(JSON.stringify(summarizeInstagramCommunityQuestionDemand(qualifiedDmSignals, { asOf: AS_OF })))
+      .not.toContain('qualified-conversation');
   });
 
   it('emits only count bands after ten distinct comments and never includes text or keys', () => {
@@ -103,7 +139,7 @@ describe('privacy-safe Instagram community topic signals', () => {
     const summary = summarizeInstagramCommunityQuestionDemand(signals, { asOf: AS_OF });
     expect(summary).toMatchObject({
       status: 'available',
-      source: 'public-instagram-comments-local-closed-taxonomy',
+      source: 'instagram-comments-and-direct-messages-local-closed-taxonomy',
       categories: [{ category: 'permessi-amministrazione', countBand: '10-24' }],
     });
     expect(JSON.stringify(summary)).not.toContain('comment-0');

@@ -333,7 +333,7 @@ describe('native social copy performance brief', () => {
         communityOutcomes: {
           questionTopicDemand: {
             status: 'available',
-            source: 'public-instagram-comments-local-closed-taxonomy',
+            source: 'instagram-comments-and-direct-messages-local-closed-taxonomy',
             windowDays: 30,
             minimumPerCategory: 10,
             categories: [{

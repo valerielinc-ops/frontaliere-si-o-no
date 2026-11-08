@@ -4,7 +4,8 @@ export const INSTAGRAM_COMMUNITY_TOPIC_WINDOW_DAYS = 30;
 export const INSTAGRAM_COMMUNITY_TOPIC_MINIMUM = 10;
 export const INSTAGRAM_COMMUNITY_TOPIC_RETENTION_DAYS = 35;
 export const INSTAGRAM_COMMUNITY_TOPIC_MAX_SIGNALS = 5_000;
-export const INSTAGRAM_COMMUNITY_TOPIC_SOURCE = 'public-instagram-comments-local-closed-taxonomy';
+export const INSTAGRAM_COMMUNITY_TOPIC_LEGACY_SOURCE = 'public-instagram-comments-local-closed-taxonomy';
+export const INSTAGRAM_COMMUNITY_TOPIC_SOURCE = 'instagram-comments-and-direct-messages-local-closed-taxonomy';
 
 export const INSTAGRAM_COMMUNITY_TOPIC_CATEGORIES = Object.freeze([
   'lavoro-contratti',
@@ -44,7 +45,15 @@ export function instagramCommunityTopicSignalKey(platformId) {
   return id ? createHash('sha256').update(`instagram-community-topic\u0000${id}`).digest('hex') : null;
 }
 
-/** Classify a public comment in memory; return only a closed topic ID, never text. */
+export function instagramDirectMessageTopicSignalKey(conversationId, category) {
+  const id = String(conversationId || '').trim();
+  if (!id || !INSTAGRAM_COMMUNITY_TOPIC_CATEGORIES.includes(category)) return null;
+  return createHash('sha256')
+    .update(`instagram-community-topic-direct-message\u0000${category}\u0000${id}`)
+    .digest('hex');
+}
+
+/** Classify an inbound comment or message in memory; return only a closed topic ID, never text. */
 export function classifyInstagramCommunityQuestion(value) {
   if (typeof value !== 'string') return null;
   const normalized = value.normalize('NFKC').replace(/\s+/gu, ' ').trim();
@@ -63,21 +72,31 @@ export function normalizeInstagramCommunityTopicSignals(signals, { asOf = new Da
   const cutoff = asOfMs - INSTAGRAM_COMMUNITY_TOPIC_RETENTION_DAYS * 24 * 60 * 60 * 1000;
   const seen = new Set();
   return (Array.isArray(signals) ? signals : [])
-    .filter((signal) => isRecord(signal)
-      && Object.keys(signal).length === 3
-      && Object.keys(signal).every((key) => ['key', 'category', 'receivedAt'].includes(key))
-      && /^[a-f0-9]{64}$/u.test(String(signal.key || ''))
-      && INSTAGRAM_COMMUNITY_TOPIC_CATEGORIES.includes(signal.category)
-      && dateMs(signal.receivedAt) !== null
-      && dateMs(signal.receivedAt) <= asOfMs
-      && dateMs(signal.receivedAt) >= cutoff)
+    .filter((signal) => {
+      if (!isRecord(signal)) return false;
+      const keys = Object.keys(signal).sort();
+      const legacyShape = keys.join(',') === 'category,key,receivedAt';
+      const currentShape = keys.join(',') === 'category,key,receivedAt,surface';
+      return (legacyShape || currentShape)
+        && /^[a-f0-9]{64}$/u.test(String(signal.key || ''))
+        && INSTAGRAM_COMMUNITY_TOPIC_CATEGORIES.includes(signal.category)
+        && (signal.surface === undefined || ['comments', 'directMessages'].includes(signal.surface))
+        && dateMs(signal.receivedAt) !== null
+        && dateMs(signal.receivedAt) <= asOfMs
+        && dateMs(signal.receivedAt) >= cutoff;
+    })
     .filter((signal) => {
       if (seen.has(signal.key)) return false;
       seen.add(signal.key);
       return true;
     })
     .slice(-INSTAGRAM_COMMUNITY_TOPIC_MAX_SIGNALS)
-    .map((signal) => ({ key: signal.key, category: signal.category, receivedAt: new Date(dateMs(signal.receivedAt)).toISOString() }));
+    .map((signal) => ({
+      key: signal.key,
+      category: signal.category,
+      surface: signal.surface || 'comments',
+      receivedAt: new Date(dateMs(signal.receivedAt)).toISOString(),
+    }));
 }
 
 function countBand(count) {
@@ -86,7 +105,7 @@ function countBand(count) {
   return '10-24';
 }
 
-/** Expose only categories supported by ten distinct public comments in 30 days. */
+/** Expose only categories supported by ten distinct comments or DM conversations in 30 days. */
 export function summarizeInstagramCommunityQuestionDemand(signals, {
   asOf = new Date(),
   minimum = INSTAGRAM_COMMUNITY_TOPIC_MINIMUM,
@@ -100,15 +119,29 @@ export function summarizeInstagramCommunityQuestionDemand(signals, {
   if (!Number.isFinite(current.getTime())) throw new TypeError('community topic asOf must be a valid date');
   const cutoff = current.getTime() - windowDays * 24 * 60 * 60 * 1000;
   const rows = normalizeInstagramCommunityTopicSignals(signals, { asOf: current });
-  const counts = new Map(INSTAGRAM_COMMUNITY_TOPIC_CATEGORIES.map((category) => [category, 0]));
+  const counts = new Map(['comments', 'directMessages'].map((surface) => [
+    surface,
+    new Map(INSTAGRAM_COMMUNITY_TOPIC_CATEGORIES.map((category) => [category, 0])),
+  ]));
   for (const row of rows) {
     const at = dateMs(row.receivedAt);
-    if (at >= cutoff) counts.set(row.category, counts.get(row.category) + 1);
+    if (at >= cutoff) {
+      const surfaceCounts = counts.get(row.surface);
+      surfaceCounts.set(row.category, surfaceCounts.get(row.category) + 1);
+    }
   }
-  const categories = [...counts.entries()]
-    .filter(([, count]) => count >= minimum)
-    .sort(([left], [right]) => left.localeCompare(right))
-    .map(([category, count]) => ({ category, countBand: countBand(count) }));
+  const countBandRank = new Map(INSTAGRAM_COMMUNITY_TOPIC_COUNT_BANDS.map((band, index) => [band, index]));
+  const categories = INSTAGRAM_COMMUNITY_TOPIC_CATEGORIES
+    .flatMap((category) => {
+      const eligibleBands = [...counts.values()]
+        .map((surfaceCounts) => surfaceCounts.get(category))
+        .filter((count) => count >= minimum)
+        .map(countBand);
+      if (!eligibleBands.length) return [];
+      eligibleBands.sort((left, right) => countBandRank.get(right) - countBandRank.get(left));
+      return [{ category, countBand: eligibleBands[0] }];
+    })
+    .sort((left, right) => left.category.localeCompare(right.category));
   return {
     status: categories.length ? 'available' : 'suppressed',
     source: INSTAGRAM_COMMUNITY_TOPIC_SOURCE,
