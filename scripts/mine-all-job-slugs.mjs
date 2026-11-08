@@ -28,7 +28,7 @@ import { readCompatPathsStrict, writeCompatPaths } from './lib/compat-paths-stor
 import {
   readAllKnownJobSlugs,
   writeAllKnownJobSlugs,
-  KNOWN_SLUGS_SHARD_COUNT,
+  measureAllKnownJobSlugShardBytes,
 } from './lib/all-known-job-slugs-store.mjs';
 import { readOrphanEnriched } from './lib/orphan-enriched-store.mjs';
 import { JOB_BOARD_SEGMENT_RX } from './lib/jobBoardSections.mjs';
@@ -767,8 +767,10 @@ function main() {
 
   // Write outputs
   if (!DRY_RUN) {
-    // Size guard: GitHub rejects files ≥ 100 MiB (~104 MB). Two-tier prune.
-    // All consumers use JSON.parse() so compact JSON (no indent) is fine.
+    // Size guard: GitHub rejects individual files ≥ 100 MiB. Measure each
+    // pretty-printed shard separately; serializing the full logical registry
+    // at once exceeds V8's maximum string length even though its 32 shards fit.
+    // Two-tier prune remains limited to a shard that is genuinely unpushable.
     //
     // Tier 1 — remove `_gitOnly` entries (removed slugs from git history, lowest
     //   signal: not present in any live data source). These are marked at first-add
@@ -780,19 +782,16 @@ function main() {
     //   FROM the compat file itself and never (re)appeared in primary data. Pruning
     //   them from tracking drops their soft-landing pages but their compat-paths remain,
     //   so 404 compat redirects are preserved until prune-404-compat-paths.ts cleans up.
-    // The registry is sharded (#4248), so GitHub's ~100 MiB limit applies to
-    // each `data/all-known-job-slugs/part-NN.json`, not to the whole registry.
-    // The invariant this guard enforces is unchanged — "no blob may approach
-    // 100 MiB" — but the budget it translates to is now per-shard × shard count
-    // instead of one file. The two-tier prune below is DESTRUCTIVE (it drops
+    // The two-tier prune below is DESTRUCTIVE (it drops
     // historical slugs from an accumulator nothing can rebuild), so it must fire
     // only when a shard would genuinely be unpushable: with the monolith it was
     // firing on every run at 116 MB, silently deleting slugs to buy headroom the
     // split now provides structurally.
-    const SIZE_CAP = 95 * 1024 * 1024 * KNOWN_SLUGS_SHARD_COUNT; // 95 MiB per shard
-    let serialized = JSON.stringify(tracking);
-    if (serialized.length > SIZE_CAP) {
-      const preMB = (serialized.length / 1e6).toFixed(1);
+    const SIZE_CAP = 95 * 1024 * 1024; // 95 MiB per shard
+    let shardSizes = measureAllKnownJobSlugShardBytes(tracking);
+    const largestShardBytes = () => Math.max(0, ...shardSizes);
+    if (largestShardBytes() > SIZE_CAP) {
+      const preMB = (largestShardBytes() / 1e6).toFixed(1);
 
       // Tier 1: prune git-history-only entries
       let pruned1 = 0;
@@ -802,11 +801,11 @@ function main() {
           pruned1++;
         }
       }
-      if (pruned1 > 0) serialized = JSON.stringify(tracking);
-      console.log(`\n  ✂️  Size cap tier 1: pruned ${pruned1} git-history-only entries (${preMB} MB → ${(serialized.length / 1e6).toFixed(1)} MB)`);
+      if (pruned1 > 0) shardSizes = measureAllKnownJobSlugShardBytes(tracking);
+      console.log(`\n  ✂️  Size cap tier 1: pruned ${pruned1} git-history-only entries (largest shard ${preMB} MB → ${(largestShardBytes() / 1e6).toFixed(1)} MB)`);
 
       // Tier 2: if still over cap, prune compat-path-only echoes
-      if (serialized.length > SIZE_CAP) {
+      if (largestShardBytes() > SIZE_CAP) {
         let pruned2 = 0;
         for (const slug of Object.keys(tracking)) {
           if (!highValueSlugs.has(slug)) {
@@ -814,10 +813,10 @@ function main() {
             pruned2++;
           }
         }
-        serialized = JSON.stringify(tracking);
-        console.log(`  ✂️  Size cap tier 2: pruned ${pruned2} compat-path-only entries (→ ${(serialized.length / 1e6).toFixed(1)} MB)`);
-        if (serialized.length > SIZE_CAP) {
-          console.warn(`  ⚠️  Still over ${(SIZE_CAP / 1e6).toFixed(0)} MB after two-tier prune — high-value sources are the growth driver`);
+        shardSizes = measureAllKnownJobSlugShardBytes(tracking);
+        console.log(`  ✂️  Size cap tier 2: pruned ${pruned2} compat-path-only entries (largest shard → ${(largestShardBytes() / 1e6).toFixed(1)} MB)`);
+        if (largestShardBytes() > SIZE_CAP) {
+          console.warn(`  ⚠️  Largest shard still exceeds ${(SIZE_CAP / 1e6).toFixed(0)} MB after two-tier prune — high-value sources are the growth driver`);
         }
       }
     }

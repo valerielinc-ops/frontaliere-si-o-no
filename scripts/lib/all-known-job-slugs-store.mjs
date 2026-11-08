@@ -176,6 +176,42 @@ export function readAllKnownJobSlugs(rootDir = process.cwd()) {
   return out;
 }
 
+function buildKnownSlugBuckets(registry) {
+  const src = registry && typeof registry === 'object' ? registry : {};
+  const buckets = Array.from({ length: KNOWN_SLUGS_SHARD_COUNT }, () => []);
+  for (const slug of Object.keys(src)) {
+    if (slug === '__proto__') continue;
+    const value = src[slug];
+    if (!value || typeof value !== 'object') continue;
+    buckets[knownSlugsShardIndex(slug)].push(slug);
+  }
+  for (const bucket of buckets) bucket.sort();
+  return { src, buckets };
+}
+
+function serializeKnownSlugBucket(src, bucket) {
+  const slugs = {};
+  for (const slug of bucket) slugs[slug] = src[slug];
+  return `${JSON.stringify({ slugs }, null, 2)}\n`;
+}
+
+/**
+ * Measure each exact pretty-printed shard without ever building the complete
+ * registry as one JSON string. Large registries can exceed V8's maximum string
+ * length even when each shard can be serialized and written independently.
+ *
+ * @param {Record<string, Record<string, string>>} registry
+ * @returns {number[]} UTF-8 byte lengths, indexed by shard number
+ */
+export function measureAllKnownJobSlugShardBytes(registry) {
+  const { src, buckets } = buildKnownSlugBuckets(registry);
+  const sizes = [];
+  for (const bucket of buckets) {
+    sizes.push(Buffer.byteLength(serializeKnownSlugBucket(src, bucket)));
+  }
+  return sizes;
+}
+
 /**
  * Write the full logical registry across the shards + manifest.
  *
@@ -189,26 +225,15 @@ export function readAllKnownJobSlugs(rootDir = process.cwd()) {
  * @returns {{ totalSlugs: number, shardCount: number }}
  */
 export function writeAllKnownJobSlugs(registry, rootDir = process.cwd()) {
-  const src = registry && typeof registry === 'object' ? registry : {};
-
-  const buckets = Array.from({ length: KNOWN_SLUGS_SHARD_COUNT }, () => []);
-  for (const slug of Object.keys(src)) {
-    if (slug === '__proto__') continue;
-    const v = src[slug];
-    if (!v || typeof v !== 'object') continue;
-    buckets[knownSlugsShardIndex(slug)].push(slug);
-  }
+  const { src, buckets } = buildKnownSlugBuckets(registry);
 
   const dir = path.resolve(rootDir, KNOWN_SLUGS_SHARD_DIR);
   fs.mkdirSync(dir, { recursive: true });
 
   let total = 0;
   for (let i = 0; i < KNOWN_SLUGS_SHARD_COUNT; i++) {
-    buckets[i].sort();
-    const slugs = {};
-    for (const slug of buckets[i]) slugs[slug] = src[slug];
     total += buckets[i].length;
-    const content = JSON.stringify({ slugs }, null, 2) + '\n';
+    const content = serializeKnownSlugBucket(src, buckets[i]);
     const file = knownSlugsShardFile(i, rootDir);
     writeShardFileIfChanged(file, content);
   }
