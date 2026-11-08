@@ -111,6 +111,7 @@ verify_tool="$repo_root/scripts/ci/shard-push-verify.mjs"
 source "$(dirname "${BASH_SOURCE[0]}")/shard-git-helpers.sh"
 source "$(dirname "${BASH_SOURCE[0]}")/shard-cdn-rewrite.sh"
 source "$(dirname "${BASH_SOURCE[0]}")/ticino-tree-fanout.sh"
+source "$(dirname "${BASH_SOURCE[0]}")/section-shard-push-cleanup.sh"
 offload_script="$repo_root/scripts/offload-generated-images-cdn.mjs"
 
 # Canonical section path per locale, from the shared single source of truth.
@@ -217,6 +218,7 @@ shard_phase() {
 
 push_section_shard() {
   local key_var key_val stage stage_src keyfile src_n prev_n rc missing_deploy_key fallback_token source_path_layout
+  local private_tmp previous_tmpdir
   source_path_layout=canonical
   if [ "$section" = ticino ]; then source_path_layout=ticino-hash-v1; fi
   _shard_phase_t="$SECONDS"
@@ -243,6 +245,13 @@ push_section_shard() {
   if [ "$section" = ticino ] && ! ticino_tree_require_worker_layout "$sub"; then
     return 1
   fi
+
+  # Place generic helper scratch files (notably git-push retry transcripts)
+  # under a section-scoped directory that the timeout trap can remove.
+  previous_tmpdir="${TMPDIR:-}"
+  private_tmp="$RUNNER_TEMP/section-shard-push-tmp-$section-$loc"
+  mkdir -p "$private_tmp" || return 1
+  export TMPDIR="$private_tmp"
 
   # ── Stage subtree + offload (CDN refs) on the STAGED copy ────────────────
   # Hardlink the RAW subtree into <stage_src>/<sub> (offload needs it under a
@@ -732,10 +741,16 @@ push_section_shard() {
   # synchronous delete runs. Unset → synchronous, as before.
   if [ "${SHARD_STAGE_RM_ASYNC:-}" = 1 ] && [ -d "$stage" ] \
      && mv "$stage" "$stage.rm.$$" 2>/dev/null; then
-    ( rm -rf "$stage.rm.$$" >/dev/null 2>&1 & )
+    ( rm -rf "$stage.rm.$$" >/dev/null 2>&1 ) </dev/null >/dev/null 2>&1 &
   else
     rm -rf "$stage"
   fi
+  if [ -n "$previous_tmpdir" ]; then
+    export TMPDIR="$previous_tmpdir"
+  else
+    unset TMPDIR
+  fi
+  rm -rf -- "$private_tmp"
   # Partial rewrite pushed: complete the staged copy for the pack step in
   # background (the pack steps wait for it — scripts/lib/shard-cdn-rewrite.sh).
   # On a failed push the pack skips this section anyway (no ok-marker), but the
@@ -753,4 +768,7 @@ push_section_shard() {
   return "$rc"
 }
 
+trap 'section_shard_push_timeout_trap TERM "$RUNNER_TEMP" "$section" "$loc"' TERM
+trap 'section_shard_push_timeout_trap INT "$RUNNER_TEMP" "$section" "$loc"' INT
+trap 'section_shard_push_timeout_trap HUP "$RUNNER_TEMP" "$section" "$loc"' HUP
 push_section_shard

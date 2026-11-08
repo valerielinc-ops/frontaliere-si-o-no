@@ -869,7 +869,7 @@ describe('deploy.yml — shard push mode and advisory delta verification', () =>
     for (const name of sectionSteps) {
       const run = String(pushStep(name).run ?? '');
       expect(run, `${name}: missing the measured 30 min worker deadline`).toContain(
-        'timeout --verbose --signal=TERM --kill-after=30s 1800s bash scripts/lib/push-section-shard.sh',
+        'timeout --verbose --signal=TERM --kill-after=600s 1800s bash scripts/lib/push-section-shard.sh',
       );
       expect(run, `${name}: missing per-section start telemetry`).toContain('[section-push] event=start');
       expect(run, `${name}: missing explicit timeout telemetry`).toContain('event=timeout');

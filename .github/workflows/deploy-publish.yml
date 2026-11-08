@@ -866,16 +866,16 @@ jobs:
             # lane indefinitely. A timeout leaves the existing per-locale
             # live/ok-marker strip behavior unchanged; it adds no noindex and
             # does not rewrite any page output.
-            echo "[section-push] event=start locale=$loc section=$section timeout_seconds=1800"
-            if timeout --verbose --signal=TERM --kill-after=30s 1800s bash scripts/lib/push-section-shard.sh "$section" "$loc" "$PUBLISHER_DIST"; then
+            echo "[section-push] event=start locale=$loc section=$section timeout_seconds=1800 cleanup_grace_seconds=600"
+            if timeout --verbose --signal=TERM --kill-after=600s 1800s bash scripts/lib/push-section-shard.sh "$section" "$loc" "$PUBLISHER_DIST"; then
               echo "[section-push] event=finish locale=$loc section=$section outcome=success"
               return 0
             else
               rc=$?
               if [ "$rc" -eq 124 ]; then
-                echo "::error::[section-push] event=timeout locale=$loc section=$section timeout_seconds=1800 exit_code=$rc; existing live/ok-marker fallback remains in effect"
+                echo "::error::[section-push] event=timeout locale=$loc section=$section timeout_seconds=1800 cleanup_grace_seconds=600 exit_code=$rc; existing live/ok-marker fallback remains in effect"
               elif [ "$rc" -eq 137 ]; then
-                echo "::error::[section-push] event=forced-termination locale=$loc section=$section exit_code=$rc; inspect timeout signal diagnostics to distinguish deadline escalation from runner termination"
+                echo "::error::[section-push] event=forced-termination locale=$loc section=$section timeout_seconds=1800 cleanup_grace_seconds=600 exit_code=$rc; inspect timeout signal diagnostics to distinguish deadline escalation from runner termination"
               else
                 echo "::error::[section-push] event=finish locale=$loc section=$section outcome=failure exit_code=$rc"
               fi
