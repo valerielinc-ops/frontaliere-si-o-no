@@ -226,7 +226,7 @@ jobs:
           fi
           printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > "$RUNNER_TEMP/firebase-sa.json"
           export GOOGLE_APPLICATION_CREDENTIALS="$RUNNER_TEMP/firebase-sa.json"
-          node scripts/load-rc-env.mjs --only-env=GEMINI_API_KEY,GH_MODELS_PAT,GH_MODELS_PAT_2,GH_MODELS_PAT_3,GH_MODELS_PAT_4,GH_MODELS_PAT_5,GH_MODELS_PAT_6,GH_MODELS_PAT_7,GH_MODELS_PAT_8,GH_MODELS_PAT_9,GROQ_API_KEY,OPENROUTER_API_KEY
+          node scripts/load-rc-env.mjs --only-env=GEMINI_API_KEY,GROQ_API_KEY,OPENROUTER_API_KEY
 
       - name: Generate with one free-provider fallback chain
         id: free_fallback
@@ -256,6 +256,7 @@ jobs:
           FALLBACK_GENERATED: ${{ steps.free_fallback.outputs.pack_generated }}
           FALLBACK_PROVIDER: ${{ steps.free_fallback.outputs.provider }}
           FALLBACK_REASON: ${{ steps.free_fallback.outputs.reason }}
+          FALLBACK_FAILURES: ${{ steps.free_fallback.outputs.attempt_failures }}
         shell: bash
         run: |
           set -euo pipefail
@@ -286,6 +287,9 @@ jobs:
             printf -- '- Pack generated: **%s**\n' "$generated"
             printf -- '- Provider: **%s**\n' "$provider"
             printf -- '- Result: `%s`\n' "$reason"
+            if [ -n "${FALLBACK_FAILURES:-}" ]; then
+              printf -- '- Fallback attempts: `%s`\n' "$FALLBACK_FAILURES"
+            fi
           } >> "$GITHUB_STEP_SUMMARY"
           if [ "$generated" != true ]; then
             echo "::error::Social copy generation produced no validated pack ($reason)."
