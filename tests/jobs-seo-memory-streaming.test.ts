@@ -339,6 +339,8 @@ describe('jobsSeoPages disk-backed HTML retention', () => {
     );
     expect(source).toContain('appendNativeJobPrefixIndex(\n   nativeJobPrefixByLocaleAndSlug');
     expect(source).not.toContain('const expiredNativeIndex = buildNativeJobPrefixIndex(');
+    expect(source).not.toContain('new Set(index.keys())');
+    expect(source).toContain('activeRouteOwners.get(slug)');
     const lastOwnershipCheck = source.lastIndexOf(
       'legacyTiPathRecoveredByWorker(locale, slug, relPath)',
     );

@@ -415,6 +415,8 @@ export const JOB_SEO_LOCALES = ['it', 'en', 'de', 'fr'] as const;
 
 type JobSeoLocale = (typeof JOB_SEO_LOCALES)[number];
 type JobRouteTracking = Record<string, Partial<Record<JobSeoLocale, string>>>;
+const CURRENT_JOB_SLUG = 1 << JOB_SEO_LOCALES.length;
+const localeOwnerBit = (locale: JobSeoLocale): number => 1 << JOB_SEO_LOCALES.indexOf(locale);
 const normalizedRoutePath = (value: string): string => {
  const raw = String(value || '');
  // Registry paths are already normalized in the common case. Returning the
@@ -439,6 +441,7 @@ export function buildNativeJobPrefixIndex(
  localePrefix: Record<JobSeoLocale, string>,
  sectionByLocale: Record<JobSeoLocale, string>,
  compatEligibleTrackingSlugs?: ReadonlySet<string>,
+ activeRouteOwners?: Map<string, number>,
 ): Map<string, string> {
  const index = new Map<string, string>();
  const prefixes = new Map<string, string>();
@@ -466,6 +469,9 @@ export function buildNativeJobPrefixIndex(
    const slugStart = normalized.lastIndexOf('/', slugEnd - 1) + 1;
    const slug = normalized.slice(slugStart, slugEnd);
    if (!slug) continue;
+   if (activeRouteOwners) {
+    activeRouteOwners.set(slug, (activeRouteOwners.get(slug) ?? 0) | localeOwnerBit(locale));
+   }
    // For the same locale+slug, path inequality is exactly prefix inequality.
    // Intern arbitrary prefixes rather than retaining one full path per key.
    const prefix = normalized.slice(0, -(slug.length + 1));
@@ -484,11 +490,8 @@ export function appendNativeJobPrefixIndex(
  localePrefix: Record<JobSeoLocale, string>,
  sectionByLocale: Record<JobSeoLocale, string>,
  compatEligibleTrackingSlugs: ReadonlySet<string>,
+ activeRouteOwners: ReadonlyMap<string, number>,
 ): Map<string, string> {
- // Snapshot only the smaller active index. The historical candidate set can
- // contribute millions of entries, so building a second map before merging
- // it would temporarily double that retained set.
- const existingKeys = new Set(index.keys());
  const prefixes = new Map<string, string>();
  const legacyPrefixByLocale = Object.fromEntries(
   JOB_SEO_LOCALES.map((locale) => [
@@ -513,7 +516,11 @@ export function appendNativeJobPrefixIndex(
    const slug = normalized.slice(slugStart, slugEnd);
    if (!slug) continue;
    const key = `${locale}:${slug}`;
-   if (existingKeys.has(key)) continue;
+   // Active route ownership is carried by the locale mask in the caller's
+   // existing slug map. This avoids copying every active key into a second
+   // Set while still distinguishing active entries from historical entries
+   // already appended during this pass (which must retain last-owner-wins).
+   if (((activeRouteOwners.get(slug) ?? 0) & localeOwnerBit(locale)) !== 0) continue;
    const prefix = normalized.slice(0, -(slug.length + 1));
    const sharedPrefix = prefixes.get(prefix) ?? prefix;
    prefixes.set(sharedPrefix, sharedPrefix);
@@ -12925,7 +12932,18 @@ ${staticAnalyticsHtml}
  let tracking: Record<string, Record<string, string>> = readAllKnownJobSlugs(rootDir) as Record<string, Record<string, string>>;
  jobsSeoMemContext.tracking = tracking;
 
- const currentSlugs = new Set<string>();
+ // Keep current-slug membership and native owner locale bits in one map.
+ // The latter lets the historical merge protect active owners without a
+ // second Set containing every key from the native route index.
+ const currentSlugs = new Map<string, number>();
+ let currentSlugCount = 0;
+ const markCurrentSlug = (slug: string, locale: JobSeoLocale): void => {
+  const owners = currentSlugs.get(slug) ?? 0;
+  if ((owners & CURRENT_JOB_SLUG) === 0) currentSlugCount++;
+  currentSlugs.set(slug, owners | CURRENT_JOB_SLUG | localeOwnerBit(locale));
+ };
+ const isCurrentSlug = (slug: string): boolean =>
+  ((currentSlugs.get(slug) ?? 0) & CURRENT_JOB_SLUG) !== 0;
  // Collect slug values that differ from slugByLocale.it — these are legacy
  // identifier slugs that no longer have an active page at that path. They
  // should be treated as previous slugs (bridge pages), not as current.
@@ -12936,7 +12954,7 @@ ${staticAnalyticsHtml}
  // Only add job.slug to currentSlugs if it matches the actual IT page slug.
  // When they differ, the old slug needs a bridge page, not exclusion.
  if (job.slug === itSlug) {
- currentSlugs.add(job.slug);
+ markCurrentSlug(job.slug, 'it');
  } else {
  // job.slug is a legacy identifier — treat as implicit previous slug
  // so it gets a bridge page pointing to the current URL
@@ -12948,7 +12966,7 @@ ${staticAnalyticsHtml}
  // generating a thin expired soft-landing at the master-slug path.
  for (const locale of localeList) {
  const ls = localizedSlug(job, locale);
- if (ls) currentSlugs.add(ls);
+ if (ls) markCurrentSlug(ls, locale);
  }
  if (!tracking[job.slug]) {
  tracking[job.slug] = {};
@@ -12976,7 +12994,10 @@ ${staticAnalyticsHtml}
  // Keep this bounded to active rows; the historical candidates are added
  // after expiredJobsData is loaded below, without materialising the full
  // 897k-row registry in the prefix index.
- const nativeRouteSnapshotSlugs = new Set(currentSlugs);
+ const nativeRouteSnapshotSlugs = new Set<string>();
+ for (const [slug, owners] of currentSlugs) {
+  if ((owners & CURRENT_JOB_SLUG) !== 0) nativeRouteSnapshotSlugs.add(slug);
+ }
  for (const job of validJobs) {
   if (job.slug) nativeRouteSnapshotSlugs.add(job.slug);
  }
@@ -12985,9 +13006,10 @@ ${staticAnalyticsHtml}
   localePrefix,
   sectionByLocale,
   nativeRouteSnapshotSlugs,
+  currentSlugs,
  );
  logJobsSeoMem('after-native-route-index', {
-  currentSlugs: currentSlugs.size,
+  currentSlugs: currentSlugCount,
   nativeRouteSnapshotSlugs: nativeRouteSnapshotSlugs.size,
   nativeJobPrefixEntries: nativeJobPrefixByLocaleAndSlug.size,
  });
@@ -12998,7 +13020,7 @@ ${staticAnalyticsHtml}
  const searchComboPattern = /^(?:search|ricerca|suche|recherche)-/;
  let searchCombosRemoved = 0;
  for (const key of Object.keys(tracking)) {
- if (searchComboPattern.test(key) && !currentSlugs.has(key)) {
+ if (searchComboPattern.test(key) && !isCurrentSlug(key)) {
  delete tracking[key];
  searchCombosRemoved++;
  }
@@ -13030,7 +13052,7 @@ ${staticAnalyticsHtml}
  // a slug with a hub key.
  let reservedHubsRemoved = 0;
  for (const key of Object.keys(tracking)) {
- if (RESERVED_HUB_SLUGS.has(key) && !currentSlugs.has(key)) {
+ if (RESERVED_HUB_SLUGS.has(key) && !isCurrentSlug(key)) {
  delete tracking[key];
  reservedHubsRemoved++;
  }
@@ -13254,15 +13276,15 @@ ${staticAnalyticsHtml}
  // ACTIVE slugs (currentSlugs) keep the existing override: their native canton
  // is already served by the live job page, so moving the soft-landing onto the
  // drifted indexed URL is correct.
- if (known && !currentSlugs.has(slug)) break;
- if (known) cantonDriftCompatSlugs.add(slug);
+ if (known && !isCurrentSlug(slug)) break;
+ if (known && isCurrentSlug(slug)) cantonDriftCompatSlugs.add(slug);
  // ACTIVE job whose live canonical path we're about to overwrite with the
  // drift URL: stash the real path so the self-healing pass emits a relocation
  // bridge to the live page instead of a "job removed" tombstone (see
  // activeDriftRealPathByCompat declaration). `known` is the pre-overwrite
  // ledger path (the job's current canton URL); `compatPath` is the legacy-TI
  // drift URL that becomes the new tracking value.
- if (known && currentSlugs.has(slug)) activeDriftRealPathByCompat.set(compatPath, known);
+ if (known && isCurrentSlug(slug)) activeDriftRealPathByCompat.set(compatPath, known);
  (tracking[slug] as Record<string, string>)[locale] = compatPath;
  compatAdded++;
  break;
@@ -13450,6 +13472,7 @@ ${staticAnalyticsHtml}
    localePrefix,
    sectionByLocale,
    expiredNativeRouteSlugs,
+  currentSlugs,
   );
   logJobsSeoMem('after-expired-native-route-index', {
    expiredNativeRouteSlugs: expiredNativeRouteSlugs.size,

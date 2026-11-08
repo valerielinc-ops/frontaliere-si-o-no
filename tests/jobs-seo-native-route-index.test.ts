@@ -51,9 +51,10 @@ function oldRecovered(locale: Locale, slug: string, relPath: string, tracking: T
 
 describe('native job route ownership with interned prefixes', () => {
   it('appends expired owners in place while preserving active owners and expired last-wins order', () => {
+    const activeRouteOwners = new Map<string, number>();
     const active = buildNativeJobPrefixIndex({
       'active-owner': { de: '/de/jobs-in-bern/shared-active' },
-    }, prefixes, sections, new Set(['active-owner']));
+    }, prefixes, sections, new Set(['active-owner']), activeRouteOwners);
     const expired: Tracking = {
       'expired-first': {
         de: '/de/jobs-in-zurich/shared-active',
@@ -71,10 +72,33 @@ describe('native job route ownership with interned prefixes', () => {
       if (!expected.has(key)) expected.set(key, prefix);
     }
 
-    expect(appendNativeJobPrefixIndex(active, expired, prefixes, sections, candidates)).toBe(active);
+    expect(appendNativeJobPrefixIndex(active, expired, prefixes, sections, candidates, activeRouteOwners)).toBe(active);
     expect([...active]).toEqual([...expected]);
     expect(active.get('de:shared-active')).toBe('/de/jobs-in-bern/');
     expect(active.get('en:shared-expired')).toBe('/en/jobs-in-bern/');
+  });
+
+  it('protects active ownership per locale without blocking a historical sibling locale', () => {
+    const activeRouteOwners = new Map<string, number>();
+    const active = buildNativeJobPrefixIndex({
+      'active-master': { de: '/de/jobs-in-zurich/shared-slug' },
+    }, prefixes, sections, new Set(['active-master']), activeRouteOwners);
+    const expired: Tracking = {
+      'expired-english': { en: '/en/jobs-in-bern/shared-slug' },
+      'expired-german': { de: '/de/jobs-in-bern/shared-slug' },
+    };
+
+    appendNativeJobPrefixIndex(
+      active,
+      expired,
+      prefixes,
+      sections,
+      new Set(Object.keys(expired)),
+      activeRouteOwners,
+    );
+
+    expect(active.get('de:shared-slug')).toBe('/de/jobs-in-zurich/');
+    expect(active.get('en:shared-slug')).toBe('/en/jobs-in-bern/');
   });
 
   it('retains arbitrary prefixes and the last route for each locale + route slug', () => {
@@ -308,16 +332,21 @@ describe('native job route ownership with interned prefixes', () => {
           : mode === 'active'
             ? 'buildNativeJobPrefixIndex(tracking, prefixes, sections, activeTrackingSlugs)'
             : `(() => {
-                const index = buildNativeJobPrefixIndex(tracking, prefixes, sections, activeTrackingSlugs);
+                const activeRouteOwners = new Map();
+                const index = buildNativeJobPrefixIndex(tracking, prefixes, sections, activeTrackingSlugs, activeRouteOwners);
                 const expiredTrackingSlugs = new Set(Object.keys(tracking).filter(slug => !activeTrackingSlugs.has(slug)));
                 if (${JSON.stringify(mode)} === 'temporary-merge') {
                   const expiredIndex = buildNativeJobPrefixIndex(tracking, prefixes, sections, expiredTrackingSlugs);
                   for (const [key, prefix] of expiredIndex) {
-                    if (!index.has(key)) index.set(key, prefix);
+                    const routeSeparator = key.indexOf(':');
+                    const locale = key.slice(0, routeSeparator);
+                    const slug = key.slice(routeSeparator + 1);
+                    const localeBit = 1 << ['it', 'en', 'de', 'fr'].indexOf(locale);
+                    if (((activeRouteOwners.get(slug) ?? 0) & localeBit) === 0) index.set(key, prefix);
                   }
                   globalThis.expiredIndexForPeak = expiredIndex;
                 } else {
-                  appendNativeJobPrefixIndex(index, tracking, prefixes, sections, expiredTrackingSlugs);
+                  appendNativeJobPrefixIndex(index, tracking, prefixes, sections, expiredTrackingSlugs, activeRouteOwners);
                 }
                 peakHeapUsed = process.memoryUsage().heapUsed;
                 return index;
