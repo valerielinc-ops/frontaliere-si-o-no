@@ -175,6 +175,9 @@ jobs:
             exit 0
           fi
 
+          git config user.name 'frontaliere automation'
+          git config user.email 'frontaliere-automation@users.noreply.github.com'
+
           if git ls-remote --exit-code --heads origin "$REATTEST_BRANCH" >/dev/null 2>&1; then
             git fetch --no-tags origin main "$REATTEST_BRANCH"
             git switch -C "$REATTEST_BRANCH" "origin/$REATTEST_BRANCH"
@@ -201,8 +204,6 @@ jobs:
             exit 0
           fi
 
-          git config user.name 'frontaliere automation'
-          git config user.email 'frontaliere-automation@users.noreply.github.com'
           git add -- "$CONTRACT_PATH"
           git commit -m "ci: reattest crawler contract to landed main"
           git push --set-upstream origin "$REATTEST_BRANCH"
