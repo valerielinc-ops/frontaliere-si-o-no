@@ -273,6 +273,22 @@ describe('every workflow PR body writer crosses the deterministic gate', () => {
     }
   });
 
+  it('configures commit identity before reconciling the shared loop-clock branch', () => {
+    const source = fs.readFileSync(
+      path.join(ROOT, 'scripts/ci/sync-loop-clock-to-corpus.sh'),
+      'utf8',
+    );
+    const identity = source.indexOf("git config user.name 'frontaliere-automation[bot]'");
+    const email = source.indexOf("git config user.email '41898282+github-actions[bot]@users.noreply.github.com'");
+    const merge = source.indexOf('git merge --no-edit origin/main');
+
+    expect(identity).toBeGreaterThanOrEqual(0);
+    expect(email).toBeGreaterThanOrEqual(0);
+    expect(merge).toBeGreaterThanOrEqual(0);
+    expect(identity).toBeLessThan(merge);
+    expect(email).toBeLessThan(merge);
+  });
+
   it('creates a missing corpus PR and no-ops when the corpus is already synchronized', () => {
     const tempRoot = fs.mkdtempSync(path.join(os.tmpdir(), 'loop-clock-transport-'));
     const bareRepo = path.join(tempRoot, 'corpus.git');

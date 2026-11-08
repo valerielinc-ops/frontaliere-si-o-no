@@ -55,6 +55,8 @@ git clone --filter=blob:none --no-checkout "$target_url" "$work/corpus"
 cd "$work/corpus"
 git sparse-checkout init --no-cone
 git sparse-checkout set "/$target_path"
+git config user.name 'frontaliere-automation[bot]'
+git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
 git fetch origin main
 
 if git ls-remote --exit-code --heads origin "$target_branch" >/dev/null 2>&1; then
@@ -111,8 +113,6 @@ if git diff --cached --quiet; then
   fi
   echo 'Corpus issue-triage workflow contract is already committed on the transport branch; delivering its PR.'
 else
-  git config user.name 'frontaliere-automation[bot]'
-  git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
   git commit -m 'fix(ci): identify corpus loop-clock triage dispatches'
 fi
 

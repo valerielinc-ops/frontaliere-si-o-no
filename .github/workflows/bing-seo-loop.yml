@@ -219,6 +219,8 @@ jobs:
         if: ${{ github.event_name == 'schedule' || inputs.apply_fixes == true }}
         run: |
           set -euo pipefail
+          git config user.name 'frontaliere-automation[bot]'
+          git config user.email 'frontaliere-automation[bot]@users.noreply.github.com'
           git fetch origin main
           branch='automation/bing-seo-h1'
           if git ls-remote --exit-code --heads origin "$branch" >/dev/null 2>&1; then
@@ -240,8 +242,6 @@ jobs:
           fi
           export GH_TOKEN="$token"
           git remote set-url origin "https://x-access-token:$token@github.com/$GITHUB_REPOSITORY.git"
-          git config user.name 'frontaliere-automation[bot]'
-          git config user.email 'frontaliere-automation[bot]@users.noreply.github.com'
           git add index.html build-plugins/staticPagesPlugin.ts
           git commit -m 'fix(seo): expose and localize homepage H1'
           git push origin "HEAD:$branch"

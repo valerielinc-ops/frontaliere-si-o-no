@@ -118,3 +118,17 @@ test('workflow verifies current artifacts against the landed source revision', (
   assert.match(verifyStep, /--source-commit "\$SOURCE_COMMIT"/u);
   assert.match(verifyStep, /verify-crawler-contract-provenance\.mjs \\\n\s+--contract "\$verification_contract"/u);
 });
+
+test('workflow configures commit identity before reconciling the persistent branch', () => {
+  const workflow = fs.readFileSync(WORKFLOW_PATH, 'utf8');
+  const openStep = workflow.slice(workflow.indexOf('      - name: Open or update the reattestation PR'));
+  const identity = openStep.indexOf("git config user.name 'frontaliere automation'");
+  const email = openStep.indexOf("git config user.email 'frontaliere-automation@users.noreply.github.com'");
+  const merge = openStep.indexOf('git merge --no-edit origin/main');
+
+  assert.ok(identity >= 0, 'persistent branch reconciliation must set a committer name');
+  assert.ok(email >= 0, 'persistent branch reconciliation must set a committer email');
+  assert.ok(merge >= 0, 'persistent branch reconciliation must merge origin/main');
+  assert.ok(identity < merge, 'committer name must precede the merge');
+  assert.ok(email < merge, 'committer email must precede the merge');
+});

@@ -185,6 +185,23 @@ describe('Bing SEO live contract', () => {
     expect(workflow).not.toContain('--description "$(cat "$RUNNER_TEMP/bing-site-tree-issue.md")"');
   });
 
+  it('configures commit identity before rebasing the persistent repair branch', () => {
+    const workflow = fs.readFileSync(
+      path.resolve('.github/workflows/bing-seo-loop.yml'),
+      'utf8',
+    );
+    const repairStep = workflow.slice(workflow.indexOf('      - name: Open PR for deterministic H1 source repair'));
+    const identity = repairStep.indexOf("git config user.name 'frontaliere-automation[bot]'");
+    const email = repairStep.indexOf("git config user.email 'frontaliere-automation[bot]@users.noreply.github.com'");
+    const rebase = repairStep.indexOf('git rebase origin/main');
+
+    expect(identity).toBeGreaterThanOrEqual(0);
+    expect(email).toBeGreaterThanOrEqual(0);
+    expect(rebase).toBeGreaterThanOrEqual(0);
+    expect(identity).toBeLessThan(rebase);
+    expect(email).toBeLessThan(rebase);
+  });
+
   it('checks out the crawler import closure for every tree job', () => {
     const workflow = YAML.parse(
       fs.readFileSync(path.resolve('.github/workflows/bing-seo-loop.yml'), 'utf8'),
