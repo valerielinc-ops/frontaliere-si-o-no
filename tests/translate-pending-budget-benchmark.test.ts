@@ -15,7 +15,7 @@ function workflow() {
       pull_request?: { paths?: string[] };
       workflow_dispatch: { inputs: Record<string, { default?: string; type?: string; required?: boolean }> };
     };
-    jobs: Record<string, { 'timeout-minutes': number; env?: Record<string, string>; steps: Array<{ name?: string; run?: string; uses?: string; with?: Record<string, string>; env?: Record<string, string>; if?: string }> }>;
+    jobs: Record<string, { if?: string; 'timeout-minutes': number; env?: Record<string, string>; steps: Array<{ name?: string; run?: string; uses?: string; with?: Record<string, string>; env?: Record<string, string>; if?: string }> }>;
   };
 }
 
@@ -80,6 +80,8 @@ describe('translate-pending budget benchmark', () => {
     ]));
     expect(parsed.on.workflow_dispatch.inputs.source_ref).toMatchObject({ type: 'string', required: true });
     expect(parsed.on.workflow_dispatch.inputs.phase).toMatchObject({ type: 'choice', required: true });
+    expect(parsed.jobs.benchmark.if)
+      .toBe("github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name == github.repository");
     expect(parsed.jobs.benchmark['timeout-minutes']).toBe(350);
     expect(parsed.jobs.benchmark.env?.BENCHMARK_REPORT).toBe('${{ github.workspace }}/translate-pending-budget-benchmark.json');
     expect(parsed.jobs.benchmark.env?.BENCHMARK_REPORT).not.toContain('runner.temp');
