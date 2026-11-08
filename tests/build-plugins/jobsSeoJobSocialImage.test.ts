@@ -39,6 +39,12 @@ describe('active job social image metadata', () => {
     expect(SOURCE.slice(start, end)).toContain('socialImage,');
   });
 
+  it('renders only the verified Italian title into the image', () => {
+    expect(CARD_SOURCE).toContain('const italianTitle = getItalianJobTitle(job)');
+    expect(CARD_SOURCE).toContain('if (!slug || !italianTitle)');
+    expect(CARD_SOURCE).toContain('title: truncateText(italianTitle, 82)');
+  });
+
   it('renders the card with Italian employment labels', () => {
     expect(CARD_SOURCE).toContain('const EMPLOYMENT_LABEL_IT: Record<string, string> = JOB_EMPLOYMENT_LABELS_BY_LOCALE.it');
     expect(JOB_EMPLOYMENT_LABELS_BY_LOCALE.it.PART_TIME).toBe('Tempo parziale');
