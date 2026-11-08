@@ -7,6 +7,7 @@ import {
   candidateForForm,
   COOKIE_ACCEPT_RE,
   COOKIE_REJECT_RE,
+  applicationEntryControls,
   formPostingMatch,
   hasApplicationSurface,
   initialPortalHandoffReason,
@@ -310,6 +311,33 @@ describe('portal runner hardening (career-ops apply.md)', () => {
     })).toBe('match');
     expect(portalEntryUrl({ applyUrl: postingUrl, postingUrl: postingUrl.replace('/2806/', '/2807/') })).toBe(postingUrl);
     expect(portalEntryUrl({ applyUrl: postingUrl, postingUrl: postingUrl.replace('recruitingapp-2761', 'other') })).toBe(postingUrl);
+  });
+
+  it('accepts a route-bound neutral Umantis opener without weakening mismatch protection', () => {
+    const postingUrl = 'https://recruitingapp-2761.umantis.com/Vacancies/2806/Description/4';
+    const snapshot = {
+      url: postingUrl,
+      text: 'L’EOC Assistente sociale (80-100%)',
+      fields: [],
+      buttons: [{ text: 'cliccando qui', domId: 'click-open', formId: 'f2', frame: 0 }],
+      links: [],
+    };
+    const context = {
+      applyUrl: postingUrl,
+      postingUrl,
+      pageTitle: 'Assistente sociale - Ausschreibung',
+      job: { company: 'EOC – Ente Ospedaliero Cantonale', title: 'Assistente sociale (80-100%)' },
+      allowSingleExternalApplicationEntry: true,
+    };
+
+    expect(applicationEntryControls(snapshot, context)).toEqual([
+      expect.objectContaining({ text: 'cliccando qui', domId: 'click-open' }),
+    ]);
+    expect(applicationEntryControls({ ...snapshot, url: postingUrl.replace('/2806/', '/2807/') }, context)).toEqual([]);
+    expect(applicationEntryControls({
+      ...snapshot,
+      buttons: [...snapshot.buttons, { text: 'Candidati ora', href: 'https://example.test/apply', frame: 0 }],
+    }, context)).toEqual([]);
   });
 
   it('retains the Umantis posting route only when it binds the current application to the same vacancy', () => {

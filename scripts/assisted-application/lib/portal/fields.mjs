@@ -1207,7 +1207,12 @@ function nativeQuestionText(value, counter = null) {
   // Older portals (including Ticino's Rexx portal) render action controls as
   // plain links inside a styled `.css_button` wrapper. Keep the wrapper guard
   // so ordinary content links do not become buttons.
-  const BUTTONS = 'button, input[type="submit"], a[role="button"], a[href], [role="button"]';
+  // Older Umantis/Ticino postings expose the application opener as a native
+  // `input[type=button]` with a JavaScript handler instead of an anchor or a
+  // semantic `<button>` (the visible value can be «cliccando qui»). Keep it
+  // in the action snapshot; portal.mjs applies the stricter route-bound
+  // provenance check before it is ever clicked.
+  const BUTTONS = 'button, input[type="submit"], input[type="button"], a[role="button"], a[href], [role="button"]';
   const actionLink = (element) => element.tagName === 'A' && (Boolean(element.closest('.css_button')) || element.classList.contains('button') || element.classList.contains('btn'));
   const actionControl = (element) => element.tagName !== 'A' || element.getAttribute('role') === 'button' || actionLink(element);
   const buttonName = (element) => [

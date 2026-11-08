@@ -1277,6 +1277,33 @@ function fieldlessApplicationEntryContextMatchesPosting(control, context = {}) {
   return titleMatches(localContext, job.title);
 }
 
+// A few legacy employer pages render the only application opener as a native
+// button whose value is deliberately generic («cliccando qui», «click here»).
+// That label is not provenance by itself: it is accepted only when the
+// browser is on the exact Umantis vacancy route, the derived Application/New
+// route carries the same vacancy id, the page names the selected role, and
+// there is no competing semantic Apply control. This keeps the security gate
+// closed for generic buttons on listings and for neighbouring roles.
+const GENERIC_APPLICATION_ENTRY_RE = /^(?:clicca(?:ndo)?\s+qui|click\s+here|cliquez?\s+ici|hier\s+klicken|hier\s+bewerben|apply\s+here|candidarsi\s+qui|fare\s+clic\s+qui)$/iu;
+
+function genericApplicationEntryLabel(value) {
+  const text = String(value || '').normalize('NFKC').replace(/\s+/g, ' ').trim()
+    .replace(/^[([{«»“”‘’"'›•*-]+|[.!?:,;)\]}«»“”‘’"']+$/gu, '').trim();
+  return Boolean(text && GENERIC_APPLICATION_ENTRY_RE.test(text));
+}
+
+function genericUmantisApplicationEntryBelongsToPosting(control, snapshot, context = {}) {
+  if (!context?.allowSingleExternalApplicationEntry || !genericApplicationEntryLabel(control?.text || control?.label)
+    || control?.disabled || control?.chrome || control?.href || (Number(control?.frame) || 0) !== 0) return false;
+  if (!samePostingAddress(snapshot?.url, context.postingUrl)
+    || (Array.isArray(snapshot?.fields) && snapshot.fields.length > 0)) return false;
+  const applicationUrl = umantisApplicationEntryUrl({ applyUrl: context.applyUrl, postingUrl: context.postingUrl })
+    || String(context.applyUrl || '').trim();
+  if (!isUmantisPostingEntry({ applyUrl: applicationUrl, postingUrl: context.postingUrl })) return false;
+  return Boolean(context.job?.title
+    && titleMatches(`${snapshot?.text || ''}\n${snapshot?.title || ''}\n${context.pageTitle || ''}`, context.job.title));
+}
+
 export function applicationEntryControls(snapshot = {}, context = {}) {
   const controls = [
     ...(Array.isArray(snapshot.buttons) ? snapshot.buttons : []),
@@ -1286,6 +1313,11 @@ export function applicationEntryControls(snapshot = {}, context = {}) {
     && startsApplication(control?.text || control?.label)
     && applicationEntryBelongsToPosting(control, context));
   if (matching.length || context.allowSingleExternalApplicationEntry !== true) return matching;
+
+  const genericEntries = controls.filter((control) => genericUmantisApplicationEntryBelongsToPosting(control, snapshot, context));
+  const competingSemanticEntry = controls.some((control) => !genericApplicationEntryLabel(control?.text || control?.label)
+    && startsApplication(control?.text || control?.label));
+  if (genericEntries.length === 1 && !competingSemanticEntry) return genericEntries;
 
   // A verified posting can hand off to an ATS on another route or origin
   // without a URL that carries the vacancy id (common on employer career
@@ -6744,6 +6776,7 @@ export async function readPortalRequirements(ctx) {
     const opened = await openApplicationForm(context, page, snapshot, {
       applyUrl: stageApplyUrl,
       postingUrl: ctx.postingUrl || page.url(),
+      pageTitle: sourceTitle,
       sourceProtocol: snapshot.protocol || ctx.sourceProtocol || null,
       job: ctx.job,
       postingEntry: verifiedPostingEntry,
@@ -7063,6 +7096,7 @@ export async function submitViaPortal(ctx) {
     if (postingVacancyMatched && isApplicationRegionUnsupported(initialPageText)
       && !hasApplicationEntryControl(snapshot, {
         applyUrl: ctx.applyUrl, postingUrl, sourceProtocol, job: ctx.job,
+        pageTitle: postingTitle,
         postingRouteProof: ctx.postingRouteProof,
         allowSingleExternalApplicationEntry: postingVacancyMatched,
       })) {
@@ -7070,6 +7104,7 @@ export async function submitViaPortal(ctx) {
     }
     const opened = await openApplicationForm(context, page, snapshot, {
       applyUrl: ctx.applyUrl, postingUrl: ctx.postingUrl || postingUrl, sourceProtocol,
+      pageTitle: postingTitle,
       postingEntry: enteredFromMatchingPosting, postingRouteProof: ctx.postingRouteProof, job: ctx.job,
       allowSingleExternalApplicationEntry: postingVacancyMatched,
       onPortalNavigationDiagnostic: ctx.onPortalNavigationDiagnostic,

@@ -61,6 +61,18 @@ describe('portal field extraction', () => {
     expect(profile.sectionGroupId).not.toBe(question.sectionGroupId);
   });
 
+  it('keeps a native Umantis application opener in the action snapshot', () => {
+    const snapshot = extract(`<main>
+      <h1>Assistente sociale (80-100%)</h1>
+      <form id="f2"><input id="click-open" type="button" value="cliccando qui"></form>
+    </main>`, 'https://recruitingapp-2761.umantis.com/Vacancies/2806/Description/4');
+
+    expect(snapshot.fields).toHaveLength(0);
+    expect(snapshot.buttons).toEqual(expect.arrayContaining([
+      expect.objectContaining({ text: 'cliccando qui', domId: 'click-open', formId: expect.any(String) }),
+    ]));
+  });
+
   it('preserves accessible field metadata through question reduction and live refresh', () => {
     const prompt = 'Select this checkbox to confirm that you have read the Privacy Notice for Candidates.';
     const snapshot = extract(`<form>

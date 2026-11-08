@@ -89,6 +89,14 @@ const APPLY_PATTERNS = [
   /invia (la )?candidatura/i,
   /jetzt bewerben/i,
   /\bpostulez\b/i,
+  // Some legacy employer pages use a neutral native-button value for the
+  // application opener («cliccando qui», «click here»). The portal runner
+  // still requires a route-bound vacancy before clicking it; liveness only
+  // needs to avoid treating the open posting as a page with no apply control.
+  /\bclicca(?:ndo)?\s+qui\b/i,
+  /\bclick\s+here\b/i,
+  /\bcliquez?\s+ici\b/i,
+  /\bhier\s+klicken\b/i,
 ];
 const MIN_CONTENT_CHARS = 300;
 const JOB_ID_TOKEN = /[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}|\d{5,}/gi;
@@ -175,10 +183,19 @@ export function postingSaysClosed(liveness) {
 /** Visible texts of links/buttons, a cheap stand-in for a rendered DOM. */
 export function applyControlsFromHtml(html) {
   const controls = [];
-  const re = /<(a|button)\b[^>]*>([\s\S]*?)<\/\1>/gi;
+  const re = /<(a|button)\b[^>]*>([\s\S]*?)<\/\1>|<input\b([^>]*)>/gi;
   let match;
   while ((match = re.exec(String(html || ''))) && controls.length < 400) {
-    const text = match[2].replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
+    let text = match[2] ? match[2].replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim() : '';
+    if (!text && match[3]) {
+      const type = /\btype\s*=\s*["']?([^\s"'>]+)/i.exec(match[3])?.[1] || '';
+      if (/^(?:button|submit|image)$/i.test(type)) {
+        text = /\bvalue\s*=\s*(["'])([\s\S]*?)\1/i.exec(match[3])?.[2]
+          || /\bvalue\s*=\s*([^\s"'>]+)/i.exec(match[3])?.[1]
+          || '';
+      }
+    }
+    text = String(text).replace(/\s+/g, ' ').trim();
     if (text && text.length <= 80) controls.push(text);
   }
   return controls;
