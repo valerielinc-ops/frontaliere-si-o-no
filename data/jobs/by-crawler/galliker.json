@@ -1,7 +1,7 @@
 {
   "crawlerKey": "galliker",
-  "assembledAt": "2026-11-08T09:15:33.442Z",
-  "runId": "42465491629",
+  "assembledAt": "2026-11-08T21:21:30.601Z",
+  "runId": "42523180860",
   "jobs": [
     {
       "id": "galliker-b3adfc7dfcde",
@@ -35,7 +35,7 @@
       "url": "https://apply.refline.ch/878019/0225/pub/23/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:15:26.635Z",
+      "crawledAt": "2026-11-08T21:21:20.537Z",
       "addressLocality": "Altishofen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -56,20 +56,20 @@
       "requirements": [],
       "requirementsByLocale": {},
       "externalId": "0225",
-      "previousSlugsByLocale": {
-        "de": [
-          "lastwagenreiniger-10-30-a-galliker-transport-ag-altishofen"
-        ],
-        "it": [
-          "lastwagenreiniger-10-30-a-galliker-altishofen",
-          "pulitore-del-camion-10-30-a-galliker-transport-ag-altishofen"
-        ]
-      },
       "previousSlugs": [
         "lastwagenreiniger-10-30-a-galliker-altishofen",
         "pulitore-del-camion-10-30-a-galliker-transport-ag-altishofen",
         "lastwagenreiniger-10-30-a-galliker-transport-ag-altishofen"
       ],
+      "previousSlugsByLocale": {
+        "it": [
+          "lastwagenreiniger-10-30-a-galliker-altishofen",
+          "pulitore-del-camion-10-30-a-galliker-transport-ag-altishofen"
+        ],
+        "de": [
+          "lastwagenreiniger-10-30-a-galliker-transport-ag-altishofen"
+        ]
+      },
       "firstSeenAt": "2026-11-05T09:16:42.422Z",
       "salaryMin": 20900,
       "salaryMax": 31800,
@@ -85,7 +85,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-08T09:15:26.635Z",
+      "validThrough": "2026-12-08T21:21:20.537Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -120,7 +120,7 @@
       "url": "https://apply.refline.ch/878019/0485/pub/1/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:15:26.255Z",
+      "crawledAt": "2026-11-08T21:21:20.162Z",
       "addressLocality": "Altishofen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -170,7 +170,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-03T09:15:26.255Z",
+      "validThrough": "2027-02-02T21:21:20.162Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -205,7 +205,7 @@
       "url": "https://apply.refline.ch/878019/0483/pub/1/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:15:25.875Z",
+      "crawledAt": "2026-11-08T21:21:19.787Z",
       "addressLocality": "Altishofen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -255,7 +255,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-02T09:15:25.875Z",
+      "validThrough": "2027-02-02T21:21:19.787Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -290,7 +290,7 @@
       "url": "https://apply.refline.ch/878019/0382/pub/22/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:15:25.495Z",
+      "crawledAt": "2026-11-08T21:21:19.408Z",
       "addressLocality": "Altishofen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -311,20 +311,20 @@
       "requirements": [],
       "requirementsByLocale": {},
       "externalId": "0382",
-      "previousSlugsByLocale": {
-        "de": [
-          "betriebselektriker-a-galliker-transport-ag-altishofen"
-        ],
-        "it": [
-          "betriebselektriker-a-galliker-altishofen",
-          "elettricisti-commerciali-a-galliker-transport-ag-altishofen"
-        ]
-      },
       "previousSlugs": [
         "betriebselektriker-a-galliker-altishofen",
         "elettricisti-commerciali-a-galliker-transport-ag-altishofen",
         "betriebselektriker-a-galliker-transport-ag-altishofen"
       ],
+      "previousSlugsByLocale": {
+        "it": [
+          "betriebselektriker-a-galliker-altishofen",
+          "elettricisti-commerciali-a-galliker-transport-ag-altishofen"
+        ],
+        "de": [
+          "betriebselektriker-a-galliker-transport-ag-altishofen"
+        ]
+      },
       "firstSeenAt": "2026-09-23T23:38:03.309Z",
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -340,7 +340,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-08T09:15:25.495Z",
+      "validThrough": "2026-12-08T21:21:19.408Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -375,7 +375,7 @@
       "url": "https://apply.refline.ch/878019/0451/pub/10/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:15:25.115Z",
+      "crawledAt": "2026-11-08T21:21:18.963Z",
       "addressLocality": "Altishofen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -419,7 +419,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-08T09:15:25.115Z",
+      "validThrough": "2026-12-08T21:21:18.963Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -454,7 +454,7 @@
       "url": "https://apply.refline.ch/878019/0452/pub/7/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:15:24.735Z",
+      "crawledAt": "2026-11-08T21:21:18.063Z",
       "addressLocality": "Altishofen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -498,7 +498,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-08T09:15:24.735Z",
+      "validThrough": "2026-12-08T21:21:18.063Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -532,7 +532,7 @@
       "url": "https://apply.refline.ch/878019/0482/pub/1/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:15:24.356Z",
+      "crawledAt": "2026-11-08T21:21:17.689Z",
       "addressLocality": "Altishofen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -582,7 +582,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-02T09:15:24.356Z",
+      "validThrough": "2027-02-01T21:21:17.689Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -617,7 +617,7 @@
       "url": "https://apply.refline.ch/878019/0481/pub/1/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:15:23.976Z",
+      "crawledAt": "2026-11-08T21:21:17.315Z",
       "addressLocality": "Pfungen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -653,7 +653,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-02T09:15:23.976Z",
+      "validThrough": "2027-02-01T21:21:17.315Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -688,7 +688,7 @@
       "url": "https://apply.refline.ch/878019/0477/pub/1/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:15:23.597Z",
+      "crawledAt": "2026-11-08T21:21:16.938Z",
       "addressLocality": "Altishofen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -738,7 +738,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-01T09:15:23.597Z",
+      "validThrough": "2027-01-31T21:21:16.938Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -773,7 +773,7 @@
       "url": "https://apply.refline.ch/878019/0479/pub/1/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:15:23.216Z",
+      "crawledAt": "2026-11-08T21:21:16.562Z",
       "addressLocality": "Altishofen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -823,7 +823,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-01T09:15:23.216Z",
+      "validThrough": "2027-01-31T21:21:16.562Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -857,7 +857,7 @@
       "url": "https://apply.refline.ch/878019/0478/pub/1/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:15:22.837Z",
+      "crawledAt": "2026-11-08T21:21:16.186Z",
       "addressLocality": "Pfungen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -907,7 +907,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-01T09:15:22.837Z",
+      "validThrough": "2027-01-31T21:21:16.186Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -942,7 +942,7 @@
       "url": "https://apply.refline.ch/878019/0480/pub/1/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:15:22.457Z",
+      "crawledAt": "2026-11-08T21:21:15.811Z",
       "addressLocality": "Altishofen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -986,7 +986,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-01T09:15:22.457Z",
+      "validThrough": "2027-01-31T21:21:15.811Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1021,7 +1021,7 @@
       "url": "https://apply.refline.ch/878019/0476/pub/1/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:15:22.076Z",
+      "crawledAt": "2026-11-08T21:21:15.437Z",
       "addressLocality": "Altishofen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1071,7 +1071,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-30T09:15:22.076Z",
+      "validThrough": "2027-01-29T21:21:15.437Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1106,7 +1106,7 @@
       "url": "https://apply.refline.ch/878019/0471/pub/2/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:15:21.696Z",
+      "crawledAt": "2026-11-08T21:21:15.064Z",
       "addressLocality": "Altishofen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1154,7 +1154,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-04T09:15:21.696Z",
+      "validThrough": "2027-01-04T21:21:15.064Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1189,7 +1189,7 @@
       "url": "https://apply.refline.ch/878019/0475/pub/3/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:15:21.315Z",
+      "crawledAt": "2026-11-08T21:21:14.691Z",
       "addressLocality": "Altishofen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1243,7 +1243,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-13T09:15:21.315Z",
+      "validThrough": "2027-01-13T21:21:14.691Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1277,7 +1277,7 @@
       "url": "https://apply.refline.ch/878019/0454/pub/7/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:15:20.936Z",
+      "crawledAt": "2026-11-08T21:21:14.311Z",
       "addressLocality": "Altishofen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1326,7 +1326,6 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "rim-pittore-a-galliker-transport-ag-altishofen-5a3090",
           "vehicule-plus-pres-a-galliker-transport-ag-altishofen",
           "felgenlackierer-a-galliker-altishofen",
           "betriebselektriker-a-galliker-altishofen",
@@ -1345,7 +1344,8 @@
           "fahrzeugschlosser-a-galliker-altishofen",
           "installatore-di-veicoli-a-galliker-transport-ag-altishofen",
           "vehicle-closer-a-galliker-transport-ag-altishofen",
-          "elettricisti-commerciali-a-galliker-transport-ag-altishofen"
+          "elettricisti-commerciali-a-galliker-transport-ag-altishofen",
+          "rim-pittore-a-galliker-transport-ag-altishofen-5a3090"
         ],
         "en": [
           "felgenlackierer-a-galliker-transport-ag-altishofen",
@@ -1372,7 +1372,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-08T09:15:20.936Z",
+      "validThrough": "2026-12-08T21:21:14.311Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1407,7 +1407,7 @@
       "url": "https://apply.refline.ch/878019/0126/pub/34/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:15:20.556Z",
+      "crawledAt": "2026-11-08T21:21:13.935Z",
       "addressLocality": "Altishofen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1470,7 +1470,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-08T09:15:20.556Z",
+      "validThrough": "2026-12-08T21:21:13.935Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1505,7 +1505,7 @@
       "url": "https://apply.refline.ch/878019/0032/pub/29/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:15:20.175Z",
+      "crawledAt": "2026-11-08T21:21:13.561Z",
       "addressLocality": "Altishofen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1589,7 +1589,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-08T09:15:20.175Z",
+      "validThrough": "2026-12-08T21:21:13.561Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1624,7 +1624,7 @@
       "url": "https://apply.refline.ch/878019/0219/pub/21/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:15:19.796Z",
+      "crawledAt": "2026-11-08T21:21:13.185Z",
       "addressLocality": "Altishofen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1672,7 +1672,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-08T09:15:19.796Z",
+      "validThrough": "2026-12-08T21:21:13.185Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1707,7 +1707,7 @@
       "url": "https://apply.refline.ch/878019/0468/pub/4/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:15:19.414Z",
+      "crawledAt": "2026-11-08T21:21:12.810Z",
       "addressLocality": "Altishofen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1755,7 +1755,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-24T09:15:19.414Z",
+      "validThrough": "2026-12-23T21:21:12.810Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1790,7 +1790,7 @@
       "url": "https://apply.refline.ch/878019/0158/pub/12/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:15:18.072Z",
+      "crawledAt": "2026-11-08T21:21:12.436Z",
       "addressLocality": "Möhlin",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1836,7 +1836,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-08T09:15:18.072Z",
+      "validThrough": "2026-12-08T21:21:12.436Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1871,7 +1871,7 @@
       "url": "https://apply.refline.ch/878019/0125/pub/18/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:15:17.689Z",
+      "crawledAt": "2026-11-08T21:21:12.060Z",
       "addressLocality": "Landquart",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -1918,7 +1918,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-08T09:15:17.689Z",
+      "validThrough": "2026-12-08T21:21:12.060Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1952,7 +1952,7 @@
       "url": "https://apply.refline.ch/878019/0155/pub/2/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:15:17.309Z",
+      "crawledAt": "2026-11-08T21:21:11.687Z",
       "addressLocality": "Staad",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -2004,7 +2004,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-08T09:15:17.309Z",
+      "validThrough": "2026-12-08T21:21:11.687Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2038,7 +2038,7 @@
       "url": "https://apply.refline.ch/878019/0204/pub/8/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:15:16.928Z",
+      "crawledAt": "2026-11-08T21:21:11.315Z",
       "addressLocality": "Staad",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -2084,7 +2084,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-08T09:15:16.928Z",
+      "validThrough": "2026-12-08T21:21:11.315Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2118,7 +2118,7 @@
       "url": "https://apply.refline.ch/878019/0269/pub/1/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:15:16.550Z",
+      "crawledAt": "2026-11-08T21:21:10.932Z",
       "addressLocality": "Schachen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -2168,7 +2168,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-08T09:15:16.550Z",
+      "validThrough": "2026-12-08T21:21:10.932Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2203,7 +2203,7 @@
       "url": "https://apply.refline.ch/878019/0404/pub/1/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:15:16.171Z",
+      "crawledAt": "2026-11-08T21:21:10.558Z",
       "addressLocality": "Schachen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -2255,7 +2255,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-08T09:15:16.171Z",
+      "validThrough": "2026-12-08T21:21:10.558Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2290,7 +2290,7 @@
       "url": "https://apply.refline.ch/878019/0295/pub/12/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:15:15.791Z",
+      "crawledAt": "2026-11-08T21:21:10.181Z",
       "addressLocality": "Pfungen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2344,7 +2344,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-08T09:15:15.791Z",
+      "validThrough": "2026-12-08T21:21:10.181Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2379,7 +2379,7 @@
       "url": "https://apply.refline.ch/878019/0474/pub/1/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:15:15.404Z",
+      "crawledAt": "2026-11-08T21:21:09.802Z",
       "addressLocality": "Altishofen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -2415,7 +2415,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-13T09:15:15.404Z",
+      "validThrough": "2027-01-12T21:21:09.802Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2450,7 +2450,7 @@
       "url": "https://apply.refline.ch/878019/0472/pub/1/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:15:15.024Z",
+      "crawledAt": "2026-11-08T21:21:09.422Z",
       "addressLocality": "Altishofen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -2500,7 +2500,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-10T09:15:15.024Z",
+      "validThrough": "2027-01-10T21:21:09.422Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2534,7 +2534,7 @@
       "url": "https://apply.refline.ch/878019/0470/pub/1/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:15:14.645Z",
+      "crawledAt": "2026-11-08T21:21:08.971Z",
       "addressLocality": "Altishofen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -2578,7 +2578,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-30T09:15:14.645Z",
+      "validThrough": "2026-12-30T21:21:08.971Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2613,7 +2613,7 @@
       "url": "https://apply.refline.ch/878019/0178/pub/2/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:15:14.265Z",
+      "crawledAt": "2026-11-08T21:21:08.045Z",
       "addressLocality": "Pfungen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2659,7 +2659,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-08T09:15:14.265Z",
+      "validThrough": "2026-12-08T21:21:08.045Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2694,7 +2694,7 @@
       "url": "https://apply.refline.ch/878019/0466/pub/1/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:15:13.886Z",
+      "crawledAt": "2026-11-08T21:21:07.674Z",
       "addressLocality": "Altishofen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -2740,7 +2740,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-24T09:15:13.886Z",
+      "validThrough": "2026-12-23T21:21:07.674Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2775,7 +2775,7 @@
       "url": "https://apply.refline.ch/878019/0407/pub/8/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:15:13.508Z",
+      "crawledAt": "2026-11-08T21:21:07.300Z",
       "addressLocality": "Altishofen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -2835,7 +2835,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-08T09:15:13.508Z",
+      "validThrough": "2026-12-08T21:21:07.300Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2869,7 +2869,7 @@
       "url": "https://apply.refline.ch/878019/0264/pub/2/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:15:13.126Z",
+      "crawledAt": "2026-11-08T21:21:06.925Z",
       "addressLocality": "Schachen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -2932,7 +2932,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-08T09:15:13.126Z",
+      "validThrough": "2026-12-08T21:21:06.925Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2967,7 +2967,7 @@
       "url": "https://apply.refline.ch/878019/0409/pub/2/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:15:12.746Z",
+      "crawledAt": "2026-11-08T21:21:06.551Z",
       "addressLocality": "Schachen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -3011,7 +3011,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-08T09:15:12.746Z",
+      "validThrough": "2026-12-08T21:21:06.551Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3021,7 +3021,7 @@
         "it": "logisticista-a-galliker-transport-ag-altishofen",
         "en": "logistician-a-galliker-transport-ag-altishofen",
         "de": "logistiker-a-galliker-altishofen",
-        "fr": "logistique-a-galliker-transport-ag-altishofen"
+        "fr": "logisticien-a-galliker-transport-ag-altishofen"
       },
       "company": "Galliker Transport AG",
       "companyKey": "galliker",
@@ -3045,7 +3045,7 @@
       "url": "https://apply.refline.ch/878019/0056/pub/12/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:15:12.366Z",
+      "crawledAt": "2026-11-08T21:21:06.174Z",
       "addressLocality": "Altishofen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -3069,7 +3069,7 @@
       "previousSlugs": [
         "logistiker-a-galliker-transport-ag-altishofen",
         "logistiker-a-galliker-altishofen",
-        "logisticien-a-galliker-transport-ag-altishofen"
+        "logistique-a-galliker-transport-ag-altishofen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3081,7 +3081,7 @@
         ],
         "fr": [
           "logistiker-a-galliker-transport-ag-altishofen",
-          "logisticien-a-galliker-transport-ag-altishofen"
+          "logistique-a-galliker-transport-ag-altishofen"
         ]
       },
       "firstSeenAt": "2026-09-02T13:33:22.451Z",
@@ -3099,7 +3099,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-08T09:15:12.366Z",
+      "validThrough": "2026-12-08T21:21:06.174Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3133,7 +3133,7 @@
       "url": "https://apply.refline.ch/878019/0458/pub/1/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:15:11.984Z",
+      "crawledAt": "2026-11-08T21:21:05.797Z",
       "addressLocality": "Schachen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -3179,7 +3179,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-08T09:15:11.984Z",
+      "validThrough": "2026-12-08T21:21:05.797Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3214,7 +3214,7 @@
       "url": "https://apply.refline.ch/878019/0457/pub/1/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:15:11.604Z",
+      "crawledAt": "2026-11-08T21:21:05.423Z",
       "addressLocality": "Altishofen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -3258,7 +3258,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-08T09:15:11.604Z",
+      "validThrough": "2026-12-08T21:21:05.423Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3268,7 +3268,7 @@
         "it": "membro-del-personale-senior-healthcare-a-galliker-transport-ag-altishofen",
         "en": "senior-staff-member-healthcare-a-galliker-transport-ag-altishofen",
         "de": "leitstandmitarbeiter-healthcare-a-galliker-altishofen",
-        "fr": "soins-de-sante-a-galliker-transport-ag-altishofen"
+        "fr": "operateur-de-centre-de-controle-healthcare-a-galliker-transport-ag-altishofen"
       },
       "company": "Galliker Transport AG",
       "companyKey": "galliker",
@@ -3292,7 +3292,7 @@
       "url": "https://apply.refline.ch/878019/0456/pub/1/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:15:11.222Z",
+      "crawledAt": "2026-11-08T21:21:05.044Z",
       "addressLocality": "Altishofen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -3315,14 +3315,14 @@
       "externalId": "0456",
       "previousSlugs": [
         "leitstandmitarbeiter-healthcare-a-galliker-altishofen",
-        "operateur-de-centre-de-controle-healthcare-a-galliker-transport-ag-altishofen"
+        "soins-de-sante-a-galliker-transport-ag-altishofen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "leitstandmitarbeiter-healthcare-a-galliker-altishofen"
         ],
         "fr": [
-          "operateur-de-centre-de-controle-healthcare-a-galliker-transport-ag-altishofen"
+          "soins-de-sante-a-galliker-transport-ag-altishofen"
         ]
       },
       "firstSeenAt": "2026-08-27T19:49:13.906Z",
@@ -3340,7 +3340,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-08T09:15:11.222Z",
+      "validThrough": "2026-12-08T21:21:05.044Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3374,7 +3374,7 @@
       "url": "https://apply.refline.ch/878019/0231/pub/10/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:15:10.842Z",
+      "crawledAt": "2026-11-08T21:21:04.668Z",
       "addressLocality": "Altishofen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -3420,7 +3420,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-08T09:15:10.842Z",
+      "validThrough": "2026-12-08T21:21:04.668Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3455,7 +3455,7 @@
       "url": "https://apply.refline.ch/878019/0039/pub/55/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:15:10.461Z",
+      "crawledAt": "2026-11-08T21:21:04.292Z",
       "addressLocality": "Altishofen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -3499,7 +3499,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-08T09:15:10.461Z",
+      "validThrough": "2026-12-08T21:21:04.292Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3534,7 +3534,7 @@
       "url": "https://apply.refline.ch/878019/0042/pub/42/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:15:10.079Z",
+      "crawledAt": "2026-11-08T21:21:03.905Z",
       "addressLocality": "Altishofen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -3578,7 +3578,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-08T09:15:10.079Z",
+      "validThrough": "2026-12-08T21:21:03.905Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3613,7 +3613,7 @@
       "url": "https://apply.refline.ch/878019/0043/pub/38/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:15:09.699Z",
+      "crawledAt": "2026-11-08T21:21:03.528Z",
       "addressLocality": "Altishofen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -3657,7 +3657,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-08T09:15:09.699Z",
+      "validThrough": "2026-12-08T21:21:03.528Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3738,7 +3738,7 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-07T21:17:45.703Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "galliker-a8da124b8f00",
@@ -3818,7 +3818,7 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-07T21:17:45.333Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "galliker-7d1d163b1d60",
@@ -3902,7 +3902,7 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-07T21:17:44.591Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "galliker-ce9e19b5eb18",
@@ -3983,7 +3983,7 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-07T21:17:44.219Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "galliker-a1beffccad15",
@@ -4064,7 +4064,7 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-07T21:17:43.848Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "galliker-49fe36e9c9a6",
@@ -4146,7 +4146,7 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-07T21:17:43.109Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "galliker-12dbeae7f41f",
@@ -4228,7 +4228,7 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-07T21:17:42.738Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     }
   ]
 }

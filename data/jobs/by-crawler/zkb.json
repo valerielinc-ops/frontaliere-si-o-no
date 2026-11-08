@@ -1,7 +1,7 @@
 {
   "crawlerKey": "zkb",
-  "assembledAt": "2026-11-08T09:14:27.568Z",
-  "runId": "42465491629",
+  "assembledAt": "2026-11-08T21:20:58.432Z",
+  "runId": "42523180860",
   "jobs": [
     {
       "id": "zkb-1b4fe92e8009",
@@ -35,7 +35,7 @@
       "url": "https://apply.refline.ch/792841/11461/pub/1",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:14:20.596Z",
+      "crawledAt": "2026-11-08T21:20:51.394Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -88,7 +88,7 @@
       },
       "streetAddress": "Bahnhofstrasse 9",
       "streetAddressSource": "curated-company-city",
-      "validThrough": "2027-02-04T09:14:20.596Z",
+      "validThrough": "2027-02-03T21:20:51.394Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -122,7 +122,7 @@
       "url": "https://apply.refline.ch/792841/11462/pub/1",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:14:20.165Z",
+      "crawledAt": "2026-11-08T21:20:50.975Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -175,7 +175,7 @@
       },
       "streetAddress": "Bahnhofstrasse 9",
       "streetAddressSource": "curated-company-city",
-      "validThrough": "2027-02-04T09:14:20.165Z",
+      "validThrough": "2027-02-03T21:20:50.975Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -210,7 +210,7 @@
       "url": "https://apply.refline.ch/792841/11466/pub/1",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:14:19.732Z",
+      "crawledAt": "2026-11-08T21:20:50.557Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -260,7 +260,7 @@
       },
       "streetAddress": "Bahnhofstrasse 9",
       "streetAddressSource": "curated-company-city",
-      "validThrough": "2027-02-04T09:14:19.732Z",
+      "validThrough": "2027-02-03T21:20:50.557Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -295,7 +295,7 @@
       "url": "https://apply.refline.ch/792841/11465/pub/3",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:14:19.301Z",
+      "crawledAt": "2026-11-08T21:20:50.138Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -348,7 +348,7 @@
       },
       "streetAddress": "Bahnhofstrasse 9",
       "streetAddressSource": "curated-company-city",
-      "validThrough": "2027-02-04T09:14:19.301Z",
+      "validThrough": "2027-02-03T21:20:50.138Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -383,7 +383,7 @@
       "url": "https://apply.refline.ch/792841/11463/pub/1",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:14:18.868Z",
+      "crawledAt": "2026-11-08T21:20:49.721Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -430,7 +430,7 @@
       },
       "streetAddress": "Bahnhofstrasse 9",
       "streetAddressSource": "curated-company-city",
-      "validThrough": "2027-02-04T09:14:18.868Z",
+      "validThrough": "2027-02-03T21:20:49.721Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -465,7 +465,7 @@
       "url": "https://apply.refline.ch/792841/11460/pub/1",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:14:18.436Z",
+      "crawledAt": "2026-11-08T21:20:49.303Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -518,7 +518,7 @@
       },
       "streetAddress": "Bahnhofstrasse 9",
       "streetAddressSource": "curated-company-city",
-      "validThrough": "2027-02-04T09:14:18.436Z",
+      "validThrough": "2027-02-03T21:20:49.303Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -553,7 +553,7 @@
       "url": "https://apply.refline.ch/792841/11314/pub/3",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:14:18.007Z",
+      "crawledAt": "2026-11-08T21:20:48.887Z",
       "addressLocality": "Dübendorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -608,7 +608,7 @@
       },
       "streetAddress": "Dübendorf",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-08T09:14:18.007Z",
+      "validThrough": "2026-12-08T21:20:48.887Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -642,7 +642,7 @@
       "url": "https://apply.refline.ch/792841/11467/pub/1",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:14:17.570Z",
+      "crawledAt": "2026-11-08T21:20:48.469Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -692,7 +692,7 @@
       },
       "streetAddress": "Bahnhofstrasse 9",
       "streetAddressSource": "curated-company-city",
-      "validThrough": "2027-02-04T09:14:17.570Z",
+      "validThrough": "2027-02-04T21:20:48.469Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -727,7 +727,7 @@
       "url": "https://apply.refline.ch/792841/11350/pub/3",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:14:17.138Z",
+      "crawledAt": "2026-11-08T21:20:47.919Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -780,7 +780,7 @@
       },
       "streetAddress": "Bahnhofstrasse 9",
       "streetAddressSource": "curated-company-city",
-      "validThrough": "2026-12-10T09:14:17.138Z",
+      "validThrough": "2026-12-10T21:20:47.919Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -815,7 +815,7 @@
       "url": "https://apply.refline.ch/792841/11459/pub/1",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:14:16.707Z",
+      "crawledAt": "2026-11-08T21:20:47.502Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -868,7 +868,7 @@
       },
       "streetAddress": "Bahnhofstrasse 9",
       "streetAddressSource": "curated-company-city",
-      "validThrough": "2027-02-03T09:14:16.707Z",
+      "validThrough": "2027-02-03T21:20:47.502Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -903,7 +903,7 @@
       "url": "https://apply.refline.ch/792841/11410/pub/3",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:14:16.276Z",
+      "crawledAt": "2026-11-08T21:20:47.083Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -953,7 +953,7 @@
       },
       "streetAddress": "Bahnhofstrasse 9",
       "streetAddressSource": "curated-company-city",
-      "validThrough": "2027-01-01T09:14:16.276Z",
+      "validThrough": "2026-12-31T21:20:47.083Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -987,7 +987,7 @@
       "url": "https://apply.refline.ch/792841/11444/pub/3",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:14:15.844Z",
+      "crawledAt": "2026-11-08T21:20:46.665Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1043,7 +1043,7 @@
       },
       "streetAddress": "Bahnhofstrasse 9",
       "streetAddressSource": "curated-company-city",
-      "validThrough": "2027-01-21T09:14:15.844Z",
+      "validThrough": "2027-01-21T21:20:46.665Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1078,7 +1078,7 @@
       "url": "https://apply.refline.ch/792841/11413/pub/3",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:14:15.413Z",
+      "crawledAt": "2026-11-08T21:20:46.246Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1130,7 +1130,7 @@
       },
       "streetAddress": "Bahnhofstrasse 9",
       "streetAddressSource": "curated-company-city",
-      "validThrough": "2027-01-04T09:14:15.413Z",
+      "validThrough": "2027-01-03T21:20:46.246Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1165,7 +1165,7 @@
       "url": "https://apply.refline.ch/792841/11441/pub/3",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:14:14.970Z",
+      "crawledAt": "2026-11-08T21:20:45.827Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1235,7 +1235,7 @@
       },
       "streetAddress": "Bahnhofstrasse 9",
       "streetAddressSource": "curated-company-city",
-      "validThrough": "2027-01-19T09:14:14.970Z",
+      "validThrough": "2027-01-19T21:20:45.827Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1270,7 +1270,7 @@
       "url": "https://apply.refline.ch/792841/11427/pub/3",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:14:14.073Z",
+      "crawledAt": "2026-11-08T21:20:45.408Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1326,7 +1326,7 @@
       },
       "streetAddress": "Bahnhofstrasse 9",
       "streetAddressSource": "curated-company-city",
-      "validThrough": "2027-01-08T09:14:14.073Z",
+      "validThrough": "2027-01-07T21:20:45.408Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1361,7 +1361,7 @@
       "url": "https://apply.refline.ch/792841/11446/pub/1",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:14:13.641Z",
+      "crawledAt": "2026-11-08T21:20:43.972Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1408,7 +1408,7 @@
       },
       "streetAddress": "Bahnhofstrasse 9",
       "streetAddressSource": "curated-company-city",
-      "validThrough": "2027-01-21T09:14:13.641Z",
+      "validThrough": "2027-01-21T21:20:43.972Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1442,7 +1442,7 @@
       "url": "https://apply.refline.ch/792841/11443/pub/4",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:14:13.211Z",
+      "crawledAt": "2026-11-08T21:20:43.555Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1494,7 +1494,7 @@
       },
       "streetAddress": "Bahnhofstrasse 9",
       "streetAddressSource": "curated-company-city",
-      "validThrough": "2027-01-21T09:14:13.211Z",
+      "validThrough": "2027-01-20T21:20:43.555Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1528,7 +1528,7 @@
       "url": "https://apply.refline.ch/792841/11264/pub/5",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:14:12.780Z",
+      "crawledAt": "2026-11-08T21:20:43.134Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1583,7 +1583,7 @@
       },
       "streetAddress": "Bahnhofstrasse 9",
       "streetAddressSource": "curated-company-city",
-      "validThrough": "2026-12-08T09:14:12.780Z",
+      "validThrough": "2026-12-08T21:20:43.134Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1618,7 +1618,7 @@
       "url": "https://apply.refline.ch/792841/11445/pub/1",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:14:12.349Z",
+      "crawledAt": "2026-11-08T21:20:42.718Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1668,7 +1668,7 @@
       },
       "streetAddress": "Bahnhofstrasse 9",
       "streetAddressSource": "curated-company-city",
-      "validThrough": "2027-01-21T09:14:12.349Z",
+      "validThrough": "2027-01-21T21:20:42.718Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1702,7 +1702,7 @@
       "url": "https://apply.refline.ch/792841/11383/pub/3",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:14:11.920Z",
+      "crawledAt": "2026-11-08T21:20:42.299Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1754,7 +1754,7 @@
       },
       "streetAddress": "Bahnhofstrasse 9",
       "streetAddressSource": "curated-company-city",
-      "validThrough": "2026-12-24T09:14:11.920Z",
+      "validThrough": "2026-12-23T21:20:42.299Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1789,7 +1789,7 @@
       "url": "https://apply.refline.ch/792841/11440/pub/3",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:14:11.489Z",
+      "crawledAt": "2026-11-08T21:20:41.881Z",
       "addressLocality": "Küsnacht",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1844,7 +1844,7 @@
       },
       "streetAddress": "Küsnacht",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-18T09:14:11.489Z",
+      "validThrough": "2027-01-17T21:20:41.881Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1878,7 +1878,7 @@
       "url": "https://apply.refline.ch/792841/11416/pub/1",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:14:11.040Z",
+      "crawledAt": "2026-11-08T21:20:41.439Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1931,7 +1931,7 @@
       },
       "streetAddress": "Bahnhofstrasse 9",
       "streetAddressSource": "curated-company-city",
-      "validThrough": "2027-01-06T09:14:11.040Z",
+      "validThrough": "2027-01-05T21:20:41.439Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1966,7 +1966,7 @@
       "url": "https://apply.refline.ch/792841/11436/pub/1",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:14:10.608Z",
+      "crawledAt": "2026-11-08T21:20:41.019Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2016,7 +2016,7 @@
       },
       "streetAddress": "Bahnhofstrasse 9",
       "streetAddressSource": "curated-company-city",
-      "validThrough": "2027-01-14T09:14:10.608Z",
+      "validThrough": "2027-01-13T21:20:41.019Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2051,7 +2051,7 @@
       "url": "https://apply.refline.ch/792841/11421/pub/2",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:14:10.177Z",
+      "crawledAt": "2026-11-08T21:20:40.600Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2101,7 +2101,7 @@
       },
       "streetAddress": "Bahnhofstrasse 9",
       "streetAddressSource": "curated-company-city",
-      "validThrough": "2027-01-07T09:14:10.177Z",
+      "validThrough": "2027-01-06T21:20:40.600Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2135,7 +2135,7 @@
       "url": "https://apply.refline.ch/792841/11431/pub/2",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:14:09.740Z",
+      "crawledAt": "2026-11-08T21:20:40.183Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2185,7 +2185,7 @@
       },
       "streetAddress": "Bahnhofstrasse 9",
       "streetAddressSource": "curated-company-city",
-      "validThrough": "2027-01-11T09:14:09.740Z",
+      "validThrough": "2027-01-10T21:20:40.183Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2220,7 +2220,7 @@
       "url": "https://apply.refline.ch/792841/11423/pub/1",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:14:09.309Z",
+      "crawledAt": "2026-11-08T21:20:39.765Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2273,7 +2273,7 @@
       },
       "streetAddress": "Bahnhofstrasse 9",
       "streetAddressSource": "curated-company-city",
-      "validThrough": "2027-01-07T09:14:09.309Z",
+      "validThrough": "2027-01-07T21:20:39.765Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2308,7 +2308,7 @@
       "url": "https://apply.refline.ch/792841/11424/pub/1",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:14:08.876Z",
+      "crawledAt": "2026-11-08T21:20:39.346Z",
       "addressLocality": "Meilen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2363,7 +2363,7 @@
       },
       "streetAddress": "Meilen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-07T09:14:08.876Z",
+      "validThrough": "2027-01-07T21:20:39.346Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2398,7 +2398,7 @@
       "url": "https://apply.refline.ch/792841/11422/pub/1",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:14:08.429Z",
+      "crawledAt": "2026-11-08T21:20:38.894Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2448,7 +2448,7 @@
       },
       "streetAddress": "Bahnhofstrasse 9",
       "streetAddressSource": "curated-company-city",
-      "validThrough": "2027-01-07T09:14:08.429Z",
+      "validThrough": "2027-01-06T21:20:38.894Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2483,7 +2483,7 @@
       "url": "https://apply.refline.ch/792841/11418/pub/1",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:14:07.999Z",
+      "crawledAt": "2026-11-08T21:20:38.384Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2533,7 +2533,7 @@
       },
       "streetAddress": "Bahnhofstrasse 9",
       "streetAddressSource": "curated-company-city",
-      "validThrough": "2027-01-06T09:14:07.999Z",
+      "validThrough": "2027-01-06T21:20:38.384Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2568,7 +2568,7 @@
       "url": "https://apply.refline.ch/792841/11220/pub/7",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:14:07.568Z",
+      "crawledAt": "2026-11-08T21:20:37.963Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2618,7 +2618,7 @@
       },
       "streetAddress": "Bahnhofstrasse 9",
       "streetAddressSource": "curated-company-city",
-      "validThrough": "2026-12-08T09:14:07.568Z",
+      "validThrough": "2026-12-08T21:20:37.963Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2653,7 +2653,7 @@
       "url": "https://apply.refline.ch/792841/11406/pub/1",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:14:07.136Z",
+      "crawledAt": "2026-11-08T21:20:37.545Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2700,7 +2700,7 @@
       },
       "streetAddress": "Bahnhofstrasse 9",
       "streetAddressSource": "curated-company-city",
-      "validThrough": "2026-12-31T09:14:07.136Z",
+      "validThrough": "2026-12-31T21:20:37.545Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2735,7 +2735,7 @@
       "url": "https://apply.refline.ch/792841/10967/pub/7",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:14:06.705Z",
+      "crawledAt": "2026-11-08T21:20:37.125Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2795,7 +2795,7 @@
       },
       "streetAddress": "Bahnhofstrasse 9",
       "streetAddressSource": "curated-company-city",
-      "validThrough": "2026-12-08T09:14:06.705Z",
+      "validThrough": "2026-12-08T21:20:37.125Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2830,7 +2830,7 @@
       "url": "https://apply.refline.ch/792841/10968/pub/7",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:14:06.274Z",
+      "crawledAt": "2026-11-08T21:20:36.705Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2888,7 +2888,7 @@
       },
       "streetAddress": "Bahnhofstrasse 9",
       "streetAddressSource": "curated-company-city",
-      "validThrough": "2026-12-08T09:14:06.274Z",
+      "validThrough": "2026-12-08T21:20:36.705Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2923,7 +2923,7 @@
       "url": "https://apply.refline.ch/792841/11400/pub/1",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:14:05.841Z",
+      "crawledAt": "2026-11-08T21:20:36.286Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2978,7 +2978,7 @@
       },
       "streetAddress": "Bahnhofstrasse 9",
       "streetAddressSource": "curated-company-city",
-      "validThrough": "2026-12-30T09:14:05.841Z",
+      "validThrough": "2026-12-29T21:20:36.286Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3013,7 +3013,7 @@
       "url": "https://apply.refline.ch/792841/11394/pub/1",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:14:05.410Z",
+      "crawledAt": "2026-11-08T21:20:35.866Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3065,7 +3065,7 @@
       },
       "streetAddress": "Bahnhofstrasse 9",
       "streetAddressSource": "curated-company-city",
-      "validThrough": "2026-12-29T09:14:05.410Z",
+      "validThrough": "2026-12-29T21:20:35.866Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3099,7 +3099,7 @@
       "url": "https://apply.refline.ch/792841/11388/pub/1",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:14:04.966Z",
+      "crawledAt": "2026-11-08T21:20:35.443Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3151,7 +3151,7 @@
       },
       "streetAddress": "Bahnhofstrasse 9",
       "streetAddressSource": "curated-company-city",
-      "validThrough": "2026-12-27T09:14:04.966Z",
+      "validThrough": "2026-12-27T21:20:35.443Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3185,7 +3185,7 @@
       "url": "https://apply.refline.ch/792841/11392/pub/1",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:14:03.849Z",
+      "crawledAt": "2026-11-08T21:20:33.777Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3240,7 +3240,7 @@
       },
       "streetAddress": "Bahnhofstrasse 9",
       "streetAddressSource": "curated-company-city",
-      "validThrough": "2026-12-28T09:14:03.849Z",
+      "validThrough": "2026-12-27T21:20:33.777Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3275,7 +3275,7 @@
       "url": "https://apply.refline.ch/792841/11284/pub/5",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:14:03.418Z",
+      "crawledAt": "2026-11-08T21:20:33.008Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3324,7 +3324,7 @@
       },
       "streetAddress": "Bahnhofstrasse 9",
       "streetAddressSource": "curated-company-city",
-      "validThrough": "2026-12-08T09:14:03.418Z",
+      "validThrough": "2026-12-08T21:20:33.008Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3359,7 +3359,7 @@
       "url": "https://apply.refline.ch/792841/11381/pub/1",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:14:02.987Z",
+      "crawledAt": "2026-11-08T21:20:32.590Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3406,7 +3406,7 @@
       },
       "streetAddress": "Bahnhofstrasse 9",
       "streetAddressSource": "curated-company-city",
-      "validThrough": "2026-12-24T09:14:02.987Z",
+      "validThrough": "2026-12-23T21:20:32.590Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3441,7 +3441,7 @@
       "url": "https://apply.refline.ch/792841/11377/pub/1",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:14:02.558Z",
+      "crawledAt": "2026-11-08T21:20:32.171Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3493,7 +3493,7 @@
       },
       "streetAddress": "Bahnhofstrasse 9",
       "streetAddressSource": "curated-company-city",
-      "validThrough": "2026-12-22T09:14:02.558Z",
+      "validThrough": "2026-12-21T21:20:32.171Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3528,7 +3528,7 @@
       "url": "https://apply.refline.ch/792841/11001/pub/3",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:14:02.127Z",
+      "crawledAt": "2026-11-08T21:20:31.751Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3580,7 +3580,7 @@
       },
       "streetAddress": "Bahnhofstrasse 9",
       "streetAddressSource": "curated-company-city",
-      "validThrough": "2026-12-08T09:14:02.127Z",
+      "validThrough": "2026-12-08T21:20:31.751Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3615,7 +3615,7 @@
       "url": "https://apply.refline.ch/792841/11371/pub/1",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:14:01.695Z",
+      "crawledAt": "2026-11-08T21:20:31.331Z",
       "addressLocality": "Dielsdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3670,7 +3670,7 @@
       },
       "streetAddress": "Dielsdorf",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-17T09:14:01.695Z",
+      "validThrough": "2026-12-17T21:20:31.331Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3705,7 +3705,7 @@
       "url": "https://apply.refline.ch/792841/11359/pub/1",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:14:01.260Z",
+      "crawledAt": "2026-11-08T21:20:30.907Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3752,7 +3752,7 @@
       },
       "streetAddress": "Bahnhofstrasse 9",
       "streetAddressSource": "curated-company-city",
-      "validThrough": "2026-12-15T09:14:01.260Z",
+      "validThrough": "2026-12-15T21:20:30.907Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3787,7 +3787,7 @@
       "url": "https://apply.refline.ch/792841/11355/pub/1",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:14:00.824Z",
+      "crawledAt": "2026-11-08T21:20:30.485Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3836,7 +3836,7 @@
       },
       "streetAddress": "Bahnhofstrasse 9",
       "streetAddressSource": "curated-company-city",
-      "validThrough": "2026-12-15T09:14:00.824Z",
+      "validThrough": "2026-12-14T21:20:30.485Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3871,7 +3871,7 @@
       "url": "https://apply.refline.ch/792841/11185/pub/4",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:14:00.385Z",
+      "crawledAt": "2026-11-08T21:20:30.061Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3918,7 +3918,7 @@
       },
       "streetAddress": "Bahnhofstrasse 9",
       "streetAddressSource": "curated-company-city",
-      "validThrough": "2026-12-08T09:14:00.385Z",
+      "validThrough": "2026-12-08T21:20:30.061Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3953,7 +3953,7 @@
       "url": "https://apply.refline.ch/792841/11337/pub/1",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:13:59.950Z",
+      "crawledAt": "2026-11-08T21:20:29.642Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4012,7 +4012,7 @@
       },
       "streetAddress": "Bahnhofstrasse 9",
       "streetAddressSource": "curated-company-city",
-      "validThrough": "2026-12-08T09:13:59.950Z",
+      "validThrough": "2026-12-08T21:20:29.642Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4046,7 +4046,7 @@
       "url": "https://apply.refline.ch/792841/11330/pub/1",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:13:59.510Z",
+      "crawledAt": "2026-11-08T21:20:29.221Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4093,7 +4093,7 @@
       },
       "streetAddress": "Bahnhofstrasse 9",
       "streetAddressSource": "curated-company-city",
-      "validThrough": "2026-12-08T09:13:59.510Z",
+      "validThrough": "2026-12-08T21:20:29.221Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4128,7 +4128,7 @@
       "url": "https://apply.refline.ch/792841/11105/pub/3",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:13:59.075Z",
+      "crawledAt": "2026-11-08T21:20:28.798Z",
       "addressLocality": "Witikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4183,7 +4183,7 @@
       },
       "streetAddress": "Witikon",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-08T09:13:59.075Z",
+      "validThrough": "2026-12-08T21:20:28.798Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4218,7 +4218,7 @@
       "url": "https://apply.refline.ch/792841/11232/pub/1",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:13:58.640Z",
+      "crawledAt": "2026-11-08T21:20:28.372Z",
       "addressLocality": "Rüti",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4275,7 +4275,7 @@
       },
       "streetAddress": "Rüti",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-08T09:13:58.640Z",
+      "validThrough": "2026-12-08T21:20:28.372Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4310,7 +4310,7 @@
       "url": "https://apply.refline.ch/792841/10931/pub/3",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:13:58.160Z",
+      "crawledAt": "2026-11-08T21:20:27.902Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4365,7 +4365,7 @@
       },
       "streetAddress": "Bahnhofstrasse 9",
       "streetAddressSource": "curated-company-city",
-      "validThrough": "2026-12-08T09:13:58.160Z",
+      "validThrough": "2026-12-08T21:20:27.902Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4400,7 +4400,7 @@
       "url": "https://apply.refline.ch/792841/11149/pub/1",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:13:57.724Z",
+      "crawledAt": "2026-11-08T21:20:27.482Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4464,7 +4464,7 @@
       },
       "streetAddress": "Bahnhofstrasse 9",
       "streetAddressSource": "curated-company-city",
-      "validThrough": "2026-12-08T09:13:57.724Z",
+      "validThrough": "2026-12-08T21:20:27.482Z",
       "validThroughSource": "last-observed-window"
     }
   ]
