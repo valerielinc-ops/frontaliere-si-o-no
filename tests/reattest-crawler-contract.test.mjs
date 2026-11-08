@@ -120,6 +120,24 @@ test('workflow verifies current artifacts against the landed source revision', (
   assert.match(verifyStep, /verify-crawler-contract-provenance\.mjs \\\n\s+--contract "\$verification_contract"/u);
 });
 
+test('workflow verifies the reconciled contract before publishing it', () => {
+  const workflow = fs.readFileSync(WORKFLOW_PATH, 'utf8');
+  const openStep = workflow.slice(workflow.indexOf('      - name: Open or update the reattestation PR'));
+  const reattest = openStep.indexOf('reattest-crawler-contract.mjs');
+  const verify = openStep.indexOf('verify-crawler-contract-provenance.mjs');
+  const add = openStep.indexOf('git add -- "$CONTRACT_PATH"');
+  const push = openStep.indexOf('git push --set-upstream origin "$REATTEST_BRANCH"');
+
+  assert.match(
+    openStep,
+    /verify-crawler-contract-provenance\.mjs \\\n\s+--contract "\$CONTRACT_PATH" \\\n\s+--strict/u,
+  );
+  assert.ok(reattest >= 0, 'persistent branch must be reattested');
+  assert.ok(verify > reattest, 'persistent contract must be verified after reattestation');
+  assert.ok(add > verify, 'persistent contract must pass strict verification before git add');
+  assert.ok(push > verify, 'persistent contract must pass strict verification before push');
+});
+
 test('workflow configures commit identity before reconciling the persistent branch', () => {
   const workflow = fs.readFileSync(WORKFLOW_PATH, 'utf8');
   const openStep = workflow.slice(workflow.indexOf('      - name: Open or update the reattestation PR'));
