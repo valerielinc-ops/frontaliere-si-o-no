@@ -873,6 +873,7 @@ describe('deploy.yml — shard push mode and advisory delta verification', () =>
       );
       expect(run, `${name}: missing per-section start telemetry`).toContain('[section-push] event=start');
       expect(run, `${name}: missing explicit timeout telemetry`).toContain('event=timeout');
+      expect(run, `${name}: forced termination must be distinguishable from a timeout`).toContain('event=forced-termination');
       expect(run, `${name}: timeout must leave the existing publish fallback unchanged`).toMatch(
         /existing (?:apex and strip-marker|live\/ok-marker) fallback remains in effect/,
       );
