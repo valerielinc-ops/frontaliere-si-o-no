@@ -1,10 +1,10 @@
 /**
  * Profession landings (AE-3) — internal-links injector.
  *
- * After {@link professionLandingsPlugin} writes the 40 static profession
+ * After {@link professionLandingsPlugin} writes the static profession
  * landings into `dist/`, this plugin walks a handful of high-intent parent
- * pages and injects a single contextual block linking to the 10 IT (or
- * locale) profession landings so users + crawlers can discover them.
+ * pages and injects a single contextual block linking only to the full pages
+ * emitted in this build. Below-floor routes are bridges and are excluded.
  *
  * Idempotent: marker attribute `data-ae3-profession-links` prevents
  * duplicate injection on rebuild.
@@ -210,6 +210,21 @@ function renderBlock(target: InjectionTarget): string {
 }
 
 /**
+ * Keep the link injector at the same emission boundary as the page producer.
+ * A route can be syntactically canonical while still being a below-floor
+ * redirect bridge in this build, so the static route table alone is not a
+ * sufficient linkability check.
+ */
+export function emittedProfessionIdsForTarget(
+  locale: ProfessionLocale,
+  requestedIds: readonly ProfessionId[],
+  emittedPaths: readonly string[],
+): ProfessionId[] {
+  const emitted = new Set(emittedPaths);
+  return requestedIds.filter((id) => emitted.has(buildProfessionLandingPath(locale, id)));
+}
+
+/**
  * Pure injector — exported for unit tests.
  *
  * Inserts `block` immediately after the opening `<main …>` tag in `html`.
@@ -253,7 +268,7 @@ function patchFile(target: InjectionTarget): PatchResult {
   return { target, outcome };
 }
 
-function buildTargets(distDir: string): InjectionTarget[] {
+function buildTargets(distDir: string, emittedPaths: readonly string[]): InjectionTarget[] {
   const hubPaths: Record<ProfessionLocale, { index: string; flat: string }> = {
     it: {
       index: np.join(distDir, 'cerca-lavoro-ticino', 'index.html'), // cathedral-allow: TI hub injection target
@@ -302,7 +317,7 @@ function buildTargets(distDir: string): InjectionTarget[] {
     locale: loc,
     title: hubTitles[loc].title,
     intro: hubTitles[loc].intro,
-    professionIds: PROFESSION_IDS,
+    professionIds: emittedProfessionIdsForTarget(loc, PROFESSION_IDS, emittedPaths),
   }));
 
   // Pillar oss-svizzera: only healthcare/education cross-link.
@@ -314,7 +329,11 @@ function buildTargets(distDir: string): InjectionTarget[] {
     title: 'Landing correlate per professione',
     intro:
       'Approfondisci iter di riconoscimento MEBEKO/SRK, CCL EOC, stipendio medio e datori di lavoro per le figure sanitarie ed educative in Ticino.',
-    professionIds: ['infermiere', 'educatore'],
+    professionIds: emittedProfessionIdsForTarget(
+      'it',
+      ['infermiere', 'educatore'],
+      emittedPaths,
+    ),
   });
 
   return targets;
@@ -340,16 +359,18 @@ export function professionLandingsLinksPlugin(rootDir: string): Plugin {
       // buildProfessionLandingPath which reads PROFESSION_SLUGS internally.)
       void PROFESSION_SLUGS;
 
+      // Wait for both producers to flush before we read+patch. This replaces
+      // the previous `waitForStable(t.indexPath)` mtime poll, which was
+      // racing under heavy CI builds (5/5 → 0/5 silent regression).
+      const [emittedPaths] = await Promise.all([staticPagesFlushed, professionLandingsFlushed]);
+
       // Per-locale shard build (BUILD_LOCALE): only inject into targets whose
       // locale this shard actually emitted. Without this the injector hard-fails
       // on the other locales' pages that the write-gate legitimately skipped
       // (missing-file). No-op in the default all-locale build.
-      const targets = buildTargets(distDir).filter((t) => shouldEmitLocale(t.locale));
-
-      // Wait for both producers to flush before we read+patch. This replaces
-      // the previous `waitForStable(t.indexPath)` mtime poll, which was
-      // racing under heavy CI builds (5/5 → 0/5 silent regression).
-      await Promise.all([staticPagesFlushed, professionLandingsFlushed]);
+      const targets = buildTargets(distDir, emittedPaths).filter(
+        (t) => t.professionIds.length > 0 && shouldEmitLocale(t.locale),
+      );
 
       const results = targets.map((t) => patchFile(t));
 

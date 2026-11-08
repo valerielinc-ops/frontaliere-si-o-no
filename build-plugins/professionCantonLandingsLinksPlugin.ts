@@ -37,6 +37,7 @@ import {
   type ProfessionLocale,
 } from './professionLandingsData';
 import {
+  buildProfessionCantonPath,
   parseProfessionCantonPath,
 } from './professionCantonData';
 import { getCantonDisplayName, type CantonDisplayLocale } from './shared/cantonDisplay';
@@ -115,7 +116,10 @@ export function buildCantonLinkItems(
     const { locale, cantonKey, id } = parsed;
     const canton = getCantonDisplayName(cantonKey, locale as CantonDisplayLocale);
     const role = professionLabel(locale, id);
-    byLocale[locale].push({ href: path, label: `${role} · ${canton}` });
+    byLocale[locale].push({
+      href: buildProfessionCantonPath(locale, cantonKey, id),
+      label: `${role} · ${canton}`,
+    });
   }
   for (const loc of PROFESSION_LOCALES) {
     byLocale[loc].sort((a, b) => a.label.localeCompare(b.label));

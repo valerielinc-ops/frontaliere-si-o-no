@@ -67,7 +67,7 @@ function makeValueSignal<T>(): { promise: Promise<T>; resolve: (v: T) => void } 
 }
 
 const staticPagesSignal = makeSignal();
-const professionLandingsSignal = makeSignal();
+const professionLandingsSignal = makeValueSignal<readonly string[]>();
 const salaryHubSignal = makeSignal();
 const fuelDailyPagesSignal = makeSignal();
 const jobsSeoPagesSignal = makeSignal();
@@ -116,10 +116,15 @@ export function resolveStaticPagesFlushed(): void {
   staticPagesSignal.resolve();
 }
 
-/** Resolves when {@link professionLandingsPlugin} has finished writing the 40 landings. */
-export const professionLandingsFlushed: Promise<void> = professionLandingsSignal.promise;
-export function resolveProfessionLandingsFlushed(): void {
-  professionLandingsSignal.resolve();
+/**
+ * Resolves with the canonical paths {@link professionLandingsPlugin} actually
+ * wrote as full indexable pages. Below-floor routes are deliberately absent:
+ * they are emitted as redirect bridges and must never become internal link
+ * targets.
+ */
+export const professionLandingsFlushed: Promise<readonly string[]> = professionLandingsSignal.promise;
+export function resolveProfessionLandingsFlushed(paths: readonly string[]): void {
+  professionLandingsSignal.resolve(paths);
 }
 
 /**

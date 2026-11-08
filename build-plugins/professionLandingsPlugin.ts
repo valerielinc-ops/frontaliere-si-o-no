@@ -741,6 +741,8 @@ function patchSitemapIndex(distDir: string, dateStamp: string): void {
 
 export interface ProfessionLandingsEmitResult {
   pagesWritten: number;
+  /** Canonical paths written as full indexable pages; bridges are excluded. */
+  emittedPaths: string[];
   thinSkipped: number;
   /** Professions bridged to noindex because they are below the job floor. */
   bridgesWritten: number;
@@ -790,6 +792,7 @@ export async function emitProfessionLandingPages(opts: {
   const sitemapEntries: Array<{ canonical: string; alternates: string[] }> = [];
 
   let pagesWritten = 0;
+  const emittedPaths: string[] = [];
   let thinSkipped = 0;
   let bridgesWritten = 0;
   const professionsBelowFloor: string[] = [];
@@ -879,6 +882,7 @@ export async function emitProfessionLandingPages(opts: {
       const flatPath = np.join(distDir, rendered.urlPath.replace(/\/+$/, '') + '.html');
       collector.add(indexPath, rendered.html);
       collector.add(flatPath, rendered.html);
+      emittedPaths.push(rendered.urlPath);
 
       // Every locale gets its own reciprocal <loc> entry (all 4 carry the
       // same alternates set) — an IT-only push here would leave en/de/fr
@@ -927,6 +931,7 @@ export async function emitProfessionLandingPages(opts: {
 
   return {
     pagesWritten,
+    emittedPaths,
     thinSkipped,
     bridgesWritten,
     professionsBelowFloor,
@@ -955,9 +960,9 @@ export function professionLandingsPlugin(rootDir: string): Plugin {
       const distDir = np.resolve(rootDir, 'dist');
       if (!fs.existsSync(distDir)) return;
 
-      await emitProfessionLandingPages({ rootDir, distDir });
+      const result = await emitProfessionLandingPages({ rootDir, distDir });
 
-      resolveProfessionLandingsFlushed();
+      resolveProfessionLandingsFlushed(result.emittedPaths);
     },
   };
 }
