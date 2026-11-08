@@ -17,6 +17,7 @@ const THIN_PROMOTION_RUNTIME_SPARSE_PATHS = [
   '/scripts/fetch-thin-page-promotions.mjs',
   '/scripts/lib/',
   '/scripts/load-rc-env.mjs',
+  '/scripts/lib/remote-config-template-url.mjs',
 ];
 
 const THIN_PROMOTION_LEGACY_SPARSE_PATHS = [
