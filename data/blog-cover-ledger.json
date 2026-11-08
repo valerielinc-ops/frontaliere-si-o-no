@@ -15,10 +15,10 @@
       "2": 197,
       "3": 0,
       "4": 0,
-      "5": 1106,
+      "5": 1108,
       "6": 5061
     },
-    "publishedCovers": 7849,
+    "publishedCovers": 7851,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 1,
     "inheritedRecordsMaterialized": 197,
@@ -213164,6 +213164,39 @@
         "evidence": "generated-engine-record"
       }
     },
+    "article-consiglio-soletta-rifiuta-trasparenza": {
+      "cover": "/images/blog/article-consiglio-soletta-rifiuta-trasparenza.webp",
+      "hash": "610e53227d3b5d1335848ab3165b47df7e1bcb7d521e8dd66265dcd7d526d63d",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-so",
+          "id": "consiglio-soletta-rifiuta-trasparenza",
+          "category": "pratico",
+          "date": "2026-11-08T01:34:07.406Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-consiglio-soletta-rifiuta-trasparenza.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1794,
+      "verifiedAt": "2026-11-08",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-consiglio-soletta-rifiuta-trasparenza",
+        "imageUrl": "/images/blog/article-consiglio-soletta-rifiuta-trasparenza.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
     "article-consiglio-stato-approva-pratiche": {
       "cover": "/images/blog/article-consiglio-stato-approva-pratiche.webp",
       "hash": "6a32a8d858150be89dd2046a29121ae99481e6abce2c9b9cb09fdd1bc1d6654b",
@@ -215174,6 +215207,39 @@
         "provider": "openai-codex",
         "assetId": "article-schuebelbach-aliquote-2027",
         "imageUrl": "/images/blog/article-schuebelbach-aliquote-2027.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-sciaffusa-case-unifamiliari": {
+      "cover": "/images/blog/article-sciaffusa-case-unifamiliari.webp",
+      "hash": "4e820a15e101a30744270d58d42afd18b7f4a18e5f8686d6eac6129e7eee0321",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-sh",
+          "id": "sciaffusa-case-unifamiliari",
+          "category": "pratico",
+          "date": "2026-11-08T01:25:16.110Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-sciaffusa-case-unifamiliari.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1794,
+      "verifiedAt": "2026-11-08",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-sciaffusa-case-unifamiliari",
+        "imageUrl": "/images/blog/article-sciaffusa-case-unifamiliari.webp",
         "evidence": "generated-engine-record"
       }
     },
