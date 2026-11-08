@@ -142,7 +142,15 @@ export async function reconcilePortalCode({ db, version, apply = false, nowMs = 
           // A queued repair is already the one permitted dispatch. A later
           // source version must not erase its due time before the scheduler
           // consumes it; only an exhausted, unqueued marker is retired here.
-          if (apply && !portalExhaustedRecoveryPending(flow)) {
+          if (apply && portalExhaustedRecoveryPending(flow)) {
+            const queuedDueAt = Number(flow.portalAutoRetryAt) || 0;
+            // A legacy scheduler may have cleared only the parent due time
+            // while rejecting the exhausted marker. Restore that trigger from
+            // the still-pending flow, without minting a second repair.
+            if (queuedDueAt > 0 && !(Number(order?.automationDueAt) > 0)) {
+              transaction.set(doc.ref, { automationDueAt: queuedDueAt, automationUpdatedAt: new Date(nowMs) }, { merge: true });
+            }
+          } else if (apply) {
             transaction.set(flowRef, { portalRecoveryVersion: version, portalAutoRetryAt: null, updatedAt: nowMs }, { merge: true });
             transaction.set(doc.ref, { automationDueAt: null, automationUpdatedAt: new Date(nowMs) }, { merge: true });
           }
