@@ -5,11 +5,11 @@
   "jobs": [
     {
       "id": "richnerstutz-ch-6bc36da98d81",
-      "slug": "monteur-in-5612-villmergen-richnerstutz-ch-ch",
+      "slug": "montatore-trice-richnerstutz-ag-5612-villmergen",
       "slugByLocale": {
         "de": "monteur-in-richnerstutz-ag-villmergen",
-        "it": "monteur-in-5612-villmergen-richnerstutz-ch-ch",
-        "en": "monteur-in-5612-villmergen-richnerstutz-ch-ch",
+        "it": "montatore-trice-richnerstutz-ag-5612-villmergen",
+        "en": "fitter-richnerstutz-ag-5612-villmergen",
         "fr": "monteur-in-5612-villmergen-richnerstutz-ch-ch"
       },
       "company": "Richnerstutz AG",
@@ -73,16 +73,27 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-06T09:38:33.684Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-08T09:38:33.684Z"
+      "firstSeenAt": "2026-11-08T09:38:33.684Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "monteur-in-5612-villmergen-richnerstutz-ch-ch"
+        ],
+        "en": [
+          "monteur-in-5612-villmergen-richnerstutz-ch-ch"
+        ]
+      },
+      "previousSlugs": [
+        "monteur-in-5612-villmergen-richnerstutz-ch-ch"
+      ]
     },
     {
       "id": "richnerstutz-ch-863f9c69d469",
-      "slug": "fachplaner-in-raumgestaltung-5612-villmergen-richnerstutz-ch-ch",
+      "slug": "progettista-specializzato-in-interior-design-richnerstutz-ag-5612-villmergen",
       "slugByLocale": {
         "de": "fachplaner-in-raumgestaltung-5612-villmergen-richnerstutz-ch-ch",
-        "it": "fachplaner-in-raumgestaltung-5612-villmergen-richnerstutz-ch-ch",
-        "en": "fachplaner-in-raumgestaltung-5612-villmergen-richnerstutz-ch-ch",
-        "fr": "fachplaner-in-raumgestaltung-5612-villmergen-richnerstutz-ch-ch"
+        "it": "progettista-specializzato-in-interior-design-richnerstutz-ag-5612-villmergen",
+        "en": "specialist-planner-for-interior-design-richnerstutz-ag-5612-villmergen",
+        "fr": "planificateur-specialise-dans-l-amenagement-de-l-espace-richnerstutz-ag-5612-villmergen"
       },
       "company": "Richnerstutz AG",
       "companyKey": "richnerstutz-ch",
@@ -145,16 +156,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-06T09:38:33.683Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-08T09:38:33.683Z"
+      "firstSeenAt": "2026-11-08T09:38:33.683Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachplaner-in-raumgestaltung-5612-villmergen-richnerstutz-ch-ch"
+        ],
+        "en": [
+          "fachplaner-in-raumgestaltung-5612-villmergen-richnerstutz-ch-ch"
+        ],
+        "fr": [
+          "fachplaner-in-raumgestaltung-5612-villmergen-richnerstutz-ch-ch"
+        ]
+      },
+      "previousSlugs": [
+        "fachplaner-in-raumgestaltung-5612-villmergen-richnerstutz-ch-ch"
+      ]
     },
     {
       "id": "richnerstutz-ch-cc76593df391",
-      "slug": "projektleiter-in-werbetechnik-richnerstutz-ag-villmergen",
+      "slug": "responsabile-di-progetto-in-tecnica-pubblicitaria-richnerstutz-ag-5612-villmergen",
       "slugByLocale": {
         "de": "projektleiter-in-werbetechnik-5612-villmergen-richnerstutz-ch-ch",
-        "it": "projektleiter-in-werbetechnik-richnerstutz-ag-villmergen",
-        "en": "projektleiter-in-werbetechnik-5612-villmergen-richnerstutz-ch-ch",
-        "fr": "projektleiter-in-werbetechnik-5612-villmergen-richnerstutz-ch-ch"
+        "it": "responsabile-di-progetto-in-tecnica-pubblicitaria-richnerstutz-ag-5612-villmergen",
+        "en": "project-manager-advertising-technology-richnerstutz-ag-5612-villmergen",
+        "fr": "chef-fe-de-projet-technique-publicitaire-richnerstutz-ag-5612-villmergen"
       },
       "company": "Richnerstutz AG",
       "companyKey": "richnerstutz-ch",
@@ -202,11 +227,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "projektleiter-in-werbetechnik-5612-villmergen-richnerstutz-ch-ch",
+          "projektleiter-in-werbetechnik-richnerstutz-ag-villmergen"
+        ],
+        "en": [
+          "projektleiter-in-werbetechnik-5612-villmergen-richnerstutz-ch-ch"
+        ],
+        "fr": [
           "projektleiter-in-werbetechnik-5612-villmergen-richnerstutz-ch-ch"
         ]
       },
       "previousSlugs": [
-        "projektleiter-in-werbetechnik-5612-villmergen-richnerstutz-ch-ch"
+        "projektleiter-in-werbetechnik-5612-villmergen-richnerstutz-ch-ch",
+        "projektleiter-in-werbetechnik-richnerstutz-ag-villmergen"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -229,12 +262,12 @@
     },
     {
       "id": "richnerstutz-ch-ec336351d869",
-      "slug": "collaboratore-trice-in-produktionsplanung-verkaufsinnendienst-richnerstutz-ag-villmergen",
+      "slug": "collaboratore-tricein-pianificazione-della-produzione-servizio-vendite-interno-richnerstutz-ag-5612-villmergen",
       "slugByLocale": {
         "de": "mitarbeiter-in-produktionsplanung-verkaufsinnendienst-5612-villmergen-richnerstutz-ch-ch",
-        "it": "collaboratore-trice-in-produktionsplanung-verkaufsinnendienst-richnerstutz-ag-villmergen",
-        "en": "mitarbeiter-in-produktionsplanung-verkaufsinnendienst-5612-villmergen-richnerstutz-ch-ch",
-        "fr": "mitarbeiter-in-produktionsplanung-verkaufsinnendienst-5612-villmergen-richnerstutz-ch-ch"
+        "it": "collaboratore-tricein-pianificazione-della-produzione-servizio-vendite-interno-richnerstutz-ag-5612-villmergen",
+        "en": "production-planning-inside-sales-associate-richnerstutz-ag-5612-villmergen",
+        "fr": "employe-e-dans-la-planification-de-la-production-service-interne-des-ventes-richnerstutz-ag-5612-villmergen"
       },
       "company": "Richnerstutz AG",
       "companyKey": "richnerstutz-ch",
@@ -282,11 +315,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-in-produktionsplanung-verkaufsinnendienst-5612-villmergen-richnerstutz-ch-ch",
+          "collaboratore-trice-in-produktionsplanung-verkaufsinnendienst-richnerstutz-ag-villmergen"
+        ],
+        "en": [
+          "mitarbeiter-in-produktionsplanung-verkaufsinnendienst-5612-villmergen-richnerstutz-ch-ch"
+        ],
+        "fr": [
           "mitarbeiter-in-produktionsplanung-verkaufsinnendienst-5612-villmergen-richnerstutz-ch-ch"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-produktionsplanung-verkaufsinnendienst-5612-villmergen-richnerstutz-ch-ch"
+        "mitarbeiter-in-produktionsplanung-verkaufsinnendienst-5612-villmergen-richnerstutz-ch-ch",
+        "collaboratore-trice-in-produktionsplanung-verkaufsinnendienst-richnerstutz-ag-villmergen"
       ],
       "salaryMin": 74000,
       "salaryMax": 113500,

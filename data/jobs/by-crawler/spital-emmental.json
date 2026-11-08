@@ -5,12 +5,12 @@
   "jobs": [
     {
       "id": "spital-emmental-ec1a03a53bde",
-      "slug": "dipl-pflegefachperson-mit-option-fachverantwortung-pflege-a-spital-emmental-langnau",
+      "slug": "infermiere-dipl-con-opzione-responsabilita-infermieristica-a-spital-emmental-langnau",
       "slugByLocale": {
         "de": "dipl-pflegefachperson-mit-option-fachverantwortung-pflege-a-spital-emmental-langnau",
-        "it": "dipl-pflegefachperson-mit-option-fachverantwortung-pflege-a-spital-emmental-langnau",
-        "en": "dipl-pflegefachperson-mit-option-fachverantwortung-pflege-a-spital-emmental-langnau",
-        "fr": "dipl-pflegefachperson-mit-option-fachverantwortung-pflege-a-spital-emmental-langnau"
+        "it": "infermiere-dipl-con-opzione-responsabilita-infermieristica-a-spital-emmental-langnau",
+        "en": "dipl-nurse-with-option-professional-responsibility-nursing-a-spital-emmental-langnau",
+        "fr": "oui-infirmiere-avec-option-responsabilite-professionnelle-infirmiere-a-spital-emmental-langnau"
       },
       "company": "Spital Emmental",
       "companyKey": "spital-emmental",
@@ -79,7 +79,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-09T09:14:47.470Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-09-09T13:44:48.932Z"
+      "firstSeenAt": "2026-09-09T13:44:48.932Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachperson-mit-option-fachverantwortung-pflege-a-spital-emmental-langnau"
+        ],
+        "en": [
+          "dipl-pflegefachperson-mit-option-fachverantwortung-pflege-a-spital-emmental-langnau"
+        ],
+        "fr": [
+          "dipl-pflegefachperson-mit-option-fachverantwortung-pflege-a-spital-emmental-langnau"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachperson-mit-option-fachverantwortung-pflege-a-spital-emmental-langnau"
+      ]
     },
     {
       "id": "spital-emmental-a9363638244c",

@@ -760,7 +760,7 @@
         "de": "buffet-office-mitarbeiter-in-30-zfv-unternehmungen-bern",
         "it": "buffet-office-collaboratore-trice-30-zfv-unternehmungen-bern",
         "en": "buffet-office-mitarbeiter-in-30-zfv-unternehmungen-bern",
-        "fr": "buffet-office-mitarbeiter-in-30-zfv-unternehmungen-bern"
+        "fr": "buffet-office-collaborateur-trice-30-zfv-unternehmungen-bern"
       },
       "company": "ZFV-Unternehmungen",
       "companyKey": "zfv-unternehmungen",
@@ -808,6 +808,9 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "buffet-office-mitarbeiter-in-30-zfv-unternehmungen-bern"
+        ],
+        "fr": [
           "buffet-office-mitarbeiter-in-30-zfv-unternehmungen-bern"
         ]
       },
@@ -2502,12 +2505,12 @@
     },
     {
       "id": "zfv-unternehmungen-6ceb4ff6f5a1",
-      "slug": "kochin-koch-zfv-unternehmungen-dubendorf",
+      "slug": "cucinare-cucinare-zfv-unternehmungen-dubendorf",
       "slugByLocale": {
         "de": "kochin-koch-zfv-unternehmungen-dubendorf",
-        "it": "kochin-koch-zfv-unternehmungen-dubendorf",
-        "en": "kochin-koch-zfv-unternehmungen-dubendorf",
-        "fr": "kochin-koch-zfv-unternehmungen-dubendorf"
+        "it": "cucinare-cucinare-zfv-unternehmungen-dubendorf",
+        "en": "cook-cook-zfv-unternehmungen-dubendorf",
+        "fr": "cuire-cuire-zfv-unternehmungen-dubendorf"
       },
       "company": "ZFV-Unternehmungen",
       "companyKey": "zfv-unternehmungen",
@@ -2569,7 +2572,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-06T09:24:18.007Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-08T09:24:18.007Z"
+      "firstSeenAt": "2026-11-08T09:24:18.007Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "kochin-koch-zfv-unternehmungen-dubendorf"
+        ],
+        "en": [
+          "kochin-koch-zfv-unternehmungen-dubendorf"
+        ],
+        "fr": [
+          "kochin-koch-zfv-unternehmungen-dubendorf"
+        ]
+      },
+      "previousSlugs": [
+        "kochin-koch-zfv-unternehmungen-dubendorf"
+      ]
     },
     {
       "id": "zfv-unternehmungen-a38496f3ef52",
@@ -2657,10 +2674,10 @@
       "id": "zfv-unternehmungen-4f619d70341d",
       "slug": "cuoca-cuoco-zfv-unternehmungen-baden",
       "slugByLocale": {
-        "it": "cuoca-cuoco-zfv-unternehmungen-baden",
+        "it": "cucinare-cucinare-zfv-unternehmungen-baden",
         "en": "cook-cook-zfv-unternehmungen-baden",
         "de": "kochin-koch-zfv-unternehmungen-baden",
-        "fr": "cuisiniere-cuisinier-zfv-unternehmungen-baden"
+        "fr": "cuire-cuire-zfv-unternehmungen-baden"
       },
       "company": "ZFV-Unternehmungen",
       "companyKey": "zfv-unternehmungen",
@@ -2706,20 +2723,18 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "kochin-koch-zfv-unternehmungen-baden",
-        "cucinare-cucinare-zfv-unternehmungen-baden",
-        "cuire-cuire-zfv-unternehmungen-baden"
+        "cuisiniere-cuisinier-zfv-unternehmungen-baden"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "kochin-koch-zfv-unternehmungen-baden",
-          "cucinare-cucinare-zfv-unternehmungen-baden"
+          "kochin-koch-zfv-unternehmungen-baden"
         ],
         "en": [
           "kochin-koch-zfv-unternehmungen-baden"
         ],
         "fr": [
           "kochin-koch-zfv-unternehmungen-baden",
-          "cuire-cuire-zfv-unternehmungen-baden"
+          "cuisiniere-cuisinier-zfv-unternehmungen-baden"
         ]
       },
       "firstSeenAt": "2026-09-22T00:05:09.436Z",
@@ -4795,8 +4810,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-in-hauswirtschaft-50-zfv-unternehmungen-bad-ragaz",
         "it": "collaboratore-trice-hauswirtschaft-50-zfv-unternehmungen-bad-ragaz",
-        "en": "mitarbeiter-in-hauswirtschaft-50-zfv-unternehmungen-bad-ragaz",
-        "fr": "mitarbeiter-in-hauswirtschaft-50-zfv-unternehmungen-bad-ragaz"
+        "en": "housekeeping-employee-50-zfv-unternehmungen-bad-ragaz",
+        "fr": "employe-en-intendance-50-zfv-unternehmungen-bad-ragaz"
       },
       "company": "ZFV-Unternehmungen",
       "companyKey": "zfv-unternehmungen",
@@ -4844,6 +4859,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-in-hauswirtschaft-50-zfv-unternehmungen-bad-ragaz"
+        ],
+        "en": [
+          "mitarbeiter-in-hauswirtschaft-50-zfv-unternehmungen-bad-ragaz"
+        ],
+        "fr": [
           "mitarbeiter-in-hauswirtschaft-50-zfv-unternehmungen-bad-ragaz"
         ]
       },
@@ -5236,8 +5257,8 @@
       "slugByLocale": {
         "de": "office-mitarbeiter-in-30-40-zfv-unternehmungen-zurich",
         "it": "office-collaboratore-trice-30-40-zfv-unternehmungen-zurich",
-        "en": "office-mitarbeiter-in-30-40-zfv-unternehmungen-zurich",
-        "fr": "office-mitarbeiter-in-30-40-zfv-unternehmungen-zurich"
+        "en": "office-associate-30-40-zfv-unternehmungen-zurich",
+        "fr": "office-collaborateur-trice-30-40-zfv-unternehmungen-zurich"
       },
       "company": "ZFV-Unternehmungen",
       "companyKey": "zfv-unternehmungen",
@@ -5285,6 +5306,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "office-mitarbeiter-in-30-40-zfv-unternehmungen-zurich"
+        ],
+        "en": [
+          "office-mitarbeiter-in-30-40-zfv-unternehmungen-zurich"
+        ],
+        "fr": [
           "office-mitarbeiter-in-30-40-zfv-unternehmungen-zurich"
         ]
       },
@@ -5397,8 +5424,8 @@
       "slugByLocale": {
         "de": "office-mitarbeiter-in-50-zfv-unternehmungen-dubendorf",
         "it": "office-collaboratore-trice-50-zfv-unternehmungen-dubendorf",
-        "en": "office-mitarbeiter-in-50-zfv-unternehmungen-dubendorf",
-        "fr": "office-mitarbeiter-in-50-zfv-unternehmungen-dubendorf"
+        "en": "office-associate-50-zfv-unternehmungen-dubendorf",
+        "fr": "office-collaborateur-trice-50-zfv-unternehmungen-dubendorf"
       },
       "company": "ZFV-Unternehmungen",
       "companyKey": "zfv-unternehmungen",
@@ -5446,6 +5473,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "office-mitarbeiter-in-50-zfv-unternehmungen-dubendorf"
+        ],
+        "en": [
+          "office-mitarbeiter-in-50-zfv-unternehmungen-dubendorf"
+        ],
+        "fr": [
           "office-mitarbeiter-in-50-zfv-unternehmungen-dubendorf"
         ]
       },
@@ -5874,7 +5907,7 @@
       "id": "zfv-unternehmungen-7e4f10d29cce",
       "slug": "service-collaboratore-trice-20-zfv-unternehmungen-bern",
       "slugByLocale": {
-        "it": "service-collaboratore-trice-20-zfv-unternehmungen-bern",
+        "it": "personale-di-servizio-in-20-zfv-unternehmungen-bern-72427b",
         "en": "service-associate-20-zfv-unternehmungen-bern",
         "de": "service-mitarbeiter-in-20-zfv-unternehmungen-bern",
         "fr": "service-collaborateur-trice-20-zfv-unternehmungen-bern"
@@ -5926,14 +5959,12 @@
         "personnel-des-services-en-20-zfv-unternehmungen-bern",
         "service-mitarbeiter-in-20-zfv-unternehmungen-bern",
         "service-staff-in-20-zfv-unternehmungen-bern-72427b",
-        "personnel-des-services-en-20-zfv-unternehmungen-bern-72427b",
-        "personale-di-servizio-in-20-zfv-unternehmungen-bern-72427b"
+        "personnel-des-services-en-20-zfv-unternehmungen-bern-72427b"
       ],
       "previousSlugsByLocale": {
         "it": [
           "personale-di-servizio-in-20-zfv-unternehmungen-bern",
-          "service-mitarbeiter-in-20-zfv-unternehmungen-bern",
-          "personale-di-servizio-in-20-zfv-unternehmungen-bern-72427b"
+          "service-mitarbeiter-in-20-zfv-unternehmungen-bern"
         ],
         "en": [
           "service-staff-in-20-zfv-unternehmungen-bern",
@@ -5966,12 +5997,12 @@
     },
     {
       "id": "zfv-unternehmungen-5db2e1ca5d1f",
-      "slug": "service-collaboratore-trice-aushilfe-zfv-unternehmungen-bern",
+      "slug": "personale-di-servizio-ausiliario-zfv-unternehmungen-bern",
       "slugByLocale": {
         "de": "service-mitarbeiter-in-aushilfe-zfv-unternehmungen-bern",
-        "it": "service-collaboratore-trice-aushilfe-zfv-unternehmungen-bern",
-        "en": "service-mitarbeiter-in-aushilfe-zfv-unternehmungen-bern",
-        "fr": "service-mitarbeiter-in-aushilfe-zfv-unternehmungen-bern"
+        "it": "personale-di-servizio-ausiliario-zfv-unternehmungen-bern",
+        "en": "service-representative-temporary-zfv-unternehmungen-bern",
+        "fr": "employe-e-de-service-auxiliaire-zfv-unternehmungen-bern"
       },
       "company": "ZFV-Unternehmungen",
       "companyKey": "zfv-unternehmungen",
@@ -6019,11 +6050,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "service-mitarbeiter-in-aushilfe-zfv-unternehmungen-bern",
+          "service-collaboratore-trice-aushilfe-zfv-unternehmungen-bern"
+        ],
+        "en": [
+          "service-mitarbeiter-in-aushilfe-zfv-unternehmungen-bern"
+        ],
+        "fr": [
           "service-mitarbeiter-in-aushilfe-zfv-unternehmungen-bern"
         ]
       },
       "previousSlugs": [
-        "service-mitarbeiter-in-aushilfe-zfv-unternehmungen-bern"
+        "service-mitarbeiter-in-aushilfe-zfv-unternehmungen-bern",
+        "service-collaboratore-trice-aushilfe-zfv-unternehmungen-bern"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -6045,12 +6084,12 @@
     },
     {
       "id": "zfv-unternehmungen-42823989f480",
-      "slug": "service-collaboratore-trice-aushilfe-zfv-unternehmungen-zurich",
+      "slug": "personale-di-servizio-ausiliario-zfv-unternehmungen-zurich",
       "slugByLocale": {
         "de": "service-mitarbeiter-in-aushilfe-zfv-unternehmungen-zurich",
-        "it": "service-collaboratore-trice-aushilfe-zfv-unternehmungen-zurich",
-        "en": "service-mitarbeiter-in-aushilfe-zfv-unternehmungen-zurich",
-        "fr": "service-mitarbeiter-in-aushilfe-zfv-unternehmungen-zurich"
+        "it": "personale-di-servizio-ausiliario-zfv-unternehmungen-zurich",
+        "en": "service-representative-temporary-zfv-unternehmungen-zurich",
+        "fr": "employe-e-de-service-auxiliaire-zfv-unternehmungen-zurich"
       },
       "company": "ZFV-Unternehmungen",
       "companyKey": "zfv-unternehmungen",
@@ -6110,7 +6149,8 @@
         "personale-di-servizio-assistante-zfv-unternehmungen-zurich",
         "service-staff-assistant-zfv-unternehmungen-zurich",
         "personnel-des-services-assistant-zfv-unternehmungen-zurich",
-        "service-mitarbeiter-in-aushilfe-zfv-unternehmungen-zurich"
+        "service-mitarbeiter-in-aushilfe-zfv-unternehmungen-zurich",
+        "service-collaboratore-trice-aushilfe-zfv-unternehmungen-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -6124,10 +6164,12 @@
           "service-mitarbeiter-in-vip-aushilfe-zfv-unternehmungen-zurich",
           "service-collaborateur-trice-vip-aushilfe-zfv-unternehmungen-zurich",
           "personale-di-servizio-assistante-zfv-unternehmungen-zurich",
-          "service-mitarbeiter-in-aushilfe-zfv-unternehmungen-zurich"
+          "service-mitarbeiter-in-aushilfe-zfv-unternehmungen-zurich",
+          "service-collaboratore-trice-aushilfe-zfv-unternehmungen-zurich"
         ],
         "en": [
-          "service-staff-assistant-zfv-unternehmungen-zurich"
+          "service-staff-assistant-zfv-unternehmungen-zurich",
+          "service-mitarbeiter-in-aushilfe-zfv-unternehmungen-zurich"
         ],
         "de": [
           "bar-mitarbeiter-in-studentische-aushilfe-zfv-unternehmungen-zurich",
@@ -6139,7 +6181,8 @@
           "service-collaborateur-trice-aushilfe-zfv-unternehmungen-winterthur",
           "service-collaborateur-trice-vip-aushilfe-zfv-unternehmungen-zurich",
           "service-collaborateur-trice-aushilfe-zfv-unternehmungen-zurich",
-          "personnel-des-services-assistant-zfv-unternehmungen-zurich"
+          "personnel-des-services-assistant-zfv-unternehmungen-zurich",
+          "service-mitarbeiter-in-aushilfe-zfv-unternehmungen-zurich"
         ]
       },
       "salaryMin": 73500,
