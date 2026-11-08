@@ -81,7 +81,7 @@ export default function SaluteSection() {
     return () => { window.clearTimeout(timer); window.removeEventListener('popstate', onPopState); };
   }, [user]);
 
-  const latestUpdate = health?.indicators.map((indicator) => indicator.updatedAt).filter(Boolean).sort().at(-1) || null;
+  const latestUpdate = health?.indicators.map((indicator) => indicator.updatedAt).filter(Boolean).sort().pop() || null;
   const focusClass = (id: string) => focus === id ? 'ring-2 ring-accent ring-offset-2' : '';
   const deployLinks = health?.deploys.filter((deploy) => deploy.url) || [];
   const quickCommands = [

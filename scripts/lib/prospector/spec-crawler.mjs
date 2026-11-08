@@ -50,6 +50,7 @@ import {
   umantisVacancyIdentity,
 } from './umantis-detail.mjs';
 import { extractRuntimeDetailFields, listingEvidenceFields, runtimeDetailFallbackUrl } from './detail-extract.mjs';
+import { markAuthoritativeEmptySnapshot } from '../authoritative-empty-snapshot.mjs';
 import { platformListingExtractorFor } from './platform-extractors.mjs';
 import {
   rawDetailTitleEvidence,
@@ -233,6 +234,7 @@ const SPEC_FETCH_METADATA_KEYS = [
   'expectedFilterCount',
   'expectedFilters',
   'authoritativeEmptyState',
+  'authoritativeEmptyEvidence',
   'observedDetailsByUrl',
   'titleEvidenceByUrl',
   'freeTextApplications',
@@ -253,6 +255,12 @@ const SPEC_FETCH_METADATA_KEYS = [
 export function copySpecFetchMetadata(target, source) {
   for (const key of SPEC_FETCH_METADATA_KEYS) {
     if (!Object.prototype.hasOwnProperty.call(source || {}, key)) continue;
+    // Some source adapters deliberately attach a non-configurable value after
+    // their own filtering (for example, a geography-eligible count). That
+    // adapter-owned verdict is already authoritative for the returned array;
+    // preserve it instead of turning metadata forwarding into a TypeError.
+    const existing = Object.getOwnPropertyDescriptor(target, key);
+    if (existing && !existing.configurable) continue;
     Object.defineProperty(target, key, {
       value: source[key],
       enumerable: false,
@@ -295,6 +303,24 @@ function configuredEmptyListingOutcome(spec) {
   return typeof outcome === 'string' && CRAWLER_FETCH_OUTCOMES.has(outcome)
     ? outcome
     : null;
+}
+
+/**
+ * A source may publish an explicit, source-native no-vacancies sentence. It is
+ * deliberately configured as normalized text rather than a free-form regex:
+ * a source-specific marker is evidence only when the fetched page contains the
+ * exact reviewed phrase, and a malformed expression must never broaden a zero
+ * into an authoritative snapshot.
+ *
+ * @param {import('./synthesize.mjs').CrawlerSpec} spec
+ * @param {string} html
+ * @returns {boolean}
+ */
+function matchesConfiguredAuthoritativeEmptyText(spec, html) {
+  const marker = String(spec?.authoritativeEmptyText || '').replace(/\s+/g, ' ').trim().toLowerCase();
+  if (!marker) return false;
+  const sourceText = textOf(html).replace(/\s+/g, ' ').trim().toLowerCase();
+  return sourceText.includes(marker);
 }
 
 /** @param {any[]} rows */
@@ -1251,11 +1277,13 @@ function parseListingEndpointResponse(body, companyKey, endpoint = {}) {
  * corresponding source-backed terminal guard for generated `rel="next"` links.
  * `numberedPagePattern` is an explicit source contract for indexes whose
  * continuation is exposed as adjacent numeric `<a>` controls instead of
- * `rel="next"`; it is applied to the URL pathname and must capture the page
- * number in group 1.
+ * `rel="next"`; it is applied to the URL pathname by default and must capture
+ * the page number in group 1. `numberedPageQueryParam` moves that match to a
+ * declared query parameter for sources whose pagination state is not in the
+ * pathname.
  *
  * @param {import('./synthesize.mjs').CrawlerSpec} spec
- * @returns {{ maxPages: number, minCoverage: number, declaredTotalRx: RegExp|null, declaredPageCountRx: RegExp|null, numberedPageRx: RegExp|null, stopAfterDeclaredPageCount: boolean, pageStateParams: string[], selfNextIsTerminal: boolean, countDuplicateRowsForCoverage: boolean }}
+ * @returns {{ maxPages: number, minCoverage: number, declaredTotalRx: RegExp|null, declaredPageCountRx: RegExp|null, numberedPageRx: RegExp|null, numberedPageQueryParam: string, stopAfterDeclaredPageCount: boolean, pageStateParams: string[], selfNextIsTerminal: boolean, countDuplicateRowsForCoverage: boolean }}
  */
 export function normalizeSpecPagination(spec) {
   const raw = spec?.pagination && typeof spec.pagination === 'object' ? spec.pagination : {};
@@ -1272,6 +1300,9 @@ export function normalizeSpecPagination(spec) {
   const numberedPageRx = raw.numberedPagePattern
     ? new RegExp(String(raw.numberedPagePattern), 'i')
     : null;
+  const numberedPageQueryParam = typeof raw.numberedPageQueryParam === 'string'
+    ? raw.numberedPageQueryParam.trim()
+    : '';
   const stopAfterDeclaredPageCount = raw.stopAfterDeclaredPageCount === true;
   const pageStateParams = Array.isArray(raw.pageStateParams)
     ? raw.pageStateParams.map((name) => String(name || '').trim()).filter(Boolean)
@@ -1284,6 +1315,7 @@ export function normalizeSpecPagination(spec) {
     declaredTotalRx,
     declaredPageCountRx,
     numberedPageRx,
+    numberedPageQueryParam,
     stopAfterDeclaredPageCount,
     pageStateParams,
     selfNextIsTerminal,
@@ -1379,11 +1411,12 @@ function listingIdentityUrl(rawUrl) {
  *
  * @param {string} html
  * @param {string} pageUrl
- * @param {{ numberedPageRx?: RegExp|null }} [pagination]
+ * @param {{ numberedPageRx?: RegExp|null, numberedPageQueryParam?: string }} [pagination]
  * @returns {string|null}
  */
 function findNumberedNextListingPageUrl(html, pageUrl, pagination) {
   const numberedPageRx = pagination?.numberedPageRx;
+  const numberedPageQueryParam = pagination?.numberedPageQueryParam || '';
   if (!(numberedPageRx instanceof RegExp)) return null;
   let current;
   try {
@@ -1391,7 +1424,7 @@ function findNumberedNextListingPageUrl(html, pageUrl, pagination) {
   } catch {
     return null;
   }
-  const currentPage = numberedPageNumber(current, numberedPageRx) ?? 1;
+  const currentPage = numberedPageNumber(current, numberedPageRx, numberedPageQueryParam) ?? 1;
   const sourceHtml = String(html || '');
   const tagRx = /<(?:a|link)\b[^>]*>/gi;
   let tag;
@@ -1405,7 +1438,7 @@ function findNumberedNextListingPageUrl(html, pageUrl, pagination) {
       continue;
     }
     if (next.origin !== current.origin) continue;
-    if (numberedPageNumber(next, numberedPageRx) !== currentPage + 1) continue;
+    if (numberedPageNumber(next, numberedPageRx, numberedPageQueryParam) !== currentPage + 1) continue;
     next.hash = '';
     return next.href;
   }
@@ -1421,7 +1454,7 @@ function findNumberedNextListingPageUrl(html, pageUrl, pagination) {
  *
  * @param {string} html
  * @param {string} pageUrl
- * @param {{ numberedPageRx?: RegExp|null }} [pagination]
+ * @param {{ numberedPageRx?: RegExp|null, numberedPageQueryParam?: string }} [pagination]
  * @returns {string|null}
  */
 export function findNextListingPageUrl(html, pageUrl, pagination) {
@@ -1555,10 +1588,14 @@ function extractNumberedListingControl(sourceHtml, tag, tagEnd) {
   return { tagName, hrefValue };
 }
 
-function numberedPageNumber(url, numberedPageRx) {
+function numberedPageNumber(url, numberedPageRx, numberedPageQueryParam = '') {
   if (!(numberedPageRx instanceof RegExp)) return null;
+  const pageValue = numberedPageQueryParam
+    ? url.searchParams.get(numberedPageQueryParam)
+    : url.pathname;
+  if (pageValue == null) return null;
   numberedPageRx.lastIndex = 0;
-  const match = numberedPageRx.exec(url.pathname);
+  const match = numberedPageRx.exec(pageValue);
   numberedPageRx.lastIndex = 0;
   const number = Number(match?.[1] || '');
   return Number.isInteger(number) && number > 0 ? number : null;
@@ -1716,6 +1753,8 @@ export async function collectSpecListingRows(spec, runtime, validateUrl) {
   // those specs opt into counting the source rows after URL/template guards,
   // before de-duplication, so a complete walk is not rejected as truncated.
   let listingRowsForCoverage = 0;
+  let observedListingPageCount = 0;
+  const authoritativeEmptySources = [];
   const templateRx = spec.detailTemplate?.length ? templateToRegex(spec.detailTemplate) : null;
   const emptyOutcome = spec.rescueOnEmptyListing === true
     && runtime.disableWafProxy !== true
@@ -2056,6 +2095,12 @@ export async function collectSpecListingRows(spec, runtime, validateUrl) {
         );
       }
     }
+    observedListingPageCount += 1;
+    if (!candidates.length
+      && !looksLikeAntiBotChallenge(html)
+      && matchesConfiguredAuthoritativeEmptyText(spec, html)) {
+      authoritativeEmptySources.push(effectiveSeedUrl);
+    }
     await addListingCandidates(candidates, umantisListingEvidence);
 
     // Opt-in pagination (`spec.pagination`). A listing that shows only its
@@ -2355,6 +2400,26 @@ export async function collectSpecListingRows(spec, runtime, validateUrl) {
     }
     copySpecFetchMetadata(rows, metadata);
   }
+  const seedCount = Array.isArray(spec.seedUrls) ? spec.seedUrls.length : 0;
+  const existingOutcome = rows.fetchOutcome;
+  const safeExistingOutcome = existingOutcome === undefined
+    || existingOutcome === null
+    || existingOutcome === 'ok'
+    || existingOutcome === 'filtered_empty';
+  if (rows.length === 0
+    && !listingEndpoint
+    && !spec.pagination
+    && seedCount > 0
+    && observedListingPageCount === seedCount
+    && authoritativeEmptySources.length === seedCount
+    && safeExistingOutcome) {
+    copySpecFetchMetadata(rows, {
+      fetchOutcome: 'ok',
+      discoveredCount: 0,
+      authoritativeEmptyState: 'authoritative-source-zero',
+      authoritativeEmptyEvidence: `${spec.companyName || spec.companyKey} listing page(s) rendered the configured source-empty marker "${spec.authoritativeEmptyText}" at ${authoritativeEmptySources.join(', ')}`,
+    });
+  }
   return rows;
 }
 
@@ -2522,6 +2587,12 @@ export async function runSpecInProduction(spec, runtime = {}) {
         ...(detailPagesByUrl ? { observedDetailsByUrl: detailPagesByUrl } : {}),
         ...(titleEvidenceByUrl ? { titleEvidenceByUrl } : {}),
       });
+      const stampedOutput = output.length === 0
+        && listingOutcome.authoritativeEmpty
+        && rows.authoritativeEmptyState === 'authoritative-source-zero'
+        && typeof rows.authoritativeEmptyEvidence === 'string'
+        ? markAuthoritativeEmptySnapshot(output, rows.authoritativeEmptyEvidence)
+        : output;
       if (!snapshotAccepted && runtime.failOnIncomplete !== false && !preserveEmptyListingResult) {
         const incompleteReason = listingOutcome.failed
           ? `fetch outcome ${listingOutcome.outcome || 'unknown'} is not successful`
@@ -2539,8 +2610,8 @@ export async function runSpecInProduction(spec, runtime = {}) {
         throw error;
       }
       return runtime.returnObservation === true
-        ? { vacancies: output, observation, detailPagesByUrl, titleEvidenceByUrl }
-        : output;
+        ? { vacancies: stampedOutput, observation, detailPagesByUrl, titleEvidenceByUrl }
+        : stampedOutput;
     }
 
     // Template extraction has no per-row semantics. Visit the detail pages with
@@ -2852,9 +2923,15 @@ export async function runSpecInProduction(spec, runtime = {}) {
       ...(detailPagesByUrl ? { observedDetailsByUrl: detailPagesByUrl } : {}),
       ...(titleEvidenceByUrl ? { titleEvidenceByUrl } : {}),
     });
-    return runtime.returnObservation === true
-      ? { vacancies: output, observation, detailPagesByUrl, titleEvidenceByUrl }
+    const stampedOutput = output.length === 0
+      && listingOutcome.authoritativeEmpty
+      && rows.authoritativeEmptyState === 'authoritative-source-zero'
+      && typeof rows.authoritativeEmptyEvidence === 'string'
+      ? markAuthoritativeEmptySnapshot(output, rows.authoritativeEmptyEvidence)
       : output;
+    return runtime.returnObservation === true
+      ? { vacancies: stampedOutput, observation, detailPagesByUrl, titleEvidenceByUrl }
+      : stampedOutput;
   } finally {
     try {
       await validateUrl.dispatcher.close();

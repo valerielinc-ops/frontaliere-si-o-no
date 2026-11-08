@@ -1186,7 +1186,7 @@
     },
     {
       "id": "company-ccfan9",
-      "slug": "verkaufer-in-migros-teo-genossenschaft-migros-ostschweiz-st-gallen-ccfan9",
+      "slug": "assistente-commerciale-migros-teo-genossenschaft-migros-ostschweiz-st-gallen",
       "company": "Genossenschaft Migros Ostschweiz",
       "title": "Verkäufer*in Migros teo",
       "location": "St. Gallen",
@@ -1230,7 +1230,7 @@
       "firstSeenAt": "2026-11-06T22:09:48.391Z",
       "titleByLocale": {
         "de": "Verkäufer*in Migros teo",
-        "it": "Verkäufer*in Migros teo",
+        "it": "Assistente commerciale Migros teo",
         "en": "Salesperson Migros teo",
         "fr": "Vendeur Migros teo"
       },
@@ -1242,7 +1242,7 @@
       },
       "needsRetranslation": true,
       "slugByLocale": {
-        "it": "verkaufer-in-migros-teo-genossenschaft-migros-ostschweiz-st-gallen-ccfan9",
+        "it": "assistente-commerciale-migros-teo-genossenschaft-migros-ostschweiz-st-gallen",
         "en": "salesperson-migros-teo-genossenschaft-migros-ostschweiz-st-gallen",
         "de": "verkaufer-in-migros-teo-genossenschaft-migros-ostschweiz-st-gallen-ccfan9",
         "fr": "vendeur-migros-teo-genossenschaft-migros-ostschweiz-st-gallen"
@@ -1263,11 +1263,13 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-migros-teo-genossenschaft-migros-ostschweiz-st-gallen"
+          "verkaufer-in-migros-teo-genossenschaft-migros-ostschweiz-st-gallen",
+          "verkaufer-in-migros-teo-genossenschaft-migros-ostschweiz-st-gallen-ccfan9"
         ]
       },
       "previousSlugs": [
-        "verkaufer-in-migros-teo-genossenschaft-migros-ostschweiz-st-gallen"
+        "verkaufer-in-migros-teo-genossenschaft-migros-ostschweiz-st-gallen",
+        "verkaufer-in-migros-teo-genossenschaft-migros-ostschweiz-st-gallen-ccfan9"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -20756,15 +20758,12 @@
       "postalCode": "9000",
       "previousSlugs": [
         "koch-kochin-genossenschaft-migros-ostschweiz-st-gallen",
-        "cuoco-cuoca-genossenschaft-migros-ostschweiz-st-gallen",
-        "cuisinier-cuisiniere-genossenschaft-migros-ostschweiz-st-gallen",
         "cucina-chef-genossenschaft-migros-ostschweiz-st-gallen",
         "cuisson-chef-genossenschaft-migros-ostschweiz-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "koch-kochin-genossenschaft-migros-ostschweiz-st-gallen",
-          "cuoco-cuoca-genossenschaft-migros-ostschweiz-st-gallen",
           "cucina-chef-genossenschaft-migros-ostschweiz-st-gallen"
         ],
         "en": [
@@ -56983,8 +56982,7 @@
       "previousSlugsByLocale": {
         "it": [
           "koch-kochin-genossenschaft-migros-ostschweiz-st-gallen",
-          "koch-kochin-genossenschaft-migros-ostschweiz-st-gallen-xh656n",
-          "cucina-chef-genossenschaft-migros-ostschweiz-st-gallen"
+          "koch-kochin-genossenschaft-migros-ostschweiz-st-gallen-xh656n"
         ],
         "en": [
           "koch-kochin-genossenschaft-migros-ostschweiz-st-gallen-xh656n",
@@ -56996,8 +56994,7 @@
       },
       "previousSlugs": [
         "koch-kochin-genossenschaft-migros-ostschweiz-st-gallen",
-        "koch-kochin-genossenschaft-migros-ostschweiz-st-gallen-xh656n",
-        "cucina-chef-genossenschaft-migros-ostschweiz-st-gallen"
+        "koch-kochin-genossenschaft-migros-ostschweiz-st-gallen-xh656n"
       ],
       "salarySource": "estimated",
       "baseSalary": {

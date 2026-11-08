@@ -90,6 +90,30 @@ describe('portal field extraction', () => {
     expect(operationalQuestionTopic(refreshed.questions[0])).toBeNull();
   });
 
+  it('marks an empty first option as a placeholder when required is expressed through aria', () => {
+    const required = extract('<form>'
+      + '<label for="country">Land</label>'
+      + '<select id="country" aria-required="true">'
+      + '<option value="">Land</option><option value="CH">Schweiz</option>'
+      + '</select>'
+      + '</form>').fields.find((field: any) => field.label === 'Land');
+    expect(required).toMatchObject({
+      kind: 'select', required: true,
+      options: [
+        { value: '', label: 'Land', placeholder: true },
+        { value: 'CH', label: 'Schweiz' },
+      ],
+    });
+
+    const optional = extract('<form>'
+      + '<label for="choice">Optional</label>'
+      + '<select id="choice">'
+      + '<option value="">Blank is valid</option><option value="one">One</option>'
+      + '</select>'
+      + '</form>').fields.find((field: any) => field.label === 'Optional');
+    expect(optional?.options?.[0]).toEqual({ value: '', label: 'Blank is valid' });
+  });
+
   it('fails closed when accessible metadata exceeds extraction limits', () => {
     const prompt = 'Select this checkbox to confirm that you have read the Privacy Notice for Candidates.';
     const longEmailLabel = 'x'.repeat(296) + ' Email';
@@ -1822,6 +1846,39 @@ describe('portal field extraction', () => {
     expect(page.fields.map((field: any) => `${field.label} (${field.kind})`)).toEqual(['Country* (select)']);
   });
 
+  it('marks an unwrapped Stadt Zürich language button as site chrome', () => {
+    const page = extract(
+      '<main><button type="button">Sprache</button></main>',
+      'https://jobs.stadt-zuerich.ch/job/Application-Manager/1373719857/',
+      { channelType: 'successfactors' },
+    );
+
+    expect(page.fields).toEqual([]);
+    expect(page.buttons).toEqual([expect.objectContaining({ text: 'Sprache', formId: '', chrome: true })]);
+  });
+
+  it('keeps a language-labelled button in an application form candidate-owned', () => {
+    const page = extract(
+      '<main><form><button type="button">Sprache</button></form></main>',
+      'https://jobs.stadt-zuerich.ch/job/Application-Manager/1373719857/',
+      { channelType: 'successfactors' },
+    );
+
+    expect(page.buttons).toEqual([expect.objectContaining({ text: 'Sprache', formId: expect.any(String) })]);
+    expect(page.buttons[0]).not.toHaveProperty('chrome');
+  });
+
+  it('keeps a form-associated language button candidate-owned outside the form subtree', () => {
+    const page = extract(
+      '<form id="application"></form><main><button type="button" form="application">Sprache</button></main>',
+      'https://jobs.stadt-zuerich.ch/job/Application-Manager/1373719857/',
+      { channelType: 'successfactors' },
+    );
+
+    expect(page.buttons).toEqual([expect.objectContaining({ text: 'Sprache', formId: expect.any(String) })]);
+    expect(page.buttons[0]).not.toHaveProperty('chrome');
+  });
+
   it('keeps a required language-labeled select in site chrome when the label carries the marker', () => {
     const page = extract('<header><form><label for="language">Lingua*</label><select id="language"></select></form></header>');
 
@@ -1832,6 +1889,15 @@ describe('portal field extraction', () => {
     const page = extract('<header><form><select aria-label="Lingua" aria-required="TRUE"></select></form></header>');
 
     expect(page.fields).toEqual([expect.objectContaining({ kind: 'select', label: 'Lingua', required: true })]);
+  });
+
+  it.each([
+    ['data-required', '<header><select aria-label="Sprache" data-required></select></header>'],
+    ['an adjacent required marker', '<header><label for="language">Sprache</label><span>*</span><select id="language"></select></header>'],
+  ])('retains a required language select in site chrome without a form (%s)', (_case, html) => {
+    const page = extract(html);
+
+    expect(page.fields).toEqual([expect.objectContaining({ kind: 'select', label: 'Sprache', required: true })]);
   });
 
   // «Select One» was offered to the candidate as a marital status (dry run of 2026-10-07).

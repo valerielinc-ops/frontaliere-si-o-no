@@ -353,7 +353,7 @@ export function EmployerInsightsReport({ data, locale: localeProp }: { data: Emp
   const applicationSource = activeRange.applicationsCoverage?.source;
   const applicationMetric = metricState(activeRange.totals.applications, applicationSource, activeRange.window, [activeRange.applicationsCoverage?.status, activeRange.totals.applicationsStatus], locale);
   const applicationUnavailable = applicationMetric.state === 'source-unavailable';
-  const trendUp = activeRange.trend.length >= 2 ? (activeRange.trend.at(-1)?.views || 0) >= (activeRange.trend[0]?.views || 0) : true;
+  const trendUp = activeRange.trend.length >= 2 ? (activeRange.trend[activeRange.trend.length - 1]?.views || 0) >= (activeRange.trend[0]?.views || 0) : true;
   const periodLabel = windowLabel(activeRange.window, locale);
   const updatedLabel = generatedDate(data.generatedAt, locale);
   const showProcessingLagNotice = hasAnalyticsProcessingLag(data.source, data.generatedAt, activeRange.window);

@@ -22,7 +22,7 @@ import {
   resolveSourceBackedSwissGeography,
   sourceBackedSwissGeographyFields,
 } from './prospector/location-evidence.mjs';
-import { loadSpec, runSpecInProduction } from './prospector/spec-crawler.mjs';
+import { copySpecFetchMetadata, loadSpec, runSpecInProduction } from './prospector/spec-crawler.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -243,7 +243,7 @@ export async function fetchAllOkjobJobs(runtime = {}) {
   const listings = await fetchJobListings(runtime);
   if (!listings || listings.length === 0) {
     console.warn('⚠️ No job listings returned.');
-    return [];
+    return copySpecFetchMetadata([], listings || []);
   }
 
   console.log(`  📋 Listings found: ${listings.length}`);
@@ -348,5 +348,5 @@ export async function fetchAllOkjobJobs(runtime = {}) {
     value: geoEligible,
     enumerable: false,
   });
-  return jobs;
+  return copySpecFetchMetadata(jobs, listings || []);
 }

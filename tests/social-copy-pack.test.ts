@@ -11,7 +11,10 @@ import {
   releaseUnpublishedSocialCopyAssignmentBestEffort,
   selectSocialCopy,
   selectSocialCopyForPublish,
+  isGeneratedSocialCopyMode,
   SOCIAL_COPY_INSTAGRAM_OBJECTIVES,
+  SOCIAL_COPY_PACK_SCHEMA_VERSION,
+  SOCIAL_COPY_PROMPT_VERSION,
   SOCIAL_COPY_EXPERIMENT_PROTOCOL_VERSION,
   socialCopyExperimentRegistrationId,
   socialCopyExperimentTreatmentFingerprint,
@@ -30,7 +33,7 @@ const CHANNEL_KINDS: Record<string, string[]> = {
   reddit: ['article', 'job'],
 };
 
-function channels({ includeEditorialAngles = true, schemaVersion = 4 } = {}) {
+function channels({ includeEditorialAngles = true, schemaVersion = 5 } = {}) {
   const ordinal = ['primo', 'secondo', 'terzo', 'quarto', 'quinto', 'sesto', 'settimo', 'ottavo', 'nono', 'decimo', 'undicesimo', 'dodicesimo'];
   return Object.fromEntries(Object.entries(CHANNEL_KINDS).map(([channel, kinds]) => [
     channel,
@@ -126,9 +129,77 @@ describe('social copy pack', () => {
     );
 
     expect(pack.packId).toMatch(/^[a-f0-9]{16}$/);
-    expect(pack.schemaVersion).toBe(4);
+    expect(pack.schemaVersion).toBe(SOCIAL_COPY_PACK_SCHEMA_VERSION);
     expect(pack.editorialPlan.angles.instagram.article).toHaveLength(3);
     expect(validatePersistedSocialCopyPack(pack, { now: '2026-10-20T00:00:00.000Z' })).toEqual(pack);
+  });
+
+  it('records the actual generator and keeps provider cohorts separate', () => {
+    const generatedAt = '2026-11-03T12:00:00.000Z';
+    const codexPack = normalizeSocialCopyPack(packInput(), { generatedAt });
+    const geminiPack = normalizeSocialCopyPack(packInput(), { generatedAt, generationProvider: 'gemini' });
+    const codexCopy = selectSocialCopy({
+      pack: codexPack, channel: 'instagram', kind: 'article', expectedObjective: 'share', assignmentKey: 'same',
+    });
+    const geminiCopy = selectSocialCopy({
+      pack: geminiPack, channel: 'instagram', kind: 'article', expectedObjective: 'share', assignmentKey: 'same',
+    });
+
+    expect(codexPack.generationProvider).toBe('codex');
+    expect(geminiPack.generationProvider).toBe('gemini');
+    expect(codexPack.packId).not.toBe(geminiPack.packId);
+    expect(codexCopy?.copyMode).toBe('codex');
+    expect(geminiCopy?.copyMode).toBe('gemini');
+    expect(socialCopyLedgerFields(geminiCopy)).toMatchObject({ copyMode: 'gemini' });
+    expect(isGeneratedSocialCopyMode('gemini')).toBe(true);
+    expect(isGeneratedSocialCopyMode('deterministic')).toBe(false);
+    expect(validatePersistedSocialCopyPack(geminiPack, { now: generatedAt })).toEqual(geminiPack);
+    const codexTreatment = socialCopyExperimentTreatmentFingerprint(codexPack, {
+      channel: 'instagram', slot: 'article', objective: 'share',
+    });
+    const geminiTreatment = socialCopyExperimentTreatmentFingerprint(geminiPack, {
+      channel: 'instagram', slot: 'article', objective: 'share',
+    });
+    expect(codexTreatment).toBe(geminiTreatment);
+    expect(socialCopyExperimentRegistrationId({
+      experimentId: 'social-copy-balanced-v1',
+      packId: codexPack.packId,
+      treatmentFingerprint: codexTreatment,
+      channel: 'instagram', slot: 'article', objective: 'share',
+    })).not.toBe(socialCopyExperimentRegistrationId({
+      experimentId: 'social-copy-balanced-v1',
+      packId: geminiPack.packId,
+      treatmentFingerprint: geminiTreatment,
+      channel: 'instagram', slot: 'article', objective: 'share',
+      generationProvider: 'gemini',
+    }));
+  });
+
+  it('loads schema-v4 packs as Codex-generated during the schema-v5 transition', () => {
+    const generatedAt = '2026-11-03T12:00:00.000Z';
+    const raw = normalizeSocialCopyPack(packInput(), { generatedAt });
+    const packId = createHash('sha256')
+      .update('frontaliere-social-copy-v4\n' + JSON.stringify({ editorialPlan: raw.editorialPlan, channels: raw.channels }))
+      .digest('hex')
+      .slice(0, 16);
+    const previous = {
+      ...raw,
+      schemaVersion: 4,
+      promptVersion: 'frontaliere-social-copy-v4',
+      packId,
+      generatedAt,
+      validUntil: new Date(Date.parse(generatedAt) + 45 * 86400000).toISOString(),
+    };
+
+    const validated = validatePersistedSocialCopyPack(previous, { now: generatedAt });
+    const selected = selectSocialCopy({
+      pack: validated, channel: 'instagram', kind: 'article', expectedObjective: 'share', assignmentKey: 'legacy-v4',
+    });
+
+    expect(validated.schemaVersion).toBe(4);
+    expect(validated.generationProvider).toBeUndefined();
+    expect(selected?.copyMode).toBe('codex');
+    expect(SOCIAL_COPY_PROMPT_VERSION).toBe('frontaliere-social-copy-v5');
   });
 
   it('keeps angle-level experiment identity stable across weekly hook refreshes', () => {
@@ -476,7 +547,7 @@ describe('social copy pack', () => {
     expect(selected).toMatchObject({
       copyMode: 'codex',
       copySlot: 'article',
-      copyPromptVersion: 'frontaliere-social-copy-v4',
+      copyPromptVersion: 'frontaliere-social-copy-v5',
       copyAngleId: selected?.copyAngleId,
       copyPillarId: selected?.copyPillarId,
       copyPackId: pack.packId,
@@ -533,7 +604,7 @@ describe('social copy pack', () => {
         blockCycle: 2,
         registrationHash: 'a'.repeat(64),
       },
-      copyPromptVersion: 'frontaliere-social-copy-v4',
+      copyPromptVersion: 'frontaliere-social-copy-v5',
     });
     expect(socialCopyLedgerFields(selected)).toMatchObject({
       copyAssignmentMode: 'firebase-balanced',

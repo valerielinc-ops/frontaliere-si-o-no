@@ -79,6 +79,11 @@ describe('issue creator — log excerpt of the failed step', () => {
     fs.writeFileSync(path.join(stubDir, 'gh'), `#!/usr/bin/env node
 const fs = require('fs');
 const args = process.argv.slice(2);
+const bodyFileIndex = args.indexOf('--body-file');
+if (bodyFileIndex >= 0) {
+  const bodyFile = args[bodyFileIndex + 1];
+  args.splice(bodyFileIndex, 2, '--body', fs.readFileSync(bodyFile, 'utf8'));
+}
 fs.appendFileSync(${JSON.stringify(calls)}, JSON.stringify(args) + '\\n');
 if (args[0] === 'issue' && args[1] === 'list') { process.stdout.write('[]'); process.exit(0); }
 if (args[0] === 'issue' && args[1] === 'create') { process.stdout.write('https://github.com/o/r/issues/1'); process.exit(0); }

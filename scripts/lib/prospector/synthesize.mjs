@@ -112,6 +112,7 @@ function careerLinksFromPage(body, baseUrl) {
  *   disambiguate the canton; the shared Swiss geography resolver still validates them.
  * @property {boolean} [rescueOnEmptyListing] Retry a zero-candidate seed through the clean-IP rescue
  * @property {boolean} [rescueOnPartialListing] Retry a source-specific listing through the browser rescue when direct transport may expose only a partial population
+ * @property {string} [authoritativeEmptyText] Exact source-native text that proves the fetched listing is intentionally empty when no candidates are accepted
  * @property {'ok'|'filtered_empty'|'anti_bot_block'|'selector_miss'|'connection_error'} [emptyListingOutcome]
  *   Outcome to attach when the spec has no accepted listing after its configured rescue path
  * @property {number} [detailFetchWorkers] Maximum concurrent detail fetches
@@ -123,15 +124,16 @@ function careerLinksFromPage(body, baseUrl) {
  *   Independently sourced employer location used only when the free-text page omits a workplace.
  * @property {Array<{ label: string, description: string, sourceText: string, applyUrl: string }>} [permanentApplications]
  *   Standing application options kept separate from JobPosting vacancies.
- * @property {{ maxPages?: number, minCoverage?: number, declaredTotalPattern?: string, declaredPageCountPattern?: string, numberedPagePattern?: string, stopAfterDeclaredPageCount?: boolean, pageStateParams?: string[], selfNextIsTerminal?: boolean, countDuplicateRowsForCoverage?: boolean }} [pagination]
+ * @property {{ maxPages?: number, minCoverage?: number, declaredTotalPattern?: string, declaredPageCountPattern?: string, numberedPagePattern?: string, numberedPageQueryParam?: string, stopAfterDeclaredPageCount?: boolean, pageStateParams?: string[], selfNextIsTerminal?: boolean, countDuplicateRowsForCoverage?: boolean }} [pagination]
  *   Follow the seed's `rel="next"` pages; with `declaredTotalPattern` the walk must
  *   collect `minCoverage` of the count the source declares, or the run fails closed;
  *   `declaredPageCountPattern` can provide an explicit terminal page count for
  *   sources whose generated `rel="next"` survives past the last real page;
  *   `numberedPagePattern` enables adjacent numeric `<a>` controls for a source
- *   whose listing has no `rel="next"`; it must match the URL pathname and capture
- *   the page number in group 1, so ordinary numbered job links are not inferred
- *   as pagination;
+ *   whose listing has no `rel="next"`; it must match the URL pathname by
+ *   default and capture the page number in group 1, so ordinary numbered job
+ *   links are not inferred as pagination. `numberedPageQueryParam` moves that
+ *   explicit match to a query parameter;
  *   `stopAfterDeclaredPageCount` opts into that terminal boundary and fails
  *   closed when the source does not declare it;
  *   `pageStateParams` are stripped from detail URLs found on later pages;

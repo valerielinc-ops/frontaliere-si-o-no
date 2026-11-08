@@ -2,6 +2,7 @@ import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
 import { mkdtempSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
+import { hydrateGhBodyFileArgs } from './helpers/ghBodyFile';
 
 // THE OBSERVER for issue #7165 (follow-up #7063, items 3+4 of PR #7035).
 //
@@ -18,7 +19,10 @@ import { join } from 'node:path';
 // scan-job-timeouts-host-kill.test.ts.
 const execFileSync = vi.fn();
 vi.mock('node:child_process', () => {
-  const mock = { execFileSync: (...args: unknown[]) => execFileSync(...args) };
+  const mock = {
+    execFileSync: (cmd: string, args: string[], ...rest: unknown[]) =>
+      execFileSync(cmd, hydrateGhBodyFileArgs(args), ...rest),
+  };
   return { ...mock, default: mock };
 });
 

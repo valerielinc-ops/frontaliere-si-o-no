@@ -120,7 +120,7 @@ describe('deploy-matrix-experiment.yml — variant matrix contract', () => {
     expect(saveSteps.every((step) => String(step.with?.key).startsWith('bench-'))).toBe(true);
     expect(saveSteps.map((step) => step.with?.key)).toEqual(expect.arrayContaining([
       'bench-${{ inputs.chain }}-${{ matrix.variant }}-${{ matrix.locale }}-${{ github.run_id }}',
-      "bench-${{ inputs.chain }}-${{ matrix.variant }}-${{ matrix.locale }}-${{ hashFiles(format('.cache/incremental-manifest/{0}.jsonl', matrix.locale)) }}",
+      "bench-${{ inputs.chain }}-${{ matrix.variant }}-${{ matrix.locale }}-${{ hashFiles(format('.cache/incremental-manifest/{0}.jsonl', matrix.locale)) }}-${{ steps.jobs-seo-html-fingerprint.outputs.fingerprint }}",
     ]));
     expect(WORKFLOW_TEXT).not.toMatch(/hashFiles\([^)]*(?:incremental-html|dist)\/\*\*/u);
     expect(WORKFLOW_TEXT).not.toMatch(/uses:\s*actions\/cache@/u);
@@ -337,7 +337,7 @@ describe('deploy-matrix-experiment.yml — variant matrix contract', () => {
 
     expect(benchHtml?.uses).toBe('actions/cache/restore@v6');
     const benchHtmlKey =
-      "bench-${{ inputs.chain }}-${{ matrix.variant }}-${{ matrix.locale }}-${{ hashFiles(format('.cache/incremental-manifest/{0}.jsonl', matrix.locale)) }}";
+      "bench-${{ inputs.chain }}-${{ matrix.variant }}-${{ matrix.locale }}-${{ hashFiles(format('.cache/incremental-manifest/{0}.jsonl', matrix.locale)) }}-${{ steps.jobs-seo-html-fingerprint.outputs.fingerprint }}";
     expect(benchHtml?.with?.key).toBe(benchHtmlKey);
     expect(benchHtmlSave?.with?.key).toBe(benchHtmlKey);
     expect(benchHtmlSave?.if).toContain("steps.bench-jobs-seo-html-content.outputs.has_files == 'true'");
@@ -346,7 +346,7 @@ describe('deploy-matrix-experiment.yml — variant matrix contract', () => {
     );
     expect(html?.uses).toBe('actions/cache/restore@v6');
     expect(html?.with?.key).toBe(
-      "jobs-seo-html-${{ matrix.locale }}-${{ hashFiles(format('.cache/incremental-manifest/{0}.jsonl', matrix.locale)) }}",
+      "jobs-seo-html-${{ matrix.locale }}-${{ hashFiles(format('.cache/incremental-manifest/{0}.jsonl', matrix.locale)) }}-${{ steps.jobs-seo-html-fingerprint.outputs.fingerprint }}",
     );
     expect(steps.indexOf(benchHtml!)).toBeLessThan(steps.indexOf(html!));
     expect(extract?.if).toBe('always()');

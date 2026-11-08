@@ -141,6 +141,29 @@ describe('telemetry helpers', () => {
     expect(delays).toEqual([GH_READ_RETRY_DELAYS_MS[0]]);
   });
 
+  it('retries a transient GitHub CLI HTTP/2 stream cancellation', () => {
+    let attempts = 0;
+    const delays: number[] = [];
+    const result = runGhJsonBounded(['run', 'list'], {
+      execute: () => {
+        attempts += 1;
+        if (attempts === 1) {
+          throw Object.assign(new Error('Command failed: gh run list'), {
+            status: 1,
+            stderr: Buffer.from('failed to get runs: stream error: stream ID 9; CANCEL; received from peer'),
+          });
+        }
+        return JSON.stringify([]);
+      },
+      sleep: (delayMs: number) => { delays.push(delayMs); },
+      warn: () => {},
+    });
+
+    expect(result).toEqual([]);
+    expect(attempts).toBe(2);
+    expect(delays).toEqual([GH_READ_RETRY_DELAYS_MS[0]]);
+  });
+
   it('fails quota admission closed after the bounded retries are exhausted', () => {
     let attempts = 0;
     const delays: number[] = [];

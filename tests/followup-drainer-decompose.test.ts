@@ -17,10 +17,16 @@
  */
 import { describe, it, expect } from 'vitest';
 import {
+  DECOMPOSE_STALL_COUNT_SINCE,
+  DECOMPOSE_STALL_THRESHOLD,
+  DECOMPOSE_STALLED_MARKER,
+  decomposeStallDecision,
+  gateDecomposeReservation,
   isDecomposeEligible,
   decomposedChildNumbers,
   isAgeOutEligible,
   isReparkableCandidate,
+  latestDecomposeStalledAt,
 } from '../scripts/ci/followup-drainer.mjs';
 
 const iss = (labels: string[], extra: Record<string, unknown> = {}) => ({
@@ -130,5 +136,97 @@ describe('lo stadio decompose è "in lavorazione" per gli altri pass', () => {
     for (const l of ['agent:decompose-queued', 'agent:decompose', 'decomposed:1']) {
       expect(isReparkableCandidate(iss(['follow-up', 'fu-parked', l]))).toBe(false);
     }
+  });
+});
+
+describe('decompose reservation lease — circuit breaker bounded e fail-closed', () => {
+  const base = Date.parse('2026-10-04T00:00:00Z');
+  const lease = (token: string, state: string, offsetMinutes: number, expiresOffsetMinutes = 30) => {
+    const createdAt = new Date(base + offsetMinutes * 60_000).toISOString();
+    const expiresAt = new Date(base + expiresOffsetMinutes * 60_000).toISOString();
+    return {
+      createdAt,
+      user: { login: 'github-actions[bot]' },
+      body: `<!-- QUOTA_LEASE role=issue-decompose token=${token} state=${state} issuedAt=${createdAt} expiresAt=${expiresAt} -->`,
+    };
+  };
+
+  it('conta tre reservation consecutive senza consumo e distingue una release non consumata', () => {
+    const comments = [
+      lease('d1', 'reserved', 1),
+      lease('d2', 'reserved', 2),
+      lease('d3', 'reserved', 3),
+      lease('d3', 'released', 4),
+    ];
+    const decision = decomposeStallDecision(
+      comments.flatMap((comment) => [{
+        role: 'issue-decompose',
+        token: comment.body.match(/token=(\S+)/)?.[1] || '',
+        state: comment.body.match(/state=(\S+)/)?.[1] || '',
+        commentAt: Date.parse(comment.createdAt) / 1000,
+        issuedAt: Date.parse(comment.createdAt) / 1000,
+        expiresAt: Date.parse('2026-10-04T00:30:00Z') / 1000,
+        commentOrder: comments.indexOf(comment),
+      }]),
+      { nowSec: Date.parse('2026-10-04T01:00:00Z') / 1000 },
+    );
+    expect(decision).toMatchObject({
+      stalled: true,
+      count: DECOMPOSE_STALL_THRESHOLD,
+      reason: 'reservation-released-unconsumed',
+    });
+  });
+
+  it('un evento consumed resetta l episodio e il marker trusted riporta il floor in avanti', () => {
+    const since = Date.parse(DECOMPOSE_STALL_COUNT_SINCE) / 1000;
+    const events = [
+      { role: 'issue-decompose', token: 'd1', state: 'reserved', commentAt: since + 10 },
+      { role: 'issue-decompose', token: 'd2', state: 'reserved', commentAt: since + 20 },
+      { role: 'issue-decompose', token: 'd2', state: 'consumed', commentAt: since + 30 },
+    ];
+    expect(decomposeStallDecision(events, { nowSec: since + 60 })).toMatchObject({ stalled: false, count: 0 });
+
+    const resetAt = since + 40;
+    expect(decomposeStallDecision([
+      ...events,
+      { role: 'issue-decompose', token: 'd3', state: 'reserved', commentAt: since + 35 },
+    ], { resetAt, nowSec: since + 60 })).toMatchObject({ stalled: false, count: 0 });
+  });
+
+  it('non conta una reservation precedente al floor e non considera un marker umano come reset', () => {
+    const old = lease('old', 'reserved', -480);
+    const human = {
+      createdAt: new Date(base + 90 * 60_000).toISOString(),
+      user: { login: 'untrusted-human' },
+      body: DECOMPOSE_STALLED_MARKER,
+    };
+    expect(latestDecomposeStalledAt([human])).toBeNull();
+    expect(decomposeStallDecision([
+      { role: 'issue-decompose', token: 'old', state: 'reserved', commentAt: Date.parse(old.createdAt) / 1000 },
+    ], { nowSec: base / 1000 })).toMatchObject({ stalled: false, count: 0 });
+  });
+
+  it('commenti illeggibili lasciano passare il tick senza defer al buio', () => {
+    let deferred = false;
+    const result = gateDecomposeReservation({ number: 17515 }, {
+      readComments: () => null,
+      defer: () => { deferred = true; return true; },
+      log: () => {},
+    });
+    expect(result).toMatchObject({ proceed: true, deferred: false });
+    expect(deferred).toBe(false);
+  });
+
+  it('sulla soglia parcheggia una volta e lascia un marker di reset', () => {
+    const comments = [lease('d1', 'reserved', 1), lease('d2', 'reserved', 2), lease('d3', 'reserved', 3)];
+    let note = '';
+    const result = gateDecomposeReservation({ number: 17515 }, {
+      readComments: () => comments,
+      defer: (_number, body) => { note = body; return true; },
+      nowSec: Date.parse('2026-10-04T01:00:00Z') / 1000,
+      log: () => {},
+    });
+    expect(result).toMatchObject({ proceed: false, deferred: true });
+    expect(note).toContain(DECOMPOSE_STALLED_MARKER);
   });
 });

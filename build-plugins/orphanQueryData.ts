@@ -311,6 +311,8 @@ interface JobMatchEntry {
 interface JobMatchIndex {
   readonly length: number;
   readonly entries: JobMatchEntry[];
+  /** Original job indices sorted by publication date, newest first. */
+  readonly newestFirst: number[];
 }
 
 // Keyed on the jobs ARRAY identity: the plugin loads the corpus once and then
@@ -333,7 +335,14 @@ function getJobIndex(jobs: readonly OrphanCountableJob[]): JobMatchIndex {
       titleTokensByLocale: {},
     };
   }
-  const index: JobMatchIndex = { length: jobs.length, entries };
+  const newestFirst = entries.map((_, i) => i);
+  newestFirst.sort((a, b) => {
+    const dateOrder = entries[b].postedMs - entries[a].postedMs;
+    // Match the stable sort used by filterMatchingJobs before this index was
+    // introduced: equal/unknown dates retain their original corpus order.
+    return dateOrder || a - b;
+  });
+  const index: JobMatchIndex = { length: jobs.length, entries, newestFirst };
   jobIndexCache.set(key, index);
   return index;
 }
@@ -389,23 +398,22 @@ export function filterMatchingJobs<T extends OrphanCountableJob>(
   const facts = clusterMatchFacts(cluster);
   const locale = cluster.locale;
 
-  // Collect INDICES (not jobs) so the sort below can read the precomputed
-  // `postedMs` without re-parsing dates inside the comparator. Indices are
-  // pushed in `jobs` order, exactly the order `jobs.filter(...)` produced.
+  if (limit <= 0) return [];
+
+  // Walk the once-sorted index instead of scanning and sorting every match for
+  // every cluster. Most landings need only the newest 15 results, so matching
+  // can stop as soon as that exact prefix is known. Infinite limits still walk
+  // every job and preserve the complete newest-first order for region counts.
   const matched: number[] = [];
-  for (let i = 0; i < jobs.length; i++) {
+  for (const i of index.newestFirst) {
     const entry = index.entries[i];
     if (!entryActive(entry, jobs[i], locale)) continue;
     if (!matchesClusterFacts(entryTitleTokens(entry, jobs[i], locale), entryLocTokens(entry, jobs[i]), facts)) {
       continue;
     }
     matched.push(i);
+    if (matched.length >= limit) break;
   }
-
-  // Only verified publication dates enter the precomputed sort key. Unknown,
-  // unmarked and invalid dates use zero and retain input order under stable sort.
-  // Sort before applying the limit so verified recent jobs are not displaced.
-  matched.sort((a, b) => index.entries[b].postedMs - index.entries[a].postedMs);
 
   const out: T[] = [];
   for (let i = 0; i < matched.length && i < limit; i++) out.push(jobs[matched[i]]);

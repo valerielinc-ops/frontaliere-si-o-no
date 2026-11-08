@@ -9,6 +9,7 @@
  */
 
 import { instagramEngagementMechanic } from './instagram-engagement.mjs';
+import { isGeneratedSocialCopyMode } from './social-copy-pack.mjs';
 
 export const INSTAGRAM_REEL_VARIANTS = Object.freeze([
   Object.freeze({
@@ -177,7 +178,7 @@ export function buildInstagramReelContent({ kind, dayLabel, item, creative, soci
   const hasViews = views !== null;
   const hasSourceTitle = typeof item?.title === 'string' && Boolean(title);
   const sourceId = sourceIdText(item?.slug);
-  const generatedCopy = socialCopy?.copyMode === 'codex' && socialCopy.objective === selected.objective
+  const generatedCopy = isGeneratedSocialCopyMode(socialCopy?.copyMode) && socialCopy.objective === selected.objective
     ? socialCopy
     : null;
   const actionEmoji = generatedCopy ? '' : selected.primaryMetric === 'comments'

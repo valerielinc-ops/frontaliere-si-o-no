@@ -16,7 +16,7 @@ import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
 import { hardenJobsWithStructuredSalary } from './structured-salary.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
-import { loadSpec, runSpecInProduction } from './prospector/spec-crawler.mjs';
+import { copySpecFetchMetadata, loadSpec, runSpecInProduction } from './prospector/spec-crawler.mjs';
 import {
   resolveSourceBackedSwissGeography,
   sourceBackedSwissGeographyFields,
@@ -132,7 +132,7 @@ export async function fetchAllChristinavassalliJobs() {
   const listings = await fetchJobListings();
   if (!listings || listings.length === 0) {
     console.warn('⚠️ No job listings returned.');
-    return [];
+    return copySpecFetchMetadata([], listings || []);
   }
 
   console.log(`  📋 Listings found: ${listings.length}`);
@@ -232,5 +232,5 @@ export async function fetchAllChristinavassalliJobs() {
   }
 
   console.log(`\n📋 Total CHRISTINA VASSALLI Services, Inhaberin Denise Tschäppät jobs discovered: ${jobs.length}`);
-  return hardenJobsWithStructuredSalary(jobs).jobs;
+  return copySpecFetchMetadata(hardenJobsWithStructuredSalary(jobs).jobs, listings || []);
 }

@@ -21,7 +21,6 @@ import { realpathSync } from 'node:fs';
  */
 import path from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
-import { writeFileSync, mkdirSync } from 'node:fs';
 import { loadEventsDataset, isoDay } from './lib/events-utils.mjs';
 import { buildWeekendDigestArticle } from './lib/events-digest-content.mjs';
 import {
@@ -32,7 +31,7 @@ import {
 } from './create-article.mjs';
 import {
   assertEvergreenArticleReadyForWrite,
-  buildEvergreenBodyOutputs,
+  refreshEvergreenBodyFiles,
   bumpUpdatedAt,
   bumpDateModified,
   bumpSitemapLastmod,
@@ -96,17 +95,14 @@ export function assertDigestReadyForWrite(data) {
 
 /** Rewrite only the 4 body files (idempotent refresh; registration is append-only). */
 export function refreshBodyFiles(data, repoRoot = REPO_ROOT, log = console.log) {
-  assertDigestReadyForWrite(data);
-
-  // Render every locale before creating a directory or replacing a file. A
-  // malformed later locale must leave the previous refresh intact, not publish
-  // a mixed-locale article.
-  const outputs = buildEvergreenBodyOutputs(data, repoRoot, LOCALES, buildBodyFile);
-  for (const { dir, file, source } of outputs) {
-    mkdirSync(dir, { recursive: true });
-    writeFileSync(file, source);
-    log(`  ✅ ${path.relative(repoRoot, file)}`);
-  }
+  return refreshEvergreenBodyFiles(
+    data,
+    repoRoot,
+    LOCALES,
+    buildBodyFile,
+    assertDigestReadyForWrite,
+    log,
+  );
 }
 
 // bumpUpdatedAt/bumpDateModified/bumpSitemapLastmod now live in

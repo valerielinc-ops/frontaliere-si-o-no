@@ -630,16 +630,23 @@ jobs:
           restore-keys: |
             incremental-manifest-${{ matrix.locale }}-
 
+      # Share the production cache-key fingerprint so a changed renderer does
+      # not download stale benchmark or production HTML packs.
+      - name: Fingerprint jobs SEO renderer for HTML cache
+        if: env.JOBS_SEO_REUSE == '1'
+        id: jobs-seo-html-fingerprint
+        shell: bash
+        run: node scripts/ci/jobs-seo-html-cache-fingerprint.mjs >> "$GITHUB_OUTPUT"
+
       - name: Restore chained jobs SEO HTML cache
         if: env.JOBS_SEO_REUSE == '1' && inputs.chain != ''
         id: bench-jobs-seo-html-cache
         uses: actions/cache/restore@v6
         with:
           path: .cache/incremental-html
-          # Keep the production exact-hash contract: the restored manifest is
-          # the source of this hash, so another manifest cannot silently become
-          # the HTML input for this run.
-          key: bench-${{ inputs.chain }}-${{ matrix.variant }}-${{ matrix.locale }}-${{ hashFiles(format('.cache/incremental-manifest/{0}.jsonl', matrix.locale)) }}
+          # Keep the production exact-hash contract: the restored manifest and
+          # current renderer fingerprint identify the HTML input for this run.
+          key: bench-${{ inputs.chain }}-${{ matrix.variant }}-${{ matrix.locale }}-${{ hashFiles(format('.cache/incremental-manifest/{0}.jsonl', matrix.locale)) }}-${{ steps.jobs-seo-html-fingerprint.outputs.fingerprint }}
 
       - name: Restore previous jobs SEO HTML cache
         if: env.JOBS_SEO_REUSE == '1' && (inputs.chain == '' || steps.bench-jobs-seo-html-cache.outputs.cache-matched-key == '')
@@ -647,7 +654,7 @@ jobs:
         uses: actions/cache/restore@v6
         with:
           path: .cache/incremental-html
-          key: jobs-seo-html-${{ matrix.locale }}-${{ hashFiles(format('.cache/incremental-manifest/{0}.jsonl', matrix.locale)) }}
+          key: jobs-seo-html-${{ matrix.locale }}-${{ hashFiles(format('.cache/incremental-manifest/{0}.jsonl', matrix.locale)) }}-${{ steps.jobs-seo-html-fingerprint.outputs.fingerprint }}
 
       - name: Document chained cache restores
         if: always()
@@ -1004,7 +1011,7 @@ jobs:
         uses: actions/cache/save@v6
         with:
           path: .cache/incremental-html
-          key: bench-${{ inputs.chain }}-${{ matrix.variant }}-${{ matrix.locale }}-${{ hashFiles(format('.cache/incremental-manifest/{0}.jsonl', matrix.locale)) }}
+          key: bench-${{ inputs.chain }}-${{ matrix.variant }}-${{ matrix.locale }}-${{ hashFiles(format('.cache/incremental-manifest/{0}.jsonl', matrix.locale)) }}-${{ steps.jobs-seo-html-fingerprint.outputs.fingerprint }}
 
       - name: Save chained incremental manifest
         if: success() && inputs.chain != '' && hashFiles(format('.cache/incremental-manifest/{0}.jsonl', matrix.locale)) != ''
@@ -1144,6 +1151,7 @@ jobs:
           RUN_ID: ${{ github.run_id }}
           JOBS_SEO_REUSE: ${{ env.JOBS_SEO_REUSE }}
           HTML_HASH: ${{ hashFiles(format('.cache/incremental-manifest/{0}.jsonl', matrix.locale)) }}
+          HTML_FINGERPRINT: ${{ steps.jobs-seo-html-fingerprint.outputs.fingerprint }}
           HTML_SAVE_OUTCOME: ${{ steps.bench-jobs-seo-html-save.outcome }}
           MANIFEST_SAVE_OUTCOME: ${{ steps.bench-incremental-manifest-save.outcome }}
         shell: bash
@@ -1158,9 +1166,13 @@ jobs:
               echo '| bench jobs SEO HTML | not saved (chain input empty) | _none_ |'
               echo '| bench incremental manifest | not saved (chain input empty) | _none_ |'
             else
-              html_key="bench-${CHAIN}-${VARIANT}-${LOCALE}-${HTML_HASH}"
               manifest_key="bench-${CHAIN}-${VARIANT}-${LOCALE}-${RUN_ID}"
-              echo "| bench jobs SEO HTML | ${HTML_SAVE_OUTCOME:-skipped} | \`${html_key}\` |"
+              if [ "$JOBS_SEO_REUSE" = "1" ]; then
+                html_key="bench-${CHAIN}-${VARIANT}-${LOCALE}-${HTML_HASH}-${HTML_FINGERPRINT}"
+                echo "| bench jobs SEO HTML | ${HTML_SAVE_OUTCOME:-skipped} | \`${html_key}\` |"
+              else
+                echo '| bench jobs SEO HTML | not saved (JOBS_SEO_REUSE off) | _none_ |'
+              fi
               echo "| bench incremental manifest | ${MANIFEST_SAVE_OUTCOME:-skipped} | \`${manifest_key}\` |"
             fi
           } >> "$GITHUB_STEP_SUMMARY"

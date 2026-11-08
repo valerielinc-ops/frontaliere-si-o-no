@@ -5,8 +5,8 @@ import { fileURLToPath } from 'node:url';
 import {
   assertSocialCopyTreatmentContinuity,
   normalizeSocialCopyPack,
-  SOCIAL_COPY_PACK_SCHEMA_VERSION,
   SOCIAL_COPY_PROMPT_VERSION,
+  validatePersistedSocialCopyPack,
 } from '../lib/social-copy-pack.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
@@ -41,22 +41,19 @@ async function main() {
   const input = requireArgument('input');
   const raw = readJson(input);
   const generatedAt = argument('generated-at', new Date().toISOString());
-  const pack = normalizeSocialCopyPack(raw, { generatedAt });
+  const generationProvider = argument('generation-provider', 'codex');
+  const pack = normalizeSocialCopyPack(raw, { generatedAt, generationProvider });
   if (command === 'promote') {
     const output = argument('output', path.join(ROOT, 'data', 'social-copy-packs', 'current.json'));
     if (existsSync(output)) {
       const previousRaw = readJson(output);
-      if (Number(previousRaw.schemaVersion) === SOCIAL_COPY_PACK_SCHEMA_VERSION
-        && previousRaw.promptVersion === SOCIAL_COPY_PROMPT_VERSION) {
-        const previous = normalizeSocialCopyPack({
-          editorialPlan: previousRaw.editorialPlan,
-          channels: previousRaw.channels,
-        }, { generatedAt: previousRaw.generatedAt });
+      if (previousRaw.editorialPlan) {
+        const previous = validatePersistedSocialCopyPack(previousRaw, { now: previousRaw.generatedAt });
         assertSocialCopyTreatmentContinuity(previous, pack);
       }
     }
     writeJsonAtomic(output, pack);
-    process.stdout.write('Promoted validated social copy pack ' + pack.packId + ' (' + SOCIAL_COPY_PROMPT_VERSION + ')\n');
+    process.stdout.write('Promoted validated social copy pack ' + pack.packId + ' (' + SOCIAL_COPY_PROMPT_VERSION + ', ' + generationProvider + ')\n');
     return;
   }
   process.stdout.write('Valid social copy pack (' + SOCIAL_COPY_PROMPT_VERSION + '); ' + pack.packId + '\n');

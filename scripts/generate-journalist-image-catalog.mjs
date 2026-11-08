@@ -60,21 +60,24 @@ function writeCatalog(catalog) {
 
 /**
  * Appends a single newly-written blog image to the committed catalog
- * manifest without a full directory rescan. No-op (never throws) if the
- * entry is already present — safe to call unconditionally after any write
- * to public/images/blog/*.webp.
+ * manifest without a full directory rescan. Returns false on an invalid
+ * path or write failure so a publisher can refuse an unproven asset. No-op
+ * (never throws) if the entry is already present — safe to call
+ * unconditionally after any write to public/images/blog/*.webp.
  */
 export function appendCatalogEntry(blogImagePath) {
   try {
     const file = blogImagePath.replace(/^\/images\/blog\//, '');
     const words = wordsFromFilename(file);
-    if (words.length === 0) return;
+    if (words.length === 0) return false;
     const catalog = readExistingCatalog();
-    if (catalog.some((entry) => entry.path === blogImagePath)) return;
+    if (catalog.some((entry) => entry.path === blogImagePath)) return true;
     catalog.push({ path: blogImagePath, words });
     writeCatalog(catalog);
+    return true;
   } catch (err) {
     console.warn(`  ⚠️  appendCatalogEntry(${blogImagePath}) failed (non-fatal): ${err.message}`);
+    return false;
   }
 }
 

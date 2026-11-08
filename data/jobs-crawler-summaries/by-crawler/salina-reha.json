@@ -1,7 +1,7 @@
 {
   "key": "salina-reha",
   "label": "Salina Rehaklinik Rheinfelden",
-  "generatedAt": "2026-11-07T09:30:26.844Z",
+  "generatedAt": "2026-11-07T21:12:54.600Z",
   "total": 3,
   "discovered": null,
   "parsed": 3,
@@ -14,64 +14,16 @@
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
   "updatedCount": 0,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 3,
-  "durationMs": 20845,
-  "avgDurationMs": 20845,
+  "durationMs": 20880,
+  "avgDurationMs": 20880,
   "durationHistory": [
-    20845
+    20880
   ],
   "newJobs": [],
   "updatedJobs": [],
-  "removedJobs": [
-    {
-      "id": "salina-reha-6224691450f6",
-      "slug": "collaboratore-trice-del-servizio-tecnico-salina-rehaklinik-rheinfelden-rheinfelden-226a1a4923",
-      "company": "Salina Rehaklinik Rheinfelden",
-      "companyKey": "salina-reha",
-      "companyDomain": "salina-reha.ch",
-      "title": "Mitarbeiter/-in Technischer Dienst",
-      "location": "Rheinfelden",
-      "canton": "AG",
-      "url": "https://link.ostendis.com/publication/mitarbeiter-in-technischer-dienst/xd3eodbxyi2rvy274uzib5fhttsijaxiqvoq3ylfgl0hq260qp7soazjoqlpbv6e",
-      "source": "Salina Rehaklinik Dedicated Parser (Ostendis via Playwright)",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-05T21:14:07.686Z",
-      "addressLocality": "Rheinfelden",
-      "addressRegion": "AG",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "4310",
-      "category": "Tecnica",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Sanità",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-11-05",
-      "postedDate": "2026-11-05",
-      "postingDateSource": "reported",
-      "applyUrl": "https://link.ostendis.com/publication/mitarbeiter-in-technischer-dienst/xd3eodbxyi2rvy274uzib5fhttsijaxiqvoq3ylfgl0hq260qp7soazjoqlpbv6e",
-      "needsRetranslation": true,
-      "salaryMin": 72500,
-      "salaryMax": 110500,
-      "salarySource": "estimated",
-      "streetAddress": "Rheinfelden",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T21:14:07.686Z",
-      "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-05T21:14:07.686Z",
-      "crawlerMissStreak": 2,
-      "_qualityScore": 93,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 25
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": [
     {
       "id": "salina-reha-cc6535b31b6f",
@@ -85,7 +37,7 @@
       "url": "https://link.ostendis.com/publication/physiotherapeut-in-stationaer/g6wckeprdbkl28epaic6dqysaunbxphfh42npqi06nubiz36a5o3eru4h40nujkj",
       "source": "Salina Rehaklinik Dedicated Parser (Ostendis via Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-07T09:30:05.361Z",
+      "crawledAt": "2026-11-07T21:12:34.949Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -109,7 +61,7 @@
       "salarySource": "estimated",
       "streetAddress": "Rheinfelden",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-13T09:30:05.361Z",
+      "validThrough": "2027-01-13T21:12:34.949Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -131,7 +83,7 @@
       "url": "https://link.ostendis.com/publication/psychotherapeut-in/busy2qktsvis75ecdf8xwhe1tpdb7bg3ejrbltowe83y40uy5nylbe38wthkei25",
       "source": "Salina Rehaklinik Dedicated Parser (Ostendis via Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-07T09:30:03.142Z",
+      "crawledAt": "2026-11-07T21:12:32.725Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -154,7 +106,7 @@
       "salarySource": "estimated",
       "streetAddress": "Rheinfelden",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-22T09:30:03.142Z",
+      "validThrough": "2026-12-22T21:12:32.725Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -176,7 +128,7 @@
       "url": "https://link.ostendis.com/publication/mitarbeiter-in-technischer-dienst/msbpp6odv00cqa9il39bv6b9i306zzmlwnkyj4rqrizm0jisf2qded5yco2kcsb8",
       "source": "Salina Rehaklinik Dedicated Parser (Ostendis via Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-07T09:30:01.388Z",
+      "crawledAt": "2026-11-07T21:12:30.588Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -199,7 +151,7 @@
       "salarySource": "estimated",
       "streetAddress": "Rheinfelden",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-04T09:30:01.388Z",
+      "validThrough": "2027-02-04T21:12:30.588Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -210,5 +162,5 @@
       }
     }
   ],
-  "codeCommit": "dae4367441abe10a497d7d52ebb4540c014e1e8c"
+  "codeCommit": "f149ed523035737e5146c13e7338b8dd6b0c5f04"
 }

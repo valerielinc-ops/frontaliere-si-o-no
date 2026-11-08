@@ -114,7 +114,7 @@ export function nativeControlEvidenceInPage(fields) {
       ...(control.tagName === 'SELECT' ? { kind: 'select', inputType: control.type,
         options: [...control.options].filter(option => !option.matches(':disabled') && !option.closest('optgroup:disabled'))
           .map(option => ({ value: option.value, label: clean(option.label ?? option.textContent),
-            ...(control.required && !control.multiple && control.size <= 1 && control.options[0] === option
+            ...((control.required || ariaRequired === 'true') && !control.multiple && control.size <= 1 && control.options[0] === option
               && option.parentElement === control && option.value === '' ? { placeholder: true } : {}) })) } : {}) });
   }
   return result;
