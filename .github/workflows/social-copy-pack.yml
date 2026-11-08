@@ -277,21 +277,31 @@ jobs:
           elif [ "$CODEX_OUTCOME" = failure ]; then
             reason="codex-generation-failed; ${FALLBACK_REASON:-fallback-result-unavailable}"
           fi
+          deferred=false
+          # Exhausted rolling provider budgets are an expected scheduling defer:
+          # keep the last deterministic publisher copy active and wait for the
+          # next eligible window. Other no-pack outcomes remain failures.
+          if [ "$generated" != true ] && [ "${FALLBACK_REASON:-}" = free-fallback-weekly-budget-exhausted ]; then
+            deferred=true
+            echo "::notice::Social copy generation deferred until the free-provider budget window reopens ($reason)."
+          fi
           {
             printf 'pack_generated=%s\n' "$generated"
             printf 'provider=%s\n' "$provider"
             printf 'reason=%s\n' "$reason"
+            printf 'deferred=%s\n' "$deferred"
           } >> "$GITHUB_OUTPUT"
           {
             printf '## Social copy generation\n\n'
             printf -- '- Pack generated: **%s**\n' "$generated"
             printf -- '- Provider: **%s**\n' "$provider"
             printf -- '- Result: `%s`\n' "$reason"
+            printf -- '- Outcome: **%s**\n' "$([ "$deferred" = true ] && printf 'deferred' || printf 'failure')"
             if [ -n "${FALLBACK_FAILURES:-}" ]; then
               printf -- '- Fallback attempts: `%s`\n' "$FALLBACK_FAILURES"
             fi
           } >> "$GITHUB_STEP_SUMMARY"
-          if [ "$generated" != true ]; then
+          if [ "$generated" != true ] && [ "$deferred" != true ]; then
             echo "::error::Social copy generation produced no validated pack ($reason)."
             exit 1
           fi
