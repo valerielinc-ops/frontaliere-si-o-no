@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest';
 import { createMemoryFirestore } from './helpers/memoryFirestore';
 import { reconcilePortalCode } from '../scripts/assisted-application/reconcile-portal-code.mjs';
 import { transition } from '../functions/src/assistedApplicationFlow.js';
+import { ORDER_QUESTION_ANSWER_EVIDENCE_VERSION } from '../functions/src/assistedApplicationCandidateEdits.js';
 
 const base = 'assisted_applications/operational_recovery_fixture';
 const now = Date.now();
@@ -38,6 +39,17 @@ describe('source-version recovery of positively identified operational portal qu
     store.docs.set(`${base}/ai_drafts/current`, { ...store.read(`${base}/ai_drafts/current`), questions: [availability] });
     store.docs.set(`${base}/automation/flow`, { ...store.read(`${base}/automation/flow`), answers: { availability: '2026-11-20' } });
     expect(await reconcilePortalCode({ ...context(store), apply: false })).toMatchObject({ eligible: 1, queued: 0 });
+    expect(await reconcilePortalCode({ ...context(store), apply: true })).toMatchObject({ eligible: 1, queued: 1 });
+    expect(store.read(base).automationDueAt).toBe(now);
+  });
+
+  it('preserves an explicit same-order match answer in the trusted recovery projection', async () => {
+    const store = fixture();
+    const availability = { id: 'availability', source: 'match', required: true,
+      question: 'Disponibilità', applicationQuestion: 'Disponibilità', type: 'date', options: [] };
+    store.docs.set(`${base}/ai_drafts/current`, { ...store.read(`${base}/ai_drafts/current`), questions: [availability] });
+    store.docs.set(`${base}/automation/flow`, { ...store.read(`${base}/automation/flow`),
+      answers: { availability: '2026-11-20' }, orderQuestionAnswersEvidenceVersion: ORDER_QUESTION_ANSWER_EVIDENCE_VERSION });
     expect(await reconcilePortalCode({ ...context(store), apply: true })).toMatchObject({ eligible: 1, queued: 1 });
     expect(store.read(base).automationDueAt).toBe(now);
   });

@@ -1,7 +1,7 @@
 import { describe, expect, it, vi } from 'vitest';
 import { JOB_ACTIVE_IDS_URL, JOB_DETAIL_BASE } from '../functions/src/assistedApplicationAiJob.js';
 import { parseActiveJobIdIndex } from '../functions/src/assistedApplicationActiveJobIndex.js';
-import { checkPostingLiveness, postingAddressOf, resolvePostingAddressOf } from '../functions/src/assistedApplicationLiveness.js';
+import { applyControlsFromHtml, checkPostingLiveness, classifyLiveness, postingAddressOf, resolvePostingAddressOf } from '../functions/src/assistedApplicationLiveness.js';
 
 const JOB_ID = 'medbase-ccaaa7fa003b';
 const POSTING_URL = 'https://acme.wd3.myworkdayjobs.com/en-US/Careers/job/Frauenfeld/Apprenticeship_R15163';
@@ -30,6 +30,19 @@ function activeIndex(ids: string[], generatedAt = new Date().toISOString()) {
 }
 
 describe('assisted-application liveness active-ID corroboration', () => {
+  it('reads native input application openers without treating ordinary inputs as controls', () => {
+    expect(applyControlsFromHtml('<input type="button" value="cliccando qui">')).toEqual(['cliccando qui']);
+    expect(applyControlsFromHtml('<input type="text" value="cliccando qui"><button>Invia candidatura</button>'))
+      .toEqual(['Invia candidatura']);
+    expect(classifyLiveness({
+      status: 200,
+      requestedUrl: 'https://recruitingapp-2761.umantis.com/Vacancies/2806/Description/4',
+      finalUrl: 'https://recruitingapp-2761.umantis.com/Vacancies/2806/Description/4',
+      bodyText: 'EOC Assistente sociale '.repeat(30),
+      applyControls: applyControlsFromHtml('<input type="button" value="fare clic qui">'),
+    })).toMatchObject({ result: 'active', code: 'apply_control_visible' });
+  });
+
   it('gets the canonical page from published detail for a legacy order with a stale apply URL', async () => {
     const jobId = 'helsana-872317162e36';
     const staleApplyUrl = 'https://careers.helsana.ch/talentcommunity/apply/1426391333/?locale=de_DE';

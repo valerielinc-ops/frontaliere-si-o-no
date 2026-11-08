@@ -12,7 +12,7 @@ import { retentionPurgeDueAt, talentPoolConsentActive } from '../../functions/sr
 import { getRemoteConfig } from 'firebase-admin/remote-config';
 import { PORTAL_NATIVE_CONTRACT_VERSION } from '../../functions/src/lib/portalNativeContract.js';
 import { portalCodeVersion, portalIdentityQuestionDefinitelyUnsent, portalRecoveryDefinitelyUnsent, operationalPortalRecoveryReady } from '../../functions/src/assistedApplicationPortalRecoveryPolicy.js';
-import { portalAutoRetryAttemptsRemaining } from '../../functions/src/assistedApplicationPortalRetryPolicy.js';
+import { portalAutoRetryAttemptsRemaining, portalExhaustedRecoveryPending } from '../../functions/src/assistedApplicationPortalRetryPolicy.js';
 import './extension/apply-control.js';
 import { candidateAnswerForField, isIdentityEmailConfirmationField } from './lib/portal/plan.mjs';
 
@@ -20,6 +20,20 @@ const hasAnswer = value => typeof value === 'boolean' || typeof value === 'numbe
   || typeof value === 'string' && value.trim().length > 0 || Array.isArray(value) && value.some(item => String(item ?? '').trim());
 const object = value => value && typeof value === 'object' && !Array.isArray(value) ? value : {};
 const canonicalUrl = value => { try { return new URL(String(value || '')).href; } catch { return ''; } };
+
+/**
+ * Match answers belong to this approved draft, not to the cross-order answer
+ * ledger. Preserve an explicit same-order value for recovery even when the
+ * trusted evidence projection intentionally omits it; the recovery policy
+ * validates the exact question and value before it can schedule anything.
+ */
+function explicitMatchAnswers({ draft, flow }) {
+  const answers = object(flow?.answers);
+  return Object.fromEntries((Array.isArray(draft?.questions) ? draft.questions : [])
+    .filter(question => question?.source === 'match' && typeof question.id === 'string'
+      && hasAnswer(answers[question.id]))
+    .map(question => [question.id, answers[question.id]]));
+}
 
 function identityEmailConfirmationAnswer({ order, draft, flow, nowMs }) {
   if (flow?.state !== 'needs_candidate_action' || flow?.heldBy?.length !== 1) return null;
@@ -119,11 +133,16 @@ export async function reconcilePortalCode({ db, version, apply = false, nowMs = 
         if (flow.heldBy[0] === 'portal:portal_needs_candidate'
           && !talentPoolConsentActive(order) && !(retentionPurgeDueAt(order) > nowMs)) return false;
         // A source-version change may make a previously blocked portal
-        // technically recoverable, but it must never mint a new retry budget.
-        // The normal clock and this reconciler share the same policy helper so
-        // repeated deployments cannot keep resubmitting one application.
-        if (!identityQuestionReady && !portalAutoRetryAttemptsRemaining(flow)) {
-          if (apply) {
+        // technically recoverable. After the normal two-attempt ladder, allow
+        // one repair attempt only when this application has never consumed the
+        // bounded exhausted-budget repair marker. The marker is written in the
+        // same transaction as the queue and prevents repeated deployments from
+        // resubmitting one application indefinitely.
+        if (!identityQuestionReady && !portalAutoRetryAttemptsRemaining(flow) && flow.portalExhaustedRecoveryVersion) {
+          // A queued repair is already the one permitted dispatch. A later
+          // source version must not erase its due time before the scheduler
+          // consumes it; only an exhausted, unqueued marker is retired here.
+          if (apply && !portalExhaustedRecoveryPending(flow)) {
             transaction.set(flowRef, { portalRecoveryVersion: version, portalAutoRetryAt: null, updatedAt: nowMs }, { merge: true });
             transaction.set(doc.ref, { automationDueAt: null, automationUpdatedAt: new Date(nowMs) }, { merge: true });
           }
@@ -137,11 +156,14 @@ export async function reconcilePortalCode({ db, version, apply = false, nowMs = 
           && !hasCurrentNativePortalContract(draft)) return false;
         const verifiedQuestionAnswers = Object.fromEntries((answerContext.answerEvidence || [])
           .map(record => [record.key, record.answer]));
-        // A same-order legacy answer may be used to decide whether this
-        // already-saved application is internally compatible. It is not
-        // candidate-wide evidence, and it is never copied into the
-        // cross-order ledger automatically.
-        const legacyLocalAnswers = !trustedLocalAnswers ? object(flow.answers) : {};
+        // A same-order answer may be used to decide whether this already-saved
+        // application is internally compatible. It is not candidate-wide
+        // evidence, and it is never copied into the cross-order ledger
+        // automatically. Trusted flows contribute only explicit match answers;
+        // untrusted legacy flows retain their existing order-local projection.
+        const legacyLocalAnswers = !trustedLocalAnswers
+          ? object(flow.answers)
+          : explicitMatchAnswers({ draft, flow });
         const recoveryFlow = {
           ...answerContext.flow,
           answers: { ...(answerContext.flow.answers || {}), ...legacyLocalAnswers },
@@ -156,6 +178,9 @@ export async function reconcilePortalCode({ db, version, apply = false, nowMs = 
         const candidatePortalRediscovery = ownerRecoveryReady && canRediscoverUnreadablePortalQuestions(flow, draft, flags);
         if (flags.owner.length || flags.documents.length || (flags.candidate.length && !candidatePortalRediscovery)) return false;
         if (receipt?.version === version && Number(receipt.round) === Number(flow.round || 1)) return false;
+        const exhaustedRepair = !identityQuestionReady
+          && !portalAutoRetryAttemptsRemaining(flow)
+          && !flow.portalExhaustedRecoveryVersion;
         if (apply) {
           if (identityQuestionReady) {
             transaction.set(flowRef, {
@@ -168,11 +193,14 @@ export async function reconcilePortalCode({ db, version, apply = false, nowMs = 
               ? {} : trustedLocalAnswers ? answerContext.orderAnswers
                 : rememberCandidateQuestionAnswers({ questions: draft?.questions || [], answers: legacyLocalAnswers, changed: legacyLocalAnswers });
             transaction.set(flowRef, { heldBy, questionAnswers: recoveryOrderAnswers, portalAutoRetryAt: nowMs,
-              portalRecoveryVersion: version, updatedAt: nowMs }, { merge: true });
+              portalRecoveryVersion: version,
+              ...(exhaustedRepair ? { portalExhaustedRecoveryVersion: version } : {}),
+              updatedAt: nowMs }, { merge: true });
           }
           transaction.set(doc.ref, { automationDueAt: nowMs, automationUpdatedAt: new Date(nowMs) }, { merge: true });
           transaction.set(submissionRef, { portalCodeRecovery: { version, round: Number(flow.round) || 1, queuedAt: nowMs,
-            ...(identityQuestionReady ? { kind: 'identity_email_confirmation' } : {}) } }, { merge: true });
+            ...(identityQuestionReady ? { kind: 'identity_email_confirmation' } : {}),
+            ...(exhaustedRepair ? { kind: 'exhausted_budget_repair' } : {}) } }, { merge: true });
           transaction.set(doc.ref.collection('events').doc(), {
             type: identityQuestionReady ? 'portal_identity_email_recovery_scheduled' : 'portal_code_recovery_scheduled',
             actor: 'system', at: nowMs, version,

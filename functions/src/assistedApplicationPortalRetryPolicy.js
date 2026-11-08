@@ -56,9 +56,26 @@ export function portalAutoRetryAttemptsRemaining(flow) {
   return attempts !== null && attempts < PORTAL_AUTO_RETRY_DELAYS_MS.length;
 }
 
+/**
+ * A source-version repair may spend one bounded extra attempt after the
+ * ordinary two-attempt ladder, but only after the reconciler has recorded the
+ * exact version and queued it with a due time. The marker remains after the
+ * dispatch, so a later deployment can never mint another repair for the same
+ * application.
+ */
+export function portalExhaustedRecoveryPending(flow) {
+  const attempts = portalAutoRetryCountValue(flow);
+  const version = String(flow?.portalExhaustedRecoveryVersion || '');
+  return attempts === PORTAL_AUTO_RETRY_DELAYS_MS.length
+    && /^[a-f0-9]{64}$/.test(version)
+    && version === String(flow?.portalRecoveryVersion || '')
+    && Number(flow?.portalAutoRetryAt) > 0;
+}
+
 export function portalRetryDueAt(flow) {
   const retryAt = Number(flow?.portalAutoRetryAt) || 0;
-  const budgetAvailable = isInfrastructureRetryHold(flow) || portalAutoRetryAttemptsRemaining(flow);
+  const budgetAvailable = isInfrastructureRetryHold(flow)
+    || portalAutoRetryAttemptsRemaining(flow) || portalExhaustedRecoveryPending(flow);
   return flow?.state === 'owner_takeover' && isAutoRetryablePortalHold(flow) && budgetAvailable
     && Number.isFinite(retryAt) && retryAt > 0 ? retryAt : null;
 }

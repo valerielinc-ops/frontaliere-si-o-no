@@ -1277,6 +1277,33 @@ function fieldlessApplicationEntryContextMatchesPosting(control, context = {}) {
   return titleMatches(localContext, job.title);
 }
 
+// A few legacy employer pages render the only application opener as a native
+// button whose value is deliberately generic («cliccando qui», «click here»).
+// That label is not provenance by itself: it is accepted only when the
+// browser is on the exact Umantis vacancy route, the derived Application/New
+// route carries the same vacancy id, the page names the selected role, and
+// there is no competing semantic Apply control. This keeps the security gate
+// closed for generic buttons on listings and for neighbouring roles.
+const GENERIC_APPLICATION_ENTRY_RE = /^(?:clicca(?:ndo)?\s+qui|click\s+here|cliquez?\s+ici|hier\s+klicken|hier\s+bewerben|apply\s+here|candidarsi\s+qui|fare\s+clic\s+qui)$/iu;
+
+function genericApplicationEntryLabel(value) {
+  const text = String(value || '').normalize('NFKC').replace(/\s+/g, ' ').trim()
+    .replace(/^[([{«»“”‘’"'›•*-]+|[.!?:,;)\]}«»“”‘’"']+$/gu, '').trim();
+  return Boolean(text && GENERIC_APPLICATION_ENTRY_RE.test(text));
+}
+
+function genericUmantisApplicationEntryBelongsToPosting(control, snapshot, context = {}) {
+  if (!context?.allowSingleExternalApplicationEntry || !genericApplicationEntryLabel(control?.text || control?.label)
+    || control?.disabled || control?.chrome || control?.href || (Number(control?.frame) || 0) !== 0) return false;
+  if (!samePostingAddress(snapshot?.url, context.postingUrl)
+    || (Array.isArray(snapshot?.fields) && snapshot.fields.length > 0)) return false;
+  const applicationUrl = umantisApplicationEntryUrl({ applyUrl: context.applyUrl, postingUrl: context.postingUrl })
+    || String(context.applyUrl || '').trim();
+  if (!isUmantisPostingEntry({ applyUrl: applicationUrl, postingUrl: context.postingUrl })) return false;
+  return Boolean(context.job?.title
+    && titleMatches(`${snapshot?.text || ''}\n${snapshot?.title || ''}\n${context.pageTitle || ''}`, context.job.title));
+}
+
 export function applicationEntryControls(snapshot = {}, context = {}) {
   const controls = [
     ...(Array.isArray(snapshot.buttons) ? snapshot.buttons : []),
@@ -1286,6 +1313,11 @@ export function applicationEntryControls(snapshot = {}, context = {}) {
     && startsApplication(control?.text || control?.label)
     && applicationEntryBelongsToPosting(control, context));
   if (matching.length || context.allowSingleExternalApplicationEntry !== true) return matching;
+
+  const genericEntries = controls.filter((control) => genericUmantisApplicationEntryBelongsToPosting(control, snapshot, context));
+  const competingSemanticEntry = controls.some((control) => !genericApplicationEntryLabel(control?.text || control?.label)
+    && startsApplication(control?.text || control?.label));
+  if (genericEntries.length === 1 && !competingSemanticEntry) return genericEntries;
 
   // A verified posting can hand off to an ATS on another route or origin
   // without a URL that carries the vacancy id (common on employer career
@@ -1492,38 +1524,54 @@ function pageSignature(page, snapshot) {
   ].join(':')).join('|')}`;
 }
 
-/** The visible question contract, without values the runner has just filled. */
-function questionSurfaceSignature(snapshot = {}) {
+/**
+ * The visible question contract, without values the runner has just filled.
+ *
+ * SuccessFactors validates a registration password asynchronously. During
+ * that request it may repaint only the password field's accessibility
+ * metadata, error state, or value mirror. Those are not candidate questions,
+ * but the field's identity, type, and required state still are: a redraw that
+ * removes or replaces the password control must remain unsafe.
+ */
+function questionSurfaceSignature(snapshot = {}, { ignorePasswordPolicy = false } = {}) {
   const fields = Array.isArray(snapshot.fields) ? snapshot.fields : [];
   const errors = Array.isArray(snapshot.errors) ? snapshot.errors : [];
   return JSON.stringify({
     pageMarker: String(snapshot.pageMarker || ''),
-    fields: fields.map((field) => [
-      Number.isInteger(field.frame) ? field.frame : '', field.id || '', field.kind || '', field.inputType || '', field.label || '', field.name || '',
-      field.context || '', field.section || '',
-      String(field.ariaLabel || '').replace(/\s+/g, ' ').trim(),
-      String(field.description || '').replace(/\s+/g, ' ').trim(),
-      String(field.ariaDescription || '').replace(/\s+/g, ' ').trim(),
-      String(field.title || '').replace(/\s+/g, ' ').trim(),
-      String(field.placeholder || '').replace(/\s+/g, ' ').trim(),
-      (Array.isArray(field.labels) ? field.labels : []).map((label) => String(label || '').replace(/\s+/g, ' ').trim()),
-      field.privacyMetadataIncomplete === true,
-      String(field.autocomplete || '').replace(/\s+/g, ' ').trim(),
-      Number.isFinite(field.maxLength) ? field.maxLength : null,
-      String(field.accept || '').replace(/\s+/g, ' ').trim(),
-      Object.hasOwn(field, 'addressContext') ? addressContextContract(field) : null,
-      createHash('sha256').update(String(field.value ?? '')).digest('hex'),
-      field.checked === true,
-      field.required === true, field.invalid === true,
-      (Array.isArray(field.options) ? field.options : []).map((option) => [
-        String(typeof option === 'string' ? option : option?.label || ''),
-        String(typeof option === 'string' ? '' : option?.value || ''),
-        typeof option === 'string' ? false : option?.disabled === true,
-        typeof option === 'string' ? false : option?.placeholder === true,
-      ]),
-    ]),
+    fields: fields.map((field) => {
+      const passwordPolicyField = ignorePasswordPolicy && field.inputType === 'password';
+      return [
+        Number.isInteger(field.frame) ? field.frame : '', field.id || '', field.kind || '', field.inputType || '', field.label || '', field.name || '',
+        field.context || '', field.section || '',
+        passwordPolicyField ? '' : String(field.ariaLabel || '').replace(/\s+/g, ' ').trim(),
+        passwordPolicyField ? '' : String(field.description || '').replace(/\s+/g, ' ').trim(),
+        passwordPolicyField ? '' : String(field.ariaDescription || '').replace(/\s+/g, ' ').trim(),
+        passwordPolicyField ? '' : String(field.title || '').replace(/\s+/g, ' ').trim(),
+        passwordPolicyField ? '' : String(field.placeholder || '').replace(/\s+/g, ' ').trim(),
+        passwordPolicyField ? [] : (Array.isArray(field.labels) ? field.labels : []).map((label) => String(label || '').replace(/\s+/g, ' ').trim()),
+        passwordPolicyField ? false : field.privacyMetadataIncomplete === true,
+        passwordPolicyField ? '' : String(field.autocomplete || '').replace(/\s+/g, ' ').trim(),
+        passwordPolicyField ? null : (Number.isFinite(field.maxLength) ? field.maxLength : null),
+        passwordPolicyField ? '' : String(field.accept || '').replace(/\s+/g, ' ').trim(),
+        passwordPolicyField ? null : (Object.hasOwn(field, 'addressContext') ? addressContextContract(field) : null),
+        passwordPolicyField ? null : createHash('sha256').update(String(field.value ?? '')).digest('hex'),
+        field.checked === true,
+        field.required === true, passwordPolicyField ? false : field.invalid === true,
+        (Array.isArray(field.options) ? field.options : []).map((option) => [
+          String(typeof option === 'string' ? option : option?.label || ''),
+          String(typeof option === 'string' ? '' : option?.value || ''),
+          typeof option === 'string' ? false : option?.disabled === true,
+          typeof option === 'string' ? false : option?.placeholder === true,
+        ]),
+      ];
+    }),
     errors: errors.map((error) => String(error?.message || error?.text || error || '')),
   });
+}
+
+/** Registration stability ignores only SuccessFactors' password-policy repaint. */
+export function registrationQuestionSurfaceSignature(snapshot = {}) {
+  return questionSurfaceSignature(snapshot, { ignorePasswordPolicy: true });
 }
 
 /** The planned question shape plus whether each required answer is still present. */
@@ -1541,9 +1589,12 @@ function registrationSurfaceSignature(snapshot = {}) {
 }
 
 /** Wait for the fields exposed by known answers to settle before asking for missing facts. */
-async function waitForStableQuestionSurface(page, snapshot, expectedUrl) {
+async function waitForStableQuestionSurface(page, snapshot, expectedUrl, { registration = false } = {}) {
   let current = snapshot;
-  let signature = questionSurfaceSignature(snapshot);
+  const signatureFor = currentSnapshot => registration
+    ? registrationQuestionSurfaceSignature(currentSnapshot)
+    : questionSurfaceSignature(currentSnapshot);
+  let signature = signatureFor(snapshot);
   let quietMs = 0;
   let observedMs = 0;
   while (observedMs < QUESTION_SURFACE_WAIT_MS
@@ -1558,7 +1609,7 @@ async function waitForStableQuestionSurface(page, snapshot, expectedUrl) {
     }
     current = next;
     if (page.url() !== expectedUrl || next.url !== expectedUrl) return { status: 'moved', snapshot: current };
-    const nextSignature = questionSurfaceSignature(next);
+    const nextSignature = signatureFor(next);
     if (nextSignature === signature) quietMs += QUESTION_SURFACE_POLL_MS;
     else {
       signature = nextSignature;
@@ -5709,7 +5760,7 @@ export async function handleAuth({ page, snapshot, ctx, allowExistingRegistratio
   const planStableRegistrationSurface = async (startingSnapshot, expectedUrl) => {
     let current = startingSnapshot;
     while (true) {
-      const stable = await waitForStableQuestionSurface(page, current, expectedUrl);
+      const stable = await waitForStableQuestionSurface(page, current, expectedUrl, { registration: true });
       if (stable.status !== 'stable') return { status: 'unstable', snapshot: stable.snapshot };
       const refreshed = await refreshChoiceCatalogues(page, stable.snapshot);
       const plannedSnapshot = accountRegistrationSnapshot(refreshed);
@@ -5751,7 +5802,7 @@ export async function handleAuth({ page, snapshot, ctx, allowExistingRegistratio
       return { handoff: 'portal_needs_candidate' };
     }
     if (page.url() !== registrationUrl) return { handoff: 'portal_needs_candidate' };
-    const stable = await waitForStableQuestionSurface(page, registrationSnapshot, registrationUrl);
+    const stable = await waitForStableQuestionSurface(page, registrationSnapshot, registrationUrl, { registration: true });
     if (stable.status !== 'stable') return { handoff: 'portal_needs_candidate' };
     registrationSnapshot = accountRegistrationSnapshot(await refreshChoiceCatalogues(page, stable.snapshot));
     registrationPlan = await planPage({
@@ -5827,7 +5878,7 @@ export async function handleAuth({ page, snapshot, ctx, allowExistingRegistratio
     if (preflight.privacy !== 'none') {
       privacyPlan = await planStableRegistrationSurface(filled, privacyUrl);
     } else {
-      const settled = await waitForStableQuestionSurface(page, filled, privacyUrl);
+      const settled = await waitForStableQuestionSurface(page, filled, privacyUrl, { registration: true });
       if (settled.status !== 'stable') {
         await parkRegistrationCredential('privacy_question_surface_unstable');
         return noted({ handoff: 'portal_needs_candidate' });
@@ -5903,7 +5954,7 @@ export async function handleAuth({ page, snapshot, ctx, allowExistingRegistratio
         await parkRegistrationCredential('privacy_question_surface_moved');
         return noted({ handoff: 'portal_needs_candidate' });
       }
-      const afterPrivacyActions = await waitForStableQuestionSurface(page, stableRegistrationSnapshot, privacyUrl);
+      const afterPrivacyActions = await waitForStableQuestionSurface(page, stableRegistrationSnapshot, privacyUrl, { registration: true });
       if (afterPrivacyActions.status !== 'stable') {
         await parkRegistrationCredential('privacy_question_surface_unstable');
         return noted({ handoff: 'portal_needs_candidate' });
@@ -6744,6 +6795,7 @@ export async function readPortalRequirements(ctx) {
     const opened = await openApplicationForm(context, page, snapshot, {
       applyUrl: stageApplyUrl,
       postingUrl: ctx.postingUrl || page.url(),
+      pageTitle: sourceTitle,
       sourceProtocol: snapshot.protocol || ctx.sourceProtocol || null,
       job: ctx.job,
       postingEntry: verifiedPostingEntry,
@@ -7063,6 +7115,7 @@ export async function submitViaPortal(ctx) {
     if (postingVacancyMatched && isApplicationRegionUnsupported(initialPageText)
       && !hasApplicationEntryControl(snapshot, {
         applyUrl: ctx.applyUrl, postingUrl, sourceProtocol, job: ctx.job,
+        pageTitle: postingTitle,
         postingRouteProof: ctx.postingRouteProof,
         allowSingleExternalApplicationEntry: postingVacancyMatched,
       })) {
@@ -7070,6 +7123,7 @@ export async function submitViaPortal(ctx) {
     }
     const opened = await openApplicationForm(context, page, snapshot, {
       applyUrl: ctx.applyUrl, postingUrl: ctx.postingUrl || postingUrl, sourceProtocol,
+      pageTitle: postingTitle,
       postingEntry: enteredFromMatchingPosting, postingRouteProof: ctx.postingRouteProof, job: ctx.job,
       allowSingleExternalApplicationEntry: postingVacancyMatched,
       onPortalNavigationDiagnostic: ctx.onPortalNavigationDiagnostic,
