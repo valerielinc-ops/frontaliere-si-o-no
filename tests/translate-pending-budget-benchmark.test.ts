@@ -44,6 +44,7 @@ function reportWith({ handoffState = 'complete', candidateFingerprintAfter = 'ch
       candidateCount: 1,
       sliceFingerprint: 'slice-before',
       candidateFingerprint: 'candidates-before',
+      candidateRefs: [{ relative: 'data/jobs/by-crawler/test.json', index: 0, locale: 'it' }],
     },
     populationAfter: {
       phase: 'descriptions',
@@ -55,6 +56,7 @@ function reportWith({ handoffState = 'complete', candidateFingerprintAfter = 'ch
     },
   });
   Object.assign(handoff!, { handoffState });
+  Object.assign(lane!, { selectedLaneComplete: true });
   return {
     schemaVersion: 1,
     phase: 'descriptions',
@@ -139,6 +141,8 @@ describe('translate-pending budget benchmark', () => {
     expect(source).toContain('same-population anchor');
     expect(source).toContain('candidateFingerprint');
     expect(source).toContain('underJobCap');
+    expect(source).toContain('selected-lane handoff');
+    expect(steps.find((step) => step.name === 'Complete translation deploy handoff')?.run).toContain('--verify-selected-lane');
     expect(source).toContain("candidateCountBefore > 0");
     expect(steps.find((step) => step.name === 'Commit selected repair lane')?.run).toContain('git-commit-data.sh --slice-only');
     expect(steps.find((step) => step.name === 'Commit after statistics')?.env?.TRANSLATION_STATS_AFTER_TREE).toBe('1');
