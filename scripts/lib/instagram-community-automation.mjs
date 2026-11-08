@@ -26,6 +26,7 @@ import {
   INSTAGRAM_COMMUNITY_TOPIC_MAX_SIGNALS,
   classifyInstagramCommunityQuestion,
   instagramCommunityTopicSignalKey,
+  instagramDirectMessageTopicSignalKey,
   normalizeInstagramCommunityTopicSignals,
 } from './instagram-community-topics.mjs';
 import { matchInstagramMedia } from './instagram-media-matching.mjs';
@@ -492,14 +493,19 @@ export function recordCommunityInteraction(state, file, {
   return event;
 }
 
-/** Store only a one-way key, closed topic ID, and timestamp for a public comment. */
+/** Store only a one-way key, closed topic ID, surface, and timestamp for an inbound question. */
 export function recordCommunityQuestionTopicSignal(state, {
   platformId,
   category,
+  surface = 'comments',
   receivedAt,
   observedAt = new Date(),
 } = {}) {
-  const key = instagramCommunityTopicSignalKey(platformId);
+  const key = surface === 'comments'
+    ? instagramCommunityTopicSignalKey(platformId)
+    : surface === 'directMessages'
+      ? instagramDirectMessageTopicSignalKey(platformId, category)
+      : null;
   const receivedAtMs = timestamp(receivedAt);
   const observedAtMs = timestamp(observedAt);
   if (!key || !INSTAGRAM_COMMUNITY_TOPIC_CATEGORIES.includes(category)
@@ -508,7 +514,7 @@ export function recordCommunityQuestionTopicSignal(state, {
   if (current.some((signal) => signal.key === key)) return false;
   state.topicSignals = normalizeInstagramCommunityTopicSignals([
     ...current,
-    { key, category, receivedAt: new Date(receivedAtMs).toISOString() },
+    { key, category, surface, receivedAt: new Date(receivedAtMs).toISOString() },
   ], { asOf: new Date(observedAtMs) }).slice(-INSTAGRAM_COMMUNITY_TOPIC_MAX_SIGNALS);
   return true;
 }
@@ -947,6 +953,19 @@ export async function runInstagramCommunityAutomation({
           at: timestamp(message?.created_time || message?.timestamp),
         }))
         .sort((left, right) => (left.at || 0) - (right.at || 0));
+      for (const entry of chronological) {
+        if (!entry.senderId || selfIds.has(String(entry.senderId)) || !id(entry.message?.id)
+          || entry.at === null || entry.at > nowMs) continue;
+        const category = classifyInstagramCommunityQuestion(messageText(entry.message));
+        if (!category) continue;
+        recordCommunityQuestionTopicSignal(state, {
+          platformId: conversationId,
+          category,
+          surface: 'directMessages',
+          receivedAt: new Date(entry.at).toISOString(),
+          observedAt: new Date(nowMs),
+        });
+      }
       const latestInbound = chronological.filter((entry) => entry.senderId && !selfIds.has(String(entry.senderId))).at(-1);
       if (!latestInbound || !id(latestInbound.message?.id)) continue;
       const latest = latestInbound.message;

@@ -10,6 +10,7 @@ import { isGeneratedSocialCopyMode } from '../lib/social-copy-pack.mjs';
 import {
   INSTAGRAM_COMMUNITY_TOPIC_CATEGORIES,
   INSTAGRAM_COMMUNITY_TOPIC_COUNT_BANDS,
+  INSTAGRAM_COMMUNITY_TOPIC_LEGACY_SOURCE,
   INSTAGRAM_COMMUNITY_TOPIC_MINIMUM,
   INSTAGRAM_COMMUNITY_TOPIC_SOURCE,
   INSTAGRAM_COMMUNITY_TOPIC_WINDOW_DAYS,
@@ -207,7 +208,7 @@ function buildInstagramStoryBrief(rows, {
 
 function instagramCommunityQuestionDemand(outcomes) {
   const source = outcomes?.questionTopicDemand;
-  if (!record(source) || source.source !== INSTAGRAM_COMMUNITY_TOPIC_SOURCE
+  if (!record(source) || ![INSTAGRAM_COMMUNITY_TOPIC_SOURCE, INSTAGRAM_COMMUNITY_TOPIC_LEGACY_SOURCE].includes(source.source)
     || source.windowDays !== INSTAGRAM_COMMUNITY_TOPIC_WINDOW_DAYS
     || source.minimumPerCategory !== INSTAGRAM_COMMUNITY_TOPIC_MINIMUM
     || !Array.isArray(source.categories)) {
