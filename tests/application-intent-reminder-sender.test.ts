@@ -271,8 +271,8 @@ describe('application-intent reminder sender — main()', () => {
     docs.set(`application_intents/${intent.intentId}`, intent.data);
 
     const output = await runSender(db);
-    expect(output).toContain('sent 0, skipped 1');
-    expect(output).toContain('intent_not_due_or_closed=1');
+    expect(output).toContain('Reminder candidates: 0 docs from 9 bounded queries');
+    expect(output).toContain('sent 0, skipped 0');
     expect(cascade.calls).toHaveLength(0);
   });
 
