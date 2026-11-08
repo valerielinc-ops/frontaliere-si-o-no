@@ -180,8 +180,10 @@ export const AI_MODELS = Object.freeze({
   // GROQ_LLAMA_3_3_SPEC removed — Groq HTTP 400 "model `llama-3.3-70b-specdec` has been decommissioned" (2026-05-27, run 26537033519).
   //                       Decommissioned in Groq's catalog; non-spec variant GROQ_LLAMA_3_3 (llama-3.3-70b-versatile) remains in the chain.
 
-  // ── OpenRouter (OpenAI-compatible, free models with :free suffix) ──
-  // Rate limits: 20 req/min, 200 req/day (free tier, no credit card)
+  // ── OpenRouter (OpenAI-compatible, free models with :free suffix and free router) ──
+  // Free-route availability and rate limits are provider-controlled and can change.
+  // The adapter strips one provider prefix; keep the router's own prefix as the second one.
+  OR_FREE_ROUTER:   'openrouter/openrouter/free',
   OR_LLAMA_3_3:     'openrouter/meta-llama/llama-3.3-70b-instruct:free',
   OR_GEMMA_3_27B:   'openrouter/google/gemma-3-27b-it:free',
   OR_MISTRAL_SM:    'openrouter/mistralai/mistral-small-3.1-24b-instruct:free',
@@ -1738,6 +1740,7 @@ export const getProviderForModel = getProvider;
  * Strip provider prefix from model ID to get the API model name.
  * e.g. 'groq/llama-3.3-70b-versatile' → 'llama-3.3-70b-versatile'
  *      'openrouter/meta-llama/llama-3.3-70b-instruct:free' → 'meta-llama/llama-3.3-70b-instruct:free'
+ *      'openrouter/openrouter/free' → 'openrouter/free' (free-model router)
  *      'cerebras/llama3.3-70b' → 'llama3.3-70b'
  *      'together/mistralai/Mistral-7B-Instruct-v0.3' → 'mistralai/Mistral-7B-Instruct-v0.3'
  *      'fireworks/accounts/fireworks/models/...' → 'accounts/fireworks/models/...'

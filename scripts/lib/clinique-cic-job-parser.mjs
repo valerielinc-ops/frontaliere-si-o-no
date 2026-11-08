@@ -29,6 +29,7 @@ import {
 } from './hospital-custom-html-helpers.mjs';
 import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 import { markAuthoritativeEmptySnapshot } from './authoritative-empty-snapshot.mjs';
+import { hasPotentialJobData } from './jobcloud-empty-state.mjs';
 
 export const CIC_KEY = 'clinique-cic';
 export const CIC_COMPANY_NAME = 'Clinique CIC (Saxon & Clarens)';
@@ -45,8 +46,6 @@ const JOB_DETAIL_PATH_RE = new RegExp(
   `^/[a-z]{2}/jobs/(?:${LISTING_SLUG}/)?[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}/?$`,
   'i',
 );
-const JOBCLOUD_EMPTY_INITIAL_JOBS_RE = /\\?"initialJobs\\?"\s*:\s*\[\s*\]/;
-const JOBCLOUD_NON_EMPTY_INITIAL_JOBS_RE = /\\?"initialJobs\\?"\s*:\s*\[\s*[^\]\s]/;
 const JOBCLOUD_NO_POSITIONS_TEXT_RE = /Aucun poste ouvert|Aucune offre d'emploi|No open positions|Keine offenen Stellen/i;
 
 function decodeNumericEntities(value = '') {
@@ -112,15 +111,15 @@ export function extractListingLinks(html = '') {
 
 /**
  * A zero is authoritative only when JobCloud itself renders its explicit
- * empty state. An unreadable or redesigned page remains a fail-closed zero.
+ * empty-state message and the whole document contains no job evidence. An
+ * unreadable or redesigned page remains a fail-closed zero.
  */
 export function isJobCloudListingProvenEmpty(html = '') {
   const source = String(html || '');
   if (!source) return false;
-  return JOBCLOUD_EMPTY_INITIAL_JOBS_RE.test(source)
-    && !JOBCLOUD_NON_EMPTY_INITIAL_JOBS_RE.test(source)
-    && JOBCLOUD_NO_POSITIONS_TEXT_RE.test(htmlToText(source))
-    && extractListingLinks(source).length === 0;
+  return JOBCLOUD_NO_POSITIONS_TEXT_RE.test(htmlToText(source))
+    && extractListingLinks(source).length === 0
+    && !hasPotentialJobData(source, 'jobcloud');
 }
 
 function inferLocalityFromSite(site = '', title = '') {
@@ -220,7 +219,7 @@ export async function fetchAllCicJobs() {
   if (!links.length) {
     if (isJobCloudListingProvenEmpty(listingHtml)) {
       console.log('  ✅ JobCloud explicitly reports no open positions.');
-      return markAuthoritativeEmptySnapshot([], 'JobCloud company page initialJobs=[] with an explicit no-open-positions message');
+      return markAuthoritativeEmptySnapshot([], 'JobCloud company page shows an explicit no-open-positions message with no job-bearing links or attributes');
     }
     console.warn('⚠️ JobCloud listing exposed no recognisable job links; preserving the previous slice.');
     return [];

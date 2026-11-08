@@ -63,6 +63,24 @@ describe('workflow failure reporting stays coupled to the central scanner contra
     expect(steps.every((step: any) => step.with['closed-by'] === 'close-recovered-failure-issues')).toBe(true);
   });
 
+  it('reports a missing social copy pack with the canonical closer and completed generation log', () => {
+    const source = parse('.github/workflows/social-copy-pack.yml');
+    const generate = source.jobs.generate;
+    const job = source.jobs['report-failure'];
+    const steps = reporterSteps(job);
+
+    expect(generate.permissions).toEqual({ contents: 'read' });
+    expect(job.needs).toBe('generate');
+    expect(String(job.if)).toContain("needs.generate.result == 'failure'");
+    expect(job.permissions).toEqual({ contents: 'read', issues: 'write', actions: 'read' });
+    expect(steps).toHaveLength(1);
+    expect(steps[0].if).toBe("always() && needs.generate.result == 'failure'");
+    expect(steps[0].with.title).toBe('CI Failure: ${{ github.workflow }}');
+    expect(steps[0].with['closed-by']).toBe('close-recovered-failure-issues');
+    expect(steps[0].with['log-from-job']).toBe('generate');
+    expect(steps[0].with['workflow-file']).toBe('.github/workflows/social-copy-pack.yml');
+  });
+
   it('reports caller-level failures from deploy, reusable validators and side effects', () => {
     const source = parse('.github/workflows/deploy-publish.yml');
     const job = source.jobs['report-failure'];

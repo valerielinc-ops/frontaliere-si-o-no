@@ -13,6 +13,7 @@ type AiModels = {
   DEFAULT_CHAIN: string[];
   DISCOVERY_PROVIDERS: ReadonlyArray<{ name: string }>;
   RETIRED_FREE_PROVIDERS: readonly string[];
+  callSingleModel: (messages: unknown[], options: Record<string, unknown>) => Promise<unknown>;
   discoverFreeModels: () => Promise<string[]>;
   getProvider: (model: string) => string;
 };
@@ -78,5 +79,31 @@ describe('provider free spenti (RETIRED_FREE_PROVIDERS)', () => {
     expect(righe.filter((r) => r.includes('provider spenti non interrogati'))).toHaveLength(1);
     // Le voci restano, per il giorno in cui l'account torna utilizzabile.
     expect(ai.DISCOVERY_PROVIDERS.some((cfg) => cfg.name === 'Mistral')).toBe(true);
+  });
+});
+
+describe('OpenRouter free-model router ID', () => {
+  it('keeps the router prefix in the API request after stripping the provider prefix', async () => {
+    vi.stubEnv('OPENROUTER_API_KEY', 'test-key');
+    const calls: Array<{ url: string; init?: RequestInit }> = [];
+    globalThis.fetch = (async (url: string, init?: RequestInit) => {
+      calls.push({ url, init });
+      return {
+        ok: true,
+        status: 200,
+        headers: { get: () => null },
+        text: async () => JSON.stringify({ choices: [{ message: { content: 'ok' } }] }),
+      } as unknown as Response;
+    }) as typeof globalThis.fetch;
+
+    const ai = await freshAiModels();
+    await ai.callSingleModel([{ role: 'user', content: 'x' }], {
+      model: ai.AI_MODELS.OR_FREE_ROUTER,
+      maxRetriesPerModel: 1,
+      recordScore: false,
+    });
+
+    expect(calls).toHaveLength(1);
+    expect(JSON.parse(String(calls[0].init?.body)).model).toBe('openrouter/free');
   });
 });
