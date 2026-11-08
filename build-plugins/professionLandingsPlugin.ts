@@ -43,7 +43,10 @@ import { buildSeoPageHtml } from './shared/seoPageShell';
 import { buildLocaleAlternateBlock } from './shared/localeAlternateBlock';
 import { endOfContentMultiplexHtml } from './lib/adSlotHtml';
 import { WriteCollector } from './batchWrite';
-import { resolveProfessionLandingsFlushed } from './shared/buildSignals';
+import {
+  registerProfessionLandingsProducer,
+  resolveProfessionLandingsFlushed,
+} from './shared/buildSignals';
 import { imageObjectLd } from '../services/seo/imageObjectLd';
 import {
   LINK_ACCENT_STYLE,
@@ -741,6 +744,8 @@ function patchSitemapIndex(distDir: string, dateStamp: string): void {
 
 export interface ProfessionLandingsEmitResult {
   pagesWritten: number;
+  /** Canonical paths written as full indexable pages; bridges are excluded. */
+  emittedPaths: string[];
   thinSkipped: number;
   /** Professions bridged to noindex because they are below the job floor. */
   bridgesWritten: number;
@@ -790,6 +795,7 @@ export async function emitProfessionLandingPages(opts: {
   const sitemapEntries: Array<{ canonical: string; alternates: string[] }> = [];
 
   let pagesWritten = 0;
+  const emittedPaths: string[] = [];
   let thinSkipped = 0;
   let bridgesWritten = 0;
   const professionsBelowFloor: string[] = [];
@@ -879,6 +885,7 @@ export async function emitProfessionLandingPages(opts: {
       const flatPath = np.join(distDir, rendered.urlPath.replace(/\/+$/, '') + '.html');
       collector.add(indexPath, rendered.html);
       collector.add(flatPath, rendered.html);
+      emittedPaths.push(rendered.urlPath);
 
       // Every locale gets its own reciprocal <loc> entry (all 4 carry the
       // same alternates set) — an IT-only push here would leave en/de/fr
@@ -927,6 +934,7 @@ export async function emitProfessionLandingPages(opts: {
 
   return {
     pagesWritten,
+    emittedPaths,
     thinSkipped,
     bridgesWritten,
     professionsBelowFloor,
@@ -943,21 +951,32 @@ function floorGraceNote(recentlyExpired: Record<string, number> | null): string 
 // ── Plugin entry ──────────────────────────────────────────────────
 
 export function professionLandingsPlugin(rootDir: string): Plugin {
+  registerProfessionLandingsProducer();
   return {
     name: 'profession-landings',
     apply: 'build',
+    // closeBundle hooks run in parallel, so reset the shared barrier before
+    // every build generation rather than only when the plugin is constructed.
+    // This is required for watch-mode rebuilds that reuse this plugin object.
+    buildStart() {
+      registerProfessionLandingsProducer();
+    },
     async closeBundle() {
       if (process.env.SKIP_PROFESSION_LANDINGS === '1') {
         console.log('\x1b[33m[profession-landings]\x1b[0m Skipped (SKIP_PROFESSION_LANDINGS=1)');
+        resolveProfessionLandingsFlushed([]);
         return;
       }
 
       const distDir = np.resolve(rootDir, 'dist');
-      if (!fs.existsSync(distDir)) return;
+      if (!fs.existsSync(distDir)) {
+        resolveProfessionLandingsFlushed([]);
+        return;
+      }
 
-      await emitProfessionLandingPages({ rootDir, distDir });
+      const result = await emitProfessionLandingPages({ rootDir, distDir });
 
-      resolveProfessionLandingsFlushed();
+      resolveProfessionLandingsFlushed(result.emittedPaths);
     },
   };
 }

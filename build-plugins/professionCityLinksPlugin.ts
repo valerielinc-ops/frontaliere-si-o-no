@@ -36,7 +36,11 @@ import {
   type ProfessionLocale,
   type ProfessionId,
 } from './professionLandingsData';
-import { parseProfessionCityPath, getProfessionCityDef } from './professionCityData';
+import {
+  buildProfessionCityPath,
+  parseProfessionCityPath,
+  getProfessionCityDef,
+} from './professionCityData';
 import { staticPagesFlushed, professionCitiesFlushed } from './shared/buildSignals';
 import { injectBlockAfterMain } from './shared/injectAfterMain';
 import { shouldEmitLocale } from './shared/localeEmitFilter';
@@ -112,7 +116,10 @@ export function buildCityLinkItems(
     const { locale, cityKey, id } = parsed;
     const city = getProfessionCityDef(cityKey)?.display ?? cityKey;
     const role = professionLabel(locale, id);
-    byLocale[locale].push({ href: path, label: `${role} · ${city}` });
+    byLocale[locale].push({
+      href: buildProfessionCityPath(locale, cityKey, id),
+      label: `${role} · ${city}`,
+    });
   }
   for (const loc of PROFESSION_LOCALES) {
     byLocale[loc].sort((a, b) => a.label.localeCompare(b.label));

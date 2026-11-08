@@ -352,6 +352,27 @@ describe('sector journey integration', () => {
     },
   );
 
+  it('falls back to the matching job search when a profession landing is only a bridge', () => {
+    const matchingJobs = [makeSectorJob('infermieri', 0, SECTOR_CASES[0].titles)];
+    const html = buildSectorLandingHtml({
+      sector: 'infermieri',
+      locale: 'it',
+      matchingJobs,
+      count: matchingJobs.length,
+      year: 2026,
+      dateStamp: '2026-10-20',
+      sectorProseData: {},
+      emittedProfessionLandingPaths: new Set(),
+    });
+
+    // The analytics role key is the canonical profession id, not the sector
+    // hub key (`infermieri`); the existing role-specific cases use the same
+    // `infermiere` key.
+    expect(findJourneyHref(html, 'infermiere', 'requirements')).toBe(
+      buildProfessionJourneySearchHref(buildJobBoardUrl('it'), 'infermiere'),
+    );
+  });
+
   it('matches Italian pasticciere titles without locale variants and excludes adjacent kitchen roles', () => {
     const pastryJobs = Array.from({ length: 5 }, (_, index) => ({
       title: `Pasticciere ${index + 1}`,

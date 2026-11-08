@@ -11,10 +11,42 @@
  * so a future refactor can't reintroduce the silent-no-anchor bug.
  */
 import { describe, it, expect } from 'vitest';
-import { injectAe3Block } from '../../build-plugins/professionLandingsLinksPlugin';
+import {
+  emittedProfessionIdsForTarget,
+  injectAe3Block,
+} from '../../build-plugins/professionLandingsLinksPlugin';
+import { buildProfessionLandingPath } from '../../build-plugins/professionLandingsData';
 
 const MARKER = 'data-ae3-profession-links';
 const BLOCK = `<aside ${MARKER} data-test-block><p>links</p></aside>`;
+
+describe('emittedProfessionIdsForTarget — no links to bridge routes', () => {
+  it('keeps only full canonical paths reported by the producer', () => {
+    const fullPath = buildProfessionLandingPath('it', 'infermiere');
+    const bridgePath = buildProfessionLandingPath('it', 'cameriere');
+
+    expect(emittedProfessionIdsForTarget(
+      'it',
+      ['infermiere', 'cameriere'],
+      [fullPath],
+    )).toEqual(['infermiere']);
+    expect(emittedProfessionIdsForTarget(
+      'it',
+      ['infermiere', 'cameriere'],
+      [fullPath, bridgePath],
+    )).toEqual(['infermiere', 'cameriere']);
+  });
+
+  it('does not treat a non-canonical spelling as an emitted route', () => {
+    const fullPath = buildProfessionLandingPath('it', 'infermiere');
+
+    expect(emittedProfessionIdsForTarget(
+      'it',
+      ['infermiere'],
+      [fullPath.slice(0, -1)],
+    )).toEqual([]);
+  });
+});
 
 describe('injectAe3Block — pure AE-3 profession-links injector', () => {
   it('inserts the block immediately after <main …> when present', () => {

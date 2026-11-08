@@ -61,6 +61,13 @@ describe('buildCantonLinkItems — group emitted paths by locale', () => {
     expect(byLocale.it).toHaveLength(0);
     expect(byLocale.en).toHaveLength(0);
   });
+
+  it('rebuilds the canonical trailing-slash href from the parsed route', () => {
+    const canonical = buildProfessionCantonPath('it', PROFESSION_CANTON_KEYS[0], PROFESSION_IDS[0]);
+    const byLocale = buildCantonLinkItems([canonical.slice(0, -1)]);
+
+    expect(byLocale.it[0].href).toBe(canonical);
+  });
 });
 
 describe('renderCantonLinksBlock', () => {

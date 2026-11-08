@@ -67,7 +67,8 @@ function makeValueSignal<T>(): { promise: Promise<T>; resolve: (v: T) => void } 
 }
 
 const staticPagesSignal = makeSignal();
-const professionLandingsSignal = makeSignal();
+let professionLandingsSignal = makeValueSignal<readonly string[]>();
+let professionLandingsProducerRegistered = false;
 const salaryHubSignal = makeSignal();
 const fuelDailyPagesSignal = makeSignal();
 const jobsSeoPagesSignal = makeSignal();
@@ -116,10 +117,40 @@ export function resolveStaticPagesFlushed(): void {
   staticPagesSignal.resolve();
 }
 
-/** Resolves when {@link professionLandingsPlugin} has finished writing the 40 landings. */
-export const professionLandingsFlushed: Promise<void> = professionLandingsSignal.promise;
-export function resolveProfessionLandingsFlushed(): void {
-  professionLandingsSignal.resolve();
+/**
+ * Resolves with the canonical paths {@link professionLandingsPlugin} actually
+ * wrote as full indexable pages. Below-floor routes are deliberately absent:
+ * they are emitted as redirect bridges and must never become internal link
+ * targets.
+ */
+export let professionLandingsFlushed: Promise<readonly string[]> = professionLandingsSignal.promise;
+export function resolveProfessionLandingsFlushed(paths: readonly string[]): void {
+  professionLandingsSignal.resolve(paths);
+}
+
+/**
+ * The sector producer is also unit-tested in isolation. Those tests do not
+ * register the profession producer, so waiting for its build signal would
+ * deadlock even though there is no producer whose output can be consumed.
+ */
+export function registerProfessionLandingsProducer(): void {
+  // Vite can reuse a plugin instance for watch-mode rebuilds, and the same
+  // process can run more than one full build. Recreate both the value signal
+  // and its exported live binding before the next closeBundle wave, otherwise
+  // consumers read the first build's emitted paths forever.
+  professionLandingsSignal = makeValueSignal<readonly string[]>();
+  professionLandingsFlushed = professionLandingsSignal.promise;
+  professionLandingsProducerRegistered = true;
+}
+
+/**
+ * FAST_BUILD omits professionLandingsPlugin, and an isolated plugin test may
+ * omit it too. Only await the value signal when this build has that producer.
+ */
+export function shouldAwaitProfessionLandingsFlushed(): boolean {
+  return professionLandingsProducerRegistered
+    && !process.env.FAST_BUILD
+    && process.env.SKIP_PROFESSION_LANDINGS !== '1';
 }
 
 /**
