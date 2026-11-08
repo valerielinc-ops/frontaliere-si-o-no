@@ -2,18 +2,6 @@
   "schemaVersion": 1,
   "posted": [
     {
-      "id": "fedpol-talpa-accesso-dossier-inchiesta",
-      "url": "https://frontaliereticino.ch/articoli-frontaliere/fedpol-talpa-accesso-dossier-inchiesta/",
-      "ts": "2026-05-07T06:32:16.128Z",
-      "seed": true
-    },
-    {
-      "id": "frode-reddito-cittadinanza-varese-2026",
-      "url": "https://frontaliereticino.ch/articoli-frontaliere/frode-reddito-cittadinanza-varese-2026/",
-      "ts": "2026-05-07T06:39:39.765Z",
-      "seed": true
-    },
-    {
       "id": "frontalieri-ticino-calo-2026",
       "url": "https://frontaliereticino.ch/articoli-frontaliere/frontalieri-ticino-calo-2026/",
       "ts": "2026-05-07T06:48:09.354Z",
@@ -6044,6 +6032,40 @@
       "copyAngleIntent": "searchable",
       "copyHook": "Il contesto utile prima di valutare una scelta oltreconfine.",
       "copyCta": "Approfondisci il tema."
+    },
+    {
+      "id": "iva-aumento-famiglie-redditi-bassi",
+      "url": "https://frontaliereticino.ch/articoli-svizzera/iva-aumento-famiglie-redditi-bassi/",
+      "ts": "2026-11-08T19:50:31.563Z",
+      "fbPostId": "951226518080080_122130899235272498",
+      "copyMode": "codex",
+      "copySlot": "article",
+      "copyPromptVersion": "frontaliere-social-copy-v4",
+      "copyPackId": "1fb417e247af2a71",
+      "copyTemplateId": "fb-article-context",
+      "copyAssignmentMode": "deterministic",
+      "copyAngleId": "contesto-chiaro",
+      "copyPillarId": "vita-oltreconfine",
+      "copyAngleIntent": "searchable",
+      "copyHook": "Il contesto utile prima di valutare una scelta oltreconfine.",
+      "copyCta": "Approfondisci il tema."
+    },
+    {
+      "id": "riserva-elettrica-risparmio-cdf",
+      "url": "https://frontaliereticino.ch/articoli-svizzera/riserva-elettrica-risparmio-cdf/",
+      "ts": "2026-11-08T19:50:39.614Z",
+      "fbPostId": "951226518080080_122130899247272498",
+      "copyMode": "codex",
+      "copySlot": "article",
+      "copyPromptVersion": "frontaliere-social-copy-v4",
+      "copyPackId": "1fb417e247af2a71",
+      "copyTemplateId": "fb-article-practical",
+      "copyAssignmentMode": "deterministic",
+      "copyAngleId": "passo-pratico",
+      "copyPillarId": "opportunita-concrete",
+      "copyAngleIntent": "both",
+      "copyHook": "Un passaggio pratico per leggere un tema oltreconfine con più chiarezza.",
+      "copyCta": "Leggi l'approfondimento."
     }
   ]
 }
