@@ -72,7 +72,7 @@ import {
 } from '../functions/src/lib/jobEmailRankingStore.js';
 import { affinityRankingContext } from '../functions/src/lib/jobEmailAffinity.js';
 import { loadJobEmailAffinityProfiles } from '../functions/src/lib/jobEmailAffinityStore.js';
-import { refreshEngagementScore } from '../functions/src/lib/engagementScore.js';
+import { buildEngagementScoreUpdate } from '../functions/src/lib/engagementScore.js';
 import { prioritizeSubscribers } from '../services/newsletter-priority.mjs';
 import { NEWSLETTER_EXCLUDED_STATUSES, isCrossChannelStop } from '../services/emailSuppression.mjs';
 import { isNewsletterOptOutBinding } from '../services/newsletterOptOut.mjs';
@@ -2133,12 +2133,19 @@ async function persistDelivery(recipient, messageId, meta) {
     // re-deriving. Only set when the doc had none (subscriberFromFirestoreRow
     // leaves firstNameToPersist null otherwise) → never clobbers a stored name.
     if (recipient.firstNameToPersist) subUpdate.firstName = recipient.firstNameToPersist;
-    await subRef.set(subUpdate, { merge: true });
-    // Refresh engagement score after counter changes (FRO-17). Belt-and-suspenders
-    // alongside the ESP webhook recompute, so the persisted score stays fresh
-    // even if a webhook delivery is lost.
     if (FieldValue) {
-      await refreshEngagementScore(subRef, FieldValue);
+      // Keep the send counter and its derived score in the same parent write.
+      // This sender is also a recovery path if an ESP webhook is lost.
+      await db.runTransaction(async (transaction) => {
+        const snapshot = await transaction.get(subRef);
+        const current = snapshot.exists ? (snapshot.data() || {}) : {};
+        const scoreUpdate = buildEngagementScoreUpdate(current, FieldValue, {
+          subscriberUpdate: subUpdate,
+        });
+        transaction.set(subRef, { ...subUpdate, ...scoreUpdate }, { merge: true });
+      });
+    } else {
+      await subRef.set(subUpdate, { merge: true });
     }
   } catch (e) {
     // These secondary analytics/ref writes do not determine whether a delivery
