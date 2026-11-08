@@ -266,7 +266,12 @@ describe('issue #6759 reconciliation', () => {
     expect(result.entries).toHaveLength(2);
     expect(result.collapsed).toBe(0);
     expect(result.repairedRoutes).toBe(1);
+    expect(result.repairDetails).toHaveLength(1);
+    expect(result.repairDetails[0]).toMatch(
+      new RegExp(`^${sharedHistory} → ${sharedHistory}-[0-9a-f]{8}$`),
+    );
     expect(result.capRefused).toBe(0);
+    expect(result.finalCapRefused).toBe(0);
     expect(older.previousSlugs[0]).toMatch(new RegExp(`^${sharedHistory}-[0-9a-f]{8}$`));
     expect(() => assertNoDuplicateRoutesWithin(result.entries, 'issue #17512')).not.toThrow();
 
