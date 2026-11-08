@@ -7,6 +7,7 @@ import YAML from 'yaml';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
 const WORKFLOW_PATH = path.join(ROOT, '.github/workflows/translate-pending-budget-benchmark.yml');
+const PRODUCTION_WORKFLOW_PATH = path.join(ROOT, '.github/workflows/translate-pending-logic.yml');
 const SCRIPT_PATH = path.join(ROOT, 'scripts/ci/translate-pending-budget-benchmark.mjs');
 
 function workflow() {
@@ -17,6 +18,13 @@ function workflow() {
     };
     jobs: Record<string, { if?: string; 'timeout-minutes': number; env?: Record<string, string>; steps: Array<{ name?: string; run?: string; uses?: string; with?: Record<string, string>; env?: Record<string, string>; if?: string }> }>;
   };
+}
+
+function productionRepairLaneGate() {
+  const parsed = YAML.parse(fs.readFileSync(PRODUCTION_WORKFLOW_PATH, 'utf8')) as {
+    jobs: { translate: { steps: Array<{ id?: string; env?: Record<string, string> }> } };
+  };
+  return parsed.jobs.translate.steps.find((step) => step.id === 'repair_lane_budget');
 }
 
 function reportWith({ handoffState = 'complete', candidateFingerprintAfter = 'changed' } = {}) {
@@ -124,6 +132,15 @@ describe('translate-pending budget benchmark', () => {
     expect(steps.find((step) => step.name === 'Commit selected repair lane')?.run).toContain('git-commit-data.sh --slice-only');
     expect(steps.find((step) => step.name === 'Commit after statistics')?.env?.TRANSLATION_STATS_AFTER_TREE).toBe('1');
     expect(steps.find((step) => step.name === 'Complete translation deploy handoff')?.run).toContain('validate-translation-completeness.mjs');
+  });
+
+  it('keeps the pre-merge budget gate bound to the production step contract', () => {
+    const production = productionRepairLaneGate();
+    const benchmark = workflow().jobs.benchmark.steps.find((step) => step.name === 'Run budget gate');
+
+    expect(workflow().on.pull_request?.paths).toContain('.github/workflows/translate-pending-logic.yml');
+    expect(benchmark?.env?.REPAIR_LANE_DEADLINE_MS).toBe(production?.env?.REPAIR_LANE_DEADLINE_MS);
+    expect(benchmark?.env?.REPAIR_LANE_MIN_REMAINING_MS).toBe(production?.env?.REPAIR_LANE_MIN_REMAINING_MS);
   });
 
   it('rejects fallback handoff evidence even when every stage exits successfully', () => {
