@@ -241,6 +241,35 @@ describe("published plate-auction snapshot (Cloud Storage)", () => {
     expect(gunzipSync(gzip).equals(body)).toBe(true);
   });
 
+  it("rebuilds after a finite source session expires instead of serving its old object", async () => {
+    const ge = row({
+      id: "ge-published",
+      sourceKey: "GE",
+      platePrefix: "GE",
+      canton: "Ginevra",
+      normalizedPlate: "GE1",
+      officialAuctionUrl: "https://www.ge.ch/plaques/vente-aux-encheres-plaques",
+    });
+    const counter = { builds: 0 };
+    const db = {
+      collection(name: string) {
+        if (name === "plate_auctions_current") counter.builds += 1;
+        return makeDb({ auctions: [ge] }).collection(name);
+      },
+    };
+    const bucket = bucketWith(async () => [published("2026-11-26T09:55:00.000Z")]);
+    const { body } = await getCachedPublicPlateAuctionSnapshotBody({
+      db: db as never,
+      bucket: bucket as never,
+      now: () => Date.parse("2026-11-26T10:00:00.000Z"),
+    });
+    const snapshot = JSON.parse(body.toString("utf8"));
+
+    expect(counter.builds).toBe(1);
+    expect(snapshot.sources.ge).toMatchObject({ status: "blocked", rowCount: 0 });
+    expect(snapshot.auctions.filter((auction: { sourceKey?: string }) => auction.sourceKey === "GE")).toEqual([]);
+  });
+
   it("rebuilds from Firestore when the object is stale, dated in the future, missing or corrupt", async () => {
     const cases: Array<() => Promise<[Buffer]>> = [
       async () => [published(new Date(NOW - PLATE_AUCTION_PUBLISHED_SNAPSHOT_MAX_AGE_MS - 1).toISOString())],

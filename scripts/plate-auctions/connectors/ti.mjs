@@ -6,7 +6,9 @@ import {
   buildEcariDetailUrl,
   extractEcariTabSection,
   fetchHtml,
+  isExplicitlyEmptyCatalogue,
   parseEcariAuctionRows,
+  requireEcariCatalogueRows,
   withEcariEmptyState,
 } from '../../../functions/src/plateAuctionsCore.js';
 import { fetchWithPublicApiRelay } from './api-relay.mjs';
@@ -57,11 +59,21 @@ export async function fetchTiPlateAuctions({ fetchPage = fetchHtml, now = new Da
     now,
     logLabel: 'fetchTiPlateAuctions',
     direct: async () => {
-      const html = requireEcariCataloguePage(await fetchPage(TI_AUCTION_URL), {
-        plateCode: TI_PLATE_CODE,
-        officialAuctionUrl: TI_AUCTION_URL,
-      });
-      return parseTiAuctionRows(html, { fetchedAt: new Date().toISOString() });
+      for (let attempt = 0; attempt < 2; attempt += 1) {
+        const html = requireEcariCataloguePage(await fetchPage(TI_AUCTION_URL), {
+          plateCode: TI_PLATE_CODE,
+          officialAuctionUrl: TI_AUCTION_URL,
+        });
+        const rows = parseTiAuctionRows(html, { fetchedAt: new Date().toISOString() });
+        if (rows.length > 0 || isExplicitlyEmptyCatalogue(rows)) return rows;
+        if (attempt === 1) {
+          return requireEcariCatalogueRows(rows, {
+            plateCode: TI_PLATE_CODE,
+            officialAuctionUrl: TI_AUCTION_URL,
+          });
+        }
+      }
+      throw new Error('TI eCari fetch exhausted without a result');
     },
   });
 }

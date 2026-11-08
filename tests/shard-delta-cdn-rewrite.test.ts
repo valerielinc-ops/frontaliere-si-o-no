@@ -289,7 +289,7 @@ describe('deploy.yml cabla SHARD_DELTA_CDN_REWRITE', () => {
       join(ROOT, '.github/workflows/deploy-publish.yml'),
       'utf8',
     )}`;
-    const wire = "SHARD_DELTA_CDN_REWRITE: ${{ vars.SHARD_DELTA_CDN_REWRITE == 'changed' && 'changed' || '' }}";
+    const wire = "SHARD_DELTA_CDN_REWRITE: ${{ vars.SHARD_DELTA_CDN_REWRITE == '' && 'changed' || vars.SHARD_DELTA_CDN_REWRITE }}";
     expect(yml.split(wire).length - 1).toBe(2);
     expect(yml.split('shard_cdn_rewrite_wait_all "$RUNNER_TEMP" || true').length - 1).toBe(2);
     expect(yml.split('shard_cdn_rewrite_ready "$RUNNER_TEMP" "$section"').length - 1).toBe(2);

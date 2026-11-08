@@ -1,4 +1,5 @@
 name: Deploy to GitHub Pages
+run-name: ${{ github.event_name == 'schedule' && 'Deploy queue reconciliation (no build)' || 'Deploy to GitHub Pages' }}
 
 on:
   # A completed run owns its next dispatch. The schedule is only a best-effort
@@ -756,6 +757,14 @@ jobs:
             echo "✖ data/jobs.json missing after restore"
             exit 1
           fi
+          # The extracted files are now in the checkout. Later build steps use
+          # those paths; the source artifact remains available remotely for
+          # recovery, so keep its compressed copy out of the runner's disk
+          # budget. Run 42383391917 showed this archive still occupied ~982 MB.
+          snapshot_bytes="$(stat -c '%s' /tmp/snapshot/prepared-snapshot.tgz)"
+          rm -f -- /tmp/snapshot/prepared-snapshot.tgz
+          echo "[prepared-snapshot] removed extracted archive bytes=${snapshot_bytes}"
+          df -h /
 
       - name: Resolve job OG image cache version
         if: matrix.locale == 'it'
@@ -825,9 +834,20 @@ jobs:
           restore-keys: |
             incremental-manifest-${{ matrix.locale }}-
 
-      # Opt-in only. The key is derived from the restored previous manifest,
-      # so a matching input-hash snapshot brings back the corresponding raw
-      # HTML blobs without cloning a previous dist/shard.
+      # Bind the cache to the renderer's current code/assets contract. A
+      # changed renderer cannot reuse the old pack; making the fingerprint part
+      # of the key avoids downloading a GB-scale cache that the probe will drop.
+      - name: Fingerprint jobs SEO renderer for HTML cache
+        if: env.JOBS_SEO_REUSE == '1'
+        id: jobs-seo-html-fingerprint
+        shell: bash
+        run: |
+          set -euo pipefail
+          node scripts/ci/jobs-seo-html-cache-fingerprint.mjs >> "$GITHUB_OUTPUT"
+
+      # Opt-in only. The key includes the restored previous manifest and
+      # current renderer fingerprint, so only a matching HTML snapshot is
+      # restored without cloning a previous dist/shard.
       - name: Restore previous jobs SEO HTML cache
         if: env.JOBS_SEO_REUSE == '1'
         id: jobs-seo-html-cache
@@ -837,7 +857,7 @@ jobs:
           # Exact key only (review #8940): a prefix fallback could restore
           # the HTML snapshot of a different run than the previous manifest
           # restored above, and lookup() only checks the per-entry hash.
-          key: jobs-seo-html-${{ matrix.locale }}-${{ hashFiles(format('.cache/incremental-manifest/{0}.jsonl', matrix.locale)) }}
+          key: jobs-seo-html-${{ matrix.locale }}-${{ hashFiles(format('.cache/incremental-manifest/{0}.jsonl', matrix.locale)) }}-${{ steps.jobs-seo-html-fingerprint.outputs.fingerprint }}
 
       - name: Stash previous incremental manifest before build overwrites it
         shell: bash
@@ -1069,13 +1089,13 @@ jobs:
             echo "min_swap_free_mb=$swap_free"
           } >> "$GITHUB_OUTPUT"
 
-      # Save immediately after the successful build, before any deploy/publish
-      # step can fail the job. The old combined cache action's post-job save was
-      # skipped when a later step failed, forcing the next retry to render every
-      # job OG image again. Gate on the Build step so a partial build never
-      # replaces the last usable cache.
+      # Run 42293933497 rendered 33,689 cards in 4,036s with zero cache hits,
+      # then failed a later full-corpus SEO gate. Save once the OG plugin marks
+      # its completed pass, even if that later gate fails. Each WebP is atomic;
+      # a missing entry is rendered on the next run. The marker avoids saving a
+      # cold/empty cache when the build failed before the plugin ran.
       - name: Save per-job OG images after successful build
-        if: ${{ always() && matrix.locale == 'it' && steps.build_step.outcome == 'success' }}
+        if: ${{ always() && matrix.locale == 'it' && steps.job_og_images_cache.outcome == 'success' && hashFiles('.cache/og-jobs/.complete') != '' && (steps.build_step.outcome == 'success' || steps.build_step.outcome == 'failure') }}
         uses: actions/cache/save@v6
         continue-on-error: true
         with:
@@ -1240,20 +1260,6 @@ jobs:
           retention-days: 14
           if-no-files-found: warn
 
-      # A locale sitemap can be assembled from the shared job inventory while
-      # its own leg fails to materialize one detail page. Validate the owned
-      # URL set before pruning the other locales, then hand the exact set to
-      # deploy-publish.yml so an incomplete artifact cannot reach a shard push.
-      - name: Reject generated HTML under dotfile paths
-        run: npm run audit:no-dotfile-html
-
-      # The Pages payload is published by the IT leg. Non-IT locale artifacts
-      # run the same blocking schema check in deploy-publish after finalization,
-      # before any shard push.
-      - name: Validate IT JobPosting schema before artifact upload
-        if: matrix.locale == 'it'
-        run: npm run validate:jobposting-schema
-
       - name: Validate owned sitemap pages before locale prune
         id: validate-owned-sitemap-pages
         env:
@@ -1315,6 +1321,18 @@ jobs:
       - name: Prune to locale shard
         run: node scripts/ci/prune-locale-shard.mjs dist
 
+      # Run artifact checks after removing other locales. The dotfile audit
+      # still runs in every owner leg; non-IT JobPosting schema is also checked
+      # after finalization by deploy-publish before any shard push.
+      - name: Reject generated HTML under dotfile paths
+        run: npm run audit:no-dotfile-html
+
+      # The Pages payload is published by the IT leg. Check its final locale
+      # artifact here instead of reopening every locale's HTML before pruning.
+      - name: Validate IT JobPosting schema before artifact upload
+        if: matrix.locale == 'it'
+        run: npm run validate:jobposting-schema
+
       # First publish only this leg's complete manifest. Non-IT source artifacts
       # defer the rewrite to deploy-publish.yml, after this build run has ended;
       # that avoids holding three build runners at the slowest locale's barrier.
@@ -1327,9 +1345,11 @@ jobs:
           set -euo pipefail
           rm -rf .cache/hreflang-index-manifest
           mkdir -p .cache/hreflang-index-manifest
-          node scripts/ci/hreflang-index-manifest.mjs dist \
-            --manifest-dir .cache/hreflang-index-manifest \
-            --dry-run
+          args=(--manifest-dir .cache/hreflang-index-manifest --dry-run --manifest-only)
+          if [[ '${{ matrix.locale }}' == 'it' ]]; then
+            args+=(--prepass-cache .cache/hreflang-index-manifest/it.pages.jsonl)
+          fi
+          node scripts/ci/hreflang-index-manifest.mjs dist "${args[@]}"
 
       # Artifacts, not actions/cache: a cache restore turns a download failure
       # into a warning plus a miss, and a workflow cannot retry it. The manifest
@@ -1391,11 +1411,17 @@ jobs:
       # Every decision is taken before the first rename. Writes are staged in
       # bounded batches; a failed batch rolls itself back, and any later failure
       # aborts this leg before packing or publishing its partially changed dist.
+      # No step mutates dist between the pre-pass and this rewrite; artifact
+      # exchange touches only manifests, so this page list is safe to reuse.
       - name: Hreflang index manifest (keep only reciprocal indexable clusters)
         if: matrix.locale == 'it'
         id: hreflang-index-manifest
         timeout-minutes: 30
-        run: node scripts/ci/hreflang-index-manifest.mjs dist --manifest-dir .cache/hreflang-index-manifest --require-foreign-manifests
+        run: node scripts/ci/hreflang-index-manifest.mjs dist --manifest-dir .cache/hreflang-index-manifest --require-foreign-manifests --reuse-prepass-cache .cache/hreflang-index-manifest/it.pages.jsonl
+
+      - name: Refresh expired archive evidence after Hreflang rewrite
+        if: matrix.locale == 'it'
+        run: node scripts/ci/shard-content-manifest.mjs refresh-expired-archive-evidence --root dist --locale it --evidence-manifest dist/assets/expired-archive-evidence-it.json
 
       # Keep this source-side validation successful for the locale provenance
       # receipt consumed by resolve-publish-plan. Non-IT publish repeats it
@@ -1546,6 +1572,56 @@ jobs:
       # sooner than the 6 h job timeout. On expiry the step fails,
       # continue-on-error keeps the leg going, and "Deploy prep" below
       # retries the push as it does for any failed early push.
+      # Persist the fully rendered, already validated jobs SEO pages before
+      # remote publication starts. Run 42313737885 missed this cache, spent
+      # 4909s in jobs-seo-pages, then timed out before the old save step near
+      # the end of the job. A later CDN/shard failure must not make the next
+      # build render the same corpus again. Cache storage is optional and must
+      # not hold up publication if the cache service stalls.
+      - name: Check jobs SEO HTML cache contents
+        if: always() && env.JOBS_SEO_REUSE == '1'
+        id: jobs-seo-html-content
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [ -d .cache/incremental-html ] && test -n "$(find .cache/incremental-html -type f -print -quit 2>/dev/null)"; then
+            echo "has_files=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "has_files=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Save jobs SEO HTML cache
+        if: success() && env.JOBS_SEO_REUSE == '1' && steps.jobs-seo-html-content.outputs.has_files == 'true' && hashFiles(format('.cache/incremental-manifest/{0}.jsonl', matrix.locale)) != ''
+        timeout-minutes: 30
+        continue-on-error: true
+        uses: actions/cache/save@v6
+        with:
+          path: .cache/incremental-html
+          key: jobs-seo-html-${{ matrix.locale }}-${{ hashFiles(format('.cache/incremental-manifest/{0}.jsonl', matrix.locale)) }}-${{ steps.jobs-seo-html-fingerprint.outputs.fingerprint }}
+
+      # Keep the fully rendered IT cache if another locale dies at the
+      # same-run hreflang barrier. This fallback is eligible only after IT's
+      # build and all preceding local validation/manifest steps succeeded; it
+      # stores renderer output, not the published artifact, so the barrier and
+      # post-rewrite validation remain mandatory on the next publish.
+      - name: Save jobs SEO HTML cache after hreflang barrier failure
+        if: >-
+          ${{ always() &&
+              matrix.locale == 'it' &&
+              env.JOBS_SEO_REUSE == '1' &&
+              steps.exchange-hreflang-index-manifests.outcome == 'failure' &&
+              steps.jobs-seo-html-content.outputs.has_files == 'true' &&
+              steps.build_step.outcome == 'success' &&
+              steps.validate-owned-sitemap-pages.outcome == 'success' &&
+              steps.hreflang-index-manifest-pre.outcome == 'success' &&
+              hashFiles(format('.cache/incremental-manifest/{0}.jsonl', matrix.locale)) != '' }}
+        timeout-minutes: 30
+        continue-on-error: true
+        uses: actions/cache/save@v6
+        with:
+          path: .cache/incremental-html
+          key: jobs-seo-html-${{ matrix.locale }}-${{ hashFiles(format('.cache/incremental-manifest/{0}.jsonl', matrix.locale)) }}-${{ steps.jobs-seo-html-fingerprint.outputs.fingerprint }}
+
       - name: Push generated assets to CDN (early — ahead of the shard pushes)
         id: cdn-push-early
         if: matrix.locale == 'it'
@@ -1557,10 +1633,13 @@ jobs:
           DEPLOY_BUILD_ID: ${{ needs.matrix-setup.outputs.build_id }}
           # Runs ONLY step_push_cdn (+ nothing else) and returns.
           DEPLOY_CDN_PUSH_ONLY: '1'
-          # Fail fast here: og/ can exceed 900s, and two 900s attempts outlast
-          # this step's 45 minutes. Run 41579534959 lost them that way and the IT
-          # leg hit the 6h job cap. The retry below keeps the 900s default.
-          R2_TIMEOUT_OG_S: '300'
+          # Use the regular per-attempt OG bound on the first push. On run
+          # 42313737885 the 300s override timed out twice on a 33,243-file,
+          # 1.23 GB OG delta; the whole early step reached 45m. Its retry with
+          # the 900s default completed the full CDN push in 33m18s. Keeping the
+          # measured bound here avoids spending one full step on a known-short
+          # per-attempt limit; the existing 45m step timeout remains the cap.
+          R2_TIMEOUT_OG_S: '900'
         run: bash scripts/lib/deploy-it-pages-prep.sh
 
       # One more try BEFORE the section fan-out gives up. A failed early push
@@ -1774,10 +1853,10 @@ jobs:
           SHARD_ARTICOLISVIZZERA_DE_DEPLOY_KEY: ${{ secrets.SHARD_ARTICOLISVIZZERA_DE_DEPLOY_KEY }}
           SHARD_ARTICOLISVIZZERA_FR_DEPLOY_KEY: ${{ secrets.SHARD_ARTICOLISVIZZERA_FR_DEPLOY_KEY }}
           SHARD_PUSH_MODE: ${{ vars.SHARD_PUSH_MODE == 'delta' && 'delta' || 'full' }}
-          # Off unless the repo variable is exactly `changed` (delta mode only):
-          # CDN-rewrite only the files the delta push reads — see
-          # scripts/lib/shard-cdn-rewrite.sh. Off = byte-identical to before.
-          SHARD_DELTA_CDN_REWRITE: ${{ vars.SHARD_DELTA_CDN_REWRITE == 'changed' && 'changed' || '' }}
+          # Default to rewriting only the files a delta push reads; the staged
+          # copy is completed in background for validation. Set the repo
+          # variable to `off` to restore the full pre-push rewrite.
+          SHARD_DELTA_CDN_REWRITE: ${{ vars.SHARD_DELTA_CDN_REWRITE == '' && 'changed' || vars.SHARD_DELTA_CDN_REWRITE }}
           SHARD_PUSH_VERIFY: ${{ vars.SHARD_PUSH_VERIFY == '1' && '1' || '' }}
           # Bench run 40074671144 (ticino-it staged copy, 270'838 files): the
           # CDN rewrite 377.8 s single-thread → 162.5 s on 4 worker threads,
@@ -2915,27 +2994,6 @@ jobs:
           path: ${{ runner.temp }}/build-history-rows/
           if-no-files-found: ignore
           retention-days: 3
-
-      - name: Check jobs SEO HTML cache contents
-        if: success() && env.JOBS_SEO_REUSE == '1'
-        id: jobs-seo-html-content
-        shell: bash
-        run: |
-          set -euo pipefail
-          if [ -d .cache/incremental-html ] && test -n "$(find .cache/incremental-html -type f -print -quit 2>/dev/null)"; then
-            echo "has_files=true" >> "$GITHUB_OUTPUT"
-          else
-            echo "has_files=false" >> "$GITHUB_OUTPUT"
-          fi
-
-      # Keep the blobs alongside the manifest snapshot for the next opt-in
-      # run. A failed/incomplete build must never become the reusable source.
-      - name: Save jobs SEO HTML cache
-        if: success() && env.JOBS_SEO_REUSE == '1' && steps.jobs-seo-html-content.outputs.has_files == 'true' && hashFiles(format('.cache/incremental-manifest/{0}.jsonl', matrix.locale)) != ''
-        uses: actions/cache/save@v6
-        with:
-          path: .cache/incremental-html
-          key: jobs-seo-html-${{ matrix.locale }}-${{ hashFiles(format('.cache/incremental-manifest/{0}.jsonl', matrix.locale)) }}
 
       # Small, immutable receipt consumed by deploy-publish.yml. It is written
       # when the owned-page validation and required source artifact succeeded,

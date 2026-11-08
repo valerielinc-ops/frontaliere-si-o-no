@@ -171,7 +171,7 @@ export default function AziendeSection() {
 
   const toggleSort = (column: InsightsSortColumn) => setSort((current) => current.column === column ? { column, direction: current.direction === 'asc' ? 'desc' : 'asc' } : { column, direction: column === 'companyName' ? 'asc' : 'desc' });
   const headers: Array<{ column: InsightsSortColumn; label: string }> = [{ column: 'companyName', label: 'Azienda' }, { column: 'views', label: 'Visualizzazioni annuncio' }, { column: 'applyClicks', label: 'Click candidatura' }, { column: 'applyClickUsers', label: 'Utenti click' }, { column: 'applications', label: 'Candidature inviate' }, { column: 'profileViews', label: 'Visite profilo' }, { column: 'adsObserved', label: 'Annunci osservati' }, { column: 'generatedAt', label: 'Data' }, { column: 'window', label: 'Finestra' }];
-  const latestInsightsUpdate = rows.map((row) => row.generatedAt).filter((value): value is string => Boolean(value)).sort().at(-1) || null;
+  const latestInsightsUpdate = rows.map((row) => row.generatedAt).filter((value): value is string => Boolean(value)).sort().pop() || null;
   const summaryCards: Array<{ label: string; value: number | null; icon: LucideIcon }> = [
     { label: 'Visualizzazioni annuncio', value: insightsTotals.views, icon: Eye },
     { label: 'Click candidatura', value: insightsTotals.applyClicks, icon: MousePointerClick },

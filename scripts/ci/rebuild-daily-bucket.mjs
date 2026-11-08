@@ -23,9 +23,11 @@ import { realpathSync } from 'node:fs';
  *     iniziale `open|in-progress|done|blocked` (il resto diventa
  *     `- Nota sullo stato:`); backtick attorno al `Target repository`.
  * Non indovina mai: uno `State` che non comincia con una delle quattro parole,
- * due `State` nello stesso item, ID fuori dalla daily key o un repository di
- * item diverso dalla testa → rifiuto, nessuna scrittura. Il risultato deve
- * superare `bucketStructuralVeto` e conservare ID, ordine e stati.
+ * due `State` nello stesso item o ID fuori dalla daily key → rifiuto, nessuna
+ * scrittura. Un repository di item diverso dalla testa si ripara solo quando
+ * è uno shorthand same-owner dimostrato da titolo, testa e un item canonico;
+ * ogni altro mismatch resta rifiutato. Il risultato deve superare
+ * `bucketStructuralVeto` e conservare ID, ordine e stati.
  *
  *   node scripts/ci/rebuild-daily-bucket.mjs --issue <N> --repo <owner/repo> [--out <file>] [--write]
  *
@@ -53,6 +55,7 @@ import { bucketStructuralVeto } from './reconcile-followups.mjs';
 
 const REPOSITORY_SLUG_RE = /^[\w.-]+\/[\w.-]+$/u;
 const REPAIRABLE_REPOSITORY_SHORTHAND_RE = /^[\w.-]+$/u;
+const MAX_REPOSITORY_SHORTHAND_OMISSION = 3;
 const ITEM_STATE_RE = /^(open|in-progress|done|blocked)(?![\w-])\s*[.:;,—–-]?\s*(.*)$/iu;
 const HEAD_STATE_RE = /^(\s*(?:-\s+)?)State\s*:\s*(.*?)\s*$/iu;
 const ITEM_STATE_LINE_RE = /^(\s*-\s+)State\s*:\s*(.*?)\s*$/iu;
@@ -90,6 +93,33 @@ function repositoryValues(text, { dash }) {
 }
 
 /**
+ * True only for a same-owner repository name shortened by one small contiguous
+ * alphanumeric run.  A valid `owner/other-repo` is still a routing mismatch;
+ * this narrow alias check is used only after the bucket's own fields and a
+ * second item prove the canonical repository.
+ */
+function isRepositoryShorthandFor(value, target) {
+  const source = normalizeRepositoryFieldValue(value).toLowerCase();
+  const expected = normalizeRepositoryFieldValue(target).toLowerCase();
+  const sourceParts = source.split('/');
+  const expectedParts = expected.split('/');
+  if (sourceParts.length !== 2 || expectedParts.length !== 2
+      || sourceParts[0] !== expectedParts[0]
+      || sourceParts[1] === expectedParts[1]) return false;
+
+  const sourceName = sourceParts[1];
+  const expectedName = expectedParts[1];
+  for (let start = 0; start < expectedName.length; start += 1) {
+    for (let length = 1; length <= MAX_REPOSITORY_SHORTHAND_OMISSION; length += 1) {
+      const omitted = expectedName.slice(start, start + length);
+      if (!/^[a-z\d]+$/u.test(omitted)) continue;
+      if (`${expectedName.slice(0, start)}${expectedName.slice(start + length)}` === sourceName) return true;
+    }
+  }
+  return false;
+}
+
+/**
  * Titolo e corpo canonici di un bucket giornaliero, o il motivo del rifiuto.
  * Puro: nessuna I/O.
  * @param {{title: string, body: string}} issue
@@ -122,10 +152,22 @@ export function canonicalDailyBucket({ title, body }) {
   const uniqueItemRepos = [...new Set(normalizedItemRepos)];
   const repo = headRepos[0] || titleRepo || (uniqueItemRepos.length === 1 ? itemRepos[0] : null);
   if (!repo || !REPOSITORY_SLUG_RE.test(repo)) return fail('target-repository-missing');
+  const normalizedRepo = repo.toLowerCase();
   const invalidItemRepos = itemRepos.filter((value) => !REPOSITORY_SLUG_RE.test(value));
-  const validMismatchedItemRepo = itemRepos.some((value) =>
-    REPOSITORY_SLUG_RE.test(value) && value.toLowerCase() !== repo.toLowerCase());
-  if (validMismatchedItemRepo) return fail('item-target-repository-mismatch');
+  const validMismatchedItemRepos = itemRepos.filter((value) =>
+    REPOSITORY_SLUG_RE.test(value) && value.toLowerCase() !== normalizedRepo);
+  const titleAndHeaderAgree = titleRepo && headRepos.length === 1
+    && titleRepo.toLowerCase() === headRepos[0].toLowerCase()
+    && titleRepo.toLowerCase() === normalizedRepo;
+  const hasCanonicalItem = itemRepos.some((value) =>
+    REPOSITORY_SLUG_RE.test(value) && value.toLowerCase() === normalizedRepo);
+  const repairableValidMismatches = validMismatchedItemRepos.length > 0
+    && titleAndHeaderAgree
+    && hasCanonicalItem
+    && validMismatchedItemRepos.every((value) => isRepositoryShorthandFor(value, repo));
+  if (validMismatchedItemRepos.length > 0 && !repairableValidMismatches) {
+    return fail('item-target-repository-mismatch');
+  }
   const repairableItemRepos = invalidItemRepos.length > 0
     && new Set(invalidItemRepos.map((value) => value.toLowerCase())).size === 1
     && invalidItemRepos.every((value) => REPAIRABLE_REPOSITORY_SHORTHAND_RE.test(value));
@@ -191,9 +233,12 @@ export function canonicalDailyBucket({ title, body }) {
         continue;
       }
       const repositoryField = TARGET_REPOSITORY_LINE_RE.exec(record.line);
-      if (repositoryField && repairableItemRepos) {
+      if (repositoryField && (repairableItemRepos || repairableValidMismatches)) {
         const value = normalizeRepositoryFieldValue(repositoryField[2]);
-        if (!REPOSITORY_SLUG_RE.test(value)) {
+        const repairable = !REPOSITORY_SLUG_RE.test(value)
+          ? repairableItemRepos
+          : repairableValidMismatches && isRepositoryShorthandFor(value, repo);
+        if (repairable) {
           out.push(`${repositoryField[1]}${repo}`);
           changes.push(`${id}: Target repository «${value}» → «${repo}»`);
           continue;

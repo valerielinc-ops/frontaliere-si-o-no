@@ -1,4 +1,4 @@
-name: Social Copy Pack (Codex)
+name: Social Copy Pack (Codex + free fallback)
 
 on:
   push:
@@ -11,6 +11,9 @@ on:
       - '.agents/skills/ig-plan/**'
       - '.agents/skills/ig-audit/**'
       - '.agents/skills/ig-human/**'
+      - '.agents/skills/ig-repurpose/**'
+      - '.agents/skills/ig-story/**'
+      - '.agents/skills/ig-viral/**'
       - '.github/workflows/social-copy-pack.yml'
       - 'docs/instagram-creative-study.md'
       - 'docs/social-ai-automation.md'
@@ -35,11 +38,13 @@ jobs:
   generate:
     if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 30
     permissions:
       contents: read
     outputs:
       codex_invocation_allowed: ${{ steps.codex_budget.outputs.allowed }}
+      pack_generated: ${{ steps.generation_result.outputs.pack_generated }}
+      generation_provider: ${{ steps.generation_result.outputs.provider }}
     steps:
       - uses: actions/checkout@v7
         with:
@@ -89,12 +94,12 @@ jobs:
 
       - name: Build sanitized GA4 social-copy attribution brief
         id: attribution
-        if: steps.codex_budget.outputs.allowed == 'true'
         env:
           FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
         shell: bash
         run: |
           set -euo pipefail
+          umask 077
           output="$RUNNER_TEMP/social-copy-ga4-brief.json"
           if [ -n "${FIREBASE_SERVICE_ACCOUNT_JSON:-}" ]; then
             node scripts/social-copy/ga4-performance-brief.mjs > "$output"
@@ -105,7 +110,6 @@ jobs:
 
       - name: Build minimized native social brief and growth scorecard
         id: native
-        if: steps.codex_budget.outputs.allowed == 'true'
         env:
           FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
           TIKTOK_DISPLAY_ANALYTICS_APPROVED: ${{ vars.TIKTOK_DISPLAY_ANALYTICS_APPROVED }}
@@ -114,21 +118,24 @@ jobs:
           set -euo pipefail
           native_brief="$(node scripts/social-copy/native-performance-brief.mjs)"
           scorecard="$(node scripts/social-growth-scorecard.mjs --json)"
+          printf '%s' "$native_brief" > "$RUNNER_TEMP/social-copy-native-brief.json"
+          printf '%s' "$scorecard" > "$RUNNER_TEMP/social-copy-scorecard.json"
           printf 'brief=%s\n' "$native_brief" >> "$GITHUB_OUTPUT"
           printf 'scorecard=%s\n' "$scorecard" >> "$GITHUB_OUTPUT"
 
       - name: Build sanitized published-topic inventory
         id: editorial_sources
-        if: steps.codex_budget.outputs.allowed == 'true'
         shell: bash
         run: |
           set -euo pipefail
           brief="$(node scripts/social-copy/editorial-source-brief.mjs)"
+          printf '%s' "$brief" > "$RUNNER_TEMP/social-copy-editorial-sources.json"
           printf 'brief=%s\n' "$brief" >> "$GITHUB_OUTPUT"
 
       - name: Generate social copy with Codex
         id: codex
         if: steps.codex_budget.outputs.allowed == 'true'
+        continue-on-error: true
         uses: ./.github/actions/claude-codex-fallback
         with:
           codex_auth_json: ${{ secrets.CODEX_AUTH_JSON }}
@@ -205,8 +212,88 @@ jobs:
             /tmp/social-copy-response.json. Use the existing Frontaliere
             Ticino editorial and platform guidance in this checkout.
 
+      - name: Load free-provider keys from Remote Config
+        if: steps.codex.outputs.primary_success != 'true'
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          umask 077
+          if [ -z "${FIREBASE_SERVICE_ACCOUNT_JSON:-}" ]; then
+            echo 'FIREBASE_SERVICE_ACCOUNT_JSON is required to load free-provider keys from Remote Config.' >&2
+            exit 1
+          fi
+          printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > "$RUNNER_TEMP/firebase-sa.json"
+          export GOOGLE_APPLICATION_CREDENTIALS="$RUNNER_TEMP/firebase-sa.json"
+          node scripts/load-rc-env.mjs --only-env=GEMINI_API_KEY,GH_MODELS_PAT,GH_MODELS_PAT_2,GH_MODELS_PAT_3,GH_MODELS_PAT_4,GH_MODELS_PAT_5,GH_MODELS_PAT_6,GH_MODELS_PAT_7,GH_MODELS_PAT_8,GH_MODELS_PAT_9,GROQ_API_KEY,OPENROUTER_API_KEY
+
+      - name: Generate with one free-provider fallback chain
+        id: free_fallback
+        if: steps.codex.outputs.primary_success != 'true'
+        continue-on-error: true
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          GITHUB_RUN_ID: ${{ github.run_id }}
+          GITHUB_RUN_ATTEMPT: ${{ github.run_attempt }}
+          GITHUB_REF: ${{ github.ref }}
+        run: >-
+          node scripts/social-copy/generate-free-model-fallback.mjs
+          --ga4="$RUNNER_TEMP/social-copy-ga4-brief.json"
+          --native="$RUNNER_TEMP/social-copy-native-brief.json"
+          --scorecard="$RUNNER_TEMP/social-copy-scorecard.json"
+          --topics="$RUNNER_TEMP/social-copy-editorial-sources.json"
+          --output="$RUNNER_TEMP/social-copy-response.json"
+
+      - name: Record and report generation outcome
+        id: generation_result
+        if: always()
+        env:
+          CODEX_ALLOWED: ${{ steps.codex_budget.outputs.allowed }}
+          CODEX_OUTCOME: ${{ steps.codex.outcome }}
+          CODEX_SUCCESS: ${{ steps.codex.outputs.primary_success }}
+          FALLBACK_GENERATED: ${{ steps.free_fallback.outputs.pack_generated }}
+          FALLBACK_PROVIDER: ${{ steps.free_fallback.outputs.provider }}
+          FALLBACK_REASON: ${{ steps.free_fallback.outputs.reason }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          response="$RUNNER_TEMP/social-copy-response.json"
+          provider=none
+          generated=false
+          reason=no-pack-generated
+          if [ "$CODEX_SUCCESS" = true ] && [ -s "$response" ]; then
+            provider=codex
+            generated=true
+            reason=codex-generated
+          elif [ "$FALLBACK_GENERATED" = true ] && [ -s "$response" ]; then
+            provider="$FALLBACK_PROVIDER"
+            generated=true
+            reason=free-provider-fallback-generated
+          elif [ "$CODEX_ALLOWED" != true ]; then
+            reason="codex-weekly-budget-exhausted; ${FALLBACK_REASON:-fallback-result-unavailable}"
+          elif [ "$CODEX_OUTCOME" = failure ]; then
+            reason="codex-generation-failed; ${FALLBACK_REASON:-fallback-result-unavailable}"
+          fi
+          {
+            printf 'pack_generated=%s\n' "$generated"
+            printf 'provider=%s\n' "$provider"
+            printf 'reason=%s\n' "$reason"
+          } >> "$GITHUB_OUTPUT"
+          {
+            printf '## Social copy generation\n\n'
+            printf -- '- Pack generated: **%s**\n' "$generated"
+            printf -- '- Provider: **%s**\n' "$provider"
+            printf -- '- Result: `%s`\n' "$reason"
+          } >> "$GITHUB_STEP_SUMMARY"
+          if [ "$generated" != true ]; then
+            echo "::error::Social copy generation produced no validated pack ($reason)."
+            exit 1
+          fi
+
       - name: Upload generated response
-        if: steps.codex_budget.outputs.allowed == 'true' && steps.codex.outputs.primary_success == 'true'
+        if: steps.generation_result.outputs.pack_generated == 'true'
         uses: actions/upload-artifact@v7
         with:
           name: social-copy-response
@@ -218,7 +305,7 @@ jobs:
     needs: generate
     if: >-
       needs.generate.result == 'success' &&
-      needs.generate.outputs.codex_invocation_allowed == 'true' &&
+      needs.generate.outputs.pack_generated == 'true' &&
       github.ref == 'refs/heads/main' &&
       (github.event_name == 'schedule' || github.event_name == 'push' || inputs.promote == true)
     runs-on: ubuntu-latest
@@ -267,6 +354,7 @@ jobs:
           node scripts/social-copy/pack.mjs promote
           --input="$RUNNER_TEMP/social-copy-response.json"
           --output=data/social-copy-packs/current.json
+          --generation-provider="${{ needs.generate.outputs.generation_provider }}"
 
       - name: Mint App token for protected data PR
         continue-on-error: true
@@ -279,6 +367,7 @@ jobs:
       - name: Open PR with current social copy pack
         env:
           GH_TOKEN: ${{ env.APP_TOKEN_DATA_REFRESH == 'true' && env.APP_TOKEN || '' }}
+          GENERATION_PROVIDER: ${{ needs.generate.outputs.generation_provider }}
         run: |
           set -euo pipefail
           test "$APP_TOKEN_DATA_REFRESH" = true
@@ -287,18 +376,15 @@ jobs:
           {
             printf 'Auto-generated by [workflow run %s](%s).\n\n' \
               "$GITHUB_RUN_ID" "$run_url"
-            cat <<'EOF'
-          ## Implementato
-          - Aggiornato il pacchetto di copy social Codex, validato per tutti i canali attivi e promosso tramite PR per il required check.
-
-          ## Non implementato (ancora)
-          Nessuno
-          EOF
+            printf '## Implementato\n'
+            printf -- '- Aggiornato il pacchetto di copy social generato da `%s`, validato per tutti i canali e promosso tramite PR per il required check.\n\n' \
+              "$GENERATION_PROVIDER"
+            printf '## Non implementato (ancora)\nNessuno\n'
           } > "$body"
           node scripts/ci/pr-body-check-gate.mjs --body-file "$body"
           bash scripts/lib/open-data-refresh-pr.sh \
             --path data/social-copy-packs/current.json \
             --branch chore/social-copy-pack \
-            --commit-message "chore(social): refresh Codex copy pack" \
-            --title "chore(social): refresh Codex copy pack" \
+            --commit-message "chore(social): refresh AI copy pack" \
+            --title "chore(social): refresh AI copy pack" \
             --body-file "$body"

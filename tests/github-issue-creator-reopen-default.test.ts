@@ -1,4 +1,5 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest';
+import fs from 'node:fs';
 
 /**
  * Una condizione che ritorna deve RIAPRIRE la sua issue, non aprirne una nuova.
@@ -41,8 +42,19 @@ import { describe, it, expect, vi, beforeEach } from 'vitest';
  */
 
 const execFileSync = vi.fn();
+const bodyFileContents = new Map<string, string>();
 vi.mock('node:child_process', () => {
-  const mock = { execFileSync: (...args: unknown[]) => execFileSync(...args) };
+  const mock = {
+    execFileSync: (...args: unknown[]) => {
+      const commandArgs = args[1] as string[] | undefined;
+      const bodyFileIndex = commandArgs?.indexOf('--body-file') ?? -1;
+      if (bodyFileIndex >= 0 && commandArgs?.[bodyFileIndex + 1]) {
+        const bodyFile = commandArgs[bodyFileIndex + 1];
+        bodyFileContents.set(bodyFile, fs.readFileSync(bodyFile, 'utf8'));
+      }
+      return execFileSync(...args);
+    },
+  };
   return { ...mock, default: mock };
 });
 
@@ -51,7 +63,15 @@ const { createGithubIssue } = await import('../scripts/lib/github-issue-creator.
 function ghCalls(): string[][] {
   return execFileSync.mock.calls
     .filter((c) => c[0] === 'gh')
-    .map((c) => c[1] as string[]);
+    .map((c) => {
+      const args = [...(c[1] as string[])];
+      const bodyFileIndex = args.indexOf('--body-file');
+      if (bodyFileIndex >= 0) {
+        const bodyFile = args[bodyFileIndex + 1];
+        args.splice(bodyFileIndex, 2, '--body', bodyFileContents.get(bodyFile) ?? '');
+      }
+      return args;
+    });
 }
 
 const callsTo = (sub: string) => ghCalls().filter((a) => a[0] === 'issue' && a[1] === sub);
@@ -100,6 +120,7 @@ const twin = (over: Partial<Twin> = {}): Twin => ({
 
 beforeEach(() => {
   execFileSync.mockReset();
+  bodyFileContents.clear();
   delete process.env.GH_REPO;
   delete process.env.GITHUB_STEP_SUMMARY;
 });

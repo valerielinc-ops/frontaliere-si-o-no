@@ -9,29 +9,45 @@ Read these files first:
 - .agents/skills/ig-reel/SKILL.md
 - .agents/skills/ig-audit/SKILL.md
 - .agents/skills/ig-human/SKILL.md
+- .agents/skills/ig-repurpose/SKILL.md
+- .agents/skills/ig-story/SKILL.md
+- .agents/skills/ig-viral/SKILL.md
 - docs/instagram-creative-study.md
 - docs/social-ai-automation.md
 - scripts/lib/social-copy-pack.mjs
 - data/social-copy-packs/current.json (when present: preserve its active treatment contract)
 
-Use natural Italian and adapt each channel's voice. These are reusable hooks
-and calls to action; publishers add verified facts, figures, dates, locations,
-URLs, labels, disclosures, and media. Never invent claims, events, salaries,
-tax or legal advice, reach promises, or audience facts. Reddit copy must read
-as a useful community contribution: no hashtags, engagement bait, or generic
-cross-promotion language.
+Use natural Italian and adapt each channel's voice. Use the supplied dated
+publisher-topic inventory to make the weekly angles and hooks specific to the
+content Frontaliere Ticino actually publishes. Prefer a concrete subject or
+reader situation over reusable filler such as "un contesto utile". These are
+still reusable hooks and calls to action; publishers add verified facts,
+figures, dates, locations, URLs, labels, disclosures, and media. Never invent
+claims, events, salaries, tax or legal advice, reach promises, or audience
+facts. Reddit copy must read as a useful community contribution: no hashtags,
+engagement bait, or generic cross-promotion language.
 
 Apply the Instagram references as editorial checks, adapted to Italian and to
 the publisher formats: put the useful hook first, make each carousel slide
 advance one verified idea, give a Reel a clear opening and progression, and
 make the caption's first visible lines useful without a generic preamble. Use
-the audit and humanization references as review prompts only. Do not run their
+the repurpose reference to map supplied topics to distinct angles in this one
+weekly batch. Use `ig-story` as an editorial check for the existing static
+Story follow-up: the publisher may reuse the feed post's rendered cover and
+selected hook as one frame. Do not create a separate Story slot or promise
+interactive stickers, replies, follow-up assets, or separate Story attribution.
+Use the audit and humanization references as review prompts only. Do not run their
 English-biased lexical scores as pass/fail gates, rewrite factual copy with
 synonym substitutions, invent spoken audio or subtitle text, or pad a short
 source into a longer storyboard. The publisher may synthesize only its exact,
 verified script; any visible captions must match that script and its timing.
 The publisher remains the source of facts and the renderer remains the source
 of final media.
+Use `ig-viral` only with the supplied sanitized, qualified summaries from our
+own account. Never scrape Instagram, browse competitor accounts, collect public
+reel metrics, download videos, or send data to a swipe-file service. If our
+qualified brief is unavailable, use publisher-source inventory or label a
+testable idea as an editorial hypothesis; do not call it a trend or viral format.
 
 Return one JSON object with exactly two top-level keys: `editorialPlan` and
 `channels`. The plan contains three to five durable pillars. Each configured

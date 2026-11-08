@@ -21,11 +21,14 @@ const yellowsharkSurface = {
     label,
     kind,
     required: true,
-    options: label === 'Anrede'
-      ? [{ label: 'Frau' }, { label: 'Herr' }]
-      : ['Land', 'Nationalität'].includes(label)
-        ? ['Schweiz', 'Italien', 'Deutschland'].map((option) => ({ label: option }))
-        : [],
+    options: {
+      Land: ['Schweiz', 'Italien', 'Deutschland'].map((option) => ({ label: option })),
+      Nationalität: ['Schweiz', 'Italien', 'Deutschland'].map((option) => ({ label: option })),
+      Geburtstag: [{ label: '1' }, { label: '2' }],
+      Monat: [{ label: 'Januar' }, { label: 'Februar' }],
+      Jahr: [{ label: '1990' }, { label: '1991' }],
+      Anrede: [{ label: 'Frau' }, { label: 'Herr' }],
+    }[label] || [],
   })),
 };
 
@@ -80,6 +83,23 @@ describe('portal candidate question contract', () => {
       });
     }
     expect(request.questions.find((question) => question.applicationQuestion === 'Vorname')?.question).toBe('Nome');
+    expect(request.questions.find((question) => question.applicationQuestion === 'Land')).toMatchObject({
+      question: 'Paese',
+      options: ['Svizzera', 'Italia', 'Germania'],
+      applicationOptions: ['Schweiz', 'Italien', 'Deutschland'],
+      localizationStatus: 'translated',
+    });
+    expect(request.questions.find((question) => question.applicationQuestion === 'Nationalität')).toMatchObject({
+      question: 'Nazionalità',
+      options: ['Svizzera', 'Italia', 'Germania'],
+      applicationOptions: ['Schweiz', 'Italien', 'Deutschland'],
+      localizationStatus: 'translated',
+    });
+    expect(request.questions.find((question) => question.applicationQuestion === 'Monat')).toMatchObject({
+      options: ['Gennaio', 'Febbraio'],
+      applicationOptions: ['Januar', 'Februar'],
+      localizationStatus: 'translated',
+    });
   });
 
   it('localizes a verified German nationality adjective without a provider', async () => {
@@ -171,6 +191,53 @@ describe('portal candidate question contract', () => {
     expect(questions[0].optionMap).toHaveLength(25);
     expect(portalAnswerForApplication(questions[0], 'Source 25')).toBe('Source 25');
     expect(validateAnswer('Invented', questions[0])).toMatchObject({ ok: false, reason: 'not_an_option' });
+  });
+
+  it('localizes Yellowshark empty-valued placeholders and dotted date options without a provider', async () => {
+    const fields = [
+      {
+        id: 'country', kind: 'select', label: 'Land', required: true,
+        options: [{ value: '', label: 'Land', placeholder: true }, { value: 'CH', label: 'Schweiz' }, { value: 'IT', label: 'Italien' }, { value: 'AF', label: 'Afghanistan' }],
+      },
+      {
+        id: 'nationality', kind: 'select', label: 'Nationalität', required: true,
+        options: [{ value: '', label: 'Nationalität', placeholder: true }, { value: 'CH', label: 'Schweiz' }, { value: 'IT', label: 'Italien' }, { value: 'EG', label: 'Ägypten' }],
+      },
+      {
+        id: 'birth-day', kind: 'select', label: 'Geburtstag', required: true,
+        options: [{ value: '', label: 'Tag', placeholder: true }, { value: '01.', label: '1.' }, { value: '02.', label: '2.' }],
+      },
+      {
+        id: 'birth-month', kind: 'select', label: 'Monat', required: true,
+        options: [{ value: '', label: 'Monat', placeholder: true }, { value: '01.', label: '1.' }, { value: '02.', label: '2.' }],
+      },
+      {
+        id: 'birth-year', kind: 'select', label: 'Jahr', required: true,
+        options: [{ value: '', label: 'Jahr', placeholder: true }, { value: '1990', label: '1990' }, { value: '1991', label: '1991' }],
+      },
+    ];
+    const requirements = portalRequirementsFromMissingRequired(fields, fields.map((item) => ({
+      fieldId: item.id, question: item.label, applicationQuestion: item.label, type: 'choice', options: [], why: '',
+    })));
+    expect(requirements.unreadableFields).toBeUndefined();
+    expect(requirements.questions.map((question) => question.applicationQuestion)).toEqual([
+      'Land', 'Nationalität', 'Geburtstag', 'Monat', 'Jahr',
+    ]);
+
+    const localized = await localizePortalQuestions(requirements.questions, {
+      candidateLocale: 'it', applicationLocale: 'de',
+      codex: async () => { throw new Error('provider unavailable'); },
+    });
+    expect(localized.every((question) => question.localizationStatus !== 'fallback')).toBe(true);
+    expect(localized.find((question) => question.applicationQuestion === 'Land')).toMatchObject({
+      options: ['Svizzera', 'Italia', 'Afghanistan'], applicationOptions: ['Schweiz', 'Italien', 'Afghanistan'],
+    });
+    expect(localized.find((question) => question.applicationQuestion === 'Nationalität')).toMatchObject({
+      options: ['svizzera', 'italiana', 'Egitto'], applicationOptions: ['Schweiz', 'Italien', 'Ägypten'],
+    });
+    expect(localized.find((question) => question.applicationQuestion === 'Monat')).toMatchObject({
+      options: ['1.', '2.'], applicationOptions: ['1.', '2.'],
+    });
   });
 
   it('excludes a proven native placeholder without deleting legitimate empty-value or similarly labelled options', () => {

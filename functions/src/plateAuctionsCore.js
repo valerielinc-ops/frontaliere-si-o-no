@@ -142,6 +142,23 @@ export function withEcariEmptyState(rows, html, expectedTabIds = ECARI_TAB_IDS) 
   return explicitlyEmptyCatalogue();
 }
 
+/**
+ * A 200 response with no rows is not a catalogue unless eCari declared its
+ * own empty state. Callers that have a relay must throw here so they can use a
+ * fresh Swiss snapshot instead of turning an upstream shell into `zero_rows`.
+ */
+export function requireEcariCatalogueRows(rows, { plateCode, officialAuctionUrl } = {}) {
+  if (!Array.isArray(rows)) {
+    throw new Error(`${plateCode || 'eCari'} parser did not return an array`);
+  }
+  if (rows.length === 0 && !isExplicitlyEmptyCatalogue(rows)) {
+    const source = plateCode ? `${plateCode}: ` : '';
+    const endpoint = officialAuctionUrl ? ` (${officialAuctionUrl})` : '';
+    throw new Error(`${source}response did not produce eCari rows or an explicit empty catalogue${endpoint}`);
+  }
+  return rows;
+}
+
 function hasHtmlClass(html, className) {
   const escapedClassName = String(className).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
   return new RegExp(`<[^>]+\\bclass\\s*=\\s*["'][^"']*\\b${escapedClassName}\\b[^"']*["'][^>]*>`, 'i').test(String(html || ''));

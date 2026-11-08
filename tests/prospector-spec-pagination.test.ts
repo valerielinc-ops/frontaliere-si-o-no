@@ -66,6 +66,22 @@ function numberedListingPage({ ids, total, controls }: {
   return `<html><head><title>Jobs</title></head><body>${counter}${cards}${pageLinks}</body></html>`;
 }
 
+function queryNumberedListingPage({ ids, total, controls }: {
+  ids: string[],
+  total: number,
+  controls: number[],
+}) {
+  const cards = ids.map((id) => (
+    `<div class="job"><h2><a href="${ORIGIN}/job/${id}/" class="listing_link">`
+    + `Posizione ${id} a Lugano</a></h2></div>`
+  )).join('\n');
+  const counter = `<p class="jobs_found"><span class="jobs_number">${total}</span> Jobs gefunden</p>`;
+  const pageLinks = controls.map((page) => (
+    `<a href="${ORIGIN}/jobs/?pageJ=${page}%2F">${page}</a>`
+  )).join(' ');
+  return `<html><head><title>Jobs</title></head><body>${counter}${cards}${pageLinks}</body></html>`;
+}
+
 // A page is its HTML body, or a bare HTTP status the source answers with.
 type SitePages = Record<string, string | number>;
 
@@ -205,6 +221,36 @@ describe('spec.pagination', () => {
       `${ORIGIN}/job/sa4/`,
     ]);
     expect(fetched.filter((url) => !url.endsWith('/robots.txt'))).toEqual([seed, secondPage]);
+  });
+
+  it('segue controlli numerici quando lo stato pagina è in un parametro query dichiarato', async () => {
+    const seed = `${ORIGIN}/jobs/`;
+    const secondPage = `${seed}?pageJ=2%2F`;
+    const thirdPage = `${seed}?pageJ=3%2F`;
+    const pages = {
+      [seed]: queryNumberedListingPage({ ids: ['q1', 'q2'], total: 6, controls: [2] }),
+      [secondPage]: queryNumberedListingPage({ ids: ['q3', 'q4'], total: 6, controls: [1, 2, 3] }),
+      [thirdPage]: queryNumberedListingPage({ ids: ['q5', 'q6'], total: 6, controls: [1, 2, 3] }),
+    };
+    const { rows, fetched } = await collect(specWith({
+      seedUrls: [seed],
+      pagination: {
+        ...PAGINATION,
+        numberedPagePattern: '^(\\d+)(?:/)?$',
+        numberedPageQueryParam: 'pageJ',
+        pageStateParams: ['pageJ'],
+      },
+    }), pages);
+
+    expect(rows.map((row) => row.url)).toEqual([
+      `${ORIGIN}/job/q1/`,
+      `${ORIGIN}/job/q2/`,
+      `${ORIGIN}/job/q3/`,
+      `${ORIGIN}/job/q4/`,
+      `${ORIGIN}/job/q5/`,
+      `${ORIGIN}/job/q6/`,
+    ]);
+    expect(fetched.filter((url) => !url.endsWith('/robots.txt'))).toEqual([seed, secondPage, thirdPage]);
   });
 
   it('non interpreta link numerici come paginazione senza un contratto esplicito', () => {
@@ -727,7 +773,7 @@ describe('helper di paginazione', () => {
       normalizeSpecPagination(specWith({ pagination: { declaredPageCountPattern: '"total_pages":(\\d+)' } })),
     )).toBe(24);
     expect(normalizeSpecPagination(specWith({ pagination: {} })))
-      .toMatchObject({ maxPages: 50, minCoverage: 0.95, declaredTotalRx: null, pageStateParams: [] });
+      .toMatchObject({ maxPages: 50, minCoverage: 0.95, declaredTotalRx: null, numberedPageQueryParam: '', pageStateParams: [] });
   });
 
   // I due casi qui sotto leggono le spec VIVE in data/prospector/crawlers/, che

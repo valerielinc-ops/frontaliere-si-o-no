@@ -1,14 +1,17 @@
 {
   "key": "creditx-ch",
   "label": "CreditX Sàrl",
-  "generatedAt": "2026-11-06T22:06:38.250Z",
+  "generatedAt": "2026-11-07T21:44:40.105Z",
   "total": 2,
-  "discovered": null,
+  "discovered": 2,
   "parsed": 2,
   "lastFetchOutcome": null,
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
   "written": 2,
+  "detailCandidates": 2,
+  "detailGone": 0,
+  "detailRejected": 0,
   "resurrectedJobs": 2,
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
@@ -16,10 +19,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 15676,
-  "avgDurationMs": 15676,
+  "durationMs": 15606,
+  "avgDurationMs": 15606,
   "durationHistory": [
-    15676
+    15606
   ],
   "newJobs": [
     {
@@ -34,7 +37,7 @@
       "url": "https://creditx.ch/careers/relationship-manager-senior-sion",
       "source": "CreditX Sàrl Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-06T22:06:15.214Z",
+      "crawledAt": "2026-11-07T21:44:19.723Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -57,7 +60,7 @@
       "postalCode": "1950",
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-06T22:06:15.214Z",
+      "validThrough": "2026-12-07T21:44:19.723Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-04T21:49:23.619Z",
       "_qualityScore": 88,
@@ -80,7 +83,7 @@
       "url": "https://creditx.ch/careers/relationship-manager-junior-sion",
       "source": "CreditX Sàrl Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-06T22:06:15.212Z",
+      "crawledAt": "2026-11-07T21:44:19.721Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -103,7 +106,7 @@
       "postalCode": "1950",
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-28T22:06:15.212Z",
+      "validThrough": "2027-01-28T21:44:19.721Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-04T21:49:23.617Z",
       "_qualityScore": 88,
@@ -118,5 +121,5 @@
   "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [],
-  "codeCommit": "83864a2067a1cd4cb74a7630816798617e7b37f9"
+  "codeCommit": "f149ed523035737e5146c13e7338b8dd6b0c5f04"
 }

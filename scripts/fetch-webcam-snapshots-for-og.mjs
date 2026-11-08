@@ -54,6 +54,7 @@ const TARGET_WIDTH = 1200;
 const TARGET_HEIGHT = 675;
 const JPEG_QUALITY = 80;
 const MAX_BYTES = 200 * 1024; // 200 KB per file
+const MAX_CONCURRENT_ORIGINS = 4;
 
 // F5 BIG-IP ASM on www4.ti.ch sets session cookies (dtCookie, BIGipServer*,
 // TS*) on the first response. Subsequent requests from a CI Azure datacenter
@@ -213,13 +214,14 @@ export async function snapshotWebcamsForOg({
   const withWebcams = crossings.filter((c) =>
     Array.isArray(c.webcams) && c.webcams.some((webcam) => webcam?.embedAllowed !== false),
   );
-  const results = [];
+  const resultsByOrder = [];
   let snapshotted = 0;
   let skipped = 0;
 
   // Deduplicate by slug: the registry can theoretically have duplicates (same
   // underlying Firestore doc id). We only need one snapshot per slug.
   const seen = new Set();
+  const groupsByOrigin = new Map();
   for (const c of withWebcams) {
     const slug = slugifyName(c.name);
     if (seen.has(slug)) continue;
@@ -232,6 +234,23 @@ export async function snapshotWebcamsForOg({
       continue;
     }
 
+    let origin;
+    try {
+      origin = new URL(imageUrl).origin;
+    } catch {
+      // Preserve the old per-image error handling for malformed source URLs.
+      origin = `invalid-url-${resultsByOrder.length}`;
+    }
+    const task = { slug, webcam, imageUrl, resultOrder: resultsByOrder.length };
+    resultsByOrder.push(undefined);
+    const group = groupsByOrigin.get(origin) ?? [];
+    group.push(task);
+    groupsByOrigin.set(origin, group);
+  }
+
+  const snapshotStartedAt = Date.now();
+  const groups = [...groupsByOrigin.values()];
+  const processTask = async ({ slug, webcam, imageUrl, resultOrder }) => {
     try {
       const buf = await fetchImageBytes(imageUrl, FETCH_TIMEOUT_MS, fn);
       const jpeg = await resizeToOgJpeg(buf);
@@ -250,19 +269,28 @@ export async function snapshotWebcamsForOg({
       };
       await fs.writeFile(`${outPath}.meta.json`, JSON.stringify(meta, null, 2) + '\n');
       snapshotted++;
-      results.push({ slug, ok: true, bytes: jpeg.byteLength });
+      resultsByOrder[resultOrder] = { slug, ok: true, bytes: jpeg.byteLength };
     } catch (err) {
       skipped++;
-      results.push({ slug, ok: false, error: err?.message ?? String(err) });
+      resultsByOrder[resultOrder] = { slug, ok: false, error: err?.message ?? String(err) };
       logger(`\x1b[33m[og-webcam]\x1b[0m ${slug} skipped: ${err?.message ?? err}`);
     }
+  };
+
+  // Session cookies are shared by the host. Keep requests to one origin
+  // sequential, while fetching independent origins in bounded parallel batches.
+  for (let offset = 0; offset < groups.length; offset += MAX_CONCURRENT_ORIGINS) {
+    const batch = groups.slice(offset, offset + MAX_CONCURRENT_ORIGINS);
+    await Promise.all(batch.map(async (group) => {
+      for (const task of group) await processTask(task);
+    }));
   }
 
   logger(
-    `\x1b[36m[og-webcam]\x1b[0m snapshotted ${snapshotted} of ${withWebcams.length} crossings (${skipped} skipped).`,
+    `\x1b[36m[og-webcam]\x1b[0m snapshotted ${snapshotted} of ${withWebcams.length} crossings (${skipped} skipped) in ${((Date.now() - snapshotStartedAt) / 1000).toFixed(1)}s.`,
   );
 
-  return { snapshotted, skipped, total: withWebcams.length, results };
+  return { snapshotted, skipped, total: withWebcams.length, results: resultsByOrder };
 }
 
 // ── CLI entry ─────────────────────────────────────────────────

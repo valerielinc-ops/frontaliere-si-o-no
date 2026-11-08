@@ -1,18 +1,21 @@
 {
   "key": "tarchini-group",
   "label": "Tarchini Group",
-  "generatedAt": "2026-11-06T21:23:29.376Z",
+  "generatedAt": "2026-11-07T21:22:13.854Z",
   "total": 3,
-  "newCount": 1,
+  "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 2,
-  "durationMs": 4521,
-  "avgDurationMs": 4521,
+  "unchangedCount": 3,
+  "durationMs": 4277,
+  "avgDurationMs": 4277,
   "durationHistory": [
-    4521
+    4277
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "title": "Impiegato/a Amministrativo/a Contabile",
       "slug": "impiegato-a-amministrativo-a-contabile-tarchini-group-mendrisio",
@@ -35,12 +38,11 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-11-06T21:23:17.500Z",
+      "crawledAt": "2026-11-07T21:22:00.222Z",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "validThrough": "2027-02-04T21:23:17.500Z",
+      "validThrough": "2027-02-05T21:22:00.222Z",
       "id": "tarchini-group-71f08f97ca1a",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
@@ -50,18 +52,14 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-06T21:23:17.500Z",
-      "_qualityScore": 89,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 21,
+        "translation": 25,
         "completeness": 23
       }
-    }
-  ],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
+    },
     {
       "title": "Sales Manager",
       "slug": "direttore-delle-vendite-tarchini-group-lugano",
@@ -83,7 +81,7 @@
       "postedDate": "",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "validThrough": "2026-12-06T21:23:17.512Z",
+      "validThrough": "2026-12-07T21:22:00.238Z",
       "salaryMin": 72000,
       "salaryMax": 97000,
       "currency": "CHF",
@@ -95,7 +93,7 @@
       "applicationEmail": "info@tarchinigroup.com",
       "datePosted": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-11-06T21:23:17.512Z",
+      "crawledAt": "2026-11-07T21:22:00.238Z",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
@@ -128,7 +126,7 @@
       "postedDate": "",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "validThrough": "2026-12-28T21:23:17.514Z",
+      "validThrough": "2026-12-28T21:22:00.240Z",
       "id": "tarchini-group-e3e32d44df83",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -137,7 +135,7 @@
       "firstSeenAt": "2026-09-29T21:13:20.401Z",
       "datePosted": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-11-06T21:23:17.514Z",
+      "crawledAt": "2026-11-07T21:22:00.240Z",
       "postalCode": "6850",
       "streetAddress": "Mendrisio",
       "streetAddressSource": "to-enrich",
@@ -151,5 +149,5 @@
       }
     }
   ],
-  "codeCommit": "83864a2067a1cd4cb74a7630816798617e7b37f9"
+  "codeCommit": "f149ed523035737e5146c13e7338b8dd6b0c5f04"
 }

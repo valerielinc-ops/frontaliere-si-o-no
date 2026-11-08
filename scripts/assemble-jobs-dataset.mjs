@@ -4186,11 +4186,21 @@ export function normalizeAndPersistExpiredSlice(slicePath, entries, options = {}
  * that exist only in the old aggregate file.
  */
 export function repairExpiredArchiveSlicesAgainstActive(activeJobs, { sliceDir = EXPIRED_SLICES_DIR } = {}) {
-  if (!Array.isArray(activeJobs) || activeJobs.length === 0) {
-    return { changed: 0, repairedRoutes: 0, details: [], ghostCount: 0, mergedSlugs: 0 };
+  // An empty active assembly is valid: the uncapped slice still needs route
+  // canonicalization before the live route-recovery observer reads it.
+  if (!Array.isArray(activeJobs)) {
+    return {
+      changed: 0,
+      repairedRoutes: 0,
+      collapsedRoutes: 0,
+      details: [],
+      ghostCount: 0,
+      mergedSlugs: 0,
+    };
   }
   let changed = 0;
   let repairedRoutes = 0;
+  let collapsedRoutes = 0;
   const details = [];
   const allEntries = [];
   let malformed = false;
@@ -4200,14 +4210,26 @@ export function repairExpiredArchiveSlicesAgainstActive(activeJobs, { sliceDir =
       malformed = true;
       continue;
     }
-    const result = repairExpiredRoutesAgainstActive(entries, activeJobs);
+    // The aggregate pass below collapses duplicate route components in memory,
+    // but the live route-recovery observer reads this uncapped slice directly.
+    // Canonicalize the persisted slice first so an internal expired/expired
+    // collision cannot survive outside the aggregate's publication cap.
+    const collapsed = collapseDuplicateRouteEntries(entries, {
+      source: `assemble-jobs-dataset/expired-slice/${path.basename(slicePath)}`,
+    });
+    const workingEntries = collapsed.collapsed > 0 ? collapsed.entries : entries;
+    collapsedRoutes += collapsed.collapsed;
+
+    const result = repairExpiredRoutesAgainstActive(workingEntries, activeJobs);
     if (result.changed > 0) {
-      writeJson(slicePath, entries);
+      writeJson(slicePath, workingEntries);
       changed += result.changed;
       repairedRoutes += result.repairedRoutes;
       if (details.length < 20) details.push(...result.details);
+    } else if (collapsed.collapsed > 0) {
+      writeJson(slicePath, workingEntries);
     }
-    allEntries.push(...entries);
+    allEntries.push(...workingEntries);
   }
 
   // Ghost reconciliation used to see only the capped aggregate assembled
@@ -4222,6 +4244,7 @@ export function repairExpiredArchiveSlicesAgainstActive(activeJobs, { sliceDir =
   return {
     changed,
     repairedRoutes,
+    collapsedRoutes,
     details,
     ghostCount: ghostRepair.ghostCount,
     mergedSlugs: ghostRepair.mergedSlugs,

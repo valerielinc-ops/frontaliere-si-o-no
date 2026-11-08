@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-06T13:03:43.237Z",
+  "updatedAt": "2026-11-07T12:43:49.395Z",
   "platforms": {
     "4insiders.swiss": {
       "domain": "4insiders.swiss",
@@ -109,13 +109,13 @@
       ],
       "tenantShape": "mixed",
       "hostHits": {
-        "app.jobportal.abaservices.ch": 281,
+        "app.jobportal.abaservices.ch": 284,
         "jobs-switzerland-neoperl.jobportal.abaservices.ch": 1
       },
       "pathHits": {},
       "tenantCount": 0,
       "discoveredAt": "2026-08-21T18:32:21.923Z",
-      "note": "careers outlink, score 6",
+      "note": "apply-host cluster from SECO SG",
       "hostEmployerUnknown": {
         "app.jobportal.abaservices.ch": true
       },
@@ -1051,7 +1051,7 @@
       ],
       "tenantShape": "shared",
       "hostHits": {
-        "jobs.admin.ch": 406
+        "jobs.admin.ch": 408
       },
       "pathHits": {},
       "tenantCount": 0,
@@ -1121,12 +1121,12 @@
       ],
       "tenantShape": "shared",
       "hostHits": {
-        "jobs.amag-group.ch": 35
+        "jobs.amag-group.ch": 37
       },
       "pathHits": {},
       "tenantCount": 0,
       "discoveredAt": "2026-08-21T18:33:13.353Z",
-      "note": "apply-host cluster from SECO TG",
+      "note": "apply-host cluster from SECO ZG",
       "hostEmployerUnknown": {
         "jobs.amag-group.ch": true
       }
@@ -1189,11 +1189,11 @@
       ],
       "tenantShape": "subdomain",
       "hostHits": {
-        "fincons.applytojob.com": 88,
-        "boardinternationalsa.applytojob.com": 88
+        "fincons.applytojob.com": 89,
+        "boardinternationalsa.applytojob.com": 89
       },
       "pathHits": {
-        "/apply": 176
+        "/apply": 178
       },
       "tenantCount": 161,
       "discoveredAt": "2026-08-21T09:05:27.711Z",
@@ -1415,10 +1415,10 @@
       ],
       "tenantShape": "shared",
       "hostHits": {
-        "app.beehire.com": 264
+        "app.beehire.com": 267
       },
       "pathHits": {
-        "/invite": 264
+        "/invite": 267
       },
       "tenantCount": 0,
       "discoveredAt": "2026-08-21T09:05:27.711Z",
@@ -1565,12 +1565,12 @@
       ],
       "tenantShape": "shared",
       "hostHits": {
-        "job.bkw.com": 709
+        "job.bkw.com": 711
       },
       "pathHits": {},
       "tenantCount": 0,
       "discoveredAt": "2026-08-21T18:28:39.776Z",
-      "note": "apply-host cluster from SECO FR",
+      "note": "apply-host cluster from SECO BE",
       "hostEmployers": {
         "job.bkw.com": [
           "bkw.ch",
@@ -1719,7 +1719,7 @@
       "tenantShape": "subdomain",
       "hostHits": {
         "forfirm.careers-page.com": 1,
-        "careers-page.com": 7
+        "careers-page.com": 8
       },
       "pathHits": {},
       "tenantCount": 3,
@@ -2677,18 +2677,18 @@
       "tenantShape": "mixed",
       "hostHits": {
         "bouygues-construction-it.contactrh.com": 2,
-        "geberit.contactrh.com": 48,
+        "geberit.contactrh.com": 49,
         "spar-management-ag.contactrh.com": 2,
         "stobag.contactrh.com": 36,
         "sv-schweiz-ag.contactrh.com": 52,
         "tecan-trading-ag.contactrh.com": 5,
-        "tertianum-produktion.contactrh.com": 237,
-        "vat-vakuumventile-ag.contactrh.com": 68
+        "tertianum-produktion.contactrh.com": 240,
+        "vat-vakuumventile-ag.contactrh.com": 69
       },
       "pathHits": {},
       "tenantCount": 0,
       "discoveredAt": "2026-08-21T18:27:39.803Z",
-      "note": "apply-host cluster from SECO BE",
+      "note": "apply-host cluster from SECO SG",
       "lastExpandedAt": "2026-11-06T13:02:02.423Z",
       "expansionAttempts": 9,
       "hostEmployerUnknown": {
@@ -2750,12 +2750,12 @@
       ],
       "tenantShape": "mixed",
       "hostHits": {
-        "jobs.coopjobs.ch": 448,
+        "jobs.coopjobs.ch": 450,
         "coopjobs.ch": 2
       },
       "pathHits": {
         "/postes-vacantes": 3,
-        "/offene-stellen": 285,
+        "/offene-stellen": 287,
         "/content": 1
       },
       "tenantCount": 0,
@@ -4212,12 +4212,12 @@
       ],
       "tenantShape": "subdomain",
       "hostHits": {
-        "chopard.csod.com": 192,
-        "groupemutuel.csod.com": 110,
+        "chopard.csod.com": 193,
+        "groupemutuel.csod.com": 111,
         "msc.csod.com": 44
       },
       "pathHits": {
-        "/ux": 178
+        "/ux": 180
       },
       "tenantCount": 0,
       "discoveredAt": "2026-08-21T09:05:27.711Z",
@@ -5752,14 +5752,14 @@
       ],
       "tenantShape": "shared",
       "hostHits": {
-        "jobs.dualoo.com": 1127
+        "jobs.dualoo.com": 1137
       },
       "pathHits": {
-        "/portal": 613
+        "/portal": 620
       },
       "tenantCount": 0,
       "discoveredAt": "2026-08-21T09:05:27.710Z",
-      "note": "own-crawl census: 7 datori",
+      "note": "apply-host cluster from SECO SG",
       "hostEmployers": {
         "jobs.dualoo.com": [
           "cereneo.ch",
@@ -5810,12 +5810,12 @@
       ],
       "tenantShape": "shared",
       "hostHits": {
-        "easyapply.jobs": 630
+        "easyapply.jobs": 632
       },
       "pathHits": {},
       "tenantCount": 0,
       "discoveredAt": "2026-08-21T18:28:39.775Z",
-      "note": "apply-host cluster from SECO TG",
+      "note": "apply-host cluster from SECO ZG",
       "hostEmployerUnknown": {
         "easyapply.jobs": true
       }
@@ -5851,13 +5851,13 @@
       ],
       "tenantShape": "mixed",
       "hostHits": {
-        "api.easytemp.ch": 1048,
+        "api.easytemp.ch": 1050,
         "ats.easytemp.ch": 223
       },
       "pathHits": {},
       "tenantCount": 0,
       "discoveredAt": "2026-08-21T18:29:08.377Z",
-      "note": "apply-host cluster from SECO FR",
+      "note": "apply-host cluster from SECO SG",
       "lastExpandedAt": "2026-11-04T13:06:12.803Z",
       "expansionAttempts": 8,
       "hostEmployerUnknown": {
@@ -7477,10 +7477,10 @@
       ],
       "tenantShape": "shared",
       "hostHits": {
-        "frontaliereticino.ch": 128
+        "frontaliereticino.ch": 130
       },
       "pathHits": {
-        "/lavoro": 128
+        "/lavoro": 130
       },
       "tenantCount": 0,
       "discoveredAt": "2026-09-11T08:08:14.827Z",
@@ -7514,10 +7514,10 @@
       ],
       "tenantShape": "shared",
       "hostHits": {
-        "jobs.galenica.com": 750
+        "jobs.galenica.com": 758
       },
       "pathHits": {
-        "/it": 553
+        "/it": 561
       },
       "tenantCount": 0,
       "discoveredAt": "2026-08-21T09:05:27.710Z",
@@ -9018,222 +9018,822 @@
       ],
       "tenantShape": "mixed",
       "hostHits": {
-        "boards.greenhouse.io": 180,
-        "job-boards.eu.greenhouse.io": 137,
+        "boards.greenhouse.io": 182,
+        "job-boards.eu.greenhouse.io": 138,
         "job-boards.greenhouse.io": 6
       },
       "pathHits": {
-        "/onrunning": 90,
-        "/proton": 90,
-        "/vaxcyte": 90,
+        "/onrunning": 91,
+        "/proton": 91,
+        "/vaxcyte": 91,
         "/veeamsoftware": 46
       },
       "tenantCount": 1,
       "discoveredAt": "2026-08-21T09:05:27.710Z",
       "note": "own-crawl census: 3 datori",
-      "lastExpandedAt": "2026-10-29T12:50:12.493Z",
-      "expansionAttempts": 9,
-      "expansionProbeOffset": 350,
+      "lastExpandedAt": "2026-11-07T12:16:44.280Z",
+      "expansionAttempts": 10,
+      "expansionProbeOffset": 500,
       "expansionRetryHosts": [
         {
           "host": "1249f9d6e5c2.uuid.cfo.greenhouse.io",
-          "attempts": 2
+          "attempts": 3
         },
         {
           "host": "1249f9d6e5c2.uuid.eu.greenhouse.io",
-          "attempts": 2
+          "attempts": 3
         },
         {
           "host": "1249f9d6e5c2.uuid.greenhouse.io",
-          "attempts": 2
+          "attempts": 3
         },
         {
           "host": "1249f9d6e5c2.uuid.recruiting.eu.greenhouse.io",
-          "attempts": 2
+          "attempts": 3
         },
         {
           "host": "3435c2710fb7.uuid.anz.greenhouse.io",
-          "attempts": 2
+          "attempts": 3
         },
         {
           "host": "3435c2710fb7.uuid.cfo.greenhouse.io",
-          "attempts": 2
+          "attempts": 3
         },
         {
           "host": "3435c2710fb7.uuid.greenhouse.io",
-          "attempts": 2
+          "attempts": 3
         },
         {
           "host": "3435c2710fb7.uuid.prod-apse4-0.greenhouse.io",
-          "attempts": 2
+          "attempts": 3
         },
         {
           "host": "3435c2710fb7.uuid.recruiting.anz.greenhouse.io",
-          "attempts": 2
+          "attempts": 3
         },
         {
           "host": "35e32c1619cd.uuid.cfo.greenhouse.io",
-          "attempts": 2
+          "attempts": 3
         },
         {
           "host": "35e32c1619cd.uuid.prod-usw2-0.greenhouse.io",
-          "attempts": 2
+          "attempts": 3
         },
         {
           "host": "35e32c1619cd.uuid.recruiting.us.greenhouse.io",
-          "attempts": 2
+          "attempts": 3
         },
         {
           "host": "82ab68781935.uuid.cfo.greenhouse.io",
-          "attempts": 2
+          "attempts": 3
         },
         {
           "host": "82ab68781935.uuid.greenhouse.io",
-          "attempts": 2
+          "attempts": 3
         },
         {
           "host": "82ab68781935.uuid.services.greenhouse.io",
-          "attempts": 2
+          "attempts": 3
         },
         {
           "host": "9ab2634c7732.uuid.anz.greenhouse.io",
-          "attempts": 2
+          "attempts": 3
         },
         {
           "host": "9ab2634c7732.uuid.cfo.greenhouse.io",
-          "attempts": 2
+          "attempts": 3
         },
         {
           "host": "9ab2634c7732.uuid.greenhouse.io",
-          "attempts": 2
+          "attempts": 3
         },
         {
           "host": "9ab2634c7732.uuid.prod-apse2-0.greenhouse.io",
-          "attempts": 2
+          "attempts": 3
         },
         {
           "host": "9ab2634c7732.uuid.recruiting.anz.greenhouse.io",
-          "attempts": 2
+          "attempts": 3
         },
         {
           "host": "aa3f700e4673.uuid.bastion-use1-0.greenhouse.io",
-          "attempts": 2
+          "attempts": 3
         },
         {
           "host": "ab24f2fc80a0.uuid.cfo.greenhouse.io",
-          "attempts": 2
+          "attempts": 3
         },
         {
           "host": "ab24f2fc80a0.uuid.eu.greenhouse.io",
-          "attempts": 2
+          "attempts": 3
         },
         {
           "host": "ab24f2fc80a0.uuid.greenhouse.io",
-          "attempts": 2
+          "attempts": 3
         },
         {
           "host": "ab24f2fc80a0.uuid.prod-euc1-0.greenhouse.io",
-          "attempts": 2
+          "attempts": 3
         },
         {
           "host": "ab24f2fc80a0.uuid.recruiting.eu.greenhouse.io",
-          "attempts": 2
+          "attempts": 3
         },
         {
           "host": "anz.greenhouse.io",
-          "attempts": 2
+          "attempts": 3
         },
         {
           "host": "api-geocode-earth-proxy.prod-use1-0.greenhouse.io",
-          "attempts": 2
+          "attempts": 3
         },
         {
           "host": "bastion-use1-0.greenhouse.io",
-          "attempts": 2
+          "attempts": 3
         },
         {
           "host": "buildpacks.bastion-use1-0.greenhouse.io",
-          "attempts": 2
+          "attempts": 3
         },
         {
           "host": "cdn.onboarding.greenhouse.io",
-          "attempts": 2
+          "attempts": 3
         },
         {
           "host": "cfo.greenhouse.io",
-          "attempts": 2
+          "attempts": 3
         },
         {
           "host": "eu.greenhouse.io",
-          "attempts": 2
+          "attempts": 3
         },
         {
           "host": "jss.greenhouse.io",
-          "attempts": 2
+          "attempts": 3
         },
         {
           "host": "prod-apse2-0.greenhouse.io",
-          "attempts": 2
+          "attempts": 3
         },
         {
           "host": "prod-apse4-0.greenhouse.io",
-          "attempts": 2
+          "attempts": 3
         },
         {
           "host": "prod-atlantis-main.bastion-use1-0.greenhouse.io",
-          "attempts": 2
+          "attempts": 3
         },
         {
           "host": "prod-euc1-0.greenhouse.io",
-          "attempts": 2
+          "attempts": 3
         },
         {
           "host": "prod-saaps.services.greenhouse.io",
-          "attempts": 2
+          "attempts": 3
         },
         {
           "host": "prod-usw2-0.greenhouse.io",
-          "attempts": 2
+          "attempts": 3
         },
         {
           "host": "recruiting.anz.greenhouse.io",
-          "attempts": 2
+          "attempts": 3
         },
         {
           "host": "recruiting.eu.greenhouse.io",
-          "attempts": 2
+          "attempts": 3
         },
         {
           "host": "recruiting.us.greenhouse.io",
-          "attempts": 2
+          "attempts": 3
         },
         {
           "host": "services.greenhouse.io",
-          "attempts": 2
+          "attempts": 3
         },
         {
           "host": "sharp.services.greenhouse.io",
-          "attempts": 2
+          "attempts": 3
         },
         {
           "host": "spl.greenhouse.io",
-          "attempts": 2
+          "attempts": 3
         },
         {
           "host": "staging-cdn.onboarding.greenhouse.io",
-          "attempts": 2
+          "attempts": 3
         },
         {
           "host": "staging-saaps.services.greenhouse.io",
-          "attempts": 2
+          "attempts": 3
         },
         {
           "host": "staging-sharp.services.greenhouse.io",
-          "attempts": 2
+          "attempts": 3
         },
         {
           "host": "testing-atlantis-testing.bastion-use1-0.greenhouse.io",
-          "attempts": 2
+          "attempts": 3
+        },
+        {
+          "host": "a1880-artilleriewerk-waldbrand.greenhouse.io",
+          "attempts": 1
+        },
+        {
+          "host": "a1880.greenhouse.io",
+          "attempts": 1
+        },
+        {
+          "host": "a1880artilleriewerk.greenhouse.io",
+          "attempts": 1
+        },
+        {
+          "host": "a1880artilleriewerkwaldbrand.greenhouse.io",
+          "attempts": 1
+        },
+        {
+          "host": "a2-club.greenhouse.io",
+          "attempts": 1
+        },
+        {
+          "host": "a2-integration.greenhouse.io",
+          "attempts": 1
+        },
+        {
+          "host": "a2017-architekten.greenhouse.io",
+          "attempts": 1
+        },
+        {
+          "host": "a2017.greenhouse.io",
+          "attempts": 1
+        },
+        {
+          "host": "a2017architekten.greenhouse.io",
+          "attempts": 1
+        },
+        {
+          "host": "a2club.greenhouse.io",
+          "attempts": 1
+        },
+        {
+          "host": "a2integration.greenhouse.io",
+          "attempts": 1
+        },
+        {
+          "host": "a3-betonpumpen.greenhouse.io",
+          "attempts": 1
+        },
+        {
+          "host": "a3-haustech.greenhouse.io",
+          "attempts": 1
+        },
+        {
+          "host": "a3-music-park.greenhouse.io",
+          "attempts": 1
+        },
+        {
+          "host": "a3669-lobisei.greenhouse.io",
+          "attempts": 1
+        },
+        {
+          "host": "a3669.greenhouse.io",
+          "attempts": 1
+        },
+        {
+          "host": "a3669lobisei.greenhouse.io",
+          "attempts": 1
+        },
+        {
+          "host": "a3betonpumpen.greenhouse.io",
+          "attempts": 1
+        },
+        {
+          "host": "a3haustech.greenhouse.io",
+          "attempts": 1
+        },
+        {
+          "host": "a3music.greenhouse.io",
+          "attempts": 1
+        },
+        {
+          "host": "a3musicpark.greenhouse.io",
+          "attempts": 1
+        },
+        {
+          "host": "a4-personal.greenhouse.io",
+          "attempts": 1
+        },
+        {
+          "host": "a4personal.greenhouse.io",
+          "attempts": 1
+        },
+        {
+          "host": "aa-concierge.greenhouse.io",
+          "attempts": 1
+        },
+        {
+          "host": "aa43-modelcars.greenhouse.io",
+          "attempts": 1
+        },
+        {
+          "host": "aa43.greenhouse.io",
+          "attempts": 1
+        },
+        {
+          "host": "aa43modelcars.greenhouse.io",
+          "attempts": 1
+        },
+        {
+          "host": "aaa-alpine-air-ambulance.greenhouse.io",
+          "attempts": 1
+        },
+        {
+          "host": "aaa-dorfladen-zuzgen-prima-zuzgen.greenhouse.io",
+          "attempts": 1
+        },
+        {
+          "host": "aaa-dorfladen.greenhouse.io",
+          "attempts": 1
+        },
+        {
+          "host": "aaa.greenhouse.io",
+          "attempts": 1
+        },
+        {
+          "host": "aaaalpine.greenhouse.io",
+          "attempts": 1
+        },
+        {
+          "host": "aaaalpineairambulance.greenhouse.io",
+          "attempts": 1
+        },
+        {
+          "host": "aaacentre.greenhouse.io",
+          "attempts": 1
+        },
+        {
+          "host": "aaadorfladen.greenhouse.io",
+          "attempts": 1
+        },
+        {
+          "host": "aaadorfladenzuzgenprimazuzgen.greenhouse.io",
+          "attempts": 1
+        },
+        {
+          "host": "aaba.greenhouse.io",
+          "attempts": 1
+        },
+        {
+          "host": "aabach-central-taxi-loosli.greenhouse.io",
+          "attempts": 1
+        },
+        {
+          "host": "aabach-hotel.greenhouse.io",
+          "attempts": 1
+        },
+        {
+          "host": "aabach-restaurant.greenhouse.io",
+          "attempts": 1
+        },
+        {
+          "host": "aabach.greenhouse.io",
+          "attempts": 1
+        },
+        {
+          "host": "aabachcentral.greenhouse.io",
+          "attempts": 1
+        },
+        {
+          "host": "aabachcentraltaxiloosli.greenhouse.io",
+          "attempts": 1
+        },
+        {
+          "host": "aabachhotel.greenhouse.io",
+          "attempts": 1
+        },
+        {
+          "host": "aabachrestaurant.greenhouse.io",
+          "attempts": 1
+        },
+        {
+          "host": "aac-infotray.greenhouse.io",
+          "attempts": 1
+        },
+        {
+          "host": "aac.greenhouse.io",
+          "attempts": 1
+        },
+        {
+          "host": "aacinfotray.greenhouse.io",
+          "attempts": 1
+        },
+        {
+          "host": "aaconcierge.greenhouse.io",
+          "attempts": 1
+        },
+        {
+          "host": "aaegerter.greenhouse.io",
+          "attempts": 1
+        },
+        {
+          "host": "aaegerterdrobosshardt.greenhouse.io",
+          "attempts": 1
+        },
+        {
+          "host": "aafag.greenhouse.io",
+          "attempts": 1
+        },
+        {
+          "host": "aagastro.greenhouse.io",
+          "attempts": 1
+        },
+        {
+          "host": "aagne-weingut-stefan-gysel-saxer.greenhouse.io",
+          "attempts": 1
+        },
+        {
+          "host": "aagne.greenhouse.io",
+          "attempts": 1
+        },
+        {
+          "host": "aagneweingut.greenhouse.io",
+          "attempts": 1
+        },
+        {
+          "host": "aagneweingutstefangyselsaxer.greenhouse.io",
+          "attempts": 1
+        },
+        {
+          "host": "aak-holzmanufaktur.greenhouse.io",
+          "attempts": 1
+        },
+        {
+          "host": "aak.greenhouse.io",
+          "attempts": 1
+        },
+        {
+          "host": "aakholzmanufaktur.greenhouse.io",
+          "attempts": 1
+        },
+        {
+          "host": "aal.greenhouse.io",
+          "attempts": 1
+        },
+        {
+          "host": "aamico.greenhouse.io",
+          "attempts": 1
+        },
+        {
+          "host": "aar-consulting.greenhouse.io",
+          "attempts": 1
+        },
+        {
+          "host": "aar.greenhouse.io",
+          "attempts": 1
+        },
+        {
+          "host": "aarau-info.greenhouse.io",
+          "attempts": 1
+        },
+        {
+          "host": "aarau.greenhouse.io",
+          "attempts": 1
+        },
+        {
+          "host": "aarauerhof.greenhouse.io",
+          "attempts": 1
+        },
+        {
+          "host": "aarauerstube.greenhouse.io",
+          "attempts": 1
+        },
+        {
+          "host": "aarauinfo.greenhouse.io",
+          "attempts": 1
+        },
+        {
+          "host": "aarberg-tourismus.greenhouse.io",
+          "attempts": 1
+        },
+        {
+          "host": "aarberg.greenhouse.io",
+          "attempts": 1
+        },
+        {
+          "host": "aarbergerhof.greenhouse.io",
+          "attempts": 1
+        },
+        {
+          "host": "aarbergtourismus.greenhouse.io",
+          "attempts": 1
+        },
+        {
+          "host": "aarbiwak.greenhouse.io",
+          "attempts": 1
+        },
+        {
+          "host": "aarburg.greenhouse.io",
+          "attempts": 1
+        },
+        {
+          "host": "aarconsulting.greenhouse.io",
+          "attempts": 1
+        },
+        {
+          "host": "aare-apotheke.greenhouse.io",
+          "attempts": 1
+        },
+        {
+          "host": "aare-arbeitskreis.greenhouse.io",
+          "attempts": 1
+        },
+        {
+          "host": "aare-automobile.greenhouse.io",
+          "attempts": 1
+        },
+        {
+          "host": "aare-beizli.greenhouse.io",
+          "attempts": 1
+        },
+        {
+          "host": "aare-boutique.greenhouse.io",
+          "attempts": 1
+        },
+        {
+          "host": "aare-chill.greenhouse.io",
+          "attempts": 1
+        },
+        {
+          "host": "aare-energie-a-en.greenhouse.io",
+          "attempts": 1
+        },
+        {
+          "host": "aare-nails.greenhouse.io",
+          "attempts": 1
+        },
+        {
+          "host": "aare-seeland-mobil-direktion.greenhouse.io",
+          "attempts": 1
+        },
+        {
+          "host": "aare-seeland-mobil.greenhouse.io",
+          "attempts": 1
+        },
+        {
+          "host": "aare-vorsorge.greenhouse.io",
+          "attempts": 1
+        },
+        {
+          "host": "aare.greenhouse.io",
+          "attempts": 1
+        },
+        {
+          "host": "aareapotheke.greenhouse.io",
+          "attempts": 1
+        },
+        {
+          "host": "aarearbeitskreis.greenhouse.io",
+          "attempts": 1
+        },
+        {
+          "host": "aareautomobile.greenhouse.io",
+          "attempts": 1
+        },
+        {
+          "host": "aarebar.greenhouse.io",
+          "attempts": 1
+        },
+        {
+          "host": "aarebeizli.greenhouse.io",
+          "attempts": 1
+        },
+        {
+          "host": "aarebistro.greenhouse.io",
+          "attempts": 1
+        },
+        {
+          "host": "aareboutique.greenhouse.io",
+          "attempts": 1
+        },
+        {
+          "host": "aarechill.greenhouse.io",
+          "attempts": 1
+        },
+        {
+          "host": "aareenergie.greenhouse.io",
+          "attempts": 1
+        },
+        {
+          "host": "aareenergieaen.greenhouse.io",
+          "attempts": 1
+        },
+        {
+          "host": "aaregg.greenhouse.io",
+          "attempts": 1
+        },
+        {
+          "host": "aarekies-aarau-olten.greenhouse.io",
+          "attempts": 1
+        },
+        {
+          "host": "aarekies.greenhouse.io",
+          "attempts": 1
+        },
+        {
+          "host": "aarekiesaarau.greenhouse.io",
+          "attempts": 1
+        },
+        {
+          "host": "aarekiesaarauolten.greenhouse.io",
+          "attempts": 1
+        },
+        {
+          "host": "aarekuchen.greenhouse.io",
+          "attempts": 1
+        },
+        {
+          "host": "aarenails.greenhouse.io",
+          "attempts": 1
+        },
+        {
+          "host": "aareperle.greenhouse.io",
+          "attempts": 1
+        },
+        {
+          "host": "aareperlezentrum.greenhouse.io",
+          "attempts": 1
+        },
+        {
+          "host": "aareperlezentrumfurpflegeundbetreuung.greenhouse.io",
+          "attempts": 1
+        },
+        {
+          "host": "aarepizza.greenhouse.io",
+          "attempts": 1
+        },
+        {
+          "host": "aareplast.greenhouse.io",
+          "attempts": 1
+        },
+        {
+          "host": "aarepraxisbrugg.greenhouse.io",
+          "attempts": 1
+        },
+        {
+          "host": "aareresidenz.greenhouse.io",
+          "attempts": 1
+        },
+        {
+          "host": "aareschlauchboot.greenhouse.io",
+          "attempts": 1
+        },
+        {
+          "host": "aareseeland.greenhouse.io",
+          "attempts": 1
+        },
+        {
+          "host": "aareseelandmobil.greenhouse.io",
+          "attempts": 1
+        },
+        {
+          "host": "aareseelandmobildirektion.greenhouse.io",
+          "attempts": 1
+        },
+        {
+          "host": "aaresschlucht-westeingang.greenhouse.io",
+          "attempts": 1
+        },
+        {
+          "host": "aaresschlucht.greenhouse.io",
+          "attempts": 1
+        },
+        {
+          "host": "aaresschluchtwesteingang.greenhouse.io",
+          "attempts": 1
+        },
+        {
+          "host": "aaretal-garage-munsigen.greenhouse.io",
+          "attempts": 1
+        },
+        {
+          "host": "aaretal-garage.greenhouse.io",
+          "attempts": 1
+        },
+        {
+          "host": "aaretal-reisen.greenhouse.io",
+          "attempts": 1
+        },
+        {
+          "host": "aaretal.greenhouse.io",
+          "attempts": 1
+        },
+        {
+          "host": "aaretalgarage.greenhouse.io",
+          "attempts": 1
+        },
+        {
+          "host": "aaretalgaragemunsigen.greenhouse.io",
+          "attempts": 1
+        },
+        {
+          "host": "aaretalreisen.greenhouse.io",
+          "attempts": 1
+        },
+        {
+          "host": "aaretraff.greenhouse.io",
+          "attempts": 1
+        },
+        {
+          "host": "aarevorsorge.greenhouse.io",
+          "attempts": 1
+        },
+        {
+          "host": "aargau-verkehr-ava.greenhouse.io",
+          "attempts": 1
+        },
+        {
+          "host": "aargau.greenhouse.io",
+          "attempts": 1
+        },
+        {
+          "host": "aargauer-beck.greenhouse.io",
+          "attempts": 1
+        },
+        {
+          "host": "aargauer.greenhouse.io",
+          "attempts": 1
+        },
+        {
+          "host": "aargauerbeck.greenhouse.io",
+          "attempts": 1
+        },
+        {
+          "host": "aargauerhof.greenhouse.io",
+          "attempts": 1
+        },
+        {
+          "host": "aargauhotels.greenhouse.io",
+          "attempts": 1
+        },
+        {
+          "host": "aargauische-gebaudeversicherung.greenhouse.io",
+          "attempts": 1
+        },
+        {
+          "host": "aargauische-kantonalbank.greenhouse.io",
+          "attempts": 1
+        },
+        {
+          "host": "aargauische-pensionskasse.greenhouse.io",
+          "attempts": 1
+        },
+        {
+          "host": "aargauische-stiftung-suchthilfe-ags.greenhouse.io",
+          "attempts": 1
+        },
+        {
+          "host": "aargauische.greenhouse.io",
+          "attempts": 1
+        },
+        {
+          "host": "aargauischegebaudeversicherung.greenhouse.io",
+          "attempts": 1
+        },
+        {
+          "host": "aargauischekantonalbank.greenhouse.io",
+          "attempts": 1
+        },
+        {
+          "host": "aargauischematuritatsschule.greenhouse.io",
+          "attempts": 1
+        },
+        {
+          "host": "aargauischepensionskasse.greenhouse.io",
+          "attempts": 1
+        },
+        {
+          "host": "aargauischer-gewerbeverband.greenhouse.io",
+          "attempts": 1
+        },
+        {
+          "host": "aargauischer.greenhouse.io",
+          "attempts": 1
+        },
+        {
+          "host": "aargauischerarzteverband.greenhouse.io",
+          "attempts": 1
+        },
+        {
+          "host": "aargauischerarzteverbandgeschaftsstelle.greenhouse.io",
+          "attempts": 1
+        },
+        {
+          "host": "aargauischergewerbeverband.greenhouse.io",
+          "attempts": 1
+        },
+        {
+          "host": "aargauischestiftung.greenhouse.io",
+          "attempts": 1
         },
         {
           "host": "3t-by-steph.greenhouse.io",
@@ -10233,7 +10833,7 @@
         }
       ],
       "lastExpansion": {
-        "at": "2026-10-29T12:50:12.493Z",
+        "at": "2026-11-07T12:16:44.280Z",
         "outcome": "partial",
         "discoveredHosts": 200,
         "liveTenants": 0,
@@ -10246,7 +10846,7 @@
           },
           "certspotter": {
             "outcome": "complete",
-            "items": 97,
+            "items": 96,
             "errorCode": null
           },
           "probes": {
@@ -10426,8 +11026,8 @@
       "tenantCount": 1,
       "discoveredAt": "2026-08-21T09:45:25.731Z",
       "note": "careers outlink, score 3.6",
-      "lastExpandedAt": "2026-10-29T12:32:22.808Z",
-      "expansionAttempts": 9,
+      "lastExpandedAt": "2026-11-07T11:58:58.353Z",
+      "expansionAttempts": 10,
       "hostEmployerUnknown": {},
       "hostEmployers": {
         "hotelcareer.ch": [
@@ -10447,12 +11047,17 @@
         ]
       },
       "expansionProbeOffset": 0,
-      "expansionRetryHosts": [],
+      "expansionRetryHosts": [
+        {
+          "host": "fr.hotelcareer.ch",
+          "attempts": 1
+        }
+      ],
       "lastExpansion": {
-        "at": "2026-10-29T12:32:22.808Z",
+        "at": "2026-11-07T11:58:58.353Z",
         "outcome": "partial",
         "discoveredHosts": 4,
-        "liveTenants": 1,
+        "liveTenants": 0,
         "probeLimitReached": false,
         "sources": {
           "commoncrawl": {
@@ -10466,9 +11071,9 @@
             "errorCode": null
           },
           "probes": {
-            "outcome": "complete",
+            "outcome": "partial",
             "items": 4,
-            "errorCode": null
+            "errorCode": "transient_probe_failures"
           }
         }
       }
@@ -13754,7 +14359,9 @@
         "klinik-schoenberg.ch",
         "reiden.ch",
         "opacc.ch",
-        "gsell.ch"
+        "gsell.ch",
+        "aproda.ch",
+        "franzpfister.ch"
       ],
       "markers": [],
       "hostSamples": [
@@ -13762,16 +14369,18 @@
       ],
       "tenantShape": "shared",
       "hostHits": {
-        "my.jobalino.ch": 733
+        "my.jobalino.ch": 743
       },
       "pathHits": {
-        "/job": 440
+        "/job": 445
       },
       "tenantCount": 0,
       "discoveredAt": "2026-08-21T09:05:27.710Z",
-      "note": "own-crawl census: 5 datori",
+      "note": "careers outlink, score 8",
       "hostEmployers": {
         "my.jobalino.ch": [
+          "aproda.ch",
+          "franzpfister.ch",
           "gsell.ch",
           "klinik-schoenberg.ch",
           "kuhnrikon.com",
@@ -13824,19 +14433,19 @@
         "jdchag711092.jobdesk.ch": 161,
         "jdchbe629887.jobdesk.ch": 30,
         "jdchbs039583.jobdesk.ch": 83,
-        "jdchbs193852.jobdesk.ch": 152,
+        "jdchbs193852.jobdesk.ch": 153,
         "jdchlu365681.jobdesk.ch": 8,
-        "jdchlu365682.jobdesk.ch": 423,
+        "jdchlu365682.jobdesk.ch": 424,
         "jdchlu448923.jobdesk.ch": 76,
-        "jdchnw915712.jobdesk.ch": 18,
+        "jdchnw915712.jobdesk.ch": 19,
         "jdchsg001385.jobdesk.ch": 46,
-        "jdchzg725110.jobdesk.ch": 80,
+        "jdchzg725110.jobdesk.ch": 81,
         "jdchzh931426.jobdesk.ch": 25
       },
       "pathHits": {},
       "tenantCount": 0,
       "discoveredAt": "2026-08-21T18:27:39.803Z",
-      "note": "apply-host cluster from SECO LU",
+      "note": "apply-host cluster from SECO ZG",
       "lastExpandedAt": "2026-11-06T12:54:46.804Z",
       "expansionAttempts": 8,
       "hostEmployerUnknown": {
@@ -14035,12 +14644,12 @@
       ],
       "tenantShape": "shared",
       "hostHits": {
-        "join.com": 318
+        "join.com": 320
       },
       "pathHits": {},
       "tenantCount": 0,
       "discoveredAt": "2026-08-21T18:30:37.007Z",
-      "note": "careers outlink, score 5",
+      "note": "apply-host cluster from SECO ZG",
       "hostEmployerUnknown": {
         "join.com": true
       },
@@ -14101,7 +14710,7 @@
       ],
       "tenantShape": "shared",
       "hostHits": {
-        "jura.ch": 260
+        "jura.ch": 264
       },
       "pathHits": {},
       "tenantCount": 0,
@@ -14192,12 +14801,12 @@
       ],
       "tenantShape": "shared",
       "hostHits": {
-        "kampajobs.ch": 585
+        "kampajobs.ch": 589
       },
       "pathHits": {},
       "tenantCount": 0,
       "discoveredAt": "2026-08-21T18:28:55.194Z",
-      "note": "apply-host cluster from SECO BE",
+      "note": "apply-host cluster from SECO ZH",
       "hostEmployerUnknown": {
         "kampajobs.ch": true
       }
@@ -14589,7 +15198,7 @@
       ],
       "tenantShape": "shared",
       "hostHits": {
-        "krippenstellen.ch": 3631
+        "krippenstellen.ch": 3660
       },
       "pathHits": {},
       "tenantCount": 0,
@@ -14638,12 +15247,12 @@
       ],
       "tenantShape": "shared",
       "hostHits": {
-        "jobs.lever.co": 265
+        "jobs.lever.co": 268
       },
       "pathHits": {
-        "/anybotics": 88,
-        "/sonarsource": 88,
-        "/tsmg": 88
+        "/anybotics": 89,
+        "/sonarsource": 89,
+        "/tsmg": 89
       },
       "tenantCount": 0,
       "discoveredAt": "2026-08-21T09:05:27.711Z",
@@ -16299,12 +16908,12 @@
       ],
       "tenantShape": "shared",
       "hostHits": {
-        "medienjobs.ch": 1160
+        "medienjobs.ch": 1168
       },
       "pathHits": {},
       "tenantCount": 0,
       "discoveredAt": "2026-08-21T18:27:39.803Z",
-      "note": "apply-host cluster from SECO TG",
+      "note": "apply-host cluster from SECO ZH",
       "hostEmployerUnknown": {
         "medienjobs.ch": true
       }
@@ -16346,10 +16955,11 @@
       ],
       "tenantShape": "shared",
       "hostHits": {
-        "jobs.migros.ch": 615
+        "jobs.migros.ch": 642
       },
       "pathHits": {
-        "/de": 174
+        "/de": 175,
+        "/fr": 1
       },
       "tenantCount": 0,
       "discoveredAt": "2026-08-21T18:27:14.168Z",
@@ -16478,7 +17088,7 @@
       ],
       "tenantShape": "shared",
       "hostHits": {
-        "more-jobs.ch": 1527
+        "more-jobs.ch": 1535
       },
       "pathHits": {},
       "tenantCount": 0,
@@ -16632,89 +17242,89 @@
       "tenantShape": "subdomain",
       "hostHits": {
         "abb.wd3.myworkdayjobs.com": 42,
-        "abbott.wd5.myworkdayjobs.com": 89,
+        "abbott.wd5.myworkdayjobs.com": 90,
         "accelleron.wd3.myworkdayjobs.com": 106,
-        "alcon.wd5.myworkdayjobs.com": 137,
+        "alcon.wd5.myworkdayjobs.com": 138,
         "alsa.wd3.myworkdayjobs.com": 6,
-        "ardian.wd103.myworkdayjobs.com": 89,
+        "ardian.wd103.myworkdayjobs.com": 90,
         "bavariannordic.wd103.myworkdayjobs.com": 10,
         "bdx.wd1.myworkdayjobs.com": 6,
-        "bernergroup.wd3.myworkdayjobs.com": 80,
-        "biibhr.wd3.myworkdayjobs.com": 87,
-        "bossard.wd103.myworkdayjobs.com": 140,
-        "bracco.wd103.myworkdayjobs.com": 89,
-        "capri.wd1.myworkdayjobs.com": 89,
-        "csl.wd1.myworkdayjobs.com": 92,
-        "electrolux.wd3.myworkdayjobs.com": 9,
-        "eraneos.wd3.myworkdayjobs.com": 123,
+        "bernergroup.wd3.myworkdayjobs.com": 81,
+        "biibhr.wd3.myworkdayjobs.com": 89,
+        "bossard.wd103.myworkdayjobs.com": 142,
+        "bracco.wd103.myworkdayjobs.com": 90,
+        "capri.wd1.myworkdayjobs.com": 90,
+        "csl.wd1.myworkdayjobs.com": 93,
+        "electrolux.wd3.myworkdayjobs.com": 10,
+        "eraneos.wd3.myworkdayjobs.com": 124,
         "everestre.wd5.myworkdayjobs.com": 60,
-        "fielmann.wd3.myworkdayjobs.com": 89,
+        "fielmann.wd3.myworkdayjobs.com": 90,
         "fmc.wd12.myworkdayjobs.com": 42,
-        "fnz.wd3.myworkdayjobs.com": 89,
-        "galderma.wd3.myworkdayjobs.com": 88,
-        "georgfischer.wd103.myworkdayjobs.com": 89,
+        "fnz.wd3.myworkdayjobs.com": 90,
+        "galderma.wd3.myworkdayjobs.com": 89,
+        "georgfischer.wd103.myworkdayjobs.com": 90,
         "getec.wd103.myworkdayjobs.com": 55,
         "gunvor.wd3.myworkdayjobs.com": 53,
-        "hamilton.wd3.myworkdayjobs.com": 89,
+        "hamilton.wd3.myworkdayjobs.com": 90,
         "hitachi.wd1.myworkdayjobs.com": 40,
-        "huntsman.wd1.myworkdayjobs.com": 131,
+        "huntsman.wd1.myworkdayjobs.com": 132,
         "idexcorp.wd5.myworkdayjobs.com": 7,
-        "imerys.wd3.myworkdayjobs.com": 39,
-        "juliusbaer.wd3.myworkdayjobs.com": 89,
-        "kantonsspitalbaden.wd3.myworkdayjobs.com": 89,
-        "kone.wd3.myworkdayjobs.com": 39,
+        "imerys.wd3.myworkdayjobs.com": 40,
+        "juliusbaer.wd3.myworkdayjobs.com": 90,
+        "kantonsspitalbaden.wd3.myworkdayjobs.com": 90,
+        "kone.wd3.myworkdayjobs.com": 40,
         "lgt.wd3.myworkdayjobs.com": 3,
-        "lindtspruengli.wd103.myworkdayjobs.com": 89,
-        "logitech.wd5.myworkdayjobs.com": 89,
-        "lombardodier.wd3.myworkdayjobs.com": 89,
-        "lonza.wd3.myworkdayjobs.com": 307,
-        "lsi.wd3.myworkdayjobs.com": 99,
-        "medbase.wd502.myworkdayjobs.com": 89,
-        "medtronic.wd1.myworkdayjobs.com": 89,
+        "lindtspruengli.wd103.myworkdayjobs.com": 90,
+        "logitech.wd5.myworkdayjobs.com": 90,
+        "lombardodier.wd3.myworkdayjobs.com": 90,
+        "lonza.wd3.myworkdayjobs.com": 309,
+        "lsi.wd3.myworkdayjobs.com": 100,
+        "medbase.wd502.myworkdayjobs.com": 90,
+        "medtronic.wd1.myworkdayjobs.com": 90,
         "miele.wd3.myworkdayjobs.com": 10,
         "msf.wd3.myworkdayjobs.com": 44,
-        "novartis.wd3.myworkdayjobs.com": 108,
-        "nvidia.wd5.myworkdayjobs.com": 89,
-        "onehealthineers.wd3.myworkdayjobs.com": 68,
+        "novartis.wd3.myworkdayjobs.com": 109,
+        "nvidia.wd5.myworkdayjobs.com": 90,
+        "onehealthineers.wd3.myworkdayjobs.com": 69,
         "otis.wd5.myworkdayjobs.com": 1,
-        "otis.wd504.myworkdayjobs.com": 88,
+        "otis.wd504.myworkdayjobs.com": 89,
         "pwc.wd3.myworkdayjobs.com": 12,
-        "rbi.wd3.myworkdayjobs.com": 66,
-        "rituals.wd3.myworkdayjobs.com": 89,
-        "roche.wd3.myworkdayjobs.com": 89,
-        "siegfried.wd103.myworkdayjobs.com": 157,
-        "smithnephew.wd5.myworkdayjobs.com": 18,
-        "stryker.wd1.myworkdayjobs.com": 89,
-        "sulzer.wd502.myworkdayjobs.com": 89,
+        "rbi.wd3.myworkdayjobs.com": 67,
+        "rituals.wd3.myworkdayjobs.com": 90,
+        "roche.wd3.myworkdayjobs.com": 90,
+        "siegfried.wd103.myworkdayjobs.com": 159,
+        "smithnephew.wd5.myworkdayjobs.com": 19,
+        "stryker.wd1.myworkdayjobs.com": 90,
+        "sulzer.wd502.myworkdayjobs.com": 90,
         "sunrise.wd3.myworkdayjobs.com": 242,
-        "swarovski.wd3.myworkdayjobs.com": 200,
-        "swisscom.wd103.myworkdayjobs.com": 481,
-        "swisslife.wd3.myworkdayjobs.com": 89,
+        "swarovski.wd3.myworkdayjobs.com": 201,
+        "swisscom.wd103.myworkdayjobs.com": 482,
+        "swisslife.wd3.myworkdayjobs.com": 90,
         "takeda.wd502.myworkdayjobs.com": 5,
         "temenos.wd103.myworkdayjobs.com": 22,
-        "trafigura.wd3.myworkdayjobs.com": 107,
-        "trumpf.wd3.myworkdayjobs.com": 133,
-        "vfc.wd5.myworkdayjobs.com": 89,
-        "vontobel.wd3.myworkdayjobs.com": 89,
+        "trafigura.wd3.myworkdayjobs.com": 108,
+        "trumpf.wd3.myworkdayjobs.com": 134,
+        "vfc.wd5.myworkdayjobs.com": 90,
+        "vontobel.wd3.myworkdayjobs.com": 90,
         "weforum.wd3.myworkdayjobs.com": 56,
         "weleda.wd3.myworkdayjobs.com": 77,
         "zuehlke.wd3.myworkdayjobs.com": 25,
         "chubbfiresecurity.wd3.myworkdayjobs.com": 1,
         "healthcare.wd1.myworkdayjobs.com": 1,
         "fourseasons.wd3.myworkdayjobs.com": 2,
-        "tomtailorgroup.wd502.myworkdayjobs.com": 1
+        "tomtailorgroup.wd502.myworkdayjobs.com": 2
       },
       "pathHits": {
-        "/LindtSpruengliGroupCareers": 89,
-        "/TRUMPF_Graduates_and_Professionals": 102,
-        "/en": 1137,
-        "/en-US": 2018,
-        "/it-IT": 178,
-        "/vfc_careers": 89
+        "/LindtSpruengliGroupCareers": 90,
+        "/TRUMPF_Graduates_and_Professionals": 103,
+        "/en": 1149,
+        "/en-US": 2042,
+        "/it-IT": 180,
+        "/vfc_careers": 90
       },
       "tenantCount": 0,
       "discoveredAt": "2026-08-21T09:05:27.698Z",
-      "note": "apply-host cluster from SECO ZH",
+      "note": "apply-host cluster from SECO ZG",
       "lastExpandedAt": "2026-11-04T12:41:19.124Z",
       "expansionAttempts": 8,
       "hostEmployers": {
@@ -17213,10 +17823,10 @@
       ],
       "tenantShape": "shared",
       "hostHits": {
-        "app.ncoreplat.com": 136
+        "app.ncoreplat.com": 138
       },
       "pathHits": {
-        "/jobposition": 136
+        "/jobposition": 138
       },
       "tenantCount": 0,
       "discoveredAt": "2026-08-21T09:05:27.711Z",
@@ -18776,25 +19386,25 @@
         "freitag.onlyfy.jobs": 1,
         "fust.onlyfy.jobs": 21,
         "iqair-ag.onlyfy.jobs": 4,
-        "spitex-zuerich.onlyfy.jobs": 89,
-        "vamed-ag-ch.onlyfy.jobs": 89,
+        "spitex-zuerich.onlyfy.jobs": 90,
+        "vamed-ag-ch.onlyfy.jobs": 90,
         "vitrea-gesundheit.onlyfy.jobs": 2,
         "umano-ag.onlyfy.jobs": 1,
         "dannemann-group.onlyfy.jobs": 1,
         "persona-ch.onlyfy.jobs": 1
       },
       "pathHits": {
-        "/de": 178
+        "/de": 180
       },
       "tenantCount": 6,
       "discoveredAt": "2026-08-21T09:05:27.711Z",
-      "note": "careers outlink, score 3",
-      "lastExpandedAt": "2026-10-29T12:32:37.732Z",
-      "expansionAttempts": 8,
-      "expansionProbeOffset": 400,
+      "note": "own-crawl census: 2 datori",
+      "lastExpandedAt": "2026-11-07T11:59:12.236Z",
+      "expansionAttempts": 9,
+      "expansionProbeOffset": 600,
       "expansionRetryHosts": [],
       "lastExpansion": {
-        "at": "2026-10-29T12:32:37.732Z",
+        "at": "2026-11-07T11:59:12.236Z",
         "outcome": "partial",
         "discoveredHosts": 200,
         "liveTenants": 0,
@@ -18848,11 +19458,11 @@
       ],
       "tenantShape": "subdomain",
       "hostHits": {
-        "evht.fa.ocs.oraclecloud.eu": 88,
-        "iaadtu.fa.ocs.oraclecloud.eu": 88
+        "evht.fa.ocs.oraclecloud.eu": 89,
+        "iaadtu.fa.ocs.oraclecloud.eu": 89
       },
       "pathHits": {
-        "/hcmUI": 176
+        "/hcmUI": 178
       },
       "tenantCount": 0,
       "discoveredAt": "2026-08-21T09:05:27.711Z",
@@ -20185,15 +20795,15 @@
       ],
       "tenantShape": "mixed",
       "hostHits": {
-        "link.ostendis.com": 889,
+        "link.ostendis.com": 896,
         "odm.ostendis.com": 20
       },
       "pathHits": {
-        "/publication": 357
+        "/publication": 362
       },
       "tenantCount": 0,
       "discoveredAt": "2026-08-21T09:05:27.710Z",
-      "note": "careers outlink, score 7",
+      "note": "apply-host cluster from SECO ZG",
       "lastExpandedAt": "2026-11-04T12:51:50.672Z",
       "expansionAttempts": 8,
       "hostEmployers": {
@@ -21642,9 +22252,9 @@
       ],
       "tenantShape": "subdomain",
       "hostHits": {
-        "kellerhals-carrard.jobs.personio.com": 88,
-        "lalive-law.jobs.personio.com": 88,
-        "swsieber.jobs.personio.com": 88,
+        "kellerhals-carrard.jobs.personio.com": 89,
+        "lalive-law.jobs.personio.com": 89,
+        "swsieber.jobs.personio.com": 89,
         "boost-inc.jobs.personio.com": 1,
         "ridgelinediscovery.jobs.personio.com": 4,
         "faceland.jobs.personio.com": 1,
@@ -21654,11 +22264,11 @@
         "ppcmetrics.jobs.personio.com": 1
       },
       "pathHits": {
-        "/job": 264
+        "/job": 267
       },
       "tenantCount": 6,
       "discoveredAt": "2026-08-21T09:05:27.711Z",
-      "note": "careers outlink, score 4.5",
+      "note": "own-crawl census: 3 datori",
       "lastExpandedAt": "2026-11-01T12:58:50.356Z",
       "expansionAttempts": 7,
       "hostEmployers": {
@@ -21779,9 +22389,9 @@
       ],
       "tenantShape": "subdomain",
       "hostHits": {
-        "felfel.jobs.personio.de": 88,
-        "yapeal-ag.jobs.personio.de": 88,
-        "igroove.jobs.personio.de": 88,
+        "felfel.jobs.personio.de": 89,
+        "yapeal-ag.jobs.personio.de": 89,
+        "igroove.jobs.personio.de": 89,
         "nine-internet-solutions-ag.jobs.personio.de": 1,
         "zentrum-fuer-bilddiagnostik-ag.jobs.personio.de": 1,
         "ruba.jobs.personio.de": 1,
@@ -21790,7 +22400,7 @@
         "univativ-group.jobs.personio.de": 1
       },
       "pathHits": {
-        "/job": 264
+        "/job": 267
       },
       "tenantCount": 4,
       "discoveredAt": "2026-08-21T09:05:27.711Z",
@@ -21923,219 +22533,819 @@
       ],
       "tenantShape": "mixed",
       "hostHits": {
-        "bellinz.pi-asp.de": 84,
-        "locarno.pi-asp.de": 87,
-        "stiftdia.pi-asp.de": 112
+        "bellinz.pi-asp.de": 85,
+        "locarno.pi-asp.de": 88,
+        "stiftdia.pi-asp.de": 113
       },
       "pathHits": {
-        "/bewerber-web": 283
+        "/bewerber-web": 286
       },
       "tenantCount": 0,
       "discoveredAt": "2026-08-21T09:05:27.711Z",
       "note": "own-crawl census: 3 datori",
-      "lastExpandedAt": "2026-10-29T12:34:41.848Z",
-      "expansionAttempts": 9,
-      "expansionProbeOffset": 350,
+      "lastExpandedAt": "2026-11-07T12:01:14.087Z",
+      "expansionAttempts": 10,
+      "expansionProbeOffset": 500,
       "expansionRetryHosts": [
         {
           "host": "login1.pi-asp.de",
-          "attempts": 2
+          "attempts": 3
         },
         {
           "host": "login3.pi-asp.de",
-          "attempts": 2
+          "attempts": 3
         },
         {
           "host": "login4.pi-asp.de",
-          "attempts": 2
+          "attempts": 3
         },
         {
           "host": "007bungy.pi-asp.de",
-          "attempts": 2
+          "attempts": 3
         },
         {
           "host": "01-start-physio.pi-asp.de",
-          "attempts": 2
+          "attempts": 3
         },
         {
           "host": "01start.pi-asp.de",
-          "attempts": 2
+          "attempts": 3
         },
         {
           "host": "01startphysio.pi-asp.de",
-          "attempts": 2
+          "attempts": 3
         },
         {
           "host": "04-start-physio-succursale-de-martigny.pi-asp.de",
-          "attempts": 2
+          "attempts": 3
         },
         {
           "host": "04start.pi-asp.de",
-          "attempts": 2
+          "attempts": 3
         },
         {
           "host": "04startphysiosuccursaledemartigny.pi-asp.de",
-          "attempts": 2
+          "attempts": 3
         },
         {
           "host": "1-2-eat.pi-asp.de",
-          "attempts": 2
+          "attempts": 3
         },
         {
           "host": "1-618-capital.pi-asp.de",
-          "attempts": 2
+          "attempts": 3
         },
         {
           "host": "1-computer.pi-asp.de",
-          "attempts": 2
+          "attempts": 3
         },
         {
           "host": "10-ans-du-pont-de-la-poya.pi-asp.de",
-          "attempts": 2
+          "attempts": 3
         },
         {
           "host": "10-gute-vorsatze.pi-asp.de",
-          "attempts": 2
+          "attempts": 3
         },
         {
           "host": "100-cento.pi-asp.de",
-          "attempts": 2
+          "attempts": 3
         },
         {
           "host": "100.pi-asp.de",
-          "attempts": 2
+          "attempts": 3
         },
         {
           "host": "1000ftad.pi-asp.de",
-          "attempts": 2
+          "attempts": 3
         },
         {
           "host": "1001-teller.pi-asp.de",
-          "attempts": 2
+          "attempts": 3
         },
         {
           "host": "1001.pi-asp.de",
-          "attempts": 2
+          "attempts": 3
         },
         {
           "host": "1001teller.pi-asp.de",
-          "attempts": 2
+          "attempts": 3
         },
         {
           "host": "1002388.pi-asp.de",
-          "attempts": 2
+          "attempts": 3
         },
         {
           "host": "100cento.pi-asp.de",
-          "attempts": 2
+          "attempts": 3
         },
         {
           "host": "1050medical.pi-asp.de",
-          "attempts": 2
+          "attempts": 3
         },
         {
           "host": "108prozent.pi-asp.de",
-          "attempts": 2
+          "attempts": 3
         },
         {
           "host": "10ans.pi-asp.de",
-          "attempts": 2
+          "attempts": 3
         },
         {
           "host": "10ansdupontdelapoya.pi-asp.de",
-          "attempts": 2
+          "attempts": 3
         },
         {
           "host": "10gute.pi-asp.de",
-          "attempts": 2
+          "attempts": 3
         },
         {
           "host": "10gutevorsatze.pi-asp.de",
-          "attempts": 2
+          "attempts": 3
         },
         {
           "host": "10w40.pi-asp.de",
-          "attempts": 2
+          "attempts": 3
         },
         {
           "host": "1178.pi-asp.de",
-          "attempts": 2
+          "attempts": 3
         },
         {
           "host": "1203-graines.pi-asp.de",
-          "attempts": 2
+          "attempts": 3
         },
         {
           "host": "1203.pi-asp.de",
-          "attempts": 2
+          "attempts": 3
         },
         {
           "host": "1203graines.pi-asp.de",
-          "attempts": 2
+          "attempts": 3
         },
         {
           "host": "123-bocal.pi-asp.de",
-          "attempts": 2
+          "attempts": 3
         },
         {
           "host": "123-swissgo.pi-asp.de",
-          "attempts": 2
+          "attempts": 3
         },
         {
           "host": "123.pi-asp.de",
-          "attempts": 2
+          "attempts": 3
         },
         {
           "host": "123bocal.pi-asp.de",
-          "attempts": 2
+          "attempts": 3
         },
         {
           "host": "123immo.pi-asp.de",
-          "attempts": 2
+          "attempts": 3
         },
         {
           "host": "123swissgo.pi-asp.de",
-          "attempts": 2
+          "attempts": 3
         },
         {
           "host": "1275-hair-barber-shop.pi-asp.de",
-          "attempts": 2
+          "attempts": 3
         },
         {
           "host": "1275.pi-asp.de",
-          "attempts": 2
+          "attempts": 3
         },
         {
           "host": "1275hair.pi-asp.de",
-          "attempts": 2
+          "attempts": 3
         },
         {
           "host": "1275hairbarbershop.pi-asp.de",
-          "attempts": 2
+          "attempts": 3
         },
         {
           "host": "12eat.pi-asp.de",
-          "attempts": 2
+          "attempts": 3
         },
         {
           "host": "13-etoiles.pi-asp.de",
-          "attempts": 2
+          "attempts": 3
         },
         {
           "host": "1386-brauerei.pi-asp.de",
-          "attempts": 2
+          "attempts": 3
         },
         {
           "host": "1386.pi-asp.de",
-          "attempts": 2
+          "attempts": 3
         },
         {
           "host": "1386brauerei.pi-asp.de",
-          "attempts": 2
+          "attempts": 3
         },
         {
           "host": "13etoiles.pi-asp.de",
-          "attempts": 2
+          "attempts": 3
+        },
+        {
+          "host": "aaretalreisen.pi-asp.de",
+          "attempts": 1
+        },
+        {
+          "host": "aaretraff.pi-asp.de",
+          "attempts": 1
+        },
+        {
+          "host": "aarevorsorge.pi-asp.de",
+          "attempts": 1
+        },
+        {
+          "host": "aargau-verkehr-ava.pi-asp.de",
+          "attempts": 1
+        },
+        {
+          "host": "aargau.pi-asp.de",
+          "attempts": 1
+        },
+        {
+          "host": "aargauer-beck.pi-asp.de",
+          "attempts": 1
+        },
+        {
+          "host": "aargauer.pi-asp.de",
+          "attempts": 1
+        },
+        {
+          "host": "aargauerbeck.pi-asp.de",
+          "attempts": 1
+        },
+        {
+          "host": "aargauerhof.pi-asp.de",
+          "attempts": 1
+        },
+        {
+          "host": "aargauhotels.pi-asp.de",
+          "attempts": 1
+        },
+        {
+          "host": "aargauische-gebaudeversicherung.pi-asp.de",
+          "attempts": 1
+        },
+        {
+          "host": "aargauische-kantonalbank.pi-asp.de",
+          "attempts": 1
+        },
+        {
+          "host": "aargauische-pensionskasse.pi-asp.de",
+          "attempts": 1
+        },
+        {
+          "host": "aargauische-stiftung-suchthilfe-ags.pi-asp.de",
+          "attempts": 1
+        },
+        {
+          "host": "aargauische.pi-asp.de",
+          "attempts": 1
+        },
+        {
+          "host": "aargauischegebaudeversicherung.pi-asp.de",
+          "attempts": 1
+        },
+        {
+          "host": "aargauischekantonalbank.pi-asp.de",
+          "attempts": 1
+        },
+        {
+          "host": "aargauischematuritatsschule.pi-asp.de",
+          "attempts": 1
+        },
+        {
+          "host": "aargauischepensionskasse.pi-asp.de",
+          "attempts": 1
+        },
+        {
+          "host": "aargauischer-gewerbeverband.pi-asp.de",
+          "attempts": 1
+        },
+        {
+          "host": "aargauischer.pi-asp.de",
+          "attempts": 1
+        },
+        {
+          "host": "aargauischerarzteverband.pi-asp.de",
+          "attempts": 1
+        },
+        {
+          "host": "aargauischerarzteverbandgeschaftsstelle.pi-asp.de",
+          "attempts": 1
+        },
+        {
+          "host": "aargauischergewerbeverband.pi-asp.de",
+          "attempts": 1
+        },
+        {
+          "host": "aargauischestiftung.pi-asp.de",
+          "attempts": 1
+        },
+        {
+          "host": "aargauischestiftungsuchthilfeags.pi-asp.de",
+          "attempts": 1
+        },
+        {
+          "host": "aargaujobs.pi-asp.de",
+          "attempts": 1
+        },
+        {
+          "host": "aargauverkehr.pi-asp.de",
+          "attempts": 1
+        },
+        {
+          "host": "aargauverkehrava.pi-asp.de",
+          "attempts": 1
+        },
+        {
+          "host": "aarhof.pi-asp.de",
+          "attempts": 1
+        },
+        {
+          "host": "aarhorn-consulting-nahmias.pi-asp.de",
+          "attempts": 1
+        },
+        {
+          "host": "aarhorn.pi-asp.de",
+          "attempts": 1
+        },
+        {
+          "host": "aarhornconsulting.pi-asp.de",
+          "attempts": 1
+        },
+        {
+          "host": "aarhornconsultingnahmias.pi-asp.de",
+          "attempts": 1
+        },
+        {
+          "host": "aarios.pi-asp.de",
+          "attempts": 1
+        },
+        {
+          "host": "aark-tech-solutions.pi-asp.de",
+          "attempts": 1
+        },
+        {
+          "host": "aark.pi-asp.de",
+          "attempts": 1
+        },
+        {
+          "host": "aarktech.pi-asp.de",
+          "attempts": 1
+        },
+        {
+          "host": "aarktechsolutions.pi-asp.de",
+          "attempts": 1
+        },
+        {
+          "host": "aaro-design.pi-asp.de",
+          "attempts": 1
+        },
+        {
+          "host": "aaro.pi-asp.de",
+          "attempts": 1
+        },
+        {
+          "host": "aarodesign.pi-asp.de",
+          "attempts": 1
+        },
+        {
+          "host": "aartech.pi-asp.de",
+          "attempts": 1
+        },
+        {
+          "host": "aarvia-bau.pi-asp.de",
+          "attempts": 1
+        },
+        {
+          "host": "aarvia.pi-asp.de",
+          "attempts": 1
+        },
+        {
+          "host": "aarviabau.pi-asp.de",
+          "attempts": 1
+        },
+        {
+          "host": "aava.pi-asp.de",
+          "attempts": 1
+        },
+        {
+          "host": "aaz-verlag.pi-asp.de",
+          "attempts": 1
+        },
+        {
+          "host": "aaz.pi-asp.de",
+          "attempts": 1
+        },
+        {
+          "host": "aazen.pi-asp.de",
+          "attempts": 1
+        },
+        {
+          "host": "aazheimerhof.pi-asp.de",
+          "attempts": 1
+        },
+        {
+          "host": "aazverlag.pi-asp.de",
+          "attempts": 1
+        },
+        {
+          "host": "ab-andrea-bosetto.pi-asp.de",
+          "attempts": 1
+        },
+        {
+          "host": "ab-autotechnik.pi-asp.de",
+          "attempts": 1
+        },
+        {
+          "host": "ab-box-self-stockage.pi-asp.de",
+          "attempts": 1
+        },
+        {
+          "host": "ab-fairpage.pi-asp.de",
+          "attempts": 1
+        },
+        {
+          "host": "ab-ingenieurs.pi-asp.de",
+          "attempts": 1
+        },
+        {
+          "host": "ab-keramik.pi-asp.de",
+          "attempts": 1
+        },
+        {
+          "host": "ab-livrex-ab-livrex.pi-asp.de",
+          "attempts": 1
+        },
+        {
+          "host": "ab-medica.pi-asp.de",
+          "attempts": 1
+        },
+        {
+          "host": "ab-technique.pi-asp.de",
+          "attempts": 1
+        },
+        {
+          "host": "ab-und-zu-unverpackt.pi-asp.de",
+          "attempts": 1
+        },
+        {
+          "host": "aba-partenaires.pi-asp.de",
+          "attempts": 1
+        },
+        {
+          "host": "aba.pi-asp.de",
+          "attempts": 1
+        },
+        {
+          "host": "abaca.pi-asp.de",
+          "attempts": 1
+        },
+        {
+          "host": "abachmann.pi-asp.de",
+          "attempts": 1
+        },
+        {
+          "host": "abacon-sicherheit.pi-asp.de",
+          "attempts": 1
+        },
+        {
+          "host": "abacon.pi-asp.de",
+          "attempts": 1
+        },
+        {
+          "host": "abaconsicherheit.pi-asp.de",
+          "attempts": 1
+        },
+        {
+          "host": "abacus-business-solutions.pi-asp.de",
+          "attempts": 1
+        },
+        {
+          "host": "abacus-deco.pi-asp.de",
+          "attempts": 1
+        },
+        {
+          "host": "abacus-research.pi-asp.de",
+          "attempts": 1
+        },
+        {
+          "host": "abacus.pi-asp.de",
+          "attempts": 1
+        },
+        {
+          "host": "abacusbusiness.pi-asp.de",
+          "attempts": 1
+        },
+        {
+          "host": "abacusbusinesssolutions.pi-asp.de",
+          "attempts": 1
+        },
+        {
+          "host": "abacusdeco.pi-asp.de",
+          "attempts": 1
+        },
+        {
+          "host": "abacusresearch.pi-asp.de",
+          "attempts": 1
+        },
+        {
+          "host": "abag-nutzfahrzeuge.pi-asp.de",
+          "attempts": 1
+        },
+        {
+          "host": "abag.pi-asp.de",
+          "attempts": 1
+        },
+        {
+          "host": "abaggenstos.pi-asp.de",
+          "attempts": 1
+        },
+        {
+          "host": "abaggenstosco.pi-asp.de",
+          "attempts": 1
+        },
+        {
+          "host": "abagnutzfahrzeuge.pi-asp.de",
+          "attempts": 1
+        },
+        {
+          "host": "abalir.pi-asp.de",
+          "attempts": 1
+        },
+        {
+          "host": "abalone-switzerland.pi-asp.de",
+          "attempts": 1
+        },
+        {
+          "host": "abalone.pi-asp.de",
+          "attempts": 1
+        },
+        {
+          "host": "abaloneswitzerland.pi-asp.de",
+          "attempts": 1
+        },
+        {
+          "host": "abaltensperger.pi-asp.de",
+          "attempts": 1
+        },
+        {
+          "host": "abandrea.pi-asp.de",
+          "attempts": 1
+        },
+        {
+          "host": "abandreabosetto.pi-asp.de",
+          "attempts": 1
+        },
+        {
+          "host": "abapartenaires.pi-asp.de",
+          "attempts": 1
+        },
+        {
+          "host": "abaris-raucherentwohnung.pi-asp.de",
+          "attempts": 1
+        },
+        {
+          "host": "abaris.pi-asp.de",
+          "attempts": 1
+        },
+        {
+          "host": "abarisk.pi-asp.de",
+          "attempts": 1
+        },
+        {
+          "host": "abarisraucherentwohnung.pi-asp.de",
+          "attempts": 1
+        },
+        {
+          "host": "abautotechnik.pi-asp.de",
+          "attempts": 1
+        },
+        {
+          "host": "abazi-hauswartungen.pi-asp.de",
+          "attempts": 1
+        },
+        {
+          "host": "abazi-s.pi-asp.de",
+          "attempts": 1
+        },
+        {
+          "host": "abazi.pi-asp.de",
+          "attempts": 1
+        },
+        {
+          "host": "abazihauswartungen.pi-asp.de",
+          "attempts": 1
+        },
+        {
+          "host": "abazis.pi-asp.de",
+          "attempts": 1
+        },
+        {
+          "host": "abb-hort-gipfelsturmer.pi-asp.de",
+          "attempts": 1
+        },
+        {
+          "host": "abb-kinderkrippe-chinderdschungel.pi-asp.de",
+          "attempts": 1
+        },
+        {
+          "host": "abb-kinderkrippe-chinderhuus.pi-asp.de",
+          "attempts": 1
+        },
+        {
+          "host": "abb-kinderkrippe-kids-house.pi-asp.de",
+          "attempts": 1
+        },
+        {
+          "host": "abb-kinderkrippe-uhu.pi-asp.de",
+          "attempts": 1
+        },
+        {
+          "host": "abb-kinderkrippe-wirnakids.pi-asp.de",
+          "attempts": 1
+        },
+        {
+          "host": "abb-kinderkrippe-zauberdrache.pi-asp.de",
+          "attempts": 1
+        },
+        {
+          "host": "abb-secheron.pi-asp.de",
+          "attempts": 1
+        },
+        {
+          "host": "abb.pi-asp.de",
+          "attempts": 1
+        },
+        {
+          "host": "abbasso.pi-asp.de",
+          "attempts": 1
+        },
+        {
+          "host": "abbaye-de-la-fille-dieu.pi-asp.de",
+          "attempts": 1
+        },
+        {
+          "host": "abbaye-de-la-maigrauge.pi-asp.de",
+          "attempts": 1
+        },
+        {
+          "host": "abbaye-de-motiers.pi-asp.de",
+          "attempts": 1
+        },
+        {
+          "host": "abbaye-de-salaz.pi-asp.de",
+          "attempts": 1
+        },
+        {
+          "host": "abbaye.pi-asp.de",
+          "attempts": 1
+        },
+        {
+          "host": "abbayede.pi-asp.de",
+          "attempts": 1
+        },
+        {
+          "host": "abbayedelafilledieu.pi-asp.de",
+          "attempts": 1
+        },
+        {
+          "host": "abbayedelamaigrauge.pi-asp.de",
+          "attempts": 1
+        },
+        {
+          "host": "abbayedemotiers.pi-asp.de",
+          "attempts": 1
+        },
+        {
+          "host": "abbayedesalaz.pi-asp.de",
+          "attempts": 1
+        },
+        {
+          "host": "abbetti.pi-asp.de",
+          "attempts": 1
+        },
+        {
+          "host": "abbhort.pi-asp.de",
+          "attempts": 1
+        },
+        {
+          "host": "abbhortgipfelsturmer.pi-asp.de",
+          "attempts": 1
+        },
+        {
+          "host": "abbkinderkrippe.pi-asp.de",
+          "attempts": 1
+        },
+        {
+          "host": "abbkinderkrippechinderdschungel.pi-asp.de",
+          "attempts": 1
+        },
+        {
+          "host": "abbkinderkrippechinderhuus.pi-asp.de",
+          "attempts": 1
+        },
+        {
+          "host": "abbkinderkrippekidshouse.pi-asp.de",
+          "attempts": 1
+        },
+        {
+          "host": "abbkinderkrippeuhu.pi-asp.de",
+          "attempts": 1
+        },
+        {
+          "host": "abbkinderkrippewirnakids.pi-asp.de",
+          "attempts": 1
+        },
+        {
+          "host": "abbkinderkrippezauberdrache.pi-asp.de",
+          "attempts": 1
+        },
+        {
+          "host": "abbox.pi-asp.de",
+          "attempts": 1
+        },
+        {
+          "host": "abboxselfstockage.pi-asp.de",
+          "attempts": 1
+        },
+        {
+          "host": "abbsecheron.pi-asp.de",
+          "attempts": 1
+        },
+        {
+          "host": "abbuhl-holzschnitzel.pi-asp.de",
+          "attempts": 1
+        },
+        {
+          "host": "abbuhl.pi-asp.de",
+          "attempts": 1
+        },
+        {
+          "host": "abbuhlholzschnitzel.pi-asp.de",
+          "attempts": 1
+        },
+        {
+          "host": "abbvie.pi-asp.de",
+          "attempts": 1
+        },
+        {
+          "host": "abc-arzteberatung.pi-asp.de",
+          "attempts": 1
+        },
+        {
+          "host": "abc-club.pi-asp.de",
+          "attempts": 1
+        },
+        {
+          "host": "abc-daycare.pi-asp.de",
+          "attempts": 1
+        },
+        {
+          "host": "abc-dinamica-ugo-suter.pi-asp.de",
+          "attempts": 1
+        },
+        {
+          "host": "abc-elektrotechnik.pi-asp.de",
+          "attempts": 1
+        },
+        {
+          "host": "abc-interim.pi-asp.de",
+          "attempts": 1
+        },
+        {
+          "host": "abc-maritime.pi-asp.de",
+          "attempts": 1
+        },
+        {
+          "host": "abc-print.pi-asp.de",
+          "attempts": 1
+        },
+        {
+          "host": "abc-reinigung.pi-asp.de",
+          "attempts": 1
+        },
+        {
+          "host": "abc-solar.pi-asp.de",
+          "attempts": 1
+        },
+        {
+          "host": "abc-sprachen.pi-asp.de",
+          "attempts": 1
+        },
+        {
+          "host": "abc.pi-asp.de",
+          "attempts": 1
+        },
+        {
+          "host": "abcarzteberatung.pi-asp.de",
+          "attempts": 1
         },
         {
           "host": "7fire.pi-asp.de",
@@ -23327,7 +24537,7 @@
         }
       ],
       "lastExpansion": {
-        "at": "2026-10-29T12:34:41.848Z",
+        "at": "2026-11-07T12:01:14.087Z",
         "outcome": "partial",
         "discoveredHosts": 200,
         "liveTenants": 0,
@@ -23467,7 +24677,8 @@
         "die-schweizerische-post",
         "carpostal",
         "presto",
-        "swiss-post"
+        "swiss-post",
+        "jobinklusion.ch"
       ],
       "markers": [],
       "hostSamples": [
@@ -23476,15 +24687,15 @@
       ],
       "tenantShape": "mixed",
       "hostHits": {
-        "job.post.ch": 1072,
+        "job.post.ch": 1084,
         "baulog-odoo.post.ch": 3
       },
       "pathHits": {
-        "/default": 238
+        "/default": 242
       },
       "tenantCount": 1,
       "discoveredAt": "2026-08-21T09:05:27.710Z",
-      "note": "apply-host cluster from SECO VD",
+      "note": "careers outlink, score 3",
       "hostEmployerUnknown": {
         "job.post.ch": true,
         "baulog-odoo.post.ch": true
@@ -24757,6 +25968,11 @@
             "errorCode": "transient_probe_failures"
           }
         }
+      },
+      "hostEmployers": {
+        "job.post.ch": [
+          "jobinklusion.ch"
+        ]
       }
     },
     "prospective.ch": {
@@ -25083,14 +26299,14 @@
       "tenantShape": "mixed",
       "hostHits": {
         "atsconnector.prospective.ch": 6,
-        "ohws.prospective.ch": 14290
+        "ohws.prospective.ch": 14334
       },
       "pathHits": {
-        "/public": 395
+        "/public": 400
       },
       "tenantCount": 3,
       "discoveredAt": "2026-08-21T09:05:27.711Z",
-      "note": "apply-host cluster from SECO ZH",
+      "note": "apply-host cluster from SECO ZG",
       "listingPaths": [
         "/public"
       ],
@@ -25183,10 +26399,10 @@
       ],
       "tenantShape": "shared",
       "hostHits": {
-        "publicjobs.ch": 209
+        "publicjobs.ch": 211
       },
       "pathHits": {
-        "/jobs": 176
+        "/jobs": 178
       },
       "tenantCount": 0,
       "discoveredAt": "2026-08-21T09:05:27.711Z",
@@ -25273,12 +26489,12 @@
       "hostHits": {
         "bitfinex.recruitee.com": 25,
         "chmedia.recruitee.com": 6,
-        "climeworks.recruitee.com": 89,
-        "tether.recruitee.com": 89,
+        "climeworks.recruitee.com": 90,
+        "tether.recruitee.com": 90,
         "aveniq.recruitee.com": 1
       },
       "pathHits": {
-        "/o": 203
+        "/o": 205
       },
       "tenantCount": 1,
       "discoveredAt": "2026-08-21T09:05:27.711Z",
@@ -25419,24 +26635,24 @@
       ],
       "tenantShape": "shared",
       "hostHits": {
-        "apply.refline.ch": 1864
+        "apply.refline.ch": 1879
       },
       "pathHits": {
-        "/116352": 90,
-        "/126757": 90,
-        "/163206": 90,
-        "/424626": 90,
-        "/486538": 90,
-        "/514915": 90,
-        "/640332": 90,
-        "/673276": 90,
-        "/780392": 90,
-        "/792841": 90,
-        "/878019": 90
+        "/116352": 91,
+        "/126757": 91,
+        "/163206": 91,
+        "/424626": 91,
+        "/486538": 91,
+        "/514915": 91,
+        "/640332": 91,
+        "/673276": 91,
+        "/780392": 91,
+        "/792841": 91,
+        "/878019": 91
       },
       "tenantCount": 0,
       "discoveredAt": "2026-08-21T09:05:27.710Z",
-      "note": "apply-host cluster from SECO LU",
+      "note": "apply-host cluster from SECO ZH",
       "hostEmployers": {
         "apply.refline.ch": [
           "bsz-stiftung.ch",
@@ -25484,13 +26700,13 @@
       ],
       "tenantShape": "shared",
       "hostHits": {
-        "app.reflinejobs.io": 345
+        "app.reflinejobs.io": 349
       },
       "pathHits": {
-        "/3316": 88,
-        "/1531": 88,
-        "/2044": 88,
-        "/1474": 77
+        "/3316": 89,
+        "/1531": 89,
+        "/2044": 89,
+        "/1474": 78
       },
       "tenantCount": 0,
       "discoveredAt": "2026-08-21T09:05:27.710Z",
@@ -25652,16 +26868,16 @@
       "tenantShape": "subdomain",
       "hostHits": {
         "chris.my.salesforce-sites.com": 30,
-        "foeurope.my.salesforce-sites.com": 186,
-        "fs-2662.my.salesforce-sites.com": 74,
-        "sygnumpeopleportal.my.salesforce-sites.com": 74
+        "foeurope.my.salesforce-sites.com": 189,
+        "fs-2662.my.salesforce-sites.com": 75,
+        "sygnumpeopleportal.my.salesforce-sites.com": 75
       },
       "pathHits": {
-        "/recruit": 148
+        "/recruit": 150
       },
       "tenantCount": 0,
       "discoveredAt": "2026-08-21T09:05:27.711Z",
-      "note": "apply-host cluster from SECO BE",
+      "note": "apply-host cluster from SECO ZG",
       "lastExpandedAt": "2026-10-30T12:42:54.266Z",
       "expansionAttempts": 8,
       "expansionProbeOffset": 0,
@@ -27671,25 +28887,25 @@
       ],
       "tenantShape": "shared",
       "hostHits": {
-        "jobs.smartrecruiters.com": 2474
+        "jobs.smartrecruiters.com": 2491
       },
       "pathHits": {
-        "/CERN": 88,
-        "/HUG": 88,
-        "/SwissMedicalNetwork1": 793,
-        "/Talan": 88,
-        "/AudemarsPiguet": 88,
-        "/imad": 87,
-        "/SMGSwissMarketplaceGroup": 88,
-        "/Swissquote": 87,
-        "/EtablissementsPublicsPourLIntegration": 88,
-        "/Sobi": 88,
-        "/Ardentis1": 88,
-        "/StaubliGroup": 88,
-        "/Oetiker": 87,
-        "/KIABI": 83,
-        "/Hospicegeneral": 88,
-        "/Avaloq1": 44,
+        "/CERN": 89,
+        "/HUG": 89,
+        "/SwissMedicalNetwork1": 795,
+        "/Talan": 89,
+        "/AudemarsPiguet": 89,
+        "/imad": 88,
+        "/SMGSwissMarketplaceGroup": 89,
+        "/Swissquote": 88,
+        "/EtablissementsPublicsPourLIntegration": 89,
+        "/Sobi": 89,
+        "/Ardentis1": 89,
+        "/StaubliGroup": 89,
+        "/Oetiker": 88,
+        "/KIABI": 84,
+        "/Hospicegeneral": 89,
+        "/Avaloq1": 45,
         "/Imad": 1,
         "/oetiker": 1,
         "/swissquote": 1
@@ -29215,19 +30431,19 @@
       ],
       "tenantShape": "mixed",
       "hostHits": {
-        "vaudoise.softgarden.io": 88,
-        "etavis.softgarden.io": 942,
+        "vaudoise.softgarden.io": 89,
+        "etavis.softgarden.io": 943,
         "vonrotz.softgarden.io": 6,
         "kind.softgarden.io": 1,
         "itskanal.softgarden.io": 2,
         "cdg-beratungen.softgarden.io": 1
       },
       "pathHits": {
-        "/job": 1024
+        "/job": 1026
       },
       "tenantCount": 3,
       "discoveredAt": "2026-08-21T09:05:27.710Z",
-      "note": "careers outlink, score 6",
+      "note": "own-crawl census: 2 datori",
       "lastExpandedAt": "2026-11-05T13:18:12.931Z",
       "expansionAttempts": 8,
       "hostEmployers": {
@@ -29345,21 +30561,21 @@
       ],
       "tenantShape": "mixed",
       "hostHits": {
-        "live.solique.ch": 6018,
+        "live.solique.ch": 6051,
         "solique.ch": 21
       },
       "pathHits": {
-        "/adullam": 91,
-        "/ipw": 91,
-        "/ksw": 91,
-        "/ktzh": 91,
-        "/ottosag": 91,
-        "/planzer": 91,
-        "/rieter": 91,
-        "/spital-emmental": 91,
-        "/spital-muri": 45,
-        "/stiftung-gesundheitsversorgung-oberengadin": 91,
-        "/svar": 91
+        "/adullam": 92,
+        "/ipw": 92,
+        "/ksw": 92,
+        "/ktzh": 92,
+        "/ottosag": 92,
+        "/planzer": 92,
+        "/rieter": 92,
+        "/spital-emmental": 92,
+        "/spital-muri": 46,
+        "/stiftung-gesundheitsversorgung-oberengadin": 92,
+        "/svar": 92
       },
       "tenantCount": 2,
       "discoveredAt": "2026-08-21T09:05:27.710Z",
@@ -31358,7 +32574,7 @@
       ],
       "tenantShape": "shared",
       "hostHits": {
-        "sozialinfo.ch": 9239
+        "sozialinfo.ch": 9287
       },
       "pathHits": {},
       "tenantCount": 0,
@@ -31750,12 +32966,12 @@
       ],
       "tenantShape": "shared",
       "hostHits": {
-        "sozjobs.ch": 5564
+        "sozjobs.ch": 5577
       },
       "pathHits": {},
       "tenantCount": 0,
       "discoveredAt": "2026-08-21T18:27:39.803Z",
-      "note": "apply-host cluster from SECO TG",
+      "note": "apply-host cluster from SECO ZG",
       "hostEmployerUnknown": {
         "sozjobs.ch": true
       }
@@ -31875,12 +33091,12 @@
       ],
       "tenantShape": "shared",
       "hostHits": {
-        "sta.jobs": 471
+        "sta.jobs": 475
       },
       "pathHits": {},
       "tenantCount": 0,
       "discoveredAt": "2026-08-21T18:27:39.803Z",
-      "note": "apply-host cluster from SECO AG",
+      "note": "apply-host cluster from SECO LU",
       "hostEmployerUnknown": {
         "sta.jobs": true
       }
@@ -31934,17 +33150,17 @@
       ],
       "tenantShape": "mixed",
       "hostHits": {
-        "career012.successfactors.eu": 143,
+        "career012.successfactors.eu": 144,
         "career2.successfactors.eu": 40,
-        "career5.successfactors.eu": 241,
+        "career5.successfactors.eu": 244,
         "performancemanager5.successfactors.eu": 13
       },
       "pathHits": {
-        "/career": 178
+        "/career": 180
       },
       "tenantCount": 0,
       "discoveredAt": "2026-08-21T09:05:27.711Z",
-      "note": "apply-host cluster from SECO VD",
+      "note": "apply-host cluster from SECO SG",
       "listingPaths": [
         "/career"
       ],
@@ -32278,14 +33494,14 @@
       ],
       "tenantShape": "subdomain",
       "hostHits": {
-        "victorinox-career.talent-soft.com": 88,
-        "aarreha-bewerber.talent-soft.com": 88,
-        "rehabbasel-career.talent-soft.com": 88,
-        "molecularpartners-career.talent-soft.com": 88
+        "victorinox-career.talent-soft.com": 89,
+        "aarreha-bewerber.talent-soft.com": 89,
+        "rehabbasel-career.talent-soft.com": 89,
+        "molecularpartners-career.talent-soft.com": 89
       },
       "pathHits": {
-        "/stelle": 264,
-        "/job": 88
+        "/stelle": 267,
+        "/job": 89
       },
       "tenantCount": 8,
       "discoveredAt": "2026-08-21T09:05:27.710Z",
@@ -34127,49 +35343,49 @@
       "tenantShape": "mixed",
       "hostHits": {
         "jsafrasarasin.umantis.com": 61,
-        "recruitingapp-122706.umantis.com": 89,
-        "recruitingapp-1251.umantis.com": 89,
+        "recruitingapp-122706.umantis.com": 90,
+        "recruitingapp-1251.umantis.com": 90,
         "recruitingapp-12705.umantis.com": 44,
-        "recruitingapp-2316.umantis.com": 89,
-        "recruitingapp-2607.umantis.com": 89,
+        "recruitingapp-2316.umantis.com": 90,
+        "recruitingapp-2607.umantis.com": 90,
         "recruitingapp-2618.umantis.com": 17,
-        "recruitingapp-2690.umantis.com": 79,
+        "recruitingapp-2690.umantis.com": 80,
         "recruitingapp-2702.umantis.com": 14,
-        "recruitingapp-2717.umantis.com": 69,
-        "recruitingapp-2736.umantis.com": 117,
-        "recruitingapp-2761.umantis.com": 91,
+        "recruitingapp-2717.umantis.com": 70,
+        "recruitingapp-2736.umantis.com": 119,
+        "recruitingapp-2761.umantis.com": 92,
         "recruitingapp-2765.umantis.com": 186,
         "recruitingapp-2769.umantis.com": 31,
         "recruitingapp-2781.umantis.com": 36,
         "recruitingapp-2797.umantis.com": 5,
-        "recruitingapp-2800.umantis.com": 206,
-        "recruitingapp-2850.umantis.com": 232,
+        "recruitingapp-2800.umantis.com": 207,
+        "recruitingapp-2850.umantis.com": 233,
         "recruitingapp-2876.umantis.com": 758,
-        "recruitingapp-2884.umantis.com": 89,
+        "recruitingapp-2884.umantis.com": 90,
         "recruitingapp-2889.umantis.com": 46,
-        "recruitingapp-2904.umantis.com": 89,
+        "recruitingapp-2904.umantis.com": 90,
         "recruitingapp-2908.umantis.com": 44,
         "recruitingapp-2910.umantis.com": 1,
         "recruitingapp-2911.umantis.com": 4,
-        "recruitingapp-2912.umantis.com": 89,
-        "recruitingapp-2924.umantis.com": 89,
-        "recruitingapp-2939.umantis.com": 89,
+        "recruitingapp-2912.umantis.com": 90,
+        "recruitingapp-2924.umantis.com": 90,
+        "recruitingapp-2939.umantis.com": 90,
         "recruitingapp-2961.umantis.com": 1,
-        "recruitingapp-2966.umantis.com": 89,
+        "recruitingapp-2966.umantis.com": 90,
         "recruitingapp-2970.umantis.com": 9,
         "recruitingapp-2976.umantis.com": 36,
         "recruitingapp-2979.umantis.com": 47,
         "recruitingapp-2995.umantis.com": 15,
         "recruitingapp-2997.umantis.com": 45,
-        "recruitingapp-2998.umantis.com": 89,
-        "recruitingapp-3010.umantis.com": 89,
+        "recruitingapp-2998.umantis.com": 90,
+        "recruitingapp-3010.umantis.com": 90,
         "recruitingapp-3017.umantis.com": 10,
         "recruitingapp-3018.umantis.com": 5,
-        "recruitingapp-3027.umantis.com": 19,
-        "recruitingapp-3030.umantis.com": 89,
+        "recruitingapp-3027.umantis.com": 20,
+        "recruitingapp-3030.umantis.com": 90,
         "recruitingapp-3040.umantis.com": 71,
         "recruitingapp-3042.umantis.com": 38,
-        "recruitingapp-5597.de.umantis.com": 41,
+        "recruitingapp-5597.de.umantis.com": 42,
         "recruitingapp-662.umantis.com": 17,
         "recruitingapp-2919.umantis.com": 1,
         "recruitingapp-3032.umantis.com": 1,
@@ -34180,11 +35396,11 @@
         "recruitingapp-2881.umantis.com": 1,
         "recruitingapp-2895.umantis.com": 1,
         "recruitingapp-2623.umantis.com": 2,
-        "recruitingapp-2563.umantis.com": 3,
+        "recruitingapp-2563.umantis.com": 4,
         "recruitingapp-2991.umantis.com": 1
       },
       "pathHits": {
-        "/Vacancies": 1693
+        "/Vacancies": 1711
       },
       "tenantCount": 108,
       "discoveredAt": "2026-08-21T09:05:27.709Z",
@@ -34582,12 +35798,12 @@
       ],
       "tenantShape": "shared",
       "hostHits": {
-        "apply.workable.com": 290
+        "apply.workable.com": 293
       },
       "pathHits": {
-        "/guess-europe-sagl": 88,
-        "/sophia-genetics": 88,
-        "/debiopharm": 88,
+        "/guess-europe-sagl": 89,
+        "/sophia-genetics": 89,
+        "/debiopharm": 89,
         "/answermodules": 26
       },
       "tenantCount": 0,
@@ -36813,7 +38029,7 @@
       ],
       "tenantShape": "unknown",
       "hostHits": {
-        "stellenpartner.ch": 45
+        "stellenpartner.ch": 51
       },
       "hostEmployers": {},
       "hostEmployerUnknown": {
@@ -36822,7 +38038,7 @@
       "pathHits": {},
       "tenantCount": 0,
       "discoveredAt": "2026-10-22T08:45:35.097Z",
-      "note": "apply-host cluster from SECO ZH"
+      "note": "apply-host cluster from SECO ZG"
     },
     "bellini.ch": {
       "domain": "bellini.ch",
@@ -36834,7 +38050,7 @@
       ],
       "tenantShape": "unknown",
       "hostHits": {
-        "bellini.ch": 54
+        "bellini.ch": 56
       },
       "hostEmployers": {},
       "hostEmployerUnknown": {
@@ -36843,7 +38059,7 @@
       "pathHits": {},
       "tenantCount": 0,
       "discoveredAt": "2026-10-22T08:45:35.098Z",
-      "note": "apply-host cluster from SECO TG"
+      "note": "apply-host cluster from SECO ZG"
     },
     "stellentreff.ch": {
       "domain": "stellentreff.ch",
@@ -36855,7 +38071,7 @@
       ],
       "tenantShape": "unknown",
       "hostHits": {
-        "stellentreff.ch": 40
+        "stellentreff.ch": 43
       },
       "hostEmployers": {},
       "hostEmployerUnknown": {
@@ -36864,7 +38080,7 @@
       "pathHits": {},
       "tenantCount": 0,
       "discoveredAt": "2026-10-22T08:45:35.098Z",
-      "note": "apply-host cluster from SECO TG"
+      "note": "apply-host cluster from SECO SG"
     },
     "ipersonal.ch": {
       "domain": "ipersonal.ch",
@@ -36876,7 +38092,7 @@
       ],
       "tenantShape": "unknown",
       "hostHits": {
-        "ipersonal.ch": 38
+        "ipersonal.ch": 40
       },
       "hostEmployers": {},
       "hostEmployerUnknown": {
@@ -36885,7 +38101,7 @@
       "pathHits": {},
       "tenantCount": 0,
       "discoveredAt": "2026-10-22T08:47:34.920Z",
-      "note": "apply-host cluster from SECO BL"
+      "note": "apply-host cluster from SECO SG"
     },
     "paul-cramatte.ch": {
       "domain": "paul-cramatte.ch",
@@ -37008,7 +38224,7 @@
       ],
       "tenantShape": "unknown",
       "hostHits": {
-        "starjob.ch": 22
+        "starjob.ch": 26
       },
       "hostEmployers": {},
       "hostEmployerUnknown": {
@@ -37017,7 +38233,7 @@
       "pathHits": {},
       "tenantCount": 0,
       "discoveredAt": "2026-10-22T08:50:56.609Z",
-      "note": "apply-host cluster from SECO TG"
+      "note": "apply-host cluster from SECO ZG"
     },
     "ctg-consulting.com": {
       "domain": "ctg-consulting.com",
@@ -37156,7 +38372,7 @@
       ],
       "tenantShape": "unknown",
       "hostHits": {
-        "rekrutierung.stgag.ch": 40
+        "rekrutierung.stgag.ch": 43
       },
       "hostEmployers": {
         "rekrutierung.stgag.ch": [
@@ -37169,7 +38385,7 @@
       "pathHits": {},
       "tenantCount": 0,
       "discoveredAt": "2026-10-22T11:06:47.112Z",
-      "note": "apply-host cluster from SECO TG"
+      "note": "apply-host cluster from SECO SG"
     },
     "gzdielsdorf.ch": {
       "domain": "gzdielsdorf.ch",
@@ -37850,20 +39066,22 @@
     },
     "spar.ch": {
       "domain": "spar.ch",
-      "status": "candidate",
+      "status": "confirmed",
       "seenOn": [
-        "molkerei-lenzerheide.ch"
+        "molkerei-lenzerheide.ch",
+        "jobinklusion.ch"
       ],
       "markers": [],
       "hostSamples": [
         "spar.ch"
       ],
-      "tenantShape": "unknown",
+      "tenantShape": "shared",
       "hostHits": {
-        "spar.ch": 1
+        "spar.ch": 2
       },
       "hostEmployers": {
         "spar.ch": [
+          "jobinklusion.ch",
           "molkerei-lenzerheide.ch"
         ]
       },
@@ -39874,20 +41092,22 @@
     },
     "brinerag.ch": {
       "domain": "brinerag.ch",
-      "status": "candidate",
+      "status": "confirmed",
       "seenOn": [
-        "wiederkehrag.ch"
+        "wiederkehrag.ch",
+        "arthurweber.ch"
       ],
       "markers": [],
       "hostSamples": [
         "brinerag.ch"
       ],
-      "tenantShape": "unknown",
+      "tenantShape": "shared",
       "hostHits": {
-        "brinerag.ch": 1
+        "brinerag.ch": 3
       },
       "hostEmployers": {
         "brinerag.ch": [
+          "arthurweber.ch",
           "wiederkehrag.ch"
         ]
       },
@@ -41391,7 +42611,7 @@
       ],
       "tenantShape": "unknown",
       "hostHits": {
-        "coopers.ch": 2
+        "coopers.ch": 4
       },
       "hostEmployers": {},
       "hostEmployerUnknown": {
@@ -41439,7 +42659,7 @@
       ],
       "tenantShape": "unknown",
       "hostHits": {
-        "mcoptic.ch": 6
+        "mcoptic.ch": 7
       },
       "hostEmployers": {
         "mcoptic.ch": [
@@ -41929,8 +43149,8 @@
       ],
       "tenantShape": "subdomain",
       "hostHits": {
-        "fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com": 2,
-        "fa-eswr-saasfaprod1.fa.ocs.oraclecloud.com": 2
+        "fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com": 3,
+        "fa-eswr-saasfaprod1.fa.ocs.oraclecloud.com": 3
       },
       "hostEmployers": {
         "fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com": [
@@ -41942,7 +43162,7 @@
       },
       "hostEmployerUnknown": {},
       "pathHits": {
-        "/hcmUI": 4
+        "/hcmUI": 6
       },
       "tenantCount": 0,
       "discoveredAt": "2026-11-05T11:03:15.924Z",
@@ -42796,6 +44016,202 @@
       "tenantCount": 0,
       "discoveredAt": "2026-11-06T12:54:42.041Z",
       "note": "careers outlink, score 5.2"
+    },
+    "zfv.ch": {
+      "domain": "zfv.ch",
+      "status": "candidate",
+      "seenOn": [],
+      "markers": [],
+      "hostSamples": [
+        "jobs.zfv.ch"
+      ],
+      "tenantShape": "unknown",
+      "hostHits": {
+        "jobs.zfv.ch": 2
+      },
+      "hostEmployers": {},
+      "hostEmployerUnknown": {
+        "jobs.zfv.ch": true
+      },
+      "pathHits": {},
+      "tenantCount": 0,
+      "discoveredAt": "2026-11-07T10:23:44.460Z",
+      "note": "apply-host cluster from SECO SG"
+    },
+    "grinding.ch": {
+      "domain": "grinding.ch",
+      "status": "candidate",
+      "seenOn": [
+        "irpd.ch"
+      ],
+      "markers": [],
+      "hostSamples": [
+        "grinding.ch"
+      ],
+      "tenantShape": "unknown",
+      "hostHits": {
+        "grinding.ch": 1
+      },
+      "hostEmployers": {
+        "grinding.ch": [
+          "irpd.ch"
+        ]
+      },
+      "hostEmployerUnknown": {},
+      "pathHits": {},
+      "tenantCount": 0,
+      "discoveredAt": "2026-11-07T11:58:54.580Z",
+      "note": "careers outlink, score 3"
+    },
+    "bteam.ch": {
+      "domain": "bteam.ch",
+      "status": "candidate",
+      "seenOn": [
+        "arthurweber.ch"
+      ],
+      "markers": [],
+      "hostSamples": [
+        "bteam.ch"
+      ],
+      "tenantShape": "unknown",
+      "hostHits": {
+        "bteam.ch": 2
+      },
+      "hostEmployers": {
+        "bteam.ch": [
+          "arthurweber.ch"
+        ]
+      },
+      "hostEmployerUnknown": {},
+      "pathHits": {},
+      "tenantCount": 0,
+      "discoveredAt": "2026-11-07T11:58:54.585Z",
+      "note": "careers outlink, score 3"
+    },
+    "wiederkehrag.ch": {
+      "domain": "wiederkehrag.ch",
+      "status": "candidate",
+      "seenOn": [
+        "arthurweber.ch"
+      ],
+      "markers": [],
+      "hostSamples": [
+        "wiederkehrag.ch"
+      ],
+      "tenantShape": "unknown",
+      "hostHits": {
+        "wiederkehrag.ch": 2
+      },
+      "hostEmployers": {
+        "wiederkehrag.ch": [
+          "arthurweber.ch"
+        ]
+      },
+      "hostEmployerUnknown": {},
+      "pathHits": {},
+      "tenantCount": 0,
+      "discoveredAt": "2026-11-07T11:58:54.585Z",
+      "note": "careers outlink, score 3"
+    },
+    "kibiz-zug.ch": {
+      "domain": "kibiz-zug.ch",
+      "status": "candidate",
+      "seenOn": [
+        "ggz.ch"
+      ],
+      "markers": [],
+      "hostSamples": [
+        "kibiz-zug.ch"
+      ],
+      "tenantShape": "unknown",
+      "hostHits": {
+        "kibiz-zug.ch": 1
+      },
+      "hostEmployers": {
+        "kibiz-zug.ch": [
+          "ggz.ch"
+        ]
+      },
+      "hostEmployerUnknown": {},
+      "pathHits": {},
+      "tenantCount": 0,
+      "discoveredAt": "2026-11-07T11:58:54.593Z",
+      "note": "careers outlink, score 3"
+    },
+    "aldi.ch": {
+      "domain": "aldi.ch",
+      "status": "candidate",
+      "seenOn": [
+        "jobinklusion.ch"
+      ],
+      "markers": [],
+      "hostSamples": [
+        "jobs.aldi.ch"
+      ],
+      "tenantShape": "unknown",
+      "hostHits": {
+        "jobs.aldi.ch": 1
+      },
+      "hostEmployers": {
+        "jobs.aldi.ch": [
+          "jobinklusion.ch"
+        ]
+      },
+      "hostEmployerUnknown": {},
+      "pathHits": {},
+      "tenantCount": 0,
+      "discoveredAt": "2026-11-07T11:58:54.593Z",
+      "note": "careers outlink, score 4.3"
+    },
+    "blumer-lehmann.com": {
+      "domain": "blumer-lehmann.com",
+      "status": "candidate",
+      "seenOn": [
+        "jobinklusion.ch"
+      ],
+      "markers": [],
+      "hostSamples": [
+        "blumer-lehmann.com"
+      ],
+      "tenantShape": "unknown",
+      "hostHits": {
+        "blumer-lehmann.com": 1
+      },
+      "hostEmployers": {
+        "blumer-lehmann.com": [
+          "jobinklusion.ch"
+        ]
+      },
+      "hostEmployerUnknown": {},
+      "pathHits": {},
+      "tenantCount": 0,
+      "discoveredAt": "2026-11-07T11:58:54.593Z",
+      "note": "careers outlink, score 3"
+    },
+    "kanaltotal.ch": {
+      "domain": "kanaltotal.ch",
+      "status": "candidate",
+      "seenOn": [
+        "franzpfister.ch"
+      ],
+      "markers": [],
+      "hostSamples": [
+        "kanaltotal.ch"
+      ],
+      "tenantShape": "unknown",
+      "hostHits": {
+        "kanaltotal.ch": 1
+      },
+      "hostEmployers": {
+        "kanaltotal.ch": [
+          "franzpfister.ch"
+        ]
+      },
+      "hostEmployerUnknown": {},
+      "pathHits": {},
+      "tenantCount": 0,
+      "discoveredAt": "2026-11-07T11:58:54.597Z",
+      "note": "careers outlink, score 3"
     }
   }
 }

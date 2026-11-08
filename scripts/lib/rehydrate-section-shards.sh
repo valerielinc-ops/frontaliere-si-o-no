@@ -430,7 +430,11 @@ while IFS= read -r section; do
 done < <(jq -r 'keys[] | select(startswith("_")|not)' scripts/lib/section-shard-slugs.json)
 
 if [ "${#SECTION_NAMES[@]}" -gt 0 ]; then
-  rehydrate_max_parallel="${REHYDRATE_MAX_PARALLEL:-4}"
+  # The logical dist is disk-bound, not CPU-bound: each worker can retain a
+  # compressed batch ZIP while the extracted site grows toward the runner's
+  # capacity. One worker is the safe default after the weekly full audit hit
+  # ENOSPC; callers with measured headroom may opt into the bounded cap below.
+  rehydrate_max_parallel="${REHYDRATE_MAX_PARALLEL:-1}"
   case "$rehydrate_max_parallel" in
     ''|*[!0-9]*|0)
       echo "::error::REHYDRATE_MAX_PARALLEL must be a positive integer (got '$rehydrate_max_parallel')"

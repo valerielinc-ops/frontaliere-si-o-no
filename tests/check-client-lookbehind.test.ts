@@ -82,6 +82,10 @@ describe('check-client-lookbehind — tree invariant', () => {
     expect(importedSpecifiers('const load = () => import(`./${locale}.mjs`);')).not.toContain('./${locale}.mjs');
   });
 
+  it('ignores import-shaped text that appears only in source comments', () => {
+    expect(importedSpecifiers("// import './server-only.mjs';\n/* import('./other.mjs') */")).toEqual([]);
+  });
+
   it('follows browser imports into shared build modules', () => {
     const closure = clientImportClosure();
     expect(closure).toContain('build-plugins/shared/jobPostingSchema.ts');

@@ -1,20 +1,23 @@
 {
   "key": "damiani-group",
   "label": "Damiani Group",
-  "generatedAt": "2026-11-06T21:35:03.571Z",
+  "generatedAt": "2026-11-07T21:13:54.444Z",
   "total": 11,
   "authoritativeEmptySnapshot": false,
   "authoritativeSnapshotVerified": false,
-  "newCount": 1,
+  "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 10,
-  "durationMs": 9098,
-  "avgDurationMs": 9098,
+  "unchangedCount": 11,
+  "durationMs": 8980,
+  "avgDurationMs": 8980,
   "durationHistory": [
-    9098
+    8980
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "title": "Travel Office Specialist",
       "slug": "travel-office-specialist-damiani-group-mendrisio",
@@ -40,7 +43,6 @@
       "contractType": "full-time",
       "validThrough": "2027-02-04T21:34:52.637Z",
       "id": "damiani-group-277645ebe093",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
@@ -50,18 +52,14 @@
       "streetAddressSource": "listing-source",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-06T21:34:52.637Z",
-      "_qualityScore": 93,
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
-        "translation": 21,
+        "translation": 25,
         "completeness": 23
       }
-    }
-  ],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
+    },
     {
       "title": "Legal Senior Specialist",
       "slug": "legal-senior-specialist-damiani-group-mendrisio",
@@ -491,5 +489,5 @@
       }
     }
   ],
-  "codeCommit": "83864a2067a1cd4cb74a7630816798617e7b37f9"
+  "codeCommit": "f149ed523035737e5146c13e7338b8dd6b0c5f04"
 }

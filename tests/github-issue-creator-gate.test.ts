@@ -1,20 +1,40 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest';
+import fs from 'node:fs';
 
 // Mock `gh` invocations. We route by the gh sub-command so a single mock can
 // simulate "no open issue", "issue has N prior failure events", etc.
 const execFileSync = vi.fn();
+const bodyFileContents = new Map<string, string>();
 vi.mock('node:child_process', () => {
-  const mock = { execFileSync: (...args: unknown[]) => execFileSync(...args) };
+  const mock = {
+    execFileSync: (...args: unknown[]) => {
+      const commandArgs = args[1] as string[] | undefined;
+      const bodyFileIndex = commandArgs?.indexOf('--body-file') ?? -1;
+      if (bodyFileIndex >= 0 && commandArgs?.[bodyFileIndex + 1]) {
+        const bodyFile = commandArgs[bodyFileIndex + 1];
+        bodyFileContents.set(bodyFile, fs.readFileSync(bodyFile, 'utf8'));
+      }
+      return execFileSync(...args);
+    },
+  };
   return { ...mock, default: mock };
 });
 
-const { createGithubIssue } = await import('../scripts/lib/github-issue-creator.mjs');
+const { createGithubIssue, issueBodyFileTransport } = await import('../scripts/lib/github-issue-creator.mjs');
 
 /** Capture the args of the gh calls so tests can assert on create/edit labels. */
 function ghCalls(): string[][] {
   return execFileSync.mock.calls
     .filter((c) => c[0] === 'gh')
-    .map((c) => c[1] as string[]);
+    .map((c) => {
+      const args = [...(c[1] as string[])];
+      const bodyFileIndex = args.indexOf('--body-file');
+      if (bodyFileIndex >= 0) {
+        const bodyFile = args[bodyFileIndex + 1];
+        args.splice(bodyFileIndex, 2, '--body', bodyFileContents.get(bodyFile) ?? '');
+      }
+      return args;
+    });
 }
 
 function createCallLabels(): string[] {
@@ -27,8 +47,24 @@ function createCallLabels(): string[] {
 
 const ISO = (hoursAgo: number) => new Date(Date.now() - hoursAgo * 3600 * 1000).toISOString();
 
+describe('issue body file transport', () => {
+  it('keeps the body available for the operation and cleans it afterwards', () => {
+    let bodyFile = '';
+    const result = issueBodyFileTransport('body with spaces and > argv delimiters', (args) => {
+      bodyFile = args[args.indexOf('--body-file') + 1];
+      expect(fs.readFileSync(bodyFile, 'utf8')).toBe('body with spaces and > argv delimiters');
+      return 'ok';
+    });
+
+    expect(result).toBe('ok');
+    expect(bodyFile).toBeTruthy();
+    expect(fs.existsSync(bodyFile)).toBe(false);
+  });
+});
+
 beforeEach(() => {
   execFileSync.mockReset();
+  bodyFileContents.clear();
   delete process.env.GH_REPO;
 });
 

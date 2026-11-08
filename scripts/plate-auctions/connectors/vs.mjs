@@ -12,7 +12,9 @@ import {
   buildEcariDetailUrl,
   extractEcariTabSection,
   fetchHtml,
+  isExplicitlyEmptyCatalogue,
   parseEcariAuctionRows,
+  requireEcariCatalogueRows,
   withEcariEmptyState,
 } from '../../../functions/src/plateAuctionsCore.js';
 import { fetchWithPublicApiRelay, PLATE_AUCTION_PUBLIC_API_RELAY_URL } from './api-relay.mjs';
@@ -56,11 +58,21 @@ export async function fetchVsPlateAuctions({ fetchPage = fetchHtml, now = new Da
     now,
     logLabel: 'fetchVsPlateAuctions',
     direct: async () => {
-      const html = await fetchPage(VS_AUCTION_URL);
-      const fetchedAt = new Date().toISOString();
-      return withEcariEmptyState(VS_TAB_SECTIONS.flatMap(({ tabContentId, auctionStatus, listingType, idPrefix }) =>
-        parseVsAuctionRows(extractTabSection(html, tabContentId), { fetchedAt, auctionStatus, listingType, idPrefix }),
-      ), html, VS_TAB_SECTIONS.map(({ tabContentId }) => tabContentId));
+      for (let attempt = 0; attempt < 2; attempt += 1) {
+        const html = await fetchPage(VS_AUCTION_URL);
+        const fetchedAt = new Date().toISOString();
+        const rows = withEcariEmptyState(VS_TAB_SECTIONS.flatMap(({ tabContentId, auctionStatus, listingType, idPrefix }) =>
+          parseVsAuctionRows(extractTabSection(html, tabContentId), { fetchedAt, auctionStatus, listingType, idPrefix }),
+        ), html, VS_TAB_SECTIONS.map(({ tabContentId }) => tabContentId));
+        if (rows.length > 0 || isExplicitlyEmptyCatalogue(rows)) return rows;
+        if (attempt === 1) {
+          return requireEcariCatalogueRows(rows, {
+            plateCode: VS_PLATE_CODE,
+            officialAuctionUrl: VS_AUCTION_URL,
+          });
+        }
+      }
+      throw new Error('VS eCari fetch exhausted without a result');
     },
   });
 }

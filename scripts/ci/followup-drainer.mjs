@@ -42,8 +42,16 @@
 import { realpathSync } from 'node:fs';
 import { pathToFileURL } from 'node:url';
 import { execFileSync } from 'node:child_process';
-import { appendFileSync, readFileSync } from 'node:fs';
+import {
+  appendFileSync,
+  mkdtempSync,
+  readFileSync,
+  rmSync,
+  writeFileSync,
+} from 'node:fs';
 import { createHash } from 'node:crypto';
+import { tmpdir } from 'node:os';
+import { join } from 'node:path';
 import { classifyIssue, isFixerExempt } from '../lib/classify-issue.mjs';
 import {
   CODE_PATH_RE,
@@ -61,6 +69,7 @@ import {
   isBackoffActive,
   latestFixOutcomeEntryFromComments,
   latestFixRunOutcomeEntryFromComments,
+  latestFixOutcomeCommentFromComments,
   latestFixOutcomeFromComments,
   maxQuotaResetsAt,
 } from './claude-rate-limit.mjs';
@@ -84,9 +93,12 @@ import {
   dailyBucketInfo,
   dailyBucketScopeDecision,
   countAggregateHeadingItems,
+  FOLLOWUP_ITEM_ID_SINGLE_RE,
   followupItemMarkers,
   isDailyBucketTitle,
+  parseFollowupItems,
   selectFirstOpenItem,
+  updateFollowupItemState,
 } from './followup-resolution-match.mjs';
 import { parseItemMarkers } from './lib/followup-item-evidence.mjs';
 import {
@@ -107,6 +119,7 @@ export {
   matchSecretsScopedShape,
   latestFixOutcomeEntryFromComments,
   latestFixRunOutcomeEntryFromComments,
+  latestFixOutcomeCommentFromComments,
   latestFixOutcomeFromComments,
 };
 
@@ -199,6 +212,28 @@ export function flattenPaginatedOpenPrs(raw) {
   if (!Array.isArray(raw)) return null;
   const flattened = raw.flat(Infinity);
   return flattened.every((pr) => pr && typeof pr === 'object' && !Array.isArray(pr))
+    ? flattened
+    : null;
+}
+
+/**
+ * Parse the open-PR snapshot used by the B19 group mutex.  A malformed head
+ * identity is not an empty PR list: without the repository/ref pair we cannot
+ * know whether a branch belongs to this repository or to a fork with the same
+ * name.  The daily mutex and grouping therefore both fail closed on this
+ * projection instead of guessing from a branch string.
+ *
+ * @param {unknown} raw shape returned by `gh api --paginate --slurp`
+ * @returns {Array<object>|null}
+ */
+export function parseOpenGroupPrs(raw) {
+  const flattened = flattenPaginatedOpenPrs(raw);
+  if (!flattened) return null;
+  return flattened.every((pr) => Number.isInteger(Number(pr.number))
+    && Number(pr.number) > 0
+    && typeof pr.title === 'string'
+    && (typeof pr.body === 'string' || pr.body === null)
+    && openPrHeadIdentity(pr) !== null)
     ? flattened
     : null;
 }
@@ -543,19 +578,19 @@ export function parentDequeueCommentDecision(comments) {
 
 /**
  * Esegue il dequeue di UN padre decomposto con I/O iniettato. La rimozione
- * delle label è incondizionata (è la mutazione che conta); il commento si posta
- * solo la prima volta. Marker già presente = qualcuno ha rimesso la label dopo
- * un dequeue: niente commento, ma un `::warning::` che nomina la issue.
+ * delle label è la prima mutazione: il marker si posta soltanto quando GitHub
+ * conferma che il dequeue è riuscito. Se l'edit fallisce, il tick successivo
+ * deve poter riprovare senza aver già consumato l'idempotenza del marker.
  *
  * @param {{number: number}} parent
  * @param {{
  *   readComments: (num: number) => Array<{body?: string}>|null,
  *   postComment: (num: number, body: string) => void,
- *   removeLabels: (num: number) => void,
+ *   removeLabels: (num: number) => boolean,
  *   body: string,
  *   log?: (line: string) => void,
  * }} io
- * @returns {'comment'|'repeat'|'unreadable'}
+ * @returns {{decision: 'comment'|'repeat'|'unreadable', labelsRemoved: boolean}}
  */
 export function applyParentDequeue(parent, { readComments, postComment, removeLabels, body, log = console.log }) {
   const num = parent.number;
@@ -566,19 +601,236 @@ export function applyParentDequeue(parent, { readComments, postComment, removeLa
     comments = null;
   }
   const decision = parentDequeueCommentDecision(comments);
-  if (decision === 'comment') {
+  let labelsRemoved = false;
+  try {
+    labelsRemoved = removeLabels(num) === true;
+  } catch (error) {
+    log(`::warning::parent-dequeue: rimozione label #${num} fallita: ${String(error).slice(0, 120)}`);
+  }
+  if (decision === 'comment' && labelsRemoved) {
     try {
       postComment(num, `${PARENT_DEQUEUED_MARKER}\n${body}`);
     } catch (e) {
       log(`::warning::parent-dequeue: comment #${num} fallito: ${String(e).slice(0, 120)}`);
     }
+  } else if (decision === 'comment' && !labelsRemoved) {
+    log(`::warning::parent-dequeue: label di #${num} non rimosse → marker non postato; retry al prossimo tick.`);
   } else if (decision === 'repeat') {
-    log(`::warning::parent-dequeue ripetuto #${num}: \`agent:fix\`/\`agent:fix-queued\` rimessa su un padre già tolto dalla coda — tolgo le label senza un altro commento; va corretto chi la rimette.`);
+    log(`::warning::parent-dequeue ripetuto #${num}: \`agent:fix\`/\`agent:fix-queued\` rimessa su un padre già tolto dalla coda — ${labelsRemoved ? 'label tolte senza un altro commento' : 'label non rimosse, retry al prossimo tick'}; va corretto chi la rimette.`);
   } else {
-    log(`::warning::parent-dequeue: commenti di #${num} non leggibili → nessun commento (label tolte comunque).`);
+    log(`::warning::parent-dequeue: commenti di #${num} non leggibili → nessun commento (${labelsRemoved ? 'label tolte' : 'label non rimosse'}).`);
   }
-  removeLabels(num);
-  return decision;
+  return { decision, labelsRemoved };
+}
+
+// --- ALLARME SULLA LEASE DI DECOMPOSIZIONE -------------------------------
+// Il consumer locale non importa il ledger quota del corpus: il suo contratto
+// di quota è separato. Manteniamo però qui la proiezione stretta degli eventi
+// `issue-decompose`, così una reservation presa da un producer compatibile non
+// può essere riusata all'infinito senza un `consumed`. Il parser accetta la
+// forma marker del producer e il JSON embedded usato dalle versioni recenti;
+// dati ambigui restano esclusi, mai reinterpretati come eventi validi.
+export const DECOMPOSE_STALL_COUNT_SINCE = '2026-10-03T17:41:42Z';
+export const DECOMPOSE_STALL_THRESHOLD = 3;
+export const DECOMPOSE_STALLED_MARKER = '<!-- DECOMPOSE_STALLED -->';
+const DECOMPOSE_STALLED_RE = /<!--\s*DECOMPOSE_STALLED\s*-->/;
+const DECOMPOSE_LEASE_MARKER_RE = /<!--\s*QUOTA_LEASE(?:_EVENT)?\b([\s\S]*?)-->/gi;
+const DECOMPOSE_TRUSTED_ACTOR_RE = /^(?:github-actions(?:\[bot\])?|frontaliere-automation(?:\[bot\])?|claude(?:\[bot\])?|valerielinc-ops|nanakokyobashi-rgb)$/iu;
+
+function epochSec(value) {
+  const numeric = Number(value);
+  if (Number.isFinite(numeric) && numeric > 0) return Math.floor(numeric);
+  const ms = Date.parse(String(value ?? ''));
+  return Number.isFinite(ms) ? Math.floor(ms / 1000) : null;
+}
+
+function trustedDecomposeComment(comment) {
+  const login = String(comment?.user?.login || comment?.author?.login || '').trim();
+  return !login || DECOMPOSE_TRUSTED_ACTOR_RE.test(login);
+}
+
+function markerAttributes(source) {
+  const attrs = {};
+  for (const match of String(source || '').matchAll(/(?:^|\s)([A-Za-z][A-Za-z0-9_]*)=("[^"]*"|'[^']*'|[^\s]+)/g)) {
+    attrs[match[1]] = match[2].replace(/^(["'])|(["'])$/g, '');
+  }
+  return attrs;
+}
+
+function normalizeDecomposeLeaseState(value) {
+  const state = String(value || '').trim().toLowerCase();
+  if (state === 'reserve' || state === 'reserved' || state === 'acquire' || state === 'acquired') return 'reserved';
+  if (state === 'release' || state === 'released') return 'released';
+  if (state === 'consume' || state === 'consumed' || state === 'used') return 'consumed';
+  return null;
+}
+
+/** Convert trusted issue comments into the event shape consumed below. */
+function decomposeLeaseEvents(comments) {
+  const events = [];
+  for (const [commentOrder, comment] of (Array.isArray(comments) ? comments : []).entries()) {
+    if (!trustedDecomposeComment(comment)) continue;
+    const body = String(comment?.body || '');
+    for (const marker of body.matchAll(DECOMPOSE_LEASE_MARKER_RE)) {
+      const payload = marker[1].trim().replace(/^:\s*/, '');
+      let data = {};
+      if (payload.startsWith('{')) {
+        try {
+          const parsed = JSON.parse(payload);
+          if (parsed && typeof parsed === 'object' && !Array.isArray(parsed)) data = parsed;
+        } catch {
+          data = {};
+        }
+      }
+      const attrs = markerAttributes(payload);
+      const role = String(data.role ?? attrs.role ?? '').trim();
+      const token = String(data.token ?? attrs.token ?? '').trim();
+      const state = normalizeDecomposeLeaseState(
+        data.state ?? data.status ?? data.action ?? attrs.state ?? attrs.status ?? attrs.action,
+      );
+      if (role !== 'issue-decompose' || !token || !state) continue;
+      const commentAt = epochSec(comment?.created_at ?? comment?.createdAt);
+      const issuedAt = epochSec(data.issuedAt ?? data.reservedAt ?? data.acquiredAt
+        ?? attrs.issuedAt ?? attrs.reservedAt ?? attrs.acquiredAt) ?? commentAt;
+      const expiresAt = epochSec(data.expiresAt ?? data.expires ?? attrs.expiresAt ?? attrs.expires);
+      events.push({
+        role,
+        token,
+        state,
+        commentAt,
+        issuedAt,
+        expiresAt,
+        commentOrder,
+      });
+    }
+  }
+  return events;
+}
+
+/**
+ * The latest trusted stall marker resets the episode. An untrusted comment
+ * quoting the marker cannot silence a real stall; fixture comments without an
+ * author remain accepted, matching the producer's offline-test contract.
+ */
+export function latestDecomposeStalledAt(comments) {
+  let latest = null;
+  for (const comment of comments || []) {
+    if (!trustedDecomposeComment(comment)) continue;
+    if (!DECOMPOSE_STALLED_RE.test(String(comment?.body || ''))) continue;
+    const at = epochSec(comment?.created_at ?? comment?.createdAt);
+    if (at !== null && (latest === null || at > latest)) latest = at;
+  }
+  return latest;
+}
+
+/**
+ * Count consecutive decompose reservations after the cut-off/reset that still
+ * have no consumed event. This pure projection deliberately treats an
+ * unconsumed released/expired/live reservation as the same bounded stall.
+ */
+export function decomposeStallDecision(leaseEvents, {
+  since = DECOMPOSE_STALL_COUNT_SINCE,
+  threshold = DECOMPOSE_STALL_THRESHOLD,
+  resetAt = null,
+  nowSec = Math.floor(Date.now() / 1000),
+} = {}) {
+  const sinceSec = epochSec(since);
+  if (sinceSec === null) throw new TypeError(`decomposeStallDecision: since non valida (${since})`);
+  const floor = Number.isFinite(Number(resetAt)) && resetAt !== null
+    ? Math.max(sinceSec, Number(resetAt) + 1)
+    : sinceSec;
+  const at = (event) => (Number.isFinite(Number(event?.commentAt))
+    ? Number(event.commentAt)
+    : Number(event?.issuedAt));
+  const events = (leaseEvents || [])
+    .map((event, index) => ({ event, index }))
+    .filter(({ event }) => event?.role === 'issue-decompose'
+      && typeof event?.token === 'string' && event.token)
+    .sort((a, b) => (at(a.event) - at(b.event))
+      || (Number(a.event.commentOrder ?? a.index) - Number(b.event.commentOrder ?? b.index)))
+    .map(({ event }) => event);
+  const counted = new Map();
+  for (const event of events) {
+    if (event.state === 'consumed') {
+      counted.clear();
+      continue;
+    }
+    const own = counted.get(event.token);
+    if (own) {
+      own.state = event.state;
+      own.expiresAt = Number(event.expiresAt);
+      continue;
+    }
+    if (event.state === 'reserved' && at(event) >= floor) {
+      counted.set(event.token, {
+        reservedAt: at(event),
+        state: 'reserved',
+        expiresAt: Number(event.expiresAt),
+      });
+    }
+  }
+  const count = counted.size;
+  const tail = [...counted.entries()].at(-1);
+  const last = tail ? {
+    token: tail[0],
+    reservedAt: new Date(tail[1].reservedAt * 1000).toISOString(),
+    state: tail[1].state,
+    expiresAt: Number.isFinite(tail[1].expiresAt)
+      ? new Date(tail[1].expiresAt * 1000).toISOString()
+      : '',
+  } : null;
+  let reason = 'none';
+  if (tail) {
+    if (tail[1].state === 'released') reason = 'reservation-released-unconsumed';
+    else if (Number.isFinite(tail[1].expiresAt) && tail[1].expiresAt <= nowSec) reason = 'reservation-expired-unconsumed';
+    else reason = 'reservation-live-unconsumed';
+  }
+  return { stalled: count >= threshold, count, threshold, reason, last };
+}
+
+/** Gate the next decompose promotion before it creates another reservation. */
+export function gateDecomposeReservation(issue, {
+  readComments,
+  defer,
+  log = console.log,
+  since = DECOMPOSE_STALL_COUNT_SINCE,
+  threshold = DECOMPOSE_STALL_THRESHOLD,
+  nowSec = Math.floor(Date.now() / 1000),
+} = {}) {
+  const num = issue.number;
+  let comments = null;
+  try {
+    comments = readComments(num);
+  } catch {
+    comments = null;
+  }
+  if (!Array.isArray(comments)) {
+    log(`::warning::decompose-stall: commenti di #${num} non leggibili → conteggio reservation saltato in questo giro.`);
+    return { proceed: true, decision: null, deferred: false };
+  }
+  const decision = decomposeStallDecision(decomposeLeaseEvents(comments), {
+    since,
+    threshold,
+    resetAt: latestDecomposeStalledAt(comments),
+    nowSec,
+  });
+  if (!decision.stalled) return { proceed: true, decision, deferred: false };
+  log(`::error::Stadio decompose: ${decision.count} reservation consecutive senza consumo — #${num} dal ${since} senza consumed (soglia ${threshold}); ultima ${decision.last?.reservedAt || '?'} → ${decision.reason}. Nessuna nuova reservation.`);
+  const note = [
+    DECOMPOSE_STALLED_MARKER,
+    `🛑 **Stadio decompose fermo (zero-Claude): ${decision.count} reservation \`issue-decompose\` consecutive senza consumo.**`,
+    '',
+    `Il drainer ha prenotato il lease per questa issue ${decision.count} volte dal ${since} e \`issue-decompose.yml\` non lo ha mai consumato. Ultima reservation ${decision.last?.reservedAt || '?'} (\`${decision.last?.token || '?'}\`), stato finale \`${decision.last?.state || '?'}\` → \`${decision.reason}\`.`,
+    '',
+    `Non prenoto una ${decision.count + 1}ª reservation: la issue esce dalla coda (\`fu-parked\` + \`automation-deferred\`). Il conteggio riparte da zero dopo questo marker quando la issue torna in coda.`,
+  ].join('\n');
+  let deferred = false;
+  try {
+    deferred = defer(num, note) === true;
+  } catch (error) {
+    log(`::warning::decompose-stall: defer di #${num} fallito: ${String(error).slice(0, 120)}`);
+  }
+  return { proceed: false, decision, deferred };
 }
 
 /**
@@ -858,6 +1110,132 @@ export function verdictExitDecision(outcome, { hasPR = false, noAutoclose = fals
       : { action: 'close', reason: 'already-fixed: difetto verificato assente' };
   }
   return { action: 'escalate', reason: `capacità/causa fuori dalla portata della CI: ${outcome}` };
+}
+
+// --- TRANSIZIONE A GRANA ITEM DEI BUCKET DAILY -------------------------------
+// Il workflow assegna un solo item per run. Il drainer deve quindi consumare
+// l'esito sullo stesso item prima di applicare un verdetto alla issue intera;
+// altrimenti un `overlap-skip` può riaprire l'item sbagliato e un `pr-created`
+// può chiudere il bucket senza prova di quale voce sia stata consegnata.
+const DAILY_TRANSIENT_OUTCOMES = new Set(['overlap-skip', 'pr-already-open']);
+
+/** Extract one unambiguous FU id from a fixer outcome comment. */
+export function dailyOutcomeItemId(commentBody) {
+  const source = typeof commentBody === 'object' && commentBody !== null
+    ? String(commentBody.body || '')
+    : String(commentBody || '');
+  const itemIdRe = /\bFU-\d{4}-\d{2}-\d{2}-\d{3}\b/gi;
+  const explicitIds = [...source.matchAll(/<!--\s*FOLLOWUP_ITEM:\s*(FU-\d{4}-\d{2}-\d{2}-\d{3})\s*-->/gi)]
+    .map((match) => match[1].toUpperCase());
+  const uniqueExplicit = [...new Set(explicitIds)];
+  if (uniqueExplicit.length) return uniqueExplicit.length === 1 ? uniqueExplicit[0] : null;
+  const firstParagraph = source.trim().split(/\n\s*\n/, 1)[0] || '';
+  const ids = [...new Set([...firstParagraph.matchAll(itemIdRe)].map((match) => match[0].toUpperCase()))];
+  return ids.length === 1 && FOLLOWUP_ITEM_ID_SINGLE_RE.test(ids[0]) ? ids[0] : null;
+}
+
+function dailyBucketRouting(body) {
+  const items = parseFollowupItems(body || '');
+  const nextItem = selectFirstOpenItem(body || '');
+  if (nextItem) return { action: 'requeue', nextItem };
+  if (items.length && items.every((entry) => entry.state === 'done')) {
+    return { action: 'settled', nextItem: null };
+  }
+  return { action: 'blocked', nextItem: null };
+}
+
+/**
+ * Apply one authenticated fixer outcome to exactly the attributed daily item.
+ * The returned body is a proposal; the caller must compare it with a fresh
+ * issue read immediately before writing it. This pure boundary is what keeps a
+ * concurrent body edit from becoming a lost update.
+ *
+ * @param {{title?: string, body?: string}} issue
+ * @param {string} outcome
+ * @param {string|{body?: string}} outcomeCommentBody
+ * @param {{verifiedMergedItemId?: string|null}} [options]
+ */
+export function dailyBucketOutcomeTransition(
+  issue,
+  outcome,
+  outcomeCommentBody,
+  { verifiedMergedItemId = null } = {},
+) {
+  const info = dailyBucketInfo(issue?.title || '');
+  const isSupported = NON_RETRYABLE.has(outcome)
+    || DAILY_TRANSIENT_OUTCOMES.has(outcome)
+    || outcome === 'pr-created';
+  if (!info || !isSupported) return { handled: false, action: 'not-applicable' };
+
+  const validation = dailyBucketQueueDecision(issue);
+  if (!validation.eligible && validation.reason !== 'no-open-item') {
+    return { handled: true, action: 'invalid-bucket', reason: validation.reason };
+  }
+
+  const itemId = dailyOutcomeItemId(outcomeCommentBody);
+  if (!itemId) {
+    return { handled: true, action: 'unattributed', reason: 'outcome senza un solo FU stabile' };
+  }
+
+  const items = parseFollowupItems(issue?.body || '');
+  const item = items.find((candidate) => candidate.id?.toUpperCase() === itemId);
+  if (!item || !item.state) {
+    return { handled: true, action: 'item-missing', itemId, nextItem: null };
+  }
+
+  if (outcome === 'pr-created'
+    && String(verifiedMergedItemId || '').toUpperCase() !== itemId) {
+    return { handled: true, action: 'awaiting-merged-pr', itemId, nextItem: item };
+  }
+
+  if (DAILY_TRANSIENT_OUTCOMES.has(outcome)) {
+    if (!validation.item || validation.item.id?.toUpperCase() !== itemId) {
+      return { handled: true, action: 'stale-attribution', itemId, nextItem: validation.item || null };
+    }
+    return {
+      handled: true,
+      action: 'retry',
+      itemId,
+      state: item.state,
+      body: String(issue?.body || ''),
+      nextItem: item,
+      changed: false,
+    };
+  }
+
+  if (item.state !== 'open' && item.state !== 'in-progress') {
+    const routing = dailyBucketRouting(issue?.body || '');
+    return {
+      handled: true,
+      action: 'outcome-consumed',
+      itemId,
+      state: item.state,
+      nextItem: routing.nextItem,
+      reconcileAction: routing.action,
+    };
+  }
+
+  if (outcome !== 'pr-created'
+    && validation.item
+    && validation.item.id?.toUpperCase() !== itemId) {
+    return { handled: true, action: 'stale-attribution', itemId, nextItem: validation.item };
+  }
+
+  const state = outcome === 'already-fixed' || outcome === 'pr-created' ? 'done' : 'blocked';
+  const body = updateFollowupItemState(issue?.body || '', itemId, state);
+  if (body === null) {
+    return { handled: true, action: 'item-uneditable', itemId, nextItem: item };
+  }
+  const routing = dailyBucketRouting(body);
+  return {
+    handled: true,
+    ...routing,
+    itemId,
+    state,
+    body,
+    changed: body !== String(issue?.body || ''),
+    consumed: false,
+  };
 }
 
 // --- VERDETTO A GRANA ITEM SUI BUCKET GIORNALIERI ----------------------------
@@ -2603,13 +2981,25 @@ function loadOpenPrsForDailyMutex() {
       'api', `repos/${REPO}/pulls?state=open&per_page=100`,
       '--paginate', '--slurp',
     ]);
-    const prs = flattenPaginatedOpenPrs(raw);
-    if (!prs || !prs.every((pr) => Number.isInteger(Number(pr.number)) && Number(pr.number) > 0
-      && typeof pr.title === 'string' && (typeof pr.body === 'string' || pr.body === null)
-      && openPrHeadIdentity(pr) !== null)) {
+    const prs = parseOpenGroupPrs(raw);
+    if (!prs) {
       return { ok: false, prs: [] };
     }
     return { ok: true, prs };
+  } catch {
+    return { ok: false, prs: [] };
+  }
+}
+
+/** Complete open-PR snapshot for the B19 leader/branch mutex. */
+function loadOpenPrsForGroupMutex() {
+  try {
+    const raw = gh([
+      'api', `repos/${REPO}/pulls?state=open&per_page=${ISSUE_LIST_PAGE_SIZE}`,
+      '--paginate', '--slurp',
+    ]);
+    const prs = parseOpenGroupPrs(raw);
+    return prs ? { ok: true, prs } : { ok: false, prs: [] };
   } catch {
     return { ok: false, prs: [] };
   }
@@ -3152,6 +3542,30 @@ export function deferAutomationIssue(number, { add = [], remove = [] } = {}) {
   return editChecked(number, { add: [LBL_AUTOMATION_DEFERRED, ...add], remove });
 }
 
+/**
+ * Apply the decompose reservation circuit breaker at the promotion boundary.
+ * A readable, exhausted reservation episode is parked with one reset marker;
+ * an unreadable comment stream proceeds without inventing a count, while a
+ * failed park never promotes the issue in the same tick.
+ */
+function decomposeStallBlocks(issue) {
+  const decision = gateDecomposeReservation(issue, {
+    readComments: issueCommentsRest,
+    defer: (number, note) => {
+      const parked = deferAutomationIssue(number, {
+        add: [LBL_PARKED],
+        remove: [LBL_DECOMP_QUEUED],
+      });
+      if (!parked) return false;
+      return commentIssue(number, note);
+    },
+  });
+  if (!decision.proceed && !decision.deferred) {
+    console.log(`::warning::decompose-stall: #${issue.number} trattenuta, ma il park non è stato confermato; nessuna promozione.`);
+  }
+  return !decision.proceed;
+}
+
 /** Snapshot live usata esclusivamente dalla riconciliazione dei direct route. */
 function liveIssueForDirectRoute(num) {
   try {
@@ -3217,17 +3631,158 @@ function editChecked(num, { add = [], remove = [] }) {
   }
 }
 
+function readDailyIssueSnapshot(number) {
+  try {
+    const issue = gh([
+      'issue', 'view', String(number), '--repo', REPO,
+      '--json', 'title,body,labels,state',
+    ]);
+    if (!issue || typeof issue.title !== 'string' || typeof issue.body !== 'string'
+      || !Array.isArray(issue.labels)) return null;
+    return issue;
+  } catch {
+    return null;
+  }
+}
+
+function sameDailyTransition(left, right) {
+  return left?.handled === true
+    && right?.handled === true
+    && left.action === right.action
+    && left.itemId === right.itemId
+    && left.state === right.state;
+}
+
+/**
+ * Write a daily bucket body only after a fresh reread still yields the same
+ * item transition. A concurrent mint/reconciler edit causes a bounded retry;
+ * after the bound the drainer leaves labels and body untouched.
+ */
+function updateDailyIssueBody(issue, outcome, outcomeCommentBody, options = {}) {
+  const maxAttempts = Number.isSafeInteger(options.maxAttempts) && options.maxAttempts > 0
+    ? options.maxAttempts
+    : 3;
+  let candidate = { ...issue, body: String(issue?.body || '') };
+  for (let attempt = 0; attempt < maxAttempts; attempt += 1) {
+    const proposal = dailyBucketOutcomeTransition(
+      candidate,
+      outcome,
+      outcomeCommentBody,
+      options,
+    );
+    if (!proposal.handled) return { ok: false, reason: 'daily-transition-not-applicable', transition: proposal };
+    if (typeof proposal.body !== 'string' || proposal.changed !== true) {
+      return { ok: true, wrote: false, issue: candidate, transition: proposal };
+    }
+
+    const live = readDailyIssueSnapshot(candidate.number || issue.number);
+    if (!live) return { ok: false, reason: 'daily-body-reread-unavailable', transition: proposal };
+    const liveProposal = dailyBucketOutcomeTransition(
+      live,
+      outcome,
+      outcomeCommentBody,
+      options,
+    );
+    if (!sameDailyTransition(proposal, liveProposal) || live.body !== candidate.body) {
+      candidate = { ...live, number: candidate.number || issue.number };
+      continue;
+    }
+
+    if (DRY) return { ok: true, wrote: true, issue: live, transition: liveProposal };
+
+    const dir = mkdtempSync(join(tmpdir(), 'followup-daily-body-'));
+    const bodyFile = join(dir, 'body.md');
+    try {
+      writeFileSync(bodyFile, liveProposal.body, 'utf8');
+      gh([
+        'issue', 'edit', String(candidate.number || issue.number), '--repo', REPO,
+        '--body-file', bodyFile,
+      ], { json: false });
+      return { ok: true, wrote: true, issue: live, transition: liveProposal };
+    } catch (error) {
+      return {
+        ok: false,
+        reason: `daily-body-write-failed: ${String(error).slice(0, 160)}`,
+        transition: liveProposal,
+      };
+    } finally {
+      rmSync(dir, { recursive: true, force: true });
+    }
+  }
+  return { ok: false, reason: 'daily-body-changed-during-transition', transition: null };
+}
+
+function dailyTransitionLabelArgs(issue, action) {
+  const attemptLabels = names(issue).filter((name) => /^fu-(?:attempt|reparked):\d+$/.test(name));
+  const commonRemove = [
+    LBL_PARKED,
+    LBL_MAYBE_RESOLVED,
+    LBL_AUTOMATION_DEFERRED,
+    LBL_FIX,
+    ...attemptLabels,
+  ];
+  if (action === 'requeue' || action === 'retry') {
+    return { add: [LBL_QUEUED], remove: commonRemove };
+  }
+  if (action === 'settled') {
+    return { add: [], remove: [LBL_QUEUED, ...commonRemove] };
+  }
+  return null;
+}
+
+function applyDailyTransitionLabels(issue, action) {
+  if (action === 'blocked') {
+    return deferAutomationIssue(issue.number, {
+      remove: [
+        LBL_PARKED,
+        LBL_MAYBE_RESOLVED,
+        LBL_QUEUED,
+        LBL_FIX,
+        ...names(issue).filter((name) => /^fu-(?:attempt|reparked):\d+$/.test(name)),
+      ],
+    });
+  }
+  const args = dailyTransitionLabelArgs(issue, action);
+  return args ? editChecked(issue.number, args) : false;
+}
+
 function groupDigestFromLabel(label) {
   const rest = String(label || '').slice(ISSUE_GROUP_LABEL_PREFIX.length);
   return /^([0-9a-f]{12})-\d+$/.exec(rest)?.[1] || null;
 }
 
-function activeGroupDigests(issues) {
+/** Parse the digest and leader encoded in a B19 instance label. */
+export function groupLabelInfo(label) {
+  const rest = String(label || '').slice(ISSUE_GROUP_LABEL_PREFIX.length);
+  const match = /^([0-9a-f]{12})-([1-9]\d*)$/.exec(rest);
+  if (!match) return null;
+  return { digest: match[1], leaderNumber: Number(match[2]) };
+}
+
+/**
+ * Active B19 groups are owned by either the leader's live label or an open PR
+ * whose head is proven to belong to this repository.  The latter closes the
+ * race where PR creation removes the leader label before the next drainer tick.
+ * Foreign forks and PRs with an unreadable head are deliberately ignored here;
+ * the caller must already have a complete, shape-validated PR snapshot before
+ * using it as evidence.
+ */
+export function activeGroupDigests(issues, openPrs = [], { repository = REPO } = {}) {
   const digests = new Set();
+  const ownedBranches = new Set(
+    (Array.isArray(openPrs) ? openPrs : [])
+      .filter((pr) => isRepositoryOwnedPrHead(pr, repository) === true)
+      .map(openPrHeadIdentity)
+      .filter(Boolean)
+      .map((identity) => identity.ref),
+  );
   for (const issue of issues || []) {
     for (const label of names(issue).filter((n) => ISSUE_GROUP_LABEL_RE.test(n))) {
-      const digest = groupDigestFromLabel(label);
-      if (digest) digests.add(digest);
+      const info = groupLabelInfo(label);
+      if (!info) continue;
+      const leaderLabelActive = has(issue, LBL_FIX);
+      const leaderPrActive = ownedBranches.has(`fix/issue-${info.leaderNumber}`);
+      if (leaderLabelActive || leaderPrActive) digests.add(info.digest);
     }
   }
   return digests;
@@ -3438,6 +3993,56 @@ export function selectLatestMergedFixPr(prs) {
     best = { mergedAt: at };
   }
   return best;
+}
+
+/** Select a merged PR that proves one specific daily item after its outcome. */
+export function selectMergedDailyItemPr(prs, itemId, outcomeAt) {
+  const wanted = String(itemId || '').toUpperCase();
+  const cutoff = Number(outcomeAt);
+  if (!FOLLOWUP_ITEM_ID_SINGLE_RE.test(wanted) || !Number.isFinite(cutoff)) return null;
+  let best = null;
+  for (const pr of Array.isArray(prs) ? prs : []) {
+    const number = Number(pr?.number);
+    const mergedAt = Date.parse(String(pr?.mergedAt || ''));
+    const markers = followupItemMarkers(pr?.body || '');
+    if (!Number.isInteger(number) || number <= 0 || !Number.isFinite(mergedAt) || mergedAt <= cutoff
+        || markers.length !== 1 || markers[0] !== wanted) continue;
+    if (best && mergedAt <= best.mergedAt) continue;
+    best = { number, mergedAt, itemId: wanted };
+  }
+  return best;
+}
+
+/** Query merged PRs using the issue timeline plus the legacy fix branch. */
+function mergedDailyItemPr(num, itemId, outcomeAt) {
+  const prs = [];
+  try {
+    const raw = gh([
+      'api', `repos/${REPO}/issues/${num}/timeline?per_page=100`, '--paginate', '--slurp',
+    ]);
+    for (const prNumber of linkedPullRequestNumbers(raw, REPO)) {
+      try {
+        prs.push(gh([
+          'pr', 'view', String(prNumber), '--repo', REPO,
+          '--json', 'number,mergedAt,body,headRefName,headRepository',
+        ]));
+      } catch {
+        // Una PR cancellata/non leggibile non deve nascondere le altre.
+      }
+    }
+  } catch {
+    // Il fallback sul branch storico copre i dati antecedenti al cross-reference.
+  }
+  try {
+    const fallback = gh([
+      'pr', 'list', '--repo', REPO, '--head', `fix/issue-${num}`,
+      '--state', 'merged', '--json', 'number,mergedAt,body,headRefName,headRepository', '--limit', '20',
+    ]);
+    if (Array.isArray(fallback)) prs.push(...fallback);
+  } catch {
+    // Un errore del fallback non trasforma una prova mancante in una consegna.
+  }
+  return selectMergedDailyItemPr(prs, itemId, outcomeAt);
 }
 
 /** Epoch ms del merge più recente di una PR fix collegata all'issue successivo
@@ -4193,11 +4798,11 @@ export function runDrain() {
       const dequeueDecision = applyParentDequeue(p, {
         readComments: issueComments,
         postComment: (num, body) => gh(['issue', 'comment', String(num), '--repo', REPO, '--body', body], { json: false }),
-        removeLabels: (num) => edit(num, { remove: [LBL_FIX, LBL_QUEUED] }),
+        removeLabels: (num) => editChecked(num, { remove: [LBL_FIX, LBL_QUEUED] }),
         body: `⏭️ **Pre-flight drainer (zero-Claude): padre decomposto fuori dalla coda del fixer.** Lo scope di questa issue vive nelle sub-issue dichiarate da \`DECOMPOSED_INTO\`, che entrano in coda per conto loro; qui non resta lavoro proprio, e un run del fixer non potrebbe che terminare senza PR (o duplicare una figlia). Rimuovo \`agent:fix\`/\`agent:fix-queued\`. La issue **resta aperta**: la chiude il PARENT-CLOSE quando tutte le figlie sono chiuse.`,
       });
-      if (dequeueDecision === 'repeat') parentDequeueRepeats.push(p.number);
-      console.log(`PARENT-DEQUEUE #${p.number} (decomposed:1, lavoro delegato alle figlie; commento: ${dequeueDecision}) — "${p.title?.slice(0, 50)}"`);
+      if (dequeueDecision.decision === 'repeat') parentDequeueRepeats.push(p.number);
+      console.log(`PARENT-DEQUEUE #${p.number} (decomposed:1, lavoro delegato alle figlie; commento: ${dequeueDecision.decision}, label: ${dequeueDecision.labelsRemoved ? 'rimosse' : 'non rimosse'}) — "${p.title?.slice(0, 50)}"`);
     }
     // Contatore stampato a ogni giro non-DRY che ha candidati (anche a 0): è la misura
     // del riaccodamento residuo, cioè di chi rimette la label su un padre già
@@ -4412,6 +5017,7 @@ export function runDrain() {
       const comments = issueComments(iss.number);
       if (comments === null) continue; // glitch gh → nessuna decisione, si rivaluta al tick dopo
       const outcome = latestFixOutcomeFromComments(comments);
+      const outcomeEntry = latestFixOutcomeCommentFromComments(comments);
 
       // UNPARK-NO-VERDICT: una parked che non ha MAI avuto un verdetto non ha
       // mai avuto un tentativo.
@@ -4477,9 +5083,13 @@ export function runDrain() {
       // dev'essere `detectAlreadyResolved()` al giro dopo, sul corpo, non questo
       // ramo sulla provenienza. `mergedFixPrAt()` costa una chiamata `gh`, per
       // questo sta DOPO il test su `outcome`, che è già in memoria.
+      const dailyIssue = dailyBucketInfo(iss.title || '') !== null;
+      const canUnparkWithoutVerdict = outcome === null
+        && (!dailyIssue || dailyBucketQueueDecision(iss).eligible);
       const deliveredParked = outcome === 'pr-created' && mergedFixPrAt(iss.number) !== null;
 
       if ((outcome === null || deliveredParked) && !isUnparkedOnce(iss)) {
+        if (canUnparkWithoutVerdict || (deliveredParked && !dailyIssue)) {
         attempted++;
         if (DRY) {
           succeeded++;
@@ -4509,6 +5119,99 @@ export function runDrain() {
         // su un pool misto attribuirebbe la causa sbagliata a ogni unpark
         // `pr-created`. Stessa ternaria del ramo DRY, di proposito.
         console.log(`UNPARK #${iss.number} (${deliveredParked ? 'aveva consegnato' : 'parked senza verdetto'}) → ${LBL_QUEUED} — "${iss.title?.slice(0, 50)}"`);
+        continue;
+        }
+      }
+
+      // A daily issue is only a container. Apply an attributable outcome to
+      // its FU item, then route the next open item; never close/defer the whole
+      // bucket from one item's verdict. The live reread in
+      // updateDailyIssueBody makes the body transition idempotent when mint or
+      // another reconciler edits the bucket concurrently.
+      if (dailyIssue
+          && (NON_RETRYABLE.has(outcome) || DAILY_TRANSIENT_OUTCOMES.has(outcome) || outcome === 'pr-created')) {
+        const outcomeBody = outcomeEntry.comment?.body || '';
+        const mergedItemPr = outcome === 'pr-created'
+          ? mergedDailyItemPr(iss.number, dailyOutcomeItemId(outcomeBody), outcomeEntry.at)
+          : null;
+        const verifiedMergedItemId = mergedItemPr?.itemId || null;
+        const liveIssue = readDailyIssueSnapshot(iss.number);
+        if (!liveIssue) {
+          console.log(`DAILY-OUTCOME-SKIP #${iss.number}: body live non leggibile, nessuna uscita issue-wide.`);
+          continue;
+        }
+        const transition = dailyBucketOutcomeTransition(
+          liveIssue,
+          outcome,
+          outcomeBody,
+          { verifiedMergedItemId },
+        );
+        if (!transition.handled) continue;
+
+        let finalTransition = transition;
+        let action = transition.action === 'outcome-consumed'
+          ? transition.reconcileAction
+          : transition.action;
+        if (!['retry', 'requeue', 'settled', 'blocked'].includes(action)) {
+          console.log(`DAILY-OUTCOME-SKIP #${iss.number} (${transition.action}${transition.reason ? `: ${transition.reason}` : ''}) → nessuna transizione issue-wide.`);
+          continue;
+        }
+
+        if (transition.itemId) {
+          const mutex = dailyMutexDecision(
+            transition.itemId,
+            loadOpenPrsForDailyMutex(),
+            iss.number,
+            REPO,
+          );
+          if (!mutex.eligible) {
+            console.log(`DAILY-OUTCOME-SKIP #${iss.number} (${transition.itemId}: ${mutex.reason}) → item ancora in volo o scansione PR non verificabile.`);
+            continue;
+          }
+        }
+
+        attempted++;
+        const outcomeConsumed = transition.action === 'outcome-consumed';
+        if (!DRY && !outcomeConsumed) {
+          const write = updateDailyIssueBody(
+            liveIssue,
+            outcome,
+            outcomeBody,
+            { verifiedMergedItemId },
+          );
+          if (!write.ok) continue;
+          finalTransition = write.transition;
+          action = finalTransition.action === 'outcome-consumed'
+            ? finalTransition.reconcileAction
+            : finalTransition.action;
+          if (!['retry', 'requeue', 'settled', 'blocked'].includes(action)) {
+            console.log(`DAILY-OUTCOME-SKIP #${iss.number} (ricomposizione ${finalTransition.action}${finalTransition.reason ? `: ${finalTransition.reason}` : ''}) → nessuna transizione issue-wide.`);
+            continue;
+          }
+        }
+
+        if (DRY) {
+          succeeded += 1;
+          console.log(`[dry] daily outcome #${iss.number}: ${finalTransition.itemId} → ${finalTransition.state}; ${action}${finalTransition.nextItem ? `, prossimo ${finalTransition.nextItem.id}` : ''}`);
+          continue;
+        }
+
+        const labelIssue = readDailyIssueSnapshot(iss.number) || liveIssue;
+        if (!applyDailyTransitionLabels(labelIssue, action)) continue;
+        succeeded += 1;
+        if (finalTransition.action === 'outcome-consumed') {
+          console.log(`DAILY-OUTCOME-RECOVER #${iss.number}: body già terminale e label riconciliate (${finalTransition.itemId} → ${action})`);
+          continue;
+        }
+        const note = action === 'retry'
+          ? `♻️ **Daily item ri-accodato dal followup-drainer:** ${finalTransition.itemId} resta ${finalTransition.state}; l’esito ${outcome} è transitorio e non conclude l’item.\n\n<!-- DAILY_ITEM_OUTCOME: ${finalTransition.itemId} -->`
+          : action === 'requeue'
+            ? `♻️ **Esito daily item applicato dal followup-drainer:** ${finalTransition.itemId} → ${finalTransition.state} con \`FIX_OUTCOME: ${outcome}\`. Il bucket resta aperto e il prossimo item ${finalTransition.nextItem?.id || '?'} torna in coda; nessun verdetto del singolo item si applica all’intero issue.\n\n<!-- DAILY_ITEM_OUTCOME: ${finalTransition.itemId} -->`
+            : action === 'settled'
+              ? `✅ **Daily bucket riconciliato item per item:** ${finalTransition.itemId} → ${finalTransition.state} con \`FIX_OUTCOME: ${outcome}\`; tutti gli item sono ora done. La chiusura resta al reconciler.\n\n<!-- DAILY_ITEM_OUTCOME: ${finalTransition.itemId} -->`
+              : `⏸️ **Daily item bloccato dal verdetto del fixer:** ${finalTransition.itemId} → blocked (FIX_OUTCOME ${outcome}). Il bucket non ha altri FU open: viene differito tecnicamente; gli altri item non vengono dichiarati risolti.\n\n<!-- DAILY_ITEM_OUTCOME: ${finalTransition.itemId} -->`;
+        commentIssue(iss.number, note);
+        console.log(`DAILY-OUTCOME #${iss.number}: ${finalTransition.itemId} → ${finalTransition.state}; ${action}${finalTransition.nextItem ? `, prossimo ${finalTransition.nextItem.id}` : ''}`);
         continue;
       }
 
@@ -5411,11 +6114,18 @@ export function runDrain() {
         } else {
           const dq = completeRows(listIssues(LBL_DECOMP_QUEUED), 'decompose-drain')
             .filter((i) => !has(i, LBL_PARKED))
+            .filter((i) => !has(i, LBL_AUTOMATION_DEFERRED))
             .filter((i) => !hasActiveAgentClaim(i))
             .sort((a, b) => prioRank(a) - prioRank(b) || Date.parse(a.createdAt) - Date.parse(b.createdAt));
           if (dq.length && budget.take(`#${dq[0].number} (decompose-drain)`, ITEM_COST_MS)) {
-            console.log(`PROMUOVO DECOMPOSE #${dq[0].number} (${has(dq[0], 'fu-prio:high') ? 'high' : 'low'}) → ${LBL_DECOMP} — "${dq[0].title?.slice(0, 50)}"`);
-            edit(dq[0].number, { add: [LBL_DECOMP], remove: [LBL_DECOMP_QUEUED] });
+            if (!liveClaimAllowsMutation(dq[0].number)) {
+              console.log(`DECOMPOSE-SKIP #${dq[0].number}: claim live/non leggibile → nessuna promozione.`);
+            } else if (decomposeStallBlocks(dq[0])) {
+              console.log(`DECOMPOSE-SKIP #${dq[0].number}: reservation circuit-breaker attivo → issue parcheggiata o trattenuta.`);
+            } else {
+              console.log(`PROMUOVO DECOMPOSE #${dq[0].number} (${has(dq[0], 'fu-prio:high') ? 'high' : 'low'}) → ${LBL_DECOMP} — "${dq[0].title?.slice(0, 50)}"`);
+              edit(dq[0].number, { add: [LBL_DECOMP], remove: [LBL_DECOMP_QUEUED] });
+            }
           }
         }
       }
@@ -5574,14 +6284,23 @@ export function runDrain() {
   // e i candidati già marcati come membri vengono lasciati intatti.
   const activeGroupScan = listIssues(LBL_FIX);
   const activeGroupScanComplete = activeGroupScan.complete === true;
-  const activeGroupDigestsSet = activeGroupScanComplete
-    ? activeGroupDigests(activeGroupScan.rows)
+  const queuedGroupLabels = queued.some((issue) => names(issue).some((name) => ISSUE_GROUP_LABEL_RE.test(name)));
+  const activeGroupLabels = activeGroupScanComplete
+    && activeGroupScan.rows.some((issue) => names(issue).some((name) => ISSUE_GROUP_LABEL_RE.test(name)));
+  const groupMutexNeeded = activeGroupLabels || queuedGroupLabels;
+  const activeGroupPrScan = groupMutexNeeded ? loadOpenPrsForGroupMutex() : { ok: true, prs: [] };
+  const activeGroupMutexComplete = !groupMutexNeeded || activeGroupPrScan.ok;
+  const activeGroupEvidence = activeGroupScanComplete
+    ? [...activeGroupScan.rows, ...queued]
+    : [];
+  const activeGroupDigestsSet = activeGroupScanComplete && activeGroupMutexComplete
+    ? activeGroupDigests(activeGroupEvidence, activeGroupPrScan.prs, { repository: REPO })
     : new Set();
   const groupsByMember = new Map();
   const groupStates = new Map();
   const queuedWithBodiesScan = listIssuesWithBodies(LBL_QUEUED);
   const queuedWithBodies = queuedWithBodiesScan.complete === true ? queuedWithBodiesScan.rows : null;
-  if (queuedWithBodies !== null && activeGroupScanComplete) {
+  if (queuedWithBodies !== null && activeGroupScanComplete && activeGroupMutexComplete) {
     const groupable = queuedWithBodies
       .filter((i) => queuedNumbers.has(Number(i.number)))
       // A daily bucket is already an aggregate with its own one-item circuit
@@ -5667,6 +6386,10 @@ export function runDrain() {
     }
     if (!activeGroupScanComplete && candidateGroupDigests.length) {
       console.log(`GROUP-SKIP #${cand.number}: snapshot dei gruppi attivi incompleta → nessuna promozione singola del membro in questo tick.`);
+      continue;
+    }
+    if (!activeGroupMutexComplete && candidateGroupDigests.length) {
+      console.log(`GROUP-SKIP #${cand.number}: ownership PR dei gruppi non verificabile → nessuna promozione singola del membro in questo tick.`);
       continue;
     }
     if (plannedGroup) {

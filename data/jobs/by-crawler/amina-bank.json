@@ -1,7 +1,7 @@
 {
   "crawlerKey": "amina-bank",
-  "assembledAt": "2026-11-06T09:46:29.707Z",
-  "runId": "42194174376",
+  "assembledAt": "2026-11-07T21:34:25.057Z",
+  "runId": "42415400827",
   "jobs": [
     {
       "id": "amina-bank-cb420a3c2317",
@@ -34,7 +34,7 @@
       "url": "https://amina.jobs.personio.com/job/2840347",
       "source": "AMINA Bank Dedicated Parser (Personio JSON)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-06T09:46:22.434Z",
+      "crawledAt": "2026-11-07T21:34:17.643Z",
       "addressLocality": "Zug",
       "postalCode": "6300",
       "addressCountry": "CH",
@@ -94,7 +94,7 @@
       },
       "streetAddress": "Kolinplatz 15",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-12T09:46:22.434Z",
+      "validThrough": "2027-01-11T21:34:17.643Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -128,7 +128,7 @@
       "url": "https://amina.jobs.personio.com/job/2752820",
       "source": "AMINA Bank Dedicated Parser (Personio JSON)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-06T09:46:22.195Z",
+      "crawledAt": "2026-11-07T21:34:17.333Z",
       "addressLocality": "Zug",
       "postalCode": "6300",
       "addressCountry": "CH",
@@ -217,7 +217,7 @@
       },
       "streetAddress": "Kolinplatz 15",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-06T09:46:22.195Z",
+      "validThrough": "2026-12-07T21:34:17.333Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -251,7 +251,7 @@
       "url": "https://amina.jobs.personio.com/job/2558847",
       "source": "AMINA Bank Dedicated Parser (Personio JSON)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-06T09:46:21.699Z",
+      "crawledAt": "2026-11-07T21:34:16.566Z",
       "addressLocality": "Zug",
       "postalCode": "6300",
       "addressCountry": "CH",
@@ -318,7 +318,7 @@
       },
       "streetAddress": "Kolinplatz 15",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-06T09:46:21.699Z",
+      "validThrough": "2026-12-07T21:34:16.566Z",
       "validThroughSource": "last-observed-window"
     }
   ]

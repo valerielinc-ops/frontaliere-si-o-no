@@ -11,4 +11,9 @@ describe('isRegexLiteralStart — confronto minore-di seguito da regex', () => {
     const line = '</div>';
     expect(isRegexLiteralStart(line, line.indexOf('/'))).toBe(false);
   });
+
+  it('non tratta come regex uno slash dopo un identificatore Unicode', () => {
+    const line = 'const value = café/[/*]/;';
+    expect(isRegexLiteralStart(line, line.indexOf('/'))).toBe(false);
+  });
 });

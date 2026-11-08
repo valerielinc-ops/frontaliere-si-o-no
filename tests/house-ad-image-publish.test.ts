@@ -82,7 +82,8 @@ describe('campaign image publication contract', () => {
     expect(redirects).toContain("const RULE_DESCRIPTION = 'Offloaded images -> CDN (apex 404 recovery)'");
 
     const offload = read('scripts/offload-generated-images-cdn.mjs');
-    const targets = offload.match(/const TARGETS = \[([\s\S]*?)\];/)?.[1];
+    const targets = read('build-plugins/shared/cdnOffloadTargets.mjs');
+    expect(offload).toContain('CDN_OFFLOADED_IMAGE_TARGETS');
     expect(targets).toContain("{ dir: ['images', 'job-search-campaign'], url: '/images/job-search-campaign/' }");
 
     const stage = read('scripts/lib/deploy-it-pages-prep.sh');

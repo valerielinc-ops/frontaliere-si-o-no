@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "groupCount": 25,
-  "crawlerCount": 690,
+  "crawlerCount": 695,
   "groups": {
     "10": [
       "atec-personal",
@@ -456,6 +456,7 @@
     "24": [
       "a2nails-ch",
       "asanti-ch",
+      "assura-ch",
       "avantgarten-ch",
       "az-systems-ch",
       "bb-trading-werbeartikel-ag",
@@ -467,12 +468,14 @@
       "csl-immobilien-ag",
       "eqe-ch",
       "favresa-ch",
+      "freestarinformatik",
       "internezzo-ag",
       "invias-swiss",
       "jobdoor-ch",
       "lemco-precision-com",
       "lipsuisse-ch",
       "mountains-ch",
+      "richnerstutz-ch",
       "seco-jobroom",
       "sintio-ch",
       "skan",
@@ -510,6 +513,7 @@
       "privatklinik-wyss",
       "prosenectute-ti",
       "roche",
+      "ronda-ch",
       "sintetica",
       "sodexo",
       "sonnweid",
@@ -544,6 +548,7 @@
       "schweizerhof-flims",
       "siemens",
       "spital-maennedorf",
+      "swiss-education-company-ch",
       "totalenergies",
       "ubs",
       "ukbb",
@@ -791,6 +796,7 @@
     "asana-spital": "data/jobs/by-crawler/asana-spital.json",
     "asanti-ch": "data/jobs/by-crawler/asanti-ch.json",
     "asile-des-aveugles": "data/jobs/by-crawler/asile-des-aveugles.json",
+    "assura-ch": "data/jobs/by-crawler/assura-ch.json",
     "atec-personal": "data/jobs/by-crawler/atec-personal.json",
     "audemars-piguet": "data/jobs/by-crawler/audemars-piguet.json",
     "avaloq": "data/jobs/by-crawler/avaloq.json",
@@ -977,6 +983,7 @@
     "fondazione-san-gottardo": "data/jobs/by-crawler/fondazione-san-gottardo.json",
     "forel-klinik": "data/jobs/by-crawler/forel-klinik.json",
     "franklin-university": "data/jobs/by-crawler/franklin-university.json",
+    "freestarinformatik": "data/jobs/by-crawler/freestarinformatik.json",
     "fusalp": "data/jobs/by-crawler/fusalp.json",
     "fust": "data/jobs/by-crawler/fust.json",
     "galderma": "data/jobs/by-crawler/galderma.json",
@@ -1258,6 +1265,7 @@
     "rheinmetall-air-defence": "data/jobs/by-crawler/rheinmetall-air-defence.json",
     "rhne-reseau-hospitalier-neuchatelois": "data/jobs/by-crawler/rhne-reseau-hospitalier-neuchatelois.json",
     "richemont": "data/jobs/by-crawler/richemont.json",
+    "richnerstutz-ch": "data/jobs/by-crawler/richnerstutz-ch.json",
     "ricola": "data/jobs/by-crawler/ricola.json",
     "rieter": "data/jobs/by-crawler/rieter.json",
     "riri": "data/jobs/by-crawler/riri.json",
@@ -1267,6 +1275,7 @@
     "roche": "data/jobs/by-crawler/roche.json",
     "rohrer-gartenbau-und-hauswartungen": "data/jobs/by-crawler/rohrer-gartenbau-und-hauswartungen.json",
     "rolex": "data/jobs/by-crawler/rolex.json",
+    "ronda-ch": "data/jobs/by-crawler/ronda-ch.json",
     "rsbj": "data/jobs/by-crawler/rsbj.json",
     "rss-surselva": "data/jobs/by-crawler/rss-surselva.json",
     "ruag-ag": "data/jobs/by-crawler/ruag-ag.json",
@@ -1356,6 +1365,7 @@
     "svar-spitalverbund-ar": "data/jobs/by-crawler/svar-spitalverbund-ar.json",
     "swatchgroup": "data/jobs/by-crawler/swatchgroup.json",
     "swica": "data/jobs/by-crawler/swica.json",
+    "swiss-education-company-ch": "data/jobs/by-crawler/swiss-education-company-ch.json",
     "swiss-life": "data/jobs/by-crawler/swiss-life.json",
     "swiss-medical-network": "data/jobs/by-crawler/swiss-medical-network.json",
     "swiss-re": "data/jobs/by-crawler/swiss-re.json",
@@ -1436,5 +1446,5 @@
     "zurich-insurance-sede-ticino": "data/jobs/by-crawler/zurich-insurance-sede-ticino.json",
     "zurzach-care": "data/jobs/by-crawler/zurzach-care.json"
   },
-  "digest": "sha256:52a1f368a3e60768dcc0aa98792fd0a8ca73b37dd5b7334226769f59be11f1f5"
+  "digest": "sha256:f5347709f52e88c79e7e58281fe51a92eaec19d81ec7346679e5caef7f365094"
 }

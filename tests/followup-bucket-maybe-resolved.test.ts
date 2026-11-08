@@ -244,6 +244,43 @@ describe('Bucket follow-up illeggibili: maybe-resolved residuo con item open e b
       });
     });
 
+    it('ripara uno shorthand valido solo con la conferma di titolo, testa e un item canonico', () => {
+      const issue = dailyIssue(8, [], ['open', 'blocked']);
+      const malformedBody = issue.body.replace(
+        `### FU-${DAY}-001 — item 1\n- State: open\n- Target repository: ${REPO}`,
+        `### FU-${DAY}-001 — item 1\n- State: open\n- Target repository: \`valerielinc-ops/frontali-si-o-no\``,
+      );
+
+      expect(bucketStructuralVeto({ title: issue.title, body: malformedBody })).toBe('mismatched-target-repository');
+      const result = canonicalDailyBucket({ title: issue.title, body: malformedBody });
+
+      expect(result.ok).toBe(true);
+      expect(result.body).toContain(`- Target repository: ${REPO}`);
+      expect(result.body).not.toContain('frontali-si-o-no');
+      expect(result.changes).toContain(
+        `FU-${DAY}-001: Target repository «valerielinc-ops/frontali-si-o-no» → «${REPO}»`,
+      );
+      expect(bucketStructuralVeto({ title: result.title, body: result.body })).toBeNull();
+    });
+
+    it('non corregge uno shorthand valido senza un item che confermi il target canonico', () => {
+      const issue = dailyIssue(9, [], ['open', 'blocked']);
+      const malformedBody = issue.body
+        .replace(
+          `### FU-${DAY}-001 — item 1\n- State: open\n- Target repository: ${REPO}`,
+          `### FU-${DAY}-001 — item 1\n- State: open\n- Target repository: \`valerielinc-ops/frontali-si-o-no\``,
+        )
+        .replace(
+          `### FU-${DAY}-002 — item 2\n- State: blocked\n- Target repository: ${REPO}`,
+          `### FU-${DAY}-002 — item 2\n- State: blocked\n- Target repository: \`another/repo\``,
+        );
+
+      expect(canonicalDailyBucket({ title: issue.title, body: malformedBody })).toEqual({
+        ok: false,
+        reason: 'item-target-repository-mismatch',
+      });
+    });
+
     it('il corpo reale di 8705 diventa canonico: titolo, testa e stati, senza perdere item né stati', () => {
       expect(bucketStructuralVeto(bucket8705)).toBe('mismatched-target-repository');
       const result = canonicalDailyBucket({ title: bucket8705.title, body: bucket8705.body });

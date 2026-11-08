@@ -1,7 +1,7 @@
 {
   "crawlerKey": "yapeal",
-  "assembledAt": "2026-11-06T21:21:11.412Z",
-  "runId": "42293312576",
+  "assembledAt": "2026-11-07T21:15:36.658Z",
+  "runId": "42414014524",
   "jobs": [
     {
       "id": "yapeal-8d58ba85703f",
@@ -34,7 +34,7 @@
       "url": "https://yapeal-ag.jobs.personio.de/job/2733274",
       "source": "Yapeal Dedicated Parser (Personio)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-06T21:21:04.472Z",
+      "crawledAt": "2026-11-07T21:15:31.758Z",
       "addressLocality": "Zurich - Hybrid",
       "addressRegion": "ZH",
       "streetAddress": "Max-Högger-Strasse 6",
@@ -87,7 +87,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-06T21:21:04.472Z",
+      "validThrough": "2026-12-07T21:15:31.758Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -121,7 +121,7 @@
       "url": "https://yapeal-ag.jobs.personio.de/job/2868333",
       "source": "Yapeal Dedicated Parser (Personio)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-06T21:21:04.469Z",
+      "crawledAt": "2026-11-07T21:15:31.756Z",
       "addressLocality": "Zurich - Hybrid",
       "addressRegion": "ZH",
       "streetAddress": "Max-Högger-Strasse 6",
@@ -202,7 +202,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-27T21:21:04.469Z",
+      "validThrough": "2027-01-27T21:15:31.756Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -236,7 +236,7 @@
       "url": "https://yapeal-ag.jobs.personio.de/job/2821075",
       "source": "Yapeal Dedicated Parser (Personio)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-06T21:21:04.464Z",
+      "crawledAt": "2026-11-07T21:15:31.754Z",
       "addressLocality": "Zurich - Hybrid",
       "addressRegion": "ZH",
       "streetAddress": "Max-Högger-Strasse 6",
@@ -283,7 +283,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-30T21:21:04.464Z",
+      "validThrough": "2026-12-30T21:15:31.754Z",
       "validThroughSource": "last-observed-window"
     }
   ]
