@@ -6,8 +6,8 @@
  *
  * Why per-job: Facebook/LinkedIn previews show a single OG card per link.
  * A generic site-wide image yields zero context (just the brand). A per-job
- * image with a generated workplace photo, title, city, and salary gives people
- * more context when a role is shared on Facebook or LinkedIn.
+ * image with a generated workplace photo, title, employer identity, city, and
+ * salary gives people more context when a role is shared on Facebook or LinkedIn.
  *
  * Performance: satori (HTML/JSX → SVG) + @resvg/resvg-js (SVG → PNG) +
  * sharp (PNG → WebP q72) render cards through a bounded worker pool.
@@ -17,8 +17,8 @@
  * storage cost of thousands of generated cards. Facebook receives a portrait
  * 4:5 image; other preview clients can crop it as needed.
  *
- * Caching: filenames include the job slug, selected photo, and render version.
- * To force regeneration, bump OG_RENDER_VERSION.
+ * Caching: filenames include the job slug, selected photo, employer-logo
+ * fingerprint, and render version. To force regeneration, bump OG_RENDER_VERSION.
  */
 
 import {
@@ -31,6 +31,7 @@ import {
   unlinkSync,
   writeFileSync,
 } from 'fs';
+import { createHash } from 'node:crypto';
 import { cpus } from 'os';
 import path from 'path';
 import { fileURLToPath } from 'url';
@@ -81,10 +82,10 @@ function writeFileAtomicallySync(filePath: string, data: Buffer | string): void 
  * an older cache layer. Same pattern used by pdfWhitepapersPlugin
  * (PDF_RENDER_VERSION).
  *
- * Cache filename is `<slug>.<photoKey>.<OG_RENDER_VERSION>.webp`. When this version
- * bumps, the new build looks for new filenames, doesn't find them, and
- * re-renders. Old cached files become orphaned and age out automatically
- * when the GitHub Actions cache evicts them (~7-day TTL).
+ * Cache filename is `<slug>.<photoKey>.<logoFingerprint>.<OG_RENDER_VERSION>.webp`.
+ * When this version bumps, the new build looks for new filenames, doesn't find
+ * them, and re-renders. Old cached files become orphaned and age out
+ * automatically when the GitHub Actions cache evicts them (~7-day TTL).
  */
 const OG_RENDER_VERSION = JOB_OG_IMAGE_VERSION;
 const OG_WIDTH = 1080;
@@ -153,6 +154,74 @@ function readJobsJson(rootDir: string): JobMinimal[] {
     }
   }
   return [];
+}
+
+function readCompanyLogosManifest(rootDir: string): Record<string, string> {
+  const file = path.join(rootDir, 'data/company-logos-manifest.json');
+  try {
+    if (!existsSync(file)) return {};
+    const parsed = JSON.parse(readFileSync(file, 'utf-8')) as unknown;
+    if (!parsed || typeof parsed !== 'object' || Array.isArray(parsed)) return {};
+    return parsed as Record<string, string>;
+  } catch {
+    return {};
+  }
+}
+
+interface CompanyLogoAsset {
+  dataUrl: string | null;
+  cacheKey: string;
+}
+
+function companyLogoAsset(
+  rootDir: string,
+  manifestPath: string | undefined,
+  cache: Map<string, CompanyLogoAsset>,
+): CompanyLogoAsset {
+  if (!manifestPath || !manifestPath.startsWith('/images/brands/')) {
+    return { dataUrl: null, cacheKey: 'no-logo' };
+  }
+  const cached = cache.get(manifestPath);
+  if (cached) return cached;
+
+  let dataUrl: string | null = null;
+  let imageBytes: Buffer | null = null;
+  const relativePath = manifestPath.slice('/images/brands/'.length);
+  if (!relativePath.includes('..')) {
+    const abs = path.join(rootDir, 'public/images/brands', relativePath);
+    if (existsSync(abs)) {
+      try {
+        const ext = path.extname(abs).toLowerCase();
+        const mimeByExtension: Record<string, string> = {
+          '.png': 'image/png',
+          '.jpg': 'image/jpeg',
+          '.jpeg': 'image/jpeg',
+          '.svg': 'image/svg+xml',
+          '.webp': 'image/webp',
+        };
+        const mime = mimeByExtension[ext];
+        const image = readFileSync(abs);
+        imageBytes = image;
+        if (mime) {
+          // Keep unusually large source logos from bloating the render queue.
+          if (image.length > 0 && image.length <= 1024 * 1024) {
+            dataUrl = `data:${mime};base64,${image.toString('base64')}`;
+          }
+        }
+      } catch {
+        /* a missing or unreadable logo falls back to the employer name */
+      }
+    }
+  }
+
+  const cacheKey = createHash('sha1')
+    .update(manifestPath)
+    .update(imageBytes ?? 'missing')
+    .digest('hex')
+    .slice(0, 10);
+  const result = { dataUrl, cacheKey };
+  cache.set(manifestPath, result);
+  return result;
 }
 
 type JobPhotoKey = string;
@@ -247,6 +316,7 @@ interface CardModel {
   title: string;
   subtitle?: string;
   company: string | null;
+  companyLogoDataUrl: string | null;
   city: string | null;
   salary: string | null;
   employmentLabel: string | null;
@@ -280,6 +350,64 @@ function buildCardJsx(model: CardModel): unknown {
     model.salary ? pill(model.salary, true) : null,
     model.employmentLabel ? pill(model.employmentLabel) : null,
   ].filter(Boolean);
+
+  const employerRow = model.company
+    ? {
+        type: 'div',
+        props: {
+          style: {
+            display: 'flex',
+            flexDirection: 'row',
+            alignItems: 'center',
+            marginTop: 8,
+          },
+          children: [
+            model.companyLogoDataUrl
+              ? {
+                  type: 'div',
+                  props: {
+                    style: {
+                      display: 'flex',
+                      width: 92,
+                      height: 92,
+                      flexShrink: 0,
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      backgroundColor: '#FFFFFF',
+                      borderRadius: 14,
+                      padding: 10,
+                      marginRight: 20,
+                    },
+                    children: {
+                      type: 'img',
+                      props: {
+                        src: model.companyLogoDataUrl,
+                        width: 72,
+                        height: 72,
+                        style: { objectFit: 'contain' },
+                      },
+                    },
+                  },
+                }
+              : null,
+            {
+              type: 'div',
+              props: {
+                style: {
+                  display: 'flex',
+                  maxWidth: 760,
+                  fontSize: 34,
+                  lineHeight: 1.08,
+                  fontWeight: 700,
+                  color: TEXT_PRIMARY,
+                },
+                children: truncateText(model.company, 46),
+              },
+            },
+          ].filter(Boolean),
+        },
+      }
+    : null;
 
   return {
     type: 'div',
@@ -353,28 +481,17 @@ function buildCardJsx(model: CardModel): unknown {
                           props: {
                             style: {
                               display: 'flex',
-                              fontSize: 27,
+                              fontSize: 40,
                               fontWeight: 700,
-                              letterSpacing: 1.2,
+                              letterSpacing: 1.5,
                               color: BRAND_ACCENT,
-                              marginBottom: 18,
+                              marginBottom: 12,
                             },
                             children: model.kicker,
                           },
                         }
                       : null,
-                    {
-                      type: 'div',
-                      props: {
-                        style: {
-                          fontSize: 30,
-                          fontWeight: 700,
-                          letterSpacing: 1.4,
-                          color: TEXT_PRIMARY,
-                        },
-                        children: 'FRONTALIERETICINO.CH',
-                      },
-                    },
+                    employerRow,
                     {
                       type: 'div',
                       props: {
@@ -425,20 +542,6 @@ function buildCardJsx(model: CardModel): unknown {
                               marginTop: 20,
                             },
                             children: model.subtitle,
-                          },
-                        }
-                      : null,
-                    model.company
-                      ? {
-                          type: 'div',
-                          props: {
-                            style: {
-                              fontSize: 32,
-                              fontWeight: 600,
-                              color: TEXT_MUTED,
-                              marginTop: 20,
-                            },
-                            children: truncateText(model.company, 52),
                           },
                         }
                       : null,
@@ -516,7 +619,8 @@ function ogPathForSlug(slug: string): string {
 }
 
 /**
- * The cache filename uses `slug` + `photoKey` + `OG_RENDER_VERSION`.
+ * The cache filename uses `slug` + `photoKey` + employer-logo fingerprint +
+ * `OG_RENDER_VERSION`.
  *
  * Why slug (not job.id, not a custom hash):
  * - The crawler `job.id` is URL-derived (sha1 of the source URL), so
@@ -531,15 +635,19 @@ function ogPathForSlug(slug: string): string {
  *   which makes debugging and one-off invalidation trivial
  *   (`rm .cache/og-jobs/aiuto-flessibile-tally-weijl-chur.*`).
  *
+ * - The employer-logo fingerprint changes when its path or bytes change,
+ *   so a corrected or replaced logo also gets a fresh raster.
+ *
  * Coverage gap: salary and employment-type edits DON'T change the slug
  * or photo key. Empirically <0.5 %/week of jobs (mostly translation
  * refinements) — accepted in exchange for simpler code and no separate
  * visual-hash maintenance.
  *
- * Cache filename: `<slug>.<photoKey>.<OG_RENDER_VERSION>.webp`
+ * Cache filename: `<slug>.<photoKey>.<logoFingerprint>.<OG_RENDER_VERSION>.webp`
  *
  * slug + photo + design stable → same filename → cache hit
  * title/company/city edit → new slug      → re-render
+ * logo path/asset change  → new fingerprint → re-render
  * design bump             → new version   → re-render
  *
  * Old cache entries (orphaned slugs) age out automatically via the
@@ -614,6 +722,8 @@ export default function jobOgImagesPlugin(): Plugin {
         console.warn('[job-og-images] generated workplace photos are missing — skipping OG images.');
         return;
       }
+      const companyLogosManifest = readCompanyLogosManifest(rootDir);
+      const companyLogoCache = new Map<string, CompanyLogoAsset>();
       const outRoot = path.join(rootDir, outDir, OUT_SUBDIR);
       const cacheRoot = path.join(rootDir, CACHE_SUBDIR);
       mkdirSync(outRoot, { recursive: true });
@@ -644,11 +754,15 @@ export default function jobOgImagesPlugin(): Plugin {
         }
         const outPath = path.join(rootDir, outDir, ogPathForSlug(slug));
         const { photoKey } = selectJobOgPhoto(job, slug);
+        const logoPath = job.companyKey
+          ? companyLogosManifest[job.companyKey]
+          : undefined;
+        const companyLogo = companyLogoAsset(rootDir, logoPath, companyLogoCache);
         // See the doc-comment above the deleted cacheKeyForJob for why
-        // we cache by slug + photo key + version (not job.id + visualHash).
+        // we cache by slug + photo key + employer-logo fingerprint + version.
         const cachePath = path.join(
           cacheRoot,
-          `${slug}.${photoKey}.${OG_RENDER_VERSION}.webp`,
+          `${slug}.${photoKey}.${companyLogo.cacheKey}.${OG_RENDER_VERSION}.webp`,
         );
 
         if (existsSync(cachePath)) {
@@ -666,6 +780,7 @@ export default function jobOgImagesPlugin(): Plugin {
           kicker: 'STIAMO ASSUMENDO',
           title: truncateText(italianTitle, 82),
           company: deriveCompany(job),
+          companyLogoDataUrl: companyLogo.dataUrl,
           city: deriveCity(job),
           salary: deriveSalary(job),
           employmentLabel: job.employmentType
@@ -708,6 +823,7 @@ export default function jobOgImagesPlugin(): Plugin {
             title: 'ANNUNCIO ARCHIVIATO',
             subtitle: 'Questa posizione non è più disponibile.',
             company: null,
+            companyLogoDataUrl: null,
             city: null,
             salary: null,
             employmentLabel: null,
@@ -838,7 +954,7 @@ export default function jobOgImagesPlugin(): Plugin {
       // previous version's cached files alongside the freshly-rendered ones.
       // Without cleanup the cache size grows by ~180 MB per version bump,
       // which both wastes the GitHub Actions cache budget and slows future
-      // restores. Filenames are `<slug>.<photoKey>.<OG_RENDER_VERSION>.<ext>` so we drop
+      // restores. Filenames end in `.<OG_RENDER_VERSION>.webp`, so we drop
       // any entry whose suffix doesn't match the current version+extension.
       const versionSuffixes = [
         `.${OG_RENDER_VERSION}.webp`,
