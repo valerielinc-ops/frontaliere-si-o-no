@@ -223,28 +223,27 @@ export function normalizeExpiredAtEntries(entries, opts = {}) {
   return repaired;
 }
 
-function routeValues(job = {}) {
-  const values = [
-    job.slug,
-    ...(job.slugByLocale && typeof job.slugByLocale === 'object' && !Array.isArray(job.slugByLocale)
-      ? Object.values(job.slugByLocale)
-      : []),
-    ...(Array.isArray(job.previousSlugs) ? job.previousSlugs : []),
-    ...(job.previousSlugsByLocale
-      && typeof job.previousSlugsByLocale === 'object'
-      && !Array.isArray(job.previousSlugsByLocale)
-      ? Object.values(job.previousSlugsByLocale).flatMap((slugs) => Array.isArray(slugs) ? slugs : [])
-      : []),
-  ];
-  return new Set(values.filter((value) => typeof value === 'string' && value.length > 0));
-}
-
 function hasExplicitlyDifferentSourceIdentity(expiredJob, activeJob) {
   const activeUrl = String(activeJob?.url ?? '').trim();
   if (!activeUrl) return false;
   const expiredIdentities = archiveRecordSourceIdentities(expiredJob);
   if (expiredIdentities.size === 0) return false;
   return !expiredIdentities.has(buildStableJobIdentity(activeJob));
+}
+
+function explicitArchiveSourceIdentities(record = {}) {
+  const identities = new Set();
+  const add = (value) => {
+    const identity = String(value ?? '').trim();
+    if (identity) identities.add(identity);
+  };
+  add(record.sourceIdentity);
+  for (const history of Array.isArray(record.sourceIdentityHistory)
+    ? record.sourceIdentityHistory
+    : []) {
+    add(history?.sourceIdentity);
+  }
+  return identities;
 }
 
 function collisionRouteSuffix(entry, route, attempt) {
@@ -282,16 +281,16 @@ export function repairExpiredRoutesAgainstActive(expiredJobs, activeJobs) {
 
   const activeRouteOwners = new Map();
   for (const activeJob of activeJobs) {
-    for (const route of routeValues(activeJob)) {
-      const owners = activeRouteOwners.get(route) || [];
+    for (const routeKey of localeRouteKeys(activeJob)) {
+      const owners = activeRouteOwners.get(routeKey) || [];
       if (!owners.includes(activeJob)) owners.push(activeJob);
-      activeRouteOwners.set(route, owners);
+      activeRouteOwners.set(routeKey, owners);
     }
   }
 
   const reservedRoutes = new Set(activeRouteOwners.keys());
   for (const expiredJob of expiredJobs) {
-    for (const route of routeValues(expiredJob)) reservedRoutes.add(route);
+    for (const routeKey of localeRouteKeys(expiredJob)) reservedRoutes.add(routeKey);
   }
 
   let changed = 0;
@@ -299,8 +298,8 @@ export function repairExpiredRoutesAgainstActive(expiredJobs, activeJobs) {
   const details = [];
   for (const expiredJob of expiredJobs) {
     if (!expiredJob || typeof expiredJob !== 'object') continue;
-    const conflictingRoutes = [...routeValues(expiredJob)].filter((route) => {
-      const owners = activeRouteOwners.get(route);
+    const conflictingRouteKeys = [...localeRouteKeys(expiredJob)].filter((routeKey) => {
+      const owners = activeRouteOwners.get(routeKey);
       if (!owners || owners.length === 0) return false;
       // If any active owner is provably the same posting, ghost reconciliation
       // owns this route and must be allowed to remove/merge it normally.
@@ -310,22 +309,25 @@ export function repairExpiredRoutesAgainstActive(expiredJobs, activeJobs) {
       return owners.every((owner) => hasExplicitlyDifferentSourceIdentity(expiredJob, owner));
     });
 
-    for (const route of conflictingRoutes) {
+    for (const routeKey of conflictingRouteKeys) {
+      const locale = localeFromRouteKey(routeKey);
+      const route = rawRouteFromLocaleKey(routeKey);
       let attempt = 0;
       let replacement;
       do {
         replacement = appendSlugDisambiguator(route, collisionRouteSuffix(expiredJob, route, attempt));
         attempt += 1;
-      } while (reservedRoutes.has(replacement));
+      } while (reservedRoutes.has(`${locale}:${replacement}`));
 
       if (!replaceSlugRouteEverywhere(expiredJob, route, replacement, {
         source: 'expired-jobs-archive.repairExpiredRoutesAgainstActive',
         reason: 'route collides with a distinct active posting',
+        locale,
       })) continue;
-      reservedRoutes.add(replacement);
+      reservedRoutes.add(`${locale}:${replacement}`);
       changed += 1;
       repairedRoutes += 1;
-      if (details.length < 20) details.push(`${route} → ${replacement}`);
+      if (details.length < 20) details.push(`${routeKey} → ${locale}:${replacement}`);
     }
   }
 
@@ -333,10 +335,15 @@ export function repairExpiredRoutesAgainstActive(expiredJobs, activeJobs) {
 }
 
 function hasExplicitlyDifferentArchiveIdentity(left, right) {
-  const leftIdentities = archiveRecordSourceIdentities(left);
-  const rightIdentities = archiveRecordSourceIdentities(right);
+  const leftIdentities = explicitArchiveSourceIdentities(left);
+  const rightIdentities = explicitArchiveSourceIdentities(right);
   if (leftIdentities.size === 0 || rightIdentities.size === 0) return false;
   return [...leftIdentities].every((identity) => !rightIdentities.has(identity));
+}
+
+function localeFromRouteKey(routeKey) {
+  const separator = String(routeKey).indexOf(':');
+  return separator > 0 ? String(routeKey).slice(0, separator) : 'it';
 }
 
 function rawRouteFromLocaleKey(routeKey) {
@@ -378,7 +385,7 @@ export function repairExpiredRoutesWithinArchive(
 
   const ordered = [...entries].sort(compareArchiveEntries);
   const owners = new Map();
-  const reservedRoutes = new Set(ordered.flatMap((entry) => [...routeValues(entry)]));
+  const reservedRoutes = new Set(ordered.flatMap((entry) => [...localeRouteKeys(entry)]));
   let changed = 0;
   let repairedRoutes = 0;
   const details = [];
@@ -386,26 +393,19 @@ export function repairExpiredRoutesWithinArchive(
   for (const entry of ordered) {
     if (!entry || typeof entry !== 'object' || !entry.companyKey) continue;
 
-    // Group by raw slug because the journal deliberately renames every
-    // occurrence across current and historical locale fields. If one locale
-    // occurrence is ambiguous, leave the raw slug untouched in all locales.
-    const conflictsByRawRoute = new Map();
+    const conflictingRouteKeys = [];
     for (const routeKey of localeRouteKeys(entry)) {
       const ownerKey = `${entry.companyKey}::${routeKey}`;
       const routeOwners = owners.get(ownerKey) || [];
       if (routeOwners.length === 0) continue;
-      const rawRoute = rawRouteFromLocaleKey(routeKey);
-      const current = conflictsByRawRoute.get(rawRoute) || [];
-      current.push(...routeOwners);
-      conflictsByRawRoute.set(rawRoute, current);
+      if (routeOwners.every((owner) => hasExplicitlyDifferentArchiveIdentity(entry, owner))) {
+        conflictingRouteKeys.push(routeKey);
+      }
     }
 
-    for (const [route, candidateOwners] of conflictsByRawRoute) {
-      const distinctOwners = [...new Set(candidateOwners)];
-      if (!distinctOwners.every((owner) => hasExplicitlyDifferentArchiveIdentity(entry, owner))) {
-        continue;
-      }
-
+    for (const routeKey of conflictingRouteKeys) {
+      const locale = localeFromRouteKey(routeKey);
+      const route = rawRouteFromLocaleKey(routeKey);
       let attempt = 0;
       let replacement;
       do {
@@ -414,17 +414,18 @@ export function repairExpiredRoutesWithinArchive(
           collisionRouteSuffix(entry, route, attempt),
         );
         attempt += 1;
-      } while (reservedRoutes.has(replacement));
+      } while (reservedRoutes.has(`${locale}:${replacement}`));
 
       if (!replaceSlugRouteEverywhere(entry, route, replacement, {
         source,
         reason: 'route collides with a distinct expired posting',
+        locale,
       })) continue;
 
-      reservedRoutes.add(replacement);
+      reservedRoutes.add(`${locale}:${replacement}`);
       changed += 1;
       repairedRoutes += 1;
-      if (details.length < 20) details.push(`${route} → ${replacement}`);
+      if (details.length < 20) details.push(`${routeKey} → ${locale}:${replacement}`);
     }
 
     for (const routeKey of localeRouteKeys(entry)) {

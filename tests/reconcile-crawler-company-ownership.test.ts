@@ -268,11 +268,11 @@ describe('issue #6759 reconciliation', () => {
     expect(result.repairedRoutes).toBe(1);
     expect(result.repairDetails).toHaveLength(1);
     expect(result.repairDetails[0]).toMatch(
-      new RegExp(`^${sharedHistory} → ${sharedHistory}-[0-9a-f]{8}$`),
+      new RegExp(`^it:${sharedHistory} → it:${sharedHistory}-[0-9a-f]{8}$`),
     );
     expect(result.capRefused).toBe(0);
     expect(result.finalCapRefused).toBe(0);
-    expect(older.previousSlugs[0]).toMatch(new RegExp(`^${sharedHistory}-[0-9a-f]{8}$`));
+    expect(older.previousSlugsByLocale.it[0]).toMatch(new RegExp(`^${sharedHistory}-[0-9a-f]{8}$`));
     expect(() => assertNoDuplicateRoutesWithin(result.entries, 'issue #17512')).not.toThrow();
 
     const repeat = collapseDuplicateRouteEntries(result.entries, { source: 'test/issue-17512' });
@@ -766,6 +766,36 @@ describe('issue #6759 reconciliation', () => {
     expect(result).toMatchObject({ collapsed: 1, rehomed: 1 });
     expect([...beforeRoutes].filter((route) => !afterRoutes.has(route))).toEqual([]);
     expect(result.jobs.every((entry) => entry.companyKey === 'canonical')).toBe(true);
+  });
+
+  it('keeps distinct source postings separate when their archive routes collide', () => {
+    const canonical = {
+      ...job('canonical', '1', 'same'),
+      expiredAt: '2026-10-02T00:00:00.000Z',
+      slugByLocale: { it: 'same' },
+      previousSlugs: [],
+      previousSlugsByLocale: {},
+      sourceIdentity: 'source:A',
+    };
+    const retired = {
+      ...job('retired', '2', 'same'),
+      expiredAt: '2026-10-01T00:00:00.000Z',
+      slugByLocale: { it: 'same' },
+      previousSlugs: [],
+      previousSlugsByLocale: {},
+      sourceIdentity: 'source:B',
+    };
+
+    const result = mergeRetiredCrawlerArchive([canonical], [retired], 'canonical');
+
+    expect(result).toMatchObject({
+      jobs: expect.any(Array),
+      collapsed: 0,
+      repairedRoutes: 1,
+    });
+    expect(result.jobs).toHaveLength(2);
+    expect(() => assertNoDuplicateRoutesWithin(result.jobs, 'distinct archive sources')).not.toThrow();
+    expect(result.jobs.map((entry) => entry.sourceIdentity).sort()).toEqual(['source:A', 'source:B']);
   });
 
   it('collapses matching aliases while preserving active and historical routes', () => {

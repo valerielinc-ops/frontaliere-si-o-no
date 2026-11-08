@@ -46,15 +46,40 @@ describe('repairExpiredRoutesAgainstActive', () => {
 
     const result = repairExpiredRoutesAgainstActive([expired], [active]);
 
-    expect(result.changed).toBe(1);
-    expect(result.repairedRoutes).toBe(1);
+    expect(result.changed).toBe(2);
+    expect(result.repairedRoutes).toBe(2);
     expect(expired.slug).toMatch(/^same-title-company-lugano-[0-9a-f]{8}$/);
     expect(expired.slugByLocale.it).toBe(expired.slug);
     expect(expired.slugByLocale.de).toBe(expired.slug);
-    expect(expired.previousSlugs).toEqual([expired.slug, 'expired-old']);
-    expect(expired.previousSlugsByLocale).toEqual({ it: [expired.slug], de: [expired.slug] });
+    expect(expired.previousSlugs).toEqual(['expired-old']);
+    expect(expired.previousSlugsByLocale).toEqual({
+      it: [expired.slug],
+      de: [expired.slug],
+      en: [COLLIDING_ROUTE],
+      fr: [COLLIDING_ROUTE],
+    });
     expect(active.slug).toBe(COLLIDING_ROUTE);
     expect(active.slugByLocale.de).toBe(COLLIDING_ROUTE);
+  });
+
+  it('repairs only the locale whose route collides with the active posting', () => {
+    const active = { ...activeJob(), slugByLocale: { it: COLLIDING_ROUTE } };
+    const expired = {
+      ...expiredJob(`url:${EXPIRED_URL}`),
+      slugByLocale: { it: COLLIDING_ROUTE, de: COLLIDING_ROUTE },
+      previousSlugs: [],
+      previousSlugsByLocale: { it: [COLLIDING_ROUTE], de: [COLLIDING_ROUTE] },
+    };
+
+    const result = repairExpiredRoutesAgainstActive([expired], [active]);
+
+    expect(result.repairedRoutes).toBe(1);
+    expect(expired.slugByLocale.it).not.toBe(COLLIDING_ROUTE);
+    expect(expired.slugByLocale.de).toBe(COLLIDING_ROUTE);
+    expect(expired.previousSlugsByLocale).toEqual({
+      it: [expired.slug],
+      de: [COLLIDING_ROUTE],
+    });
   });
 
   it('is deterministic and idempotent for the same source identity', () => {
@@ -68,7 +93,7 @@ describe('repairExpiredRoutesAgainstActive', () => {
     expect(second.slug).toBe(first.slug);
     expect(second.slugByLocale).toEqual(first.slugByLocale);
     expect(second.previousSlugs).toEqual(first.previousSlugs);
-    expect(secondResult.changed).toBe(1);
+    expect(secondResult.changed).toBe(2);
     expect(thirdResult.changed).toBe(0);
   });
 
@@ -109,7 +134,7 @@ describe('repairExpiredRoutesAgainstActive', () => {
       expect(published).toEqual(persisted);
       expect(published[0].slug).not.toBe(COLLIDING_ROUTE);
       expect(active.slug).toBe(COLLIDING_ROUTE);
-      expect(repair.repairedRoutes).toBe(1);
+      expect(repair.repairedRoutes).toBe(2);
     } finally {
       rmSync(root, { recursive: true, force: true });
     }

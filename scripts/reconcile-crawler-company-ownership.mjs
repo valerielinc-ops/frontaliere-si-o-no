@@ -177,13 +177,11 @@ export function mergeRetiredCrawlerArchive(canonicalJobs, retiredJobs, canonical
     company: canonicalCompany || job.company,
     companyKey: canonicalKey,
   }));
-  const canonicalRouteRepair = repairExpiredRoutesWithinArchive(normalizedCanonical, {
-    source: `${canonicalKey}.canonical-archive-route-repair`,
+  const normalized = [...normalizedCanonical, ...normalizedRetired];
+  const routeRepair = repairExpiredRoutesWithinArchive(normalized, {
+    source: `${canonicalKey}.archive-route-repair`,
   });
-  const retiredRouteRepair = repairExpiredRoutesWithinArchive(normalizedRetired, {
-    source: `${canonicalKey}.retired-archive-route-repair`,
-  });
-  const repairedRoutes = canonicalRouteRepair.repairedRoutes + retiredRouteRepair.repairedRoutes;
+  const repairedRoutes = routeRepair.repairedRoutes;
 
   const rebuildRouteOwners = () => {
     routeOwners = new Map();
