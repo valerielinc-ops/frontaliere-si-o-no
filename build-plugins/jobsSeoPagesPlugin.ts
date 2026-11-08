@@ -13966,10 +13966,16 @@ ${staticAnalyticsHtml}
   }
   expiredSitemapBuffer.length = 0;
  };
+ const expiredSitemapEntries = {
+  // Preserve the append contract while writing through the bounded buffer.
+  push(entry: string): void {
+   expiredSitemapBuffer.push(entry);
+   expiredSitemapEntryCount++;
+   if (expiredSitemapBuffer.length >= EXPIRED_SITEMAP_CHUNK_ENTRIES) flushExpiredSitemapBuffer();
+  },
+ };
  const appendExpiredSitemapEntries = (entries: string[]): void => {
-  for (const entry of entries) expiredSitemapBuffer.push(entry);
-  expiredSitemapEntryCount += entries.length;
-  if (expiredSitemapBuffer.length >= EXPIRED_SITEMAP_CHUNK_ENTRIES) flushExpiredSitemapBuffer();
+  for (const entry of entries) expiredSitemapEntries.push(entry);
  };
 
  // Pre-compute invariant HTML fragments for soft-landing pages (~69K pages).
