@@ -12840,12 +12840,12 @@
     },
     {
       "id": "lonza-e86f5582a60d",
-      "slug": "montagemechaniker-80-100-m-w-d-lonza-visp",
+      "slug": "meccanico-di-assemblaggio-80-100-m-f-d-lonza-visp",
       "slugByLocale": {
-        "it": "montagemechaniker-80-100-m-w-d-lonza-visp",
-        "en": "montagemechaniker-80-100-m-w-d-lonza-visp",
+        "it": "meccanico-di-assemblaggio-80-100-m-f-d-lonza-visp",
+        "en": "assembly-mechanic-80-100-m-f-d-lonza-visp",
         "de": "montagemechaniker-80-100-m-w-d-lonza-ch",
-        "fr": "montagemechaniker-80-100-m-w-d-lonza-visp"
+        "fr": "mecanicien-d-assemblage-80-100-h-f-d-lonza-visp"
       },
       "company": "Lonza",
       "companyKey": "lonza",
@@ -12888,11 +12888,19 @@
       "crawledAt": "2026-11-08T09:18:50.532Z",
       "jobReqId": "R80371",
       "previousSlugs": [
-        "montagemechaniker-80-100-m-w-d-lonza-ch"
+        "montagemechaniker-80-100-m-w-d-lonza-ch",
+        "montagemechaniker-80-100-m-w-d-lonza-visp"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "montagemechaniker-80-100-m-w-d-lonza-ch"
+          "montagemechaniker-80-100-m-w-d-lonza-ch",
+          "montagemechaniker-80-100-m-w-d-lonza-visp"
+        ],
+        "en": [
+          "montagemechaniker-80-100-m-w-d-lonza-visp"
+        ],
+        "fr": [
+          "montagemechaniker-80-100-m-w-d-lonza-visp"
         ]
       },
       "firstSeenAt": "2026-10-28T09:20:57.623Z",
@@ -13825,7 +13833,7 @@
       "slug": "operatore-m-f-d-80-100-lonza-stein",
       "slugByLocale": {
         "it": "operatore-m-f-d-80-100-lonza-stein",
-        "en": "operatore-m-f-d-80-100-lonza-stein",
+        "en": "operator-bottling-m-f-d-80-100-lonza-stein",
         "de": "operator-m-f-d-80-100-lonza-ch",
         "fr": "operateur-m-f-d-80-100-lonza-stein"
       },

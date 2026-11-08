@@ -52148,7 +52148,7 @@
       "streetAddress": "Bellinzona",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "translationHoldSince": "2026-11-07T09:49:19.558Z"
+      "translationHoldReleasedAt": "2026-11-08T17:59:46.209Z"
     },
     {
       "id": "seco-jobroom-0b3e9402-35fe-410a-b752-6a6d62cd96dc",
@@ -75951,7 +75951,7 @@
       "streetAddress": "Martigny",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "translationHoldSince": "2026-10-31T22:01:23.865Z"
+      "translationHoldReleasedAt": "2026-11-08T17:59:46.209Z"
     },
     {
       "id": "seco-jobroom-4c90ad54-9d51-4ad1-a1df-bb44270eace7",
@@ -119878,7 +119878,7 @@
       "slug": "addetto-alle-pulizie-hirschberg-ag-zermatt-ae05c672",
       "slugByLocale": {
         "it": "addetto-alle-pulizie-hirschberg-ag-zermatt-ae05c672",
-        "en": "housekeeping-attendant-hirschberg-ag-zermatt-ae05c672",
+        "en": "house-sixteenth-hirschberg-ag-zermatt-ae05c672",
         "de": "housekeeping-attendant-hirschberg-ag-zermatt-ae05c672",
         "fr": "agent-de-nettoyage-hirschberg-ag-zermatt-ae05c672"
       },
@@ -119936,6 +119936,9 @@
         ],
         "fr": [
           "housekeeping-attendant-hirschberg-ag-zermatt-ae05c672"
+        ],
+        "en": [
+          "housekeeping-attendant-hirschberg-ag-zermatt-ae05c672"
         ]
       },
       "firstSeenAt": "2026-10-31T22:00:02.073Z",
@@ -119954,7 +119957,7 @@
       },
       "streetAddressSource": "listing-source",
       "validThroughSource": "source",
-      "translationHoldSince": "2026-10-31T22:01:23.865Z"
+      "translationHoldReleasedAt": "2026-11-08T17:59:46.209Z"
     },
     {
       "id": "seco-jobroom-b3c3d8c7-af4e-4158-86a6-c0372a2fd5ce",
@@ -147966,7 +147969,7 @@
       "streetAddress": "Martigny",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "translationHoldSince": "2026-10-31T22:01:23.865Z"
+      "translationHoldReleasedAt": "2026-11-08T17:59:46.209Z"
     },
     {
       "id": "seco-jobroom-4d6c4658-de5e-447d-b31d-18718a00dca8",
@@ -160478,7 +160481,7 @@
         "it": "ebeniste-cfc-h-f-adecco-orsieres-2afcfb57",
         "en": "ebeniste-cfc-h-f-adecco-orsieres-2afcfb57",
         "de": "ebeniste-cfc-h-f-adecco-orsieres-2afcfb57",
-        "fr": "ebeniste-cfc-h-f-adecco-orsieres-2afcfb57"
+        "fr": "eb-cist-cfc-h-f-adecco-orsieres-2afcfb57"
       },
       "slugDisambiguator": "2afcfb57",
       "company": "Adecco",
@@ -160541,7 +160544,7 @@
       "streetAddress": "Orsières",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "translationHoldSince": "2026-10-31T22:01:23.865Z"
+      "translationHoldReleasedAt": "2026-11-08T17:59:46.209Z"
     },
     {
       "id": "seco-jobroom-2b1f950f-6121-4b1a-8e05-bfc43c8d8a92",
@@ -162210,9 +162213,9 @@
     },
     {
       "id": "seco-jobroom-37d1e7ed-662c-47b5-a918-dcd386236dc3",
-      "slug": "carpentiere-tetti-afc-adecco-locarno-37d1e7ed",
+      "slug": "carpentieri-afc-afc-adecco-locarno-37d1e7ed",
       "slugByLocale": {
-        "it": "carpentiere-tetti-afc-adecco-locarno-37d1e7ed",
+        "it": "carpentieri-afc-afc-adecco-locarno-37d1e7ed",
         "en": "roof-carpenter-afc-adecco-locarno-37d1e7ed",
         "de": "carpentiere-tetti-afc-adecco-locarno-37d1e7ed",
         "fr": "charpentier-de-toiture-cfc-adecco-locarno-37d1e7ed"
@@ -162278,13 +162281,21 @@
       "streetAddress": "Locarno",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "translationHoldSince": "2026-10-31T22:01:23.865Z"
+      "translationHoldReleasedAt": "2026-11-08T17:59:46.209Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "carpentiere-tetti-afc-adecco-locarno-37d1e7ed"
+        ]
+      },
+      "previousSlugs": [
+        "carpentiere-tetti-afc-adecco-locarno-37d1e7ed"
+      ]
     },
     {
       "id": "seco-jobroom-38b0e4f0-3067-485e-acc9-dd6c5043f047",
-      "slug": "meccanico-industriale-polimeccanico-meccanico-di-produzione-adecco-locarno-38b0e4f0",
+      "slug": "mecca-nicoindustriale-polimecca-nico-mecca-nico-di-produtione-adecco-locarno-38b0e4f0",
       "slugByLocale": {
-        "it": "meccanico-industriale-polimeccanico-meccanico-di-produzione-adecco-locarno-38b0e4f0",
+        "it": "mecca-nicoindustriale-polimecca-nico-mecca-nico-di-produtione-adecco-locarno-38b0e4f0",
         "en": "meccanico-industriale-polimeccanico-meccanico-di-produzione-adecco-locarno-38b0e4f0",
         "de": "meccanico-industriale-polimeccanico-meccanico-di-produzione-adecco-locarno-38b0e4f0",
         "fr": "meccanico-industriale-polimeccanico-meccanico-di-produzione-adecco-locarno-38b0e4f0"
@@ -162350,7 +162361,15 @@
       "streetAddress": "Locarno",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "translationHoldSince": "2026-10-31T22:01:23.865Z"
+      "translationHoldReleasedAt": "2026-11-08T17:59:46.209Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "meccanico-industriale-polimeccanico-meccanico-di-produzione-adecco-locarno-38b0e4f0"
+        ]
+      },
+      "previousSlugs": [
+        "meccanico-industriale-polimeccanico-meccanico-di-produzione-adecco-locarno-38b0e4f0"
+      ]
     },
     {
       "id": "seco-jobroom-3984e372-4bda-4b70-8e39-fffe081cdc7b",
@@ -165522,7 +165541,7 @@
         "it": "ebeniste-cfc-h-f-adecco-le-chable-5af95015",
         "en": "ebeniste-cfc-h-f-adecco-le-chable-5af95015",
         "de": "ebeniste-cfc-h-f-adecco-le-chable-5af95015",
-        "fr": "ebeniste-cfc-h-f-adecco-le-chable-5af95015"
+        "fr": "eb-cist-cfc-h-f-adecco-le-chable-5af95015"
       },
       "slugDisambiguator": "5af95015",
       "company": "Adecco",
@@ -165585,7 +165604,7 @@
       "streetAddress": "Le Châble",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "translationHoldSince": "2026-10-31T22:01:23.865Z"
+      "translationHoldReleasedAt": "2026-11-08T17:59:46.209Z"
     },
     {
       "id": "seco-jobroom-5c296eaa-9d7e-4180-b9ec-2fcac5207324",
@@ -165594,7 +165613,7 @@
         "it": "ebeniste-cfc-h-f-adecco-riddes-5c296eaa",
         "en": "ebeniste-cfc-h-f-adecco-riddes-5c296eaa",
         "de": "ebeniste-cfc-h-f-adecco-riddes-5c296eaa",
-        "fr": "ebeniste-cfc-h-f-adecco-riddes-5c296eaa"
+        "fr": "eb-cist-cfc-h-f-adecco-riddes-5c296eaa"
       },
       "slugDisambiguator": "5c296eaa",
       "company": "Adecco",
@@ -165657,7 +165676,7 @@
       "streetAddress": "Riddes",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "translationHoldSince": "2026-10-31T22:01:23.865Z"
+      "translationHoldReleasedAt": "2026-11-08T17:59:46.209Z"
     },
     {
       "id": "seco-jobroom-5c9d0395-05f2-44ad-a07c-ce8c6b6c2693",
@@ -166420,7 +166439,7 @@
         "it": "ebeniste-cfc-h-f-adecco-martigny-666e9ff5",
         "en": "ebeniste-cfc-h-f-adecco-martigny-666e9ff5",
         "de": "ebeniste-cfc-h-f-adecco-martigny-666e9ff5",
-        "fr": "ebeniste-cfc-h-f-adecco-martigny-666e9ff5"
+        "fr": "eb-cist-cfc-h-f-adecco-martigny-666e9ff5"
       },
       "slugDisambiguator": "666e9ff5",
       "company": "Adecco",
@@ -166483,7 +166502,7 @@
       "streetAddress": "Martigny",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "translationHoldSince": "2026-10-31T22:01:23.865Z"
+      "translationHoldReleasedAt": "2026-11-08T17:59:46.209Z"
     },
     {
       "id": "seco-jobroom-6800a1f5-89d1-4757-8899-753e28cfde50",
@@ -166897,7 +166916,7 @@
         "it": "ebeniste-cfc-h-f-adecco-vernayaz-6cb1788c",
         "en": "ebeniste-cfc-h-f-adecco-vernayaz-6cb1788c",
         "de": "ebeniste-cfc-h-f-adecco-vernayaz-6cb1788c",
-        "fr": "ebeniste-cfc-h-f-adecco-vernayaz-6cb1788c"
+        "fr": "eb-cist-cfc-h-f-adecco-vernayaz-6cb1788c"
       },
       "slugDisambiguator": "6cb1788c",
       "company": "Adecco",
@@ -166960,7 +166979,7 @@
       "streetAddress": "Vernayaz",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "translationHoldSince": "2026-10-31T22:01:23.865Z"
+      "translationHoldReleasedAt": "2026-11-08T17:59:46.209Z"
     },
     {
       "id": "seco-jobroom-6d4b36d7-efaa-453a-a014-8f0a6eb3cbe8",
@@ -174204,7 +174223,7 @@
         "it": "ebeniste-cfc-h-f-adecco-fully-ca354aa3",
         "en": "ebeniste-cfc-h-f-adecco-fully-ca354aa3",
         "de": "ebeniste-cfc-h-f-adecco-fully-ca354aa3",
-        "fr": "ebeniste-cfc-h-f-adecco-fully-ca354aa3"
+        "fr": "eb-cist-cfc-h-f-adecco-fully-ca354aa3"
       },
       "slugDisambiguator": "ca354aa3",
       "company": "Adecco",
@@ -174267,7 +174286,7 @@
       "streetAddress": "Fully",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "translationHoldSince": "2026-10-31T22:01:23.865Z"
+      "translationHoldReleasedAt": "2026-11-08T17:59:46.209Z"
     },
     {
       "id": "seco-jobroom-cb893757-a44a-42cd-ab27-95ee408bf279",
@@ -177305,7 +177324,7 @@
       },
       "streetAddressSource": "listing-source",
       "validThroughSource": "source",
-      "translationHoldSince": "2026-10-31T22:01:23.865Z"
+      "translationHoldReleasedAt": "2026-11-08T17:59:46.209Z"
     },
     {
       "id": "seco-jobroom-e559abf9-a7a7-416c-bd10-7412d4e67b47",
@@ -189045,7 +189064,7 @@
       "slug": "shift-supervisore-sion-holy-cow-gourmet-burger-company-sa-sion-9272a4b9",
       "slugByLocale": {
         "it": "shift-supervisore-sion-holy-cow-gourmet-burger-company-sa-sion-9272a4b9",
-        "en": "shift-supervisor-sion-holy-cow-gourmet-burger-company-sa-sion-9272a4b9",
+        "en": "shift-kit-v-sion-holy-cow-gourmet-burger-company-sa-sion-9272a4b9",
         "de": "shift-vorgesetzter-sion-holy-cow-gourmet-burger-company-sa-sion-9272a4b9",
         "fr": "shift-supervisor-sion-holy-cow-gourmet-burger-company-sa-sion-9272a4b9"
       },
@@ -189102,6 +189121,9 @@
         ],
         "de": [
           "shift-supervisor-sion-holy-cow-gourmet-burger-company-sa-sion-9272a4b9"
+        ],
+        "en": [
+          "shift-supervisor-sion-holy-cow-gourmet-burger-company-sa-sion-9272a4b9"
         ]
       },
       "firstSeenAt": "2026-10-31T22:00:02.073Z",
@@ -189121,8 +189143,8 @@
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "last-observed-window",
-      "translationHoldSince": "2026-10-31T22:01:23.865Z",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 1,
+      "translationHoldReleasedAt": "2026-11-08T17:59:46.209Z"
     },
     {
       "id": "seco-jobroom-97708b68-4f03-4394-8bdc-097b65f84a05",
