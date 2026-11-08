@@ -809,25 +809,6 @@ export function titleCompareKey(s: string): string {
  return String(s || '').replace(/\s+/g, ' ').trim().toLowerCase();
 }
 
-/**
- * Compact fingerprint for the build-lifetime title-uniqueness registry.
- * Equal normalized titles always have the same fingerprint. A hash collision
- * can only conservatively add a disambiguator; it cannot let a duplicate pass.
- */
-function titleCompareFingerprint(s: string): string {
- const normalized = titleCompareKey(s);
- let first = 0x811c9dc5;
- let second = 0x9e3779b9;
- for (let i = 0; i < normalized.length; i++) {
-  const code = normalized.charCodeAt(i);
-  first ^= code;
-  first = Math.imul(first, 0x01000193) >>> 0;
-  second ^= code;
-  second = Math.imul(second, 0x85ebca6b) >>> 0;
- }
- return `${first.toString(16).padStart(8, '0')}${second.toString(16).padStart(8, '0')}`;
-}
-
 /** Compose H1: job title + company only (no city, no brand). */
 export function composeJobPageH1(jobTitle: string, company: string): string {
  const cleanCompany = (company || '').trim();
@@ -3479,8 +3460,6 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  // `claimUniqueTitle` registers every emitted title per locale; on a clash
  // it recomposes with the caller-supplied disambiguator chain, ending in a
  // deterministic `rif. {fnv8(slug)}` + numeric bump that can never collide.
- // The archive sweep can register close to one million titles; retain compact
- // fingerprints instead of the full normalized strings in this build-lifetime set.
  const claimedTitlesByLocale: Record<'it' | 'en' | 'de' | 'fr', Set<string>> = {
  it: new Set(), en: new Set(), de: new Set(), fr: new Set(),
  };
@@ -3493,7 +3472,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  ): string => {
  const seen = claimedTitlesByLocale[locale];
  const emittedTitleKey = (candidate: string): string =>
-  titleCompareFingerprint(finalizeJobBoardTitle(candidate, TITLE_MAX_CHARS, (s) => esc(s).length));
+  titleCompareKey(finalizeJobBoardTitle(candidate, TITLE_MAX_CHARS, (s) => esc(s).length));
  let candidate = title;
  let candidateKey = emittedTitleKey(candidate);
  if (seen.has(candidateKey)) {
