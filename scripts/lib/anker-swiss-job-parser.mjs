@@ -17,7 +17,7 @@ import { detectLang } from './dedicated-crawler-common.mjs';
 import { stripHtml } from './crawler-template.mjs';
 import { extractDetailFields } from './prospector/extract.mjs';
 import { buildSlug as buildCanonicalSlug } from './regenerate-slugs-helpers.mjs';
-import { loadSpec, runSpecInProduction } from './prospector/spec-crawler.mjs';
+import { copySpecFetchMetadata, loadSpec, runSpecInProduction } from './prospector/spec-crawler.mjs';
 import { resolveSourceBackedSwissGeography } from './prospector/location-evidence.mjs';
 import { classifyCountryValue } from './prospector/country-inventory.mjs';
 import { lookupSwissPostalCode } from './swiss-postal-code.mjs';
@@ -292,7 +292,7 @@ export async function fetchAllAnkerSwissJobs() {
   const listings = await fetchJobListings();
   if (!listings || listings.length === 0) {
     console.warn('⚠️ No job listings returned.');
-    return [];
+    return copySpecFetchMetadata([], listings || []);
   }
 
   console.log(`  📋 Listings found: ${listings.length}`);
@@ -404,5 +404,5 @@ export async function fetchAllAnkerSwissJobs() {
     throw new Error(`Anker Swiss source returned ${listings.length} listings but no source-backed Swiss job was publishable`);
   }
   console.log(`\n📋 Total Anker Swiss Ticino AG jobs discovered: ${jobs.length}`);
-  return jobs;
+  return copySpecFetchMetadata(jobs, listings || []);
 }

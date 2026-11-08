@@ -1,0 +1,25 @@
+{
+  "companyKey": "procap-ch",
+  "companyName": "Procap Schweiz",
+  "companyHost": "procap.ch",
+  "verifiedEmployerDomain": "procap.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://www.procap.ch/ueber-uns/jobs/"
+  ],
+  "detailTemplate": "/fileadmin/files/procap/ueber_uns/Dokumente/Jobs/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 3,
+  "sampleTitles": [
+    "Praktikum im Bereich Sozialpolitik (60 – 80%) (pdf 167 KB )",
+    "Controller 80% (a) (pdf 105 KB )",
+    "Secrétaire juridique (H/F) 80% (pdf 84 KB )"
+  ],
+  "canton": "VD",
+  "sourceLang": "de",
+  "learnedAt": "2026-11-07T12:48:03.931Z",
+  "candidateKey": "procap@lausanne"
+}

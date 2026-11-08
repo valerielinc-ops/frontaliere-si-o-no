@@ -483,8 +483,22 @@ function hasConflictingUmantisVacancyRoute(applyUrl, candidates) {
   if (!application) return false;
   return candidates.some((candidate) => {
     const route = umantisVacancyRoute(candidate);
-    return route?.origin === application.origin && route.vacancyId !== application.vacancyId;
+    return route && (route.origin !== application.origin || route.vacancyId !== application.vacancyId);
   });
+}
+
+/**
+ * A direct Umantis form still carries the selected vacancy in its own route.
+ * Submit-time liveness can retain the published site URL (or the Application/New
+ * URL itself) instead of the Description route, so recover the same-origin
+ * posting address for route binding. An explicit different Umantis vacancy stays
+ * authoritative and is never rewritten into a match.
+ */
+function umantisFormPostingUrl(pageUrl, postingUrl) {
+  const inferred = umantisPostingAddressFromApplication(pageUrl);
+  const saved = String(postingUrl || '').trim();
+  if (!inferred || hasConflictingUmantisVacancyRoute(pageUrl, [saved])) return saved;
+  return inferred;
 }
 
 /**
@@ -2668,7 +2682,8 @@ export function formPostingMatch(formText, job = {}, {
   postingRouteProof = null,
 } = {}) {
   const direct = postingMatch(formText, job, pageUrl);
-  const bound = isPostingRouteBound({ pageUrl, postingUrl, postingRouteProof });
+  const formPostingUrl = umantisFormPostingUrl(pageUrl, postingUrl);
+  const bound = isPostingRouteBound({ pageUrl, postingUrl: formPostingUrl, postingRouteProof });
   // A source-backed SuccessFactors module must still carry the requisition
   // captured from that posting. Do not let its employer query alone turn a
   // different or incomplete `/career` route into a generic form match.
@@ -2680,7 +2695,7 @@ export function formPostingMatch(formText, job = {}, {
   // labels that describe the application itself.
   const heading = String(formText || '').split(/\r?\n/, 1)[0];
   const boundUmantisApplication = bound && isUmantisApplicationRoute(pageUrl)
-    && isUmantisPostingEntry({ applyUrl: pageUrl, postingUrl });
+    && isUmantisPostingEntry({ applyUrl: pageUrl, postingUrl: formPostingUrl });
   if (boundUmantisApplication) {
     if (namesAnotherEmployer(heading, job)) return 'mismatch';
     return 'match';
@@ -2689,8 +2704,8 @@ export function formPostingMatch(formText, job = {}, {
   // exposes only site chrome (for example, Stadt Zürich's «Sprache» control).
   // Do not apply this to another page on the same host: route identity must be
   // exact, and an apply route still goes through the employer-conflict guard.
-  if (bound && samePostingAddress(pageUrl, postingUrl)) {
-    if (namesAnotherEmployer(boundPostingConflictText(formText, job, { pageUrl, postingUrl }), job, { allowPostingLocation: true })) return 'mismatch';
+  if (bound && samePostingAddress(pageUrl, formPostingUrl)) {
+    if (namesAnotherEmployer(boundPostingConflictText(formText, job, { pageUrl, postingUrl: formPostingUrl }), job, { allowPostingLocation: true })) return 'mismatch';
     return 'match';
   }
   if (direct !== 'mismatch' || !postingMatched) return direct;
@@ -2910,6 +2925,9 @@ function questionsFrom(missingRequired, stableQuestionIds = new Map()) {
       : Array.isArray(item.applicationOptions) && item.applicationOptions.length
         ? item.applicationOptions
         : item.options || []).map((option) => String(option || '').trim()).filter(Boolean);
+    const applicationOptionValues = Array.isArray(item.applicationOptionValues)
+      ? item.applicationOptionValues.map((value) => String(value || '').trim())
+      : [];
     const options = (Array.isArray(item.options) ? item.options : []).map((option) => String(option || '').trim()).filter(Boolean);
     const optionMap = portalOptionMap({ options, applicationOptions, optionMap: item.optionMap });
     questions.push({
@@ -2918,6 +2936,8 @@ function questionsFrom(missingRequired, stableQuestionIds = new Map()) {
       applicationQuestion,
       ...(readableQuestionCandidate(item.candidatePrompt) ? { candidatePrompt: readableQuestionCandidate(item.candidatePrompt) } : {}),
       ...(applicationOptions.length ? { applicationOptions } : {}),
+      ...(applicationOptions.length > 0 && applicationOptionValues.length === applicationOptions.length && applicationOptionValues.every(Boolean)
+        ? { applicationOptionValues } : {}),
       ...(optionMap.length ? { optionMap } : {}),
       ...(item.context ? { context: String(item.context).slice(0, 240) } : {}),
       ...(item.section ? { section: String(item.section).slice(0, 240) } : {}),
@@ -3075,6 +3095,27 @@ function fallbackOption(option, language) {
   if (OPTION_FALLBACK_MARKERS.no.includes(normalized)) return fallback.no;
   if (OPTION_FALLBACK_MARKERS.placeholder.includes(normalized)) return fallback.placeholder;
   return text;
+}
+
+const REGION_CODE_RE = /^[A-Z]{2}$/;
+const REGION_LABEL_CACHE = new Map();
+
+function localizedRegionLabel(code, language) {
+  const normalizedCode = String(code || '').trim().toUpperCase();
+  if (!REGION_CODE_RE.test(normalizedCode)) return '';
+  const cacheKey = [language, normalizedCode].join(':');
+  if (REGION_LABEL_CACHE.has(cacheKey)) return REGION_LABEL_CACHE.get(cacheKey);
+  let label = '';
+  try {
+    if (typeof Intl.DisplayNames === 'function') {
+      const display = new Intl.DisplayNames([language], { type: 'region' }).of(normalizedCode);
+      label = display && display !== normalizedCode ? String(display).trim() : '';
+    }
+  } catch {
+    label = '';
+  }
+  REGION_LABEL_CACHE.set(cacheKey, label);
+  return label;
 }
 
 function optionsMatchCandidateLanguage(options, candidateLanguage) {
@@ -3310,6 +3351,11 @@ function deterministicItalianCountryOption(option, key) {
   const text = String(option || '').trim();
   if (!text) return null;
   const normalized = normalizedQuestionText(text);
+  // Umantis separates sections in its Italian country catalogue with a
+  // non-selectable rule. It carries no candidate meaning, so preserve it
+  // verbatim instead of sending an otherwise verified catalogue to the
+  // provider. Do not treat arbitrary unknown labels as Italian options.
+  if (/^[-\u2013\u2014_=]{3,}$/.test(text)) return text;
   if (OPTION_FALLBACK_MARKERS.placeholder.includes(normalized)
     && OPTION_LANGUAGE_MARKERS.it.includes(normalized)) return text;
   const italianRegion = localizedRegionOption(text, 'it');
@@ -3337,11 +3383,25 @@ function deterministicItalianOptionsMatch(label, options) {
   return options.every((option) => catalogue.has(normalizedQuestionText(option)));
 }
 
-function deterministicGermanOption(option, entry, language) {
+function deterministicGermanOption(option, entry, language, applicationOptionValue = '') {
   const text = String(option || '').trim();
   const normalized = normalizedQuestionText(text);
   const known = DETERMINISTIC_GERMAN_OPTION_COPIES[entry.key]?.[normalized]?.[language];
   if (known) return known;
+  const codeFromValue = String(applicationOptionValue || '').trim().toUpperCase();
+  const verifiedCodeFromValue = REGION_CODE_RE.test(codeFromValue)
+    ? regionCodeForOption(codeFromValue)
+    : '';
+  if (entry.key === 'nationality' && verifiedCodeFromValue) {
+    const localized = nationalityLabelOf(verifiedCodeFromValue, language);
+    if (localized) return localized;
+    const region = localizedRegionLabel(verifiedCodeFromValue, language);
+    if (region) return region;
+  }
+  if (entry.key === 'country' && verifiedCodeFromValue) {
+    const localized = localizedRegionLabel(verifiedCodeFromValue, language);
+    if (localized) return localized;
+  }
   if (entry.key === 'country' || entry.key === 'nationality') {
     const region = localizedGermanRegionOption(text, language);
     if (region) return region;
@@ -3352,7 +3412,7 @@ function deterministicGermanOption(option, entry, language) {
   }
   const booleanOrPlaceholder = fallbackOption(text, language);
   if (booleanOrPlaceholder !== text) return booleanOrPlaceholder;
-  if (/^\d{1,4}$/.test(text)) return text;
+  if (/^\d{1,4}\.?$/.test(text)) return text;
   return null;
 }
 
@@ -3364,7 +3424,9 @@ function deterministicGermanLocalization(item, language) {
   const applicationOptions = (Array.isArray(item.applicationOptions) && item.applicationOptions.length
     ? item.applicationOptions
     : item.options || []).map((option) => String(option || '').trim()).filter(Boolean);
-  const candidateOptions = applicationOptions.map((option) => deterministicGermanOption(option, entry, language));
+  const applicationOptionValues = Array.isArray(item.applicationOptionValues) && item.applicationOptionValues.length === applicationOptions.length
+    ? item.applicationOptionValues : [];
+  const candidateOptions = applicationOptions.map((option, index) => deterministicGermanOption(option, entry, language, applicationOptionValues[index]));
   // A known label is safe to translate, but an unknown option is not: keep
   // the old fail-closed behavior instead of showing a mixed-language choice.
   if (candidateOptions.some((option) => !option)) return null;
@@ -6413,11 +6475,15 @@ export function portalRequirementsFromMissingRequired(fields, missingRequired, {
           unreadableFields.push(field?.id || item.fieldId || 'unknown');
           continue;
         }
-        const applicationOptions = (field ? editableCombobox(field) ? [] : field.options || [] : item.applicationOptions || item.options || [])
-          .filter(portalUsableChoiceOption)
+        const liveOptions = field ? editableCombobox(field) ? [] : field.options || [] : item.applicationOptions || item.options || [];
+        const readableOptions = liveOptions.filter(portalUsableChoiceOption);
+        const applicationOptions = readableOptions
           .map((option) => typeof option === 'string' ? option : option?.label)
           .map((option) => String(option || '').trim())
           .filter(Boolean);
+        const applicationOptionValues = field && readableOptions.length === applicationOptions.length
+          && readableOptions.every(option => typeof option !== 'string' && String(option?.value || '').trim())
+          ? readableOptions.map(option => String(option.value).trim()) : [];
         const nativeChoiceField = Boolean(field && fieldRequiresNativeOptions(field) && (
           ['select', 'radio', 'listbox'].includes(field.kind)
           || field.selectLike === true
@@ -6455,6 +6521,7 @@ export function portalRequirementsFromMissingRequired(fields, missingRequired, {
           validation: field && (type !== item.type || ['choice', 'yes_no'].includes(type)) ? {} : item.validation,
           required: true,
           applicationOptions,
+          ...(applicationOptionValues.length ? { applicationOptionValues } : {}),
           applicationOptionsKnown: Boolean(field),
           options: field
             ? optionMap.length

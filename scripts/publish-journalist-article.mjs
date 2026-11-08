@@ -90,6 +90,85 @@ const CATEGORIES = ['fiscale', 'pratico', 'novita', 'pensione'];
 const STATIC_FALLBACK_IMAGE = 'lugano-view.webp';
 
 const BLOG_IMAGE_HARD_MAX_BYTES = 320 * 1024; // matches create-article.mjs's BLOG_IMAGE_HARD_MAX_BYTES
+const JOURNALIST_IMAGE_CATALOG_PATH = path.join(PROJECT_ROOT, 'public', 'data', 'journalist-image-catalog.json');
+const CATALOG_IMAGE_PATH_RE = /^\/images\/blog\/[a-z0-9][a-z0-9._-]*\.webp$/i;
+const RESPONSE_BODY_RELEASE_TIMEOUT_MS = 1000;
+
+function readJournalistImageCatalog() {
+  try {
+    const catalog = JSON.parse(fs.readFileSync(JOURNALIST_IMAGE_CATALOG_PATH, 'utf8'));
+    return Array.isArray(catalog) ? catalog : [];
+  } catch {
+    return [];
+  }
+}
+
+/** A catalog path is trusted only when its record and committed file exist. */
+function hasCatalogImageRecord(imagePath, catalog = readJournalistImageCatalog()) {
+  if (typeof imagePath !== 'string'
+    || !CATALOG_IMAGE_PATH_RE.test(imagePath)
+    || !Array.isArray(catalog)) {
+    return false;
+  }
+
+  try {
+    if (!fs.statSync(path.join(PROJECT_ROOT, 'public', imagePath.slice(1))).isFile()) return false;
+  } catch {
+    return false;
+  }
+
+  return catalog.some((entry) => entry?.path === imagePath
+    && Array.isArray(entry.words)
+    && entry.words.some((word) => typeof word === 'string' && word.trim().length >= 4));
+}
+
+function isImageContentType(contentType) {
+  const mediaType = String(contentType || '').split(';', 1)[0].trim().toLowerCase();
+  return mediaType.startsWith('image/');
+}
+
+/** Keep a response body from remaining open after a rejected or consumed fetch. */
+async function releaseResponseBody(response) {
+  const body = response?.body;
+  if (!body || typeof body.cancel !== 'function') return;
+
+  let timer;
+  try {
+    await Promise.race([
+      Promise.resolve().then(() => body.cancel()),
+      new Promise((resolve) => {
+        timer = setTimeout(resolve, RESPONSE_BODY_RELEASE_TIMEOUT_MS);
+      }),
+    ]);
+  } catch {
+    // The body is already being discarded; release failure must not turn a
+    // per-article image rejection into a queue-wide failure.
+  } finally {
+    if (timer) clearTimeout(timer);
+  }
+}
+
+async function readRemoteImageBuffer(response) {
+  try {
+    const contentType = response?.headers?.get?.('content-type');
+    if (!isImageContentType(contentType)) {
+      throw new Error(`downloaded hero image has non-image content-type: ${contentType || '<missing>'}`);
+    }
+    if (typeof response?.arrayBuffer !== 'function') {
+      throw new Error('downloaded hero image has no readable body');
+    }
+    const bytes = Buffer.from(await response.arrayBuffer());
+    if (bytes.length === 0) throw new Error('downloaded hero image is empty');
+    return bytes;
+  } finally {
+    await releaseResponseBody(response);
+  }
+}
+
+export function isImageWithinHardCap(bytesOrSize) {
+  const size = typeof bytesOrSize === 'number' ? bytesOrSize : bytesOrSize?.length;
+  return Number.isInteger(size) && size > 0 && size <= BLOG_IMAGE_HARD_MAX_BYTES;
+}
 
 async function initDb() {
   if (!getApps().length) {
@@ -184,24 +263,32 @@ async function deriveJournalistContent(data, rawBody) {
 
 /** Resolve the hero image: a journalist's custom Storage upload wins; falls
  * back to the SAME keyword-match / static fallback the AI pipeline uses. */
-async function resolveHeroImage(data, doc) {
+async function resolveHeroImage(data, doc, options = {}) {
   const rawImage = String(doc.image || '').trim();
+  const catalog = options.catalogEntries ?? readJournalistImageCatalog();
   // A catalog pick from the local, non-AI cover-image picker: already an
   // optimized webp sitting in public/images/blog — reuse it as-is, exactly
   // like findBestFallbackImage()'s own results below (no download/reprocess).
-  if (/^\/images\//.test(rawImage)) {
+  if (hasCatalogImageRecord(rawImage, catalog)) {
     data._generatedImagePath = rawImage;
     return { source: 'catalog-pick', path: rawImage };
   }
+  if (/^\/images\//.test(rawImage)) {
+    console.warn(`  ⚠️  unregistered local hero image rejected: ${rawImage}`);
+  }
   if (/^https?:\/\//i.test(rawImage)) {
+    let destPath;
     try {
       const res = await fetch(rawImage, { signal: AbortSignal.timeout(20000) });
-      if (!res.ok) throw new Error(`download failed: HTTP ${res.status}`);
-      const buf = Buffer.from(await res.arrayBuffer());
+      if (!res.ok) {
+        await releaseResponseBody(res);
+        throw new Error(`download failed: HTTP ${res.status}`);
+      }
+      const buf = await readRemoteImageBuffer(res);
       const sharp = (await import('sharp')).default;
       const destDir = path.join(PROJECT_ROOT, 'public', 'images', 'blog');
       fs.mkdirSync(destDir, { recursive: true });
-      const destPath = path.join(destDir, `${data.id}.webp`);
+      destPath = path.join(destDir, `${data.id}.webp`);
 
       const meta = await sharp(buf).rotate().metadata();
       const needsResize = (meta.width || 0) < 1200 || (meta.height || 0) < 675;
@@ -217,10 +304,23 @@ async function resolveHeroImage(data, doc) {
         quality -= 10;
         size = await render(quality);
       }
-      data._generatedImagePath = `/images/blog/${data.id}.webp`;
-      appendCatalogEntry(data._generatedImagePath);
+      if (!isImageWithinHardCap(size)) {
+        throw new Error(`optimized hero image exceeds hard cap: ${size} bytes`);
+      }
+      const generatedImagePath = `/images/blog/${data.id}.webp`;
+      if (!appendCatalogEntry(generatedImagePath) || !hasCatalogImageRecord(generatedImagePath)) {
+        throw new Error('optimized hero image has no catalog provenance record');
+      }
+      data._generatedImagePath = generatedImagePath;
       return { source: 'journalist-upload', bytes: size };
     } catch (err) {
+      if (destPath) {
+        try {
+          fs.rmSync(destPath, { force: true });
+        } catch (cleanupErr) {
+          console.warn(`  ⚠️  could not remove rejected hero image: ${cleanupErr.message}`);
+        }
+      }
       console.warn(`  ⚠️  custom hero image download/processing failed (non-fatal): ${err.message}`);
     }
   }
@@ -442,4 +542,11 @@ if (invokedDirectly) {
   });
 }
 
-export { buildPipelineData, slugify, resolveHeroImage, resolveJournalistAuthor };
+export {
+  buildPipelineData,
+  slugify,
+  resolveHeroImage,
+  resolveJournalistAuthor,
+  hasCatalogImageRecord,
+  isImageContentType,
+};

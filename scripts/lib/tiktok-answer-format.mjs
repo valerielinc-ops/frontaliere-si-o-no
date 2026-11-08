@@ -11,6 +11,7 @@
  * The words are the site's FAQ, cut at a sentence boundary and never rewritten:
  * tax and salary answers must stay the ones the editorial pipeline published.
  */
+import { isGeneratedSocialCopyMode } from './social-copy-pack.mjs';
 
 const QUESTION_MIN_CHARS = 25;
 const QUESTION_MAX_CHARS = 110;
@@ -138,7 +139,7 @@ function splitLongSentence(sentence) {
 
 /** Question card, then one card per spoken line, then the save prompt. */
 export function buildAnswerCards({ question, answer }, socialCopy) {
-  const generatedCopy = socialCopy?.copyMode === 'codex' ? socialCopy : null;
+  const generatedCopy = isGeneratedSocialCopyMode(socialCopy?.copyMode) ? socialCopy : null;
   return [
     { kicker: 'FRONTALIERI · LA RISPOSTA', text: question },
     ...splitSentences(answer).flatMap(splitLongSentence).map((text) => ({ kicker: 'IN BREVE', text })),
@@ -167,7 +168,7 @@ export function planAnswerTimeline(cards, totalSeconds) {
 
 /** The question stays the first line: it is what search and Google read first. */
 export function buildAnswerCaption({ question, answer }, socialCopy) {
-  const generatedCopy = socialCopy?.copyMode === 'codex' ? socialCopy : null;
+  const generatedCopy = isGeneratedSocialCopyMode(socialCopy?.copyMode) ? socialCopy : null;
   return [
     question,
     ...(generatedCopy ? [generatedCopy.hook] : []),

@@ -16,6 +16,33 @@ const CODEX_COPY = {
 };
 
 describe('native social copy performance brief', () => {
+  it('keeps exact-post provider cohorts separate', () => {
+    const posts = (copyMode: 'codex' | 'gemini') => [1, 2, 3].map((n) => ({
+      postId: `${copyMode}-${n}`,
+      kind: 'article',
+      publishedAt: `2026-10-${10 + n}T12:00:00.000Z`,
+      snapshotAt: `2026-10-${13 + n}T12:00:00.000Z`,
+      snapshotAgeHours: 72,
+      windowHours: 72,
+      reachSource: 'reach',
+      reach: 100 * n,
+      saves: n,
+      shares: 2 * n,
+      availableMetrics: ['reach', 'saves', 'shares'],
+      copyAttributionStatus: 'exact',
+      ...CODEX_COPY,
+      copyMode,
+    }));
+    const brief = buildNativeSocialPerformanceBrief({
+      asOf: AS_OF,
+      instagramInsights: { posts: [...posts('codex'), ...posts('gemini')] },
+    });
+
+    expect(brief.variants).toHaveLength(2);
+    expect(brief.variants.map((variant) => variant.copyMode)).toEqual(['codex', 'gemini']);
+    expect(brief.variants.map((variant) => variant.observations)).toEqual([3, 3]);
+  });
+
   it('aggregates exact Instagram, TikTok and LinkedIn copy arms by channel-specific metrics', () => {
     const instagram = [1, 2, 3].map((n) => ({
       postId: `ig-${n}`,

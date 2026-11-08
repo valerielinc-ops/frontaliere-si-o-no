@@ -60,9 +60,9 @@
 #   SHARD_PUSH_VERIFY — `1` enables an advisory full-vs-delta tree comparison.
 #   SHARD_INCREMENTAL_MANIFEST_DIR — current build manifest directory; defaults
 #                                   to .cache/incremental-manifest.
-#   SHARD_DELTA_CDN_REWRITE — unset/`off` (default, byte-identical path) or
-#                  `changed`: in delta mode, CDN-rewrite only the files the
-#                  delta reads (changed + unmanifested overlay + 404.html);
+#   SHARD_DELTA_CDN_REWRITE — `changed` (workflow default) or `off`: in delta
+#                  mode, CDN-rewrite only the files the delta reads (changed +
+#                  unmanifested overlay + 404.html);
 #                  the unchanged ones come from the shard HEAD, already
 #                  rewritten. A delta fallback to full rewrites everything
 #                  first, as today. The staged copy the pack step tars is

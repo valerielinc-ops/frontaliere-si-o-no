@@ -1,7 +1,7 @@
 {
   "crawlerKey": "invias-swiss",
-  "assembledAt": "2026-11-07T09:48:13.779Z",
-  "runId": "42359674600",
+  "assembledAt": "2026-11-07T21:44:19.128Z",
+  "runId": "42415902184",
   "jobs": [
     {
       "id": "invias-swiss-19e45ae0f00c",
@@ -31,15 +31,16 @@
       },
       "location": "7304 Maienfeld",
       "canton": "GR",
-      "url": "https://invias.swiss/jobs/holzbauplanerin-80-100/",
+      "url": "https://invias.swiss/jobs/holzbauplanerin-80-100",
       "source": "Invias AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-07T09:47:57.352Z",
+      "crawledAt": "2026-11-07T21:44:10.249Z",
       "addressLocality": "Maienfeld",
       "addressRegion": "GR",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "7304",
+      "streetAddress": "Maienfeld",
       "category": "Altro",
       "contract": "other",
       "employmentType": "OTHER",
@@ -50,7 +51,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "applyUrl": "https://invias.swiss/jobs/holzbauplanerin-80-100/",
+      "applyUrl": "https://invias.swiss/jobs/holzbauplanerin-80-100",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
@@ -81,9 +82,8 @@
           "unitText": "YEAR"
         }
       },
-      "streetAddress": "Maienfeld",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T09:47:57.352Z",
+      "validThrough": "2027-02-03T21:44:10.249Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -114,15 +114,16 @@
       },
       "location": "7304 Maienfeld",
       "canton": "GR",
-      "url": "https://invias.swiss/jobs/holzbauingenieurin-bauingenieurin-80-100/",
+      "url": "https://invias.swiss/jobs/holzbauingenieurin-bauingenieurin-80-100",
       "source": "Invias AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-07T09:47:57.346Z",
+      "crawledAt": "2026-11-07T21:44:10.248Z",
       "addressLocality": "Maienfeld",
       "addressRegion": "GR",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "7304",
+      "streetAddress": "Maienfeld",
       "category": "Altro",
       "contract": "other",
       "employmentType": "OTHER",
@@ -133,7 +134,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "applyUrl": "https://invias.swiss/jobs/holzbauingenieurin-bauingenieurin-80-100/",
+      "applyUrl": "https://invias.swiss/jobs/holzbauingenieurin-bauingenieurin-80-100",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
@@ -164,9 +165,8 @@
           "unitText": "YEAR"
         }
       },
-      "streetAddress": "Maienfeld",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T09:47:57.346Z",
+      "validThrough": "2027-02-03T21:44:10.248Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -197,15 +197,16 @@
       },
       "location": "7304 Maienfeld",
       "canton": "GR",
-      "url": "https://invias.swiss/jobs/bauleiterin-80-100/",
+      "url": "https://invias.swiss/jobs/bauleiterin-80-100",
       "source": "Invias AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-07T09:47:57.341Z",
+      "crawledAt": "2026-11-07T21:44:10.247Z",
       "addressLocality": "Maienfeld",
       "addressRegion": "GR",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "7304",
+      "streetAddress": "Maienfeld",
       "category": "Altro",
       "contract": "other",
       "employmentType": "OTHER",
@@ -216,7 +217,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "applyUrl": "https://invias.swiss/jobs/bauleiterin-80-100/",
+      "applyUrl": "https://invias.swiss/jobs/bauleiterin-80-100",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
@@ -248,9 +249,8 @@
           "unitText": "YEAR"
         }
       },
-      "streetAddress": "Maienfeld",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T09:47:57.341Z",
+      "validThrough": "2027-02-03T21:44:10.247Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -281,15 +281,16 @@
       },
       "location": "7304 Maienfeld",
       "canton": "GR",
-      "url": "https://invias.swiss/jobs/technischer-projektleiterin-80-100/",
+      "url": "https://invias.swiss/jobs/technischer-projektleiterin-80-100",
       "source": "Invias AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-07T09:47:57.340Z",
+      "crawledAt": "2026-11-07T21:44:10.246Z",
       "addressLocality": "Maienfeld",
       "addressRegion": "GR",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "7304",
+      "streetAddress": "Maienfeld",
       "category": "Tecnica",
       "contract": "other",
       "employmentType": "OTHER",
@@ -300,7 +301,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "applyUrl": "https://invias.swiss/jobs/technischer-projektleiterin-80-100/",
+      "applyUrl": "https://invias.swiss/jobs/technischer-projektleiterin-80-100",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
@@ -332,9 +333,8 @@
           "unitText": "YEAR"
         }
       },
-      "streetAddress": "Maienfeld",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T09:47:57.340Z",
+      "validThrough": "2027-02-03T21:44:10.246Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -365,15 +365,16 @@
       },
       "location": "7304 Maienfeld",
       "canton": "GR",
-      "url": "https://invias.swiss/jobs/projektleiterin-80-100/",
+      "url": "https://invias.swiss/jobs/projektleiterin-80-100",
       "source": "Invias AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-07T09:47:57.332Z",
+      "crawledAt": "2026-11-07T21:44:10.242Z",
       "addressLocality": "Maienfeld",
       "addressRegion": "GR",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "7304",
+      "streetAddress": "Maienfeld",
       "category": "Altro",
       "contract": "other",
       "employmentType": "OTHER",
@@ -384,7 +385,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "applyUrl": "https://invias.swiss/jobs/projektleiterin-80-100/",
+      "applyUrl": "https://invias.swiss/jobs/projektleiterin-80-100",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
@@ -415,9 +416,8 @@
           "unitText": "YEAR"
         }
       },
-      "streetAddress": "Maienfeld",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T09:47:57.332Z",
+      "validThrough": "2027-02-03T21:44:10.242Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -448,15 +448,16 @@
       },
       "location": "7304 Maienfeld",
       "canton": "GR",
-      "url": "https://invias.swiss/jobs/zeichnerin-fachrichtung-architektur-60-100/",
+      "url": "https://invias.swiss/jobs/zeichnerin-fachrichtung-architektur-60-100",
       "source": "Invias AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-07T09:47:57.324Z",
+      "crawledAt": "2026-11-07T21:44:10.241Z",
       "addressLocality": "Maienfeld",
       "addressRegion": "GR",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "7304",
+      "streetAddress": "Maienfeld",
       "category": "Altro",
       "contract": "other",
       "employmentType": "OTHER",
@@ -467,7 +468,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "applyUrl": "https://invias.swiss/jobs/zeichnerin-fachrichtung-architektur-60-100/",
+      "applyUrl": "https://invias.swiss/jobs/zeichnerin-fachrichtung-architektur-60-100",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
@@ -499,9 +500,8 @@
           "unitText": "YEAR"
         }
       },
-      "streetAddress": "Maienfeld",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T09:47:57.324Z",
+      "validThrough": "2027-02-03T21:44:10.241Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -532,15 +532,16 @@
       },
       "location": "7304 Maienfeld",
       "canton": "GR",
-      "url": "https://invias.swiss/jobs/architektin-b-a-oder-in-ausbildung-50-80/",
+      "url": "https://invias.swiss/jobs/architektin-b-a-oder-in-ausbildung-50-80",
       "source": "Invias AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-07T09:47:57.315Z",
+      "crawledAt": "2026-11-07T21:44:10.239Z",
       "addressLocality": "Maienfeld",
       "addressRegion": "GR",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "7304",
+      "streetAddress": "Maienfeld",
       "category": "Altro",
       "contract": "other",
       "employmentType": "OTHER",
@@ -551,7 +552,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "applyUrl": "https://invias.swiss/jobs/architektin-b-a-oder-in-ausbildung-50-80/",
+      "applyUrl": "https://invias.swiss/jobs/architektin-b-a-oder-in-ausbildung-50-80",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
@@ -585,9 +586,8 @@
           "unitText": "YEAR"
         }
       },
-      "streetAddress": "Maienfeld",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T09:47:57.315Z",
+      "validThrough": "2027-02-03T21:44:10.239Z",
       "validThroughSource": "last-observed-window"
     }
   ]

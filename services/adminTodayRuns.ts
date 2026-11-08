@@ -34,7 +34,7 @@ function recordOrNull(value: unknown): Record<string, unknown> | null {
 
 function workflowIdFromRun(run: Record<string, unknown>): string | null {
   const path = stringOrNull(run.path);
-  if (path) return path.split('/').at(-1) || null;
+  if (path) return path.split('/').pop() || null;
   const workflowId = run.workflow_id;
   return typeof workflowId === 'string' ? workflowId : null;
 }

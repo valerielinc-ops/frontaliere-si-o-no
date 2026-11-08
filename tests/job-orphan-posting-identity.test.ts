@@ -74,8 +74,15 @@ describe('inferred orphan aliases require positive posting identity', () => {
     const block = source.slice(source.indexOf('/* ── Fuzzy match orphan slugs'), source.indexOf('// Collect IT paths of all previous slugs'));
     const orphan = 'head-physician-oncology-60-100-spital-uster-uster';
     const job = { url, location: 'Uster', slug: 'assistant-physician-100-orthopedics-spital-uster-uster', slugByLocale: { en: 'assistant-physician-100-orthopedics-spital-uster-uster' } };
-    const execute = new Function('validJobs', 'tracking', 'orphanGscData', 'localeList', '_allPrevSlugs', 'hasSameJobSourcePosting', transformSync(block, { loader: 'ts' }).code);
-    execute([job], { [orphan]: {} }, new Map([[orphan, { sourceUrl }]]), ['en'], () => [], hasSameJobSourcePosting);
+    const execute = new Function(
+      'validJobs', 'tracking', 'orphanGscData', 'localeList', '_allPrevSlugs',
+      'hasSameJobSourcePosting', 'extraGcFreedProbeCandidate', 'logJobsSeoMem',
+      transformSync(block, { loader: 'ts' }).code,
+    );
+    execute(
+      [job], { [orphan]: {} }, new Map([[orphan, { sourceUrl }]]), ['en'], () => [],
+      hasSameJobSourcePosting, null, () => {},
+    );
     // Even the legacy >=60% overlap must not create an alias without source proof.
     if (sourceUrl === url) expect(job).toHaveProperty('previousSlugsByLocale.en', [orphan]);
     else expect(job).not.toHaveProperty('previousSlugsByLocale');

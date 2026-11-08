@@ -25,6 +25,14 @@ export const DEFAULT_MIN_RELATIVE_LIFT = 0.15;
 export const DEFAULT_MIN_ABSOLUTE_LIFT = 0.005;
 const LEGACY_OBJECTIVE_KEY = '__legacy__';
 
+export function instagramDecisionApplyBlocker({ insightsSource, browserInsightsApproved = false } = {}) {
+  if (insightsSource === 'off') return 'insights-source-disabled';
+  if (insightsSource === 'browser' && browserInsightsApproved !== true) {
+    return 'browser-insights-permission-required';
+  }
+  return null;
+}
+
 function isRecord(value) {
   return Boolean(value) && typeof value === 'object' && !Array.isArray(value);
 }

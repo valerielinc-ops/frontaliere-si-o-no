@@ -21,7 +21,16 @@
  * To force regeneration, bump OG_RENDER_VERSION.
  */
 
-import { copyFileSync, existsSync, mkdirSync, readdirSync, readFileSync, unlinkSync, writeFileSync } from 'fs';
+import {
+  copyFileSync,
+  existsSync,
+  mkdirSync,
+  readdirSync,
+  readFileSync,
+  renameSync,
+  unlinkSync,
+  writeFileSync,
+} from 'fs';
 import { cpus } from 'os';
 import path from 'path';
 import { fileURLToPath } from 'url';
@@ -29,7 +38,12 @@ import { peelDanglingClauseTail } from './shared/clauseTail.mjs';
 import { Worker } from 'worker_threads';
 import type { Plugin } from 'vite';
 import { shouldEmitLocale } from './shared/localeEmitFilter';
-import { JOB_OG_PHOTO_FILES, getJobOgPhotoKey } from './shared/jobOgImageCatalog.mjs';
+import { JOB_OG_PHOTO_FILES } from './shared/jobOgImageCatalog.mjs';
+import {
+  JOB_PHOTO_KEYS,
+  selectJobOgPhoto,
+  type JobFallbackPhotoKey,
+} from './shared/jobPhotoClassification';
 import { getItalianJobTitle } from './shared/italianJobTitle.mjs';
 import { JOB_EMPLOYMENT_LABELS_BY_LOCALE } from '../scripts/lib/job-employment-type.mjs';
 import {
@@ -42,6 +56,22 @@ const OUT_SUBDIR = 'og/jobs';
 // Persistent cache dir survives `dist/` cleanup. Cache step in deploy.yml
 // restores this between CI runs so unchanged jobs keep their WebP.
 const CACHE_SUBDIR = '.cache/og-jobs';
+const CACHE_COMPLETION_MARKER = '.complete';
+
+function writeFileAtomicallySync(filePath: string, data: Buffer | string): void {
+  const temporaryPath = `${filePath}.tmp-${process.pid}`;
+  try {
+    writeFileSync(temporaryPath, data);
+    renameSync(temporaryPath, filePath);
+  } catch (err) {
+    try {
+      unlinkSync(temporaryPath);
+    } catch {
+      /* best-effort cleanup after a failed write */
+    }
+    throw err;
+  }
+}
 
 /**
  * Bump this string when the rendering pipeline changes shape (layout,
@@ -125,51 +155,7 @@ function readJobsJson(rootDir: string): JobMinimal[] {
   return [];
 }
 
-const JOB_PHOTO_KEYS = ['healthcare', 'hospitality', 'trades', 'office'] as const;
-type JobFallbackPhotoKey = (typeof JOB_PHOTO_KEYS)[number];
 type JobPhotoKey = string;
-
-const JOB_PHOTO_KEYWORDS: Record<JobFallbackPhotoKey, string[]> = {
-  healthcare: [
-    'health', 'sanit', 'inferm', 'medic', 'farmac', 'pharma', 'biotech',
-    'osped', 'clinica', 'assistenz', 'cura', 'pflege', 'soins', 'sante',
-    'nursing', 'nurse', 'arzt',
-  ],
-  hospitality: [
-    'hotel', 'hospitality', 'albergo', 'ristor', 'restaurant', 'camerier',
-    'cuoc', 'chef', 'cucina', 'barista', 'housekeep', 'reception', 'turism',
-    'catering', 'gastronom', 'servicefach', 'restauration', 'hoteller',
-  ],
-  trades: [
-    'tecnic', 'elettric', 'idraulic', 'meccanic', 'ingegner', 'engineer',
-    'manutenz', 'montator', 'saldat', 'produzion', 'magazzin', 'operator',
-    'logistic', 'liefer', 'lager', 'werkstatt', 'bau', 'construction',
-    'instandhalt', 'automation', 'technicien', 'atelier', 'installator',
-    'technical', 'tech', 'manufacturing', 'industr', 'agricol', 'farm',
-  ],
-  office: [
-    'office', 'admin', 'amministr', 'administr', 'contab', 'segreter',
-    'commercial', 'marketing', 'sales', 'vendit', 'commerc', 'retail',
-    'dettaglio', 'back-office', 'risorse umane', 'human resources', 'hr',
-    'analyst', 'finanz', 'finance', 'assicuraz', 'insurance', 'account',
-    'legal', 'bureau', 'impiegat', 'assistant', 'education', 'formazione',
-    'it',
-  ],
-};
-
-function classifyJobPhoto(job: JobMinimal): JobFallbackPhotoKey {
-  const searchText = [job.category, job.sector, job.titleByLocale?.it, job.title]
-    .filter(Boolean)
-    .join(' ')
-    .toLocaleLowerCase('it')
-    .normalize('NFD')
-    .replace(/[\u0300-\u036f]/g, '');
-  const searchTerms = new Set(searchText.split(/[^a-z0-9]+/).filter(Boolean));
-  return JOB_PHOTO_KEYS.find((key) => JOB_PHOTO_KEYWORDS[key].some((keyword) => {
-    if (keyword.length <= 3) return searchTerms.has(keyword);
-    return searchText.includes(keyword);
-  })) ?? 'office';
-}
 
 interface JobPhotoSources {
   fallbackDataUrls: Record<JobFallbackPhotoKey, string>;
@@ -581,6 +567,14 @@ export default function jobOgImagesPlugin(): Plugin {
     configResolved(cfg) {
       outDir = cfg.build?.outDir ?? 'dist';
       rootDir = cfg.root ?? process.cwd();
+      // A restored marker only describes the previous build. Remove it before
+      // the new build so the workflow saves a cache only after this plugin has
+      // finished processing the current image set.
+      try {
+        unlinkSync(path.join(rootDir, CACHE_SUBDIR, CACHE_COMPLETION_MARKER));
+      } catch {
+        /* marker absent on a cold cache */
+      }
     },
     async closeBundle() {
       if (!outDir || !rootDir) return;
@@ -649,7 +643,7 @@ export default function jobOgImagesPlugin(): Plugin {
           continue;
         }
         const outPath = path.join(rootDir, outDir, ogPathForSlug(slug));
-        const photoKey = getJobOgPhotoKey(slug) ?? classifyJobPhoto(job);
+        const { photoKey } = selectJobOgPhoto(job, slug);
         // See the doc-comment above the deleted cacheKeyForJob for why
         // we cache by slug + photo key + version (not job.id + visualHash).
         const cachePath = path.join(
@@ -749,8 +743,10 @@ export default function jobOgImagesPlugin(): Plugin {
           try {
             mkdirSync(path.dirname(job.cachePath), { recursive: true });
             mkdirSync(path.dirname(job.outPath), { recursive: true });
-            writeFileSync(job.cachePath, webp);
-            writeFileSync(job.outPath, webp);
+            // A cancelled runner may save its partial cache on the way out.
+            // Publish only whole WebP files so every cached entry is reusable.
+            writeFileAtomicallySync(job.cachePath, webp);
+            copyFileSync(job.cachePath, job.outPath);
             stats.rendered += 1;
           } catch (err) {
             stats.errors += 1;
@@ -852,6 +848,14 @@ export default function jobOgImagesPlugin(): Plugin {
       let prunedBytes = 0;
       try {
         for (const entry of readdirSync(cacheRoot)) {
+          if (/\.tmp-\d+$/.test(entry)) {
+            try {
+              unlinkSync(path.join(cacheRoot, entry));
+            } catch {
+              /* ignore stale interrupted-write temporary files */
+            }
+            continue;
+          }
           if (versionSuffixes.some((suffix) => entry.endsWith(suffix))) continue;
           if (!entry.endsWith('.png') && !entry.endsWith('.webp')) continue;
           const orphaned = path.join(cacheRoot, entry);
@@ -874,6 +878,12 @@ export default function jobOgImagesPlugin(): Plugin {
       console.log(
         `[job-og-images] rendered=${stats.rendered} cached=${stats.cached} skipped=${stats.skipped} errors=${stats.errors} pruned-stale=${pruned} (~${(prunedBytes / 1_048_576).toFixed(0)}MB) in ${(elapsedMs / 1000).toFixed(1)}s`,
       );
+      if (stats.rendered + stats.cached > 0) {
+        writeFileAtomicallySync(
+          path.join(cacheRoot, CACHE_COMPLETION_MARKER),
+          `${JSON.stringify({ rendered: stats.rendered, cached: stats.cached, skipped: stats.skipped, errors: stats.errors })}\n`,
+        );
+      }
     },
   };
 }

@@ -5,6 +5,7 @@ import {
   evaluateMatchedBlockExperiment,
   validateMatchedBlockExperimentRegistration,
 } from '../scripts/lib/social-experiment-protocol.mjs';
+import { socialCopyExperimentRegistrationId } from '../scripts/lib/social-copy-pack.mjs';
 
 const GUARDRAILS = {
   platformPolicyClear: true,
@@ -14,7 +15,7 @@ const GUARDRAILS = {
   syntheticAaCalibration: 'passed',
 };
 
-function registration() {
+function registration({ generationProvider = 'codex' }: { generationProvider?: string } = {}) {
   const createdAt = '2026-11-01T00:00:00.000Z';
   const baselineObservations = Array.from({ length: 30 }, (_, index) => ({
     exact: true,
@@ -27,6 +28,7 @@ function registration() {
     experimentId: 'social-copy-angle-matched-v3',
     packId: '0123456789abcdef',
     treatmentFingerprint: 'c'.repeat(64),
+    generationProvider,
     channel: 'instagram',
     slot: 'article',
     objective: 'share',
@@ -89,6 +91,24 @@ describe('matched-block social-copy experiment protocol', () => {
     expect(validateMatchedBlockExperimentRegistration(frozen)).toBe(frozen);
     const changed = { ...frozen, absoluteMde: frozen.absoluteMde / 2 };
     expect(() => validateMatchedBlockExperimentRegistration(changed)).toThrow(/hash mismatch/u);
+  });
+
+  it('freezes generator-specific cohorts and validates their provider-bound IDs', () => {
+    const frozen = registration({ generationProvider: 'gemini' });
+
+    expect(frozen).toMatchObject({ generationProvider: 'gemini' });
+    expect(frozen.registrationId).toBe(socialCopyExperimentRegistrationId({
+      experimentId: frozen.experimentId,
+      packId: frozen.packId,
+      treatmentFingerprint: frozen.treatmentFingerprint,
+      channel: frozen.channel,
+      slot: frozen.slot,
+      objective: frozen.objective,
+      generationProvider: 'gemini',
+    }));
+    expect(validateMatchedBlockExperimentRegistration(frozen)).toBe(frozen);
+    expect(() => validateMatchedBlockExperimentRegistration({ ...frozen, generationProvider: 'groq' }))
+      .toThrow(/cohort id mismatch/);
   });
 
   it('supports a slower Reel baseline without reducing the fixed statistical sample', () => {

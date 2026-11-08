@@ -112,7 +112,7 @@ describe.each(TARGETS)('translate-pending phase budget (%s)', (rel) => {
     expect(mopupCeilingMs - cascadeCeilingMs).toBeGreaterThanOrEqual(20 * MIN);
   });
 
-  it('lets the Phase 2d/2e gate open after a mop-up that ran to its ceiling', () => {
+  it('skips the Phase 2d/2e lane after a full mop-up because only 35min remain', () => {
     expect(gate?.env?.REPAIR_LANE_DEADLINE_MS).toBe(String(envelopeMs));
     const decision = decideRepairLane({
       startMs: 0,
@@ -120,8 +120,18 @@ describe.each(TARGETS)('translate-pending phase budget (%s)', (rel) => {
       deadlineMs: Number(gate?.env?.REPAIR_LANE_DEADLINE_MS),
       minRemainingMs: Number(gate?.env?.REPAIR_LANE_MIN_REMAINING_MS),
     });
-    expect(decision.run).toBe(true);
-    expect(decision.remainingMs).toBeGreaterThanOrEqual(30 * MIN);
+    expect(decision.run).toBe(false);
+    expect(decision.remainingMs).toBe(35 * MIN);
+    expect(Number(gate?.env?.REPAIR_LANE_MIN_REMAINING_MS)).toBe(90 * MIN);
+
+    const earlyDecision = decideRepairLane({
+      startMs: 0,
+      nowMs: 115 * MIN,
+      deadlineMs: Number(gate?.env?.REPAIR_LANE_DEADLINE_MS),
+      minRemainingMs: Number(gate?.env?.REPAIR_LANE_MIN_REMAINING_MS),
+    });
+    expect(earlyDecision.run).toBe(true);
+    expect(earlyDecision.remainingMs).toBeGreaterThanOrEqual(90 * MIN);
   });
 
   it('sends the title residue to the cascade with Codex in its default position, gated like the re-assemble that keeps its writes', () => {

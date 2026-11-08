@@ -10,6 +10,7 @@ import {
   formatExperimentStatus,
   resolveInstagramInsightsSource,
 } from './lib/instagram-experiment-status.mjs';
+import { isInstagramBrowserInsightsApproved } from './lib/social-automation-policy.mjs';
 
 const DEFAULT_LEDGER = 'data/instagram-posted.json';
 const DEFAULT_QUEUE = 'data/instagram-queue.json';
@@ -96,9 +97,9 @@ function readJson(file, label, { optional = false, fallback = null } = {}) {
   }
 }
 
-function configuredCredentials() {
-  if (resolveInstagramInsightsSource() === 'browser') return true;
-  if (resolveInstagramInsightsSource() === 'off') return false;
+function configuredCredentials(source = resolveInstagramInsightsSource()) {
+  if (source === 'browser') return isInstagramBrowserInsightsApproved();
+  if (source === 'off') return false;
   return Boolean(
     String(process.env.INSTAGRAM_BUSINESS_ACCOUNT_ID || '').trim()
     && String(process.env.INSTAGRAM_ACCESS_TOKEN || '').trim(),
@@ -114,6 +115,8 @@ export function run(argv = process.argv.slice(2)) {
   const ledger = readJson(options.ledger, 'ledger', { optional: true, fallback: { posted: [] } });
   const queue = readJson(options.queue, 'queue', { optional: true, fallback: { pending: [] } });
   const insights = readJson(options.insights, 'insights snapshot', { optional: true, fallback: null });
+  const insightsSource = resolveInstagramInsightsSource();
+  const browserInsightsPermissionApproved = isInstagramBrowserInsightsApproved();
   const status = buildExperimentStatus({
     ledger,
     queue,
@@ -121,7 +124,9 @@ export function run(argv = process.argv.slice(2)) {
     asOf: options.asOf || new Date(),
     minimumObservations: options.minimumObservations,
     windowHours: options.windowHours,
-    hasCredentials: configuredCredentials(),
+    insightsSource,
+    browserInsightsPermissionApproved,
+    hasCredentials: configuredCredentials(insightsSource),
   });
   console.log(options.json ? JSON.stringify(status, null, 2) : formatExperimentStatus(status));
   return 0;

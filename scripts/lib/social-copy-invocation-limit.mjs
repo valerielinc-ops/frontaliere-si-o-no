@@ -2,6 +2,8 @@ export const SOCIAL_COPY_CODEX_INVOCATION_WINDOW_MS = 7 * 24 * 60 * 60 * 1000;
 export const SOCIAL_COPY_CODEX_INVOCATION_LIMIT = 2;
 export const SOCIAL_COPY_CODEX_INVOCATION_COLLECTION = 'socialAutomationLimits';
 export const SOCIAL_COPY_CODEX_INVOCATION_DOCUMENT = 'social-copy-pack';
+export const SOCIAL_COPY_FREE_FALLBACK_INVOCATION_LIMIT = 1;
+export const SOCIAL_COPY_FREE_FALLBACK_INVOCATION_DOCUMENT = 'social-copy-free-fallback';
 
 function asValidDate(value, label) {
   const date = value instanceof Date ? value : new Date(value);
@@ -20,12 +22,13 @@ function normalizeReservations(value) {
   });
 }
 
-/** Atomically reserve one of the two Codex pack generations allowed per rolling seven days. */
-export async function reserveSocialCopyCodexInvocation({
+/** Atomically reserve a social-copy generation slot in its rolling seven-day ledger. */
+async function reserveSocialCopyInvocation({
   db,
   invocationId,
   now = new Date(),
-  limit = SOCIAL_COPY_CODEX_INVOCATION_LIMIT,
+  limit,
+  document,
 } = {}) {
   if (!db || typeof db.collection !== 'function' || typeof db.runTransaction !== 'function') {
     throw new Error('Firestore is required to enforce the social-copy Codex invocation limit');
@@ -40,7 +43,7 @@ export async function reserveSocialCopyCodexInvocation({
   const currentMs = current.getTime();
   const cutoffMs = currentMs - SOCIAL_COPY_CODEX_INVOCATION_WINDOW_MS;
   const reference = db.collection(SOCIAL_COPY_CODEX_INVOCATION_COLLECTION)
-    .doc(SOCIAL_COPY_CODEX_INVOCATION_DOCUMENT);
+    .doc(document);
 
   return db.runTransaction(async (transaction) => {
     const snapshot = await transaction.get(reference);
@@ -95,5 +98,23 @@ export async function reserveSocialCopyCodexInvocation({
       limit,
       windowEndsAt: new Date(currentMs + SOCIAL_COPY_CODEX_INVOCATION_WINDOW_MS).toISOString(),
     };
+  });
+}
+
+/** Codex remains capped at two pack generations per rolling seven days. */
+export function reserveSocialCopyCodexInvocation(options = {}) {
+  return reserveSocialCopyInvocation({
+    ...options,
+    limit: options.limit ?? SOCIAL_COPY_CODEX_INVOCATION_LIMIT,
+    document: SOCIAL_COPY_CODEX_INVOCATION_DOCUMENT,
+  });
+}
+
+/** Free-provider recovery is capped at one generation per rolling seven days. */
+export function reserveSocialCopyFreeFallbackInvocation(options = {}) {
+  return reserveSocialCopyInvocation({
+    ...options,
+    limit: options.limit ?? SOCIAL_COPY_FREE_FALLBACK_INVOCATION_LIMIT,
+    document: SOCIAL_COPY_FREE_FALLBACK_INVOCATION_DOCUMENT,
   });
 }

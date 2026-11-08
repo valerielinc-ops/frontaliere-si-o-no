@@ -118,9 +118,9 @@ export function InsightsTrendChart({ trend, locale = 'it' }: InsightsTrendChartP
   const viewPath = points.map((point, index) => `${x(index).toFixed(2)},${y(finiteMetric(point.views)).toFixed(2)}`).join(' L ');
   const areaPath = `M ${left},${top + chartHeight} L ${viewPath} L ${x(points.length - 1)},${top + chartHeight} Z`;
   const firstViews = finiteMetric(points[0].views);
-  const lastViews = finiteMetric(points.at(-1)?.views);
+  const lastViews = finiteMetric(points[points.length - 1]?.views);
   const direction = lastViews > firstViews ? copy.growing : lastViews < firstViews ? copy.declining : copy.stable;
-  const latest = points.at(-1);
+  const latest = points[points.length - 1];
   const latestDetails = [
     hasClicks && typeof latest?.applyClicks === 'number'
       ? `${formatNumber(finiteMetric(latest.applyClicks), locale)} ${copy.recordedClicks}`

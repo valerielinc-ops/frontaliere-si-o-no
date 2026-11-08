@@ -6,6 +6,7 @@ import { isInvokedDirectly } from '../lib/is-invoked-directly.mjs';
 import { getFirestoreDb } from '../lib/firestore-admin.mjs';
 import { loadPrivateSocialNativeInsights } from '../lib/social-native-insights-store.mjs';
 import { socialCopyRevisionId } from '../lib/social-copy-revision.mjs';
+import { isGeneratedSocialCopyMode } from '../lib/social-copy-pack.mjs';
 import {
   INSTAGRAM_COMMUNITY_TOPIC_CATEGORIES,
   INSTAGRAM_COMMUNITY_TOPIC_COUNT_BANDS,
@@ -75,7 +76,7 @@ function exactCopyVariant(row, channel) {
   const angleId = String(copy.copyAngleId || '').trim();
   const pillarId = String(copy.copyPillarId || '').trim();
   const copyRevisionId = socialCopyRevisionId({ copyHook: copy.copyHook, copyCta: copy.copyCta });
-  if (copyMode !== 'codex' || !PACK_ID_RE.test(packId)
+  if (!isGeneratedSocialCopyMode(copyMode) || !PACK_ID_RE.test(packId)
     || !TEMPLATE_ID_RE.test(copySlot) || !TEMPLATE_ID_RE.test(templateId)
     || (angleId && !TEMPLATE_ID_RE.test(angleId))
     || (pillarId && !TEMPLATE_ID_RE.test(pillarId))
@@ -88,6 +89,7 @@ function exactCopyVariant(row, channel) {
   return {
     channel,
     kind: String(row.kind || 'unknown'),
+    copyMode,
     copySlot,
     packId,
     templateId,
@@ -349,7 +351,7 @@ function addRows(groups, rows, channel, asOfMs, metricReader) {
   }
 }
 
-/** Aggregate native outcomes by exact Codex copy arm without exposing post IDs or text. */
+/** Aggregate native outcomes by exact AI-generated copy arm without exposing post IDs or text. */
 export function buildNativeSocialPerformanceBrief({
   instagramInsights = null,
   nativeInsights = null,
@@ -388,6 +390,7 @@ export function buildNativeSocialPerformanceBrief({
       return {
         channel: group.channel,
         kind: group.kind,
+        copyMode: group.copyMode,
         copySlot: group.copySlot,
         packId: group.packId,
         templateId: group.templateId,

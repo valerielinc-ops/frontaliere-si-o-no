@@ -1,4 +1,5 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest';
+import { hydrateGhBodyFileArgs } from './helpers/ghBodyFile';
 
 /**
  * Il chiuditore del feeder `App Error:` (scripts/app-error-issue-sync.mjs →
@@ -16,14 +17,22 @@ import { describe, it, expect, vi, beforeEach } from 'vitest';
 
 const execFileSync = vi.fn();
 vi.mock('node:child_process', () => {
-  const mock = { execFileSync: (...args: unknown[]) => execFileSync(...args) };
+  const mock = {
+    execFileSync: (cmd: string, args: string[], ...rest: unknown[]) =>
+      execFileSync(cmd, hydrateGhBodyFileArgs(args), ...rest),
+  };
   return { ...mock, default: mock };
 });
 
 const readFileSync = vi.fn();
 vi.mock('node:fs', async (importOriginal) => {
   const actual = await importOriginal<typeof import('node:fs')>();
-  return { ...actual, readFileSync: (...args: unknown[]) => readFileSync(...args) };
+  return {
+    ...actual,
+    readFileSync: (...args: unknown[]) => String(args[0]).includes('github-issue-creator-')
+      ? actual.readFileSync(String(args[0]), 'utf8')
+      : readFileSync(...args),
+  };
 });
 
 const appErrorSync = await import('../scripts/app-error-issue-sync.mjs');

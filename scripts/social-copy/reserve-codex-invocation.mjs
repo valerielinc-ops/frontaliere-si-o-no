@@ -19,7 +19,7 @@ export function socialCopyInvocationId(env = process.env) {
   return `${repository}/${runId}/${runAttempt}`;
 }
 
-function assertSocialCopyPackProductionRef(env = process.env) {
+export function assertSocialCopyPackProductionRef(env = process.env) {
   if (String(env.GITHUB_REF || '').trim() !== 'refs/heads/main') {
     throw new Error('Social copy production generation is restricted to refs/heads/main');
   }

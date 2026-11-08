@@ -20,9 +20,9 @@
     },
     "slugByLocale": {
       "it": "operatore-trice-sociosanitario-a-medicina-ortopedia-spital-sts-thun",
-      "en": "specialist-health-medicine-orthopaedics-spital-sts-thun",
+      "en": "specialist-health-medicine-orthopaedics-spital-sts-thun-05034669",
       "de": "fachfrau-mann-gesundheit-medizin-orthopadie-spital-sts-thun-1f3992ac",
-      "fr": "specialiste-en-medecine-de-la-sante-orthopedie-spital-sts-thun"
+      "fr": "specialiste-en-medecine-de-la-sante-orthopedie-spital-sts-thun-65219218"
     },
     "sector": "Sanità / Ospedali",
     "expiredAt": "2026-10-29T21:30:35.025Z",
@@ -32,8 +32,24 @@
       "fachfrau-mann-gesundheit-medizin-orthopadie-spital-sts-thun-ca580293",
       "fachfrau-mann-gesundheit-medizin-orthopala-spital-sts-thun-60cbc0b7",
       "fachfrau-mann-gesundheit-medizin-orthopadie-spital-sts-thun-e51f19dd",
+      "fachfrau-mann-gesundheit-medizin-orthopala-spital-sts-thun-8513198e",
+      "fachfrau-mann-gesundheit-medizin-orthopadie-spital-sts-thun-187a67e7",
+      "fachfrau-mann-gesundheit-medizin-orthopala-spital-sts-thun-a451c0d8",
+      "fachfrau-mann-gesundheit-medizin-orthopadie-spital-sts-thun-ff8c7959",
+      "specialist-health-medicine-orthopaedics-spital-sts-thun-1d33853d",
+      "specialiste-en-medecine-de-la-sante-orthopedie-spital-sts-thun-843ce027",
+      "fachfrau-mann-gesundheit-medizin-orthopala-spital-sts-thun-be9a7034",
+      "fachfrau-mann-gesundheit-medizin-orthopadie-spital-sts-thun-15eff34f",
+      "specialist-health-medicine-orthopaedics-spital-sts-thun-bb5340e7",
+      "specialiste-en-medecine-de-la-sante-orthopedie-spital-sts-thun-37e97008",
+      "fachfrau-mann-gesundheit-medizin-orthopala-spital-sts-thun-2391fe1e",
+      "fachfrau-mann-gesundheit-medizin-orthopadie-spital-sts-thun-0ca51f9b",
+      "specialist-health-medicine-orthopaedics-spital-sts-thun-1d5ed060",
+      "specialiste-en-medecine-de-la-sante-orthopedie-spital-sts-thun-aa59ccec",
       "fachfrau-mann-gesundheit-medizin-orthopala-spital-sts-thun",
-      "fachfrau-mann-gesundheit-medizin-orthopadie-spital-sts-thun"
+      "fachfrau-mann-gesundheit-medizin-orthopadie-spital-sts-thun",
+      "specialist-health-medicine-orthopaedics-spital-sts-thun",
+      "specialiste-en-medecine-de-la-sante-orthopedie-spital-sts-thun"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -42,8 +58,28 @@
         "fachfrau-mann-gesundheit-medizin-orthopadie-spital-sts-thun-ca580293",
         "fachfrau-mann-gesundheit-medizin-orthopala-spital-sts-thun-60cbc0b7",
         "fachfrau-mann-gesundheit-medizin-orthopadie-spital-sts-thun-e51f19dd",
+        "fachfrau-mann-gesundheit-medizin-orthopala-spital-sts-thun-8513198e",
+        "fachfrau-mann-gesundheit-medizin-orthopadie-spital-sts-thun-187a67e7",
+        "fachfrau-mann-gesundheit-medizin-orthopala-spital-sts-thun-a451c0d8",
+        "fachfrau-mann-gesundheit-medizin-orthopadie-spital-sts-thun-ff8c7959",
+        "fachfrau-mann-gesundheit-medizin-orthopala-spital-sts-thun-be9a7034",
+        "fachfrau-mann-gesundheit-medizin-orthopadie-spital-sts-thun-15eff34f",
+        "fachfrau-mann-gesundheit-medizin-orthopala-spital-sts-thun-2391fe1e",
+        "fachfrau-mann-gesundheit-medizin-orthopadie-spital-sts-thun-0ca51f9b",
         "fachfrau-mann-gesundheit-medizin-orthopala-spital-sts-thun",
         "fachfrau-mann-gesundheit-medizin-orthopadie-spital-sts-thun"
+      ],
+      "en": [
+        "specialist-health-medicine-orthopaedics-spital-sts-thun-1d33853d",
+        "specialist-health-medicine-orthopaedics-spital-sts-thun-bb5340e7",
+        "specialist-health-medicine-orthopaedics-spital-sts-thun-1d5ed060",
+        "specialist-health-medicine-orthopaedics-spital-sts-thun"
+      ],
+      "fr": [
+        "specialiste-en-medecine-de-la-sante-orthopedie-spital-sts-thun-843ce027",
+        "specialiste-en-medecine-de-la-sante-orthopedie-spital-sts-thun-37e97008",
+        "specialiste-en-medecine-de-la-sante-orthopedie-spital-sts-thun-aa59ccec",
+        "specialiste-en-medecine-de-la-sante-orthopedie-spital-sts-thun"
       ]
     },
     "postalCode": "3600",
@@ -187,7 +223,7 @@
     "sourceIdentity": "url:https://ohws.prospective.ch/public/v1/redirect/7fefd7e3-8955-495c-805e-aea9db9b1ea8/ats"
   },
   {
-    "slug": "dipl-infermieristica-professionale-dipl-infermieristica-professionale-spital-sts-thun",
+    "slug": "dipl-infermieristica-professionale-dipl-infermieristica-professionale-spital-sts-thun-90daa10e",
     "title": "Dipl. Pflegefachfrau / Dipl. Pflegefachmann",
     "titleByLocale": {
       "it": "Dipl. Infermieristica professionale / Dipl. Infermieristica professionale",
@@ -206,10 +242,10 @@
       "fr": "Un travail avec des perspectives: En plus de l'infrastructure de pointe et d'une activité polyvalente dans l'environnement familial, l'hôpital de Thun vous offre également la possibilité de loisirs flexibles dans la région naturelle et lacustre environnante. Êtes-vous à la recherche de sens, mais aussi juste? Alors vous êtes là.\n\nVous travaillez sur un service de lit chirurgical avec un accent sur l'orthopédie / traumatologie, la colonne vertébrale et la chirurgie viscérale. Un environnement de travail intéressant et varié vous attend. La documentation sur les soins électroniques et le système de distribution des médicaments font partie intégrante de notre travail quotidien.\n\nEntrée immédiate ou par accord\n\nÇa vous attend.\n\n• Une équipe humoristique, jeune et motivée avec une bonne cohésion d'équipe\n• Projet de planification des services dirigé par les employés\n• Des défis passionnants avec leur propre domaine de responsabilité\n• Bonne coopération avec l'équipe et la direction de la station\n• Possibilité d'achat de vacances supplémentaires, conditions d'emploi attrayantes\n\nDevenez membre de notre équipe\n\n• Achèvement en tant que dipl. Infirmière praticienne\n• Expérience professionnelle de préférence en orthopédie\n• Inspirant, engagé, responsable et professionnel – Notre hôpital STS valeurs qui nous importe"
     },
     "slugByLocale": {
-      "it": "dipl-infermieristica-professionale-dipl-infermieristica-professionale-spital-sts-thun",
-      "en": "dipl-nursing-professional-dipl-nursing-professional-spital-sts-thun",
+      "it": "dipl-infermieristica-professionale-dipl-infermieristica-professionale-spital-sts-thun-90daa10e",
+      "en": "dipl-nursing-professional-dipl-nursing-professional-spital-sts-thun-713402b4",
       "de": "dipl-pflegefachfrau-dipl-pflegefachmann-spital-sts-thun-8c4148e4",
-      "fr": "dipl-professionnels-des-soins-infirmiers-dipl-professionnels-des-soins-infirmiers-spital-sts-thun"
+      "fr": "dipl-professionnels-des-soins-infirmiers-dipl-professionnels-des-soins-infirmiers-spital-sts-thun-83103b2e"
     },
     "sector": "Sanità / Ospedali",
     "expiredAt": "2026-10-16T09:13:46.188Z",
@@ -218,7 +254,7 @@
       "dipl-pflegefachfrau-dipl-pflegefachmann-spital-sts-thun-8c4148e4",
       "dipl-pflegefachfrau-dipl-pflegefachmann-spital-sts-thun-d3308193",
       "dipl-pflegefachfrau-dipl-pflegefachmann-spital-sts-thun-e49d64ba",
-      "dipl-pflegefachfrau-dipl-pflegefachmann-spital-sts-thun"
+      "dipl-pflegefachfrau-dipl-pflegefachmann-spital-sts-thun-9895dbe2"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -226,7 +262,7 @@
         "dipl-pflegefachfrau-dipl-pflegefachmann-spital-sts-thun-8c4148e4",
         "dipl-pflegefachfrau-dipl-pflegefachmann-spital-sts-thun-d3308193",
         "dipl-pflegefachfrau-dipl-pflegefachmann-spital-sts-thun-e49d64ba",
-        "dipl-pflegefachfrau-dipl-pflegefachmann-spital-sts-thun"
+        "dipl-pflegefachfrau-dipl-pflegefachmann-spital-sts-thun-9895dbe2"
       ]
     },
     "postalCode": "3600",
@@ -447,38 +483,6 @@
     "firstSeenAt": "2026-09-11T23:11:23.158Z"
   },
   {
-    "slug": "psycholog-in-fsp-sbap-triage-ambulatorium-spital-sts-thun",
-    "title": "Psycholog:in FSP/SBAP Triage / Ambulatorium",
-    "titleByLocale": {
-      "it": "Psicologo FSP/SBAP Triage/Ambulatorium",
-      "en": "Psychologist FSP/SBAP Triage/Ambulatorium",
-      "de": "Psycholog:in FSP/SBAP Triage / Ambulatorium",
-      "fr": "Psychologue FSP/SBAP Triage/Ambulatoire"
-    },
-    "company": "Spital STS",
-    "companyKey": "spital-sts",
-    "location": "Thun",
-    "addressLocality": "Thun",
-    "descriptionByLocale": {
-      "it": "Un lavoro con prospettive: Oltre all'infrastruttura all'avanguardia e ad un'attività versatile nell'ambiente familiare, il Thun Hospital offre anche la possibilità di svago flessibile nella regione naturale e lacustre circostante. Hai un aspetto significativo, ma anche giusto? Allora sei qui.\n\nInsieme a infermieri e psicologi, guidano l'ufficio centrale di triage del PDT. Questo assicura un semplice telefono o chiarificazione personale e il monitoraggio delle prossime fasi di trattamento nell'ambientazione ambulatoria, semistazione o visita per tutti i ricercatori durante il giorno. Come persona aperta e orientata al servizio, sono la persona di contatto per i pazienti e gli arbitri. Offrono anche interventi di crisi psicoterapeutica. Nella squadra di triage, elaborano le registrazioni e la distribuzione dei casi per l'imboscatario psichiatrico generale e di età.\nInoltre, lavorano in uno dei nostri laboratori ambulatoriale e assumono i trattamenti psicoterapeutici di pazienti provenienti da tutto lo spettro diagnostico (compresa la diagnosi, la pianificazione della terapia e la corrispondenza a terzi come referenti e assicuratori).\nIngresso al 1° gennaio 2027 o per accordo.\n\nQuesto ti aspetta\n\n• Cooperazione aperta e orientata ai dipendenti in tutte le aree\n\n• Ambito d'azione\n\n• Ambiente di lavoro costruttivo\n\n• Modello gratuito per le vacanze e i fondi pensione\n\n• Buone opportunità di formazione, istruzione e formazione\n\n• Esperienze di svago e natura nelle immediate vicinanze\n\nDiventa parte del nostro team\n\n• Laurea in psicologia clinica e formazione psicoterapeutica avanzata o già completata\n\n• Alta competenza sociale e resilienza, personalità decisionale\n\n• Gioia dei trattamenti di emergenza\n\n• Interessi in stretta collaborazione con le varie istituzioni sociali e sanitarie\n\n• Gioia della cooperazione interdisciplinare\n\n• Gioia di adattare le proprie conoscenze e competenze alla situazione di trattamento individuale e utilizzarle proficuamente",
-      "en": "A job with prospects: In addition to the state-of-the-art infrastructure and a versatile activity in the family environment, the Thun Hospital also offers you the opportunity for flexible leisure in the surrounding natural and lake region. Are you looking meaningful, but also fair? Then you're right here.\n\nTogether with nurses and psychologists, they lead the central triage office of the PDT. This ensures uncomplicated telephone or personal clarification and tracking of the next treatment steps in the ambulatory, semi-stationary or visiting setting for all seekers during the day. As an open and service-oriented person, they are the contact person for patients and referees. They also offer psychotherapeutic crisis interventions. In the triage team, they process the registrations and the case distribution for the general and age psychiatric ambulatories.\nIn addition, they work in one of our outpatient laboratories and take over the psychotherapeutic treatments of patients from the entire diagnostic spectrum (including diagnosis, therapy planning and correspondence to third parties such as referees and insurers).\nEntry as of January 1, 2027 or by arrangement.\n\nThis is waiting for you\n\n• Open patient- and employee-oriented cooperation across all areas\n\n• Broad scope for action\n\n• Constructive working atmosphere\n\n• Freely selectable holiday and pension fund model\n\n• Good training, education and training opportunities\n\n• Leisure and nature experiences in the immediate vicinity\n\nBecome part of our team\n\n• Degree in clinical psychology and advanced or already completed psychotherapeutic training\n\n• High social competence and resilience, decision-making personality\n\n• Joy of Emergency Treatments\n\n• Interest in close cooperation with the various social and health institutions\n\n• Joy of interdisciplinary cooperation\n\n• Joy of adapting your own knowledge and skills to the individual treatment situation and using them profitably",
-      "de": "Ein Job mit Aussichten: Im Spital Thun erwarten dich nebst der topmodernen Infrastruktur und einer vielseitigen Tätigkeit im familiären Umfeld auch die Möglichkeit zur flexiblen Freizeitgestaltung in der umliegenden Natur- und Seeregion. Du suchst sinnvoll, aber auch fair? Dann bist du hier richtig.\n\nSie führen gemeinsam mit Pflegenden und Psycholog:innen die zentrale Triagestelle der PDT. Diese gewährleistet unkompliziert für alle Hilfesuchenden tagsüber eine telefonische oder persönliche Abklärung und Aufgleisung der nächsten Behandlungsschritte im ambulanten, teilstationären oder aufsuchenden Setting. Als eine offene und dienstleistungsorientierte Person sind sie Kontaktperson für Patient:innen und Zuweisende. Weiter bieten sie psychotherapeutische Kriseninterventionen an. Im Triageteam bearbeiten sie die Anmeldungen und die Fallverteilung für die allgemein- und alterspsychiatrischen Ambulatorien.\nDarüber hinaus sind sie in einem unserer Ambulatorien tätig und übernehmen fallführend die psychotherapeutischen Behandlungen von Patient:innen aus dem gesamten Diagnosespektrum (inkl. Diagnostik, Therapieplanung und Schriftverkehr an Dritte wie Zuweisende und Versicherer).\nEintritt per 1. Januar 2027 oder nach Vereinbarung.\n\nDas wartet auf Sie\n\n• Offene patienten- und mitarbeiterorientierte Zusammenarbeit über alle Bereiche\n\n• Breiter Handlungsspielraum\n\n• Konstruktive Arbeitsatmosphäre\n\n• Frei wählbares Ferien- und Pensionskassenmodell\n\n• Gute Aus-, Fort- und Weiterbildungsmöglichkeiten\n\n• Freizeit- und Naturerlebnisse in nächster Umgebung\n\nSo werden Sie Teil unseres Teams\n\n• Abschluss in klinischer Psychologie und fortgeschrittene oder bereits abgeschlossene psychotherapeutische Weiterbildung\n\n• Hohe Sozialkompetenz und Belastbarkeit, entscheidungsfreudige Persönlichkeit\n\n• Freude an Notfallbehandlungen\n\n• Interesse an einer engen Zusammenarbeit mit den verschiedenen Institutionen des Sozial- und Gesundheitswesens\n\n• Freude an interdisziplinärer Zusammenarbeit\n\n• Freude, das eigene Wissen und Können an die individuelle Behandlungssituation anzupassen und gewinnbringend einzusetzen",
-      "fr": "Un emploi avec des perspectives: En plus de l'infrastructure de pointe et d'une activité polyvalente dans l'environnement familial, l'hôpital de Thun vous offre également la possibilité de loisirs flexibles dans la région naturelle et lacustre environnante. Avez-vous l'air significatif, mais aussi juste? Alors vous êtes là.\n\nAvec les infirmières et les psychologues, ils dirigent le bureau central de triage de la PDT. Cela permet d'obtenir des éclaircissements téléphoniques ou personnels et de suivre les prochaines étapes de traitement dans le cadre ambulatoire, semi-stationnaire ou de visite pour tous les demandeurs pendant la journée. En tant que personne ouverte et axée sur le service, ils sont la personne-ressource pour les patients et les arbitres. Ils offrent également des interventions de crise psychothérapeutiques. Dans l'équipe de triage, ils traitent les enregistrements et la distribution des cas pour les ambulatoires psychiatriques générales et d'âge.\nDe plus, ils travaillent dans un de nos laboratoires ambulatoires et prennent en charge les traitements psychothérapeutiques des patients de l'ensemble du spectre diagnostique (y compris le diagnostic, la planification thérapeutique et la correspondance à des tiers tels que les arbitres et les assureurs).\nEntrée au 1er janvier 2027 ou par arrangement.\n\nÇa vous attend.\n\n• Coopération ouverte axée sur les patients et les employés dans tous les domaines\n\n• Grandes possibilités d'action\n\n• Ambiance de travail constructive\n\n• Modèle de caisse de vacances et de retraite librement sélectionnable\n\n• Bonnes possibilités de formation, d'éducation et de formation\n\n• Loisirs et expériences nature dans les environs immédiats\n\nDevenez membre de notre équipe\n\n• Diplôme en psychologie clinique et formation psychothérapeutique avancée ou déjà achevée\n\n• Haute compétence sociale et résilience, personnalité décisionnelle\n\n• Joy des traitements d'urgence\n\n• Intérêt pour une coopération étroite avec les différentes institutions sociales et sanitaires\n\n• Joy de la coopération interdisciplinaire\n\n• Joy d'adapter vos propres connaissances et compétences à la situation de traitement individuelle et de les utiliser avec profit"
-    },
-    "slugByLocale": {
-      "fr": "psychologue-fsp-sbap-triage-ambulatoire-spital-sts-thun"
-    },
-    "sector": "Sanità / Ospedali",
-    "expiredAt": "2026-10-06T21:17:24.959Z",
-    "postalCode": "3600",
-    "salaryMin": 85000,
-    "salaryMax": 119000,
-    "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR",
-    "sourceIdentity": "url:https://ohws.prospective.ch/public/v1/redirect/b0c03a03-b14d-4f8f-9b06-c1891cfefebe/ats",
-    "firstSeenAt": "2026-09-08T13:40:05.038Z"
-  },
-  {
     "slug": "dipl-nutrizionisti-spital-sts-thun",
     "title": "Dipl. Ernährungsberater:in",
     "titleByLocale": {
@@ -543,47 +547,6 @@
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://ohws.prospective.ch/public/v1/redirect/1cfaa927-c56f-41d4-98b5-a90c9031cc90/ats",
     "firstSeenAt": "2026-09-08T13:40:05.991Z"
-  },
-  {
-    "slug": "dipl-pflegefachfrau-dipl-pflegefachmann-befristet-spital-sts-thun",
-    "title": "Dipl. Pflegefachfrau / Dipl. Pflegefachmann (befristet)",
-    "titleByLocale": {
-      "it": "Dipl. Pflegefachfrau / Dipl. Pflegefachmann (befristet)",
-      "en": "Dipl. Nursing professional / Dipl. Nursing professional (temporary)",
-      "de": "Dipl. Pflegefachfrau / Dipl. Pflegefachmann (befristet)",
-      "fr": "Dipl. Professionnels des soins infirmiers / Dipl. Professionnels des soins infirmiers (temporaires)"
-    },
-    "company": "Spital STS",
-    "companyKey": "spital-sts",
-    "location": "Thun",
-    "addressLocality": "Thun",
-    "descriptionByLocale": {
-      "it": "Un lavoro con prospettive: Oltre all'infrastruttura all'avanguardia e ad un'attività versatile nell'ambiente familiare, il Thun Hospital offre anche l'opportunità di svago flessibile nella regione naturale e lacustre circostante. Stai cercando qualcosa di significativo, ma anche giusto? Allora sei qui.\n\nSi lavorerà su un centro di gravità urologica, ma anche i pazienti di altre aree chirurgiche saranno curati. Nella stazione di letto modernizzata, grande enfasi è posta sulla cooperazione interdisciplinare con gerarchie piatte. Lavori in un team giovane e innovativo di infermieri e medici. Attraverso l'integrazione in tutto il team di urologia, una stretta collaborazione si svolge a livello degli occhi al di là di tutti i gruppi specializzati al fine di garantire la cura del paziente di prima classe. Offriamo grande flessibilità nel piano di lavoro e siamo felici di rispondere ai desideri individuali, se questo è operativo.\n\nIngresso di 1. Fino al 28 novembre 2026. Febbraio 2027 (con opzione di estensione)\n\nTi sta aspettando.\n\n• sfide emozionanti con la propria area di responsabilità\n• Buona collaborazione con il team e la gestione della stazione\n• Possibilità di acquisto di vacanza supplementare, condizioni di lavoro interessanti\n\nDiventa parte del nostro team\n\n• Laurea come Dipl. Infermieristica\n• Esperienza lavorativa preferibilmente in urologia\n• Ispiranti, impegnati, responsabili e professionali – i nostri valori STS ospedalieri che sono importanti per noi",
-      "en": "A job with prospects: In addition to the state-of-the-art infrastructure and a versatile activity in the family environment, the Thun Hospital also offers you the opportunity for flexible leisure in the surrounding natural and lake region. Are you looking for meaningful, but also fair? Then you're right here.\n\nYou will work on a urological center of gravity, but patients from other surgical areas will also be cared for. In the modernized bed station, great emphasis is placed on interdisciplinary cooperation with flat hierarchies. You work in a young and innovative team of nurses and doctors. Through the integration in the entire urology team, close cooperation takes place at eye level beyond all specialist groups in order to ensure first-class patient care. We offer great flexibility in the work plan and are happy to respond to individual wishes, if this is operationally possible.\n\nEntrance by 1. Until 28 November 2026. February 2027 (with extension option)\n\nThis is waiting for you\n\n• Exciting challenges with their own area of responsibility\n• Good cooperation with the team and the station management\n• Possibility of additional holiday purchase, attractive employment conditions\n\nBecome part of our team\n\n• Degree as a Dipl. Nurse practitioner\n• Preferably work experience in urology\n• Inspiring, committed, responsible and professional – our hospital STS values that are important to us",
-      "de": "Ein Job mit Aussichten: Im Spital Thun erwarten dich nebst der topmodernen Infrastruktur und einer vielseitigen Tätigkeit im familiären Umfeld auch die Möglichkeit zur flexiblen Freizeitgestaltung in der umliegenden Natur- und Seeregion. Du suchst sinnvoll, aber auch fair? Dann bist du hier richtig.\n\nDu wirst auf einer urologischen Schwerpunktstation arbeiten, auf welcher aber auch Patienten aus anderen chirurgischen Bereichen betreut werden. In der modernisierten Bettenstation wird grossen Wert auf die interdisziplinäre Zusammenarbeit mit flachen Hierarchien gelegt. Du arbeitest in einem jungen und innovativen Team von Pflegenden und Ärzten. Durch die Integration im Gesamtteam der Urologie erfolgt eine enge Zusammenarbeit auf Augenhöhe über alle Fachgruppen hinaus um eine erstklassige Betreuung der Patienten zu gewährleisten. Wir bieten grosse Flexibilität beim Arbeitsplan und gehen gerne auf individuelle Wünsche ein, falls dies betrieblich möglich ist.\n\nEintritt per 1. November 2026 befristet bis zum 28. Februar 2027 (mit Option auf Verlängerung)\n\nDas wartet auf dich\n\n• Spannende Herausforderungen mit eigenem Verantwortungsbereich\n• Gute Zusammenarbeit mit dem Team und der Stationsleitung\n• Möglichkeit des zusätzlichen Ferienkaufs, attraktive Anstellungsbedingungen\n\nSo wirst du Teil unseres Teams\n\n• Abschluss als Dipl. Pflegefachfrau/Pflegefachmann\n• Vorzugsweise Berufserfahrung in der Urologie\n• Inspirierend, engagiert, verantwortungsvoll und professionell - Unsere Spital STS-Werte, die uns wichtig sind",
-      "fr": "Un travail avec des perspectives: En plus de l'infrastructure de pointe et d'une activité polyvalente dans l'environnement familial, l'hôpital de Thun vous offre également la possibilité de loisirs flexibles dans la région naturelle et lacustre environnante. Êtes-vous à la recherche de sens, mais aussi juste? Alors vous êtes là.\n\nVous travaillerez sur un centre urologique de gravité, mais les patients d'autres zones chirurgicales seront également soignés. Dans la station de lit modernisée, l'accent est mis sur la coopération interdisciplinaire avec les hiérarchies plates. Vous travaillez dans une équipe jeune et innovante d'infirmières et de médecins. Grâce à l'intégration dans l'ensemble de l'équipe d'urologie, une coopération étroite s'opère au-delà de tous les groupes spécialisés afin d'assurer des soins de première qualité aux patients. Nous offrons une grande flexibilité dans le plan de travail et sommes heureux de répondre aux souhaits individuels, si cela est possible sur le plan opérationnel.\n\nEntrée par 1. Jusqu'au 28 novembre 2026. Février 2027 (avec option de prolongation)\n\nÇa vous attend.\n\n• Des défis passionnants avec leur propre domaine de responsabilité\n• Bonne coopération avec l'équipe et la direction de la station\n• Possibilité d'achat de vacances supplémentaires, conditions d'emploi attrayantes\n\nDevenez membre de notre équipe\n\n• Diplôme de diplômé. Infirmière praticienne\n• Expérience professionnelle de préférence en urologie\n• Inspirant, engagé, responsable et professionnel, notre hôpital STS valeurs qui sont importantes pour nous"
-    },
-    "slugByLocale": {
-      "en": "dipl-nursing-professional-dipl-nursing-professional-temporary-spital-sts-thun",
-      "fr": "dipl-professionnels-des-soins-infirmiers-dipl-professionnels-des-soins-infirmiers-temporaires-spital-sts-thun"
-    },
-    "sector": "Sanità / Ospedali",
-    "expiredAt": "2026-10-04T09:17:35.214Z",
-    "previousSlugs": [
-      "dipl-infermieristica-professionale-dipl-infermieristica-professionale-temporanea-spital-sts-thun"
-    ],
-    "previousSlugsByLocale": {
-      "it": [
-        "dipl-infermieristica-professionale-dipl-infermieristica-professionale-temporanea-spital-sts-thun"
-      ]
-    },
-    "postalCode": "3600",
-    "salaryMin": 85000,
-    "salaryMax": 119000,
-    "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR",
-    "sourceIdentity": "url:https://ohws.prospective.ch/public/v1/redirect/e3b9ec4f-9c75-49f9-a2ae-95eed3456ca7/ats",
-    "firstSeenAt": "2026-09-04T23:00:55.333Z"
   },
   {
     "slug": "ict-application-manager-in-informaticista-medico-in-spital-sts-thun",

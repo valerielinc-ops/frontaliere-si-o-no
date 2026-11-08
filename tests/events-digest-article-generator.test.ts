@@ -10,7 +10,9 @@ import { mkdtempSync, mkdirSync, writeFileSync, readFileSync, existsSync } from 
 import os from 'node:os';
 import path from 'node:path';
 import { refreshBodyFiles, bumpUpdatedAt, bumpDateModified, bumpSitemapLastmod } from '../scripts/generate-events-digest-article.mjs';
+import { evergreenRefreshLockPath } from '../scripts/lib/evergreen-article-refresh.mjs';
 import { buildWeekendDigestArticle } from '../scripts/lib/events-digest-content.mjs';
+import { withSingleFlightLock } from '../scripts/lib/single-flight-lock.mjs';
 
 const article = buildWeekendDigestArticle({
   events: [{ id: 'a', title: 'Concerto al LAC', comune: 'Lugano', startDate: '2027-01-02' }],
@@ -49,6 +51,47 @@ describe('events digest article generator', () => {
     };
     expect(() => refreshBodyFiles(contaminated, root, () => {}))
       .toThrow(/leaked-prompt-scaffolding/i);
+    expect(existsSync(path.join(root, 'services'))).toBe(false);
+  });
+
+  it('stages every locale before replacement and keeps the previous set on rename failure', () => {
+    const root = mkdtempSync(path.join(os.tmpdir(), 'digest-gen-atomic-'));
+    const previous = new Map<string, string>();
+    for (const loc of ['it', 'en', 'de', 'fr']) {
+      const dir = path.join(root, 'services/locales/blog-body', loc);
+      mkdirSync(dir, { recursive: true });
+      const file = path.join(dir, 'eventi-weekend-ticino.ts');
+      const source = `previous ${loc}\n`;
+      previous.set(file, source);
+      writeFileSync(file, source);
+    }
+
+    const originalRename = fs.renameSync.bind(fs);
+    let renameCalls = 0;
+    const rename = vi.spyOn(fs, 'renameSync').mockImplementation((from, to) => {
+      renameCalls += 1;
+      if (renameCalls === 2) throw new Error('simulated body rename failure');
+      return originalRename(from, to);
+    });
+    try {
+      expect(() => refreshBodyFiles(data, root, () => {})).toThrow('simulated body rename failure');
+    } finally {
+      rename.mockRestore();
+    }
+
+    for (const [file, source] of previous) {
+      expect(readFileSync(file, 'utf-8')).toBe(source);
+      expect(fs.readdirSync(path.dirname(file)).filter((name) => name.endsWith('.tmp'))).toEqual([]);
+    }
+  });
+
+  it('refuses an overlapping refresh while the article lock is held', () => {
+    const root = mkdtempSync(path.join(os.tmpdir(), 'digest-gen-lock-'));
+    const held = withSingleFlightLock(evergreenRefreshLockPath(data.id), () => {
+      expect(() => refreshBodyFiles(data, root, () => {}))
+        .toThrow(/already running; no files were written/);
+    });
+    expect(held.acquired).toBe(true);
     expect(existsSync(path.join(root, 'services'))).toBe(false);
   });
 

@@ -2,7 +2,9 @@ import { createHash, randomBytes } from 'node:crypto';
 import fs from 'node:fs';
 import path from 'node:path';
 import { StringDecoder } from 'node:string_decoder';
+import { deflateSync, inflateSync } from 'node:zlib';
 import { readAttr } from '../../scripts/lib/html-attr.mjs';
+import { stripSourceComments } from '../../scripts/lib/source-comments.mjs';
 import {
   computeInputHash,
   JOB_DIGEST_ALGORITHM_VERSION,
@@ -96,7 +98,8 @@ const JOBS_SEO_RENDER_ENTRY = 'build-plugins/jobsSeoPagesPlugin.ts';
 // This module owns cache persistence only. Changes here must not invalidate
 // already-rendered HTML by changing the emitter fingerprint.
 const JOBS_SEO_REUSE_STORAGE_MODULE = 'build-plugins/shared/incrementalHtmlReuse.mjs';
-export const JOBS_SEO_HTML_PACK_VERSION = 'pack@1';
+// Version 2 stores zlib-compressed HTML; the cache key includes this version.
+export const JOBS_SEO_HTML_PACK_VERSION = 'pack@2';
 const JOBS_SEO_HTML_PACK_FORMAT = 'frontaliere-jobs-seo-html-pack';
 const JOBS_SEO_HTML_INDEX_FORMAT = 'frontaliere-jobs-seo-html-index';
 const PACK_HEADER_READ_BYTES = 4096;
@@ -214,6 +217,16 @@ function sha256(value) {
   return createHash('sha256').update(value, 'utf8').digest('hex');
 }
 
+export function computeJobsSeoHtmlCacheFingerprint(fingerprints, packVersion = JOBS_SEO_HTML_PACK_VERSION) {
+  const stable = JSON.stringify({
+    packVersion,
+    renderers: Object.fromEntries(
+      Object.entries(fingerprints).sort(([left], [right]) => (left < right ? -1 : left > right ? 1 : 0)),
+    ),
+  });
+  return sha256(stable);
+}
+
 function sha256File(file) {
   return createHash('sha256').update(fs.readFileSync(file)).digest('hex');
 }
@@ -248,17 +261,6 @@ function resolveGraphSpecifier(fromFile, specifier, rootDir) {
   return null;
 }
 
-// Blanks block and line comments (keeping newlines, so line anchors survive).
-// Deliberately naive: a `/*` or `//` inside a string or regex literal can blank
-// real code, so the stripped text is only ever scanned IN ADDITION to the raw
-// text — it can add edges (`/* c */ import …`, `import /* c */ x from …`),
-// never remove one the raw scan found.
-function blankComments(source) {
-  return source
-    .replace(/\/\*[\s\S]*?\*\//g, (comment) => comment.replace(/[^\n]/g, ' '))
-    .replace(/\/\/[^\n]*/g, (comment) => ' '.repeat(comment.length));
-}
-
 function collectImportSpecifiers(text, specifiers) {
   STATIC_FROM_RE.lastIndex = 0;
   for (const match of text.matchAll(STATIC_FROM_RE)) {
@@ -273,13 +275,10 @@ function collectImportSpecifiers(text, specifiers) {
 
 export function importedSourceModules(source, fromFile, rootDir) {
   const specifiers = new Set();
-  // Union of the raw and comment-blanked scans: the raw scan keeps every
-  // line-start import even if blanking misfires on a string; the blanked scan
-  // catches imports that follow or contain a comment. A commented-out import
-  // only enters through the raw scan when it starts its own line, which errs
-  // on the side of invalidating.
+  // The raw scan keeps the graph conservative for future syntax unknown to
+  // the shared lexer; comment stripping adds imports that continue around comments.
   collectImportSpecifiers(source, specifiers);
-  collectImportSpecifiers(blankComments(source), specifiers);
+  collectImportSpecifiers(stripSourceComments(source), specifiers);
   return [...specifiers]
     .map((specifier) => resolveGraphSpecifier(fromFile, specifier, rootDir))
     .filter(Boolean);
@@ -875,21 +874,24 @@ class JobsSeoHtmlPackStore {
         }
         if (!indexHeader) throw new Error('header indice jobs SEO HTML mancante');
         const fields = line.split('\t');
-        if (fields.length !== 3 || !packEntryKeyIsValid(fields[0])) {
+        if (fields.length !== 4 || !packEntryKeyIsValid(fields[0])) {
           throw new Error(`indice jobs SEO HTML non valido alla riga ${lineNumber}`);
         }
         const offset = Number(fields[1]);
         const length = Number(fields[2]);
+        const uncompressedLength = Number(fields[3]);
         if (
           !Number.isSafeInteger(offset)
           || !Number.isSafeInteger(length)
+          || !Number.isSafeInteger(uncompressedLength)
           || offset < packHeader.length
           || length <= 0
+          || uncompressedLength <= 0
           || offset + length > packSize
         ) {
           throw new Error(`entry jobs SEO HTML troncata alla riga ${lineNumber}`);
         }
-        this.entries.set(fields[0], { offset, length });
+        this.entries.set(fields[0], { offset, length, uncompressedLength });
       });
       if (!indexHeader) throw new Error('header indice jobs SEO HTML mancante');
       for (const entry of this.entries.values()) this.liveBytes += entry.length;
@@ -940,7 +942,9 @@ class JobsSeoHtmlPackStore {
     if (!entry) return null;
     try {
       const buffer = this.readEntryBuffer(entry);
-      return buffer && buffer.length > 0 ? buffer.toString('utf8') : null;
+      if (!buffer || buffer.length === 0) return null;
+      const html = inflateSync(buffer, { maxOutputLength: entry.uncompressedLength });
+      return html.length === entry.uncompressedLength ? html.toString('utf8') : null;
     } catch {
       return null;
     }
@@ -955,7 +959,10 @@ class JobsSeoHtmlPackStore {
     try {
       writePackBytes(fd, Buffer.from(reuseIndexHeader(this.block, generation), 'utf8'));
       for (const [key, entry] of entries) {
-        writePackBytes(fd, Buffer.from(`${key}\t${entry.offset}\t${entry.length}\n`, 'utf8'));
+        writePackBytes(
+          fd,
+          Buffer.from(`${key}\t${entry.offset}\t${entry.length}\t${entry.uncompressedLength}\n`, 'utf8'),
+        );
       }
     } finally {
       fs.closeSync(fd);
@@ -1004,8 +1011,9 @@ class JobsSeoHtmlPackStore {
   append(key, html) {
     if (!this.load()) this.initializeFresh();
     if (!this.valid) return false;
-    const bytes = Buffer.from(String(html), 'utf8');
-    if (bytes.length === 0) return false;
+    const htmlBytes = Buffer.from(String(html), 'utf8');
+    if (htmlBytes.length === 0) return false;
+    const bytes = deflateSync(htmlBytes, { level: 1 });
     const previous = this.entries.get(key);
     const offset = this.packSize;
     try {
@@ -1013,12 +1021,15 @@ class JobsSeoHtmlPackStore {
       writePackBytes(this.appendPackFd, bytes);
       this.packSize = offset + bytes.length;
       if (this.appendIndexFd === null) this.appendIndexFd = fs.openSync(this.indexPath, 'a');
-      writePackBytes(this.appendIndexFd, Buffer.from(`${key}\t${offset}\t${bytes.length}\n`, 'utf8'));
+      writePackBytes(
+        this.appendIndexFd,
+        Buffer.from(`${key}\t${offset}\t${bytes.length}\t${htmlBytes.length}\n`, 'utf8'),
+      );
     } catch (error) {
       this.invalidate();
       throw error;
     }
-    this.entries.set(key, { offset, length: bytes.length });
+    this.entries.set(key, { offset, length: bytes.length, uncompressedLength: htmlBytes.length });
     this.liveBytes += bytes.length - (previous?.length || 0);
     return true;
   }
@@ -1061,7 +1072,11 @@ class JobsSeoHtmlPackStore {
       for (const [key, entry] of this.entries) {
         const bytes = this.readEntryBuffer(entry);
         if (!bytes || bytes.length === 0) continue;
-        const nextEntry = { offset: nextPackSize, length: bytes.length };
+        const nextEntry = {
+          offset: nextPackSize,
+          length: bytes.length,
+          uncompressedLength: entry.uncompressedLength,
+        };
         writePackBytes(packFd, bytes);
         nextEntries.set(key, nextEntry);
         nextPackSize += bytes.length;

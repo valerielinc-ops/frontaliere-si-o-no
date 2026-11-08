@@ -1,0 +1,274 @@
+#!/usr/bin/env node
+import { appendFileSync, existsSync, readFileSync, writeFileSync } from 'node:fs';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+import {
+  AI_MODELS,
+  callSingleModel,
+  getProvider,
+  isModelAvailable,
+} from '../lib/ai-models.mjs';
+import { getFirestoreDb } from '../lib/firestore-admin.mjs';
+import {
+  assertSocialCopyTreatmentContinuity,
+  normalizeSocialCopyPack,
+  validatePersistedSocialCopyPack,
+} from '../lib/social-copy-pack.mjs';
+import { isInvokedDirectly } from '../lib/is-invoked-directly.mjs';
+import { reserveSocialCopyFreeFallbackInvocation } from '../lib/social-copy-invocation-limit.mjs';
+import { assertSocialCopyPackProductionRef, socialCopyInvocationId } from './reserve-codex-invocation.mjs';
+
+const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
+const ALLOWED_FREE_PROVIDERS = new Set(['github', 'gemini', 'groq', 'openrouter']);
+
+// Only established no-cost tiers are eligible. Keep Cloudflare, Cohere trials,
+// and paid or retired providers out of this recovery path.
+export const FREE_SOCIAL_COPY_MODEL_CANDIDATES = Object.freeze([
+  Object.freeze({ provider: 'gemini', model: AI_MODELS.GEMMA_4_31B, context: 'full' }),
+  Object.freeze({ provider: 'openrouter', model: AI_MODELS.OR_LLAMA_3_3, context: 'full' }),
+  Object.freeze({ provider: 'github', model: AI_MODELS.GPT4O, context: 'compact' }),
+  Object.freeze({ provider: 'groq', model: AI_MODELS.GROQ_GPT_OSS_120B, context: 'compact' }),
+]);
+
+const COMPACT_CONTRACT = `Genera il prossimo pacchetto editoriale settimanale di Frontaliere Ticino in italiano naturale. Restituisci solo un oggetto JSON con esattamente le chiavi editorialPlan e channels. Mantieni la definizione degli angoli e dei pilastri esistenti; aggiorna gli hook senza cambiare il significato degli ID. Usa i brief qualificati solo come segnali descrittivi; dati assenti o sotto soglia sono sconosciuti, non zero. Usa inventario editoriale per idee specifiche e ipotesi dichiarate quando mancano evidenze. Non inventare fatti, eventi, salari, consulenza legale o fiscale, trend, risultati, audience o promesse di portata. Non raccogliere dati da account Instagram concorrenti e non definire virale un formato senza evidenza qualificata del nostro account. Non dire che un canale ha pubblicato o raggiunto persone se la sua deliveryState non è live.
+
+Rispetta il channel matrix, i conteggi, gli obiettivi, le lunghezze e le CTA del contratto completo quando è fornito. Tre angoli distinti per ogni formato; distribuzione uniforme. Instagram article/job/border hanno tre template per ciascun obiettivo share/save/conversation; Reel ha tre template follow, uno per angolo, CTA che inizia con Segui. Facebook job ha dodici template; ogni altro slot ha tre. TikTok e Reddit restano preparazione draft dove la delivery è held. Ogni CTA deve chiedere una sola azione. Non includere URL, contatti, hashtag, markup, segnaposto o numeri nei template se il contratto li vieta. La validazione automatica rifiuterà qualsiasi pack fuori schema. Non aggiungere chiavi top-level, spiegazioni o markdown.`;
+
+const ALLOWED_BRIEF_KEYS = Object.freeze([
+  'schemaVersion', 'source', 'available', 'status', 'generatedAt', 'baselineDays',
+  'minimumSessions', 'minimumObservations', 'acceptedRows', 'variants', 'faqSearchDemand',
+  'instagramStories', 'instagramCommunityQuestionDemand', 'channelPilots', 'channels',
+  'growthTargets', 'growthTarget90d', 'businessOutcomeTarget', 'businessOutcomeTargetCoverage',
+  'growthObjective', 'audienceGrowth', 'linkedinFollowerGains', 'sourceFreshness',
+  'instagramCommunityResponse', 'siteOutcomeGrowth', 'socialRobotDelivery', 'sourceCoverage', 'interpretation',
+  'publishedArticles', 'historicalTopics', 'topicDiscovery', 'upcomingTicinoEvents',
+]);
+
+function argument(name, fallback = '') {
+  const item = process.argv.slice(2).find((value) => value.startsWith('--' + name + '='));
+  return item ? item.slice(name.length + 3) : fallback;
+}
+
+function commandPaths() {
+  const names = {
+    ga4: 'ga4',
+    native: 'native',
+    scorecard: 'scorecard',
+    topics: 'topics',
+    previousPack: 'previous-pack',
+    prompt: 'prompt',
+    viralSkill: 'viral-skill',
+    creativeStudy: 'creative-study',
+    output: 'output',
+  };
+  return Object.fromEntries(Object.entries(names)
+    .map(([key, cliName]) => [key, argument(cliName)])
+    .filter(([, value]) => Boolean(value)));
+}
+
+function readJson(file, label, { optional = false } = {}) {
+  if (!file) {
+    if (optional) return null;
+    throw new Error(label + ' is missing');
+  }
+  if (!existsSync(file)) throw new Error(label + ' is missing');
+  return JSON.parse(readFileSync(file, 'utf8'));
+}
+
+function compactObject(value, { maxVariants = 20 } = {}) {
+  if (!value || typeof value !== 'object' || Array.isArray(value)) return value;
+  const result = {};
+  for (const key of ALLOWED_BRIEF_KEYS) {
+    if (!Object.hasOwn(value, key)) continue;
+    if (key === 'variants' && Array.isArray(value.variants)) {
+      result.variants = value.variants
+        .filter((variant) => variant?.eligibleForDescription === true)
+        .slice(0, maxVariants);
+    } else {
+      result[key] = value[key];
+    }
+  }
+  return result;
+}
+
+function parsePreviousPack(raw, now = new Date()) {
+  if (!raw) return null;
+  const previousTime = raw.generatedAt || now;
+  return validatePersistedSocialCopyPack(raw, { now: previousTime });
+}
+
+export function selectAvailableFreeModels({ candidates = FREE_SOCIAL_COPY_MODEL_CANDIDATES, providerOf = getProvider, available = isModelAvailable } = {}) {
+  const providers = new Set();
+  return candidates.filter((candidate) => {
+    if (!candidate || !ALLOWED_FREE_PROVIDERS.has(candidate.provider)
+      || candidate.provider !== providerOf(candidate.model)
+      || providers.has(candidate.provider) || !available(candidate.model)) return false;
+    providers.add(candidate.provider);
+    return true;
+  });
+}
+
+function contractForPrompt({ promptFile, viralSkillFile, creativeStudyFile, context }) {
+  const prompt = readFileSync(promptFile || path.join(ROOT, 'scripts/social-copy/CODEX-PROMPT.md'), 'utf8');
+  const start = prompt.indexOf('Use natural Italian');
+  const end = prompt.lastIndexOf('\nWrite the JSON only');
+  const completeContract = prompt.slice(start >= 0 ? start : 0, end > start ? end : undefined).trim();
+  const viralSkill = readFileSync(viralSkillFile || path.join(ROOT, '.agents/skills/ig-viral/SKILL.md'), 'utf8');
+  const creativeStudy = context === 'full'
+    ? readFileSync(creativeStudyFile || path.join(ROOT, 'docs/instagram-creative-study.md'), 'utf8')
+    : '';
+  return [completeContract, 'Instagram performance and research guardrail:', viralSkill, creativeStudy]
+    .filter(Boolean)
+    .join('\n\n');
+}
+
+export function buildSocialCopyFallbackMessages({
+  context = 'compact',
+  promptFile,
+  viralSkillFile,
+  creativeStudyFile,
+  ga4 = null,
+  native = null,
+  scorecard = null,
+  topics = null,
+  previousPack = null,
+  now = new Date(),
+} = {}) {
+  const contract = context === 'full'
+    ? contractForPrompt({ promptFile, viralSkillFile, creativeStudyFile, context })
+    : COMPACT_CONTRACT;
+  const input = {
+    generatedAt: new Date(now).toISOString(),
+    ga4: compactObject(ga4),
+    native: compactObject(native),
+    scorecard: compactObject(scorecard),
+    publishedTopicInventory: compactObject(topics),
+    previousEditorialPlan: previousPack?.editorialPlan || null,
+  };
+  const user = [
+    'GOVERNING CONTRACT',
+    contract,
+    'SANITIZED INPUTS: use only eligible aggregates and dated publisher-source labels. Keep channel cohorts separate.',
+    JSON.stringify(input),
+    'Return the complete JSON pack now. No file access is available; return JSON text only.',
+  ].join('\n\n');
+  return [
+    { role: 'system', content: 'Sei un editor social italiano. Segui il contratto e i limiti dei dati senza eccezioni. Restituisci JSON valido e nient’altro.' },
+    { role: 'user', content: user },
+  ];
+}
+
+function parsePackResponse(response, { provider, generatedAt, previousPack }) {
+  let text = String(response || '').trim();
+  const fenced = text.match(/^```(?:json)?\s*([\s\S]*?)\s*```$/iu);
+  if (fenced) text = fenced[1].trim();
+  const raw = JSON.parse(text);
+  if (!raw || typeof raw !== 'object' || Array.isArray(raw)
+    || Object.keys(raw).sort().join('|') !== 'channels|editorialPlan') {
+    throw new Error('response-shape-invalid');
+  }
+  const normalized = normalizeSocialCopyPack(raw, { generatedAt, generationProvider: provider });
+  if (previousPack) assertSocialCopyTreatmentContinuity(previousPack, normalized);
+  return raw;
+}
+
+function writeWorkflowOutput(env, values) {
+  const lines = Object.entries(values).map(([key, value]) => `${key}=${String(value)}`).join('\n') + '\n';
+  if (env.GITHUB_OUTPUT) appendFileSync(env.GITHUB_OUTPUT, lines, { mode: 0o600 });
+}
+
+function markNoPack({ env, stdout, reason, attempted = [] }) {
+  writeWorkflowOutput(env, { pack_generated: 'false', provider: 'none', reason });
+  stdout.write(`pack_generated=false\nprovider=none\nreason=${reason}\nattempted=${attempted.join(',')}\n`);
+  return { packGenerated: false, provider: null, reason, attempted };
+}
+
+export async function run({
+  env = process.env,
+  now = new Date(),
+  modelCandidates,
+  available = isModelAvailable,
+  providerOf = getProvider,
+  callModel = callSingleModel,
+  db,
+  reserve = reserveSocialCopyFreeFallbackInvocation,
+  stdout = process.stdout,
+  inputPaths = {},
+  outputPath = '',
+} = {}) {
+  assertSocialCopyPackProductionRef(env);
+  const paths = { ...commandPaths(), ...inputPaths };
+  const responsePath = outputPath || paths.output
+    || (env.RUNNER_TEMP ? path.join(env.RUNNER_TEMP, 'social-copy-response.json') : '');
+  const candidates = selectAvailableFreeModels({ candidates: modelCandidates || FREE_SOCIAL_COPY_MODEL_CANDIDATES, providerOf, available });
+  if (!candidates.length) return markNoPack({ env, stdout, reason: 'no-free-provider-available' });
+  const currentRaw = readJson(
+    paths.previousPack || path.join(ROOT, 'data/social-copy-packs/current.json'),
+    'current social-copy pack',
+    { optional: true },
+  );
+  const previousPack = parsePreviousPack(currentRaw, now);
+  const ga4 = readJson(paths.ga4, 'GA4 brief', { optional: true });
+  const native = readJson(paths.native, 'native brief', { optional: true });
+  const scorecard = readJson(paths.scorecard, 'growth scorecard', { optional: true });
+  const topics = readJson(paths.topics, 'published-topic inventory', { optional: true });
+  const invocationId = socialCopyInvocationId(env);
+  let reservation;
+  try {
+    const firestore = db || await getFirestoreDb();
+    reservation = await reserve({ db: firestore, invocationId, now });
+  } catch {
+    return markNoPack({ env, stdout, reason: 'free-fallback-budget-reservation-failed' });
+  }
+  if (!reservation.allowed) {
+    return markNoPack({ env, stdout, reason: 'free-fallback-weekly-budget-exhausted' });
+  }
+
+  const generatedAt = now instanceof Date ? now.toISOString() : new Date(now).toISOString();
+  const attempted = [];
+  for (const candidate of candidates) {
+    attempted.push(candidate.provider);
+    const messages = buildSocialCopyFallbackMessages({
+      context: candidate.context,
+      promptFile: paths.prompt,
+      viralSkillFile: paths.viralSkill,
+      creativeStudyFile: paths.creativeStudy,
+      ga4,
+      native,
+      scorecard,
+      topics,
+      previousPack,
+      now,
+    });
+    try {
+      const response = await callModel(messages, {
+        model: candidate.model,
+        temperature: 0.3,
+        maxTokens: candidate.context === 'compact' ? 6000 : 7500,
+        jsonMode: true,
+        timeout: 90_000,
+        maxRetriesPerModel: 1,
+        backoffMs: 0,
+        recordScore: false,
+      });
+      const raw = parsePackResponse(response, { provider: candidate.provider, generatedAt, previousPack });
+      if (!responsePath) throw new Error('response-output-path-missing');
+      writeFileSync(responsePath, JSON.stringify(raw, null, 2) + '\n', { mode: 0o600 });
+      writeWorkflowOutput(env, { pack_generated: 'true', provider: candidate.provider, reason: 'generated' });
+      stdout.write(`pack_generated=true\nprovider=${candidate.provider}\n`);
+      return { packGenerated: true, provider: candidate.provider, attempted };
+    } catch {
+      stdout.write(`provider_attempt_failed=${candidate.provider}\n`);
+    }
+  }
+  return markNoPack({ env, stdout, reason: 'all-free-models-failed-validation', attempted });
+}
+
+if (isInvokedDirectly(import.meta.url)) {
+  run().then((result) => {
+    if (!result.packGenerated) process.exitCode = 1;
+  }).catch((error) => {
+    process.stderr.write(`Social copy free-model fallback failed: ${String(error?.message || error).slice(0, 300)}\n`);
+    process.exitCode = 1;
+  });
+}

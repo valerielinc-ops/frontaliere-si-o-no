@@ -4,6 +4,7 @@ import { existsSync, readFileSync } from 'node:fs';
 import { isInvokedDirectly } from '../lib/is-invoked-directly.mjs';
 import { buildCreativeReport, DEFAULT_MINIMUM_OBSERVATIONS } from '../lib/instagram-insights-report.mjs';
 import { socialCopyRevisionId } from '../lib/social-copy-revision.mjs';
+import { isGeneratedSocialCopyMode } from '../lib/social-copy-pack.mjs';
 
 export function buildSocialCopyPerformanceBrief(insights, ledger, {
   minimumObservations = DEFAULT_MINIMUM_OBSERVATIONS,
@@ -16,7 +17,7 @@ export function buildSocialCopyPerformanceBrief(insights, ledger, {
       const angleId = String(copy.copyAngleId || '').trim();
       const pillarId = String(copy.copyPillarId || '').trim();
       if (
-        copy.copyMode !== 'codex'
+        !isGeneratedSocialCopyMode(copy.copyMode)
         || !/^[a-z0-9][a-z0-9-]{0,31}$/.test(String(copy.copyTemplateId || ''))
         || !/^[a-f0-9]{16}$/.test(String(copy.copyPackId || ''))
         || (angleId && !/^[a-z0-9][a-z0-9-]{0,31}$/.test(angleId))
@@ -29,10 +30,12 @@ export function buildSocialCopyPerformanceBrief(insights, ledger, {
       const assignmentMode = copy.copyAssignmentMode || 'unknown';
       const experimentId = copy.copyExperimentId || 'unknown';
       const copyRevisionId = socialCopyRevisionId({ copyHook: copy.copyHook, copyCta: copy.copyCta });
-      const key = [treatment.kind, treatment.objective, copy.copyPackId, copy.copyTemplateId, angleId || 'unknown-angle', pillarId || 'unknown-pillar', copyRevisionId || 'unknown-revision', assignmentMode, experimentId].join('|');
+      const copyMode = copy.copyMode;
+      const key = [treatment.kind, treatment.objective, copyMode, copy.copyPackId, copy.copyTemplateId, angleId || 'unknown-angle', pillarId || 'unknown-pillar', copyRevisionId || 'unknown-revision', assignmentMode, experimentId].join('|');
       const group = groups.get(key) || {
         kind: treatment.kind,
         objective: treatment.objective,
+        copyMode,
         packId: copy.copyPackId,
         templateId: copy.copyTemplateId,
         copyRevisionId,
@@ -60,6 +63,7 @@ export function buildSocialCopyPerformanceBrief(insights, ledger, {
   const variants = [...groups.values()]
     .sort((a, b) => a.kind.localeCompare(b.kind)
       || a.objective.localeCompare(b.objective)
+      || a.copyMode.localeCompare(b.copyMode)
       || String(a.templateId).localeCompare(String(b.templateId))
       || Number(!a.angleId) - Number(!b.angleId)
       || String(a.angleId || '').localeCompare(String(b.angleId || ''))
@@ -70,6 +74,7 @@ export function buildSocialCopyPerformanceBrief(insights, ledger, {
       return {
         kind: group.kind,
         objective: group.objective,
+        copyMode: group.copyMode,
         packId: group.packId,
         templateId: group.templateId,
         ...(group.copyRevisionId ? { copyRevisionId: group.copyRevisionId } : {}),

@@ -2,17 +2,24 @@ import { createHash, randomUUID } from 'node:crypto';
 import { existsSync, readFileSync } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { SOCIAL_COPY_GENERATION_PROVIDERS, isGeneratedSocialCopyMode } from './social-copy-mode.mjs';
 
-export const SOCIAL_COPY_PACK_SCHEMA_VERSION = 4;
-export const SOCIAL_COPY_PROMPT_VERSION = 'frontaliere-social-copy-v4';
+export { isGeneratedSocialCopyMode } from './social-copy-mode.mjs';
+
+export const SOCIAL_COPY_PACK_SCHEMA_VERSION = 5;
+export const SOCIAL_COPY_PROMPT_VERSION = 'frontaliere-social-copy-v5';
 export const SOCIAL_COPY_PACK_MAX_AGE_DAYS = 45;
 export const SOCIAL_COPY_EXPERIMENT_PROTOCOL_VERSION = 'social-copy-angle-matched-block-v4';
-const LEGACY_SOCIAL_COPY_PACK_SCHEMA_VERSION = 1;
-const LEGACY_SOCIAL_COPY_PROMPT_VERSION = 'frontaliere-social-copy-v1';
-const SECOND_PREVIOUS_SOCIAL_COPY_PACK_SCHEMA_VERSION = 2;
-const SECOND_PREVIOUS_SOCIAL_COPY_PROMPT_VERSION = 'frontaliere-social-copy-v2';
-const PREVIOUS_SOCIAL_COPY_PACK_SCHEMA_VERSION = 3;
-const PREVIOUS_SOCIAL_COPY_PROMPT_VERSION = 'frontaliere-social-copy-v3';
+const REEL_FOLLOW_SCHEMA_VERSION = 4;
+const EDITORIAL_ANGLES_SCHEMA_VERSION = 3;
+const OLDEST_SOCIAL_COPY_PACK_SCHEMA_VERSION = 1;
+const OLDEST_SOCIAL_COPY_PROMPT_VERSION = 'frontaliere-social-copy-v1';
+const THIRD_PREVIOUS_SOCIAL_COPY_PACK_SCHEMA_VERSION = 2;
+const THIRD_PREVIOUS_SOCIAL_COPY_PROMPT_VERSION = 'frontaliere-social-copy-v2';
+const SECOND_PREVIOUS_SOCIAL_COPY_PACK_SCHEMA_VERSION = 3;
+const SECOND_PREVIOUS_SOCIAL_COPY_PROMPT_VERSION = 'frontaliere-social-copy-v3';
+const PREVIOUS_SOCIAL_COPY_PACK_SCHEMA_VERSION = 4;
+const PREVIOUS_SOCIAL_COPY_PROMPT_VERSION = 'frontaliere-social-copy-v4';
 
 export const SOCIAL_COPY_CHANNELS = Object.freeze({
   instagram: Object.freeze(['article', 'job', 'border', 'reel']),
@@ -74,7 +81,7 @@ const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..')
 export const DEFAULT_SOCIAL_COPY_PACK_PATH = path.join(ROOT, 'data', 'social-copy-packs', 'current.json');
 
 function instagramObjectivesForKind(kind, schemaVersion = SOCIAL_COPY_PACK_SCHEMA_VERSION) {
-  if (kind === 'reel' && Number(schemaVersion) >= SOCIAL_COPY_PACK_SCHEMA_VERSION) {
+  if (kind === 'reel' && Number(schemaVersion) >= REEL_FOLLOW_SCHEMA_VERSION) {
     return INSTAGRAM_REEL_GROWTH_OBJECTIVES;
   }
   return INSTAGRAM_ENGAGEMENT_OBJECTIVES;
@@ -82,7 +89,7 @@ function instagramObjectivesForKind(kind, schemaVersion = SOCIAL_COPY_PACK_SCHEM
 
 export function socialCopyTemplateCount(channel, kind, schemaVersion = SOCIAL_COPY_PACK_SCHEMA_VERSION) {
   if (channel === 'instagram' && kind === 'reel') {
-    return Number(schemaVersion) >= SOCIAL_COPY_PACK_SCHEMA_VERSION
+    return Number(schemaVersion) >= REEL_FOLLOW_SCHEMA_VERSION
       ? INSTAGRAM_REEL_GROWTH_OBJECTIVES.length * MAX_TEMPLATES_PER_INSTAGRAM_OBJECTIVE
       : 9;
   }
@@ -122,11 +129,13 @@ export function socialCopyExperimentTreatmentFingerprint(pack, { channel, slot, 
     .digest('hex');
 }
 
-export function socialCopyExperimentRegistrationId({ experimentId, packId, treatmentFingerprint = '', channel, slot, objective = '' } = {}) {
+export function socialCopyExperimentRegistrationId({ experimentId, packId, treatmentFingerprint = '', channel, slot, objective = '', generationProvider = 'codex' } = {}) {
   const treatment = String(treatmentFingerprint || '').trim();
   const cohort = /^[a-f0-9]{64}$/u.test(treatment)
     ? [experimentId, channel, slot, objective, treatment]
     : [experimentId, packId, channel, slot, objective];
+  const provider = String(generationProvider || 'codex').trim();
+  if (provider !== 'codex') cohort.push(provider);
   return createHash('sha256')
     .update(cohort.map((value) => String(value || '')).join('|'))
     .digest('hex');
@@ -419,15 +428,22 @@ function normalizePack(raw, {
   schemaVersion = SOCIAL_COPY_PACK_SCHEMA_VERSION,
   promptVersion = SOCIAL_COPY_PROMPT_VERSION,
   channelSchema = SOCIAL_COPY_CHANNELS,
+  generationProvider = 'codex',
 } = {}) {
-  const requireEditorialAngles = Number(schemaVersion) >= PREVIOUS_SOCIAL_COPY_PACK_SCHEMA_VERSION;
+  const requireEditorialAngles = Number(schemaVersion) >= EDITORIAL_ANGLES_SCHEMA_VERSION;
   const editorialPlan = requireEditorialAngles ? packEditorialPlan(raw, channelSchema) : null;
   const channels = packChannels(raw, channelSchema, { editorialPlan, requireEditorialAngles, schemaVersion });
+  const normalizedGenerationProvider = String(generationProvider || '').trim();
+  if (Number(schemaVersion) >= SOCIAL_COPY_PACK_SCHEMA_VERSION
+    && !SOCIAL_COPY_GENERATION_PROVIDERS.includes(normalizedGenerationProvider)) {
+    throw new Error('generationProvider must be one of the supported social-copy providers');
+  }
   const generated = generatedAt instanceof Date ? generatedAt : new Date(generatedAt);
   if (!Number.isFinite(generated.getTime())) throw new Error('generatedAt must be a valid timestamp');
   const canonical = JSON.stringify(requireEditorialAngles ? { editorialPlan, channels } : channels);
   const packId = createHash('sha256')
-    .update(promptVersion + '\n' + canonical)
+    .update(promptVersion + '\n' + canonical
+      + (Number(schemaVersion) >= SOCIAL_COPY_PACK_SCHEMA_VERSION ? '\n' + normalizedGenerationProvider : ''))
     .digest('hex')
     .slice(0, 16);
   const validUntil = new Date(generated.getTime() + SOCIAL_COPY_PACK_MAX_AGE_DAYS * 86400000);
@@ -439,44 +455,55 @@ function normalizePack(raw, {
     validUntil: validUntil.toISOString(),
     ...(editorialPlan ? { editorialPlan } : {}),
     channels,
+    ...(Number(schemaVersion) >= SOCIAL_COPY_PACK_SCHEMA_VERSION ? { generationProvider: normalizedGenerationProvider } : {}),
   };
 }
 
-export function normalizeSocialCopyPack(raw, { generatedAt = new Date() } = {}) {
-  return normalizePack(raw, { generatedAt });
+export function normalizeSocialCopyPack(raw, { generatedAt = new Date(), generationProvider = 'codex' } = {}) {
+  return normalizePack(raw, { generatedAt, generationProvider });
 }
 
 export function validatePersistedSocialCopyPack(pack, { now = new Date() } = {}) {
   if (!isRecord(pack)) {
     throw new Error('unsupported schemaVersion');
   }
-  const legacyPack = Number(pack.schemaVersion) === LEGACY_SOCIAL_COPY_PACK_SCHEMA_VERSION
-    && pack.promptVersion === LEGACY_SOCIAL_COPY_PROMPT_VERSION
+  const oldestPack = Number(pack.schemaVersion) === OLDEST_SOCIAL_COPY_PACK_SCHEMA_VERSION
+    && pack.promptVersion === OLDEST_SOCIAL_COPY_PROMPT_VERSION
     && isRecord(pack.channels)
     && !Object.hasOwn(pack.channels, 'reddit');
-  const previousPack = Number(pack.schemaVersion) === PREVIOUS_SOCIAL_COPY_PACK_SCHEMA_VERSION
-    && pack.promptVersion === PREVIOUS_SOCIAL_COPY_PROMPT_VERSION;
+  const thirdPreviousPack = Number(pack.schemaVersion) === THIRD_PREVIOUS_SOCIAL_COPY_PACK_SCHEMA_VERSION
+    && pack.promptVersion === THIRD_PREVIOUS_SOCIAL_COPY_PROMPT_VERSION;
   const secondPreviousPack = Number(pack.schemaVersion) === SECOND_PREVIOUS_SOCIAL_COPY_PACK_SCHEMA_VERSION
     && pack.promptVersion === SECOND_PREVIOUS_SOCIAL_COPY_PROMPT_VERSION;
+  const previousPack = Number(pack.schemaVersion) === PREVIOUS_SOCIAL_COPY_PACK_SCHEMA_VERSION
+    && pack.promptVersion === PREVIOUS_SOCIAL_COPY_PROMPT_VERSION;
   const currentPack = Number(pack.schemaVersion) === SOCIAL_COPY_PACK_SCHEMA_VERSION
     && pack.promptVersion === SOCIAL_COPY_PROMPT_VERSION;
-  if (!legacyPack && !secondPreviousPack && !previousPack && !currentPack) throw new Error('unsupported social-copy schema or prompt version');
-  const version = legacyPack ? LEGACY_SOCIAL_COPY_PACK_SCHEMA_VERSION
-    : secondPreviousPack ? SECOND_PREVIOUS_SOCIAL_COPY_PACK_SCHEMA_VERSION
-      : previousPack ? PREVIOUS_SOCIAL_COPY_PACK_SCHEMA_VERSION : SOCIAL_COPY_PACK_SCHEMA_VERSION;
-  const promptVersion = legacyPack ? LEGACY_SOCIAL_COPY_PROMPT_VERSION
-    : secondPreviousPack ? SECOND_PREVIOUS_SOCIAL_COPY_PROMPT_VERSION
-      : previousPack ? PREVIOUS_SOCIAL_COPY_PROMPT_VERSION : SOCIAL_COPY_PROMPT_VERSION;
+  if (!oldestPack && !thirdPreviousPack && !secondPreviousPack && !previousPack && !currentPack) {
+    throw new Error('unsupported social-copy schema or prompt version');
+  }
+  const version = oldestPack ? OLDEST_SOCIAL_COPY_PACK_SCHEMA_VERSION
+    : thirdPreviousPack ? THIRD_PREVIOUS_SOCIAL_COPY_PACK_SCHEMA_VERSION
+      : secondPreviousPack ? SECOND_PREVIOUS_SOCIAL_COPY_PACK_SCHEMA_VERSION
+        : previousPack ? PREVIOUS_SOCIAL_COPY_PACK_SCHEMA_VERSION : SOCIAL_COPY_PACK_SCHEMA_VERSION;
+  const promptVersion = oldestPack ? OLDEST_SOCIAL_COPY_PROMPT_VERSION
+    : thirdPreviousPack ? THIRD_PREVIOUS_SOCIAL_COPY_PROMPT_VERSION
+      : secondPreviousPack ? SECOND_PREVIOUS_SOCIAL_COPY_PROMPT_VERSION
+        : previousPack ? PREVIOUS_SOCIAL_COPY_PROMPT_VERSION : SOCIAL_COPY_PROMPT_VERSION;
+  const generationProvider = version >= SOCIAL_COPY_PACK_SCHEMA_VERSION
+    ? String(pack.generationProvider || '')
+    : 'codex';
   const normalized = normalizePack(
     {
       channels: pack.channels,
-      ...(version >= PREVIOUS_SOCIAL_COPY_PACK_SCHEMA_VERSION ? { editorialPlan: pack.editorialPlan } : {}),
+      ...(version >= EDITORIAL_ANGLES_SCHEMA_VERSION ? { editorialPlan: pack.editorialPlan } : {}),
     },
     {
       generatedAt: pack.generatedAt,
       schemaVersion: version,
       promptVersion,
-      channelSchema: legacyPack ? LEGACY_SOCIAL_COPY_CHANNELS : SOCIAL_COPY_CHANNELS,
+      channelSchema: oldestPack ? LEGACY_SOCIAL_COPY_CHANNELS : SOCIAL_COPY_CHANNELS,
+      generationProvider,
     },
   );
   if (pack.packId !== normalized.packId || pack.validUntil !== normalized.validUntil) {
@@ -535,7 +562,7 @@ export function selectSocialCopy({
     ?.find((item) => item.id === template.angleId);
   return {
     ...template,
-    copyMode: 'codex',
+    copyMode: pack.generationProvider || 'codex',
     copySlot: slot,
     copyPromptVersion: pack.promptVersion,
     copyPackId: pack.packId,
@@ -612,6 +639,7 @@ export async function selectSocialCopyForPublish(options = {}) {
     channel: options.channel,
     slot,
     objective,
+    generationProvider: options.pack.generationProvider || 'codex',
   });
   const registrationHash = String(config.registrations?.[registrationId] || '').trim();
   if (!/^[a-f0-9]{64}$/.test(registrationHash)) return { ...selected, copyExperimentId: config.experimentId };
@@ -627,7 +655,7 @@ export async function selectSocialCopyForPublish(options = {}) {
       ?.find((item) => item.id === template.angleId);
     return {
       ...template,
-      copyMode: 'codex',
+      copyMode: options.pack.generationProvider || 'codex',
       copySlot: slot,
       copyPromptVersion: options.pack.promptVersion,
       copyPackId: options.pack.packId,
@@ -672,7 +700,7 @@ export async function selectSocialCopyForPublish(options = {}) {
       ?.find((item) => item.id === template.angleId);
     return {
       ...template,
-      copyMode: 'codex',
+      copyMode: options.pack.generationProvider || 'codex',
       copySlot: slot,
       copyPromptVersion: options.pack.promptVersion,
       copyPackId: options.pack.packId,
@@ -767,9 +795,9 @@ export function socialCopyLedgerFields(copy, {
   fallbackHook = '',
   fallbackCta = '',
 } = {}) {
-  if (copy?.copyMode === 'codex') {
+  if (isGeneratedSocialCopyMode(copy?.copyMode)) {
     return {
-      copyMode: 'codex',
+      copyMode: copy.copyMode,
       copySlot: copy.copySlot,
       copyPromptVersion: copy.copyPromptVersion,
       copyPackId: copy.copyPackId,
@@ -806,7 +834,7 @@ export function socialCopyLedgerFields(copy, {
 export function socialCopyTrackingContent(content, copy) {
   const base = String(content || '').trim();
   const balancedAssignment = ['firebase-balanced', 'firebase-winner'].includes(copy?.copyAssignmentMode);
-  if (!base || (copy?.copyMode !== 'codex' && !balancedAssignment)) return base;
+  if (!base || (!isGeneratedSocialCopyMode(copy?.copyMode) && !balancedAssignment)) return base;
   const packId = String(copy.copyPackId || '').trim();
   const copySlot = String(copy.copySlot || '').trim();
   const templateId = String(copy.id || copy.copyTemplateId || '').trim();

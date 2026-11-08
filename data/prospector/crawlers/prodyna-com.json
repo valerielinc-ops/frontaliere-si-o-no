@@ -1,0 +1,24 @@
+{
+  "companyKey": "prodyna-com",
+  "companyName": "PRODYNA (Schweiz) AG",
+  "companyHost": "prodyna.com",
+  "verifiedEmployerDomain": "prodyna.com",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://www.prodyna.com/jobs/ai-engineer-athens"
+  ],
+  "detailTemplate": "/jobs/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 2,
+  "sampleTitles": [
+    "Senior Java Developer (all genders) Athens",
+    "Senior Data Engineer (all genders) Athens"
+  ],
+  "canton": "BS",
+  "sourceLang": "en",
+  "learnedAt": "2026-11-07T12:54:43.455Z",
+  "candidateKey": "prodyna@basel"
+}

@@ -12,7 +12,11 @@
 import { describe, expect, it, vi, afterEach } from 'vitest';
 import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
-import { resolveHeroImage } from '../scripts/publish-journalist-article.mjs';
+import {
+  isImageContentType,
+  isImageWithinHardCap,
+  resolveHeroImage,
+} from '../scripts/publish-journalist-article.mjs';
 
 const ROOT = resolve(__dirname, '..');
 const src = readFileSync(resolve(ROOT, 'scripts/publish-journalist-article.mjs'), 'utf8');
@@ -21,6 +25,7 @@ const src = readFileSync(resolve(ROOT, 'scripts/publish-journalist-article.mjs')
 // (see that script's own bounded-fetch coverage in
 // tests/notify-journalist-article-live.test.ts).
 const notifySrc = readFileSync(resolve(ROOT, 'scripts/notify-journalist-article-live.mjs'), 'utf8');
+const EXISTING_CATALOG_IMAGE_PATH = '/images/blog/controlli-velocita-ticino-aprile-maggio.webp';
 
 describe('publish-journalist-article.mjs fetch calls are all bounded (issue #3209 item 3)', () => {
   it('bounds the hero-image download with AbortSignal.timeout(...)', () => {
@@ -76,11 +81,75 @@ describe('resolveHeroImage — graceful fallback on timeout', () => {
     vi.stubGlobal('fetch', fetchSpy);
 
     const data = { id: 'articolo-catalogo', category: 'novita', content: { it: { title: 'Test' } }, seo: {} };
-    const doc = { image: '/images/blog/lugano-view.webp' };
+    const doc = { image: EXISTING_CATALOG_IMAGE_PATH };
 
-    const result = await resolveHeroImage(data, doc);
+    const result = await resolveHeroImage(data, doc, {
+      catalogEntries: [{ path: doc.image, words: ['controlli', 'velocita'] }],
+    });
 
     expect(fetchSpy).not.toHaveBeenCalled();
-    expect(result).toEqual({ source: 'catalog-pick', path: '/images/blog/lugano-view.webp' });
+    expect(result).toEqual({ source: 'catalog-pick', path: EXISTING_CATALOG_IMAGE_PATH });
+  });
+
+  it('falls back when a catalog record points to a missing local image', async () => {
+    const fetchSpy = vi.fn();
+    vi.stubGlobal('fetch', fetchSpy);
+
+    const data = { id: 'articolo-catalogo-stale', category: 'novita', content: { it: { title: 'Test' } }, seo: {} };
+    const doc = { image: '/images/blog/missing.webp' };
+
+    const result = await resolveHeroImage(data, doc, {
+      catalogEntries: [{ path: doc.image, words: ['missing', 'hero'] }],
+    });
+
+    expect(fetchSpy).not.toHaveBeenCalled();
+    expect(['keyword-fallback', 'static-fallback']).toContain(result.source);
+    expect(data._generatedImagePath).not.toBe(doc.image);
+  });
+
+  it('does not trust a local image path that has no catalog provenance record', async () => {
+    const fetchSpy = vi.fn();
+    vi.stubGlobal('fetch', fetchSpy);
+
+    const data = { id: 'articolo-senza-provenienza', category: 'novita', content: { it: { title: 'Test' } }, seo: {} };
+    const doc = { image: '/images/blog/not-in-catalog.webp' };
+
+    const result = await resolveHeroImage(data, doc, { catalogEntries: [] });
+
+    expect(fetchSpy).not.toHaveBeenCalled();
+    expect(result.source).not.toBe('catalog-pick');
+    expect(data._generatedImagePath).not.toBe(doc.image);
+  });
+
+  it('rejects a remote response whose content type is not an image', async () => {
+    const cancel = vi.fn().mockResolvedValue(undefined);
+    const arrayBuffer = vi.fn();
+    vi.stubGlobal('fetch', vi.fn().mockResolvedValue({
+      ok: true,
+      headers: { get: () => 'text/html; charset=utf-8' },
+      body: { cancel },
+      arrayBuffer,
+    }));
+
+    const data = { id: 'articolo-mime-non-valido', category: 'novita', content: { it: { title: 'Test' } }, seo: {} };
+    const result = await resolveHeroImage(data, { image: 'https://example.invalid/hero' });
+
+    expect(arrayBuffer).not.toHaveBeenCalled();
+    expect(cancel).toHaveBeenCalledTimes(1);
+    expect(result.source).not.toBe('journalist-upload');
+    expect(data._generatedImagePath).not.toBe('/images/blog/articolo-mime-non-valido.webp');
+  });
+
+  it('keeps the optimized hero hard cap fail-closed', () => {
+    expect(isImageWithinHardCap(320 * 1024)).toBe(true);
+    expect(isImageWithinHardCap(320 * 1024 + 1)).toBe(false);
+    expect(isImageWithinHardCap(0)).toBe(false);
+  });
+
+  it('recognizes only image MIME types before decoding a remote body', () => {
+    expect(isImageContentType('image/webp')).toBe(true);
+    expect(isImageContentType('image/jpeg; charset=binary')).toBe(true);
+    expect(isImageContentType('text/html')).toBe(false);
+    expect(isImageContentType('')).toBe(false);
   });
 });
