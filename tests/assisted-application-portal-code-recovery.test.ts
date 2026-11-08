@@ -7,7 +7,7 @@ import { createMemoryFirestore } from './helpers/memoryFirestore';
 import { reconcilePortalCode } from '../scripts/assisted-application/reconcile-portal-code.mjs';
 import { currentPortalCodeVersion, portalCodeFingerprintFiles } from '../scripts/assisted-application/lib/portal-code-version.mjs';
 import { transition } from '../functions/src/assistedApplicationFlow.js';
-import { candidateQuestionAnswerKey } from '../functions/src/assistedApplicationCandidateEdits.js';
+import { candidateQuestionAnswerKey, ORDER_QUESTION_ANSWER_EVIDENCE_VERSION } from '../functions/src/assistedApplicationCandidateEdits.js';
 import { operationalPortalRecoveryReady } from '../functions/src/assistedApplicationPortalRecoveryPolicy.js';
 
 const now = Date.now();
@@ -49,6 +49,27 @@ describe('automatic recovery after a portal fix', () => {
       version, round: 1, queuedAt: now, kind: 'identity_email_confirmation',
     });
     expect(await reconcilePortalCode({ ...ctx, apply: true })).toMatchObject({ eligible: 0, queued: 0 });
+  });
+
+  it('keeps trusted match answers when resolving an identity confirmation', async () => {
+    const store = fixture();
+    const flowPath = `${base}/automation/flow`, draftPath = `${base}/ai_drafts/current`;
+    const emailQuestion = { id: 'email-repeat', source: 'portal', question: 'E-Mail-Adresse erneut eingeben',
+      applicationQuestion: 'E-Mail-Adresse erneut eingeben', required: true, type: 'email', options: [] };
+    const availability = { id: 'availability', source: 'match', question: 'Disponibilità', applicationQuestion: 'Disponibilità',
+      required: true, type: 'date', options: [] };
+    store.docs.set(base, { ...store.read(base), automationState: 'needs_candidate_action',
+      candidateAlias: { active: true, address: 'alias@example.test' }, consentVersion: 'assisted-application-v2', consentedAt: now,
+      talentPoolConsent: true });
+    store.docs.set(flowPath, { ...store.read(flowPath), state: 'needs_candidate_action', heldBy: ['question:email-repeat'],
+      answers: { availability: '2026-11-20' }, orderQuestionAnswersEvidenceVersion: ORDER_QUESTION_ANSWER_EVIDENCE_VERSION,
+      portalCodeVersion: 'a'.repeat(64), dispatch: { mode: 'submit', round: 1, requestedAt: now } });
+    store.docs.set(draftPath, { ...store.read(draftPath), completedAt: now - 1,
+      channel: { type: 'employer_site', applyUrl: 'https://jobs.example.test/apply' }, questions: [emailQuestion, availability] });
+
+    expect(await reconcilePortalCode({ db: store.db, version, apply: true, nowMs: now, isEnabled: async () => true }))
+      .toMatchObject({ eligible: 1, queued: 1, identityQuestionsQueued: 1 });
+    expect(store.read(flowPath).answers).toMatchObject({ availability: '2026-11-20', 'email-repeat': 'alias@example.test' });
   });
 
   it('keeps a required birth date as a candidate question during portal recovery', async () => {

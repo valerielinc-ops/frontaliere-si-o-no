@@ -192,7 +192,7 @@ export async function reconcilePortalCode({ db, version, apply = false, nowMs = 
         if (apply) {
           if (identityQuestionReady) {
             transaction.set(flowRef, {
-              answers: { ...object(flow.answers), [identityAnswer.questionId]: identityAnswer.email },
+              answers: { ...object(recoveryFlow.answers), [identityAnswer.questionId]: identityAnswer.email },
               portalRecoveryVersion: version, updatedAt: nowMs,
             }, { merge: true });
           } else {
