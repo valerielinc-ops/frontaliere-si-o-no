@@ -8,6 +8,7 @@ import { FieldValue, getFirestore } from 'firebase-admin/firestore';
 import { Resend } from 'resend';
 import { refreshEngagementScore } from './lib/engagementScore.js';
 import { refreshPreferredSendHour } from './lib/preferredSendHour.js';
+import { buildNewsletterEventMetricsUpdate } from './lib/newsletterEventMetrics.js';
 import { buildDeliveryDocId as buildCanonicalDeliveryDocId, uniqueUnknownFallback } from './lib/deliveryDocId.js';
 import { classifyBounceSeverity, bounceUpdateFields, softBounceRecoveryFields, maybeEscalateSoftBounce } from './lib/bounceClassification.js';
 import {
@@ -362,6 +363,16 @@ export async function applyResendWebhookEvent(rawEvent, options = {}) {
  }
  }
 
+ Object.assign(subscriberUpdate, await buildNewsletterEventMetricsUpdate({
+ transaction: tx,
+ subscriberRef,
+ current: currentData,
+ FieldValue,
+ subscriberUpdate,
+ type,
+ occurredAt,
+ }));
+
  tx.set(
  subscriberRef,
  protectAccountDeletedSubscriberUpdate(subscriberUpdate, currentData),
@@ -373,14 +384,6 @@ export async function applyResendWebhookEvent(rawEvent, options = {}) {
 
  if (bounceSeverity === 'soft') {
  await maybeEscalateSoftBounce(subscriberRef, bounceReasonText);
- }
-
- // Update engagement score after metrics change (FRO-17)
- if (type === 'open' || type === 'click' || type === 'send') {
- await refreshEngagementScore(
- db.collection('newsletter_subscribers').doc(email),
- FieldValue,
- );
  }
 
  await db.collection('newsletter_subscribers').doc(email).collection('campaign_deliveries').doc(buildDeliveryDocId(email, campaignId)).set({
@@ -429,16 +432,6 @@ export async function applyResendWebhookEvent(rawEvent, options = {}) {
  timestamp: FieldValue.serverTimestamp(),
  occurred_at: occurredAt,
  });
-
- // Refresh preferred send hour after the event log write. Only open/click
- // events belong to the preferred-send-hour window.
- if (type === 'open' || type === 'click') {
- await refreshPreferredSendHour(
- db.collection('newsletter_subscribers').doc(email),
- FieldValue,
- { type, occurredAt },
- );
- }
 
  return { handled: true, email, type, campaignId };
 }
