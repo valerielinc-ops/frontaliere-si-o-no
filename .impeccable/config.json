@@ -67,7 +67,7 @@
         "rule": "design-system-font",
         "value": "roboto",
         "createdAt": "2026-11-02T18:10:29.272Z",
-        "reason": "Agent: job OG images use the bundled Roboto TTF in the isolated social-card renderer; this is an intentional non-page font exception."
+        "reason": "Agent: the existing Satori OG-card renderer intentionally uses bundled static Roboto TTF for generated social images, separate from website UI typography."
       }
     ]
   },

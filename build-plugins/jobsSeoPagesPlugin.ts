@@ -87,6 +87,7 @@ import { truncateCodeUnits } from './shared/safeTruncate';
 import { buildGscKeywordThinBody, GSC_KEYWORD_THIN_HEAD_SCRIPT } from './shared/gscKeywordThinShell';
 import { shouldEmitLocale } from './shared/localeEmitFilter';
 import { archivedJobOgImageUrl, versionedJobOgImageUrl } from './shared/jobOgImageVersion.mjs';
+import { createJobOgLogoFingerprintResolver } from './shared/jobOgLogoFingerprint.mjs';
 import { selectJobOgPhoto } from './shared/jobPhotoClassification';
 import { getItalianJobTitle } from './shared/italianJobTitle.mjs';
 import {
@@ -1439,6 +1440,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  const retentionProbeCandidate = parseJobsSeoRetentionProbe(process.env[JOBS_SEO_RETENTION_PROBE_ENV]);
  const extraGcFreedProbeCandidate = parseJobsSeoGcFreedProbe(process.env[JOBS_SEO_GCFREED_PROBE_ENV]);
  const distDir = np.resolve(rootDir, 'dist');
+ const jobOgLogoFingerprint = createJobOgLogoFingerprintResolver(rootDir);
  const knownEmployerProfileSlugs = loadKnownEmployerProfileSlugs(rootDir);
  const jobsPath = np.resolve(rootDir, 'data/jobs.json');
  const jobsSeoEmitterFingerprints = (
@@ -3892,7 +3894,12 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
   ? selectJobOgPhoto(job, perLocaleSlug.it)
   : null;
  const italianJobImageUrl = italianJobPhoto
-  ? versionedJobOgImageUrl(BASE_URL, perLocaleSlug.it, italianJobPhoto.urlPhotoKey)
+  ? versionedJobOgImageUrl(
+    BASE_URL,
+    perLocaleSlug.it,
+    italianJobPhoto.urlPhotoKey,
+    jobOgLogoFingerprint(job.companyKey),
+   )
   : null;
  const socialImage = italianJobImageUrl || `${BASE_URL}/og-image.png`;
  const jobCanton = sharedResolveJobCanton(job as { canton?: string; location?: string });

@@ -16,7 +16,8 @@ describe('active job social image metadata', () => {
     expect(SOURCE).toContain('const italianJobTitle = getItalianJobTitle(job)');
     expect(SOURCE).toContain('const italianJobPhoto = italianJobTitle');
     expect(SOURCE).toContain('const italianJobImageUrl = italianJobPhoto');
-    expect(SOURCE).toContain('versionedJobOgImageUrl(BASE_URL, perLocaleSlug.it, italianJobPhoto.urlPhotoKey)');
+    expect(SOURCE).toContain('versionedJobOgImageUrl(');
+    expect(SOURCE).toContain('jobOgLogoFingerprint(job.companyKey)');
     expect(SOURCE).toContain('const socialImage = italianJobImageUrl || `${BASE_URL}/og-image.png`');
     expect(ACTIVE_JOB_HEAD).toContain('<meta property="og:image" content="${socialImage}">');
     expect(ACTIVE_JOB_HEAD).toContain('<meta property="og:image:width" content="${italianJobImageUrl ? \'1080\' : \'1200\'}">');
