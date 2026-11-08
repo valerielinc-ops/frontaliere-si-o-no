@@ -141,7 +141,7 @@ describe('translate-pending budget benchmark', () => {
     expect(source).toContain('same-population anchor');
     expect(source).toContain('candidateFingerprint');
     expect(source).toContain('underJobCap');
-    expect(source).toContain('selected-lane handoff');
+    expect(source).toContain('Selected-lane handoff');
     expect(steps.find((step) => step.name === 'Complete translation deploy handoff')?.run).toContain('--verify-selected-lane');
     expect(source).toContain("candidateCountBefore > 0");
     expect(steps.find((step) => step.name === 'Commit selected repair lane')?.run).toContain('git-commit-data.sh --slice-only');
