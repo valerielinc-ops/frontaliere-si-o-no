@@ -71,4 +71,33 @@ describe('GA4 key events plan', () => {
     expect(calls.some((call) => call.method === 'DELETE' || call.method === 'PATCH')).toBe(false);
     expect(applied.plan.find((entry: { eventName: string }) => entry.eventName === 'job_apply_handoff')?.action).toBe('created');
   });
+
+  it('scopes the sync plan and writes to an explicit event subset', async () => {
+    const calls: string[] = [];
+    const fetchImpl = async (_url: string, init: { method?: string; body?: string } = {}) => {
+      calls.push(init.method || 'GET');
+      if ((init.method || 'GET') === 'GET') return jsonResponse(200, { keyEvents: [] });
+      const body = JSON.parse(init.body || '{}');
+      return jsonResponse(200, { name: `k/${body.eventName}`, ...body });
+    };
+    const specs = KEY_EVENT_SPECS.filter((spec) => ['newsletter_subscribe', 'login'].includes(spec.eventName));
+    const runReport = async () => ({ rows: [
+      { dimensionValues: [{ value: 'newsletter_subscribe' }], metricValues: [{ value: '4' }] },
+      { dimensionValues: [{ value: 'login' }], metricValues: [{ value: '5' }] },
+    ] });
+
+    const applied = await syncKeyEvents({
+      token: 't',
+      propertyId: '1',
+      specs,
+      apply: true,
+      fetchImpl: fetchImpl as never,
+      runReport: runReport as never,
+    });
+    expect(applied.plan.map((entry: { eventName: string }) => entry.eventName)).toEqual([
+      'newsletter_subscribe',
+      'login',
+    ]);
+    expect(calls.filter((method) => method === 'POST')).toHaveLength(2);
+  });
 });
