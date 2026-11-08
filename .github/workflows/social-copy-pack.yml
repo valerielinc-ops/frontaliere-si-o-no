@@ -41,8 +41,6 @@ jobs:
     timeout-minutes: 30
     permissions:
       contents: read
-      issues: write
-      actions: read
     outputs:
       codex_invocation_allowed: ${{ steps.codex_budget.outputs.allowed }}
       pack_generated: ${{ steps.generation_result.outputs.pack_generated }}
@@ -278,16 +276,6 @@ jobs:
           elif [ "$CODEX_OUTCOME" = failure ]; then
             reason="codex-generation-failed; ${FALLBACK_REASON:-fallback-result-unavailable}"
           fi
-          diagnostic="$RUNNER_TEMP/social-copy-generation-result.txt"
-          {
-            printf 'pack_generated=%s\n' "$generated"
-            printf 'provider=%s\n' "$provider"
-            printf 'reason=%s\n' "$reason"
-            printf 'codex_allowed=%s\n' "$CODEX_ALLOWED"
-            printf 'codex_outcome=%s\n' "$CODEX_OUTCOME"
-            printf 'fallback_generated=%s\n' "$FALLBACK_GENERATED"
-            printf 'fallback_provider=%s\n' "$FALLBACK_PROVIDER"
-          } > "$diagnostic"
           {
             printf 'pack_generated=%s\n' "$generated"
             printf 'provider=%s\n' "$provider"
@@ -313,12 +301,40 @@ jobs:
           if-no-files-found: error
           retention-days: 2
 
-      # This job intentionally fails when neither generator produces a validated
-      # pack. Report that failure from inside the job with the same stable title
-      # used by the central scanner, while the generated diagnostic file still
-      # exists for the in-job reporter.
+  # Keep the Codex bridge in `generate` read-only. The issue reporter needs a
+  # write-capable token, so it runs after the failed job has completed and reads
+  # that job's log through the Actions API.
+  report-failure:
+    needs: generate
+    if: >-
+      ${{ always() && needs.generate.result == 'failure' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read
+      issues: write
+      actions: read
+    steps:
+      - name: Checkout failure reporter sources
+        uses: actions/checkout@v7
+        with:
+          fetch-depth: 1
+          sparse-checkout: |
+            package.json
+            scripts/ci/
+            scripts/lib/
+            scripts/cathedral-seo-gates-check.mjs
+            .github/actions/report-failure/
+            .github/workflows/social-copy-pack.yml
+          sparse-checkout-cone-mode: false
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: '22'
+
       - name: Report failure to GitHub Issues
-        if: failure()
+        if: always() && needs.generate.result == 'failure'
         uses: ./.github/actions/report-failure
         with:
           title: 'CI Failure: ${{ github.workflow }}'
@@ -326,7 +342,8 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           priority: '2'
           labels: Bug
-          diag-file: ${{ runner.temp }}/social-copy-generation-result.txt
+          log-from-job: generate
+          workflow-file: .github/workflows/social-copy-pack.yml
 
   promote:
     needs: generate
