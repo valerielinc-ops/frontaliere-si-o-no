@@ -1,9 +1,11 @@
 /**
- * Build Company Page article commentary. When Codex copy is active, its CTA
+ * Build Company Page article commentary. When generated AI copy is active, its CTA
  * carries the tagged destination so the post asks for one action only.
  */
+import { isGeneratedSocialCopyMode } from './social-copy-pack.mjs';
+
 export function buildLinkedInCompanyCommentary({ emoji, title, description, socialCopy, url, hashtags } = {}) {
-  const generatedCopy = socialCopy?.copyMode === 'codex' ? socialCopy : null;
+  const generatedCopy = isGeneratedSocialCopyMode(socialCopy?.copyMode) ? socialCopy : null;
   return [
     ...(generatedCopy ? [generatedCopy.hook, ''] : []),
     `${emoji || '📰'} ${String(title || '')}`,

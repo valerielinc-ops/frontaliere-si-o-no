@@ -110,8 +110,8 @@ export function readRevisionChecker(cwd, ref, entry) {
   const files = [];
   const seen = new Set();
   const queue = [entry];
-  while (queue.length) {
-    const path = queue.shift();
+  for (let next = 0; next < queue.length; next += 1) {
+    const path = queue[next];
     if (seen.has(path)) continue;
     seen.add(path);
     // `<commit>:<path>` e' relativo alla radice dell'albero, qualunque sia la cwd.

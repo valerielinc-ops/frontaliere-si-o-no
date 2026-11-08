@@ -9,7 +9,10 @@ import {
   summarizeSocialAudienceSafety,
   socialExperimentPlatformPolicyClear,
 } from '../scripts/lib/social-copy-experiment-runner.mjs';
-import { SOCIAL_EXPERIMENT_PROTOCOL_VERSION } from '../scripts/lib/social-experiment-protocol.mjs';
+import {
+  SOCIAL_EXPERIMENT_PROTOCOL_VERSION,
+  validateMatchedBlockExperimentRegistration,
+} from '../scripts/lib/social-experiment-protocol.mjs';
 import {
   socialCopyExperimentRegistrationId,
   socialCopyExperimentTreatmentFingerprint,
@@ -60,7 +63,7 @@ function memoryFirestore() {
   return { db, documents };
 }
 
-function fixture() {
+function fixture({ generationProvider = 'codex' }: { generationProvider?: string } = {}) {
   const pillars = [
     { id: 'useful-steps', name: 'Passi utili', audienceNeed: 'Capire quale passo concreto valutare' },
     { id: 'work-life', name: 'Lavoro e vita', audienceNeed: 'Orientarsi tra lavoro e vita oltre confine' },
@@ -76,6 +79,7 @@ function fixture() {
   }));
   const pack = {
     packId: '0123456789abcdef',
+    ...(generationProvider !== 'codex' ? { generationProvider } : {}),
     editorialPlan: {
       pillars,
       angles: {
@@ -116,7 +120,7 @@ function fixture() {
       metrics: { shares: numerator, reach: 100 },
       availableMetrics: ['shares', 'reach'],
       copyAttributionStatus: 'exact',
-      copyMode: 'codex',
+      copyMode: generationProvider,
       copySlot: 'article',
       copyPackId: 'aaaaaaaaaaaaaaaa',
       copyTemplateId: 'baseline-copy',
@@ -136,7 +140,7 @@ function fixture() {
       metrics: { follows: numerator, reach: 100 },
       availableMetrics: ['follows', 'reach'],
       copyAttributionStatus: 'exact',
-      copyMode: 'codex',
+      copyMode: generationProvider,
       copySlot: 'reel',
       copyPackId: 'aaaaaaaaaaaaaaaa',
       copyTemplateId: 'baseline-reel-copy',
@@ -390,6 +394,41 @@ describe('social-copy experiment runner', () => {
     expect(cohorts.find(({ slot }) => slot === 'reel')?.metric).toEqual({
       numerator: 'follows', denominator: 'reach', windowHours: 72,
     });
+  });
+
+  it('keeps experiment registrations separate by generator without changing angle treatment fingerprints', () => {
+    const { pack } = fixture();
+    const codexCohorts = listSocialCopyExperimentCohorts(pack);
+    (pack as any).generationProvider = 'gemini';
+    const geminiCohorts = listSocialCopyExperimentCohorts(pack);
+
+    expect(geminiCohorts.map((cohort: any) => cohort.generationProvider)).toEqual(['gemini', 'gemini']);
+    expect(geminiCohorts.map((cohort: any) => cohort.treatmentFingerprint))
+      .toEqual(codexCohorts.map((cohort: any) => cohort.treatmentFingerprint));
+    expect(geminiCohorts.map((cohort: any) => socialCopyExperimentRegistrationId(cohort)))
+      .not.toEqual(codexCohorts.map((cohort: any) => socialCopyExperimentRegistrationId(cohort)));
+  });
+
+  it('registers fallback-provider cohorts with IDs accepted by the frozen protocol', async () => {
+    const { db, documents } = memoryFirestore();
+    const { pack, asOf, insights } = fixture({ generationProvider: 'gemini' });
+
+    const result = await runSocialCopyExperimentProtocol({
+      db,
+      pack,
+      insights,
+      asOf,
+      setRemoteConfig: async () => ({ ok: true, changed: true }),
+    });
+    const registrations = [...documents.values()].filter((value) =>
+      value.protocolVersion === SOCIAL_EXPERIMENT_PROTOCOL_VERSION && value.registrationId);
+
+    expect(registrations.length).toBeGreaterThan(0);
+    for (const registration of registrations) {
+      expect(registration.generationProvider).toBe('gemini');
+      expect(validateMatchedBlockExperimentRegistration(registration)).toBe(registration);
+      expect(result.config.registrations).toHaveProperty(registration.registrationId);
+    }
   });
 
   it('requires the private Graph Insights source to be fresh before a Reel experiment can run', () => {

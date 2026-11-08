@@ -82,17 +82,58 @@ function isQuoteStart(line, index) {
   return !(previous && /[\p{L}\p{N}_]/u.test(previous));
 }
 
-export function isRegexLiteralStart(line, index) {
-  const prefix = line.slice(0, index).trimEnd();
-  const previous = prefix.at(-1) || '';
-  if (!previous) return true;
-  if (previous === '<' && line[index - 1] === '<' && /[\p{L}\p{N}]/u.test(line[index + 1] || '')) return false;
-  if (/(?:\+\+|--)$/.test(prefix)) return false;
-  if (/[=([{,:;!&|?+\-*%^~<>]/.test(previous)) return true;
-  return /\b(?:case|delete|do|else|in|instanceof|of|return|throw|typeof|void|yield|await)\s*$/u.test(prefix);
+const REGEX_LITERAL_AFTER_KEYWORDS = new Set([
+  'case', 'delete', 'do', 'else', 'in', 'instanceof', 'of', 'return', 'throw', 'typeof', 'void', 'yield', 'await',
+]);
+const REGEX_WORD_CHARACTER = /[A-Za-z0-9_]/;
+const charAt = (source, offset) => source[offset] || '';
+
+function regexClosesBeforeLineTerminator(source, index) {
+  let inClass = false;
+  let escaped = false;
+  for (let cursor = index + 1; cursor < source.length; cursor += 1) {
+    const character = charAt(source, cursor);
+    if (character === '\n' || character === '\r') return false;
+    if (escaped) {
+      escaped = false;
+    } else if (character === '\\') {
+      escaped = true;
+    } else if (character === '[') {
+      inClass = true;
+    } else if (character === ']' && inClass) {
+      inClass = false;
+    } else if (character === '/' && !inClass) {
+      return true;
+    }
+  }
+  return false;
 }
 
-/** The actual context-sensitive implementation behind both public APIs. */
+export function isRegexLiteralStart(line, index, lexicalContext = line) {
+  const lineStart = Math.max(
+    lexicalContext.lastIndexOf('\n', index - 1),
+    lexicalContext.lastIndexOf('\r', index - 1),
+  ) + 1;
+  let end = index - 1;
+  while (end >= lineStart && /\s/u.test(charAt(lexicalContext, end))) end -= 1;
+
+  const previous = end >= lineStart ? charAt(lexicalContext, end) : '';
+  if (!previous) return lineStart === 0 || regexClosesBeforeLineTerminator(line, index);
+  if (previous === '<' && charAt(lexicalContext, index - 1) === '<' &&
+      /[\p{L}\p{N}]/u.test(charAt(line, index + 1))) return false;
+  if ((previous === '+' && charAt(lexicalContext, end - 1) === '+') ||
+      (previous === '-' && charAt(lexicalContext, end - 1) === '-')) return false;
+  if (/[=([{,:;!&|?+\-*%^~<>]/.test(previous)) return true;
+
+  let wordStart = end;
+  while (wordStart >= lineStart && REGEX_WORD_CHARACTER.test(charAt(lexicalContext, wordStart))) wordStart -= 1;
+  const previousWord = typeof lexicalContext === 'string'
+    ? lexicalContext.slice(wordStart + 1, end + 1)
+    : lexicalContext.slice(wordStart + 1, end + 1).join('');
+  return REGEX_LITERAL_AFTER_KEYWORDS.has(previousWord);
+}
+
+/** The shared context-sensitive implementation behind both exported entry points. */
 function markerMatches(line, markerSource) {
   const s = String(line ?? '');
   let marker;

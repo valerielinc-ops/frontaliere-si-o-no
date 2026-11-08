@@ -38,7 +38,7 @@ import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { facebookUrl, FACEBOOK_CAMPAIGN_JOB } from './lib/facebook-links.mjs';
 import { SOCIAL_REDIRECT_ORIGIN, socialRedirectKey } from './lib/social-redirect-links.mjs';
-import { loadSocialCopyPack, releaseUnpublishedSocialCopyAssignmentBestEffort, selectSocialCopyForPublish, socialCopyLedgerFields, socialCopyTrackingContent } from './lib/social-copy-pack.mjs';
+import { isGeneratedSocialCopyMode, loadSocialCopyPack, releaseUnpublishedSocialCopyAssignmentBestEffort, selectSocialCopyForPublish, socialCopyLedgerFields, socialCopyTrackingContent } from './lib/social-copy-pack.mjs';
 import { getItalianJobTitle } from '../build-plugins/shared/italianJobTitle.mjs';
 import { JOB_OG_IMAGE_VERSION } from '../build-plugins/shared/jobOgImageVersion.mjs';
 import {
@@ -249,7 +249,7 @@ export function buildJobCaption(job, { socialCopy } = {}) {
   // Hashtags
   const hashtags = buildJobHashtags(job);
 
-  const generatedCopy = socialCopy?.copyMode === 'codex' ? socialCopy : null;
+  const generatedCopy = isGeneratedSocialCopyMode(socialCopy?.copyMode) ? socialCopy : null;
   const parts = generatedCopy ? [generatedCopy.hook, '', headerTitle] : [headerTitle];
   if (headerMeta) parts.push(headerMeta);
   if (body) parts.push('', body);
