@@ -37,6 +37,8 @@ import {
   parseFaqLiteral,
   extractFaqFromContent,
   writeFileAtomic,
+  validateFaqForWrite,
+  FAQ_WRITE_MIN_PAIRS,
   prepareFaqForWrite,
   escapeForSingleQuoteTS,
   replaceFaqLiteral,
@@ -434,7 +436,7 @@ const MIN_FAQ_PAIRS = 3;
 
 export function localeNeedsFaqRepair(localeFaq, expectedLocale, sourceFaq) {
   return !Array.isArray(localeFaq)
-    || !prepareFaqForWrite(localeFaq)
+    || !prepareFaqForWrite(localeFaq, { minPairs: FAQ_WRITE_MIN_PAIRS })
     || localeFaq.length !== sourceFaq.length
     || !!wrongLocalePair(localeFaq, expectedLocale, sourceFaq);
 }
@@ -825,8 +827,9 @@ function validateFaq(faq) {
 
 /** Replace existing FAQ value in a body file */
 function replaceFaqInBodyFile(filePath, faqArray) {
-  const faqToWrite = prepareFaqForWrite(faqArray);
-  if (!faqToWrite) return false;
+  const verdict = validateFaqForWrite(faqArray, { minPairs: FAQ_WRITE_MIN_PAIRS });
+  if (!verdict.accepted) return false;
+  const faqToWrite = verdict.pairs;
   let content = read(filePath);
   // Use the shared quote-aware locator so apostrophes and JSON quotes inside
   // the payload cannot be mistaken for the outer FAQ delimiter.
@@ -849,8 +852,9 @@ function replaceFaqInBodyFile(filePath, faqArray) {
  * Finds the last body key line and appends the FAQ key after it, before `};`
  */
 export function insertFaqIntoBodyFile(filePath, articleId, faqArray) {
-  const faqToWrite = prepareFaqForWrite(faqArray);
-  if (!faqToWrite) return false;
+  const verdict = validateFaqForWrite(faqArray, { minPairs: FAQ_WRITE_MIN_PAIRS });
+  if (!verdict.accepted) return false;
+  const faqToWrite = verdict.pairs;
   let content = read(filePath);
 
   // Already has FAQ? Replace instead of insert.
@@ -1015,7 +1019,6 @@ async function processArticle(articleId, file, itBodyContent) {
       let faqForLocale;
       if (res?.faq) {
         faqForLocale = res.faq;
-        console.error(`${label} ✅ ${locale.toUpperCase()} translated (${faqForLocale.length} pairs)`);
       } else {
         const reason = translations[i].status === 'rejected' ? translations[i].reason?.message : 'null result';
         console.error(`${label} ⚠️  ${locale.toUpperCase()} translation failed: ${reason}, FAQ not written`);
@@ -1024,7 +1027,9 @@ async function processArticle(articleId, file, itBodyContent) {
 
       if (!insertFaqIntoBodyFile(localePath, articleId, faqForLocale)) {
         console.error(`${label} ⚠️  ${locale.toUpperCase()} FAQ write rejected; file unchanged`);
+        continue;
       }
+      console.error(`${label} ✅ ${locale.toUpperCase()} translated (${faqForLocale.length} pairs)`);
     }
   }
 
@@ -1097,8 +1102,11 @@ async function processTopUp(articleId, file, itContent, existingFaq) {
       try {
         const res = await translateFaq(validMerged, locale);
         if (res?.faq) {
-          insertFaqIntoBodyFile(localePath, articleId, res.faq);
-          console.error(`${label} ✅ ${locale.toUpperCase()} translated (${res.faq.length} pairs)`);
+          if (insertFaqIntoBodyFile(localePath, articleId, res.faq)) {
+            console.error(`${label} ✅ ${locale.toUpperCase()} translated (${res.faq.length} pairs)`);
+          } else {
+            console.error(`${label} ⚠️  ${locale.toUpperCase()} FAQ write rejected: file unchanged`);
+          }
         } else if (res?.rejected) {
           console.error(`${label} ⚠️  ${locale.toUpperCase()} translation rejected: FAQ not written`);
         } else {
@@ -1126,9 +1134,12 @@ export async function processTranslation(articleId, file, itFaq, missingLocales,
     try {
       const res = await translateFaq(itFaq, locale);
       if (res?.faq) {
-        insertFaqIntoBodyFile(localePath, articleId, res.faq);
-        console.error(`${label} ✅ ${locale.toUpperCase()} (${res.faq.length} pairs)`);
-        fixed++;
+        if (insertFaqIntoBodyFile(localePath, articleId, res.faq)) {
+          console.error(`${label} ✅ ${locale.toUpperCase()} (${res.faq.length} pairs)`);
+          fixed++;
+        } else {
+          console.error(`${label} ⚠️  ${locale.toUpperCase()} FAQ write rejected: file unchanged`);
+        }
       } else if (res?.rejected) {
         console.error(`${label} ⚠️  ${locale.toUpperCase()} translation rejected: FAQ not written`);
       } else {

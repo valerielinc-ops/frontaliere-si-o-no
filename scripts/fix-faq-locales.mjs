@@ -27,6 +27,7 @@ import { freeTranslateWithRetry, isSourcePassthrough, logCascadeSummary } from '
 import { detectLanguage } from './lib/detect-language.mjs';
 import { decodeControlEscapesByField } from './lib/unescape-ts-string.mjs';
 import { cleanFaqPairs } from './lib/prompt-placeholder-guard.mjs';
+import { assertNoControlChars } from './lib/sanitize-control-chars.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -70,6 +71,7 @@ let atomicWriteSequence = 0;
 
 /** Write a locale module as one complete file, never through a truncating write. */
 export function writeFileAtomic(filePath, content) {
+  assertNoControlChars(content, `FAQ locale file ${filePath}`);
   const tempPath = `${filePath}.tmp-${process.pid}-${atomicWriteSequence++}`;
   try {
     writeFileSync(tempPath, content, 'utf-8');
@@ -201,12 +203,48 @@ export function replaceFaqLiteral(content, serializedFaq) {
     + content.slice(located.closingIndex);
 }
 
-/** Keep the engine's readable FAQ floor and reject any dropped/placeholder pair. */
-export function prepareFaqForWrite(faqArray, { minPairs = 2 } = {}) {
+/** The minimum number of usable pairs the article engine can publish. */
+export const FAQ_WRITE_MIN_PAIRS = 2;
+
+/**
+ * Validate a FAQ before it reaches a locale file.
+ *
+ * `cleanFaqPairs` owns the placeholder/shape/length contract.  This boundary
+ * adds the part that is specific to a source file: a raw C0 character or lone
+ * surrogate in a generated question/answer must be rejected before
+ * `JSON.stringify` turns it into an apparently safe escape.  Otherwise the
+ * source file looks clean while the decoded FAQ still carries a character the
+ * rendered document cannot publish.
+ */
+export function validateFaqForWrite(faqArray, { minPairs = FAQ_WRITE_MIN_PAIRS } = {}) {
   const { pairs, dropped } = cleanFaqPairs(faqArray, { minPairs });
-  if (!pairs || dropped.length > 0) return null;
-  if (pairs.some((pair) => pair.q.length <= 10 || pair.a.length <= 20)) return null;
-  return pairs;
+  if (!pairs) {
+    return { accepted: false, pairs: null, reason: 'below-floor-or-invalid', dropped };
+  }
+  if (dropped.length > 0) {
+    return { accepted: false, pairs: null, reason: 'rejected-pair', dropped };
+  }
+  for (let index = 0; index < pairs.length; index += 1) {
+    const pair = pairs[index];
+    try {
+      assertNoControlChars(pair.q, `FAQ question ${index + 1}`);
+      assertNoControlChars(pair.a, `FAQ answer ${index + 1}`);
+    } catch (error) {
+      return {
+        accepted: false,
+        pairs: null,
+        reason: 'unsafe-text',
+        detail: error instanceof Error ? error.message : String(error),
+        dropped,
+      };
+    }
+  }
+  return { accepted: true, pairs, reason: null, dropped };
+}
+
+/** Keep the engine's readable FAQ floor and reject any dropped/placeholder pair. */
+export function prepareFaqForWrite(faqArray, { minPairs = FAQ_WRITE_MIN_PAIRS } = {}) {
+  return validateFaqForWrite(faqArray, { minPairs }).pairs;
 }
 
 function extractFaqFromFile(filePath) {
