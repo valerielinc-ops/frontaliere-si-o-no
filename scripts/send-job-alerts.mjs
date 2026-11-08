@@ -76,6 +76,7 @@ import { createCantonResolvers, AGGREGATE_KEY } from '../build-plugins/shared/ca
 import { isOwnerEmail, isCanaryJob } from './lib/canaryAd.mjs';
 import { commitInChunks } from './lib/firestore-batch.mjs';
 import { getFirestoreDb } from './lib/firestore-admin.mjs';
+import { buildJobAlertProfileRefs } from './lib/job-alert-profile-reads.mjs';
 import { isCrossChannelStop, isJobAlertExcluded } from '../services/emailSuppression.mjs';
 import { isAccountDeletedTombstone } from '../functions/src/authAccountCleanup.js';
 import { evaluateJobAlertConsent } from './lib/jobalert-backfill-core.mjs';
@@ -224,6 +225,7 @@ export function resolveJobAlertCapacity({
 // beyond Node's heap as the audience and catch-up windows grew.
 export const JOB_ALERT_PLAN_BATCH_SIZE = 64;
 
+/** Build per-run profile references; auxiliary state is fetched only after cadence. */
 // Canonical title of the job-alert matcher monitor. Kept stable across the
 // change of measure (owner decision 2026-10-04, issue 9060) so the issue
 // history stays in one thread; the trigger is now the matcher-health probes of
@@ -3071,10 +3073,8 @@ async function main() {
   // for resolveEffectivePreferredHour; falls back to subscriberProfiles'
   // newsletter-channel data when this doc has no signal of its own yet).
   const jobAlertProfiles = new Map();
-  // Browsing-personalization signals (filter usage + viewed-job cities/searches)
-  // keyed by lowercased email. These live in a SUBCOLLECTION the matcher never
-  // read before (newsletter_subscribers/{email}/private/personalization), which
-  // is why precise location data was "missing" from alerts (issue #2993).
+  // Browsing-personalization signals are loaded after cadence filtering, only
+  // for recipients whose alerts can be sent in this run.
   const behaviorProfiles = new Map();
   // Application-intent ranking is allowed only when the private projection is
   // explicitly bound to the subscriber's Auth uid and the current users/{uid}
@@ -3091,11 +3091,11 @@ async function main() {
   // resolved to job geo/employer and fed at top weight into matching +
   // personalization (#3025). Prefer the alert-channel click over the newsletter.
   const lastClickedUrlByEmail = new Map();
-  // Batched via db.getAll() instead of 3 sequential .get() awaits per email —
-  // same reads, same billed count, but one round-trip per chunk instead of
-  // 3×alertEmails.length serial round-trips (was the dominant Firestore read
-  // spike in the daily send-job-alerts run: ~12-21k LOOKUP reads over 2-3h).
-  const LOOKUP_CHUNK_SIZE = 200; // emails per db.getAll() call (4 refs/email → ≤800 refs/call)
+  // The two parent documents carry suppression, consent and cadence state.
+  // Auxiliary personalization/discovery documents are read only after the
+  // due gate below. This retains one batched read per recipient and avoids
+  // paying for ranking data for recipients who cannot receive today's email.
+  const LOOKUP_CHUNK_SIZE = 200; // emails per db.getAll() call (2 refs/email in this phase)
   for (let i = 0; i < alertEmails.length; i += LOOKUP_CHUNK_SIZE) {
     const chunk = alertEmails.slice(i, i + LOOKUP_CHUNK_SIZE);
     try {
@@ -3105,28 +3105,10 @@ async function main() {
       // the top-level `main().catch()`, aborting the WHOLE script (every
       // remaining chunk + the downstream matching/send step), not just this
       // chunk's email(s).
-      const refs = chunk.flatMap((email) => [
-        db.collection('newsletter_subscribers').doc(email),
-        // A bounce/complaint reported on the alert channel lands on the
-        // job_alert_subscribers doc, not newsletter_subscribers — check both.
-        // isJobAlertExcluded also covers this channel's OWN inactivity-sunset
-        // 'inactive' state (scripts/lib/jobAlertSunset.mjs, issue #2852 item 1) —
-        // soft and reversible, and it stays scoped to THIS document: the
-        // newsletter's 'inactive' (a never-engager sunset on the weekly) is a
-        // statement about that channel's engagement, not an instruction from
-        // the recipient, so isCrossChannelStop deliberately does not cross it.
-        db.collection('job_alert_subscribers').doc(email),
-        // Personalization subdoc (browsing-derived location + intent). Read here
-        // so the matcher can fold it into ranking; absent for users who never
-        // browsed while identified — the matcher tolerates an empty profile.
-        db.collection('newsletter_subscribers').doc(email).collection('private').doc('personalization'),
-        // Server-only state: the public subscription parent is not an
-        // authoritative idempotency ledger and may be changed by a client.
-        db.collection('job_alert_subscribers').doc(email).collection('delivery_state').doc('first_discovery'),
-      ]);
+      const refs = buildJobAlertProfileRefs(db, chunk);
       const snaps = await db.getAll(...refs);
       chunk.forEach((email, idx) => {
-        const [subDoc, alertSubDoc, personDoc, discoveryDoc] = snaps.slice(idx * 4, idx * 4 + 4);
+        const [subDoc, alertSubDoc] = snaps.slice(idx * 2, idx * 2 + 2);
 
         if (subDoc.exists) {
           subscriberDocExists.add(email.toLowerCase());
@@ -3151,22 +3133,14 @@ async function main() {
 
         if (alertSubDoc.exists) {
           const alertData = alertSubDoc.data() || {};
-          const discoveryData = discoveryDoc.exists ? discoveryDoc.data() || {} : {};
           jobAlertProfiles.set(email.toLowerCase(), {
             ...alertData,
-            discovery_email: discoveryData.discovery || null,
-            discovery_ip_geo: discoveryData.ipGeo || null,
           });
           if (isJobAlertExcluded(alertData.status)) suppressedEmails.add(email.toLowerCase());
           // Alert-channel click is the most relevant — overrides the newsletter one.
           if (alertData.last_clicked_url) lastClickedUrlByEmail.set(email.toLowerCase(), alertData.last_clicked_url);
         }
 
-        if (personDoc.exists) {
-          const personData = personDoc.data() || {};
-          behaviorProfiles.set(email.toLowerCase(), behaviorSignals(personData));
-          personalizationRaw.set(email.toLowerCase(), personData);
-        }
       });
     } catch (err) {
       // Fail closed: without the subscriber documents we cannot evaluate the
@@ -3186,50 +3160,6 @@ async function main() {
     console.warn(`   ⏳ Subscriber suppression lookup failed; ${before - alerts.length} alert(s) deferred for the next run.`);
   }
 
-  try {
-    const uidByEmail = new Map();
-    for (const [email, behavior] of behaviorProfiles) {
-      const newsletter = subscriberProfiles.get(email) || {};
-      const alertSubscriber = jobAlertProfiles.get(email) || {};
-      const uid = [
-        newsletter.user_id,
-        newsletter.userId,
-        newsletter.uid,
-        alertSubscriber.user_id,
-        alertSubscriber.userId,
-        alertSubscriber.uid,
-      ].find((candidate) => typeof candidate === 'string' && candidate.trim());
-      const normalizedUid = typeof uid === 'string' ? uid.trim() : '';
-      if (normalizedUid && normalizedUid === behavior.applicationIntentAuthUid) {
-        uidByEmail.set(email, normalizedUid);
-      }
-    }
-    const uids = [...new Set(uidByEmail.values())];
-    if (uids.length > 0) {
-      if (typeof db.getAll !== 'function') throw new Error('batched users profile lookup unavailable');
-      const accountProfiles = new Map();
-      const PROFILE_CHUNK_SIZE = 200;
-      for (let i = 0; i < uids.length; i += PROFILE_CHUNK_SIZE) {
-        const chunk = uids.slice(i, i + PROFILE_CHUNK_SIZE);
-        const snapshots = await db.getAll(...chunk.map((uid) => db.collection('users').doc(uid)));
-        snapshots.forEach((snapshot, index) => {
-          const exists = typeof snapshot?.exists === 'function' ? snapshot.exists() : snapshot?.exists === true;
-          if (!exists) return;
-          const data = snapshot.data() || {};
-          accountProfiles.set(chunk[index], { optedOut: data.applicationIntent?.optedOut === true });
-        });
-      }
-      for (const [email, uid] of uidByEmail) {
-        const account = accountProfiles.get(uid);
-        if (account && !account.optedOut) applicationIntentAccountProfiles.set(email, { uid, optedOut: false });
-      }
-    }
-  } catch (err) {
-    // The alert audience and suppression path remain usable, but application
-    // intent must not be used without a current, readable account profile.
-    applicationIntentAccountProfiles.clear();
-    console.warn(`   ⚠️  Application-intent account preference lookup failed; ranking signal disabled: ${redactEmailAddresses(err?.message || err)}`);
-  }
   if (suppressedEmails.size > 0) {
     const before = alerts.length;
     alerts = alerts.filter((a) => {
@@ -3304,9 +3234,10 @@ async function main() {
   // loads `active == true`, so a switched-off alert is not even in `alerts`. The
   // predicate is still asked, because a guard that holds only because of how its
   // caller happens to query is the shape this repo keeps finding broken.
+  const pendingReactivations = [];
   {
     const reactivationNowIso = new Date().toISOString();
-    const reactivations = [];
+    const reactivations = pendingReactivations;
     const refusedByReason = {};
     for (const alert of alerts) {
       const emailKey = alert.email.toLowerCase();
@@ -3332,25 +3263,6 @@ async function main() {
     }
     if (reactivations.length > 0 || Object.keys(refusedByReason).length > 0) {
       console.log(`   🔁 Return-visit reactivations: ${reactivations.length}; refused: ${JSON.stringify(refusedByReason)}`);
-    }
-    if (reactivations.length > 0 && !DRY_RUN) {
-      // Two passes, because commitInChunks contracts for AT MOST ONE operation
-      // per item (scripts/lib/firestore-batch.mjs) — the op cap it enforces is
-      // computed from the slice length, so two writes per item would silently
-      // let a batch exceed 500 and throw away the whole chunk.
-      await commitInChunks(
-        db,
-        reactivations.filter((item) => item.alert.ref),
-        (batch, item) => batch.update(item.alert.ref, item.verdict.alertFields),
-      );
-      // One write per ADDRESS: the per-recipient counters are shared, so two
-      // reactivated alerts on the same person are one identical reset.
-      const subFieldsByEmail = new Map();
-      for (const item of reactivations) subFieldsByEmail.set(item.emailKey, item.verdict.subFields);
-      await commitInChunks(db, [...subFieldsByEmail], (batch, [emailKey, fields]) => {
-        batch.set(db.collection('job_alert_subscribers').doc(emailKey), fields, { merge: true });
-      });
-      console.log(`   🔁 ${reactivations.length} decayed alert(s) reactivated — cadence_decayed_at kept as the record of what we did`);
     }
   }
 
@@ -3413,6 +3325,100 @@ async function main() {
   }
   // Con il tetto disattivato (null) la riga diceva «nulld»: si stampa solo se attivo.
   if (JOB_ALERT_CADENCE_CEILING_DAYS != null) console.log(`   ⏳ Cadence ceiling ${JOB_ALERT_CADENCE_CEILING_DAYS}d: ${ceilingHeld.daily} tier-1 and ${ceilingHeld['every-other-day']} tier-3 alerts held to the ceiling today`);
+
+  // Personalization and first-discovery state affect ranking/idempotency, but
+  // cannot change suppression, consent or today's cadence. Read them only for
+  // the unique recipients that passed those gates.
+  const dueEmails = [...new Set(alerts.map((alert) => alert.email.toLowerCase()))];
+  const failedAuxiliaryEmails = new Set();
+  for (let i = 0; i < dueEmails.length; i += LOOKUP_CHUNK_SIZE) {
+    const chunk = dueEmails.slice(i, i + LOOKUP_CHUNK_SIZE);
+    try {
+      const refs = buildJobAlertProfileRefs(db, chunk, { includeAuxiliary: true });
+      const snapshots = await db.getAll(...refs);
+      chunk.forEach((email, index) => {
+        const [personDoc, discoveryDoc] = snapshots.slice(index * 2, index * 2 + 2);
+        const profile = jobAlertProfiles.get(email) || {};
+        const discoveryData = discoveryDoc.exists ? discoveryDoc.data() || {} : {};
+        profile.discovery_email = discoveryData.discovery || null;
+        profile.discovery_ip_geo = discoveryData.ipGeo || null;
+        jobAlertProfiles.set(email, profile);
+        if (personDoc.exists) {
+          const personData = personDoc.data() || {};
+          behaviorProfiles.set(email, behaviorSignals(personData));
+          personalizationRaw.set(email, personData);
+        }
+      });
+    } catch (err) {
+      chunk.forEach((email) => failedAuxiliaryEmails.add(email));
+      console.warn(`   ⚠️  auxiliary profile lookup failed for ${chunk.length} due recipient(s): ${redactEmailAddresses(err?.message || err)}`);
+    }
+  }
+  if (failedAuxiliaryEmails.size > 0) {
+    const before = alerts.length;
+    alerts = alerts.filter((alert) => !failedAuxiliaryEmails.has(alert.email.toLowerCase()));
+    funnelIn.suppressionDeferred += before - alerts.length;
+  }
+
+  // Keep reactivation writes behind all reads required for the same send.
+  // An auxiliary lookup failure therefore preserves the old defer/no-write behavior.
+  const reactivationsToPersist = pendingReactivations.filter((item) => !failedAuxiliaryEmails.has(item.emailKey));
+  if (reactivationsToPersist.length > 0 && !DRY_RUN) {
+    await commitInChunks(
+      db,
+      reactivationsToPersist.filter((item) => item.alert.ref),
+      (batch, item) => batch.update(item.alert.ref, item.verdict.alertFields),
+    );
+    const subFieldsByEmail = new Map();
+    for (const item of reactivationsToPersist) subFieldsByEmail.set(item.emailKey, item.verdict.subFields);
+    await commitInChunks(db, [...subFieldsByEmail], (batch, [emailKey, fields]) => {
+      batch.set(db.collection('job_alert_subscribers').doc(emailKey), fields, { merge: true });
+    });
+    console.log(`   🔁 ${reactivationsToPersist.length} decayed alert(s) reactivated — cadence_decayed_at kept as the record of what we did`);
+  }
+
+  try {
+    const uidByEmail = new Map();
+    for (const [email, behavior] of behaviorProfiles) {
+      const newsletter = subscriberProfiles.get(email) || {};
+      const alertSubscriber = jobAlertProfiles.get(email) || {};
+      const uid = [
+        newsletter.user_id,
+        newsletter.userId,
+        newsletter.uid,
+        alertSubscriber.user_id,
+        alertSubscriber.userId,
+        alertSubscriber.uid,
+      ].find((candidate) => typeof candidate === 'string' && candidate.trim());
+      const normalizedUid = typeof uid === 'string' ? uid.trim() : '';
+      if (normalizedUid && normalizedUid === behavior.applicationIntentAuthUid) {
+        uidByEmail.set(email, normalizedUid);
+      }
+    }
+    const uids = [...new Set(uidByEmail.values())];
+    if (uids.length > 0) {
+      if (typeof db.getAll !== 'function') throw new Error('batched users profile lookup unavailable');
+      const accountProfiles = new Map();
+      const PROFILE_CHUNK_SIZE = 200;
+      for (let i = 0; i < uids.length; i += PROFILE_CHUNK_SIZE) {
+        const chunk = uids.slice(i, i + PROFILE_CHUNK_SIZE);
+        const snapshots = await db.getAll(...chunk.map((uid) => db.collection('users').doc(uid)));
+        snapshots.forEach((snapshot, index) => {
+          const exists = typeof snapshot?.exists === 'function' ? snapshot.exists() : snapshot?.exists === true;
+          if (!exists) return;
+          const data = snapshot.data() || {};
+          accountProfiles.set(chunk[index], { optedOut: data.applicationIntent?.optedOut === true });
+        });
+      }
+      for (const [email, uid] of uidByEmail) {
+        const account = accountProfiles.get(uid);
+        if (account && !account.optedOut) applicationIntentAccountProfiles.set(email, { uid, optedOut: false });
+      }
+    }
+  } catch (err) {
+    applicationIntentAccountProfiles.clear();
+    console.warn(`   ⚠️  Application-intent account preference lookup failed; ranking signal disabled: ${redactEmailAddresses(err?.message || err)}`);
+  }
 
   // 2d. Resolve the real provider budget before matching, but do not slice the
   // candidate list here. Matching can eliminate zero-match, already-sent and

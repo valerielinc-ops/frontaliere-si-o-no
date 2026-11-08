@@ -51,6 +51,7 @@ import {
   JOB_ALERT_COOLDOWN_MS as JOB_ALERT_COOLDOWN_DEFAULT_MS,
   JOB_ALERT_COOLDOWN_MAX_DEFER_DAYS,
   jobAlertCooldownApplies,
+  loadRecentJobAlertCooldownEmails,
 } from './lib/newsletterJobAlertCooldown.mjs';
 import { createResumeWriter, fetchAlreadySent as fetchCampaignAlreadySent, resumeChunkState } from './lib/campaignResumeLog.mjs';
 import { getFirestoreDb } from './lib/firestore-admin.mjs';
@@ -2838,24 +2839,13 @@ async function main() {
     const JOB_ALERT_COOLDOWN_MS = process.env.SKIP_JOB_ALERT_COOLDOWN === '1' || !cooldownApplies ? 0 : JOB_ALERT_COOLDOWN_DEFAULT_MS;
     if (JOB_ALERT_COOLDOWN_MS > 0 && db) {
       const nowMs = Date.now();
-      const cooldownSet = new Set();
-      const emails = [...new Set(subscribers.map((s) => normalizeEmail(s.email)).filter(Boolean))];
-      const LOOKUP_CHUNK_SIZE = 200;
-      for (let i = 0; i < emails.length; i += LOOKUP_CHUNK_SIZE) {
-        const chunk = emails.slice(i, i + LOOKUP_CHUNK_SIZE);
-        try {
-          const refs = chunk.map((email) => db.collection('job_alert_subscribers').doc(email));
-          const snaps = await db.getAll(...refs);
-          snaps.forEach((snap, idx) => {
-            if (!snap.exists) return;
-            const lastSentAt = snap.data()?.last_sent_at;
-            if (!lastSentAt) return;
-            const ts = typeof lastSentAt.toMillis === 'function' ? lastSentAt.toMillis() : new Date(lastSentAt).getTime();
-            if (nowMs - ts < JOB_ALERT_COOLDOWN_MS) cooldownSet.add(chunk[idx]);
-          });
-        } catch (e) {
-          console.warn(`\u26a0\ufe0f  Job-alert cooldown lookup failed for ${chunk.length} email(s): ${e?.message || e}`);
-        }
+      let cooldownSet = new Set();
+      try {
+        cooldownSet = await loadRecentJobAlertCooldownEmails(db, nowMs - JOB_ALERT_COOLDOWN_MS);
+      } catch (e) {
+        // The previous per-recipient reads failed open for the affected chunk;
+        // keep the same outcome if a window query cannot be served.
+        console.warn(`\u26a0\ufe0f  Job-alert cooldown lookup failed: ${e?.message || e}`);
       }
       if (cooldownSet.size > 0) {
         const before = subscribers.length;

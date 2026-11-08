@@ -49,6 +49,8 @@ const QUERIED: Array<[string, string, string]> = [
   ['events', 'campaign_id', 'scripts/lib/newsletter-ab-data.mjs'],
   ['events', 'event_type', 'scripts/check-unsubscribe-credential-rate.mjs, scripts/build-job-email-affinity.mjs'],
   ['events', 'provider', 'indice composito provider + timestamp'],
+  ['events', 'message_id', 'scripts/lib/job-alert-subject-ab-data.mjs'],
+  ['events', 'alert_id', 'scripts/lib/job-alert-subject-ab-data.mjs'],
   ['events', 'occurred_at', 'functions/src/lib/preferredSendHour.js'],
   ['events', 'source_channel', 'scripts/newsletter-confirmed-status-backfill.mjs'],
   ['events', 'pair_re_opt_in_at', 'scripts/audit-resubscribe-pairs.mjs'],

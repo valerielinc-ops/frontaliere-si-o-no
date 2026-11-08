@@ -72,11 +72,9 @@ import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
  * number in front of them.
  */
 import {
-  decideConfirmationFollowup,
   buildConfirmationExpiryFields,
   buildConfirmationSentFields,
   buildConfirmationSentEvent,
-  confirmationAttemptsUsed,
   confirmationFirstSentAt,
   DEFAULT_CONFIRMATION_FOLLOWUP_EPOCH,
   CONFIRMATION_EXPIRED_STATUS,
@@ -110,9 +108,14 @@ import {
   readConfirmationCopyConfig,
 } from '../functions/src/lib/confirmationCopyExperiment.js';
 import { resolveSubscriberLocale } from '../functions/src/lib/subscriberLocale.js';
-import { hasConfirmationProof } from '../services/subscriberConsent.mjs';
 import { commitInChunks } from './lib/firestore-batch.mjs';
 import { getFirestoreDb } from './lib/firestore-admin.mjs';
+import {
+  loadConfirmationFollowupCandidates,
+  planConfirmationFollowups,
+} from './lib/confirmation-followup-scan.mjs';
+
+export { planConfirmationFollowups };
 
 const COLLECTION = 'newsletter_subscribers';
 
@@ -136,59 +139,6 @@ export function maskEmail(email) {
   const [local = '', domain = ''] = String(email || '').split('@');
   if (!domain) return '***';
   return `${local.slice(0, 1)}***@${domain}`;
-}
-
-/**
- * Ask the policy about every document and group the answers.
- *
- * Exported and side-effect-free so the runner can be driven from a test
- * without a Firestore, which is also why `main()` below is guarded rather than
- * called at module scope the way its siblings are: importing
- * scripts/newsletter-sunset.mjs RUNS it, and that is precisely why
- * tests/no-channel-mails-unconfirmed.test.ts had to settle for a source scan.
- *
- * @param {Array<{id: string, data: Record<string, any>, ref?: unknown}>} docs
- * @param {{now: number, epochMs: number}} ctx
- */
-export function planConfirmationFollowups(docs, { now, epochMs }) {
-  const expire = [];
-  const send = [];
-  const skippedByReason = new Map();
-  let neverAskedBacklog = 0;
-
-  for (const doc of docs) {
-    const decision = decideConfirmationFollowup(doc.data, { now, epochMs });
-    if (decision.action === 'expire') {
-      expire.push({ ...doc, decision });
-    } else if (decision.action === 'send') {
-      send.push({ ...doc, decision });
-    } else {
-      skippedByReason.set(decision.reason, (skippedByReason.get(decision.reason) || 0) + 1);
-      // The 31, counted separately from the rest of the backlog. `pending`,
-      // before the epoch, no proof of consent and no request ever recorded:
-      // people who submitted a form and were never written to at all. The
-      // cadence does not cover them (see the docblock), so the only thing this
-      // runner owes them is a number that does not disappear into a bucket of
-      // 400. `hasConfirmationProof` is the shared gate, asked here for the same
-      // reason it is asked in the policy: `pending` alone does not mean
-      // "never consented".
-      if (
-        decision.reason === 'backlog' &&
-        confirmationAttemptsUsed(doc.data) === 0 &&
-        !hasConfirmationProof(doc.data)
-      ) {
-        neverAskedBacklog += 1;
-      }
-    }
-  }
-
-  return {
-    total: docs.length,
-    expire,
-    send,
-    neverAskedBacklog,
-    skipped: Object.fromEntries([...skippedByReason.entries()].sort((a, b) => b[1] - a[1])),
-  };
 }
 
 /**
@@ -414,14 +364,13 @@ async function main() {
   const now = Date.now();
   const nowIso = new Date(now).toISOString();
 
-  // The whole collection, not a `where('status','==','pending')` query: the
-  // skip reasons are the measure this issue is judged on (how many `pending`
-  // documents are re-probes, how many are backlog), and a query that filtered
-  // them out server-side would report a plan with no denominator.
-  const snap = await db.collection(COLLECTION).get();
-  const docs = snap.docs.map((d) => ({ id: d.id, data: d.data(), ref: d.ref }));
+  // Read the case-insensitive pending cohort only. Aggregate counts keep the
+  // same all-document denominator and the already-expired/not-pending buckets
+  // without downloading every terminal or confirmed subscriber record.
+  const census = await loadConfirmationFollowupCandidates(db.collection(COLLECTION));
+  const docs = census.docs.map((d) => ({ id: d.id, data: d.data(), ref: d.ref }));
 
-  const plan = planConfirmationFollowups(docs, { now, epochMs });
+  const plan = planConfirmationFollowups(docs, { now, epochMs, ...census });
   const expiring = limit ? plan.expire.slice(0, limit) : plan.expire;
 
   const summary = {

@@ -459,6 +459,46 @@ describe('handleSubscriptionManagement', () => {
     });
   });
 
+  it('indexes an existing alert when update_alert switches it to the immediate sender', async () => {
+    const db = createFakeDb({
+      newsletter_subscribers: {
+        [TEST_EMAIL]: { status: 'confirmed', isActive: true },
+      },
+    }, {
+      job_alert_subscribers: {
+        [TEST_EMAIL]: {
+          alerts: {
+            'alert-keep': {
+              keywords: ['Sviluppo'],
+              active: true,
+              frequency: 'weekly',
+              deliveryLedger: { job: { state: 'deferred' } },
+            },
+          },
+        },
+      },
+    });
+
+    const result = await handleSubscriptionManagement({
+      action: 'update_alert',
+      email: TEST_EMAIL,
+      token: VALID_TOKEN,
+      locale: 'it',
+      secret: TEST_SECRET,
+      method: 'POST',
+      alertId: 'alert-keep',
+      frequency: 'immediate',
+      db: db as any,
+    });
+
+    expect(result.status).toBe(200);
+    const write = db.__sets.find((s) => s.collection === `job_alert_subscribers/${TEST_EMAIL}/alerts`);
+    expect(write?.data).toMatchObject({
+      frequency: 'immediate',
+      hasDeferredCompanyAlertWork: true,
+    });
+  });
+
   it('returns a safe followup action after a company-follow confirmation', async () => {
     const db = createFakeDb({
       newsletter_subscribers: {
