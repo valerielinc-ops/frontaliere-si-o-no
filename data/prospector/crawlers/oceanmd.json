@@ -1,0 +1,24 @@
+{
+  "companyKey": "oceanmd",
+  "companyName": "OceanMD",
+  "companyHost": "oceanmd.applytojob.com",
+  "platform": "applytojob.com",
+  "mode": "known-template",
+  "seedUrls": [
+    "https://oceanmd.applytojob.com/apply"
+  ],
+  "detailTemplate": "/apply/*/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": false,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 4,
+  "sampleTitles": [
+    "Communications Strategist",
+    "Product Launch Specialist, HealthTech SaaS",
+    "Workflow Training and Change Management Specialist",
+    "Software Developer"
+  ],
+  "sourceLang": "en",
+  "learnedAt": "2026-11-08T12:50:55.323Z",
+  "candidateKey": "oceanmd@applytojob.com"
+}

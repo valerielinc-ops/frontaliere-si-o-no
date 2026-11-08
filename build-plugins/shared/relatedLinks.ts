@@ -825,24 +825,25 @@ function clustersForFuelStation(
   const fuelDailyLocale = locale as FuelDailyLocale;
   const stationSlug = ctx.stationSlug ?? 'stazione';
 
-  // Prefer real sibling station slugs provided by the page generator. When the
-  // richer context is unavailable, fall back to placeholder siblings so callers
-  // outside the fuel build pipeline still get a populated section.
-  const sibling: RelatedLink[] = (ctx.siblingStations?.length
+  // Prefer the exact sibling inventory provided by the page generator. An
+  // explicit empty array is authoritative after post-gate filtering: falling
+  // back to invented slugs there would recreate T2→T2 links to non-emitted
+  // station pages. Only callers without sibling context get placeholders.
+  const sibling: RelatedLink[] = ctx.siblingStations !== undefined
     ? ctx.siblingStations
-        .filter((station) => station.slug !== stationSlug)
-        .slice(0, 5)
-        .map((station) => ({
-          href: buildFuelStationPath(fuelDailyLocale, fuel, zone, station.slug),
-          title: copy.fuelStation(station.brand, zoneLabel(zone)),
-        }))
+      .filter((station) => station.slug !== stationSlug)
+      .slice(0, 5)
+      .map((station) => ({
+        href: buildFuelStationPath(fuelDailyLocale, fuel, zone, station.slug),
+        title: copy.fuelStation(station.brand, zoneLabel(zone)),
+      }))
     : ['eni', 'agip', 'tamoil', 'shell', 'migrol']
-        .filter((brand) => `${zone}-${brand}` !== stationSlug)
-        .slice(0, 5)
-        .map((brand) => ({
-          href: buildFuelStationPath(fuelDailyLocale, fuel, zone, `${zone}-${brand}`),
-          title: copy.fuelStation(humanizeSlug(brand), zoneLabel(zone)),
-        })));
+      .filter((brand) => `${zone}-${brand}` !== stationSlug)
+      .slice(0, 5)
+      .map((brand) => ({
+        href: buildFuelStationPath(fuelDailyLocale, fuel, zone, `${zone}-${brand}`),
+        title: copy.fuelStation(humanizeSlug(brand), zoneLabel(zone)),
+      }));
 
   // Hubs: job-board root + zone hub + regional hub.
   const hubs: RelatedLink[] = [

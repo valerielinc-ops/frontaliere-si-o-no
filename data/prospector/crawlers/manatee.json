@@ -1,0 +1,21 @@
+{
+  "companyKey": "manatee",
+  "companyName": "Manatee",
+  "companyHost": "manatee.applytojob.com",
+  "platform": "applytojob.com",
+  "mode": "known-template",
+  "seedUrls": [
+    "https://manatee.applytojob.com/apply"
+  ],
+  "detailTemplate": "/apply/*/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": false,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 1,
+  "sampleTitles": [
+    "TX Associate Child & Family Therapist | Remote"
+  ],
+  "sourceLang": "en",
+  "learnedAt": "2026-11-08T12:50:52.724Z",
+  "candidateKey": "manatee@applytojob.com"
+}

@@ -77,12 +77,30 @@ rehydrate_locale() {
 
     # PRIMARY: the same-run per-locale shard-dist artifact the en/de/fr
     # build-locale shard uploaded from its already-pruned, CDN-offloaded
-    # dist (byte-identical to what push-locale-shard.sh force-pushed).
+    # dist (byte-identical to what push-locale-shard.sh force-pushed). Keep the
+    # artifact as its compressed ZIP and stream its tar member into dist: the
+    # old `gh run download` path materialized the full tar beside an already
+    # nearly full logical dist, which exhausted the runner before this step
+    # could report a failure (weekly full audit run 42471396747).
     dl="$RUNNER_TEMP/locale-dist-$loc"
+    locale_zip="artifact.zip"
+    locale_member="locale-dist-$loc.tar"
+    artifact_name="locale-dist-$loc-$artifact_run_id"
+    repo="${GH_REPO:-${GITHUB_REPOSITORY:-}}"
     dl_ok=1
     for attempt in 1 2; do
       rm -rf "$dl"; mkdir -p "$dl"
-      if timeout 180 gh run download "$artifact_run_id" --name "locale-dist-$loc-$artifact_run_id" --dir "$dl" 2>/dev/null && [ -f "$dl/locale-dist-$loc.tar" ]; then
+      artifact_id=""
+      if [ -n "$repo" ]; then
+        artifact_id="$(timeout 30 gh api "repos/$repo/actions/runs/$artifact_run_id/artifacts?name=$artifact_name&per_page=100" \
+          --jq '[.artifacts[] | select(.expired == false)] | sort_by(.created_at) | reverse | .[0].id // empty' 2>/dev/null || true)"
+      fi
+      members=""
+      if [ -n "$artifact_id" ] \
+          && timeout 150 gh api -H "Accept: application/vnd.github+json" \
+               "repos/$repo/actions/artifacts/$artifact_id/zip" > "$dl/$locale_zip" 2>/dev/null \
+          && members="$(unzip -Z1 "$dl/$locale_zip" 2>/dev/null || true)" \
+          && grep -qxF -- "$locale_member" <<< "$members"; then
         dl_ok=0
         break
       fi
@@ -103,8 +121,21 @@ rehydrate_locale() {
       # `tar -tf` lists what the archive itself claims to contain (empty
       # on a corrupt header); comparing that count to what actually landed
       # on disk after extraction catches a short read the old check missed.
-      expected_n=$(tar -tf "$dl/locale-dist-$loc.tar" 2>/dev/null | { grep -vc '/$' || true; })
-      tar -C dist -xf "$dl/locale-dist-$loc.tar" || true
+      # Both passes stream the member out of the artifact ZIP; the uncompressed
+      # locale tar never exists on disk beside the logical dist. Keep the
+      # listing pass fail-soft so a corrupt member reaches the clone/fail-closed
+      # path below instead of aborting before the accounting is recorded.
+      set +e
+      expected_n="$(unzip -p "$dl/$locale_zip" "$locale_member" 2>/dev/null \
+        | tar -tf - 2>/dev/null | { grep -vc '/$' || true; })"
+      set -e
+
+      set +e
+      unzip -p "$dl/$locale_zip" "$locale_member" | tar -C dist -xf -
+      pipeline_statuses=("${PIPESTATUS[@]}")
+      set -e
+      unzip_rc="${pipeline_statuses[0]:-2}"
+      tar_rc="${pipeline_statuses[1]:-2}"
       rm -rf "$dl"
       actual_n=0
       if [ -d "dist/$loc" ]; then
@@ -119,7 +150,11 @@ rehydrate_locale() {
       # dist/$loc into validation. `-eq` treats any drift between what the
       # archive claims and what extraction produced as a mismatch, forcing
       # the git-clone fallback below.
-      if [ -d "dist/$loc" ] && [ "${expected_n:-0}" -gt 0 ] && [ "$actual_n" -eq "$expected_n" ]; then
+      # Info-ZIP uses status 1 for warnings, including CRC failures. The tar
+      # stream and file counts can still agree, so only a clean unzip status
+      # may accept the artifact.
+      if [ "${unzip_rc:-2}" -eq 0 ] && [ "${tar_rc:-2}" -eq 0 ] \
+          && [ -d "dist/$loc" ] && [ "${expected_n:-0}" -gt 0 ] && [ "$actual_n" -eq "$expected_n" ]; then
         echo "rehydrated $loc from tar artifact: $actual_n files (tar listed $expected_n)"
         rehydrate_provenance "$loc" artifact "locale-dist-$loc-$artifact_run_id"
         trunk_replace_end "locale-$loc"

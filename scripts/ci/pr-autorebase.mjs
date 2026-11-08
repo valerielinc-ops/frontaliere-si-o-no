@@ -795,12 +795,25 @@ export function reviewerSnapshotChanged(before, after) {
 }
 
 /**
+ * A mutation must be bound to a complete review-input identity.  Callers that
+ * cannot read the HEAD or the trusted PR-body revision must defer: comparing
+ * two partial snapshots would turn an unreadable input into a false CAS hit.
+ */
+function hasReviewInputIdentity(value) {
+  return Boolean(value
+    && typeof value === 'object'
+    && PR_HEAD_SHA_RE.test(String(value.headSha || ''))
+    && typeof value.reviewRevision === 'string'
+    && value.reviewRevision.length > 0);
+}
+
+/**
  * Identity of the review inputs consumed by a mutation. The HEAD and the
  * trusted PR-body revision are the primary CAS; the reviewer snapshot is an
  * additional guard for an in-place review edit or dismissal.
  */
 export function reviewInputChanged(before, after) {
-  if (!before || !after) return true;
+  if (!hasReviewInputIdentity(before) || !hasReviewInputIdentity(after)) return true;
   if (before.headSha !== after.headSha
       || before.reviewRevision !== after.reviewRevision) return true;
   if (!before.reviewerSnapshot && !after.reviewerSnapshot) return false;
@@ -2514,6 +2527,7 @@ function handOffConflictToFixer(
   let issue = '';
   let evidenceRows = existing;
   if (plan.action === 'reuse') {
+    if (!reviewInputStableForMutation(num, reviewInput, 'la deduplicazione degli hand-off')) return;
     issue = String(closeDuplicateHandoffIssues(existing, num, head) || '');
     if (!issue) return;
   } else if (plan.action === 'create') {
@@ -2521,6 +2535,7 @@ function handOffConflictToFixer(
     // (`agent:fix-queued`), cioe' ore invece di minuti. `agent:fix` arriva con
     // un edit separato, perche' e' l'evento `labeled` a far partire issue-fix,
     // e l'identita' di GH_TOKEN e' quella ammessa dal suo sender gate.
+    if (!reviewInputStableForMutation(num, reviewInput, 'la creazione dell\'hand-off')) return;
     const url = String(gh(['issue', 'create', '--repo', REPO, '--title', title, '--body', body,
       '--label', 'agent:triaged'], { json: false, allowFail: true }) || '').trim();
     const created = /\/issues\/(\d+)/.exec(url)?.[1] || '';
@@ -2538,6 +2553,7 @@ function handOffConflictToFixer(
         return;
       }
       evidenceRows = after;
+      if (!reviewInputStableForMutation(num, reviewInput, 'la deduplicazione dell\'hand-off creato')) return;
       issue = String(closeDuplicateHandoffIssues(after, num, head) || '');
       if (!issue) return;
     }
@@ -2547,14 +2563,17 @@ function handOffConflictToFixer(
     return;
   }
   const evidence = evidenceRows.find((candidate) => String(candidate.number) === issue);
+  if (!reviewInputStableForMutation(num, reviewInput, 'l\'aggiornamento dell\'evidenza hand-off')) return;
   if (!refreshHandoffEvidence(evidence, body, num)) return;
   // Esito dall'exit status, non dallo stdout: senza routing confermato il
   // marker NON si scrive, cosi' il prossimo tick riprova sulla stessa issue.
+  if (!reviewInputStableForMutation(num, reviewInput, 'il routing dell\'hand-off')) return;
   const routed = ghRun(['issue', 'edit', issue, '--repo', REPO, '--add-label', 'agent:fix']);
   if (!routed.ok) {
     console.log(`::warning::issue #${issue}: agent:fix non applicata (${routed.error}) — marker non scritto, ritento al prossimo tick.`);
     return;
   }
+  if (!reviewInputStableForMutation(num, reviewInput, 'il commento dell\'hand-off')) return;
   gh(['pr', 'comment', String(num), '--repo', REPO, '--body',
     `${marker}\n♻️ **autorebase / conflitto${lgtm ? ' dopo LGTM' : ' di una PR del ciclo'}**: affidato a issue-fix con #${issue}, che riapplica il contributo${lgtm ? ' approvato' : ''} su \`main\` in una PR nuova. _Segnale deterministico da pr-autorebase (zero-Claude)._`],
   { json: false, allowFail: true });
@@ -2940,10 +2959,11 @@ async function processPR(pr) {
     if (mc === 'CONFLICTING') {
       if (DRY) { console.log(`[dry] #${num} CONFLICTING → tenta auto-resolve import-union, else stale-review`); return; }
       let done = false;
+      let resolution = { resolved: false, mode: 'none', generated: null };
       if (checkoutDecidedHead(num, branch, head)) {
         configureAutorebaseCommitIdentity();
         const mg = git(['merge', '--no-edit', 'origin/main'], { allowFail: true });
-        const resolution = mg === null ? resolveMergeConflict() : { resolved: false, mode: 'none' };
+        resolution = mg === null ? resolveMergeConflict() : { resolved: false, mode: 'none', generated: null };
         if (resolution.resolved) {
           const reviewInputBeforePush = readReviewInput(num);
           if (reviewInputChanged(reviewInput, reviewInputBeforePush)) {

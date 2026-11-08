@@ -1,0 +1,24 @@
+{
+  "companyKey": "opulo",
+  "companyName": "Opulo, Inc",
+  "companyHost": "opulo.applytojob.com",
+  "platform": "applytojob.com",
+  "mode": "known-template",
+  "seedUrls": [
+    "https://opulo.applytojob.com/apply"
+  ],
+  "detailTemplate": "/apply/*/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": false,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 4,
+  "sampleTitles": [
+    "Customer Service Specialist - Full Time",
+    "Customer Service Specialist - Part Time",
+    "Mechatronics Engineer",
+    "Assembly Technician"
+  ],
+  "sourceLang": "en",
+  "learnedAt": "2026-11-08T12:50:56.608Z",
+  "candidateKey": "opulo@applytojob.com"
+}

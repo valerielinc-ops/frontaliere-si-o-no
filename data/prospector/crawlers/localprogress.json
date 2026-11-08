@@ -1,0 +1,21 @@
+{
+  "companyKey": "localprogress",
+  "companyName": "Local Progress",
+  "companyHost": "localprogress.applytojob.com",
+  "platform": "applytojob.com",
+  "mode": "known-template",
+  "seedUrls": [
+    "https://localprogress.applytojob.com/apply"
+  ],
+  "detailTemplate": "/apply/*/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": false,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 1,
+  "sampleTitles": [
+    "Communications Manager"
+  ],
+  "sourceLang": "en",
+  "learnedAt": "2026-11-08T12:50:47.478Z",
+  "candidateKey": "localprogress@applytojob.com"
+}

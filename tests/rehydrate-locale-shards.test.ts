@@ -24,6 +24,21 @@ const read = (p: string) => readFileSync(resolve(p), 'utf8');
 describe('rehydrate-locale-shards.sh — cross-job clone cache (issue #4881 defect C, extended)', () => {
   const script = read('scripts/lib/rehydrate-locale-shards.sh');
 
+  it('streams the locale tar from the raw artifact ZIP instead of materializing it beside dist', () => {
+    const resolveIdx = script.indexOf('gh api "repos/$repo/actions/runs/$artifact_run_id/artifacts?name=$artifact_name&per_page=100"');
+    const downloadIdx = script.indexOf('"repos/$repo/actions/artifacts/$artifact_id/zip"');
+    const cloneIdx = script.indexOf('git clone --depth 1 --single-branch --branch main');
+    expect(resolveIdx).toBeGreaterThan(-1);
+    expect(downloadIdx).toBeGreaterThan(resolveIdx);
+    expect(cloneIdx).toBeGreaterThan(downloadIdx);
+    expect(script.slice(resolveIdx - 30, resolveIdx)).toContain('timeout 30');
+    expect(script.slice(downloadIdx - 80, downloadIdx)).toContain('timeout 150 gh api');
+    expect(script).toContain('select(.expired == false)');
+    expect(script).toContain('unzip -p "$dl/$locale_zip" "$locale_member" | tar -C dist -xf -');
+    const liveCode = script.split('\n').filter((line) => !/^\s*#/.test(line)).join('\n');
+    expect(liveCode).not.toContain('gh run download');
+  });
+
   it('checks the cross-job clone cache BEFORE the network clone, with a continue on hit', () => {
     const cacheIdx = script.indexOf('SHARD_CLONE_CACHE_DIR');
     const cloneIdx = script.indexOf('git clone --depth 1 --single-branch --branch main');
@@ -125,5 +140,10 @@ describe('rehydrate-locale-shards.sh — cross-job clone cache (issue #4881 defe
   it('the tar-completeness check requires an EXACT file-count match, not "at least" (issue #6260, sibling of rehydrate-section-shards.sh)', () => {
     expect(script).toMatch(/\[ "\$actual_n" -eq "\$expected_n" \]/);
     expect(script).not.toMatch(/\[ "\$actual_n" -ge "\$expected_n" \]/);
+  });
+
+  it('accepts a streamed tar only after unzip reports a clean status', () => {
+    expect(script).toContain('if [ "${unzip_rc:-2}" -eq 0 ] && [ "${tar_rc:-2}" -eq 0 ]');
+    expect(script).not.toContain('"${unzip_rc:-2}" -le 1');
   });
 });

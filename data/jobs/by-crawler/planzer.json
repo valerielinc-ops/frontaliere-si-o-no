@@ -657,12 +657,12 @@
     },
     {
       "id": "planzer-2d98bf5651cf",
-      "slug": "paketzusteller-m-w-d-planzer-bern",
+      "slug": "consegna-del-pacchetto-m-f-d-planzer-bern",
       "slugByLocale": {
         "de": "paketzusteller-m-w-d-planzer-bern",
-        "it": "paketzusteller-m-w-d-planzer-bern",
-        "en": "paketzusteller-m-w-d-planzer-bern",
-        "fr": "paketzusteller-m-w-d-planzer-bern"
+        "it": "consegna-del-pacchetto-m-f-d-planzer-bern",
+        "en": "package-delivery-m-f-d-planzer-bern",
+        "fr": "livraison-de-colis-h-f-d-planzer-bern"
       },
       "company": "Planzer",
       "companyKey": "planzer",
@@ -724,16 +724,30 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-06T09:17:00.901Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "previousSlugsByLocale": {
+        "it": [
+          "paketzusteller-m-w-d-planzer-bern"
+        ],
+        "en": [
+          "paketzusteller-m-w-d-planzer-bern"
+        ],
+        "fr": [
+          "paketzusteller-m-w-d-planzer-bern"
+        ]
+      },
+      "previousSlugs": [
+        "paketzusteller-m-w-d-planzer-bern"
+      ]
     },
     {
       "id": "planzer-7b4d5a21412b",
-      "slug": "chauffeur-kat-ce-m-w-d-planzer-seewen",
+      "slug": "chauffeur-cat-ce-m-f-d-z-planzer-seewen",
       "slugByLocale": {
         "de": "chauffeur-kat-ce-m-w-d-planzer-seewen",
-        "it": "chauffeur-kat-ce-m-w-d-planzer-seewen",
+        "it": "chauffeur-cat-ce-m-f-d-z-planzer-seewen",
         "en": "chauffeur-kat-ce-m-w-d-planzer-seewen",
-        "fr": "chauffeur-kat-ce-m-w-d-planzer-seewen"
+        "fr": "chauffeur-cat-ce-h-f-d-z-planzer-seewen"
       },
       "company": "Planzer",
       "companyKey": "planzer",
@@ -796,7 +810,18 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-01-07T09:17:00.022Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-10-08T22:16:54.940Z"
+      "firstSeenAt": "2026-10-08T22:16:54.940Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "chauffeur-kat-ce-m-w-d-planzer-seewen"
+        ],
+        "fr": [
+          "chauffeur-kat-ce-m-w-d-planzer-seewen"
+        ]
+      },
+      "previousSlugs": [
+        "chauffeur-kat-ce-m-w-d-planzer-seewen"
+      ]
     },
     {
       "id": "planzer-37b58f505fda",

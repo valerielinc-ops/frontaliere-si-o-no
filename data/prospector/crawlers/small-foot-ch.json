@@ -1,0 +1,23 @@
+{
+  "companyKey": "small-foot-ch",
+  "companyName": "small Foot AG - Die Kinderkrippe LUKS",
+  "companyHost": "krippenstellen.ch",
+  "verifiedEmployerDomain": "small-foot.ch",
+  "platform": "krippenstellen.ch",
+  "mode": "microdata",
+  "seedUrls": [
+    "https://krippenstellen.ch/de/frontend/inserate/71570"
+  ],
+  "detailTemplate": "/de/inserate",
+  "detailEnrichment": false,
+  "employerSiteLocationFallback": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 1,
+  "sampleTitles": [
+    "Krippenleitung"
+  ],
+  "canton": "LU",
+  "sourceLang": "de",
+  "learnedAt": "2026-11-08T13:01:57.174Z",
+  "candidateKey": "small-foot-die-kinderkrippe-luks"
+}

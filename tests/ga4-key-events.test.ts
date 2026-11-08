@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest';
 import {
   KEY_EVENT_EXCLUSIONS,
   KEY_EVENT_SPECS,
+  parseOnlyEventNames,
   planKeyEvents,
   syncKeyEvents,
 } from '../scripts/ga4-key-events.mjs';
@@ -13,6 +14,14 @@ const jsonResponse = (status: number, body: unknown) => ({
 });
 
 describe('GA4 key events plan', () => {
+  it('supports an explicit promotion allowlist without changing the default specs', () => {
+    expect([...parseOnlyEventNames(['--only=newsletter_subscribe,login'])!]).toEqual([
+      'newsletter_subscribe',
+      'login',
+    ]);
+    expect(() => parseOnlyEventNames(['--only=newsletter_subscribe,unknown'])).toThrow(/unknown/u);
+  });
+
   it('creates only names observed in the lookback window and waits for the others', () => {
     const plan = planKeyEvents({
       existing: [{ name: 'properties/1/keyEvents/9', eventName: 'purchase', countingMethod: 'ONCE_PER_EVENT' }],
@@ -61,5 +70,34 @@ describe('GA4 key events plan', () => {
     expect(JSON.parse(posts[0].body || '{}')).toEqual({ eventName: 'job_apply_handoff', countingMethod: 'ONCE_PER_EVENT' });
     expect(calls.some((call) => call.method === 'DELETE' || call.method === 'PATCH')).toBe(false);
     expect(applied.plan.find((entry: { eventName: string }) => entry.eventName === 'job_apply_handoff')?.action).toBe('created');
+  });
+
+  it('scopes the sync plan and writes to an explicit event subset', async () => {
+    const calls: string[] = [];
+    const fetchImpl = async (_url: string, init: { method?: string; body?: string } = {}) => {
+      calls.push(init.method || 'GET');
+      if ((init.method || 'GET') === 'GET') return jsonResponse(200, { keyEvents: [] });
+      const body = JSON.parse(init.body || '{}');
+      return jsonResponse(200, { name: `k/${body.eventName}`, ...body });
+    };
+    const specs = KEY_EVENT_SPECS.filter((spec) => ['newsletter_subscribe', 'login'].includes(spec.eventName));
+    const runReport = async () => ({ rows: [
+      { dimensionValues: [{ value: 'newsletter_subscribe' }], metricValues: [{ value: '4' }] },
+      { dimensionValues: [{ value: 'login' }], metricValues: [{ value: '5' }] },
+    ] });
+
+    const applied = await syncKeyEvents({
+      token: 't',
+      propertyId: '1',
+      specs,
+      apply: true,
+      fetchImpl: fetchImpl as never,
+      runReport: runReport as never,
+    });
+    expect(applied.plan.map((entry: { eventName: string }) => entry.eventName)).toEqual([
+      'newsletter_subscribe',
+      'login',
+    ]);
+    expect(calls.filter((method) => method === 'POST')).toHaveLength(2);
   });
 });

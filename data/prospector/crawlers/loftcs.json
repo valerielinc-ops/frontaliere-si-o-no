@@ -1,0 +1,25 @@
+{
+  "companyKey": "loftcs",
+  "companyName": "LOFT Community Services",
+  "companyHost": "loftcs.applytojob.com",
+  "platform": "applytojob.com",
+  "mode": "known-template",
+  "seedUrls": [
+    "https://loftcs.applytojob.com/apply"
+  ],
+  "detailTemplate": "/apply/*/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": false,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 14,
+  "sampleTitles": [
+    "Personal Support Worker_Relief (Ongoing & Future Hiring)",
+    "Residential Support Worker_Relief (Ongoing & Future Hiring)",
+    "Case Manager, Psychogeriatric_FT-Perm",
+    "Behavioural Support Specialist_FT-Contract",
+    "Development Officer, Corporate Donations_FT-Perm"
+  ],
+  "sourceLang": "en",
+  "learnedAt": "2026-11-08T12:50:48.780Z",
+  "candidateKey": "loftcs@applytojob.com"
+}

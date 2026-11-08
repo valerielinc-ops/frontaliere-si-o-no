@@ -77,12 +77,12 @@
     },
     {
       "id": "assura-ch-61a711846da3",
-      "slug": "infirmier-conseil-ou-infirmiere-conseil-experimente-e-en-psychiatrie-et-en-soins-a",
+      "slug": "infermiera-consulente-esperto-in-psichiatria-e-cura-della-casa-assura-l-assicurazione-malattie-al-suo-fianco-le-mont-sur",
       "slugByLocale": {
         "fr": "infirmier-conseil-ou-infirmiere-conseil-experimente-e-en-psychiatrie-et-en-soins-a",
-        "it": "infirmier-conseil-ou-infirmiere-conseil-experimente-e-en-psychiatrie-et-en-soins-a",
-        "en": "infirmier-conseil-ou-infirmiere-conseil-experimente-e-en-psychiatrie-et-en-soins-a",
-        "de": "infirmier-conseil-ou-infirmiere-conseil-experimente-e-en-psychiatrie-et-en-soins-a"
+        "it": "infermiera-consulente-esperto-in-psichiatria-e-cura-della-casa-assura-l-assicurazione-malattie-al-suo-fianco-le-mont-sur",
+        "en": "nurse-consultant-experienced-in-psychiatry-and-home-care-assura-l-assicurazione-malattie-al-suo-fianco-le-mont-sur",
+        "de": "nurse-consultant-erfahrung-in-psychiatrie-und-hauslicher-pflege-assura-l-assicurazione-malattie-al-suo-fianco-le-mont"
       },
       "company": "Assura, l’assicurazione malattie al suo fianco",
       "companyKey": "assura-ch",
@@ -144,16 +144,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-06T09:38:59.309Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-08T09:38:59.309Z"
+      "firstSeenAt": "2026-11-08T09:38:59.309Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "infirmier-conseil-ou-infirmiere-conseil-experimente-e-en-psychiatrie-et-en-soins-a"
+        ],
+        "en": [
+          "infirmier-conseil-ou-infirmiere-conseil-experimente-e-en-psychiatrie-et-en-soins-a"
+        ],
+        "de": [
+          "infirmier-conseil-ou-infirmiere-conseil-experimente-e-en-psychiatrie-et-en-soins-a"
+        ]
+      },
+      "previousSlugs": [
+        "infirmier-conseil-ou-infirmiere-conseil-experimente-e-en-psychiatrie-et-en-soins-a"
+      ]
     },
     {
       "id": "assura-ch-730a949ff3a7",
-      "slug": "gestionnaire-administratif-rh-ou-gestionnaire-administrative-rh-bilingue-fr-de-80-a-100-assura-l-assicurazione-malattie-al-suo-fianco-pully",
+      "slug": "responsabile-amministrativo-hr-o-responsabile-amministrativo-bilingue-hr-fr-de-80-al-100-assura-l-assicurazione-malattie",
       "slugByLocale": {
         "fr": "gestionnaire-administratif-rh-ou-gestionnaire-administrative-rh-bilingue-fr-de-80-a-100",
-        "it": "gestionnaire-administratif-rh-ou-gestionnaire-administrative-rh-bilingue-fr-de-80-a-100-assura-l-assicurazione-malattie-al-suo-fianco-pully",
-        "en": "gestionnaire-administratif-rh-ou-gestionnaire-administrative-rh-bilingue-fr-de-80-a-100",
-        "de": "gestionnaire-administratif-rh-ou-gestionnaire-administrative-rh-bilingue-fr-de-80-a-100"
+        "it": "responsabile-amministrativo-hr-o-responsabile-amministrativo-bilingue-hr-fr-de-80-al-100-assura-l-assicurazione-malattie",
+        "en": "hr-administrative-manager-or-bilingual-hr-administrative-manager-fr-de-80-to-100-assura-l-assicurazione-malattie-al-suo",
+        "de": "hr-administrative-manager-oder-bilingual-hr-administrative-manager-fr-de-80-bis-100-assura-l-assicurazione-malattie-al"
       },
       "company": "Assura, l’assicurazione malattie al suo fianco",
       "companyKey": "assura-ch",
@@ -199,11 +213,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "gestionnaire-administratif-rh-ou-gestionnaire-administrative-rh-bilingue-fr-de-80-a-100",
+          "gestionnaire-administratif-rh-ou-gestionnaire-administrative-rh-bilingue-fr-de-80-a-100-assura-l-assicurazione-malattie-al-suo-fianco-pully"
+        ],
+        "en": [
+          "gestionnaire-administratif-rh-ou-gestionnaire-administrative-rh-bilingue-fr-de-80-a-100"
+        ],
+        "de": [
           "gestionnaire-administratif-rh-ou-gestionnaire-administrative-rh-bilingue-fr-de-80-a-100"
         ]
       },
       "previousSlugs": [
-        "gestionnaire-administratif-rh-ou-gestionnaire-administrative-rh-bilingue-fr-de-80-a-100"
+        "gestionnaire-administratif-rh-ou-gestionnaire-administrative-rh-bilingue-fr-de-80-a-100",
+        "gestionnaire-administratif-rh-ou-gestionnaire-administrative-rh-bilingue-fr-de-80-a-100-assura-l-assicurazione-malattie-al-suo-fianco-pully"
       ],
       "salaryMin": 60500,
       "salaryMax": 91500,

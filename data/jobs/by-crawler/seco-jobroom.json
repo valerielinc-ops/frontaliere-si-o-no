@@ -5,12 +5,12 @@
   "jobs": [
     {
       "id": "seco-jobroom-00e3baef-cd48-4f4a-8763-2dbd63d6e430",
-      "slug": "it-verantwortliche-r-mit-projektleitungsaufgaben-hochalpines-institut-ftan-ftan-00e3baef",
+      "slug": "responsabile-it-con-compiti-di-project-management-hochalpines-institut-ftan-ftan-00e3baef",
       "slugByLocale": {
         "de": "it-verantwortliche-r-mit-projektleitungsaufgaben-hochalpines-institut-ftan-ftan-00e3baef",
-        "it": "it-verantwortliche-r-mit-projektleitungsaufgaben-hochalpines-institut-ftan-ftan-00e3baef",
-        "en": "it-verantwortliche-r-mit-projektleitungsaufgaben-hochalpines-institut-ftan-ftan-00e3baef",
-        "fr": "it-verantwortliche-r-mit-projektleitungsaufgaben-hochalpines-institut-ftan-ftan-00e3baef"
+        "it": "responsabile-it-con-compiti-di-project-management-hochalpines-institut-ftan-ftan-00e3baef",
+        "en": "it-manager-r-with-project-management-tasks-hochalpines-institut-ftan-ftan-00e3baef",
+        "fr": "gestionnaire-it-r-avec-des-taches-de-gestion-de-projet-hochalpines-institut-ftan-ftan-00e3baef"
       },
       "slugDisambiguator": "00e3baef",
       "company": "Hochalpines Institut Ftan",
@@ -76,7 +76,21 @@
       "streetAddressSource": "listing-source",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-08T09:36:50.440Z",
-      "translationHoldSince": "2026-11-08T09:39:51.922Z"
+      "translationHoldReleasedAt": "2026-11-08T13:12:23.485Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "it-verantwortliche-r-mit-projektleitungsaufgaben-hochalpines-institut-ftan-ftan-00e3baef"
+        ],
+        "en": [
+          "it-verantwortliche-r-mit-projektleitungsaufgaben-hochalpines-institut-ftan-ftan-00e3baef"
+        ],
+        "fr": [
+          "it-verantwortliche-r-mit-projektleitungsaufgaben-hochalpines-institut-ftan-ftan-00e3baef"
+        ]
+      },
+      "previousSlugs": [
+        "it-verantwortliche-r-mit-projektleitungsaufgaben-hochalpines-institut-ftan-ftan-00e3baef"
+      ]
     },
     {
       "id": "seco-jobroom-0926329f-63bc-4619-9687-57becd8bc71d",
@@ -238,11 +252,11 @@
     },
     {
       "id": "seco-jobroom-1c923155-2b89-4c7b-a4ed-518cfad61238",
-      "slug": "deltav-engineer-lonza-group-ag-eyholz-1c923155",
+      "slug": "deltav-ingegnere-lonza-group-ag-eyholz-1c923155",
       "slugByLocale": {
         "en": "deltav-engineer-lonza-group-ag-eyholz-1c923155",
-        "it": "deltav-engineer-lonza-group-ag-eyholz-1c923155",
-        "de": "deltav-engineer-lonza-group-ag-eyholz-1c923155",
+        "it": "deltav-ingegnere-lonza-group-ag-eyholz-1c923155",
+        "de": "deltav-ingenieur-lonza-group-ag-eyholz-1c923155",
         "fr": "deltav-engineer-lonza-group-ag-eyholz-1c923155"
       },
       "slugDisambiguator": "1c923155",
@@ -307,7 +321,18 @@
       "streetAddress": "Eyholz",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "firstSeenAt": "2026-11-08T09:36:50.440Z"
+      "firstSeenAt": "2026-11-08T09:36:50.440Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "deltav-engineer-lonza-group-ag-eyholz-1c923155"
+        ],
+        "de": [
+          "deltav-engineer-lonza-group-ag-eyholz-1c923155"
+        ]
+      },
+      "previousSlugs": [
+        "deltav-engineer-lonza-group-ag-eyholz-1c923155"
+      ]
     },
     {
       "id": "seco-jobroom-20a85e10-ab7a-4dbf-b7d9-4c744ddc3c56",
@@ -1447,12 +1472,12 @@
     },
     {
       "id": "seco-jobroom-11c799ae-8485-4692-887b-c8083d68e2c5",
-      "slug": "buchhalter-finanz-e-rechnungswesen-assistenz-der-geschaftsleitung-randstad-visp",
+      "slug": "contabile-finanza-e-contabilita-assistente-di-direzione-randstad-visp-11c799ae",
       "slugByLocale": {
         "de": "buchhalter-finanz-und-rechnungswesen-assistenz-der-geschaftsleitung-randstad-11c799ae",
-        "it": "buchhalter-finanz-e-rechnungswesen-assistenz-der-geschaftsleitung-randstad-visp",
-        "en": "buchhalter-finanz-und-rechnungswesen-assistenz-der-geschaftsleitung-randstad-11c799ae",
-        "fr": "buchhalter-finanz-und-rechnungswesen-assistenz-der-geschaftsleitung-randstad-11c799ae"
+        "it": "contabile-finanza-e-contabilita-assistente-di-direzione-randstad-visp-11c799ae",
+        "en": "accountants-finance-and-accounting-assistance-of-the-management-board-randstad-visp-11c799ae",
+        "fr": "comptables-finances-et-comptabilite-et-assistance-du-conseil-d-administration-randstad-visp-11c799ae"
       },
       "slugDisambiguator": "11c799ae",
       "company": "Randstad",
@@ -1503,11 +1528,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "buchhalter-finanz-und-rechnungswesen-assistenz-der-geschaftsleitung-randstad-11c799ae",
+          "buchhalter-finanz-e-rechnungswesen-assistenz-der-geschaftsleitung-randstad-visp"
+        ],
+        "en": [
+          "buchhalter-finanz-und-rechnungswesen-assistenz-der-geschaftsleitung-randstad-11c799ae"
+        ],
+        "fr": [
           "buchhalter-finanz-und-rechnungswesen-assistenz-der-geschaftsleitung-randstad-11c799ae"
         ]
       },
       "previousSlugs": [
-        "buchhalter-finanz-und-rechnungswesen-assistenz-der-geschaftsleitung-randstad-11c799ae"
+        "buchhalter-finanz-und-rechnungswesen-assistenz-der-geschaftsleitung-randstad-11c799ae",
+        "buchhalter-finanz-e-rechnungswesen-assistenz-der-geschaftsleitung-randstad-visp"
       ],
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -1526,7 +1559,7 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-08T09:36:50.440Z",
-      "translationHoldSince": "2026-11-08T09:39:51.922Z"
+      "translationHoldReleasedAt": "2026-11-08T13:12:23.485Z"
     },
     {
       "id": "seco-jobroom-12b0a8a4-1084-4b53-94c7-6bd567ee3600",
@@ -2239,12 +2272,12 @@
     },
     {
       "id": "seco-jobroom-28b0fbf5-b16e-4a50-b485-ab60a4087c61",
-      "slug": "senior-product-owner-fachapplikationen-sportzentren-80-100-bundesamt-fur-sport-baspo-tenero",
+      "slug": "senior-product-owner-applicazioni-professionali-centri-sportivi-80-100-bundesamt-fur-sport-baspo-tenero-28b0fbf5",
       "slugByLocale": {
         "de": "senior-product-owner-fachapplikationen-sportzentren-80-100-bundesamt-fur-sport-28b0fbf5",
-        "it": "senior-product-owner-fachapplikationen-sportzentren-80-100-bundesamt-fur-sport-baspo-tenero",
-        "en": "senior-product-owner-fachapplikationen-sportzentren-80-100-bundesamt-fur-sport-28b0fbf5",
-        "fr": "senior-product-owner-fachapplikationen-sportzentren-80-100-bundesamt-fur-sport-28b0fbf5"
+        "it": "senior-product-owner-applicazioni-professionali-centri-sportivi-80-100-bundesamt-fur-sport-baspo-tenero-28b0fbf5",
+        "en": "senior-product-owner-professional-applications-sports-centers-80-100-bundesamt-fur-sport-baspo-tenero-28b0fbf5",
+        "fr": "proprietaire-principal-de-produits-applications-professionnelles-centres-sportifs-80-100-bundesamt-fur-sport-28b0fbf5"
       },
       "slugDisambiguator": "28b0fbf5",
       "company": "Bundesamt für Sport BASPO",
@@ -2294,11 +2327,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "senior-product-owner-fachapplikationen-sportzentren-80-100-bundesamt-fur-sport-28b0fbf5",
+          "senior-product-owner-fachapplikationen-sportzentren-80-100-bundesamt-fur-sport-baspo-tenero"
+        ],
+        "en": [
+          "senior-product-owner-fachapplikationen-sportzentren-80-100-bundesamt-fur-sport-28b0fbf5"
+        ],
+        "fr": [
           "senior-product-owner-fachapplikationen-sportzentren-80-100-bundesamt-fur-sport-28b0fbf5"
         ]
       },
       "previousSlugs": [
-        "senior-product-owner-fachapplikationen-sportzentren-80-100-bundesamt-fur-sport-28b0fbf5"
+        "senior-product-owner-fachapplikationen-sportzentren-80-100-bundesamt-fur-sport-28b0fbf5",
+        "senior-product-owner-fachapplikationen-sportzentren-80-100-bundesamt-fur-sport-baspo-tenero"
       ],
       "salaryMin": 68000,
       "salaryMax": 103000,
@@ -2317,7 +2358,7 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-08T09:36:50.440Z",
-      "translationHoldSince": "2026-11-08T09:39:51.922Z"
+      "translationHoldReleasedAt": "2026-11-08T13:12:23.485Z"
     },
     {
       "id": "seco-jobroom-2af6c6d5-118d-4206-9312-8f31639d0c06",
@@ -3080,8 +3121,8 @@
       "slugByLocale": {
         "de": "zusteller-in-briefe-und-pakete-steg-wiler-post-ch-ag-steg-64b9f370",
         "it": "zusteller-in-lettere-e-pacchi-steg-wiler-post-ch-ag-steg",
-        "en": "zusteller-in-briefe-und-pakete-steg-wiler-post-ch-ag-steg-64b9f370",
-        "fr": "zusteller-in-briefe-und-pakete-steg-wiler-post-ch-ag-steg-64b9f370"
+        "en": "mailman-in-letters-and-parcels-steg-wiler-post-ch-ag-steg-64b9f370",
+        "fr": "livraison-en-lettres-et-colis-steg-wiler-post-ch-ag-steg-64b9f370"
       },
       "slugDisambiguator": "64b9f370",
       "company": "Post CH AG",
@@ -3133,6 +3174,12 @@
       "previousSlugsByLocale": {
         "it": [
           "zusteller-in-briefe-und-pakete-steg-wiler-post-ch-ag-steg-64b9f370"
+        ],
+        "en": [
+          "zusteller-in-briefe-und-pakete-steg-wiler-post-ch-ag-steg-64b9f370"
+        ],
+        "fr": [
+          "zusteller-in-briefe-und-pakete-steg-wiler-post-ch-ag-steg-64b9f370"
         ]
       },
       "previousSlugs": [
@@ -3155,7 +3202,7 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-08T09:36:50.440Z",
-      "translationHoldSince": "2026-11-08T09:39:51.922Z"
+      "translationHoldReleasedAt": "2026-11-08T13:12:23.485Z"
     },
     {
       "id": "seco-jobroom-65408def-9cb2-4237-81bf-e30fd751ce49",
@@ -3900,7 +3947,7 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-08T09:36:50.440Z",
-      "translationHoldSince": "2026-11-08T09:39:51.922Z"
+      "translationHoldReleasedAt": "2026-11-08T13:12:23.485Z"
     },
     {
       "id": "seco-jobroom-9a111fc9-a37b-445d-858e-e8b662e75387",
@@ -3909,7 +3956,7 @@
         "de": "maintenance-facility-manager-100-m-f-d-ronda-ag-stabio-9a111fc9",
         "it": "maintenance-facility-manager-100-m-f-d-ronda-ag-stabio-9a111fc9",
         "en": "maintenance-facility-manager-100-m-f-d-ronda-ag-stabio-9a111fc9",
-        "fr": "maintenance-facility-manager-100-m-f-d-ronda-ag-stabio-9a111fc9"
+        "fr": "gestionnaire-d-entretien-et-d-installation-100-h-f-d-ronda-ag-stabio-9a111fc9"
       },
       "slugDisambiguator": "9a111fc9",
       "company": "Ronda AG",
@@ -4130,7 +4177,7 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-08T09:36:50.440Z",
-      "translationHoldSince": "2026-11-08T09:39:51.922Z"
+      "translationHoldReleasedAt": "2026-11-08T13:12:23.485Z"
     },
     {
       "id": "seco-jobroom-a64d5aa8-7a72-4efa-8f1e-f87ac06cb7c1",
@@ -4220,12 +4267,12 @@
     },
     {
       "id": "seco-jobroom-ac9d2979-a58f-42b6-8fab-cd544eabb1c6",
-      "slug": "flexible-aushilfe-w-m-d-dosenbach-ochsner-eyholz-ac9d2979",
+      "slug": "aiuto-flessibile-m-f-d-dosenbach-ochsner-eyholz-ac9d2979",
       "slugByLocale": {
         "de": "flexible-aushilfe-w-m-d-dosenbach-ochsner-eyholz-ac9d2979",
-        "it": "flexible-aushilfe-w-m-d-dosenbach-ochsner-eyholz-ac9d2979",
-        "en": "flexible-aushilfe-w-m-d-dosenbach-ochsner-eyholz-ac9d2979",
-        "fr": "flexible-aushilfe-w-m-d-dosenbach-ochsner-eyholz-ac9d2979"
+        "it": "aiuto-flessibile-m-f-d-dosenbach-ochsner-eyholz-ac9d2979",
+        "en": "flexible-help-m-f-d-dosenbach-ochsner-eyholz-ac9d2979",
+        "fr": "aide-flexible-h-f-d-dosenbach-ochsner-eyholz-ac9d2979"
       },
       "slugDisambiguator": "ac9d2979",
       "company": "Dosenbach-Ochsner",
@@ -4290,7 +4337,21 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-08T09:36:50.440Z",
-      "translationHoldSince": "2026-11-08T09:39:51.922Z"
+      "translationHoldReleasedAt": "2026-11-08T13:12:23.485Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "flexible-aushilfe-w-m-d-dosenbach-ochsner-eyholz-ac9d2979"
+        ],
+        "en": [
+          "flexible-aushilfe-w-m-d-dosenbach-ochsner-eyholz-ac9d2979"
+        ],
+        "fr": [
+          "flexible-aushilfe-w-m-d-dosenbach-ochsner-eyholz-ac9d2979"
+        ]
+      },
+      "previousSlugs": [
+        "flexible-aushilfe-w-m-d-dosenbach-ochsner-eyholz-ac9d2979"
+      ]
     },
     {
       "id": "seco-jobroom-b427a5e3-6297-4e82-8b2f-13def1768a26",
@@ -4457,8 +4518,8 @@
       "slugByLocale": {
         "de": "leiter-in-logistik-transport-disposition-m-w-d-swisselect-ag-brig-cfc297b3",
         "it": "responsabile-logistik-transport-disposition-m-w-d-swisselect-ag-brig",
-        "en": "leiter-in-logistik-transport-disposition-m-w-d-swisselect-ag-brig-cfc297b3",
-        "fr": "leiter-in-logistik-transport-disposition-m-w-d-swisselect-ag-brig-cfc297b3"
+        "en": "logistics-manager-transport-disposition-m-f-d-swisselect-ag-brig-cfc297b3",
+        "fr": "responsable-logistique-transport-disposition-h-f-d-swisselect-ag-brig-cfc297b3"
       },
       "slugDisambiguator": "cfc297b3",
       "company": "swisselect ag",
@@ -4510,6 +4571,12 @@
       "previousSlugsByLocale": {
         "it": [
           "leiter-in-logistik-transport-disposition-m-w-d-swisselect-ag-brig-cfc297b3"
+        ],
+        "en": [
+          "leiter-in-logistik-transport-disposition-m-w-d-swisselect-ag-brig-cfc297b3"
+        ],
+        "fr": [
+          "leiter-in-logistik-transport-disposition-m-w-d-swisselect-ag-brig-cfc297b3"
         ]
       },
       "previousSlugs": [
@@ -4532,7 +4599,7 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-08T09:36:50.440Z",
-      "translationHoldSince": "2026-11-08T09:39:51.922Z"
+      "translationHoldReleasedAt": "2026-11-08T13:12:23.485Z"
     },
     {
       "id": "seco-jobroom-ea5a32ee-a6b1-4260-9d74-0f71bdef9110",
@@ -4627,8 +4694,8 @@
       "slugByLocale": {
         "de": "leiter-in-marktmanagement-region-sud-post-ch-ag-bellinzona-eac34c80",
         "it": "responsabile-marktmanagement-region-sud-post-ch-ag-bellinzona",
-        "en": "leiter-in-marktmanagement-region-sud-post-ch-ag-bellinzona-eac34c80",
-        "fr": "leiter-in-marktmanagement-region-sud-post-ch-ag-bellinzona-eac34c80"
+        "en": "head-ofmarket-management-south-region-post-ch-ag-bellinzona-eac34c80",
+        "fr": "responsable-de-la-gestion-du-marche-de-la-region-sud-post-ch-ag-bellinzona-eac34c80"
       },
       "slugDisambiguator": "eac34c80",
       "company": "Post CH AG",
@@ -4680,6 +4747,12 @@
       "previousSlugsByLocale": {
         "it": [
           "leiter-in-marktmanagement-region-sud-post-ch-ag-bellinzona-eac34c80"
+        ],
+        "en": [
+          "leiter-in-marktmanagement-region-sud-post-ch-ag-bellinzona-eac34c80"
+        ],
+        "fr": [
+          "leiter-in-marktmanagement-region-sud-post-ch-ag-bellinzona-eac34c80"
         ]
       },
       "previousSlugs": [
@@ -4702,7 +4775,7 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-08T09:36:50.440Z",
-      "translationHoldSince": "2026-11-08T09:39:51.922Z"
+      "translationHoldReleasedAt": "2026-11-08T13:12:23.485Z"
     },
     {
       "id": "seco-jobroom-ef003122-9e2c-49e7-9db5-847a3dc95be2",
@@ -6051,7 +6124,7 @@
         "de": "pittore-trice-m-f-d-das-team-ag-mendrisio-21e01547",
         "it": "pittore-trice-m-f-d-das-team-ag-mendrisio-21e01547",
         "en": "pittore-trice-m-f-d-das-team-ag-mendrisio-21e01547",
-        "fr": "pittore-trice-m-f-d-das-team-ag-mendrisio-21e01547"
+        "fr": "pettore-trice-h-f-d-das-team-ag-mendrisio-21e01547"
       },
       "slugDisambiguator": "21e01547",
       "company": "das team ag",
@@ -6686,12 +6759,12 @@
     },
     {
       "id": "seco-jobroom-3cb6a825-6aed-4558-b809-e6d7864bbb7e",
-      "slug": "elektromonteur-m-w-collardi-st-moritz-3cb6a825",
+      "slug": "montaggio-elettrico-m-f-collardi-st-moritz-3cb6a825",
       "slugByLocale": {
         "de": "elektromonteur-m-w-collardi-st-moritz-3cb6a825",
-        "it": "elektromonteur-m-w-collardi-st-moritz-3cb6a825",
-        "en": "elektromonteur-m-w-collardi-st-moritz-3cb6a825",
-        "fr": "elektromonteur-m-w-collardi-st-moritz-3cb6a825"
+        "it": "montaggio-elettrico-m-f-collardi-st-moritz-3cb6a825",
+        "en": "electrical-assembly-m-f-collardi-st-moritz-3cb6a825",
+        "fr": "montage-electrique-h-f-collardi-st-moritz-3cb6a825"
       },
       "slugDisambiguator": "3cb6a825",
       "company": "Collardi",
@@ -6756,7 +6829,21 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-08T09:36:50.440Z",
-      "translationHoldSince": "2026-11-08T09:39:51.922Z"
+      "translationHoldReleasedAt": "2026-11-08T13:12:23.485Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "elektromonteur-m-w-collardi-st-moritz-3cb6a825"
+        ],
+        "en": [
+          "elektromonteur-m-w-collardi-st-moritz-3cb6a825"
+        ],
+        "fr": [
+          "elektromonteur-m-w-collardi-st-moritz-3cb6a825"
+        ]
+      },
+      "previousSlugs": [
+        "elektromonteur-m-w-collardi-st-moritz-3cb6a825"
+      ]
     },
     {
       "id": "seco-jobroom-3d884faa-599d-4705-9186-ed4167588aec",
@@ -7010,12 +7097,12 @@
     },
     {
       "id": "seco-jobroom-4175f43b-de48-4d18-9cb1-5ce33b1d848c",
-      "slug": "installatore-trice-elettrico-a-in-lehrabganger-das-team-ag-visp",
+      "slug": "elettricista-apprendista-das-team-ag-visp-4175f43b",
       "slugByLocale": {
         "de": "elektroinstallateur-in-lehrabganger-das-team-ag-visp-4175f43b",
-        "it": "installatore-trice-elettrico-a-in-lehrabganger-das-team-ag-visp",
-        "en": "electrical-installer-lehrabganger-das-team-ag-visp-4175f43b",
-        "fr": "installateur-trice-electricien-ne-lehrabganger-das-team-ag-visp-4175f43b"
+        "it": "elettricista-apprendista-das-team-ag-visp-4175f43b",
+        "en": "electrical-installer-apprenticeship-graduate-das-team-ag-visp-4175f43b",
+        "fr": "installateur-electricien-apprenti-das-team-ag-visp-4175f43b"
       },
       "slugDisambiguator": "4175f43b",
       "company": "das team ag",
@@ -7066,17 +7153,23 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "elektroinstallateur-in-lehrabganger-das-team-ag-visp-4175f43b"
+          "elektroinstallateur-in-lehrabganger-das-team-ag-visp-4175f43b",
+          "installatore-trice-elettrico-a-in-lehrabganger-das-team-ag-visp"
         ],
         "en": [
-          "elektroinstallateur-in-lehrabganger-das-team-ag-visp-4175f43b"
+          "elektroinstallateur-in-lehrabganger-das-team-ag-visp-4175f43b",
+          "electrical-installer-lehrabganger-das-team-ag-visp-4175f43b"
         ],
         "fr": [
-          "elektroinstallateur-in-lehrabganger-das-team-ag-visp-4175f43b"
+          "elektroinstallateur-in-lehrabganger-das-team-ag-visp-4175f43b",
+          "installateur-trice-electricien-ne-lehrabganger-das-team-ag-visp-4175f43b"
         ]
       },
       "previousSlugs": [
-        "elektroinstallateur-in-lehrabganger-das-team-ag-visp-4175f43b"
+        "elektroinstallateur-in-lehrabganger-das-team-ag-visp-4175f43b",
+        "installatore-trice-elettrico-a-in-lehrabganger-das-team-ag-visp",
+        "electrical-installer-lehrabganger-das-team-ag-visp-4175f43b",
+        "installateur-trice-electricien-ne-lehrabganger-das-team-ag-visp-4175f43b"
       ],
       "salaryMin": 71000,
       "salaryMax": 107500,
@@ -7728,16 +7821,16 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-08T09:36:50.440Z",
-      "translationHoldSince": "2026-11-08T09:39:51.922Z"
+      "translationHoldReleasedAt": "2026-11-08T13:12:23.485Z"
     },
     {
       "id": "seco-jobroom-606dec60-ce51-412f-a09c-1824543d1818",
-      "slug": "elektrikerin-m-w-d-das-team-ag-visp-606dec60",
+      "slug": "elettricita-m-f-d-das-team-ag-visp-606dec60",
       "slugByLocale": {
         "de": "elektrikerin-m-w-d-das-team-ag-visp-606dec60",
-        "it": "elektrikerin-m-w-d-das-team-ag-visp-606dec60",
-        "en": "elektrikerin-m-w-d-das-team-ag-visp-606dec60",
-        "fr": "elektrikerin-m-w-d-das-team-ag-visp-606dec60"
+        "it": "elettricita-m-f-d-das-team-ag-visp-606dec60",
+        "en": "electrician-m-f-d-das-team-ag-visp-606dec60",
+        "fr": "electricien-h-f-d-das-team-ag-visp-606dec60"
       },
       "slugDisambiguator": "606dec60",
       "company": "das team ag",
@@ -7802,7 +7895,21 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-08T09:36:50.440Z",
-      "translationHoldSince": "2026-11-08T09:39:51.922Z"
+      "translationHoldReleasedAt": "2026-11-08T13:12:23.485Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "elektrikerin-m-w-d-das-team-ag-visp-606dec60"
+        ],
+        "en": [
+          "elektrikerin-m-w-d-das-team-ag-visp-606dec60"
+        ],
+        "fr": [
+          "elektrikerin-m-w-d-das-team-ag-visp-606dec60"
+        ]
+      },
+      "previousSlugs": [
+        "elektrikerin-m-w-d-das-team-ag-visp-606dec60"
+      ]
     },
     {
       "id": "seco-jobroom-613c831c-6541-4a3b-a7f7-ff623fc8ee83",
@@ -8052,12 +8159,12 @@
     },
     {
       "id": "seco-jobroom-6d079acd-aa27-403e-9b14-8457a28d1327",
-      "slug": "plattenleger-m-w-d-das-team-ag-visp-6d079acd",
+      "slug": "m-f-d-das-team-ag-visp-6d079acd",
       "slugByLocale": {
         "de": "plattenleger-m-w-d-das-team-ag-visp-6d079acd",
-        "it": "plattenleger-m-w-d-das-team-ag-visp-6d079acd",
+        "it": "m-f-d-das-team-ag-visp-6d079acd",
         "en": "plattenleger-m-w-d-das-team-ag-visp-6d079acd",
-        "fr": "plattenleger-m-w-d-das-team-ag-visp-6d079acd"
+        "fr": "h-f-d-das-team-ag-visp-6d079acd"
       },
       "slugDisambiguator": "6d079acd",
       "company": "das team ag",
@@ -8122,7 +8229,18 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-08T09:36:50.440Z",
-      "translationHoldSince": "2026-11-08T09:39:51.922Z"
+      "translationHoldReleasedAt": "2026-11-08T13:12:23.485Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "plattenleger-m-w-d-das-team-ag-visp-6d079acd"
+        ],
+        "fr": [
+          "plattenleger-m-w-d-das-team-ag-visp-6d079acd"
+        ]
+      },
+      "previousSlugs": [
+        "plattenleger-m-w-d-das-team-ag-visp-6d079acd"
+      ]
     },
     {
       "id": "seco-jobroom-6e1443a9-728b-47cf-bcde-99a64eeb16ee",
@@ -8292,12 +8410,12 @@
     },
     {
       "id": "seco-jobroom-72f2bb36-bb32-42c0-b75e-f83eecd593f3",
-      "slug": "koch-kochin-m-w-d-60-temporar-bis-ende-juli-2027-adecco-rothenbrunnen-72f2bb36",
+      "slug": "cuoco-a-m-f-d-60-temporaneo-fino-a-fine-luglio-2027-adecco-rothenbrunnen-72f2bb36",
       "slugByLocale": {
         "de": "koch-kochin-m-w-d-60-temporar-bis-ende-juli-2027-adecco-rothenbrunnen-72f2bb36",
-        "it": "koch-kochin-m-w-d-60-temporar-bis-ende-juli-2027-adecco-rothenbrunnen-72f2bb36",
-        "en": "koch-kochin-m-w-d-60-temporar-bis-ende-juli-2027-adecco-rothenbrunnen-72f2bb36",
-        "fr": "koch-kochin-m-w-d-60-temporar-bis-ende-juli-2027-adecco-rothenbrunnen-72f2bb36"
+        "it": "cuoco-a-m-f-d-60-temporaneo-fino-a-fine-luglio-2027-adecco-rothenbrunnen-72f2bb36",
+        "en": "chef-m-f-d-60-temporary-until-the-end-of-july-2027-adecco-rothenbrunnen-72f2bb36",
+        "fr": "cuisinier-cuisiniere-h-f-d-60-temporaire-jusqu-a-fin-juillet-2027-adecco-rothenbrunnen-72f2bb36"
       },
       "slugDisambiguator": "72f2bb36",
       "company": "Adecco",
@@ -8363,16 +8481,30 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-08T09:36:50.440Z",
-      "translationHoldSince": "2026-11-08T09:39:51.922Z"
+      "translationHoldReleasedAt": "2026-11-08T13:12:23.485Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "koch-kochin-m-w-d-60-temporar-bis-ende-juli-2027-adecco-rothenbrunnen-72f2bb36"
+        ],
+        "en": [
+          "koch-kochin-m-w-d-60-temporar-bis-ende-juli-2027-adecco-rothenbrunnen-72f2bb36"
+        ],
+        "fr": [
+          "koch-kochin-m-w-d-60-temporar-bis-ende-juli-2027-adecco-rothenbrunnen-72f2bb36"
+        ]
+      },
+      "previousSlugs": [
+        "koch-kochin-m-w-d-60-temporar-bis-ende-juli-2027-adecco-rothenbrunnen-72f2bb36"
+      ]
     },
     {
       "id": "seco-jobroom-74c1a040-508d-4a49-9830-b03336548213",
-      "slug": "un-e-assistant-e-administratif-ve-contrat-a-duree-determinee-fondation-terre-des-74c1a040",
+      "slug": "per-ulteriori-informazioni-rivolgersi-a-fondation-terre-des-hommes-valais-massongex-74c1a040",
       "slugByLocale": {
         "de": "un-e-assistant-e-administratif-ve-contrat-a-duree-determinee-fondation-terre-des-74c1a040",
-        "it": "un-e-assistant-e-administratif-ve-contrat-a-duree-determinee-fondation-terre-des-74c1a040",
+        "it": "per-ulteriori-informazioni-rivolgersi-a-fondation-terre-des-hommes-valais-massongex-74c1a040",
         "en": "un-e-assistant-e-administratif-ve-contrat-a-duree-determinee-fondation-terre-des-74c1a040",
-        "fr": "un-e-assistant-e-administratif-ve-contrat-a-duree-determinee-fondation-terre-des-74c1a040"
+        "fr": "une-assistante-administrative-contrat-a-duree-determinee-fondation-terre-des-hommes-valais-massongex-74c1a040"
       },
       "slugDisambiguator": "74c1a040",
       "company": "Fondation Terre des hommes Valais",
@@ -8438,7 +8570,18 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-08T09:36:50.440Z",
-      "translationHoldSince": "2026-11-08T09:39:51.922Z"
+      "translationHoldReleasedAt": "2026-11-08T13:12:23.485Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "un-e-assistant-e-administratif-ve-contrat-a-duree-determinee-fondation-terre-des-74c1a040"
+        ],
+        "fr": [
+          "un-e-assistant-e-administratif-ve-contrat-a-duree-determinee-fondation-terre-des-74c1a040"
+        ]
+      },
+      "previousSlugs": [
+        "un-e-assistant-e-administratif-ve-contrat-a-duree-determinee-fondation-terre-des-74c1a040"
+      ]
     },
     {
       "id": "seco-jobroom-76a2a44f-84ec-46d3-a6f1-7cb4294c592d",
@@ -9000,7 +9143,7 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-08T09:36:50.440Z",
-      "translationHoldSince": "2026-11-08T09:39:51.922Z"
+      "translationHoldReleasedAt": "2026-11-08T13:12:23.485Z"
     },
     {
       "id": "seco-jobroom-862a8f2c-591a-43b1-ae58-3e3cb2f4983f",
@@ -11017,7 +11160,7 @@
         "de": "unterassistent-in-innere-medizin-100-spital-davos-spital-davos-davos-platz-bde1ea05",
         "it": "unterassistent-in-innere-medizin-100-spital-davos-spital-davos-davos-platz-bde1ea05",
         "en": "unterassistent-in-innere-medizin-100-spital-davos-spital-davos-davos-platz-bde1ea05",
-        "fr": "unterassistent-in-innere-medizin-100-spital-davos-spital-davos-davos-platz-bde1ea05"
+        "fr": "sous-assistant-en-medecine-interne-100-hopital-de-davos-spital-davos-davos-platz-bde1ea05"
       },
       "slugDisambiguator": "bde1ea05",
       "company": "Spital Davos",
@@ -11411,12 +11554,12 @@
     },
     {
       "id": "seco-jobroom-c8170604-87d7-4ada-8bdb-94e24b25b741",
-      "slug": "relationship-manager-adecco-lugano-c8170604",
+      "slug": "responsabile-relazioni-adecco-lugano-c8170604",
       "slugByLocale": {
         "de": "relationship-manager-adecco-lugano-c8170604",
-        "it": "relationship-manager-adecco-lugano-c8170604",
+        "it": "responsabile-relazioni-adecco-lugano-c8170604",
         "en": "relationship-manager-adecco-lugano-c8170604",
-        "fr": "relationship-manager-adecco-lugano-c8170604"
+        "fr": "gestionnaire-de-relations-adecco-lugano-c8170604"
       },
       "slugDisambiguator": "c8170604",
       "company": "Adecco",
@@ -11482,7 +11625,18 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-08T09:36:50.440Z",
-      "translationHoldSince": "2026-11-08T09:39:51.922Z"
+      "translationHoldSince": "2026-11-08T09:39:51.922Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "relationship-manager-adecco-lugano-c8170604"
+        ],
+        "fr": [
+          "relationship-manager-adecco-lugano-c8170604"
+        ]
+      },
+      "previousSlugs": [
+        "relationship-manager-adecco-lugano-c8170604"
+      ]
     },
     {
       "id": "seco-jobroom-c87196c5-9e2d-47bc-8467-bdff2bdf21a7",
@@ -11562,7 +11716,7 @@
         "de": "peintre-h-f-100-agat-sion-gare-sion-c9b7b311",
         "it": "peintre-h-f-100-agat-sion-gare-sion-c9b7b311",
         "en": "peintre-h-f-100-agat-sion-gare-sion-c9b7b311",
-        "fr": "peintre-h-f-100-agat-sion-gare-sion-c9b7b311"
+        "fr": "peinte-h-f-100-agat-sion-gare-sion-c9b7b311"
       },
       "slugDisambiguator": "c9b7b311",
       "company": "Agat ! SION GARE",
@@ -11627,7 +11781,7 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-08T09:36:50.440Z",
-      "translationHoldSince": "2026-11-08T09:39:51.922Z"
+      "translationHoldReleasedAt": "2026-11-08T13:12:23.485Z"
     },
     {
       "id": "seco-jobroom-cad0fbf3-e0ce-4f59-a02e-33e78f9c8986",
@@ -11701,7 +11855,7 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-08T09:36:50.440Z",
-      "translationHoldSince": "2026-11-08T09:39:51.922Z"
+      "translationHoldReleasedAt": "2026-11-08T13:12:23.485Z"
     },
     {
       "id": "seco-jobroom-cc752cfa-bb7b-4fcf-a8b1-54fb00dc6081",
@@ -12037,10 +12191,10 @@
     },
     {
       "id": "seco-jobroom-dba716f6-1d16-4962-b4c0-14fc686695d3",
-      "slug": "installateur-installatrice-chauffage-h-f-d-region-martigny-das-team-ag-martigny-dba716f6",
+      "slug": "installatore-installatrice-chauffage-m-f-d-regione-martigny-das-team-ag-martigny-dba716f6",
       "slugByLocale": {
         "de": "installateur-installatrice-chauffage-h-f-d-region-martigny-das-team-ag-martigny-dba716f6",
-        "it": "installateur-installatrice-chauffage-h-f-d-region-martigny-das-team-ag-martigny-dba716f6",
+        "it": "installatore-installatrice-chauffage-m-f-d-regione-martigny-das-team-ag-martigny-dba716f6",
         "en": "installateur-installatrice-chauffage-h-f-d-region-martigny-das-team-ag-martigny-dba716f6",
         "fr": "installateur-installatrice-chauffage-h-f-d-region-martigny-das-team-ag-martigny-dba716f6"
       },
@@ -12108,7 +12262,15 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-08T09:36:50.440Z",
-      "translationHoldSince": "2026-11-08T09:39:51.922Z"
+      "translationHoldReleasedAt": "2026-11-08T13:12:23.485Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "installateur-installatrice-chauffage-h-f-d-region-martigny-das-team-ag-martigny-dba716f6"
+        ]
+      },
+      "previousSlugs": [
+        "installateur-installatrice-chauffage-h-f-d-region-martigny-das-team-ag-martigny-dba716f6"
+      ]
     },
     {
       "id": "seco-jobroom-e34ce5ae-2243-4f5d-8efb-ab708f497780",
@@ -21588,7 +21750,7 @@
       "slug": "sottocuoco-andsan-gastro-ag-domat-ems-210981fb",
       "slugByLocale": {
         "it": "sottocuoco-andsan-gastro-ag-domat-ems-210981fb",
-        "en": "sous-chef-andsan-gastro-ag-domat-ems-210981fb",
+        "en": "sous-chief-andsan-gastro-ag-domat-ems-210981fb",
         "de": "sous-chef-andsan-gastro-ag-domat-ems-210981fb",
         "fr": "sous-chef-andsan-gastro-ag-domat-ems-210981fb"
       },
@@ -21641,6 +21803,9 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "sous-chef-andsan-gastro-ag-domat-ems-210981fb"
+        ],
+        "en": [
           "sous-chef-andsan-gastro-ag-domat-ems-210981fb"
         ]
       },
@@ -28281,7 +28446,7 @@
         "it": "dessinateur-genie-civil-80-100-cdi-h-f-d-adecco-sierre-128c4a5e",
         "en": "dessinateur-genie-civil-80-100-cdi-h-f-d-adecco-sierre-128c4a5e",
         "de": "dessinateur-genie-civil-80-100-cdi-h-f-d-adecco-sierre-128c4a5e",
-        "fr": "dessinateur-genie-civil-80-100-cdi-h-f-d-adecco-sierre-128c4a5e"
+        "fr": "80-100-de-la-population-civile-h-f-d-adecco-sierre-128c4a5e"
       },
       "slugDisambiguator": "128c4a5e",
       "company": "Adecco",
@@ -28293,7 +28458,7 @@
         "it": "Dessinateur Génie Civil 80-100% CDI (f/m/d)",
         "en": "Dessinateur Génie Civil 80-100% CDI (M/F/D)",
         "de": "Dessinateur Génie Civil 80-100% CDI (H/F/D)",
-        "fr": "Dessinateur Génie Civil 80-100% CDI (H/F/D)"
+        "fr": "80- 100 % de la population civile (H/F/D)"
       },
       "description": "Si vous êtes passionné par les projets d-infrastructures routières et souhaitez évoluer au sein d-un bureau d-ingénieurs reconnu pour la qualité de ses réalisations, alors n-attendez pas pour postuler !\n\n**Dessinateur Génie Civil 80-100% CDI (H/F/D)**\n\n**Responsabilités**\n\n* Réaliser les études de tracés routiers et appliquer les normes techniques en vigueur\n* Concevoir des carrefours, giratoires et aménagements liés à la mobilité\n* Étudier et intégrer les réseaux souterrains existants et projetés dans les projets\n* Effectuer les contrôles de visibilité et les vérifications géométriques nécessaires\n* Élaborer les dossiers techniques complets, de l-avant-projet jusqu-au dossier d-ouvrage exécuté\n* Participer à l-établissement des avant-métrés, des soumissions et au contrôle des offres\n* Assurer le suivi et les contrôles de chantier en collaboration avec les chefs de projet\n\n**Profil**\n\n* CFC de Dessinateur en Génie Civil\n* Expérience confirmée dans un bureau d-ingénieurs ou dans le domaine des infrastructures routières\n* Connaissance des normes et pratiques du génie civil en Suisse\n* Intérêt marqué pour les projets d-infrastructures routières et d-aménagement du territoire\n* Bonne maîtrise d-AutoCAD, de Civil 3D et des outils Microsoft Office\n* Esprit d-équipe, curiosité et volonté de développer continuellement ses compétences\n* Personne organisée, rigoureuse et méthodique\n\n**Bénéfices**\n\n* Un environnement de travail convivial au sein d-une équipe engagée et à taille humaine\n* Des projets variés et stimulants dans les domaines des infrastructures publiques et privées\n* De nombreuses opportunités de formation et d-évolution professionnelle\n* Des conditions d'engagement attractives et une organisation du travail flexible\n* Entrée en fonction : à convenir\n\n**Informations de contact**\n\nVeuillez postuler directement en ligne. Confidentialité garantie.\n\nSi vous avez d'autres questions concernant cette offre d'emploi (référence: JN -092026-1159445), veuillez contacter Monsieur Raphaël Naoux au.\n\n**À propos de nous**\n\nAdecco Valais Permanent est votre agence spécialisée dans la recherche et le placement de personnel fixe pour la région du Valais francophone et du Chablais vaudois. Grâce à notre expertise approfondie du marché local de l'emploi, nous nous engageons à vous fournir un service de qualité en mettant en relation les entreprises à la recherche de talents avec des candidats qualifiés et motivés.",
       "descriptionByLocale": {
@@ -28327,7 +28492,6 @@
       "validThrough": "2027-01-02T00:00:00.000Z",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
       "firstSeenAt": "2026-11-05T09:35:14.514Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -28345,7 +28509,7 @@
       "streetAddress": "Sierre",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "translationHoldSince": "2026-11-05T09:37:38.357Z"
+      "translationHoldReleasedAt": "2026-11-08T13:12:23.485Z"
     },
     {
       "id": "seco-jobroom-1537140f-dedc-4dab-a217-6fa5369a4d47",
@@ -45806,7 +45970,7 @@
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "translationHoldSince": "2026-11-05T09:37:38.357Z"
+      "translationHoldReleasedAt": "2026-11-08T13:12:23.485Z"
     },
     {
       "id": "seco-jobroom-0a6c1777-6f1c-4bf7-810d-f72a5aeddef3",
@@ -52119,7 +52283,7 @@
         "it": "gessatore-co-estre-a-sco-arkefi-bau-ag-bellinzona-09c5f0e7",
         "en": "gessatore-costruttore-a-secco-arkefi-bau-ag-bellinzona-09c5f0e7",
         "de": "gessatore-costruttore-a-secco-arkefi-bau-ag-bellinzona-09c5f0e7",
-        "fr": "gessatore-costruttore-a-secco-arkefi-bau-ag-bellinzona-09c5f0e7"
+        "fr": "gessatore-coster-construire-un-sco-arkefi-bau-ag-bellinzona-09c5f0e7"
       },
       "slugDisambiguator": "09c5f0e7",
       "company": "ARKEFI BAU AG",
@@ -52170,6 +52334,9 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "gessatore-costruttore-a-secco-arkefi-bau-ag-bellinzona-09c5f0e7"
+        ],
+        "fr": [
           "gessatore-costruttore-a-secco-arkefi-bau-ag-bellinzona-09c5f0e7"
         ]
       },
@@ -53925,7 +54092,7 @@
         "it": "infermiera-infermiere-o-assc-nelle-cure-a-domicilio-swiss-agi-san-sarl-sion-3a6fb454",
         "en": "nurse-or-assc-in-home-care-swiss-agi-san-sarl-sion-3a6fb454",
         "de": "infirmiere-infirmier-ou-assc-en-soins-a-domicile-swiss-agi-san-sarl-sion-3a6fb454",
-        "fr": "infirmiere-infirmier-ou-assc-en-soins-a-domicile-swiss-agi-san-sarl-sion-3a6fb454"
+        "fr": "in-carriere-in-criere-ouassier-en-soins-a3-5-swiss-agi-san-sarl-sion-3a6fb454"
       },
       "slugDisambiguator": "3a6fb454",
       "company": "Swiss Agi San Sàrl",
@@ -53937,7 +54104,7 @@
         "it": "infermiera / infermiere o ASSC nelle cure a domicilio",
         "en": "nurse or ASSC in home care",
         "de": "infirmière / infirmier ou ASSC en soins à domicile",
-        "fr": "infirmière / infirmier ou ASSC en soins à domicile"
+        "fr": "in Carrière / in Crière ouassier en soins à3.5"
       },
       "description": "Nous sommes à la recherche d'une infirmière / infirmier ou ASSC en soins à domicile pour les régions de Sion et de Martigny.\nLe taux d'activité sera entre 60 et 70% voir plus.\n\nDescription du poste :\nSwissAgiSan est une entreprise active dans le domaine des soins et de l’aide à domicile (OSAD) dans les canton de Vaud, Valais et Fribourg.\n\nAfin de compléter nos équipes, nous recherchons pour la région de Sion et Martigny, 1 Infirmier ou une infirmière , en contrat fixe, à taux entre 50 et 65% voir plus.\n\nEntrée de suite ou à convenir\nHoraire de jour\n\nVotre mission :\nEffectuer des soins infirmiers et des soins de base au domicile.\n\nVotre profil :\nDiplôme d’infirmier(ère) en soins généraux, niveau HES ou équivalent\nExpérience confirmée en tant qu'infirmier/ère\nPersonne dynamique, sérieuse, sachant travailler de manière autonome. Passionné/e par ce domaine, vous savez prendre de la distance et trouver un bon équilibre. Vous êtes ouvert/e d'esprit lors des échanges et consciencieux/se et organisé/e pour le suivi administratif.\nPosséder un permis de conduire, ainsi qu'un véhicule\n\nNous offrons :\nUn travail varié, riche en contacts, faisant appel à des qualités humaines et techniques\nUne autonomie et un encadrement personnalisé\nUne ambiance de travail conviviale et dynamique\nL’opportunité de participer au développement d’une entreprise en plein essor\n\nEntrée en fonction : De suite ou à convenir\n\nMerci de nous faire parvenir votre dossier de candidature complet (lettre de motivation, CV avec photo, copies des diplômes, attestations et certificats de travail).\nType d'emploi : Temps partiel, Durée indéterminée\n\nAvantages :\n• Téléphone de fonction\n• Voiture de société\n\nLieu du poste : Déplacements fréquents",
       "descriptionByLocale": {
@@ -53980,9 +54147,11 @@
         ],
         "en": [
           "infirmiere-infirmier-ou-assc-en-soins-a-domicile-swiss-agi-san-sarl-sion-3a6fb454"
+        ],
+        "fr": [
+          "infirmiere-infirmier-ou-assc-en-soins-a-domicile-swiss-agi-san-sarl-sion-3a6fb454"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-10-31T22:00:02.073Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
@@ -54000,7 +54169,7 @@
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "translationHoldSince": "2026-10-31T22:01:23.865Z"
+      "translationHoldReleasedAt": "2026-11-08T13:12:23.485Z"
     },
     {
       "id": "seco-jobroom-3bf288a8-bbbd-4413-9e71-10e0d7675d4f",
@@ -55587,7 +55756,7 @@
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "translationHoldSince": "2026-11-01T09:50:34.490Z"
+      "translationHoldReleasedAt": "2026-11-08T13:12:23.485Z"
     },
     {
       "id": "seco-jobroom-5e31745a-241c-4251-9555-88a126f07051",
@@ -65222,7 +65391,7 @@
         "it": "dessinateur-industriel-100-cdi-h-f-d-adecco-martigny-599bd426",
         "en": "industrial-drafter-100-permanent-contract-m-f-d-adecco-martigny-599bd426",
         "de": "dessinateur-industriel-100-cdi-h-f-d-adecco-martigny-599bd426",
-        "fr": "dessinateur-industriel-100-cdi-h-f-d-adecco-martigny-599bd426"
+        "fr": "ardeur-industrielle-100-cdi-h-f-d-adecco-martigny-599bd426"
       },
       "slugDisambiguator": "599bd426",
       "company": "Adecco",
@@ -65285,7 +65454,7 @@
       "streetAddress": "Martigny",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "translationHoldSince": "2026-10-31T22:01:23.865Z"
+      "translationHoldReleasedAt": "2026-11-08T13:12:23.485Z"
     },
     {
       "id": "seco-jobroom-5a19689d-4b84-48a2-a3ae-5e01690b6d57",
@@ -68332,9 +68501,9 @@
     },
     {
       "id": "seco-jobroom-ab88245e-4327-4f45-bc02-302832066343",
-      "slug": "assemblatore-trice-elettromeccanico-a-m-f-d-das-team-ag-locarno-ab88245e",
+      "slug": "assemblers-pike-ecomecca-nico-a-m-f-d-das-team-ag-locarno-ab88245e",
       "slugByLocale": {
-        "it": "assemblatore-trice-elettromeccanico-a-m-f-d-das-team-ag-locarno-ab88245e",
+        "it": "assemblers-pike-ecomecca-nico-a-m-f-d-das-team-ag-locarno-ab88245e",
         "en": "electromechanical-assembler-m-f-d-das-team-ag-locarno-ab88245e",
         "de": "assemblatore-trice-elettromeccanico-a-m-f-d-das-team-ag-locarno-ab88245e",
         "fr": "assembleur-euse-electromecanique-h-f-d-das-team-ag-locarno-ab88245e"
@@ -68400,13 +68569,21 @@
       "streetAddress": "Locarno",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "translationHoldSince": "2026-10-31T22:01:23.865Z"
+      "translationHoldReleasedAt": "2026-11-08T13:12:23.485Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assemblatore-trice-elettromeccanico-a-m-f-d-das-team-ag-locarno-ab88245e"
+        ]
+      },
+      "previousSlugs": [
+        "assemblatore-trice-elettromeccanico-a-m-f-d-das-team-ag-locarno-ab88245e"
+      ]
     },
     {
       "id": "seco-jobroom-b0069d9e-1c7e-42ce-851a-34877d833e8d",
-      "slug": "assemblatore-trice-elettromeccanico-a-m-f-d-das-team-ag-locarno-b0069d9e",
+      "slug": "assemblers-pike-ecomecca-nico-a-m-f-d-das-team-ag-locarno-b0069d9e",
       "slugByLocale": {
-        "it": "assemblatore-trice-elettromeccanico-a-m-f-d-das-team-ag-locarno-b0069d9e",
+        "it": "assemblers-pike-ecomecca-nico-a-m-f-d-das-team-ag-locarno-b0069d9e",
         "en": "electromechanical-assembler-m-f-d-das-team-ag-locarno-b0069d9e",
         "de": "assemblatore-trice-elettromeccanico-a-m-f-d-das-team-ag-locarno-b0069d9e",
         "fr": "assembleur-euse-electromecanique-h-f-d-das-team-ag-locarno-b0069d9e"
@@ -68472,7 +68649,15 @@
       "streetAddress": "Locarno",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "translationHoldSince": "2026-10-31T22:01:23.865Z"
+      "translationHoldReleasedAt": "2026-11-08T13:12:23.485Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assemblatore-trice-elettromeccanico-a-m-f-d-das-team-ag-locarno-b0069d9e"
+        ]
+      },
+      "previousSlugs": [
+        "assemblatore-trice-elettromeccanico-a-m-f-d-das-team-ag-locarno-b0069d9e"
+      ]
     },
     {
       "id": "seco-jobroom-b60edcd5-83a2-4a9e-a18f-ce23f529a606",
@@ -68726,7 +68911,7 @@
         "it": "meccanico-a-elettricista-o-automatista-al-100-esh-medias-monthey-bd7feb10",
         "en": "mechanic-electrician-or-automation-technician-at-100-esh-medias-monthey-bd7feb10",
         "de": "mecanicien-ne-electricien-ne-ou-automaticien-ne-a-100-esh-medias-monthey-bd7feb10",
-        "fr": "mecanicien-ne-electricien-ne-ou-automaticien-ne-a-100-esh-medias-monthey-bd7feb10"
+        "fr": "mecanicien-ne-electriques-ne-ouautomicia-ne-a-100-esh-medias-monthey-bd7feb10"
       },
       "slugDisambiguator": "bd7feb10",
       "company": "ESH Médias",
@@ -68781,6 +68966,9 @@
         ],
         "en": [
           "mecanicien-ne-electricien-ne-ou-automaticien-ne-a-100-esh-medias-monthey-bd7feb10"
+        ],
+        "fr": [
+          "mecanicien-ne-electricien-ne-ou-automaticien-ne-a-100-esh-medias-monthey-bd7feb10"
         ]
       },
       "firstSeenAt": "2026-10-31T22:00:02.073Z",
@@ -68800,7 +68988,7 @@
       "streetAddress": "Monthey",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "translationHoldSince": "2026-10-31T22:01:23.865Z"
+      "translationHoldReleasedAt": "2026-11-08T13:12:23.485Z"
     },
     {
       "id": "seco-jobroom-bf6bcdf9-a666-495f-8eb8-1b1f0083fc33",
@@ -70276,7 +70464,7 @@
         "it": "responsabile-senior-di-mandati-fiduciari-80-100-cdi-m-f-d-adecco-sion-db801e92",
         "en": "senior-fiduciary-mandate-manager-80-100-permanent-contract-m-f-d-adecco-sion-db801e92",
         "de": "responsable-de-mandats-fiduciaires-senior-80-100-cdi-h-f-d-adecco-sion-db801e92",
-        "fr": "responsable-de-mandats-fiduciaires-senior-80-100-cdi-h-f-d-adecco-sion-db801e92"
+        "fr": "source-ministere-de-l-environnement-bureau-de-la-sante-et-de-la-protection-des-consommateurs-h-f-d-adecco-sion-db801e92"
       },
       "slugDisambiguator": "db801e92",
       "company": "Adecco",
@@ -70288,7 +70476,7 @@
         "it": "Responsabile senior di mandati fiduciari 80-100% CDI (M/F/D)",
         "en": "Senior Fiduciary Mandate Manager 80-100% Permanent contract (M/F/D)",
         "de": "Responsable de Mandats Fiduciaires Senior 80-100% CDI (H/F/D)",
-        "fr": "Responsable de Mandats Fiduciaires Senior 80-100% CDI (H/F/D)"
+        "fr": "Source : Ministère de l'Environnement, Bureau de la santé et de la protection des consommateurs (H/F/D)"
       },
       "description": "Vous possédez une solide expérience en fiduciaire suisse et appréciez le contact privilégié avec les entrepreneurs ? Vous souhaitez rejoindre une structure à taille humaine où votre expertise sera reconnue et où vous pourrez accompagner une clientèle variée sur des problématiques à forte valeur ajoutée ? Cette opportunité pourrait correspondre à vos ambitions professionnelles.\n\nSi cette perspective vous intéresse, nous nous réjouissons de découvrir votre parcours.\n\nAdecco Valais Permanent est mandaté par une fiduciaire reconnue de la région pour recruter son futur :\n\n**Réviseur/Responsable de Mandats Fiduciaires Senior 80-100% CDI (H/F/D)**\n\n**Responsabilités**\n\n* Réaliser et superviser des mandats de révision restreinte\n* Gérer de manière autonome un portefeuille de mandats composé de PME, indépendants et sociétés de différents secteurs d'activité\n* Réaliser et superviser les bouclements annuels et intermédiaires\n* Conseiller les clients sur les aspects comptables, fiscaux, financiers et organisationnels\n* Assurer le suivi des déclarations fiscales ainsi que des problématiques TVA\n* Accompagner les clients dans leurs questions liées aux salaires, assurances sociales et prévoyance\n* Développer et entretenir des relations de confiance durables avec la clientèle\n\n**Profil**\n\n* Formation supérieure en finance, comptabilité ou fiduciaire\n* Brevet fédéral de spécialiste en finance et comptabilité, titre de réviseur agréé ou d'expert-réviseur\n* Expérience confirmée au sein d'une fiduciaire en Suisse\n* Excellente maîtrise de la comptabilité, de la fiscalité des personnes physiques et morales ainsi que de la TVA\n* Expérience dans la gestion autonome de mandats et le conseil à la clientèle\n* Personnalité orientée service, dotée d'excellentes compétences relationnelles et d'un fort sens des responsabilités\n\n**Bénéfices**\n\n* **A moyen terme, possiblité offerte de devenir associé de la fiduciaire**\n* L'opportunité d'intégrer une fiduciaire bénéficiant d'une excellente réputation et d'une clientèle fidèle\n* Un environnement à taille humaine favorisant la proximité, la confiance et l'autonomie\n* Une fonction variée offrant une vision globale du conseil aux PME\n* Une relation directe avec les dirigeants et les décideurs\n* La possibilité de contribuer activement au développement futur de la structure\n* Des conditions salariales attractives reflétant votre expérience et vos qualifications\n* Entrée en fonction : à convenir\n\n\\#Go4Perm\n\n**Informations de contact**\n\nVeuillez postuler directement en ligne. Confidentialité garantie.\n\nSi vous avez d'autres questions concernant cette offre d'emploi (référence: JN -102026-1185503), veuillez contacter Monsieur Raphaël Naoux au.\n\n**À propos de nous**\n\nAdecco Valais Permanent est votre agence spécialisée dans la recherche et le placement de personnel fixe pour la région du Valais francophone et du Chablais vaudois. Grâce à notre expertise approfondie du marché local de l'emploi, nous nous engageons à vous fournir un service de qualité en mettant en relation les entreprises à la recherche de talents avec des candidats qualifiés et motivés.\n\n\\#g4p",
       "descriptionByLocale": {
@@ -70331,9 +70519,11 @@
         ],
         "en": [
           "responsable-de-mandats-fiduciaires-senior-80-100-cdi-h-f-d-adecco-sion-db801e92"
+        ],
+        "fr": [
+          "responsable-de-mandats-fiduciaires-senior-80-100-cdi-h-f-d-adecco-sion-db801e92"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-10-31T22:00:02.073Z",
       "salaryMin": 83500,
       "salaryMax": 126500,
@@ -70351,7 +70541,7 @@
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "translationHoldSince": "2026-10-31T22:01:23.865Z"
+      "translationHoldReleasedAt": "2026-11-08T13:12:23.485Z"
     },
     {
       "id": "seco-jobroom-dbc0232d-fc2f-4af4-8b56-f3558d769189",
@@ -79090,7 +79280,7 @@
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "translationHoldSince": "2026-10-31T22:01:23.865Z"
+      "translationHoldReleasedAt": "2026-11-08T13:12:23.485Z"
     },
     {
       "id": "seco-jobroom-b5536109-78e4-4195-9b5b-ff3e29636c36",
@@ -80488,7 +80678,7 @@
         "it": "responsable-de-la-maintenance-100-cdi-h-f-d-adecco-sion-e051a1a8",
         "en": "responsable-de-la-maintenance-100-cdi-h-f-d-adecco-sion-e051a1a8",
         "de": "responsable-de-la-maintenance-100-cdi-h-f-d-adecco-sion-e051a1a8",
-        "fr": "responsable-de-la-maintenance-100-cdi-h-f-d-adecco-sion-e051a1a8"
+        "fr": "source-eurostat-donnees-de-l-eurostat-donnees-de-l-eurostat-donnees-de-l-eurostat-donnees-de-l-eurostat-donnees-e051a1a8"
       },
       "slugDisambiguator": "e051a1a8",
       "company": "Adecco",
@@ -80500,7 +80690,7 @@
         "it": "Responsable de la maintenance 100% CDI (f/m/d)",
         "en": "Responsible for maintenance 100% CDI (M/F/D)",
         "de": "Responsable de la maintenance 100% CDI (H/F/D)",
-        "fr": "Responsable de la maintenance 100% CDI (H/F/D)"
+        "fr": "Source: Eurostat, données de l'Eurostat, données de l'Eurostat, données de l'Eurostat, données de l'Eurostat, données de l'Eurostat, données de l'Eurostat, données de l'Eurostat, données de l'Eurostat, données de l'Eurostat, données de l'Eurostat, données de l'Eurostat, données de l'Eurostat, données de l'Eurostat, données de l'Eurostat, données de l'Eurostat, données de l'Eurostat, données de l'Eurostat, données de l'Eurostat, données de l'Eurostat, données de l'Eurostat, données de l'Eurostat, données de l'Eurostat, données de l'Eurostat, données de l'Eurostat, données de l'Eurostat, données de l'Eurostat, données de l'Eurostat, données de l'Eurostat, données de l'Eurostat, données de l'Eurostat, données de l'Eurostat, données de l'Eurostat, données de l'Eurostat, données de l'Eurostat, données de l'Eurostat, données de l'Eurostat, données de l'Eurostat, données de l'Eurostat, données de l'Eurostat, données de l'Eurostat, données de l'Eurostat, données de l'Eurostat, données de l'Eurostat, données de l'Eurostat, données de l'Eurostat, données de la statistique des statistiques des statistiques des statistiques des statistiques des statistiques des statistiques des statistiques des statistiques des ménages, des ménages, des ménages, des ménages, des ménages, des ménages, des ménages, des ménages, des ménages, des ménages, des ménages, des ménages, des ménages, des ménages, des ménages, des ménages, des ménages, des ménages, des ménagess, des ménages, des ménages, des ménages, des ménages, des ménagess, des ménages, des ménages, des ménages, des ménages, des ménages, des ménages, des ménages, des ménages, des ménages, des ménages, des ménages, des ménages, des ménages, des ménages, des ménages, des ménages, des ménages, des ménages, des ménages, des ménages, des ménages, des ménages, des ménages, des ménages, des ménages, des ménagess, des ménages, des ménages, des ménages, des ménages, des ménages, des ménages, des ménages, des ménages, des ménages, des ménages, des ménages, des ménages, des ménages, des ménages, des ménages, des ménages, des ménages, des ménages, des ménages, des ménages, des ménages, des (H/F/D)"
       },
       "description": "Vous êtes un professionnel technique expérimenté, doté d-un solide esprit analytique et d-un leadership affirmé ? Vous souhaitez évoluer dans un environnement dynamique où la performance et l-amélioration continue sont au cœur des priorités ? Ce poste est fait pour vous !\n\n**Responsable de la maintenance 100% CDI (H/F/D)**\n\n**Responsabilités**\n\n* Planifier et superviser les interventions des prestataires externes\n* Gérer les pièces de rechange (stocks, approvisionnement et stockage)\n* Encadrer, organiser et développer les compétences de l-équipe de maintenance\n* Élaborer, optimiser et piloter les plans de maintenance préventive et corrective\n* Suivre et optimiser les coûts de maintenance tout en garantissant la performance des équipements\n* Analyser les défaillances, coordonner les dépannages et conduire les analyses des causes racines (RCA)\n* Définir et piloter les indicateurs clés (MTBF, MTTR, OEE) et contribuer aux démarches d-amélioration continue (Lean, 5S)\n\n**Profil**\n\n* Formation technique (CFC) ou diplôme d-ingénieur (mécanique, électrotechnique ou similaire)\n* Expérience confirmée en maintenance industrielle, idéalement en environnement de production\n* Expérience en management d-équipe et en planification des activités\n* Bonne maîtrise des outils de gestion de maintenance (type SAP PM) et des indicateurs de performance\n* Esprit analytique et sens de l-organisation\n* Maitrise du français et bonnes connaissance de l'anglais et/ou l'allemand\n\n**Bénéfices**\n\n* Autonomie dans les responsabilités et impact direct sur la performance du site\n* Opportunités de développement professionnel et de formation continue\n* Conditions de travail attractives au sein d-une entreprise reconnue\n* Entrée en fonction : à convenir\n\n**Informations de contact**\n\nVeuillez postuler directement en ligne. Confidentialité garantie.\n\nSi vous avez d'autres questions concernant cette offre d'emploi (référence: JN -052026-1027319), veuillez contacter Monsieur Raphaël Naoux au.\n\n**À propos de nous**\n\nAdecco Valais Permanent est votre agence spécialisée dans la recherche et le placement de personnel fixe pour la région du Valais francophone et du Chablais vaudois. Grâce à notre expertise approfondie du marché local de l'emploi, nous nous engageons à vous fournir un service de qualité en mettant en relation les entreprises à la recherche de talents avec des candidats qualifiés et motivés.",
       "descriptionByLocale": {
@@ -80534,7 +80724,6 @@
       "validThrough": "2026-12-27T00:00:00.000Z",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
       "firstSeenAt": "2026-10-31T22:00:02.073Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -80552,7 +80741,7 @@
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "translationHoldSince": "2026-10-31T22:01:23.865Z"
+      "translationHoldReleasedAt": "2026-11-08T13:12:23.485Z"
     },
     {
       "id": "seco-jobroom-e1c219ae-687f-4615-8910-a27e25cc24a8",
@@ -85715,7 +85904,7 @@
         "it": "dessinateur-en-batiment-80-100-cdi-h-f-d-adecco-sion-5ebcbf02",
         "en": "building-drafter-80-100-permanent-contract-m-f-d-adecco-sion-5ebcbf02",
         "de": "dessinateur-en-batiment-80-100-cdi-h-f-d-adecco-sion-5ebcbf02",
-        "fr": "dessinateur-en-batiment-80-100-cdi-h-f-d-adecco-sion-5ebcbf02"
+        "fr": "d-un-cote-il-faut-faire-preuve-de-prudence-et-de-prudence-h-f-d-adecco-sion-5ebcbf02"
       },
       "slugDisambiguator": "5ebcbf02",
       "company": "Adecco",
@@ -85727,7 +85916,7 @@
         "it": "Dessinateur en bâtiment 80-100% CDI (f/m/d)",
         "en": "Building drafter 80-100% permanent contract (M/F/D)",
         "de": "Dessinateur en bâtiment 80-100% CDI (H/F/D)",
-        "fr": "Dessinateur en bâtiment 80-100% CDI (H/F/D)"
+        "fr": "D'un côté, il faut faire preuve de prudence et de prudence. (H/F/D)"
       },
       "description": "Si l'architecture vous passionne, que vous possédez une expertise en dessin technique et que vous souhaitez contribuer à la conception de beaux projets, cette opportunité est faite pour vous !\n\n**Dessinateur en bâtiment 80-100% CDI (H/F/D)**\n\n**Responsabilités**\n\n* Élaborer des plans précis pour des projets de construction et de transformation\n* Concevoir des plans d-appel d-offres, d-exécution et de détails en respectant les normes en vigueur\n* Collaborer étroitement avec les architectes pour compléter les dossiers de mise à l-enquête\n* Travailler sur des projets variés, allant du neuf à la rénovation\n* Gérer votre charge de travail de manière autonome\n\n**Profil**\n\n* Titulaire d'un CFC de dessinateur en bâtiment ou d'une formation dans l'architecture\n* Expérience significative dans un poste similaire\n* Maîtrise parfaite d'ArchiCAD ou AutoCAD\n* Capacité à travailler de manière autonome tout en étant à l'aise dans un travail d'équipe\n* Aptitude à gérer le stress, organisation rigoureuse et attention méticuleuse aux détails pour garantir la qualité du travail\n* Excellente maîtrise du français\n\n**Bénéfices**\n\n* Une rémunération compétitive, en fonction de votre expertise et de votre expérience\n* Un environnement de travail dynamique et collaboratif où votre créativité est valorisée\n* Possibilité de formation et d-évolution si souhait de s-orienter dans la direction de travaux\n* Entrée en fonction : de suite ou à convenir\n\n**Informations de contact**\n\nVeuillez postuler directement en ligne.\n\nSi vous avez d'autres questions concernant cette offre d'emploi (référence: JN -112025-915137), veuillez contacter Madame Hend Al Mass au.\n\n**À propos de nous**\n\nAdecco Valais Permanent est votre agence spécialisée dans la recherche et le placement de personnel fixe pour la région du Valais francophone et du Chablais vaudois. Grâce à notre expertise approfondie du marché local de l'emploi, nous nous engageons à vous fournir un service de qualité en mettant en relation les entreprises à la recherche de talents avec des candidats qualifiés et motivés.",
       "descriptionByLocale": {
@@ -85761,7 +85950,6 @@
       "validThrough": "2026-12-26T00:00:00.000Z",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
       "firstSeenAt": "2026-10-31T22:00:02.073Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -85779,7 +85967,7 @@
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "translationHoldSince": "2026-10-31T22:01:23.865Z"
+      "translationHoldReleasedAt": "2026-11-08T13:12:23.485Z"
     },
     {
       "id": "seco-jobroom-62035320-790f-4d05-b60c-52e51d7a30f2",
@@ -88089,7 +88277,7 @@
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "translationHoldSince": "2026-10-31T22:01:23.865Z"
+      "translationHoldReleasedAt": "2026-11-08T13:12:23.485Z"
     },
     {
       "id": "seco-jobroom-98bf68f6-104c-4122-8230-9d0a4c33f941",
@@ -108086,7 +108274,7 @@
       "title": "Infrastructure & Observability Engineer | FORFIRM",
       "titleByLocale": {
         "it": "Infrastructure & Observability Ingegnere | FORFIRM",
-        "en": "Infrastructure & Observability Engineer | FORFIRM",
+        "en": "Infrastructure & Visibility Engineer, FORFIRM",
         "de": "Infrastructure & Observability Engineer | FORFIRM",
         "fr": "Infrastructure & Observability Ingénieur | FORFIRM"
       },
@@ -108122,7 +108310,6 @@
       "validThrough": "2026-12-22T00:00:00.000Z",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
       "firstSeenAt": "2026-10-31T22:00:02.073Z",
       "salaryMin": 58000,
       "salaryMax": 88000,
@@ -108140,7 +108327,7 @@
       "streetAddress": "Lugano",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "translationHoldSince": "2026-10-31T22:01:23.865Z"
+      "translationHoldReleasedAt": "2026-11-08T13:12:23.485Z"
     },
     {
       "id": "seco-jobroom-e6219545-e000-4a0b-9890-042c46a22133",
@@ -108212,7 +108399,7 @@
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "translationHoldSince": "2026-10-31T22:01:23.865Z"
+      "translationHoldReleasedAt": "2026-11-08T13:12:23.485Z"
     },
     {
       "id": "seco-jobroom-e7a55552-733a-4487-879f-3ee9a1b387fe",
@@ -118679,7 +118866,7 @@
       },
       "streetAddressSource": "listing-source",
       "validThroughSource": "source",
-      "translationHoldSince": "2026-10-31T22:01:23.865Z"
+      "translationHoldReleasedAt": "2026-11-08T13:12:23.485Z"
     },
     {
       "id": "seco-jobroom-73405e84-36a7-487f-a313-ac4b6a8eddc4",
@@ -133475,7 +133662,7 @@
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "translationHoldSince": "2026-10-31T22:01:23.865Z"
+      "translationHoldReleasedAt": "2026-11-08T13:12:23.485Z"
     },
     {
       "id": "seco-jobroom-a14fa996-aaba-4205-8675-c5010e3b6f26",
@@ -134172,7 +134359,7 @@
         "it": "Bottier Orthopédiste 60-100% CDI (f/m/d)",
         "en": "Bottier Orthopédiste 60-100% CDI (M/F/D)",
         "de": "Bottier Orthopédiste 60-100% CDI (H/F/D)",
-        "fr": "Bottier Orthopédiste 60-100% CDI (H/F/D)"
+        "fr": "Bottier Place Hopédiste 60- 100% CDI (H/F/D)"
       },
       "description": "Si vous êtes passionné par le travail sur mesure, l'accompagnement des patients et les métiers de précision, alors n'attendez plus pour postuler!\n\n**Bottier Orthopédiste 60-100% CDI (H/F/D)**\n\n**Responsabilités**\n\n* Fabriquer des chaussures orthopédiques sur mesure ainsi que des modèles adaptés aux besoins spécifiques des patients\n* Réaliser les modifications, ajustements et réparations de différents types de chaussures\n* Effectuer les prises de mesures, relevés techniques et analyses nécessaires à la fabrication\n* Assurer les essayages, les ajustements et la livraison des équipements réalisés\n* Conseiller et accompagner les patients tout au long du processus de prise en charge\n* Développer et entretenir des relations de confiance avec les partenaires médicaux et les différents intervenants\n* Participer à la gestion quotidienne d'un atelier de production et contribuer à son bon fonctionnement\n\n**Profil**\n\n* **CFC de bottier-orthopédiste**\n* Expérience professionnelle confirmée d'au moins 3 ans dans une fonction similaire\n* Faire preuve d'excellentes compétences relationnelles et d'un réel sens du service\n* Travailler de manière autonome tout en appréciant la collaboration au sein d'une équipe\n* Posséder un bon sens de l'organisation et être orienté solutions\n* Maîtriser parfaitement le français ; des connaissances en allemand ou en anglais constituent un atout\n\n**Bénéfices**\n\n* Évoluer au sein d'une équipe dynamique, collaborative et à taille humaine\n* Contribuer concrètement à l'amélioration du confort et de la qualité de vie des patients\n* Bénéficier d'un environnement de travail moderne favorisant l'autonomie et le développement des compétences\n* Entrée en fonction : de suite ou à convenir\n\n**Informations de contact**\n\nVeuillez postuler directement en ligne. Confidentialité garantie.\n\nSi vous avez d'autres questions concernant cette offre d'emploi (référence: JN -092026-1174093), veuillez contacter Madame Servane Bellon au.\n\n**À propos de nous**\n\nAdecco Valais Permanent est votre agence spécialisée dans la recherche et le placement de personnel fixe pour la région du Valais francophone et du Chablais vaudois. Grâce à notre expertise approfondie du marché local de l'emploi, nous nous engageons à vous fournir un service de qualité en mettant en relation les entreprises à la recherche de talents avec des candidats qualifiés et motivés.",
       "descriptionByLocale": {
@@ -134206,7 +134393,6 @@
       "validThrough": "2026-12-18T00:00:00.000Z",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
       "firstSeenAt": "2026-10-31T22:00:02.073Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -134224,7 +134410,7 @@
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "translationHoldSince": "2026-10-31T22:01:23.865Z"
+      "translationHoldReleasedAt": "2026-11-08T13:12:23.485Z"
     },
     {
       "id": "seco-jobroom-b83c493b-5d63-4f64-8bd6-659bf2d98d60",
@@ -135618,7 +135804,7 @@
         "it": "dessinateur-en-batiment-100-cdi-h-f-d-adecco-martigny-d7cad840",
         "en": "design-and-construction-100-cdi-m-f-d-adecco-martigny-d7cad840",
         "de": "dessinateur-en-batiment-100-cdi-h-f-d-adecco-martigny-d7cad840",
-        "fr": "dessinateur-en-batiment-100-cdi-h-f-d-adecco-martigny-d7cad840"
+        "fr": "d-un-cote-le-systeme-de-gestion-des-risques-en-e-100-cdi-h-f-d-adecco-martigny-d7cad840"
       },
       "slugDisambiguator": "d7cad840",
       "company": "Adecco",
@@ -135681,7 +135867,7 @@
       "streetAddress": "Martigny",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "translationHoldSince": "2026-10-31T22:01:23.865Z"
+      "translationHoldReleasedAt": "2026-11-08T13:12:23.485Z"
     },
     {
       "id": "seco-jobroom-e605569a-d2fd-4842-80b9-bf96c6a0abad",
@@ -143338,7 +143524,7 @@
         "it": "menuisier-poseur-experimente-h-f-100-pm-alpes-sa-sion-92b41144",
         "en": "menuisier-poseur-experimente-h-f-100-pm-alpes-sa-sion-92b41144",
         "de": "menuisier-poseur-experimente-h-f-100-pm-alpes-sa-sion-92b41144",
-        "fr": "menuisier-poseur-experimente-h-f-100-pm-alpes-sa-sion-92b41144"
+        "fr": "eur-eur-eur-interim-h-f-100-pm-alpes-sa-sion-92b41144"
       },
       "slugDisambiguator": "92b41144",
       "company": "PM Alpes SA",
@@ -143350,7 +143536,7 @@
         "it": "MENUISIER-POSEUR EXPÉRIMENTÉ (M/F) – 100%",
         "en": "MENUISIER-POSEUR EXPÉRIMENTÉ (M/F) – 100 %",
         "de": "MENUISIER-POSEUR EXPÉRIMENTÉ (H/F) – 100 %",
-        "fr": "MENUISIER-POSEUR EXPÉRIMENTÉ (H/F) – 100 %"
+        "fr": "EUR-EUR-EUR-intérim (H/F) – 100 %"
       },
       "description": "PM Alpes SA, entreprise de menuiserie et négoce de bois à Sion, recherche un menuisier-poseur qualifié.\n\nVos tâches :\n- Pose de fenêtres, portes, parquets, lamage, agencements et cuisines chez nos clients\n- Travail autonome et soigné\n\nVotre profil :\n- CFC de menuisier ou équivalent\n- Minimum 5 ans d'expérience en pose\n- Autonomie et sens du service client\n- Permis de conduire B\n\nNous offrons :\n- Salaire selon la CCT Menuiserie Valais\n- Ambiance de PME, équipe stable\n- Matériel professionnel\n\nTaux d'activité : 100 %\nType de contrat : durée indéterminée\nLieu de travail : Sion et chantiers en Valais\nEntrée : de suite ou à convenir\n\nCandidatures: – PM Alpes SA, Route de Bramois 2, 1950 Sion – Tél.\n\nPersonne de contact : Michel Parchet, directeur",
       "descriptionByLocale": {
@@ -143385,7 +143571,6 @@
       "validThrough": "2026-11-15T00:00:00.000Z",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
       "firstSeenAt": "2026-10-31T22:00:02.073Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -143402,7 +143587,7 @@
       },
       "streetAddressSource": "listing-source",
       "validThroughSource": "source",
-      "translationHoldSince": "2026-10-31T22:01:23.865Z"
+      "translationHoldReleasedAt": "2026-11-08T13:12:23.485Z"
     },
     {
       "id": "seco-jobroom-9df25981-bc52-44a5-b773-d97bb723a8cd",
@@ -147925,7 +148110,7 @@
         "it": "caposquadra-nel-settore-dell-ingegneria-civile-con-contratto-a-tempo-indeterminato-m-f-d-adecco-martigny-43f78162",
         "en": "civil-engineering-team-leader-on-a-permanent-contract-m-f-d-adecco-martigny-43f78162",
         "de": "chef-d-equipe-genie-civil-en-cdi-h-f-d-adecco-martigny-43f78162",
-        "fr": "chef-d-equipe-genie-civil-en-cdi-h-f-d-adecco-martigny-43f78162"
+        "fr": "chef-de-la-cce-h-f-d-adecco-martigny-43f78162"
       },
       "slugDisambiguator": "43f78162",
       "company": "Adecco",
@@ -147980,6 +148165,9 @@
         ],
         "en": [
           "chef-d-equipe-genie-civil-en-cdi-h-f-d-adecco-martigny-43f78162"
+        ],
+        "fr": [
+          "chef-d-equipe-genie-civil-en-cdi-h-f-d-adecco-martigny-43f78162"
         ]
       },
       "firstSeenAt": "2026-10-31T22:00:02.073Z",
@@ -147999,7 +148187,7 @@
       "streetAddress": "Martigny",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "translationHoldSince": "2026-10-31T22:01:23.865Z"
+      "translationHoldReleasedAt": "2026-11-08T13:12:23.485Z"
     },
     {
       "id": "seco-jobroom-4405f530-c22f-4bc1-8eca-542a48cc96d6",
@@ -150488,7 +150676,7 @@
       "streetAddress": "Monthey",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "translationHoldSince": "2026-10-31T22:01:23.865Z"
+      "translationHoldReleasedAt": "2026-11-08T13:12:23.485Z"
     },
     {
       "id": "seco-jobroom-cd2be4b2-76ed-45f6-bee3-824e95806dbf",
@@ -150915,7 +151103,7 @@
         "it": "conseiller-ere-en-assurances-et-prevoyance-sans-experience-generali-sion-de2d5f91",
         "en": "insurance-and-pension-advisor-with-no-experience-generali-sion-de2d5f91",
         "de": "conseiller-ere-en-assurances-et-prevoyance-sans-experience-generali-sion-de2d5f91",
-        "fr": "conseiller-ere-en-assurances-et-prevoyance-sans-experience-generali-sion-de2d5f91"
+        "fr": "conseiller-ere-enseasons-et-e-sans-generali-sion-de2d5f91"
       },
       "slugDisambiguator": "de2d5f91",
       "company": "Generali",
@@ -150978,7 +151166,7 @@
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "translationHoldSince": "2026-10-31T22:01:23.865Z"
+      "translationHoldReleasedAt": "2026-11-08T13:12:23.485Z"
     },
     {
       "id": "seco-jobroom-df1236ae-6bbc-4494-82c4-98588a2fbfcf",
@@ -153147,7 +153335,7 @@
         "it": "atsso-o-infermiere-a-con-ste1-dal-40-al-60-centre-de-l-oeil-romand-ono-sa-succursale-clinique-de-l-oeil-ono-3c89af97",
         "en": "atsso-or-nurse-with-ste1-40-to-60-centre-de-l-oeil-romand-ono-sa-succursale-clinique-de-l-oeil-ono-valais-sion-3c89af97",
         "de": "atsso-ou-infirmier-ere-avec-ste1-40-a-60-centre-de-l-oeil-romand-ono-sa-3c89af97",
-        "fr": "atsso-ou-infirmier-ere-avec-ste1-40-a-60-centre-de-l-oeil-romand-ono-sa-3c89af97"
+        "fr": "atsso-ou-dans-l-entreprise-ste1-40-de-60-centre-de-l-oeil-romand-ono-sa-succursale-clinique-de-l-oeil-ono-3c89af97"
       },
       "slugDisambiguator": "3c89af97",
       "company": "Centre de l'Oeil Romand OnO SA - Succursale Clinique de l'Oeil OnO Valais",
@@ -153203,6 +153391,9 @@
         ],
         "en": [
           "atsso-ou-infirmier-ere-avec-ste1-40-a-60-centre-de-l-oeil-romand-ono-sa-3c89af97"
+        ],
+        "fr": [
+          "atsso-ou-infirmier-ere-avec-ste1-40-a-60-centre-de-l-oeil-romand-ono-sa-3c89af97"
         ]
       },
       "firstSeenAt": "2026-10-31T22:00:02.073Z",
@@ -153221,7 +153412,7 @@
       },
       "streetAddressSource": "listing-source",
       "validThroughSource": "source",
-      "translationHoldSince": "2026-10-31T22:01:23.865Z"
+      "translationHoldReleasedAt": "2026-11-08T13:12:23.485Z"
     },
     {
       "id": "seco-jobroom-419b5188-050d-4695-b466-027e1e6a5efd",
@@ -154315,9 +154506,9 @@
     },
     {
       "id": "seco-jobroom-8c4cf160-4506-427f-9593-8510bf8b0f88",
-      "slug": "aiuto-cuoco-fondazione-monte-verita-ascona-8c4cf160",
+      "slug": "ato-cuoco-fondazione-monte-verita-ascona-8c4cf160",
       "slugByLocale": {
-        "it": "aiuto-cuoco-fondazione-monte-verita-ascona-8c4cf160",
+        "it": "ato-cuoco-fondazione-monte-verita-ascona-8c4cf160",
         "en": "kitchen-assistant-fondazione-monte-verita-ascona-8c4cf160",
         "de": "aiuto-cuoco-fondazione-monte-verita-ascona-8c4cf160",
         "fr": "aide-cuisinier-fondazione-monte-verita-ascona-8c4cf160"
@@ -154383,7 +154574,15 @@
       },
       "streetAddressSource": "listing-source",
       "validThroughSource": "source",
-      "translationHoldSince": "2026-10-31T22:01:23.865Z"
+      "translationHoldReleasedAt": "2026-11-08T13:12:23.485Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "aiuto-cuoco-fondazione-monte-verita-ascona-8c4cf160"
+        ]
+      },
+      "previousSlugs": [
+        "aiuto-cuoco-fondazione-monte-verita-ascona-8c4cf160"
+      ]
     },
     {
       "id": "seco-jobroom-8c79f1ef-508b-4e64-a120-08784510a932",
@@ -155770,9 +155969,9 @@
     },
     {
       "id": "seco-jobroom-bd36c146-ead9-480a-823e-b10a811237a4",
-      "slug": "polimeccanico-u-d-100-adecco-bellinzona-bd36c146",
+      "slug": "polimecca-nico-u-d-100-adecco-bellinzona-bd36c146",
       "slugByLocale": {
-        "it": "polimeccanico-u-d-100-adecco-bellinzona-bd36c146",
+        "it": "polimecca-nico-u-d-100-adecco-bellinzona-bd36c146",
         "en": "polymechanic-u-d-100-adecco-bellinzona-bd36c146",
         "de": "polimeccanico-u-d-100-adecco-bellinzona-bd36c146",
         "fr": "polymecanicien-ne-u-d-100-adecco-bellinzona-bd36c146"
@@ -155838,7 +156037,15 @@
       "streetAddress": "Bellinzona",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "translationHoldSince": "2026-10-31T22:01:23.865Z"
+      "translationHoldReleasedAt": "2026-11-08T13:12:23.485Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "polimeccanico-u-d-100-adecco-bellinzona-bd36c146"
+        ]
+      },
+      "previousSlugs": [
+        "polimeccanico-u-d-100-adecco-bellinzona-bd36c146"
+      ]
     },
     {
       "id": "seco-jobroom-c7670716-91a8-4f1c-895a-9716e3dbc030",
@@ -159497,9 +159704,9 @@
     },
     {
       "id": "seco-jobroom-1ec5fa70-2819-441c-92a9-7d420220e432",
-      "slug": "perito-meccanico-adecco-mendrisio-1ec5fa70",
+      "slug": "perito-mecca-nico-adecco-mendrisio-1ec5fa70",
       "slugByLocale": {
-        "it": "perito-meccanico-adecco-mendrisio-1ec5fa70",
+        "it": "perito-mecca-nico-adecco-mendrisio-1ec5fa70",
         "en": "mechanical-technician-adecco-mendrisio-1ec5fa70",
         "de": "perito-meccanico-adecco-mendrisio-1ec5fa70",
         "fr": "technicien-en-mecanique-adecco-mendrisio-1ec5fa70"
@@ -159565,7 +159772,15 @@
       "streetAddress": "Mendrisio",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "translationHoldSince": "2026-10-31T22:01:23.865Z"
+      "translationHoldReleasedAt": "2026-11-08T13:12:23.485Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "perito-meccanico-adecco-mendrisio-1ec5fa70"
+        ]
+      },
+      "previousSlugs": [
+        "perito-meccanico-adecco-mendrisio-1ec5fa70"
+      ]
     },
     {
       "id": "seco-jobroom-1ece437b-ceb5-4ba7-a677-7366de25f993",
@@ -160754,9 +160969,9 @@
     },
     {
       "id": "seco-jobroom-2af2b409-0a91-4f59-9dbe-217da342a941",
-      "slug": "piastrellista-adecco-riddes-2af2b409",
+      "slug": "passeriera-adecco-riddes-2af2b409",
       "slugByLocale": {
-        "it": "piastrellista-adecco-riddes-2af2b409",
+        "it": "passeriera-adecco-riddes-2af2b409",
         "en": "tiler-adecco-riddes-2af2b409",
         "de": "piastrellista-adecco-riddes-2af2b409",
         "fr": "carreleur-adecco-riddes-2af2b409"
@@ -160822,7 +161037,15 @@
       "streetAddress": "Riddes",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "translationHoldSince": "2026-11-01T09:50:34.490Z"
+      "translationHoldReleasedAt": "2026-11-08T13:12:23.485Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "piastrellista-adecco-riddes-2af2b409"
+        ]
+      },
+      "previousSlugs": [
+        "piastrellista-adecco-riddes-2af2b409"
+      ]
     },
     {
       "id": "seco-jobroom-2afcfb57-dfca-4046-88ac-442283946d9d",
@@ -161226,9 +161449,9 @@
     },
     {
       "id": "seco-jobroom-2df98c4f-d50c-44cd-be8a-08030ea8636e",
-      "slug": "piastrellista-adecco-verbier-2df98c4f",
+      "slug": "passeriera-adecco-verbier-2df98c4f",
       "slugByLocale": {
-        "it": "piastrellista-adecco-verbier-2df98c4f",
+        "it": "passeriera-adecco-verbier-2df98c4f",
         "en": "tiler-adecco-verbier-2df98c4f",
         "de": "piastrellista-adecco-verbier-2df98c4f",
         "fr": "carreleur-adecco-verbier-2df98c4f"
@@ -161294,14 +161517,22 @@
       "streetAddress": "Verbier",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "translationHoldSince": "2026-10-31T22:01:23.865Z"
+      "translationHoldReleasedAt": "2026-11-08T13:12:23.485Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "piastrellista-adecco-verbier-2df98c4f"
+        ]
+      },
+      "previousSlugs": [
+        "piastrellista-adecco-verbier-2df98c4f"
+      ]
     },
     {
       "id": "seco-jobroom-2e3cf5eb-96f6-44c0-9319-9c015f4adefa",
       "slug": "sottocuoco-luftseilbahn-leukerbad-gemmipass-ag-leukerbad-2e3cf5eb",
       "slugByLocale": {
         "it": "sottocuoco-luftseilbahn-leukerbad-gemmipass-ag-leukerbad-2e3cf5eb",
-        "en": "sous-chef-luftseilbahn-leukerbad-gemmipass-ag-leukerbad-2e3cf5eb",
+        "en": "sous-chief-luftseilbahn-leukerbad-gemmipass-ag-leukerbad-2e3cf5eb",
         "de": "sous-chef-luftseilbahn-leukerbad-gemmipass-ag-leukerbad-2e3cf5eb",
         "fr": "sous-chef-luftseilbahn-leukerbad-gemmipass-ag-leukerbad-2e3cf5eb"
       },
@@ -161355,6 +161586,9 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "sous-chef-luftseilbahn-leukerbad-gemmipass-ag-leukerbad-2e3cf5eb"
+        ],
+        "en": [
           "sous-chef-luftseilbahn-leukerbad-gemmipass-ag-leukerbad-2e3cf5eb"
         ]
       },
@@ -162181,9 +162415,9 @@
     },
     {
       "id": "seco-jobroom-348e1e8c-8f24-43f1-babb-b570c35c0542",
-      "slug": "piastrellista-adecco-le-chable-348e1e8c",
+      "slug": "passeriera-adecco-le-chable-348e1e8c",
       "slugByLocale": {
-        "it": "piastrellista-adecco-le-chable-348e1e8c",
+        "it": "passeriera-adecco-le-chable-348e1e8c",
         "en": "tiler-adecco-le-chable-348e1e8c",
         "de": "piastrellista-adecco-le-chable-348e1e8c",
         "fr": "carreleur-adecco-le-chable-348e1e8c"
@@ -162249,7 +162483,15 @@
       "streetAddress": "Le Châble",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "translationHoldSince": "2026-10-31T22:01:23.865Z"
+      "translationHoldReleasedAt": "2026-11-08T13:12:23.485Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "piastrellista-adecco-le-chable-348e1e8c"
+        ]
+      },
+      "previousSlugs": [
+        "piastrellista-adecco-le-chable-348e1e8c"
+      ]
     },
     {
       "id": "seco-jobroom-351c2c3e-80b8-4c6b-86b0-4d1ccd0ff83c",
@@ -162696,7 +162938,7 @@
         "it": "chef-d-equipe-batiment-h-f-adecco-fully-3984e372",
         "en": "chef-d-equipe-batiment-h-f-adecco-fully-3984e372",
         "de": "chef-d-equipe-batiment-h-f-adecco-fully-3984e372",
-        "fr": "chef-d-equipe-batiment-h-f-adecco-fully-3984e372"
+        "fr": "chef-du-bureau-du-bureau-de-la-cour-de-justice-h-f-adecco-fully-3984e372"
       },
       "slugDisambiguator": "3984e372",
       "company": "Adecco",
@@ -162759,7 +163001,7 @@
       "streetAddress": "Fully",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "translationHoldSince": "2026-10-31T22:01:23.865Z"
+      "translationHoldReleasedAt": "2026-11-08T13:12:23.485Z"
     },
     {
       "id": "seco-jobroom-39f3a9c8-07ab-4567-85c1-7a385790ae68",
@@ -163231,7 +163473,7 @@
       "streetAddress": "Martigny",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "translationHoldSince": "2026-10-31T22:01:23.865Z"
+      "translationHoldReleasedAt": "2026-11-08T13:12:23.485Z"
     },
     {
       "id": "seco-jobroom-3e13c094-9de5-4b6a-b364-96bc07001ef3",
@@ -164973,7 +165215,7 @@
         "it": "dessinateur-gc-specialisation-en-structures-100-cdi-h-f-d-adecco-martigny-55112fbb",
         "en": "dessinateur-gc-specialisation-en-structures-100-cdi-h-f-d-adecco-martigny-55112fbb",
         "de": "dessinateur-gc-specialisation-en-structures-100-cdi-h-f-d-adecco-martigny-55112fbb",
-        "fr": "dessinateur-gc-specialisation-en-structures-100-cdi-h-f-d-adecco-martigny-55112fbb"
+        "fr": "d-c-s-100-cdi-h-f-d-adecco-martigny-55112fbb"
       },
       "slugDisambiguator": "55112fbb",
       "company": "Adecco",
@@ -164985,7 +165227,7 @@
         "it": "Dessinateur GC spécialisation en structures 100% CDI (f/m/d)",
         "en": "Dessinateur GC spécialisation en structures 100% CDI (M/F/D)",
         "de": "Dessinateur GC spécialisation en structures 100% CDI (H/F/D)",
-        "fr": "Dessinateur GC spécialisation en structures 100% CDI (H/F/D)"
+        "fr": "D.C.S. 100 % CDI (H/F/D)"
       },
       "description": "Vous souhaitez évoluer dans un environnement stimulant où vos compétences feront la différence ? Si vous êtes créatif, précis et passionné par les structures, n'attendez plus pour postuler !\n\n**Dessinateur GC spécialisation en structures 100% CDI (H/F/D)**\n\n**Responsabilités**\n\n* Participer aux relevés et mesures sur le terrain si nécessaire\n* Mettre à jour et gérer la documentation technique selon l-évolution des projets\n* Proposer des améliorations techniques ou graphiques pour optimiser les projets\n* Garantir la qualité, la précision et le respect des délais dans l-élaboration des plans\n* Assurer la conformité des plans avec les normes, réglementations et standards en vigueur\n* Établir des plans, schémas et détails techniques pour des projets de structures (béton, acier, bois, etc.)\n* Collaborer avec les ingénieurs et chefs de projet afin de développer des solutions adaptées et optimisées\n\n**Profil**\n\n* CFC dessinateur génie civil, le diplôme fédéral de directeur des travaux représente un atout\n* Au minimum 3 ans d'expérience dans le domaine des structures\n* Maîtrise des logiciels Autocad et Bacad\n* Connaissance des normes et réglementations en vigueur dans le domaine du génie civil\n* Capacité à travailler de manière autonome tout en collaborant efficacement en équipe\n* Esprit d-analyse, rigueur et précision dans le travail\n* Sens de l-organisation et respect des délais\n\n**Bénéfices**\n\n* Des conditions salariales attractives, calculées en fonction de vos compétences et expériences\n* Un environnement de travail moderne, collaboratif et stimulant\n* Participation à des projets variés, techniques et d-envergure\n* Entrée en fonction : à convenir\n\n**Informations de contact**\n\nVeuillez postuler directement en ligne.\n\nSi vous avez d'autres questions concernant cette offre d'emploi (référence: JN -082025-834277), veuillez contacter Madame Hend Al Mass au.\n\n**À propos de nous**\n\nAdecco Valais Permanent est votre agence spécialisée dans la recherche et le placement de personnel fixe pour la région du Valais francophone et du Chablais vaudois. Grâce à notre expertise approfondie du marché local de l'emploi, nous nous engageons à vous fournir un service de qualité en mettant en relation les entreprises à la recherche de talents avec des candidats qualifiés et motivés.",
       "descriptionByLocale": {
@@ -165019,7 +165261,6 @@
       "validThrough": "2026-12-11T00:00:00.000Z",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
       "firstSeenAt": "2026-10-31T22:00:02.073Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -165037,7 +165278,7 @@
       "streetAddress": "Martigny",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "translationHoldSince": "2026-10-31T22:01:23.865Z"
+      "translationHoldReleasedAt": "2026-11-08T13:12:23.485Z"
     },
     {
       "id": "seco-jobroom-552fe6d0-9a19-41bb-9ed1-0ef62f70d7c4",
@@ -166393,7 +166634,7 @@
         "it": "amenagiste-100-cdi-h-f-d-adecco-sion-6084cad1",
         "en": "amenagiste-100-cdi-h-f-d-adecco-sion-6084cad1",
         "de": "amenagiste-100-cdi-h-f-d-adecco-sion-6084cad1",
-        "fr": "amenagiste-100-cdi-h-f-d-adecco-sion-6084cad1"
+        "fr": "au-cn2-100-3-xqz-h-f-d-adecco-sion-6084cad1"
       },
       "slugDisambiguator": "6084cad1",
       "company": "Adecco",
@@ -166456,7 +166697,7 @@
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "translationHoldSince": "2026-10-31T22:01:23.865Z"
+      "translationHoldReleasedAt": "2026-11-08T13:12:23.485Z"
     },
     {
       "id": "seco-jobroom-618d38ff-3ae0-4d16-a5fd-c896a24353c2",
@@ -166838,9 +167079,9 @@
     },
     {
       "id": "seco-jobroom-6800a1f5-89d1-4757-8899-753e28cfde50",
-      "slug": "tecnico-collaudatore-adecco-cadro-6800a1f5",
+      "slug": "tec-nico-collaudatore-adecco-cadro-6800a1f5",
       "slugByLocale": {
-        "it": "tecnico-collaudatore-adecco-cadro-6800a1f5",
+        "it": "tec-nico-collaudatore-adecco-cadro-6800a1f5",
         "en": "technician-collaudatore-adecco-cadro-6800a1f5",
         "de": "tecnico-collaudatore-adecco-cadro-6800a1f5",
         "fr": "technicien-collaudatore-adecco-cadro-6800a1f5"
@@ -166906,7 +167147,15 @@
       "streetAddress": "Cadro",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "translationHoldSince": "2026-10-31T22:01:23.865Z"
+      "translationHoldReleasedAt": "2026-11-08T13:12:23.485Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "tecnico-collaudatore-adecco-cadro-6800a1f5"
+        ]
+      },
+      "previousSlugs": [
+        "tecnico-collaudatore-adecco-cadro-6800a1f5"
+      ]
     },
     {
       "id": "seco-jobroom-68e4c9bd-4a81-4f7d-8fd7-bd029b84ceba",
@@ -169315,9 +169564,9 @@
     },
     {
       "id": "seco-jobroom-86c28762-b733-4efa-aac9-1d9b4bc1b9a9",
-      "slug": "piastrellista-adecco-martigny-86c28762",
+      "slug": "passeriera-adecco-martigny-86c28762",
       "slugByLocale": {
-        "it": "piastrellista-adecco-martigny-86c28762",
+        "it": "passeriera-adecco-martigny-86c28762",
         "en": "tiler-adecco-martigny-86c28762",
         "de": "piastrellista-adecco-martigny-86c28762",
         "fr": "carreleur-adecco-martigny-86c28762"
@@ -169383,7 +169632,15 @@
       "streetAddress": "Martigny",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "translationHoldSince": "2026-10-31T22:01:23.865Z"
+      "translationHoldReleasedAt": "2026-11-08T13:12:23.485Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "piastrellista-adecco-martigny-86c28762"
+        ]
+      },
+      "previousSlugs": [
+        "piastrellista-adecco-martigny-86c28762"
+      ]
     },
     {
       "id": "seco-jobroom-86e24da3-78c7-4052-8bf4-b52344595d51",
@@ -169782,7 +170039,7 @@
         "it": "dessinateur-en-construction-metallique-80-100-cdi-h-f-d-adecco-martigny-8cb0433b",
         "en": "dessinateur-en-construction-metallique-80-100-cdi-h-f-d-adecco-martigny-8cb0433b",
         "de": "dessinateur-en-construction-metallique-80-100-cdi-h-f-d-adecco-martigny-8cb0433b",
-        "fr": "dessinateur-en-construction-metallique-80-100-cdi-h-f-d-adecco-martigny-8cb0433b"
+        "fr": "draconiseur-en-construction-e-liquide-80-100-cdi-h-f-d-adecco-martigny-8cb0433b"
       },
       "slugDisambiguator": "8cb0433b",
       "company": "Adecco",
@@ -169794,7 +170051,7 @@
         "it": "Dessinateur en construction métallique 80-100% CDI (f/m/d)",
         "en": "Dessinateur en construction métallique 80-100% CDI (M/F/D)",
         "de": "Dessinateur en construction métallique 80-100% CDI (H/F/D)",
-        "fr": "Dessinateur en construction métallique 80-100% CDI (H/F/D)"
+        "fr": "Draconiseur en construction è liquide 80- 100% CDI (H/F/D)"
       },
       "description": "Si vous êtes passionné par le dessin technique, la construction métallique et la gestion de projets, alors n'attendez pas pour postuler ! Pour le compte de l'un de nos clients, nous recherchons un\n\n**Dessinateur en construction métallique 80-100% CDI (H/F/D)**\n\n**Responsabilités**\n\n* Élaborer les plans d'exécution et de détails\n* Réaliser les dessins techniques à l'aide des logiciels spécialisés\n* Préparer les dossiers techniques nécessaires à la production\n* Assurer le suivi des modifications et mises à jour des plans\n* Collaborer étroitement avec les ateliers et les équipes de montage\n* Participer à l'optimisation des solutions techniques\n* Garantir le respect des normes et exigences du projet\n\n**Profil**\n\n* CFC de dessinateur en construction métallique ou formation équivalente\n* Posséder une expérience confirmée dans une fonction similaire\n* Maîtriser la lecture et l'élaboration de plans techniques\n* Avoir de bonnes connaissances des logiciels usuels et de dessin\n* Maîtriser le français à l'oral et à l'écrit, une autre langue représente un atout\n* Faire preuve de précision, d'autonomie et d'esprit d'équipe\n\n**Bénéfices**\n\n* Une rémunération en adéquation avec vos compétences et votre expérience\n* Un environnement de travail moderne et dynamique\n* Des projets variés et stimulants au sein d'une équipe engagée\n* Entrée en fonction : à convenir\n\n**Informations de contact**\n\nVeuillez postuler directement en ligne. Confidentialité garantie.\n\nSi vous avez d'autres questions concernant cette offre d'emploi (référence: JN -092026-1174387), veuillez contacter Madame Hend Al Mass au.\n\n**À propos de nous**\n\nAdecco Valais Permanent est votre agence spécialisée dans la recherche et le placement de personnel fixe pour la région du Valais francophone et du Chablais vaudois. Grâce à notre expertise approfondie du marché local de l'emploi, nous nous engageons à vous fournir un service de qualité en mettant en relation les entreprises à la recherche de talents avec des candidats qualifiés et motivés.",
       "descriptionByLocale": {
@@ -169828,7 +170085,6 @@
       "validThrough": "2026-12-11T00:00:00.000Z",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
       "firstSeenAt": "2026-10-31T22:00:02.073Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -169846,7 +170102,7 @@
       "streetAddress": "Martigny",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "translationHoldSince": "2026-10-31T22:01:23.865Z"
+      "translationHoldReleasedAt": "2026-11-08T13:12:23.485Z"
     },
     {
       "id": "seco-jobroom-8dc4d051-5389-4d6f-a39f-157bdf31e985",
@@ -169855,7 +170111,7 @@
         "it": "chef-d-equipe-batiment-h-f-adecco-riddes-8dc4d051",
         "en": "chef-d-equipe-batiment-h-f-adecco-riddes-8dc4d051",
         "de": "chef-d-equipe-batiment-h-f-adecco-riddes-8dc4d051",
-        "fr": "chef-d-equipe-batiment-h-f-adecco-riddes-8dc4d051"
+        "fr": "chef-du-bureau-du-bureau-de-la-cour-de-justice-h-f-adecco-riddes-8dc4d051"
       },
       "slugDisambiguator": "8dc4d051",
       "company": "Adecco",
@@ -169918,13 +170174,13 @@
       "streetAddress": "Riddes",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "translationHoldSince": "2026-10-31T22:01:23.865Z"
+      "translationHoldReleasedAt": "2026-11-08T13:12:23.485Z"
     },
     {
       "id": "seco-jobroom-8ddbf624-1d51-42d9-a93a-50bb35759b40",
-      "slug": "carrozziere-afc-adecco-locarno-8ddbf624",
+      "slug": "carrozzieri-afc-adecco-locarno-8ddbf624",
       "slugByLocale": {
-        "it": "carrozziere-afc-adecco-locarno-8ddbf624",
+        "it": "carrozzieri-afc-adecco-locarno-8ddbf624",
         "en": "automotive-body-repair-technician-afc-adecco-locarno-8ddbf624",
         "de": "carrozziere-afc-adecco-locarno-8ddbf624",
         "fr": "carrozzare-afc-adecco-locarno-8ddbf624"
@@ -169936,7 +170192,7 @@
       "employerDisclosed": true,
       "title": "Carrozziere AFC",
       "titleByLocale": {
-        "it": "Carrozziere AFC",
+        "it": "Carrozzieri AFC",
         "en": "Automotive body repair technician AFC",
         "de": "Carrozziere AFC",
         "fr": "Carrozzare AFC"
@@ -169973,7 +170229,6 @@
       "validThrough": "2026-12-11T00:00:00.000Z",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
       "firstSeenAt": "2026-11-01T09:48:57.070Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -169991,13 +170246,21 @@
       "streetAddress": "Locarno",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "translationHoldSince": "2026-11-01T09:50:34.490Z"
+      "translationHoldReleasedAt": "2026-11-08T13:12:23.485Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "carrozziere-afc-adecco-locarno-8ddbf624"
+        ]
+      },
+      "previousSlugs": [
+        "carrozziere-afc-adecco-locarno-8ddbf624"
+      ]
     },
     {
       "id": "seco-jobroom-8e902b13-026a-4961-b626-676ddcb67708",
-      "slug": "pittore-imbianchino-afc-adecco-locarno-8e902b13",
+      "slug": "nella-afc-brianchino-adecco-locarno-8e902b13",
       "slugByLocale": {
-        "it": "pittore-imbianchino-afc-adecco-locarno-8e902b13",
+        "it": "nella-afc-brianchino-adecco-locarno-8e902b13",
         "en": "painter-house-painter-afc-adecco-locarno-8e902b13",
         "de": "pittore-imbianchino-afc-adecco-locarno-8e902b13",
         "fr": "peintre-peintre-en-batiment-afc-adecco-locarno-8e902b13"
@@ -170063,7 +170326,15 @@
       "streetAddress": "Locarno",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "translationHoldSince": "2026-10-31T22:01:23.865Z"
+      "translationHoldReleasedAt": "2026-11-08T13:12:23.485Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "pittore-imbianchino-afc-adecco-locarno-8e902b13"
+        ]
+      },
+      "previousSlugs": [
+        "pittore-imbianchino-afc-adecco-locarno-8e902b13"
+      ]
     },
     {
       "id": "seco-jobroom-8f1d33b3-d39a-4b29-bfe2-27b32da35183",
@@ -171724,9 +171995,9 @@
     },
     {
       "id": "seco-jobroom-a37ae86c-3998-406b-8590-028a92fde233",
-      "slug": "piastrellista-adecco-orsieres-a37ae86c",
+      "slug": "passeriera-adecco-orsieres-a37ae86c",
       "slugByLocale": {
-        "it": "piastrellista-adecco-orsieres-a37ae86c",
+        "it": "passeriera-adecco-orsieres-a37ae86c",
         "en": "tiler-adecco-orsieres-a37ae86c",
         "de": "piastrellista-adecco-orsieres-a37ae86c",
         "fr": "carreleur-adecco-orsieres-a37ae86c"
@@ -171792,7 +172063,15 @@
       "streetAddress": "Orsières",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "translationHoldSince": "2026-10-31T22:01:23.865Z"
+      "translationHoldReleasedAt": "2026-11-08T13:12:23.485Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "piastrellista-adecco-orsieres-a37ae86c"
+        ]
+      },
+      "previousSlugs": [
+        "piastrellista-adecco-orsieres-a37ae86c"
+      ]
     },
     {
       "id": "seco-jobroom-a565abf8-5fa6-4601-9517-0e054340db4b",
@@ -172895,7 +173174,7 @@
         "it": "chef-d-equipe-batiment-h-f-adecco-le-chable-b0ec29b3",
         "en": "chef-d-equipe-batiment-h-f-adecco-le-chable-b0ec29b3",
         "de": "chef-d-equipe-batiment-h-f-adecco-le-chable-b0ec29b3",
-        "fr": "chef-d-equipe-batiment-h-f-adecco-le-chable-b0ec29b3"
+        "fr": "chef-du-bureau-du-bureau-de-la-cour-de-justice-h-f-adecco-le-chable-b0ec29b3"
       },
       "slugDisambiguator": "b0ec29b3",
       "company": "Adecco",
@@ -172958,7 +173237,7 @@
       "streetAddress": "Le Châble",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "translationHoldSince": "2026-10-31T22:01:23.865Z"
+      "translationHoldReleasedAt": "2026-11-08T13:12:23.485Z"
     },
     {
       "id": "seco-jobroom-b23ac159-68d7-4a88-bdba-da7405e6a1b2",
@@ -172967,7 +173246,7 @@
         "it": "plaquiste-h-f-adecco-martigny-b23ac159",
         "en": "plaquiste-h-f-adecco-martigny-b23ac159",
         "de": "plaquiste-h-f-adecco-martigny-b23ac159",
-        "fr": "plaquiste-h-f-adecco-martigny-b23ac159"
+        "fr": "plaquit-h-f-adecco-martigny-b23ac159"
       },
       "slugDisambiguator": "b23ac159",
       "company": "Adecco",
@@ -172979,7 +173258,7 @@
         "it": "Plaquiste (M/F)",
         "en": "Plaquiste (M/F)",
         "de": "Plaquiste (H/F)",
-        "fr": "Plaquiste (H/F)"
+        "fr": "Plaquit (H/F)"
       },
       "description": "Nous recherchons pour le compte d'une entreprise active dans la plâtrerie-peinture à Martigny, un Plaquiste (H/F) motivé, autonome et prêt à rejoindre une équipe dynamique.\n\n**Responsabilités**\n\n* Montage et pose de cloisons en placoplâtre (placo)\n* Travaux d-isolation et d-aménagement intérieur\n* Pose de faux-plafonds\n* Lecture de plans et prises de mesures\n* Finitions, joints, enduisage et lissage\n* Respect des normes de sécurité sur chantier\n\n**Profil**\n\n* Expérience confirmée en tant que plaquiste/platrier (min. 2 ans)\n* Bonne maîtrise des techniques de pose et de finitions\n* Capacité à travailler de manière autonome et en équipe\n* Sens du détail et du travail bien fait\n* Permis de conduire et véhicule : un atout\n* Disponibilité immédiate ou rapide\n\n**Bénéfices**\n\n* Une mission au sein d-une société reconnue en Valais\n* Un environnement de travail professionnel et dynamique\n* Des projets variés sur la région de Martigny\n\n**Informations de contact**\n\nSi tu as d'autres questions concernant cette offre d'emploi (référence: JN -112025-883273), contacte Helder Mauricio par courriel à\n\n**À propos de nous**\n\nAdecco est le leader du marché des solutions en matière de personnel en Suisse et dans le monde. Chaque jour, nos équipes présentes sur une cinquantaine de sites dans toute la Suisse assurent la meilleure compatibilité entre les candidats et les clients dans différents domaines professionnels et secteurs. Adecco Suisse est une société du Groupe Adecco, n° 1 mondial du domaine des ressources humaines. Nous aspirons à faciliter l-insertion professionnelle de chacun et employons tous les jours plus de 3,5 millions de personnes. Nous recrutons, développons et formons des talents dans 60 pays, et nous aidons les entreprises à façonner l-avenir du travail.",
       "descriptionByLocale": {
@@ -173013,7 +173292,6 @@
       "validThrough": "2026-12-11T00:00:00.000Z",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
       "firstSeenAt": "2026-10-31T22:00:02.073Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -173031,7 +173309,7 @@
       "streetAddress": "Martigny",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "translationHoldSince": "2026-10-31T22:01:23.865Z"
+      "translationHoldReleasedAt": "2026-11-08T13:12:23.485Z"
     },
     {
       "id": "seco-jobroom-b2be195a-a8c7-4432-bb06-795d62feaeeb",
@@ -173192,9 +173470,9 @@
     },
     {
       "id": "seco-jobroom-b3eee265-581e-465b-8bb1-88b53cd42c76",
-      "slug": "piastrellista-adecco-vernayaz-b3eee265",
+      "slug": "passeriera-adecco-vernayaz-b3eee265",
       "slugByLocale": {
-        "it": "piastrellista-adecco-vernayaz-b3eee265",
+        "it": "passeriera-adecco-vernayaz-b3eee265",
         "en": "tiler-adecco-vernayaz-b3eee265",
         "de": "piastrellista-adecco-vernayaz-b3eee265",
         "fr": "carreleur-adecco-vernayaz-b3eee265"
@@ -173260,7 +173538,15 @@
       "streetAddress": "Vernayaz",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "translationHoldSince": "2026-10-31T22:01:23.865Z"
+      "translationHoldReleasedAt": "2026-11-08T13:12:23.485Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "piastrellista-adecco-vernayaz-b3eee265"
+        ]
+      },
+      "previousSlugs": [
+        "piastrellista-adecco-vernayaz-b3eee265"
+      ]
     },
     {
       "id": "seco-jobroom-b4ed077d-6367-4d00-82ba-1b08ffba9768",
@@ -174676,7 +174962,7 @@
         "it": "agente-e-di-manutenzione-sanitaires-mobiles-m-f-80-100-adecco-martigny-cc1bf4ba",
         "en": "maintenance-agent-mobile-sanitary-facilities-m-f-80-100-adecco-martigny-cc1bf4ba",
         "de": "agent-e-de-maintenance-sanitaires-mobiles-h-f-80-100-adecco-martigny-cc1bf4ba",
-        "fr": "agent-e-de-maintenance-sanitaires-mobiles-h-f-80-100-adecco-martigny-cc1bf4ba"
+        "fr": "agent-s-de-instanti-sanitaires-mobile-h-f-80-100-adecco-martigny-cc1bf4ba"
       },
       "slugDisambiguator": "cc1bf4ba",
       "company": "Adecco",
@@ -174731,6 +175017,9 @@
         ],
         "en": [
           "agent-e-de-maintenance-sanitaires-mobiles-h-f-80-100-adecco-martigny-cc1bf4ba"
+        ],
+        "fr": [
+          "agent-e-de-maintenance-sanitaires-mobiles-h-f-80-100-adecco-martigny-cc1bf4ba"
         ]
       },
       "firstSeenAt": "2026-10-31T22:00:02.073Z",
@@ -174750,7 +175039,7 @@
       "streetAddress": "Martigny",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "translationHoldSince": "2026-10-31T22:01:23.865Z"
+      "translationHoldReleasedAt": "2026-11-08T13:12:23.485Z"
     },
     {
       "id": "seco-jobroom-cd194290-a905-4e0f-895d-acbe0a28430a",
@@ -175785,7 +176074,7 @@
         "it": "chef-d-equipe-batiment-h-f-adecco-vernayaz-d7b765c6",
         "en": "chef-d-equipe-batiment-h-f-adecco-vernayaz-d7b765c6",
         "de": "chef-d-equipe-batiment-h-f-adecco-vernayaz-d7b765c6",
-        "fr": "chef-d-equipe-batiment-h-f-adecco-vernayaz-d7b765c6"
+        "fr": "chef-du-bureau-du-bureau-de-la-cour-de-justice-h-f-adecco-vernayaz-d7b765c6"
       },
       "slugDisambiguator": "d7b765c6",
       "company": "Adecco",
@@ -175848,7 +176137,7 @@
       "streetAddress": "Vernayaz",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "translationHoldSince": "2026-10-31T22:01:23.865Z"
+      "translationHoldReleasedAt": "2026-11-08T13:12:23.485Z"
     },
     {
       "id": "seco-jobroom-d7deb76c-1966-4722-81c7-b52ce2d99b5c",
@@ -176629,7 +176918,7 @@
         "it": "chef-d-equipe-batiment-h-f-adecco-saxon-dccb5f77",
         "en": "chef-d-equipe-batiment-h-f-adecco-saxon-dccb5f77",
         "de": "chef-d-equipe-batiment-h-f-adecco-saxon-dccb5f77",
-        "fr": "chef-d-equipe-batiment-h-f-adecco-saxon-dccb5f77"
+        "fr": "chef-du-bureau-du-bureau-de-la-cour-de-justice-h-f-adecco-saxon-dccb5f77"
       },
       "slugDisambiguator": "dccb5f77",
       "company": "Adecco",
@@ -176692,7 +176981,7 @@
       "streetAddress": "Saxon",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "translationHoldSince": "2026-10-31T22:01:23.865Z"
+      "translationHoldReleasedAt": "2026-11-08T13:12:23.485Z"
     },
     {
       "id": "seco-jobroom-dd76e40d-50d0-40f2-9a10-b4091669ed05",
@@ -177712,9 +178001,9 @@
     },
     {
       "id": "seco-jobroom-e5f567e7-e322-4094-914b-a6b88bc3c6d7",
-      "slug": "operaio-a-generico-produzione-con-esperienza-adecco-locarno-e5f567e7",
+      "slug": "operaio-a-yeo-produzio-con-adecco-locarno-e5f567e7",
       "slugByLocale": {
-        "it": "operaio-a-generico-produzione-con-esperienza-adecco-locarno-e5f567e7",
+        "it": "operaio-a-yeo-produzio-con-adecco-locarno-e5f567e7",
         "en": "operaio-a-generico-produzione-con-esperienza-adecco-locarno-e5f567e7",
         "de": "operaio-a-generico-produzione-con-esperienza-adecco-locarno-e5f567e7",
         "fr": "operaio-a-generico-produzione-con-esperienza-adecco-locarno-e5f567e7"
@@ -177780,7 +178069,15 @@
       "streetAddress": "Locarno",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "translationHoldSince": "2026-10-31T22:01:23.865Z"
+      "translationHoldReleasedAt": "2026-11-08T13:12:23.485Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "operaio-a-generico-produzione-con-esperienza-adecco-locarno-e5f567e7"
+        ]
+      },
+      "previousSlugs": [
+        "operaio-a-generico-produzione-con-esperienza-adecco-locarno-e5f567e7"
+      ]
     },
     {
       "id": "seco-jobroom-e6bada64-c058-441b-b736-c5a43929e671",
@@ -178425,7 +178722,7 @@
         "it": "chef-d-equipe-batiment-h-f-adecco-orsieres-f2a81cd6",
         "en": "chef-d-equipe-batiment-h-f-adecco-orsieres-f2a81cd6",
         "de": "chef-d-equipe-batiment-h-f-adecco-orsieres-f2a81cd6",
-        "fr": "chef-d-equipe-batiment-h-f-adecco-orsieres-f2a81cd6"
+        "fr": "chef-du-bureau-du-bureau-de-la-cour-de-justice-h-f-adecco-orsieres-f2a81cd6"
       },
       "slugDisambiguator": "f2a81cd6",
       "company": "Adecco",
@@ -178488,7 +178785,7 @@
       "streetAddress": "Orsières",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "translationHoldSince": "2026-10-31T22:01:23.865Z"
+      "translationHoldReleasedAt": "2026-11-08T13:12:23.485Z"
     },
     {
       "id": "seco-jobroom-f3e84771-6a28-4e12-be35-0906e632c03c",
@@ -178814,7 +179111,7 @@
         "it": "conducteur-de-travaux-gc-et-enrobes-100-cdi-h-f-d-adecco-sion-f77c3ff9",
         "en": "conducteur-de-travaux-gc-et-enrobes-100-cdi-h-f-d-adecco-sion-f77c3ff9",
         "de": "conducteur-de-travaux-gc-et-enrobes-100-cdi-h-f-d-adecco-sion-f77c3ff9",
-        "fr": "conducteur-de-travaux-gc-et-enrobes-100-cdi-h-f-d-adecco-sion-f77c3ff9"
+        "fr": "le-conseil-des-ministres-des-communautes-europeennes-h-f-d-adecco-sion-f77c3ff9"
       },
       "slugDisambiguator": "f77c3ff9",
       "company": "Adecco",
@@ -178826,7 +179123,7 @@
         "it": "Conducteur de travaux GC et enrobés 100% CDI (f/m/d)",
         "en": "Conducteur de travaux GC et enrobés 100% CDI (M/F/D)",
         "de": "Conducteur de travaux GC et enrobés 100% CDI (H/F/D)",
-        "fr": "Conducteur de travaux GC et enrobés 100% CDI (H/F/D)"
+        "fr": "Le Conseil des ministres des Communautés européennes (H/F/D)"
       },
       "description": "Si vous avez l'esprit d'équipe, un excellent sens de l'organisation et une expertise technique dans le domaine des infrastructures et enrobés, ce poste est fait pour vous-!\n\nConducteur de travaux GC et enrobés 100% CDI (H/F/D)\n\n**Responsabilités**\n\n* Planifier et organiser les différentes étapes des travaux, depuis le lancement jusqu-à la réception du chantier\n* Assurer la préparation technique, humaine et matérielle des chantiers en coordonnant les équipes et les sous-traitants\n* Anticiper et résoudre les problèmes techniques ou organisationnels susceptibles de survenir sur le chantier\n* Élaborer et suivre les budgets alloués aux projets\n* Rédiger et valider les documents administratifs et techniques liés aux projets\n* Assurer un suivi rigoureux de la qualité des réalisations et procéder aux contrôles nécessaires\n\n**Profil**\n\n* Diplôme dans le domaine du génie civil\n* Expérience dans la conduite de travaux, dans le génie civil et enrobés\n* Excellente connaissance des normes Suisses\n* Solide expertise en gestion de projet\n* Bonne maîtrise des outils informatiques liés au métier\n* Aptitude à encadrer des équipes pluridisciplinaires et à anticiper les problèmes et à apporter des solutions concrètes et rapides\n\n**Bénéfices**\n\n* Salaire en adéquation avec votre expérience et vos compétences\n* Contribuer à des infrastructures durables et innovantes qui façonnent l-avenir\n* Opportunités de carrière dans un environnement stimulant et en pleine croissance\n* Collaboration avec des équipes expertes et passionnées dans une ambiance conviviale\n\n**Informations de contact**\n\nVeuillez postuler directement en ligne.\n\nSi vous avez d'autres questions concernant cette offre d'emploi (référence: JN -122024-683797), veuillez contacter Madame Hend Al Mass au.\n\n**À propos de nous**\n\nAdecco Valais Permanent est votre agence spécialisée dans la recherche et le placement de personnel fixe pour la région du Valais francophone et du Chablais vaudois. Grâce à notre expertise approfondie du marché local de l'emploi, nous nous engageons à vous fournir un service de qualité en mettant en relation les entreprises à la recherche de talents avec des candidats qualifiés et motivés.",
       "descriptionByLocale": {
@@ -178860,7 +179157,6 @@
       "validThrough": "2026-12-11T00:00:00.000Z",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
       "firstSeenAt": "2026-10-31T22:00:02.073Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -178878,7 +179174,7 @@
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "translationHoldSince": "2026-10-31T22:01:23.865Z"
+      "translationHoldReleasedAt": "2026-11-08T13:12:23.485Z"
     },
     {
       "id": "seco-jobroom-f806be74-eb84-45f4-8b2c-e3364a2aa6a8",
@@ -183293,7 +183589,7 @@
         "it": "ouvrier-agricole-experimente-yves-roduit-fully-8bf6ab05",
         "en": "experienced-agricultural-worker-yves-roduit-fully-8bf6ab05",
         "de": "ouvrier-agricole-experimente-yves-roduit-fully-8bf6ab05",
-        "fr": "ouvrier-agricole-experimente-yves-roduit-fully-8bf6ab05"
+        "fr": "le-college-agricole-yves-roduit-fully-8bf6ab05"
       },
       "slugDisambiguator": "8bf6ab05",
       "company": "Yves Roduit",
@@ -183356,7 +183652,7 @@
       },
       "streetAddressSource": "listing-source",
       "validThroughSource": "source",
-      "translationHoldSince": "2026-10-31T22:01:23.865Z"
+      "translationHoldReleasedAt": "2026-11-08T13:12:23.485Z"
     },
     {
       "id": "seco-jobroom-90bb246c-fb89-47ed-8487-a5749d73c2d3",
@@ -184902,7 +185198,7 @@
       "slugByLocale": {
         "it": "cuoco-peruviano-mrh-zermatt-sa-zermatt-36221d37",
         "en": "peruanischer-koch-mrh-zermatt-sa-zermatt-36221d37",
-        "de": "peruanischer-koch-mrh-zermatt-sa-zermatt-36221d37",
+        "de": "peruanische-koch-mrh-zermatt-sa-zermatt-36221d37",
         "fr": "perounischer-koch-mrh-zermatt-sa-zermatt-36221d37"
       },
       "slugDisambiguator": "36221d37",
@@ -184959,6 +185255,9 @@
         ],
         "fr": [
           "peruanischer-koch-mrh-zermatt-sa-zermatt-36221d37"
+        ],
+        "de": [
+          "peruanischer-koch-mrh-zermatt-sa-zermatt-36221d37"
         ]
       },
       "firstSeenAt": "2026-10-31T22:00:02.073Z",
@@ -184977,7 +185276,7 @@
       },
       "streetAddressSource": "listing-source",
       "validThroughSource": "source",
-      "translationHoldSince": "2026-10-31T22:01:23.865Z"
+      "translationHoldReleasedAt": "2026-11-08T13:12:23.485Z"
     },
     {
       "id": "seco-jobroom-a82e90de-3b70-4636-bb93-ad176584ab77",
@@ -187715,7 +188014,7 @@
       "slug": "sottocuoco-muvimaint-gmbh-celerina-schlarigna-081a72f8",
       "slugByLocale": {
         "it": "sottocuoco-muvimaint-gmbh-celerina-schlarigna-081a72f8",
-        "en": "sous-chef-muvimaint-gmbh-celerina-schlarigna-081a72f8",
+        "en": "sous-chief-muvimaint-gmbh-celerina-schlarigna-081a72f8",
         "de": "sous-chef-muvimaint-gmbh-celerina-schlarigna-081a72f8",
         "fr": "sous-chef-muvimaint-gmbh-celerina-schlarigna-081a72f8"
       },
@@ -187768,6 +188067,9 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "sous-chef-muvimaint-gmbh-celerina-schlarigna-081a72f8"
+        ],
+        "en": [
           "sous-chef-muvimaint-gmbh-celerina-schlarigna-081a72f8"
         ]
       },

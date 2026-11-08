@@ -443,6 +443,11 @@ export function handoffResolution(pr, { expectedHead = '', conflictClearedAfterO
       : { resolved: false, reason: 'conflict-clear-unproven', sameHeadMergeable: true };
   }
   if (verdict.reason !== 'origin-head-unverified') return verdict;
+  // Without the HEAD recorded in the hand-off body, a clean current PR cannot
+  // be identified as a moved HEAD.  Treating it as one would let a later
+  // `has-conflicts` event close a legacy/malformed hand-off on evidence that
+  // belongs to an unrelated conflict.
+  if (!String(expectedHead || '').trim()) return verdict;
   if (!String(pr?.headRefOid || '').trim()) return verdict;
   const labels = Array.isArray(pr?.labels)
     ? pr.labels.map((label) => (typeof label === 'string' ? label : label?.name))

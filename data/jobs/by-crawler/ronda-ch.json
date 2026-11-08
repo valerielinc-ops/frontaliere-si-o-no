@@ -5,12 +5,12 @@
   "jobs": [
     {
       "id": "ronda-ch-d7e476fc348e",
-      "slug": "apprendistato-come-kaufmann-frau-kv-cfc-ronda-ag-lausen",
+      "slug": "apprendistato-come-impiegato-a-di-commercio-tc-afc-ronda-ag-lausen-bl",
       "slugByLocale": {
         "de": "lehrstelle-als-kaufmann-frau-kv-efz-lausen-bl-ronda-ch-ch",
-        "it": "apprendistato-come-kaufmann-frau-kv-cfc-ronda-ag-lausen",
-        "en": "lehrstelle-als-kaufmann-frau-kv-efz-lausen-bl-ronda-ch-ch",
-        "fr": "lehrstelle-als-kaufmann-frau-kv-efz-lausen-bl-ronda-ch-ch"
+        "it": "apprendistato-come-impiegato-a-di-commercio-tc-afc-ronda-ag-lausen-bl",
+        "en": "apprenticeship-as-a-businessman-woman-kv-efz-ronda-ag-lausen-bl",
+        "fr": "apprentissage-d-employe-e-de-commerce-am-cfc-ronda-ag-lausen-bl"
       },
       "company": "Ronda AG",
       "companyKey": "ronda-ch",
@@ -59,11 +59,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "lehrstelle-als-kaufmann-frau-kv-efz-lausen-bl-ronda-ch-ch",
+          "apprendistato-come-kaufmann-frau-kv-cfc-ronda-ag-lausen"
+        ],
+        "en": [
+          "lehrstelle-als-kaufmann-frau-kv-efz-lausen-bl-ronda-ch-ch"
+        ],
+        "fr": [
           "lehrstelle-als-kaufmann-frau-kv-efz-lausen-bl-ronda-ch-ch"
         ]
       },
       "previousSlugs": [
-        "lehrstelle-als-kaufmann-frau-kv-efz-lausen-bl-ronda-ch-ch"
+        "lehrstelle-als-kaufmann-frau-kv-efz-lausen-bl-ronda-ch-ch",
+        "apprendistato-come-kaufmann-frau-kv-cfc-ronda-ag-lausen"
       ],
       "salaryMin": 52000,
       "salaryMax": 78500,
@@ -85,12 +93,12 @@
     },
     {
       "id": "ronda-ch-3fc4e5395037",
-      "slug": "apprendistato-come-produktionsmechaniker-in-cfc-ronda-ag-lausen",
+      "slug": "apprendistato-come-meccanico-a-di-produzione-afc-ronda-ag-lausen-bl",
       "slugByLocale": {
         "de": "lehrstelle-als-produktionsmechaniker-in-efz-lausen-bl-ronda-ch-ch",
-        "it": "apprendistato-come-produktionsmechaniker-in-cfc-ronda-ag-lausen",
-        "en": "lehrstelle-als-produktionsmechaniker-in-efz-lausen-bl-ronda-ch-ch",
-        "fr": "lehrstelle-als-produktionsmechaniker-in-efz-lausen-bl-ronda-ch-ch"
+        "it": "apprendistato-come-meccanico-a-di-produzione-afc-ronda-ag-lausen-bl",
+        "en": "apprenticeship-as-a-production-mechanic-efz-ronda-ag-lausen-bl",
+        "fr": "apprentissage-de-mecanicien-ne-de-production-cfc-ronda-ag-lausen-bl"
       },
       "company": "Ronda AG",
       "companyKey": "ronda-ch",
@@ -139,11 +147,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "lehrstelle-als-produktionsmechaniker-in-efz-lausen-bl-ronda-ch-ch",
+          "apprendistato-come-produktionsmechaniker-in-cfc-ronda-ag-lausen"
+        ],
+        "en": [
+          "lehrstelle-als-produktionsmechaniker-in-efz-lausen-bl-ronda-ch-ch"
+        ],
+        "fr": [
           "lehrstelle-als-produktionsmechaniker-in-efz-lausen-bl-ronda-ch-ch"
         ]
       },
       "previousSlugs": [
-        "lehrstelle-als-produktionsmechaniker-in-efz-lausen-bl-ronda-ch-ch"
+        "lehrstelle-als-produktionsmechaniker-in-efz-lausen-bl-ronda-ch-ch",
+        "apprendistato-come-produktionsmechaniker-in-cfc-ronda-ag-lausen"
       ],
       "salaryMin": 52000,
       "salaryMax": 78500,
@@ -165,12 +181,12 @@
     },
     {
       "id": "ronda-ch-975141958d7b",
-      "slug": "apprendistato-come-polymechaniker-in-cfc-ronda-ag-lausen",
+      "slug": "apprendistato-come-polimeccanico-a-afc-ronda-ag-lausen-bl",
       "slugByLocale": {
         "de": "lehrstelle-als-polymechaniker-in-efz-lausen-bl-ronda-ch-ch",
-        "it": "apprendistato-come-polymechaniker-in-cfc-ronda-ag-lausen",
-        "en": "lehrstelle-als-polymechaniker-in-efz-lausen-bl-ronda-ch-ch",
-        "fr": "lehrstelle-als-polymechaniker-in-efz-lausen-bl-ronda-ch-ch"
+        "it": "apprendistato-come-polimeccanico-a-afc-ronda-ag-lausen-bl",
+        "en": "apprenticeship-as-a-polymechanic-efz-ronda-ag-lausen-bl",
+        "fr": "place-d-apprentissage-de-polymecanicien-ne-cfc-ronda-ag-lausen-bl"
       },
       "company": "Ronda AG",
       "companyKey": "ronda-ch",
@@ -219,11 +235,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "lehrstelle-als-polymechaniker-in-efz-lausen-bl-ronda-ch-ch",
+          "apprendistato-come-polymechaniker-in-cfc-ronda-ag-lausen"
+        ],
+        "en": [
+          "lehrstelle-als-polymechaniker-in-efz-lausen-bl-ronda-ch-ch"
+        ],
+        "fr": [
           "lehrstelle-als-polymechaniker-in-efz-lausen-bl-ronda-ch-ch"
         ]
       },
       "previousSlugs": [
-        "lehrstelle-als-polymechaniker-in-efz-lausen-bl-ronda-ch-ch"
+        "lehrstelle-als-polymechaniker-in-efz-lausen-bl-ronda-ch-ch",
+        "apprendistato-come-polymechaniker-in-cfc-ronda-ag-lausen"
       ],
       "salaryMin": 52000,
       "salaryMax": 78500,

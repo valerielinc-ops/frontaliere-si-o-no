@@ -25,6 +25,7 @@ import {
   buildFuelItalianCityPath,
   buildFuelItalianStationPath,
   buildFuelStationPath,
+  buildFuelTodayPath,
   buildStationSlug,
   extractCityFromAddress,
   FUEL_DAILY_LOCALES,
@@ -676,6 +677,61 @@ describe('generateFuelStationPages() — sibling links', () => {
   it('page includes a related-links nav block', () => {
     const sample = pages['/prezzi-diesel/chiasso/stazioni/eni-via-compolongo/'];
     expect(sample).toMatch(htmlTagWithAttrs('nav', { id: 'seoRelatedLinks' }));
+  });
+
+  it('filters Swiss sibling links against the supplied post-gate inventory', () => {
+    const keptPath = buildFuelStationPath('it', 'diesel', 'chiasso', 'eni-via-compolongo');
+    const filteredPath = buildFuelStationPath('it', 'diesel', 'chiasso', 'bp-via-san-gottardo');
+    const gatedPages = generateFuelStationPages({
+      dataset: DATASET,
+      today,
+      emittedStationPaths: new Set([keptPath]),
+    });
+
+    expect(gatedPages[keptPath]).toContain(`href="${buildFuelTodayPath('it', 'diesel', 'chiasso')}"`);
+    expect(gatedPages[keptPath]).not.toContain(`href="${filteredPath}"`);
+    expect(gatedPages[keptPath]).not.toContain('/prezzi-diesel/chiasso/stazioni/chiasso-');
+  });
+
+  it('filters Italian city cards and station siblings against the same inventory', () => {
+    const keptPath = buildFuelItalianStationPath('it', 'benzina', 'como', 'eni-via-milano');
+    const filteredPath = buildFuelItalianStationPath('it', 'benzina', 'como', 'shell-via-bellinzona');
+    const emittedStationPaths = new Set([keptPath]);
+    const italianSiblingDataset = {
+      ...DATASET,
+      municipalities: [
+        ...DATASET.municipalities,
+        {
+          municipality: 'Como',
+          province: 'CO',
+          italy: {
+            cheapestStation: {
+              id: '5',
+              stationName: 'Eni Como',
+              brand: 'Eni',
+              address: 'Via Milano 10, 22100 Como',
+              priceEur: 1.739,
+            },
+          },
+        },
+      ],
+    };
+    const gatedStationPages = generateFuelItalianStationPages({
+      dataset: italianSiblingDataset,
+      today,
+      emittedStationPaths,
+    });
+    const gatedCityPages = generateFuelItalianCityPages({
+      dataset: italianSiblingDataset,
+      today,
+      emittedStationPaths,
+    });
+    const cityPath = buildFuelItalianCityPath('it', 'benzina', 'como');
+
+    expect(gatedStationPages[keptPath]).toBeDefined();
+    expect(gatedStationPages[keptPath]).not.toContain(`href="${filteredPath}"`);
+    expect(gatedCityPages[cityPath]).toContain(`href="${keptPath}"`);
+    expect(gatedCityPages[cityPath]).not.toContain(`href="${filteredPath}"`);
   });
 });
 

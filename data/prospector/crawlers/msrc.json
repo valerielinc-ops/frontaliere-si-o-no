@@ -1,0 +1,25 @@
+{
+  "companyKey": "msrc",
+  "companyName": "Marine Spill Response Corporation",
+  "companyHost": "msrc.applytojob.com",
+  "platform": "applytojob.com",
+  "mode": "known-template",
+  "seedUrls": [
+    "https://msrc.applytojob.com/apply"
+  ],
+  "detailTemplate": "/apply/*/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": false,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 7,
+  "sampleTitles": [
+    "Able Seaman / Ordinary Seaman- Ingleside, TX",
+    "Oil Spill Responder",
+    "Oil Spill Responder",
+    "Oil Spill Responder - Honolulu, HI",
+    "Oiler / Assistant Engineer - Honolulu, HI"
+  ],
+  "sourceLang": "en",
+  "learnedAt": "2026-11-08T12:50:54.028Z",
+  "candidateKey": "msrc@applytojob.com"
+}

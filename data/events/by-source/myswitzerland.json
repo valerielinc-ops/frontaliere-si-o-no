@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "sourceKey": "myswitzerland",
   "sourceName": "MySwitzerland",
-  "assembledAt": "2026-11-07T12:22:49.287Z",
+  "assembledAt": "2026-11-08T12:38:32.085Z",
   "events": [
     {
       "id": "myswitzerland:c04dc58cdaf845e0a02375c9baff1584",
@@ -76088,12 +76088,11 @@
       },
       "startDate": "2027-01-28",
       "endDate": "2027-01-28",
-      "startTime": "19:30",
       "category": "Event",
       "venue": "Winterthur",
       "comune": "Winterthur",
       "canton": "ZH",
-      "url": "https://www.myswitzerland.com/it-ch/experiences/events/rezital-sol-gabetta/",
+      "url": "https://www.myswitzerland.com/it-ch/scoprire-la-svizzera/manifestazioni/rezital-sol-gabetta/",
       "sourceKey": "myswitzerland",
       "sourceName": "MySwitzerland",
       "geo": {
@@ -273213,7 +273212,7 @@
       "venue": "Kandersteg",
       "comune": "Kandersteg",
       "canton": "BE",
-      "url": "https://www.myswitzerland.com/it-ch/experiences/events/konzert-jake-manzi-live-pie-night/",
+      "url": "https://www.myswitzerland.com/it-ch/scoprire-la-svizzera/manifestazioni/konzert-jake-manzi-live-pie-night/",
       "sourceKey": "myswitzerland",
       "sourceName": "MySwitzerland",
       "geo": {
@@ -273892,6 +273891,327 @@
       },
       "recurring": false,
       "sourceDescriptionHash": "60e8bbb99e0a6d04aaf19c5eb63e1a280c50a51885a59db07bad746a8c379d08"
+    },
+    {
+      "id": "myswitzerland:3e1864fa21f2475ea47904a40f2abae7",
+      "title": "Scrivi la tua storia di famiglia - Laboratorio di genealogia con Livio Cortesi",
+      "titleByLocale": {
+        "it": "Scrivi la tua storia di famiglia - Laboratorio di genealogia con Livio Cortesi",
+        "en": "Scrivi la tua storia di famiglia - Laboratorio di genealogia con Livio Cortesi",
+        "de": "Scrivi la tua storia di famiglia - Laboratorio di genealogia con Livio Cortesi",
+        "fr": "Scrivi la tua storia di famiglia - Laboratorio di genealogia con Livio Cortesi"
+      },
+      "startDate": "2026-11-21",
+      "endDate": "2026-11-21",
+      "category": "Event",
+      "venue": "Poschiavo",
+      "comune": "Poschiavo",
+      "canton": "GR",
+      "url": "https://www.myswitzerland.com/it-ch/scoprire-la-svizzera/manifestazioni/scrivi-la-tua-storia-di-famiglia-laboratorio-di-genealogia-con-livio-cortesi/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.3214403,
+        "lng": 10.0563488
+      },
+      "recurring": false,
+      "performer": {
+        "name": "Livio Cortesi"
+      },
+      "italianFrontierComuni": [
+        "Villa di Tirano",
+        "Tirano"
+      ],
+      "sourceDescriptionHash": "73f25f8000f63d703d37f31ffb12ad3c0d48685a971dadacf052b10f5797eef7"
+    },
+    {
+      "id": "myswitzerland:3dc09a91eec342878ba00dcf32e2ad10",
+      "title": "Monsieur Bosseigne chez la BFM",
+      "titleByLocale": {
+        "it": "Monsieur Bosseigne chez la BFM",
+        "en": "Monsieur Bosseigne chez la BFM",
+        "de": "Monsieur Bosseigne chez la BFM",
+        "fr": "Monsieur Bosseigne chez la BFM"
+      },
+      "startDate": "2026-11-28",
+      "endDate": "2026-11-28",
+      "category": "Event",
+      "venue": "Saignelégier",
+      "comune": "Saignelégier",
+      "canton": "JU",
+      "url": "https://www.myswitzerland.com/it-ch/scoprire-la-svizzera/manifestazioni/monsieur-bosseigne-chez-la-bfm/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.2542087,
+        "lng": 7.0024031
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "7ceb84e81c095d95d7092f2b9e4878d729007a9e42aeb1504c39932eb77cf0ee"
+    },
+    {
+      "id": "myswitzerland:3c51e509e81d4dda9c6ec988c728e374",
+      "title": "Zentangele im Schulhaus Braunwald, 20. November 2026",
+      "titleByLocale": {
+        "it": "Zentangele im Schulhaus Braunwald, 20. November 2026",
+        "en": "Zentangele im Schulhaus Braunwald, 20. November 2026",
+        "de": "Zentangele im Schulhaus Braunwald, 20. November 2026",
+        "fr": "Zentangele im Schulhaus Braunwald, 20. November 2026"
+      },
+      "startDate": "2026-11-20",
+      "endDate": "2026-11-20",
+      "category": "Event",
+      "venue": "Braunwald",
+      "comune": "Glarus Süd",
+      "canton": "GL",
+      "url": "https://www.myswitzerland.com/it-ch/scoprire-la-svizzera/manifestazioni/zentangele-im-schulhaus-braunwald-20-november-2026/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.949664,
+        "lng": 8.982119
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "9ebb7b3db606f0250afce3b573f124a0dfb0d1117fffeabdbb5399aedbc19992"
+    },
+    {
+      "id": "myswitzerland:3be06a45ba2f4f2e989fc0cd38d227a2",
+      "title": "Roger Joss und sein kleines bisschen Glück",
+      "titleByLocale": {
+        "it": "Roger Joss und sein kleines bisschen Glück",
+        "en": "Roger Joss und sein kleines bisschen Glück",
+        "de": "Roger Joss und sein kleines bisschen Glück",
+        "fr": "Roger Joss und sein kleines bisschen Glück"
+      },
+      "startDate": "2027-01-30",
+      "endDate": "2027-01-30",
+      "category": "Event",
+      "venue": "Lucerna",
+      "comune": "Luzern",
+      "canton": "LU",
+      "url": "https://www.myswitzerland.com/it-ch/scoprire-la-svizzera/manifestazioni/roger-joss-und-sein-kleines-bisschen-glueck-1/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.0425811,
+        "lng": 8.319478
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "10434cab94abd1f34dc9dc02ef1a3f252ae70c6ee19f49ef3a1d2f02be07c39e"
+    },
+    {
+      "id": "myswitzerland:3bc32e80ae3540b1ad6e6f2381c7358f",
+      "title": "Neujahrskonzert",
+      "titleByLocale": {
+        "it": "Neujahrskonzert",
+        "en": "Neujahrskonzert",
+        "de": "Neujahrskonzert",
+        "fr": "Neujahrskonzert"
+      },
+      "startDate": "2026-12-28",
+      "endDate": "2026-12-28",
+      "category": "Event",
+      "venue": "Wangen SZ",
+      "comune": "Wangen (SZ)",
+      "canton": "SZ",
+      "url": "https://www.myswitzerland.com/it-ch/scoprire-la-svizzera/manifestazioni/neujahrskonzert-3/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.1934354,
+        "lng": 8.894295
+      },
+      "recurring": false,
+      "performer": [
+        {
+          "name": "Herz"
+        },
+        {
+          "name": "Melodien von Johann Strauss"
+        },
+        {
+          "name": "Co"
+        }
+      ],
+      "sourceDescriptionHash": "f3ac8ddbb6ce84419e7ef7ae0ed9be993ebce1f97e1642a17a154acc4ffa90b6"
+    },
+    {
+      "id": "myswitzerland:3b7b9aa096414820b0bced242772f230",
+      "title": "Kantonaler Deutschtest für die Einbürgerung",
+      "titleByLocale": {
+        "it": "Kantonaler Deutschtest für die Einbürgerung",
+        "en": "Kantonaler Deutschtest für die Einbürgerung",
+        "de": "Kantonaler Deutschtest für die Einbürgerung",
+        "fr": "Kantonaler Deutschtest für die Einbürgerung"
+      },
+      "startDate": "2027-01-15",
+      "endDate": "2027-01-15",
+      "category": "Event",
+      "venue": "Dübendorf",
+      "comune": "Dübendorf",
+      "canton": "ZH",
+      "url": "https://www.myswitzerland.com/it-ch/scoprire-la-svizzera/manifestazioni/kantonaler-deutschtest-fuer-die-einbuergerung-2/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.3955306,
+        "lng": 8.6161336
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "c1d273c7498ea58a03e03116b1a46fc5ab4df9ef215dab3bfb3652a2f3f022a9"
+    },
+    {
+      "id": "myswitzerland:3b777b42479d4d028da4892c0662487e",
+      "title": "FINTANGO mit Martin Fröst",
+      "titleByLocale": {
+        "it": "FINTANGO mit Martin Fröst",
+        "en": "FINTANGO mit Martin Fröst",
+        "de": "FINTANGO mit Martin Fröst",
+        "fr": "FINTANGO mit Martin Fröst"
+      },
+      "startDate": "2027-02-24",
+      "endDate": "2027-02-25",
+      "category": "Event",
+      "venue": "Winterthur",
+      "comune": "Winterthur",
+      "canton": "ZH",
+      "url": "https://www.myswitzerland.com/it-ch/scoprire-la-svizzera/manifestazioni/fintango-mit-martin-froest/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.5010232,
+        "lng": 8.7313813
+      },
+      "recurring": true,
+      "performer": {
+        "name": "Martin Fröst"
+      },
+      "sourceDescriptionHash": "46011b695bf9ef02af18979e782b61ebfbe940e436ea8db1f6c09154440718e4"
+    },
+    {
+      "id": "myswitzerland:3b320795ed9e4773a0c3958fec8f03bd",
+      "title": "Open Take Club - Actake",
+      "titleByLocale": {
+        "it": "Open Take Club - Actake",
+        "en": "Open Take Club - Actake",
+        "de": "Open Take Club - Actake",
+        "fr": "Open Take Club - Actake"
+      },
+      "startDate": "2026-11-15",
+      "endDate": "2026-11-15",
+      "category": "Event",
+      "venue": "Biel",
+      "comune": "Biel/Bienne",
+      "canton": "BE",
+      "url": "https://www.myswitzerland.com/it-ch/scoprire-la-svizzera/manifestazioni/open-take-club-actake/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.1359849,
+        "lng": 7.2499741
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "c1e21c933d6a5dd66d81a990f3fea177b75de509ef782acc77d125294dcef3ad"
+    },
+    {
+      "id": "myswitzerland:3b13a24e2a6a4b658704005d0ec894fb",
+      "title": "\"Le Messie\" de Haendel",
+      "titleByLocale": {
+        "it": "\"Le Messie\" de Haendel",
+        "en": "\"Le Messie\" de Haendel",
+        "de": "\"Le Messie\" de Haendel",
+        "fr": "\"Le Messie\" de Haendel"
+      },
+      "startDate": "2026-12-18",
+      "endDate": "2026-12-18",
+      "category": "Event",
+      "venue": "Porrentruy",
+      "comune": "Porrentruy",
+      "canton": "JU",
+      "url": "https://www.myswitzerland.com/it-ch/scoprire-la-svizzera/manifestazioni/le-messie-de-haendel/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.4145622,
+        "lng": 7.0758839
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "3ae700ac3c8d4d8e17590f7349edb8348ece42f870b1043212b84300b776159e"
+    },
+    {
+      "id": "myswitzerland:3ae3087d4481492fa6589b40b52e956e",
+      "title": "Kreatives Geschichtenausdenken",
+      "titleByLocale": {
+        "it": "Kreatives Geschichtenausdenken",
+        "en": "Kreatives Geschichtenausdenken",
+        "de": "Kreatives Geschichtenausdenken",
+        "fr": "Kreatives Geschichtenausdenken"
+      },
+      "startDate": "2026-11-19",
+      "endDate": "2026-11-19",
+      "category": "Event",
+      "venue": "Altdorf",
+      "comune": "Altdorf (UR)",
+      "canton": "UR",
+      "url": "https://www.myswitzerland.com/it-ch/scoprire-la-svizzera/manifestazioni/kreatives-geschichtenausdenken/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.8829853,
+        "lng": 8.6408185
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "de03aafef5dadf541f834198134003281eb5184ad0941a172be72f8871501242"
+    },
+    {
+      "id": "myswitzerland:3ae2ecf04cdf45adadb886bb9b73d1b0",
+      "title": "Lottomatch",
+      "titleByLocale": {
+        "it": "Lottomatch",
+        "en": "Lottomatch",
+        "de": "Lottomatch",
+        "fr": "Lottomatch"
+      },
+      "startDate": "2026-11-14",
+      "endDate": "2026-11-15",
+      "category": "Event",
+      "venue": "Seewen SO",
+      "comune": "Seewen",
+      "canton": "SO",
+      "url": "https://www.myswitzerland.com/it-ch/scoprire-la-svizzera/manifestazioni/lottomatch/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.437517,
+        "lng": 7.6602244
+      },
+      "recurring": true,
+      "sourceDescriptionHash": "8f4f5ef5451a9854d6048fbb9b983688e74b10e353210819b6b55c9ad71a299f"
+    },
+    {
+      "id": "myswitzerland:3a16c5be3cdb45baa8946e72183d7170",
+      "title": "Fermata Musica Mai 27",
+      "titleByLocale": {
+        "it": "Fermata Musica Mai 27",
+        "en": "Fermata Musica Mai 27",
+        "de": "Fermata Musica Mai 27",
+        "fr": "Fermata Musica Mai 27"
+      },
+      "startDate": "2027-05-05",
+      "endDate": "2027-05-05",
+      "category": "Event",
+      "venue": "Solothurn",
+      "comune": "Solothurn",
+      "canton": "SO",
+      "url": "https://www.myswitzerland.com/it-ch/scoprire-la-svizzera/manifestazioni/fermata-musica-mai-27/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.2076967,
+        "lng": 7.5379929
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "a525299a89e3f6bb1bb1f5a98de225b217f580a2bc8ebff78042bc203726af7c"
     }
   ]
 }
