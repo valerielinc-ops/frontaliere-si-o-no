@@ -114,6 +114,7 @@ const LOCAL_REPORT_SCRIPTS = new Set([
   'report-confirmation-copy-experiment.mjs',
   'report-daily-brief-cadence.mjs',
   'report-email-engagement.mjs',
+  'report-job-alert-engagement-tiers.mjs',
   'report-job-alert-subject-ab.mjs',
   'report-job-email-ranking-experiment.mjs',
 ]);
@@ -122,6 +123,7 @@ const ACTION_REPORT_READ_CAPS = new Map([
   // Keep headroom for normal volume while bounding accidental wide windows.
   ['report-daily-brief-cadence.mjs', 150_000],
   ['report-email-engagement.mjs', 150_000],
+  ['report-job-alert-engagement-tiers.mjs', 50_000],
 ]);
 
 /** Resolve an opt-in or safe local default cap for expensive report scripts. */

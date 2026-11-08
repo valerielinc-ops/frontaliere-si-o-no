@@ -63,6 +63,7 @@ import {
   SUPPRESSION_COLLECTIONS,
 } from './lib/suppressionDecay.mjs';
 import { getFirestoreDb } from './lib/firestore-admin.mjs';
+import { loadSuppressionDecayScan } from './lib/suppression-decay-scan.mjs';
 
 const REPORT_PATH = 'data/suppression-decay-report.json';
 
@@ -180,28 +181,22 @@ function recoveryFields({ collection, tier, previousStatus, reason, restoredStat
 }
 
 async function scanCollection(name, nowMs) {
-  const snap = await db.collection(name).get();
-  const tally = { scanned: 0, 'proven-alive': 0, 'never-probed': 0, terminal: 0, none: 0 };
+  const scan = await loadSuppressionDecayScan(db, name, { includeCohorts: IS_REPROBE });
+  const tally = {
+    scanned: scan.totalDocuments,
+    'proven-alive': 0,
+    'never-probed': 0,
+    terminal: scan.terminalStatuses,
+    none: 0,
+  };
   const candidates = [];
-  // Cohort members are collected in the SAME pass as the classification: the
-  // breaker needs the previous batch's current status, and a second full read
-  // of two 8k-document collections to get it would be pure waste.
-  const cohorts = new Map();
-
-  snap.forEach((doc) => {
-    if (doc.id === '_meta_') return;
+  for (const doc of scan.decayableDocs) {
+    if (doc.id === '_meta_') continue;
     const data = doc.data() || {};
-    tally.scanned += 1;
-
-    const batch = typeof data.reprobe_batch === 'string' ? data.reprobe_batch : null;
-    if (batch) {
-      if (!cohorts.has(batch)) cohorts.set(batch, []);
-      cohorts.get(batch).push(data);
-    }
-
     const verdict = classifySuppressionDecay(data, nowMs);
-    tally[verdict.tier] += 1;
-    if (verdict.tier !== TIER) return;
+    if (verdict.tier === 'terminal') tally.terminal += 1;
+    else if (verdict.tier === 'proven-alive' || verdict.tier === 'never-probed') tally[verdict.tier] += 1;
+    if (verdict.tier !== TIER) continue;
     candidates.push({
       ref: doc.ref,
       collection: name,
@@ -217,9 +212,10 @@ async function scanCollection(name, nowMs) {
       reason: verdict.evidence.bounceReason,
       verdictReason: verdict.reason,
     });
-  });
+  }
+  tally.none = Math.max(0, tally.scanned - tally['proven-alive'] - tally['never-probed'] - tally.terminal);
 
-  return { tally, candidates, cohorts };
+  return { tally, candidates, cohorts: scan.cohorts };
 }
 
 /**

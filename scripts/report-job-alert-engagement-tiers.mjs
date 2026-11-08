@@ -21,9 +21,9 @@ import { realpathSync } from 'node:fs';
  *     run: a REAL delta (movement between two production-written values),
  *     not a fabricated counter.
  *
- * Read-only: no Firestore writes. Exit code is always 0 (a report, not a CI
- * gate) — Firestore errors are logged and degrade the output, never fail
- * the process.
+ * Read-only: no Firestore writes. Firestore errors are logged and degrade the
+ * report; a read-budget stop exits nonzero so a missing report cannot look
+ * like a successful Actions run.
  *
  * Usage:
  *   node scripts/report-job-alert-engagement-tiers.mjs
@@ -41,7 +41,7 @@ import {
   resolveJobAlertCadence,
 } from './lib/jobAlertCadence.mjs';
 import { isImmediateCompanyAlert } from './lib/company-alert-routing.mjs';
-import { getFirestoreDb } from './lib/firestore-admin.mjs';
+import { FirestoreReadBudgetExceededError, getFirestoreDb } from './lib/firestore-admin.mjs';
 
 const LOOKUP_CHUNK_SIZE = 200; // emails per db.getAll() call — same batching as send-job-alerts.mjs
 
@@ -251,7 +251,7 @@ Usage:
   node scripts/report-job-alert-engagement-tiers.mjs
   node scripts/report-job-alert-engagement-tiers.mjs --json
 
-Read-only: no Firestore writes. Exit code is always 0.
+Read-only: no Firestore writes. Read-budget stops exit nonzero.
 Env: GOOGLE_APPLICATION_CREDENTIALS (Firebase SA), GCLOUD_PROJECT (optional).
 `);
 }
@@ -289,8 +289,11 @@ async function main() {
 // importable for tests without triggering a live Firestore connection attempt.
 if (process.argv[1] && (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
   main().catch((err) => {
-    // Report, not a gate: log the failure but never fail the process.
     console.error('❌ Report failed to complete:', err?.message || err);
+    // A read-budget stop must be visible to Actions so an absent report cannot
+    // look like a successful run. Other report errors retain the old advisory
+    // exit behavior.
+    if (err instanceof FirestoreReadBudgetExceededError) process.exit(1);
     process.exit(0);
   });
 }

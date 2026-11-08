@@ -101,6 +101,10 @@ describe('Firestore local report read budget', () => {
       .toBe(150_000);
     expect(resolveFirestoreReadCap({ GITHUB_ACTIONS: 'true' }, '/tmp/report-email-engagement.mjs'))
       .toBe(150_000);
+    expect(resolveFirestoreReadCap({}, '/tmp/report-job-alert-engagement-tiers.mjs'))
+      .toBe(DEFAULT_LOCAL_REPORT_READ_CAP);
+    expect(resolveFirestoreReadCap({ GITHUB_ACTIONS: 'true' }, '/tmp/report-job-alert-engagement-tiers.mjs'))
+      .toBe(50_000);
     expect(resolveFirestoreReadCap({ FIRESTORE_READ_CAP: '12000' }, '/tmp/report-job-email-ranking-experiment.mjs'))
       .toBe(12000);
     expect(() => resolveFirestoreReadCap({ FIRESTORE_READ_CAP: '0' }, '/tmp/report-job-email-ranking-experiment.mjs'))
