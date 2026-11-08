@@ -1,4 +1,4 @@
-import { mkdtempSync, readFileSync, rmSync } from 'node:fs';
+import { mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import { dirname } from 'node:path';
@@ -7,6 +7,8 @@ import { afterEach, describe, expect, it } from 'vitest';
 
 import {
   buildSocialCopyFallbackMessages,
+  classifySocialCopyFallbackFailure,
+  FREE_SOCIAL_COPY_MODEL_CANDIDATES,
   run,
   selectAvailableFreeModels,
 } from '../scripts/social-copy/generate-free-model-fallback.mjs';
@@ -27,27 +29,134 @@ afterEach(() => {
 describe('social copy free-model fallback', () => {
   it('keeps the fallback chain to one available model per allowlisted free provider', () => {
     const candidates = [
-      { provider: 'github', model: 'gpt-a', context: 'compact' },
-      { provider: 'github', model: 'gpt-b', context: 'compact' },
+      { provider: 'openrouter', model: 'openrouter/free', context: 'compact' },
+      { provider: 'openrouter', model: 'openrouter/static:free', context: 'compact' },
       { provider: 'gemini', model: 'gemma-a', context: 'full' },
       { provider: 'cloudflare', model: 'cf-a', context: 'full' },
+      { provider: 'github', model: 'gpt-a', context: 'compact' },
     ];
     const selected = selectAvailableFreeModels({
       candidates,
-      providerOf: (model) => model.startsWith('gpt') ? 'github' : model.startsWith('gemma') ? 'gemini' : 'cloudflare',
+      providerOf: (model) => model.startsWith('openrouter/')
+        ? 'openrouter'
+        : model.startsWith('gemma') ? 'gemini'
+          : model.startsWith('gpt') ? 'github' : 'cloudflare',
       available: () => true,
     });
 
     expect(selected).toEqual([candidates[0], candidates[2]]);
   });
 
+  it('routes the configured dynamic free-model candidate through OpenRouter', () => {
+    const candidate = FREE_SOCIAL_COPY_MODEL_CANDIDATES.find((entry) => entry.provider === 'openrouter');
+
+    expect(candidate?.model).toBe('openrouter/openrouter/free');
+    expect(selectAvailableFreeModels({ candidates: candidate ? [candidate] : [], available: () => true }))
+      .toEqual(candidate ? [candidate] : []);
+  });
+
   it('sends only the full context to large-context candidates and marks trend restrictions', () => {
+    const creativeStudyFile = path.join(temporaryDirectory(), 'creative-study.md');
+    writeFileSync(creativeStudyFile, '# Studio creativo Instagram\nFixture di ricerca creativa.\n');
     const compact = buildSocialCopyFallbackMessages({ context: 'compact', now: new Date('2026-11-07T12:00:00Z') });
-    const full = buildSocialCopyFallbackMessages({ context: 'full', now: new Date('2026-11-07T12:00:00Z') });
+    const full = buildSocialCopyFallbackMessages({
+      context: 'full',
+      creativeStudyFile,
+      now: new Date('2026-11-07T12:00:00Z'),
+    });
 
     expect(compact[1]?.content).toContain('Non raccogliere dati da account Instagram concorrenti');
+    expect(compact[1]?.content).toContain('senza sticker, risposte o metriche implicite');
+    expect(compact[1]?.content).toContain('punteggi lessicali inglesi');
     expect(JSON.stringify(compact)).not.toContain('instagram-creative-study');
     expect(full[1]?.content).toContain('# Studio creativo Instagram');
+  });
+
+  it.each([
+    [new Error('Gemini API key not set'), 'provider-auth-failed'],
+    [new Error('[model] HTTP 401: credential detail'), 'provider-auth-failed'],
+    [new Error('[model] HTTP 403: access denied'), 'provider-access-denied'],
+    [new Error('[model] HTTP 429: quota exceeded'), 'provider-quota-or-rate-limit'],
+    [new Error('[model] HTTP 404: model not found'), 'model-unavailable'],
+    [new Error('[model] HTTP 503: unavailable'), 'provider-temporary-failure'],
+    [new Error('[model] HTTP 400: request rejected'), 'provider-request-rejected'],
+    [new Error('fetch failed: ECONNRESET'), 'provider-temporary-failure'],
+  ])('classifies provider failures safely as %s', (error, category) => {
+    expect(classifySocialCopyFallbackFailure(error)).toBe(category);
+  });
+
+  it('reports request and response failures separately without logging provider error text', async () => {
+    const directory = temporaryDirectory();
+    const previousPath = path.join(ROOT, 'data/social-copy-packs/current.json');
+    const workflowOutputPath = path.join(directory, 'github-output.txt');
+    const stdout = { value: '', write(text: string) { this.value += text; } };
+    const candidates = [
+      { provider: 'gemini', model: 'gemini-test', context: 'compact' },
+      { provider: 'groq', model: 'groq-test', context: 'compact' },
+    ];
+
+    const result = await run({
+      env: {
+        GITHUB_REF: 'refs/heads/main',
+        GITHUB_REPOSITORY: 'example/social',
+        GITHUB_RUN_ID: '125',
+        GITHUB_RUN_ATTEMPT: '1',
+        GITHUB_OUTPUT: workflowOutputPath,
+      },
+      now: new Date('2026-11-07T12:00:00.000Z'),
+      modelCandidates: candidates,
+      available: () => true,
+      providerOf: (model) => model.startsWith('gemini') ? 'gemini' : 'groq',
+      db: {} as any,
+      callModel: async (_messages: unknown, options: Record<string, unknown>) => {
+        if (options.model === 'gemini-test') throw new Error('[model] HTTP 401: private-token-value');
+        return 'not valid JSON';
+      },
+      reserve: async () => ({ allowed: true } as any),
+      stdout: stdout as any,
+      inputPaths: { previousPack: previousPath },
+      outputPath: path.join(directory, 'response.json'),
+    });
+
+    expect(result).toMatchObject({
+      packGenerated: false,
+      reason: 'all-free-models-failed',
+      failures: [
+        { provider: 'gemini', phase: 'request', category: 'provider-auth-failed' },
+        { provider: 'groq', phase: 'validation', category: 'response-invalid' },
+      ],
+    });
+    expect(stdout.value).toContain('gemini:request:provider-auth-failed');
+    expect(stdout.value).toContain('groq:validation:response-invalid');
+    expect(stdout.value).not.toContain('private-token-value');
+    const workflowOutput = readFileSync(workflowOutputPath, 'utf8');
+    expect(workflowOutput).toContain('attempt_failures=gemini:request:provider-auth-failed,groq:validation:response-invalid');
+    expect(workflowOutput).not.toContain('private-token-value');
+  });
+
+  it('does not reserve or call a provider when no response output path is configured', async () => {
+    let reserved = 0;
+    let called = 0;
+
+    const result = await run({
+      env: {
+        GITHUB_REF: 'refs/heads/main',
+        GITHUB_REPOSITORY: 'example/social',
+        GITHUB_RUN_ID: '126',
+        GITHUB_RUN_ATTEMPT: '1',
+      },
+      modelCandidates: [{ provider: 'gemini', model: 'gemini-test', context: 'compact' }],
+      available: () => true,
+      providerOf: () => 'gemini',
+      db: {} as any,
+      callModel: async () => { called += 1; return '{}'; },
+      reserve: async () => { reserved += 1; return { allowed: true } as any; },
+      stdout: { write() {} } as any,
+    });
+
+    expect(result).toMatchObject({ packGenerated: false, reason: 'response-output-path-missing' });
+    expect(reserved).toBe(0);
+    expect(called).toBe(0);
   });
 
   it('validates, attributes, and writes one free-model pack without making provider calls in the test', async () => {
