@@ -10,7 +10,7 @@ const contexts: WorkflowContext[] = ['content', 'seo', 'analytics'];
 
 export default function AutomazioniSection() {
   const workflow = useAdminWorkflow();
-  const latestUpdate = workflow.actions.map((action) => workflow.getWorkflowState(action.id).updatedAt).filter((value): value is string => Boolean(value)).sort().at(-1) || null;
+  const latestUpdate = workflow.actions.map((action) => workflow.getWorkflowState(action.id).updatedAt).filter((value): value is string => Boolean(value)).sort().pop() || null;
   return (
     <div className="space-y-4">
       <AdminSectionHeader title="Automazioni" summary={`${workflow.actions.filter((action) => !action.isUtility).length} workflow disponibili · ${latestUpdate ? `aggiornato ${relativeTime(latestUpdate) || 'di recente'}` : 'non ancora aggiornato'}`} secondaryActions={<AdminButton icon={<RefreshCw size={16} aria-hidden="true" />} onClick={() => void workflow.refresh()}>Aggiorna</AdminButton>} />

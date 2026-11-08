@@ -3,14 +3,16 @@ import { getJobOgPhotoKey } from './jobOgImageCatalog.mjs';
 // Keep this version tied to rasterized card pixels. Social metadata changes in
 // jobsSeoPagesPlugin must not bump it: doing so invalidates every cached card
 // and turns a metadata-only deploy into a multi-hour cold render.
-export const JOB_OG_IMAGE_VERSION = 'v8-2026-11-06-italian-employment-labels-q72';
+export const JOB_OG_IMAGE_VERSION = 'v9-2026-11-08-italian-title-residue-q72';
 // The archive card has its own raster version so copy or layout changes do not
 // invalidate the thousands of per-offer images.
 export const ARCHIVED_JOB_OG_IMAGE_VERSION = 'v1-2026-11-03-neutral';
 
-export function versionedJobOgImageUrl(baseUrl, slug) {
+export function versionedJobOgImageUrl(baseUrl, slug, selectedPhotoKey) {
   if (!slug) return null;
-  const photoKey = getJobOgPhotoKey(slug);
+  // The selected photo key changes the CDN URL when role classification changes,
+  // without cold-rendering every card through a global image-version bump.
+  const photoKey = selectedPhotoKey || getJobOgPhotoKey(slug);
   const versionedUrl = `${baseUrl}/og/jobs/${slug}.webp?v=${JOB_OG_IMAGE_VERSION}`;
   return photoKey ? `${versionedUrl}&photo=${encodeURIComponent(photoKey)}` : versionedUrl;
 }

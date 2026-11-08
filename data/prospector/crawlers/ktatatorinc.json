@@ -1,0 +1,25 @@
+{
+  "companyKey": "ktatatorinc",
+  "companyName": "KTA-Tator, Inc.",
+  "companyHost": "ktatatorinc.applytojob.com",
+  "platform": "applytojob.com",
+  "mode": "known-template",
+  "seedUrls": [
+    "https://ktatatorinc.applytojob.com/apply"
+  ],
+  "detailTemplate": "/apply/*/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": false,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 15,
+  "sampleTitles": [
+    "*General Resume Submission*",
+    "Accounting Clerk",
+    "AMPP Certified Coating Inspectors (NACE 2)",
+    "AMPP Senior Certified Coating Inspectors (NACE 3)",
+    "Building Envelope Consultant"
+  ],
+  "sourceLang": "en",
+  "learnedAt": "2026-11-07T12:44:18.736Z",
+  "candidateKey": "ktatatorinc@applytojob.com"
+}

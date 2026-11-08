@@ -3,12 +3,12 @@
   "companyName": "pianorm",
   "companyHost": "pianorm.ch",
   "platform": "",
-  "mode": "jsonld",
+  "mode": "template",
   "seedUrls": [
-    "https://www.pianorm.ch/job/cnc-maschinist-m-w-100/"
+    "https://www.pianorm.ch/jobs/"
   ],
-  "detailTemplate": "/job/cnc-maschinist-m-w-100/",
-  "detailEnrichment": false,
+  "detailTemplate": "/job/*/",
+  "detailEnrichment": true,
   "detailFetchWorkers": 4,
   "sampleVacancyCount": 1,
   "sampleTitles": [

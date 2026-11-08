@@ -2,6 +2,10 @@ function optionText(option) {
   return typeof option === 'object' ? option?.label ?? option?.value : option;
 }
 
+function decorativeOption(value) {
+  return /^[-\u2013\u2014_=]{3,}$/.test(String(optionText(value) ?? '').trim());
+}
+
 function normalizedOption(value) {
   return String(value ?? '').normalize('NFD').replace(/[\u0300-\u036f]/g, '')
     .replace(/[’‘`]/g, "'").toLowerCase().replace(/[^\p{L}\p{N}]+/gu, ' ').trim();
@@ -19,6 +23,7 @@ function placeholderOption(value) {
 }
 
 function sameOptionMeaning(left, right) {
+  if (decorativeOption(left) && decorativeOption(right)) return true;
   const a = normalizedOption(optionText(left));
   const b = normalizedOption(optionText(right));
   if (!a || !b) return false;
@@ -33,7 +38,11 @@ function hasUniqueNormalizedLabels(values) {
   const labels = new Set();
   for (const value of values) {
     const label = normalizedOption(value);
-    if (!label || labels.has(label)) return false;
+    if (!label) {
+      if (decorativeOption(value)) continue;
+      return false;
+    }
+    if (labels.has(label)) return false;
     labels.add(label);
   }
   return true;

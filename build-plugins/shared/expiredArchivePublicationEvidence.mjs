@@ -4,6 +4,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { decode as decodeHtmlEntities } from 'html-entities';
 import { parse as parseHtml } from 'parse5';
+import { expiredArchiveCdnInvariantSha256 } from '../../scripts/lib/expired-archive-html-invariant.mjs';
 
 export const EXPIRED_ARCHIVE_EVIDENCE_VERSION = 1;
 export const EXPIRED_ARCHIVE_EVIDENCE_VALIDATOR = 'expired-archive-publication-v1';
@@ -172,6 +173,7 @@ export function createExpiredArchivePublicationEvidence({
             path: candidate.path.split(path.sep).join('/'),
             url: candidate.url,
             sha256: sha256(html),
+            cdnInvariantSha256: expiredArchiveCdnInvariantSha256(html),
             payloadSha256: sha256(publishedPayloadJson),
             descriptionSha256: sha256(candidate.description),
             expiredAtSha256: sha256(candidate.expiredAt),

@@ -3,6 +3,7 @@ import { describe, expect, it } from 'vitest';
 import {
   buildAutonomousDecisions,
   decisionStateChanges,
+  instagramDecisionApplyBlocker,
   mergeAutonomousDecisionState,
   resolveInstagramDecisionConfig,
 } from '../scripts/lib/instagram-insights-decision.mjs';
@@ -25,6 +26,21 @@ function reportFrom(rows: Record<string, unknown>[]) {
 }
 
 describe('Instagram autonomous Insights decisions', () => {
+  it('blocks winner writes from browser Insights unless the Meta permission flag is true', () => {
+    expect(instagramDecisionApplyBlocker({
+      insightsSource: 'browser',
+      browserInsightsApproved: false,
+    })).toBe('browser-insights-permission-required');
+    expect(instagramDecisionApplyBlocker({
+      insightsSource: 'browser',
+      browserInsightsApproved: true,
+    })).toBeNull();
+  });
+
+  it('blocks winner writes when Insights collection is disabled', () => {
+    expect(instagramDecisionApplyBlocker({ insightsSource: 'off' })).toBe('insights-source-disabled');
+  });
+
   it('requires a comparable second variant and three independent observations', () => {
     const report = reportFrom(rowsFor('proof', [8, 8, 8]));
     const decisions = buildAutonomousDecisions(report);

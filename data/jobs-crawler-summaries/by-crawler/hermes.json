@@ -1,7 +1,7 @@
 {
   "key": "hermes",
   "label": "Hermès",
-  "generatedAt": "2026-11-07T10:00:41.486Z",
+  "generatedAt": "2026-11-07T21:20:39.134Z",
   "total": 5,
   "discovered": null,
   "parsed": 5,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 5,
-  "durationMs": 21562,
-  "avgDurationMs": 21562,
+  "durationMs": 17369,
+  "avgDurationMs": 17369,
   "durationHistory": [
-    21562
+    17369
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -37,7 +37,7 @@
       "url": "https://talents.hermes.com/en/sites/CX/job/23533",
       "source": "Hermès Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-07T10:00:18.771Z",
+      "crawledAt": "2026-11-07T21:20:23.669Z",
       "addressLocality": "Brügg BE",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -59,7 +59,7 @@
       "postalCode": "3001",
       "streetAddress": "Brügg BE",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-18T10:00:18.771Z",
+      "validThrough": "2027-01-18T21:20:23.669Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -81,7 +81,7 @@
       "url": "https://talents.hermes.com/en/sites/CX/job/24472",
       "source": "Hermès Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-07T10:00:18.081Z",
+      "crawledAt": "2026-11-07T21:20:22.991Z",
       "addressLocality": "Brügg BE",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -105,7 +105,7 @@
       "postalCode": "3001",
       "streetAddress": "Brügg BE",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-26T10:00:18.081Z",
+      "validThrough": "2027-01-26T21:20:22.991Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -127,7 +127,7 @@
       "url": "https://talents.hermes.com/en/sites/CX/job/24713",
       "source": "Hermès Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-07T10:00:17.397Z",
+      "crawledAt": "2026-11-07T21:20:22.333Z",
       "addressLocality": "Brügg BE",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -150,7 +150,7 @@
       "postalCode": "3001",
       "streetAddress": "Brügg BE",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-01T10:00:17.397Z",
+      "validThrough": "2027-02-01T21:20:22.333Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -172,7 +172,7 @@
       "url": "https://talents.hermes.com/en/sites/CX/job/24702",
       "source": "Hermès Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-07T10:00:16.752Z",
+      "crawledAt": "2026-11-07T21:20:21.670Z",
       "addressLocality": "Le Noirmont",
       "addressRegion": "JU",
       "addressCountry": "CH",
@@ -195,7 +195,7 @@
       "postalCode": "2340",
       "streetAddress": "Le Noirmont",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-01T10:00:16.752Z",
+      "validThrough": "2027-02-01T21:20:21.670Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -217,7 +217,7 @@
       "url": "https://talents.hermes.com/en/sites/CX/job/24755",
       "source": "Hermès Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-07T10:00:15.955Z",
+      "crawledAt": "2026-11-07T21:20:20.988Z",
       "addressLocality": "Brügg BE",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -240,7 +240,7 @@
       "postalCode": "3001",
       "streetAddress": "Brügg BE",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T10:00:15.955Z",
+      "validThrough": "2027-02-03T21:20:20.988Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -251,5 +251,5 @@
       }
     }
   ],
-  "codeCommit": "dae4367441abe10a497d7d52ebb4540c014e1e8c"
+  "codeCommit": "f149ed523035737e5146c13e7338b8dd6b0c5f04"
 }

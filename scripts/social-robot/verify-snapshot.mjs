@@ -6,6 +6,7 @@
  */
 import fs from 'node:fs';
 import path from 'node:path';
+import { stripSourceComments as stripComments } from '../lib/source-comments.mjs';
 
 const root = path.resolve(process.argv[2] || '');
 const entries = ['scripts/social-robot/run.mjs', 'scripts/load-rc-env.mjs'];
@@ -16,40 +17,6 @@ const importPatterns = [
   /\bimport\s*\(\s*['"]([^'"]+)['"]\s*\)/g,
   /\brequire\s*\(\s*['"]([^'"]+)['"]\s*\)/g,
 ];
-
-function stripComments(source) {
-  let out = '';
-  let quote = null;
-  let escaped = false;
-  for (let index = 0; index < source.length; index += 1) {
-    const character = source[index];
-    const next = source[index + 1];
-    if (quote) {
-      out += character;
-      if (escaped) escaped = false;
-      else if (character === '\\') escaped = true;
-      else if (character === quote) quote = null;
-      continue;
-    }
-    if (character === '\'' || character === '"' || character === '`') {
-      quote = character;
-      out += character;
-    } else if (character === '/' && next === '/') {
-      while (index < source.length && source[index] !== '\n') index += 1;
-      out += '\n';
-    } else if (character === '/' && next === '*') {
-      index += 2;
-      while (index < source.length && !(source[index] === '*' && source[index + 1] === '/')) {
-        if (source[index] === '\n') out += '\n';
-        index += 1;
-      }
-      index += 1;
-    } else {
-      out += character;
-    }
-  }
-  return out;
-}
 
 function stringRanges(source) {
   const ranges = [];

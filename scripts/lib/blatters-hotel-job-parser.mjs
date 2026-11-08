@@ -16,6 +16,7 @@ import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
 import {
+  copySpecFetchMetadata,
   fetchHtmlViaBrowser,
   loadSpec,
   runSpecInProduction,
@@ -184,7 +185,7 @@ export async function fetchAllBlattersHotelJobs({ fetchListings = fetchJobListin
   }
   if (!listings || listings.length === 0) {
     console.warn('⚠️ No job listings returned.');
-    return [];
+    return copySpecFetchMetadata([], listings || []);
   }
 
   console.log(`  📋 Listings found: ${listings.length}`);
@@ -259,5 +260,5 @@ export async function fetchAllBlattersHotelJobs({ fetchListings = fetchJobListin
   }
 
   console.log(`\n📋 Total Blatter's Arosa Hotel jobs discovered: ${jobs.length}`);
-  return jobs;
+  return copySpecFetchMetadata(jobs, listings || []);
 }

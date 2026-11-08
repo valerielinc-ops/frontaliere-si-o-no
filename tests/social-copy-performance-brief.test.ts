@@ -3,6 +3,35 @@ import { describe, expect, it } from 'vitest';
 import { buildSocialCopyPerformanceBrief } from '../scripts/social-copy/performance-brief.mjs';
 
 describe('social copy performance brief', () => {
+  it('keeps free-provider results separate from Codex cohorts', () => {
+    const makeRow = (index: number, copyMode: 'codex' | 'gemini') => ({
+      id: `${copyMode}-${index}`,
+      creativeId: 'proof',
+      kind: 'article',
+      reach: 100,
+      shares: index + 1,
+      copyMode,
+      copyAssignmentMode: 'firebase-balanced',
+      copyExperimentId: 'social-copy-balanced-v1',
+      copyPackId: '0123456789abcdef',
+      copyTemplateId: 'ig-article-share-a',
+      copyAngleId: 'article-practical-question',
+      copyPillarId: 'strumenti-utili',
+      copyAngleIntent: 'both',
+      copyHook: 'Private hook',
+      copyCta: 'Private CTA',
+    });
+    const brief = buildSocialCopyPerformanceBrief(
+      [...[1, 2, 3].map((index) => makeRow(index, 'codex')), ...[1, 2, 3].map((index) => makeRow(index, 'gemini'))],
+      null,
+    );
+
+    expect(brief.variants).toHaveLength(2);
+    expect(brief.variants.map((variant) => variant.copyMode)).toEqual(['codex', 'gemini']);
+    expect(brief.variants.map((variant) => variant.observations)).toEqual([3, 3]);
+    expect(JSON.stringify(brief)).not.toContain('Private hook');
+  });
+
   it('exports only aggregated Instagram outcomes and hides groups below the existing sample minimum', () => {
     const insights = [
       { id: 'post-one', creativeId: 'proof', kind: 'article', reach: 100, shares: 10, copyMode: 'codex', copyAssignmentMode: 'firebase-balanced', copyExperimentId: 'social-copy-balanced-v1', copyPackId: '0123456789abcdef', copyTemplateId: 'ig-article-share-a', copyAngleId: 'article-practical-question', copyPillarId: 'strumenti-utili', copyAngleIntent: 'both', copyHook: 'Private post text' },

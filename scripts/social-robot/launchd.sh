@@ -3,7 +3,8 @@
 # Launch agent of the social robot on the agents' Mac host: two windows a day
 # in which the robot publishes (or, in a dry run, prepares) queued Instagram
 # content from the owner's Chrome profile. TikTok delivery is held. The same
-# pass reads Instagram Insights and Business Suite through that profile.
+# pass reads Instagram Insights and Business Suite through that profile only
+# when each browser use has an explicit Meta permission flag in Remote Config.
 #
 #   bash scripts/social-robot/launchd.sh install    write and load the plist (this Mac, this checkout)
 #   bash scripts/social-robot/launchd.sh run        one window (what launchd runs)
@@ -44,7 +45,7 @@ max_log_lines=4000
 # for every run. The installed copy can be one run behind while it refreshes.
 # tests/social-robot.test.ts checks that it covers every relative import of
 # run.mjs and of the loader, so a new import cannot silently break the Mac host.
-snapshot_paths="scripts/social-robot scripts/ci/guard-main-tree-shrink.mjs scripts/lib/is-invoked-directly.mjs scripts/lib/git-fetch-target.mjs scripts/lib/main-push-guard.mjs scripts/lib/single-flight-lock.mjs scripts/lib/stale-fetch-pack-sweep.mjs scripts/lib/social-publish-queue.mjs scripts/lib/social-publish-reservations.mjs scripts/lib/social-publish-outcome.mjs scripts/lib/social-automation-policy.mjs scripts/lib/social-robot-delivery-health.mjs scripts/lib/instagram-engagement.mjs scripts/lib/instagram-community-automation.mjs scripts/lib/instagram-community-topics.mjs scripts/lib/instagram-community-browser.mjs scripts/lib/instagram-community-outcomes.mjs scripts/lib/instagram-insights-browser.mjs scripts/lib/instagram-insights-snapshot.mjs scripts/lib/instagram-media-matching.mjs scripts/lib/instagram-graph-constants.mjs scripts/lib/ga4-service-account.mjs scripts/lib/analytics-settled-window.mjs scripts/lib/social-carousel-video.mjs scripts/lib/github-issue-creator.mjs scripts/load-rc-env.mjs scripts/lib/google-service-account-token.mjs scripts/lib/firestore-admin.mjs scripts/lib/social-native-insights-store.mjs scripts/lib/social-native-insights-schema.mjs scripts/lib/social-ga4-contract.mjs scripts/lib/social-channel-attribution.mjs scripts/lib/social-copy-revision.mjs scripts/lib/instagram-story-contract.mjs"
+snapshot_paths="scripts/social-robot scripts/ci/guard-main-tree-shrink.mjs scripts/lib/source-comments.mjs scripts/lib/inline-comment-marker.mjs scripts/lib/is-invoked-directly.mjs scripts/lib/git-fetch-target.mjs scripts/lib/main-push-guard.mjs scripts/lib/single-flight-lock.mjs scripts/lib/stale-fetch-pack-sweep.mjs scripts/lib/social-publish-queue.mjs scripts/lib/social-publish-reservations.mjs scripts/lib/social-publish-outcome.mjs scripts/lib/social-automation-policy.mjs scripts/lib/social-robot-delivery-health.mjs scripts/lib/instagram-engagement.mjs scripts/lib/instagram-community-automation.mjs scripts/lib/instagram-community-topics.mjs scripts/lib/instagram-community-browser.mjs scripts/lib/instagram-community-outcomes.mjs scripts/lib/instagram-insights-browser.mjs scripts/lib/instagram-insights-snapshot.mjs scripts/lib/instagram-media-matching.mjs scripts/lib/instagram-graph-constants.mjs scripts/lib/ga4-service-account.mjs scripts/lib/analytics-settled-window.mjs scripts/lib/social-carousel-video.mjs scripts/lib/github-issue-creator.mjs scripts/load-rc-env.mjs scripts/lib/google-service-account-token.mjs scripts/lib/firestore-admin.mjs scripts/lib/social-native-insights-store.mjs scripts/lib/social-native-insights-schema.mjs scripts/lib/social-ga4-contract.mjs scripts/lib/social-channel-attribution.mjs scripts/lib/social-copy-revision.mjs scripts/lib/social-copy-mode.mjs scripts/lib/instagram-story-contract.mjs"
 social_robot_issue_title='Social robot Mac host failure'
 
 script_dir=$(CDPATH="" cd -- "$(dirname -- "$0")" && pwd -P) || exit 1
@@ -226,16 +227,16 @@ snapshot() {
   printf '%s\n' "$dest"
 }
 
-# Load the same Remote Config environment as the CI poster. The values stay in
-# this process and are never logged: the community worker needs a Graph token
-# as well as SOCIAL_ROBOT_MODE, while the latter remains the only value printed
-# below. Existing environment variables win inside the loader. The default
-# community/Insights path needs only the authenticated Chrome profile; Graph
-# credentials remain an explicit compatibility path.
+# Load only the Remote Config values this worker needs. The values stay in this
+# process and are never logged; existing environment variables win inside the
+# loader. Browser routes stay disabled unless their separate Meta permission
+# flags are exactly true. Graph API community work remains an explicit route.
 load_rc_environment() {
   runner=$1
   [ -f "$sa_file" ] || { log "service account missing ($sa_file): Remote Config unavailable, dry run"; return 0; }
-  rc_exports=$(GOOGLE_APPLICATION_CREDENTIALS="$sa_file" node "$runner/scripts/load-rc-env.mjs" 2>/dev/null) || rc_exports=''
+  rc_exports=$(GOOGLE_APPLICATION_CREDENTIALS="$sa_file" node "$runner/scripts/load-rc-env.mjs" \
+    --only-env=SOCIAL_ROBOT_MODE,SOCIAL_ROBOT_INSIGHTS_SOURCE,META_INSTAGRAM_BROWSER_PUBLISHING_APPROVED,META_INSTAGRAM_BROWSER_INSIGHTS_APPROVED,META_INSTAGRAM_BROWSER_COMMUNITY_APPROVED,INSTAGRAM_ACCESS_TOKEN,INSTAGRAM_BUSINESS_ACCOUNT_ID,FB_PAGE_ID,FB_PAGE_ACCESS_TOKEN,INSTAGRAM_INSIGHTS_WINDOWS \
+    2>/dev/null) || rc_exports=''
   [ -n "$rc_exports" ] || return 0
   eval "$rc_exports"
 }
@@ -263,7 +264,7 @@ cmd_run() {
   GOOGLE_APPLICATION_CREDENTIALS="$sa_file" SOCIAL_ROBOT_MODE="$mode" SOCIAL_ROBOT_SITE_REPO="$site" SOCIAL_ROBOT_STATE_DIR="$state_dir" GH_REPO=valerielinc-ops/frontaliere-si-o-no \
     node "$runner/scripts/social-robot/run.mjs" --publish --jitter >>"$log_file" 2>&1 || run_status=$?
   insights_status=0
-  if [ "$mode" != 'off' ] && [ "${SOCIAL_ROBOT_INSIGHTS_SOURCE:-browser}" != 'off' ] && [ "${SOCIAL_ROBOT_INSIGHTS_SOURCE:-browser}" != 'graph' ] && [ -f "$state_dir/instagram-insights.json" ]; then
+  if [ "$mode" != 'off' ] && [ "${META_INSTAGRAM_BROWSER_INSIGHTS_APPROVED:-}" = 'true' ] && [ "${SOCIAL_ROBOT_INSIGHTS_SOURCE:-browser}" != 'off' ] && [ "${SOCIAL_ROBOT_INSIGHTS_SOURCE:-browser}" != 'graph' ] && [ -f "$state_dir/instagram-insights.json" ]; then
     GOOGLE_APPLICATION_CREDENTIALS="$sa_file" node "$runner/scripts/social-robot/persist-browser-insights.mjs" \
       --snapshot "$state_dir/instagram-insights.json" >>"$log_file" 2>&1 || insights_status=$?
     [ "$insights_status" -eq 0 ] || log "browser Insights persistence failed (exit $insights_status)"

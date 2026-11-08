@@ -5,9 +5,17 @@
   "platform": "ipersonal.ch",
   "mode": "template",
   "seedUrls": [
-    "https://www.ipersonal.ch/offene-stellen/"
+    "https://www.ipersonal.ch/jobs/"
   ],
   "detailTemplate": "/jobs/*/",
+  "pagination": {
+    "maxPages": 250,
+    "numberedPagePattern": "^(\\d+)(?:/)?$",
+    "numberedPageQueryParam": "pageJ",
+    "pageStateParams": [
+      "pageJ"
+    ]
+  },
   "rescueOnPartialListing": true,
   "sampleVacancyCount": 15,
   "sampleTitles": [

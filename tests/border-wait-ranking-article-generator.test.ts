@@ -5,8 +5,9 @@
  * matches what services/borderWaitRankingService.ts expects, and the full
  * pipeline (history fixtures -> computeSnapshot -> buildData) is self-consistent.
  */
-import { describe, it, expect } from 'vitest';
-import { mkdtempSync, writeFileSync, readFileSync, existsSync } from 'node:fs';
+import { describe, it, expect, vi } from 'vitest';
+import fs from 'node:fs';
+import { mkdtempSync, mkdirSync, writeFileSync, readFileSync, existsSync } from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import {
@@ -17,6 +18,8 @@ import {
   buildRankingJson,
 } from '../scripts/generate-border-wait-ranking-article.mjs';
 import { buildBorderWaitRankingArticle } from '../scripts/lib/border-wait-ranking-content.mjs';
+import { evergreenRefreshLockPath } from '../scripts/lib/evergreen-article-refresh.mjs';
+import { withSingleFlightLock } from '../scripts/lib/single-flight-lock.mjs';
 import { BORDER_WAIT_CROSSINGS } from '../build-plugins/borderWaitData';
 
 const ranking = BORDER_WAIT_CROSSINGS.slice(0, 4).map((slug, i) => ({
@@ -56,6 +59,10 @@ function writeDay(dir: string, date: string, perCrossing: Record<string, Array<R
   writeFileSync(path.join(dir, `${date}.json`), JSON.stringify({ date, perCrossing }));
 }
 
+function makeRankingJson(todayIso: string) {
+  return buildRankingJson({ ranking, trend, funFacts, todayIso, weekStart, weekEnd, movers });
+}
+
 describe('border-wait ranking article generator', () => {
   it('rejects a non-site ranking identity before creating any refresh directory', () => {
     const root = mkdtempSync(path.join(os.tmpdir(), 'bwr-gen-id-'));
@@ -77,6 +84,92 @@ describe('border-wait ranking article generator', () => {
       expect(src).toContain('export default');
       expect(src).toContain('blog.article.classifica-dogane-ticino.body1');
     }
+  });
+
+  it('commits the ranking snapshot with the locale body set', () => {
+    const article = buildBorderWaitRankingArticle({ ranking, trend, funFacts, todayIso: '2027-01-01' });
+    const data = { id: article.id, content: article.content };
+    const root = mkdtempSync(path.join(os.tmpdir(), 'bwr-gen-transaction-'));
+    const nextSnapshot = makeRankingJson('2027-01-02');
+
+    refreshBodyFiles(data, root, () => {}, nextSnapshot);
+
+    const snapshotFile = path.join(root, 'public/data/border-wait-ranking.json');
+    expect(JSON.parse(readFileSync(snapshotFile, 'utf-8'))).toEqual(nextSnapshot);
+    for (const loc of ['it', 'en', 'de', 'fr']) {
+      expect(readFileSync(
+        path.join(root, 'services/locales/blog-body', loc, 'classifica-dogane-ticino.ts'),
+        'utf-8',
+      )).toContain('export default');
+    }
+  });
+
+  it('refuses an overlapping ranking refresh without changing the snapshot or body set', () => {
+    const article = buildBorderWaitRankingArticle({ ranking, trend, funFacts, todayIso: '2027-01-01' });
+    const data = { id: article.id, content: article.content };
+    const root = mkdtempSync(path.join(os.tmpdir(), 'bwr-gen-lock-'));
+    const previousBodies = new Map<string, string>();
+    for (const loc of ['it', 'en', 'de', 'fr']) {
+      const dir = path.join(root, 'services/locales/blog-body', loc);
+      mkdirSync(dir, { recursive: true });
+      const file = path.join(dir, 'classifica-dogane-ticino.ts');
+      const source = `previous ${loc}\n`;
+      previousBodies.set(file, source);
+      writeFileSync(file, source);
+    }
+    const snapshotFile = path.join(root, 'public/data/border-wait-ranking.json');
+    mkdirSync(path.dirname(snapshotFile), { recursive: true });
+    const previousSnapshot = '{"updatedAt":"previous"}\n';
+    writeFileSync(snapshotFile, previousSnapshot);
+
+    const held = withSingleFlightLock(evergreenRefreshLockPath(data.id), () => {
+      expect(() => refreshBodyFiles(data, root, () => {}, makeRankingJson('2027-01-02')))
+        .toThrow(/already running; no files were written/);
+    });
+    expect(held.acquired).toBe(true);
+
+    for (const [file, source] of previousBodies) expect(readFileSync(file, 'utf-8')).toBe(source);
+    expect(readFileSync(snapshotFile, 'utf-8')).toBe(previousSnapshot);
+  });
+
+  it('rolls back the ranking snapshot with the body set when its rename fails', () => {
+    const article = buildBorderWaitRankingArticle({ ranking, trend, funFacts, todayIso: '2027-01-01' });
+    const data = { id: article.id, content: article.content };
+    const root = mkdtempSync(path.join(os.tmpdir(), 'bwr-gen-rollback-'));
+    const previousBodies = new Map<string, string>();
+    for (const loc of ['it', 'en', 'de', 'fr']) {
+      const dir = path.join(root, 'services/locales/blog-body', loc);
+      mkdirSync(dir, { recursive: true });
+      const file = path.join(dir, 'classifica-dogane-ticino.ts');
+      const source = `previous ${loc}\n`;
+      previousBodies.set(file, source);
+      writeFileSync(file, source);
+    }
+    const snapshotFile = path.join(root, 'public/data/border-wait-ranking.json');
+    mkdirSync(path.dirname(snapshotFile), { recursive: true });
+    const previousSnapshot = '{"updatedAt":"previous"}\n';
+    writeFileSync(snapshotFile, previousSnapshot);
+
+    const originalRename = fs.renameSync.bind(fs);
+    let renameCalls = 0;
+    const rename = vi.spyOn(fs, 'renameSync').mockImplementation((from, to) => {
+      renameCalls += 1;
+      if (renameCalls === 5) throw new Error('simulated ranking snapshot rename failure');
+      return originalRename(from, to);
+    });
+    try {
+      expect(() => refreshBodyFiles(data, root, () => {}, makeRankingJson('2027-01-02')))
+        .toThrow('simulated ranking snapshot rename failure');
+    } finally {
+      rename.mockRestore();
+    }
+
+    for (const [file, source] of previousBodies) {
+      expect(readFileSync(file, 'utf-8')).toBe(source);
+      expect(fs.readdirSync(path.dirname(file)).filter((name) => name.endsWith('.tmp'))).toEqual([]);
+    }
+    expect(readFileSync(snapshotFile, 'utf-8')).toBe(previousSnapshot);
+    expect(fs.readdirSync(path.dirname(snapshotFile)).filter((name) => name.endsWith('.tmp'))).toEqual([]);
   });
 
   it('rejects translated prompt scaffolding before refreshing any body file', () => {

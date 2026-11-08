@@ -1,7 +1,7 @@
 {
   "key": "yapeal",
   "label": "Yapeal",
-  "generatedAt": "2026-11-07T09:16:20.234Z",
+  "generatedAt": "2026-11-07T21:15:43.322Z",
   "total": 3,
   "discovered": null,
   "parsed": 3,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 3,
-  "durationMs": 5636,
-  "avgDurationMs": 5636,
+  "durationMs": 5256,
+  "avgDurationMs": 5256,
   "durationHistory": [
-    5636
+    5256
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -37,7 +37,7 @@
       "url": "https://yapeal-ag.jobs.personio.de/job/2733274",
       "source": "Yapeal Dedicated Parser (Personio)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-07T09:16:06.494Z",
+      "crawledAt": "2026-11-07T21:15:31.758Z",
       "addressLocality": "Zurich - Hybrid",
       "addressRegion": "ZH",
       "streetAddress": "Max-Högger-Strasse 6",
@@ -61,7 +61,7 @@
       "salaryMax": 206500,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-07T09:16:06.494Z",
+      "validThrough": "2026-12-07T21:15:31.758Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -83,7 +83,7 @@
       "url": "https://yapeal-ag.jobs.personio.de/job/2868333",
       "source": "Yapeal Dedicated Parser (Personio)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-07T09:16:06.492Z",
+      "crawledAt": "2026-11-07T21:15:31.756Z",
       "addressLocality": "Zurich - Hybrid",
       "addressRegion": "ZH",
       "streetAddress": "Max-Högger-Strasse 6",
@@ -107,7 +107,7 @@
       "salaryMax": 154000,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-27T09:16:06.492Z",
+      "validThrough": "2027-01-27T21:15:31.756Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 99,
       "_qualityBreakdown": {
@@ -129,7 +129,7 @@
       "url": "https://yapeal-ag.jobs.personio.de/job/2821075",
       "source": "Yapeal Dedicated Parser (Personio)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-07T09:16:06.489Z",
+      "crawledAt": "2026-11-07T21:15:31.754Z",
       "addressLocality": "Zurich - Hybrid",
       "addressRegion": "ZH",
       "streetAddress": "Max-Högger-Strasse 6",
@@ -153,7 +153,7 @@
       "salaryMax": 198500,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-30T09:16:06.489Z",
+      "validThrough": "2026-12-30T21:15:31.754Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -164,5 +164,5 @@
       }
     }
   ],
-  "codeCommit": "dae4367441abe10a497d7d52ebb4540c014e1e8c"
+  "codeCommit": "f149ed523035737e5146c13e7338b8dd6b0c5f04"
 }

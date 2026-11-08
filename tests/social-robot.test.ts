@@ -73,8 +73,17 @@ describe('Instagram image upload accept guard', () => {
 });
 
 describe('social delivery policy', () => {
-  it('holds TikTok out of automatic browser delivery while retaining other requested platforms', () => {
+  it('holds Instagram browser delivery until approved and always holds TikTok', () => {
     expect(filterAutomatedDeliveryPlatforms(['instagram', 'tiktok'])).toEqual({
+      allowed: [],
+      held: [
+        { channel: 'instagram', reason: expect.stringContaining('Meta express permission') },
+        { channel: 'tiktok', reason: expect.stringContaining('eligible') },
+      ],
+    });
+    expect(filterAutomatedDeliveryPlatforms(['instagram', 'tiktok'], {
+      META_INSTAGRAM_BROWSER_PUBLISHING_APPROVED: 'true',
+    })).toEqual({
       allowed: ['instagram'],
       held: [{ channel: 'tiktok', reason: expect.stringContaining('eligible') }],
     });
@@ -251,14 +260,18 @@ describe('Remote Config switch SOCIAL_ROBOT_MODE', () => {
     for (const value of SOCIAL_ROBOT_MODES) expect(isTrivialSecret(value), value).toBe(true);
   });
 
-  it('routes the posters: off = API only, dry = API then queue, live = queue only', () => {
+  it('routes only through an explicit API or approved browser path', () => {
     expect(socialPublishRoute({ mode: 'off', apiReady: false })).toEqual({ api: false, enqueue: false, render: false });
     expect(socialPublishRoute({ mode: 'off', apiReady: true })).toEqual({ api: true, enqueue: false, render: true });
-    expect(socialPublishRoute({ mode: 'dry', apiReady: false })).toEqual({ api: false, enqueue: true, render: true });
-    expect(socialPublishRoute({ mode: 'dry', apiReady: true })).toEqual({ api: true, enqueue: true, render: true });
-    expect(socialPublishRoute({ mode: 'live', apiReady: true })).toEqual({ api: false, enqueue: true, render: true });
+    expect(socialPublishRoute({ mode: 'dry', apiReady: false, browserDeliveryAllowed: true })).toEqual({ api: false, enqueue: true, render: true });
+    expect(socialPublishRoute({ mode: 'dry', apiReady: true, browserDeliveryAllowed: true })).toEqual({ api: true, enqueue: true, render: true });
+    expect(socialPublishRoute({ mode: 'live', apiReady: true, browserDeliveryAllowed: true })).toEqual({ api: false, enqueue: true, render: true });
     expect(socialPublishRoute({ mode: 'live', apiReady: true, apiOnly: true })).toEqual({ api: true, enqueue: false, render: true });
     expect(socialPublishRoute({ mode: 'dry', apiReady: false, apiOnly: true })).toEqual({ api: false, enqueue: false, render: false });
+    expect(socialPublishRoute({ mode: 'live', apiReady: true, browserDeliveryAllowed: false })).toEqual({ api: true, enqueue: false, render: true });
+    expect(socialPublishRoute({ mode: 'live', apiReady: false, browserDeliveryAllowed: false })).toEqual({ api: false, enqueue: false, render: false });
+    expect(socialPublishRoute({ mode: 'dry', apiReady: true, browserDeliveryAllowed: false })).toEqual({ api: true, enqueue: false, render: true });
+    expect(socialPublishRoute({ mode: 'dry', apiReady: false, browserDeliveryAllowed: false })).toEqual({ api: false, enqueue: false, render: false });
   });
 });
 
@@ -384,7 +397,7 @@ describe('deliverSocialPost', () => {
 
   it('never calls the API in live mode', async () => {
     const publish = vi.fn();
-    const out = await deliverSocialPost({ route: socialPublishRoute({ mode: 'live', apiReady: true }), label: 'X', publish, recordPublished: vi.fn(), enqueue: vi.fn(), dequeue: vi.fn(), log: quiet });
+    const out = await deliverSocialPost({ route: socialPublishRoute({ mode: 'live', apiReady: true, browserDeliveryAllowed: true }), label: 'X', publish, recordPublished: vi.fn(), enqueue: vi.fn(), dequeue: vi.fn(), log: quiet });
     expect(out).toBe('queued');
     expect(publish).not.toHaveBeenCalled();
   });
@@ -400,7 +413,7 @@ describe('deliverSocialPost', () => {
     const tiktok = entry('article', '2026-10-03', { channel: 'tiktok' });
     fs.writeFileSync(queuePath, JSON.stringify({ schemaVersion: 1, pending: [stale, job, tiktok] }));
     const out = await deliverSocialPost({
-      route: socialPublishRoute({ mode: 'dry', apiReady: true }),
+      route: socialPublishRoute({ mode: 'dry', apiReady: true, browserDeliveryAllowed: true }),
       label: 'Instagram',
       publish: async () => ({ ok: true }),
       // Today's API post carries a different article key than the queued one.
@@ -1384,6 +1397,8 @@ describe('Mac host launch agent', () => {
     );
     fs.writeFileSync(path.join(socialDir, 'launchd.sh'), destinationLauncher);
     fs.copyFileSync(path.join(ROOT, 'scripts', 'social-robot', 'verify-snapshot.mjs'), path.join(socialDir, 'verify-snapshot.mjs'));
+    fs.copyFileSync(path.join(ROOT, 'scripts', 'lib', 'source-comments.mjs'), path.join(libDir, 'source-comments.mjs'));
+    fs.copyFileSync(path.join(ROOT, 'scripts', 'lib', 'inline-comment-marker.mjs'), path.join(libDir, 'inline-comment-marker.mjs'));
     fs.cpSync(
       path.join(ROOT, 'scripts', 'social-robot', 'runtime-shims'),
       path.join(socialDir, 'runtime-shims'),
@@ -1649,10 +1664,10 @@ describe('workflows', () => {
     }
   });
 
-  it('warns on a token-less Instagram run unless the robot is live', () => {
+  it('warns on a token-less Instagram run while browser delivery is held', () => {
     const steps = wf('instagram-daily-broadcast.yml').jobs.post.steps as Array<{ name?: string; if?: string }>;
     const warn = steps.find((s) => /credentials are absent/.test(s.name ?? ''));
-    expect(warn?.if).toBe("env.INSTAGRAM_ACCESS_TOKEN == '' && env.SOCIAL_ROBOT_MODE != 'live'");
+    expect(warn?.if).toBe("env.INSTAGRAM_ACCESS_TOKEN == '' && env.META_INSTAGRAM_BROWSER_PUBLISHING_APPROVED != 'true'");
   });
 
   it('reserves the scheduled Instagram Reel cadence before assembling daily-only data', () => {

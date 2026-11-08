@@ -39,6 +39,11 @@ function makeGhStub({ closedAt, commitDate }: { closedAt: string; commitDate: st
   writeFileSync(join(dir, 'gh'), `#!/usr/bin/env node
 const fs = require('fs');
 const args = process.argv.slice(2);
+const bodyFileIndex = args.indexOf('--body-file');
+if (bodyFileIndex >= 0) {
+  const bodyFile = args[bodyFileIndex + 1];
+  args.splice(bodyFileIndex, 2, '--body', fs.readFileSync(bodyFile, 'utf8'));
+}
 fs.appendFileSync(${JSON.stringify(log)}, JSON.stringify(args) + '\\n');
 const path = String(args[1] || '');
 if (args[0] === 'issue' && args[1] === 'list') {
@@ -89,6 +94,11 @@ function makeCreateCaptureGhStub() {
   writeFileSync(join(dir, 'gh'), `#!/usr/bin/env node
 const fs = require('fs');
 const args = process.argv.slice(2);
+const bodyFileIndex = args.indexOf('--body-file');
+if (bodyFileIndex >= 0) {
+  const bodyFile = args[bodyFileIndex + 1];
+  args.splice(bodyFileIndex, 2, '--body', fs.readFileSync(bodyFile, 'utf8'));
+}
 fs.appendFileSync(${JSON.stringify(log)}, JSON.stringify(args) + '\\n');
 if (args[0] === 'issue' && args[1] === 'list') {
   process.stdout.write('[]');

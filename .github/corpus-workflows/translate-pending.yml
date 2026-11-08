@@ -741,7 +741,7 @@ jobs:
         if: always() && !cancelled() && steps.checkout.outcome == 'success' && github.event_name == 'schedule' && inputs.skip_translate != true && inputs.dry_run != true && (github.run_attempt == 1 || steps.recovery_guard.outcome == 'success')
         env:
           REPAIR_LANE_DEADLINE_MS: "12600000"
-          REPAIR_LANE_MIN_REMAINING_MS: "900000"
+          REPAIR_LANE_MIN_REMAINING_MS: "5400000"
         run: node scripts/translate-repair-lane-gate.mjs
       - name: "Phase 2d: Fix untranslated titles (free cascade)"
         if: always() && !cancelled() && steps.checkout.outcome == 'success' && github.event_name == 'schedule' && github.event.schedule == '0 7 * * *' && inputs.skip_translate != true && inputs.dry_run != true && steps.repair_lane_budget.outputs.run == 'true' && (github.run_attempt == 1 || steps.recovery_guard.outcome == 'success')

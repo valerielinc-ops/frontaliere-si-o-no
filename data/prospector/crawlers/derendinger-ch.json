@@ -1,0 +1,24 @@
+{
+  "companyKey": "derendinger-ch",
+  "companyName": "Derendinger AG",
+  "companyHost": "derendinger.ch",
+  "verifiedEmployerDomain": "derendinger.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://www.derendinger.ch/it/carriera"
+  ],
+  "detailTemplate": "/it/carriera/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 2,
+  "sampleTitles": [
+    "Alle opportunità di carriera",
+    "Tutte le offerte di lavoro"
+  ],
+  "canton": "VD",
+  "sourceLang": "it",
+  "learnedAt": "2026-11-07T12:50:01.465Z",
+  "candidateKey": "derendinger@lausanne"
+}

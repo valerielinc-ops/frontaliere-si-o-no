@@ -1376,8 +1376,8 @@ it('keeps Italian EOC country and nationality catalogues without the localizatio
   const questions = [
     {
       id: 'country', question: 'Paese', applicationQuestion: 'Paese', type: 'choice',
-      options: ['Selezionare', 'Svizzera', 'Italia', 'Germania', 'Francia'],
-      applicationOptions: ['Selezionare', 'Svizzera', 'Italia', 'Germania', 'Francia'],
+      options: ['Selezionare', '-----------------------------------------', 'Svizzera', 'Italia', 'Germania', 'Francia'],
+      applicationOptions: ['Selezionare', '-----------------------------------------', 'Svizzera', 'Italia', 'Germania', 'Francia'],
     },
     {
       id: 'nationality', question: 'Nazionalità', applicationQuestion: 'Nazionalità', type: 'choice',

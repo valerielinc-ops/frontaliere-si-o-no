@@ -10,7 +10,7 @@ export type CorrezioniLocale = CorrectionsLocale;
 function resolveLastReviewed(): string | undefined {
   return correctionsLog.entries.map((entry: { date: string }) => entry.date)
     .filter((date) => Number.isFinite(Date.parse(date)) && Date.parse(date) <= Date.now())
-    .sort().at(-1)?.slice(0, 10);
+    .sort().pop()?.slice(0, 10);
 }
 
 export interface CorrezioniSeo {

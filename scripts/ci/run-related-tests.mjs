@@ -40,6 +40,7 @@ import { CRAWLER_GENERATION_RUNTIME_PATHS } from '../lib/crawler-generation-runt
 import { isArticlePublisherCodePath } from '../lib/article-chunk-publish-freshness.mjs';
 import { isScanned as isSecretScanned } from './scan-site-hardcoded-secrets.mjs';
 import { TRANSPORT_MANIFEST, transportManifestPaths } from './corpus-ahead-check.mjs';
+import { stripSourceComments } from '../lib/source-comments.mjs';
 
 const changedPathFile = process.env.CHANGED_PATHS_FILE || 'changed-paths.txt';
 const changedStatusFile = process.env.CHANGED_PATHS_STATUS_FILE || 'changed-paths-status.txt';
@@ -546,40 +547,6 @@ function stopWithoutFullSuite(reason) {
   process.exit(2);
 }
 
-function stripComments(source) {
-  let out = '';
-  let quote = null;
-  let escaped = false;
-  for (let i = 0; i < source.length; i++) {
-    const char = source[i];
-    const next = source[i + 1];
-    if (quote) {
-      out += char;
-      if (escaped) escaped = false;
-      else if (char === '\\') escaped = true;
-      else if (char === quote) quote = null;
-      continue;
-    }
-    if (char === '\'' || char === '"' || char === '`') {
-      quote = char;
-      out += char;
-    } else if (char === '/' && next === '/') {
-      while (i < source.length && source[i] !== '\n') i++;
-      out += '\n';
-    } else if (char === '/' && next === '*') {
-      i += 2;
-      while (i < source.length && !(source[i] === '*' && source[i + 1] === '/')) {
-        if (source[i] === '\n') out += '\n';
-        i++;
-      }
-      i++;
-    } else {
-      out += char;
-    }
-  }
-  return out;
-}
-
 function trackedFiles() {
   return execFileSync('git', ['ls-files', '-z'], { encoding: 'utf8', maxBuffer: 64 * 1024 * 1024 })
     .split('\0').filter(Boolean).map(normalize).filter(isGraphSourceFile);
@@ -673,7 +640,7 @@ function importsOf(file, fileSet, assets, assetSet) {
     return [];
   }
   const deps = new Set();
-  const code = stripComments(source);
+  const code = stripSourceComments(source);
   // A directory literal is a dependency only when the file actually scans a
   // directory.  `path.join(ROOT, '.github', 'workflows', WORKFLOW_FILE)` has
   // only the two quoted directory segments available to this static parser;
