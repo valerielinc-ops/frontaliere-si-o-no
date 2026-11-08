@@ -5501,6 +5501,7 @@ jobs:
           watchdog_path="$state_dir/assura-ch.watchdog"
           rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
           rm -f "$state_dir/assura-ch.crawl-exit"
+          # shellcheck disable=SC1112
           printf '%s\n' 'set -uo pipefail
           set +e
 
