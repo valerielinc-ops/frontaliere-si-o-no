@@ -1,62 +1,19 @@
 {
   "key": "hitachi-energy",
   "label": "Hitachi Energy",
-  "generatedAt": "2026-11-07T21:22:48.427Z",
+  "generatedAt": "2026-11-08T09:22:31.890Z",
   "total": 76,
   "newCount": 0,
-  "updatedCount": 1,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 75,
-  "durationMs": 326797,
-  "avgDurationMs": 326797,
+  "unchangedCount": 76,
+  "durationMs": 239152,
+  "avgDurationMs": 239152,
   "durationHistory": [
-    326797
+    239152
   ],
   "newJobs": [],
-  "updatedJobs": [
-    {
-      "title": "Monteur/in im Leistungslabor 80 - 100% (w/m/d) befristet für 12 Monate",
-      "slug": "monteur-in-im-leistungslabor-80-100-w-m-d-befristet-per-12-monate-hitachi-energy-baden",
-      "url": "https://www.hitachienergy.com/careers/open-jobs/details/JID3-218974",
-      "applyUrl": "https://hitachi.wd1.myworkdayjobs.com/hitachi/job/Baden-Aargau-Switzerland/Monteur-in-im-Leistungslabor-80---100---w-m-d-_R0137347/apply",
-      "company": "Hitachi Energy",
-      "companyKey": "hitachi-energy",
-      "companyDomain": "hitachienergy.com",
-      "location": "Baden, Switzerland",
-      "addressLocality": "Baden",
-      "addressRegion": "AG",
-      "addressCountry": "CH",
-      "canton": "AG",
-      "country": "CH",
-      "category": "engineering",
-      "sector": "Ingegneria Energetica",
-      "source": "hitachi-energy-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-10-02T00:00:00Z",
-      "employmentType": "full-time",
-      "contractType": "temporary",
-      "validThrough": "2026-11-16T21:17:26.233Z",
-      "id": "hitachi-energy-59969bf7093a",
-      "salaryMin": 72500,
-      "salaryMax": 110500,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "firstSeenAt": "2026-10-02T21:17:26.233Z",
-      "datePosted": "2026-10-02T00:00:00Z",
-      "postingDateSource": "reported",
-      "postalCode": "5400",
-      "streetAddress": "Baden",
-      "streetAddressSource": "to-enrich",
-      "validThroughSource": "last-observed-window",
-      "_qualityScore": 95,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 25
-      }
-    }
-  ],
+  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [
     {
@@ -1321,5 +1278,5 @@
       }
     }
   ],
-  "codeCommit": "f149ed523035737e5146c13e7338b8dd6b0c5f04"
+  "codeCommit": "b019e69684c909d5fd747961cb84c9c400bc8446"
 }
