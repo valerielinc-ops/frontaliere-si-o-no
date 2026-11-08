@@ -168,7 +168,7 @@ describe('automatic recovery after a portal fix', () => {
     const dueAt = now + 1_000;
     const flowPath = `${base}/automation/flow`;
     store.docs.set(base, { ...store.read(base), automationDueAt: dueAt });
-    store.docs.set(flowPath, { ...store.read(flowPath), portalAutoRetryCount: 2,
+    store.docs.set(flowPath, { ...store.read(flowPath), heldBy: ['portal:portal_needs_candidate'], portalAutoRetryCount: 2,
       portalAutoRetryAt: dueAt, portalRecoveryVersion: oldVersion, portalExhaustedRecoveryVersion: oldVersion });
     const ctx = { db: store.db, version, apply: true, nowMs: now, isEnabled: async () => true };
 
