@@ -68,6 +68,7 @@ function makeValueSignal<T>(): { promise: Promise<T>; resolve: (v: T) => void } 
 
 const staticPagesSignal = makeSignal();
 const professionLandingsSignal = makeValueSignal<readonly string[]>();
+let professionLandingsProducerRegistered = false;
 const salaryHubSignal = makeSignal();
 const fuelDailyPagesSignal = makeSignal();
 const jobsSeoPagesSignal = makeSignal();
@@ -125,6 +126,25 @@ export function resolveStaticPagesFlushed(): void {
 export const professionLandingsFlushed: Promise<readonly string[]> = professionLandingsSignal.promise;
 export function resolveProfessionLandingsFlushed(paths: readonly string[]): void {
   professionLandingsSignal.resolve(paths);
+}
+
+/**
+ * The sector producer is also unit-tested in isolation. Those tests do not
+ * register the profession producer, so waiting for its build signal would
+ * deadlock even though there is no producer whose output can be consumed.
+ */
+export function registerProfessionLandingsProducer(): void {
+  professionLandingsProducerRegistered = true;
+}
+
+/**
+ * FAST_BUILD omits professionLandingsPlugin, and an isolated plugin test may
+ * omit it too. Only await the value signal when this build has that producer.
+ */
+export function shouldAwaitProfessionLandingsFlushed(): boolean {
+  return professionLandingsProducerRegistered
+    && !process.env.FAST_BUILD
+    && process.env.SKIP_PROFESSION_LANDINGS !== '1';
 }
 
 /**

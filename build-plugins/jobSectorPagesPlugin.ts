@@ -75,7 +75,11 @@ import { SECTOR_HUB_EMOJI } from './shared/sectorHubEmoji';
 import { JOB_BOARD_NOINDEX_TARGET_MARKER } from './shared/jobBoardNoindexTargetMarker.mjs';
 import { getSafeDistPageTargets } from './shared/distPathSafety';
 import { shouldEmitLocale } from './shared/localeEmitFilter';
-import { professionLandingsFlushed, resolveSectorPagesFlushed } from './shared/buildSignals';
+import {
+  professionLandingsFlushed,
+  resolveSectorPagesFlushed,
+  shouldAwaitProfessionLandingsFlushed,
+} from './shared/buildSignals';
 import { SECTOR_HUB_SIBLINGS } from './shared/sectorHubClusters';
 import { buildProfessionLandingPath, type ProfessionId } from './professionLandingsData';
 import { buildNursingLandingPath, type NursingLandingId } from './nursingLandingsData';
@@ -836,7 +840,9 @@ export function jobSectorPagesPlugin(rootDir: string): Plugin {
     async closeBundle() {
       const distDir = np.resolve(rootDir, 'dist');
       const jobsPath = np.resolve(rootDir, 'data/jobs.json');
-      const emittedProfessionLandingPaths = new Set(await professionLandingsFlushed);
+      const emittedProfessionLandingPaths = shouldAwaitProfessionLandingsFlushed()
+        ? new Set(await professionLandingsFlushed)
+        : new Set<string>();
 
       // `dateStamp` is fixed once per build and baked into HTML.
       const dateStamp = new Date().toISOString().slice(0, 10);

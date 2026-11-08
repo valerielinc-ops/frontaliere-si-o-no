@@ -365,6 +365,9 @@ describe('sector journey integration', () => {
       emittedProfessionLandingPaths: new Set(),
     });
 
+    // The analytics role key is the canonical profession id, not the sector
+    // hub key (`infermieri`); the existing role-specific cases use the same
+    // `infermiere` key.
     expect(findJourneyHref(html, 'infermiere', 'requirements')).toBe(
       buildProfessionJourneySearchHref(buildJobBoardUrl('it'), 'infermiere'),
     );

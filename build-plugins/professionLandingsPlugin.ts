@@ -43,7 +43,10 @@ import { buildSeoPageHtml } from './shared/seoPageShell';
 import { buildLocaleAlternateBlock } from './shared/localeAlternateBlock';
 import { endOfContentMultiplexHtml } from './lib/adSlotHtml';
 import { WriteCollector } from './batchWrite';
-import { resolveProfessionLandingsFlushed } from './shared/buildSignals';
+import {
+  registerProfessionLandingsProducer,
+  resolveProfessionLandingsFlushed,
+} from './shared/buildSignals';
 import { imageObjectLd } from '../services/seo/imageObjectLd';
 import {
   LINK_ACCENT_STYLE,
@@ -948,17 +951,22 @@ function floorGraceNote(recentlyExpired: Record<string, number> | null): string 
 // ── Plugin entry ──────────────────────────────────────────────────
 
 export function professionLandingsPlugin(rootDir: string): Plugin {
+  registerProfessionLandingsProducer();
   return {
     name: 'profession-landings',
     apply: 'build',
     async closeBundle() {
       if (process.env.SKIP_PROFESSION_LANDINGS === '1') {
         console.log('\x1b[33m[profession-landings]\x1b[0m Skipped (SKIP_PROFESSION_LANDINGS=1)');
+        resolveProfessionLandingsFlushed([]);
         return;
       }
 
       const distDir = np.resolve(rootDir, 'dist');
-      if (!fs.existsSync(distDir)) return;
+      if (!fs.existsSync(distDir)) {
+        resolveProfessionLandingsFlushed([]);
+        return;
+      }
 
       const result = await emitProfessionLandingPages({ rootDir, distDir });
 
