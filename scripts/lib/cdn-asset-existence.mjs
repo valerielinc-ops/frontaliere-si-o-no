@@ -209,25 +209,64 @@ export async function verifyCdnAssetRefs({
      * A fetch timeout alone is not a run budget: a HEAD that reaches its
      * timeout can still be followed by a full GET fallback. Arm one
      * AbortController with the smaller of the per-request timeout and the
-     * remaining run budget, and recompute that residual before a fallback.
-     * The first residual is passed in because `now` is injectable and a test
-     * clock may advance on every read.
+     * remaining run budget, and race the fetch itself against the shared
+     * deadline. A custom fetch implementation may ignore AbortController, so
+     * awaiting it directly would still let one in-flight request hang the
+     * whole shard publication. Recompute that residual before a fallback; the
+     * first residual is passed in because `now` is injectable and a test clock
+     * may advance on every read.
      */
     const fetchWithinBudget = async (method, initialRemainingMs = null) => {
-      const remainingMs = initialRemainingMs ?? (budgetMs - (now() - startedAt));
+      const remainingMs = Math.min(
+        initialRemainingMs ?? Number.POSITIVE_INFINITY,
+        budgetMs - (now() - startedAt),
+      );
       if (remainingMs <= 0) return { budget: true };
 
       const controller = new AbortController();
       const deadlineMs = Math.max(1, Math.min(timeoutMs, remainingMs));
-      const timer = setTimeout(() => controller.abort(), deadlineMs);
+      let budgetExpired = false;
+      let budgetTimer;
+      const budgetResult = new Promise((resolve) => {
+        budgetTimer = setTimeout(() => {
+          budgetExpired = true;
+          controller.abort();
+          resolve({ budget: true, method, inFlight: true });
+        }, Math.max(1, remainingMs));
+      });
+      const timeoutTimer = deadlineMs < remainingMs
+        ? setTimeout(() => controller.abort(), deadlineMs)
+        : null;
+      let fetchPromise;
       try {
-        return {
-          response: await fetchImpl(url, { method, redirect: 'follow', signal: controller.signal }),
-        };
+        fetchPromise = Promise.resolve(
+          fetchImpl(url, { method, redirect: 'follow', signal: controller.signal }),
+        );
       } catch (error) {
-        return { error };
+        fetchPromise = Promise.reject(error);
+      }
+      const fetchResult = fetchPromise.then(
+        (response) => ({ response }),
+        (error) => ({ error }),
+      );
+      try {
+        const outcome = await Promise.race([fetchResult, budgetResult]);
+        // A response that arrives after the shared deadline is not an
+        // observation we can safely count. This matters for a fetchImpl that
+        // does not honor AbortController (and for the HEAD→GET fallback): the
+        // abort alone cannot enforce an in-flight run budget.
+        if (outcome.budget || budgetExpired || now() - startedAt >= budgetMs) {
+          return {
+            budget: true,
+            method,
+            inFlight: true,
+            ...(outcome.response ? { response: outcome.response } : {}),
+          };
+        }
+        return outcome;
       } finally {
-        clearTimeout(timer);
+        clearTimeout(timeoutTimer);
+        clearTimeout(budgetTimer);
       }
     };
 
@@ -246,9 +285,17 @@ export async function verifyCdnAssetRefs({
         let attempt = await fetchWithinBudget('HEAD', attemptNumber === 1 ? budgetMs - elapsed : null);
         if (attempt.budget) {
           budgetSkipped = true;
-          budgetReason = attemptNumber === 1
-            ? `budget di ${budgetMs}ms esaurito prima della richiesta`
-            : `budget di ${budgetMs}ms esaurito prima della richiesta di retry`;
+          const delayedHeadFallback = attempt.response
+            && (attempt.response.status === 405 || attempt.response.status === 501);
+          budgetReason = attempt.response
+            ? delayedHeadFallback
+              ? `budget di ${budgetMs}ms esaurito prima del GET di fallback`
+              : `budget di ${budgetMs}ms esaurito durante la richiesta HEAD`
+            : attempt.inFlight
+              ? `budget di ${budgetMs}ms esaurito durante la richiesta HEAD`
+            : attemptNumber === 1
+              ? `budget di ${budgetMs}ms esaurito prima della richiesta`
+              : `budget di ${budgetMs}ms esaurito prima della richiesta di retry`;
           break;
         }
         if (attempt.error) {
@@ -267,7 +314,11 @@ export async function verifyCdnAssetRefs({
           attempt = await fetchWithinBudget('GET');
           if (attempt.budget) {
             budgetSkipped = true;
-            budgetReason = `budget di ${budgetMs}ms esaurito prima del GET di fallback`;
+            budgetReason = attempt.response
+              ? `budget di ${budgetMs}ms esaurito durante la richiesta GET di fallback`
+              : attempt.inFlight
+                ? `budget di ${budgetMs}ms esaurito durante la richiesta GET di fallback`
+              : `budget di ${budgetMs}ms esaurito prima del GET di fallback`;
             break;
           }
           if (attempt.error) {
