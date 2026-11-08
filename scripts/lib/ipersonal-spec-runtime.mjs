@@ -429,9 +429,9 @@ export async function readIpersonalListingIndex(html, pageUrl, previousUrls, fet
 }
 
 /**
- * Append index entries to the listing HTML in the same card markup the source
- * renders for its start list, so the shared listing extractor judges them by
- * the same evidence rules.
+ * Append index entries to the listing HTML as minimal start-list cards (title
+ * link and place), so the shared listing extractor judges them by the same
+ * evidence rules.
  *
  * @param {string} html
  * @param {Array<{ url: string, title: string, place: string }>} entries
