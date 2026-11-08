@@ -1,7 +1,7 @@
 {
   "crawlerKey": "jobdoor-ch",
-  "assembledAt": "2026-11-07T21:45:06.870Z",
-  "runId": "42415902184",
+  "assembledAt": "2026-11-08T09:37:30.162Z",
+  "runId": "42467106583",
   "jobs": [
     {
       "id": "jobdoor-ch-7bc38f16351f",
@@ -34,7 +34,7 @@
       "url": "https://jobdoor.ch/job/fage-efz-100",
       "source": "Jobdoor AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-07T21:45:02.025Z",
+      "crawledAt": "2026-11-08T09:37:25.040Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -78,7 +78,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T21:45:02.025Z",
+      "validThrough": "2027-02-03T09:37:25.040Z",
       "validThroughSource": "last-observed-window"
     }
   ]

@@ -1,7 +1,7 @@
 {
   "crawlerKey": "a2nails-ch",
-  "assembledAt": "2026-11-07T21:44:09.083Z",
-  "runId": "42415902184",
+  "assembledAt": "2026-11-08T09:38:50.955Z",
+  "runId": "42467106583",
   "jobs": [
     {
       "id": "a2nails-ch-1352b4d181e6",
@@ -34,7 +34,7 @@
       "url": "https://a2nails.ch/jobs/",
       "source": "A2 Nails Nyon Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-07T21:44:02.739Z",
+      "crawledAt": "2026-11-08T09:38:41.760Z",
       "addressLocality": "Nyon",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -83,7 +83,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-07T21:44:02.739Z",
+      "validThrough": "2026-12-08T09:38:41.760Z",
       "validThroughSource": "last-observed-window"
     }
   ]
