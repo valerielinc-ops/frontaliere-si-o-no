@@ -442,6 +442,10 @@ export const KNOWN_LIVE_DATA_TESTS = Object.freeze([
   // Corpus genuinely the subject: this publication contract checks the live
   // article and SEO registries against their dedicated cover assets and ledger.
   { file: "tests/blog-article-publication-contract.test.ts", roots: ["packages/articles/content/"], since: "2026-10-08", evidence: "replay", runtime: true },
+  // Corpus genuinely the subject: this guard checks the currently published
+  // title/imageAlt metadata in every locale for a regression to shouting case;
+  // a fixture would no longer test the publisher's live metadata contract.
+  { file: "tests/blog-title-casing.test.ts", roots: ["packages/articles/content/"], since: "2026-11-08", evidence: "review", runtime: true },
   { file: "tests/article-hero-image-integrity.test.ts", roots: ["packages/articles/content/"], since: "2026-09-19", evidence: "replay", runtime: true },
   { file: "tests/articles-archive-chronological.test.ts", roots: ["data/all-known-job-slugs/", "data/jobs-snapshots-history/"], since: "2026-09-19", evidence: "replay", runtime: true },
   { file: "tests/blog-slugs-sitemap-sync.test.ts", roots: ["packages/articles/content/"], since: "2026-09-19", evidence: "replay", runtime: true },

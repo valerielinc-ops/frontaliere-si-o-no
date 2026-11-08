@@ -3201,6 +3201,8 @@ function renderStationPage(opts: {
   fuel: FuelType;
   zoneAvg: number | null;
   zoneStations: StationContext[];
+  /** Exact post-gate station paths allowed in sibling links. */
+  emittedStationPaths?: ReadonlySet<string>;
   today: Date;
   canonicalPath: string;
   alternates: Record<FuelDailyLocale, string>;
@@ -3208,7 +3210,7 @@ function renderStationPage(opts: {
   history?: readonly HistorySnapshot[];
   rootDir?: string;
 }): string {
-  const { ctx, locale, fuel, zoneAvg, zoneStations, today, canonicalPath, alternates, distDir, history, rootDir } = opts;
+  const { ctx, locale, fuel, zoneAvg, zoneStations, emittedStationPaths, today, canonicalPath, alternates, distDir, history, rootDir } = opts;
   const copy = STATION_COPY[locale];
   const fuelLabel = FUEL_TYPE_LABEL[locale][fuel];
   const zoneLabel = FUEL_ZONE_DISPLAY[ctx.zone];
@@ -3275,6 +3277,10 @@ function renderStationPage(opts: {
   // Sibling stations for related-links block
   const siblingStations = zoneStations
     .filter((s) => s.slug !== ctx.slug && s.prices[fuel] !== null)
+    .filter((s) => isFuelLeafEmitted(
+      buildFuelStationPath(locale, fuel, s.zone, s.slug),
+      emittedStationPaths,
+    ))
     .slice(0, 6)
     .map((s) => ({ slug: s.slug, brand: s.brandDisplay, zone: s.zone }));
 
@@ -3954,6 +3960,8 @@ function renderItalianCityPage(opts: {
    * per-station price coverage for this city.
    */
   stationContexts?: ItalianStationContext[];
+  /** Exact post-gate Italian station paths allowed in station cards. */
+  emittedStationPaths?: ReadonlySet<string>;
   /** Gross-only same-currency comparison of sampled pump prices, when a dated ECB rate exists. */
   crossBorder?: CityCrossBorder | null;
   /**
@@ -3969,7 +3977,7 @@ function renderItalianCityPage(opts: {
   /** Project root, threaded through for build-time brand-logo resolution. */
   rootDir?: string;
 }): string {
-  const { entry, locale, fuel, stations, history, crossBorder, canonicalPath, alternates, today, distDir, rootDir } = opts;
+  const { entry, locale, fuel, stations, history, crossBorder, canonicalPath, alternates, today, distDir, rootDir, emittedStationPaths } = opts;
   const copy = IT_CITY_COPY[locale];
   const fuelLabel = FUEL_TYPE_LABEL[locale][fuel];
   const canonicalUrl = `${BASE_URL}${canonicalPath}`;
@@ -4117,7 +4125,12 @@ function renderItalianCityPage(opts: {
       ? `<ol class="s-cTOdp9">${sortedStations
           .map((s) => {
             const matched = s.id ? ctxBySlug.get(s.id) : undefined;
-            const href = matched ? buildFuelItalianStationPath(locale, fuel, entry.slug, matched.slug) : undefined;
+            const candidateHref = matched
+              ? buildFuelItalianStationPath(locale, fuel, entry.slug, matched.slug)
+              : undefined;
+            const href = candidateHref && isFuelLeafEmitted(candidateHref, emittedStationPaths)
+              ? candidateHref
+              : undefined;
             const logoUrl = resolveStationBrandLogoUrl(rootDir, s.brand);
             const card = renderEntityCard({
               href,
@@ -4327,6 +4340,8 @@ export function generateFuelStationPages(opts: {
    * hook so the index plugin and the detail-page generator share one list.
    */
   contexts?: readonly StationContext[];
+  /** Exact post-gate station paths allowed in sibling links. */
+  emittedStationPaths?: ReadonlySet<string>;
   /** Filled with path → day of the price shown, for the sitemap `<lastmod>`. */
   lastmodByPath?: Map<string, string>;
   /** History snapshots — drives the per-page zone history chart. */
@@ -4392,6 +4407,7 @@ export function generateFuelStationPages(opts: {
           fuel,
           zoneAvg: zoneAvg[ctx.zone][fuel],
           zoneStations,
+          emittedStationPaths: opts.emittedStationPaths,
           today,
           canonicalPath,
           alternates,
@@ -4487,6 +4503,8 @@ export function generateFuelItalianCityPages(opts: {
   rootDir?: string;
   /** Filled with path → newest day among the prices shown, for `<lastmod>`. */
   lastmodByPath?: Map<string, string>;
+  /** Exact post-gate Italian station paths allowed in station cards. */
+  emittedStationPaths?: ReadonlySet<string>;
 }): Record<string, string> {
   const dataset = opts.dataset;
   const history = opts.history ?? [];
@@ -4535,6 +4553,7 @@ export function generateFuelItalianCityPages(opts: {
           today,
           distDir,
           rootDir,
+          emittedStationPaths: opts.emittedStationPaths,
         });
         pages[canonicalPath] = html;
         const observedDay = latestItalianObservationDay(stations, fuel);
@@ -5147,10 +5166,12 @@ function renderItalianStationPage(opts: {
   readonly canonicalPath: string;
   readonly alternates: Record<FuelDailyLocale, string>;
   readonly distDir?: string;
+  /** Exact post-gate Italian station paths allowed in sibling links. */
+  readonly emittedStationPaths?: ReadonlySet<string>;
   /** Project root for resolving brand logos via resolveStationBrandLogoUrl. */
   readonly rootDir?: string;
 }): string {
-  const { ctx, locale, fuel, cityAvg, cityStations, history, today, canonicalPath, alternates, distDir, rootDir } = opts;
+  const { ctx, locale, fuel, cityAvg, cityStations, history, today, canonicalPath, alternates, distDir, emittedStationPaths, rootDir } = opts;
   const copy = IT_STATION_COPY[locale];
   const redesignLabels = STATION_REDESIGN[locale];
   const fuelLabel = FUEL_TYPE_LABEL[locale][fuel];
@@ -5201,6 +5222,10 @@ function renderItalianStationPage(opts: {
   // Sibling stations for related-links (max 6, exclude self)
   const siblingStations = cityStations
     .filter((s) => s.slug !== ctx.slug)
+    .filter((s) => isFuelLeafEmitted(
+      buildFuelItalianStationPath(locale, fuel, s.cityEntry.slug, s.slug),
+      emittedStationPaths,
+    ))
     .slice(0, 6);
 
   // JSON-LD
@@ -5433,6 +5458,8 @@ export function generateFuelItalianStationPages(opts: {
    * every emitted station page is linked (no orphans).
    */
   contextsByFuel?: Partial<Record<FuelType, readonly ItalianStationContext[]>>;
+  /** Exact post-gate Italian station paths allowed in sibling links. */
+  emittedStationPaths?: ReadonlySet<string>;
   /** Project root — passed to renderItalianStationPage so it can resolve brand logos. */
   rootDir?: string;
 }): Record<string, string> {
@@ -5475,6 +5502,7 @@ export function generateFuelItalianStationPages(opts: {
           canonicalPath,
           alternates,
           distDir,
+          emittedStationPaths: opts.emittedStationPaths,
           rootDir,
         });
         pages[canonicalPath] = html;
@@ -5747,8 +5775,42 @@ export function fuelDailyPagesPlugin(rootDir: string): Plugin {
         italianContextsByFuel[fuel] = collectItalianStationContexts(dataset, fuel);
       }
 
+      const STATION_MIN_WORDS = 250;
+      const unavailableStationPaths = new Set(swissContexts.flatMap((ctx) =>
+        FUEL_TYPES.filter((fuel) => ctx.prices[fuel] === null).flatMap((fuel) =>
+          FUEL_DAILY_LOCALES.map((locale) => buildFuelStationPath(locale, fuel, ctx.zone, ctx.slug)))));
+
+      const samePathSet = (left: ReadonlySet<string>, right: ReadonlySet<string>): boolean =>
+        left.size === right.size && [...left].every((path) => right.has(path));
+
+      // Render station consumers only against a registry that survived the
+      // same word/availability gate as the station sitemap. Filtering links
+      // can remove a few words, so converge to the final registry instead of
+      // trusting the first render's inventory.
+      const collectEmittedSwissStationPaths = (pages: Record<string, string>): Set<string> => {
+        const emitted = new Set<string>();
+        for (const [path, html] of Object.entries(pages)) {
+          if (!unavailableStationPaths.has(path) && countHtmlBodyWords(html) >= STATION_MIN_WORDS) {
+            assertFuelSitemapCanonical(path, html, 'station');
+            emitted.add(path);
+          }
+        }
+        return emitted;
+      };
+
+      const collectEmittedItalianStationPaths = (pages: Record<string, string>): Set<string> => {
+        const emitted = new Set<string>();
+        for (const [path, html] of Object.entries(pages)) {
+          if (countHtmlBodyWords(html) >= STATION_MIN_WORDS) {
+            assertFuelSitemapCanonical(path, html, 'italian-station');
+            emitted.add(path);
+          }
+        }
+        return emitted;
+      };
+
       const lastmodByPath = new Map<string, string>();
-      const stationPages = generateFuelStationPages({
+      let stationPages = generateFuelStationPages({
         dataset,
         today,
         distDir,
@@ -5757,20 +5819,29 @@ export function fuelDailyPagesPlugin(rootDir: string): Plugin {
         rootDir,
         lastmodByPath,
       });
-      const STATION_MIN_WORDS = 250;
-      const unavailableStationPaths = new Set(swissContexts.flatMap((ctx) =>
-        FUEL_TYPES.filter((fuel) => ctx.prices[fuel] === null).flatMap((fuel) =>
-          FUEL_DAILY_LOCALES.map((locale) => buildFuelStationPath(locale, fuel, ctx.zone, ctx.slug)))));
       // This is the authoritative post-gate inventory shared with daily-page
       // anchors and browseable indexes. Availability bridges are written to
       // preserve the URL, but they are not indexable leaves and must not be
       // linked as if they were full station pages.
-      const emittedStationPaths = new Set<string>();
-      for (const [path, html] of Object.entries(stationPages)) {
-        if (!unavailableStationPaths.has(path) && countHtmlBodyWords(html) >= STATION_MIN_WORDS) {
-          assertFuelSitemapCanonical(path, html, 'station');
-          emittedStationPaths.add(path);
+      let emittedStationPaths = collectEmittedSwissStationPaths(stationPages);
+      while (true) {
+        const nextStationPages = generateFuelStationPages({
+          dataset,
+          today,
+          distDir,
+          contexts: swissContexts,
+          emittedStationPaths,
+          history,
+          rootDir,
+          lastmodByPath,
+        });
+        const nextEmittedStationPaths = collectEmittedSwissStationPaths(nextStationPages);
+        stationPages = nextStationPages;
+        if (samePathSet(emittedStationPaths, nextEmittedStationPaths)) {
+          emittedStationPaths = nextEmittedStationPaths;
+          break;
         }
+        emittedStationPaths = nextEmittedStationPaths;
       }
 
       const archivedHistory = readFuelArchive(
@@ -5799,14 +5870,46 @@ export function fuelDailyPagesPlugin(rootDir: string): Plugin {
         contexts: swissContexts,
         emittedStationPaths,
       });
-      const italianCityPages = generateFuelItalianCityPages({ dataset, history, today, distDir, rootDir, lastmodByPath });
-      const italianStationPages = generateFuelItalianStationPages({
+      let italianStationPages = generateFuelItalianStationPages({
         dataset,
         history,
         today,
         distDir,
         contextsByFuel: italianContextsByFuel,
         rootDir,
+      });
+      let emittedItalianStationPaths = collectEmittedItalianStationPaths(italianStationPages);
+      while (true) {
+        const nextItalianStationPages = generateFuelItalianStationPages({
+          dataset,
+          history,
+          today,
+          distDir,
+          contextsByFuel: italianContextsByFuel,
+          emittedStationPaths: emittedItalianStationPaths,
+          rootDir,
+        });
+        const nextEmittedItalianStationPaths = collectEmittedItalianStationPaths(nextItalianStationPages);
+        italianStationPages = nextItalianStationPages;
+        if (samePathSet(emittedItalianStationPaths, nextEmittedItalianStationPaths)) {
+          emittedItalianStationPaths = nextEmittedItalianStationPaths;
+          break;
+        }
+        emittedItalianStationPaths = nextEmittedItalianStationPaths;
+      }
+
+      const emittedItalianStationAndSwissPaths = new Set([
+        ...emittedStationPaths,
+        ...emittedItalianStationPaths,
+      ]);
+      const italianCityPages = generateFuelItalianCityPages({
+        dataset,
+        history,
+        today,
+        distDir,
+        rootDir,
+        lastmodByPath,
+        emittedStationPaths: emittedItalianStationAndSwissPaths,
       });
       const italianStationAvailabilityBridges = generateFuelItalianStationAvailabilityBridges({
         dataset,
