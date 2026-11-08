@@ -3422,7 +3422,12 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  noCityBucket.set(noCityTitle, (noCityBucket.get(noCityTitle) || 0) + 1);
  }
  }
- logJobsSeoMem('after-related-title-indexes');
+ // This lookup is consumed while assigning the per-job locale qualifiers;
+ // the WeakMap above carries those decisions into rendering. Release the
+ // normalized title keys before the page loop retains its larger working set.
+ const releasedCrossLocaleTitleMaskEntries = crossLocaleTitleMasks.size;
+ crossLocaleTitleMasks.clear();
+ logJobsSeoMem('after-related-title-indexes', { releasedCrossLocaleTitleMaskEntries });
 
  // ── Cross-corpus title-uniqueness net ──
  // audit-title-uniqueness is a HARD deploy gate (exit 1 on any within-locale
