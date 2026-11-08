@@ -105,6 +105,7 @@ describe('r2-section-lock', () => {
       expect(isLockPayload({ ...payload, acquiredAt: timestamp })).toBe(false);
       expect(isLockPayload({ ...payload, expiresAt: timestamp })).toBe(false);
     }
+    expect(() => isLockExpired(payload, -1)).toThrow('safe non-negative integer timestamp');
 
     const { request } = fakeR2();
     await expect(acquireSectionLock('frontaliere', {
@@ -177,6 +178,31 @@ describe('r2-section-lock', () => {
       authorization: expect.stringContaining('AWS4-HMAC-SHA256'),
     });
   });
+
+  it.each([-1, 0.5, Number.MAX_SAFE_INTEGER + 1, Infinity, NaN])(
+    'rejects an unsafe request deadline before contacting R2 (%s)',
+    async (deadline) => {
+      let calls = 0;
+      const request = createR2Request(
+        {
+          R2_S3_ENDPOINT: 'https://account.r2.cloudflarestorage.com',
+          R2_BUCKET: 'article-cdn',
+          R2_ACCESS_KEY_ID: 'access-key',
+          R2_SECRET_ACCESS_KEY: 'secret-key',
+        },
+        {
+          fetchImpl: async () => {
+            calls += 1;
+            return response(200, '', 'etag-1');
+          },
+        },
+      );
+
+      await expect(request({ method: 'GET', key: lockKey('frontaliere'), deadline }))
+        .rejects.toThrow('request deadline');
+      expect(calls).toBe(0);
+    },
+  );
 
   it('normalizes request methods before deciding whether to retain a response body', async () => {
     let seenMethod: string | undefined;
@@ -347,6 +373,17 @@ describe('r2-section-lock', () => {
 
     await expect(releaseSectionLocks([lock], { request })).resolves.toEqual(['frontaliere']);
     expect(objects.has(lockKey('frontaliere'))).toBe(false);
+  });
+
+  it('fails closed when a bulk release cannot confirm ownership', async () => {
+    const { request, objects } = fakeR2();
+    const lock = await acquireSectionLock('frontaliere', { owner: 'owner-missing', request });
+    objects.delete(lock.key);
+
+    await expect(releaseSectionLocks([lock], { request }))
+      .rejects.toThrow('leases not released');
+    await expect(releaseSectionLocks([lock], { request, ignoreNotOwned: true }))
+      .resolves.toEqual([]);
   });
 
   it('carries the acquire ETag across CLI steps when a GET omits it', () => {

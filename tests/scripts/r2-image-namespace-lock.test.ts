@@ -734,6 +734,30 @@ globalThis.fetch = async () => ({
     });
   });
 
+  it('keeps unsafe release clocks and ambiguous release results fail-closed', async () => {
+    expect(classifyReleaseDeadlineRace(
+      { timedOut: false, results: [], finishedAt: -1 },
+      { deadline: 100 },
+    )).toBe('indeterminate');
+    expect(classifyReleaseDeadlineRace(
+      { timedOut: false, results: [], finishedAt: 99 },
+      { deadline: 0.5 },
+    )).toBe('indeterminate');
+
+    await expect(releaseImageNamespaceLeasesWithDeadline([{ namespace: 'blog' }], {
+      timeoutMs: 100,
+      now: () => -1,
+      releaseImpl: async () => ['blog'],
+    })).rejects.toThrow('release clock');
+
+    const result = await releaseImageNamespaceLeasesWithDeadline([{ namespace: 'blog' }], {
+      timeoutMs: 100,
+      releaseImpl: async () => undefined,
+    });
+    expect(result).toMatchObject({ status: 'failed', timedOut: false, released: [] });
+    expect(result.error?.message).toContain('indeterminate result');
+  });
+
   it('keeps an owned lease active when every release read fails', async () => {
     const { request: baseRequest, objects } = fakeR2();
     const leases = await acquireImageNamespaceLeases(['blog'], {
