@@ -5,9 +5,10 @@
  *
  * Generated crawler artifacts are assembled before a promotion PR is merged.
  * The squash commit that lands that PR therefore cannot be known while the
- * PR branch is being generated.  This helper updates only the two lineage
- * fields after the source change has landed on main; artifact and digest
- * fields are intentionally left untouched.
+ * PR branch is being generated. This helper updates the lineage fields and
+ * records the verification marker; artifact and digest fields are intentionally
+ * left untouched. The caller must run verify-crawler-contract-provenance.mjs
+ * before publishing the result.
  */
 import fs from 'node:fs';
 import path from 'node:path';
@@ -55,6 +56,7 @@ export function reattestCrawlerContract(contract, sourceCommit) {
   const normalized = assertSourceCommit(sourceCommit);
   const next = cloneDocument(contract);
   next.sourceCommit = normalized;
+  next.sourceCommitVerified = true;
   next.artifactObservation.sourceCommit = normalized;
   next.crawlerRosterCardinality.sourceCommit = normalized;
   return next;

@@ -455,6 +455,33 @@ function loadJson(p) {
   return JSON.parse(fs.readFileSync(p, 'utf8'));
 }
 
+/**
+ * Keep a verified provenance marker only when regeneration produced the same
+ * contract apart from that marker. A new source revision or any generated
+ * artifact change must return to the unverified state until the provenance
+ * verifier runs again.
+ */
+function preserveSourceCommitVerification(contract, contractPath) {
+  if (!contractPath || !fs.existsSync(contractPath)) return contract;
+
+  let existing;
+  try {
+    existing = loadJson(contractPath);
+  } catch {
+    return contract;
+  }
+  if (existing?.sourceCommitVerified !== true) return contract;
+
+  const existingWithoutVerification = { ...existing };
+  delete existingWithoutVerification.sourceCommitVerified;
+  const generatedWithoutVerification = { ...contract };
+  delete generatedWithoutVerification.sourceCommitVerified;
+  if (canonicalJson(existingWithoutVerification) !== canonicalJson(generatedWithoutVerification)) {
+    return contract;
+  }
+  return { ...contract, sourceCommitVerified: true };
+}
+
 /** Resolve the exact site revision whose generated artifacts are observed. */
 export function resolveCrawlerContractSource({ sourceCommit, sourceRef } = {}) {
   let commit = sourceCommit || process.env.CRAWLER_SOURCE_COMMIT || process.env.GITHUB_SHA;
@@ -4005,6 +4032,7 @@ export function generateCrossRepoExecutionArtifacts({
     sourceRepository: SITE_REPOSITORY,
     sourceRef: source.sourceRef,
     sourceCommit: source.sourceCommit,
+    sourceCommitVerified: false,
     artifactObservation: {
       generatorSha256,
       sourceRef: source.sourceRef,
@@ -4035,13 +4063,14 @@ export function generateCrossRepoExecutionArtifacts({
     },
     artifacts,
   };
+  const attestedContract = preserveSourceCommitVerification(contract, contractPath);
   // Lockstep (#9621): ogni famiglia emessa deve essere una mappa del trasporto,
   // che la registra come voce `identical` del loop-sync manifest del corpus.
   // Una famiglia nuova emessa senza mappa non verrebbe ne' copiata ne' censita:
   // fallisci qui, prima di scrivere, invece di lasciarla al censimento notturno.
   assertEmittedFamiliesRegistered({
     emittedSitePaths: emittedCorpusSitePaths({ workflowFiles: [...workflowPayloads.keys()], observerPayloads }),
-    registeredSitePaths: registeredCorpusSitePaths(crawlerWorkflowFilesFromContract(contract)),
+    registeredSitePaths: registeredCorpusSitePaths(crawlerWorkflowFilesFromContract(attestedContract)),
   });
   assertWorkflowSizeBudget([...workflowPayloads].map(([fileName, content]) => ({ file: path.join(path.relative(REPO_ROOT, outDir), fileName), content })));
   if (write) {
@@ -4055,11 +4084,11 @@ export function generateCrossRepoExecutionArtifacts({
       fs.mkdirSync(path.dirname(outputPath), { recursive: true });
       writeFileAtomic(outputPath, content);
     }
-    writeJsonAtomic(contractPath, contract);
+    writeJsonAtomic(contractPath, attestedContract);
   }
   return {
     artifacts,
-    contract,
+    contract: attestedContract,
     translateContent,
     workflowContents: Object.fromEntries(workflowPayloads),
     observerContents: Object.fromEntries(observerPayloads.map(({ source, content }) => [source, content])),

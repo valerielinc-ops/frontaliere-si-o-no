@@ -56,6 +56,7 @@ test('reattest updates both lineage pins and preserves generated digests', () =>
   const after = reattestCrawlerContract(before, NEW_SHA);
 
   assert.equal(after.sourceCommit, NEW_SHA);
+  assert.equal(after.sourceCommitVerified, true);
   assert.equal(after.artifactObservation.sourceCommit, NEW_SHA);
   assert.equal(after.crawlerRosterCardinality.sourceCommit, NEW_SHA);
   assert.equal(after.artifacts[0].artifactSha256, before.artifacts[0].artifactSha256);
