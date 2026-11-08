@@ -18,7 +18,10 @@ import { spawnSync, execFileSync } from 'node:child_process';
 import { pathToFileURL } from 'node:url';
 
 import { listSliceFileNames } from '../lib/crawler-slice-files.mjs';
-import { titleRepairQueueLocales } from '../lib/untranslated-title-repair.mjs';
+import {
+  isTitleRepairQueueSlot,
+  titleRepairQueueLocales,
+} from '../lib/untranslated-title-repair.mjs';
 import { MIN_TITLE_CHARS } from '../validate-translation-completeness.mjs';
 
 const MINUTE_MS = 60_000;
@@ -130,11 +133,15 @@ export async function capturePopulation(phase) {
   };
 }
 
-function selectedCandidateIssue(job, phase, locale) {
+export function selectedCandidateIssue(job, phase, locale) {
   if (!job || typeof job !== 'object') return 'job missing from the benchmark slice';
   if (phase === 'titles') {
     const title = String(job.titleByLocale?.[locale] || '').trim();
-    return title.length >= MIN_TITLE_CHARS ? null : `missing/short title (${title.length} chars)`;
+    if (title.length < MIN_TITLE_CHARS) return `missing/short title (${title.length} chars)`;
+    if (isTitleRepairQueueSlot({ job, locale, title })) {
+      return 'title still matches the repair-lane detector';
+    }
+    return null;
   }
 
   const description = String(job.descriptionByLocale?.[locale] || '').trim();

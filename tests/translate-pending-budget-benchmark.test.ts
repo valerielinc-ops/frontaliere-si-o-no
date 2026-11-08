@@ -4,6 +4,7 @@ import os from 'node:os';
 import path from 'node:path';
 import { describe, expect, it } from 'vitest';
 import YAML from 'yaml';
+import { selectedCandidateIssue } from '../scripts/ci/translate-pending-budget-benchmark.mjs';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
 const WORKFLOW_PATH = path.join(ROOT, '.github/workflows/translate-pending-budget-benchmark.yml');
@@ -81,6 +82,24 @@ function finalizeReport(report: ReturnType<typeof reportWith>) {
 }
 
 describe('translate-pending budget benchmark', () => {
+  it('rejects an unchanged source-copy title even when it clears the character floor', () => {
+    const job = {
+      sourceLang: 'de',
+      title: 'Lagermitarbeiter Logistik 100%',
+      titleByLocale: {
+        de: 'Lagermitarbeiter Logistik 100%',
+        it: 'Lagermitarbeiter Logistik 100%',
+      },
+    };
+
+    expect(selectedCandidateIssue(job, 'titles', 'it'))
+      .toBe('title still matches the repair-lane detector');
+    expect(selectedCandidateIssue({
+      ...job,
+      titleByLocale: { ...job.titleByLocale, it: 'Magazziniere logistica 100%' },
+    }, 'titles', 'it')).toBeNull();
+  });
+
   it('is manual, ref-selectable and retains the production job cap', () => {
     const parsed = workflow();
     expect(parsed.on.pull_request?.paths).toEqual(expect.arrayContaining([
