@@ -1541,7 +1541,14 @@ function questionSurfaceSignature(snapshot = {}, { ignorePasswordPolicy = false 
     fields: fields.map((field) => {
       const passwordPolicyField = ignorePasswordPolicy && field.inputType === 'password';
       return [
-        Number.isInteger(field.frame) ? field.frame : '', field.id || '', field.kind || '', field.inputType || '', field.label || '', field.name || '',
+        Number.isInteger(field.frame) ? field.frame : '',
+        // SuccessFactors can replace the password input while its policy
+        // validator runs. The generated data-aa-id belongs to the DOM node,
+        // not to the password control; keep a native/semantic identity when
+        // one exists and let the stable name/label/type contract below catch
+        // an actual field replacement.
+        passwordPolicyField ? String(field.domId || field.controlId || field.semanticId || '').trim() : field.id || '',
+        field.kind || '', field.inputType || '', field.label || '', field.name || '',
         field.context || '', field.section || '',
         passwordPolicyField ? '' : String(field.ariaLabel || '').replace(/\s+/g, ' ').trim(),
         passwordPolicyField ? '' : String(field.description || '').replace(/\s+/g, ' ').trim(),
