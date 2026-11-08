@@ -41,6 +41,19 @@ const JOB_PHOTO_KEYWORDS: Record<JobFallbackPhotoKey, string[]> = {
 const NEW_CONSTRUCTION_KEYWORDS = new Set([
   'edil', 'cantiere', 'costruzion', 'building', 'architett',
 ]);
+
+// These words occur in many titles without identifying the visual role. For
+// example, "operatore socio-sanitario" and "assistente di cura" are
+// healthcare roles, while "cura del verde" is a trade. Let the employer
+// sector/category break those ties instead of changing the cache key for a
+// large set of otherwise stable cards.
+const AMBIGUOUS_TITLE_KEYWORDS = new Set(['operator', 'assistant', 'cura']);
+const JOB_TITLE_PHOTO_KEYWORDS: Record<JobFallbackPhotoKey, string[]> = Object.fromEntries(
+  JOB_PHOTO_KEYS.map((key) => [
+    key,
+    JOB_PHOTO_KEYWORDS[key].filter((keyword) => !AMBIGUOUS_TITLE_KEYWORDS.has(keyword)),
+  ]),
+) as Record<JobFallbackPhotoKey, string[]>;
 const LEGACY_JOB_PHOTO_KEYWORDS: Record<JobFallbackPhotoKey, string[]> = {
   ...JOB_PHOTO_KEYWORDS,
   trades: JOB_PHOTO_KEYWORDS.trades.filter((keyword) => !NEW_CONSTRUCTION_KEYWORDS.has(keyword)),
@@ -66,18 +79,30 @@ function findJobPhotoKey(
   })) ?? null;
 }
 
-/** Prefer occupational words in the title; employer-sector metadata is only a fallback. */
-export function classifyJobPhoto(job: JobPhotoClassificationInput): JobFallbackPhotoKey {
+function classifyJobPhotoWithKeywords(
+  job: JobPhotoClassificationInput,
+  titleKeywordsByKey: Record<JobFallbackPhotoKey, string[]>,
+  metadataKeywordsByKey: Record<JobFallbackPhotoKey, string[]>,
+): JobFallbackPhotoKey {
   const italianRolePhotoKey = findJobPhotoKey(
     normalizePhotoSearchText(job.titleByLocale?.it),
+    titleKeywordsByKey,
   );
   if (italianRolePhotoKey) return italianRolePhotoKey;
 
-  const sourceRolePhotoKey = findJobPhotoKey(normalizePhotoSearchText(job.title));
+  const sourceRolePhotoKey = findJobPhotoKey(
+    normalizePhotoSearchText(job.title),
+    titleKeywordsByKey,
+  );
   if (sourceRolePhotoKey) return sourceRolePhotoKey;
 
   const sectorText = normalizePhotoSearchText(job.category, job.sector);
-  return findJobPhotoKey(sectorText) ?? 'office';
+  return findJobPhotoKey(sectorText, metadataKeywordsByKey) ?? 'office';
+}
+
+/** Prefer occupational words in the title; employer-sector metadata is only a fallback. */
+export function classifyJobPhoto(job: JobPhotoClassificationInput): JobFallbackPhotoKey {
+  return classifyJobPhotoWithKeywords(job, JOB_TITLE_PHOTO_KEYWORDS, JOB_PHOTO_KEYWORDS);
 }
 
 /** Select the rendered photo and only change fallback image URLs when classification changes. */
@@ -86,13 +111,11 @@ export function selectJobOgPhoto(job: JobPhotoClassificationInput, slug: string)
   const photoKey = catalogPhotoKey ?? classifyJobPhoto(job);
   if (catalogPhotoKey) return { photoKey, urlPhotoKey: catalogPhotoKey };
 
-  const previousSearchText = normalizePhotoSearchText(
-    job.category,
-    job.sector,
-    job.titleByLocale?.it,
-    job.title,
+  const previousPhotoKey = classifyJobPhotoWithKeywords(
+    job,
+    JOB_TITLE_PHOTO_KEYWORDS,
+    LEGACY_JOB_PHOTO_KEYWORDS,
   );
-  const previousPhotoKey = findJobPhotoKey(previousSearchText, LEGACY_JOB_PHOTO_KEYWORDS) ?? 'office';
   return {
     photoKey,
     urlPhotoKey: photoKey === previousPhotoKey ? undefined : photoKey,
