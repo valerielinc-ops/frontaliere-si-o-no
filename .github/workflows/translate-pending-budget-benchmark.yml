@@ -5,6 +5,7 @@ on:
     paths:
       - .github/workflows/translate-pending-logic.yml
       - .github/workflows/translate-pending-budget-benchmark.yml
+      - .github/actions/ci-npm-setup/action.yml
       - scripts/ci/translate-pending-budget-benchmark.mjs
       - scripts/translate-repair-lane-gate.mjs
       - scripts/fix-untranslated-titles.mjs
@@ -61,14 +62,10 @@ jobs:
           fetch-depth: 50
           persist-credentials: false
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v7
+      - name: Setup Node.js and install dependencies
+        uses: ./.github/actions/ci-npm-setup
         with:
-          node-version: 22
-          cache: npm
-
-      - name: Install dependencies
-        run: bash scripts/ci/crawler-retry-cmd.sh npm ci --ignore-scripts
+          npm-ci-args: '--ignore-scripts'
 
       - name: Initialize benchmark report
         env:
