@@ -61,6 +61,10 @@ describe('source-version recovery of positively identified operational portal qu
     expect(execution.flow.questionAnswers).toEqual({});
     expect(evaluateRedFlags(store.read(`${base}/ai_drafts/current`), execution.flow.answers, {},
       execution.flow.questionAnswers, execution.flow, store.read(base)).candidate).toEqual([]);
+    const retry = transition(queuedFlow, { type: 'portal_auto_retry' }, { order: store.read(base),
+      draft: store.read(`${base}/ai_drafts/current`), answers: execution.flow.answers, nowMs: now });
+    expect(retry).toMatchObject({ flow: { state: 'submitting', heldBy: [],
+      portalRecoveryMatchAnswerIds: ['availability'], portalRecoveryMatchAnswerRound: 1 } });
     expect(store.read(base).automationDueAt).toBe(now);
   });
 
