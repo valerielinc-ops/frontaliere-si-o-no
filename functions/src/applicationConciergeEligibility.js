@@ -282,8 +282,25 @@ export async function prepareConciergeEligibility({ db, serviceRef, service, pro
   const cvText = type ? await beforeCancellation(() => extractCvText(bytes, type, { signal }), signal) : '';
   if (cvText.length < 80 || cvText.length > 60_000) throw new Error('eligibility_cv_unreadable');
   const cache = serviceRef.collection('eligibility');
-  const purgeAt = new Date((timestampMillis(service.cvUploadedAt) || timestampMillis(service.paidAt) || Date.now()) + 90 * 86400000);
-  await serviceRef.set({ eligibilityPurgeAt: purgeAt }, { merge: true });
+  const existingPurgeAt = timestampMillis(service.eligibilityPurgeAt);
+  const retentionBase = timestampMillis(service.cvUploadedAt) || timestampMillis(service.paidAt)
+    || (existingPurgeAt ? existingPurgeAt - 90 * 86400000 : Date.now());
+  const nextPurgeAtMs = Math.max(existingPurgeAt, retentionBase + 90 * 86400000);
+  if (nextPurgeAtMs > existingPurgeAt) {
+    // Eligibility is checked for many jobs in parallel. Claim this local value
+    // before awaiting so one matcher pass schedules at most one parent write;
+    // the transaction also makes concurrent invocations idempotent.
+    service.eligibilityPurgeAt = new Date(nextPurgeAtMs);
+    const effectivePurgeAtMs = await db.runTransaction(async transaction => {
+      const currentSnapshot = await transaction.get(serviceRef);
+      const currentPurgeAtMs = timestampMillis(currentSnapshot.data()?.eligibilityPurgeAt);
+      if (currentPurgeAtMs < nextPurgeAtMs) {
+        transaction.set(serviceRef, { eligibilityPurgeAt: new Date(nextPurgeAtMs) }, { merge: true });
+      }
+      return Math.max(currentPurgeAtMs, nextPurgeAtMs);
+    });
+    service.eligibilityPurgeAt = new Date(effectivePurgeAtMs);
+  }
   const profileRef = cache.doc('profile');
   const previousProfile = (await profileRef.get()).data();
   let profile;

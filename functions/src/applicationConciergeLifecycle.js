@@ -21,6 +21,11 @@ const { runApplicationConciergeMatching } = conciergeMatcher;
 import { buildConciergeNewJobsEmail, buildConciergeRenewalEmail } from './applicationConciergeLifecycleEmails.js';
 import { sendOrderNotification } from './assistedApplicationNotifications.js';
 import { enrichAssistedApplicationOrders } from './assistedApplicationJobCard.js';
+import {
+  conciergeMatchingRuntimeRef,
+  mergeConciergeMatchingRuntime,
+  writeConciergeMatchingRuntime,
+} from './applicationConciergeRuntime.js';
 
 const REFRESH_LEASE_MS = 10 * 60 * 1000;
 // processApplicationConciergeCv is capped at 540s; never reclaim a live worker before that cap.
@@ -42,14 +47,15 @@ export function isFreshConciergeProposalRefreshRequest(before, after) {
 export async function queueConciergeMatchingRefresh({ db, serviceId, nowMs = Date.now() }) {
   const ref = db.collection(APPLICATION_CONCIERGE_SERVICES_COLLECTION).doc(serviceId);
   return db.runTransaction(async tx => {
-    const snapshot = await tx.get(ref);
-    const service = snapshot.data();
+    const runtimeRef = conciergeMatchingRuntimeRef(ref);
+    const [snapshot, runtimeSnapshot] = await Promise.all([tx.get(ref), tx.get(runtimeRef)]);
+    const legacyService = snapshot.data() || {};
+    const service = mergeConciergeMatchingRuntime(legacyService, runtimeSnapshot.data() || null);
     if (!snapshot.exists || !serviceIsActive(service, nowMs) || !service?.cvStorageKey
       || timestampMillis(service.consentedAt) <= 0 || !underCap(service)) return false;
-    tx.set(ref, {
+    writeConciergeMatchingRuntime(tx, ref, runtimeRef, legacyService, runtimeSnapshot.data() || null, {
       matchingEventRefreshRequestedAt: new Date(nowMs),
-      updatedAt: new Date(nowMs),
-    }, { merge: true });
+    });
     return true;
   });
 }
@@ -57,8 +63,11 @@ export async function queueConciergeMatchingRefresh({ db, serviceId, nowMs = Dat
 async function claimRefresh(db, ref, nowMs) {
   const requestId = randomUUID();
   return db.runTransaction(async tx => {
-    const snapshot = await tx.get(ref);
-    const service = snapshot.data();
+    const runtimeRef = conciergeMatchingRuntimeRef(ref);
+    const [snapshot, runtimeSnapshot] = await Promise.all([tx.get(ref), tx.get(runtimeRef)]);
+    const legacyService = snapshot.data() || {};
+    const runtime = runtimeSnapshot.data() || null;
+    const service = mergeConciergeMatchingRuntime(legacyService, runtime);
     if (!snapshot.exists || service?.pendingProposalNotice || !conciergeRefreshDue(service, nowMs)) return false;
     const versionMismatch = service.matchingStatus === 'complete'
       && service.matchingVersion !== APPLICATION_CONCIERGE_MATCHING_VERSION;
@@ -75,14 +84,20 @@ async function claimRefresh(db, ref, nowMs) {
     }
     const claimed = timestampMillis(service.proposalRefreshClaimedAt);
     if (claimed && nowMs - claimed < REFRESH_LEASE_MS) return false;
-    tx.set(ref, { proposalRefreshClaimedAt: new Date(nowMs), proposalRefreshClaimId: requestId,
-      proposalRefreshRequestId: requestId, proposalRefreshRequestedBy: 'lifecycle',
-      matchingVersionRefreshVersion: FieldValue.delete(),
-      matchingVersionRefreshObservedAt: FieldValue.delete(),
+    writeConciergeMatchingRuntime(tx, ref, runtimeRef, legacyService, runtime, {
+      proposalRefreshClaimedAt: new Date(nowMs),
+      proposalRefreshClaimId: requestId,
       matchingEventRefreshRequestedAt: FieldValue.delete(),
       proposalRefreshRerunAfterWorker: FieldValue.delete(),
       proposalRefreshRerunAfterWorkerContext: FieldValue.delete(),
-      proposalRefreshRerunRequestedAt: FieldValue.delete() }, { merge: true });
+      proposalRefreshRerunRequestedAt: FieldValue.delete(),
+    });
+    tx.set(ref, {
+      proposalRefreshRequestId: requestId,
+      proposalRefreshRequestedBy: 'lifecycle',
+      matchingVersionRefreshVersion: FieldValue.delete(),
+      matchingVersionRefreshObservedAt: FieldValue.delete(),
+    }, { merge: true });
     return requestId;
   });
 }
@@ -101,8 +116,11 @@ function staleRecoveryAttempt(service, nowMs) {
 
 async function claimMatchingWorkerLease({ db, ref, workerLeaseId, requestId = null, nowMs }) {
   return db.runTransaction(async tx => {
-    const snapshot = await tx.get(ref);
-    const current = snapshot.data();
+    const runtimeRef = conciergeMatchingRuntimeRef(ref);
+    const [snapshot, runtimeSnapshot] = await Promise.all([tx.get(ref), tx.get(runtimeRef)]);
+    const legacyCurrent = snapshot.data() || {};
+    const runtime = runtimeSnapshot.data() || null;
+    const current = mergeConciergeMatchingRuntime(legacyCurrent, runtime);
     if (!snapshot.exists || !serviceIsActive(current, nowMs) || !underCap(current)
       || (requestId && (current.proposalRefreshRequestId !== requestId
         || current.proposalRefreshCompletedRequestId === requestId))) return false;
@@ -114,32 +132,37 @@ async function claimMatchingWorkerLease({ db, ref, workerLeaseId, requestId = nu
     if (current.matchingStatus === 'running' && matchingStarted > 0
       && nowMs - matchingStarted < CONCIERGE_MATCHING_STALE_AFTER_MS) return false;
     const recovery = staleRecoveryAttempt(current, nowMs);
-    if (recovery.isRecovery) {
-      if (recovery.attempts >= CONCIERGE_STALE_RECOVERY_MAX_ATTEMPTS || recovery.retryAt > nowMs) return false;
-      const attempt = recovery.attempts + 1;
-      const backoff = CONCIERGE_STALE_RECOVERY_BACKOFF_MS[attempt - 1];
-      tx.set(ref, {
-        matchingStaleRecoveryContext: recovery.context,
-        matchingStaleRecoveryAttempt: attempt,
-        matchingStaleRecoveryRetryAt: new Date(nowMs + backoff),
-        matchingStaleRecoveryStartedAt: new Date(nowMs),
-      }, { merge: true });
-    }
-    tx.set(ref, {
+    const runtimePatch = {
       proposalRefreshWorkerLeaseId: workerLeaseId,
       proposalRefreshWorkerLeaseExpiresAt: new Date(nowMs + WORKER_LEASE_MS),
       proposalRefreshWorkerStartedAt: new Date(nowMs),
       proposalRefreshWorkerRequestId: requestId,
       proposalRefreshWorkerInputContext: recovery.context,
-    }, { merge: true });
+    };
+    if (recovery.isRecovery) {
+      if (recovery.attempts >= CONCIERGE_STALE_RECOVERY_MAX_ATTEMPTS || recovery.retryAt > nowMs) return false;
+      const attempt = recovery.attempts + 1;
+      const backoff = CONCIERGE_STALE_RECOVERY_BACKOFF_MS[attempt - 1];
+      Object.assign(runtimePatch, {
+        matchingStaleRecoveryContext: recovery.context,
+        matchingStaleRecoveryAttempt: attempt,
+        matchingStaleRecoveryRetryAt: new Date(nowMs + backoff),
+        matchingStaleRecoveryStartedAt: new Date(nowMs),
+      });
+    }
+    writeConciergeMatchingRuntime(tx, ref, runtimeRef, legacyCurrent, runtime, runtimePatch);
     return true;
   });
 }
 
 async function noteMatchingRerunAfterLease({ db, ref, requestId = null, nowMs }) {
   return db.runTransaction(async tx => {
-    const current = (await tx.get(ref)).data();
-    if (!current) return false;
+    const runtimeRef = conciergeMatchingRuntimeRef(ref);
+    const [snapshot, runtimeSnapshot] = await Promise.all([tx.get(ref), tx.get(runtimeRef)]);
+    const legacyCurrent = snapshot.data() || {};
+    const runtime = runtimeSnapshot.data() || null;
+    const current = mergeConciergeMatchingRuntime(legacyCurrent, runtime);
+    if (!snapshot.exists) return false;
     const started = timestampMillis(current?.proposalRefreshWorkerStartedAt);
     const expires = timestampMillis(current?.proposalRefreshWorkerLeaseExpiresAt)
       || (started ? started + WORKER_LEASE_MS : 0);
@@ -153,11 +176,11 @@ async function noteMatchingRerunAfterLease({ db, ref, requestId = null, nowMs })
       && current.proposalRefreshWorkerInputContext !== inputContext;
     const differentRequest = requestId && current.proposalRefreshWorkerRequestId !== requestId;
     if (inputChanged || differentRequest || (legacyWorkerActive && !leasedWorkerActive)) {
-      tx.set(ref, {
+      writeConciergeMatchingRuntime(tx, ref, runtimeRef, legacyCurrent, runtime, {
         proposalRefreshRerunAfterWorker: true,
         proposalRefreshRerunAfterWorkerContext: inputContext,
         proposalRefreshRerunRequestedAt: new Date(nowMs),
-      }, { merge: true });
+      });
     }
     return true;
   });
@@ -165,14 +188,18 @@ async function noteMatchingRerunAfterLease({ db, ref, requestId = null, nowMs })
 
 async function releaseMatchingWorkerLease({ db, ref, workerLeaseId, requestId = null, nowMs = Date.now() }) {
   await db.runTransaction(async tx => {
-    const current = (await tx.get(ref)).data();
+    const runtimeRef = conciergeMatchingRuntimeRef(ref);
+    const [snapshot, runtimeSnapshot] = await Promise.all([tx.get(ref), tx.get(runtimeRef)]);
+    const legacyCurrent = snapshot.data() || {};
+    const runtime = runtimeSnapshot.data() || null;
+    const current = mergeConciergeMatchingRuntime(legacyCurrent, runtime);
     if (current?.proposalRefreshWorkerLeaseId !== workerLeaseId) return;
     const inputContext = conciergeMatchingRecoveryContext(current);
     const shouldRerun = current.proposalRefreshRerunAfterWorker === true
       && current.proposalRefreshRerunAfterWorkerContext === inputContext
       && serviceIsActive(current, nowMs) && underCap(current);
     const rerunRequestId = shouldRerun ? randomUUID() : null;
-    const patch = {
+    const runtimePatch = {
       proposalRefreshWorkerLeaseId: FieldValue.delete(),
       proposalRefreshWorkerLeaseExpiresAt: FieldValue.delete(),
       proposalRefreshWorkerStartedAt: FieldValue.delete(),
@@ -188,44 +215,57 @@ async function releaseMatchingWorkerLease({ db, ref, workerLeaseId, requestId = 
       ...(rerunRequestId ? {
         proposalRefreshClaimedAt: new Date(nowMs),
         proposalRefreshClaimId: rerunRequestId,
-        proposalRefreshRequestId: rerunRequestId,
-        proposalRefreshRequestedBy: 'lifecycle',
       } : {}),
     };
-    tx.set(ref, patch, { merge: true });
+    writeConciergeMatchingRuntime(tx, ref, runtimeRef, legacyCurrent, runtime, runtimePatch);
+    if (rerunRequestId) {
+      tx.set(ref, {
+        proposalRefreshRequestId: rerunRequestId,
+        proposalRefreshRequestedBy: 'lifecycle',
+      }, { merge: true });
+    }
   });
 }
 
 async function clearMatchingRecoveryState({ db, ref, workerLeaseId }) {
   await db.runTransaction(async tx => {
-    const current = (await tx.get(ref)).data();
+    const runtimeRef = conciergeMatchingRuntimeRef(ref);
+    const [snapshot, runtimeSnapshot] = await Promise.all([tx.get(ref), tx.get(runtimeRef)]);
+    const legacyCurrent = snapshot.data() || {};
+    const runtime = runtimeSnapshot.data() || null;
+    const current = mergeConciergeMatchingRuntime(legacyCurrent, runtime);
     if (current?.proposalRefreshWorkerLeaseId !== workerLeaseId) return;
-    tx.set(ref, {
+    writeConciergeMatchingRuntime(tx, ref, runtimeRef, legacyCurrent, runtime, {
       matchingStaleRecoveryAttempt: FieldValue.delete(),
       matchingStaleRecoveryContext: FieldValue.delete(),
       matchingStaleRecoveryRetryAt: FieldValue.delete(),
       matchingStaleRecoveryStartedAt: FieldValue.delete(),
       matchingStaleRecoveryExhaustedAt: FieldValue.delete(),
-    }, { merge: true });
+    });
   });
 }
 
 async function reconcileExhaustedStaleMatching(db, ref, nowMs) {
   return db.runTransaction(async tx => {
-    const snapshot = await tx.get(ref);
-    const service = snapshot.data();
+    const runtimeRef = conciergeMatchingRuntimeRef(ref);
+    const [snapshot, runtimeSnapshot] = await Promise.all([tx.get(ref), tx.get(runtimeRef)]);
+    const legacyService = snapshot.data() || {};
+    const runtime = runtimeSnapshot.data() || null;
+    const service = mergeConciergeMatchingRuntime(legacyService, runtime);
     if (!snapshot.exists || !conciergeStaleRecoveryExhausted(service, nowMs)) return false;
     const workerStarted = timestampMillis(service.proposalRefreshWorkerStartedAt);
     const workerLeaseExpires = timestampMillis(service.proposalRefreshWorkerLeaseExpiresAt)
       || (workerStarted ? workerStarted + WORKER_LEASE_MS : 0);
     if (workerLeaseExpires > nowMs) return false;
+    writeConciergeMatchingRuntime(tx, ref, runtimeRef, legacyService, runtime, {
+      matchingStaleRecoveryExhaustedAt: new Date(nowMs),
+    });
     tx.set(ref, {
       matchingStatus: 'failed',
       matchingError: service.matchingStatus === 'running'
         ? 'stale_worker_retry_exhausted'
         : service.matchingError || 'matching_retry_exhausted',
       matchingCompletedAt: new Date(nowMs),
-      matchingStaleRecoveryExhaustedAt: new Date(nowMs),
       updatedAt: new Date(nowMs),
     }, { merge: true });
     return true;
@@ -278,7 +318,9 @@ export async function runConciergeProposalRefresh({ db, serviceId, requestId = n
         && d.data().status === 'proposed' && d.data().eligibilityStatus === 'compatible').map(d => d.id).sort();
       const key = `new_proposals_${createHash('sha256').update(`${ids.join('|')}|${requestId || nowMs}`).digest('hex').slice(0, 24)}`;
       const persisted = await db.runTransaction(async tx => {
-        const current = (await tx.get(ref)).data();
+        const runtimeRef = conciergeMatchingRuntimeRef(ref);
+        const [serviceSnapshot, runtimeSnapshot] = await Promise.all([tx.get(ref), tx.get(runtimeRef)]);
+        const current = mergeConciergeMatchingRuntime(serviceSnapshot.data() || {}, runtimeSnapshot.data() || null);
         if (current?.proposalRefreshWorkerLeaseId !== workerLeaseId) return false;
         // Persist the consumed event with its notice: Firestore may redeliver a completed request.
         tx.set(ref, {
@@ -293,7 +335,9 @@ export async function runConciergeProposalRefresh({ db, serviceId, requestId = n
       await clearMatchingRecoveryState({ db, ref, workerLeaseId });
     } else if (requestId) {
       await db.runTransaction(async tx => {
-        const current = (await tx.get(ref)).data();
+        const runtimeRef = conciergeMatchingRuntimeRef(ref);
+        const [serviceSnapshot, runtimeSnapshot] = await Promise.all([tx.get(ref), tx.get(runtimeRef)]);
+        const current = mergeConciergeMatchingRuntime(serviceSnapshot.data() || {}, runtimeSnapshot.data() || null);
         if (current?.proposalRefreshWorkerLeaseId === workerLeaseId) {
           tx.set(ref, { proposalRefreshCompletedRequestId: requestId }, { merge: true });
         }
@@ -303,7 +347,9 @@ export async function runConciergeProposalRefresh({ db, serviceId, requestId = n
   } catch (error) {
     if (requestId) {
       await db.runTransaction(async tx => {
-        const current = (await tx.get(ref)).data();
+        const runtimeRef = conciergeMatchingRuntimeRef(ref);
+        const [serviceSnapshot, runtimeSnapshot] = await Promise.all([tx.get(ref), tx.get(runtimeRef)]);
+        const current = mergeConciergeMatchingRuntime(serviceSnapshot.data() || {}, runtimeSnapshot.data() || null);
         if (current?.proposalRefreshWorkerLeaseId === workerLeaseId) {
           tx.set(ref, { proposalRefreshCompletedRequestId: requestId, proposalRefreshLastError: 'matching_failed' }, { merge: true });
         }

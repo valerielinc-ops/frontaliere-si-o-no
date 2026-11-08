@@ -36,6 +36,12 @@ import {
   servicePositionLimit,
   timestampMillis,
 } from './applicationConciergeConstants.js';
+import {
+  conciergeMatchingRuntimeRef,
+  mergeConciergeMatchingRuntime,
+  updateConciergeMatchingRuntime,
+  writeConciergeMatchingRuntime,
+} from './applicationConciergeRuntime.js';
 
 const DEFAULT_JOB_INDEX_URL = 'https://cdn.frontaliereticino.ch/data/jobs-it-index.json';
 const FETCH_TIMEOUT_MS = 90_000;
@@ -917,13 +923,19 @@ export async function queueSubmittedConciergeLetterFeedback({ db, orderId, nowMs
 
 async function ensureOpenProposalCounter(db, serviceRef, fallbackCount) {
   return db.runTransaction(async transaction => {
-    const snapshot = await transaction.get(serviceRef);
+    const runtimeRef = conciergeMatchingRuntimeRef(serviceRef);
+    const [snapshot, runtimeSnapshot] = await Promise.all([
+      transaction.get(serviceRef), transaction.get(runtimeRef),
+    ]);
     if (!snapshot.exists) return 0;
-    const service = snapshot.data() || {};
+    const legacyService = snapshot.data() || {};
+    const runtime = runtimeSnapshot.data() || null;
+    const service = mergeConciergeMatchingRuntime(legacyService, runtime);
     if (Number.isSafeInteger(Number(service.matchingOpenProposalCount))
       && Number(service.matchingOpenProposalCount) >= 0) return Number(service.matchingOpenProposalCount);
     const count = openProposalsCount({}, fallbackCount);
-    transaction.set(serviceRef, { matchingOpenProposalCount: count }, { merge: true });
+    writeConciergeMatchingRuntime(transaction, serviceRef, runtimeRef, legacyService, runtime,
+      { matchingOpenProposalCount: count });
     return count;
   });
 }
@@ -948,9 +960,14 @@ export function conciergeMatchingWork(candidates, proposedUrls = new Set(), curs
 
 async function updateExistingProposal(db, serviceRef, ref, update, expectedStatus, nextStatus = null, fallbackOpenCount = 0) {
   return db.runTransaction(async (transaction) => {
-    const [serviceSnapshot, snapshot] = await Promise.all([transaction.get(serviceRef), transaction.get(ref)]);
+    const runtimeRef = conciergeMatchingRuntimeRef(serviceRef);
+    const [serviceSnapshot, runtimeSnapshot, snapshot] = await Promise.all([
+      transaction.get(serviceRef), transaction.get(runtimeRef), transaction.get(ref),
+    ]);
     if (!snapshot.exists) return false;
-    const service = serviceSnapshot.data() || {};
+    const legacyService = serviceSnapshot.data() || {};
+    const runtime = runtimeSnapshot.data() || null;
+    const service = mergeConciergeMatchingRuntime(legacyService, runtime);
     const current = snapshot.data() || {};
     if (current.status !== expectedStatus) return false;
     if (nextStatus === 'proposed' && current.status !== 'proposed') {
@@ -958,10 +975,14 @@ async function updateExistingProposal(db, serviceRef, ref, update, expectedStatu
       const cap = servicePositionLimit(service);
       if (!serviceIsActive(service) || acceptedPositionsCount(service) >= cap
         || openCount >= APPLICATION_CONCIERGE_MAX_OPEN_PROPOSALS) return false;
-      transaction.set(serviceRef, { matchingOpenProposalCount: openCount + 1 }, { merge: true });
+      const count = openCount + 1;
+      writeConciergeMatchingRuntime(transaction, serviceRef, runtimeRef, legacyService, runtime,
+        { matchingOpenProposalCount: count });
     } else if (nextStatus && current.status === 'proposed' && nextStatus !== 'proposed') {
       const openCount = openProposalsCount(service, fallbackOpenCount);
-      transaction.set(serviceRef, { matchingOpenProposalCount: Math.max(0, openCount - 1) }, { merge: true });
+      const count = Math.max(0, openCount - 1);
+      writeConciergeMatchingRuntime(transaction, serviceRef, runtimeRef, legacyService, runtime,
+        { matchingOpenProposalCount: count });
     }
     transaction.set(ref, {
       ...update,
@@ -983,8 +1004,13 @@ async function updateExistingProposal(db, serviceRef, ref, update, expectedStatu
 async function updateLegacyRecoveryProposal(db, serviceRef, ref, update, expectedCvStorageKey, fallbackOpenCount = 0) {
   let appliedUpdate = null;
   const changed = await db.runTransaction(async (transaction) => {
-    const [serviceSnapshot, snapshot] = await Promise.all([transaction.get(serviceRef), transaction.get(ref)]);
-    const service = serviceSnapshot.data() || {};
+    const runtimeRef = conciergeMatchingRuntimeRef(serviceRef);
+    const [serviceSnapshot, runtimeSnapshot, snapshot] = await Promise.all([
+      transaction.get(serviceRef), transaction.get(runtimeRef), transaction.get(ref),
+    ]);
+    const legacyService = serviceSnapshot.data() || {};
+    const runtime = runtimeSnapshot.data() || null;
+    const service = mergeConciergeMatchingRuntime(legacyService, runtime);
     if (!serviceSnapshot.exists || !serviceIsActive(service) || service.cvStorageKey !== expectedCvStorageKey || !snapshot.exists) return false;
     const current = snapshot.data() || {};
     if (!isLegacyUnverifiedRetraction(current)) return false;
@@ -994,9 +1020,13 @@ async function updateLegacyRecoveryProposal(db, serviceRef, ref, update, expecte
     const openCount = openProposalsCount(service, fallbackOpenCount);
     if (appliedUpdate.status === 'proposed' && current.status !== 'proposed') {
       if (openCount >= APPLICATION_CONCIERGE_MAX_OPEN_PROPOSALS) return false;
-      transaction.set(serviceRef, { matchingOpenProposalCount: openCount + 1 }, { merge: true });
+      const count = openCount + 1;
+      writeConciergeMatchingRuntime(transaction, serviceRef, runtimeRef, legacyService, runtime,
+        { matchingOpenProposalCount: count });
     } else if (current.status === 'proposed' && appliedUpdate.status && appliedUpdate.status !== 'proposed') {
-      transaction.set(serviceRef, { matchingOpenProposalCount: Math.max(0, openCount - 1) }, { merge: true });
+      const count = Math.max(0, openCount - 1);
+      writeConciergeMatchingRuntime(transaction, serviceRef, runtimeRef, legacyService, runtime,
+        { matchingOpenProposalCount: count });
     }
     transaction.set(ref, appliedUpdate, { merge: true });
     return true;
@@ -1067,9 +1097,10 @@ export async function runApplicationConciergeMatching({ db = getAdminDb(), servi
   // a minute for durable proposals, retry metadata and completion writes.
   const eligibilitySignal = AbortSignal.timeout(Math.max(1, Math.min(480_000, deadlineMs - Date.now())));
   const serviceRef = db.collection(APPLICATION_CONCIERGE_SERVICES_COLLECTION).doc(serviceId);
-  const serviceSnapshot = await serviceRef.get();
+  const runtimeRef = conciergeMatchingRuntimeRef(serviceRef);
+  const [serviceSnapshot, runtimeSnapshot] = await Promise.all([serviceRef.get(), runtimeRef.get()]);
   if (!serviceSnapshot.exists) return { status: 'skipped', reason: 'service_not_found' };
-  const service = serviceSnapshot.data() || {};
+  const service = mergeConciergeMatchingRuntime(serviceSnapshot.data() || {}, runtimeSnapshot.data() || null);
   if (!service.userId || service.paymentStatus !== 'paid' || !serviceIsActive(service)) return { status: 'skipped', reason: 'service_inactive' };
 
   if (acceptedPositionsCount(service) >= servicePositionLimit(service)) return { status: 'skipped', reason: 'position_limit_reached' };
@@ -1082,7 +1113,17 @@ export async function runApplicationConciergeMatching({ db = getAdminDb(), servi
     return { status: 'needs_review', reason: 'profile_not_ready' };
   }
 
-  await serviceRef.set({ matchingStatus: 'running', matchingStartedAt: FieldValue.serverTimestamp(), matchingError: null, updatedAt: FieldValue.serverTimestamp() }, { merge: true });
+  await db.runTransaction(async transaction => {
+    const [latestServiceSnapshot, latestRuntimeSnapshot] = await Promise.all([
+      transaction.get(serviceRef), transaction.get(runtimeRef),
+    ]);
+    const latestService = latestServiceSnapshot.data() || {};
+    writeConciergeMatchingRuntime(transaction, serviceRef, runtimeRef, latestService,
+      latestRuntimeSnapshot.data() || null, { matchingStartedAt: FieldValue.serverTimestamp() });
+    transaction.set(serviceRef, {
+      matchingStatus: 'running', matchingError: null, updatedAt: FieldValue.serverTimestamp(),
+    }, { merge: true });
+  });
   try {
     const jobs = (await fetchJobs(jobIndexUrl, eligibilitySignal)).map(normalizeConciergeJobRecord);
     const existingSnapshot = await serviceRef.collection('proposals').get();
@@ -1331,7 +1372,10 @@ export async function runApplicationConciergeMatching({ db = getAdminDb(), servi
         if (result?.reason === 'analysis_deferred') break;
         if (cursorUrls.has(entry.url)) scannedCursor = entry.url;
       }
-      await serviceRef.set({ matchingScanCursor: scannedCursor, matchingScanContext: rankingContext }, { merge: true });
+      await updateConciergeMatchingRuntime({ db, serviceRef, patch: {
+        matchingScanCursor: scannedCursor,
+        matchingScanContext: rankingContext,
+      } });
       if (batch.some(entry => {
         const result = checks.get(entry.url);
         return result?.reason === 'analysis_deferred';
@@ -1546,13 +1590,20 @@ export async function runApplicationConciergeMatching({ db = getAdminDb(), servi
         updatedAt: FieldValue.serverTimestamp(),
       };
       const created = await db.runTransaction(async transaction => {
-        const [currentServiceDoc, currentProposalDoc] = await Promise.all([transaction.get(serviceRef), transaction.get(ref)]);
-        const currentService = currentServiceDoc.data();
+        const runtimeRef = conciergeMatchingRuntimeRef(serviceRef);
+        const [currentServiceDoc, currentRuntimeDoc, currentProposalDoc] = await Promise.all([
+          transaction.get(serviceRef), transaction.get(runtimeRef), transaction.get(ref),
+        ]);
+        const legacyService = currentServiceDoc.data() || {};
+        const runtime = currentRuntimeDoc.data() || null;
+        const currentService = mergeConciergeMatchingRuntime(legacyService, runtime);
+        const openCount = openProposalsCount(currentService, fallbackOpenCount);
         if (currentProposalDoc.exists || !serviceIsActive(currentService) || currentService.cvStorageKey !== service.cvStorageKey
           || acceptedPositionsCount(currentService) >= servicePositionLimit(currentService)
-          || openProposalsCount(currentService, fallbackOpenCount) >= APPLICATION_CONCIERGE_MAX_OPEN_PROPOSALS) return false;
-        const openCount = openProposalsCount(currentService, fallbackOpenCount);
-        transaction.set(serviceRef, { matchingOpenProposalCount: openCount + 1 }, { merge: true });
+          || openCount >= APPLICATION_CONCIERGE_MAX_OPEN_PROPOSALS) return false;
+        const count = openCount + 1;
+        writeConciergeMatchingRuntime(transaction, serviceRef, runtimeRef, legacyService, runtime,
+          { matchingOpenProposalCount: count });
         transaction.set(ref, proposal);
         return true;
       });
@@ -1594,6 +1645,11 @@ export async function runApplicationConciergeMatching({ db = getAdminDb(), servi
     };
     // Replace aggregate maps as whole fields so causes/statuses that disappeared
     // from the retry queue do not survive a recursive merge as stale counts.
+    const finalRuntime = (await runtimeRef.get()).data() || null;
+    completionUpdate.matchingOpenProposalCount = openProposalsCount(
+      mergeConciergeMatchingRuntime(service, finalRuntime), fallbackOpenCount,
+    );
+    await updateConciergeMatchingRuntime({ db, serviceRef, patch: { matchingStartedAt: FieldValue.delete() } });
     await serviceRef.set(completionUpdate, { mergeFields: Object.keys(completionUpdate) });
     const telemetry = {
       scanned: checks.size,
@@ -1616,6 +1672,7 @@ export async function runApplicationConciergeMatching({ db = getAdminDb(), servi
     // A failed top-level fetch/write is not evidence that any existing job is
     // incompatible or closed. Preserve proposal rows and let the lifecycle's
     // failed-run retry re-evaluate them on a later pass.
+    await updateConciergeMatchingRuntime({ db, serviceRef, patch: { matchingStartedAt: FieldValue.delete() } });
     await serviceRef.set({ matchingStatus: 'failed', matchingError: 'job_search_failed', matchingCompletedAt: FieldValue.serverTimestamp(), updatedAt: FieldValue.serverTimestamp() }, { merge: true });
     throw error;
   }

@@ -1,5 +1,10 @@
 /** Private retry metadata shares the qualification cache's 90-day retention. */
 import { createHash } from 'node:crypto';
+import {
+  conciergeMatchingRuntimeRef,
+  mergeConciergeMatchingRuntime,
+  writeConciergeMatchingRuntime,
+} from './applicationConciergeRuntime.js';
 
 const DELAYS = [60 * 60_000, 3 * 60 * 60_000, 12 * 60 * 60_000, 3 * 86400_000];
 const DEFERRED_RETRY_DELAY_MS = 15 * 60_000;
@@ -130,17 +135,22 @@ export async function recordEligibilityRetry({ db, serviceRef, url, result, cont
       const firstAttemptAt = sameBudgetJobContext ? Number(previous.firstAttemptAt) || 0 : 0;
       if (firstAttemptAt > 0) {
         const recoveryDurationMs = Math.max(0, lastAttemptAt - firstAttemptAt);
-        const serviceSnapshot = await transaction.get(serviceRef);
-        const service = serviceSnapshot.data() || {};
+        const runtimeRef = conciergeMatchingRuntimeRef(serviceRef);
+        const [serviceSnapshot, runtimeSnapshot] = await Promise.all([
+          transaction.get(serviceRef), transaction.get(runtimeRef),
+        ]);
+        const legacyService = serviceSnapshot.data() || {};
+        const runtime = runtimeSnapshot.data() || null;
+        const service = mergeConciergeMatchingRuntime(legacyService, runtime);
         const count = Math.max(0, Math.floor(Number(service.matchingEligibilityRecoveryCount) || 0));
         const durationTotal = Math.max(0, Number(service.matchingEligibilityRecoveryDurationMsTotal) || 0);
-        transaction.set(serviceRef, {
+        writeConciergeMatchingRuntime(transaction, serviceRef, runtimeRef, legacyService, runtime, {
           matchingEligibilityRecoveryCount: count + 1,
           matchingEligibilityRecoveryDurationMsTotal: durationTotal + recoveryDurationMs,
           matchingEligibilityLastRecoveryMs: recoveryDurationMs,
           matchingEligibilityLastRecoveryStatus: status,
           matchingEligibilityLastRecoveryAt: new Date(lastAttemptAt),
-        }, { merge: true });
+        });
       }
       transaction.delete(ref);
       return;
@@ -239,13 +249,15 @@ export async function eligibilityRetrySummary(serviceRef) {
   const statuses = [...RETRY_STATUSES];
   const reasons = [...RETRY_REASONS];
   // Single-field equality counts avoid composite indexes and never read cached CV/posting payloads.
-  const [retryCount, exhaustedCount, first, statusValues, reasonValues, serviceSnapshot] = await Promise.all([
+  const runtimeRef = conciergeMatchingRuntimeRef(serviceRef);
+  const [retryCount, exhaustedCount, first, statusValues, reasonValues, serviceSnapshot, runtimeSnapshot] = await Promise.all([
     count(active),
     count(exhausted),
     active.orderBy('retryAt').limit(1).get(),
     Promise.all(statuses.map(async status => [status, await count(eligibility.where('lastStatus', '==', status))])),
     Promise.all(reasons.map(async reason => [reason, await count(eligibility.where('lastReason', '==', reason))])),
     serviceRef.get(),
+    runtimeRef.get(),
   ]);
   const statusCounts = {};
   const reasonCounts = {};
@@ -259,7 +271,7 @@ export async function eligibilityRetrySummary(serviceRef) {
   if (unknownStatuses) statusCounts.unknown = unknownStatuses;
   if (unknownReasons) reasonCounts.unknown = unknownReasons;
   const retryAt = first.docs[0]?.data()?.retryAt || null;
-  const service = serviceSnapshot.data() || {};
+  const service = mergeConciergeMatchingRuntime(serviceSnapshot.data() || {}, runtimeSnapshot.data() || null);
   const recoveryCount = Math.max(0, Math.floor(Number(service.matchingEligibilityRecoveryCount) || 0));
   const recoveryDurationMsTotal = Math.max(0, Number(service.matchingEligibilityRecoveryDurationMsTotal) || 0);
   return {
