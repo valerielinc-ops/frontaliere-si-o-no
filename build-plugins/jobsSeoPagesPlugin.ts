@@ -13967,7 +13967,7 @@ ${staticAnalyticsHtml}
   expiredSitemapBuffer.length = 0;
  };
  const expiredSitemapEntries = {
-  // Preserve the append contract while writing through the bounded buffer.
+  // Preserve the append call shape and update the entry counter.
   push(entry: string): void {
    expiredSitemapBuffer.push(entry);
    expiredSitemapEntryCount++;
