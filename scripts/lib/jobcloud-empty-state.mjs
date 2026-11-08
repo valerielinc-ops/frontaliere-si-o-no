@@ -29,12 +29,12 @@ function normalizeMarkupValue(value = '') {
 }
 
 function isJobCloudDetailReference(value) {
-  return /\/[a-z]{2}\/(?:jobs?|positions?|vacancies?|offers?|emplois|stellen)(?:\/|[?#]|$)/i
+  return /\/[a-z]{2}\/(?:jobs?|job-detail|positions?|vacancies?|offers?|emplois|stellen)(?:\/|[?#]|$)/i
     .test(normalizeMarkupValue(value));
 }
 
 function isJobupDetailReference(value) {
-  return /\/(?:fr\/emplois|en\/jobs)\/(?:detail\/)?[^/?#"'\\]+/i
+  return /\/(?:fr\/(?:emplois|jobs|job-detail)|en\/(?:jobs|job-detail))\/(?:detail\/)?[^/?#"'\\]+/i
     .test(normalizeMarkupValue(value));
 }
 

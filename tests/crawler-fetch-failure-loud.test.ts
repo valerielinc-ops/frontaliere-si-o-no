@@ -305,7 +305,10 @@ describe('Croix-Rouge fribourgeoise keeps fetch failure, proven empty and unread
     ['JobCloud', () => `${JOBCLOUD_CURRENT_EMPTY}<article data-job-url="/fr/role-nouveau-format">Poste</article>`, isJobCloudListingProvenEmpty],
     ['Jobup', () => `${JOBUP_CURRENT_EMPTY}<article data-href="/fr/emplois/detail/nouveau-format">Poste</article>`, isJobupProfileProvenEmpty],
     ['JobCloud', () => `${JOBCLOUD_CURRENT_EMPTY}<article data-path="/fr/jobs/job-42">Poste</article>`, isJobCloudListingProvenEmpty],
+    ['Jobup', () => `${JOBUP_CURRENT_EMPTY}<article data-path="/fr/jobs/job-42">Poste</article>`, isJobupProfileProvenEmpty],
     ['Jobup', () => `${JOBUP_CURRENT_EMPTY}<article data-path="/fr/emplois/detail/job-42">Poste</article>`, isJobupProfileProvenEmpty],
+    ['JobCloud', () => `${JOBCLOUD_CURRENT_EMPTY}<a href="/fr/job-detail/job-42">Poste</a>`, isJobCloudListingProvenEmpty],
+    ['Jobup', () => `${JOBUP_CURRENT_EMPTY}<a href="/fr/job-detail/job-42">Poste</a>`, isJobupProfileProvenEmpty],
   ])('rejects a %s empty marker when an unrecognized job attribute is present', (_source, buildHtml, isProvenEmpty) => {
     expect(isProvenEmpty(buildHtml())).toBe(false);
   });
@@ -332,8 +335,11 @@ describe('Croix-Rouge fribourgeoise keeps fetch failure, proven empty and unread
 
   it.each([
     ['JobCloud', `${JOBCLOUD_CURRENT_EMPTY}<article data-path="/fr/jobs/job-42">Poste</article>`, JOBUP_EMPTY],
+    ['Jobup', JOBCLOUD_EMPTY, `${JOBUP_CURRENT_EMPTY}<article data-path="/fr/jobs/job-42">Poste</article>`],
     ['Jobup', JOBCLOUD_EMPTY, `${JOBUP_CURRENT_EMPTY}<article data-path="/fr/emplois/detail/job-42">Poste</article>`],
-  ])('does not stamp a Croix-Rouge zero when %s keeps a detail route in data-path', async (_source, jobCloudHtml, jobupHtml) => {
+    ['JobCloud', `${JOBCLOUD_CURRENT_EMPTY}<a href="/fr/job-detail/job-42">Poste</a>`, JOBUP_EMPTY],
+    ['Jobup', JOBCLOUD_EMPTY, `${JOBUP_CURRENT_EMPTY}<a href="/fr/job-detail/job-42">Poste</a>`],
+  ])('does not stamp a Croix-Rouge zero when %s keeps unrecognized job evidence', async (_source, jobCloudHtml, jobupHtml) => {
     routeFetch([
       [JOBCLOUD_URL_RE, jobCloudHtml],
       [JOBUP_URL_RE, jobupHtml],
