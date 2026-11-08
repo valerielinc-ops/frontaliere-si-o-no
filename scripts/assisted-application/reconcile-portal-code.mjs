@@ -172,6 +172,7 @@ export async function reconcilePortalCode({ db, version, apply = false, nowMs = 
         const legacyLocalAnswers = !trustedLocalAnswers
           ? object(flow.answers)
           : explicitMatchAnswers({ draft, flow });
+        const recoveryMatchAnswerIds = trustedLocalAnswers ? Object.keys(legacyLocalAnswers) : [];
         const recoveryFlow = {
           ...answerContext.flow,
           answers: { ...(answerContext.flow.answers || {}), ...legacyLocalAnswers },
@@ -193,6 +194,8 @@ export async function reconcilePortalCode({ db, version, apply = false, nowMs = 
           if (identityQuestionReady) {
             transaction.set(flowRef, {
               answers: { ...object(recoveryFlow.answers), [identityAnswer.questionId]: identityAnswer.email },
+              portalRecoveryMatchAnswerIds: recoveryMatchAnswerIds,
+              portalRecoveryMatchAnswerRound: Number(flow.round) || 1,
               portalRecoveryVersion: version, updatedAt: nowMs,
             }, { merge: true });
           } else {
@@ -206,6 +209,8 @@ export async function reconcilePortalCode({ db, version, apply = false, nowMs = 
               // the submit runner receives the same compatibility decision
               // that authorized this recovery; never widen legacy evidence.
               ...(trustedLocalAnswers ? { answers: { ...object(answerContext.flow?.answers), ...legacyLocalAnswers } } : {}),
+              ...(trustedLocalAnswers ? { portalRecoveryMatchAnswerIds: recoveryMatchAnswerIds,
+                portalRecoveryMatchAnswerRound: Number(flow.round) || 1 } : {}),
               questionAnswers: recoveryOrderAnswers, portalAutoRetryAt: nowMs,
               portalRecoveryVersion: version,
               ...(exhaustedRepair ? { portalExhaustedRecoveryVersion: version } : {}),

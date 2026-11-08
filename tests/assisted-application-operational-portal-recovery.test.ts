@@ -1,7 +1,8 @@
 import { describe, expect, it } from 'vitest';
 import { createMemoryFirestore } from './helpers/memoryFirestore';
 import { reconcilePortalCode } from '../scripts/assisted-application/reconcile-portal-code.mjs';
-import { transition } from '../functions/src/assistedApplicationFlow.js';
+import { evaluateRedFlags, transition } from '../functions/src/assistedApplicationFlow.js';
+import { loadRunnerAnswerContext } from '../functions/src/assistedApplicationAnswerEvidence.js';
 import { ORDER_QUESTION_ANSWER_EVIDENCE_VERSION } from '../functions/src/assistedApplicationCandidateEdits.js';
 
 const base = 'assisted_applications/operational_recovery_fixture';
@@ -51,7 +52,15 @@ describe('source-version recovery of positively identified operational portal qu
     store.docs.set(`${base}/automation/flow`, { ...store.read(`${base}/automation/flow`),
       answers: { availability: '2026-11-20' }, orderQuestionAnswersEvidenceVersion: ORDER_QUESTION_ANSWER_EVIDENCE_VERSION });
     expect(await reconcilePortalCode({ ...context(store), apply: true })).toMatchObject({ eligible: 1, queued: 1 });
-    expect(store.read(`${base}/automation/flow`).answers).toMatchObject({ availability: '2026-11-20' });
+    const queuedFlow = store.read(`${base}/automation/flow`);
+    expect(queuedFlow).toMatchObject({ answers: { availability: '2026-11-20' },
+      portalRecoveryMatchAnswerIds: ['availability'], portalRecoveryMatchAnswerRound: 1 });
+    const execution = await loadRunnerAnswerContext({ db: store.db, orderId: base.split('/').at(-1), order: store.read(base),
+      flow: queuedFlow, draft: store.read(`${base}/ai_drafts/current`), nowMs: now });
+    expect(execution.flow.answers).toMatchObject({ availability: '2026-11-20' });
+    expect(execution.flow.questionAnswers).toEqual({});
+    expect(evaluateRedFlags(store.read(`${base}/ai_drafts/current`), execution.flow.answers, {},
+      execution.flow.questionAnswers, execution.flow, store.read(base)).candidate).toEqual([]);
     expect(store.read(base).automationDueAt).toBe(now);
   });
 
