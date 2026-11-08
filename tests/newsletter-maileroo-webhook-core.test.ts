@@ -467,7 +467,8 @@ describe('newsletterMailerooWebhookCore', () => {
           && 'preferred_send_sample_count' in s.data,
       );
       expect(preferredSet).toBeTruthy();
-      expect(preferredSet!.data.preferred_send_sample_count).toBe(3);
+      // The new click is added to the buffered history in the same transaction.
+      expect(preferredSet!.data.preferred_send_sample_count).toBe(4);
       expect(typeof preferredSet!.data.preferred_send_hour_utc).toBe('number');
       expect(preferredSet!.data.preferred_send_updated_at).toBeTruthy();
     });

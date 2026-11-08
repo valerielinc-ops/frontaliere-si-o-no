@@ -135,8 +135,8 @@ describe('newsletterResendWebhookCore', () => {
   });
 
   it('refreshes preferred_send_hour on a click event with too few prior events (cold start)', async () => {
-    // No seeded events — refreshPreferredSendHour still runs and writes a
-    // sampleCount of 0 (below PREFERRED_SEND_MIN_EVENTS), hourUtc null.
+    // No seeded events — the click is added to the buffer in the same
+    // transaction and remains below PREFERRED_SEND_MIN_EVENTS.
     const db = createFakeDb({
       newsletter_subscribers: {
         'coldstart@example.com': { status: 'confirmed', isActive: true },
@@ -154,7 +154,7 @@ describe('newsletterResendWebhookCore', () => {
         && 'preferred_send_sample_count' in s.data,
     );
     expect(preferredSet).toBeTruthy();
-    expect(preferredSet!.data.preferred_send_sample_count).toBe(0);
+    expect(preferredSet!.data.preferred_send_sample_count).toBe(1);
     expect(preferredSet!.data.preferred_send_hour_utc).toBeNull();
   });
 
@@ -188,7 +188,8 @@ describe('newsletterResendWebhookCore', () => {
         && 'preferred_send_sample_count' in s.data,
     );
     expect(preferredSet).toBeTruthy();
-    expect(preferredSet!.data.preferred_send_sample_count).toBe(3);
+    // The current open event joins the three seeded events in the buffer.
+    expect(preferredSet!.data.preferred_send_sample_count).toBe(4);
     expect(typeof preferredSet!.data.preferred_send_hour_utc).toBe('number');
     expect(preferredSet!.data.preferred_send_updated_at).toBeTruthy();
   });

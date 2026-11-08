@@ -41,6 +41,10 @@ import {
   SITE_ORIGIN,
   evaluateHomePageFreshness,
 } from './lib/home-page-freshness.mjs';
+import {
+  PUBLIC_CONFIG_FUNCTION_ENDPOINT,
+  PUBLIC_CONFIG_PATH,
+} from '../services/publicConfigConstants.mjs';
 export { SITE_ORIGIN } from './lib/home-page-freshness.mjs';
 
 export const CDN_ORIGIN = 'https://cdn.frontaliereticino.ch';
@@ -48,7 +52,8 @@ export const SITE_BUILD_ID_PATH = '/build-id.txt';
 export const CDN_BUILD_ID_PATH = '/cdn-build-id.txt';
 export const CDN_PUBLISH_START_ID_PATH = '/cdn-publish-start-id.txt';
 export const CDN_PUBLISH_COMPLETE_ID_PATH = '/cdn-publish-complete-id.txt';
-export const PUBLIC_CONFIG_URL = 'https://europe-west6-frontaliere-ticino.cloudfunctions.net/getPublicConfig';
+export const PUBLIC_CONFIG_URL = new URL(PUBLIC_CONFIG_PATH, SITE_ORIGIN).href;
+export const PUBLIC_CONFIG_FRESH_URL = PUBLIC_CONFIG_FUNCTION_ENDPOINT;
 export const RUNTIME_CIRCUIT_COOLDOWN_MS = 15 * 60 * 1000;
 // The deploy step has a 45-minute hard timeout. Five extra minutes distinguish
 // a still-running upload from an abandoned publish window without ever
@@ -431,7 +436,7 @@ export function classifyPublicConfig(response) {
 export async function probePublicConfig({ fetchImpl = fetch, timeoutMs = DEFAULT_TIMEOUT_MS, nonce = Date.now() } = {}) {
   const [cached, fresh] = await Promise.all([
     readUrl(PUBLIC_CONFIG_URL, { fetchImpl, timeoutMs }),
-    readUrl(cacheBust(PUBLIC_CONFIG_URL, String(nonce)), { fetchImpl, timeoutMs }),
+    readUrl(cacheBust(PUBLIC_CONFIG_FRESH_URL, String(nonce)), { fetchImpl, timeoutMs }),
   ]);
   const result = { cached: classifyPublicConfig(cached), fresh: classifyPublicConfig(fresh) };
   return { ok: result.cached.state === 'healthy' && result.fresh.state === 'healthy', ...result };

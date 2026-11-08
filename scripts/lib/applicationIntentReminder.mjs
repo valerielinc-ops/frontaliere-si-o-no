@@ -247,6 +247,7 @@ export function buildApplicationIntentEntry(snapshot, jobsById, locale, jobUrlBu
     applicationIntent: true,
     applicationMode: data.application_mode || job.applyMode || 'external',
     intentAt: applicationIntentTimestamp(data),
+    expiresAt: data.expiresAt || null,
     url: jobUrlBuilder(job, locale),
     title: jobDisplayTitle(job),
     company: job.company || '',

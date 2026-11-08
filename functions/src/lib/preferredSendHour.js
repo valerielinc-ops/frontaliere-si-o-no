@@ -209,12 +209,93 @@ function preferredEventsQuery(subscriberRef) {
   .limit(PREFERRED_SEND_HOUR_BUFFER_SIZE);
 }
 
-function isPreferredSendHourFresh(current) {
+function isPreferredSendHourFresh(current, nowMs = Date.now()) {
  if (!current || current.preferred_send_sample_count < PREFERRED_SEND_MIN_EVENTS) return false;
  const updatedAt = parseEventDate(current.preferred_send_updated_at);
- const freshAgeMs = updatedAt ? Date.now() - updatedAt.getTime() : null;
+ const freshAgeMs = updatedAt ? nowMs - updatedAt.getTime() : null;
  return freshAgeMs !== null
   && freshAgeMs >= 0 && freshAgeMs < PREFERRED_SEND_REFRESH_INTERVAL_MS;
+}
+
+/**
+ * Build the preferred-send-hour fields inside an existing subscriber
+ * transaction. `eventAlreadyPersisted` is true for the standalone refresh
+ * wrapper (the event log is written first) and false for webhook transactions
+ * that atomically update the subscriber before appending the event log.
+ *
+ * @param {{transaction: *, subscriberRef: *, current: object|null, FieldValue: *, currentEvent?: object|null, eventAlreadyPersisted?: boolean, nowMs?: number}} args
+ * @returns {Promise<{update: Record<string, unknown>, result: object}>}
+ */
+export async function buildPreferredSendHourUpdate({
+ transaction,
+ subscriberRef,
+ current,
+ FieldValue,
+ currentEvent = null,
+ eventAlreadyPersisted = true,
+ nowMs = Date.now(),
+}) {
+ let buffer = normalizePreferredSendHourBuffer(current?.preferred_send_hour_buffer);
+ const bufferWasMissing = buffer === null;
+
+ if (bufferWasMissing) {
+  // The one and only historical backfill for a subscriber. Keep this query
+  // identical to the legacy window: the server-side open/click filter is
+  // applied before the occurred_at ordering and 300-row limit.
+  const eventsSnap = await transaction.get(preferredEventsQuery(subscriberRef));
+  buffer = bufferEntriesFromEventDocs(eventsSnap.docs || []);
+  if (!eventAlreadyPersisted) buffer = insertEventIntoBuffer(buffer, currentEvent);
+ } else {
+  buffer = insertEventIntoBuffer(buffer, currentEvent);
+ }
+
+ const bufferLastTimestamp = latestBufferTimestamp(
+  buffer,
+  current?.[PREFERRED_SEND_HOUR_BUFFER_LAST_TIMESTAMP],
+ );
+ const isFresh = isPreferredSendHourFresh(current, nowMs);
+ const bufferUpdate = {
+  preferred_send_hour_buffer: buffer,
+  [PREFERRED_SEND_HOUR_BUFFER_LAST_TIMESTAMP]: bufferLastTimestamp,
+ };
+
+ if (isFresh) {
+  const shouldWriteBuffer = bufferWasMissing || bufferEntryFromEvent(currentEvent);
+  return {
+   update: shouldWriteBuffer ? bufferUpdate : {},
+   result: {
+    updated: false,
+    hourUtc: current.preferred_send_hour_utc ?? null,
+    sampleCount: current.preferred_send_sample_count,
+    strength: current.preferred_send_strength ?? null,
+   },
+  };
+ }
+
+ const { hourUtc, sampleCount, strength } = computePreferredSendHour(bufferEvents(buffer), new Date(nowMs));
+
+ // Churn instrumentation (#3798 Fix MEDIO-BASSO #6 — prep for calibrating the
+ // 6h staleness gate above): only counts an actual change between two known
+ // hours, not the first assignment (null → hour) a cold-start subscriber
+ // gets once they clear PREFERRED_SEND_MIN_EVENTS.
+ const previousHourUtc = current?.preferred_send_hour_utc ?? null;
+ const churned = previousHourUtc !== null && hourUtc !== null && hourUtc !== previousHourUtc;
+
+ // Always write, even if the derived values are identical to what's already
+ // stored: preferred_send_updated_at resets the staleness-gate window.
+ const update = {
+  ...bufferUpdate,
+  preferred_send_hour_utc: hourUtc,
+  preferred_send_sample_count: sampleCount,
+  preferred_send_strength: strength,
+  preferred_send_updated_at: FieldValue.serverTimestamp(),
+ };
+ if (churned) update.preferred_send_hour_churn_count = FieldValue.increment(1);
+
+ return {
+  update,
+  result: { updated: true, hourUtc, sampleCount, strength, churned },
+ };
 }
 
 /**
@@ -251,68 +332,16 @@ export async function refreshPreferredSendHour(subscriberRef, FieldValue, curren
   return await firestore.runTransaction(async (transaction) => {
    const currentSnap = await transaction.get(subscriberRef);
    const current = currentSnap?.exists ? (currentSnap.data() || {}) : null;
-   let buffer = normalizePreferredSendHourBuffer(current?.preferred_send_hour_buffer);
-   const bufferWasMissing = buffer === null;
-
-   if (bufferWasMissing) {
-    // The one and only historical backfill for a subscriber. Keep this query
-    // identical to the legacy window: the server-side open/click filter is
-    // applied before the occurred_at ordering and 300-row limit.
-    const eventsSnap = await transaction.get(preferredEventsQuery(subscriberRef));
-    buffer = bufferEntriesFromEventDocs(eventsSnap.docs || []);
-   } else {
-    buffer = insertEventIntoBuffer(buffer, currentEvent);
-   }
-
-   const bufferLastTimestamp = latestBufferTimestamp(
-    buffer,
-    current?.[PREFERRED_SEND_HOUR_BUFFER_LAST_TIMESTAMP],
-   );
-   const isFresh = isPreferredSendHourFresh(current);
-   const bufferUpdate = {
-    preferred_send_hour_buffer: buffer,
-    [PREFERRED_SEND_HOUR_BUFFER_LAST_TIMESTAMP]: bufferLastTimestamp,
-   };
-
-   if (isFresh) {
-    // A real webhook always supplies currentEvent, so its buffer append is
-    // still committed transactionally even when the derived value is fresh.
-    // A direct maintenance/read call with an already-present buffer needs no
-    // no-op write.
-    if (bufferWasMissing || bufferEntryFromEvent(currentEvent)) {
-     transaction.set(subscriberRef, bufferUpdate, { merge: true });
-    }
-    return {
-     updated: false,
-     hourUtc: current.preferred_send_hour_utc ?? null,
-     sampleCount: current.preferred_send_sample_count,
-     strength: current.preferred_send_strength ?? null,
-    };
-   }
-
-   const { hourUtc, sampleCount, strength } = computePreferredSendHour(bufferEvents(buffer));
-
-   // Churn instrumentation (#3798 Fix MEDIO-BASSO #6 — prep for calibrating the
-   // 6h staleness gate above): only counts an actual change between two known
-   // hours, not the first assignment (null → hour) a cold-start subscriber
-   // gets once they clear PREFERRED_SEND_MIN_EVENTS.
-   const previousHourUtc = current?.preferred_send_hour_utc ?? null;
-   const churned = previousHourUtc !== null && hourUtc !== null && hourUtc !== previousHourUtc;
-
-   // Always write, even if the derived values are identical to what's already
-   // stored: preferred_send_updated_at is what resets the staleness-gate
-   // window above. The same transaction also commits the circular buffer.
-   const update = {
-    ...bufferUpdate,
-    preferred_send_hour_utc: hourUtc,
-    preferred_send_sample_count: sampleCount,
-    preferred_send_strength: strength,
-    preferred_send_updated_at: FieldValue.serverTimestamp(),
-   };
-   if (churned) update.preferred_send_hour_churn_count = FieldValue.increment(1);
-   transaction.set(subscriberRef, update, { merge: true });
-
-   return { updated: true, hourUtc, sampleCount, strength, churned };
+   const { update, result } = await buildPreferredSendHourUpdate({
+    transaction,
+    subscriberRef,
+    current,
+    FieldValue,
+    currentEvent,
+    eventAlreadyPersisted: true,
+   });
+   if (Object.keys(update).length > 0) transaction.set(subscriberRef, update, { merge: true });
+   return result;
   });
  } catch (err) {
   // Non-critical: webhook delivery should not fail because of this scoring.

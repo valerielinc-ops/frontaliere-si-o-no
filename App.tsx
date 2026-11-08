@@ -1636,14 +1636,18 @@ const App: React.FC = () => {
 
  // ── Personalization feature flag (Firebase Remote Config) ──
  useEffect(() => {
+ if (activeTab !== 'job-board') return;
+ let cancelled = false;
  import('@/services/firebase').then(({ getConfigValue }) => Promise.all([
   getConfigValue('ENABLE_JOB_PERSONALIZATION').catch(() => 'false'),
   getConfigValue('APPLICATION_INTENT_RANKING_ENABLED').catch(() => 'false'),
  ])).then(([personalization, applicationIntentRanking]) => {
+  if (cancelled) return;
   setEnablePersonalization(personalization === 'true');
   setEnableApplicationIntentRanking(applicationIntentRanking === 'true');
  }).catch(() => {});
- }, []);
+ return () => { cancelled = true; };
+ }, [activeTab]);
 
  // ── Personalization: Firestore sync on auth ──
  const authUid = authUser?.uid || null;

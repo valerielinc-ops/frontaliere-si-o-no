@@ -4,6 +4,7 @@ import {
   CDN_ORIGIN,
   CDN_PUBLISH_COMPLETE_ID_PATH,
   CDN_PUBLISH_START_ID_PATH,
+  PUBLIC_CONFIG_FRESH_URL,
   PUBLIC_CONFIG_URL,
   classifyCdnPublishWindow,
   classifyPublicConfig,
@@ -186,7 +187,7 @@ describe('runtime reliability watchdog', () => {
     const fetchImpl = vi.fn(async (url: string) => {
       calls.push(url);
       const path = new URL(url).pathname;
-      if (url.startsWith(PUBLIC_CONFIG_URL)) return response(publicConfigBody);
+      if (url.startsWith(PUBLIC_CONFIG_URL) || url.startsWith(PUBLIC_CONFIG_FRESH_URL)) return response(publicConfigBody);
       if (path === CDN_PUBLISH_START_ID_PATH) return response(String(now - 10 * 60_000));
       if (path === CDN_PUBLISH_COMPLETE_ID_PATH) return response(String(now - 60 * 60_000));
       const page = homePageResponse(url, '1792310390925');
@@ -210,7 +211,7 @@ describe('runtime reliability watchdog', () => {
     let startReads = 0;
     const fetchImpl = vi.fn(async (url: string) => {
       const path = new URL(url).pathname;
-      if (url.startsWith(PUBLIC_CONFIG_URL)) return response(publicConfigBody);
+      if (url.startsWith(PUBLIC_CONFIG_URL) || url.startsWith(PUBLIC_CONFIG_FRESH_URL)) return response(publicConfigBody);
       if (path === CDN_PUBLISH_START_ID_PATH) {
         startReads += 1;
         return response(startReads === 1 ? stable : started);
@@ -568,7 +569,7 @@ describe('runtime reliability watchdog', () => {
     const homeRequests: Array<{ url: string; headers: Record<string, string> }> = [];
     const fetchImpl = vi.fn(async (url: string, init: any) => {
       calls.push(url);
-      if (url.startsWith(PUBLIC_CONFIG_URL)) return response(publicConfigBody);
+      if (url.startsWith(PUBLIC_CONFIG_URL) || url.startsWith(PUBLIC_CONFIG_FRESH_URL)) return response(publicConfigBody);
       const isAsset = url.includes('/assets/');
       const page = homePageResponse(url, '1789306155656');
       if (page) {
@@ -621,7 +622,7 @@ describe('runtime reliability watchdog', () => {
 
     it('fails the runtime verdict for empty public config without purging any CDN URL', async () => {
       const fetchImpl = vi.fn(async (url: string) => {
-        if (url.startsWith(PUBLIC_CONFIG_URL)) return response('{}');
+        if (url.startsWith(PUBLIC_CONFIG_URL) || url.startsWith(PUBLIC_CONFIG_FRESH_URL)) return response('{}');
         return response(url.includes('/assets/') ? 'asset' : '1789306155656');
       });
       const result = await probeRuntime({ fetchImpl, assetPaths: ['/assets/App.js'], chunkGraph: false });

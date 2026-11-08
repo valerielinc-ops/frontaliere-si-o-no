@@ -235,6 +235,12 @@ function candidateRequestMatchesDraft(flags, unresolvedQuestions, eventDocuments
     && eventDocuments.every((id) => visibleDocuments.has(String(id)));
 }
 
+function portalRecoveryMatchAnswerIds(flow) {
+  if (!Array.isArray(flow?.portalRecoveryMatchAnswerIds)) return [];
+  return [...new Set(flow.portalRecoveryMatchAnswerIds
+    .filter(id => typeof id === 'string' && id.length > 0 && id.length <= 160))].slice(0, 80);
+}
+
 /** Current flow with every field present; transitions overwrite only what changes. */
 function base(flow) {
   return {
@@ -310,6 +316,10 @@ function base(flow) {
     dispatchRecoveryCount: dispatchRecoveryCountValue(flow) ?? -1,
     portalCodeVersion: portalCodeVersion(flow?.portalCodeVersion),
     portalRecoveryVersion: portalCodeVersion(flow?.portalRecoveryVersion),
+    ...(portalRecoveryMatchAnswerIds(flow).length && Number.isSafeInteger(Number(flow?.portalRecoveryMatchAnswerRound))
+      && Number(flow.portalRecoveryMatchAnswerRound) > 0
+      ? { portalRecoveryMatchAnswerIds: portalRecoveryMatchAnswerIds(flow),
+        portalRecoveryMatchAnswerRound: Number(flow.portalRecoveryMatchAnswerRound) } : {}),
     ...(portalCodeVersion(flow?.portalExhaustedRecoveryVersion)
       ? { portalExhaustedRecoveryVersion: portalCodeVersion(flow.portalExhaustedRecoveryVersion) } : {}),
     transportAutoRetryCount: Number(flow?.transportAutoRetryCount) || 0,

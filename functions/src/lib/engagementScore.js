@@ -125,6 +125,49 @@ export function calculateEngagementScore(subscriberData, { clickEvents = null, n
 }
 
 /**
+ * Build the derived engagement fields for a subscriber event that is already
+ * inside its write transaction. Project the counter transforms and timestamp
+ * updates onto the transaction snapshot so the score reflects the same event
+ * as the document update without a second read/write transaction.
+ *
+ * @param {Record<string, unknown>} current subscriber snapshot data
+ * @param {*} FieldValue Firestore FieldValue from firebase-admin/firestore
+ * @param {{subscriberUpdate?: Record<string, unknown>, nowMs?: number}} [options]
+ * @returns {Record<string, unknown>} fields to merge, empty when unchanged
+ */
+export function buildEngagementScoreUpdate(current, FieldValue, { subscriberUpdate = {}, nowMs = Date.now() } = {}) {
+ const projected = { ...(current || {}) };
+ const counters = ['send_count', 'sendCount', 'open_count', 'openCount', 'click_count', 'clickCount'];
+
+ for (const field of counters) {
+  if (!Object.prototype.hasOwnProperty.call(subscriberUpdate, field)) continue;
+  const mutation = subscriberUpdate[field];
+  projected[field] = typeof mutation === 'number'
+   ? mutation
+   : (Number(current?.[field]) || 0) + 1;
+ }
+
+ for (const field of ['last_open_at', 'lastOpenAt', 'last_click_at', 'lastClickAt']) {
+  if (Object.prototype.hasOwnProperty.call(subscriberUpdate, field)) {
+   projected[field] = new Date(nowMs);
+  }
+ }
+
+ if (Object.prototype.hasOwnProperty.call(subscriberUpdate, 'last_clicked_url')) {
+  projected.last_clicked_url = subscriberUpdate.last_clicked_url;
+ }
+
+ const { score, level } = calculateEngagementScore(projected, { nowMs });
+ if (current?.engagement_score === score && current?.engagement_level === level) return {};
+
+ return {
+  engagement_score: score,
+  engagement_level: level,
+  engagement_updated_at: FieldValue.serverTimestamp(),
+ };
+}
+
+/**
  * @param {number} score 0-100
  * @returns {'hot'|'warm'|'cool'|'cold'|'dormant'}
  */

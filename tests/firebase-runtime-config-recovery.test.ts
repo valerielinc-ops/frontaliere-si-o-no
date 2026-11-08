@@ -10,6 +10,7 @@ describe('Firebase runtime config recovery', () => {
     vi.resetModules();
     vi.stubEnv('FIREBASE_API_KEY', '');
     vi.stubEnv('VITE_FIREBASE_API_KEY', '');
+    window.sessionStorage.clear();
     vi.doMock('firebase/app', () => ({ initializeApp }));
     vi.doMock('@/services/errorReporter', () => ({ reportCaughtError: vi.fn() }));
   });
@@ -33,8 +34,8 @@ describe('Firebase runtime config recovery', () => {
     const firebase = await vi.importActual<typeof import('../services/firebase')>('../services/firebase');
     expect(await Promise.all([firebase.getApp(), firebase.getApp()])).toEqual([app, app]);
     expect(fetchMock).toHaveBeenCalledTimes(2);
-    expect(fetchMock.mock.calls[1][0]).toMatch(/\/getPublicConfig\?t=\d+$/);
-    expect(fetchMock.mock.calls[1][1]).toMatchObject({ credentials: 'omit', cache: 'no-store' });
+    expect(fetchMock.mock.calls[1][0]).toMatch(/\/getPublicConfig$/);
+    expect(fetchMock.mock.calls[1][1]).toMatchObject({ credentials: 'omit', cache: 'default' });
     expect(initializeApp).toHaveBeenCalledExactlyOnceWith(expect.objectContaining({ apiKey: 'recovered-public-key' }));
     expect(await firebase.getApp()).toBe(app);
     expect(fetchMock).toHaveBeenCalledTimes(2);
@@ -53,5 +54,34 @@ describe('Firebase runtime config recovery', () => {
     await expect(firebase.getApp()).resolves.toBe(app);
     expect(fetchMock).toHaveBeenCalledTimes(3);
     expect(initializeApp).toHaveBeenCalledTimes(1);
+  });
+
+  it('shares concurrent reads and reuses the public allowlist from session storage', async () => {
+    const fetchMock = vi.fn().mockResolvedValue({
+      ok: true,
+      status: 200,
+      json: async () => ({ ENABLE_JOB_PERSONALIZATION: 'true', FIREBASE_API_KEY: 'public-key' }),
+    });
+    vi.stubGlobal('fetch', fetchMock);
+
+    const firstPage = await vi.importActual<typeof import('../services/firebase')>('../services/firebase');
+    const [flag, refreshed] = await Promise.all([
+      firstPage.getConfigValue('ENABLE_JOB_PERSONALIZATION'),
+      firstPage.refreshRemoteConfig(),
+    ]);
+
+    expect(flag).toBe('true');
+    expect(refreshed).toBe(true);
+    expect(fetchMock).toHaveBeenCalledTimes(1);
+    expect(fetchMock.mock.calls[0][0]).toMatch(/\/getPublicConfig$/);
+    expect(fetchMock.mock.calls[0][1]).toMatchObject({ credentials: 'omit', cache: 'default' });
+    expect(window.sessionStorage.length).toBe(1);
+
+    vi.resetModules();
+    const secondPageFetch = vi.fn();
+    vi.stubGlobal('fetch', secondPageFetch);
+    const nextPage = await vi.importActual<typeof import('../services/firebase')>('../services/firebase');
+    await expect(nextPage.getConfigValue('ENABLE_JOB_PERSONALIZATION')).resolves.toBe('true');
+    expect(secondPageFetch).not.toHaveBeenCalled();
   });
 });

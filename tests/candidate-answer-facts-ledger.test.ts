@@ -209,6 +209,18 @@ describe('typed facts use the attested answer source contract', () => {
     expect(orderQuestionAnswerContext({ orderId: 'source', order: f.order, flow: f.flow,
       draft: { ...f.draft, questions: [{ ...cases[1].question, question: 'How many years of experience do you have with SQL?' }] }, nowMs: now }).answers).toEqual({});
   });
+  it('projects only a recovery-authorized match answer into runner execution', () => {
+    const question = { id: 'availability', source: 'match', question: 'Disponibilità', applicationQuestion: 'Disponibilità', type: 'date', options: [] };
+    const draft = { round: 1, questions: [question] };
+    const flow = { round: 1, answers: { availability: '2026-11-20' },
+      portalRecoveryVersion: 'b'.repeat(64), portalRecoveryMatchAnswerIds: ['availability'], portalRecoveryMatchAnswerRound: 1,
+      orderQuestionAnswersEvidenceVersion: ORDER_QUESTION_ANSWER_EVIDENCE_VERSION };
+    const projected = orderQuestionAnswerContext({ orderId: 'recovery', order: { userId: 'synthetic' }, flow, draft, nowMs: now });
+    expect(projected.answers).toEqual({ availability: '2026-11-20' });
+    expect(projected.orderAnswers).toEqual({});
+    expect(orderQuestionAnswerContext({ orderId: 'recovery', order: { userId: 'synthetic' },
+      flow: { ...flow, portalRecoveryMatchAnswerIds: [] }, draft, nowMs: now }).answers).toEqual({});
+  });
   it('preserves that a CV-suggested value became a direct user statement after the CV is replaced', async () => {
     const question = cases[1].question;
     const cvFingerprint = answerCvFingerprint({ order, draft: { cvKey: order.cvStorageKey } });

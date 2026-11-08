@@ -326,7 +326,7 @@ export async function mergeAccountDeletedSubscriberUpdate(
     const current = snapshot.data() || {};
     const update = { ...(baseUpdate || {}) };
     if (typeof buildDynamicUpdate === 'function') {
-      Object.assign(update, buildDynamicUpdate(current));
+      Object.assign(update, await buildDynamicUpdate(current, tx, update));
     }
     const safeUpdate = protectAccountDeletedSubscriberUpdate(update, current);
     tx.set(subscriberRef, safeUpdate, { merge: true });

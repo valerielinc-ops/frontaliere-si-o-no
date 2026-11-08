@@ -148,7 +148,7 @@ describe('application-intent reminder eligibility and recommendations', () => {
       (job) => `https://example.test/${job.slug}`,
       NOW,
     );
-    expect(entry).toMatchObject({ id: 'source', intentId: 'intent-1', postedDate: '2026-08-10', sourceJob });
+    expect(entry).toMatchObject({ id: 'source', intentId: 'intent-1', postedDate: '2026-08-10', expiresAt: intentData().expiresAt, sourceJob });
 
     const candidateJobs = [
       { ...sourceJob, id: 'same-company', companyKey: 'source-company', title: 'Senior Software Engineer', titleByLocale: { it: 'Senior Software Engineer' }, slug: 'senior-software-engineer', slugByLocale: { it: 'senior-software-engineer' }, location: 'Lugano' },
@@ -314,6 +314,7 @@ describe('application-intent reminder delivery ledger', () => {
     const args = {
       uid: 'uid-1',
       intentIds: ['intent-a', 'intent-b'],
+      expiryByIntentId: { 'intent-a': new Date(NOW + 90 * DAY), 'intent-b': new Date(NOW + 90 * DAY) },
       campaignId: 'application-intent-reminder-2026-09-27',
       now: new Date(NOW),
     };
@@ -324,6 +325,9 @@ describe('application-intent reminder delivery ledger', () => {
     expect(first).toEqual(['intent-a', 'intent-b']);
     expect(second).toEqual([]);
     expect(documents.size).toBe(2);
+    expect(documents.get('application_intent_reminder_deliveries/intent-a')).toMatchObject({
+      expiresAt: new Date(NOW + 90 * DAY),
+    });
   });
 
   it('never reclaims an old sending or unknown outcome automatically', async () => {
