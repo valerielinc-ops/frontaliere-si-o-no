@@ -22,6 +22,7 @@
  * Usage:
  *   node scripts/ga4-key-events.mjs            # plan only
  *   node scripts/ga4-key-events.mjs --apply    # create the missing, observed ones
+ *   node scripts/ga4-key-events.mjs --only=newsletter_subscribe,login --apply
  *   node scripts/ga4-key-events.mjs --json     # machine-readable plan
  *
  * Credentials: GOOGLE_APPLICATION_CREDENTIALS or FIREBASE_SERVICE_ACCOUNT_JSON
@@ -87,6 +88,28 @@ export const KEY_EVENT_EXCLUSIONS = Object.freeze({
   google_jobs_apply: 'non è un evento ma una sorgente di traffico (utm_source=google_jobs_apply): si misura come sessionSource nel report valore landing',
   purchase: 'key event preesistente, mai emesso dal sito: lasciato com’è (lo script non cancella)',
 });
+
+/** Restrict a run to an explicit subset of the desired event specs. */
+export function parseOnlyEventNames(args = []) {
+  const values = [];
+  for (let index = 0; index < args.length; index += 1) {
+    const arg = String(args[index] || '');
+    if (arg === '--only') {
+      values.push(String(args[index + 1] || ''));
+      index += 1;
+    } else if (arg.startsWith('--only=')) {
+      values.push(arg.slice('--only='.length));
+    }
+  }
+  if (!values.length) return null;
+  const names = [...new Set(values.flatMap((value) => value.split(',').map((name) => name.trim()).filter(Boolean)))];
+  const known = new Set(KEY_EVENT_SPECS.map((spec) => spec.eventName));
+  const unknown = names.filter((name) => !known.has(name));
+  if (!names.length || unknown.length) {
+    throw new Error(`unknown --only event name(s): ${unknown.join(', ') || '(empty)'}`);
+  }
+  return new Set(names);
+}
 
 function normalizeProperty(raw) {
   const value = String(raw || DEFAULT_GA4_PROPERTY_ID);
@@ -164,12 +187,20 @@ export async function createKeyEvent({ token, propertyId, eventName, counting, f
   });
 }
 
-export async function syncKeyEvents({ token, propertyId, apply = false, fetchImpl = fetch, runReport = runGa4Report, now = new Date() }) {
+export async function syncKeyEvents({
+  token,
+  propertyId,
+  apply = false,
+  specs = KEY_EVENT_SPECS,
+  fetchImpl = fetch,
+  runReport = runGa4Report,
+  now = new Date(),
+}) {
   const existing = await listKeyEvents({ token, propertyId, fetchImpl });
   const observed = await fetchObservedEventCounts({
-    token, propertyId, eventNames: KEY_EVENT_SPECS.map((spec) => spec.eventName), runReport, now,
+    token, propertyId, eventNames: specs.map((spec) => spec.eventName), runReport, now,
   });
-  const plan = planKeyEvents({ existing, observed });
+  const plan = planKeyEvents({ specs, existing, observed });
   if (apply) {
     for (const entry of plan) {
       if (entry.action !== 'create') continue;
@@ -195,9 +226,11 @@ function printPlan(result) {
 async function main() {
   const args = new Set(process.argv.slice(2));
   const apply = args.has('--apply');
+  const onlyNames = parseOnlyEventNames(process.argv.slice(2));
+  const specs = onlyNames ? KEY_EVENT_SPECS.filter((spec) => onlyNames.has(spec.eventName)) : KEY_EVENT_SPECS;
   const token = await getServiceAccountToken(apply ? [GA4_EDIT_SCOPE, GA4_READONLY_SCOPE] : [GA4_READONLY_SCOPE], { logInfo: () => {} });
   if (!token) throw new Error('GA4 service-account token unavailable (set GOOGLE_APPLICATION_CREDENTIALS)');
-  const result = await syncKeyEvents({ token, propertyId: process.env.GA4_PROPERTY_ID || DEFAULT_GA4_PROPERTY_ID, apply });
+  const result = await syncKeyEvents({ token, propertyId: process.env.GA4_PROPERTY_ID || DEFAULT_GA4_PROPERTY_ID, specs, apply });
   if (args.has('--json')) console.log(JSON.stringify(result, null, 2));
   else printPlan(result);
 }
