@@ -3963,6 +3963,7 @@ jobs:
             scripts/ci/fetch-pr-files.mjs \
             scripts/ci/claude-codex-fallback.mjs \
             scripts/lib/codex-fallback-contract.mjs \
+            scripts/lib/inline-comment-marker.mjs \
             scripts/ci/claude-rate-limit.mjs \
             scripts/ci/claude-rate-limit-contract.mjs \
             scripts/lib/codex-fallback-contract.mjs \
