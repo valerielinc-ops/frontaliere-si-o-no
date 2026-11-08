@@ -6,7 +6,7 @@
 // Read by infra/cloudflare-worker/locale-router.js: a GET/HEAD on one of these
 // paths that the origin answers 200 with the legacy redirect stub becomes a
 // real 301 to the value. A live page at the same path is served untouched.
-// 4719 entries.
+// 4723 entries.
 export const EDGE_LEGACY_STUB_REDIRECTS = Object.freeze({
   "/about/": "/en/about-us/",
   "/articoli-frontaliere/a9-chiusure-notturne-chiasso-como/": "/articoli-frontaliere/chiasso-como-autostrada-a9-chiusure-notturne-cantieri/",
@@ -1301,6 +1301,7 @@ export const EDGE_LEGACY_STUB_REDIRECTS = Object.freeze({
   "/de/steuern-und-rente/": "/de/grenzgaenger-besteuerung-leitfaden-2026/",
   "/de/steuern-und-rente/tessiner-feiertage-2026/": "/de/steuern-und-rente/tessiner-feiertage/",
   "/de/tessin-arbeitsmarkt/": "/de/jobs-im-tessin/",
+  "/de/veranstaltungen/tessin/weitere-veranstaltungen/kino-tschlin-syngue-sabour-stein-der-geduld-2026-10-14/": "/de/veranstaltungen/graubunden/weitere-veranstaltungen/kino-tschlin-syngue-sabour-stein-der-geduld-2026-10-14/",
   "/en/border-traffic/chiasso-brogeda/oggi/": "/en/border-wait/chiasso-brogeda/today/",
   "/en/border-traffic/gaggiolo/oggi/": "/en/border-wait/gaggiolo/today/",
   "/en/border-traffic/oria-gandria/oggi/": "/en/border-wait/oria-gandria/today/",
@@ -1495,6 +1496,7 @@ export const EDGE_LEGACY_STUB_REDIRECTS = Object.freeze({
   "/en/cross-border-guide/border-waiting-times/zenna-dirinella/": "/en/border-wait/zenna-dirinella/today/",
   "/en/cross-border-guide/new-frontalieri-law-2026/": "/en/new-cross-border-agreement-2026/",
   "/en/cross-border-salaries-ticino/": "/en/statistics/compare-salaries/",
+  "/en/events/ticino/other-events/kino-tschlin-syngue-sabour-stein-der-geduld-2026-10-14/": "/en/events/graubunden/other-events/kino-tschlin-syngue-sabour-stein-der-geduld-2026-10-14/",
   "/en/find-jobs-aargau/companies-hiring/": "/en/salaries-aargau/",
   "/en/find-jobs-aargau/snapshot/": "/en/salaries-aargau/",
   "/en/find-jobs-appenzell/companies-hiring/": "/en/salaries-appenzell/",
@@ -2465,6 +2467,7 @@ export const EDGE_LEGACY_STUB_REDIRECTS = Object.freeze({
   "/en/swiss-articles/slug-terzo-pilastro-3a-vantaggi-2026-basel/": "/en/swiss-articles/terzo-pilastro-3a-vantaggi-2026-basel/",
   "/en/swiss-articles/suspension-of-work-on-anti-migrant-wall-in-big-bend-texas/": "/en/swiss-articles/",
   "/en/taxes-and-pension/ticino-holidays-2026/": "/en/taxes-and-pension/ticino-holidays/",
+  "/eventi/ticino/altri-eventi/kino-tschlin-syngue-sabour-stein-der-geduld-2026-10-14/": "/eventi/grigioni/altri-eventi/kino-tschlin-syngue-sabour-stein-der-geduld-2026-10-14/",
   "/fisco-frontalieri/": "/tasse-e-pensione/",
   "/fr/articles-frontalier/appels-shock-arrestations/": "/fr/articles-frontalier/appels-chocs-arrestations-locarnese-2024/",
   "/fr/articles-frontalier/chaleur-torrida-travail-tessin/": "/fr/articles-frontalier/chaleur-travail-frontalier-tessin/",
@@ -2498,6 +2501,7 @@ export const EDGE_LEGACY_STUB_REDIRECTS = Object.freeze({
   "/fr/calculateur-salaire/": "/fr/calculer-salaire/",
   "/fr/comparer-services/": "/fr/comparaison-services/",
   "/fr/comparer-services/assurance-maladie/": "/fr/comparer-services/comparer-caisses-maladie/",
+  "/fr/evenements/tessin/autres-evenements/kino-tschlin-syngue-sabour-stein-der-geduld-2026-10-14/": "/fr/evenements/grisons/autres-evenements/kino-tschlin-syngue-sabour-stein-der-geduld-2026-10-14/",
   "/fr/faq-frontaliers/": "/fr/questions-frequentes/",
   "/fr/glossaire/": "/fr/glossaire-frontalier/",
   "/fr/guide-frontalier/nouvelle-loi-frontaliers-2026/": "/fr/guide-frontalier/",

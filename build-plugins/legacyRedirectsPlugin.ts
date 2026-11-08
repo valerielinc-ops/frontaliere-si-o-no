@@ -345,6 +345,16 @@ function buildLegacyRedirectsPlugin(rootDir: string): Plugin {
  // FR: old slugs
  '/fr/calculateur-salaire/': '/fr/calculer-salaire/',
 
+ // ── Bing T0→T6 frontier cleanup (#17657) ───────────────────────────────
+ // These four localized event-detail aliases are still real 301s at the apex
+ // Worker (the former TI fallback now belongs to Graubünden). Keep the same
+ // exact pairs in the build-owned map so article renderers resolve links to
+ // the final event route before Bing discovers the redirect frontier.
+ '/eventi/ticino/altri-eventi/kino-tschlin-syngue-sabour-stein-der-geduld-2026-10-14/': '/eventi/grigioni/altri-eventi/kino-tschlin-syngue-sabour-stein-der-geduld-2026-10-14/',
+ '/en/events/ticino/other-events/kino-tschlin-syngue-sabour-stein-der-geduld-2026-10-14/': '/en/events/graubunden/other-events/kino-tschlin-syngue-sabour-stein-der-geduld-2026-10-14/',
+ '/de/veranstaltungen/tessin/weitere-veranstaltungen/kino-tschlin-syngue-sabour-stein-der-geduld-2026-10-14/': '/de/veranstaltungen/graubunden/weitere-veranstaltungen/kino-tschlin-syngue-sabour-stein-der-geduld-2026-10-14/',
+ '/fr/evenements/tessin/autres-evenements/kino-tschlin-syngue-sabour-stein-der-geduld-2026-10-14/': '/fr/evenements/grisons/autres-evenements/kino-tschlin-syngue-sabour-stein-der-geduld-2026-10-14/',
+
  // ── Semrush 4xx (2026-04-23) — FR legacy paths reported as 404 ──
  // Cluster B: missing FR slugs + slug variants Google indexed.
  // NOTE: '/fr/salaires-frontaliers-tessin/' is already declared above; do not duplicate.
