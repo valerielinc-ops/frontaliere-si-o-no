@@ -34,7 +34,10 @@ import { appendFileSync } from 'node:fs';
 import { pathToFileURL } from 'node:url';
 import { googleApiJson } from '../lib/google-api-json.mjs';
 import { getServiceAccountAccessToken } from '../lib/google-service-account-token.mjs';
-import { PUBLIC_PLATE_AUCTION_SOURCE_REGISTRY } from '../../functions/src/plateAuctionSourceRegistry.js';
+import {
+  PUBLIC_PLATE_AUCTION_SOURCE_REGISTRY,
+  resolvePlateAuctionSourceStatus,
+} from '../../functions/src/plateAuctionSourceRegistry.js';
 import {
   PLATE_AUCTION_API_RELAY_MAX_AGE_MS,
   PLATE_AUCTION_PUBLIC_API_RELAY_URL,
@@ -93,9 +96,9 @@ export function selectRefreshJob(jobs, fragment = JOB_NAME_FRAGMENT) {
 }
 
 /** Le fonti che il giro deve rinfrescare: quelle `active` nel registry della function. */
-export function expectedSourceKeys(registry = PUBLIC_PLATE_AUCTION_SOURCE_REGISTRY) {
+export function expectedSourceKeys(registry = PUBLIC_PLATE_AUCTION_SOURCE_REGISTRY, now = new Date()) {
   return Object.entries(registry)
-    .filter(([, source]) => source?.status === 'active')
+    .filter(([, source]) => resolvePlateAuctionSourceStatus(source, now) === 'active')
     .map(([key]) => key)
     .sort();
 }
@@ -188,7 +191,7 @@ export async function runPlateAuctionsFunction({
   mask = (value) => console.log(`::add-mask::${value}`),
   summary = (_markdown) => {},
   relayUrl = PLATE_AUCTION_PUBLIC_API_RELAY_URL,
-  expectedKeys = expectedSourceKeys(),
+  expectedKeys = expectedSourceKeys(PUBLIC_PLATE_AUCTION_SOURCE_REGISTRY, new Date(now())),
   pollIntervalMs = POLL_INTERVAL_MS,
   pollTimeoutMs = POLL_TIMEOUT_MS,
   onlyIfStale = false,

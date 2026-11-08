@@ -88,6 +88,7 @@ import { buildSoftLandingThinHtml } from './shared/softLandingThinShell';
 import { buildGscKeywordThinBody, GSC_KEYWORD_THIN_HEAD_SCRIPT } from './shared/gscKeywordThinShell';
 import { shouldEmitLocale } from './shared/localeEmitFilter';
 import { archivedJobOgImageUrl, versionedJobOgImageUrl } from './shared/jobOgImageVersion.mjs';
+import { selectJobOgPhoto } from './shared/jobPhotoClassification';
 import { getItalianJobTitle } from './shared/italianJobTitle.mjs';
 import {
  buildActiveJobPageInput,
@@ -428,6 +429,12 @@ export function buildNativeJobPrefixIndex(
 ): Map<string, string> {
  const index = new Map<string, string>();
  const prefixes = new Map<string, string>();
+ const legacyPrefixByLocale = Object.fromEntries(
+  JOB_SEO_LOCALES.map((locale) => [
+   locale,
+   normalizedRoutePath(`${localePrefix[locale]}/${sectionByLocale[locale]}`),
+  ]),
+ ) as Record<JobSeoLocale, string>;
  for (const trackingSlug in tracking) {
   if (!Object.prototype.hasOwnProperty.call(tracking, trackingSlug)) continue;
   if (compatEligibleTrackingSlugs && !compatEligibleTrackingSlugs.has(trackingSlug)) continue;
@@ -439,10 +446,12 @@ export function buildNativeJobPrefixIndex(
    const value = paths?.[locale];
    if (!value) continue;
    const normalized = normalizedRoutePath(value);
-   const legacyPrefix = normalizedRoutePath(`${localePrefix[locale]}/${sectionByLocale[locale]}`);
+   const legacyPrefix = legacyPrefixByLocale[locale];
    const rest = normalized.slice(legacyPrefix.length);
    if (normalized.startsWith(legacyPrefix) && rest.length > 1 && !rest.slice(0, -1).includes('/')) continue;
-   const slug = normalized.split('/').filter(Boolean).pop();
+   const slugEnd = normalized.length - 1;
+   const slugStart = normalized.lastIndexOf('/', slugEnd - 1) + 1;
+   const slug = normalized.slice(slugStart, slugEnd);
    if (!slug) continue;
    // For the same locale+slug, path inequality is exactly prefix inequality.
    // Intern arbitrary prefixes rather than retaining one full path per key.
@@ -466,7 +475,9 @@ export function nativeJobPathRecoveredByWorker(
  const normalized = normalizedRoutePath(relPath);
  const registryPath = tracking[slug]?.[locale];
  if (registryPath && normalizedRoutePath(registryPath) !== normalized) return true;
- const routeSlug = normalized.split('/').filter(Boolean).pop();
+ const routeEnd = normalized.length - 1;
+ const routeStart = normalized.lastIndexOf('/', routeEnd - 1) + 1;
+ const routeSlug = normalized.slice(routeStart, routeEnd);
  if (!routeSlug) return false;
  const nativePrefix = nativeJobPrefixByLocaleAndSlug.get(`${locale}:${routeSlug}`);
  return nativePrefix !== undefined && nativePrefix !== normalized.slice(0, -(routeSlug.length + 1));
@@ -3890,8 +3901,12 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  de: localizedSlug(job, 'de'),
  fr: localizedSlug(job, 'fr'),
  };
- const italianJobImageUrl = getItalianJobTitle(job)
-  ? versionedJobOgImageUrl(BASE_URL, perLocaleSlug.it)
+ const italianJobTitle = getItalianJobTitle(job);
+ const italianJobPhoto = italianJobTitle
+  ? selectJobOgPhoto(job, perLocaleSlug.it)
+  : null;
+ const italianJobImageUrl = italianJobPhoto
+  ? versionedJobOgImageUrl(BASE_URL, perLocaleSlug.it, italianJobPhoto.urlPhotoKey)
   : null;
  const socialImage = italianJobImageUrl || `${BASE_URL}/og-image.png`;
  const jobCanton = sharedResolveJobCanton(job as { canton?: string; location?: string });
@@ -4231,7 +4246,26 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  // is preserved for the vast majority of titles and only the genuine tail
  // outliers get an ellipsis instead of a mid-word FB cut.
  const OG_TITLE_MAX_CHARS = 100;
- const ogTitle = truncateHeadline(baseTitleProbe, OG_TITLE_MAX_CHARS);
+ // The Italian Facebook job card has its own verified title translation.
+ // Keep the employer's original title in the page's <title>/H1, but do not
+ // repeat a German/French/English application title in the Italian social
+ // link preview shown below the attached vertical image. If no reliable
+ // Italian title exists, use a clearly Italian generic heading.
+ const socialTitle = locale === 'it'
+  ? stripLiteralMarkdownFromTitle(getItalianJobTitle(job)) || 'Offerta di lavoro'
+  : localizedTitle;
+ const socialTitleProbe = locale === 'it'
+  ? composeJobPageTitle(
+   socialTitle,
+   String(job.company || ''),
+   jobLocation,
+   locale,
+   undefined,
+   undefined,
+   (s) => esc(s).length,
+  )
+  : baseTitleProbe;
+ const ogTitle = truncateHeadline(socialTitleProbe, OG_TITLE_MAX_CHARS);
  recordPhase('title', __tPh_title);
  // stripLeadingSectionLabel: crawlers flatten the source page's
  // "Descrizione/Description/Beschreibung" heading into the first sentence
@@ -13518,6 +13552,21 @@ ${staticAnalyticsHtml}
  console.log(`\x1b[36m[jobs-seo-pages]\x1b[0m Fuzzy-matched ${fuzzyMatched} orphan slugs to active jobs as implicit previousSlugs (rejected ${cityLockRejections} cross-city candidates)`);
  }
 
+ // These indexes are only read by the fuzzy-match pass above. In production,
+ // release them before the much larger expired-route sweep so their token sets
+ // do not overlap the archive indexes and page buffers. The opt-in gcFreed
+ // probe deliberately retains them until its final checkpoint for attribution.
+ if (extraGcFreedProbeCandidate === null) {
+  const fuzzyJobTokenEntries = jobsByToken.size;
+  const fuzzyJobCityRows = jobCityTokens.length;
+  jobsByToken.clear();
+  jobCityTokens.length = 0;
+  logJobsSeoMem('after-orphan-fuzzy-index-release', {
+   fuzzyJobTokenEntries,
+   fuzzyJobCityRows,
+  });
+ }
+
  // Collect IT paths of all previous slugs so we can also exclude their
  // locale-variant tracking keys (e.g. EN/DE/FR slug for the same old job).
  // The tracking file stores one key per locale slug, all pointing to the
@@ -14711,7 +14760,13 @@ ${staticAnalyticsHtml}
  // (jobCanton, sameCompanyActiveJobs, etc. are hoisted above; displayCanton
  // is resolved per-locale earlier in this loop iteration, not hoisted.)
  const staticBodyParts: string[] = [];
-
+ if (__slAction === 'thin') {
+  // The existing thin-shell conversion keeps this H1 and discards the rest.
+  // Avoid building that discarded body; robots, metadata and the final shell
+  // still follow the same path below.
+  staticBodyParts.push(`<h1>${esc(jobTitle)}${jobCompany ? ` — ${esc(jobCompany)}` : ''}</h1>`);
+  if (STRIP_EXPIRED_JOB_PROSE) staticBodyParts.push(EJP_STRIPPED_MARKER);
+ } else {
  // Keep the crawler-first-paint version visually aligned with the hydrated
  // JobExpiredView: one readable column, a clear identity block, then the
  // full description and the supporting facts. The class names are intentionally
@@ -14874,6 +14929,7 @@ ${staticAnalyticsHtml}
  // Audit opt-out marker: text-html-ratio (and other content-quality gates)
  // skip pages carrying this marker, since prose has been deliberately stripped.
  if (STRIP_EXPIRED_JOB_PROSE) staticBodyParts.push(EJP_STRIPPED_MARKER);
+ }
  const staticBody = staticBodyParts.join('\n');
  recordPhase('ejp:body', __tEjpBody);
 
@@ -15139,6 +15195,14 @@ ${staticAnalyticsHtml}
  // cross-locale pass below will read these pages from disk as needed.
  await releaseExpiredHtmlCacheChunk();
  maybeForceJobsSeoHtmlGc();
+ if (expiredArchiveOverflowPopulation > 0) {
+  // The no-cache chunk path drains in-flight writes but deliberately leaves
+  // the collector's sub-threshold buffer queued. The evidence writer reads
+  // canary files from dist, so flush that final buffer first; otherwise it
+  // can validate an older file at the same route instead of the page emitted
+  // by this archive sweep.
+  await collector.flush();
+ }
  expiredArchivePublicationEvidence.write({
   distDir,
   indexedOverflowAliases: expiredArchiveOverflowPopulation,

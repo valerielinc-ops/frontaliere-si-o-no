@@ -1,7 +1,7 @@
 {
   "crawlerKey": "zuger-kantonsspital",
-  "assembledAt": "2026-11-06T09:43:31.814Z",
-  "runId": "42194174376",
+  "assembledAt": "2026-11-07T21:34:54.485Z",
+  "runId": "42415400827",
   "jobs": [
     {
       "id": "zuger-kantonsspital-eff6e929b00f",
@@ -34,7 +34,7 @@
       "url": "https://jobs.zgks.ch/Pflegefachperson-HF-Medizin-Privatabteilung-80-100--de-j895.html",
       "source": "Zuger Kantonsspital Dedicated Parser (rexx systems jobs.zgks.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T09:43:23.993Z",
+      "crawledAt": "2026-11-07T21:34:47.876Z",
       "addressLocality": "Baar",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -87,7 +87,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-22T09:43:23.993Z",
+      "validThrough": "2026-12-22T21:34:47.876Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -121,7 +121,7 @@
       "url": "https://jobs.zgks.ch/Spitalapothekerin-60-80-mw-de-j900.html",
       "source": "Zuger Kantonsspital Dedicated Parser (rexx systems jobs.zgks.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T09:43:23.437Z",
+      "crawledAt": "2026-11-07T21:34:47.257Z",
       "addressLocality": "Baar",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -168,91 +168,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-31T09:43:23.437Z",
-      "validThroughSource": "last-observed-window"
-    },
-    {
-      "id": "zuger-kantonsspital-7c4a56e2329c",
-      "slug": "capo-medico-clinica-femminile-100-zuger-kantonsspital-baar",
-      "slugByLocale": {
-        "it": "capo-medico-clinica-femminile-100-zuger-kantonsspital-baar",
-        "en": "chief-medical-secretary-women-s-clinic-100-zuger-kantonsspital-baar",
-        "de": "chefarztsekretarin-frauenklinik-100-zuger-kantonsspital-baar",
-        "fr": "chief-medical-secretary-women-s-clinic-100-zuger-kantonsspital-baar"
-      },
-      "company": "Zuger Kantonsspital",
-      "companyKey": "zuger-kantonsspital",
-      "companyDomain": "zgks.ch",
-      "title": "Chefarztsekretärin Frauenklinik 100 %",
-      "titleByLocale": {
-        "it": "Capo medico clinica femminile 100%",
-        "en": "Chief Medical Secretary Women's Clinic 100%",
-        "de": "Chefarztsekretärin Frauenklinik 100 %",
-        "fr": "Chief Medical Secretary Women's Clinic 100%"
-      },
-      "description": "Das Zuger Kantonsspital steht im Dienst der Gesundheit der Bevölkerung des Kantons Zug und der umliegenden Regionen. Rund 1’200 Mitarbeitende, davon 180 in Aus- und Weiterbildung, sind in den verschiedensten Bereichen tätig. Jedes Jahr behandeln und betreuen wir über 11'500 stationäre und über 70'000 ambulante Patientinnen und Patienten. Im interdisziplinären Notfallzentrum werden jährlich mehr als 27'500 Personen behandelt. Für unsere Frauenklinik suchen wir per 1. Januar 2027 oder nach Vereinbarung eine Chefarztsekretärin Frauenklinik 100 % . Ihre Aufgaben\n• Organisation der Chefarztsprechstunde inklusive Assistenz bei Untersuchungen, Durchführung von Blutentnahmen und kleinem Labor\n• Schreiben von Operationsberichten und medizinischer Korrespondenz ab Diktat mit Spracherkennungssystem\n• Planung und Koordination ambulanter und stationärer Eingriffe unter Berücksichtigung der verfügbaren OP-Kapazitäten, Ressourcen und personellen Gegebenheiten\n• Administrative Arbeiten und Führen des elektronischen Patientendossiers Ihr Profil\n• Abgeschlossene Ausbildung als Medizinische Praxisassistentin oder Weiterbildung zur Sprechstundenassistentin sowie Weiterbildung zur Chefarztsekretärin von Vorteil\n• Erfahrung in Gynäkologie/Geburtshilfe sowie in einem Chefarztsekretariat von Vorteil\n• Selbstständige, strukturierte und effiziente Arbeitsweise sowie eine sichere Prioritätensetzung\n• Gute Englischkenntnisse Unser Angebot Wir bieten Ihnen eine abwechslungsreiche und anspruchsvolle Tätigkeit in einem kollegialen Team. Sie profitieren von attraktiven Anstellungsbedingungen, wie z.B. mehr als 5 Wochen Ferien, diverse Vergünstigungen, grosszügige Beteiligung an fachlichen Weiterbildungen, sowie sehr guten Sozialleistungen. Interessiert? Interessiert? Wir freuen uns auf Ihre elektronische Bewerbung an Gaby Jans, Stv. Leiterin Personal. Es werden nur Direktbewerbungen berücksichtigt. Weitere Informationen zur Funktion gibt Ihnen gerne Sereina Arnold, Chefarztsekretärin Frauenklinik, T 041 399 32 00.",
-      "descriptionByLocale": {
-        "it": "L'Ospedale di Zug Canton serve la salute della popolazione del Cantone di Zug e delle regioni circostanti. Circa 1.200 dipendenti, 180 di loro in istruzione e formazione, lavorano in una vasta gamma di settori. Ogni anno trattiamo e curiamo più di 11.500 pazienti e più di 70.000 pazienti. Nel centro di emergenza interdisciplinare, più di 27.500 persone vengono trattate ogni anno. Per la nostra clinica femminile siamo alla ricerca di una clinica per donne del medico principale 100% a partire dal 1 gennaio 2027 o d'accordo. I loro compiti\n• Organizzazione della consultazione medica principale, compresa l'assistenza in esami, campionamento del sangue e piccolo laboratorio\n• Scrivere rapporti chirurgici e corrispondenza medica da dettami con il sistema di riconoscimento vocale\n• Pianificazione e coordinamento degli interventi ambulatoriali e ambulatoriali, tenendo conto delle capacità chirurgiche disponibili, delle risorse e delle risorse umane\n• Lavoro amministrativo e gestione del registro elettronico del paziente\n• Formazione completa come assistente di pratica medica o formazione ulteriore come assistente di consulenza e formazione ulteriore come segretario medico principale di vantaggio\n• Esperienza in ginecologia / ostetricia e in un capo segretariato medico è vantaggioso\n• Metodi di lavoro indipendenti, strutturati ed efficienti e una priorità sicura\n• Buona conoscenza dell'inglese La nostra offerta Vi offriamo un lavoro vario e impegnativo in una squadra collegiale. Essi beneficiano di condizioni di lavoro interessanti, come più di 5 settimane vacanze, vari benefici, generosa partecipazione alla formazione professionale, e benefici sociali molto buoni. Interessante? Interessante? Attendiamo con ansia la vostra applicazione elettronica a Gaby Jans, Stv. Head of Human Resources. Saranno prese in considerazione solo applicazioni dirette. Ulteriori informazioni sulla funzione possono essere trovate in Sereina Arnold, Chief Medical Secretary Women's Clinic, T 041 399 32 00.",
-        "en": "The Zug Canton Hospital serves the health of the population of the Canton of Zug and the surrounding regions. Around 1,200 employees, 180 of them in education and training, work in a wide range of fields. Every year, we treat and care for more than 11,500 inpatient and more than 70,000 outpatients. In the interdisciplinary emergency center, more than 27,500 people are treated annually. For our women's clinic we are looking for a chief physician secretary women's clinic 100% as of January 1, 2027 or by agreement. Their tasks\n• Organization of the chief medical consultation, including assistance in examinations, blood sampling and small laboratory\n• Writing surgical reports and medical correspondence from dictates with speech recognition system\n• Planning and coordination of outpatient and inpatient interventions, taking into account available surgical capacities, resources and human resources\n• Administrative work and management of the electronic patient record Your profile\n• Completed training as medical practice assistant or further training as consulting assistant as well as further training as chief medical secretary of advantage\n• Experience in gynecology/obstetrics and in a chief medical secretariat is advantageous\n• Independent, structured and efficient working methods and a secure prioritization\n• Good knowledge of English Our offer We offer you a varied and demanding job in a collegial team. They benefit from attractive employment conditions, such as more than 5 weeks holidays, various benefits, generous participation in professional training, and very good social benefits. Interested? Interested? We look forward to your electronic application to Gaby Jans, Stv. Head of Human Resources. Only direct applications will be considered. Further information on the function can be found in Sereina Arnold, Chief Medical Secretary Women's Clinic, T 041 399 32 00.",
-        "de": "Das Zuger Kantonsspital steht im Dienst der Gesundheit der Bevölkerung des Kantons Zug und der umliegenden Regionen. Rund 1’200 Mitarbeitende, davon 180 in Aus- und Weiterbildung, sind in den verschiedensten Bereichen tätig. Jedes Jahr behandeln und betreuen wir über 11'500 stationäre und über 70'000 ambulante Patientinnen und Patienten. Im interdisziplinären Notfallzentrum werden jährlich mehr als 27'500 Personen behandelt. Für unsere Frauenklinik suchen wir per 1. Januar 2027 oder nach Vereinbarung eine Chefarztsekretärin Frauenklinik 100 % . Ihre Aufgaben\n• Organisation der Chefarztsprechstunde inklusive Assistenz bei Untersuchungen, Durchführung von Blutentnahmen und kleinem Labor\n• Schreiben von Operationsberichten und medizinischer Korrespondenz ab Diktat mit Spracherkennungssystem\n• Planung und Koordination ambulanter und stationärer Eingriffe unter Berücksichtigung der verfügbaren OP-Kapazitäten, Ressourcen und personellen Gegebenheiten\n• Administrative Arbeiten und Führen des elektronischen Patientendossiers Ihr Profil\n• Abgeschlossene Ausbildung als Medizinische Praxisassistentin oder Weiterbildung zur Sprechstundenassistentin sowie Weiterbildung zur Chefarztsekretärin von Vorteil\n• Erfahrung in Gynäkologie/Geburtshilfe sowie in einem Chefarztsekretariat von Vorteil\n• Selbstständige, strukturierte und effiziente Arbeitsweise sowie eine sichere Prioritätensetzung\n• Gute Englischkenntnisse Unser Angebot Wir bieten Ihnen eine abwechslungsreiche und anspruchsvolle Tätigkeit in einem kollegialen Team. Sie profitieren von attraktiven Anstellungsbedingungen, wie z.B. mehr als 5 Wochen Ferien, diverse Vergünstigungen, grosszügige Beteiligung an fachlichen Weiterbildungen, sowie sehr guten Sozialleistungen. Interessiert? Interessiert? Wir freuen uns auf Ihre elektronische Bewerbung an Gaby Jans, Stv. Leiterin Personal. Es werden nur Direktbewerbungen berücksichtigt. Weitere Informationen zur Funktion gibt Ihnen gerne Sereina Arnold, Chefarztsekretärin Frauenklinik, T 041 399 32 00.",
-        "fr": "L'hôpital du canton de Zug sert la santé de la population du canton de Zug et des régions environnantes. Environ 1 200 employés, dont 180 en éducation et formation, travaillent dans un large éventail de domaines. Chaque année, nous traitons et prenons soin de plus de 11 500 patients hospitalisés et de plus de 70 000 patients externes. Dans le centre interdisciplinaire d'urgence, plus de 27 500 personnes sont traitées chaque année. Pour notre clinique pour femmes, nous sommes à la recherche d'un médecin en chef secrétaire clinique pour femmes 100% à partir du 1er janvier 2027 ou d'un accord. Leurs tâches\n• Organisation de la consultation médicale principale, y compris assistance aux examens, prélèvement de sang et petit laboratoire\n• Rédiger des rapports chirurgicaux et de la correspondance médicale à partir de diktats avec le système de reconnaissance de la parole\n• Planification et coordination des interventions en ambulatoire et en hospitalisation, compte tenu des capacités, des ressources et des ressources humaines disponibles\n• Travaux administratifs et gestion du dossier électronique du patient Votre profil\n• Achevé la formation en tant qu'assistant à la pratique médicale ou en tant qu'assistant-conseil ainsi que la formation continue en tant que secrétaire médical principal de l'avantage\n• L'expérience en gynécologie/obstétrique et en secrétariat médical principal est avantageuse\n• Méthodes de travail indépendantes, structurées et efficaces et établissement de priorités sûres\n• Bonne connaissance de l'anglais Notre offre Nous vous offrons un travail varié et exigeant dans une équipe collégiale. Ils bénéficient de conditions d'emploi attrayantes, comme des vacances de plus de 5 semaines, diverses prestations, une participation généreuse à la formation professionnelle et de très bons avantages sociaux. Intéressé ? Intéressé ? Nous attendons avec impatience votre candidature électronique à Gaby Jans, responsable des ressources humaines à Stv. Seules les demandes directes seront examinées. Pour de plus amples renseignements sur cette fonction, veuillez consulter le site Web de Sereina Arnold, Chief Medical Secretary Women's Clinic, T 041 399 32 00."
-      },
-      "needsRetranslation": false,
-      "location": "Baar",
-      "canton": "ZG",
-      "url": "https://jobs.zgks.ch/Chefarztsekretaerin-Frauenklinik-100--de-j897.html",
-      "source": "Zuger Kantonsspital Dedicated Parser (rexx systems jobs.zgks.ch)",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-06T09:43:22.898Z",
-      "addressLocality": "Baar",
-      "addressRegion": "ZG",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "6340",
-      "streetAddress": "Landhausstrasse 11",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "senior",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-10-08",
-      "postedDate": "2026-10-08",
-      "postingDateSource": "reported",
-      "applyUrl": "https://jobs.zgks.ch/Chefarztsekretaerin-Frauenklinik-100--de-j897.html",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "chefarztsekretarin-frauenklinik-100-zuger-kantonsspital-baar"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "chefarztsekretarin-frauenklinik-100-zuger-kantonsspital-baar"
-        ],
-        "en": [
-          "chefarztsekretarin-frauenklinik-100-zuger-kantonsspital-baar"
-        ],
-        "fr": [
-          "chefarztsekretarin-frauenklinik-100-zuger-kantonsspital-baar"
-        ]
-      },
-      "firstSeenAt": "2026-10-08T09:31:46.560Z",
-      "salaryMin": 117000,
-      "salaryMax": 163000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 117000,
-          "maxValue": 163000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-06T09:43:22.898Z",
+      "validThrough": "2026-12-31T21:34:47.257Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -287,7 +203,7 @@
       "url": "https://jobs.zgks.ch/Expertin-Notfallpflege-NDS-HF-80-100-mw-de-j848.html",
       "source": "Zuger Kantonsspital Dedicated Parser (rexx systems jobs.zgks.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T09:43:22.348Z",
+      "crawledAt": "2026-11-07T21:34:46.641Z",
       "addressLocality": "Baar",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -330,7 +246,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-08T09:43:22.348Z",
+      "validThrough": "2026-12-08T21:34:46.641Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -365,7 +281,7 @@
       "url": "https://jobs.zgks.ch/WMS-Praktikantin-mw-de-j893.html",
       "source": "Zuger Kantonsspital Dedicated Parser (rexx systems jobs.zgks.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T09:43:21.782Z",
+      "crawledAt": "2026-11-07T21:34:46.008Z",
       "addressLocality": "Baar",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -416,7 +332,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-10T09:43:21.782Z",
+      "validThrough": "2026-12-10T21:34:46.008Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -450,7 +366,7 @@
       "url": "https://jobs.zgks.ch/Pflegefachperson-HF-Chirurgie-80-100-mw-de-j892.html",
       "source": "Zuger Kantonsspital Dedicated Parser (rexx systems jobs.zgks.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T09:43:21.360Z",
+      "crawledAt": "2026-11-07T21:34:45.552Z",
       "addressLocality": "Baar",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -522,7 +438,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-11T09:43:21.360Z",
+      "validThrough": "2027-01-11T21:34:45.552Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -557,7 +473,7 @@
       "url": "https://jobs.zgks.ch/Leitung-Pflege-Notfallzentrum-80-100--de-j903.html",
       "source": "Zuger Kantonsspital Dedicated Parser (rexx systems jobs.zgks.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T09:43:20.797Z",
+      "crawledAt": "2026-11-07T21:34:44.916Z",
       "addressLocality": "Baar",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -606,7 +522,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-12T09:43:20.797Z",
+      "validThrough": "2027-01-12T21:34:44.916Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -628,11 +544,11 @@
         "de": "Ernährungsberaterin / -therapeutin 100 % (m/w)",
         "fr": "Nutritionniste / thérapeute 100% (h/f)"
       },
-      "description": "Das Zuger Kantonsspital steht im Dienst der Gesundheit der Bevölkerung des Kantons Zug und der umliegenden Regionen. Rund 1'200 Mitarbeitende, davon 180 in Ausbildung, sind in den verschiedensten Bereichen tätig. Jedes Jahr behandeln und betreuen wir über 11'500 stationäre und über 70'000 ambulante Patientinnen und Patienten. Im interdisziplinären Notfallzentrum werden jährlich mehr als 27'500 Personen behandelt. Zur Verstärkung unseres Teams in der Ernährungsberatung und -therapie suchen wir per 1. Januar 2027 oder nach Vereinbarung eine Ernährungsberaterin / -therapeutin . Ihre Aufgaben\n• Interdisziplinäre klinische Ernährungstherapie mit Schwerpunkt Viszeralchirurgie, Onkologie und Medizin - inklusive Betreuung bei enteraler und parenteraler Ernährung\n• Ernährungsberatungen ambulanten Patientinnen und Patienten mit unterschiedlichen Krankheitsbildern\n• Planung und Durchführung von Schulungen, Weiterbildungen und Fachvorträgen für interne und externe Fachpersonen sowie Interessengruppen\n• Mitarbeit bei der Begleitung und fachlichen Betreuung von Studierenden im Praktikum Ihr Profil\n• BSc in Ernährung und Diätetik\n• Freude an der engen interdisziplinären Zusammenarbeit mit allen Fachbereichen des Spitals\n• Sicheres Auftreten und Motivation am Weitergeben von Wissen\n• Gute Organisations- und Kommunikationsfähigkeit Unser Angebot Wir bieten Ihnen eine abwechslungsreiche und anspruchsvolle Tätigkeit in einem kollegialen Team. Sie profitieren von einer fundierten Einarbeitung und regelmässigen fachlichen Weiterbildungen. Zeitgemässe Anstellungsbedingungen mit sehr guten Sozialleistungen runden unser Angebot ab. Interessiert? Wir freuen uns auf Ihre elektronische Bewerbung an Gaby Jans, Stv. Leiterin Personal. Es werden nur Direktbewerbungen berücksichtigt. Weitere Informationen zur Funktion gibt Ihnen gerne Tanja Vogt, Leiterin Ernährungsberatung/-therapie, T 041 399 41 50.",
+      "description": "Das Zuger Kantonsspital steht im Dienst der Gesundheit der Bevölkerung des Kantons Zug und der umliegenden Regionen. Rund 1'200 Mitarbeitende, davon 180 in Ausbildung, sind in den verschiedensten Bereichen tätig. Jedes Jahr behandeln und betreuen wir über 11'500 stationäre und über 70'000 ambulante Patientinnen und Patienten. Im interdisziplinären Notfallzentrum werden jährlich mehr als 27'500 Personen behandelt. Zur Verstärkung unseres Teams in der Ernährungsberatung und -therapie suchen wir per 1. Januar 2027 oder nach Vereinbarung eine Ernährungsberaterin / -therapeutin . Ihre Aufgaben\n• Interdisziplinäre klinische Ernährungstherapie mit Schwerpunkt Viszeralchirurgie, Onkologie und Medizin - inklusive Betreuung bei enteraler und parenteraler Ernährung\n• Ernährungsberatungen ambulanten Patientinnen und Patienten mit unterschiedlichen Krankheitsbildern\n• Planung und Durchführung von Schulungen, Weiterbildungen und Fachvorträgen für interne und externe Fachpersonen sowie Interessengruppen\n• Mitarbeit bei der Begleitung und fachlichen Betreuung von Studierenden im Praktikum Ihr Profil\n• BSc in Ernährung und Diätetik\n• Freude an der engen interdisziplinären Zusammenarbeit mit allen Fachbereichen des Spitals\n• Sicheres Auftreten und Motivation am Weitergeben von Wissen\n• Gute Organisations- und Kommunikationsfähigkeit Unser Angebot Wir bieten Ihnen eine abwechslungsreiche und anspruchsvolle Tätigkeit in einem kollegialen Team. Sie profitieren von einer fundierten Einarbeitung und regelmässigen fachlichen Weiterbildungen. Zeitgemässe Anstellungsbedingungen mit sehr guten Sozialleistungen runden unser Angebot ab. Interessiert? Wir freuen uns auf Ihre elektronische Bewerbung an Jessica Schiltknecht, HR Bereichsverantwortliche. Es werden nur Direktbewerbungen berücksichtigt. Weitere Informationen zur Funktion gibt Ihnen gerne Tanja Vogt, Leiterin Ernährungsberatung/-therapie, T 041 399 41 50.",
       "descriptionByLocale": {
         "it": "L'Ospedale di Zug Canton serve la salute della popolazione del Cantone di Zug e delle regioni circostanti. Circa 1.200 dipendenti, 180 dei quali sono in formazione, lavorano in una vasta gamma di settori. Ogni anno trattiamo e curiamo più di 11.500 pazienti e più di 70.000 pazienti. Nel centro di emergenza interdisciplinare, più di 27.500 persone vengono trattate ogni anno. Per rafforzare il nostro team nella consulenza nutrizionale e nella terapia, stiamo cercando 1. Gennaio 2027 o su appuntamento un nutrizionista/terapista. I loro compiti\n• Terapia nutrizionale clinica interdisciplinare con attenzione alla chirurgia viscerale, all'oncologia e alla medicina - compresa la cura nella nutrizione enterale e parenterale\n• Consultazioni nutrizionali per i pazienti affetti da ambulatorio con diverse immagini cliniche\n• Pianificazione e implementazione di formazione, formazione e presentazioni per professionisti e stakeholder interni ed esterni\n• Cooperazione nell'accompagnamento e supporto professionale degli studenti nello stage\n• Laurea in Nutrizione e Dietetica\n• Godendo della stretta cooperazione interdisciplinare con tutti i dipartimenti dell'ospedale\n• Aspetto sicuro e motivazione per passare alla conoscenza\n• Buone capacità organizzative e di comunicazione La nostra offerta Vi offriamo un lavoro vario e impegnativo in una squadra collegiale. Essi beneficiano di una conoscenza ben fondata e una formazione professionale regolare. Condizioni di lavoro contemporanee con benefici sociali molto buoni completano la nostra offerta. Interessante? Attendiamo con ansia la vostra applicazione elettronica a Gaby Jans, Stv. Head of Human Resources. Saranno prese in considerazione solo applicazioni dirette. Maggiori informazioni sulla funzione possono essere trovate in Tanja Vogt, Head of Nutritional Advice/Therapy, T 041 399 41 50.",
         "en": "The Zug Canton Hospital serves the health of the population of the Canton of Zug and the surrounding regions. Around 1,200 employees, 180 of whom are in training, work in a wide variety of fields. Every year, we treat and care for more than 11,500 inpatient and more than 70,000 outpatients. In the interdisciplinary emergency center, more than 27,500 people are treated annually. To strengthen our team in nutritional counselling and therapy, we are looking for 1. January 2027 or by appointment a nutritionist/therapist. Their tasks\n• Interdisciplinary clinical nutritional therapy with focus on visceral surgery, oncology and medicine - including care in enteral and parenteral nutrition\n• Nutritional consultations for outpatient patients with different clinical pictures\n• Planning and implementation of training, training and presentations for internal and external professionals and stakeholders\n• Cooperation in the accompaniment and professional support of students in the internship Your profile\n• BSc in Nutrition and Dietetics\n• Enjoying the close interdisciplinary cooperation with all departments of the hospital\n• Safe appearance and motivation for passing on knowledge\n• Good organizational and communication skills Our offer We offer you a varied and demanding job in a collegial team. They benefit from well-founded familiarization and regular professional training. Contemporary employment conditions with very good social benefits round off our offer. Interested? We look forward to your electronic application to Gaby Jans, Stv. Head of Human Resources. Only direct applications will be considered. More information about the function can be found in Tanja Vogt, Head of Nutritional Advice/Therapy, T 041 399 41 50.",
-        "de": "Das Zuger Kantonsspital steht im Dienst der Gesundheit der Bevölkerung des Kantons Zug und der umliegenden Regionen. Rund 1'200 Mitarbeitende, davon 180 in Ausbildung, sind in den verschiedensten Bereichen tätig. Jedes Jahr behandeln und betreuen wir über 11'500 stationäre und über 70'000 ambulante Patientinnen und Patienten. Im interdisziplinären Notfallzentrum werden jährlich mehr als 27'500 Personen behandelt. Zur Verstärkung unseres Teams in der Ernährungsberatung und -therapie suchen wir per 1. Januar 2027 oder nach Vereinbarung eine Ernährungsberaterin / -therapeutin . Ihre Aufgaben\n• Interdisziplinäre klinische Ernährungstherapie mit Schwerpunkt Viszeralchirurgie, Onkologie und Medizin - inklusive Betreuung bei enteraler und parenteraler Ernährung\n• Ernährungsberatungen ambulanten Patientinnen und Patienten mit unterschiedlichen Krankheitsbildern\n• Planung und Durchführung von Schulungen, Weiterbildungen und Fachvorträgen für interne und externe Fachpersonen sowie Interessengruppen\n• Mitarbeit bei der Begleitung und fachlichen Betreuung von Studierenden im Praktikum Ihr Profil\n• BSc in Ernährung und Diätetik\n• Freude an der engen interdisziplinären Zusammenarbeit mit allen Fachbereichen des Spitals\n• Sicheres Auftreten und Motivation am Weitergeben von Wissen\n• Gute Organisations- und Kommunikationsfähigkeit Unser Angebot Wir bieten Ihnen eine abwechslungsreiche und anspruchsvolle Tätigkeit in einem kollegialen Team. Sie profitieren von einer fundierten Einarbeitung und regelmässigen fachlichen Weiterbildungen. Zeitgemässe Anstellungsbedingungen mit sehr guten Sozialleistungen runden unser Angebot ab. Interessiert? Wir freuen uns auf Ihre elektronische Bewerbung an Gaby Jans, Stv. Leiterin Personal. Es werden nur Direktbewerbungen berücksichtigt. Weitere Informationen zur Funktion gibt Ihnen gerne Tanja Vogt, Leiterin Ernährungsberatung/-therapie, T 041 399 41 50.",
+        "de": "Das Zuger Kantonsspital steht im Dienst der Gesundheit der Bevölkerung des Kantons Zug und der umliegenden Regionen. Rund 1'200 Mitarbeitende, davon 180 in Ausbildung, sind in den verschiedensten Bereichen tätig. Jedes Jahr behandeln und betreuen wir über 11'500 stationäre und über 70'000 ambulante Patientinnen und Patienten. Im interdisziplinären Notfallzentrum werden jährlich mehr als 27'500 Personen behandelt. Zur Verstärkung unseres Teams in der Ernährungsberatung und -therapie suchen wir per 1. Januar 2027 oder nach Vereinbarung eine Ernährungsberaterin / -therapeutin . Ihre Aufgaben\n• Interdisziplinäre klinische Ernährungstherapie mit Schwerpunkt Viszeralchirurgie, Onkologie und Medizin - inklusive Betreuung bei enteraler und parenteraler Ernährung\n• Ernährungsberatungen ambulanten Patientinnen und Patienten mit unterschiedlichen Krankheitsbildern\n• Planung und Durchführung von Schulungen, Weiterbildungen und Fachvorträgen für interne und externe Fachpersonen sowie Interessengruppen\n• Mitarbeit bei der Begleitung und fachlichen Betreuung von Studierenden im Praktikum Ihr Profil\n• BSc in Ernährung und Diätetik\n• Freude an der engen interdisziplinären Zusammenarbeit mit allen Fachbereichen des Spitals\n• Sicheres Auftreten und Motivation am Weitergeben von Wissen\n• Gute Organisations- und Kommunikationsfähigkeit Unser Angebot Wir bieten Ihnen eine abwechslungsreiche und anspruchsvolle Tätigkeit in einem kollegialen Team. Sie profitieren von einer fundierten Einarbeitung und regelmässigen fachlichen Weiterbildungen. Zeitgemässe Anstellungsbedingungen mit sehr guten Sozialleistungen runden unser Angebot ab. Interessiert? Wir freuen uns auf Ihre elektronische Bewerbung an Jessica Schiltknecht, HR Bereichsverantwortliche. Es werden nur Direktbewerbungen berücksichtigt. Weitere Informationen zur Funktion gibt Ihnen gerne Tanja Vogt, Leiterin Ernährungsberatung/-therapie, T 041 399 41 50.",
         "fr": "L'hôpital du canton de Zug sert la santé de la population du canton de Zug et des régions environnantes. Environ 1 200 employés, dont 180 sont en formation, travaillent dans un large éventail de domaines. Chaque année, nous traitons et prenons soin de plus de 11 500 patients hospitalisés et de plus de 70 000 patients externes. Dans le centre interdisciplinaire d'urgence, plus de 27 500 personnes sont traitées chaque année. Pour renforcer notre équipe en conseils nutritionnels et en thérapie, nous cherchons 1. Janvier 2027 ou sur rendez-vous un nutritionniste/thérapeute. Leurs tâches\n• Thérapie clinique interdisciplinaire portant sur la chirurgie viscérale, l'oncologie et la médecine - y compris les soins dans la nutrition entérale et parentérale\n• Consultations nutritionnelles pour les patients externes avec différentes photos cliniques\n• Planification et mise en œuvre de la formation, de la formation et des présentations à l ' intention des professionnels et des parties prenantes internes et externes\n• Coopération dans l'accompagnement et le soutien professionnel des étudiants dans le stage Votre profil\n• BSc en nutrition et diététique\n• Profitez de la coopération interdisciplinaire étroite avec tous les départements de l'hôpital\n• Aspect sûr et motivation pour transmettre la connaissance\n• Bonnes compétences en organisation et communication Notre offre Nous vous offrons un travail varié et exigeant dans une équipe collégiale. Ils bénéficient d'une familiarisation bien fondée et d'une formation professionnelle régulière. Les conditions d'emploi contemporaines avec de très bons avantages sociaux complètent notre offre. Intéressé ? Nous attendons avec impatience votre candidature électronique à Gaby Jans, responsable des ressources humaines à Stv. Seules les demandes directes seront examinées. Plus d'informations sur la fonction peuvent être trouvées dans Tanja Vogt, Responsable des Conseils Nutritionnels/Therapie, T 041 399 41 50."
       },
       "needsRetranslation": false,
@@ -641,7 +557,7 @@
       "url": "https://jobs.zgks.ch/Ernaehrungsberaterin-therapeutin-100-mw-de-j891.html",
       "source": "Zuger Kantonsspital Dedicated Parser (rexx systems jobs.zgks.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T09:43:20.335Z",
+      "crawledAt": "2026-11-07T21:34:44.300Z",
       "addressLocality": "Baar",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -690,7 +606,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-17T09:43:20.335Z",
+      "validThrough": "2027-01-17T21:34:44.300Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -725,7 +641,7 @@
       "url": "https://jobs.zgks.ch/Medizinische-Praxisassistentin-Frauenarztpraxis-Rotkreuz-6-de-j906.html",
       "source": "Zuger Kantonsspital Dedicated Parser (rexx systems jobs.zgks.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T09:43:19.794Z",
+      "crawledAt": "2026-11-07T21:34:43.692Z",
       "addressLocality": "Baar",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -774,7 +690,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-20T09:43:19.794Z",
+      "validThrough": "2027-01-20T21:34:43.692Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -809,7 +725,7 @@
       "url": "https://jobs.zgks.ch/Oberarzt-Handchirurgie-Orthopaedie-60-100-mw-de-j905.html",
       "source": "Zuger Kantonsspital Dedicated Parser (rexx systems jobs.zgks.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T09:43:19.254Z",
+      "crawledAt": "2026-11-07T21:34:43.071Z",
       "addressLocality": "Baar",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -860,7 +776,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-20T09:43:19.254Z",
+      "validThrough": "2027-01-20T21:34:43.071Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -895,7 +811,7 @@
       "url": "https://jobs.zgks.ch/Expertin-Anaesthesiepflege-NDS-HF-80-100-mw-de-j904.html",
       "source": "Zuger Kantonsspital Dedicated Parser (rexx systems jobs.zgks.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T09:43:18.803Z",
+      "crawledAt": "2026-11-07T21:34:42.589Z",
       "addressLocality": "Baar",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -944,7 +860,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-20T09:43:18.803Z",
+      "validThrough": "2027-01-20T21:34:42.589Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -978,7 +894,7 @@
       "url": "https://jobs.zgks.ch/Pflegefachperson-HF-Medizin-Allgemein-80-100-mw-de-j907.html",
       "source": "Zuger Kantonsspital Dedicated Parser (rexx systems jobs.zgks.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T09:43:18.229Z",
+      "crawledAt": "2026-11-07T21:34:41.955Z",
       "addressLocality": "Baar",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -1027,7 +943,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-24T09:43:18.229Z",
+      "validThrough": "2027-01-24T21:34:41.955Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1062,7 +978,7 @@
       "url": "https://jobs.zgks.ch/Physiotherapeutin-Neurologie-Intensivstation-80-100-mw-de-j908.html",
       "source": "Zuger Kantonsspital Dedicated Parser (rexx systems jobs.zgks.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T09:43:17.647Z",
+      "crawledAt": "2026-11-07T21:34:41.307Z",
       "addressLocality": "Baar",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -1111,7 +1027,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-28T09:43:17.647Z",
+      "validThrough": "2027-01-28T21:34:41.307Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1146,7 +1062,7 @@
       "url": "https://jobs.zgks.ch/Neuropsychologin-in-Weiterbildung-60-80-mw-de-j909.html",
       "source": "Zuger Kantonsspital Dedicated Parser (rexx systems jobs.zgks.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T09:43:17.100Z",
+      "crawledAt": "2026-11-07T21:34:40.682Z",
       "addressLocality": "Baar",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -1195,7 +1111,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-03T09:43:17.100Z",
+      "validThrough": "2027-02-03T21:34:40.682Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1230,7 +1146,7 @@
       "url": "https://jobs.zgks.ch/Med-Praxisassistentin-Pneumologie-80--de-j869.html",
       "source": "Zuger Kantonsspital Dedicated Parser (rexx systems jobs.zgks.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T09:43:16.534Z",
+      "crawledAt": "2026-11-07T21:34:40.033Z",
       "addressLocality": "Baar",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -1300,7 +1216,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-10T09:43:16.534Z",
+      "validThrough": "2026-12-10T21:34:40.033Z",
       "validThroughSource": "last-observed-window"
     }
   ]

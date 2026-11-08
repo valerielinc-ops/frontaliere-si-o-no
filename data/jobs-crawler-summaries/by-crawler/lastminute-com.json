@@ -1,18 +1,19 @@
 {
   "key": "lastminute-com",
   "label": "lastminute.com",
-  "generatedAt": "2026-11-06T21:53:10.136Z",
+  "generatedAt": "2026-11-07T21:29:53.458Z",
   "total": 8,
-  "newCount": 1,
-  "updatedCount": 7,
+  "newCount": 0,
+  "updatedCount": 8,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 9686,
-  "avgDurationMs": 9686,
+  "durationMs": 8526,
+  "avgDurationMs": 8526,
   "durationHistory": [
-    9686
+    8526
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "title": "Data Architect",
       "slug": "data-architect-chiasso",
@@ -56,9 +57,7 @@
         "translation": 21,
         "completeness": 25
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "title": "CRM Application Engineer",
       "slug": "crm-application-engineer-chiasso",
@@ -369,5 +368,5 @@
   ],
   "removedJobs": [],
   "unchangedJobs": [],
-  "codeCommit": "83864a2067a1cd4cb74a7630816798617e7b37f9"
+  "codeCommit": "f149ed523035737e5146c13e7338b8dd6b0c5f04"
 }

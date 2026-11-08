@@ -13,13 +13,16 @@ import {
 
 /**
  * Le fasi 2d/2e di translate-pending partono solo se l'involucro run-wide di
- * 210 minuti ha ancora almeno 15 minuti. Il broker Codex non e' piu' sotto il
+ * 210 minuti ha ancora almeno 90 minuti: una run recente ha consumato circa
+ * 73 minuti nella lane descrizioni, quindi 15 minuti proteggevano solo una
+ * singola chiamata e non la coda finale. Il broker Codex non e' piu' sotto il
  * gate: dalla decisione H7 (2026-10-05) parte prima della cascata 2b, che lo usa
  * come riserva dei tier a chiave (vedi translate-pending-codex-last-tier.test.ts).
  * Misurato sul corpus: 36240711198 (2d a 215min: broker 21s, 0 tradotti, commit
  * vuoto 137s) e 36169299281 (2e a 252min: broker 22s, commit vuoto 850s, poi il
  * job ucciso al tetto dei 350min). Ogni partenza produttiva misurata aveva
- * almeno 57 minuti residui.
+ * almeno 57 minuti residui; il nuovo guard piu' conservativo lascia passare
+ * soltanto le partenze con margine per l'intera lane.
  */
 type Step = { id?: string; name?: string; uses?: string; if?: string; env?: Record<string, unknown>; run?: string };
 
@@ -122,18 +125,16 @@ describe('decideRepairLane', () => {
     minRemainingMs: DEFAULT_REPAIR_LANE_MIN_REMAINING_MS,
   });
 
-  it('lascia partire le corsie nei tempi misurati delle run produttive', () => {
-    for (const elapsed of [99, 108, 153]) expect(decide(elapsed).run).toBe(true);
+  it('lascia partire le corsie solo quando restano 90min per la lane completa', () => {
+    for (const elapsed of [99, 108, 120]) expect(decide(elapsed).run).toBe(true);
   });
 
-  it('salta le corsie alle partenze tardive misurate e sotto la soglia', () => {
-    for (const elapsed of [215, 252, 304]) expect(decide(elapsed).run).toBe(false);
-    expect(decide(195).run).toBe(true);
-    expect(decide(195.5).run).toBe(false);
+  it('salta le corsie quando il residuo scende sotto la soglia della lane', () => {
+    for (const elapsed of [121, 153, 195, 215, 252, 304]) expect(decide(elapsed).run).toBe(false);
   });
 
   it('spiega il salto con residuo e soglia', () => {
-    expect(describeDecision(decide(215))).toMatch(/skipped: 215min elapsed .* deadline passed 5min ago \(threshold 15min\)/);
+    expect(describeDecision(decide(215))).toMatch(/skipped: 215min elapsed .* deadline passed 5min ago \(threshold 90min\)/);
     expect(describeDecision(decide(200))).toMatch(/skipped: .*only 10min left/);
     expect(describeDecision(decide(100))).toMatch(/start: .*110min left/);
   });
@@ -152,7 +153,7 @@ describe('translate-repair-lane-gate CLI', () => {
         GITHUB_OUTPUT: output,
         TRANSLATE_RUN_CLOCK_REQUIRED: '1',
         REPAIR_LANE_DEADLINE_MS: '12600000',
-        REPAIR_LANE_MIN_REMAINING_MS: '900000',
+        REPAIR_LANE_MIN_REMAINING_MS: '5400000',
       },
     });
     return { result, output: fs.existsSync(output) ? fs.readFileSync(output, 'utf8') : '' };

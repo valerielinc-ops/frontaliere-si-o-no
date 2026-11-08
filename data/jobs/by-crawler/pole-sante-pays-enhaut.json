@@ -1,7 +1,7 @@
 {
   "crawlerKey": "pole-sante-pays-enhaut",
-  "assembledAt": "2026-11-06T21:23:48.329Z",
-  "runId": "42293613300",
+  "assembledAt": "2026-11-07T21:16:21.450Z",
+  "runId": "42414192522",
   "jobs": [
     {
       "id": "pole-sante-pays-enhaut-40b5a3b22f8a",
@@ -34,7 +34,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/7e7196d4-d20c-4a17-ba10-0c48e91112c4/",
       "source": "Pôle Santé Pays-d'Enhaut Dedicated Parser (jobup.ch feed hpe)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-06T21:23:41.592Z",
+      "crawledAt": "2026-11-07T21:16:13.587Z",
       "addressLocality": "Château d'Oex",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -69,7 +69,7 @@
       },
       "streetAddress": "Château d'Oex",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-02T21:23:41.592Z",
+      "validThrough": "2027-01-02T21:16:13.587Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -103,7 +103,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/91a9a32a-a73c-40b5-bb4a-650b7054db03/",
       "source": "Pôle Santé Pays-d'Enhaut Dedicated Parser (jobup.ch feed hpe)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-06T21:23:40.962Z",
+      "crawledAt": "2026-11-07T21:16:12.804Z",
       "addressLocality": "Château d'Oex",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -200,7 +200,7 @@
       },
       "streetAddress": "Château d'Oex",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-06T21:23:40.962Z",
+      "validThrough": "2026-12-07T21:16:12.804Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -235,7 +235,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/b06d4dbc-b055-4fd6-a4a4-9f9ff300fd38/",
       "source": "Pôle Santé Pays-d'Enhaut Dedicated Parser (jobup.ch feed hpe)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-06T21:23:40.336Z",
+      "crawledAt": "2026-11-07T21:16:12.146Z",
       "addressLocality": "Château d'Oex",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -284,42 +284,41 @@
       },
       "streetAddress": "Château d'Oex",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-24T21:23:40.336Z",
+      "validThrough": "2027-01-24T21:16:12.146Z",
       "validThroughSource": "last-observed-window"
     },
     {
       "id": "pole-sante-pays-enhaut-1813988c0422",
-      "slug": "infirmier-ere-cdi-80-a-100-pole-sante-pays-enhaut-chateau-d-oex",
+      "slug": "infermiera-cdi-80-al-100-pole-sante-pays-d-enhaut-chateau-d-oex",
       "slugByLocale": {
-        "fr": "infirmier-ere-cdi-80-a-100-pole-sante-pays-enhaut-chateau-d-oex",
-        "it": "infirmier-ere-cdi-80-a-100-pole-sante-pays-enhaut-chateau-d-oex",
-        "en": "infirmier-ere-cdi-80-a-100-pole-sante-pays-enhaut-chateau-d-oex",
-        "de": "infirmier-ere-cdi-80-a-100-pole-sante-pays-enhaut-chateau-d-oex"
+        "it": "infermiera-cdi-80-al-100-pole-sante-pays-d-enhaut-chateau-d-oex",
+        "en": "nurse-cdi-80-to-100-pole-sante-pays-d-enhaut-chateau-d-oex",
+        "de": "krankenschwester-cdi-80-bis-100-pole-sante-pays-d-enhaut-chateau-d-oex",
+        "fr": "infirmier-ere-cdi-80-a-100-pole-sante-pays-enhaut-chateau-d-oex"
       },
       "company": "Pôle Santé Pays-d'Enhaut",
       "companyKey": "pole-sante-pays-enhaut",
       "companyDomain": "pspe.ch",
       "title": "Infirmier·ère (CDI - 80 à 100%)",
       "titleByLocale": {
-        "fr": "Infirmier·ère (CDI - 80 à 100%)",
-        "it": "Infirmier·ère (CDI - 80 à 100%)",
-        "en": "Infirmier·ère (CDI - 80 à 100%)",
-        "de": "Infirmier·ère (CDI - 80 à 100%)"
+        "it": "Infermiera (CDI - 80 al 100%)",
+        "en": "Nurse (CDI - 80 to 100%)",
+        "de": "Krankenschwester (CDI - 80 bis 100%)",
+        "fr": "Infirmier·ère (CDI - 80 à 100%)"
       },
       "description": "Situé à Château-d’Œx, à 1000 mètres d’altitude, le Pôle Santé Pays-d’Enhaut offre un large éventail de prestations hospitalières, d’hébergement, d’accompagnement de la personne âgée, ainsi que des soins à domicile. Selon l’approche dite de soins intégrés, cette organisation novatrice représente une opportunité pour les professionnel·le·s de la santé de travailler au sein de petites équipes multidisciplinaires, pour une meilleure continuité des soins et en réponse aux besoins de santé de la population du Pays-d’Enhaut.\n Au cœur d’un environnement naturel privilégié, à moins d’une heure de Lausanne ou de Berne, le Pays-d’Enhaut est réputé pour la qualité de son cadre de vie et offre un très large éventail d’activités sportives, de loisirs et culturelles, à vivre été comme hiver!\n Pour compléter notre équipe du secteur hébergement qui vient d’emménager dans une nouvelle résidence accueillant 50 résidents, en court ou en long séjour, nous cherchons de suite ou à convenir un·e :\n\nInfirmier·ère (CDI - 80 à 100%)\n\nEn tant qu'Infirmier·ère rattachée à notre EMS Les Gentianes, vous avez à coeur d'assurer des prestation de soins, d'accueil et d'accompagnement de qualité pour garantir le maintien en santé et le bien-être des résident·es. Vous contribuerez également à l'optimisation de la démarche de qualité / sécurité des soins et à leur adaptation aux besoins des Résident·es et de leur famille.\n Au quotidien, vous encadrerz les équipes soignantes et mettrez en avant une culture de la gestion participative, responsabilisante et encourageant l'interdisciplinarité.\n\nVos responsabilités :\n\n• Organiser les soins de base, dispenser des soins infirmier et les actes médicaux délégues;\n\n• Contribuer activement à la dynamique d’équipe en organisant et supervisant l'équipe soignante dans leur tâches courantes\n\n• Collaborez étroitement avec les différents secteurs voisins (Cuisine, Animation socio-culturelle, etc.)\n\n• Veiller au confort et au respect des résident·es, tout en respectant les consignes liées aux mesures de contrainte et aux règles d'hygiène en vigueure;\n Votre profil :\n\n• Diplôme ES ou HES en soins infirmiers, ou titre jugé équivalent par la Croix-Rouge suisse;\n\n• Idéalement, une première expérience probante sur un poste similaire au sein d'un EMS;\n\n• Capacité d’écoute, autonomie et aptitude à gérer des situations complexes\n\n• Proactivité et aisance dans le travail en réseau\n\n• Maîtrise des outils informatiques usuels\n\n• Les sérieux atouts : vous possédez un CAS de Practicien·ne Formateur·trice (PF), avez de l'expérience sur CareFolio et / ou êtes évaluateur·trice \"Plaisir\";\n Nous offrons :\n\n• Une participation au développement d’un modèle de soins intégrés, impliquant la coordination et la collaboration de différents professionnels de la santé\n\n• Un travail dans un environnement agréable, au sein d’une structure à taille humaine\n\n• Les avantages de la vie en montagne tout en restant proches de centres urbains (à découvrir sous www.alpesvaudoises.ch/fr/stories/paysdenhaut)\n\n• Des conditions de travail conformes à la CCT san-vaud (13e salaire, formations, 5-6 semaines de vacances par année, etc...)\n Merci de nous faire parvenir votre dossier complet (CV, lettre de motivation, diplômes et certificats de travail) sur Jobup",
       "descriptionByLocale": {
-        "fr": "Situé à Château-d’Œx, à 1000 mètres d’altitude, le Pôle Santé Pays-d’Enhaut offre un large éventail de prestations hospitalières, d’hébergement, d’accompagnement de la personne âgée, ainsi que des soins à domicile. Selon l’approche dite de soins intégrés, cette organisation novatrice représente une opportunité pour les professionnel·le·s de la santé de travailler au sein de petites équipes multidisciplinaires, pour une meilleure continuité des soins et en réponse aux besoins de santé de la population du Pays-d’Enhaut.\n Au cœur d’un environnement naturel privilégié, à moins d’une heure de Lausanne ou de Berne, le Pays-d’Enhaut est réputé pour la qualité de son cadre de vie et offre un très large éventail d’activités sportives, de loisirs et culturelles, à vivre été comme hiver!\n Pour compléter notre équipe du secteur hébergement qui vient d’emménager dans une nouvelle résidence accueillant 50 résidents, en court ou en long séjour, nous cherchons de suite ou à convenir un·e :\n\nInfirmier·ère (CDI - 80 à 100%)\n\nEn tant qu'Infirmier·ère rattachée à notre EMS Les Gentianes, vous avez à coeur d'assurer des prestation de soins, d'accueil et d'accompagnement de qualité pour garantir le maintien en santé et le bien-être des résident·es. Vous contribuerez également à l'optimisation de la démarche de qualité / sécurité des soins et à leur adaptation aux besoins des Résident·es et de leur famille.\n Au quotidien, vous encadrerz les équipes soignantes et mettrez en avant une culture de la gestion participative, responsabilisante et encourageant l'interdisciplinarité.\n\nVos responsabilités :\n\n• Organiser les soins de base, dispenser des soins infirmier et les actes médicaux délégues;\n\n• Contribuer activement à la dynamique d’équipe en organisant et supervisant l'équipe soignante dans leur tâches courantes\n\n• Collaborez étroitement avec les différents secteurs voisins (Cuisine, Animation socio-culturelle, etc.)\n\n• Veiller au confort et au respect des résident·es, tout en respectant les consignes liées aux mesures de contrainte et aux règles d'hygiène en vigueure;\n Votre profil :\n\n• Diplôme ES ou HES en soins infirmiers, ou titre jugé équivalent par la Croix-Rouge suisse;\n\n• Idéalement, une première expérience probante sur un poste similaire au sein d'un EMS;\n\n• Capacité d’écoute, autonomie et aptitude à gérer des situations complexes\n\n• Proactivité et aisance dans le travail en réseau\n\n• Maîtrise des outils informatiques usuels\n\n• Les sérieux atouts : vous possédez un CAS de Practicien·ne Formateur·trice (PF), avez de l'expérience sur CareFolio et / ou êtes évaluateur·trice \"Plaisir\";\n Nous offrons :\n\n• Une participation au développement d’un modèle de soins intégrés, impliquant la coordination et la collaboration de différents professionnels de la santé\n\n• Un travail dans un environnement agréable, au sein d’une structure à taille humaine\n\n• Les avantages de la vie en montagne tout en restant proches de centres urbains (à découvrir sous www.alpesvaudoises.ch/fr/stories/paysdenhaut)\n\n• Des conditions de travail conformes à la CCT san-vaud (13e salaire, formations, 5-6 semaines de vacances par année, etc...)\n Merci de nous faire parvenir votre dossier complet (CV, lettre de motivation, diplômes et certificats de travail) sur Jobup",
-        "it": "Situé à Château-d’Œx, à 1000 mètres d’altitude, le Pôle Santé Pays-d’Enhaut offre un large éventail de prestations hospitalières, d’hébergement, d’accompagnement de la personne âgée, ainsi que des soins à domicile. Selon l’approche dite de soins intégrés, cette organisation novatrice représente une opportunité pour les professionnel·le·s de la santé de travailler au sein de petites équipes multidisciplinaires, pour une meilleure continuité des soins et en réponse aux besoins de santé de la population du Pays-d’Enhaut.\n Au cœur d’un environnement naturel privilégié, à moins d’une heure de Lausanne ou de Berne, le Pays-d’Enhaut est réputé pour la qualité de son cadre de vie et offre un très large éventail d’activités sportives, de loisirs et culturelles, à vivre été comme hiver!\n Pour compléter notre équipe du secteur hébergement qui vient d’emménager dans une nouvelle résidence accueillant 50 résidents, en court ou en long séjour, nous cherchons de suite ou à convenir un·e :\n\nInfirmier·ère (CDI - 80 à 100%)\n\nEn tant qu'Infirmier·ère rattachée à notre EMS Les Gentianes, vous avez à coeur d'assurer des prestation de soins, d'accueil et d'accompagnement de qualité pour garantir le maintien en santé et le bien-être des résident·es. Vous contribuerez également à l'optimisation de la démarche de qualité / sécurité des soins et à leur adaptation aux besoins des Résident·es et de leur famille.\n Au quotidien, vous encadrerz les équipes soignantes et mettrez en avant une culture de la gestion participative, responsabilisante et encourageant l'interdisciplinarité.\n\nVos responsabilités :\n\n• Organiser les soins de base, dispenser des soins infirmier et les actes médicaux délégues;\n\n• Contribuer activement à la dynamique d’équipe en organisant et supervisant l'équipe soignante dans leur tâches courantes\n\n• Collaborez étroitement avec les différents secteurs voisins (Cuisine, Animation socio-culturelle, etc.)\n\n• Veiller au confort et au respect des résident·es, tout en respectant les consignes liées aux mesures de contrainte et aux règles d'hygiène en vigueure;\n Votre profil :\n\n• Diplôme ES ou HES en soins infirmiers, ou titre jugé équivalent par la Croix-Rouge suisse;\n\n• Idéalement, une première expérience probante sur un poste similaire au sein d'un EMS;\n\n• Capacité d’écoute, autonomie et aptitude à gérer des situations complexes\n\n• Proactivité et aisance dans le travail en réseau\n\n• Maîtrise des outils informatiques usuels\n\n• Les sérieux atouts : vous possédez un CAS de Practicien·ne Formateur·trice (PF), avez de l'expérience sur CareFolio et / ou êtes évaluateur·trice \"Plaisir\";\n Nous offrons :\n\n• Une participation au développement d’un modèle de soins intégrés, impliquant la coordination et la collaboration de différents professionnels de la santé\n\n• Un travail dans un environnement agréable, au sein d’une structure à taille humaine\n\n• Les avantages de la vie en montagne tout en restant proches de centres urbains (à découvrir sous www.alpesvaudoises.ch/fr/stories/paysdenhaut)\n\n• Des conditions de travail conformes à la CCT san-vaud (13e salaire, formations, 5-6 semaines de vacances par année, etc...)\n Merci de nous faire parvenir votre dossier complet (CV, lettre de motivation, diplômes et certificats de travail) sur Jobup",
-        "en": "Situé à Château-d’Œx, à 1000 mètres d’altitude, le Pôle Santé Pays-d’Enhaut offre un large éventail de prestations hospitalières, d’hébergement, d’accompagnement de la personne âgée, ainsi que des soins à domicile. Selon l’approche dite de soins intégrés, cette organisation novatrice représente une opportunité pour les professionnel·le·s de la santé de travailler au sein de petites équipes multidisciplinaires, pour une meilleure continuité des soins et en réponse aux besoins de santé de la population du Pays-d’Enhaut.\n Au cœur d’un environnement naturel privilégié, à moins d’une heure de Lausanne ou de Berne, le Pays-d’Enhaut est réputé pour la qualité de son cadre de vie et offre un très large éventail d’activités sportives, de loisirs et culturelles, à vivre été comme hiver!\n Pour compléter notre équipe du secteur hébergement qui vient d’emménager dans une nouvelle résidence accueillant 50 résidents, en court ou en long séjour, nous cherchons de suite ou à convenir un·e :\n\nInfirmier·ère (CDI - 80 à 100%)\n\nEn tant qu'Infirmier·ère rattachée à notre EMS Les Gentianes, vous avez à coeur d'assurer des prestation de soins, d'accueil et d'accompagnement de qualité pour garantir le maintien en santé et le bien-être des résident·es. Vous contribuerez également à l'optimisation de la démarche de qualité / sécurité des soins et à leur adaptation aux besoins des Résident·es et de leur famille.\n Au quotidien, vous encadrerz les équipes soignantes et mettrez en avant une culture de la gestion participative, responsabilisante et encourageant l'interdisciplinarité.\n\nVos responsabilités :\n\n• Organiser les soins de base, dispenser des soins infirmier et les actes médicaux délégues;\n\n• Contribuer activement à la dynamique d’équipe en organisant et supervisant l'équipe soignante dans leur tâches courantes\n\n• Collaborez étroitement avec les différents secteurs voisins (Cuisine, Animation socio-culturelle, etc.)\n\n• Veiller au confort et au respect des résident·es, tout en respectant les consignes liées aux mesures de contrainte et aux règles d'hygiène en vigueure;\n Votre profil :\n\n• Diplôme ES ou HES en soins infirmiers, ou titre jugé équivalent par la Croix-Rouge suisse;\n\n• Idéalement, une première expérience probante sur un poste similaire au sein d'un EMS;\n\n• Capacité d’écoute, autonomie et aptitude à gérer des situations complexes\n\n• Proactivité et aisance dans le travail en réseau\n\n• Maîtrise des outils informatiques usuels\n\n• Les sérieux atouts : vous possédez un CAS de Practicien·ne Formateur·trice (PF), avez de l'expérience sur CareFolio et / ou êtes évaluateur·trice \"Plaisir\";\n Nous offrons :\n\n• Une participation au développement d’un modèle de soins intégrés, impliquant la coordination et la collaboration de différents professionnels de la santé\n\n• Un travail dans un environnement agréable, au sein d’une structure à taille humaine\n\n• Les avantages de la vie en montagne tout en restant proches de centres urbains (à découvrir sous www.alpesvaudoises.ch/fr/stories/paysdenhaut)\n\n• Des conditions de travail conformes à la CCT san-vaud (13e salaire, formations, 5-6 semaines de vacances par année, etc...)\n Merci de nous faire parvenir votre dossier complet (CV, lettre de motivation, diplômes et certificats de travail) sur Jobup",
-        "de": "Situé à Château-d’Œx, à 1000 mètres d’altitude, le Pôle Santé Pays-d’Enhaut offre un large éventail de prestations hospitalières, d’hébergement, d’accompagnement de la personne âgée, ainsi que des soins à domicile. Selon l’approche dite de soins intégrés, cette organisation novatrice représente une opportunité pour les professionnel·le·s de la santé de travailler au sein de petites équipes multidisciplinaires, pour une meilleure continuité des soins et en réponse aux besoins de santé de la population du Pays-d’Enhaut.\n Au cœur d’un environnement naturel privilégié, à moins d’une heure de Lausanne ou de Berne, le Pays-d’Enhaut est réputé pour la qualité de son cadre de vie et offre un très large éventail d’activités sportives, de loisirs et culturelles, à vivre été comme hiver!\n Pour compléter notre équipe du secteur hébergement qui vient d’emménager dans une nouvelle résidence accueillant 50 résidents, en court ou en long séjour, nous cherchons de suite ou à convenir un·e :\n\nInfirmier·ère (CDI - 80 à 100%)\n\nEn tant qu'Infirmier·ère rattachée à notre EMS Les Gentianes, vous avez à coeur d'assurer des prestation de soins, d'accueil et d'accompagnement de qualité pour garantir le maintien en santé et le bien-être des résident·es. Vous contribuerez également à l'optimisation de la démarche de qualité / sécurité des soins et à leur adaptation aux besoins des Résident·es et de leur famille.\n Au quotidien, vous encadrerz les équipes soignantes et mettrez en avant une culture de la gestion participative, responsabilisante et encourageant l'interdisciplinarité.\n\nVos responsabilités :\n\n• Organiser les soins de base, dispenser des soins infirmier et les actes médicaux délégues;\n\n• Contribuer activement à la dynamique d’équipe en organisant et supervisant l'équipe soignante dans leur tâches courantes\n\n• Collaborez étroitement avec les différents secteurs voisins (Cuisine, Animation socio-culturelle, etc.)\n\n• Veiller au confort et au respect des résident·es, tout en respectant les consignes liées aux mesures de contrainte et aux règles d'hygiène en vigueure;\n Votre profil :\n\n• Diplôme ES ou HES en soins infirmiers, ou titre jugé équivalent par la Croix-Rouge suisse;\n\n• Idéalement, une première expérience probante sur un poste similaire au sein d'un EMS;\n\n• Capacité d’écoute, autonomie et aptitude à gérer des situations complexes\n\n• Proactivité et aisance dans le travail en réseau\n\n• Maîtrise des outils informatiques usuels\n\n• Les sérieux atouts : vous possédez un CAS de Practicien·ne Formateur·trice (PF), avez de l'expérience sur CareFolio et / ou êtes évaluateur·trice \"Plaisir\";\n Nous offrons :\n\n• Une participation au développement d’un modèle de soins intégrés, impliquant la coordination et la collaboration de différents professionnels de la santé\n\n• Un travail dans un environnement agréable, au sein d’une structure à taille humaine\n\n• Les avantages de la vie en montagne tout en restant proches de centres urbains (à découvrir sous www.alpesvaudoises.ch/fr/stories/paysdenhaut)\n\n• Des conditions de travail conformes à la CCT san-vaud (13e salaire, formations, 5-6 semaines de vacances par année, etc...)\n Merci de nous faire parvenir votre dossier complet (CV, lettre de motivation, diplômes et certificats de travail) sur Jobup"
+        "it": "Situato a Château-d-Oex, ad un'altitudine di 1000 metri, il Country-d-Enhaut Health Centre offre una vasta gamma di servizi ospedalieri, sistemazioni, accompagnamento per gli anziani e la cura della casa. Secondo il cosiddetto approccio integrato alla cura, questa organizzazione innovativa rappresenta un'opportunità per i professionisti della salute di lavorare in piccoli team multidisciplinari, per una migliore continuità di cura e in risposta alle esigenze sanitarie della popolazione dell'Alto Paese.\nNel cuore di un ambiente naturale privilegiato, a meno di un'ora di distanza da Losanna o Berna, il Pays-d'Enhaut è rinomato per la sua qualità di vita e offre una vasta gamma di attività sportive, ricreative e culturali, per vivere l'estate e l'inverno!\nPer completare il nostro team nel settore immobiliare, che si è appena trasferito in una nuova residenza con 50 residenti, in breve o lungo soggiorno, stiamo cercando una soluzione:\n\nInfermiera (CDI - 80 al 100%)\n\nCome infermiera attaccata al nostro SME Les Gentianes, si è impegnati a fornire assistenza di qualità, ospitalità e supporto per garantire la salute e il benessere dei residenti. Contribuirai anche all'ottimizzazione dell'approccio di qualità/sicurezza della cura e al loro adattamento alle esigenze dei residenti e delle loro famiglie.\nSu base giornaliera, si allenano i team di assistenza sanitaria e mettere in evidenza una cultura di gestione partecipativa, reattiva e interdisciplinare.\n\nLe tue responsabilità:\n\n• Organizzazione di cure di base, assistenza sanitaria e procedure mediche delegate;\n\n• Contribuire attivamente alle dinamiche di squadra organizzando e supervisionando il team di assistenza nelle loro attività di routine\n\n• Lavorare a stretto contatto con i vari settori vicini (cucina, intrattenimento socio-culturale, ecc.)\n\n• garantire il comfort e il rispetto dei residenti, nel rispetto dei regolamenti relativi alle misure coercitive e alle norme igieniche in vigore;\nIl tuo profilo:\n\n• diploma ES o HES in allattamento, o qualifica equivalente dalla Croce Rossa svizzera;\n\n• Idealmente, prima esperienza di successo su una posizione simile in uno SME;\n\n• Ascolto, autonomia e capacità di gestire situazioni complesse\n\n• Proattività e facilità nel networking\n\n• Mastery di strumenti informatici comuni\n\n• I gravi vantaggi: si dispone di un Practitioner Training (FP) CAS, hanno esperienza su CareFolio e/o sono valutatori \"Plaisir\";\nOffriamo:\n\n• Partecipazione allo sviluppo di un modello di assistenza integrata, che coinvolge il coordinamento e la collaborazione di diversi operatori sanitari\n\n• Lavoro in un ambiente piacevole, all'interno di una struttura di dimensioni umane\n\n• I benefici della vita di montagna pur rimanendo vicino ai centri urbani (da scoprire sotto www.alpesvaudises.ch/en/stories/ paysdenhaut)\n\n• Condizioni di lavoro secondo il CLC san-vaud (13 ° stipendio, formazione, 5-6 settimane di vacanza all'anno, ecc...)\nInviaci il tuo file completo (CV, lettera di copertura, diplomi e certificati di lavoro) su Jobup",
+        "en": "Located in Château-d-Oex, at an altitude of 1000 metres, the Country-d-Enhaut Health Centre offers a wide range of hospital services, accommodation, accompaniment for the elderly and home care. According to the so-called integrated care approach, this innovative organization represents an opportunity for health professionals to work in small multidisciplinary teams, for better continuity of care and in response to the health needs of the population of the Upper Country.\nIn the heart of a privileged natural environment, less than an hour away from Lausanne or Bern, the Pays-d'Enhaut is renowned for its quality of life and offers a wide range of sports, leisure and cultural activities, to live summer and winter!\nTo complement our team in the housing sector, which has just moved into a new residence with 50 residents, in short or long stay, we are looking for a solution:\n\nNurse (CDI - 80 to 100%)\n\nAs a nurse attached to our EMS Les Gentianes, you are committed to providing quality care, hospitality and support to ensure the health and well-being of residents. You will also contribute to the optimisation of the care quality/safety approach and their adaptation to the needs of residents and their families.\nOn a daily basis, you will coach the health care teams and highlight a culture of participatory, responsive and interdisciplinary management.\n\nYour responsibilities:\n\n• Organizing basic care, nursing care and delegated medical procedures;\n\n• Actively contribute to team dynamics by organizing and supervising the care team in their routine tasks\n\n• Work closely with the various neighbouring sectors (kitchen, socio-cultural entertainment, etc.)\n\n• To ensure the comfort and respect of residents, while complying with the regulations relating to coercive measures and hygiene rules in force;\nYour profile:\n\n• ES or HES diploma in nursing, or equivalent qualification by the Swiss Red Cross;\n\n• Ideally, first successful experience on a similar position in an EMS;\n\n• Listening, autonomy and ability to manage complex situations\n\n• Proactivity and ease in networking\n\n• Mastery of common computer tools\n\n• The serious advantages: you have a Practitioner Training (FP) CAS, have experience on CareFolio and/or are assessors \"Plaisir\";\nWe offer:\n\n• Participation in the development of an integrated care model, involving the coordination and collaboration of different health professionals\n\n• Work in a pleasant environment, within a human-sized structure\n\n• The benefits of mountain life while remaining close to urban centres (to be discovered under www.alpesvaudises.ch/en/stories/ paysdenhaut)\n\n• Working conditions according to the CLC san-vaud (13th salary, training, 5-6 weeks of vacation per year, etc...)\nPlease send us your complete file (CV, cover letter, diplomas and work certificates) on Jobup",
+        "de": "Das Hotel liegt in Château-d-Oex, auf einer Höhe von 1000 Metern, bietet das Gesundheitszentrum Country-d-Enhaut eine breite Palette von Krankenhausdienstleistungen, Unterkunft, Begleitung für ältere Menschen und häusliche Pflege. Gemäß dem sogenannten integrierten Versorgungsansatz stellt diese innovative Organisation eine Möglichkeit für Angehörige der Gesundheitsberufe dar, in kleinen multidisziplinären Teams zu arbeiten, um die Kontinuität der Versorgung zu verbessern und auf die gesundheitlichen Bedürfnisse der Bevölkerung des Oberlandes zu reagieren.\nIm Herzen einer privilegierten Natur, weniger als eine Stunde von Lausanne oder Bern entfernt, ist das Pays-d'Enhaut für seine Lebensqualität bekannt und bietet eine breite Palette an Sport-, Freizeit- und kulturellen Aktivitäten, um Sommer und Winter zu leben!\nUm unser Team im Wohnungssektor zu ergänzen, das gerade in eine neue Residenz mit 50 Einwohnern umgezogen ist, suchen wir nach einer Lösung:\n\nKrankenschwester (CDI - 80 bis 100%)\n\nAls Krankenschwester unseres EMS Les Gentianes setzen Sie sich für eine qualitativ hochwertige Pflege, Gastfreundschaft und Unterstützung ein, um die Gesundheit und das Wohlbefinden der Bewohner zu gewährleisten. Sie werden auch zur Optimierung des Pflegequalitäts- / Sicherheitsansatzes und ihrer Anpassung an die Bedürfnisse der Bewohner und ihrer Familien beitragen.\nTäglich coachen Sie die Gesundheitsteams und heben eine Kultur des partizipativen, responsiven und interdisziplinären Managements hervor.\n\nIhre Aufgaben:\n\n• Organisation von Grundversorgung, Pflege und delegierten medizinischen Verfahren;\n\n• Aktiv zur Teamdynamik beitragen, indem das Pflegeteam bei seinen Routineaufgaben organisiert und betreut wird\n\n• Enge Zusammenarbeit mit den verschiedenen benachbarten Sektoren (Küche, soziokulturelle Unterhaltung usw.)\n\n• Gewährleistung des Komforts und des Respekts der Bewohner unter Einhaltung der geltenden Vorschriften über Zwangsmaßnahmen und Hygienevorschriften;\nIhr Profil:\n\n• ES- oder HES-Diplom in Pflege oder eine gleichwertige Qualifikation des Schweizerischen Roten Kreuzes;\n\n• Idealerweise erste erfolgreiche Erfahrung auf einer ähnlichen Position in einem EMS;\n\n• Zuhören, Autonomie und Fähigkeit, komplexe Situationen zu bewältigen\n\n• Proaktivität und Leichtigkeit beim Networking\n\n• Beherrschung gemeinsamer Computer-Tools\n\n• Die gravierenden Vorteile: Sie haben ein Practitioner Training (FP) CAS, haben Erfahrung mit CareFolio und / oder sind Assessoren \"Plaisir\";\nWir bieten:\n\n• Beteiligung an der Entwicklung eines integrierten Versorgungsmodells, das die Koordination und Zusammenarbeit verschiedener Gesundheitsexperten umfasst\n\n• Arbeiten in einer angenehmen Umgebung, innerhalb einer menschlichen Struktur\n\n• Die Vorteile des Berglebens in der Nähe von Stadtzentren (zu entdecken unter www.alpesvaudises.ch/de/stories/paysdenhaut)\n\n• Arbeitsbedingungen nach CLC san-vaud (13. Gehalt, Ausbildung, 5-6 Wochen Urlaub pro Jahr, etc...)\nBitte senden Sie uns Ihre vollständige Datei (CV, Anschreiben, Diplome und Arbeitszertifikate) auf Jobup",
+        "fr": "Situé à Château-d’Œx, à 1000 mètres d’altitude, le Pôle Santé Pays-d’Enhaut offre un large éventail de prestations hospitalières, d’hébergement, d’accompagnement de la personne âgée, ainsi que des soins à domicile. Selon l’approche dite de soins intégrés, cette organisation novatrice représente une opportunité pour les professionnel·le·s de la santé de travailler au sein de petites équipes multidisciplinaires, pour une meilleure continuité des soins et en réponse aux besoins de santé de la population du Pays-d’Enhaut.\nAu cœur d’un environnement naturel privilégié, à moins d’une heure de Lausanne ou de Berne, le Pays-d’Enhaut est réputé pour la qualité de son cadre de vie et offre un très large éventail d’activités sportives, de loisirs et culturelles, à vivre été comme hiver!\nPour compléter notre équipe du secteur hébergement qui vient d’emménager dans une nouvelle résidence accueillant 50 résidents, en court ou en long séjour, nous cherchons de suite ou à convenir un·e :\n\nInfirmier·ère (CDI - 80 à 100%)\n\nEn tant qu'Infirmier·ère rattachée à notre EMS Les Gentianes, vous avez à coeur d'assurer des prestation de soins, d'accueil et d'accompagnement de qualité pour garantir le maintien en santé et le bien-être des résident·es. Vous contribuerez également à l'optimisation de la démarche de qualité / sécurité des soins et à leur adaptation aux besoins des Résident·es et de leur famille.\nAu quotidien, vous encadrerz les équipes soignantes et mettrez en avant une culture de la gestion participative, responsabilisante et encourageant l'interdisciplinarité.\n\nVos responsabilités :\n\n• Organiser les soins de base, dispenser des soins infirmier et les actes médicaux délégues;\n\n• Contribuer activement à la dynamique d’équipe en organisant et supervisant l'équipe soignante dans leur tâches courantes\n\n• Collaborez étroitement avec les différents secteurs voisins (Cuisine, Animation socio-culturelle, etc.)\n\n• Veiller au confort et au respect des résident·es, tout en respectant les consignes liées aux mesures de contrainte et aux règles d'hygiène en vigueure;\nVotre profil :\n\n• Diplôme ES ou HES en soins infirmiers, ou titre jugé équivalent par la Croix-Rouge suisse;\n\n• Idéalement, une première expérience probante sur un poste similaire au sein d'un EMS;\n\n• Capacité d’écoute, autonomie et aptitude à gérer des situations complexes\n\n• Proactivité et aisance dans le travail en réseau\n\n• Maîtrise des outils informatiques usuels\n\n• Les sérieux atouts : vous possédez un CAS de Practicien·ne Formateur·trice (PF), avez de l'expérience sur CareFolio et / ou êtes évaluateur·trice \"Plaisir\";\nNous offrons :\n\n• Une participation au développement d’un modèle de soins intégrés, impliquant la coordination et la collaboration de différents professionnels de la santé\n\n• Un travail dans un environnement agréable, au sein d’une structure à taille humaine\n\n• Les avantages de la vie en montagne tout en restant proches de centres urbains (à découvrir sous www.alpesvaudoises.ch/fr/stories/paysdenhaut)\n\n• Des conditions de travail conformes à la CCT san-vaud (13e salaire, formations, 5-6 semaines de vacances par année, etc...)\n *\nMerci de nous faire parvenir votre dossier complet (CV, lettre de motivation, diplômes et certificats de travail) sur Jobup"
       },
-      "needsRetranslation": true,
       "location": "Château d'Oex",
       "canton": "VD",
       "url": "https://www.jobup.ch/fr/emplois/detail/7275b3d8-165a-4ceb-9701-df50c6e890ee/",
       "source": "Pôle Santé Pays-d'Enhaut Dedicated Parser (jobup.ch feed hpe)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-06T21:23:39.705Z",
+      "crawledAt": "2026-11-07T21:16:11.444Z",
       "addressLocality": "Château d'Oex",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -337,9 +336,22 @@
       "postingDateSource": "reported",
       "applyUrl": "https://www.jobup.ch/fr/emplois/detail/7275b3d8-165a-4ceb-9701-df50c6e890ee/",
       "requirements": [],
-      "requirementsByLocale": {
-        "fr": []
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "infirmier-ere-cdi-80-a-100-pole-sante-pays-enhaut-chateau-d-oex"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "infirmier-ere-cdi-80-a-100-pole-sante-pays-enhaut-chateau-d-oex"
+        ],
+        "en": [
+          "infirmier-ere-cdi-80-a-100-pole-sante-pays-enhaut-chateau-d-oex"
+        ],
+        "de": [
+          "infirmier-ere-cdi-80-a-100-pole-sante-pays-enhaut-chateau-d-oex"
+        ]
       },
+      "firstSeenAt": "2026-11-06T21:23:39.705Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
       "salarySource": "estimated",
@@ -355,9 +367,8 @@
       },
       "streetAddress": "Château d'Oex",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-04T21:23:39.705Z",
-      "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-06T21:23:39.705Z"
+      "validThrough": "2027-02-04T21:16:11.444Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "pole-sante-pays-enhaut-b434c2ee628a",
@@ -390,7 +401,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/81d3dade-8280-4885-8e6a-0f9ddefb394a/",
       "source": "Pôle Santé Pays-d'Enhaut Dedicated Parser (jobup.ch feed hpe)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-06T21:23:39.072Z",
+      "crawledAt": "2026-11-07T21:16:10.783Z",
       "addressLocality": "Château d'Oex",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -441,7 +452,7 @@
       },
       "streetAddress": "Château d'Oex",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-26T21:23:39.072Z",
+      "validThrough": "2027-01-26T21:16:10.783Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -475,7 +486,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/1494a82d-7426-4087-bd30-6408f424346f/",
       "source": "Pôle Santé Pays-d'Enhaut Dedicated Parser (jobup.ch feed hpe)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-06T21:23:38.466Z",
+      "crawledAt": "2026-11-07T21:16:10.085Z",
       "addressLocality": "Château d'Oex",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -526,7 +537,7 @@
       },
       "streetAddress": "Château d'Oex",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-24T21:23:38.466Z",
+      "validThrough": "2027-01-24T21:16:10.085Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -560,7 +571,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/7059af5f-3d61-4594-bcd6-bf1b78f9acf2/",
       "source": "Pôle Santé Pays-d'Enhaut Dedicated Parser (jobup.ch feed hpe)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-06T21:23:37.767Z",
+      "crawledAt": "2026-11-07T21:16:09.417Z",
       "addressLocality": "Château d'Oex",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -611,7 +622,7 @@
       },
       "streetAddress": "Château d'Oex",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-24T21:23:37.767Z",
+      "validThrough": "2027-01-24T21:16:09.417Z",
       "validThroughSource": "last-observed-window"
     }
   ]

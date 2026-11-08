@@ -324,9 +324,15 @@ export const RC_TO_ENV = {
   INSTAGRAM_CAROUSEL_BACKGROUND_AB_ENABLED: ['INSTAGRAM_CAROUSEL_BACKGROUND_AB_ENABLED'],
   INSTAGRAM_CAROUSEL_BACKGROUND_AB_ROLLOUT_PERCENT: ['INSTAGRAM_CAROUSEL_BACKGROUND_AB_ROLLOUT_PERCENT'],
   INSTAGRAM_CAROUSEL_BACKGROUND_AB_VARIANTS: ['INSTAGRAM_CAROUSEL_BACKGROUND_AB_VARIANTS'],
-  // Insights source: browser uses the authenticated Chrome Professional
-  // Dashboard on the Mac host; graph remains an explicit compatibility path.
+  // Insights source selector: browser collection remains held unless the
+  // separate Meta browser-Insights permission flag is exactly true. Graph is
+  // an explicit API selection and is not enabled by this selector alone.
   SOCIAL_ROBOT_INSIGHTS_SOURCE:        ['SOCIAL_ROBOT_INSIGHTS_SOURCE'],
+  // Browser routes require a recorded Meta express-permission basis. Missing
+  // flags fail closed; owner authorization alone does not set them.
+  META_INSTAGRAM_BROWSER_PUBLISHING_APPROVED: ['META_INSTAGRAM_BROWSER_PUBLISHING_APPROVED'],
+  META_INSTAGRAM_BROWSER_INSIGHTS_APPROVED: ['META_INSTAGRAM_BROWSER_INSIGHTS_APPROVED'],
+  META_INSTAGRAM_BROWSER_COMMUNITY_APPROVED: ['META_INSTAGRAM_BROWSER_COMMUNITY_APPROVED'],
   // Insights collection and descriptive candidate reporting. The browser
   // collector uses diagnostic (24h) and decision (72h) windows by default;
   // the legacy count/lift evaluator cannot promote until the preregistered

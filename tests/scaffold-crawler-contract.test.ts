@@ -85,9 +85,11 @@ describe('scaffold-crawler — generated contract follows employmentType', () =>
     );
 
     expect(violations.filter(({ rule }) => rule === 'R6')).toEqual([]);
-    expect(generated).toContain('sourceBackedSwissGeographyFields');
+    expect(generated).toContain('sourceBackedSwissJobAddressFields');
+    expect(generated).not.toContain('sourceBackedSwissGeographyFields');
     expect(generated).toContain('const sourceGeographyEvidence = {');
     expect(generated).toContain('const resolvedGeography = resolveSourceBackedSwissGeography(listing);');
+    expect(generated).toContain('const publicUrl = canonicalizeJobUrl(rawUrl) || rawUrl;');
     expect(generated).toContain('addressRegion,');
     expect(generated).toContain('postalCode,');
     expect(generated).toContain('streetAddress,');

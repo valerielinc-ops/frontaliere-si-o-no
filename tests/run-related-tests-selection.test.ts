@@ -353,7 +353,7 @@ describe('run-related-tests selection contract', () => {
       [segmentedReader]: "import { readFileSync } from 'node:fs'; import path from 'node:path'; const ROOT = '/repo'; export const weather = readFileSync(path.join(ROOT, 'data', 'weather-snapshot.json'), 'utf8');\n",
       [relativeReader]: "import { readFileSync } from 'node:fs'; export const weather = readFileSync(new URL('../data/weather-snapshot.json', import.meta.url), 'utf8');\n",
       [relativeSegmentedReader]: "import { readFileSync } from 'node:fs'; import path from 'node:path'; export const weather = readFileSync(path.join(__dirname, '..', 'data', 'weather-snapshot.json'), 'utf8');\n",
-      [commentOnly]: "// readFileSync('data/translation-stats-history.json')\nexport const comment = true;\n",
+      [commentOnly]: "// 📣 readFileSync('data/translation-stats-history.json')\nexport const comment = true;\n",
       [unrelated]: "import { readFileSync } from 'node:fs'; export const weather = readFileSync('data/weather-snapshot.json', 'utf8');\n",
     });
 

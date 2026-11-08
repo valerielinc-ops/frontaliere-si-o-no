@@ -8,13 +8,18 @@
  */
 import fs from 'node:fs';
 import path from 'node:path';
-import { describe, expect, it } from 'vitest';
-import { extractRsbjDetailText } from '../scripts/lib/rsbj-job-parser.mjs';
+import { afterEach, describe, expect, it, vi } from 'vitest';
+import { extractRsbjDetailText, fetchAllRsbjJobs } from '../scripts/lib/rsbj-job-parser.mjs';
 
 const DETAIL = fs.readFileSync(
   path.join(__dirname, 'fixtures', 'rsbj', 'detail-medecins-fmh.html'),
   'utf8',
 );
+
+afterEach(() => {
+  vi.unstubAllEnvs();
+  vi.unstubAllGlobals();
+});
 
 describe('extractRsbjDetailText', () => {
   it('starts with the offer facts, not the header menu or the side column', () => {
@@ -39,5 +44,26 @@ describe('extractRsbjDetailText', () => {
 
   it('returns an empty string for a page without an offer body', () => {
     expect(extractRsbjDetailText('<ul><li>Horaires</li></ul><div class="wysiwyg classic"><p>Menu</p></div>')).toBe('');
+  });
+});
+
+describe('fetchAllRsbjJobs', () => {
+  it('retries a transient listing 503 before failing the crawler', async () => {
+    const listing = '<a href="jcms/rsbj_123/fr/infirmier" class="vignette-a" data-jalios-id=\'rsbj_123\'><div class="title">Infirmier diplômé<br>CDI 100%</div></a>';
+    const detail = '<div class="fullDisplay"><div class="publication-metas">Date entrée 01.09.2026</div><div class="wysiwyg"><p>Le RSBJ recherche un-e infirmier-ère pour son équipe de soins.</p></div></div>';
+    const fetcher = vi.fn()
+      .mockResolvedValueOnce(new Response('temporarily unavailable', { status: 503 }))
+      .mockResolvedValueOnce(new Response(listing))
+      .mockResolvedValueOnce(new Response(detail));
+
+    vi.stubEnv('JOBS_CRAWLER_RETRIES', '1');
+    vi.stubEnv('JOBS_CRAWLER_RETRY_BASE_MS', '0');
+    vi.stubGlobal('fetch', fetcher);
+
+    const jobs = await fetchAllRsbjJobs();
+
+    expect(jobs).toHaveLength(1);
+    expect(jobs[0]).toMatchObject({ companyKey: 'rsbj', title: 'Infirmier diplômé' });
+    expect(fetcher).toHaveBeenCalledTimes(3);
   });
 });

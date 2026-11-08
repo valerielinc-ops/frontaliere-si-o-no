@@ -49,6 +49,7 @@ function carouselLedger(queueId = 'article-1', creativeId = 'proof-local', publi
 describe('Instagram experiment status', () => {
   it('counts a five-card carousel as one published post', () => {
     const status = buildExperimentStatus({
+      insightsSource: 'graph',
       ledger: { posted: carouselLedger() },
       asOf: AS_OF,
       hasCredentials: true,
@@ -62,6 +63,7 @@ describe('Instagram experiment status', () => {
 
   it('surfaces a pending Reel and preserves its creative mechanism', () => {
     const status = buildExperimentStatus({
+      insightsSource: 'graph',
       queue: {
         pending: [{
           id: 'reel-relative',
@@ -96,6 +98,7 @@ describe('Instagram experiment status', () => {
 
   it('does not report a queue item that the ledger already published for the same kind-day', () => {
     const status = buildExperimentStatus({
+      insightsSource: 'graph',
       ledger: { posted: carouselLedger('article-1', 'proof-local', new Date(AS_OF_MS - (4 * 24 * 3_600_000)).toISOString()) },
       queue: {
         pending: [{
@@ -118,6 +121,7 @@ describe('Instagram experiment status', () => {
 
   it('makes the Meta credential blocker explicit before claiming a result', () => {
     const status = buildExperimentStatus({
+      insightsSource: 'graph',
       ledger: { posted: carouselLedger() },
       asOf: AS_OF,
       hasCredentials: false,
@@ -148,6 +152,7 @@ describe('Instagram experiment status', () => {
     };
 
     const status = buildExperimentStatus({
+      insightsSource: 'graph',
       ledger: { posted },
       insights,
       asOf: AS_OF,
@@ -175,6 +180,7 @@ describe('Instagram experiment status', () => {
 
   it('does not let a non-target window count as a 72h observation', () => {
     const status = buildExperimentStatus({
+      insightsSource: 'graph',
       ledger: { posted: carouselLedger() },
       insights: { posts: [{ id: 'media-1', queueId: 'article-1', windowHours: 24 }] },
       asOf: AS_OF,
@@ -188,6 +194,7 @@ describe('Instagram experiment status', () => {
 
   it('does not count a timestamp-inferred ledger match as a measured creative observation', () => {
     const status = buildExperimentStatus({
+      insightsSource: 'graph',
       ledger: { posted: carouselLedger() },
       insights: {
         posts: [{
@@ -220,6 +227,7 @@ describe('Instagram experiment status', () => {
       backgroundLabel: 'Carta calda',
     }));
     const status = buildExperimentStatus({
+      insightsSource: 'graph',
       ledger: { posted: [...navy, ...paper] },
       insights: {
         posts: [
@@ -239,6 +247,7 @@ describe('Instagram experiment status', () => {
 
   it('flags conflicting creative metadata instead of attributing an observation', () => {
     const status = buildExperimentStatus({
+      insightsSource: 'graph',
       ledger: {
         posted: [
           ledgerEntry({ id: 'card-1', creativeId: 'proof-local' }),

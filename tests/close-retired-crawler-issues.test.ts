@@ -14,10 +14,14 @@ import { describe, it, expect, vi, beforeEach } from 'vitest';
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
+import { hydrateGhBodyFileArgs } from './helpers/ghBodyFile';
 
 const execFileSync = vi.fn();
 vi.mock('node:child_process', () => {
-  const mock = { execFileSync: (...args: unknown[]) => execFileSync(...args) };
+  const mock = {
+    execFileSync: (cmd: string, args: string[], ...rest: unknown[]) =>
+      execFileSync(cmd, hydrateGhBodyFileArgs(args), ...rest),
+  };
   return { ...mock, default: mock };
 });
 

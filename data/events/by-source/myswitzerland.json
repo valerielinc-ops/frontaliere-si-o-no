@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "sourceKey": "myswitzerland",
   "sourceName": "MySwitzerland",
-  "assembledAt": "2026-11-06T13:38:47.048Z",
+  "assembledAt": "2026-11-07T12:22:49.287Z",
   "events": [
     {
       "id": "myswitzerland:c04dc58cdaf845e0a02375c9baff1584",
@@ -70626,27 +70626,28 @@
         "de": "Der magische Turm",
         "fr": "La tour magique"
       },
-      "startDate": "2026-05-28",
+      "startDate": "2026-10-29",
       "endDate": "2026-11-26",
-      "startTime": "20:00",
-      "category": "Theater",
-      "venue": "Schloss Thun",
+      "category": "Event",
+      "venue": "Thun",
       "comune": "Thun",
       "canton": "BE",
-      "url": "https://www.myswitzerland.com/en-ch/experiences/events/der-magische-turm/",
+      "url": "https://www.myswitzerland.com/it-ch/scoprire-la-svizzera/manifestazioni/der-magische-turm/",
       "sourceKey": "myswitzerland",
       "sourceName": "MySwitzerland",
-      "address": {
-        "street": "Schlossberg 1",
-        "postalCode": "3600",
-        "locality": "Thun"
-      },
       "geo": {
         "lat": 46.7598366,
         "lng": 7.6299651
       },
       "recurring": true,
-      "sourceDescriptionHash": "09afce0df3f3f7ae67eb1e9f9dfc8e6b8c253ee6d4fd96d03784cb9933a655e3"
+      "sourceDescriptionHash": "09afce0df3f3f7ae67eb1e9f9dfc8e6b8c253ee6d4fd96d03784cb9933a655e3",
+      "previousRoutes": [
+        {
+          "canton": "BE",
+          "comune": "Thun",
+          "slug": "la-torre-magica-2026-05-28"
+        }
+      ]
     },
     {
       "id": "myswitzerland:99342fbac7c8475ab1a4c3111f9c8690",
@@ -239500,12 +239501,11 @@
       },
       "startDate": "2027-08-28",
       "endDate": "2027-08-28",
-      "startTime": "00:00",
-      "category": "Sports",
-      "venue": "Talboden",
+      "category": "Event",
+      "venue": "Lenk i.S. (Lenk im Simmental)",
       "comune": "Lenk",
       "canton": "BE",
-      "url": "https://www.myswitzerland.com/en-ch/experiences/events/bierwanderung-lenk/",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/bierwanderung-lenk/",
       "sourceKey": "myswitzerland",
       "sourceName": "MySwitzerland",
       "geo": {
@@ -239513,15 +239513,6 @@
         "lng": 7.441035
       },
       "recurring": false,
-      "organizer": {
-        "@type": "Organization",
-        "name": "Frau Agnes Britschgi",
-        "url": "https://www.myswitzerland.com/en-ch/experiences/events/bierwanderung-lenk/"
-      },
-      "performer": {
-        "@type": "Organization",
-        "name": "Talboden"
-      },
       "sourceDescriptionHash": "c0110291aa2883a06ed3f73a9dfe6d523333ae36ea9125ecfe0b86760b8a734e"
     },
     {
@@ -273489,6 +273480,418 @@
       },
       "recurring": false,
       "sourceDescriptionHash": "2c5cc8ee90de335102d6457b6be044cd5eae8b64cc98ec601abbb12ef63bc10d"
+    },
+    {
+      "id": "myswitzerland:9e1f5ae989784623a89743be066fc30b",
+      "title": "Chorkonzert",
+      "titleByLocale": {
+        "it": "Chorkonzert",
+        "en": "Chorkonzert",
+        "de": "Chorkonzert",
+        "fr": "Chorkonzert"
+      },
+      "startDate": "2026-11-22",
+      "endDate": "2026-11-22",
+      "category": "Event",
+      "venue": "Bad Zurzach",
+      "comune": "Zurzach",
+      "canton": "AG",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/chorkonzert/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.587346,
+        "lng": 8.2927416
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "e0d2ac633a7facc8bb73fe008851229b89e5329e3e8f7724b642e627ce6e583c"
+    },
+    {
+      "id": "myswitzerland:9d440ee7e346471faf313313a605f7fc",
+      "title": "Concerto d'Avvento, \"Trio Bastian\"",
+      "titleByLocale": {
+        "it": "Concerto d'Avvento, \"Trio Bastian\"",
+        "en": "Concerto d'Avvento, \"Trio Bastian\"",
+        "de": "Concerto d'Avvento, \"Trio Bastian\"",
+        "fr": "Concerto d'Avvento, \"Trio Bastian\""
+      },
+      "startDate": "2026-12-05",
+      "endDate": "2026-12-05",
+      "category": "Event",
+      "venue": "Poschiavo",
+      "comune": "Poschiavo",
+      "canton": "GR",
+      "url": "https://www.myswitzerland.com/it-ch/scoprire-la-svizzera/manifestazioni/concerto-davvento-trio-bastian/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.3271944,
+        "lng": 10.0582837
+      },
+      "recurring": false,
+      "italianFrontierComuni": [
+        "Tirano",
+        "Villa di Tirano"
+      ],
+      "sourceDescriptionHash": "bb45fa841f2df87ae17a2d2445354054892b305f8d7b2e6a11d24b8eb83a5d9d"
+    },
+    {
+      "id": "myswitzerland:9d27657c37db4de7b1e94e1851cdd3e7",
+      "title": "Intelligent People, by Marc Fayet, translated by Gustave",
+      "titleByLocale": {
+        "it": "Intelligent People, by Marc Fayet, translated by Gustave",
+        "en": "Intelligent People, by Marc Fayet, translated by Gustave",
+        "de": "„Intelligente Menschen“ von Marc Fayet, herausgegeben von Gustave",
+        "fr": "Des gens intelligents - De Marc Fayet, par Le Gustave"
+      },
+      "startDate": "2026-12-03",
+      "endDate": "2026-12-19",
+      "category": "Event",
+      "venue": "La Tour-de-Peilz",
+      "comune": "La Tour-de-Peilz",
+      "canton": "VD",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/intelligent-people-by-marc-fayet-translated-by-gustave/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.4533909,
+        "lng": 6.8556599
+      },
+      "recurring": true,
+      "performer": {
+        "name": "Chloé"
+      },
+      "sourceDescriptionHash": "16e94c5f94ba9bf7e41d2fe823650d1a8b64c114b4d82f389e48370b951227c8"
+    },
+    {
+      "id": "myswitzerland:9cf4aabc3e4140768c47d0e5cc8259c3",
+      "title": "Jürg Halter – «Mensch»",
+      "titleByLocale": {
+        "it": "Jürg Halter – «Mensch»",
+        "en": "Jürg Halter – «Mensch»",
+        "de": "Jürg Halter – «Mensch»",
+        "fr": "Jürg Halter – «Mensch»"
+      },
+      "startDate": "2027-04-02",
+      "endDate": "2027-04-02",
+      "category": "Event",
+      "venue": "Zug",
+      "comune": "Zug",
+      "canton": "ZG",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/juerg-halter-mensch-1/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.181587,
+        "lng": 8.4838031
+      },
+      "recurring": false,
+      "performer": [
+        {
+          "name": "Stephan Eicher"
+        },
+        {
+          "name": "Polo Hofer"
+        }
+      ],
+      "sourceDescriptionHash": "64461fc2d5a59d96515e7d8dea809273955837e4dbd13504dafbe211299eba6f"
+    },
+    {
+      "id": "myswitzerland:9bedcbdfd8ba44209f9a478c5f1edaf3",
+      "title": "Küss den Frosch ein Märchen auf Rollschuhen",
+      "titleByLocale": {
+        "it": "Küss den Frosch ein Märchen auf Rollschuhen",
+        "en": "Küss den Frosch ein Märchen auf Rollschuhen",
+        "de": "Küss den Frosch ein Märchen auf Rollschuhen",
+        "fr": "Küss den Frosch ein Märchen auf Rollschuhen"
+      },
+      "startDate": "2026-11-21",
+      "endDate": "2026-11-22",
+      "category": "Event",
+      "venue": "Zurich",
+      "comune": "Zürich",
+      "canton": "ZH",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/kuess-den-frosch-ein-maerchen-auf-rollschuhen/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.420618,
+        "lng": 8.511961
+      },
+      "recurring": true,
+      "sourceDescriptionHash": "ec8d0c1e8d8c203b69d5483a889388bbdcc34174ed0ce1bc79c633bce30d7e66"
+    },
+    {
+      "id": "myswitzerland:9b83e14d1e01482494f034b3d0ef5098",
+      "title": "Serata Oldies ad Aarwangen Sabato 14 novembre 2026",
+      "titleByLocale": {
+        "it": "Serata Oldies ad Aarwangen Sabato 14 novembre 2026",
+        "en": "Oldies Night in Aarwangen Saturday, November 14, 2026",
+        "de": "Oldies Night Aarwangen Samstag ,14.November 2026",
+        "fr": "Soirée Oldies à Aarwangen Samedi 14 novembre 2026"
+      },
+      "startDate": "2026-11-14",
+      "endDate": "2026-11-15",
+      "category": "Event",
+      "venue": "Aarwangen",
+      "comune": "Aarwangen",
+      "canton": "BE",
+      "url": "https://www.myswitzerland.com/it-ch/scoprire-la-svizzera/manifestazioni/serata-oldies-ad-aarwangen-sabato-14-novembre-2026/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.2349964,
+        "lng": 7.7683415
+      },
+      "recurring": true,
+      "performer": [
+        {
+          "name": "Rock’n’Roll"
+        },
+        {
+          "name": "Disco-Klassikern"
+        }
+      ],
+      "sourceDescriptionHash": "74a5313853242d1cbff0908116edbd51712872490db05930ca39377b81478e83"
+    },
+    {
+      "id": "myswitzerland:9b5b214b8fe349d88615a875523e0bb4",
+      "title": "Aqua Mystica",
+      "titleByLocale": {
+        "it": "Aqua Mystica",
+        "en": "Aqua Mystica",
+        "de": "Aqua Mystica",
+        "fr": "Aqua Mystica"
+      },
+      "startDate": "2026-12-12",
+      "endDate": "2027-03-13",
+      "category": "Event",
+      "venue": "Leukerbad",
+      "comune": "Leukerbad",
+      "canton": "VS",
+      "url": "https://www.myswitzerland.com/it-ch/scoprire-la-svizzera/manifestazioni/aqua-mystica/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.3779012,
+        "lng": 7.6253773
+      },
+      "recurring": true,
+      "sourceDescriptionHash": "2e983637028917f1e8250458ee9ed9a4982e11d7b044ab31f2af0efa4d1d8e4f"
+    },
+    {
+      "id": "myswitzerland:9b44678a81b841e1be9b686b63bb57af",
+      "title": "Adventsbasteln",
+      "titleByLocale": {
+        "it": "Adventsbasteln",
+        "en": "Adventsbasteln",
+        "de": "Adventsbasteln",
+        "fr": "Adventsbasteln"
+      },
+      "startDate": "2026-11-18",
+      "endDate": "2026-11-18",
+      "category": "Event",
+      "venue": "Rüti ZH",
+      "comune": "Rüti (ZH)",
+      "canton": "ZH",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/adventsbasteln/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.2595295,
+        "lng": 8.8474139
+      },
+      "recurring": false,
+      "performer": {
+        "name": "Geschichten"
+      },
+      "sourceDescriptionHash": "becaf60a0777aeb036d984a9772c7f6044a2f782a3818f359079a5a4ef963074"
+    },
+    {
+      "id": "myswitzerland:9b279d950a2e47a8892ebbb00e6e0955",
+      "title": "tunSolothurn.ch",
+      "titleByLocale": {
+        "it": "tunSolothurn.ch",
+        "en": "tunSolothurn.ch",
+        "de": "tunSolothurn.ch",
+        "fr": "tunSolothurn.ch"
+      },
+      "startDate": "2026-11-12",
+      "endDate": "2026-11-18",
+      "category": "Event",
+      "venue": "Derendingen",
+      "comune": "Derendingen",
+      "canton": "SO",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/tunsolothurnch/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.1969103,
+        "lng": 7.5970101
+      },
+      "recurring": true,
+      "sourceDescriptionHash": "9ac49c328d7a01d5914bf36dd164fd4d11e1dc15e7d511f1cb7fbaa732d5497c"
+    },
+    {
+      "id": "myswitzerland:9b03aaf83c1945159b7c7b9c5e8b3c74",
+      "title": "Nutrition workshop",
+      "titleByLocale": {
+        "it": "Nutrition workshop",
+        "en": "Nutrition workshop",
+        "de": "Ernährungsworkshop",
+        "fr": "Atelier de nutrition"
+      },
+      "startDate": "2026-11-07",
+      "endDate": "2026-11-07",
+      "category": "Event",
+      "venue": "Arosa",
+      "comune": "Arosa",
+      "canton": "GR",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/nutrition-workshop-1/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.7766245,
+        "lng": 9.6734815
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "e27d80e6dea58ba599ce313db90344ed88d5197ca11c68ecd7b5485f0afe5e60"
+    },
+    {
+      "id": "myswitzerland:9acaa2f58c0c42d2b3f4c7c7bdfb6dbf",
+      "title": "Zischtig Karaoke in der Gemmi Taverne",
+      "titleByLocale": {
+        "it": "Zischtig Karaoke in der Gemmi Taverne",
+        "en": "Zischtig Karaoke in der Gemmi Taverne",
+        "de": "Zischtig Karaoke in der Gemmi Taverne",
+        "fr": "Zischtig Karaoke in der Gemmi Taverne"
+      },
+      "startDate": "2026-11-10",
+      "endDate": "2026-11-24",
+      "category": "Event",
+      "venue": "Kandersteg",
+      "comune": "Kandersteg",
+      "canton": "BE",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/karaoke-2/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.4786659,
+        "lng": 7.6644832
+      },
+      "recurring": true,
+      "performer": {
+        "name": "Publikum"
+      },
+      "sourceDescriptionHash": "7f1ee7591cb471e117f29bb351a47d1f9c44742cc7dd04d798a13a7bc392de03"
+    },
+    {
+      "id": "myswitzerland:9ac0c9006ec54540b01078df6f076e7e",
+      "title": "La Chaux-de-Fonds Christmas Market",
+      "titleByLocale": {
+        "it": "La Chaux-de-Fonds Christmas Market",
+        "en": "La Chaux-de-Fonds Christmas Market",
+        "de": "La Chaux-de-Fonds Weihnachtsmarkt",
+        "fr": "Marché de Noël de La Chaux-de-Fonds"
+      },
+      "startDate": "2026-12-12",
+      "endDate": "2026-12-20",
+      "category": "Event",
+      "venue": "La Chaux-de-Fonds",
+      "comune": "La Chaux-de-Fonds",
+      "canton": "NE",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/la-chaux-de-fonds-christmas-market/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.1039744,
+        "lng": 6.8310948
+      },
+      "recurring": true,
+      "sourceDescriptionHash": "5c6e7e71f712912ffb7400776e789f49b4ac7f500ba9015e1b69ba1fd3611a7e"
+    },
+    {
+      "id": "myswitzerland:9a99a02a7d3140b09d271ba236917112",
+      "title": "Menu di Capodanno per buongustai con brindisi sulla piazza del Duomo di Arlesheim",
+      "titleByLocale": {
+        "it": "Menu di Capodanno per buongustai con brindisi sulla piazza del Duomo di Arlesheim",
+        "en": "New Year's Eve Menu for Foodies, Featuring a Toast on Arlesheim's Cathedral Square",
+        "de": "Silvester Menu für Geniesser mit Anstossen auf dem Arlesheimer Domplatz",
+        "fr": "Menu de la Saint-Sylvestre pour les gourmets, avec un toast sur la place de la cathédrale d'Arlesheim"
+      },
+      "startDate": "2026-12-31",
+      "endDate": "2026-12-31",
+      "category": "Event",
+      "venue": "Arlesheim",
+      "comune": "Arlesheim",
+      "canton": "BL",
+      "url": "https://www.myswitzerland.com/it-ch/scoprire-la-svizzera/manifestazioni/menu-di-capodanno-per-buongustai-con-brindisi-sulla-piazza-del-duomo-di-arlesheim/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.493378,
+        "lng": 7.6213133
+      },
+      "recurring": false,
+      "performer": [
+        {
+          "name": "Familie"
+        },
+        {
+          "name": "Freunden"
+        }
+      ],
+      "sourceDescriptionHash": "bfe480a06d3cfc3bad2cabd47513fdcf8e7d3828bb79f87303b60025194e1441"
+    },
+    {
+      "id": "myswitzerland:9a05e77d7c9f4498b2071cb5ed790644",
+      "title": "Nourrir l’humanité c’est un métier",
+      "titleByLocale": {
+        "it": "Nourrir l’humanité c’est un métier",
+        "en": "Nourrir l’humanité c’est un métier",
+        "de": "Nourrir l’humanité c’est un métier",
+        "fr": "Nourrir l’humanité c’est un métier"
+      },
+      "startDate": "2027-05-21",
+      "endDate": "2027-05-21",
+      "category": "Event",
+      "venue": "Le Locle",
+      "comune": "Le Locle",
+      "canton": "NE",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/nourrir-lhumanite-cest-un-metier-1/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.0556758,
+        "lng": 6.7431818
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "1d74284f8d6b171d5d0fbcfd6753299d7dfdeae86fa51fcd7046f04f48fa328d"
+    },
+    {
+      "id": "myswitzerland:988da3c8f7f5499c8c15217a7ecab06c",
+      "title": "General public tour adapted for people with visual impairment",
+      "titleByLocale": {
+        "it": "General public tour adapted for people with visual impairment",
+        "en": "General public tour adapted for people with visual impairment",
+        "de": "General public tour adapted for people with visual impairment",
+        "fr": "Visite tout public adaptée aux personnes en situation de handicap visuel"
+      },
+      "startDate": "2027-03-20",
+      "endDate": "2027-03-20",
+      "category": "Event",
+      "venue": "Lausanne",
+      "comune": "Lausanne",
+      "canton": "VD",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/general-public-tour-adapted-for-people-with-visual-impairment/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.5274822,
+        "lng": 6.6247755
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "60e8bbb99e0a6d04aaf19c5eb63e1a280c50a51885a59db07bad746a8c379d08"
     }
   ]
 }

@@ -23,7 +23,7 @@ import { fmtMinutes } from '../../services/borderWaitFormat.ts';
 import { SITE_URL, buildArticleUrl, MONTHS_IT } from './social-post-utils.mjs';
 import { escapeHtml } from './telegram-client.mjs';
 import { telegramUrl, TELEGRAM_CAMPAIGN_BORDER } from './telegram-links.mjs';
-import { socialCopyTrackingContent } from './social-copy-pack.mjs';
+import { isGeneratedSocialCopyMode, socialCopyTrackingContent } from './social-copy-pack.mjs';
 import {
   computeRanking,
   computeWeekWindow,
@@ -89,7 +89,7 @@ export function buildWeeklyBorderDigest({ historyDir, todayIso, days = DEFAULT_W
   const fastest = known.slice(0, TELEGRAM_BORDER_TOP);
   const slowest = known.slice(-TELEGRAM_BORDER_TOP).reverse();
   const funFacts = computeFunFacts(known);
-  const generatedCopy = socialCopy?.copyMode === 'codex' ? socialCopy : null;
+  const generatedCopy = isGeneratedSocialCopyMode(socialCopy?.copyMode) ? socialCopy : null;
 
   const rawArticleUrl = buildArticleUrl('frontaliere', RANKING_ARTICLE_SLUGS.it);
   const articleUrl = rawArticleUrl

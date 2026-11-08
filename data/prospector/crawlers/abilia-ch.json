@@ -1,0 +1,24 @@
+{
+  "companyKey": "abilia-ch",
+  "companyName": "abilia",
+  "companyHost": "abilia.ch",
+  "verifiedEmployerDomain": "abilia.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://abilia.ch/jobs-und-ausbildung-bei-abilia/"
+  ],
+  "detailTemplate": "/stellenangebot/*/",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 2,
+  "sampleTitles": [
+    "Mehr Erfahren",
+    "Mehr Erfahren"
+  ],
+  "canton": "BS",
+  "sourceLang": "de",
+  "learnedAt": "2026-11-07T12:51:23.835Z",
+  "candidateKey": "abilia"
+}

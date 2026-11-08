@@ -1,7 +1,7 @@
 {
   "crawlerKey": "spital-limmattal",
-  "assembledAt": "2026-11-06T21:23:35.596Z",
-  "runId": "42293613300",
+  "assembledAt": "2026-11-07T21:15:48.499Z",
+  "runId": "42414192522",
   "jobs": [
     {
       "id": "spital-limmattal-41d45845a20b",
@@ -35,7 +35,7 @@
       "url": "https://apply.refline.ch/486538/0902/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T21:23:28.712Z",
+      "crawledAt": "2026-11-07T21:15:39.389Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -87,42 +87,41 @@
       },
       "streetAddress": "Schlieren",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T21:23:28.712Z",
+      "validThrough": "2027-02-03T21:15:39.389Z",
       "validThroughSource": "last-observed-window"
     },
     {
       "id": "spital-limmattal-d579a4edd43d",
-      "slug": "arztsekretarin-onkologie-80-spital-limmattal-ch",
+      "slug": "segretario-medico-oncologia-80-spital-limmattal-schlieren",
       "slugByLocale": {
+        "it": "segretario-medico-oncologia-80-spital-limmattal-schlieren",
+        "en": "medical-secretary-oncology-80-spital-limmattal-schlieren",
         "de": "arztsekretarin-onkologie-80-spital-limmattal-ch",
-        "it": "arztsekretarin-onkologie-80-spital-limmattal-ch",
-        "en": "arztsekretarin-onkologie-80-spital-limmattal-ch",
-        "fr": "arztsekretarin-onkologie-80-spital-limmattal-ch"
+        "fr": "secretaire-medical-oncologie-80-spital-limmattal-schlieren"
       },
       "company": "Spital Limmattal",
       "companyKey": "spital-limmattal",
       "companyDomain": "spital-limmattal.ch",
       "title": "Arztsekretärin Onkologie 80%",
       "titleByLocale": {
+        "it": "Segretario medico oncologia 80%",
+        "en": "Medical Secretary oncology 80%",
         "de": "Arztsekretärin Onkologie 80%",
-        "it": "Arztsekretärin Onkologie 80%",
-        "en": "Arztsekretärin Onkologie 80%",
-        "fr": "Arztsekretärin Onkologie 80%"
+        "fr": "Secrétaire médical oncologie 80%"
       },
       "description": "Nach Vereinbarung\nDas Spital Limmattal lebt von interdisziplinärer Zusammenarbeit. Die Teammitglieder der medizinischen Administration unterstützen die Ärzteschaft in allen administrativen Belangen und arbeiten ebenso mit der Pflege und sämtlichen anderen Bereichen eng zusammen Die gesamte medizinische Administration befindet sich unter einer Gesamtführung, was die interdisziplinäre Zusammenarbeit weiter stärkt und zudem vereinfacht. Ausserdem: sind Sie im LIMMI genau richtig, wenn eine familiäre Atmosphäre und ein moderner Arbeitsplatz wichtig für Sie sind.\nDirektbewerbungen werden bevorzugt, externe Stellenvermittlungsbüros werden nicht prioritär behandelt.\nHier engagieren Sie sich\n• im schreiben von Arztberichten inkl. elektronischem Versand\n• im telefonischem Kontakt zu Patienten sowie internen und externen Ansprechpartnern\n• in der Planung, Koordination und Organisation der onkologischen Sprechstunde inkl. Patientenempfang\n• in der Therapieplanung (Infusionen)\n• im zuordnen und ablegen von diversen Dokumenten\n• im organisieren der Archivierung\n• in allgemeinen Sekretariatsarbeiten\n• in der Sicherstellung der administrativen Abläufe\nSie\n• besitzen eine abgeschlossene kaufmännische Berufsausbildung mit Weiterbildung zur Arzt- und Spitalsekretärin / zum Arzt- und Spitalsekretär oder Ausbildung als MPA EFZ\n• haben Erfahrung in der Onkologie (von Vorteil)\n• besitzen Organisationstalent, Belastbarkeit und zuverlässige selbständige Arbeitsweise\n• haben sehr gute PC-Kenntnisse\n• arbeiten strukturiert und und handeln vorausdenkend\n• sind eine Empathische Persönlichkeit, die auch in hektischen oder schwierigen Situationen ausgeglichen bleibt\n• sind selbständig, zuverlässig, dienstleistungsorientiert und flexibel\nIhr neuer Arbeitsort\nUnsere Top-Lage (Limmattalbahn, 4 S-Bahnen, 1 Buslinie in unmittelbarer Nähe) wird durch das LIMMI-Mobilitätskonzept ergänzt:\n• vergünstigte Mitarbeitenden-Parkplätze\n• Motorradparkplätze, abschliessbare Veloparkplätze\n• Wir bieten mit dem ZVV-Bonus Pass / Z-Bonus Pass ein attraktives ÖV-Abonnement für Mitarbeitende an\ns'LIMMI: Ihr Partner fürs Leben\nAls bedeutender Gesundheitspartner mit umfassendem Ausbildungsauftrag übernimmt der Spitalverband Limmattal die erweiterte medizinische Grundversorgung von über 100’000 Patientinnen und Patienten jährlich, in allen Lebensphasen. Das LIMMI ist breit spezialisiert und bietet eine qualitativ hochstehende medizinische Versorgung sowie vertieftes Expertenwissen in zahlreichen chirurgischen, medizinischen und pflegerischen Fach- und Spezialdisziplinen. Der Spitalverband verfügt über 188 Betten im Akutbereich, 126 Betten in der Langzeitpflege, einen spitalgebundenen Rettungsdienst sowie neun Operationssäle und acht Intensivpflegeplätze. Mehr als 1’700 Mitarbeitende aus 58 Nationen erbringen täglich ausgezeichnete und vielfältige Leistungen.",
       "descriptionByLocale": {
+        "it": "Accordo\nL'Ospedale Limmattal prospera sulla cooperazione interdisciplinare. I membri del team dell'amministrazione medica sostengono la professione medica in tutte le questioni amministrative e lavorano a stretto contatto con l'assistenza e tutte le altre aree. L'intera amministrazione medica è sotto una leadership generale, che rafforza ulteriormente e semplifica la cooperazione interdisciplinare. Inoltre: siete esattamente nel LIMMI se un'atmosfera familiare e un luogo di lavoro moderno sono importanti per voi.\nLe domande dirette sono preferite, gli uffici di reclutamento esterni non sono trattati come una priorità.\nQui si impegnano\n• per iscritto rapporti medici compreso spedizione elettronica\n• in contatto telefonico con pazienti e persone interne ed esterne\n• nella pianificazione, coordinamento e organizzazione della consultazione oncologica incl. Ricezione paziente\n• Nella pianificazione della terapia (infusioni)\n• Assegnare e archiviare vari documenti\n• Organizzare l'archivio\n• Servizi di segreteria generale\n• assicurare le procedure amministrative\nVedi anche:\n• hanno completato la formazione professionale commerciale con un'ulteriore formazione come segretario medico e ospedaliero o formazione come MPA EFZ\n• hanno esperienza in oncologia (vantageous)\n• hanno talento organizzativo, resilienza e metodi di lavoro indipendenti affidabili\n• Avere una buona conoscenza del PC\n• lavoro strutturato e agire pensiero in avanti\n• sono una personalità empatica che rimane equilibrata anche in situazioni frenetiche o difficili\n• sono indipendenti, affidabili, orientati al servizio e flessibili\nIl tuo nuovo posto di lavoro\nLa nostra posizione top (Limmattalbahn, 4 S-Bahn, 1 linea bus nelle immediate vicinanze) è completata dal concetto di mobilità LIMMI:\n• Parcheggio ridotto dei dipendenti\n• Parcheggio moto, parcheggio biciclette chiuso\n• Con ZVV Bonus Pass / Z-Bonus Pass offriamo un attraente abbonamento di trasporto pubblico per i dipendenti\ns'LIMMI: Il tuo partner per la vita\nCome importante partner sanitario con un mandato di formazione completo, l'Associazione Ospedale Limmattal assume l'assistenza medica di base estesa di oltre 100.000 pazienti all'anno, in tutte le fasi della vita. Il LIMMI è ampiamente specializzato e offre cure mediche di alta qualità, nonché una conoscenza approfondita di esperti in numerose discipline chirurgiche, mediche e infermieristiche e specialistiche. L'associazione ospedaliera ha 188 posti letto nel settore della cura acuta, 126 posti letto in assistenza a lungo termine, un servizio di emergenza ospedaliero e nove sale operatorie e otto strutture di assistenza intensiva. Più di 1.700 dipendenti da 58 nazioni forniscono servizi eccellenti e diversificati ogni giorno.",
+        "en": "By agreement\nThe Limmattal Hospital thrives on interdisciplinary cooperation. The team members of the medical administration support the medical profession in all administrative matters and work closely together with the care and all other areas. The entire medical administration is under an overall leadership, which further strengthens and simplifies interdisciplinary cooperation. In addition: you are exactly right in the LIMMI if a family atmosphere and a modern workplace are important to you.\nDirect applications are preferred, external recruitment offices are not treated as a priority.\nHere they engage\n• in writing medical reports including electronic shipping\n• in telephone contact with patients and internal and external contact persons\n• in the planning, coordination and organization of the oncological consultation incl. Patient reception\n• In therapy planning (infusions)\n• In assigning and storing various documents\n• Organizing the archive\n• General secretarial services\n• ensuring administrative procedures\nSize\n• have completed commercial vocational training with further training as medical and hospital secretary or training as MPA EFZ\n• have experience in oncology (advantageous)\n• have organizational talent, resilience and reliable independent working methods\n• Have very good PC knowledge\n• work structured and act forward thinking\n• are an empathetic personality that remains balanced even in hectic or difficult situations\n• are independent, reliable, service-oriented and flexible\nYour new place of work\nOur top location (Limmattalbahn, 4 S-Bahn, 1 bus line in the immediate vicinity) is complemented by the LIMMI mobility concept:\n• Reduced employee parking\n• Motorcycle parking, lockable bicycle parking\n• With the ZVV Bonus Pass / Z-Bonus Pass we offer an attractive public transport subscription for employees\ns'LIMMI: Your partner for life\nAs an important health partner with a comprehensive training mandate, the Hospital Association Limmattal takes over the extended basic medical care of more than 100,000 patients annually, in all phases of life. The LIMMI is broadly specialized and offers high-quality medical care as well as in-depth expert knowledge in numerous surgical, medical and nursing specialist and specialist disciplines. The hospital association has 188 beds in the acute care sector, 126 beds in long-term care, a hospital-bound emergency service as well as nine operating rooms and eight intensive care facilities. More than 1,700 employees from 58 nations provide excellent and diverse services every day.",
         "de": "Nach Vereinbarung\nDas Spital Limmattal lebt von interdisziplinärer Zusammenarbeit. Die Teammitglieder der medizinischen Administration unterstützen die Ärzteschaft in allen administrativen Belangen und arbeiten ebenso mit der Pflege und sämtlichen anderen Bereichen eng zusammen Die gesamte medizinische Administration befindet sich unter einer Gesamtführung, was die interdisziplinäre Zusammenarbeit weiter stärkt und zudem vereinfacht. Ausserdem: sind Sie im LIMMI genau richtig, wenn eine familiäre Atmosphäre und ein moderner Arbeitsplatz wichtig für Sie sind.\nDirektbewerbungen werden bevorzugt, externe Stellenvermittlungsbüros werden nicht prioritär behandelt.\nHier engagieren Sie sich\n• im schreiben von Arztberichten inkl. elektronischem Versand\n• im telefonischem Kontakt zu Patienten sowie internen und externen Ansprechpartnern\n• in der Planung, Koordination und Organisation der onkologischen Sprechstunde inkl. Patientenempfang\n• in der Therapieplanung (Infusionen)\n• im zuordnen und ablegen von diversen Dokumenten\n• im organisieren der Archivierung\n• in allgemeinen Sekretariatsarbeiten\n• in der Sicherstellung der administrativen Abläufe\nSie\n• besitzen eine abgeschlossene kaufmännische Berufsausbildung mit Weiterbildung zur Arzt- und Spitalsekretärin / zum Arzt- und Spitalsekretär oder Ausbildung als MPA EFZ\n• haben Erfahrung in der Onkologie (von Vorteil)\n• besitzen Organisationstalent, Belastbarkeit und zuverlässige selbständige Arbeitsweise\n• haben sehr gute PC-Kenntnisse\n• arbeiten strukturiert und und handeln vorausdenkend\n• sind eine Empathische Persönlichkeit, die auch in hektischen oder schwierigen Situationen ausgeglichen bleibt\n• sind selbständig, zuverlässig, dienstleistungsorientiert und flexibel\nIhr neuer Arbeitsort\nUnsere Top-Lage (Limmattalbahn, 4 S-Bahnen, 1 Buslinie in unmittelbarer Nähe) wird durch das LIMMI-Mobilitätskonzept ergänzt:\n• vergünstigte Mitarbeitenden-Parkplätze\n• Motorradparkplätze, abschliessbare Veloparkplätze\n• Wir bieten mit dem ZVV-Bonus Pass / Z-Bonus Pass ein attraktives ÖV-Abonnement für Mitarbeitende an\ns'LIMMI: Ihr Partner fürs Leben\nAls bedeutender Gesundheitspartner mit umfassendem Ausbildungsauftrag übernimmt der Spitalverband Limmattal die erweiterte medizinische Grundversorgung von über 100’000 Patientinnen und Patienten jährlich, in allen Lebensphasen. Das LIMMI ist breit spezialisiert und bietet eine qualitativ hochstehende medizinische Versorgung sowie vertieftes Expertenwissen in zahlreichen chirurgischen, medizinischen und pflegerischen Fach- und Spezialdisziplinen. Der Spitalverband verfügt über 188 Betten im Akutbereich, 126 Betten in der Langzeitpflege, einen spitalgebundenen Rettungsdienst sowie neun Operationssäle und acht Intensivpflegeplätze. Mehr als 1’700 Mitarbeitende aus 58 Nationen erbringen täglich ausgezeichnete und vielfältige Leistungen.",
-        "it": "Nach Vereinbarung\nDas Spital Limmattal lebt von interdisziplinärer Zusammenarbeit. Die Teammitglieder der medizinischen Administration unterstützen die Ärzteschaft in allen administrativen Belangen und arbeiten ebenso mit der Pflege und sämtlichen anderen Bereichen eng zusammen Die gesamte medizinische Administration befindet sich unter einer Gesamtführung, was die interdisziplinäre Zusammenarbeit weiter stärkt und zudem vereinfacht. Ausserdem: sind Sie im LIMMI genau richtig, wenn eine familiäre Atmosphäre und ein moderner Arbeitsplatz wichtig für Sie sind.\nDirektbewerbungen werden bevorzugt, externe Stellenvermittlungsbüros werden nicht prioritär behandelt.\nHier engagieren Sie sich\n• im schreiben von Arztberichten inkl. elektronischem Versand\n• im telefonischem Kontakt zu Patienten sowie internen und externen Ansprechpartnern\n• in der Planung, Koordination und Organisation der onkologischen Sprechstunde inkl. Patientenempfang\n• in der Therapieplanung (Infusionen)\n• im zuordnen und ablegen von diversen Dokumenten\n• im organisieren der Archivierung\n• in allgemeinen Sekretariatsarbeiten\n• in der Sicherstellung der administrativen Abläufe\nSie\n• besitzen eine abgeschlossene kaufmännische Berufsausbildung mit Weiterbildung zur Arzt- und Spitalsekretärin / zum Arzt- und Spitalsekretär oder Ausbildung als MPA EFZ\n• haben Erfahrung in der Onkologie (von Vorteil)\n• besitzen Organisationstalent, Belastbarkeit und zuverlässige selbständige Arbeitsweise\n• haben sehr gute PC-Kenntnisse\n• arbeiten strukturiert und und handeln vorausdenkend\n• sind eine Empathische Persönlichkeit, die auch in hektischen oder schwierigen Situationen ausgeglichen bleibt\n• sind selbständig, zuverlässig, dienstleistungsorientiert und flexibel\nIhr neuer Arbeitsort\nUnsere Top-Lage (Limmattalbahn, 4 S-Bahnen, 1 Buslinie in unmittelbarer Nähe) wird durch das LIMMI-Mobilitätskonzept ergänzt:\n• vergünstigte Mitarbeitenden-Parkplätze\n• Motorradparkplätze, abschliessbare Veloparkplätze\n• Wir bieten mit dem ZVV-Bonus Pass / Z-Bonus Pass ein attraktives ÖV-Abonnement für Mitarbeitende an\ns'LIMMI: Ihr Partner fürs Leben\nAls bedeutender Gesundheitspartner mit umfassendem Ausbildungsauftrag übernimmt der Spitalverband Limmattal die erweiterte medizinische Grundversorgung von über 100’000 Patientinnen und Patienten jährlich, in allen Lebensphasen. Das LIMMI ist breit spezialisiert und bietet eine qualitativ hochstehende medizinische Versorgung sowie vertieftes Expertenwissen in zahlreichen chirurgischen, medizinischen und pflegerischen Fach- und Spezialdisziplinen. Der Spitalverband verfügt über 188 Betten im Akutbereich, 126 Betten in der Langzeitpflege, einen spitalgebundenen Rettungsdienst sowie neun Operationssäle und acht Intensivpflegeplätze. Mehr als 1’700 Mitarbeitende aus 58 Nationen erbringen täglich ausgezeichnete und vielfältige Leistungen.",
-        "en": "Nach Vereinbarung\nDas Spital Limmattal lebt von interdisziplinärer Zusammenarbeit. Die Teammitglieder der medizinischen Administration unterstützen die Ärzteschaft in allen administrativen Belangen und arbeiten ebenso mit der Pflege und sämtlichen anderen Bereichen eng zusammen Die gesamte medizinische Administration befindet sich unter einer Gesamtführung, was die interdisziplinäre Zusammenarbeit weiter stärkt und zudem vereinfacht. Ausserdem: sind Sie im LIMMI genau richtig, wenn eine familiäre Atmosphäre und ein moderner Arbeitsplatz wichtig für Sie sind.\nDirektbewerbungen werden bevorzugt, externe Stellenvermittlungsbüros werden nicht prioritär behandelt.\nHier engagieren Sie sich\n• im schreiben von Arztberichten inkl. elektronischem Versand\n• im telefonischem Kontakt zu Patienten sowie internen und externen Ansprechpartnern\n• in der Planung, Koordination und Organisation der onkologischen Sprechstunde inkl. Patientenempfang\n• in der Therapieplanung (Infusionen)\n• im zuordnen und ablegen von diversen Dokumenten\n• im organisieren der Archivierung\n• in allgemeinen Sekretariatsarbeiten\n• in der Sicherstellung der administrativen Abläufe\nSie\n• besitzen eine abgeschlossene kaufmännische Berufsausbildung mit Weiterbildung zur Arzt- und Spitalsekretärin / zum Arzt- und Spitalsekretär oder Ausbildung als MPA EFZ\n• haben Erfahrung in der Onkologie (von Vorteil)\n• besitzen Organisationstalent, Belastbarkeit und zuverlässige selbständige Arbeitsweise\n• haben sehr gute PC-Kenntnisse\n• arbeiten strukturiert und und handeln vorausdenkend\n• sind eine Empathische Persönlichkeit, die auch in hektischen oder schwierigen Situationen ausgeglichen bleibt\n• sind selbständig, zuverlässig, dienstleistungsorientiert und flexibel\nIhr neuer Arbeitsort\nUnsere Top-Lage (Limmattalbahn, 4 S-Bahnen, 1 Buslinie in unmittelbarer Nähe) wird durch das LIMMI-Mobilitätskonzept ergänzt:\n• vergünstigte Mitarbeitenden-Parkplätze\n• Motorradparkplätze, abschliessbare Veloparkplätze\n• Wir bieten mit dem ZVV-Bonus Pass / Z-Bonus Pass ein attraktives ÖV-Abonnement für Mitarbeitende an\ns'LIMMI: Ihr Partner fürs Leben\nAls bedeutender Gesundheitspartner mit umfassendem Ausbildungsauftrag übernimmt der Spitalverband Limmattal die erweiterte medizinische Grundversorgung von über 100’000 Patientinnen und Patienten jährlich, in allen Lebensphasen. Das LIMMI ist breit spezialisiert und bietet eine qualitativ hochstehende medizinische Versorgung sowie vertieftes Expertenwissen in zahlreichen chirurgischen, medizinischen und pflegerischen Fach- und Spezialdisziplinen. Der Spitalverband verfügt über 188 Betten im Akutbereich, 126 Betten in der Langzeitpflege, einen spitalgebundenen Rettungsdienst sowie neun Operationssäle und acht Intensivpflegeplätze. Mehr als 1’700 Mitarbeitende aus 58 Nationen erbringen täglich ausgezeichnete und vielfältige Leistungen.",
-        "fr": "Nach Vereinbarung\nDas Spital Limmattal lebt von interdisziplinärer Zusammenarbeit. Die Teammitglieder der medizinischen Administration unterstützen die Ärzteschaft in allen administrativen Belangen und arbeiten ebenso mit der Pflege und sämtlichen anderen Bereichen eng zusammen Die gesamte medizinische Administration befindet sich unter einer Gesamtführung, was die interdisziplinäre Zusammenarbeit weiter stärkt und zudem vereinfacht. Ausserdem: sind Sie im LIMMI genau richtig, wenn eine familiäre Atmosphäre und ein moderner Arbeitsplatz wichtig für Sie sind.\nDirektbewerbungen werden bevorzugt, externe Stellenvermittlungsbüros werden nicht prioritär behandelt.\nHier engagieren Sie sich\n• im schreiben von Arztberichten inkl. elektronischem Versand\n• im telefonischem Kontakt zu Patienten sowie internen und externen Ansprechpartnern\n• in der Planung, Koordination und Organisation der onkologischen Sprechstunde inkl. Patientenempfang\n• in der Therapieplanung (Infusionen)\n• im zuordnen und ablegen von diversen Dokumenten\n• im organisieren der Archivierung\n• in allgemeinen Sekretariatsarbeiten\n• in der Sicherstellung der administrativen Abläufe\nSie\n• besitzen eine abgeschlossene kaufmännische Berufsausbildung mit Weiterbildung zur Arzt- und Spitalsekretärin / zum Arzt- und Spitalsekretär oder Ausbildung als MPA EFZ\n• haben Erfahrung in der Onkologie (von Vorteil)\n• besitzen Organisationstalent, Belastbarkeit und zuverlässige selbständige Arbeitsweise\n• haben sehr gute PC-Kenntnisse\n• arbeiten strukturiert und und handeln vorausdenkend\n• sind eine Empathische Persönlichkeit, die auch in hektischen oder schwierigen Situationen ausgeglichen bleibt\n• sind selbständig, zuverlässig, dienstleistungsorientiert und flexibel\nIhr neuer Arbeitsort\nUnsere Top-Lage (Limmattalbahn, 4 S-Bahnen, 1 Buslinie in unmittelbarer Nähe) wird durch das LIMMI-Mobilitätskonzept ergänzt:\n• vergünstigte Mitarbeitenden-Parkplätze\n• Motorradparkplätze, abschliessbare Veloparkplätze\n• Wir bieten mit dem ZVV-Bonus Pass / Z-Bonus Pass ein attraktives ÖV-Abonnement für Mitarbeitende an\ns'LIMMI: Ihr Partner fürs Leben\nAls bedeutender Gesundheitspartner mit umfassendem Ausbildungsauftrag übernimmt der Spitalverband Limmattal die erweiterte medizinische Grundversorgung von über 100’000 Patientinnen und Patienten jährlich, in allen Lebensphasen. Das LIMMI ist breit spezialisiert und bietet eine qualitativ hochstehende medizinische Versorgung sowie vertieftes Expertenwissen in zahlreichen chirurgischen, medizinischen und pflegerischen Fach- und Spezialdisziplinen. Der Spitalverband verfügt über 188 Betten im Akutbereich, 126 Betten in der Langzeitpflege, einen spitalgebundenen Rettungsdienst sowie neun Operationssäle und acht Intensivpflegeplätze. Mehr als 1’700 Mitarbeitende aus 58 Nationen erbringen täglich ausgezeichnete und vielfältige Leistungen."
+        "fr": "Par accord\nL'hôpital Limmattal se développe grâce à la coopération interdisciplinaire. Les membres de l'équipe de l'administration médicale soutiennent la profession médicale dans toutes les questions administratives et travaillent en étroite collaboration avec les soins et tous les autres domaines. L'ensemble de l'administration médicale est sous une direction globale qui renforce et simplifie encore la coopération interdisciplinaire. En outre, vous avez exactement raison dans le LIMMI si une ambiance familiale et un lieu de travail moderne sont importants pour vous.\nLes candidatures directes sont privilégiées, les bureaux de recrutement externes ne sont pas considérés comme prioritaires.\nIci ils s'engagent\n• par écrit des rapports médicaux, y compris le transport électronique\n• en contact téléphonique avec les patients et les personnes-ressources internes et externes\n• dans la planification, la coordination et l'organisation de la consultation oncologique Réception des patients\n• Dans la planification thérapeutique (fusions)\n• Dans l'attribution et le stockage de divers documents\n• Organisation des archives\n• Secrétariat général\n• assurer les procédures administratives\nTaille\n• ont suivi une formation professionnelle commerciale avec une formation complémentaire en tant que secrétaire médical et hospitalier ou une formation en tant que MPA EFZ\n• ont une expérience en oncologie (avantageuse)\n• avoir un talent organisationnel, une résilience et des méthodes de travail indépendantes fiables\n• Avoir de très bonnes connaissances PC\n• travail structuré et agir en avant pensée\n• sont une personnalité empathique qui reste équilibrée même dans des situations mouvementées ou difficiles\n• sont indépendants, fiables, orientés vers le service et flexibles\nVotre nouveau lieu de travail\nNotre top emplacement (Limmattalbahn, 4 S-Bahn, 1 ligne de bus dans les environs immédiats) est complété par le concept de mobilité LIMMI:\n• Stationnement réduit des employés\n• Parking moto, parking vélo verrouillable\n• Avec le ZVV Bonus Pass / Z-Bonus Pass nous offrons un abonnement de transport public attrayant pour les employés\ns'LIMMI: Votre partenaire pour la vie\nEn tant que partenaire important de la santé ayant un mandat de formation complet, l'Association hospitalière Limmattal prend en charge les soins médicaux de base prolongés de plus de 100 000 patients chaque année, à toutes les phases de la vie. Le LIMMI est largement spécialisé et offre des soins médicaux de haute qualité ainsi que des connaissances spécialisées approfondies dans de nombreuses disciplines spécialisées en chirurgie, médecine et soins infirmiers. L'association hospitalière compte 188 lits dans le secteur des soins actifs, 126 lits dans les soins de longue durée, un service d'urgence en milieu hospitalier ainsi que neuf salles d'opération et huit centres de soins intensifs. Plus de 1 700 employés de 58 pays offrent chaque jour des services excellents et diversifiés."
       },
-      "needsRetranslation": true,
       "location": "Schlieren",
       "canton": "ZH",
       "url": "https://apply.refline.ch/486538/0898/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T21:23:28.247Z",
+      "crawledAt": "2026-11-07T21:15:38.898Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -140,12 +139,25 @@
       "postingDateSource": "reported",
       "applyUrl": "https://apply.refline.ch/486538/0898/pub/1/index.html",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "pensumMin": 80,
       "pensumMax": 80,
       "pensum": "80%",
+      "previousSlugs": [
+        "arztsekretarin-onkologie-80-spital-limmattal-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "arztsekretarin-onkologie-80-spital-limmattal-ch"
+        ],
+        "en": [
+          "arztsekretarin-onkologie-80-spital-limmattal-ch"
+        ],
+        "fr": [
+          "arztsekretarin-onkologie-80-spital-limmattal-ch"
+        ]
+      },
+      "firstSeenAt": "2026-11-06T21:23:28.247Z",
       "salaryMin": 73200,
       "salaryMax": 102400,
       "salarySource": "estimated",
@@ -161,9 +173,8 @@
       },
       "streetAddress": "Schlieren",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-31T21:23:28.247Z",
-      "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-06T21:23:28.247Z"
+      "validThrough": "2027-01-31T21:15:38.898Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "spital-limmattal-f0c2fed43d37",
@@ -197,7 +208,7 @@
       "url": "https://apply.refline.ch/486538/0901/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T21:23:27.781Z",
+      "crawledAt": "2026-11-07T21:15:38.409Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -249,7 +260,7 @@
       },
       "streetAddress": "Schlieren",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T21:23:27.781Z",
+      "validThrough": "2027-02-03T21:15:38.409Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -284,7 +295,7 @@
       "url": "https://apply.refline.ch/486538/0900/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T21:23:27.311Z",
+      "crawledAt": "2026-11-07T21:15:37.924Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -336,7 +347,7 @@
       },
       "streetAddress": "Schlieren",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-02T21:23:27.311Z",
+      "validThrough": "2027-02-02T21:15:37.924Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -371,7 +382,7 @@
       "url": "https://apply.refline.ch/486538/0307/pub/6/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T21:23:26.838Z",
+      "crawledAt": "2026-11-07T21:15:37.441Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -420,7 +431,7 @@
       },
       "streetAddress": "Schlieren",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-06T21:23:26.838Z",
+      "validThrough": "2026-12-07T21:15:37.441Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -455,7 +466,7 @@
       "url": "https://apply.refline.ch/486538/0897/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T21:23:26.370Z",
+      "crawledAt": "2026-11-07T21:15:36.956Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -509,7 +520,7 @@
       },
       "streetAddress": "Schlieren",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-28T21:23:26.370Z",
+      "validThrough": "2027-01-28T21:15:36.956Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -544,7 +555,7 @@
       "url": "https://apply.refline.ch/486538/0730/pub/7/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T21:23:25.902Z",
+      "crawledAt": "2026-11-07T21:15:36.469Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -595,7 +606,7 @@
       },
       "streetAddress": "Schlieren",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-06T21:23:25.902Z",
+      "validThrough": "2026-12-07T21:15:36.469Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -630,7 +641,7 @@
       "url": "https://apply.refline.ch/486538/0899/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T21:23:25.434Z",
+      "crawledAt": "2026-11-07T21:15:35.982Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -682,7 +693,7 @@
       },
       "streetAddress": "Schlieren",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-31T21:23:25.434Z",
+      "validThrough": "2027-01-31T21:15:35.982Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -717,7 +728,7 @@
       "url": "https://apply.refline.ch/486538/0762/pub/3/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T21:23:23.890Z",
+      "crawledAt": "2026-11-07T21:15:35.487Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -766,7 +777,7 @@
       },
       "streetAddress": "Schlieren",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-06T21:23:23.890Z",
+      "validThrough": "2026-12-07T21:15:35.487Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -801,7 +812,7 @@
       "url": "https://apply.refline.ch/486538/0579/pub/8/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T21:23:23.423Z",
+      "crawledAt": "2026-11-07T21:15:35.001Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -855,7 +866,7 @@
       },
       "streetAddress": "Schlieren",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-06T21:23:23.423Z",
+      "validThrough": "2026-12-07T21:15:35.001Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -890,7 +901,7 @@
       "url": "https://apply.refline.ch/486538/0639/pub/4/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T21:23:22.956Z",
+      "crawledAt": "2026-11-07T21:15:33.812Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -941,7 +952,7 @@
       },
       "streetAddress": "Schlieren",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-06T21:23:22.956Z",
+      "validThrough": "2026-12-07T21:15:33.812Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -976,7 +987,7 @@
       "url": "https://apply.refline.ch/486538/0895/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T21:23:22.490Z",
+      "crawledAt": "2026-11-07T21:15:33.321Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1025,7 +1036,7 @@
       },
       "streetAddress": "Schlieren",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-26T21:23:22.490Z",
+      "validThrough": "2027-01-26T21:15:33.321Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1060,7 +1071,7 @@
       "url": "https://apply.refline.ch/486538/0894/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T21:23:22.020Z",
+      "crawledAt": "2026-11-07T21:15:32.834Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1112,7 +1123,7 @@
       },
       "streetAddress": "Schlieren",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-26T21:23:22.020Z",
+      "validThrough": "2027-01-26T21:15:32.834Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1147,7 +1158,7 @@
       "url": "https://apply.refline.ch/486538/0896/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T21:23:21.550Z",
+      "crawledAt": "2026-11-07T21:15:32.349Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1196,7 +1207,7 @@
       },
       "streetAddress": "Schlieren",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-27T21:23:21.550Z",
+      "validThrough": "2027-01-27T21:15:32.349Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1231,7 +1242,7 @@
       "url": "https://apply.refline.ch/486538/0893/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T21:23:21.081Z",
+      "crawledAt": "2026-11-07T21:15:31.841Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1291,7 +1302,7 @@
       },
       "streetAddress": "Schlieren",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-19T21:23:21.081Z",
+      "validThrough": "2027-01-19T21:15:31.841Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1325,7 +1336,7 @@
       "url": "https://apply.refline.ch/486538/0889/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T21:23:20.612Z",
+      "crawledAt": "2026-11-07T21:15:31.353Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1377,7 +1388,7 @@
       },
       "streetAddress": "Schlieren",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-18T21:23:20.612Z",
+      "validThrough": "2027-01-18T21:15:31.353Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1412,7 +1423,7 @@
       "url": "https://apply.refline.ch/486538/0888/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T21:23:20.147Z",
+      "crawledAt": "2026-11-07T21:15:30.866Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1466,7 +1477,7 @@
       },
       "streetAddress": "Schlieren",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-18T21:23:20.147Z",
+      "validThrough": "2027-01-18T21:15:30.866Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1500,7 +1511,7 @@
       "url": "https://apply.refline.ch/486538/0749/pub/5/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T21:23:19.679Z",
+      "crawledAt": "2026-11-07T21:15:30.373Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1557,7 +1568,7 @@
       },
       "streetAddress": "Schlieren",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-06T21:23:19.679Z",
+      "validThrough": "2026-12-07T21:15:30.373Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1592,7 +1603,7 @@
       "url": "https://apply.refline.ch/486538/0711/pub/5/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T21:23:19.209Z",
+      "crawledAt": "2026-11-07T21:15:29.881Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1641,7 +1652,7 @@
       },
       "streetAddress": "Schlieren",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-06T21:23:19.209Z",
+      "validThrough": "2026-12-07T21:15:29.881Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1675,7 +1686,7 @@
       "url": "https://apply.refline.ch/486538/0779/pub/4/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T21:23:18.740Z",
+      "crawledAt": "2026-11-07T21:15:29.394Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1724,7 +1735,7 @@
       },
       "streetAddress": "Schlieren",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-06T21:23:18.740Z",
+      "validThrough": "2026-12-07T21:15:29.394Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1759,7 +1770,7 @@
       "url": "https://apply.refline.ch/486538/0887/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T21:23:18.266Z",
+      "crawledAt": "2026-11-07T21:15:28.904Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1808,7 +1819,7 @@
       },
       "streetAddress": "Schlieren",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-07T21:23:18.266Z",
+      "validThrough": "2027-01-07T21:15:28.904Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1843,7 +1854,7 @@
       "url": "https://apply.refline.ch/486538/0840/pub/4/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T21:23:17.794Z",
+      "crawledAt": "2026-11-07T21:15:28.414Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1895,7 +1906,7 @@
       },
       "streetAddress": "Schlieren",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-06T21:23:17.794Z",
+      "validThrough": "2026-12-07T21:15:28.414Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1930,7 +1941,7 @@
       "url": "https://apply.refline.ch/486538/0880/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T21:23:17.322Z",
+      "crawledAt": "2026-11-07T21:15:27.929Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1982,7 +1993,7 @@
       },
       "streetAddress": "Schlieren",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-04T21:23:17.322Z",
+      "validThrough": "2027-01-04T21:15:27.929Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2017,7 +2028,7 @@
       "url": "https://apply.refline.ch/486538/0883/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T21:23:16.855Z",
+      "crawledAt": "2026-11-07T21:15:27.436Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2066,7 +2077,7 @@
       },
       "streetAddress": "Schlieren",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-06T21:23:16.855Z",
+      "validThrough": "2027-01-06T21:15:27.436Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2101,7 +2112,7 @@
       "url": "https://apply.refline.ch/486538/0882/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T21:23:16.389Z",
+      "crawledAt": "2026-11-07T21:15:26.947Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2150,7 +2161,7 @@
       },
       "streetAddress": "Schlieren",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-06T21:23:16.389Z",
+      "validThrough": "2027-01-06T21:15:26.947Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2185,7 +2196,7 @@
       "url": "https://apply.refline.ch/486538/0886/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T21:23:15.922Z",
+      "crawledAt": "2026-11-07T21:15:26.461Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2234,7 +2245,7 @@
       },
       "streetAddress": "Schlieren",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-06T21:23:15.922Z",
+      "validThrough": "2027-01-06T21:15:26.461Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2269,7 +2280,7 @@
       "url": "https://apply.refline.ch/486538/0885/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T21:23:15.455Z",
+      "crawledAt": "2026-11-07T21:15:25.975Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2318,7 +2329,7 @@
       },
       "streetAddress": "Schlieren",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-06T21:23:15.455Z",
+      "validThrough": "2027-01-06T21:15:25.975Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2353,7 +2364,7 @@
       "url": "https://apply.refline.ch/486538/0884/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T21:23:14.988Z",
+      "crawledAt": "2026-11-07T21:15:25.492Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2402,7 +2413,7 @@
       },
       "streetAddress": "Schlieren",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-06T21:23:14.988Z",
+      "validThrough": "2027-01-06T21:15:25.492Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2437,7 +2448,7 @@
       "url": "https://apply.refline.ch/486538/0879/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T21:23:13.872Z",
+      "crawledAt": "2026-11-07T21:15:25.006Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2486,7 +2497,7 @@
       },
       "streetAddress": "Schlieren",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-03T21:23:13.872Z",
+      "validThrough": "2027-01-03T21:15:25.006Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2521,7 +2532,7 @@
       "url": "https://apply.refline.ch/486538/0878/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T21:23:13.405Z",
+      "crawledAt": "2026-11-07T21:15:23.753Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2570,7 +2581,7 @@
       },
       "streetAddress": "Schlieren",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-31T21:23:13.405Z",
+      "validThrough": "2026-12-31T21:15:23.753Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2605,7 +2616,7 @@
       "url": "https://apply.refline.ch/486538/0870/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T21:23:12.935Z",
+      "crawledAt": "2026-11-07T21:15:23.266Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2657,7 +2668,7 @@
       },
       "streetAddress": "Schlieren",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-28T21:23:12.935Z",
+      "validThrough": "2026-12-28T21:15:23.266Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2692,7 +2703,7 @@
       "url": "https://apply.refline.ch/486538/0876/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T21:23:12.468Z",
+      "crawledAt": "2026-11-07T21:15:22.772Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2741,7 +2752,7 @@
       },
       "streetAddress": "Schlieren",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-31T21:23:12.468Z",
+      "validThrough": "2026-12-31T21:15:22.772Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2776,7 +2787,7 @@
       "url": "https://apply.refline.ch/486538/0877/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T21:23:12.001Z",
+      "crawledAt": "2026-11-07T21:15:22.276Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2825,7 +2836,7 @@
       },
       "streetAddress": "Schlieren",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-31T21:23:12.001Z",
+      "validThrough": "2026-12-31T21:15:22.276Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2860,7 +2871,7 @@
       "url": "https://apply.refline.ch/486538/0872/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T21:23:11.533Z",
+      "crawledAt": "2026-11-07T21:15:21.776Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2912,7 +2923,7 @@
       },
       "streetAddress": "Schlieren",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-29T21:23:11.533Z",
+      "validThrough": "2026-12-29T21:15:21.776Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2946,7 +2957,7 @@
       "url": "https://apply.refline.ch/486538/0868/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T21:23:11.064Z",
+      "crawledAt": "2026-11-07T21:15:21.288Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2995,7 +3006,7 @@
       },
       "streetAddress": "Schlieren",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-27T21:23:11.064Z",
+      "validThrough": "2026-12-27T21:15:21.288Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3030,7 +3041,7 @@
       "url": "https://apply.refline.ch/486538/0860/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T21:23:10.597Z",
+      "crawledAt": "2026-11-07T21:15:20.803Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3082,7 +3093,7 @@
       },
       "streetAddress": "Schlieren",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-13T21:23:10.597Z",
+      "validThrough": "2026-12-13T21:15:20.803Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3117,7 +3128,7 @@
       "url": "https://apply.refline.ch/486538/0864/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T21:23:10.129Z",
+      "crawledAt": "2026-11-07T21:15:20.314Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3176,7 +3187,7 @@
       },
       "streetAddress": "Schlieren",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-20T21:23:10.129Z",
+      "validThrough": "2026-12-20T21:15:20.314Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3211,7 +3222,7 @@
       "url": "https://apply.refline.ch/486538/0866/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T21:23:09.658Z",
+      "crawledAt": "2026-11-07T21:15:19.828Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3265,7 +3276,7 @@
       },
       "streetAddress": "Schlieren",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-22T21:23:09.658Z",
+      "validThrough": "2026-12-22T21:15:19.828Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3300,7 +3311,7 @@
       "url": "https://apply.refline.ch/486538/0616/pub/10/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T21:23:09.190Z",
+      "crawledAt": "2026-11-07T21:15:19.340Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3394,7 +3405,7 @@
       },
       "streetAddress": "Schlieren",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-06T21:23:09.190Z",
+      "validThrough": "2026-12-07T21:15:19.340Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3429,7 +3440,7 @@
       "url": "https://apply.refline.ch/486538/0859/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T21:23:08.714Z",
+      "crawledAt": "2026-11-07T21:15:18.846Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3496,7 +3507,7 @@
       },
       "streetAddress": "Schlieren",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-13T21:23:08.714Z",
+      "validThrough": "2026-12-13T21:15:18.846Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3531,7 +3542,7 @@
       "url": "https://apply.refline.ch/486538/0855/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T21:23:08.246Z",
+      "crawledAt": "2026-11-07T21:15:18.361Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3580,7 +3591,7 @@
       },
       "streetAddress": "Schlieren",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-10T21:23:08.246Z",
+      "validThrough": "2026-12-10T21:15:18.361Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3615,7 +3626,7 @@
       "url": "https://apply.refline.ch/486538/0854/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T21:23:07.773Z",
+      "crawledAt": "2026-11-07T21:15:17.873Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3696,7 +3707,7 @@
       },
       "streetAddress": "Schlieren",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-06T21:23:07.773Z",
+      "validThrough": "2026-12-07T21:15:17.873Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3731,7 +3742,7 @@
       "url": "https://apply.refline.ch/486538/0845/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T21:23:07.306Z",
+      "crawledAt": "2026-11-07T21:15:17.390Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3782,7 +3793,7 @@
       },
       "streetAddress": "Schlieren",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-06T21:23:07.306Z",
+      "validThrough": "2026-12-07T21:15:17.390Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3816,7 +3827,7 @@
       "url": "https://apply.refline.ch/486538/0851/pub/2/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T21:23:06.839Z",
+      "crawledAt": "2026-11-07T21:15:16.900Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3865,7 +3876,7 @@
       },
       "streetAddress": "Schlieren",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-06T21:23:06.839Z",
+      "validThrough": "2026-12-07T21:15:16.900Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3900,7 +3911,7 @@
       "url": "https://apply.refline.ch/486538/0853/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T21:23:06.371Z",
+      "crawledAt": "2026-11-07T21:15:16.413Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3952,7 +3963,7 @@
       },
       "streetAddress": "Schlieren",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-06T21:23:06.371Z",
+      "validThrough": "2026-12-07T21:15:16.413Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3987,7 +3998,7 @@
       "url": "https://apply.refline.ch/486538/0627/pub/4/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T21:23:05.899Z",
+      "crawledAt": "2026-11-07T21:15:15.929Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4030,7 +4041,7 @@
       },
       "streetAddress": "Schlieren",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-06T21:23:05.899Z",
+      "validThrough": "2026-12-07T21:15:15.929Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4064,7 +4075,7 @@
       "url": "https://apply.refline.ch/486538/0708/pub/3/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T21:23:05.431Z",
+      "crawledAt": "2026-11-07T21:15:15.442Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4116,7 +4127,7 @@
       },
       "streetAddress": "Schlieren",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-06T21:23:05.431Z",
+      "validThrough": "2026-12-07T21:15:15.442Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4151,7 +4162,7 @@
       "url": "https://apply.refline.ch/486538/0803/pub/2/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T21:23:04.087Z",
+      "crawledAt": "2026-11-07T21:15:13.895Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4203,7 +4214,7 @@
       },
       "streetAddress": "Schlieren",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-06T21:23:04.087Z",
+      "validThrough": "2026-12-07T21:15:13.895Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4238,7 +4249,7 @@
       "url": "https://apply.refline.ch/486538/0694/pub/5/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T21:23:03.618Z",
+      "crawledAt": "2026-11-07T21:15:13.408Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4289,7 +4300,7 @@
       },
       "streetAddress": "Schlieren",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-06T21:23:03.618Z",
+      "validThrough": "2026-12-07T21:15:13.408Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4324,7 +4335,7 @@
       "url": "https://apply.refline.ch/486538/0835/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T21:23:03.151Z",
+      "crawledAt": "2026-11-07T21:15:12.923Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4398,7 +4409,7 @@
       },
       "streetAddress": "Schlieren",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-06T21:23:03.151Z",
+      "validThrough": "2026-12-07T21:15:12.923Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4433,7 +4444,7 @@
       "url": "https://apply.refline.ch/486538/0836/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T21:23:02.682Z",
+      "crawledAt": "2026-11-07T21:15:12.437Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4486,7 +4497,7 @@
       },
       "streetAddress": "Schlieren",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-06T21:23:02.682Z",
+      "validThrough": "2026-12-07T21:15:12.437Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4520,7 +4531,7 @@
       "url": "https://apply.refline.ch/486538/0819/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T21:23:02.213Z",
+      "crawledAt": "2026-11-07T21:15:11.948Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4573,7 +4584,7 @@
       },
       "streetAddress": "Schlieren",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-06T21:23:02.213Z",
+      "validThrough": "2026-12-07T21:15:11.948Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4608,7 +4619,7 @@
       "url": "https://apply.refline.ch/486538/0410/pub/2/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T21:23:01.747Z",
+      "crawledAt": "2026-11-07T21:15:11.463Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4664,7 +4675,7 @@
       },
       "streetAddress": "Schlieren",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-06T21:23:01.747Z",
+      "validThrough": "2026-12-07T21:15:11.463Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4699,7 +4710,7 @@
       "url": "https://apply.refline.ch/486538/0831/pub/2/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T21:23:01.280Z",
+      "crawledAt": "2026-11-07T21:15:10.979Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4751,7 +4762,7 @@
       },
       "streetAddress": "Schlieren",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-06T21:23:01.280Z",
+      "validThrough": "2026-12-07T21:15:10.979Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4786,7 +4797,7 @@
       "url": "https://apply.refline.ch/486538/0738/pub/3/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T21:23:00.811Z",
+      "crawledAt": "2026-11-07T21:15:10.492Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4842,7 +4853,7 @@
       },
       "streetAddress": "Schlieren",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-06T21:23:00.811Z",
+      "validThrough": "2026-12-07T21:15:10.492Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4877,7 +4888,7 @@
       "url": "https://apply.refline.ch/486538/0710/pub/4/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T21:23:00.340Z",
+      "crawledAt": "2026-11-07T21:15:09.997Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4926,7 +4937,7 @@
       },
       "streetAddress": "Schlieren",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-06T21:23:00.340Z",
+      "validThrough": "2026-12-07T21:15:09.997Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4960,7 +4971,7 @@
       "url": "https://apply.refline.ch/486538/0782/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T21:22:59.874Z",
+      "crawledAt": "2026-11-07T21:15:09.513Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -5026,7 +5037,7 @@
       },
       "streetAddress": "Schlieren",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-06T21:22:59.874Z",
+      "validThrough": "2026-12-07T21:15:09.513Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -5061,7 +5072,7 @@
       "url": "https://apply.refline.ch/486538/0624/pub/5/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T21:22:59.405Z",
+      "crawledAt": "2026-11-07T21:15:09.029Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -5117,7 +5128,7 @@
       },
       "streetAddress": "Schlieren",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-06T21:22:59.405Z",
+      "validThrough": "2026-12-07T21:15:09.029Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -5151,7 +5162,7 @@
       "url": "https://apply.refline.ch/486538/0748/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T21:22:58.935Z",
+      "crawledAt": "2026-11-07T21:15:08.536Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -5221,7 +5232,7 @@
       },
       "streetAddress": "Schlieren",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-06T21:22:58.935Z",
+      "validThrough": "2026-12-07T21:15:08.536Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -5256,7 +5267,7 @@
       "url": "https://apply.refline.ch/486538/0552/pub/2/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T21:22:58.466Z",
+      "crawledAt": "2026-11-07T21:15:08.049Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -5321,7 +5332,7 @@
       },
       "streetAddress": "Schlieren",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-06T21:22:58.466Z",
+      "validThrough": "2026-12-07T21:15:08.049Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -5356,7 +5367,7 @@
       "url": "https://apply.refline.ch/486538/0665/pub/2/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T21:22:57.998Z",
+      "crawledAt": "2026-11-07T21:15:07.562Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -5420,7 +5431,7 @@
       },
       "streetAddress": "Schlieren",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-06T21:22:57.998Z",
+      "validThrough": "2026-12-07T21:15:07.562Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -5455,7 +5466,7 @@
       "url": "https://apply.refline.ch/486538/0551/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T21:22:57.529Z",
+      "crawledAt": "2026-11-07T21:15:07.074Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -5519,7 +5530,7 @@
       },
       "streetAddress": "Schlieren",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-06T21:22:57.529Z",
+      "validThrough": "2026-12-07T21:15:07.074Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -5554,7 +5565,7 @@
       "url": "https://apply.refline.ch/486538/0550/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T21:22:57.058Z",
+      "crawledAt": "2026-11-07T21:15:06.574Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -5619,7 +5630,7 @@
       },
       "streetAddress": "Schlieren",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-06T21:22:57.058Z",
+      "validThrough": "2026-12-07T21:15:06.574Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -5654,7 +5665,7 @@
       "url": "https://apply.refline.ch/486538/0549/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T21:22:56.590Z",
+      "crawledAt": "2026-11-07T21:15:06.087Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -5745,7 +5756,7 @@
       },
       "streetAddress": "Schlieren",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-06T21:22:56.590Z",
+      "validThrough": "2026-12-07T21:15:06.087Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -5780,7 +5791,7 @@
       "url": "https://apply.refline.ch/486538/0492/pub/3/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T21:22:56.120Z",
+      "crawledAt": "2026-11-07T21:15:05.600Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -5843,7 +5854,7 @@
       },
       "streetAddress": "Schlieren",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-06T21:22:56.120Z",
+      "validThrough": "2026-12-07T21:15:05.600Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -5878,7 +5889,7 @@
       "url": "https://apply.refline.ch/486538/0484/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T21:22:55.635Z",
+      "crawledAt": "2026-11-07T21:15:05.069Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -5941,7 +5952,7 @@
       },
       "streetAddress": "Schlieren",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-06T21:22:55.635Z",
+      "validThrough": "2026-12-07T21:15:05.069Z",
       "validThroughSource": "last-observed-window"
     }
   ]

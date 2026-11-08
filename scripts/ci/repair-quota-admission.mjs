@@ -150,6 +150,12 @@ function transientReadFailure(error) {
     || /\bETIMEDOUT\b|timed out|timeout expired/i.test(detail)) {
     return 'command timeout';
   }
+  // gh can surface a retryable HTTP/2 transport cancellation as a command
+  // failure instead of an HTTP 5xx. Keep it transient while preserving the
+  // fail-closed result after the bounded retry budget is exhausted.
+  if (/\bstream error:\s*stream ID\s+\d+;\s*CANCEL;\s*received from peer\b/i.test(detail)) {
+    return 'GitHub HTTP/2 stream reset';
+  }
   if (/\b(?:ECONNRESET|ECONNREFUSED|ECONNABORTED|EAI_AGAIN)\b|socket hang up|fetch failed/i.test(detail)) {
     return 'network error';
   }

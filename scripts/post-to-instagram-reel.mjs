@@ -127,7 +127,7 @@ async function publishReelSlot({ kind, day, dryRun, robotMode }) {
 
   const accessToken = String(process.env.INSTAGRAM_ACCESS_TOKEN || '').trim() || null;
   const igUserId = String(process.env.INSTAGRAM_BUSINESS_ACCOUNT_ID || '').trim() || null;
-  const route = socialPublishRoute({ mode: robotMode, apiReady: Boolean(accessToken && igUserId), apiOnly: true });
+  const route = socialPublishRoute({ mode: robotMode, apiReady: Boolean(accessToken && igUserId), apiOnly: true, browserDeliveryAllowed: false });
   const pending = pendingInstagramReel(loadQueue(QUEUE_PATH));
   if (pending) {
     const creativeId = pending.ledgerEntries?.[0]?.creativeId || 'creative non specificata';

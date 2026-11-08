@@ -13,6 +13,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { isRegexLiteralStart } from '../lib/inline-comment-marker.mjs';
 import { readStringLiteralAt } from '../lib/js-string-literal.mjs';
+import { stripSourceComments } from '../lib/source-comments.mjs';
 
 const ROOT = path.resolve(fileURLToPath(new URL('../..', import.meta.url)));
 
@@ -62,46 +63,7 @@ function regexLiteralEnd(source, start) {
   return null;
 }
 
-export function stripComments(source) {
-  const text = String(source);
-  let output = '';
-  for (let index = 0; index < text.length;) {
-    const literal = readStringLiteralAt(text, index);
-    if (literal) {
-      output += text.slice(index, literal.end);
-      index = literal.end;
-      continue;
-    }
-
-    const character = text[index];
-    const next = text[index + 1];
-    if (character === '/' && next !== '/' && next !== '*' && isRegexLiteralStart(text, index)) {
-      const end = regexLiteralEnd(text, index);
-      if (end !== null) {
-        output += text.slice(index, end);
-        index = end;
-        continue;
-      }
-    }
-    if (character === '/' && next === '/') {
-      const end = text.indexOf('\n', index + 2);
-      const stop = end === -1 ? text.length : end;
-      output += ' '.repeat(stop - index);
-      index = stop;
-      continue;
-    }
-    if (character === '/' && next === '*') {
-      const end = text.indexOf('*/', index + 2);
-      const stop = end === -1 ? text.length : end + 2;
-      output += text.slice(index, stop).replace(/[^\n]/g, ' ');
-      index = stop;
-      continue;
-    }
-    output += character;
-    index += 1;
-  }
-  return output;
-}
+export const stripComments = stripSourceComments;
 
 function stringLiteralRanges(source) {
   const ranges = [];

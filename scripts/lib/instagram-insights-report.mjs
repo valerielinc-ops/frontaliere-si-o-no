@@ -7,6 +7,7 @@
  * to call a winner before the minimum number of comparable observations.
  * There is no network access and no credential handling here.
  */
+import { isGeneratedSocialCopyMode } from './social-copy-pack.mjs';
 
 export const DEFAULT_MINIMUM_OBSERVATIONS = 3;
 export const DEFAULT_WINDOW_HOURS = 72;
@@ -471,7 +472,7 @@ export function normalizeInsightRows(input, {
       reject(rejected, index, 'invalid copy editorial angle metadata');
       return;
     }
-    if (copyMode === 'codex' && copyObjective && copyObjective !== objective) {
+    if (isGeneratedSocialCopyMode(copyMode) && copyObjective && copyObjective !== objective) {
       reject(rejected, index, 'copy objective conflicts with creative objective');
       return;
     }

@@ -1,0 +1,27 @@
+{
+  "companyKey": "felixplatter-ch",
+  "companyName": "Felix Platter-Spital",
+  "companyHost": "felixplatter.ch",
+  "verifiedEmployerDomain": "felixplatter.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://www.felixplatter.ch/felixplatter/stellen/jobs"
+  ],
+  "detailTemplate": "/felixplatter/stellen/jobs/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 39,
+  "sampleTitles": [
+    "Fachfrau / Fachmann Gesundheit auf Station Rehabilitation (3 Süd) 80-100%, per 01.01.2027 oder nach Vereinbarung",
+    "Fachfrau / Fachmann Gesundheit auf der Akut-Station 2 Nord 80-100%, per 01.04.2027 oder nach Vereinbarung",
+    "Oberärztin / Oberarzt - Akute Altersmedizin 100%, per sofort oder nach Vereinbarung",
+    "Oberärztin / Oberarzt - Akute Altersmedizin 60-80%, Möglichkeit zur Dissertation nach Vereinbarung",
+    "Oberärztin / Oberarzt – Alterspsychiatrie im Departement Demenzielle Erkrankungen 80-100%, per 01.02.2027 oder nach Vereinbarung"
+  ],
+  "canton": "BS",
+  "sourceLang": "de",
+  "learnedAt": "2026-11-07T12:55:17.653Z",
+  "candidateKey": "felix-platter-spital@basel"
+}

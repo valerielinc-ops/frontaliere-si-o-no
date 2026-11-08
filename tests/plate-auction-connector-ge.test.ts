@@ -1,5 +1,5 @@
 import { readFileSync } from 'node:fs';
-import { describe, expect, it, vi } from 'vitest';
+import { describe, expect, it } from 'vitest';
 import {
   fetchGePlateAuctions as fetchGeCore,
   GE_PLATE_AUCTION_SOURCE,
@@ -10,14 +10,6 @@ import {
 import { PLATE_AUCTION_SOURCE_COLLECTION, refreshPlateAuctions } from '../functions/src/plateAuctions.js';
 import { fetchGePlateAuctions } from '../scripts/plate-auctions/connectors/ge.mjs';
 import { validatePlateAuction } from '../services/plateAuctions/types';
-
-// Solo in questo file GE è `active`: serve a provare il cablaggio nella Cloud
-// Function. Il registry vero la tiene `blocked` fino alla lista d'autunno.
-vi.mock('../functions/src/plateAuctionSourceRegistry.js', async (importOriginal) => {
-  const actual = await importOriginal<typeof import('../functions/src/plateAuctionSourceRegistry.js')>();
-  const registry = actual.PUBLIC_PLATE_AUCTION_SOURCE_REGISTRY;
-  return { PUBLIC_PLATE_AUCTION_SOURCE_REGISTRY: { ...registry, ge: { ...registry.ge, status: 'active' } } };
-});
 
 /**
  * Testo minimo scritto a mano sul layout reale di vente_enchere_pl_prosp_mai_26.pdf
@@ -218,7 +210,7 @@ function memoryFirestore() {
   };
 }
 
-describe('GE in the Cloud Function once the registry marks it active', () => {
+describe('GE in the Cloud Function while the registry marks it active', () => {
   const now = new Date();
   const refresh = (firestore: ReturnType<typeof memoryFirestore>, listText: string) => {
     const geCh = fakeGeCh({ pdfTexts: { [MAY_PDF]: listText, [NOV_PDF]: listText } });

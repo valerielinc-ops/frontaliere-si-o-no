@@ -456,7 +456,15 @@ describe('runCliRefresh — la CLI gira ermetica', () => {
     const { argv, env } = readRecord();
     expect(argv.slice(0, 5)).toEqual(['app-server', '-c', 'cli_auth_credentials_store="file"', '-c', expect.stringMatching(/^chatgpt_base_url="http:\/\/127\.0\.0\.1:\d+\/backend-api\/"$/u)]);
     // Env costruito da zero: niente token GitHub, segreti o override ereditati.
-    for (const key of Object.keys(env)) expect(key, key).toMatch(/^(PATH|HOME|CODEX_HOME|TMPDIR|RUST_LOG|NO_COLOR|(HTTPS?|ALL)_PROXY|(https?|all)_proxy|NO_PROXY|no_proxy)$/u);
+    // macOS reinietta questa variabile di sistema all'avvio del processo Node
+    // figlio, dopo che spawn ha ricevuto l'env allowlisted.
+    if (process.platform === 'darwin' && env.__CF_USER_TEXT_ENCODING !== undefined) {
+      expect(env.__CF_USER_TEXT_ENCODING).toMatch(/^0x[0-9a-f]+:0x0:0x[0-9a-f]+$/iu);
+    }
+    for (const key of Object.keys(env)) {
+      if (process.platform === 'darwin' && key === '__CF_USER_TEXT_ENCODING') continue;
+      expect(key, key).toMatch(/^(PATH|HOME|CODEX_HOME|TMPDIR|RUST_LOG|NO_COLOR|(HTTPS?|ALL)_PROXY|(https?|all)_proxy|NO_PROXY|no_proxy)$/u);
+    }
     expect(env.HTTPS_PROXY).toMatch(/^http:\/\/127\.0\.0\.1:\d+$/u);
     expect(env.NO_PROXY.split(',')).toEqual(['127.0.0.1', 'localhost', 'auth.openai.com']);
     expect(env.CODEX_REFRESH_TOKEN_URL_OVERRIDE).toBeUndefined();

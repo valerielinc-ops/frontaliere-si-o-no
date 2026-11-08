@@ -1,0 +1,23 @@
+{
+  "companyKey": "regimo-ch",
+  "companyName": "Regimo AG",
+  "companyHost": "regimo-basel.ch",
+  "verifiedEmployerDomain": "regimo.ch",
+  "platform": "",
+  "mode": "jsonld",
+  "seedUrls": [
+    "https://regimo-basel.ch/stellen/stellenbeschrieb/junior-immobilienbewirtschafter-in-100"
+  ],
+  "detailTemplate": "/stellen/stellenbeschrieb/junior-immobilienbewirtschafter-in-100",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 1,
+  "sampleTitles": [
+    "Junior-Immobilienbewirtschafter:in (100%)"
+  ],
+  "canton": "ZH",
+  "sourceLang": "de",
+  "learnedAt": "2026-11-07T12:56:15.570Z",
+  "candidateKey": "regimo@zurich"
+}

@@ -1,14 +1,17 @@
 {
   "key": "ch",
   "label": "Global Sana",
-  "generatedAt": "2026-11-06T21:53:23.823Z",
+  "generatedAt": "2026-11-07T21:23:40.804Z",
   "total": 3,
-  "discovered": null,
+  "discovered": 3,
   "parsed": 3,
   "lastFetchOutcome": null,
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
   "written": 3,
+  "detailCandidates": 3,
+  "detailGone": 0,
+  "detailRejected": 0,
   "resurrectedJobs": 0,
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
@@ -16,10 +19,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 3,
-  "durationMs": 7654,
-  "avgDurationMs": 7654,
+  "durationMs": 11025,
+  "avgDurationMs": 11025,
   "durationHistory": [
-    7654
+    11025
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -37,7 +40,7 @@
       "url": "https://ch.talent.com/view?id=620345981570851791&trigger_from=related_jobs",
       "source": "Global Sana Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T21:53:02.715Z",
+      "crawledAt": "2026-11-07T21:23:24.322Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -60,7 +63,7 @@
       "postalCode": "8400",
       "streetAddress": "Winterthur",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-30T21:53:02.715Z",
+      "validThrough": "2027-01-30T21:23:24.322Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -82,7 +85,7 @@
       "url": "https://ch.talent.com/view?id=612989830165106339&trigger_from=related_jobs",
       "source": "Global Sana Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T21:53:02.714Z",
+      "crawledAt": "2026-11-07T21:23:24.321Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -105,7 +108,7 @@
       "postalCode": "8400",
       "streetAddress": "Winterthur",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-11T21:53:02.714Z",
+      "validThrough": "2027-01-11T21:23:24.321Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -127,7 +130,7 @@
       "url": "https://ch.talent.com/view?id=554547064889945322",
       "source": "Global Sana Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T21:53:02.713Z",
+      "crawledAt": "2026-11-07T21:23:24.319Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -150,7 +153,7 @@
       "postalCode": "8001",
       "streetAddress": "Zurich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-06T21:53:02.713Z",
+      "validThrough": "2026-12-07T21:23:24.319Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -161,5 +164,5 @@
       }
     }
   ],
-  "codeCommit": "83864a2067a1cd4cb74a7630816798617e7b37f9"
+  "codeCommit": "f149ed523035737e5146c13e7338b8dd6b0c5f04"
 }

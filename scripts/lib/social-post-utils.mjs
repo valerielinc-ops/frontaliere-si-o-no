@@ -24,6 +24,7 @@ import { listSliceFileNames } from './crawler-slice-files.mjs';
 import { excludeHeldFromPublication } from './translation-publication-hold.mjs';
 import { parseLedger } from './social-publish-queue.mjs';
 import { GRAPH_API, GRAPH_API_VERSION } from './instagram-graph-constants.mjs';
+import { isGeneratedSocialCopyMode } from './social-copy-mode.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..', '..');
@@ -383,7 +384,7 @@ export function buildCarouselCaption({ kind, dayLabel, picks }) {
 export function buildCarouselSlideCopy({ kind, dayLabel, items, socialCopy }) {
   const isJob = kind === 'job';
   const isBorder = kind === 'border';
-  const generatedCopy = socialCopy?.copyMode === 'codex' ? socialCopy : null;
+  const generatedCopy = isGeneratedSocialCopyMode(socialCopy?.copyMode) ? socialCopy : null;
   return {
     kicker: generatedCopy ? 'IN PRIMO PIANO' : isBorder ? 'CLASSIFICA DOGANE' : isJob ? 'LAVORI PIÙ CLICCATI' : 'ARTICOLI PIÙ LETTI',
     title: generatedCopy?.hook || (isBorder ? 'Le dogane più veloci' : isJob ? 'I lavori più cliccati' : 'Gli articoli più letti'),
@@ -435,7 +436,7 @@ function tiktokSummary(kind, dayLabel) {
 export function buildTikTokCaption({ kind, dayLabel, picks, hashtags, socialCopy }) {
   const lead = tiktokLead(kind);
   const summary = tiktokSummary(kind, dayLabel);
-  const generatedCopy = socialCopy?.copyMode === 'codex' ? socialCopy : null;
+  const generatedCopy = isGeneratedSocialCopyMode(socialCopy?.copyMode) ? socialCopy : null;
   const itemLines = (picks || []).map((p, i) => `${i + 1}. ${String(p.title || '').replace(/\s+/g, ' ').trim()} — ${p.statValue}`);
   const footer = [
     generatedCopy
@@ -624,7 +625,7 @@ export function buildArticleCaption({ ogTitle, ogDescription, category, socialCo
   const emoji = ARTICLE_CATEGORY_EMOJI[category] || '📰';
   const hashtags = ARTICLE_CATEGORY_HASHTAGS[category] || DEFAULT_ARTICLE_HASHTAGS;
   const description = ogDescription || '';
-  const generatedCopy = socialCopy?.copyMode === 'codex' ? socialCopy : null;
+  const generatedCopy = isGeneratedSocialCopyMode(socialCopy?.copyMode) ? socialCopy : null;
   return [
     ...(generatedCopy ? [generatedCopy.hook, ''] : []),
     `${emoji} ${ogTitle}`,

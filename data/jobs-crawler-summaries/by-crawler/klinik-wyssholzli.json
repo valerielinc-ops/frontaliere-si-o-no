@@ -1,69 +1,22 @@
 {
   "key": "klinik-wyssholzli",
   "label": "Klinik Wysshölzli",
-  "generatedAt": "2026-11-06T21:55:55.174Z",
+  "generatedAt": "2026-11-07T21:36:09.384Z",
   "total": 5,
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
   "newCount": 0,
   "updatedCount": 0,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 5,
-  "durationMs": 2546,
-  "avgDurationMs": 2546,
+  "durationMs": 3825,
+  "avgDurationMs": 3825,
   "durationHistory": [
-    2546
+    3825
   ],
   "newJobs": [],
   "updatedJobs": [],
-  "removedJobs": [
-    {
-      "title": "Pflegefachfrau Hf Ca. 80 2027",
-      "slug": "infermiera-hf-circa-80-2027-klinik-wyssholzli-herzogenbuchsee",
-      "url": "https://www.wysshoelzli.ch/uploads/Stelleninserate/Pflegefachfrau-HF_ca.-80-_2027.pdf",
-      "applyUrl": "https://www.wysshoelzli.ch/jobs-karriere",
-      "company": "Klinik Wysshölzli",
-      "companyKey": "klinik-wyssholzli",
-      "companyDomain": "wysshoelzli.ch",
-      "location": "Herzogenbuchsee",
-      "addressLocality": "Herzogenbuchsee",
-      "addressRegion": "BE",
-      "postalCode": "3360",
-      "addressCountry": "CH",
-      "canton": "BE",
-      "country": "CH",
-      "category": "health",
-      "sector": "Psychiatrie und Psychotherapie",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "source": "klinik-wyssholzli-dedicated-crawler",
-      "sourceLang": "de",
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "validThrough": "2027-02-03T09:43:02.827Z",
-      "_meta": {
-        "sourceFilename": "Pflegefachfrau-HF_ca.-80-_2027.pdf"
-      },
-      "id": "klinik-wyssholzli-ecfd30370266",
-      "salaryMin": 85000,
-      "salaryMax": 119000,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "streetAddress": "Herzogenbuchsee",
-      "streetAddressSource": "to-enrich",
-      "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-05T09:43:02.827Z",
-      "crawlerMissStreak": 2,
-      "_qualityScore": 95,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 23
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": [
     {
       "title": "Psychiater In Ambulatorium Bern 2026 Ab 10",
@@ -291,5 +244,5 @@
       }
     }
   ],
-  "codeCommit": "83864a2067a1cd4cb74a7630816798617e7b37f9"
+  "codeCommit": "f149ed523035737e5146c13e7338b8dd6b0c5f04"
 }

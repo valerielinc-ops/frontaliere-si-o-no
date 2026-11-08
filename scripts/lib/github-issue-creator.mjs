@@ -50,6 +50,8 @@ import { realpathSync } from 'node:fs';
 import { pathToFileURL } from 'node:url';
 import { execFileSync } from 'node:child_process';
 import fs from 'node:fs';
+import os from 'node:os';
+import path from 'node:path';
 
 const PRIORITY_LABEL = {
   1: 'priority:urgent',
@@ -248,6 +250,26 @@ function ghMutation(args) {
     const stderr = error?.stderr;
     if (stderr) process.stderr.write(Buffer.isBuffer(stderr) ? stderr : String(stderr));
     throw error;
+  }
+}
+
+/**
+ * Carry an issue body through a temporary file instead of an argv value.
+ * Keeping the file alive around the whole operation also makes bounded retry
+ * callers safe: every attempt reads the same complete body, and cleanup runs
+ * after the final attempt even when the operation throws.
+ */
+export function issueBodyFileTransport(body, operation) {
+  if (typeof operation !== 'function') {
+    throw new TypeError('GitHub issue body transport requires an operation');
+  }
+  const directory = fs.mkdtempSync(path.join(os.tmpdir(), 'github-issue-creator-'));
+  const bodyFile = path.join(directory, 'body.md');
+  try {
+    fs.writeFileSync(bodyFile, String(body ?? ''), 'utf8');
+    return operation(['--body-file', bodyFile]);
+  } finally {
+    fs.rmSync(directory, { recursive: true, force: true });
   }
 }
 
@@ -952,15 +974,15 @@ function findOrCreateTransientLedger() {
     `The \`${LBL_NO_AGE_OUT}\` label keeps followup-drainer's age-out close from`,
     'doing that automatically during a healthy stretch.',
   ].join('\n');
-  const url = gh([
+  const url = issueBodyFileTransport(body, (bodyFileArgs) => gh([
     'issue', 'create',
     '--title', TRANSIENT_LEDGER_TITLE,
-    '--body', body,
+    ...bodyFileArgs,
     '--label', CRAWLER_TRANSIENT_LABEL,
     '--label', PRIORITY_LABEL[4],
     '--label', LBL_NO_AGE_OUT,
     ...repoFlag(),
-  ], { allowFailure: true });
+  ], { allowFailure: true }));
   if (!url) return null;
   const m = url.split('\n').pop().trim().match(/\/issues\/(\d+)/);
   return m ? Number(m[1]) : null;
@@ -1004,11 +1026,11 @@ function recordLedgerEvent(ledgerNumber, key, ordinal, threshold, body) {
     '',
     body,
   ].join('\n');
-  const res = gh([
+  const res = issueBodyFileTransport(comment.slice(0, MAX_BODY_LEN), (bodyFileArgs) => gh([
     'issue', 'comment', String(ledgerNumber),
-    '--body', comment.slice(0, MAX_BODY_LEN),
+    ...bodyFileArgs,
     ...repoFlag(),
-  ], { allowFailure: true });
+  ], { allowFailure: true }));
   return res !== null;
 }
 
@@ -1080,9 +1102,9 @@ function issueHasComment(number, body) {
 function postGithubIssueComment(issueNumber, body) {
   let result;
   try {
-    result = withTransientGithubMutationRetry(
+    result = issueBodyFileTransport(body, (bodyFileArgs) => withTransientGithubMutationRetry(
       () => ghMutation([
-        'issue', 'comment', String(issueNumber), '--body', body, ...repoFlag(),
+        'issue', 'comment', String(issueNumber), ...bodyFileArgs, ...repoFlag(),
       ]),
       {
         findExisting: () => issueHasComment(issueNumber, body)
@@ -1092,7 +1114,7 @@ function postGithubIssueComment(issueNumber, body) {
           console.warn(`::warning::GitHub issue comment transient; retry ${nextAttempt}/${attempts} in ${delayMs}ms`);
         },
       },
-    );
+    ));
   } catch {
     return false;
   }
@@ -1140,7 +1162,9 @@ function resolveCloseText(reason, { workflow, runUrl } = {}) {
  */
 function closeGithubIssueByNumber(number, { title, url, workflow, runUrl, reason = 'completed' }) {
   const { note, ghReason } = resolveCloseText(reason, { workflow, runUrl });
-  gh(['issue', 'comment', String(number), '--body', note, ...repoFlag()], { allowFailure: true });
+  issueBodyFileTransport(note, (bodyFileArgs) => gh([
+    'issue', 'comment', String(number), ...bodyFileArgs, ...repoFlag(),
+  ], { allowFailure: true }));
   let closed = null;
   try {
     closed = withTransientGithubMutationRetry(
@@ -1305,10 +1329,14 @@ export function resolveGithubIssueByNumber(issueNumber, { expectedTitle, workflo
     return { number, persisted: false, skipped: 'title-changed' };
   }
   if (preface) {
-    gh(['issue', 'comment', String(number), '--body', preface, ...repoFlag()], { allowFailure: true });
+    issueBodyFileTransport(preface, (bodyFileArgs) => gh([
+      'issue', 'comment', String(number), ...bodyFileArgs, ...repoFlag(),
+    ], { allowFailure: true }));
   }
   const { note, ghReason } = resolveCloseText(reason, { workflow, runUrl });
-  gh(['issue', 'comment', String(number), '--body', note, ...repoFlag()], { allowFailure: true });
+  issueBodyFileTransport(note, (bodyFileArgs) => gh([
+    'issue', 'comment', String(number), ...bodyFileArgs, ...repoFlag(),
+  ], { allowFailure: true }));
   const closed = gh(
     ['issue', 'close', String(number), '--reason', ghReason, ...repoFlag()],
     { allowFailure: true },
@@ -1753,12 +1781,15 @@ export async function createGithubIssue({
         }
         if (staleReason) {
           const note = `⏳ Build \`${buildSha}\` ${staleReason} — è latenza del deploy dentro la finestra post-merge, non una ricorrenza. Riapertura saltata; in attesa di una build che contenga la fix.`;
-          const staleCommented = gh([
-            'issue', 'comment', String(recentlyClosed.number),
-            '--body', [note, body, formatOpenTwinNote(recentlyClosed, openCandidates)]
+          const staleCommented = issueBodyFileTransport(
+            [note, body, formatOpenTwinNote(recentlyClosed, openCandidates)]
               .filter(Boolean).join('\n\n'),
-            ...repoFlag(),
-          ], { allowFailure: true });
+            (bodyFileArgs) => gh([
+              'issue', 'comment', String(recentlyClosed.number),
+              ...bodyFileArgs,
+              ...repoFlag(),
+            ], { allowFailure: true }),
+          );
           appendStepSummary(`⏳ **Riapertura saltata** — la run su \`${buildSha}\` non contiene la fix che ha chiuso #${recentlyClosed.number}. ${staleReason}.`);
           console.log(`[github-issue-creator] Stale build ${buildSha} predates the close of #${recentlyClosed.number} — not reopening (deploy latency).`);
           return {
@@ -1845,16 +1876,15 @@ export async function createGithubIssue({
 
   // Create labels if missing, then open the issue.
   ensureLabelsExist(labelSet);
-  const args = [
-    'issue', 'create',
-    '--title', title.slice(0, 200),
-    '--body', body,
-    ...labelSet.flatMap((l) => ['--label', l]),
-    ...repoFlag(),
-  ];
   try {
-    const created = withTransientGithubMutationRetry(
-      () => ghMutation(args),
+    const created = issueBodyFileTransport(body, (bodyFileArgs) => withTransientGithubMutationRetry(
+      () => ghMutation([
+        'issue', 'create',
+        '--title', title.slice(0, 200),
+        ...bodyFileArgs,
+        ...labelSet.flatMap((l) => ['--label', l]),
+        ...repoFlag(),
+      ]),
       {
         // A lost response must not cause a second issue. Reconcile the same
         // title after a transient create failure before retrying the mutation.
@@ -1870,7 +1900,7 @@ export async function createGithubIssue({
           console.warn(`::warning::GitHub issue create transient; retry ${nextAttempt}/${attempts} in ${delayMs}ms`);
         },
       },
-    );
+    ));
     if (created.reused) {
       const reused = created.value;
       console.log(`[github-issue-creator] Reused issue after create response loss: #${reused.number}`);

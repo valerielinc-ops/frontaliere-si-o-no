@@ -3,7 +3,7 @@
 import React from 'react';
 import { act, cleanup, render } from '@testing-library/react';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
-import GptAdSlot, { type GptSize } from '@/components/shared/GptAdSlot';
+import GptAdSlot, { gptHouseName, type GptSize } from '@/components/shared/GptAdSlot';
 import { AD_FILL_TIMEOUT_MS } from '@/services/adsenseSlots';
 
 const { trackAdEvent, consent, bidding, requestHeaderBids } = vi.hoisted(() => ({ trackAdEvent: vi.fn(), consent: { granted: true, denied: false }, bidding: { active: false }, requestHeaderBids: vi.fn() }));
@@ -63,6 +63,18 @@ function leaveViewport() {
 }
 
 describe('GPT manual reserve lifecycle', () => {
+  it('renders house metadata when Array.prototype.at is unavailable', () => {
+    const descriptor = Object.getOwnPropertyDescriptor(Array.prototype, 'at');
+    try {
+      Object.defineProperty(Array.prototype, 'at', { configurable: true, value: undefined, writable: true });
+      expect(gptHouseName('/test/rail')).toBe('rail');
+      expect(gptHouseName('///')).toBe('gpt-display');
+    } finally {
+      if (descriptor) Object.defineProperty(Array.prototype, 'at', descriptor);
+      else delete (Array.prototype as Array<unknown> & { at?: unknown }).at;
+    }
+  });
+
   it('restores the rail for an eligible house creative after an explicit consent refusal', async () => {
     consent.granted = false; consent.denied = true;
     const { container, box, onEmptyChange } = mount();

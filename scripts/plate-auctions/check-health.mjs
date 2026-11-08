@@ -26,6 +26,7 @@ import { appendFileSync, existsSync, readFileSync, writeFileSync } from "node:fs
 import { resolve } from "node:path";
 import registry from "../../data/plate-auction-sources-registry.json" with { type: "json" };
 import { FETCHERS } from "./ingest.mjs";
+import { resolvePlateAuctionSource } from "../../functions/src/plateAuctionSourceRegistry.js";
 
 const outputPath = resolve(
   process.env.PLATE_AUCTION_OUTPUT || "public/data/plate-auctions.json",
@@ -33,6 +34,9 @@ const outputPath = resolve(
 const forbiddenStatuses = new Set(["unverified", "not-discovered", "degraded"]);
 const errors = [];
 const blockingErrors = [];
+const effectiveRegistry = Object.fromEntries(
+  Object.entries(registry.sources).map(([key, source]) => [key, resolvePlateAuctionSource(source, new Date())]),
+);
 /** Registry key -> the per-source health errors (`unhealthy`) of that source. */
 const degradedBySource = new Map();
 /** Registry keys named by ANY error, structural or not: never "healthy". */
@@ -59,7 +63,7 @@ if (Object.keys(registry.sources).length !== 26) {
   );
 }
 
-for (const [key, source] of Object.entries(registry.sources)) {
+for (const [key, source] of Object.entries(effectiveRegistry)) {
   // A forbidden status in the REGISTRY is a committed config mistake, not an
   // observation about today's upstream: nobody decided what this source is.
   if (forbiddenStatuses.has(source.status))
@@ -102,7 +106,7 @@ if (!existsSync(outputPath)) {
     if (JSON.stringify(sourceKeys) !== JSON.stringify(expectedKeys))
       fatal("snapshot source matrix does not match the 26-canton registry");
 
-    for (const [key, source] of Object.entries(registry.sources)) {
+    for (const [key, source] of Object.entries(effectiveRegistry)) {
       const actual = snapshot.sources?.[key];
       const sourceRows = auctions.filter((row) => String(row.sourceKey || row.platePrefix || '').toLowerCase() === key);
       const actualRowCount = sourceRows.length;
@@ -169,7 +173,7 @@ if (!existsSync(outputPath)) {
       ...new Set(
         auctions.map((row) => String(row.sourceKey || "").toLowerCase()),
       ),
-    ].filter((key) => registry.sources[key]?.status !== "active");
+    ].filter((key) => effectiveRegistry[key]?.status !== "active");
     if (unexpectedAuctionSources.length > 0)
       fatal(
         `snapshot contains rows from non-active sources: ${unexpectedAuctionSources.join(", ")}`,
@@ -187,7 +191,7 @@ const sourceRef = (key) => ({
 const summary = {
   outputPath,
   cantons: Object.keys(registry.sources).length,
-  activeConnectors: Object.keys(FETCHERS),
+  activeConnectors: Object.keys(FETCHERS).filter((key) => effectiveRegistry[key]?.status === "active"),
   blocking,
   blockingErrors,
   errors,

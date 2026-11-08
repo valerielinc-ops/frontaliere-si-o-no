@@ -17,6 +17,10 @@ concurrency:
   group: refresh-astra-vehicle-stats
   cancel-in-progress: false
 
+# Cross-repository workflow_dispatch is a side effect. The shared helper is
+# deliberately at-most-once until the corpus receiver exposes and proves a
+# stable-URL idempotency guard; a source_key input alone is not that proof.
+
 jobs:
   refresh:
     runs-on: ubuntu-latest
@@ -89,6 +93,11 @@ jobs:
             legacy) echo "dispatch_origin_supported=false" >> "$GITHUB_OUTPUT" ;;
             *) echo "::error::Stato inatteso del contratto corpus: $origin_contract"; exit 1 ;;
           esac
+          if printf '%s' "$workflow_yaml" | grep -Eq '^      source_key:'; then
+            echo "source_key_supported=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "source_key_supported=false" >> "$GITHUB_OUTPUT"
+          fi
           echo "Contratto dispatch corpus: $origin_contract"
 
       - name: Job summary
@@ -137,24 +146,36 @@ jobs:
         env:
           PENDING_WEEK: ${{ steps.refresh.outputs.pending_week }}
           DISPATCH_ORIGIN_SUPPORTED: ${{ steps.corpus_origin.outputs.dispatch_origin_supported }}
+          SOURCE_KEY_SUPPORTED: ${{ steps.corpus_origin.outputs.source_key_supported }}
         run: |
           if [ -z "${GITHUB_PAT_NANAKO:-}" ]; then
             echo "GITHUB_PAT_NANAKO non presente nell'ambiente Remote Config."
             exit 1
           fi
+          source scripts/lib/github-workflow-dispatch-with-retry.sh
           dispatch_article() {
             if [ "${DISPATCH_ORIGIN_SUPPORTED:-false}" = "true" ]; then
-              GH_TOKEN="$GITHUB_PAT_NANAKO" gh workflow run generate-article.yml \
-                --repo nanakokyobashi-rgb/frontaliere-articles \
+              dispatch_workflow_once generate-article.yml \
+                nanakokyobashi-rgb/frontaliere-articles \
                 -f dispatch_origin=editorial_signal "$@"
             else
-              GH_TOKEN="$GITHUB_PAT_NANAKO" gh workflow run generate-article.yml \
-                --repo nanakokyobashi-rgb/frontaliere-articles "$@"
+              dispatch_workflow_once generate-article.yml \
+                nanakokyobashi-rgb/frontaliere-articles "$@"
             fi
           }
           failed=0
           for url in $PENDING_WEEK; do
-            if dispatch_article -f url="$url" -f section=frontaliere; then
+            source_key_args=()
+            if [ "${SOURCE_KEY_SUPPORTED:-false}" = "true" ]; then
+              if ! source_key="$(workflow_dispatch_source_key "$url")"; then
+                failed=1
+                continue
+              fi
+              source_key_args=(-f "source_key=$source_key")
+            else
+              source_key_args=()
+            fi
+            if dispatch_article -f url="$url" "${source_key_args[@]}" -f section=frontaliere; then
               if ! node scripts/ack-astra-article-dispatch.mjs "$url"; then
                 failed=1
               fi
@@ -171,24 +192,36 @@ jobs:
         env:
           PENDING_MONTH_CH: ${{ steps.refresh.outputs.pending_month_ch }}
           DISPATCH_ORIGIN_SUPPORTED: ${{ steps.corpus_origin.outputs.dispatch_origin_supported }}
+          SOURCE_KEY_SUPPORTED: ${{ steps.corpus_origin.outputs.source_key_supported }}
         run: |
           if [ -z "${GITHUB_PAT_NANAKO:-}" ]; then
             echo "GITHUB_PAT_NANAKO non presente nell'ambiente Remote Config."
             exit 1
           fi
+          source scripts/lib/github-workflow-dispatch-with-retry.sh
           dispatch_article() {
             if [ "${DISPATCH_ORIGIN_SUPPORTED:-false}" = "true" ]; then
-              GH_TOKEN="$GITHUB_PAT_NANAKO" gh workflow run generate-article.yml \
-                --repo nanakokyobashi-rgb/frontaliere-articles \
+              dispatch_workflow_once generate-article.yml \
+                nanakokyobashi-rgb/frontaliere-articles \
                 -f dispatch_origin=editorial_signal "$@"
             else
-              GH_TOKEN="$GITHUB_PAT_NANAKO" gh workflow run generate-article.yml \
-                --repo nanakokyobashi-rgb/frontaliere-articles "$@"
+              dispatch_workflow_once generate-article.yml \
+                nanakokyobashi-rgb/frontaliere-articles "$@"
             fi
           }
           failed=0
           for url in $PENDING_MONTH_CH; do
-            if dispatch_article -f url="$url" -f section=svizzera; then
+            source_key_args=()
+            if [ "${SOURCE_KEY_SUPPORTED:-false}" = "true" ]; then
+              if ! source_key="$(workflow_dispatch_source_key "$url")"; then
+                failed=1
+                continue
+              fi
+              source_key_args=(-f "source_key=$source_key")
+            else
+              source_key_args=()
+            fi
+            if dispatch_article -f url="$url" "${source_key_args[@]}" -f section=svizzera; then
               if ! node scripts/ack-astra-article-dispatch.mjs "$url"; then
                 failed=1
               fi
@@ -205,24 +238,36 @@ jobs:
         env:
           PENDING_MONTH_TI: ${{ steps.refresh.outputs.pending_month_ti }}
           DISPATCH_ORIGIN_SUPPORTED: ${{ steps.corpus_origin.outputs.dispatch_origin_supported }}
+          SOURCE_KEY_SUPPORTED: ${{ steps.corpus_origin.outputs.source_key_supported }}
         run: |
           if [ -z "${GITHUB_PAT_NANAKO:-}" ]; then
             echo "GITHUB_PAT_NANAKO non presente nell'ambiente Remote Config."
             exit 1
           fi
+          source scripts/lib/github-workflow-dispatch-with-retry.sh
           dispatch_article() {
             if [ "${DISPATCH_ORIGIN_SUPPORTED:-false}" = "true" ]; then
-              GH_TOKEN="$GITHUB_PAT_NANAKO" gh workflow run generate-article.yml \
-                --repo nanakokyobashi-rgb/frontaliere-articles \
+              dispatch_workflow_once generate-article.yml \
+                nanakokyobashi-rgb/frontaliere-articles \
                 -f dispatch_origin=editorial_signal "$@"
             else
-              GH_TOKEN="$GITHUB_PAT_NANAKO" gh workflow run generate-article.yml \
-                --repo nanakokyobashi-rgb/frontaliere-articles "$@"
+              dispatch_workflow_once generate-article.yml \
+                nanakokyobashi-rgb/frontaliere-articles "$@"
             fi
           }
           failed=0
           for url in $PENDING_MONTH_TI; do
-            if dispatch_article -f url="$url" -f section=frontaliere; then
+            source_key_args=()
+            if [ "${SOURCE_KEY_SUPPORTED:-false}" = "true" ]; then
+              if ! source_key="$(workflow_dispatch_source_key "$url")"; then
+                failed=1
+                continue
+              fi
+              source_key_args=(-f "source_key=$source_key")
+            else
+              source_key_args=()
+            fi
+            if dispatch_article -f url="$url" "${source_key_args[@]}" -f section=frontaliere; then
               if ! node scripts/ack-astra-article-dispatch.mjs "$url"; then
                 failed=1
               fi

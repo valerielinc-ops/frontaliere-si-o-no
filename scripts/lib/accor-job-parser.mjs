@@ -27,7 +27,7 @@ import {
 } from './prospector/location-evidence.mjs';
 import { politeFetch } from './prospector/polite-fetch.mjs';
 import { resolveProspectorFetch } from './prospector/public-fetch-policy.mjs';
-import { createSpecUrlPolicy, loadSpec, runSpecInProduction } from './prospector/spec-crawler.mjs';
+import { copySpecFetchMetadata, createSpecUrlPolicy, loadSpec, runSpecInProduction } from './prospector/spec-crawler.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -321,7 +321,7 @@ export async function fetchAllAccorJobs(runtime = {}) {
   const listings = await fetchJobListings(runtime);
   if (!listings || listings.length === 0) {
     console.warn('⚠️ No job listings returned.');
-    return [];
+    return copySpecFetchMetadata([], listings || []);
   }
 
   console.log(`  📋 Listings found: ${listings.length}`);
@@ -398,5 +398,5 @@ export async function fetchAllAccorJobs(runtime = {}) {
   }
 
   console.log(`\n📋 Total Ibis Budget jobs discovered: ${jobs.length}`);
-  return jobs;
+  return copySpecFetchMetadata(jobs, listings || []);
 }

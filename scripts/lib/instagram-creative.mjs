@@ -17,6 +17,7 @@ import { createHash } from 'node:crypto';
 
 import { instagramEngagementMechanic } from './instagram-engagement.mjs';
 import { AUTONOMOUS_PROMOTION_PROTOCOL_READY } from './instagram-insights-decision.mjs';
+import { isGeneratedSocialCopyMode } from './social-copy-mode.mjs';
 
 export const INSTAGRAM_CREATIVE_FORMATS = Object.freeze({
   proof: Object.freeze({
@@ -464,7 +465,7 @@ export function buildInstagramCaption({ kind, dayLabel, picks, creative, socialC
     : definitionFor(safeKind, 'proof');
   const safePicks = Array.isArray(picks) ? picks.slice(0, 5) : [];
   const lines = safePicks.map((pick, index) => `${index + 1}. ${captionText(pick?.title || 'Voce', 110)} — ${captionText(pick?.statValue || 'dati disponibili', 80)}`);
-  const generatedCopy = socialCopy?.copyMode === 'codex' ? socialCopy : null;
+  const generatedCopy = isGeneratedSocialCopyMode(socialCopy?.copyMode) ? socialCopy : null;
   const questionLine = !generatedCopy && selected.question ? `🗣️ ${selected.question}` : '';
   const destinationLine = generatedCopy && !/link in bio/i.test(generatedCopy.cta)
     ? '🔎 Per dettagli e fonti: link in bio.'
@@ -628,7 +629,7 @@ export function buildInstagramCarouselProductionKit({
 /** Keep the generated Instagram cover/closing card aligned with its caption. */
 export function instagramSocialVisualCopy(creative, socialCopy) {
   if (
-    socialCopy?.copyMode !== 'codex'
+    !isGeneratedSocialCopyMode(socialCopy?.copyMode)
     || !creative?.cover
     || !creative?.closing
     || socialCopy.objective !== creative.objective

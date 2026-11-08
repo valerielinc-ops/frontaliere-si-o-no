@@ -1,7 +1,7 @@
 {
   "crawlerKey": "zkb",
-  "assembledAt": "2026-11-06T21:33:43.238Z",
-  "runId": "42293461245",
+  "assembledAt": "2026-11-07T21:18:04.401Z",
+  "runId": "42414099034",
   "jobs": [
     {
       "id": "zkb-1b4fe92e8009",
@@ -35,7 +35,7 @@
       "url": "https://apply.refline.ch/792841/11461/pub/1",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T21:33:37.202Z",
+      "crawledAt": "2026-11-07T21:17:55.832Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -88,7 +88,7 @@
       },
       "streetAddress": "Bahnhofstrasse 9",
       "streetAddressSource": "curated-company-city",
-      "validThrough": "2027-02-03T21:33:37.202Z",
+      "validThrough": "2027-02-03T21:17:55.832Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -122,7 +122,7 @@
       "url": "https://apply.refline.ch/792841/11462/pub/1",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T21:33:36.758Z",
+      "crawledAt": "2026-11-07T21:17:55.412Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -175,7 +175,7 @@
       },
       "streetAddress": "Bahnhofstrasse 9",
       "streetAddressSource": "curated-company-city",
-      "validThrough": "2027-02-03T21:33:36.758Z",
+      "validThrough": "2027-02-03T21:17:55.412Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -210,7 +210,7 @@
       "url": "https://apply.refline.ch/792841/11466/pub/1",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T21:33:36.313Z",
+      "crawledAt": "2026-11-07T21:17:54.966Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -260,7 +260,7 @@
       },
       "streetAddress": "Bahnhofstrasse 9",
       "streetAddressSource": "curated-company-city",
-      "validThrough": "2027-02-03T21:33:36.313Z",
+      "validThrough": "2027-02-03T21:17:54.966Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -295,7 +295,7 @@
       "url": "https://apply.refline.ch/792841/11465/pub/3",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T21:33:35.871Z",
+      "crawledAt": "2026-11-07T21:17:53.902Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -348,7 +348,7 @@
       },
       "streetAddress": "Bahnhofstrasse 9",
       "streetAddressSource": "curated-company-city",
-      "validThrough": "2027-02-03T21:33:35.871Z",
+      "validThrough": "2027-02-03T21:17:53.902Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -383,7 +383,7 @@
       "url": "https://apply.refline.ch/792841/11463/pub/1",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T21:33:35.427Z",
+      "crawledAt": "2026-11-07T21:17:53.481Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -430,7 +430,7 @@
       },
       "streetAddress": "Bahnhofstrasse 9",
       "streetAddressSource": "curated-company-city",
-      "validThrough": "2027-02-03T21:33:35.427Z",
+      "validThrough": "2027-02-03T21:17:53.481Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -465,7 +465,7 @@
       "url": "https://apply.refline.ch/792841/11460/pub/1",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T21:33:34.982Z",
+      "crawledAt": "2026-11-07T21:17:53.062Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -518,7 +518,7 @@
       },
       "streetAddress": "Bahnhofstrasse 9",
       "streetAddressSource": "curated-company-city",
-      "validThrough": "2027-02-03T21:33:34.982Z",
+      "validThrough": "2027-02-03T21:17:53.062Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -553,7 +553,7 @@
       "url": "https://apply.refline.ch/792841/11314/pub/3",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T21:33:33.878Z",
+      "crawledAt": "2026-11-07T21:17:52.643Z",
       "addressLocality": "Dübendorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -608,7 +608,7 @@
       },
       "streetAddress": "Dübendorf",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-06T21:33:33.878Z",
+      "validThrough": "2026-12-07T21:17:52.643Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -643,7 +643,7 @@
       "url": "https://apply.refline.ch/792841/11467/pub/1",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T21:33:33.436Z",
+      "crawledAt": "2026-11-07T21:17:52.223Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -666,7 +666,9 @@
       "pensumMin": 80,
       "pensumMax": 80,
       "pensum": "80%",
-      "firstSeenAt": "2026-11-06T09:16:34.973Z",
+      "previousSlugs": [
+        "first-level-support-specialist-m-w-d-zkb-zurich"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "first-level-support-specialist-m-w-d-zkb-zurich"
@@ -675,9 +677,7 @@
           "first-level-support-specialist-m-w-d-zkb-zurich"
         ]
       },
-      "previousSlugs": [
-        "first-level-support-specialist-m-w-d-zkb-zurich"
-      ],
+      "firstSeenAt": "2026-11-06T09:16:34.973Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
       "salarySource": "estimated",
@@ -693,7 +693,7 @@
       },
       "streetAddress": "Bahnhofstrasse 9",
       "streetAddressSource": "curated-company-city",
-      "validThrough": "2027-02-03T21:33:33.436Z",
+      "validThrough": "2027-02-04T21:17:52.223Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -728,7 +728,7 @@
       "url": "https://apply.refline.ch/792841/11350/pub/3",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T21:33:32.993Z",
+      "crawledAt": "2026-11-07T21:17:51.803Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -781,7 +781,7 @@
       },
       "streetAddress": "Bahnhofstrasse 9",
       "streetAddressSource": "curated-company-city",
-      "validThrough": "2026-12-10T21:33:32.993Z",
+      "validThrough": "2026-12-10T21:17:51.803Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -816,7 +816,7 @@
       "url": "https://apply.refline.ch/792841/11459/pub/1",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T21:33:32.549Z",
+      "crawledAt": "2026-11-07T21:17:51.382Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -869,7 +869,7 @@
       },
       "streetAddress": "Bahnhofstrasse 9",
       "streetAddressSource": "curated-company-city",
-      "validThrough": "2027-02-03T21:33:32.549Z",
+      "validThrough": "2027-02-03T21:17:51.382Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -904,7 +904,7 @@
       "url": "https://apply.refline.ch/792841/11410/pub/3",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T21:33:32.102Z",
+      "crawledAt": "2026-11-07T21:17:50.963Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -954,7 +954,7 @@
       },
       "streetAddress": "Bahnhofstrasse 9",
       "streetAddressSource": "curated-company-city",
-      "validThrough": "2026-12-31T21:33:32.102Z",
+      "validThrough": "2026-12-31T21:17:50.963Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -988,7 +988,7 @@
       "url": "https://apply.refline.ch/792841/11444/pub/3",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T21:33:31.658Z",
+      "crawledAt": "2026-11-07T21:17:50.544Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1044,7 +1044,7 @@
       },
       "streetAddress": "Bahnhofstrasse 9",
       "streetAddressSource": "curated-company-city",
-      "validThrough": "2027-01-21T21:33:31.658Z",
+      "validThrough": "2027-01-21T21:17:50.544Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1079,7 +1079,7 @@
       "url": "https://apply.refline.ch/792841/11413/pub/3",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T21:33:31.215Z",
+      "crawledAt": "2026-11-07T21:17:50.122Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1131,7 +1131,7 @@
       },
       "streetAddress": "Bahnhofstrasse 9",
       "streetAddressSource": "curated-company-city",
-      "validThrough": "2027-01-03T21:33:31.215Z",
+      "validThrough": "2027-01-03T21:17:50.122Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1166,7 +1166,7 @@
       "url": "https://apply.refline.ch/792841/11441/pub/3",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T21:33:30.770Z",
+      "crawledAt": "2026-11-07T21:17:49.698Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1236,7 +1236,7 @@
       },
       "streetAddress": "Bahnhofstrasse 9",
       "streetAddressSource": "curated-company-city",
-      "validThrough": "2027-01-19T21:33:30.770Z",
+      "validThrough": "2027-01-19T21:17:49.698Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1271,7 +1271,7 @@
       "url": "https://apply.refline.ch/792841/11427/pub/3",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T21:33:30.326Z",
+      "crawledAt": "2026-11-07T21:17:49.278Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1327,7 +1327,7 @@
       },
       "streetAddress": "Bahnhofstrasse 9",
       "streetAddressSource": "curated-company-city",
-      "validThrough": "2027-01-07T21:33:30.326Z",
+      "validThrough": "2027-01-07T21:17:49.278Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1362,7 +1362,7 @@
       "url": "https://apply.refline.ch/792841/11446/pub/1",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T21:33:29.882Z",
+      "crawledAt": "2026-11-07T21:17:48.859Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1409,7 +1409,7 @@
       },
       "streetAddress": "Bahnhofstrasse 9",
       "streetAddressSource": "curated-company-city",
-      "validThrough": "2027-01-21T21:33:29.882Z",
+      "validThrough": "2027-01-21T21:17:48.859Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1443,7 +1443,7 @@
       "url": "https://apply.refline.ch/792841/11443/pub/4",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T21:33:29.440Z",
+      "crawledAt": "2026-11-07T21:17:48.439Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1495,7 +1495,7 @@
       },
       "streetAddress": "Bahnhofstrasse 9",
       "streetAddressSource": "curated-company-city",
-      "validThrough": "2027-01-20T21:33:29.440Z",
+      "validThrough": "2027-01-20T21:17:48.439Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1529,7 +1529,7 @@
       "url": "https://apply.refline.ch/792841/11264/pub/5",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T21:33:28.995Z",
+      "crawledAt": "2026-11-07T21:17:48.019Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1584,7 +1584,7 @@
       },
       "streetAddress": "Bahnhofstrasse 9",
       "streetAddressSource": "curated-company-city",
-      "validThrough": "2026-12-06T21:33:28.995Z",
+      "validThrough": "2026-12-07T21:17:48.019Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1619,7 +1619,7 @@
       "url": "https://apply.refline.ch/792841/11445/pub/1",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T21:33:28.552Z",
+      "crawledAt": "2026-11-07T21:17:47.599Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1669,7 +1669,7 @@
       },
       "streetAddress": "Bahnhofstrasse 9",
       "streetAddressSource": "curated-company-city",
-      "validThrough": "2027-01-21T21:33:28.552Z",
+      "validThrough": "2027-01-21T21:17:47.599Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1703,7 +1703,7 @@
       "url": "https://apply.refline.ch/792841/11383/pub/3",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T21:33:28.103Z",
+      "crawledAt": "2026-11-07T21:17:47.179Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1755,7 +1755,7 @@
       },
       "streetAddress": "Bahnhofstrasse 9",
       "streetAddressSource": "curated-company-city",
-      "validThrough": "2026-12-23T21:33:28.103Z",
+      "validThrough": "2026-12-23T21:17:47.179Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1790,7 +1790,7 @@
       "url": "https://apply.refline.ch/792841/11440/pub/3",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T21:33:27.661Z",
+      "crawledAt": "2026-11-07T21:17:46.759Z",
       "addressLocality": "Küsnacht",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1845,7 +1845,7 @@
       },
       "streetAddress": "Küsnacht",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-17T21:33:27.661Z",
+      "validThrough": "2027-01-17T21:17:46.759Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1879,7 +1879,7 @@
       "url": "https://apply.refline.ch/792841/11416/pub/1",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T21:33:27.202Z",
+      "crawledAt": "2026-11-07T21:17:46.310Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1932,7 +1932,7 @@
       },
       "streetAddress": "Bahnhofstrasse 9",
       "streetAddressSource": "curated-company-city",
-      "validThrough": "2027-01-05T21:33:27.202Z",
+      "validThrough": "2027-01-05T21:17:46.310Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1967,7 +1967,7 @@
       "url": "https://apply.refline.ch/792841/11436/pub/1",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T21:33:26.758Z",
+      "crawledAt": "2026-11-07T21:17:45.887Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2017,7 +2017,7 @@
       },
       "streetAddress": "Bahnhofstrasse 9",
       "streetAddressSource": "curated-company-city",
-      "validThrough": "2027-01-13T21:33:26.758Z",
+      "validThrough": "2027-01-13T21:17:45.887Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2052,7 +2052,7 @@
       "url": "https://apply.refline.ch/792841/11421/pub/2",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T21:33:26.315Z",
+      "crawledAt": "2026-11-07T21:17:45.458Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2102,7 +2102,7 @@
       },
       "streetAddress": "Bahnhofstrasse 9",
       "streetAddressSource": "curated-company-city",
-      "validThrough": "2027-01-06T21:33:26.315Z",
+      "validThrough": "2027-01-06T21:17:45.458Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2136,7 +2136,7 @@
       "url": "https://apply.refline.ch/792841/11431/pub/2",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T21:33:25.870Z",
+      "crawledAt": "2026-11-07T21:17:44.973Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2186,7 +2186,7 @@
       },
       "streetAddress": "Bahnhofstrasse 9",
       "streetAddressSource": "curated-company-city",
-      "validThrough": "2027-01-10T21:33:25.870Z",
+      "validThrough": "2027-01-10T21:17:44.973Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2221,7 +2221,7 @@
       "url": "https://apply.refline.ch/792841/11423/pub/1",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T21:33:25.426Z",
+      "crawledAt": "2026-11-07T21:17:43.924Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2274,7 +2274,7 @@
       },
       "streetAddress": "Bahnhofstrasse 9",
       "streetAddressSource": "curated-company-city",
-      "validThrough": "2027-01-07T21:33:25.426Z",
+      "validThrough": "2027-01-07T21:17:43.924Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2309,7 +2309,7 @@
       "url": "https://apply.refline.ch/792841/11424/pub/1",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T21:33:23.886Z",
+      "crawledAt": "2026-11-07T21:17:43.502Z",
       "addressLocality": "Meilen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2364,7 +2364,7 @@
       },
       "streetAddress": "Meilen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-07T21:33:23.886Z",
+      "validThrough": "2027-01-07T21:17:43.502Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2399,7 +2399,7 @@
       "url": "https://apply.refline.ch/792841/11422/pub/1",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T21:33:23.431Z",
+      "crawledAt": "2026-11-07T21:17:43.051Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2449,7 +2449,7 @@
       },
       "streetAddress": "Bahnhofstrasse 9",
       "streetAddressSource": "curated-company-city",
-      "validThrough": "2027-01-06T21:33:23.431Z",
+      "validThrough": "2027-01-06T21:17:43.051Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2484,7 +2484,7 @@
       "url": "https://apply.refline.ch/792841/11418/pub/1",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T21:33:22.985Z",
+      "crawledAt": "2026-11-07T21:17:42.630Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2534,7 +2534,7 @@
       },
       "streetAddress": "Bahnhofstrasse 9",
       "streetAddressSource": "curated-company-city",
-      "validThrough": "2027-01-06T21:33:22.985Z",
+      "validThrough": "2027-01-06T21:17:42.630Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2569,7 +2569,7 @@
       "url": "https://apply.refline.ch/792841/11220/pub/7",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T21:33:22.541Z",
+      "crawledAt": "2026-11-07T21:17:42.208Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2619,7 +2619,7 @@
       },
       "streetAddress": "Bahnhofstrasse 9",
       "streetAddressSource": "curated-company-city",
-      "validThrough": "2026-12-06T21:33:22.541Z",
+      "validThrough": "2026-12-07T21:17:42.208Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2654,7 +2654,7 @@
       "url": "https://apply.refline.ch/792841/11406/pub/1",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T21:33:22.097Z",
+      "crawledAt": "2026-11-07T21:17:41.787Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2701,7 +2701,7 @@
       },
       "streetAddress": "Bahnhofstrasse 9",
       "streetAddressSource": "curated-company-city",
-      "validThrough": "2026-12-31T21:33:22.097Z",
+      "validThrough": "2026-12-31T21:17:41.787Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2736,7 +2736,7 @@
       "url": "https://apply.refline.ch/792841/10967/pub/7",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T21:33:21.654Z",
+      "crawledAt": "2026-11-07T21:17:41.367Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2796,7 +2796,7 @@
       },
       "streetAddress": "Bahnhofstrasse 9",
       "streetAddressSource": "curated-company-city",
-      "validThrough": "2026-12-06T21:33:21.654Z",
+      "validThrough": "2026-12-07T21:17:41.367Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2831,7 +2831,7 @@
       "url": "https://apply.refline.ch/792841/10968/pub/7",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T21:33:21.209Z",
+      "crawledAt": "2026-11-07T21:17:40.947Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2889,7 +2889,7 @@
       },
       "streetAddress": "Bahnhofstrasse 9",
       "streetAddressSource": "curated-company-city",
-      "validThrough": "2026-12-06T21:33:21.209Z",
+      "validThrough": "2026-12-07T21:17:40.947Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2924,7 +2924,7 @@
       "url": "https://apply.refline.ch/792841/11400/pub/1",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T21:33:20.765Z",
+      "crawledAt": "2026-11-07T21:17:40.527Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2979,7 +2979,7 @@
       },
       "streetAddress": "Bahnhofstrasse 9",
       "streetAddressSource": "curated-company-city",
-      "validThrough": "2026-12-29T21:33:20.765Z",
+      "validThrough": "2026-12-29T21:17:40.527Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3014,7 +3014,7 @@
       "url": "https://apply.refline.ch/792841/11394/pub/1",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T21:33:20.319Z",
+      "crawledAt": "2026-11-07T21:17:40.106Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3066,7 +3066,7 @@
       },
       "streetAddress": "Bahnhofstrasse 9",
       "streetAddressSource": "curated-company-city",
-      "validThrough": "2026-12-29T21:33:20.319Z",
+      "validThrough": "2026-12-29T21:17:40.106Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3100,7 +3100,7 @@
       "url": "https://apply.refline.ch/792841/11388/pub/1",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T21:33:19.875Z",
+      "crawledAt": "2026-11-07T21:17:39.681Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3152,7 +3152,7 @@
       },
       "streetAddress": "Bahnhofstrasse 9",
       "streetAddressSource": "curated-company-city",
-      "validThrough": "2026-12-27T21:33:19.875Z",
+      "validThrough": "2026-12-27T21:17:39.681Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3186,7 +3186,7 @@
       "url": "https://apply.refline.ch/792841/11392/pub/1",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T21:33:19.430Z",
+      "crawledAt": "2026-11-07T21:17:39.258Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3241,7 +3241,7 @@
       },
       "streetAddress": "Bahnhofstrasse 9",
       "streetAddressSource": "curated-company-city",
-      "validThrough": "2026-12-27T21:33:19.430Z",
+      "validThrough": "2026-12-27T21:17:39.258Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3276,7 +3276,7 @@
       "url": "https://apply.refline.ch/792841/11284/pub/5",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T21:33:18.986Z",
+      "crawledAt": "2026-11-07T21:17:38.836Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3325,7 +3325,7 @@
       },
       "streetAddress": "Bahnhofstrasse 9",
       "streetAddressSource": "curated-company-city",
-      "validThrough": "2026-12-06T21:33:18.986Z",
+      "validThrough": "2026-12-07T21:17:38.836Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3360,7 +3360,7 @@
       "url": "https://apply.refline.ch/792841/11381/pub/1",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T21:33:18.542Z",
+      "crawledAt": "2026-11-07T21:17:38.408Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3407,7 +3407,7 @@
       },
       "streetAddress": "Bahnhofstrasse 9",
       "streetAddressSource": "curated-company-city",
-      "validThrough": "2026-12-23T21:33:18.542Z",
+      "validThrough": "2026-12-23T21:17:38.408Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3442,7 +3442,7 @@
       "url": "https://apply.refline.ch/792841/11377/pub/1",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T21:33:18.098Z",
+      "crawledAt": "2026-11-07T21:17:37.986Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3494,7 +3494,7 @@
       },
       "streetAddress": "Bahnhofstrasse 9",
       "streetAddressSource": "curated-company-city",
-      "validThrough": "2026-12-21T21:33:18.098Z",
+      "validThrough": "2026-12-21T21:17:37.986Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3529,7 +3529,7 @@
       "url": "https://apply.refline.ch/792841/11001/pub/3",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T21:33:17.653Z",
+      "crawledAt": "2026-11-07T21:17:37.567Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3581,7 +3581,7 @@
       },
       "streetAddress": "Bahnhofstrasse 9",
       "streetAddressSource": "curated-company-city",
-      "validThrough": "2026-12-06T21:33:17.653Z",
+      "validThrough": "2026-12-07T21:17:37.567Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3616,7 +3616,7 @@
       "url": "https://apply.refline.ch/792841/11371/pub/1",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T21:33:17.208Z",
+      "crawledAt": "2026-11-07T21:17:37.147Z",
       "addressLocality": "Dielsdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3671,7 +3671,7 @@
       },
       "streetAddress": "Dielsdorf",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-17T21:33:17.208Z",
+      "validThrough": "2026-12-17T21:17:37.147Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3706,7 +3706,7 @@
       "url": "https://apply.refline.ch/792841/11359/pub/1",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T21:33:16.763Z",
+      "crawledAt": "2026-11-07T21:17:36.697Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3753,7 +3753,7 @@
       },
       "streetAddress": "Bahnhofstrasse 9",
       "streetAddressSource": "curated-company-city",
-      "validThrough": "2026-12-15T21:33:16.763Z",
+      "validThrough": "2026-12-15T21:17:36.697Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3788,7 +3788,7 @@
       "url": "https://apply.refline.ch/792841/11355/pub/1",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T21:33:16.316Z",
+      "crawledAt": "2026-11-07T21:17:36.272Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3837,7 +3837,7 @@
       },
       "streetAddress": "Bahnhofstrasse 9",
       "streetAddressSource": "curated-company-city",
-      "validThrough": "2026-12-14T21:33:16.316Z",
+      "validThrough": "2026-12-14T21:17:36.272Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3872,7 +3872,7 @@
       "url": "https://apply.refline.ch/792841/11185/pub/4",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T21:33:15.871Z",
+      "crawledAt": "2026-11-07T21:17:35.845Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3919,7 +3919,7 @@
       },
       "streetAddress": "Bahnhofstrasse 9",
       "streetAddressSource": "curated-company-city",
-      "validThrough": "2026-12-06T21:33:15.871Z",
+      "validThrough": "2026-12-07T21:17:35.845Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3954,7 +3954,7 @@
       "url": "https://apply.refline.ch/792841/11337/pub/1",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T21:33:15.427Z",
+      "crawledAt": "2026-11-07T21:17:35.418Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4013,7 +4013,7 @@
       },
       "streetAddress": "Bahnhofstrasse 9",
       "streetAddressSource": "curated-company-city",
-      "validThrough": "2026-12-06T21:33:15.427Z",
+      "validThrough": "2026-12-07T21:17:35.418Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4048,7 +4048,7 @@
       "url": "https://apply.refline.ch/792841/11330/pub/1",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T21:33:14.034Z",
+      "crawledAt": "2026-11-07T21:17:33.843Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4095,7 +4095,7 @@
       },
       "streetAddress": "Bahnhofstrasse 9",
       "streetAddressSource": "curated-company-city",
-      "validThrough": "2026-12-06T21:33:14.034Z",
+      "validThrough": "2026-12-07T21:17:33.843Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4130,7 +4130,7 @@
       "url": "https://apply.refline.ch/792841/11105/pub/3",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T21:33:13.592Z",
+      "crawledAt": "2026-11-07T21:17:33.421Z",
       "addressLocality": "Witikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4185,7 +4185,7 @@
       },
       "streetAddress": "Witikon",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-06T21:33:13.592Z",
+      "validThrough": "2026-12-07T21:17:33.421Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4220,7 +4220,7 @@
       "url": "https://apply.refline.ch/792841/11232/pub/1",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T21:33:13.144Z",
+      "crawledAt": "2026-11-07T21:17:32.996Z",
       "addressLocality": "Rüti",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4277,7 +4277,7 @@
       },
       "streetAddress": "Rüti",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-06T21:33:13.144Z",
+      "validThrough": "2026-12-07T21:17:32.996Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4312,7 +4312,7 @@
       "url": "https://apply.refline.ch/792841/10931/pub/3",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T21:33:12.673Z",
+      "crawledAt": "2026-11-07T21:17:32.526Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4367,7 +4367,7 @@
       },
       "streetAddress": "Bahnhofstrasse 9",
       "streetAddressSource": "curated-company-city",
-      "validThrough": "2026-12-06T21:33:12.673Z",
+      "validThrough": "2026-12-07T21:17:32.526Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4402,7 +4402,7 @@
       "url": "https://apply.refline.ch/792841/11149/pub/1",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-06T21:33:12.225Z",
+      "crawledAt": "2026-11-07T21:17:32.100Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4466,623 +4466,8 @@
       },
       "streetAddress": "Bahnhofstrasse 9",
       "streetAddressSource": "curated-company-city",
-      "validThrough": "2026-12-06T21:33:12.225Z",
+      "validThrough": "2026-12-07T21:17:32.100Z",
       "validThroughSource": "last-observed-window"
-    },
-    {
-      "id": "zkb-5661c5a2cef9",
-      "slug": "consulente-per-clienti-aziendali-presso-una-banca-diretta-zurcher-kantonalbank-zurich",
-      "slugByLocale": {
-        "it": "consulente-per-clienti-aziendali-presso-una-banca-diretta-zurcher-kantonalbank-zurich",
-        "en": "corporate-client-advisor-direct-bank-zurcher-kantonalbank-zurich",
-        "de": "firmenkundenberater-in-direktbank-zkb-zurich",
-        "fr": "conseiller-ere-a-la-clientele-entreprises-banque-directe-zurcher-kantonalbank-zurich"
-      },
-      "company": "Zürcher Kantonalbank",
-      "companyKey": "zkb",
-      "companyDomain": "zkb.ch",
-      "title": "Firmenkundenberater:in Direktbank",
-      "titleByLocale": {
-        "it": "Consulente per clienti aziendali presso una banca diretta",
-        "en": "Corporate Client Advisor Direct Bank",
-        "de": "Firmenkundenberater:in Direktbank",
-        "fr": "Conseiller·ère à la clientèle entreprises, banque directe"
-      },
-      "description": "80% - 100% | Banking Operations, Vertrieb und Kundenberatung | Zürich | Berufserfahrene\nMit viel Leidenschaft unterstützt du gemeinsam mit deinen Kolleginnen und Kollegen mehr als 70'000 Firmenkundinnen und Firmenkunden entlang ihrer wichtigsten Unternehmensereignisse. Du begleitest KMU von der Gründung über die Wachstumsphase bis zur Unternehmensnachfolge und berätst auch bei privaten Anliegen der Unternehmerinnen und Unternehmer. Dabei trittst du als verlässliche Ansprechperson auf und verbindest fachliche Kompetenz mit Nähe zur Kundschaft. Dein Arbeitsplatz befindet sich zentral im lebendigen Kreis 5 nahe dem Bahnhof Hardbrücke, im Wechsel mit regelmässigem Einsatz in unserem Hauptsitz Zürich City. Wenn du Freude an der Zusammenarbeit mit Firmenkundschaft hast und die Zukunft unseres Bereichs aktiv mitgestalten möchtest, dann passt du gut zu uns.\nDeine Aufgaben\n• Beraten von Gründerinnen und Gründern für einen schnellen und reibungslosen Start in die Selbstständigkeit\n• Erbringung von telefonischen und persönlichen Beratungen sowohl für Firmenkunden (Unternehmens- und Immobilienfinanzierungen, Geldverkehr, Anlagen, Vorsorge) als auch für private Anliegen der Unternehmerinnen und Unternehmer (Immobilienfinanzierungen, Anlagen, Vorsorge)\n• Prüfen, Beantragen und Bewilligen von Finanzierungen (inkl. Hypotheken, Leasing und Kredite) sowie Überwachen der Kreditengagements\n• Aktive Bedürfnis- und Potenzialergründung sowie strukturierte Potenzialerkennung und -ausschöpfung mit Hilfe unserer digitalen Beratungsplattform\nDein Profil\n• Abgeschlossene Banklehre oder gleichwertige Ausbildung mit entsprechender Bankerfahrung\n• Höhere Weiterbildung oder in Ausbildung dazu (Fachausweis, Höhere Fachschule, Bachelor oder vergleichbarer Abschluss im Bereich Betriebswirtschaft oder Banking and Finance)\n• Erfahrung im Finanzierungs- und Anlagegeschäft\n• Freude an den Ideen und Herausforderungen von Unternehmen und deren Inhaberinnen und Inhabern\n• Ausgeprägte kommunikative Fähigkeiten und Erfahrung in der Kundenberatung per Telefon und im persönlichen Gespräch\n• Sehr gute Deutsch- und Englischkenntnisse, weitere Sprachkenntnisse sind ein Pluspunkt\nUnser Angebot\n• Motiviertes, selbstorganisiertes und aufgestelltes Team, das sich auf dich freut\n• Unsere Arbeitsweise ist selbstbestimmt – das bringt Verantwortung mit sich, bietet Gestaltungsmöglichkeiten und Freiräume\n• Wir investieren viel in unsere Mitarbeitenden und bieten individuelle Weiterbildungsangebote\n• Verschiedene Anlässe und interne Netzwerke bieten dir die Möglichkeit, dich schnell zu vernetzen\n• Attraktives Gesamtpaket, welches neben dem attraktiven Grundsalär und einer variablen Vergütung viele Benefits und Vergünstigungen bietet – von A wie Altersvorsorge bis Z wie Zoo-Tickets\nFabian Herzig\nfreut sich, dir zu helfen.\nTelefon: 044 292 27 96",
-      "descriptionByLocale": {
-        "it": "80% - 100% | Operazioni bancarie, Vendite e Customer Consulting | Zurich | Professionisti esperti\nInsieme ai vostri colleghi, siete appassionati di sostenere più di 70.000 clienti aziendali lungo i loro più importanti eventi aziendali. Potrai accompagnare le PMI dall'avvio attraverso la fase di crescita alla successione aziendale e anche consigliare sulle preoccupazioni private degli imprenditori. Si comporta come una persona di contatto affidabile e combinare la competenza professionale con la vicinanza ai clienti. Il vostro posto di lavoro è situato in posizione centrale nel vivace quartiere 5 vicino alla stazione Hardbrücke, alternandosi con uso regolare nella nostra sede di Zurigo City. Se ti piace lavorare con i clienti aziendali e vuoi plasmare attivamente il futuro della nostra area, allora sei una buona soluzione per noi.\nI tuoi compiti\n• Consulere i fondatori per un rapido e regolare inizio di auto-occupazione\n• Fornitura di consultazioni telefoniche e personali sia per i clienti aziendali (finanziamento societario e immobiliare, transazioni monetarie, investimenti, pensione) sia per le preoccupazioni private degli imprenditori (finanziamento immobiliare, investimenti, pensione)\n• Esame, applicazione e approvazione del finanziamento (compresi mutui, leasing e prestiti) e monitoraggio degli impegni di credito\n• Servono attivo e potenziale scoperta, nonché potenziale riconoscimento e sfruttamento strutturato con l'aiuto della nostra piattaforma di consulenza digitale\nIl tuo profilo\n• Completato l'istruzione bancaria o equivalente con un'esperienza bancaria appropriata\n• Istruzione superiore o formazione (certificato specialistico, liceo delle scienze applicate, laurea o grado paragonabile in amministrazione aziendale o bancaria e finanza)\n• Esperienza nel finanziamento e nel business degli investimenti\n• Godere delle idee e delle sfide delle aziende e dei loro proprietari\n• Forte capacità di comunicazione e esperienza nella consulenza clienti per telefono e nella conversazione personale\n• Conoscenza molto buona di tedesco e inglese, ulteriori competenze linguistiche sono un plus\nLa nostra offerta\n• Squadra motivata, auto-organizzata e consolidata che vi aspetta\n• Il nostro modo di lavorare è autodeterminato – questo comporta responsabilità, offre possibilità di progettazione e libertà\n• Investiamo molto nei nostri dipendenti e offriamo opportunità di formazione individuali\n• Diversi eventi e reti interne offrono la possibilità di rete rapidamente\n• Attraente pacchetto complessivo, che oltre al attraente stipendio base e una remunerazione variabile offre molti vantaggi e vantaggi – da A come il risparmio di pensione a Z come biglietti per lo zoo\nFabian Herzig\nSono felice di aiutarti.\nTelefono: 044 292 27 96",
-        "en": "80% - 100% | Banking Operations, Sales and Customer Consulting | Zurich | Experienced Professionals\nTogether with your colleagues, you are passionate about supporting more than 70,000 corporate customers along their most important corporate events. You will accompany SMEs from start-up through the growth phase to company succession and also advise on private concerns of entrepreneurs. You act as a reliable contact person and combine professional competence with proximity to customers. Your workplace is centrally located in the lively district 5 near the station Hardbrücke, alternating with regular use in our headquarters Zurich City. If you enjoy working with corporate customers and want to actively shape the future of our area, then you are a good fit for us.\nYour tasks\n• Advising founders for a quick and smooth start to self-employment\n• Provision of telephone and personal consultations both for corporate clients (corporate and real estate financing, money transactions, investments, pension provision) and for private concerns of entrepreneurs (real estate financing, investments, pension provision)\n• Examination, application and approval of financing (including mortgages, leasing and loans) and monitoring of credit commitments\n• Active need and potential discovery as well as structured potential recognition and exploitation with the help of our digital consulting platform\nYour profile\n• Completed banking or equivalent education with appropriate banking experience\n• Higher education or training (specialist certificate, high school of applied sciences, bachelor’s or comparable degree in business administration or banking and finance)\n• Experience in financing and investment business\n• Enjoying the ideas and challenges of companies and their owners\n• Strong communication skills and experience in customer advice by telephone and in personal conversation\n• Very good knowledge of German and English, further language skills are a plus\nOur offer\n• Motivated, self-organized and established team that looks forward to you\n• Our way of working is self-determined – this entails responsibility, offers design possibilities and freedom\n• We invest a lot in our employees and offer individual training opportunities\n• Various events and internal networks offer you the opportunity to network quickly\n• Attractive overall package, which in addition to the attractive basic salary and a variable remuneration offers many benefits and perks – from A such as retirement savings to Z such as zoo tickets\nFabian Herzig\nI am glad to help you.\nTelephone: 044 292 27 96",
-        "de": "80% - 100% | Banking Operations, Vertrieb und Kundenberatung | Zürich | Berufserfahrene\nMit viel Leidenschaft unterstützt du gemeinsam mit deinen Kolleginnen und Kollegen mehr als 70'000 Firmenkundinnen und Firmenkunden entlang ihrer wichtigsten Unternehmensereignisse. Du begleitest KMU von der Gründung über die Wachstumsphase bis zur Unternehmensnachfolge und berätst auch bei privaten Anliegen der Unternehmerinnen und Unternehmer. Dabei trittst du als verlässliche Ansprechperson auf und verbindest fachliche Kompetenz mit Nähe zur Kundschaft. Dein Arbeitsplatz befindet sich zentral im lebendigen Kreis 5 nahe dem Bahnhof Hardbrücke, im Wechsel mit regelmässigem Einsatz in unserem Hauptsitz Zürich City. Wenn du Freude an der Zusammenarbeit mit Firmenkundschaft hast und die Zukunft unseres Bereichs aktiv mitgestalten möchtest, dann passt du gut zu uns.\nDeine Aufgaben\n• Beraten von Gründerinnen und Gründern für einen schnellen und reibungslosen Start in die Selbstständigkeit\n• Erbringung von telefonischen und persönlichen Beratungen sowohl für Firmenkunden (Unternehmens- und Immobilienfinanzierungen, Geldverkehr, Anlagen, Vorsorge) als auch für private Anliegen der Unternehmerinnen und Unternehmer (Immobilienfinanzierungen, Anlagen, Vorsorge)\n• Prüfen, Beantragen und Bewilligen von Finanzierungen (inkl. Hypotheken, Leasing und Kredite) sowie Überwachen der Kreditengagements\n• Aktive Bedürfnis- und Potenzialergründung sowie strukturierte Potenzialerkennung und -ausschöpfung mit Hilfe unserer digitalen Beratungsplattform\nDein Profil\n• Abgeschlossene Banklehre oder gleichwertige Ausbildung mit entsprechender Bankerfahrung\n• Höhere Weiterbildung oder in Ausbildung dazu (Fachausweis, Höhere Fachschule, Bachelor oder vergleichbarer Abschluss im Bereich Betriebswirtschaft oder Banking and Finance)\n• Erfahrung im Finanzierungs- und Anlagegeschäft\n• Freude an den Ideen und Herausforderungen von Unternehmen und deren Inhaberinnen und Inhabern\n• Ausgeprägte kommunikative Fähigkeiten und Erfahrung in der Kundenberatung per Telefon und im persönlichen Gespräch\n• Sehr gute Deutsch- und Englischkenntnisse, weitere Sprachkenntnisse sind ein Pluspunkt\nUnser Angebot\n• Motiviertes, selbstorganisiertes und aufgestelltes Team, das sich auf dich freut\n• Unsere Arbeitsweise ist selbstbestimmt – das bringt Verantwortung mit sich, bietet Gestaltungsmöglichkeiten und Freiräume\n• Wir investieren viel in unsere Mitarbeitenden und bieten individuelle Weiterbildungsangebote\n• Verschiedene Anlässe und interne Netzwerke bieten dir die Möglichkeit, dich schnell zu vernetzen\n• Attraktives Gesamtpaket, welches neben dem attraktiven Grundsalär und einer variablen Vergütung viele Benefits und Vergünstigungen bietet – von A wie Altersvorsorge bis Z wie Zoo-Tickets\nFabian Herzig\nfreut sich, dir zu helfen.\nTelefon: 044 292 27 96",
-        "fr": "80 % - 100 % de services bancaires, ventes et conseils à la clientèle de Zurich\nEn collaboration avec vos collègues, vous êtes passionnés par le soutien à plus de 70 000 clients d'entreprise tout au long de leurs événements les plus importants. Vous accompagnerez les PME de la phase de démarrage à la phase de croissance jusqu'à la succession d'entreprises et vous conseillerez également sur les préoccupations privées des entrepreneurs. Vous agissez comme une personne de contact fiable et combinez compétence professionnelle et proximité avec les clients. Votre lieu de travail est situé dans le quartier animé 5 près de la station Hardbrücke, en alternance avec une utilisation régulière dans notre siège Zurich City. Si vous aimez travailler avec des clients d'entreprise et voulez façonner activement l'avenir de notre région, alors vous êtes un bon ajustement pour nous.\nVos tâches\n• Conseiller les fondateurs pour un démarrage rapide et en douceur au travail indépendant\n• Fourniture de consultations téléphoniques et personnelles à la fois pour les entreprises clientes (financement des sociétés et de l'immobilier, transactions monétaires, investissements, prestations de retraite) et pour les intérêts privés des entrepreneurs (financement immobilier, investissements, prestations de retraite)\n• Examen, application et approbation du financement (y compris les prêts hypothécaires, le crédit-bail et les prêts) et suivi des engagements de crédit\n• Besoin actif et découverte potentielle ainsi que reconnaissance et exploitation potentielles structurées avec l'aide de notre plateforme de conseil numérique\nVotre profil\n• Études bancaires terminées ou équivalentes avec une expérience bancaire appropriée\n• Enseignement supérieur ou formation (certificat spécialisé, lycée des sciences appliquées, baccalauréat ou diplôme comparable en administration des affaires ou banque et finance)\n• Expérience en matière de financement et d'investissement\n• Profitez des idées et des défis des entreprises et de leurs propriétaires\n• Fortes compétences en communication et expérience en conseil à la clientèle par téléphone et en conversation personnelle\n• Très bonne connaissance de l'allemand et de l'anglais, d'autres compétences linguistiques sont un plus\nNotre offre\n• Équipe motivée, auto-organisée et établie qui vous attend avec impatience\n• Notre façon de travailler est auto-déterminée – cela implique une responsabilité, offre des possibilités de conception et de liberté\n• Nous investissons beaucoup dans nos employés et offrons des possibilités de formation individuelles\n• Divers événements et réseaux internes vous offrent la possibilité de réseauter rapidement\n• Un forfait global attrayant, qui, en plus du salaire de base attrayant et d'une rémunération variable offre de nombreux avantages et avantages – de A comme l'épargne-retraite à Z comme les tickets zoo\nFabian Herzig\nJe suis heureux de vous aider.\nTéléphone : 044 292 27 96"
-      },
-      "needsRetranslation": false,
-      "location": "Zürich",
-      "canton": "ZH",
-      "url": "https://apply.refline.ch/792841/11429/pub/3",
-      "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-06T09:16:31.037Z",
-      "addressLocality": "Zürich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8001",
-      "category": "IT",
-      "contract": "part-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "senior",
-      "sector": "Finanza / Banca",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-10-12T06:28:16.012578+00:00",
-      "postedDate": "2026-10-12T06:28:16.012578+00:00",
-      "postingDateSource": "reported",
-      "applyUrl": "https://apply.refline.ch/792841/11429/pub/3",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "externalId": "11429",
-      "pensumMin": 80,
-      "pensumMax": 80,
-      "pensum": "80%",
-      "previousSlugs": [
-        "firmenkundenberater-in-direktbank-zkb-zurich",
-        "firmenkundenberater-in-direktbank-zurcher-kantonalbank-zurich"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "firmenkundenberater-in-direktbank-zkb-zurich",
-          "firmenkundenberater-in-direktbank-zurcher-kantonalbank-zurich"
-        ],
-        "en": [
-          "firmenkundenberater-in-direktbank-zurcher-kantonalbank-zurich"
-        ],
-        "fr": [
-          "firmenkundenberater-in-direktbank-zurcher-kantonalbank-zurich"
-        ]
-      },
-      "firstSeenAt": "2026-10-13T09:13:42.823Z",
-      "salaryMin": 79000,
-      "salaryMax": 134500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 79000,
-          "maxValue": 134500,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Bahnhofstrasse 9",
-      "streetAddressSource": "curated-company-city",
-      "validThrough": "2027-01-10T09:16:31.037Z",
-      "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1
-    },
-    {
-      "id": "zkb-23341b542ed0",
-      "slug": "specialista-in-finanziamenti-alle-imprese-zurcher-kantonalbank-zurich",
-      "slugByLocale": {
-        "it": "specialista-in-finanziamenti-alle-imprese-zurcher-kantonalbank-zurich",
-        "en": "corporate-financing-specialist-zurcher-kantonalbank-zurich",
-        "de": "spezialist-in-finanzierungen-unternehmen-zkb-zurich",
-        "fr": "specialiste-des-financements-des-entreprises-zurcher-kantonalbank-zurich"
-      },
-      "company": "Zürcher Kantonalbank",
-      "companyKey": "zkb",
-      "companyDomain": "zkb.ch",
-      "title": "Spezialist:in Finanzierungen Unternehmen",
-      "titleByLocale": {
-        "it": "Specialista in finanziamenti alle imprese",
-        "en": "Corporate Financing Specialist",
-        "de": "Spezialist:in Finanzierungen Unternehmen",
-        "fr": "Spécialiste des financements des entreprises"
-      },
-      "description": "80% - 100% (Jobsharing möglich) | Banking Operations | Zürich | Berufserfahrene\nIm Bereich Finanzierungen Unternehmen des Finanzierungszentrums begleitest du unsere Unternehmenskundschaft bei der Umsetzung ihrer Finanzierungsbedürfnisse. In einem aufgeschlossenen und ideenreichen Team von neun Mitarbeitenden gestaltest du die effiziente und qualitativ hochwertige Verarbeitung von Unternehmensfinanzierungen mit. Gemeinsam mit rund 30 Kolleginnen und Kollegen im Bereich leistest du einen verantwortungsvollen Beitrag zu professionellen Finanzierungslösungen für die Zürcher Wirtschaft.\nDeine Aufgaben\n• Erstellen, Bearbeiten und Kontrollieren von Finanzierungsprozessen wie Anträgen, Verträgen, Endverarbeitungen und weiteren Kleinaufträgen im Bereich Finanzierungen Unternehmen\n• Sicherstellen einer effizienten und qualitativ hochwertigen Kreditverarbeitung über den gesamten Lebenszyklus\n• Pflegen einer engen Zusammenarbeit mit internen Schnittstellen wie Risikomanagement, Recht, Produktmanagement und weiteren Fachstellen\n• Unterstützen von Projekten und Fachaufgaben im Umfeld der Unternehmensfinanzierungen\n• Mitwirken bei der Optimierung von Prozessen, Systemen und Vorlagen im Finanzierungswesen\n• Einbringen deiner Fachkompetenz als Sparringspartner:in für Kolleginnen und Kollegen im Bereich sowie für interne Stakeholder\nDein Profil\n• Abgeschlossene Bankfachausbildung oder gleichwertige Ausbildung\n• Höhere Weiterbildung im Bank- oder Finanzbereich oder Bereitschaft dazu (z. B. Fachausweis, Höhere Fachschule, Bachelor oder vergleichbarer Abschluss)\n• Mehrjährige Erfahrung in der Kreditverarbeitung\n• Sehr gute Kenntnisse im Finanzierungsgeschäft mit Fokus auf Immobilien- und Unternehmensfinanzierungen sowie vertieftes Know-how in angrenzenden Fachgebieten\n• Du überzeugst durch eine sorgfältige, strukturierte Arbeitsweise und eine hohe Verantwortungsbereitschaft\n• Du punktest mit Teamorientierung sowie einer klaren, adressatengerechten Kommunikation\n• Sehr gute Deutschkenntnisse in Wort und Schrift, jede weitere Sprache ist ein Plus\nUnser Angebot\n• Engagiertes und kollegiales Team mit viel Erfahrung, das Offenheit und Zusammenarbeit lebt\n• Spannendes und vielfältiges Aufgabenspektrum mit vielen Netzwerkmöglichkeiten\n• Wir bieten dir Raum für deine Ideen und gestalten so die Bank von morgen\n• Vielfältige Möglichkeiten, dich persönlich und fachlich weiterzuentwickeln\n• Deine Karriere liegt uns als Arbeitgeberin am Herzen und deshalb fördern und begleiten wir dich auf deinem Weg\n• Zentral gelegener, gut erreichbarer und moderner Arbeitsplatz beim Bahnhof Hardbrücke mit der Möglichkeit, einen Teil deiner Arbeit im Homeoffice zu erledigen\nFabian Herzig\nfreut sich, dir zu helfen.\nTelefon: 044 292 27 96",
-      "descriptionByLocale": {
-        "it": "80% - 100% (possibile condivisione del lavoro) | Operazioni bancarie | Zurich | Professionisti esperti\nNel settore delle società di finanziamento del centro di finanziamento accompagni i nostri clienti aziendali nell'attuazione delle loro esigenze di finanziamento. In un team open-minded e fantasioso di nove dipendenti, si contribuisce al trattamento efficiente e di alta qualità del finanziamento aziendale. Insieme a circa 30 colleghi del settore, si dà un contributo responsabile alle soluzioni di finanziamento professionale per l'economia di Zurigo.\nI tuoi compiti\n• Creazione, elaborazione e controllo di processi di finanziamento come applicazioni, contratti, elaborazione finale e altri piccoli contratti nel settore delle società di finanziamento\n• Garantire un'elaborazione del credito efficiente e di alta qualità su tutto il ciclo di vita\n• Mantenere una stretta cooperazione con le interfacce interne, come la gestione del rischio, legale, gestione dei prodotti e altri dipartimenti specializzati\n• Sostegno a progetti e compiti tecnici nel settore del finanziamento aziendale\n• Partecipa all'ottimizzazione di processi, sistemi e modelli nel finanziamento\n• Contribuire le tue competenze come partner risparmiatore: per i colleghi del settore e per gli stakeholder interni\nIl tuo profilo\n• Istruzione bancaria o equivalente\n• Istruzione superiore nel settore bancario o finanziario o la volontà di farlo (ad esempio carta professionale, liceo, laurea o equivalente)\n• Diversi anni di esperienza nel trattamento del credito\n• Molto buona conoscenza nel business di finanziamento con focus sul finanziamento immobiliare e aziendale, nonché il know-how approfondito in aree specializzate adiacenti\n• Convinci attraverso un metodo di lavoro attento e strutturato e un'elevata disponibilità ad assumersi la responsabilità\n• Si segna con l'orientamento del team e la comunicazione chiara e orientata agli indirizzi\n• Molto buona conoscenza del tedesco nelle parole e nella scrittura, ogni altra lingua è un plus\nLa nostra offerta\n• Squadra impegnata e collaborativa con un sacco di esperienza che vive apertura e cooperazione\n• Ampia e diversificata gamma di attività con molte possibilità di rete\n• Vi offriamo spazio per le vostre idee e quindi progettare la banca di domani\n• Varie opportunità di sviluppo personale e professionale\n• La tua carriera è importante per noi come datore di lavoro e quindi ti sosteniamo e ti accompagniamo sulla tua strada\n• Posto centrale, facilmente accessibile e moderno sul posto di lavoro alla stazione di Hardbrücke con la possibilità di fare parte del vostro lavoro nell'ufficio di casa\nFabian Herzig\nE' felice di aiutarti.\nTelefono: 044 292 27 96",
-        "en": "80% - 100% (job sharing possible) | Banking Operations | Zurich | Experienced professionals\nIn the area of financing companies of the financing center you accompany our corporate customers in the implementation of their financing needs. In an open-minded and imaginative team of nine employees, you contribute to the efficient and high-quality processing of corporate financing. Together with around 30 colleagues in the field, you make a responsible contribution to professional financing solutions for the Zurich economy.\nYour tasks\n• Creation, processing and control of financing processes such as applications, contracts, final processing and other small contracts in the area of financing companies\n• Ensuring efficient and high-quality credit processing over the entire life cycle\n• Maintain close cooperation with internal interfaces such as risk management, legal, product management and other specialist departments\n• Support of projects and technical tasks in the field of corporate financing\n• Participate in the optimization of processes, systems and templates in financing\n• Contributing your expertise as a sparring partner: for colleagues in the area as well as for internal stakeholders\nYour profile\n• Banking education or equivalent\n• Higher education in banking or finance or willingness to do so (e.g. professional card, high school, bachelor’s degree or equivalent)\n• Several years of experience in credit processing\n• Very good knowledge in the financing business with focus on real estate and corporate financing as well as in-depth know-how in adjacent specialist areas\n• You convince through a careful, structured working method and a high willingness to take responsibility\n• You score with team orientation and clear, address-oriented communication\n• Very good knowledge of German in words and writing, every other language is a plus\nOur offer\n• Committed and collaborative team with a lot of experience that lives openness and cooperation\n• Exciting and diverse range of tasks with many network possibilities\n• We offer you space for your ideas and thus design the bank of tomorrow\n• Various opportunities to develop personally and professionally\n• Your career is important to us as an employer and therefore we support and accompany you on your way\n• Centrally located, easily accessible and modern workplace at Hardbrücke station with the possibility to do part of your work in the home office\nFabian Herzig\nHe is happy to help you.\nTelephone: 044 292 27 96",
-        "de": "80% - 100% (Jobsharing möglich) | Banking Operations | Zürich | Berufserfahrene\nIm Bereich Finanzierungen Unternehmen des Finanzierungszentrums begleitest du unsere Unternehmenskundschaft bei der Umsetzung ihrer Finanzierungsbedürfnisse. In einem aufgeschlossenen und ideenreichen Team von neun Mitarbeitenden gestaltest du die effiziente und qualitativ hochwertige Verarbeitung von Unternehmensfinanzierungen mit. Gemeinsam mit rund 30 Kolleginnen und Kollegen im Bereich leistest du einen verantwortungsvollen Beitrag zu professionellen Finanzierungslösungen für die Zürcher Wirtschaft.\nDeine Aufgaben\n• Erstellen, Bearbeiten und Kontrollieren von Finanzierungsprozessen wie Anträgen, Verträgen, Endverarbeitungen und weiteren Kleinaufträgen im Bereich Finanzierungen Unternehmen\n• Sicherstellen einer effizienten und qualitativ hochwertigen Kreditverarbeitung über den gesamten Lebenszyklus\n• Pflegen einer engen Zusammenarbeit mit internen Schnittstellen wie Risikomanagement, Recht, Produktmanagement und weiteren Fachstellen\n• Unterstützen von Projekten und Fachaufgaben im Umfeld der Unternehmensfinanzierungen\n• Mitwirken bei der Optimierung von Prozessen, Systemen und Vorlagen im Finanzierungswesen\n• Einbringen deiner Fachkompetenz als Sparringspartner:in für Kolleginnen und Kollegen im Bereich sowie für interne Stakeholder\nDein Profil\n• Abgeschlossene Bankfachausbildung oder gleichwertige Ausbildung\n• Höhere Weiterbildung im Bank- oder Finanzbereich oder Bereitschaft dazu (z. B. Fachausweis, Höhere Fachschule, Bachelor oder vergleichbarer Abschluss)\n• Mehrjährige Erfahrung in der Kreditverarbeitung\n• Sehr gute Kenntnisse im Finanzierungsgeschäft mit Fokus auf Immobilien- und Unternehmensfinanzierungen sowie vertieftes Know-how in angrenzenden Fachgebieten\n• Du überzeugst durch eine sorgfältige, strukturierte Arbeitsweise und eine hohe Verantwortungsbereitschaft\n• Du punktest mit Teamorientierung sowie einer klaren, adressatengerechten Kommunikation\n• Sehr gute Deutschkenntnisse in Wort und Schrift, jede weitere Sprache ist ein Plus\nUnser Angebot\n• Engagiertes und kollegiales Team mit viel Erfahrung, das Offenheit und Zusammenarbeit lebt\n• Spannendes und vielfältiges Aufgabenspektrum mit vielen Netzwerkmöglichkeiten\n• Wir bieten dir Raum für deine Ideen und gestalten so die Bank von morgen\n• Vielfältige Möglichkeiten, dich persönlich und fachlich weiterzuentwickeln\n• Deine Karriere liegt uns als Arbeitgeberin am Herzen und deshalb fördern und begleiten wir dich auf deinem Weg\n• Zentral gelegener, gut erreichbarer und moderner Arbeitsplatz beim Bahnhof Hardbrücke mit der Möglichkeit, einen Teil deiner Arbeit im Homeoffice zu erledigen\nFabian Herzig\nfreut sich, dir zu helfen.\nTelefon: 044 292 27 96",
-        "fr": "80% - 100% (partage d'emploi possible)\nDans le domaine du financement des entreprises du centre de financement, vous accompagnez nos clients dans la mise en œuvre de leurs besoins de financement. Dans une équipe ouverte d'esprit et imaginative de neuf employés, vous contribuez au traitement efficace et de haute qualité du financement d'entreprise. Avec une trentaine de collaborateurs sur le terrain, vous apportez une contribution responsable aux solutions de financement professionnelles pour l'économie de Zurich.\nVos tâches\n• Création, traitement et contrôle de processus de financement tels que les demandes, les contrats, le traitement final et d'autres petits contrats dans le domaine des sociétés de financement\n• Assurer un traitement efficace et de qualité du crédit tout au long du cycle de vie\n• Maintenir une coopération étroite avec les interfaces internes telles que la gestion des risques, la gestion juridique, la gestion des produits et d'autres services spécialisés\n• Appui aux projets et tâches techniques dans le domaine du financement des entreprises\n• Participer à l'optimisation des processus, des systèmes et des modèles de financement\n• Contribuer à votre expertise en tant que partenaire de partage : pour les collègues du domaine ainsi que pour les intervenants internes\nVotre profil\n• Enseignement bancaire ou équivalent\n• Enseignement supérieur dans le secteur bancaire ou financier ou la volonté de le faire (par exemple carte professionnelle, lycée, baccalauréat ou équivalent)\n• Plusieurs années d'expérience dans le traitement du crédit\n• Très bonne connaissance de l'activité de financement en mettant l'accent sur l'immobilier et le financement d'entreprise ainsi que sur le savoir-faire en profondeur dans les domaines spécialisés adjacents\n• Vous convainquez par une méthode de travail soignée et structurée et une grande volonté de prendre des responsabilités\n• Vous marquez avec l'orientation de l'équipe et une communication claire et orientée vers l'adresse\n• Très bonne connaissance de l'allemand en mots et en écriture, toutes les autres langues sont un plus\nNotre offre\n• Équipe engagée et collaborative avec beaucoup d'expérience qui vit ouverture et coopération\n• Excitant et varié gamme de tâches avec de nombreuses possibilités de réseau\n• Nous vous offrons un espace pour vos idées et ainsi concevoir la banque de demain\n• Diverses possibilités de développement personnel et professionnel\n• Votre carrière est importante pour nous en tant qu'employeur et donc nous vous soutenons et vous accompagnons sur votre chemin\n• Un lieu de travail central, facilement accessible et moderne à la gare de Hardbrücke avec la possibilité de faire une partie de votre travail dans le bureau à domicile\nFabian Herzig\nIl est heureux de vous aider.\nTéléphone : 044 292 27 96"
-      },
-      "needsRetranslation": false,
-      "location": "Zürich",
-      "canton": "ZH",
-      "url": "https://apply.refline.ch/792841/11438/pub/3",
-      "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-06T09:16:27.578Z",
-      "addressLocality": "Zürich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8001",
-      "category": "Sanità / Ospedali",
-      "contract": "part-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "senior",
-      "sector": "Finanza / Banca",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-10-16T16:45:14.162897+00:00",
-      "postedDate": "2026-10-16T16:45:14.162897+00:00",
-      "postingDateSource": "reported",
-      "applyUrl": "https://apply.refline.ch/792841/11438/pub/3",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "externalId": "11438",
-      "pensumMin": 80,
-      "pensumMax": 80,
-      "pensum": "80%",
-      "previousSlugs": [
-        "spezialist-in-finanzierungen-unternehmen-zkb-zurich"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "spezialist-in-finanzierungen-unternehmen-zkb-zurich"
-        ],
-        "en": [
-          "spezialist-in-finanzierungen-unternehmen-zkb-zurich"
-        ],
-        "fr": [
-          "spezialist-in-finanzierungen-unternehmen-zkb-zurich"
-        ]
-      },
-      "firstSeenAt": "2026-10-19T09:16:48.791Z",
-      "salaryMin": 91500,
-      "salaryMax": 128000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 91500,
-          "maxValue": 128000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Bahnhofstrasse 9",
-      "streetAddressSource": "curated-company-city",
-      "validThrough": "2027-01-15T09:16:27.578Z",
-      "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1
-    },
-    {
-      "id": "zkb-ede1e2dd8d41",
-      "slug": "consulente-alla-clientela-banca-diretta-zurcher-kantonalbank-zurich",
-      "slugByLocale": {
-        "it": "consulente-alla-clientela-banca-diretta-zurcher-kantonalbank-zurich",
-        "en": "direct-bank-customer-advisor-zurcher-kantonalbank-zurich",
-        "de": "kundenberater-in-direktbank-zkb-zurich",
-        "fr": "conseiller-ere-a-la-clientele-banque-directe-zurcher-kantonalbank-zurich"
-      },
-      "company": "Zürcher Kantonalbank",
-      "companyKey": "zkb",
-      "companyDomain": "zkb.ch",
-      "title": "Kundenberater:in Direktbank",
-      "titleByLocale": {
-        "it": "Consulente alla clientela banca diretta",
-        "en": "Direct Bank Customer Advisor",
-        "de": "Kundenberater:in Direktbank",
-        "fr": "Conseiller/ère à la clientèle banque directe"
-      },
-      "description": "80% - 100% | Direktbank / Service Center | Zürich | Berufseinsteiger:in, Berufserfahrene\nDie Direktbank Privatkunden der Zürcher Kantonalbank ist zuständig für 600'000 Kundinnen und Kunden und bietet ihnen die besten Lösungen durch ausgezeichnete Beratung und engagierten Support. Unser fast 80 köpfiger Bereich ist die erste telefonische Anlaufstelle für jegliche finanzielle Anliegen unserer Privatkundschaft.\nPotenzialansprachen sind deine persönliche Stärke und du möchtest zusammen mit uns das positive Image der Zürcher Kantonalbank prägen? Dann freuen wir uns, dich kennenzulernen.\nDeine Aufgaben\n• Telefonisches Beraten unserer Kundschaft zu sämtlichen Dienstleistungen und Bankbasisprodukten\n• Systematisches Ergründen von Bedürfnissen und Ausschöpfen von Kundenpotenzialen\n• Erkennen von Optimierungen bei Prozessen und Dienstleistungen sowie Triagieren an die geeigneten Fachstellen\n• Betreuen unserer Kundschaft mit viel Herzblut und Leidenschaft\n• Tägliches Vorleben von Empathie und Freundlichkeit\nDein Profil\n• Abgeschlossene kaufmännische Ausbildung\n• Erfahrung in der (telefonischen) Kundenberatung, vorzugsweise in der Bankbranche\n• Du bringst die Fähigkeit mit, Kundenpotenziale zu erkennen und hast Freude daran, proaktiv passende Lösungen zu finden\n• Technikaffinität sowie ausgeprägte Multitasking-Fähigkeit zeichnen dich aus\n• Hervorragende mündliche und schriftliche Kommunikationsfähigkeit in Deutsch sowie sehr gute Französischkenntnisse\n• Fremdsprachenkenntnisse in Italienisch oder Spanisch sind von Vorteil\nUnser Angebot\n• Gegenseitige Unterstützung und Teamspirit werden bei uns grossgeschrieben\n• Zentral gelegener Arbeitsplatz (Bahnhof Hardbrücke) im lebendigen Kreis 5 mit sehr guter Verkehrsanbindung und die Möglichkeit, im Homeoffice zu arbeiten\n• Deine Karriere liegt uns als Arbeitgeberin am Herzen, weshalb wir dich fördern und begleiten auf deinem Weg\n• Verschiedene Anlässe und interne Netzwerke bieten dir die Möglichkeit, dich schnell zu vernetzen\n• Einzigartiges Gesamtpaket mit attraktivem Grundsalär, variabler Vergütung und vielseitigen Zusatzleistungen (wie ÖV, Sport, Kinderbetreuung, Krankenkasse, u.v.m.)\nFabian Herzig\nfreut sich, dir zu helfen.\nTelefon: 044 292 27 96",
-      "descriptionByLocale": {
-        "it": "80% - 100% | Direct Bank / Service Center | Zurich | Principianti: in, professionisti esperti\nLa banca privata Zürcher Kantonalbank è responsabile per 600.000 clienti e offre loro le migliori soluzioni attraverso un eccellente consiglio e un supporto dedicato. La nostra divisione di quasi 80 tempi è il primo punto di contatto telefonico per qualsiasi preoccupazione finanziaria dei nostri clienti privati.\nAffrontare il potenziale è la vostra forza personale e volete modellare l'immagine positiva della Zürcher Kantonalbank insieme a noi? Non vediamo l'ora di incontrarti.\nI tuoi compiti\n• Consulenza telefonica ai nostri clienti su tutti i servizi e prodotti bancari di base\n• esplorazione sistematica delle esigenze e sfruttamento del potenziale del cliente\n• Riconoscimento delle ottimizzazioni nei processi e nei servizi e triagulazione di organismi specializzati idonei\n• Cura per i nostri clienti con un sacco di cuore e passione\n• Esperienza quotidiana di empatia e gentilezza\nIl tuo profilo\n• Formazione professionale completata\n• Esperienza in (telefono) consulenza clienti, preferibilmente nel settore bancario\n• Hai la capacità di identificare il potenziale del cliente e godere attivamente di trovare soluzioni adatte\n• L'affinità tecnica e la pronunciata abilità multitasking ti distinguono\n• Eccellente capacità di comunicazione orale e scritta in tedesco e molto buona conoscenza del francese\n• La conoscenza delle lingue straniere in italiano o spagnolo è benefica\nLa nostra offerta\n• Il supporto reciproco e lo spirito di squadra sono importanti per noi\n• Posto di lavoro situato in posizione centrale (stazione di ponte rigido) nel vivace quartiere 5 con ottimi collegamenti di trasporto e la possibilità di lavorare nell'ufficio di casa\n• La tua carriera è importante per noi come datore di lavoro, motivo per cui ti sosteniamo e ti accompagniamo sulla tua strada\n• Diversi eventi e reti interne offrono la possibilità di rete rapidamente\n• Pacchetto complessivo unico con uno stipendio base attraente, compensazione variabile e servizi aggiuntivi versatili (come trasporto pubblico, sport, assistenza all'infanzia, assicurazione sanitaria, ecc.)\nFabian Herzig\nE' felice di aiutarti.\nTelefono: 044 292 27 96",
-        "en": "80% - 100% | Direct Bank / Service Center | Zurich | Beginners: in, experienced professionals\nThe Zürcher Kantonalbank private bank is responsible for 600,000 customers and offers them the best solutions through excellent advice and dedicated support. Our almost 80-strong division is the first telephone contact point for any financial concerns of our private customers.\nAddressing potential is your personal strength and you want to shape the positive image of the Zürcher Kantonalbank together with us? We look forward to meeting you.\nYour tasks\n• Telephone advice to our customers on all services and basic banking products\n• Systematic exploration of needs and exploitation of customer potential\n• Recognition of optimizations in processes and services as well as triagulation of suitable specialist bodies\n• Caring for our customers with a lot of heart and passion\n• Daily Experience of Empathy and Kindness\nYour profile\n• Commercial training completed\n• Experience in (telephone) customer advice, preferably in the banking industry\n• You have the ability to identify customer potential and enjoy proactively finding suitable solutions\n• Technical affinity and pronounced multitasking ability distinguish you\n• Excellent oral and written communication skills in German and very good knowledge of French\n• Knowledge of foreign languages in Italian or Spanish is beneficial\nOur offer\n• Mutual support and team spirit are important to us\n• Centrally located workplace (hard bridge station) in the lively district 5 with very good transport connections and the possibility to work in the home office\n• Your career is important to us as an employer, which is why we support and accompany you on your way\n• Various events and internal networks offer you the opportunity to network quickly\n• Unique overall package with attractive basic salary, variable compensation and versatile additional services (such as public transport, sports, childcare, health insurance, etc.)\nFabian Herzig\nHe is happy to help you.\nTelephone: 044 292 27 96",
-        "de": "80% - 100% | Direktbank / Service Center | Zürich | Berufseinsteiger:in, Berufserfahrene\nDie Direktbank Privatkunden der Zürcher Kantonalbank ist zuständig für 600'000 Kundinnen und Kunden und bietet ihnen die besten Lösungen durch ausgezeichnete Beratung und engagierten Support. Unser fast 80 köpfiger Bereich ist die erste telefonische Anlaufstelle für jegliche finanzielle Anliegen unserer Privatkundschaft.\nPotenzialansprachen sind deine persönliche Stärke und du möchtest zusammen mit uns das positive Image der Zürcher Kantonalbank prägen? Dann freuen wir uns, dich kennenzulernen.\nDeine Aufgaben\n• Telefonisches Beraten unserer Kundschaft zu sämtlichen Dienstleistungen und Bankbasisprodukten\n• Systematisches Ergründen von Bedürfnissen und Ausschöpfen von Kundenpotenzialen\n• Erkennen von Optimierungen bei Prozessen und Dienstleistungen sowie Triagieren an die geeigneten Fachstellen\n• Betreuen unserer Kundschaft mit viel Herzblut und Leidenschaft\n• Tägliches Vorleben von Empathie und Freundlichkeit\nDein Profil\n• Abgeschlossene kaufmännische Ausbildung\n• Erfahrung in der (telefonischen) Kundenberatung, vorzugsweise in der Bankbranche\n• Du bringst die Fähigkeit mit, Kundenpotenziale zu erkennen und hast Freude daran, proaktiv passende Lösungen zu finden\n• Technikaffinität sowie ausgeprägte Multitasking-Fähigkeit zeichnen dich aus\n• Hervorragende mündliche und schriftliche Kommunikationsfähigkeit in Deutsch sowie sehr gute Französischkenntnisse\n• Fremdsprachenkenntnisse in Italienisch oder Spanisch sind von Vorteil\nUnser Angebot\n• Gegenseitige Unterstützung und Teamspirit werden bei uns grossgeschrieben\n• Zentral gelegener Arbeitsplatz (Bahnhof Hardbrücke) im lebendigen Kreis 5 mit sehr guter Verkehrsanbindung und die Möglichkeit, im Homeoffice zu arbeiten\n• Deine Karriere liegt uns als Arbeitgeberin am Herzen, weshalb wir dich fördern und begleiten auf deinem Weg\n• Verschiedene Anlässe und interne Netzwerke bieten dir die Möglichkeit, dich schnell zu vernetzen\n• Einzigartiges Gesamtpaket mit attraktivem Grundsalär, variabler Vergütung und vielseitigen Zusatzleistungen (wie ÖV, Sport, Kinderbetreuung, Krankenkasse, u.v.m.)\nFabian Herzig\nfreut sich, dir zu helfen.\nTelefon: 044 292 27 96",
-        "fr": "80% - 100% de la banque directe / Centre de service de Zurich de Zurich Débutants: in, professionnels expérimentés\nLa banque privée Zürcher Kantonalbank est responsable de 600 000 clients et leur offre les meilleures solutions grâce à d'excellents conseils et un soutien dédié. Notre division de près de 80 personnes est le premier point de contact téléphonique pour toute préoccupation financière de nos clients privés.\nVotre force personnelle est-elle en rapport avec le potentiel et vous voulez façonner l'image positive de la Zürcher Kantonalbank avec nous ? Nous sommes impatients de vous rencontrer.\nVos tâches\n• Conseils téléphoniques à nos clients sur tous les services et produits bancaires de base\n• Étude systématique des besoins et exploitation du potentiel client\n• Reconnaissance des optimisations dans les processus et les services ainsi que triagulation d'organismes spécialisés appropriés\n• Prendre soin de nos clients avec beaucoup de cœur et de passion\n• Expérience quotidienne d'empathie et de gentillesse\nVotre profil\n• Formation commerciale terminée\n• Expérience en conseil à la clientèle (téléphone), de préférence dans le secteur bancaire\n• Vous avez la capacité d'identifier le potentiel client et profiter de la recherche proactive de solutions appropriées\n• L'affinité technique et la capacité de multitâche prononcée vous distinguent\n• Excellentes compétences en communication orale et écrite en allemand et très bonne connaissance du français\n• La connaissance des langues étrangères en italien ou en espagnol est bénéfique\nNotre offre\n• Le soutien mutuel et l'esprit d'équipe sont importants pour nous\n• Lieu de travail central (pont dur) dans le quartier animé 5 avec de très bonnes connexions de transport et la possibilité de travailler dans le bureau à domicile\n• Votre carrière est importante pour nous en tant qu'employeur, c'est pourquoi nous vous soutenons et vous accompagnons sur votre chemin\n• Divers événements et réseaux internes vous offrent la possibilité de réseauter rapidement\n• Un forfait global unique avec un salaire de base attrayant, une rémunération variable et des services supplémentaires polyvalents (tels que les transports publics, les sports, les soins aux enfants, l'assurance maladie, etc.)\nFabian Herzig\nIl est heureux de vous aider.\nTéléphone : 044 292 27 96"
-      },
-      "needsRetranslation": false,
-      "location": "Zürich",
-      "canton": "ZH",
-      "url": "https://apply.refline.ch/792841/11397/pub/2",
-      "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-06T09:16:23.007Z",
-      "addressLocality": "Zürich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8001",
-      "category": "Sanità / Ospedali",
-      "contract": "part-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Finanza / Banca",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-09-30T07:22:13.765509+00:00",
-      "postedDate": "2026-09-30T07:22:13.765509+00:00",
-      "postingDateSource": "reported",
-      "applyUrl": "https://apply.refline.ch/792841/11397/pub/2",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "externalId": "11397",
-      "pensumMin": 80,
-      "pensumMax": 80,
-      "pensum": "80%",
-      "previousSlugs": [
-        "kundenberater-in-direktbank-zkb-zurich",
-        "kundenberater-in-direktbank-zurcher-kantonalbank-zurich"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "kundenberater-in-direktbank-zkb-zurich",
-          "kundenberater-in-direktbank-zurcher-kantonalbank-zurich"
-        ],
-        "en": [
-          "kundenberater-in-direktbank-zurcher-kantonalbank-zurich"
-        ],
-        "fr": [
-          "kundenberater-in-direktbank-zurcher-kantonalbank-zurich"
-        ]
-      },
-      "firstSeenAt": "2026-10-08T09:17:28.707Z",
-      "salaryMin": 91500,
-      "salaryMax": 128000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 91500,
-          "maxValue": 128000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Bahnhofstrasse 9",
-      "streetAddressSource": "curated-company-city",
-      "validThrough": "2026-12-29T09:16:23.007Z",
-      "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1
-    },
-    {
-      "id": "zkb-f0274348731e",
-      "slug": "sap-s-4hana-sviluppatore-m-w-d-zurcher-kantonalbank-zurich",
-      "slugByLocale": {
-        "it": "sap-s-4hana-sviluppatore-m-w-d-zurcher-kantonalbank-zurich",
-        "en": "sap-s-4hana-developer-m-w-d-zurcher-kantonalbank-zurich",
-        "de": "sap-s-4hana-developer-m-w-d-zkb-zurich",
-        "fr": "sap-s-4hana-developpeur-m-w-d-zurcher-kantonalbank-zurich"
-      },
-      "company": "Zürcher Kantonalbank",
-      "companyKey": "zkb",
-      "companyDomain": "zkb.ch",
-      "title": "Senior Developer im SAP S/4HANA Finance (m/w/d)",
-      "titleByLocale": {
-        "it": "SAP S/4HANA Sviluppatore (m/w/d)",
-        "en": "Senior Developer in SAP S/4HANA Finance (m/f/d)",
-        "de": "Senior Developer im SAP S/4HANA Finance (m/w/d)",
-        "fr": "SAP S/4HANA Développeur (m/w/d)"
-      },
-      "description": "80% - 100% | IT / Business Engineering | Zürich | Berufserfahrene mit Projektverantwortung\nWerde Teil eines agilen Teams, übernimm eine zentrale Rolle als Senior Developer im SAP S/4HANA Finance und unterstütze die S/4-Transformation im ERP. Als selbstorganisiertes, agiles Team von Softwareentwickelnden und Business Engineers entwickeln wir neue Funktionalitäten basierend auf dem SAFe-Framework innerhalb unseres Agile Release Trains.\nDeine Aufgaben\n• Konzipierst, designst und implementierst innovative Softwarelösungen im SAP-S/4HANA-Umfeld\n• Entwickelst und optimierst SAP-Fiori-Apps für eine optimale User Experience\n• Gestaltest und betreust komplexe Schnittstellenlandschaften und nutzt dabei SAP Business Technology Platform (BTP) sowie SAP Application Interface Framework (AIF)\n• Begleitest den Wandel hin zu einer modernen, cloudfähigen SAP-Architektur unter Einhaltung der «Clean-Core»-Prinzipien\n• Analysierst fachliche Anforderungen und Fehler in enger Zusammenarbeit mit Business Engineers und Modulverantwortlichen\n• Arbeitest eng mit Architekt:innen, DevOps Engineers, Security-Spezialist:innen und dem Plattform-Team zusammen\nDein Profil\n• Abgeschlossenes Studium in (Wirtschafts-)Informatik oder eine vergleichbare Qualifikation\n• Mehrjährige, fundierte Berufserfahrung im SAP-Bereich\n• Betriebswirtschaftliche Kenntnisse in den SAP-Finance-Modulen inklusive Customizing-Erfahrung\n• Fundierte Entwicklungserfahrung im SAP-S/4HANA-Umfeld, insbesondere mit ABAP OO, RAP, CDS Views sowie Fiori Apps (Fiori Elements und SAPUI5 Freestyle)\n• Klares Verständnis der SAP-Architektur (S/4HANA, SAP BTP) und der Systemintegration, idealerweise mit der SAP BTP (insbesondere Integration Suite / Cloud Integration)\n• Strukturierte, analytische Arbeitsweise, hohes Qualitätsbewusstsein und Begeisterung für neue SAP-Technologien; du überzeugst als Teamplayer mit proaktivem Mindset\n• Sehr gute Deutschkenntnisse in Wort und Schrift\nUnser Angebot\n• Motiviertes, selbstorganisiertes und aufgestelltes experten Team, das sich auf dich freut\n• Wir bieten dir Raum für deine Ideen und gestalten so die Bank von morgen\n• Vielfältige Möglichkeiten, dich persönlich, fachlich und technisch weiterzuentwickeln\n• Moderner Arbeitsplatz im lebendigen Kreis 5 mit sehr guter Verkehrsanbindung (Bahnhof Hardbrücke) und der Möglichkeit, im Homeoffice zu arbeiten\n• Attraktives Gesamtpaket mit umfangreichen Nebenleistungen und Vergünstigungen (Verbilligungsbeiträge für den ÖV, Sonderkonditionen auf Bankgeschäfte, Zusatzversicherungen der Krankenkasse, subventionierte Krippenplätze und attraktive Vorsorgeleistungen)\nFür diese Stelle werden nur Direktbewerbungen berücksichtigt.\nFabian Herzig\nfreut sich, dir zu helfen.\nTelefon: 044 292 27 96",
-      "descriptionByLocale": {
-        "it": "• SAP S/4HANA Sviluppatore (m/f/d) 80% - 100% | IT / Business Engineering | Zurich | Professionisti esperti con responsabilità del progetto Applicare online ora Entra a far parte di un team agile e assume un ruolo centrale come sviluppatore SAP S/4HANA e forma attivamente la trasformazione S/4 nell'ERP. Come team auto-organizzato e agile di sviluppatori software e ingegneri aziendali, sviluppiamo nuove funzionalità basate sul framework SAFe all'interno del nostro Agile Release Train. I tuoi compiti\n• Progettazione, progettazione e realizzazione di soluzioni software innovative nell'ambiente SAP S/4HANA\n• Sviluppare e ottimizzare applicazioni SAP Fiori per un'esperienza utente ottimale\n• Progettare e gestire paesaggi di interfaccia complessi, tra cui la connessione di SAP Ariba al sistema ERP, utilizzando la SAP Business Technology Platform (BTP) e il SAP Application Interface Framework (AIF)\n• Abbracciare la transizione verso un'architettura SAP moderna e abilitata al cloud, garantendo allo stesso tempo la conformità ai principi del \"core pulito\"\n• Analizzare i requisiti e gli errori professionali in stretta collaborazione con gli ingegneri aziendali e i gestori dei moduli\n• Lavorare a stretto contatto con architetti, ingegneri DevOps, specialisti della sicurezza e il team della piattaforma\n• Studi completi in informatica (economica) o una qualifica paragonabile Diversi anni di esperienza professionale approfondita nello sviluppo software SAP\n• Esperienza dimostrabile nell'integrazione del sistema, idealmente con SAP BTP (in particolare Integration Suite / Cloud Integration); Know-how nel campo di SAP Ariba (ad esempio Cloud Integration Gateway / CIG) è un plus\n• Conoscenza approfondita dei moduli SAP Finance, perfettamente integrati dalla personalizzazione dell'esperienza\n• Metodo di lavoro strutturato e analitico, consapevolezza di alta qualità e entusiasmo per le nuove tecnologie SAP\n• Convinci come un giocatore di squadra con una comunicazione forte e una mentalità proattiva\n• Molto buona conoscenza del tedesco in parola e scrittura\n• Motivato, auto-organizzato e creato team esperto in attesa di voi\n• Vi offriamo spazio per le vostre idee e quindi progettare la banca di domani\n• Varie opportunità per svilupparsi personalmente, professionalmente e tecnicamente\n• Posto di lavoro moderno nel vivace quartiere 5 con ottimi collegamenti di trasporto (stazione del ponte rigido) e la possibilità di lavorare in ufficio\n• Pacchetto globale attraente con servizi e prestazioni accessorie estese (contributi a basso costo per i trasporti pubblici, condizioni speciali per le transazioni bancarie, assicurazione complementare del fondo di assicurazione sanitaria, posti di lavoro sovvenzionati e prestazioni pensionistiche attraenti)",
-        "en": "• SAP S/4HANA Developer (m/f/d) 80% - 100% | IT / Business Engineering | Zurich | Experienced professionals with project responsibility Apply online now Become part of an agile team and take on a central role as SAP S/4HANA developer and actively shape the S/4 transformation in the ERP. As a self-organized, agile team of software developers and business engineers, we develop new functionalities based on the SAFe framework within our Agile Release Train. Your tasks\n• Design, design and implement innovative software solutions in the SAP S/4HANA environment\n• Develop and optimize SAP Fiori apps for an optimal user experience\n• Design and manage complex interface landscapes, including the connection of SAP Ariba to the ERP system, using the SAP Business Technology Platform (BTP) and the SAP Application Interface Framework (AIF)\n• Embrace the transition to a modern, cloud-enabled SAP architecture while at the same time ensuring compliance with “clean core” principles\n• Analyze professional requirements and errors in close cooperation with business engineers and module managers\n• Working closely with architects, DevOps engineers, security specialists and the platform team\n• Completed studies in (economic) computer science or a comparable qualification Several years of in-depth professional experience in SAP software development\n• Demonstrable experience in system integration, ideally with SAP BTP (in particular Integration Suite / Cloud Integration); Know-how in the field of SAP Ariba (e.g. Cloud Integration Gateway / CIG) is a plus\n• In-depth knowledge of the SAP Finance modules, ideally complemented by customizing experience\n• Structured, analytical working method, high quality awareness and enthusiasm for new SAP technologies\n• You convince as a team player with strong communication and a proactive mindset\n• Very good knowledge of German in word and writing\n• Motivated, self-organized and set up expert team looking forward to you\n• We offer you space for your ideas and thus design the bank of tomorrow\n• Various opportunities to develop yourself personally, professionally and technically\n• Modern workplace in the lively district 5 with very good transport connections (hard bridge station) and the possibility to work in the home office\n• Attractive overall package with extensive ancillary services and benefits (low-cost contributions for public transport, special conditions on banking transactions, supplementary insurance of the health insurance fund, subsidised crèche places and attractive pension benefits)",
-        "de": "80% - 100% | IT / Business Engineering | Zürich | Berufserfahrene mit Projektverantwortung\nWerde Teil eines agilen Teams, übernimm eine zentrale Rolle als Senior Developer im SAP S/4HANA Finance und unterstütze die S/4-Transformation im ERP. Als selbstorganisiertes, agiles Team von Softwareentwickelnden und Business Engineers entwickeln wir neue Funktionalitäten basierend auf dem SAFe-Framework innerhalb unseres Agile Release Trains.\nDeine Aufgaben\n• Konzipierst, designst und implementierst innovative Softwarelösungen im SAP-S/4HANA-Umfeld\n• Entwickelst und optimierst SAP-Fiori-Apps für eine optimale User Experience\n• Gestaltest und betreust komplexe Schnittstellenlandschaften und nutzt dabei SAP Business Technology Platform (BTP) sowie SAP Application Interface Framework (AIF)\n• Begleitest den Wandel hin zu einer modernen, cloudfähigen SAP-Architektur unter Einhaltung der «Clean-Core»-Prinzipien\n• Analysierst fachliche Anforderungen und Fehler in enger Zusammenarbeit mit Business Engineers und Modulverantwortlichen\n• Arbeitest eng mit Architekt:innen, DevOps Engineers, Security-Spezialist:innen und dem Plattform-Team zusammen\nDein Profil\n• Abgeschlossenes Studium in (Wirtschafts-)Informatik oder eine vergleichbare Qualifikation\n• Mehrjährige, fundierte Berufserfahrung im SAP-Bereich\n• Betriebswirtschaftliche Kenntnisse in den SAP-Finance-Modulen inklusive Customizing-Erfahrung\n• Fundierte Entwicklungserfahrung im SAP-S/4HANA-Umfeld, insbesondere mit ABAP OO, RAP, CDS Views sowie Fiori Apps (Fiori Elements und SAPUI5 Freestyle)\n• Klares Verständnis der SAP-Architektur (S/4HANA, SAP BTP) und der Systemintegration, idealerweise mit der SAP BTP (insbesondere Integration Suite / Cloud Integration)\n• Strukturierte, analytische Arbeitsweise, hohes Qualitätsbewusstsein und Begeisterung für neue SAP-Technologien; du überzeugst als Teamplayer mit proaktivem Mindset\n• Sehr gute Deutschkenntnisse in Wort und Schrift\nUnser Angebot\n• Motiviertes, selbstorganisiertes und aufgestelltes experten Team, das sich auf dich freut\n• Wir bieten dir Raum für deine Ideen und gestalten so die Bank von morgen\n• Vielfältige Möglichkeiten, dich persönlich, fachlich und technisch weiterzuentwickeln\n• Moderner Arbeitsplatz im lebendigen Kreis 5 mit sehr guter Verkehrsanbindung (Bahnhof Hardbrücke) und der Möglichkeit, im Homeoffice zu arbeiten\n• Attraktives Gesamtpaket mit umfangreichen Nebenleistungen und Vergünstigungen (Verbilligungsbeiträge für den ÖV, Sonderkonditionen auf Bankgeschäfte, Zusatzversicherungen der Krankenkasse, subventionierte Krippenplätze und attraktive Vorsorgeleistungen)\nFür diese Stelle werden nur Direktbewerbungen berücksichtigt.\nFabian Herzig\nfreut sich, dir zu helfen.\nTelefon: 044 292 27 96",
-        "fr": "• Développeur SAP S/4HANA (m/f/d) 80 % - 100 % de l'informatique / Ingénierie d'affaires Postulez en ligne maintenant Devenez membre d'une équipe agile et prenez un rôle central en tant que développeur SAP S/4HANA et façonnez activement la transformation S/4 dans l'ERP. En tant qu'équipe auto-organisée et agile de développeurs de logiciels et d'ingénieurs d'affaires, nous développons de nouvelles fonctionnalités basées sur le cadre de SAFe dans notre Agile Release Train. Vos tâches\n• Conception, conception et mise en œuvre de solutions logicielles innovantes dans l'environnement SAP S/4HANA\n• Développer et optimiser les applications SAP Fiori pour une expérience utilisateur optimale\n• Concevoir et gérer des paysages d'interface complexes, y compris la connexion de SAP Ariba au système ERP, en utilisant la plateforme de technologie d'affaires SAP (BTP) et le cadre d'interface d'application SAP (AIF)\n• Embrassez la transition vers une architecture SAP moderne, compatible avec le cloud, tout en assurant le respect des principes du noyau propre.\n• Analyser les exigences professionnelles et les erreurs en étroite collaboration avec les ingénieurs d'entreprise et les gestionnaires de modules\n• Travailler en étroite collaboration avec les architectes, les ingénieurs de DevOps, les spécialistes de la sécurité et l'équipe de la plateforme\n• Études terminées en informatique (économique) ou une qualification comparable Plusieurs années d'expérience professionnelle approfondie dans le développement de logiciels SAP\n• Expérience démontrée dans l'intégration du système, idéalement avec SAP BTP (en particulier Integration Suite / Cloud Integration); le savoir-faire dans le domaine de SAP Ariba (par exemple Cloud Integration Gateway / CIG) est un plus\n• Connaissance approfondie des modules SAP Finance, idéalement complétée par une expérience de personnalisation\n• Méthode de travail structurée, analytique, sensibilisation de haute qualité et enthousiasme pour les nouvelles technologies SAP\n• Vous convainquez comme un joueur d'équipe avec une communication forte et un état d'esprit proactif\n• Très bonne connaissance de l'allemand en paroles et en écriture\n• Motivé, auto-organisé et mis en place l'équipe d'experts impatient de vous\n• Nous vous offrons un espace pour vos idées et ainsi concevoir la banque de demain\n• Diverses possibilités de se développer personnellement, professionnellement et techniquement\n• Un lieu de travail moderne dans le quartier animé 5 avec de très bonnes connexions de transport (pont dur) et la possibilité de travailler dans le bureau à domicile\n• Paquet global attrayant avec des prestations et des services complémentaires étendus (contributions bon marché pour les transports publics, conditions particulières pour les transactions bancaires, assurance complémentaire de la caisse d'assurance maladie, places de crèche subventionnées et prestations de retraite attrayantes)"
-      },
-      "needsRetranslation": true,
-      "location": "Zürich",
-      "canton": "ZH",
-      "url": "https://apply.refline.ch/792841/11227/pub/3",
-      "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-06T09:16:15.875Z",
-      "addressLocality": "Zürich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8001",
-      "category": "Sanità / Ospedali",
-      "contract": "part-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "senior",
-      "sector": "Finanza / Banca",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-06-16T14:15:16.588840+00:00",
-      "postedDate": "2026-06-16T14:15:16.588840+00:00",
-      "postingDateSource": "reported",
-      "applyUrl": "https://apply.refline.ch/792841/11227/pub/3",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "externalId": "11227",
-      "pensumMin": 80,
-      "pensumMax": 80,
-      "pensum": "80%",
-      "previousSlugs": [
-        "sap-s-4hana-developer-m-w-d-zkb-zurich",
-        "senior-developer-im-sap-s-4hana-finance-m-w-d-zkb-zurich"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "sap-s-4hana-developer-m-w-d-zkb-zurich",
-          "senior-developer-im-sap-s-4hana-finance-m-w-d-zkb-zurich"
-        ]
-      },
-      "firstSeenAt": "2026-07-06T22:14:35.006Z",
-      "salaryMin": 124000,
-      "salaryMax": 173000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 124000,
-          "maxValue": 173000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Bahnhofstrasse 9",
-      "streetAddressSource": "curated-company-city",
-      "validThrough": "2026-12-06T09:16:15.875Z",
-      "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1
-    },
-    {
-      "id": "zkb-a5b7c631d2bc",
-      "slug": "specialista-di-parametrizzazione-avaloq-sviluppatore-trice-backend-java-m-f-d-zurcher-kantonalbank-zurich",
-      "slugByLocale": {
-        "it": "specialista-di-parametrizzazione-avaloq-sviluppatore-trice-backend-java-m-f-d-zurcher-kantonalbank-zurich",
-        "en": "avaloq-parameterizer-java-backend-developer-m-f-d-zurcher-kantonalbank-zurich",
-        "de": "avaloq-parametrierer-in-java-backend-entwickler-in-m-w-d-zkb-zurich",
-        "fr": "parametreur-euse-avaloq-developpeur-euse-backend-java-h-f-d-zurcher-kantonalbank-zurich"
-      },
-      "company": "Zürcher Kantonalbank",
-      "companyKey": "zkb",
-      "companyDomain": "zkb.ch",
-      "title": "Avaloq Parametrierer:in & Java Backend Entwickler:in (m/w/d)",
-      "titleByLocale": {
-        "it": "Specialista di parametrizzazione Avaloq & sviluppatore/trice backend Java (m/f/d)",
-        "en": "Avaloq Parameterizer & Java Backend Developer (m/f/d)",
-        "de": "Avaloq Parametrierer:in & Java Backend Entwickler:in (m/w/d)",
-        "fr": "Paramétreur·euse Avaloq & développeur·euse backend Java (h/f/d)"
-      },
-      "description": "80% - 100% | IT / Business Engineering | Zürich | Berufserfahrene\nIn dieser vielseitigen Rolle engagierst du dich aktiv an der Weiterentwicklung und dem Betrieb unserer Software im Bereich der Anlagelösungen der Zürcher Kantonalbank. Du bringst deine fundierten Kenntnisse in der Avaloq-Parametrierung sowie der Java-Backend-Entwicklung ein, um die Avaloq Banking Plattform und die inhouse entwickelten Adapter den Anforderungen unserer Kundschaft, der Benutzenden und der Geschäftsprozesse entsprechend anzupassen.\nAls Teil eines agilen DevOps-Teams mit Verantwortung in den Bereichen Anlageberatung, Vermögensverwaltung und Stammdaten beschäftigst du dich mit Themen wie Portfolio-Management, Rebalancing, Portfolio-Optimierung, Restriktionen, Schnittstellen und Integration. Dabei arbeitest du eng mit verschiedenen internen Teams zusammen, um technische Herausforderungen zu bewältigen und innovative Lösungen zu entwickeln. Deine analytischen Fähigkeiten ermöglichen es dir, komplexe Probleme zu identifizieren und zu lösen und dabei einen hohen Qualitätsstandard aufrechtzuerhalten.\nDeine Aufgaben\n• Parametrieren von Portfolio-Management-Funktionen und Stammdatenerweiterungen innerhalb der Avaloq Banking Plattform\n• Designen und Entwickeln von Event-Streaming-Schnittstellen zu anderen Software-Systemen\n• Betreuen und Weiterentwickeln von Java-basierten Software-Komponenten\n• Unterstützen des laufenden Betriebs sowie Analysieren und Beheben von Störungen\nDein Profil\n• Aus- und/oder Weiterbildung in Informatik oder Wirtschaftsinformatik oder eine vergleichbare Ausbildung\n• Mehrjährige Erfahrung in der Parametrierung der Avaloq Core Banking Plattform im Anlagebereich\n• Mehrjährige Erfahrung in der Entwicklung von Java-Applikationen mit Schwerpunkt Backend (z.B. Spring, Datenbankerfahrung und idealerweise (Azure-)Cloud)\n• Erfahrung in Python ist ein grosses Plus\n• Vertrautheit mit DevOps-Prinzipien und Erfahrung in der Arbeit mit agilen Entwicklungsmethoden\n• Teamplayer mit ausgeprägter Kommunikationsfähigkeit und sehr guter Ausdrucksfähigkeit in Deutsch sowie guten Englischkenntnissen\nUnser Angebot\n• Gegenseitige Unterstützung und Teamspirit werden bei uns grossgeschrieben\n• Spannendes und vielfältiges Aufgabenspektrum mit vielen Netzwerkmöglichkeiten\n• Grosser Freiraum für autonome Entscheidungen und Mitgestaltung\n• Vielfältige Möglichkeiten, dich persönlich und fachlich weiterzuentwickeln\n• Moderner Arbeitsplatz im Kreis 5 mit sehr guter Verkehrsanbindung (Bahnhof Hardbrücke)\n• Flexible Arbeitszeiten, mobiles Arbeiten und Vereinbarkeit von Beruf und Privatleben ist bei uns selbstverständlich\n• Kultur der Wertschätzung verbunden mit einem offenen und ehrlichen Kommunikationsstil\n• Umfassendes Paket mit attraktivem Grundsalär, variabler Vergütung und vielseitigen Benefits\nFür diese Stelle berücksichtigen wir ausschliesslich Direktbwerbungen\nToni Sommer\nfreut sich, dir zu helfen.\nTelefon: 044 292 27 95",
-      "descriptionByLocale": {
-        "it": "80% - 100% | IT / Business Engineering | Zurich | Professionisti esperti\nIn questo ruolo versatile, sei attivamente coinvolto nell'ulteriore sviluppo e funzionamento del nostro software nel settore delle soluzioni di investimento a Zürcher Kantonalbank. Applicherà la vostra conoscenza approfondita della parametrizzazione Avaloq e dello sviluppo backend Java per personalizzare la piattaforma bancaria Avaloq e adattatori sviluppati internamente per soddisfare le esigenze dei nostri clienti, utenti e processi aziendali.\nCome parte di un team agile DevOps con responsabilità in consulenza di investimento, gestione patrimoniale e dati master, ti occuperai di argomenti come gestione del portafoglio, riequilibrio, ottimizzazione del portafoglio, restrizioni, interfacce e integrazione. Si lavorerà a stretto contatto con vari team interni per superare le sfide tecniche e sviluppare soluzioni innovative. Le tue capacità analitiche ti permettono di identificare e risolvere problemi complessi mantenendo un elevato standard di qualità.\nI tuoi compiti\n• Parametrizzare le funzioni di gestione del portafoglio e migliorare i dati master all'interno della piattaforma bancaria Avaloq\n• Progettazione e sviluppo di interfacce di streaming eventi ad altri sistemi software\n• Manutenzione e sviluppo di componenti software basati su Java\n• Sostenere le operazioni in corso e analizzare e risolvere le interruzioni\nIl tuo profilo\n• Istruzione e/o formazione in informatica o informatica aziendale o formazione comparabile\n• Diversi anni di esperienza nella parametrizzazione della Piattaforma Avaloq Core Banking nel settore degli investimenti\n• Diversi anni di esperienza nello sviluppo di applicazioni Java con un focus sul backend (ad esempio primavera, esperienza di database e cloud idealmente (Azure))\n• Esperienza in Python è un grande vantaggio\n• Familiarità con i principi DevOps e l'esperienza che lavorano con i metodi di sviluppo agili\n• Giocatori di squadra con forti capacità di comunicazione e ottime capacità di espressione in tedesco e buona conoscenza dell'inglese\nLa nostra offerta\n• Il supporto reciproco e lo spirito di squadra sono importanti per noi\n• Ampia e diversificata gamma di attività con molte possibilità di rete\n• Grande libertà di decisione autonoma e partecipazione\n• Varie opportunità di sviluppo personale e professionale\n• Posto di lavoro moderno nel distretto 5 con collegamenti di trasporto molto buoni (stazione del ponte duro)\n• Le ore di lavoro flessibili, il lavoro mobile e l'equilibrio della vita lavorativa sono una questione ovviamente per noi\n• Cultura di apprezzamento combinata con uno stile di comunicazione aperto e onesto\n• Pacchetto completo con attraente stipendio base, compensazione variabile e vantaggi versatili\nPer questa posizione consideriamo solo applicazioni dirette\nToni estate\nSono felice di aiutarti.\nTelefono: 044 292 27 95",
-        "en": "80% - 100% | IT / Business Engineering | Zurich | Experienced professionals\nIn this versatile role, you are actively involved in the further development and operation of our software in the area of investment solutions at Zürcher Kantonalbank. You will apply your in-depth knowledge of Avaloq parameterization and Java backend development to customize the Avaloq banking platform and in-house developed adapters to meet the needs of our customers, users and business processes.\nAs part of an agile DevOps team with responsibilities in investment advisory, asset management and master data, you’ll deal with topics such as portfolio management, rebalancing, portfolio optimization, restrictions, interfaces and integration. You will work closely with various internal teams to overcome technical challenges and develop innovative solutions. Your analytical skills allow you to identify and solve complex problems while maintaining a high standard of quality.\nYour tasks\n• Parameterize portfolio management functions and master data enhancements within the Avaloq banking platform\n• Design and develop event streaming interfaces to other software systems\n• Maintenance and development of Java-based software components\n• Supporting ongoing operations and analysing and resolving disruptions\nYour profile\n• Education and/or training in computer science or business informatics or comparable training\n• Several years of experience in parameterizing the Avaloq Core Banking Platform in the investment sector\n• Several years of experience in the development of Java applications with a focus on backend (e.g. spring, database experience and ideally (Azure) cloud)\n• Experience in Python is a big plus\n• Familiarity with DevOps principles and experience working with agile development methods\n• Team players with strong communication skills and very good expression skills in German as well as good knowledge of English\nOur offer\n• Mutual support and team spirit are important to us\n• Exciting and diverse range of tasks with many network possibilities\n• Great freedom for autonomous decisions and participation\n• Various opportunities to develop personally and professionally\n• Modern workplace in district 5 with very good transport connections (hard bridge station)\n• Flexible working hours, mobile work and work-life balance are a matter of course for us\n• Culture of appreciation combined with an open and honest communication style\n• Comprehensive package with attractive basic salary, variable compensation and versatile benefits\nFor this position we only consider direct applications\nToni summer\nI am glad to help you.\nTelephone: 044 292 27 95",
-        "de": "80% - 100% | IT / Business Engineering | Zürich | Berufserfahrene\nIn dieser vielseitigen Rolle engagierst du dich aktiv an der Weiterentwicklung und dem Betrieb unserer Software im Bereich der Anlagelösungen der Zürcher Kantonalbank. Du bringst deine fundierten Kenntnisse in der Avaloq-Parametrierung sowie der Java-Backend-Entwicklung ein, um die Avaloq Banking Plattform und die inhouse entwickelten Adapter den Anforderungen unserer Kundschaft, der Benutzenden und der Geschäftsprozesse entsprechend anzupassen.\nAls Teil eines agilen DevOps-Teams mit Verantwortung in den Bereichen Anlageberatung, Vermögensverwaltung und Stammdaten beschäftigst du dich mit Themen wie Portfolio-Management, Rebalancing, Portfolio-Optimierung, Restriktionen, Schnittstellen und Integration. Dabei arbeitest du eng mit verschiedenen internen Teams zusammen, um technische Herausforderungen zu bewältigen und innovative Lösungen zu entwickeln. Deine analytischen Fähigkeiten ermöglichen es dir, komplexe Probleme zu identifizieren und zu lösen und dabei einen hohen Qualitätsstandard aufrechtzuerhalten.\nDeine Aufgaben\n• Parametrieren von Portfolio-Management-Funktionen und Stammdatenerweiterungen innerhalb der Avaloq Banking Plattform\n• Designen und Entwickeln von Event-Streaming-Schnittstellen zu anderen Software-Systemen\n• Betreuen und Weiterentwickeln von Java-basierten Software-Komponenten\n• Unterstützen des laufenden Betriebs sowie Analysieren und Beheben von Störungen\nDein Profil\n• Aus- und/oder Weiterbildung in Informatik oder Wirtschaftsinformatik oder eine vergleichbare Ausbildung\n• Mehrjährige Erfahrung in der Parametrierung der Avaloq Core Banking Plattform im Anlagebereich\n• Mehrjährige Erfahrung in der Entwicklung von Java-Applikationen mit Schwerpunkt Backend (z.B. Spring, Datenbankerfahrung und idealerweise (Azure-)Cloud)\n• Erfahrung in Python ist ein grosses Plus\n• Vertrautheit mit DevOps-Prinzipien und Erfahrung in der Arbeit mit agilen Entwicklungsmethoden\n• Teamplayer mit ausgeprägter Kommunikationsfähigkeit und sehr guter Ausdrucksfähigkeit in Deutsch sowie guten Englischkenntnissen\nUnser Angebot\n• Gegenseitige Unterstützung und Teamspirit werden bei uns grossgeschrieben\n• Spannendes und vielfältiges Aufgabenspektrum mit vielen Netzwerkmöglichkeiten\n• Grosser Freiraum für autonome Entscheidungen und Mitgestaltung\n• Vielfältige Möglichkeiten, dich persönlich und fachlich weiterzuentwickeln\n• Moderner Arbeitsplatz im Kreis 5 mit sehr guter Verkehrsanbindung (Bahnhof Hardbrücke)\n• Flexible Arbeitszeiten, mobiles Arbeiten und Vereinbarkeit von Beruf und Privatleben ist bei uns selbstverständlich\n• Kultur der Wertschätzung verbunden mit einem offenen und ehrlichen Kommunikationsstil\n• Umfassendes Paket mit attraktivem Grundsalär, variabler Vergütung und vielseitigen Benefits\nFür diese Stelle berücksichtigen wir ausschliesslich Direktbwerbungen\nToni Sommer\nfreut sich, dir zu helfen.\nTelefon: 044 292 27 95",
-        "fr": "80 % - 100 % de l'informatique / Ingénierie d'affaires\nDans ce rôle polyvalent, vous participez activement au développement et au fonctionnement de nos logiciels dans le domaine des solutions d'investissement chez Zürcher Kantonalbank. Vous appliquerez votre connaissance approfondie de la paramétrisation d'Avaloq et du développement de backend Java pour personnaliser la plateforme bancaire d'Avaloq et les adaptateurs développés en interne pour répondre aux besoins de nos clients, utilisateurs et processus d'affaires.\nDans le cadre d'une équipe agile de DevOps ayant des responsabilités en matière de conseil en investissement, de gestion d'actifs et de données maîtresses, vous traiterez de sujets tels que la gestion de portefeuille, le rééquilibrage, l'optimisation de portefeuille, les restrictions, les interfaces et l'intégration. Vous travaillerez en étroite collaboration avec diverses équipes internes pour surmonter les défis techniques et développer des solutions innovantes. Vos compétences analytiques vous permettent d'identifier et de résoudre des problèmes complexes tout en maintenant un niveau élevé de qualité.\nVos tâches\n• Parameterize portfolio management functions and master data improvements in the Avaloq banking platform\n• Concevoir et développer des interfaces de streaming d'événements vers d'autres systèmes logiciels\n• Maintenance et développement de composants logiciels basés sur Java\n• Appui aux opérations en cours et analyse et résolution des perturbations\nVotre profil\n• Éducation et/ou formation en informatique ou en informatique des entreprises ou formation comparable\n• Plusieurs années d'expérience dans le paramétrage de la plateforme bancaire de base d'Avaloq dans le secteur de l'investissement\n• Plusieurs années d'expérience dans le développement d'applications Java avec un accent sur le backend (p. ex. printemps, expérience de base de données et idéalement (Azure) cloud)\n• L'expérience en Python est un grand plus\n• Connaissance des principes et de l'expérience DevOps en matière de méthodes de développement agiles\n• Les joueurs d'équipe avec de solides compétences en communication et de très bonnes compétences d'expression en allemand ainsi que de bonne connaissance de l'anglais\nNotre offre\n• Le soutien mutuel et l'esprit d'équipe sont importants pour nous\n• Excitant et varié gamme de tâches avec de nombreuses possibilités de réseau\n• Grande liberté de décision autonome et de participation\n• Diverses possibilités de développement personnel et professionnel\n• Lieu de travail moderne dans le quartier 5 avec très bonnes liaisons de transport (pont dur)\n• La flexibilité des horaires de travail, la mobilité du travail et l'équilibre entre vie professionnelle et vie privée sont bien sûr une question pour nous.\n• Culture d'appréciation associée à un style de communication ouvert et honnête\n• Ensemble complet avec salaire de base attrayant, rémunération variable et avantages polyvalents\nPour cette position, nous ne considérons que les demandes directes\nToni été\nJe suis heureux de vous aider.\nTéléphone : 044 292 27 95"
-      },
-      "needsRetranslation": false,
-      "location": "Zürich",
-      "canton": "ZH",
-      "url": "https://apply.refline.ch/792841/11434/pub/1",
-      "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-05T21:20:34.976Z",
-      "addressLocality": "Zürich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8001",
-      "category": "Sanità / Ospedali",
-      "contract": "part-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "senior",
-      "sector": "Finanza / Banca",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-10-13T09:28:58.998338+00:00",
-      "postedDate": "2026-10-13T09:28:58.998338+00:00",
-      "postingDateSource": "reported",
-      "applyUrl": "https://apply.refline.ch/792841/11434/pub/1",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "externalId": "11434",
-      "pensumMin": 80,
-      "pensumMax": 80,
-      "pensum": "80%",
-      "previousSlugs": [
-        "avaloq-parametrierer-in-java-backend-entwickler-in-m-w-d-zkb-zurich"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "avaloq-parametrierer-in-java-backend-entwickler-in-m-w-d-zkb-zurich"
-        ],
-        "en": [
-          "avaloq-parametrierer-in-java-backend-entwickler-in-m-w-d-zkb-zurich"
-        ],
-        "fr": [
-          "avaloq-parametrierer-in-java-backend-entwickler-in-m-w-d-zkb-zurich"
-        ]
-      },
-      "firstSeenAt": "2026-10-13T21:12:53.787Z",
-      "salaryMin": 91500,
-      "salaryMax": 128000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 91500,
-          "maxValue": 128000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Bahnhofstrasse 9",
-      "streetAddressSource": "curated-company-city",
-      "validThrough": "2027-01-11T21:20:34.976Z",
-      "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 2
-    },
-    {
-      "id": "zkb-e87c98b187fe",
-      "slug": "responsabile-tecnico-responsabile-saas-hub-di-asset-digitali-m-f-d-zurcher-kantonalbank-zurich",
-      "slugByLocale": {
-        "it": "responsabile-tecnico-responsabile-saas-hub-di-asset-digitali-m-f-d-zurcher-kantonalbank-zurich",
-        "en": "technical-lead-saas-manager-digital-asset-hub-m-w-d-zkb-zurich",
-        "de": "technical-lead-saas-manager-digital-asset-hub-m-w-d-zkb-zurich",
-        "fr": "responsable-technique-saas-manager-digital-asset-hub-m-w-d-zurcher-kantonalbank-zurich"
-      },
-      "company": "Zürcher Kantonalbank",
-      "companyKey": "zkb",
-      "companyDomain": "zkb.ch",
-      "title": "Technical Lead & SaaS Manager Digital Asset Hub (m/w/d)",
-      "titleByLocale": {
-        "it": "Responsabile tecnico e manager SaaS – Digital Asset Hub (tutti i generi)",
-        "en": "Technical Lead & SaaS Manager Digital Asset Hub (m/f/d)",
-        "de": "Technical Lead & SaaS Manager Digital Asset Hub (m/w/d)",
-        "fr": "Responsable technique et manager SaaS – Digital Asset Hub (tous genres)"
-      },
-      "description": "80% - 100% | IT / Business Engineering | Zürich | Berufserfahrene\nIn dieser vielseitigen und zentralen Rolle übernimmst du die technische Verantwortung für unseren Digital Asset Hub. Du sorgst für einen stabilen und sicheren Betrieb der Plattform, steuerst unsere SaaS-Dienstleister und führst ein interdisziplinäres Team in einem agilen Umfeld. Mit deiner Expertise im DevOps-Umfeld verbindest du technische und organisatorische Anforderungen und gestaltest die Weiterentwicklung einer zukunftsweisenden Plattform aktiv mit. So leistest du einen direkten Beitrag zur Transformation der Bank im Bereich Kryptowährungen und Digital Assets und zur hohen Servicequalität für unsere Kundschaft.\nDeine Aufgaben\n• Verantworten der Integration neuer Komponenten und Optimieren bestehender Adapter inklusive Überwachen des Lifecycles der eingesetzten Technologien und Tools\n• Sicherstellen des stabilen Betriebs unserer Plattform inklusive Störungsbehebung, Zertifikatsmanagement, Lizenzverwaltung sowie Weiterentwickeln und Betreiben der zugehörigen CI/CD-Pipeline\n• Steuern der Zusammenarbeit mit unserem SaaS-Provider und Sicherstellen der Einhaltung von SLAs inklusive Monitoring, Reporting, Eskalationsmanagement sowie Leiten von Service- und Betriebsmeetings mit Fokus auf kontinuierliche Optimierung der Servicequalität\n• Koordinieren von bereichs- und unternehmensübergreifenden Development- und Service-Teams, Moderieren von Scrum-Events, Beseitigen von Hindernissen und Fördern der Selbstorganisation im Team zur Sicherstellung der kontinuierlichen Verbesserung und Einhaltung agiler Prinzipien\nDein Profil\n• Abgeschlossenes Studium in Informatik, Wirtschaftsinformatik oder eine vergleichbare Ausbildung\n• Mindestens 5 Jahre Erfahrung im IT-Service-Management, idealerweise in einem regulierten Umfeld\n• Fundierte Kenntnisse in Linux, CI/CD, Cloud- und Container-Technologien, Netzwerkprotokollen, Security und Applikations-Monitoring (z. B. Grafana), idealerweise ergänzt durch Kenntnisse in Python\n• Erfahrungen im Umgang mit Kernbankenlösungen wie Avaloq und Crypto-Custody-Lösungen sind ein grosses Plus\n• Begeisterung für Kryptowährungen und Digital Assets sowie hohe Serviceorientierung und Eigeninitiative\n• Du überzeugst mit deiner kommunikativen Stärke und einem ausgeprägten Servant-Leadership-Mindset\n• Sehr gute Deutsch- und Englischkenntnisse in Wort und Schrift\nUnser Angebot\n• Gegenseitige Unterstützung und Teamspirit werden bei uns grossgeschrieben\n• Spannendes und vielfältiges Aufgabenspektrum mit vielen Netzwerkmöglichkeiten\n• Grosser Freiraum für autonome Entscheidungen und Mitgestaltung\n• Vielfältige Möglichkeiten, dich persönlich und fachlich weiterzuentwickeln\n• Moderner Arbeitsplatz im Kreis 5 mit sehr guter Verkehrsanbindung (Bahnhof Hardbrücke)\n• Flexible Arbeitszeiten, mobiles Arbeiten und Vereinbarkeit von Beruf und Privatleben ist bei uns selbstverständlich\n• Kultur der Wertschätzung verbunden mit einem offenen und ehrlichen Kommunikationsstil\n• Umfassendes Paket mit attraktivem Grundsalär, variabler Vergütung und vielseitigen Benefits\nToni Sommer\nfreut sich, dir zu helfen.\nTelefon: 044 292 27 95",
-      "descriptionByLocale": {
-        "it": "80% - 100% | IT / Business Engineering | Zürich | Professionisti esperti\n\nIn questo ruolo vario e centrale, assumi la responsabilità tecnica del nostro Digital Asset Hub. Garantisci il funzionamento stabile e sicuro della piattaforma, coordini i nostri fornitori di servizi SaaS e guidi un team interdisciplinare in un ambiente agile. Grazie alla tua esperienza nell’ambito DevOps, coniughi i requisiti tecnici e organizzativi e contribuisci attivamente all’ulteriore sviluppo di una piattaforma all’avanguardia. In questo modo dai un contributo diretto alla trasformazione della banca nel settore delle criptovalute e dei Digital Assets e all’elevata qualità del servizio per la nostra clientela.\n\nLe tue mansioni\n\n- Essere responsabile dell'integrazione di nuovi componenti e dell'ottimizzazione degli adattatori esistenti, incluso il monitoraggio del ciclo di vita delle tecnologie e degli strumenti utilizzati\n- Garantire la stabilità operativa della nostra piattaforma, occupandosi della risoluzione dei problemi, della gestione dei certificati e delle licenze, nonché dell'ulteriore sviluppo e della gestione della relativa pipeline CI/CD\n- Gestire la collaborazione con il nostro provider SaaS e garantire il rispetto degli SLAs, inclusi monitoraggio, reporting e gestione delle escalation, nonché condurre riunioni di servizio e operative con particolare attenzione all'ottimizzazione continua della qualità del servizio\n- Coordinare team di sviluppo e di servizio interfunzionali e interaziendali, moderare eventi Scrum, rimuovere gli ostacoli e promuovere l'auto-organizzazione nel team per garantire il miglioramento continuo e il rispetto dei principi agili\n\nIl tuo profilo\n\n- Laurea conseguita in informatica, informatica gestionale o formazione equivalente\n- Almeno 5 anni di esperienza nella gestione dei servizi IT, idealmente in un contesto regolamentato\n- Solide conoscenze di Linux, CI/CD, tecnologie cloud e container, protocolli di rete, sicurezza e monitoraggio delle applicazioni (ad es. Grafana), idealmente integrate da conoscenze di Python\n- Esperienza nell'utilizzo di soluzioni core banking come Avaloq e di soluzioni di crypto custody costituisce un grande vantaggio\n- Passione per le criptovalute e gli asset digitali, nonché forte orientamento al servizio e spirito d'iniziativa\n- Ti distingui per le tue spiccate capacità comunicative e per una forte mentalità di servant leadership\n- Ottima conoscenza del tedesco e dell'inglese, sia parlato sia scritto\n\nLa nostra offerta\n\n- Da noi, il supporto reciproco e lo spirito di squadra sono molto importanti\n- Mansioni stimolanti e diversificate con numerose opportunità di networking\n- Ampio margine di autonomia per prendere decisioni e contribuire attivamente\n- Numerose opportunità di crescita personale e professionale\n- Postazione di lavoro moderna nel Kreis 5, con ottimi collegamenti con i mezzi pubblici (stazione di Hardbrücke)\n- Orari di lavoro flessibili, lavoro mobile e conciliazione tra vita professionale e privata sono per noi la norma\n- Cultura dell'apprezzamento, unita a uno stile comunicativo aperto e sincero\n- Pacchetto completo con uno stipendio base interessante, una retribuzione variabile e numerosi benefit\n\nContatti\n\nToni Summer\nsarà felice di aiutarti.\nTelefono: 044 292 27 95",
-        "en": "80% - 100% | IT / Business Engineering | Zurich | Experienced professionals\n\nIn this diverse and pivotal role, you will assume technical responsibility for our Digital Asset Hub. You will ensure the platform operates stably and securely, manage our SaaS providers, and lead a cross-functional team in an agile environment. With your expertise in the DevOps environment, you will bring together technical and organizational requirements and actively help shape the further development of a forward-looking platform. In this way, you will make a direct contribution to the bank's transformation in the area of cryptocurrencies and Digital Assets and to the high quality of service for our customers.\n\nYour responsibilities\n\n- Managing the integration of new components and optimizing existing adapters, including monitoring the lifecycle of the technologies and tools used\n- Ensuring the stable operation of our platform, including troubleshooting, certificate management, license management, as well as further developing and operating the associated CI/CD pipeline\n- Managing collaboration with our SaaS provider and ensuring compliance with SLAs, including monitoring, reporting, escalation management, and leading service and operations meetings with a focus on continuously optimizing service quality\n- Coordinating cross-functional and cross-company development and service teams, moderating Scrum events, removing impediments, and promoting self-organization within the team to ensure continuous improvement and adherence to agile principles\n\nYour profile\n\n- Completed degree in computer science, business informatics, or equivalent training\n- At least 5 years' experience in IT service management, ideally in a regulated environment\n- Solid knowledge of Linux, CI/CD, cloud and container technologies, network protocols, security, and application monitoring (e.g., Grafana), ideally complemented by knowledge of Python\n- Experience with core banking solutions such as Avaloq and crypto custody solutions is a major plus\n- Enthusiasm for cryptocurrencies and Digital Assets, as well as a high level of service orientation and personal initiative\n- You stand out through your strong communication skills and a pronounced servant leadership mindset\n- Very good German and English skills, both written and spoken\n\nWhat we offer\n\n- Mutual support and team spirit are highly valued here\n- Exciting and varied range of responsibilities with many networking opportunities\n- A great deal of freedom for autonomous decision-making and helping shape things\n- A wide range of opportunities for your personal and professional development\n- Modern workplace in District 5 with very good transport connections (Hardbrücke railway station)\n- Flexible working hours, mobile working and a good work-life balance are a matter of course for us\n- A culture of appreciation combined with an open and honest communication style\n- Comprehensive package with an attractive base salary, variable compensation and a wide range of benefits\n\nContact\n\nToni Summer\nis happy to help you.\nPhone: 044 292 27 95",
-        "de": "80% - 100% | IT / Business Engineering | Zürich | Berufserfahrene\nIn dieser vielseitigen und zentralen Rolle übernimmst du die technische Verantwortung für unseren Digital Asset Hub. Du sorgst für einen stabilen und sicheren Betrieb der Plattform, steuerst unsere SaaS-Dienstleister und führst ein interdisziplinäres Team in einem agilen Umfeld. Mit deiner Expertise im DevOps-Umfeld verbindest du technische und organisatorische Anforderungen und gestaltest die Weiterentwicklung einer zukunftsweisenden Plattform aktiv mit. So leistest du einen direkten Beitrag zur Transformation der Bank im Bereich Kryptowährungen und Digital Assets und zur hohen Servicequalität für unsere Kundschaft.\nDeine Aufgaben\n• Verantworten der Integration neuer Komponenten und Optimieren bestehender Adapter inklusive Überwachen des Lifecycles der eingesetzten Technologien und Tools\n• Sicherstellen des stabilen Betriebs unserer Plattform inklusive Störungsbehebung, Zertifikatsmanagement, Lizenzverwaltung sowie Weiterentwickeln und Betreiben der zugehörigen CI/CD-Pipeline\n• Steuern der Zusammenarbeit mit unserem SaaS-Provider und Sicherstellen der Einhaltung von SLAs inklusive Monitoring, Reporting, Eskalationsmanagement sowie Leiten von Service- und Betriebsmeetings mit Fokus auf kontinuierliche Optimierung der Servicequalität\n• Koordinieren von bereichs- und unternehmensübergreifenden Development- und Service-Teams, Moderieren von Scrum-Events, Beseitigen von Hindernissen und Fördern der Selbstorganisation im Team zur Sicherstellung der kontinuierlichen Verbesserung und Einhaltung agiler Prinzipien\nDein Profil\n• Abgeschlossenes Studium in Informatik, Wirtschaftsinformatik oder eine vergleichbare Ausbildung\n• Mindestens 5 Jahre Erfahrung im IT-Service-Management, idealerweise in einem regulierten Umfeld\n• Fundierte Kenntnisse in Linux, CI/CD, Cloud- und Container-Technologien, Netzwerkprotokollen, Security und Applikations-Monitoring (z. B. Grafana), idealerweise ergänzt durch Kenntnisse in Python\n• Erfahrungen im Umgang mit Kernbankenlösungen wie Avaloq und Crypto-Custody-Lösungen sind ein grosses Plus\n• Begeisterung für Kryptowährungen und Digital Assets sowie hohe Serviceorientierung und Eigeninitiative\n• Du überzeugst mit deiner kommunikativen Stärke und einem ausgeprägten Servant-Leadership-Mindset\n• Sehr gute Deutsch- und Englischkenntnisse in Wort und Schrift\nUnser Angebot\n• Gegenseitige Unterstützung und Teamspirit werden bei uns grossgeschrieben\n• Spannendes und vielfältiges Aufgabenspektrum mit vielen Netzwerkmöglichkeiten\n• Grosser Freiraum für autonome Entscheidungen und Mitgestaltung\n• Vielfältige Möglichkeiten, dich persönlich und fachlich weiterzuentwickeln\n• Moderner Arbeitsplatz im Kreis 5 mit sehr guter Verkehrsanbindung (Bahnhof Hardbrücke)\n• Flexible Arbeitszeiten, mobiles Arbeiten und Vereinbarkeit von Beruf und Privatleben ist bei uns selbstverständlich\n• Kultur der Wertschätzung verbunden mit einem offenen und ehrlichen Kommunikationsstil\n• Umfassendes Paket mit attraktivem Grundsalär, variabler Vergütung und vielseitigen Benefits\nToni Sommer\nfreut sich, dir zu helfen.\nTelefon: 044 292 27 95",
-        "fr": "80% - 100% | IT / Business Engineering | Zürich | Professionnels expérimentés\n\nDans ce rôle polyvalent et central, tu assumes la responsabilité technique de notre Digital Asset Hub. Tu veilles à l’exploitation stable et sécurisée de la plateforme, pilotes nos prestataires SaaS et diriges une équipe interdisciplinaire dans un environnement agile. Grâce à ton expertise dans le domaine du DevOps, tu fais le lien entre les exigences techniques et organisationnelles et contribues activement à l’évolution d’une plateforme tournée vers l’avenir. Tu apportes ainsi une contribution directe à la transformation de la banque dans le domaine des cryptomonnaies et des actifs numériques, ainsi qu’à la haute qualité de service pour notre clientèle.\n\nTes tâches\n\n- Être responsable de l’intégration de nouveaux composants et optimiser les adaptateurs existants, y compris surveiller le cycle de vie des technologies et outils utilisés\n- Garantir l’exploitation stable de notre plateforme, y compris la résolution des incidents, la gestion des certificats, la gestion des licences, ainsi que faire évoluer et exploiter le pipeline CI/CD associé\n- Piloter la collaboration avec notre fournisseur SaaS et garantir le respect des SLA, y compris le suivi, le reporting et la gestion des escalades, ainsi que diriger les réunions de service et d’exploitation, avec un accent sur l’optimisation continue de la qualité de service\n- Coordonner des équipes de développement et de services interdomaines et interentreprises, animer les événements Scrum, éliminer les obstacles et favoriser l’auto-organisation au sein de l’équipe afin de garantir l’amélioration continue et le respect des principes agiles\n\nTon profil\n\n- Études supérieures terminées en informatique, en informatique de gestion ou formation équivalente\n- Au moins 5 ans d’expérience en gestion des services informatiques, idéalement dans un environnement réglementé\n- Solides connaissances de Linux, des technologies CI/CD, du cloud et des conteneurs, des protocoles réseau, de la sécurité et du monitoring des applications (p. ex. Grafana), idéalement complétées par des connaissances en Python\n- Une expérience dans l’utilisation de solutions de core banking telles qu’Avaloq et de solutions de conservation de crypto-actifs constitue un atout majeur\n- Passion pour les cryptomonnaies et les actifs numériques, ainsi qu’un grand sens du service et de l’initiative\n- Tu convaincs par tes solides aptitudes communicationnelles et un état d’esprit prononcé de servant leadership\n- Très bonne maîtrise de l’allemand et de l’anglais à l’oral comme à l’écrit\n\nNotre offre\n\n- Chez nous, l’entraide et l’esprit d’équipe sont des valeurs essentielles\n- Un éventail de tâches passionnant et varié, avec de nombreuses possibilités de réseautage\n- Une grande marge de manœuvre pour prendre des décisions de manière autonome et participer à la conception\n- De nombreuses possibilités de te développer sur les plans personnel et professionnel\n- Un espace de travail moderne dans le Kreis 5, avec d’excellentes liaisons de transport (gare de Hardbrücke)\n- Les horaires de travail flexibles, le travail mobile et la conciliation entre vie professionnelle et vie privée vont de soi chez nous\n- Une culture de la reconnaissance associée à un style de communication ouvert et honnête\n- Package complet comprenant un salaire de base attractif, une rémunération variable et des avantages variés\n\nContact\n\nToni Summer\nse réjouit de t'aider.\nTéléphone : 044 292 27 95"
-      },
-      "needsRetranslation": true,
-      "location": "Zürich",
-      "canton": "ZH",
-      "url": "https://apply.refline.ch/792841/11255/pub/7",
-      "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-05T21:20:30.362Z",
-      "addressLocality": "Zürich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8001",
-      "category": "Sanità / Ospedali",
-      "contract": "part-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "senior",
-      "sector": "Finanza / Banca",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-07-02T08:43:31.350409+00:00",
-      "postedDate": "2026-07-02T08:43:31.350409+00:00",
-      "postingDateSource": "reported",
-      "applyUrl": "https://apply.refline.ch/792841/11255/pub/7",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "externalId": "11255",
-      "pensumMin": 80,
-      "pensumMax": 80,
-      "pensum": "80%",
-      "previousSlugs": [
-        "technical-lead-saas-manager-digital-asset-hub-m-w-d-zkb-zurich"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "technical-lead-saas-manager-digital-asset-hub-m-w-d-zkb-zurich"
-        ]
-      },
-      "firstSeenAt": "2026-09-21T15:55:00.635Z",
-      "salaryMin": 124000,
-      "salaryMax": 173000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 124000,
-          "maxValue": 173000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Bahnhofstrasse 9",
-      "streetAddressSource": "curated-company-city",
-      "validThrough": "2026-12-05T21:20:30.362Z",
-      "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 2
-    },
-    {
-      "id": "zkb-3512259d64ed",
-      "slug": "audit-delle-applicazioni-it-del-team-leader-zurcher-kantonalbank-zurich",
-      "slugByLocale": {
-        "it": "audit-delle-applicazioni-it-del-team-leader-zurcher-kantonalbank-zurich",
-        "en": "team-leader-it-application-audit-zurcher-kantonalbank-zurich",
-        "de": "teamleiter-in-it-application-audit-zkb-zurich",
-        "fr": "chef-d-equipe-verification-des-applications-de-ti-zurcher-kantonalbank-zurich"
-      },
-      "company": "Zürcher Kantonalbank",
-      "companyKey": "zkb",
-      "companyDomain": "zkb.ch",
-      "title": "Teamleiter:in IT Application Audit",
-      "titleByLocale": {
-        "it": "Audit delle applicazioni IT del Team Leader",
-        "en": "Team Lead: IT Application Audit",
-        "de": "Teamleiter:in IT Application Audit",
-        "fr": "Chef d'équipe Vérification des applications de TI"
-      },
-      "description": "80% - 100% | Audit | Zürich | Berufserfahrene mit Personalverantwortung\nAls interne Revision unterstützt das Audit der Zürcher Kantonalbank durch best-in-class Assurance die risikobewusste Strategieerreichung der Bank. Wir bewerten die Effektivität des Risikomanagements, der internen Kontrollen sowie der Führungs- und Überwachungsprozesse und tragen zu deren Verbesserung bei.\nDas Team „IT Audit\" prüft die Angemessenheit und Wirksamkeit der IT-Kontrollen in der Bank. Dazu zählen Kontrollen rund um Entwicklung, Betrieb, Unterhalt und Risikosteuerung der IT-Organisation sowie der Informatiksysteme und -prozesse. Wir führen reine IT-Audits sowie integrierte Audits (Business und IT) durch und beraten die Fachbereiche in revisions- und sicherheitsrelevanten Fragen. Du bist eine motivierte Führungspersönlichkeit, bringst fundiertes technisches IT-Knowhow mit und führst dein Team mit Wertschätzung, Klarheit und einem ausgeprägten Teamgedanken.\nDeine Aufgaben\n• Fachliche und personelle Führung deines Teams (3-4 Personen)\n• Ausrichten deines Teams auf zukünftige technologische und regulatorische Themen (z.B. Applikationskontrollen, IAM, Change-Management, FINMA-Anforderungen)\n• Stetiges Weiterentwickeln deines Teams und Fördern einer offenen und kollaborativen Lernkultur\n• Sicherstellen einer qualitativ hochstehenden Assurance über die IT-Landschaft der Bank gemeinsam mit deinem Team\n• Koordinieren, Überwachen und Begleiten mehrerer anspruchsvoll integrierter Revisionen (IT und Fachrevisionen) und gezieltes Einsetzen von Data Analytics\n• Agieren als Fachexpertin oder Fachexperte und Sparringpartnerin oder Sparringpartner für die Stakeholder in der IT auf Augenhöhe\n• Sichertellen einer fundierten und technologiegetriebenen Risikoanalyse der abgedeckten Themen\n• Aktives Vorantreiben der Modernisierung der Audit-Methodik (Einsatz neuer Technologien, datengestützte Prüfungen, kürzere Zyklen)\nDein Profil\n• Hochschulabschluss (FH, ETH, Uni) in Informatik, Wirtschaftsinformatik oder einem verwandten Gebiet, ergänzt durch fachspezifische Weiterbildung (CISA, CISM, CISSP oder gleichwertig)\n• Mehrjährige Erfahrung im internen oder externen IT-Audit, IT-Risk oder in der Cybersecurity, idealerweise in der Finanzbranche, vorzugsweise im Bankenumfeld; davon mindestens zwei Jahre in einer Führungs- oder Lead-Funktion\n• Fundierte Kenntnisse in IT-Governance, IT-General-Controls, System- und Applikationssicherheit, Cloud-Plattformen (z.B. Azure, AWS), Identity and Access Management sowie der aktuellen IT-Bedrohungslage\n• Erfahrung mit anerkannten Frameworks und Standards (NIST, COBIT, ISO 27001) sowie den relevanten regulatorischen Vorgaben (insbesondere FINMA RS 2023/1, FINMA RS 2017/1)\n• Erfahrung im Einsatz von Data Analytics in der Audit-Durchführung (Datenextraktion, Visualisierung, Process Mining) von Vorteil\n• Wertschätzender Umgang mit Mitarbeitenden, mit dem Teamgedanken im Zentrum\n• Sicherer, überzeugender Auftritt sowie stufengerechte Kommunikation in Wort und Schrift; sehr gute Deutschkenntnisse (C1), gute Englischkenntnisse\n• Gute Vernetzung in der Branche\nUnser Angebot\n• Vielfältiger Aufgabenbereich mit breitem Einblick in die IT-Landschaft einer der grössten Schweizer Banken\n• Die Möglichkeit, dich persönlich und fachlich weiterzuentwickeln und einen Aufgabenbereich, der dir die Chance gibt, eigenverantwortlich zu arbeiten\n• Ein motiviertes und engagiertes Team, dass sich darauf freut, mit dir zu arbeiten\n• Einen modernen Arbeitsplatz im lebendigen Kreis 5 mit sehr guter Verkehrsanbindung (Bahnhof Hardbrücke)\n• Die Möglichkeit deine Arbeit flexibel zu organisieren\n• Eine Arbeitgeberin, die viel in ihre Mitarbeitenden investiert und attraktive Weiterbildungsangebote bietet\n• Ein attraktives Gesamtpaket, welches über den Lohn hinaus viele Benefits und Vergünstigungen bietet von A wie Altersvorsorge bis Z wie ZVV-Bonuspass\nMichael Vonlanthen\nfreut sich, dir zu helfen.\nTelefon: 044 292 27 15",
-      "descriptionByLocale": {
-        "it": "• Team Leader: in IT Application Audit\n\n80% - 100% | Audit | Zurich | Professionisti esperti con responsabilità del personale\n\nApplicare online ora\n\nIn qualità di audit interno, l'audit della Zürcher Kantonalbank supporta il raggiungimento della strategia di rischio-conscio della banca attraverso la garanzia migliore in classe. Valutiamo l'efficacia della gestione dei rischi, dei controlli interni e dei processi di gestione e monitoraggio e contribuiamo al loro miglioramento.\n\nIl team IT Audit esamina l'adeguatezza e l'efficacia dei controlli IT in banca. Questo include controlli intorno allo sviluppo, il funzionamento, la manutenzione e la gestione dei rischi dell'organizzazione IT, nonché i sistemi e i processi IT. Effettuiamo controlli IT puri e audit integrati (business e IT) e consigliamo i dipartimenti sui problemi di audit e sicurezza. Sei un leader motivato, porta un know-how tecnico approfondito e guida il tuo team con apprezzamento, chiarezza e un forte spirito di squadra.\n\nI tuoi compiti\n\n• Gestione professionale e personale del vostro team (3-4 persone)\n• Allinea il tuo team con futuri problemi tecnologici e normativi (ad esempio controlli applicativi, IAM, gestione dei cambiamenti, requisiti FINMA)\n• Sviluppa costantemente il tuo team e promuove una cultura di apprendimento aperta e collaborativa\n• Assicurare una garanzia di alta qualità del paesaggio IT della banca insieme al vostro team\n• Coordinamento, monitoraggio e accompagnamento di numerosi audit integrati (audit IT e specialisti) e utilizzo mirato dell'analisi dei dati\n• Agire come partner esperto e sparring per gli stakeholder in IT a livello degli occhi\n• Garantire un'analisi del rischio basata su suoni e tecnologie\n• Promuovere attivamente la modernizzazione della metodologia di audit (uso di nuove tecnologie, audit basati sui dati, cicli più brevi)\n• Laurea universitaria (FH, ETH, Uni) in informatica, informatica aziendale o un campo correlato, completata da un'ulteriore formazione specifica (CISA, CISM, CISSP o equivalente)\n• Diversi anni di esperienza nell'audit IT interno o esterno, rischio IT o sicurezza informatica, idealmente nel settore finanziario, preferibilmente nell'ambiente bancario; di cui almeno due anni in una leadership o funzione di piombo\n• Conoscenza approfondita della governance IT, dei controlli generali IT, della sicurezza del sistema e delle applicazioni, delle piattaforme cloud (ad esempio Azure, AWS), della gestione dell'identità e dell'accesso e dell'attuale situazione della minaccia IT\n• Esperienza con strutture e standard riconosciuti (NIST, COBIT, ISO 27001) e i relativi requisiti normativi (in particolare FINMA RS 2023/1, FINMA RS 2017/1)\n• L'esperienza nell'uso di analisi dei dati nell'esecuzione di audit (estrazione dei dati, visualizzazione, estrazione di processo) è vantaggiosa\n• Trattamento apprezzativo dei dipendenti, con l'idea del team al centro\n• Aspetto sicuro e convincente e comunicazione passo dopo passo in parole e scrittura; ottime competenze tedesche (C1), buone competenze in inglese\n• Buona rete nel settore\n• Una vasta gamma di compiti con ampia visione del paesaggio IT di una delle più grandi banche svizzere\n• L'opportunità di svilupparsi personalmente e professionalmente e un'area di lavoro che ti dà la possibilità di lavorare in modo indipendente\n• Un team motivato e dedicato che non vede l'ora di lavorare con voi\n• Un luogo di lavoro moderno nel vivace quartiere 5 con ottimi collegamenti di trasporto (stazione del ponte rigido)\n• La possibilità di organizzare il vostro lavoro in modo flessibile\n• Un datore di lavoro che investe pesantemente nei suoi dipendenti e offre interessanti opportunità di formazione\n• Un pacchetto complessivo attraente, che offre molti vantaggi e vantaggi al di là della retribuzione, da A come il risparmio di pensione a Z come il passaggio bonus ZVV",
-        "en": "• Team Leader: in IT Application Audit\n\n80% - 100% | Audit | Zurich | Experienced professionals with personnel responsibility\n\nApply online now\n\nAs an internal audit, the audit of the Zürcher Kantonalbank supports the risk-conscious strategy achievement of the bank through best-in-class assurance. We assess the effectiveness of risk management, internal controls and management and monitoring processes and contribute to their improvement.\n\nThe IT Audit team examines the adequacy and effectiveness of IT controls in the bank. This includes controls around the development, operation, maintenance and risk management of the IT organization as well as the IT systems and processes. We carry out pure IT audits as well as integrated audits (business and IT) and advise the departments on audit and security issues. You are a motivated leader, bring in-depth technical IT know-how and lead your team with appreciation, clarity and a strong team spirit.\n\nYour tasks\n\n• Professional and personnel management of your team (3-4 people)\n• Align your team with future technological and regulatory issues (e.g. application controls, IAM, change management, FINMA requirements)\n• Continuously develop your team and promote an open and collaborative learning culture\n• Ensure a high-quality assurance of the bank’s IT landscape together with your team\n• Coordinating, monitoring and accompanying several demandingly integrated audits (IT and specialist audits) and targeted use of data analytics\n• Acting as an expert and sparring partner for the stakeholders in IT at eye level\n• Ensuring a sound and technology-driven risk analysis of the covered topics\n• Actively promote the modernisation of the audit methodology (use of new technologies, data-driven audits, shorter cycles)\n• University degree (FH, ETH, Uni) in computer science, business informatics or a related field, supplemented by subject-specific further education (CISA, CISM, CISSP or equivalent)\n• Several years of experience in internal or external IT audit, IT risk or cybersecurity, ideally in the financial sector, preferably in the banking environment; of which at least two years in a leadership or lead function\n• In-depth knowledge of IT governance, IT general controls, system and application security, cloud platforms (e.g. Azure, AWS), identity and access management and the current IT threat situation\n• Experience with recognized frameworks and standards (NIST, COBIT, ISO 27001) as well as the relevant regulatory requirements (in particular FINMA RS 2023/1, FINMA RS 2017/1)\n• Experience in the use of data analytics in audit execution (data extraction, visualization, process mining) is advantageous\n• Appreciative treatment of employees, with the team idea at the center\n• Safe, convincing appearance and step-by-step communication in words and writing; very good German (C1) skills, good English skills\n• Good networking in the industry\n• A wide range of tasks with broad insight into the IT landscape of one of the largest Swiss banks\n• The opportunity to develop yourself personally and professionally and a task area that gives you the chance to work independently\n• A motivated and dedicated team that looks forward to working with you\n• A modern workplace in the lively district 5 with very good transport connections (hard bridge station)\n• The possibility to organize your work flexibly\n• An employer who invests heavily in her employees and offers attractive training opportunities\n• An attractive overall package, which offers many benefits and perks beyond the pay, from A such as retirement savings to Z such as ZVV bonus pass",
-        "de": "80% - 100% | Audit | Zürich | Berufserfahrene mit Personalverantwortung\nAls interne Revision unterstützt das Audit der Zürcher Kantonalbank durch best-in-class Assurance die risikobewusste Strategieerreichung der Bank. Wir bewerten die Effektivität des Risikomanagements, der internen Kontrollen sowie der Führungs- und Überwachungsprozesse und tragen zu deren Verbesserung bei.\nDas Team „IT Audit\" prüft die Angemessenheit und Wirksamkeit der IT-Kontrollen in der Bank. Dazu zählen Kontrollen rund um Entwicklung, Betrieb, Unterhalt und Risikosteuerung der IT-Organisation sowie der Informatiksysteme und -prozesse. Wir führen reine IT-Audits sowie integrierte Audits (Business und IT) durch und beraten die Fachbereiche in revisions- und sicherheitsrelevanten Fragen. Du bist eine motivierte Führungspersönlichkeit, bringst fundiertes technisches IT-Knowhow mit und führst dein Team mit Wertschätzung, Klarheit und einem ausgeprägten Teamgedanken.\nDeine Aufgaben\n• Fachliche und personelle Führung deines Teams (3-4 Personen)\n• Ausrichten deines Teams auf zukünftige technologische und regulatorische Themen (z.B. Applikationskontrollen, IAM, Change-Management, FINMA-Anforderungen)\n• Stetiges Weiterentwickeln deines Teams und Fördern einer offenen und kollaborativen Lernkultur\n• Sicherstellen einer qualitativ hochstehenden Assurance über die IT-Landschaft der Bank gemeinsam mit deinem Team\n• Koordinieren, Überwachen und Begleiten mehrerer anspruchsvoll integrierter Revisionen (IT und Fachrevisionen) und gezieltes Einsetzen von Data Analytics\n• Agieren als Fachexpertin oder Fachexperte und Sparringpartnerin oder Sparringpartner für die Stakeholder in der IT auf Augenhöhe\n• Sichertellen einer fundierten und technologiegetriebenen Risikoanalyse der abgedeckten Themen\n• Aktives Vorantreiben der Modernisierung der Audit-Methodik (Einsatz neuer Technologien, datengestützte Prüfungen, kürzere Zyklen)\nDein Profil\n• Hochschulabschluss (FH, ETH, Uni) in Informatik, Wirtschaftsinformatik oder einem verwandten Gebiet, ergänzt durch fachspezifische Weiterbildung (CISA, CISM, CISSP oder gleichwertig)\n• Mehrjährige Erfahrung im internen oder externen IT-Audit, IT-Risk oder in der Cybersecurity, idealerweise in der Finanzbranche, vorzugsweise im Bankenumfeld; davon mindestens zwei Jahre in einer Führungs- oder Lead-Funktion\n• Fundierte Kenntnisse in IT-Governance, IT-General-Controls, System- und Applikationssicherheit, Cloud-Plattformen (z.B. Azure, AWS), Identity and Access Management sowie der aktuellen IT-Bedrohungslage\n• Erfahrung mit anerkannten Frameworks und Standards (NIST, COBIT, ISO 27001) sowie den relevanten regulatorischen Vorgaben (insbesondere FINMA RS 2023/1, FINMA RS 2017/1)\n• Erfahrung im Einsatz von Data Analytics in der Audit-Durchführung (Datenextraktion, Visualisierung, Process Mining) von Vorteil\n• Wertschätzender Umgang mit Mitarbeitenden, mit dem Teamgedanken im Zentrum\n• Sicherer, überzeugender Auftritt sowie stufengerechte Kommunikation in Wort und Schrift; sehr gute Deutschkenntnisse (C1), gute Englischkenntnisse\n• Gute Vernetzung in der Branche\nUnser Angebot\n• Vielfältiger Aufgabenbereich mit breitem Einblick in die IT-Landschaft einer der grössten Schweizer Banken\n• Die Möglichkeit, dich persönlich und fachlich weiterzuentwickeln und einen Aufgabenbereich, der dir die Chance gibt, eigenverantwortlich zu arbeiten\n• Ein motiviertes und engagiertes Team, dass sich darauf freut, mit dir zu arbeiten\n• Einen modernen Arbeitsplatz im lebendigen Kreis 5 mit sehr guter Verkehrsanbindung (Bahnhof Hardbrücke)\n• Die Möglichkeit deine Arbeit flexibel zu organisieren\n• Eine Arbeitgeberin, die viel in ihre Mitarbeitenden investiert und attraktive Weiterbildungsangebote bietet\n• Ein attraktives Gesamtpaket, welches über den Lohn hinaus viele Benefits und Vergünstigungen bietet von A wie Altersvorsorge bis Z wie ZVV-Bonuspass\nMichael Vonlanthen\nfreut sich, dir zu helfen.\nTelefon: 044 292 27 15",
-        "fr": "• Chef d'équipe : Vérification des applications de TI\n\n80 % - 100 % de l'audit Zurich\n\nPostulez en ligne maintenant\n\nEn tant qu'audit interne, l'audit de la Zürcher Kantonalbank soutient la réalisation de la stratégie de risque de la banque par l'assurance de la meilleure qualité. Nous évaluons l'efficacité de la gestion des risques, des contrôles internes et des processus de gestion et de surveillance et contribuons à leur amélioration.\n\nL'équipe de vérification de la TI examine la pertinence et l'efficacité des contrôles de la TI dans la banque. Cela comprend les contrôles liés au développement, à l'exploitation, à la maintenance et à la gestion des risques de l'organisation de TI ainsi que des systèmes et des processus de TI. Nous effectuons de pures vérifications de la TI ainsi que des vérifications intégrées (activités et TI) et conseillons les ministères sur les questions de vérification et de sécurité. Vous êtes un leader motivé, apportez un savoir-faire technique en profondeur et dirigez votre équipe avec appréciation, clarté et un esprit d'équipe fort.\n\nVos tâches\n\n• Gestion professionnelle et du personnel de votre équipe (3-4 personnes)\n• Alignez votre équipe sur les enjeux technologiques et réglementaires futurs (p. ex. contrôles d'application, MAI, gestion du changement, exigences FINMA)\n• Développer continuellement votre équipe et promouvoir une culture d'apprentissage ouverte et collaborative\n• Assurer une assurance de haute qualité du paysage informatique de la banque avec votre équipe\n• Coordination, suivi et accompagnement de plusieurs audits fortement intégrés (audits TI et experts) et utilisation ciblée de l'analyse des données\n• Agir en tant qu'expert et partenaire de partage pour les parties prenantes en TI au niveau des yeux\n• Veiller à ce que les sujets couverts fassent l ' objet d ' une analyse des risques fondée sur la technologie et rationnelle\n• Promouvoir activement la modernisation de la méthodologie d'audit (utilisation de nouvelles technologies, audits axés sur les données, cycles plus courts)\n• Diplôme universitaire (FH, ETH, Uni) en informatique, en informatique des affaires ou dans un domaine connexe, complété par un enseignement complémentaire spécifique (CISA, CISM, CISSP ou équivalent)\n• Plusieurs années d'expérience dans l'audit informatique interne ou externe, le risque informatique ou la cybersécurité, idéalement dans le secteur financier, de préférence dans l'environnement bancaire; dont au moins deux ans dans une fonction de direction ou de direction\n• Connaissance approfondie de la gouvernance de la TI, des contrôles généraux de la TI, de la sécurité des systèmes et des applications, des plates-formes cloud (par exemple Azure, AWS), de la gestion de l'identité et de l'accès et de la situation actuelle de la menace informatique\n• Expérience des cadres et normes reconnus (NIST, COBIT, ISO 27001) ainsi que des exigences réglementaires pertinentes (en particulier FINMA RS 2023/1, FINMA RS 2017/1)\n• L'expérience de l'utilisation de l'analyse des données dans l'exécution des audits (extraction des données, visualisation, extraction de procédés) est avantageuse\n• Appréciation du traitement des employés, avec l'idée d'équipe au centre\n• Une présentation sûre et convaincante et une communication étape par étape en mots et en écriture; de très bonnes compétences en allemand (C1), de bonnes compétences en anglais\n• Bonne mise en réseau dans l'industrie\n• Un large éventail de tâches avec une vision large du paysage informatique de l'une des plus grandes banques suisses\n• L'opportunité de se développer personnellement et professionnellement et un domaine de travail qui vous donne la possibilité de travailler indépendamment\n• Une équipe motivée et dévouée qui se réjouit de travailler avec vous\n• Un lieu de travail moderne dans le quartier animé 5 avec de très bonnes connexions de transport (pont dur)\n• La possibilité d'organiser votre travail avec souplesse\n• Un employeur qui investit beaucoup dans ses employés et offre des possibilités de formation attrayantes\n• Un ensemble attrayant, qui offre de nombreux avantages et avantages au-delà de la rémunération, de A comme l'épargne-retraite à Z comme ZVV bonus pass"
-      },
-      "needsRetranslation": false,
-      "location": "Zürich",
-      "canton": "ZH",
-      "url": "https://apply.refline.ch/792841/11167/pub/3",
-      "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-05T21:20:22.439Z",
-      "addressLocality": "Zürich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8001",
-      "category": "Sanità / Ospedali",
-      "contract": "part-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "senior",
-      "sector": "Finanza / Banca",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-05-07T08:14:54.301387+00:00",
-      "postedDate": "2026-05-07T08:14:54.301387+00:00",
-      "postingDateSource": "reported",
-      "applyUrl": "https://apply.refline.ch/792841/11167/pub/3",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "externalId": "11167",
-      "pensumMin": 80,
-      "pensumMax": 80,
-      "pensum": "80%",
-      "previousSlugs": [
-        "teamleiter-in-it-application-audit-zurcher-kantonalbank-zurich",
-        "teamleiter-in-it-application-audit-zkb-zurich"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "teamleiter-in-it-application-audit-zkb-zurich"
-        ],
-        "en": [
-          "teamleiter-in-it-application-audit-zurcher-kantonalbank-zurich"
-        ]
-      },
-      "firstSeenAt": "2026-09-08T13:32:44.582Z",
-      "salaryMin": 124000,
-      "salaryMax": 173000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 124000,
-          "maxValue": 173000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Bahnhofstrasse 9",
-      "streetAddressSource": "curated-company-city",
-      "validThrough": "2026-12-05T21:20:22.439Z",
-      "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 2
     }
   ]
 }

@@ -343,6 +343,7 @@ async function postGa4Carousel({ kind, day, dryRun, accessToken, robotMode }) {
   const route = socialPublishRoute({
     mode: robotMode,
     apiReady: Boolean(accessToken),
+    browserDeliveryAllowed: false,
   });
   if (!dryRun && !route.render) {
     console.log('⚠️  no TIKTOK_ACCESS_TOKEN — skipping (soft)');
@@ -483,6 +484,7 @@ async function postBorderCarousel({ dryRun, accessToken, robotMode }) {
   const route = socialPublishRoute({
     mode: robotMode,
     apiReady: Boolean(accessToken),
+    browserDeliveryAllowed: false,
   });
   if (!dryRun && !route.render) {
     console.log('⚠️  no TIKTOK_ACCESS_TOKEN — skipping (soft)');

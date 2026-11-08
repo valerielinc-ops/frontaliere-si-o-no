@@ -13,7 +13,8 @@ const fixture = vi.hoisted(() => ({
   },
 }));
 
-vi.mock('../scripts/lib/prospector/spec-crawler.mjs', () => ({
+vi.mock('../scripts/lib/prospector/spec-crawler.mjs', async (importOriginal) => ({
+  ...(await importOriginal()),
   loadSpec: () => ({}),
   runSpecInProduction: async () => [fixture.listing],
 }));

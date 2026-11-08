@@ -37,8 +37,8 @@
  *                                    poster soft-skips. See CLAUDE.md.
  *   INSTAGRAM_BUSINESS_ACCOUNT_ID   required — already set (17841439417386982)
  *   SOCIAL_ROBOT_MODE               off | dry (default) | live — API or the
- *                                   Playwright robot's queue (data/instagram-queue.json);
- *                                   see scripts/lib/social-publish-queue.mjs
+ *                                   Playwright queue, held unless Meta
+ *                                   browser-publishing permission is verified
  *   INSTAGRAM_CAROUSEL_BACKGROUND_AB_* Firebase-controlled four-arm background
  *                                   test; absent/invalid values keep the navy
  *                                   control and retries keep the same arm
@@ -98,6 +98,7 @@ import {
   socialPublishRoute,
   isPublishedForKindDay,
 } from './lib/social-publish-queue.mjs';
+import { isInstagramBrowserPublishingApproved } from './lib/social-automation-policy.mjs';
 import { publishCarousel } from './lib/instagram-publish.mjs';
 import { buildSocialCopyBlockContext, loadSocialCopyPack, markSocialCopyAssignmentPublished, releaseUnpublishedSocialCopyAssignmentBestEffort, selectSocialCopyForPublish, socialCopyLedgerFields, socialCopyTrackingContent } from './lib/social-copy-pack.mjs';
 import {
@@ -147,10 +148,9 @@ function getBusinessAccountId() {
 
 // ─────────────────────────── delivery ───────────────────────────
 //
-// API or the Playwright robot's queue, chosen by the Remote Config switch
-// SOCIAL_ROBOT_MODE — see scripts/lib/social-publish-queue.mjs. The ledger is
-// written here only for an API publish; a queued post reaches the ledger once
-// the robot has seen Instagram's confirmation (scripts/social-robot/confirm.mjs).
+// Official API or the Playwright robot's queue, chosen by SOCIAL_ROBOT_MODE
+// and the Meta browser-publishing permission flag. The ledger is written here
+// only for an API publish; browser posts reach it after robot confirmation.
 
 async function deliver({ route, kind, day, caption, urls, ledgerEntries, publish, onAccepted, igUserId }) {
   const publishAt = new Date();
@@ -324,7 +324,11 @@ async function postGa4Carousel({ kind, day, dryRun, accessToken, igUserId, robot
     creativeId: creative.id,
     objective: creative.objective,
   });
-  const route = socialPublishRoute({ mode: robotMode, apiReady: Boolean(accessToken && igUserId) });
+  const route = socialPublishRoute({
+    mode: robotMode,
+    apiReady: Boolean(accessToken && igUserId),
+    browserDeliveryAllowed: isInstagramBrowserPublishingApproved(),
+  });
   const socialCopy = await selectSocialCopyForPublish({
     pack: SOCIAL_COPY_PACK,
     channel: 'instagram',
@@ -467,7 +471,11 @@ async function postBorderCarousel({ dryRun, accessToken, igUserId, robotMode }) 
     creativeId: creative.id,
     objective: creative.objective,
   });
-  const route = socialPublishRoute({ mode: robotMode, apiReady: Boolean(accessToken && igUserId) });
+  const route = socialPublishRoute({
+    mode: robotMode,
+    apiReady: Boolean(accessToken && igUserId),
+    browserDeliveryAllowed: isInstagramBrowserPublishingApproved(),
+  });
   const socialCopy = await selectSocialCopyForPublish({
     pack: SOCIAL_COPY_PACK,
     channel: 'instagram',
