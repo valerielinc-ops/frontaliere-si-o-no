@@ -29,7 +29,15 @@ function response(body: unknown, status = 200) {
   };
 }
 
-function fakeInstagramFetch({ comments = [{ id: 'comment-1', text: '1', from: { id: 'person-1' }, timestamp: '2026-10-10T11:00:00.000Z' }] } = {}) {
+function fakeInstagramFetch({
+  comments = [{ id: 'comment-1', text: '1', from: { id: 'person-1' }, timestamp: '2026-10-10T11:00:00.000Z' }],
+  messages = [{
+    id: 'message-1',
+    from: { id: 'person-1' },
+    message: 'Mi mandi il link?',
+    created_time: '2026-10-10T11:30:00.000Z',
+  }],
+} = {}) {
   const calls: { url: string; options: any }[] = [];
   const fetchImpl = async (url: string, options: any = {}) => {
     calls.push({ url, options });
@@ -51,12 +59,7 @@ function fakeInstagramFetch({ comments = [{ id: 'comment-1', text: '1', from: { 
       return response({ data: [{ id: 'conversation-1' }] });
     }
     if (method === 'GET' && parsed.pathname.endsWith('/conversation-1/messages')) {
-      return response({ data: [{
-        id: 'message-1',
-        from: { id: 'person-1' },
-        message: 'Mi mandi il link?',
-        created_time: '2026-10-10T11:30:00.000Z',
-      }] });
+      return response({ data: messages });
     }
     if (method === 'GET' && parsed.pathname.endsWith('/story-container')) {
       return response({ status_code: 'FINISHED' });
@@ -266,6 +269,46 @@ describe('Instagram community automation', () => {
     expect(persisted).not.toContain('topic-comment-0');
     expect(persisted).not.toContain('person-0');
     expect(JSON.stringify(result.outcomes.questionTopicDemand)).not.toContain('topic-comment');
+    rmSync(temp, { recursive: true, force: true });
+  });
+
+  it('classifies inbound DM questions in memory and stores only conversation hashes below the ten-thread floor', async () => {
+    const temp = mkdtempSync(path.join(os.tmpdir(), 'instagram-community-dm-topics-'));
+    const statePath = path.join(temp, 'state.json');
+    const question = 'Wie funktioniert die Krankenkasse?';
+    const messages = [{
+      id: 'private-message-id',
+      from: { id: 'private-sender-id' },
+      message: question,
+      created_time: '2026-10-10T11:30:00.000Z',
+    }];
+    const run = fakeInstagramFetch({ messages });
+    const result = await runInstagramCommunityAutomation({
+      accountId: 'account-1',
+      accessToken: 'token-never-printed',
+      pageId: '',
+      pageAccessToken: '',
+      ledger: ledger(),
+      statePath,
+      mode: 'live',
+      now: NOW,
+      fetchImpl: run.fetchImpl,
+      sleepImpl: async () => {},
+      log: { log: () => {}, warn: () => {} },
+      socialPublishReservations: storyReservationClient().client,
+    });
+    const persisted = readFileSync(statePath, 'utf8');
+    const state = loadCommunityState(statePath);
+
+    expect(state.topicSignals).toHaveLength(1);
+    expect(state.topicSignals[0]).toMatchObject({
+      category: 'assicurazione-salute',
+      surface: 'directMessages',
+    });
+    expect(result.outcomes.questionTopicDemand).toMatchObject({ status: 'suppressed', categories: [] });
+    expect(persisted).not.toContain(question);
+    expect(persisted).not.toContain('private-message-id');
+    expect(persisted).not.toContain('private-sender-id');
     rmSync(temp, { recursive: true, force: true });
   });
 

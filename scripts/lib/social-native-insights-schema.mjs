@@ -14,6 +14,7 @@ import {
 import {
   INSTAGRAM_COMMUNITY_TOPIC_CATEGORIES,
   INSTAGRAM_COMMUNITY_TOPIC_COUNT_BANDS,
+  INSTAGRAM_COMMUNITY_TOPIC_LEGACY_SOURCE,
   INSTAGRAM_COMMUNITY_TOPIC_MINIMUM,
   INSTAGRAM_COMMUNITY_TOPIC_SOURCE,
   INSTAGRAM_COMMUNITY_TOPIC_WINDOW_DAYS,
@@ -496,7 +497,7 @@ function validateCommunitySurface(surface, path) {
 function validateCommunityQuestionDemand(demand) {
   if (!hasExactKeys(demand, ['status', 'source', 'windowDays', 'minimumPerCategory', 'categories'])
     || !['available', 'suppressed'].includes(demand.status)
-    || demand.source !== INSTAGRAM_COMMUNITY_TOPIC_SOURCE
+    || ![INSTAGRAM_COMMUNITY_TOPIC_SOURCE, INSTAGRAM_COMMUNITY_TOPIC_LEGACY_SOURCE].includes(demand.source)
     || demand.windowDays !== INSTAGRAM_COMMUNITY_TOPIC_WINDOW_DAYS
     || demand.minimumPerCategory !== INSTAGRAM_COMMUNITY_TOPIC_MINIMUM
     || !Array.isArray(demand.categories) || demand.categories.length > COMMUNITY_TOPIC_CATEGORIES.size) {

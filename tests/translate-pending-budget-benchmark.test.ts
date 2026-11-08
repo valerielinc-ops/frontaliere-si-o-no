@@ -12,10 +12,10 @@ const SCRIPT_PATH = path.join(ROOT, 'scripts/ci/translate-pending-budget-benchma
 function workflow() {
   return YAML.parse(fs.readFileSync(WORKFLOW_PATH, 'utf8')) as {
     on: {
-      push?: { branches?: string[]; paths?: string[] };
+      pull_request?: { paths?: string[] };
       workflow_dispatch: { inputs: Record<string, { default?: string; type?: string; required?: boolean }> };
     };
-    jobs: Record<string, { 'timeout-minutes': number; env?: Record<string, string>; steps: Array<{ name?: string; run?: string; uses?: string; with?: Record<string, string>; env?: Record<string, string>; if?: string }> }>;
+    jobs: Record<string, { if?: string; 'timeout-minutes': number; env?: Record<string, string>; steps: Array<{ name?: string; run?: string; uses?: string; with?: Record<string, string>; env?: Record<string, string>; if?: string }> }>;
   };
 }
 
@@ -73,16 +73,23 @@ function finalizeReport(report: ReturnType<typeof reportWith>) {
 describe('translate-pending budget benchmark', () => {
   it('is manual, ref-selectable and retains the production job cap', () => {
     const parsed = workflow();
-    expect(parsed.on.push?.branches).toContain('fix/issue-17555');
-    expect(parsed.on.push?.paths).toContain('.github/workflows/translate-pending-budget-benchmark.yml');
+    expect(parsed.on.pull_request?.paths).toEqual(expect.arrayContaining([
+      '.github/workflows/translate-pending-logic.yml',
+      '.github/workflows/translate-pending-budget-benchmark.yml',
+      'scripts/translate-repair-lane-gate.mjs',
+    ]));
     expect(parsed.on.workflow_dispatch.inputs.source_ref).toMatchObject({ type: 'string', required: true });
     expect(parsed.on.workflow_dispatch.inputs.phase).toMatchObject({ type: 'choice', required: true });
+    expect(parsed.jobs.benchmark.if)
+      .toBe("github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name == github.repository");
     expect(parsed.jobs.benchmark['timeout-minutes']).toBe(350);
     expect(parsed.jobs.benchmark.env?.BENCHMARK_REPORT).toBe('${{ github.workspace }}/translate-pending-budget-benchmark.json');
     expect(parsed.jobs.benchmark.env?.BENCHMARK_REPORT).not.toContain('runner.temp');
+    expect(parsed.jobs.benchmark.env?.BENCHMARK_SOURCE_REF)
+      .toBe('${{ inputs.source_ref || github.event.pull_request.head.sha || github.sha }}');
     const checkout = parsed.jobs.benchmark.steps.find((step) => step.name === 'Checkout benchmark ref');
     expect(checkout?.uses).toBe('actions/checkout@v7');
-    expect(checkout?.with?.ref).toBe("${{ inputs.source_ref || github.sha }}");
+    expect(checkout?.with?.ref).toBe('${{ inputs.source_ref || github.event.pull_request.head.sha || github.sha }}');
     expect(parsed.jobs.benchmark.steps.find((step) => step.name === 'Run Phase 2d title lane')?.if)
       .toBe("env.BENCHMARK_PHASE == 'titles'");
     expect(parsed.jobs.benchmark.steps.find((step) => step.name === 'Run Phase 2e description lane')?.if)

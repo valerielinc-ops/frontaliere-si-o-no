@@ -3611,7 +3611,7 @@ describe('cross-repo crawler execution artifacts', () => {
     // Le letture passano tutte da guard_api: un solo budget di tempo.
     expect(guardStep.run.match(/guard_total_timeout_seconds=/g)).toEqual(['guard_total_timeout_seconds=']);
     expect(guardCode.filter((line) => /\bgh api\b/.test(line)).every((line) => line.includes('timeout --kill-after=0s'))).toBe(true);
-    expect(guardStep.run).toContain('echo "guard_error=${reason}" >> "$GITHUB_OUTPUT"');
+    expect(guardStep.run).toContain('echo "guard_error=${reason}"');
     expect(guardJob.outputs).toEqual({
       run: '${{ steps.translate_queue_guard.outputs.run }}',
       guard_error: '${{ steps.translate_queue_guard.outputs.guard_error }}',
@@ -4335,8 +4335,8 @@ esac
     // Ogni uscita dello script dichiara guard_error: vuoto quando ha deciso sui
     // dati (ammissione, duplicato, override manuale), valorizzato solo in fail_closed.
     const guardRun: string = guardJob.steps[guardIndex].run;
-    const runWrites = guardRun.match(/echo "run=(?:true|false)" >> "\$GITHUB_OUTPUT"/g) ?? [];
-    const errorWrites = guardRun.match(/echo "guard_error=[^"]*" >> "\$GITHUB_OUTPUT"/g) ?? [];
+    const runWrites = guardRun.match(/echo "run=(?:true|false)"/g) ?? [];
+    const errorWrites = guardRun.match(/echo "guard_error=[^"]*"/g) ?? [];
     // Contratto strutturale del codice generato, non del dataset:
     // `translatePendingQueueGuardJob()` emette quattro rami di decisione
     // (fail_closed, override manuale, ammissione e duplicato); questa asserzione

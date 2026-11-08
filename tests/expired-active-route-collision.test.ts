@@ -5,6 +5,7 @@ import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import {
   assembleExpiredJobs,
+  normalizeAndPersistExpiredSlice,
   persistExpiredArchive,
   repairExpiredArchiveSlicesAgainstActive,
 } from '../scripts/assemble-jobs-dataset.mjs';
@@ -45,15 +46,40 @@ describe('repairExpiredRoutesAgainstActive', () => {
 
     const result = repairExpiredRoutesAgainstActive([expired], [active]);
 
-    expect(result.changed).toBe(1);
-    expect(result.repairedRoutes).toBe(1);
+    expect(result.changed).toBe(2);
+    expect(result.repairedRoutes).toBe(2);
     expect(expired.slug).toMatch(/^same-title-company-lugano-[0-9a-f]{8}$/);
     expect(expired.slugByLocale.it).toBe(expired.slug);
     expect(expired.slugByLocale.de).toBe(expired.slug);
-    expect(expired.previousSlugs).toEqual([expired.slug, 'expired-old']);
-    expect(expired.previousSlugsByLocale).toEqual({ it: [expired.slug], de: [expired.slug] });
+    expect(expired.previousSlugs).toEqual(['expired-old']);
+    expect(expired.previousSlugsByLocale).toEqual({
+      it: [expired.slug],
+      de: [expired.slug],
+      en: [COLLIDING_ROUTE],
+      fr: [COLLIDING_ROUTE],
+    });
     expect(active.slug).toBe(COLLIDING_ROUTE);
     expect(active.slugByLocale.de).toBe(COLLIDING_ROUTE);
+  });
+
+  it('repairs only the locale whose route collides with the active posting', () => {
+    const active = { ...activeJob(), slugByLocale: { it: COLLIDING_ROUTE } };
+    const expired = {
+      ...expiredJob(`url:${EXPIRED_URL}`),
+      slugByLocale: { it: COLLIDING_ROUTE, de: COLLIDING_ROUTE },
+      previousSlugs: [],
+      previousSlugsByLocale: { it: [COLLIDING_ROUTE], de: [COLLIDING_ROUTE] },
+    };
+
+    const result = repairExpiredRoutesAgainstActive([expired], [active]);
+
+    expect(result.repairedRoutes).toBe(1);
+    expect(expired.slugByLocale.it).not.toBe(COLLIDING_ROUTE);
+    expect(expired.slugByLocale.de).toBe(COLLIDING_ROUTE);
+    expect(expired.previousSlugsByLocale).toEqual({
+      it: [expired.slug],
+      de: [COLLIDING_ROUTE],
+    });
   });
 
   it('is deterministic and idempotent for the same source identity', () => {
@@ -67,7 +93,7 @@ describe('repairExpiredRoutesAgainstActive', () => {
     expect(second.slug).toBe(first.slug);
     expect(second.slugByLocale).toEqual(first.slugByLocale);
     expect(second.previousSlugs).toEqual(first.previousSlugs);
-    expect(secondResult.changed).toBe(1);
+    expect(secondResult.changed).toBe(2);
     expect(thirdResult.changed).toBe(0);
   });
 
@@ -108,7 +134,7 @@ describe('repairExpiredRoutesAgainstActive', () => {
       expect(published).toEqual(persisted);
       expect(published[0].slug).not.toBe(COLLIDING_ROUTE);
       expect(active.slug).toBe(COLLIDING_ROUTE);
-      expect(repair.repairedRoutes).toBe(1);
+      expect(repair.repairedRoutes).toBe(2);
     } finally {
       rmSync(root, { recursive: true, force: true });
     }
@@ -135,6 +161,52 @@ describe('repairExpiredRoutesAgainstActive', () => {
       expect(persisted[0].slug).toMatch(/^same-title-company-lugano-[0-9a-f]{8}$/);
       expect(persisted[0].slug).not.toBe(COLLIDING_ROUTE);
       expect(active.slug).toBe(COLLIDING_ROUTE);
+    } finally {
+      rmSync(root, { recursive: true, force: true });
+    }
+  });
+
+  it('repairs distinct source postings in a persisted slice without merging their history', () => {
+    const root = mkdtempSync(join(tmpdir(), 'expired-distinct-source-route-'));
+    try {
+      const sharedRoute = 'same-title-company-lugano';
+      const entries = [
+        {
+          companyKey: 'example-company',
+          sourceIdentity: 'url:https://jobs.example.test/newer',
+          url: 'https://jobs.example.test/newer',
+          slug: 'newer-posting',
+          expiredAt: '2026-11-07T00:00:00.000Z',
+          slugByLocale: { it: 'newer-posting', de: 'newer-posting-de' },
+          previousSlugs: [sharedRoute],
+          previousSlugsByLocale: { it: [sharedRoute] },
+        },
+        {
+          companyKey: 'example-company',
+          sourceIdentity: 'url:https://jobs.example.test/older',
+          url: 'https://jobs.example.test/older',
+          slug: 'older-posting',
+          expiredAt: '2026-10-07T00:00:00.000Z',
+          slugByLocale: { it: 'older-posting', de: 'older-posting-de' },
+          previousSlugs: [sharedRoute],
+          previousSlugsByLocale: { it: [sharedRoute] },
+        },
+      ];
+      const slicePath = join(root, 'example-company.json');
+
+      expect(normalizeAndPersistExpiredSlice(slicePath, entries, {
+        source: 'test/issue-17512',
+      })).toBe(1);
+
+      const persisted = JSON.parse(readFileSync(slicePath, 'utf8'));
+      expect(persisted).toHaveLength(2);
+      const owners = persisted.flatMap((entry: Record<string, unknown>) => [
+        ...(Array.isArray(entry.previousSlugs) ? entry.previousSlugs : []),
+      ]).filter((route: string) => route === sharedRoute);
+      expect(owners).toHaveLength(1);
+      expect(normalizeAndPersistExpiredSlice(slicePath, entries, {
+        source: 'test/issue-17512',
+      })).toBe(0);
     } finally {
       rmSync(root, { recursive: true, force: true });
     }
@@ -186,7 +258,7 @@ describe('repairExpiredRoutesAgainstActive', () => {
     }
   });
 
-  it('persists internal expired-route collapse before the live slice observer reads it', () => {
+  it('persists distinct expired-route repair before the live slice observer reads it', () => {
     const root = mkdtempSync(join(tmpdir(), 'expired-slice-internal-collapse-'));
     try {
       const sliceDir = join(root, 'expired-slices');
@@ -221,15 +293,17 @@ describe('repairExpiredRoutesAgainstActive', () => {
       const persisted = JSON.parse(
         readFileSync(join(sliceDir, 'ipersonal.json'), 'utf8'),
       );
-      expect(result.collapsedRoutes).toBe(1);
-      expect(persisted).toHaveLength(1);
+      expect(result.collapsedRoutes).toBe(0);
+      expect(result.repairedRoutes).toBe(1);
+      expect(persisted).toHaveLength(2);
       expect(persisted[0].slug).toBe(duplicateSlug);
+      expect(persisted[1].slug).toMatch(new RegExp(`^${duplicateSlug}-[0-9a-f]{8}$`));
     } finally {
       rmSync(root, { recursive: true, force: true });
     }
   });
 
-  it('persists internal expired-route collapse with an empty active assembly', () => {
+  it('persists distinct expired-route repair with an empty active assembly', () => {
     const root = mkdtempSync(join(tmpdir(), 'expired-slice-empty-active-collapse-'));
     try {
       const sliceDir = join(root, 'expired-slices');
@@ -260,9 +334,11 @@ describe('repairExpiredRoutesAgainstActive', () => {
       const persisted = JSON.parse(
         readFileSync(join(sliceDir, 'ipersonal.json'), 'utf8'),
       );
-      expect(result.collapsedRoutes).toBe(1);
-      expect(persisted).toHaveLength(1);
+      expect(result.collapsedRoutes).toBe(0);
+      expect(result.repairedRoutes).toBe(1);
+      expect(persisted).toHaveLength(2);
       expect(persisted[0].slug).toBe(duplicateSlug);
+      expect(persisted[1].slug).toMatch(new RegExp(`^${duplicateSlug}-[0-9a-f]{8}$`));
     } finally {
       rmSync(root, { recursive: true, force: true });
     }

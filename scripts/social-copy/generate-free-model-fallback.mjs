@@ -19,20 +19,22 @@ import { reserveSocialCopyFreeFallbackInvocation } from '../lib/social-copy-invo
 import { assertSocialCopyPackProductionRef, socialCopyInvocationId } from './reserve-codex-invocation.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
-const ALLOWED_FREE_PROVIDERS = new Set(['github', 'gemini', 'groq', 'openrouter']);
+// GitHub Models has been retired; only configured providers with an active free route belong here.
+const ALLOWED_FREE_PROVIDERS = new Set(['gemini', 'groq', 'openrouter']);
 
 // Only established no-cost tiers are eligible. Keep Cloudflare, Cohere trials,
 // and paid or retired providers out of this recovery path.
 export const FREE_SOCIAL_COPY_MODEL_CANDIDATES = Object.freeze([
   Object.freeze({ provider: 'gemini', model: AI_MODELS.GEMMA_4_31B, context: 'full' }),
-  Object.freeze({ provider: 'openrouter', model: AI_MODELS.OR_LLAMA_3_3, context: 'full' }),
-  Object.freeze({ provider: 'github', model: AI_MODELS.GPT4O, context: 'compact' }),
+  Object.freeze({ provider: 'openrouter', model: AI_MODELS.OR_FREE_ROUTER, context: 'full' }),
   Object.freeze({ provider: 'groq', model: AI_MODELS.GROQ_GPT_OSS_120B, context: 'compact' }),
 ]);
 
 const COMPACT_CONTRACT = `Genera il prossimo pacchetto editoriale settimanale di Frontaliere Ticino in italiano naturale. Restituisci solo un oggetto JSON con esattamente le chiavi editorialPlan e channels. Mantieni la definizione degli angoli e dei pilastri esistenti; aggiorna gli hook senza cambiare il significato degli ID. Usa i brief qualificati solo come segnali descrittivi; dati assenti o sotto soglia sono sconosciuti, non zero. Usa inventario editoriale per idee specifiche e ipotesi dichiarate quando mancano evidenze. Non inventare fatti, eventi, salari, consulenza legale o fiscale, trend, risultati, audience o promesse di portata. Non raccogliere dati da account Instagram concorrenti e non definire virale un formato senza evidenza qualificata del nostro account. Non dire che un canale ha pubblicato o raggiunto persone se la sua deliveryState non è live.
 
 Rispetta il channel matrix, i conteggi, gli obiettivi, le lunghezze e le CTA del contratto completo quando è fornito. Tre angoli distinti per ogni formato; distribuzione uniforme. Instagram article/job/border hanno tre template per ciascun obiettivo share/save/conversation; Reel ha tre template follow, uno per angolo, CTA che inizia con Segui. Facebook job ha dodici template; ogni altro slot ha tre. TikTok e Reddit restano preparazione draft dove la delivery è held. Ogni CTA deve chiedere una sola azione. Non includere URL, contatti, hashtag, markup, segnaposto o numeri nei template se il contratto li vieta. La validazione automatica rifiuterà qualsiasi pack fuori schema. Non aggiungere chiavi top-level, spiegazioni o markdown.`;
+
+const COMPACT_INSTAGRAM_GUIDANCE = `Skill Instagram adattate al publisher: apri con una riga concreta e utile; assegna a ogni template un solo angolo, una promessa e una CTA. Il carosello avanza una sola idea per slide; il Reel ha apertura chiara e progressione, ma non inventare copione, durata o sottotitoli: il publisher compila i kit solo con fatti verificati. Non creare slot Stories: è previsto solo il riuso statico di una cornice già pubblicata, senza sticker, risposte o metriche implicite. La riproposizione usa l'inventario fornito per creare angoli distinti, non copia lo stesso post su ogni canale. La revisione ig-human è editoriale; punteggi lessicali inglesi e rilevatori AI non sono gate né prove di qualità. Una formula creativa non dimostra performance.`;
 
 const ALLOWED_BRIEF_KEYS = Object.freeze([
   'schemaVersion', 'source', 'available', 'status', 'generatedAt', 'baselineDays',
@@ -136,7 +138,7 @@ export function buildSocialCopyFallbackMessages({
 } = {}) {
   const contract = context === 'full'
     ? contractForPrompt({ promptFile, viralSkillFile, creativeStudyFile, context })
-    : COMPACT_CONTRACT;
+    : `${COMPACT_CONTRACT}\n\n${COMPACT_INSTAGRAM_GUIDANCE}`;
   const input = {
     generatedAt: new Date(now).toISOString(),
     ga4: compactObject(ga4),
@@ -172,15 +174,64 @@ function parsePackResponse(response, { provider, generatedAt, previousPack }) {
   return raw;
 }
 
+function statusFromError(error) {
+  const explicit = Number(error?.status ?? error?.statusCode ?? error?.response?.status);
+  if (Number.isInteger(explicit) && explicit >= 100 && explicit <= 599) return explicit;
+  const message = String(error?.message || error || '');
+  const match = message.match(/\b(?:HTTP(?:\s+status)?\s*|status(?:[_ -]?code)?\s*[:=]\s*)(\d{3})\b/i);
+  return match ? Number(match[1]) : null;
+}
+
+/** Return a fixed, non-sensitive diagnostic bucket; never expose provider bodies or credentials. */
+export function classifySocialCopyFallbackFailure(error, phase = 'request') {
+  if (phase === 'validation') return 'response-invalid';
+  if (phase === 'output') return 'response-write-failed';
+
+  const message = String(error?.message || error || '').slice(0, 1000).toLowerCase();
+  const status = statusFromError(error);
+  if (status === 401 || /api key not set|missing api key|invalid api key|unauthorized/.test(message)) {
+    return 'provider-auth-failed';
+  }
+  if (status === 403) return 'provider-access-denied';
+  if (status === 402 || status === 429) {
+    return 'provider-quota-or-rate-limit';
+  }
+  if (status === 404) {
+    return 'model-unavailable';
+  }
+  if (status !== null && (status === 408 || status >= 500)) {
+    return 'provider-temporary-failure';
+  }
+  if (status !== null && status >= 400) return 'provider-request-rejected';
+  if (/quota|rate.?limit|too many requests|resource exhausted/.test(message)) {
+    return 'provider-quota-or-rate-limit';
+  }
+  if (/model[^\n]{0,60}(not found|unavailable|does not exist)/.test(message)) return 'model-unavailable';
+  if (/timeout|timed out|aborted|econnreset|econnrefused|enotfound|eai_again|fetch failed/.test(message)) {
+    return 'provider-temporary-failure';
+  }
+  return 'provider-request-failed';
+}
+
 function writeWorkflowOutput(env, values) {
   const lines = Object.entries(values).map(([key, value]) => `${key}=${String(value)}`).join('\n') + '\n';
   if (env.GITHUB_OUTPUT) appendFileSync(env.GITHUB_OUTPUT, lines, { mode: 0o600 });
 }
 
-function markNoPack({ env, stdout, reason, attempted = [] }) {
-  writeWorkflowOutput(env, { pack_generated: 'false', provider: 'none', reason });
-  stdout.write(`pack_generated=false\nprovider=none\nreason=${reason}\nattempted=${attempted.join(',')}\n`);
-  return { packGenerated: false, provider: null, reason, attempted };
+function failureSummary(failures) {
+  return failures.length
+    ? failures.map(({ provider, phase, category }) => `${provider}:${phase}:${category}`).join(',')
+    : 'none';
+}
+
+function markNoPack({ env, stdout, reason, attempted = [], failures = [] }) {
+  const summary = failureSummary(failures);
+  writeWorkflowOutput(env, {
+    pack_generated: 'false', provider: 'none', reason,
+    attempt_failures: summary,
+  });
+  stdout.write(`pack_generated=false\nprovider=none\nreason=${reason}\nattempted=${attempted.join(',')}\nattempt_failures=${summary}\n`);
+  return { packGenerated: false, provider: null, reason, attempted, failures };
 }
 
 export async function run({
@@ -202,6 +253,7 @@ export async function run({
     || (env.RUNNER_TEMP ? path.join(env.RUNNER_TEMP, 'social-copy-response.json') : '');
   const candidates = selectAvailableFreeModels({ candidates: modelCandidates || FREE_SOCIAL_COPY_MODEL_CANDIDATES, providerOf, available });
   if (!candidates.length) return markNoPack({ env, stdout, reason: 'no-free-provider-available' });
+  if (!responsePath) return markNoPack({ env, stdout, reason: 'response-output-path-missing' });
   const currentRaw = readJson(
     paths.previousPack || path.join(ROOT, 'data/social-copy-packs/current.json'),
     'current social-copy pack',
@@ -226,6 +278,7 @@ export async function run({
 
   const generatedAt = now instanceof Date ? now.toISOString() : new Date(now).toISOString();
   const attempted = [];
+  const failures = [];
   for (const candidate of candidates) {
     attempted.push(candidate.provider);
     const messages = buildSocialCopyFallbackMessages({
@@ -240,8 +293,9 @@ export async function run({
       previousPack,
       now,
     });
+    let response;
     try {
-      const response = await callModel(messages, {
+      response = await callModel(messages, {
         model: candidate.model,
         temperature: 0.3,
         maxTokens: candidate.context === 'compact' ? 6000 : 7500,
@@ -251,17 +305,40 @@ export async function run({
         backoffMs: 0,
         recordScore: false,
       });
-      const raw = parsePackResponse(response, { provider: candidate.provider, generatedAt, previousPack });
-      if (!responsePath) throw new Error('response-output-path-missing');
-      writeFileSync(responsePath, JSON.stringify(raw, null, 2) + '\n', { mode: 0o600 });
-      writeWorkflowOutput(env, { pack_generated: 'true', provider: candidate.provider, reason: 'generated' });
-      stdout.write(`pack_generated=true\nprovider=${candidate.provider}\n`);
-      return { packGenerated: true, provider: candidate.provider, attempted };
-    } catch {
-      stdout.write(`provider_attempt_failed=${candidate.provider}\n`);
+    } catch (error) {
+      const category = classifySocialCopyFallbackFailure(error);
+      failures.push({ provider: candidate.provider, phase: 'request', category });
+      stdout.write(`provider_attempt_failed=${candidate.provider}:${category}\n`);
+      continue;
     }
+
+    let raw;
+    try {
+      raw = parsePackResponse(response, { provider: candidate.provider, generatedAt, previousPack });
+    } catch (error) {
+      const category = classifySocialCopyFallbackFailure(error, 'validation');
+      failures.push({ provider: candidate.provider, phase: 'validation', category });
+      stdout.write(`provider_attempt_failed=${candidate.provider}:${category}\n`);
+      continue;
+    }
+
+    try {
+      writeFileSync(responsePath, JSON.stringify(raw, null, 2) + '\n', { mode: 0o600 });
+    } catch (error) {
+      const category = classifySocialCopyFallbackFailure(error, 'output');
+      failures.push({ provider: candidate.provider, phase: 'output', category });
+      return markNoPack({ env, stdout, reason: category, attempted, failures });
+    }
+
+    const summary = failureSummary(failures);
+    writeWorkflowOutput(env, {
+      pack_generated: 'true', provider: candidate.provider, reason: 'generated',
+      attempt_failures: summary,
+    });
+    stdout.write(`pack_generated=true\nprovider=${candidate.provider}\nattempt_failures=${summary}\n`);
+    return { packGenerated: true, provider: candidate.provider, attempted, failures };
   }
-  return markNoPack({ env, stdout, reason: 'all-free-models-failed-validation', attempted });
+  return markNoPack({ env, stdout, reason: 'all-free-models-failed', attempted, failures });
 }
 
 if (isInvokedDirectly(import.meta.url)) {

@@ -39,8 +39,9 @@
  * crawled; a fetch failure is thrown, never read as an empty listing, so the
  * crawler pipeline records its real cause; and a zero is only *proven* when
  * BOTH sources render their own "no open positions" state (JobCloud's
- * server-rendered `initialJobs: []` plus "Aucun poste ouvert", Jobup's
- * `company-no-vacancies` block) — then the empty batch is stamped with
+ * source-owned "Aucun poste ouvert actuellement" message with no detail
+ * links, and Jobup's own no-current-offers message or `company-no-vacancies`
+ * block) — then the empty batch is stamped with
  * `markAuthoritativeEmptySnapshot`. Any other zero stays the fail-closed
  * `no-jobs-parsed` abort (markup drift keeps the previous slice live).
  *
@@ -84,6 +85,7 @@ import { inferAnyCanton } from './target-swiss-locations.mjs';
 import { parseSwissShortDate } from './hospital-custom-html-helpers.mjs';
 import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 import { markAuthoritativeEmptySnapshot } from './authoritative-empty-snapshot.mjs';
+import { hasPotentialJobData } from './jobcloud-empty-state.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -116,14 +118,13 @@ const JOBUP_PROFILE_JOB_LIST_SELECTORS = [
   '[class~="company-job-list"]',
   '[class~="company-jobs"]',
 ].join(',');
-// The source's own "no open positions" states. JobCloud's Next.js company page
-// serialises its server-side list as `initialJobs` inside the RSC payload
-// (quotes escaped) and renders a visible "Aucun poste ouvert" notice; Jobup's
-// profile renders a dedicated `company-no-vacancies` block instead of the list.
-const JOBCLOUD_EMPTY_INITIAL_JOBS_RE = /\\?"initialJobs\\?"\s*:\s*\[\s*\]/;
-const JOBCLOUD_NON_EMPTY_INITIAL_JOBS_RE = /\\?"initialJobs\\?"\s*:\s*\[\s*[^\]\s]/;
-const JOBCLOUD_NO_POSITIONS_TEXT_RE = /Aucun poste ouvert/i;
+// The source's own "no open positions" states. JobCloud's current Company
+// Page renders the visible message without always serialising a job payload;
+// the shared proof helper rejects any explicitly non-empty collection. Jobup
+// has used both a dedicated block and plain text.
+const JOBCLOUD_NO_POSITIONS_TEXT_RE = /Aucun poste ouvert actuellement/i;
 const JOBUP_NO_VACANCIES_SELECTOR = '[data-cy="company-no-vacancies"]';
+const JOBUP_NO_VACANCIES_TEXT_RE = /Il\s+n['’]y\s+a\s+actuellement\s+aucune\s+offre\s+d['’]emploi/i;
 const JOBUP_DETAIL_PATH_RE = /^\/(?:fr\/emplois|en\/jobs)\/detail\/[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}\/?$/i;
 
 const SECTOR = 'Sociale / Socio-sanitario';
@@ -307,30 +308,34 @@ export function extractListingLinks(html = '') {
 
 /**
  * True only when the JobCloud company page itself states it has no open
- * position: an empty server-side `initialJobs` list, no non-empty one, the
- * visible "Aucun poste ouvert" notice, and no detail link. A page missing any
- * of these is unreadable (markup drift), not empty.
+ * position: the source-owned "Aucun poste ouvert actuellement" message and
+ * no job evidence anywhere in the document. A page missing this proof or
+ * containing ambiguous job data is unreadable (markup drift), not empty.
  */
 export function isJobCloudListingProvenEmpty(html = '') {
   const source = String(html || '');
   if (!source) return false;
-  return JOBCLOUD_EMPTY_INITIAL_JOBS_RE.test(source)
-    && !JOBCLOUD_NON_EMPTY_INITIAL_JOBS_RE.test(source)
-    && JOBCLOUD_NO_POSITIONS_TEXT_RE.test(stripScriptsAndStyles(source))
-    && extractListingLinks(source).length === 0;
+  return JOBCLOUD_NO_POSITIONS_TEXT_RE.test(stripScriptsAndStyles(source))
+    && extractListingLinks(source).length === 0
+    && !hasPotentialJobData(source, 'jobcloud');
 }
 
 /**
  * True only when the Jobup company profile renders its own "no vacancies"
- * block and no job-list container.
+ * block or message, with no job-list container or job evidence in any
+ * recognized or unrecognized URL/attribute/card shape.
  */
 export function isJobupProfileProvenEmpty(html = '') {
   if (!html) return false;
   const dom = new JSDOM(String(html));
   try {
     const doc = dom.window.document;
-    return Boolean(doc.querySelector(JOBUP_NO_VACANCIES_SELECTOR))
-      && !doc.querySelector(JOBUP_PROFILE_JOB_LIST_SELECTORS);
+    const bodyText = doc.body?.textContent || '';
+    const hasNoVacanciesMarker = Boolean(doc.querySelector(JOBUP_NO_VACANCIES_SELECTOR))
+      || JOBUP_NO_VACANCIES_TEXT_RE.test(bodyText);
+    return hasNoVacanciesMarker
+      && !doc.querySelector(JOBUP_PROFILE_JOB_LIST_SELECTORS)
+      && !hasPotentialJobData(html, 'jobup');
   } finally {
     dom.window.close();
   }
@@ -573,7 +578,7 @@ export async function fetchAllCroixRougeFribourgeoiseJobs() {
         console.log('  ✅ Both JobCloud and Jobup state that no position is open.');
         return markAuthoritativeEmptySnapshot(
           [],
-          'JobCloud company page initialJobs=[] with "Aucun poste ouvert"; Jobup profile company-no-vacancies',
+          'JobCloud company page says "Aucun poste ouvert actuellement" with no job-bearing links or attributes; Jobup profile says there is no current offer',
         );
       }
       console.warn('⚠️ No job listings found, and the sources do not both state an empty board (markup drift?).');

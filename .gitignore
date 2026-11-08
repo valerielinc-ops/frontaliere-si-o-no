@@ -72,6 +72,9 @@ data/profession-canton-coverage-gaps.json
 # commit the runtime-only files back into this repository.
 data/translation-cache/
 
+# Instagram Insights snapshots belong in private Firestore, never in the Git tree.
+data/instagram-insights.json
+
 # Aggregated data files — assembled at build/deploy time from per-crawler slices
 # (like dist/, these are generated artifacts, not source of truth)
 data/jobs.json
