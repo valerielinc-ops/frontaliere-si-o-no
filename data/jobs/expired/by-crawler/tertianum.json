@@ -11640,10 +11640,11 @@
     "sector": "Sanità / Ospedali",
     "expiredAt": "2026-10-08T09:33:55.483Z",
     "previousSlugs": [
-      "lehrstelle-als-fachfrau-fachmann-gesundheit-efz-tertianum-bern",
       "apprendista-fachfrau-mann-gesundheit-cfc-start-2027-tertianum-bern",
       "apprenticeship-as-a-specialist-health-efz-tertianum-bern",
-      "apprentissage-en-tant-que-specialiste-de-la-sante-efz-tertianum-bern"
+      "apprentissage-en-tant-que-specialiste-de-la-sante-efz-tertianum-bern",
+      "lehrstelle-als-fachfrau-fachmann-gesundheit-efz-tertianum-bern",
+      "lehrstelle-als-fachfrau-fachmann-gesundheit-efz-tertianum-bern-b3f33da2"
     ],
     "postalCode": "3012",
     "salaryCurrency": "CHF",
@@ -11653,13 +11654,19 @@
     "firstSeenAt": "2026-05-19T12:21:34.277Z",
     "previousSlugsByLocale": {
       "it": [
-        "apprendista-fachfrau-mann-gesundheit-cfc-start-2027-tertianum-bern"
+        "apprendista-fachfrau-mann-gesundheit-cfc-start-2027-tertianum-bern",
+        "lehrstelle-als-fachfrau-fachmann-gesundheit-efz-tertianum-bern-b3f33da2"
       ],
       "en": [
-        "apprenticeship-as-a-specialist-health-efz-tertianum-bern"
+        "apprenticeship-as-a-specialist-health-efz-tertianum-bern",
+        "lehrstelle-als-fachfrau-fachmann-gesundheit-efz-tertianum-bern"
       ],
       "fr": [
-        "apprentissage-en-tant-que-specialiste-de-la-sante-efz-tertianum-bern"
+        "apprentissage-en-tant-que-specialiste-de-la-sante-efz-tertianum-bern",
+        "lehrstelle-als-fachfrau-fachmann-gesundheit-efz-tertianum-bern"
+      ],
+      "de": [
+        "lehrstelle-als-fachfrau-fachmann-gesundheit-efz-tertianum-bern-b3f33da2"
       ]
     }
   },
@@ -12020,8 +12027,9 @@
       "fachfrau-fachmann-gesundheit-efz-80-100-tertianum-olten-88352656",
       "fachfrau-fachmann-gesundheit-efz-80-100-tertianum-olten-2a09641c",
       "fachfrau-fachmann-gesundheit-efz-80-100-tertianum-olten-3ce03795",
+      "fachfrau-fachmann-gesundheit-efz-80-100-tertianum-olten-8797f5b2",
       "fachfrau-fachmann-gesundheit-efz-80-100-tertianum-olten",
-      "fachfrau-fachmann-gesundheit-efz-80-100-tertianum-olten-8797f5b2"
+      "fachfrau-fachmann-gesundheit-efz-80-100-tertianum-olten-f6259b24"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -12139,24 +12147,28 @@
         "fachfrau-fachmann-gesundheit-efz-80-100-tertianum-olten-2a09641c",
         "fachfrau-fachmann-gesundheit-efz-80-100-tertianum-olten-3ce03795",
         "fachfrau-fachmann-gesundheit-efz-80-100-tertianum-olten-8797f5b2",
+        "fachfrau-fachmann-gesundheit-efz-80-100-tertianum-olten-f6259b24",
         "fachfrau-fachmann-gesundheit-efz-80-100-tertianum-olten"
       ],
       "en": [
         "fachfrau-fachmann-gesundheit-efz-80-100-tertianum-olten-03675791",
         "fachfrau-fachmann-gesundheit-efz-80-100-tertianum-olten-40a26c12",
         "fachfrau-fachmann-gesundheit-efz-80-100-tertianum-olten-31c31d47",
+        "fachfrau-fachmann-gesundheit-efz-80-100-tertianum-olten-5e608573",
         "fachfrau-fachmann-gesundheit-efz-80-100-tertianum-olten"
       ],
       "de": [
         "fachfrau-fachmann-gesundheit-efz-80-100-tertianum-olten-40a26c12",
         "fachfrau-fachmann-gesundheit-efz-80-100-tertianum-olten-31c31d47",
         "fachfrau-fachmann-gesundheit-efz-80-100-tertianum-olten-5e608573",
+        "fachfrau-fachmann-gesundheit-efz-80-100-tertianum-olten-202fcf60",
         "fachfrau-fachmann-gesundheit-efz-80-100-tertianum-olten"
       ],
       "fr": [
         "fachfrau-fachmann-gesundheit-efz-80-100-tertianum-olten-03675791",
         "fachfrau-fachmann-gesundheit-efz-80-100-tertianum-olten-40a26c12",
         "fachfrau-fachmann-gesundheit-efz-80-100-tertianum-olten-31c31d47",
+        "fachfrau-fachmann-gesundheit-efz-80-100-tertianum-olten-5e608573",
         "fachfrau-fachmann-gesundheit-efz-80-100-tertianum-olten"
       ]
     },
@@ -12905,8 +12917,9 @@
       "fachfrau-mann-gesundheit-tertianum-winterthur-4fd78c95",
       "fachfrau-mann-gesundheit-tertianum-winterthur-bbe73a7e",
       "fachfrau-mann-gesundheit-tertianum-winterthur-3c1fd66e",
+      "fachfrau-mann-gesundheit-tertianum-winterthur-cbaa7fb2",
       "fachfrau-mann-gesundheit-tertianum-winterthur",
-      "fachfrau-mann-gesundheit-tertianum-winterthur-cbaa7fb2"
+      "fachfrau-mann-gesundheit-tertianum-winterthur-3c8665b1"
     ],
     "previousSlugsByLocale": {
       "de": [
@@ -12914,6 +12927,7 @@
         "fachfrau-mann-gesundheit-tertianum-winterthur-e498219b",
         "fachfrau-mann-gesundheit-tertianum-winterthur-388dfc33",
         "fachfrau-mann-gesundheit-tertianum-winterthur-7f0b7f1d",
+        "fachfrau-mann-gesundheit-tertianum-winterthur-5cc2be6e",
         "fachfrau-mann-gesundheit-tertianum-winterthur"
       ],
       "it": [
@@ -13037,6 +13051,7 @@
         "fachfrau-mann-gesundheit-tertianum-winterthur-bbe73a7e",
         "fachfrau-mann-gesundheit-tertianum-winterthur-3c1fd66e",
         "fachfrau-mann-gesundheit-tertianum-winterthur-cbaa7fb2",
+        "fachfrau-mann-gesundheit-tertianum-winterthur-3c8665b1",
         "fachfrau-mann-gesundheit-tertianum-winterthur"
       ],
       "en": [
@@ -14545,10 +14560,12 @@
       "nursing-assistant-srk-tertianum-rheinfelden-fcebb9f2",
       "pflegehelfer-in-srk-tertianum-rheinfelden-e76b8f83",
       "nursing-assistant-srk-tertianum-rheinfelden-4fcfab7a",
+      "pflegehelfer-in-srk-tertianum-rheinfelden-28f66f82",
+      "nursing-assistant-srk-tertianum-rheinfelden-fbec36fe",
       "pflegehelfer-in-srk-tertianum-rheinfelden",
       "nursing-assistant-srk-tertianum-rheinfelden",
-      "pflegehelfer-in-srk-tertianum-rheinfelden-28f66f82",
-      "nursing-assistant-srk-tertianum-rheinfelden-fbec36fe"
+      "pflegehelfer-in-srk-tertianum-rheinfelden-51afe411",
+      "nursing-assistant-srk-tertianum-rheinfelden-06e5a02c"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -14669,6 +14686,7 @@
         "pflegehelfer-in-srk-tertianum-rheinfelden-dfd882d0",
         "pflegehelfer-in-srk-tertianum-rheinfelden-e76b8f83",
         "pflegehelfer-in-srk-tertianum-rheinfelden-28f66f82",
+        "pflegehelfer-in-srk-tertianum-rheinfelden-51afe411",
         "pflegehelfer-in-srk-tertianum-rheinfelden"
       ],
       "en": [
@@ -14895,6 +14913,8 @@
         "nursing-assistant-srk-tertianum-rheinfelden-4fcfab7a",
         "pflegehelfer-in-srk-tertianum-rheinfelden-28f66f82",
         "nursing-assistant-srk-tertianum-rheinfelden-fbec36fe",
+        "pflegehelfer-in-srk-tertianum-rheinfelden-51afe411",
+        "nursing-assistant-srk-tertianum-rheinfelden-06e5a02c",
         "pflegehelfer-in-srk-tertianum-rheinfelden",
         "nursing-assistant-srk-tertianum-rheinfelden"
       ],
@@ -14904,6 +14924,7 @@
         "nursing-assistant-srk-tertianum-rheinfelden",
         "pflegehelfer-in-srk-tertianum-rheinfelden-c93bb28d",
         "pflegehelfer-in-srk-tertianum-rheinfelden-c072d686",
+        "pflegehelfer-in-srk-tertianum-rheinfelden-3c04fab9",
         "pflegehelfer-in-srk-tertianum-rheinfelden"
       ],
       "fr": [
@@ -15022,6 +15043,7 @@
         "pflegehelfer-in-srk-tertianum-rheinfelden-dfd882d0",
         "pflegehelfer-in-srk-tertianum-rheinfelden-e76b8f83",
         "pflegehelfer-in-srk-tertianum-rheinfelden-28f66f82",
+        "pflegehelfer-in-srk-tertianum-rheinfelden-51afe411",
         "pflegehelfer-in-srk-tertianum-rheinfelden"
       ]
     },
