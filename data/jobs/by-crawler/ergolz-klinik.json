@@ -1,7 +1,7 @@
 {
   "crawlerKey": "ergolz-klinik",
-  "assembledAt": "2026-11-08T09:17:40.170Z",
-  "runId": "42465570592",
+  "assembledAt": "2026-11-08T21:25:11.521Z",
+  "runId": "42523278026",
   "jobs": [
     {
       "id": "ergolz-klinik-9afa70b1ddcc",
@@ -35,7 +35,7 @@
       "url": "https://ergolz.cardiance.com/wp-content/uploads/sites/4/2026/04/Inserat-Anasthesie-Pflege-60-80.pdf",
       "source": "Ergolz Klinik Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:17:34.703Z",
+      "crawledAt": "2026-11-08T21:25:07.030Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -89,7 +89,7 @@
       },
       "streetAddress": "Hammerstrasse 35",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-08T09:17:34.703Z",
+      "validThrough": "2026-12-08T21:25:07.030Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -124,7 +124,7 @@
       "url": "https://ergolz.cardiance.com/wp-content/uploads/sites/4/2026/09/Inserat-Dipl.-Pflege-HF-50-100_10.07.2026.pdf",
       "source": "Ergolz Klinik Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:17:34.006Z",
+      "crawledAt": "2026-11-08T21:25:06.352Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -178,7 +178,7 @@
       },
       "streetAddress": "Hammerstrasse 35",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-08T09:17:34.006Z",
+      "validThrough": "2026-12-08T21:25:06.352Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -212,7 +212,7 @@
       "url": "https://ergolz.cardiance.com/wp-content/uploads/sites/4/2026/09/Inserat-MPA-Patientenmanagement-50-60.pdf",
       "source": "Ergolz Klinik Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:17:33.301Z",
+      "crawledAt": "2026-11-08T21:25:05.645Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -272,7 +272,7 @@
       },
       "streetAddress": "Hammerstrasse 35",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-23T09:17:33.301Z",
+      "validThrough": "2026-12-23T21:25:05.645Z",
       "validThroughSource": "last-observed-window"
     }
   ]

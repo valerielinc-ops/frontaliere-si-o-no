@@ -1,17 +1,17 @@
 {
   "key": "rado",
   "label": "rado",
-  "generatedAt": "2026-11-08T09:29:06.434Z",
+  "generatedAt": "2026-11-08T21:35:32.114Z",
   "total": 1,
-  "authoritativeEmptySnapshot": true,
+  "authoritativeEmptySnapshot": false,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 376034,
-  "avgDurationMs": 376034,
+  "durationMs": 655002,
+  "avgDurationMs": 655002,
   "durationHistory": [
-    376034
+    655002
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -36,7 +36,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "rado",
       "companyDomain": "swatchgroup.com",
-      "crawledAt": "2026-11-07T21:27:28.735Z",
+      "crawledAt": "2026-11-08T21:34:47.600Z",
       "firstSeenAt": "2026-11-04T21:26:25.205Z",
       "sourceLang": "en",
       "salaryMin": 85000,
@@ -48,9 +48,8 @@
       "addressRegion": "BE",
       "streetAddress": "Lengnau BE",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-02T21:27:28.735Z",
+      "validThrough": "2027-02-02T21:34:47.600Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1,
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -60,5 +59,5 @@
       }
     }
   ],
-  "codeCommit": "b019e69684c909d5fd747961cb84c9c400bc8446"
+  "codeCommit": "46d8c233794afd1422cd7663ab076bfe9ec2a1c3"
 }

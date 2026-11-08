@@ -332,6 +332,24 @@ describe('jobsSeoPages disk-backed HTML retention', () => {
     expect(source).toContain('expiredHtmlCachePeakEntries');
   });
 
+  it('extends and releases the historical native-route index without a duplicate map', () => {
+    const source = fs.readFileSync(
+      path.resolve(process.cwd(), 'build-plugins/jobsSeoPagesPlugin.ts'),
+      'utf8',
+    );
+    expect(source).toContain('appendNativeJobPrefixIndex(\n   nativeJobPrefixByLocaleAndSlug');
+    expect(source).not.toContain('const expiredNativeIndex = buildNativeJobPrefixIndex(');
+    expect(source).not.toContain('new Set(index.keys())');
+    expect(source).toContain('activeRouteOwners.get(slug)');
+    const lastOwnershipCheck = source.lastIndexOf(
+      'legacyTiPathRecoveredByWorker(locale, slug, relPath)',
+    );
+    const release = source.indexOf('nativeJobPrefixByLocaleAndSlug.clear()', lastOwnershipCheck);
+    expect(lastOwnershipCheck).toBeGreaterThan(-1);
+    expect(release).toBeGreaterThan(lastOwnershipCheck);
+    expect(source.indexOf('legacyTiPathRecoveredByWorker(', release)).toBe(-1);
+  });
+
   it('streams previous-slug bridges without retaining unused full-page copies', () => {
     const source = fs.readFileSync(
       path.resolve(process.cwd(), 'build-plugins/jobsSeoPagesPlugin.ts'),

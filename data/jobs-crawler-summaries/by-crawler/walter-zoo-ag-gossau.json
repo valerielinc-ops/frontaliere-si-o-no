@@ -1,7 +1,7 @@
 {
   "key": "walter-zoo-ag-gossau",
   "label": "WALTER ZOO AG GOSSAU",
-  "generatedAt": "2026-11-08T09:20:13.928Z",
+  "generatedAt": "2026-11-08T21:15:23.163Z",
   "total": 2,
   "discovered": 3,
   "parsed": 2,
@@ -19,10 +19,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 7313,
-  "avgDurationMs": 7313,
+  "durationMs": 8181,
+  "avgDurationMs": 8181,
   "durationHistory": [
-    7313
+    8181
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -40,7 +40,7 @@
       "url": "https://link.ostendis.com/publication/koechin-koch-im-stundenlohn/ft6ay0tp0lvitfsfmjmccsgobolfhzvjhl7eaubzkdj1osa7lrfrcwbp5wqsqofn",
       "source": "WALTER ZOO AG GOSSAU Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:20:00.658Z",
+      "crawledAt": "2026-11-08T21:14:56.030Z",
       "addressLocality": "Gossau SG",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -63,7 +63,7 @@
       "salaryMax": 52200,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-21T09:20:00.658Z",
+      "validThrough": "2027-01-21T21:14:56.030Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -85,7 +85,7 @@
       "url": "https://link.ostendis.com/publication/praktikant-in-tierpflege/ifxcx5w7j27ktusu6yw8b7qjgwq4sj426s7hakpf1ecsofijiafrjlo6ylec7rth",
       "source": "WALTER ZOO AG GOSSAU Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:20:00.657Z",
+      "crawledAt": "2026-11-08T21:14:56.028Z",
       "addressLocality": "Gossau SG",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -108,7 +108,7 @@
       "salaryMax": 73000,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-21T09:20:00.657Z",
+      "validThrough": "2027-01-21T21:14:56.028Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -119,5 +119,5 @@
       }
     }
   ],
-  "codeCommit": "b019e69684c909d5fd747961cb84c9c400bc8446"
+  "codeCommit": "46d8c233794afd1422cd7663ab076bfe9ec2a1c3"
 }

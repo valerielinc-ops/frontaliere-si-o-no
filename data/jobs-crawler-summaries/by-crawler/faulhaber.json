@@ -1,7 +1,7 @@
 {
   "key": "faulhaber",
   "label": "Faulhaber",
-  "generatedAt": "2026-11-08T09:18:06.270Z",
+  "generatedAt": "2026-11-08T21:45:04.558Z",
   "total": 1,
   "discovered": null,
   "parsed": 1,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 37985,
-  "avgDurationMs": 37985,
+  "durationMs": 36241,
+  "avgDurationMs": 36241,
   "durationHistory": [
-    37985
+    36241
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -52,7 +52,7 @@
       "applyUrl": "https://jobs.faulhaber.com/HPv3.Jobs/faulhaber/stellenangebot/52258/Production-Shift-Leader",
       "source": "Faulhaber Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-08T09:17:46.323Z",
+      "crawledAt": "2026-11-08T21:44:45.079Z",
       "firstSeenAt": "2026-10-16T21:17:07.275Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -60,7 +60,7 @@
       "salarySource": "estimated",
       "streetAddress": "Croglio",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-08T09:17:46.323Z",
+      "validThrough": "2026-12-08T21:44:45.079Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -71,5 +71,5 @@
       }
     }
   ],
-  "codeCommit": "b019e69684c909d5fd747961cb84c9c400bc8446"
+  "codeCommit": "46d8c233794afd1422cd7663ab076bfe9ec2a1c3"
 }

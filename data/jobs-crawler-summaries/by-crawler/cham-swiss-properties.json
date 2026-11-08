@@ -1,7 +1,7 @@
 {
   "key": "cham-swiss-properties",
   "label": "Cham Swiss Properties",
-  "generatedAt": "2026-11-08T09:20:55.463Z",
+  "generatedAt": "2026-11-08T22:10:50.252Z",
   "total": 3,
   "discovered": null,
   "parsed": 3,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 3,
-  "durationMs": 5025,
-  "avgDurationMs": 5025,
+  "durationMs": 5519,
+  "avgDurationMs": 5519,
   "durationHistory": [
-    5025
+    5519
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -38,7 +38,7 @@
       "url": "https://jobs.dualoo.com/portal/6j9quii0/0a4b36cb-7fec-491e-ac66-dca333fd1508/detail?lang=DE",
       "source": "Cham Swiss Properties Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:20:28.985Z",
+      "crawledAt": "2026-11-08T22:10:32.676Z",
       "addressLocality": "Cham",
       "addressRegion": "ZG",
       "streetAddress": "Fabrikstrasse 5",
@@ -62,7 +62,7 @@
       "salaryMax": 146000,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-01T09:20:28.985Z",
+      "validThrough": "2027-01-31T22:10:32.676Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -85,7 +85,7 @@
       "url": "https://jobs.dualoo.com/portal/6j9quii0/88897b95-a537-4f28-a65b-89ea72d64752/detail?lang=DE",
       "source": "Cham Swiss Properties Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:20:28.538Z",
+      "crawledAt": "2026-11-08T22:10:32.160Z",
       "addressLocality": "Cham",
       "addressRegion": "ZG",
       "streetAddress": "Fabrikstrasse 5",
@@ -109,7 +109,7 @@
       "salaryMax": 106000,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-19T09:20:28.538Z",
+      "validThrough": "2027-01-19T22:10:32.160Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -132,7 +132,7 @@
       "url": "https://jobs.dualoo.com/portal/6j9quii0/cb080274-0231-4bf2-abc2-934feddea06d/detail?lang=DE",
       "source": "Cham Swiss Properties Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:20:28.076Z",
+      "crawledAt": "2026-11-08T22:10:31.639Z",
       "addressLocality": "Cham",
       "addressRegion": "ZG",
       "streetAddress": "Fabrikstrasse 5",
@@ -156,7 +156,7 @@
       "salaryMax": 106000,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-18T09:20:28.076Z",
+      "validThrough": "2027-01-17T22:10:31.639Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -167,5 +167,5 @@
       }
     }
   ],
-  "codeCommit": "b019e69684c909d5fd747961cb84c9c400bc8446"
+  "codeCommit": "46d8c233794afd1422cd7663ab076bfe9ec2a1c3"
 }

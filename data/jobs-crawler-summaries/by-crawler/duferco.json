@@ -1,7 +1,7 @@
 {
   "key": "duferco",
   "label": "Duferco",
-  "generatedAt": "2026-11-08T09:22:31.899Z",
+  "generatedAt": "2026-11-08T22:12:24.664Z",
   "total": 2,
   "discovered": null,
   "parsed": 2,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 3796,
-  "avgDurationMs": 3796,
+  "durationMs": 3628,
+  "avgDurationMs": 3628,
   "durationHistory": [
-    3796
+    3628
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -37,7 +37,7 @@
       "url": "https://duferco.talentics.ai/job/1cf7268a-a1ec-4fda-8e3a-94da072587c4",
       "source": "Duferco Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-08T09:22:13.692Z",
+      "crawledAt": "2026-11-08T22:12:13.242Z",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -72,7 +72,7 @@
       },
       "streetAddress": "Via Bagutti 9",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-19T09:22:13.692Z",
+      "validThrough": "2026-12-19T22:12:13.242Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -94,7 +94,7 @@
       "url": "https://duferco.talentics.ai/job/0865d71c-96fa-4a55-83a0-dfff85adb141",
       "source": "Duferco Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-08T09:22:13.687Z",
+      "crawledAt": "2026-11-08T22:12:13.238Z",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -129,7 +129,7 @@
       },
       "streetAddress": "Via Bagutti 9",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-08T09:22:13.687Z",
+      "validThrough": "2026-12-08T22:12:13.238Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -140,5 +140,5 @@
       }
     }
   ],
-  "codeCommit": "b019e69684c909d5fd747961cb84c9c400bc8446"
+  "codeCommit": "46d8c233794afd1422cd7663ab076bfe9ec2a1c3"
 }

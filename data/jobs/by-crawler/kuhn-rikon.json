@@ -1,7 +1,7 @@
 {
   "crawlerKey": "kuhn-rikon",
-  "assembledAt": "2026-11-08T09:23:21.112Z",
-  "runId": "42466272407",
+  "assembledAt": "2026-11-08T21:27:40.687Z",
+  "runId": "42524122693",
   "jobs": [
     {
       "id": "kuhn-rikon-4edc9ba1b5a5",
@@ -35,7 +35,7 @@
       "url": "https://my.jobalino.ch/job/7ae949ca06781987fbd101ae9e246d6a/verkaufsberater-in-outlet-landquart-w-m",
       "source": "Kuhn Rikon Dedicated Parser (Jobalino)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:23:11.334Z",
+      "crawledAt": "2026-11-08T21:27:35.428Z",
       "addressLocality": "Landquart",
       "streetAddress": "Industriestrasse 1",
       "postalCode": "7302",
@@ -143,7 +143,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-08T09:23:11.334Z",
+      "validThrough": "2026-12-08T21:27:35.428Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -178,7 +178,7 @@
       "url": "https://my.jobalino.ch/job/093cd182d6b09fd293edc53c732daa2d/lehrstelle-detailhandelsfachmann-frau-efz-gestalten-von-einkaufserlebnissen-haushalt",
       "source": "Kuhn Rikon Dedicated Parser (Jobalino)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:23:10.917Z",
+      "crawledAt": "2026-11-08T21:27:34.978Z",
       "addressLocality": "Rikon im Tösstal",
       "streetAddress": "Neschwilerstrasse 4",
       "postalCode": "8486",
@@ -225,7 +225,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-20T09:23:10.917Z",
+      "validThrough": "2026-12-20T21:27:34.978Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -259,7 +259,7 @@
       "url": "https://my.jobalino.ch/job/32d44bf225d93aeca1f2eea1de8acc55/produktionsmitarbeiter-in_1275",
       "source": "Kuhn Rikon Dedicated Parser (Jobalino)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:23:10.338Z",
+      "crawledAt": "2026-11-08T21:27:34.349Z",
       "addressLocality": "Rikon",
       "streetAddress": "Neschwilerstrasse 4",
       "postalCode": "8486",
@@ -318,7 +318,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-08T09:23:10.338Z",
+      "validThrough": "2026-12-08T21:27:34.349Z",
       "validThroughSource": "last-observed-window"
     }
   ]

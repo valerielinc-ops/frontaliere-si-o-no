@@ -1,14 +1,14 @@
 {
   "crawlerKey": "siemens-healthineers",
-  "assembledAt": "2026-11-08T11:57:21.042Z",
-  "runId": "42466571465",
+  "assembledAt": "2026-11-08T21:42:20.431Z",
+  "runId": "42524476697",
   "jobs": [
     {
       "id": "siemens-healthineers-235b60d2d69a",
       "slug": "qa-ingegnere-siemens-healthineers-baden",
       "slugByLocale": {
         "it": "qa-ingegnere-siemens-healthineers-baden",
-        "en": "qa-engineer-siemens-healthineers-baden",
+        "en": "qa-engineer-siemens-healthineers-ch",
         "de": "qa-ingenieur-siemens-healthineers-baden",
         "fr": "qa-ingenieur-siemens-healthineers-baden"
       },
@@ -35,7 +35,7 @@
       "url": "https://onehealthineers.wd3.myworkdayjobs.com/en-US/SHSJB/job/DWL-T/QA-Engineer_R-31190-1",
       "source": "Siemens Healthineers Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-08T09:27:21.595Z",
+      "crawledAt": "2026-11-08T21:42:12.364Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -54,10 +54,10 @@
       "requirements": [],
       "requirementsByLocale": {},
       "jobReqId": "R-31190",
-      "previousSlugs": [
-        "qa-engineer-siemens-healthineers-ch"
-      ],
       "previousSlugsByLocale": {
+        "en": [
+          "qa-engineer-siemens-healthineers-baden"
+        ],
         "it": [
           "qa-engineer-siemens-healthineers-ch"
         ],
@@ -66,11 +66,12 @@
         ],
         "fr": [
           "qa-engineer-siemens-healthineers-ch"
-        ],
-        "en": [
-          "qa-engineer-siemens-healthineers-ch"
         ]
       },
+      "previousSlugs": [
+        "qa-engineer-siemens-healthineers-ch",
+        "qa-engineer-siemens-healthineers-baden"
+      ],
       "salaryMin": 70500,
       "salaryMax": 120500,
       "salarySource": "estimated",
@@ -87,7 +88,7 @@
       "postalCode": "5400",
       "streetAddress": "Baden",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-10T09:27:21.595Z",
+      "validThrough": "2027-01-10T21:42:12.364Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -122,7 +123,7 @@
       "url": "https://onehealthineers.wd3.myworkdayjobs.com/en-US/SHSJB/job/DWL-T/Sr-Staff-Systems-Engineer_R-29913-2",
       "source": "Siemens Healthineers Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-08T09:27:20.916Z",
+      "crawledAt": "2026-11-08T21:42:11.660Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -172,7 +173,7 @@
       "postalCode": "5400",
       "streetAddress": "Baden",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-12T09:27:20.916Z",
+      "validThrough": "2027-01-12T21:42:11.660Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -207,7 +208,7 @@
       "url": "https://onehealthineers.wd3.myworkdayjobs.com/en-US/SHSJB/job/DWL-T/Product-Verification-Engineer_R-31529-1",
       "source": "Siemens Healthineers Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-08T09:27:20.275Z",
+      "crawledAt": "2026-11-08T21:42:10.948Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -259,8 +260,81 @@
       "postalCode": "5400",
       "streetAddress": "Baden",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-01T09:27:20.275Z",
+      "validThrough": "2027-02-01T21:42:10.948Z",
       "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "siemens-healthineers-6c991f635426",
+      "slug": "product-verification-engineer-siemens-healthineers-ch-2",
+      "slugByLocale": {
+        "en": "product-verification-engineer-siemens-healthineers-ch",
+        "it": "product-verification-engineer-siemens-healthineers-ch-2",
+        "de": "product-verification-engineer-siemens-healthineers-ch-2",
+        "fr": "product-verification-engineer-siemens-healthineers-ch-2"
+      },
+      "company": "Siemens Healthineers",
+      "companyKey": "siemens-healthineers",
+      "companyDomain": "siemens-healthineers.com",
+      "title": "Product Verification Engineer",
+      "titleByLocale": {
+        "en": "Product Verification Engineer",
+        "it": "Product Verification Ingegnere",
+        "de": "Product Verification Ingenieur",
+        "fr": "Product Verification Ingénieur"
+      },
+      "description": "Join us in pioneering breakthroughs in healthcare. For everyone. Everywhere. Sustainably.\n\nOur inspiring and caring environment forms a global community that celebrates diversity and individuality. We encourage you to step beyond your comfort zone, offering resources and flexibility to foster your professional and personal growth, all while valuing your unique contributions.\n\nHelp shape AI-assisted verification for advanced radiation therapy solutions.\n\nAs a Product Verification Engineer with a focus on AI-assisted testing, you will play an important role in bringing high-quality products and solutions to our customers and ultimately to patients. You will verify that our treatment delivery systems meet their functional and technical requirements, combining hands-on testing with analytical problem solving and close collaboration with engineering teams.\n\nYou will work in an international, cross-functional R&D environment where verification goes beyond executing tests. Alongside your core verification work, you will help introduce practical AI-assisted approaches across the verification process, including requirement and test case reviews, and share effective practices with the team. Human oversight, product quality, and patient safety will remain central to this work.\n\nJoin our Varian's Business in Oncology Systems team and contribute to our mission of creating a world without fear of cancer.\n\nYour Responsibilities\n\n• Plan and perform verification activities for our treatment delivery systems\n\n• Develop, maintain, and execute manual and automated tests based on requirements\n\n• Use AI tools for requirement review and test design, critically reviewing outputs\n\n• Evaluate, pilot, and share AI-assisted verification practices with human oversight\n\n• Analyze test results, report defects, and support troubleshooting with engineering teams\n\n• Contribute to requirement and design reviews and risk analysis\n\nWhat You Bring\n\n• Bachelor's or Master's degree in engineering, computer science, or a related field\n\n• Three or more years in software or system verification, preferably in medical devices\n\n• Practical experience using AI tools and the ability to recognize inaccurate AI output\n\n• A pragmatic approach to evaluating new technologies and their benefits\n\n• Strong analytical and communication skills, with the ability to support team learning\n\n• A strong commitment to quality and patient safety\n\n• Fluency in spoken and written English; German is an advantage\n\n• Proficiency in at least one programming language, preferably Python\n\n• Willingness to travel up to 10%\n\nNice to Have\n\n• Understanding of modern software verification practices\n\n• ISTQB, SAQ Certified Tester, or a comparable testing certification\n\n#LI-OS1\n\nWho we are : We are a team of more than 72,000 highly dedicated Healthineers in more than 70 countries. As a leader in medical technology, we constantly push the boundaries to create better outcomes and experiences for patients, no matter where they live or what health issues they are facing. Our portfolio is crucial for clinical decision-making and treatment pathways.\n\nHow we work : When you join Siemens Healthineers, you become one in a global team of scientists, clinicians, developers, researchers, professionals, and skilled specialists, who believe in each individual’s potential to contribute with diverse ideas. We are from different backgrounds, cultures, religions, political and/or sexual orientations, and work together, to fight the world’s most threatening diseases and enable access to care, united by one purpose: to pioneer breakthroughs in healthcare. For everyone. Everywhere. Sustainably.\n\nTo find out more about Healthineers’ specific businesses, please visit our company page here .\n\nAs an equal opportunity employer, we welcome applications from individuals with disabilities.\n\nData Privacy : We care about your data privacy and take compliance with GDPR as well as other data protection legislation seriously. For this reason, we ask you not to send us your CV or resume by email. We ask instead that you create a profile where you can upload your CV. Setting up a profile also lets us know you are interested in career opportunities with us and makes it easy for us to send you an alert when relevant positions become open. Register here to get started.\n\nBeware of Job Scams: Please beware of potentially fraudulent job postings or suspicious recruiting activity by persons that are currently posing as Siemens Healthineers recruiters/employees.  These scammers may attempt to collect your confidential personal or financial information.  If you are concerned that an offer of employment with Siemens Healthineers might be a scam or that the recruiter is not legitimate, please verify by searching for the posting on the Siemens Healthineers career site.\n\nTo all recruitment agencies : Siemens Healthineers does not accept agency resumes. Please do not forward resumes to our jobs alias, employees, or any other company location. Siemens Healthineers is not responsible for any fees related to unsolicited resumes. As an equal opportunity employer, we welcome applications from individuals with disabilities.",
+      "descriptionByLocale": {
+        "en": "Join us in pioneering breakthroughs in healthcare. For everyone. Everywhere. Sustainably.\n\nOur inspiring and caring environment forms a global community that celebrates diversity and individuality. We encourage you to step beyond your comfort zone, offering resources and flexibility to foster your professional and personal growth, all while valuing your unique contributions.\n\nHelp shape AI-assisted verification for advanced radiation therapy solutions.\n\nAs a Product Verification Engineer with a focus on AI-assisted testing, you will play an important role in bringing high-quality products and solutions to our customers and ultimately to patients. You will verify that our treatment delivery systems meet their functional and technical requirements, combining hands-on testing with analytical problem solving and close collaboration with engineering teams.\n\nYou will work in an international, cross-functional R&D environment where verification goes beyond executing tests. Alongside your core verification work, you will help introduce practical AI-assisted approaches across the verification process, including requirement and test case reviews, and share effective practices with the team. Human oversight, product quality, and patient safety will remain central to this work.\n\nJoin our Varian's Business in Oncology Systems team and contribute to our mission of creating a world without fear of cancer.\n\nYour Responsibilities\n\n• Plan and perform verification activities for our treatment delivery systems\n\n• Develop, maintain, and execute manual and automated tests based on requirements\n\n• Use AI tools for requirement review and test design, critically reviewing outputs\n\n• Evaluate, pilot, and share AI-assisted verification practices with human oversight\n\n• Analyze test results, report defects, and support troubleshooting with engineering teams\n\n• Contribute to requirement and design reviews and risk analysis\n\nWhat You Bring\n\n• Bachelor's or Master's degree in engineering, computer science, or a related field\n\n• Three or more years in software or system verification, preferably in medical devices\n\n• Practical experience using AI tools and the ability to recognize inaccurate AI output\n\n• A pragmatic approach to evaluating new technologies and their benefits\n\n• Strong analytical and communication skills, with the ability to support team learning\n\n• A strong commitment to quality and patient safety\n\n• Fluency in spoken and written English; German is an advantage\n\n• Proficiency in at least one programming language, preferably Python\n\n• Willingness to travel up to 10%\n\nNice to Have\n\n• Understanding of modern software verification practices\n\n• ISTQB, SAQ Certified Tester, or a comparable testing certification\n\n#LI-OS1\n\nWho we are : We are a team of more than 72,000 highly dedicated Healthineers in more than 70 countries. As a leader in medical technology, we constantly push the boundaries to create better outcomes and experiences for patients, no matter where they live or what health issues they are facing. Our portfolio is crucial for clinical decision-making and treatment pathways.\n\nHow we work : When you join Siemens Healthineers, you become one in a global team of scientists, clinicians, developers, researchers, professionals, and skilled specialists, who believe in each individual’s potential to contribute with diverse ideas. We are from different backgrounds, cultures, religions, political and/or sexual orientations, and work together, to fight the world’s most threatening diseases and enable access to care, united by one purpose: to pioneer breakthroughs in healthcare. For everyone. Everywhere. Sustainably.\n\nTo find out more about Healthineers’ specific businesses, please visit our company page here .\n\nAs an equal opportunity employer, we welcome applications from individuals with disabilities.\n\nData Privacy : We care about your data privacy and take compliance with GDPR as well as other data protection legislation seriously. For this reason, we ask you not to send us your CV or resume by email. We ask instead that you create a profile where you can upload your CV. Setting up a profile also lets us know you are interested in career opportunities with us and makes it easy for us to send you an alert when relevant positions become open. Register here to get started.\n\nBeware of Job Scams: Please beware of potentially fraudulent job postings or suspicious recruiting activity by persons that are currently posing as Siemens Healthineers recruiters/employees.  These scammers may attempt to collect your confidential personal or financial information.  If you are concerned that an offer of employment with Siemens Healthineers might be a scam or that the recruiter is not legitimate, please verify by searching for the posting on the Siemens Healthineers career site.\n\nTo all recruitment agencies : Siemens Healthineers does not accept agency resumes. Please do not forward resumes to our jobs alias, employees, or any other company location. Siemens Healthineers is not responsible for any fees related to unsolicited resumes. As an equal opportunity employer, we welcome applications from individuals with disabilities.",
+        "it": "Join us in pioneering breakthroughs in healthcare. For everyone. Everywhere. Sustainably.\n\nOur inspiring and caring environment forms a global community that celebrates diversity and individuality. We encourage you to step beyond your comfort zone, offering resources and flexibility to foster your professional and personal growth, all while valuing your unique contributions.\n\nHelp shape AI-assisted verification for advanced radiation therapy solutions.\n\nAs a Product Verification Engineer with a focus on AI-assisted testing, you will play an important role in bringing high-quality products and solutions to our customers and ultimately to patients. You will verify that our treatment delivery systems meet their functional and technical requirements, combining hands-on testing with analytical problem solving and close collaboration with engineering teams.\n\nYou will work in an international, cross-functional R&D environment where verification goes beyond executing tests. Alongside your core verification work, you will help introduce practical AI-assisted approaches across the verification process, including requirement and test case reviews, and share effective practices with the team. Human oversight, product quality, and patient safety will remain central to this work.\n\nJoin our Varian's Business in Oncology Systems team and contribute to our mission of creating a world without fear of cancer.\n\nYour Responsibilities\n\n• Plan and perform verification activities for our treatment delivery systems\n\n• Develop, maintain, and execute manual and automated tests based on requirements\n\n• Use AI tools for requirement review and test design, critically reviewing outputs\n\n• Evaluate, pilot, and share AI-assisted verification practices with human oversight\n\n• Analyze test results, report defects, and support troubleshooting with engineering teams\n\n• Contribute to requirement and design reviews and risk analysis\n\nWhat You Bring\n\n• Bachelor's or Master's degree in engineering, computer science, or a related field\n\n• Three or more years in software or system verification, preferably in medical devices\n\n• Practical experience using AI tools and the ability to recognize inaccurate AI output\n\n• A pragmatic approach to evaluating new technologies and their benefits\n\n• Strong analytical and communication skills, with the ability to support team learning\n\n• A strong commitment to quality and patient safety\n\n• Fluency in spoken and written English; German is an advantage\n\n• Proficiency in at least one programming language, preferably Python\n\n• Willingness to travel up to 10%\n\nNice to Have\n\n• Understanding of modern software verification practices\n\n• ISTQB, SAQ Certified Tester, or a comparable testing certification\n\n#LI-OS1\n\nWho we are : We are a team of more than 72,000 highly dedicated Healthineers in more than 70 countries. As a leader in medical technology, we constantly push the boundaries to create better outcomes and experiences for patients, no matter where they live or what health issues they are facing. Our portfolio is crucial for clinical decision-making and treatment pathways.\n\nHow we work : When you join Siemens Healthineers, you become one in a global team of scientists, clinicians, developers, researchers, professionals, and skilled specialists, who believe in each individual’s potential to contribute with diverse ideas. We are from different backgrounds, cultures, religions, political and/or sexual orientations, and work together, to fight the world’s most threatening diseases and enable access to care, united by one purpose: to pioneer breakthroughs in healthcare. For everyone. Everywhere. Sustainably.\n\nTo find out more about Healthineers’ specific businesses, please visit our company page here .\n\nAs an equal opportunity employer, we welcome applications from individuals with disabilities.\n\nData Privacy : We care about your data privacy and take compliance with GDPR as well as other data protection legislation seriously. For this reason, we ask you not to send us your CV or resume by email. We ask instead that you create a profile where you can upload your CV. Setting up a profile also lets us know you are interested in career opportunities with us and makes it easy for us to send you an alert when relevant positions become open. Register here to get started.\n\nBeware of Job Scams: Please beware of potentially fraudulent job postings or suspicious recruiting activity by persons that are currently posing as Siemens Healthineers recruiters/employees.  These scammers may attempt to collect your confidential personal or financial information.  If you are concerned that an offer of employment with Siemens Healthineers might be a scam or that the recruiter is not legitimate, please verify by searching for the posting on the Siemens Healthineers career site.\n\nTo all recruitment agencies : Siemens Healthineers does not accept agency resumes. Please do not forward resumes to our jobs alias, employees, or any other company location. Siemens Healthineers is not responsible for any fees related to unsolicited resumes. As an equal opportunity employer, we welcome applications from individuals with disabilities.",
+        "de": "Join us in pioneering breakthroughs in healthcare. For everyone. Everywhere. Sustainably.\n\nOur inspiring and caring environment forms a global community that celebrates diversity and individuality. We encourage you to step beyond your comfort zone, offering resources and flexibility to foster your professional and personal growth, all while valuing your unique contributions.\n\nHelp shape AI-assisted verification for advanced radiation therapy solutions.\n\nAs a Product Verification Engineer with a focus on AI-assisted testing, you will play an important role in bringing high-quality products and solutions to our customers and ultimately to patients. You will verify that our treatment delivery systems meet their functional and technical requirements, combining hands-on testing with analytical problem solving and close collaboration with engineering teams.\n\nYou will work in an international, cross-functional R&D environment where verification goes beyond executing tests. Alongside your core verification work, you will help introduce practical AI-assisted approaches across the verification process, including requirement and test case reviews, and share effective practices with the team. Human oversight, product quality, and patient safety will remain central to this work.\n\nJoin our Varian's Business in Oncology Systems team and contribute to our mission of creating a world without fear of cancer.\n\nYour Responsibilities\n\n• Plan and perform verification activities for our treatment delivery systems\n\n• Develop, maintain, and execute manual and automated tests based on requirements\n\n• Use AI tools for requirement review and test design, critically reviewing outputs\n\n• Evaluate, pilot, and share AI-assisted verification practices with human oversight\n\n• Analyze test results, report defects, and support troubleshooting with engineering teams\n\n• Contribute to requirement and design reviews and risk analysis\n\nWhat You Bring\n\n• Bachelor's or Master's degree in engineering, computer science, or a related field\n\n• Three or more years in software or system verification, preferably in medical devices\n\n• Practical experience using AI tools and the ability to recognize inaccurate AI output\n\n• A pragmatic approach to evaluating new technologies and their benefits\n\n• Strong analytical and communication skills, with the ability to support team learning\n\n• A strong commitment to quality and patient safety\n\n• Fluency in spoken and written English; German is an advantage\n\n• Proficiency in at least one programming language, preferably Python\n\n• Willingness to travel up to 10%\n\nNice to Have\n\n• Understanding of modern software verification practices\n\n• ISTQB, SAQ Certified Tester, or a comparable testing certification\n\n#LI-OS1\n\nWho we are : We are a team of more than 72,000 highly dedicated Healthineers in more than 70 countries. As a leader in medical technology, we constantly push the boundaries to create better outcomes and experiences for patients, no matter where they live or what health issues they are facing. Our portfolio is crucial for clinical decision-making and treatment pathways.\n\nHow we work : When you join Siemens Healthineers, you become one in a global team of scientists, clinicians, developers, researchers, professionals, and skilled specialists, who believe in each individual’s potential to contribute with diverse ideas. We are from different backgrounds, cultures, religions, political and/or sexual orientations, and work together, to fight the world’s most threatening diseases and enable access to care, united by one purpose: to pioneer breakthroughs in healthcare. For everyone. Everywhere. Sustainably.\n\nTo find out more about Healthineers’ specific businesses, please visit our company page here .\n\nAs an equal opportunity employer, we welcome applications from individuals with disabilities.\n\nData Privacy : We care about your data privacy and take compliance with GDPR as well as other data protection legislation seriously. For this reason, we ask you not to send us your CV or resume by email. We ask instead that you create a profile where you can upload your CV. Setting up a profile also lets us know you are interested in career opportunities with us and makes it easy for us to send you an alert when relevant positions become open. Register here to get started.\n\nBeware of Job Scams: Please beware of potentially fraudulent job postings or suspicious recruiting activity by persons that are currently posing as Siemens Healthineers recruiters/employees.  These scammers may attempt to collect your confidential personal or financial information.  If you are concerned that an offer of employment with Siemens Healthineers might be a scam or that the recruiter is not legitimate, please verify by searching for the posting on the Siemens Healthineers career site.\n\nTo all recruitment agencies : Siemens Healthineers does not accept agency resumes. Please do not forward resumes to our jobs alias, employees, or any other company location. Siemens Healthineers is not responsible for any fees related to unsolicited resumes. As an equal opportunity employer, we welcome applications from individuals with disabilities.",
+        "fr": "Join us in pioneering breakthroughs in healthcare. For everyone. Everywhere. Sustainably.\n\nOur inspiring and caring environment forms a global community that celebrates diversity and individuality. We encourage you to step beyond your comfort zone, offering resources and flexibility to foster your professional and personal growth, all while valuing your unique contributions.\n\nHelp shape AI-assisted verification for advanced radiation therapy solutions.\n\nAs a Product Verification Engineer with a focus on AI-assisted testing, you will play an important role in bringing high-quality products and solutions to our customers and ultimately to patients. You will verify that our treatment delivery systems meet their functional and technical requirements, combining hands-on testing with analytical problem solving and close collaboration with engineering teams.\n\nYou will work in an international, cross-functional R&D environment where verification goes beyond executing tests. Alongside your core verification work, you will help introduce practical AI-assisted approaches across the verification process, including requirement and test case reviews, and share effective practices with the team. Human oversight, product quality, and patient safety will remain central to this work.\n\nJoin our Varian's Business in Oncology Systems team and contribute to our mission of creating a world without fear of cancer.\n\nYour Responsibilities\n\n• Plan and perform verification activities for our treatment delivery systems\n\n• Develop, maintain, and execute manual and automated tests based on requirements\n\n• Use AI tools for requirement review and test design, critically reviewing outputs\n\n• Evaluate, pilot, and share AI-assisted verification practices with human oversight\n\n• Analyze test results, report defects, and support troubleshooting with engineering teams\n\n• Contribute to requirement and design reviews and risk analysis\n\nWhat You Bring\n\n• Bachelor's or Master's degree in engineering, computer science, or a related field\n\n• Three or more years in software or system verification, preferably in medical devices\n\n• Practical experience using AI tools and the ability to recognize inaccurate AI output\n\n• A pragmatic approach to evaluating new technologies and their benefits\n\n• Strong analytical and communication skills, with the ability to support team learning\n\n• A strong commitment to quality and patient safety\n\n• Fluency in spoken and written English; German is an advantage\n\n• Proficiency in at least one programming language, preferably Python\n\n• Willingness to travel up to 10%\n\nNice to Have\n\n• Understanding of modern software verification practices\n\n• ISTQB, SAQ Certified Tester, or a comparable testing certification\n\n#LI-OS1\n\nWho we are : We are a team of more than 72,000 highly dedicated Healthineers in more than 70 countries. As a leader in medical technology, we constantly push the boundaries to create better outcomes and experiences for patients, no matter where they live or what health issues they are facing. Our portfolio is crucial for clinical decision-making and treatment pathways.\n\nHow we work : When you join Siemens Healthineers, you become one in a global team of scientists, clinicians, developers, researchers, professionals, and skilled specialists, who believe in each individual’s potential to contribute with diverse ideas. We are from different backgrounds, cultures, religions, political and/or sexual orientations, and work together, to fight the world’s most threatening diseases and enable access to care, united by one purpose: to pioneer breakthroughs in healthcare. For everyone. Everywhere. Sustainably.\n\nTo find out more about Healthineers’ specific businesses, please visit our company page here .\n\nAs an equal opportunity employer, we welcome applications from individuals with disabilities.\n\nData Privacy : We care about your data privacy and take compliance with GDPR as well as other data protection legislation seriously. For this reason, we ask you not to send us your CV or resume by email. We ask instead that you create a profile where you can upload your CV. Setting up a profile also lets us know you are interested in career opportunities with us and makes it easy for us to send you an alert when relevant positions become open. Register here to get started.\n\nBeware of Job Scams: Please beware of potentially fraudulent job postings or suspicious recruiting activity by persons that are currently posing as Siemens Healthineers recruiters/employees.  These scammers may attempt to collect your confidential personal or financial information.  If you are concerned that an offer of employment with Siemens Healthineers might be a scam or that the recruiter is not legitimate, please verify by searching for the posting on the Siemens Healthineers career site.\n\nTo all recruitment agencies : Siemens Healthineers does not accept agency resumes. Please do not forward resumes to our jobs alias, employees, or any other company location. Siemens Healthineers is not responsible for any fees related to unsolicited resumes. As an equal opportunity employer, we welcome applications from individuals with disabilities."
+      },
+      "needsRetranslation": true,
+      "location": "Baden",
+      "canton": "AG",
+      "url": "https://onehealthineers.wd3.myworkdayjobs.com/en-US/SHSJB/job/DWL-T/Product-Verification-Engineer_R-31669",
+      "source": "Siemens Healthineers Dedicated Parser (Workday)",
+      "sourceLang": "en",
+      "crawledAt": "2026-11-08T21:42:10.115Z",
+      "addressLocality": "Baden",
+      "addressRegion": "AG",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Ingegneria",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Medicale",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-11-03",
+      "postedDate": "2026-11-03",
+      "postingDateSource": "reported",
+      "applyUrl": "https://onehealthineers.wd3.myworkdayjobs.com/en-US/SHSJB/job/DWL-T/Product-Verification-Engineer_R-31669",
+      "requirements": [],
+      "requirementsByLocale": {
+        "en": []
+      },
+      "jobReqId": "R-31669",
+      "salaryMin": 72500,
+      "salaryMax": 110500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 72500,
+          "maxValue": 110500,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "5400",
+      "streetAddress": "Baden",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-02-01T21:42:10.115Z",
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-11-03T09:44:39.158Z"
     },
     {
       "id": "siemens-healthineers-075dcab4682d",
@@ -294,7 +368,7 @@
       "url": "https://onehealthineers.wd3.myworkdayjobs.com/en-US/SHSJB/job/DWL-T/Senior-Software-Engineer_R-31541",
       "source": "Siemens Healthineers Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-08T09:27:19.002Z",
+      "crawledAt": "2026-11-08T21:42:09.406Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -344,7 +418,7 @@
       "postalCode": "5400",
       "streetAddress": "Baden",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-01T09:27:19.002Z",
+      "validThrough": "2027-02-01T21:42:09.406Z",
       "validThroughSource": "last-observed-window"
     }
   ]

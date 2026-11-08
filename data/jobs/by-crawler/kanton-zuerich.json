@@ -1,7 +1,7 @@
 {
   "crawlerKey": "kanton-zuerich",
-  "assembledAt": "2026-11-08T09:39:13.743Z",
-  "runId": "42466647272",
+  "assembledAt": "2026-11-08T21:50:11.833Z",
+  "runId": "42524563520",
   "jobs": [
     {
       "id": "kanton-zuerich-b71fc1f2992f",
@@ -35,7 +35,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4086407/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:38:37.096Z",
+      "crawledAt": "2026-11-08T21:50:00.208Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -94,7 +94,7 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-13T09:38:37.096Z",
+      "validThrough": "2027-01-13T21:50:00.208Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -129,7 +129,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4094161/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:38:36.663Z",
+      "crawledAt": "2026-11-08T21:49:59.741Z",
       "addressLocality": "Bülach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -187,7 +187,7 @@
       },
       "streetAddress": "Bülach",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-06T09:38:36.663Z",
+      "validThrough": "2027-02-06T21:49:59.741Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -222,7 +222,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4087190/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:38:36.227Z",
+      "crawledAt": "2026-11-08T21:49:59.219Z",
       "addressLocality": "Zürich Altstetten",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -281,7 +281,7 @@
       },
       "streetAddress": "Zürich Altstetten",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-15T09:38:36.227Z",
+      "validThrough": "2027-01-14T21:49:59.219Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -316,7 +316,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4087626/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:38:35.790Z",
+      "crawledAt": "2026-11-08T21:49:58.741Z",
       "addressLocality": "Wädenswil",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -374,7 +374,7 @@
       },
       "streetAddress": "Wädenswil",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-19T09:38:35.790Z",
+      "validThrough": "2026-12-19T21:49:58.741Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -408,7 +408,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4095475/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:38:35.353Z",
+      "crawledAt": "2026-11-08T21:49:58.263Z",
       "addressLocality": "Horgen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -460,7 +460,7 @@
       },
       "streetAddress": "Horgen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-06T09:38:35.353Z",
+      "validThrough": "2027-02-06T21:49:58.263Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -495,7 +495,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4094671/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:38:34.915Z",
+      "crawledAt": "2026-11-08T21:49:57.791Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -552,7 +552,7 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-29T09:38:34.915Z",
+      "validThrough": "2027-01-28T21:49:57.791Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -577,7 +577,7 @@
       "description": "Die neu geschaffene Entlastungs-Staatsanwaltschaft führt Strafuntersuchungen gegen Erwachsene für das ganze Kantonsgebiet Zürich. Per 1. Februar 2027 oder nach Vereinbarung suchen wir zur Ergänzung unseres engagierten Teams in der Abteilung A eine motivierte Persönlichkeit als Staatsanwältin / Staatsanwalt mit Springerfunktion (80-100%). Das sind Ihre Aufgaben\n• Führung und Erledigung von Strafuntersuchungen\n• Leisten von befristeten Vertretungseinsätzen bei den regionalen Staatsanwaltschaften im ganzen Kanton Zürich und damit verbunden Leisten von regelmässigen Pikettdiensten\n• Untersuchungsplanung, Erheben von Beweismitteln, Durchführung von Einvernahmen, Einholen von Gutachten, Vollzug von Zwangsmassnahmen\n• Vertretung der Anklage vor Bezirksgericht und im kantonalen Rechtsmittelverfahren vor Obergericht, sowie Führung von Nachverfahren\n• Führung, Instruktion und Betreuung von Kanzleipersonal\n• Interdisziplinäre Zusammenarbeit mit Polizei und anderen Amtsstellen Das bringen Sie mit\n• Sie sind örtlich flexibel und verfügen über sehr gute Kenntnisse im Straf- und Strafprozessrecht sowie praktische Gerichtserfahrung und haben den Lehrgang CAS Forensics absolviert\n• In formeller Hinsicht verfügen Sie über das Wahlfähigkeitszeugnis für Staatsanwältinnen und Staatsanwälte im Kanton Zürich\n• Sie führen Untersuchungen systematisch und effizient, mit Entscheidungsfreude, Durchsetzungsvermögen und hohem Strafverfolgungswillen\n• Sie zeichnen sich aus durch Teamfähigkeit, Belastbarkeit auch in anspruchsvollen Situationen, diplomatisches Geschick sowie eine hohe Sozialkompetenz und können diese Stärken in der interdisziplinären Zusammenarbeit einbringen Das bieten wir\n• Ein abwechslungsreiches und sinnstiftendes Aufgabengebiet in einem kollegialen, interdisziplinären Umfeld\n• Ihnen steht eine kompetente Verfahrensassistenz zur Seite\n• Anstellung in der Lohnklasse 24 und Angebote zur beruflichen Weiterbildung\n• Ein moderner Arbeitsplatz mitten in der Stadt Zürich mit guter Anbindung zu öffentlichen Verkehrsmitteln Ihr Kontakt Für weitere Auskünfte steht Ihnen Nathalie Godan Gacesa, Abteilungsleiterin Abt. A (nathalie.godan@ji.zh.ch) gerne zur Verfügung. Informationen zur Staatsanwaltschaft des Kantons Zürich finden Sie auf www.zh.ch/sta. Wir freuen uns auf Ihre Bewerbung bis zum 25. November 2026 via Jobportal. Liebe Personaldienstleister! Leider können wir keine Dossiers berücksichtigen, die mit Honorarforderungen verbunden sind. Es werden ausschliesslich Direktbewerbungen beantwortet und im Auswahlverfahren berücksichtigt. Über uns Die Zürcher Staatsanwaltschaft (STA.ZH) ist zuständig für die Verfolgung von Straftaten erwachsener Personen im Kanton Zürich. Sie beschäftigt rund 500 Mitarbeitende in neun Amtsstellen sowie der Oberstaatsanwaltschaft. Die Entlastungs-Staatsanwaltschaft des Kantons Zürich trägt zu einem nachhaltigen Fallausgleich unter den 5 Regionalen Staatsanwaltschaften bei. Sie bearbeitet Strafverfahren der Massendelinquenz, welche durch kaufmännisches Personal geführt werden, und koordiniert Einsätze von Staatsanwältinnen und -anwälten mit Springer-Funktion auf den Regionalen Staatsanwaltschaften. Mitten im Leben: Die Direktion der Justiz und des Innern des Kantons Zürich umfasst ein vielseitiges Aufgabenfeld. Es reicht von Strafverfolgung, Justizvollzug und Opferhilfe über Gemeinden und Statistik bis hin zu Kulturförderung, Gleichstellung und Integration. Damit trägt die Direktion in wichtigen Bereichen zum Funktionieren des Kantons bei. Wir bieten… Einarbeitung eine strukturierte und persönliche Einarbeitung für einen gelungenen Start Sinnstiftende Arbeit sinnstiftende Arbeit mit echtem Mehrwert für die Gesellschaft Verantwortungsvolle Tätigkeit die Chance, Verantwortung zu übernehmen und mitzugestalten Team ein kollegiales Team mit wertschätzender Zusammenarbeit Ihr Bewerbungsprozess Vorselektion Erstgespräch vor Ort Finaler Entscheid Weitere interessante Stellen beim Kanton Zürich Alle offenen Stellen\n\nPensum: 80-100%",
       "descriptionByLocale": {
         "it": "L’ufficio del procuratore di scarico di recente creazione conduce indagini penali contro gli adulti per l’intera area cantonale di Zurigo. A partire dal 1o febbraio 2027 o d'accordo, stiamo cercando una personalità motivata come procuratore con funzione jumper (80-100%) per integrare il nostro team dedicato nel Dipartimento A. Questi sono i tuoi compiti\n• Gestione e conduzione di indagini penali\n• Fornire servizi di rappresentanza temporanea agli uffici del pubblico ministero regionale in tutto il Cantone di Zurigo e, associati a questo, fornire servizi di assistenza regolari\n• Pianificazione delle indagini, raccolta di prove, esecuzione di esami, ottenimento di pareri esperti, esecuzione di misure coercitive\n• Rappresentanza dell'accusa dinanzi al tribunale distrettuale e in procedimenti di ricorso cantonale dinanzi all'alto tribunale, nonché svolgimento di procedimenti di follow-up\n• Gestione, istruzione e supervisione del personale legale\n• Cooperazione interdisciplinare con la polizia e altri uffici\n• Essi sono localmente flessibili e hanno una buona conoscenza del diritto penale e penale, così come l'esperienza pratica del tribunale e hanno completato il corso CAS Forensics\n• Dal punto di vista formale, avete il certificato elettivo per i procuratori nel Cantone di Zurigo\n• Conducono indagini sistematicamente ed efficacemente, con processo decisionale, assertività e elevata disponibilità a perseguire.\n• Essi sono caratterizzati da lavoro di squadra, resilienza anche in situazioni difficili, competenze diplomatiche e un elevato livello di competenza sociale e possono contribuire a queste forze alla cooperazione interdisciplinare. Offriamo questo\n• Un'area di responsabilità varia e significativa in un ambiente collegiale e interdisciplinare\n• Hai un'assistenza procedurale competente al tuo fianco\n• Occupazione nella classe salariale 24 e offerte per un ulteriore sviluppo professionale\n• Un luogo di lavoro moderno nel centro della città di Zurigo con buoni collegamenti ai mezzi pubblici Per ulteriori informazioni, vedere Nathalie Godan Gacesa, Capo Dipartimento Abt. A (nathalie.godan@ji.zh.ch) è disponibile. Informazioni sull'Ufficio del Pubblico Procuratore del Cantone di Zurigo sono disponibili su www.zh.ch/sta. Attendiamo con ansia la vostra richiesta fino al 25 novembre 2026 via Jobportal. Cari fornitori di servizi del personale! Purtroppo non possiamo tener conto dei dossier relativi alle tasse. Solo le applicazioni dirette saranno risolte e considerate nel processo di selezione. L’Ufficio Pubblico Procuratore di Zurigo (STA.ZH) è responsabile per l’accusa di crimini commessi da adulti nel Cantone di Zurigo. Occupa circa 500 persone in nove uffici e l’Ufficio del Pubblico Ministero Superiore. L’ufficio del procuratore di scarico del Cantone di Zurigo contribuisce ad una soluzione sostenibile dei casi tra i 5 uffici del procuratore regionale. Si occupa di procedimenti penali di delinquenza di massa, che sono condotti da personale commerciale, e coordina incarichi di procuratori con una funzione Springer presso gli uffici del pubblico ministero regionale. Nel bel mezzo della vita: La Direzione della Giustizia e degli Affari Interni del Cantone di Zurigo copre una vasta gamma di compiti. Esso spazia dalle forze dell'ordine, dalle forze dell'ordine e dal sostegno delle vittime alle comunità e alle statistiche, alla promozione culturale, all'uguaglianza e all'integrazione. La gestione contribuisce così al funzionamento del cantone in settori importanti. Offriamo... Induzione di un'induzione strutturata e personale per un inizio di successo Lavoro significativo Lavoro significativo con valore aggiunto reale per la società Attività responsabile la possibilità di assumersi la responsabilità e di contribuire a formare un team collegiale con collaborazione apprezzata Il vostro processo di applicazione\n\nPenso: 80-100 %",
-        "en": "The newly created discharge prosecutor’s office conducts criminal investigations against adults for the entire cantonal area of Zurich. As of February 1, 2027 or by agreement, we are looking for a motivated personality as a prosecutor with jumper function (80-100%) to complement our dedicated team in Department A. These are your tasks\n• Conduct and conduct of criminal investigations\n• Performing temporary representation assignments at regional public prosecutors’ offices throughout the Canton of Zurich and, associated with this, providing regular pikett services\n• Planning of investigations, gathering of evidence, conducting examinations, obtaining expert opinions, enforcement of coercive measures\n• Representation of the prosecution before district court and in cantonal appeal proceedings before high court, as well as conduct of follow-up proceedings\n• Management, instruction and supervision of law firm staff\n• Interdisciplinary cooperation with police and other offices\n• They are locally flexible and have very good knowledge of criminal and criminal procedure law as well as practical court experience and have completed the course CAS Forensics\n• From a formal point of view, you have the elective certificate for prosecutors in the Canton of Zurich\n• They conduct investigations systematically and efficiently, with decision-making, assertiveness and a high degree of willingness to prosecute.\n• They are characterised by teamwork, resilience even in demanding situations, diplomatic skills and a high level of social competence and can contribute these strengths to interdisciplinary cooperation. We offer this\n• A varied and meaningful area of responsibility in a collegial, interdisciplinary environment\n• You have a competent procedural assistance at your side\n• Employment in wage class 24 and offers for professional development\n• A modern workplace in the middle of the city of Zurich with good connections to public transport For further information please contact Nathalie Godan Gacesa, Head of Department Abt. A (nathalie.godan@ji.zh.ch) is available. Information about the Public Prosecutor’s Office of the Canton of Zurich can be found at www.zh.ch/sta. We look forward to your application until 25 November 2026 via Jobportal. Dear personnel service providers! Unfortunately, we cannot take account of dossiers relating to fees. Only direct applications will be answered and considered in the selection process. The Zurich Public Prosecutor’s Office (STA.ZH) is responsible for the prosecution of crimes committed by adults in the Canton of Zurich. It employs around 500 people in nine offices and the Higher Public Prosecutor’s Office. The discharge prosecutor’s office of the Canton of Zurich contributes to a sustainable settlement of cases among the 5 regional prosecutors’ offices. She handles criminal proceedings of mass delinquency, which are conducted by commercial personnel, and coordinates assignments of prosecutors with a Springer function at the regional public prosecutor’s offices. In the middle of life: The Directorate of Justice and Home Affairs of the Canton of Zurich covers a wide range of tasks. It ranges from law enforcement, law enforcement and victim support to communities and statistics, to cultural promotion, equality and integration. The Directorate thus contributes to the functioning of the canton in important areas. We offer... Induction a structured and personal induction for a successful start Meaningful work Meaningful work with real added value for society Responsible activity the chance to take on responsibility and to help shape team a collegial team with appreciative cooperation Your application process Pre-selection Initial interview on site Final decision More interesting positions at the Canton of Zurich All vacancies\n\nPensum: 80-100 %",
+        "en": "The newly created discharge prosecutor’s office conducts criminal investigations against adults for the entire cantonal area of Zurich. As of February 1, 2027 or by agreement, we are looking for a motivated personality as a prosecutor with jumper",
         "de": "Die neu geschaffene Entlastungs-Staatsanwaltschaft führt Strafuntersuchungen gegen Erwachsene für das ganze Kantonsgebiet Zürich. Per 1. Februar 2027 oder nach Vereinbarung suchen wir zur Ergänzung unseres engagierten Teams in der Abteilung A eine motivierte Persönlichkeit als Staatsanwältin / Staatsanwalt mit Springerfunktion (80-100%). Das sind Ihre Aufgaben\n• Führung und Erledigung von Strafuntersuchungen\n• Leisten von befristeten Vertretungseinsätzen bei den regionalen Staatsanwaltschaften im ganzen Kanton Zürich und damit verbunden Leisten von regelmässigen Pikettdiensten\n• Untersuchungsplanung, Erheben von Beweismitteln, Durchführung von Einvernahmen, Einholen von Gutachten, Vollzug von Zwangsmassnahmen\n• Vertretung der Anklage vor Bezirksgericht und im kantonalen Rechtsmittelverfahren vor Obergericht, sowie Führung von Nachverfahren\n• Führung, Instruktion und Betreuung von Kanzleipersonal\n• Interdisziplinäre Zusammenarbeit mit Polizei und anderen Amtsstellen Das bringen Sie mit\n• Sie sind örtlich flexibel und verfügen über sehr gute Kenntnisse im Straf- und Strafprozessrecht sowie praktische Gerichtserfahrung und haben den Lehrgang CAS Forensics absolviert\n• In formeller Hinsicht verfügen Sie über das Wahlfähigkeitszeugnis für Staatsanwältinnen und Staatsanwälte im Kanton Zürich\n• Sie führen Untersuchungen systematisch und effizient, mit Entscheidungsfreude, Durchsetzungsvermögen und hohem Strafverfolgungswillen\n• Sie zeichnen sich aus durch Teamfähigkeit, Belastbarkeit auch in anspruchsvollen Situationen, diplomatisches Geschick sowie eine hohe Sozialkompetenz und können diese Stärken in der interdisziplinären Zusammenarbeit einbringen Das bieten wir\n• Ein abwechslungsreiches und sinnstiftendes Aufgabengebiet in einem kollegialen, interdisziplinären Umfeld\n• Ihnen steht eine kompetente Verfahrensassistenz zur Seite\n• Anstellung in der Lohnklasse 24 und Angebote zur beruflichen Weiterbildung\n• Ein moderner Arbeitsplatz mitten in der Stadt Zürich mit guter Anbindung zu öffentlichen Verkehrsmitteln Ihr Kontakt Für weitere Auskünfte steht Ihnen Nathalie Godan Gacesa, Abteilungsleiterin Abt. A (nathalie.godan@ji.zh.ch) gerne zur Verfügung. Informationen zur Staatsanwaltschaft des Kantons Zürich finden Sie auf www.zh.ch/sta. Wir freuen uns auf Ihre Bewerbung bis zum 25. November 2026 via Jobportal. Liebe Personaldienstleister! Leider können wir keine Dossiers berücksichtigen, die mit Honorarforderungen verbunden sind. Es werden ausschliesslich Direktbewerbungen beantwortet und im Auswahlverfahren berücksichtigt. Über uns Die Zürcher Staatsanwaltschaft (STA.ZH) ist zuständig für die Verfolgung von Straftaten erwachsener Personen im Kanton Zürich. Sie beschäftigt rund 500 Mitarbeitende in neun Amtsstellen sowie der Oberstaatsanwaltschaft. Die Entlastungs-Staatsanwaltschaft des Kantons Zürich trägt zu einem nachhaltigen Fallausgleich unter den 5 Regionalen Staatsanwaltschaften bei. Sie bearbeitet Strafverfahren der Massendelinquenz, welche durch kaufmännisches Personal geführt werden, und koordiniert Einsätze von Staatsanwältinnen und -anwälten mit Springer-Funktion auf den Regionalen Staatsanwaltschaften. Mitten im Leben: Die Direktion der Justiz und des Innern des Kantons Zürich umfasst ein vielseitiges Aufgabenfeld. Es reicht von Strafverfolgung, Justizvollzug und Opferhilfe über Gemeinden und Statistik bis hin zu Kulturförderung, Gleichstellung und Integration. Damit trägt die Direktion in wichtigen Bereichen zum Funktionieren des Kantons bei. Wir bieten… Einarbeitung eine strukturierte und persönliche Einarbeitung für einen gelungenen Start Sinnstiftende Arbeit sinnstiftende Arbeit mit echtem Mehrwert für die Gesellschaft Verantwortungsvolle Tätigkeit die Chance, Verantwortung zu übernehmen und mitzugestalten Team ein kollegiales Team mit wertschätzender Zusammenarbeit Ihr Bewerbungsprozess Vorselektion Erstgespräch vor Ort Finaler Entscheid Weitere interessante Stellen beim Kanton Zürich Alle offenen Stellen\n\nPensum: 80-100%",
         "fr": "Le bureau du procureur chargé de la libération nouvellement créé mène des enquêtes pénales contre les adultes dans toute la région cantonale de Zurich. Depuis le 1er février 2027 ou d'un commun accord, nous recherchons une personnalité motivée en tant que procureur avec fonction de sauteur (80-100%) pour compléter notre équipe dédiée au Département A. Ce sont vos tâches\n• Conduite et conduite des enquêtes pénales\n• Fourniture de services de représentation temporaire aux parquets régionaux dans l ' ensemble du canton de Zurich et prestation de services de soins réguliers\n• Planification des enquêtes, collecte des éléments de preuve, conduite des examens, obtention d ' avis d ' experts, application des mesures coercitives\n• Représentation des poursuites devant le tribunal de district et dans les procédures cantonales d ' appel devant la Haute Cour, ainsi que conduite des procédures de suivi\n• Gestion, formation et supervision du personnel du cabinet d'avocats\n• Coopération interdisciplinaire avec la police et d ' autres services\n• Ils sont flexibles sur le plan local et ont une très bonne connaissance du droit pénal et de la procédure pénale ainsi qu'une expérience pratique des tribunaux et ont suivi le cours de médecine légale de la CAS\n• D'un point de vue formel, vous avez le certificat électif pour les procureurs du canton de Zurich\n• Ils mènent des enquêtes de manière systématique et efficace, en prenant des décisions, en faisant preuve d ' assurance et en étant très disposés à poursuivre.\n• Ils se caractérisent par le travail d'équipe, la résilience même dans des situations exigeantes, les compétences diplomatiques et un haut niveau de compétence sociale et peuvent contribuer à la coopération interdisciplinaire. Nous offrons ceci\n• Un domaine de responsabilité varié et significatif dans un environnement collégial et interdisciplinaire\n• Vous avez une assistance procédurale compétente à vos côtés\n• Emploi dans la classe de salaire 24 et offre pour le développement professionnel\n• Un lieu de travail moderne au milieu de la ville de Zurich avec de bonnes connexions aux transports en commun Pour plus d'informations, voir Nathalie Godan Gacesa, chef du département Abt. A (nathalie.godan@ji.zh.ch) est disponible. Des informations sur le ministère public du canton de Zurich sont disponibles à l'adresse www.zh.ch/sta. Nous attendons avec impatience votre candidature jusqu'au 25 novembre 2026 via Jobportal. Chers fournisseurs de services au personnel! Malheureusement, nous ne pouvons pas tenir compte des dossiers relatifs aux redevances. Seules les demandes directes seront répondues et prises en considération dans le processus de sélection. Le ministère public de Zurich (STA.ZH) est chargé de poursuivre les crimes commis par des adultes dans le canton de Zurich. Il emploie environ 500 personnes dans neuf bureaux et le Bureau du Procureur supérieur. Le bureau du procureur de décharge du canton de Zurich contribue à un règlement durable des affaires parmi les 5 bureaux régionaux du procureur. Elle gère les procédures pénales de délinquance de masse, qui sont menées par du personnel commercial, et coordonne les attributions des procureurs ayant une fonction de Springer dans les bureaux régionaux du procureur. Au milieu de la vie: La Direction de la Justice et des Affaires Intérieures du Canton de Zurich couvre un large éventail de tâches. Il va de l'application de la loi, de l'application de la loi et du soutien aux victimes aux communautés et aux statistiques, à la promotion culturelle, à l'égalité et à l'intégration. La gestion contribue ainsi au fonctionnement du canton dans des domaines importants. Nous offrons... Induction d'une induction structurée et personnelle pour un bon départ Travail significatif Travail significatif avec une réelle valeur ajoutée pour la société Activité responsable la chance d'assumer la responsabilité et d'aider à former une équipe collégiale avec une coopération reconnaissante Votre processus de candidature Pré-sélection Interview initiale sur le site Décision finale Autres postes intéressants au Canton de Zurich Toutes les offres d'emploi\n\nPensum: 80-100 %"
       },
@@ -587,7 +587,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4096972/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:38:34.482Z",
+      "crawledAt": "2026-11-08T21:49:57.324Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -642,7 +642,7 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-02T09:38:34.482Z",
+      "validThrough": "2027-02-02T21:49:57.324Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -676,7 +676,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4092543/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:38:33.981Z",
+      "crawledAt": "2026-11-08T21:49:56.797Z",
       "addressLocality": "Regensdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -732,7 +732,7 @@
       },
       "streetAddress": "Regensdorf",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-26T09:38:33.981Z",
+      "validThrough": "2027-01-25T21:49:56.797Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -766,7 +766,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4087732/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:38:33.530Z",
+      "crawledAt": "2026-11-08T21:49:56.303Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -823,7 +823,7 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-17T09:38:33.530Z",
+      "validThrough": "2027-01-17T21:49:56.303Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -858,7 +858,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4092618/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:38:33.086Z",
+      "crawledAt": "2026-11-08T21:49:55.832Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -920,7 +920,7 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-26T09:38:33.086Z",
+      "validThrough": "2027-01-25T21:49:55.832Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -954,7 +954,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4042763/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:38:32.646Z",
+      "crawledAt": "2026-11-08T21:49:55.365Z",
       "addressLocality": "Bülach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1024,7 +1024,7 @@
       },
       "streetAddress": "Bülach",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-08T09:38:32.646Z",
+      "validThrough": "2026-12-08T21:49:55.365Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1058,7 +1058,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4095536/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:38:32.206Z",
+      "crawledAt": "2026-11-08T21:49:54.892Z",
       "addressLocality": "Wädenswil",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1113,7 +1113,7 @@
       },
       "streetAddress": "Wädenswil",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-01T09:38:32.206Z",
+      "validThrough": "2027-02-01T21:49:54.892Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1148,7 +1148,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4089435/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:38:31.768Z",
+      "crawledAt": "2026-11-08T21:49:54.347Z",
       "addressLocality": "Dielsdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1205,7 +1205,7 @@
       },
       "streetAddress": "Dielsdorf",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-20T09:38:31.768Z",
+      "validThrough": "2027-01-20T21:49:54.347Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1240,7 +1240,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4095090/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:38:31.326Z",
+      "crawledAt": "2026-11-08T21:49:53.874Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1295,7 +1295,7 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-19T09:38:31.326Z",
+      "validThrough": "2026-12-19T21:49:53.874Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1330,7 +1330,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4093335/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:38:30.871Z",
+      "crawledAt": "2026-11-08T21:49:53.404Z",
       "addressLocality": "Lindau",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1387,7 +1387,7 @@
       },
       "streetAddress": "Lindau",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-28T09:38:30.871Z",
+      "validThrough": "2027-01-27T21:49:53.404Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1422,7 +1422,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4093439/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:38:30.429Z",
+      "crawledAt": "2026-11-08T21:49:52.908Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1481,7 +1481,7 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-28T09:38:30.429Z",
+      "validThrough": "2027-01-27T21:49:52.908Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1516,7 +1516,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4086229/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:38:29.994Z",
+      "crawledAt": "2026-11-08T21:49:52.408Z",
       "addressLocality": "Feldmeilen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1574,7 +1574,7 @@
       },
       "streetAddress": "Feldmeilen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-13T09:38:29.994Z",
+      "validThrough": "2027-01-13T21:49:52.408Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1609,7 +1609,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4093206/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:38:29.557Z",
+      "crawledAt": "2026-11-08T21:49:51.912Z",
       "addressLocality": "Lindau",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1667,7 +1667,7 @@
       },
       "streetAddress": "Lindau",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-28T09:38:29.557Z",
+      "validThrough": "2027-01-27T21:49:51.912Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1702,7 +1702,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4042689/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:38:29.116Z",
+      "crawledAt": "2026-11-08T21:49:51.388Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1793,7 +1793,7 @@
       },
       "streetAddress": "Winterthur",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-08T09:38:29.116Z",
+      "validThrough": "2026-12-08T21:49:51.388Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1827,7 +1827,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4040232/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:38:28.676Z",
+      "crawledAt": "2026-11-08T21:49:50.918Z",
       "addressLocality": "Glattbrugg",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1896,7 +1896,7 @@
       },
       "streetAddress": "Glattbrugg",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-08T09:38:28.676Z",
+      "validThrough": "2026-12-08T21:49:50.918Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1931,7 +1931,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4096359/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:38:28.237Z",
+      "crawledAt": "2026-11-08T21:49:50.443Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1987,7 +1987,7 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-02T09:38:28.237Z",
+      "validThrough": "2027-02-02T21:49:50.443Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2022,7 +2022,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4094531/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:38:27.805Z",
+      "crawledAt": "2026-11-08T21:49:49.924Z",
       "addressLocality": "Regensdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2080,7 +2080,7 @@
       },
       "streetAddress": "Regensdorf",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-29T09:38:27.805Z",
+      "validThrough": "2027-01-28T21:49:49.924Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2115,7 +2115,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4040234/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:38:27.364Z",
+      "crawledAt": "2026-11-08T21:49:49.449Z",
       "addressLocality": "Lindau",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2189,7 +2189,7 @@
       },
       "streetAddress": "Lindau",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-08T09:38:27.364Z",
+      "validThrough": "2026-12-08T21:49:49.449Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2223,7 +2223,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4097353/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:38:26.896Z",
+      "crawledAt": "2026-11-08T21:49:48.973Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2278,7 +2278,7 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T09:38:26.896Z",
+      "validThrough": "2027-02-02T21:49:48.973Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2313,7 +2313,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4096563/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:38:26.456Z",
+      "crawledAt": "2026-11-08T21:49:48.503Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2368,7 +2368,7 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-02T09:38:26.456Z",
+      "validThrough": "2027-02-02T21:49:48.503Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2403,7 +2403,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4098764/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:38:26.018Z",
+      "crawledAt": "2026-11-08T21:49:48.035Z",
       "addressLocality": "Horgen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2458,7 +2458,7 @@
       },
       "streetAddress": "Horgen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-05T09:38:26.018Z",
+      "validThrough": "2027-02-04T21:49:48.035Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2492,7 +2492,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4042754/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:38:25.561Z",
+      "crawledAt": "2026-11-08T21:49:47.563Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2546,7 +2546,7 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-08T09:38:25.561Z",
+      "validThrough": "2026-12-08T21:49:47.563Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2580,7 +2580,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4091542/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:38:25.014Z",
+      "crawledAt": "2026-11-08T21:49:47.091Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2638,7 +2638,7 @@
       },
       "streetAddress": "Winterthur",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-23T09:38:25.014Z",
+      "validThrough": "2026-12-23T21:49:47.091Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2673,7 +2673,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4088679/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:38:24.570Z",
+      "crawledAt": "2026-11-08T21:49:46.608Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2727,7 +2727,7 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-18T09:38:24.570Z",
+      "validThrough": "2027-01-18T21:49:46.608Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2761,7 +2761,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/3970271/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:38:24.092Z",
+      "crawledAt": "2026-11-08T21:49:46.098Z",
       "addressLocality": "8706 Meilen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2812,7 +2812,7 @@
       },
       "streetAddress": "8706 Meilen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-08T09:38:24.092Z",
+      "validThrough": "2026-12-08T21:49:46.098Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2847,7 +2847,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4097321/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:38:23.659Z",
+      "crawledAt": "2026-11-08T21:49:45.624Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2900,7 +2900,7 @@
       },
       "streetAddress": "Winterthur",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-04T09:38:23.659Z",
+      "validThrough": "2027-02-03T21:49:45.624Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2935,7 +2935,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4089971/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:38:23.225Z",
+      "crawledAt": "2026-11-08T21:49:45.150Z",
       "addressLocality": "Winterthur-Wülflingen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2988,7 +2988,7 @@
       },
       "streetAddress": "Winterthur-Wülflingen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-28T09:38:23.225Z",
+      "validThrough": "2026-12-28T21:49:45.150Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3023,7 +3023,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4097645/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:38:22.791Z",
+      "crawledAt": "2026-11-08T21:49:44.671Z",
       "addressLocality": "Urdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3077,7 +3077,7 @@
       },
       "streetAddress": "Urdorf",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-06T09:38:22.791Z",
+      "validThrough": "2027-02-06T21:49:44.671Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3112,7 +3112,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4096009/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:38:22.261Z",
+      "crawledAt": "2026-11-08T21:49:44.172Z",
       "addressLocality": "Bülach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3167,7 +3167,7 @@
       },
       "streetAddress": "Bülach",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-01T09:38:22.261Z",
+      "validThrough": "2027-01-31T21:49:44.172Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3202,7 +3202,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4089897/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:38:21.765Z",
+      "crawledAt": "2026-11-08T21:49:43.702Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3260,7 +3260,7 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-26T09:38:21.765Z",
+      "validThrough": "2027-01-26T21:49:43.702Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3295,7 +3295,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4097606/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:38:21.250Z",
+      "crawledAt": "2026-11-08T21:49:43.198Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3348,7 +3348,7 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-04T09:38:21.250Z",
+      "validThrough": "2027-02-03T21:49:43.198Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3383,7 +3383,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4091803/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:38:20.812Z",
+      "crawledAt": "2026-11-08T21:49:42.652Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3440,7 +3440,7 @@
       },
       "streetAddress": "Winterthur",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-25T09:38:20.812Z",
+      "validThrough": "2027-01-24T21:49:42.652Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3474,7 +3474,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4098289/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:38:20.373Z",
+      "crawledAt": "2026-11-08T21:49:42.184Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3527,7 +3527,7 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-05T09:38:20.373Z",
+      "validThrough": "2027-02-04T21:49:42.184Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3562,7 +3562,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4090074/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:38:19.853Z",
+      "crawledAt": "2026-11-08T21:49:41.709Z",
       "addressLocality": "Wädenswil",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3624,7 +3624,7 @@
       },
       "streetAddress": "Wädenswil",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-22T09:38:19.853Z",
+      "validThrough": "2027-01-21T21:49:41.709Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3659,7 +3659,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4096809/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:38:19.417Z",
+      "crawledAt": "2026-11-08T21:49:41.233Z",
       "addressLocality": "8707 Uetikon am See",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3712,7 +3712,7 @@
       },
       "streetAddress": "8707 Uetikon am See",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-02T09:38:19.417Z",
+      "validThrough": "2027-02-01T21:49:41.233Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3747,7 +3747,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4089447/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:38:18.948Z",
+      "crawledAt": "2026-11-08T21:49:40.763Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3807,7 +3807,7 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-08T09:38:18.948Z",
+      "validThrough": "2026-12-08T21:49:40.763Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3842,7 +3842,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4089827/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:38:18.450Z",
+      "crawledAt": "2026-11-08T21:49:40.267Z",
       "addressLocality": "8050 Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3900,7 +3900,7 @@
       },
       "streetAddress": "8050 Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-20T09:38:18.450Z",
+      "validThrough": "2027-01-20T21:49:40.267Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3935,7 +3935,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4093746/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:38:18.016Z",
+      "crawledAt": "2026-11-08T21:49:39.739Z",
       "addressLocality": "8600",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3994,7 +3994,7 @@
       },
       "streetAddress": "8600",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-28T09:38:18.016Z",
+      "validThrough": "2027-01-27T21:49:39.739Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4029,7 +4029,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4088968/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:38:17.581Z",
+      "crawledAt": "2026-11-08T21:49:39.264Z",
       "addressLocality": "Regensdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4082,7 +4082,7 @@
       },
       "streetAddress": "Regensdorf",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-20T09:38:17.581Z",
+      "validThrough": "2027-01-19T21:49:39.264Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4117,7 +4117,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4090516/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:38:17.059Z",
+      "crawledAt": "2026-11-08T21:49:38.788Z",
       "addressLocality": "Horgen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4182,7 +4182,7 @@
       },
       "streetAddress": "Horgen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-21T09:38:17.059Z",
+      "validThrough": "2027-01-20T21:49:38.788Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4217,7 +4217,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4093139/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:38:16.625Z",
+      "crawledAt": "2026-11-08T21:49:38.201Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4272,7 +4272,7 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-01T09:38:16.625Z",
+      "validThrough": "2027-02-01T21:49:38.201Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4306,7 +4306,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4092532/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:38:16.178Z",
+      "crawledAt": "2026-11-08T21:49:37.716Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4355,7 +4355,7 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-26T09:38:16.178Z",
+      "validThrough": "2027-01-25T21:49:37.716Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4390,7 +4390,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4089865/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:38:15.743Z",
+      "crawledAt": "2026-11-08T21:49:37.244Z",
       "addressLocality": "Obfelden",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4448,7 +4448,7 @@
       },
       "streetAddress": "Obfelden",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-20T09:38:15.743Z",
+      "validThrough": "2027-01-19T21:49:37.244Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4483,7 +4483,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4080697/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:38:15.307Z",
+      "crawledAt": "2026-11-08T21:49:36.770Z",
       "addressLocality": "Wädenswil",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4540,7 +4540,7 @@
       },
       "streetAddress": "Wädenswil",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-15T09:38:15.307Z",
+      "validThrough": "2027-01-14T21:49:36.770Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4575,7 +4575,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4054707/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:38:14.869Z",
+      "crawledAt": "2026-11-08T21:49:36.289Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4630,7 +4630,7 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-08T09:38:14.869Z",
+      "validThrough": "2026-12-08T21:49:36.289Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4665,7 +4665,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4092152/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:38:14.433Z",
+      "crawledAt": "2026-11-08T21:49:35.820Z",
       "addressLocality": "Andelfingen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4724,7 +4724,7 @@
       },
       "streetAddress": "Andelfingen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-26T09:38:14.433Z",
+      "validThrough": "2027-01-25T21:49:35.820Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4759,7 +4759,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4095805/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:38:13.987Z",
+      "crawledAt": "2026-11-08T21:49:35.344Z",
       "addressLocality": "Kloten",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4814,7 +4814,7 @@
       },
       "streetAddress": "Kloten",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-01T09:38:13.987Z",
+      "validThrough": "2027-01-31T21:49:35.344Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4849,7 +4849,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4083591/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:38:13.545Z",
+      "crawledAt": "2026-11-08T21:49:34.867Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4907,7 +4907,7 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-10T09:38:13.545Z",
+      "validThrough": "2027-01-10T21:49:34.867Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4941,7 +4941,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4091669/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:38:13.098Z",
+      "crawledAt": "2026-11-08T21:49:34.398Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -5000,7 +5000,7 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-25T09:38:13.098Z",
+      "validThrough": "2027-01-24T21:49:34.398Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -5035,7 +5035,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4094661/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:38:12.653Z",
+      "crawledAt": "2026-11-08T21:49:33.927Z",
       "addressLocality": "Wetzikon ZH",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -5094,7 +5094,7 @@
       },
       "streetAddress": "Wetzikon ZH",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-28T09:38:12.653Z",
+      "validThrough": "2027-01-28T21:49:33.927Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -5129,7 +5129,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4084111/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:38:12.216Z",
+      "crawledAt": "2026-11-08T21:49:33.455Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -5186,7 +5186,7 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-11T09:38:12.216Z",
+      "validThrough": "2027-01-10T21:49:33.455Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -5221,7 +5221,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4097032/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:38:11.778Z",
+      "crawledAt": "2026-11-08T21:49:32.984Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -5277,7 +5277,7 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-02T09:38:11.778Z",
+      "validThrough": "2027-02-02T21:49:32.984Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -5311,7 +5311,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4094439/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:38:11.343Z",
+      "crawledAt": "2026-11-08T21:49:32.510Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -5369,7 +5369,7 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-29T09:38:11.343Z",
+      "validThrough": "2027-01-28T21:49:32.510Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -5404,7 +5404,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4088449/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:38:10.907Z",
+      "crawledAt": "2026-11-08T21:49:32.040Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -5463,7 +5463,7 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-20T09:38:10.907Z",
+      "validThrough": "2027-01-20T21:49:32.040Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -5498,7 +5498,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4076234/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:38:10.471Z",
+      "crawledAt": "2026-11-08T21:49:31.561Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -5549,7 +5549,7 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-28T09:38:10.471Z",
+      "validThrough": "2026-12-28T21:49:31.561Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -5584,7 +5584,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4096127/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:38:10.035Z",
+      "crawledAt": "2026-11-08T21:49:31.085Z",
       "addressLocality": "Hausen am Albis",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -5639,7 +5639,7 @@
       },
       "streetAddress": "Hausen am Albis",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-01T09:38:10.035Z",
+      "validThrough": "2027-02-01T21:49:31.085Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -5674,7 +5674,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4089526/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:38:09.573Z",
+      "crawledAt": "2026-11-08T21:49:30.612Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -5727,7 +5727,7 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-20T09:38:09.573Z",
+      "validThrough": "2027-01-19T21:49:30.612Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -5762,7 +5762,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4092368/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:38:09.140Z",
+      "crawledAt": "2026-11-08T21:49:30.140Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -5820,7 +5820,7 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-06T09:38:09.140Z",
+      "validThrough": "2027-02-06T21:49:30.140Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -5855,7 +5855,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4093898/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:38:08.704Z",
+      "crawledAt": "2026-11-08T21:49:29.666Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -5914,7 +5914,7 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-28T09:38:08.704Z",
+      "validThrough": "2027-01-27T21:49:29.666Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -5949,7 +5949,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4094995/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:38:08.214Z",
+      "crawledAt": "2026-11-08T21:49:29.185Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -6002,7 +6002,7 @@
       },
       "streetAddress": "Winterthur",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-29T09:38:08.214Z",
+      "validThrough": "2027-01-28T21:49:29.185Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -6036,7 +6036,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/3999615/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:38:07.746Z",
+      "crawledAt": "2026-11-08T21:49:28.715Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -6083,7 +6083,7 @@
       },
       "streetAddress": "Winterthur",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-08T09:38:07.746Z",
+      "validThrough": "2026-12-08T21:49:28.715Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -6118,7 +6118,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4086481/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:38:07.315Z",
+      "crawledAt": "2026-11-08T21:49:28.245Z",
       "addressLocality": "Adliswil",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -6175,7 +6175,7 @@
       },
       "streetAddress": "Adliswil",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-08T09:38:07.315Z",
+      "validThrough": "2026-12-08T21:49:28.245Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -6210,7 +6210,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4097985/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:38:06.876Z",
+      "crawledAt": "2026-11-08T21:49:27.767Z",
       "addressLocality": "Horgen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -6263,7 +6263,7 @@
       },
       "streetAddress": "Horgen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-04T09:38:06.876Z",
+      "validThrough": "2027-02-03T21:49:27.767Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -6298,7 +6298,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4084849/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:38:06.441Z",
+      "crawledAt": "2026-11-08T21:49:27.294Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -6355,7 +6355,7 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-12T09:38:06.441Z",
+      "validThrough": "2027-01-11T21:49:27.294Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -6390,7 +6390,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4095632/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:38:06.008Z",
+      "crawledAt": "2026-11-08T21:49:26.821Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -6445,7 +6445,7 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-01T09:38:06.008Z",
+      "validThrough": "2027-01-31T21:49:26.821Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -6480,7 +6480,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4095812/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:38:05.573Z",
+      "crawledAt": "2026-11-08T21:49:26.349Z",
       "addressLocality": "Bülach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -6534,7 +6534,7 @@
       },
       "streetAddress": "Bülach",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-01T09:38:05.573Z",
+      "validThrough": "2027-01-31T21:49:26.349Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -6569,7 +6569,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4096450/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:38:05.130Z",
+      "crawledAt": "2026-11-08T21:49:25.849Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -6622,7 +6622,7 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-02T09:38:05.130Z",
+      "validThrough": "2027-02-01T21:49:25.849Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -6656,7 +6656,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4085928/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:38:04.634Z",
+      "crawledAt": "2026-11-08T21:49:25.363Z",
       "addressLocality": "Turbenthal",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -6713,7 +6713,7 @@
       },
       "streetAddress": "Turbenthal",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-08T09:38:04.634Z",
+      "validThrough": "2026-12-08T21:49:25.363Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -6748,7 +6748,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4091645/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:38:04.196Z",
+      "crawledAt": "2026-11-08T21:49:24.819Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -6804,7 +6804,7 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-01T09:38:04.196Z",
+      "validThrough": "2027-02-01T21:49:24.819Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -6839,7 +6839,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4043286/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:38:03.764Z",
+      "crawledAt": "2026-11-08T21:49:24.352Z",
       "addressLocality": "Winterthur-Wülfingen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -6907,7 +6907,7 @@
       },
       "streetAddress": "Winterthur-Wülfingen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-08T09:38:03.764Z",
+      "validThrough": "2026-12-08T21:49:24.352Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -6942,7 +6942,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4093276/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:38:03.311Z",
+      "crawledAt": "2026-11-08T21:49:23.812Z",
       "addressLocality": "Kleinandelfingen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -7000,7 +7000,7 @@
       },
       "streetAddress": "Kleinandelfingen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-28T09:38:03.311Z",
+      "validThrough": "2027-01-27T21:49:23.812Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -7035,7 +7035,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4098781/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:38:02.872Z",
+      "crawledAt": "2026-11-08T21:49:23.337Z",
       "addressLocality": "Zürich Altstetten",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -7090,7 +7090,7 @@
       },
       "streetAddress": "Zürich Altstetten",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-05T09:38:02.872Z",
+      "validThrough": "2027-02-05T21:49:23.337Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -7125,7 +7125,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4092447/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:38:02.434Z",
+      "crawledAt": "2026-11-08T21:49:22.865Z",
       "addressLocality": "Pfäffikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -7174,7 +7174,7 @@
       },
       "streetAddress": "Pfäffikon",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-08T09:38:02.434Z",
+      "validThrough": "2026-12-08T21:49:22.865Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -7209,7 +7209,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4094319/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:38:01.997Z",
+      "crawledAt": "2026-11-08T21:49:22.390Z",
       "addressLocality": "Wädenswil",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -7262,7 +7262,7 @@
       },
       "streetAddress": "Wädenswil",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-01T09:38:01.997Z",
+      "validThrough": "2027-01-31T21:49:22.390Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -7297,7 +7297,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4090718/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:38:01.557Z",
+      "crawledAt": "2026-11-08T21:49:21.908Z",
       "addressLocality": "Rüti ZH",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -7355,7 +7355,7 @@
       },
       "streetAddress": "Rüti ZH",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-21T09:38:01.557Z",
+      "validThrough": "2027-01-21T21:49:21.908Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -7390,7 +7390,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4089076/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:38:01.122Z",
+      "crawledAt": "2026-11-08T21:49:21.442Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -7447,7 +7447,7 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-19T09:38:01.122Z",
+      "validThrough": "2027-01-18T21:49:21.442Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -7481,7 +7481,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4089570/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:38:00.691Z",
+      "crawledAt": "2026-11-08T21:49:20.914Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -7538,7 +7538,7 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-06T09:38:00.691Z",
+      "validThrough": "2027-02-06T21:49:20.914Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -7572,7 +7572,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4086442/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:38:00.254Z",
+      "crawledAt": "2026-11-08T21:49:20.439Z",
       "addressLocality": "Wädenswil",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -7630,7 +7630,7 @@
       },
       "streetAddress": "Wädenswil",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-08T09:38:00.254Z",
+      "validThrough": "2026-12-08T21:49:20.439Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -7665,7 +7665,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4090174/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:37:59.809Z",
+      "crawledAt": "2026-11-08T21:49:19.961Z",
       "addressLocality": "8001",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -7723,7 +7723,7 @@
       },
       "streetAddress": "8001",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-21T09:37:59.809Z",
+      "validThrough": "2027-01-20T21:49:19.961Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -7757,7 +7757,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4083704/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:37:59.376Z",
+      "crawledAt": "2026-11-08T21:49:19.489Z",
       "addressLocality": "Urdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -7814,7 +7814,7 @@
       },
       "streetAddress": "Urdorf",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-11T09:37:59.376Z",
+      "validThrough": "2027-01-10T21:49:19.489Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -7849,7 +7849,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4073435/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:37:58.814Z",
+      "crawledAt": "2026-11-08T21:49:18.979Z",
       "addressLocality": "Affoltern a",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -7907,7 +7907,7 @@
       },
       "streetAddress": "Affoltern a",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-11T09:37:58.814Z",
+      "validThrough": "2026-12-10T21:49:18.979Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -7942,7 +7942,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4098333/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:37:58.312Z",
+      "crawledAt": "2026-11-08T21:49:18.441Z",
       "addressLocality": "Andelfingen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -7997,7 +7997,7 @@
       },
       "streetAddress": "Andelfingen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-04T09:37:58.312Z",
+      "validThrough": "2027-02-04T21:49:18.441Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -8032,7 +8032,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4084999/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:37:57.409Z",
+      "crawledAt": "2026-11-08T21:49:17.431Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -8085,7 +8085,7 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-12T09:37:57.409Z",
+      "validThrough": "2027-01-11T21:49:17.431Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -8120,7 +8120,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4095084/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:37:56.966Z",
+      "crawledAt": "2026-11-08T21:49:16.817Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -8173,7 +8173,7 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-29T09:37:56.966Z",
+      "validThrough": "2027-01-28T21:49:16.817Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -8208,7 +8208,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4094842/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:37:56.533Z",
+      "crawledAt": "2026-11-08T21:49:16.343Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -8263,7 +8263,7 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-29T09:37:56.533Z",
+      "validThrough": "2027-01-28T21:49:16.343Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -8298,7 +8298,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4092084/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:37:56.074Z",
+      "crawledAt": "2026-11-08T21:49:15.869Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -8357,7 +8357,7 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-26T09:37:56.074Z",
+      "validThrough": "2027-01-25T21:49:15.869Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -8392,7 +8392,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4090580/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:37:55.640Z",
+      "crawledAt": "2026-11-08T21:49:15.396Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -8449,7 +8449,7 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-21T09:37:55.640Z",
+      "validThrough": "2027-01-20T21:49:15.396Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -8484,7 +8484,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4093695/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:37:55.193Z",
+      "crawledAt": "2026-11-08T21:49:14.916Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -8540,7 +8540,7 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-27T09:37:55.193Z",
+      "validThrough": "2027-01-27T21:49:14.916Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -8575,7 +8575,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4086438/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:37:54.725Z",
+      "crawledAt": "2026-11-08T21:49:14.422Z",
       "addressLocality": "Wädenswil",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -8631,7 +8631,7 @@
       },
       "streetAddress": "Wädenswil",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-06T09:37:54.725Z",
+      "validThrough": "2027-02-06T21:49:14.422Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -8666,7 +8666,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4094907/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:37:54.238Z",
+      "crawledAt": "2026-11-08T21:49:13.935Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -8719,7 +8719,7 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-02T09:37:54.238Z",
+      "validThrough": "2027-02-02T21:49:13.935Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -8754,7 +8754,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4095907/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:37:53.804Z",
+      "crawledAt": "2026-11-08T21:49:13.462Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -8801,7 +8801,7 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-26T09:37:53.804Z",
+      "validThrough": "2026-12-25T21:49:13.462Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -8835,7 +8835,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4096346/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:37:53.326Z",
+      "crawledAt": "2026-11-08T21:49:12.835Z",
       "addressLocality": "8001",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -8892,7 +8892,7 @@
       },
       "streetAddress": "8001",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-02T09:37:53.326Z",
+      "validThrough": "2027-02-02T21:49:12.835Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -8927,7 +8927,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4087141/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:37:52.778Z",
+      "crawledAt": "2026-11-08T21:49:12.356Z",
       "addressLocality": "Affoltern",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -8984,7 +8984,7 @@
       },
       "streetAddress": "Affoltern",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-15T09:37:52.778Z",
+      "validThrough": "2027-01-14T21:49:12.356Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -9019,7 +9019,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4092106/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:37:52.339Z",
+      "crawledAt": "2026-11-08T21:49:11.881Z",
       "addressLocality": "8600",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -9076,7 +9076,7 @@
       },
       "streetAddress": "8600",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-26T09:37:52.339Z",
+      "validThrough": "2027-01-25T21:49:11.881Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -9111,7 +9111,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4084266/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:37:51.882Z",
+      "crawledAt": "2026-11-08T21:49:11.412Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -9169,7 +9169,7 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-11T09:37:51.882Z",
+      "validThrough": "2027-01-11T21:49:11.412Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -9204,7 +9204,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4097051/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:37:51.447Z",
+      "crawledAt": "2026-11-08T21:49:10.908Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -9254,7 +9254,7 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T09:37:51.447Z",
+      "validThrough": "2027-02-03T21:49:10.908Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -9288,7 +9288,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4097279/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:37:51.006Z",
+      "crawledAt": "2026-11-08T21:49:10.373Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -9343,7 +9343,7 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T09:37:51.006Z",
+      "validThrough": "2027-02-03T21:49:10.373Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -9378,7 +9378,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4093685/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:37:50.571Z",
+      "crawledAt": "2026-11-08T21:49:09.901Z",
       "addressLocality": "Birmensdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -9437,7 +9437,7 @@
       },
       "streetAddress": "Birmensdorf",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-27T09:37:50.571Z",
+      "validThrough": "2027-01-27T21:49:09.901Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -9472,7 +9472,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4077942/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:37:50.092Z",
+      "crawledAt": "2026-11-08T21:49:09.432Z",
       "addressLocality": "Andelfingen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -9530,7 +9530,7 @@
       },
       "streetAddress": "Andelfingen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-30T09:37:50.092Z",
+      "validThrough": "2026-12-30T21:49:09.432Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -9565,7 +9565,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4098171/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:37:49.505Z",
+      "crawledAt": "2026-11-08T21:49:08.964Z",
       "addressLocality": "8902 Urdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -9618,7 +9618,7 @@
       },
       "streetAddress": "8902 Urdorf",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-04T09:37:49.505Z",
+      "validThrough": "2027-02-03T21:49:08.964Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -9652,7 +9652,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4087623/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:37:49.071Z",
+      "crawledAt": "2026-11-08T21:49:08.495Z",
       "addressLocality": "Kleinandelfingen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -9705,7 +9705,7 @@
       },
       "streetAddress": "Kleinandelfingen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-19T09:37:49.071Z",
+      "validThrough": "2026-12-19T21:49:08.495Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -9740,7 +9740,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4042902/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:37:48.630Z",
+      "crawledAt": "2026-11-08T21:49:08.006Z",
       "addressLocality": "Pfäffikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -9804,7 +9804,7 @@
       },
       "streetAddress": "Pfäffikon",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-08T09:37:48.630Z",
+      "validThrough": "2026-12-08T21:49:08.006Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -9839,7 +9839,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4094102/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:37:48.192Z",
+      "crawledAt": "2026-11-08T21:49:07.534Z",
       "addressLocality": "Winterthur-Wülflingen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -9897,7 +9897,7 @@
       },
       "streetAddress": "Winterthur-Wülflingen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-28T09:37:48.192Z",
+      "validThrough": "2027-01-27T21:49:07.534Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -9932,7 +9932,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4084569/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:37:47.746Z",
+      "crawledAt": "2026-11-08T21:49:07.064Z",
       "addressLocality": "Kleinandelfingen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -9985,7 +9985,7 @@
       },
       "streetAddress": "Kleinandelfingen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-23T09:37:47.746Z",
+      "validThrough": "2026-12-23T21:49:07.064Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -10020,7 +10020,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4094057/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:37:47.309Z",
+      "crawledAt": "2026-11-08T21:49:06.589Z",
       "addressLocality": "8005",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -10078,7 +10078,7 @@
       },
       "streetAddress": "8005",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-28T09:37:47.309Z",
+      "validThrough": "2027-01-27T21:49:06.589Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -10113,7 +10113,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4091302/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:37:46.193Z",
+      "crawledAt": "2026-11-08T21:49:06.109Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -10169,7 +10169,7 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-29T09:37:46.193Z",
+      "validThrough": "2026-12-28T21:49:06.109Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -10204,7 +10204,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4084803/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:37:45.760Z",
+      "crawledAt": "2026-11-08T21:49:05.641Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -10261,7 +10261,7 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-12T09:37:45.760Z",
+      "validThrough": "2027-01-11T21:49:05.641Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -10296,7 +10296,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/3989701/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:37:45.315Z",
+      "crawledAt": "2026-11-08T21:49:05.071Z",
       "addressLocality": "Dielsdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -10343,7 +10343,7 @@
       },
       "streetAddress": "Dielsdorf",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-08T09:37:45.315Z",
+      "validThrough": "2026-12-08T21:49:05.071Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -10378,7 +10378,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4089263/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:37:44.874Z",
+      "crawledAt": "2026-11-08T21:49:04.583Z",
       "addressLocality": "Wila",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -10431,7 +10431,7 @@
       },
       "streetAddress": "Wila",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-24T09:37:44.874Z",
+      "validThrough": "2026-12-23T21:49:04.583Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -10466,7 +10466,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4084366/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:37:44.417Z",
+      "crawledAt": "2026-11-08T21:49:04.073Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -10525,7 +10525,7 @@
       },
       "streetAddress": "Winterthur",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-11T09:37:44.417Z",
+      "validThrough": "2027-01-11T21:49:04.073Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -10559,7 +10559,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4088569/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:37:43.958Z",
+      "crawledAt": "2026-11-08T21:49:03.552Z",
       "addressLocality": "Regensdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -10618,7 +10618,7 @@
       },
       "streetAddress": "Regensdorf",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-18T09:37:43.958Z",
+      "validThrough": "2027-01-17T21:49:03.552Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -10653,7 +10653,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4093614/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:37:43.520Z",
+      "crawledAt": "2026-11-08T21:49:03.011Z",
       "addressLocality": "8315 Lindau",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -10712,7 +10712,7 @@
       },
       "streetAddress": "8315 Lindau",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-28T09:37:43.520Z",
+      "validThrough": "2027-01-27T21:49:03.011Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -10747,7 +10747,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4098817/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:37:43.026Z",
+      "crawledAt": "2026-11-08T21:49:02.532Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -10802,7 +10802,7 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-05T09:37:43.026Z",
+      "validThrough": "2027-02-05T21:49:02.532Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -10837,7 +10837,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4083467/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:37:42.581Z",
+      "crawledAt": "2026-11-08T21:49:02.039Z",
       "addressLocality": "Urdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -10890,7 +10890,7 @@
       },
       "streetAddress": "Urdorf",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-08T09:37:42.581Z",
+      "validThrough": "2026-12-08T21:49:02.039Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -10925,7 +10925,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4092416/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:37:42.136Z",
+      "crawledAt": "2026-11-08T21:49:01.547Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -10985,16 +10985,16 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-26T09:37:42.136Z",
+      "validThrough": "2027-01-26T21:49:01.547Z",
       "validThroughSource": "last-observed-window"
     },
     {
       "id": "kanton-zuerich-f474821e1436",
       "slug": "segretario-amministrativo-tuttofare-kantonale-verwaltung-zurich-8330-pfaffikon-zh",
       "slugByLocale": {
-        "de": "verwaltungssekretar-in-allrounder-in-kanton-zuerich-8330-pfaffikon-zh",
         "it": "segretario-amministrativo-tuttofare-kantonale-verwaltung-zurich-8330-pfaffikon-zh",
         "en": "administrative-secretary-all-rounder-kantonale-verwaltung-zurich-8330-pfaffikon-zh",
+        "de": "verwaltungssekretar-in-allrounder-in-kanton-zuerich-8330-pfaffikon-zh",
         "fr": "secretaire-administratif-polyvalent-kantonale-verwaltung-zurich-8330-pfaffikon-zh"
       },
       "company": "Kantonale Verwaltung Zürich",
@@ -11002,16 +11002,16 @@
       "companyDomain": "zh.ch",
       "title": "Verwaltungssekretär/in (Allrounder/in)",
       "titleByLocale": {
-        "de": "Verwaltungssekretär/in (Allrounder/in)",
         "it": "Segretario amministrativo (tuttofare)",
         "en": "Administrative secretary (all-rounder)",
+        "de": "Verwaltungssekretär/in (Allrounder/in)",
         "fr": "Secrétaire administratif (polyvalent)"
       },
       "description": "Für unsere kaufmännische Kanzlei suchen wir per sofort oder nach Vereinbarung eine/n Verwaltungssekretär/in (Allrounder/in) (80%) Ihr Aufgabenbereich\n• digitale und physische Postverarbeitung\n• Erfassen neuer Geschäfte\n• digitale und physische Aktenpflege und Aktenführung\n• Betreuung des Empfangsschalters und der Telefonzentrale\n• Terminmanagement (Festlegen von Verhandlungsterminen, teils nach Absprache)\n• Vorladungswesen\n• Ausfertigung und Versand von Entscheiden inkl. Rechtskraftkontrolle\n• Archivierungsarbeiten\n• Mithilfe in der Erbschaftskanzlei (Erbenermittlung, Vorbereitung von Entscheiden)\n• allgemeine Sekretariatsarbeiten Ihr Profil\n• kaufmännische Grundausbildung, Gerichtserfahrung und/oder Erfahrung in einer Erbschaftskanzlei von Vorteil\n• digitale Gewandtheit\n• selbständige, sehr exakte, sorgfältige und zuverlässige Arbeitsweise\n• Ordnungssinn und ein hohes Mass an Dienstleistungs- und Verantwortungsbewusstsein\n• verschwiegen, diskret, flexibel, kollegial und loyal\n• Interesse an juristischen Fragestellungen und an der Rechtspflege Unser Angebot\n• abwechslungsreiche und sinnstiftende Tätigkeit in einem kleinen Team\n• Anstellungsbedingungen gemäss Personalgesetz des Kantons Zürich\n• attraktiver Arbeitsplatz in Gehdistanz zum Bahnhof\n• breites Aus- und Weiterbildungsangebot Für weitere Auskünfte steht Ihnen der Leitende Gerichtsschreiber Michael Schulze (Tel. 044 952 46 46) gerne zur Verfügung. Ihre Bewerbung reichen Sie bitte mit den üblichen Unterlagen und unter Angabe Ihrer Lohnvorstellung ein (bei Bewerbungen per E-Mail in einem einzigen PDF-Dokument an bewerbung.pfaeffikon@gerichte-zh.ch).\n\nBezirksgericht Pfäffikon Gerichtsleitung Das Bezirksgericht Pfäffikon beschäftigt im schönen Bezirkshauptort Pfäffikon ZH 30 Mitarbeitende und ist in erster Instanz zuständig für die Beurteilung sämtlicher Zivil- und Straffälle im Bezirk.\n\nPensum: 80%",
       "descriptionByLocale": {
-        "de": "Für unsere kaufmännische Kanzlei suchen wir per sofort oder nach Vereinbarung eine/n Verwaltungssekretär/in (Allrounder/in) (80%) Ihr Aufgabenbereich\n• digitale und physische Postverarbeitung\n• Erfassen neuer Geschäfte\n• digitale und physische Aktenpflege und Aktenführung\n• Betreuung des Empfangsschalters und der Telefonzentrale\n• Terminmanagement (Festlegen von Verhandlungsterminen, teils nach Absprache)\n• Vorladungswesen\n• Ausfertigung und Versand von Entscheiden inkl. Rechtskraftkontrolle\n• Archivierungsarbeiten\n• Mithilfe in der Erbschaftskanzlei (Erbenermittlung, Vorbereitung von Entscheiden)\n• allgemeine Sekretariatsarbeiten Ihr Profil\n• kaufmännische Grundausbildung, Gerichtserfahrung und/oder Erfahrung in einer Erbschaftskanzlei von Vorteil\n• digitale Gewandtheit\n• selbständige, sehr exakte, sorgfältige und zuverlässige Arbeitsweise\n• Ordnungssinn und ein hohes Mass an Dienstleistungs- und Verantwortungsbewusstsein\n• verschwiegen, diskret, flexibel, kollegial und loyal\n• Interesse an juristischen Fragestellungen und an der Rechtspflege Unser Angebot\n• abwechslungsreiche und sinnstiftende Tätigkeit in einem kleinen Team\n• Anstellungsbedingungen gemäss Personalgesetz des Kantons Zürich\n• attraktiver Arbeitsplatz in Gehdistanz zum Bahnhof\n• breites Aus- und Weiterbildungsangebot Für weitere Auskünfte steht Ihnen der Leitende Gerichtsschreiber Michael Schulze (Tel. 044 952 46 46) gerne zur Verfügung. Ihre Bewerbung reichen Sie bitte mit den üblichen Unterlagen und unter Angabe Ihrer Lohnvorstellung ein (bei Bewerbungen per E-Mail in einem einzigen PDF-Dokument an bewerbung.pfaeffikon@gerichte-zh.ch).\n\nBezirksgericht Pfäffikon Gerichtsleitung Das Bezirksgericht Pfäffikon beschäftigt im schönen Bezirkshauptort Pfäffikon ZH 30 Mitarbeitende und ist in erster Instanz zuständig für die Beurteilung sämtlicher Zivil- und Straffälle im Bezirk.\n\nPensum: 80%",
         "it": "Per il nostro ufficio commerciale, stiamo cercando un segretario amministrativo (all-rounder) (80%) immediatamente o con accordo. Le tue responsabilità\n• Elaborazione digitale e fisica della posta\n• Registrazione di nuove transazioni\n• Manutenzione di file digitali e fisici e servizi di conservazione record\n• Supporto dell'interruttore di ricezione e dello scambio telefonico\n• Gestione delle nomine (determinazione delle date di negoziazione, in parte per accordo)\n• Operazioni di subpoena\n• Preparazione e spedizione delle decisioni incl. Controllo della forza giuridica\n• Archiviazione del lavoro\n• Assistenza nello studio legale ereditario (determinazione dell'eredità, preparazione delle decisioni)\n• General Secretarial Work Il tuo profilo\n• istruzione commerciale di base, esperienza di corte e/o esperienza in una società di diritto ereditario\n• Agilità digitale\n• metodo di lavoro indipendente, molto preciso, attento e affidabile\n• Un senso di ordine e un alto grado di servizio e responsabilità\n• nascosto, discreto, flessibile, collegiale e leale\n• Interessi in questioni legali e l'amministrazione della giustizia La nostra offerta\n• attività varia e significativa in un piccolo team\n• Condizioni di lavoro secondo la legge sullo statuto del Cantone di Zurigo\n• Posto di lavoro attraente a pochi passi dalla stazione\n• Per ulteriori informazioni, il Chief Court Clerk Michael Schulze (tel. 044 952 46 46) è a vostra disposizione. Si prega di inviare la domanda con i soliti documenti e con la presentazione dello stipendio (per le domande via e-mail in un unico documento PDF a bewerbung.pfaeffikon@gerichte-zh.ch).\n\nIl Tribunale distrettuale di Pfäffikon impiega 30 dipendenti nella bella capitale di Pfäffikon ZH ed è responsabile in prima istanza per la valutazione di tutti i casi civili e criminali nel distretto.\n\nPenso: 80 %",
         "en": "For our commercial office, we are looking for an administrative secretary (all-rounder) (80%) immediately or by agreement. Your responsibilities\n• Digital and physical mail processing\n• Recording of new transactions\n• Digital and physical file maintenance and record keeping services\n• Support of the receiving switch and the telephone exchange\n• Appointment management (determination of negotiation dates, partly by agreement)\n• Subpoena operations\n• Preparation and dispatch of decisions incl. Legal force control\n• Archiving work\n• Assistance in the inheritance law firm (determination of inheritance, preparation of decisions)\n• General Secretarial Work Your Profile\n• basic commercial education, court experience and/or experience in an inheritance law firm\n• Digital agility\n• independent, very precise, careful and reliable working method\n• A sense of order and a high degree of service and responsibility\n• concealed, discreet, flexible, collegial and loyal\n• Interest in legal issues and the administration of justice Our offer\n• varied and meaningful activity in a small team\n• Conditions of employment in accordance with the Staff Act of the Canton of Zurich\n• Attractive workplace in walking distance to the station\n• For further information, the Chief Court Clerk Michael Schulze (tel. 044 952 46 46) is at your disposal. Please submit your application with the usual documents and with your salary presentation (for applications by e-mail in a single PDF document to bewerbung.pfaeffikon@gerichte-zh.ch).\n\nThe District Court of Pfäffikon employs 30 employees in the beautiful district capital of Pfäffikon ZH and is responsible at first instance for the assessment of all civil and criminal cases in the district.\n\nPensum: 80 %",
+        "de": "Für unsere kaufmännische Kanzlei suchen wir per sofort oder nach Vereinbarung eine/n Verwaltungssekretär/in (Allrounder/in) (80%) Ihr Aufgabenbereich\n• digitale und physische Postverarbeitung\n• Erfassen neuer Geschäfte\n• digitale und physische Aktenpflege und Aktenführung\n• Betreuung des Empfangsschalters und der Telefonzentrale\n• Terminmanagement (Festlegen von Verhandlungsterminen, teils nach Absprache)\n• Vorladungswesen\n• Ausfertigung und Versand von Entscheiden inkl. Rechtskraftkontrolle\n• Archivierungsarbeiten\n• Mithilfe in der Erbschaftskanzlei (Erbenermittlung, Vorbereitung von Entscheiden)\n• allgemeine Sekretariatsarbeiten Ihr Profil\n• kaufmännische Grundausbildung, Gerichtserfahrung und/oder Erfahrung in einer Erbschaftskanzlei von Vorteil\n• digitale Gewandtheit\n• selbständige, sehr exakte, sorgfältige und zuverlässige Arbeitsweise\n• Ordnungssinn und ein hohes Mass an Dienstleistungs- und Verantwortungsbewusstsein\n• verschwiegen, diskret, flexibel, kollegial und loyal\n• Interesse an juristischen Fragestellungen und an der Rechtspflege Unser Angebot\n• abwechslungsreiche und sinnstiftende Tätigkeit in einem kleinen Team\n• Anstellungsbedingungen gemäss Personalgesetz des Kantons Zürich\n• attraktiver Arbeitsplatz in Gehdistanz zum Bahnhof\n• breites Aus- und Weiterbildungsangebot Für weitere Auskünfte steht Ihnen der Leitende Gerichtsschreiber Michael Schulze (Tel. 044 952 46 46) gerne zur Verfügung. Ihre Bewerbung reichen Sie bitte mit den üblichen Unterlagen und unter Angabe Ihrer Lohnvorstellung ein (bei Bewerbungen per E-Mail in einem einzigen PDF-Dokument an bewerbung.pfaeffikon@gerichte-zh.ch).\n\nBezirksgericht Pfäffikon Gerichtsleitung Das Bezirksgericht Pfäffikon beschäftigt im schönen Bezirkshauptort Pfäffikon ZH 30 Mitarbeitende und ist in erster Instanz zuständig für die Beurteilung sämtlicher Zivil- und Straffälle im Bezirk.\n\nPensum: 80%",
         "fr": "Pour notre bureau commercial, nous recherchons immédiatement ou d'un commun accord un secrétaire administratif (tout le monde). Vos responsabilités\n• Traitement du courrier numérique et physique\n• Enregistrement des nouvelles transactions\n• Services de maintenance et de tenue de dossiers numériques et physiques\n• Support de l'interrupteur de réception et du central téléphonique\n• Gestion des nominations (détermination des dates de négociation, en partie par accord)\n• Opérations d'assignation\n• Préparation et expédition des décisions Contrôle des forces juridiques\n• Archivage\n• Assistance dans le cabinet de droit successoral (détermination de l'héritage, préparation des décisions)\n• Secrétariat général Votre profil\n• enseignement commercial de base, expérience judiciaire et/ou expérience dans un cabinet d'avocats en succession\n• Agilité numérique\n• méthode de travail indépendante, très précise, prudente et fiable\n• Un sens de l'ordre et un niveau élevé de service et de responsabilité\n• dissimulé, discret, flexible, collégial et loyal\n• Intérêt pour les questions juridiques et l'administration de la justice Notre offre\n• activité variée et significative dans une petite équipe\n• Conditions d'emploi conformément à la loi sur le personnel du canton de Zurich\n• Un lieu de travail attrayant à distance de marche de la station\n• Pour de plus amples informations, le greffier en chef Michael Schulze (tél. 044 952 46 46) est à votre disposition. Veuillez soumettre votre demande avec les documents habituels et avec votre présentation de salaire (pour les demandes par e-mail dans un document PDF unique à bewerbung.pfaeffikon@gerichte-zh.ch).\n\nLe tribunal de district de Pfäffikon emploie 30 employés dans la belle capitale de district de Pfäffikon ZH et est responsable en première instance de l'évaluation de toutes les affaires civiles et pénales dans le district.\n\nPensum: 80 %"
       },
       "needsRetranslation": false,
@@ -11020,7 +11020,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4098970/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:37:41.699Z",
+      "crawledAt": "2026-11-08T21:49:01.076Z",
       "addressLocality": "8330 Pfäffikon ZH",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -11043,6 +11043,11 @@
       "pensumMin": 80,
       "pensumMax": 80,
       "pensum": "80%",
+      "previousSlugs": [
+        "verwaltungssekretar-in-allrounder-in-kanton-zuerich-8330-pfaffikon-zh",
+        "verwaltungssekretar-in-allrounder-in-kantonale-verwaltung-zurich-8330-pfaffikon-zh",
+        "segretario-amministrativo-tuttofare-kantonale-verwaltung-zurich-8330-pfaffikon-zh-2c2fbf1548"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "verwaltungssekretar-in-allrounder-in-kanton-zuerich-8330-pfaffikon-zh",
@@ -11056,11 +11061,7 @@
           "verwaltungssekretar-in-allrounder-in-kantonale-verwaltung-zurich-8330-pfaffikon-zh"
         ]
       },
-      "previousSlugs": [
-        "verwaltungssekretar-in-allrounder-in-kanton-zuerich-8330-pfaffikon-zh",
-        "verwaltungssekretar-in-allrounder-in-kantonale-verwaltung-zurich-8330-pfaffikon-zh",
-        "segretario-amministrativo-tuttofare-kantonale-verwaltung-zurich-8330-pfaffikon-zh-2c2fbf1548"
-      ],
+      "firstSeenAt": "2026-11-07T21:34:34.317Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -11076,9 +11077,8 @@
       },
       "streetAddress": "8330 Pfäffikon ZH",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-06T09:37:41.699Z",
-      "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-07T21:34:34.317Z"
+      "validThrough": "2027-02-05T21:49:01.076Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kanton-zuerich-cb5a73b05637",
@@ -11111,7 +11111,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4098286/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:37:41.261Z",
+      "crawledAt": "2026-11-08T21:49:00.605Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -11164,7 +11164,7 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-05T09:37:41.261Z",
+      "validThrough": "2027-02-04T21:49:00.605Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -11199,7 +11199,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4084291/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:37:40.825Z",
+      "crawledAt": "2026-11-08T21:49:00.132Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -11252,7 +11252,7 @@
       },
       "streetAddress": "Winterthur",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-19T09:37:40.825Z",
+      "validThrough": "2026-12-19T21:49:00.132Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -11287,7 +11287,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4098450/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:37:40.387Z",
+      "crawledAt": "2026-11-08T21:48:59.655Z",
       "addressLocality": "Regensdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -11342,7 +11342,7 @@
       },
       "streetAddress": "Regensdorf",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-05T09:37:40.387Z",
+      "validThrough": "2027-02-04T21:48:59.655Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -11376,7 +11376,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4089859/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:37:39.740Z",
+      "crawledAt": "2026-11-08T21:48:59.163Z",
       "addressLocality": "Uster oder Dietikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -11434,7 +11434,7 @@
       },
       "streetAddress": "Uster oder Dietikon",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-20T09:37:39.740Z",
+      "validThrough": "2027-01-19T21:48:59.163Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -11469,7 +11469,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4089732/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:37:39.305Z",
+      "crawledAt": "2026-11-08T21:48:58.683Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -11527,7 +11527,7 @@
       },
       "streetAddress": "Winterthur",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-20T09:37:39.305Z",
+      "validThrough": "2027-01-20T21:48:58.683Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -11561,7 +11561,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4097789/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:37:38.871Z",
+      "crawledAt": "2026-11-08T21:48:58.210Z",
       "addressLocality": "Hirschengraben 15",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -11616,7 +11616,7 @@
       },
       "streetAddress": "Hirschengraben 15",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-04T09:37:38.871Z",
+      "validThrough": "2027-02-04T21:48:58.210Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -11651,7 +11651,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4096966/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:37:38.429Z",
+      "crawledAt": "2026-11-08T21:48:57.740Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -11711,7 +11711,7 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-02T09:37:38.429Z",
+      "validThrough": "2027-02-02T21:48:57.740Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -11746,7 +11746,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4098624/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:37:37.943Z",
+      "crawledAt": "2026-11-08T21:48:57.215Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -11801,7 +11801,7 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-08T09:37:37.943Z",
+      "validThrough": "2026-12-08T21:48:57.215Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -11835,7 +11835,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4093719/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:37:37.479Z",
+      "crawledAt": "2026-11-08T21:48:56.734Z",
       "addressLocality": "Zürich Altstetten",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -11891,7 +11891,7 @@
       },
       "streetAddress": "Zürich Altstetten",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-27T09:37:37.479Z",
+      "validThrough": "2027-01-27T21:48:56.734Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -11926,7 +11926,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4083700/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:37:37.028Z",
+      "crawledAt": "2026-11-08T21:48:56.263Z",
       "addressLocality": "Bülach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -11984,8 +11984,92 @@
       },
       "streetAddress": "Bülach",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-11T09:37:37.028Z",
+      "validThrough": "2027-01-10T21:48:56.263Z",
       "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "kanton-zuerich-5f4c0cd666ed",
+      "slug": "verwaltungssekretar-in-allrounder-in-kantonale-verwaltung-zurich-8330-pfaffikon-zh",
+      "slugByLocale": {
+        "de": "verwaltungssekretar-in-allrounder-in-kanton-zuerich-8330-pfaffikon-zh",
+        "it": "verwaltungssekretar-in-allrounder-in-kantonale-verwaltung-zurich-8330-pfaffikon-zh",
+        "en": "verwaltungssekretar-in-allrounder-in-kantonale-verwaltung-zurich-8330-pfaffikon-zh",
+        "fr": "verwaltungssekretar-in-allrounder-in-kantonale-verwaltung-zurich-8330-pfaffikon-zh"
+      },
+      "company": "Kantonale Verwaltung Zürich",
+      "companyKey": "kanton-zuerich",
+      "companyDomain": "zh.ch",
+      "title": "Verwaltungssekretär/in (Allrounder/in)",
+      "titleByLocale": {
+        "de": "Verwaltungssekretär/in (Allrounder/in)",
+        "it": "Verwaltungssekretär/in (Allrounder/in)",
+        "en": "Verwaltungssekretär/in (Allrounder/in)",
+        "fr": "Verwaltungssekretär/in (Allrounder/in)"
+      },
+      "description": "Für unsere kaufmännische Kanzlei suchen wir per 1. Januar 2027 oder nach Vereinbarung und befristet bis 31. Dezember 2027 eine/n Verwaltungssekretär/in (Allrounder/in) (50-90%) Ihr Aufgabenbereich\n• digitale und physische Postverarbeitung\n• Erfassen neuer Geschäfte\n• digitale und physische Aktenpflege und Aktenführung\n• Betreuung des Empfangsschalters und der Telefonzentrale\n• Terminmanagement (Festlegen von Verhandlungsterminen, teils nach Absprache)\n• Vorladungswesen\n• Ausfertigung und Versand von Entscheiden inkl. Rechtskraftkontrolle\n• Archivierungsarbeiten\n• Mithilfe in der Erbschaftskanzlei (Erbenermittlung, Vorbereitung von Entscheiden)\n• allgemeine Sekretariatsarbeiten Ihr Profil\n• kaufmännische Grundausbildung, Gerichtserfahrung und/oder Erfahrung in einer Erbschaftskanzlei von Vorteil\n• digitale Gewandtheit\n• selbständige, sehr exakte, sorgfältige und zuverlässige Arbeitsweise\n• Ordnungssinn und ein hohes Mass an Dienstleistungs- und Verantwortungsbewusstsein\n• verschwiegen, diskret, flexibel, kollegial und loyal\n• Interesse an juristischen Fragestellungen und an der Rechtspflege Unser Angebot\n• abwechslungsreiche und sinnstiftende Tätigkeit in einem kleinen Team\n• Anstellungsbedingungen gemäss Personalgesetz des Kantons Zürich\n• attraktiver Arbeitsplatz in Gehdistanz zum Bahnhof\n• breites Aus- und Weiterbildungsangebot Für weitere Auskünfte steht Ihnen der Leitende Gerichtsschreiber Michael Schulze (Tel. 044 952 46 46) gerne zur Verfügung. Ihre Bewerbung reichen Sie bitte mit den üblichen Unterlagen und unter Angabe Ihrer Lohnvorstellung sowie Ihres Wunschpensums ein (bei Bewerbungen per E-Mail in einem einzigen PDF-Dokument an bewerbung.pfaeffikon@gerichte-zh.ch).\n\nBezirksgericht Pfäffikon Gerichtsleitung Das Bezirksgericht Pfäffikon beschäftigt im schönen Bezirkshauptort Pfäffikon ZH 30 Mitarbeitende und ist in erster Instanz zuständig für die Beurteilung sämtlicher Zivil- und Straffälle im Bezirk.\n\nPensum: 50-90%",
+      "descriptionByLocale": {
+        "de": "Für unsere kaufmännische Kanzlei suchen wir per 1. Januar 2027 oder nach Vereinbarung und befristet bis 31. Dezember 2027 eine/n Verwaltungssekretär/in (Allrounder/in) (50-90%) Ihr Aufgabenbereich\n• digitale und physische Postverarbeitung\n• Erfassen neuer Geschäfte\n• digitale und physische Aktenpflege und Aktenführung\n• Betreuung des Empfangsschalters und der Telefonzentrale\n• Terminmanagement (Festlegen von Verhandlungsterminen, teils nach Absprache)\n• Vorladungswesen\n• Ausfertigung und Versand von Entscheiden inkl. Rechtskraftkontrolle\n• Archivierungsarbeiten\n• Mithilfe in der Erbschaftskanzlei (Erbenermittlung, Vorbereitung von Entscheiden)\n• allgemeine Sekretariatsarbeiten Ihr Profil\n• kaufmännische Grundausbildung, Gerichtserfahrung und/oder Erfahrung in einer Erbschaftskanzlei von Vorteil\n• digitale Gewandtheit\n• selbständige, sehr exakte, sorgfältige und zuverlässige Arbeitsweise\n• Ordnungssinn und ein hohes Mass an Dienstleistungs- und Verantwortungsbewusstsein\n• verschwiegen, diskret, flexibel, kollegial und loyal\n• Interesse an juristischen Fragestellungen und an der Rechtspflege Unser Angebot\n• abwechslungsreiche und sinnstiftende Tätigkeit in einem kleinen Team\n• Anstellungsbedingungen gemäss Personalgesetz des Kantons Zürich\n• attraktiver Arbeitsplatz in Gehdistanz zum Bahnhof\n• breites Aus- und Weiterbildungsangebot Für weitere Auskünfte steht Ihnen der Leitende Gerichtsschreiber Michael Schulze (Tel. 044 952 46 46) gerne zur Verfügung. Ihre Bewerbung reichen Sie bitte mit den üblichen Unterlagen und unter Angabe Ihrer Lohnvorstellung sowie Ihres Wunschpensums ein (bei Bewerbungen per E-Mail in einem einzigen PDF-Dokument an bewerbung.pfaeffikon@gerichte-zh.ch).\n\nBezirksgericht Pfäffikon Gerichtsleitung Das Bezirksgericht Pfäffikon beschäftigt im schönen Bezirkshauptort Pfäffikon ZH 30 Mitarbeitende und ist in erster Instanz zuständig für die Beurteilung sämtlicher Zivil- und Straffälle im Bezirk.\n\nPensum: 50-90%",
+        "it": "Für unsere kaufmännische Kanzlei suchen wir per 1. Januar 2027 oder nach Vereinbarung und befristet bis 31. Dezember 2027 eine/n Verwaltungssekretär/in (Allrounder/in) (50-90%) Ihr Aufgabenbereich\n• digitale und physische Postverarbeitung\n• Erfassen neuer Geschäfte\n• digitale und physische Aktenpflege und Aktenführung\n• Betreuung des Empfangsschalters und der Telefonzentrale\n• Terminmanagement (Festlegen von Verhandlungsterminen, teils nach Absprache)\n• Vorladungswesen\n• Ausfertigung und Versand von Entscheiden inkl. Rechtskraftkontrolle\n• Archivierungsarbeiten\n• Mithilfe in der Erbschaftskanzlei (Erbenermittlung, Vorbereitung von Entscheiden)\n• allgemeine Sekretariatsarbeiten Ihr Profil\n• kaufmännische Grundausbildung, Gerichtserfahrung und/oder Erfahrung in einer Erbschaftskanzlei von Vorteil\n• digitale Gewandtheit\n• selbständige, sehr exakte, sorgfältige und zuverlässige Arbeitsweise\n• Ordnungssinn und ein hohes Mass an Dienstleistungs- und Verantwortungsbewusstsein\n• verschwiegen, diskret, flexibel, kollegial und loyal\n• Interesse an juristischen Fragestellungen und an der Rechtspflege Unser Angebot\n• abwechslungsreiche und sinnstiftende Tätigkeit in einem kleinen Team\n• Anstellungsbedingungen gemäss Personalgesetz des Kantons Zürich\n• attraktiver Arbeitsplatz in Gehdistanz zum Bahnhof\n• breites Aus- und Weiterbildungsangebot Für weitere Auskünfte steht Ihnen der Leitende Gerichtsschreiber Michael Schulze (Tel. 044 952 46 46) gerne zur Verfügung. Ihre Bewerbung reichen Sie bitte mit den üblichen Unterlagen und unter Angabe Ihrer Lohnvorstellung sowie Ihres Wunschpensums ein (bei Bewerbungen per E-Mail in einem einzigen PDF-Dokument an bewerbung.pfaeffikon@gerichte-zh.ch).\n\nBezirksgericht Pfäffikon Gerichtsleitung Das Bezirksgericht Pfäffikon beschäftigt im schönen Bezirkshauptort Pfäffikon ZH 30 Mitarbeitende und ist in erster Instanz zuständig für die Beurteilung sämtlicher Zivil- und Straffälle im Bezirk.\n\nPensum: 50-90%",
+        "en": "Für unsere kaufmännische Kanzlei suchen wir per 1. Januar 2027 oder nach Vereinbarung und befristet bis 31. Dezember 2027 eine/n Verwaltungssekretär/in (Allrounder/in) (50-90%) Ihr Aufgabenbereich\n• digitale und physische Postverarbeitung\n• Erfassen neuer Geschäfte\n• digitale und physische Aktenpflege und Aktenführung\n• Betreuung des Empfangsschalters und der Telefonzentrale\n• Terminmanagement (Festlegen von Verhandlungsterminen, teils nach Absprache)\n• Vorladungswesen\n• Ausfertigung und Versand von Entscheiden inkl. Rechtskraftkontrolle\n• Archivierungsarbeiten\n• Mithilfe in der Erbschaftskanzlei (Erbenermittlung, Vorbereitung von Entscheiden)\n• allgemeine Sekretariatsarbeiten Ihr Profil\n• kaufmännische Grundausbildung, Gerichtserfahrung und/oder Erfahrung in einer Erbschaftskanzlei von Vorteil\n• digitale Gewandtheit\n• selbständige, sehr exakte, sorgfältige und zuverlässige Arbeitsweise\n• Ordnungssinn und ein hohes Mass an Dienstleistungs- und Verantwortungsbewusstsein\n• verschwiegen, diskret, flexibel, kollegial und loyal\n• Interesse an juristischen Fragestellungen und an der Rechtspflege Unser Angebot\n• abwechslungsreiche und sinnstiftende Tätigkeit in einem kleinen Team\n• Anstellungsbedingungen gemäss Personalgesetz des Kantons Zürich\n• attraktiver Arbeitsplatz in Gehdistanz zum Bahnhof\n• breites Aus- und Weiterbildungsangebot Für weitere Auskünfte steht Ihnen der Leitende Gerichtsschreiber Michael Schulze (Tel. 044 952 46 46) gerne zur Verfügung. Ihre Bewerbung reichen Sie bitte mit den üblichen Unterlagen und unter Angabe Ihrer Lohnvorstellung sowie Ihres Wunschpensums ein (bei Bewerbungen per E-Mail in einem einzigen PDF-Dokument an bewerbung.pfaeffikon@gerichte-zh.ch).\n\nBezirksgericht Pfäffikon Gerichtsleitung Das Bezirksgericht Pfäffikon beschäftigt im schönen Bezirkshauptort Pfäffikon ZH 30 Mitarbeitende und ist in erster Instanz zuständig für die Beurteilung sämtlicher Zivil- und Straffälle im Bezirk.\n\nPensum: 50-90%",
+        "fr": "Für unsere kaufmännische Kanzlei suchen wir per 1. Januar 2027 oder nach Vereinbarung und befristet bis 31. Dezember 2027 eine/n Verwaltungssekretär/in (Allrounder/in) (50-90%) Ihr Aufgabenbereich\n• digitale und physische Postverarbeitung\n• Erfassen neuer Geschäfte\n• digitale und physische Aktenpflege und Aktenführung\n• Betreuung des Empfangsschalters und der Telefonzentrale\n• Terminmanagement (Festlegen von Verhandlungsterminen, teils nach Absprache)\n• Vorladungswesen\n• Ausfertigung und Versand von Entscheiden inkl. Rechtskraftkontrolle\n• Archivierungsarbeiten\n• Mithilfe in der Erbschaftskanzlei (Erbenermittlung, Vorbereitung von Entscheiden)\n• allgemeine Sekretariatsarbeiten Ihr Profil\n• kaufmännische Grundausbildung, Gerichtserfahrung und/oder Erfahrung in einer Erbschaftskanzlei von Vorteil\n• digitale Gewandtheit\n• selbständige, sehr exakte, sorgfältige und zuverlässige Arbeitsweise\n• Ordnungssinn und ein hohes Mass an Dienstleistungs- und Verantwortungsbewusstsein\n• verschwiegen, diskret, flexibel, kollegial und loyal\n• Interesse an juristischen Fragestellungen und an der Rechtspflege Unser Angebot\n• abwechslungsreiche und sinnstiftende Tätigkeit in einem kleinen Team\n• Anstellungsbedingungen gemäss Personalgesetz des Kantons Zürich\n• attraktiver Arbeitsplatz in Gehdistanz zum Bahnhof\n• breites Aus- und Weiterbildungsangebot Für weitere Auskünfte steht Ihnen der Leitende Gerichtsschreiber Michael Schulze (Tel. 044 952 46 46) gerne zur Verfügung. Ihre Bewerbung reichen Sie bitte mit den üblichen Unterlagen und unter Angabe Ihrer Lohnvorstellung sowie Ihres Wunschpensums ein (bei Bewerbungen per E-Mail in einem einzigen PDF-Dokument an bewerbung.pfaeffikon@gerichte-zh.ch).\n\nBezirksgericht Pfäffikon Gerichtsleitung Das Bezirksgericht Pfäffikon beschäftigt im schönen Bezirkshauptort Pfäffikon ZH 30 Mitarbeitende und ist in erster Instanz zuständig für die Beurteilung sämtlicher Zivil- und Straffälle im Bezirk.\n\nPensum: 50-90%"
+      },
+      "needsRetranslation": true,
+      "location": "8330 Pfäffikon ZH",
+      "canton": "ZH",
+      "url": "https://live.solique.ch/ktzh/job/details/4098987/",
+      "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-08T21:48:55.793Z",
+      "addressLocality": "8330 Pfäffikon ZH",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8330",
+      "category": "Amministrazione Pubblica",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Amministrazione Pubblica",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://live.solique.ch/ktzh/job/details/4098987/",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "externalId": "4098987",
+      "pensumMin": 50,
+      "pensumMax": 90,
+      "pensum": "50 - 90%",
+      "previousSlugsByLocale": {
+        "it": [
+          "verwaltungssekretar-in-allrounder-in-kanton-zuerich-8330-pfaffikon-zh-2"
+        ]
+      },
+      "previousSlugs": [
+        "verwaltungssekretar-in-allrounder-in-kanton-zuerich-8330-pfaffikon-zh-2"
+      ],
+      "salaryMin": 73500,
+      "salaryMax": 111500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 73500,
+          "maxValue": 111500,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "8330 Pfäffikon ZH",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-02-05T21:48:55.793Z",
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-11-07T21:34:34.317Z"
     },
     {
       "id": "kanton-zuerich-545cc437a9f9",
@@ -12019,7 +12103,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4092102/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:37:36.158Z",
+      "crawledAt": "2026-11-08T21:48:55.323Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -12078,7 +12162,7 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-26T09:37:36.158Z",
+      "validThrough": "2027-01-25T21:48:55.323Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -12113,7 +12197,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4042684/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:37:35.659Z",
+      "crawledAt": "2026-11-08T21:48:54.853Z",
       "addressLocality": "Wila",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -12177,7 +12261,7 @@
       },
       "streetAddress": "Wila",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-08T09:37:35.659Z",
+      "validThrough": "2026-12-08T21:48:54.853Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -12211,7 +12295,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4092465/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:37:35.222Z",
+      "crawledAt": "2026-11-08T21:48:54.377Z",
       "addressLocality": "Dietikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -12269,7 +12353,7 @@
       },
       "streetAddress": "Dietikon",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-26T09:37:35.222Z",
+      "validThrough": "2027-01-26T21:48:54.377Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -12304,7 +12388,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4090639/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:37:34.770Z",
+      "crawledAt": "2026-11-08T21:48:53.904Z",
       "addressLocality": "Wallisellen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -12357,7 +12441,7 @@
       },
       "streetAddress": "Wallisellen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-08T09:37:34.770Z",
+      "validThrough": "2026-12-08T21:48:53.904Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -12391,7 +12475,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4096690/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:37:34.255Z",
+      "crawledAt": "2026-11-08T21:48:53.423Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -12447,7 +12531,7 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-02T09:37:34.255Z",
+      "validThrough": "2027-02-02T21:48:53.423Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -12482,7 +12566,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4097186/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:37:33.821Z",
+      "crawledAt": "2026-11-08T21:48:52.827Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -12537,7 +12621,7 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T09:37:33.821Z",
+      "validThrough": "2027-02-02T21:48:52.827Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -12572,7 +12656,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4091598/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:37:33.299Z",
+      "crawledAt": "2026-11-08T21:48:52.300Z",
       "addressLocality": "Bülach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -12631,7 +12715,7 @@
       },
       "streetAddress": "Bülach",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-25T09:37:33.299Z",
+      "validThrough": "2027-01-24T21:48:52.300Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -12666,7 +12750,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4092495/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:37:32.661Z",
+      "crawledAt": "2026-11-08T21:48:51.805Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -12723,7 +12807,7 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-26T09:37:32.661Z",
+      "validThrough": "2027-01-25T21:48:51.805Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -12758,7 +12842,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4088330/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:37:32.221Z",
+      "crawledAt": "2026-11-08T21:48:51.335Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -12816,7 +12900,7 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-18T09:37:32.221Z",
+      "validThrough": "2027-01-17T21:48:51.335Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -12851,7 +12935,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4087221/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:37:31.722Z",
+      "crawledAt": "2026-11-08T21:48:50.867Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -12904,7 +12988,7 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-15T09:37:31.722Z",
+      "validThrough": "2027-01-14T21:48:50.867Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -12939,7 +13023,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4094657/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:37:31.290Z",
+      "crawledAt": "2026-11-08T21:48:50.400Z",
       "addressLocality": "8810 Horgen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -12995,7 +13079,7 @@
       },
       "streetAddress": "8810 Horgen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-29T09:37:31.290Z",
+      "validThrough": "2027-01-28T21:48:50.400Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -13030,7 +13114,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4085810/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:37:30.826Z",
+      "crawledAt": "2026-11-08T21:48:49.908Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -13084,7 +13168,7 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-14T09:37:30.826Z",
+      "validThrough": "2027-01-13T21:48:49.908Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -13118,7 +13202,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4094361/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:37:30.289Z",
+      "crawledAt": "2026-11-08T21:48:49.342Z",
       "addressLocality": "Fällanden",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -13176,7 +13260,7 @@
       },
       "streetAddress": "Fällanden",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-28T09:37:30.289Z",
+      "validThrough": "2027-01-27T21:48:49.342Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -13211,7 +13295,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4042765/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:37:29.848Z",
+      "crawledAt": "2026-11-08T21:48:48.804Z",
       "addressLocality": "Pfäffikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -13274,7 +13358,7 @@
       },
       "streetAddress": "Pfäffikon",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-08T09:37:29.848Z",
+      "validThrough": "2026-12-08T21:48:48.804Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -13308,7 +13392,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4043148/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:37:29.345Z",
+      "crawledAt": "2026-11-08T21:48:48.330Z",
       "addressLocality": "Lindau",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -13374,7 +13458,7 @@
       },
       "streetAddress": "Lindau",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-08T09:37:29.345Z",
+      "validThrough": "2026-12-08T21:48:48.330Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -13409,7 +13493,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4092894/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:37:28.885Z",
+      "crawledAt": "2026-11-08T21:48:47.850Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -13466,7 +13550,7 @@
       },
       "streetAddress": "Uster",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-26T09:37:28.885Z",
+      "validThrough": "2027-01-26T21:48:47.850Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -13501,7 +13585,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4094111/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:37:28.383Z",
+      "crawledAt": "2026-11-08T21:48:47.303Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -13554,7 +13638,7 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-01T09:37:28.383Z",
+      "validThrough": "2027-01-31T21:48:47.303Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -13589,7 +13673,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4090200/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:37:27.946Z",
+      "crawledAt": "2026-11-08T21:48:46.834Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -13642,7 +13726,7 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-31T09:37:27.946Z",
+      "validThrough": "2027-01-30T21:48:46.834Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -13677,7 +13761,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4090795/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:37:27.437Z",
+      "crawledAt": "2026-11-08T21:48:46.337Z",
       "addressLocality": "Zürich Altstetten",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -13734,7 +13818,7 @@
       },
       "streetAddress": "Zürich Altstetten",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-22T09:37:27.437Z",
+      "validThrough": "2027-01-21T21:48:46.337Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -13769,7 +13853,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4091820/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:37:26.994Z",
+      "crawledAt": "2026-11-08T21:48:45.867Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -13831,7 +13915,7 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-25T09:37:26.994Z",
+      "validThrough": "2027-01-24T21:48:45.867Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -13865,7 +13949,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4024198/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:37:26.107Z",
+      "crawledAt": "2026-11-08T21:48:45.393Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -13912,7 +13996,7 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-08T09:37:26.107Z",
+      "validThrough": "2026-12-08T21:48:45.393Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -13947,7 +14031,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4089573/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:37:25.385Z",
+      "crawledAt": "2026-11-08T21:48:44.923Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -14007,7 +14091,7 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-20T09:37:25.385Z",
+      "validThrough": "2027-01-20T21:48:44.923Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -14042,7 +14126,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4098620/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:37:24.942Z",
+      "crawledAt": "2026-11-08T21:48:44.447Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -14097,7 +14181,7 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-05T09:37:24.942Z",
+      "validThrough": "2027-02-05T21:48:44.447Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -14132,7 +14216,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4088771/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:37:24.459Z",
+      "crawledAt": "2026-11-08T21:48:43.962Z",
       "addressLocality": "Vollzugszentrum Bachtel",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -14185,7 +14269,7 @@
       },
       "streetAddress": "Vollzugszentrum Bachtel",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-18T09:37:24.459Z",
+      "validThrough": "2027-01-18T21:48:43.962Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -14219,7 +14303,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4098401/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:37:23.837Z",
+      "crawledAt": "2026-11-08T21:48:43.486Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -14275,7 +14359,7 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-04T09:37:23.837Z",
+      "validThrough": "2027-02-04T21:48:43.486Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -14310,7 +14394,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4092579/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:37:23.369Z",
+      "crawledAt": "2026-11-08T21:48:43.015Z",
       "addressLocality": "Dübendorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -14368,7 +14452,7 @@
       },
       "streetAddress": "Dübendorf",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-26T09:37:23.369Z",
+      "validThrough": "2027-01-25T21:48:43.015Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -14403,7 +14487,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4090926/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:37:22.931Z",
+      "crawledAt": "2026-11-08T21:48:42.546Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -14460,7 +14544,7 @@
       },
       "streetAddress": "Winterthur",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-22T09:37:22.931Z",
+      "validThrough": "2027-01-21T21:48:42.546Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -14495,7 +14579,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4094231/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:37:22.495Z",
+      "crawledAt": "2026-11-08T21:48:42.069Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -14553,7 +14637,7 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-28T09:37:22.495Z",
+      "validThrough": "2027-01-27T21:48:42.069Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -14588,7 +14672,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4092898/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:37:22.060Z",
+      "crawledAt": "2026-11-08T21:48:41.600Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -14646,7 +14730,7 @@
       },
       "streetAddress": "Winterthur",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-26T09:37:22.060Z",
+      "validThrough": "2027-01-26T21:48:41.600Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -14681,7 +14765,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4095247/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:37:21.607Z",
+      "crawledAt": "2026-11-08T21:48:41.128Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -14734,7 +14818,7 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-31T09:37:21.607Z",
+      "validThrough": "2027-01-31T21:48:41.128Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -14768,7 +14852,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4093449/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:37:21.174Z",
+      "crawledAt": "2026-11-08T21:48:40.654Z",
       "addressLocality": "Regensdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -14825,7 +14909,7 @@
       },
       "streetAddress": "Regensdorf",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-06T09:37:21.174Z",
+      "validThrough": "2027-02-06T21:48:40.654Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -14860,7 +14944,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4088041/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:37:20.633Z",
+      "crawledAt": "2026-11-08T21:48:40.177Z",
       "addressLocality": "Rheinau",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -14917,7 +15001,7 @@
       },
       "streetAddress": "Rheinau",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-17T09:37:20.633Z",
+      "validThrough": "2027-01-17T21:48:40.177Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -14952,7 +15036,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4090238/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:37:20.197Z",
+      "crawledAt": "2026-11-08T21:48:39.693Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -15010,7 +15094,7 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-21T09:37:20.197Z",
+      "validThrough": "2027-01-20T21:48:39.693Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -15045,7 +15129,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4080162/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:37:19.761Z",
+      "crawledAt": "2026-11-08T21:48:39.221Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -15103,8 +15187,84 @@
       },
       "streetAddress": "Winterthur",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-04T09:37:19.761Z",
+      "validThrough": "2027-01-03T21:48:39.221Z",
       "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "kanton-zuerich-fad1e5b652e9",
+      "slug": "sozialarbeiter-in-im-kjz-horgen-kanton-zuerich-horgen-2",
+      "slugByLocale": {
+        "de": "sozialarbeiter-in-im-kjz-horgen-kanton-zuerich-horgen",
+        "it": "sozialarbeiter-in-im-kjz-horgen-kanton-zuerich-horgen-2",
+        "en": "sozialarbeiter-in-im-kjz-horgen-kanton-zuerich-horgen-2",
+        "fr": "sozialarbeiter-in-im-kjz-horgen-kanton-zuerich-horgen-2"
+      },
+      "company": "Kantonale Verwaltung Zürich",
+      "companyKey": "kanton-zuerich",
+      "companyDomain": "zh.ch",
+      "title": "Sozialarbeiter/in im kjz Horgen",
+      "titleByLocale": {
+        "de": "Sozialarbeiter/in im kjz Horgen",
+        "it": "Sozialarbeiter/in im kjz Horgen",
+        "en": "Sozialarbeiter/in im kjz Horgen",
+        "fr": "Sozialarbeiter/in im kjz Horgen"
+      },
+      "description": "Kanton Zürich Bildungsdirektion Amt für Jugend und Berufsberatung Sozialarbeiter/in im kjz Horgen 80% Das Amt für Jugend und Berufsberatung Kanton Zürich, Geschäftsstelle der Bezirke Affoltern, Dietikon, Horgen, ist ein kantonales Kompetenzzentrum, das in den Bereichen Familie/Jugend und Berufsberatung fachliche Unterstützung anbietet. Das Kinder- und Jugendhilfezentrum (kjz) ist eine Beratungsstelle für Familien, Eltern, Jugendliche, Kinder sowie Kleinkinder und arbeitet auf der Grundlage des Kinder- und Jugendhilfegesetzes des Kantons Zürich. Für unser kjz-Team suchen wir eine/n Sozialarbeiter/in. Zugehörigkeit, Sinnhaftigkeit und Kompetenz Wir sind ein eingespieltes Team mit viel Fachkompetenz, Humor und Kreativität. Wir unterstützen uns gegenseitig, arbeiten gerne interdisziplinär und engagieren uns für den Kindesschutz.\n• Aufgaben Sie beraten und begleiten Kinder, Jugendliche und Eltern im Rahmen von Kindesschutzmassnahmen in der Mandatsführung sowie auf freiwilliger Basis. Zudem führen Sie Abklärungen bei Verdacht auf Kindswohlgefährdung durch. Intensive Zusammenarbeit mit den Familiensystemen, den Behörden, den Schulen sowie anderen Institutionen und Fachstellen ist uns wichtig. Darüber hinaus sind Ihre Inputs und Anregungen bei der Weiterentwicklung unseres kjz Horgen gefragt. Profil Sie verfügen über einen Abschluss in Sozialer Arbeit (FH) und bringen Erfahrung in der Jugend- und Familienhilfe mit. Wir suchen Sie als lösungsorientierte und belastbare Persönlichkeit mit hohen Sozialkompetenzen, einer wertschätzenden Grundhaltung und Freude an der Teamarbeit. Administrative Tätigkeiten sowie die Erstellung von Berichten und Aktennotizen fallen Ihnen leicht. Angebot\n• Wir bieten Ihnen eine sinnvolle, vielseitige und anspruchsvolle Tätigkeit in einem spannenden und interdisziplinären Arbeitsfeld. Wir werden Sie sorgfältig einarbeiten und Sie dürfen auf Gefässe für Unterstützung zählen wie Coachings, Intervisionsgruppen und Supervision. Denn Kindesschutz bedeutet Teamarbeit und Rückhalt durch die Leitung. Interne Weiterbildungsangebote stehen zur Verfügung und darüber hinaus beteiligen wir uns auch an externen Weiterbildungen. Die Anstellungsbedingungen entsprechen den kantonalen Richtlinien. Ihr Arbeitsplatz befindet sich direkt am Bahnhof und am See. Bewerbung Für weitere Auskünfte steht Ihnen Salomé Gossaint, Leitung Soziale Arbeit und Mandate, unter 043 259 92 10 oder salome.gossaint@ajb.zh.ch gerne zur Verfügung. Unter www.ajb.zh.ch finden Sie zusätzliche Informationen. Entdecken Sie unsere Arbeitswelt! Ihre vollständigen Bewerbungsunterlagen übermitteln Sie bitte über den Bewerbungslink. Bewerbungen per Post oder E-Mail können wir nicht berücksichtigen.\n\nPensum: 80%",
+      "descriptionByLocale": {
+        "de": "Kanton Zürich Bildungsdirektion Amt für Jugend und Berufsberatung Sozialarbeiter/in im kjz Horgen 80% Das Amt für Jugend und Berufsberatung Kanton Zürich, Geschäftsstelle der Bezirke Affoltern, Dietikon, Horgen, ist ein kantonales Kompetenzzentrum, das in den Bereichen Familie/Jugend und Berufsberatung fachliche Unterstützung anbietet. Das Kinder- und Jugendhilfezentrum (kjz) ist eine Beratungsstelle für Familien, Eltern, Jugendliche, Kinder sowie Kleinkinder und arbeitet auf der Grundlage des Kinder- und Jugendhilfegesetzes des Kantons Zürich. Für unser kjz-Team suchen wir eine/n Sozialarbeiter/in. Zugehörigkeit, Sinnhaftigkeit und Kompetenz Wir sind ein eingespieltes Team mit viel Fachkompetenz, Humor und Kreativität. Wir unterstützen uns gegenseitig, arbeiten gerne interdisziplinär und engagieren uns für den Kindesschutz.\n• Aufgaben Sie beraten und begleiten Kinder, Jugendliche und Eltern im Rahmen von Kindesschutzmassnahmen in der Mandatsführung sowie auf freiwilliger Basis. Zudem führen Sie Abklärungen bei Verdacht auf Kindswohlgefährdung durch. Intensive Zusammenarbeit mit den Familiensystemen, den Behörden, den Schulen sowie anderen Institutionen und Fachstellen ist uns wichtig. Darüber hinaus sind Ihre Inputs und Anregungen bei der Weiterentwicklung unseres kjz Horgen gefragt. Profil Sie verfügen über einen Abschluss in Sozialer Arbeit (FH) und bringen Erfahrung in der Jugend- und Familienhilfe mit. Wir suchen Sie als lösungsorientierte und belastbare Persönlichkeit mit hohen Sozialkompetenzen, einer wertschätzenden Grundhaltung und Freude an der Teamarbeit. Administrative Tätigkeiten sowie die Erstellung von Berichten und Aktennotizen fallen Ihnen leicht. Angebot\n• Wir bieten Ihnen eine sinnvolle, vielseitige und anspruchsvolle Tätigkeit in einem spannenden und interdisziplinären Arbeitsfeld. Wir werden Sie sorgfältig einarbeiten und Sie dürfen auf Gefässe für Unterstützung zählen wie Coachings, Intervisionsgruppen und Supervision. Denn Kindesschutz bedeutet Teamarbeit und Rückhalt durch die Leitung. Interne Weiterbildungsangebote stehen zur Verfügung und darüber hinaus beteiligen wir uns auch an externen Weiterbildungen. Die Anstellungsbedingungen entsprechen den kantonalen Richtlinien. Ihr Arbeitsplatz befindet sich direkt am Bahnhof und am See. Bewerbung Für weitere Auskünfte steht Ihnen Salomé Gossaint, Leitung Soziale Arbeit und Mandate, unter 043 259 92 10 oder salome.gossaint@ajb.zh.ch gerne zur Verfügung. Unter www.ajb.zh.ch finden Sie zusätzliche Informationen. Entdecken Sie unsere Arbeitswelt! Ihre vollständigen Bewerbungsunterlagen übermitteln Sie bitte über den Bewerbungslink. Bewerbungen per Post oder E-Mail können wir nicht berücksichtigen.\n\nPensum: 80%",
+        "it": "Kanton Zürich Bildungsdirektion Amt für Jugend und Berufsberatung Sozialarbeiter/in im kjz Horgen 80% Das Amt für Jugend und Berufsberatung Kanton Zürich, Geschäftsstelle der Bezirke Affoltern, Dietikon, Horgen, ist ein kantonales Kompetenzzentrum, das in den Bereichen Familie/Jugend und Berufsberatung fachliche Unterstützung anbietet. Das Kinder- und Jugendhilfezentrum (kjz) ist eine Beratungsstelle für Familien, Eltern, Jugendliche, Kinder sowie Kleinkinder und arbeitet auf der Grundlage des Kinder- und Jugendhilfegesetzes des Kantons Zürich. Für unser kjz-Team suchen wir eine/n Sozialarbeiter/in. Zugehörigkeit, Sinnhaftigkeit und Kompetenz Wir sind ein eingespieltes Team mit viel Fachkompetenz, Humor und Kreativität. Wir unterstützen uns gegenseitig, arbeiten gerne interdisziplinär und engagieren uns für den Kindesschutz.\n• Aufgaben Sie beraten und begleiten Kinder, Jugendliche und Eltern im Rahmen von Kindesschutzmassnahmen in der Mandatsführung sowie auf freiwilliger Basis. Zudem führen Sie Abklärungen bei Verdacht auf Kindswohlgefährdung durch. Intensive Zusammenarbeit mit den Familiensystemen, den Behörden, den Schulen sowie anderen Institutionen und Fachstellen ist uns wichtig. Darüber hinaus sind Ihre Inputs und Anregungen bei der Weiterentwicklung unseres kjz Horgen gefragt. Profil Sie verfügen über einen Abschluss in Sozialer Arbeit (FH) und bringen Erfahrung in der Jugend- und Familienhilfe mit. Wir suchen Sie als lösungsorientierte und belastbare Persönlichkeit mit hohen Sozialkompetenzen, einer wertschätzenden Grundhaltung und Freude an der Teamarbeit. Administrative Tätigkeiten sowie die Erstellung von Berichten und Aktennotizen fallen Ihnen leicht. Angebot\n• Wir bieten Ihnen eine sinnvolle, vielseitige und anspruchsvolle Tätigkeit in einem spannenden und interdisziplinären Arbeitsfeld. Wir werden Sie sorgfältig einarbeiten und Sie dürfen auf Gefässe für Unterstützung zählen wie Coachings, Intervisionsgruppen und Supervision. Denn Kindesschutz bedeutet Teamarbeit und Rückhalt durch die Leitung. Interne Weiterbildungsangebote stehen zur Verfügung und darüber hinaus beteiligen wir uns auch an externen Weiterbildungen. Die Anstellungsbedingungen entsprechen den kantonalen Richtlinien. Ihr Arbeitsplatz befindet sich direkt am Bahnhof und am See. Bewerbung Für weitere Auskünfte steht Ihnen Salomé Gossaint, Leitung Soziale Arbeit und Mandate, unter 043 259 92 10 oder salome.gossaint@ajb.zh.ch gerne zur Verfügung. Unter www.ajb.zh.ch finden Sie zusätzliche Informationen. Entdecken Sie unsere Arbeitswelt! Ihre vollständigen Bewerbungsunterlagen übermitteln Sie bitte über den Bewerbungslink. Bewerbungen per Post oder E-Mail können wir nicht berücksichtigen.\n\nPensum: 80%",
+        "en": "Kanton Zürich Bildungsdirektion Amt für Jugend und Berufsberatung Sozialarbeiter/in im kjz Horgen 80% Das Amt für Jugend und Berufsberatung Kanton Zürich, Geschäftsstelle der Bezirke Affoltern, Dietikon, Horgen, ist ein kantonales Kompetenzzentrum, das in den Bereichen Familie/Jugend und Berufsberatung fachliche Unterstützung anbietet. Das Kinder- und Jugendhilfezentrum (kjz) ist eine Beratungsstelle für Familien, Eltern, Jugendliche, Kinder sowie Kleinkinder und arbeitet auf der Grundlage des Kinder- und Jugendhilfegesetzes des Kantons Zürich. Für unser kjz-Team suchen wir eine/n Sozialarbeiter/in. Zugehörigkeit, Sinnhaftigkeit und Kompetenz Wir sind ein eingespieltes Team mit viel Fachkompetenz, Humor und Kreativität. Wir unterstützen uns gegenseitig, arbeiten gerne interdisziplinär und engagieren uns für den Kindesschutz.\n• Aufgaben Sie beraten und begleiten Kinder, Jugendliche und Eltern im Rahmen von Kindesschutzmassnahmen in der Mandatsführung sowie auf freiwilliger Basis. Zudem führen Sie Abklärungen bei Verdacht auf Kindswohlgefährdung durch. Intensive Zusammenarbeit mit den Familiensystemen, den Behörden, den Schulen sowie anderen Institutionen und Fachstellen ist uns wichtig. Darüber hinaus sind Ihre Inputs und Anregungen bei der Weiterentwicklung unseres kjz Horgen gefragt. Profil Sie verfügen über einen Abschluss in Sozialer Arbeit (FH) und bringen Erfahrung in der Jugend- und Familienhilfe mit. Wir suchen Sie als lösungsorientierte und belastbare Persönlichkeit mit hohen Sozialkompetenzen, einer wertschätzenden Grundhaltung und Freude an der Teamarbeit. Administrative Tätigkeiten sowie die Erstellung von Berichten und Aktennotizen fallen Ihnen leicht. Angebot\n• Wir bieten Ihnen eine sinnvolle, vielseitige und anspruchsvolle Tätigkeit in einem spannenden und interdisziplinären Arbeitsfeld. Wir werden Sie sorgfältig einarbeiten und Sie dürfen auf Gefässe für Unterstützung zählen wie Coachings, Intervisionsgruppen und Supervision. Denn Kindesschutz bedeutet Teamarbeit und Rückhalt durch die Leitung. Interne Weiterbildungsangebote stehen zur Verfügung und darüber hinaus beteiligen wir uns auch an externen Weiterbildungen. Die Anstellungsbedingungen entsprechen den kantonalen Richtlinien. Ihr Arbeitsplatz befindet sich direkt am Bahnhof und am See. Bewerbung Für weitere Auskünfte steht Ihnen Salomé Gossaint, Leitung Soziale Arbeit und Mandate, unter 043 259 92 10 oder salome.gossaint@ajb.zh.ch gerne zur Verfügung. Unter www.ajb.zh.ch finden Sie zusätzliche Informationen. Entdecken Sie unsere Arbeitswelt! Ihre vollständigen Bewerbungsunterlagen übermitteln Sie bitte über den Bewerbungslink. Bewerbungen per Post oder E-Mail können wir nicht berücksichtigen.\n\nPensum: 80%",
+        "fr": "Kanton Zürich Bildungsdirektion Amt für Jugend und Berufsberatung Sozialarbeiter/in im kjz Horgen 80% Das Amt für Jugend und Berufsberatung Kanton Zürich, Geschäftsstelle der Bezirke Affoltern, Dietikon, Horgen, ist ein kantonales Kompetenzzentrum, das in den Bereichen Familie/Jugend und Berufsberatung fachliche Unterstützung anbietet. Das Kinder- und Jugendhilfezentrum (kjz) ist eine Beratungsstelle für Familien, Eltern, Jugendliche, Kinder sowie Kleinkinder und arbeitet auf der Grundlage des Kinder- und Jugendhilfegesetzes des Kantons Zürich. Für unser kjz-Team suchen wir eine/n Sozialarbeiter/in. Zugehörigkeit, Sinnhaftigkeit und Kompetenz Wir sind ein eingespieltes Team mit viel Fachkompetenz, Humor und Kreativität. Wir unterstützen uns gegenseitig, arbeiten gerne interdisziplinär und engagieren uns für den Kindesschutz.\n• Aufgaben Sie beraten und begleiten Kinder, Jugendliche und Eltern im Rahmen von Kindesschutzmassnahmen in der Mandatsführung sowie auf freiwilliger Basis. Zudem führen Sie Abklärungen bei Verdacht auf Kindswohlgefährdung durch. Intensive Zusammenarbeit mit den Familiensystemen, den Behörden, den Schulen sowie anderen Institutionen und Fachstellen ist uns wichtig. Darüber hinaus sind Ihre Inputs und Anregungen bei der Weiterentwicklung unseres kjz Horgen gefragt. Profil Sie verfügen über einen Abschluss in Sozialer Arbeit (FH) und bringen Erfahrung in der Jugend- und Familienhilfe mit. Wir suchen Sie als lösungsorientierte und belastbare Persönlichkeit mit hohen Sozialkompetenzen, einer wertschätzenden Grundhaltung und Freude an der Teamarbeit. Administrative Tätigkeiten sowie die Erstellung von Berichten und Aktennotizen fallen Ihnen leicht. Angebot\n• Wir bieten Ihnen eine sinnvolle, vielseitige und anspruchsvolle Tätigkeit in einem spannenden und interdisziplinären Arbeitsfeld. Wir werden Sie sorgfältig einarbeiten und Sie dürfen auf Gefässe für Unterstützung zählen wie Coachings, Intervisionsgruppen und Supervision. Denn Kindesschutz bedeutet Teamarbeit und Rückhalt durch die Leitung. Interne Weiterbildungsangebote stehen zur Verfügung und darüber hinaus beteiligen wir uns auch an externen Weiterbildungen. Die Anstellungsbedingungen entsprechen den kantonalen Richtlinien. Ihr Arbeitsplatz befindet sich direkt am Bahnhof und am See. Bewerbung Für weitere Auskünfte steht Ihnen Salomé Gossaint, Leitung Soziale Arbeit und Mandate, unter 043 259 92 10 oder salome.gossaint@ajb.zh.ch gerne zur Verfügung. Unter www.ajb.zh.ch finden Sie zusätzliche Informationen. Entdecken Sie unsere Arbeitswelt! Ihre vollständigen Bewerbungsunterlagen übermitteln Sie bitte über den Bewerbungslink. Bewerbungen per Post oder E-Mail können wir nicht berücksichtigen.\n\nPensum: 80%"
+      },
+      "needsRetranslation": true,
+      "location": "Horgen",
+      "canton": "ZH",
+      "url": "https://live.solique.ch/ktzh/job/details/4096500/",
+      "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-08T21:48:38.748Z",
+      "addressLocality": "Horgen",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8810",
+      "category": "Sanità e Sociale",
+      "contract": "full-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Amministrazione Pubblica",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-11-03T14:18:56+01:00",
+      "postedDate": "2026-11-03T14:18:56+01:00",
+      "postingDateSource": "reported",
+      "applyUrl": "https://live.solique.ch/ktzh/job/details/4096500/",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "externalId": "4096500",
+      "pensumMin": 80,
+      "pensumMax": 80,
+      "pensum": "80%",
+      "salaryMin": 91500,
+      "salaryMax": 128000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 91500,
+          "maxValue": 128000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Horgen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-02-01T21:48:38.748Z",
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-11-03T22:06:40.753Z"
     },
     {
       "id": "kanton-zuerich-075ea16498ce",
@@ -15138,7 +15298,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4088685/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:37:18.730Z",
+      "crawledAt": "2026-11-08T21:48:38.220Z",
       "addressLocality": "Lindau",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -15197,7 +15357,7 @@
       },
       "streetAddress": "Lindau",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-24T09:37:18.730Z",
+      "validThrough": "2027-01-24T21:48:38.220Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -15232,7 +15392,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4096000/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:37:18.233Z",
+      "crawledAt": "2026-11-08T21:48:37.749Z",
       "addressLocality": "Urdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -15285,7 +15445,7 @@
       },
       "streetAddress": "Urdorf",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-01T09:37:18.233Z",
+      "validThrough": "2027-02-01T21:48:37.749Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -15320,7 +15480,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4088047/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:37:17.766Z",
+      "crawledAt": "2026-11-08T21:48:37.259Z",
       "addressLocality": "Rheinau",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -15377,7 +15537,7 @@
       },
       "streetAddress": "Rheinau",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-17T09:37:17.766Z",
+      "validThrough": "2027-01-17T21:48:37.259Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -15412,7 +15572,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4094911/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:37:17.297Z",
+      "crawledAt": "2026-11-08T21:48:36.770Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -15465,7 +15625,7 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-02T09:37:17.297Z",
+      "validThrough": "2027-02-02T21:48:36.770Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -15558,7 +15718,7 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-07T21:35:09.722Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     }
   ]
 }

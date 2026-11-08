@@ -1,7 +1,7 @@
 {
   "key": "mountains-ch",
   "label": "Engadin St. Moritz Mountains AG",
-  "generatedAt": "2026-11-08T09:37:56.126Z",
+  "generatedAt": "2026-11-08T21:57:18.409Z",
   "total": 5,
   "discovered": 5,
   "parsed": 5,
@@ -19,10 +19,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 5,
-  "durationMs": 14226,
-  "avgDurationMs": 14226,
+  "durationMs": 17466,
+  "avgDurationMs": 17466,
   "durationHistory": [
-    14226
+    17466
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -40,7 +40,7 @@
       "url": "https://www.mountains.ch/de/offene-stellen/mitarbeiterin-human-ressources",
       "source": "Engadin St. Moritz Mountains AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:37:32.271Z",
+      "crawledAt": "2026-11-08T21:56:43.802Z",
       "addressLocality": "St. Moritz",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -58,13 +58,12 @@
       "postedDate": "",
       "postingDateSource": "unknown",
       "applyUrl": "https://www.mountains.ch/de/offene-stellen/mitarbeiterin-human-ressources",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-11-04T21:50:30.513Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T09:37:32.271Z",
+      "validThrough": "2027-02-02T21:56:43.802Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -86,7 +85,7 @@
       "url": "https://www.mountains.ch/de/offene-stellen/schnupperlehre-seilbahnmechatronikerin-efz",
       "source": "Engadin St. Moritz Mountains AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:37:32.270Z",
+      "crawledAt": "2026-11-08T21:56:43.798Z",
       "addressLocality": "St. Moritz",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -109,7 +108,7 @@
       "salaryMax": 73000,
       "salarySource": "estimated",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T09:37:32.270Z",
+      "validThrough": "2027-02-02T21:56:43.798Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -131,7 +130,7 @@
       "url": "https://www.mountains.ch/de/offene-stellen/receptionist",
       "source": "Engadin St. Moritz Mountains AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:37:32.267Z",
+      "crawledAt": "2026-11-08T21:56:43.796Z",
       "addressLocality": "St. Moritz",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -154,7 +153,7 @@
       "salaryMax": 87000,
       "salarySource": "estimated",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-05T09:37:32.267Z",
+      "validThrough": "2027-02-05T21:56:43.796Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -176,7 +175,7 @@
       "url": "https://www.mountains.ch/de/offene-stellen/leitung-rezeption-und-bankette",
       "source": "Engadin St. Moritz Mountains AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:37:32.266Z",
+      "crawledAt": "2026-11-08T21:56:43.791Z",
       "addressLocality": "St. Moritz",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -199,7 +198,7 @@
       "salaryMax": 120000,
       "salarySource": "estimated",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T09:37:32.266Z",
+      "validThrough": "2027-02-02T21:56:43.791Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -221,7 +220,7 @@
       "url": "https://www.mountains.ch/de/offene-stellen/leiter-corporate-services-cfo",
       "source": "Engadin St. Moritz Mountains AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:37:32.264Z",
+      "crawledAt": "2026-11-08T21:56:43.789Z",
       "addressLocality": "St. Moritz",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -244,7 +243,7 @@
       "salaryMax": 120000,
       "salarySource": "estimated",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T09:37:32.264Z",
+      "validThrough": "2027-02-02T21:56:43.789Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -255,5 +254,5 @@
       }
     }
   ],
-  "codeCommit": "b019e69684c909d5fd747961cb84c9c400bc8446"
+  "codeCommit": "46d8c233794afd1422cd7663ab076bfe9ec2a1c3"
 }
