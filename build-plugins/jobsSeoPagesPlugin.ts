@@ -2696,31 +2696,13 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  .filter((x) => x.length > 2)
  .slice(0, max);
  };
- // WeakMap memoize for cleanItems. Keys on array IDENTITY (not content) so
- // any caller that passes the SAME array reference with the same `max` gets
- // a cache hit. Concrete hit-sources today:
- //   - `hasCanonicalSignal` probe + post-resolve cleanItems on the SAME
- //     `canonicalLocaleRaw.summary` / `.responsibilities` / ... when
- //     `_canonical` is populated (the probe arrays ARE the post-resolve
- //     arrays — same JS reference)
- //   - `requirements` fallback array reused across the locale loop (same
- //     `job.requirements` reference)
- // Misses cost one WeakMap.get + one Map.get (low-ns) so the wrap is safe
- // even when hit rate is low. Counters expose the true hit rate at flush.
- const _cleanItemsCache = new WeakMap<object, Map<number, string[]>>();
- let _cleanItemsHits = 0;
- let _cleanItemsMisses = 0;
+ // Do not memoize normalized items by source-array identity: most corpus
+ // arrays are consumed once, while each cached result duplicates normalized
+ // strings for as long as the source array remains reachable from validJobs.
+ // The full-corpus deploy profile measured only a 1.2% hit rate, so the
+ // retained copies cost substantially more than the work the cache avoids.
  const cleanItems = (value: unknown, max = 10): string[] => {
  if (!Array.isArray(value)) return [];
- const perMax = _cleanItemsCache.get(value as unknown as object);
- if (perMax) {
-   const cached = perMax.get(max);
-   if (cached !== undefined) {
-     _cleanItemsHits += 1;
-     return cached;
-   }
- }
- _cleanItemsMisses += 1;
  const expanded: string[] = [];
  for (const entry of value) {
  const clean = normalizeText(String(entry || ''));
@@ -2740,14 +2722,6 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  out.push(item);
  if (out.length >= max) break;
  }
- // Store result in the per-array cache so repeat calls with the same
- // (array, max) tuple return without re-iterating.
- let cacheMap = _cleanItemsCache.get(value as unknown as object);
- if (!cacheMap) {
-   cacheMap = new Map<number, string[]>();
-   _cleanItemsCache.set(value as unknown as object, cacheMap);
- }
- cacheMap.set(max, out);
  return out;
  };
  const parseCanonicalSections = (value: unknown, max = 8): Array<{ id: string; heading: string; paragraphs: string[]; bullets: string[] }> => {
@@ -16566,13 +16540,6 @@ ${staticAnalyticsHtml}
  const hitPct = total > 0 ? ((_canonicalCleanedHits / total) * 100).toFixed(1) : '0.0';
  console.log(
  `[jobs-seo-profile] canonical-cleaned-cache    hits=${_canonicalCleanedHits} misses=${_canonicalCleanedMisses} hit_rate=${hitPct}% size=${_canonicalCleanedCacheSizeAtEnd} evictions=${_canonicalCleanedEvictions}`,
- );
- }
- {
- const total = _cleanItemsHits + _cleanItemsMisses;
- const hitPct = total > 0 ? ((_cleanItemsHits / total) * 100).toFixed(1) : '0.0';
- console.log(
- `[jobs-seo-profile] cleanItems-cache           hits=${_cleanItemsHits} misses=${_cleanItemsMisses} hit_rate=${hitPct}%`,
  );
  }
  if (PROFILE_RELATED_COMPARE) {
