@@ -32,7 +32,7 @@ function nativeQuestionText(value, counter = null) {
   const nativeOption = (option, select) => ({
     value: option.value,
     label: clean(option.textContent),
-    ...((select.required || String(select.getAttribute('aria-required') || '').toLowerCase() === 'true')
+    ...(select.required
       && !select.multiple && select.size <= 1 && select.options[0] === option
       && option.parentElement === select && option.value === '' ? { placeholder: true } : {}),
   });
