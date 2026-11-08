@@ -1,6 +1,6 @@
 import { FieldValue } from 'firebase-admin/firestore';
 
-export const APPLICATION_CONCIERGE_RUNTIME_SCHEMA_VERSION = 2;
+export const APPLICATION_CONCIERGE_RUNTIME_SCHEMA_VERSION = 3;
 export const APPLICATION_CONCIERGE_RUNTIME_COLLECTION = 'runtime';
 export const APPLICATION_CONCIERGE_MATCHING_RUNTIME_DOCUMENT = 'matching';
 
@@ -30,7 +30,16 @@ export const APPLICATION_CONCIERGE_MATCHING_RUNTIME_FIELDS = Object.freeze([
   'proposalRefreshWorkerStartedAt',
   'proposalRefreshWorkerRequestId',
   'proposalRefreshWorkerInputContext',
+  'matchingRunStatus',
+  'proposalRefreshCompletedRequestId',
+  'proposalRefreshLastError',
+  'pendingProposalNotice',
 ]);
+
+const V2_MATCHING_RUNTIME_FIELDS = APPLICATION_CONCIERGE_MATCHING_RUNTIME_FIELDS
+  .filter(field => !['matchingRunStatus', 'proposalRefreshCompletedRequestId', 'proposalRefreshLastError', 'pendingProposalNotice'].includes(field));
+const V3_MATCHING_RUNTIME_FIELDS = APPLICATION_CONCIERGE_MATCHING_RUNTIME_FIELDS
+  .filter(field => !V2_MATCHING_RUNTIME_FIELDS.includes(field));
 
 const LEGACY_FIELDS_TO_REMOVE = APPLICATION_CONCIERGE_MATCHING_RUNTIME_FIELDS
   .filter(field => field !== 'matchingOpenProposalCount');
@@ -44,10 +53,20 @@ export function conciergeMatchingRuntimeRef(serviceRef) {
 export function mergeConciergeMatchingRuntime(service = {}, runtime = null) {
   const merged = { ...service };
   if (!runtime || typeof runtime !== 'object') return merged;
-  const migrated = Number(runtime.schemaVersion) >= APPLICATION_CONCIERGE_RUNTIME_SCHEMA_VERSION;
-  for (const field of APPLICATION_CONCIERGE_MATCHING_RUNTIME_FIELDS) {
+  const schemaVersion = Number(runtime.schemaVersion);
+  for (const field of V2_MATCHING_RUNTIME_FIELDS) {
     if (Object.hasOwn(runtime, field)) merged[field] = runtime[field];
-    else if (migrated) delete merged[field];
+    else if (schemaVersion >= 2) delete merged[field];
+  }
+  for (const field of V3_MATCHING_RUNTIME_FIELDS) {
+    if (Object.hasOwn(runtime, field)) merged[field] = runtime[field];
+    else if (schemaVersion >= 3) delete merged[field];
+  }
+  // Keep the parent status as the canonical terminal state. The runtime only
+  // overlays the transient state while a worker is active.
+  if (runtime.matchingRunStatus === 'running') {
+    merged.matchingStatus = 'running';
+    delete merged.matchingError;
   }
   return merged;
 }

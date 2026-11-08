@@ -167,7 +167,7 @@ describe('application concierge proposal retention', () => {
     expect(store.list(`${SERVICE_PATH}/proposals/`)).toEqual([]);
     expect(store.read(SERVICE_PATH)).not.toHaveProperty('matchingScanCursor');
     expect(store.read(`${SERVICE_PATH}/runtime/matching`)).toMatchObject({
-      schemaVersion: 2,
+      schemaVersion: 3,
       matchingScanContext: expect.any(String),
       matchingScanCursor: JOB_URL,
       matchingOpenProposalCount: 0,

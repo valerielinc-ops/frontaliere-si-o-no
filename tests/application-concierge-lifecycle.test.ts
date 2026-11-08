@@ -129,7 +129,7 @@ describe('concierge refresh and notification lifecycle', () => {
     expect(records.get('application_concierge_services/service')).toMatchObject({ matchingStatus: 'complete' });
     expect(records.get('application_concierge_services/service')).not.toHaveProperty('matchingEventRefreshRequestedAt');
     expect(records.get('application_concierge_services/service/runtime/matching')).toMatchObject({
-      schemaVersion: 2, matchingEventRefreshRequestedAt: new Date(now),
+      schemaVersion: 3, matchingEventRefreshRequestedAt: new Date(now),
     });
 
     const queued = await sweep({ enqueueOnly: true });
@@ -255,7 +255,7 @@ describe('concierge refresh and notification lifecycle', () => {
     await refresh(options);
     expect(match).toHaveBeenCalledTimes(1);
     expect(deliveries).toHaveLength(1);
-    expect(records.get('application_concierge_services/service').proposalRefreshCompletedRequestId).toBe('refresh-request');
+    expect(records.get('application_concierge_services/service/runtime/matching').proposalRefreshCompletedRequestId).toBe('refresh-request');
   });
   it('serializes duplicate deliveries with an owner lease and does not release another worker lock', async () => {
     const event = await realWithdrawal();
@@ -363,6 +363,13 @@ describe('concierge refresh and notification lifecycle', () => {
     }
 
     const exhaustedAt = new Date(storeServiceWithRuntime(store, servicePath).matchingStaleRecoveryRetryAt).getTime();
+    const runtimeRef = store.db.collection('application_concierge_services').doc(WITHDRAWAL_SERVICE_ID)
+      .collection('runtime').doc('matching');
+    await runtimeRef.set({
+      schemaVersion: 3,
+      matchingRunStatus: 'running',
+      matchingStartedAt: new Date(exhaustedAt - CONCIERGE_MATCHING_STALE_AFTER_MS - 1),
+    }, { merge: true });
     expect(conciergeStaleRecoveryExhausted(storeServiceWithRuntime(store, servicePath), exhaustedAt)).toBe(true);
     const result = await runConciergeLifecycleSweep({ db: store.db, nowMs: exhaustedAt, match: failedMatch,
       send, unsubscribeSecret: 'test-only-secret', enqueueOnly: false, enrichJobCards: passThroughJobCards });
@@ -373,6 +380,8 @@ describe('concierge refresh and notification lifecycle', () => {
       matchingError: 'stale_worker_retry_exhausted',
       matchingStaleRecoveryAttempt: CONCIERGE_STALE_RECOVERY_MAX_ATTEMPTS,
     });
+    expect(store.read(`${servicePath}/runtime/matching`)).not.toHaveProperty('matchingRunStatus');
+    expect(store.read(`${servicePath}/runtime/matching`)).not.toHaveProperty('matchingStartedAt');
   });
   it('counts ordinary failed matcher runs against the same bounded recovery budget', async () => {
     const requestId = 'ordinary-failed-match-retry';
@@ -421,11 +430,11 @@ describe('concierge refresh and notification lifecycle', () => {
     records.set('application_concierge_services/service/proposals/new-job', { status: 'proposed', jobTitle: 'Example', companyName: 'Example' });
     const failure = vi.fn(async () => ({ ok: false, reason: 'provider_failed' }));
     await sweep({ send: failure });
-    expect(records.get('application_concierge_services/service').pendingProposalNotice).toBeTruthy();
+    expect(serviceWithRuntime('application_concierge_services/service').pendingProposalNotice).toBeTruthy();
     await sweep();
     expect(match).not.toHaveBeenCalled();
     expect(deliveries).toEqual(['new_proposals_retry']);
-    expect(records.get('application_concierge_services/service').pendingProposalNotice).toBeUndefined();
+    expect(serviceWithRuntime('application_concierge_services/service').pendingProposalNotice).toBeUndefined();
   });
   it('sends the current daily renewal once, respects opt-out and stops after payment or deadline', async () => {
     records.set('application_concierge_services/service', active({ expiresAt: now - DAY }));
@@ -518,7 +527,10 @@ function refreshStubs() {
   });
   const notices: Array<{ key: string; proposalIds: string[] }> = [];
   const send = vi.fn(async ({ recordRef, key, eligible }: any) => {
-    const current = (await recordRef.get()).data() || {};
+    const [parentSnapshot, runtimeSnapshot] = await Promise.all([
+      recordRef.get(), recordRef.collection('runtime').doc('matching').get(),
+    ]);
+    const current = mergeConciergeMatchingRuntime(parentSnapshot.data() || {}, runtimeSnapshot.data() || null);
     if (eligible && !(await eligible(current))) return { ok: false, reason: 'ineligible' };
     notices.push({ key, proposalIds: [...(current.pendingProposalNotice?.proposalIds || [])] });
     return { ok: true };
@@ -544,7 +556,7 @@ describe('candidate withdrawal → trigger → idempotent replenishment worker',
     expect(match).toHaveBeenCalledTimes(1);
     expect(notices).toHaveLength(1);
     expect(notices[0].proposalIds).toEqual(['new-compatible']);
-    expect(event.store.read(WITHDRAWAL_SERVICE_PATH).proposalRefreshCompletedRequestId).toBe(event.requestId);
+    expect(event.store.read(`${WITHDRAWAL_SERVICE_PATH}/runtime/matching`).proposalRefreshCompletedRequestId).toBe(event.requestId);
   });
 
   it('rejects a stale trigger event and a worker request with the wrong id', async () => {

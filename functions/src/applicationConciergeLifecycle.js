@@ -24,6 +24,7 @@ import { enrichAssistedApplicationOrders } from './assistedApplicationJobCard.js
 import {
   conciergeMatchingRuntimeRef,
   mergeConciergeMatchingRuntime,
+  updateConciergeMatchingRuntime,
   writeConciergeMatchingRuntime,
 } from './applicationConciergeRuntime.js';
 
@@ -259,6 +260,8 @@ async function reconcileExhaustedStaleMatching(db, ref, nowMs) {
     if (workerLeaseExpires > nowMs) return false;
     writeConciergeMatchingRuntime(tx, ref, runtimeRef, legacyService, runtime, {
       matchingStaleRecoveryExhaustedAt: new Date(nowMs),
+      matchingRunStatus: FieldValue.delete(),
+      matchingStartedAt: FieldValue.delete(),
     });
     tx.set(ref, {
       matchingStatus: 'failed',
@@ -273,14 +276,15 @@ async function reconcileExhaustedStaleMatching(db, ref, nowMs) {
 }
 
 async function deliverNewProposals({ db, ref, nowMs, send, enrichJobCards }) {
-  const snapshot = await ref.get();
-  const service = snapshot.data();
+  const runtimeRef = conciergeMatchingRuntimeRef(ref);
+  const [snapshot, runtimeSnapshot] = await Promise.all([ref.get(), runtimeRef.get()]);
+  const service = mergeConciergeMatchingRuntime(snapshot.data() || {}, runtimeSnapshot.data() || null);
   const pending = service?.pendingProposalNotice;
   if (!pending?.key || !serviceIsActive(service, nowMs) || !underCap(service)) return false;
   const snapshots = await Promise.all((pending.proposalIds || []).map(id => ref.collection('proposals').doc(id).get()));
   const proposals = snapshots.filter(s => s.exists && s.data()?.status === 'proposed').map(s => s.data());
   if (!proposals.length) {
-    await ref.set({ pendingProposalNotice: FieldValue.delete() }, { merge: true });
+    await updateConciergeMatchingRuntime({ db, serviceRef: ref, patch: { pendingProposalNotice: FieldValue.delete() } });
     return false;
   }
   const result = await send({ db, recordRef: ref, orderId: ref.id, key: pending.key, audience: 'customer', nowMs,
@@ -292,7 +296,7 @@ async function deliverNewProposals({ db, ref, nowMs, send, enrichJobCards }) {
     },
   });
   if (result.ok || ['already_sent', 'already_ambiguous'].includes(result.reason)) {
-    await ref.set({ pendingProposalNotice: FieldValue.delete() }, { merge: true });
+    await updateConciergeMatchingRuntime({ db, serviceRef: ref, patch: { pendingProposalNotice: FieldValue.delete() } });
   }
   return result.ok;
 }
@@ -320,15 +324,19 @@ export async function runConciergeProposalRefresh({ db, serviceId, requestId = n
       const persisted = await db.runTransaction(async tx => {
         const runtimeRef = conciergeMatchingRuntimeRef(ref);
         const [serviceSnapshot, runtimeSnapshot] = await Promise.all([tx.get(ref), tx.get(runtimeRef)]);
-        const current = mergeConciergeMatchingRuntime(serviceSnapshot.data() || {}, runtimeSnapshot.data() || null);
+        const legacyService = serviceSnapshot.data() || {};
+        const runtime = runtimeSnapshot.data() || null;
+        const current = mergeConciergeMatchingRuntime(legacyService, runtime);
         if (current?.proposalRefreshWorkerLeaseId !== workerLeaseId) return false;
         // Persist the consumed event with its notice: Firestore may redeliver a completed request.
-        tx.set(ref, {
+        const runtimePatch = {
           ...(requestId ? { proposalRefreshCompletedRequestId: requestId } : {}),
-        }, { merge: true });
+          proposalRefreshLastError: FieldValue.delete(),
+        };
         if (ids.length && !current?.pendingProposalNotice && serviceIsActive(current, nowMs) && underCap(current)) {
-          tx.set(ref, { pendingProposalNotice: { key, proposalIds: ids, createdAt: new Date(nowMs) } }, { merge: true });
+          runtimePatch.pendingProposalNotice = { key, proposalIds: ids, createdAt: new Date(nowMs) };
         }
+        if (Object.keys(runtimePatch).length) writeConciergeMatchingRuntime(tx, ref, runtimeRef, legacyService, runtime, runtimePatch);
         return true;
       });
       if (!persisted) return { refreshed: 0, newJobEmails: 0 };
@@ -337,9 +345,13 @@ export async function runConciergeProposalRefresh({ db, serviceId, requestId = n
       await db.runTransaction(async tx => {
         const runtimeRef = conciergeMatchingRuntimeRef(ref);
         const [serviceSnapshot, runtimeSnapshot] = await Promise.all([tx.get(ref), tx.get(runtimeRef)]);
-        const current = mergeConciergeMatchingRuntime(serviceSnapshot.data() || {}, runtimeSnapshot.data() || null);
+        const legacyService = serviceSnapshot.data() || {};
+        const runtime = runtimeSnapshot.data() || null;
+        const current = mergeConciergeMatchingRuntime(legacyService, runtime);
         if (current?.proposalRefreshWorkerLeaseId === workerLeaseId) {
-          tx.set(ref, { proposalRefreshCompletedRequestId: requestId }, { merge: true });
+          writeConciergeMatchingRuntime(tx, ref, runtimeRef, legacyService, runtime, {
+            proposalRefreshCompletedRequestId: requestId,
+          });
         }
       });
     }
@@ -349,9 +361,14 @@ export async function runConciergeProposalRefresh({ db, serviceId, requestId = n
       await db.runTransaction(async tx => {
         const runtimeRef = conciergeMatchingRuntimeRef(ref);
         const [serviceSnapshot, runtimeSnapshot] = await Promise.all([tx.get(ref), tx.get(runtimeRef)]);
-        const current = mergeConciergeMatchingRuntime(serviceSnapshot.data() || {}, runtimeSnapshot.data() || null);
+        const legacyService = serviceSnapshot.data() || {};
+        const runtime = runtimeSnapshot.data() || null;
+        const current = mergeConciergeMatchingRuntime(legacyService, runtime);
         if (current?.proposalRefreshWorkerLeaseId === workerLeaseId) {
-          tx.set(ref, { proposalRefreshCompletedRequestId: requestId, proposalRefreshLastError: 'matching_failed' }, { merge: true });
+          writeConciergeMatchingRuntime(tx, ref, runtimeRef, legacyService, runtime, {
+            proposalRefreshCompletedRequestId: requestId,
+            proposalRefreshLastError: 'matching_failed',
+          });
         }
       });
     }

@@ -54,7 +54,7 @@ describe('application concierge matching runtime document', () => {
     await updateConciergeMatchingRuntime({ db: store.db, serviceRef, patch: { matchingScanContext: 'new-context' } });
 
     expect(store.read(`${SERVICE_PATH}/runtime/matching`)).toMatchObject({
-      schemaVersion: 2,
+      schemaVersion: 3,
       matchingOpenProposalCount: 1,
       matchingEligibilityRecoveryCount: 7,
       matchingEligibilityRecoveryDurationMsTotal: 1200,
@@ -89,12 +89,94 @@ describe('application concierge matching runtime document', () => {
     expect(parent).not.toHaveProperty('matchingScanCursor');
     expect(parent).not.toHaveProperty('matchingScanContext');
     expect(parent).not.toHaveProperty('proposalRefreshWorkerLeaseId');
-    expect(runtime).toMatchObject({ schemaVersion: 2, matchingOpenProposalCount: 2, matchingScanCursor: 'current-cursor' });
+    expect(runtime).toMatchObject({ schemaVersion: 3, matchingOpenProposalCount: 2, matchingScanCursor: 'current-cursor' });
     expect(runtime).not.toHaveProperty('proposalRefreshWorkerLeaseId');
     expect(mergeConciergeMatchingRuntime(parent, runtime)).toMatchObject({
       matchingStatus: 'running', matchingOpenProposalCount: 2, matchingScanCursor: 'current-cursor',
     });
     expect(mergeConciergeMatchingRuntime(parent, runtime)).not.toHaveProperty('proposalRefreshWorkerLeaseId');
     expect(conciergeMatchingRuntimeRef(serviceRef).path).toBe(`${SERVICE_PATH}/runtime/matching`);
+  });
+
+  it('overlays a transient runtime running state while preserving the parent terminal state', () => {
+    const parent = { matchingStatus: 'complete', matchingError: null };
+    expect(mergeConciergeMatchingRuntime(parent, {
+      schemaVersion: 3,
+      matchingRunStatus: 'running',
+    })).toMatchObject({ matchingStatus: 'running' });
+    expect(mergeConciergeMatchingRuntime(parent, {
+      schemaVersion: 3,
+    })).toMatchObject({ matchingStatus: 'complete' });
+  });
+
+  it('migrates completion and notice markers off the parent and clears only the transient run state', async () => {
+    const store = createMemoryFirestore({
+      [SERVICE_PATH]: {
+        matchingStatus: 'complete',
+        proposalRefreshCompletedRequestId: 'legacy-request',
+        proposalRefreshLastError: 'matching_failed',
+        pendingProposalNotice: { key: 'legacy-notice', proposalIds: ['proposal-1'] },
+      },
+    });
+    const serviceRef = store.db.collection('application_concierge_services').doc('service-1');
+    const runtimePath = `${SERVICE_PATH}/runtime/matching`;
+
+    await updateConciergeMatchingRuntime({ db: store.db, serviceRef, patch: { matchingRunStatus: 'running' } });
+
+    expect(store.read(SERVICE_PATH)).not.toHaveProperty('pendingProposalNotice');
+    expect(store.read(SERVICE_PATH)).not.toHaveProperty('proposalRefreshCompletedRequestId');
+    expect(store.read(SERVICE_PATH)).not.toHaveProperty('proposalRefreshLastError');
+    expect(store.read(SERVICE_PATH)).toMatchObject({ matchingStatus: 'complete' });
+    expect(store.read(runtimePath)).toMatchObject({
+      schemaVersion: 3,
+      matchingRunStatus: 'running',
+      proposalRefreshCompletedRequestId: 'legacy-request',
+      proposalRefreshLastError: 'matching_failed',
+      pendingProposalNotice: { key: 'legacy-notice', proposalIds: ['proposal-1'] },
+    });
+    expect(mergeConciergeMatchingRuntime(store.read(SERVICE_PATH), store.read(runtimePath)))
+      .toMatchObject({ matchingStatus: 'running', pendingProposalNotice: { key: 'legacy-notice' } });
+
+    await updateConciergeMatchingRuntime({
+      db: store.db,
+      serviceRef,
+      patch: { matchingRunStatus: FieldValue.delete() },
+    });
+
+    expect(mergeConciergeMatchingRuntime(store.read(SERVICE_PATH), store.read(runtimePath)))
+      .toMatchObject({ matchingStatus: 'complete', pendingProposalNotice: { key: 'legacy-notice' } });
+  });
+
+  it('upgrades an existing schema v2 runtime without replacing its newer operational values', async () => {
+    const store = createMemoryFirestore({
+      [SERVICE_PATH]: {
+        matchingStatus: 'complete',
+        matchingOpenProposalCount: 2,
+        proposalRefreshCompletedRequestId: 'legacy-v2-request',
+        pendingProposalNotice: { key: 'legacy-v2-notice', proposalIds: ['proposal-2'] },
+      },
+      [`${SERVICE_PATH}/runtime/matching`]: {
+        schemaVersion: 2,
+        matchingOpenProposalCount: 1,
+        matchingScanCursor: 'newer-runtime-cursor',
+      },
+    });
+    const serviceRef = store.db.collection('application_concierge_services').doc('service-1');
+    const runtimePath = `${SERVICE_PATH}/runtime/matching`;
+
+    await updateConciergeMatchingRuntime({ db: store.db, serviceRef, patch: { matchingRunStatus: 'running' } });
+
+    expect(store.read(runtimePath)).toMatchObject({
+      schemaVersion: 3,
+      matchingOpenProposalCount: 1,
+      matchingScanCursor: 'newer-runtime-cursor',
+      matchingRunStatus: 'running',
+      proposalRefreshCompletedRequestId: 'legacy-v2-request',
+      pendingProposalNotice: { key: 'legacy-v2-notice', proposalIds: ['proposal-2'] },
+    });
+    expect(store.read(SERVICE_PATH)).toMatchObject({ matchingOpenProposalCount: 2, matchingStatus: 'complete' });
+    expect(store.read(SERVICE_PATH)).not.toHaveProperty('pendingProposalNotice');
+    expect(mergeConciergeMatchingRuntime(store.read(SERVICE_PATH), store.read(runtimePath)))
+      .toMatchObject({ matchingStatus: 'running', matchingOpenProposalCount: 1 });
   });
 });

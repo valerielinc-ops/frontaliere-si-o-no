@@ -1109,21 +1109,28 @@ export async function runApplicationConciergeMatching({ db = getAdminDb(), servi
   const profileRecord = profileSnapshot.exists ? profileSnapshot.data() || {} : {};
   const profile = profileRecord.profile || {};
   if (profileRecord.status !== 'ready' || !profile.searchText) {
-    await serviceRef.set({ matchingStatus: 'needs_review', matchingError: null, matchingCompletedAt: FieldValue.serverTimestamp(), updatedAt: FieldValue.serverTimestamp() }, { merge: true });
+    await db.runTransaction(async transaction => {
+      const [latestServiceSnapshot, latestRuntimeSnapshot] = await Promise.all([
+        transaction.get(serviceRef), transaction.get(runtimeRef),
+      ]);
+      const latestService = latestServiceSnapshot.data() || {};
+      writeConciergeMatchingRuntime(transaction, serviceRef, runtimeRef, latestService,
+        latestRuntimeSnapshot.data() || null, {
+          matchingRunStatus: FieldValue.delete(),
+          matchingStartedAt: FieldValue.delete(),
+        });
+      transaction.set(serviceRef, {
+        matchingStatus: 'needs_review', matchingError: null,
+        matchingCompletedAt: FieldValue.serverTimestamp(), updatedAt: FieldValue.serverTimestamp(),
+      }, { merge: true });
+    });
     return { status: 'needs_review', reason: 'profile_not_ready' };
   }
 
-  await db.runTransaction(async transaction => {
-    const [latestServiceSnapshot, latestRuntimeSnapshot] = await Promise.all([
-      transaction.get(serviceRef), transaction.get(runtimeRef),
-    ]);
-    const latestService = latestServiceSnapshot.data() || {};
-    writeConciergeMatchingRuntime(transaction, serviceRef, runtimeRef, latestService,
-      latestRuntimeSnapshot.data() || null, { matchingStartedAt: FieldValue.serverTimestamp() });
-    transaction.set(serviceRef, {
-      matchingStatus: 'running', matchingError: null, updatedAt: FieldValue.serverTimestamp(),
-    }, { merge: true });
-  });
+  await updateConciergeMatchingRuntime({ db, serviceRef, patch: {
+    matchingStartedAt: FieldValue.serverTimestamp(),
+    matchingRunStatus: 'running',
+  } });
   try {
     const jobs = (await fetchJobs(jobIndexUrl, eligibilitySignal)).map(normalizeConciergeJobRecord);
     const existingSnapshot = await serviceRef.collection('proposals').get();
@@ -1649,8 +1656,18 @@ export async function runApplicationConciergeMatching({ db = getAdminDb(), servi
     completionUpdate.matchingOpenProposalCount = openProposalsCount(
       mergeConciergeMatchingRuntime(service, finalRuntime), fallbackOpenCount,
     );
-    await updateConciergeMatchingRuntime({ db, serviceRef, patch: { matchingStartedAt: FieldValue.delete() } });
-    await serviceRef.set(completionUpdate, { mergeFields: Object.keys(completionUpdate) });
+    await db.runTransaction(async transaction => {
+      const [latestServiceSnapshot, latestRuntimeSnapshot] = await Promise.all([
+        transaction.get(serviceRef), transaction.get(runtimeRef),
+      ]);
+      const latestService = latestServiceSnapshot.data() || {};
+      writeConciergeMatchingRuntime(transaction, serviceRef, runtimeRef, latestService,
+        latestRuntimeSnapshot.data() || null, {
+          matchingRunStatus: FieldValue.delete(),
+          matchingStartedAt: FieldValue.delete(),
+        });
+      transaction.set(serviceRef, completionUpdate, { mergeFields: Object.keys(completionUpdate) });
+    });
     const telemetry = {
       scanned: checks.size,
       pending: { count: pendingCount, reasons: pendingCount ? { bounded_scan_frontier: pendingCount } : {} },
@@ -1672,8 +1689,21 @@ export async function runApplicationConciergeMatching({ db = getAdminDb(), servi
     // A failed top-level fetch/write is not evidence that any existing job is
     // incompatible or closed. Preserve proposal rows and let the lifecycle's
     // failed-run retry re-evaluate them on a later pass.
-    await updateConciergeMatchingRuntime({ db, serviceRef, patch: { matchingStartedAt: FieldValue.delete() } });
-    await serviceRef.set({ matchingStatus: 'failed', matchingError: 'job_search_failed', matchingCompletedAt: FieldValue.serverTimestamp(), updatedAt: FieldValue.serverTimestamp() }, { merge: true });
+    await db.runTransaction(async transaction => {
+      const [latestServiceSnapshot, latestRuntimeSnapshot] = await Promise.all([
+        transaction.get(serviceRef), transaction.get(runtimeRef),
+      ]);
+      const latestService = latestServiceSnapshot.data() || {};
+      writeConciergeMatchingRuntime(transaction, serviceRef, runtimeRef, latestService,
+        latestRuntimeSnapshot.data() || null, {
+          matchingRunStatus: FieldValue.delete(),
+          matchingStartedAt: FieldValue.delete(),
+        });
+      transaction.set(serviceRef, {
+        matchingStatus: 'failed', matchingError: 'job_search_failed',
+        matchingCompletedAt: FieldValue.serverTimestamp(), updatedAt: FieldValue.serverTimestamp(),
+      }, { merge: true });
+    });
     throw error;
   }
 }
