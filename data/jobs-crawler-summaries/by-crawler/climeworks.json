@@ -1,7 +1,7 @@
 {
   "key": "climeworks",
   "label": "Climeworks",
-  "generatedAt": "2026-11-08T09:18:44.754Z",
+  "generatedAt": "2026-11-08T21:17:06.080Z",
   "total": 3,
   "discovered": null,
   "parsed": 3,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 3,
-  "durationMs": 3295,
-  "avgDurationMs": 3295,
+  "durationMs": 3673,
+  "avgDurationMs": 3673,
   "durationHistory": [
-    3295
+    3673
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -37,7 +37,7 @@
       "url": "https://climeworks.recruitee.com/o/lead-electrical-engineer-100",
       "source": "Climeworks Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-08T09:18:29.585Z",
+      "crawledAt": "2026-11-08T21:16:47.340Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -61,7 +61,7 @@
       "addressRegion": "ZH",
       "streetAddress": "Zurich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-11T09:18:29.585Z",
+      "validThrough": "2027-01-10T21:16:47.340Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 94,
       "_qualityBreakdown": {
@@ -83,7 +83,7 @@
       "url": "https://climeworks.recruitee.com/o/filtration-module-product-owner-80-100-101",
       "source": "Climeworks Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-08T09:18:29.582Z",
+      "crawledAt": "2026-11-08T21:16:47.337Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -108,7 +108,7 @@
       "addressRegion": "ZH",
       "streetAddress": "Zurich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-14T09:18:29.582Z",
+      "validThrough": "2027-01-14T21:16:47.337Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 94,
       "_qualityBreakdown": {
@@ -130,7 +130,7 @@
       "url": "https://climeworks.recruitee.com/o/intern-in-sorbent-structures-80-100-104",
       "source": "Climeworks Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-08T09:18:29.578Z",
+      "crawledAt": "2026-11-08T21:16:47.333Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -154,7 +154,7 @@
       "addressRegion": "ZH",
       "streetAddress": "Zurich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-27T09:18:29.578Z",
+      "validThrough": "2027-01-26T21:16:47.333Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 94,
       "_qualityBreakdown": {
@@ -165,5 +165,5 @@
       }
     }
   ],
-  "codeCommit": "b019e69684c909d5fd747961cb84c9c400bc8446"
+  "codeCommit": "46d8c233794afd1422cd7663ab076bfe9ec2a1c3"
 }

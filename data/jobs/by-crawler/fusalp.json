@@ -1,7 +1,7 @@
 {
   "crawlerKey": "fusalp",
-  "assembledAt": "2026-11-08T09:17:05.470Z",
-  "runId": "42465958647",
+  "assembledAt": "2026-11-08T21:18:55.509Z",
+  "runId": "42523749520",
   "jobs": [
     {
       "id": "fusalp-126b866dec50",
@@ -34,7 +34,7 @@
       "url": "https://fusalp.welcomekit.co/jobs/sales-associate-m-w-dec-26-to-april-27-100_val-de-bagnes",
       "source": "Fusalp Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-08T09:16:50.402Z",
+      "crawledAt": "2026-11-08T21:18:38.157Z",
       "addressLocality": "Val De Bagnes",
       "addressCountry": "CH",
       "country": "CH",
@@ -81,7 +81,7 @@
       "addressRegion": "VS",
       "streetAddress": "Val De Bagnes",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-23T09:16:50.402Z",
+      "validThrough": "2026-12-23T21:18:38.157Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -115,7 +115,7 @@
       "url": "https://fusalp.welcomekit.co/jobs/store-manager-m-w-100-fixed-term-contract-permanent-opportunity_aubonne",
       "source": "Fusalp Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-08T09:16:47.459Z",
+      "crawledAt": "2026-11-08T21:18:34.926Z",
       "addressLocality": "Aubonne",
       "addressCountry": "CH",
       "country": "CH",
@@ -158,7 +158,7 @@
       "addressRegion": "VD",
       "streetAddress": "Aubonne",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-30T09:16:47.459Z",
+      "validThrough": "2026-12-29T21:18:34.926Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -192,7 +192,7 @@
       "url": "https://fusalp.welcomekit.co/jobs/sales-associate-m-w-english-french-fixed-term-contract-until-31-march-2027_aubonne",
       "source": "Fusalp Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-08T09:16:46.430Z",
+      "crawledAt": "2026-11-08T21:18:33.928Z",
       "addressLocality": "Aubonne",
       "addressCountry": "CH",
       "country": "CH",
@@ -235,7 +235,7 @@
       "addressRegion": "VD",
       "streetAddress": "Aubonne",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-30T09:16:46.430Z",
+      "validThrough": "2026-12-29T21:18:33.928Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -269,7 +269,7 @@
       "url": "https://fusalp.welcomekit.co/jobs/store-manager-m-w-permanent-contract-100-1-november-2026_saanen",
       "source": "Fusalp Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-08T09:16:45.352Z",
+      "crawledAt": "2026-11-08T21:18:32.764Z",
       "addressLocality": "Saanen",
       "addressCountry": "CH",
       "country": "CH",
@@ -312,7 +312,7 @@
       "addressRegion": "BE",
       "streetAddress": "Saanen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-11T09:16:45.352Z",
+      "validThrough": "2026-12-10T21:18:32.764Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -346,7 +346,7 @@
       "url": "https://fusalp.welcomekit.co/jobs/assistant-store-manager-m-w-dec-26-to-march-27-100_saanen",
       "source": "Fusalp Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-08T09:16:36.976Z",
+      "crawledAt": "2026-11-08T21:18:23.909Z",
       "addressLocality": "Saanen",
       "addressCountry": "CH",
       "country": "CH",
@@ -389,7 +389,7 @@
       "addressRegion": "BE",
       "streetAddress": "Saanen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-08T09:16:36.976Z",
+      "validThrough": "2026-12-08T21:18:23.909Z",
       "validThroughSource": "last-observed-window"
     }
   ]
