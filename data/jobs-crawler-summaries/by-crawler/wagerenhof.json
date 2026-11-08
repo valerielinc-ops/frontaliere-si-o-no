@@ -1,7 +1,7 @@
 {
   "key": "wagerenhof",
   "label": "Stiftung Wagerenhof",
-  "generatedAt": "2026-11-07T21:30:51.682Z",
+  "generatedAt": "2026-11-08T09:22:42.475Z",
   "total": 5,
   "discovered": null,
   "parsed": 5,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 5,
-  "durationMs": 8235,
-  "avgDurationMs": 8235,
+  "durationMs": 11406,
+  "avgDurationMs": 11406,
   "durationHistory": [
-    8235
+    11406
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -38,7 +38,7 @@
       "url": "https://www.wagerenhof.ch/wagerenhof/arbeiten-beim-wagerenhof/offene-stellen/vacancy-details?reference=2026-545&cHash=ddc6a12ed98a5820256f03d135d63013",
       "source": "Wagerenhof Dedicated Parser (TYPO3 HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-07T21:30:39.607Z",
+      "crawledAt": "2026-11-08T09:22:28.554Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -61,7 +61,7 @@
       "salarySource": "estimated",
       "streetAddress": "Uster",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-27T21:30:39.607Z",
+      "validThrough": "2027-01-28T09:22:28.554Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -84,7 +84,7 @@
       "url": "https://www.wagerenhof.ch/wagerenhof/arbeiten-beim-wagerenhof/offene-stellen/vacancy-details?reference=2026-542&cHash=cf5cc3f42159371e4211b602210ac0a0",
       "source": "Wagerenhof Dedicated Parser (TYPO3 HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-07T21:30:38.710Z",
+      "crawledAt": "2026-11-08T09:22:27.071Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -107,7 +107,7 @@
       "salarySource": "estimated",
       "streetAddress": "Uster",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-10T21:30:38.710Z",
+      "validThrough": "2027-01-11T09:22:27.071Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -130,7 +130,7 @@
       "url": "https://www.wagerenhof.ch/wagerenhof/arbeiten-beim-wagerenhof/offene-stellen/vacancy-details?reference=2026-554&cHash=23a52bc913e6c8713584f230f50acaae",
       "source": "Wagerenhof Dedicated Parser (TYPO3 HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-07T21:30:37.792Z",
+      "crawledAt": "2026-11-08T09:22:25.595Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -153,7 +153,7 @@
       "salarySource": "estimated",
       "streetAddress": "Uster",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-21T21:30:37.792Z",
+      "validThrough": "2027-01-22T09:22:25.595Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -176,7 +176,7 @@
       "url": "https://www.wagerenhof.ch/wagerenhof/arbeiten-beim-wagerenhof/offene-stellen/vacancy-details?reference=2026-559&cHash=e570f876125366becd686a847d3c8744",
       "source": "Wagerenhof Dedicated Parser (TYPO3 HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-07T21:30:36.882Z",
+      "crawledAt": "2026-11-08T09:22:24.131Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -199,7 +199,7 @@
       "salarySource": "estimated",
       "streetAddress": "Uster",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-27T21:30:36.882Z",
+      "validThrough": "2026-12-28T09:22:24.131Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -222,7 +222,7 @@
       "url": "https://www.wagerenhof.ch/wagerenhof/arbeiten-beim-wagerenhof/offene-stellen/vacancy-details?reference=2026-538&cHash=b87d858cd6a9cb6eeeb53cd495cdeb2f",
       "source": "Wagerenhof Dedicated Parser (TYPO3 HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-07T21:30:35.857Z",
+      "crawledAt": "2026-11-08T09:22:22.519Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -245,7 +245,7 @@
       "salarySource": "estimated",
       "streetAddress": "Uster",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-27T21:30:35.857Z",
+      "validThrough": "2027-01-28T09:22:22.519Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -256,5 +256,5 @@
       }
     }
   ],
-  "codeCommit": "f149ed523035737e5146c13e7338b8dd6b0c5f04"
+  "codeCommit": "b019e69684c909d5fd747961cb84c9c400bc8446"
 }
