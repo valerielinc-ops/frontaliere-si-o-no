@@ -84667,6 +84667,80 @@
         }
       }
     },
+    "generated:article-consiglio-soletta-rifiuta-trasparenza": {
+      "source": "generated-provider",
+      "commons": {
+        "title": "Generated editorial illustration",
+        "pageUrl": "https://openai.com/policies/terms-of-use/",
+        "width": 1200,
+        "height": 675,
+        "revision": "2026-11-08T01:33:52.153Z"
+      },
+      "author": {
+        "text": "frontaliereticino.ch",
+        "name": "frontaliereticino.ch",
+        "url": null,
+        "type": "Organization"
+      },
+      "attribution": null,
+      "licence": {
+        "name": "Generated media — provider terms apply",
+        "family": "other-attribution",
+        "attributionRequired": true,
+        "url": "https://openai.com/policies/terms-of-use/"
+      },
+      "restrictions": [
+        "illustrative-only",
+        "no-real-recognizable-foreground-person",
+        "no-public-figure-face",
+        "no-logo-brand-or-text",
+        "no-specific-real-event-photojournalism"
+      ],
+      "fetchedAt": "2026-11-08",
+      "generated": {
+        "schema": 1,
+        "assetId": "article-consiglio-soletta-rifiuta-trasparenza",
+        "kind": "generated",
+        "provider": "openai-codex",
+        "model": "gpt-image-2.5",
+        "executorModel": "gpt-5.6-luna",
+        "promptVersion": "frontaliereticino.generated-image-policy.v1",
+        "promptHash": "6fd1151724fbc46a4ec18af90b4165b49bd515e6a765eb1fc5d9144157787506",
+        "license": "generated-provider",
+        "licenseUrl": "https://openai.com/policies/terms-of-use/",
+        "credit": "frontaliereticino.ch",
+        "sha256": "610e53227d3b5d1335848ab3165b47df7e1bcb7d521e8dd66265dcd7d526d63d",
+        "bytes": 160344,
+        "width": 1200,
+        "height": 675,
+        "format": "webp",
+        "generatedAt": "2026-11-08T01:33:52.153Z",
+        "verifiedAt": "2026-11-08T01:34:07.320Z",
+        "restrictions": [
+          "illustrative-only",
+          "no-real-recognizable-foreground-person",
+          "no-public-figure-face",
+          "no-logo-brand-or-text",
+          "no-specific-real-event-photojournalism"
+        ],
+        "scope": "article-hero",
+        "imageUrl": "/images/blog/article-consiglio-soletta-rifiuta-trasparenza.webp",
+        "area": "Swiss border region",
+        "season": "all seasons",
+        "variant": "article hero",
+        "vision": {
+          "ok": true,
+          "contains_text": false,
+          "contains_logo": false,
+          "contains_recognizable_face": false,
+          "contains_recognizable_foreground_person": false,
+          "looks_like_specific_real_event": false,
+          "is_photograph": false,
+          "is_topic_relevant": true,
+          "notes": "Generic synthetic editorial illustration of a Swiss parliamentary building and empty chamber; no readable text, logos, people, or specific-event cues."
+        }
+      }
+    },
     "generated:article-consiglio-stato-approva-pratiche": {
       "source": "generated-provider",
       "commons": {
@@ -89178,6 +89252,80 @@
           "is_photograph": false,
           "is_topic_relevant": true,
           "notes": "Generic synthetic editorial illustration of a fiscal planning desk with budget documents and calculator; no readable text, logos, people, or specific event."
+        }
+      }
+    },
+    "generated:article-sciaffusa-case-unifamiliari": {
+      "source": "generated-provider",
+      "commons": {
+        "title": "Generated editorial illustration",
+        "pageUrl": "https://openai.com/policies/terms-of-use/",
+        "width": 1200,
+        "height": 675,
+        "revision": "2026-11-08T01:25:03.600Z"
+      },
+      "author": {
+        "text": "frontaliereticino.ch",
+        "name": "frontaliereticino.ch",
+        "url": null,
+        "type": "Organization"
+      },
+      "attribution": null,
+      "licence": {
+        "name": "Generated media — provider terms apply",
+        "family": "other-attribution",
+        "attributionRequired": true,
+        "url": "https://openai.com/policies/terms-of-use/"
+      },
+      "restrictions": [
+        "illustrative-only",
+        "no-real-recognizable-foreground-person",
+        "no-public-figure-face",
+        "no-logo-brand-or-text",
+        "no-specific-real-event-photojournalism"
+      ],
+      "fetchedAt": "2026-11-08",
+      "generated": {
+        "schema": 1,
+        "assetId": "article-sciaffusa-case-unifamiliari",
+        "kind": "generated",
+        "provider": "openai-codex",
+        "model": "gpt-image-2.5",
+        "executorModel": "gpt-5.6-luna",
+        "promptVersion": "frontaliereticino.generated-image-policy.v1",
+        "promptHash": "31147a53eb2a42e9c8ef98b88621753b7d4c20d60b73c8ec368b3e8ddbb99f6c",
+        "license": "generated-provider",
+        "licenseUrl": "https://openai.com/policies/terms-of-use/",
+        "credit": "frontaliereticino.ch",
+        "sha256": "4e820a15e101a30744270d58d42afd18b7f4a18e5f8686d6eac6129e7eee0321",
+        "bytes": 213848,
+        "width": 1200,
+        "height": 675,
+        "format": "webp",
+        "generatedAt": "2026-11-08T01:25:03.600Z",
+        "verifiedAt": "2026-11-08T01:25:16.024Z",
+        "restrictions": [
+          "illustrative-only",
+          "no-real-recognizable-foreground-person",
+          "no-public-figure-face",
+          "no-logo-brand-or-text",
+          "no-specific-real-event-photojournalism"
+        ],
+        "scope": "article-hero",
+        "imageUrl": "/images/blog/article-sciaffusa-case-unifamiliari.webp",
+        "area": "Swiss border region",
+        "season": "all seasons",
+        "variant": "article hero",
+        "vision": {
+          "ok": true,
+          "contains_text": false,
+          "contains_logo": false,
+          "contains_recognizable_face": false,
+          "contains_recognizable_foreground_person": false,
+          "looks_like_specific_real_event": false,
+          "is_photograph": false,
+          "is_topic_relevant": true,
+          "notes": "Original generic synthetic residential illustration; no people, text, logos, signage, or event-specific cues."
         }
       }
     },
@@ -133061,6 +133209,10 @@
       "file": "generated:article-chiusura-invernale-gottardo",
       "modified": "resized"
     },
+    "article-consiglio-soletta-rifiuta-trasparenza": {
+      "file": "generated:article-consiglio-soletta-rifiuta-trasparenza",
+      "modified": "resized"
+    },
     "article-consiglio-stato-approva-pratiche": {
       "file": "generated:article-consiglio-stato-approva-pratiche",
       "modified": "resized"
@@ -133303,6 +133455,10 @@
     },
     "article-schuebelbach-aliquote-2027": {
       "file": "generated:article-schuebelbach-aliquote-2027",
+      "modified": "resized"
+    },
+    "article-sciaffusa-case-unifamiliari": {
+      "file": "generated:article-sciaffusa-case-unifamiliari",
       "modified": "resized"
     },
     "article-sciaffusa-mercato-lavoro-ottobre": {
