@@ -67,7 +67,7 @@ function makeValueSignal<T>(): { promise: Promise<T>; resolve: (v: T) => void } 
 }
 
 const staticPagesSignal = makeSignal();
-const professionLandingsSignal = makeValueSignal<readonly string[]>();
+let professionLandingsSignal = makeValueSignal<readonly string[]>();
 let professionLandingsProducerRegistered = false;
 const salaryHubSignal = makeSignal();
 const fuelDailyPagesSignal = makeSignal();
@@ -123,7 +123,7 @@ export function resolveStaticPagesFlushed(): void {
  * they are emitted as redirect bridges and must never become internal link
  * targets.
  */
-export const professionLandingsFlushed: Promise<readonly string[]> = professionLandingsSignal.promise;
+export let professionLandingsFlushed: Promise<readonly string[]> = professionLandingsSignal.promise;
 export function resolveProfessionLandingsFlushed(paths: readonly string[]): void {
   professionLandingsSignal.resolve(paths);
 }
@@ -134,6 +134,12 @@ export function resolveProfessionLandingsFlushed(paths: readonly string[]): void
  * deadlock even though there is no producer whose output can be consumed.
  */
 export function registerProfessionLandingsProducer(): void {
+  // Vite can reuse a plugin instance for watch-mode rebuilds, and the same
+  // process can run more than one full build. Recreate both the value signal
+  // and its exported live binding before the next closeBundle wave, otherwise
+  // consumers read the first build's emitted paths forever.
+  professionLandingsSignal = makeValueSignal<readonly string[]>();
+  professionLandingsFlushed = professionLandingsSignal.promise;
   professionLandingsProducerRegistered = true;
 }
 

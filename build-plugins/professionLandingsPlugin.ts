@@ -955,6 +955,12 @@ export function professionLandingsPlugin(rootDir: string): Plugin {
   return {
     name: 'profession-landings',
     apply: 'build',
+    // closeBundle hooks run in parallel, so reset the shared barrier before
+    // every build generation rather than only when the plugin is constructed.
+    // This is required for watch-mode rebuilds that reuse this plugin object.
+    buildStart() {
+      registerProfessionLandingsProducer();
+    },
     async closeBundle() {
       if (process.env.SKIP_PROFESSION_LANDINGS === '1') {
         console.log('\x1b[33m[profession-landings]\x1b[0m Skipped (SKIP_PROFESSION_LANDINGS=1)');
