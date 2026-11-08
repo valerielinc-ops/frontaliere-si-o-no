@@ -1,7 +1,7 @@
 {
   "key": "wagerenhof",
   "label": "Stiftung Wagerenhof",
-  "generatedAt": "2026-11-08T09:22:42.475Z",
+  "generatedAt": "2026-11-08T21:42:37.388Z",
   "total": 5,
   "discovered": null,
   "parsed": 5,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 5,
-  "durationMs": 11406,
-  "avgDurationMs": 11406,
+  "durationMs": 8183,
+  "avgDurationMs": 8183,
   "durationHistory": [
-    11406
+    8183
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -38,7 +38,7 @@
       "url": "https://www.wagerenhof.ch/wagerenhof/arbeiten-beim-wagerenhof/offene-stellen/vacancy-details?reference=2026-545&cHash=ddc6a12ed98a5820256f03d135d63013",
       "source": "Wagerenhof Dedicated Parser (TYPO3 HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:22:28.554Z",
+      "crawledAt": "2026-11-08T21:42:25.822Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -61,7 +61,7 @@
       "salarySource": "estimated",
       "streetAddress": "Uster",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-28T09:22:28.554Z",
+      "validThrough": "2027-01-27T21:42:25.822Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -84,7 +84,7 @@
       "url": "https://www.wagerenhof.ch/wagerenhof/arbeiten-beim-wagerenhof/offene-stellen/vacancy-details?reference=2026-542&cHash=cf5cc3f42159371e4211b602210ac0a0",
       "source": "Wagerenhof Dedicated Parser (TYPO3 HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:22:27.071Z",
+      "crawledAt": "2026-11-08T21:42:24.939Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -107,7 +107,7 @@
       "salarySource": "estimated",
       "streetAddress": "Uster",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-11T09:22:27.071Z",
+      "validThrough": "2027-01-10T21:42:24.939Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -130,7 +130,7 @@
       "url": "https://www.wagerenhof.ch/wagerenhof/arbeiten-beim-wagerenhof/offene-stellen/vacancy-details?reference=2026-554&cHash=23a52bc913e6c8713584f230f50acaae",
       "source": "Wagerenhof Dedicated Parser (TYPO3 HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:22:25.595Z",
+      "crawledAt": "2026-11-08T21:42:24.036Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -153,7 +153,7 @@
       "salarySource": "estimated",
       "streetAddress": "Uster",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-22T09:22:25.595Z",
+      "validThrough": "2027-01-21T21:42:24.036Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -170,13 +170,12 @@
       "companyKey": "wagerenhof",
       "companyDomain": "wagerenhof.ch",
       "title": "Pflegefachfrau/-mann HF / DN II / AKP (50% - 100%)",
-      "needsRetranslation": true,
       "location": "Uster",
       "canton": "ZH",
       "url": "https://www.wagerenhof.ch/wagerenhof/arbeiten-beim-wagerenhof/offene-stellen/vacancy-details?reference=2026-559&cHash=e570f876125366becd686a847d3c8744",
       "source": "Wagerenhof Dedicated Parser (TYPO3 HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:22:24.131Z",
+      "crawledAt": "2026-11-08T21:42:23.137Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -199,7 +198,7 @@
       "salarySource": "estimated",
       "streetAddress": "Uster",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-28T09:22:24.131Z",
+      "validThrough": "2026-12-27T21:42:23.137Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -222,7 +221,7 @@
       "url": "https://www.wagerenhof.ch/wagerenhof/arbeiten-beim-wagerenhof/offene-stellen/vacancy-details?reference=2026-538&cHash=b87d858cd6a9cb6eeeb53cd495cdeb2f",
       "source": "Wagerenhof Dedicated Parser (TYPO3 HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:22:22.519Z",
+      "crawledAt": "2026-11-08T21:42:22.258Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -245,7 +244,7 @@
       "salarySource": "estimated",
       "streetAddress": "Uster",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-28T09:22:22.519Z",
+      "validThrough": "2027-01-27T21:42:22.258Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -256,5 +255,5 @@
       }
     }
   ],
-  "codeCommit": "b019e69684c909d5fd747961cb84c9c400bc8446"
+  "codeCommit": "46d8c233794afd1422cd7663ab076bfe9ec2a1c3"
 }
