@@ -1,7 +1,7 @@
 {
   "key": "creditx-ch",
   "label": "CreditX Sàrl",
-  "generatedAt": "2026-11-08T09:38:08.176Z",
+  "generatedAt": "2026-11-08T21:58:23.478Z",
   "total": 2,
   "discovered": 2,
   "parsed": 2,
@@ -19,10 +19,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 14839,
-  "avgDurationMs": 14839,
+  "durationMs": 14621,
+  "avgDurationMs": 14621,
   "durationHistory": [
-    14839
+    14621
   ],
   "newJobs": [
     {
@@ -37,7 +37,7 @@
       "url": "https://creditx.ch/careers/relationship-manager-senior-sion",
       "source": "CreditX Sàrl Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-08T09:37:40.663Z",
+      "crawledAt": "2026-11-08T21:58:01.814Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -60,7 +60,7 @@
       "postalCode": "1950",
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-08T09:37:40.663Z",
+      "validThrough": "2026-12-08T21:58:01.814Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-04T21:49:23.619Z",
       "_qualityScore": 88,
@@ -83,7 +83,7 @@
       "url": "https://creditx.ch/careers/relationship-manager-junior-sion",
       "source": "CreditX Sàrl Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-08T09:37:40.662Z",
+      "crawledAt": "2026-11-08T21:58:01.812Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -106,7 +106,7 @@
       "postalCode": "1950",
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-28T09:37:40.662Z",
+      "validThrough": "2027-01-28T21:58:01.812Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-04T21:49:23.617Z",
       "_qualityScore": 88,
@@ -121,5 +121,5 @@
   "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [],
-  "codeCommit": "b019e69684c909d5fd747961cb84c9c400bc8446"
+  "codeCommit": "46d8c233794afd1422cd7663ab076bfe9ec2a1c3"
 }

@@ -1,7 +1,7 @@
 {
   "key": "csl-immobilien-ag",
   "label": "CSL Immobilien AG",
-  "generatedAt": "2026-11-08T09:37:20.936Z",
+  "generatedAt": "2026-11-08T21:55:49.210Z",
   "total": 1,
   "discovered": 1,
   "parsed": 1,
@@ -19,10 +19,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 7141,
-  "avgDurationMs": 7141,
+  "durationMs": 8265,
+  "avgDurationMs": 8265,
   "durationHistory": [
-    7141
+    8265
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -40,7 +40,7 @@
       "url": "https://app.jobportal.abaservices.ch/job-advertisement/cslimmobilien/7fdb40d6-c3ba-5548-b8ad-e55232c8a90b?jp=ABACUS",
       "source": "CSL Immobilien AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:36:53.595Z",
+      "crawledAt": "2026-11-08T21:55:11.634Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -58,13 +58,12 @@
       "postedDate": "2026-10-28",
       "postingDateSource": "reported",
       "applyUrl": "https://app.jobportal.abaservices.ch/job-advertisement/cslimmobilien/7fdb40d6-c3ba-5548-b8ad-e55232c8a90b?jp=ABACUS",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-11-06T22:04:36.681Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-26T09:36:53.595Z",
+      "validThrough": "2027-01-26T21:55:11.634Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -75,5 +74,5 @@
       }
     }
   ],
-  "codeCommit": "b019e69684c909d5fd747961cb84c9c400bc8446"
+  "codeCommit": "46d8c233794afd1422cd7663ab076bfe9ec2a1c3"
 }
