@@ -3,7 +3,10 @@ const specCrawlerMocks = vi.hoisted(() => ({
   loadSpec: vi.fn(),
   runSpecInProduction: vi.fn(),
 }));
-vi.mock('../scripts/lib/prospector/spec-crawler.mjs', () => specCrawlerMocks);
+vi.mock('../scripts/lib/prospector/spec-crawler.mjs', async (importOriginal) => ({
+  ...(await importOriginal()),
+  ...specCrawlerMocks,
+}));
 
 import {
   YELLOWSHARK_KEY,

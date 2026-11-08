@@ -8,7 +8,9 @@ import {
   buildEcariDetailUrl,
   extractEcariTabSection,
   fetchHtml,
+  isExplicitlyEmptyCatalogue,
   parseEcariAuctionRows,
+  requireEcariCatalogueRows,
   withEcariEmptyState,
 } from "../../../functions/src/plateAuctionsCore.js";
 
@@ -64,11 +66,16 @@ export function requireEcariCataloguePage(html, { plateCode, officialAuctionUrl 
 }
 
 export async function fetchEcariCantonAuctions(config, { fetchPage = fetchHtml } = {}) {
-  const html = await fetchPage(config.officialAuctionUrl, {
-    ...(config.userAgent ? { userAgent: config.userAgent } : {}),
-  });
-  return parseEcariCantonAuctions(html, {
-    ...config,
-    fetchedAt: new Date().toISOString(),
-  });
+  for (let attempt = 0; attempt < 2; attempt += 1) {
+    const html = await fetchPage(config.officialAuctionUrl, {
+      ...(config.userAgent ? { userAgent: config.userAgent } : {}),
+    });
+    const rows = parseEcariCantonAuctions(html, {
+      ...config,
+      fetchedAt: new Date().toISOString(),
+    });
+    if (rows.length > 0 || isExplicitlyEmptyCatalogue(rows)) return rows;
+    if (attempt === 1) return requireEcariCatalogueRows(rows, config);
+  }
+  throw new Error(`${config.plateCode}: eCari fetch exhausted without a result`);
 }

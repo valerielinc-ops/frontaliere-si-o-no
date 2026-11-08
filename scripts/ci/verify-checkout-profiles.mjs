@@ -36,6 +36,7 @@ import path from 'node:path';
 import { execFileSync } from 'node:child_process';
 import YAML from 'yaml';
 import { analyzeWorkflow, transitiveClosure, ROOT, BUCKETS, CROSSOVER_MB, TREE_MB } from './checkout-profile-analyzer.mjs';
+import { stripSourceComments } from '../lib/source-comments.mjs';
 import { missingGlobalTestsSparsePaths } from './apply-checkout-profiles.mjs';
 
 const WF_DIR = path.join(ROOT, '.github/workflows');
@@ -71,9 +72,12 @@ function trackedPaths() {
  */
 const LITERAL_PATH = /['"`]((?:\.\.\/|\.\/)*(?:data|public|docs|packages)\/[A-Za-z0-9._/-]+)['"`]/g;
 
-export function literalPathsIn(source) {
+export function literalPathsIn(source, filePath = 'source.mjs') {
   const out = new Set();
-  for (const m of source.matchAll(LITERAL_PATH)) out.add(m[1].replace(/^(\.\.\/|\.\/)+/, ''));
+  const code = /\.(?:mjs|cjs|js|mts|cts|tsx?|jsx?)$/i.test(filePath)
+    ? stripSourceComments(source)
+    : String(source ?? '');
+  for (const m of code.matchAll(LITERAL_PATH)) out.add(m[1].replace(/^(\.\.\/|\.\/)+/, ''));
   return out;
 }
 
@@ -140,7 +144,7 @@ const IMPORT_STATEMENT = /\b(?:import|export)\b[\s\S]{0,300}?\bfrom\s+['"`]([^'"
 
 export function importedDataOrPublicPathsIn(source) {
   const out = new Set();
-  for (const m of source.matchAll(IMPORT_STATEMENT)) {
+  for (const m of stripSourceComments(source).matchAll(IMPORT_STATEMENT)) {
     const raw = m[1] ?? m[2];
     const idx = raw?.search(/(?:data|public)\//) ?? -1;
     if (idx >= 0) out.add(raw.slice(idx));
@@ -369,7 +373,7 @@ export function verifyCheckoutProfiles() {
         if (job.extraOnlyDataCommit && rel === 'scripts/lib/git-commit-data.sh') continue;
         let src;
         try { src = fs.readFileSync(path.join(ROOT, rel), 'utf8'); } catch { continue; }
-        for (const lit of literalPathsIn(src)) {
+        for (const lit of literalPathsIn(src, rel)) {
           if (!tracked.has(lit)) continue;              // URL o esempio, non un file
           if (isPathOutsideCheckout(lit)) {
             problems.push(`${where}: ${rel} legge «${lit}», che i pattern escludono. ` +

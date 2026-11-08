@@ -1,21 +1,19 @@
 {
   "key": "banca-sempione",
   "label": "Banca del Sempione",
-  "generatedAt": "2026-11-07T09:32:58.111Z",
+  "generatedAt": "2026-11-07T21:22:16.806Z",
   "total": 2,
   "newCount": 0,
-  "updatedCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
-  "unchangedCount": 2,
-  "durationMs": 5837,
-  "avgDurationMs": 5837,
+  "unchangedCount": 1,
+  "durationMs": 4984,
+  "avgDurationMs": 4984,
   "durationHistory": [
-    5837
+    4984
   ],
   "newJobs": [],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "updatedJobs": [
     {
       "title": "Global Wealth Management – Private Banker (Zurigo)",
       "company": "Banca del Sempione",
@@ -29,7 +27,7 @@
       "datePosted": "2026-04-24T08:00:41Z",
       "postedDate": "2026-04-24T08:00:41Z",
       "postingDateSource": "reported",
-      "crawledAt": "2026-11-07T09:32:44.271Z",
+      "crawledAt": "2026-11-07T21:22:05.129Z",
       "source": "company-website",
       "slug": "banca-del-sempione-global-wealth-management-private-banker-zurich-2",
       "sourceLang": "it",
@@ -46,7 +44,7 @@
       "applyUrl": "https://www.bancasempione.ch/job/global-wealth-management-private-banker-zurich-2/",
       "streetAddress": "Zurich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-07T09:32:44.271Z",
+      "validThrough": "2026-12-07T21:22:05.129Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 94,
       "_qualityBreakdown": {
@@ -55,7 +53,10 @@
         "translation": 25,
         "completeness": 22
       }
-    },
+    }
+  ],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "title": "Global Wealth Management – Private Banker (Lugano)",
       "company": "Banca del Sempione",
@@ -69,7 +70,7 @@
       "datePosted": "2026-04-23T08:30:00Z",
       "postedDate": "2026-04-23T08:30:00Z",
       "postingDateSource": "reported",
-      "crawledAt": "2026-11-07T09:32:44.271Z",
+      "crawledAt": "2026-11-07T21:22:05.129Z",
       "source": "company-website",
       "slug": "banca-del-sempione-global-wealth-management-consulente-alla-clientela-private-banker",
       "sourceLang": "it",
@@ -86,7 +87,7 @@
       "employmentType": "FULL_TIME",
       "applyUrl": "https://www.bancasempione.ch/job/global-wealth-management-consulente-alla-clientela-private-banker/",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-07T09:32:44.271Z",
+      "validThrough": "2026-12-07T21:22:05.129Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 94,
       "_qualityBreakdown": {
@@ -97,5 +98,5 @@
       }
     }
   ],
-  "codeCommit": "dae4367441abe10a497d7d52ebb4540c014e1e8c"
+  "codeCommit": "f149ed523035737e5146c13e7338b8dd6b0c5f04"
 }

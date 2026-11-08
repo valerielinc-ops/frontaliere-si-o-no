@@ -1,7 +1,7 @@
 {
   "key": "gavi",
   "label": "Gavi, the Vaccine Alliance",
-  "generatedAt": "2026-11-07T09:19:44.424Z",
+  "generatedAt": "2026-11-07T21:16:35.654Z",
   "total": 1,
   "discovered": null,
   "parsed": 1,
@@ -13,16 +13,18 @@
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
-  "updatedCount": 1,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 5323,
-  "avgDurationMs": 5323,
+  "unchangedCount": 1,
+  "durationMs": 5337,
+  "avgDurationMs": 5337,
   "durationHistory": [
-    5323
+    5337
   ],
   "newJobs": [],
-  "updatedJobs": [
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "gavi-1e54ecdaacf6",
       "slug": "senior-manager-innovative-finanza-gavi-the-vaccine-alliance-le-grand-saconnex",
@@ -35,7 +37,7 @@
       "url": "https://fs-2662.my.salesforce-sites.com/recruit/fRecruit__ApplyJob?vacancyNo=VN2544&portal=Global",
       "source": "Gavi Dedicated Parser (Salesforce fRecruit)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-07T09:19:20.386Z",
+      "crawledAt": "2026-11-07T21:16:13.278Z",
       "addressLocality": "Le Grand-Saconnex",
       "addressRegion": "GE",
       "streetAddress": "Chemin du Pommier 40",
@@ -60,7 +62,7 @@
       "salaryMax": 306000,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-05T09:19:20.386Z",
+      "validThrough": "2027-02-05T21:16:13.278Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -71,7 +73,5 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [],
-  "codeCommit": "dae4367441abe10a497d7d52ebb4540c014e1e8c"
+  "codeCommit": "f149ed523035737e5146c13e7338b8dd6b0c5f04"
 }

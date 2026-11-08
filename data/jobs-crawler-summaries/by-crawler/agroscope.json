@@ -1,19 +1,21 @@
 {
   "key": "agroscope",
   "label": "Agroscope",
-  "generatedAt": "2026-11-07T09:20:18.656Z",
+  "generatedAt": "2026-11-07T21:18:58.234Z",
   "total": 14,
   "newCount": 0,
-  "updatedCount": 1,
-  "removedCount": 1,
-  "unchangedCount": 13,
-  "durationMs": 8235,
-  "avgDurationMs": 8235,
+  "updatedCount": 0,
+  "removedCount": 0,
+  "unchangedCount": 14,
+  "durationMs": 7320,
+  "avgDurationMs": 7320,
   "durationHistory": [
-    8235
+    7320
   ],
   "newJobs": [],
-  "updatedJobs": [
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "title": "HR-Leiter·in",
       "slug": "responsabile-hr-agroscope-posieux",
@@ -55,53 +57,7 @@
         "translation": 25,
         "completeness": 25
       }
-    }
-  ],
-  "removedJobs": [
-    {
-      "title": "Hoch-/Fachhochschulpraktikant/-in: PhenoMix - Leguminosen",
-      "slug": "tirocinante-universitario-phenomix-legumi-agroscope-zurich",
-      "url": "https://jobs.admin.ch/posti-vacanti/hoch-fachhochschulpraktikant-in-phenomix-leguminosen/c27b9a22-e080-4459-93b1-3f7615b855b6",
-      "applyUrl": "https://career74.sapsf.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=20593",
-      "company": "Agroscope",
-      "companyKey": "agroscope",
-      "companyDomain": "admin.ch",
-      "location": "Zürich",
-      "addressLocality": "Zürich",
-      "postalCode": "8001",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "canton": "ZH",
-      "country": "CH",
-      "category": "science",
-      "sector": "Pubblica amministrazione",
-      "source": "agroscope-dedicated-crawler",
-      "sourceLang": "de",
-      "datePosted": "2026-10-07T08:26:19Z",
-      "postedDate": "2026-10-07T08:26:19Z",
-      "postingDateSource": "reported",
-      "validThrough": "2027-01-05T09:18:10.929Z",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "id": "agroscope-1d5f571cbf6f",
-      "salaryMin": 95500,
-      "salaryMax": 159000,
-      "currency": "CHF",
-      "salarySource": "reported",
-      "firstSeenAt": "2026-10-07T09:18:10.929Z",
-      "streetAddress": "Zürich",
-      "streetAddressSource": "to-enrich",
-      "validThroughSource": "last-observed-window",
-      "_qualityScore": 97,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 25
-      }
-    }
-  ],
-  "unchangedJobs": [
+    },
     {
       "title": "HR Business Partner/-in",
       "slug": "risorse-umane-business-partner-in-agroscope-posieux-17e397bfd0",
@@ -523,48 +479,6 @@
       }
     },
     {
-      "title": "Wissenschaftliche/r Mitarbeiter/in - Kartoffelzüchtung und Genomik",
-      "slug": "collaboratore-trice-scientifico-a-miglioramento-genetico-delle-patate-e-genomica-agroscope-zurich",
-      "url": "https://jobs.admin.ch/posti-vacanti/wissenschaftliche-r-mitarbeiter-in-kartoffelzuechtung-und-genomik/c13e4aa6-25a0-47dc-81b1-0b68a64e3a73",
-      "applyUrl": "https://career74.sapsf.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=20574",
-      "company": "Agroscope",
-      "companyKey": "agroscope",
-      "companyDomain": "admin.ch",
-      "location": "Zürich",
-      "addressLocality": "Zürich",
-      "postalCode": "8001",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "canton": "ZH",
-      "country": "CH",
-      "category": "science",
-      "sector": "Pubblica amministrazione",
-      "source": "agroscope-dedicated-crawler",
-      "sourceLang": "de",
-      "datePosted": "2026-10-15T22:00:00Z",
-      "postedDate": "2026-10-15T22:00:00Z",
-      "postingDateSource": "reported",
-      "validThrough": "2026-11-15T00:00:00.000Z",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "id": "agroscope-9efb0299a49d",
-      "salaryMin": 95500,
-      "salaryMax": 159000,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "firstSeenAt": "2026-10-16T09:17:10.716Z",
-      "streetAddress": "Zürich",
-      "streetAddressSource": "to-enrich",
-      "validThroughSource": "source",
-      "_qualityScore": 97,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 25
-      }
-    },
-    {
       "title": "Postdoktorand/-in Ackerbauforschung",
       "slug": "postdottorando-a-nella-ricerca-agronomica-agroscope-nyon",
       "url": "https://jobs.admin.ch/posti-vacanti/postdoktorand-in-ackerbauforschung/039aa536-beb5-4eb2-8508-9744b1dfb72a",
@@ -602,6 +516,48 @@
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
+        "translation": 25,
+        "completeness": 25
+      }
+    },
+    {
+      "title": "Wissenschaftliche/r Mitarbeiter/in - Kartoffelzüchtung und Genomik",
+      "slug": "collaboratore-trice-scientifico-a-miglioramento-genetico-delle-patate-e-genomica-agroscope-zurich",
+      "url": "https://jobs.admin.ch/posti-vacanti/wissenschaftliche-r-mitarbeiter-in-kartoffelzuechtung-und-genomik/c13e4aa6-25a0-47dc-81b1-0b68a64e3a73",
+      "applyUrl": "https://career74.sapsf.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=20574",
+      "company": "Agroscope",
+      "companyKey": "agroscope",
+      "companyDomain": "admin.ch",
+      "location": "Zürich",
+      "addressLocality": "Zürich",
+      "postalCode": "8001",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "canton": "ZH",
+      "country": "CH",
+      "category": "science",
+      "sector": "Pubblica amministrazione",
+      "source": "agroscope-dedicated-crawler",
+      "sourceLang": "de",
+      "datePosted": "2026-10-15T22:00:00Z",
+      "postedDate": "2026-10-15T22:00:00Z",
+      "postingDateSource": "reported",
+      "validThrough": "2026-11-15T00:00:00.000Z",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "id": "agroscope-9efb0299a49d",
+      "salaryMin": 95500,
+      "salaryMax": 159000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "firstSeenAt": "2026-10-16T09:17:10.716Z",
+      "streetAddress": "Zürich",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "source",
+      "_qualityScore": 97,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
         "translation": 25,
         "completeness": 25
       }
@@ -649,5 +605,5 @@
       }
     }
   ],
-  "codeCommit": "dae4367441abe10a497d7d52ebb4540c014e1e8c"
+  "codeCommit": "f149ed523035737e5146c13e7338b8dd6b0c5f04"
 }

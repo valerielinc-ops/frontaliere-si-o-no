@@ -22,7 +22,14 @@ import { sourcePostingDateFields } from './source-posting-date.mjs';
 import { extractJobPostingField } from './jobposting-jsonld.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
-import { slugify, stripHtml, normalizeSpace, normalizeDescriptionSpace, fetchJson } from './crawler-template.mjs';
+import {
+  fetchHtml as sharedFetchHtml,
+  fetchJson,
+  normalizeDescriptionSpace,
+  normalizeSpace,
+  slugify,
+  stripHtml,
+} from './crawler-template.mjs';
 import {  inferSwissTargetCanton, inferAnyCanton  } from './target-swiss-locations.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
@@ -160,23 +167,14 @@ function mapContractDuration(duration = '', workload = '100') {
 const TIMEOUT_MS = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20_000;
 
 async function fetchHtml(url) {
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), TIMEOUT_MS);
-
-  try {
-    const res = await fetch(url, {
-      signal: controller.signal,
-      headers: {
-        Accept: 'text/html,application/xhtml+xml',
-        'User-Agent': USER_AGENT,
-        'Accept-Language': 'en,de;q=0.9',
-      },
-    });
-    if (!res.ok) throw new Error(`HTTP ${res.status} from ${url}`);
-    return await res.text();
-  } finally {
-    clearTimeout(timer);
-  }
+  return sharedFetchHtml(url, {
+    timeoutMs: TIMEOUT_MS,
+    headers: {
+      Accept: 'text/html,application/xhtml+xml',
+      'User-Agent': USER_AGENT,
+      'Accept-Language': 'en,de;q=0.9',
+    },
+  });
 }
 
 /* ── JSON API — Paginated Listing ─────────────────────────── */

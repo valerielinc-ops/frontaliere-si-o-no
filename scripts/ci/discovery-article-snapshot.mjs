@@ -6,6 +6,7 @@ import {
   checkDiscoveryArticleRoute,
   chooseDiscoveryArticle,
   loadDiscoveryArticleSnapshotFromHttp,
+  MAX_HTTP_RETRIES,
   parseDiscoveryArticleIndex,
   parseDiscoveryManifest,
 } from '../lib/newsletter-discovery-selection.mjs';
@@ -15,7 +16,6 @@ const READINESS_SCHEMA = 1;
 const READINESS_ALGORITHM = 'sha256-discovery-article-v2';
 const MAX_ROUTE_PROOF_AGE_MS = 30 * 24 * 60 * 60 * 1000;
 const DEFAULT_ROUTE_TIMEOUT_MS = 8_000;
-const DEFAULT_ROUTE_RETRIES = 10;
 const DEFAULT_ROUTE_CONCURRENCY = 8;
 const LOCALES = ['it', 'en', 'de', 'fr'];
 
@@ -190,7 +190,7 @@ export async function syncDiscoveryArticleSnapshot({
   retryDelayMs = 300,
   sleepImpl = (ms) => new Promise((resolve) => setTimeout(resolve, ms)),
   routeTimeoutMs = DEFAULT_ROUTE_TIMEOUT_MS,
-  routeRetries = DEFAULT_ROUTE_RETRIES,
+  routeRetries = MAX_HTTP_RETRIES,
   routeRetryDelayMs = 5_000,
   routeConcurrency = DEFAULT_ROUTE_CONCURRENCY,
   campaignId,

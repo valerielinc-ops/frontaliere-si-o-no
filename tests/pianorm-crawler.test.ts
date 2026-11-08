@@ -1,3 +1,4 @@
+import { readFileSync } from 'node:fs';
 import { describe, it, expect } from 'vitest';
 import {
   PIANORM_KEY,
@@ -13,6 +14,18 @@ describe('pianorm crawler parser', () => {
   it('exports valid company key and name', () => {
     expect(PIANORM_KEY).toBe('pianorm');
     expect(PIANORM_COMPANY_NAME).toBe('pianorm');
+  });
+
+  it('uses the official jobs index and a variable detail template', () => {
+    const spec = JSON.parse(readFileSync(
+      new URL('../data/prospector/crawlers/pianorm.json', import.meta.url),
+      'utf8',
+    ));
+
+    expect(spec.mode).toBe('template');
+    expect(spec.seedUrls).toEqual(['https://www.pianorm.ch/jobs/']);
+    expect(spec.detailTemplate).toBe('/job/*/');
+    expect(spec.detailEnrichment).toBe(true);
   });
 
   // ── isCompanyJob ──

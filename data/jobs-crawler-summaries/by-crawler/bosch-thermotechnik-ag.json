@@ -1,21 +1,19 @@
 {
   "key": "bosch-thermotechnik-ag",
   "label": "Bosch Thermotechnik AG",
-  "generatedAt": "2026-11-07T09:29:08.351Z",
+  "generatedAt": "2026-11-07T21:15:30.289Z",
   "total": 8,
   "newCount": 0,
-  "updatedCount": 0,
+  "updatedCount": 2,
   "removedCount": 0,
-  "unchangedCount": 8,
-  "durationMs": 18505,
-  "avgDurationMs": 18505,
+  "unchangedCount": 6,
+  "durationMs": 19443,
+  "avgDurationMs": 19443,
   "durationHistory": [
-    18505
+    19443
   ],
   "newJobs": [],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "updatedJobs": [
     {
       "title": "Servicetechniker Biomasse (w/m/div.) D-CH REF299742E",
       "slug": "servicetechniker-biomasse-w-m-div-d-ch-ref299742e-bosch-thermotechnik-ag-steinhausen",
@@ -58,6 +56,52 @@
         "completeness": 25
       }
     },
+    {
+      "title": "Logistiker (w/m/div.) REF292485N",
+      "slug": "logistiker-w-m-div-ref292485n-bosch-thermotechnik-ag-spreitenbach",
+      "url": "https://jobs.bosch.com/en/job/REF292485N-logistiker-w-m-div-ref292485n",
+      "applyUrl": "https://jobs.smartrecruiters.com/BoschGroup/744000157981119-logistiker-w-m-div-ref292485n?oga=true&trid=2897ada5-c831-4fce-a5b7-4e5f01ecb702",
+      "company": "Bosch Thermotechnik AG",
+      "companyKey": "bosch-thermotechnik-ag",
+      "companyDomain": "bosch.ch",
+      "location": "Spreitenbach",
+      "addressLocality": "Spreitenbach",
+      "addressRegion": "AG",
+      "addressCountry": "CH",
+      "canton": "AG",
+      "country": "CH",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "category": "other",
+      "sector": "Energia",
+      "source": "bosch-dedicated-crawler",
+      "sourceLang": "de",
+      "datePosted": "2026-10-27",
+      "postedDate": "2026-10-27",
+      "postingDateSource": "reported",
+      "validThrough": "2026-10-21T22:11:34.118Z",
+      "id": "bosch-thermotechnik-ag-a8800a2c4e54",
+      "salaryMin": 62000,
+      "salaryMax": 94000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "postalCode": "8957",
+      "firstSeenAt": "2026-07-23T22:11:34.118Z",
+      "retranslationAttempts": 0,
+      "streetAddress": "Spreitenbach",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 97,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 25,
+        "completeness": 25
+      }
+    }
+  ],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "title": "Instandhaltung 100% (w/m/div.) - REF299587Q",
       "slug": "manutenzione-100-f-m-div-ref299587-q-bosch-thermotechnik-ag-st-niklaus",
@@ -177,49 +221,6 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "last-observed-window",
       "needsRetranslation": true,
-      "_qualityScore": 97,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 25
-      }
-    },
-    {
-      "title": "Logistiker (w/m/div.) REF292485N",
-      "slug": "logistiker-w-m-div-ref292485n-bosch-thermotechnik-ag-spreitenbach",
-      "url": "https://jobs.bosch.com/en/job/REF292485N-logistiker-w-m-div-ref292485n",
-      "applyUrl": "https://jobs.smartrecruiters.com/BoschGroup/744000157981119-logistiker-w-m-div-ref292485n?oga=true&trid=2897ada5-c831-4fce-a5b7-4e5f01ecb702",
-      "company": "Bosch Thermotechnik AG",
-      "companyKey": "bosch-thermotechnik-ag",
-      "companyDomain": "bosch.ch",
-      "location": "Spreitenbach",
-      "addressLocality": "Spreitenbach",
-      "addressRegion": "AG",
-      "addressCountry": "CH",
-      "canton": "AG",
-      "country": "CH",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "category": "other",
-      "sector": "Energia",
-      "source": "bosch-dedicated-crawler",
-      "sourceLang": "de",
-      "datePosted": "2026-10-27",
-      "postedDate": "2026-10-27",
-      "postingDateSource": "reported",
-      "validThrough": "2026-10-21T22:11:34.118Z",
-      "id": "bosch-thermotechnik-ag-a8800a2c4e54",
-      "salaryMin": 62000,
-      "salaryMax": 94000,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "postalCode": "8957",
-      "firstSeenAt": "2026-07-23T22:11:34.118Z",
-      "retranslationAttempts": 0,
-      "streetAddress": "Spreitenbach",
-      "streetAddressSource": "to-enrich",
-      "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -355,5 +356,5 @@
       }
     }
   ],
-  "codeCommit": "dae4367441abe10a497d7d52ebb4540c014e1e8c"
+  "codeCommit": "f149ed523035737e5146c13e7338b8dd6b0c5f04"
 }

@@ -42,7 +42,7 @@ describe('social native insights workflow contract', () => {
     expect(workflow).not.toContain("- cron: '40 4 1 * *'");
   });
 
-  it('reserves a durable rolling seven-day Codex budget before building briefs or calling the model', () => {
+  it('builds briefs regardless of Codex quota and uses a separately budgeted free-provider fallback', () => {
     const workflow = readFileSync(resolve(ROOT, '.github/workflows/social-copy-pack.yml'), 'utf8');
     const budgetStart = workflow.indexOf('      - name: Reserve a rolling seven-day Codex invocation');
     const attributionStart = workflow.indexOf('      - name: Build sanitized GA4 social-copy attribution brief');
@@ -64,11 +64,20 @@ describe('social native insights workflow contract', () => {
     expect(codexStart).toBeGreaterThan(editorialStart);
     expect(budget).toContain('FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}');
     expect(budget).toContain('node scripts/social-copy/reserve-codex-invocation.mjs');
-    expect(attribution).toContain("if: steps.codex_budget.outputs.allowed == 'true'");
-    expect(native).toContain("if: steps.codex_budget.outputs.allowed == 'true'");
-    expect(editorial).toContain("if: steps.codex_budget.outputs.allowed == 'true'");
+    expect(attribution).not.toContain("if: steps.codex_budget.outputs.allowed == 'true'");
+    expect(native).not.toContain("if: steps.codex_budget.outputs.allowed == 'true'");
+    expect(editorial).not.toContain("if: steps.codex_budget.outputs.allowed == 'true'");
     expect(codex).toContain("if: steps.codex_budget.outputs.allowed == 'true'");
-    expect(promote).toContain("needs.generate.outputs.codex_invocation_allowed == 'true'");
+    expect(codex).toContain('Generate with one free-provider fallback chain');
+    expect(codex).toContain('Load free-provider keys from Remote Config');
+    expect(codex).toContain('scripts/social-copy/generate-free-model-fallback.mjs');
+    expect(codex).toContain('GH_MODELS_PAT_2,GH_MODELS_PAT_3,GH_MODELS_PAT_4,GH_MODELS_PAT_5,GH_MODELS_PAT_6,GH_MODELS_PAT_7,GH_MODELS_PAT_8,GH_MODELS_PAT_9');
+    expect(codex).toContain("if: steps.codex.outputs.primary_success != 'true'");
+    expect(codex).not.toContain("if: always() && steps.codex.outputs.primary_success != 'true'");
+    expect(promote).toContain("needs.generate.outputs.pack_generated == 'true'");
+    expect(promote).not.toContain("needs.generate.outputs.codex_invocation_allowed == 'true'");
+    expect(promote).toContain("printf -- '- Aggiornato il pacchetto di copy social generato da `%s`");
+    expect(promote).not.toContain('${GENERATION_PROVIDER}');
   });
 
   it('restricts production generation and Codex-budget reservations to main', () => {

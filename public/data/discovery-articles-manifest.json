@@ -1,15 +1,26 @@
 {
   "schema": 1,
-  "commit": "5f087d2264c85e930e5365ee186613ac953b27bf",
+  "commit": "c33c01d4e9653a46d6eb61f5252ccd44c32d104e",
   "files": {
-    "data/discovery-articles.json": 130
+    "data/discovery-articles.json": 1380
   },
   "counts": {
-    "discoveryArticles": 0
+    "discoveryArticles": 1
   },
   "routeReadiness": {
     "schema": 1,
     "algorithm": "sha256-discovery-article-v2",
-    "entries": {}
+    "entries": {
+      "telelavoro-frontaliere-quadro-svizzero": {
+        "signature": "7157045b25b9b1b165ba723def85e51f972bdef0e3c02f4d74c698d8177d4ed1",
+        "verifiedAt": "2026-11-07T18:38:12.122Z",
+        "locales": [
+          "de",
+          "en",
+          "fr",
+          "it"
+        ]
+      }
+    }
   }
 }

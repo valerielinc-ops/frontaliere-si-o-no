@@ -16,6 +16,31 @@ describe('getItalianJobTitle', () => {
     expect(getItalianJobTitle(job)).toBe(job.titleByLocale.it);
   });
 
+  it('localizes French contract and gender abbreviations before rendering', () => {
+    expect(getItalianJobTitle({
+      sourceLang: 'fr',
+      title: 'CDI - Coordinateur commercial (H/F)',
+      titleByLocale: { it: 'CDI - Coordinatore commerciale (M/F)' },
+    })).toBe('Tempo indeterminato — Coordinatore commerciale (m/f)');
+  });
+
+  it('localizes German contract and gender abbreviations before rendering', () => {
+    expect(getItalianJobTitle({
+      sourceLang: 'de',
+      title: 'Befristeter Verkäufer (m/w/d)',
+      titleByLocale: { it: 'CDD - Assistente alle vendite (M/W/D)' },
+    })).toBe('Tempo determinato — Assistente alle vendite (m/f/d)');
+  });
+
+  it('does not mistake known abbreviations for an Italian translation', () => {
+    const sourceTitle = 'CDI - Coordinateur commercial (H/F)';
+    expect(getItalianJobTitle({
+      sourceLang: 'fr',
+      title: sourceTitle,
+      titleByLocale: { it: sourceTitle },
+    })).toBe('');
+  });
+
   it('rejects a German title copied into the Italian slot', () => {
     const title = 'Verkäufer / Verkäuferin mit Schichtverantwortung (m/w/d) 60-80% 1 — Döttingen';
     expect(getItalianJobTitle({

@@ -3,6 +3,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { StringDecoder } from 'node:string_decoder';
 import { readAttr } from '../../scripts/lib/html-attr.mjs';
+import { stripSourceComments } from '../../scripts/lib/source-comments.mjs';
 import {
   computeInputHash,
   JOB_DIGEST_ALGORITHM_VERSION,
@@ -248,17 +249,6 @@ function resolveGraphSpecifier(fromFile, specifier, rootDir) {
   return null;
 }
 
-// Blanks block and line comments (keeping newlines, so line anchors survive).
-// Deliberately naive: a `/*` or `//` inside a string or regex literal can blank
-// real code, so the stripped text is only ever scanned IN ADDITION to the raw
-// text — it can add edges (`/* c */ import …`, `import /* c */ x from …`),
-// never remove one the raw scan found.
-function blankComments(source) {
-  return source
-    .replace(/\/\*[\s\S]*?\*\//g, (comment) => comment.replace(/[^\n]/g, ' '))
-    .replace(/\/\/[^\n]*/g, (comment) => ' '.repeat(comment.length));
-}
-
 function collectImportSpecifiers(text, specifiers) {
   STATIC_FROM_RE.lastIndex = 0;
   for (const match of text.matchAll(STATIC_FROM_RE)) {
@@ -273,13 +263,10 @@ function collectImportSpecifiers(text, specifiers) {
 
 export function importedSourceModules(source, fromFile, rootDir) {
   const specifiers = new Set();
-  // Union of the raw and comment-blanked scans: the raw scan keeps every
-  // line-start import even if blanking misfires on a string; the blanked scan
-  // catches imports that follow or contain a comment. A commented-out import
-  // only enters through the raw scan when it starts its own line, which errs
-  // on the side of invalidating.
+  // The raw scan keeps the graph conservative for future syntax unknown to
+  // the shared lexer; comment stripping adds imports that continue around comments.
   collectImportSpecifiers(source, specifiers);
-  collectImportSpecifiers(blankComments(source), specifiers);
+  collectImportSpecifiers(stripSourceComments(source), specifiers);
   return [...specifiers]
     .map((specifier) => resolveGraphSpecifier(fromFile, specifier, rootDir))
     .filter(Boolean);

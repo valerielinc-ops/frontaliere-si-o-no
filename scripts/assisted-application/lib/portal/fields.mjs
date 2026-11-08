@@ -42,7 +42,8 @@ function nativeQuestionText(value, counter = null) {
   const nativeOption = (option, select) => ({
     value: option.value,
     label: clean(option.textContent),
-    ...(select.required && !select.multiple && select.size <= 1 && select.options[0] === option
+    ...((select.required || String(select.getAttribute('aria-required') || '').toLowerCase() === 'true')
+      && !select.multiple && select.size <= 1 && select.options[0] === option
       && option.parentElement === select && option.value === '' ? { placeholder: true } : {}),
   });
   const EMPTY_PICKLIST_RE = /^(bitte (aus)?wählen|please select|select|seleziona(re)?|sélectionne[rz]?|choisi(r|ssez)|aucune\s+(?:sélection|selection)(?:née|nee)?|keine\s+auswahl|no\s+selection|nothing\s+selected)\b/i;
@@ -515,6 +516,9 @@ function nativeQuestionText(value, counter = null) {
       return Boolean(sibling && marker(sibling, true));
     }));
   };
+  const hasRequiredControlSignal = (element, labelText) =>
+    element.required || hasAriaRequired(element) || element.hasAttribute('data-required')
+      || hasRequiredMarker(element, labelText ?? labelFor(element));
   const SITE_SEARCH_TEXT_RE = /\b(?:search|suche|suchen|find(?:en)?|recherche|rechercher|cerca|buscar|busca|query)\b/i;
   const hasSiteSearchIdentity = (element) => [
     element.getAttribute('type'),
@@ -536,25 +540,35 @@ function nativeQuestionText(value, counter = null) {
     });
   };
   const isApplicationOwnedControl = (element) => {
-    if (element.required || hasAriaRequired(element)) return true;
+    if (hasRequiredControlSignal(element)) return true;
     const form = element.form || element.closest('form');
     if (form && !isSiteSearchForm(form)) return true;
     return element.matches('button[type="submit"], input[type="submit"]') && !isSiteSearchForm(form);
   };
-  const isSiteChromeControl = (element) => inSiteChrome(element) && !isApplicationOwnedControl(element);
   const SITE_LANGUAGE_LABEL_RE = /^(?:language|lingua|langue|sprache|idioma|sprachauswahl)(?:\s+(?:selector|menu|select))?\s*[:*]?$/i;
   const isSiteLanguageControl = (element) => {
-    const label = clean(labelFor(element));
+    const tag = element.tagName.toLowerCase();
+    const buttonLike = tag === 'button' || element.getAttribute('role') === 'button';
+    const label = clean(labelFor(element) || (buttonLike
+      ? element.innerText || element.textContent || element.getAttribute('aria-label') || element.getAttribute('title')
+      : '')).normalize('NFKC');
+    const nativeLanguageSelect = tag === 'select' && inSiteChrome(element);
+    // Some employer shells render the language menu in the page content
+    // rather than inside a header/nav landmark. An unowned button with an
+    // exact language label is still site chrome; a button in an application
+    // form remains candidate-owned through the form guard below.
+    const ownerlessLanguageButton = buttonLike && !element.form && !element.closest('form');
     // Native language selectors are sometimes wrapped in a header form. That
     // form makes isApplicationOwnedControl true, although the select remains
     // site chrome rather than an application question. Required controls keep
     // the application-owned precedence even when placed in a header/footer.
-    if (element.tagName.toLowerCase() !== 'select' || !inSiteChrome(element)
+    if ((!nativeLanguageSelect && !ownerlessLanguageButton)
       || !SITE_LANGUAGE_LABEL_RE.test(label)
-      || element.required || hasAriaRequired(element) || element.hasAttribute('data-required')
-      || hasRequiredMarker(element, label)) return false;
+      || hasRequiredControlSignal(element, label)) return false;
     return true;
   };
+  const isSiteChromeControl = (element) => isSiteLanguageControl(element)
+    || (inSiteChrome(element) && !isApplicationOwnedControl(element));
   const isSiteGlobalSearchField = (element) => {
     if (element.getAttribute('data-uxi-widget-type') === 'selectinput') return false;
     const inSearchLandmark = Boolean(element.closest('[role="search"]'));

@@ -1,5 +1,6 @@
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
 import { readFileSync } from 'node:fs';
+import { hydrateGhBodyFileArgs } from '../helpers/ghBodyFile';
 
 /**
  * Il reporter di factuality non ri-escala a ogni sync le stesse firme
@@ -22,7 +23,10 @@ import { readFileSync } from 'node:fs';
  */
 const execFileSync = vi.fn();
 vi.mock('node:child_process', () => {
-  const mock = { execFileSync: (...args: unknown[]) => execFileSync(...args) };
+  const mock = {
+    execFileSync: (cmd: string, args: string[], ...rest: unknown[]) =>
+      execFileSync(cmd, hydrateGhBodyFileArgs(args), ...rest),
+  };
   return { ...mock, default: mock };
 });
 
@@ -48,6 +52,10 @@ function fakeGh(cmd: string, args: string[]) {
   if (group === 'issue' && sub === 'edit') {
     const i = args.indexOf('--body-file');
     if (i >= 0) issue.body = readFileSync(args[i + 1], 'utf8');
+    else {
+      const bodyIndex = args.indexOf('--body');
+      if (bodyIndex >= 0) issue.body = args[bodyIndex + 1];
+    }
     return '';
   }
   if (group === 'label') return '[]';

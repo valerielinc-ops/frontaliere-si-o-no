@@ -1,7 +1,7 @@
 {
   "key": "rennbahnklinik",
   "label": "Rennbahnklinik",
-  "generatedAt": "2026-11-07T09:39:19.824Z",
+  "generatedAt": "2026-11-07T21:29:50.511Z",
   "total": 10,
   "discovered": null,
   "parsed": 10,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 10,
-  "durationMs": 13370,
-  "avgDurationMs": 13370,
+  "durationMs": 13844,
+  "avgDurationMs": 13844,
   "durationHistory": [
-    13370
+    13844
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -37,7 +37,7 @@
       "url": "https://www.rennbahnklinik.ch/jobs/assistenzarzt-aerztin-sport-orthopaedie",
       "source": "Rennbahnklinik Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-07T09:38:58.482Z",
+      "crawledAt": "2026-11-07T21:29:36.916Z",
       "addressLocality": "Muttenz",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -60,7 +60,7 @@
       "salaryMax": 123000,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-07T09:38:58.482Z",
+      "validThrough": "2026-12-07T21:29:36.916Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -83,7 +83,7 @@
       "url": "https://www.rennbahnklinik.ch/jobs/pflegefachperson-hf",
       "source": "Rennbahnklinik Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-07T09:38:57.506Z",
+      "crawledAt": "2026-11-07T21:29:35.935Z",
       "addressLocality": "Muttenz",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -106,7 +106,7 @@
       "salaryMax": 123000,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-01T09:38:57.506Z",
+      "validThrough": "2027-02-01T21:29:35.935Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -129,7 +129,7 @@
       "url": "https://www.rennbahnklinik.ch/jobs/technische-operationsfachkraft-toa",
       "source": "Rennbahnklinik Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-07T09:38:56.553Z",
+      "crawledAt": "2026-11-07T21:29:34.956Z",
       "addressLocality": "Muttenz",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -152,7 +152,7 @@
       "salaryMax": 123000,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-07T09:38:56.553Z",
+      "validThrough": "2026-12-07T21:29:34.956Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -175,7 +175,7 @@
       "url": "https://www.rennbahnklinik.ch/jobs/praktikum-biomechanik",
       "source": "Rennbahnklinik Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-07T09:38:55.576Z",
+      "crawledAt": "2026-11-07T21:29:33.947Z",
       "addressLocality": "Muttenz",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -197,7 +197,7 @@
       "salaryMax": 110500,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-05T09:38:55.576Z",
+      "validThrough": "2027-02-05T21:29:33.947Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -220,7 +220,7 @@
       "url": "https://www.rennbahnklinik.ch/jobs/wissenschaftliche-n-mitarbeiter-in",
       "source": "Rennbahnklinik Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-07T09:38:54.579Z",
+      "crawledAt": "2026-11-07T21:29:32.903Z",
       "addressLocality": "Muttenz",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -243,7 +243,7 @@
       "salaryMax": 61500,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-01T09:38:54.579Z",
+      "validThrough": "2027-02-01T21:29:32.903Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -265,7 +265,7 @@
       "url": "https://www.rennbahnklinik.ch/jobs/unterassistenz",
       "source": "Rennbahnklinik Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-07T09:38:53.599Z",
+      "crawledAt": "2026-11-07T21:29:31.910Z",
       "addressLocality": "Muttenz",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -288,7 +288,7 @@
       "salaryMax": 123000,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-07T09:38:53.599Z",
+      "validThrough": "2026-12-07T21:29:31.910Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -310,7 +310,7 @@
       "url": "https://www.rennbahnklinik.ch/jobs/physiotherapeut-in",
       "source": "Rennbahnklinik Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-07T09:38:52.572Z",
+      "crawledAt": "2026-11-07T21:29:30.829Z",
       "addressLocality": "Muttenz",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -333,7 +333,7 @@
       "salaryMax": 123000,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-26T09:38:52.572Z",
+      "validThrough": "2027-01-26T21:29:30.829Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -356,7 +356,7 @@
       "url": "https://www.rennbahnklinik.ch/jobs/pflegepraktikum-fuer-medizinstudierende",
       "source": "Rennbahnklinik Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-07T09:38:51.563Z",
+      "crawledAt": "2026-11-07T21:29:29.862Z",
       "addressLocality": "Muttenz",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -379,7 +379,7 @@
       "salaryMax": 110500,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-07T09:38:51.563Z",
+      "validThrough": "2026-12-07T21:29:29.862Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -402,7 +402,7 @@
       "url": "https://www.rennbahnklinik.ch/jobs/medizinische-praxisassistent-in-efz-im-labor",
       "source": "Rennbahnklinik Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-07T09:38:50.581Z",
+      "crawledAt": "2026-11-07T21:29:28.899Z",
       "addressLocality": "Muttenz",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -425,7 +425,7 @@
       "salaryMax": 73800,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-26T09:38:50.581Z",
+      "validThrough": "2027-01-26T21:29:28.899Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -448,7 +448,7 @@
       "url": "https://www.rennbahnklinik.ch/jobs/reinigungsfachkraft-auf-abruf",
       "source": "Rennbahnklinik Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-07T09:38:49.559Z",
+      "crawledAt": "2026-11-07T21:29:27.932Z",
       "addressLocality": "Muttenz",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -471,7 +471,7 @@
       "salaryMax": 123000,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-29T09:38:49.559Z",
+      "validThrough": "2027-01-28T21:29:27.932Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -482,5 +482,5 @@
       }
     }
   ],
-  "codeCommit": "dae4367441abe10a497d7d52ebb4540c014e1e8c"
+  "codeCommit": "f149ed523035737e5146c13e7338b8dd6b0c5f04"
 }

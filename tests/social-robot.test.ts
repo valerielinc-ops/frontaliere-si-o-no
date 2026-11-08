@@ -1397,6 +1397,8 @@ describe('Mac host launch agent', () => {
     );
     fs.writeFileSync(path.join(socialDir, 'launchd.sh'), destinationLauncher);
     fs.copyFileSync(path.join(ROOT, 'scripts', 'social-robot', 'verify-snapshot.mjs'), path.join(socialDir, 'verify-snapshot.mjs'));
+    fs.copyFileSync(path.join(ROOT, 'scripts', 'lib', 'source-comments.mjs'), path.join(libDir, 'source-comments.mjs'));
+    fs.copyFileSync(path.join(ROOT, 'scripts', 'lib', 'inline-comment-marker.mjs'), path.join(libDir, 'inline-comment-marker.mjs'));
     fs.cpSync(
       path.join(ROOT, 'scripts', 'social-robot', 'runtime-shims'),
       path.join(socialDir, 'runtime-shims'),

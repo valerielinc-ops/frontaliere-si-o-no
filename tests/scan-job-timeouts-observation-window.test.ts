@@ -1,9 +1,11 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
+import { hydrateGhBodyFileArgs } from './helpers/ghBodyFile';
 
 const execFileSync = vi.fn();
 vi.mock('node:child_process', () => {
   const mock = {
     execFileSync: (cmd: string, args: string[], ...rest: unknown[]) => {
+      const hydratedArgs = hydrateGhBodyFileArgs(args);
       if (cmd === 'gh' && args[0] === 'api'
         && String(args[1]).includes('/runs?status=success&event=schedule')) {
         return JSON.stringify({ workflow_runs: [] });
@@ -12,7 +14,7 @@ vi.mock('node:child_process', () => {
         && String(args[1]).includes('/actions/runs?status=startup_failure')) {
         return JSON.stringify({ workflow_runs: [] });
       }
-      return execFileSync(cmd, args, ...rest);
+      return execFileSync(cmd, hydratedArgs, ...rest);
     },
   };
   return { ...mock, default: mock };
