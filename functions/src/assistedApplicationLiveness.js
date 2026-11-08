@@ -97,6 +97,7 @@ const APPLY_PATTERNS = [
   /\bclick\s+here\b/i,
   /\bcliquez?\s+ici\b/i,
   /\bhier\s+klicken\b/i,
+  /\bfare\s+clic\s+qui\b/i,
 ];
 const MIN_CONTENT_CHARS = 300;
 const JOB_ID_TOKEN = /[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}|\d{5,}/gi;
