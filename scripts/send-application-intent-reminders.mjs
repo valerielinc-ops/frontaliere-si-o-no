@@ -39,6 +39,7 @@ import {
   APPLICATION_INTENT_REMINDER_DELIVERIES_COLLECTION,
   MAX_APPLICATION_INTENT_RECOMMENDATIONS,
 } from './lib/applicationIntentReminder.mjs';
+import { loadApplicationIntentReminderCandidates } from './lib/application-intent-reminder-candidates.mjs';
 import {
   buildApplicationIntentReminderEmailHtml,
   buildApplicationIntentReminderEmailText,
@@ -401,9 +402,10 @@ export async function main() {
   const campaignId = `application-intent-reminder-${now.toISOString().slice(0, 10)}`;
 
   console.log('📝 Application-intent reminders — querying intents…');
-  const intentSnap = await db.collectionGroup(APPLICATION_INTENTS_COLLECTION).get();
+  const intentCandidates = await loadApplicationIntentReminderCandidates(db, { now });
+  console.log(`📝 Reminder candidates: ${intentCandidates.docs.length} docs from ${intentCandidates.queryCount} bounded queries (${intentCandidates.reads} estimated reads)`);
   const byUid = new Map();
-  for (const snapshot of intentSnap.docs || []) {
+  for (const snapshot of intentCandidates.docs) {
     const uid = applicationIntentUid(snapshot);
     if (!uid) continue;
     if (!byUid.has(uid)) byUid.set(uid, []);

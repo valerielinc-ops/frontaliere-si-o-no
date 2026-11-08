@@ -24,7 +24,8 @@ import {
 import {
   APPLICATION_INTENTS_COLLECTION,
   APPLICATION_INTENT_RETENTION_DAYS,
-} from './applicationIntentRetention.js';
+  APPLICATION_INTENT_REMINDER_DELAY_MS,
+} from './applicationIntentConstants.js';
 
 export const APPLICATION_INTENT_CONSENT_VERSION = 'application-intent-v1';
 export const APPLICATION_INTENT_STATUS = 'redirect_only';
@@ -33,8 +34,11 @@ export const APPLICATION_INTENT_APPLICATION_MODES = Object.freeze([
   'in_house',
   'forward_email',
 ]);
-export const APPLICATION_INTENT_REMINDER_DELAY_MS = 48 * 60 * 60 * 1000;
-export { APPLICATION_INTENTS_COLLECTION, APPLICATION_INTENT_RETENTION_DAYS };
+export {
+  APPLICATION_INTENTS_COLLECTION,
+  APPLICATION_INTENT_RETENTION_DAYS,
+  APPLICATION_INTENT_REMINDER_DELAY_MS,
+};
 
 // These limits are part of the storage contract. They bound attacker-controlled
 // strings and keep a consent proof useful without turning it into an arbitrary

@@ -15,11 +15,15 @@ import {
   APPLICATION_INTENT_RETENTION_DAYS,
 } from '../../functions/src/applicationIntentCore.js';
 import {
+  APPLICATION_INTENT_REMINDER_DELAY_MS,
+  APPLICATION_INTENT_REMINDER_WRITE_SKEW_MS,
+} from '../../functions/src/applicationIntentConstants.js';
+import {
   APPLICATION_INTENT_REMINDER_DELIVERIES_COLLECTION,
 } from '../../functions/src/applicationIntentPrivacy.js';
 
 export const APPLICATION_INTENT_RETENTION_MS = APPLICATION_INTENT_RETENTION_DAYS * 86400000;
-export const APPLICATION_INTENT_REMINDER_MIN_AGE_MS = 48 * 60 * 60 * 1000;
+export const APPLICATION_INTENT_REMINDER_MIN_AGE_MS = APPLICATION_INTENT_REMINDER_DELAY_MS;
 /**
  * The producer (functions/src/applicationIntentCore.js#buildApplicationIntentRecord)
  * computes `reminder.dueAt` and `expiresAt` from the function clock while it
@@ -31,7 +35,7 @@ export const APPLICATION_INTENT_REMINDER_MIN_AGE_MS = 48 * 60 * 60 * 1000;
  * consistency checks between producer-clock and server-clock fields: the 48-hour
  * quiet period is enforced on the click itself.
  */
-export const APPLICATION_INTENT_WRITE_SKEW_MS = 60 * 1000;
+export const APPLICATION_INTENT_WRITE_SKEW_MS = APPLICATION_INTENT_REMINDER_WRITE_SKEW_MS;
 export { APPLICATION_INTENT_REMINDER_DELIVERIES_COLLECTION };
 export const MAX_APPLICATION_INTENT_RECOMMENDATIONS = 3;
 
