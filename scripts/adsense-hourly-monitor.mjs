@@ -130,11 +130,30 @@ async function firestore() {
   return getFirestore();
 }
 
-async function loadSnapshots(db, fromDate) {
-  const snap = await db.collection(SNAPSHOT_COLLECTION)
-    .where('date', '>=', fromDate)
-    .get();
-  return snap.docs.map((doc) => doc.data());
+export function isAdSenseSnapshotDateIndexNotReady(error) {
+  const code = error?.code;
+  const failedPrecondition = code === 9 || code === '9' || code === 'FAILED_PRECONDITION';
+  const message = typeof error?.message === 'string' ? error.message : '';
+  return failedPrecondition
+    && message.includes(`collection ${SNAPSHOT_COLLECTION}`)
+    && message.includes('field date')
+    && /requires a COLLECTION_ASC index/i.test(message)
+    && /index is not ready yet/i.test(message);
+}
+
+export async function loadSnapshots(db, fromDate) {
+  const collection = db.collection(SNAPSHOT_COLLECTION);
+  try {
+    const snap = await collection.where('date', '>=', fromDate).get();
+    return snap.docs.map((doc) => doc.data());
+  } catch (error) {
+    if (!isAdSenseSnapshotDateIndexNotReady(error)) throw error;
+    console.error('[adsense-hourly] indice date in propagazione; filtro gli snapshot senza query indicizzata');
+    const snap = await collection.get();
+    return snap.docs
+      .map((doc) => doc.data())
+      .filter((snapshot) => typeof snapshot.date === 'string' && snapshot.date >= fromDate);
+  }
 }
 
 async function notifiedKeys(db, keys) {
