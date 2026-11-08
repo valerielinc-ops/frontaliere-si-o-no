@@ -132,7 +132,7 @@ async function firestore() {
 
 export function isAdSenseSnapshotDateIndexNotReady(error) {
   const code = error?.code;
-  const failedPrecondition = code === 9 || code === '9' || code === 'FAILED_PRECONDITION';
+  const failedPrecondition = code === 9 || code === '9';
   const message = typeof error?.message === 'string' ? error.message : '';
   return failedPrecondition
     && message.includes(`collection ${SNAPSHOT_COLLECTION}`)
