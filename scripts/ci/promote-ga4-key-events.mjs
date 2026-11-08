@@ -171,7 +171,7 @@ function isDirectInvocation() {
 }
 
 function main() {
-  const issueNumber = Number(process.env.GA4_PROMOTION_ISSUE_NUMBER || 0);
+  const issueNumber = Number(process.env.GA4_PROMOTION_ISSUE_NUMBER);
   if (issueNumber !== GA4_PROMOTION_ISSUE_NUMBER) {
     throw new Error(`GA4 promotion is restricted to issue #${GA4_PROMOTION_ISSUE_NUMBER}`);
   }
