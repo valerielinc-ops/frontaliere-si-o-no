@@ -72,9 +72,10 @@ function registerHreflangIntegrityChecks(opts: {
   articleIds: readonly string[];
   slugs: Record<string, Record<string, string>>;
   // Article IDs intentionally absent from this sitemap (canonical-override
-  // shadowed variants or fully edge-retired rows) — excluded from the "every
-  // article has a hreflang alternate" forward check but still included in the
-  // reverse lookup map. Dedicated absence checks cover both classes.
+  // shadowed variants, fully edge-retired rows, or index-excluded rows) —
+  // excluded from the "every article has a hreflang alternate" forward check
+  // but still included in the reverse lookup map. Dedicated/shared omission
+  // gates cover the intentional drops.
   skipForwardCheckIds?: ReadonlySet<string>;
 }): void {
   const { section, sitemapLabel, sitemapXml, articleIds, slugs, skipForwardCheckIds } = opts;
@@ -253,7 +254,7 @@ describe('Blog sitemap slug integrity', () => {
 
   describe('every non-excluded article in ALL_BLOG_ARTICLE_IDS has a sitemap entry', () => {
     for (const id of ALL_BLOG_ARTICLE_IDS) {
-      if (blogSitemapExcludedArticleIds.has(id)) continue; // covered below: must be ABSENT instead
+      if (blogSitemapExcludedArticleIds.has(id)) continue; // intentionally omitted; absence is covered by the shared sync gate
       it(`article "${id}" → has IT slug in sitemap-blog.xml`, () => {
         const itSlug = BLOG_SLUGS[id]?.it;
         expect(itSlug, `Article "${id}" has no IT slug in BLOG_SLUGS`).toBeTruthy();
@@ -436,7 +437,7 @@ describe('Swiss article sitemap slug integrity', () => {
 
   describe('every non-excluded article in ALL_SWISS_ARTICLE_IDS has a sitemap entry', () => {
     for (const id of ALL_SWISS_ARTICLE_IDS) {
-      if (swissSitemapExcludedArticleIds.has(id)) continue; // covered below: must be ABSENT instead
+      if (swissSitemapExcludedArticleIds.has(id)) continue; // intentionally omitted; absence is covered by the shared sync gate
       it(`article "${id}" → has IT slug in sitemap-blog-ch.xml`, () => {
         const itSlug = SWISS_SLUGS[id]?.it;
         expect(itSlug, `Article "${id}" has no IT slug in SWISS_SLUGS`).toBeTruthy();
