@@ -63,6 +63,19 @@ describe('workflow failure reporting stays coupled to the central scanner contra
     expect(steps.every((step: any) => step.with['closed-by'] === 'close-recovered-failure-issues')).toBe(true);
   });
 
+  it('reports a missing social copy pack with the canonical closer and generation diagnostic', () => {
+    const source = parse('.github/workflows/social-copy-pack.yml');
+    const job = source.jobs.generate;
+    const steps = reporterSteps(job);
+
+    expect(job.permissions).toMatchObject({ contents: 'read', issues: 'write', actions: 'read' });
+    expect(steps).toHaveLength(1);
+    expect(steps[0].if).toBe('failure()');
+    expect(steps[0].with.title).toBe('CI Failure: ${{ github.workflow }}');
+    expect(steps[0].with['closed-by']).toBe('close-recovered-failure-issues');
+    expect(steps[0].with['diag-file']).toBe('${{ runner.temp }}/social-copy-generation-result.txt');
+  });
+
   it('reports caller-level failures from deploy, reusable validators and side effects', () => {
     const source = parse('.github/workflows/deploy-publish.yml');
     const job = source.jobs['report-failure'];
