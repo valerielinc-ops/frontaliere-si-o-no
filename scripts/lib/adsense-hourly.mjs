@@ -20,6 +20,7 @@
 export const ADSENSE_TIME_ZONE = 'Europe/Rome';
 export const SNAPSHOT_COLLECTION = 'adsense_hourly_snapshots';
 export const ALERT_COLLECTION = 'adsense_hourly_alerts';
+export const SNAPSHOT_RETENTION_DAYS = 14;
 
 export const DEFAULT_CONFIG = Object.freeze({
   dropThreshold: 0.2,
@@ -65,6 +66,7 @@ export function buildSnapshot({ capturedAt, today, previousDay = null, ga4 = nul
   const clock = localClock(capturedAt);
   return {
     capturedAt: capturedAt.toISOString(),
+    expiresAt: new Date(capturedAt.getTime() + SNAPSHOT_RETENTION_DAYS * 86_400_000),
     date: clock.date,
     minuteOfDay: clock.minuteOfDay,
     currency,

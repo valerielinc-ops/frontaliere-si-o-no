@@ -218,6 +218,38 @@
       ]
     },
     {
+      "collectionGroup": "events",
+      "fieldPath": "event_type",
+      "indexes": [
+        { "order": "ASCENDING", "queryScope": "COLLECTION" }
+      ]
+    },
+    {
+      "collectionGroup": "events",
+      "fieldPath": "occurred_at",
+      "indexes": [
+        { "order": "DESCENDING", "queryScope": "COLLECTION" }
+      ]
+    },
+    {
+      "collectionGroup": "adsense_hourly_snapshots",
+      "fieldPath": "*",
+      "indexes": []
+    },
+    {
+      "collectionGroup": "adsense_hourly_snapshots",
+      "fieldPath": "date",
+      "indexes": [
+        { "order": "ASCENDING", "queryScope": "COLLECTION" }
+      ]
+    },
+    {
+      "collectionGroup": "adsense_hourly_snapshots",
+      "fieldPath": "expiresAt",
+      "ttl": true,
+      "indexes": []
+    },
+    {
       "collectionGroup": "job_email_ranking_stats",
       "fieldPath": "expires_at",
       "ttl": true,
@@ -266,16 +298,28 @@
     },
     { "collectionGroup": "campaign_deliveries", "fieldPath": "message_id", "indexes": [] },
     { "collectionGroup": "campaign_deliveries", "fieldPath": "provider", "indexes": [] },
+    { "collectionGroup": "campaign_deliveries", "fieldPath": "attempted_at", "indexes": [] },
+    { "collectionGroup": "campaign_deliveries", "fieldPath": "bounced_at", "indexes": [] },
+    { "collectionGroup": "campaign_deliveries", "fieldPath": "complained_at", "indexes": [] },
+    { "collectionGroup": "campaign_deliveries", "fieldPath": "delivered_at", "indexes": [] },
+    { "collectionGroup": "campaign_deliveries", "fieldPath": "clicked_links", "indexes": [] },
+    { "collectionGroup": "campaign_deliveries", "fieldPath": "last_clicked_url", "indexes": [] },
+    { "collectionGroup": "campaign_deliveries", "fieldPath": "opened_at", "indexes": [] },
     { "collectionGroup": "campaign_deliveries", "fieldPath": "ranking_delivery_id", "indexes": [] },
     { "collectionGroup": "campaign_deliveries", "fieldPath": "ranking_variant", "indexes": [] },
     { "collectionGroup": "campaign_deliveries", "fieldPath": "scheduled_for", "indexes": [] },
     { "collectionGroup": "campaign_deliveries", "fieldPath": "send_time_source", "indexes": [] },
     { "collectionGroup": "campaign_deliveries", "fieldPath": "outcome_contract_version", "indexes": [] },
+    { "collectionGroup": "campaign_deliveries", "fieldPath": "suppressed_at", "indexes": [] },
+    { "collectionGroup": "campaign_deliveries", "fieldPath": "updated_at", "indexes": [] },
     { "collectionGroup": "alerts", "fieldPath": "ranking_stats", "indexes": [] },
     { "collectionGroup": "alerts", "fieldPath": "sentJobIds", "indexes": [] },
     { "collectionGroup": "events", "fieldPath": "metadata", "indexes": [] },
     { "collectionGroup": "events", "fieldPath": "email", "indexes": [] },
     { "collectionGroup": "events", "fieldPath": "maileroo_event", "indexes": [] },
+    { "collectionGroup": "events", "fieldPath": "mailjet_event", "indexes": [] },
+    { "collectionGroup": "events", "fieldPath": "mailgun_event", "indexes": [] },
+    { "collectionGroup": "events", "fieldPath": "mailtrap_event", "indexes": [] },
     {
       "collectionGroup": "events",
       "fieldPath": "message_id",

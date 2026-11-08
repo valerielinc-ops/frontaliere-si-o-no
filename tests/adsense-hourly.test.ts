@@ -13,6 +13,7 @@ import {
  localClock,
  monitorDecision,
  shiftDate,
+ SNAPSHOT_RETENTION_DAYS,
  snapshotId,
 } from '../scripts/lib/adsense-hourly.mjs';
 import { LOOP_CLOCK_ENTRIES } from '../functions/src/loopClockTable.js';
@@ -38,8 +39,10 @@ describe('calendar helpers', () => {
  });
 
  it('stores zero, not undefined, before AdSense has a row for the day', () => {
-  const snapshot = buildSnapshot({ capturedAt: new Date('2026-10-31T23:05:00Z'), today: undefined });
+  const capturedAt = new Date('2026-10-31T23:05:00Z');
+  const snapshot = buildSnapshot({ capturedAt, today: undefined });
   expect(snapshot).toMatchObject({ date: '2026-11-01', earnings: 0, pageViews: 0, coverage: null });
+  expect(snapshot.expiresAt).toEqual(new Date(capturedAt.getTime() + SNAPSHOT_RETENTION_DAYS * 86_400_000));
  });
 });
 
