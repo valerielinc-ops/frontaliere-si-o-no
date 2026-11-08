@@ -100,7 +100,9 @@
       "slug": "business-manager-cio-office-global-equity-fixed-income-100-f-m-d-julius-baer",
       "slugByLocale": {
         "en": "business-manager-cio-office-global-equity-fixed-income-100-f-m-d-julius-baer",
-        "fr": "directeur-d-entreprise-bureau-de-la-dpi-action-globale-et-revenu-fixe-100-h-f-d-julius-baer-zurich"
+        "fr": "directeur-d-entreprise-bureau-de-la-dpi-action-globale-et-revenu-fixe-100-h-f-d-julius-baer-zurich",
+        "it": "business-manager-cio-office-global-equity-fixed-income-100-f-m-d-julius-baer",
+        "de": "business-manager-cio-office-global-equity-fixed-income-100-f-m-d-julius-baer"
       },
       "category": "management",
       "datePosted": "2026-11-06",
@@ -669,7 +671,8 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 2
     },
     {
       "url": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Finance-Business-Partner---Global-Product-Solutions-and-CIO-100---f-m-d-_r-20236",
@@ -1266,6 +1269,9 @@
         "canton": "ZH",
         "location": "Zurich"
       },
+      "previousSlugs": [
+        "front-arena-market-making-specialist-amas-100-f-m-d-contract-through-our-external-payroll-partner-immediate-start-for-12-months-possible-extension-julius-baer"
+      ],
       "previousSlugsByLocale": {
         "en": [
           "front-arena-market-making-specialist-amas-100-f-m-d-contract-through-our-external-payroll-partner-immediate-start-for-12-months-possible-extension-julius-baer"
@@ -1274,13 +1280,9 @@
           "front-arena-market-making-specialist-amas-100-f-m-d-contract-through-our-external-payroll-partner-immediate-start-for-12-months-possible-extension-julius-baer"
         ]
       },
-      "previousSlugs": [
-        "front-arena-market-making-specialist-amas-100-f-m-d-contract-through-our-external-payroll-partner-immediate-start-for-12-months-possible-extension-julius-baer"
-      ],
-      "needsRetranslation": true,
       "localeMismatchSuppressed": true,
       "localeMismatchSuppressedLen": 3301,
-      "retranslationAttempts": 25,
+      "retranslationAttempts": 26,
       "firstSeenAt": "2026-07-22T11:17:20.458Z",
       "crawledAt": "2026-11-08T21:21:53.152Z",
       "streetAddressSource": "to-enrich",
@@ -1299,7 +1301,8 @@
           "maxValue": 134500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "url": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Senior-Relationship-Manager-Global-NRI_r-20321",
@@ -2781,10 +2784,9 @@
         "canton": "ZH",
         "location": "Zurich"
       },
-      "needsRetranslation": true,
       "localeMismatchSuppressed": true,
       "localeMismatchSuppressedLen": 3264,
-      "retranslationAttempts": 78,
+      "retranslationAttempts": 79,
       "firstSeenAt": "2026-08-21T21:26:37.240Z",
       "crawledAt": "2026-11-08T21:21:53.152Z",
       "streetAddressSource": "to-enrich",
@@ -2803,7 +2805,8 @@
           "maxValue": 206500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "url": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Leiter-Sicherheitsdienst-100---f-m-d-_r-19893",
@@ -3332,10 +3335,9 @@
         "canton": "ZH",
         "location": "Zurich"
       },
-      "needsRetranslation": true,
       "localeMismatchSuppressed": true,
       "localeMismatchSuppressedLen": 5322,
-      "retranslationAttempts": 78,
+      "retranslationAttempts": 79,
       "firstSeenAt": "2026-10-01T09:13:13.433Z",
       "crawledAt": "2026-11-08T21:21:53.152Z",
       "streetAddressSource": "to-enrich",
@@ -3354,7 +3356,8 @@
           "maxValue": 134500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "url": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Strategy-Specialist---Group-Strategy--100---m-f-d-_r-19882",
