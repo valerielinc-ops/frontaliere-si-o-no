@@ -116,7 +116,8 @@ jobs:
           BENCHMARK_ORIGIN: ${{ runner.temp }}/translate-pending-budget-origin.git
         run: |
           git init --bare "$BENCHMARK_ORIGIN"
-          git push "$BENCHMARK_ORIGIN" HEAD:refs/heads/main
+          git -C "$BENCHMARK_ORIGIN" config receive.shallowUpdate true
+          git push --no-thin "$BENCHMARK_ORIGIN" HEAD:refs/heads/main
           git remote set-url origin "$BENCHMARK_ORIGIN"
           git fetch --no-tags origin main
           git config user.name 'translate-pending-budget-benchmark'

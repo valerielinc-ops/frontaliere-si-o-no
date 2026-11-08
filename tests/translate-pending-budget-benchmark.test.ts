@@ -132,7 +132,9 @@ describe('translate-pending budget benchmark', () => {
       .toBeGreaterThan(names.indexOf('Load Remote Config secrets'));
     expect(names.indexOf('Resolve Codex reserve budget'))
       .toBeLessThan(names.indexOf('Start Codex reserve broker'));
-
+    const prepareRemote = steps.find((step) => step.name === 'Prepare isolated benchmark remote')?.run;
+    expect(prepareRemote).toContain('receive.shallowUpdate true');
+    expect(prepareRemote).toContain('git push --no-thin');
     const source = fs.readFileSync(SCRIPT_PATH, 'utf8');
     expect(source).toContain('same-population anchor');
     expect(source).toContain('candidateFingerprint');
