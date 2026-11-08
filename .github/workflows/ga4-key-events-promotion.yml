@@ -1,0 +1,66 @@
+name: Promote observed GA4 key events
+
+on:
+  workflow_dispatch:
+    inputs:
+      issue_number:
+        description: 'Issue autorizzata per la promozione GA4'
+        required: true
+        default: '15877'
+        type: string
+
+concurrency:
+  group: ga4-key-events-promotion-15877
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  promote:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Validate authorized issue
+        env:
+          ISSUE_NUMBER: ${{ inputs.issue_number }}
+        run: |
+          set -euo pipefail
+          test "$ISSUE_NUMBER" = '15877'
+
+      - name: Checkout GA4 promotion code
+        uses: actions/checkout@v7
+        with:
+          fetch-depth: 1
+          sparse-checkout: |
+            package.json
+            package-lock.json
+            scripts/ci/promote-ga4-key-events.mjs
+            scripts/ga4-key-events.mjs
+            scripts/lib/
+          sparse-checkout-cone-mode: false
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: '22'
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      # This is intentionally a trusted runner step. The Codex fallback keeps
+      # both network and service-account credentials out of the model sandbox.
+      # The promotion helper performs the read-only plan first, then applies
+      # only newsletter_subscribe and login after eventCount > 0 is proven.
+      - name: Observe then promote newsletter/login
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+          GA4_PROMOTION_ISSUE_NUMBER: ${{ inputs.issue_number }}
+          GA4_PROMOTION_REPORT: ${{ runner.temp }}/ga4-key-events-promotion.json
+        run: node scripts/ci/promote-ga4-key-events.mjs
+
+      - name: Print sanitized promotion evidence
+        env:
+          GA4_PROMOTION_REPORT: ${{ runner.temp }}/ga4-key-events-promotion.json
+        run: cat "$GA4_PROMOTION_REPORT"
