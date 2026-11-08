@@ -28,4 +28,15 @@ describe('Firebase Admin workflow installation', () => {
       expect(workflow, relativePath).not.toMatch(/run: npm install(?: --no-save)? firebase-admin@14\.5\.0/u);
     }
   });
+
+  it('keeps the HERE install budget backed by a fresh-runner pre-merge benchmark', () => {
+    const workflow = readFileSync(resolve(ROOT, '.github/workflows/here-usage-reconcile.yml'), 'utf8');
+
+    expect(workflow).toContain('pull_request:');
+    expect(workflow).toContain('name: install benchmark (${{ matrix.mode }})');
+    expect(workflow).toContain('npm ci --no-fund --no-audit');
+    expect(workflow).toContain(FIREBASE_ADMIN_INSTALL);
+    expect(workflow).toContain('if [ "$MODE" = isolated ] && [ "$elapsed" -ge 480 ]; then');
+    expect(workflow).toContain('ref: ${{ github.event.pull_request.head.sha }}');
+  });
 });
