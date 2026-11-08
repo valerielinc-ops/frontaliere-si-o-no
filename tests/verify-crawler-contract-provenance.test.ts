@@ -1,8 +1,9 @@
 import assert from 'node:assert/strict';
 import crypto from 'node:crypto';
 import fs from 'node:fs';
+import os from 'node:os';
 import path from 'node:path';
-import { describe, it } from 'vitest';
+import { afterAll, describe, it } from 'vitest';
 import {
   buildRawContentsUrl,
   compareArtifactProvenance,
@@ -23,6 +24,16 @@ const LOCAL_BYTES = fs.readFileSync(path.join(ROOT, '.github/corpus-workflows/tr
 const ROSTER_BYTES = fs.readFileSync(path.join(ROOT, CRAWLER_ROSTER_PATH));
 const ROSTER = JSON.parse(ROSTER_BYTES.toString('utf8'));
 const digest = (value) => crypto.createHash('sha256').update(value).digest('hex');
+const VERIFIED_CONTRACT_DIRECTORY = fs.mkdtempSync(path.join(os.tmpdir(), 'crawler-provenance-contract-'));
+const VERIFIED_CONTRACT_PATH = path.join(VERIFIED_CONTRACT_DIRECTORY, 'contract.json');
+fs.writeFileSync(
+  VERIFIED_CONTRACT_PATH,
+  `${JSON.stringify({ ...CONTRACT, sourceCommitVerified: true }, null, 2)}\n`,
+);
+
+afterAll(() => {
+  fs.rmSync(VERIFIED_CONTRACT_DIRECTORY, { recursive: true, force: true });
+});
 
 describe('crawler contract provenance verifier', () => {
   it('buildRawContentsUrl encodes the remote path and exact source revision', () => {
@@ -64,6 +75,7 @@ describe('crawler contract provenance verifier', () => {
     const requests: Array<{ url: string; init: RequestInit }> = [];
     const result = await verifyCrawlerContractProvenance({
       rootDir: ROOT,
+      contractPath: VERIFIED_CONTRACT_PATH,
       file: 'translate-pending.yml',
       expectedRepository: CONTRACT.sourceRepository,
       fetchImpl: async (url: string, init: RequestInit) => {
@@ -87,6 +99,7 @@ describe('crawler contract provenance verifier', () => {
   it('verifyCrawlerContractProvenance reports a remote digest drift', async () => {
     const result = await verifyCrawlerContractProvenance({
       rootDir: ROOT,
+      contractPath: VERIFIED_CONTRACT_PATH,
       file: 'translate-pending.yml',
       expectedRepository: CONTRACT.sourceRepository,
       fetchImpl: async (url: string) => new Response(
