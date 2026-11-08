@@ -119,6 +119,33 @@ describe('pr-autorebase — hand-off fail-closed (review #1620)', () => {
     // Anche una duplicata lasciata da un tick precedente si chiude al riuso.
     expect(fn).toContain('closeDuplicateHandoffIssues(existing, num, head)');
   });
+
+  it('mantiene il CAS su HEAD/body fino a ogni mutazione del hand-off', () => {
+    const fn = SOURCE.slice(SOURCE.indexOf('function handOffConflictToFixer('), SOURCE.indexOf('function commentConflictOnce('));
+    const create = fn.indexOf("'issue', 'create'");
+    const route = fn.indexOf("'--add-label', 'agent:fix'");
+    const comment = fn.indexOf("'pr', 'comment'");
+    expect(create).toBeGreaterThan(-1);
+    expect(route).toBeGreaterThan(create);
+    expect(comment).toBeGreaterThan(route);
+    expect(fn.lastIndexOf('reviewInputStableForMutation', create)).toBeGreaterThan(-1);
+    expect(fn.lastIndexOf('reviewInputStableForMutation', route)).toBeGreaterThan(-1);
+    expect(fn.lastIndexOf('reviewInputStableForMutation', comment)).toBeGreaterThan(-1);
+    expect(fn.lastIndexOf('reviewInputStableForMutation', create)).toBeLessThan(create);
+    expect(fn.lastIndexOf('reviewInputStableForMutation', route)).toBeLessThan(route);
+    expect(fn.lastIndexOf('reviewInputStableForMutation', comment)).toBeLessThan(comment);
+  });
+
+  it('se un checkout fallisce il ramo conflitto conserva un esito di resolution leggibile', () => {
+    const processPr = SOURCE.slice(SOURCE.indexOf('async function processPR('));
+    const conflict = processPr.indexOf("if (mc === 'CONFLICTING')");
+    const checkout = processPr.indexOf('if (checkoutDecidedHead(num, branch, head))', conflict);
+    const declaration = processPr.indexOf('let resolution =', conflict);
+    const handoff = processPr.indexOf('generatedResolution: resolution.generated', conflict);
+    expect(declaration).toBeGreaterThan(conflict);
+    expect(declaration).toBeLessThan(checkout);
+    expect(handoff).toBeGreaterThan(checkout);
+  });
 });
 
 describe('handoffIssuesForOrigin — chiave = PR di origine + HEAD, ordine crescente, fail-closed', () => {

@@ -125,6 +125,18 @@ describe('handoffResolution: il conflitto rientrato, sulla stessa HEAD o su una 
       .toEqual({ resolved: true, reason: 'conflict-resolved-new-head' });
   });
 
+  it('hand-off senza HEAD verificabile non chiude l’origine su una prova non sua', () => {
+    expect(handoffResolution(openOrigin(), { expectedHead: '', conflictClearedAfterOpen: true }))
+      .toEqual({ resolved: false, reason: 'origin-head-unverified' });
+    expect(decideHandoff({
+      issue: { ...handoff(10586, 10569), body: '' },
+      origin: openOrigin(),
+      mergedPrs: [],
+      openPrs: [],
+      conflictEvents: CLEARED,
+    })).toEqual({ action: 'keep', reason: 'origin-head-unverified' });
+  });
+
   it('REGRESSIONE review corpus: HEAD nuova senza label né prova (cache MERGEABLE vecchia) → si riapplica', () => {
     expect(handoffResolution(openOrigin({ headRefOid: NEW_HEAD }), { expectedHead: HEAD.slice(0, 12) }))
       .toEqual({ resolved: false, reason: 'conflict-clear-unproven' });
