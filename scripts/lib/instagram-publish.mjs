@@ -28,13 +28,14 @@
  * while retaining reservations for ambiguous final outcomes.
  */
 import { fetchRetry, sleep } from './ga4-service-account.mjs';
-import { GRAPH_API, GRAPH_API_VERSION } from './instagram-graph-constants.mjs';
+import { GRAPH_API, GRAPH_API_VERSION, INSTAGRAM_LOGIN_GRAPH_API } from './instagram-graph-constants.mjs';
 import { isAmbiguousSocialPublishResponse } from './social-publish-outcome.mjs';
 
 // Re-exported so the contract test and the poster read the same base without
 // a second literal: the single definition lives in the dependency-free Graph
 // constants module shared with the Mac community worker.
-export { GRAPH_API, GRAPH_API_VERSION };
+export { GRAPH_API, GRAPH_API_VERSION, INSTAGRAM_LOGIN_GRAPH_API };
+const SUPPORTED_GRAPH_APIS = new Set([GRAPH_API, INSTAGRAM_LOGIN_GRAPH_API]);
 export const CONTAINER_STATUS_MAX_ATTEMPTS = 5;
 export const CONTAINER_STATUS_DELAY_MS = 2000;
 export const REEL_CONTAINER_STATUS_MAX_ATTEMPTS = 30;
@@ -49,9 +50,12 @@ export const REEL_CONTAINER_STATUS_DELAY_MS = 10_000;
  * Note the verdict rule differs from TikTok's: Meta signals failure with a
  * non-2xx AND an `error` object, so the presence of `error` alone is enough.
  */
-export async function graphPost(pathSuffix, params, accessToken, { fetchImpl = fetch } = {}) {
+export async function graphPost(pathSuffix, params, accessToken, { fetchImpl = fetch, apiBase = GRAPH_API } = {}) {
+  if (!SUPPORTED_GRAPH_APIS.has(apiBase)) {
+    return { ok: false, error: { message: 'unsupported Instagram Graph API host' } };
+  }
   const body = new URLSearchParams({ ...params, access_token: accessToken });
-  const res = await fetchImpl(`${GRAPH_API}/${pathSuffix}`, {
+  const res = await fetchImpl(`${apiBase}/${pathSuffix}`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
     body,
@@ -70,10 +74,12 @@ function ambiguousFinalPublish(result) {
 }
 
 export async function waitForContainerReady(containerId, accessToken, opts = {}) {
-  const { fetchImpl = fetchRetry, sleepImpl = sleep, maxAttempts = CONTAINER_STATUS_MAX_ATTEMPTS, delayMs = CONTAINER_STATUS_DELAY_MS } = opts;
+  const { fetchImpl = fetchRetry, sleepImpl = sleep, maxAttempts = CONTAINER_STATUS_MAX_ATTEMPTS, delayMs = CONTAINER_STATUS_DELAY_MS, apiBase = GRAPH_API } = opts;
+  if (!SUPPORTED_GRAPH_APIS.has(apiBase)) return false;
   for (let attempt = 1; attempt <= maxAttempts; attempt++) {
     const res = await fetchImpl(
-      `${GRAPH_API}/${containerId}?fields=status_code&access_token=${encodeURIComponent(accessToken)}`,
+      `${apiBase}/${containerId}?fields=status_code`,
+      { headers: { Authorization: `Bearer ${accessToken}`, Accept: 'application/json' } },
     );
     const data = await res?.json().catch(() => ({}));
     if (!res?.ok || data?.error) return false;
@@ -93,20 +99,20 @@ export async function waitForContainerReady(containerId, accessToken, opts = {})
  *
  * @returns {Promise<InstagramPublishResult>}
  */
-export async function publishCarousel({ igUserId, accessToken, imageUrls, caption, ...opts }) {
+export async function publishCarousel({ igUserId, accessToken, imageUrls, caption, apiBase = GRAPH_API, ...opts }) {
   const fetchImpl = opts.fetchImpl || fetch;
   const statusFetchImpl = opts.statusFetchImpl || (opts.fetchImpl ? opts.fetchImpl : fetchRetry);
   const childIds = [];
   let finalPublishAttempted = false;
   try {
     for (const imageUrl of imageUrls) {
-      const res = await graphPost(`${igUserId}/media`, { image_url: imageUrl, is_carousel_item: 'true' }, accessToken, { fetchImpl });
+      const res = await graphPost(`${igUserId}/media`, { image_url: imageUrl, is_carousel_item: 'true' }, accessToken, { fetchImpl, apiBase });
       if (!res.ok) return { ok: false, phase: 'pre-publish', reason: `child container failed: ${res.error?.message || res.status}` };
       childIds.push(res.data.id);
     }
 
     for (const id of childIds) {
-      const ready = await waitForContainerReady(id, accessToken, { ...opts, fetchImpl: statusFetchImpl });
+      const ready = await waitForContainerReady(id, accessToken, { ...opts, fetchImpl: statusFetchImpl, apiBase });
       if (!ready) return { ok: false, phase: 'pre-publish', reason: `child container ${id} never reached FINISHED` };
     }
 
@@ -114,14 +120,14 @@ export async function publishCarousel({ igUserId, accessToken, imageUrls, captio
       `${igUserId}/media`,
       { media_type: 'CAROUSEL', children: childIds.join(','), caption },
       accessToken,
-      { fetchImpl },
+      { fetchImpl, apiBase },
     );
     if (!containerRes.ok) {
       return { ok: false, phase: 'pre-publish', reason: `carousel container failed: ${containerRes.error?.message || containerRes.status}` };
     }
 
     finalPublishAttempted = true;
-    const publishRes = await graphPost(`${igUserId}/media_publish`, { creation_id: containerRes.data.id }, accessToken, { fetchImpl });
+    const publishRes = await graphPost(`${igUserId}/media_publish`, { creation_id: containerRes.data.id }, accessToken, { fetchImpl, apiBase });
     if (!publishRes.ok) {
       return {
         ok: false,
@@ -158,6 +164,7 @@ export async function publishReel({
   caption,
   coverUrl,
   shareToFeed = true,
+  apiBase = GRAPH_API,
   ...opts
 }) {
   const fetchImpl = opts.fetchImpl || fetch;
@@ -175,7 +182,7 @@ export async function publishReel({
   };
   let finalPublishAttempted = false;
   try {
-    const containerRes = await graphPost(`${igUserId}/media`, containerParams, accessToken, { fetchImpl });
+    const containerRes = await graphPost(`${igUserId}/media`, containerParams, accessToken, { fetchImpl, apiBase });
     if (!containerRes.ok || !containerRes.data?.id) {
       return { ok: false, phase: 'pre-publish', reason: `Reel container failed: ${containerRes.error?.message || 'missing container id'}` };
     }
@@ -183,6 +190,7 @@ export async function publishReel({
     const ready = await waitForContainerReady(containerRes.data.id, accessToken, {
       ...opts,
       fetchImpl: statusFetchImpl,
+      apiBase,
       maxAttempts: opts.maxAttempts ?? REEL_CONTAINER_STATUS_MAX_ATTEMPTS,
       delayMs: opts.delayMs ?? REEL_CONTAINER_STATUS_DELAY_MS,
     });
@@ -193,7 +201,7 @@ export async function publishReel({
       `${igUserId}/media_publish`,
       { creation_id: containerRes.data.id },
       accessToken,
-      { fetchImpl },
+      { fetchImpl, apiBase },
     );
     if (!publishRes.ok) {
       return {

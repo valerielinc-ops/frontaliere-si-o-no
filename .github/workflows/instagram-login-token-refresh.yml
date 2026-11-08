@@ -1,0 +1,74 @@
+name: Instagram Login token refresh
+
+on:
+  schedule:
+    - cron: '15 3 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: instagram-login-token-refresh
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          sparse-checkout: |
+            /*
+            !/public/images/
+            !/data/jobs/
+            !/data/seo-404-compat/
+            !/data/translation-cache/
+            !/packages/articles/content/
+            !/data/all-known-job-slugs/
+            !/data/orphan-enriched-data/
+            !/data/related-search-candidates.json
+            !/data/cf-hot-404s.json
+            !/data/jobs-ai-cache.json
+            !/data/dist-size-history.jsonl
+            !/data/jobs-stats-history.json
+            !/data/url-first-seen.json
+            !/data/jobs-snapshots-history/
+            !/data/slug-registry.json
+            !/data/evidence-index.json
+            !/data/health-premiums/
+            !/data/jobs-crawler-summaries/
+          sparse-checkout-cone-mode: false
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install Firebase Remote Config client
+        run: npm ci
+
+      - name: Prepare Firebase service account
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          set -euo pipefail
+          test -n "$FIREBASE_SERVICE_ACCOUNT_JSON"
+          umask 077
+          printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > "$RUNNER_TEMP/firebase-sa.json"
+          echo "GOOGLE_APPLICATION_CREDENTIALS=$RUNNER_TEMP/firebase-sa.json" >> "$GITHUB_ENV"
+
+      - name: Load GitHub secret management credential
+        run: node scripts/load-rc-env.mjs --only-env=GITHUB_PAT
+
+      - name: Load Instagram Login metadata for stale-run check
+        env:
+          INSTAGRAM_LOGIN_ACCESS_TOKEN: ${{ secrets.INSTAGRAM_LOGIN_ACCESS_TOKEN }}
+        run: node scripts/load-instagram-login-env.mjs --allow-pending-token-write-lock
+
+      - name: Refresh Instagram Login token and rotate GitHub secret
+        env:
+          INSTAGRAM_LOGIN_ACCESS_TOKEN: ${{ secrets.INSTAGRAM_LOGIN_ACCESS_TOKEN }}
+        run: node scripts/refresh-instagram-login-token.mjs

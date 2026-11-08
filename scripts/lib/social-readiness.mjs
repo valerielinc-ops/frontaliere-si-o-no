@@ -1,3 +1,8 @@
+import {
+  hasInstagramLoginPublishScopes,
+  INSTAGRAM_LOGIN_REQUIRED_PUBLISH_SCOPES,
+} from './instagram-publisher-credentials.mjs';
+
 /**
  * social-readiness.mjs — is a social publishing channel actually able to post,
  * and if not, WHICH KIND of "not" is it?
@@ -61,6 +66,62 @@ function present(env, name) {
 
 /** Instagram — require the Page link, publisher token identity, and publish grant to be verified. */
 export function classifyInstagram({ env = {}, probe = {} } = {}) {
+  const authMode = String(env?.INSTAGRAM_PUBLISHING_AUTH_MODE || '').trim();
+  if (authMode && !['facebook_login', 'instagram_login'].includes(authMode)) {
+    return {
+      channel: 'instagram',
+      state: ACTION_REQUIRED,
+      reason: 'INSTAGRAM_PUBLISHING_AUTH_MODE is invalid; choose the verified Facebook Login or Instagram Login route before publishing.',
+    };
+  }
+  if (authMode === 'instagram_login') {
+    const hasToken = present(env, 'INSTAGRAM_LOGIN_ACCESS_TOKEN');
+    const hasUserId = present(env, 'INSTAGRAM_LOGIN_USER_ID');
+    const accountStatus = String(probe?.loginPublisherStatus || 'unavailable');
+    if (!hasToken || !hasUserId) {
+      return {
+        channel: 'instagram',
+        state: CREDENTIAL_MISSING,
+        reason: 'Instagram Login is selected but its separate IG user token or account ID is missing; complete the Instagram OAuth setup before publishing.',
+      };
+    }
+    if (!hasInstagramLoginPublishScopes(env.INSTAGRAM_LOGIN_GRANTED_SCOPES)) {
+      return {
+        channel: 'instagram',
+        state: ACTION_REQUIRED,
+        reason: `The Instagram Login token lacks a recorded grant for all required scopes (${INSTAGRAM_LOGIN_REQUIRED_PUBLISH_SCOPES.join(', ')}); reconnect and grant publishing access before delivery.`,
+      };
+    }
+    if (accountStatus === 'mismatch' || accountStatus === 'not-professional') {
+      return {
+        channel: 'instagram',
+        state: ACTION_REQUIRED,
+        reason: 'Instagram Login does not resolve to the configured Business or Creator account; reconnect the intended handle before publishing.',
+      };
+    }
+    if (accountStatus === 'missing-publish-scope') {
+      return {
+        channel: 'instagram',
+        state: ACTION_REQUIRED,
+        reason: `The Instagram Login token did not return all required publishing scopes (${INSTAGRAM_LOGIN_REQUIRED_PUBLISH_SCOPES.join(', ')}) as granted; reconnect and grant publishing access before delivery.`,
+      };
+    }
+    if (accountStatus === 'matched') {
+      return {
+        channel: 'instagram',
+        state: READY,
+        reason: 'The Instagram Login token resolves to the configured professional account and its basic and content-publishing scopes were granted; verify the next scheduled native post ID.',
+      };
+    }
+    return {
+      channel: 'instagram',
+      state: ACTION_REQUIRED,
+      reason: accountStatus === 'expired'
+        ? 'The Instagram Login token has expired or lacks an expiry record; refresh or reconnect before publishing.'
+        : 'The Instagram Login token could not be verified against the configured professional account; check token validity and account identity before publishing.',
+    };
+  }
+
   const hasInstagramAccountId = present(env, 'INSTAGRAM_BUSINESS_ACCOUNT_ID');
   const hasInstagramToken = present(env, 'INSTAGRAM_ACCESS_TOKEN');
   const pageLinkStatus = String(probe?.pageLinkStatus || 'unavailable');

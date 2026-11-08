@@ -91,14 +91,28 @@ jobs:
           node scripts/load-rc-env.mjs
           --only-env=INSTAGRAM_BUSINESS_ACCOUNT_ID,INSTAGRAM_ACCESS_TOKEN,GEMINI_API_KEY,SOCIAL_COPY_EXPERIMENT_CONFIG,GA4_PROPERTY_ID,R2_BUCKET,R2_S3_ENDPOINT,R2_ACCESS_KEY_ID,R2_SECRET_ACCESS_KEY
 
-      - name: Report missing Instagram Graph API credentials
-        if: env.DRY_RUN != 'true' && (env.INSTAGRAM_ACCESS_TOKEN == '' || env.INSTAGRAM_BUSINESS_ACCOUNT_ID == '')
+      - name: Load Instagram Login publisher identity from server Remote Config
+        if: env.DRY_RUN != 'true'
+        env:
+          INSTAGRAM_LOGIN_ACCESS_TOKEN: ${{ secrets.INSTAGRAM_LOGIN_ACCESS_TOKEN }}
+        run: node scripts/load-instagram-login-env.mjs
+
+      - name: Report missing Instagram publisher credentials
+        if: env.DRY_RUN != 'true' && env.INSTAGRAM_PUBLISHER_CREDENTIALS_PRESENT != 'true'
         run: |
           set -euo pipefail
-          echo "::warning::Instagram Reel skipped: INSTAGRAM_ACCESS_TOKEN and INSTAGRAM_BUSINESS_ACCOUNT_ID are required in Remote Config"
+          echo "::warning::Instagram Reel skipped: the selected publisher route has no usable token/account pair"
+
+      - name: Confirm Instagram credential transaction is idle before delivery
+        if: env.DRY_RUN != 'true'
+        env:
+          INSTAGRAM_LOGIN_ACCESS_TOKEN: ${{ secrets.INSTAGRAM_LOGIN_ACCESS_TOKEN }}
+        run: node scripts/load-instagram-login-env.mjs
 
       - name: Render and publish controlled Reel through Graph API
-        if: env.DRY_RUN == 'true' || (env.INSTAGRAM_ACCESS_TOKEN != '' && env.INSTAGRAM_BUSINESS_ACCOUNT_ID != '')
+        if: env.DRY_RUN == 'true' || env.INSTAGRAM_PUBLISHER_CREDENTIALS_PRESENT == 'true'
+        env:
+          INSTAGRAM_LOGIN_ACCESS_TOKEN: ${{ secrets.INSTAGRAM_LOGIN_ACCESS_TOKEN }}
         run: |
           set -euo pipefail
           args=("--kind=$KIND")

@@ -644,8 +644,9 @@ describe('border-live-data-watchdog.yml — state carry outside git (issue #7376
       '/services/borderCrossingSlug.ts',
       '/scripts/check-border-data-health.mjs',
       '/scripts/load-rc-env.mjs',
-      // load-rc-env.mjs imports this helper; the sparse checkout must include it.
+      // The RC loader reaches these helpers; sparse checkout must include both.
       '/scripts/lib/fetch-with-ref-timeout.mjs',
+      '/scripts/lib/remote-config-template-url.mjs',
       '/scripts/lib/configure-main-push-auth.sh',
       '/scripts/lib/git-fetch-target.mjs',
       '/scripts/lib/git-push-rejection.sh',

@@ -5,9 +5,9 @@
  * that run without npm install can still update a template with an ETag.
  */
 import { getServiceAccountAccessToken } from './google-service-account-token.mjs';
+import { REMOTE_CONFIG_SCOPE, remoteConfigTemplateUrl } from './remote-config-template-url.mjs';
 
-export const RC_SCOPE = 'https://www.googleapis.com/auth/firebase.remoteconfig';
-const RC_API = 'https://firebaseremoteconfig.googleapis.com/v1';
+export const RC_SCOPE = REMOTE_CONFIG_SCOPE;
 const RC_REQUEST_TIMEOUT_MS = 30_000;
 
 const isPlainObject = (value) => value !== null && typeof value === 'object' && !Array.isArray(value);
@@ -48,36 +48,41 @@ async function rcErrorDetail(response) {
 /**
  * Publishes a staged template with optimistic concurrency. Conflicts, rate
  * limits, and transient server errors are retried by reading the latest
- * template and applying the stage function again.
+ * template and applying the stage function again. An unsuccessful result
+ * carries `ambiguous: true` only when a non-validation PUT may have been
+ * applied but no later read confirmed the staged state.
  */
 export async function updateRcTemplateWithEtag({
   credentials, stage, versionDescription = '', dryRun = false, validateOnly = false,
-  attempts = 4, retryDelayMs = 2_000, fetchImpl = fetch, getAccessToken = getServiceAccountAccessToken,
+  namespace = 'firebase', attempts = 4, retryDelayMs = 2_000, fetchImpl = fetch, getAccessToken = getServiceAccountAccessToken,
   sleep = defaultSleep, onAccessToken = () => {},
 }) {
   const projectId = credentials?.project_id;
   if (typeof projectId !== 'string' || !projectId) return { ok: false, attempt: 0, detail: 'service account JSON has no project_id' };
   const accessToken = await getAccessToken(credentials, RC_SCOPE);
   onAccessToken(accessToken);
-  const url = `${RC_API}/projects/${encodeURIComponent(projectId)}/remoteConfig`;
+  const url = remoteConfigTemplateUrl(projectId, namespace);
   const headers = { Authorization: `Bearer ${accessToken}`, 'Accept-Encoding': 'gzip' };
   let detail = '';
+  let ambiguousPut = false;
   for (let attempt = 1; attempt <= attempts; attempt += 1) {
     if (attempt > 1) await sleep(retryDelayMs * (attempt - 1));
+    let putStarted = false;
     try {
       const got = await fetchImpl(url, { headers, signal: AbortSignal.timeout(RC_REQUEST_TIMEOUT_MS) });
       if (!got.ok) {
         detail = `GET remoteConfig → HTTP ${got.status}`;
         if (retryableStatus(got.status)) continue;
-        return { ok: false, attempt, detail };
+        return { ok: false, attempt, detail, ...(ambiguousPut ? { ambiguous: true } : {}) };
       }
       const etag = got.headers.get('etag');
       const template = await got.json();
-      if (!etag) return { ok: false, attempt, detail: 'GET remoteConfig returned no ETag' };
+      if (!etag) return { ok: false, attempt, detail: 'GET remoteConfig returned no ETag', ...(ambiguousPut ? { ambiguous: true } : {}) };
       const staged = stage(template);
-      if (staged.error) return { ok: false, attempt, detail: staged.error };
+      if (staged.error) return { ok: false, attempt, detail: staged.error, ...(ambiguousPut ? { ambiguous: true } : {}) };
       if (!staged.changed) return { ok: true, changed: false, attempt };
       if (dryRun) return { ok: true, changed: true, dryRun: true, attempt };
+      putStarted = true;
       const put = await fetchImpl(validateOnly ? `${url}?validate_only=true` : url, {
         method: 'PUT',
         headers: { ...headers, 'Content-Type': 'application/json; UTF-8', 'If-Match': etag },
@@ -89,16 +94,19 @@ export async function updateRcTemplateWithEtag({
         }),
         signal: AbortSignal.timeout(RC_REQUEST_TIMEOUT_MS),
       });
+      putStarted = false;
       if (put.ok) return validateOnly ? { ok: true, changed: true, validated: true, attempt } : { ok: true, changed: true, attempt };
+      if (!validateOnly && put.status >= 500) ambiguousPut = true;
       const why = await rcErrorDetail(put);
       detail = `PUT remoteConfig${validateOnly ? '?validate_only=true' : ''} → HTTP ${put.status}${why ? ` (${why.slice(0, 200)})` : ''}`;
       if (put.status === 409 || put.status === 412 || retryableStatus(put.status)) continue;
-      return { ok: false, attempt, detail };
+      return { ok: false, attempt, detail, ...(ambiguousPut ? { ambiguous: true } : {}) };
     } catch (error) {
+      if (putStarted && !validateOnly) ambiguousPut = true;
       detail = `remoteConfig request failed: ${String(error?.message ?? error).slice(0, 200)}`;
     }
   }
-  return { ok: false, attempt: attempts, detail };
+  return { ok: false, attempt: attempts, detail, ...(ambiguousPut ? { ambiguous: true } : {}) };
 }
 
 export async function setRcParamWithEtag({ name, value, description = '', versionDescription = `set ${name}`, ...options }) {

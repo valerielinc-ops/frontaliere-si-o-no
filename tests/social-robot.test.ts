@@ -1667,7 +1667,7 @@ describe('workflows', () => {
   it('warns on a token-less Instagram run while browser delivery is held', () => {
     const steps = wf('instagram-daily-broadcast.yml').jobs.post.steps as Array<{ name?: string; if?: string }>;
     const warn = steps.find((s) => /credentials are absent/.test(s.name ?? ''));
-    expect(warn?.if).toBe("env.INSTAGRAM_ACCESS_TOKEN == '' && env.META_INSTAGRAM_BROWSER_PUBLISHING_APPROVED != 'true'");
+    expect(warn?.if).toBe("env.INSTAGRAM_PUBLISHER_CREDENTIALS_PRESENT != 'true' && env.META_INSTAGRAM_BROWSER_PUBLISHING_APPROVED != 'true'");
   });
 
   it('reserves the scheduled Instagram Reel cadence before assembling daily-only data', () => {

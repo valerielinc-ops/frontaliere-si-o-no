@@ -31,11 +31,13 @@
  * links), same split as scripts/post-to-telegram.mjs's border mode.
  *
  * Env (all via Firebase Remote Config → scripts/load-rc-env.mjs):
- *   INSTAGRAM_ACCESS_TOKEN          required — Meta App Review for
- *                                    instagram_content_publish not yet
- *                                    granted, so this is unset today and the
- *                                    poster soft-skips. See CLAUDE.md.
- *   INSTAGRAM_BUSINESS_ACCOUNT_ID   required — already set (17841439417386982)
+ *   INSTAGRAM_PUBLISHING_AUTH_MODE  facebook_login (default) or instagram_login
+ *   INSTAGRAM_ACCESS_TOKEN          Facebook Login Page token; used only when
+ *                                    facebook_login is selected.
+ *   INSTAGRAM_BUSINESS_ACCOUNT_ID   Facebook Login professional account ID.
+ *   INSTAGRAM_LOGIN_ACCESS_TOKEN / INSTAGRAM_LOGIN_USER_ID
+ *                                    GitHub Actions Secret plus server RC
+ *                                    account metadata; refreshed by the token workflow.
  *   SOCIAL_ROBOT_MODE               off | dry (default) | live — API or the
  *                                   Playwright queue, held unless Meta
  *                                   browser-publishing permission is verified
@@ -100,6 +102,7 @@ import {
 } from './lib/social-publish-queue.mjs';
 import { isInstagramBrowserPublishingApproved } from './lib/social-automation-policy.mjs';
 import { publishCarousel } from './lib/instagram-publish.mjs';
+import { getInstagramPublisherCredentials } from './lib/instagram-publisher-credentials.mjs';
 import { buildSocialCopyBlockContext, loadSocialCopyPack, markSocialCopyAssignmentPublished, releaseUnpublishedSocialCopyAssignmentBestEffort, selectSocialCopyForPublish, socialCopyLedgerFields, socialCopyTrackingContent } from './lib/social-copy-pack.mjs';
 import {
   markSocialPublishReservationPublished,
@@ -124,16 +127,6 @@ const DEDUP_WINDOW_DAYS = 30;
 const CAROUSEL_SIZE = 5;
 
 // ─────────────────────────── credentials ───────────────────────────
-
-function getAccessToken() {
-  const token = String(process.env.INSTAGRAM_ACCESS_TOKEN || '').trim();
-  return token || null;
-}
-
-function getBusinessAccountId() {
-  const id = String(process.env.INSTAGRAM_BUSINESS_ACCOUNT_ID || '').trim();
-  return id || null;
-}
 
 // fetchGa4Day / formatDayIt moved to scripts/lib/ga4-service-account.mjs;
 // Instagram-specific creative copy lives in scripts/lib/instagram-creative.mjs
@@ -253,7 +246,7 @@ async function deliver({ route, kind, day, caption, urls, ledgerEntries, publish
 
 // ─────────────────────────── job/article (daily) ───────────────────────────
 
-async function postGa4Carousel({ kind, day, dryRun, accessToken, igUserId, robotMode }) {
+async function postGa4Carousel({ kind, day, dryRun, accessToken, igUserId, apiBase, robotMode }) {
   const campaign = kind === 'job' ? INSTAGRAM_CAMPAIGN_JOB : INSTAGRAM_CAMPAIGN_ARTICLE;
   const ledger = loadLedger(LEDGER_PATH);
   if (!dryRun && isPublishedForKindDay(ledger, { kind, day })) {
@@ -404,7 +397,7 @@ async function postGa4Carousel({ kind, day, dryRun, accessToken, igUserId, robot
     ledgerEntries,
     publish: async () => {
       deliveryStarted = true;
-      const result = await publishCarousel({ igUserId, accessToken, imageUrls: urls, caption });
+      const result = await publishCarousel({ igUserId, accessToken, imageUrls: urls, caption, apiBase });
       publishRejected = result?.ok === false && result?.uncertain !== true;
       return result;
     },
@@ -432,7 +425,7 @@ async function postGa4Carousel({ kind, day, dryRun, accessToken, igUserId, robot
 
 // ─────────────────────────── border (weekly) ───────────────────────────
 
-async function postBorderCarousel({ dryRun, accessToken, igUserId, robotMode }) {
+async function postBorderCarousel({ dryRun, accessToken, igUserId, apiBase, robotMode }) {
   const { computeRanking, computeWeekWindow } = await import('./lib/border-wait-ranking.mjs');
   const { BORDER_WAIT_CROSSINGS, BORDER_CROSSING_DISPLAY, isTicinoCrossing, buildOggiPath } = await import(
     '../build-plugins/borderWaitData.ts'
@@ -565,7 +558,7 @@ async function postBorderCarousel({ dryRun, accessToken, igUserId, robotMode }) 
     ledgerEntries,
     publish: async () => {
       deliveryStarted = true;
-      const result = await publishCarousel({ igUserId, accessToken, imageUrls: urls, caption });
+      const result = await publishCarousel({ igUserId, accessToken, imageUrls: urls, caption, apiBase });
       publishRejected = result?.ok === false && result?.uncertain !== true;
       return result;
     },
@@ -603,8 +596,11 @@ async function main() {
   const robotMode = resolveSocialRobotMode();
   console.log(`ℹ️  SOCIAL_ROBOT_MODE=${robotMode} (Remote Config; see scripts/lib/social-publish-queue.mjs)`);
 
-  const accessToken = dryRun ? null : getAccessToken();
-  const igUserId = dryRun ? null : getBusinessAccountId();
+  const publisher = getInstagramPublisherCredentials();
+  const accessToken = dryRun ? null : publisher.accessToken;
+  const igUserId = dryRun ? null : publisher.igUserId;
+  const apiBase = publisher.apiBase;
+  console.log(`ℹ️  Instagram publisher auth mode=${publisher.mode}`);
 
   // border is weekly and never runs implicitly — only when explicitly asked
   // for (the dedicated weekly cron passes --only=border).
@@ -612,9 +608,9 @@ async function main() {
 
   for (const kind of kinds) {
     if (kind === 'border') {
-      await postBorderCarousel({ dryRun, accessToken, igUserId, robotMode });
+      await postBorderCarousel({ dryRun, accessToken, igUserId, apiBase, robotMode });
     } else if (kind === 'job' || kind === 'article') {
-      await postGa4Carousel({ kind, day, dryRun, accessToken, igUserId, robotMode });
+      await postGa4Carousel({ kind, day, dryRun, accessToken, igUserId, apiBase, robotMode });
     } else {
       console.warn(`⚠️  unknown --only=${kind} — expected job, article or border`);
     }

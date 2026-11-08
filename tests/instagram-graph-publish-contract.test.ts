@@ -20,6 +20,7 @@ import {
   publishCarousel,
   publishReel,
   GRAPH_API,
+  INSTAGRAM_LOGIN_GRAPH_API,
   GRAPH_API_VERSION,
   CONTAINER_STATUS_MAX_ATTEMPTS,
   REEL_CONTAINER_STATUS_MAX_ATTEMPTS,
@@ -131,10 +132,11 @@ describe('waitForContainerReady — the step that bites', () => {
     expect(calls).toHaveLength(2);
   });
 
-  it('url-encodes the access token in the status query', async () => {
+  it('sends the status-read token in the Authorization header, not the URL', async () => {
     const { impl, calls } = fakeFetch([{ body: { status_code: 'FINISHED' } }]);
     await waitForContainerReady('c1', 'a b/c', { fetchImpl: impl, sleepImpl: noSleep });
-    expect(calls[0].url).toContain('access_token=a%20b%2Fc');
+    expect(calls[0].url).not.toContain('access_token');
+    expect(calls[0].options.headers.Authorization).toBe('Bearer a b/c');
   });
 
   it('gives up immediately on ERROR or EXPIRED rather than burning the budget', async () => {
@@ -198,6 +200,33 @@ describe('publishCarousel — the three-step flow in order', () => {
 
     expect(calls[5].url).toBe(`${GRAPH_API}/178/media_publish`);
     expect((calls[5].options.body as URLSearchParams).get('creation_id')).toBe('carousel');
+  });
+
+  it('uses the separate Instagram Login Graph host throughout the carousel flow', async () => {
+    const { impl, calls } = fakeFetch([
+      { body: { id: 'child' } },
+      { body: { status_code: 'FINISHED' } },
+      { body: { id: 'carousel' } },
+      { body: { id: 'media-live' } },
+    ]);
+    const result = await publishCarousel({
+      igUserId: '17841400000000000',
+      accessToken: 'direct-login-token',
+      imageUrls: ['https://cdn.example/slide.jpg'],
+      caption: 'ciao',
+      apiBase: INSTAGRAM_LOGIN_GRAPH_API,
+      fetchImpl: impl,
+      sleepImpl: noSleep,
+    });
+
+    expect(result).toEqual({ ok: true, mediaId: 'media-live' });
+    expect(calls.map((call) => call.url)).toEqual([
+      `${INSTAGRAM_LOGIN_GRAPH_API}/17841400000000000/media`,
+      `${INSTAGRAM_LOGIN_GRAPH_API}/child?fields=status_code`,
+      `${INSTAGRAM_LOGIN_GRAPH_API}/17841400000000000/media`,
+      `${INSTAGRAM_LOGIN_GRAPH_API}/17841400000000000/media_publish`,
+    ]);
+    expect(calls[1].options.headers.Authorization).toBe('Bearer direct-login-token');
   });
 
   it('never publishes a carousel whose children are not FINISHED', async () => {

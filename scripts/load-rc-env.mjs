@@ -2,6 +2,7 @@
 import { pathToFileURL } from 'node:url';
 import { realpathSync } from 'node:fs';
 import { fetchWithRefTimeout } from './lib/fetch-with-ref-timeout.mjs';
+import { remoteConfigTemplateUrl } from './lib/remote-config-template-url.mjs';
 
 
 /**
@@ -320,6 +321,10 @@ export const RC_TO_ENV = {
   INSTAGRAM_USERNAME:                  ['INSTAGRAM_USERNAME'],
   INSTAGRAM_BUSINESS_ACCOUNT_ID:       ['INSTAGRAM_BUSINESS_ACCOUNT_ID'],
   SERVER_INSTAGRAM_ACCESS_TOKEN:       ['INSTAGRAM_ACCESS_TOKEN'],
+  // Direct Instagram Login credentials and route metadata live only in the
+  // firebase-server template. load-instagram-login-env.mjs is the deliberately
+  // narrow bridge for publisher/readiness jobs; the general loader must never
+  // export these values to Codex/content-generation jobs.
   // Four-arm carousel background test. The poster assigns one stable arm per
   // kind/period; absent or invalid values fall back to the navy control.
   INSTAGRAM_CAROUSEL_BACKGROUND_AB_ENABLED: ['INSTAGRAM_CAROUSEL_BACKGROUND_AB_ENABLED'],
@@ -705,6 +710,7 @@ function normalizeRcFetchError(error) {
 export async function fetchRemoteConfigTemplate({
   projectId,
   accessToken,
+  namespace = 'firebase',
   fetchImpl = globalThis.fetch,
   sleepImpl = (ms) => new Promise((resolve) => setTimeout(resolve, ms)),
 }) {
@@ -712,7 +718,7 @@ export async function fetchRemoteConfigTemplate({
   for (let attempt = 1; attempt <= RC_FETCH_ATTEMPTS; attempt++) {
     try {
       const rcRes = await fetchWithRefTimeout(
-        `https://firebaseremoteconfig.googleapis.com/v1/projects/${encodeURIComponent(projectId)}/remoteConfig`,
+        remoteConfigTemplateUrl(projectId, namespace),
         {
           headers: { Authorization: `Bearer ${accessToken}`, 'Accept-Encoding': 'gzip' },
         },
