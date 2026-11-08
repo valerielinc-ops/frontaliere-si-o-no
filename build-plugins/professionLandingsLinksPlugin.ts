@@ -362,7 +362,7 @@ export function professionLandingsLinksPlugin(rootDir: string): Plugin {
       // Wait for both producers to flush before we read+patch. This replaces
       // the previous `waitForStable(t.indexPath)` mtime poll, which was
       // racing under heavy CI builds (5/5 → 0/5 silent regression).
-      const [emittedPaths] = await Promise.all([staticPagesFlushed, professionLandingsFlushed]);
+      const [, emittedPaths] = await Promise.all([staticPagesFlushed, professionLandingsFlushed]);
 
       // Per-locale shard build (BUILD_LOCALE): only inject into targets whose
       // locale this shard actually emitted. Without this the injector hard-fails
