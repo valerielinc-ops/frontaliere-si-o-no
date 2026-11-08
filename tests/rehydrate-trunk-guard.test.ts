@@ -384,7 +384,7 @@ function runLocaleRehydrate(opts: {
   const root = mkdtempSync(join(tmpdir(), 'trunk-guard-loc-'));
   const lib = join(root, 'scripts', 'lib');
   mkdirSync(lib, { recursive: true });
-  for (const f of ['rehydrate-locale-shards.sh', 'rehydrate-trunk-guard.sh']) {
+  for (const f of ['rehydrate-locale-shards.sh', 'rehydrate-trunk-guard.sh', 'rehydrate-provenance.sh']) {
     copyFileSync(resolve('scripts/lib', f), join(lib, f));
   }
 
@@ -410,7 +410,10 @@ function runLocaleRehydrate(opts: {
   }
   const tars = join(root, 'tars');
   mkdirSync(tars, { recursive: true });
-  execFileSync('tar', ['-C', stage, '-cf', join(tars, 'en.tar'), ...tarEntries]);
+  const localeTar = join(tars, 'locale-dist-en.tar');
+  execFileSync('tar', ['-C', stage, '-cf', localeTar, ...tarEntries]);
+  const localeZip = join(root, 'locale-dist-en.zip');
+  execFileSync('zip', ['-q', '-0', '-j', localeZip, localeTar]);
 
   const bin = join(root, 'bin');
   mkdirSync(bin, { recursive: true });
@@ -419,16 +422,11 @@ function runLocaleRehydrate(opts: {
     join(bin, 'gh'),
     [
       '#!/bin/sh',
-      'dir=""',
-      'while [ $# -gt 0 ]; do',
-      '  case "$1" in',
-      '    --dir) dir="$2"; shift 2 ;;',
-      '    *) shift ;;',
-      '  esac',
-      'done',
-      '[ -n "$dir" ] || exit 1',
-      'mkdir -p "$dir"',
-      `cp ${JSON.stringify(join(tars, 'en.tar'))} "$dir/locale-dist-en.tar"`,
+      'case "$*" in',
+      '  *"/actions/runs/"*"/artifacts?name="*) printf "77\\n" ;;',
+      `  *"/actions/artifacts/"*"/zip") exec cat ${JSON.stringify(localeZip)} ;;`,
+      '  *) exit 1 ;;',
+      'esac',
       '',
     ].join('\n'),
     { mode: 0o755 },
@@ -451,6 +449,7 @@ function runLocaleRehydrate(opts: {
         PATH: `${bin}:${process.env.PATH ?? ''}`,
         RUNNER_TEMP: runnerTemp,
         DEPLOY_RUN_ID: '0',
+        GH_REPO: 'example/site',
         GH_TOKEN: 'unused',
         LOCALE_SHARDS_LIVE: 'true',
         // Unset: the tar path succeeds and `continue`s before the clone cache.

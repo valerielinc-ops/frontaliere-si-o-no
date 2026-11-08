@@ -538,12 +538,20 @@ describe('deploy.yml + audit-dist-from-run.yml — tar-pack rehydrate fast path 
     // and section rehydrate into scripts/lib/rehydrate-section-shards.sh
     // (section shared with the 4 seed-baseline workflows too, AGENTS.md #6
     // dedupe) — the guarded invariant is unchanged, only its file moved.
-    const localeRe = new RegExp(
-      `expected_n=\\$\\(tar -tf "\\$dl/locale-dist-\\$loc\\.tar" 2>/dev/null \\| \\{ grep -vc '/\\$' \\|\\| true; \\}\\)[\\s\\S]*?` +
-      `tar -C dist -xf "\\$dl/locale-dist-\\$loc\\.tar" \\|\\| true[\\s\\S]*?` +
-      `if \\[ -d "dist/\\$loc" \\] && \\[ "\\\$\\{expected_n:-0\\}" -gt 0 \\] && \\[ "\\$actual_n" -eq "\\$expected_n" \\]`,
+    expect(REHYDRATE_LOCALE_SCRIPT).toContain('"repos/$repo/actions/runs/$artifact_run_id/artifacts?name=$artifact_name&per_page=100"');
+    expect(REHYDRATE_LOCALE_SCRIPT).toContain('"repos/$repo/actions/artifacts/$artifact_id/zip"');
+    expect(REHYDRATE_LOCALE_SCRIPT).toContain('expected_n="$(unzip -p "$dl/$locale_zip" "$locale_member"');
+    expect(REHYDRATE_LOCALE_SCRIPT).toContain('unzip -p "$dl/$locale_zip" "$locale_member" | tar -C dist -xf -');
+    expect(REHYDRATE_LOCALE_SCRIPT).toContain('"${unzip_rc:-2}" -le 1');
+    expect(REHYDRATE_LOCALE_SCRIPT).toContain('"${tar_rc:-2}" -eq 0');
+    const localeLiveCode = REHYDRATE_LOCALE_SCRIPT
+      .split('\n')
+      .filter((line) => !/^\s*#/.test(line))
+      .join('\n');
+    expect(localeLiveCode).not.toContain('gh run download');
+    expect(REHYDRATE_LOCALE_SCRIPT, 'locale rehydrate loop missing completeness gate (expected_n/actual_n)').toMatch(
+      /if \[ "\$\{unzip_rc:-2\}" -le 1 \][\s\S]*?\[ "\$actual_n" -eq "\$expected_n" \]/,
     );
-    expect(REHYDRATE_LOCALE_SCRIPT, 'locale rehydrate loop missing completeness gate (expected_n/actual_n)').toMatch(localeRe);
     // The section loop no longer has a tar FILE (2026-10-01, deploy-publish
     // run 36810296662 out of disk): both passes stream `$section-dist-$loc.tar`
     // out of the batch zip. Same gate — listing first, exact count after —
