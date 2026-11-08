@@ -1,4 +1,5 @@
 import { createHash } from 'node:crypto';
+import { isGeneratedSocialCopyMode, socialCopyExperimentRegistrationId } from './social-copy-pack.mjs';
 
 export const SOCIAL_EXPERIMENT_PROTOCOL_VERSION = 'social-copy-angle-matched-block-v3';
 export const SOCIAL_EXPERIMENT_FAMILY_ALPHA = 0.05;
@@ -151,6 +152,7 @@ export function createMatchedBlockExperimentRegistration({
   experimentId,
   packId,
   treatmentFingerprint,
+  generationProvider = 'codex',
   channel,
   slot,
   objective,
@@ -172,10 +174,12 @@ export function createMatchedBlockExperimentRegistration({
   const selectedExperiment = String(experimentId || '').trim();
   const selectedPack = String(packId || '').trim();
   const selectedTreatmentFingerprint = String(treatmentFingerprint || '').trim();
+  const selectedGenerationProvider = String(generationProvider || 'codex').trim();
   const selectedArms = [...new Set((Array.isArray(arms) ? arms : []).map((arm) => String(arm).trim()))].sort();
   if (!/^[a-z0-9][a-z0-9-]{0,63}$/u.test(selectedExperiment)
     || !PACK_ID_RE.test(selectedPack)
     || !HASH_RE.test(selectedTreatmentFingerprint)
+    || !isGeneratedSocialCopyMode(selectedGenerationProvider)
     || !/^[a-z0-9][a-z0-9-]{0,31}$/u.test(selectedChannel)
     || !TEMPLATE_ID_RE.test(selectedSlot)
     || !/^[a-z0-9][a-z0-9-]{0,31}$/u.test(selectedObjective)
@@ -223,15 +227,23 @@ export function createMatchedBlockExperimentRegistration({
   if (!Number.isSafeInteger(estimatedDurationDays) || estimatedDurationDays > SOCIAL_EXPERIMENT_MAX_DURATION_DAYS) {
     throw new Error('required matched-block sample is not feasible within the observed posting cadence');
   }
-  const cohortKey = [selectedExperiment, selectedChannel, selectedSlot, selectedObjective, selectedTreatmentFingerprint].join('|');
   const body = {
     schemaVersion: 2,
     protocolVersion: SOCIAL_EXPERIMENT_PROTOCOL_VERSION,
     baselinePopulationScope,
-    registrationId: digest(cohortKey),
+    registrationId: socialCopyExperimentRegistrationId({
+      experimentId: selectedExperiment,
+      packId: selectedPack,
+      treatmentFingerprint: selectedTreatmentFingerprint,
+      channel: selectedChannel,
+      slot: selectedSlot,
+      objective: selectedObjective,
+      generationProvider: selectedGenerationProvider,
+    }),
     experimentId: selectedExperiment,
     packId: selectedPack,
     treatmentFingerprint: selectedTreatmentFingerprint,
+    ...(selectedGenerationProvider !== 'codex' ? { generationProvider: selectedGenerationProvider } : {}),
     channel: selectedChannel,
     measurementChannel: selectedChannel === 'linkedin' ? 'linkedin-member' : selectedChannel,
     slot: selectedSlot,
@@ -258,11 +270,13 @@ export function createMatchedBlockExperimentRegistration({
 }
 
 export function validateMatchedBlockExperimentRegistration(registration) {
+  const generationProvider = String(registration?.generationProvider || 'codex').trim();
   if (!isRecord(registration) || registration.schemaVersion !== 2
     || registration.protocolVersion !== SOCIAL_EXPERIMENT_PROTOCOL_VERSION
     || registration.baselinePopulationScope !== socialExperimentBaselinePopulationScope(registration.channel, registration.slot)
     || !HASH_RE.test(String(registration.registrationId || ''))
     || !HASH_RE.test(String(registration.registrationHash || ''))
+    || !isGeneratedSocialCopyMode(generationProvider)
     || !PACK_ID_RE.test(String(registration.packId || ''))
     || !HASH_RE.test(String(registration.treatmentFingerprint || ''))
     || !Array.isArray(registration.arms) || registration.arms.length < 2
@@ -288,8 +302,16 @@ export function validateMatchedBlockExperimentRegistration(registration) {
     { ...registration.metric, channel: registration.channel, objective: registration.objective },
     { slot: registration.slot },
   );
-  const cohortKey = [registration.experimentId, registration.channel, registration.slot, registration.objective, registration.treatmentFingerprint].join('|');
-  if (digest(cohortKey) !== registration.registrationId) throw new Error('social experiment registration cohort id mismatch');
+  const expectedRegistrationId = socialCopyExperimentRegistrationId({
+    experimentId: registration.experimentId,
+    packId: registration.packId,
+    treatmentFingerprint: registration.treatmentFingerprint,
+    channel: registration.channel,
+    slot: registration.slot,
+    objective: registration.objective,
+    generationProvider,
+  });
+  if (expectedRegistrationId !== registration.registrationId) throw new Error('social experiment registration cohort id mismatch');
   const { registrationHash, ...body } = registration;
   if (digest(stableJson(body)) !== registrationHash) throw new Error('social experiment registration hash mismatch');
   return registration;

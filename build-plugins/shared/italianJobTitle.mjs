@@ -8,9 +8,30 @@ import {
   titleLooksUntranslated,
 } from '../../scripts/lib/job-locale-utils.mjs';
 
+// Some translated titles retain contract and gender abbreviations from the
+// source application. Normalize those known residues before they reach cards.
+function normalizeItalianTitleTerms(title) {
+  const contractPrefix = title.match(/^(CDI|CDD)\b(?:(?:\s*[-–—:]\s*|\s+)(.*))?$/iu);
+  let normalized = title;
+  if (contractPrefix) {
+    const contractLabel = contractPrefix[1].toUpperCase() === 'CDI'
+      ? 'Tempo indeterminato'
+      : 'Tempo determinato';
+    const remainingTitle = contractPrefix[2]?.trim();
+    normalized = remainingTitle
+      ? `${contractLabel} — ${remainingTitle}`
+      : contractLabel;
+  }
+
+  return normalized
+    .replace(/\(\s*(?:H\/F\/D|M\/F\/D|M\/W\/D|W\/M\/D)\s*\)/giu, '(m/f/d)')
+    .replace(/\(\s*(?:H\/F|M\/F|F\/M)\s*\)/giu, '(m/f)');
+}
+
 /**
  * Return a usable Italian title, without falling back to source text.
  * Known source-language residue is treated the same as a missing translation.
+ * Known French/German contract and gender markers are rendered in Italian.
  * Publisher source-language pins protect crawler normalization, but they do
  * not permit a foreign application title to appear in Italian social cards.
  */
@@ -66,5 +87,7 @@ export function getItalianJobTitle(job) {
     })
     : null;
 
-  return verdict.untranslated || crossLocaleMarkerVerdict?.untranslated ? '' : cleanTitle;
+  return verdict.untranslated || crossLocaleMarkerVerdict?.untranslated
+    ? ''
+    : normalizeItalianTitleTerms(cleanTitle);
 }

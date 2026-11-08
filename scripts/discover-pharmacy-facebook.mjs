@@ -72,8 +72,8 @@ function parseJsonLdObjects(html) {
     try {
       const parsed = JSON.parse(decodeHtml(match[1]));
       const queue = Array.isArray(parsed) ? [...parsed] : [parsed];
-      while (queue.length) {
-        const value = queue.shift();
+      for (let next = 0; next < queue.length; next += 1) {
+        const value = queue[next];
         if (!value || typeof value !== 'object') continue;
         if (Array.isArray(value)) queue.push(...value);
         else {

@@ -24,6 +24,7 @@
  */
 
 import { createHash } from 'node:crypto';
+import { isRegexLiteralStart } from '../lib/inline-comment-marker.mjs';
 
 export const FOLLOWUP_DAILY_TIME_ZONE = 'Europe/Zurich';
 export const FOLLOWUP_ITEM_ID_RE = /\bFU-(\d{4}-\d{2}-\d{2})-(\d{3})\b/g;
@@ -445,7 +446,11 @@ function maskNonExecutableJavaScript(source) {
     if (text[index] !== '\n' && text[index] !== '\r') out[index] = ' ';
   };
   const previousSignificant = (index) => {
-    for (let i = index - 1; i >= 0; i -= 1) {
+    const lineStart = Math.max(
+      text.lastIndexOf('\n', index - 1),
+      text.lastIndexOf('\r', index - 1),
+    ) + 1;
+    for (let i = index - 1; i >= lineStart; i -= 1) {
       if (!/\s/.test(out[i])) return out[i];
     }
     return '';
@@ -469,17 +474,11 @@ function maskNonExecutableJavaScript(source) {
   };
   const regexCanStart = (index) => {
     const previous = previousSignificant(index);
-    if (!previous) return true;
-    // A regex may follow a division operator: `value / /needle/`. The first
-    // slash is division (the previous token is an operand), while the second
-    // slash starts the literal. Treat `/` as an operator here so the literal
-    // is masked instead of exposing its text as executable code.
-    if (/[([{:;,=!?&|+*%^~<>\-/]/.test(previous)) return true;
     if (previous === '}') {
       // A closing brace can end either a block or an object expression. At
       // this boundary we fail closed for a possible regex literal, except for
       // the unambiguous `} / /regex/` division shape: leave its first slash in
-      // code so the second slash is recognized by the operator rule above.
+      // code so the shared lexer can recognize the second slash as a regex.
       return nextSignificant(index) !== '/';
     }
     if (previous === ')') {
@@ -487,8 +486,10 @@ function maskNonExecutableJavaScript(source) {
       const control = out.slice(0, openIndex).join('').match(/([A-Za-z_$][\w$]*)\s*$/u)?.[1];
       if (/^(?:catch|for|if|switch|while|with)$/u.test(control || '')) return true;
     }
-    const prefix = out.slice(0, index).join('').match(/([A-Za-z_$][\w$]*)\s*$/u)?.[1];
-    return /^(?:case|delete|do|else|in|of|return|throw|typeof|void|yield|await)$/u.test(prefix || '');
+    // Keep this scanner aligned with the shared regex/comment lexer. Its
+    // line-aware context preserves regexes after ASI while retaining division
+    // handling such as `value / /needle/`.
+    return isRegexLiteralStart(text, index, out);
   };
 
   for (let i = 0; i < text.length; i += 1) {

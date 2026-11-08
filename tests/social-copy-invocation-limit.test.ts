@@ -2,12 +2,14 @@ import { describe, expect, it } from 'vitest';
 
 import {
   reserveSocialCopyCodexInvocation,
+  reserveSocialCopyFreeFallbackInvocation,
   SOCIAL_COPY_CODEX_INVOCATION_LIMIT,
+  SOCIAL_COPY_FREE_FALLBACK_INVOCATION_LIMIT,
   SOCIAL_COPY_CODEX_INVOCATION_WINDOW_MS,
 } from '../scripts/lib/social-copy-invocation-limit.mjs';
 import { run, socialCopyInvocationId } from '../scripts/social-copy/reserve-codex-invocation.mjs';
 
-function fakeFirestore(initialState: Record<string, unknown> | null = null) {
+function fakeFirestore(initialState: Record<string, unknown> | null = null, documentId = 'social-copy-pack') {
   const reference = {};
   const state = { value: initialState };
   let transactionTail: Promise<unknown> = Promise.resolve();
@@ -16,7 +18,7 @@ function fakeFirestore(initialState: Record<string, unknown> | null = null) {
       if (name !== 'socialAutomationLimits') throw new Error(`unexpected collection: ${name}`);
       return {
         doc(id: string) {
-          if (id !== 'social-copy-pack') throw new Error(`unexpected document: ${id}`);
+          if (id !== documentId) throw new Error(`unexpected document: ${id}`);
           return reference;
         },
       };
@@ -73,6 +75,19 @@ describe('social-copy Codex invocation budget', () => {
 
     expect(results.filter((result) => result.allowed)).toHaveLength(SOCIAL_COPY_CODEX_INVOCATION_LIMIT);
     expect(state.value?.reservations).toHaveLength(SOCIAL_COPY_CODEX_INVOCATION_LIMIT);
+  });
+
+  it('limits free-provider fallback to one generation per rolling seven days', async () => {
+    const { db, state } = fakeFirestore(null, 'social-copy-free-fallback');
+    const now = new Date('2026-11-03T12:00:00.000Z');
+    const first = await reserveSocialCopyFreeFallbackInvocation({ db, invocationId: 'repo/1/1', now });
+    const second = await reserveSocialCopyFreeFallbackInvocation({
+      db, invocationId: 'repo/2/1', now: new Date(now.getTime() + 1),
+    });
+
+    expect(first).toMatchObject({ allowed: true, count: 1, limit: SOCIAL_COPY_FREE_FALLBACK_INVOCATION_LIMIT });
+    expect(second).toMatchObject({ allowed: false, count: 1, limit: SOCIAL_COPY_FREE_FALLBACK_INVOCATION_LIMIT });
+    expect(state.value?.reservations).toHaveLength(1);
   });
 
   it('treats the same workflow attempt as an idempotent reservation', async () => {

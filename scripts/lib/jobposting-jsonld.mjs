@@ -27,8 +27,8 @@
 export function extractJobPostingNodesFromJson(value) {
   const jobPostings = [];
   const queue = Array.isArray(value) ? [...value] : [value];
-  while (queue.length) {
-    const node = queue.shift();
+  for (let next = 0; next < queue.length; next += 1) {
+    const node = queue[next];
     if (Array.isArray(node)) {
       queue.push(...node);
       continue;

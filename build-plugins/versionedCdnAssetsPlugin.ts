@@ -189,8 +189,8 @@ export function staticImportClosure(
 ): string[] {
   const seen = new Set<string>();
   const queue = seeds.filter((seed) => knownAssets.has(seed));
-  while (queue.length) {
-    const asset = queue.shift() as string;
+  for (let next = 0; next < queue.length; next += 1) {
+    const asset = queue[next] as string;
     if (seen.has(asset)) continue;
     seen.add(asset);
     // `import("./x.js")` is excluded by construction: the `(` breaks the match.
