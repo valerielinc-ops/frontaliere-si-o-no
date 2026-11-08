@@ -143,6 +143,7 @@ export async function withoutRecordedDelivery(db, entries) {
 export async function claimApplicationIntentReminderDeliveries(db, {
   uid,
   intentIds,
+  expiryByIntentId = {},
   campaignId,
   now = new Date(),
 } = {}) {
@@ -167,6 +168,8 @@ export async function claimApplicationIntentReminderDeliveries(db, {
         state: 'sending',
         claimed_at: now,
       };
+      const expiresAt = expiryByIntentId[intentId];
+      if (expiresAt) data.expiresAt = expiresAt;
       const existing = snapshots[ids.indexOf(intentId)];
       if (deliveryExists(existing)) transaction.set(intentDeliveryRef(db, intentId), data, { merge: true });
       else transaction.create(intentDeliveryRef(db, intentId), data);
@@ -564,6 +567,7 @@ export async function main() {
       claimedIds = await claimApplicationIntentReminderDeliveries(db, {
         uid,
         intentIds: claimedIds,
+        expiryByIntentId: Object.fromEntries(selectedEntries.map((entry) => [entry.intentId, entry.expiresAt]).filter(([intentId]) => intentId)),
         campaignId,
         now,
       });

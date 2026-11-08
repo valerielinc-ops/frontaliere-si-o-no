@@ -37,6 +37,7 @@ import { createAnswerSourceGuard } from '../../functions/src/assistedApplication
 import { factCheckTokens } from '../../functions/src/assistedApplicationFlow.js';
 import { boundRunnerEvent, questionDetailsForEvent } from './lib/question-details.mjs';
 import { compactApplicationContract, mergeApplicationContracts } from './lib/portal/application-contract.mjs';
+import { shouldDownloadOriginalCv } from './lib/cv-download-policy.mjs';
 
 const BUCKET = ASSISTED_APPLICATION_STORAGE_BUCKET;
 // dry_run: the submission without the final click, for the owner's tests.
@@ -195,16 +196,20 @@ async function main() {
 
   let cvBuffer;
   let cvType;
-  try {
-    [cvBuffer] = await bucket.file(order.cvStorageKey).download();
-    cvType = detectCvFileType(cvBuffer.subarray(0, 8));
-    if (!cvType) throw new Error('cv_type_unknown');
-  } catch (error) {
-    await report({ type: mode === 'draft' ? 'draft_failed' : 'submit_failed', error: `cv_unavailable:${safeErrorCode(error)}` });
-    return;
-  }
+  const loadOriginalCv = async () => {
+    try {
+      [cvBuffer] = await bucket.file(order.cvStorageKey).download();
+      cvType = detectCvFileType(cvBuffer.subarray(0, 8));
+      if (!cvType) throw new Error('cv_type_unknown');
+      return true;
+    } catch (error) {
+      await report({ type: mode === 'draft' ? 'draft_failed' : 'submit_failed', error: `cv_unavailable:${safeErrorCode(error)}` });
+      return false;
+    }
+  };
 
   if (mode === 'draft') {
+    if (!await loadOriginalCv()) return;
     const { requestCodexBrokerJson } = await import('../lib/ai-models.mjs');
     const started = Date.now();
     try {
@@ -258,6 +263,8 @@ async function main() {
   }
   const answerSourceGuard = dryRun ? null : createAnswerSourceGuard({ orderId, order, flow, draft: submitDraft,
     answerEvidence: answerContext.answerEvidence, nowMs: Date.now() });
+  if (shouldDownloadOriginalCv({ mode, draft: submitDraft, flow: executionFlow, order })
+    && !await loadOriginalCv()) return;
   try {
     const { sendEmailCascade } = await import('../../functions/src/emailCascade.js');
     const { requestCodexBrokerJson } = await import('../lib/ai-models.mjs');
