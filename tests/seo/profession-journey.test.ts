@@ -365,7 +365,7 @@ describe('sector journey integration', () => {
       emittedProfessionLandingPaths: new Set(),
     });
 
-    expect(findJourneyHref(html, 'infermieri', 'requirements')).toBe(
+    expect(findJourneyHref(html, 'infermiere', 'requirements')).toBe(
       buildProfessionJourneySearchHref(buildJobBoardUrl('it'), 'infermiere'),
     );
   });

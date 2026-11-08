@@ -726,11 +726,13 @@ export function buildSectorLandingHtml(opts: BuildSectorLandingHtmlOptions): str
           offers: journeyTarget.roleTitle && journeyTarget.companyScope === 'sector'
             ? roleSearchHref
             : `#${PROFESSION_JOURNEY_ANCHORS.offers}`,
-          requirements: journeyTarget.professionLanding && professionLandingIsAvailable
-            ? `${professionLandingPath}#${PROFESSION_JOURNEY_ANCHORS.requirements}`
+          requirements: journeyTarget.professionLanding
+            ? professionLandingIsAvailable
+              ? `${professionLandingPath}#${PROFESSION_JOURNEY_ANCHORS.requirements}`
+              : roleSearchHref
             : journeyTarget.nursingLanding
               ? `${buildNursingLandingPath(locale, journeyTarget.nursingLanding)}#${PROFESSION_JOURNEY_ANCHORS.requirements}`
-              : roleSearchHref,
+              : `#${PROFESSION_JOURNEY_ANCHORS.requirements}`,
           net: buildProfessionJourneyNetHref(CALCULATOR_PATH[locale], roleSalary.medianChf),
           companies: `#${PROFESSION_JOURNEY_ANCHORS.companies}`,
           alert: buildProfessionJourneyAlertHref(buildJobBoardUrl(locale), journeyTarget.alertKeyword[locale]),
