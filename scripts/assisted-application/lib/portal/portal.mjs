@@ -1949,18 +1949,25 @@ async function cookieControlHasCookieContext(page, button, snapshot = {}, { allo
   return isPageCookieConsentControl(page, snapshot, button);
 }
 
-async function findCookieControl(page, snapshot, pattern, {
+async function findCookieControls(page, snapshot, pattern, {
   genericPreferences = false, manageConsent = false, allowYellowsharkFallback = true,
 } = {}) {
+  const controls = [];
   for (const button of snapshot?.buttons || []) {
     if (button.disabled || (button.chrome && button.cookieSurface !== 'banner')) continue;
     const label = cookieControlLabel(button);
     if (!pattern.test(label)
       && !(genericPreferences && COOKIE_GENERIC_PREFERENCES_RE.test(label))
       && !(manageConsent && COOKIE_MANAGE_CONSENT_RE.test(label))) continue;
-    if (await cookieControlHasCookieContext(page, button, snapshot, { allowYellowsharkFallback })) return button;
+    if (!await cookieControlHasCookieContext(page, button, snapshot, { allowYellowsharkFallback })) continue;
+    const identity = cookieControlIdentity(button);
+    controls.push(identity ? { ...button, cookieControlIdentity: identity } : button);
   }
-  return null;
+  return controls;
+}
+
+async function findCookieControl(page, snapshot, pattern, options = {}) {
+  return (await findCookieControls(page, snapshot, pattern, options))[0] || null;
 }
 
 async function cookieChoice(page, snapshot) {
@@ -1976,18 +1983,31 @@ function cookieDialogRemains(snapshot, button) {
   return Boolean(button.dialogId && (snapshot?.dialogs || []).some((dialog) => dialog.dialogId === button.dialogId));
 }
 
+function cookieControlIdentity(control) {
+  const documentInstance = String(control?.documentInstance || '').trim();
+  const controlInstance = String(control?.controlInstance || '').trim();
+  return documentInstance && controlInstance ? `${documentInstance}\u0000${controlInstance}` : '';
+}
+
+function sameCookieControl(first, second) {
+  if (!first || !second || (Number(first.frame) || 0) !== (Number(second.frame) || 0)) return false;
+  const firstIdentity = String(first.cookieControlIdentity || '').trim();
+  const secondIdentity = String(second.cookieControlIdentity || '').trim();
+  return Boolean(firstIdentity && firstIdentity === secondIdentity);
+}
+
 async function cookiePageSnapshot(page) {
   return extractFields(page, NAVIGATION).catch(() => null);
 }
 
-async function clickCookieChoice(page, snapshot, button) {
+async function clickCookieChoice(page, snapshot, button, { openedBy = null } = {}) {
   const origin = pageOrigin(page);
   try {
     await clickButton(page, button);
   } catch {
     return { status: 'unresolved', snapshot };
   }
-  return confirmCookieChoiceDismissed(page, snapshot, origin, button);
+  return confirmCookieChoiceDismissed(page, snapshot, origin, button, { openedBy });
 }
 
 async function clearShadowCookieMarker(page) {
@@ -2073,14 +2093,21 @@ async function markShadowCookieButton(page, { includePreferences = false } = {})
   }
 }
 
-async function confirmCookieChoiceDismissed(page, snapshot, origin, blockingControl = null, { verifyShadow = false } = {}) {
+async function confirmCookieChoiceDismissed(page, snapshot, origin, blockingControl = null, { verifyShadow = false, openedBy = null } = {}) {
   await page.waitForTimeout(800);
   const current = await cookiePageSnapshot(page);
   if (!current || !origin || pageOrigin(page) !== origin) return { status: 'unresolved', snapshot: current || snapshot };
+  const remainingPreferences = await findCookieControls(page, current, COOKIE_CUSTOMIZE_RE, {
+    genericPreferences: true, manageConsent: true,
+  });
+  const persistentYellowsharkOpener = remainingPreferences.length > 0 && Boolean(openedBy)
+    && remainingPreferences.every((remainingPreference) => COOKIE_MANAGE_CONSENT_RE.test(cookieControlLabel(remainingPreference))
+      && COOKIE_MANAGE_CONSENT_RE.test(cookieControlLabel(openedBy))
+      && sameCookieControl(remainingPreference, openedBy)
+      && !remainingPreference.dialog
+      && !cookieDialogRemains(current, openedBy));
   if (await cookieChoice(page, current)
-    || await findCookieControl(page, current, COOKIE_CUSTOMIZE_RE, {
-      genericPreferences: true, manageConsent: true,
-    })
+    || (remainingPreferences.length > 0 && !persistentYellowsharkOpener)
     || cookieDialogRemains(current, blockingControl)) return { status: 'unresolved', snapshot: current };
   if (verifyShadow) {
     let shadowAction = await markShadowCookieButton(page);
@@ -2119,9 +2146,11 @@ export async function dismissCookieBanner(page, snapshot) {
       const shadowDecision = await markShadowCookieButton(page);
       if (shadowDecision !== 'decision') return { status: 'unresolved', snapshot: current };
       if (!await clickMarkedShadowCookie(page)) return { status: 'unresolved', snapshot: current };
-      return confirmCookieChoiceDismissed(page, current, origin, preferences, { verifyShadow: true });
+      return confirmCookieChoiceDismissed(page, current, origin, preferences, {
+        verifyShadow: true, openedBy: preferences,
+      });
     }
-    return clickCookieChoice(page, current, choice);
+    return clickCookieChoice(page, current, choice, { openedBy: preferences });
   }
 
   // A banner inside a shadow root (Usercentrics on Coop's career pages,

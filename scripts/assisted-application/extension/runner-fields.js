@@ -922,9 +922,9 @@ function nativeQuestionText(value, counter = null) {
       ...(roleForm ? { roleFormId: idFor(roleForm) } : {}),
     };
   };
-  // A portal may replace a file input while copying its data-aa-id. Keep a
+  // A portal may replace a control while copying its data-aa-id. Keep a
   // page-local identity for the actual DOM node so a later snapshot cannot
-  // mistake that fresh empty control for the one that received the file.
+  // mistake a fresh control for the one observed before the redraw.
   const controlIdentityState = window.__frontalierePortalControlIdentity || (() => {
     const state = { nodes: new WeakMap(), next: 0 };
     Object.defineProperty(window, '__frontalierePortalControlIdentity', { configurable: true, value: state });
@@ -932,8 +932,8 @@ function nativeQuestionText(value, counter = null) {
   })();
   // A same-URL iframe navigation creates a new document but may reuse the
   // browsing context (and therefore reset the per-document control counter).
-  // Keep an identity on the Document itself so a fresh empty file input can
-  // never inherit the upload receipt of the previous document.
+  // Keep an identity on the Document itself so a fresh control can never
+  // inherit the identity of the previous document.
   const documentInstance = (() => {
     const key = '__frontalierePortalDocumentInstance';
     const existing = document[key];
@@ -1283,6 +1283,11 @@ function nativeQuestionText(value, counter = null) {
         const cookieSurface = cookieSurfaceFor(element);
         return cookieSurface ? { cookieSurface } : {};
       })(),
+      // Consent confirmation compares this action with a later snapshot.
+      // Keep the physical node identity so duplicate DOM ids cannot be
+      // mistaken for the opener after a redraw or reorder.
+      documentInstance,
+      controlInstance: controlInstanceFor(element),
       id: idFor(element),
       // The generated data-aa-id is kept on the DOM node between snapshots;
       // expose it explicitly so upload-trigger identity survives object

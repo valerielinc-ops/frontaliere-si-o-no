@@ -53,6 +53,10 @@ import { REDIRECT_STUB_MARKER } from '../../build-plugins/shared/redirectStubMar
 import { EVENT_SLUG_MIGRATION_BRIDGE_MARKER } from '../../build-plugins/shared/eventSlugMigrationMarker.mjs';
 import { RELATED_SEARCH_MIRROR_MARKER } from '../../build-plugins/shared/relatedSearchMirrorMarker.mjs';
 import { WEEKLY_EMPLOYERS_ARCHIVE_NOINDEX_MARKER } from '../../build-plugins/shared/weeklyEmployersArchiveMarker.mjs';
+import {
+  loadArticleRouteRedirects,
+  resolveArticleRouteHref,
+} from '../../packages/articles/engine/shared/articleRouteOwnership.mjs';
 import { buildCanonicalJobDetailPath } from '../../build-plugins/shared/jobDetailPath';
 import { filterEmployerProfileJobLinks } from '../../build-plugins/shared/employerProfileJobLinks';
 import { renderArticleInlineMarkup } from '../../build-plugins/articleSeoFallback';
@@ -81,6 +85,29 @@ const BORDER_WAIT_ARTICLES = [
     link: buildBorderWaitTodayPath('fr', 'gaggiolo'),
   },
 ];
+
+const BING_EVENT_FRONTIER_CASES = [
+  [
+    `${BASE}/articoli-frontaliere/frontier-event-link-regression/`,
+    `${BASE}/eventi/ticino/altri-eventi/kino-tschlin-syngue-sabour-stein-der-geduld-2026-10-14/`,
+    `${BASE}/eventi/grigioni/altri-eventi/kino-tschlin-syngue-sabour-stein-der-geduld-2026-10-14/`,
+  ],
+  [
+    `${BASE}/en/cross-border-articles/frontier-event-link-regression/`,
+    `${BASE}/en/events/ticino/other-events/kino-tschlin-syngue-sabour-stein-der-geduld-2026-10-14/`,
+    `${BASE}/en/events/graubunden/other-events/kino-tschlin-syngue-sabour-stein-der-geduld-2026-10-14/`,
+  ],
+  [
+    `${BASE}/de/grenzgaenger-artikel/frontier-event-link-regression/`,
+    `${BASE}/de/veranstaltungen/tessin/weitere-veranstaltungen/kino-tschlin-syngue-sabour-stein-der-geduld-2026-10-14/`,
+    `${BASE}/de/veranstaltungen/graubunden/weitere-veranstaltungen/kino-tschlin-syngue-sabour-stein-der-geduld-2026-10-14/`,
+  ],
+  [
+    `${BASE}/fr/articles-frontalier/frontier-event-link-regression/`,
+    `${BASE}/fr/evenements/tessin/autres-evenements/kino-tschlin-syngue-sabour-stein-der-geduld-2026-10-14/`,
+    `${BASE}/fr/evenements/grisons/autres-evenements/kino-tschlin-syngue-sabour-stein-der-geduld-2026-10-14/`,
+  ],
+] as const;
 
 function validHtml(url, extra = '') {
   return `<title>Border wait test</title><link rel="canonical" href="${url}"><meta name="description" content="A sufficiently long description for the border-wait crawl regression and its full-tree contract, including canonical route coverage for localized article links.">${extra}`;
@@ -1844,6 +1871,84 @@ describe('Bing-compatible full-tree crawler', () => {
       supplementalManifest: frontierManifest,
     });
     expect(summary.frontierAttribution.rows.filter((row) => row.code === BING_FRONTIER_REDIRECT)).toEqual([]);
+  });
+
+  it('rewrites localized article links away from the T0/T6 event redirect frontier', async () => {
+    const redirects = loadArticleRouteRedirects(
+      { readFileSync },
+      join(__dirname, '../../data/article-redirects.json'),
+      join(__dirname, '../../build-plugins/legacyRedirectsPlugin.ts'),
+    );
+    const cases = BING_EVENT_FRONTIER_CASES.map(([source, legacy, canonical]) => ({
+      source,
+      legacy,
+      canonical,
+      link: resolveArticleRouteHref(legacy, { redirects }),
+    }));
+    const nearby = `${BASE}/eventi/ticino/altri-eventi/kino-tschlin-syngue-sabour-stein-der-geduld-2026-10-15/`;
+    const eventTemplateIndex = templateIndexFor(cases[0]!.legacy);
+
+    expect([...new Set(cases.map(({ source }) => templateIndexFor(source)))])
+      .toEqual([0]);
+    expect([...new Set(cases.map(({ legacy }) => templateIndexFor(legacy)))])
+      .toEqual([eventTemplateIndex]);
+    expect([...new Set(cases.map(({ canonical }) => templateIndexFor(canonical)))])
+      .toEqual([eventTemplateIndex]);
+    expect(cases.map(({ link, canonical }) => link)).toEqual(cases.map(({ canonical }) => canonical));
+    expect(resolveArticleRouteHref(nearby, { redirects })).toBe(nearby);
+
+    const sitemapManifest = {
+      baseUrl: BASE,
+      kind: 'sitemap',
+      sitemapCount: 1,
+      sitemapUrls: [`${BASE}/sitemap.xml`],
+      manifestCount: cases.length,
+      urls: cases.map(({ source }) => source),
+    };
+    const sourceByUrl = new Map(cases.map((article) => [article.source, article]));
+    const sitemapReport = await crawlPartition({
+      manifest: sitemapManifest,
+      partition: 0,
+      partitions: 1,
+      concurrency: 1,
+      retries: 0,
+      rescueDelayMs: 0,
+      fetchImpl: async (url) => {
+        const article = sourceByUrl.get(url);
+        return new Response(validHtml(url, article ? `<a href="${article.link}">Evento</a>` : ''), {
+          status: 200,
+          headers: { 'content-type': 'text/html' },
+        });
+      },
+    });
+    expect(sitemapReport.findings).toEqual([]);
+
+    const frontier = collectDiscoveredInventory({ manifest: sitemapManifest, reports: [sitemapReport] });
+    expect(frontier.urls).toEqual(cases.map(({ canonical }) => canonical).sort());
+    expect(frontier.urls).not.toEqual(expect.arrayContaining(cases.map(({ legacy }) => legacy)));
+
+    const frontierManifest = {
+      baseUrl: BASE,
+      kind: 'discovered-frontier',
+      manifestCount: frontier.urls.length,
+      urls: frontier.urls,
+      referrerRefs: frontier.referrerRefs,
+      templateTable: frontier.templateTable,
+    };
+    const frontierReport = await crawlPartition({
+      manifest: frontierManifest,
+      partition: 0,
+      partitions: 1,
+      concurrency: 1,
+      retries: 0,
+      rescueDelayMs: 0,
+      fetchImpl: async (url) => new Response(validHtml(url), {
+        status: 200,
+        headers: { 'content-type': 'text/html' },
+      }),
+    });
+    expect(frontierReport.findings).toEqual([]);
+    expect(frontierReport.codeCounts[BING_FRONTIER_REDIRECT] ?? 0).toBe(0);
   });
 
   it('reads the frontier partition filename prefix used by the workflow artifacts', () => {

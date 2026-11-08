@@ -1,6 +1,34 @@
+import { readFileSync } from 'node:fs';
+import { resolve } from 'node:path';
 import { describe, expect, it } from 'vitest';
 
-import { scanRedirectSource } from '../packages/articles/engine/shared/articleRouteOwnership.mjs';
+import {
+  loadArticleRouteRedirects,
+  resolveArticleRouteHref,
+  scanRedirectSource,
+} from '../packages/articles/engine/shared/articleRouteOwnership.mjs';
+
+const ROOT = resolve(__dirname, '..');
+const ARTICLE_REDIRECTS = resolve(ROOT, 'data/article-redirects.json');
+const LEGACY_REDIRECTS = resolve(ROOT, 'build-plugins/legacyRedirectsPlugin.ts');
+const EVENT_ALIAS_CASES = [
+  [
+    '/eventi/ticino/altri-eventi/kino-tschlin-syngue-sabour-stein-der-geduld-2026-10-14/',
+    '/eventi/grigioni/altri-eventi/kino-tschlin-syngue-sabour-stein-der-geduld-2026-10-14/',
+  ],
+  [
+    '/en/events/ticino/other-events/kino-tschlin-syngue-sabour-stein-der-geduld-2026-10-14/',
+    '/en/events/graubunden/other-events/kino-tschlin-syngue-sabour-stein-der-geduld-2026-10-14/',
+  ],
+  [
+    '/de/veranstaltungen/tessin/weitere-veranstaltungen/kino-tschlin-syngue-sabour-stein-der-geduld-2026-10-14/',
+    '/de/veranstaltungen/graubunden/weitere-veranstaltungen/kino-tschlin-syngue-sabour-stein-der-geduld-2026-10-14/',
+  ],
+  [
+    '/fr/evenements/tessin/autres-evenements/kino-tschlin-syngue-sabour-stein-der-geduld-2026-10-14/',
+    '/fr/evenements/grisons/autres-evenements/kino-tschlin-syngue-sabour-stein-der-geduld-2026-10-14/',
+  ],
+] as const;
 
 describe('legacy article redirect source scanner', () => {
   it('ignores route-shaped text inside comments and string literals', () => {
@@ -39,6 +67,36 @@ describe('legacy article redirect source scanner', () => {
     expect(result.literalCount).toBe(2);
     expect(result.dynamicCount).toBe(1);
     expect(result.unsupported).toEqual([]);
+  });
+
+  it('shares exact edge-owned event aliases with article link resolution', () => {
+    const redirects = loadArticleRouteRedirects(
+      { readFileSync },
+      ARTICLE_REDIRECTS,
+      LEGACY_REDIRECTS,
+    );
+
+    for (const [legacy, canonical] of EVENT_ALIAS_CASES) {
+      expect(redirects[legacy], legacy).toBe(canonical);
+      expect(resolveArticleRouteHref(legacy, { redirects }), legacy).toBe(canonical);
+      expect(resolveArticleRouteHref(`${legacy}?utm_source=bing#event`, { redirects }))
+        .toBe(`${canonical}?utm_source=bing#event`);
+    }
+  });
+
+  it('does not reinterpret nearby event routes or non-site links', () => {
+    const redirects = loadArticleRouteRedirects(
+      { readFileSync },
+      ARTICLE_REDIRECTS,
+      LEGACY_REDIRECTS,
+    );
+    const nearby = '/eventi/ticino/altri-eventi/kino-tschlin-syngue-sabour-stein-der-geduld-2026-10-15/';
+
+    expect(resolveArticleRouteHref(nearby, { redirects })).toBe(nearby);
+    expect(resolveArticleRouteHref('https://example.com/eventi/ticino/', { redirects }))
+      .toBe('https://example.com/eventi/ticino/');
+    expect(resolveArticleRouteHref('mailto:editor', { redirects }))
+      .toBe('mailto:editor');
   });
 
   it('fails closed on an unterminated block comment instead of returning a partial map', () => {
