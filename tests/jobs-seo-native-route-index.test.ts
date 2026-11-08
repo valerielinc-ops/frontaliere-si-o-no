@@ -50,6 +50,15 @@ function oldRecovered(locale: Locale, slug: string, relPath: string, tracking: T
 }
 
 describe('native job route ownership with interned prefixes', () => {
+  it('keeps locale ownership bits unique and separate from current-slug membership', () => {
+    const ownerBits = JOB_SEO_LOCALES.map((_, index) => 1 << index);
+    const currentSlugBit = 1 << JOB_SEO_LOCALES.length;
+
+    expect(JOB_SEO_LOCALES.length).toBeLessThanOrEqual(31);
+    expect(new Set(JOB_SEO_LOCALES).size).toBe(JOB_SEO_LOCALES.length);
+    expect(new Set([...ownerBits, currentSlugBit]).size).toBe(JOB_SEO_LOCALES.length + 1);
+  });
+
   it('appends expired owners in place while preserving active owners and expired last-wins order', () => {
     const activeRouteOwners = new Map<string, number>();
     const active = buildNativeJobPrefixIndex({

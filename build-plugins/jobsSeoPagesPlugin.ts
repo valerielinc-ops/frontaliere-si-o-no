@@ -415,6 +415,15 @@ export const JOB_SEO_LOCALES = ['it', 'en', 'de', 'fr'] as const;
 
 type JobSeoLocale = (typeof JOB_SEO_LOCALES)[number];
 type JobRouteTracking = Record<string, Partial<Record<JobSeoLocale, string>>>;
+// One additional bit is reserved for current-slug membership. Keep locale
+// ownership bits distinct and fail closed if the configured locale list ever
+// outgrows the remaining 31-bit mask or contains duplicate locale names.
+if (JOB_SEO_LOCALES.length > 31) {
+ throw new Error(`JOB_SEO_LOCALES supports at most 31 locales, got ${JOB_SEO_LOCALES.length}`);
+}
+if (new Set<string>(JOB_SEO_LOCALES).size !== JOB_SEO_LOCALES.length) {
+ throw new Error('JOB_SEO_LOCALES must not contain duplicate locales');
+}
 const CURRENT_JOB_SLUG = 1 << JOB_SEO_LOCALES.length;
 const localeOwnerBit = (locale: JobSeoLocale): number => 1 << JOB_SEO_LOCALES.indexOf(locale);
 const normalizedRoutePath = (value: string): string => {
