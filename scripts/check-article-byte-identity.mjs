@@ -434,12 +434,13 @@ export function canonicalizeCdnDataEnvelope(html) {
     // the existing head tag or on its own indented line. Removing only the
     // tags leaves an extra blank line in the latter shape, which can hide a
     // later edge-only difference (for example Cloudflare's live response
-    // script) behind a harmless formatting mismatch. Consume only whitespace
-    // emitted immediately after the exact envelope tag; the whitespace before
-    // the first removed tag remains the surrounding head layout and therefore
-    // matches the no-envelope shape.
+    // script) behind a harmless formatting mismatch. Consume whitespace after
+    // the exact envelope tag only when another head tag follows; when the
+    // envelope is the last head node, retain the surrounding whitespace so an
+    // otherwise empty head keeps the same layout as the no-envelope shape.
     let end = tagEnd;
     while (end < headEnd && isHtmlWhitespace(html[end])) end++;
+    if (end === headEnd || html[end] !== '<') end = tagEnd;
     normalized = normalized.slice(0, start) + normalized.slice(end);
   }
   return normalized;
