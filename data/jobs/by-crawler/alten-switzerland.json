@@ -1,7 +1,7 @@
 {
   "crawlerKey": "alten-switzerland",
-  "assembledAt": "2026-11-06T21:54:18.143Z",
-  "runId": "42295108529",
+  "assembledAt": "2026-11-08T22:11:30.318Z",
+  "runId": "42524208373",
   "jobs": [
     {
       "title": "Project Manager – IT & Banking",
@@ -146,7 +146,8 @@
       "firstSeenAt": "2026-10-19T09:35:20.874Z",
       "streetAddress": "Switzerland",
       "streetAddressSource": "to-enrich",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "title": "Analyste de données",
