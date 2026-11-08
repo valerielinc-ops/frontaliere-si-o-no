@@ -71,7 +71,10 @@ describe('social native insights workflow contract', () => {
     expect(codex).toContain('Generate with one free-provider fallback chain');
     expect(codex).toContain('Load free-provider keys from Remote Config');
     expect(codex).toContain('scripts/social-copy/generate-free-model-fallback.mjs');
-    expect(codex).toContain('GH_MODELS_PAT_2,GH_MODELS_PAT_3,GH_MODELS_PAT_4,GH_MODELS_PAT_5,GH_MODELS_PAT_6,GH_MODELS_PAT_7,GH_MODELS_PAT_8,GH_MODELS_PAT_9');
+    expect(codex).toContain('FALLBACK_FAILURES: ${{ steps.free_fallback.outputs.attempt_failures }}');
+    expect(codex).toContain("Fallback attempts: `%s`");
+    expect(codex).toContain('node scripts/load-rc-env.mjs --only-env=GEMINI_API_KEY,GROQ_API_KEY,OPENROUTER_API_KEY');
+    expect(codex).not.toContain('GH_MODELS_PAT');
     expect(codex).toContain("if: steps.codex.outputs.primary_success != 'true'");
     expect(codex).not.toContain("if: always() && steps.codex.outputs.primary_success != 'true'");
     expect(promote).toContain("needs.generate.outputs.pack_generated == 'true'");
