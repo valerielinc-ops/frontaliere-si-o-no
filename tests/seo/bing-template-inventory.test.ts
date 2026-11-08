@@ -89,7 +89,7 @@ describe('Bing title/meta template inventory', () => {
       `${BASE}/en/aziende/not-a-profile/nested/`,
       `${BASE}/meteo-frontalieri-old/lugano/`,
       `${BASE}/stipendi-zurigo/`,
-      `${BASE}/lavoro-zurigo-infermiere/`,
+      `${BASE}/lavoro-zurigo-infermiere-extra/`,
       `${BASE}/stipendio-infermiere-ticino/`,
       `${BASE}/de/gehalt-ingenieur-genf-extra/`,
     ];
