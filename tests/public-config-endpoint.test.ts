@@ -1,3 +1,4 @@
+import { readFileSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
 import { fetchPublicConfigResponse, getPublicConfigEndpoint } from '../services/publicConfigEndpoint';
 
@@ -38,5 +39,11 @@ describe('public Remote Config endpoint', () => {
       'https://europe-west6-frontaliere-ticino.cloudfunctions.net/getPublicConfig',
     ]);
     expect(calls.every(({ init }) => init?.cache === 'default' && init.credentials === 'omit')).toBe(true);
+  });
+
+  it('routes the scheduled house-creative probe through the production Worker', () => {
+    const workflow = readFileSync(new URL('../.github/workflows/house-creative-readout.yml', import.meta.url), 'utf8');
+    expect(workflow).toContain('https://frontaliereticino.ch/api/public-config/');
+    expect(workflow).not.toContain('cloudfunctions.net/getPublicConfig');
   });
 });
