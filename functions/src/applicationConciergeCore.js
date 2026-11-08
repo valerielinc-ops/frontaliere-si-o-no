@@ -55,6 +55,11 @@ import {
 } from './applicationConciergeConstants.js';
 import { CANDIDATE_LANGUAGE_LEVELS, CANDIDATE_LANGUAGE_OPTIONS } from './lib/languageFacts.js';
 import { conciergeMaterialCopy, CONCIERGE_MAX_CV_BYTES } from './applicationConciergeMaterialCopy.js';
+import {
+  conciergeMatchingRuntimeRef,
+  mergeConciergeMatchingRuntime,
+  writeConciergeMatchingRuntime,
+} from './applicationConciergeRuntime.js';
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const APPLICATION_CONCIERGE_CANDIDATE_LOCALES = new Set(['it', 'en', 'de', 'fr']);
@@ -230,7 +235,9 @@ export function serializeApplicationConciergeService(doc, proposalDocs = [], { a
     renewalOffer: admin || renewalEnabled ? conciergeRenewalOffer(data) : null,
     maxPositions: servicePositionLimit(data),
     acceptedPositionsCount: acceptedPositionsCount(data),
-    openProposalsCount: openProposalsCount(data, proposals.filter(proposal => proposal.status === 'proposed').length),
+    // Proposal rows are authoritative during a matcher run; the parent count is
+    // only a compatibility mirror and is refreshed once the batch completes.
+    openProposalsCount: proposals.filter(proposal => proposal.status === 'proposed').length,
     maxOpenProposals: APPLICATION_CONCIERGE_MAX_OPEN_PROPOSALS,
     remainingPositions: Math.max(0, servicePositionLimit(data) - acceptedPositionsCount(data)),
     paidAt: timestampToIso(data.paidAt),
@@ -299,8 +306,16 @@ async function loadService(db, serviceId) {
   const ref = serviceRefFor(db, serviceId);
   const snapshot = await ref.get();
   if (!snapshot.exists) throw new ApplicationConciergeError('service_not_found', 404);
-  const proposals = await ref.collection('proposals').get();
-  const parent = snapshot.data() || {};
+  const [proposals, runtimeSnapshot] = await Promise.all([
+    ref.collection('proposals').get(), conciergeMatchingRuntimeRef(ref).get(),
+  ]);
+  const parent = mergeConciergeMatchingRuntime(snapshot.data() || {}, runtimeSnapshot.data() || null);
+  const serviceSnapshot = {
+    id: snapshot.id,
+    exists: snapshot.exists,
+    ref,
+    data: () => parent,
+  };
   const enriched = await Promise.all((proposals.docs || []).map(async proposal => {
     const data = proposal.data() || {};
     if (data.status === 'proposed' && data.eligibilityStatus === 'clarification_required'
@@ -339,7 +354,7 @@ async function loadService(db, serviceId) {
       childSendState: send?.state || null, childRetryScheduled: childApplicationState === 'owner_takeover' && Number(flow?.portalAutoRetryAt) > 0,
     }) };
   }));
-  return { ref, snapshot, proposals: enriched };
+  return { ref, snapshot: serviceSnapshot, proposals: enriched };
 }
 
 function assertCandidateOwns(service, uid) {
@@ -740,8 +755,8 @@ async function acceptProposal(db, serviceId, proposalId, uid, operationStartedAt
   const childApplicationId = uploaded.targetId;
   let published;
   try {
-    published = await copy.publish((transaction, { service: currentService, proposal: currentProposal,
-      key: targetKey, targetId, writeId, nowMs }) => {
+    published = await copy.publish((transaction, { service: currentService, legacyService, matchingRuntime,
+      proposal: currentProposal, key: targetKey, targetId, writeId, nowMs }) => {
       assertCandidateOwns(currentService, uid);
       assertActive(currentService);
       if (!currentProposal || currentProposal.status !== 'proposed') {
@@ -757,10 +772,15 @@ async function acceptProposal(db, serviceId, proposalId, uid, operationStartedAt
         || currentService.cvStorageKey !== service.cvStorageKey) {
         throw new ApplicationConciergeError('proposal_requires_verification', 409);
       }
-      const accepted = acceptedPositionsCount(currentService);
-      const maxPositions = servicePositionLimit(currentService);
+      const runtimeRef = conciergeMatchingRuntimeRef(serviceRef);
+      const runtime = matchingRuntime || null;
+      const legacy = legacyService || currentService;
+      const serviceWithRuntime = mergeConciergeMatchingRuntime(legacy, runtime);
+      const accepted = acceptedPositionsCount(serviceWithRuntime);
+      const maxPositions = servicePositionLimit(serviceWithRuntime);
       if (accepted >= maxPositions) throw new ApplicationConciergeError('position_limit_reached', 409);
-      const openCount = openProposalsCount(currentService, fallbackOpenCount);
+      const openCount = openProposalsCount(serviceWithRuntime, fallbackOpenCount);
+      const nextOpenCount = Math.max(0, openCount - 1);
       const now = Timestamp.fromMillis(nowMs);
       transaction.set(proposalRef, {
         status: 'accepted',
@@ -768,9 +788,11 @@ async function acceptProposal(db, serviceId, proposalId, uid, operationStartedAt
         childApplicationId,
         updatedAt: FieldValue.serverTimestamp(),
       }, { merge: true });
+      writeConciergeMatchingRuntime(transaction, serviceRef, runtimeRef, legacy, runtime,
+        { matchingOpenProposalCount: nextOpenCount });
       transaction.set(serviceRef, {
         acceptedPositionsCount: FieldValue.increment(1),
-        matchingOpenProposalCount: Math.max(0, openCount - 1),
+        matchingOpenProposalCount: nextOpenCount,
         matchingFeedbackRevision: FieldValue.increment(1),
         matchingStatus: 'queued',
         matchingError: null,
@@ -839,25 +861,32 @@ async function declineProposal(db, serviceId, proposalId, uid, rawReason = '') {
   const existingProposals = await serviceRef.collection('proposals').get();
   const fallbackOpenCount = (existingProposals.docs || []).filter(doc => (doc.data() || {}).status === 'proposed').length;
   await db.runTransaction(async (transaction) => {
-    const [serviceSnapshot, proposalSnapshot] = await Promise.all([
+    const runtimeRef = conciergeMatchingRuntimeRef(serviceRef);
+    const [serviceSnapshot, runtimeSnapshot, proposalSnapshot] = await Promise.all([
       transaction.get(serviceRef),
+      transaction.get(runtimeRef),
       transaction.get(proposalRef),
     ]);
-    const service = serviceSnapshot.exists ? serviceSnapshot.data() || {} : null;
+    const legacyService = serviceSnapshot.exists ? serviceSnapshot.data() || {} : null;
+    const runtime = runtimeSnapshot.data() || null;
+    const service = legacyService ? mergeConciergeMatchingRuntime(legacyService, runtime) : null;
     assertCandidateOwns(service, uid);
     assertActive(service);
     if (!proposalSnapshot.exists) throw new ApplicationConciergeError('proposal_not_found', 404);
     const proposal = proposalSnapshot.data() || {};
     if (proposal.status !== 'proposed') throw new ApplicationConciergeError('proposal_already_decided', 409);
     const openCount = openProposalsCount(service, fallbackOpenCount);
+    const nextOpenCount = Math.max(0, openCount - 1);
     transaction.set(proposalRef, {
       status: 'declined',
       declinedAt: Timestamp.now(),
       ...(declineReason ? { declineReason } : {}),
       updatedAt: FieldValue.serverTimestamp(),
     }, { merge: true });
+    writeConciergeMatchingRuntime(transaction, serviceRef, runtimeRef, legacyService, runtime,
+      { matchingOpenProposalCount: nextOpenCount });
     transaction.set(serviceRef, {
-      matchingOpenProposalCount: Math.max(0, openCount - 1),
+      matchingOpenProposalCount: nextOpenCount,
       matchingFeedbackRevision: FieldValue.increment(1),
       matchingStatus: 'queued',
       matchingError: null,
@@ -1019,10 +1048,13 @@ async function createProposal(db, raw, adminEmail) {
     updatedAt: FieldValue.serverTimestamp(),
   };
   await db.runTransaction(async transaction => {
-    const [currentServiceSnapshot, currentProposalSnapshot] = await Promise.all([
-      transaction.get(serviceRef), transaction.get(proposalRef),
+    const runtimeRef = conciergeMatchingRuntimeRef(serviceRef);
+    const [currentServiceSnapshot, currentRuntimeSnapshot, currentProposalSnapshot] = await Promise.all([
+      transaction.get(serviceRef), transaction.get(runtimeRef), transaction.get(proposalRef),
     ]);
-    const currentService = currentServiceSnapshot.data() || {};
+    const legacyCurrentService = currentServiceSnapshot.data() || {};
+    const runtime = currentRuntimeSnapshot.data() || null;
+    const currentService = mergeConciergeMatchingRuntime(legacyCurrentService, runtime);
     if (!currentServiceSnapshot.exists || !serviceIsActive(currentService)) throw new ApplicationConciergeError('service_not_active', 409);
     if (currentService.cvStorageKey !== service.cvStorageKey
       || !proposalUsesCurrentEligibilityFacts({ eligibilityFactsRevision: evaluatedFactsRevision }, currentService)) {
@@ -1034,7 +1066,10 @@ async function createProposal(db, raw, adminEmail) {
     }
     const openCount = openProposalsCount(currentService, fallbackOpenCount);
     if (openCount >= APPLICATION_CONCIERGE_MAX_OPEN_PROPOSALS) throw new ApplicationConciergeError('proposal_limit_reached', 409);
-    transaction.set(serviceRef, { matchingOpenProposalCount: openCount + 1 }, { merge: true });
+    const nextOpenCount = openCount + 1;
+    writeConciergeMatchingRuntime(transaction, serviceRef, runtimeRef, legacyCurrentService, runtime,
+      { matchingOpenProposalCount: nextOpenCount });
+    transaction.set(serviceRef, { matchingOpenProposalCount: nextOpenCount }, { merge: true });
     transaction.set(proposalRef, proposal);
   });
   const fresh = await loadService(db, serviceId);
@@ -1085,11 +1120,15 @@ export async function expireApplicationConciergeServices({ db = getAdminDb(), no
     if (!serviceIsExpired(service, nowMs)) continue;
     const proposals = await doc.ref.collection('proposals').get();
     const batch = db.batch();
+    const runtimeRef = conciergeMatchingRuntimeRef(doc.ref);
+    const runtimeSnapshot = await runtimeRef.get();
     batch.set(doc.ref, {
       serviceStatus: 'expired',
       matchingOpenProposalCount: 0,
       updatedAt: FieldValue.serverTimestamp(),
     }, { merge: true });
+    writeConciergeMatchingRuntime(batch, doc.ref, runtimeRef, service,
+      runtimeSnapshot.data() || null, { matchingOpenProposalCount: 0 });
     for (const proposal of proposals.docs || []) {
       if ((proposal.data() || {}).status === 'proposed') {
         batch.set(proposal.ref, { status: 'expired', expiredAt: FieldValue.serverTimestamp(), updatedAt: FieldValue.serverTimestamp() }, { merge: true });

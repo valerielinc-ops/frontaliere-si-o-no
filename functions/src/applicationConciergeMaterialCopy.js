@@ -6,6 +6,7 @@ import {
   acceptedPositionsCount, serviceIsActive, servicePositionLimit, timestampMillis,
 } from './applicationConciergeConstants.js';
 import { uploadOwnedArtifact, ownedArtifactGeneration, deleteOwnedArtifactGeneration } from './lib/ownedGcsArtifact.js';
+import { conciergeMatchingRuntimeRef, mergeConciergeMatchingRuntime } from './applicationConciergeRuntime.js';
 
 export const CONCIERGE_MAX_CV_BYTES = 5 * 1024 * 1024;
 const COLLECTION = 'pending_material_copies';
@@ -57,10 +58,21 @@ function refsFor(db, record) {
     request: service.collection(REQUESTS).doc(record.requestId) };
 }
 async function contextInTransaction(tx, refs) {
-  const [service, source, target, proposal] = await Promise.all([
-    tx.get(refs.service), tx.get(refs.source), tx.get(refs.target), refs.proposal ? tx.get(refs.proposal) : null,
+  const runtimeRef = conciergeMatchingRuntimeRef(refs.service);
+  const [service, runtime, source, target, proposal] = await Promise.all([
+    tx.get(refs.service), tx.get(runtimeRef), tx.get(refs.source), tx.get(refs.target),
+    refs.proposal ? tx.get(refs.proposal) : null,
   ]);
-  return { service: service.data(), source: source.data(), target: target.data(), proposal: proposal?.data() };
+  const legacyService = service.data() || {};
+  const matchingRuntime = runtime.data() || null;
+  return {
+    service: mergeConciergeMatchingRuntime(legacyService, matchingRuntime),
+    legacyService,
+    matchingRuntime,
+    source: source.data(),
+    target: target.data(),
+    proposal: proposal?.data(),
+  };
 }
 function published(record, context) {
   const target = context.target;

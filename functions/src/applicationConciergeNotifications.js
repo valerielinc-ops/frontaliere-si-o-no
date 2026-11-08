@@ -57,6 +57,16 @@ export async function handleConciergeServiceWritten(before, after, serviceId, de
   return sendConciergePaidNotifications({ ...deps, serviceId });
 }
 
+export function shouldInheritConciergeRenewalMaterials(before, after) {
+  if (!after?.renewalOfServiceId || !after.renewalConsentVersion || after.retentionPurgedAt) return false;
+  if (!before) return true;
+  return before.paymentStatus !== after.paymentStatus
+    || before.renewalOfServiceId !== after.renewalOfServiceId
+    || before.renewalConsentVersion !== after.renewalConsentVersion
+    || timestampMillis(before.renewalConsentedAt) !== timestampMillis(after.renewalConsentedAt)
+    || timestampMillis(before.retentionPurgedAt) !== timestampMillis(after.retentionPurgedAt);
+}
+
 export async function sweepConciergePaidNotifications({ db, nowMs = Date.now(), send = sendOrderNotification }) {
   const snapshot = await db.collection(APPLICATION_CONCIERGE_SERVICES_COLLECTION).where('paymentStatus', '==', 'paid').get();
   let attempted = 0;

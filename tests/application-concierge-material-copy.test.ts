@@ -1,5 +1,20 @@
 import assert from 'node:assert/strict';
-import { describe, it } from 'vitest';
+import { describe, it, vi } from 'vitest';
+vi.mock('firebase-admin/firestore', () => {
+  class DeleteTransform {}
+  class MockTimestamp {
+    constructor(private readonly millis: number) {}
+    toMillis() { return this.millis; }
+    toDate() { return new Date(this.millis); }
+    static now() { return new MockTimestamp(Date.now()); }
+    static fromMillis(value: number) { return new MockTimestamp(value); }
+  }
+  return {
+    FieldValue: { delete: () => new DeleteTransform(), serverTimestamp: () => '__server_timestamp__' },
+    FieldPath: { documentId: () => '__document_id__' },
+    Timestamp: MockTimestamp,
+  };
+});
 import { Timestamp } from 'firebase-admin/firestore';
 import { conciergeMaterialCopy, cleanupConciergeMaterialCopies } from '../functions/src/applicationConciergeMaterialCopy.js';
 import { materialCopyFixture } from './helpers/conciergeMaterialCopyFixture.mjs';

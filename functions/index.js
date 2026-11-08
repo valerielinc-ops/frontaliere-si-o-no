@@ -123,7 +123,7 @@ import {
 import { inheritConciergeRenewalMaterials } from './src/applicationConciergeRenewalMaterials.js';
 import { cleanupConciergeMaterialCopies } from './src/applicationConciergeMaterialCopy.js';
 import { isFreshConciergeProposalRefreshRequest, queueConciergeMatchingRefresh, runConciergeLifecycleSweep, runConciergeMatchingWithLease, runConciergeProposalRefresh } from './src/applicationConciergeLifecycle.js';
-import { handleConciergeServiceWritten, sweepConciergePaidNotifications } from './src/applicationConciergeNotifications.js';
+import { handleConciergeServiceWritten, shouldInheritConciergeRenewalMaterials, sweepConciergePaidNotifications } from './src/applicationConciergeNotifications.js';
 import { purgeExpiredAssistedApplicationFiles } from './src/assistedApplicationRetention.js';
 import {
   handleAssistedApplicationOrderWritten,
@@ -3015,12 +3015,20 @@ export const notifyAssistedApplicationOrder = onDocumentWritten(
 export const notifyApplicationConciergeService = onDocumentWritten(
   { region: 'europe-west6', memory: '256MiB', document: 'application_concierge_services/{serviceId}' },
   async (event) => {
-    if (!event.data?.after?.exists) return;
-    await handleConciergeServiceWritten(
-      event.data.before?.exists ? event.data.before.data() : null,
-      event.data.after.data(), event.params.serviceId, { db: getAdminDb() },
-    );
-    await inheritConciergeRenewalMaterials({ db: getAdminDb(), serviceId: event.params.serviceId });
+    const afterSnapshot = event.data?.after;
+    if (!afterSnapshot?.exists) return;
+    const before = event.data.before?.exists ? event.data.before.data() || {} : null;
+    const after = afterSnapshot.data() || {};
+    const paidTransition = after.paymentStatus === 'paid' && before?.paymentStatus !== 'paid';
+    const inheritRenewalMaterials = shouldInheritConciergeRenewalMaterials(before, after);
+    if (!paidTransition && !inheritRenewalMaterials) return;
+    const db = getAdminDb();
+    if (paidTransition) {
+      await handleConciergeServiceWritten(before, after, event.params.serviceId, { db });
+    }
+    if (inheritRenewalMaterials) {
+      await inheritConciergeRenewalMaterials({ db, serviceId: event.params.serviceId });
+    }
   },
 );
 

@@ -1,4 +1,15 @@
 import { describe, expect, it, vi } from 'vitest';
+vi.mock('firebase-admin/firestore', () => {
+  class DeleteTransform {}
+  return {
+    FieldValue: {
+      delete: () => new DeleteTransform(),
+      serverTimestamp: () => '__server_timestamp__',
+      increment: (value: number) => ({ __increment: value }),
+    },
+    Timestamp: { now: () => new Date(), fromMillis: (value: number) => new Date(value) },
+  };
+});
 vi.mock('../functions/src/remoteConfigSecrets.js', () => ({ getRemoteConfigValue: vi.fn(async () => '') }));
 vi.mock('../functions/src/geminiGenerate.js', () => ({ generateServerText: vi.fn() }));
 const { generateServerText } = await import('../functions/src/geminiGenerate.js');
@@ -16,23 +27,45 @@ const requirements = { requirements: [{ requirement: 'Tedesco fluente', sourceRe
 const rawProfile = { fullName: 'Candidate Example', languages: [{ language: 'English', level: 'B2' }, { language: 'French', level: 'B2' }], languagesExplicitList: true, experience: [] };
 function fixture(match: any) {
   const records = new Map<string, any>();
+  const serviceWrites: any[] = [];
   function ref(path: string): any {
     return { id: path.split('/').at(-1), get: async () => ({ exists: records.has(path), data: () => records.get(path) }),
-      set: async (value: any, options?: any) => { records.set(path, options?.merge ? { ...records.get(path), ...value } : value); }, collection: (name: string) => ({ doc: (id: string) => ref(`${path}/${name}/${id}`) }) };
+      set: async (value: any, options?: any) => {
+        records.set(path, options?.merge ? { ...records.get(path), ...value } : value);
+        if (path === 'application_concierge_services/service') serviceWrites.push(value);
+      }, collection: (name: string) => ({ doc: (id: string) => ref(`${path}/${name}/${id}`) }) };
   }
   const serviceRef = ref('application_concierge_services/service');
   const service = { userId: 'candidate', cvStorageKey: 'application-concierge-uploads/service/cv.pdf', locale: 'it' };
-  records.set('application_concierge_services/service', service);
+  records.set('application_concierge_services/service', { ...service });
   records.set('user_cv_profiles/candidate', {});
   const bytes = Buffer.from('%PDF-1.7 test CV');
   const bucket: any = { file: () => ({ getMetadata: async () => [{ size: bytes.length }], download: async () => [bytes] }) };
   const generate = vi.fn(async (system: string, _user: string, _schema: any) => system === PROFILE_SYSTEM_PROMPT ? rawProfile : system === REQUIREMENTS_SYSTEM_PROMPT ? requirements : match);
   const readPosting = vi.fn(async () => ({ text: `Fluent German required. ${'IT operations and infrastructure. '.repeat(400)}`, source: 'job_detail', textTruncated: false }));
-  const db: any = { collection: (name: string) => ({ doc: (id: string) => ref(`${name}/${id}`) }) };
-  return { records, serviceRef, service, bytes, bucket, generate, readPosting, db };
+  const db: any = {
+    collection: (name: string) => ({ doc: (id: string) => ref(`${name}/${id}`) }),
+    runTransaction: async (callback: (transaction: any) => Promise<unknown>) => callback({
+      get: (documentRef: any) => documentRef.get(),
+      set: (documentRef: any, value: any, options?: any) => documentRef.set(value, options),
+    }),
+  };
+  return { records, serviceRef, service, serviceWrites, bytes, bucket, generate, readPosting, db };
 }
 
 describe('qualification before proposal publication', () => {
+  it('sets the eligibility cache purge deadline once for concurrent jobs in the same matcher run', async () => {
+    const f = fixture({ matches: [{ index: 0, status: 'met', evidence: 'English B2' }], verdict: 'strong', questions: [] });
+    const check = await prepareConciergeEligibility({ ...f, profileRecord: {} });
+
+    await Promise.all([
+      check({ id: 'job-one', title: 'IT Manager' }),
+      check({ id: 'job-two', title: 'IT Specialist' }),
+    ]);
+
+    expect(f.serviceWrites.filter(write => Object.hasOwn(write, 'eligibilityPurgeAt'))).toHaveLength(1);
+  });
+
   it('fails closed when a training title names a formal vocational qualification omitted by the extractor', async () => {
     const f = fixture({ matches: [{ index: 0, status: 'met', evidence: 'English B2' }], verdict: 'strong', questions: [] });
     const check = await prepareConciergeEligibility({ ...f, profileRecord: {} });
