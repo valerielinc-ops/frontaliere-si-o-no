@@ -7,6 +7,9 @@ import { COOKIE_ACCEPT_RE, COOKIE_CUSTOMIZE_RE, COOKIE_MANAGE_CONSENT_RE, COOKIE
 import { operationalDefaultAnswer, operationalQuestionTopic } from '../functions/src/assistedApplicationOperationalAnswers.js';
 import { mergeLivePortalQuestions } from '../scripts/assisted-application/lib/portal/merge-live-requirements.mjs';
 
+const yellowsharkDocument = 'yellowshark-document';
+const yellowsharkControl = (controlInstance: string) => ({ documentInstance: yellowsharkDocument, controlInstance });
+
 /** Runs the in-page extractor on `html` as Playwright would, with every element laid out (data-size: its side in px, default 20). */
 function extract(html: string, url = 'https://jobs.example/apply', context: Record<string, unknown> = {}) {
   const { window } = new JSDOM(`<!doctype html><html><body>${html}</body></html>`, { url });
@@ -296,6 +299,17 @@ describe('portal field extraction', () => {
     expect(COOKIE_MANAGE_CONSENT_RE.test('Manage consent')).toBe(true);
   });
 
+  it('keeps a concrete action identity across snapshots', () => {
+    const first = extract('<button type="button">Manage consent</button>');
+    const second = extractFieldsInPage();
+    expect(first.buttons[0]).toMatchObject({
+      documentInstance: expect.any(String),
+      controlInstance: expect.any(String),
+    });
+    expect(second.buttons[0].documentInstance).toBe(first.buttons[0].documentInstance);
+    expect(second.buttons[0].controlInstance).toBe(first.buttons[0].controlInstance);
+  });
+
   it('opens Yellowshark’s Manage consent surface before its apply control', async () => {
     const url = 'https://jobs.yellowshark.com/job/example/';
     let stage = 0;
@@ -406,7 +420,7 @@ describe('portal field extraction', () => {
       buttons: stage < 2
         ? [
           { id: 'apply', text: 'JETZT BEWERBEN', disabled: false, frame: 0 },
-          { id: 'manage-consent', text: 'Manage consent', disabled: false, frame: 0 },
+          { ...yellowsharkControl('opener-a'), id: 'manage-consent', text: 'Manage consent', disabled: false, frame: 0 },
         ]
         : [{ id: 'apply', text: 'JETZT BEWERBEN', disabled: false, frame: 0 }],
       dialogs: [], errors: [], captcha: false, passwordVisible: false, text: '',
@@ -499,7 +513,7 @@ describe('portal field extraction', () => {
         url, fields: [],
         buttons: [
           { id: 'apply', text: 'JETZT BEWERBEN', disabled: false, frame: 0 },
-          { id: 'manage-consent', domId: 'consent-opener', text: 'Manage consent', disabled: false, frame: 0 },
+          { ...yellowsharkControl('opener-a'), id: 'manage-consent', domId: 'consent-opener', text: 'Manage consent', disabled: false, frame: 0 },
         ],
         dialogs: [], errors: [], captcha: false, passwordVisible: false, text: '',
       }
@@ -508,11 +522,10 @@ describe('portal field extraction', () => {
         buttons: [
           { id: 'apply', text: 'JETZT BEWERBEN', disabled: false, frame: 0 },
           ...(stage === 1 ? [
-            { id: 'manage-consent', domId: 'consent-opener', text: 'Manage consent', disabled: false, frame: 0 },
+            { ...yellowsharkControl('opener-a'), id: 'manage-consent', domId: 'consent-opener', text: 'Manage consent', disabled: false, frame: 0 },
             { id: 'reject', text: 'Reject all cookies', context: 'Cookie preferences', cookieSurface: 'banner', disabled: false, frame: 0 },
           ] : [
-            { id: 'manage-consent', domId: 'consent-opener', text: 'Manage consent', disabled: false, frame: 0 },
-            { id: 'manage-consent', domId: 'consent-opener', text: 'Manage consent', disabled: false, frame: 0 },
+            { ...yellowsharkControl('opener-b'), id: 'manage-consent', domId: 'consent-opener', text: 'Manage consent', disabled: false, frame: 0 },
           ]),
         ],
         dialogs: [], errors: [], captcha: false, passwordVisible: false, text: '',
@@ -600,17 +613,17 @@ describe('portal field extraction', () => {
       const buttons = stage === 0
         ? [
           { id: 'apply', text: 'JETZT BEWERBEN', disabled: false, frame: 0 },
-          { id: 'manage-consent', text: 'Manage consent', disabled: false, frame: 0 },
+          { ...yellowsharkControl('opener-a'), id: 'manage-consent', text: 'Manage consent', disabled: false, frame: 0 },
         ]
         : stage === 1
           ? [
             { id: 'apply', text: 'JETZT BEWERBEN', disabled: false, frame: 0 },
-            { id: 'manage-consent', text: 'Manage consent', disabled: false, frame: 0 },
+            { ...yellowsharkControl('opener-a'), id: 'manage-consent', text: 'Manage consent', disabled: false, frame: 0 },
             { id: 'reject', text: 'Reject all cookies', context: 'Cookie preferences', cookieSurface: 'banner', disabled: false, frame: 0 },
           ]
           : [
             { id: 'apply', text: 'JETZT BEWERBEN', disabled: false, frame: 0 },
-            { id: 'manage-consent', text: 'Manage consent', disabled: false, frame: 0 },
+            { ...yellowsharkControl('opener-a'), id: 'manage-consent', text: 'Manage consent', disabled: false, frame: 0 },
           ];
       return { url, fields: [], buttons, dialogs: [], errors: [], captcha: false, passwordVisible: false, text: '' };
     };

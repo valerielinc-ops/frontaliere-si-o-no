@@ -1953,7 +1953,6 @@ async function findCookieControls(page, snapshot, pattern, {
   genericPreferences = false, manageConsent = false, allowYellowsharkFallback = true,
 } = {}) {
   const controls = [];
-  const occurrences = new Map();
   for (const button of snapshot?.buttons || []) {
     if (button.disabled || (button.chrome && button.cookieSurface !== 'banner')) continue;
     const label = cookieControlLabel(button);
@@ -1962,9 +1961,7 @@ async function findCookieControls(page, snapshot, pattern, {
       && !(manageConsent && COOKIE_MANAGE_CONSENT_RE.test(label))) continue;
     if (!await cookieControlHasCookieContext(page, button, snapshot, { allowYellowsharkFallback })) continue;
     const identity = cookieControlIdentity(button);
-    const occurrence = identity ? occurrences.get(identity) || 0 : null;
-    if (identity) occurrences.set(identity, occurrence + 1);
-    controls.push(identity ? { ...button, cookieControlIdentity: identity, cookieControlOccurrence: occurrence } : button);
+    controls.push(identity ? { ...button, cookieControlIdentity: identity } : button);
   }
   return controls;
 }
@@ -1987,17 +1984,16 @@ function cookieDialogRemains(snapshot, button) {
 }
 
 function cookieControlIdentity(control) {
-  const id = String(control?.id || '').trim();
-  const domId = String(control?.domId || '').trim();
-  return id || domId ? `${id}\u0000${domId}` : '';
+  const documentInstance = String(control?.documentInstance || '').trim();
+  const controlInstance = String(control?.controlInstance || '').trim();
+  return documentInstance && controlInstance ? `${documentInstance}\u0000${controlInstance}` : '';
 }
 
 function sameCookieControl(first, second) {
   if (!first || !second || (Number(first.frame) || 0) !== (Number(second.frame) || 0)) return false;
-  const firstIdentity = cookieControlIdentity(first);
-  if (!firstIdentity || firstIdentity !== cookieControlIdentity(second)) return false;
-  return Number.isInteger(first.cookieControlOccurrence)
-    && first.cookieControlOccurrence === second.cookieControlOccurrence;
+  const firstIdentity = String(first.cookieControlIdentity || '').trim();
+  const secondIdentity = String(second.cookieControlIdentity || '').trim();
+  return Boolean(firstIdentity && firstIdentity === secondIdentity);
 }
 
 async function cookiePageSnapshot(page) {
