@@ -85,6 +85,7 @@ import {
   dropLedgeredRetirements,
   isPreservedTreePath,
 } from './lib/corpus-local-preserve.mjs';
+import { stripAmbiguousPrePublicationUpdates } from './lib/article-registry-date-coherence.mjs';
 import {
   RETIRED_LOCALE_GROUPS_FILE,
   parseRetiredLocaleGroups,
@@ -266,6 +267,27 @@ function splitArticleRegistries() {
     if (result.source !== source) fs.writeFileSync(file, result.source);
     return { ...config, ...result };
   });
+}
+
+/**
+ * The corpus owns the raw registry, while this checkout owns the projection it
+ * compiles. Preserve that ownership boundary but refuse to publish an
+ * ambiguous freshness signal: a date-only update before a timestamped
+ * publication cannot prove a real post-publication change.
+ */
+function normalizeMirroredArticleDates(contentRoot) {
+  for (const { file } of ARTICLE_REGISTRY_CHUNK_CONFIGS) {
+    const absolute = path.join(contentRoot, file);
+    if (!fs.existsSync(absolute)) continue;
+    const source = fs.readFileSync(absolute, 'utf8');
+    const result = stripAmbiguousPrePublicationUpdates(source, absolute);
+    if (result.removedIds.length === 0) continue;
+    fs.writeFileSync(absolute, result.source);
+    console.log(
+      `[pull-articles-corpus] ${file}: removed ambiguous updatedAt from `
+      + `${result.removedIds.length} article(s): ${result.removedIds.join(', ')}`,
+    );
+  }
 }
 
 /** Top-level SEO entries that are site-owned additions to the mirrored file. */
@@ -630,6 +652,7 @@ try {
     preserve: (rel) => isPreservedTreePath(rel, churnOnlyDestinationFiles),
   });
   restoreSiteOwnedArticleFields(siteOwnedArticleFields);
+  normalizeMirroredArticleDates(DEST);
   console.log(`[pull-articles-corpus] synced ${srcN} files into packages/articles/content/`);
 
     // ── Put the local-only entries back ──────────────────────────────────
