@@ -162,6 +162,25 @@ describe('automatic recovery after a portal fix', () => {
     expect(store.list(`${base}/events/`)).toHaveLength(1);
   });
 
+  it('preserves a queued exhausted-budget repair across a newer source version', async () => {
+    const store = fixture();
+    const oldVersion = 'a'.repeat(64);
+    const dueAt = now + 1_000;
+    const flowPath = `${base}/automation/flow`;
+    store.docs.set(base, { ...store.read(base), automationDueAt: dueAt });
+    store.docs.set(flowPath, { ...store.read(flowPath), portalAutoRetryCount: 2,
+      portalAutoRetryAt: dueAt, portalRecoveryVersion: oldVersion, portalExhaustedRecoveryVersion: oldVersion });
+    const ctx = { db: store.db, version, apply: true, nowMs: now, isEnabled: async () => true };
+
+    expect(await reconcilePortalCode(ctx)).toMatchObject({ eligible: 0, queued: 0 });
+    expect(store.read(flowPath)).toMatchObject({ portalAutoRetryCount: 2, portalAutoRetryAt: dueAt,
+      portalRecoveryVersion: oldVersion, portalExhaustedRecoveryVersion: oldVersion });
+    expect(store.read(base).automationDueAt).toBe(dueAt);
+    expect(transition(store.read(flowPath), { type: 'portal_auto_retry' }, {
+      draft: store.read(`${base}/ai_drafts/current`), nowMs: dueAt,
+    }).effects).toEqual([{ type: 'dispatch', mode: 'submit', reason: 'portal_auto_retry' }]);
+  });
+
   it.each(['not_approved', 'same_code', 'withdrawn', 'sent', 'ambiguous', 'clicked', 'hard_question', 'captcha', 'expired', 'disabled'])('does not resume %s', async kind => {
     const store = fixture();
     const flowPath = `${base}/automation/flow`;

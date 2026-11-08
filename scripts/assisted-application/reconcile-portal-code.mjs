@@ -12,7 +12,7 @@ import { retentionPurgeDueAt, talentPoolConsentActive } from '../../functions/sr
 import { getRemoteConfig } from 'firebase-admin/remote-config';
 import { PORTAL_NATIVE_CONTRACT_VERSION } from '../../functions/src/lib/portalNativeContract.js';
 import { portalCodeVersion, portalIdentityQuestionDefinitelyUnsent, portalRecoveryDefinitelyUnsent, operationalPortalRecoveryReady } from '../../functions/src/assistedApplicationPortalRecoveryPolicy.js';
-import { portalAutoRetryAttemptsRemaining } from '../../functions/src/assistedApplicationPortalRetryPolicy.js';
+import { portalAutoRetryAttemptsRemaining, portalExhaustedRecoveryPending } from '../../functions/src/assistedApplicationPortalRetryPolicy.js';
 import './extension/apply-control.js';
 import { candidateAnswerForField, isIdentityEmailConfirmationField } from './lib/portal/plan.mjs';
 
@@ -139,7 +139,10 @@ export async function reconcilePortalCode({ db, version, apply = false, nowMs = 
         // same transaction as the queue and prevents repeated deployments from
         // resubmitting one application indefinitely.
         if (!identityQuestionReady && !portalAutoRetryAttemptsRemaining(flow) && flow.portalExhaustedRecoveryVersion) {
-          if (apply) {
+          // A queued repair is already the one permitted dispatch. A later
+          // source version must not erase its due time before the scheduler
+          // consumes it; only an exhausted, unqueued marker is retired here.
+          if (apply && !portalExhaustedRecoveryPending(flow)) {
             transaction.set(flowRef, { portalRecoveryVersion: version, portalAutoRetryAt: null, updatedAt: nowMs }, { merge: true });
             transaction.set(doc.ref, { automationDueAt: null, automationUpdatedAt: new Date(nowMs) }, { merge: true });
           }
