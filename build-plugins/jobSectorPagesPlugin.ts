@@ -75,7 +75,7 @@ import { SECTOR_HUB_EMOJI } from './shared/sectorHubEmoji';
 import { JOB_BOARD_NOINDEX_TARGET_MARKER } from './shared/jobBoardNoindexTargetMarker.mjs';
 import { getSafeDistPageTargets } from './shared/distPathSafety';
 import { shouldEmitLocale } from './shared/localeEmitFilter';
-import { resolveSectorPagesFlushed } from './shared/buildSignals';
+import { professionLandingsFlushed, resolveSectorPagesFlushed } from './shared/buildSignals';
 import { SECTOR_HUB_SIBLINGS } from './shared/sectorHubClusters';
 import { buildProfessionLandingPath, type ProfessionId } from './professionLandingsData';
 import { buildNursingLandingPath, type NursingLandingId } from './nursingLandingsData';
@@ -467,6 +467,8 @@ export interface BuildSectorLandingHtmlOptions {
   freshCount?: number;
   /** Full per-locale inventory, used to suppress links to empty sibling hubs. */
   siblingCounts?: Readonly<Partial<Record<SectorHubKey, number>>>;
+  /** Full profession landing paths only; bridge routes must not receive internal links. */
+  emittedProfessionLandingPaths?: ReadonlySet<string>;
 }
 
 /**
@@ -708,6 +710,12 @@ export function buildSectorLandingHtml(opts: BuildSectorLandingHtmlOptions): str
   const roleSearchHref = journeyTarget
     ? buildProfessionJourneySearchHref(buildJobBoardUrl(locale), journeyTarget.alertKeyword[locale])
     : '';
+  const professionLandingPath = journeyTarget?.professionLanding
+    ? buildProfessionLandingPath(locale, journeyTarget.professionLanding)
+    : '';
+  const professionLandingIsAvailable = professionLandingPath !== ''
+    && (opts.emittedProfessionLandingPaths === undefined
+      || opts.emittedProfessionLandingPaths.has(professionLandingPath));
   const journeyHtml = journeyTarget
     ? renderProfessionJourney({
         locale,
@@ -718,11 +726,11 @@ export function buildSectorLandingHtml(opts: BuildSectorLandingHtmlOptions): str
           offers: journeyTarget.roleTitle && journeyTarget.companyScope === 'sector'
             ? roleSearchHref
             : `#${PROFESSION_JOURNEY_ANCHORS.offers}`,
-          requirements: journeyTarget.professionLanding
-            ? `${buildProfessionLandingPath(locale, journeyTarget.professionLanding)}#${PROFESSION_JOURNEY_ANCHORS.requirements}`
+          requirements: journeyTarget.professionLanding && professionLandingIsAvailable
+            ? `${professionLandingPath}#${PROFESSION_JOURNEY_ANCHORS.requirements}`
             : journeyTarget.nursingLanding
               ? `${buildNursingLandingPath(locale, journeyTarget.nursingLanding)}#${PROFESSION_JOURNEY_ANCHORS.requirements}`
-              : `#${PROFESSION_JOURNEY_ANCHORS.requirements}`,
+              : roleSearchHref,
           net: buildProfessionJourneyNetHref(CALCULATOR_PATH[locale], roleSalary.medianChf),
           companies: `#${PROFESSION_JOURNEY_ANCHORS.companies}`,
           alert: buildProfessionJourneyAlertHref(buildJobBoardUrl(locale), journeyTarget.alertKeyword[locale]),
@@ -826,6 +834,7 @@ export function jobSectorPagesPlugin(rootDir: string): Plugin {
     async closeBundle() {
       const distDir = np.resolve(rootDir, 'dist');
       const jobsPath = np.resolve(rootDir, 'data/jobs.json');
+      const emittedProfessionLandingPaths = new Set(await professionLandingsFlushed);
 
       // `dateStamp` is fixed once per build and baked into HTML.
       const dateStamp = new Date().toISOString().slice(0, 10);
@@ -929,6 +938,7 @@ export function jobSectorPagesPlugin(rootDir: string): Plugin {
             cityCount,
             freshCount,
             siblingCounts: counts[locale],
+            emittedProfessionLandingPaths,
           });
 
           // Hard budget gate — prevents future regressions from quietly
