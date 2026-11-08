@@ -1,7 +1,7 @@
 {
   "crawlerKey": "ikea",
-  "assembledAt": "2026-11-08T09:12:49.041Z",
-  "runId": "42465414674",
+  "assembledAt": "2026-11-08T21:15:52.901Z",
+  "runId": "42523090764",
   "jobs": [
     {
       "id": "ikea-246b101fa026",
@@ -34,7 +34,7 @@
       "url": "https://jobs.ikea.com/en/job/pratteln/mitarbeiter-in-verkauf-kuchenplanung-100/24107/102337086736",
       "source": "IKEA Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:12:43.342Z",
+      "crawledAt": "2026-11-08T21:15:35.917Z",
       "addressLocality": "Pratteln 1",
       "postalCode": "",
       "addressRegion": "BL",
@@ -77,7 +77,7 @@
       },
       "streetAddress": "Pratteln 1",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-21T09:12:43.342Z",
+      "validThrough": "2027-01-21T21:15:35.917Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -111,7 +111,7 @@
       "url": "https://jobs.ikea.com/en/job/lucerne/unit-facility-management-techniker-in-100/24107/102501903680",
       "source": "IKEA Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:12:43.335Z",
+      "crawledAt": "2026-11-08T21:15:35.911Z",
       "addressLocality": "Rothenburg",
       "postalCode": "6023",
       "addressRegion": "LU",
@@ -171,7 +171,7 @@
       },
       "streetAddress": "Wahligenstrasse 6",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-25T09:12:43.335Z",
+      "validThrough": "2027-01-25T21:15:35.911Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -205,7 +205,7 @@
       "url": "https://jobs.ikea.com/en/job/dietlikon-dietlikon-dorf/mitarbeiter-in-verkauf-in-der-geschirrabteilung-60-80/24107/102513149888",
       "source": "IKEA Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:12:43.333Z",
+      "crawledAt": "2026-11-08T21:15:35.910Z",
       "addressLocality": "Dietlikon",
       "postalCode": "8305",
       "addressRegion": "ZH",
@@ -254,7 +254,7 @@
       },
       "streetAddress": "Dietlikon",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-25T09:12:43.333Z",
+      "validThrough": "2027-01-25T21:15:35.910Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -288,7 +288,7 @@
       "url": "https://jobs.ikea.com/en/job/vernier/collaborateur-trice-restaurant-and-cuisine-ikea-20/24107/101335170528",
       "source": "IKEA Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-08T09:12:43.332Z",
+      "crawledAt": "2026-11-08T21:15:35.909Z",
       "addressLocality": "Vernier",
       "postalCode": "1214",
       "addressRegion": "GE",
@@ -342,7 +342,7 @@
       },
       "streetAddress": "route de Vernier 156",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-26T09:12:43.332Z",
+      "validThrough": "2027-01-26T21:15:35.909Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -376,7 +376,7 @@
       "url": "https://jobs.ikea.com/en/job/spreitenbach/mitarbeiter-in-verkauf-textilabteilung-20-40/24107/102555662336",
       "source": "IKEA Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:12:43.330Z",
+      "crawledAt": "2026-11-08T21:15:35.908Z",
       "addressLocality": "Spreitenbach",
       "postalCode": "8957",
       "addressRegion": "AG",
@@ -436,7 +436,95 @@
       },
       "streetAddress": "Müslistrasse 16",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-26T09:12:43.330Z",
+      "validThrough": "2027-01-26T21:15:35.908Z",
+      "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "ikea-fd71a41daca6",
+      "slug": "collaboratore-responsabile-della-logistica-60-100-ikea-riddes-valais",
+      "slugByLocale": {
+        "it": "collaboratore-responsabile-della-logistica-60-100-ikea-riddes-valais",
+        "en": "collaborator-logistics-manager-60-100-ikea-riddes-valais",
+        "de": "mitarbeiter-logistikmanager-60-100-ikea-riddes-valais",
+        "fr": "collaborateur-trice-logistique-60-100-ikea-ch"
+      },
+      "company": "IKEA",
+      "companyKey": "ikea",
+      "companyDomain": "ikea.ch",
+      "title": "Collaborateur:trice logistique 60% - 100%",
+      "titleByLocale": {
+        "it": "Collaboratore: responsabile della logistica 60% - 100%",
+        "en": "Collaborator: logistics manager 60% - 100%",
+        "de": "Mitarbeiter: Logistikmanager 60% - 100%",
+        "fr": "Collaborateur:trice logistique 60% - 100%"
+      },
+      "description": "Qui tu es\n\nNous recherchons une personne proactive, bien organisée et qui aime travailler dans un environnement en constante évolution.\n• Tu as la passion de l’exactitude des stocks et tu comprends combien il est essentiel que nos produits soient disponibles au bon endroit et au bon moment afin de créer une expérience d'achat réussie pour notre clientèle.\n• Tu as de grandes compétences en matière de processus, d'outils et de méthodes de travail dans le domaine de la vente au détail et/ou de la logistique.\n• Tu sais utiliser des chariots élévateurs de manière sûre et efficace et, idéalement, tu es titulaire d'un permis de cariste.\n• Tu aimes travailler avec la logistique dans un environnement de vente au détail qui évolue rapidement et constamment.\n• Tu es flexible, tu aimes travailler en équipe et tu fais preuve d'auto-discipline.\n• Tu as un comportement amical qui contribue à promouvoir une collaboration positive avec tes collègues grâce à ton ouverture d'esprit et à ta nature communicative.\n• Tu es disponible pour travailler tôt le matin ou tard le soir.\n\nTes responsabilités\n\n• Travailler selon des routines établies pour garantir un inventaire précis et la disponibilité des produits pour la clientèle\n• Travailler en équipe avec tes collègues pour t’assurer que le magasin est bien approvisionné, en parfait état et prêt à accueillir nos clientes et clients.\n• Travailler avec soin pour garantir la sécurité et la protection de la clientèle et de tes collègues dans ton domaine de responsabilité.\n• Partager tes connaissances et tes compétences pour aider tes collègues du rayon et des autres secteurs du magasin.\n• Être disponible pour soutenir tes collègues du rayon et d'autres secteurs du magasin lorsque cela est nécessaire.\n\nA propos de ce secteur d'activité\n\nNous sommes l'équipe qui, en coulisses, fait en sorte que les produits IKEA soient disponibles pour le plus grand nombre. Nous nous servons de nos différentes expertises en matière de processus d'approvisionnement afin d'adapter l'assortiment à notre capacité de stockage grâce aux prévisions et aux commandes, afin que les produits soient aussi disponibles que possible pour les clientes et clients, le tout en minimisant nos dépenses. Si tu te demandes qui se charge de trouver des façons efficaces de préparer les commandes de notre clientèle, c'est nous! Notre passion: collaborer afin d'améliorer l'expérience clientèle chez IKEA.\n\nTu penses que ça pourrait marcher pour toi ?\n\nComme nous l’avons déjà indiqué, nous tenons au bien-être de nos collaborateur-trice-s.\n\nAussi nous tenons à leur dire «merci»!\n\nNous offrons à ce titre:\n\n• 28 jours de vacances (sur la base d’un poste à 100 %)\n• 8 semaines de congé parental rémunéré pour les pères ; 20 semaines de congé parental rémunéré pour les mères\n• Des prestations sociales très attractives\n• Remise de 15 % sur vos achats - dans chaque magasin IKEA en Suisse.\n• Tu préfères venir au travail en transports publics? Nous prenons en charge entre 85 % et 100 % du prix d’un abonnement à l’année.\n• Des possibilités de stationnement gratuit\n• Accès illimité à la plateforme d'apprentissage LinkedIn\n• Des repas à prix avantageux et équilibrés dans notre cantine (4,50 CHF pour les plats à base de viande et 3,50 CHF pour les plats végétariens).\n• Des primes versées à l'ensemble des collaborateurs\n\nIl existe de nombreuses possibilités d'évolution chez IKEA. Nous encourageons et soutenons nos employés à essayer différents rôles, à passer d'une fonction à l'autre ou même de partir à l'étranger. Merci de soumettre le dossier de candidature complet en ligne, via notre site. A noter toutefois que nous ne pouvons pas prendre en compte les candidatures et les documents envoyés par e-mail ou par la poste.\n\nEt voilà, c'est tout de notre côté !\n\nC'était pas mal d'infos, non? On aimerait en savoir plus sur toi. Il suffit de cliquer sur 'Postuler maintenant' et c'est parti!\n\nOn examine les candidatures au fur et à mesure et on peut mettre fin au processus dès qu'on trouve la bonne personne. Alors, n'hésite pas à postuler au plus vite.",
+      "descriptionByLocale": {
+        "it": "Chi sei\n\nStiamo cercando una persona proattiva e ben organizzata che ama lavorare in un ambiente in continua evoluzione.\n• Hai una passione per l'accuratezza dell'inventario e capire quanto sia essenziale che i nostri prodotti siano disponibili nel posto giusto e nel tempo per creare un'esperienza di shopping di successo per i nostri clienti.\n• Hai grandi competenze in processi, strumenti e metodi di lavoro nel settore del retail e/o della logistica.\n• Sai come utilizzare i carrelli elevatori in modo sicuro ed efficiente e, idealmente, hai una licenza di carist.\n• Ti piace lavorare con la logistica in un ambiente di vendita al dettaglio veloce e in continua evoluzione.\n• Sei flessibile, ti piace lavorare come squadra e sei autodisciplinato.\n• Avete un comportamento amichevole che aiuta a promuovere la collaborazione positiva con i vostri colleghi attraverso la vostra apertura e la natura comunicativa.\n• Siete a disposizione per lavorare la mattina presto o la sera tarda.\n\nLe tue responsabilità\n\n• Lavorare secondo le routine stabilite per garantire l'inventario accurato e la disponibilità del prodotto per i clienti\n• Lavora con i tuoi colleghi per garantire che il negozio sia ben fornito, in perfette condizioni e pronto ad accogliere i nostri clienti.\n• Lavorate con attenzione per garantire la sicurezza e la protezione dei vostri clienti e colleghi nella vostra area di responsabilità.\n• Condividi le tue conoscenze e competenze per aiutare i tuoi colleghi nel dipartimento e in altre aree del negozio.\n• Essere a disposizione per supportare i vostri colleghi nel dipartimento e in altre aree del negozio quando necessario.\n\nA proposito di questo settore\n\nSiamo il team che, dietro le quinte, assicura che i prodotti IKEA sono disponibili per quante più persone possibile. Utilizziamo le nostre varie competenze di processo di approvvigionamento per adattare la gamma alla nostra capacità di stoccaggio attraverso previsioni e ordini, in modo che i prodotti siano il più possibile disponibili per i clienti, riducendo al minimo le nostre spese. Se vi chiedete chi è responsabile di trovare modi efficaci per preparare gli ordini dei nostri clienti, siamo noi! La nostra passione: collaborare per migliorare l'esperienza del cliente in IKEA.\n\nPensi che possa funzionare per te?\n\nCome abbiamo già indicato, apprezziamo il benessere dei nostri collaboratori.\n\nQuindi vogliamo dire \"grazie\"!\n\nOffriamo come tali:\n\n• 28 giorni di vacanza (basato sul 100 % turno)\n• 8 settimane di congedo parentale pagato per i padri; 20 settimane di congedo parentale pagato per le madri\n• Prestazioni sociali molto interessanti\n• 15% di sconto sugli acquisti - in ogni negozio IKEA in Svizzera.\n• Preferiresti venire a lavorare sui trasporti pubblici? Copriamo tra l'85% e il 100% del prezzo di un abbonamento annuale.\n• Parcheggio gratuito\n• Accesso illimitato alla piattaforma di apprendimento LinkedIn\n• Pasti gustosi ed equilibrati nella nostra mensa (4,50 CHF per piatti di carne e 3,50 CHF per piatti vegetariani).\n• Premium pagati a tutti i dipendenti\n\nCi sono molte possibilità di evoluzione in IKEA. Incoraggiamo e sosteniamo i nostri dipendenti per provare ruoli diversi, passare da un lavoro all'altro o anche andare all'estero. Si prega di inviare l'applicazione completa online tramite il nostro sito web. Tuttavia, non possiamo prendere in considerazione le domande e i documenti inviati per e-mail o per posta.\n\nE' tutto dalla nostra parte!\n\nSono state un sacco di informazioni, vero? Vorremmo saperne di più su di te. Basta cliccare su 'Post Now' E ci siamo!\n\nLe domande vengono esaminate come e quando la persona giusta viene trovata, il processo può essere terminato. Quindi non esitate ad applicare il prima possibile.",
+        "en": "Who you are\n\nWe are looking for a proactive, well-organized person who likes to work in a constantly changing environment.\n• You have a passion for inventory accuracy and understand how essential it is that our products are available at the right place and time to create a successful shopping experience for our customers.\n• You have great skills in processes, tools and working methods in the area of retail and/or logistics.\n• You know how to use forklifts safely and efficiently and, ideally, you have a carist licence.\n• You like to work with logistics in a fast and constantly evolving retail environment.\n• You're flexible, you like working as a team and you're self-disciplined.\n• You have a friendly behavior that helps promote positive collaboration with your colleagues through your openness and communicative nature.\n• You're available to work early morning or late evening.\n\nYour responsibilities\n\n• Work according to established routines to ensure accurate inventory and product availability for customers\n• Work with your colleagues to ensure that the store is well stocked, in perfect condition and ready to welcome our customers.\n• Work carefully to ensure the safety and protection of your clients and colleagues in your area of responsibility.\n• Share your knowledge and skills to help your colleagues in the department and other areas of the store.\n• Be available to support your colleagues in the department and other areas of the store when necessary.\n\nAbout this industry\n\nWe are the team that, behind the scenes, ensures that IKEA products are available for as many people as possible. We use our various procurement process expertise to adapt the range to our storage capacity through forecasts and orders, so that products are as available as possible for customers, while minimizing our expenses. If you wonder who is in charge of finding effective ways to prepare our customers' orders, it's us! Our passion: collaborate to improve the customer experience at IKEA.\n\nYou think this could work for you?\n\nAs we have already indicated, we value the well-being of our collaborators.\n\nSo we want to say 'thank you'!\n\nWe offer as such:\n\n• 28 days of vacation (based on 100 % shift)\n• 8 weeks paid parental leave for fathers; 20 weeks paid parental leave for mothers\n• Very attractive social benefits\n• 15% discount on your purchases - in each IKEA store in Switzerland.\n• Would you rather come to work on public transport? We cover between 85% and 100% of the price of an annual subscription.\n• Free parking\n• Unlimited access to the LinkedIn learning platform\n• Favourable and balanced meals in our canteen (4.50 CHF for meat dishes and 3.50 CHF for vegetarian dishes).\n• Premiums paid to all employees\n\nThere are many possibilities of evolution in IKEA. We encourage and support our employees to try different roles, move from one job to another or even go abroad. Please submit the complete application online via our website. However, we cannot take into account applications and documents sent by e-mail or mail.\n\nThat's all on our side!\n\nThat was a lot of information, wasn't it? We'd like to know more about you. Just click on 'Post Now' And here we go!\n\nApplications are reviewed as and when the right person is found, the process can be terminated. So don't hesitate to apply as soon as possible.",
+        "de": "Wer du bist\n\nWir suchen eine proaktive, gut organisierte Person, die gerne in einem sich ständig verändernden Umfeld arbeitet.\n• Sie haben eine Leidenschaft für Lagergenauigkeit und verstehen, wie wichtig es ist, dass unsere Produkte am richtigen Ort und zur richtigen Zeit verfügbar sind, um ein erfolgreiches Einkaufserlebnis für unsere Kunden zu schaffen.\n• Sie haben große Fähigkeiten in Prozessen, Werkzeugen und Arbeitsmethoden im Bereich Einzelhandel und / oder Logistik.\n• Sie wissen, wie man Gabelstapler sicher und effizient benutzt und im Idealfall haben Sie einen Führerschein.\n• Sie arbeiten gerne mit Logistik in einer schnellen und sich ständig weiterentwickelnden Einzelhandelsumgebung.\n• Du bist flexibel, arbeitest gerne als Team und bist selbstdiszipliniert.\n• Sie haben ein freundliches Verhalten, das durch Ihre Offenheit und Ihren kommunikativen Charakter die positive Zusammenarbeit mit Ihren Kollegen fördert.\n• Sie können am frühen Morgen oder am späten Abend arbeiten.\n\nIhre Verantwortung\n\n• Arbeiten Sie nach festgelegten Routinen, um eine genaue Inventar- und Produktverfügbarkeit für Kunden zu gewährleisten\n• Arbeiten Sie mit Ihren Kollegen zusammen, um sicherzustellen, dass der Laden gut sortiert, in perfektem Zustand und bereit ist, unsere Kunden willkommen zu heißen.\n• Arbeiten Sie sorgfältig daran, die Sicherheit und den Schutz Ihrer Kunden und Kollegen in Ihrem Verantwortungsbereich zu gewährleisten.\n• Teilen Sie Ihre Kenntnisse und Fähigkeiten, um Ihren Kollegen in der Abteilung und anderen Bereichen des Geschäfts zu helfen.\n• Seien Sie verfügbar, um Ihre Kollegen in der Abteilung und anderen Bereichen des Ladens bei Bedarf zu unterstützen.\n\nÜber diese Industrie\n\nWir sind das Team, das hinter den Kulissen dafür sorgt, dass IKEA-Produkte für so viele Menschen wie möglich verfügbar sind. Wir nutzen unsere unterschiedliche Beschaffungsprozesskompetenz, um das Sortiment durch Prognosen und Bestellungen an unsere Lagerkapazität anzupassen, damit die Produkte für die Kunden so verfügbar wie möglich sind und gleichzeitig unsere Kosten minimiert werden. Wenn Sie sich fragen, wer dafür verantwortlich ist, effektive Wege zu finden, um die Bestellungen unserer Kunden vorzubereiten, sind wir es! Unsere Leidenschaft: Zusammenarbeit, um das Kundenerlebnis bei IKEA zu verbessern.\n\nDenkst du, das könnte für dich funktionieren?\n\nWie wir bereits angedeutet haben, schätzen wir das Wohlergehen unserer Mitarbeiter.\n\nAlso wollen wir \"Danke\" sagen!\n\nWir bieten als solche an:\n\n• 28 Urlaubstage (basierend auf 100 % Schicht)\n• 8 Wochen bezahlter Elternurlaub für Väter; 20 Wochen bezahlter Elternurlaub für Mütter\n• Sehr attraktive Sozialleistungen\n• 15% Rabatt auf Ihre Einkäufe - in jedem IKEA-Shop in der Schweiz.\n• Möchten Sie lieber im öffentlichen Verkehr arbeiten? Wir decken zwischen 85% und 100% des Preises eines jährlichen Abonnements ab.\n• Freie Parkplätze\n• Unbegrenzter Zugang zur LinkedIn Lernplattform\n• Günstige und ausgewogene Mahlzeiten in unserer Kantine (4,50 CHF für Fleischgerichte und 3,50 CHF für vegetarische Gerichte).\n• Prämien für alle Arbeitnehmer\n\nEs gibt viele Möglichkeiten der Evolution in IKEA. Wir ermutigen und unterstützen unsere Mitarbeiter, verschiedene Rollen auszuprobieren, von einem Job zum anderen zu wechseln oder sogar ins Ausland zu gehen. Bitte reichen Sie den vollständigen Antrag online über unsere Website ein. Wir können jedoch Anträge und Dokumente, die per E-Mail oder Post verschickt werden, nicht berücksichtigen.\n\nDas ist alles auf unserer Seite!\n\nDas war eine Menge Informationen, nicht wahr? Wir würden gerne mehr über Sie erfahren. Klicken Sie einfach auf \"Post Now\" Und los geht's!\n\nAnwendungen werden überprüft, sobald die richtige Person gefunden wird, kann der Prozess beendet werden. Zögern Sie also nicht, sich so schnell wie möglich zu bewerben.",
+        "fr": "Qui tu es\n\nNous recherchons une personne proactive, bien organisée et qui aime travailler dans un environnement en constante évolution.\n• Tu as la passion de l’exactitude des stocks et tu comprends combien il est essentiel que nos produits soient disponibles au bon endroit et au bon moment afin de créer une expérience d'achat réussie pour notre clientèle.\n• Tu as de grandes compétences en matière de processus, d'outils et de méthodes de travail dans le domaine de la vente au détail et/ou de la logistique.\n• Tu sais utiliser des chariots élévateurs de manière sûre et efficace et, idéalement, tu es titulaire d'un permis de cariste.\n• Tu aimes travailler avec la logistique dans un environnement de vente au détail qui évolue rapidement et constamment.\n• Tu es flexible, tu aimes travailler en équipe et tu fais preuve d'auto-discipline.\n• Tu as un comportement amical qui contribue à promouvoir une collaboration positive avec tes collègues grâce à ton ouverture d'esprit et à ta nature communicative.\n• Tu es disponible pour travailler tôt le matin ou tard le soir.\n\nTes responsabilités\n\n• Travailler selon des routines établies pour garantir un inventaire précis et la disponibilité des produits pour la clientèle\n• Travailler en équipe avec tes collègues pour t’assurer que le magasin est bien approvisionné, en parfait état et prêt à accueillir nos clientes et clients.\n• Travailler avec soin pour garantir la sécurité et la protection de la clientèle et de tes collègues dans ton domaine de responsabilité.\n• Partager tes connaissances et tes compétences pour aider tes collègues du rayon et des autres secteurs du magasin.\n• Être disponible pour soutenir tes collègues du rayon et d'autres secteurs du magasin lorsque cela est nécessaire.\n\nA propos de ce secteur d'activité\n\nNous sommes l'équipe qui, en coulisses, fait en sorte que les produits IKEA soient disponibles pour le plus grand nombre. Nous nous servons de nos différentes expertises en matière de processus d'approvisionnement afin d'adapter l'assortiment à notre capacité de stockage grâce aux prévisions et aux commandes, afin que les produits soient aussi disponibles que possible pour les clientes et clients, le tout en minimisant nos dépenses. Si tu te demandes qui se charge de trouver des façons efficaces de préparer les commandes de notre clientèle, c'est nous! Notre passion: collaborer afin d'améliorer l'expérience clientèle chez IKEA.\n\nTu penses que ça pourrait marcher pour toi ?\n\nComme nous l’avons déjà indiqué, nous tenons au bien-être de nos collaborateur-trice-s.\n\nAussi nous tenons à leur dire «merci»!\n\nNous offrons à ce titre:\n\n• 28 jours de vacances (sur la base d’un poste à 100 %)\n• 8 semaines de congé parental rémunéré pour les pères ; 20 semaines de congé parental rémunéré pour les mères\n• Des prestations sociales très attractives\n• Remise de 15 % sur vos achats - dans chaque magasin IKEA en Suisse.\n• Tu préfères venir au travail en transports publics? Nous prenons en charge entre 85 % et 100 % du prix d’un abonnement à l’année.\n• Des possibilités de stationnement gratuit\n• Accès illimité à la plateforme d'apprentissage LinkedIn\n• Des repas à prix avantageux et équilibrés dans notre cantine (4,50 CHF pour les plats à base de viande et 3,50 CHF pour les plats végétariens).\n• Des primes versées à l'ensemble des collaborateurs\n\nIl existe de nombreuses possibilités d'évolution chez IKEA. Nous encourageons et soutenons nos employés à essayer différents rôles, à passer d'une fonction à l'autre ou même de partir à l'étranger. Merci de soumettre le dossier de candidature complet en ligne, via notre site. A noter toutefois que nous ne pouvons pas prendre en compte les candidatures et les documents envoyés par e-mail ou par la poste.\n\nEt voilà, c'est tout de notre côté !\n\nC'était pas mal d'infos, non? On aimerait en savoir plus sur toi. Il suffit de cliquer sur 'Postuler maintenant' et c'est parti!\n\nOn examine les candidatures au fur et à mesure et on peut mettre fin au processus dès qu'on trouve la bonne personne. Alors, n'hésite pas à postuler au plus vite."
+      },
+      "location": "Riddes, Valais",
+      "canton": "VS",
+      "url": "https://jobs.ikea.com/en/job/riddes/collaborateur-trice-logistique-60-100/24107/99736557760",
+      "source": "IKEA Dedicated Parser",
+      "sourceLang": "fr",
+      "crawledAt": "2026-11-08T21:15:35.907Z",
+      "addressLocality": "Riddes",
+      "postalCode": "1908",
+      "addressRegion": "VS",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Logistica",
+      "contract": "full-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Retail / Furniture",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-10-30",
+      "postedDate": "2026-10-30",
+      "postingDateSource": "reported",
+      "applyUrl": "https://jobs.ikea.com/en/job/riddes/collaborateur-trice-logistique-60-100/24107/99736557760",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "collaborateur-trice-logistique-60-100-ikea-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "collaborateur-trice-logistique-60-100-ikea-ch"
+        ]
+      },
+      "firstSeenAt": "2026-09-28T21:10:30.098Z",
+      "salaryMin": 83500,
+      "salaryMax": 126500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 83500,
+          "maxValue": 126500,
+          "unitText": "YEAR"
+        }
+      },
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "IKEA",
+        "streetAddress": "Zone commerciale des Babioux 3",
+        "postalCode": "1908",
+        "addressLocality": "Riddes",
+        "addressRegion": "VS",
+        "checkedAt": "2026-10-31T20:49:19.010Z",
+        "streetAddressSource": "zefix-registry"
+      },
+      "streetAddress": "Zone commerciale des Babioux 3",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2027-01-28T21:15:35.907Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -470,7 +558,7 @@
       "url": "https://jobs.ikea.com/en/job/lyssach/mitarbeiter-in-ikea-restaurant-koch-in-90-100/24107/102617723264",
       "source": "IKEA Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:12:43.329Z",
+      "crawledAt": "2026-11-08T21:15:35.907Z",
       "addressLocality": "Lyssach",
       "postalCode": "3421",
       "addressRegion": "BE",
@@ -532,95 +620,7 @@
       },
       "streetAddress": "Bernstrasse 25",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-28T09:12:43.329Z",
-      "validThroughSource": "last-observed-window"
-    },
-    {
-      "id": "ikea-fd71a41daca6",
-      "slug": "collaboratore-responsabile-della-logistica-60-100-ikea-riddes-valais",
-      "slugByLocale": {
-        "it": "collaboratore-responsabile-della-logistica-60-100-ikea-riddes-valais",
-        "en": "collaborator-logistics-manager-60-100-ikea-riddes-valais",
-        "de": "mitarbeiter-logistikmanager-60-100-ikea-riddes-valais",
-        "fr": "collaborateur-trice-logistique-60-100-ikea-ch"
-      },
-      "company": "IKEA",
-      "companyKey": "ikea",
-      "companyDomain": "ikea.ch",
-      "title": "Collaborateur:trice logistique 60% - 100%",
-      "titleByLocale": {
-        "it": "Collaboratore: responsabile della logistica 60% - 100%",
-        "en": "Collaborator: logistics manager 60% - 100%",
-        "de": "Mitarbeiter: Logistikmanager 60% - 100%",
-        "fr": "Collaborateur:trice logistique 60% - 100%"
-      },
-      "description": "Qui tu es\n\nNous recherchons une personne proactive, bien organisée et qui aime travailler dans un environnement en constante évolution.\n• Tu as la passion de l’exactitude des stocks et tu comprends combien il est essentiel que nos produits soient disponibles au bon endroit et au bon moment afin de créer une expérience d'achat réussie pour notre clientèle.\n• Tu as de grandes compétences en matière de processus, d'outils et de méthodes de travail dans le domaine de la vente au détail et/ou de la logistique.\n• Tu sais utiliser des chariots élévateurs de manière sûre et efficace et, idéalement, tu es titulaire d'un permis de cariste.\n• Tu aimes travailler avec la logistique dans un environnement de vente au détail qui évolue rapidement et constamment.\n• Tu es flexible, tu aimes travailler en équipe et tu fais preuve d'auto-discipline.\n• Tu as un comportement amical qui contribue à promouvoir une collaboration positive avec tes collègues grâce à ton ouverture d'esprit et à ta nature communicative.\n• Tu es disponible pour travailler tôt le matin ou tard le soir.\n\nTes responsabilités\n\n• Travailler selon des routines établies pour garantir un inventaire précis et la disponibilité des produits pour la clientèle\n• Travailler en équipe avec tes collègues pour t’assurer que le magasin est bien approvisionné, en parfait état et prêt à accueillir nos clientes et clients.\n• Travailler avec soin pour garantir la sécurité et la protection de la clientèle et de tes collègues dans ton domaine de responsabilité.\n• Partager tes connaissances et tes compétences pour aider tes collègues du rayon et des autres secteurs du magasin.\n• Être disponible pour soutenir tes collègues du rayon et d'autres secteurs du magasin lorsque cela est nécessaire.\n\nA propos de ce secteur d'activité\n\nNous sommes l'équipe qui, en coulisses, fait en sorte que les produits IKEA soient disponibles pour le plus grand nombre. Nous nous servons de nos différentes expertises en matière de processus d'approvisionnement afin d'adapter l'assortiment à notre capacité de stockage grâce aux prévisions et aux commandes, afin que les produits soient aussi disponibles que possible pour les clientes et clients, le tout en minimisant nos dépenses. Si tu te demandes qui se charge de trouver des façons efficaces de préparer les commandes de notre clientèle, c'est nous! Notre passion: collaborer afin d'améliorer l'expérience clientèle chez IKEA.\n\nTu penses que ça pourrait marcher pour toi ?\n\nComme nous l’avons déjà indiqué, nous tenons au bien-être de nos collaborateur-trice-s.\n\nAussi nous tenons à leur dire «merci»!\n\nNous offrons à ce titre:\n\n• 28 jours de vacances (sur la base d’un poste à 100 %)\n• 8 semaines de congé parental rémunéré pour les pères ; 20 semaines de congé parental rémunéré pour les mères\n• Des prestations sociales très attractives\n• Remise de 15 % sur vos achats - dans chaque magasin IKEA en Suisse.\n• Tu préfères venir au travail en transports publics? Nous prenons en charge entre 85 % et 100 % du prix d’un abonnement à l’année.\n• Des possibilités de stationnement gratuit\n• Accès illimité à la plateforme d'apprentissage LinkedIn\n• Des repas à prix avantageux et équilibrés dans notre cantine (4,50 CHF pour les plats à base de viande et 3,50 CHF pour les plats végétariens).\n• Des primes versées à l'ensemble des collaborateurs\n\nIl existe de nombreuses possibilités d'évolution chez IKEA. Nous encourageons et soutenons nos employés à essayer différents rôles, à passer d'une fonction à l'autre ou même de partir à l'étranger. Merci de soumettre le dossier de candidature complet en ligne, via notre site. A noter toutefois que nous ne pouvons pas prendre en compte les candidatures et les documents envoyés par e-mail ou par la poste.\n\nEt voilà, c'est tout de notre côté !\n\nC'était pas mal d'infos, non? On aimerait en savoir plus sur toi. Il suffit de cliquer sur 'Postuler maintenant' et c'est parti!\n\nOn examine les candidatures au fur et à mesure et on peut mettre fin au processus dès qu'on trouve la bonne personne. Alors, n'hésite pas à postuler au plus vite.",
-      "descriptionByLocale": {
-        "it": "Chi sei\n\nStiamo cercando una persona proattiva e ben organizzata che ama lavorare in un ambiente in continua evoluzione.\n• Hai una passione per l'accuratezza dell'inventario e capire quanto sia essenziale che i nostri prodotti siano disponibili nel posto giusto e nel tempo per creare un'esperienza di shopping di successo per i nostri clienti.\n• Hai grandi competenze in processi, strumenti e metodi di lavoro nel settore del retail e/o della logistica.\n• Sai come utilizzare i carrelli elevatori in modo sicuro ed efficiente e, idealmente, hai una licenza di carist.\n• Ti piace lavorare con la logistica in un ambiente di vendita al dettaglio veloce e in continua evoluzione.\n• Sei flessibile, ti piace lavorare come squadra e sei autodisciplinato.\n• Avete un comportamento amichevole che aiuta a promuovere la collaborazione positiva con i vostri colleghi attraverso la vostra apertura e la natura comunicativa.\n• Siete a disposizione per lavorare la mattina presto o la sera tarda.\n\nLe tue responsabilità\n\n• Lavorare secondo le routine stabilite per garantire l'inventario accurato e la disponibilità del prodotto per i clienti\n• Lavora con i tuoi colleghi per garantire che il negozio sia ben fornito, in perfette condizioni e pronto ad accogliere i nostri clienti.\n• Lavorate con attenzione per garantire la sicurezza e la protezione dei vostri clienti e colleghi nella vostra area di responsabilità.\n• Condividi le tue conoscenze e competenze per aiutare i tuoi colleghi nel dipartimento e in altre aree del negozio.\n• Essere a disposizione per supportare i vostri colleghi nel dipartimento e in altre aree del negozio quando necessario.\n\nA proposito di questo settore\n\nSiamo il team che, dietro le quinte, assicura che i prodotti IKEA sono disponibili per quante più persone possibile. Utilizziamo le nostre varie competenze di processo di approvvigionamento per adattare la gamma alla nostra capacità di stoccaggio attraverso previsioni e ordini, in modo che i prodotti siano il più possibile disponibili per i clienti, riducendo al minimo le nostre spese. Se vi chiedete chi è responsabile di trovare modi efficaci per preparare gli ordini dei nostri clienti, siamo noi! La nostra passione: collaborare per migliorare l'esperienza del cliente in IKEA.\n\nPensi che possa funzionare per te?\n\nCome abbiamo già indicato, apprezziamo il benessere dei nostri collaboratori.\n\nQuindi vogliamo dire \"grazie\"!\n\nOffriamo come tali:\n\n• 28 giorni di vacanza (basato sul 100 % turno)\n• 8 settimane di congedo parentale pagato per i padri; 20 settimane di congedo parentale pagato per le madri\n• Prestazioni sociali molto interessanti\n• 15% di sconto sugli acquisti - in ogni negozio IKEA in Svizzera.\n• Preferiresti venire a lavorare sui trasporti pubblici? Copriamo tra l'85% e il 100% del prezzo di un abbonamento annuale.\n• Parcheggio gratuito\n• Accesso illimitato alla piattaforma di apprendimento LinkedIn\n• Pasti gustosi ed equilibrati nella nostra mensa (4,50 CHF per piatti di carne e 3,50 CHF per piatti vegetariani).\n• Premium pagati a tutti i dipendenti\n\nCi sono molte possibilità di evoluzione in IKEA. Incoraggiamo e sosteniamo i nostri dipendenti per provare ruoli diversi, passare da un lavoro all'altro o anche andare all'estero. Si prega di inviare l'applicazione completa online tramite il nostro sito web. Tuttavia, non possiamo prendere in considerazione le domande e i documenti inviati per e-mail o per posta.\n\nE' tutto dalla nostra parte!\n\nSono state un sacco di informazioni, vero? Vorremmo saperne di più su di te. Basta cliccare su 'Post Now' E ci siamo!\n\nLe domande vengono esaminate come e quando la persona giusta viene trovata, il processo può essere terminato. Quindi non esitate ad applicare il prima possibile.",
-        "en": "Who you are\n\nWe are looking for a proactive, well-organized person who likes to work in a constantly changing environment.\n• You have a passion for inventory accuracy and understand how essential it is that our products are available at the right place and time to create a successful shopping experience for our customers.\n• You have great skills in processes, tools and working methods in the area of retail and/or logistics.\n• You know how to use forklifts safely and efficiently and, ideally, you have a carist licence.\n• You like to work with logistics in a fast and constantly evolving retail environment.\n• You're flexible, you like working as a team and you're self-disciplined.\n• You have a friendly behavior that helps promote positive collaboration with your colleagues through your openness and communicative nature.\n• You're available to work early morning or late evening.\n\nYour responsibilities\n\n• Work according to established routines to ensure accurate inventory and product availability for customers\n• Work with your colleagues to ensure that the store is well stocked, in perfect condition and ready to welcome our customers.\n• Work carefully to ensure the safety and protection of your clients and colleagues in your area of responsibility.\n• Share your knowledge and skills to help your colleagues in the department and other areas of the store.\n• Be available to support your colleagues in the department and other areas of the store when necessary.\n\nAbout this industry\n\nWe are the team that, behind the scenes, ensures that IKEA products are available for as many people as possible. We use our various procurement process expertise to adapt the range to our storage capacity through forecasts and orders, so that products are as available as possible for customers, while minimizing our expenses. If you wonder who is in charge of finding effective ways to prepare our customers' orders, it's us! Our passion: collaborate to improve the customer experience at IKEA.\n\nYou think this could work for you?\n\nAs we have already indicated, we value the well-being of our collaborators.\n\nSo we want to say 'thank you'!\n\nWe offer as such:\n\n• 28 days of vacation (based on 100 % shift)\n• 8 weeks paid parental leave for fathers; 20 weeks paid parental leave for mothers\n• Very attractive social benefits\n• 15% discount on your purchases - in each IKEA store in Switzerland.\n• Would you rather come to work on public transport? We cover between 85% and 100% of the price of an annual subscription.\n• Free parking\n• Unlimited access to the LinkedIn learning platform\n• Favourable and balanced meals in our canteen (4.50 CHF for meat dishes and 3.50 CHF for vegetarian dishes).\n• Premiums paid to all employees\n\nThere are many possibilities of evolution in IKEA. We encourage and support our employees to try different roles, move from one job to another or even go abroad. Please submit the complete application online via our website. However, we cannot take into account applications and documents sent by e-mail or mail.\n\nThat's all on our side!\n\nThat was a lot of information, wasn't it? We'd like to know more about you. Just click on 'Post Now' And here we go!\n\nApplications are reviewed as and when the right person is found, the process can be terminated. So don't hesitate to apply as soon as possible.",
-        "de": "Wer du bist\n\nWir suchen eine proaktive, gut organisierte Person, die gerne in einem sich ständig verändernden Umfeld arbeitet.\n• Sie haben eine Leidenschaft für Lagergenauigkeit und verstehen, wie wichtig es ist, dass unsere Produkte am richtigen Ort und zur richtigen Zeit verfügbar sind, um ein erfolgreiches Einkaufserlebnis für unsere Kunden zu schaffen.\n• Sie haben große Fähigkeiten in Prozessen, Werkzeugen und Arbeitsmethoden im Bereich Einzelhandel und / oder Logistik.\n• Sie wissen, wie man Gabelstapler sicher und effizient benutzt und im Idealfall haben Sie einen Führerschein.\n• Sie arbeiten gerne mit Logistik in einer schnellen und sich ständig weiterentwickelnden Einzelhandelsumgebung.\n• Du bist flexibel, arbeitest gerne als Team und bist selbstdiszipliniert.\n• Sie haben ein freundliches Verhalten, das durch Ihre Offenheit und Ihren kommunikativen Charakter die positive Zusammenarbeit mit Ihren Kollegen fördert.\n• Sie können am frühen Morgen oder am späten Abend arbeiten.\n\nIhre Verantwortung\n\n• Arbeiten Sie nach festgelegten Routinen, um eine genaue Inventar- und Produktverfügbarkeit für Kunden zu gewährleisten\n• Arbeiten Sie mit Ihren Kollegen zusammen, um sicherzustellen, dass der Laden gut sortiert, in perfektem Zustand und bereit ist, unsere Kunden willkommen zu heißen.\n• Arbeiten Sie sorgfältig daran, die Sicherheit und den Schutz Ihrer Kunden und Kollegen in Ihrem Verantwortungsbereich zu gewährleisten.\n• Teilen Sie Ihre Kenntnisse und Fähigkeiten, um Ihren Kollegen in der Abteilung und anderen Bereichen des Geschäfts zu helfen.\n• Seien Sie verfügbar, um Ihre Kollegen in der Abteilung und anderen Bereichen des Ladens bei Bedarf zu unterstützen.\n\nÜber diese Industrie\n\nWir sind das Team, das hinter den Kulissen dafür sorgt, dass IKEA-Produkte für so viele Menschen wie möglich verfügbar sind. Wir nutzen unsere unterschiedliche Beschaffungsprozesskompetenz, um das Sortiment durch Prognosen und Bestellungen an unsere Lagerkapazität anzupassen, damit die Produkte für die Kunden so verfügbar wie möglich sind und gleichzeitig unsere Kosten minimiert werden. Wenn Sie sich fragen, wer dafür verantwortlich ist, effektive Wege zu finden, um die Bestellungen unserer Kunden vorzubereiten, sind wir es! Unsere Leidenschaft: Zusammenarbeit, um das Kundenerlebnis bei IKEA zu verbessern.\n\nDenkst du, das könnte für dich funktionieren?\n\nWie wir bereits angedeutet haben, schätzen wir das Wohlergehen unserer Mitarbeiter.\n\nAlso wollen wir \"Danke\" sagen!\n\nWir bieten als solche an:\n\n• 28 Urlaubstage (basierend auf 100 % Schicht)\n• 8 Wochen bezahlter Elternurlaub für Väter; 20 Wochen bezahlter Elternurlaub für Mütter\n• Sehr attraktive Sozialleistungen\n• 15% Rabatt auf Ihre Einkäufe - in jedem IKEA-Shop in der Schweiz.\n• Möchten Sie lieber im öffentlichen Verkehr arbeiten? Wir decken zwischen 85% und 100% des Preises eines jährlichen Abonnements ab.\n• Freie Parkplätze\n• Unbegrenzter Zugang zur LinkedIn Lernplattform\n• Günstige und ausgewogene Mahlzeiten in unserer Kantine (4,50 CHF für Fleischgerichte und 3,50 CHF für vegetarische Gerichte).\n• Prämien für alle Arbeitnehmer\n\nEs gibt viele Möglichkeiten der Evolution in IKEA. Wir ermutigen und unterstützen unsere Mitarbeiter, verschiedene Rollen auszuprobieren, von einem Job zum anderen zu wechseln oder sogar ins Ausland zu gehen. Bitte reichen Sie den vollständigen Antrag online über unsere Website ein. Wir können jedoch Anträge und Dokumente, die per E-Mail oder Post verschickt werden, nicht berücksichtigen.\n\nDas ist alles auf unserer Seite!\n\nDas war eine Menge Informationen, nicht wahr? Wir würden gerne mehr über Sie erfahren. Klicken Sie einfach auf \"Post Now\" Und los geht's!\n\nAnwendungen werden überprüft, sobald die richtige Person gefunden wird, kann der Prozess beendet werden. Zögern Sie also nicht, sich so schnell wie möglich zu bewerben.",
-        "fr": "Qui tu es\n\nNous recherchons une personne proactive, bien organisée et qui aime travailler dans un environnement en constante évolution.\n• Tu as la passion de l’exactitude des stocks et tu comprends combien il est essentiel que nos produits soient disponibles au bon endroit et au bon moment afin de créer une expérience d'achat réussie pour notre clientèle.\n• Tu as de grandes compétences en matière de processus, d'outils et de méthodes de travail dans le domaine de la vente au détail et/ou de la logistique.\n• Tu sais utiliser des chariots élévateurs de manière sûre et efficace et, idéalement, tu es titulaire d'un permis de cariste.\n• Tu aimes travailler avec la logistique dans un environnement de vente au détail qui évolue rapidement et constamment.\n• Tu es flexible, tu aimes travailler en équipe et tu fais preuve d'auto-discipline.\n• Tu as un comportement amical qui contribue à promouvoir une collaboration positive avec tes collègues grâce à ton ouverture d'esprit et à ta nature communicative.\n• Tu es disponible pour travailler tôt le matin ou tard le soir.\n\nTes responsabilités\n\n• Travailler selon des routines établies pour garantir un inventaire précis et la disponibilité des produits pour la clientèle\n• Travailler en équipe avec tes collègues pour t’assurer que le magasin est bien approvisionné, en parfait état et prêt à accueillir nos clientes et clients.\n• Travailler avec soin pour garantir la sécurité et la protection de la clientèle et de tes collègues dans ton domaine de responsabilité.\n• Partager tes connaissances et tes compétences pour aider tes collègues du rayon et des autres secteurs du magasin.\n• Être disponible pour soutenir tes collègues du rayon et d'autres secteurs du magasin lorsque cela est nécessaire.\n\nA propos de ce secteur d'activité\n\nNous sommes l'équipe qui, en coulisses, fait en sorte que les produits IKEA soient disponibles pour le plus grand nombre. Nous nous servons de nos différentes expertises en matière de processus d'approvisionnement afin d'adapter l'assortiment à notre capacité de stockage grâce aux prévisions et aux commandes, afin que les produits soient aussi disponibles que possible pour les clientes et clients, le tout en minimisant nos dépenses. Si tu te demandes qui se charge de trouver des façons efficaces de préparer les commandes de notre clientèle, c'est nous! Notre passion: collaborer afin d'améliorer l'expérience clientèle chez IKEA.\n\nTu penses que ça pourrait marcher pour toi ?\n\nComme nous l’avons déjà indiqué, nous tenons au bien-être de nos collaborateur-trice-s.\n\nAussi nous tenons à leur dire «merci»!\n\nNous offrons à ce titre:\n\n• 28 jours de vacances (sur la base d’un poste à 100 %)\n• 8 semaines de congé parental rémunéré pour les pères ; 20 semaines de congé parental rémunéré pour les mères\n• Des prestations sociales très attractives\n• Remise de 15 % sur vos achats - dans chaque magasin IKEA en Suisse.\n• Tu préfères venir au travail en transports publics? Nous prenons en charge entre 85 % et 100 % du prix d’un abonnement à l’année.\n• Des possibilités de stationnement gratuit\n• Accès illimité à la plateforme d'apprentissage LinkedIn\n• Des repas à prix avantageux et équilibrés dans notre cantine (4,50 CHF pour les plats à base de viande et 3,50 CHF pour les plats végétariens).\n• Des primes versées à l'ensemble des collaborateurs\n\nIl existe de nombreuses possibilités d'évolution chez IKEA. Nous encourageons et soutenons nos employés à essayer différents rôles, à passer d'une fonction à l'autre ou même de partir à l'étranger. Merci de soumettre le dossier de candidature complet en ligne, via notre site. A noter toutefois que nous ne pouvons pas prendre en compte les candidatures et les documents envoyés par e-mail ou par la poste.\n\nEt voilà, c'est tout de notre côté !\n\nC'était pas mal d'infos, non? On aimerait en savoir plus sur toi. Il suffit de cliquer sur 'Postuler maintenant' et c'est parti!\n\nOn examine les candidatures au fur et à mesure et on peut mettre fin au processus dès qu'on trouve la bonne personne. Alors, n'hésite pas à postuler au plus vite."
-      },
-      "location": "Riddes, Valais",
-      "canton": "VS",
-      "url": "https://jobs.ikea.com/en/job/riddes/collaborateur-trice-logistique-60-100/24107/99736557760",
-      "source": "IKEA Dedicated Parser",
-      "sourceLang": "fr",
-      "crawledAt": "2026-11-08T09:12:43.328Z",
-      "addressLocality": "Riddes",
-      "postalCode": "1908",
-      "addressRegion": "VS",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Logistica",
-      "contract": "full-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Retail / Furniture",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-10-30",
-      "postedDate": "2026-10-30",
-      "postingDateSource": "reported",
-      "applyUrl": "https://jobs.ikea.com/en/job/riddes/collaborateur-trice-logistique-60-100/24107/99736557760",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "collaborateur-trice-logistique-60-100-ikea-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "collaborateur-trice-logistique-60-100-ikea-ch"
-        ]
-      },
-      "firstSeenAt": "2026-09-28T21:10:30.098Z",
-      "salaryMin": 83500,
-      "salaryMax": 126500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 83500,
-          "maxValue": 126500,
-          "unitText": "YEAR"
-        }
-      },
-      "companyRegisteredAddress": {
-        "status": "matched",
-        "source": "zefix-lindas",
-        "companyName": "IKEA",
-        "streetAddress": "Zone commerciale des Babioux 3",
-        "postalCode": "1908",
-        "addressLocality": "Riddes",
-        "addressRegion": "VS",
-        "checkedAt": "2026-10-31T20:49:19.010Z",
-        "streetAddressSource": "zefix-registry"
-      },
-      "streetAddress": "Zone commerciale des Babioux 3",
-      "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-28T09:12:43.328Z",
+      "validThrough": "2027-01-28T21:15:35.907Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -654,7 +654,7 @@
       "url": "https://jobs.ikea.com/en/job/spreitenbach/mitarbeiter-in-customer-support-80-100-fr-and-de/24107/101685156896",
       "source": "IKEA Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:12:43.326Z",
+      "crawledAt": "2026-11-08T21:15:35.905Z",
       "addressLocality": "Spreitenbach",
       "postalCode": "8957",
       "addressRegion": "AG",
@@ -714,7 +714,7 @@
       },
       "streetAddress": "Müslistrasse 16",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-02T09:12:43.326Z",
+      "validThrough": "2027-02-02T21:15:35.905Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -748,7 +748,7 @@
       "url": "https://jobs.ikea.com/en/job/pratteln/agreement-administrator-60/24107/102852251920",
       "source": "IKEA Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-08T09:12:43.325Z",
+      "crawledAt": "2026-11-08T21:15:35.904Z",
       "addressLocality": "Pratteln",
       "postalCode": "4133",
       "addressRegion": "BL",
@@ -803,7 +803,7 @@
       },
       "streetAddress": "Pratteln",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-02T09:12:43.325Z",
+      "validThrough": "2027-02-02T21:15:35.904Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -837,7 +837,7 @@
       "url": "https://jobs.ikea.com/en/job/spreitenbach/mitarbeiter-in-logistik-nachtschicht-00-00-09-00-uhr-100/24107/102574457648",
       "source": "IKEA Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:12:43.323Z",
+      "crawledAt": "2026-11-08T21:15:35.902Z",
       "addressLocality": "Spreitenbach",
       "postalCode": "8957",
       "addressRegion": "AG",
@@ -892,7 +892,7 @@
       },
       "streetAddress": "Müslistrasse 16",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-02T09:12:43.323Z",
+      "validThrough": "2027-02-02T21:15:35.902Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -901,7 +901,7 @@
       "slugByLocale": {
         "it": "collaboratore-logistico-60-ikea-riddes-valais",
         "en": "logistics-contributor-60-ikea-riddes-valais",
-        "de": "logistikbeitrag-60-ikea-riddes-valais",
+        "de": "logistikkoordinator-60-ikea-vernier",
         "fr": "collaborateur-trice-logistique-60-ikea-ch"
       },
       "company": "IKEA",
@@ -926,7 +926,7 @@
       "url": "https://jobs.ikea.com/en/job/vernier/collaborateur-trice-logistique-60/24107/102876325680",
       "source": "IKEA Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-08T09:12:43.322Z",
+      "crawledAt": "2026-11-08T21:15:35.901Z",
       "addressLocality": "Vernier",
       "postalCode": "1214",
       "addressRegion": "GE",
@@ -948,7 +948,7 @@
       "previousSlugs": [
         "collaborateur-trice-logistique-60-ikea-ch",
         "collaborateur-trice-logistique-60-ikea-vernier",
-        "logistikkoordinator-60-ikea-vernier"
+        "logistikbeitrag-60-ikea-riddes-valais"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -960,7 +960,7 @@
         ],
         "de": [
           "collaborateur-trice-logistique-60-ikea-vernier",
-          "logistikkoordinator-60-ikea-vernier"
+          "logistikbeitrag-60-ikea-riddes-valais"
         ]
       },
       "firstSeenAt": "2026-08-26T09:53:00.147Z",
@@ -990,7 +990,7 @@
       },
       "streetAddress": "route de Vernier 156",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-03T09:12:43.322Z",
+      "validThrough": "2027-02-03T21:15:35.901Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1024,7 +1024,7 @@
       "url": "https://jobs.ikea.com/en/job/aubonne/collaborateur-trice-de-vente-60/24107/102920187120",
       "source": "IKEA Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-08T09:12:43.321Z",
+      "crawledAt": "2026-11-08T21:15:35.900Z",
       "addressLocality": "Aubonne",
       "postalCode": "1170",
       "addressRegion": "VD",
@@ -1072,90 +1072,7 @@
       },
       "streetAddress": "Aubonne",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-04T09:12:43.321Z",
-      "validThroughSource": "last-observed-window"
-    },
-    {
-      "id": "ikea-f2683d5c396b",
-      "slug": "addetto-a-alla-logistica-picking-warenausgabe-80-ikea-dietlikon",
-      "slugByLocale": {
-        "it": "addetto-a-alla-logistica-picking-warenausgabe-80-ikea-dietlikon",
-        "en": "associate-logistik-picking-warenausgabe-80-ikea-dietlikon",
-        "de": "mitarbeiter-in-logistik-picking-warenausgabe-80-ikea-ch",
-        "fr": "collaborateur-trice-logistik-picking-warenausgabe-80-ikea-dietlikon"
-      },
-      "company": "IKEA",
-      "companyKey": "ikea",
-      "companyDomain": "ikea.ch",
-      "title": "Mitarbeiter:in Logistik – Picking & Warenausgabe 80%",
-      "titleByLocale": {
-        "it": "Addetto/a alla logistica – Picking & Warenausgabe 80%",
-        "en": "Associate Logistik – Picking & Warenausgabe 80%",
-        "de": "Mitarbeiter:in Logistik – Picking & Warenausgabe 80%",
-        "fr": "Collaborateur/trice Logistik – Picking & Warenausgabe 80%"
-      },
-      "description": "Wer du bist\n\nWenn es schnell gehen muss, kannst du mithalten und sorgst dabei für Ruhe und Ordnung. Das Logistik-Team von IKEA möchte genau so eine Person an Bord haben.\n\nMenschen arbeiten besser, wenn es ihnen gut geht. Bei IKEA glauben wir, dass Herausforderungen Freude machen, wenn man Spass bei der Arbeit hat und gemeinsam Ziele erreicht. Wir möchten, dass du dich bei uns wohlfühlst und dich persönlich und beruflich weiterentwickeln kannst.\n\nWie siehst du das? Schau mal, ob das zu dir passt:\n\n• Du hast bereits Erfahrung in der Logistik oder einem ähnlichen Bereich.\n• Du bist aufgeschlossen, kommunikativ und hast eine freundliche Art, die eine positive Zusammenarbeit mit deinen Kolleginnen und Kollegen fördert.\n• Du sprichst gut Deutsch, weitere Sprachenkenntnisse sind immer ein Plus.\n• Hektik macht dir keine Angst und in einem dynamischen Umfeld fühlst du dich wohl.\n• Ob Früh- und Spätschichten (zwischen 07:00 und 21:00), du bist flexibel.\n• Du bist körperlich fit und bereit, aktiv mitanzupacken.\n\nDu bist verantwortlich für\n\n• Dank dir sind unsere vielen Produkte immer erhältlich und immer in einem einwandfreien Zustand.\n• Du sorgst für die termingerechte Warenbereitstellung und eine korrekte Bestandsführung.\n• Im Team arbeitet ihr nach festgelegten Routinen, um gemeinsam die Produkteverfügbarkeit zu garantieren.\n• Dabei arbeitest du sorgfältig und genau, denn Sicherheit geht vor.\n•Unterstützung der Abteilung und anderen Bereichen des Geschäfts, wenn Hilfe nötig ist.\n\nDenkst du, das würde passen?\n\nWir haben oben geschrieben, dass wir möchten, dass es unseren Mitarbeitenden gut geht.\nDazu gehört auch “danke” zu sagen!\n\nUnser Dankeschön:\n\n· 28 Ferientage (basierend auf einem 100%-Pensum)\n· 20 Wochen bezahlte Elternzeit für Mütter, 8 Wochen bezahlte Elternzeit für Väter.\n· Sehr attraktive Sozialleistungen\n· 15% Personalrabatt auf deinen Einkauf – und das in jedem IKEA Einrichtungshaus\n· Du kommst mit dem ÖV? Wir bezahlen zwischen 85% bis 100% des Jahresabonnements\n· Kostenfreie Parkmöglichkeiten\n· Unlimitierter Zugang zur LinkedIn-Learning-Plattform\n· Günstige und gesunde Mahlzeiten in der Kantine (CHF 4,50 für Fleisch- und CHF 3,50 für Vegi-Gerichte)\n· Bonuszahlungen für alle Mitarbeitenden\n\nBei IKEA gibt es viele unterschiedliche Möglichkeiten sich weiterzuentwickeln. Wir fördern und bestärken unsere Mitarbeitenden darin, verschiedene Aufgaben auszuprobieren, zwischen den Funktionen zu wechseln oder ins Ausland zu gehen. Bitte reiche deine komplette Bewerbung online ein und sei dir bewusst, dass wir Unterlagen per E-Mail oder über die Post nicht berücksichtigen können.\nDas wäre es von uns.\n Das waren jetzt sehr viele Infos. Wir würden uns freuen, mehr über dich zu erfahren. Klicke doch einfach auf «Jetzt bewerben» und los geht’s. Wir prüfen Bewerbungen laufend und stellen den Bewerbungsprozess ein, sobald wir die richtige Person gefunden haben. Bitte bewirb dich also so schnell wie möglich.",
-      "descriptionByLocale": {
-        "it": "Chi sei\n\nSe deve andare veloce, è possibile tenere il passo e fornire la pace e l'ordine. Il team logistico di IKEA vuole avere solo una tale persona a bordo.\n\nLa gente lavora meglio quando sta bene. In IKEA, crediamo che le sfide portino la gioia quando si ha divertimento al lavoro e raggiungere gli obiettivi insieme. Vogliamo che tu ti senta a tuo agio con noi e sia in grado di svilupparti personalmente e professionalmente.\n\nCome lo vedi? Vedi se ti sta bene:\n\n• Hai già esperienza nella logistica o in un campo simile.\n• Sei aperta, comunicativa e hai un modo amichevole di lavorare positivamente con i tuoi colleghi.\n• Parli bene tedesco, ulteriori competenze linguistiche sono sempre un vantaggio.\n• Hectic non ti spaventa e in un ambiente dinamico ti senti a tuo agio.\n• Che si tratti di turni anticipati e tardivi (tra le 07:00 e le 21:00), sei flessibile.\n• Siete fisicamente in forma e pronti a impegnarsi attivamente.\n\nTu sei responsabile\n\n• Grazie a voi, i nostri numerosi prodotti sono sempre disponibili e sempre in perfette condizioni.\n• Garantisci la tempestiva fornitura di beni e una corretta gestione dell'inventario.\n• Come team, si lavora secondo le routine stabilite per garantire congiuntamente la disponibilità del prodotto.\n• Si lavora con attenzione e precisione, perché la sicurezza viene prima.\n• Sostenere il dipartimento e altre aree di business quando è necessario assistenza.\n\nPensi che andrebbe bene?\n\nAbbiamo scritto sopra che vogliamo che i nostri dipendenti stiano bene.\nQuesto include dire “grazie”!\n\nIl nostro ringraziamento:\n\n· 28 giorni di vacanza (basato su un'indennità del 100%)\n· 20 settimane di congedo parentale pagato per le madri, 8 settimane di congedo parentale pagato per i padri.\n· Vantaggi sociali molto attraenti\n· 15% di sconto sul vostro acquisto – in ogni negozio IKEA\n· Viene con i mezzi pubblici? Paghiamo tra l'85% e il 100% dell'abbonamento annuale\n· Parcheggio gratuito\n· Accesso illimitato alla piattaforma di apprendimento LinkedIn\nPasti economici e salutari nella mensa (CHF 4.50 per la carne e CHF 3.50 per i piatti vegi)\n· Bonus per tutti i dipendenti\n\nA IKEA, ci sono molti modi diversi per sviluppare. Incoraggiamo e incoraggiamo i nostri dipendenti a provare diversi compiti, a passare tra funzioni o andare all'estero. Si prega di inviare la vostra applicazione completa on-line ed essere consapevoli che non possiamo prendere in considerazione documenti via e-mail o posta.\nSiamo noi.\nSono state molte informazioni. Ci piacerebbe sapere di più su di te. Basta cliccare su “Applica ora” e andare. Rivediamo le applicazioni su base continuativa e fermiamo il processo di applicazione non appena troviamo la persona giusta. Si prega di applicare il prima possibile.",
-        "en": "Who you are\n\nIf it has to go fast, you can keep up and provide peace and order. The logistics team at IKEA wants to have just such a person on board.\n\nPeople work better when they are well. At IKEA, we believe that challenges bring joy when you have fun at work and achieve goals together. We want you to feel comfortable with us and to be able to develop personally and professionally.\n\nHow do you see it? See if this suits you:\n\n• You already have experience in logistics or a similar field.\n• You are open-minded, communicative and have a friendly way of working positively with your colleagues.\n• You speak good German, further language skills are always a plus.\n• Hectic does not scare you and in a dynamic environment you feel comfortable.\n• Whether early and late shifts (between 07:00 and 21:00), you are flexible.\n• You are physically fit and ready to actively engage.\n\nYou are responsible for\n\n• Thanks to you, our many products are always available and always in perfect condition.\n• You ensure the timely provision of goods and a correct inventory management.\n• As a team, you work according to established routines to jointly guarantee product availability.\n• You work carefully and accurately, because safety comes first.\n• Support the department and other areas of business when assistance is needed.\n\nDo you think that would fit?\n\nWe wrote above that we want our employees to be well.\nThis includes saying “thank you”!\n\nOur thanks:\n\n· 28 holiday days (based on a 100% allowance)\n· 20 weeks paid parental leave for mothers, 8 weeks paid parental leave for fathers.\n· Very attractive social benefits\n· 15% discount on your purchase – in every IKEA store\n· Are you coming with the public transport? We pay between 85% to 100% of the annual subscription\n· Free parking\n· Unlimited access to the LinkedIn learning platform\nCheap and healthy meals in the canteen (CHF 4.50 for meat and CHF 3.50 for vegi dishes)\n· Bonus payments for all employees\n\nAt IKEA, there are many different ways to develop. We encourage and encourage our employees to try out different tasks, to switch between functions or to go abroad. Please submit your complete application online and be aware that we cannot consider documents by e-mail or post.\nThat would be it of us.\nThat was a lot of info now. We would love to know more about you. Just click on “Apply now” and go. We review applications on an ongoing basis and stop the application process as soon as we find the right person. Please apply as soon as possible.",
-        "de": "Wer du bist\n\nWenn es schnell gehen muss, kannst du mithalten und sorgst dabei für Ruhe und Ordnung. Das Logistik-Team von IKEA möchte genau so eine Person an Bord haben.\n\nMenschen arbeiten besser, wenn es ihnen gut geht. Bei IKEA glauben wir, dass Herausforderungen Freude machen, wenn man Spass bei der Arbeit hat und gemeinsam Ziele erreicht. Wir möchten, dass du dich bei uns wohlfühlst und dich persönlich und beruflich weiterentwickeln kannst.\n\nWie siehst du das? Schau mal, ob das zu dir passt:\n\n• Du hast bereits Erfahrung in der Logistik oder einem ähnlichen Bereich.\n• Du bist aufgeschlossen, kommunikativ und hast eine freundliche Art, die eine positive Zusammenarbeit mit deinen Kolleginnen und Kollegen fördert.\n• Du sprichst gut Deutsch, weitere Sprachenkenntnisse sind immer ein Plus.\n• Hektik macht dir keine Angst und in einem dynamischen Umfeld fühlst du dich wohl.\n• Ob Früh- und Spätschichten (zwischen 07:00 und 21:00), du bist flexibel.\n• Du bist körperlich fit und bereit, aktiv mitanzupacken.\n\nDu bist verantwortlich für\n\n• Dank dir sind unsere vielen Produkte immer erhältlich und immer in einem einwandfreien Zustand.\n• Du sorgst für die termingerechte Warenbereitstellung und eine korrekte Bestandsführung.\n• Im Team arbeitet ihr nach festgelegten Routinen, um gemeinsam die Produkteverfügbarkeit zu garantieren.\n• Dabei arbeitest du sorgfältig und genau, denn Sicherheit geht vor.\n•Unterstützung der Abteilung und anderen Bereichen des Geschäfts, wenn Hilfe nötig ist.\n\nDenkst du, das würde passen?\n\nWir haben oben geschrieben, dass wir möchten, dass es unseren Mitarbeitenden gut geht.\nDazu gehört auch “danke” zu sagen!\n\nUnser Dankeschön:\n\n· 28 Ferientage (basierend auf einem 100%-Pensum)\n· 20 Wochen bezahlte Elternzeit für Mütter, 8 Wochen bezahlte Elternzeit für Väter.\n· Sehr attraktive Sozialleistungen\n· 15% Personalrabatt auf deinen Einkauf – und das in jedem IKEA Einrichtungshaus\n· Du kommst mit dem ÖV? Wir bezahlen zwischen 85% bis 100% des Jahresabonnements\n· Kostenfreie Parkmöglichkeiten\n· Unlimitierter Zugang zur LinkedIn-Learning-Plattform\n· Günstige und gesunde Mahlzeiten in der Kantine (CHF 4,50 für Fleisch- und CHF 3,50 für Vegi-Gerichte)\n· Bonuszahlungen für alle Mitarbeitenden\n\nBei IKEA gibt es viele unterschiedliche Möglichkeiten sich weiterzuentwickeln. Wir fördern und bestärken unsere Mitarbeitenden darin, verschiedene Aufgaben auszuprobieren, zwischen den Funktionen zu wechseln oder ins Ausland zu gehen. Bitte reiche deine komplette Bewerbung online ein und sei dir bewusst, dass wir Unterlagen per E-Mail oder über die Post nicht berücksichtigen können.\nDas wäre es von uns.\nDas waren jetzt sehr viele Infos. Wir würden uns freuen, mehr über dich zu erfahren. Klicke doch einfach auf «Jetzt bewerben» und los geht’s. Wir prüfen Bewerbungen laufend und stellen den Bewerbungsprozess ein, sobald wir die richtige Person gefunden haben. Bitte bewirb dich also so schnell wie möglich.",
-        "fr": "Qui vous êtes\n\nSi elle doit aller vite, vous pouvez maintenir et fournir la paix et l'ordre. L'équipe logistique d'IKEA veut avoir une telle personne à bord.\n\nLes gens travaillent mieux quand ils sont bien. Chez IKEA, nous croyons que les défis apportent de la joie lorsque vous vous amusez au travail et atteindre des objectifs ensemble. Nous voulons que vous vous sentiez à l'aise avec nous et que vous puissiez vous développer personnellement et professionnellement.\n\nComment le voyez-vous ? Voyez si cela vous convient :\n\n• Vous avez déjà une expérience en logistique ou dans un domaine similaire.\n• Vous êtes ouvert d'esprit, communicatif et avez une façon amicale de travailler positivement avec vos collègues.\n• Vous parlez bien l'allemand, d'autres compétences linguistiques sont toujours un plus.\n• L'agitation ne vous effraie pas et dans un environnement dynamique, vous vous sentez à l'aise.\n• Que vous soyez en poste tôt ou tard (entre 7 h et 21 h), vous êtes flexible.\n• Vous êtes physiquement en forme et prêt à vous engager activement.\n\nVous êtes responsable de\n\n• Grâce à vous, nos nombreux produits sont toujours disponibles et toujours en parfait état.\n• Vous veillez à ce que les marchandises soient fournies en temps opportun et à une bonne gestion des stocks.\n• En tant qu'équipe, vous travaillez selon les routines établies pour garantir conjointement la disponibilité des produits.\n• Vous travaillez avec soin et précision, car la sécurité vient en premier.\n• Soutenir le département et d'autres secteurs d'activité lorsque l'aide est nécessaire.\n\nTu crois que ça irait ?\n\nNous avons écrit plus haut que nous voulons que nos employés aillent bien.\nCela inclut dire \"merci\"!\n\nNous vous remercions :\n\n· 28 jours fériés (sur la base d'une allocation de 100 %)\n· 20 semaines de congé parental payé pour les mères, 8 semaines de congé parental payé pour les pères.\n· Prestations sociales très attractives\n· 15% de réduction sur votre achat – dans chaque magasin IKEA\n· Vous venez avec les transports en commun ? Nous payons entre 85% et 100% de l'abonnement annuel\n· Parking gratuit\n· Accès illimité à la plateforme d'apprentissage LinkedIn\nRepas pas chers et sains dans la cantine (CHF 4,50 pour la viande et CHF 3,50 pour les plats vegi)\n· Primes versées à tous les employés\n\nChez IKEA, il y a plusieurs façons de se développer. Nous encourageons et encourageons nos employés à essayer différentes tâches, à changer de fonctions ou à partir à l'étranger. Veuillez soumettre votre candidature complète en ligne et être conscient que nous ne pouvons pas considérer les documents par courriel ou par la poste.\nCe serait à nous.\nC'était beaucoup d'infos maintenant. Nous aimerions en savoir plus sur vous. Il suffit de cliquer sur \"Appliquer maintenant\" et aller. Nous examinons les demandes de façon continue et arrêtons le processus de demande dès que nous trouvons la bonne personne. Veuillez postuler dès que possible."
-      },
-      "location": "Dietlikon, Zürich",
-      "canton": "ZH",
-      "url": "https://jobs.ikea.com/en/job/dietlikon-dietlikon-dorf/mitarbeiter-in-logistik-picking-and-warenausgabe-80/24107/102920194560",
-      "source": "IKEA Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:12:43.320Z",
-      "addressLocality": "Dietlikon",
-      "postalCode": "8305",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Logistica",
-      "contract": "full-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Retail / Furniture",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-11-06",
-      "postedDate": "2026-11-06",
-      "postingDateSource": "reported",
-      "applyUrl": "https://jobs.ikea.com/en/job/dietlikon-dietlikon-dorf/mitarbeiter-in-logistik-picking-and-warenausgabe-80/24107/102920194560",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "mitarbeiter-in-logistik-picking-warenausgabe-80-ikea-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "mitarbeiter-in-logistik-picking-warenausgabe-80-ikea-ch"
-        ],
-        "en": [
-          "mitarbeiter-in-logistik-picking-warenausgabe-80-ikea-ch"
-        ],
-        "fr": [
-          "mitarbeiter-in-logistik-picking-warenausgabe-80-ikea-ch"
-        ]
-      },
-      "firstSeenAt": "2026-11-06T21:21:14.319Z",
-      "salaryMin": 58800,
-      "salaryMax": 89200,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 58800,
-          "maxValue": 89200,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Dietlikon",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-04T09:12:43.320Z",
+      "validThrough": "2027-02-04T21:15:35.900Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1189,7 +1106,7 @@
       "url": "https://jobs.ikea.com/en/job/dietlikon-dietlikon-dorf/mitarbeiter-in-logistik-picking-50-spatschicht-17-00-21-00-16-00-20-00/24107/102920194512",
       "source": "IKEA Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:12:43.320Z",
+      "crawledAt": "2026-11-08T21:15:35.899Z",
       "addressLocality": "Dietlikon",
       "postalCode": "8305",
       "addressRegion": "ZH",
@@ -1244,7 +1161,90 @@
       },
       "streetAddress": "Dietlikon",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-04T09:12:43.320Z",
+      "validThrough": "2027-02-04T21:15:35.899Z",
+      "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "ikea-f2683d5c396b",
+      "slug": "addetto-a-alla-logistica-picking-warenausgabe-80-ikea-dietlikon",
+      "slugByLocale": {
+        "it": "addetto-a-alla-logistica-picking-warenausgabe-80-ikea-dietlikon",
+        "en": "associate-logistik-picking-warenausgabe-80-ikea-dietlikon",
+        "de": "mitarbeiter-in-logistik-picking-warenausgabe-80-ikea-ch",
+        "fr": "collaborateur-trice-logistik-picking-warenausgabe-80-ikea-dietlikon"
+      },
+      "company": "IKEA",
+      "companyKey": "ikea",
+      "companyDomain": "ikea.ch",
+      "title": "Mitarbeiter:in Logistik – Picking & Warenausgabe 80%",
+      "titleByLocale": {
+        "it": "Addetto/a alla logistica – Picking & Warenausgabe 80%",
+        "en": "Associate Logistik – Picking & Warenausgabe 80%",
+        "de": "Mitarbeiter:in Logistik – Picking & Warenausgabe 80%",
+        "fr": "Collaborateur/trice Logistik – Picking & Warenausgabe 80%"
+      },
+      "description": "Wer du bist\n\nWenn es schnell gehen muss, kannst du mithalten und sorgst dabei für Ruhe und Ordnung. Das Logistik-Team von IKEA möchte genau so eine Person an Bord haben.\n\nMenschen arbeiten besser, wenn es ihnen gut geht. Bei IKEA glauben wir, dass Herausforderungen Freude machen, wenn man Spass bei der Arbeit hat und gemeinsam Ziele erreicht. Wir möchten, dass du dich bei uns wohlfühlst und dich persönlich und beruflich weiterentwickeln kannst.\n\nWie siehst du das? Schau mal, ob das zu dir passt:\n\n• Du hast bereits Erfahrung in der Logistik oder einem ähnlichen Bereich.\n• Du bist aufgeschlossen, kommunikativ und hast eine freundliche Art, die eine positive Zusammenarbeit mit deinen Kolleginnen und Kollegen fördert.\n• Du sprichst gut Deutsch, weitere Sprachenkenntnisse sind immer ein Plus.\n• Hektik macht dir keine Angst und in einem dynamischen Umfeld fühlst du dich wohl.\n• Ob Früh- und Spätschichten (zwischen 07:00 und 21:00), du bist flexibel.\n• Du bist körperlich fit und bereit, aktiv mitanzupacken.\n\nDu bist verantwortlich für\n\n• Dank dir sind unsere vielen Produkte immer erhältlich und immer in einem einwandfreien Zustand.\n• Du sorgst für die termingerechte Warenbereitstellung und eine korrekte Bestandsführung.\n• Im Team arbeitet ihr nach festgelegten Routinen, um gemeinsam die Produkteverfügbarkeit zu garantieren.\n• Dabei arbeitest du sorgfältig und genau, denn Sicherheit geht vor.\n•Unterstützung der Abteilung und anderen Bereichen des Geschäfts, wenn Hilfe nötig ist.\n\nDenkst du, das würde passen?\n\nWir haben oben geschrieben, dass wir möchten, dass es unseren Mitarbeitenden gut geht.\nDazu gehört auch “danke” zu sagen!\n\nUnser Dankeschön:\n\n· 28 Ferientage (basierend auf einem 100%-Pensum)\n· 20 Wochen bezahlte Elternzeit für Mütter, 8 Wochen bezahlte Elternzeit für Väter.\n· Sehr attraktive Sozialleistungen\n· 15% Personalrabatt auf deinen Einkauf – und das in jedem IKEA Einrichtungshaus\n· Du kommst mit dem ÖV? Wir bezahlen zwischen 85% bis 100% des Jahresabonnements\n· Kostenfreie Parkmöglichkeiten\n· Unlimitierter Zugang zur LinkedIn-Learning-Plattform\n· Günstige und gesunde Mahlzeiten in der Kantine (CHF 4,50 für Fleisch- und CHF 3,50 für Vegi-Gerichte)\n· Bonuszahlungen für alle Mitarbeitenden\n\nBei IKEA gibt es viele unterschiedliche Möglichkeiten sich weiterzuentwickeln. Wir fördern und bestärken unsere Mitarbeitenden darin, verschiedene Aufgaben auszuprobieren, zwischen den Funktionen zu wechseln oder ins Ausland zu gehen. Bitte reiche deine komplette Bewerbung online ein und sei dir bewusst, dass wir Unterlagen per E-Mail oder über die Post nicht berücksichtigen können.\nDas wäre es von uns.\n Das waren jetzt sehr viele Infos. Wir würden uns freuen, mehr über dich zu erfahren. Klicke doch einfach auf «Jetzt bewerben» und los geht’s. Wir prüfen Bewerbungen laufend und stellen den Bewerbungsprozess ein, sobald wir die richtige Person gefunden haben. Bitte bewirb dich also so schnell wie möglich.",
+      "descriptionByLocale": {
+        "it": "Chi sei\n\nSe deve andare veloce, è possibile tenere il passo e fornire la pace e l'ordine. Il team logistico di IKEA vuole avere solo una tale persona a bordo.\n\nLa gente lavora meglio quando sta bene. In IKEA, crediamo che le sfide portino la gioia quando si ha divertimento al lavoro e raggiungere gli obiettivi insieme. Vogliamo che tu ti senta a tuo agio con noi e sia in grado di svilupparti personalmente e professionalmente.\n\nCome lo vedi? Vedi se ti sta bene:\n\n• Hai già esperienza nella logistica o in un campo simile.\n• Sei aperta, comunicativa e hai un modo amichevole di lavorare positivamente con i tuoi colleghi.\n• Parli bene tedesco, ulteriori competenze linguistiche sono sempre un vantaggio.\n• Hectic non ti spaventa e in un ambiente dinamico ti senti a tuo agio.\n• Che si tratti di turni anticipati e tardivi (tra le 07:00 e le 21:00), sei flessibile.\n• Siete fisicamente in forma e pronti a impegnarsi attivamente.\n\nTu sei responsabile\n\n• Grazie a voi, i nostri numerosi prodotti sono sempre disponibili e sempre in perfette condizioni.\n• Garantisci la tempestiva fornitura di beni e una corretta gestione dell'inventario.\n• Come team, si lavora secondo le routine stabilite per garantire congiuntamente la disponibilità del prodotto.\n• Si lavora con attenzione e precisione, perché la sicurezza viene prima.\n• Sostenere il dipartimento e altre aree di business quando è necessario assistenza.\n\nPensi che andrebbe bene?\n\nAbbiamo scritto sopra che vogliamo che i nostri dipendenti stiano bene.\nQuesto include dire “grazie”!\n\nIl nostro ringraziamento:\n\n· 28 giorni di vacanza (basato su un'indennità del 100%)\n· 20 settimane di congedo parentale pagato per le madri, 8 settimane di congedo parentale pagato per i padri.\n· Vantaggi sociali molto attraenti\n· 15% di sconto sul vostro acquisto – in ogni negozio IKEA\n· Viene con i mezzi pubblici? Paghiamo tra l'85% e il 100% dell'abbonamento annuale\n· Parcheggio gratuito\n· Accesso illimitato alla piattaforma di apprendimento LinkedIn\nPasti economici e salutari nella mensa (CHF 4.50 per la carne e CHF 3.50 per i piatti vegi)\n· Bonus per tutti i dipendenti\n\nA IKEA, ci sono molti modi diversi per sviluppare. Incoraggiamo e incoraggiamo i nostri dipendenti a provare diversi compiti, a passare tra funzioni o andare all'estero. Si prega di inviare la vostra applicazione completa on-line ed essere consapevoli che non possiamo prendere in considerazione documenti via e-mail o posta.\nSiamo noi.\nSono state molte informazioni. Ci piacerebbe sapere di più su di te. Basta cliccare su “Applica ora” e andare. Rivediamo le applicazioni su base continuativa e fermiamo il processo di applicazione non appena troviamo la persona giusta. Si prega di applicare il prima possibile.",
+        "en": "Who you are\n\nIf it has to go fast, you can keep up and provide peace and order. The logistics team at IKEA wants to have just such a person on board.\n\nPeople work better when they are well. At IKEA, we believe that challenges bring joy when you have fun at work and achieve goals together. We want you to feel comfortable with us and to be able to develop personally and professionally.\n\nHow do you see it? See if this suits you:\n\n• You already have experience in logistics or a similar field.\n• You are open-minded, communicative and have a friendly way of working positively with your colleagues.\n• You speak good German, further language skills are always a plus.\n• Hectic does not scare you and in a dynamic environment you feel comfortable.\n• Whether early and late shifts (between 07:00 and 21:00), you are flexible.\n• You are physically fit and ready to actively engage.\n\nYou are responsible for\n\n• Thanks to you, our many products are always available and always in perfect condition.\n• You ensure the timely provision of goods and a correct inventory management.\n• As a team, you work according to established routines to jointly guarantee product availability.\n• You work carefully and accurately, because safety comes first.\n• Support the department and other areas of business when assistance is needed.\n\nDo you think that would fit?\n\nWe wrote above that we want our employees to be well.\nThis includes saying “thank you”!\n\nOur thanks:\n\n· 28 holiday days (based on a 100% allowance)\n· 20 weeks paid parental leave for mothers, 8 weeks paid parental leave for fathers.\n· Very attractive social benefits\n· 15% discount on your purchase – in every IKEA store\n· Are you coming with the public transport? We pay between 85% to 100% of the annual subscription\n· Free parking\n· Unlimited access to the LinkedIn learning platform\nCheap and healthy meals in the canteen (CHF 4.50 for meat and CHF 3.50 for vegi dishes)\n· Bonus payments for all employees\n\nAt IKEA, there are many different ways to develop. We encourage and encourage our employees to try out different tasks, to switch between functions or to go abroad. Please submit your complete application online and be aware that we cannot consider documents by e-mail or post.\nThat would be it of us.\nThat was a lot of info now. We would love to know more about you. Just click on “Apply now” and go. We review applications on an ongoing basis and stop the application process as soon as we find the right person. Please apply as soon as possible.",
+        "de": "Wer du bist\n\nWenn es schnell gehen muss, kannst du mithalten und sorgst dabei für Ruhe und Ordnung. Das Logistik-Team von IKEA möchte genau so eine Person an Bord haben.\n\nMenschen arbeiten besser, wenn es ihnen gut geht. Bei IKEA glauben wir, dass Herausforderungen Freude machen, wenn man Spass bei der Arbeit hat und gemeinsam Ziele erreicht. Wir möchten, dass du dich bei uns wohlfühlst und dich persönlich und beruflich weiterentwickeln kannst.\n\nWie siehst du das? Schau mal, ob das zu dir passt:\n\n• Du hast bereits Erfahrung in der Logistik oder einem ähnlichen Bereich.\n• Du bist aufgeschlossen, kommunikativ und hast eine freundliche Art, die eine positive Zusammenarbeit mit deinen Kolleginnen und Kollegen fördert.\n• Du sprichst gut Deutsch, weitere Sprachenkenntnisse sind immer ein Plus.\n• Hektik macht dir keine Angst und in einem dynamischen Umfeld fühlst du dich wohl.\n• Ob Früh- und Spätschichten (zwischen 07:00 und 21:00), du bist flexibel.\n• Du bist körperlich fit und bereit, aktiv mitanzupacken.\n\nDu bist verantwortlich für\n\n• Dank dir sind unsere vielen Produkte immer erhältlich und immer in einem einwandfreien Zustand.\n• Du sorgst für die termingerechte Warenbereitstellung und eine korrekte Bestandsführung.\n• Im Team arbeitet ihr nach festgelegten Routinen, um gemeinsam die Produkteverfügbarkeit zu garantieren.\n• Dabei arbeitest du sorgfältig und genau, denn Sicherheit geht vor.\n•Unterstützung der Abteilung und anderen Bereichen des Geschäfts, wenn Hilfe nötig ist.\n\nDenkst du, das würde passen?\n\nWir haben oben geschrieben, dass wir möchten, dass es unseren Mitarbeitenden gut geht.\nDazu gehört auch “danke” zu sagen!\n\nUnser Dankeschön:\n\n· 28 Ferientage (basierend auf einem 100%-Pensum)\n· 20 Wochen bezahlte Elternzeit für Mütter, 8 Wochen bezahlte Elternzeit für Väter.\n· Sehr attraktive Sozialleistungen\n· 15% Personalrabatt auf deinen Einkauf – und das in jedem IKEA Einrichtungshaus\n· Du kommst mit dem ÖV? Wir bezahlen zwischen 85% bis 100% des Jahresabonnements\n· Kostenfreie Parkmöglichkeiten\n· Unlimitierter Zugang zur LinkedIn-Learning-Plattform\n· Günstige und gesunde Mahlzeiten in der Kantine (CHF 4,50 für Fleisch- und CHF 3,50 für Vegi-Gerichte)\n· Bonuszahlungen für alle Mitarbeitenden\n\nBei IKEA gibt es viele unterschiedliche Möglichkeiten sich weiterzuentwickeln. Wir fördern und bestärken unsere Mitarbeitenden darin, verschiedene Aufgaben auszuprobieren, zwischen den Funktionen zu wechseln oder ins Ausland zu gehen. Bitte reiche deine komplette Bewerbung online ein und sei dir bewusst, dass wir Unterlagen per E-Mail oder über die Post nicht berücksichtigen können.\nDas wäre es von uns.\nDas waren jetzt sehr viele Infos. Wir würden uns freuen, mehr über dich zu erfahren. Klicke doch einfach auf «Jetzt bewerben» und los geht’s. Wir prüfen Bewerbungen laufend und stellen den Bewerbungsprozess ein, sobald wir die richtige Person gefunden haben. Bitte bewirb dich also so schnell wie möglich.",
+        "fr": "Qui vous êtes\n\nSi elle doit aller vite, vous pouvez maintenir et fournir la paix et l'ordre. L'équipe logistique d'IKEA veut avoir une telle personne à bord.\n\nLes gens travaillent mieux quand ils sont bien. Chez IKEA, nous croyons que les défis apportent de la joie lorsque vous vous amusez au travail et atteindre des objectifs ensemble. Nous voulons que vous vous sentiez à l'aise avec nous et que vous puissiez vous développer personnellement et professionnellement.\n\nComment le voyez-vous ? Voyez si cela vous convient :\n\n• Vous avez déjà une expérience en logistique ou dans un domaine similaire.\n• Vous êtes ouvert d'esprit, communicatif et avez une façon amicale de travailler positivement avec vos collègues.\n• Vous parlez bien l'allemand, d'autres compétences linguistiques sont toujours un plus.\n• L'agitation ne vous effraie pas et dans un environnement dynamique, vous vous sentez à l'aise.\n• Que vous soyez en poste tôt ou tard (entre 7 h et 21 h), vous êtes flexible.\n• Vous êtes physiquement en forme et prêt à vous engager activement.\n\nVous êtes responsable de\n\n• Grâce à vous, nos nombreux produits sont toujours disponibles et toujours en parfait état.\n• Vous veillez à ce que les marchandises soient fournies en temps opportun et à une bonne gestion des stocks.\n• En tant qu'équipe, vous travaillez selon les routines établies pour garantir conjointement la disponibilité des produits.\n• Vous travaillez avec soin et précision, car la sécurité vient en premier.\n• Soutenir le département et d'autres secteurs d'activité lorsque l'aide est nécessaire.\n\nTu crois que ça irait ?\n\nNous avons écrit plus haut que nous voulons que nos employés aillent bien.\nCela inclut dire \"merci\"!\n\nNous vous remercions :\n\n· 28 jours fériés (sur la base d'une allocation de 100 %)\n· 20 semaines de congé parental payé pour les mères, 8 semaines de congé parental payé pour les pères.\n· Prestations sociales très attractives\n· 15% de réduction sur votre achat – dans chaque magasin IKEA\n· Vous venez avec les transports en commun ? Nous payons entre 85% et 100% de l'abonnement annuel\n· Parking gratuit\n· Accès illimité à la plateforme d'apprentissage LinkedIn\nRepas pas chers et sains dans la cantine (CHF 4,50 pour la viande et CHF 3,50 pour les plats vegi)\n· Primes versées à tous les employés\n\nChez IKEA, il y a plusieurs façons de se développer. Nous encourageons et encourageons nos employés à essayer différentes tâches, à changer de fonctions ou à partir à l'étranger. Veuillez soumettre votre candidature complète en ligne et être conscient que nous ne pouvons pas considérer les documents par courriel ou par la poste.\nCe serait à nous.\nC'était beaucoup d'infos maintenant. Nous aimerions en savoir plus sur vous. Il suffit de cliquer sur \"Appliquer maintenant\" et aller. Nous examinons les demandes de façon continue et arrêtons le processus de demande dès que nous trouvons la bonne personne. Veuillez postuler dès que possible."
+      },
+      "location": "Dietlikon, Zürich",
+      "canton": "ZH",
+      "url": "https://jobs.ikea.com/en/job/dietlikon-dietlikon-dorf/mitarbeiter-in-logistik-picking-and-warenausgabe-80/24107/102920194560",
+      "source": "IKEA Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-08T21:15:35.898Z",
+      "addressLocality": "Dietlikon",
+      "postalCode": "8305",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Logistica",
+      "contract": "full-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Retail / Furniture",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-11-06",
+      "postedDate": "2026-11-06",
+      "postingDateSource": "reported",
+      "applyUrl": "https://jobs.ikea.com/en/job/dietlikon-dietlikon-dorf/mitarbeiter-in-logistik-picking-and-warenausgabe-80/24107/102920194560",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "mitarbeiter-in-logistik-picking-warenausgabe-80-ikea-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "mitarbeiter-in-logistik-picking-warenausgabe-80-ikea-ch"
+        ],
+        "en": [
+          "mitarbeiter-in-logistik-picking-warenausgabe-80-ikea-ch"
+        ],
+        "fr": [
+          "mitarbeiter-in-logistik-picking-warenausgabe-80-ikea-ch"
+        ]
+      },
+      "firstSeenAt": "2026-11-06T21:21:14.319Z",
+      "salaryMin": 58800,
+      "salaryMax": 89200,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 58800,
+          "maxValue": 89200,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Dietlikon",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-02-04T21:15:35.898Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1278,7 +1278,7 @@
       "url": "https://jobs.ikea.com/en/job/spreitenbach/information-security-and-data-privacy-leader/24107/102933946096",
       "source": "IKEA Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-08T09:12:43.318Z",
+      "crawledAt": "2026-11-08T21:15:35.896Z",
       "addressLocality": "Spreitenbach",
       "postalCode": "8957",
       "addressRegion": "AG",
@@ -1344,7 +1344,7 @@
       },
       "streetAddress": "Müslistrasse 16",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-04T09:12:43.318Z",
+      "validThrough": "2027-02-04T21:15:35.896Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1378,7 +1378,7 @@
       "url": "https://jobs.ikea.com/en/job/lucerne/unit-facility-management-spezialist-in-100/24107/101074405664",
       "source": "IKEA Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:12:43.317Z",
+      "crawledAt": "2026-11-08T21:15:35.894Z",
       "addressLocality": "Rothenburg",
       "postalCode": "6023",
       "addressRegion": "LU",
@@ -1432,7 +1432,7 @@
       },
       "streetAddress": "Wahligenstrasse 6",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-31T09:12:43.317Z",
+      "validThrough": "2027-01-31T21:15:35.894Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1466,7 +1466,7 @@
       "url": "https://jobs.ikea.com/en/job/dietlikon-dietlikon-dorf/mitarbeiter-in-ikea-restaurant-samstags-20/24107/101335184928",
       "source": "IKEA Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:12:43.312Z",
+      "crawledAt": "2026-11-08T21:15:35.893Z",
       "addressLocality": "Dietlikon",
       "postalCode": "8305",
       "addressRegion": "ZH",
@@ -1509,7 +1509,7 @@
       },
       "streetAddress": "Dietlikon",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-04T09:12:43.312Z",
+      "validThrough": "2027-02-04T21:15:35.893Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1543,7 +1543,7 @@
       "url": "https://jobs.ikea.com/en/job/lucerne/mitarbeiter-in-ikea-restaurant-koch-in-100/24107/101466378768",
       "source": "IKEA Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:12:43.310Z",
+      "crawledAt": "2026-11-08T21:15:35.892Z",
       "addressLocality": "Rothenburg",
       "postalCode": "6023",
       "addressRegion": "LU",
@@ -1598,7 +1598,7 @@
       },
       "streetAddress": "Wahligenstrasse 6",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-04T09:12:43.310Z",
+      "validThrough": "2027-02-04T21:15:35.892Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1632,7 +1632,7 @@
       "url": "https://jobs.ikea.com/en/job/lyssach/mitarbeiter-in-verkauf-wohnzimmer-und-buroabteilung-60/24107/101745775344",
       "source": "IKEA Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:12:43.309Z",
+      "crawledAt": "2026-11-08T21:15:35.890Z",
       "addressLocality": "Lyssach",
       "postalCode": "3421",
       "addressRegion": "BE",
@@ -1698,7 +1698,7 @@
       },
       "streetAddress": "Bernstrasse 25",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-04T09:12:43.309Z",
+      "validThrough": "2027-02-04T21:15:35.890Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1732,7 +1732,7 @@
       "url": "https://jobs.ikea.com/en/job/lyssach/mitarbeiter-in-kundenservice-70/24107/102321885088",
       "source": "IKEA Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:12:43.307Z",
+      "crawledAt": "2026-11-08T21:15:35.889Z",
       "addressLocality": "Lyssach",
       "postalCode": "3421",
       "addressRegion": "BE",
@@ -1786,7 +1786,7 @@
       },
       "streetAddress": "Bernstrasse 25",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-21T09:12:43.307Z",
+      "validThrough": "2027-01-21T21:15:35.889Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1820,7 +1820,7 @@
       "url": "https://jobs.ikea.com/en/job/riddes/unit-people-planning-specialist-60/24107/102032359248",
       "source": "IKEA Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-08T09:12:43.304Z",
+      "crawledAt": "2026-11-08T21:15:35.887Z",
       "addressLocality": "Riddes",
       "postalCode": "1908",
       "addressRegion": "VS",
@@ -1874,7 +1874,7 @@
       },
       "streetAddress": "Zone commerciale des Babioux 3",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-05T09:12:43.304Z",
+      "validThrough": "2027-02-05T21:15:35.887Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1908,7 +1908,7 @@
       "url": "https://jobs.ikea.com/en/job/spreitenbach/service-execution-team-leader-m-f-100/24107/102196893488",
       "source": "IKEA Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-08T09:12:43.302Z",
+      "crawledAt": "2026-11-08T21:15:35.885Z",
       "addressLocality": "Spreitenbach",
       "postalCode": "8957",
       "addressRegion": "AG",
@@ -1934,10 +1934,10 @@
         "it": [
           "service-execution-team-leader-m-f-100-ikea-ch"
         ],
-        "fr": [
+        "de": [
           "service-execution-team-leader-m-f-100-ikea-ch"
         ],
-        "de": [
+        "fr": [
           "service-execution-team-leader-m-f-100-ikea-ch"
         ]
       },
@@ -1968,7 +1968,7 @@
       },
       "streetAddress": "Müslistrasse 16",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-04T09:12:43.302Z",
+      "validThrough": "2027-02-04T21:15:35.885Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2002,7 +2002,7 @@
       "url": "https://jobs.ikea.com/en/job/grancia/unit-facility-manager-100/24107/102269061264",
       "source": "IKEA Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-08T09:12:43.300Z",
+      "crawledAt": "2026-11-08T21:15:35.884Z",
       "addressLocality": "Grancia",
       "postalCode": "6916",
       "addressRegion": "TI",
@@ -2045,7 +2045,7 @@
       },
       "streetAddress": "Grancia",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-05T09:12:43.300Z",
+      "validThrough": "2027-02-05T21:15:35.884Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2079,7 +2079,7 @@
       "url": "https://jobs.ikea.com/en/job/vernier/store-graphic-communication-leader-80-100/24107/101316743440",
       "source": "IKEA Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-08T09:12:43.297Z",
+      "crawledAt": "2026-11-08T21:15:35.882Z",
       "addressLocality": "Vernier",
       "postalCode": "1214",
       "addressRegion": "GE",
@@ -2134,7 +2134,7 @@
       },
       "streetAddress": "route de Vernier 156",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-04T09:12:43.297Z",
+      "validThrough": "2027-02-04T21:15:35.882Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2168,7 +2168,7 @@
       "url": "https://jobs.ikea.com/en/job/riddes/collaborateur-trice-service-clientele-70/24107/101734341472",
       "source": "IKEA Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-08T09:12:43.292Z",
+      "crawledAt": "2026-11-08T21:15:35.878Z",
       "addressLocality": "Riddes",
       "postalCode": "1908",
       "addressRegion": "VS",
@@ -2222,7 +2222,7 @@
       },
       "streetAddress": "Zone commerciale des Babioux 3",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-04T09:12:43.292Z",
+      "validThrough": "2027-02-04T21:15:35.878Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2256,7 +2256,7 @@
       "url": "https://jobs.ikea.com/en/job/lyssach/mitarbeiter-in-verkauf-schlafzimmerabteilung-100/24107/99766122032",
       "source": "IKEA Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:12:43.288Z",
+      "crawledAt": "2026-11-08T21:15:35.874Z",
       "addressLocality": "Lyssach",
       "postalCode": "3421",
       "addressRegion": "BE",
@@ -2310,7 +2310,7 @@
       },
       "streetAddress": "Bernstrasse 25",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-31T09:12:43.288Z",
+      "validThrough": "2027-01-31T21:15:35.874Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2408,96 +2408,7 @@
       "streetAddressSource": "zefix-registry",
       "validThrough": "2027-02-03T21:18:00.004Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1
-    },
-    {
-      "id": "ikea-defff7505a30",
-      "slug": "collaboratore-customer-relations-80-ikea-riddes-valais-switzerland",
-      "slugByLocale": {
-        "it": "collaboratore-customer-relations-80-ikea-riddes-valais-switzerland",
-        "en": "collaborator-customer-relations-80-ikea-riddes-valais-switzerland",
-        "de": "mitarbeiter-customer-relations-80-ikea-riddes-valais-switzerland",
-        "fr": "collaborateur-trice-relations-clients-80-ikea-ch"
-      },
-      "company": "IKEA",
-      "companyKey": "ikea",
-      "companyDomain": "ikea.ch",
-      "title": "Collaborateur*trice Relations Clients-80%",
-      "titleByLocale": {
-        "it": "Collaboratore Customer Relations-80%",
-        "en": "Collaborator Customer Relations-80%",
-        "de": "Mitarbeiter Customer Relations-80%",
-        "fr": "Collaborateur*trice Relations Clients-80%"
-      },
-      "description": "Qui tu es\n\nAimes-tu aider les autres et trouver des solutions simples et pragmatiques aux problèmes du quotidien ?\n\nTe sens-tu aussi à l’aise avec un tournevis qu’avec nos client·e·s ?\n\nAlors tu pourrais être la personne idéale pour rejoindre notre équipe.\n\nChez IKEA, nous avons une mission : améliorer le quotidien du plus grand nombre.\n\nPour y parvenir, nous avons besoin de collègues attentifs, à l’aise avec les travaux pratiques et proches de notre clientèle – comme toi.\n\nCe que tu apportes:\n\n-Tu as un fort sens du service, une attitude ouverte et professionnelle, ainsi qu’une bonne compréhension des besoins réels de nos client·e·s.\n\n-Tu sais écouter activ-ement, répondre aux questions avec plaisir et trouver des solutions adaptées à chaque situation, même lorsque le rythme s’accélère.\n\nLes imprévus ne te déstabilisent pas. Tu cherches des solutions plutôt que des excuses.\n\n• -Tu travailles de manière autonome et es capable de prendre des décisions par toi-même.\n• -Tu communiques couramment en allemand et, idéalement, également en anglais.\n• -Tu apprécies le contact humain et t’investis chaque jour pour offrir à nos client·e·s une excellente expérience d’achat.\n• -Tu es aussi à l’aise avec l’informatique qu’avec les outils. Monter et démonter des meubles ne te fait pas peur.\n• -Tu es titulaire d’un permis de conduire de catégorie B depuis au moins un an..et un casier judiciaire vierge.\n\n-La maîtrise du français est indispensable pour ce poste, tant à l’oral qu’à l’écrit. De bonnes connaissances de l’allemand constituent un réel atout et te permettront d’évoluer avec aisance dans notre environnement de travail multilingue et d’offrir un service de qualité à l’ensemble de notre clientèle.\n\nTes responsabilités\n\nTu conseilles et accompagnes notre clientèle, tout en l’accueillant toujours avec le sourire.\n\nÀ l’entrée du magasin : tu accueilles les client·e·s afin qu’ils se sentent les bienvenu·e·s et bien informé·e·s dès leur arrivée.\n\nÀ Småland : tu veilles au bien-être et à la sécurité des enfants âgés de 3 à 10 ans.\nAu comptoir des retours : tu trouves des solutions rapides, simples et orientées client, dans le respect de nos directives internes.\n\nEn caisse : tu démon­tres chaque jour qu’un excellent service peut être à la fois rapide et chaleureux. Tu prends congé de nos client·e·s de manière à leur donner envie de revenir, toujours avec le sourire.\n\nTu conseilles les client·e·s et assures le suivi de leurs demandes spécifiques dans notre système informatique.\n\nInterventions de maintenance et service après-vente : tu réalises des interventions urgentes directement au domicile de nos client·e·s (livraisons, montages, expertises) et garantis un service de la plus haute qualité.\n\nCela te ressemble ?\n\nSi tu te reconnais dans cette description et que tu as envie de contribuer à améliorer le quotidien de nos client·e·s, alors rejoins notre équipe.\n\nNous nous réjouissons de recevoir ta candidature !\n\nPenses-tu que ce poste te correspond ?\n\n• Nous avons indiqué plus haut que nous tenons à ce que nos collaboratrices et collaborateurs se sentent bien au travail.\n• Et cela passe aussi par un simple merci !\n• Nos avantages\n\n• 28 jours de vacances (sur la base d’un taux d’activité de 100 %)\n• 8 semaines de congé parental rémunéré pour les pères\n• 20 semaines de congé parental rémunéré pour les mères\n• Des prestations sociales très attractives\n• 15 % de rabais collaborateur sur tes achats dans tous les magasins IKEA\n• Si tu utilises les transports publics, nous prenons en charge entre 70 % et 100 % de ton abonnement\n• Places de parking gratuites\n• Accès illimité à la plateforme LinkedIn Learning\n• Repas sains et abordables à la cafétéria (CHF 4,50 pour les menus avec viande et CHF 3,50 pour les plats végétariens)\n• Versement de bonus à l’ensemble des collaborateurs\n\nÉvolution et développement\nChez IKEA, de nombreuses possibilités d’évolution s’offrent à toi. Nous encourageons nos collaborateurs et collaboratrices à découvrir de nouvelles responsabilités, à changer de fonction ou même à poursuivre leur parcours à l’international.\n• Nous te remercions de soumettre ton dossier de candidature complet en ligne. Merci de noter que les candidatures envoyées par e-mail ou par courrier postal ne pourront pas être prises en compte.\n• Voilà pour nous !\n• Cela fait beaucoup d’informations. Maintenant, nous serions ravis d’en apprendre davantage sur toi.\n• Alors, clique simplement sur « Postuler maintenant » et lance-toi !\nNous examinons les candidatures au fur et à mesure de leur réception et clôturons le processus de recrutement dès que nous avons trouvé la personne idéale. Nous t’encourageons donc à postuler dans les meilleurs délais.",
-      "descriptionByLocale": {
-        "it": "Chi sei\n\nTi piace aiutare gli altri e trovare soluzioni semplici e pragmatiche ai problemi quotidiani?\n\nTi senti a tuo agio con un cacciavite come con i nostri clienti?\n\nAllora potresti essere la persona perfetta per unirsi alla nostra squadra.\n\nA IKEA, abbiamo una missione: per migliorare la vita quotidiana del numero più grande.\n\nPer raggiungere questo obiettivo, abbiamo bisogno di colleghi stretti, confortevoli con lavoro pratico e vicino ai nostri clienti – come voi.\n\nCosa porti:\n\n- Hai un forte senso di servizio, un atteggiamento aperto e professionale, e una buona comprensione delle reali esigenze dei nostri clienti.\n\n-Si può ascoltare attivamente, rispondere a domande con piacere e trovare soluzioni adattate a ogni situazione, anche quando il ritmo accelera.\n\nLe cose inaspettate non ti destabilizzano. Stai cercando soluzioni piuttosto che scuse.\n\n• - Lavori in modo indipendente e sei in grado di prendere decisioni da solo.\n• -Si comunica fluentemente in tedesco e idealmente anche in inglese.\n• -Ti piace il contatto umano e investire ogni giorno per offrire ai nostri clienti un'esperienza di shopping eccellente.\n• - Sei a tuo agio con l'IT come con gli strumenti. Mettere su e disporre di mobili non ti spaventa.\n• - Sei il titolare della patente di classe B da almeno un anno. E un registro criminale in bianco.\n\n-La padronanza del francese è essenziale per questa posizione, sia orale che scritta. La buona conoscenza del tedesco è un bene reale e vi permetterà di evolvere con facilità nel nostro ambiente di lavoro multilingue e di offrire un servizio di qualità a tutti i nostri clienti.\n\nLe tue responsabilità\n\nSi consiglia e accompagna la nostra clientela, pur sempre accogliente con un sorriso.\n\nAll'ingresso del negozio: accolgono i clienti in modo che si sentano benvenuti e ben informati all'arrivo.\n\nIn Småland, ti interessa il benessere e la sicurezza dei bambini dai 3 ai 10 anni.\nAl banco di ritorno: si trovano soluzioni rapide, semplici e orientate al cliente, secondo le nostre linee guida interne.\n\nNella scatola: ogni giorno si mostra che un servizio eccellente può essere sia veloce che caldo. Si prende congedo dai nostri clienti in modo che vogliono tornare, sempre con un sorriso.\n\nSi consiglia ai clienti e monitorare le loro specifiche richieste nel nostro sistema informatico.\n\nInterventi di manutenzione e servizio post-vendita: si effettuano interventi urgenti direttamente in casa dei nostri clienti (consegna, assemblaggio, competenza) e garantiscono un servizio di altissima qualità.\n\nTi sembra?\n\nSe ti riconosci in questa descrizione e vuoi contribuire a migliorare la vita quotidiana dei nostri clienti, allora unisciti al nostro team.\n\nNon vediamo l'ora di ricevere la vostra applicazione!\n\nPensi che questo lavoro sia adatto a te?\n\n• Abbiamo notato sopra che vogliamo che i nostri dipendenti si sentano bene al lavoro.\n• E passa anche attraverso un semplice grazie!\n• I nostri vantaggi\n\n• 28 giorni di vacanza (basato su un tasso di partecipazione del 100%)\n• 8 settimane di congedo parentale pagato per i padri\n• 20 settimane di congedo parentale pagato per le madri\n• Prestazioni sociali molto interessanti\n• 15% di sconto sui vostri acquisti in tutti i negozi IKEA\n• Se utilizzi i trasporti pubblici, sosteniamo tra il 70% e il 100% del tuo abbonamento\n• Parcheggio gratuito\n• Accesso illimitato alla piattaforma LinkedIn Learning\n• Pasti sani e convenienti presso la caffetteria (CHF 4.50 per menu con carne e CHF 3.50 per piatti vegetariani)\n• Pagamento bonus a tutti i dipendenti\n\nSviluppo\nA IKEA, molte possibilità di evoluzione sono aperte a voi. Incoraggiamo i nostri dipendenti a scoprire nuove responsabilità, cambiare posizione o anche continuare la loro carriera internazionale.\n• Grazie per la presentazione della vostra applicazione completa online. Si prega di notare che le domande inviate via e-mail o posta non possono essere prese in considerazione.\n• Ecco qua!\n• Sono un sacco di informazioni. Ora saremmo felici di saperne di più su di te.\n• Quindi basta cliccare su \"Applica ora\" e iniziare!\nRivediamo le applicazioni quando vengono ricevute e chiudiamo il processo di reclutamento non appena troviamo la persona giusta. Vi incoraggiamo quindi ad applicarvi il prima possibile.",
-        "en": "Who you are\n\nDo you like to help others and find simple and pragmatic solutions to everyday problems?\n\nDo you feel as comfortable with a screwdriver as with our customers?\n\nThen you could be the perfect person to join our team.\n\nAt IKEA, we have a mission: to improve the daily lives of the largest number.\n\nTo achieve this, we need close colleagues, comfortable with practical work and close to our clients – like you.\n\nWhat you bring:\n\n-You have a strong sense of service, an open and professional attitude, and a good understanding of the real needs of our clients.\n\n-You can listen actively, answer questions with pleasure and find solutions adapted to each situation, even when the rhythm accelerates.\n\nUnexpected things don't destabilize you. You're looking for solutions rather than excuses.\n\n• - You work independently and are able to make decisions on your own.\n• -You communicate fluently in German and ideally also in English.\n• -You enjoy human contact and invest every day to offer our customers an excellent shopping experience.\n• - You're as comfortable with IT as with tools. Putting up and disposing of furniture doesn't scare you.\n• - You've been a Class B driver's license holder for at least a year. .and a blank criminal record.\n\n-The mastery of French is essential for this position, both oral and written. Good knowledge of German is a real asset and will allow you to evolve with ease in our multilingual working environment and to offer quality service to all our customers.\n\nYour responsibilities\n\nYou advise and accompany our clientele, while always welcoming with a smile.\n\nAt the entrance of the store: you welcome customers so that they feel welcome and well informed upon arrival.\n\nIn Småland, you care for the well-being and safety of children aged 3 to 10.\nAt the return counter: you find quick, simple and customer-oriented solutions, in accordance with our internal guidelines.\n\nIn the box: every day you show that an excellent service can be both quick and warm. You take leave of our clients so that they want to come back, always with a smile.\n\nYou advise customers and monitor their specific requests in our computer system.\n\nMaintenance interventions and after-sales service: you perform urgent interventions directly at the home of our customers (delivery, assembly, expertise) and guarantee a service of the highest quality.\n\nDoes that look like you?\n\nIf you recognize yourself in this description and want to help improve the daily lives of our clients, then join our team.\n\nWe look forward to receiving your application!\n\nDo you think this job fits you?\n\n• We noted above that we want our employees to feel good at work.\n• And it also goes through a simple thank you!\n• Our benefits\n\n• 28 days of holiday (based on a 100 % participation rate)\n• 8 weeks paid parental leave for fathers\n• 20 weeks paid parental leave for mothers\n• Very attractive social benefits\n• 15% discount on your purchases at all IKEA stores\n• If you use public transport, we support between 70% and 100% of your subscription\n• Free parking spaces\n• Unlimited access to LinkedIn Learning platform\n• Healthy and affordable meals at the cafeteria (CHF 4.50 for menus with meat and CHF 3.50 for vegetarian dishes)\n• Bonus payment to all employees\n\nDevelopment\nAt IKEA, many possibilities of evolution are open to you. We encourage our employees to discover new responsibilities, change positions or even continue their international career.\n• Thank you for submitting your complete application online. Please note that applications sent by e-mail or postal mail cannot be taken into account.\n• Here we go!\n• That's a lot of information. Now we'd be happy to learn more about you.\n• So just click on \"Apply now\" and start!\nWe review applications as they are received and close the recruitment process as soon as we find the right person. We therefore encourage you to apply as soon as possible.",
-        "de": "Wer du bist\n\nMöchten Sie anderen helfen und einfache und pragmatische Lösungen für alltägliche Probleme finden?\n\nFühlen Sie sich mit einem Schraubenzieher genauso wohl wie mit unseren Kunden?\n\nDann könnten Sie die perfekte Person sein, um unserem Team beizutreten.\n\nBei IKEA haben wir eine Mission: das tägliche Leben der größten Anzahl zu verbessern.\n\nUm dies zu erreichen, brauchen wir enge Kollegen, die sich in der Praxis wohlfühlen und unseren Kunden nahe stehen – wie Sie.\n\nWas Sie mitbringen:\n\nSie haben ein starkes Gefühl von Service, eine offene und professionelle Einstellung und ein gutes Verständnis für die wirklichen Bedürfnisse unserer Kunden.\n\nSie können aktiv zuhören, Fragen gerne beantworten und Lösungen finden, die an jede Situation angepasst sind, auch wenn sich der Rhythmus beschleunigt.\n\nUnerwartete Dinge destabilisieren dich nicht. Sie suchen nach Lösungen statt nach Ausreden.\n\n• Sie arbeiten unabhängig und können selbst Entscheidungen treffen.\n• -Sie kommunizieren fließend auf Deutsch und idealerweise auch auf Englisch.\n• Sie genießen den menschlichen Kontakt und investieren jeden Tag, um unseren Kunden ein hervorragendes Einkaufserlebnis zu bieten.\n• - Sie fühlen sich mit IT genauso wohl wie mit Tools. Das Aufstellen und Entsorgen von Möbeln macht Ihnen keine Angst.\n• Sie sind seit mindestens einem Jahr Inhaber eines Führerscheins der Klasse B. .und ein leeres Strafregister.\n\nDie Beherrschung des Französischen ist für diese Position sowohl mündlich als auch schriftlich unerlässlich. Gute Deutschkenntnisse sind eine echte Bereicherung und ermöglichen es Ihnen, sich in unserem mehrsprachigen Arbeitsumfeld problemlos weiterzuentwickeln und allen unseren Kunden einen qualitativ hochwertigen Service zu bieten.\n\nIhre Verantwortung\n\nSie beraten und begleiten unsere Kunden, während Sie immer mit einem Lächeln einladen.\n\nAm Eingang des Ladens: Sie begrüßen Kunden, damit sie sich bei der Ankunft willkommen und gut informiert fühlen.\n\nIn Småland kümmern Sie sich um das Wohlbefinden und die Sicherheit von Kindern im Alter von 3 bis 10 Jahren.\nAm Rückgabeschalter: Sie finden schnelle, einfache und kundenorientierte Lösungen gemäß unseren internen Richtlinien.\n\nIn der Box: Jeden Tag zeigen Sie, dass ein ausgezeichneter Service schnell und warm sein kann. Sie nehmen Abschied von unseren Kunden, damit sie zurückkommen wollen, immer mit einem Lächeln.\n\nSie beraten Kunden und überwachen ihre spezifischen Anfragen in unserem Computersystem.\n\nWartungsinterventionen und After-Sales-Service: Sie führen dringende Eingriffe direkt bei unseren Kunden zu Hause durch (Lieferung, Montage, Expertise) und garantieren einen Service von höchster Qualität.\n\nSieht das so aus wie du?\n\nWenn Sie sich in dieser Beschreibung wiedererkennen und dazu beitragen möchten, das tägliche Leben unserer Kunden zu verbessern, dann treten Sie unserem Team bei.\n\nWir freuen uns auf Ihre Bewerbung!\n\nDenkst du, dass dieser Job zu dir passt?\n\n• Wir haben oben festgestellt, dass wir möchten, dass sich unsere Mitarbeiter bei der Arbeit gut fühlen.\n• Und es geht auch durch ein einfaches Dankeschön!\n• Unsere Vorteile\n\n• 28 Urlaubstage (basierend auf einer 100%igen Teilnahmequote)\n• 8 Wochen bezahlter Elternurlaub für Väter\n• 20 Wochen bezahlter Elternurlaub für Mütter\n• Sehr attraktive Sozialleistungen\n• 15% Rabatt auf Ihre Einkäufe in allen IKEA Stores\n• Wenn Sie öffentliche Verkehrsmittel nutzen, unterstützen wir zwischen 70% und 100% Ihres Abonnements\n• Freie Parkplätze\n• Unbegrenzter Zugang zur LinkedIn Learning Plattform\n• Gesunde und günstige Mahlzeiten in der Cafeteria (CHF 4,50 für Menüs mit Fleisch und CHF 3,50 für vegetarische Gerichte)\n• Bonuszahlung an alle Mitarbeiter\n\nEntwicklung\nBei IKEA stehen Ihnen viele Möglichkeiten der Evolution offen. Wir ermutigen unsere Mitarbeiter, neue Verantwortlichkeiten zu entdecken, Positionen zu wechseln oder sogar ihre internationale Karriere fortzusetzen.\n• Vielen Dank, dass Sie Ihren vollständigen Antrag online eingereicht haben. Bitte beachten Sie, dass Bewerbungen per E-Mail oder Post nicht berücksichtigt werden können.\n• Los geht's!\n• Das sind viele Informationen. Jetzt würden wir uns freuen, mehr über Sie zu erfahren.\n• Klicken Sie also einfach auf \"Jetzt bewerben\" und starten Sie!\nWir prüfen Bewerbungen, sobald sie eingegangen sind, und schließen den Rekrutierungsprozess ab, sobald wir die richtige Person gefunden haben. Wir empfehlen Ihnen daher, sich so bald wie möglich zu bewerben.",
-        "fr": "Qui tu es\n\nAimes-tu aider les autres et trouver des solutions simples et pragmatiques aux problèmes du quotidien ?\n\nTe sens-tu aussi à l’aise avec un tournevis qu’avec nos client·e·s ?\n\nAlors tu pourrais être la personne idéale pour rejoindre notre équipe.\n\nChez IKEA, nous avons une mission : améliorer le quotidien du plus grand nombre.\n\nPour y parvenir, nous avons besoin de collègues attentifs, à l’aise avec les travaux pratiques et proches de notre clientèle – comme toi.\n\nCe que tu apportes:\n\n-Tu as un fort sens du service, une attitude ouverte et professionnelle, ainsi qu’une bonne compréhension des besoins réels de nos client·e·s.\n\n-Tu sais écouter activ-ement, répondre aux questions avec plaisir et trouver des solutions adaptées à chaque situation, même lorsque le rythme s’accélère.\n\nLes imprévus ne te déstabilisent pas. Tu cherches des solutions plutôt que des excuses.\n\n• -Tu travailles de manière autonome et es capable de prendre des décisions par toi-même.\n• -Tu communiques couramment en allemand et, idéalement, également en anglais.\n• -Tu apprécies le contact humain et t’investis chaque jour pour offrir à nos client·e·s une excellente expérience d’achat.\n• -Tu es aussi à l’aise avec l’informatique qu’avec les outils. Monter et démonter des meubles ne te fait pas peur.\n• -Tu es titulaire d’un permis de conduire de catégorie B depuis au moins un an..et un casier judiciaire vierge.\n\n-La maîtrise du français est indispensable pour ce poste, tant à l’oral qu’à l’écrit. De bonnes connaissances de l’allemand constituent un réel atout et te permettront d’évoluer avec aisance dans notre environnement de travail multilingue et d’offrir un service de qualité à l’ensemble de notre clientèle.\n\nTes responsabilités\n\nTu conseilles et accompagnes notre clientèle, tout en l’accueillant toujours avec le sourire.\n\nÀ l’entrée du magasin : tu accueilles les client·e·s afin qu’ils se sentent les bienvenu·e·s et bien informé·e·s dès leur arrivée.\n\nÀ Småland : tu veilles au bien-être et à la sécurité des enfants âgés de 3 à 10 ans.\nAu comptoir des retours : tu trouves des solutions rapides, simples et orientées client, dans le respect de nos directives internes.\n\nEn caisse : tu démon­tres chaque jour qu’un excellent service peut être à la fois rapide et chaleureux. Tu prends congé de nos client·e·s de manière à leur donner envie de revenir, toujours avec le sourire.\n\nTu conseilles les client·e·s et assures le suivi de leurs demandes spécifiques dans notre système informatique.\n\nInterventions de maintenance et service après-vente : tu réalises des interventions urgentes directement au domicile de nos client·e·s (livraisons, montages, expertises) et garantis un service de la plus haute qualité.\n\nCela te ressemble ?\n\nSi tu te reconnais dans cette description et que tu as envie de contribuer à améliorer le quotidien de nos client·e·s, alors rejoins notre équipe.\n\nNous nous réjouissons de recevoir ta candidature !\n\nPenses-tu que ce poste te correspond ?\n\n• Nous avons indiqué plus haut que nous tenons à ce que nos collaboratrices et collaborateurs se sentent bien au travail.\n• Et cela passe aussi par un simple merci !\n• Nos avantages\n\n• 28 jours de vacances (sur la base d’un taux d’activité de 100 %)\n• 8 semaines de congé parental rémunéré pour les pères\n• 20 semaines de congé parental rémunéré pour les mères\n• Des prestations sociales très attractives\n• 15 % de rabais collaborateur sur tes achats dans tous les magasins IKEA\n• Si tu utilises les transports publics, nous prenons en charge entre 70 % et 100 % de ton abonnement\n• Places de parking gratuites\n• Accès illimité à la plateforme LinkedIn Learning\n• Repas sains et abordables à la cafétéria (CHF 4,50 pour les menus avec viande et CHF 3,50 pour les plats végétariens)\n• Versement de bonus à l’ensemble des collaborateurs\n\nÉvolution et développement\nChez IKEA, de nombreuses possibilités d’évolution s’offrent à toi. Nous encourageons nos collaborateurs et collaboratrices à découvrir de nouvelles responsabilités, à changer de fonction ou même à poursuivre leur parcours à l’international.\n• Nous te remercions de soumettre ton dossier de candidature complet en ligne. Merci de noter que les candidatures envoyées par e-mail ou par courrier postal ne pourront pas être prises en compte.\n• Voilà pour nous !\n• Cela fait beaucoup d’informations. Maintenant, nous serions ravis d’en apprendre davantage sur toi.\n• Alors, clique simplement sur « Postuler maintenant » et lance-toi !\nNous examinons les candidatures au fur et à mesure de leur réception et clôturons le processus de recrutement dès que nous avons trouvé la personne idéale. Nous t’encourageons donc à postuler dans les meilleurs délais."
-      },
-      "location": "Riddes, Valais",
-      "canton": "VS",
-      "url": "https://jobs.ikea.com/en/job/riddes/collaborateur-trice-relations-clients-80/24107/92199982528",
-      "source": "IKEA Dedicated Parser",
-      "sourceLang": "fr",
-      "crawledAt": "2026-11-07T21:18:00.003Z",
-      "addressLocality": "Riddes",
-      "postalCode": "1908",
-      "addressRegion": "VS",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Retail / Furniture",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-10-15",
-      "postedDate": "2026-10-15",
-      "postingDateSource": "reported",
-      "applyUrl": "https://jobs.ikea.com/en/job/riddes/collaborateur-trice-relations-clients-80/24107/92199982528",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "collaborateur-trice-relations-clients-80-ikea-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "collaborateur-trice-relations-clients-80-ikea-ch"
-        ]
-      },
-      "firstSeenAt": "2026-10-09T21:15:41.344Z",
-      "salaryMin": 48400,
-      "salaryMax": 73200,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 48400,
-          "maxValue": 73200,
-          "unitText": "YEAR"
-        }
-      },
-      "companyRegisteredAddress": {
-        "status": "matched",
-        "source": "zefix-lindas",
-        "companyName": "IKEA",
-        "streetAddress": "Zone commerciale des Babioux 3",
-        "postalCode": "1908",
-        "addressLocality": "Riddes",
-        "addressRegion": "VS",
-        "checkedAt": "2026-10-31T20:49:19.010Z",
-        "streetAddressSource": "zefix-registry"
-      },
-      "streetAddress": "Zone commerciale des Babioux 3",
-      "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-13T21:18:00.003Z",
-      "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "ikea-0a85db219bf4",
@@ -2586,7 +2497,7 @@
       "streetAddressSource": "zefix-registry",
       "validThrough": "2027-01-31T21:17:59.999Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "ikea-1311866a5854",
@@ -2667,7 +2578,7 @@
       "validThrough": "2027-02-05T21:17:59.996Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-10-22T09:13:29.574Z",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     }
   ]
 }

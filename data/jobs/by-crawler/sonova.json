@@ -1,7 +1,7 @@
 {
   "crawlerKey": "sonova",
-  "assembledAt": "2026-11-08T11:57:26.746Z",
-  "runId": "42465414674",
+  "assembledAt": "2026-11-08T21:14:15.165Z",
+  "runId": "42523090764",
   "jobs": [
     {
       "id": "sonova-96c3301b33a7",
@@ -34,7 +34,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Product-Cybersecurity-Expert/1416109733/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-08T09:11:55.645Z",
+      "crawledAt": "2026-11-08T21:14:06.805Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -83,7 +83,7 @@
       "postalCode": "8001",
       "streetAddress": "Staefa",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-12T09:11:55.645Z",
+      "validThrough": "2026-12-12T21:14:06.805Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -92,7 +92,7 @@
       "slugByLocale": {
         "it": "tecnico-di-costruzione-hlk-m-f-d-sonova-staefa-switzerland",
         "en": "building-technician-hlk-m-f-d-sonova-staefa-switzerland",
-        "de": "gebaudetechniker-hlk-m-w-d-sonova-staefa",
+        "de": "gebaudetechniker-hlk-m-w-d-sonova-ch",
         "fr": "technicien-en-batiment-hlk-h-f-d-sonova-staefa-switzerland"
       },
       "company": "Sonova",
@@ -117,7 +117,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Geb%C3%A4udetechniker-HLK-%28mwd%29/1447168233/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:11:55.644Z",
+      "crawledAt": "2026-11-08T21:14:06.801Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -134,11 +134,10 @@
       "applyUrl": "https://jobs.sonova.com/talentcommunity/apply/1447168233/?locale=en_US",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "gebaudetechniker-hlk-m-w-d-sonova-ch",
-        "gebaudetechniker-hlk-m-w-d-sonova-staefa"
-      ],
       "previousSlugsByLocale": {
+        "de": [
+          "gebaudetechniker-hlk-m-w-d-sonova-staefa"
+        ],
         "it": [
           "gebaudetechniker-hlk-m-w-d-sonova-ch",
           "gebaudetechniker-hlk-m-w-d-sonova-staefa"
@@ -148,11 +147,12 @@
         ],
         "fr": [
           "gebaudetechniker-hlk-m-w-d-sonova-staefa"
-        ],
-        "de": [
-          "gebaudetechniker-hlk-m-w-d-sonova-ch"
         ]
       },
+      "previousSlugs": [
+        "gebaudetechniker-hlk-m-w-d-sonova-ch",
+        "gebaudetechniker-hlk-m-w-d-sonova-staefa"
+      ],
       "firstSeenAt": "2026-10-14T09:17:55.755Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -170,7 +170,7 @@
       "postalCode": "8001",
       "streetAddress": "Staefa",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-11T09:11:55.644Z",
+      "validThrough": "2027-01-11T21:14:06.801Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -204,7 +204,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-EPFL-2026-Talent-Community-Future-Opportunities/1446996733/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-08T09:11:55.642Z",
+      "crawledAt": "2026-11-08T21:14:06.797Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -252,7 +252,7 @@
       "postalCode": "8001",
       "streetAddress": "Staefa",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-11T09:11:55.642Z",
+      "validThrough": "2027-01-11T21:14:06.797Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -286,7 +286,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Architect-Charging-Solutions/1436570633/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-08T09:11:55.638Z",
+      "crawledAt": "2026-11-08T21:14:06.793Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -328,7 +328,7 @@
       "postalCode": "8001",
       "streetAddress": "Staefa",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-13T09:11:55.638Z",
+      "validThrough": "2026-12-13T21:14:06.793Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -362,7 +362,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Hardware-Verification-Engineer-Charging-Solutions-%28mfd%29/1447519833/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-08T09:11:55.636Z",
+      "crawledAt": "2026-11-08T21:14:06.790Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -410,7 +410,7 @@
       "postalCode": "8001",
       "streetAddress": "Staefa",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-12T09:11:55.636Z",
+      "validThrough": "2027-01-12T21:14:06.790Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -444,7 +444,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Senior-Manager-Hearing-Performance/1413688533/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-08T09:11:55.634Z",
+      "crawledAt": "2026-11-08T21:14:06.786Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -493,7 +493,7 @@
       "postalCode": "8001",
       "streetAddress": "Staefa",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-17T09:11:55.634Z",
+      "validThrough": "2026-12-17T21:14:06.786Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -527,7 +527,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Power-Management-Engineer-%2880-100%29-%28mfd%29/1417571533/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-08T09:11:55.632Z",
+      "crawledAt": "2026-11-08T21:14:06.783Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -569,7 +569,7 @@
       "postalCode": "8001",
       "streetAddress": "Staefa",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-17T09:11:55.632Z",
+      "validThrough": "2026-12-17T21:14:06.783Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -603,7 +603,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Technical-Specialist-Production-%28TSP%29-%28mfd%29/1407383533/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:11:55.629Z",
+      "crawledAt": "2026-11-08T21:14:06.781Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -644,7 +644,7 @@
       "postalCode": "8001",
       "streetAddress": "Staefa",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-17T09:11:55.629Z",
+      "validThrough": "2026-12-17T21:14:06.781Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -678,7 +678,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Embedded-Software-Engineer-C%2B%2B/1450138633/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-08T09:11:55.627Z",
+      "crawledAt": "2026-11-08T21:14:06.778Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -728,7 +728,7 @@
       "postalCode": "8001",
       "streetAddress": "Staefa",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-20T09:11:55.627Z",
+      "validThrough": "2027-01-20T21:14:06.778Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -762,7 +762,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Lehrstelle-Fachmann-frau-Betriebsunterhalt-EFZ-%28mfd%29/1421326833/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:11:55.625Z",
+      "crawledAt": "2026-11-08T21:14:06.774Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -806,7 +806,7 @@
       "postalCode": "8001",
       "streetAddress": "Staefa",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-26T09:11:55.625Z",
+      "validThrough": "2026-12-26T21:14:06.774Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -840,7 +840,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Lehrstelle-Logistikerin-EFZ-%28mwd%29/1421325033/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:11:55.622Z",
+      "crawledAt": "2026-11-08T21:14:06.772Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -884,7 +884,7 @@
       "postalCode": "8001",
       "streetAddress": "Staefa",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-26T09:11:55.622Z",
+      "validThrough": "2026-12-26T21:14:06.772Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -918,7 +918,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Lehrstelle-Kunststofftechnologe-login-EFZ-%28mwd%29/1421323633/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:11:55.618Z",
+      "crawledAt": "2026-11-08T21:14:06.767Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -960,7 +960,7 @@
       "postalCode": "8001",
       "streetAddress": "Staefa",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-26T09:11:55.618Z",
+      "validThrough": "2026-12-26T21:14:06.767Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -994,7 +994,7 @@
       "url": "https://jobs.sonova.com/job/Murten-Manufacturing-System-&-Software-Development-Engineer-%28mfd%29/1441934833/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-08T09:11:55.614Z",
+      "crawledAt": "2026-11-08T21:14:06.764Z",
       "addressLocality": "Murten",
       "addressCountry": "CH",
       "country": "CH",
@@ -1036,7 +1036,7 @@
       "addressRegion": "FR",
       "streetAddress": "Murten",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-27T09:11:55.614Z",
+      "validThrough": "2026-12-27T21:14:06.764Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1070,7 +1070,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Senior-Data-Scientist-%28mfd%29/1408793633/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-08T09:11:55.613Z",
+      "crawledAt": "2026-11-08T21:14:06.763Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -1104,7 +1104,7 @@
       "postalCode": "8001",
       "streetAddress": "Staefa",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-08T09:11:55.613Z",
+      "validThrough": "2026-12-08T21:14:06.763Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1138,7 +1138,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Software-Engineer-Embedded-AI-%28mfd%29/1436636333/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-08T09:11:55.610Z",
+      "crawledAt": "2026-11-08T21:14:06.759Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -1186,7 +1186,7 @@
       "postalCode": "8001",
       "streetAddress": "Staefa",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-13T09:11:55.610Z",
+      "validThrough": "2026-12-13T21:14:06.759Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1194,7 +1194,7 @@
       "slug": "rf-design-ingegnere-m-f-d-sonova-murten-switzerland",
       "slugByLocale": {
         "it": "rf-design-ingegnere-m-f-d-sonova-murten-switzerland",
-        "en": "rf-design-engineer-m-f-d-sonova-murten",
+        "en": "rf-design-engineer-m-f-d-sonova-ch",
         "de": "rf-design-ingenieur-m-f-d-sonova-murten-switzerland",
         "fr": "rf-design-ingenieur-m-f-d-sonova-murten"
       },
@@ -1220,7 +1220,7 @@
       "url": "https://jobs.sonova.com/job/Murten-RF-Design-Engineer-%28mfd%29/1454321333/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-08T09:11:55.607Z",
+      "crawledAt": "2026-11-08T21:14:06.755Z",
       "addressLocality": "Murten",
       "addressCountry": "CH",
       "country": "CH",
@@ -1236,11 +1236,10 @@
       "applyUrl": "https://jobs.sonova.com/talentcommunity/apply/1454321333/?locale=en_US",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "rf-design-engineer-m-f-d-sonova-ch",
-        "rf-design-ingegnere-m-f-d-sonova-murten"
-      ],
       "previousSlugsByLocale": {
+        "en": [
+          "rf-design-engineer-m-f-d-sonova-murten"
+        ],
         "it": [
           "rf-design-engineer-m-f-d-sonova-ch",
           "rf-design-ingegnere-m-f-d-sonova-murten"
@@ -1250,11 +1249,13 @@
         ],
         "fr": [
           "rf-design-engineer-m-f-d-sonova-ch"
-        ],
-        "en": [
-          "rf-design-engineer-m-f-d-sonova-ch"
         ]
       },
+      "previousSlugs": [
+        "rf-design-engineer-m-f-d-sonova-ch",
+        "rf-design-ingegnere-m-f-d-sonova-murten",
+        "rf-design-engineer-m-f-d-sonova-murten"
+      ],
       "firstSeenAt": "2026-11-06T21:19:19.221Z",
       "salaryMin": 77000,
       "salaryMax": 116500,
@@ -1273,7 +1274,7 @@
       "addressRegion": "FR",
       "streetAddress": "Murten",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-02T09:11:55.607Z",
+      "validThrough": "2027-02-02T21:14:06.755Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1307,7 +1308,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Hardware-Integration-Engineer-%28mfd%29/1444612233/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-08T09:11:55.605Z",
+      "crawledAt": "2026-11-08T21:14:06.752Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -1358,7 +1359,7 @@
       "postalCode": "8001",
       "streetAddress": "Staefa",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-04T09:11:55.605Z",
+      "validThrough": "2027-01-04T21:14:06.752Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1392,7 +1393,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Embedded-Software-Engineer/1455161733/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-08T09:11:55.602Z",
+      "crawledAt": "2026-11-08T21:14:06.745Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -1440,8 +1441,79 @@
       "postalCode": "8001",
       "streetAddress": "Staefa",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-04T09:11:55.602Z",
+      "validThrough": "2027-02-04T21:14:06.745Z",
       "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "sonova-1a652c3368b9",
+      "slug": "embedded-software-engineer-c-sonova-ch-2",
+      "slugByLocale": {
+        "en": "embedded-software-engineer-c-sonova-ch",
+        "it": "embedded-software-engineer-c-sonova-ch-2",
+        "de": "embedded-software-engineer-c-sonova-ch-2",
+        "fr": "embedded-software-engineer-c-sonova-ch-2"
+      },
+      "company": "Sonova",
+      "companyKey": "sonova",
+      "companyDomain": "sonova.com",
+      "title": "Embedded Software Engineer C++",
+      "titleByLocale": {
+        "en": "Embedded Software Engineer C++",
+        "it": "Embedded Software Ingegnere C++",
+        "de": "Embedded Software Ingenieur C++",
+        "fr": "Embedded Software Ingénieur C++"
+      },
+      "description": "In our R&D group, we develop hearing solutions and services for hearing impaired people and hearing care professionals in the form of hearing instruments, accessories, web services, mobile applications and PC software.\n\nIn a team of electrical and software engineers, you will contribute to the design, development and maintenance of modern C++ embedded software and tools.\n\nThe development is focused on hardware abstraction embedded C++ software to abstract the multi-processor hardware for efficient embedded software application development and specific applications for production tests.\n\nYour work will build the foundation for all Sonova hearing instrument product applications, developed by Sonova teams worldwide. From the engineering to mass-manufacturing phase, you will be engaged in contributing highly flexible and reliable embedded software solutions.\n\nMore about the role :\n\n•\n Develop reliable, high-performance, real-time embedded software in modern C++ from hardware abstraction layers to production test application logic\n\n•\n Contribute to the specification and design of embedded software for production tests and test flow configuration.\n\n•\n Contribute to workflow and process improvements\n\n•\n Create reusable embedded software and tools which are used by interdisciplinary engineering teams\n\n•\n Close collaboration with engineers across disciplines in product and platform teams\n\n•\n Contribute to our agile development process through implementation, code reviews and continuous improvement\n\nMore about you :\n\n•\n MSc or BSc in electrical engineering, computer science or comparable qualifications\n\n•\n Strong expertise in embedded software engineering, including RTOS, concurrency and distributed systems\n\n•\n 5+ years of professional experience in C and C++; experience with modern C++ standards, including C++23, is a plus\n\n•\n Strong understanding of object-oriented design and its application in embedded and resource-constrained environments\n\n•\n Experience with Python and/or C#.NET\n\n•\n Experience or interest in AI coding agents, continuous integration, and automated test frameworks\n\n•\n A structured, methodical approach and a passion for solving complex technical problems\n\n•\n Fluent in English; German is a plus\n\nMore about what we offer :\n\nAs one of the world’s leading hearing care providers headquartered in Switzerland, we’re committed to building an inclusive culture. We want to create an environment where you can balance a successful career with your commitments and interests outside of work, through our flexible hybrid working model. We offer a wide range of training opportunities for both your professional and personal development, and there are exceptional growth opportunities with individual development plans.\n\n<div dir=\"auto\" style=\" width:calc(100% - 16px) !important;\"",
+      "descriptionByLocale": {
+        "en": "In our R&D group, we develop hearing solutions and services for hearing impaired people and hearing care professionals in the form of hearing instruments, accessories, web services, mobile applications and PC software.\n\nIn a team of electrical and software engineers, you will contribute to the design, development and maintenance of modern C++ embedded software and tools.\n\nThe development is focused on hardware abstraction embedded C++ software to abstract the multi-processor hardware for efficient embedded software application development and specific applications for production tests.\n\nYour work will build the foundation for all Sonova hearing instrument product applications, developed by Sonova teams worldwide. From the engineering to mass-manufacturing phase, you will be engaged in contributing highly flexible and reliable embedded software solutions.\n\nMore about the role :\n\n•\n Develop reliable, high-performance, real-time embedded software in modern C++ from hardware abstraction layers to production test application logic\n\n•\n Contribute to the specification and design of embedded software for production tests and test flow configuration.\n\n•\n Contribute to workflow and process improvements\n\n•\n Create reusable embedded software and tools which are used by interdisciplinary engineering teams\n\n•\n Close collaboration with engineers across disciplines in product and platform teams\n\n•\n Contribute to our agile development process through implementation, code reviews and continuous improvement\n\nMore about you :\n\n•\n MSc or BSc in electrical engineering, computer science or comparable qualifications\n\n•\n Strong expertise in embedded software engineering, including RTOS, concurrency and distributed systems\n\n•\n 5+ years of professional experience in C and C++; experience with modern C++ standards, including C++23, is a plus\n\n•\n Strong understanding of object-oriented design and its application in embedded and resource-constrained environments\n\n•\n Experience with Python and/or C#.NET\n\n•\n Experience or interest in AI coding agents, continuous integration, and automated test frameworks\n\n•\n A structured, methodical approach and a passion for solving complex technical problems\n\n•\n Fluent in English; German is a plus\n\nMore about what we offer :\n\nAs one of the world’s leading hearing care providers headquartered in Switzerland, we’re committed to building an inclusive culture. We want to create an environment where you can balance a successful career with your commitments and interests outside of work, through our flexible hybrid working model. We offer a wide range of training opportunities for both your professional and personal development, and there are exceptional growth opportunities with individual development plans.\n\n<div dir=\"auto\" style=\" width:calc(100% - 16px) !important;\"",
+        "it": "In our R&D group, we develop hearing solutions and services for hearing impaired people and hearing care professionals in the form of hearing instruments, accessories, web services, mobile applications and PC software.\n\nIn a team of electrical and software engineers, you will contribute to the design, development and maintenance of modern C++ embedded software and tools.\n\nThe development is focused on hardware abstraction embedded C++ software to abstract the multi-processor hardware for efficient embedded software application development and specific applications for production tests.\n\nYour work will build the foundation for all Sonova hearing instrument product applications, developed by Sonova teams worldwide. From the engineering to mass-manufacturing phase, you will be engaged in contributing highly flexible and reliable embedded software solutions.\n\nMore about the role :\n\n•\n Develop reliable, high-performance, real-time embedded software in modern C++ from hardware abstraction layers to production test application logic\n\n•\n Contribute to the specification and design of embedded software for production tests and test flow configuration.\n\n•\n Contribute to workflow and process improvements\n\n•\n Create reusable embedded software and tools which are used by interdisciplinary engineering teams\n\n•\n Close collaboration with engineers across disciplines in product and platform teams\n\n•\n Contribute to our agile development process through implementation, code reviews and continuous improvement\n\nMore about you :\n\n•\n MSc or BSc in electrical engineering, computer science or comparable qualifications\n\n•\n Strong expertise in embedded software engineering, including RTOS, concurrency and distributed systems\n\n•\n 5+ years of professional experience in C and C++; experience with modern C++ standards, including C++23, is a plus\n\n•\n Strong understanding of object-oriented design and its application in embedded and resource-constrained environments\n\n•\n Experience with Python and/or C#.NET\n\n•\n Experience or interest in AI coding agents, continuous integration, and automated test frameworks\n\n•\n A structured, methodical approach and a passion for solving complex technical problems\n\n•\n Fluent in English; German is a plus\n\nMore about what we offer :\n\nAs one of the world’s leading hearing care providers headquartered in Switzerland, we’re committed to building an inclusive culture. We want to create an environment where you can balance a successful career with your commitments and interests outside of work, through our flexible hybrid working model. We offer a wide range of training opportunities for both your professional and personal development, and there are exceptional growth opportunities with individual development plans.\n\n<div dir=\"auto\" style=\" width:calc(100% - 16px) !important;\"",
+        "de": "In our R&D group, we develop hearing solutions and services for hearing impaired people and hearing care professionals in the form of hearing instruments, accessories, web services, mobile applications and PC software.\n\nIn a team of electrical and software engineers, you will contribute to the design, development and maintenance of modern C++ embedded software and tools.\n\nThe development is focused on hardware abstraction embedded C++ software to abstract the multi-processor hardware for efficient embedded software application development and specific applications for production tests.\n\nYour work will build the foundation for all Sonova hearing instrument product applications, developed by Sonova teams worldwide. From the engineering to mass-manufacturing phase, you will be engaged in contributing highly flexible and reliable embedded software solutions.\n\nMore about the role :\n\n•\n Develop reliable, high-performance, real-time embedded software in modern C++ from hardware abstraction layers to production test application logic\n\n•\n Contribute to the specification and design of embedded software for production tests and test flow configuration.\n\n•\n Contribute to workflow and process improvements\n\n•\n Create reusable embedded software and tools which are used by interdisciplinary engineering teams\n\n•\n Close collaboration with engineers across disciplines in product and platform teams\n\n•\n Contribute to our agile development process through implementation, code reviews and continuous improvement\n\nMore about you :\n\n•\n MSc or BSc in electrical engineering, computer science or comparable qualifications\n\n•\n Strong expertise in embedded software engineering, including RTOS, concurrency and distributed systems\n\n•\n 5+ years of professional experience in C and C++; experience with modern C++ standards, including C++23, is a plus\n\n•\n Strong understanding of object-oriented design and its application in embedded and resource-constrained environments\n\n•\n Experience with Python and/or C#.NET\n\n•\n Experience or interest in AI coding agents, continuous integration, and automated test frameworks\n\n•\n A structured, methodical approach and a passion for solving complex technical problems\n\n•\n Fluent in English; German is a plus\n\nMore about what we offer :\n\nAs one of the world’s leading hearing care providers headquartered in Switzerland, we’re committed to building an inclusive culture. We want to create an environment where you can balance a successful career with your commitments and interests outside of work, through our flexible hybrid working model. We offer a wide range of training opportunities for both your professional and personal development, and there are exceptional growth opportunities with individual development plans.\n\n<div dir=\"auto\" style=\" width:calc(100% - 16px) !important;\"",
+        "fr": "In our R&D group, we develop hearing solutions and services for hearing impaired people and hearing care professionals in the form of hearing instruments, accessories, web services, mobile applications and PC software.\n\nIn a team of electrical and software engineers, you will contribute to the design, development and maintenance of modern C++ embedded software and tools.\n\nThe development is focused on hardware abstraction embedded C++ software to abstract the multi-processor hardware for efficient embedded software application development and specific applications for production tests.\n\nYour work will build the foundation for all Sonova hearing instrument product applications, developed by Sonova teams worldwide. From the engineering to mass-manufacturing phase, you will be engaged in contributing highly flexible and reliable embedded software solutions.\n\nMore about the role :\n\n•\n Develop reliable, high-performance, real-time embedded software in modern C++ from hardware abstraction layers to production test application logic\n\n•\n Contribute to the specification and design of embedded software for production tests and test flow configuration.\n\n•\n Contribute to workflow and process improvements\n\n•\n Create reusable embedded software and tools which are used by interdisciplinary engineering teams\n\n•\n Close collaboration with engineers across disciplines in product and platform teams\n\n•\n Contribute to our agile development process through implementation, code reviews and continuous improvement\n\nMore about you :\n\n•\n MSc or BSc in electrical engineering, computer science or comparable qualifications\n\n•\n Strong expertise in embedded software engineering, including RTOS, concurrency and distributed systems\n\n•\n 5+ years of professional experience in C and C++; experience with modern C++ standards, including C++23, is a plus\n\n•\n Strong understanding of object-oriented design and its application in embedded and resource-constrained environments\n\n•\n Experience with Python and/or C#.NET\n\n•\n Experience or interest in AI coding agents, continuous integration, and automated test frameworks\n\n•\n A structured, methodical approach and a passion for solving complex technical problems\n\n•\n Fluent in English; German is a plus\n\nMore about what we offer :\n\nAs one of the world’s leading hearing care providers headquartered in Switzerland, we’re committed to building an inclusive culture. We want to create an environment where you can balance a successful career with your commitments and interests outside of work, through our flexible hybrid working model. We offer a wide range of training opportunities for both your professional and personal development, and there are exceptional growth opportunities with individual development plans.\n\n<div dir=\"auto\" style=\" width:calc(100% - 16px) !important;\""
+      },
+      "location": "Staefa, Switzerland",
+      "canton": "ZH",
+      "url": "https://jobs.sonova.com/job/Staefa-Embedded-Software-Engineer-C%2B%2B/1455022133/",
+      "source": "Sonova Dedicated Parser",
+      "sourceLang": "en",
+      "crawledAt": "2026-11-08T21:14:06.720Z",
+      "addressLocality": "Staefa",
+      "addressRegion": "Zürich",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Ingegneria",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "MedTech / Hearing care (hearing aids, cochlear implants, consumer hearing)",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-11-06T00:00:00Z",
+      "postedDate": "2026-11-06T00:00:00Z",
+      "postingDateSource": "reported",
+      "applyUrl": "https://jobs.sonova.com/talentcommunity/apply/1455022133/?locale=en_US",
+      "requirements": [],
+      "requirementsByLocale": {
+        "en": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 83000,
+      "salaryMax": 126000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 83000,
+          "maxValue": 126000,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "8001",
+      "streetAddress": "Staefa",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-02-04T21:14:06.720Z",
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-10-22T09:10:41.611Z"
     }
   ]
 }
