@@ -1,0 +1,23 @@
+{
+  "companyKey": "parkinsoncanada",
+  "companyName": "Parkinson Canada",
+  "companyHost": "parkinsoncanada.applytojob.com",
+  "platform": "applytojob.com",
+  "mode": "known-template",
+  "seedUrls": [
+    "https://parkinsoncanada.applytojob.com/apply"
+  ],
+  "detailTemplate": "/apply/*/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": false,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 3,
+  "sampleTitles": [
+    "Bilingual Event Coordinator",
+    "Bilingual Event Coordinator",
+    "Marketing Operations and Project Specialist"
+  ],
+  "sourceLang": "en",
+  "learnedAt": "2026-11-08T12:51:02.771Z",
+  "candidateKey": "parkinsoncanada@applytojob.com"
+}

@@ -1,0 +1,23 @@
+{
+  "companyKey": "ufa-ag",
+  "companyName": "UFA AG",
+  "companyHost": "jobs.fenaco.com",
+  "verifiedEmployerDomain": "ufa.ch",
+  "platform": "fenaco.com",
+  "mode": "jsonld",
+  "seedUrls": [
+    "https://jobs.fenaco.com/offene-stellen/spontanbewerber-w-m-d/dec94f0b-3d2d-4a2f-8df5-ca7c9fe29c4a"
+  ],
+  "detailTemplate": "/offene-stellen/spontanbewerber-w-m-d/dec94f0b-3d2d-4a2f-8df5-ca7c9fe29c4a",
+  "detailEnrichment": false,
+  "employerSiteLocationFallback": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 1,
+  "sampleTitles": [
+    "Spontanbewerber w/m/d"
+  ],
+  "canton": "LU",
+  "sourceLang": "de",
+  "learnedAt": "2026-11-08T13:01:55.837Z",
+  "candidateKey": "ufa@sursee"
+}

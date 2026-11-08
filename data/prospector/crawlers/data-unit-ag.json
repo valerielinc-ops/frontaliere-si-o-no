@@ -1,0 +1,25 @@
+{
+  "companyKey": "data-unit-ag",
+  "companyName": "DATA UNIT AG",
+  "companyHost": "dataunit.jobs.personio.de",
+  "verifiedEmployerDomain": "dataunit.ch",
+  "platform": "personio.de",
+  "mode": "template",
+  "seedUrls": [
+    "https://dataunit.jobs.personio.de/?language=de"
+  ],
+  "detailTemplate": "/job/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 3,
+  "sampleTitles": [
+    "SAP Cloud ERP FI/CO Consultant (m/w/d) 80–100% <path d=\"M10.0005 3.5752C12.7755 3",
+    "Sommerpraktika Produkt Entwicklung <path d=\"M10.0005 3.5752C12.7755 3.57541 15.02",
+    "Schnupperlehre als Entwickler:in Digitales Business / Informatiker:in Applikationsentwicklung <svg aria-hidden=\"true\" class=\"page_jobMetaIcon__kiDYs\" width=\"20\""
+  ],
+  "canton": "LU",
+  "sourceLang": "en",
+  "learnedAt": "2026-11-08T13:01:50.899Z",
+  "candidateKey": "data-unit"
+}

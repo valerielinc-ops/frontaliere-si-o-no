@@ -1,0 +1,22 @@
+{
+  "companyKey": "ltv",
+  "companyName": "The Lifetime Value Co.",
+  "companyHost": "ltv.applytojob.com",
+  "platform": "applytojob.com",
+  "mode": "known-template",
+  "seedUrls": [
+    "https://ltv.applytojob.com/apply"
+  ],
+  "detailTemplate": "/apply/*/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": false,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 2,
+  "sampleTitles": [
+    "Marketing Creative Strategy Manager",
+    "Marketing Creative Strategy Manager"
+  ],
+  "sourceLang": "en",
+  "learnedAt": "2026-11-08T12:50:51.422Z",
+  "candidateKey": "ltv@applytojob.com"
+}

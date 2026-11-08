@@ -1,0 +1,27 @@
+{
+  "companyKey": "vtmpersonal-ch",
+  "companyName": "VTM Dienstleistung AG",
+  "companyHost": "vtmpersonal.ch",
+  "verifiedEmployerDomain": "vtmpersonal.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://vtmpersonal.ch/job-openings/"
+  ],
+  "detailTemplate": "/jobs/*/",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 20,
+  "sampleTitles": [
+    "Gipser/ Trockenbauer (m/w) 100% Baugewerbe Temporär Basel 100% 6687 Per sofort More Details",
+    "Fieldsales Agent (m/w) 100% Dienstleistung Temporär Gesamte Schweiz 80-100% 5598 nach Vereinbarung More Details",
+    "Hochbauzeichner/In EFZ 100% / Fachrichtung Architektur Baugewerbe Festanstellung Aargau 100% 6658 Per sofort More Details",
+    "Expertin / Experte NDS 80-100% – Intensivpflege Medizin Temporär Festanstellung Zürich 70-100% 6698 Per sofort More Details",
+    "Pflegefachpersonen 70-100% (m/w) Medizin Temporär Zürich 70-100% 5687 Per sofort More Details"
+  ],
+  "canton": "TI",
+  "sourceLang": "de",
+  "learnedAt": "2026-11-08T12:51:21.232Z",
+  "candidateKey": "vtm-dienstleistung@rothrist"
+}
