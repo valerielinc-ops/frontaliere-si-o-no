@@ -3,7 +3,7 @@
  * send-onboarding-drip.mjs — post-signup onboarding drip runner (#4451).
  *
  * A once-a-day GitHub Actions job (send-onboarding-drip.yml) that walks the
- * registered newsletter subscribers and sends the next due step of the 4-touch
+ * due newsletter subscribers and sends the next due step of the 4-touch
  * onboarding sequence (day 0/3/7/14, see services/newsletter/onboardingDrip.mjs).
  *
  * State lives per-user on the newsletter_subscribers/{email} doc — drip_started_at,
@@ -51,6 +51,7 @@ import {
 import { isNewsletterExcluded } from '../services/emailSuppression.mjs';
 import { isNewsletterOptOutBinding } from '../services/newsletterOptOut.mjs';
 import { getFirestoreDb } from './lib/firestore-admin.mjs';
+import { loadOnboardingDripCandidates } from './lib/onboarding-drip-candidates.mjs';
 
 const DAY_MS = 24 * 60 * 60 * 1000;
 const DEFAULT_FROM_EMAIL = 'Frontaliere Ticino <newsletter@frontaliereticino.ch>';
@@ -155,13 +156,16 @@ function resolveDueStep(data, now, enrollWindowMs) {
 
 // ── Build the queue of due drip emails ───────────────────────
 async function buildQueue(globalHour, now) {
-  const snap = await db.collection('newsletter_subscribers').get();
+  const { docs } = await loadOnboardingDripCandidates(db, {
+    now,
+    enrollWindowDays: ENROLL_WINDOW_DAYS,
+  });
   const queue = [];
-  snap.forEach((doc) => {
-    if (doc.id === '_meta_') return;
+  for (const doc of docs) {
+    if (doc.id === '_meta_') continue;
     const data = doc.data() || {};
     const due = resolveDueStep(data, now, ENROLL_WINDOW_DAYS * DAY_MS);
-    if (!due) return;
+    if (!due) continue;
 
     const subscriber = subscriberFromFirestoreRow({ ...data, email: data.email || doc.id });
     if (!subscriber) return;
@@ -223,7 +227,7 @@ async function buildQueue(globalHour, now) {
       recipient: { email: subscriber.email },
       meta: { step: due.step, cardId },
     });
-  });
+  }
   // Most overdue first. The collection reads in document-id (= email) order, so
   // whenever the quota cut the queue it was always the same end of the
   // alphabet that waited — 930 of 1.150 overdue subscribers, 26,6 days late.

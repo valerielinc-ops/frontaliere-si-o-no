@@ -132,6 +132,14 @@
       ]
     },
     {
+      "collectionGroup": "newsletter_subscribers",
+      "queryScope": "COLLECTION",
+      "fields": [
+        { "fieldPath": "drip_last_step", "order": "ASCENDING" },
+        { "fieldPath": "drip_started_at", "order": "ASCENDING" }
+      ]
+    },
+    {
       "collectionGroup": "orders",
       "queryScope": "COLLECTION",
       "fields": [
@@ -279,6 +287,13 @@
     { "collectionGroup": "events", "fieldPath": "metadata", "indexes": [] },
     { "collectionGroup": "events", "fieldPath": "email", "indexes": [] },
     { "collectionGroup": "events", "fieldPath": "maileroo_event", "indexes": [] },
+    {
+      "collectionGroup": "events",
+      "fieldPath": "alert_id",
+      "indexes": [
+        { "order": "ASCENDING", "queryScope": "COLLECTION_GROUP" }
+      ]
+    },
     {
       "collectionGroup": "events",
       "fieldPath": "message_id",
