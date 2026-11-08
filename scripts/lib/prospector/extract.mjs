@@ -26,6 +26,7 @@ import {
   evaluateSourceBackedSwissGeography,
   JOB_LOCATION_CLASS_TOKENS,
   JOB_LOCATION_VALUE_CLASS_TOKENS,
+  localityCountryFromStreetOnlyAddress,
   locationEvidenceCandidates,
   schemaJobLocationCandidates,
 } from './location-evidence.mjs';
@@ -2107,6 +2108,10 @@ export function extractMicrodata(html, pageUrl, diagnostics = {}) {
         const postalCode = propFrom(container, 'postalCode', containerIndex);
         const streetAddress = propFrom(container, 'streetAddress', containerIndex);
         const directLocation = !locality && !region ? propFrom(container, 'jobLocation', containerIndex) : '';
+        const streetOnly = directLocation ? null : localityCountryFromStreetOnlyAddress({
+          streetAddress, addressLocality: locality, addressRegion: region, addressCountry, postalCode,
+        });
+        if (streetOnly) return streetOnly;
         return {
           location: [locality || directLocation, region].filter(Boolean).join(', '),
           addressCountry,
@@ -2126,7 +2131,11 @@ export function extractMicrodata(html, pageUrl, diagnostics = {}) {
       const addressRegion = prop('addressRegion');
       const postalCode = prop('postalCode');
       const streetAddress = prop('streetAddress');
-      if (location || addressCountry) locationCandidates.push({
+      const streetOnly = location ? null : localityCountryFromStreetOnlyAddress({
+        streetAddress, addressLocality, addressRegion, addressCountry, postalCode,
+      });
+      if (streetOnly) locationCandidates.push(streetOnly);
+      else if (location || addressCountry) locationCandidates.push({
         location,
         addressCountry,
         ...(addressLocality ? { addressLocality } : {}),

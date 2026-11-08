@@ -1302,6 +1302,39 @@ describe('vacancy extraction', () => {
     });
   });
 
+  // SKAN (#17539): SuccessFactors puts the workplace only in streetAddress.
+  it('reads a street-only "<locality>, <ISO>" microdata address as locality and country', () => {
+    const page = (street: string) => '<div itemscope itemtype="http://schema.org/JobPosting">' +
+      '<span itemprop="jobLocation" itemscope itemtype="http://schema.org/Place">' +
+        '<span itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">' +
+          `<meta itemprop="streetAddress" content="${street}"></span></span>` +
+      '<span itemprop="title">Team Lead ICT</span></div>';
+    const [swiss] = extractMicrodata(page('Allschwil, CH'), 'https://jobs.example/job/1');
+    expect(swiss.locationCandidates).toEqual([{ location: 'Allschwil', addressCountry: 'CH' }]);
+    expect(resolveDetailOrListingSwissGeography(swiss).geography).toMatchObject({
+      location: 'Allschwil', canton: 'BL', addressCountry: 'CH',
+    });
+    const [foreign] = extractMicrodata(page('Lörrach, DE'), 'https://jobs.example/job/2');
+    expect(foreign.locationCandidates).toEqual([{ location: 'Lörrach', addressCountry: 'DE' }]);
+    expect(resolveDetailOrListingSwissGeography(foreign).geography).toBeNull();
+    for (const street of ['Allschwil, BL', 'Paris, FR', 'Hauptstrasse 1, CH', 'Allschwil']) {
+      const [job] = extractMicrodata(page(street), 'https://jobs.example/job/3');
+      expect(job.locationCandidates).toEqual([]);
+    }
+  });
+
+  it('reads a street-only "<locality>, <ISO>" JSON-LD address as locality and country', () => {
+    expect(schemaJobLocationCandidates({
+      '@type': 'Place',
+      address: { '@type': 'PostalAddress', streetAddress: 'Allschwil, CH' },
+    })).toEqual([{
+      location: 'Allschwil', addressCountry: 'CH', addressLocality: '', addressRegion: '', postalCode: '', streetAddress: '',
+    }]);
+    expect(schemaJobLocationCandidates({
+      address: { streetAddress: 'Gewerbestrasse 16', addressLocality: 'Allschwil', addressCountry: 'CH' },
+    })).toEqual([expect.objectContaining({ location: 'Allschwil', streetAddress: 'Gewerbestrasse 16' })]);
+  });
+
   it('balances nested same-name microdata containers without crossing jobs', () => {
     const html = [
       '<article itemscope itemtype="https://schema.org/JobPosting">',

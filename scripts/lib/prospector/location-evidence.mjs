@@ -892,6 +892,26 @@ function schemaAddressRegion(addressRegion, addressCountry) {
 }
 
 /**
+ * SuccessFactors Career Site Builder can publish the workplace only as
+ * `streetAddress="Allschwil, CH"`, with every other PostalAddress slot empty
+ * (SKAN, #17539). Read that value as locality + country only when it is
+ * exactly `<locality>, <ISO alpha-2>` and the other slots are empty. A code
+ * that is also a Swiss canton code (`Basel, BS`, `Paris, FR`) is ambiguous
+ * and stays unknown; a real street address has no terminal country code.
+ *
+ * @param {{ streetAddress?: string, addressLocality?: string, addressRegion?: string, addressCountry?: string, postalCode?: string }} address
+ * @returns {{ location: string, addressCountry: string }|null}
+ */
+export function localityCountryFromStreetOnlyAddress(address = {}) {
+  if (address.addressLocality || address.addressRegion || address.addressCountry || address.postalCode) return null;
+  const match = /^([^,\d]+),\s*([A-Za-z]{2})$/.exec(String(address.streetAddress || '').replace(/\s+/g, ' ').trim());
+  if (!match) return null;
+  const code = match[2].toUpperCase();
+  if (!ISO_ALPHA2_COUNTRY_CODES.has(code) || normalizeSwissCantonCode(code)) return null;
+  return { location: match[1].trim(), addressCountry: code };
+}
+
+/**
  * Preserve every schema.org JobPosting location and its country/address
  * evidence. Dedicated crawlers use the same representation as the generic
  * Prospector runtime so a foreign first entry cannot hide a later CH place.
@@ -910,6 +930,15 @@ export function schemaJobLocationCandidates(jobLocation) {
       const addressCountry = structuredText(address.addressCountry);
       const addressRegion = schemaAddressRegion(address.addressRegion, addressCountry);
       const placeName = structuredText(address.name || place.name);
+      const postalCode = structuredText(address.postalCode);
+      const streetAddress = structuredText(address.streetAddress);
+      const streetOnly = placeName ? null : localityCountryFromStreetOnlyAddress({
+        streetAddress, addressLocality, addressRegion, addressCountry, postalCode,
+      });
+      if (streetOnly) {
+        candidates.push({ ...streetOnly, addressLocality: '', addressRegion: '', postalCode: '', streetAddress: '' });
+        continue;
+      }
       const location = [addressLocality || placeName, addressRegion].filter(Boolean).join(', ');
       if (!location && !addressCountry) continue;
       candidates.push({
@@ -917,8 +946,8 @@ export function schemaJobLocationCandidates(jobLocation) {
         addressCountry,
         addressLocality,
         addressRegion,
-        postalCode: structuredText(address.postalCode),
-        streetAddress: structuredText(address.streetAddress),
+        postalCode,
+        streetAddress,
       });
     }
   }
