@@ -429,7 +429,17 @@ export function canonicalizeCdnDataEnvelope(html) {
 
   let normalized = html;
   for (let i = scan.ranges.length - 1; i >= 0; i--) {
-    const { start, end } = scan.ranges[i];
+    const { start, end: tagEnd } = scan.ranges[i];
+    // The offload pass can insert the exact envelope either directly beside
+    // the existing head tag or on its own indented line. Removing only the
+    // tags leaves an extra blank line in the latter shape, which can hide a
+    // later edge-only difference (for example Cloudflare's live response
+    // script) behind a harmless formatting mismatch. Consume only whitespace
+    // emitted immediately after the exact envelope tag; the whitespace before
+    // the first removed tag remains the surrounding head layout and therefore
+    // matches the no-envelope shape.
+    let end = tagEnd;
+    while (end < headEnd && isHtmlWhitespace(html[end])) end++;
     normalized = normalized.slice(0, start) + normalized.slice(end);
   }
   return normalized;
