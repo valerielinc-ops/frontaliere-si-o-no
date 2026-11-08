@@ -11,6 +11,11 @@ name: Reconcile HERE Usage Budget
 # skips cleanly (exit 2 → treated as no-op, not a failure).
 
 on:
+  pull_request:
+    paths:
+      - '.github/workflows/here-usage-reconcile.yml'
+      - 'package.json'
+      - 'package-lock.json'
   schedule:
     # Twice daily (UTC). Usage data lags, so a morning + evening read keeps the
     # counter aligned without hammering the API.
@@ -32,6 +37,7 @@ permissions:
 
 jobs:
   reconcile:
+    if: github.event_name != 'pull_request'
     runs-on: ubuntu-latest
     timeout-minutes: 8
     steps:
@@ -66,10 +72,14 @@ jobs:
         uses: actions/setup-node@v7
         with:
           node-version: '22'
-          cache: npm
 
-      - name: Install dependencies
-        run: npm ci
+      # This job only needs firebase-admin for Remote Config and the Firestore
+      # seed. Installing the whole site tree pulls in unrelated native/AI/UI
+      # packages and was the source of the 8-minute timeout (issue #17692).
+      - name: Install firebase-admin (for Remote Config and Firestore)
+        run: |
+          npm install --prefix "$RUNNER_TEMP/firebase-admin-deps" --no-save --ignore-scripts --no-fund --no-audit firebase-admin@14.5.0
+          ln -s "$RUNNER_TEMP/firebase-admin-deps/node_modules" node_modules
 
       - name: Prepare Firebase credentials
         env:
@@ -103,3 +113,80 @@ jobs:
             exit 0
           fi
           exit $code
+
+  install-benchmark:
+    if: github.event_name == 'pull_request'
+    name: install benchmark (${{ matrix.mode }})
+    strategy:
+      fail-fast: false
+      matrix:
+        mode: [full, isolated]
+    runs-on: ubuntu-latest
+    # The production job remains capped at eight minutes. The benchmark gets
+    # enough room to finish the old full install, while the isolated path
+    # below enforces that same eight-minute budget explicitly.
+    timeout-minutes: 15
+    steps:
+      - name: Checkout PR HEAD
+        uses: actions/checkout@v7
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          sparse-checkout: |
+            /*
+            !/public/images/
+            !/data/jobs/
+            !/data/seo-404-compat/
+            !/data/translation-cache/
+            !/packages/articles/content/
+            !/data/all-known-job-slugs/
+            !/data/orphan-enriched-data/
+            !/public/data/
+            !/data/related-search-candidates.json
+            !/data/cf-hot-404s.json
+            !/data/jobs-ai-cache.json
+            !/data/dist-size-history.jsonl
+            !/data/jobs-stats-history.json
+            !/data/url-first-seen.json
+            !/data/jobs-snapshots-history/
+            !/data/slug-registry.json
+            !/data/evidence-index.json
+            !/data/health-premiums/
+            !/data/jobs-crawler-summaries/
+          sparse-checkout-cone-mode: false
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: '22'
+
+      - name: Measure dependency installation
+        id: measure
+        env:
+          MODE: ${{ matrix.mode }}
+        run: |
+          set -euo pipefail
+          started=$(date +%s)
+          if [ "$MODE" = full ]; then
+            # This is the former production install, measured on a fresh runner.
+            npm ci --no-fund --no-audit
+          else
+            npm install --prefix "$RUNNER_TEMP/firebase-admin-deps" --no-save --ignore-scripts --no-fund --no-audit firebase-admin@14.5.0
+            cd "$RUNNER_TEMP/firebase-admin-deps"
+            node --input-type=module -e "await import('firebase-admin/app')"
+          fi
+          finished=$(date +%s)
+          elapsed=$((finished - started))
+          echo "seconds=$elapsed" >> "$GITHUB_OUTPUT"
+          {
+            echo "## HERE dependency install benchmark"
+            echo ""
+            echo "| mode | seconds | runner | head |"
+            echo "| --- | ---: | --- | --- |"
+            echo "| $MODE | $elapsed | $RUNNER_OS / $RUNNER_ARCH | $GITHUB_SHA |"
+            echo ""
+            echo "The isolated mode must stay below the production eight-minute budget; both modes run on fresh runners."
+          } >> "$GITHUB_STEP_SUMMARY"
+          if [ "$MODE" = isolated ] && [ "$elapsed" -ge 480 ]; then
+            echo "::error::isolated firebase-admin install exceeded the eight-minute production budget (${elapsed}s)"
+            exit 1
+          fi
