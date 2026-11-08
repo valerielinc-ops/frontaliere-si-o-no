@@ -713,6 +713,7 @@ jobs:
             /data/swiss-article-canonical-overrides.json
             /scripts/lib/github-issue-creator.mjs
             /scripts/load-rc-env.mjs
+            /scripts/lib/fetch-with-ref-timeout.mjs
             /package.json
             /package-lock.json
           sparse-checkout-cone-mode: false
