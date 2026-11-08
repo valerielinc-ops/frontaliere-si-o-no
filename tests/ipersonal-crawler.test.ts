@@ -29,7 +29,7 @@ describe('MediPersonal crawler parser', () => {
     },
     {
       companyKey: 'med-ipersonal',
-      listingSeed: 'https://www.ipersonal.ch/jobs/',
+      listingSeed: 'https://www.ipersonal.ch/offene-stellen/',
     },
   ])('uses the authoritative listing page for $companyKey discovery', ({ companyKey, listingSeed }) => {
     const spec = loadSpec(companyKey);
@@ -37,14 +37,9 @@ describe('MediPersonal crawler parser', () => {
     expect(spec.seedUrls).not.toContain(new URL(listingSeed).origin + '/');
   });
 
-  it('declares iPersonal archive pagination in the source contract', () => {
+  it('does not carry retired archive pagination into the live iPersonal listing', () => {
     const spec = loadSpec('med-ipersonal');
-    expect(spec.pagination).toMatchObject({
-      maxPages: 250,
-      numberedPagePattern: '^(\\d+)(?:/)?$',
-      numberedPageQueryParam: 'pageJ',
-      pageStateParams: ['pageJ'],
-    });
+    expect(spec.pagination).toBeUndefined();
   });
 
   describe('shared Simple Job Board detail boundary', () => {
