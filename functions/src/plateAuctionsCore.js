@@ -690,7 +690,8 @@ export function parseEcariAuctionRows(
 }
 
 function parseZhDate(value, fallbackDate) {
-  const match = String(value || '').match(/(\d{1,2})\.(\d{1,2})\.(\d{4}),?\s+(\d{1,2}):(\d{2})(?::(\d{2}))?/);
+  const source = String(value || '').trim();
+  const match = source.match(/(\d{1,2})\.(\d{1,2})\.(\d{4}),?\s+(\d{1,2}):(\d{2})(?::(\d{2}))?/);
   if (match) {
     return zurichLocalToUtcIso(
       Number(match[3]),
@@ -701,9 +702,33 @@ function parseZhDate(value, fallbackDate) {
       Number(match[6] || 0),
     );
   }
-  const timeOnly = String(value || '').trim().match(/^(\d{1,2}):(\d{2})(?::(\d{2}))?$/);
-  const dateMatch = String(fallbackDate || '').match(/(\d{1,2})\.(\d{1,2})\.(\d{4})/);
-  if (!timeOnly || !dateMatch) return undefined;
+  const frenchMatch = source.match(/^(\d{1,2})\s+([\p{L}]+\.?)\s+(\d{4})\s*,?\s+(\d{1,2}):(\d{2})(?::(\d{2}))?$/u);
+  if (frenchMatch) {
+    const month = frenchMonth(frenchMatch[2]);
+    const day = Number(frenchMatch[1]);
+    const hour = Number(frenchMatch[4]);
+    const minute = Number(frenchMatch[5]);
+    const second = Number(frenchMatch[6] || 0);
+    if (month === undefined || day < 1 || day > 31 || hour > 23 || minute > 59 || second > 59) return undefined;
+    return zurichLocalToUtcIso(Number(frenchMatch[3]), month, day, hour, minute, second);
+  }
+  const timeOnly = source.match(/^(\d{1,2}):(\d{2})(?::(\d{2}))?$/);
+  const fallbackSource = String(fallbackDate || '').trim();
+  const dateMatch = fallbackSource.match(/(\d{1,2})\.(\d{1,2})\.(\d{4})/);
+  const frenchDateMatch = fallbackSource.match(/^(\d{1,2})\s+([\p{L}]+\.?)\s+(\d{4})$/u);
+  if (!timeOnly || (!dateMatch && !frenchDateMatch)) return undefined;
+  if (frenchDateMatch) {
+    const month = frenchMonth(frenchDateMatch[2]);
+    if (month === undefined) return undefined;
+    return zurichLocalToUtcIso(
+      Number(frenchDateMatch[3]),
+      month,
+      Number(frenchDateMatch[1]),
+      Number(timeOnly[1]),
+      Number(timeOnly[2]),
+      Number(timeOnly[3] || 0),
+    );
+  }
   return zurichLocalToUtcIso(
     Number(dateMatch[3]),
     Number(dateMatch[2]),
@@ -1078,12 +1103,22 @@ export const GE_PLATE_AUCTION_SOURCE = Object.freeze({
 });
 
 const FRENCH_MONTHS = {
-  janvier: 1, fevrier: 2, février: 2, mars: 3, avril: 4, mai: 5, juin: 6, juillet: 7,
-  aout: 8, août: 8, septembre: 9, octobre: 10, novembre: 11, decembre: 12, décembre: 12,
+  janv: 1, janvier: 1,
+  fevr: 2, févr: 2, fevrier: 2, février: 2,
+  mars: 3,
+  avr: 4, avril: 4,
+  mai: 5,
+  juin: 6,
+  juil: 7, juillet: 7,
+  aout: 8, août: 8,
+  sept: 9, septembre: 9,
+  oct: 10, octobre: 10,
+  nov: 11, novembre: 11,
+  dec: 12, déc: 12, decembre: 12, décembre: 12,
 };
 
 function frenchMonth(value) {
-  return FRENCH_MONTHS[String(value || '').toLowerCase()];
+  return FRENCH_MONTHS[String(value || '').toLowerCase().replace(/[.,]+$/, '')];
 }
 
 function decodeHtmlAttribute(value) {
