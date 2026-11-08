@@ -1,7 +1,7 @@
 {
   "key": "has-healthcare",
   "label": "HAS Healthcare",
-  "generatedAt": "2026-11-08T09:18:54.862Z",
+  "generatedAt": "2026-11-08T21:35:02.648Z",
   "total": 0,
   "discovered": 0,
   "parsed": 0,
@@ -15,14 +15,14 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 29653,
-  "avgDurationMs": 29653,
+  "durationMs": 20166,
+  "avgDurationMs": 20166,
   "durationHistory": [
-    29653
+    20166
   ],
   "newJobs": [],
   "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [],
-  "codeCommit": "b019e69684c909d5fd747961cb84c9c400bc8446"
+  "codeCommit": "46d8c233794afd1422cd7663ab076bfe9ec2a1c3"
 }
