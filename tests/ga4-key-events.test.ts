@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest';
 import {
   KEY_EVENT_EXCLUSIONS,
   KEY_EVENT_SPECS,
+  parseOnlyEventNames,
   planKeyEvents,
   syncKeyEvents,
 } from '../scripts/ga4-key-events.mjs';
@@ -13,6 +14,14 @@ const jsonResponse = (status: number, body: unknown) => ({
 });
 
 describe('GA4 key events plan', () => {
+  it('supports an explicit promotion allowlist without changing the default specs', () => {
+    expect([...parseOnlyEventNames(['--only=newsletter_subscribe,login'])!]).toEqual([
+      'newsletter_subscribe',
+      'login',
+    ]);
+    expect(() => parseOnlyEventNames(['--only=newsletter_subscribe,unknown'])).toThrow(/unknown/u);
+  });
+
   it('creates only names observed in the lookback window and waits for the others', () => {
     const plan = planKeyEvents({
       existing: [{ name: 'properties/1/keyEvents/9', eventName: 'purchase', countingMethod: 'ONCE_PER_EVENT' }],

@@ -25,6 +25,7 @@ export const GA4_PROMOTION_EVENT_NAMES = Object.freeze([
 ]);
 
 const SCRIPT_PATH = fileURLToPath(new URL('../ga4-key-events.mjs', import.meta.url));
+const TARGET_ARGS = ['--only=newsletter_subscribe,login'];
 
 function positiveEventCount(value) {
   const count = Number(value);
@@ -180,9 +181,9 @@ function main() {
     throw new Error('GA4 promotion requires FIREBASE_SERVICE_ACCOUNT_JSON or GOOGLE_APPLICATION_CREDENTIALS');
   }
 
-  const read = runGa4Command([]);
+  const read = runGa4Command(TARGET_ARGS);
   validateReadPlan(read);
-  const applied = runGa4Command(['--apply']);
+  const applied = runGa4Command([...TARGET_ARGS, '--apply']);
   validateAppliedPlan(applied);
 
   writeReport(output, sanitizePromotionReport({ issueNumber, read, applied }));
