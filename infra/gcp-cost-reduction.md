@@ -38,37 +38,32 @@ application document-recheck endpoint uses generation/hash metadata to return
 
 ## Cloud Functions v2 source bucket
 
-Before this change, `gcf-v2-sources-957502085858-europe-west6` had Object
+The bucket `gcf-v2-sources-957502085858-europe-west6` initially had Object
 Versioning enabled, a Delete rule for `isLive=false` and
-`numNewerVersions=3`, and a seven-day soft-delete window. The updated rule
-makes every noncurrent generation eligible for deletion; it does not retain
-the latest noncurrent generation. The live generation remains outside the rule,
-and deleted noncurrent generations remain recoverable in the seven-day
-soft-delete window. Cloud Run functions build source into a container image
-before serving it
-([build process](https://docs.cloud.google.com/functions/docs/building)); the
-serving revision runs that image. `isLive=false` excludes the current Cloud
-Storage generation, while `numNewerVersions=1` matches every noncurrent
-generation because each has at least the live generation newer than it
-([lifecycle conditions](https://docs.cloud.google.com/storage/docs/lifecycle)).
-Before changing the rule, a read-only check found 114 functions in
-`europe-west6`; all had `allTrafficOnLatestRevision=true`, and all 114 source
-references matched the current live object generation. No function referenced
-a noncurrent or missing source generation. The seven-day soft-delete window
-remains enabled. A shorter window requires disabling soft delete
-([soft-delete policy](https://docs.cloud.google.com/storage/docs/soft-delete)),
-which is not worth losing that recovery period.
+`numNewerVersions=3`, a seven-day soft-delete window, and metageneration 1.
+A read-only check found 114 functions in `europe-west6`; all had
+`allTrafficOnLatestRevision=true`, and all 114 build source references
+matched the current live object generation. No function referenced a
+noncurrent or missing source generation. Content-wise, changing the rule to
+`numNewerVersions=1` would still leave each live generation outside the
+rule and the soft-delete window intact. A shorter soft-delete window would
+require disabling that recovery period and was not attempted
+([build process](https://docs.cloud.google.com/functions/docs/building),
+[lifecycle conditions](https://docs.cloud.google.com/storage/docs/lifecycle),
+[soft-delete policy](https://docs.cloud.google.com/storage/docs/soft-delete)).
 
-The exact, repeatable update command is:
+The exact trial rule is retained as
+`infra/gcf-v2-sources-lifecycle-experiment.json`. It was applied only after
+a before-description with this command:
 
 ```sh
 gcloud storage buckets update \
   gs://gcf-v2-sources-957502085858-europe-west6 \
   --project=frontaliere-ticino \
-  --lifecycle-file=infra/gcf-v2-sources-lifecycle.json
+  --lifecycle-file=infra/gcf-v2-sources-lifecycle-experiment.json
 ```
 
-Read the bucket policy immediately before and after the update with:
+The read-only description used before and after each trial was:
 
 ```sh
 gcloud storage buckets describe \
@@ -77,23 +72,25 @@ gcloud storage buckets describe \
   --format='json(name,location,versioning_enabled,lifecycle_config,soft_delete_policy,metageneration)'
 ```
 
-Expected before: `numNewerVersions: 3`, versioning enabled, soft delete
-`604800` seconds. Expected after: `numNewerVersions: 1`, with versioning and
-the `604800`-second soft-delete period unchanged. Lifecycle changes can take
-up to 24 hours to take effect; never remove source objects manually.
+The first describe returned metageneration 1, `numNewerVersions=3`,
+versioning enabled, and soft delete `604800` seconds. The first update
+returned metageneration 2 and `numNewerVersions=1`; a subsequent audit event
+from `service-957502085858@gcf-admin-robot.iam.gserviceaccount.com` restored
+`numNewerVersions=3` at metageneration 3. After the Cloud Functions deploy
+completed, a second before-description again showed 3. The same exact update
+briefly set 1 at metageneration 4, then the GCF service agent restored 3 at
+`2026-11-08T20:31:02Z` (metageneration 5). The final describe confirmed
+`numNewerVersions=3`, versioning enabled, and the seven-day soft-delete
+window unchanged.
 
-Applied on 2026-11-08 after the before-description above. The post-update
-description returned `metageneration: 2`, `numNewerVersions: 1`,
-`versioning_enabled: true`, and `soft_delete_policy.retentionDurationSeconds:
-604800`; no objects were deleted by hand. The lifecycle engine may take up to
-24 hours before the retention change reduces stored noncurrent generations.
-The post-update object inventory showed 114 live versions (~0.20 GiB), 137
-active noncurrent versions (~0.23 GiB), and 11,925 already soft-deleted
-objects (~19.77 GiB), about 20.20 GiB total. The reported 32 GiB was not
-confirmed by this inventory. The 19.77 GiB already soft-deleted remains subject
-to its original seven-day expiry; this policy change does not immediately
-reclaim it. No physical storage reduction was observable immediately after the
-update.
+Conclusion: reducing the count is safe for the currently referenced function
+sources, but GCF manages this bucket's lifecycle and restores its default
+rule. Do not keep reapplying the override or disable soft delete; the live
+policy remains the service-managed `numNewerVersions=3`. No objects were
+deleted manually. The inventory during the first trial found 114 live versions
+(~0.20 GiB), 137 active noncurrent versions (~0.23 GiB), and 11,925 already
+soft-deleted objects (~19.77 GiB), about 20.20 GiB total; the reported 32 GiB
+was not confirmed. There is no persistent storage reduction from this trial.
 
 ## Firestore retention candidates
 
@@ -140,3 +137,12 @@ gcloud firestore indexes fields describe expiresAt \
   --project=frontaliere-ticino \
   --format=json
 ```
+
+After merge, the Firestore indexes and Cloud Functions deploy workflows both
+completed successfully. The live `expiresAt` description returned
+`ttlConfig.state=ACTIVE`; the initial list before deploy showed no policy for
+this field. The
+`events.alert_id` field description returned both `COLLECTION` and
+`COLLECTION_GROUP` indexes in `READY` state. The production TTL applies only to
+the ephemeral delivery-claim collection described above; no TTL was added to
+business collections.
