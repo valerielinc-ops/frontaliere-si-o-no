@@ -158,7 +158,7 @@ env:
   # Riaperto il 2026-10-24 per la campagna «durata del deploy al minimo»: ogni
   # ottimizzazione di build/publish va misurata qui sul proprio branch (wall
   # time per plugin, picco memoria, byte-identità) prima del merge.
-  EXPERIMENT_EXPIRES_ON: '2026-11-07'
+  EXPERIMENT_EXPIRES_ON: '2026-11-10'
 
 # Gruppo STABILE PER BRANCH, mai `github.run_id`: al più un run vivo per ref
 # (vedi «BUDGET DI CAPACITÀ» in testa al file). Un solo gruppo globale faceva sì
