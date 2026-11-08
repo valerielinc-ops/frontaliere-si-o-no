@@ -1,7 +1,7 @@
 {
   "key": "engadin-tourismus",
   "label": "Engadin Tourismus AG",
-  "generatedAt": "2026-11-07T21:22:09.276Z",
+  "generatedAt": "2026-11-08T09:16:19.931Z",
   "total": 2,
   "discovered": null,
   "parsed": 2,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 4109,
-  "avgDurationMs": 4109,
+  "durationMs": 4432,
+  "avgDurationMs": 4432,
   "durationHistory": [
-    4109
+    4432
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -52,7 +52,7 @@
       "applyUrl": "https://www.engadintourismus.ch/ueber-uns/jobs/jobs/praktikantin-tourismus-100-m-w-d",
       "source": "Engadin Tourismus Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-07T21:21:52.706Z",
+      "crawledAt": "2026-11-08T09:15:57.999Z",
       "firstSeenAt": "2026-10-15T21:23:05.663Z",
       "salaryMin": 49500,
       "salaryMax": 62000,
@@ -71,7 +71,7 @@
       },
       "streetAddress": "Via Maistra 1",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-14T21:21:52.706Z",
+      "validThrough": "2027-01-14T09:15:57.999Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -108,7 +108,7 @@
       "applyUrl": "https://www.engadintourismus.ch/ueber-uns/jobs/jobs/mitarbeiter-in-human-resources-80-100",
       "source": "Engadin Tourismus Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-07T21:21:52.474Z",
+      "crawledAt": "2026-11-08T09:15:57.719Z",
       "needsRetranslation": true,
       "firstSeenAt": "2026-09-29T21:19:13.663Z",
       "salaryMin": 57500,
@@ -128,7 +128,7 @@
       },
       "streetAddress": "Via Maistra 1",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-28T21:21:52.474Z",
+      "validThrough": "2026-12-29T09:15:57.719Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -139,5 +139,5 @@
       }
     }
   ],
-  "codeCommit": "f149ed523035737e5146c13e7338b8dd6b0c5f04"
+  "codeCommit": "b019e69684c909d5fd747961cb84c9c400bc8446"
 }

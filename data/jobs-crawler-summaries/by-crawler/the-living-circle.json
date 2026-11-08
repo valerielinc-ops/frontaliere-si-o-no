@@ -1,19 +1,21 @@
 {
   "key": "the-living-circle",
   "label": "livingcircle",
-  "generatedAt": "2026-11-07T21:16:55.621Z",
+  "generatedAt": "2026-11-08T09:15:24.914Z",
   "total": 30,
   "newCount": 0,
-  "updatedCount": 1,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 29,
-  "durationMs": 1538,
-  "avgDurationMs": 1538,
+  "unchangedCount": 30,
+  "durationMs": 2627,
+  "avgDurationMs": 2627,
   "durationHistory": [
-    1538
+    2627
   ],
   "newJobs": [],
-  "updatedJobs": [
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "title": "Lehrstelle als Fachfrau/-mann Hotellerie-Hauswirtschaft EFZ",
       "slug": "apprendistato-come-fachfrau-mann-hotellerie-hauswirtschaft-cfc-the-living-circle-zurich",
@@ -55,10 +57,7 @@
         "translation": 25,
         "completeness": 25
       }
-    }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": [
+    },
     {
       "title": "Demi Chef de Partie Restaurant Buech 80-100% (all genders)",
       "slug": "demi-chef-de-partie-restaurant-buech-80-100-tutti-i-generi-the-living-circle-zurich",
@@ -1289,5 +1288,5 @@
       }
     }
   ],
-  "codeCommit": "f149ed523035737e5146c13e7338b8dd6b0c5f04"
+  "codeCommit": "b019e69684c909d5fd747961cb84c9c400bc8446"
 }
