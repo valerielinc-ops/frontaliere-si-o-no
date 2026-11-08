@@ -324,6 +324,7 @@ jobs:
             /scripts/lib/jobBoardSections.mjs
             /scripts/lib/professionLandingsSections.mjs
             /scripts/lib/salaryProfessionSections.mjs
+            /data/profession-landing-routes.json
             /scripts/lib/meta-description-extract.mjs
             /scripts/lib/bounded-response-body.mjs
             /build-plugins/shared/fuelRouteSlugs.mjs
@@ -340,7 +341,6 @@ jobs:
             /data/blog-articles-data.ts
             /data/swiss-articles-data.ts
             /data/swiss-article-canonical-overrides.json
-            /data/profession-landing-routes.json
           sparse-checkout-cone-mode: false
 
       - name: Setup Node.js
@@ -411,6 +411,7 @@ jobs:
             /scripts/lib/jobBoardSections.mjs
             /scripts/lib/professionLandingsSections.mjs
             /scripts/lib/salaryProfessionSections.mjs
+            /data/profession-landing-routes.json
             /scripts/lib/meta-description-extract.mjs
             /scripts/lib/bounded-response-body.mjs
             /build-plugins/shared/fuelRouteSlugs.mjs
@@ -427,7 +428,6 @@ jobs:
             /data/blog-articles-data.ts
             /data/swiss-articles-data.ts
             /data/swiss-article-canonical-overrides.json
-            /data/profession-landing-routes.json
           sparse-checkout-cone-mode: false
 
       - name: Setup Node.js
@@ -508,6 +508,7 @@ jobs:
             /scripts/lib/jobBoardSections.mjs
             /scripts/lib/professionLandingsSections.mjs
             /scripts/lib/salaryProfessionSections.mjs
+            /data/profession-landing-routes.json
             /scripts/lib/meta-description-extract.mjs
             /scripts/lib/bounded-response-body.mjs
             /build-plugins/shared/fuelRouteSlugs.mjs
@@ -524,7 +525,6 @@ jobs:
             /data/blog-articles-data.ts
             /data/swiss-articles-data.ts
             /data/swiss-article-canonical-overrides.json
-            /data/profession-landing-routes.json
           sparse-checkout-cone-mode: false
 
       - name: Setup Node.js
@@ -606,6 +606,7 @@ jobs:
             /scripts/lib/jobBoardSections.mjs
             /scripts/lib/professionLandingsSections.mjs
             /scripts/lib/salaryProfessionSections.mjs
+            /data/profession-landing-routes.json
             /scripts/lib/meta-description-extract.mjs
             /scripts/lib/bounded-response-body.mjs
             /build-plugins/shared/fuelRouteSlugs.mjs
@@ -622,7 +623,6 @@ jobs:
             /data/blog-articles-data.ts
             /data/swiss-articles-data.ts
             /data/swiss-article-canonical-overrides.json
-            /data/profession-landing-routes.json
           sparse-checkout-cone-mode: false
 
       - name: Setup Node.js
@@ -699,9 +699,9 @@ jobs:
             /scripts/lib/jobBoardSections.mjs
             /scripts/lib/professionLandingsSections.mjs
             /scripts/lib/salaryProfessionSections.mjs
+            /data/profession-landing-routes.json
             /scripts/lib/meta-description-extract.mjs
             /scripts/lib/bounded-response-body.mjs
-            /data/profession-landing-routes.json
             /build-plugins/shared/fuelRouteSlugs.mjs
             /scripts/lib/articleSections.mjs
             /scripts/lib/eventsSections.mjs
