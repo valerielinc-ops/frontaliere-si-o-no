@@ -461,7 +461,7 @@ function loadJson(p) {
  * artifact change must return to the unverified state until the provenance
  * verifier runs again.
  */
-function preserveSourceCommitVerification(contract, contractPath) {
+export function preserveSourceCommitVerification(contract, contractPath) {
   if (!contractPath || !fs.existsSync(contractPath)) return contract;
 
   let existing;
