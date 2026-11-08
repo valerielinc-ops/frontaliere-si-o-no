@@ -22,7 +22,28 @@ import {
   buildLocalePathsForCanton,
   buildLocalePathsForJob,
   fillMissingLocalePaths,
+  measureSerializedJsonObjectLength,
 } from '../scripts/mine-all-job-slugs.mjs';
+
+describe('measureSerializedJsonObjectLength', () => {
+  it('matches JSON.stringify length without serializing the whole registry', () => {
+    const registry = Object.create(null);
+    registry['offre-\"café'] = {
+      it: '/cerca-lavoro-zurigo/offre-\"café',
+      en: '/en/find-jobs-zurich/offer-\nengineer',
+      _gitOnly: true,
+    };
+    registry['second-slug'] = { de: '/de/jobs-im-tessin/second-slug', fr: undefined };
+    const expectedLength = JSON.stringify(registry).length;
+    Object.defineProperty(registry, 'toJSON', {
+      value() {
+        throw new Error('must not serialize the complete registry');
+      },
+    });
+
+    expect(measureSerializedJsonObjectLength(registry)).toBe(expectedLength);
+  });
+});
 
 describe('buildLocalePathsForCanton — base resolver (#4593 sanity)', () => {
   it('resolves all 4 locales to a non-TI canton section for a resolvable canton', () => {
