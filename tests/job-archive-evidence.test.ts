@@ -164,11 +164,13 @@ describe('recorded versus URL-inferred job identity', () => {
   });
   it.each(['it', 'en', 'de', 'fr'])('forces unverified %s pages out of the index regardless of generic word count', (locale) => {
     const source = fs.readFileSync('build-plugins/jobsSeoPagesPlugin.ts', 'utf8');
-    const start = source.indexOf('let expiredRobotsTag: string;');
+    const bodyStart = source.indexOf('let expiredRobotsTag: string;');
+    const start = source.indexOf('if (!hasRealTitle) {', bodyStart);
     const end = source.indexOf("recordPhase('ejp:wc-robots'", start);
-    expect(start).toBeGreaterThan(-1);
+    expect(bodyStart).toBeGreaterThan(-1);
+    expect(start).toBeGreaterThan(bodyStart);
     expect(end).toBeGreaterThan(start);
-    const code = ts.transpileModule(source.slice(start, end) + '\nreturn { tag: expiredRobotsTag, words: itBodyWordCount };', {
+    const code = ts.transpileModule(`let expiredRobotsTag: string;\n${source.slice(start, end)}\nreturn { tag: expiredRobotsTag, words: itBodyWordCount };`, {
       compilerOptions: { target: ts.ScriptTarget.ES2022, module: ts.ModuleKind.ESNext },
     }).outputText;
     const execute = new Function('hasRealTitle', 'expiredDemandIndexable', 'locale', 'countHtmlBodyWords', 'robotsMetaForContent', 'staticBody', 'MIN_INDEXABLE_WORDS', 'ROBOTS_INDEX_ENHANCED', 'ROBOTS_NOINDEX_FOLLOW', 'itBodyWordCount', code);
