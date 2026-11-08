@@ -337,6 +337,43 @@ describe('expanded plate-auction connectors', () => {
     expect(validatePlateAuction(row)).toEqual([]);
   });
 
+  it('parses the French VD card deadline so an ended round can be archived', () => {
+    const sourceDate = new Date(Date.now() + 24 * 60 * 60 * 1000);
+    const sourceParts = Object.fromEntries(new Intl.DateTimeFormat('fr-FR', {
+      timeZone: 'Europe/Zurich',
+      day: 'numeric',
+      month: 'short',
+      year: 'numeric',
+      hour: '2-digit',
+      minute: '2-digit',
+      second: '2-digit',
+      hourCycle: 'h23',
+    }).formatToParts(sourceDate).filter(({ type }) => type !== 'literal').map(({ type, value }) => [type, value]));
+    const cardDate = `${sourceParts.day} ${sourceParts.month} ${sourceParts.year}, ${sourceParts.hour}:${sourceParts.minute}:${sourceParts.second}`;
+    const html = `<a href="/fr/auction/123" class="auction-element-link">
+      <figure title="VD 10602"><figcaption>VD 10602</figcaption></figure>
+      <div class="auction-current-bid">CHF&nbsp;500</div>
+      <div class="auction-element-text"><div class="auction-number-bids">1 Offre</div>
+        <div class="auction-ends-at-text">Fin</div><div>${cardDate}</div>
+      </div>
+    </a>`;
+
+    const [row] = parseExpandedCard('vd', html);
+    expect(row).toMatchObject({ id: 'vd-123', normalizedPlate: 'VD10602' });
+    expect(row.endsAt).toBeDefined();
+    const parsedParts = Object.fromEntries(new Intl.DateTimeFormat('fr-FR', {
+      timeZone: 'Europe/Zurich',
+      day: 'numeric',
+      month: 'short',
+      year: 'numeric',
+      hour: '2-digit',
+      minute: '2-digit',
+      second: '2-digit',
+      hourCycle: 'h23',
+    }).formatToParts(new Date(row.endsAt)).filter(({ type }) => type !== 'literal').map(({ type, value }) => [type, value]));
+    expect(parsedParts).toMatchObject(sourceParts);
+  });
+
   it('accepts only the complete ZH no-results shell as an explicit empty catalogue', () => {
     const empty = parseZhAuctions(ZH_EMPTY_SAMPLE, { fetchedAt: '2026-10-15T01:20:18.887Z' });
     expect(empty).toHaveLength(0);
