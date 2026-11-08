@@ -295,13 +295,6 @@
     { "collectionGroup": "events", "fieldPath": "maileroo_event", "indexes": [] },
     {
       "collectionGroup": "events",
-      "fieldPath": "alert_id",
-      "indexes": [
-        { "order": "ASCENDING", "queryScope": "COLLECTION_GROUP" }
-      ]
-    },
-    {
-      "collectionGroup": "events",
       "fieldPath": "message_id",
       "indexes": [
         { "order": "ASCENDING", "queryScope": "COLLECTION_GROUP" }

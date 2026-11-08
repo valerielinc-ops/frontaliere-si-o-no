@@ -105,21 +105,59 @@ function memoryDb() {
       docs.set(path, options?.merge ? { ...(docs.get(path) || {}), ...data } : data);
     },
   });
+  const fieldValue = (data: Record<string, any>, field: string) => field.split('.').reduce((value, part) => value?.[part], data);
+  const comparable = (value: unknown) => value instanceof Date ? value.getTime() : value;
+  class CollectionGroupQuery {
+    constructor(
+      private name: string,
+      private filters: Array<{ field: string; operator: string; value: unknown }> = [],
+      private pageSize = Number.POSITIVE_INFINITY,
+      private afterPath: string | null = null,
+    ) {}
+
+    where(field: string, operator: string, value: unknown) {
+      return new CollectionGroupQuery(this.name, [...this.filters, { field, operator, value }], this.pageSize, this.afterPath);
+    }
+
+    orderBy() {
+      return this;
+    }
+
+    limit(pageSize: number) {
+      return new CollectionGroupQuery(this.name, this.filters, pageSize, this.afterPath);
+    }
+
+    startAfter(document: { ref: { path: string } }) {
+      return new CollectionGroupQuery(this.name, this.filters, this.pageSize, document.ref.path);
+    }
+
+    async get() {
+      let rows = [...docs.keys()]
+        .filter((path) => path.startsWith(`${this.name}/`))
+        .map((path) => ({ path, data: docs.get(path) || {} }))
+        .filter(({ data }) => this.filters.every(({ field, operator, value }) => {
+          const actual = fieldValue(data, field);
+          if ((actual instanceof Date) !== (value instanceof Date) || typeof actual !== typeof value) return false;
+          const left = comparable(actual) as number | string;
+          const right = comparable(value) as number | string;
+          if (operator === '>=') return left >= right;
+          if (operator === '<=') return left <= right;
+          throw new Error(`unexpected collection-group query operator ${operator}`);
+        }));
+      if (this.afterPath) rows = rows.filter(({ path }) => path > this.afterPath!);
+      const page = rows.slice(0, this.pageSize).map(({ path }) => ({
+        ...snapshot(path),
+        ref: { ...ref(path), parent: { id: this.name, parent: null } },
+      }));
+      return { docs: page, size: page.length };
+    }
+  }
   const db = {
     collection: (name: string) => ({
       doc: (id: string) => ref(`${name}/${id}`),
       where: () => ({ get: async () => ({ docs: [] }) }),
     }),
-    collectionGroup: (name: string) => ({
-      get: async () => ({
-        docs: [...docs.keys()]
-          .filter((path) => path.startsWith(`${name}/`))
-          .map((path) => ({
-            ...snapshot(path),
-            ref: { ...ref(path), parent: { id: name, parent: null } },
-          })),
-      }),
-    }),
+    collectionGroup: (name: string) => new CollectionGroupQuery(name),
     // Firestore serializes conflicting transactions; so does this fake.
     async runTransaction(callback: (transaction: any) => Promise<unknown>) {
       const previous = transactionTail;
