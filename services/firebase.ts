@@ -20,6 +20,8 @@ import { isRecaptchaClientReady, type RecaptchaLikeWindow } from './recaptchaRea
 import { setFirebaseApiKey } from './firebaseAuthPersistence';
 import { openIndexedDbWithSchema } from './indexedDbSchema';
 import { isAutomatedAnalyticsVisitor } from './analyticsBotGate';
+import { fetchPublicConfigResponse, getPublicConfigEndpoint } from './publicConfigEndpoint';
+import { PUBLIC_CONFIG_CACHE_TTL_SECONDS } from './publicConfigConstants.mjs';
 
 const firebaseConfig = {
  // Use the default Firebase auth domain (frontaliere-ticino.firebaseapp.com), NOT the
@@ -749,12 +751,74 @@ async function initAppCheck(): Promise<void> {
 // Browser-safe Remote Config: the client fetches only an allowlisted subset of
 // params from the `getPublicConfig` Cloud Function (functions/src/publicConfig.js)
 // instead of Firebase Remote Config's `fetchAndActivate`, which downloaded the
-// ENTIRE template — every server secret included — into the browser.
+// ENTIRE template — every server secret included — into the browser. Production
+// site hosts use the Worker route so the edge can honor the response cache TTL.
 const PUBLIC_CONFIG_ENDPOINT =
- 'https://europe-west6-frontaliere-ticino.cloudfunctions.net/getPublicConfig';
+ getPublicConfigEndpoint();
+const PUBLIC_CONFIG_CACHE_KEY = 'frontaliere.public-config.v1';
+const PUBLIC_CONFIG_CACHE_TTL_MS = PUBLIC_CONFIG_CACHE_TTL_SECONDS * 1000;
 
 let publicConfig: Record<string, string> | null = null;
+let publicConfigFetchedAt = 0;
+let publicConfigFetchPromise: Promise<boolean> | null = null;
 let rcInitPromise: Promise<void> | null = null;
+
+interface CachedPublicConfig {
+ config: Record<string, string>;
+ fetchedAt: number;
+}
+
+function asPublicConfig(value: unknown): Record<string, string> | null {
+ if (!value || typeof value !== 'object' || Array.isArray(value)) return null;
+ return Object.fromEntries(
+  Object.entries(value).filter((entry): entry is [string, string] => typeof entry[1] === 'string'),
+ );
+}
+
+function readSessionPublicConfig(): CachedPublicConfig | null {
+ if (typeof window === 'undefined') return null;
+ try {
+  const raw = window.sessionStorage.getItem(PUBLIC_CONFIG_CACHE_KEY);
+  if (!raw) return null;
+  const cached = JSON.parse(raw) as Partial<CachedPublicConfig>;
+  const config = asPublicConfig(cached.config);
+  const fetchedAt = cached.fetchedAt;
+  const age = Date.now() - Number(fetchedAt);
+  if (
+   !config
+   || !Number.isFinite(fetchedAt)
+   || age < 0
+   || age >= PUBLIC_CONFIG_CACHE_TTL_MS
+   || Object.keys(config).length === 0
+  ) {
+   window.sessionStorage.removeItem(PUBLIC_CONFIG_CACHE_KEY);
+   return null;
+  }
+  return { config, fetchedAt: Number(fetchedAt) };
+ } catch {
+  return null;
+ }
+}
+
+function useFreshPublicConfigCache(): boolean {
+ const age = Date.now() - publicConfigFetchedAt;
+ if (publicConfig && publicConfigFetchedAt > 0 && age >= 0 && age < PUBLIC_CONFIG_CACHE_TTL_MS) return true;
+
+ const cached = readSessionPublicConfig();
+ if (!cached) return false;
+ publicConfig = cached.config;
+ publicConfigFetchedAt = cached.fetchedAt;
+ return true;
+}
+
+function writeSessionPublicConfig(config: Record<string, string>, fetchedAt: number): void {
+ if (typeof window === 'undefined' || Object.keys(config).length === 0) return;
+ try {
+  window.sessionStorage.setItem(PUBLIC_CONFIG_CACHE_KEY, JSON.stringify({ config, fetchedAt } satisfies CachedPublicConfig));
+ } catch {
+  // Storage can be disabled or full; the in-memory and HTTP caches still work.
+ }
+}
 
 /**
  * Carica la configurazione pubblica (allowlist) dalla Cloud Function.
@@ -768,19 +832,7 @@ function initRemoteConfig(): Promise<void> {
 }
 
 async function doInitRemoteConfig(): Promise<void> {
- try {
- const res = await fetch(PUBLIC_CONFIG_ENDPOINT, { credentials: 'omit' });
- if (res.ok) {
- publicConfig = (await res.json()) as Record<string, string>;
- console.log('✅ Public config (allowlist) caricata');
- } else {
- firebaseWarn(`⚠️ getPublicConfig HTTP ${res.status} — uso default locali`);
- }
- } catch (error) {
- firebaseWarn('⚠️ Errore caricamento public config:', error);
- reportCaughtError(error, 'firebase.initRemoteConfig');
- console.log('📌 Utilizzo valori di default locali');
- }
+ await refreshRemoteConfig();
 }
 
 /**
@@ -819,24 +871,49 @@ export async function getPublicConfigValue(key: string): Promise<string | null> 
 }
 
 /**
- * Forza il refresh della configurazione pubblica (bypassa la cache edge).
+ * Aggiorna la configurazione pubblica quando la cache di cinque minuti è
+ * scaduta. La stessa richiesta in volo viene condivisa dai chiamanti.
  */
 export async function refreshRemoteConfig(): Promise<boolean> {
+ if (typeof window === 'undefined') return false;
+ if (useFreshPublicConfigCache()) return true;
+ if (publicConfigFetchPromise) return publicConfigFetchPromise;
+
+ const request = (async () => {
+  try {
+   const res = await fetchPublicConfigResponse(PUBLIC_CONFIG_ENDPOINT);
+   if (!res.ok) {
+    firebaseWarn(`⚠️ getPublicConfig HTTP ${res.status} — uso default locali`);
+    return false;
+   }
+
+   const config = asPublicConfig(await res.json());
+   if (!config) {
+    firebaseWarn('⚠️ getPublicConfig ha restituito una risposta non valida — uso default locali');
+    return false;
+   }
+
+   publicConfig = config;
+   if (Object.keys(config).length > 0) {
+    publicConfigFetchedAt = Date.now();
+    writeSessionPublicConfig(config, publicConfigFetchedAt);
+   } else {
+    publicConfigFetchedAt = 0;
+   }
+   console.log('✅ Public config aggiornata');
+   return true;
+  } catch (error) {
+   firebaseError('❌ Errore refresh public config:', error);
+   reportCaughtError(error, 'firebase.refreshRemoteConfig');
+   return false;
+  }
+ })();
+
+ publicConfigFetchPromise = request;
  try {
- const res = await fetch(`${PUBLIC_CONFIG_ENDPOINT}?t=${Date.now()}`, {
- credentials: 'omit',
- cache: 'no-store',
- });
- if (res.ok) {
- publicConfig = (await res.json()) as Record<string, string>;
- console.log('✅ Public config aggiornata');
- return true;
- }
- return false;
- } catch (error) {
- firebaseError('❌ Errore refresh public config:', error);
- reportCaughtError(error, 'firebase.refreshRemoteConfig');
- return false;
+  return await request;
+ } finally {
+  if (publicConfigFetchPromise === request) publicConfigFetchPromise = null;
  }
 }
 

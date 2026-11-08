@@ -602,8 +602,9 @@ export const myAssistedApplications = onRequest(
 
 // Browser-safe Remote Config: returns ONLY the allowlisted client params
 // (see functions/src/publicConfig.js) so the full RC template — with all server
-// secrets — never reaches the browser. Cached at the edge; fails open to the
-// client's built-in defaults.
+// secrets — never reaches the browser. The production Cloudflare Worker routes
+// /api/public-config/ here and caches successful responses for five minutes.
+// Failures are marked no-store so the edge does not cache the fail-open value.
 export const getPublicConfig = onRequest(
  {
  region: 'europe-west6',
@@ -619,6 +620,7 @@ export const getPublicConfig = onRequest(
  } catch (error) {
  console.error('[getPublicConfig]', error instanceof Error ? error.message : String(error));
  // Fail open: empty object → client uses its built-in defaults.
+ res.set('Cache-Control', 'no-store');
  res.status(200).json({});
  }
  },

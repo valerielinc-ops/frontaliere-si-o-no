@@ -91,7 +91,7 @@
           cardNode.replaceChildren();
           setStatus('Creo un checkout sandbox…');
           try {
-            const publicConfig = await jsonFetch(`${API}/getPublicConfig`);
+            const publicConfig = await jsonFetch('/api/public-config/');
             const merchantId = String(publicConfig.SUMUP_GOOGLE_PAY_MERCHANT_ID || '').trim();
             if (!merchantId) throw new Error('google_pay_merchant_id_missing');
             const checkout = await jsonFetch(`${API}/createSumUpPaymentTestCheckout`, {
