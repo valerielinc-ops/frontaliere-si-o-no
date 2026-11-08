@@ -49,13 +49,36 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Prepare Firebase credentials
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          set -euo pipefail
+          if [ -z "${FIREBASE_SERVICE_ACCOUNT_JSON:-}" ]; then
+            echo "::error::FIREBASE_SERVICE_ACCOUNT_JSON secret is required for the GA4 observation"
+            exit 1
+          fi
+          printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > "$RUNNER_TEMP/firebase-sa.json"
+          chmod 600 "$RUNNER_TEMP/firebase-sa.json"
+          echo "GOOGLE_APPLICATION_CREDENTIALS=$RUNNER_TEMP/firebase-sa.json" >> "$GITHUB_ENV"
+
+      - name: Load GA4 property from Remote Config
+        run: node scripts/load-rc-env.mjs
+
+      - name: Require configured GA4 property
+        run: |
+          set -euo pipefail
+          if [ -z "${GA4_PROPERTY_ID:-}" ]; then
+            echo "::error::GA4_PROPERTY_ID was not loaded from Remote Config"
+            exit 1
+          fi
+
       # This is intentionally a trusted runner step. The Codex fallback keeps
       # both network and service-account credentials out of the model sandbox.
       # The promotion helper performs the read-only plan first, then applies
       # only newsletter_subscribe and login after eventCount > 0 is proven.
       - name: Observe then promote newsletter/login
         env:
-          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
           GA4_PROMOTION_ISSUE_NUMBER: ${{ inputs.issue_number }}
           GA4_PROMOTION_REPORT: ${{ runner.temp }}/ga4-key-events-promotion.json
         run: node scripts/ci/promote-ga4-key-events.mjs

@@ -174,6 +174,8 @@ function main() {
   if (issueNumber !== GA4_PROMOTION_ISSUE_NUMBER) {
     throw new Error(`GA4 promotion is restricted to issue #${GA4_PROMOTION_ISSUE_NUMBER}`);
   }
+  const output = process.env.GA4_PROMOTION_REPORT;
+  if (!output) throw new Error('GA4_PROMOTION_REPORT is required');
   if (!process.env.GOOGLE_APPLICATION_CREDENTIALS && !process.env.FIREBASE_SERVICE_ACCOUNT_JSON) {
     throw new Error('GA4 promotion requires FIREBASE_SERVICE_ACCOUNT_JSON or GOOGLE_APPLICATION_CREDENTIALS');
   }
@@ -183,8 +185,6 @@ function main() {
   const applied = runGa4Command(['--apply']);
   validateAppliedPlan(applied);
 
-  const output = process.env.GA4_PROMOTION_REPORT;
-  if (!output) throw new Error('GA4_PROMOTION_REPORT is required');
   writeReport(output, sanitizePromotionReport({ issueNumber, read, applied }));
   console.log(`GA4 promotion verified for issue #${issueNumber}: ${GA4_PROMOTION_EVENT_NAMES.join(', ')}`);
 }
