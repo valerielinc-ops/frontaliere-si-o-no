@@ -85,6 +85,7 @@ jobs:
             /scripts/lib/githubApiHeaders.mjs
             /scripts/lib/google-service-account-token.mjs
             /scripts/load-rc-env.mjs
+            /scripts/lib/fetch-with-ref-timeout.mjs
           sparse-checkout-cone-mode: false
 
       - name: Prepare Firebase credentials for PAT fallback

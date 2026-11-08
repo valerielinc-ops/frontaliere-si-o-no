@@ -43,6 +43,7 @@ export const NATIVE_AUTOMERGE_HELPER_FILES = Object.freeze([
 export const NATIVE_AUTOMERGE_SOURCE_FILES = Object.freeze([
   'scripts/ci/native-automerge-source.mjs',
   'scripts/load-rc-env.mjs',
+  'scripts/lib/fetch-with-ref-timeout.mjs',
   'scripts/lib/google-service-account-token.mjs',
   ...NATIVE_AUTOMERGE_HELPER_FILES,
   'data/loop-fleet/loop-registry.json',

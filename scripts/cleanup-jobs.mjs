@@ -420,18 +420,17 @@ function archiveExpiredJobs(removedJobs, allJobsById) {
     added++;
   }
 
-  // A repair changes no key, so the counters above stay put: write it out
-  // anyway, otherwise the unorderable value survives to the cap below.
-  if (added === 0 && existing.length === bySlug.size && repaired === 0) return 0;
-
   // Sort by expiredAt descending, cap at EXPIRED_JOBS_CAP.
   // `archiveKey` dedups on companyKey+slug, i.e. the CURRENT slug: two entries
   // whose histories overlap on a locale route still both survive it. Collapse
   // by route before capping so the aggregate never publishes a URL owned twice.
-  let archived = collapseDuplicateRouteEntries(
+  const collapse = collapseDuplicateRouteEntries(
     [...bySlug.values()].sort((a, b) => compareExpiredAt(b.expiredAt, a.expiredAt)),
     { source: 'cleanup-jobs/aggregate' },
-  ).entries;
+  );
+  if (added === 0 && existing.length === bySlug.size && repaired === 0
+    && collapse.collapsed === 0 && collapse.repairedRoutes === 0) return 0;
+  let archived = collapse.entries;
   if (archived.length > EXPIRED_JOBS_CAP) {
     archived = archived.slice(0, EXPIRED_JOBS_CAP);
   }
@@ -476,12 +475,13 @@ function archiveExpiredJobsPerCrawler(removedJobs, allJobsById, crawlerKey) {
     added++;
   }
 
-  if (added === 0 && existing.length === bySlug.size && repaired === 0) return 0;
-
-  const archived = collapseDuplicateRouteEntries(
+  const collapse = collapseDuplicateRouteEntries(
     [...bySlug.values()].sort((a, b) => compareExpiredAt(b.expiredAt, a.expiredAt)),
     { source: 'cleanup-jobs/slice' },
-  ).entries;
+  );
+  if (added === 0 && existing.length === bySlug.size && repaired === 0
+    && collapse.collapsed === 0 && collapse.repairedRoutes === 0) return 0;
+  const archived = collapse.entries;
   writeJson(slicePath, archived);
   return added;
 }
