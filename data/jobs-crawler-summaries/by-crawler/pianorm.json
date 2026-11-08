@@ -1,7 +1,7 @@
 {
   "key": "pianorm",
   "label": "pianorm",
-  "generatedAt": "2026-11-07T21:45:56.440Z",
+  "generatedAt": "2026-11-08T09:40:33.003Z",
   "total": 3,
   "discovered": 4,
   "parsed": 3,
@@ -15,16 +15,17 @@
   "resurrectedJobs": 0,
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
-  "newCount": 2,
-  "updatedCount": 1,
+  "newCount": 0,
+  "updatedCount": 2,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 9845,
-  "avgDurationMs": 9845,
+  "unchangedCount": 1,
+  "durationMs": 8320,
+  "avgDurationMs": 8320,
   "durationHistory": [
-    9845
+    8320
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "pianorm-717860a2d1f6",
       "slug": "projektleiter-avor-m-w-d-100-pianorm-illnau",
@@ -37,7 +38,7 @@
       "url": "https://www.pianorm.ch/job/projektleiter-avor-m-w-100-2-2/",
       "source": "pianorm Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-07T21:45:38.449Z",
+      "crawledAt": "2026-11-08T09:40:19.755Z",
       "addressLocality": "Illnau",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -55,25 +56,24 @@
       "postedDate": "2024-03-13T09:40:45+01:00",
       "postingDateSource": "reported",
       "applyUrl": "https://www.pianorm.ch/job/projektleiter-avor-m-w-100-2-2/",
-      "needsRetranslation": true,
-      "salaryMin": 73500,
-      "salaryMax": 111500,
+      "firstSeenAt": "2026-11-07T21:45:38.449Z",
+      "salaryMin": 101500,
+      "salaryMax": 154000,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-07T21:45:38.449Z",
+      "validThrough": "2026-12-08T09:40:19.755Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-07T21:45:38.449Z",
-      "_qualityScore": 88,
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 16,
+        "translation": 25,
         "completeness": 25
       }
     },
     {
       "id": "pianorm-8acfeebeebdd",
-      "slug": "kalkulator-verkaufer-m-w-100-illnau-pianorm-ch",
+      "slug": "calcolatore-seller-m-f-100-pianorm-illnau",
       "company": "pianorm",
       "companyKey": "pianorm",
       "companyDomain": "pianorm.ch",
@@ -83,7 +83,7 @@
       "url": "https://www.pianorm.ch/job/kalkulator-verkaeufer-m-w-100-2-2-2/",
       "source": "pianorm Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-07T21:45:38.447Z",
+      "crawledAt": "2026-11-08T09:40:19.753Z",
       "addressLocality": "Illnau",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -101,24 +101,24 @@
       "postedDate": "2026-11-04T11:50:28+01:00",
       "postingDateSource": "reported",
       "applyUrl": "https://www.pianorm.ch/job/kalkulator-verkaeufer-m-w-100-2-2-2/",
-      "needsRetranslation": true,
+      "firstSeenAt": "2026-11-07T21:45:38.447Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-02T21:45:38.447Z",
+      "validThrough": "2027-02-03T09:40:19.753Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-07T21:45:38.447Z",
-      "_qualityScore": 88,
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 16,
+        "translation": 25,
         "completeness": 25
       }
     }
   ],
-  "updatedJobs": [
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "pianorm-6c0cc8f2f116",
       "slug": "operatore-trice-di-macchine-o-specialista-della-produzione-m-f-100-pianorm-illnau",
@@ -131,7 +131,7 @@
       "url": "https://www.pianorm.ch/job/cnc-maschinist-m-w-100/",
       "source": "pianorm Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-07T21:45:38.448Z",
+      "crawledAt": "2026-11-08T09:40:19.754Z",
       "addressLocality": "Illnau",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -154,7 +154,7 @@
       "salaryMax": 111500,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-07T21:45:38.448Z",
+      "validThrough": "2026-12-08T09:40:19.754Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -165,7 +165,5 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [],
-  "codeCommit": "f149ed523035737e5146c13e7338b8dd6b0c5f04"
+  "codeCommit": "b019e69684c909d5fd747961cb84c9c400bc8446"
 }
