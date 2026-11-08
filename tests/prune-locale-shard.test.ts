@@ -21,6 +21,12 @@ function makeDist(): string {
   fs.writeFileSync(path.join(d, 'cerca-lavoro', 'job', 'index.html'), '<html></html>');
   fs.mkdirSync(path.join(d, 'assets'), { recursive: true });
   fs.writeFileSync(path.join(d, 'assets', 'a.js'), 'x');
+  for (const loc of ['en', 'de', 'fr']) {
+    fs.writeFileSync(
+      path.join(d, 'assets', `expired-archive-evidence-${loc}.json`),
+      JSON.stringify({ locale: loc }),
+    );
+  }
   fs.writeFileSync(path.join(d, 'sitemap.xml'), '<urlset/>');
   fs.writeFileSync(path.join(d, 'build-id.txt'), 'id');
   return d;
@@ -44,18 +50,33 @@ afterEach(() => {
 });
 
 describe('prune-locale-shard', () => {
-  it('pure locale shard (en) keeps dist/en AND its homepage en.html (#5327)', () => {
+  it('pure locale shard preserves its handoff evidence and prunes unrelated assets', () => {
     // en.html was deleted here — `keep` held the bare directory name, and
     // 'en.html' !== 'en'. push-locale-shard.sh:196 stages it right after this
     // step ("homepage at /{loc}"), so its `[ -f "$dist_dir/$loc.html" ]` could
     // never be true and the shard shipped without it: /en.html → 404 live.
     prune('en', dist);
-    expect(top(dist)).toEqual(['en', 'en.html']);
+    expect(top(dist)).toEqual(['assets', 'en', 'en.html']);
+    expect(fs.readdirSync(path.join(dist, 'assets')).sort()).toEqual([
+      'expired-archive-evidence-en.json',
+    ]);
   });
 
   it('multi locale shard (en,de) keeps both subtrees and both homepages', () => {
     prune('en,de', dist);
-    expect(top(dist)).toEqual(['de', 'de.html', 'en', 'en.html']);
+    expect(top(dist)).toEqual(['assets', 'de', 'de.html', 'en', 'en.html']);
+    expect(fs.readdirSync(path.join(dist, 'assets')).sort()).toEqual([
+      'expired-archive-evidence-de.json',
+      'expired-archive-evidence-en.json',
+    ]);
+  });
+
+  it('still removes assets when no owned handoff evidence exists', () => {
+    for (const loc of ['en', 'de', 'fr']) {
+      fs.rmSync(path.join(dist, 'assets', `expired-archive-evidence-${loc}.json`));
+    }
+    prune('en', dist);
+    expect(top(dist)).toEqual(['en', 'en.html']);
   });
 
   it('main shard (it) drops en/de/fr AND their homepages (#5327)', () => {
@@ -96,6 +117,6 @@ describe('prune-locale-shard', () => {
     // to the EN shard and 404 it on the apex.
     fs.writeFileSync(path.join(dist, 'enigma.html'), '<html></html>');
     prune('en', dist);
-    expect(top(dist)).toEqual(['en', 'en.html']);
+    expect(top(dist)).toEqual(['assets', 'en', 'en.html']);
   });
 });

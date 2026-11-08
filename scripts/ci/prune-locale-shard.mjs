@@ -15,8 +15,9 @@
  * under their `/en` `/de` `/fr` subtrees.
  *   - Shard set INCLUDES `it`  → main shard: keep the root + shared files,
  *     drop only the non-owned locale subtrees (mirrors the deploy.yml strip).
- *   - Shard set EXCLUDES `it`  → pure locale shard: keep ONLY the owned
- *     locale subtree(s) (mirrors `push_shard` copying just `dist/<locale>`).
+ *   - Shard set EXCLUDES `it`  → pure locale shard: keep the owned locale
+ *     subtree(s), homepage(s), 404 fallback, and owned expired-archive
+ *     evidence sidecar required by the deferred publish handoff.
  *
  * Usage: BUILD_LOCALE=en node scripts/ci/prune-locale-shard.mjs [distDir]
  * No-op when BUILD_LOCALE is unset/empty (the default all-locale build).
@@ -75,16 +76,42 @@ if (ownedSet.has('it')) {
   }
 } else {
   // Pure locale shard: keep the owned locale subtree(s) + homepage(s), PLUS
-  // `404.html` (issue #5709). It is locale-agnostic (a static SPA-fallback
+  // `404.html` (issue #5709) and its expired-archive evidence sidecar. The
+  // sidecar is uploaded before this prune and packed into the immutable source
+  // artifact afterward; deleting it here made that pack fail and left a green
+  // build with no source artifact for the publisher gate. `404.html` is
+  // locale-agnostic (a static SPA-fallback
   // page — same content served at the main shard's root) and is the ONLY
   // thing that makes push-locale-shard.sh able to stage it at the shard
   // repo's root; dropping it here left frontaliere-en/de/fr with no 404.html
   // at all, so GitHub Pages served its own generic 404 for every
   // non-prerendered SPA route under /en|/de|/fr instead of rebooting the app.
   const keep = new Set([...owned.flatMap(localeEntries), '404.html']);
+  const keepEvidence = new Set(owned.map((loc) => `expired-archive-evidence-${loc}.json`));
   for (const entry of fs.readdirSync(distDir)) {
     if (keep.has(entry)) continue;
-    rm(path.join(distDir, entry));
+    const target = path.join(distDir, entry);
+    if (entry === 'assets' && fs.existsSync(target) && fs.lstatSync(target).isDirectory()) {
+      const evidence = [];
+      for (const name of keepEvidence) {
+        const assetPath = path.join(target, name);
+        if (fs.existsSync(assetPath) && fs.lstatSync(assetPath).isFile()) {
+          evidence.push([name, fs.readFileSync(assetPath)]);
+        }
+      }
+      fs.rmSync(target, { recursive: true, force: true });
+      if (evidence.length > 0) {
+        fs.mkdirSync(target, { recursive: true });
+        for (const [name, contents] of evidence) {
+          fs.writeFileSync(path.join(target, name), contents);
+        }
+        removed.push(`assets (kept ${evidence.length} handoff sidecar${evidence.length === 1 ? '' : 's'})`);
+      } else {
+        removed.push(path.relative(distDir, target) || target);
+      }
+      continue;
+    }
+    rm(target);
   }
 }
 
