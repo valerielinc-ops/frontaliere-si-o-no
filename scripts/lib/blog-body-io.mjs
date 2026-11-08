@@ -33,6 +33,67 @@ export function bodyDirForSection(section) {
   return section === 'svizzera' ? 'services/locales/blog-body-ch' : 'services/locales/blog-body';
 }
 
+const BODY_KEY_QUOTES = ["'", '"'];
+const BODY_VALUE_QUOTES = new Set(["'", '"', '`']);
+
+/**
+ * Finds the raw value of one generated TypeScript object property.
+ *
+ * The corpus generator emits all three valid TypeScript string-literal forms
+ * over time: single quotes, double quotes, and template literals. A parser
+ * that only accepts the first form silently turns the other two into missing
+ * article sections, making factuality audits report omissions that are not
+ * present in the source.
+ *
+ * @param {string} content raw module source
+ * @param {string} key object property key without quotes
+ * @returns {{raw: string, quote: string}|undefined}
+ */
+function findBodyLiteral(content, key) {
+  for (const keyQuote of BODY_KEY_QUOTES) {
+    const token = `${keyQuote}${key}${keyQuote}`;
+    let from = 0;
+    while (from < content.length) {
+      const start = content.indexOf(token, from);
+      if (start === -1) break;
+
+      let cursor = start + token.length;
+      while (/\s/u.test(content[cursor] || '')) cursor += 1;
+      if (content[cursor] !== ':') {
+        from = start + token.length;
+        continue;
+      }
+
+      cursor += 1;
+      while (/\s/u.test(content[cursor] || '')) cursor += 1;
+      const quote = content[cursor];
+      if (!BODY_VALUE_QUOTES.has(quote)) {
+        from = cursor + 1;
+        continue;
+      }
+
+      const valueStart = cursor + 1;
+      let escaped = false;
+      for (cursor = valueStart; cursor < content.length; cursor += 1) {
+        const character = content[cursor];
+        if (escaped) {
+          escaped = false;
+          continue;
+        }
+        if (character === '\\') {
+          escaped = true;
+          continue;
+        }
+        if (character === quote) {
+          return { raw: content.slice(valueStart, cursor), quote };
+        }
+      }
+      return undefined;
+    }
+  }
+  return undefined;
+}
+
 /**
  * Extracts body1..body20 from a body module's source text, matching the
  * renderer's contiguous body-segment probe.
@@ -46,9 +107,11 @@ export function extractBodies(content, id) {
   if (typeof content !== 'string' || !id) return bodies;
   for (let i = 1; i <= 20; i++) {
     const key = `blog.article.${id}.body${i}`;
-    const pattern = new RegExp(`'${key.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}':\\s*'((?:[^'\\\\]|\\\\.)*)'`, 's');
-    const m = content.match(pattern);
-    if (m) bodies[`body${i}`] = unescapeFromTS(m[1]);
+    const literal = findBodyLiteral(content, key);
+    if (literal) {
+      const field = literal.quote === '`' ? 'template' : 'body';
+      bodies[`body${i}`] = unescapeFromTS(literal.raw, field);
+    }
   }
   return bodies;
 }
@@ -62,9 +125,9 @@ export function readBodies(filePath, id) {
   }
 }
 
-/** Decodes a single-quoted TS string literal body back to plain text. */
-export function unescapeFromTS(s) {
-  return decodeControlEscapesByField(String(s || ''), 'body');
+/** Decodes a TS string literal body back to plain text. */
+export function unescapeFromTS(s, field = 'body') {
+  return decodeControlEscapesByField(String(s || ''), field);
 }
 
 /** Encodes plain text for embedding in a single-quoted TS string literal. */

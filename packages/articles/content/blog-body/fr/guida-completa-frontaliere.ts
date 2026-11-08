@@ -22,48 +22,7 @@ Le phénomène frontalier au Tessin a atteint des dimensions sans précédent. S
 
 La tendance est en hausse constante depuis 2015, portée par l'écart salarial (le ratio salaire CH/IT est d'environ 2,3:1 pour des postes équivalents), la proximité géographique et la qualité de vie dans les provinces frontalières italiennes.`,
 
- 'blog.article.guida-completa-frontaliere.body2': `## Chapitre 1 : La décision — Est-ce avantageux de devenir frontalier ?
-
-La question la plus fréquente est aussi la plus complexe : **est-il financièrement avantageux de travailler en Suisse tout en vivant en Italie ?** La réponse dépend d'au moins six variables : salaire brut, état civil, nombre d'enfants, commune de résidence, coûts de déplacement et taux de change CHF/EUR.
-
-### Permis G vs Permis B : le choix fondamental
-
-Le premier carrefour mène à deux modes de vie radicalement différents :
-
-| Aspect | **Permis G** (frontalier) | **Permis B** (résident) |
-|---|---|---|
-| **Résidence** | Italie (dans la zone frontalière) | Suisse |
-| **Fiscalité** | Impôt à la source CH + IRPEF IT | Fiscalité suisse uniquement |
-| **Coût de la vie** | Italien (moins élevé) | Suisse (plus élevé) |
-| **Déplacements** | Quotidiens, 30-90 min par trajet | Aucun ou courts |
-| **Assurance maladie** | Choix : LAMal ou SSN italien | LAMal obligatoire |
-| **Prévoyance** | AVS + LPP en CH, coordination INPS | AVS + LPP en CH |
-| **Qualité de vie** | Logement italien, salaire suisse | Intégration complète en CH |
-
-Pour une analyse détaillée des différences, consultez notre [comparaison permis G vs B](nav:permit-compare).
-
-### Une simulation rapide
-
-Prenons un cas typique : salaire brut CHF 5 500/mois, personne seule sans enfants, résidant à Côme.
-
-**Avec Permis G (frontalier) :**
-- Cotisations sociales CH (AVS, AC, LPP) : ~CHF 660/mois
-- Impôt à la source Tessin (barème A) : ~CHF 440/mois
-- Net mensuel en CH : ~CHF 4 400
-- IRPEF italienne (avec franchise de €10 000) : ~€280/mois
-- Net final : ~**€3 700/mois** (au taux de 0,94)
-
-**Avec Permis B (résident au Tessin) :**
-- Cotisations sociales CH : ~CHF 660/mois
-- Impôt à la source : ~CHF 440/mois
-- Net mensuel : ~CHF 4 400
-- Loyer studio Lugano : ~CHF 1 200/mois
-- LAMal : ~CHF 380/mois
-- Net après charges fixes : ~**CHF 2 820/mois** (~€2 650)
-
-> « La différence nette entre vivre en Italie et vivre en Suisse, à salaire égal, se situe entre €500 et €1 200 par mois en faveur du frontalier. Mais il faut inclure les frais de déplacement, qui peuvent éroder jusqu'à 40% de cet avantage. » — Dott.ssa Elena Colombo, Experte-comptable spécialisée en fiscalité internationale
-
-Pour calculer votre situation spécifique, utilisez notre [calculateur de salaire net](nav:calculator) qui prend en compte toutes les variables : état civil, enfants, commune de résidence, frais de déplacement et taux de change actuel.`,
+ 'blog.article.guida-completa-frontaliere.body2': `## Chapitre 1 : La décision — Est-ce avantageux de devenir frontalier ?\n\nLa question la plus fréquente est aussi la plus complexe : **est-il financièrement avantageux de travailler en Suisse tout en vivant en Italie ?** La réponse dépend d'au moins six variables : salaire brut, état civil, nombre d'enfants, commune de résidence, coûts de déplacement et taux de change CHF/EUR.\n\n### Permis G vs Permis B : le choix fondamental\n\nLe premier carrefour mène à deux modes de vie radicalement différents :\n\n| Aspect | **Permis G** (frontalier) | **Permis B** (résident) |\n|---|---|---|\n| **Résidence** | Italie (dans la zone frontalière) | Suisse |\n| **Fiscalité** | Impôt à la source CH + IRPEF IT | Fiscalité suisse uniquement |\n| **Coût de la vie** | Italien (moins élevé) | Suisse (plus élevé) |\n| **Déplacements** | Quotidiens, 30-90 min par trajet | Aucun ou courts |\n| **Assurance maladie** | Choix : LAMal ou SSN italien | LAMal obligatoire |\n| **Prévoyance** | AVS + LPP en CH, coordination INPS | AVS + LPP en CH |\n| **Qualité de vie** | Logement italien, salaire suisse | Intégration complète en CH |\n\nPour une analyse détaillée des différences, consultez notre [comparaison permis G vs B](nav:permit-compare).\n\n### Une simulation rapide\n\nPrenons un cas typique : salaire brut CHF 5 500/mois, personne seule sans enfants, résidant à Côme.\n\n**Avec Permis G (frontalier) :**\n- Cotisations sociales CH (AVS, AC, LPP) : ~CHF 660/mois\n- Impôt à la source Tessin (barème A) : ~CHF 440/mois\n- Net mensuel en CH : ~CHF 4 400\n- Le seuil de 10 000 € fixé par l’art. 4 de la loi italienne n° 83/2023 concerne exclusivement les revenus d’emploi perçus de façon continue et exclusive par des résidents d’Italie dans une zone frontalière étrangère ou un pays voisin, visés à l’art. 1, al. 175, de la loi n° 147/2013 ; il ne constitue ni une franchise générale ni une exonération de l’impôt suisse à la source.\n- Net final : ~**€3 700/mois** (au taux de 0,94)\n\n**Avec Permis B (résident au Tessin) :**\n- Cotisations sociales CH : ~CHF 660/mois\n- Impôt à la source : ~CHF 440/mois\n- Net mensuel : ~CHF 4 400\n- Loyer studio Lugano : ~CHF 1 200/mois\n- LAMal : ~CHF 380/mois\n- Net après charges fixes : ~**CHF 2 820/mois** (~€2 650)\n\n> « La différence nette entre vivre en Italie et vivre en Suisse, à salaire égal, se situe entre €500 et €1 200 par mois en faveur du frontalier. Mais il faut inclure les frais de déplacement, qui peuvent éroder jusqu'à 40% de cet avantage. » — Dott.ssa Elena Colombo, Experte-comptable spécialisée en fiscalité internationale\n\nPour calculer votre situation spécifique, utilisez notre [calculateur de salaire net](nav:calculator) qui prend en compte toutes les variables : état civil, enfants, commune de résidence, frais de déplacement et taux de change actuel.`,
 
  'blog.article.guida-completa-frontaliere.body3': `## Chapitre 2 : Trouver un emploi au Tessin
 
@@ -151,55 +110,7 @@ Le permis G se renouvelle automatiquement tous les 5 ans, à condition qu'un rap
 
 Pour en savoir plus sur les protections en cas de chômage, consultez notre [guide du chômage pour frontaliers](nav:unemployment).`,
 
- 'blog.article.guida-completa-frontaliere.body5': `## Chapitre 4 : Fiscalité — Le cœur du sujet
-
-La fiscalité est l'aspect le plus complexe et le plus important pour un frontalier. Depuis 2023, le régime fiscal a radicalement changé avec l'entrée en vigueur du **Nouvel Accord Italie-Suisse sur l'imposition des frontaliers**.
-
-### L'ancien régime (travailleurs avant juillet 2023)
-
-Ceux qui ont commencé à travailler comme frontaliers **avant le 17 juillet 2023** bénéficient d'un régime transitoire valable jusqu'en 2033 :
-
-- **Impôt à la source suisse uniquement** (pas d'imposition en Italie)
-- L'impôt à la source est retenu par l'employeur
-- 40% de l'impôt à la source est rétrocédé aux communes frontalières italiennes (les fameux **ristorni**)
-- Aucune obligation de déclaration fiscale en Italie pour les revenus du travail en Suisse
-
-### Le Nouvel Accord 2020 (travailleurs à partir du 17 juillet 2023)
-
-Pour les **nouveaux frontaliers** (engagés à partir du 17 juillet 2023), le régime est radicalement différent :
-
-| Élément | Détail |
-|---|---|
-| **Impôt à la source CH** | Retenu par l'employeur, taux progressif par canton |
-| **Imposition en Italie** | Le revenu suisse doit être déclaré en Italie |
-| **Franchise** | Exonération de €10 000 pour éviter la double imposition |
-| **Crédit d'impôt** | L'impôt payé en CH est déduit de l'IRPEF italienne |
-| **Ristorni** | Supprimés pour les nouveaux frontaliers |
-
-### L'impôt à la source au Tessin : barèmes A, B, C, H
-
-L'impôt cantonal à la source est appliqué selon l'état civil et la situation familiale :
-
-- **Barème A** : Personne seule sans enfants
-- **Barème B** : Marié(e), conjoint non actif ou revenu inférieur
-- **Barème C** : Marié(e), les deux conjoints travaillent
-- **Barème H** : Famille monoparentale
-
-Le taux est progressif et varie de 2,5% (bas revenus) à plus de 30% (revenus supérieurs à CHF 15 000/mois). Il comprend l'impôt fédéral, cantonal et communal.
-
-### La déclaration d'impôts en Italie
-
-Pour les nouveaux frontaliers, la déclaration d'impôts devient obligatoire :
-
-1. **Convertir le revenu** de CHF en EUR au taux moyen annuel (publié par l'Agenzia delle Entrate)
-2. **Appliquer la franchise** de €10 000 (déduction du revenu imposable)
-3. **Calculer l'IRPEF** selon les tranches italiennes 2026 (23% jusqu'à €28 000, 33% jusqu'à €50 000, 43% au-delà)
-4. **Déduire le crédit d'impôt** pour les impôts payés en Suisse
-5. **Ajouter les surtaxes** régionales et communales
-
-> « Avec le Nouvel Accord, la planification fiscale devient fondamentale. Un frontalier qui n'optimise pas sa situation peut payer jusqu'à 15% d'impôts en plus par rapport à celui qui planifie correctement. La clé est de comprendre l'interaction entre franchise, crédit d'impôt et déductions italiennes. » — Dott.ssa Elena Colombo, Experte-comptable spécialisée en fiscalité internationale
-
-Pour simuler votre situation fiscale complète — ancien et nouveau régime — utilisez notre [calculateur fiscal](nav:calculator), qui applique les barèmes 2026 mis à jour et calcule automatiquement IRPEF, crédit d'impôt et net final. Pour la déclaration annuelle, consultez le [guide de la déclaration d'impôts](nav:tax-return) et le [calendrier fiscal](nav:calendar) pour ne manquer aucune échéance.`,
+ 'blog.article.guida-completa-frontaliere.body5': `## Chapitre 4 : Fiscalité — Le cœur du sujet\n\nLa fiscalité est l'aspect le plus complexe et le plus important pour un frontalier. Depuis 2023, le régime fiscal a radicalement changé avec l'entrée en vigueur du **Nouvel Accord Italie-Suisse sur l'imposition des frontaliers**.\n\n### L'ancien régime (travailleurs avant juillet 2023)\n\nCeux qui ont commencé à travailler comme frontaliers **avant le 17 juillet 2023** restent dans le régime de l'art. 9 de l'Accord :\n\n- **Impôt à la source suisse uniquement** (pas d'imposition en Italie)\n- L'impôt à la source est retenu par l'employeur\n- 40% de l'impôt à la source est rétrocédé aux communes frontalières italiennes (les fameux **ristorni**)\n- Aucune obligation de déclaration fiscale en Italie pour les revenus du travail en Suisse\n\n### Le Nouvel Accord 2020 (travailleurs à partir du 17 juillet 2023)\n\nPour les **nouveaux frontaliers** (engagés à partir du 17 juillet 2023), le régime est radicalement différent :\n\n| Élément | Détail |\n|---|---|\n| **Impôt à la source CH** | Retenu par l'employeur, taux progressif par canton |\n| **Imposition en Italie** | Le revenu suisse doit être déclaré en Italie |\n| **Franchise** | Exonération de €10 000 pour éviter la double imposition |\n| **Crédit d'impôt** | L'impôt payé en CH est déduit de l'IRPEF italienne |\n| **Ristorni** | Supprimés pour les nouveaux frontaliers | Le seuil de 10 000 € fixé par l’art. 4 de la loi italienne n° 83/2023 concerne exclusivement les revenus d’emploi perçus de façon continue et exclusive par des résidents d’Italie dans une zone frontalière étrangère ou un pays voisin, visés à l’art. 1, al. 175, de la loi n° 147/2013 ; il ne constitue ni une franchise générale ni une exonération de l’impôt suisse à la source.\n\n### L'impôt à la source au Tessin : barèmes A, B, C, H\n\nL'impôt cantonal à la source est appliqué selon l'état civil et la situation familiale :\n\n- **Barème A** : Personne seule sans enfants\n- **Barème B** : Marié(e), conjoint non actif ou revenu inférieur\n- **Barème C** : Marié(e), les deux conjoints travaillent\n- **Barème H** : Famille monoparentale\n\nLe taux est progressif et varie de 2,5% (bas revenus) à plus de 30% (revenus supérieurs à CHF 15 000/mois). Il comprend l'impôt fédéral, cantonal et communal.\n\n### La déclaration d'impôts en Italie\n\nPour les nouveaux frontaliers, la déclaration d'impôts devient obligatoire :\n\n1. **Convertir le revenu** de CHF en EUR au taux moyen annuel (publié par l'Agenzia delle Entrate)\n2. Le seuil de 10 000 € fixé par l’art. 4 de la loi italienne n° 83/2023 concerne exclusivement les revenus d’emploi perçus de façon continue et exclusive par des résidents d’Italie dans une zone frontalière étrangère ou un pays voisin, visés à l’art. 1, al. 175, de la loi n° 147/2013 ; il ne constitue ni une franchise générale ni une exonération de l’impôt suisse à la source.\n3. **Calculer l'IRPEF** selon les tranches italiennes 2026 (23% jusqu'à €28 000, 33% jusqu'à €50 000, 43% au-delà)\n4. **Déduire le crédit d'impôt** pour les impôts payés en Suisse\n5. **Ajouter les surtaxes** régionales et communales\n\n> « Avec le Nouvel Accord, la planification fiscale devient fondamentale. Un frontalier qui n'optimise pas sa situation peut payer jusqu'à 15% d'impôts en plus par rapport à celui qui planifie correctement. La clé est de comprendre l'interaction entre franchise, crédit d'impôt et déductions italiennes. » — Dott.ssa Elena Colombo, Experte-comptable spécialisée en fiscalité internationale\n\nPour simuler votre situation fiscale complète — ancien et nouveau régime — utilisez notre [calculateur fiscal](nav:calculator), qui applique les barèmes 2026 mis à jour et calcule automatiquement IRPEF, crédit d'impôt et net final. Pour la déclaration annuelle, consultez le [guide de la déclaration d'impôts](nav:tax-return) et le [calendrier fiscal](nav:calendar) pour ne manquer aucune échéance.`,
 
  'blog.article.guida-completa-frontaliere.body6': `## Chapitre 5 : Prévoyance sociale — AVS, LPP et 3e pilier
 
@@ -375,46 +286,9 @@ Le renouvellement est généralement automatique, mais les bonnes pratiques incl
 
 Pour ne manquer aucune échéance, utilisez notre [calendrier fiscal interactif](nav:calendar) qui vous rappelle automatiquement les dates importantes et vous permet d'exporter les échéances dans votre agenda personnel.`,
 
- 'blog.article.guida-completa-frontaliere.body10': `## Questions fréquentes (FAQ)
+ 'blog.article.guida-completa-frontaliere.body10': `## Questions fréquentes (FAQ)\n\n### 1. Puis-je devenir frontalier si j'habite à Milan ?\n\nCela dépend du régime. Sous l'**ancien régime** (avant juillet 2023), la zone frontalière était limitée à 20 km de la frontière. Sous le **Nouvel Accord**, la définition est plus souple mais exige toujours un retour hebdomadaire. Milan (80 km de la frontière) est techniquement en dehors de la zone frontalière traditionnelle, mais avec un contrat à partir de 2023 et la nouvelle réglementation, vous pourriez tout de même être qualifié de « travailleur frontalier » à des fins fiscales si vous faites la navette quotidiennement. Consultez un fiscaliste pour votre cas précis.\n\n### 2. Combien gagne en moyenne un frontalier ?\n\nLe salaire médian des frontaliers au Tessin est de **CHF 5 400/mois brut** (OFS, 2025). Toutefois, la fourchette est large : de CHF 3 800 pour des postes dans le commerce à CHF 9 000+ pour des rôles spécialisés en IT et finance. Utilisez la [comparaison des salaires](nav:salary-compare) pour voir les données de votre secteur.\n\n### 3. Le seuil de 10 000 € fixé par l’art. 4 de la loi italienne n° 83/2023 concerne exclusivement les revenus d’emploi perçus de façon continue et exclusive par des résidents d’Italie dans une zone frontalière étrangère ou un pays voisin, visés à l’art. 1, al. 175, de la loi n° 147/2013 ; il ne constitue ni une franchise générale ni une exonération de l’impôt suisse à la source.\n\nNon. Le seuil de 10 000 € fixé par l’art. 4 de la loi italienne n° 83/2023 concerne exclusivement les revenus d’emploi perçus de façon continue et exclusive par des résidents d’Italie dans une zone frontalière étrangère ou un pays voisin, visés à l’art. 1, al. 175, de la loi n° 147/2013 ; il ne constitue ni une franchise générale ni une exonération de l’impôt suisse à la source. Les frontaliers sous l'ancien régime ne paient pas l'IRPEF en Italie, la franchise ne les concerne donc pas.\n\n### 4. Puis-je déduire les frais de déplacement ?\n\n**En Suisse** : oui, les frais de transport peuvent être déduits de l'impôt à la source (jusqu'à CHF 3 200/an pour les transports publics ; pour les trajets en voiture, le calcul se fait au km). La déduction doit être demandée par une rectification de l'impôt à la source.\n**En Italie** : les frais de déplacement ne sont pas directement déductibles de l'IRPEF, mais ils entrent dans le calcul financier global.\n\n### 5. Que devient ma LPP si je retourne définitivement en Italie ?\n\nSi vous quittez la Suisse pour un pays de l'UE, vous avez deux options pour le 2e pilier :\n- **Laisser le capital** sur un compte de libre passage suisse jusqu'à l'âge de la retraite\n- **Retirer la part surobligatoire** en espèces (la part obligatoire reste en Suisse si le pays de destination dispose d'un système de retraite équivalent — c'est le cas de l'Italie)\n\nDepuis 2025, la jurisprudence a clarifié que le capital LPP obligatoire **ne peut pas être retiré** en espèces lors d'un retour dans un pays UE doté d'un système de prévoyance équivalent. Planifiez à l'avance avec le [planificateur de retraite](nav:pension).\n\n### 6. LAMal ou SSN : puis-je changer d'avis ensuite ?\n\nEn principe, **non**. Le choix fait dans les 3 mois suivant l'embauche est définitif pour toute la durée du contrat avec le même employeur. Cependant, un changement d'employeur (même bref) peut techniquement rouvrir le droit d'option. C'est une zone grise : consultez notre [guide assurance maladie](nav:health).\n\n### 7. Les ristorni seront-ils supprimés ?\n\nPour les frontaliers sous l'**ancien régime**, les ristorni (rétrocession de 40% de l'impôt à la source aux communes frontalières italiennes) sont garantis jusqu'en **2033**, puis seront progressivement réduits. Pour les **nouveaux frontaliers** (à partir de juillet 2023), les ristorni ne s'appliquent pas car le mécanisme fiscal est différent (double imposition avec crédit). Suivez les évolutions avec notre [suivi des ristorni](nav:ristorni).\n\n### 8. Combien de temps faut-il pour obtenir le permis G ?\n\nAvec un contrat de travail signé, le permis G est délivré en **2-4 semaines**. L'employeur se charge généralement de la procédure. À certaines périodes de l'année (septembre, janvier), les délais peuvent s'allonger. Le permis est valable 5 ans et se renouvelle automatiquement.`,
 
-### 1. Puis-je devenir frontalier si j'habite à Milan ?
-
-Cela dépend du régime. Sous l'**ancien régime** (avant juillet 2023), la zone frontalière était limitée à 20 km de la frontière. Sous le **Nouvel Accord**, la définition est plus souple mais exige toujours un retour hebdomadaire. Milan (80 km de la frontière) est techniquement en dehors de la zone frontalière traditionnelle, mais avec un contrat à partir de 2023 et la nouvelle réglementation, vous pourriez tout de même être qualifié de « travailleur frontalier » à des fins fiscales si vous faites la navette quotidiennement. Consultez un fiscaliste pour votre cas précis.
-
-### 2. Combien gagne en moyenne un frontalier ?
-
-Le salaire médian des frontaliers au Tessin est de **CHF 5 400/mois brut** (OFS, 2025). Toutefois, la fourchette est large : de CHF 3 800 pour des postes dans le commerce à CHF 9 000+ pour des rôles spécialisés en IT et finance. Utilisez la [comparaison des salaires](nav:salary-compare) pour voir les données de votre secteur.
-
-### 3. La franchise de €10 000 s'applique-t-elle à tous ?
-
-Non. La franchise de €10 000 s'applique **uniquement aux nouveaux frontaliers** (engagés à partir du 17 juillet 2023). Les frontaliers sous l'ancien régime ne paient pas l'IRPEF en Italie, la franchise ne les concerne donc pas.
-
-### 4. Puis-je déduire les frais de déplacement ?
-
-**En Suisse** : oui, les frais de transport peuvent être déduits de l'impôt à la source (jusqu'à CHF 3 200/an pour les transports publics ; pour les trajets en voiture, le calcul se fait au km). La déduction doit être demandée par une rectification de l'impôt à la source.
-**En Italie** : les frais de déplacement ne sont pas directement déductibles de l'IRPEF, mais ils entrent dans le calcul financier global.
-
-### 5. Que devient ma LPP si je retourne définitivement en Italie ?
-
-Si vous quittez la Suisse pour un pays de l'UE, vous avez deux options pour le 2e pilier :
-- **Laisser le capital** sur un compte de libre passage suisse jusqu'à l'âge de la retraite
-- **Retirer la part surobligatoire** en espèces (la part obligatoire reste en Suisse si le pays de destination dispose d'un système de retraite équivalent — c'est le cas de l'Italie)
-
-Depuis 2025, la jurisprudence a clarifié que le capital LPP obligatoire **ne peut pas être retiré** en espèces lors d'un retour dans un pays UE doté d'un système de prévoyance équivalent. Planifiez à l'avance avec le [planificateur de retraite](nav:pension).
-
-### 6. LAMal ou SSN : puis-je changer d'avis ensuite ?
-
-En principe, **non**. Le choix fait dans les 3 mois suivant l'embauche est définitif pour toute la durée du contrat avec le même employeur. Cependant, un changement d'employeur (même bref) peut techniquement rouvrir le droit d'option. C'est une zone grise : consultez notre [guide assurance maladie](nav:health).
-
-### 7. Les ristorni seront-ils supprimés ?
-
-Pour les frontaliers sous l'**ancien régime**, les ristorni (rétrocession de 40% de l'impôt à la source aux communes frontalières italiennes) sont garantis jusqu'en **2033**, puis seront progressivement réduits. Pour les **nouveaux frontaliers** (à partir de juillet 2023), les ristorni ne s'appliquent pas car le mécanisme fiscal est différent (double imposition avec crédit). Suivez les évolutions avec notre [suivi des ristorni](nav:ristorni).
-
-### 8. Combien de temps faut-il pour obtenir le permis G ?
-
-Avec un contrat de travail signé, le permis G est délivré en **2-4 semaines**. L'employeur se charge généralement de la procédure. À certaines périodes de l'année (septembre, janvier), les délais peuvent s'allonger. Le permis est valable 5 ans et se renouvelle automatiquement.`,
-
- 'blog.article.guida-completa-frontaliere.body11': '## Conclusion : le frontalier comme professionnel binational\n\nÊtre frontalier en 2026 ne signifie pas simplement « travailler en Suisse et vivre en Italie ». C\'est un choix de vie qui exige des **compétences en planification financière, une connaissance réglementaire et une organisation quotidienne** que peu d\'autres travailleurs doivent posséder.\n\nLe frontalier moderne est un **professionnel binational** qui navigue entre deux systèmes fiscaux, deux régimes de prévoyance, deux systèmes de santé et deux marchés. Cette complexité, bien gérée, se traduit en un avantage concurrentiel significatif : des salaires suisses avec un coût de la vie italien, l\'un des systèmes de prévoyance les plus solides au monde et l\'accès à deux marchés du travail.\n\n> « Le frontalier du futur n\'est plus le pendulaire passif des années 1980. C\'est un professionnel conscient qui choisit stratégiquement où vivre, où travailler, où payer ses impôts et où construire sa retraite. Celui qui comprend cette complexité et la gère activement dispose d\'un avantage énorme sur celui qui subit le système. » — Prof. Roberto Bentivoglio, Professeur de droit du travail, USI\n\n### Nos outils pour chaque étape de votre parcours\n\n| Étape | Outil | Lien |\n|---|---|---|\n| **Décision initiale** | Calculateur de salaire net | [Calculer maintenant](nav:calculator) |\n| **Comparaison G vs B** | Comparateur de permis | [Comparer](nav:permit-compare) |\n| **Recherche d\'emploi** | Bourse d\'emploi 4 000+ offres | [Chercher un emploi](nav:jobs) |\n| **Fiscalité** | Simulateur fiscal + calendrier | [Simuler les impôts](nav:calculator) |\n| **Déclaration d\'impôts** | Guide étape par étape | [Lire le guide](nav:tax-return) |\n| **Prévoyance** | Planificateur de retraite | [Planifier](nav:pension) |\n| **3e pilier** | Simulateur d\'investissement | [Simuler](nav:pillar3) |\n| **Assurance** | Comparateur de 14 caisses maladie | [Comparer](nav:health) |\n| **Déplacements** | Calculateur de transport | [Calculer](nav:transport) |\n| **Taux de change** | Convertisseur CHF/EUR en direct | [Surveiller](nav:exchange) |\n| **Banques** | Comparaison des banques frontalières | [Comparer](nav:banks) |\n| **Coût de la vie** | Comparateur CH vs IT | [Comparer](nav:cost-of-living) |\n\n---\n\nCe guide est régulièrement mis à jour pour refléter les modifications réglementaires et fiscales. Dernière mise à jour : juillet 2025. Sources principales : Office fédéral de la statistique (OFS), Secrétariat d\'État aux migrations (SEM), Département des finances et de l\'économie du Canton du Tessin (DFE), Agenzia delle Entrate, INPS, OFSP.\n\n📌 **Ce guide vous a été utile ?** Partagez-le avec d\'autres frontaliers et utilisez nos [outils gratuits](nav:calculator) pour optimiser votre situation. Abonnez-vous à la newsletter hebdomadaire pour recevoir les mises à jour sur la réglementation, le taux de change et les offres d\'emploi.',
+ 'blog.article.guida-completa-frontaliere.body11': '## Conclusion : le frontalier comme professionnel binational\n\nÊtre frontalier en 2026 ne signifie pas simplement « travailler en Suisse et vivre en Italie ». C\'est un choix de vie qui exige des **compétences en planification financière, une connaissance réglementaire et une organisation quotidienne** que peu d\'autres travailleurs doivent posséder.\n\nLe frontalier moderne est un **professionnel binational** qui navigue entre deux systèmes fiscaux, deux régimes de prévoyance, deux systèmes de santé et deux marchés. Cette complexité, bien gérée, se traduit en un avantage concurrentiel significatif : des salaires suisses avec un coût de la vie italien, l\'un des systèmes de prévoyance les plus solides au monde et l\'accès à deux marchés du travail.\n\n> « Le frontalier du futur n\'est plus le pendulaire passif des années 1980. C\'est un professionnel conscient qui choisit stratégiquement où vivre, où travailler, où payer ses impôts et où construire sa retraite. Celui qui comprend cette complexité et la gère activement dispose d\'un avantage énorme sur celui qui subit le système. » — Prof. Roberto Bentivoglio, Professeur de droit du travail, USI\n\n### Nos outils pour chaque étape de votre parcours\n\n| Étape | Outil | Lien |\n|---|---|---|\n| **Décision initiale** | Calculateur de salaire net | [Calculer maintenant](nav:calculator) |\n| **Comparaison G vs B** | Comparateur de permis | [Comparer](nav:permit-compare) |\n| **Recherche d\'emploi** | Bourse d\'emploi 4 000+ offres | [Chercher un emploi](nav:jobs) |\n| **Fiscalité** | Simulateur fiscal + calendrier | [Simuler les impôts](nav:calculator) |\n| **Déclaration d\'impôts** | Guide étape par étape | [Lire le guide](nav:tax-return) |\n| **Prévoyance** | Planificateur de retraite | [Planifier](nav:pension) |\n| **3e pilier** | Simulateur d\'investissement | [Simuler](nav:pillar3) |\n| **Assurance** | Comparateur de 14 caisses maladie | [Comparer](nav:health) |\n| **Déplacements** | Calculateur de transport | [Calculer](nav:transport) |\n| **Taux de change** | Convertisseur CHF/EUR en direct | [Surveiller](nav:exchange) |\n| **Banques** | Comparaison des banques frontalières | [Comparer](nav:banks) |\n| **Coût de la vie** | Comparateur CH vs IT | [Comparer](nav:cost-of-living) |\n\n---\n\nCe guide est régulièrement mis à jour pour refléter les modifications réglementaires et fiscales. Dernière mise à jour : juillet 2025. Sources principales : Office fédéral de la statistique (OFS), Secrétariat d\'État aux migrations (SEM), Département des finances et de l\'économie du Canton du Tessin (DFE), Agenzia delle Entrate, INPS, OFSP.\n\n📌 **Ce guide vous a été utile ?** Partagez-le avec d\'autres frontaliers et utilisez nos [outils gratuits](nav:calculator) pour optimiser votre situation. Abonnez-vous à la newsletter hebdomadaire pour recevoir les mises à jour sur la réglementation, le taux de change et les offres d\'emploi.\n\nSources officielles : [Prévoyance vieillesse (OFAS)](https://www.bsv.admin.ch/fr/prevoyance-vieillesse)',
     'blog.article.guida-completa-frontaliere.faq': '[{"q":"Combien de frontaliers italiens travaillent au Tessin et quel impact ont-ils sur l\'économie ?","a":"Les frontaliers italiens au Tessin sont 79 207 (Q4 2025), représentant 28,3 % de la main-d\' œuvre cantonale. Ce phénomène est un pilier économique, avec une croissance de 15,2% au cours des 5 dernières années, portée par l\'écart salarial et la proximité géographique. Le secteur manufacturier est le plus représenté avec 31 %."},{"q":"Quel est le salaire médian pour un frontalier au Tessin ?","a":"Le salaire médian pour les travailleurs frontaliers au Tessin est de CHF 5.400 par mois, selon le relevé suisse de la structure des salaires. Cette valeur est significativement plus élevée que les salaires italiens, avec un rapport d\'environ 2,3:1 pour des postes équivalents, ce qui rend le travail transfrontalier économiquement avantageux."},{"q":"Quelles sont les principales différences entre le permis G (frontalier) et le permis B (résidant en Suisse) ?","a":"Le permis G prévoit la résidence en Italie et une fiscalité mixte (Suisse + IRPEF italienne), avec des coûts de la vie italiens et des déplacements quotidiens. Le permis B implique la résidence en Suisse, uniquement la fiscalité suisse, les coûts de la vie suisses et pas ou peu de déplacements. L\'assurance maladie diffère également : choix pour G, LAMal obligatoire pour B."},{"q":"Est-il économiquement avantageux de devenir frontalier avec le permis G plutôt que de résider en Suisse avec le permis B ?","a":"Pour un célibataire avec un salaire brut de CHF 5.500/mese, un frontalier avec un permis G résidant à Côme peut obtenir un net final d\'environ € 3.700/mese. Un résident du Tessin avec un permis B, à salaire égal, après loyer et LAMal, aurait environ € 2.650/mese. L\'avantage du frontalier peut varier entre 500 et 1 200 euros par mois, mais les frais de déplacement le réduisent."},{"q":"Quels sont les secteurs d\'activité ayant le plus d\'opportunités pour les frontaliers au Tessin en 2025 ?","a":"Les secteurs avec le plus d\'opportunités au Tessin pour 2025-2026 sont l\'Informatique/IT (22% des offres, CHF 7.200/mese), l\'Industrie manufacturière (18%, CHF 5.100/mese) et la Santé et Pharma (14%, CHF 6.800/mese). La construction montre également une tendance à la hausse."}]',
 };
 
