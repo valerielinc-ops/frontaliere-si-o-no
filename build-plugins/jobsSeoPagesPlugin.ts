@@ -809,6 +809,25 @@ export function titleCompareKey(s: string): string {
  return String(s || '').replace(/\s+/g, ' ').trim().toLowerCase();
 }
 
+/**
+ * Compact fingerprint for the build-lifetime title-uniqueness registry.
+ * Equal normalized titles always have the same fingerprint. A hash collision
+ * can only conservatively add a disambiguator; it cannot let a duplicate pass.
+ */
+function titleCompareFingerprint(s: string): string {
+ const normalized = titleCompareKey(s);
+ let first = 0x811c9dc5;
+ let second = 0x9e3779b9;
+ for (let i = 0; i < normalized.length; i++) {
+  const code = normalized.charCodeAt(i);
+  first ^= code;
+  first = Math.imul(first, 0x01000193) >>> 0;
+  second ^= code;
+  second = Math.imul(second, 0x85ebca6b) >>> 0;
+ }
+ return `${first.toString(16).padStart(8, '0')}${second.toString(16).padStart(8, '0')}`;
+}
+
 /** Compose H1: job title + company only (no city, no brand). */
 export function composeJobPageH1(jobTitle: string, company: string): string {
  const cleanCompany = (company || '').trim();
@@ -2513,6 +2532,15 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  if (ca > 0 && !Number.isNaN(ca)) return ca;
  return 0;
  };
+ const expiredJobRecencyCache = new WeakMap<object, number>();
+ const _expiredJobRecency = (j: any): number => {
+  if (!j || typeof j !== 'object') return _jobRecency(j);
+  const cached = expiredJobRecencyCache.get(j);
+  if (cached !== undefined) return cached;
+  const recency = _jobRecency(j);
+  expiredJobRecencyCache.set(j, recency);
+  return recency;
+ };
 
  let validJobs = jobs
  .filter((j: any) => !isFixtureJob(j))
@@ -3451,6 +3479,8 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  // `claimUniqueTitle` registers every emitted title per locale; on a clash
  // it recomposes with the caller-supplied disambiguator chain, ending in a
  // deterministic `rif. {fnv8(slug)}` + numeric bump that can never collide.
+ // The archive sweep can register close to one million titles; retain compact
+ // fingerprints instead of the full normalized strings in this build-lifetime set.
  const claimedTitlesByLocale: Record<'it' | 'en' | 'de' | 'fr', Set<string>> = {
  it: new Set(), en: new Set(), de: new Set(), fr: new Set(),
  };
@@ -3463,7 +3493,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  ): string => {
  const seen = claimedTitlesByLocale[locale];
  const emittedTitleKey = (candidate: string): string =>
-  titleCompareKey(finalizeJobBoardTitle(candidate, TITLE_MAX_CHARS, (s) => esc(s).length));
+  titleCompareFingerprint(finalizeJobBoardTitle(candidate, TITLE_MAX_CHARS, (s) => esc(s).length));
  let candidate = title;
  let candidateKey = emittedTitleKey(candidate);
  if (seen.has(candidateKey)) {
@@ -13315,8 +13345,8 @@ ${staticAnalyticsHtml}
  // jobs — so the order in which we enter them into the map decides which
  // job's title/description ends up on the soft-landing page at that path).
  expiredJobsData.sort((a, b) => {
- const ta = _jobRecency(a);
- const tb = _jobRecency(b);
+ const ta = _expiredJobRecency(a);
+ const tb = _expiredJobRecency(b);
  if (ta !== tb) return tb - ta;
  return String(a.id || a.slug || '').localeCompare(String(b.id || b.slug || ''));
  });
@@ -13637,9 +13667,12 @@ ${staticAnalyticsHtml}
  // (Hub-pagination compound keys `<hub>/page-N` are removed from `tracking`
  // itself up at the reserved-hub strip block, so both this list AND the
  // self-healing safety-net loop skip them — see HUB_PAGINATION_COMPOUND_KEY_RE.)
- const expiredSlugs = Object.keys(tracking).filter(
- (s) => !bridgeSlugSet.has(s) && !RESERVED_HUB_SLUGS.has(s),
- );
+ const expiredSlugs: string[] = [];
+ for (const slug in tracking) {
+  if (!Object.prototype.hasOwnProperty.call(tracking, slug)) continue;
+  if (bridgeSlugSet.has(slug) || RESERVED_HUB_SLUGS.has(slug)) continue;
+  expiredSlugs.push(slug);
+ }
  // en/de/fr legacy-TI detail paths are deliberately left to the locale-router
  // Worker when the immutable registry still has a native canton path for the
  // same locale+slug. The registry entry may already have been compat-merged,
@@ -14250,7 +14283,7 @@ ${staticAnalyticsHtml}
  const overflowRecency = expiredSliceOverflow?.recency(s);
  if (overflowRecency !== undefined) return overflowRecency;
  const ej = expiredBySlug.get(s);
- return ej ? _jobRecency(ej) : 0;
+ return ej ? _expiredJobRecency(ej) : 0;
  };
  expiredSlugs.sort((a, b) => {
  const ra = _expiredSlugRecency(a);
