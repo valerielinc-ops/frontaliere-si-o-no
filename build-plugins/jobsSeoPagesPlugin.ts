@@ -2513,6 +2513,15 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  if (ca > 0 && !Number.isNaN(ca)) return ca;
  return 0;
  };
+ const expiredJobRecencyCache = new WeakMap<object, number>();
+ const _expiredJobRecency = (j: any): number => {
+  if (!j || typeof j !== 'object') return _jobRecency(j);
+  const cached = expiredJobRecencyCache.get(j);
+  if (cached !== undefined) return cached;
+  const recency = _jobRecency(j);
+  expiredJobRecencyCache.set(j, recency);
+  return recency;
+ };
 
  let validJobs = jobs
  .filter((j: any) => !isFixtureJob(j))
@@ -2687,31 +2696,13 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  .filter((x) => x.length > 2)
  .slice(0, max);
  };
- // WeakMap memoize for cleanItems. Keys on array IDENTITY (not content) so
- // any caller that passes the SAME array reference with the same `max` gets
- // a cache hit. Concrete hit-sources today:
- //   - `hasCanonicalSignal` probe + post-resolve cleanItems on the SAME
- //     `canonicalLocaleRaw.summary` / `.responsibilities` / ... when
- //     `_canonical` is populated (the probe arrays ARE the post-resolve
- //     arrays — same JS reference)
- //   - `requirements` fallback array reused across the locale loop (same
- //     `job.requirements` reference)
- // Misses cost one WeakMap.get + one Map.get (low-ns) so the wrap is safe
- // even when hit rate is low. Counters expose the true hit rate at flush.
- const _cleanItemsCache = new WeakMap<object, Map<number, string[]>>();
- let _cleanItemsHits = 0;
- let _cleanItemsMisses = 0;
+ // Do not memoize normalized items by source-array identity: most corpus
+ // arrays are consumed once, while each cached result duplicates normalized
+ // strings for as long as the source array remains reachable from validJobs.
+ // The full-corpus deploy profile measured only a 1.2% hit rate, so the
+ // retained copies cost substantially more than the work the cache avoids.
  const cleanItems = (value: unknown, max = 10): string[] => {
  if (!Array.isArray(value)) return [];
- const perMax = _cleanItemsCache.get(value as unknown as object);
- if (perMax) {
-   const cached = perMax.get(max);
-   if (cached !== undefined) {
-     _cleanItemsHits += 1;
-     return cached;
-   }
- }
- _cleanItemsMisses += 1;
  const expanded: string[] = [];
  for (const entry of value) {
  const clean = normalizeText(String(entry || ''));
@@ -2731,14 +2722,6 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  out.push(item);
  if (out.length >= max) break;
  }
- // Store result in the per-array cache so repeat calls with the same
- // (array, max) tuple return without re-iterating.
- let cacheMap = _cleanItemsCache.get(value as unknown as object);
- if (!cacheMap) {
-   cacheMap = new Map<number, string[]>();
-   _cleanItemsCache.set(value as unknown as object, cacheMap);
- }
- cacheMap.set(max, out);
  return out;
  };
  const parseCanonicalSections = (value: unknown, max = 8): Array<{ id: string; heading: string; paragraphs: string[]; bullets: string[] }> => {
@@ -13315,8 +13298,8 @@ ${staticAnalyticsHtml}
  // jobs — so the order in which we enter them into the map decides which
  // job's title/description ends up on the soft-landing page at that path).
  expiredJobsData.sort((a, b) => {
- const ta = _jobRecency(a);
- const tb = _jobRecency(b);
+ const ta = _expiredJobRecency(a);
+ const tb = _expiredJobRecency(b);
  if (ta !== tb) return tb - ta;
  return String(a.id || a.slug || '').localeCompare(String(b.id || b.slug || ''));
  });
@@ -13637,9 +13620,12 @@ ${staticAnalyticsHtml}
  // (Hub-pagination compound keys `<hub>/page-N` are removed from `tracking`
  // itself up at the reserved-hub strip block, so both this list AND the
  // self-healing safety-net loop skip them — see HUB_PAGINATION_COMPOUND_KEY_RE.)
- const expiredSlugs = Object.keys(tracking).filter(
- (s) => !bridgeSlugSet.has(s) && !RESERVED_HUB_SLUGS.has(s),
- );
+ const expiredSlugs: string[] = [];
+ for (const slug in tracking) {
+  if (!Object.prototype.hasOwnProperty.call(tracking, slug)) continue;
+  if (bridgeSlugSet.has(slug) || RESERVED_HUB_SLUGS.has(slug)) continue;
+  expiredSlugs.push(slug);
+ }
  // en/de/fr legacy-TI detail paths are deliberately left to the locale-router
  // Worker when the immutable registry still has a native canton path for the
  // same locale+slug. The registry entry may already have been compat-merged,
@@ -13964,7 +13950,27 @@ ${staticAnalyticsHtml}
  };
 
  let expiredCount = 0;
- const expiredSitemapEntries: string[] = [];
+ const EXPIRED_SITEMAP_CHUNK_ENTRIES = 10_000;
+ const expiredSitemapBuffer: string[] = [];
+ const expiredSitemapPath = np.join(distDir, 'sitemap-jobs-expired.xml');
+ const expiredSitemapHeader = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"\n xmlns:xhtml="http://www.w3.org/1999/xhtml">\n`;
+ let expiredSitemapEntryCount = 0;
+ let expiredSitemapInitialized = false;
+ const flushExpiredSitemapBuffer = (): void => {
+  if (expiredSitemapBuffer.length === 0) return;
+  const chunk = `${expiredSitemapBuffer.join('\n')}\n`;
+  if (expiredSitemapInitialized) fs.appendFileSync(expiredSitemapPath, chunk, 'utf-8');
+  else {
+   fs.writeFileSync(expiredSitemapPath, `${expiredSitemapHeader}${chunk}`, 'utf-8');
+   expiredSitemapInitialized = true;
+  }
+  expiredSitemapBuffer.length = 0;
+ };
+ const appendExpiredSitemapEntries = (entries: string[]): void => {
+  for (const entry of entries) expiredSitemapBuffer.push(entry);
+  expiredSitemapEntryCount += entries.length;
+  if (expiredSitemapBuffer.length >= EXPIRED_SITEMAP_CHUNK_ENTRIES) flushExpiredSitemapBuffer();
+ };
 
  // Pre-compute invariant HTML fragments for soft-landing pages (~69K pages).
  // Avoids re-building the same ~2KB of boilerplate for each page.
@@ -14250,7 +14256,7 @@ ${staticAnalyticsHtml}
  const overflowRecency = expiredSliceOverflow?.recency(s);
  if (overflowRecency !== undefined) return overflowRecency;
  const ej = expiredBySlug.get(s);
- return ej ? _jobRecency(ej) : 0;
+ return ej ? _expiredJobRecency(ej) : 0;
  };
  expiredSlugs.sort((a, b) => {
  const ra = _expiredSlugRecency(a);
@@ -15089,8 +15095,8 @@ ${staticAnalyticsHtml}
  expiredSitemapLocales.add(l);
  }
  const lastmod = renderSitemapLastmod(ejData?.expiredAt);
- expiredSitemapEntries.push(
-  ...buildExpiredSitemapClusterEntries(paths, expiredClusterClaim, {
+ appendExpiredSitemapEntries(
+  buildExpiredSitemapClusterEntries(paths, expiredClusterClaim, {
    eligibleLocales: expiredSitemapLocales,
    emitAlternates: expiredClusterHasHreflang,
    hrefFor: (locale) => `${BASE_URL}${withSlash(paths[locale] ?? '')}`,
@@ -15151,7 +15157,7 @@ ${staticAnalyticsHtml}
   sourceSha: process.env.GITHUB_SHA || '',
  });
 
- jobsSeoMemContext.sitemap.expiredEntries = expiredSitemapEntries.length;
+ jobsSeoMemContext.sitemap.expiredEntries = expiredSitemapEntryCount;
  logJobsSeoMem('after-expired-cache-population', {
   expiredCount,
   jobsSeoHtmlGcRuns,
@@ -15160,15 +15166,14 @@ ${staticAnalyticsHtml}
   expiredHtmlCachePeakEntries,
   expiredHtmlCacheChunks,
   expiredHtmlCacheReleasedEntries,
-  expiredSitemapEntries: expiredSitemapEntries.length,
-  sitemapEntries: expiredSitemapEntries.length,
+  expiredSitemapEntries: expiredSitemapEntryCount,
+  sitemapEntries: expiredSitemapEntryCount,
  });
 
  // Write expired jobs sitemap
- if (expiredSitemapEntries.length > 0) {
- const sitemapExpired = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"\n xmlns:xhtml="http://www.w3.org/1999/xhtml">\n${expiredSitemapEntries.join('\n')}\n</urlset>\n`;
- const sitemapExpiredPath = np.join(distDir, 'sitemap-jobs-expired.xml');
- fs.writeFileSync(sitemapExpiredPath, sitemapExpired, 'utf-8');
+ if (expiredSitemapEntryCount > 0) {
+ flushExpiredSitemapBuffer();
+ fs.appendFileSync(expiredSitemapPath, '</urlset>\n', 'utf-8');
 
  // Register in sitemap index
  const sitemapIndexPath = np.join(distDir, 'sitemap.xml');
@@ -15192,12 +15197,12 @@ ${staticAnalyticsHtml}
  await collector.awaitDrainSlot(2);
  }
 
- jobsSeoMemContext.sitemap.expiredEntries = expiredSitemapEntries.length;
- jobsSeoMemContext.sitemap.entries = expiredSitemapEntries.length;
+ jobsSeoMemContext.sitemap.expiredEntries = expiredSitemapEntryCount;
+ jobsSeoMemContext.sitemap.entries = expiredSitemapEntryCount;
  logJobsSeoMem('after-expired-softlandings', {
   expiredCount,
-  expiredSitemapEntries: expiredSitemapEntries.length,
-  sitemapEntries: expiredSitemapEntries.length,
+  expiredSitemapEntries: expiredSitemapEntryCount,
+  sitemapEntries: expiredSitemapEntryCount,
  });
 
  // Last-reader release, proven by the marker immediately above: the expired
@@ -15368,8 +15373,8 @@ ${staticAnalyticsHtml}
  logBuildMem('jobsSeoPages: before-expired-cleanup', collector, jobsSeoMemDetails({
   expiredJobsData: expiredJobsData.length,
   crossLocaleExpiredCount,
-  expiredSitemapEntries: expiredSitemapEntries.length,
-  sitemapEntries: expiredSitemapEntries.length,
+  expiredSitemapEntries: expiredSitemapEntryCount,
+  sitemapEntries: expiredSitemapEntryCount,
  }));
 
  // Cross-locale-expired-bridge was the last reader of the bounded
@@ -15404,8 +15409,8 @@ ${staticAnalyticsHtml}
   expiredCacheEntries: expiredSoftLandingCache.size,
   expiredHtmlCacheChunks,
   expiredHtmlCacheReleasedEntries,
-  expiredSitemapEntries: expiredSitemapEntries.length,
-  sitemapEntries: expiredSitemapEntries.length,
+  expiredSitemapEntries: expiredSitemapEntryCount,
+  sitemapEntries: expiredSitemapEntryCount,
  }));
 
  // This is the last point before the previous-slug peak where `tracking` is
@@ -16127,23 +16132,23 @@ ${staticAnalyticsHtml}
  // pesanti dentro) — i run del 19/20-08 sono morti li' senza una riga [mem]
  // che dicesse dove. Pre-cleanup di proposito, come la coppia di checkpoint
  // del blocco cross-locale-expired (#6139 item 6).
- jobsSeoMemContext.sitemap.entries = sitemapEligibleJobs.length + prevSlugEntries.length + expiredSitemapEntries.length;
+ jobsSeoMemContext.sitemap.entries = sitemapEligibleJobs.length + prevSlugEntries.length + expiredSitemapEntryCount;
  jobsSeoMemContext.sitemap.eligibleJobs = sitemapEligibleJobs.length;
  jobsSeoMemContext.sitemap.previousSlugEntries = prevSlugEntries.length;
- jobsSeoMemContext.sitemap.expiredEntries = expiredSitemapEntries.length;
+ jobsSeoMemContext.sitemap.expiredEntries = expiredSitemapEntryCount;
  logBuildMem('jobsSeoPages: before-active-corpus-release', collector, jobsSeoMemDetails({
   crossLocaleActiveCount: crossLocaleCount,
   sitemapEligibleJobs: sitemapEligibleJobs.length,
   previousSlugEntries: prevSlugEntries.length,
-  expiredSitemapEntries: expiredSitemapEntries.length,
+  expiredSitemapEntries: expiredSitemapEntryCount,
  }));
 
  // Last-reader release, after the existing checkpoint: the cross-locale-active
- // loop above is the final reader of both sets, while the checkpoint itself is
- // the final reader of the sitemap arrays. Keep pathHistory untouched.
+ // loop above is the final reader of both sets. Expired sitemap rows are
+ // streamed to disk during the archive sweep, so no row array remains here.
+ // Keep pathHistory untouched.
  crossLocaleCacheReads.clear();
  emittedActiveJobPaths.clear();
- expiredSitemapEntries.length = 0;
  prevSlugEntries.length = 0;
 
  // `jobHtmlCache` (populated during the ~85k active-job-page render
@@ -16535,13 +16540,6 @@ ${staticAnalyticsHtml}
  const hitPct = total > 0 ? ((_canonicalCleanedHits / total) * 100).toFixed(1) : '0.0';
  console.log(
  `[jobs-seo-profile] canonical-cleaned-cache    hits=${_canonicalCleanedHits} misses=${_canonicalCleanedMisses} hit_rate=${hitPct}% size=${_canonicalCleanedCacheSizeAtEnd} evictions=${_canonicalCleanedEvictions}`,
- );
- }
- {
- const total = _cleanItemsHits + _cleanItemsMisses;
- const hitPct = total > 0 ? ((_cleanItemsHits / total) * 100).toFixed(1) : '0.0';
- console.log(
- `[jobs-seo-profile] cleanItems-cache           hits=${_cleanItemsHits} misses=${_cleanItemsMisses} hit_rate=${hitPct}%`,
  );
  }
  if (PROFILE_RELATED_COMPARE) {
