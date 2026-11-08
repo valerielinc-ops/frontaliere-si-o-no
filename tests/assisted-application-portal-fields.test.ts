@@ -452,7 +452,7 @@ describe('portal field extraction', () => {
     window.close();
   });
 
-  it('keeps Yellowshark consent unresolved if Manage consent remains after a cookie choice', async () => {
+  it('keeps Yellowshark consent unresolved if a different Manage consent remains after a cookie choice', async () => {
     const url = 'https://jobs.yellowshark.com/job/example/';
     let stage = 0;
     const currentSnapshot = () => stage === 0
@@ -469,7 +469,7 @@ describe('portal field extraction', () => {
         url, fields: [],
         buttons: [
           { id: 'apply', text: 'JETZT BEWERBEN', disabled: false, frame: 0 },
-          { id: 'manage-consent', text: 'Manage consent', disabled: false, frame: 0 },
+          { id: 'different-manage-consent', text: 'Manage consent', disabled: false, frame: 0 },
         ],
         dialogs: [], errors: [], captcha: false, passwordVisible: false, text: '',
       };
@@ -489,6 +489,50 @@ describe('portal field extraction', () => {
 
     expect(result.status).toBe('unresolved');
     expect(stage).toBe(1);
+  });
+
+  it('resolves Yellowshark consent when the same Manage consent opener remains after a choice', async () => {
+    const url = 'https://jobs.yellowshark.com/job/example/';
+    let stage = 0;
+    const currentSnapshot = () => {
+      const buttons = stage === 0
+        ? [
+          { id: 'apply', text: 'JETZT BEWERBEN', disabled: false, frame: 0 },
+          { id: 'manage-consent', text: 'Manage consent', disabled: false, frame: 0 },
+        ]
+        : stage === 1
+          ? [
+            { id: 'apply', text: 'JETZT BEWERBEN', disabled: false, frame: 0 },
+            { id: 'manage-consent', text: 'Manage consent', disabled: false, frame: 0 },
+            { id: 'reject', text: 'Reject all cookies', context: 'Cookie preferences', cookieSurface: 'banner', disabled: false, frame: 0 },
+          ]
+          : [
+            { id: 'apply', text: 'JETZT BEWERBEN', disabled: false, frame: 0 },
+            { id: 'manage-consent', text: 'Manage consent', disabled: false, frame: 0 },
+          ];
+      return { url, fields: [], buttons, dialogs: [], errors: [], captcha: false, passwordVisible: false, text: '' };
+    };
+    const frame = {
+      url: () => url,
+      evaluate: vi.fn(async (_evaluateInPage: Function, args: any) => args?.surfacePattern ? false : currentSnapshot()),
+      locator: vi.fn((selector: string) => ({
+        first: () => ({ click: vi.fn(async () => {
+          if (stage === 0) {
+            expect(selector).toBe('[data-aa-id="manage-consent"]');
+            stage = 1;
+          } else {
+            expect(selector).toBe('[data-aa-id="reject"]');
+            stage = 2;
+          }
+        }) }),
+      })),
+    };
+    const page = { url: () => url, frames: () => [frame], waitForTimeout: vi.fn(async () => {}) };
+
+    const result = await dismissCookieBanner(page as any, currentSnapshot() as any);
+
+    expect(result.status).toBe('dismissed');
+    expect(stage).toBe(2);
   });
 
   it('does not borrow Yellowshark Apply evidence from another frame', async () => {
