@@ -1547,7 +1547,7 @@ function questionSurfaceSignature(snapshot = {}, { ignorePasswordPolicy = false 
         // not to the password control; keep a native/semantic identity when
         // one exists and let the stable name/label/type contract below catch
         // an actual field replacement.
-        passwordPolicyField ? String(field.domId || field.controlId || field.semanticId || '').trim() : field.id || '',
+        passwordPolicyField ? String(field.domId || field.controlId || field.semanticId || field.id || '').trim() : field.id || '',
         field.kind || '', field.inputType || '', field.label || '', field.name || '',
         field.context || '', field.section || '',
         passwordPolicyField ? '' : String(field.ariaLabel || '').replace(/\s+/g, ' ').trim(),

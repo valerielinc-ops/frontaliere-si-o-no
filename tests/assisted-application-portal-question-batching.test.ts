@@ -1,6 +1,6 @@
 import { afterEach, describe, expect, it } from 'vitest';
 import { JSDOM } from 'jsdom';
-import { handleAuth, mergePortalChoiceOptions, portalRequirementsFromMissingRequired, submitViaPortal } from '../scripts/assisted-application/lib/portal/portal.mjs';
+import { handleAuth, mergePortalChoiceOptions, portalRequirementsFromMissingRequired, registrationQuestionSurfaceSignature, submitViaPortal } from '../scripts/assisted-application/lib/portal/portal.mjs';
 import { extractFields } from '../scripts/assisted-application/lib/portal/fields.mjs';
 import { guardPlan } from '../scripts/assisted-application/lib/portal/plan.mjs';
 
@@ -338,6 +338,17 @@ function portalRunSummary(result: any, plannerTrace: any[] = [], extractionTrace
 }
 
 describe('assisted portal question batching', () => {
+  it('keeps generated password control ids distinct when native identities are absent', () => {
+    const field = {
+      kind: 'text', inputType: 'password', label: 'Password *', name: 'password',
+      domId: '', controlId: '', semanticId: '', required: true, value: 'secret',
+    };
+    const oldSnapshot = { fields: [{ ...field, id: 'generated-password-old' }] };
+    const newSnapshot = { fields: [{ ...field, id: 'generated-password-new' }] };
+
+    expect(registrationQuestionSurfaceSignature(oldSnapshot)).not.toBe(registrationQuestionSurfaceSignature(newSnapshot));
+  });
+
   it('keeps a SuccessFactors registration with a password visibility control and a required recruiter radio as a candidate question', async () => {
     let fixture!: ReturnType<typeof fakePage>;
     fixture = fakePage({
