@@ -128,9 +128,7 @@ rehydrate_locale() {
       set +e
       expected_n="$(unzip -p "$dl/$locale_zip" "$locale_member" 2>/dev/null \
         | tar -tf - 2>/dev/null | { grep -vc '/$' || true; })"
-      listing_rc=$?
       set -e
-      [ "$listing_rc" -eq 0 ] || expected_n=0
 
       set +e
       unzip -p "$dl/$locale_zip" "$locale_member" | tar -C dist -xf -
