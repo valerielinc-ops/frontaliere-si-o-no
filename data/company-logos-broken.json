@@ -1,41 +1,54 @@
 {
-  "generatedAt": "2026-11-01T11:07:02.086Z",
+  "generatedAt": "2026-11-08T11:11:46.489Z",
   "source": {
     "path": "data/jobs.json",
-    "jobCount": 33261
+    "jobCount": 34625
   },
-  "checked": 607,
-  "ok": 607,
-  "qualityOk": 604,
+  "checked": 628,
+  "ok": 628,
+  "qualityOk": 624,
   "broken": 0,
   "brokenJobCount": 0,
   "pendingDeploy": 0,
   "pendingDeployJobCount": 0,
   "pendingDeployUrls": [],
-  "missing": 12,
-  "missingJobCount": 62,
-  "partial": 2,
-  "partialJobCount": 1043,
+  "missing": 732,
+  "missingJobCount": 2109,
+  "partial": 0,
+  "partialJobCount": 0,
   "unverified": 0,
   "unverifiedJobCount": 0,
-  "lowQuality": 3,
-  "lowQualityJobCount": 6,
+  "lowQuality": 4,
+  "lowQualityJobCount": 7,
   "qualityUnverified": 0,
   "qualityUnverifiedJobCount": 0,
   "urls": [],
   "quality": [
     {
-      "reference": "/images/brands/conservatorio.png",
+      "reference": "/images/brands/elektriker-elektromonteur-jobs-ch.ico",
       "kind": "local",
       "jobs": 1,
       "companyKeys": [
-        "conservatorio"
+        "elektriker-elektromonteur-jobs-ch"
       ],
-      "url": "https://cdn.frontaliereticino.ch/images/brands/conservatorio.png",
+      "url": "https://cdn.frontaliereticino.ch/images/brands/elektriker-elektromonteur-jobs-ch.ico",
       "qualityStatus": "low-quality",
       "qualityReason": "intrinsic-dimensions-too-small",
-      "width": 16,
-      "height": 16
+      "width": 32,
+      "height": 32
+    },
+    {
+      "reference": "/images/brands/freestarinformatik.ico",
+      "kind": "local",
+      "jobs": 1,
+      "companyKeys": [
+        "freestarinformatik"
+      ],
+      "url": "https://cdn.frontaliereticino.ch/images/brands/freestarinformatik.ico",
+      "qualityStatus": "low-quality",
+      "qualityReason": "intrinsic-dimensions-too-small",
+      "width": 48,
+      "height": 48
     },
     {
       "reference": "/images/brands/mpa-praxisstellen-ch.ico",
