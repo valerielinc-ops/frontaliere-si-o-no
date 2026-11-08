@@ -200,6 +200,10 @@ jobs:
             --source-commit "$SOURCE_COMMIT" \
             --write
 
+          node scripts/ci/verify-crawler-contract-provenance.mjs \
+            --contract "$CONTRACT_PATH" \
+            --strict
+
           if git diff --quiet -- "$CONTRACT_PATH"; then
             echo 'Contract already matches the requested source revision after branch reconciliation.'
             exit 0

@@ -191,6 +191,9 @@ function validateContract(contract, expectedRepository) {
     throw new Error(`crawler contract sourceRepository ${repository} does not match expected ${expectedRepository}`);
   }
   const sourceCommit = validateCommit(contract.sourceCommit);
+  if (contract.sourceCommitVerified !== true) {
+    throw new Error('crawler contract sourceCommitVerified must be true after strict provenance verification');
+  }
   if (contract.sourceRef !== 'main') {
     throw new Error(`crawler contract sourceRef must be main, got ${JSON.stringify(contract.sourceRef)}`);
   }

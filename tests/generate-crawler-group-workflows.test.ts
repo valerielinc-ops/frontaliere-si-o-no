@@ -23,7 +23,7 @@ import { execFileSync, spawn } from 'node:child_process';
 import { memberCrawlStateDir, readMemberCrawlOutcomes } from '../scripts/crawler-group-generation-finalizer.mjs';
 import { fileURLToPath } from 'node:url';
 import YAML from 'yaml';
-import { packGroups, GROUP_COUNT, OUTLIER_MEDIAN_MULTIPLE, CRAWLER_GROUP_MAX_PARALLEL, crawlerGroupMaxParallel, generate, buildCrawlerShellBody, buildCrawlerLaunchShellBody, buildCrawlerAggregateShellBody, buildCrawlerAggregateFailureGateShellBody, crawlerWorkerWatchdogMinutes, assignGroupsStable, extractAssignmentsFromWorkflows, extractManualPreamble, generateCrossRepoExecutionArtifacts, assertCrawlerLogicParity, crossRepoCrawlerSparsePatterns, generateCrawlerLogicArtifacts, collectSiteRuntimePaths, resolveCrawlerContractSource, assertCommittedContractSource, AGGREGATE_MEMBER_FUNCTION, GENERATED_WORKFLOW_SIZE_BUDGET_BYTES, GITHUB_WORKFLOW_SIZE_LIMIT_BYTES, workflowSizeBudgetViolations, formatWorkflowSizeBudgetViolation, cleanupCrawlerGenerationState } from '../scripts/generate-crawler-group-workflows.mjs';
+import { packGroups, GROUP_COUNT, OUTLIER_MEDIAN_MULTIPLE, CRAWLER_GROUP_MAX_PARALLEL, crawlerGroupMaxParallel, generate, buildCrawlerShellBody, buildCrawlerLaunchShellBody, buildCrawlerAggregateShellBody, buildCrawlerAggregateFailureGateShellBody, crawlerWorkerWatchdogMinutes, assignGroupsStable, extractAssignmentsFromWorkflows, extractManualPreamble, generateCrossRepoExecutionArtifacts, assertCrawlerLogicParity, crossRepoCrawlerSparsePatterns, generateCrawlerLogicArtifacts, collectSiteRuntimePaths, resolveCrawlerContractSource, assertCommittedContractSource, preserveSourceCommitVerification, AGGREGATE_MEMBER_FUNCTION, GENERATED_WORKFLOW_SIZE_BUDGET_BYTES, GITHUB_WORKFLOW_SIZE_LIMIT_BYTES, workflowSizeBudgetViolations, formatWorkflowSizeBudgetViolation, cleanupCrawlerGenerationState } from '../scripts/generate-crawler-group-workflows.mjs';
 import { assertCrawlerManifestDelta, CORPUS_OBSERVER_FILES, CRAWLER_WORKFLOW_FILES, prepareCrawlerWorkflowCorpusSync } from '../scripts/ci/prepare-crawler-workflow-corpus-sync.mjs';
 import { collectRelativeImportClosure } from './helpers/collectRelativeImportClosure';
 
@@ -2506,6 +2506,23 @@ describe('cross-repo crawler execution artifacts', () => {
 
   beforeEach(() => {
     tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'crawler-cross-repo-'));
+  });
+
+  it('retains provenance attestation only for an unchanged generated contract', () => {
+    const contractPath = path.join(tmp, 'contract.json');
+    const verified = {
+      sourceCommit: 'a'.repeat(40),
+      sourceCommitVerified: true,
+      artifacts: [{ file: 'crawler-group-01.yml', artifactSha256: 'digest' }],
+    };
+    fs.writeFileSync(contractPath, `${JSON.stringify(verified)}\n`);
+
+    const regenerated = { ...verified, sourceCommitVerified: false };
+    expect(preserveSourceCommitVerification(regenerated, contractPath)).toEqual(verified);
+    expect(preserveSourceCommitVerification(
+      { ...regenerated, sourceCommit: 'b'.repeat(40) },
+      contractPath,
+    ).sourceCommitVerified).toBe(false);
   });
 
   afterEach(() => {
