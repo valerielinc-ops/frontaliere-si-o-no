@@ -124,6 +124,15 @@ describe('translate-pending budget benchmark', () => {
       'Finalize benchmark report',
     ]) expect(names).toContain(required);
 
+    const resolveBudget = steps.find((step) => step.name === 'Resolve Codex reserve budget');
+    expect(resolveBudget?.env?.FREE_TRANSLATE_CODEX_MAX_CALLS_REPO)
+      .toBe('${{ vars.FREE_TRANSLATE_CODEX_MAX_CALLS }}');
+    expect(resolveBudget?.run).toContain('FREE_TRANSLATE_CODEX_MAX_CALLS=350');
+    expect(names.indexOf('Resolve Codex reserve budget'))
+      .toBeGreaterThan(names.indexOf('Load Remote Config secrets'));
+    expect(names.indexOf('Resolve Codex reserve budget'))
+      .toBeLessThan(names.indexOf('Start Codex reserve broker'));
+
     const source = fs.readFileSync(SCRIPT_PATH, 'utf8');
     expect(source).toContain('same-population anchor');
     expect(source).toContain('candidateFingerprint');
