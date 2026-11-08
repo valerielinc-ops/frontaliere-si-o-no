@@ -895,7 +895,6 @@ export {
   buildLocalePathsForCanton,
   buildLocalePathsForJob,
   fillMissingLocalePaths,
-  measureSerializedJsonObjectLength,
   isHeldOnlySlugForSource,
   mergeMinedSources,
   mineActiveJobs,
