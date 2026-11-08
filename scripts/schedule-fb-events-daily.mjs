@@ -38,7 +38,7 @@ import {
   FACEBOOK_CAMPAIGN_EVENT,
   FACEBOOK_CRAWLER_USER_AGENT,
 } from './lib/facebook-links.mjs';
-import { loadSocialCopyPack, releaseUnpublishedSocialCopyAssignmentBestEffort, selectSocialCopyForPublish, socialCopyLedgerFields, socialCopyTrackingContent } from './lib/social-copy-pack.mjs';
+import { isGeneratedSocialCopyMode, loadSocialCopyPack, releaseUnpublishedSocialCopyAssignmentBestEffort, selectSocialCopyForPublish, socialCopyLedgerFields, socialCopyTrackingContent } from './lib/social-copy-pack.mjs';
 import { withoutPrivateEvents } from './lib/private-event-sources.mjs';
 import {
   markSocialPublishReservationPublished,
@@ -131,7 +131,7 @@ export function buildEventCaption(event, { socialCopy } = {}) {
   tags.push(`#${cantonTag}`, '#frontalieri');
   const hashtags = [...new Set(tags.map((t) => t.toLowerCase()))].slice(0, 5).join(' ');
 
-  const generatedCopy = socialCopy?.copyMode === 'codex' ? socialCopy : null;
+  const generatedCopy = isGeneratedSocialCopyMode(socialCopy?.copyMode) ? socialCopy : null;
   const cta = generatedCopy
     ? '👉 ' + generatedCopy.cta
     : event?.comune ? '👉 Scopri gli eventi a ' + comune + ':' : '👉 Scopri gli eventi in ' + cantonName + ':';
@@ -198,7 +198,7 @@ export function buildWeekendDigestCaption(events, todayIso, canton = 'TI', socia
   }
   const hashtags = [...new Set(tags.map((t) => t.toLowerCase()))].slice(0, 6).join(' ');
 
-  const generatedCopy = socialCopy?.copyMode === 'codex' ? socialCopy : null;
+  const generatedCopy = isGeneratedSocialCopyMode(socialCopy?.copyMode) ? socialCopy : null;
   const parts = generatedCopy ? [generatedCopy.hook, '', headline, '', count] : [headline, '', count];
   if (highlights.length) parts.push('', ...highlights);
   parts.push('', '👉 ' + (generatedCopy?.cta || 'Programma completo, comune per comune:'), '', hashtags);

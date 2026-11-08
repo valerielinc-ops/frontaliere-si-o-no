@@ -39,6 +39,7 @@ import { readFileSync } from 'node:fs';
 
 import { isGitGrepNoMatch } from './lib/git-grep.mjs';
 import { isRegexLiteralStart } from '../lib/inline-comment-marker.mjs';
+import { stripSourceComments } from '../lib/source-comments.mjs';
 
 const argv = process.argv.slice(2);
 const JSON_OUT = argv.includes('--json');
@@ -61,81 +62,6 @@ const YAML_SOURCE_PATH_RE = /\.ya?ml$/i;
 /** A raw env number is only dangerous when it controls a bounded operation. */
 const RAW_NUMBER_ENV_ASSIGNMENT_RE =
   /\bconst\s+([A-Za-z_$][A-Za-z0-9_$]*)\s*=\s*Number\(\s*process\s*\.\s*env\s*(?:\.\s*[A-Za-z_$][A-Za-z0-9_$]*|\[\s*(?:'[^']*'|"[^"]*")\s*\])\s*\)(?!\s*(?:\|\||\?\?))/g;
-
-/**
- * Remove comments without changing offsets, so regex matches still map to the
- * original line and comments cannot manufacture a violation.
- */
-function stripCommentsForNumberEnvGate(source) {
-  let out = '';
-  let block = false;
-  let line = false;
-  let quote = '';
-  let regex = false;
-  let regexClass = false;
-
-  for (let i = 0; i < source.length; i++) {
-    const c = source[i];
-    const next = source[i + 1];
-
-    if (regex) {
-      out += c;
-      if (c === '\\' && i + 1 < source.length) out += source[++i];
-      else if (c === '[') regexClass = true;
-      else if (c === ']') regexClass = false;
-      else if (c === '/' && !regexClass) regex = false;
-      continue;
-    }
-
-    if (line) {
-      if (c === '\n') {
-        line = false;
-        out += c;
-      } else {
-        out += ' ';
-      }
-      continue;
-    }
-
-    if (block) {
-      if (c === '*' && next === '/') {
-        block = false;
-        out += '  ';
-        i++;
-      } else {
-        out += c === '\n' ? '\n' : ' ';
-      }
-      continue;
-    }
-
-    if (quote) {
-      out += c;
-      if (c === '\\' && i + 1 < source.length) out += source[++i];
-      else if (c === quote) quote = '';
-      continue;
-    }
-
-    if (c === '/' && next !== '/' && next !== '*' && isRegexLiteralStart(source, i)) {
-      regex = true;
-      regexClass = false;
-      out += c;
-    } else if (c === '/' && next === '/') {
-      line = true;
-      out += '  ';
-      i++;
-    } else if (c === '/' && next === '*') {
-      block = true;
-      out += '  ';
-      i++;
-    } else if (c === "'" || c === '"' || c === '`') {
-      quote = c;
-      out += c;
-    } else {
-      out += c;
-    }
-  }
-  return out;
-}
 
 /**
  * Remove YAML comments without treating an apostrophe in a plain scalar as a
@@ -397,7 +323,7 @@ function boundUseIsUnshadowed(code, maskedCode, ranges, variable, scopeStart, sc
  */
 export function findRawNumberEnvBoundViolations(source, file = '<fixture>') {
   if (!JAVASCRIPT_SOURCE_PATH_RE.test(String(file))) return [];
-  const code = stripCommentsForNumberEnvGate(String(source ?? ''));
+  const code = stripSourceComments(String(source ?? ''));
   const maskedCode = maskNumericEnvLiterals(code);
   const braceRanges = numericEnvBraceRanges(code);
   const violations = [];

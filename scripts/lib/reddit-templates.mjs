@@ -23,7 +23,7 @@ import {
 } from './social-post-utils.mjs';
 import { REDDIT_TITLE_MAX } from './reddit-client.mjs';
 import { redditUrl, REDDIT_CAMPAIGN_JOB } from './reddit-links.mjs';
-import { socialCopyTrackingContent } from './social-copy-pack.mjs';
+import { isGeneratedSocialCopyMode, socialCopyTrackingContent } from './social-copy-pack.mjs';
 
 // ── Number / salary formatting (consistent with schedule-fb-jobs-daily) ──
 
@@ -99,7 +99,7 @@ export function buildJobTitle(job) {
 export function buildJobBody(job, { socialCopy } = {}) {
   const rawBody = job?.descriptionByLocale?.it || job?.description || '';
   const excerpt = truncateBody(stripLeadingSectionLabel(stripHtml(rawBody)), 300);
-  const generatedCopy = socialCopy?.copyMode === 'codex' ? socialCopy : null;
+  const generatedCopy = isGeneratedSocialCopyMode(socialCopy?.copyMode) ? socialCopy : null;
   const hook = generatedCopyText(generatedCopy?.hook);
   const cta = generatedCopyText(generatedCopy?.cta);
 
@@ -176,7 +176,7 @@ export function buildArticleTitle(ogTitle) {
  * @returns {{title:string, kind:'link', url:string, topic:'articles'}}
  */
 export function buildArticlePost({ id, url, ogTitle, ogDescription, category, socialCopy, destinationUrl } = {}) {
-  const generatedCopy = socialCopy?.copyMode === 'codex' ? socialCopy : null;
+  const generatedCopy = isGeneratedSocialCopyMode(socialCopy?.copyMode) ? socialCopy : null;
   const hook = generatedCopyText(generatedCopy?.hook);
   const cta = generatedCopyText(generatedCopy?.cta);
   if (generatedCopy && hook && cta) {

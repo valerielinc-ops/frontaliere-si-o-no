@@ -11,6 +11,7 @@ Read these files first:
 - .agents/skills/ig-human/SKILL.md
 - .agents/skills/ig-repurpose/SKILL.md
 - .agents/skills/ig-story/SKILL.md
+- .agents/skills/ig-viral/SKILL.md
 - docs/instagram-creative-study.md
 - docs/social-ai-automation.md
 - scripts/lib/social-copy-pack.mjs
@@ -42,6 +43,11 @@ source into a longer storyboard. The publisher may synthesize only its exact,
 verified script; any visible captions must match that script and its timing.
 The publisher remains the source of facts and the renderer remains the source
 of final media.
+Use `ig-viral` only with the supplied sanitized, qualified summaries from our
+own account. Never scrape Instagram, browse competitor accounts, collect public
+reel metrics, download videos, or send data to a swipe-file service. If our
+qualified brief is unavailable, use publisher-source inventory or label a
+testable idea as an editorial hypothesis; do not call it a trend or viral format.
 
 Return one JSON object with exactly two top-level keys: `editorialPlan` and
 `channels`. The plan contains three to five durable pillars. Each configured
