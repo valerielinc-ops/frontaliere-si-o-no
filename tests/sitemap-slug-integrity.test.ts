@@ -16,6 +16,7 @@ import { ARTICLE_SECTIONS, type ArticleSection } from '@/services/articleSection
 import { loadSwissArticleCanonicalOverrides } from '@/build-plugins/shared/swissArticleCanonicalOverrides';
 import { ARTICLE_SECTION_DESCRIPTORS } from '@/build-plugins/shared/articleSectionDescriptors';
 import { fullyRetiredArticleIds } from '@/scripts/lib/sitemap-retired-urls.mjs';
+import { indexExcludedArticleIds } from '../scripts/lib/article-canonical-overrides.mjs';
 
 const root = resolve(__dirname, '..');
 
@@ -208,9 +209,15 @@ const retiredBlogArticleIds = fullyRetiredArticleIds(
   BLOG_SLUGS as Record<string, Record<string, string>>,
   articleUrlBases('frontaliere'),
 );
+const indexExcludedBlogArticleIds = indexExcludedArticleIds(
+  root,
+  'frontaliere',
+  BLOG_SLUGS as Record<string, Record<string, string>>,
+);
 const blogSitemapExcludedArticleIds = new Set([
   ...shadowedBlogArticleIds,
   ...retiredBlogArticleIds,
+  ...indexExcludedBlogArticleIds,
 ]);
 
 // ── Blog Article Slug Integrity ──────────────────────────────────────────────
@@ -387,9 +394,15 @@ const retiredSwissArticleIds = fullyRetiredArticleIds(
   SWISS_SLUGS as Record<string, Record<string, string>>,
   articleUrlBases('svizzera'),
 );
+const indexExcludedSwissArticleIds = indexExcludedArticleIds(
+  root,
+  'svizzera',
+  SWISS_SLUGS as Record<string, Record<string, string>>,
+);
 const swissSitemapExcludedArticleIds = new Set([
   ...shadowedSwissArticleIds,
   ...retiredSwissArticleIds,
+  ...indexExcludedSwissArticleIds,
 ]);
 
 describe('Swiss article sitemap slug integrity', () => {

@@ -39,6 +39,7 @@ import { GLOSSARY_TERM_DEFINITIONS, GLOSSARY_PLACEHOLDER_DESCRIPTION_RX } from '
 import { BORDER_WAIT_ROUTES, buildOggiPath, type BorderCrossingSlug } from '@/build-plugins/borderWaitData';
 import { BORDER_WAIT_LEGACY_REDIRECTS } from '@/build-plugins/shared/borderWaitLegacyRedirects';
 import { parseRetiredLocaleGroups } from '@/scripts/lib/retired-locale-groups.mjs';
+import { indexExcludedArticleIds } from '../scripts/lib/article-canonical-overrides.mjs';
 
 // Preload blog data so buildPath can resolve blog slugs (both sections)
 await preloadBlogData();
@@ -287,6 +288,26 @@ function isShadowedArticleRoute(route: AppRoute): boolean {
   if (swissArticle && SHADOWED_SWISS_ARTICLE_IDS.has(swissArticle)) return true;
   const blogArticle = (route as { blogArticle?: string }).blogArticle;
   return !!blogArticle && SHADOWED_BLOG_ARTICLE_IDS.has(blogArticle);
+}
+// Articles withdrawn from the search index remain live and reachable, but the
+// shared sitemap publisher deliberately omits their complete <url> blocks.
+// Keep route/SEO coverage intact while excluding them from sitemap and IndexNow
+// presence checks, using the same ledger reader as the publisher and its sync
+// gates.
+const INDEX_EXCLUDED_BLOG_ARTICLE_IDS = indexExcludedArticleIds(
+  resolve(__dirname, '..'),
+  'frontaliere',
+  BLOG_SLUGS as Record<string, Record<string, string>>,
+);
+const INDEX_EXCLUDED_SWISS_ARTICLE_IDS = indexExcludedArticleIds(
+  resolve(__dirname, '..'),
+  'svizzera',
+  SWISS_SLUGS as Record<string, Record<string, string>>,
+);
+function isIndexExcludedArticleRoute(route: AppRoute): boolean {
+  const candidate = route as AppRoute & { blogArticle?: string; swissArticle?: string };
+  if (candidate.blogArticle && INDEX_EXCLUDED_BLOG_ARTICLE_IDS.has(candidate.blogArticle)) return true;
+  return Boolean(candidate.swissArticle && INDEX_EXCLUDED_SWISS_ARTICLE_IDS.has(candidate.swissArticle));
 }
 const retiredLocaleGroups = parseRetiredLocaleGroups(
   readProjectFile('data/retired-article-locale-groups.json'),
@@ -592,6 +613,7 @@ describe('Sitemap — every IT canonical URL is in sitemap.xml', () => {
     if (NOINDEX_ROUTES.has(activeTab)) continue;
     if (isShadowedArticleRoute(route)) continue; // #3010 item 1: intentionally dropped from sitemap (both sections)
     if (isRetiredArticleRoute(route)) continue; // Retired locale groups are intentionally absent from sitemap.
+    if (isIndexExcludedArticleRoute(route)) continue; // noindex,follow articles are intentionally absent from sitemap.
     if (isGeneratedBorderWaitRoute(route)) continue; // emitted into sitemap-border-wait.xml at build time
     if (isGeneratedSocialHubRoute(route)) continue; // emitted into sitemap-social-hub.xml at build time
     if (getBorderWaitBridgeTarget(route, 'it')) continue;
@@ -680,6 +702,7 @@ describe('IndexNow — submit-indexnow.js reads sitemap and submits to Bing', ()
     if (NOINDEX_ROUTES_INDEXNOW.has(activeTab)) continue;
     if (isShadowedArticleRoute(route)) continue; // #3010 item 1: intentionally dropped from sitemap (both sections)
     if (isRetiredArticleRoute(route)) continue; // Retired locale groups are intentionally absent from sitemap.
+    if (isIndexExcludedArticleRoute(route)) continue; // noindex,follow articles are intentionally absent from sitemap.
     if (isGeneratedBorderWaitRoute(route)) continue; // emitted into sitemap-border-wait.xml at build time
     if (isGeneratedSocialHubRoute(route)) continue; // emitted into sitemap-social-hub.xml at build time
     if (getBorderWaitBridgeTarget(route, 'it')) continue;
@@ -739,6 +762,7 @@ describe('Sitemap URLs match router buildPath for all locales', () => {
     if (NOINDEX_ROUTES.has(activeTab)) continue;
     if (isShadowedArticleRoute(route)) continue; // #3010 item 1: intentionally dropped from sitemap (both sections)
     if (isRetiredArticleRoute(route)) continue; // Retired locale groups are intentionally absent from sitemap.
+    if (isIndexExcludedArticleRoute(route)) continue; // noindex,follow articles are intentionally absent from sitemap.
     if (isGeneratedSocialHubRoute(route)) continue; // emitted into sitemap-social-hub.xml at build time
     for (const locale of locales) {
       const bridgeTarget = getBorderWaitBridgeTarget(route, locale);
