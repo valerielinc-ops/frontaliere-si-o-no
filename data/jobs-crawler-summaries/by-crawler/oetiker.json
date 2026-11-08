@@ -1,7 +1,7 @@
 {
   "key": "oetiker",
   "label": "Oetiker",
-  "generatedAt": "2026-11-08T09:17:31.684Z",
+  "generatedAt": "2026-11-08T21:16:57.075Z",
   "total": 3,
   "discovered": null,
   "parsed": 3,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 3,
-  "durationMs": 4054,
-  "avgDurationMs": 4054,
+  "durationMs": 4018,
+  "avgDurationMs": 4018,
   "durationHistory": [
-    4054
+    4018
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -37,7 +37,7 @@
       "url": "https://jobs.smartrecruiters.com/Oetiker/744000150080009-lehrstelle-als-polymechaniker-in-efz-all-?oga=true",
       "source": "Oetiker Dedicated Parser (SmartRecruiters)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:17:13.837Z",
+      "crawledAt": "2026-11-08T21:16:34.732Z",
       "addressLocality": "Horgen",
       "addressRegion": "ZH",
       "streetAddress": "Spätzstrasse 11",
@@ -61,7 +61,7 @@
       "salaryMax": 94000,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-17T09:17:13.837Z",
+      "validThrough": "2026-12-16T21:16:34.732Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -83,7 +83,7 @@
       "url": "https://jobs.smartrecruiters.com/Oetiker/744000152841739-head-quality-hse-all-?oga=true",
       "source": "Oetiker Dedicated Parser (SmartRecruiters)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:17:13.834Z",
+      "crawledAt": "2026-11-08T21:16:34.728Z",
       "addressLocality": "Horgen",
       "addressRegion": "ZH",
       "streetAddress": "Spätzstrasse 11",
@@ -107,7 +107,7 @@
       "salaryMax": 154000,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-30T09:17:13.834Z",
+      "validThrough": "2026-12-30T21:16:34.728Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -129,7 +129,7 @@
       "url": "https://jobs.smartrecruiters.com/Oetiker/744000156570214-logistics-operator-switzerland-all-?oga=true",
       "source": "Oetiker Dedicated Parser (SmartRecruiters)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:17:13.814Z",
+      "crawledAt": "2026-11-08T21:16:34.705Z",
       "addressLocality": "Horgen",
       "addressRegion": "ZH",
       "streetAddress": "Spätzstrasse 11",
@@ -153,7 +153,7 @@
       "salaryMax": 111500,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-19T09:17:13.814Z",
+      "validThrough": "2027-01-18T21:16:34.705Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -164,5 +164,5 @@
       }
     }
   ],
-  "codeCommit": "b019e69684c909d5fd747961cb84c9c400bc8446"
+  "codeCommit": "46d8c233794afd1422cd7663ab076bfe9ec2a1c3"
 }
