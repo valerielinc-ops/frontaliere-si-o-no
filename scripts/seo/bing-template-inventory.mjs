@@ -22,6 +22,7 @@ import {
   isJobBoardSectionPathname,
 } from '../lib/jobBoardSections.mjs';
 import { classifyProfessionLandingFeature } from '../lib/professionLandingsSections.mjs';
+import { isSalaryProfessionCantonPath } from '../lib/salaryProfessionSections.mjs';
 import { isHealthPremiumsPath } from '../lib/healthPremiumSections.mjs';
 import { isPlateAuctionSectionPath } from '../lib/plateAuctionSections.mjs';
 import { isPharmacySectionPath } from '../lib/pharmacySections.mjs';
@@ -307,6 +308,14 @@ const ADDITIONAL_FAMILY_DEFINITIONS = Object.freeze([
       'build-plugins/weatherAlertPagesPlugin.ts',
     ]),
     matches: isWeatherTemplatePath,
+  },
+  {
+    id: 'salary-profession-canton-pages',
+    label: 'Pagine stipendio per professione e cantone',
+    sourcePaths: Object.freeze([
+      'build-plugins/salaryProfessionCantonPages.ts',
+    ]),
+    matches: isSalaryProfessionCantonPath,
   },
 ]);
 
