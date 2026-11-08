@@ -1425,3 +1425,93 @@ describe('MediPersonal crawler parser', () => {
     });
   });
 });
+
+describe('iPersonal client-side listing index (#17594)', () => {
+  const seedUrl = 'https://ipersonal-index.example/offene-stellen/';
+  const origin = 'https://ipersonal-index.example';
+  const startUrl = `${origin}/jobs/start-zuerich/`;
+  const listedUrl = `${origin}/jobs/listed-zuerich/`;
+  const unpublishedUrl = `${origin}/jobs/unpublished-zuerich/`;
+  const removedUrl = `${origin}/jobs/removed-zuerich/`;
+  const indexRow = (url: string) => ['Fachperson 100%', 'Zürich', 'ZH', 'fest', '100 %', new URL(url).pathname, 3, 0, 1];
+  const description = 'Eine ausführliche Aufgabenbeschreibung mit professioneller Verantwortung, enger Zusammenarbeit und dokumentierten Qualitätsstandards. Die Fachperson plant Einsätze, berät Kundinnen und Kunden, koordiniert Termine und hält alle Ergebnisse nachvollziehbar fest.';
+  const previousRow = (url: string) => ({
+    url, title: 'Fachperson Zürich', description, location: 'Zürich', canton: 'ZH', company: 'iPersonal AG',
+  });
+  const spec = {
+    companyKey: 'med-ipersonal', companyName: 'iPersonal AG', platform: 'ipersonal.ch',
+    seedUrls: [seedUrl], mode: 'template', detailTemplate: '/jobs/*/', detailFetchWorkers: 1,
+  } as any;
+
+  function sourceFetch(files: Record<string, unknown>, requested: string[] = []) {
+    return (async (input: string | URL | Request) => {
+      const url = String(typeof input === 'string' || input instanceof URL ? input : input.url);
+      requested.push(url);
+      if (url.endsWith('/robots.txt')) return new Response('', { status: 200 });
+      if (url === seedUrl) {
+        return new Response(`<html><body>
+          <form data-stellensuche data-stellen-index="/assets/stellen/abc123/"></form>
+          <article class="stelle-karte"><h3 class="stelle-karte__titel"><a href="/jobs/start-zuerich/">Fachperson 100%</a></h3></article>
+          </body></html>`, { status: 200, headers: { 'Content-Type': 'text/html' } });
+      }
+      const file = url.startsWith(`${origin}/assets/stellen/abc123/`)
+        ? url.slice(`${origin}/assets/stellen/abc123/`.length)
+        : null;
+      if (file !== null) {
+        return file in files
+          ? new Response(JSON.stringify(files[file]), { status: 200, headers: { 'Content-Type': 'application/json' } })
+          : new Response('missing', { status: 404 });
+      }
+      return new Response(`
+        <script type="application/ld+json">${JSON.stringify({
+          '@context': 'https://schema.org', '@type': 'JobPosting', title: 'Fachperson Zürich', url, description,
+          jobLocation: { '@type': 'Place', address: { '@type': 'PostalAddress', addressLocality: 'Zürich', addressRegion: 'ZH', addressCountry: 'CH' } },
+        })}</script>
+        <section class="job-profile-section"><div id="Jobdetails"><p>${description}</p>
+          <h3>Deine Aufgaben</h3><ul><li>Ergebnisse zuverlässig dokumentieren</li></ul>
+        </div></section>`, { status: 200, headers: { 'Content-Type': 'text/html' } });
+    }) as typeof fetch;
+  }
+  const runtimeFor = (fetchImpl: typeof fetch, previousJobs: unknown[]) => ({
+    fetchImpl,
+    previousJobs,
+    lookupImpl: async () => [{ address: '93.184.216.34', family: 4 }],
+    sleepImpl: async () => undefined,
+    retries: 0,
+  });
+  const completeIndex = {
+    'kopf.json': { zahl: 3, proDatei: 2 },
+    'z/0.json': [indexRow(startUrl), indexRow(listedUrl)],
+    'z/1.json': [indexRow(unpublishedUrl)],
+  };
+
+  it('keeps previous rows the index still lists, without the rest of the index', async () => {
+    const jobs = await runIpersonalSpecInProduction(
+      spec,
+      runtimeFor(sourceFetch(completeIndex), [previousRow(listedUrl), previousRow(removedUrl)]),
+    );
+
+    expect(jobs.map((job) => job.url).sort()).toEqual([listedUrl, startUrl]);
+    expect((jobs as any).discoveredCount).toBe(2);
+  });
+
+  it('keeps the last good slice when the index is incomplete', async () => {
+    const truncated = { ...completeIndex, 'z/0.json': [indexRow(startUrl)] };
+
+    await expect(runIpersonalSpecInProduction(
+      spec,
+      runtimeFor(sourceFetch(truncated), [previousRow(removedUrl)]),
+    )).rejects.toMatchObject({
+      message: expect.stringMatching(/listing index unavailable: .*z\/0\.json has 1 rows, expected 2/),
+      feedEndpointUnavailable: true,
+    });
+  });
+
+  it('does not read the index when there is no previous slice', async () => {
+    const requested: string[] = [];
+    const jobs = await runIpersonalSpecInProduction(spec, runtimeFor(sourceFetch(completeIndex, requested), []));
+
+    expect(jobs.map((job) => job.url)).toEqual([startUrl]);
+    expect(requested.some((url) => url.includes('/assets/stellen/'))).toBe(false);
+  });
+});

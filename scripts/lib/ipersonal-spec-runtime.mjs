@@ -349,6 +349,108 @@ export function extractIpersonalDescription(html = '') {
   return '';
 }
 
+const IPERSONAL_LISTING_INDEX_ATTR_RE = /\bdata-stellen-index\s*=\s*["']([^"']+)["']/i;
+const IPERSONAL_LISTING_INDEX_MAX_FILES = 2000;
+
+/** @param {unknown} value */
+function escapeHtml(value) {
+  return String(value ?? '').replace(/[&<>"']/g, (char) => `&#${char.charCodeAt(0)};`);
+}
+
+/**
+ * Since the October 2026 relaunch, both iPersonal listing pages render only a
+ * short start list. The full board is a JSON index named by
+ * `data-stellen-index`: `kopf.json` declares the count and `z/<n>.json` holds
+ * the cards, and the browser pages through it client side. Neither the direct
+ * HTML nor the browser rescue sees past page 1, so a healthy slice looked like
+ * a 90% shrink (#17594).
+ *
+ * The index is membership evidence for rows this crawler already publishes:
+ * it returns the index entries whose URL is in `previousUrls`. It does not add
+ * the rest of the index (thousands of per-region postings) to the population.
+ * Returns `null` when the page declares no index. Any incomplete or malformed
+ * index throws, so the caller can keep the last good slice.
+ *
+ * @param {string} html
+ * @param {string} pageUrl
+ * @param {Set<string>} previousUrls canonical URLs of the previous slice
+ * @param {(url: string) => Promise<any>} fetchJson
+ * @returns {Promise<{ declared: number, scanned: number, kept: Array<{ url: string, title: string, place: string }> }|null>}
+ */
+export async function readIpersonalListingIndex(html, pageUrl, previousUrls, fetchJson) {
+  const declaredBase = String(html || '').match(IPERSONAL_LISTING_INDEX_ATTR_RE)?.[1];
+  if (!declaredBase) return null;
+  const page = new URL(pageUrl);
+  const base = new URL(decodeEntities(declaredBase), page);
+  if (base.origin !== page.origin) {
+    throw new Error(`listing index ${base.href} is not on ${page.origin}`);
+  }
+  if (!base.pathname.endsWith('/')) base.pathname += '/';
+  const head = await fetchJson(new URL('kopf.json', base).href);
+  const declared = Number(head?.zahl);
+  const perFile = Number(head?.proDatei);
+  if (!Number.isInteger(declared) || declared < 0 || !Number.isInteger(perFile) || perFile <= 0) {
+    throw new Error(`listing index ${base.href}kopf.json has no valid zahl/proDatei`);
+  }
+  const fileCount = Math.ceil(declared / perFile);
+  if (fileCount > IPERSONAL_LISTING_INDEX_MAX_FILES) {
+    throw new Error(`listing index declares ${fileCount} files (max ${IPERSONAL_LISTING_INDEX_MAX_FILES})`);
+  }
+  const pending = new Set(previousUrls);
+  const kept = [];
+  let scanned = 0;
+  for (let fileIndex = 0; fileIndex < fileCount && pending.size > 0; fileIndex += 1) {
+    const rows = await fetchJson(new URL(`z/${fileIndex}.json`, base).href);
+    const expectedRows = Math.min(perFile, declared - fileIndex * perFile);
+    if (!Array.isArray(rows) || rows.length !== expectedRows) {
+      throw new Error(
+        `listing index file z/${fileIndex}.json has ${Array.isArray(rows) ? rows.length : 'no'} rows, expected ${expectedRows}`,
+      );
+    }
+    for (const row of rows) {
+      const path = Array.isArray(row) ? row[5] : null;
+      if (typeof path !== 'string' || !path.startsWith('/')) {
+        throw new Error(`listing index file z/${fileIndex}.json has a row without a detail path`);
+      }
+      const url = new URL(path, page);
+      if (url.origin !== page.origin) continue;
+      const identity = canonicalUrl(url);
+      if (!pending.delete(identity)) continue;
+      const [title, locality, canton] = row;
+      kept.push({
+        url: url.href,
+        title: String(title || '').trim(),
+        place: [locality, canton].map((part) => String(part || '').trim()).filter(Boolean).join(' '),
+      });
+    }
+    scanned += rows.length;
+  }
+  return { declared, scanned, kept };
+}
+
+/**
+ * Append index entries to the listing HTML in the same card markup the source
+ * renders for its start list, so the shared listing extractor judges them by
+ * the same evidence rules.
+ *
+ * @param {string} html
+ * @param {Array<{ url: string, title: string, place: string }>} entries
+ * @returns {string}
+ */
+function appendIpersonalIndexCards(html, entries) {
+  if (!entries.length) return html;
+  const cards = entries.map(({ url, title, place }) => (
+    '<article class="stelle-karte">'
+    + `<h3 class="stelle-karte__titel"><a href="${escapeHtml(url)}">${escapeHtml(title || url)}`
+    + (place ? `<span class="sr">, ${escapeHtml(place)}</span>` : '')
+    + '</a></h3>'
+    + (place ? `<ul class="stelle-karte__daten"><li><span>${escapeHtml(place)}</span></li></ul>` : '')
+    + '</article>'
+  )).join('');
+  const block = `<section data-ipersonal-listing-index>${cards}</section>`;
+  return /<\/body>/i.test(html) ? html.replace(/<\/body>/i, `${block}</body>`) : `${html}${block}`;
+}
+
 /**
  * Run only the two sister iPersonal specs with an identity-encoded transport.
  * Their WordPress hosts currently serve Brotli which Undici leaves compressed
@@ -423,6 +525,48 @@ export async function runIpersonalSpecInProduction(spec, runtime = {}) {
   // handed in as `detailExtractor` is the whole verdict.
   const upstreamDetailExtractor = runtime.detailExtractor
     || ((html, pageUrl, opts = {}) => extractRuntimeDetailFields(spec, html, pageUrl, opts));
+  const previousUrls = new Set(
+    (Array.isArray(runtime.previousJobs) ? runtime.previousJobs : [])
+      .map((job) => canonicalUrl(job?.url || ''))
+      .filter(Boolean),
+  );
+  /** @type {Error|null} */
+  let listingIndexFailure = null;
+  // A throw inside the fetch hook would look like a transport failure and
+  // send the seed to the clean-IP rescue, which also sees only page 1. Record
+  // the failure here and raise it after the run instead.
+  const expandListingFromIndex = async (html, pageUrl, init) => {
+    if (previousUrls.size === 0) return html;
+    const fetchJson = async (url) => {
+      const response = await upstreamFetch(url, {
+        ...init,
+        method: 'GET',
+        headers: { Accept: 'application/json', 'Accept-Encoding': 'identity' },
+        signal: AbortSignal.timeout(Math.max(Number(runtime.timeoutMs) || 0, 30000)),
+      });
+      if (!response.ok) throw new Error(`HTTP ${response.status} for ${url}`);
+      return response.json();
+    };
+    try {
+      const index = await readIpersonalListingIndex(html, pageUrl, previousUrls, fetchJson);
+      if (!index) return html;
+      const startListUrls = new Set(
+        [...String(html).matchAll(/\bhref\s*=\s*["']([^"']+)["']/gi)].map(([, href]) => {
+          try { return canonicalUrl(new URL(decodeEntities(href), pageUrl)); } catch { return ''; }
+        }),
+      );
+      const added = index.kept.filter((entry) => !startListUrls.has(canonicalUrl(entry.url)));
+      console.log(
+        `[prospector:${spec.companyKey}] listing index: ${index.declared} entries declared, `
+        + `${index.scanned} scanned; ${index.kept.length}/${previousUrls.size} previous rows still listed, `
+        + `${added.length} added beyond the start list`,
+      );
+      return appendIpersonalIndexCards(html, added);
+    } catch (error) {
+      listingIndexFailure = /** @type {Error} */ (error);
+      return html;
+    }
+  };
   const capturingFetch = async (input, init = {}) => {
     const headers = new Headers(init.headers || {});
     headers.set('Accept-Encoding', 'identity');
@@ -469,10 +613,12 @@ export async function runIpersonalSpecInProduction(spec, runtime = {}) {
         pages.set(canonicalInputUrl, originalHtml);
         if (response.url) pages.set(canonicalUrl(response.url), originalHtml);
       }
+      let listingHtml = originalHtml;
       if (response.ok && expectedSeedUrls.has(canonicalInputUrl) && originalHtml.trim()) {
         loadedSeedUrls.add(canonicalInputUrl);
+        listingHtml = await expandListingFromIndex(originalHtml, response.url || inputUrl, init);
       }
-      const normalizedHtml = normalizeKnownIpersonalLocalities(originalHtml);
+      const normalizedHtml = normalizeKnownIpersonalLocalities(listingHtml);
       if (normalizedHtml !== originalHtml) {
         return new Response(normalizedHtml, {
           status: response.status,
@@ -527,6 +673,12 @@ export async function runIpersonalSpecInProduction(spec, runtime = {}) {
     throw Object.assign(
       new Error(`iPersonal source unavailable: maintenance page at ${maintenanceSeed}`),
       { feedEndpointUnavailable: true, sourceUnavailableKind: 'maintenance' },
+    );
+  }
+  if (listingIndexFailure) {
+    throw Object.assign(
+      new Error(`iPersonal listing index unavailable: ${listingIndexFailure.message}`),
+      { feedEndpointUnavailable: true, sourceUnavailableKind: 'listing-index' },
     );
   }
   const detailEvidenceForAttempt = (attemptedUrl) => {
