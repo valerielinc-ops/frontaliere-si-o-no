@@ -8690,6 +8690,15 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.iva-aumento-famiglie-redditi-bassi.title': 'Mehrwertsteuererhöhung: Stärkerer Effekt auf einkommensschwache Familien',
     'blog.article.iva-aumento-famiglie-redditi-bassi.excerpt': 'In Zürich hat eine UBS-Analyse am 6. November 2026 die Erhöhung der Mehrwertsteuer, der MwSt., untersucht, die zur teilweisen Finanzierung der 13. AVS/AHV-Rente vorgeschlagen wurde.',
     'blog.article.iva-aumento-famiglie-redditi-bassi.imageAlt': 'Illustratives Bild zum Thema des Artikels',
+    'blog.article.telelavoro-frontaliere-quadro-svizzero.title': 'Telearbeit und Grenzgänger: Schweizer Regeln',
+    'blog.article.telelavoro-frontaliere-quadro-svizzero.excerpt': 'Die Schweiz organisiert die Besteuerung auf drei Ebenen: direkte Bundessteuer, Kantonssteuer und Gemeindesteuer.',
+    'blog.article.telelavoro-frontaliere-quadro-svizzero.imageAlt': 'Illustratives Bild zum Thema des Artikels',
+    'blog.article.disoccupazione-stabile-ottobre.title': 'Arbeitslosenquote im Oktober stabil bei 3%',
+    'blog.article.disoccupazione-stabile-ottobre.excerpt': 'Nach den am Donnerstag vom Staatssekretariat für Wirtschaft (SECO) veröffentlichten Daten ist die Zahl der bei den Regionalen Arbeitsvermittlungszentren (RAV) registrierten Personen im Oktober gegenüber September um 535 Personen gestiegen.',
+    'blog.article.disoccupazione-stabile-ottobre.imageAlt': 'Illustratives Bild zum Thema des Artikels',
+    'blog.article.avs-iva-tredicesima-rendita.title': 'Volksabstimmung: Mehrwertsteuererhöhung für 13. AHV-Rente',
+    'blog.article.avs-iva-tredicesima-rendita.excerpt': 'Am 29. November wird das Volk über die vom eidgenössischen Parlament beschlossene Erhöhung der Mehrwertsteuer zur Mitfinanzierung der Kosten der 13. AHV-Rente abstimmen.',
+    'blog.article.avs-iva-tredicesima-rendita.imageAlt': 'Illustratives Bild zum Thema des Artikels',
 };
 
 export default blogMetaChDe;

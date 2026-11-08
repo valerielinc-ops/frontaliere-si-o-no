@@ -13677,6 +13677,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.frontalieri-telelavoro-protocollo-2026.title': 'Grenzgänger & Homeoffice: Arbeitsplatz zu Hause organisieren',
     'blog.article.frontalieri-telelavoro-protocollo-2026.excerpt': 'Telearbeit beträgt bis zu 25 % der Arbeitszeit. Das Protokoll trat am 9. Februar 2026 in Kraft.',
     'blog.article.frontalieri-telelavoro-protocollo-2026.imageAlt': 'Illustratives Bild zum Thema des Artikels',
+    'blog.article.roma-cambia-proposta-tassa.title': 'Rom ändert Vorschlag Gesundheitssteuer für alte Grenzgänger',
+    'blog.article.roma-cambia-proposta-tassa.excerpt': 'Rom will die Regeln der sogenannten Gesundheitssteuer ändern, bevor sie überhaupt angewendet wird.',
+    'blog.article.roma-cambia-proposta-tassa.imageAlt': 'Illustratives Bild zum Thema des Artikels',
 };
 
 export default blogMetaDe;

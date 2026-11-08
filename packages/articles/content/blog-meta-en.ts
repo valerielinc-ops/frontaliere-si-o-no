@@ -13678,6 +13678,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.frontalieri-telelavoro-protocollo-2026.title': 'Cross-border workers and teleworking: setting up a home workstation',
     'blog.article.frontalieri-telelavoro-protocollo-2026.excerpt': 'Teleworking accounts for up to 25% of working time. The protocol entered into force on February 9, 2026.',
     'blog.article.frontalieri-telelavoro-protocollo-2026.imageAlt': 'Illustrative image relevant to the article topic',
+    'blog.article.roma-cambia-proposta-tassa.title': 'Rome changes health tax proposal for former cross-border workers',
+    'blog.article.roma-cambia-proposta-tassa.excerpt': 'Rome wants to change the rules of the so-called health tax before even applying it.',
+    'blog.article.roma-cambia-proposta-tassa.imageAlt': 'Illustrative image relevant to the article topic',
 };
 
 export default blogMetaEn;

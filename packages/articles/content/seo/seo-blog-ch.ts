@@ -109836,7 +109836,7 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
         "license": "https://openai.com/policies/terms-of-use/",
         "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
         "creditText": "frontaliereticino.ch",
-        "url": `${BASE_URL}/images/blog/article-avs-voto-iva-il-29-novembre-per-la-13esima-rendita.webp`,
+        "url": `${BASE_URL}/images/blog/article-iva-aumento-famiglie-redditi-bassi.webp`,
         "width": 1200,
         "height": 675,
         "caption": "Immagine illustrativa pertinente al tema dell’articolo"
@@ -109852,6 +109852,123 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
       },
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/iva-aumento-famiglie-redditi-bassi/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-telelavoro-frontaliere-quadro-svizzero': {
+    title: 'Telelavoro e lavoratori frontalieri: regole svizzere',
+    description: 'Fisco a tre livelli, contributi AVS/AI/IPG, LAMal, permessi e lavoro: il quadro svizzero per lavoratori frontalieri e telelavoro.',
+    keywords: 'telelavoro transfrontaliero, lavoratori frontalieri Svizzera, cross-border worker and teleworking, fiscalità svizzera, AVS AI IPG, LAMal, LPP, permesso G',
+    ogTitle: 'Telelavoro transfrontaliero: il quadro svizzero',
+    ogDescription: 'Dalle tre componenti fiscali ai contributi AVS/AI/IPG, dalla LAMal ai permessi SEM: il quadro svizzero distingue imposte, previdenza, salute e lavoro, indicando anche quali regole e importi dipendono dai Cantoni.',
+    canonicalPath: '/articoli-svizzera/telelavoro-frontaliere-quadro-svizzero/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Telelavoro e lavoratori frontalieri: regole svizzere",
+      "description": "Fisco a tre livelli, contributi AVS/AI/IPG, LAMal, permessi e lavoro: il quadro svizzero per lavoratori frontalieri e telelavoro.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-telelavoro-frontaliere-quadro-svizzero.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine illustrativa pertinente al tema dell’articolo"
+      },
+      "datePublished": "2026-11-07T15:02:30+00:00",
+      "dateModified": "2026-11-07T15:02:30+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/telelavoro-frontaliere-quadro-svizzero/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-disoccupazione-stabile-ottobre': {
+    title: 'Tasso di disoccupazione stabile al 3% in ottobre',
+    description: 'In ottobre, gli iscritti agli URC sono 141’015 (+0,4%) e il tasso di disoccupazione è al 3%. I posti vacanti sono 40’462 (-8,5%).',
+    keywords: 'disoccupazione svizzera, URC ottobre, tasso disoccupazione 3%, posti vacanti, SECO, mercato del lavoro',
+    ogTitle: 'Disoccupazione stabile al 3% in ottobre',
+    ogDescription: 'Dati SECO di ottobre: 141’015 iscritti agli URC (+0,4%) e tasso di disoccupazione al 3%. I posti vacanti sono 40’462 (-8,5%).',
+    canonicalPath: '/articoli-svizzera/disoccupazione-stabile-ottobre/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Tasso di disoccupazione stabile al 3% in ottobre",
+      "description": "In ottobre, gli iscritti agli URC sono 141’015 (+0,4%) e il tasso di disoccupazione è al 3%. I posti vacanti sono 40’462 (-8,5%).",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-disoccupazione-stabile-ottobre.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine illustrativa pertinente al tema dell’articolo"
+      },
+      "datePublished": "2026-11-07T15:49:33+00:00",
+      "dateModified": "2026-11-07T15:49:33+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/disoccupazione-stabile-ottobre/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-avs-iva-tredicesima-rendita': {
+    title: 'Popolo vota sull\'aumento IVA per coprire costi tredicesima AVS',
+    description: 'Il popolo vota il 29 novembre sull\'aumento IVA scelto dal Parlamento per finanziare la tredicesima rendita AVS approvata.',
+    keywords: 'AVS, tredicesima rendita, aumento IVA, voto 29 novembre, Sara Demir, previdenza svizzera',
+    ogTitle: 'Voto IVA per tredicesima AVS 29 novembre',
+    ogDescription: 'Il 29 novembre si voterà sull\'aumento dell\'IVA per coprire i costi della tredicesima rendita AVS, scelta parlamentare discussa da Sara Demir.',
+    canonicalPath: '/articoli-svizzera/avs-iva-tredicesima-rendita/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Popolo vota sull'aumento IVA per coprire costi tredicesima AVS",
+      "description": "Il popolo vota il 29 novembre sull'aumento IVA scelto dal Parlamento per finanziare la tredicesima rendita AVS approvata.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-avs-iva-tredicesima-rendita.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine illustrativa pertinente al tema dell’articolo"
+      },
+      "datePublished": "2026-11-07T16:49:28+00:00",
+      "dateModified": "2026-11-07T16:49:28+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/avs-iva-tredicesima-rendita/`,
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
     }
   },

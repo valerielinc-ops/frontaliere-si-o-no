@@ -83113,6 +83113,80 @@
         }
       }
     },
+    "generated:article-a1-terza-corsia-ginevra": {
+      "source": "generated-provider",
+      "commons": {
+        "title": "Generated editorial illustration",
+        "pageUrl": "https://openai.com/policies/terms-of-use/",
+        "width": 1200,
+        "height": 675,
+        "revision": "2026-11-07T23:02:32.322Z"
+      },
+      "author": {
+        "text": "frontaliereticino.ch",
+        "name": "frontaliereticino.ch",
+        "url": null,
+        "type": "Organization"
+      },
+      "attribution": null,
+      "licence": {
+        "name": "Generated media — provider terms apply",
+        "family": "other-attribution",
+        "attributionRequired": true,
+        "url": "https://openai.com/policies/terms-of-use/"
+      },
+      "restrictions": [
+        "illustrative-only",
+        "no-real-recognizable-foreground-person",
+        "no-public-figure-face",
+        "no-logo-brand-or-text",
+        "no-specific-real-event-photojournalism"
+      ],
+      "fetchedAt": "2026-11-07",
+      "generated": {
+        "schema": 1,
+        "assetId": "article-a1-terza-corsia-ginevra",
+        "kind": "generated",
+        "provider": "openai-codex",
+        "model": "gpt-image-2.5",
+        "executorModel": "gpt-5.6-luna",
+        "promptVersion": "frontaliereticino.generated-image-policy.v1",
+        "promptHash": "416aaed1651027381544a9f857d03aeeb68f7c3e83ba64b039d67087a8dfa22c",
+        "license": "generated-provider",
+        "licenseUrl": "https://openai.com/policies/terms-of-use/",
+        "credit": "frontaliereticino.ch",
+        "sha256": "ecc0a33ad1127073bcce6331f50c558220ecd9deddb736ede6bd9b7396419c78",
+        "bytes": 164348,
+        "width": 1200,
+        "height": 675,
+        "format": "webp",
+        "generatedAt": "2026-11-07T23:02:32.322Z",
+        "verifiedAt": "2026-11-07T23:02:48.647Z",
+        "restrictions": [
+          "illustrative-only",
+          "no-real-recognizable-foreground-person",
+          "no-public-figure-face",
+          "no-logo-brand-or-text",
+          "no-specific-real-event-photojournalism"
+        ],
+        "scope": "article-hero",
+        "imageUrl": "/images/blog/article-a1-terza-corsia-ginevra.webp",
+        "area": "Swiss border region",
+        "season": "all seasons",
+        "variant": "article hero",
+        "vision": {
+          "ok": true,
+          "contains_text": false,
+          "contains_logo": false,
+          "contains_recognizable_face": false,
+          "contains_recognizable_foreground_person": false,
+          "looks_like_specific_real_event": false,
+          "is_photograph": false,
+          "is_topic_relevant": true,
+          "notes": "Generic synthetic motorway illustration with no readable text, logos, people, or event-specific cues."
+        }
+      }
+    },
     "generated:article-aarau-rinnovo-tigli-zollrain": {
       "source": "generated-provider",
       "commons": {
@@ -83554,6 +83628,80 @@
           "is_photograph": false,
           "is_topic_relevant": true,
           "notes": "Generic synthetic photorealistic scene showing typical Valais architecture, vineyards, and Alpine landscape; no people, text, signage, logos, or event-specific cues."
+        }
+      }
+    },
+    "generated:article-avs-iva-tredicesima-rendita": {
+      "source": "generated-provider",
+      "commons": {
+        "title": "Generated editorial illustration",
+        "pageUrl": "https://openai.com/policies/terms-of-use/",
+        "width": 1200,
+        "height": 675,
+        "revision": "2026-11-07T16:49:14.895Z"
+      },
+      "author": {
+        "text": "frontaliereticino.ch",
+        "name": "frontaliereticino.ch",
+        "url": null,
+        "type": "Organization"
+      },
+      "attribution": null,
+      "licence": {
+        "name": "Generated media — provider terms apply",
+        "family": "other-attribution",
+        "attributionRequired": true,
+        "url": "https://openai.com/policies/terms-of-use/"
+      },
+      "restrictions": [
+        "illustrative-only",
+        "no-real-recognizable-foreground-person",
+        "no-public-figure-face",
+        "no-logo-brand-or-text",
+        "no-specific-real-event-photojournalism"
+      ],
+      "fetchedAt": "2026-11-07",
+      "generated": {
+        "schema": 1,
+        "assetId": "article-avs-iva-tredicesima-rendita",
+        "kind": "generated",
+        "provider": "openai-codex",
+        "model": "gpt-image-2.5",
+        "executorModel": "gpt-5.6-luna",
+        "promptVersion": "frontaliereticino.generated-image-policy.v1",
+        "promptHash": "3d2ec7c6262736bca93e14bcc87b6237e2863e6f3930a4b76d63f5db0dcefc07",
+        "license": "generated-provider",
+        "licenseUrl": "https://openai.com/policies/terms-of-use/",
+        "credit": "frontaliereticino.ch",
+        "sha256": "783060df2e036118688dafc6e338f5a67cee972463a81b6b7040af6ccb0c7313",
+        "bytes": 152500,
+        "width": 1200,
+        "height": 675,
+        "format": "webp",
+        "generatedAt": "2026-11-07T16:49:14.895Z",
+        "verifiedAt": "2026-11-07T16:49:26.874Z",
+        "restrictions": [
+          "illustrative-only",
+          "no-real-recognizable-foreground-person",
+          "no-public-figure-face",
+          "no-logo-brand-or-text",
+          "no-specific-real-event-photojournalism"
+        ],
+        "scope": "article-hero",
+        "imageUrl": "/images/blog/article-avs-iva-tredicesima-rendita.webp",
+        "area": "Svizzera",
+        "season": "all seasons",
+        "variant": "article hero",
+        "vision": {
+          "ok": true,
+          "contains_text": false,
+          "contains_logo": false,
+          "contains_recognizable_face": false,
+          "contains_recognizable_foreground_person": false,
+          "looks_like_specific_real_event": false,
+          "is_photograph": false,
+          "is_topic_relevant": true,
+          "notes": "Generic synthetic editorial illustration of a ballot box overlooking a Swiss Alpine town; no text, branding, people, or specific event."
         }
       }
     },
@@ -84519,6 +84667,80 @@
         }
       }
     },
+    "generated:article-consiglio-stato-approva-pratiche": {
+      "source": "generated-provider",
+      "commons": {
+        "title": "Generated editorial illustration",
+        "pageUrl": "https://openai.com/policies/terms-of-use/",
+        "width": 1200,
+        "height": 675,
+        "revision": "2026-11-07T13:22:47.519Z"
+      },
+      "author": {
+        "text": "frontaliereticino.ch",
+        "name": "frontaliereticino.ch",
+        "url": null,
+        "type": "Organization"
+      },
+      "attribution": null,
+      "licence": {
+        "name": "Generated media — provider terms apply",
+        "family": "other-attribution",
+        "attributionRequired": true,
+        "url": "https://openai.com/policies/terms-of-use/"
+      },
+      "restrictions": [
+        "illustrative-only",
+        "no-real-recognizable-foreground-person",
+        "no-public-figure-face",
+        "no-logo-brand-or-text",
+        "no-specific-real-event-photojournalism"
+      ],
+      "fetchedAt": "2026-11-07",
+      "generated": {
+        "schema": 1,
+        "assetId": "article-consiglio-stato-approva-pratiche",
+        "kind": "generated",
+        "provider": "openai-codex",
+        "model": "gpt-image-2.5",
+        "executorModel": "gpt-5.6-luna",
+        "promptVersion": "frontaliereticino.generated-image-policy.v1",
+        "promptHash": "72e731a6da493deb2c2591090d011586db75ee669172acadad31626cc8845a7d",
+        "license": "generated-provider",
+        "licenseUrl": "https://openai.com/policies/terms-of-use/",
+        "credit": "frontaliereticino.ch",
+        "sha256": "6a32a8d858150be89dd2046a29121ae99481e6abce2c9b9cb09fdd1bc1d6654b",
+        "bytes": 207488,
+        "width": 1200,
+        "height": 675,
+        "format": "webp",
+        "generatedAt": "2026-11-07T13:22:47.519Z",
+        "verifiedAt": "2026-11-07T13:23:00.713Z",
+        "restrictions": [
+          "illustrative-only",
+          "no-real-recognizable-foreground-person",
+          "no-public-figure-face",
+          "no-logo-brand-or-text",
+          "no-specific-real-event-photojournalism"
+        ],
+        "scope": "article-hero",
+        "imageUrl": "/images/blog/article-consiglio-stato-approva-pratiche.webp",
+        "area": "Swiss border region",
+        "season": "all seasons",
+        "variant": "article hero",
+        "vision": {
+          "ok": true,
+          "contains_text": false,
+          "contains_logo": false,
+          "contains_recognizable_face": false,
+          "contains_recognizable_foreground_person": false,
+          "looks_like_specific_real_event": false,
+          "is_photograph": false,
+          "is_topic_relevant": true,
+          "notes": "Generic photorealistic synthetic illustration of the Bern Cantonal government building; no text, logos, people, or specific event cues."
+        }
+      }
+    },
     "generated:article-consultazione-piano-zugo": {
       "source": "generated-provider",
       "commons": {
@@ -84741,6 +84963,80 @@
         }
       }
     },
+    "generated:article-disoccupazione-stabile-ottobre": {
+      "source": "generated-provider",
+      "commons": {
+        "title": "Generated editorial illustration",
+        "pageUrl": "https://openai.com/policies/terms-of-use/",
+        "width": 1200,
+        "height": 675,
+        "revision": "2026-11-07T15:49:14.645Z"
+      },
+      "author": {
+        "text": "frontaliereticino.ch",
+        "name": "frontaliereticino.ch",
+        "url": null,
+        "type": "Organization"
+      },
+      "attribution": null,
+      "licence": {
+        "name": "Generated media — provider terms apply",
+        "family": "other-attribution",
+        "attributionRequired": true,
+        "url": "https://openai.com/policies/terms-of-use/"
+      },
+      "restrictions": [
+        "illustrative-only",
+        "no-real-recognizable-foreground-person",
+        "no-public-figure-face",
+        "no-logo-brand-or-text",
+        "no-specific-real-event-photojournalism"
+      ],
+      "fetchedAt": "2026-11-07",
+      "generated": {
+        "schema": 1,
+        "assetId": "article-disoccupazione-stabile-ottobre",
+        "kind": "generated",
+        "provider": "openai-codex",
+        "model": "gpt-image-2.5",
+        "executorModel": "gpt-5.6-luna",
+        "promptVersion": "frontaliereticino.generated-image-policy.v1",
+        "promptHash": "531d292a37ea75fb0ead233c30a489a4189711e1414b32126e0534085d0bb956",
+        "license": "generated-provider",
+        "licenseUrl": "https://openai.com/policies/terms-of-use/",
+        "credit": "frontaliereticino.ch",
+        "sha256": "6bb4a258f6cae8b59e0f5573eeccdc51b67427bf78ddb51a1b3fa4f7f66c714b",
+        "bytes": 192056,
+        "width": 1200,
+        "height": 675,
+        "format": "webp",
+        "generatedAt": "2026-11-07T15:49:14.645Z",
+        "verifiedAt": "2026-11-07T15:49:32.444Z",
+        "restrictions": [
+          "illustrative-only",
+          "no-real-recognizable-foreground-person",
+          "no-public-figure-face",
+          "no-logo-brand-or-text",
+          "no-specific-real-event-photojournalism"
+        ],
+        "scope": "article-hero",
+        "imageUrl": "/images/blog/article-disoccupazione-stabile-ottobre.webp",
+        "area": "Svizzera",
+        "season": "all seasons",
+        "variant": "article hero",
+        "vision": {
+          "ok": true,
+          "contains_text": false,
+          "contains_logo": false,
+          "contains_recognizable_face": false,
+          "contains_recognizable_foreground_person": false,
+          "looks_like_specific_real_event": false,
+          "is_photograph": false,
+          "is_topic_relevant": true,
+          "notes": "Generic synthetic photorealistic Swiss urban illustration with no readable text, logos, recognizable faces, or foreground persons."
+        }
+      }
+    },
     "generated:article-domanda-edilizia-meisenweg": {
       "source": "generated-provider",
       "commons": {
@@ -84812,6 +85108,80 @@
           "is_photograph": false,
           "is_topic_relevant": true,
           "notes": "Generic synthetic illustration of a Swiss detached house with rooftop solar panels and landscaped grounds; no people, text, signage, logos, or event-specific cues."
+        }
+      }
+    },
+    "generated:article-due-generazioni-immobiliare-mellingen": {
+      "source": "generated-provider",
+      "commons": {
+        "title": "Generated editorial illustration",
+        "pageUrl": "https://openai.com/policies/terms-of-use/",
+        "width": 1200,
+        "height": 675,
+        "revision": "2026-11-07T13:46:02.174Z"
+      },
+      "author": {
+        "text": "frontaliereticino.ch",
+        "name": "frontaliereticino.ch",
+        "url": null,
+        "type": "Organization"
+      },
+      "attribution": null,
+      "licence": {
+        "name": "Generated media — provider terms apply",
+        "family": "other-attribution",
+        "attributionRequired": true,
+        "url": "https://openai.com/policies/terms-of-use/"
+      },
+      "restrictions": [
+        "illustrative-only",
+        "no-real-recognizable-foreground-person",
+        "no-public-figure-face",
+        "no-logo-brand-or-text",
+        "no-specific-real-event-photojournalism"
+      ],
+      "fetchedAt": "2026-11-07",
+      "generated": {
+        "schema": 1,
+        "assetId": "article-due-generazioni-immobiliare-mellingen",
+        "kind": "generated",
+        "provider": "openai-codex",
+        "model": "gpt-image-2.5",
+        "executorModel": "gpt-5.6-luna",
+        "promptVersion": "frontaliereticino.generated-image-policy.v1",
+        "promptHash": "62f5d022000357b9759ce70ac1008b0a3bdcb0de2da263951c1b02893e3c35a2",
+        "license": "generated-provider",
+        "licenseUrl": "https://openai.com/policies/terms-of-use/",
+        "credit": "frontaliereticino.ch",
+        "sha256": "aec38daa3a67fb0158ca8d0c1a2e953d99ae77d56d1930d6ab785d461b4f2537",
+        "bytes": 167768,
+        "width": 1200,
+        "height": 675,
+        "format": "webp",
+        "generatedAt": "2026-11-07T13:46:02.174Z",
+        "verifiedAt": "2026-11-07T13:46:13.557Z",
+        "restrictions": [
+          "illustrative-only",
+          "no-real-recognizable-foreground-person",
+          "no-public-figure-face",
+          "no-logo-brand-or-text",
+          "no-specific-real-event-photojournalism"
+        ],
+        "scope": "article-hero",
+        "imageUrl": "/images/blog/article-due-generazioni-immobiliare-mellingen.webp",
+        "area": "Swiss border region",
+        "season": "all seasons",
+        "variant": "article hero",
+        "vision": {
+          "ok": true,
+          "contains_text": false,
+          "contains_logo": false,
+          "contains_recognizable_face": false,
+          "contains_recognizable_foreground_person": false,
+          "looks_like_specific_real_event": false,
+          "is_photograph": false,
+          "is_topic_relevant": true,
+          "notes": "Original generic synthetic editorial illustration of a modern real estate office exterior; no readable text, logos, identifiable people, or specific-event cues."
         }
       }
     },
@@ -85259,6 +85629,80 @@
         }
       }
     },
+    "generated:article-giura-regain-fiducia-imprese": {
+      "source": "generated-provider",
+      "commons": {
+        "title": "Generated editorial illustration",
+        "pageUrl": "https://openai.com/policies/terms-of-use/",
+        "width": 1200,
+        "height": 675,
+        "revision": "2026-11-07T10:11:21.420Z"
+      },
+      "author": {
+        "text": "frontaliereticino.ch",
+        "name": "frontaliereticino.ch",
+        "url": null,
+        "type": "Organization"
+      },
+      "attribution": null,
+      "licence": {
+        "name": "Generated media — provider terms apply",
+        "family": "other-attribution",
+        "attributionRequired": true,
+        "url": "https://openai.com/policies/terms-of-use/"
+      },
+      "restrictions": [
+        "illustrative-only",
+        "no-real-recognizable-foreground-person",
+        "no-public-figure-face",
+        "no-logo-brand-or-text",
+        "no-specific-real-event-photojournalism"
+      ],
+      "fetchedAt": "2026-11-07",
+      "generated": {
+        "schema": 1,
+        "assetId": "article-giura-regain-fiducia-imprese",
+        "kind": "generated",
+        "provider": "openai-codex",
+        "model": "gpt-image-2.5",
+        "executorModel": "gpt-5.6-luna",
+        "promptVersion": "frontaliereticino.generated-image-policy.v1",
+        "promptHash": "96b8b6535aa7ff8be51f53ee540ebc27af8a9b252722ae956ca69c4e6e6a4493",
+        "license": "generated-provider",
+        "licenseUrl": "https://openai.com/policies/terms-of-use/",
+        "credit": "frontaliereticino.ch",
+        "sha256": "4bbf080205a844afd4d851d49f02a4150ba5d3574aabc676ca09f7053a46c6e5",
+        "bytes": 165890,
+        "width": 1200,
+        "height": 675,
+        "format": "webp",
+        "generatedAt": "2026-11-07T10:11:21.420Z",
+        "verifiedAt": "2026-11-07T10:11:35.687Z",
+        "restrictions": [
+          "illustrative-only",
+          "no-real-recognizable-foreground-person",
+          "no-public-figure-face",
+          "no-logo-brand-or-text",
+          "no-specific-real-event-photojournalism"
+        ],
+        "scope": "article-hero",
+        "imageUrl": "/images/blog/article-giura-regain-fiducia-imprese.webp",
+        "area": "Swiss border region",
+        "season": "all seasons",
+        "variant": "article hero",
+        "vision": {
+          "ok": true,
+          "contains_text": false,
+          "contains_logo": false,
+          "contains_recognizable_face": false,
+          "contains_recognizable_foreground_person": false,
+          "looks_like_specific_real_event": false,
+          "is_photograph": false,
+          "is_topic_relevant": true,
+          "notes": "Generic synthetic industrial landscape; no readable text, logos, or recognizable people."
+        }
+      }
+    },
     "generated:article-glarona-detrazioni-energia-2029": {
       "source": "generated-provider",
       "commons": {
@@ -85555,6 +85999,80 @@
         }
       }
     },
+    "generated:article-incendio-sins-linea-s26": {
+      "source": "generated-provider",
+      "commons": {
+        "title": "Generated editorial illustration",
+        "pageUrl": "https://openai.com/policies/terms-of-use/",
+        "width": 1200,
+        "height": 675,
+        "revision": "2026-11-07T14:58:50.330Z"
+      },
+      "author": {
+        "text": "frontaliereticino.ch",
+        "name": "frontaliereticino.ch",
+        "url": null,
+        "type": "Organization"
+      },
+      "attribution": null,
+      "licence": {
+        "name": "Generated media — provider terms apply",
+        "family": "other-attribution",
+        "attributionRequired": true,
+        "url": "https://openai.com/policies/terms-of-use/"
+      },
+      "restrictions": [
+        "illustrative-only",
+        "no-real-recognizable-foreground-person",
+        "no-public-figure-face",
+        "no-logo-brand-or-text",
+        "no-specific-real-event-photojournalism"
+      ],
+      "fetchedAt": "2026-11-07",
+      "generated": {
+        "schema": 1,
+        "assetId": "article-incendio-sins-linea-s26",
+        "kind": "generated",
+        "provider": "openai-codex",
+        "model": "gpt-image-2.5",
+        "executorModel": "gpt-5.6-luna",
+        "promptVersion": "frontaliereticino.generated-image-policy.v1",
+        "promptHash": "4cc033445814a36d1e1520ad78ac6e08fcb2b4f7d6c40111a6cd3b878b035cf1",
+        "license": "generated-provider",
+        "licenseUrl": "https://openai.com/policies/terms-of-use/",
+        "credit": "frontaliereticino.ch",
+        "sha256": "bdeccadad209a4b3143c0cf8c7c552cd2a19ad0fc4794cf4f040b031c72f0b30",
+        "bytes": 168184,
+        "width": 1200,
+        "height": 675,
+        "format": "webp",
+        "generatedAt": "2026-11-07T14:58:50.330Z",
+        "verifiedAt": "2026-11-07T14:59:05.065Z",
+        "restrictions": [
+          "illustrative-only",
+          "no-real-recognizable-foreground-person",
+          "no-public-figure-face",
+          "no-logo-brand-or-text",
+          "no-specific-real-event-photojournalism"
+        ],
+        "scope": "article-hero",
+        "imageUrl": "/images/blog/article-incendio-sins-linea-s26.webp",
+        "area": "Swiss border region",
+        "season": "all seasons",
+        "variant": "article hero",
+        "vision": {
+          "ok": true,
+          "contains_text": false,
+          "contains_logo": false,
+          "contains_recognizable_face": false,
+          "contains_recognizable_foreground_person": false,
+          "looks_like_specific_real_event": false,
+          "is_photograph": false,
+          "is_topic_relevant": true,
+          "notes": "Generic synthetic editorial illustration relevant to a replacement bus, railway interruption, and distant smoke plume; no people, text, signage, logos, or identifiable event markers."
+        }
+      }
+    },
     "generated:article-incendio-tunnel-fluelen": {
       "source": "generated-provider",
       "commons": {
@@ -85626,6 +86144,80 @@
           "is_photograph": false,
           "is_topic_relevant": true,
           "notes": "Original synthetic photorealistic alpine tunnel scene with no readable text, logos, people, faces, or event-specific evidence."
+        }
+      }
+    },
+    "generated:article-infermieri-osc-sindacati-stipendi": {
+      "source": "generated-provider",
+      "commons": {
+        "title": "Generated editorial illustration",
+        "pageUrl": "https://openai.com/policies/terms-of-use/",
+        "width": 1200,
+        "height": 675,
+        "revision": "2026-11-07T13:55:37.841Z"
+      },
+      "author": {
+        "text": "frontaliereticino.ch",
+        "name": "frontaliereticino.ch",
+        "url": null,
+        "type": "Organization"
+      },
+      "attribution": null,
+      "licence": {
+        "name": "Generated media — provider terms apply",
+        "family": "other-attribution",
+        "attributionRequired": true,
+        "url": "https://openai.com/policies/terms-of-use/"
+      },
+      "restrictions": [
+        "illustrative-only",
+        "no-real-recognizable-foreground-person",
+        "no-public-figure-face",
+        "no-logo-brand-or-text",
+        "no-specific-real-event-photojournalism"
+      ],
+      "fetchedAt": "2026-11-07",
+      "generated": {
+        "schema": 1,
+        "assetId": "article-infermieri-osc-sindacati-stipendi",
+        "kind": "generated",
+        "provider": "openai-codex",
+        "model": "gpt-image-2.5",
+        "executorModel": "gpt-5.6-luna",
+        "promptVersion": "frontaliereticino.generated-image-policy.v1",
+        "promptHash": "4e59ae5adb7617025e44681d5ee425eeaa06e6ec55ab607831ce7d9f5bac1ca5",
+        "license": "generated-provider",
+        "licenseUrl": "https://openai.com/policies/terms-of-use/",
+        "credit": "frontaliereticino.ch",
+        "sha256": "d4ec0197536399588c7dde530073da29ef6ac3008fbe4226755466f4b32e4a33",
+        "bytes": 55704,
+        "width": 1200,
+        "height": 675,
+        "format": "webp",
+        "generatedAt": "2026-11-07T13:55:37.841Z",
+        "verifiedAt": "2026-11-07T13:55:53.895Z",
+        "restrictions": [
+          "illustrative-only",
+          "no-real-recognizable-foreground-person",
+          "no-public-figure-face",
+          "no-logo-brand-or-text",
+          "no-specific-real-event-photojournalism"
+        ],
+        "scope": "article-hero",
+        "imageUrl": "/images/blog/article-infermieri-osc-sindacati-stipendi.webp",
+        "area": "Ticino e pendolarismo transfrontaliero",
+        "season": "all seasons",
+        "variant": "article hero",
+        "vision": {
+          "ok": true,
+          "contains_text": false,
+          "contains_logo": false,
+          "contains_recognizable_face": false,
+          "contains_recognizable_foreground_person": false,
+          "looks_like_specific_real_event": false,
+          "is_photograph": false,
+          "is_topic_relevant": true,
+          "notes": "Generic synthetic editorial illustration of healthcare workers near public transit, relevant to nurses and cross-border commuting in Ticino; no readable text, logos, identifiable faces, or specific event."
         }
       }
     },
@@ -85774,6 +86366,80 @@
           "is_photograph": false,
           "is_topic_relevant": true,
           "notes": "Original generic synthetic illustration of an alpine construction site; no text, logos, or people."
+        }
+      }
+    },
+    "generated:article-iva-aumento-famiglie-redditi-bassi": {
+      "source": "generated-provider",
+      "commons": {
+        "title": "Generated editorial illustration",
+        "pageUrl": "https://openai.com/policies/terms-of-use/",
+        "width": 1200,
+        "height": 675,
+        "revision": "2026-11-07T06:52:47.385Z"
+      },
+      "author": {
+        "text": "frontaliereticino.ch",
+        "name": "frontaliereticino.ch",
+        "url": null,
+        "type": "Organization"
+      },
+      "attribution": null,
+      "licence": {
+        "name": "Generated media — provider terms apply",
+        "family": "other-attribution",
+        "attributionRequired": true,
+        "url": "https://openai.com/policies/terms-of-use/"
+      },
+      "restrictions": [
+        "illustrative-only",
+        "no-real-recognizable-foreground-person",
+        "no-public-figure-face",
+        "no-logo-brand-or-text",
+        "no-specific-real-event-photojournalism"
+      ],
+      "fetchedAt": "2026-11-07",
+      "generated": {
+        "schema": 1,
+        "assetId": "article-iva-aumento-famiglie-redditi-bassi",
+        "kind": "generated",
+        "provider": "openai-codex",
+        "model": "gpt-image-2.5",
+        "executorModel": "gpt-5.6-luna",
+        "promptVersion": "frontaliereticino.generated-image-policy.v1",
+        "promptHash": "857b61d57a519ea323b9ecfc73e63b276cf87ca6199967a82a6d7c0845816d6d",
+        "license": "generated-provider",
+        "licenseUrl": "https://openai.com/policies/terms-of-use/",
+        "credit": "frontaliereticino.ch",
+        "sha256": "86413d17f595c793f949c0b9eae7d439bd82fe20e2c9263e1baca20f8be8481b",
+        "bytes": 110234,
+        "width": 1200,
+        "height": 675,
+        "format": "webp",
+        "generatedAt": "2026-11-07T06:52:47.385Z",
+        "verifiedAt": "2026-11-07T06:53:05.314Z",
+        "restrictions": [
+          "illustrative-only",
+          "no-real-recognizable-foreground-person",
+          "no-public-figure-face",
+          "no-logo-brand-or-text",
+          "no-specific-real-event-photojournalism"
+        ],
+        "scope": "article-hero",
+        "imageUrl": "/images/blog/article-iva-aumento-famiglie-redditi-bassi.webp",
+        "area": "Svizzera",
+        "season": "all seasons",
+        "variant": "article hero",
+        "vision": {
+          "ok": true,
+          "contains_text": false,
+          "contains_logo": false,
+          "contains_recognizable_face": false,
+          "contains_recognizable_foreground_person": false,
+          "looks_like_specific_real_event": false,
+          "is_photograph": false,
+          "is_topic_relevant": true,
+          "notes": "Generic synthetic editorial still life clearly depicting household groceries, budgeting, receipts, and money."
         }
       }
     },
@@ -86369,6 +87035,80 @@
         }
       }
     },
+    "generated:article-martinimarkt-principale-strada-chiusa": {
+      "source": "generated-provider",
+      "commons": {
+        "title": "Generated editorial illustration",
+        "pageUrl": "https://openai.com/policies/terms-of-use/",
+        "width": 1200,
+        "height": 675,
+        "revision": "2026-11-07T08:08:22.327Z"
+      },
+      "author": {
+        "text": "frontaliereticino.ch",
+        "name": "frontaliereticino.ch",
+        "url": null,
+        "type": "Organization"
+      },
+      "attribution": null,
+      "licence": {
+        "name": "Generated media — provider terms apply",
+        "family": "other-attribution",
+        "attributionRequired": true,
+        "url": "https://openai.com/policies/terms-of-use/"
+      },
+      "restrictions": [
+        "illustrative-only",
+        "no-real-recognizable-foreground-person",
+        "no-public-figure-face",
+        "no-logo-brand-or-text",
+        "no-specific-real-event-photojournalism"
+      ],
+      "fetchedAt": "2026-11-07",
+      "generated": {
+        "schema": 1,
+        "assetId": "article-martinimarkt-principale-strada-chiusa",
+        "kind": "generated",
+        "provider": "openai-codex",
+        "model": "gpt-image-2.5",
+        "executorModel": "gpt-5.6-luna",
+        "promptVersion": "frontaliereticino.generated-image-policy.v1",
+        "promptHash": "3054ce0a1414042769aa584e414165f2d3413f336d2aa38879a26d438479fe3d",
+        "license": "generated-provider",
+        "licenseUrl": "https://openai.com/policies/terms-of-use/",
+        "credit": "frontaliereticino.ch",
+        "sha256": "6ac359c060b40246eb4cddf8b3d93d3ef6dc11c3e785c173c43d7d96a702c9f8",
+        "bytes": 136934,
+        "width": 1200,
+        "height": 675,
+        "format": "webp",
+        "generatedAt": "2026-11-07T08:08:22.327Z",
+        "verifiedAt": "2026-11-07T08:08:34.844Z",
+        "restrictions": [
+          "illustrative-only",
+          "no-real-recognizable-foreground-person",
+          "no-public-figure-face",
+          "no-logo-brand-or-text",
+          "no-specific-real-event-photojournalism"
+        ],
+        "scope": "article-hero",
+        "imageUrl": "/images/blog/article-martinimarkt-principale-strada-chiusa.webp",
+        "area": "Swiss border region",
+        "season": "all seasons",
+        "variant": "article hero",
+        "vision": {
+          "ok": true,
+          "contains_text": false,
+          "contains_logo": false,
+          "contains_recognizable_face": false,
+          "contains_recognizable_foreground_person": false,
+          "looks_like_specific_real_event": false,
+          "is_photograph": false,
+          "is_topic_relevant": true,
+          "notes": "Generic synthetic photorealistic street scene showing temporary barriers and market tents; no people, text, logos, or identifiable event."
+        }
+      }
+    },
     "generated:article-massagno-moltiplicatore-2027": {
       "source": "generated-provider",
       "commons": {
@@ -86813,6 +87553,80 @@
         }
       }
     },
+    "generated:article-nav-kita-proroga-fino-2030": {
+      "source": "generated-provider",
+      "commons": {
+        "title": "Generated editorial illustration",
+        "pageUrl": "https://openai.com/policies/terms-of-use/",
+        "width": 1200,
+        "height": 675,
+        "revision": "2026-11-07T10:23:27.475Z"
+      },
+      "author": {
+        "text": "frontaliereticino.ch",
+        "name": "frontaliereticino.ch",
+        "url": null,
+        "type": "Organization"
+      },
+      "attribution": null,
+      "licence": {
+        "name": "Generated media — provider terms apply",
+        "family": "other-attribution",
+        "attributionRequired": true,
+        "url": "https://openai.com/policies/terms-of-use/"
+      },
+      "restrictions": [
+        "illustrative-only",
+        "no-real-recognizable-foreground-person",
+        "no-public-figure-face",
+        "no-logo-brand-or-text",
+        "no-specific-real-event-photojournalism"
+      ],
+      "fetchedAt": "2026-11-07",
+      "generated": {
+        "schema": 1,
+        "assetId": "article-nav-kita-proroga-fino-2030",
+        "kind": "generated",
+        "provider": "openai-codex",
+        "model": "gpt-image-2.5",
+        "executorModel": "gpt-5.6-luna",
+        "promptVersion": "frontaliereticino.generated-image-policy.v1",
+        "promptHash": "654bd42ae417d6bf8c2c7cf65713ccfe34cde1d2231147081a2533bf5d00f45d",
+        "license": "generated-provider",
+        "licenseUrl": "https://openai.com/policies/terms-of-use/",
+        "credit": "frontaliereticino.ch",
+        "sha256": "da9df20b14f159015a5d3918a53a969af1137e416c318ce9fecd156689e95b20",
+        "bytes": 186292,
+        "width": 1200,
+        "height": 675,
+        "format": "webp",
+        "generatedAt": "2026-11-07T10:23:27.475Z",
+        "verifiedAt": "2026-11-07T10:23:39.092Z",
+        "restrictions": [
+          "illustrative-only",
+          "no-real-recognizable-foreground-person",
+          "no-public-figure-face",
+          "no-logo-brand-or-text",
+          "no-specific-real-event-photojournalism"
+        ],
+        "scope": "article-hero",
+        "imageUrl": "/images/blog/article-nav-kita-proroga-fino-2030.webp",
+        "area": "Swiss border region",
+        "season": "all seasons",
+        "variant": "article hero",
+        "vision": {
+          "ok": true,
+          "contains_text": false,
+          "contains_logo": false,
+          "contains_recognizable_face": false,
+          "contains_recognizable_foreground_person": false,
+          "looks_like_specific_real_event": false,
+          "is_photograph": false,
+          "is_topic_relevant": true,
+          "notes": "Synthetic editorial illustration of Lucerne featuring the Chapel Bridge; no text, logos, people, or event-specific content."
+        }
+      }
+    },
     "generated:article-neuchatel-dossier-consiglio-stato": {
       "source": "generated-provider",
       "commons": {
@@ -86884,6 +87698,80 @@
           "is_photograph": false,
           "is_topic_relevant": true,
           "notes": "Generic synthetic civic-building illustration with no readable text, logos, or identifiable people."
+        }
+      }
+    },
+    "generated:article-neyruz-strada-cantonale-valtraloc": {
+      "source": "generated-provider",
+      "commons": {
+        "title": "Generated editorial illustration",
+        "pageUrl": "https://openai.com/policies/terms-of-use/",
+        "width": 1200,
+        "height": 675,
+        "revision": "2026-11-07T12:34:27.723Z"
+      },
+      "author": {
+        "text": "frontaliereticino.ch",
+        "name": "frontaliereticino.ch",
+        "url": null,
+        "type": "Organization"
+      },
+      "attribution": null,
+      "licence": {
+        "name": "Generated media — provider terms apply",
+        "family": "other-attribution",
+        "attributionRequired": true,
+        "url": "https://openai.com/policies/terms-of-use/"
+      },
+      "restrictions": [
+        "illustrative-only",
+        "no-real-recognizable-foreground-person",
+        "no-public-figure-face",
+        "no-logo-brand-or-text",
+        "no-specific-real-event-photojournalism"
+      ],
+      "fetchedAt": "2026-11-07",
+      "generated": {
+        "schema": 1,
+        "assetId": "article-neyruz-strada-cantonale-valtraloc",
+        "kind": "generated",
+        "provider": "openai-codex",
+        "model": "gpt-image-2.5",
+        "executorModel": "gpt-5.6-luna",
+        "promptVersion": "frontaliereticino.generated-image-policy.v1",
+        "promptHash": "dc4e12950ca48c1775a70cc3d44ddad327a292116822683229300ee3879a84ce",
+        "license": "generated-provider",
+        "licenseUrl": "https://openai.com/policies/terms-of-use/",
+        "credit": "frontaliereticino.ch",
+        "sha256": "29a02bb027423919a2e629ea125bcf1a87a94bcc46b373beb6242382cce3a070",
+        "bytes": 155184,
+        "width": 1200,
+        "height": 675,
+        "format": "webp",
+        "generatedAt": "2026-11-07T12:34:27.723Z",
+        "verifiedAt": "2026-11-07T12:34:37.136Z",
+        "restrictions": [
+          "illustrative-only",
+          "no-real-recognizable-foreground-person",
+          "no-public-figure-face",
+          "no-logo-brand-or-text",
+          "no-specific-real-event-photojournalism"
+        ],
+        "scope": "article-hero",
+        "imageUrl": "/images/blog/article-neyruz-strada-cantonale-valtraloc.webp",
+        "area": "Swiss border region",
+        "season": "all seasons",
+        "variant": "article hero",
+        "vision": {
+          "ok": true,
+          "contains_text": false,
+          "contains_logo": false,
+          "contains_recognizable_face": false,
+          "contains_recognizable_foreground_person": false,
+          "looks_like_specific_real_event": false,
+          "is_photograph": false,
+          "is_topic_relevant": true,
+          "notes": "Generic synthetic editorial illustration of a quiet rural road with construction barriers and traffic cones; no people, readable text, logos, signage, or specific-event cues."
         }
       }
     },
@@ -87106,6 +87994,154 @@
           "is_photograph": false,
           "is_topic_relevant": true,
           "notes": "Generic synthetic editorial scene of nighttime Alpine road closure and rock-clearing work; no people, text, signage, logos, or watermarks."
+        }
+      }
+    },
+    "generated:article-ostaj-stagnazione-frontalieri": {
+      "source": "generated-provider",
+      "commons": {
+        "title": "Generated editorial illustration",
+        "pageUrl": "https://openai.com/policies/terms-of-use/",
+        "width": 1200,
+        "height": 675,
+        "revision": "2026-11-07T11:35:20.338Z"
+      },
+      "author": {
+        "text": "frontaliereticino.ch",
+        "name": "frontaliereticino.ch",
+        "url": null,
+        "type": "Organization"
+      },
+      "attribution": null,
+      "licence": {
+        "name": "Generated media — provider terms apply",
+        "family": "other-attribution",
+        "attributionRequired": true,
+        "url": "https://openai.com/policies/terms-of-use/"
+      },
+      "restrictions": [
+        "illustrative-only",
+        "no-real-recognizable-foreground-person",
+        "no-public-figure-face",
+        "no-logo-brand-or-text",
+        "no-specific-real-event-photojournalism"
+      ],
+      "fetchedAt": "2026-11-07",
+      "generated": {
+        "schema": 1,
+        "assetId": "article-ostaj-stagnazione-frontalieri",
+        "kind": "generated",
+        "provider": "openai-codex",
+        "model": "gpt-image-2.5",
+        "executorModel": "gpt-5.6-luna",
+        "promptVersion": "frontaliereticino.generated-image-policy.v1",
+        "promptHash": "1d2699c6257838d38712fe27b766301211c6235d6eec47b84f95255c6346d9a4",
+        "license": "generated-provider",
+        "licenseUrl": "https://openai.com/policies/terms-of-use/",
+        "credit": "frontaliereticino.ch",
+        "sha256": "361882035c1cf7ef6743e1b9bd1c11f5462a0236b77e27ad8283adcd23d88ef5",
+        "bytes": 176808,
+        "width": 1200,
+        "height": 675,
+        "format": "webp",
+        "generatedAt": "2026-11-07T11:35:20.338Z",
+        "verifiedAt": "2026-11-07T11:35:41.090Z",
+        "restrictions": [
+          "illustrative-only",
+          "no-real-recognizable-foreground-person",
+          "no-public-figure-face",
+          "no-logo-brand-or-text",
+          "no-specific-real-event-photojournalism"
+        ],
+        "scope": "article-hero",
+        "imageUrl": "/images/blog/article-ostaj-stagnazione-frontalieri.webp",
+        "area": "Swiss border region",
+        "season": "all seasons",
+        "variant": "article hero",
+        "vision": {
+          "ok": true,
+          "contains_text": false,
+          "contains_logo": false,
+          "contains_recognizable_face": false,
+          "contains_recognizable_foreground_person": false,
+          "looks_like_specific_real_event": false,
+          "is_photograph": false,
+          "is_topic_relevant": true,
+          "notes": "Generic synthetic photorealistic editorial scene of a rural cross-border railway setting; no people, readable text, signage, logos, or specific event."
+        }
+      }
+    },
+    "generated:article-osttangente-riapertura-basilea": {
+      "source": "generated-provider",
+      "commons": {
+        "title": "Generated editorial illustration",
+        "pageUrl": "https://openai.com/policies/terms-of-use/",
+        "width": 1200,
+        "height": 675,
+        "revision": "2026-11-07T12:34:14.892Z"
+      },
+      "author": {
+        "text": "frontaliereticino.ch",
+        "name": "frontaliereticino.ch",
+        "url": null,
+        "type": "Organization"
+      },
+      "attribution": null,
+      "licence": {
+        "name": "Generated media — provider terms apply",
+        "family": "other-attribution",
+        "attributionRequired": true,
+        "url": "https://openai.com/policies/terms-of-use/"
+      },
+      "restrictions": [
+        "illustrative-only",
+        "no-real-recognizable-foreground-person",
+        "no-public-figure-face",
+        "no-logo-brand-or-text",
+        "no-specific-real-event-photojournalism"
+      ],
+      "fetchedAt": "2026-11-07",
+      "generated": {
+        "schema": 1,
+        "assetId": "article-osttangente-riapertura-basilea",
+        "kind": "generated",
+        "provider": "openai-codex",
+        "model": "gpt-image-2.5",
+        "executorModel": "gpt-5.6-luna",
+        "promptVersion": "frontaliereticino.generated-image-policy.v1",
+        "promptHash": "435ee77d849abb245eac46bc5d0951cb738191baade6ee00dd313a1e0db3144b",
+        "license": "generated-provider",
+        "licenseUrl": "https://openai.com/policies/terms-of-use/",
+        "credit": "frontaliereticino.ch",
+        "sha256": "ad3a4fcc1df4904b8520484d03903e47491971841d934d662bfbfa563413cd67",
+        "bytes": 176818,
+        "width": 1200,
+        "height": 675,
+        "format": "webp",
+        "generatedAt": "2026-11-07T12:34:14.892Z",
+        "verifiedAt": "2026-11-07T12:34:26.509Z",
+        "restrictions": [
+          "illustrative-only",
+          "no-real-recognizable-foreground-person",
+          "no-public-figure-face",
+          "no-logo-brand-or-text",
+          "no-specific-real-event-photojournalism"
+        ],
+        "scope": "article-hero",
+        "imageUrl": "/images/blog/article-osttangente-riapertura-basilea.webp",
+        "area": "Swiss border region",
+        "season": "all seasons",
+        "variant": "article hero",
+        "vision": {
+          "ok": true,
+          "contains_text": false,
+          "contains_logo": false,
+          "contains_recognizable_face": false,
+          "contains_recognizable_foreground_person": false,
+          "looks_like_specific_real_event": false,
+          "is_photograph": false,
+          "is_topic_relevant": true,
+          "notes": "Generic synthetic urban infrastructure illustration relevant to Basel's elevated-road access context; no text, logos, people, or specific event."
         }
       }
     },
@@ -87923,6 +88959,80 @@
         }
       }
     },
+    "generated:article-roma-cambia-proposta-tassa": {
+      "source": "generated-provider",
+      "commons": {
+        "title": "Generated editorial illustration",
+        "pageUrl": "https://openai.com/policies/terms-of-use/",
+        "width": 1200,
+        "height": 675,
+        "revision": "2026-11-07T08:18:59.021Z"
+      },
+      "author": {
+        "text": "frontaliereticino.ch",
+        "name": "frontaliereticino.ch",
+        "url": null,
+        "type": "Organization"
+      },
+      "attribution": null,
+      "licence": {
+        "name": "Generated media — provider terms apply",
+        "family": "other-attribution",
+        "attributionRequired": true,
+        "url": "https://openai.com/policies/terms-of-use/"
+      },
+      "restrictions": [
+        "illustrative-only",
+        "no-real-recognizable-foreground-person",
+        "no-public-figure-face",
+        "no-logo-brand-or-text",
+        "no-specific-real-event-photojournalism"
+      ],
+      "fetchedAt": "2026-11-07",
+      "generated": {
+        "schema": 1,
+        "assetId": "article-roma-cambia-proposta-tassa",
+        "kind": "generated",
+        "provider": "openai-codex",
+        "model": "gpt-image-2.5",
+        "executorModel": "gpt-5.6-luna",
+        "promptVersion": "frontaliereticino.generated-image-policy.v1",
+        "promptHash": "62d111859b4e39c40afbfc067f0fa011be9abb1dd1336f2ac27947348407ef30",
+        "license": "generated-provider",
+        "licenseUrl": "https://openai.com/policies/terms-of-use/",
+        "credit": "frontaliereticino.ch",
+        "sha256": "8f9e8bfc70189cd3a4231d8ee811f5d79750c55106077e214b423295e5773abd",
+        "bytes": 163942,
+        "width": 1200,
+        "height": 675,
+        "format": "webp",
+        "generatedAt": "2026-11-07T08:18:59.021Z",
+        "verifiedAt": "2026-11-07T08:19:17.033Z",
+        "restrictions": [
+          "illustrative-only",
+          "no-real-recognizable-foreground-person",
+          "no-public-figure-face",
+          "no-logo-brand-or-text",
+          "no-specific-real-event-photojournalism"
+        ],
+        "scope": "article-hero",
+        "imageUrl": "/images/blog/article-roma-cambia-proposta-tassa.webp",
+        "area": "Ticino e pendolarismo transfrontaliero",
+        "season": "all seasons",
+        "variant": "article hero",
+        "vision": {
+          "ok": true,
+          "contains_text": false,
+          "contains_logo": false,
+          "contains_recognizable_face": false,
+          "contains_recognizable_foreground_person": false,
+          "looks_like_specific_real_event": false,
+          "is_photograph": false,
+          "is_topic_relevant": true,
+          "notes": "Generic synthetic photorealistic street scene consistent with Mendrisio/Ticino architecture; no people, logos, readable text, signage, watermark, or identifiable event."
+        }
+      }
+    },
     "generated:article-salario-minimo-basilea-aumento": {
       "source": "generated-provider",
       "commons": {
@@ -88216,6 +89326,80 @@
           "is_photograph": false,
           "is_topic_relevant": true,
           "notes": "Generic synthetic photorealistic road-construction illustration with no people, text, signage, logos, or identifiable event."
+        }
+      }
+    },
+    "generated:article-semal-st-klemens-ebikon": {
+      "source": "generated-provider",
+      "commons": {
+        "title": "Generated editorial illustration",
+        "pageUrl": "https://openai.com/policies/terms-of-use/",
+        "width": 1200,
+        "height": 675,
+        "revision": "2026-11-07T09:26:18.883Z"
+      },
+      "author": {
+        "text": "frontaliereticino.ch",
+        "name": "frontaliereticino.ch",
+        "url": null,
+        "type": "Organization"
+      },
+      "attribution": null,
+      "licence": {
+        "name": "Generated media — provider terms apply",
+        "family": "other-attribution",
+        "attributionRequired": true,
+        "url": "https://openai.com/policies/terms-of-use/"
+      },
+      "restrictions": [
+        "illustrative-only",
+        "no-real-recognizable-foreground-person",
+        "no-public-figure-face",
+        "no-logo-brand-or-text",
+        "no-specific-real-event-photojournalism"
+      ],
+      "fetchedAt": "2026-11-07",
+      "generated": {
+        "schema": 1,
+        "assetId": "article-semal-st-klemens-ebikon",
+        "kind": "generated",
+        "provider": "openai-codex",
+        "model": "gpt-image-2.5",
+        "executorModel": "gpt-5.6-luna",
+        "promptVersion": "frontaliereticino.generated-image-policy.v1",
+        "promptHash": "9408d60ee3c7f18558a52f0b3c61b261a027d2209f39d2b165ad65bdbdd733a8",
+        "license": "generated-provider",
+        "licenseUrl": "https://openai.com/policies/terms-of-use/",
+        "credit": "frontaliereticino.ch",
+        "sha256": "aee2d53375eba15a8a83933dd2d1cafc6a000b0516f21c19433ed24a255e2e29",
+        "bytes": 158648,
+        "width": 1200,
+        "height": 675,
+        "format": "webp",
+        "generatedAt": "2026-11-07T09:26:18.883Z",
+        "verifiedAt": "2026-11-07T09:26:29.666Z",
+        "restrictions": [
+          "illustrative-only",
+          "no-real-recognizable-foreground-person",
+          "no-public-figure-face",
+          "no-logo-brand-or-text",
+          "no-specific-real-event-photojournalism"
+        ],
+        "scope": "article-hero",
+        "imageUrl": "/images/blog/article-semal-st-klemens-ebikon.webp",
+        "area": "Swiss border region",
+        "season": "all seasons",
+        "variant": "article hero",
+        "vision": {
+          "ok": true,
+          "contains_text": false,
+          "contains_logo": false,
+          "contains_recognizable_face": false,
+          "contains_recognizable_foreground_person": false,
+          "looks_like_specific_real_event": false,
+          "is_photograph": false,
+          "is_topic_relevant": true,
+          "notes": "Generic synthetic editorial illustration of a traffic light and bus stop; no people, text, logos, or specific event indicators."
         }
       }
     },
@@ -89033,6 +90217,80 @@
         }
       }
     },
+    "generated:article-tassa-circolazione-veicoli-categoria-a": {
+      "source": "generated-provider",
+      "commons": {
+        "title": "Generated editorial illustration",
+        "pageUrl": "https://openai.com/policies/terms-of-use/",
+        "width": 1200,
+        "height": 675,
+        "revision": "2026-11-07T11:05:20.117Z"
+      },
+      "author": {
+        "text": "frontaliereticino.ch",
+        "name": "frontaliereticino.ch",
+        "url": null,
+        "type": "Organization"
+      },
+      "attribution": null,
+      "licence": {
+        "name": "Generated media — provider terms apply",
+        "family": "other-attribution",
+        "attributionRequired": true,
+        "url": "https://openai.com/policies/terms-of-use/"
+      },
+      "restrictions": [
+        "illustrative-only",
+        "no-real-recognizable-foreground-person",
+        "no-public-figure-face",
+        "no-logo-brand-or-text",
+        "no-specific-real-event-photojournalism"
+      ],
+      "fetchedAt": "2026-11-07",
+      "generated": {
+        "schema": 1,
+        "assetId": "article-tassa-circolazione-veicoli-categoria-a",
+        "kind": "generated",
+        "provider": "openai-codex",
+        "model": "gpt-image-2.5",
+        "executorModel": "gpt-5.6-luna",
+        "promptVersion": "frontaliereticino.generated-image-policy.v1",
+        "promptHash": "6d6b60edd2198676cf20793d1aed3e65dd3e32e154f95ca97a1b6d3625c00c37",
+        "license": "generated-provider",
+        "licenseUrl": "https://openai.com/policies/terms-of-use/",
+        "credit": "frontaliereticino.ch",
+        "sha256": "41ab03aab7fdecc202d3f2c1b40a37be2d0d78b4c18487ffdb3153f9690dc345",
+        "bytes": 132796,
+        "width": 1200,
+        "height": 675,
+        "format": "webp",
+        "generatedAt": "2026-11-07T11:05:20.117Z",
+        "verifiedAt": "2026-11-07T11:05:42.784Z",
+        "restrictions": [
+          "illustrative-only",
+          "no-real-recognizable-foreground-person",
+          "no-public-figure-face",
+          "no-logo-brand-or-text",
+          "no-specific-real-event-photojournalism"
+        ],
+        "scope": "article-hero",
+        "imageUrl": "/images/blog/article-tassa-circolazione-veicoli-categoria-a.webp",
+        "area": "Swiss border region",
+        "season": "all seasons",
+        "variant": "article hero",
+        "vision": {
+          "ok": true,
+          "contains_text": false,
+          "contains_logo": false,
+          "contains_recognizable_face": false,
+          "contains_recognizable_foreground_person": false,
+          "looks_like_specific_real_event": false,
+          "is_photograph": false,
+          "is_topic_relevant": true,
+          "notes": "Original generic synthetic illustration of a modern vehicle in an alpine lake landscape; no text, logos, people, or specific-event cues."
+        }
+      }
+    },
     "generated:article-tassa-salute-ristorni-tavolo-lavoro": {
       "source": "generated-provider",
       "commons": {
@@ -89178,6 +90436,80 @@
           "is_photograph": false,
           "is_topic_relevant": true,
           "notes": "Original generic synthetic office illustration with no people, text, logos, or event-specific cues; relevant to Swiss economic activity."
+        }
+      }
+    },
+    "generated:article-telelavoro-frontaliere-quadro-svizzero": {
+      "source": "generated-provider",
+      "commons": {
+        "title": "Generated editorial illustration",
+        "pageUrl": "https://openai.com/policies/terms-of-use/",
+        "width": 1200,
+        "height": 675,
+        "revision": "2026-11-07T15:02:17.652Z"
+      },
+      "author": {
+        "text": "frontaliereticino.ch",
+        "name": "frontaliereticino.ch",
+        "url": null,
+        "type": "Organization"
+      },
+      "attribution": null,
+      "licence": {
+        "name": "Generated media — provider terms apply",
+        "family": "other-attribution",
+        "attributionRequired": true,
+        "url": "https://openai.com/policies/terms-of-use/"
+      },
+      "restrictions": [
+        "illustrative-only",
+        "no-real-recognizable-foreground-person",
+        "no-public-figure-face",
+        "no-logo-brand-or-text",
+        "no-specific-real-event-photojournalism"
+      ],
+      "fetchedAt": "2026-11-07",
+      "generated": {
+        "schema": 1,
+        "assetId": "article-telelavoro-frontaliere-quadro-svizzero",
+        "kind": "generated",
+        "provider": "openai-codex",
+        "model": "gpt-image-2.5",
+        "executorModel": "gpt-5.6-luna",
+        "promptVersion": "frontaliereticino.generated-image-policy.v1",
+        "promptHash": "f21a19f7b1fc5ce3f7ab8d5d2738dc4be4275b600f2afb00b89f39797b7b14cd",
+        "license": "generated-provider",
+        "licenseUrl": "https://openai.com/policies/terms-of-use/",
+        "credit": "frontaliereticino.ch",
+        "sha256": "21ac2017dc4758e176ff60f7194897bbae048a425caeef86b96c342c91eea06f",
+        "bytes": 65496,
+        "width": 1200,
+        "height": 675,
+        "format": "webp",
+        "generatedAt": "2026-11-07T15:02:17.652Z",
+        "verifiedAt": "2026-11-07T15:02:30.017Z",
+        "restrictions": [
+          "illustrative-only",
+          "no-real-recognizable-foreground-person",
+          "no-public-figure-face",
+          "no-logo-brand-or-text",
+          "no-specific-real-event-photojournalism"
+        ],
+        "scope": "article-hero",
+        "imageUrl": "/images/blog/article-telelavoro-frontaliere-quadro-svizzero.webp",
+        "area": "Svizzera",
+        "season": "all seasons",
+        "variant": "article hero",
+        "vision": {
+          "ok": true,
+          "contains_text": false,
+          "contains_logo": false,
+          "contains_recognizable_face": false,
+          "contains_recognizable_foreground_person": false,
+          "looks_like_specific_real_event": false,
+          "is_photograph": false,
+          "is_topic_relevant": true,
+          "notes": "Generic synthetic home-office illustration relevant to teleworking and administrative documents; no readable text, logos, people, or specific event."
         }
       }
     },
@@ -89847,6 +91179,154 @@
         }
       }
     },
+    "generated:article-vaud-salari-pubblici-2027": {
+      "source": "generated-provider",
+      "commons": {
+        "title": "Generated editorial illustration",
+        "pageUrl": "https://openai.com/policies/terms-of-use/",
+        "width": 1200,
+        "height": 675,
+        "revision": "2026-11-07T07:36:31.958Z"
+      },
+      "author": {
+        "text": "frontaliereticino.ch",
+        "name": "frontaliereticino.ch",
+        "url": null,
+        "type": "Organization"
+      },
+      "attribution": null,
+      "licence": {
+        "name": "Generated media — provider terms apply",
+        "family": "other-attribution",
+        "attributionRequired": true,
+        "url": "https://openai.com/policies/terms-of-use/"
+      },
+      "restrictions": [
+        "illustrative-only",
+        "no-real-recognizable-foreground-person",
+        "no-public-figure-face",
+        "no-logo-brand-or-text",
+        "no-specific-real-event-photojournalism"
+      ],
+      "fetchedAt": "2026-11-07",
+      "generated": {
+        "schema": 1,
+        "assetId": "article-vaud-salari-pubblici-2027",
+        "kind": "generated",
+        "provider": "openai-codex",
+        "model": "gpt-image-2.5",
+        "executorModel": "gpt-5.6-luna",
+        "promptVersion": "frontaliereticino.generated-image-policy.v1",
+        "promptHash": "765ae6c5839603e8757713f852c62deda2f594181bed5e3cfea201f42ea45215",
+        "license": "generated-provider",
+        "licenseUrl": "https://openai.com/policies/terms-of-use/",
+        "credit": "frontaliereticino.ch",
+        "sha256": "e4eb8ba14d0597c81884a88e527031cb567f06632a95c5bd13b3fea49ccf5e91",
+        "bytes": 153872,
+        "width": 1200,
+        "height": 675,
+        "format": "webp",
+        "generatedAt": "2026-11-07T07:36:31.958Z",
+        "verifiedAt": "2026-11-07T07:36:45.077Z",
+        "restrictions": [
+          "illustrative-only",
+          "no-real-recognizable-foreground-person",
+          "no-public-figure-face",
+          "no-logo-brand-or-text",
+          "no-specific-real-event-photojournalism"
+        ],
+        "scope": "article-hero",
+        "imageUrl": "/images/blog/article-vaud-salari-pubblici-2027.webp",
+        "area": "Swiss border region",
+        "season": "all seasons",
+        "variant": "article hero",
+        "vision": {
+          "ok": true,
+          "contains_text": false,
+          "contains_logo": false,
+          "contains_recognizable_face": false,
+          "contains_recognizable_foreground_person": false,
+          "looks_like_specific_real_event": false,
+          "is_photograph": false,
+          "is_topic_relevant": true,
+          "notes": "Generic synthetic editorial illustration of a Swiss public administration building with employees; no readable text, logos, or identifiable people."
+        }
+      }
+    },
+    "generated:article-versamento-avs-dicembre-importi": {
+      "source": "generated-provider",
+      "commons": {
+        "title": "Generated editorial illustration",
+        "pageUrl": "https://openai.com/policies/terms-of-use/",
+        "width": 1200,
+        "height": 675,
+        "revision": "2026-11-07T06:51:02.017Z"
+      },
+      "author": {
+        "text": "frontaliereticino.ch",
+        "name": "frontaliereticino.ch",
+        "url": null,
+        "type": "Organization"
+      },
+      "attribution": null,
+      "licence": {
+        "name": "Generated media — provider terms apply",
+        "family": "other-attribution",
+        "attributionRequired": true,
+        "url": "https://openai.com/policies/terms-of-use/"
+      },
+      "restrictions": [
+        "illustrative-only",
+        "no-real-recognizable-foreground-person",
+        "no-public-figure-face",
+        "no-logo-brand-or-text",
+        "no-specific-real-event-photojournalism"
+      ],
+      "fetchedAt": "2026-11-07",
+      "generated": {
+        "schema": 1,
+        "assetId": "article-versamento-avs-dicembre-importi",
+        "kind": "generated",
+        "provider": "openai-codex",
+        "model": "gpt-image-2.5",
+        "executorModel": "gpt-5.6-luna",
+        "promptVersion": "frontaliereticino.generated-image-policy.v1",
+        "promptHash": "c75add275e3fcaabdcbd08f077b50eb51d22294b83e2ea692bcd484df8b18979",
+        "license": "generated-provider",
+        "licenseUrl": "https://openai.com/policies/terms-of-use/",
+        "credit": "frontaliereticino.ch",
+        "sha256": "b1d66858141fdb262071c574fb25e79aa2ca1ef00cde1eedbceac91ef8dab7be",
+        "bytes": 72466,
+        "width": 1200,
+        "height": 675,
+        "format": "webp",
+        "generatedAt": "2026-11-07T06:51:02.017Z",
+        "verifiedAt": "2026-11-07T06:51:33.332Z",
+        "restrictions": [
+          "illustrative-only",
+          "no-real-recognizable-foreground-person",
+          "no-public-figure-face",
+          "no-logo-brand-or-text",
+          "no-specific-real-event-photojournalism"
+        ],
+        "scope": "article-hero",
+        "imageUrl": "/images/blog/article-versamento-avs-dicembre-importi.webp",
+        "area": "Ticino e pendolarismo transfrontaliero",
+        "season": "all seasons",
+        "variant": "article hero",
+        "vision": {
+          "ok": true,
+          "contains_text": false,
+          "contains_logo": false,
+          "contains_recognizable_face": false,
+          "contains_recognizable_foreground_person": false,
+          "looks_like_specific_real_event": false,
+          "is_photograph": false,
+          "is_topic_relevant": true,
+          "notes": "Generic synthetic editorial scene with coins, wallet, envelope, and a commuter train; no visible text, branding, or identifiable person."
+        }
+      }
+    },
     "generated:article-vionnaz-revoca-divieti-acqua": {
       "source": "generated-provider",
       "commons": {
@@ -90143,6 +91623,154 @@
         }
       }
     },
+    "generated:article-voto-regolamento-fondo-gas-wil": {
+      "source": "generated-provider",
+      "commons": {
+        "title": "Generated editorial illustration",
+        "pageUrl": "https://openai.com/policies/terms-of-use/",
+        "width": 1200,
+        "height": 675,
+        "revision": "2026-11-07T08:10:55.498Z"
+      },
+      "author": {
+        "text": "frontaliereticino.ch",
+        "name": "frontaliereticino.ch",
+        "url": null,
+        "type": "Organization"
+      },
+      "attribution": null,
+      "licence": {
+        "name": "Generated media — provider terms apply",
+        "family": "other-attribution",
+        "attributionRequired": true,
+        "url": "https://openai.com/policies/terms-of-use/"
+      },
+      "restrictions": [
+        "illustrative-only",
+        "no-real-recognizable-foreground-person",
+        "no-public-figure-face",
+        "no-logo-brand-or-text",
+        "no-specific-real-event-photojournalism"
+      ],
+      "fetchedAt": "2026-11-07",
+      "generated": {
+        "schema": 1,
+        "assetId": "article-voto-regolamento-fondo-gas-wil",
+        "kind": "generated",
+        "provider": "openai-codex",
+        "model": "gpt-image-2.5",
+        "executorModel": "gpt-5.6-luna",
+        "promptVersion": "frontaliereticino.generated-image-policy.v1",
+        "promptHash": "f13ecd6ee1a1318baf28bbb4d711ab3a34cf5157fc711adeba2e0053a9cfb39e",
+        "license": "generated-provider",
+        "licenseUrl": "https://openai.com/policies/terms-of-use/",
+        "credit": "frontaliereticino.ch",
+        "sha256": "1b09439d3868c2bf7971bbe74a75565eeb95879753a5e7afa102ac7918de2934",
+        "bytes": 199090,
+        "width": 1200,
+        "height": 675,
+        "format": "webp",
+        "generatedAt": "2026-11-07T08:10:55.498Z",
+        "verifiedAt": "2026-11-07T08:11:06.815Z",
+        "restrictions": [
+          "illustrative-only",
+          "no-real-recognizable-foreground-person",
+          "no-public-figure-face",
+          "no-logo-brand-or-text",
+          "no-specific-real-event-photojournalism"
+        ],
+        "scope": "article-hero",
+        "imageUrl": "/images/blog/article-voto-regolamento-fondo-gas-wil.webp",
+        "area": "Swiss border region",
+        "season": "all seasons",
+        "variant": "article hero",
+        "vision": {
+          "ok": true,
+          "contains_text": false,
+          "contains_logo": false,
+          "contains_recognizable_face": false,
+          "contains_recognizable_foreground_person": false,
+          "looks_like_specific_real_event": false,
+          "is_photograph": false,
+          "is_topic_relevant": true,
+          "notes": "Generic synthetic photorealistic illustration of gas network infrastructure; no people, text, logos, or event-specific cues."
+        }
+      }
+    },
+    "generated:article-voto-wil-29-novembre-2026": {
+      "source": "generated-provider",
+      "commons": {
+        "title": "Generated editorial illustration",
+        "pageUrl": "https://openai.com/policies/terms-of-use/",
+        "width": 1200,
+        "height": 675,
+        "revision": "2026-11-07T09:39:45.722Z"
+      },
+      "author": {
+        "text": "frontaliereticino.ch",
+        "name": "frontaliereticino.ch",
+        "url": null,
+        "type": "Organization"
+      },
+      "attribution": null,
+      "licence": {
+        "name": "Generated media — provider terms apply",
+        "family": "other-attribution",
+        "attributionRequired": true,
+        "url": "https://openai.com/policies/terms-of-use/"
+      },
+      "restrictions": [
+        "illustrative-only",
+        "no-real-recognizable-foreground-person",
+        "no-public-figure-face",
+        "no-logo-brand-or-text",
+        "no-specific-real-event-photojournalism"
+      ],
+      "fetchedAt": "2026-11-07",
+      "generated": {
+        "schema": 1,
+        "assetId": "article-voto-wil-29-novembre-2026",
+        "kind": "generated",
+        "provider": "openai-codex",
+        "model": "gpt-image-2.5",
+        "executorModel": "gpt-5.6-luna",
+        "promptVersion": "frontaliereticino.generated-image-policy.v1",
+        "promptHash": "c75a659110c71f44e2d57ab65113bd073e5ba3b31c76f4652f18d42d79b33c24",
+        "license": "generated-provider",
+        "licenseUrl": "https://openai.com/policies/terms-of-use/",
+        "credit": "frontaliereticino.ch",
+        "sha256": "8a67718d9b8db6d6e4db78049aa7fccc4ca8b53f6abaf9d265eff6f8c5e9a941",
+        "bytes": 165436,
+        "width": 1200,
+        "height": 675,
+        "format": "webp",
+        "generatedAt": "2026-11-07T09:39:45.722Z",
+        "verifiedAt": "2026-11-07T09:39:57.530Z",
+        "restrictions": [
+          "illustrative-only",
+          "no-real-recognizable-foreground-person",
+          "no-public-figure-face",
+          "no-logo-brand-or-text",
+          "no-specific-real-event-photojournalism"
+        ],
+        "scope": "article-hero",
+        "imageUrl": "/images/blog/article-voto-wil-29-novembre-2026.webp",
+        "area": "Swiss border region",
+        "season": "all seasons",
+        "variant": "article hero",
+        "vision": {
+          "ok": true,
+          "contains_text": false,
+          "contains_logo": false,
+          "contains_recognizable_face": false,
+          "contains_recognizable_foreground_person": false,
+          "looks_like_specific_real_event": false,
+          "is_photograph": false,
+          "is_topic_relevant": true,
+          "notes": "Generic civic-building illustration relevant to local voting; no text, logos, signage, or people."
+        }
+      }
+    },
     "generated:article-wil-piano-finanziario-2027-2031": {
       "source": "generated-provider",
       "commons": {
@@ -90214,6 +91842,80 @@
           "is_photograph": false,
           "is_topic_relevant": true,
           "notes": "Generic synthetic architectural illustration with no people, text, logos, signage, or watermark; relevant to a fiscal/financial-plan editorial theme."
+        }
+      }
+    },
+    "generated:article-zug-fondo-zukunftskapital-900m": {
+      "source": "generated-provider",
+      "commons": {
+        "title": "Generated editorial illustration",
+        "pageUrl": "https://openai.com/policies/terms-of-use/",
+        "width": 1200,
+        "height": 675,
+        "revision": "2026-11-07T11:06:02.308Z"
+      },
+      "author": {
+        "text": "frontaliereticino.ch",
+        "name": "frontaliereticino.ch",
+        "url": null,
+        "type": "Organization"
+      },
+      "attribution": null,
+      "licence": {
+        "name": "Generated media — provider terms apply",
+        "family": "other-attribution",
+        "attributionRequired": true,
+        "url": "https://openai.com/policies/terms-of-use/"
+      },
+      "restrictions": [
+        "illustrative-only",
+        "no-real-recognizable-foreground-person",
+        "no-public-figure-face",
+        "no-logo-brand-or-text",
+        "no-specific-real-event-photojournalism"
+      ],
+      "fetchedAt": "2026-11-07",
+      "generated": {
+        "schema": 1,
+        "assetId": "article-zug-fondo-zukunftskapital-900m",
+        "kind": "generated",
+        "provider": "openai-codex",
+        "model": "gpt-image-2.5",
+        "executorModel": "gpt-5.6-luna",
+        "promptVersion": "frontaliereticino.generated-image-policy.v1",
+        "promptHash": "ab16bb1477946f88e92bc4b8209383cf571e9b7296feaf0bb09312b110f4a987",
+        "license": "generated-provider",
+        "licenseUrl": "https://openai.com/policies/terms-of-use/",
+        "credit": "frontaliereticino.ch",
+        "sha256": "ec22709fa2af4edfb7a42555d824c248acab0c6d68a755b3322034033e39746b",
+        "bytes": 160206,
+        "width": 1200,
+        "height": 675,
+        "format": "webp",
+        "generatedAt": "2026-11-07T11:06:02.308Z",
+        "verifiedAt": "2026-11-07T11:06:15.793Z",
+        "restrictions": [
+          "illustrative-only",
+          "no-real-recognizable-foreground-person",
+          "no-public-figure-face",
+          "no-logo-brand-or-text",
+          "no-specific-real-event-photojournalism"
+        ],
+        "scope": "article-hero",
+        "imageUrl": "/images/blog/article-zug-fondo-zukunftskapital-900m.webp",
+        "area": "Swiss border region",
+        "season": "all seasons",
+        "variant": "article hero",
+        "vision": {
+          "ok": true,
+          "contains_text": false,
+          "contains_logo": false,
+          "contains_recognizable_face": false,
+          "contains_recognizable_foreground_person": false,
+          "looks_like_specific_real_event": false,
+          "is_photograph": false,
+          "is_topic_relevant": true,
+          "notes": "Generic synthetic illustration of a cantonal administrative building; no text, logos, people, or event-specific cues."
         }
       }
     },
@@ -99134,397 +100836,397 @@
     "bollettino-frontaliere-2026-08-08": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-11-07",
+      "verifiedAt": "2026-11-08",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-08-09": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-11-07",
+      "verifiedAt": "2026-11-08",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-08-10": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-11-07",
+      "verifiedAt": "2026-11-08",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-08-11": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-11-07",
+      "verifiedAt": "2026-11-08",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-08-12": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-11-07",
+      "verifiedAt": "2026-11-08",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-08-13": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-11-07",
+      "verifiedAt": "2026-11-08",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-08-14": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-11-07",
+      "verifiedAt": "2026-11-08",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-08-16": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-11-07",
+      "verifiedAt": "2026-11-08",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-08-17": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-11-07",
+      "verifiedAt": "2026-11-08",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-08-18": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-11-07",
+      "verifiedAt": "2026-11-08",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-08-19": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-11-07",
+      "verifiedAt": "2026-11-08",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-08-20": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-11-07",
+      "verifiedAt": "2026-11-08",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-08-21": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-11-07",
+      "verifiedAt": "2026-11-08",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-08-22": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-11-07",
+      "verifiedAt": "2026-11-08",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-08-23": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-11-07",
+      "verifiedAt": "2026-11-08",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-08-24": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-11-07",
+      "verifiedAt": "2026-11-08",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-08-25": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-11-07",
+      "verifiedAt": "2026-11-08",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-08-26": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-11-07",
+      "verifiedAt": "2026-11-08",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-08-27": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-11-07",
+      "verifiedAt": "2026-11-08",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-08-28": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-11-07",
+      "verifiedAt": "2026-11-08",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-08-29": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-11-07",
+      "verifiedAt": "2026-11-08",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-08-30": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-11-07",
+      "verifiedAt": "2026-11-08",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-08-31": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-11-07",
+      "verifiedAt": "2026-11-08",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-09-01": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-11-07",
+      "verifiedAt": "2026-11-08",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-09-02": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-11-07",
+      "verifiedAt": "2026-11-08",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-09-03": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-11-07",
+      "verifiedAt": "2026-11-08",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-09-05": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-11-07",
+      "verifiedAt": "2026-11-08",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-09-06": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-11-07",
+      "verifiedAt": "2026-11-08",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-09-07": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-11-07",
+      "verifiedAt": "2026-11-08",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-09-08": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-11-07",
+      "verifiedAt": "2026-11-08",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-09-10": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-11-07",
+      "verifiedAt": "2026-11-08",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-09-11": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-11-07",
+      "verifiedAt": "2026-11-08",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-09-12": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-11-07",
+      "verifiedAt": "2026-11-08",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-09-13": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-11-07",
+      "verifiedAt": "2026-11-08",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-09-14": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-11-07",
+      "verifiedAt": "2026-11-08",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-09-15": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-11-07",
+      "verifiedAt": "2026-11-08",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-09-16": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-11-07",
+      "verifiedAt": "2026-11-08",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-09-17": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-11-07",
+      "verifiedAt": "2026-11-08",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-09-18": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-11-07",
+      "verifiedAt": "2026-11-08",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-09-19": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-11-07",
+      "verifiedAt": "2026-11-08",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-09-20": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-11-07",
+      "verifiedAt": "2026-11-08",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-09-21": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-11-07",
+      "verifiedAt": "2026-11-08",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-09-22": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-11-07",
+      "verifiedAt": "2026-11-08",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-09-23": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-11-07",
+      "verifiedAt": "2026-11-08",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-09-24": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-11-07",
+      "verifiedAt": "2026-11-08",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-09-25": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-11-07",
+      "verifiedAt": "2026-11-08",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-09-26": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-11-07",
+      "verifiedAt": "2026-11-08",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-09-27": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-11-07",
+      "verifiedAt": "2026-11-08",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-09-28": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-11-07",
+      "verifiedAt": "2026-11-08",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-09-29": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-11-07",
+      "verifiedAt": "2026-11-08",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-09-30": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-11-07",
+      "verifiedAt": "2026-11-08",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-10-01": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-11-07",
+      "verifiedAt": "2026-11-08",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-10-02": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-11-07",
+      "verifiedAt": "2026-11-08",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-10-03": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-11-07",
+      "verifiedAt": "2026-11-08",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-10-04": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-11-07",
+      "verifiedAt": "2026-11-08",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-10-05": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-11-07",
+      "verifiedAt": "2026-11-08",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-10-06": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-11-07",
+      "verifiedAt": "2026-11-08",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-10-08": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-11-07",
+      "verifiedAt": "2026-11-08",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-10-10": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-11-07",
+      "verifiedAt": "2026-11-08",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-10-11": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-11-07",
+      "verifiedAt": "2026-11-08",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-10-13": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-11-07",
+      "verifiedAt": "2026-11-08",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-10-14": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-11-07",
+      "verifiedAt": "2026-11-08",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-10-15": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-11-07",
+      "verifiedAt": "2026-11-08",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-10-16": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-11-07",
+      "verifiedAt": "2026-11-08",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-10-17": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-11-07",
+      "verifiedAt": "2026-11-08",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-10-18": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-11-07",
+      "verifiedAt": "2026-11-08",
       "status": "no-credit"
     },
     "bollini-rossi-traffico-san-gottardo-2026": {
@@ -131275,6 +132977,10 @@
       "file": "generated:article-45-residenti-richiesta-rumore",
       "modified": "resized"
     },
+    "article-a1-terza-corsia-ginevra": {
+      "file": "generated:article-a1-terza-corsia-ginevra",
+      "modified": "resized"
+    },
     "article-aarau-rinnovo-tigli-zollrain": {
       "file": "generated:article-aarau-rinnovo-tigli-zollrain",
       "modified": "resized"
@@ -131297,6 +133003,10 @@
     },
     "article-aumento-tasso-disoccupazione-ottobre": {
       "file": "generated:article-aumento-tasso-disoccupazione-ottobre",
+      "modified": "resized"
+    },
+    "article-avs-iva-tredicesima-rendita": {
+      "file": "generated:article-avs-iva-tredicesima-rendita",
       "modified": "resized"
     },
     "article-baselland-maiali-enzootica": {
@@ -131351,6 +133061,10 @@
       "file": "generated:article-chiusura-invernale-gottardo",
       "modified": "resized"
     },
+    "article-consiglio-stato-approva-pratiche": {
+      "file": "generated:article-consiglio-stato-approva-pratiche",
+      "modified": "resized"
+    },
     "article-consultazione-piano-zugo": {
       "file": "generated:article-consultazione-piano-zugo",
       "modified": "resized"
@@ -131363,8 +133077,16 @@
       "file": "generated:article-decima-fiera-apprendistati-innerrhoden",
       "modified": "resized"
     },
+    "article-disoccupazione-stabile-ottobre": {
+      "file": "generated:article-disoccupazione-stabile-ottobre",
+      "modified": "resized"
+    },
     "article-domanda-edilizia-meisenweg": {
       "file": "generated:article-domanda-edilizia-meisenweg",
+      "modified": "resized"
+    },
+    "article-due-generazioni-immobiliare-mellingen": {
+      "file": "generated:article-due-generazioni-immobiliare-mellingen",
       "modified": "resized"
     },
     "article-economia-imprese-cantone-turgovia": {
@@ -131391,6 +133113,10 @@
       "file": "generated:article-frontalieri-telelavoro-protocollo-2026",
       "modified": "resized"
     },
+    "article-giura-regain-fiducia-imprese": {
+      "file": "generated:article-giura-regain-fiducia-imprese",
+      "modified": "resized"
+    },
     "article-glarona-detrazioni-energia-2029": {
       "file": "generated:article-glarona-detrazioni-energia-2029",
       "modified": "resized"
@@ -131407,8 +133133,16 @@
       "file": "generated:article-hergiswil-bergstrasse-gru",
       "modified": "resized"
     },
+    "article-incendio-sins-linea-s26": {
+      "file": "generated:article-incendio-sins-linea-s26",
+      "modified": "resized"
+    },
     "article-incendio-tunnel-fluelen": {
       "file": "generated:article-incendio-tunnel-fluelen",
+      "modified": "resized"
+    },
+    "article-infermieri-osc-sindacati-stipendi": {
+      "file": "generated:article-infermieri-osc-sindacati-stipendi",
       "modified": "resized"
     },
     "article-inflazione-ottobre-1-5-percento": {
@@ -131417,6 +133151,10 @@
     },
     "article-innhub-la-punt-rinvio-apertura": {
       "file": "generated:article-innhub-la-punt-rinvio-apertura",
+      "modified": "resized"
+    },
+    "article-iva-aumento-famiglie-redditi-bassi": {
+      "file": "generated:article-iva-aumento-famiglie-redditi-bassi",
       "modified": "resized"
     },
     "article-kanti-rektor-draht-universitaet": {
@@ -131451,6 +133189,10 @@
       "file": "generated:article-lukb-utile-nove-mesi",
       "modified": "resized"
     },
+    "article-martinimarkt-principale-strada-chiusa": {
+      "file": "generated:article-martinimarkt-principale-strada-chiusa",
+      "modified": "resized"
+    },
     "article-massagno-moltiplicatore-2027": {
       "file": "generated:article-massagno-moltiplicatore-2027",
       "modified": "resized"
@@ -131475,8 +133217,16 @@
       "file": "generated:article-montano-lucino-via-roma",
       "modified": "resized"
     },
+    "article-nav-kita-proroga-fino-2030": {
+      "file": "generated:article-nav-kita-proroga-fino-2030",
+      "modified": "resized"
+    },
     "article-neuchatel-dossier-consiglio-stato": {
       "file": "generated:article-neuchatel-dossier-consiglio-stato",
+      "modified": "resized"
+    },
+    "article-neyruz-strada-cantonale-valtraloc": {
+      "file": "generated:article-neyruz-strada-cantonale-valtraloc",
       "modified": "resized"
     },
     "article-niederwil-aumento-imposta-2027": {
@@ -131489,6 +133239,14 @@
     },
     "article-ofenberg-chiusura-notte": {
       "file": "generated:article-ofenberg-chiusura-notte",
+      "modified": "resized"
+    },
+    "article-ostaj-stagnazione-frontalieri": {
+      "file": "generated:article-ostaj-stagnazione-frontalieri",
+      "modified": "resized"
+    },
+    "article-osttangente-riapertura-basilea": {
+      "file": "generated:article-osttangente-riapertura-basilea",
       "modified": "resized"
     },
     "article-premi-mercato-idroelettrico-2026": {
@@ -131535,6 +133293,10 @@
       "file": "generated:article-riserva-elettrica-risparmio-cdf",
       "modified": "resized"
     },
+    "article-roma-cambia-proposta-tassa": {
+      "file": "generated:article-roma-cambia-proposta-tassa",
+      "modified": "resized"
+    },
     "article-salario-minimo-basilea-aumento": {
       "file": "generated:article-salario-minimo-basilea-aumento",
       "modified": "resized"
@@ -131549,6 +133311,10 @@
     },
     "article-seedorf-reussstrasse-lavori-innesto": {
       "file": "generated:article-seedorf-reussstrasse-lavori-innesto",
+      "modified": "resized"
+    },
+    "article-semal-st-klemens-ebikon": {
+      "file": "generated:article-semal-st-klemens-ebikon",
       "modified": "resized"
     },
     "article-siccita-fislisbach-forniture": {
@@ -131595,12 +133361,20 @@
       "file": "generated:article-tariffe-mediche-appenzello-2026",
       "modified": "resized"
     },
+    "article-tassa-circolazione-veicoli-categoria-a": {
+      "file": "generated:article-tassa-circolazione-veicoli-categoria-a",
+      "modified": "resized"
+    },
     "article-tassa-salute-ristorni-tavolo-lavoro": {
       "file": "generated:article-tassa-salute-ristorni-tavolo-lavoro",
       "modified": "resized"
     },
     "article-tasso-disoccupazione-ottobre-2026": {
       "file": "generated:article-tasso-disoccupazione-ottobre-2026",
+      "modified": "resized"
+    },
+    "article-telelavoro-frontaliere-quadro-svizzero": {
+      "file": "generated:article-telelavoro-frontaliere-quadro-svizzero",
       "modified": "resized"
     },
     "article-tunnel-sonnenberg-chiusura-notte": {
@@ -131639,6 +133413,14 @@
       "file": "generated:article-vallo-protezione-sorte-lostallo",
       "modified": "resized"
     },
+    "article-vaud-salari-pubblici-2027": {
+      "file": "generated:article-vaud-salari-pubblici-2027",
+      "modified": "resized"
+    },
+    "article-versamento-avs-dicembre-importi": {
+      "file": "generated:article-versamento-avs-dicembre-importi",
+      "modified": "resized"
+    },
     "article-vionnaz-revoca-divieti-acqua": {
       "file": "generated:article-vionnaz-revoca-divieti-acqua",
       "modified": "resized"
@@ -131655,8 +133437,20 @@
       "file": "generated:article-voto-iva-13esima-avs-novembre",
       "modified": "resized"
     },
+    "article-voto-regolamento-fondo-gas-wil": {
+      "file": "generated:article-voto-regolamento-fondo-gas-wil",
+      "modified": "resized"
+    },
+    "article-voto-wil-29-novembre-2026": {
+      "file": "generated:article-voto-wil-29-novembre-2026",
+      "modified": "resized"
+    },
     "article-wil-piano-finanziario-2027-2031": {
       "file": "generated:article-wil-piano-finanziario-2027-2031",
+      "modified": "resized"
+    },
+    "article-zug-fondo-zukunftskapital-900m": {
+      "file": "generated:article-zug-fondo-zukunftskapital-900m",
       "modified": "resized"
     },
     "article-zurigo-budget-rivalutazione-immobili": {

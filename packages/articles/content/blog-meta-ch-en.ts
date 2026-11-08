@@ -8690,6 +8690,15 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.iva-aumento-famiglie-redditi-bassi.title': 'VAT increase: UBS study highlights greater impact on low-income households',
     'blog.article.iva-aumento-famiglie-redditi-bassi.excerpt': 'In Zurich, on November 6, 2026, a UBS analysis examined the proposed increase in value-added tax, VAT, to partially finance the 13th AVS/AHV pension payment.',
     'blog.article.iva-aumento-famiglie-redditi-bassi.imageAlt': 'Illustrative image relevant to the article topic',
+    'blog.article.telelavoro-frontaliere-quadro-svizzero.title': 'Teleworking and cross-border workers: Swiss rules',
+    'blog.article.telelavoro-frontaliere-quadro-svizzero.excerpt': 'Switzerland levies taxes at three levels: direct federal tax, cantonal tax and municipal tax.',
+    'blog.article.telelavoro-frontaliere-quadro-svizzero.imageAlt': 'Illustrative image relevant to the article topic',
+    'blog.article.disoccupazione-stabile-ottobre.title': 'Unemployment rate steady at 3% in October',
+    'blog.article.disoccupazione-stabile-ottobre.excerpt': 'According to data released on Thursday by the State Secretariat for Economic Affairs (SECO), the number of people registered with the Regional Employment Centers (URCs) increased by 535 in October compared with September.',
+    'blog.article.disoccupazione-stabile-ottobre.imageAlt': 'Illustrative image relevant to the article topic',
+    'blog.article.avs-iva-tredicesima-rendita.title': 'People vote on VAT increase to cover AVS 13th-pension costs',
+    'blog.article.avs-iva-tredicesima-rendita.excerpt': 'On November 29, the people will be called upon to vote on the VAT increase chosen by the Federal Parliament to help cover the costs of the 13th AHV pension.',
+    'blog.article.avs-iva-tredicesima-rendita.imageAlt': 'Illustrative image relevant to the article topic',
 };
 
 export default blogMetaChEn;

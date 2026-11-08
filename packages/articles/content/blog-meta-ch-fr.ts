@@ -8690,6 +8690,15 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.iva-aumento-famiglie-redditi-bassi.title': 'Hausse TVA: impact plus fort sur ménages à faibles revenus',
     'blog.article.iva-aumento-famiglie-redditi-bassi.excerpt': 'À Zurich, le 6 novembre 2026, une analyse d\'UBS a examiné la hausse de la taxe sur la valeur ajoutée, la TVA, proposée pour financer partiellement la 13e rente AVS/AHV.',
     'blog.article.iva-aumento-famiglie-redditi-bassi.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
+    'blog.article.telelavoro-frontaliere-quadro-svizzero.title': 'Télétravail et travailleurs frontaliers : règles suisses',
+    'blog.article.telelavoro-frontaliere-quadro-svizzero.excerpt': 'La Suisse organise le prélèvement fiscal sur trois niveaux : impôt fédéral direct, impôt cantonal et impôt communal.',
+    'blog.article.telelavoro-frontaliere-quadro-svizzero.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
+    'blog.article.disoccupazione-stabile-ottobre.title': 'Taux de chômage stable à 3 % en octobre',
+    'blog.article.disoccupazione-stabile-ottobre.excerpt': 'Selon les données publiées jeudi par le Secrétariat d’État à l’économie (SECO), le nombre d’inscrits auprès des offices régionaux de placement (ORP) a augmenté de 535 personnes en octobre par rapport à septembre.',
+    'blog.article.disoccupazione-stabile-ottobre.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
+    'blog.article.avs-iva-tredicesima-rendita.title': 'Vote sur hausse TVA pour coûts 13e AVS',
+    'blog.article.avs-iva-tredicesima-rendita.excerpt': 'Le 29 novembre, le peuple sera appelé à s\'exprimer sur l\'augmentation de la TVA choisie par le Parlement fédéral pour contribuer à couvrir les coûts de la treizième rente AVS.',
+    'blog.article.avs-iva-tredicesima-rendita.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
 };
 
 export default blogMetaChFr;
