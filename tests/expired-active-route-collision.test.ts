@@ -233,7 +233,7 @@ describe('repairExpiredRoutesAgainstActive', () => {
     }
   });
 
-  it('persists internal expired-route collapse before the live slice observer reads it', () => {
+  it('persists distinct expired-route repair before the live slice observer reads it', () => {
     const root = mkdtempSync(join(tmpdir(), 'expired-slice-internal-collapse-'));
     try {
       const sliceDir = join(root, 'expired-slices');
@@ -268,15 +268,17 @@ describe('repairExpiredRoutesAgainstActive', () => {
       const persisted = JSON.parse(
         readFileSync(join(sliceDir, 'ipersonal.json'), 'utf8'),
       );
-      expect(result.collapsedRoutes).toBe(1);
-      expect(persisted).toHaveLength(1);
+      expect(result.collapsedRoutes).toBe(0);
+      expect(result.repairedRoutes).toBe(1);
+      expect(persisted).toHaveLength(2);
       expect(persisted[0].slug).toBe(duplicateSlug);
+      expect(persisted[1].slug).toMatch(new RegExp(`^${duplicateSlug}-[0-9a-f]{8}$`));
     } finally {
       rmSync(root, { recursive: true, force: true });
     }
   });
 
-  it('persists internal expired-route collapse with an empty active assembly', () => {
+  it('persists distinct expired-route repair with an empty active assembly', () => {
     const root = mkdtempSync(join(tmpdir(), 'expired-slice-empty-active-collapse-'));
     try {
       const sliceDir = join(root, 'expired-slices');
@@ -307,9 +309,11 @@ describe('repairExpiredRoutesAgainstActive', () => {
       const persisted = JSON.parse(
         readFileSync(join(sliceDir, 'ipersonal.json'), 'utf8'),
       );
-      expect(result.collapsedRoutes).toBe(1);
-      expect(persisted).toHaveLength(1);
+      expect(result.collapsedRoutes).toBe(0);
+      expect(result.repairedRoutes).toBe(1);
+      expect(persisted).toHaveLength(2);
       expect(persisted[0].slug).toBe(duplicateSlug);
+      expect(persisted[1].slug).toMatch(new RegExp(`^${duplicateSlug}-[0-9a-f]{8}$`));
     } finally {
       rmSync(root, { recursive: true, force: true });
     }

@@ -4226,8 +4226,12 @@ export function repairExpiredArchiveSlicesAgainstActive(activeJobs, { sliceDir =
     const collapsed = collapseDuplicateRouteEntries(entries, {
       source: `assemble-jobs-dataset/expired-slice/${path.basename(slicePath)}`,
     });
-    const workingEntries = collapsed.collapsed > 0 ? collapsed.entries : entries;
+    const archiveChanged = collapsed.collapsed > 0 || collapsed.repairedRoutes > 0;
+    const workingEntries = archiveChanged ? collapsed.entries : entries;
     collapsedRoutes += collapsed.collapsed;
+    changed += collapsed.collapsed + collapsed.repairedRoutes;
+    repairedRoutes += collapsed.repairedRoutes;
+    if (details.length < 20) details.push(...(collapsed.repairDetails || []));
 
     const result = repairExpiredRoutesAgainstActive(workingEntries, activeJobs);
     if (result.changed > 0) {
@@ -4235,7 +4239,7 @@ export function repairExpiredArchiveSlicesAgainstActive(activeJobs, { sliceDir =
       changed += result.changed;
       repairedRoutes += result.repairedRoutes;
       if (details.length < 20) details.push(...result.details);
-    } else if (collapsed.collapsed > 0) {
+    } else if (archiveChanged) {
       writeJson(slicePath, workingEntries);
     }
     allEntries.push(...workingEntries);
