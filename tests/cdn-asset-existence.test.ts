@@ -245,18 +245,21 @@ describe('guardia di esistenza degli /assets/ riscritti sul CDN', () => {
   });
 
   it('il budget di tempo ferma la verifica anche sotto il tetto di URL', async () => {
-    let clock = -100; // la prima lettura (startedAt) e' 0, poi 100, 200...
+    let clock = 0;
     const results = await verifyCdnAssetRefs({
       urls: ['https://cdn.example.test/assets/a.js', 'https://cdn.example.test/assets/b.js'],
-      fetchImpl: vi.fn().mockResolvedValue(res(200, 'text/javascript')) as unknown as typeof fetch,
+      fetchImpl: vi.fn().mockImplementation(async () => {
+        clock += 100;
+        return res(200, 'text/javascript');
+      }) as unknown as typeof fetch,
       budgetMs: 150,
-      now: () => (clock += 100),
+      now: () => clock,
     });
     expect(results.map((r) => r.state)).toEqual(['present', 'skipped']);
   });
 
   it('non apre il GET di fallback oltre il budget consumato dalla HEAD', async () => {
-    let clock = -100;
+    let clock = 0;
     const fetchImpl = vi.fn().mockImplementation(async (_url, options) => {
       expect(options.signal).toBeInstanceOf(AbortSignal);
       clock = 200; // la HEAD ha superato il budget mentre era in-flight
@@ -268,10 +271,48 @@ describe('guardia di esistenza degli /assets/ riscritti sul CDN', () => {
       fetchImpl: fetchImpl as unknown as typeof fetch,
       budgetMs: 150,
       timeoutMs: 100,
-      now: () => (clock += 100),
+      now: () => clock,
     });
 
     expect(fetchImpl).toHaveBeenCalledTimes(1);
+    expect(result).toMatchObject({ state: 'skipped', status: null });
+    expect(result.reason).toMatch(/GET di fallback/);
+  });
+
+  it('classifica SKIPPED anche una risposta HEAD arrivata dopo la deadline', async () => {
+    let clock = 0;
+    const fetchImpl = vi.fn().mockImplementation(async () => {
+      clock = 200;
+      return res(200, 'text/javascript');
+    });
+
+    const [result] = await verifyCdnAssetRefs({
+      urls: ['https://cdn.example.test/assets/late.js'],
+      fetchImpl: fetchImpl as unknown as typeof fetch,
+      budgetMs: 150,
+      now: () => clock,
+    });
+
+    expect(result).toMatchObject({ state: 'skipped', status: null });
+    expect(result.reason).toMatch(/durante la richiesta HEAD/);
+  });
+
+  it('classifica SKIPPED anche una risposta GET di fallback arrivata dopo la deadline', async () => {
+    let clock = 0;
+    const fetchImpl = vi.fn().mockImplementation(async (_url, options) => {
+      if (options.method === 'HEAD') return res(405, 'text/plain');
+      clock = 200;
+      return res(200, 'text/css');
+    });
+
+    const [result] = await verifyCdnAssetRefs({
+      urls: ['https://cdn.example.test/assets/late.css'],
+      fetchImpl: fetchImpl as unknown as typeof fetch,
+      budgetMs: 150,
+      now: () => clock,
+    });
+
+    expect(fetchImpl).toHaveBeenCalledTimes(2);
     expect(result).toMatchObject({ state: 'skipped', status: null });
     expect(result.reason).toMatch(/GET di fallback/);
   });
