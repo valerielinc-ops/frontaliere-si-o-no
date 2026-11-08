@@ -31,7 +31,6 @@ import {
   unlinkSync,
   writeFileSync,
 } from 'fs';
-import { createHash } from 'node:crypto';
 import { cpus } from 'os';
 import path from 'path';
 import { fileURLToPath } from 'url';
@@ -40,6 +39,10 @@ import { Worker } from 'worker_threads';
 import type { Plugin } from 'vite';
 import { shouldEmitLocale } from './shared/localeEmitFilter';
 import { JOB_OG_PHOTO_FILES } from './shared/jobOgImageCatalog.mjs';
+import {
+  companyLogoFingerprint,
+  readCompanyLogosManifest,
+} from './shared/jobOgLogoFingerprint.mjs';
 import {
   JOB_PHOTO_KEYS,
   selectJobOgPhoto,
@@ -156,18 +159,6 @@ function readJobsJson(rootDir: string): JobMinimal[] {
   return [];
 }
 
-function readCompanyLogosManifest(rootDir: string): Record<string, string> {
-  const file = path.join(rootDir, 'data/company-logos-manifest.json');
-  try {
-    if (!existsSync(file)) return {};
-    const parsed = JSON.parse(readFileSync(file, 'utf-8')) as unknown;
-    if (!parsed || typeof parsed !== 'object' || Array.isArray(parsed)) return {};
-    return parsed as Record<string, string>;
-  } catch {
-    return {};
-  }
-}
-
 interface CompanyLogoAsset {
   dataUrl: string | null;
   cacheKey: string;
@@ -214,11 +205,7 @@ function companyLogoAsset(
     }
   }
 
-  const cacheKey = createHash('sha1')
-    .update(manifestPath)
-    .update(imageBytes ?? 'missing')
-    .digest('hex')
-    .slice(0, 10);
+  const cacheKey = companyLogoFingerprint(manifestPath, imageBytes);
   const result = { dataUrl, cacheKey };
   cache.set(manifestPath, result);
   return result;
@@ -654,8 +641,12 @@ function ogPathForSlug(slug: string): string {
  * GitHub Actions cache TTL (~7 days).
  */
 
-export function jobOgImageUrl(baseUrl: string, slug: string | null): string | null {
-  return versionedJobOgImageUrl(baseUrl, slug);
+export function jobOgImageUrl(
+  baseUrl: string,
+  slug: string | null,
+  logoFingerprint?: string,
+): string | null {
+  return versionedJobOgImageUrl(baseUrl, slug, undefined, logoFingerprint);
 }
 
 interface Stats {
