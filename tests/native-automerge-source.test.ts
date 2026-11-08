@@ -89,10 +89,12 @@ describe('native auto-merge source-loading contract', () => {
   it('covers the transitive runtime graph, including REST fallback, gate, and registry', () => {
     expect(NATIVE_AUTOMERGE_HELPER_FILES).toHaveLength(14);
     const loader = readSourceFile('scripts/load-rc-env.mjs');
+    const remoteConfigUrl = readSourceFile('scripts/lib/remote-config-template-url.mjs');
     const gate = readSourceFile('scripts/ci/native-automerge-gate.mjs');
     const policy = readSourceFile('scripts/ci/review-test-policy.mjs');
     expect(loader).toContain('fetchTemplateViaRest');
-    expect(loader).toContain('firebaseremoteconfig.googleapis.com');
+    expect(loader).toContain("from './lib/remote-config-template-url.mjs'");
+    expect(remoteConfigUrl).toContain('firebaseremoteconfig.googleapis.com');
     expect(loader).toContain("import('./lib/google-service-account-token.mjs')");
     expect(gate).toContain("from './lib/constants.mjs'");
     expect(gate).toContain("from './review-test-policy.mjs'");

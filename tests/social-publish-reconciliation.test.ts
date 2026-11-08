@@ -1,5 +1,6 @@
 import { describe, expect, it, vi } from 'vitest';
 import { verifyExactSocialPublishedPost } from '../scripts/lib/social-publish-reconciliation.mjs';
+import { INSTAGRAM_LOGIN_GRAPH_API } from '../scripts/lib/instagram-graph-constants.mjs';
 
 function response(body: object, status = 200) {
   return { ok: status >= 200 && status < 300, status, json: async () => body };
@@ -61,6 +62,29 @@ describe('exact social publication verification', () => {
     expect(fetchImpl).toHaveBeenCalledTimes(2);
     expect(new URL(fetchImpl.mock.calls[1][0] as string).searchParams.get('fields'))
       .toBe('id,timestamp,media_type,media_product_type,caption');
+  });
+
+  it('verifies direct Instagram Login IDs through its own Graph host and user_id field', async () => {
+    const fetchImpl = vi.fn()
+      .mockResolvedValueOnce(response({ user_id: '17841400000000000' }))
+      .mockResolvedValueOnce(response({
+        id: 'media-8',
+        timestamp: '2026-11-03T08:05:00+0000',
+        media_type: 'CAROUSEL_ALBUM',
+        media_product_type: 'FEED',
+        caption: 'Direct Login caption',
+      }));
+    await expect(verifyExactSocialPublishedPost({
+      platform: 'instagram',
+      capGroup: 'feed',
+      accountId: '17841400000000000',
+      nativePostId: 'media-8',
+      accessToken: 'direct-login-token',
+      apiBase: INSTAGRAM_LOGIN_GRAPH_API,
+      fetchImpl,
+    })).resolves.toMatchObject({ provider: 'instagram-graph', publishedAt: '2026-11-03T08:05:00.000Z' });
+    expect(String(fetchImpl.mock.calls[0][0])).toContain(`${INSTAGRAM_LOGIN_GRAPH_API}/17841400000000000`);
+    expect(fetchImpl.mock.calls[0][1].headers.Authorization).toBe('Bearer direct-login-token');
   });
 
   it('keeps Instagram media whose account or reserved product type does not match unresolved', async () => {

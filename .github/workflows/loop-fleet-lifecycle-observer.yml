@@ -50,6 +50,7 @@ jobs:
             /functions/src/githubApiHeaders.js
             /scripts/load-rc-env.mjs
             /scripts/lib/fetch-with-ref-timeout.mjs
+            /scripts/lib/remote-config-template-url.mjs
           sparse-checkout-cone-mode: false
 
       - name: Setup Node.js

@@ -10,6 +10,7 @@ import {
   SOCIAL_PUBLISH_RESERVATION_STALE_AFTER_MS,
 } from './lib/social-publish-reservations.mjs';
 import { verifyExactSocialPublishedPost } from './lib/social-publish-reconciliation.mjs';
+import { getInstagramPublisherCredentialsFromTemplates } from './lib/instagram-publisher-credentials.mjs';
 
 const RC_CONFIG = Object.freeze({
   facebook: { account: ['FB_PAGE_ID', 'FB_PAGE_ID'], token: ['FB_PAGE_ACCESS_TOKEN', 'SERVER_FB_PAGE_ACCESS_TOKEN'] },
@@ -82,29 +83,64 @@ async function loadRemoteConfigTemplate() {
   }
 }
 
+async function loadServerRemoteConfigTemplate() {
+  try {
+    const remoteConfig = await getRemoteConfig();
+    const template = await remoteConfig.getServerTemplate();
+    return { template: template.toJSON(), available: true };
+  } catch (error) {
+    if (error?.code === 'remote-config/not-found') return { template: { parameters: {} }, available: true };
+    return { template: null, available: false };
+  }
+}
+
 function configuredValue([envName, rcName], template, env) {
   return String(env[envName] || rcParameter(template, rcName) || '').trim();
 }
 
 async function loadConfiguredAccountIds(env = process.env) {
   const { template, available } = await loadRemoteConfigTemplate();
+  const server = await loadServerRemoteConfigTemplate();
+  const instagram = server.available
+    ? getInstagramPublisherCredentialsFromTemplates({ clientTemplate: template, serverTemplate: server.template, env })
+    : { igUserId: null };
   return {
     remoteConfigAvailable: available,
-    accounts: Object.fromEntries(Object.entries(RC_CONFIG).map(([platform, mapping]) => [
-      platform,
-      configuredValue(mapping.account, template, env),
-    ])),
+    instagramConfigAvailable: server.available,
+    accounts: {
+      facebook: configuredValue(RC_CONFIG.facebook.account, template, env),
+      instagram: instagram.igUserId || '',
+      linkedinMember: configuredValue(RC_CONFIG.linkedinMember.account, template, env),
+      telegram: configuredValue(RC_CONFIG.telegram.account, template, env),
+    },
   };
 }
 
 async function loadConfiguredValues(platform, env = process.env, { includeAccessToken = true } = {}) {
   const { template } = await loadRemoteConfigTemplate();
+  if (platform === 'instagram') {
+    const server = await loadServerRemoteConfigTemplate();
+    if (!server.available) throw new Error('Instagram server Remote Config is unavailable');
+    const publisher = getInstagramPublisherCredentialsFromTemplates({
+      clientTemplate: template,
+      serverTemplate: server.template,
+      env,
+    });
+    if (publisher.mode === 'invalid') throw new Error('configured Instagram publishing authentication mode is invalid');
+    if (!publisher.igUserId) throw new Error('configured Instagram account ID is unavailable');
+    return {
+      accountId: publisher.igUserId,
+      accessToken: includeAccessToken ? publisher.accessToken || '' : '',
+      apiBase: publisher.apiBase,
+    };
+  }
   const mapping = RC_CONFIG[platform];
   const accountId = configuredValue(mapping.account, template, env);
   if (!accountId) throw new Error(`configured ${platform} account ID is unavailable`);
   return {
     accountId,
     accessToken: includeAccessToken ? configuredValue(mapping.token, template, env) : '',
+    ...(mapping.apiBase ? { apiBase: mapping.apiBase } : {}),
   };
 }
 
@@ -173,9 +209,12 @@ export async function runSocialPublishReservationsCli(argv = process.argv.slice(
     for (const scope of scopes) {
       const accountId = accountIds?.[scope.platform];
       if (!accountId) {
+        const configAvailable = scope.platform === 'instagram'
+          ? configuration?.instagramConfigAvailable !== false && remoteConfigAvailable
+          : remoteConfigAvailable;
         reservations.push({
           ...scope,
-          status: remoteConfigAvailable ? 'not-configured' : 'config-unknown',
+          status: configAvailable ? 'not-configured' : 'config-unknown',
           staleCount: null,
           fingerprintAvailableCount: null,
         });
@@ -207,7 +246,7 @@ export async function runSocialPublishReservationsCli(argv = process.argv.slice(
     if (report.status !== 'ok') throw new Error('one or more stale-reservation scopes could not be read or configured');
     return report;
   }
-  const { accountId, accessToken } = await loadValues(args.platform, env, {
+  const { accountId, accessToken, apiBase } = await loadValues(args.platform, env, {
     includeAccessToken: args.action === 'resolve-published',
   });
   const db = await getDb();
@@ -237,6 +276,7 @@ export async function runSocialPublishReservationsCli(argv = process.argv.slice(
     accountId,
     nativePostId: args.nativePostId,
     accessToken,
+    apiBase,
     fetchImpl,
   });
   const applied = await reconcileSocialPublishReservationPublished({

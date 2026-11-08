@@ -38,6 +38,7 @@ jobs:
             scripts/ci/promote-ga4-key-events.mjs
             scripts/ga4-key-events.mjs
             scripts/load-rc-env.mjs
+            scripts/lib/remote-config-template-url.mjs
             scripts/lib/
           sparse-checkout-cone-mode: false
 

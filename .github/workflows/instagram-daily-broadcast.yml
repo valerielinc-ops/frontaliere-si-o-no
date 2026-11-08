@@ -9,11 +9,10 @@ name: Instagram Daily/Weekly Broadcast
 #
 # Same dual-cron/mode-select shape as telegram-channel-broadcast.yml.
 #
-# Fail-soft by design: with no INSTAGRAM_ACCESS_TOKEN / INSTAGRAM_BUSINESS_ACCOUNT_ID
-# in Remote Config the poster logs a clean skip and exits 0. The whole
-# pipeline ships and stays GREEN before the owner has completed Meta's App
-# Review for instagram_content_publish — a human, external process this
-# workflow cannot shortcut. See scripts/post-to-instagram.mjs header.
+# Fail-soft by design: the selected Facebook Login or Instagram Login route
+# must have a usable publisher token and account identity. Instagram Login
+# credentials come from the server-only Remote Config template; OAuth consent
+# remains an explicit platform step this workflow cannot fabricate.
 #
 # workflow_dispatch defaults to dry_run=true (preview only). Scheduled runs
 # post for real, subject to the credentials being present.
@@ -82,6 +81,12 @@ jobs:
           node scripts/load-rc-env.mjs
           --only-env=INSTAGRAM_ACCESS_TOKEN,INSTAGRAM_BUSINESS_ACCOUNT_ID,SOCIAL_ROBOT_MODE,META_INSTAGRAM_BROWSER_PUBLISHING_APPROVED,INSTAGRAM_CAROUSEL_BACKGROUND_AB_ENABLED,INSTAGRAM_CAROUSEL_BACKGROUND_AB_ROLLOUT_PERCENT,INSTAGRAM_CAROUSEL_BACKGROUND_AB_VARIANTS,INSTAGRAM_CAROUSEL_BACKGROUND_AB_EXPLORATION_PERCENT,INSTAGRAM_CAROUSEL_BACKGROUND_AB_WINNERS,INSTAGRAM_AUTONOMOUS_EXPLORATION_PERCENT,INSTAGRAM_AUTONOMOUS_CREATIVE_WINNERS,INSTAGRAM_INSIGHTS_AUTONOMOUS_DECISIONS_ENABLED,SOCIAL_COPY_EXPERIMENT_CONFIG,GA4_PROPERTY_ID,R2_BUCKET,R2_S3_ENDPOINT,R2_ACCESS_KEY_ID,R2_SECRET_ACCESS_KEY
 
+      - name: Load Instagram Login publisher identity from server Remote Config
+        if: inputs.dry_run != true && inputs.dry_run != 'true'
+        env:
+          INSTAGRAM_LOGIN_ACCESS_TOKEN: ${{ secrets.INSTAGRAM_LOGIN_ACCESS_TOKEN }}
+        run: node scripts/load-instagram-login-env.mjs
+
       - name: Keep Instagram delivery on the official Graph API route
         if: env.META_INSTAGRAM_BROWSER_PUBLISHING_APPROVED != 'true'
         run: |
@@ -91,9 +96,9 @@ jobs:
       # Make the soft-skip visible: without an approved Graph token and with
       # the browser route held, a scheduled run intentionally publishes nothing.
       - name: Warn when Instagram credentials are absent
-        if: env.INSTAGRAM_ACCESS_TOKEN == '' && env.META_INSTAGRAM_BROWSER_PUBLISHING_APPROVED != 'true'
+        if: env.INSTAGRAM_PUBLISHER_CREDENTIALS_PRESENT != 'true' && env.META_INSTAGRAM_BROWSER_PUBLISHING_APPROVED != 'true'
         run: |
-          echo "::warning::INSTAGRAM_ACCESS_TOKEN is not set and browser publishing is held pending verified Meta permission — nothing will be posted this run."
+          echo "::warning::No usable Instagram publisher credentials are configured and browser publishing is held — nothing will be posted this run."
 
       # Monday reserves the two-post cadence for the weekly border carousel
       # and the scheduled Reel; Friday reserves it for one article carousel
@@ -114,14 +119,14 @@ jobs:
       # the Playwright robot's queue (scripts/lib/social-publish-queue.mjs).
       - name: Compute assemble-jobs cache key
         id: assemble_cache_key
-        if: env.INSTAGRAM_DAILY_SLOT_OVERRIDE != 'skip' && env.ONLY != 'article' && env.ONLY != 'border' && (env.INSTAGRAM_ACCESS_TOKEN != '' || env.SOCIAL_ROBOT_MODE != 'off')
+        if: env.INSTAGRAM_DAILY_SLOT_OVERRIDE != 'skip' && env.ONLY != 'article' && env.ONLY != 'border' && (env.INSTAGRAM_PUBLISHER_CREDENTIALS_PRESENT == 'true' || env.SOCIAL_ROBOT_MODE != 'off')
         uses: ./.github/actions/assemble-jobs-cache-key
         with:
           args: --no-summaries
 
       - name: Restore assemble-jobs cache
         id: assemble_cache
-        if: env.INSTAGRAM_DAILY_SLOT_OVERRIDE != 'skip' && env.ONLY != 'article' && env.ONLY != 'border' && (env.INSTAGRAM_ACCESS_TOKEN != '' || env.SOCIAL_ROBOT_MODE != 'off') && steps.assemble_cache_key.outputs.key != ''
+        if: env.INSTAGRAM_DAILY_SLOT_OVERRIDE != 'skip' && env.ONLY != 'article' && env.ONLY != 'border' && (env.INSTAGRAM_PUBLISHER_CREDENTIALS_PRESENT == 'true' || env.SOCIAL_ROBOT_MODE != 'off') && steps.assemble_cache_key.outputs.key != ''
         uses: actions/cache/restore@v6
         with:
           path: .cache/assemble-jobs
@@ -129,11 +134,11 @@ jobs:
 
       - name: Assemble jobs dataset
         id: assemble
-        if: env.INSTAGRAM_DAILY_SLOT_OVERRIDE != 'skip' && env.ONLY != 'article' && env.ONLY != 'border' && (env.INSTAGRAM_ACCESS_TOKEN != '' || env.SOCIAL_ROBOT_MODE != 'off')
+        if: env.INSTAGRAM_DAILY_SLOT_OVERRIDE != 'skip' && env.ONLY != 'article' && env.ONLY != 'border' && (env.INSTAGRAM_PUBLISHER_CREDENTIALS_PRESENT == 'true' || env.SOCIAL_ROBOT_MODE != 'off')
         run: node scripts/assemble-jobs-dataset.mjs --no-summaries
 
       - name: Save assemble-jobs cache
-        if: env.INSTAGRAM_DAILY_SLOT_OVERRIDE != 'skip' && env.ONLY != 'article' && env.ONLY != 'border' && (env.INSTAGRAM_ACCESS_TOKEN != '' || env.SOCIAL_ROBOT_MODE != 'off') && steps.assemble.outcome == 'success' && steps.assemble_cache_key.outputs.key != '' && steps.assemble_cache.outputs.cache-hit != 'true'
+        if: env.INSTAGRAM_DAILY_SLOT_OVERRIDE != 'skip' && env.ONLY != 'article' && env.ONLY != 'border' && (env.INSTAGRAM_PUBLISHER_CREDENTIALS_PRESENT == 'true' || env.SOCIAL_ROBOT_MODE != 'off') && steps.assemble.outcome == 'success' && steps.assemble_cache_key.outputs.key != '' && steps.assemble_cache.outputs.cache-hit != 'true'
         continue-on-error: true
         uses: actions/cache/save@v6
         with:
@@ -142,9 +147,16 @@ jobs:
 
       # NB: each flag is appended with an `if`, never with `[ c ] && ARGS+=…`
       # — see linkedin-member-daily.yml's identical comment for why.
+      - name: Confirm Instagram credential transaction is idle before delivery
+        if: inputs.dry_run != true && inputs.dry_run != 'true' && env.INSTAGRAM_DAILY_SLOT_OVERRIDE != 'skip'
+        env:
+          INSTAGRAM_LOGIN_ACCESS_TOKEN: ${{ secrets.INSTAGRAM_LOGIN_ACCESS_TOKEN }}
+        run: node scripts/load-instagram-login-env.mjs
+
       - name: Post to Instagram
         if: inputs.dry_run != true && inputs.dry_run != 'true' && env.INSTAGRAM_DAILY_SLOT_OVERRIDE != 'skip'
         env:
+          INSTAGRAM_LOGIN_ACCESS_TOKEN: ${{ secrets.INSTAGRAM_LOGIN_ACCESS_TOKEN }}
           DRY_RUN: ${{ inputs.dry_run == true || inputs.dry_run == 'true' || (github.event_name == 'schedule' && env.APPROVAL_TRUSTED_SCHEDULE != 'true') }}
           ALLOW_SIDE_EFFECT: ${{ github.event_name != 'schedule' || env.APPROVAL_TRUSTED_SCHEDULE == 'true' }}
           EFFECTIVE_DRY_RUN: ${{ inputs.dry_run == true || inputs.dry_run == 'true' || (github.event_name == 'schedule' && env.APPROVAL_TRUSTED_SCHEDULE != 'true') }}

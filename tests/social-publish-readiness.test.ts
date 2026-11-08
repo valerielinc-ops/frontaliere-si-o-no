@@ -146,6 +146,44 @@ describe('Instagram — Page link, publisher identity, and Meta publishing grant
   it('requires the target account id when only an access token is configured', () => {
     expect(classifyInstagram({ env: { INSTAGRAM_ACCESS_TOKEN: 'token' } }).state).toBe(ACTION_REQUIRED);
   });
+
+  it('uses the direct Instagram Login identity probe without requiring a Facebook Page link', () => {
+    const verdict = classifyInstagram({
+      env: {
+        INSTAGRAM_PUBLISHING_AUTH_MODE: 'instagram_login',
+        INSTAGRAM_LOGIN_ACCESS_TOKEN: 'direct-token',
+        INSTAGRAM_LOGIN_USER_ID: '17841400000000000',
+        INSTAGRAM_LOGIN_GRANTED_SCOPES: 'instagram_business_basic,instagram_business_content_publish',
+      },
+      probe: { loginPublisherStatus: 'matched' },
+    });
+    expect(verdict.state).toBe(READY);
+    expect(verdict.reason).toMatch(/professional account and its basic and content-publishing scopes were granted/);
+  });
+
+  it('does not report direct Login ready when its server-side token is missing or identity mismatches', () => {
+    expect(classifyInstagram({
+      env: { INSTAGRAM_PUBLISHING_AUTH_MODE: 'instagram_login', INSTAGRAM_LOGIN_USER_ID: '17841400000000000' },
+      probe: { loginPublisherStatus: 'matched' },
+    }).state).toBe(CREDENTIAL_MISSING);
+    expect(classifyInstagram({
+      env: {
+        INSTAGRAM_PUBLISHING_AUTH_MODE: 'instagram_login',
+        INSTAGRAM_LOGIN_ACCESS_TOKEN: 'direct-token',
+        INSTAGRAM_LOGIN_USER_ID: '17841400000000000',
+        INSTAGRAM_LOGIN_GRANTED_SCOPES: 'instagram_business_basic,instagram_business_content_publish',
+      },
+      probe: { loginPublisherStatus: 'mismatch' },
+    }).state).toBe(ACTION_REQUIRED);
+    expect(classifyInstagram({
+      env: {
+        INSTAGRAM_PUBLISHING_AUTH_MODE: 'instagram_login',
+        INSTAGRAM_LOGIN_ACCESS_TOKEN: 'direct-token',
+        INSTAGRAM_LOGIN_USER_ID: '17841400000000000',
+      },
+      probe: { loginPublisherStatus: 'matched' },
+    }).state).toBe(ACTION_REQUIRED);
+  });
 });
 
 describe('TikTok — internal publishing policy hold', () => {

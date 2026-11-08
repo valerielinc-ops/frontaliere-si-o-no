@@ -7,3 +7,4 @@
  */
 export const GRAPH_API_VERSION = 'v26.0';
 export const GRAPH_API = `https://graph.facebook.com/${GRAPH_API_VERSION}`;
+export const INSTAGRAM_LOGIN_GRAPH_API = `https://graph.instagram.com/${GRAPH_API_VERSION}`;

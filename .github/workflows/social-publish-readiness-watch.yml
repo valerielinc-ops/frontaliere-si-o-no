@@ -93,8 +93,15 @@ jobs:
           node scripts/load-rc-env.mjs
           --only-env=FB_PAGE_ID,FB_USER_ACCESS_TOKEN,INSTAGRAM_ACCESS_TOKEN,INSTAGRAM_BUSINESS_ACCOUNT_ID,REDDIT_DATA_API_APPROVED,REDDIT_CLIENT_ID,REDDIT_CLIENT_SECRET
 
+      - name: Load Instagram Login publisher identity from server Remote Config
+        env:
+          INSTAGRAM_LOGIN_ACCESS_TOKEN: ${{ secrets.INSTAGRAM_LOGIN_ACCESS_TOKEN }}
+        run: node scripts/load-instagram-login-env.mjs --allow-incomplete
+
       - name: Probe every channel
         id: probe
+        env:
+          INSTAGRAM_LOGIN_ACCESS_TOKEN: ${{ secrets.INSTAGRAM_LOGIN_ACCESS_TOKEN }}
         run: |
           set -euo pipefail
           node scripts/check-social-publish-readiness.mjs | tee readiness.txt

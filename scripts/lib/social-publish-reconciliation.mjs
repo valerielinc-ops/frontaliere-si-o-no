@@ -1,5 +1,5 @@
 import { FACEBOOK_GRAPH_API_VERSION } from './facebook-audience-insights.mjs';
-import { GRAPH_API } from './instagram-graph-constants.mjs';
+import { GRAPH_API, INSTAGRAM_LOGIN_GRAPH_API } from './instagram-graph-constants.mjs';
 import { LINKEDIN_REST_VERSION } from './linkedin-links.mjs';
 import { socialPublishContentFingerprint } from './social-publish-reservations.mjs';
 
@@ -33,6 +33,7 @@ export async function verifyExactSocialPublishedPost({
   accountId,
   nativePostId,
   accessToken,
+  apiBase = GRAPH_API,
   fetchImpl = fetch,
 } = {}) {
   const account = String(accountId || '').trim();
@@ -62,12 +63,16 @@ export async function verifyExactSocialPublishedPost({
   }
 
   if (platform === 'instagram' && ['feed', 'story'].includes(capGroup)) {
-    const accountUrl = new URL(`${GRAPH_API}/${encodeURIComponent(account)}`);
-    accountUrl.searchParams.set('fields', 'id');
+    if (![GRAPH_API, INSTAGRAM_LOGIN_GRAPH_API].includes(apiBase)) {
+      throw new Error('Instagram Graph API host is not supported for exact-post verification');
+    }
+    const accountUrl = new URL(`${apiBase}/${encodeURIComponent(account)}`);
+    const accountIdField = apiBase === INSTAGRAM_LOGIN_GRAPH_API ? 'user_id' : 'id';
+    accountUrl.searchParams.set('fields', accountIdField);
     const accountBody = await readJson(accountUrl, { accessToken: token, fetchImpl });
-    if (accountBody?.id !== account) throw new Error('Instagram access token does not resolve to the configured account');
+    if (accountBody?.[accountIdField] !== account) throw new Error('Instagram access token does not resolve to the configured account');
 
-    const mediaUrl = new URL(`${GRAPH_API}/${encodeURIComponent(postId)}`);
+    const mediaUrl = new URL(`${apiBase}/${encodeURIComponent(postId)}`);
     mediaUrl.searchParams.set('fields', 'id,timestamp,media_type,media_product_type,caption');
     const media = await readJson(mediaUrl, { accessToken: token, fetchImpl });
     const publishedAt = validTimestamp(media?.timestamp);

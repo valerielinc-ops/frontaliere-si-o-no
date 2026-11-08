@@ -48,6 +48,7 @@ import {
   isPublishedForKindDay,
 } from './lib/social-publish-queue.mjs';
 import { publishReel as publishInstagramReel } from './lib/instagram-publish.mjs';
+import { getInstagramPublisherCredentials } from './lib/instagram-publisher-credentials.mjs';
 import { buildSocialCopyBlockContext, loadSocialCopyPack, markSocialCopyAssignmentPublished, releaseUnpublishedSocialCopyAssignmentBestEffort, selectSocialCopyForPublish, socialCopyLedgerFields, socialCopyTrackingContent } from './lib/social-copy-pack.mjs';
 import {
   markSocialPublishReservationPublished,
@@ -125,8 +126,9 @@ async function publishReelSlot({ kind, day, dryRun, robotMode }) {
     return 'already-published';
   }
 
-  const accessToken = String(process.env.INSTAGRAM_ACCESS_TOKEN || '').trim() || null;
-  const igUserId = String(process.env.INSTAGRAM_BUSINESS_ACCOUNT_ID || '').trim() || null;
+  const publisher = getInstagramPublisherCredentials();
+  const accessToken = publisher.accessToken;
+  const igUserId = publisher.igUserId;
   const route = socialPublishRoute({ mode: robotMode, apiReady: Boolean(accessToken && igUserId), apiOnly: true, browserDeliveryAllowed: false });
   const pending = pendingInstagramReel(loadQueue(QUEUE_PATH));
   if (pending) {
@@ -171,6 +173,7 @@ async function publishReelSlot({ kind, day, dryRun, robotMode }) {
       videoUrl: pending.video.url,
       coverUrl: pending.imageUrls[0],
       caption: pending.caption,
+      apiBase: publisher.apiBase,
     });
     if (!result.ok) {
       if (result.uncertain !== true) {
@@ -356,6 +359,7 @@ async function publishReelSlot({ kind, day, dryRun, robotMode }) {
     videoUrl: queueEntry.video.url,
     coverUrl: queueEntry.imageUrls[0],
     caption: queueEntry.caption,
+    apiBase: publisher.apiBase,
   });
   publishRejected = result?.ok === false && result?.uncertain !== true;
   if (!result?.ok) {

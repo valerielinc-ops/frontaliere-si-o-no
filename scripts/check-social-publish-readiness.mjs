@@ -52,6 +52,7 @@ import {
   READY,
 } from './lib/social-readiness.mjs';
 import { probeInstagramPageLink } from './lib/instagram-page-link-probe.mjs';
+import { probeInstagramLoginPublisher } from './lib/instagram-login-readiness-probe.mjs';
 import {
   probeInstagramPublishPermission,
   probeInstagramPublisherToken,
@@ -66,7 +67,18 @@ async function main() {
   const reasonFor = args.find((a) => a.startsWith('--reason='))?.split('=')[1];
   const env = process.env;
 
-  const [pageLink, publishPermission, publisherToken] = await Promise.all([
+  let instagram;
+  if (String(env.INSTAGRAM_PUBLISHING_AUTH_MODE || '').trim() === 'instagram_login') {
+    const loginPublisher = await probeInstagramLoginPublisher({
+      instagramUserId: env.INSTAGRAM_LOGIN_USER_ID,
+      expectedUsername: env.INSTAGRAM_LOGIN_USERNAME || env.INSTAGRAM_USERNAME,
+      accessToken: env.INSTAGRAM_LOGIN_ACCESS_TOKEN,
+      tokenExpiresAt: env.INSTAGRAM_LOGIN_ACCESS_TOKEN_EXPIRES_AT,
+      grantedScopes: env.INSTAGRAM_LOGIN_GRANTED_SCOPES,
+    });
+    instagram = { ...loginPublisher, note: loginPublisher.note };
+  } else {
+    const [pageLink, publishPermission, publisherToken] = await Promise.all([
     probeInstagramPageLink({
       pageId: env.FB_PAGE_ID,
       userAccessToken: env.FB_USER_ACCESS_TOKEN,
@@ -78,13 +90,14 @@ async function main() {
       instagramAccountId: env.INSTAGRAM_BUSINESS_ACCOUNT_ID,
       accessToken: env.INSTAGRAM_ACCESS_TOKEN,
     }),
-  ]);
-  const instagram = {
-    ...pageLink,
-    ...publishPermission,
-    ...publisherToken,
-    note: [pageLink.note, publishPermission.note, publisherToken.note].filter(Boolean).join('; '),
-  };
+    ]);
+    instagram = {
+      ...pageLink,
+      ...publishPermission,
+      ...publisherToken,
+      note: [pageLink.note, publishPermission.note, publisherToken.note].filter(Boolean).join('; '),
+    };
+  }
   const probes = { instagram };
   const all = classifyAll({ env, probes });
 
