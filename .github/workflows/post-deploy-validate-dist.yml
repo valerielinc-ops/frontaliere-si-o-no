@@ -65,6 +65,7 @@ jobs:
             infra/cloudflare-worker/locale-router.js
             infra/cloudflare-worker/ticino-tree-bucket.js
             infra/cloudflare-worker/legacy-stub-redirects.generated.mjs
+            services/publicConfigConstants.mjs
             scripts/lib/pharmacySections.mjs
             scripts/lib/weather-border-links.mjs
             scripts/lib/fuel-station-aliases.mjs

@@ -68,6 +68,10 @@ import { WEATHER_BORDER_LEGACY_REDIRECTS } from '../../scripts/lib/weather-borde
 import { resolveFuelStation } from '../../scripts/lib/fuel-station-aliases.mjs';
 import { EDGE_LEGACY_STUB_REDIRECTS } from './legacy-stub-redirects.generated.mjs';
 import { REDIRECT_STUB_MARKER } from '../../build-plugins/shared/redirectStubMarker.mjs';
+import {
+  PUBLIC_CONFIG_FUNCTION_ENDPOINT,
+  PUBLIC_CONFIG_PATH,
+} from '../../services/publicConfigConstants.mjs';
 
 // Named export for the same reason SECTION_ROUTES below carries one: the
 // Workers runtime only ever uses the default export, but scripts/lib/cf-worker-routes.mjs
@@ -3482,9 +3486,61 @@ export function stripStaleAssetIntegrity(request, response) {
   }
 }
 
+let publicConfigFetchPromise = null;
+
+function publicConfigUnavailableResponse() {
+  return new Response('Public config unavailable', {
+    status: 503,
+    headers: { 'Retry-After': '30', 'Cache-Control': 'no-store' },
+  });
+}
+
+/** Proxy the allowlisted Remote Config through the production edge cache. */
+export async function servePublicConfig(request) {
+  if (request.method !== 'GET') {
+    return new Response('Method not allowed', {
+      status: 405,
+      headers: { Allow: 'GET', 'Cache-Control': 'no-store' },
+    });
+  }
+
+  if (publicConfigFetchPromise) {
+    try {
+      return (await publicConfigFetchPromise).clone();
+    } catch {
+      return publicConfigUnavailableResponse();
+    }
+  }
+
+  const pending = (async () => {
+    const upstream = await fetch(PUBLIC_CONFIG_FUNCTION_ENDPOINT, {
+      method: 'GET',
+      headers: { Accept: 'application/json' },
+      // Cloudflare caches this JSON subrequest according to the function's
+      // Cache-Control directives, including no-store on its fail-open response.
+      // The URL is constant, so incoming query strings cannot fragment the key.
+      cf: { cacheEverything: true },
+    });
+    return upstream;
+  })();
+
+  publicConfigFetchPromise = pending;
+  try {
+    return (await pending).clone();
+  } catch {
+    return publicConfigUnavailableResponse();
+  } finally {
+    if (publicConfigFetchPromise === pending) publicConfigFetchPromise = null;
+  }
+}
+
 const router = {
   async fetch(request, _env, ctx) {
     const url = new URL(request.url);
+
+    if (url.pathname === PUBLIC_CONFIG_PATH) {
+      return servePublicConfig(request);
+    }
 
     const socialRedirect = await socialRedirectResponse(request, url);
     if (socialRedirect) return socialRedirect;
