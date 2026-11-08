@@ -1,7 +1,7 @@
 {
   "crawlerKey": "raiffeisen",
-  "assembledAt": "2026-11-08T09:23:30.979Z",
-  "runId": "42466192948",
+  "assembledAt": "2026-11-08T21:42:06.542Z",
+  "runId": "42524031328",
   "jobs": [
     {
       "id": "raiffeisen-7b1087e49b95",
@@ -10,7 +10,7 @@
         "it": "consulente-patrimoniale-raiffeisen-savosa",
         "en": "asset-consultant-raiffeisen-savosa",
         "de": "vermogensberater-raiffeisen-savosa",
-        "fr": "consultant-en-biens-raiffeisen-savosa"
+        "fr": "conseiller-en-gestion-patrimoniale-raiffeisen-savosa"
       },
       "company": "Raiffeisen",
       "companyKey": "raiffeisen",
@@ -35,7 +35,7 @@
       "url": "https://jobs.raiffeisen.ch/offene-stellen/consulente-patrimoniale/c576cb19-8a5e-44ea-a92c-28440eec0833",
       "source": "Raiffeisen Dedicated Parser (Prospective medium 1950)",
       "sourceLang": "it",
-      "crawledAt": "2026-11-08T09:22:16.644Z",
+      "crawledAt": "2026-11-08T21:40:40.952Z",
       "addressLocality": "Savosa",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -56,11 +56,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "conseiller-en-gestion-patrimoniale-raiffeisen-savosa"
+        "consultant-en-biens-raiffeisen-savosa"
       ],
       "previousSlugsByLocale": {
         "fr": [
-          "conseiller-en-gestion-patrimoniale-raiffeisen-savosa"
+          "consultant-en-biens-raiffeisen-savosa"
         ]
       },
       "firstSeenAt": "2026-07-04T12:06:05.430Z",
@@ -78,7 +78,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-08T09:22:16.644Z",
+      "validThrough": "2026-12-08T21:40:40.952Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -113,7 +113,7 @@
       "url": "https://jobs.raiffeisen.ch/offene-stellen/individualkundenberater-in-w-m-d/4ea3f921-7031-41da-b61f-fec8f08b25b4",
       "source": "Raiffeisen Dedicated Parser (Prospective medium 1950)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:22:16.641Z",
+      "crawledAt": "2026-11-08T21:40:40.948Z",
       "addressLocality": "Thusis",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -173,7 +173,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-08T09:22:16.641Z",
+      "validThrough": "2026-12-08T21:40:40.948Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -208,7 +208,7 @@
       "url": "https://jobs.raiffeisen.ch/offene-stellen/hypothekarspezialist-in/8331c4d7-e4f2-4652-810b-6e56197a5c06",
       "source": "Raiffeisen Dedicated Parser (Prospective medium 1950)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:22:16.636Z",
+      "crawledAt": "2026-11-08T21:40:40.944Z",
       "addressLocality": "Frick",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -251,7 +251,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-08T09:22:16.636Z",
+      "validThrough": "2026-12-08T21:40:40.944Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -260,7 +260,7 @@
       "slugByLocale": {
         "it": "consulente-clientela-privata-individuale-raiffeisen-gordola",
         "en": "individual-private-customer-advisor-raiffeisen-gordola",
-        "de": "privatkundenberater-raiffeisen-gordola",
+        "de": "berater-fur-individuelle-privatkunden-raiffeisen-gordola",
         "fr": "conseiller-client-prive-individuel-raiffeisen-gordola"
       },
       "company": "Raiffeisen",
@@ -286,7 +286,7 @@
       "url": "https://jobs.raiffeisen.ch/offene-stellen/consulente-clientela-privata-individuale/30b15165-c3c9-4e00-ac83-7bfde8a994a5",
       "source": "Raiffeisen Dedicated Parser (Prospective medium 1950)",
       "sourceLang": "it",
-      "crawledAt": "2026-11-08T09:22:16.634Z",
+      "crawledAt": "2026-11-08T21:40:40.942Z",
       "addressLocality": "Gordola",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -319,7 +319,7 @@
         "individual-private-customer-advisor-h-f-raiffeisen-saignelegier",
         "privatkundenberater-h-f-raiffeisen-saignelegier",
         "conseiller-a-la-clientele-privee-individuelle-h-f-raiffeisen-saignelegier",
-        "berater-fur-individuelle-privatkunden-raiffeisen-gordola"
+        "privatkundenberater-raiffeisen-gordola"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -342,7 +342,7 @@
           "privatkundenberater-raiffeisen-poschiavo",
           "privatkundenberater-m-w-d-raiffeisen-thierrens",
           "privatkundenberater-h-f-raiffeisen-saignelegier",
-          "berater-fur-individuelle-privatkunden-raiffeisen-gordola"
+          "privatkundenberater-raiffeisen-gordola"
         ],
         "fr": [
           "conseiller-client-prive-individuel-raiffeisen-poschiavo",
@@ -365,7 +365,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-08T09:22:16.634Z",
+      "validThrough": "2026-12-08T21:40:40.942Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -400,7 +400,7 @@
       "url": "https://jobs.raiffeisen.ch/offene-stellen/privatkundenberater-in-w-m-d/641495a1-61ed-47f4-b072-3b9a8c0ebc0b",
       "source": "Raiffeisen Dedicated Parser (Prospective medium 1950)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:22:16.629Z",
+      "crawledAt": "2026-11-08T21:40:40.935Z",
       "addressLocality": "Nesslau",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -443,7 +443,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-08T09:22:16.629Z",
+      "validThrough": "2026-12-08T21:40:40.935Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -452,7 +452,7 @@
       "slugByLocale": {
         "it": "consulente-clientela-aziendale-raiffeisen-savosa",
         "en": "corporate-customer-advisor-raiffeisen-savosa",
-        "de": "corporate-customer-advisor-raiffeisen-savosa",
+        "de": "firmenkundenberater-raiffeisen-savosa",
         "fr": "conseiller-client-d-entreprise-raiffeisen-savosa"
       },
       "company": "Raiffeisen",
@@ -478,7 +478,7 @@
       "url": "https://jobs.raiffeisen.ch/offene-stellen/consulente-clientela-aziendale/40678870-d9f0-4019-9dff-04770ebb3763",
       "source": "Raiffeisen Dedicated Parser (Prospective medium 1950)",
       "sourceLang": "it",
-      "crawledAt": "2026-11-08T09:22:16.622Z",
+      "crawledAt": "2026-11-08T21:40:40.927Z",
       "addressLocality": "Savosa",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -502,7 +502,7 @@
         "consulente-clientela-aziendale-raiffeisen-bellinzona",
         "corporate-customer-advisor-raiffeisen-bellinzona",
         "conseiller-client-d-entreprise-raiffeisen-bellinzona",
-        "firmenkundenberater-raiffeisen-savosa"
+        "corporate-customer-advisor-raiffeisen-savosa"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -512,7 +512,7 @@
         ],
         "de": [
           "corporate-customer-advisor-raiffeisen-bellinzona",
-          "firmenkundenberater-raiffeisen-savosa"
+          "corporate-customer-advisor-raiffeisen-savosa"
         ],
         "fr": [
           "conseiller-client-d-entreprise-raiffeisen-bellinzona"
@@ -533,14 +533,14 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-08T09:22:16.622Z",
+      "validThrough": "2026-12-08T21:40:40.927Z",
       "validThroughSource": "last-observed-window"
     },
     {
       "id": "raiffeisen-6f93c19ab091",
       "slug": "consulente-alla-clientela-privata-base-m-w-d-raiffeisen-villmergen",
       "slugByLocale": {
-        "it": "consulenza-clienti-al-dettaglio-f-m-d-raiffeisen-villmergen",
+        "it": "consulente-alla-clientela-privata-base-m-w-d-raiffeisen-villmergen",
         "en": "retail-client-advisor-basis-f-m-d-raiffeisen-villmergen",
         "de": "privatkundenberater-basis-w-m-d-raiffeisen-villmergen",
         "fr": "clientele-de-detail-f-m-d-raiffeisen-villmergen"
@@ -568,7 +568,7 @@
       "url": "https://jobs.raiffeisen.ch/offene-stellen/privatkundenberater-basis-w-m-d/e976e449-5fea-4396-9c7d-71b2c704a622",
       "source": "Raiffeisen Dedicated Parser (Prospective medium 1950)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:22:16.618Z",
+      "crawledAt": "2026-11-08T21:40:40.923Z",
       "addressLocality": "Villmergen",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -590,12 +590,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "consulente-alla-clientela-privata-base-m-f-d-raiffeisen-villmergen",
-        "privatkundenberater-basis-w-m-d-raiffeisen-villmergen"
+        "privatkundenberater-basis-w-m-d-raiffeisen-villmergen",
+        "consulenza-clienti-al-dettaglio-f-m-d-raiffeisen-villmergen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "consulente-alla-clientela-privata-base-m-f-d-raiffeisen-villmergen",
-          "privatkundenberater-basis-w-m-d-raiffeisen-villmergen"
+          "privatkundenberater-basis-w-m-d-raiffeisen-villmergen",
+          "consulenza-clienti-al-dettaglio-f-m-d-raiffeisen-villmergen"
         ]
       },
       "firstSeenAt": "2026-07-04T12:06:05.336Z",
@@ -613,7 +615,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-08T09:22:16.618Z",
+      "validThrough": "2026-12-08T21:40:40.923Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -648,7 +650,7 @@
       "url": "https://jobs.raiffeisen.ch/offene-stellen/finanzplaner-in/c8cc4f7c-aabf-458c-ba15-1a6e1f332961",
       "source": "Raiffeisen Dedicated Parser (Prospective medium 1950)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:22:16.616Z",
+      "crawledAt": "2026-11-08T21:40:40.921Z",
       "addressLocality": "Frick",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -691,7 +693,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-08T09:22:16.616Z",
+      "validThrough": "2026-12-08T21:40:40.921Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -725,7 +727,7 @@
       "url": "https://jobs.raiffeisen.ch/offene-stellen/conseiller-juridique-senior-en-operations-financieres-avec-la-clientele-entreprises-f-h-d/157e84c4-c110-480a-9f3b-ed1b186eb7e3",
       "source": "Raiffeisen Dedicated Parser (Prospective medium 1950)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-08T09:22:16.614Z",
+      "crawledAt": "2026-11-08T21:40:40.919Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -785,7 +787,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-08T09:22:16.614Z",
+      "validThrough": "2026-12-08T21:40:40.919Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -795,7 +797,7 @@
         "it": "collaboratore-trice-kreditadministration-m-w-d-raiffeisen-egnach",
         "en": "employee-credit-administration-m-f-d-raiffeisen-egnach",
         "de": "mitarbeiter-kreditadministration-m-w-d-raiffeisen-egnach",
-        "fr": "administration-du-credit-aux-employes-m-f-d-raiffeisen-egnach"
+        "fr": "responsable-adjoint-du-traitement-des-credits-m-w-d-raiffeisen-neukirch-egnach"
       },
       "company": "Raiffeisen",
       "companyKey": "raiffeisen",
@@ -820,7 +822,7 @@
       "url": "https://jobs.raiffeisen.ch/offene-stellen/stv-leiter-kreditverarbeitung-w-m-d/3982ba1f-b524-4284-80fe-d5c7941e780e",
       "source": "Raiffeisen Dedicated Parser (Prospective medium 1950)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:22:16.611Z",
+      "crawledAt": "2026-11-08T21:40:40.916Z",
       "addressLocality": "Neukirch (Egnach)",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -853,14 +855,14 @@
         ],
         "fr": [
           "stv-leiter-kreditverarbeitung-m-w-d-raiffeisen-neukirch-egnach",
-          "responsable-adjoint-du-traitement-des-credits-m-w-d-raiffeisen-neukirch-egnach"
+          "administration-du-credit-aux-employes-m-f-d-raiffeisen-egnach"
         ]
       },
       "previousSlugs": [
         "stv-leiter-kreditverarbeitung-w-m-d-raiffeisen-neukirch-egnach",
         "collaboratore-trice-kreditadministration-m-w-d-raiffeisen-egnach-uazwgk",
         "stv-leiter-kreditverarbeitung-m-w-d-raiffeisen-neukirch-egnach",
-        "responsable-adjoint-du-traitement-des-credits-m-w-d-raiffeisen-neukirch-egnach"
+        "administration-du-credit-aux-employes-m-f-d-raiffeisen-egnach"
       ],
       "firstSeenAt": "2026-10-22T09:33:25.776Z",
       "salaryMin": 110500,
@@ -877,7 +879,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-08T09:22:16.611Z",
+      "validThrough": "2026-12-08T21:40:40.916Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -912,7 +914,7 @@
       "url": "https://jobs.raiffeisen.ch/offene-stellen/avaloq-applikationsentwickler-w-m-d/45e25e81-b508-4f1f-af7d-54e4c2b13d7f",
       "source": "Raiffeisen Dedicated Parser (Prospective medium 1950)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:22:16.605Z",
+      "crawledAt": "2026-11-08T21:40:40.911Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -962,7 +964,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-08T09:22:16.605Z",
+      "validThrough": "2026-12-08T21:40:40.911Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -997,7 +999,7 @@
       "url": "https://jobs.raiffeisen.ch/offene-stellen/mitarbeiter-in-kreditsupport/2e975031-4bf2-4969-949d-27744dab2c9e",
       "source": "Raiffeisen Dedicated Parser (Prospective medium 1950)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:22:16.602Z",
+      "crawledAt": "2026-11-08T21:40:40.908Z",
       "addressLocality": "Lützelflüh-Goldbach",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1044,7 +1046,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-08T09:22:16.602Z",
+      "validThrough": "2026-12-08T21:40:40.908Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1079,7 +1081,7 @@
       "url": "https://jobs.raiffeisen.ch/offene-stellen/leiter-firmenkundenberatung-mitglied-der-bankleitung-w-m-d/e16f1efb-b0d0-4b1a-ad9c-4cdf079e05a4",
       "source": "Raiffeisen Dedicated Parser (Prospective medium 1950)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:22:16.599Z",
+      "crawledAt": "2026-11-08T21:40:40.904Z",
       "addressLocality": "Diepoldsau",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -1128,7 +1130,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-08T09:22:16.599Z",
+      "validThrough": "2026-12-08T21:40:40.904Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1163,7 +1165,7 @@
       "url": "https://jobs.raiffeisen.ch/offene-stellen/senior-finanzplaner-fuer-unternehmer-w-m-d/8e484278-f747-491d-8dda-cc49527e85f5",
       "source": "Raiffeisen Dedicated Parser (Prospective medium 1950)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:22:16.593Z",
+      "crawledAt": "2026-11-08T21:40:40.900Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1220,7 +1222,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-08T09:22:16.593Z",
+      "validThrough": "2026-12-08T21:40:40.900Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1255,7 +1257,7 @@
       "url": "https://jobs.raiffeisen.ch/offene-stellen/business-intelligence-spezialist-risk-management-w-m-d/ea6ff301-36be-4c00-bfe2-656971cb35a7",
       "source": "Raiffeisen Dedicated Parser (Prospective medium 1950)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:22:16.589Z",
+      "crawledAt": "2026-11-08T21:40:40.896Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -1307,7 +1309,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-08T09:22:16.589Z",
+      "validThrough": "2026-12-08T21:40:40.896Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1341,7 +1343,7 @@
       "url": "https://jobs.raiffeisen.ch/offene-stellen/lehrstelle-als-kauffrau-kaufmann-efz/4cbaba74-b7aa-47bd-8be1-721b1db36ee0",
       "source": "Raiffeisen Dedicated Parser (Prospective medium 1950)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:22:16.586Z",
+      "crawledAt": "2026-11-08T21:40:40.894Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1386,7 +1388,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-08T09:22:16.586Z",
+      "validThrough": "2026-12-08T21:40:40.894Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1421,7 +1423,7 @@
       "url": "https://jobs.raiffeisen.ch/offene-stellen/conseiller-ere-clientele-en-financement-hypothecaire/da918992-6cfa-4db6-be47-399de1ee4512",
       "source": "Raiffeisen Dedicated Parser (Prospective medium 1950)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-08T09:22:16.582Z",
+      "crawledAt": "2026-11-08T21:40:40.890Z",
       "addressLocality": "Carouge",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1464,7 +1466,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-08T09:22:16.582Z",
+      "validThrough": "2026-12-08T21:40:40.890Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1498,7 +1500,7 @@
       "url": "https://jobs.raiffeisen.ch/offene-stellen/senior-mitarbeiter-in-front-office/d96ad0ad-e3d2-4168-9f1f-c422f4c0e0f1",
       "source": "Raiffeisen Dedicated Parser (Prospective medium 1950)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:22:16.580Z",
+      "crawledAt": "2026-11-08T21:40:40.888Z",
       "addressLocality": "Frick",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1541,7 +1543,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-08T09:22:16.580Z",
+      "validThrough": "2026-12-08T21:40:40.888Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1576,7 +1578,7 @@
       "url": "https://jobs.raiffeisen.ch/offene-stellen/kredit-und-hypothekarberater-w-m-d/9dbf1105-a4cd-4852-b1da-9fae7115b305",
       "source": "Raiffeisen Dedicated Parser (Prospective medium 1950)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:22:16.578Z",
+      "crawledAt": "2026-11-08T21:40:40.886Z",
       "addressLocality": "Kaisten",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1621,7 +1623,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-08T09:22:16.578Z",
+      "validThrough": "2026-12-08T21:40:40.886Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1656,7 +1658,7 @@
       "url": "https://jobs.raiffeisen.ch/offene-stellen/devops-engineer-data-warehouse-w-m-d/884ac4ea-aa09-4871-a0be-9a599646d70e",
       "source": "Raiffeisen Dedicated Parser (Prospective medium 1950)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:22:16.576Z",
+      "crawledAt": "2026-11-08T21:40:40.884Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -1691,7 +1693,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-08T09:22:16.576Z",
+      "validThrough": "2026-12-08T21:40:40.884Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1726,7 +1728,7 @@
       "url": "https://jobs.raiffeisen.ch/offene-stellen/conseiller-ere-a-la-clientele/5c9f8a71-d7d4-4258-9f32-623347dd0d25",
       "source": "Raiffeisen Dedicated Parser (Prospective medium 1950)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-08T09:22:16.574Z",
+      "crawledAt": "2026-11-08T21:40:40.881Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1769,7 +1771,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-08T09:22:16.574Z",
+      "validThrough": "2026-12-08T21:40:40.881Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1803,7 +1805,7 @@
       "url": "https://jobs.raiffeisen.ch/offene-stellen/assistant-en-gestion-de-fortune-h-f/793ee2eb-d698-43c2-a87f-99767a7dc587",
       "source": "Raiffeisen Dedicated Parser (Prospective medium 1950)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-08T09:22:16.571Z",
+      "crawledAt": "2026-11-08T21:40:40.879Z",
       "addressLocality": "Vernier",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1846,7 +1848,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T09:22:16.571Z",
+      "validThrough": "2026-12-14T21:40:40.879Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1880,7 +1882,7 @@
       "url": "https://jobs.raiffeisen.ch/offene-stellen/lehrstelle-kauffrau-kaufmann-efz-branche-bank-lehrbeginn-august-2027/d9cfc826-b548-41fb-898d-67b0746260a7",
       "source": "Raiffeisen Dedicated Parser (Prospective medium 1950)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:22:16.569Z",
+      "crawledAt": "2026-11-08T21:40:40.875Z",
       "addressLocality": "Zeiningen",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1941,7 +1943,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-15T09:22:16.569Z",
+      "validThrough": "2026-12-15T21:40:40.875Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1976,7 +1978,7 @@
       "url": "https://jobs.raiffeisen.ch/offene-stellen/firmenkundenberater-in/b3550cf4-14df-4038-b7ee-cd23a0224158",
       "source": "Raiffeisen Dedicated Parser (Prospective medium 1950)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:22:16.567Z",
+      "crawledAt": "2026-11-08T21:40:40.872Z",
       "addressLocality": "Aadorf",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -2031,7 +2033,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-16T09:22:16.567Z",
+      "validThrough": "2026-12-16T21:40:40.872Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2065,7 +2067,7 @@
       "url": "https://jobs.raiffeisen.ch/offene-stellen/finanzplaner-w-m-d/d224cf86-73ce-488e-9a81-1ae8f6cfdb3b",
       "source": "Raiffeisen Dedicated Parser (Prospective medium 1950)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:22:16.562Z",
+      "crawledAt": "2026-11-08T21:40:40.864Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -2108,7 +2110,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-23T09:22:16.562Z",
+      "validThrough": "2026-12-23T21:40:40.864Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2143,7 +2145,7 @@
       "url": "https://jobs.raiffeisen.ch/offene-stellen/leiter-enterprise-architektur-und-technologie-management-m-w-d/b3ba9aa6-71ea-4dce-964d-9bda3b20cdcb",
       "source": "Raiffeisen Dedicated Parser (Prospective medium 1950)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:22:16.560Z",
+      "crawledAt": "2026-11-08T21:40:40.862Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -2192,7 +2194,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-27T09:22:16.560Z",
+      "validThrough": "2026-12-27T21:40:40.862Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2227,7 +2229,7 @@
       "url": "https://jobs.raiffeisen.ch/offene-stellen/responsabile-services-membro-della-direzione/967048a8-fb58-473e-b8f3-cf632493fd16",
       "source": "Raiffeisen Dedicated Parser (Prospective medium 1950)",
       "sourceLang": "it",
-      "crawledAt": "2026-11-08T09:22:16.557Z",
+      "crawledAt": "2026-11-08T21:40:40.859Z",
       "addressLocality": "Caslano",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -2261,8 +2263,88 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-27T09:22:16.557Z",
+      "validThrough": "2026-12-27T21:40:40.859Z",
       "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "raiffeisen-4cb7c0d6cd49",
+      "slug": "avaloq-applicazione-sviluppatore-m-f-d-raiffeisen-zurich-6cd5e8",
+      "slugByLocale": {
+        "de": "avaloq-applikationsentwickler-w-m-d-raiffeisen-zurich",
+        "it": "avaloq-applicazione-sviluppatore-m-f-d-raiffeisen-zurich-6cd5e8",
+        "en": "avaloq-application-developer-m-f-d-raiffeisen-zurich-6cd5e8",
+        "fr": "developpeur-d-applications-avaloq-h-f-d-raiffeisen-zurich-6cd5e8"
+      },
+      "company": "Raiffeisen",
+      "companyKey": "raiffeisen",
+      "companyDomain": "raiffeisen.ch",
+      "title": "Avaloq Applikationsentwickler (w/m/d)",
+      "titleByLocale": {
+        "de": "Avaloq Applikationsentwickler (w/m/d)",
+        "it": "Avaloq Applikationsentwickler (w/m/d)",
+        "en": "Avaloq Applikationsentwickler (w/m/d)",
+        "fr": "Avaloq Applikationsentwickler (w/m/d)"
+      },
+      "description": "29.09.2026\nZürich\n\n## Werde Teil unseres Teams!\nDas Team Treasury & Trading unterstützt als kompetenter und innovativer Lösungsanbieter das Business in der Umsetzung von Projekten und Vorhaben. Es ist für die Ausarbeitung und Umsetzung von Softwarelösungen und das operative Change-Management zuständig.\nFür unseren Standort am Zürich-Flughafen suchen wir per sofort oder nach Vereinbarung eine engagierte und zuverlässige Persönlichkeit als Avaloq Applikationsentwickler (w/m/d) in den Bereichen Portfoliomanagement und Wertschriftenhandel.\n\n## Was erwartet dich?\n• Konzeption, Umsetzung und Unterhalt innovativer Lösungen\n• Erarbeitung von Lösungsdesigns zusammen mit Fachspezialisten aus Business und IT\n• Mitarbeit in strategischen Projekten\n• 3rd Level-Support für unsere Kunden\n\n## Was bringst du mit?\n• Abgeschlossene Ausbildung in Informatik oder Wirtschaftsinformatik (Berufslehre, FH, Uni, o. ä.)\n• Avaloq-Zertifizierung (Avaloq Certified Professional)\n• Mehrjährige Erfahrung in der Avaloq-Entwicklung\n• Schnelle Auffassungsgabe, um komplexe Zusammenhänge zu erkennen und Abhängigkeiten zu identifizieren sowie ausgeprägte analytische Fähigkeiten\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n„Bist du bereit, etwas zu bewegen? Dann komm in unser Team!“\nClaude Magyar\nGruppenleiter Treasury & Trading\nWarum Raiffeisen?\n\n## Wir bieten flexible Arbeitsmodelle\nDie Work-Life-Balance unserer Mitarbeitenden ist uns wichtig. Deshalb schaffen wir die Voraussetzungen dafür, dass die Arbeitszeit flexibel gestaltet werden kann – mit Angeboten für mobiles Arbeiten, Homeoffice und Teilzeit-Pensen.\n\n## Wir pflegen ein familiäres Umfeld\nDie genossenschaftlichen Werte sind unsere Grundpfeiler: Miteinander. Füreinander. Sie prägen unsere Zusammenarbeit und unseren Umgang miteinander. Die Du-Kultur schafft persönliche Nähe und Augenhöhe über alle Funktionsstufen hinweg.\n\n## Wir leben Vielfalt und Chancengleichheit\nWir fördern die unterschiedlichen Perspektiven, Erfahrungen und Kompetenzen in unseren Teams. Denn diese Vielfalt macht uns besonders und trägt entscheidend zu unserem Erfolg bei.\n\n## Wir bieten eine kollektive Erfolgsbeteiligung statt individuellen Boni\nWir rücken die kollektive Leistung in den Vordergrund. Deshalb gibt es bei uns eine kollektive Erfolgsbeteiligung anstelle individueller Bonuszahlungen. Das fördert eine gesunde Unternehmenskultur, in der übergeordnete Ziele gemeinsam verfolgt werden.\n\n## Wir fördern persönliche und berufliche Entwicklung\nLebenslanges Lernen ist Teil unserer Kultur. Wir schaffen Raum für individuelle fachliche und persönliche Entwicklung und unterstützen unsere Mitarbeitenden gezielt – mit einem vielfältigen internen Bildungsangebot sowie einer Kostenbeteiligung für externe Weiterbildungen.\n\n## Wir machen «gesund leben & arbeiten» zum Programm\nMit unserem ganzheitlichen Angebot «gesund leben & arbeiten» unterstützen wir unsere Mitarbeitenden dabei, eine gesunde Balance zwischen Beruf und Privatleben zu finden und langfristig zu erhalten.\n\n## Möchtest du mehr über uns erfahren?\nArbeiten bei Raiffeisen Schweiz Bewerbungsprozess\n• Raiffeisen Jobbörse",
+      "descriptionByLocale": {
+        "de": "29.09.2026\nZürich\n\n## Werde Teil unseres Teams!\nDas Team Treasury & Trading unterstützt als kompetenter und innovativer Lösungsanbieter das Business in der Umsetzung von Projekten und Vorhaben. Es ist für die Ausarbeitung und Umsetzung von Softwarelösungen und das operative Change-Management zuständig.\nFür unseren Standort am Zürich-Flughafen suchen wir per sofort oder nach Vereinbarung eine engagierte und zuverlässige Persönlichkeit als Avaloq Applikationsentwickler (w/m/d) in den Bereichen Portfoliomanagement und Wertschriftenhandel.\n\n## Was erwartet dich?\n• Konzeption, Umsetzung und Unterhalt innovativer Lösungen\n• Erarbeitung von Lösungsdesigns zusammen mit Fachspezialisten aus Business und IT\n• Mitarbeit in strategischen Projekten\n• 3rd Level-Support für unsere Kunden\n\n## Was bringst du mit?\n• Abgeschlossene Ausbildung in Informatik oder Wirtschaftsinformatik (Berufslehre, FH, Uni, o. ä.)\n• Avaloq-Zertifizierung (Avaloq Certified Professional)\n• Mehrjährige Erfahrung in der Avaloq-Entwicklung\n• Schnelle Auffassungsgabe, um komplexe Zusammenhänge zu erkennen und Abhängigkeiten zu identifizieren sowie ausgeprägte analytische Fähigkeiten\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n„Bist du bereit, etwas zu bewegen? Dann komm in unser Team!“\nClaude Magyar\nGruppenleiter Treasury & Trading\nWarum Raiffeisen?\n\n## Wir bieten flexible Arbeitsmodelle\nDie Work-Life-Balance unserer Mitarbeitenden ist uns wichtig. Deshalb schaffen wir die Voraussetzungen dafür, dass die Arbeitszeit flexibel gestaltet werden kann – mit Angeboten für mobiles Arbeiten, Homeoffice und Teilzeit-Pensen.\n\n## Wir pflegen ein familiäres Umfeld\nDie genossenschaftlichen Werte sind unsere Grundpfeiler: Miteinander. Füreinander. Sie prägen unsere Zusammenarbeit und unseren Umgang miteinander. Die Du-Kultur schafft persönliche Nähe und Augenhöhe über alle Funktionsstufen hinweg.\n\n## Wir leben Vielfalt und Chancengleichheit\nWir fördern die unterschiedlichen Perspektiven, Erfahrungen und Kompetenzen in unseren Teams. Denn diese Vielfalt macht uns besonders und trägt entscheidend zu unserem Erfolg bei.\n\n## Wir bieten eine kollektive Erfolgsbeteiligung statt individuellen Boni\nWir rücken die kollektive Leistung in den Vordergrund. Deshalb gibt es bei uns eine kollektive Erfolgsbeteiligung anstelle individueller Bonuszahlungen. Das fördert eine gesunde Unternehmenskultur, in der übergeordnete Ziele gemeinsam verfolgt werden.\n\n## Wir fördern persönliche und berufliche Entwicklung\nLebenslanges Lernen ist Teil unserer Kultur. Wir schaffen Raum für individuelle fachliche und persönliche Entwicklung und unterstützen unsere Mitarbeitenden gezielt – mit einem vielfältigen internen Bildungsangebot sowie einer Kostenbeteiligung für externe Weiterbildungen.\n\n## Wir machen «gesund leben & arbeiten» zum Programm\nMit unserem ganzheitlichen Angebot «gesund leben & arbeiten» unterstützen wir unsere Mitarbeitenden dabei, eine gesunde Balance zwischen Beruf und Privatleben zu finden und langfristig zu erhalten.\n\n## Möchtest du mehr über uns erfahren?\nArbeiten bei Raiffeisen Schweiz Bewerbungsprozess\n• Raiffeisen Jobbörse",
+        "it": "29.09.2026\nZürich\n\n## Werde Teil unseres Teams!\nDas Team Treasury & Trading unterstützt als kompetenter und innovativer Lösungsanbieter das Business in der Umsetzung von Projekten und Vorhaben. Es ist für die Ausarbeitung und Umsetzung von Softwarelösungen und das operative Change-Management zuständig.\nFür unseren Standort am Zürich-Flughafen suchen wir per sofort oder nach Vereinbarung eine engagierte und zuverlässige Persönlichkeit als Avaloq Applikationsentwickler (w/m/d) in den Bereichen Portfoliomanagement und Wertschriftenhandel.\n\n## Was erwartet dich?\n• Konzeption, Umsetzung und Unterhalt innovativer Lösungen\n• Erarbeitung von Lösungsdesigns zusammen mit Fachspezialisten aus Business und IT\n• Mitarbeit in strategischen Projekten\n• 3rd Level-Support für unsere Kunden\n\n## Was bringst du mit?\n• Abgeschlossene Ausbildung in Informatik oder Wirtschaftsinformatik (Berufslehre, FH, Uni, o. ä.)\n• Avaloq-Zertifizierung (Avaloq Certified Professional)\n• Mehrjährige Erfahrung in der Avaloq-Entwicklung\n• Schnelle Auffassungsgabe, um komplexe Zusammenhänge zu erkennen und Abhängigkeiten zu identifizieren sowie ausgeprägte analytische Fähigkeiten\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n„Bist du bereit, etwas zu bewegen? Dann komm in unser Team!“\nClaude Magyar\nGruppenleiter Treasury & Trading\nWarum Raiffeisen?\n\n## Wir bieten flexible Arbeitsmodelle\nDie Work-Life-Balance unserer Mitarbeitenden ist uns wichtig. Deshalb schaffen wir die Voraussetzungen dafür, dass die Arbeitszeit flexibel gestaltet werden kann – mit Angeboten für mobiles Arbeiten, Homeoffice und Teilzeit-Pensen.\n\n## Wir pflegen ein familiäres Umfeld\nDie genossenschaftlichen Werte sind unsere Grundpfeiler: Miteinander. Füreinander. Sie prägen unsere Zusammenarbeit und unseren Umgang miteinander. Die Du-Kultur schafft persönliche Nähe und Augenhöhe über alle Funktionsstufen hinweg.\n\n## Wir leben Vielfalt und Chancengleichheit\nWir fördern die unterschiedlichen Perspektiven, Erfahrungen und Kompetenzen in unseren Teams. Denn diese Vielfalt macht uns besonders und trägt entscheidend zu unserem Erfolg bei.\n\n## Wir bieten eine kollektive Erfolgsbeteiligung statt individuellen Boni\nWir rücken die kollektive Leistung in den Vordergrund. Deshalb gibt es bei uns eine kollektive Erfolgsbeteiligung anstelle individueller Bonuszahlungen. Das fördert eine gesunde Unternehmenskultur, in der übergeordnete Ziele gemeinsam verfolgt werden.\n\n## Wir fördern persönliche und berufliche Entwicklung\nLebenslanges Lernen ist Teil unserer Kultur. Wir schaffen Raum für individuelle fachliche und persönliche Entwicklung und unterstützen unsere Mitarbeitenden gezielt – mit einem vielfältigen internen Bildungsangebot sowie einer Kostenbeteiligung für externe Weiterbildungen.\n\n## Wir machen «gesund leben & arbeiten» zum Programm\nMit unserem ganzheitlichen Angebot «gesund leben & arbeiten» unterstützen wir unsere Mitarbeitenden dabei, eine gesunde Balance zwischen Beruf und Privatleben zu finden und langfristig zu erhalten.\n\n## Möchtest du mehr über uns erfahren?\nArbeiten bei Raiffeisen Schweiz Bewerbungsprozess\n• Raiffeisen Jobbörse",
+        "en": "29.09.2026\nZürich\n\n## Werde Teil unseres Teams!\nDas Team Treasury & Trading unterstützt als kompetenter und innovativer Lösungsanbieter das Business in der Umsetzung von Projekten und Vorhaben. Es ist für die Ausarbeitung und Umsetzung von Softwarelösungen und das operative Change-Management zuständig.\nFür unseren Standort am Zürich-Flughafen suchen wir per sofort oder nach Vereinbarung eine engagierte und zuverlässige Persönlichkeit als Avaloq Applikationsentwickler (w/m/d) in den Bereichen Portfoliomanagement und Wertschriftenhandel.\n\n## Was erwartet dich?\n• Konzeption, Umsetzung und Unterhalt innovativer Lösungen\n• Erarbeitung von Lösungsdesigns zusammen mit Fachspezialisten aus Business und IT\n• Mitarbeit in strategischen Projekten\n• 3rd Level-Support für unsere Kunden\n\n## Was bringst du mit?\n• Abgeschlossene Ausbildung in Informatik oder Wirtschaftsinformatik (Berufslehre, FH, Uni, o. ä.)\n• Avaloq-Zertifizierung (Avaloq Certified Professional)\n• Mehrjährige Erfahrung in der Avaloq-Entwicklung\n• Schnelle Auffassungsgabe, um komplexe Zusammenhänge zu erkennen und Abhängigkeiten zu identifizieren sowie ausgeprägte analytische Fähigkeiten\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n„Bist du bereit, etwas zu bewegen? Dann komm in unser Team!“\nClaude Magyar\nGruppenleiter Treasury & Trading\nWarum Raiffeisen?\n\n## Wir bieten flexible Arbeitsmodelle\nDie Work-Life-Balance unserer Mitarbeitenden ist uns wichtig. Deshalb schaffen wir die Voraussetzungen dafür, dass die Arbeitszeit flexibel gestaltet werden kann – mit Angeboten für mobiles Arbeiten, Homeoffice und Teilzeit-Pensen.\n\n## Wir pflegen ein familiäres Umfeld\nDie genossenschaftlichen Werte sind unsere Grundpfeiler: Miteinander. Füreinander. Sie prägen unsere Zusammenarbeit und unseren Umgang miteinander. Die Du-Kultur schafft persönliche Nähe und Augenhöhe über alle Funktionsstufen hinweg.\n\n## Wir leben Vielfalt und Chancengleichheit\nWir fördern die unterschiedlichen Perspektiven, Erfahrungen und Kompetenzen in unseren Teams. Denn diese Vielfalt macht uns besonders und trägt entscheidend zu unserem Erfolg bei.\n\n## Wir bieten eine kollektive Erfolgsbeteiligung statt individuellen Boni\nWir rücken die kollektive Leistung in den Vordergrund. Deshalb gibt es bei uns eine kollektive Erfolgsbeteiligung anstelle individueller Bonuszahlungen. Das fördert eine gesunde Unternehmenskultur, in der übergeordnete Ziele gemeinsam verfolgt werden.\n\n## Wir fördern persönliche und berufliche Entwicklung\nLebenslanges Lernen ist Teil unserer Kultur. Wir schaffen Raum für individuelle fachliche und persönliche Entwicklung und unterstützen unsere Mitarbeitenden gezielt – mit einem vielfältigen internen Bildungsangebot sowie einer Kostenbeteiligung für externe Weiterbildungen.\n\n## Wir machen «gesund leben & arbeiten» zum Programm\nMit unserem ganzheitlichen Angebot «gesund leben & arbeiten» unterstützen wir unsere Mitarbeitenden dabei, eine gesunde Balance zwischen Beruf und Privatleben zu finden und langfristig zu erhalten.\n\n## Möchtest du mehr über uns erfahren?\nArbeiten bei Raiffeisen Schweiz Bewerbungsprozess\n• Raiffeisen Jobbörse",
+        "fr": "29.09.2026\nZürich\n\n## Werde Teil unseres Teams!\nDas Team Treasury & Trading unterstützt als kompetenter und innovativer Lösungsanbieter das Business in der Umsetzung von Projekten und Vorhaben. Es ist für die Ausarbeitung und Umsetzung von Softwarelösungen und das operative Change-Management zuständig.\nFür unseren Standort am Zürich-Flughafen suchen wir per sofort oder nach Vereinbarung eine engagierte und zuverlässige Persönlichkeit als Avaloq Applikationsentwickler (w/m/d) in den Bereichen Portfoliomanagement und Wertschriftenhandel.\n\n## Was erwartet dich?\n• Konzeption, Umsetzung und Unterhalt innovativer Lösungen\n• Erarbeitung von Lösungsdesigns zusammen mit Fachspezialisten aus Business und IT\n• Mitarbeit in strategischen Projekten\n• 3rd Level-Support für unsere Kunden\n\n## Was bringst du mit?\n• Abgeschlossene Ausbildung in Informatik oder Wirtschaftsinformatik (Berufslehre, FH, Uni, o. ä.)\n• Avaloq-Zertifizierung (Avaloq Certified Professional)\n• Mehrjährige Erfahrung in der Avaloq-Entwicklung\n• Schnelle Auffassungsgabe, um komplexe Zusammenhänge zu erkennen und Abhängigkeiten zu identifizieren sowie ausgeprägte analytische Fähigkeiten\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n„Bist du bereit, etwas zu bewegen? Dann komm in unser Team!“\nClaude Magyar\nGruppenleiter Treasury & Trading\nWarum Raiffeisen?\n\n## Wir bieten flexible Arbeitsmodelle\nDie Work-Life-Balance unserer Mitarbeitenden ist uns wichtig. Deshalb schaffen wir die Voraussetzungen dafür, dass die Arbeitszeit flexibel gestaltet werden kann – mit Angeboten für mobiles Arbeiten, Homeoffice und Teilzeit-Pensen.\n\n## Wir pflegen ein familiäres Umfeld\nDie genossenschaftlichen Werte sind unsere Grundpfeiler: Miteinander. Füreinander. Sie prägen unsere Zusammenarbeit und unseren Umgang miteinander. Die Du-Kultur schafft persönliche Nähe und Augenhöhe über alle Funktionsstufen hinweg.\n\n## Wir leben Vielfalt und Chancengleichheit\nWir fördern die unterschiedlichen Perspektiven, Erfahrungen und Kompetenzen in unseren Teams. Denn diese Vielfalt macht uns besonders und trägt entscheidend zu unserem Erfolg bei.\n\n## Wir bieten eine kollektive Erfolgsbeteiligung statt individuellen Boni\nWir rücken die kollektive Leistung in den Vordergrund. Deshalb gibt es bei uns eine kollektive Erfolgsbeteiligung anstelle individueller Bonuszahlungen. Das fördert eine gesunde Unternehmenskultur, in der übergeordnete Ziele gemeinsam verfolgt werden.\n\n## Wir fördern persönliche und berufliche Entwicklung\nLebenslanges Lernen ist Teil unserer Kultur. Wir schaffen Raum für individuelle fachliche und persönliche Entwicklung und unterstützen unsere Mitarbeitenden gezielt – mit einem vielfältigen internen Bildungsangebot sowie einer Kostenbeteiligung für externe Weiterbildungen.\n\n## Wir machen «gesund leben & arbeiten» zum Programm\nMit unserem ganzheitlichen Angebot «gesund leben & arbeiten» unterstützen wir unsere Mitarbeitenden dabei, eine gesunde Balance zwischen Beruf und Privatleben zu finden und langfristig zu erhalten.\n\n## Möchtest du mehr über uns erfahren?\nArbeiten bei Raiffeisen Schweiz Bewerbungsprozess\n• Raiffeisen Jobbörse"
+      },
+      "needsRetranslation": true,
+      "location": "Zürich",
+      "canton": "ZH",
+      "url": "https://jobs.raiffeisen.ch/offene-stellen/avaloq-applikationsentwickler-w-m-d/e937dfe8-e3b3-4e8a-a235-fc3c1591e307",
+      "source": "Raiffeisen Dedicated Parser (Prospective medium 1950)",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-08T21:40:40.853Z",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8001",
+      "streetAddress": "Zürich",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-09-29",
+      "postedDate": "2026-09-29",
+      "postingDateSource": "reported",
+      "applyUrl": "https://raiffeisen.wd3.myworkdayjobs.com/jobs-raiffeisen/job/RCH-The-Circle/Avaloq-Applikationsentwickler--w-m-d--80---100-_R0010871/apply",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "avaloq-applikationsentwickler-w-m-d-raiffeisen-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "avaloq-applikationsentwickler-w-m-d-raiffeisen-zurich"
+      ],
+      "salaryMin": 91500,
+      "salaryMax": 128000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 91500,
+          "maxValue": 128000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-28T21:40:40.853Z",
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-07-21T11:48:13.547Z"
     },
     {
       "id": "raiffeisen-2da6b760b8e3",
@@ -2296,7 +2378,7 @@
       "url": "https://jobs.raiffeisen.ch/offene-stellen/privatkundenberater-individual-w-m-d/2e6afdcd-cebc-466a-b67f-1ce78eee5767",
       "source": "Raiffeisen Dedicated Parser (Prospective medium 1950)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:22:16.548Z",
+      "crawledAt": "2026-11-08T21:40:40.850Z",
       "addressLocality": "Unterägeri",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -2339,7 +2421,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-29T09:22:16.548Z",
+      "validThrough": "2026-12-29T21:40:40.850Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2374,7 +2456,7 @@
       "url": "https://jobs.raiffeisen.ch/offene-stellen/conseiller-a-la-clientele-f-h-d/ca95f104-0bd5-43c1-97a9-09a07023336f",
       "source": "Raiffeisen Dedicated Parser (Prospective medium 1950)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-08T09:22:16.541Z",
+      "crawledAt": "2026-11-08T21:40:40.843Z",
       "addressLocality": "Yverdon-les-Bains",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2409,7 +2491,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-29T09:22:16.541Z",
+      "validThrough": "2026-12-29T21:40:40.843Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2443,7 +2525,7 @@
       "url": "https://jobs.raiffeisen.ch/offene-stellen/apprendista-impiegata-o-di-commercio-con-maturita-integrata/28711a8f-08dc-4ba3-8608-413121b7b94e",
       "source": "Raiffeisen Dedicated Parser (Prospective medium 1950)",
       "sourceLang": "it",
-      "crawledAt": "2026-11-08T09:22:16.538Z",
+      "crawledAt": "2026-11-08T21:40:40.840Z",
       "addressLocality": "Biasca",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -2478,8 +2560,80 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-30T09:22:16.538Z",
+      "validThrough": "2026-12-30T21:40:40.840Z",
       "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "raiffeisen-ffb5899a0e6b",
+      "slug": "avaloq-applikationsentwickler-w-m-d-raiffeisen-zurich",
+      "slugByLocale": {
+        "de": "avaloq-applikationsentwickler-w-m-d-raiffeisen-zurich-5ymw0l",
+        "fr": "developpeur-d-applications-avaloq-f-m-d-raiffeisen-zurich",
+        "it": "avaloq-applikationsentwickler-w-m-d-raiffeisen-zurich",
+        "en": "avaloq-applikationsentwickler-w-m-d-raiffeisen-zurich"
+      },
+      "company": "Raiffeisen",
+      "companyKey": "raiffeisen",
+      "companyDomain": "raiffeisen.ch",
+      "title": "Avaloq Applikationsentwickler (w/m/d)",
+      "titleByLocale": {
+        "de": "Avaloq Applikationsentwickler (w/m/d)",
+        "it": "Avaloq Applikationsentwickler (w/m/d)",
+        "en": "Avaloq Applikationsentwickler (w/m/d)",
+        "fr": "Avaloq Applikationsentwickler (w/m/d)"
+      },
+      "description": "08.10.2026\nZürich St. Gallen\n\n## Werde Teil unseres Teams!\nIm Team Compliance IT verantworten wir zentrale regulatorische und kundenbezogene Services unserer Core Banking Applikation. Gemeinsam treiben wir die Umsetzung, Digitalisierung und Automatisierung von regulatorischen Prozessen voran. In enger Zusammenarbeit mit den Fachbereichen entwickeln wir nachhaltige Lösungen, die eine hohe Servicequalität, regulatorische Konformität und effiziente Abläufe sicherstellen.\nFür unsere Standorte am Zürich-Flughafen und in St. Gallen suchen wir per sofort oder nach Vereinbarung eine engagierte und zuverlässige Persönlichkeit als Avaloq Applikationsentwickler (w/m/d).\n\n## Was erwartet dich?\n• Die Weiterentwicklung unserer regulatorischen Services in Avaloq und die Umsetzung von Anforderungen in den Bereichen AML, Tax und Crossborder.\n• Die Digitalisierung und Automatisierung regulatorischer Prozesse mit Fokus auf Effizienz, Qualität und Nachhaltigkeit.\n• Die Analyse fachlicher Anforderungen sowie die Konzeption und Umsetzung zukunftsfähiger technischer Lösungen gemeinsam mit Business und IT.\n• Die Mitarbeit bei der Analyse und Behebung von produktiven Incidents zur Sicherstellung eines stabilen Servicebetriebs.\n• Ein vielseitiges Umfeld mit der Möglichkeit, regulatorische Lösungen aktiv mitzugestalten und weiterzuentwickeln.\n\n## Was bringst du mit?\n• Mehrjährige Erfahrung in der Avaloq-Entwicklung, eine erfolgreich absolvierte Avaloq-Zertifizierung sowie idealweise Erfahrungen im Client Lifecycle Management (CLM).\n• Sehr gute Kenntnisse in PL/SQL und Oracle SQL.\n• Erfahrung im Umgang mit Datenmodellen, Datenmigrationen sowie der Umsetzung von Schnittstellenlösungen.\n• Kenntnisse im regulatorischen Umfeld einer Bank, insbesondere in den Themen AML, Tax, Crossborder und/oder Compliance.\n• Schnelle Auffassungsgabe für komplexe regulatorische Zusammenhänge und Abhängigkeiten sowie ausgeprägte analytische Fähigkeiten.\n• Sehr gute Deutschkenntnisse\n\"Du möchtest regulatorische Herausforderungen in technische Lösungen verwandeln, Verantwortung übernehmen und nachhaltig etwas bewegen? Dann werde Teil unseres motivierten und kollegialen Teams und gestalte die Zukunft unserer Compliance-Prozesse aktiv mit.\"\nLarissa Nuñez\nGruppenleiterin Compliance IT\nWarum Raiffeisen?\n\n## Wir bieten flexible Arbeitsmodelle\nDie Work-Life-Balance unserer Mitarbeitenden ist uns wichtig. Deshalb schaffen wir die Voraussetzungen dafür, dass die Arbeitszeit flexibel gestaltet werden kann – mit Angeboten für mobiles Arbeiten, Homeoffice und Teilzeit-Pensen.\n\n## Wir pflegen ein familiäres Umfeld\nDie genossenschaftlichen Werte sind unsere Grundpfeiler: Miteinander. Füreinander. Sie prägen unsere Zusammenarbeit und unseren Umgang miteinander. Die Du-Kultur schafft persönliche Nähe und Augenhöhe über alle Funktionsstufen hinweg.\n\n## Wir leben Vielfalt und Chancengleichheit\nWir fördern die unterschiedlichen Perspektiven, Erfahrungen und Kompetenzen in unseren Teams. Denn diese Vielfalt macht uns besonders und trägt entscheidend zu unserem Erfolg bei.\n\n## Wir bieten eine kollektive Erfolgsbeteiligung statt individuellen Boni\nWir rücken die kollektive Leistung in den Vordergrund. Deshalb gibt es bei uns eine kollektive Erfolgsbeteiligung anstelle individueller Bonuszahlungen. Das fördert eine gesunde Unternehmenskultur, in der übergeordnete Ziele gemeinsam verfolgt werden.\n\n## Wir fördern persönliche und berufliche Entwicklung\nLebenslanges Lernen ist Teil unserer Kultur. Wir schaffen Raum für individuelle fachliche und persönliche Entwicklung und unterstützen unsere Mitarbeitenden gezielt – mit einem vielfältigen internen Bildungsangebot sowie einer Kostenbeteiligung für externe Weiterbildungen.\n\n## Wir machen «gesund leben & arbeiten» zum Programm\nMit unserem ganzheitlichen Angebot «gesund leben & arbeiten» unterstützen wir unsere Mitarbeitenden dabei, eine gesunde Balance zwischen Beruf und Privatleben zu finden und langfristig zu erhalten.\n\n## Möchtest du mehr über uns erfahren?\nArbeiten bei Raiffeisen Schweiz Bewerbungsprozess\n• Raiffeisen Jobbörse",
+      "descriptionByLocale": {
+        "de": "08.10.2026\nZürich St. Gallen\n\n## Werde Teil unseres Teams!\nIm Team Compliance IT verantworten wir zentrale regulatorische und kundenbezogene Services unserer Core Banking Applikation. Gemeinsam treiben wir die Umsetzung, Digitalisierung und Automatisierung von regulatorischen Prozessen voran. In enger Zusammenarbeit mit den Fachbereichen entwickeln wir nachhaltige Lösungen, die eine hohe Servicequalität, regulatorische Konformität und effiziente Abläufe sicherstellen.\nFür unsere Standorte am Zürich-Flughafen und in St. Gallen suchen wir per sofort oder nach Vereinbarung eine engagierte und zuverlässige Persönlichkeit als Avaloq Applikationsentwickler (w/m/d).\n\n## Was erwartet dich?\n• Die Weiterentwicklung unserer regulatorischen Services in Avaloq und die Umsetzung von Anforderungen in den Bereichen AML, Tax und Crossborder.\n• Die Digitalisierung und Automatisierung regulatorischer Prozesse mit Fokus auf Effizienz, Qualität und Nachhaltigkeit.\n• Die Analyse fachlicher Anforderungen sowie die Konzeption und Umsetzung zukunftsfähiger technischer Lösungen gemeinsam mit Business und IT.\n• Die Mitarbeit bei der Analyse und Behebung von produktiven Incidents zur Sicherstellung eines stabilen Servicebetriebs.\n• Ein vielseitiges Umfeld mit der Möglichkeit, regulatorische Lösungen aktiv mitzugestalten und weiterzuentwickeln.\n\n## Was bringst du mit?\n• Mehrjährige Erfahrung in der Avaloq-Entwicklung, eine erfolgreich absolvierte Avaloq-Zertifizierung sowie idealweise Erfahrungen im Client Lifecycle Management (CLM).\n• Sehr gute Kenntnisse in PL/SQL und Oracle SQL.\n• Erfahrung im Umgang mit Datenmodellen, Datenmigrationen sowie der Umsetzung von Schnittstellenlösungen.\n• Kenntnisse im regulatorischen Umfeld einer Bank, insbesondere in den Themen AML, Tax, Crossborder und/oder Compliance.\n• Schnelle Auffassungsgabe für komplexe regulatorische Zusammenhänge und Abhängigkeiten sowie ausgeprägte analytische Fähigkeiten.\n• Sehr gute Deutschkenntnisse\n\"Du möchtest regulatorische Herausforderungen in technische Lösungen verwandeln, Verantwortung übernehmen und nachhaltig etwas bewegen? Dann werde Teil unseres motivierten und kollegialen Teams und gestalte die Zukunft unserer Compliance-Prozesse aktiv mit.\"\nLarissa Nuñez\nGruppenleiterin Compliance IT\nWarum Raiffeisen?\n\n## Wir bieten flexible Arbeitsmodelle\nDie Work-Life-Balance unserer Mitarbeitenden ist uns wichtig. Deshalb schaffen wir die Voraussetzungen dafür, dass die Arbeitszeit flexibel gestaltet werden kann – mit Angeboten für mobiles Arbeiten, Homeoffice und Teilzeit-Pensen.\n\n## Wir pflegen ein familiäres Umfeld\nDie genossenschaftlichen Werte sind unsere Grundpfeiler: Miteinander. Füreinander. Sie prägen unsere Zusammenarbeit und unseren Umgang miteinander. Die Du-Kultur schafft persönliche Nähe und Augenhöhe über alle Funktionsstufen hinweg.\n\n## Wir leben Vielfalt und Chancengleichheit\nWir fördern die unterschiedlichen Perspektiven, Erfahrungen und Kompetenzen in unseren Teams. Denn diese Vielfalt macht uns besonders und trägt entscheidend zu unserem Erfolg bei.\n\n## Wir bieten eine kollektive Erfolgsbeteiligung statt individuellen Boni\nWir rücken die kollektive Leistung in den Vordergrund. Deshalb gibt es bei uns eine kollektive Erfolgsbeteiligung anstelle individueller Bonuszahlungen. Das fördert eine gesunde Unternehmenskultur, in der übergeordnete Ziele gemeinsam verfolgt werden.\n\n## Wir fördern persönliche und berufliche Entwicklung\nLebenslanges Lernen ist Teil unserer Kultur. Wir schaffen Raum für individuelle fachliche und persönliche Entwicklung und unterstützen unsere Mitarbeitenden gezielt – mit einem vielfältigen internen Bildungsangebot sowie einer Kostenbeteiligung für externe Weiterbildungen.\n\n## Wir machen «gesund leben & arbeiten» zum Programm\nMit unserem ganzheitlichen Angebot «gesund leben & arbeiten» unterstützen wir unsere Mitarbeitenden dabei, eine gesunde Balance zwischen Beruf und Privatleben zu finden und langfristig zu erhalten.\n\n## Möchtest du mehr über uns erfahren?\nArbeiten bei Raiffeisen Schweiz Bewerbungsprozess\n• Raiffeisen Jobbörse",
+        "it": "08.10.2026\nZürich St. Gallen\n\n## Werde Teil unseres Teams!\nIm Team Compliance IT verantworten wir zentrale regulatorische und kundenbezogene Services unserer Core Banking Applikation. Gemeinsam treiben wir die Umsetzung, Digitalisierung und Automatisierung von regulatorischen Prozessen voran. In enger Zusammenarbeit mit den Fachbereichen entwickeln wir nachhaltige Lösungen, die eine hohe Servicequalität, regulatorische Konformität und effiziente Abläufe sicherstellen.\nFür unsere Standorte am Zürich-Flughafen und in St. Gallen suchen wir per sofort oder nach Vereinbarung eine engagierte und zuverlässige Persönlichkeit als Avaloq Applikationsentwickler (w/m/d).\n\n## Was erwartet dich?\n• Die Weiterentwicklung unserer regulatorischen Services in Avaloq und die Umsetzung von Anforderungen in den Bereichen AML, Tax und Crossborder.\n• Die Digitalisierung und Automatisierung regulatorischer Prozesse mit Fokus auf Effizienz, Qualität und Nachhaltigkeit.\n• Die Analyse fachlicher Anforderungen sowie die Konzeption und Umsetzung zukunftsfähiger technischer Lösungen gemeinsam mit Business und IT.\n• Die Mitarbeit bei der Analyse und Behebung von produktiven Incidents zur Sicherstellung eines stabilen Servicebetriebs.\n• Ein vielseitiges Umfeld mit der Möglichkeit, regulatorische Lösungen aktiv mitzugestalten und weiterzuentwickeln.\n\n## Was bringst du mit?\n• Mehrjährige Erfahrung in der Avaloq-Entwicklung, eine erfolgreich absolvierte Avaloq-Zertifizierung sowie idealweise Erfahrungen im Client Lifecycle Management (CLM).\n• Sehr gute Kenntnisse in PL/SQL und Oracle SQL.\n• Erfahrung im Umgang mit Datenmodellen, Datenmigrationen sowie der Umsetzung von Schnittstellenlösungen.\n• Kenntnisse im regulatorischen Umfeld einer Bank, insbesondere in den Themen AML, Tax, Crossborder und/oder Compliance.\n• Schnelle Auffassungsgabe für komplexe regulatorische Zusammenhänge und Abhängigkeiten sowie ausgeprägte analytische Fähigkeiten.\n• Sehr gute Deutschkenntnisse\n\"Du möchtest regulatorische Herausforderungen in technische Lösungen verwandeln, Verantwortung übernehmen und nachhaltig etwas bewegen? Dann werde Teil unseres motivierten und kollegialen Teams und gestalte die Zukunft unserer Compliance-Prozesse aktiv mit.\"\nLarissa Nuñez\nGruppenleiterin Compliance IT\nWarum Raiffeisen?\n\n## Wir bieten flexible Arbeitsmodelle\nDie Work-Life-Balance unserer Mitarbeitenden ist uns wichtig. Deshalb schaffen wir die Voraussetzungen dafür, dass die Arbeitszeit flexibel gestaltet werden kann – mit Angeboten für mobiles Arbeiten, Homeoffice und Teilzeit-Pensen.\n\n## Wir pflegen ein familiäres Umfeld\nDie genossenschaftlichen Werte sind unsere Grundpfeiler: Miteinander. Füreinander. Sie prägen unsere Zusammenarbeit und unseren Umgang miteinander. Die Du-Kultur schafft persönliche Nähe und Augenhöhe über alle Funktionsstufen hinweg.\n\n## Wir leben Vielfalt und Chancengleichheit\nWir fördern die unterschiedlichen Perspektiven, Erfahrungen und Kompetenzen in unseren Teams. Denn diese Vielfalt macht uns besonders und trägt entscheidend zu unserem Erfolg bei.\n\n## Wir bieten eine kollektive Erfolgsbeteiligung statt individuellen Boni\nWir rücken die kollektive Leistung in den Vordergrund. Deshalb gibt es bei uns eine kollektive Erfolgsbeteiligung anstelle individueller Bonuszahlungen. Das fördert eine gesunde Unternehmenskultur, in der übergeordnete Ziele gemeinsam verfolgt werden.\n\n## Wir fördern persönliche und berufliche Entwicklung\nLebenslanges Lernen ist Teil unserer Kultur. Wir schaffen Raum für individuelle fachliche und persönliche Entwicklung und unterstützen unsere Mitarbeitenden gezielt – mit einem vielfältigen internen Bildungsangebot sowie einer Kostenbeteiligung für externe Weiterbildungen.\n\n## Wir machen «gesund leben & arbeiten» zum Programm\nMit unserem ganzheitlichen Angebot «gesund leben & arbeiten» unterstützen wir unsere Mitarbeitenden dabei, eine gesunde Balance zwischen Beruf und Privatleben zu finden und langfristig zu erhalten.\n\n## Möchtest du mehr über uns erfahren?\nArbeiten bei Raiffeisen Schweiz Bewerbungsprozess\n• Raiffeisen Jobbörse",
+        "en": "08.10.2026\nZürich St. Gallen\n\n## Werde Teil unseres Teams!\nIm Team Compliance IT verantworten wir zentrale regulatorische und kundenbezogene Services unserer Core Banking Applikation. Gemeinsam treiben wir die Umsetzung, Digitalisierung und Automatisierung von regulatorischen Prozessen voran. In enger Zusammenarbeit mit den Fachbereichen entwickeln wir nachhaltige Lösungen, die eine hohe Servicequalität, regulatorische Konformität und effiziente Abläufe sicherstellen.\nFür unsere Standorte am Zürich-Flughafen und in St. Gallen suchen wir per sofort oder nach Vereinbarung eine engagierte und zuverlässige Persönlichkeit als Avaloq Applikationsentwickler (w/m/d).\n\n## Was erwartet dich?\n• Die Weiterentwicklung unserer regulatorischen Services in Avaloq und die Umsetzung von Anforderungen in den Bereichen AML, Tax und Crossborder.\n• Die Digitalisierung und Automatisierung regulatorischer Prozesse mit Fokus auf Effizienz, Qualität und Nachhaltigkeit.\n• Die Analyse fachlicher Anforderungen sowie die Konzeption und Umsetzung zukunftsfähiger technischer Lösungen gemeinsam mit Business und IT.\n• Die Mitarbeit bei der Analyse und Behebung von produktiven Incidents zur Sicherstellung eines stabilen Servicebetriebs.\n• Ein vielseitiges Umfeld mit der Möglichkeit, regulatorische Lösungen aktiv mitzugestalten und weiterzuentwickeln.\n\n## Was bringst du mit?\n• Mehrjährige Erfahrung in der Avaloq-Entwicklung, eine erfolgreich absolvierte Avaloq-Zertifizierung sowie idealweise Erfahrungen im Client Lifecycle Management (CLM).\n• Sehr gute Kenntnisse in PL/SQL und Oracle SQL.\n• Erfahrung im Umgang mit Datenmodellen, Datenmigrationen sowie der Umsetzung von Schnittstellenlösungen.\n• Kenntnisse im regulatorischen Umfeld einer Bank, insbesondere in den Themen AML, Tax, Crossborder und/oder Compliance.\n• Schnelle Auffassungsgabe für komplexe regulatorische Zusammenhänge und Abhängigkeiten sowie ausgeprägte analytische Fähigkeiten.\n• Sehr gute Deutschkenntnisse\n\"Du möchtest regulatorische Herausforderungen in technische Lösungen verwandeln, Verantwortung übernehmen und nachhaltig etwas bewegen? Dann werde Teil unseres motivierten und kollegialen Teams und gestalte die Zukunft unserer Compliance-Prozesse aktiv mit.\"\nLarissa Nuñez\nGruppenleiterin Compliance IT\nWarum Raiffeisen?\n\n## Wir bieten flexible Arbeitsmodelle\nDie Work-Life-Balance unserer Mitarbeitenden ist uns wichtig. Deshalb schaffen wir die Voraussetzungen dafür, dass die Arbeitszeit flexibel gestaltet werden kann – mit Angeboten für mobiles Arbeiten, Homeoffice und Teilzeit-Pensen.\n\n## Wir pflegen ein familiäres Umfeld\nDie genossenschaftlichen Werte sind unsere Grundpfeiler: Miteinander. Füreinander. Sie prägen unsere Zusammenarbeit und unseren Umgang miteinander. Die Du-Kultur schafft persönliche Nähe und Augenhöhe über alle Funktionsstufen hinweg.\n\n## Wir leben Vielfalt und Chancengleichheit\nWir fördern die unterschiedlichen Perspektiven, Erfahrungen und Kompetenzen in unseren Teams. Denn diese Vielfalt macht uns besonders und trägt entscheidend zu unserem Erfolg bei.\n\n## Wir bieten eine kollektive Erfolgsbeteiligung statt individuellen Boni\nWir rücken die kollektive Leistung in den Vordergrund. Deshalb gibt es bei uns eine kollektive Erfolgsbeteiligung anstelle individueller Bonuszahlungen. Das fördert eine gesunde Unternehmenskultur, in der übergeordnete Ziele gemeinsam verfolgt werden.\n\n## Wir fördern persönliche und berufliche Entwicklung\nLebenslanges Lernen ist Teil unserer Kultur. Wir schaffen Raum für individuelle fachliche und persönliche Entwicklung und unterstützen unsere Mitarbeitenden gezielt – mit einem vielfältigen internen Bildungsangebot sowie einer Kostenbeteiligung für externe Weiterbildungen.\n\n## Wir machen «gesund leben & arbeiten» zum Programm\nMit unserem ganzheitlichen Angebot «gesund leben & arbeiten» unterstützen wir unsere Mitarbeitenden dabei, eine gesunde Balance zwischen Beruf und Privatleben zu finden und langfristig zu erhalten.\n\n## Möchtest du mehr über uns erfahren?\nArbeiten bei Raiffeisen Schweiz Bewerbungsprozess\n• Raiffeisen Jobbörse",
+        "fr": "08.10.2026\nZürich St. Gallen\n\n## Werde Teil unseres Teams!\nIm Team Compliance IT verantworten wir zentrale regulatorische und kundenbezogene Services unserer Core Banking Applikation. Gemeinsam treiben wir die Umsetzung, Digitalisierung und Automatisierung von regulatorischen Prozessen voran. In enger Zusammenarbeit mit den Fachbereichen entwickeln wir nachhaltige Lösungen, die eine hohe Servicequalität, regulatorische Konformität und effiziente Abläufe sicherstellen.\nFür unsere Standorte am Zürich-Flughafen und in St. Gallen suchen wir per sofort oder nach Vereinbarung eine engagierte und zuverlässige Persönlichkeit als Avaloq Applikationsentwickler (w/m/d).\n\n## Was erwartet dich?\n• Die Weiterentwicklung unserer regulatorischen Services in Avaloq und die Umsetzung von Anforderungen in den Bereichen AML, Tax und Crossborder.\n• Die Digitalisierung und Automatisierung regulatorischer Prozesse mit Fokus auf Effizienz, Qualität und Nachhaltigkeit.\n• Die Analyse fachlicher Anforderungen sowie die Konzeption und Umsetzung zukunftsfähiger technischer Lösungen gemeinsam mit Business und IT.\n• Die Mitarbeit bei der Analyse und Behebung von produktiven Incidents zur Sicherstellung eines stabilen Servicebetriebs.\n• Ein vielseitiges Umfeld mit der Möglichkeit, regulatorische Lösungen aktiv mitzugestalten und weiterzuentwickeln.\n\n## Was bringst du mit?\n• Mehrjährige Erfahrung in der Avaloq-Entwicklung, eine erfolgreich absolvierte Avaloq-Zertifizierung sowie idealweise Erfahrungen im Client Lifecycle Management (CLM).\n• Sehr gute Kenntnisse in PL/SQL und Oracle SQL.\n• Erfahrung im Umgang mit Datenmodellen, Datenmigrationen sowie der Umsetzung von Schnittstellenlösungen.\n• Kenntnisse im regulatorischen Umfeld einer Bank, insbesondere in den Themen AML, Tax, Crossborder und/oder Compliance.\n• Schnelle Auffassungsgabe für komplexe regulatorische Zusammenhänge und Abhängigkeiten sowie ausgeprägte analytische Fähigkeiten.\n• Sehr gute Deutschkenntnisse\n\"Du möchtest regulatorische Herausforderungen in technische Lösungen verwandeln, Verantwortung übernehmen und nachhaltig etwas bewegen? Dann werde Teil unseres motivierten und kollegialen Teams und gestalte die Zukunft unserer Compliance-Prozesse aktiv mit.\"\nLarissa Nuñez\nGruppenleiterin Compliance IT\nWarum Raiffeisen?\n\n## Wir bieten flexible Arbeitsmodelle\nDie Work-Life-Balance unserer Mitarbeitenden ist uns wichtig. Deshalb schaffen wir die Voraussetzungen dafür, dass die Arbeitszeit flexibel gestaltet werden kann – mit Angeboten für mobiles Arbeiten, Homeoffice und Teilzeit-Pensen.\n\n## Wir pflegen ein familiäres Umfeld\nDie genossenschaftlichen Werte sind unsere Grundpfeiler: Miteinander. Füreinander. Sie prägen unsere Zusammenarbeit und unseren Umgang miteinander. Die Du-Kultur schafft persönliche Nähe und Augenhöhe über alle Funktionsstufen hinweg.\n\n## Wir leben Vielfalt und Chancengleichheit\nWir fördern die unterschiedlichen Perspektiven, Erfahrungen und Kompetenzen in unseren Teams. Denn diese Vielfalt macht uns besonders und trägt entscheidend zu unserem Erfolg bei.\n\n## Wir bieten eine kollektive Erfolgsbeteiligung statt individuellen Boni\nWir rücken die kollektive Leistung in den Vordergrund. Deshalb gibt es bei uns eine kollektive Erfolgsbeteiligung anstelle individueller Bonuszahlungen. Das fördert eine gesunde Unternehmenskultur, in der übergeordnete Ziele gemeinsam verfolgt werden.\n\n## Wir fördern persönliche und berufliche Entwicklung\nLebenslanges Lernen ist Teil unserer Kultur. Wir schaffen Raum für individuelle fachliche und persönliche Entwicklung und unterstützen unsere Mitarbeitenden gezielt – mit einem vielfältigen internen Bildungsangebot sowie einer Kostenbeteiligung für externe Weiterbildungen.\n\n## Wir machen «gesund leben & arbeiten» zum Programm\nMit unserem ganzheitlichen Angebot «gesund leben & arbeiten» unterstützen wir unsere Mitarbeitenden dabei, eine gesunde Balance zwischen Beruf und Privatleben zu finden und langfristig zu erhalten.\n\n## Möchtest du mehr über uns erfahren?\nArbeiten bei Raiffeisen Schweiz Bewerbungsprozess\n• Raiffeisen Jobbörse"
+      },
+      "needsRetranslation": true,
+      "location": "Zürich",
+      "canton": "ZH",
+      "url": "https://jobs.raiffeisen.ch/offene-stellen/avaloq-applikationsentwickler-w-m-d/1938e48d-3249-4a57-a497-be718c497f6e",
+      "source": "Raiffeisen Dedicated Parser (Prospective medium 1950)",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-08T21:40:40.835Z",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8001",
+      "streetAddress": "Zürich",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-10-08",
+      "postedDate": "2026-10-08",
+      "postingDateSource": "reported",
+      "applyUrl": "https://raiffeisen.wd3.myworkdayjobs.com/jobs-raiffeisen/job/RCH-Wassergasse-24/Avaloq-Applikationsentwickler--w-m-d---80-100-_R0010554/apply",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "salaryMin": 91500,
+      "salaryMax": 128000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 91500,
+          "maxValue": 128000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-06T21:40:40.835Z",
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-07-21T11:48:13.547Z"
     },
     {
       "id": "raiffeisen-226385c3e068",
@@ -2512,7 +2666,7 @@
       "url": "https://jobs.raiffeisen.ch/offene-stellen/senior-finanzplaner-in-w-m-d/60ec2875-13d5-4c75-8ec1-252cedf8a63c",
       "source": "Raiffeisen Dedicated Parser (Prospective medium 1950)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:22:16.530Z",
+      "crawledAt": "2026-11-08T21:40:40.832Z",
       "addressLocality": "Wallisellen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2561,7 +2715,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-06T09:22:16.530Z",
+      "validThrough": "2027-01-06T21:40:40.832Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2596,7 +2750,7 @@
       "url": "https://jobs.raiffeisen.ch/offene-stellen/credit-officer-w-m-d/6de0ad0e-10f3-4c9c-9151-3054870d7cd5",
       "source": "Raiffeisen Dedicated Parser (Prospective medium 1950)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:22:16.522Z",
+      "crawledAt": "2026-11-08T21:40:40.821Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2642,7 +2796,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-09T09:22:16.522Z",
+      "validThrough": "2027-01-09T21:40:40.821Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2677,7 +2831,7 @@
       "url": "https://jobs.raiffeisen.ch/offene-stellen/conseillerere-a-la-clientele-privee-individuelle/c5008245-333f-457a-ae19-abd6758a1d65",
       "source": "Raiffeisen Dedicated Parser (Prospective medium 1950)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-08T09:22:16.519Z",
+      "crawledAt": "2026-11-08T21:40:40.815Z",
       "addressLocality": "Morges",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2726,7 +2880,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-10T09:22:16.519Z",
+      "validThrough": "2027-01-10T21:40:40.815Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2761,7 +2915,7 @@
       "url": "https://jobs.raiffeisen.ch/offene-stellen/fachspezialist-vorsorge-w-m-d/b5e08c45-dde1-45f2-870c-d2c4e725f4f4",
       "source": "Raiffeisen Dedicated Parser (Prospective medium 1950)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:22:16.516Z",
+      "crawledAt": "2026-11-08T21:40:40.812Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -2810,7 +2964,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-10T09:22:16.516Z",
+      "validThrough": "2027-01-10T21:40:40.812Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2844,7 +2998,7 @@
       "url": "https://jobs.raiffeisen.ch/offene-stellen/collaborateur-administration-operations-f-h/9a948dba-a020-4de1-a6e2-153fa20d1dca",
       "source": "Raiffeisen Dedicated Parser (Prospective medium 1950)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-08T09:22:16.513Z",
+      "crawledAt": "2026-11-08T21:40:40.809Z",
       "addressLocality": "Aigle",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2893,7 +3047,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-10T09:22:16.513Z",
+      "validThrough": "2027-01-10T21:40:40.809Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2927,7 +3081,7 @@
       "url": "https://jobs.raiffeisen.ch/offene-stellen/conseiller-clientele-d-accueil-f-h/1d8bab3b-3bee-4a8a-8067-7fd7e213f1ee",
       "source": "Raiffeisen Dedicated Parser (Prospective medium 1950)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-08T09:22:16.507Z",
+      "crawledAt": "2026-11-08T21:40:40.803Z",
       "addressLocality": "Vevey",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2976,7 +3130,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-10T09:22:16.507Z",
+      "validThrough": "2027-01-10T21:40:40.803Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3011,7 +3165,7 @@
       "url": "https://jobs.raiffeisen.ch/offene-stellen/kundenberater-in-basis-auch-fuer-quereinsteiger-innen-geeignet/d0b8ed82-4315-49ac-915f-1c1415536d8a",
       "source": "Raiffeisen Dedicated Parser (Prospective medium 1950)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:22:16.502Z",
+      "crawledAt": "2026-11-08T21:40:40.800Z",
       "addressLocality": "Davos",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -3060,7 +3214,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-10T09:22:16.502Z",
+      "validThrough": "2027-01-10T21:40:40.800Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3095,7 +3249,7 @@
       "url": "https://jobs.raiffeisen.ch/offene-stellen/kundenberater-basis-w-m-d/a4619be7-1044-42b7-aa11-cc103ab7f874",
       "source": "Raiffeisen Dedicated Parser (Prospective medium 1950)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:22:16.496Z",
+      "crawledAt": "2026-11-08T21:40:40.796Z",
       "addressLocality": "Mettmenstetten",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3144,7 +3298,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-11T09:22:16.496Z",
+      "validThrough": "2027-01-11T21:40:40.796Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3179,7 +3333,7 @@
       "url": "https://jobs.raiffeisen.ch/offene-stellen/leiter-in-kreditverarbeitung/29ad23c0-86cb-4f8b-9176-b6f63b9e2f7b",
       "source": "Raiffeisen Dedicated Parser (Prospective medium 1950)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:22:16.487Z",
+      "crawledAt": "2026-11-08T21:40:40.789Z",
       "addressLocality": "Lützelflüh-Goldbach",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3222,7 +3376,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-11T09:22:16.487Z",
+      "validThrough": "2027-01-11T21:40:40.789Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3257,7 +3411,7 @@
       "url": "https://jobs.raiffeisen.ch/offene-stellen/kundenberater-w-m-d/d8c720d6-e8f7-4210-b119-c1d2fc569901",
       "source": "Raiffeisen Dedicated Parser (Prospective medium 1950)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:22:16.484Z",
+      "crawledAt": "2026-11-08T21:40:40.787Z",
       "addressLocality": "Oberlunkhofen",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -3306,7 +3460,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-11T09:22:16.484Z",
+      "validThrough": "2027-01-11T21:40:40.787Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3341,7 +3495,7 @@
       "url": "https://jobs.raiffeisen.ch/offene-stellen/hauswart-fachperson-betriebsunterhalt-m-w-d/9a722d15-c65d-4e3e-b078-9288498f8f96",
       "source": "Raiffeisen Dedicated Parser (Prospective medium 1950)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:22:16.480Z",
+      "crawledAt": "2026-11-08T21:40:40.783Z",
       "addressLocality": "Schötz",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -3386,7 +3540,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-12T09:22:16.480Z",
+      "validThrough": "2027-01-12T21:40:40.783Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3420,7 +3574,7 @@
       "url": "https://jobs.raiffeisen.ch/offene-stellen/senior-investment-consultant-m-f-d/8ae9278c-a151-4e3f-a4a6-1218aeb92aa8",
       "source": "Raiffeisen Dedicated Parser (Prospective medium 1950)",
       "sourceLang": "it",
-      "crawledAt": "2026-11-08T09:22:16.449Z",
+      "crawledAt": "2026-11-08T21:40:40.752Z",
       "addressLocality": "Savosa",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -3455,7 +3609,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-12T09:22:16.449Z",
+      "validThrough": "2027-01-12T21:40:40.752Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3489,7 +3643,7 @@
       "url": "https://jobs.raiffeisen.ch/offene-stellen/bem-formation-bancaire-initiale-post-maturite/45a635d6-f5d3-45d6-92d0-1b4518feb829",
       "source": "Raiffeisen Dedicated Parser (Prospective medium 1950)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-08T09:22:16.445Z",
+      "crawledAt": "2026-11-08T21:40:40.748Z",
       "addressLocality": "Saignelégier",
       "addressRegion": "JU",
       "addressCountry": "CH",
@@ -3538,7 +3692,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-12T09:22:16.445Z",
+      "validThrough": "2027-01-12T21:40:40.748Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3573,7 +3727,7 @@
       "url": "https://jobs.raiffeisen.ch/offene-stellen/stv-leiter-kreditverarbeitung-w-m-d/99c00d28-0c9b-4e49-b66a-146b0802a6c1",
       "source": "Raiffeisen Dedicated Parser (Prospective medium 1950)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:22:16.440Z",
+      "crawledAt": "2026-11-08T21:40:40.744Z",
       "addressLocality": "Kölliken",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -3616,7 +3770,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-12T09:22:16.440Z",
+      "validThrough": "2027-01-12T21:40:40.744Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3651,7 +3805,7 @@
       "url": "https://jobs.raiffeisen.ch/offene-stellen/kundenberater-mit-begeisterung-w-m-d/73bd7cef-f152-4f0f-ba55-a193f987a317",
       "source": "Raiffeisen Dedicated Parser (Prospective medium 1950)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:22:16.439Z",
+      "crawledAt": "2026-11-08T21:40:40.742Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -3700,7 +3854,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-12T09:22:16.439Z",
+      "validThrough": "2027-01-12T21:40:40.742Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3735,7 +3889,7 @@
       "url": "https://jobs.raiffeisen.ch/offene-stellen/conseiller-a-la-clientele-individuelle-f-h/017a550d-af01-4ecd-a579-9f48ee14689a",
       "source": "Raiffeisen Dedicated Parser (Prospective medium 1950)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-08T09:22:16.437Z",
+      "crawledAt": "2026-11-08T21:40:40.741Z",
       "addressLocality": "Bulle",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -3784,7 +3938,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-12T09:22:16.437Z",
+      "validThrough": "2027-01-12T21:40:40.741Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3818,7 +3972,7 @@
       "url": "https://jobs.raiffeisen.ch/offene-stellen/mitarbeiter-currencies-treasury-processing-w-m-d/ec02b4ce-acc6-4501-a14e-fb6a28be2bfd",
       "source": "Raiffeisen Dedicated Parser (Prospective medium 1950)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:22:16.435Z",
+      "crawledAt": "2026-11-08T21:40:40.739Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -3867,7 +4021,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-12T09:22:16.435Z",
+      "validThrough": "2027-01-12T21:40:40.739Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3902,7 +4056,7 @@
       "url": "https://jobs.raiffeisen.ch/offene-stellen/privatkundenberater-w-m-d/88b98f76-a244-496f-aae7-5cd5ee13ee70",
       "source": "Raiffeisen Dedicated Parser (Prospective medium 1950)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:22:16.433Z",
+      "crawledAt": "2026-11-08T21:40:40.736Z",
       "addressLocality": "Oberlunkhofen",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -3951,7 +4105,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-13T09:22:16.433Z",
+      "validThrough": "2027-01-13T21:40:40.736Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3986,7 +4140,7 @@
       "url": "https://jobs.raiffeisen.ch/offene-stellen/teamleiter-privatkundenberatung-w-m-d/77d9a456-c610-4cc3-8bdd-430329225860",
       "source": "Raiffeisen Dedicated Parser (Prospective medium 1950)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:22:16.431Z",
+      "crawledAt": "2026-11-08T21:40:40.734Z",
       "addressLocality": "Gossau",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -4035,7 +4189,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-13T09:22:16.431Z",
+      "validThrough": "2027-01-13T21:40:40.734Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4070,7 +4224,7 @@
       "url": "https://jobs.raiffeisen.ch/offene-stellen/leiter-privatkundenberatung-w-m-d/038c8a9f-8437-4fbe-8358-d47709988603",
       "source": "Raiffeisen Dedicated Parser (Prospective medium 1950)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:22:16.428Z",
+      "crawledAt": "2026-11-08T21:40:40.730Z",
       "addressLocality": "Gossau",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -4119,7 +4273,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-13T09:22:16.428Z",
+      "validThrough": "2027-01-13T21:40:40.730Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4153,7 +4307,7 @@
       "url": "https://jobs.raiffeisen.ch/offene-stellen/lehrstelle-als-kauffrau-kaufmann-efz-branche-bank-lehrbeginn-august-2027/dc0fbd58-07c9-45e8-b40f-1f24975c5c88",
       "source": "Raiffeisen Dedicated Parser (Prospective medium 1950)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:22:16.425Z",
+      "crawledAt": "2026-11-08T21:40:40.727Z",
       "addressLocality": "Murten",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -4196,7 +4350,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-14T09:22:16.425Z",
+      "validThrough": "2027-01-14T21:40:40.727Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4230,7 +4384,7 @@
       "url": "https://jobs.raiffeisen.ch/offene-stellen/rechtsanwalt-beratung-raiffeisenbanken-w-m-d/06082e66-2c23-4a93-bf86-20650ec2dd68",
       "source": "Raiffeisen Dedicated Parser (Prospective medium 1950)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:22:16.410Z",
+      "crawledAt": "2026-11-08T21:40:40.714Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4279,7 +4433,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-14T09:22:16.410Z",
+      "validThrough": "2027-01-14T21:40:40.714Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4314,7 +4468,7 @@
       "url": "https://jobs.raiffeisen.ch/offene-stellen/leiter-in-geschaeftsstelle-m-w-d/5c7b71e9-136f-46e5-8858-80d8050574e2",
       "source": "Raiffeisen Dedicated Parser (Prospective medium 1950)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:22:16.407Z",
+      "crawledAt": "2026-11-08T21:40:40.710Z",
       "addressLocality": "Aarberg",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -4363,7 +4517,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-14T09:22:16.407Z",
+      "validThrough": "2027-01-14T21:40:40.710Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4398,7 +4552,7 @@
       "url": "https://jobs.raiffeisen.ch/offene-stellen/csirt-incident-responder-w-m-d/4de20fc6-f22b-4634-8af7-99998694a411",
       "source": "Raiffeisen Dedicated Parser (Prospective medium 1950)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:22:16.405Z",
+      "crawledAt": "2026-11-08T21:40:40.708Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -4441,7 +4595,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-17T09:22:16.405Z",
+      "validThrough": "2027-01-17T21:40:40.708Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4476,7 +4630,7 @@
       "url": "https://jobs.raiffeisen.ch/offene-stellen/individualkundenberater-w-m-d/359d080d-d57d-4b80-8338-28faf97130df",
       "source": "Raiffeisen Dedicated Parser (Prospective medium 1950)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:22:16.402Z",
+      "crawledAt": "2026-11-08T21:40:40.705Z",
       "addressLocality": "Amriswil",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -4525,7 +4679,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-17T09:22:16.402Z",
+      "validThrough": "2027-01-17T21:40:40.705Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4560,7 +4714,7 @@
       "url": "https://jobs.raiffeisen.ch/offene-stellen/kundenberater-in-4-tage-woche-38h-bei-lohn/1b611703-9f05-4612-bafe-a81fed1b88fd",
       "source": "Raiffeisen Dedicated Parser (Prospective medium 1950)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:22:16.398Z",
+      "crawledAt": "2026-11-08T21:40:40.701Z",
       "addressLocality": "Herisau",
       "addressRegion": "AR",
       "addressCountry": "CH",
@@ -4608,7 +4762,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-17T09:22:16.398Z",
+      "validThrough": "2027-01-17T21:40:40.701Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4643,7 +4797,7 @@
       "url": "https://jobs.raiffeisen.ch/offene-stellen/bankeinstieg-nach-matura-bem-beginn-1-maerz-2027/c87bef74-471d-42f9-ada8-7bff6fb95d06",
       "source": "Raiffeisen Dedicated Parser (Prospective medium 1950)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:22:16.396Z",
+      "crawledAt": "2026-11-08T21:40:40.700Z",
       "addressLocality": "Schöftland",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -4694,7 +4848,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-17T09:22:16.396Z",
+      "validThrough": "2027-01-17T21:40:40.700Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4728,7 +4882,7 @@
       "url": "https://jobs.raiffeisen.ch/offene-stellen/finanzplaner-w-m-d/5db9055d-5a85-48e9-9e20-4f0f8b8c94dd",
       "source": "Raiffeisen Dedicated Parser (Prospective medium 1950)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:22:16.394Z",
+      "crawledAt": "2026-11-08T21:40:40.698Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -4777,7 +4931,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-17T09:22:16.394Z",
+      "validThrough": "2027-01-17T21:40:40.698Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4812,7 +4966,7 @@
       "url": "https://jobs.raiffeisen.ch/offene-stellen/kundenberater-w-m-d/9bcabbf3-551f-4108-82a6-5e79e4a879c3",
       "source": "Raiffeisen Dedicated Parser (Prospective medium 1950)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:22:16.393Z",
+      "crawledAt": "2026-11-08T21:40:40.696Z",
       "addressLocality": "Muttenz",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -4861,7 +5015,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-18T09:22:16.393Z",
+      "validThrough": "2027-01-18T21:40:40.696Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4896,7 +5050,7 @@
       "url": "https://jobs.raiffeisen.ch/offene-stellen/vermoegensberater-in-nachfolgeregelung/5cfce9d8-e230-4127-b2f2-6528213b1b49",
       "source": "Raiffeisen Dedicated Parser (Prospective medium 1950)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:22:16.391Z",
+      "crawledAt": "2026-11-08T21:40:40.695Z",
       "addressLocality": "Einsiedeln",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -4941,7 +5095,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-18T09:22:16.391Z",
+      "validThrough": "2027-01-18T21:40:40.695Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4976,7 +5130,7 @@
       "url": "https://jobs.raiffeisen.ch/offene-stellen/responsable-du-departement-placement/6af69dc6-26ac-4fdd-b403-9f0654d9c024",
       "source": "Raiffeisen Dedicated Parser (Prospective medium 1950)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-08T09:22:16.387Z",
+      "crawledAt": "2026-11-08T21:40:40.691Z",
       "addressLocality": "Nyon",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -5025,7 +5179,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-18T09:22:16.387Z",
+      "validThrough": "2027-01-18T21:40:40.691Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -5060,7 +5214,7 @@
       "url": "https://jobs.raiffeisen.ch/offene-stellen/conseiller-ere-en-gestion-de-fortune/3cece495-8797-43f9-9e1f-21825fdfd3db",
       "source": "Raiffeisen Dedicated Parser (Prospective medium 1950)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-08T09:22:16.384Z",
+      "crawledAt": "2026-11-08T21:40:40.687Z",
       "addressLocality": "Belmont-Broye",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -5109,7 +5263,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-18T09:22:16.384Z",
+      "validThrough": "2027-01-18T21:40:40.687Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -5144,7 +5298,7 @@
       "url": "https://jobs.raiffeisen.ch/offene-stellen/senior-rechtskonsulent-mit-fokus-finanzmarktrecht-und-anlagegeschaeft-w-m-d/083e473e-8e98-4d90-83d8-36e31fc8ba51",
       "source": "Raiffeisen Dedicated Parser (Prospective medium 1950)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:22:16.380Z",
+      "crawledAt": "2026-11-08T21:40:40.683Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -5195,7 +5349,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-19T09:22:16.380Z",
+      "validThrough": "2027-01-19T21:40:40.683Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -5230,7 +5384,7 @@
       "url": "https://jobs.raiffeisen.ch/offene-stellen/bankeinstieg-nach-wms-1-august-2027-31-juli-2029/91151da1-29ca-45a1-8a05-a5f40b4e0c98",
       "source": "Raiffeisen Dedicated Parser (Prospective medium 1950)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:22:16.377Z",
+      "crawledAt": "2026-11-08T21:40:40.680Z",
       "addressLocality": "Frick",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -5279,7 +5433,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-19T09:22:16.377Z",
+      "validThrough": "2027-01-19T21:40:40.680Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -5314,7 +5468,7 @@
       "url": "https://jobs.raiffeisen.ch/offene-stellen/leiter-in-firmenkundenberatung/ba10fdfc-b27c-44ec-813a-204d8109259a",
       "source": "Raiffeisen Dedicated Parser (Prospective medium 1950)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:22:16.375Z",
+      "crawledAt": "2026-11-08T21:40:40.679Z",
       "addressLocality": "Wattwil",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -5363,7 +5517,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-19T09:22:16.375Z",
+      "validThrough": "2027-01-19T21:40:40.679Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -5398,7 +5552,7 @@
       "url": "https://jobs.raiffeisen.ch/offene-stellen/kundenberater-in/5da6bf59-7b50-4992-9c3b-92648bf2ccbb",
       "source": "Raiffeisen Dedicated Parser (Prospective medium 1950)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:22:16.371Z",
+      "crawledAt": "2026-11-08T21:40:40.674Z",
       "addressLocality": "Diemtigen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -5447,7 +5601,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-19T09:22:16.371Z",
+      "validThrough": "2027-01-19T21:40:40.674Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -5481,7 +5635,7 @@
       "url": "https://jobs.raiffeisen.ch/offene-stellen/assistant-e-conseil-a-la-clientele/3c566b7f-7769-45d9-89c3-8c619c423563",
       "source": "Raiffeisen Dedicated Parser (Prospective medium 1950)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-08T09:22:16.365Z",
+      "crawledAt": "2026-11-08T21:40:40.669Z",
       "addressLocality": "Echallens",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -5530,7 +5684,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-19T09:22:16.365Z",
+      "validThrough": "2027-01-19T21:40:40.669Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -5565,7 +5719,7 @@
       "url": "https://jobs.raiffeisen.ch/offene-stellen/system-engineer-unix-w-m-d/654d6e07-dd5c-460d-9b71-7f5aa944f3f8",
       "source": "Raiffeisen Dedicated Parser (Prospective medium 1950)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:22:16.359Z",
+      "crawledAt": "2026-11-08T21:40:40.663Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -5611,7 +5765,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-19T09:22:16.359Z",
+      "validThrough": "2027-01-19T21:40:40.663Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -5646,7 +5800,7 @@
       "url": "https://jobs.raiffeisen.ch/offene-stellen/angular-developer-design-system-w-m-d/748965d6-564c-4d75-b634-817b5711c7fb",
       "source": "Raiffeisen Dedicated Parser (Prospective medium 1950)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:22:16.357Z",
+      "crawledAt": "2026-11-08T21:40:40.660Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -5681,7 +5835,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-19T09:22:16.357Z",
+      "validThrough": "2027-01-19T21:40:40.660Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -5716,7 +5870,7 @@
       "url": "https://jobs.raiffeisen.ch/offene-stellen/vermoegensberater-w-m-d/aeea5322-3650-4b8d-8c6d-9d792ae309b2",
       "source": "Raiffeisen Dedicated Parser (Prospective medium 1950)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:22:16.354Z",
+      "crawledAt": "2026-11-08T21:40:40.658Z",
       "addressLocality": "Romanshorn",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -5765,7 +5919,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-19T09:22:16.354Z",
+      "validThrough": "2027-01-19T21:40:40.658Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -5800,7 +5954,7 @@
       "url": "https://jobs.raiffeisen.ch/offene-stellen/assistant-e-pour-la-clientele-entreprises-f-h/d4d4e062-d0bf-4f6a-bbb6-b49b50a6f674",
       "source": "Raiffeisen Dedicated Parser (Prospective medium 1950)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-08T09:22:16.349Z",
+      "crawledAt": "2026-11-08T21:40:40.653Z",
       "addressLocality": "Vernier",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -5849,7 +6003,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-20T09:22:16.349Z",
+      "validThrough": "2027-01-20T21:40:40.653Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -5884,7 +6038,7 @@
       "url": "https://jobs.raiffeisen.ch/offene-stellen/senior-vermoegensberater-w-m-d/14205a58-fde9-478c-b375-a7e96570aae4",
       "source": "Raiffeisen Dedicated Parser (Prospective medium 1950)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:22:16.347Z",
+      "crawledAt": "2026-11-08T21:40:40.651Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -5933,7 +6087,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-20T09:22:16.347Z",
+      "validThrough": "2027-01-20T21:40:40.651Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -5968,7 +6122,7 @@
       "url": "https://jobs.raiffeisen.ch/offene-stellen/senior-windows-server-engineer-w-m-d/ac163c10-b95a-49c1-8821-5deddb4af313",
       "source": "Raiffeisen Dedicated Parser (Prospective medium 1950)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:22:16.343Z",
+      "crawledAt": "2026-11-08T21:40:40.647Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -6002,7 +6156,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-20T09:22:16.343Z",
+      "validThrough": "2027-01-20T21:40:40.647Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -6037,7 +6191,7 @@
       "url": "https://jobs.raiffeisen.ch/offene-stellen/teamleiter-in-kundenberatung/11aff7e4-7a71-4787-9ae9-21c17ac69928",
       "source": "Raiffeisen Dedicated Parser (Prospective medium 1950)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:22:16.340Z",
+      "crawledAt": "2026-11-08T21:40:40.644Z",
       "addressLocality": "Muri AG",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -6088,7 +6242,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-20T09:22:16.340Z",
+      "validThrough": "2027-01-20T21:40:40.644Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -6123,7 +6277,7 @@
       "url": "https://jobs.raiffeisen.ch/offene-stellen/kundenberater-bank-w-m-d/2154915c-c5b9-4b3d-b834-3143fcdd6287",
       "source": "Raiffeisen Dedicated Parser (Prospective medium 1950)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:22:16.339Z",
+      "crawledAt": "2026-11-08T21:40:40.643Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -6168,7 +6322,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-21T09:22:16.339Z",
+      "validThrough": "2027-01-21T21:40:40.643Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -6203,7 +6357,7 @@
       "url": "https://jobs.raiffeisen.ch/offene-stellen/kmu-firmenkundenberater-in/9239fb21-af5a-44fc-a5f4-4da44c163ff9",
       "source": "Raiffeisen Dedicated Parser (Prospective medium 1950)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:22:16.333Z",
+      "crawledAt": "2026-11-08T21:40:40.638Z",
       "addressLocality": "Wattwil",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -6252,7 +6406,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-21T09:22:16.333Z",
+      "validThrough": "2027-01-21T21:40:40.638Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -6287,7 +6441,7 @@
       "url": "https://jobs.raiffeisen.ch/offene-stellen/kundenberater-in-mit-fokus-kundenentwicklung-m-w-d/bdcb423d-ff90-4261-a2b5-0d675f6f5b30",
       "source": "Raiffeisen Dedicated Parser (Prospective medium 1950)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:22:16.329Z",
+      "crawledAt": "2026-11-08T21:40:40.633Z",
       "addressLocality": "Zurzach",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -6336,7 +6490,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-23T09:22:16.329Z",
+      "validThrough": "2027-01-23T21:40:40.633Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -6371,7 +6525,7 @@
       "url": "https://jobs.raiffeisen.ch/offene-stellen/finanzberater-w-m-d/85741ca3-a61d-4905-800b-ec2817a991b0",
       "source": "Raiffeisen Dedicated Parser (Prospective medium 1950)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:22:16.327Z",
+      "crawledAt": "2026-11-08T21:40:40.631Z",
       "addressLocality": "Kaisten",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -6420,7 +6574,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-24T09:22:16.327Z",
+      "validThrough": "2027-01-24T21:40:40.631Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -6455,7 +6609,7 @@
       "url": "https://jobs.raiffeisen.ch/offene-stellen/kundenberater-w-m-d/8cb27f6a-5c56-4f1d-a750-e919bfa3c221",
       "source": "Raiffeisen Dedicated Parser (Prospective medium 1950)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:22:16.325Z",
+      "crawledAt": "2026-11-08T21:40:40.629Z",
       "addressLocality": "Obwalden",
       "addressRegion": "OW",
       "addressCountry": "CH",
@@ -6504,7 +6658,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-24T09:22:16.325Z",
+      "validThrough": "2027-01-24T21:40:40.629Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -6539,7 +6693,7 @@
       "url": "https://jobs.raiffeisen.ch/offene-stellen/gastgeber-am-empfangsdesk-w-m-d/0de12fcf-07e8-46b0-abb0-e55b0912fe24",
       "source": "Raiffeisen Dedicated Parser (Prospective medium 1950)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:22:16.321Z",
+      "crawledAt": "2026-11-08T21:40:40.626Z",
       "addressLocality": "Obwalden",
       "addressRegion": "OW",
       "addressCountry": "CH",
@@ -6588,7 +6742,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-24T09:22:16.321Z",
+      "validThrough": "2027-01-24T21:40:40.626Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -6623,7 +6777,7 @@
       "url": "https://jobs.raiffeisen.ch/offene-stellen/immobilienbewerter-w-m-d/03852111-81eb-41fc-9974-410062ea9234",
       "source": "Raiffeisen Dedicated Parser (Prospective medium 1950)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:22:16.319Z",
+      "crawledAt": "2026-11-08T21:40:40.624Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -6674,7 +6828,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-23T09:22:16.319Z",
+      "validThrough": "2027-01-23T21:40:40.624Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -6709,7 +6863,7 @@
       "url": "https://jobs.raiffeisen.ch/offene-stellen/leiter-in-geschaeftsstelle-affoltern-am-albis/b0ac0dba-62f5-4dde-8320-3cf4c49142ef",
       "source": "Raiffeisen Dedicated Parser (Prospective medium 1950)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:22:16.316Z",
+      "crawledAt": "2026-11-08T21:40:40.621Z",
       "addressLocality": "Affoltern am Albis",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -6758,7 +6912,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-24T09:22:16.316Z",
+      "validThrough": "2027-01-24T21:40:40.621Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -6793,7 +6947,7 @@
       "url": "https://jobs.raiffeisen.ch/offene-stellen/kundenberater-in-m-w-d/f00027c3-0c22-4552-be59-eca8741cabff",
       "source": "Raiffeisen Dedicated Parser (Prospective medium 1950)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:22:16.309Z",
+      "crawledAt": "2026-11-08T21:40:40.614Z",
       "addressLocality": "Region Aletsch-Goms",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -6841,7 +6995,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-24T09:22:16.309Z",
+      "validThrough": "2027-01-24T21:40:40.614Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -6876,7 +7030,7 @@
       "url": "https://jobs.raiffeisen.ch/offene-stellen/privatkundenberater-individual-m-w-d/87ae0912-6374-47b0-aa9d-0cb1bbdbf0bb",
       "source": "Raiffeisen Dedicated Parser (Prospective medium 1950)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:22:16.302Z",
+      "crawledAt": "2026-11-08T21:40:40.607Z",
       "addressLocality": "Muttenz",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -6925,7 +7079,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-25T09:22:16.302Z",
+      "validThrough": "2027-01-25T21:40:40.607Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -6960,7 +7114,7 @@
       "url": "https://jobs.raiffeisen.ch/offene-stellen/firmenkundenberater-w-m-d/791dda20-3b00-4caf-8baf-70a0eb2df138",
       "source": "Raiffeisen Dedicated Parser (Prospective medium 1950)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:22:16.300Z",
+      "crawledAt": "2026-11-08T21:40:40.605Z",
       "addressLocality": "Möhlin",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -7009,7 +7163,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-25T09:22:16.300Z",
+      "validThrough": "2027-01-25T21:40:40.605Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -7044,7 +7198,7 @@
       "url": "https://jobs.raiffeisen.ch/offene-stellen/bankeinstieg-nach-matura-bem-beginn-maerz-oder-september-2027/83904b20-2102-49e5-b4ad-cb4f48f4aa4f",
       "source": "Raiffeisen Dedicated Parser (Prospective medium 1950)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:22:16.298Z",
+      "crawledAt": "2026-11-08T21:40:40.603Z",
       "addressLocality": "Buchs",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -7093,7 +7247,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-25T09:22:16.298Z",
+      "validThrough": "2027-01-25T21:40:40.603Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -7128,7 +7282,7 @@
       "url": "https://jobs.raiffeisen.ch/offene-stellen/firmenkundenberater-w-m-d/795dc8e9-8b95-4b42-80dc-e862044db4dc",
       "source": "Raiffeisen Dedicated Parser (Prospective medium 1950)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:22:16.295Z",
+      "crawledAt": "2026-11-08T21:40:40.600Z",
       "addressLocality": "Murten",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -7177,7 +7331,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-25T09:22:16.295Z",
+      "validThrough": "2027-01-25T21:40:40.600Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -7212,7 +7366,7 @@
       "url": "https://jobs.raiffeisen.ch/offene-stellen/kundenberater-w-m-d/5edebdf1-1871-409d-b635-e30927aa6c4f",
       "source": "Raiffeisen Dedicated Parser (Prospective medium 1950)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:22:16.293Z",
+      "crawledAt": "2026-11-08T21:40:40.598Z",
       "addressLocality": "Baar",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -7261,7 +7415,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-25T09:22:16.293Z",
+      "validThrough": "2027-01-25T21:40:40.598Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -7295,7 +7449,7 @@
       "url": "https://jobs.raiffeisen.ch/offene-stellen/junior-firmenkundenberater-w-m-d/7e6ffd06-7c46-4678-a911-6251655306b0",
       "source": "Raiffeisen Dedicated Parser (Prospective medium 1950)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:22:16.289Z",
+      "crawledAt": "2026-11-08T21:40:40.594Z",
       "addressLocality": "Möhlin",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -7344,7 +7498,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-25T09:22:16.289Z",
+      "validThrough": "2027-01-25T21:40:40.594Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -7379,7 +7533,7 @@
       "url": "https://jobs.raiffeisen.ch/offene-stellen/mitarbeiter-in-fachsupport/3023dd16-704a-4569-acfb-bf29a4cd604f",
       "source": "Raiffeisen Dedicated Parser (Prospective medium 1950)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:22:16.287Z",
+      "crawledAt": "2026-11-08T21:40:40.592Z",
       "addressLocality": "Mellingen",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -7428,7 +7582,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-26T09:22:16.287Z",
+      "validThrough": "2027-01-26T21:40:40.592Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -7463,7 +7617,7 @@
       "url": "https://jobs.raiffeisen.ch/offene-stellen/privatkundenberatung/34023588-fd70-4863-8cfe-d525cfa1e6f2",
       "source": "Raiffeisen Dedicated Parser (Prospective medium 1950)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:22:16.263Z",
+      "crawledAt": "2026-11-08T21:40:40.568Z",
       "addressLocality": "Langnau im Emmental",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -7512,7 +7666,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-26T09:22:16.263Z",
+      "validThrough": "2027-01-26T21:40:40.568Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -7546,7 +7700,7 @@
       "url": "https://jobs.raiffeisen.ch/offene-stellen/finanzplaner-w-m-d/60eca523-55e6-4f3c-b030-617d4dba85c2",
       "source": "Raiffeisen Dedicated Parser (Prospective medium 1950)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:22:16.261Z",
+      "crawledAt": "2026-11-08T21:40:40.566Z",
       "addressLocality": "Cham",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -7595,7 +7749,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-27T09:22:16.261Z",
+      "validThrough": "2027-01-27T21:40:40.566Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -7630,7 +7784,7 @@
       "url": "https://jobs.raiffeisen.ch/offene-stellen/firmenkundenberater-w-m-d/73e2955a-d3e1-4f00-9d80-f091a224f2d6",
       "source": "Raiffeisen Dedicated Parser (Prospective medium 1950)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:22:16.257Z",
+      "crawledAt": "2026-11-08T21:40:40.563Z",
       "addressLocality": "Untersiggenthal",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -7679,7 +7833,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-27T09:22:16.257Z",
+      "validThrough": "2027-01-27T21:40:40.563Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -7714,7 +7868,7 @@
       "url": "https://jobs.raiffeisen.ch/offene-stellen/credit-officer-clientele-privee-f-h-d/c0094fc1-89c9-459d-bfed-3dc63ee28c15",
       "source": "Raiffeisen Dedicated Parser (Prospective medium 1950)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-08T09:22:16.255Z",
+      "crawledAt": "2026-11-08T21:40:40.561Z",
       "addressLocality": "Montagny-près-Yverdon",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -7763,7 +7917,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-27T09:22:16.255Z",
+      "validThrough": "2027-01-27T21:40:40.561Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -7798,7 +7952,7 @@
       "url": "https://jobs.raiffeisen.ch/offene-stellen/kundenberater-w-m-d/71ff0fc7-6ced-4a66-9d2e-702cbb8cabd9",
       "source": "Raiffeisen Dedicated Parser (Prospective medium 1950)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:22:16.251Z",
+      "crawledAt": "2026-11-08T21:40:40.557Z",
       "addressLocality": "Buchs",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -7843,7 +7997,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-28T09:22:16.251Z",
+      "validThrough": "2027-01-28T21:40:40.557Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -7878,7 +8032,7 @@
       "url": "https://jobs.raiffeisen.ch/offene-stellen/senior-kundenberater-basis/4ff08829-a888-4e93-9efa-9b899df82992",
       "source": "Raiffeisen Dedicated Parser (Prospective medium 1950)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:22:16.248Z",
+      "crawledAt": "2026-11-08T21:40:40.553Z",
       "addressLocality": "Untersiggenthal",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -7923,7 +8077,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-28T09:22:16.248Z",
+      "validThrough": "2027-01-28T21:40:40.553Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -7958,7 +8112,7 @@
       "url": "https://jobs.raiffeisen.ch/offene-stellen/lehrstelle-ict-fachmann-frau-efz-in-zuerich-lehrbeginn-august-2027/4881a913-7ac1-453a-8f0c-66cb4114d601",
       "source": "Raiffeisen Dedicated Parser (Prospective medium 1950)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:22:16.246Z",
+      "crawledAt": "2026-11-08T21:40:40.551Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -8006,7 +8160,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-28T09:22:16.246Z",
+      "validThrough": "2027-01-28T21:40:40.551Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -8041,7 +8195,7 @@
       "url": "https://jobs.raiffeisen.ch/offene-stellen/junior-privatkundenberater-individual-w-m-d/ef698355-621b-4633-89b2-3f66ae312b31",
       "source": "Raiffeisen Dedicated Parser (Prospective medium 1950)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:22:16.242Z",
+      "crawledAt": "2026-11-08T21:40:40.547Z",
       "addressLocality": "Würenlos",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -8090,7 +8244,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-28T09:22:16.242Z",
+      "validThrough": "2027-01-28T21:40:40.547Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -8125,7 +8279,7 @@
       "url": "https://jobs.raiffeisen.ch/offene-stellen/kundenberater-basis-w-m-d/bd1a9670-c1ba-4009-9fa4-7282a64c51c8",
       "source": "Raiffeisen Dedicated Parser (Prospective medium 1950)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:22:16.240Z",
+      "crawledAt": "2026-11-08T21:40:40.545Z",
       "addressLocality": "Beromünster",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -8174,7 +8328,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-28T09:22:16.240Z",
+      "validThrough": "2027-01-28T21:40:40.545Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -8208,7 +8362,7 @@
       "url": "https://jobs.raiffeisen.ch/offene-stellen/mitarbeiter-in-business-support-front-desk-w-m-d/afec93bc-e25d-4f9b-af3b-4fd99868153c",
       "source": "Raiffeisen Dedicated Parser (Prospective medium 1950)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:22:16.235Z",
+      "crawledAt": "2026-11-08T21:40:40.541Z",
       "addressLocality": "Klosters-Serneus",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -8251,7 +8405,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-28T09:22:16.235Z",
+      "validThrough": "2027-01-28T21:40:40.541Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -8286,7 +8440,7 @@
       "url": "https://jobs.raiffeisen.ch/offene-stellen/leiter-in-kreditverarbeitung/6147091c-590c-4600-bd04-9ba45a600788",
       "source": "Raiffeisen Dedicated Parser (Prospective medium 1950)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:22:16.231Z",
+      "crawledAt": "2026-11-08T21:40:40.536Z",
       "addressLocality": "Schänis",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -8335,7 +8489,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-28T09:22:16.231Z",
+      "validThrough": "2027-01-28T21:40:40.536Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -8369,7 +8523,7 @@
       "url": "https://jobs.raiffeisen.ch/offene-stellen/mitarbeiter-in-service-bistro-cafe/6014a990-16a0-48b7-a20e-10789a1ccccd",
       "source": "Raiffeisen Dedicated Parser (Prospective medium 1950)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:22:16.226Z",
+      "crawledAt": "2026-11-08T21:40:40.532Z",
       "addressLocality": "Wittenbach",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -8418,7 +8572,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-31T09:22:16.226Z",
+      "validThrough": "2027-01-31T21:40:40.532Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -8453,7 +8607,7 @@
       "url": "https://jobs.raiffeisen.ch/offene-stellen/specialiste-au-centre-de-service-a-la-clientele-f-h-d/7f2106c7-6a28-4fd4-9f91-eee1d8212398",
       "source": "Raiffeisen Dedicated Parser (Prospective medium 1950)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-08T09:22:16.209Z",
+      "crawledAt": "2026-11-08T21:40:40.516Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -8501,7 +8655,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-31T09:22:16.209Z",
+      "validThrough": "2027-01-31T21:40:40.516Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -8535,7 +8689,7 @@
       "url": "https://jobs.raiffeisen.ch/offene-stellen/spezialist-cyber-security-awareness-w-m-d/78de55e4-c90d-4e76-b029-23cbfa58ad7b",
       "source": "Raiffeisen Dedicated Parser (Prospective medium 1950)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:22:16.206Z",
+      "crawledAt": "2026-11-08T21:40:40.513Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -8569,7 +8723,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-31T09:22:16.206Z",
+      "validThrough": "2027-01-31T21:40:40.513Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -8604,7 +8758,7 @@
       "url": "https://jobs.raiffeisen.ch/offene-stellen/mitarbeiter-spedition-w-m-d/a5fc0936-7ee6-4a12-9eac-05fd31620bff",
       "source": "Raiffeisen Dedicated Parser (Prospective medium 1950)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:22:16.203Z",
+      "crawledAt": "2026-11-08T21:40:40.509Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -8652,7 +8806,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-31T09:22:16.203Z",
+      "validThrough": "2027-01-31T21:40:40.509Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -8687,7 +8841,7 @@
       "url": "https://jobs.raiffeisen.ch/offene-stellen/mitarbeiter-kasse-edelmetall-w-m-d/4d5d2d70-8fbb-4d9e-9a85-53e9e1f8eed7",
       "source": "Raiffeisen Dedicated Parser (Prospective medium 1950)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:22:16.199Z",
+      "crawledAt": "2026-11-08T21:40:40.506Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -8735,7 +8889,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-31T09:22:16.199Z",
+      "validThrough": "2027-01-31T21:40:40.506Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -8769,7 +8923,7 @@
       "url": "https://jobs.raiffeisen.ch/offene-stellen/pianificatore-finanziario/5d2ecffa-feeb-4f20-a3da-c751f7d5bafe",
       "source": "Raiffeisen Dedicated Parser (Prospective medium 1950)",
       "sourceLang": "it",
-      "crawledAt": "2026-11-08T09:22:16.195Z",
+      "crawledAt": "2026-11-08T21:40:40.502Z",
       "addressLocality": "Mendrisio",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -8804,7 +8958,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-31T09:22:16.195Z",
+      "validThrough": "2027-01-31T21:40:40.502Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -8839,7 +8993,7 @@
       "url": "https://jobs.raiffeisen.ch/offene-stellen/privatkundenberater-w-m-d/e9a5e346-11d8-4708-8d6e-4cc7380ac8e4",
       "source": "Raiffeisen Dedicated Parser (Prospective medium 1950)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:22:16.190Z",
+      "crawledAt": "2026-11-08T21:40:40.497Z",
       "addressLocality": "Muotathal",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -8888,7 +9042,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-31T09:22:16.190Z",
+      "validThrough": "2027-01-31T21:40:40.497Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -8913,7 +9067,7 @@
       "description": "03.11.2026\nRapperswil-Jona\n\n## Werde Teil unseres Teams!\nFür die Raiffeisenbank Rapperswil-Jona, eine erfolgreiche und lokal ausgerichtete Bank mit Hauptsitz in Rapperswil-Jona SG und Geschäftsstellen in Egg ZH, Hombrechtikon ZH und Rüti ZH, suchen wir für unseren Hauptsitz in Rapperswil-Jona SG eine engagierte, dienstleistungsorientierte und selbstständige Persönlichkeit als Kundenberater (w/m/d).\n\n## Was erwartet dich?\n• Gesamtheitliche und bedürfnisgerechte Beratung der Kunden in den Themen Basisprodukte, Sparen, Zahlen, Anlegen und Vorsorge\n• Bedienung und umfassender Kundenservice an unserem Beratungs-Schalter\n• Aktives Cross-Selling in allen Produkten inklusive Fondssparen\n• Bedarfserkennung und Weitervermittlung von Kunden an die zuständigen Fachberater\n• Proaktive Umsetzung von Vertriebs- und Marktbearbeitungsmassnahmen\n\n## Was bringst du mit?\n• Abgeschlossene Bankausbildung, Erfahrung in einer vergleichbaren Funktion (Kundenberatung)\n• Freude am intensiven Kundenkontakt\n• Dienstleistungsorientiertes Denken und Handeln\n• Gewinnender, kompetenter und professioneller Auftritt\n• Gute Kommunikations- und Sozialkompetenz\n• Zuverlässigkeit, Vertrauenswürdigkeit, Belastbarkeit\n• Grosse Flexibilität und Teamfähigkeit\nWir leben die Nähe zu unseren Kunden.\nReto Schmid\nTeamleiter Kundenberatung Jona\nWarum Raiffeisen?\n\n## Wir geben Raum für Eigeninitiative und Mitgestaltung\nWir laden unsere Mitarbeitenden dazu ein, ihre Arbeit aktiv mitzugestalten und Verantwortung zu übernehmen. So entstehen abwechslungsreiche Aufgaben, die echten Mehrwert schaffen – für alle, die etwas bewegen wollen.\n\n## Wir pflegen ein familiäres Umfeld\nDie genossenschaftlichen Werte sind unsere Grundpfeiler: Miteinander. Füreinander. Sie prägen unsere Zusammenarbeit und unseren Umgang miteinander. Die Du-Kultur schafft persönliche Nähe und Augenhöhe über alle Funktionsstufen hinweg.\n\n## Wir bieten attraktive Konditionen und Sozialleistungen\nUnsere Mitarbeitenden profitieren von exklusiven Vorteilen bei Bankprodukten, diversen Einkaufsvergünstigungen bei Dritten sowie einer überdurchschnittlichen Altersvorsorge.\n\n## Wir fördern persönliche und berufliche Entwicklung\nLebenslanges Lernen ist Teil unserer Kultur. Wir schaffen Raum für individuelle fachliche und persönliche Entwicklung und unterstützen unsere Mitarbeitenden gezielt – mit einem vielfältigen internen Bildungsangebot sowie einer Kostenbeteiligung für externe Weiterbildungen.\n\n## Möchtest du mehr über uns erfahren?\nRaiffeisenbank Rapperswil-Jona Karriere\n• Raiffeisen Jobbörse",
       "descriptionByLocale": {
         "it": "03.11.2026\nRapperswil-Jona\n\n## Diventa parte della nostra squadra!\nPer Raiffeisenbank Rapperswil-Jona, una banca di successo e orientamento locale con sede a Rapperswil-Jona SG e uffici a Egg ZH, Hombrechtikon ZH e Rüti ZH, stiamo cercando una personalità impegnata, orientata al servizio e indipendente come consulente del cliente (m/f/d) per la nostra sede a Rapperswil-Jona SG.\n\n## Cosa ti aspetta?\n• Consulenza completa e basata sulle esigenze ai clienti sui temi dei prodotti di base, dei risparmi, dei pagamenti, degli investimenti e della fornitura\n• Funzionamento e servizio clienti completo presso il nostro ufficio di consulenza\n• Attivo cross-selling in tutti i prodotti, compresi i risparmi di fondi\n• Riconoscimento della domanda e invio dei clienti ai consulenti esperti responsabili\n• Attuazione attiva delle misure di vendita e di sviluppo del mercato\n\n## Cosa porti?\n• Formazione bancaria completata, esperienza in funzione comparabile (consulenza clienti)\n• Sfruttamento del contatto intensivo dei clienti\n• pensiero e azione orientati al servizio\n• Vincere, aspetto competente e professionale\n• Buona comunicazione e competenze sociali\n• Affidabilità, affidabilità, resilienza\n• Grande flessibilità e lavoro di squadra\nViviamo vicino ai nostri clienti.\nReto Schmid\nTeam Leader Servizi Clienti Jona\nPerché Raiffeisen?\n\n## Diamo spazio all'iniziativa personale e alla partecipazione\nInvitiamo i nostri dipendenti a partecipare attivamente al loro lavoro e ad assumersi la responsabilità. Questo crea diversi compiti che creano un valore aggiunto reale – per tutti coloro che vogliono fare la differenza.\n\n## Manteniamo un ambiente familiare\nI valori cooperativi sono i nostri pilastri fondamentali: insieme. Per l'un l'altro. Formano la nostra cooperazione e la nostra interazione tra di loro. La cultura Du crea la vicinanza personale e il livello degli occhi su tutti i livelli funzionali.\n\n## Offriamo condizioni attraenti e benefici sociali\nI nostri dipendenti beneficiano di vantaggi esclusivi nei prodotti bancari, di vari sconti di acquisto a terzi e di una prestazione di pensionamento superiore alla media.\n\n## Promuoviamo lo sviluppo personale e professionale\nL'apprendimento permanente fa parte della nostra cultura. Creiamo spazio per lo sviluppo personale e professionale individuale e sosteniamo i nostri dipendenti in modo mirato – con una vasta gamma di opportunità di formazione interna e una quota di costi per l'ulteriore formazione esterna.\n\n## Vuoi saperne di più su di noi?\nRaiffeisenbank Rapperswil-Jona carriera\n• Raiffeisen Lavoro",
-        "en": "03.11.2026\nRapperswil-Jona\n\n## Become part of our team!\nFor Raiffeisenbank Rapperswil-Jona, a successful and locally oriented bank with headquarters in Rapperswil-Jona SG and offices in Egg ZH, Hombrechtikon ZH and Rüti ZH, we are looking for a committed, service-oriented and independent personality as customer advisor (m/f/d) for our headquarters in Rapperswil-Jona SG.\n\n## What awaits you?\n• Comprehensive and needs-based advice to customers on the topics of basic products, savings, payments, investment and provision\n• Operation and comprehensive customer service at our consulting desk\n• Active cross-selling in all products including fund savings\n• Demand recognition and forwarding of customers to the responsible expert advisors\n• Proactive implementation of sales and market development measures\n\n## What do you bring?\n• Completed banking training, experience in a comparable function (client advice)\n• Enjoyment of intensive customer contact\n• Service-oriented thinking and action\n• Winning, competent and professional appearance\n• Good communication and social skills\n• Reliability, trustworthiness, resilience\n• Great flexibility and teamwork\nWe live close to our customers.\nReto Schmid\nTeam Leader Customer Services Jona\nWhy Raiffeisen?\n\n## We give space for personal initiative and participation\nWe invite our employees to actively participate in their work and to take on responsibility. This creates varied tasks that create real added value – for everyone who wants to make a difference.\n\n## We maintain a family environment\nCooperative values are our fundamental pillars: togetherness. For each other. They shape our cooperation and our interaction with each other. The Du culture creates personal closeness and eye level across all functional levels.\n\n## We offer attractive conditions and social benefits\nOur employees benefit from exclusive advantages in banking products, various purchase discounts at third parties and an above-average retirement provision.\n\n## We promote personal and professional development\nLifelong learning is part of our culture. We create space for individual professional and personal development and support our employees in a targeted manner – with a wide range of internal training opportunities and a cost share for external further education.\n\n## Would you like to know more about us?\nRaiffeisenbank Rapperswil-Jona career\n• Raiffeisen Jobbörse",
+        "en": "03.11.2026\nRapperswil-Jona\n\n## Become part of our team!\nFor Raiffeisenbank Rapperswil-Jona, a successful and locally oriented bank with headquarters in Rapperswil-Jona SG and offices in Egg ZH, Hombrechtikon ZH and Rüti ZH, we are looking for a committed, service-oriented and independent personality as customer advisor (m/f/d) for our headquarters in Rapperswil-Jona SG.\n\n## What awaits you?\n• Comprehensive and needs-based advice to customers on the topics of basic products, savings, payments, investment and provision\n• Operation and comprehensive customer service at our consulting desk\n• Active cross-selling in all products including fund savings\n• Demand recognition and forwarding of customers to the responsible expert advisors\n• Proactive implementation of sales and market development measures\n\n## What do you bring?\n• Completed banking training, experience in a comparable",
         "de": "03.11.2026\nRapperswil-Jona\n\n## Werde Teil unseres Teams!\nFür die Raiffeisenbank Rapperswil-Jona, eine erfolgreiche und lokal ausgerichtete Bank mit Hauptsitz in Rapperswil-Jona SG und Geschäftsstellen in Egg ZH, Hombrechtikon ZH und Rüti ZH, suchen wir für unseren Hauptsitz in Rapperswil-Jona SG eine engagierte, dienstleistungsorientierte und selbstständige Persönlichkeit als Kundenberater (w/m/d).\n\n## Was erwartet dich?\n• Gesamtheitliche und bedürfnisgerechte Beratung der Kunden in den Themen Basisprodukte, Sparen, Zahlen, Anlegen und Vorsorge\n• Bedienung und umfassender Kundenservice an unserem Beratungs-Schalter\n• Aktives Cross-Selling in allen Produkten inklusive Fondssparen\n• Bedarfserkennung und Weitervermittlung von Kunden an die zuständigen Fachberater\n• Proaktive Umsetzung von Vertriebs- und Marktbearbeitungsmassnahmen\n\n## Was bringst du mit?\n• Abgeschlossene Bankausbildung, Erfahrung in einer vergleichbaren Funktion (Kundenberatung)\n• Freude am intensiven Kundenkontakt\n• Dienstleistungsorientiertes Denken und Handeln\n• Gewinnender, kompetenter und professioneller Auftritt\n• Gute Kommunikations- und Sozialkompetenz\n• Zuverlässigkeit, Vertrauenswürdigkeit, Belastbarkeit\n• Grosse Flexibilität und Teamfähigkeit\nWir leben die Nähe zu unseren Kunden.\nReto Schmid\nTeamleiter Kundenberatung Jona\nWarum Raiffeisen?\n\n## Wir geben Raum für Eigeninitiative und Mitgestaltung\nWir laden unsere Mitarbeitenden dazu ein, ihre Arbeit aktiv mitzugestalten und Verantwortung zu übernehmen. So entstehen abwechslungsreiche Aufgaben, die echten Mehrwert schaffen – für alle, die etwas bewegen wollen.\n\n## Wir pflegen ein familiäres Umfeld\nDie genossenschaftlichen Werte sind unsere Grundpfeiler: Miteinander. Füreinander. Sie prägen unsere Zusammenarbeit und unseren Umgang miteinander. Die Du-Kultur schafft persönliche Nähe und Augenhöhe über alle Funktionsstufen hinweg.\n\n## Wir bieten attraktive Konditionen und Sozialleistungen\nUnsere Mitarbeitenden profitieren von exklusiven Vorteilen bei Bankprodukten, diversen Einkaufsvergünstigungen bei Dritten sowie einer überdurchschnittlichen Altersvorsorge.\n\n## Wir fördern persönliche und berufliche Entwicklung\nLebenslanges Lernen ist Teil unserer Kultur. Wir schaffen Raum für individuelle fachliche und persönliche Entwicklung und unterstützen unsere Mitarbeitenden gezielt – mit einem vielfältigen internen Bildungsangebot sowie einer Kostenbeteiligung für externe Weiterbildungen.\n\n## Möchtest du mehr über uns erfahren?\nRaiffeisenbank Rapperswil-Jona Karriere\n• Raiffeisen Jobbörse",
         "fr": "03.11.2026\nRapperswil-Jona\n\n## Faites partie de notre équipe!\nPour Raiffeisenbank Rapperswil-Jona, banque à succès et orientée localement avec siège social à Rapperswil-Jona SG et bureaux à Egg ZH, Hombrechtikon ZH et Rüti ZH, nous recherchons une personnalité engagée, orientée vers le service et indépendante en tant que conseiller client (h/f/d) pour notre siège social à Rapperswil-Jona SG.\n\n## Qu'est-ce qui vous attend?\n• Conseils complets et axés sur les besoins aux clients sur les produits de base, l'épargne, les paiements, l'investissement et la fourniture\n• Fonctionnement et service client complet à notre bureau de conseil\n• Ventes croisées actives dans tous les produits, y compris les économies de fonds\n• Reconnaissance de la demande et transmission des clients aux conseillers experts responsables\n• Mise en œuvre proactive des mesures relatives aux ventes et au développement des marchés\n\n## Qu'est-ce que tu apportes?\n• Formation bancaire terminée, expérience dans une fonction comparable (conseil aux clients)\n• Profitez d'un contact intensif avec le client\n• Pensée et action axées sur le service\n• Comportement gagnant, compétent et professionnel\n• Bonne communication et compétences sociales\n• Fiabilité, fiabilité, résilience\n• Grande flexibilité et travail d'équipe\nNous vivons près de nos clients.\nReto Schmid\nChef d'équipe Services à la clientèle Jonas\nPourquoi Raiffeisen?\n\n## Nous donnons un espace pour l'initiative personnelle et la participation\nNous invitons nos employés à participer activement à leur travail et à assumer leurs responsabilités. Cela crée des tâches variées qui créent une réelle valeur ajoutée – pour tous ceux qui veulent faire la différence.\n\n## Nous maintenons un environnement familial\nLes valeurs coopératives sont nos piliers fondamentaux: l'unité. Pour l'autre. Ils façonnent notre coopération et notre interaction. La culture Du crée une proximité personnelle et un niveau oculaire à tous les niveaux fonctionnels.\n\n## Nous offrons des conditions attrayantes et des avantages sociaux\nNos employés bénéficient d'avantages exclusifs dans les produits bancaires, de divers rabais d'achat à des tiers et d'une disposition de retraite supérieure à la moyenne.\n\n## Nous favorisons le développement personnel et professionnel\nL'apprentissage tout au long de la vie fait partie de notre culture. Nous créons un espace pour le développement professionnel et personnel individuel et soutenons nos employés de manière ciblée – avec un large éventail de possibilités de formation interne et une part des coûts pour la formation externe.\n\n## Vous voulez en savoir plus sur nous?\nRaiffeisenbank Rapperswil-Jona carrière\n• Raiffeisen Jobbörse"
       },
@@ -8923,7 +9077,7 @@
       "url": "https://jobs.raiffeisen.ch/offene-stellen/kundenberater-w-m-d/153efb6b-8f03-404b-82d9-2c806d6301a1",
       "source": "Raiffeisen Dedicated Parser (Prospective medium 1950)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:22:16.185Z",
+      "crawledAt": "2026-11-08T21:40:40.492Z",
       "addressLocality": "Rapperswil-Jona",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -8972,7 +9126,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-01T09:22:16.185Z",
+      "validThrough": "2027-02-01T21:40:40.492Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -9007,7 +9161,7 @@
       "url": "https://jobs.raiffeisen.ch/offene-stellen/privatkundenberater-mit-entwicklungspotenzial-zum-stellvertreter-geschaeftsstellenleitung-hombrechtikon-w-m-d/60c5a2ae-9141-42b0-b2bf-2c9b072aa818",
       "source": "Raiffeisen Dedicated Parser (Prospective medium 1950)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:22:16.182Z",
+      "crawledAt": "2026-11-08T21:40:40.489Z",
       "addressLocality": "Hombrechtikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -9056,7 +9210,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-01T09:22:16.182Z",
+      "validThrough": "2027-02-01T21:40:40.489Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -9090,7 +9244,7 @@
       "url": "https://jobs.raiffeisen.ch/offene-stellen/stagiaire-bem-rentree-mars-2027-ou-septembre-2027/55df917e-fe4c-4d8a-8a50-05d2eaf4f4c5",
       "source": "Raiffeisen Dedicated Parser (Prospective medium 1950)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-08T09:22:16.175Z",
+      "crawledAt": "2026-11-08T21:40:40.482Z",
       "addressLocality": "Martigny",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -9139,7 +9293,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-01T09:22:16.175Z",
+      "validThrough": "2027-02-01T21:40:40.482Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -9174,7 +9328,7 @@
       "url": "https://jobs.raiffeisen.ch/offene-stellen/fachspezialist-kreditverarbeitung-firmenkunden-w-m-d/ad275749-7246-4b22-b78a-c7e418d1d184",
       "source": "Raiffeisen Dedicated Parser (Prospective medium 1950)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:22:16.172Z",
+      "crawledAt": "2026-11-08T21:40:40.479Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -9223,7 +9377,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-01T09:22:16.172Z",
+      "validThrough": "2027-02-01T21:40:40.479Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -9257,7 +9411,7 @@
       "url": "https://jobs.raiffeisen.ch/offene-stellen/kundenberater-in-oder-privatkundenberater-in-mit-schaltertaetigkeit/fef7df86-401c-4cda-841e-cba87969f6cd",
       "source": "Raiffeisen Dedicated Parser (Prospective medium 1950)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:22:16.157Z",
+      "crawledAt": "2026-11-08T21:40:40.464Z",
       "addressLocality": "Menzingen",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -9302,7 +9456,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-01T09:22:16.157Z",
+      "validThrough": "2027-02-01T21:40:40.464Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -9337,7 +9491,7 @@
       "url": "https://jobs.raiffeisen.ch/offene-stellen/software-engineer-w-m-d-kreditservices/2c1147c3-d46e-4d0e-afda-a7a80d9b0a14",
       "source": "Raiffeisen Dedicated Parser (Prospective medium 1950)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:22:16.150Z",
+      "crawledAt": "2026-11-08T21:40:40.457Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -9383,7 +9537,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-01T09:22:16.150Z",
+      "validThrough": "2027-02-01T21:40:40.457Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -9418,7 +9572,7 @@
       "url": "https://jobs.raiffeisen.ch/offene-stellen/middleware-platform-engineer-m-w-d/99c481a0-2d88-4860-84ce-86f6538c490b",
       "source": "Raiffeisen Dedicated Parser (Prospective medium 1950)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:22:16.146Z",
+      "crawledAt": "2026-11-08T21:40:40.454Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -9464,7 +9618,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-02T09:22:16.146Z",
+      "validThrough": "2027-02-02T21:40:40.454Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -9499,7 +9653,7 @@
       "url": "https://jobs.raiffeisen.ch/offene-stellen/mitglied-des-verwaltungsrates-w-m-d/744c9582-8205-42c3-8197-356989e40bf5",
       "source": "Raiffeisen Dedicated Parser (Prospective medium 1950)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:22:16.143Z",
+      "crawledAt": "2026-11-08T21:40:40.451Z",
       "addressLocality": "Rapperswil-Jona",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -9548,7 +9702,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-02T09:22:16.143Z",
+      "validThrough": "2027-02-02T21:40:40.451Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -9583,7 +9737,7 @@
       "url": "https://jobs.raiffeisen.ch/offene-stellen/privatkundenberater-finanzieren-w-m-d/854f36d7-a4a4-4b34-b85d-a9933fa74eba",
       "source": "Raiffeisen Dedicated Parser (Prospective medium 1950)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:22:16.140Z",
+      "crawledAt": "2026-11-08T21:40:40.448Z",
       "addressLocality": "Cham",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -9632,7 +9786,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-02T09:22:16.140Z",
+      "validThrough": "2027-02-02T21:40:40.448Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -9667,7 +9821,7 @@
       "url": "https://jobs.raiffeisen.ch/offene-stellen/kundenberater-w-m-d/a96ee7c9-fb94-4ff9-a134-b3e6e9f62998",
       "source": "Raiffeisen Dedicated Parser (Prospective medium 1950)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:22:16.136Z",
+      "crawledAt": "2026-11-08T21:40:40.443Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -9716,7 +9870,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-02T09:22:16.136Z",
+      "validThrough": "2027-02-02T21:40:40.443Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -9750,7 +9904,7 @@
       "url": "https://jobs.raiffeisen.ch/offene-stellen/senior-market-risk-controller-bankenbuch-w-m-d/61408b34-7c90-449d-b608-bcd25b06e751",
       "source": "Raiffeisen Dedicated Parser (Prospective medium 1950)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:22:16.132Z",
+      "crawledAt": "2026-11-08T21:40:40.441Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -9796,7 +9950,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-02T09:22:16.132Z",
+      "validThrough": "2027-02-02T21:40:40.441Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -9831,7 +9985,7 @@
       "url": "https://jobs.raiffeisen.ch/offene-stellen/kundenberater-w-m-d/1390496d-adcf-44b6-88fd-de474bd12522",
       "source": "Raiffeisen Dedicated Parser (Prospective medium 1950)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:22:16.129Z",
+      "crawledAt": "2026-11-08T21:40:40.438Z",
       "addressLocality": "Andelfingen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -9880,7 +10034,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-02T09:22:16.129Z",
+      "validThrough": "2027-02-02T21:40:40.438Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -9915,7 +10069,7 @@
       "url": "https://jobs.raiffeisen.ch/offene-stellen/vorsitz-der-bankleitung-w-m-d/f658028c-4fdf-42b2-8d58-553f51bc8340",
       "source": "Raiffeisen Dedicated Parser (Prospective medium 1950)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:22:16.122Z",
+      "crawledAt": "2026-11-08T21:40:40.431Z",
       "addressLocality": "Eschenz",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -9964,7 +10118,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-02T09:22:16.122Z",
+      "validThrough": "2027-02-02T21:40:40.431Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -9999,7 +10153,7 @@
       "url": "https://jobs.raiffeisen.ch/offene-stellen/conseiller-ere-clientele-entreprises/237a62ea-9fa6-465a-b535-fc8306ba30fc",
       "source": "Raiffeisen Dedicated Parser (Prospective medium 1950)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-08T09:22:16.117Z",
+      "crawledAt": "2026-11-08T21:40:40.426Z",
       "addressLocality": "Nyon",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -10048,7 +10202,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-02T09:22:16.117Z",
+      "validThrough": "2027-02-02T21:40:40.426Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -10082,7 +10236,7 @@
       "url": "https://jobs.raiffeisen.ch/offene-stellen/conseiller-clientele-entreprises-senior-f-h/dfb5b205-3f92-4c64-8f02-fb2354e4eee3",
       "source": "Raiffeisen Dedicated Parser (Prospective medium 1950)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-08T09:22:16.114Z",
+      "crawledAt": "2026-11-08T21:40:40.423Z",
       "addressLocality": "Bulle",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -10131,7 +10285,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T09:22:16.114Z",
+      "validThrough": "2027-02-03T21:40:40.423Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -10165,7 +10319,7 @@
       "url": "https://jobs.raiffeisen.ch/offene-stellen/mitarbeiter-services-w-m-d/dd6c4431-d4d6-467f-8eb2-3fce83843e4b",
       "source": "Raiffeisen Dedicated Parser (Prospective medium 1950)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:22:16.096Z",
+      "crawledAt": "2026-11-08T21:40:40.405Z",
       "addressLocality": "Obergösgen",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -10208,7 +10362,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T09:22:16.096Z",
+      "validThrough": "2027-02-03T21:40:40.405Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -10243,7 +10397,7 @@
       "url": "https://jobs.raiffeisen.ch/offene-stellen/hr-und-bankleitungsassistenz-w-m-d/c1732464-06f7-4dbf-9d91-72df14bd8ca3",
       "source": "Raiffeisen Dedicated Parser (Prospective medium 1950)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:22:16.091Z",
+      "crawledAt": "2026-11-08T21:40:40.400Z",
       "addressLocality": "Merenschwand",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -10294,7 +10448,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-03T09:22:16.091Z",
+      "validThrough": "2027-02-03T21:40:40.400Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -10329,7 +10483,7 @@
       "url": "https://jobs.raiffeisen.ch/offene-stellen/marketing-manager/8f0961cd-7d44-4c6f-bbf6-af0994f0559c",
       "source": "Raiffeisen Dedicated Parser (Prospective medium 1950)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:22:16.082Z",
+      "crawledAt": "2026-11-08T21:40:40.389Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -10375,7 +10529,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T09:22:16.082Z",
+      "validThrough": "2027-02-03T21:40:40.389Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -10410,7 +10564,7 @@
       "url": "https://jobs.raiffeisen.ch/offene-stellen/privatkundenberater-individual-w-m-d/d87297fe-b168-407d-a2b5-b1b68c34b59f",
       "source": "Raiffeisen Dedicated Parser (Prospective medium 1950)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:22:16.079Z",
+      "crawledAt": "2026-11-08T21:40:40.386Z",
       "addressLocality": "Wünnewil-Flamatt",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -10459,7 +10613,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-03T09:22:16.079Z",
+      "validThrough": "2027-02-03T21:40:40.386Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -10493,7 +10647,7 @@
       "url": "https://jobs.raiffeisen.ch/offene-stellen/mitarbeiter-leasing-advisory-administration-w-m-d/ed534031-91f2-41d9-9216-d300a36d0d43",
       "source": "Raiffeisen Dedicated Parser (Prospective medium 1950)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:22:16.073Z",
+      "crawledAt": "2026-11-08T21:40:40.381Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -10541,7 +10695,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-03T09:22:16.073Z",
+      "validThrough": "2027-02-03T21:40:40.381Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -10575,7 +10729,7 @@
       "url": "https://jobs.raiffeisen.ch/offene-stellen/assistent-firmenkundenberatung-a/56288857-f232-4cf3-a2cf-63725e91a8be",
       "source": "Raiffeisen Dedicated Parser (Prospective medium 1950)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:22:16.070Z",
+      "crawledAt": "2026-11-08T21:40:40.378Z",
       "addressLocality": "Chur",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -10624,7 +10778,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T09:22:16.070Z",
+      "validThrough": "2027-02-03T21:40:40.378Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -10659,7 +10813,7 @@
       "url": "https://jobs.raiffeisen.ch/offene-stellen/kundenberater-basis-w-m-d/bbaa4873-80d3-41f0-a941-1a5c6f629d87",
       "source": "Raiffeisen Dedicated Parser (Prospective medium 1950)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:22:16.066Z",
+      "crawledAt": "2026-11-08T21:40:40.374Z",
       "addressLocality": "Cham",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -10708,7 +10862,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-03T09:22:16.066Z",
+      "validThrough": "2027-02-03T21:40:40.374Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -10743,7 +10897,7 @@
       "url": "https://jobs.raiffeisen.ch/offene-stellen/mitarbeiter-marketing-w-m-d/829b1431-060a-4e49-bc4c-a86607336815",
       "source": "Raiffeisen Dedicated Parser (Prospective medium 1950)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:22:16.061Z",
+      "crawledAt": "2026-11-08T21:40:40.370Z",
       "addressLocality": "Bischofszell",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -10792,7 +10946,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-04T09:22:16.061Z",
+      "validThrough": "2027-02-04T21:40:40.370Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -10827,7 +10981,7 @@
       "url": "https://jobs.raiffeisen.ch/offene-stellen/privatkundenberater-fokus-finanzieren-w-m-d/7629bbee-b291-4e55-a475-a94b375e847a",
       "source": "Raiffeisen Dedicated Parser (Prospective medium 1950)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:22:16.013Z",
+      "crawledAt": "2026-11-08T21:40:40.307Z",
       "addressLocality": "Menzingen",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -10872,7 +11026,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-04T09:22:16.013Z",
+      "validThrough": "2027-02-04T21:40:40.307Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -10906,7 +11060,7 @@
       "url": "https://jobs.raiffeisen.ch/offene-stellen/senior-analyst-schweizer-aktien-mit-fokus-auf-industrie-buy-side-w-m-d/a6149a1c-472f-4cec-8765-8c701270fa88",
       "source": "Raiffeisen Dedicated Parser (Prospective medium 1950)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:22:16.005Z",
+      "crawledAt": "2026-11-08T21:40:40.299Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -10955,7 +11109,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-04T09:22:16.005Z",
+      "validThrough": "2027-02-04T21:40:40.299Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -10990,7 +11144,7 @@
       "url": "https://jobs.raiffeisen.ch/offene-stellen/kundenberater-in/211ac802-e3d6-46d5-a541-bf5ba562cb74",
       "source": "Raiffeisen Dedicated Parser (Prospective medium 1950)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:22:15.993Z",
+      "crawledAt": "2026-11-08T21:40:40.278Z",
       "addressLocality": "Windisch",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -11039,7 +11193,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-04T09:22:15.993Z",
+      "validThrough": "2027-02-04T21:40:40.278Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -11074,7 +11228,7 @@
       "url": "https://jobs.raiffeisen.ch/offene-stellen/collaborateur-administration-financement-f-h/684dfab6-3f0e-4a86-9708-3836f59acce2",
       "source": "Raiffeisen Dedicated Parser (Prospective medium 1950)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-08T09:22:15.981Z",
+      "crawledAt": "2026-11-08T21:40:40.265Z",
       "addressLocality": "Aigle",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -11123,7 +11277,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-04T09:22:15.981Z",
+      "validThrough": "2027-02-04T21:40:40.265Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -11204,7 +11358,7 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-07T21:20:54.213Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "raiffeisen-2bec571cf004",
@@ -11291,7 +11445,7 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-07T21:20:54.108Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     }
   ]
 }

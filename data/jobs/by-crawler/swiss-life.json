@@ -1,7 +1,7 @@
 {
   "crawlerKey": "swiss-life",
-  "assembledAt": "2026-11-08T11:57:54.511Z",
-  "runId": "42466192948",
+  "assembledAt": "2026-11-08T21:47:54.766Z",
+  "runId": "42524031328",
   "jobs": [
     {
       "id": "swiss-life-ad4d3ef352d1",
@@ -10,7 +10,7 @@
         "it": "berater-previdenza-m-w-d-quereinsteigende-willkommen-swiss-life-bern",
         "en": "berater-vorsorge-w-m-d-quereinsteigende-willkommen-swiss-life-ch",
         "de": "berater-vorsorge-w-m-d-quereinsteigende-willkommen-swiss-life-ch",
-        "fr": "consultant-fournissant-h-f-d-bienvenue-croisee-swiss-life-bern"
+        "fr": "conseiller-prevoyance-m-w-d-les-personnes-souhaitant-se-reconvertir-sont-les-bienvenues-swiss-life-bern"
       },
       "company": "Swiss Life",
       "companyKey": "swiss-life",
@@ -34,7 +34,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Bern/Berater-Vorsorge--w-m-d----Quereinsteigende-willkommen_R07356",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-08T09:20:57.700Z",
+      "crawledAt": "2026-11-08T21:47:30.506Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "streetAddress": "Bundesplatz 3",
@@ -59,7 +59,7 @@
       "previousSlugs": [
         "berater-vorsorge-m-w-d-quereinsteigende-willkommen-swiss-life-bern",
         "berater-vorsorge-w-m-d-quereinsteigende-willkommen-swiss-life-ch",
-        "conseiller-prevoyance-m-w-d-les-personnes-souhaitant-se-reconvertir-sont-les-bienvenues-swiss-life-bern"
+        "consultant-fournissant-h-f-d-bienvenue-croisee-swiss-life-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -67,7 +67,7 @@
         ],
         "fr": [
           "berater-vorsorge-m-w-d-quereinsteigende-willkommen-swiss-life-bern",
-          "conseiller-prevoyance-m-w-d-les-personnes-souhaitant-se-reconvertir-sont-les-bienvenues-swiss-life-bern"
+          "consultant-fournissant-h-f-d-bienvenue-croisee-swiss-life-bern"
         ]
       },
       "firstSeenAt": "2026-09-19T23:01:43.080Z",
@@ -85,7 +85,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-08T09:20:57.700Z",
+      "validThrough": "2026-12-08T21:47:30.506Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -119,7 +119,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Buchs-SG/Sales-Support--w-m-d--40----60--Generalagentur-Glarus-Rheintal_R10449-1",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-08T09:20:57.066Z",
+      "crawledAt": "2026-11-08T21:47:29.554Z",
       "addressLocality": "Buchs SG",
       "addressRegion": "SG",
       "streetAddress": "Buchs SG",
@@ -164,7 +164,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-08T09:20:57.066Z",
+      "validThrough": "2026-12-08T21:47:29.554Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -198,7 +198,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Lugano/Consulente-immobiliare-m-f--Agenzia-generale-Svizzera-italiana--Lugano-_R00096",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-08T09:20:56.411Z",
+      "crawledAt": "2026-11-08T21:47:28.883Z",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "streetAddress": "Piazza Riforma 1",
@@ -249,7 +249,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-08T09:20:56.411Z",
+      "validThrough": "2026-12-08T21:47:28.883Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -283,7 +283,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/GA-Glarus-Rheintal/Berater-Immobilien-m-w--Generalagentur-Glarus-Rheintal_R00120",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-08T09:20:55.075Z",
+      "crawledAt": "2026-11-08T21:47:27.439Z",
       "addressLocality": "Buchs SG",
       "addressRegion": "SG",
       "streetAddress": "Buchs SG",
@@ -328,7 +328,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-08T09:20:55.075Z",
+      "validThrough": "2026-12-08T21:47:27.439Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -362,7 +362,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Bern/Vorsorge--und-Finanzberatende--w-m-d----mit-Erfahrung---Generalagentur-Bern-Ost_R08751",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:20:54.427Z",
+      "crawledAt": "2026-11-08T21:47:26.769Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "streetAddress": "Bundesplatz 3",
@@ -407,7 +407,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-08T09:20:54.427Z",
+      "validThrough": "2026-12-08T21:47:26.769Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -441,7 +441,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Bern/Vorsorge--und-Finanzberatende--w-m-d----Quereinsteigende-willkommen---Generalagentur-Bern-Ost_R08750",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-08T09:20:53.737Z",
+      "crawledAt": "2026-11-08T21:47:26.095Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "streetAddress": "Bundesplatz 3",
@@ -486,7 +486,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-08T09:20:53.737Z",
+      "validThrough": "2026-12-08T21:47:26.095Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -520,7 +520,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Thun/Vorsorge--und-Finanzberatende---w-m-d----Quereinsteigende-willkommen---Generalagentur-Thun_R08842",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-08T09:20:53.071Z",
+      "crawledAt": "2026-11-08T21:47:25.395Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "streetAddress": "Thun",
@@ -565,7 +565,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-08T09:20:53.071Z",
+      "validThrough": "2026-12-08T21:47:25.395Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -599,7 +599,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/GA-Baden/Vorsorge--und-Finanzberatende--w-m-d----im-Rahmen-einer-Nachfolgeregelung---Generalagentur-Baden_R09258",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:20:52.411Z",
+      "crawledAt": "2026-11-08T21:47:24.717Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "streetAddress": "Baden",
@@ -644,7 +644,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-08T09:20:52.411Z",
+      "validThrough": "2026-12-08T21:47:24.717Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -678,7 +678,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/GA-Baden/Vorsorge--und-Finanzberatende--w-m-d----mit-Erfahrung---Generalagentur-Baden_R09256",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:20:51.758Z",
+      "crawledAt": "2026-11-08T21:47:24.042Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "streetAddress": "Baden",
@@ -723,7 +723,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-08T09:20:51.758Z",
+      "validThrough": "2026-12-08T21:47:24.042Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -757,7 +757,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/BielBienne/Vorsorge--und-Finanzberatende--w-m-d----Quereinsteigende-willkommen---Generalagentur-Biel-Seeland_R09369",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-08T09:20:51.115Z",
+      "crawledAt": "2026-11-08T21:47:23.369Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "streetAddress": "Biel/Bienne",
@@ -802,7 +802,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-08T09:20:51.115Z",
+      "validThrough": "2026-12-08T21:47:23.369Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -836,7 +836,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/BielBienne/Vorsorge--und-Finanzberatende--w-m-d----Spezialisierung-Kollektiv---Generalagentur-Biel-Seeland_R09379",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-08T09:20:50.460Z",
+      "crawledAt": "2026-11-08T21:47:22.676Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "streetAddress": "Biel/Bienne",
@@ -881,7 +881,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-08T09:20:50.460Z",
+      "validThrough": "2026-12-08T21:47:22.676Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -915,7 +915,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/BielBienne/Vorsorge--und-Finanzberatende--w-m-d----Spezialisierung-Pensionsplanungen---Generalagentur-Biel-Seeland_R09380",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:20:49.789Z",
+      "crawledAt": "2026-11-08T21:47:21.990Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "streetAddress": "Biel/Bienne",
@@ -960,7 +960,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-08T09:20:49.789Z",
+      "validThrough": "2026-12-08T21:47:21.990Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -994,7 +994,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/BielBienne/Vorsorge--und-Finanzberatende--w-m-d----im-Rahmen-einer-Nachfolgeregelung---Generalagentur-Biel-Seeland_R09388",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:20:49.128Z",
+      "crawledAt": "2026-11-08T21:47:21.304Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "streetAddress": "Biel/Bienne",
@@ -1039,7 +1039,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-08T09:20:49.128Z",
+      "validThrough": "2026-12-08T21:47:21.304Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1073,7 +1073,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Solothurn/Vorsorge--und-Finanzberatende--w-m-d----Quereinsteigende-willkommen---Generalagentur-Solothurn-Oberaargau_R09071",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-08T09:20:48.463Z",
+      "crawledAt": "2026-11-08T21:47:20.610Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "streetAddress": "Hauptgasse 72",
@@ -1133,14 +1133,14 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-08T09:20:48.463Z",
+      "validThrough": "2026-12-08T21:47:20.610Z",
       "validThroughSource": "last-observed-window"
     },
     {
       "id": "swiss-life-84dd4281bdde",
       "slug": "responsabile-del-team-vendite-m-f-d-agenzia-generale-soletta-alta-argovia-swiss-life-solothurn-9500a6d4f6",
       "slugByLocale": {
-        "it": "teamleiter-vendita-m-w-d-agenzia-generale-solothurn-oberaargau-swiss-life-solothurn",
+        "it": "responsabile-del-team-vendite-m-f-d-agenzia-generale-soletta-alta-argovia-swiss-life-solothurn-9500a6d4f6",
         "en": "team-leader-sales-m-f-d-general-agency-solothurn-oberaargau-swiss-life-solothurn",
         "de": "teamleiter-verkauf-w-m-d-generalagentur-solothurn-oberaargau-swiss-life-ch",
         "fr": "chef-d-equipe-ventes-h-f-d-agence-generale-soleure-oberaargau-swiss-life-solothurn"
@@ -1167,7 +1167,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Solothurn/Teamleiter-Verkauf--w-m-d--Generalagentur-Solothurn-Oberaargau_R09664",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:20:47.792Z",
+      "crawledAt": "2026-11-08T21:47:19.913Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "streetAddress": "Hauptgasse 72",
@@ -1192,13 +1192,17 @@
       "previousSlugs": [
         "teamleiter-verkauf-w-m-d-generalagentur-solothurn-oberaargau-swiss-life-ch",
         "teamleiter-vendita-m-w-d-agenzia-generale-solothurn-oberaargau-swiss-life-solothurn-bh9q83",
-        "teamleiter-vendita-w-m-d-agenzia-generale-solothurn-oberaargau-swiss-life-solothurn-ea570cca39"
+        "teamleiter-vendita-w-m-d-agenzia-generale-solothurn-oberaargau-swiss-life-solothurn-ea570cca39",
+        "responsabile-del-team-vendite-m-f-d-agenzia-generale-soletta-alta-argovia-swiss-life-solothurn-9500a6d4f6",
+        "teamleiter-vendita-m-w-d-agenzia-generale-solothurn-oberaargau-swiss-life-solothurn"
       ],
       "previousSlugsByLocale": {
         "it": [
           "teamleiter-verkauf-w-m-d-generalagentur-solothurn-oberaargau-swiss-life-ch",
           "teamleiter-vendita-m-w-d-agenzia-generale-solothurn-oberaargau-swiss-life-solothurn-bh9q83",
-          "teamleiter-vendita-w-m-d-agenzia-generale-solothurn-oberaargau-swiss-life-solothurn-ea570cca39"
+          "teamleiter-vendita-w-m-d-agenzia-generale-solothurn-oberaargau-swiss-life-solothurn-ea570cca39",
+          "responsabile-del-team-vendite-m-f-d-agenzia-generale-soletta-alta-argovia-swiss-life-solothurn-9500a6d4f6",
+          "teamleiter-vendita-m-w-d-agenzia-generale-solothurn-oberaargau-swiss-life-solothurn"
         ]
       },
       "firstSeenAt": "2026-09-19T23:01:32.876Z",
@@ -1216,7 +1220,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-08T09:20:47.792Z",
+      "validThrough": "2026-12-08T21:47:19.913Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1250,7 +1254,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Bern/Vorsorge--und-Finanzberatende--w-m-d----mit-Erfahrung---Generalagentur-Bern-West_R05165",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:20:47.126Z",
+      "crawledAt": "2026-11-08T21:47:19.218Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "streetAddress": "Bundesplatz 3",
@@ -1295,7 +1299,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-08T09:20:47.126Z",
+      "validThrough": "2026-12-08T21:47:19.218Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1329,7 +1333,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Zrich/Vorsorge--und-Finanzberatende--w-m-d----mit-Erfahrung---Generalagentur-Zrich-Binz_R07044",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:20:46.457Z",
+      "crawledAt": "2026-11-08T21:47:18.535Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Bahnhofstrasse 1",
@@ -1374,7 +1378,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-08T09:20:46.457Z",
+      "validThrough": "2026-12-08T21:47:18.535Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1408,7 +1412,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Bern/Vorsorge--und-Finanzberatende--w-m-d----Quereinsteigende-willkommen---Generalagentur-Bern-West_R10027",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-08T09:20:45.817Z",
+      "crawledAt": "2026-11-08T21:47:17.855Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "streetAddress": "Bundesplatz 3",
@@ -1453,7 +1457,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-08T09:20:45.817Z",
+      "validThrough": "2026-12-08T21:47:17.855Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1487,7 +1491,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Bern/Immobilienberater--w-m-d----Generalagentur-Bern-Ost_R11687",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-08T09:20:45.149Z",
+      "crawledAt": "2026-11-08T21:47:17.177Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "streetAddress": "Bundesplatz 3",
@@ -1532,7 +1536,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-08T09:20:45.149Z",
+      "validThrough": "2026-12-08T21:47:17.177Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1566,7 +1570,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Basel/Immobilienberater---w-m-d-----Generalagentur-Basel_R11919",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-08T09:20:44.485Z",
+      "crawledAt": "2026-11-08T21:47:16.516Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "streetAddress": "Marktplatz 9",
@@ -1611,7 +1615,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-08T09:20:44.485Z",
+      "validThrough": "2026-12-08T21:47:16.516Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1645,7 +1649,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Bern/Immobilienberater--w-m-d----Generalagentur-Baden_R11964",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-08T09:20:43.181Z",
+      "crawledAt": "2026-11-08T21:47:15.033Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "streetAddress": "Bundesplatz 3",
@@ -1690,7 +1694,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-08T09:20:43.181Z",
+      "validThrough": "2026-12-08T21:47:15.033Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1724,7 +1728,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Thun/Vorsorge--und-Finanzberatende--w-m-d----mit-Erfahrung---Generalagentur-Thun-Oberland_R07198",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:20:42.513Z",
+      "crawledAt": "2026-11-08T21:47:14.313Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "streetAddress": "Thun",
@@ -1769,7 +1773,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-08T09:20:42.513Z",
+      "validThrough": "2026-12-08T21:47:14.313Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1803,7 +1807,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Basel/Vorsorge--und-Finanzberatende--w-m-d----mit-Erfahrung---Generalagentur-Basel_R07472",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:20:41.853Z",
+      "crawledAt": "2026-11-08T21:47:13.627Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "streetAddress": "Marktplatz 9",
@@ -1848,7 +1852,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-08T09:20:41.853Z",
+      "validThrough": "2026-12-08T21:47:13.627Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1882,7 +1886,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Baden/Vorsorge--und-Finanzberatende--w-m-d----Quereinsteigende-willkommen---Generalagentur-Baden_R10388",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-08T09:20:41.052Z",
+      "crawledAt": "2026-11-08T21:47:12.954Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "streetAddress": "Baden",
@@ -1927,7 +1931,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-08T09:20:41.052Z",
+      "validThrough": "2026-12-08T21:47:12.954Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1961,7 +1965,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Lausanne/Conseiller-conseillre-en-prvoyance-et-en-finance--f-h-d--avec-exprience-professionnelle---Agence-gnrale-Lausanne_R09222",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-08T09:20:40.323Z",
+      "crawledAt": "2026-11-08T21:47:12.277Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "streetAddress": "Place de la Palud 2",
@@ -2013,14 +2017,14 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-08T09:20:40.323Z",
+      "validThrough": "2026-12-08T21:47:12.277Z",
       "validThroughSource": "last-observed-window"
     },
     {
       "id": "swiss-life-02e90fa2e0f2",
       "slug": "conseiller-conseillere-en-prevoyance-et-en-finanza-f-m-d-personnes-venant-d-un-autre-metier-bienvenues-agence-generale-lausanne-f22439bb10",
       "slugByLocale": {
-        "it": "conseiller-conseillere-en-prevoyance-et-en-finanza-f-m-d-personnes-venant-d-un-autre-metier-bienvenues-agence-generale",
+        "it": "conseiller-conseillere-en-prevoyance-et-en-finanza-f-m-d-personnes-venant-d-un-autre-metier-bienvenues-agence-generale-lausanne-f22439bb10",
         "en": "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-personnes-venant-d-un-autre",
         "de": "conseiller-conseillere-en-prevoyance-et-en-finanzen-f-h-d-personnes-venant-d-un-autre-metier-bienvenues-agence-generale",
         "fr": "conseiller-conseiller-en-e-et-en-finance-h-f-d-personnes-qui-d-un-organisme-professionnel-en-enece-agence-generale"
@@ -2047,7 +2051,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Lausanne/Conseiller-conseillre-en-prvoyance-et-en-finance--f-h-d----Personnes-venant-d-un-autre-mtier-bienvenues---Agence-gnrale-Lausanne_R09221",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-08T09:20:39.647Z",
+      "crawledAt": "2026-11-08T21:47:11.594Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "streetAddress": "Place de la Palud 2",
@@ -2071,12 +2075,16 @@
       "hiringOrganization": "Swiss Life AG Lausanne",
       "previousSlugs": [
         "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-personnes-venant-d-un-autre",
-        "conseiller-conseillere-en-prevoyance-et-en-finanza-f-m-d-personnes-venant-d-un-bh9n5s"
+        "conseiller-conseillere-en-prevoyance-et-en-finanza-f-m-d-personnes-venant-d-un-bh9n5s",
+        "conseiller-conseillere-en-prevoyance-et-en-finanza-f-m-d-personnes-venant-d-un-autre-metier-bienvenues-agence-generale-lausanne-f22439bb10",
+        "conseiller-conseillere-en-prevoyance-et-en-finanza-f-m-d-personnes-venant-d-un-autre-metier-bienvenues-agence-generale"
       ],
       "previousSlugsByLocale": {
         "it": [
           "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-personnes-venant-d-un-autre",
-          "conseiller-conseillere-en-prevoyance-et-en-finanza-f-m-d-personnes-venant-d-un-bh9n5s"
+          "conseiller-conseillere-en-prevoyance-et-en-finanza-f-m-d-personnes-venant-d-un-bh9n5s",
+          "conseiller-conseillere-en-prevoyance-et-en-finanza-f-m-d-personnes-venant-d-un-autre-metier-bienvenues-agence-generale-lausanne-f22439bb10",
+          "conseiller-conseillere-en-prevoyance-et-en-finanza-f-m-d-personnes-venant-d-un-autre-metier-bienvenues-agence-generale"
         ]
       },
       "firstSeenAt": "2026-09-19T23:01:24.692Z",
@@ -2094,7 +2102,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-08T09:20:39.647Z",
+      "validThrough": "2026-12-08T21:47:11.594Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2128,7 +2136,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Genve/Conseiller-conseillre-en-prvoyance-et-en-finance--f-h-d--avec-exprience-professionnelle---Agence-gnrale-Genve-Rive-Droite_R08975-1",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-08T09:20:38.950Z",
+      "crawledAt": "2026-11-08T21:47:10.897Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "streetAddress": "Rue de l'Hôtel-de-Ville 2",
@@ -2176,7 +2184,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-08T09:20:38.950Z",
+      "validThrough": "2026-12-08T21:47:10.897Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2210,7 +2218,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Genve/Conseiller-conseillre-en-prvoyance-et-en-finance--f-h-d----Personnes-venant-d-un-autre-mtier-bienvenues---Agence-gnrale-Genve-Rive-Droite_R09472-1",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-08T09:20:38.263Z",
+      "crawledAt": "2026-11-08T21:47:10.200Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "streetAddress": "Rue de l'Hôtel-de-Ville 2",
@@ -2271,7 +2279,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-08T09:20:38.263Z",
+      "validThrough": "2026-12-08T21:47:10.200Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2305,7 +2313,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Genve/Conseiller-conseillre-en-prvoyance-et-en-finance--f-h-d--avec-spcialisation-en-prvoyance-sant---Agence-gnrale-Genve-Rive-Gauche_R09474",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-08T09:20:37.553Z",
+      "crawledAt": "2026-11-08T21:47:09.504Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "streetAddress": "Rue de l'Hôtel-de-Ville 2",
@@ -2351,7 +2359,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-08T09:20:37.553Z",
+      "validThrough": "2026-12-08T21:47:09.504Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2385,7 +2393,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Genve/Conseiller-conseillre-en-prvoyance-et-en-finance--f-h-d----Personnes-venant-d-un-autre-mtier-bienvenues---Agence-gnrale-Genve-Rive-Gauche_R10613",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-08T09:20:36.192Z",
+      "crawledAt": "2026-11-08T21:47:08.122Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "streetAddress": "Rue de l'Hôtel-de-Ville 2",
@@ -2445,7 +2453,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-08T09:20:36.192Z",
+      "validThrough": "2026-12-08T21:47:08.122Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2479,7 +2487,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Genve/Conseiller-en-immobilier--f-h-d----Agence-gnrale-Genve-Rive-Droite_R11652",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-08T09:20:35.527Z",
+      "crawledAt": "2026-11-08T21:47:07.406Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "streetAddress": "Rue de l'Hôtel-de-Ville 2",
@@ -2516,7 +2524,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-08T09:20:35.527Z",
+      "validThrough": "2026-12-08T21:47:07.406Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2550,7 +2558,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Uster/Vorsorge--und-Finanzberatende--w-m-d----mit-Erfahrung---Generalagentur-Uster_R09389",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:20:34.879Z",
+      "crawledAt": "2026-11-08T21:47:06.730Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "streetAddress": "Uster",
@@ -2595,7 +2603,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-08T09:20:34.879Z",
+      "validThrough": "2026-12-08T21:47:06.730Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2629,7 +2637,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Uster/Immobilienberater--w-m-d----Generalagentur-Uster_R11848",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-08T09:20:34.204Z",
+      "crawledAt": "2026-11-08T21:47:06.055Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "streetAddress": "Uster",
@@ -2674,7 +2682,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-08T09:20:34.204Z",
+      "validThrough": "2026-12-08T21:47:06.055Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2708,7 +2716,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Schaffhausen/Vorsorge--und-Finanzberatende--w-m-d----Spezialisierung-Kollektiv---Generalagentur-Schaffhausen_R09259",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:20:33.522Z",
+      "crawledAt": "2026-11-08T21:47:05.377Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "streetAddress": "Vordergasse 17",
@@ -2753,7 +2761,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-08T09:20:33.522Z",
+      "validThrough": "2026-12-08T21:47:05.377Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2787,7 +2795,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Schaffhausen/Immobilienberater--w-m-d-----Generalagentur-Schaffhausen--Gebiet-Blach-_R09266",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-08T09:20:32.867Z",
+      "crawledAt": "2026-11-08T21:47:04.698Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "streetAddress": "Vordergasse 17",
@@ -2832,7 +2840,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-08T09:20:32.867Z",
+      "validThrough": "2026-12-08T21:47:04.698Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2866,7 +2874,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Winterthur/Vorsorge--und-Finanzberatende--w-m-d----mit-Erfahrung---Generalagentur-Winterthur_R09263-1",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:20:32.226Z",
+      "crawledAt": "2026-11-08T21:47:03.759Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "streetAddress": "Stadthausstrasse 4a",
@@ -2911,7 +2919,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-08T09:20:32.226Z",
+      "validThrough": "2026-12-08T21:47:03.759Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2945,7 +2953,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Schaffhausen/Vorsorge--und-Finanzberatende--w-m-d----Quereinsteigende-willkommen---Generalagentur-Schaffhausen_R07403-1",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-08T09:20:29.556Z",
+      "crawledAt": "2026-11-08T21:47:00.870Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "streetAddress": "Vordergasse 17",
@@ -2990,7 +2998,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-08T09:20:29.556Z",
+      "validThrough": "2026-12-08T21:47:00.870Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3024,7 +3032,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Winterthur/Vorsorge--und-Finanzberatende--w-m-d----Quereinsteigende-willkommen---Generalagentur-Winterthur_R10111",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-08T09:20:28.886Z",
+      "crawledAt": "2026-11-08T21:46:59.953Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "streetAddress": "Stadthausstrasse 4a",
@@ -3069,7 +3077,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-08T09:20:28.886Z",
+      "validThrough": "2026-12-08T21:46:59.953Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3103,7 +3111,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Winterthur/Immobilienberater---w-m-d-----Generalagentur-Winterthur_R11693",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-08T09:20:28.207Z",
+      "crawledAt": "2026-11-08T21:46:59.272Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "streetAddress": "Stadthausstrasse 4a",
@@ -3148,7 +3156,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-08T09:20:28.207Z",
+      "validThrough": "2026-12-08T21:46:59.272Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3182,7 +3190,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Schaffhausen/Sales-Support--w-m-d----100--Generalagentur-Schaffhausen_R11794",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-08T09:20:27.560Z",
+      "crawledAt": "2026-11-08T21:46:58.604Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "streetAddress": "Vordergasse 17",
@@ -3227,7 +3235,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-08T09:20:27.560Z",
+      "validThrough": "2026-12-08T21:46:58.604Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3261,7 +3269,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Wil-SG/Sales-Support--w-m-d---50----70---Generalagentur-Wil_R12127",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-08T09:20:26.038Z",
+      "crawledAt": "2026-11-08T21:46:57.284Z",
       "addressLocality": "Wil SG",
       "addressRegion": "SG",
       "streetAddress": "Wil SG",
@@ -3306,7 +3314,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-08T09:20:26.038Z",
+      "validThrough": "2026-12-08T21:46:57.284Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3340,7 +3348,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Winterthur/Teamleiter-Verkauf--w-m-d--Generalagentur-Winterthur_R09080-1",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:20:25.397Z",
+      "crawledAt": "2026-11-08T21:46:56.584Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "streetAddress": "Stadthausstrasse 4a",
@@ -3385,7 +3393,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-08T09:20:25.397Z",
+      "validThrough": "2026-12-08T21:46:56.584Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3419,7 +3427,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Uster/Vorsorge--und-Finanzberatende--w-m-d----im-Rahmen-einer-Nachfolgeregelung---Generalagentur--Uster_R10095-1",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:20:24.751Z",
+      "crawledAt": "2026-11-08T21:46:55.671Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "streetAddress": "Uster",
@@ -3464,7 +3472,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-08T09:20:24.751Z",
+      "validThrough": "2026-12-08T21:46:55.671Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3498,7 +3506,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Granges-Paccot/Conseiller-conseillre-en-prvoyance-et-en-finance--f-h-d--avec-spcialisation-en-thmes-de-placement----Agence-gnrale-Canton-de-Fribourg_R08974",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-08T09:20:24.104Z",
+      "crawledAt": "2026-11-08T21:46:54.734Z",
       "addressLocality": "Granges-Paccot",
       "addressRegion": "FR",
       "streetAddress": "Granges-Paccot",
@@ -3547,7 +3555,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-08T09:20:24.104Z",
+      "validThrough": "2026-12-08T21:46:54.734Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3581,7 +3589,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Granges-Paccot/Conseiller-conseillre-en-prvoyance-et-en-finance--f-h-d--Spcialisation-en-planifications-de-la-retraite------Agence-gnrale-Canton-de-Fribourg_R08973",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-08T09:20:23.417Z",
+      "crawledAt": "2026-11-08T21:46:54.041Z",
       "addressLocality": "Granges-Paccot",
       "addressRegion": "FR",
       "streetAddress": "Granges-Paccot",
@@ -3627,7 +3635,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-08T09:20:23.417Z",
+      "validThrough": "2026-12-08T21:46:54.041Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3661,7 +3669,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Granges-Paccot/Conseiller-conseillre-en-prvoyance-et-en-finance--f-h-d----Personnes-venant-d-un-autre-mtier-bienvenues---Agence-gnrale-Canton-de-Fribourg_R08970",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-08T09:20:22.746Z",
+      "crawledAt": "2026-11-08T21:46:53.348Z",
       "addressLocality": "Granges-Paccot",
       "addressRegion": "FR",
       "streetAddress": "Granges-Paccot",
@@ -3713,7 +3721,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-08T09:20:22.746Z",
+      "validThrough": "2026-12-08T21:46:53.348Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3747,7 +3755,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Lausanne/Conseiller-en-immobilier--f-h-d----Agence-gnrale-Lausanne_R11561",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-08T09:20:22.073Z",
+      "crawledAt": "2026-11-08T21:46:52.542Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "streetAddress": "Place de la Palud 2",
@@ -3784,7 +3792,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-08T09:20:22.073Z",
+      "validThrough": "2026-12-08T21:46:52.542Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3818,7 +3826,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Granges-Paccot/Conseiller-conseillre-en-prvoyance-et-en-finance--f-h-d--avec-exprience-professionnelle---Agence-gnrale-Canton-de-Fribourg_R08968",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-08T09:20:21.387Z",
+      "crawledAt": "2026-11-08T21:46:51.761Z",
       "addressLocality": "Granges-Paccot",
       "addressRegion": "FR",
       "streetAddress": "Granges-Paccot",
@@ -3885,7 +3893,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-08T09:20:21.387Z",
+      "validThrough": "2026-12-08T21:46:51.761Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3919,7 +3927,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Granges-Paccot/Conseiller-en-immobilier--f-h-d----Agence-gnrale-Canton-de-Fribourg_R11695",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-08T09:20:20.725Z",
+      "crawledAt": "2026-11-08T21:46:50.974Z",
       "addressLocality": "Granges-Paccot",
       "addressRegion": "FR",
       "streetAddress": "Granges-Paccot",
@@ -3956,7 +3964,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-08T09:20:20.725Z",
+      "validThrough": "2026-12-08T21:46:50.974Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3990,7 +3998,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Morges/Conseiller-conseillre-en-prvoyance-et-en-finance--f-h-d--avec-exprience-professionnelle---Agence-gnrale-Morges-La-Cte_R09012",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-08T09:20:20.079Z",
+      "crawledAt": "2026-11-08T21:46:50.310Z",
       "addressLocality": "Morges",
       "addressRegion": "VD",
       "streetAddress": "Morges",
@@ -4043,14 +4051,14 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-08T09:20:20.079Z",
+      "validThrough": "2026-12-08T21:46:50.310Z",
       "validThroughSource": "last-observed-window"
     },
     {
       "id": "swiss-life-7145a0717956",
       "slug": "conseiller-conseillere-en-prevoyance-et-en-finanza-f-m-d-personnes-venant-d-un-autre-metier-bienvenues-agence-generale-morges-la-0332a2515e",
       "slugByLocale": {
-        "it": "conseiller-conseillere-en-prevoyance-et-en-finanza-f-m-d-personnes-venant-d-un-autre-metier-bienvenues-agence-generale",
+        "it": "conseiller-conseillere-en-prevoyance-et-en-finanza-f-m-d-personnes-venant-d-un-autre-metier-bienvenues-agence-generale-morges-la-0332a2515e",
         "en": "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-personnes-venant-d-un-autre",
         "de": "conseiller-conseillere-en-prevoyance-et-en-finanzen-f-h-d-personnes-venant-d-un-autre-metier-bienvenues-agence-generale",
         "fr": "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-personnes-venant-d-un-autre"
@@ -4077,7 +4085,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Morges/Conseiller-conseillre-en-prvoyance-et-en-finance--f-h-d----Personnes-venant-d-un-autre-mtier-bienvenues---Agence-gnrale-Morges-La-Cte_R09287",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-08T09:20:19.424Z",
+      "crawledAt": "2026-11-08T21:46:49.629Z",
       "addressLocality": "Morges",
       "addressRegion": "VD",
       "streetAddress": "Morges",
@@ -4100,11 +4108,15 @@
       "jobReqId": "R09287",
       "hiringOrganization": "Swiss Life AG Morges-La Côte",
       "previousSlugs": [
-        "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-personnes-venant-d-un-autre"
+        "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-personnes-venant-d-un-autre",
+        "conseiller-conseillere-en-prevoyance-et-en-finanza-f-m-d-personnes-venant-d-un-autre-metier-bienvenues-agence-generale-morges-la-0332a2515e",
+        "conseiller-conseillere-en-prevoyance-et-en-finanza-f-m-d-personnes-venant-d-un-autre-metier-bienvenues-agence-generale"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-personnes-venant-d-un-autre"
+          "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-personnes-venant-d-un-autre",
+          "conseiller-conseillere-en-prevoyance-et-en-finanza-f-m-d-personnes-venant-d-un-autre-metier-bienvenues-agence-generale-morges-la-0332a2515e",
+          "conseiller-conseillere-en-prevoyance-et-en-finanza-f-m-d-personnes-venant-d-un-autre-metier-bienvenues-agence-generale"
         ]
       },
       "localeMismatchSuppressed": true,
@@ -4125,7 +4137,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-08T09:20:19.424Z",
+      "validThrough": "2026-12-08T21:46:49.629Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4159,7 +4171,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Sion/Conseiller-en-immobilier--f-h-d-----Agence-gnrale-Sion-Valais-romand--Rgion-Sion---Sierre-_R11696",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-08T09:20:16.057Z",
+      "crawledAt": "2026-11-08T21:46:45.597Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "streetAddress": "Rue du Grand-Pont 12",
@@ -4247,7 +4259,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-08T09:20:16.057Z",
+      "validThrough": "2026-12-08T21:46:45.597Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4281,7 +4293,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Sion/Conseiller-conseillre-en-prvoyance-et-en-finance--f-h-d--dans-le-cadre-du-rglement-de-la-succession---Agence-gnrale-Sion-Valais-romand---rgion-Val-de-Bagnes_R09487",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-08T09:20:15.409Z",
+      "crawledAt": "2026-11-08T21:46:44.909Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "streetAddress": "Rue du Grand-Pont 12",
@@ -4338,7 +4350,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-08T09:20:15.409Z",
+      "validThrough": "2026-12-08T21:46:44.909Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4372,7 +4384,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Sion/Conseiller-conseillre-en-prvoyance-et-en-finance--f-h-d--dans-le-cadre-du-rglement-de-la-succession---Agence-gnrale-Sion-Valais-romand---rgion-Val-d-Anniviers_R09486",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-08T09:20:14.724Z",
+      "crawledAt": "2026-11-08T21:46:44.199Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "streetAddress": "Rue du Grand-Pont 12",
@@ -4455,7 +4467,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-08T09:20:14.724Z",
+      "validThrough": "2026-12-08T21:46:44.199Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4489,7 +4501,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Sion/Conseiller-conseillre-en-prvoyance-et-en-finance--f-h-d--avec-exprience-professionnelle---Agence-gnrale-Sion-Valais-romand_R09485",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-08T09:20:14.052Z",
+      "crawledAt": "2026-11-08T21:46:43.485Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "streetAddress": "Rue du Grand-Pont 12",
@@ -4583,7 +4595,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-08T09:20:14.052Z",
+      "validThrough": "2026-12-08T21:46:43.485Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4617,7 +4629,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Visp/Immobilienberater--w-m-d----Generalagentur-Visp-Oberwallis_R11690",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-08T09:20:13.376Z",
+      "crawledAt": "2026-11-08T21:46:42.808Z",
       "addressLocality": "Visp",
       "addressRegion": "VS",
       "streetAddress": "Visp",
@@ -4697,7 +4709,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-08T09:20:13.376Z",
+      "validThrough": "2026-12-08T21:46:42.808Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4731,7 +4743,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Visp/Vorsorge--und-Finanzberatende--w-m-d----im-Rahmen-einer-Nachfolgeregelung---Generalagentur-Visp-Oberwallis_R09488",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:20:12.736Z",
+      "crawledAt": "2026-11-08T21:46:42.149Z",
       "addressLocality": "Visp",
       "addressRegion": "VS",
       "streetAddress": "Visp",
@@ -4816,7 +4828,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-08T09:20:12.736Z",
+      "validThrough": "2026-12-08T21:46:42.149Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4850,7 +4862,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Visp/Vorsorge--und-Finanzberatende--w-m-d----Quereinsteigende-willkommen--Generalagentur-Visp-Oberwallis_R08506-1",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-08T09:20:12.082Z",
+      "crawledAt": "2026-11-08T21:46:41.377Z",
       "addressLocality": "Visp",
       "addressRegion": "VS",
       "streetAddress": "Visp",
@@ -4941,7 +4953,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-08T09:20:12.082Z",
+      "validThrough": "2026-12-08T21:46:41.377Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4975,7 +4987,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/St-Gallen/Immobilienberater---w-m-d-----Generalagentur-St-Gallen-Appenzellerland_R11835",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-08T09:20:10.085Z",
+      "crawledAt": "2026-11-08T21:46:39.346Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Gallusstrasse 14",
@@ -5020,7 +5032,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-08T09:20:10.085Z",
+      "validThrough": "2026-12-08T21:46:39.346Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -5045,16 +5057,16 @@
       "description": "Shape the future. Yours and ours.\n\nWould you like to help people to lead a self-determined life? And do you want to use your creative scope to reconcile your professional and personal ambitions? Then we can offer you an exciting prospect: at Swiss Life you will be able to deploy your individual talents and expertise in a stimulating and flexible work environment. What’s more, you will be given a good measure of responsibility and can thus contribute to shaping the future of Swiss Life.\n\nIhr Verantwortungsbereich\n\n• Verwaltung und Bestellung von Werbeartikel, -material, Visitenkarten, Büro-material, Verkaufsunterlagen (Prospektmaterial)\n\n• Bewirtschaften und bestellen von GA spezifischen Drucksachen\n\n• IT-Applikationen pflegen und Fälle bearbeiten\n\n• Administrative Unterstützung im Nichtleben-Bereich\n\n• Koordination der Zusammenarbeit zwischen dem Hauptsitz, Generalagentur, Ausendienstmitarbeitenden und Kunden\n\n• Entgegennahme von Kundenanrufen und Kundenempfang in der Generalagentur\n\n• Unterstützung des Aussendienstes bei Verkaufsförderungsaktionen\n\n• Aufbereitung von Statistiken und Reports\n\n• Erstellen von Offerten für Privat- und Unternehmenskunden\n\n• Unterstützung des Kundenberaters in sämtlichen administrativen und organisatorischen Belangen\n\n• Entgegennahme von Kundenanrufen sowie Kundenempfang in der Generalagentur\n\n• Terminvereinbarungen für Vorsorgeberater (In- und Outbound)\n\n• Unterstützung bei Verkaufsförderungsmassnahmen inkl. Verwaltung der Werbeartikel\n\n• Erfassung und Pflege von Daten in diversen Swiss Life Applikationen\n Ihre Stärken\n\n• Abgeschlossene kaufmännische Grundausbildung\n\n• Versicherungsvermittler VBV Profil Allbranchen\n\n• Mehrjährige Berufserfahrung im Assekuranz- oder Kundendienstbereich\n\n• Gute MS-Office Anwenderkenntnisse (Outlook, Word, Excel, Powerpoint)\n\n• Zahlen- und Organisationsflair\n\n• Gewinnende, belastbare und kundenorientierte Persönlichkeit\n\nYour benefits\n We help our employees to shape their professional development and their private life to their best advantage and throughout all phases of their life. Our attractive benefits , such as options for working from home, 25 to 30 days of leave, 3rd pillar premium contributions and a broad range of continued training options contribute to this goal.\n\nInformation for recruitment agencies\n For this position, Swiss Life is not accepting any application dossiers from recruitment agencies that are submitted spontaneously. Only applications submitted by prior agreement via the recruitment agency jobs portal will be accepted.\n\nNo liability will be accepted for spontaneous applications and any fees/costs incurred by them. Thank you for your understanding.\n\nYour contact\nDenzel Ernesta Tel:\n+41 43 284 33 59",
       "descriptionByLocale": {
         "it": "Forma il futuro. La tua e la nostra.\n\nVuoi aiutare le persone a condurre una vita autodeterminata? E vuoi usare il tuo scopo creativo per conciliare le tue ambizioni professionali e personali? Allora possiamo offrirvi un'emozionante prospettiva: a Swiss Life sarete in grado di distribuire i vostri singoli talenti e competenze in un ambiente di lavoro stimolante e flessibile. Inoltre, vi verrà data una buona misura di responsabilità e potrà così contribuire a plasmare il futuro della Vita Svizzera.\n\nLa vostra area di responsabilità\n\n• Gestione e ordinazione di prodotti promozionali, materiali, biglietti da visita, materiali da ufficio, documenti di vendita (materiale di prova)\n\n• Gestione e ordine della materia stampata specifica GA\n\n• Mantenere applicazioni IT e casi di gestione\n\n• Sostegno amministrativo nel settore della non vita\n\n• Coordinamento della cooperazione tra Sede Centrale, Agenzia Generale, Espatriati e Clienti\n\n• Ricevere chiamate dei clienti e ricevere clienti presso l'Agenzia Generale\n\n• Supporto per il servizio esterno in promozioni di vendita\n\n• Preparazione delle statistiche e delle relazioni\n\n• Creare offerte per clienti privati e aziendali\n\n• Supporto del consulente clienti in tutte le questioni amministrative e organizzative\n\n• Ricezione delle chiamate dei clienti e ricezione dei clienti presso l'agenzia generale\n\n• Nomine per i consiglieri pensionistici (in- e in uscita)\n\n• Sostegno alle misure di promozione delle vendite incl. Gestione dei prodotti promozionali\n\n• Raccolta e manutenzione dei dati in varie applicazioni Swiss Life\nLe loro forze\n\n• Formazione commerciale di base\n\n• Intermediari assicurativi profilo VBV Tutte le industrie\n\n• Diversi anni di esperienza professionale nel campo dell'assicurazione o del servizio clienti\n\n• Buona conoscenza utente MS-Office (Outlook, Word, Excel, PowerPoint)\n\n• Numero e carattere organizzativo\n\n• personalità vincente, resiliente e orientata al cliente\n\nI tuoi vantaggi\nAiutiamo i nostri dipendenti a plasmare il loro sviluppo professionale e la loro vita privata al massimo vantaggio e in tutte le fasi della loro vita. I nostri benefici interessanti, come le opzioni per lavorare da casa, 25 a 30 giorni di congedo, il terzo pilastro contributi premium e una vasta gamma di opzioni di formazione continua contributo a questo obiettivo.\n\nInformazioni sulle agenzie di reclutamento\nPer questa posizione, Swiss Life non accetta nessun dossier di candidatura da agenzie di reclutamento che vengono presentate spontaneamente. Saranno accettate solo le domande presentate da un accordo preventivo tramite il portale di lavoro dell'agenzia di reclutamento.\n\nNessuna responsabilità sarà accettata per le applicazioni spontanee e qualsiasi costo/costi sostenuti da loro. Grazie per la vostra comprensione.\n\nIl tuo contatto\nDenzel Ernesta Tel:\n+41 43 284 33 59",
-        "en": "Shape the future. Yours and ours.\n\nWould you like to help people to lead a self-determined life? And do you want to use your creative scope to reconcile your professional and personal ambitions? Then we can offer you an exciting prospect: at Swiss Life you will be able to deploy your individual talents and expertise in a stimulating and flexible work environment. What’s more, you will be given a good measure of responsibility and can thus contribute to shaping the future of Swiss Life.\n\nYour area of responsibility\n\n• Management and ordering of promotional products, materials, business cards, office materials, sales documents (prospectus material)\n\n• Manage and order GA-specific printed matter\n\n• Maintaining IT applications and handling cases\n\n• Administrative support in the non-life sector\n\n• Coordination of cooperation between Headquarters, General Agency, Foreign Service staff and customers\n\n• Receiving customer calls and receiving customers at the General Agency\n\n• Support for the external service in sales promotions\n\n• Preparation of statistics and reports\n\n• Creating offers for private and corporate customers\n\n• Support of the customer advisor in all administrative and organizational matters\n\n• Receiving customer calls and receiving customers at the general agency\n\n• Appointments for pension advisors (in- and outbound)\n\n• Support for sales promotion measures incl. Management of promotional products\n\n• Collection and maintenance of data in various Swiss Life applications\nTheir strengths\n\n• Basic commercial training completed\n\n• Insurance intermediaries VBV profile All industries\n\n• Several years of professional experience in the field of insurance or customer service\n\n• Good MS-Office user knowledge (Outlook, Word, Excel, PowerPoint)\n\n• Number and organizational flair\n\n• Winning, resilient and customer-oriented personality\n\nYour benefits\nWe help our employees to shape their professional development and their private life to their best advantage and throughout all phases of their life. Our attractive benefits, such as options for working from home, 25 to 30 days of leave, 3rd pillar premium contributions and a broad range of continued training options contribution to this goal.\n\nInformation for recruitment agencies\nFor this position, Swiss Life is not accepting any application dossiers from recruitment agencies that are submitted spontaneously. Only applications submitted by prior agreement via the recruitment agency jobs portal will be accepted.\n\nNo liability will be accepted for spontaneous applications and any fees/costs incurred by them. Thank you for your understanding.\n\nYour contact\nDenzel Ernesta Tel:\n+41 43 284 33 59",
+        "en": "Shape the future. Yours and ours.\n\nWould you like to help people to lead a self-determined life? And do you want to use your creative scope to reconcile your professional and personal ambitions? Then we can offer you an exciting prospect: at Swiss Life you will be able to deploy your individual talents and expertise in a stimulating and flexible work environment. What’s more, you will be given a good measure of responsibility and can thus contribute to shaping the future of Swiss Life.\n\nYour area of responsibility\n\n• Management and ordering of promotional products, materials, business cards, office materials, sales documents (prospectus material)\n\n• Manage and order GA-specific printed matter\n\n• Maintaining IT applications and handling cases\n\n• Administrative support in the non-life sector\n\n• Coordination of cooperation between Headquarters, General Agency, Foreign Service staff and customers\n\n• Receiving customer calls and receiving customers at the General Agency\n\n• Support for the external service in sales promotions\n\n• Preparation of statistics and reports\n\n• Creating offers for private and corporate customers\n\n• Support of the customer advisor in all administrative and organizational matters\n\n• Appointments for pension advisors (in- and outbound)\n\n• Support for sales promotion measures incl. Management of promotional products\n\n• Collection and maintenance of data in various Swiss Life applications\nTheir strengths\n\n• Basic commercial training completed\n\n• Insurance intermediaries VBV profile All industries\n\n• Several years of professional experience in the field of insurance or customer service\n\n• Good MS-Office user knowledge (Outlook, Word, Excel, PowerPoint)\n\n• Number and organizational flair\n\n• Winning, resilient and customer-oriented personality\n\nYour benefits\nWe help our employees to shape their professional development and their private life to their best advantage and throughout all phases of their life. Our attractive benefits, such as options for working from home, 25 to 30 days of leave, 3rd pillar premium contributions and a broad range of continued training options contribution to this goal.\n\nInformation for recruitment agencies\nFor this position, Swiss Life is not accepting any application dossiers from recruitment agencies that are submitted spontaneously. Only applications submitted by prior agreement via the recruitment agency jobs portal will be accepted.\n\nNo liability will be accepted for spontaneous applications and any fees/costs incurred by them. Thank you for your understanding.\n\nYour contact\nDenzel Ernesta Tel:\n+41 43 284 33 59",
         "de": "Shape the future. Yours and ours.\n\nWould you like to help people to lead a self-determined life? And do you want to use your creative scope to reconcile your professional and personal ambitions? Then we can offer you an exciting prospect: at Swiss Life you will be able to deploy your individual talents and expertise in a stimulating and flexible work environment. What’s more, you will be given a good measure of responsibility and can thus contribute to shaping the future of Swiss Life.\n\nIhr Verantwortungsbereich\n\n• Verwaltung und Bestellung von Werbeartikel, -material, Visitenkarten, Büro-material, Verkaufsunterlagen (Prospektmaterial)\n\n• Bewirtschaften und bestellen von GA spezifischen Drucksachen\n\n• IT-Applikationen pflegen und Fälle bearbeiten\n\n• Administrative Unterstützung im Nichtleben-Bereich\n\n• Koordination der Zusammenarbeit zwischen dem Hauptsitz, Generalagentur, Ausendienstmitarbeitenden und Kunden\n\n• Entgegennahme von Kundenanrufen und Kundenempfang in der Generalagentur\n\n• Unterstützung des Aussendienstes bei Verkaufsförderungsaktionen\n\n• Aufbereitung von Statistiken und Reports\n\n• Erstellen von Offerten für Privat- und Unternehmenskunden\n\n• Unterstützung des Kundenberaters in sämtlichen administrativen und organisatorischen Belangen\n\n• Entgegennahme von Kundenanrufen sowie Kundenempfang in der Generalagentur\n\n• Terminvereinbarungen für Vorsorgeberater (In- und Outbound)\n\n• Unterstützung bei Verkaufsförderungsmassnahmen inkl. Verwaltung der Werbeartikel\n\n• Erfassung und Pflege von Daten in diversen Swiss Life Applikationen\nIhre Stärken\n\n• Abgeschlossene kaufmännische Grundausbildung\n\n• Versicherungsvermittler VBV Profil Allbranchen\n\n• Mehrjährige Berufserfahrung im Assekuranz- oder Kundendienstbereich\n\n• Gute MS-Office Anwenderkenntnisse (Outlook, Word, Excel, Powerpoint)\n\n• Zahlen- und Organisationsflair\n\n• Gewinnende, belastbare und kundenorientierte Persönlichkeit\n\nYour benefits\nWe help our employees to shape their professional development and their private life to their best advantage and throughout all phases of their life. Our attractive benefits , such as options for working from home, 25 to 30 days of leave, 3rd pillar premium contributions and a broad range of continued training options contribute to this goal.\n\nInformation for recruitment agencies\nFor this position, Swiss Life is not accepting any application dossiers from recruitment agencies that are submitted spontaneously. Only applications submitted by prior agreement via the recruitment agency jobs portal will be accepted.\n\nNo liability will be accepted for spontaneous applications and any fees/costs incurred by them. Thank you for your understanding.\n\nYour contact\nDenzel Ernesta Tel:\n+41 43 284 33 59",
-        "fr": "Formez l'avenir. Le vôtre et le nôtre.\n\nAimeriez-vous aider les gens à mener une vie déterminée ? Et voulez-vous utiliser votre créativité pour concilier vos ambitions professionnelles et personnelles ? Ensuite, nous pouvons vous offrir une perspective passionnante: chez Swiss Life, vous pourrez déployer vos talents et votre expertise dans un environnement de travail stimulant et flexible. De plus, vous aurez une bonne mesure de responsabilité et pourrez ainsi contribuer à façonner l'avenir de Swiss Life.\n\nVotre domaine de responsabilité\n\n• Gestion et commande de produits promotionnels, matériels, cartes de visite, matériel de bureau, documents de vente (matériel de prospectus)\n\n• Gérer et commander des imprimés spécifiques à GA\n\n• Maintien des applications informatiques et traitement des dossiers\n\n• Soutien administratif dans le secteur non-vie\n\n• Coordination de la coopération entre le Siège, l'Agence générale, le personnel du service extérieur et les clients\n\n• Réception des appels des clients et réception des clients à l'Agence générale\n\n• Soutien au service externe dans les promotions de vente\n\n• Établissement de statistiques et de rapports\n\n• Création d'offres pour les clients privés et les entreprises\n\n• Appui du conseiller client pour toutes les questions administratives et organisationnelles\n\n• Réception des appels des clients et réception des clients à l'agence générale\n\n• Nominations de conseillers en pensions (à l'intérieur et à l'extérieur)\n\n• Soutien aux mesures de promotion des ventes, y compris: Gestion des produits promotionnels\n\n• Collecte et maintenance de données dans différentes applications Swiss Life\nLeurs forces\n\n• Formation commerciale de base terminée\n\n• Profil VBV des intermédiaires d'assurance Toutes les industries\n\n• Plusieurs années d'expérience professionnelle dans le domaine de l'assurance ou du service à la clientèle\n\n• Bonne connaissance des utilisateurs de MS-Office (Outlook, Word, Excel, PowerPoint)\n\n• Nombre et style organisationnel\n\n• Personnalité gagnante, résiliente et orientée vers le client\n\nVos avantages\nNous aidons nos employés à façonner leur perfectionnement professionnel et leur vie privée à leur meilleur avantage et tout au long de leur vie. Nos avantages attrayants, comme les options de travail à domicile, 25 à 30 jours de congé, les cotisations du 3e pilier et un large éventail d'options de formation continue contribuent à cet objectif.\n\nInformations pour les agences de recrutement\nPour ce poste, Swiss Life n'accepte aucun dossier de candidature émanant d'agences de recrutement soumises spontanément. Seules les candidatures soumises par accord préalable via le portail des emplois de l'agence de recrutement seront acceptées.\n\nAucune responsabilité ne sera acceptée pour les demandes spontanées et les frais ou frais encourus par elles. Merci de votre compréhension.\n\nVotre contact\nDenzel Ernesta Tél.\n+41 43 284 33 59"
+        "fr": "Formez l'avenir. Le vôtre et le nôtre.\n\nAimeriez-vous aider les gens à mener une vie déterminée ? Et voulez-vous utiliser votre créativité pour concilier vos ambitions professionnelles et personnelles ? Ensuite, nous pouvons vous offrir une perspective passionnante: chez Swiss Life, vous pourrez déployer vos talents et votre expertise dans un environnement de travail stimulant et flexible. De plus, vous aurez une bonne mesure de responsabilité et pourrez ainsi contribuer à façonner l'avenir de Swiss Life.\n\nVotre domaine de responsabilité\n\n• Gestion et commande de produits promotionnels, matériels, cartes de visite, matériel de bureau, documents de vente (matériel de prospectus)\n\n• Gérer et commander des imprimés spécifiques à GA\n\n• Maintien des applications informatiques et traitement des dossiers\n\n• Soutien administratif dans le secteur non-vie\n\n• Coordination de la coopération entre le Siège, l'Agence générale, le personnel du service extérieur et les clients\n\n• Réception des appels des clients et réception des clients à l'Agence générale\n\n• Soutien au service externe dans les promotions de vente\n\n• Établissement de statistiques et de rapports\n\n• Création d'offres pour les clients privés et les entreprises\n\n• Appui du conseiller client pour toutes les questions administratives et organisationnelles\n\n• Nominations de conseillers en pensions (à l'intérieur et à l'extérieur)\n\n• Soutien aux mesures de promotion des ventes, y compris: Gestion des produits promotionnels\n\n• Collecte et maintenance de données dans différentes applications Swiss Life\nLeurs forces\n\n• Formation commerciale de base terminée\n\n• Profil VBV des intermédiaires d'assurance Toutes les industries\n\n• Plusieurs années d'expérience professionnelle dans le domaine de l'assurance ou du service à la clientèle\n\n• Bonne connaissance des utilisateurs de MS-Office (Outlook, Word, Excel, PowerPoint)\n\n• Nombre et style organisationnel\n\n• Personnalité gagnante, résiliente et orientée vers le client\n\nVos avantages\nNous aidons nos employés à façonner leur perfectionnement professionnel et leur vie privée à leur meilleur avantage et tout au long de leur vie. Nos avantages attrayants, comme les options de travail à domicile, 25 à 30 jours de congé, les cotisations du 3e pilier et un large éventail d'options de formation continue contribuent à cet objectif.\n\nInformations pour les agences de recrutement\nPour ce poste, Swiss Life n'accepte aucun dossier de candidature émanant d'agences de recrutement soumises spontanément. Seules les candidatures soumises par accord préalable via le portail des emplois de l'agence de recrutement seront acceptées.\n\nAucune responsabilité ne sera acceptée pour les demandes spontanées et les frais ou frais encourus par elles. Merci de votre compréhension.\n\nVotre contact\nDenzel Ernesta Tél.\n+41 43 284 33 59"
       },
       "location": "St. Gallen",
       "canton": "SG",
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/St-Gallen/Sales-Support-40----100--Generalagentur-St-Gallen-Appenzellerland_R11165",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:20:09.422Z",
+      "crawledAt": "2026-11-08T21:46:38.667Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Gallusstrasse 14",
@@ -5088,6 +5100,7 @@
         ]
       },
       "firstSeenAt": "2026-09-19T23:00:52.660Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 105000,
       "salarySource": "estimated",
@@ -5102,7 +5115,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-08T09:20:09.422Z",
+      "validThrough": "2026-12-08T21:46:38.667Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -5136,7 +5149,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/St-Gallen/Vorsorge--und-Finanzberatende--w-m-d----Spezialisierung-Pensionsplanungen---Generalagentur-St-Gallen-Appenzellerland_R09201",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:20:08.099Z",
+      "crawledAt": "2026-11-08T21:46:37.162Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Gallusstrasse 14",
@@ -5181,7 +5194,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-08T09:20:08.099Z",
+      "validThrough": "2026-12-08T21:46:37.162Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -5215,7 +5228,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/St-Gallen/Vorsorge--und-Finanzberatende--w-m-d----Quereinsteigende-willkommen---Generalagentur-St-Gallen-Appenzellerland_R08753",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-08T09:20:07.440Z",
+      "crawledAt": "2026-11-08T21:46:36.474Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Gallusstrasse 14",
@@ -5260,7 +5273,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-08T09:20:07.440Z",
+      "validThrough": "2026-12-08T21:46:36.474Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -5294,7 +5307,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/St-Gallen/Vorsorge--und-Finanzberatende--w-m-d----im-Rahmen-einer-Nachfolgeregelung---Generalagentur-St-Gallen-Appenzellerland_R08752",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:20:06.609Z",
+      "crawledAt": "2026-11-08T21:46:35.777Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Gallusstrasse 14",
@@ -5339,7 +5352,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-08T09:20:06.609Z",
+      "validThrough": "2026-12-08T21:46:35.777Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -5373,7 +5386,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/GA-Thurgau/Vorsorge--und-Finanzberatende--w-m-d----Quereinsteigende-willkommen---Generalagentur-Thurgau_R09621",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-08T09:20:05.941Z",
+      "crawledAt": "2026-11-08T21:46:35.082Z",
       "addressLocality": "Weinfelden",
       "addressRegion": "TG",
       "streetAddress": "Weinfelden",
@@ -5418,7 +5431,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-08T09:20:05.941Z",
+      "validThrough": "2026-12-08T21:46:35.082Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -5452,7 +5465,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/GA-Thurgau/Vorsorge--und-Finanzberatende--w-m-d----Spezialisierung-Kollektiv---Generalagentur-Thurgau_R09622",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:20:05.248Z",
+      "crawledAt": "2026-11-08T21:46:34.402Z",
       "addressLocality": "Weinfelden",
       "addressRegion": "TG",
       "streetAddress": "Weinfelden",
@@ -5497,7 +5510,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-08T09:20:05.248Z",
+      "validThrough": "2026-12-08T21:46:34.402Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -5531,7 +5544,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/GA-Thurgau/Vorsorge--und-Finanzberatende--w-m-d----Spezialisierung-Hypotheken-Finanzierungsexperte---Generalagentur-Thurgau_R09623",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:20:04.567Z",
+      "crawledAt": "2026-11-08T21:46:33.732Z",
       "addressLocality": "Weinfelden",
       "addressRegion": "TG",
       "streetAddress": "Weinfelden",
@@ -5581,7 +5594,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-08T09:20:04.567Z",
+      "validThrough": "2026-12-08T21:46:33.732Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -5615,7 +5628,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Zrich/Vorsorge--und-Finanzberatende--w-m-d----Quereinsteigende-willkommen---Generalagentur-Zrich-Limmat_R09414",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-08T09:20:03.867Z",
+      "crawledAt": "2026-11-08T21:46:33.051Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Bahnhofstrasse 1",
@@ -5660,7 +5673,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-08T09:20:03.867Z",
+      "validThrough": "2026-12-08T21:46:33.051Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -5694,7 +5707,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Zrich/Vorsorge--und-Finanzberatende--w-m-d----Spezialisierung-Anlagethemen---Generalagentur-Zrich-Limmat_R09420",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-08T09:20:03.187Z",
+      "crawledAt": "2026-11-08T21:46:32.366Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Bahnhofstrasse 1",
@@ -5739,7 +5752,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-08T09:20:03.187Z",
+      "validThrough": "2026-12-08T21:46:32.366Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -5773,7 +5786,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Zrich/Vorsorge--und-Finanzberatende--w-m-d----mit-Erfahrung---Generalagentur-Zrich-Limmat_R09418",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:20:02.487Z",
+      "crawledAt": "2026-11-08T21:46:31.437Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Bahnhofstrasse 1",
@@ -5818,7 +5831,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-08T09:20:02.487Z",
+      "validThrough": "2026-12-08T21:46:31.437Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -5852,7 +5865,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Zrich/Vorsorge--und-Finanzberatende--w-m-d----im-Rahmen-einer-Nachfolgeregelung---Generalagentur-Zrich-Limmat_R09421",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:20:01.782Z",
+      "crawledAt": "2026-11-08T21:46:30.757Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Bahnhofstrasse 1",
@@ -5897,7 +5910,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-08T09:20:01.782Z",
+      "validThrough": "2026-12-08T21:46:30.757Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -5931,7 +5944,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Meilen/Vorsorge--und-Finanzberatende--w-m-d----Spezialisierung-Kollektiv---Generalagentur-Zrich-Pfannenstiel_R09262",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:20:01.026Z",
+      "crawledAt": "2026-11-08T21:46:30.072Z",
       "addressLocality": "Meilen",
       "addressRegion": "ZH",
       "streetAddress": "Meilen",
@@ -5976,7 +5989,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-08T09:20:01.026Z",
+      "validThrough": "2026-12-08T21:46:30.072Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -6010,7 +6023,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Meilen/Vorsorge--und-Finanzberatende--w-m-d-----mit-Erfahrung---Generalagentur-Zrich-Pfannenstiel_R09261",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-08T09:20:00.351Z",
+      "crawledAt": "2026-11-08T21:46:29.369Z",
       "addressLocality": "Meilen",
       "addressRegion": "ZH",
       "streetAddress": "Meilen",
@@ -6055,7 +6068,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-08T09:20:00.351Z",
+      "validThrough": "2026-12-08T21:46:29.369Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -6089,7 +6102,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Meilen/Vorsorge--und-Finanzberatende--m-w-d----Quereinsteigende-willkommen---Generalagentur-Zrich-Pfannenstiel_R11309",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-08T09:19:59.675Z",
+      "crawledAt": "2026-11-08T21:46:28.680Z",
       "addressLocality": "Meilen",
       "addressRegion": "ZH",
       "streetAddress": "Meilen",
@@ -6134,7 +6147,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-08T09:19:59.675Z",
+      "validThrough": "2026-12-08T21:46:28.680Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -6168,7 +6181,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Aarau/Vorsorge--und-Finanzberatende--w-m-d----mit-Erfahrung---Generalagentur-Aarau_R08737",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:19:59.007Z",
+      "crawledAt": "2026-11-08T21:46:27.995Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "streetAddress": "Rathausgasse 1",
@@ -6213,7 +6226,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-08T09:19:59.007Z",
+      "validThrough": "2026-12-08T21:46:27.995Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -6247,7 +6260,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Kriens/Vorsorge--und-Finanzberatende--w-m-d----mit-Erfahrung---Generalagentur-Luzern-Stans---Gebiet-Sarnen_R09189-1",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:19:58.347Z",
+      "crawledAt": "2026-11-08T21:46:27.247Z",
       "addressLocality": "Kriens",
       "addressRegion": "LU",
       "streetAddress": "Kriens",
@@ -6292,7 +6305,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-08T09:19:58.347Z",
+      "validThrough": "2026-12-08T21:46:27.247Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -6326,7 +6339,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Schwyz/Vorsorge--und-Finanzberatende--w-m-d----mit-Erfahrung---Generalagentur-Schwyz-Urnerland_R09190",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:19:57.687Z",
+      "crawledAt": "2026-11-08T21:46:26.581Z",
       "addressLocality": "Schwyz",
       "addressRegion": "SZ",
       "streetAddress": "Hauptplatz 1",
@@ -6371,7 +6384,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-08T09:19:57.687Z",
+      "validThrough": "2026-12-08T21:46:26.581Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -6405,7 +6418,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Steinhausen/Vorsorge--und-Finanzberatende--w-m-d----mit-Erfahrung---Generalagentur-Zug_R09264",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:19:57.033Z",
+      "crawledAt": "2026-11-08T21:46:25.912Z",
       "addressLocality": "Steinhausen",
       "addressRegion": "ZG",
       "streetAddress": "Steinhausen",
@@ -6450,7 +6463,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-08T09:19:57.033Z",
+      "validThrough": "2026-12-08T21:46:25.912Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -6484,7 +6497,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Schwyz/Vorsorge--und-Finanzberatende--w-m-d----Spezialisierung-Hypotheken-Finanzierungsexperte---Generalagentur-Schwyz-Urnerland_R09413",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:19:56.374Z",
+      "crawledAt": "2026-11-08T21:46:25.239Z",
       "addressLocality": "Schwyz",
       "addressRegion": "SZ",
       "streetAddress": "Hauptplatz 1",
@@ -6531,7 +6544,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-08T09:19:56.374Z",
+      "validThrough": "2026-12-08T21:46:25.239Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -6565,7 +6578,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Steinhausen/Vorsorge--und-Finanzberatende--w-m-d----Spezialisierung-Kollektiv---Generalagentur-Zug_R09417",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:19:55.717Z",
+      "crawledAt": "2026-11-08T21:46:24.556Z",
       "addressLocality": "Steinhausen",
       "addressRegion": "ZG",
       "streetAddress": "Steinhausen",
@@ -6610,7 +6623,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-08T09:19:55.717Z",
+      "validThrough": "2026-12-08T21:46:24.556Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -6644,7 +6657,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Schwyz/Vorsorge--und-Finanzberatende--w-m-d----im-Rahmen-einer-Nachfolgeregelung---Generalagentur-Schwyz-Urnerland---Region-Innerschwyz_R09415",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:19:55.071Z",
+      "crawledAt": "2026-11-08T21:46:23.853Z",
       "addressLocality": "Schwyz",
       "addressRegion": "SZ",
       "streetAddress": "Hauptplatz 1",
@@ -6689,7 +6702,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-08T09:19:55.071Z",
+      "validThrough": "2026-12-08T21:46:23.853Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -6723,7 +6736,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Steinhausen/Vorsorge--und-Finanzberatende--w-m-d----im-Rahmen-einer-Nachfolgeregelung---Generalagentur-Zug_R09416",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:19:54.405Z",
+      "crawledAt": "2026-11-08T21:46:23.151Z",
       "addressLocality": "Steinhausen",
       "addressRegion": "ZG",
       "streetAddress": "Steinhausen",
@@ -6768,7 +6781,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-08T09:19:54.405Z",
+      "validThrough": "2026-12-08T21:46:23.151Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -6802,7 +6815,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Sursee/Vorsorge--und-Finanzberatende--w-m-d----Quereinsteigende-willkommen---Generalagentur-Sursee_R09465",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-08T09:19:53.735Z",
+      "crawledAt": "2026-11-08T21:46:22.464Z",
       "addressLocality": "Sursee",
       "addressRegion": "LU",
       "streetAddress": "Sursee",
@@ -6847,7 +6860,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-08T09:19:53.735Z",
+      "validThrough": "2026-12-08T21:46:22.464Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -6881,7 +6894,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Kriens/Vorsorge--und-Finanzberatende--w-m-d----Quereinsteiger-willkommen---Generalagentur-Luzern-Stans_R06680",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-08T09:19:53.068Z",
+      "crawledAt": "2026-11-08T21:46:21.785Z",
       "addressLocality": "Kriens",
       "addressRegion": "LU",
       "streetAddress": "Kriens",
@@ -6926,7 +6939,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-08T09:19:53.068Z",
+      "validThrough": "2026-12-08T21:46:21.785Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -6960,7 +6973,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Aarau/Immobilienberater---w-m-d-----Generalagentur-Aarau_R11692",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-08T09:19:52.414Z",
+      "crawledAt": "2026-11-08T21:46:21.122Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "streetAddress": "Rathausgasse 1",
@@ -7005,7 +7018,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-08T09:19:52.414Z",
+      "validThrough": "2026-12-08T21:46:21.122Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -7039,7 +7052,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Horgen/Vorsorge--und-Finanzberatende--w-m-d----mit-Erfahrung---Generalagentur-Zrich-Zimmerberg_R09265",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:19:51.765Z",
+      "crawledAt": "2026-11-08T21:46:20.436Z",
       "addressLocality": "Horgen",
       "addressRegion": "ZH",
       "streetAddress": "Horgen",
@@ -7084,7 +7097,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-08T09:19:51.765Z",
+      "validThrough": "2026-12-08T21:46:20.436Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -7118,7 +7131,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Luzern/Immobilienberater---w-m-d-----Generalagentur-Luzern-Stans_R11686",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-08T09:19:51.087Z",
+      "crawledAt": "2026-11-08T21:46:19.764Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "streetAddress": "Kornmarkt 3",
@@ -7163,7 +7176,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-08T09:19:51.087Z",
+      "validThrough": "2026-12-08T21:46:19.764Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -7197,7 +7210,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Schwyz/Teamleiter-Verkauf--w-m-d--Generalagentur-Schwyz-Urnerland_R12013",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:19:50.425Z",
+      "crawledAt": "2026-11-08T21:46:19.102Z",
       "addressLocality": "Schwyz",
       "addressRegion": "SZ",
       "streetAddress": "Hauptplatz 1",
@@ -7242,7 +7255,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-08T09:19:50.425Z",
+      "validThrough": "2026-12-08T21:46:19.102Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -7276,7 +7289,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Solothurn/Vorsorge--und-Finanzberatende--w-m-d----im-Rahmen-einer-Nachfolgeregelung---Generalagentur-Solothurn-Oberaargau_R12530",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:19:49.787Z",
+      "crawledAt": "2026-11-08T21:46:18.321Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "streetAddress": "Hauptgasse 72",
@@ -7321,7 +7334,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-08T09:19:49.787Z",
+      "validThrough": "2026-12-08T21:46:18.321Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -7355,7 +7368,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Solothurn/Vorsorge--und-Finanzberatende--w-m-d----Quereinsteigende-willkommen---Generalagentur-Solothurn-Oberaargau--Gebiet-Langenthal-_R12529",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-08T09:19:49.121Z",
+      "crawledAt": "2026-11-08T21:46:17.621Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "streetAddress": "Hauptgasse 72",
@@ -7406,7 +7419,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-08T09:19:49.121Z",
+      "validThrough": "2026-12-08T21:46:17.621Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -7440,7 +7453,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Solothurn/Vorsorge--und-Finanzberatende--w-m-d----Quereinsteigende-willkommen---Generalagentur-Solothurn-Oberaargau--Gebiet-Olten-_R12528",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-08T09:19:48.452Z",
+      "crawledAt": "2026-11-08T21:46:16.949Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "streetAddress": "Hauptgasse 72",
@@ -7491,7 +7504,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-08T09:19:48.452Z",
+      "validThrough": "2026-12-08T21:46:16.949Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -7525,7 +7538,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Aarau/Vorsorge--und-Finanzberatende--w-m-d----Quereinsteigende-willkommen---Generalagentur-Aarau_R12559",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-08T09:19:47.790Z",
+      "crawledAt": "2026-11-08T21:46:16.265Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "streetAddress": "Rathausgasse 1",
@@ -7570,7 +7583,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-08T09:19:47.790Z",
+      "validThrough": "2026-12-08T21:46:16.265Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -7595,16 +7608,16 @@
       "description": "Shape the future. Yours and ours.\n\nWould you like to help people to lead a self-determined life? And do you want to use your creative scope to reconcile your professional and personal ambitions? Then we can offer you an exciting prospect: at Swiss Life you will be able to deploy your individual talents and expertise in a stimulating and flexible work environment. What’s more, you will be given a good measure of responsibility and can thus contribute to shaping the future of Swiss Life.\n\nIhr Verantwortungsbereich\n\n• Verwaltung und Bestellung von Werbeartikel, -material, Visitenkarten, Büro-material, Verkaufsunterlagen (Prospektmaterial)\n\n• Bewirtschaften und bestellen von GA spezifischen Drucksachen\n\n• IT-Applikationen pflegen und Fälle bearbeiten\n\n• Administrative Unterstützung im Nichtleben-Bereich\n\n• Koordination der Zusammenarbeit zwischen dem Hauptsitz, Generalagentur, Ausendienstmitarbeitenden und Kunden\n\n• Entgegennahme von Kundenanrufen und Kundenempfang in der Generalagentur\n\n• Unterstützung des Aussendienstes bei Verkaufsförderungsaktionen\n\n• Aufbereitung von Statistiken und Reports\n\n• Erstellen von Offerten für Privat- und Unternehmenskunden\n\n• Unterstützung des Kundenberaters in sämtlichen administrativen und organisatorischen Belangen\n\n• Entgegennahme von Kundenanrufen sowie Kundenempfang in der Generalagentur\n\n• Terminvereinbarungen für Vorsorgeberater (In- und Outbound)\n\n• Unterstützung bei Verkaufsförderungsmassnahmen inkl. Verwaltung der Werbeartikel\n\n• Erfassung und Pflege von Daten in diversen Swiss Life Applikationen\n Ihre Stärken\n\n• Abgeschlossene kaufmännische Grundausbildung\n\n• VBV-Ausbildung abgeschlossen\n\n• Mehrjährige Berufserfahrung im Assekuranz- oder Kundendienstbereich\n\n• Gute MS-Office Anwenderkenntnisse (Outlook, Word, Excel, Powerpoint)\n\n• Zahlen- und Organisationsflair\n\n• Gewinnende, belastbare und kundenorientierte Persönlichkeit\n\nYour benefits\n We help our employees to shape their professional development and their private life to their best advantage and throughout all phases of their life. Our attractive benefits , such as options for working from home, 25 to 30 days of leave, 3rd pillar premium contributions and a broad range of continued training options contribute to this goal.\n\nInformation for recruitment agencies\n For this position, Swiss Life is not accepting any application dossiers from recruitment agencies that are submitted spontaneously. Only applications submitted by prior agreement via the recruitment agency jobs portal will be accepted.\n\nNo liability will be accepted for spontaneous applications and any fees/costs incurred by them. Thank you for your understanding.\n\nYour contact\nSara Röthlisberger Tel:\n+41 43 284 40 85",
       "descriptionByLocale": {
         "it": "Forma il futuro. La tua e la nostra.\n\nVuoi aiutare le persone a condurre una vita autodeterminata? E vuoi usare il tuo scopo creativo per conciliare le tue ambizioni professionali e personali? Allora possiamo offrirvi un'emozionante prospettiva: a Swiss Life sarete in grado di distribuire i vostri singoli talenti e competenze in un ambiente di lavoro stimolante e flessibile. Inoltre, vi verrà data una buona misura di responsabilità e potrà così contribuire a plasmare il futuro della Vita Svizzera.\n\nLa vostra area di responsabilità\n\n• Gestione e ordinazione di prodotti promozionali, materiali, biglietti da visita, materiali da ufficio, documenti di vendita (materiale di prova)\n\n• Gestione e ordine della materia stampata specifica GA\n\n• Mantenere applicazioni IT e casi di gestione\n\n• Sostegno amministrativo nel settore della non vita\n\n• Coordinamento della cooperazione tra Sede Centrale, Agenzia Generale, Espatriati e Clienti\n\n• Ricevere chiamate dei clienti e ricevere clienti presso l'Agenzia Generale\n\n• Supporto per il servizio esterno in promozioni di vendita\n\n• Preparazione delle statistiche e delle relazioni\n\n• Creare offerte per clienti privati e aziendali\n\n• Supporto del consulente clienti in tutte le questioni amministrative e organizzative\n\n• Ricezione delle chiamate dei clienti e ricezione dei clienti presso l'agenzia generale\n\n• Nomine per i consiglieri pensionistici (in- e in uscita)\n\n• Sostegno alle misure di promozione delle vendite incl. Gestione dei prodotti promozionali\n\n• Raccolta e manutenzione dei dati in varie applicazioni Swiss Life\nLe loro forze\n\n• Formazione commerciale di base\n\n• Formazione VBV completata\n\n• Diversi anni di esperienza professionale nel campo dell'assicurazione o del servizio clienti\n\n• Buona conoscenza utente MS-Office (Outlook, Word, Excel, PowerPoint)\n\n• Numero e carattere organizzativo\n\n• personalità vincente, resiliente e orientata al cliente\n\nI tuoi vantaggi\nAiutiamo i nostri dipendenti a plasmare il loro sviluppo professionale e la loro vita privata al massimo vantaggio e in tutte le fasi della loro vita. I nostri benefici interessanti, come le opzioni per lavorare da casa, 25 a 30 giorni di congedo, il terzo pilastro contributi premium e una vasta gamma di opzioni di formazione continua contributo a questo obiettivo.\n\nInformazioni sulle agenzie di reclutamento\nPer questa posizione, Swiss Life non accetta nessun dossier di candidatura da agenzie di reclutamento che vengono presentate spontaneamente. Saranno accettate solo le domande presentate da un accordo preventivo tramite il portale di lavoro dell'agenzia di reclutamento.\n\nNessuna responsabilità sarà accettata per le applicazioni spontanee e qualsiasi costo/costi sostenuti da loro. Grazie per la vostra comprensione.\n\nIl tuo contatto\nSara Röthlisberger tel:\n+41 43 284 40 85",
-        "en": "Shape the future. Yours and ours.\n\nWould you like to help people to lead a self-determined life? And do you want to use your creative scope to reconcile your professional and personal ambitions? Then we can offer you an exciting prospect: at Swiss Life you will be able to deploy your individual talents and expertise in a stimulating and flexible work environment. What’s more, you will be given a good measure of responsibility and can thus contribute to shaping the future of Swiss Life.\n\nYour area of responsibility\n\n• Management and ordering of promotional products, materials, business cards, office materials, sales documents (prospectus material)\n\n• Manage and order GA-specific printed matter\n\n• Maintaining IT applications and handling cases\n\n• Administrative support in the non-life sector\n\n• Coordination of cooperation between Headquarters, General Agency, Foreign Service staff and customers\n\n• Receiving customer calls and receiving customers at the General Agency\n\n• Support for the external service in sales promotions\n\n• Preparation of statistics and reports\n\n• Creating offers for private and corporate customers\n\n• Support of the customer advisor in all administrative and organizational matters\n\n• Receiving customer calls and receiving customers at the general agency\n\n• Appointments for pension advisors (in- and outbound)\n\n• Support for sales promotion measures incl. Management of promotional products\n\n• Collection and maintenance of data in various Swiss Life applications\nTheir strengths\n\n• Basic commercial training completed\n\n• VBV training completed\n\n• Several years of professional experience in the field of insurance or customer service\n\n• Good MS-Office user knowledge (Outlook, Word, Excel, PowerPoint)\n\n• Number and organizational flair\n\n• Winning, resilient and customer-oriented personality\n\nYour benefits\nWe help our employees to shape their professional development and their private life to their best advantage and throughout all phases of their life. Our attractive benefits, such as options for working from home, 25 to 30 days of leave, 3rd pillar premium contributions and a broad range of continued training options contribution to this goal.\n\nInformation for recruitment agencies\nFor this position, Swiss Life is not accepting any application dossiers from recruitment agencies that are submitted spontaneously. Only applications submitted by prior agreement via the recruitment agency jobs portal will be accepted.\n\nNo liability will be accepted for spontaneous applications and any fees/costs incurred by them. Thank you for your understanding.\n\nYour contact\nSara Röthlisberger tel:\n+41 43 284 40 85",
+        "en": "Shape the future. Yours and ours.\n\nWould you like to help people to lead a self-determined life? And do you want to use your creative scope to reconcile your professional and personal ambitions? Then we can offer you an exciting prospect: at Swiss Life you will be able to deploy your individual talents and expertise in a stimulating and flexible work environment. What’s more, you will be given a good measure of responsibility and can thus contribute to shaping the future of Swiss Life.\n\nYour area of responsibility\n\n• Management and ordering of promotional products, materials, business cards, office materials, sales documents (prospectus material)\n\n• Manage and order GA-specific printed matter\n\n• Maintaining IT applications and handling cases\n\n• Administrative support in the non-life sector\n\n• Coordination of cooperation between Headquarters, General Agency, Foreign Service staff and customers\n\n• Receiving customer calls and receiving customers at the General Agency\n\n• Support for the external service in sales promotions\n\n• Preparation of statistics and reports\n\n• Creating offers for private and corporate customers\n\n• Support of the customer advisor in all administrative and organizational matters\n\n• Appointments for pension advisors (in- and outbound)\n\n• Support for sales promotion measures incl. Management of promotional products\n\n• Collection and maintenance of data in various Swiss Life applications\nTheir strengths\n\n• Basic commercial training completed\n\n• VBV training completed\n\n• Several years of professional experience in the field of insurance or customer service\n\n• Good MS-Office user knowledge (Outlook, Word, Excel, PowerPoint)\n\n• Number and organizational flair\n\n• Winning, resilient and customer-oriented personality\n\nYour benefits\nWe help our employees to shape their professional development and their private life to their best advantage and throughout all phases of their life. Our attractive benefits, such as options for working from home, 25 to 30 days of leave, 3rd pillar premium contributions and a broad range of continued training options contribution to this goal.\n\nInformation for recruitment agencies\nFor this position, Swiss Life is not accepting any application dossiers from recruitment agencies that are submitted spontaneously. Only applications submitted by prior agreement via the recruitment agency jobs portal will be accepted.\n\nNo liability will be accepted for spontaneous applications and any fees/costs incurred by them. Thank you for your understanding.\n\nYour contact\nSara Röthlisberger tel:\n+41 43 284 40 85",
         "de": "Shape the future. Yours and ours.\n\nWould you like to help people to lead a self-determined life? And do you want to use your creative scope to reconcile your professional and personal ambitions? Then we can offer you an exciting prospect: at Swiss Life you will be able to deploy your individual talents and expertise in a stimulating and flexible work environment. What’s more, you will be given a good measure of responsibility and can thus contribute to shaping the future of Swiss Life.\n\nIhr Verantwortungsbereich\n\n• Verwaltung und Bestellung von Werbeartikel, -material, Visitenkarten, Büro-material, Verkaufsunterlagen (Prospektmaterial)\n\n• Bewirtschaften und bestellen von GA spezifischen Drucksachen\n\n• IT-Applikationen pflegen und Fälle bearbeiten\n\n• Administrative Unterstützung im Nichtleben-Bereich\n\n• Koordination der Zusammenarbeit zwischen dem Hauptsitz, Generalagentur, Ausendienstmitarbeitenden und Kunden\n\n• Entgegennahme von Kundenanrufen und Kundenempfang in der Generalagentur\n\n• Unterstützung des Aussendienstes bei Verkaufsförderungsaktionen\n\n• Aufbereitung von Statistiken und Reports\n\n• Erstellen von Offerten für Privat- und Unternehmenskunden\n\n• Unterstützung des Kundenberaters in sämtlichen administrativen und organisatorischen Belangen\n\n• Entgegennahme von Kundenanrufen sowie Kundenempfang in der Generalagentur\n\n• Terminvereinbarungen für Vorsorgeberater (In- und Outbound)\n\n• Unterstützung bei Verkaufsförderungsmassnahmen inkl. Verwaltung der Werbeartikel\n\n• Erfassung und Pflege von Daten in diversen Swiss Life Applikationen\nIhre Stärken\n\n• Abgeschlossene kaufmännische Grundausbildung\n\n• VBV-Ausbildung abgeschlossen\n\n• Mehrjährige Berufserfahrung im Assekuranz- oder Kundendienstbereich\n\n• Gute MS-Office Anwenderkenntnisse (Outlook, Word, Excel, Powerpoint)\n\n• Zahlen- und Organisationsflair\n\n• Gewinnende, belastbare und kundenorientierte Persönlichkeit\n\nYour benefits\nWe help our employees to shape their professional development and their private life to their best advantage and throughout all phases of their life. Our attractive benefits , such as options for working from home, 25 to 30 days of leave, 3rd pillar premium contributions and a broad range of continued training options contribute to this goal.\n\nInformation for recruitment agencies\nFor this position, Swiss Life is not accepting any application dossiers from recruitment agencies that are submitted spontaneously. Only applications submitted by prior agreement via the recruitment agency jobs portal will be accepted.\n\nNo liability will be accepted for spontaneous applications and any fees/costs incurred by them. Thank you for your understanding.\n\nYour contact\nSara Röthlisberger Tel:\n+41 43 284 40 85",
-        "fr": "Formez l'avenir. Le vôtre et le nôtre.\n\nAimeriez-vous aider les gens à mener une vie déterminée ? Et voulez-vous utiliser votre créativité pour concilier vos ambitions professionnelles et personnelles ? Ensuite, nous pouvons vous offrir une perspective passionnante: chez Swiss Life, vous pourrez déployer vos talents et votre expertise dans un environnement de travail stimulant et flexible. De plus, vous aurez une bonne mesure de responsabilité et pourrez ainsi contribuer à façonner l'avenir de Swiss Life.\n\nVotre domaine de responsabilité\n\n• Gestion et commande de produits promotionnels, matériels, cartes de visite, matériel de bureau, documents de vente (matériel de prospectus)\n\n• Gérer et commander des imprimés spécifiques à GA\n\n• Maintien des applications informatiques et traitement des dossiers\n\n• Soutien administratif dans le secteur non-vie\n\n• Coordination de la coopération entre le Siège, l'Agence générale, le personnel du service extérieur et les clients\n\n• Réception des appels des clients et réception des clients à l'Agence générale\n\n• Soutien au service externe dans les promotions de vente\n\n• Établissement de statistiques et de rapports\n\n• Création d'offres pour les clients privés et les entreprises\n\n• Appui du conseiller client pour toutes les questions administratives et organisationnelles\n\n• Réception des appels des clients et réception des clients à l'agence générale\n\n• Nominations de conseillers en pensions (à l'intérieur et à l'extérieur)\n\n• Soutien aux mesures de promotion des ventes, y compris: Gestion des produits promotionnels\n\n• Collecte et maintenance de données dans différentes applications Swiss Life\nLeurs forces\n\n• Formation commerciale de base terminée\n\n• Formation VBV terminée\n\n• Plusieurs années d'expérience professionnelle dans le domaine de l'assurance ou du service à la clientèle\n\n• Bonne connaissance des utilisateurs de MS-Office (Outlook, Word, Excel, PowerPoint)\n\n• Nombre et style organisationnel\n\n• Personnalité gagnante, résiliente et orientée vers le client\n\nVos avantages\nNous aidons nos employés à façonner leur perfectionnement professionnel et leur vie privée à leur meilleur avantage et tout au long de leur vie. Nos avantages attrayants, comme les options de travail à domicile, 25 à 30 jours de congé, les cotisations du 3e pilier et un large éventail d'options de formation continue contribuent à cet objectif.\n\nInformations pour les agences de recrutement\nPour ce poste, Swiss Life n'accepte aucun dossier de candidature émanant d'agences de recrutement soumises spontanément. Seules les candidatures soumises par accord préalable via le portail des emplois de l'agence de recrutement seront acceptées.\n\nAucune responsabilité ne sera acceptée pour les demandes spontanées et les frais ou frais encourus par elles. Merci de votre compréhension.\n\nVotre contact\nSara Röthlisberger Tél:\n+41 43 284 40 85"
+        "fr": "Formez l'avenir. Le vôtre et le nôtre.\n\nAimeriez-vous aider les gens à mener une vie déterminée ? Et voulez-vous utiliser votre créativité pour concilier vos ambitions professionnelles et personnelles ? Ensuite, nous pouvons vous offrir une perspective passionnante: chez Swiss Life, vous pourrez déployer vos talents et votre expertise dans un environnement de travail stimulant et flexible. De plus, vous aurez une bonne mesure de responsabilité et pourrez ainsi contribuer à façonner l'avenir de Swiss Life.\n\nVotre domaine de responsabilité\n\n• Gestion et commande de produits promotionnels, matériels, cartes de visite, matériel de bureau, documents de vente (matériel de prospectus)\n\n• Gérer et commander des imprimés spécifiques à GA\n\n• Maintien des applications informatiques et traitement des dossiers\n\n• Soutien administratif dans le secteur non-vie\n\n• Coordination de la coopération entre le Siège, l'Agence générale, le personnel du service extérieur et les clients\n\n• Réception des appels des clients et réception des clients à l'Agence générale\n\n• Soutien au service externe dans les promotions de vente\n\n• Établissement de statistiques et de rapports\n\n• Création d'offres pour les clients privés et les entreprises\n\n• Appui du conseiller client pour toutes les questions administratives et organisationnelles\n\n• Nominations de conseillers en pensions (à l'intérieur et à l'extérieur)\n\n• Soutien aux mesures de promotion des ventes, y compris: Gestion des produits promotionnels\n\n• Collecte et maintenance de données dans différentes applications Swiss Life\nLeurs forces\n\n• Formation commerciale de base terminée\n\n• Formation VBV terminée\n\n• Plusieurs années d'expérience professionnelle dans le domaine de l'assurance ou du service à la clientèle\n\n• Bonne connaissance des utilisateurs de MS-Office (Outlook, Word, Excel, PowerPoint)\n\n• Nombre et style organisationnel\n\n• Personnalité gagnante, résiliente et orientée vers le client\n\nVos avantages\nNous aidons nos employés à façonner leur perfectionnement professionnel et leur vie privée à leur meilleur avantage et tout au long de leur vie. Nos avantages attrayants, comme les options de travail à domicile, 25 à 30 jours de congé, les cotisations du 3e pilier et un large éventail d'options de formation continue contribuent à cet objectif.\n\nInformations pour les agences de recrutement\nPour ce poste, Swiss Life n'accepte aucun dossier de candidature émanant d'agences de recrutement soumises spontanément. Seules les candidatures soumises par accord préalable via le portail des emplois de l'agence de recrutement seront acceptées.\n\nAucune responsabilité ne sera acceptée pour les demandes spontanées et les frais ou frais encourus par elles. Merci de votre compréhension.\n\nVotre contact\nSara Röthlisberger Tél:\n+41 43 284 40 85"
       },
       "location": "Aarau",
       "canton": "AG",
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Aarau/Sales-Support-60--Generalagentur-Aarau_R12557",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:19:47.138Z",
+      "crawledAt": "2026-11-08T21:46:15.602Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "streetAddress": "Rathausgasse 1",
@@ -7635,6 +7648,7 @@
         ]
       },
       "firstSeenAt": "2026-09-19T23:00:28.951Z",
+      "needsRetranslation": true,
       "salaryMin": 44400,
       "salaryMax": 68100,
       "salarySource": "estimated",
@@ -7649,8 +7663,92 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-08T09:19:47.138Z",
+      "validThrough": "2026-12-08T21:46:15.602Z",
       "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "swiss-life-0516bede16b9",
+      "slug": "teamleiter-vendita-w-m-d-agenzia-generale-solothurn-oberaargau-swiss-life-solothurn-ee0051c04c",
+      "slugByLocale": {
+        "de": "teamleiter-verkauf-w-m-d-generalagentur-solothurn-oberaargau-swiss-life-ch",
+        "it": "teamleiter-vendita-w-m-d-agenzia-generale-solothurn-oberaargau-swiss-life-solothurn-ee0051c04c",
+        "en": "team-leader-sales-m-f-d-general-agency-solothurn-oberaargau-swiss-life-solothurn",
+        "fr": "chef-d-equipe-des-ventes-h-f-d-agence-generale-soleure-oberaargau-swiss-life-solothurn"
+      },
+      "company": "Swiss Life",
+      "companyKey": "swiss-life",
+      "companyDomain": "swisslife.ch",
+      "title": "Teamleiter Verkauf (w/m/d) Generalagentur Solothurn-Oberaargau",
+      "titleByLocale": {
+        "de": "Teamleiter Verkauf (w/m/d) Generalagentur Solothurn-Oberaargau",
+        "it": "Teamleiter vendita (w/m/d) agenzia generale Solothurn-Oberaargau",
+        "en": "Teamleiter Sales (w/m/d) Generalagentur Solothurn-Oberaargau",
+        "fr": "Teamleiter Vente (w/m/d) Generalagentur Solothurn-Oberaargau"
+      },
+      "description": "Shape the future. Yours and ours.\n\nWould you like to help people to lead a self-determined life? And do you want to be given the creative scope to reconcile your professional and personal ambitions? Then we can offer you an exciting prospect: as part of the Swiss Life sales force, you can organise your working day independently. You will reach your targets as you see fit and with the support of a practised team.\n\nIhr Verantwortungsbereich\n\n• Führung und Entwicklung eines Teams im Aussendienst\n\n• Rekrutierung von neuen Vorsorgeberatenden\n\n• Festlegung von Verkaufszielen sowie Erarbeitung von Entwicklungsplänen\n\n• Aktive Unterstützung des Generalagenten in der systematischen Marktbearbeitung\n\n• Durchführung sowie Sicherstellung von umfassenden Vorsorge- und Finanzberatungen\n\n• Betreuung und Ausbau eines eigenen Kundenportfolios\n\nIhre Stärken\n\n• Abgeschlossene Ausbildung in der Versicherungsbranche (dipl. Finanzberater IAF oder Finanzplaner eidg. FA)\n\n• Leadership und hohe Motivation, Vorsorgeberatende zum Erfolg zu führen und dabei auch selbst im Verkauf als Vorbild zu agieren\n\n• Begeisterungsfähige, gewinnende Persönlichkeit mit ausgeprägten Verkaufs- und Sozialkompetenzen\n\n• Hohe Leistungsbereitschaft mit zielorientierter und gut organisierter Arbeitsweise\n\n• Kommunikationsfähigkeit gepaart mit Verhandlungsgeschick und hoher Kundenorientierung\n\nAgencies near you\n\nYour benefits\n We help our employees to shape their professional and personal development to their best advantage and throughout all phases of their life. Our attractive benefits , such as Cicero-certified introductory training and first-class continuing education, contribute to this. You will also receive above-average social benefits, including pension fund membership and non-contributory accident and short-term disability benefit (UVG/LTG) insurance, plus generous premium contributions to 3rd pillar products.\n\nYour contact\n\nIf you have any questions, please do not hesitate to contact Human Resources Sales Force or the General Agent at your chosen General Agency.\n Only applications received via our application tool will be considered.",
+      "descriptionByLocale": {
+        "de": "Shape the future. Yours and ours.\n\nWould you like to help people to lead a self-determined life? And do you want to be given the creative scope to reconcile your professional and personal ambitions? Then we can offer you an exciting prospect: as part of the Swiss Life sales force, you can organise your working day independently. You will reach your targets as you see fit and with the support of a practised team.\n\nIhr Verantwortungsbereich\n\n• Führung und Entwicklung eines Teams im Aussendienst\n\n• Rekrutierung von neuen Vorsorgeberatenden\n\n• Festlegung von Verkaufszielen sowie Erarbeitung von Entwicklungsplänen\n\n• Aktive Unterstützung des Generalagenten in der systematischen Marktbearbeitung\n\n• Durchführung sowie Sicherstellung von umfassenden Vorsorge- und Finanzberatungen\n\n• Betreuung und Ausbau eines eigenen Kundenportfolios\n\nIhre Stärken\n\n• Abgeschlossene Ausbildung in der Versicherungsbranche (dipl. Finanzberater IAF oder Finanzplaner eidg. FA)\n\n• Leadership und hohe Motivation, Vorsorgeberatende zum Erfolg zu führen und dabei auch selbst im Verkauf als Vorbild zu agieren\n\n• Begeisterungsfähige, gewinnende Persönlichkeit mit ausgeprägten Verkaufs- und Sozialkompetenzen\n\n• Hohe Leistungsbereitschaft mit zielorientierter und gut organisierter Arbeitsweise\n\n• Kommunikationsfähigkeit gepaart mit Verhandlungsgeschick und hoher Kundenorientierung\n\nAgencies near you\n\nYour benefits\n We help our employees to shape their professional and personal development to their best advantage and throughout all phases of their life. Our attractive benefits , such as Cicero-certified introductory training and first-class continuing education, contribute to this. You will also receive above-average social benefits, including pension fund membership and non-contributory accident and short-term disability benefit (UVG/LTG) insurance, plus generous premium contributions to 3rd pillar products.\n\nYour contact\n\nIf you have any questions, please do not hesitate to contact Human Resources Sales Force or the General Agent at your chosen General Agency.\n Only applications received via our application tool will be considered.",
+        "it": "Shape the future. Yours and ours.\n\nWould you like to help people to lead a self-determined life? And do you want to be given the creative scope to reconcile your professional and personal ambitions? Then we can offer you an exciting prospect: as part of the Swiss Life sales force, you can organise your working day independently. You will reach your targets as you see fit and with the support of a practised team.\n\nIhr Verantwortungsbereich\n\n• Führung und Entwicklung eines Teams im Aussendienst\n\n• Rekrutierung von neuen Vorsorgeberatenden\n\n• Festlegung von Verkaufszielen sowie Erarbeitung von Entwicklungsplänen\n\n• Aktive Unterstützung des Generalagenten in der systematischen Marktbearbeitung\n\n• Durchführung sowie Sicherstellung von umfassenden Vorsorge- und Finanzberatungen\n\n• Betreuung und Ausbau eines eigenen Kundenportfolios\n\nIhre Stärken\n\n• Abgeschlossene Ausbildung in der Versicherungsbranche (dipl. Finanzberater IAF oder Finanzplaner eidg. FA)\n\n• Leadership und hohe Motivation, Vorsorgeberatende zum Erfolg zu führen und dabei auch selbst im Verkauf als Vorbild zu agieren\n\n• Begeisterungsfähige, gewinnende Persönlichkeit mit ausgeprägten Verkaufs- und Sozialkompetenzen\n\n• Hohe Leistungsbereitschaft mit zielorientierter und gut organisierter Arbeitsweise\n\n• Kommunikationsfähigkeit gepaart mit Verhandlungsgeschick und hoher Kundenorientierung\n\nAgencies near you\n\nYour benefits\n We help our employees to shape their professional and personal development to their best advantage and throughout all phases of their life. Our attractive benefits , such as Cicero-certified introductory training and first-class continuing education, contribute to this. You will also receive above-average social benefits, including pension fund membership and non-contributory accident and short-term disability benefit (UVG/LTG) insurance, plus generous premium contributions to 3rd pillar products.\n\nYour contact\n\nIf you have any questions, please do not hesitate to contact Human Resources Sales Force or the General Agent at your chosen General Agency.\n Only applications received via our application tool will be considered.",
+        "en": "Shape the future. Yours and ours.\n\nWould you like to help people to lead a self-determined life? And do you want to be given the creative scope to reconcile your professional and personal ambitions? Then we can offer you an exciting prospect: as part of the Swiss Life sales force, you can organise your working day independently. You will reach your targets as you see fit and with the support of a practised team.\n\nIhr Verantwortungsbereich\n\n• Führung und Entwicklung eines Teams im Aussendienst\n\n• Rekrutierung von neuen Vorsorgeberatenden\n\n• Festlegung von Verkaufszielen sowie Erarbeitung von Entwicklungsplänen\n\n• Aktive Unterstützung des Generalagenten in der systematischen Marktbearbeitung\n\n• Durchführung sowie Sicherstellung von umfassenden Vorsorge- und Finanzberatungen\n\n• Betreuung und Ausbau eines eigenen Kundenportfolios\n\nIhre Stärken\n\n• Abgeschlossene Ausbildung in der Versicherungsbranche (dipl. Finanzberater IAF oder Finanzplaner eidg. FA)\n\n• Leadership und hohe Motivation, Vorsorgeberatende zum Erfolg zu führen und dabei auch selbst im Verkauf als Vorbild zu agieren\n\n• Begeisterungsfähige, gewinnende Persönlichkeit mit ausgeprägten Verkaufs- und Sozialkompetenzen\n\n• Hohe Leistungsbereitschaft mit zielorientierter und gut organisierter Arbeitsweise\n\n• Kommunikationsfähigkeit gepaart mit Verhandlungsgeschick und hoher Kundenorientierung\n\nAgencies near you\n\nYour benefits\n We help our employees to shape their professional and personal development to their best advantage and throughout all phases of their life. Our attractive benefits , such as Cicero-certified introductory training and first-class continuing education, contribute to this. You will also receive above-average social benefits, including pension fund membership and non-contributory accident and short-term disability benefit (UVG/LTG) insurance, plus generous premium contributions to 3rd pillar products.\n\nYour contact\n\nIf you have any questions, please do not hesitate to contact Human Resources Sales Force or the General Agent at your chosen General Agency.\n Only applications received via our application tool will be considered.",
+        "fr": "Shape the future. Yours and ours.\n\nWould you like to help people to lead a self-determined life? And do you want to be given the creative scope to reconcile your professional and personal ambitions? Then we can offer you an exciting prospect: as part of the Swiss Life sales force, you can organise your working day independently. You will reach your targets as you see fit and with the support of a practised team.\n\nIhr Verantwortungsbereich\n\n• Führung und Entwicklung eines Teams im Aussendienst\n\n• Rekrutierung von neuen Vorsorgeberatenden\n\n• Festlegung von Verkaufszielen sowie Erarbeitung von Entwicklungsplänen\n\n• Aktive Unterstützung des Generalagenten in der systematischen Marktbearbeitung\n\n• Durchführung sowie Sicherstellung von umfassenden Vorsorge- und Finanzberatungen\n\n• Betreuung und Ausbau eines eigenen Kundenportfolios\n\nIhre Stärken\n\n• Abgeschlossene Ausbildung in der Versicherungsbranche (dipl. Finanzberater IAF oder Finanzplaner eidg. FA)\n\n• Leadership und hohe Motivation, Vorsorgeberatende zum Erfolg zu führen und dabei auch selbst im Verkauf als Vorbild zu agieren\n\n• Begeisterungsfähige, gewinnende Persönlichkeit mit ausgeprägten Verkaufs- und Sozialkompetenzen\n\n• Hohe Leistungsbereitschaft mit zielorientierter und gut organisierter Arbeitsweise\n\n• Kommunikationsfähigkeit gepaart mit Verhandlungsgeschick und hoher Kundenorientierung\n\nAgencies near you\n\nYour benefits\n We help our employees to shape their professional and personal development to their best advantage and throughout all phases of their life. Our attractive benefits , such as Cicero-certified introductory training and first-class continuing education, contribute to this. You will also receive above-average social benefits, including pension fund membership and non-contributory accident and short-term disability benefit (UVG/LTG) insurance, plus generous premium contributions to 3rd pillar products.\n\nYour contact\n\nIf you have any questions, please do not hesitate to contact Human Resources Sales Force or the General Agent at your chosen General Agency.\n Only applications received via our application tool will be considered."
+      },
+      "location": "Solothurn",
+      "canton": "SO",
+      "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Solothurn/Teamleiter-Verkauf--w-m-d--Generalagentur-Solothurn-Oberaargau_R12565",
+      "source": "Swiss Life Dedicated Parser (Workday)",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-08T21:46:14.947Z",
+      "addressLocality": "Solothurn",
+      "addressRegion": "SO",
+      "streetAddress": "Hauptgasse 72",
+      "postalCode": "4500",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Commerciale",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Assicurazioni / Previdenza",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-06-05",
+      "postedDate": "2026-06-05",
+      "postingDateSource": "reported",
+      "applyUrl": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Solothurn/Teamleiter-Verkauf--w-m-d--Generalagentur-Solothurn-Oberaargau_R12565",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "jobReqId": "R12565",
+      "hiringOrganization": "Swiss Life GA Solothurn-Oberaargau",
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "teamleiter-verkauf-w-m-d-generalagentur-solothurn-oberaargau-swiss-life-ch",
+          "teamleiter-vendita-m-w-d-agenzia-generale-solothurn-oberaargau-swiss-life-solothurn"
+        ]
+      },
+      "previousSlugs": [
+        "teamleiter-verkauf-w-m-d-generalagentur-solothurn-oberaargau-swiss-life-ch",
+        "teamleiter-vendita-m-w-d-agenzia-generale-solothurn-oberaargau-swiss-life-solothurn"
+      ],
+      "salaryMin": 77500,
+      "salaryMax": 118500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 77500,
+          "maxValue": 118500,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-08T21:46:14.947Z",
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-09-19T23:01:32.876Z"
     },
     {
       "id": "swiss-life-2935f61b3521",
@@ -7683,7 +7781,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Lugano/Consulente-previdenziale-e-finanziaria-o--f-m-d----anche-senza-esperienza-nel-settore---agenzia-generale-Svizzera-italiana_R06653",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-08T09:19:44.511Z",
+      "crawledAt": "2026-11-08T21:46:12.904Z",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "streetAddress": "Piazza Riforma 1",
@@ -7720,7 +7818,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-08T09:19:44.511Z",
+      "validThrough": "2026-12-08T21:46:12.904Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -7754,7 +7852,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Baden/Vorsorge--und-Finanzberatende--w-m-d----Spezialisierung-Kollektiv---Generalagentur-Baden_R12793",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:19:43.757Z",
+      "crawledAt": "2026-11-08T21:46:12.211Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "streetAddress": "Baden",
@@ -7799,7 +7897,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-08T09:19:43.757Z",
+      "validThrough": "2026-12-08T21:46:12.211Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -7824,16 +7922,16 @@
       "description": "Shape the future. Yours and ours.\n\nWould you like to help people to lead a self-determined life? And do you want to use your creative scope to reconcile your professional and personal ambitions? Then we can offer you an exciting prospect: at Swiss Life you will be able to deploy your individual talents and expertise in a stimulating and flexible work environment. What’s more, you will be given a good measure of responsibility and can thus contribute to shaping the future of Swiss Life.\n\nIhr Verantwortungsbereich\n\n• Verwaltung und Bestellung von Werbeartikel, -material, Visitenkarten, Büro-material, Verkaufsunterlagen (Prospektmaterial)\n\n• Bewirtschaften und bestellen von GA spezifischen Drucksachen\n\n• IT-Applikationen pflegen und Fälle bearbeiten\n\n• Administrative Unterstützung im Nichtleben-Bereich\n\n• Koordination der Zusammenarbeit zwischen dem Hauptsitz, Generalagentur, Ausendienstmitarbeitenden und Kunden\n\n• Entgegennahme von Kundenanrufen und Kundenempfang in der Generalagentur\n\n• Unterstützung des Aussendienstes bei Verkaufsförderungsaktionen\n\n• Aufbereitung von Statistiken und Reports\n\n• Erstellen von Offerten für Privat- und Unternehmenskunden\n\n• Unterstützung des Kundenberaters in sämtlichen administrativen und organisatorischen Belangen\n\n• Entgegennahme von Kundenanrufen sowie Kundenempfang in der Generalagentur\n\n• Terminvereinbarungen für Vorsorgeberater (In- und Outbound)\n\n• Unterstützung bei Verkaufsförderungsmassnahmen inkl. Verwaltung der Werbeartikel\n\n• Erfassung und Pflege von Daten in diversen Swiss Life Applikationen\n\nIhre Stärken\n\n• Abgeschlossene kaufmännische Grundausbildung\n\n• VBV-Ausbildung abgeschlossen\n\n• Mehrjährige Berufserfahrung im Assekuranz- oder Kundendienstbereich\n\n• Gute MS-Office Anwenderkenntnisse (Outlook, Word, Excel, Powerpoint)\n\n• Zahlen- und Organisationsflair\n\n• Gewinnende, belastbare und kundenorientierte Persönlichkeit\n\nYour benefits\n We help our employees to shape their professional development and their private life to their best advantage and throughout all phases of their life. Our attractive benefits , such as options for working from home, 25 to 30 days of leave, 3rd pillar premium contributions and a broad range of continued training options contribute to this goal.\n\nInformation for recruitment agencies\n For this position, Swiss Life is not accepting any application dossiers from recruitment agencies that are submitted spontaneously. Only applications submitted by prior agreement via the recruitment agency jobs portal will be accepted.\n\nNo liability will be accepted for spontaneous applications and any fees/costs incurred by them. Thank you for your understanding.\n\nYour contact\nSara Röthlisberger Tel:\n+41 43 284 40 85",
       "descriptionByLocale": {
         "it": "Forma il futuro. La tua e la nostra.\n\nVuoi aiutare le persone a condurre una vita autodeterminata? E vuoi usare il tuo scopo creativo per conciliare le tue ambizioni professionali e personali? Allora possiamo offrirvi un'emozionante prospettiva: a Swiss Life sarete in grado di distribuire i vostri singoli talenti e competenze in un ambiente di lavoro stimolante e flessibile. Inoltre, vi verrà data una buona misura di responsabilità e potrà così contribuire a plasmare il futuro della Vita Svizzera.\n\nLa vostra area di responsabilità\n\n• Gestione e ordinazione di prodotti promozionali, materiali, biglietti da visita, materiali da ufficio, documenti di vendita (materiale di prova)\n\n• Gestione e ordine della materia stampata specifica GA\n\n• Mantenere applicazioni IT e casi di gestione\n\n• Sostegno amministrativo nel settore della non vita\n\n• Coordinamento della cooperazione tra Sede Centrale, Agenzia Generale, Espatriati e Clienti\n\n• Ricevere chiamate dei clienti e ricevere clienti presso l'Agenzia Generale\n\n• Supporto per il servizio esterno in promozioni di vendita\n\n• Preparazione delle statistiche e delle relazioni\n\n• Creare offerte per clienti privati e aziendali\n\n• Supporto del consulente clienti in tutte le questioni amministrative e organizzative\n\n• Ricezione delle chiamate dei clienti e ricezione dei clienti presso l'agenzia generale\n\n• Nomine per i consiglieri pensionistici (in- e in uscita)\n\n• Sostegno alle misure di promozione delle vendite incl. Gestione dei prodotti promozionali\n\n• Raccolta e manutenzione dei dati in varie applicazioni Swiss Life\n\nLe loro forze\n\n• Formazione commerciale di base\n\n• Formazione VBV completata\n\n• Diversi anni di esperienza professionale nel campo dell'assicurazione o del servizio clienti\n\n• Buona conoscenza utente MS-Office (Outlook, Word, Excel, PowerPoint)\n\n• Numero e carattere organizzativo\n\n• personalità vincente, resiliente e orientata al cliente\n\nI tuoi vantaggi\nAiutiamo i nostri dipendenti a plasmare il loro sviluppo professionale e la loro vita privata al massimo vantaggio e in tutte le fasi della loro vita. I nostri benefici interessanti, come le opzioni per lavorare da casa, 25 a 30 giorni di congedo, il terzo pilastro contributi premium e una vasta gamma di opzioni di formazione continua contributo a questo obiettivo.\n\nInformazioni sulle agenzie di reclutamento\nPer questa posizione, Swiss Life non accetta nessun dossier di candidatura da agenzie di reclutamento che vengono presentate spontaneamente. Saranno accettate solo le domande presentate da un accordo preventivo tramite il portale di lavoro dell'agenzia di reclutamento.\n\nNessuna responsabilità sarà accettata per le applicazioni spontanee e qualsiasi costo/costi sostenuti da loro. Grazie per la vostra comprensione.\n\nIl tuo contatto\nSara Röthlisberger tel:\n+41 43 284 40 85",
-        "en": "Shape the future. Yours and ours.\n\nWould you like to help people to lead a self-determined life? And do you want to use your creative scope to reconcile your professional and personal ambitions? Then we can offer you an exciting prospect: at Swiss Life you will be able to deploy your individual talents and expertise in a stimulating and flexible work environment. What’s more, you will be given a good measure of responsibility and can thus contribute to shaping the future of Swiss Life.\n\nYour area of responsibility\n\n• Management and ordering of promotional products, materials, business cards, office materials, sales documents (prospectus material)\n\n• Manage and order GA-specific printed matter\n\n• Maintaining IT applications and handling cases\n\n• Administrative support in the non-life sector\n\n• Coordination of cooperation between Headquarters, General Agency, Foreign Service staff and customers\n\n• Receiving customer calls and receiving customers at the General Agency\n\n• Support for the external service in sales promotions\n\n• Preparation of statistics and reports\n\n• Creating offers for private and corporate customers\n\n• Support of the customer advisor in all administrative and organizational matters\n\n• Receiving customer calls and receiving customers at the general agency\n\n• Appointments for pension advisors (in- and outbound)\n\n• Support for sales promotion measures incl. Management of promotional products\n\n• Collection and maintenance of data in various Swiss Life applications\n\nTheir strengths\n\n• Basic commercial training completed\n\n• VBV training completed\n\n• Several years of professional experience in the field of insurance or customer service\n\n• Good MS-Office user knowledge (Outlook, Word, Excel, PowerPoint)\n\n• Number and organizational flair\n\n• Winning, resilient and customer-oriented personality\n\nYour benefits\nWe help our employees to shape their professional development and their private life to their best advantage and throughout all phases of their life. Our attractive benefits, such as options for working from home, 25 to 30 days of leave, 3rd pillar premium contributions and a broad range of continued training options contribution to this goal.\n\nInformation for recruitment agencies\nFor this position, Swiss Life is not accepting any application dossiers from recruitment agencies that are submitted spontaneously. Only applications submitted by prior agreement via the recruitment agency jobs portal will be accepted.\n\nNo liability will be accepted for spontaneous applications and any fees/costs incurred by them. Thank you for your understanding.\n\nYour contact\nSara Röthlisberger tel:\n+41 43 284 40 85",
+        "en": "Shape the future. Yours and ours.\n\nWould you like to help people to lead a self-determined life? And do you want to use your creative scope to reconcile your professional and personal ambitions? Then we can offer you an exciting prospect: at Swiss Life you will be able to deploy your individual talents and expertise in a stimulating and flexible work environment. What’s more, you will be given a good measure of responsibility and can thus contribute to shaping the future of Swiss Life.\n\nYour area of responsibility\n\n• Management and ordering of promotional products, materials, business cards, office materials, sales documents (prospectus material)\n\n• Manage and order GA-specific printed matter\n\n• Maintaining IT applications and handling cases\n\n• Administrative support in the non-life sector\n\n• Coordination of cooperation between Headquarters, General Agency, Foreign Service staff and customers\n\n• Receiving customer calls and receiving customers at the General Agency\n\n• Support for the external service in sales promotions\n\n• Preparation of statistics and reports\n\n• Creating offers for private and corporate customers\n\n• Support of the customer advisor in all administrative and organizational matters\n\n• Appointments for pension advisors (in- and outbound)\n\n• Support for sales promotion measures incl. Management of promotional products\n\n• Collection and maintenance of data in various Swiss Life applications\n\nTheir strengths\n\n• Basic commercial training completed\n\n• VBV training completed\n\n• Several years of professional experience in the field of insurance or customer service\n\n• Good MS-Office user knowledge (Outlook, Word, Excel, PowerPoint)\n\n• Number and organizational flair\n\n• Winning, resilient and customer-oriented personality\n\nYour benefits\nWe help our employees to shape their professional development and their private life to their best advantage and throughout all phases of their life. Our attractive benefits, such as options for working from home, 25 to 30 days of leave, 3rd pillar premium contributions and a broad range of continued training options contribution to this goal.\n\nInformation for recruitment agencies\nFor this position, Swiss Life is not accepting any application dossiers from recruitment agencies that are submitted spontaneously. Only applications submitted by prior agreement via the recruitment agency jobs portal will be accepted.\n\nNo liability will be accepted for spontaneous applications and any fees/costs incurred by them. Thank you for your understanding.\n\nYour contact\nSara Röthlisberger tel:\n+41 43 284 40 85",
         "de": "Shape the future. Yours and ours.\n\nWould you like to help people to lead a self-determined life? And do you want to use your creative scope to reconcile your professional and personal ambitions? Then we can offer you an exciting prospect: at Swiss Life you will be able to deploy your individual talents and expertise in a stimulating and flexible work environment. What’s more, you will be given a good measure of responsibility and can thus contribute to shaping the future of Swiss Life.\n\nIhr Verantwortungsbereich\n\n• Verwaltung und Bestellung von Werbeartikel, -material, Visitenkarten, Büro-material, Verkaufsunterlagen (Prospektmaterial)\n\n• Bewirtschaften und bestellen von GA spezifischen Drucksachen\n\n• IT-Applikationen pflegen und Fälle bearbeiten\n\n• Administrative Unterstützung im Nichtleben-Bereich\n\n• Koordination der Zusammenarbeit zwischen dem Hauptsitz, Generalagentur, Ausendienstmitarbeitenden und Kunden\n\n• Entgegennahme von Kundenanrufen und Kundenempfang in der Generalagentur\n\n• Unterstützung des Aussendienstes bei Verkaufsförderungsaktionen\n\n• Aufbereitung von Statistiken und Reports\n\n• Erstellen von Offerten für Privat- und Unternehmenskunden\n\n• Unterstützung des Kundenberaters in sämtlichen administrativen und organisatorischen Belangen\n\n• Entgegennahme von Kundenanrufen sowie Kundenempfang in der Generalagentur\n\n• Terminvereinbarungen für Vorsorgeberater (In- und Outbound)\n\n• Unterstützung bei Verkaufsförderungsmassnahmen inkl. Verwaltung der Werbeartikel\n\n• Erfassung und Pflege von Daten in diversen Swiss Life Applikationen\n\nIhre Stärken\n\n• Abgeschlossene kaufmännische Grundausbildung\n\n• VBV-Ausbildung abgeschlossen\n\n• Mehrjährige Berufserfahrung im Assekuranz- oder Kundendienstbereich\n\n• Gute MS-Office Anwenderkenntnisse (Outlook, Word, Excel, Powerpoint)\n\n• Zahlen- und Organisationsflair\n\n• Gewinnende, belastbare und kundenorientierte Persönlichkeit\n\nYour benefits\nWe help our employees to shape their professional development and their private life to their best advantage and throughout all phases of their life. Our attractive benefits , such as options for working from home, 25 to 30 days of leave, 3rd pillar premium contributions and a broad range of continued training options contribute to this goal.\n\nInformation for recruitment agencies\nFor this position, Swiss Life is not accepting any application dossiers from recruitment agencies that are submitted spontaneously. Only applications submitted by prior agreement via the recruitment agency jobs portal will be accepted.\n\nNo liability will be accepted for spontaneous applications and any fees/costs incurred by them. Thank you for your understanding.\n\nYour contact\nSara Röthlisberger Tel:\n+41 43 284 40 85",
-        "fr": "Formez l'avenir. Le vôtre et le nôtre.\n\nAimeriez-vous aider les gens à mener une vie déterminée ? Et voulez-vous utiliser votre créativité pour concilier vos ambitions professionnelles et personnelles ? Ensuite, nous pouvons vous offrir une perspective passionnante: chez Swiss Life, vous pourrez déployer vos talents et votre expertise dans un environnement de travail stimulant et flexible. De plus, vous aurez une bonne mesure de responsabilité et pourrez ainsi contribuer à façonner l'avenir de Swiss Life.\n\nVotre domaine de responsabilité\n\n• Gestion et commande de produits promotionnels, matériels, cartes de visite, matériel de bureau, documents de vente (matériel de prospectus)\n\n• Gérer et commander des imprimés spécifiques à GA\n\n• Maintien des applications informatiques et traitement des dossiers\n\n• Soutien administratif dans le secteur non-vie\n\n• Coordination de la coopération entre le Siège, l'Agence générale, le personnel du service extérieur et les clients\n\n• Réception des appels des clients et réception des clients à l'Agence générale\n\n• Soutien au service externe dans les promotions de vente\n\n• Établissement de statistiques et de rapports\n\n• Création d'offres pour les clients privés et les entreprises\n\n• Appui du conseiller client pour toutes les questions administratives et organisationnelles\n\n• Réception des appels des clients et réception des clients à l'agence générale\n\n• Nominations de conseillers en pensions (à l'intérieur et à l'extérieur)\n\n• Soutien aux mesures de promotion des ventes, y compris: Gestion des produits promotionnels\n\n• Collecte et maintenance de données dans différentes applications Swiss Life\n\nLeurs forces\n\n• Formation commerciale de base terminée\n\n• Formation VBV terminée\n\n• Plusieurs années d'expérience professionnelle dans le domaine de l'assurance ou du service à la clientèle\n\n• Bonne connaissance des utilisateurs de MS-Office (Outlook, Word, Excel, PowerPoint)\n\n• Nombre et style organisationnel\n\n• Personnalité gagnante, résiliente et orientée vers le client\n\nVos avantages\nNous aidons nos employés à façonner leur perfectionnement professionnel et leur vie privée à leur meilleur avantage et tout au long de leur vie. Nos avantages attrayants, comme les options de travail à domicile, 25 à 30 jours de congé, les cotisations du 3e pilier et un large éventail d'options de formation continue contribuent à cet objectif.\n\nInformations pour les agences de recrutement\nPour ce poste, Swiss Life n'accepte aucun dossier de candidature émanant d'agences de recrutement soumises spontanément. Seules les candidatures soumises par accord préalable via le portail des emplois de l'agence de recrutement seront acceptées.\n\nAucune responsabilité ne sera acceptée pour les demandes spontanées et les frais ou frais encourus par elles. Merci de votre compréhension.\n\nVotre contact\nSara Röthlisberger Tél:\n+41 43 284 40 85"
+        "fr": "Formez l'avenir. Le vôtre et le nôtre.\n\nAimeriez-vous aider les gens à mener une vie déterminée ? Et voulez-vous utiliser votre créativité pour concilier vos ambitions professionnelles et personnelles ? Ensuite, nous pouvons vous offrir une perspective passionnante: chez Swiss Life, vous pourrez déployer vos talents et votre expertise dans un environnement de travail stimulant et flexible. De plus, vous aurez une bonne mesure de responsabilité et pourrez ainsi contribuer à façonner l'avenir de Swiss Life.\n\nVotre domaine de responsabilité\n\n• Gestion et commande de produits promotionnels, matériels, cartes de visite, matériel de bureau, documents de vente (matériel de prospectus)\n\n• Gérer et commander des imprimés spécifiques à GA\n\n• Maintien des applications informatiques et traitement des dossiers\n\n• Soutien administratif dans le secteur non-vie\n\n• Coordination de la coopération entre le Siège, l'Agence générale, le personnel du service extérieur et les clients\n\n• Réception des appels des clients et réception des clients à l'Agence générale\n\n• Soutien au service externe dans les promotions de vente\n\n• Établissement de statistiques et de rapports\n\n• Création d'offres pour les clients privés et les entreprises\n\n• Appui du conseiller client pour toutes les questions administratives et organisationnelles\n\n• Nominations de conseillers en pensions (à l'intérieur et à l'extérieur)\n\n• Soutien aux mesures de promotion des ventes, y compris: Gestion des produits promotionnels\n\n• Collecte et maintenance de données dans différentes applications Swiss Life\n\nLeurs forces\n\n• Formation commerciale de base terminée\n\n• Formation VBV terminée\n\n• Plusieurs années d'expérience professionnelle dans le domaine de l'assurance ou du service à la clientèle\n\n• Bonne connaissance des utilisateurs de MS-Office (Outlook, Word, Excel, PowerPoint)\n\n• Nombre et style organisationnel\n\n• Personnalité gagnante, résiliente et orientée vers le client\n\nVos avantages\nNous aidons nos employés à façonner leur perfectionnement professionnel et leur vie privée à leur meilleur avantage et tout au long de leur vie. Nos avantages attrayants, comme les options de travail à domicile, 25 à 30 jours de congé, les cotisations du 3e pilier et un large éventail d'options de formation continue contribuent à cet objectif.\n\nInformations pour les agences de recrutement\nPour ce poste, Swiss Life n'accepte aucun dossier de candidature émanant d'agences de recrutement soumises spontanément. Seules les candidatures soumises par accord préalable via le portail des emplois de l'agence de recrutement seront acceptées.\n\nAucune responsabilité ne sera acceptée pour les demandes spontanées et les frais ou frais encourus par elles. Merci de votre compréhension.\n\nVotre contact\nSara Röthlisberger Tél:\n+41 43 284 40 85"
       },
       "location": "Winterthur",
       "canton": "ZH",
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Winterthur/Mitarbeiter-Sales-Support--w-m-d---40----Generalagentur-Winterthur_R13229",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:19:41.768Z",
+      "crawledAt": "2026-11-08T21:46:10.196Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "streetAddress": "Stadthausstrasse 4a",
@@ -7878,7 +7976,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-08T09:19:41.768Z",
+      "validThrough": "2026-12-08T21:46:10.196Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -7912,7 +8010,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Weinfelden/Teamleiter-Verkauf--w-m-d--Generalagentur-Thurgau_R13290",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:19:41.123Z",
+      "crawledAt": "2026-11-08T21:46:09.491Z",
       "addressLocality": "Weinfelden",
       "addressRegion": "TG",
       "streetAddress": "Weinfelden",
@@ -7957,7 +8055,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-08T09:19:41.123Z",
+      "validThrough": "2026-12-08T21:46:09.491Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -7991,7 +8089,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Sursee/Vorsorge--und-Finanzberatende--w-m-d----mit-Erfahrung---Generalagentur-Sursee---Gebiet-Malters_R09255",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:19:40.473Z",
+      "crawledAt": "2026-11-08T21:46:08.823Z",
       "addressLocality": "Sursee",
       "addressRegion": "LU",
       "streetAddress": "Sursee",
@@ -8036,7 +8134,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T09:19:40.473Z",
+      "validThrough": "2026-12-14T21:46:08.823Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -8070,7 +8168,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Zrich/Spezialist-Buchhaltung-fr-Pensionskassen-80-100---w-m-d-_R13058",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:19:39.817Z",
+      "crawledAt": "2026-11-08T21:46:08.062Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Bahnhofstrasse 1",
@@ -8115,7 +8213,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-05T09:19:39.817Z",
+      "validThrough": "2027-01-05T21:46:08.062Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -8149,7 +8247,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Bern/XMLNAME--Senior--Wealth-Planner---Relationship-Manager--w-m-d-_R12540",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-08T09:19:39.088Z",
+      "crawledAt": "2026-11-08T21:46:07.392Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "streetAddress": "Bundesplatz 3",
@@ -8194,7 +8292,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-10T09:19:39.088Z",
+      "validThrough": "2027-01-10T21:46:07.392Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -8228,7 +8326,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Zrich/Mandatsleitung-Pensionskassen-DE-IT--w-m-d--80-100-_R13576",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-08T09:19:38.442Z",
+      "crawledAt": "2026-11-08T21:46:06.707Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Bahnhofstrasse 1",
@@ -8276,7 +8374,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-11T09:19:38.442Z",
+      "validThrough": "2027-01-11T21:46:06.707Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -8310,7 +8408,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Genve/Responsable-quipe-de-vente--f-h-d----Agence-gnrale-Genve-Rive-Gauche_R13638",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-08T09:19:37.746Z",
+      "crawledAt": "2026-11-08T21:46:05.904Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "streetAddress": "Rue de l'Hôtel-de-Ville 2",
@@ -8359,7 +8457,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-12T09:19:37.746Z",
+      "validThrough": "2027-01-12T21:46:05.904Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -8393,7 +8491,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Zrich/Mandatsleitung-1e-Sammelstiftung--80---100---w-m-d-_R13556",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-08T09:19:37.090Z",
+      "crawledAt": "2026-11-08T21:46:05.228Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Bahnhofstrasse 1",
@@ -8441,7 +8539,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-11T09:19:37.090Z",
+      "validThrough": "2027-01-11T21:46:05.228Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -8475,7 +8573,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Thun/Vorsorge--und-Finanzberatende--w-m-d----Quereinsteigende-willkommen---Generalagentur-Thun-Oberland_R13669",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-08T09:19:36.433Z",
+      "crawledAt": "2026-11-08T21:46:04.555Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "streetAddress": "Thun",
@@ -8523,8 +8621,90 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-17T09:19:36.433Z",
+      "validThrough": "2027-01-17T21:46:04.555Z",
       "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "swiss-life-e0a65671ae2f",
+      "slug": "previdenza-e-finanzberatende-w-m-d-quereinsteigende-willkommen-agenzia-generale-solothurn-oberaargau-swiss-life-solothurn-8c007d4616",
+      "slugByLocale": {
+        "en": "vorsorge-und-finanzberatende-w-m-d-quereinsteigende-willkommen-generalagentur-solothurn",
+        "it": "previdenza-e-finanzberatende-w-m-d-quereinsteigende-willkommen-agenzia-generale-solothurn-oberaargau-swiss-life-solothurn-8c007d4616",
+        "fr": "conseillers-et-conseilleres-en-prevoyance-et-en-finance-h-f-d-personnes-en-reconversion-bienvenues-agence-generale",
+        "de": "previdenza-e-finanzberatende-w-m-d-quereinsteigende-willkommen-agenzia-generale-solothurn-oberaargau-swiss-life-solothurn-8c007d4616"
+      },
+      "company": "Swiss Life",
+      "companyKey": "swiss-life",
+      "companyDomain": "swisslife.ch",
+      "title": "Vorsorge- und Finanzberatende (w/m/d) – Quereinsteigende willkommen – Generalagentur Solothurn-Oberaargau",
+      "titleByLocale": {
+        "it": "previdenza- e Finanzberatende (w/m/d) – Quereinsteigende willkommen – agenzia generale Solothurn-Oberaargau",
+        "de": "Vorsorge- und Finanzberatende (w/m/d) – Quereinsteigende willkommen – Generalagentur Solothurn-Oberaargau",
+        "en": "Vorsorge- und Finanzberatende (w/m/d) – Quereinsteigende willkommen – Generalagentur Solothurn-Oberaargau",
+        "fr": "Vorsorge- und Finanzberatende (w/m/d) – Quereinsteigende willkommen – Generalagentur Solothurn-Oberaargau"
+      },
+      "description": "Shape the future. Yours and ours.\n\nWould you like to help people to lead a self-determined life? And do you want to be given the creative scope to reconcile your professional and personal ambitions? Then we can offer you an exciting prospect: as part of the Swiss Life sales force, you can organise your working day independently. You will reach your targets as you see fit and with the support of a practised team.\n\nJob Description For Posting\n\nAgencies near you\n\nYour benefits\n We help our employees to shape their professional and personal development to their best advantage and throughout all phases of their life. Our attractive benefits , such as Cicero-certified introductory training and first-class continuing education, contribute to this. You will also receive above-average social benefits, including pension fund membership and non-contributory accident and short-term disability benefit (UVG/LTG) insurance, plus generous premium contributions to 3rd pillar products.\n\nYour contact\n\nIf you have any questions, please do not hesitate to contact Human Resources Sales Force or the General Agent at your chosen General Agency.\n Only applications received via our application tool will be considered.",
+      "descriptionByLocale": {
+        "en": "Shape the future. Yours and ours.\n\nWould you like to help people to lead a self-determined life? And do you want to be given the creative scope to reconcile your professional and personal ambitions? Then we can offer you an exciting prospect: as part of the Swiss Life sales force, you can organise your working day independently. You will reach your targets as you see fit and with the support of a practised team.\n\nJob Description For Posting\n\nAgencies near you\n\nYour benefits\n We help our employees to shape their professional and personal development to their best advantage and throughout all phases of their life. Our attractive benefits , such as Cicero-certified introductory training and first-class continuing education, contribute to this. You will also receive above-average social benefits, including pension fund membership and non-contributory accident and short-term disability benefit (UVG/LTG) insurance, plus generous premium contributions to 3rd pillar products.\n\nYour contact\n\nIf you have any questions, please do not hesitate to contact Human Resources Sales Force or the General Agent at your chosen General Agency.\n Only applications received via our application tool will be considered.",
+        "it": "Shape the future. Yours and ours.\n\nWould you like to help people to lead a self-determined life? And do you want to be given the creative scope to reconcile your professional and personal ambitions? Then we can offer you an exciting prospect: as part of the Swiss Life sales force, you can organise your working day independently. You will reach your targets as you see fit and with the support of a practised team.\n\nJob Description For Posting\n\nAgencies near you\n\nYour benefits\n We help our employees to shape their professional and personal development to their best advantage and throughout all phases of their life. Our attractive benefits , such as Cicero-certified introductory training and first-class continuing education, contribute to this. You will also receive above-average social benefits, including pension fund membership and non-contributory accident and short-term disability benefit (UVG/LTG) insurance, plus generous premium contributions to 3rd pillar products.\n\nYour contact\n\nIf you have any questions, please do not hesitate to contact Human Resources Sales Force or the General Agent at your chosen General Agency.\n Only applications received via our application tool will be considered.",
+        "de": "Shape the future. Yours and ours.\n\nWould you like to help people to lead a self-determined life? And do you want to be given the creative scope to reconcile your professional and personal ambitions? Then we can offer you an exciting prospect: as part of the Swiss Life sales force, you can organise your working day independently. You will reach your targets as you see fit and with the support of a practised team.\n\nJob Description For Posting\n\nAgencies near you\n\nYour benefits\n We help our employees to shape their professional and personal development to their best advantage and throughout all phases of their life. Our attractive benefits , such as Cicero-certified introductory training and first-class continuing education, contribute to this. You will also receive above-average social benefits, including pension fund membership and non-contributory accident and short-term disability benefit (UVG/LTG) insurance, plus generous premium contributions to 3rd pillar products.\n\nYour contact\n\nIf you have any questions, please do not hesitate to contact Human Resources Sales Force or the General Agent at your chosen General Agency.\n Only applications received via our application tool will be considered.",
+        "fr": "Shape the future. Yours and ours.\n\nWould you like to help people to lead a self-determined life? And do you want to be given the creative scope to reconcile your professional and personal ambitions? Then we can offer you an exciting prospect: as part of the Swiss Life sales force, you can organise your working day independently. You will reach your targets as you see fit and with the support of a practised team.\n\nJob Description For Posting\n\nAgencies near you\n\nYour benefits\n We help our employees to shape their professional and personal development to their best advantage and throughout all phases of their life. Our attractive benefits , such as Cicero-certified introductory training and first-class continuing education, contribute to this. You will also receive above-average social benefits, including pension fund membership and non-contributory accident and short-term disability benefit (UVG/LTG) insurance, plus generous premium contributions to 3rd pillar products.\n\nYour contact\n\nIf you have any questions, please do not hesitate to contact Human Resources Sales Force or the General Agent at your chosen General Agency.\n Only applications received via our application tool will be considered."
+      },
+      "location": "Solothurn",
+      "canton": "SO",
+      "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Solothurn/Vorsorge--und-Finanzberatende--w-m-d----Quereinsteigende-willkommen---Generalagentur-Solothurn-Oberaargau_R13695",
+      "source": "Swiss Life Dedicated Parser (Workday)",
+      "sourceLang": "en",
+      "crawledAt": "2026-11-08T21:46:03.864Z",
+      "addressLocality": "Solothurn",
+      "addressRegion": "SO",
+      "streetAddress": "Hauptgasse 72",
+      "postalCode": "4500",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Finanza",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Assicurazioni / Previdenza",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-10-30",
+      "postedDate": "2026-10-30",
+      "postingDateSource": "reported",
+      "applyUrl": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Solothurn/Vorsorge--und-Finanzberatende--w-m-d----Quereinsteigende-willkommen---Generalagentur-Solothurn-Oberaargau_R13695",
+      "requirements": [],
+      "requirementsByLocale": {
+        "en": []
+      },
+      "jobReqId": "R13695",
+      "hiringOrganization": "Swiss Life GA Solothurn-Oberaargau",
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "vorsorge-und-finanzberatende-w-m-d-quereinsteigende-willkommen-generalagentur-solothurn"
+        ]
+      },
+      "previousSlugs": [
+        "vorsorge-und-finanzberatende-w-m-d-quereinsteigende-willkommen-generalagentur-solothurn"
+      ],
+      "salaryMin": 105500,
+      "salaryMax": 185000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 105500,
+          "maxValue": 185000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-28T21:46:03.864Z",
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-09-19T23:01:33.553Z"
     },
     {
       "id": "swiss-life-4accb0526e04",
@@ -8557,7 +8737,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Zrich/Immobilienberater-in-Swiss-Life-Immopulse-Deutschschweiz_R00060",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-08T09:19:34.758Z",
+      "crawledAt": "2026-11-08T21:46:03.154Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Bahnhofstrasse 1",
@@ -8607,7 +8787,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-08T09:19:34.758Z",
+      "validThrough": "2026-12-08T21:46:03.154Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -8641,7 +8821,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Zrich/Vorsorge--und-Finanzberatende--w-m-d----Deutschschweiz_R08709",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-08T09:19:34.063Z",
+      "crawledAt": "2026-11-08T21:46:02.411Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Bahnhofstrasse 1",
@@ -8686,7 +8866,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-08T09:19:34.063Z",
+      "validThrough": "2026-12-08T21:46:02.411Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -8720,7 +8900,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Lausanne/Conseiller-conseillre-en-prvoyance-et-en-finance--f-h-d----Romandie_R08713",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-08T09:19:33.378Z",
+      "crawledAt": "2026-11-08T21:46:01.648Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "streetAddress": "Place de la Palud 2",
@@ -8809,7 +8989,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-08T09:19:33.378Z",
+      "validThrough": "2026-12-08T21:46:01.648Z",
       "validThroughSource": "last-observed-window"
     }
   ]
