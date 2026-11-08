@@ -150,7 +150,10 @@ rehydrate_locale() {
       # dist/$loc into validation. `-eq` treats any drift between what the
       # archive claims and what extraction produced as a mismatch, forcing
       # the git-clone fallback below.
-      if [ "${unzip_rc:-2}" -le 1 ] && [ "${tar_rc:-2}" -eq 0 ] \
+      # Info-ZIP uses status 1 for warnings, including CRC failures. The tar
+      # stream and file counts can still agree, so only a clean unzip status
+      # may accept the artifact.
+      if [ "${unzip_rc:-2}" -eq 0 ] && [ "${tar_rc:-2}" -eq 0 ] \
           && [ -d "dist/$loc" ] && [ "${expected_n:-0}" -gt 0 ] && [ "$actual_n" -eq "$expected_n" ]; then
         echo "rehydrated $loc from tar artifact: $actual_n files (tar listed $expected_n)"
         rehydrate_provenance "$loc" artifact "locale-dist-$loc-$artifact_run_id"

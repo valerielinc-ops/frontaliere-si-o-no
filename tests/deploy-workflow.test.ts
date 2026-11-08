@@ -542,7 +542,7 @@ describe('deploy.yml + audit-dist-from-run.yml — tar-pack rehydrate fast path 
     expect(REHYDRATE_LOCALE_SCRIPT).toContain('"repos/$repo/actions/artifacts/$artifact_id/zip"');
     expect(REHYDRATE_LOCALE_SCRIPT).toContain('expected_n="$(unzip -p "$dl/$locale_zip" "$locale_member"');
     expect(REHYDRATE_LOCALE_SCRIPT).toContain('unzip -p "$dl/$locale_zip" "$locale_member" | tar -C dist -xf -');
-    expect(REHYDRATE_LOCALE_SCRIPT).toContain('"${unzip_rc:-2}" -le 1');
+    expect(REHYDRATE_LOCALE_SCRIPT).toContain('"${unzip_rc:-2}" -eq 0');
     expect(REHYDRATE_LOCALE_SCRIPT).toContain('"${tar_rc:-2}" -eq 0');
     const localeLiveCode = REHYDRATE_LOCALE_SCRIPT
       .split('\n')
@@ -550,7 +550,7 @@ describe('deploy.yml + audit-dist-from-run.yml — tar-pack rehydrate fast path 
       .join('\n');
     expect(localeLiveCode).not.toContain('gh run download');
     expect(REHYDRATE_LOCALE_SCRIPT, 'locale rehydrate loop missing completeness gate (expected_n/actual_n)').toMatch(
-      /if \[ "\$\{unzip_rc:-2\}" -le 1 \][\s\S]*?\[ "\$actual_n" -eq "\$expected_n" \]/,
+      /if \[ "\$\{unzip_rc:-2\}" -eq 0 \][\s\S]*?\[ "\$actual_n" -eq "\$expected_n" \]/,
     );
     // The section loop no longer has a tar FILE (2026-10-01, deploy-publish
     // run 36810296662 out of disk): both passes stream `$section-dist-$loc.tar`
@@ -562,7 +562,7 @@ describe('deploy.yml + audit-dist-from-run.yml — tar-pack rehydrate fast path 
       `expected_n=\\$\\(unzip -p "\\$dl/\\$BATCH_ZIP" "\\$member" 2>/dev/null \\| tar -tf - 2>/dev/null \\| \\{ grep -vc '/\\$' \\|\\| true; \\}\\)[\\s\\S]*?` +
       `unzip -p "\\$dl/\\$BATCH_ZIP" "\\$member" \\| tar -C dist -xf -\\n[\\s\\S]*?` +
       `unzip_rc="\\$\\{PIPESTATUS\\[0\\]\\}"[\\s\\S]*?` +
-      `if \\[ "\\\$\\{unzip_rc:-2\\}" -le 1 \\] && \\[ -d "dist/\\$sub" \\] && \\[ "\\\$\\{expected_n:-0\\}" -gt 0 \\] && \\[ "\\$actual_n" -eq "\\$expected_n" \\]`,
+      `if \\[ "\\\$\\{unzip_rc:-2\\}" -eq 0 \\] && \\[ -d "dist/\\$sub" \\] && \\[ "\\\$\\{expected_n:-0\\}" -gt 0 \\] && \\[ "\\$actual_n" -eq "\\$expected_n" \\]`,
     );
     expect(REHYDRATE_SECTION_SCRIPT, 'section rehydrate loop missing completeness gate (expected_n/actual_n/unzip_rc)').toMatch(sectionRe);
     // The bare `if [ -d dist/$loc ]; then ... continue; fi` (no count check)
