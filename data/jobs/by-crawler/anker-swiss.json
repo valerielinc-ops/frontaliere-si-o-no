@@ -15129,12 +15129,12 @@
     },
     {
       "id": "anker-swiss-4f9c781991a2",
-      "slug": "bauwerktrenner-100-anker-swiss-ticino-ag-emmenbrucke-4f9c7819",
+      "slug": "partitioner-100-anker-swiss-ticino-ag-emmenbrucke-4f9c7819",
       "slugByLocale": {
-        "it": "bauwerktrenner-100-anker-swiss-ticino-ag-emmenbrucke-4f9c7819",
-        "en": "bauwerktrenner-100-anker-swiss-ticino-ag-emmenbrucke-4f9c7819",
         "de": "bauwerktrenner-100-anker-swiss-ticino-ag-emmenbrucke-4f9c7819",
-        "fr": "bauwerktrenner-100-anker-swiss-ticino-ag-emmenbrucke-4f9c7819"
+        "it": "partitioner-100-anker-swiss-ticino-ag-emmenbrucke-4f9c7819",
+        "en": "bauwerktrenner-100-anker-swiss-ticino-ag-emmenbrucke-4f9c7819",
+        "fr": "partitionnaire-100-anker-swiss-ticino-ag-emmenbrucke-4f9c7819"
       },
       "slugDisambiguator": "4f9c7819",
       "company": "Anker Swiss Ticino AG",
@@ -15182,22 +15182,25 @@
       "previousSlugs": [
         "bauwerktrenner-100-anker-swiss-ticino-ag-emmenbrucke-d66512ad",
         "partitioner-100-anker-swiss-ticino-ag-emmenbrucke-d66512ad",
-        "partitionnaire-100-anker-swiss-ticino-ag-emmenbrucke-d66512ad"
+        "partitionnaire-100-anker-swiss-ticino-ag-emmenbrucke-d66512ad",
+        "bauwerktrenner-100-anker-swiss-ticino-ag-emmenbrucke-4f9c7819"
       ],
       "previousSlugsByLocale": {
         "it": [
           "bauwerktrenner-100-anker-swiss-ticino-ag-emmenbrucke-d66512ad",
-          "partitioner-100-anker-swiss-ticino-ag-emmenbrucke-d66512ad"
-        ],
-        "en": [
-          "bauwerktrenner-100-anker-swiss-ticino-ag-emmenbrucke-d66512ad"
+          "partitioner-100-anker-swiss-ticino-ag-emmenbrucke-d66512ad",
+          "bauwerktrenner-100-anker-swiss-ticino-ag-emmenbrucke-4f9c7819"
         ],
         "de": [
           "bauwerktrenner-100-anker-swiss-ticino-ag-emmenbrucke-d66512ad"
         ],
         "fr": [
           "bauwerktrenner-100-anker-swiss-ticino-ag-emmenbrucke-d66512ad",
-          "partitionnaire-100-anker-swiss-ticino-ag-emmenbrucke-d66512ad"
+          "partitionnaire-100-anker-swiss-ticino-ag-emmenbrucke-d66512ad",
+          "bauwerktrenner-100-anker-swiss-ticino-ag-emmenbrucke-4f9c7819"
+        ],
+        "en": [
+          "bauwerktrenner-100-anker-swiss-ticino-ag-emmenbrucke-d66512ad"
         ]
       },
       "salaryMin": 69500,
@@ -18263,12 +18266,12 @@
     },
     {
       "id": "anker-swiss-d5b511038131",
-      "slug": "metallbauer-100-anker-swiss-ticino-ag-biglen-d5b51103",
+      "slug": "lavoratori-100-anker-swiss-ticino-ag-biglen-d5b51103",
       "slugByLocale": {
-        "it": "metallbauer-100-anker-swiss-ticino-ag-biglen-d5b51103",
-        "en": "metallbauer-100-anker-swiss-ticino-ag-biglen-d5b51103",
         "de": "metallbauer-100-anker-swiss-ticino-ag-biglen-d5b51103",
-        "fr": "metallbauer-100-anker-swiss-ticino-ag-biglen-d5b51103"
+        "it": "lavoratori-100-anker-swiss-ticino-ag-biglen-d5b51103",
+        "en": "metalworkers-100-anker-swiss-ticino-ag-biglen-d5b51103",
+        "fr": "metaux-100-anker-swiss-ticino-ag-biglen-d5b51103"
       },
       "slugDisambiguator": "d5b51103",
       "company": "Anker Swiss Ticino AG",
@@ -18317,23 +18320,27 @@
         "metallbauer-100-anker-swiss-ticino-ag-biglen-e1e7ae16",
         "lavoratori-100-anker-swiss-ticino-ag-biglen-e1e7ae16",
         "metalworkers-100-anker-swiss-ticino-ag-biglen-e1e7ae16",
-        "metaux-100-anker-swiss-ticino-ag-biglen-e1e7ae16"
+        "metaux-100-anker-swiss-ticino-ag-biglen-e1e7ae16",
+        "metallbauer-100-anker-swiss-ticino-ag-biglen-d5b51103"
       ],
       "previousSlugsByLocale": {
         "it": [
           "metallbauer-100-anker-swiss-ticino-ag-biglen-e1e7ae16",
-          "lavoratori-100-anker-swiss-ticino-ag-biglen-e1e7ae16"
+          "lavoratori-100-anker-swiss-ticino-ag-biglen-e1e7ae16",
+          "metallbauer-100-anker-swiss-ticino-ag-biglen-d5b51103"
         ],
         "en": [
           "metallbauer-100-anker-swiss-ticino-ag-biglen-e1e7ae16",
-          "metalworkers-100-anker-swiss-ticino-ag-biglen-e1e7ae16"
+          "metalworkers-100-anker-swiss-ticino-ag-biglen-e1e7ae16",
+          "metallbauer-100-anker-swiss-ticino-ag-biglen-d5b51103"
         ],
         "de": [
           "metallbauer-100-anker-swiss-ticino-ag-biglen-e1e7ae16"
         ],
         "fr": [
           "metallbauer-100-anker-swiss-ticino-ag-biglen-e1e7ae16",
-          "metaux-100-anker-swiss-ticino-ag-biglen-e1e7ae16"
+          "metaux-100-anker-swiss-ticino-ag-biglen-e1e7ae16",
+          "metallbauer-100-anker-swiss-ticino-ag-biglen-d5b51103"
         ]
       },
       "salaryMin": 68500,
@@ -21786,12 +21793,12 @@
     },
     {
       "id": "anker-swiss-764ea899d74f",
-      "slug": "dachdecker-100-anker-swiss-ticino-ag-bern-764ea899",
+      "slug": "copertura-100-anker-swiss-ticino-ag-bern-764ea899",
       "slugByLocale": {
-        "it": "dachdecker-100-anker-swiss-ticino-ag-bern-764ea899",
-        "en": "dachdecker-100-anker-swiss-ticino-ag-bern-764ea899",
         "de": "dachdecker-100-anker-swiss-ticino-ag-bern-764ea899",
-        "fr": "dachdecker-100-anker-swiss-ticino-ag-bern-764ea899"
+        "it": "copertura-100-anker-swiss-ticino-ag-bern-764ea899",
+        "en": "roofing-100-anker-swiss-ticino-ag-bern-764ea899",
+        "fr": "toiture-100-anker-swiss-ticino-ag-bern-764ea899"
       },
       "slugDisambiguator": "764ea899",
       "company": "Anker Swiss Ticino AG",
@@ -21840,23 +21847,27 @@
         "dachdecker-100-anker-swiss-ticino-ag-bern-10f97645",
         "copertura-100-anker-swiss-ticino-ag-bern-10f97645",
         "roofing-100-anker-swiss-ticino-ag-bern-10f97645",
-        "toiture-100-anker-swiss-ticino-ag-bern-10f97645"
+        "toiture-100-anker-swiss-ticino-ag-bern-10f97645",
+        "dachdecker-100-anker-swiss-ticino-ag-bern-764ea899"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dachdecker-100-anker-swiss-ticino-ag-bern-10f97645",
-          "copertura-100-anker-swiss-ticino-ag-bern-10f97645"
+          "copertura-100-anker-swiss-ticino-ag-bern-10f97645",
+          "dachdecker-100-anker-swiss-ticino-ag-bern-764ea899"
         ],
         "en": [
           "dachdecker-100-anker-swiss-ticino-ag-bern-10f97645",
-          "roofing-100-anker-swiss-ticino-ag-bern-10f97645"
+          "roofing-100-anker-swiss-ticino-ag-bern-10f97645",
+          "dachdecker-100-anker-swiss-ticino-ag-bern-764ea899"
         ],
         "de": [
           "dachdecker-100-anker-swiss-ticino-ag-bern-10f97645"
         ],
         "fr": [
           "dachdecker-100-anker-swiss-ticino-ag-bern-10f97645",
-          "toiture-100-anker-swiss-ticino-ag-bern-10f97645"
+          "toiture-100-anker-swiss-ticino-ag-bern-10f97645",
+          "dachdecker-100-anker-swiss-ticino-ag-bern-764ea899"
         ]
       },
       "salaryMin": 68500,

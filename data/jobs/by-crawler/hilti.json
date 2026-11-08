@@ -971,7 +971,7 @@
       "slugByLocale": {
         "fr": "mitarbeiter-kundendatenverwaltung-m-w-d-hilti-zurich",
         "it": "collaboratore-trice-kundendatenverwaltung-m-w-d-hilti-zurich",
-        "en": "collaborator-customer-data-management-m-w-d-hilti-zurich",
+        "en": "collaborateur-gestion-des-donnees-clients-h-f-d-hilti-ch",
         "de": "mitarbeiter-kundendatenverwaltung-m-w-d-hilti-ch"
       },
       "company": "Hilti",
@@ -1020,19 +1020,20 @@
           "mitarbeiter-kundenstamm-m-w-d-hilti-ch",
           "collaborateur-gestion-des-donnees-clients-h-f-d-hilti-ch"
         ],
+        "en": [
+          "collaborator-customer-data-management-m-w-d-hilti-zurich"
+        ],
         "de": [
           "mitarbeiter-kundenstamm-m-w-d-hilti-ch"
         ],
         "fr": [
           "collaborateur-gestion-des-donnees-clients-h-f-d-hilti-ch"
-        ],
-        "en": [
-          "collaborateur-gestion-des-donnees-clients-h-f-d-hilti-ch"
         ]
       },
       "previousSlugs": [
         "mitarbeiter-kundenstamm-m-w-d-hilti-ch",
-        "collaborateur-gestion-des-donnees-clients-h-f-d-hilti-ch"
+        "collaborateur-gestion-des-donnees-clients-h-f-d-hilti-ch",
+        "collaborator-customer-data-management-m-w-d-hilti-zurich"
       ],
       "firstSeenAt": "2026-08-20T10:09:01.466Z",
       "salaryMin": 73500,
@@ -1307,12 +1308,12 @@
     },
     {
       "id": "hilti-19175-en",
-      "slug": "tirocinante-it-controlling-m-f-x-hilti-buchs",
+      "slug": "tirocinante-it-controlling-m-f-x-hilti-buchs-st-gallen",
       "slugByLocale": {
         "en": "intern-it-controlling-m-f-x-hilti-ch",
-        "it": "tirocinante-it-controlling-m-f-x-hilti-buchs",
-        "de": "praktikant-it-controlling-m-f-x-hilti-buchs",
-        "fr": "stagiaire-it-controlling-m-f-x-hilti-buchs"
+        "it": "tirocinante-it-controlling-m-f-x-hilti-buchs-st-gallen",
+        "de": "praktikant-it-controlling-m-f-x-hilti-buchs-st-gallen",
+        "fr": "stagiaire-it-controlling-m-f-x-hilti-buchs-st-gallen"
       },
       "company": "Hilti",
       "companyKey": "hilti",
@@ -1377,27 +1378,33 @@
       "crawlerMissStreak": 1,
       "previousSlugsByLocale": {
         "it": [
-          "intern-it-controlling-m-f-x-hilti-ch"
+          "intern-it-controlling-m-f-x-hilti-ch",
+          "tirocinante-it-controlling-m-f-x-hilti-buchs"
         ],
         "de": [
-          "intern-it-controlling-m-f-x-hilti-ch"
+          "intern-it-controlling-m-f-x-hilti-ch",
+          "praktikant-it-controlling-m-f-x-hilti-buchs"
         ],
         "fr": [
-          "intern-it-controlling-m-f-x-hilti-ch"
+          "intern-it-controlling-m-f-x-hilti-ch",
+          "stagiaire-it-controlling-m-f-x-hilti-buchs"
         ]
       },
       "previousSlugs": [
-        "intern-it-controlling-m-f-x-hilti-ch"
+        "intern-it-controlling-m-f-x-hilti-ch",
+        "tirocinante-it-controlling-m-f-x-hilti-buchs",
+        "praktikant-it-controlling-m-f-x-hilti-buchs",
+        "stagiaire-it-controlling-m-f-x-hilti-buchs"
       ]
     },
     {
       "id": "hilti-19799-en",
-      "slug": "tirocinante-cybersecurity-m-f-x-hilti-buchs",
+      "slug": "tirocinante-cybersecurity-m-f-x-hilti-buchs-st-gallen",
       "slugByLocale": {
         "en": "intern-cybersecurity-m-f-x-hilti-ch",
-        "it": "tirocinante-cybersecurity-m-f-x-hilti-buchs",
-        "de": "praktikant-cybersecurity-m-f-x-hilti-buchs",
-        "fr": "stagiaire-cybersecurity-m-f-x-hilti-buchs"
+        "it": "tirocinante-cybersecurity-m-f-x-hilti-buchs-st-gallen",
+        "de": "praktikant-cybersecurity-m-f-x-hilti-buchs-st-gallen",
+        "fr": "stagiaire-cybersecurity-m-f-x-hilti-buchs-st-gallen"
       },
       "company": "Hilti",
       "companyKey": "hilti",
@@ -1462,17 +1469,23 @@
       "crawlerMissStreak": 1,
       "previousSlugsByLocale": {
         "it": [
-          "intern-cybersecurity-m-f-x-hilti-ch"
+          "intern-cybersecurity-m-f-x-hilti-ch",
+          "tirocinante-cybersecurity-m-f-x-hilti-buchs"
         ],
         "de": [
-          "intern-cybersecurity-m-f-x-hilti-ch"
+          "intern-cybersecurity-m-f-x-hilti-ch",
+          "praktikant-cybersecurity-m-f-x-hilti-buchs"
         ],
         "fr": [
-          "intern-cybersecurity-m-f-x-hilti-ch"
+          "intern-cybersecurity-m-f-x-hilti-ch",
+          "stagiaire-cybersecurity-m-f-x-hilti-buchs"
         ]
       },
       "previousSlugs": [
-        "intern-cybersecurity-m-f-x-hilti-ch"
+        "intern-cybersecurity-m-f-x-hilti-ch",
+        "tirocinante-cybersecurity-m-f-x-hilti-buchs",
+        "praktikant-cybersecurity-m-f-x-hilti-buchs",
+        "stagiaire-cybersecurity-m-f-x-hilti-buchs"
       ]
     },
     {
@@ -1556,10 +1569,10 @@
     },
     {
       "id": "hilti-19408-en",
-      "slug": "proprieta-della-soluzione-ai-analytics-m-f-x-hilti-buchs",
+      "slug": "proprieta-della-soluzione-ai-analytics-m-f-x-hilti-buchs-st-gallen",
       "slugByLocale": {
         "en": "solution-owner-ai-analytics-m-f-x-hilti-ch",
-        "it": "proprieta-della-soluzione-ai-analytics-m-f-x-hilti-buchs",
+        "it": "proprieta-della-soluzione-ai-analytics-m-f-x-hilti-buchs-st-gallen",
         "de": "solution-owner-ai-analytics-m-f-x-hilti-ch",
         "fr": "proprietaire-de-la-solution-ai-analytics-h-f-x-hilti-buchs"
       },
@@ -1626,14 +1639,16 @@
       "crawlerMissStreak": 1,
       "previousSlugsByLocale": {
         "it": [
-          "solution-owner-ai-analytics-m-f-x-hilti-ch"
+          "solution-owner-ai-analytics-m-f-x-hilti-ch",
+          "proprieta-della-soluzione-ai-analytics-m-f-x-hilti-buchs"
         ],
         "fr": [
           "solution-owner-ai-analytics-m-f-x-hilti-ch"
         ]
       },
       "previousSlugs": [
-        "solution-owner-ai-analytics-m-f-x-hilti-ch"
+        "solution-owner-ai-analytics-m-f-x-hilti-ch",
+        "proprieta-della-soluzione-ai-analytics-m-f-x-hilti-buchs"
       ]
     }
   ]

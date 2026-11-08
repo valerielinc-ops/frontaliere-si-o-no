@@ -10998,12 +10998,12 @@
     },
     {
       "id": "kanton-zuerich-f474821e1436",
-      "slug": "segretario-amministrativo-tuttofare-kantonale-verwaltung-zurich-8330-pfaffikon-zh-2c2fbf1548",
+      "slug": "segretario-amministrativo-tuttofare-kantonale-verwaltung-zurich-8330-pfaffikon-zh",
       "slugByLocale": {
-        "it": "segretario-amministrativo-tuttofare-kantonale-verwaltung-zurich-8330-pfaffikon-zh-2c2fbf1548",
-        "en": "verwaltungssekretar-in-allrounder-in-kantonale-verwaltung-zurich-8330-pfaffikon-zh",
         "de": "verwaltungssekretar-in-allrounder-in-kanton-zuerich-8330-pfaffikon-zh",
-        "fr": "verwaltungssekretar-in-allrounder-in-kantonale-verwaltung-zurich-8330-pfaffikon-zh"
+        "it": "segretario-amministrativo-tuttofare-kantonale-verwaltung-zurich-8330-pfaffikon-zh",
+        "en": "administrative-secretary-all-rounder-kantonale-verwaltung-zurich-8330-pfaffikon-zh",
+        "fr": "secretaire-administratif-polyvalent-kantonale-verwaltung-zurich-8330-pfaffikon-zh"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -11054,12 +11054,20 @@
       "previousSlugsByLocale": {
         "it": [
           "verwaltungssekretar-in-allrounder-in-kanton-zuerich-8330-pfaffikon-zh",
+          "verwaltungssekretar-in-allrounder-in-kantonale-verwaltung-zurich-8330-pfaffikon-zh",
+          "segretario-amministrativo-tuttofare-kantonale-verwaltung-zurich-8330-pfaffikon-zh-2c2fbf1548"
+        ],
+        "en": [
+          "verwaltungssekretar-in-allrounder-in-kantonale-verwaltung-zurich-8330-pfaffikon-zh"
+        ],
+        "fr": [
           "verwaltungssekretar-in-allrounder-in-kantonale-verwaltung-zurich-8330-pfaffikon-zh"
         ]
       },
       "previousSlugs": [
         "verwaltungssekretar-in-allrounder-in-kanton-zuerich-8330-pfaffikon-zh",
-        "verwaltungssekretar-in-allrounder-in-kantonale-verwaltung-zurich-8330-pfaffikon-zh"
+        "verwaltungssekretar-in-allrounder-in-kantonale-verwaltung-zurich-8330-pfaffikon-zh",
+        "segretario-amministrativo-tuttofare-kantonale-verwaltung-zurich-8330-pfaffikon-zh-2c2fbf1548"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,

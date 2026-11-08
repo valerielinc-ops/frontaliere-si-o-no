@@ -10957,7 +10957,7 @@
         "it": "carpentieri-di-assemblaggio-della-cucina-sta-personal-ag-schaffhausen-schaffhausen",
         "en": "kitchen-assembly-carpenters-sta-personal-ag-schaffhausen-schaffhausen",
         "de": "schreiner-in-fur-kuchenmontage-schaffhausen-schaffhausen-sta-ch",
-        "fr": "menuisier-ere-pour-le-montage-de-cuisines-sta-personal-ag-schaffhausen"
+        "fr": "charpentiers-d-assemblage-de-cuisine-sta-personal-ag-schaffhausen-schaffhausen"
       },
       "company": "STA Personal AG",
       "companyKey": "sta",
@@ -11002,7 +11002,7 @@
       "previousSlugs": [
         "schreiner-in-fur-kuchenmontage-schaffhausen-schaffhausen-sta-ch",
         "schreiner-in-fur-kuchenmontage-sta-personal-ag-schaffhausen",
-        "charpentiers-d-assemblage-de-cuisine-sta-personal-ag-schaffhausen-schaffhausen"
+        "menuisier-ere-pour-le-montage-de-cuisines-sta-personal-ag-schaffhausen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -11013,7 +11013,7 @@
         ],
         "fr": [
           "schreiner-in-fur-kuchenmontage-sta-personal-ag-schaffhausen",
-          "charpentiers-d-assemblage-de-cuisine-sta-personal-ag-schaffhausen-schaffhausen"
+          "menuisier-ere-pour-le-montage-de-cuisines-sta-personal-ag-schaffhausen"
         ]
       },
       "salaryMin": 57500,
@@ -18829,12 +18829,12 @@
     },
     {
       "id": "sta-400d5c30c396",
-      "slug": "produktionsmechaniker-in-mit-cnc-programmierkenntnissen-sta-personal-ag-zofingen",
+      "slug": "meccanico-di-produzione-con-conoscenze-di-programmazione-cnc-sta-personal-ag-zofingen-aargau",
       "slugByLocale": {
         "de": "produktionsmechaniker-in-mit-cnc-programmierkenntnissen-sta-personal-ag-zofingen",
-        "it": "produktionsmechaniker-in-mit-cnc-programmierkenntnissen-sta-personal-ag-zofingen",
-        "en": "produktionsmechaniker-in-mit-cnc-programmierkenntnissen-sta-personal-ag-zofingen",
-        "fr": "produktionsmechaniker-in-mit-cnc-programmierkenntnissen-sta-personal-ag-zofingen"
+        "it": "meccanico-di-produzione-con-conoscenze-di-programmazione-cnc-sta-personal-ag-zofingen-aargau",
+        "en": "production-mechanic-with-cnc-programming-skills-sta-personal-ag-zofingen-aargau",
+        "fr": "mecanicien-ne-de-production-ayant-des-connaissances-en-programmation-cnc-sta-personal-ag-zofingen-aargau"
       },
       "company": "STA Personal AG",
       "companyKey": "sta",
@@ -18881,14 +18881,22 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "produktionsmechaniker-in-mit-cnc-programmierkenntnissen-zofingen-aargau-sta-ch"
+          "produktionsmechaniker-in-mit-cnc-programmierkenntnissen-zofingen-aargau-sta-ch",
+          "produktionsmechaniker-in-mit-cnc-programmierkenntnissen-sta-personal-ag-zofingen"
         ],
         "de": [
           "produktionsmechaniker-in-mit-cnc-programmierkenntnissen-zofingen-aargau-sta-ch"
+        ],
+        "en": [
+          "produktionsmechaniker-in-mit-cnc-programmierkenntnissen-sta-personal-ag-zofingen"
+        ],
+        "fr": [
+          "produktionsmechaniker-in-mit-cnc-programmierkenntnissen-sta-personal-ag-zofingen"
         ]
       },
       "previousSlugs": [
-        "produktionsmechaniker-in-mit-cnc-programmierkenntnissen-zofingen-aargau-sta-ch"
+        "produktionsmechaniker-in-mit-cnc-programmierkenntnissen-zofingen-aargau-sta-ch",
+        "produktionsmechaniker-in-mit-cnc-programmierkenntnissen-sta-personal-ag-zofingen"
       ],
       "salaryMin": 64500,
       "salaryMax": 110000,
@@ -18909,7 +18917,7 @@
       "validThrough": "2027-02-04T22:03:11.450Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-07T22:03:11.450Z",
-      "translationHoldSince": "2026-11-07T22:03:52.673Z"
+      "translationHoldReleasedAt": "2026-11-08T10:29:10.248Z"
     },
     {
       "id": "sta-3d33c73ea454",
@@ -22329,12 +22337,12 @@
     },
     {
       "id": "sta-cab0450acfc4",
-      "slug": "polymechaniker-in-per-wartung-e-instandhaltung-sta-personal-ag-willisau",
+      "slug": "polimeccanico-a-per-manutenzione-e-riparazione-sta-personal-ag-willisau-luzern",
       "slugByLocale": {
         "de": "polymechaniker-in-fur-wartung-und-instandhaltung-sta-personal-ag-willisau",
-        "it": "polymechaniker-in-per-wartung-e-instandhaltung-sta-personal-ag-willisau",
-        "en": "polymechaniker-in-fur-wartung-und-instandhaltung-willisau-luzern-sta-ch",
-        "fr": "polymechaniker-in-fur-wartung-und-instandhaltung-willisau-luzern-sta-ch"
+        "it": "polimeccanico-a-per-manutenzione-e-riparazione-sta-personal-ag-willisau-luzern",
+        "en": "polymechanic-for-maintenance-and-servicing-sta-personal-ag-willisau-luzern",
+        "fr": "polymecanicien-ne-de-maintenance-et-d-entretien-sta-personal-ag-willisau-luzern"
       },
       "company": "STA Personal AG",
       "companyKey": "sta",
@@ -22381,14 +22389,22 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "polymechaniker-in-fur-wartung-und-instandhaltung-willisau-luzern-sta-ch"
+          "polymechaniker-in-fur-wartung-und-instandhaltung-willisau-luzern-sta-ch",
+          "polymechaniker-in-per-wartung-e-instandhaltung-sta-personal-ag-willisau"
         ],
         "de": [
+          "polymechaniker-in-fur-wartung-und-instandhaltung-willisau-luzern-sta-ch"
+        ],
+        "en": [
+          "polymechaniker-in-fur-wartung-und-instandhaltung-willisau-luzern-sta-ch"
+        ],
+        "fr": [
           "polymechaniker-in-fur-wartung-und-instandhaltung-willisau-luzern-sta-ch"
         ]
       },
       "previousSlugs": [
-        "polymechaniker-in-fur-wartung-und-instandhaltung-willisau-luzern-sta-ch"
+        "polymechaniker-in-fur-wartung-und-instandhaltung-willisau-luzern-sta-ch",
+        "polymechaniker-in-per-wartung-e-instandhaltung-sta-personal-ag-willisau"
       ],
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -22409,7 +22425,7 @@
       "validThrough": "2027-02-04T22:03:11.442Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-07T22:03:11.442Z",
-      "translationHoldSince": "2026-11-07T22:03:52.673Z"
+      "translationHoldReleasedAt": "2026-11-08T10:29:10.248Z"
     },
     {
       "id": "sta-d6e64a2c483c",
@@ -23900,12 +23916,12 @@
     },
     {
       "id": "sta-6c74dbe665bf",
-      "slug": "polymechaniker-in-per-cnc-programmierung-e-tiefbohrmaschinen-sta-personal-ag-zofingen",
+      "slug": "polimeccanico-a-per-programmazione-cnc-e-foratrici-profonde-sta-personal-ag-zofingen-aargau",
       "slugByLocale": {
         "de": "polymechaniker-in-fur-cnc-programmierung-und-tiefbohrmaschinen-sta-personal-ag-zofingen",
-        "it": "polymechaniker-in-per-cnc-programmierung-e-tiefbohrmaschinen-sta-personal-ag-zofingen",
-        "en": "polymechaniker-in-fur-cnc-programmierung-und-tiefbohrmaschinen-sta-personal-ag-zofingen",
-        "fr": "polymechaniker-in-fur-cnc-programmierung-und-tiefbohrmaschinen-sta-personal-ag-zofingen"
+        "it": "polimeccanico-a-per-programmazione-cnc-e-foratrici-profonde-sta-personal-ag-zofingen-aargau",
+        "en": "polymechanic-for-cnc-programming-and-deep-drilling-machines-sta-personal-ag-zofingen-aargau",
+        "fr": "polymecanicien-ne-pour-la-programmation-cnc-et-les-perceuses-profondes-sta-personal-ag-zofingen-aargau"
       },
       "company": "STA Personal AG",
       "companyKey": "sta",
@@ -23952,14 +23968,23 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "polymechaniker-in-fur-cnc-programmierung-und-tiefbohrmaschinen-zofingen-aargau-sta-ch"
+          "polymechaniker-in-fur-cnc-programmierung-und-tiefbohrmaschinen-zofingen-aargau-sta-ch",
+          "polymechaniker-in-per-cnc-programmierung-e-tiefbohrmaschinen-sta-personal-ag-zofingen"
         ],
         "de": [
           "polymechaniker-in-fur-cnc-programmierung-und-tiefbohrmaschinen-zofingen-aargau-sta-ch"
+        ],
+        "en": [
+          "polymechaniker-in-fur-cnc-programmierung-und-tiefbohrmaschinen-sta-personal-ag-zofingen"
+        ],
+        "fr": [
+          "polymechaniker-in-fur-cnc-programmierung-und-tiefbohrmaschinen-sta-personal-ag-zofingen"
         ]
       },
       "previousSlugs": [
-        "polymechaniker-in-fur-cnc-programmierung-und-tiefbohrmaschinen-zofingen-aargau-sta-ch"
+        "polymechaniker-in-fur-cnc-programmierung-und-tiefbohrmaschinen-zofingen-aargau-sta-ch",
+        "polymechaniker-in-per-cnc-programmierung-e-tiefbohrmaschinen-sta-personal-ag-zofingen",
+        "polymechaniker-in-fur-cnc-programmierung-und-tiefbohrmaschinen-sta-personal-ag-zofingen"
       ],
       "salaryMin": 64500,
       "salaryMax": 110000,
@@ -23980,7 +24005,7 @@
       "validThrough": "2027-02-04T22:03:11.437Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-07T22:03:11.437Z",
-      "translationHoldSince": "2026-11-07T22:03:52.673Z"
+      "translationHoldReleasedAt": "2026-11-08T10:29:10.248Z"
     },
     {
       "id": "sta-87548ff47839",
@@ -29552,12 +29577,12 @@
     },
     {
       "id": "sta-85ae9feb3b48",
-      "slug": "polymechaniker-in-montage-per-inhousearbeiten-sta-personal-ag-sursee",
+      "slug": "polimeccanico-a-montaggio-per-lavori-interni-sta-personal-ag-sursee-luzern",
       "slugByLocale": {
         "de": "polymechaniker-in-montage-fur-inhousearbeiten-sta-personal-ag-sursee",
-        "it": "polymechaniker-in-montage-per-inhousearbeiten-sta-personal-ag-sursee",
-        "en": "polymechaniker-in-montage-fur-inhousearbeiten-sta-personal-ag-sursee",
-        "fr": "polymechaniker-in-montage-fur-inhousearbeiten-sta-personal-ag-sursee"
+        "it": "polimeccanico-a-montaggio-per-lavori-interni-sta-personal-ag-sursee-luzern",
+        "en": "polymechanic-assembly-for-in-house-work-sta-personal-ag-sursee-luzern",
+        "fr": "polymecanicien-ne-montage-pour-travaux-internes-sta-personal-ag-sursee-luzern"
       },
       "company": "STA Personal AG",
       "companyKey": "sta",
@@ -29604,14 +29629,23 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "polymechaniker-in-montage-fur-inhousearbeiten-sursee-luzern-sta-ch"
+          "polymechaniker-in-montage-fur-inhousearbeiten-sursee-luzern-sta-ch",
+          "polymechaniker-in-montage-per-inhousearbeiten-sta-personal-ag-sursee"
         ],
         "de": [
           "polymechaniker-in-montage-fur-inhousearbeiten-sursee-luzern-sta-ch"
+        ],
+        "en": [
+          "polymechaniker-in-montage-fur-inhousearbeiten-sta-personal-ag-sursee"
+        ],
+        "fr": [
+          "polymechaniker-in-montage-fur-inhousearbeiten-sta-personal-ag-sursee"
         ]
       },
       "previousSlugs": [
-        "polymechaniker-in-montage-fur-inhousearbeiten-sursee-luzern-sta-ch"
+        "polymechaniker-in-montage-fur-inhousearbeiten-sursee-luzern-sta-ch",
+        "polymechaniker-in-montage-per-inhousearbeiten-sta-personal-ag-sursee",
+        "polymechaniker-in-montage-fur-inhousearbeiten-sta-personal-ag-sursee"
       ],
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -29632,7 +29666,7 @@
       "validThrough": "2027-02-04T22:03:11.426Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-07T22:03:11.426Z",
-      "translationHoldSince": "2026-11-07T22:03:52.673Z"
+      "translationHoldReleasedAt": "2026-11-08T10:29:10.248Z"
     },
     {
       "id": "sta-75d53a00444f",
@@ -33034,12 +33068,12 @@
     },
     {
       "id": "sta-701aa45afb2e",
-      "slug": "polymechaniker-in-instandhaltung-come-schicht-betriebsmechaniker-sta-personal-ag-sursee",
+      "slug": "polimeccanico-a-manutenzione-come-meccanico-operativo-a-turni-sta-personal-ag-sursee-luzern",
       "slugByLocale": {
         "de": "polymechaniker-in-instandhaltung-als-schicht-betriebsmechaniker-sta-personal-ag-sursee",
-        "it": "polymechaniker-in-instandhaltung-come-schicht-betriebsmechaniker-sta-personal-ag-sursee",
-        "en": "polymechaniker-in-instandhaltung-als-schicht-betriebsmechaniker-sta-personal-ag-sursee",
-        "fr": "polymechaniker-in-instandhaltung-als-schicht-betriebsmechaniker-sta-personal-ag-sursee"
+        "it": "polimeccanico-a-manutenzione-come-meccanico-operativo-a-turni-sta-personal-ag-sursee-luzern",
+        "en": "polymechanic-maintenance-as-shift-operational-mechanic-sta-personal-ag-sursee-luzern",
+        "fr": "polymecanicien-ne-maintenance-en-tant-que-mecanicien-ne-d-exploitation-poste-e-sta-personal-ag-sursee-luzern"
       },
       "company": "STA Personal AG",
       "companyKey": "sta",
@@ -33086,14 +33120,23 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "polymechaniker-in-instandhaltung-als-schicht-betriebsmechaniker-sursee-luzern-sta-ch"
+          "polymechaniker-in-instandhaltung-als-schicht-betriebsmechaniker-sursee-luzern-sta-ch",
+          "polymechaniker-in-instandhaltung-come-schicht-betriebsmechaniker-sta-personal-ag-sursee"
         ],
         "de": [
           "polymechaniker-in-instandhaltung-als-schicht-betriebsmechaniker-sursee-luzern-sta-ch"
+        ],
+        "en": [
+          "polymechaniker-in-instandhaltung-als-schicht-betriebsmechaniker-sta-personal-ag-sursee"
+        ],
+        "fr": [
+          "polymechaniker-in-instandhaltung-als-schicht-betriebsmechaniker-sta-personal-ag-sursee"
         ]
       },
       "previousSlugs": [
-        "polymechaniker-in-instandhaltung-als-schicht-betriebsmechaniker-sursee-luzern-sta-ch"
+        "polymechaniker-in-instandhaltung-als-schicht-betriebsmechaniker-sursee-luzern-sta-ch",
+        "polymechaniker-in-instandhaltung-come-schicht-betriebsmechaniker-sta-personal-ag-sursee",
+        "polymechaniker-in-instandhaltung-als-schicht-betriebsmechaniker-sta-personal-ag-sursee"
       ],
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -33114,7 +33157,7 @@
       "validThrough": "2027-02-04T22:03:11.419Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-07T22:03:11.419Z",
-      "translationHoldSince": "2026-11-07T22:03:52.673Z"
+      "translationHoldReleasedAt": "2026-11-08T10:29:10.248Z"
     },
     {
       "id": "sta-3e589f432327",
@@ -38865,12 +38908,12 @@
     },
     {
       "id": "sta-66f42df13ac0",
-      "slug": "polymechaniker-in-cnc-fertigung-mit-cam-programmierung-uster-zurich-sta-ch",
+      "slug": "polimeccanico-a-produzione-cnc-con-programmazione-cam-sta-personal-ag-uster-zurich",
       "slugByLocale": {
         "de": "polymechaniker-in-cnc-fertigung-mit-cam-programmierung-sta-personal-ag-uster",
-        "it": "polymechaniker-in-cnc-fertigung-mit-cam-programmierung-uster-zurich-sta-ch",
-        "en": "polymechaniker-in-cnc-fertigung-mit-cam-programmierung-uster-zurich-sta-ch",
-        "fr": "polymechaniker-in-cnc-fertigung-mit-cam-programmierung-uster-zurich-sta-ch"
+        "it": "polimeccanico-a-produzione-cnc-con-programmazione-cam-sta-personal-ag-uster-zurich",
+        "en": "polymechanic-cnc-production-with-cam-programming-sta-personal-ag-uster-zurich",
+        "fr": "polymecanicien-ne-fabrication-cnc-avec-programmation-fao-sta-personal-ag-uster-zurich"
       },
       "company": "STA Personal AG",
       "companyKey": "sta",
@@ -38934,16 +38977,30 @@
       "validThrough": "2027-02-04T22:03:11.408Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-07T22:03:11.408Z",
-      "translationHoldSince": "2026-11-07T22:03:52.673Z"
+      "translationHoldReleasedAt": "2026-11-08T10:29:10.248Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "polymechaniker-in-cnc-fertigung-mit-cam-programmierung-uster-zurich-sta-ch"
+        ],
+        "en": [
+          "polymechaniker-in-cnc-fertigung-mit-cam-programmierung-uster-zurich-sta-ch"
+        ],
+        "fr": [
+          "polymechaniker-in-cnc-fertigung-mit-cam-programmierung-uster-zurich-sta-ch"
+        ]
+      },
+      "previousSlugs": [
+        "polymechaniker-in-cnc-fertigung-mit-cam-programmierung-uster-zurich-sta-ch"
+      ]
     },
     {
       "id": "sta-365dbde3e3da",
-      "slug": "polymechaniker-in-cnc-fertigung-mit-cam-systemen-wil-sg-st-gallen-sta-ch",
+      "slug": "polimeccanico-a-produzione-cnc-con-sistemi-cam-sta-personal-ag-wil-sg-st-gallen",
       "slugByLocale": {
         "de": "polymechaniker-in-cnc-fertigung-mit-cam-systemen-sta-personal-ag-wil-sg",
-        "it": "polymechaniker-in-cnc-fertigung-mit-cam-systemen-wil-sg-st-gallen-sta-ch",
-        "en": "polymechaniker-in-cnc-fertigung-mit-cam-systemen-wil-sg-st-gallen-sta-ch",
-        "fr": "polymechaniker-in-cnc-fertigung-mit-cam-systemen-wil-sg-st-gallen-sta-ch"
+        "it": "polimeccanico-a-produzione-cnc-con-sistemi-cam-sta-personal-ag-wil-sg-st-gallen",
+        "en": "polymechanic-cnc-production-with-cam-systems-sta-personal-ag-wil-sg-st-gallen",
+        "fr": "polymecanicien-ne-fabrication-cnc-avec-systemes-fao-sta-personal-ag-wil-sg-st-gallen"
       },
       "company": "STA Personal AG",
       "companyKey": "sta",
@@ -39007,7 +39064,21 @@
       "validThrough": "2027-02-04T22:03:11.408Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-07T22:03:11.408Z",
-      "translationHoldSince": "2026-11-07T22:03:52.673Z"
+      "translationHoldReleasedAt": "2026-11-08T10:29:10.248Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "polymechaniker-in-cnc-fertigung-mit-cam-systemen-wil-sg-st-gallen-sta-ch"
+        ],
+        "en": [
+          "polymechaniker-in-cnc-fertigung-mit-cam-systemen-wil-sg-st-gallen-sta-ch"
+        ],
+        "fr": [
+          "polymechaniker-in-cnc-fertigung-mit-cam-systemen-wil-sg-st-gallen-sta-ch"
+        ]
+      },
+      "previousSlugs": [
+        "polymechaniker-in-cnc-fertigung-mit-cam-systemen-wil-sg-st-gallen-sta-ch"
+      ]
     },
     {
       "id": "sta-fa28bf548334",
@@ -39780,8 +39851,8 @@
       "slugByLocale": {
         "de": "polymechaniker-in-cnc-fertigung-mit-cam-programmierung-zofingen-aargau-sta-ch",
         "it": "polymechaniker-in-cnc-fertigung-con-cam-programmierung-sta-personal-ag-zofingen",
-        "en": "polymechaniker-in-cnc-fertigung-con-cam-programmierung-sta-personal-ag-zofingen",
-        "fr": "polymechaniker-in-cnc-fertigung-con-cam-programmierung-sta-personal-ag-zofingen"
+        "en": "polymechanic-cnc-production-with-cam-programming-sta-personal-ag-zofingen-aargau",
+        "fr": "polymecanicien-ne-fabrication-cnc-avec-programmation-fao-sta-personal-ag-zofingen-aargau"
       },
       "company": "STA Personal AG",
       "companyKey": "sta",
@@ -39829,7 +39900,6 @@
       "previousSlugs": [
         "polymecanique-fabrication-cnc-avec-programmation-fao-sta-personal-ag-zofingen-aargau",
         "mecanicien-ne-en-polymecanique-fabrication-cnc-avec-programmation-fao-sta-personal-ag-zofingen-aargau",
-        "polymecanicien-ne-fabrication-cnc-avec-programmation-fao-sta-personal-ag-zofingen-aargau",
         "polimeccanico-a-produzione-cnc-con-programmazione-cam-sta-personal-ag-zofingen-aargau",
         "polymechanic-cnc-manufacturing-with-cam-programming-sta-personal-ag-zofingen-aargau",
         "polymecanicien-ne-fabrication-cnc-avec-programmation-cam-sta-personal-ag-zofingen-aargau",
@@ -39846,7 +39916,6 @@
         "fr": [
           "polymecanique-fabrication-cnc-avec-programmation-fao-sta-personal-ag-zofingen-aargau",
           "mecanicien-ne-en-polymecanique-fabrication-cnc-avec-programmation-fao-sta-personal-ag-zofingen-aargau",
-          "polymecanicien-ne-fabrication-cnc-avec-programmation-fao-sta-personal-ag-zofingen-aargau",
           "polymecanicien-ne-fabrication-cnc-avec-programmation-cam-sta-personal-ag-zofingen-aargau"
         ]
       },
@@ -59556,7 +59625,7 @@
       "slug": "lavoratori-di-metalli-sta-personal-ag-zurich-zurich",
       "slugByLocale": {
         "it": "lavoratori-di-metalli-sta-personal-ag-zurich-zurich",
-        "en": "metalworker-sta-personal-ag-zurich",
+        "en": "metalworkers-sta-personal-ag-zurich-zurich",
         "de": "metallbauer-in-monteur-in-zurich-zurich-sta-ch",
         "fr": "metaux-sta-personal-ag-zurich-zurich"
       },
@@ -59603,7 +59672,7 @@
       "previousSlugs": [
         "metallbauer-in-monteur-in-zurich-zurich-sta-ch",
         "metallbauer-in-monteur-in-sta-personal-ag-zurich",
-        "metalworkers-sta-personal-ag-zurich-zurich"
+        "metalworker-sta-personal-ag-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -59611,7 +59680,7 @@
         ],
         "en": [
           "metallbauer-in-monteur-in-sta-personal-ag-zurich",
-          "metalworkers-sta-personal-ag-zurich-zurich"
+          "metalworker-sta-personal-ag-zurich"
         ],
         "fr": [
           "metallbauer-in-monteur-in-sta-personal-ag-zurich"
@@ -68814,12 +68883,12 @@
     },
     {
       "id": "sta-3cdcd961da3d",
-      "slug": "landmaschinenmechaniker-in-con-hydraulik-e-pneumatikkenntnissen-sta-personal-ag-willisau",
+      "slug": "meccanico-a-di-macchine-agricole-con-conoscenze-idrauliche-e-pneumatiche-sta-personal-ag-willisau-luzern",
       "slugByLocale": {
         "de": "landmaschinenmechaniker-in-mit-hydraulik-und-pneumatikkenntnissen-sta-personal-ag-willisau",
-        "it": "landmaschinenmechaniker-in-con-hydraulik-e-pneumatikkenntnissen-sta-personal-ag-willisau",
-        "en": "landmaschinenmechaniker-in-mit-hydraulik-und-pneumatikkenntnissen-sta-personal-ag-willisau",
-        "fr": "landmaschinenmechaniker-in-mit-hydraulik-und-pneumatikkenntnissen-sta-personal-ag-willisau"
+        "it": "meccanico-a-di-macchine-agricole-con-conoscenze-idrauliche-e-pneumatiche-sta-personal-ag-willisau-luzern",
+        "en": "agricultural-machinery-mechanic-with-hydraulic-and-pneumatic-skills-sta-personal-ag-willisau-luzern",
+        "fr": "mecanicien-ne-en-machines-agricoles-ayant-des-connaissances-en-hydraulique-et-en-pneumatique-sta-personal-ag-willisau"
       },
       "company": "STA Personal AG",
       "companyKey": "sta",
@@ -68866,14 +68935,23 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "landmaschinenmechaniker-in-mit-hydraulik-und-pneumatikkenntnissen-willisau-luzern-sta-ch"
+          "landmaschinenmechaniker-in-mit-hydraulik-und-pneumatikkenntnissen-willisau-luzern-sta-ch",
+          "landmaschinenmechaniker-in-con-hydraulik-e-pneumatikkenntnissen-sta-personal-ag-willisau"
         ],
         "de": [
           "landmaschinenmechaniker-in-mit-hydraulik-und-pneumatikkenntnissen-willisau-luzern-sta-ch"
+        ],
+        "en": [
+          "landmaschinenmechaniker-in-mit-hydraulik-und-pneumatikkenntnissen-sta-personal-ag-willisau"
+        ],
+        "fr": [
+          "landmaschinenmechaniker-in-mit-hydraulik-und-pneumatikkenntnissen-sta-personal-ag-willisau"
         ]
       },
       "previousSlugs": [
-        "landmaschinenmechaniker-in-mit-hydraulik-und-pneumatikkenntnissen-willisau-luzern-sta-ch"
+        "landmaschinenmechaniker-in-mit-hydraulik-und-pneumatikkenntnissen-willisau-luzern-sta-ch",
+        "landmaschinenmechaniker-in-con-hydraulik-e-pneumatikkenntnissen-sta-personal-ag-willisau",
+        "landmaschinenmechaniker-in-mit-hydraulik-und-pneumatikkenntnissen-sta-personal-ag-willisau"
       ],
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -68894,7 +68972,7 @@
       "validThrough": "2027-02-04T22:03:11.348Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-07T22:03:11.348Z",
-      "translationHoldSince": "2026-11-07T22:03:52.673Z"
+      "translationHoldReleasedAt": "2026-11-08T10:29:10.248Z"
     },
     {
       "id": "sta-f362481a0b1e",
@@ -90067,12 +90145,12 @@
     },
     {
       "id": "sta-5a20339a8a97",
-      "slug": "installatore-trice-elettrico-a-in-per-steuerkabel-e-steuerschrankinstallationen-sta-personal-ag-zofingen",
+      "slug": "installatore-trice-elettrico-a-per-cavi-di-comando-e-installazioni-di-armadi-di-comando-sta-personal-ag-zofingen-aargau",
       "slugByLocale": {
         "de": "elektroinstallateur-in-fur-steuerkabel-und-steuerschrankinstallationen-sta-personal-ag-zofingen",
-        "it": "installatore-trice-elettrico-a-in-per-steuerkabel-e-steuerschrankinstallationen-sta-personal-ag-zofingen",
-        "en": "elektroinstallateur-in-fur-steuerkabel-und-steuerschrankinstallationen-sta-personal-ag-zofingen",
-        "fr": "elektroinstallateur-in-fur-steuerkabel-und-steuerschrankinstallationen-sta-personal-ag-zofingen"
+        "it": "installatore-trice-elettrico-a-per-cavi-di-comando-e-installazioni-di-armadi-di-comando-sta-personal-ag-zofingen-aargau",
+        "en": "electrical-installer-for-control-cables-and-control-cabinet-installations-sta-personal-ag-zofingen-aargau",
+        "fr": "installateur-electricien-pour-les-cables-de-commande-et-les-installations-de-l-armoire-de-commande-sta-personal-ag"
       },
       "company": "STA Personal AG",
       "companyKey": "sta",
@@ -90119,14 +90197,23 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "elektroinstallateur-in-fur-steuerkabel-und-steuerschrankinstallationen-zofingen-aargau-sta"
+          "elektroinstallateur-in-fur-steuerkabel-und-steuerschrankinstallationen-zofingen-aargau-sta",
+          "installatore-trice-elettrico-a-in-per-steuerkabel-e-steuerschrankinstallationen-sta-personal-ag-zofingen"
         ],
         "de": [
           "elektroinstallateur-in-fur-steuerkabel-und-steuerschrankinstallationen-zofingen-aargau-sta"
+        ],
+        "en": [
+          "elektroinstallateur-in-fur-steuerkabel-und-steuerschrankinstallationen-sta-personal-ag-zofingen"
+        ],
+        "fr": [
+          "elektroinstallateur-in-fur-steuerkabel-und-steuerschrankinstallationen-sta-personal-ag-zofingen"
         ]
       },
       "previousSlugs": [
-        "elektroinstallateur-in-fur-steuerkabel-und-steuerschrankinstallationen-zofingen-aargau-sta"
+        "elektroinstallateur-in-fur-steuerkabel-und-steuerschrankinstallationen-zofingen-aargau-sta",
+        "installatore-trice-elettrico-a-in-per-steuerkabel-e-steuerschrankinstallationen-sta-personal-ag-zofingen",
+        "elektroinstallateur-in-fur-steuerkabel-und-steuerschrankinstallationen-sta-personal-ag-zofingen"
       ],
       "salaryMin": 72500,
       "salaryMax": 110500,
@@ -95005,7 +95092,7 @@
         "it": "installatori-elettrici-sta-personal-ag-luzern-luzern",
         "en": "electrical-installers-sta-personal-ag-luzern-luzern",
         "de": "elektroinstallateur-in-fur-ladenbau-luzern-luzern-sta-ch",
-        "fr": "installateur-trice-electricien-ne-pour-l-agencement-de-magasins-sta-personal-ag-luzern"
+        "fr": "installateurs-electriques-sta-personal-ag-luzern-luzern"
       },
       "company": "STA Personal AG",
       "companyKey": "sta",
@@ -95050,7 +95137,7 @@
       "previousSlugs": [
         "elektroinstallateur-in-fur-ladenbau-luzern-luzern-sta-ch",
         "installateur-trice-electricien-ne-fur-ladenbau-sta-personal-ag-luzern",
-        "installateurs-electriques-sta-personal-ag-luzern-luzern"
+        "installateur-trice-electricien-ne-pour-l-agencement-de-magasins-sta-personal-ag-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -95058,7 +95145,7 @@
         ],
         "fr": [
           "installateur-trice-electricien-ne-fur-ladenbau-sta-personal-ag-luzern",
-          "installateurs-electriques-sta-personal-ag-luzern-luzern"
+          "installateur-trice-electricien-ne-pour-l-agencement-de-magasins-sta-personal-ag-luzern"
         ]
       },
       "salaryMin": 78500,
@@ -97398,8 +97485,8 @@
       "slugByLocale": {
         "de": "elektroinstallateur-in-als-servicetechniker-in-zurich-zurich-sta-ch",
         "it": "installatore-trice-elettrico-a-in-come-tecnico-a-di-servizio-sta-personal-ag-zurich",
-        "en": "elektroinstallateur-in-als-servicetechniker-in-zurich-zurich-sta-ch",
-        "fr": "elektroinstallateur-in-als-servicetechniker-in-zurich-zurich-sta-ch"
+        "en": "electrical-installer-as-a-service-technician-sta-personal-ag-zurich-zurich",
+        "fr": "installateur-installateur-electricien-en-tant-que-technicien-ne-de-service-sta-personal-ag-zurich-zurich"
       },
       "company": "STA Personal AG",
       "companyKey": "sta",
@@ -97446,7 +97533,6 @@
       "needsRetranslation": true,
       "previousSlugs": [
         "installateur-trice-electricien-ne-en-tant-que-technicien-ne-de-service-sta-personal-ag-zurich-zurich",
-        "electrical-installer-as-a-service-technician-sta-personal-ag-zurich-zurich",
         "installateur-trice-electricien-ne-comme-technicien-ne-de-service-sta-personal-ag-zurich-zurich",
         "elektroinstallateur-in-als-servicetechniker-in-zurich-zurich-sta-ch"
       ],
@@ -97455,11 +97541,12 @@
           "elektroinstallateur-in-als-servicetechniker-in-zurich-zurich-sta-ch"
         ],
         "en": [
-          "electrical-installer-as-a-service-technician-sta-personal-ag-zurich-zurich"
+          "elektroinstallateur-in-als-servicetechniker-in-zurich-zurich-sta-ch"
         ],
         "fr": [
           "installateur-trice-electricien-ne-en-tant-que-technicien-ne-de-service-sta-personal-ag-zurich-zurich",
-          "installateur-trice-electricien-ne-comme-technicien-ne-de-service-sta-personal-ag-zurich-zurich"
+          "installateur-trice-electricien-ne-comme-technicien-ne-de-service-sta-personal-ag-zurich-zurich",
+          "elektroinstallateur-in-als-servicetechniker-in-zurich-zurich-sta-ch"
         ]
       },
       "salaryMin": 83000,
@@ -100230,12 +100317,12 @@
     },
     {
       "id": "sta-a4865f359a3d",
-      "slug": "carrosserielackierer-in-per-abwechslungsreie-festanstellung-sta-personal-ag-luzern",
+      "slug": "verniciatore-verniciatrice-di-carrozzerie-per-un-lavoro-a-tempo-indeterminato-e-vario-sta-personal-ag-luzern-luzern",
       "slugByLocale": {
         "de": "carrosserielackierer-in-fur-abwechslungsreie-festanstellung-luzern-luzern-sta-ch",
-        "it": "carrosserielackierer-in-per-abwechslungsreie-festanstellung-sta-personal-ag-luzern",
-        "en": "carrosserielackierer-in-fur-abwechslungsreie-festanstellung-luzern-luzern-sta-ch",
-        "fr": "carrosserielackierer-in-fur-abwechslungsreie-festanstellung-luzern-luzern-sta-ch"
+        "it": "verniciatore-verniciatrice-di-carrozzerie-per-un-lavoro-a-tempo-indeterminato-e-vario-sta-personal-ag-luzern-luzern",
+        "en": "body-lacquerer-for-non-varying-permanent-employment-sta-personal-ag-luzern-luzern",
+        "fr": "peintre-de-carrosserie-pour-un-emploi-permanent-sans-alternance-sta-personal-ag-luzern-luzern"
       },
       "company": "STA Personal AG",
       "companyKey": "sta",
@@ -100282,11 +100369,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "carrosserielackierer-in-fur-abwechslungsreie-festanstellung-luzern-luzern-sta-ch",
+          "carrosserielackierer-in-per-abwechslungsreie-festanstellung-sta-personal-ag-luzern"
+        ],
+        "en": [
+          "carrosserielackierer-in-fur-abwechslungsreie-festanstellung-luzern-luzern-sta-ch"
+        ],
+        "fr": [
           "carrosserielackierer-in-fur-abwechslungsreie-festanstellung-luzern-luzern-sta-ch"
         ]
       },
       "previousSlugs": [
-        "carrosserielackierer-in-fur-abwechslungsreie-festanstellung-luzern-luzern-sta-ch"
+        "carrosserielackierer-in-fur-abwechslungsreie-festanstellung-luzern-luzern-sta-ch",
+        "carrosserielackierer-in-per-abwechslungsreie-festanstellung-sta-personal-ag-luzern"
       ],
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -100307,7 +100402,7 @@
       "validThrough": "2027-02-04T22:03:11.272Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-07T22:03:11.272Z",
-      "translationHoldSince": "2026-11-07T22:03:52.673Z"
+      "translationHoldReleasedAt": "2026-11-08T10:29:10.248Z"
     },
     {
       "id": "sta-21af6337dd1d",
@@ -105028,12 +105123,12 @@
     },
     {
       "id": "sta-d36e49a609e3",
-      "slug": "automatiker-in-per-schweizweite-serviceeinsatze-sta-personal-ag-zug",
+      "slug": "operatore-trice-automatico-a-per-interventi-di-assistenza-in-tutta-la-svizzera-sta-personal-ag-zug-zug",
       "slugByLocale": {
         "de": "automatiker-in-fur-schweizweite-serviceeinsatze-zug-zug-sta-ch",
-        "it": "automatiker-in-per-schweizweite-serviceeinsatze-sta-personal-ag-zug",
-        "en": "automatiker-in-fur-schweizweite-serviceeinsatze-zug-zug-sta-ch",
-        "fr": "automatiker-in-fur-schweizweite-serviceeinsatze-zug-zug-sta-ch"
+        "it": "operatore-trice-automatico-a-per-interventi-di-assistenza-in-tutta-la-svizzera-sta-personal-ag-zug-zug",
+        "en": "automation-technician-for-switzerland-wide-service-assignments-sta-personal-ag-zug-zug",
+        "fr": "automaticien-ne-pour-les-interventions-de-service-dans-toute-la-suisse-sta-personal-ag-zug-zug"
       },
       "company": "STA Personal AG",
       "companyKey": "sta",
@@ -105080,11 +105175,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "automatiker-in-fur-schweizweite-serviceeinsatze-zug-zug-sta-ch",
+          "automatiker-in-per-schweizweite-serviceeinsatze-sta-personal-ag-zug"
+        ],
+        "en": [
+          "automatiker-in-fur-schweizweite-serviceeinsatze-zug-zug-sta-ch"
+        ],
+        "fr": [
           "automatiker-in-fur-schweizweite-serviceeinsatze-zug-zug-sta-ch"
         ]
       },
       "previousSlugs": [
-        "automatiker-in-fur-schweizweite-serviceeinsatze-zug-zug-sta-ch"
+        "automatiker-in-fur-schweizweite-serviceeinsatze-zug-zug-sta-ch",
+        "automatiker-in-per-schweizweite-serviceeinsatze-sta-personal-ag-zug"
       ],
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -105105,7 +105208,7 @@
       "validThrough": "2027-02-04T22:03:11.261Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-07T22:03:11.261Z",
-      "translationHoldSince": "2026-11-07T22:03:52.673Z"
+      "translationHoldReleasedAt": "2026-11-08T10:29:10.248Z"
     },
     {
       "id": "sta-1cb977aea5ea",
@@ -107623,12 +107726,12 @@
     },
     {
       "id": "sta-bb94cc061caf",
-      "slug": "automatiker-in-per-elektrischen-anlagenbau-sta-personal-ag-zofingen",
+      "slug": "operatore-trice-in-automazione-per-impiantistica-elettrica-sta-personal-ag-zofingen-aargau",
       "slugByLocale": {
         "de": "automatiker-in-fur-elektrischen-anlagenbau-sta-personal-ag-zofingen",
-        "it": "automatiker-in-per-elektrischen-anlagenbau-sta-personal-ag-zofingen",
-        "en": "automatiker-in-fur-elektrischen-anlagenbau-zofingen-aargau-sta-ch",
-        "fr": "automatiker-in-fur-elektrischen-anlagenbau-zofingen-aargau-sta-ch"
+        "it": "operatore-trice-in-automazione-per-impiantistica-elettrica-sta-personal-ag-zofingen-aargau",
+        "en": "automation-engineer-for-electrical-systems-engineering-sta-personal-ag-zofingen-aargau",
+        "fr": "automaticien-ne-pour-la-construction-d-installations-electriques-sta-personal-ag-zofingen-aargau"
       },
       "company": "STA Personal AG",
       "companyKey": "sta",
@@ -107675,14 +107778,22 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "automatiker-in-fur-elektrischen-anlagenbau-zofingen-aargau-sta-ch"
+          "automatiker-in-fur-elektrischen-anlagenbau-zofingen-aargau-sta-ch",
+          "automatiker-in-per-elektrischen-anlagenbau-sta-personal-ag-zofingen"
         ],
         "de": [
+          "automatiker-in-fur-elektrischen-anlagenbau-zofingen-aargau-sta-ch"
+        ],
+        "en": [
+          "automatiker-in-fur-elektrischen-anlagenbau-zofingen-aargau-sta-ch"
+        ],
+        "fr": [
           "automatiker-in-fur-elektrischen-anlagenbau-zofingen-aargau-sta-ch"
         ]
       },
       "previousSlugs": [
-        "automatiker-in-fur-elektrischen-anlagenbau-zofingen-aargau-sta-ch"
+        "automatiker-in-fur-elektrischen-anlagenbau-zofingen-aargau-sta-ch",
+        "automatiker-in-per-elektrischen-anlagenbau-sta-personal-ag-zofingen"
       ],
       "salaryMin": 72500,
       "salaryMax": 110500,
@@ -107703,7 +107814,7 @@
       "validThrough": "2027-02-04T22:03:11.256Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-07T22:03:11.256Z",
-      "translationHoldSince": "2026-11-07T22:03:52.673Z"
+      "translationHoldReleasedAt": "2026-11-08T10:29:10.248Z"
     },
     {
       "id": "sta-8e9bfa85a8f5",
@@ -110031,12 +110142,12 @@
     },
     {
       "id": "sta-b24e56d0b830",
-      "slug": "anlagen-e-apparatebauer-in-con-tig-e-orbitalschweissen-sta-personal-ag-zurich",
+      "slug": "costruttore-di-impianti-e-apparecchiature-con-saldatura-tig-e-orbitale-sta-personal-ag-zurich-zurich",
       "slugByLocale": {
         "de": "anlagen-und-apparatebauer-in-mit-tig-und-orbitalschweissen-zurich-zurich-sta-ch",
-        "it": "anlagen-e-apparatebauer-in-con-tig-e-orbitalschweissen-sta-personal-ag-zurich",
-        "en": "anlagen-und-apparatebauer-in-mit-tig-und-orbitalschweissen-zurich-zurich-sta-ch",
-        "fr": "anlagen-und-apparatebauer-in-mit-tig-und-orbitalschweissen-zurich-zurich-sta-ch"
+        "it": "costruttore-di-impianti-e-apparecchiature-con-saldatura-tig-e-orbitale-sta-personal-ag-zurich-zurich",
+        "en": "plant-and-equipment-builder-with-tig-and-orbital-welding-sta-personal-ag-zurich-zurich",
+        "fr": "constructeur-constructrice-d-installations-et-d-appareils-avec-soudage-tig-et-orbital-sta-personal-ag-zurich-zurich"
       },
       "company": "STA Personal AG",
       "companyKey": "sta",
@@ -110085,24 +110196,22 @@
         "ingegnere-di-impianti-e-apparecchi-con-tig-e-saldatura-orbitale-sta-personal-ag-zurich-zurich",
         "plant-and-apparatus-engineer-with-tig-and-orbital-welding-sta-personal-ag-zurich-zurich",
         "ingenieur-d-usine-et-d-appareils-avec-tig-et-soudure-orbitale-sta-personal-ag-zurich-zurich",
-        "costruttore-di-impianti-e-apparecchiature-con-saldatura-tig-e-orbitale-sta-personal-ag-zurich-zurich",
-        "plant-and-equipment-builder-with-tig-and-orbital-welding-sta-personal-ag-zurich-zurich",
-        "constructeur-constructrice-d-installations-et-d-appareils-avec-soudage-tig-et-orbital-sta-personal-ag-zurich-zurich",
-        "anlagen-und-apparatebauer-in-mit-tig-und-orbitalschweissen-zurich-zurich-sta-ch"
+        "anlagen-und-apparatebauer-in-mit-tig-und-orbitalschweissen-zurich-zurich-sta-ch",
+        "anlagen-e-apparatebauer-in-con-tig-e-orbitalschweissen-sta-personal-ag-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "ingegnere-di-impianti-e-apparecchi-con-tig-e-saldatura-orbitale-sta-personal-ag-zurich-zurich",
-          "costruttore-di-impianti-e-apparecchiature-con-saldatura-tig-e-orbitale-sta-personal-ag-zurich-zurich",
-          "anlagen-und-apparatebauer-in-mit-tig-und-orbitalschweissen-zurich-zurich-sta-ch"
+          "anlagen-und-apparatebauer-in-mit-tig-und-orbitalschweissen-zurich-zurich-sta-ch",
+          "anlagen-e-apparatebauer-in-con-tig-e-orbitalschweissen-sta-personal-ag-zurich"
         ],
         "en": [
           "plant-and-apparatus-engineer-with-tig-and-orbital-welding-sta-personal-ag-zurich-zurich",
-          "plant-and-equipment-builder-with-tig-and-orbital-welding-sta-personal-ag-zurich-zurich"
+          "anlagen-und-apparatebauer-in-mit-tig-und-orbitalschweissen-zurich-zurich-sta-ch"
         ],
         "fr": [
           "ingenieur-d-usine-et-d-appareils-avec-tig-et-soudure-orbitale-sta-personal-ag-zurich-zurich",
-          "constructeur-constructrice-d-installations-et-d-appareils-avec-soudage-tig-et-orbital-sta-personal-ag-zurich-zurich"
+          "anlagen-und-apparatebauer-in-mit-tig-und-orbitalschweissen-zurich-zurich-sta-ch"
         ]
       },
       "salaryMin": 73500,
@@ -129754,12 +129863,12 @@
     },
     {
       "id": "sta-de2de67ae2cb",
-      "slug": "schreinerpraktiker-in-per-fensterfertigung-sta-personal-ag-entlebuch",
+      "slug": "operatore-di-falegnameria-per-la-produzione-di-finestre-sta-personal-ag-entlebuch-luzern",
       "slugByLocale": {
         "de": "schreinerpraktiker-in-fur-fensterfertigung-sta-personal-ag-entlebuch",
-        "it": "schreinerpraktiker-in-per-fensterfertigung-sta-personal-ag-entlebuch",
-        "en": "schreinerpraktiker-in-fur-fensterfertigung-sta-personal-ag-entlebuch",
-        "fr": "schreinerpraktiker-in-fur-fensterfertigung-sta-personal-ag-entlebuch"
+        "it": "operatore-di-falegnameria-per-la-produzione-di-finestre-sta-personal-ag-entlebuch-luzern",
+        "en": "carpentry-practitioner-for-window-production-sta-personal-ag-entlebuch-luzern",
+        "fr": "praticien-ne-en-menuiserie-pour-la-fabrication-de-fenetres-sta-personal-ag-entlebuch-luzern"
       },
       "company": "STA Personal AG",
       "companyKey": "sta",
@@ -129806,14 +129915,23 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "schreinerpraktiker-in-fur-fensterfertigung-entlebuch-luzern-sta-ch"
+          "schreinerpraktiker-in-fur-fensterfertigung-entlebuch-luzern-sta-ch",
+          "schreinerpraktiker-in-per-fensterfertigung-sta-personal-ag-entlebuch"
         ],
         "de": [
           "schreinerpraktiker-in-fur-fensterfertigung-entlebuch-luzern-sta-ch"
+        ],
+        "en": [
+          "schreinerpraktiker-in-fur-fensterfertigung-sta-personal-ag-entlebuch"
+        ],
+        "fr": [
+          "schreinerpraktiker-in-fur-fensterfertigung-sta-personal-ag-entlebuch"
         ]
       },
       "previousSlugs": [
-        "schreinerpraktiker-in-fur-fensterfertigung-entlebuch-luzern-sta-ch"
+        "schreinerpraktiker-in-fur-fensterfertigung-entlebuch-luzern-sta-ch",
+        "schreinerpraktiker-in-per-fensterfertigung-sta-personal-ag-entlebuch",
+        "schreinerpraktiker-in-fur-fensterfertigung-sta-personal-ag-entlebuch"
       ],
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -129834,7 +129952,7 @@
       "validThrough": "2027-02-04T22:03:11.212Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-07T22:03:11.212Z",
-      "translationHoldSince": "2026-11-07T22:03:52.673Z"
+      "translationHoldReleasedAt": "2026-11-08T10:29:10.248Z"
     },
     {
       "id": "sta-9857ffe3d768",
@@ -134803,12 +134921,12 @@
     },
     {
       "id": "sta-8e1dae672547",
-      "slug": "gartner-in-per-baumpflege-e-gartenunterhalt-sta-personal-ag-langenthal",
+      "slug": "giardiniere-a-per-la-cura-degli-alberi-e-la-manutenzione-del-giardino-sta-personal-ag-langenthal-bern",
       "slugByLocale": {
         "de": "gartner-in-fur-baumpflege-und-gartenunterhalt-sta-personal-ag-langenthal",
-        "it": "gartner-in-per-baumpflege-e-gartenunterhalt-sta-personal-ag-langenthal",
-        "en": "gartner-in-fur-baumpflege-und-gartenunterhalt-sta-personal-ag-langenthal",
-        "fr": "gartner-in-fur-baumpflege-und-gartenunterhalt-sta-personal-ag-langenthal"
+        "it": "giardiniere-a-per-la-cura-degli-alberi-e-la-manutenzione-del-giardino-sta-personal-ag-langenthal-bern",
+        "en": "gardener-for-tree-care-and-garden-maintenance-sta-personal-ag-langenthal-bern",
+        "fr": "jardinier-ere-pour-l-entretien-des-arbres-et-des-jardins-sta-personal-ag-langenthal-bern"
       },
       "company": "STA Personal AG",
       "companyKey": "sta",
@@ -134855,14 +134973,23 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "gartner-in-fur-baumpflege-und-gartenunterhalt-langenthal-bern-sta-ch"
+          "gartner-in-fur-baumpflege-und-gartenunterhalt-langenthal-bern-sta-ch",
+          "gartner-in-per-baumpflege-e-gartenunterhalt-sta-personal-ag-langenthal"
         ],
         "de": [
           "gartner-in-fur-baumpflege-und-gartenunterhalt-langenthal-bern-sta-ch"
+        ],
+        "en": [
+          "gartner-in-fur-baumpflege-und-gartenunterhalt-sta-personal-ag-langenthal"
+        ],
+        "fr": [
+          "gartner-in-fur-baumpflege-und-gartenunterhalt-sta-personal-ag-langenthal"
         ]
       },
       "previousSlugs": [
-        "gartner-in-fur-baumpflege-und-gartenunterhalt-langenthal-bern-sta-ch"
+        "gartner-in-fur-baumpflege-und-gartenunterhalt-langenthal-bern-sta-ch",
+        "gartner-in-per-baumpflege-e-gartenunterhalt-sta-personal-ag-langenthal",
+        "gartner-in-fur-baumpflege-und-gartenunterhalt-sta-personal-ag-langenthal"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -134883,16 +135010,16 @@
       "validThrough": "2027-02-04T22:03:11.202Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-07T22:03:11.202Z",
-      "translationHoldSince": "2026-11-07T22:03:52.673Z"
+      "translationHoldReleasedAt": "2026-11-08T10:29:10.248Z"
     },
     {
       "id": "sta-a74e13d21897",
-      "slug": "heizungsinstallateur-in-per-abwechslungsreiche-serviceeinsatze-sta-personal-ag-luzern",
+      "slug": "installatore-trice-di-riscaldamento-per-vari-interventi-di-assistenza-sta-personal-ag-luzern-luzern",
       "slugByLocale": {
         "de": "heizungsinstallateur-in-fur-abwechslungsreiche-serviceeinsatze-luzern-luzern-sta-ch",
-        "it": "heizungsinstallateur-in-per-abwechslungsreiche-serviceeinsatze-sta-personal-ag-luzern",
-        "en": "heizungsinstallateur-in-fur-abwechslungsreiche-serviceeinsatze-luzern-luzern-sta-ch",
-        "fr": "heizungsinstallateur-in-fur-abwechslungsreiche-serviceeinsatze-luzern-luzern-sta-ch"
+        "it": "installatore-trice-di-riscaldamento-per-vari-interventi-di-assistenza-sta-personal-ag-luzern-luzern",
+        "en": "heating-installer-for-varied-service-assignments-sta-personal-ag-luzern-luzern",
+        "fr": "installateur-trice-de-chauffage-pour-des-interventions-de-service-variees-sta-personal-ag-luzern-luzern"
       },
       "company": "STA Personal AG",
       "companyKey": "sta",
@@ -134939,11 +135066,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "heizungsinstallateur-in-fur-abwechslungsreiche-serviceeinsatze-luzern-luzern-sta-ch",
+          "heizungsinstallateur-in-per-abwechslungsreiche-serviceeinsatze-sta-personal-ag-luzern"
+        ],
+        "en": [
+          "heizungsinstallateur-in-fur-abwechslungsreiche-serviceeinsatze-luzern-luzern-sta-ch"
+        ],
+        "fr": [
           "heizungsinstallateur-in-fur-abwechslungsreiche-serviceeinsatze-luzern-luzern-sta-ch"
         ]
       },
       "previousSlugs": [
-        "heizungsinstallateur-in-fur-abwechslungsreiche-serviceeinsatze-luzern-luzern-sta-ch"
+        "heizungsinstallateur-in-fur-abwechslungsreiche-serviceeinsatze-luzern-luzern-sta-ch",
+        "heizungsinstallateur-in-per-abwechslungsreiche-serviceeinsatze-sta-personal-ag-luzern"
       ],
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -134964,7 +135099,7 @@
       "validThrough": "2027-02-04T22:03:11.202Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-07T22:03:11.202Z",
-      "translationHoldSince": "2026-11-07T22:03:52.673Z"
+      "translationHoldReleasedAt": "2026-11-08T10:29:10.248Z"
     },
     {
       "id": "sta-b776a78844d6",
@@ -135399,12 +135534,12 @@
     },
     {
       "id": "sta-e19f09212ec7",
-      "slug": "gartner-in-garten-e-landschaftsbau-per-neuanlagen-e-umanderungen-sta-personal-ag-langenthal",
+      "slug": "giardiniere-a-giardinaggio-e-paesaggistica-per-nuovi-impianti-e-modifiche-sta-personal-ag-langenthal-bern",
       "slugByLocale": {
         "de": "gartner-in-garten-und-landschaftsbau-fur-neuanlagen-und-umanderungen-sta-personal-ag-langenthal",
-        "it": "gartner-in-garten-e-landschaftsbau-per-neuanlagen-e-umanderungen-sta-personal-ag-langenthal",
-        "en": "gartner-in-garten-und-landschaftsbau-fur-neuanlagen-und-umanderungen-langenthal-bern-sta",
-        "fr": "gartner-in-garten-und-landschaftsbau-fur-neuanlagen-und-umanderungen-langenthal-bern-sta"
+        "it": "giardiniere-a-giardinaggio-e-paesaggistica-per-nuovi-impianti-e-modifiche-sta-personal-ag-langenthal-bern",
+        "en": "gardener-gardening-and-landscaping-for-new-plants-and-modifications-sta-personal-ag-langenthal-bern",
+        "fr": "jardinier-jardiniere-jardinage-et-amenagement-paysager-pour-les-nouvelles-installations-et-les-transformations-sta"
       },
       "company": "STA Personal AG",
       "companyKey": "sta",
@@ -135451,14 +135586,22 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "gartner-in-garten-und-landschaftsbau-fur-neuanlagen-und-umanderungen-langenthal-bern-sta"
+          "gartner-in-garten-und-landschaftsbau-fur-neuanlagen-und-umanderungen-langenthal-bern-sta",
+          "gartner-in-garten-e-landschaftsbau-per-neuanlagen-e-umanderungen-sta-personal-ag-langenthal"
         ],
         "de": [
+          "gartner-in-garten-und-landschaftsbau-fur-neuanlagen-und-umanderungen-langenthal-bern-sta"
+        ],
+        "en": [
+          "gartner-in-garten-und-landschaftsbau-fur-neuanlagen-und-umanderungen-langenthal-bern-sta"
+        ],
+        "fr": [
           "gartner-in-garten-und-landschaftsbau-fur-neuanlagen-und-umanderungen-langenthal-bern-sta"
         ]
       },
       "previousSlugs": [
-        "gartner-in-garten-und-landschaftsbau-fur-neuanlagen-und-umanderungen-langenthal-bern-sta"
+        "gartner-in-garten-und-landschaftsbau-fur-neuanlagen-und-umanderungen-langenthal-bern-sta",
+        "gartner-in-garten-e-landschaftsbau-per-neuanlagen-e-umanderungen-sta-personal-ag-langenthal"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -135479,7 +135622,7 @@
       "validThrough": "2027-02-04T22:03:11.201Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-07T22:03:11.201Z",
-      "translationHoldSince": "2026-11-07T22:03:52.673Z"
+      "translationHoldReleasedAt": "2026-11-08T10:29:10.248Z"
     },
     {
       "id": "sta-52f7b815b70f",
@@ -135916,7 +136059,7 @@
         "it": "installatore-trice-elettrico-a-in-per-wohn-gewerbe-e-industrieinstallationen-sta-personal-ag-lenzburg",
         "en": "residential-commercial-and-industrial-electrical-installers-sta-personal-ag-lenzburg-aargau",
         "de": "elektroinstallateur-in-fur-wohn-gewerbe-und-industrieinstallationen-lenzburg-aargau-sta-ch",
-        "fr": "installateur-trice-electricien-ne-pour-installations-residentielles-commerciales-et-industrielles-sta-personal-ag-lenzburg"
+        "fr": "installateurs-electriques-residentiels-commerciaux-et-industriels-sta-personal-ag-lenzburg-aargau"
       },
       "company": "STA Personal AG",
       "companyKey": "sta",
@@ -135961,7 +136104,7 @@
       "previousSlugs": [
         "elektroinstallateur-in-fur-wohn-gewerbe-und-industrieinstallationen-lenzburg-aargau-sta-ch",
         "installateur-trice-electricien-ne-fur-wohn-gewerbe-und-industrieinstallationen-sta-personal-ag-lenzburg",
-        "installateurs-electriques-residentiels-commerciaux-et-industriels-sta-personal-ag-lenzburg-aargau"
+        "installateur-trice-electricien-ne-pour-installations-residentielles-commerciales-et-industrielles-sta-personal-ag-lenzburg"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -135969,7 +136112,7 @@
         ],
         "fr": [
           "installateur-trice-electricien-ne-fur-wohn-gewerbe-und-industrieinstallationen-sta-personal-ag-lenzburg",
-          "installateurs-electriques-residentiels-commerciaux-et-industriels-sta-personal-ag-lenzburg-aargau"
+          "installateur-trice-electricien-ne-pour-installations-residentielles-commerciales-et-industrielles-sta-personal-ag-lenzburg"
         ]
       },
       "salaryMin": 72500,
@@ -137566,7 +137709,7 @@
         "it": "carpenter-con-talento-organizzativo-sta-personal-ag-luzern-luzern",
         "en": "carpenter-with-organizational-talent-sta-personal-ag-luzern-luzern",
         "de": "schreiner-in-mit-organisationstalent-luzern-luzern-sta-ch",
-        "fr": "menuisier-ere-ayant-le-sens-de-l-organisation-sta-personal-ag-luzern"
+        "fr": "charpentier-avec-talent-organisationnel-sta-personal-ag-luzern-luzern"
       },
       "company": "STA Personal AG",
       "companyKey": "sta",
@@ -137611,7 +137754,7 @@
       "previousSlugs": [
         "schreiner-in-mit-organisationstalent-luzern-luzern-sta-ch",
         "schreiner-in-mit-organisationstalent-sta-personal-ag-luzern",
-        "charpentier-avec-talent-organisationnel-sta-personal-ag-luzern-luzern"
+        "menuisier-ere-ayant-le-sens-de-l-organisation-sta-personal-ag-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -137619,7 +137762,7 @@
         ],
         "fr": [
           "schreiner-in-mit-organisationstalent-sta-personal-ag-luzern",
-          "charpentier-avec-talent-organisationnel-sta-personal-ag-luzern-luzern"
+          "menuisier-ere-ayant-le-sens-de-l-organisation-sta-personal-ag-luzern"
         ]
       },
       "salaryMin": 69500,

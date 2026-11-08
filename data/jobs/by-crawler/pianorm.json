@@ -5,12 +5,12 @@
   "jobs": [
     {
       "id": "pianorm-717860a2d1f6",
-      "slug": "projektleiter-avor-m-w-d-100-pianorm-illnau",
+      "slug": "project-manager-avor-m-f-100-pianorm-illnau",
       "slugByLocale": {
-        "it": "projektleiter-avor-m-w-d-100-pianorm-illnau",
-        "en": "projektleiter-avor-m-w-100-illnau-pianorm-ch",
         "de": "projektleiter-avor-m-w-100-illnau-pianorm-ch",
-        "fr": "projektleiter-avor-m-w-100-illnau-pianorm-ch"
+        "it": "project-manager-avor-m-f-100-pianorm-illnau",
+        "en": "projektleiter-avor-m-w-100-illnau-pianorm-ch",
+        "fr": "gestionnaire-de-projet-avor-h-f-100-pianorm-illnau"
       },
       "company": "pianorm",
       "companyKey": "pianorm",
@@ -56,11 +56,16 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "it": [
+          "projektleiter-avor-m-w-100-illnau-pianorm-ch",
+          "projektleiter-avor-m-w-d-100-pianorm-illnau"
+        ],
+        "fr": [
           "projektleiter-avor-m-w-100-illnau-pianorm-ch"
         ]
       },
       "previousSlugs": [
-        "projektleiter-avor-m-w-100-illnau-pianorm-ch"
+        "projektleiter-avor-m-w-100-illnau-pianorm-ch",
+        "projektleiter-avor-m-w-d-100-pianorm-illnau"
       ],
       "salaryMin": 101500,
       "salaryMax": 154000,
@@ -169,9 +174,9 @@
       "id": "pianorm-8acfeebeebdd",
       "slug": "calcolatore-seller-m-f-100-pianorm-illnau",
       "slugByLocale": {
+        "de": "kalkulator-verkaufer-m-w-100-illnau-pianorm-ch",
         "it": "calcolatore-seller-m-f-100-pianorm-illnau",
         "en": "calculator-seller-m-f-100-pianorm-illnau",
-        "de": "kalkulator-verkaufer-m-w-100-illnau-pianorm-ch",
         "fr": "calculatrice-vendeur-h-f-100-pianorm-illnau"
       },
       "company": "pianorm",

@@ -90,10 +90,10 @@
       "id": "opus-personal-6da4601780d7",
       "slug": "pittore-nella-costruzione-cfc-opus-personal-ag-zweigniederlassung-altdorf-region-vs-valais",
       "slugByLocale": {
+        "fr": "peintre-en-batiment-cfc-region-vs-valais-opus-personal-ch",
         "it": "pittore-nella-costruzione-cfc-opus-personal-ag-zweigniederlassung-altdorf-region-vs-valais",
         "en": "painter-in-cfc-building-opus-personal-ag-zweigniederlassung-altdorf-region-vs-valais",
-        "de": "maler-im-cfc-gebaude-opus-personal-ag-zweigniederlassung-altdorf-region-vs-valais",
-        "fr": "peintre-en-batiment-cfc-region-vs-valais-opus-personal-ch"
+        "de": "maler-im-cfc-gebaude-opus-personal-ag-zweigniederlassung-altdorf-region-vs-valais"
       },
       "company": "Opus Personal AG, Zweigniederlassung Altdorf",
       "companyKey": "opus-personal",
@@ -3901,9 +3901,9 @@
       "id": "opus-personal-9ca448e11884",
       "slug": "specialista-di-manutenzione-meccanico-di-manutenzione-m-f-opus-personal-ag-zweigniederlassung-altdorf-region-nw",
       "slugByLocale": {
+        "de": "instandhaltungsfachmann-instandhaltungsmechaniker-m-w-region-nw-nidwalden-opus-personal-ch",
         "it": "specialista-di-manutenzione-meccanico-di-manutenzione-m-f-opus-personal-ag-zweigniederlassung-altdorf-region-nw",
         "en": "maintenance-specialist-maintenance-mechanic-m-f-opus-personal-ag-zweigniederlassung-altdorf-region-nw-nidwalden",
-        "de": "instandhaltungsfachmann-instandhaltungsmechaniker-m-w-region-nw-nidwalden-opus-personal-ch",
         "fr": "specialiste-de-l-entretien-mecanicien-d-entretien-h-f-opus-personal-ag-zweigniederlassung-altdorf-region-nw-nidwalden"
       },
       "company": "Opus Personal AG, Zweigniederlassung Altdorf",
@@ -4514,9 +4514,9 @@
       "id": "opus-personal-d04024936583",
       "slug": "lavoratori-saldatori-m-f-opus-personal-ag-zweigniederlassung-altdorf-region-nw-nidwalden",
       "slugByLocale": {
+        "de": "metallbauer-schweisser-m-w-region-nw-nidwalden-opus-personal-ch",
         "it": "lavoratori-saldatori-m-f-opus-personal-ag-zweigniederlassung-altdorf-region-nw-nidwalden",
         "en": "metalworkers-welders-m-f-opus-personal-ag-zweigniederlassung-altdorf-region-nw-nidwalden",
-        "de": "metallbauer-schweisser-m-w-region-nw-nidwalden-opus-personal-ch",
         "fr": "metaux-soudeurs-h-f-opus-personal-ag-zweigniederlassung-altdorf-region-nw-nidwalden"
       },
       "company": "Opus Personal AG, Zweigniederlassung Altdorf",
@@ -8133,12 +8133,12 @@
     },
     {
       "id": "opus-personal-9cab3c003744",
-      "slug": "sanitarmonteur-cfc-afp-m-w-opus-personal-ag-zweigniederlassung-altdorf-schwyz",
+      "slug": "sanitarmonteur-cfc-afp-m-w-opus-personal-ag-zweigniederlassung-altdorf-region-sz-schwyz",
       "slugByLocale": {
-        "it": "sanitarmonteur-cfc-afp-m-w-opus-personal-ag-zweigniederlassung-altdorf-schwyz",
-        "en": "sanitary-fitter-efz-eba-m-f-opus-personal-ag-zweigniederlassung-altdorf-schwyz",
         "de": "sanitarmonteur-efz-eba-m-w-region-sz-schwyz-opus-personal-ch",
-        "fr": "installation-sanitaire-efz-eba-h-f-opus-personal-ag-zweigniederlassung-altdorf-schwyz"
+        "it": "sanitarmonteur-cfc-afp-m-w-opus-personal-ag-zweigniederlassung-altdorf-region-sz-schwyz",
+        "en": "sanitary-fitter-efz-eba-m-f-opus-personal-ag-zweigniederlassung-altdorf-region-sz-schwyz",
+        "fr": "installation-sanitaire-efz-eba-h-f-opus-personal-ag-zweigniederlassung-altdorf-region-sz-schwyz"
       },
       "company": "Opus Personal AG, Zweigniederlassung Altdorf",
       "companyKey": "opus-personal",
@@ -8193,7 +8193,10 @@
         "installatore-sanitario-afc-cfp-m-f-opus-personal-ag-zweigniederlassung-altdorf-region-sz-schwyz",
         "sanitary-fitter-efz-eba-m-f-opus-personal-ag-zweigniederlassung-altdorf-region-sz-schwyz",
         "installation-sanitaire-efz-eba-h-f-opus-personal-ag-zweigniederlassung-altdorf-region-sz-schwyz",
-        "sanitarmonteur-efz-eba-m-w-region-sz-schwyz-opus-personal-ch"
+        "sanitarmonteur-efz-eba-m-w-region-sz-schwyz-opus-personal-ch",
+        "sanitarmonteur-cfc-afp-m-w-opus-personal-ag-zweigniederlassung-altdorf-schwyz",
+        "sanitary-fitter-efz-eba-m-f-opus-personal-ag-zweigniederlassung-altdorf-schwyz",
+        "installation-sanitaire-efz-eba-h-f-opus-personal-ag-zweigniederlassung-altdorf-schwyz"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -8202,17 +8205,20 @@
           "installatore-trice-sanitario-a-efz-eba-m-f-opus-personal-ag-zweigniederlassung-altdorf-region-sz-schwyz",
           "sanitarmonteur-cfc-afp-m-w-opus-personal-ag-zweigniederlassung-altdorf-region-sz-schwyz",
           "installatore-sanitario-afc-cfp-m-f-opus-personal-ag-zweigniederlassung-altdorf-region-sz-schwyz",
-          "sanitarmonteur-efz-eba-m-w-region-sz-schwyz-opus-personal-ch"
+          "sanitarmonteur-efz-eba-m-w-region-sz-schwyz-opus-personal-ch",
+          "sanitarmonteur-cfc-afp-m-w-opus-personal-ag-zweigniederlassung-altdorf-schwyz"
         ],
         "en": [
           "plumbing-installer-efz-eba-m-f-opus-personal-ag-zweigniederlassung-altdorf-region-sz-schwyz",
           "sanitary-fitter-efz-eba-m-f-opus-personal-ag-zweigniederlassung-altdorf-region-sz-schwyz",
-          "sanitarmonteur-efz-eba-m-w-region-sz-schwyz-opus-personal-ch"
+          "sanitarmonteur-efz-eba-m-w-region-sz-schwyz-opus-personal-ch",
+          "sanitary-fitter-efz-eba-m-f-opus-personal-ag-zweigniederlassung-altdorf-schwyz"
         ],
         "fr": [
           "installateur-sanitaire-cfc-afp-h-f-opus-personal-ag-zweigniederlassung-altdorf-region-sz-schwyz",
           "installation-sanitaire-efz-eba-h-f-opus-personal-ag-zweigniederlassung-altdorf-region-sz-schwyz",
-          "sanitarmonteur-efz-eba-m-w-region-sz-schwyz-opus-personal-ch"
+          "sanitarmonteur-efz-eba-m-w-region-sz-schwyz-opus-personal-ch",
+          "installation-sanitaire-efz-eba-h-f-opus-personal-ag-zweigniederlassung-altdorf-schwyz"
         ]
       },
       "salaryMin": 69500,
@@ -9657,9 +9663,9 @@
       "id": "opus-personal-d891edf10935",
       "slug": "heizungsmonteur-cfc-afp-m-w-opus-personal-ag-zweigniederlassung-altdorf-region-ur-uri",
       "slugByLocale": {
+        "de": "heizungsmonteur-efz-eba-m-w-region-ur-uri-opus-personal-ch",
         "it": "heizungsmonteur-cfc-afp-m-w-opus-personal-ag-zweigniederlassung-altdorf-region-ur-uri",
         "en": "heating-installer-efz-eba-m-f-opus-personal-ag-zweigniederlassung-altdorf-region-ur-uri",
-        "de": "heizungsmonteur-efz-eba-m-w-region-ur-uri-opus-personal-ch",
         "fr": "installateur-de-chauffage-efz-eba-h-f-opus-personal-ag-zweigniederlassung-altdorf-region-ur-uri"
       },
       "company": "Opus Personal AG, Zweigniederlassung Altdorf",
