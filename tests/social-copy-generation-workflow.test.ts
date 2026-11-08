@@ -21,7 +21,7 @@ function runGenerationOutcome(fallbackReason: string) {
   const summary = path.join(directory, 'github-step-summary.txt');
   try {
     return {
-      result: spawnSync('bash', ['-euo', 'pipefail', '-c', generationOutcomeScript()], {
+      result: spawnSync('bash', ['--noprofile', '--norc', '-euo', 'pipefail', '-c', generationOutcomeScript()], {
         cwd: ROOT,
         encoding: 'utf8',
         env: {
@@ -54,7 +54,7 @@ describe('social copy generation outcome', () => {
     expect(output).toContain('pack_generated=false');
     expect(output).toContain('deferred=true');
     expect(summary).toContain('- Outcome: **deferred**');
-    expect(result.stderr).toContain('free-provider budget window reopens');
+    expect(result.stdout).toContain('free-provider budget window reopens');
   });
 
   it('keeps provider failures blocking when no pack was generated', () => {
@@ -63,6 +63,6 @@ describe('social copy generation outcome', () => {
     expect(result.status).not.toBe(0);
     expect(output).toContain('deferred=false');
     expect(summary).toContain('- Outcome: **failure**');
-    expect(result.stderr).toContain('Social copy generation produced no validated pack');
+    expect(result.stdout).toContain('Social copy generation produced no validated pack');
   });
 });
