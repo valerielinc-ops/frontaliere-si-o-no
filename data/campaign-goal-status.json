@@ -7,58 +7,264 @@
       "matureAt": "2026-07-31",
       "state": "failing",
       "lastValue": {
-        "rate": 0.011216186496591158,
-        "created": 51,
-        "shown": 4547,
+        "rate": 0.010835214446952596,
+        "created": 48,
+        "shown": 4430,
         "ctaSurfaceNotSetShare": 0,
         "surfaceBreakdown": [
           {
             "surface": "inline_card",
-            "shown": 1725,
-            "created": 7,
-            "rate": 0.004057971014492754
+            "shown": 1777,
+            "click": 29,
+            "authHandoff": 2,
+            "skipped": 1,
+            "created": 11,
+            "rate": 0.0061902082160945416
           },
           {
             "surface": "job_detail_button",
-            "shown": 294,
+            "shown": 305,
+            "click": 0,
+            "authHandoff": 0,
+            "skipped": 23,
             "created": 0,
             "rate": 0
           },
           {
             "surface": "job_detail_prompt",
-            "shown": 1355,
-            "created": 30,
-            "rate": 0.02214022140221402
+            "shown": 1469,
+            "click": 1041,
+            "authHandoff": 0,
+            "skipped": 96,
+            "created": 22,
+            "rate": 0.014976174268209666
           },
           {
             "surface": "job_board_filters",
-            "shown": 2847,
+            "shown": 2524,
+            "click": 20,
+            "authHandoff": 7,
+            "skipped": 16,
             "created": 11,
-            "rate": 0.003863716192483316
+            "rate": 0.004358161648177496
           },
           {
             "surface": "job_match_pill",
-            "shown": 529,
-            "created": 3,
-            "rate": 0.005671077504725898
+            "shown": 598,
+            "click": 7,
+            "authHandoff": 0,
+            "skipped": 0,
+            "created": 7,
+            "rate": 0.011705685618729096
           },
           {
             "surface": "sticky_banner",
-            "shown": 535,
+            "shown": 487,
+            "click": 54,
+            "authHandoff": 0,
+            "skipped": 15,
             "created": 0,
             "rate": 0
           },
           {
             "surface": "end_card",
-            "shown": 657,
+            "shown": 667,
+            "click": 3,
+            "authHandoff": 0,
+            "skipped": 12,
             "created": 2,
-            "rate": 0.0030441400304414
+            "rate": 0.0029985007496251873
           }
-        ]
+        ],
+        "dropPointBreakdown": [
+          {
+            "surface": "inline_card",
+            "shown": 1777,
+            "click": 29,
+            "authHandoff": 2,
+            "skipped": 1,
+            "created": 11,
+            "rate": 0.0061902082160945416,
+            "clickErrorUsers": 0,
+            "replayStartedUsers": null,
+            "replaySucceededUsers": null,
+            "replayFailedUsers": null,
+            "createdReplayUsers": null,
+            "clickActions": {
+              "open": 27,
+              "accept": 11,
+              "success": 11
+            },
+            "authStages": null,
+            "skipReasons": {
+              "get_alerts_failed": 1
+            },
+            "authPaths": null
+          },
+          {
+            "surface": "job_detail_button",
+            "shown": 305,
+            "click": 0,
+            "authHandoff": 0,
+            "skipped": 23,
+            "created": 0,
+            "rate": 0,
+            "clickErrorUsers": 0,
+            "replayStartedUsers": null,
+            "replaySucceededUsers": null,
+            "replayFailedUsers": null,
+            "createdReplayUsers": null,
+            "clickActions": {},
+            "authStages": null,
+            "skipReasons": {
+              "already_subscribed": 23
+            },
+            "authPaths": null
+          },
+          {
+            "surface": "job_detail_prompt",
+            "shown": 1469,
+            "click": 1041,
+            "authHandoff": 0,
+            "skipped": 96,
+            "created": 22,
+            "rate": 0.014976174268209666,
+            "clickErrorUsers": 1,
+            "replayStartedUsers": null,
+            "replaySucceededUsers": null,
+            "replayFailedUsers": null,
+            "createdReplayUsers": null,
+            "clickActions": {
+              "dismiss": 1021,
+              "accept": 22,
+              "error": 1
+            },
+            "authStages": null,
+            "skipReasons": {
+              "already_subscribed": 85,
+              "gating_capped": 7,
+              "no_auth": 7,
+              "quota_full": 1
+            },
+            "authPaths": null
+          },
+          {
+            "surface": "job_board_filters",
+            "shown": 2524,
+            "click": 20,
+            "authHandoff": 7,
+            "skipped": 16,
+            "created": 11,
+            "rate": 0.004358161648177496,
+            "clickErrorUsers": 1,
+            "replayStartedUsers": null,
+            "replaySucceededUsers": null,
+            "replayFailedUsers": null,
+            "createdReplayUsers": null,
+            "clickActions": {
+              "success": 11,
+              "accept": 10,
+              "open": 10,
+              "error": 1
+            },
+            "authStages": null,
+            "skipReasons": {
+              "already_subscribed": 15,
+              "quota_full": 1
+            },
+            "authPaths": null
+          },
+          {
+            "surface": "job_match_pill",
+            "shown": 598,
+            "click": 7,
+            "authHandoff": 0,
+            "skipped": 0,
+            "created": 7,
+            "rate": 0.011705685618729096,
+            "clickErrorUsers": 1,
+            "replayStartedUsers": null,
+            "replaySucceededUsers": null,
+            "replayFailedUsers": null,
+            "createdReplayUsers": null,
+            "clickActions": {
+              "accept": 7,
+              "success": 6,
+              "error": 1
+            },
+            "authStages": null,
+            "skipReasons": {},
+            "authPaths": null
+          },
+          {
+            "surface": "sticky_banner",
+            "shown": 487,
+            "click": 54,
+            "authHandoff": 0,
+            "skipped": 15,
+            "created": 0,
+            "rate": 0,
+            "clickErrorUsers": 0,
+            "replayStartedUsers": null,
+            "replaySucceededUsers": null,
+            "replayFailedUsers": null,
+            "createdReplayUsers": null,
+            "clickActions": {
+              "dismiss": 54
+            },
+            "authStages": null,
+            "skipReasons": {
+              "already_subscribed": 14,
+              "get_alerts_failed": 1
+            },
+            "authPaths": null
+          },
+          {
+            "surface": "end_card",
+            "shown": 667,
+            "click": 3,
+            "authHandoff": 0,
+            "skipped": 12,
+            "created": 2,
+            "rate": 0.0029985007496251873,
+            "clickErrorUsers": 0,
+            "replayStartedUsers": null,
+            "replaySucceededUsers": null,
+            "replayFailedUsers": null,
+            "createdReplayUsers": null,
+            "clickActions": {
+              "open": 3,
+              "accept": 2,
+              "success": 2
+            },
+            "authStages": null,
+            "skipReasons": {
+              "already_subscribed": 11,
+              "get_alerts_failed": 1
+            },
+            "authPaths": null
+          }
+        ],
+        "diagnosticAvailability": {
+          "clickActions": {
+            "available": true
+          },
+          "authStages": {
+            "available": false,
+            "reason": "dimensione customEvent:auth_stage non registrata"
+          },
+          "skipReasons": {
+            "available": true
+          },
+          "authPaths": {
+            "available": false,
+            "reason": "dimensione customEvent:alert_auth_path non registrata"
+          }
+        }
       },
-      "detail": "51/4547 utenti = 1.12%, cta_surface (not set) 0.00% [GA4]\n\nLe righe per superficie possono sovrapporsi; l’aggregato è calcolato separatamente.\n\n| cta_surface | shown users | created users | rate |\n| --- | ---: | ---: | ---: |\n| aggregate | 4547 | 51 | 1.12% |\n| inline_card | 1725 | 7 | 0.41% |\n| job_detail_button | 294 | 0 | 0.00% |\n| job_detail_prompt | 1355 | 30 | 2.21% |\n| job_board_filters | 2847 | 11 | 0.39% |\n| job_match_pill | 529 | 3 | 0.57% |\n| sticky_banner | 535 | 0 | 0.00% |\n| end_card | 657 | 2 | 0.30% |",
+      "detail": "48/4430 utenti = 1.08%, cta_surface (not set) 0.00% [GA4]\n\nLe righe per superficie possono sovrapporsi; l’aggregato è calcolato separatamente.\n\n| cta_surface | shown users | created users | rate |\n| --- | ---: | ---: | ---: |\n| aggregate | 4430 | 48 | 1.08% |\n| inline_card | 1777 | 11 | 0.62% |\n| job_detail_button | 305 | 0 | 0.00% |\n| job_detail_prompt | 1469 | 22 | 1.50% |\n| job_board_filters | 2524 | 11 | 0.44% |\n| job_match_pill | 598 | 7 | 1.17% |\n| sticky_banner | 487 | 0 | 0.00% |\n| end_card | 667 | 2 | 0.30% |\n\nDiagnostica drop-point GA4 per utenti; le righe per superficie possono sovrapporsi.\n\n| cta_surface | click | auth handoff | skip | click error | replay start | replay ok | replay fail | created replay |\n| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |\n| inline_card | 29 | 2 | 1 | 0 | n/a | n/a | n/a | n/a |\n| job_detail_button | 0 | 0 | 23 | 0 | n/a | n/a | n/a | n/a |\n| job_detail_prompt | 1041 | 0 | 96 | 1 | n/a | n/a | n/a | n/a |\n| job_board_filters | 20 | 7 | 16 | 1 | n/a | n/a | n/a | n/a |\n| job_match_pill | 7 | 0 | 0 | 1 | n/a | n/a | n/a | n/a |\n| sticky_banner | 54 | 0 | 15 | 0 | n/a | n/a | n/a | n/a |\n| end_card | 3 | 0 | 12 | 0 | n/a | n/a | n/a | n/a |\n\nDettagli delle categorie diagnostiche GA4; anche queste popolazioni possono sovrapporsi.\n\n| cta_surface | click actions | auth stages | skip reasons | create auth path |\n| --- | --- | --- | --- | --- |\n| inline_card | accept=11, open=27, success=11 | n/a | get_alerts_failed=1 | n/a |\n| job_detail_button | 0 | n/a | already_subscribed=23 | n/a |\n| job_detail_prompt | accept=22, dismiss=1021, error=1 | n/a | already_subscribed=85, gating_capped=7, no_auth=7, quota_full=1 | n/a |\n| job_board_filters | accept=10, error=1, open=10, success=11 | n/a | already_subscribed=15, quota_full=1 | n/a |\n| job_match_pill | accept=7, error=1, success=6 | n/a | 0 | n/a |\n| sticky_banner | dismiss=54 | n/a | already_subscribed=14, get_alerts_failed=1 | n/a |\n| end_card | accept=2, open=3, success=2 | n/a | already_subscribed=11, get_alerts_failed=1 | n/a |\n\nDimensioni diagnostiche GA4 non disponibili: authStages: dimensione customEvent:auth_stage non registrata; authPaths: dimensione customEvent:alert_auth_path non registrata",
       "targetDescription": ">= 5% (utenti job_alert_created / utenti job_alert_cta_shown, 14gg, GA4)",
-      "lastCheckAt": "2026-11-01T12:02:14.161Z",
+      "lastCheckAt": "2026-11-08T12:11:11.122Z",
       "note": "sorgente non misurabile: posthog ingested < 500 events/day on 9 of 14 complete day(s) in the 14d window: 2026-08-21 (10), 2026-08-22 (15), 2026-08-23 (14), 2026-08-24 (29), 2026-08-25 (26), 2026-08-26 (21), 2026-08-27 (11), 2026-08-28 (12), 2026-08-29 (11)"
     },
     "dead_clicks_reduction": {
@@ -72,7 +278,7 @@
       },
       "detail": "0 $dead_click (14gg)",
       "targetDescription": "< 5991 $dead_click events (14gg, -50% su baseline riproporzionata da 25.675/30gg)",
-      "lastCheckAt": "2026-11-01T12:02:14.161Z",
+      "lastCheckAt": "2026-11-08T12:11:11.122Z",
       "passedAt": "2026-08-09T06:13:33.259Z",
       "note": "nessun equivalente GA4 — sorgente PostHog ritirata dai monitor (decisione H9 2026-10-05): $dead_click e' autocapture nativo PostHog; il dead_click custom in GA4 e' un'altra metrica"
     },
@@ -99,7 +305,7 @@
       "issueRef": "#4307",
       "matureAt": "2026-08-16",
       "state": "unmeasurable",
-      "lastCheckAt": "2026-11-01T12:02:14.161Z",
+      "lastCheckAt": "2026-11-08T12:11:11.122Z",
       "note": "nessun equivalente GA4 — sorgente PostHog ritirata dai monitor (decisione H9 2026-10-05): funnel per sessione senza dimensione session id in GA4 (dimensioni EVENT piene, decisione H4)"
     },
     "canton_hub_positions": {
@@ -180,6 +386,6 @@
       "passedAt": "2026-10-18T09:53:19.235Z"
     }
   },
-  "generatedAt": "2026-11-01T12:02:14.161Z",
+  "generatedAt": "2026-11-08T12:11:11.122Z",
   "campaignStart": "2026-07-17"
 }
