@@ -5,6 +5,8 @@
  * runAggregationQuery; it never writes to Firestore or Cloud Monitoring.
  *
  *   node scripts/measure-firestore-storage.mjs
+ *   node scripts/measure-firestore-storage.mjs --samples-only --max-reads=4000
+ *   node scripts/measure-firestore-storage.mjs --samples-only --index-config=/tmp/baseline.json --sample-query-index-config=firestore.indexes.json
  *
  * The report contains collection names, aggregate counts and byte estimates;
  * sampled document values are kept in memory and are never printed or saved.
@@ -41,7 +43,6 @@ const CREATION_FIELDS = [
   'createdAt', 'created_at', 'receivedAt', 'received_at', 'timestamp', 'ts',
   'occurred_at', 'at', 'created', 'queuedAt', 'recordedAt', 'capturedAt',
   'insertedAt', 'sentAt', 'sent_at', 'eventAt', 'event_at', 'firstSeenAt',
-  'lastSeenAt', 'date',
 ];
 
 const STRING_TYPES = new Set(['stringValue']);
@@ -76,7 +77,7 @@ export function firestoreValueSize(value = {}) {
     return dimensions * 8;
   }
   if ('arrayValue' in value) {
-    return (value.arrayValue?.values || []).reduce((sum, item) => sum + firestoreValueSize(item), 0);
+    return (value.arrayValue?.values || []).reduce((sum, item) => sum + firestoreValueSize(item), 32);
   }
   if ('mapValue' in value) {
     // A map follows the document field/value calculation; it has no document
@@ -338,6 +339,11 @@ function parseIndexConfigPath(argv, defaultPath) {
   return input ? path.resolve(input.slice('--index-config='.length)) : defaultPath;
 }
 
+function parseSampleQueryIndexConfigPath(argv, defaultPath) {
+  const input = argv.find((arg) => arg.startsWith('--sample-query-index-config='));
+  return input ? path.resolve(input.slice('--sample-query-index-config='.length)) : defaultPath;
+}
+
 function queryFor(source, where, limit) {
   return {
     from: [{ collectionId: source.collectionId, ...(source.scope === 'group' ? { allDescendants: true } : {}) }],
@@ -381,6 +387,7 @@ async function main() {
     throw new Error('FIRESTORE_EMULATOR_HOST is set; refusing an ambiguous database target.');
   }
   const maxReads = parseMaxReads(process.argv.slice(2));
+  const samplesOnly = process.argv.includes('--samples-only');
   const credentialPath = process.env.GOOGLE_APPLICATION_CREDENTIALS
     || path.join(os.homedir(), '.config/frontaliere/sa-frontaliere-ticino.json');
   const credentials = JSON.parse(fs.readFileSync(credentialPath, 'utf8'));
@@ -393,6 +400,11 @@ async function main() {
     fileURLToPath(new URL('../firestore.indexes.json', import.meta.url)),
   );
   const indexConfig = JSON.parse(fs.readFileSync(configPath, 'utf8'));
+  const sampleQueryConfigPath = parseSampleQueryIndexConfigPath(
+    process.argv.slice(2),
+    configPath,
+  );
+  const sampleQueryIndexConfig = JSON.parse(fs.readFileSync(sampleQueryConfigPath, 'utf8'));
   const startedAt = new Date();
   let estimatedReads = 0;
 
@@ -444,8 +456,9 @@ async function main() {
       throw new Error('Read budget guard stopped before aggregate queries.');
     }
     const creationField = chooseCreationField(documents, source);
+    const sampleQueryConfig = samplesOnly ? sampleQueryIndexConfig : indexConfig;
     const indexAvailable = creationField
-      && hasSingleFieldQueryIndex(source, creationField.name, indexConfig);
+      && hasSingleFieldQueryIndex(source, creationField.name, sampleQueryConfig);
     if (indexAvailable) {
       const recentResponse = await post('runQuery', {
         structuredQuery: queryFor(source, {
@@ -492,6 +505,47 @@ async function main() {
       creationFilterAvailable: Boolean(indexAvailable),
       creationFieldCandidates: Object.fromEntries(rawFieldTypes(documents)),
     });
+  }
+
+  if (samplesOnly) {
+    const rows = sources.map((source) => {
+      const sample = samples.get(`${source.scope}:${source.collectionId}`);
+      return {
+        scope: source.scope,
+        collection: source.collectionId,
+        createdField: sample.creationField,
+        creationFilterAvailable: sample.creationFilterAvailable,
+        sampleDocuments: sample.sampleCount,
+        sampleReadsEstimate: sample.reads,
+        averageDocumentBytes: sample.averageDocumentBytes,
+        p95DocumentBytes: sample.p95DocumentBytes,
+        averageSingleAndCompositeIndexBytes: sample.averageIndexBytes,
+        p95SingleAndCompositeIndexBytes: sample.p95IndexBytes,
+        largestSingleFieldIndexContributors: sample.largestSingleFieldIndexContributors,
+      };
+    });
+    console.log(JSON.stringify({
+      project: PROJECT_ID,
+      database: DATABASE_ID,
+      location: 'europe-west6',
+      readOnly: true,
+      sampleOnly: true,
+      generatedAt: startedAt.toISOString(),
+      measurement: {
+        rootCollections: rootCollectionIds.length,
+        knownCollectionGroups: COLLECTION_GROUPS,
+        sampleLimit: MAX_SAMPLE_SIZE,
+        sampleLimitUsed: sampleLimit,
+        sampleReadsEstimated: estimatedReads - listCollectionIdsReadsEstimated,
+        listCollectionIdsReadsEstimated,
+        totalReadsEstimated: estimatedReads,
+        maximumAllowedReads: maxReads,
+        budgetUnder50k: estimatedReads < 50_000,
+        sizeMethod: 'sampled Firestore document size plus computed automatic single-field and firestore.indexes.json composite/fieldOverride entries; excludes internal database metadata',
+      },
+      rows,
+    }, null, 2));
+    return;
   }
 
   const creationFilterAvailability = new Map();
