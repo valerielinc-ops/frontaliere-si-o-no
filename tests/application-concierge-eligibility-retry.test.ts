@@ -1,4 +1,15 @@
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
+vi.mock('firebase-admin/firestore', () => {
+  class DeleteTransform {}
+  return {
+    FieldValue: {
+      delete: () => new DeleteTransform(),
+      serverTimestamp: () => '__server_timestamp__',
+      increment: (value: number) => ({ __increment: value }),
+    },
+    Timestamp: { now: () => new Date(), fromMillis: (value: number) => new Date(value) },
+  };
+});
 import { readFileSync } from 'node:fs';
 import { createMemoryFirestore } from './helpers/memoryFirestore';
 import { APPLICATION_CONCIERGE_MAX_OPEN_PROPOSALS } from '../functions/src/applicationConciergeConstants.js';

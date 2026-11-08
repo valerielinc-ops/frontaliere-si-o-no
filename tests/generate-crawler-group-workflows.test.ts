@@ -2544,6 +2544,15 @@ describe('cross-repo crawler execution artifacts', () => {
     const committedContract = JSON.parse(
       fs.readFileSync(path.join(repoRoot, '.github/corpus-workflows/contract.json'), 'utf8'),
     );
+    // Regeneration preserves a verified marker only when the existing
+    // contract at the destination is already attested and otherwise unchanged.
+    // Seed the temporary destination with the committed contract so this
+    // fixture models that production regeneration path rather than a fresh,
+    // intentionally unverified contract.
+    fs.copyFileSync(
+      path.join(repoRoot, '.github/corpus-workflows/contract.json'),
+      contractPath,
+    );
     const result = generateCrossRepoExecutionArtifacts({
       groupResults,
       outDir,

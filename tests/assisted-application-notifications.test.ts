@@ -60,6 +60,24 @@ vi.mock('firebase-admin', () => ({
   default: { firestore: Object.assign(() => db, { FieldValue: { serverTimestamp: () => '__server_timestamp__' } }) },
 }));
 
+vi.mock('firebase-admin/firestore', () => {
+  class DeleteTransform {}
+  return {
+    FieldValue: {
+      delete: () => new DeleteTransform(),
+      serverTimestamp: () => '__server_timestamp__',
+      increment: (value: number) => ({ __increment: value }),
+    },
+    Timestamp: { now: () => new Date(), fromMillis: (value: number) => new Date(value) },
+  };
+});
+
+vi.mock('../functions/src/assistedApplicationAutomation.js', () => ({
+  flowRefFor: (db: any, orderId: string) => db.collection('assisted_applications').doc(orderId)
+    .collection('automation').doc('flow'),
+  isAutomationEnabledFor: vi.fn(async () => false),
+}));
+
 vi.mock('../functions/src/remoteConfigSecrets.js', () => ({
   bridgeEmailCascadeCredentialsToEnv: vi.fn(async () => {}),
   getRemoteConfigValue: vi.fn(async () => ''),
@@ -91,7 +109,7 @@ const {
   submittedReviewUrl,
   NOTIFICATION_KEYS,
 } = await import('../functions/src/assistedApplicationNotifications.js');
-const { buildConciergePaidEmail, handleConciergeServiceWritten, sendConciergePaidNotifications, sweepConciergePaidNotifications } = await import('../functions/src/applicationConciergeNotifications.js');
+const { buildConciergePaidEmail, handleConciergeServiceWritten, shouldInheritConciergeRenewalMaterials, sendConciergePaidNotifications, sweepConciergePaidNotifications } = await import('../functions/src/applicationConciergeNotifications.js');
 const { renderBrandedEmail } = await import('../functions/src/assistedApplicationEmailLayout.js');
 const { CONSENT_BOUND_EXPIRES_AT, verifyReviewToken } = await import('../functions/src/assistedApplicationReviewToken.js');
 
@@ -768,6 +786,26 @@ describe('paid 30-day concierge notifications', () => {
   function paidService() {
     return { ...paidOrder(), serviceId, paidAt: new Date(NOW), amountTotal: 3999, serviceStatus: 'active' };
   }
+
+  it('does not run the renewal-material backstop for matching and notification bookkeeping writes', () => {
+    const before = {
+      paymentStatus: 'paid', renewalOfServiceId: 'original-service', renewalConsentVersion: 'v1',
+      renewalConsentedAt: new Date(NOW), retentionPurgedAt: null,
+    };
+    const after = {
+      ...before,
+      renewalConsentedAt: new Date(NOW),
+      matchingStatus: 'running', matchingOpenProposalCount: 3,
+      proposalRefreshWorkerLeaseId: 'worker-1', pendingProposalNotice: { proposalIds: ['p1'] },
+      notifications: { concierge_paid_customer: { status: 'sent' } },
+    };
+    expect(shouldInheritConciergeRenewalMaterials(before, after)).toBe(false);
+    expect(shouldInheritConciergeRenewalMaterials(null, { paymentStatus: 'paid' })).toBe(false);
+    expect(shouldInheritConciergeRenewalMaterials(null, {
+      paymentStatus: 'pending', renewalOfServiceId: 'original-service', renewalConsentVersion: 'v1',
+    })).toBe(true);
+    expect(shouldInheritConciergeRenewalMaterials(before, { ...after, renewalOfServiceId: 'another-service' })).toBe(true);
+  });
 
   it('keeps receipts on the parent ledger and does not resend on updates or duplicate delivery', async () => {
     store[key] = paidService();

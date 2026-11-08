@@ -11,8 +11,21 @@ import {
   CONCIERGE_STALE_RECOVERY_MAX_ATTEMPTS,
 } from '../functions/src/applicationConciergeLifecyclePolicy.js';
 import { createMemoryFirestore } from './helpers/memoryFirestore';
+import { mergeConciergeMatchingRuntime } from '../functions/src/applicationConciergeRuntime.js';
 
 const renewalRollout = vi.hoisted(() => ({ isEnabledFor: vi.fn(async () => true) }));
+
+vi.mock('firebase-admin/firestore', () => {
+  class DeleteTransform {}
+  return {
+    FieldValue: {
+      delete: () => new DeleteTransform(),
+      serverTimestamp: () => '__server_timestamp__',
+      increment: (value: number) => ({ __increment: value }),
+    },
+    Timestamp: { now: () => new Date(), fromMillis: (value: number) => new Date(value) },
+  };
+});
 
 vi.mock('../functions/src/remoteConfigSecrets.js', () => ({ getNewsletterSecrets: vi.fn(async () => ({ newsletterSecret: 'test-only-secret' })), getRemoteConfigValue: vi.fn(async () => '') }));
 vi.mock('../functions/src/applicationConciergeRenewalRollout.js', () => ({
@@ -29,6 +42,12 @@ const DAY = 24 * 60 * 60 * 1000;
 const now = Date.now();
 let records: Map<string, any>;
 let queue: Promise<any>;
+function serviceWithRuntime(path: string) {
+  return mergeConciergeMatchingRuntime(records.get(path) || {}, records.get(`${path}/runtime/matching`) || null);
+}
+function storeServiceWithRuntime(store: ReturnType<typeof createMemoryFirestore>, path: string) {
+  return mergeConciergeMatchingRuntime(store.read(path) || {}, store.read(`${path}/runtime/matching`) || null);
+}
 function ref(path: string): any {
   return { id: path.split('/').at(-1),
     get: async () => ({ exists: records.has(path), data: () => records.get(path), id: path.split('/').at(-1), ref: ref(path) }),
@@ -107,19 +126,22 @@ describe('concierge refresh and notification lifecycle', () => {
     records.set('application_concierge_services/service', active({ matchingStatus: 'complete', matchingCompletedAt: now }));
 
     expect(await queueConciergeMatchingRefresh({ db, serviceId: 'service', nowMs: now })).toBe(true);
-    expect(records.get('application_concierge_services/service')).toMatchObject({
-      matchingStatus: 'complete', matchingEventRefreshRequestedAt: new Date(now),
+    expect(records.get('application_concierge_services/service')).toMatchObject({ matchingStatus: 'complete' });
+    expect(records.get('application_concierge_services/service')).not.toHaveProperty('matchingEventRefreshRequestedAt');
+    expect(records.get('application_concierge_services/service/runtime/matching')).toMatchObject({
+      schemaVersion: 3, matchingEventRefreshRequestedAt: new Date(now),
     });
 
     const queued = await sweep({ enqueueOnly: true });
     expect(queued.queuedRefreshes).toBe(1);
     expect(match).not.toHaveBeenCalled();
-    expect(records.get('application_concierge_services/service').matchingEventRefreshRequestedAt).toBeUndefined();
+    expect(records.get('application_concierge_services/service/runtime/matching').matchingEventRefreshRequestedAt).toBeUndefined();
     expect(records.get('application_concierge_services/service').proposalRefreshRequestId).toEqual(expect.any(String));
 
     records.set('application_concierge_services/running', active({ matchingStatus: 'running' }));
     expect(await queueConciergeMatchingRefresh({ db, serviceId: 'running', nowMs: now })).toBe(true);
     expect(records.get('application_concierge_services/running').matchingStatus).toBe('running');
+    expect(records.get('application_concierge_services/running/runtime/matching').matchingEventRefreshRequestedAt).toBeInstanceOf(Date);
   });
 
   it('respects a future retry when discovery is complete, without postponing fresh discovery', () => {
@@ -233,7 +255,7 @@ describe('concierge refresh and notification lifecycle', () => {
     await refresh(options);
     expect(match).toHaveBeenCalledTimes(1);
     expect(deliveries).toHaveLength(1);
-    expect(records.get('application_concierge_services/service').proposalRefreshCompletedRequestId).toBe('refresh-request');
+    expect(records.get('application_concierge_services/service/runtime/matching').proposalRefreshCompletedRequestId).toBe('refresh-request');
   });
   it('serializes duplicate deliveries with an owner lease and does not release another worker lock', async () => {
     const event = await realWithdrawal();
@@ -254,8 +276,8 @@ describe('concierge refresh and notification lifecycle', () => {
 
     finishMatch?.({ status: 'complete' });
     await first;
-    const after = event.store.read(WITHDRAWAL_SERVICE_PATH);
-    expect(after).not.toHaveProperty('proposalRefreshWorkerLeaseId');
+    const after = storeServiceWithRuntime(event.store, WITHDRAWAL_SERVICE_PATH);
+    expect(event.store.read(`${WITHDRAWAL_SERVICE_PATH}/runtime/matching`)).not.toHaveProperty('proposalRefreshWorkerLeaseId');
     expect(after.proposalRefreshRequestId).toBe(event.requestId);
     expect(after.proposalRefreshRerunAfterWorker).toBeUndefined();
   });
@@ -278,8 +300,8 @@ describe('concierge refresh and notification lifecycle', () => {
 
     finishMatch?.({ status: 'complete' });
     await first;
-    const after = store.read(WITHDRAWAL_SERVICE_PATH);
-    expect(after).not.toHaveProperty('proposalRefreshWorkerLeaseId');
+    const after = storeServiceWithRuntime(store, WITHDRAWAL_SERVICE_PATH);
+    expect(store.read(`${WITHDRAWAL_SERVICE_PATH}/runtime/matching`)).not.toHaveProperty('proposalRefreshWorkerLeaseId');
     expect(after.proposalRefreshRequestId).not.toBe('refresh-during-initial-match');
     expect(after.proposalRefreshRequestedBy).toBe('lifecycle');
     expect(after.proposalRefreshRerunAfterWorker).toBeUndefined();
@@ -301,7 +323,7 @@ describe('concierge refresh and notification lifecycle', () => {
 
     finishMatch?.({ status: 'complete' });
     await first;
-    const after = store.read(WITHDRAWAL_SERVICE_PATH);
+    const after = storeServiceWithRuntime(store, WITHDRAWAL_SERVICE_PATH);
     expect(after.proposalRefreshRequestedBy).toBe('lifecycle');
     expect(after.proposalRefreshRequestId).toBeTruthy();
     expect(after.proposalRefreshRerunAfterWorker).toBeUndefined();
@@ -318,7 +340,7 @@ describe('concierge refresh and notification lifecycle', () => {
     let attemptNow = WITHDRAWAL_NOW;
 
     for (let attempt = 0; attempt < CONCIERGE_STALE_RECOVERY_MAX_ATTEMPTS; attempt += 1) {
-      const service = store.read(servicePath);
+      const service = storeServiceWithRuntime(store, servicePath);
       if (attempt > 0) {
         attemptNow = new Date(service.matchingStaleRecoveryRetryAt).getTime();
         await store.db.collection('application_concierge_services').doc(WITHDRAWAL_SERVICE_ID).set({
@@ -330,27 +352,36 @@ describe('concierge refresh and notification lifecycle', () => {
       const requestId = `stale-run-${attempt + 1}`;
       await expect(runConciergeProposalRefresh({ db: store.db, serviceId: WITHDRAWAL_SERVICE_ID,
         requestId, nowMs: attemptNow, match: failedMatch, send })).rejects.toThrow('simulated worker exit');
-      const updated = store.read(servicePath);
+      const updated = storeServiceWithRuntime(store, servicePath);
       expect(updated.matchingStaleRecoveryAttempt).toBe(attempt + 1);
       expect(updated.matchingStaleRecoveryRetryAt).toBeInstanceOf(Date);
-      expect(updated.proposalRefreshWorkerLeaseId).toBeUndefined();
+      expect(store.read(`${servicePath}/runtime/matching`)?.proposalRefreshWorkerLeaseId).toBeUndefined();
       if (attempt < CONCIERGE_STALE_RECOVERY_MAX_ATTEMPTS - 1) {
         expect(conciergeRefreshDue(updated, attemptNow)).toBe(false);
         expect(conciergeRefreshDue(updated, new Date(updated.matchingStaleRecoveryRetryAt).getTime())).toBe(true);
       }
     }
 
-    const exhaustedAt = new Date(store.read(servicePath).matchingStaleRecoveryRetryAt).getTime();
-    expect(conciergeStaleRecoveryExhausted(store.read(servicePath), exhaustedAt)).toBe(true);
+    const exhaustedAt = new Date(storeServiceWithRuntime(store, servicePath).matchingStaleRecoveryRetryAt).getTime();
+    const runtimeRef = store.db.collection('application_concierge_services').doc(WITHDRAWAL_SERVICE_ID)
+      .collection('runtime').doc('matching');
+    await runtimeRef.set({
+      schemaVersion: 3,
+      matchingRunStatus: 'running',
+      matchingStartedAt: new Date(exhaustedAt - CONCIERGE_MATCHING_STALE_AFTER_MS - 1),
+    }, { merge: true });
+    expect(conciergeStaleRecoveryExhausted(storeServiceWithRuntime(store, servicePath), exhaustedAt)).toBe(true);
     const result = await runConciergeLifecycleSweep({ db: store.db, nowMs: exhaustedAt, match: failedMatch,
       send, unsubscribeSecret: 'test-only-secret', enqueueOnly: false, enrichJobCards: passThroughJobCards });
     expect(result.refreshed).toBe(0);
     expect(failedMatch).toHaveBeenCalledTimes(CONCIERGE_STALE_RECOVERY_MAX_ATTEMPTS);
-    expect(store.read(servicePath)).toMatchObject({
+    expect(storeServiceWithRuntime(store, servicePath)).toMatchObject({
       matchingStatus: 'failed',
       matchingError: 'stale_worker_retry_exhausted',
       matchingStaleRecoveryAttempt: CONCIERGE_STALE_RECOVERY_MAX_ATTEMPTS,
     });
+    expect(store.read(`${servicePath}/runtime/matching`)).not.toHaveProperty('matchingRunStatus');
+    expect(store.read(`${servicePath}/runtime/matching`)).not.toHaveProperty('matchingStartedAt');
   });
   it('counts ordinary failed matcher runs against the same bounded recovery budget', async () => {
     const requestId = 'ordinary-failed-match-retry';
@@ -361,7 +392,7 @@ describe('concierge refresh and notification lifecycle', () => {
     await expect(runConciergeProposalRefresh({ db: store.db, serviceId: WITHDRAWAL_SERVICE_ID, requestId,
       nowMs: WITHDRAWAL_NOW, match: failedMatch, send })).rejects.toThrow('simulated matcher failure');
 
-    const updated = store.read(WITHDRAWAL_SERVICE_PATH);
+    const updated = storeServiceWithRuntime(store, WITHDRAWAL_SERVICE_PATH);
     expect(updated).toMatchObject({ matchingStatus: 'failed', matchingError: 'job_search_failed',
       matchingStaleRecoveryAttempt: 1, proposalRefreshLastError: 'matching_failed' });
     expect(updated.matchingStaleRecoveryRetryAt).toBeInstanceOf(Date);
@@ -399,11 +430,11 @@ describe('concierge refresh and notification lifecycle', () => {
     records.set('application_concierge_services/service/proposals/new-job', { status: 'proposed', jobTitle: 'Example', companyName: 'Example' });
     const failure = vi.fn(async () => ({ ok: false, reason: 'provider_failed' }));
     await sweep({ send: failure });
-    expect(records.get('application_concierge_services/service').pendingProposalNotice).toBeTruthy();
+    expect(serviceWithRuntime('application_concierge_services/service').pendingProposalNotice).toBeTruthy();
     await sweep();
     expect(match).not.toHaveBeenCalled();
     expect(deliveries).toEqual(['new_proposals_retry']);
-    expect(records.get('application_concierge_services/service').pendingProposalNotice).toBeUndefined();
+    expect(serviceWithRuntime('application_concierge_services/service').pendingProposalNotice).toBeUndefined();
   });
   it('sends the current daily renewal once, respects opt-out and stops after payment or deadline', async () => {
     records.set('application_concierge_services/service', active({ expiresAt: now - DAY }));
@@ -496,7 +527,10 @@ function refreshStubs() {
   });
   const notices: Array<{ key: string; proposalIds: string[] }> = [];
   const send = vi.fn(async ({ recordRef, key, eligible }: any) => {
-    const current = (await recordRef.get()).data() || {};
+    const [parentSnapshot, runtimeSnapshot] = await Promise.all([
+      recordRef.get(), recordRef.collection('runtime').doc('matching').get(),
+    ]);
+    const current = mergeConciergeMatchingRuntime(parentSnapshot.data() || {}, runtimeSnapshot.data() || null);
     if (eligible && !(await eligible(current))) return { ok: false, reason: 'ineligible' };
     notices.push({ key, proposalIds: [...(current.pendingProposalNotice?.proposalIds || [])] });
     return { ok: true };
@@ -522,7 +556,7 @@ describe('candidate withdrawal → trigger → idempotent replenishment worker',
     expect(match).toHaveBeenCalledTimes(1);
     expect(notices).toHaveLength(1);
     expect(notices[0].proposalIds).toEqual(['new-compatible']);
-    expect(event.store.read(WITHDRAWAL_SERVICE_PATH).proposalRefreshCompletedRequestId).toBe(event.requestId);
+    expect(event.store.read(`${WITHDRAWAL_SERVICE_PATH}/runtime/matching`).proposalRefreshCompletedRequestId).toBe(event.requestId);
   });
 
   it('rejects a stale trigger event and a worker request with the wrong id', async () => {

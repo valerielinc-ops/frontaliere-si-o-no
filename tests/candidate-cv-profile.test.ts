@@ -1,4 +1,15 @@
 import { describe, expect, it, vi } from 'vitest';
+vi.mock('firebase-admin/firestore', () => {
+  class DeleteTransform {}
+  return {
+    FieldValue: {
+      delete: () => new DeleteTransform(),
+      serverTimestamp: () => '__server_timestamp__',
+      increment: (value: number) => ({ __increment: value }),
+    },
+    Timestamp: { now: () => new Date(), fromMillis: (value: number) => new Date(value) },
+  };
+});
 vi.mock('../functions/src/applicationConciergeEligibility.js', async original => ({ ...await original<typeof import('../functions/src/applicationConciergeEligibility.js')>(), prepareConciergeEligibility: vi.fn(async () => async () => ({ status: 'compatible' })) }));
 import { parseCandidateCvText } from '../functions/src/candidateCvProfile.js';
 import {
@@ -304,9 +315,18 @@ describe('application concierge matching', () => {
 
     expect(shouldRunApplicationConciergeMatchingForServiceUpdate(before, { ...before, applicantLocation: 'Mendrisio 6850' })).toBe(true);
     expect(shouldRunApplicationConciergeMatchingForServiceUpdate(before, { ...before, matchingStatus: 'queued' })).toBe(false);
+    expect(shouldRunApplicationConciergeMatchingForServiceUpdate(before, {
+      ...before,
+      matchingOpenProposalCount: 4,
+      matchingScanCursor: 'job-20',
+      matchingStartedAt: new Date(),
+      proposalRefreshWorkerLeaseId: 'worker-1',
+      matchingStaleRecoveryAttempt: 1,
+    })).toBe(false);
     expect(shouldRunApplicationConciergeMatchingForServiceUpdate(before, { ...before, applicantLocationCountry: 'IT' })).toBe(false);
     expect(shouldRunApplicationConciergeMatchingForServiceUpdate(before, { ...before, cvStorageKey: 'application-concierge-uploads/service-1/new-cv.pdf' })).toBe(true);
     expect(shouldRunApplicationConciergeMatchingForServiceUpdate({ applicantLocation: 'Lugano 6900' }, { applicantLocation: 'Mendrisio 6850' })).toBe(false);
+    expect(shouldRunApplicationConciergeMatchingForServiceUpdate(before, { ...before, acceptedPositionsCount: 1 })).toBe(true);
   });
 
   it('derives the same service-scoped proposal id for retries and concurrent runs', () => {

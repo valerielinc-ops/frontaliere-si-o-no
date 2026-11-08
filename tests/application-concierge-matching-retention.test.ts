@@ -4,13 +4,18 @@ import { createMemoryFirestore } from './helpers/memoryFirestore';
 import { APPLICATION_CONCIERGE_MAX_OPEN_PROPOSALS } from '../functions/src/applicationConciergeConstants.js';
 import { eligibilityRetryRef } from '../functions/src/applicationConciergeEligibilityRetry.js';
 
-vi.mock('firebase-admin/firestore', () => ({
-  FieldValue: {
-    serverTimestamp: () => '__server_timestamp__',
-    increment: (value: number) => ({ __increment: value }),
-  },
-  Timestamp: { now: () => new Date() },
-}));
+vi.mock('firebase-admin/firestore', () => {
+  class DeleteTransform {}
+  return {
+    DeleteTransform,
+    FieldValue: {
+      serverTimestamp: () => '__server_timestamp__',
+      increment: (value: number) => ({ __increment: value }),
+      delete: () => new DeleteTransform(),
+    },
+    Timestamp: { now: () => new Date() },
+  };
+});
 vi.mock('../functions/src/newsletterResendWebhookCore.js', () => ({ getAdminDb: vi.fn() }));
 vi.mock('../functions/src/applicationConciergeEligibility.js', () => ({
   CONCIERGE_ELIGIBILITY_VERSION: 'test-eligibility-v1',
@@ -128,6 +133,7 @@ describe('application concierge proposal retention', () => {
 
     expect(store.read(PROPOSAL_PATH)).toMatchObject({ status: 'proposed', eligibilityStatus: 'compatible' });
     expect(store.read(SERVICE_PATH)).toMatchObject({ matchingStatus: 'failed' });
+    expect(store.read(`${SERVICE_PATH}/runtime/matching`)).not.toHaveProperty('matchingStartedAt');
   });
 
   it('keeps a proposal visible but marks it unverified when the current index omits the job', async () => {
@@ -159,6 +165,13 @@ describe('application concierge proposal retention', () => {
     expect(result).toMatchObject({ status: 'complete', proposals: 0 });
     expect(eligibility).toHaveBeenCalledTimes(1);
     expect(store.list(`${SERVICE_PATH}/proposals/`)).toEqual([]);
+    expect(store.read(SERVICE_PATH)).not.toHaveProperty('matchingScanCursor');
+    expect(store.read(`${SERVICE_PATH}/runtime/matching`)).toMatchObject({
+      schemaVersion: 3,
+      matchingScanContext: expect.any(String),
+      matchingScanCursor: JOB_URL,
+      matchingOpenProposalCount: 0,
+    });
   });
 
   it('replaces stale aggregate reason and status maps when the retry queue changes', async () => {
