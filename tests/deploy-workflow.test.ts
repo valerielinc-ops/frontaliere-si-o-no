@@ -865,6 +865,20 @@ describe('deploy.yml — shard push mode and advisory delta verification', () =>
     }
   });
 
+  it('bounds each section-shard push and logs timeouts without stripping its content', () => {
+    for (const name of sectionSteps) {
+      const run = String(pushStep(name).run ?? '');
+      expect(run, `${name}: missing the measured 30 min worker deadline`).toContain(
+        'timeout --verbose --signal=TERM --kill-after=30s 1800s bash scripts/lib/push-section-shard.sh',
+      );
+      expect(run, `${name}: missing per-section start telemetry`).toContain('[section-push] event=start');
+      expect(run, `${name}: missing explicit timeout telemetry`).toContain('event=timeout');
+      expect(run, `${name}: timeout must leave the existing publish fallback unchanged`).toMatch(
+        /existing (?:apex and strip-marker|live\/ok-marker) fallback remains in effect/,
+      );
+    }
+  });
+
   it('uploads mismatch reports under the locale/run-scoped artifact name without blocking deploy', () => {
     const upload = pushStep('Upload advisory shard push verification report');
     expect(upload.if).toBe("always() && vars.SHARD_PUSH_VERIFY == '1'");
