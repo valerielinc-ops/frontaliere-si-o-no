@@ -690,19 +690,39 @@ describe('generateFuelStationPages() — sibling links', () => {
 
     expect(gatedPages[keptPath]).toContain(`href="${buildFuelTodayPath('it', 'diesel', 'chiasso')}"`);
     expect(gatedPages[keptPath]).not.toContain(`href="${filteredPath}"`);
+    expect(gatedPages[keptPath]).not.toContain('/prezzi-diesel/chiasso/stazioni/chiasso-');
   });
 
   it('filters Italian city cards and station siblings against the same inventory', () => {
     const keptPath = buildFuelItalianStationPath('it', 'benzina', 'como', 'eni-via-milano');
     const filteredPath = buildFuelItalianStationPath('it', 'benzina', 'como', 'shell-via-bellinzona');
     const emittedStationPaths = new Set([keptPath]);
+    const italianSiblingDataset = {
+      ...DATASET,
+      municipalities: [
+        ...DATASET.municipalities,
+        {
+          municipality: 'Como',
+          province: 'CO',
+          italy: {
+            cheapestStation: {
+              id: '5',
+              stationName: 'Eni Como',
+              brand: 'Eni',
+              address: 'Via Milano 10, 22100 Como',
+              priceEur: 1.739,
+            },
+          },
+        },
+      ],
+    };
     const gatedStationPages = generateFuelItalianStationPages({
-      dataset: DATASET,
+      dataset: italianSiblingDataset,
       today,
       emittedStationPaths,
     });
     const gatedCityPages = generateFuelItalianCityPages({
-      dataset: DATASET,
+      dataset: italianSiblingDataset,
       today,
       emittedStationPaths,
     });
