@@ -137,6 +137,24 @@ describe('report-jobs-seo-build-metrics', () => {
       'after-previous-slug-bridges has no previousSlugEntries field (expected a non-negative integer)',
     ]);
   });
+
+  it('keeps large marker sets in the artifact instead of duplicating them in the step summary', () => {
+    const markerCount = 50_000;
+    const log = Array.from(
+      { length: markerCount },
+      (_, index) => `[mem] jobsSeoPages: after-active-pages heapUsed=${index}MB rss=2MB validJobs=1`,
+    ).join('\n');
+    const report = parseJobsSeoBuildLog(log);
+    const summary = renderSummary(report, { label: 'production/it' });
+    const markerFile = renderMarkerFile(report);
+
+    expect(report.markerLines).toHaveLength(markerCount);
+    expect(Buffer.byteLength(summary)).toBeLessThan(1024 * 1024);
+    expect(summary).toContain(`Selected raw markers: ${markerCount} lines.`);
+    expect(summary).not.toContain(report.markerLines[0]);
+    expect(markerFile).toContain(report.markerLines[0]);
+    expect(markerFile).toContain(report.markerLines.at(-1)!);
+  });
 });
 
 describe('replay on real production marker artifacts', () => {

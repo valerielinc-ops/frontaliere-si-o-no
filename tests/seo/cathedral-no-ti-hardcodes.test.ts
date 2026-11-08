@@ -86,7 +86,7 @@ const SEGMENT_BASELINE: Record<string, number> = {
   'build-plugins/exchangeRatePagesPlugin.ts': 4,
   'build-plugins/frontalierePillarCopy.ts': 8,
   'build-plugins/jobSectorLanding.ts': 0,
-  'build-plugins/jobsSeoPagesPlugin.ts': 19,
+  'build-plugins/jobsSeoPagesPlugin.ts': 17,
   'build-plugins/legacyRedirectsPlugin.ts': 19,
   'build-plugins/nursingLandingsPlugin.ts': 4,
   'build-plugins/pdfWhitepapersPlugin.ts': 1,
