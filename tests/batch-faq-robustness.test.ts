@@ -49,8 +49,10 @@ import {
   parseFaqLiteral,
 } from '../scripts/batch-add-faq-to-articles.mjs';
 import {
+  FAQ_WRITE_MIN_PAIRS,
   escapeForSingleQuoteTS,
   replaceFaqLiteral,
+  writeFileAtomic,
   wrongLocalePair,
   SOURCE_FUNCTIONAL_WORD_THRESHOLD,
 } from '../scripts/fix-faq-locales.mjs';
@@ -383,6 +385,38 @@ describe('nanako#394 — round-trip write→read', () => {
     expect(parseFaqLiteral('non e json')).toBe(null);
     expect(parseFaqLiteral('{"q":"un oggetto, non un array"}')).toBe(null);
     expect(parseFaqLiteral('')).toBe(null);
+  });
+});
+
+describe('FAQ write boundary — locale floor and control characters', () => {
+  it('keeps the published FAQ floor explicit and refuses a shorter write', () => {
+    expect(FAQ_WRITE_MIN_PAIRS).toBe(2);
+    const before = bodyFile(bodyLine(ALPHA, 1, 'Corpo di alpha.'));
+    const p = fileTemporaneo(`${ALPHA}.ts`, before);
+
+    expect(insertFaqIntoBodyFile(p, ALPHA, FAQ_OSTILE.slice(0, 1))).toBe(false);
+    expect(fs.readFileSync(p, 'utf-8')).toBe(before);
+  });
+
+  it('rejects a FAQ pair carrying an XML-invalid control character before writing', () => {
+    const before = bodyFile(bodyLine(ALPHA, 1, 'Corpo di alpha.'));
+    const p = fileTemporaneo(`${ALPHA}.ts`, before);
+    const backspace = String.fromCharCode(0x08);
+    const dirty = FAQ_OSTILE.map((pair, index) => (
+      index === 0 ? { ...pair, a: `${pair.a}${backspace}` } : pair
+    ));
+
+    expect(insertFaqIntoBodyFile(p, ALPHA, dirty)).toBe(false);
+    expect(fs.readFileSync(p, 'utf-8')).toBe(before);
+  });
+
+  it('refuses raw control characters at the atomic file boundary', () => {
+    const before = bodyFile(bodyLine(ALPHA, 1, 'Corpo di alpha.'));
+    const p = fileTemporaneo(`${ALPHA}.ts`, before);
+    const backspace = String.fromCharCode(0x08);
+
+    expect(() => writeFileAtomic(p, `${before}${backspace}`)).toThrow(/refusing to publish/);
+    expect(fs.readFileSync(p, 'utf-8')).toBe(before);
   });
 });
 

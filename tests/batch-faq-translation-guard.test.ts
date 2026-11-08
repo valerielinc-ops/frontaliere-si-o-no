@@ -156,4 +156,29 @@ describe('batch FAQ — source-language translation guard (#7710)', () => {
       rejected: false,
     });
   });
+
+  it('does not claim a below-floor locale write succeeded', async () => {
+    freeTranslateMock.mockImplementation(async ({ text }: { text: string }) => (
+      text === IT_PAIR.q ? EN_PAIR.q : EN_PAIR.a
+    ));
+    const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
+    const bodyDir = fs.mkdtempSync(path.join(os.tmpdir(), 'faq-translation-floor-'));
+    const localeDir = path.join(bodyDir, 'en');
+    const localePath = path.join(localeDir, 'alpha-uno.ts');
+    const before = bodyFile([EN_PAIR]);
+
+    fs.mkdirSync(localeDir, { recursive: true });
+    fs.writeFileSync(localePath, before, 'utf8');
+
+    try {
+      await expect(
+        processTranslation('alpha-uno', 'alpha-uno.ts', [IT_PAIR], ['en'], { bodyDir }),
+      ).resolves.toEqual({ success: false, faqCount: 0 });
+
+      expect(fs.readFileSync(localePath, 'utf8')).toBe(before);
+      expect(errorSpy.mock.calls.flat().join('\n')).toMatch(/FAQ write rejected/);
+    } finally {
+      fs.rmSync(bodyDir, { recursive: true, force: true });
+    }
+  });
 });
