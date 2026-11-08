@@ -556,6 +556,7 @@ describe('allow-list sparse: il codice caricato deve essere materializzato', () 
         'build-plugins/shared/redirectStubMarker.mjs',
         'packages/articles/engine/shared/articleSectionCore.mjs',
         'packages/articles/engine/shared/cantonArticleSectionCore.generated.mjs',
+        'services/publicConfigConstants.mjs',
       ]);
     const doc = YAML.parse(fs.readFileSync(path.join(WF_DIR, 'runtime-reliability-watch.yml'), 'utf8'));
     const checkout = doc.jobs.watch.steps.find((st: any) => String(st?.uses).startsWith('actions/checkout@'));

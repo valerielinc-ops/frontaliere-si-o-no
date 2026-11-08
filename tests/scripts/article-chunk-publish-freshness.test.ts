@@ -54,6 +54,10 @@ const REPLAY_CODE_THAT_WRITES_NOTHING: Record<string, string> = {
   // Renders the llms.txt family for `generated` entries only; the replay
   // asks for committed files.
   'scripts/generate-llms-txt.mjs': 'llms.txt generator, never requested by the replay',
+  // The Worker imports these values for the independent public-config route.
+  // Article replay reads the Worker route table, but these do not affect the
+  // article chunks or URLs published by that replay.
+  'services/publicConfigConstants.mjs': 'public-config Worker route, unrelated to article replay outputs',
 };
 
 type ReplayStep = { name?: string; run?: string };
