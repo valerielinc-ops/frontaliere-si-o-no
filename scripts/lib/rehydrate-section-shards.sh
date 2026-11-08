@@ -268,8 +268,9 @@ rehydrate_section() {
       # is NOT redundant with the count below: a corrupt stream is listed and
       # extracted identically by both passes (measured: a flipped byte in
       # obvaldo-dist-en.tar → "tar listed 1003", 1003 extracted, of 2009), so
-      # the counts agree and only the CRC says the subtree is short. 0 and 1
-      # (warning, #7503) are a good read; >= 2 is not.
+      # the counts agree and only the CRC says the subtree is short. Info-ZIP
+      # uses status 1 for warnings, including CRC failures; only status 0 is a
+      # clean artifact verdict.
       unzip_rc="${PIPESTATUS[0]}"
       # This section has read everything it needs from the batch zip.
       batch_zip_release "$batch" "$loc" "$section"
@@ -290,7 +291,7 @@ rehydrate_section() {
       # the only check here that treats "extraction produced a different
       # count than the archive claims to hold" as a mismatch instead of a
       # pass, forcing the git-clone fallback below.
-      if [ "${unzip_rc:-2}" -le 1 ] && [ -d "dist/$sub" ] && [ "${expected_n:-0}" -gt 0 ] && [ "$actual_n" -eq "$expected_n" ]; then
+      if [ "${unzip_rc:-2}" -eq 0 ] && [ -d "dist/$sub" ] && [ "${expected_n:-0}" -gt 0 ] && [ "$actual_n" -eq "$expected_n" ]; then
         echo "rehydrated $section $loc from tar artifact: $actual_n files (tar listed $expected_n)"
         rehydrate_provenance "$sub" artifact "shard-batch-$batch-dist-$loc"
         trunk_replace_end "$section-$loc"

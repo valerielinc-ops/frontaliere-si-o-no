@@ -267,6 +267,11 @@ describe('rehydrate-section-shards.sh — structural invariants (issue #4881 def
     expect(script).toMatch(/\[ "\$actual_n" -eq "\$expected_n" \]/);
     expect(script).not.toMatch(/\[ "\$actual_n" -ge "\$expected_n" \]/);
   });
+
+  it('accepts a streamed tar only after unzip reports a clean status', () => {
+    expect(script).toContain('if [ "${unzip_rc:-2}" -eq 0 ] && [ -d "dist/$sub" ]');
+    expect(script).not.toContain('"${unzip_rc:-2}" -le 1');
+  });
 });
 
 /**
