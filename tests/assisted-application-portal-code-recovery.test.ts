@@ -167,12 +167,14 @@ describe('automatic recovery after a portal fix', () => {
     const oldVersion = 'a'.repeat(64);
     const dueAt = now + 1_000;
     const flowPath = `${base}/automation/flow`;
-    store.docs.set(base, { ...store.read(base), automationDueAt: dueAt });
+    store.docs.set(base, { ...store.read(base), talentPoolConsent: true });
     store.docs.set(flowPath, { ...store.read(flowPath), heldBy: ['portal:portal_needs_candidate'], portalAutoRetryCount: 2,
       portalAutoRetryAt: dueAt, portalRecoveryVersion: oldVersion, portalExhaustedRecoveryVersion: oldVersion });
-    const ctx = { db: store.db, version, apply: true, nowMs: now, isEnabled: async () => true };
+    const ctx = { db: store.db, version, nowMs: now, isEnabled: async () => true };
 
-    expect(await reconcilePortalCode(ctx)).toMatchObject({ eligible: 0, queued: 0 });
+    expect(await reconcilePortalCode({ ...ctx, apply: false })).toMatchObject({ eligible: 0, queued: 0 });
+    expect(store.read(base).automationDueAt).toBeNull();
+    expect(await reconcilePortalCode({ ...ctx, apply: true })).toMatchObject({ eligible: 0, queued: 0 });
     expect(store.read(flowPath)).toMatchObject({ portalAutoRetryCount: 2, portalAutoRetryAt: dueAt,
       portalRecoveryVersion: oldVersion, portalExhaustedRecoveryVersion: oldVersion });
     expect(store.read(base).automationDueAt).toBe(dueAt);
