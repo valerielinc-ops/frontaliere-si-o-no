@@ -1,6 +1,6 @@
 {
   "crawlerKey": "denner",
-  "assembledAt": "2026-11-08T09:21:47.484Z",
+  "assembledAt": "2026-11-08T11:55:08.797Z",
   "runId": "42465728697",
   "jobs": [
     {
@@ -234,7 +234,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-08T09:21:10.733Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "denner-476d321a8a2d",
@@ -762,7 +763,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-08T09:21:09.856Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "denner-85a9ad2b4415",
@@ -1081,7 +1083,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-08T09:21:09.414Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "denner-3eea8528d29a",
@@ -1508,7 +1511,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-08T09:21:08.991Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "denner-7c4ff2258d7f",
@@ -1610,7 +1614,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2027-01-06T09:21:08.988Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "denner-51e704085690",
@@ -2725,7 +2730,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2027-01-17T09:21:06.861Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "denner-fee8b7c28023",
@@ -3131,7 +3137,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2027-01-17T09:21:06.256Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "denner-107217f5c37f",
@@ -3233,7 +3240,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2027-01-17T09:21:06.251Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "denner-499a656eefd2",
@@ -3342,7 +3350,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-08T09:21:05.808Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "denner-19fd5f4e32ec",
@@ -3674,7 +3683,7 @@
       "slugByLocale": {
         "it": "vice-responsabile-di-filiale-denner-kirchberg",
         "en": "deputy-branch-manager-denner-kirchberg",
-        "de": "stv-filialleiter-in-denner",
+        "de": "stv-filialleiter-in-denner-kirchberg",
         "fr": "responsable-adjoint-e-de-succursale-denner-kirchberg"
       },
       "company": "Denner",
@@ -3751,7 +3760,7 @@
           "stv-filialleiter-in-denner-kirchberg"
         ],
         "de": [
-          "stv-filialleiter-in-denner-kirchberg"
+          "stv-filialleiter-in-denner"
         ],
         "fr": [
           "stv-filialleiter-in-denner-kirchberg"
@@ -5419,7 +5428,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-08T09:21:02.497Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "denner-641f44820226",
@@ -5837,7 +5847,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-08T09:21:02.050Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "denner-63d6841feb70",
@@ -6257,7 +6268,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-08T09:21:01.427Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "denner-2da3b8645bc1",
@@ -6362,7 +6374,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-08T09:21:00.798Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "denner-9d9ac7459f42",
@@ -6464,7 +6477,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-08T09:21:00.794Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "denner-4c5c16a09d1b",
@@ -6785,7 +6799,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-08T09:21:00.183Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "denner-e14bba5e1f04",
@@ -7000,7 +7015,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-08T09:20:59.590Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "denner-6d2936b67eba",
@@ -7106,7 +7122,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-08T09:20:59.578Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "denner-da8c0ea987fa",
@@ -8504,7 +8521,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-08T09:20:57.381Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "denner-b82561522d50",
@@ -9361,7 +9379,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-08T09:20:55.836Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "denner-398e76cbd863",
@@ -10579,7 +10598,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-08T09:20:53.704Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "denner-efe7ec118b9e",
@@ -10793,7 +10813,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-08T09:20:53.697Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "denner-d22c0e4a7a3f",
@@ -11119,7 +11140,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-16T09:20:53.080Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "denner-4efcc06758fd",
@@ -11226,7 +11248,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-08T09:20:52.489Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "denner-4bdf8e60fd48",
@@ -12054,7 +12077,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-08T09:20:51.127Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "denner-ea2873b40faa",
@@ -12264,7 +12288,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-08T09:20:50.693Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "denner-d95dc285ddf6",
@@ -12552,7 +12577,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-08T09:20:50.685Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "denner-f13602360cce",
@@ -15337,7 +15363,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-08T09:20:46.172Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "denner-0f13c61b036b",
@@ -15649,7 +15676,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-08T09:20:45.740Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "denner-3c5637016ff5",
@@ -17552,7 +17580,7 @@
       "slugByLocale": {
         "it": "hr-business-partner-denner-zurich",
         "en": "hr-business-partner-denner-zurich",
-        "de": "hr-business-partner-in-denner",
+        "de": "hr-business-partner-in-denner-zurich",
         "fr": "partenaire-rh-denner-zurich"
       },
       "company": "Denner",
@@ -17608,8 +17636,7 @@
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugs": [
-        "hr-business-partner-in-denner",
-        "hr-business-partner-in-denner-zurich"
+        "hr-business-partner-in-denner"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -17619,7 +17646,7 @@
           "hr-business-partner-in-denner"
         ],
         "de": [
-          "hr-business-partner-in-denner-zurich"
+          "hr-business-partner-in-denner"
         ]
       },
       "firstSeenAt": "2026-11-02T09:22:05.475Z",
@@ -17638,7 +17665,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-01T09:20:42.918Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-ocrq9v",
@@ -18626,7 +18654,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-08T09:20:41.439Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "denner-185cf6dcbec3",
@@ -19272,7 +19301,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-08T09:20:40.579Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "denner-be4882824caf",
@@ -19388,7 +19418,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-09T09:20:40.141Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "denner-d88042b8f032",
@@ -19493,7 +19524,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-08T09:20:40.139Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "denner-1ecc80ff026a",
@@ -19809,7 +19841,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-08T09:20:39.686Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "denner-c1c8a410a4e9",
@@ -20021,7 +20054,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-08T09:20:39.262Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "denner-a6d21a164509",
@@ -20338,7 +20372,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-08T09:20:38.834Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "denner-fa882fe5c6a3",
@@ -20443,7 +20478,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-08T09:20:38.829Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "denner-40a543d0a6e0",
@@ -20653,7 +20689,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-08T09:20:38.414Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "denner-c586d26d63de",
@@ -20755,7 +20792,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-08T09:20:38.412Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "denner-65de65d0f95a",
@@ -21266,7 +21304,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-08T09:20:37.531Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "denner-6f34009ba9b8",
@@ -21599,7 +21638,7 @@
       "slugByLocale": {
         "it": "venditore-trice-denner-gretzenbach",
         "en": "salesperson-denner-gretzenbach",
-        "de": "verkaufer-in-denner",
+        "de": "verkaufer-in-denner-gretzenbach",
         "fr": "vendeur-euse-denner-gretzenbach"
       },
       "company": "Denner",
@@ -21670,7 +21709,7 @@
           "verkaufer-in-denner-gretzenbach"
         ],
         "de": [
-          "verkaufer-in-denner-gretzenbach"
+          "verkaufer-in-denner"
         ],
         "fr": [
           "verkaufer-in-denner-gretzenbach"
@@ -21707,7 +21746,7 @@
       "slugByLocale": {
         "it": "venditore-trice-denner-menziken",
         "en": "salesperson-denner-menziken",
-        "de": "verkaufer-in-denner",
+        "de": "verkaufer-in-denner-menziken",
         "fr": "vendeur-euse-denner-menziken"
       },
       "company": "Denner",
@@ -21778,7 +21817,7 @@
           "verkaufer-in-denner-menziken"
         ],
         "de": [
-          "verkaufer-in-denner-menziken"
+          "verkaufer-in-denner"
         ],
         "fr": [
           "verkaufer-in-denner-menziken"
@@ -21815,7 +21854,7 @@
       "slugByLocale": {
         "it": "assistente-alla-direzione-della-filiale-denner-wohlen",
         "en": "assistant-branch-manager-denner-wohlen",
-        "de": "assistent-in-filialleitung-denner",
+        "de": "assistent-in-filialleitung-denner-wohlen",
         "fr": "assistant-e-de-responsable-de-filiale-denner-wohlen"
       },
       "company": "Denner",
@@ -21872,8 +21911,7 @@
       "postingDateSource": "unknown",
       "previousSlugs": [
         "assistent-in-filialleitung-denner",
-        "assistent-in-filialleitung-denner-2",
-        "assistent-in-filialleitung-denner-wohlen"
+        "assistent-in-filialleitung-denner-2"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -21884,7 +21922,7 @@
           "assistent-in-filialleitung-denner-2"
         ],
         "de": [
-          "assistent-in-filialleitung-denner-wohlen"
+          "assistent-in-filialleitung-denner"
         ],
         "fr": [
           "assistent-in-filialleitung-denner-2"
@@ -21921,7 +21959,7 @@
       "slugByLocale": {
         "it": "venditore-trice-denner-rapperswil-sg",
         "en": "salesperson-denner-rapperswil-sg",
-        "de": "verkaufer-in-denner",
+        "de": "verkaufer-in-denner-rapperswil-sg",
         "fr": "vendeur-euse-denner-rapperswil-sg"
       },
       "company": "Denner",
@@ -21992,7 +22030,7 @@
           "verkaufer-in-denner-rapperswil-sg"
         ],
         "de": [
-          "verkaufer-in-denner-rapperswil-sg"
+          "verkaufer-in-denner"
         ],
         "fr": [
           "verkaufer-in-denner-rapperswil-sg"
@@ -22029,7 +22067,7 @@
       "slugByLocale": {
         "it": "venditore-trice-denner-ruti-zh",
         "en": "salesperson-denner-ruti-zh",
-        "de": "verkaufer-in-denner",
+        "de": "verkaufer-in-denner-ruti-zh",
         "fr": "vendeur-euse-denner-ruti-zh"
       },
       "company": "Denner",
@@ -22100,7 +22138,7 @@
           "verkaufer-in-denner-ruti-zh"
         ],
         "de": [
-          "verkaufer-in-denner-ruti-zh"
+          "verkaufer-in-denner"
         ],
         "fr": [
           "verkaufer-in-denner-ruti-zh"
@@ -22137,7 +22175,7 @@
       "slugByLocale": {
         "it": "assistente-alla-direzione-della-filiale-denner-uznach",
         "en": "assistant-branch-manager-denner-uznach",
-        "de": "assistent-in-filialleitung-denner",
+        "de": "assistent-in-filialleitung-denner-uznach",
         "fr": "assistant-e-de-responsable-de-filiale-denner-uznach"
       },
       "company": "Denner",
@@ -22195,7 +22233,6 @@
       "previousSlugs": [
         "assistent-in-filialleitung-denner",
         "assistent-in-filialleitung-denner-3",
-        "assistent-in-filialleitung-denner-uznach",
         "assistent-in-filialleitung-denner-2"
       ],
       "previousSlugsByLocale": {
@@ -22208,7 +22245,7 @@
           "assistent-in-filialleitung-denner-3"
         ],
         "de": [
-          "assistent-in-filialleitung-denner-uznach"
+          "assistent-in-filialleitung-denner"
         ],
         "fr": [
           "assistent-in-filialleitung-denner-3"
@@ -22246,7 +22283,7 @@
         "it": "gestione-denner-lausanne",
         "en": "managing-denner-lausanne",
         "de": "verwaltung-denner-lausanne",
-        "fr": "gerant-e-denner"
+        "fr": "gerant-e-denner-lausanne"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -22313,7 +22350,7 @@
           "gerant-e-denner"
         ],
         "fr": [
-          "gerant-e-denner-lausanne"
+          "gerant-e-denner"
         ]
       },
       "firstSeenAt": "2026-09-28T05:01:00.024Z",
@@ -22571,7 +22608,7 @@
       "slugByLocale": {
         "it": "studente-studentessa-come-aiuto-durante-le-vacanze-denner-wolhusen",
         "en": "student-holiday-assistant-denner-wolhusen",
-        "de": "student-in-als-ferienaushilfe-denner",
+        "de": "student-in-als-ferienaushilfe-denner-wolhusen",
         "fr": "etudiant-e-auxiliaire-de-vacances-denner-wolhusen"
       },
       "company": "Denner",
@@ -22626,8 +22663,7 @@
       "postingDateSource": "unknown",
       "previousSlugs": [
         "student-in-als-ferienaushilfe-denner",
-        "student-in-come-ferienaushilfe-denner-wolhusen",
-        "student-in-als-ferienaushilfe-denner-wolhusen"
+        "student-in-come-ferienaushilfe-denner-wolhusen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -22638,7 +22674,7 @@
           "student-in-als-ferienaushilfe-denner"
         ],
         "de": [
-          "student-in-als-ferienaushilfe-denner-wolhusen"
+          "student-in-als-ferienaushilfe-denner"
         ],
         "fr": [
           "student-in-als-ferienaushilfe-denner"
@@ -22675,7 +22711,7 @@
       "slugByLocale": {
         "it": "venditore-venditrice-denner-zurich",
         "en": "salesperson-denner-zurich",
-        "de": "verkaufer-in-denner",
+        "de": "verkaufer-in-denner-zurich",
         "fr": "vendeur-euse-denner-zurich"
       },
       "company": "Denner",
@@ -22746,7 +22782,7 @@
           "verkaufer-in-denner-zurich"
         ],
         "de": [
-          "verkaufer-in-denner-zurich"
+          "verkaufer-in-denner"
         ],
         "fr": [
           "verkaufer-in-denner-zurich"
@@ -22783,7 +22819,7 @@
       "slugByLocale": {
         "it": "vice-responsabile-di-filiale-denner-langnau-am-albis",
         "en": "deputy-branch-manager-denner-langnau-am-albis",
-        "de": "stv-filialleiter-in-denner",
+        "de": "stv-filialleiter-in-denner-langnau-am-albis",
         "fr": "responsable-adjoint-e-de-filiale-denner-langnau-am-albis"
       },
       "company": "Denner",
@@ -22852,7 +22888,7 @@
           "stv-filialleiter-in-denner-langnau-am-albis"
         ],
         "de": [
-          "stv-filialleiter-in-denner-langnau-am-albis"
+          "stv-filialleiter-in-denner"
         ],
         "fr": [
           "stv-filialleiter-in-denner-langnau-am-albis"
@@ -22889,7 +22925,7 @@
       "slugByLocale": {
         "it": "vice-responsabile-di-filiale-denner-nidau",
         "en": "deputy-branch-manager-denner-nidau",
-        "de": "stv-filialleiter-in-denner",
+        "de": "stv-filialleiter-in-denner-nidau",
         "fr": "responsable-adjoint-e-de-filiale-denner-nidau"
       },
       "company": "Denner",
@@ -22958,7 +22994,7 @@
           "stv-filialleiter-in-denner-nidau"
         ],
         "de": [
-          "stv-filialleiter-in-denner-nidau"
+          "stv-filialleiter-in-denner"
         ],
         "fr": [
           "stv-filialleiter-in-denner-nidau"
@@ -22995,7 +23031,7 @@
       "slugByLocale": {
         "it": "vice-responsabile-di-filiale-denner-trubbach",
         "en": "deputy-branch-manager-denner-trubbach",
-        "de": "stv-filialleiter-in-denner",
+        "de": "stv-filialleiter-in-denner-trubbach",
         "fr": "responsable-adjoint-e-de-filiale-denner-trubbach"
       },
       "company": "Denner",
@@ -23064,7 +23100,7 @@
           "stv-filialleiter-in-denner-trubbach"
         ],
         "de": [
-          "stv-filialleiter-in-denner-trubbach"
+          "stv-filialleiter-in-denner"
         ],
         "fr": [
           "stv-filialleiter-in-denner-trubbach"
@@ -24230,7 +24266,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-08T09:20:32.988Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-3fw79h",
@@ -24634,7 +24671,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-08T09:20:32.388Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "denner-727bbf66b8c4",
@@ -24756,7 +24794,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-08T09:20:32.385Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "denner-a1189bde07f5",
@@ -25917,7 +25956,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-08T09:20:30.590Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "denner-9e912698b24a",
@@ -26411,7 +26451,7 @@
       "slugByLocale": {
         "it": "venditore-denner-kirchberg",
         "en": "shop-assistant-denner-kirchberg",
-        "de": "verkaufer-in-denner",
+        "de": "verkaufer-in-denner-kirchberg",
         "fr": "vendeur-denner-kirchberg"
       },
       "company": "Denner",
@@ -26493,7 +26533,7 @@
           "verkaufer-in-denner-kirchberg"
         ],
         "de": [
-          "verkaufer-in-denner-kirchberg"
+          "verkaufer-in-denner"
         ],
         "fr": [
           "verkaufer-in-denner-kirchberg"
@@ -26515,7 +26555,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-08T09:20:29.406Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "denner-b65a196aaf79",
@@ -26726,7 +26767,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-08T09:20:29.401Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "denner-29240f893274",

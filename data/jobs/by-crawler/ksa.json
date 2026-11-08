@@ -1,6 +1,6 @@
 {
   "crawlerKey": "ksa",
-  "assembledAt": "2026-11-08T09:15:06.197Z",
+  "assembledAt": "2026-11-08T11:56:13.948Z",
   "runId": "42465491629",
   "jobs": [
     {
@@ -409,7 +409,8 @@
       "streetAddress": "Aarau",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-08T09:13:40.890Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "ksa-dc3d5b6a3940",
@@ -1008,7 +1009,8 @@
       "streetAddress": "Aarau",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-08T09:13:40.890Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "ksa-a12ffcf3c070",
@@ -1503,7 +1505,8 @@
       "streetAddress": "Aarau",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-08T09:13:40.890Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "ksa-89883f785c0b",
@@ -1931,7 +1934,7 @@
       "slugByLocale": {
         "it": "cura-della-leadership-del-team-kantonsspital-aarau-ksa-aarau-779ef7",
         "en": "team-leadership-care-kantonsspital-aarau-ksa-aarau-779ef7",
-        "de": "teamleitung-pflege-ksa-ch",
+        "de": "teamleitung-pflege-kantonsspital-aarau-ksa-aarau",
         "fr": "soins-de-direction-de-l-equipe-kantonsspital-aarau-ksa-aarau-779ef7"
       },
       "company": "Kantonsspital Aarau (KSA)",
@@ -1977,8 +1980,7 @@
       "requirementsByLocale": {},
       "department": "Kantonsspital Aarau AG",
       "previousSlugs": [
-        "teamleitung-pflege-ksa-ch",
-        "teamleitung-pflege-kantonsspital-aarau-ksa-aarau"
+        "teamleitung-pflege-ksa-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1988,7 +1990,7 @@
           "teamleitung-pflege-ksa-ch"
         ],
         "de": [
-          "teamleitung-pflege-kantonsspital-aarau-ksa-aarau"
+          "teamleitung-pflege-ksa-ch"
         ],
         "fr": [
           "teamleitung-pflege-ksa-ch"
@@ -2177,7 +2179,8 @@
       "streetAddress": "Aarau",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-03T09:13:40.889Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "ksa-60550f6dd241",
@@ -2257,7 +2260,8 @@
       "streetAddress": "Aarau",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-01T09:13:40.889Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "ksa-b4257baebfa2",
@@ -2656,7 +2660,8 @@
       "streetAddress": "Aarau",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-08T09:13:40.889Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "ksa-4724a0578fdf",
@@ -2852,7 +2857,8 @@
       "streetAddress": "Aarau",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-08T09:13:40.889Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "ksa-ada5f67f49cd",
@@ -2930,7 +2936,8 @@
       "streetAddress": "Aarau",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-30T09:13:40.889Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "ksa-69d636525428",
@@ -3008,7 +3015,8 @@
       "streetAddress": "Aarau",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-30T09:13:40.889Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "ksa-1b139f1444e7",
@@ -3086,7 +3094,8 @@
       "streetAddress": "Aarau",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-30T09:13:40.889Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "ksa-b8ba872e59d8",
@@ -3164,7 +3173,8 @@
       "streetAddress": "Aarau",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-30T09:13:40.889Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "ksa-c214320eacf6",
@@ -3242,7 +3252,8 @@
       "streetAddress": "Aarau",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-30T09:13:40.889Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "ksa-2031d1fa41c6",
@@ -3320,7 +3331,8 @@
       "streetAddress": "Aarau",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-30T09:13:40.889Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "ksa-194d8d1b11a3",
@@ -3398,7 +3410,8 @@
       "streetAddress": "Aarau",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-30T09:13:40.889Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "ksa-e8e487f4b01a",
@@ -3476,7 +3489,8 @@
       "streetAddress": "Aarau",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-30T09:13:40.889Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "ksa-80b8c722afbe",
@@ -3554,7 +3568,8 @@
       "streetAddress": "Aarau",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-30T09:13:40.889Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "ksa-44888a620a6a",
@@ -3632,7 +3647,8 @@
       "streetAddress": "Aarau",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-30T09:13:40.889Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "ksa-1c4076e392eb",
@@ -3710,7 +3726,8 @@
       "streetAddress": "Aarau",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-30T09:13:40.889Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "ksa-e866d2c908f0",
@@ -3788,7 +3805,8 @@
       "streetAddress": "Aarau",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-30T09:13:40.889Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "ksa-85f6d0c2e17d",
@@ -3796,7 +3814,7 @@
       "slugByLocale": {
         "it": "team-leader-team-leader-kantonsspital-aarau-ksa-aarau",
         "en": "team-leader-team-leader-kantonsspital-aarau-ksa-aarau",
-        "de": "teamleiterin-teamleiter-ksa-ch",
+        "de": "teamleiterin-teamleiter-kantonsspital-aarau-ksa-aarau",
         "fr": "chef-d-equipe-chef-d-equipe-kantonsspital-aarau-ksa-aarau"
       },
       "company": "Kantonsspital Aarau (KSA)",
@@ -3842,8 +3860,7 @@
       "requirementsByLocale": {},
       "department": "Kantonsspital Aarau AG",
       "previousSlugs": [
-        "teamleiterin-teamleiter-ksa-ch",
-        "teamleiterin-teamleiter-kantonsspital-aarau-ksa-aarau"
+        "teamleiterin-teamleiter-ksa-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3853,7 +3870,7 @@
           "teamleiterin-teamleiter-ksa-ch"
         ],
         "de": [
-          "teamleiterin-teamleiter-kantonsspital-aarau-ksa-aarau"
+          "teamleiterin-teamleiter-ksa-ch"
         ],
         "fr": [
           "teamleiterin-teamleiter-ksa-ch"
@@ -3876,7 +3893,8 @@
       "streetAddress": "Aarau",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-20T09:13:40.888Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "ksa-1417c1dea0f0",
@@ -4133,7 +4151,8 @@
       "streetAddress": "Aarau",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-13T09:13:40.888Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "ksa-5a02d18570a8",
@@ -5188,7 +5207,8 @@
       "streetAddress": "Aarau",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-20T09:13:40.888Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "ksa-aa29810575fc",
@@ -5630,7 +5650,7 @@
       "slugByLocale": {
         "it": "ergoterapista-diplomato-a-riabilitazione-della-mano-kantonsspital-aarau-ksa-aarau",
         "en": "qualified-occupational-therapist-kantonsspital-aarau-ksa-aarau",
-        "de": "dipl-ergotherapeut-in-ksa-ch",
+        "de": "dipl-ergotherapeut-in-kantonsspital-aarau-ksa-aarau",
         "fr": "ergotherapeute-diplome-e-readaptation-de-la-main-kantonsspital-aarau-ksa-aarau"
       },
       "company": "Kantonsspital Aarau (KSA)",
@@ -5697,7 +5717,7 @@
         ],
         "de": [
           "dipl-ergotherapeut-in-handrehabilitation-ksa-ch",
-          "dipl-ergotherapeut-in-kantonsspital-aarau-ksa-aarau"
+          "dipl-ergotherapeut-in-ksa-ch"
         ],
         "fr": [
           "dipl-ergotherapeut-in-handrehabilitation-ksa-ch"
@@ -5728,7 +5748,7 @@
       "slugByLocale": {
         "it": "fisioterapista-diplomato-a-riabilitazione-della-mano-kantonsspital-aarau-ksa-aarau",
         "en": "qualified-physiotherapist-kantonsspital-aarau-ksa-aarau",
-        "de": "dipl-physiotherapeut-in-ksa-ch",
+        "de": "dipl-physiotherapeut-in-kantonsspital-aarau-ksa-aarau",
         "fr": "physiotherapeute-diplome-e-readaptation-de-la-main-kantonsspital-aarau-ksa-aarau"
       },
       "company": "Kantonsspital Aarau (KSA)",
@@ -5795,7 +5815,7 @@
         ],
         "de": [
           "dipl-physiotherapeut-in-handrehabilitation-ksa-ch",
-          "dipl-physiotherapeut-in-kantonsspital-aarau-ksa-aarau"
+          "dipl-physiotherapeut-in-ksa-ch"
         ],
         "fr": [
           "dipl-physiotherapeut-in-handrehabilitation-ksa-ch"
@@ -6170,7 +6190,8 @@
       "streetAddress": "Aarau",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-01T09:13:40.887Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "ksa-91d6257c78c8",
@@ -6590,7 +6611,8 @@
       "streetAddress": "Aarau",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-22T09:13:40.887Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "ksa-803625157377",
@@ -6753,9 +6775,6 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "specialista-sanitaria-efz-2009-kantonsspital-aarau-ksa-aarau",
-          "salute-professionale-kantonsspital-aarau-ksa-aarau-99b4914284",
-          "sante-professionnelle-kantonsspital-aarau-ksa-aarau-b22c58",
           "salute-professionale-kantonsspital-aarau-ksa-aarau-430337",
           "health-professional-kantonsspital-aarau-ksa-aarau",
           "fachfrau-mann-gesundheit-ksa-ch",
@@ -6773,8 +6792,11 @@
           "sante-professionnelle-kantonsspital-aarau-ksa-aarau-917953",
           "fachfrau-fachmann-gesundheit-ksa-ch",
           "salute-professionale-kantonsspital-aarau-ksa-aarau-b22c58",
+          "professional-health-kantonsspital-aarau-ksa-aarau-b22c58",
+          "salute-professionale-kantonsspital-aarau-ksa-aarau-99b4914284",
           "salute-professionale-kantonsspital-aarau-ksa-aarau",
-          "professional-health-kantonsspital-aarau-ksa-aarau-b22c58"
+          "specialista-sanitaria-efz-2009-kantonsspital-aarau-ksa-aarau",
+          "sante-professionnelle-kantonsspital-aarau-ksa-aarau-b22c58"
         ]
       },
       "firstSeenAt": "2026-09-23T23:38:56.488Z",
@@ -6963,7 +6985,8 @@
       "streetAddress": "Aarau",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-22T09:13:40.887Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "ksa-2333037810c8",
@@ -7722,7 +7745,8 @@
       "streetAddress": "Aarau",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-27T09:13:40.886Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "ksa-27efb3fff7aa",
@@ -8064,7 +8088,8 @@
       "streetAddress": "Aarau",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-07T09:13:40.886Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "ksa-1e8c6e5a0054",
@@ -8564,7 +8589,8 @@
       "streetAddress": "Aarau",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-22T09:13:40.886Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "ksa-7676d3ec4444",
@@ -8648,7 +8674,8 @@
       "streetAddress": "Aarau",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-22T09:13:40.886Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "ksa-68738d53c2dc",
@@ -8732,7 +8759,8 @@
       "streetAddress": "Aarau",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-22T09:13:40.886Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "ksa-26266faec94b",
@@ -8811,7 +8839,8 @@
       "streetAddress": "Aarau",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-04T09:13:40.885Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "ksa-7c0bbde0f88d",
@@ -9064,7 +9093,7 @@
       "slugByLocale": {
         "it": "esperto-esperto-kantonsspital-aarau-ksa-aarau",
         "en": "expert-expert-kantonsspital-aarau-ksa-aarau",
-        "de": "fachexpertin-fachexperte-ksa-ch",
+        "de": "fachexpertin-fachexperte-kantonsspital-aarau-ksa-aarau",
         "fr": "expert-expert-kantonsspital-aarau-ksa-aarau"
       },
       "company": "Kantonsspital Aarau (KSA)",
@@ -9110,8 +9139,7 @@
       "requirementsByLocale": {},
       "department": "Kantonsspital Aarau AG",
       "previousSlugs": [
-        "fachexpertin-fachexperte-ksa-ch",
-        "fachexpertin-fachexperte-kantonsspital-aarau-ksa-aarau"
+        "fachexpertin-fachexperte-ksa-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -9121,7 +9149,7 @@
           "fachexpertin-fachexperte-ksa-ch"
         ],
         "de": [
-          "fachexpertin-fachexperte-kantonsspital-aarau-ksa-aarau"
+          "fachexpertin-fachexperte-ksa-ch"
         ],
         "fr": [
           "fachexpertin-fachexperte-ksa-ch"
@@ -9152,7 +9180,7 @@
       "slugByLocale": {
         "it": "assistente-di-farmacia-kantonsspital-aarau-ksa-aarau",
         "en": "pharmacy-assistant-kantonsspital-aarau-ksa-aarau",
-        "de": "pharmaassistent-in-ksa-ch",
+        "de": "pharmaassistent-in-kantonsspital-aarau-ksa-aarau",
         "fr": "assistant-e-en-pharmacie-kantonsspital-aarau-ksa-aarau"
       },
       "company": "Kantonsspital Aarau (KSA)",
@@ -9210,7 +9238,7 @@
           "pharmaassistent-in-kantonsspital-aarau-ksa-aarau"
         ],
         "de": [
-          "pharmaassistent-in-kantonsspital-aarau-ksa-aarau"
+          "pharmaassistent-in-ksa-ch"
         ],
         "fr": [
           "pharmaassistent-in-kantonsspital-aarau-ksa-aarau"
@@ -9233,7 +9261,8 @@
       "streetAddress": "Aarau",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-27T09:13:40.885Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "ksa-c30982ea22ad",
@@ -9317,7 +9346,8 @@
       "streetAddress": "Aarau",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-27T09:13:40.885Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "ksa-e757110d087f",
@@ -9562,7 +9592,8 @@
       "streetAddress": "Aarau",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-08T09:13:40.885Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "ksa-6bed510181d9",
@@ -9651,7 +9682,8 @@
       "streetAddress": "Aarau",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-08T09:13:40.885Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "ksa-3a7eb38213c2",

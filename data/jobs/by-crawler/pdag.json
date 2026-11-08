@@ -1,6 +1,6 @@
 {
   "crawlerKey": "pdag",
-  "assembledAt": "2026-11-08T09:47:55.169Z",
+  "assembledAt": "2026-11-08T11:56:51.330Z",
   "runId": "42466881669",
   "jobs": [
     {
@@ -164,7 +164,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-08T09:46:27.798Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "pdag-0ed1599e783b",
@@ -241,7 +242,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-08T09:46:27.797Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "pdag-45d5e4981aca",
@@ -330,7 +332,7 @@
       "id": "pdag-ce9c143bc3fd",
       "slug": "infermiera-diplomata-infermiere-diplomato-sss-sup-clinica-di-psichiatria-forense-psychiatrische-dienste-aargau-pdag-windisch-fd02209b93",
       "slugByLocale": {
-        "it": "dipl-pflegefachfrau-pflegefachmann-hf-fh-klinik-per-forensische-psychiatrie-psychiatrische-dienste-aargau-pdag-windisch",
+        "it": "infermiera-diplomata-infermiere-diplomato-sss-sup-clinica-di-psichiatria-forense-psychiatrische-dienste-aargau-pdag-windisch-fd02209b93",
         "en": "dipl-nursing-specialist-hf-fh-clinic-for-forensic-psychiatry-psychiatrische-dienste-aargau-pdag-windisch",
         "de": "dipl-pflegefachfrau-pflegefachmann-hf-fh-klinik-fur-forensische-psychiatrie-pdag-windisch",
         "fr": "dipl-specialiste-des-soins-infirmiers-hf-fh-clinique-de-psychiatrie-legale-psychiatrische-dienste-aargau-pdag-windisch"
@@ -381,12 +383,14 @@
       "previousSlugs": [
         "dipl-pflegefachfrau-pflegefachmann-hf-fh-klinik-fur-forensische-psychiatrie-pdag-windisch",
         "dipl-pflegefachfrau-pflegefachmann-hf-fh-klinik-per-forensische-psychiatrie-ymndk8",
+        "infermiera-diplomata-infermiere-diplomato-sss-sup-clinica-di-psichiatria-forense-psychiatrische-dienste-aargau-pdag-windisch-fd02209b93",
         "dipl-pflegefachfrau-pflegefachmann-hf-fh-klinik-per-forensische-psychiatrie-psychiatrische-dienste-aargau-pdag-windisch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachfrau-pflegefachmann-hf-fh-klinik-fur-forensische-psychiatrie-pdag-windisch",
           "dipl-pflegefachfrau-pflegefachmann-hf-fh-klinik-per-forensische-psychiatrie-ymndk8",
+          "infermiera-diplomata-infermiere-diplomato-sss-sup-clinica-di-psichiatria-forense-psychiatrische-dienste-aargau-pdag-windisch-fd02209b93",
           "dipl-pflegefachfrau-pflegefachmann-hf-fh-klinik-per-forensische-psychiatrie-psychiatrische-dienste-aargau-pdag-windisch"
         ]
       },
@@ -484,14 +488,15 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-08T09:46:27.795Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "pdag-0f920b42cf1c",
       "slug": "terapeuta-psicomotore-terapeuta-psicomotore-psychiatrische-dienste-aargau-pdag-windisch",
       "slugByLocale": {
         "it": "terapeuta-psicomotore-terapeuta-psicomotore-psychiatrische-dienste-aargau-pdag-windisch",
-        "en": "psychomotoriktherapeutin-psychomotoriktherapeut-psychiatrische-dienste-aargau-pdag-windisch",
+        "en": "psychomotor-therapist-psychiatrische-dienste-aargau-pdag-windisch",
         "de": "psychomotoriktherapeutin-psychomotoriktherapeut-pdag-windisch",
         "fr": "psychomotherapeute-psychomotherapeute-psychiatrische-dienste-aargau-pdag-windisch"
       },
@@ -552,7 +557,7 @@
       "previousSlugs": [
         "psychomotor-therapist-psychomotor-therapist-psychiatrische-dienste-aargau-pdag-windisch",
         "psychomotoriktherapeutin-psychomotoriktherapeut-pdag-windisch",
-        "psychomotor-therapist-psychiatrische-dienste-aargau-pdag-windisch"
+        "psychomotoriktherapeutin-psychomotoriktherapeut-psychiatrische-dienste-aargau-pdag-windisch"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -560,7 +565,7 @@
         ],
         "en": [
           "psychomotor-therapist-psychomotor-therapist-psychiatrische-dienste-aargau-pdag-windisch",
-          "psychomotor-therapist-psychiatrische-dienste-aargau-pdag-windisch"
+          "psychomotoriktherapeutin-psychomotoriktherapeut-psychiatrische-dienste-aargau-pdag-windisch"
         ]
       },
       "firstSeenAt": "2026-06-11T11:20:03.569Z",
@@ -579,7 +584,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-08T09:46:27.794Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "pdag-3f57432a00df",
@@ -1421,7 +1427,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-08T09:46:27.788Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "pdag-50f3a64c9ff9",
@@ -1816,7 +1823,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-24T09:46:27.784Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "pdag-dc0b9f798091",
@@ -1977,7 +1985,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-08T09:46:27.782Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "pdag-3bc02fb92f3c",
@@ -3244,7 +3253,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-08T09:46:27.768Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "pdag-e9feed1b45f4",
@@ -3567,7 +3577,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2027-01-06T09:46:27.765Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "pdag-68547ca492b5",
@@ -3656,7 +3667,7 @@
       "id": "pdag-a3e59a5cafcc",
       "slug": "infermiera-diplomata-infermiere-diplomato-sss-sup-clinica-di-psichiatria-forense-psychiatrische-dienste-aargau-pdag-windisch-f0c3f2bf89",
       "slugByLocale": {
-        "it": "dipl-pflegefachfrau-pflegefachmann-hf-fh-klinik-per-forensische-psychiatrie-psychiatrische-dienste-aargau-pdag-windisch",
+        "it": "infermiera-diplomata-infermiere-diplomato-sss-sup-clinica-di-psichiatria-forense-psychiatrische-dienste-aargau-pdag-windisch-f0c3f2bf89",
         "en": "dipl-nursing-specialist-hf-fh-clinic-for-forensic-psychiatry-psychiatrische-dienste-aargau-pdag-windisch",
         "de": "dipl-pflegefachfrau-pflegefachmann-hf-fh-klinik-fur-forensische-psychiatrie-pdag-windisch",
         "fr": "dipl-specialiste-des-soins-infirmiers-hf-fh-clinique-de-psychiatrie-legale-psychiatrische-dienste-aargau-pdag-windisch"
@@ -3707,12 +3718,14 @@
       "previousSlugs": [
         "dipl-pflegefachfrau-pflegefachmann-hf-fh-klinik-fur-forensische-psychiatrie-pdag-windisch",
         "dipl-pflegefachfrau-pflegefachmann-hf-fh-klinik-per-forensische-psychiatrie-psychiatrische-dienste-aargau-pdag-windisch-f53e665bc3",
+        "infermiera-diplomata-infermiere-diplomato-sss-sup-clinica-di-psichiatria-forense-psychiatrische-dienste-aargau-pdag-windisch-f0c3f2bf89",
         "dipl-pflegefachfrau-pflegefachmann-hf-fh-klinik-per-forensische-psychiatrie-psychiatrische-dienste-aargau-pdag-windisch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachfrau-pflegefachmann-hf-fh-klinik-fur-forensische-psychiatrie-pdag-windisch",
           "dipl-pflegefachfrau-pflegefachmann-hf-fh-klinik-per-forensische-psychiatrie-psychiatrische-dienste-aargau-pdag-windisch-f53e665bc3",
+          "infermiera-diplomata-infermiere-diplomato-sss-sup-clinica-di-psichiatria-forense-psychiatrische-dienste-aargau-pdag-windisch-f0c3f2bf89",
           "dipl-pflegefachfrau-pflegefachmann-hf-fh-klinik-per-forensische-psychiatrie-psychiatrische-dienste-aargau-pdag-windisch"
         ]
       },
@@ -4053,7 +4066,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-08T09:46:27.759Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "pdag-d9d42d559f0f",
@@ -4139,7 +4153,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2027-01-07T09:46:27.758Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "pdag-950407705213",
@@ -4630,7 +4645,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2027-01-19T09:46:27.753Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "pdag-1d6047969bcc",
@@ -4799,7 +4815,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2027-01-18T09:46:27.751Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "pdag-b6e4c93e8da0",
@@ -5044,7 +5061,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2027-01-21T09:46:27.747Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "pdag-c5bb5e2aef45",
@@ -5121,7 +5139,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-29T09:46:27.746Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "pdag-25d994928041",
@@ -5204,7 +5223,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2027-01-24T09:46:27.745Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "pdag-35f4b5c47d1e",
@@ -5287,7 +5307,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2027-01-24T09:46:27.743Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "pdag-770f246d8bc3",
@@ -5614,7 +5635,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-08T09:46:27.738Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "pdag-1036387d90b9",
@@ -5973,9 +5995,9 @@
       "slug": "terapeuta-del-lavoro-psychiatrische-dienste-aargau-pdag-windisch",
       "slugByLocale": {
         "it": "terapeuta-del-lavoro-psychiatrische-dienste-aargau-pdag-windisch",
-        "en": "ergotherapeutin-ergotherapeut-pdag-windisch-2",
+        "en": "occupational-therapist-psychiatrische-dienste-aargau-pdag-windisch",
         "de": "ergotherapeutin-ergotherapeut-pdag-windisch",
-        "fr": "ergotherapeutin-ergotherapeut-pdag-windisch-2"
+        "fr": "ergotherapeute-psychiatrische-dienste-aargau-pdag-windisch"
       },
       "company": "Psychiatrische Dienste Aargau (PDAG)",
       "companyKey": "pdag",
@@ -6021,18 +6043,17 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "ergotherapeutin-ergotherapeut-pdag-windisch",
-        "occupational-therapist-psychiatrische-dienste-aargau-pdag-windisch",
-        "ergotherapeute-psychiatrische-dienste-aargau-pdag-windisch"
+        "ergotherapeutin-ergotherapeut-pdag-windisch-2"
       ],
       "previousSlugsByLocale": {
         "it": [
           "ergotherapeutin-ergotherapeut-pdag-windisch"
         ],
         "en": [
-          "occupational-therapist-psychiatrische-dienste-aargau-pdag-windisch"
+          "ergotherapeutin-ergotherapeut-pdag-windisch-2"
         ],
         "fr": [
-          "ergotherapeute-psychiatrische-dienste-aargau-pdag-windisch"
+          "ergotherapeutin-ergotherapeut-pdag-windisch-2"
         ]
       },
       "firstSeenAt": "2026-06-11T13:15:23.507Z",
@@ -6051,7 +6072,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-08T09:46:27.732Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "pdag-1ae288edef32",

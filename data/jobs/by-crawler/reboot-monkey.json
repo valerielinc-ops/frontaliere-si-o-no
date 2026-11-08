@@ -1,6 +1,6 @@
 {
   "crawlerKey": "reboot-monkey",
-  "assembledAt": "2026-11-08T09:33:05.725Z",
+  "assembledAt": "2026-11-08T11:57:04.076Z",
   "runId": "42466272407",
   "jobs": [
     {
@@ -1458,7 +1458,8 @@
       "streetAddress": "Dietikon",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-08T09:31:53.644Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "reboot-monkey-09f80ef69898",
@@ -1722,7 +1723,8 @@
       "streetAddress": "Düdingen",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-08T09:31:45.447Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "reboot-monkey-75049d939f43",
@@ -1839,7 +1841,8 @@
       "streetAddress": "Emmen",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-08T09:31:41.561Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "reboot-monkey-ef17735696ef",
@@ -2185,7 +2188,8 @@
       "streetAddress": "Gland",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-08T09:31:29.523Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "reboot-monkey-1f42e5181b8e",
@@ -2319,7 +2323,8 @@
       "streetAddress": "Hünenberg",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-08T09:31:25.561Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "reboot-monkey-5fec26d9601f",
@@ -2426,7 +2431,8 @@
       "streetAddress": "Hünenberg",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-08T09:31:21.508Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "reboot-monkey-b1af17f5414a",
@@ -2647,7 +2653,8 @@
       "streetAddress": "La Chaux-de-Fonds",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-08T09:31:13.237Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "reboot-monkey-6734554eeac4",
@@ -2867,7 +2874,8 @@
       "streetAddress": "Lausanne",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-08T09:31:05.348Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "reboot-monkey-c97166227cd2",
@@ -2967,7 +2975,8 @@
       "streetAddress": "Les Acacias",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-08T09:31:01.134Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "reboot-monkey-31d24e5d7ae3",
@@ -3070,7 +3079,8 @@
       "streetAddress": "Linthal",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-08T09:30:57.121Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "reboot-monkey-2559fe71dfbf",
@@ -3183,7 +3193,8 @@
       "streetAddress": "Luzern",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-08T09:30:53.141Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "reboot-monkey-fd0c70d330ba",
@@ -3289,7 +3300,8 @@
       "streetAddress": "Manno",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-08T09:30:49.203Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "reboot-monkey-91e3515db4f8",
@@ -3396,7 +3408,8 @@
       "streetAddress": "Manno",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-08T09:30:45.227Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "reboot-monkey-a484b6cc2df0",
@@ -3509,7 +3522,8 @@
       "streetAddress": "Melano",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-08T09:30:41.014Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "reboot-monkey-432ea60433cc",
@@ -3620,7 +3634,8 @@
       "streetAddress": "Muttenz",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-08T09:30:36.978Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "reboot-monkey-93701b31cbe0",
@@ -3839,7 +3854,8 @@
       "streetAddress": "Olten",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-08T09:30:32.453Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "reboot-monkey-78c12788ee1e",
@@ -3945,7 +3961,8 @@
       "streetAddress": "Olten",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-08T09:30:28.570Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "reboot-monkey-45e2d3b3629a",
@@ -4055,7 +4072,8 @@
       "streetAddress": "Plan-les-Ouates",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-08T09:30:24.448Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "reboot-monkey-e36672046620",
@@ -4165,7 +4183,8 @@
       "streetAddress": "Plan-les-Ouates",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-08T09:30:20.577Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "reboot-monkey-82b75718ba1a",
@@ -4274,7 +4293,8 @@
       "streetAddress": "Pratteln",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-08T09:30:16.716Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "reboot-monkey-39fa58da10d7",
@@ -4381,7 +4401,8 @@
       "streetAddress": "Pratteln",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-08T09:30:12.904Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "reboot-monkey-7ba163dc0e88",
@@ -4480,7 +4501,8 @@
       "streetAddress": "Rotkreuz",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-08T09:30:09.043Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "reboot-monkey-fff4e5b7ee38",
@@ -4703,7 +4725,8 @@
       "streetAddress": "Ruswil",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-08T09:30:00.620Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "reboot-monkey-a4a5c90794d5",
@@ -4920,7 +4943,8 @@
       "streetAddress": "Schaffhausen",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-08T09:29:52.909Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "reboot-monkey-637b9a84b430",
@@ -5037,7 +5061,8 @@
       "streetAddress": "Schenkon",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-08T09:29:48.838Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "reboot-monkey-f5101d3c3080",
@@ -5140,7 +5165,8 @@
       "streetAddress": "Schlieren",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-08T09:29:44.846Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "reboot-monkey-92f7103e7455",
@@ -5247,7 +5273,8 @@
       "streetAddress": "Schlieren",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-08T09:29:40.753Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "reboot-monkey-111065e08e8b",
@@ -5343,7 +5370,8 @@
       "streetAddress": "Geneva",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-08T09:29:36.525Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "reboot-monkey-8ad141138c8e",
@@ -5662,7 +5690,8 @@
       "streetAddress": "Zurich",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-08T09:29:27.787Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "reboot-monkey-65f26692166c",
@@ -5768,7 +5797,8 @@
       "streetAddress": "Lupfig",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-08T09:29:23.348Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "reboot-monkey-a90181791a1c",
@@ -5874,7 +5904,8 @@
       "streetAddress": "Meyrin",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-08T09:29:19.038Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "reboot-monkey-aa916dd91367",
@@ -5980,7 +6011,8 @@
       "streetAddress": "Baar",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-08T09:29:15.165Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "reboot-monkey-e4334d7df17e",
@@ -6325,7 +6357,8 @@
       "streetAddress": "St. Gallen",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-08T09:29:03.433Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "reboot-monkey-5e1ff7910bde",
@@ -6435,7 +6468,8 @@
       "streetAddress": "Stabio",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-08T09:28:59.326Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "reboot-monkey-9aad251b937c",
@@ -6545,7 +6579,8 @@
       "streetAddress": "Steinhausen",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-08T09:28:58.698Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "reboot-monkey-7ceb3d2fe232",
@@ -6758,7 +6793,8 @@
       "streetAddress": "Urswil",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-08T09:28:50.860Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "reboot-monkey-b23f2b6b25c3",
@@ -6978,7 +7014,8 @@
       "streetAddress": "Villars-Ste-Croix",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-08T09:28:42.734Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "reboot-monkey-fd61dc9fd39d",
@@ -7087,7 +7124,8 @@
       "streetAddress": "Widnau",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-08T09:28:38.555Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "reboot-monkey-14638681ab98",
@@ -7192,7 +7230,8 @@
       "streetAddress": "Winterthur",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-08T09:28:34.283Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "reboot-monkey-32b67c1bd5ca",
@@ -7297,7 +7336,8 @@
       "streetAddress": "Winterthur",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-08T09:28:30.260Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "reboot-monkey-f17a12be8f60",
@@ -7406,7 +7446,8 @@
       "streetAddress": "Yverdon-les-Bains",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-08T09:28:26.057Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "reboot-monkey-cb99cdccf9be",
@@ -7499,7 +7540,8 @@
       "streetAddress": "Yverdon-les-Bains",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-08T09:28:21.493Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "reboot-monkey-64046a96ce53",
@@ -7592,7 +7634,8 @@
       "streetAddress": "Zuerich",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-08T09:28:17.142Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "reboot-monkey-7b3299361d96",
@@ -7911,7 +7954,8 @@
       "streetAddress": "Chiasso",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-08T09:28:08.223Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "reboot-monkey-e356e453a415",
@@ -8018,7 +8062,8 @@
       "streetAddress": "Crissier",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-08T09:28:03.865Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "reboot-monkey-5cacce809cea",
@@ -8125,7 +8170,8 @@
       "streetAddress": "Dielsdorf",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-08T09:27:59.754Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "reboot-monkey-e4da6def9a04",
@@ -8232,7 +8278,8 @@
       "streetAddress": "Dietlikon",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-08T09:27:55.570Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "reboot-monkey-30f397b29e4d",
@@ -8338,7 +8385,8 @@
       "streetAddress": "Emmen",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-08T09:27:51.345Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "reboot-monkey-02194709c2c6",
@@ -8452,7 +8500,8 @@
       "streetAddress": "Frauenfeld",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-08T09:27:47.556Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "reboot-monkey-d0e98f3dbeff",
@@ -8558,7 +8607,8 @@
       "streetAddress": "Geneva",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-08T09:27:43.697Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "reboot-monkey-33cc855c2978",
@@ -8665,7 +8715,8 @@
       "streetAddress": "Glattbrugg",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-08T09:27:43.080Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "reboot-monkey-2aa22789e857",
@@ -8766,7 +8817,8 @@
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-08T09:27:39.074Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "reboot-monkey-c665a63f0127",
@@ -9324,7 +9376,8 @@
       "streetAddress": "Uri",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-08T09:27:19.454Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "reboot-monkey-fc96d92c6736",
@@ -10432,7 +10485,8 @@
       "streetAddress": "Winterthur",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-08T09:26:47.051Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "reboot-monkey-dbf05eebf1fa",
@@ -10539,7 +10593,8 @@
       "streetAddress": "Aargau",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-08T09:26:42.991Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "reboot-monkey-a13731368ba3",
@@ -10645,7 +10700,8 @@
       "streetAddress": "Biel",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-08T09:26:38.902Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "reboot-monkey-ed8855b5f44b",
@@ -10960,7 +11016,8 @@
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-08T09:26:26.163Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "reboot-monkey-ead87ef6dba9",
@@ -11057,7 +11114,8 @@
       "streetAddress": "Zug",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-08T09:26:22.077Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "reboot-monkey-a3bd6a42401a",
@@ -11154,7 +11212,8 @@
       "streetAddress": "Winterthur",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-08T09:26:17.924Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "reboot-monkey-653d230ddd49",
@@ -11352,7 +11411,8 @@
       "streetAddress": "Aargau",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-08T09:26:09.725Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "reboot-monkey-e545ac82fef3",
@@ -11541,7 +11601,8 @@
       "streetAddress": "Montreux",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-08T09:26:01.467Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "reboot-monkey-aabcade64619",
@@ -11734,7 +11795,8 @@
       "streetAddress": "Biel",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-08T09:25:53.256Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "reboot-monkey-addda36996cb",
@@ -11927,7 +11989,8 @@
       "streetAddress": "Basel",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-08T09:25:45.274Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "reboot-monkey-cbbf3c481eed",
@@ -12024,7 +12087,8 @@
       "streetAddress": "Solothurn",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-08T09:25:36.777Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     }
   ]
 }

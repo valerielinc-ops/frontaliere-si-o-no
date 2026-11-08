@@ -1,6 +1,6 @@
 {
   "crawlerKey": "sonova",
-  "assembledAt": "2026-11-08T09:12:01.317Z",
+  "assembledAt": "2026-11-08T11:57:26.746Z",
   "runId": "42465414674",
   "jobs": [
     {
@@ -92,7 +92,7 @@
       "slugByLocale": {
         "it": "tecnico-di-costruzione-hlk-m-f-d-sonova-staefa-switzerland",
         "en": "building-technician-hlk-m-f-d-sonova-staefa-switzerland",
-        "de": "gebaudetechniker-hlk-m-w-d-sonova-ch",
+        "de": "gebaudetechniker-hlk-m-w-d-sonova-staefa",
         "fr": "technicien-en-batiment-hlk-h-f-d-sonova-staefa-switzerland"
       },
       "company": "Sonova",
@@ -148,6 +148,9 @@
         ],
         "fr": [
           "gebaudetechniker-hlk-m-w-d-sonova-staefa"
+        ],
+        "de": [
+          "gebaudetechniker-hlk-m-w-d-sonova-ch"
         ]
       },
       "firstSeenAt": "2026-10-14T09:17:55.755Z",
@@ -491,7 +494,8 @@
       "streetAddress": "Staefa",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-17T09:11:55.634Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "sonova-a77ade8c1fe1",
@@ -646,9 +650,9 @@
     },
     {
       "id": "sonova-0456fa952f37",
-      "slug": "embedded-software-ingegnere-c-sonova-staefa",
+      "slug": "embedded-software-ingegnere-c-sonova-staefa-e92b487c24",
       "slugByLocale": {
-        "it": "embedded-software-ingegnere-c-sonova-staefa",
+        "it": "embedded-software-ingegnere-c-sonova-staefa-e92b487c24",
         "en": "embedded-software-engineer-c-sonova-ch",
         "de": "embedded-software-ingenieur-c-sonova-staefa",
         "fr": "embedded-software-ingenieur-c-sonova-staefa"
@@ -693,11 +697,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "embedded-software-engineer-c-sonova-ch"
+        "embedded-software-engineer-c-sonova-ch",
+        "embedded-software-ingegnere-c-sonova-staefa"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "embedded-software-engineer-c-sonova-ch"
+          "embedded-software-engineer-c-sonova-ch",
+          "embedded-software-ingegnere-c-sonova-staefa"
         ],
         "de": [
           "embedded-software-engineer-c-sonova-ch"
@@ -802,7 +808,8 @@
       "streetAddress": "Staefa",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-26T09:11:55.625Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "sonova-a02b2dce588a",
@@ -880,7 +887,8 @@
       "streetAddress": "Staefa",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-26T09:11:55.622Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "sonova-755bb818c5fe",
@@ -956,7 +964,8 @@
       "streetAddress": "Staefa",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-26T09:11:55.618Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "sonova-0e97616fe3f9",
@@ -1100,7 +1109,8 @@
       "streetAddress": "Staefa",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-08T09:11:55.613Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "sonova-f52f1ea1d2a3",
@@ -1189,7 +1199,7 @@
       "slug": "rf-design-ingegnere-m-f-d-sonova-murten-switzerland",
       "slugByLocale": {
         "it": "rf-design-ingegnere-m-f-d-sonova-murten-switzerland",
-        "en": "rf-design-engineer-m-f-d-sonova-ch",
+        "en": "rf-design-engineer-m-f-d-sonova-murten",
         "de": "rf-design-ingenieur-m-f-d-sonova-murten-switzerland",
         "fr": "rf-design-ingenieur-m-f-d-sonova-murten"
       },
@@ -1244,6 +1254,9 @@
           "rf-design-engineer-m-f-d-sonova-ch"
         ],
         "fr": [
+          "rf-design-engineer-m-f-d-sonova-ch"
+        ],
+        "en": [
           "rf-design-engineer-m-f-d-sonova-ch"
         ]
       },
@@ -1437,12 +1450,12 @@
     },
     {
       "id": "sonova-1a652c3368b9",
-      "slug": "embedded-software-engineer-c-sonova-ch-2",
+      "slug": "embedded-software-ingegnere-c-sonova-staefa-9e5cae40fb",
       "slugByLocale": {
-        "it": "embedded-software-engineer-c-sonova-ch-2",
+        "it": "embedded-software-ingegnere-c-sonova-staefa-9e5cae40fb",
         "en": "embedded-software-engineer-c-sonova-ch",
-        "de": "embedded-software-engineer-c-sonova-ch-2",
-        "fr": "embedded-software-engineer-c-sonova-ch-2"
+        "de": "embedded-software-ingenieur-c-sonova-staefa",
+        "fr": "embedded-software-ingenieur-c-sonova-staefa"
       },
       "company": "Sonova",
       "companyKey": "sonova",
@@ -1484,11 +1497,21 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "embedded-software-engineer-c-sonova-ch"
+        "embedded-software-engineer-c-sonova-ch",
+        "embedded-software-engineer-c-sonova-ch-2",
+        "embedded-software-ingegnere-c-sonova-staefa"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "embedded-software-engineer-c-sonova-ch"
+          "embedded-software-engineer-c-sonova-ch",
+          "embedded-software-engineer-c-sonova-ch-2",
+          "embedded-software-ingegnere-c-sonova-staefa"
+        ],
+        "de": [
+          "embedded-software-engineer-c-sonova-ch-2"
+        ],
+        "fr": [
+          "embedded-software-engineer-c-sonova-ch-2"
         ]
       },
       "firstSeenAt": "2026-10-22T09:10:41.611Z",

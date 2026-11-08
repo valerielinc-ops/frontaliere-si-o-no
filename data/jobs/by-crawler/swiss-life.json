@@ -1,6 +1,6 @@
 {
   "crawlerKey": "swiss-life",
-  "assembledAt": "2026-11-08T09:21:23.292Z",
+  "assembledAt": "2026-11-08T11:57:54.511Z",
   "runId": "42466192948",
   "jobs": [
     {
@@ -10,7 +10,7 @@
         "it": "berater-previdenza-m-w-d-quereinsteigende-willkommen-swiss-life-bern",
         "en": "berater-vorsorge-w-m-d-quereinsteigende-willkommen-swiss-life-ch",
         "de": "berater-vorsorge-w-m-d-quereinsteigende-willkommen-swiss-life-ch",
-        "fr": "consultant-fournissant-h-f-d-bienvenue-croisee-swiss-life-bern"
+        "fr": "conseiller-prevoyance-m-w-d-les-personnes-souhaitant-se-reconvertir-sont-les-bienvenues-swiss-life-bern"
       },
       "company": "Swiss Life",
       "companyKey": "swiss-life",
@@ -59,7 +59,7 @@
       "previousSlugs": [
         "berater-vorsorge-m-w-d-quereinsteigende-willkommen-swiss-life-bern",
         "berater-vorsorge-w-m-d-quereinsteigende-willkommen-swiss-life-ch",
-        "conseiller-prevoyance-m-w-d-les-personnes-souhaitant-se-reconvertir-sont-les-bienvenues-swiss-life-bern"
+        "consultant-fournissant-h-f-d-bienvenue-croisee-swiss-life-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -67,7 +67,7 @@
         ],
         "fr": [
           "berater-vorsorge-m-w-d-quereinsteigende-willkommen-swiss-life-bern",
-          "conseiller-prevoyance-m-w-d-les-personnes-souhaitant-se-reconvertir-sont-les-bienvenues-swiss-life-bern"
+          "consultant-fournissant-h-f-d-bienvenue-croisee-swiss-life-bern"
         ]
       },
       "firstSeenAt": "2026-09-19T23:01:43.080Z",
@@ -165,7 +165,8 @@
       },
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-08T09:20:57.066Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-1018a191bf7b",
@@ -408,7 +409,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-08T09:20:54.427Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-2f29929f10fd",
@@ -487,7 +489,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-08T09:20:53.737Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-b8b314f81d56",
@@ -566,7 +569,8 @@
       },
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-08T09:20:53.071Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-61acad470883",
@@ -645,7 +649,8 @@
       },
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-08T09:20:52.411Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-bbbcf9d2f3fb",
@@ -724,7 +729,8 @@
       },
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-08T09:20:51.758Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-f915a4f7f6f6",
@@ -803,7 +809,8 @@
       },
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-08T09:20:51.115Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-64c2807fdcea",
@@ -882,7 +889,8 @@
       },
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-08T09:20:50.460Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-80c4b4869d8b",
@@ -1040,7 +1048,8 @@
       },
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-08T09:20:49.128Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-a4559353b2c9",
@@ -1134,13 +1143,14 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-08T09:20:48.463Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-84dd4281bdde",
       "slug": "responsabile-del-team-vendite-m-f-d-agenzia-generale-soletta-alta-argovia-swiss-life-solothurn-9500a6d4f6",
       "slugByLocale": {
-        "it": "teamleiter-vendita-m-w-d-agenzia-generale-solothurn-oberaargau-swiss-life-solothurn",
+        "it": "responsabile-del-team-vendite-m-f-d-agenzia-generale-soletta-alta-argovia-swiss-life-solothurn-9500a6d4f6",
         "en": "team-leader-sales-m-f-d-general-agency-solothurn-oberaargau-swiss-life-solothurn",
         "de": "teamleiter-verkauf-w-m-d-generalagentur-solothurn-oberaargau-swiss-life-ch",
         "fr": "chef-d-equipe-ventes-h-f-d-agence-generale-soleure-oberaargau-swiss-life-solothurn"
@@ -1193,6 +1203,7 @@
         "teamleiter-verkauf-w-m-d-generalagentur-solothurn-oberaargau-swiss-life-ch",
         "teamleiter-vendita-m-w-d-agenzia-generale-solothurn-oberaargau-swiss-life-solothurn-bh9q83",
         "teamleiter-vendita-w-m-d-agenzia-generale-solothurn-oberaargau-swiss-life-solothurn-ea570cca39",
+        "responsabile-del-team-vendite-m-f-d-agenzia-generale-soletta-alta-argovia-swiss-life-solothurn-9500a6d4f6",
         "teamleiter-vendita-m-w-d-agenzia-generale-solothurn-oberaargau-swiss-life-solothurn"
       ],
       "previousSlugsByLocale": {
@@ -1200,6 +1211,7 @@
           "teamleiter-verkauf-w-m-d-generalagentur-solothurn-oberaargau-swiss-life-ch",
           "teamleiter-vendita-m-w-d-agenzia-generale-solothurn-oberaargau-swiss-life-solothurn-bh9q83",
           "teamleiter-vendita-w-m-d-agenzia-generale-solothurn-oberaargau-swiss-life-solothurn-ea570cca39",
+          "responsabile-del-team-vendite-m-f-d-agenzia-generale-soletta-alta-argovia-swiss-life-solothurn-9500a6d4f6",
           "teamleiter-vendita-m-w-d-agenzia-generale-solothurn-oberaargau-swiss-life-solothurn"
         ]
       },
@@ -1298,7 +1310,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-08T09:20:47.126Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-63e7653a3513",
@@ -1377,7 +1390,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-08T09:20:46.457Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-82a26860db74",
@@ -1456,7 +1470,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-08T09:20:45.817Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-c50bef18a097",
@@ -1693,7 +1708,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-08T09:20:43.181Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-429a29be9584",
@@ -1772,7 +1788,8 @@
       },
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-08T09:20:42.513Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-18679273ee70",
@@ -1930,7 +1947,8 @@
       },
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-08T09:20:41.052Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-1e1d2e0b2c19",
@@ -2022,7 +2040,7 @@
       "id": "swiss-life-02e90fa2e0f2",
       "slug": "conseiller-conseillere-en-prevoyance-et-en-finanza-f-m-d-personnes-venant-d-un-autre-metier-bienvenues-agence-generale-lausanne-f22439bb10",
       "slugByLocale": {
-        "it": "conseiller-conseillere-en-prevoyance-et-en-finanza-f-m-d-personnes-venant-d-un-autre-metier-bienvenues-agence-generale",
+        "it": "conseiller-conseillere-en-prevoyance-et-en-finanza-f-m-d-personnes-venant-d-un-autre-metier-bienvenues-agence-generale-lausanne-f22439bb10",
         "en": "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-personnes-venant-d-un-autre",
         "de": "conseiller-conseillere-en-prevoyance-et-en-finanzen-f-h-d-personnes-venant-d-un-autre-metier-bienvenues-agence-generale",
         "fr": "conseiller-conseiller-en-e-et-en-finance-h-f-d-personnes-qui-d-un-organisme-professionnel-en-enece-agence-generale"
@@ -2074,12 +2092,14 @@
       "previousSlugs": [
         "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-personnes-venant-d-un-autre",
         "conseiller-conseillere-en-prevoyance-et-en-finanza-f-m-d-personnes-venant-d-un-bh9n5s",
+        "conseiller-conseillere-en-prevoyance-et-en-finanza-f-m-d-personnes-venant-d-un-autre-metier-bienvenues-agence-generale-lausanne-f22439bb10",
         "conseiller-conseillere-en-prevoyance-et-en-finanza-f-m-d-personnes-venant-d-un-autre-metier-bienvenues-agence-generale"
       ],
       "previousSlugsByLocale": {
         "it": [
           "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-personnes-venant-d-un-autre",
           "conseiller-conseillere-en-prevoyance-et-en-finanza-f-m-d-personnes-venant-d-un-bh9n5s",
+          "conseiller-conseillere-en-prevoyance-et-en-finanza-f-m-d-personnes-venant-d-un-autre-metier-bienvenues-agence-generale-lausanne-f22439bb10",
           "conseiller-conseillere-en-prevoyance-et-en-finanza-f-m-d-personnes-venant-d-un-autre-metier-bienvenues-agence-generale"
         ]
       },
@@ -2758,7 +2778,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-08T09:20:33.522Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-9ec8361cf3e2",
@@ -2837,7 +2858,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-08T09:20:32.867Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-0adbc4a2282c",
@@ -2995,7 +3017,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-08T09:20:29.556Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-e34dc09f0313",
@@ -3074,7 +3097,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-08T09:20:28.886Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-1bf18fd344a7",
@@ -3232,7 +3256,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-08T09:20:27.560Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-0127fae00e58",
@@ -3311,7 +3336,8 @@
       },
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-08T09:20:26.038Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-8879644d2439",
@@ -3469,7 +3495,8 @@
       },
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-08T09:20:24.751Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-011f1a8974f2",
@@ -4054,7 +4081,7 @@
       "id": "swiss-life-7145a0717956",
       "slug": "conseiller-conseillere-en-prevoyance-et-en-finanza-f-m-d-personnes-venant-d-un-autre-metier-bienvenues-agence-generale-morges-la-0332a2515e",
       "slugByLocale": {
-        "it": "conseiller-conseillere-en-prevoyance-et-en-finanza-f-m-d-personnes-venant-d-un-autre-metier-bienvenues-agence-generale",
+        "it": "conseiller-conseillere-en-prevoyance-et-en-finanza-f-m-d-personnes-venant-d-un-autre-metier-bienvenues-agence-generale-morges-la-0332a2515e",
         "en": "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-personnes-venant-d-un-autre",
         "de": "conseiller-conseillere-en-prevoyance-et-en-finanzen-f-h-d-personnes-venant-d-un-autre-metier-bienvenues-agence-generale",
         "fr": "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-personnes-venant-d-un-autre"
@@ -4105,11 +4132,13 @@
       "hiringOrganization": "Swiss Life AG Morges-La Côte",
       "previousSlugs": [
         "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-personnes-venant-d-un-autre",
+        "conseiller-conseillere-en-prevoyance-et-en-finanza-f-m-d-personnes-venant-d-un-autre-metier-bienvenues-agence-generale-morges-la-0332a2515e",
         "conseiller-conseillere-en-prevoyance-et-en-finanza-f-m-d-personnes-venant-d-un-autre-metier-bienvenues-agence-generale"
       ],
       "previousSlugsByLocale": {
         "it": [
           "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-personnes-venant-d-un-autre",
+          "conseiller-conseillere-en-prevoyance-et-en-finanza-f-m-d-personnes-venant-d-un-autre-metier-bienvenues-agence-generale-morges-la-0332a2515e",
           "conseiller-conseillere-en-prevoyance-et-en-finanza-f-m-d-personnes-venant-d-un-autre-metier-bienvenues-agence-generale"
         ]
       },
@@ -4948,7 +4977,8 @@
       },
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-08T09:20:12.082Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-989baa21e2a3",
@@ -5109,7 +5139,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-08T09:20:09.422Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-0f8667b891d3",
@@ -5425,7 +5456,8 @@
       },
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-08T09:20:05.941Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-4f11e2283828",
@@ -5504,7 +5536,8 @@
       },
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-08T09:20:05.248Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-27cf2da5d869",
@@ -5588,7 +5621,8 @@
       },
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-08T09:20:04.567Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-d58931049c1f",
@@ -5667,7 +5701,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-08T09:20:03.867Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-a48b882e7352",
@@ -5746,7 +5781,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-08T09:20:03.187Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-cd03b5e98ff9",
@@ -5825,7 +5861,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-08T09:20:02.487Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-099bcd7e12f4",
@@ -5904,7 +5941,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-08T09:20:01.782Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-a886a3d317b4",
@@ -6141,7 +6179,8 @@
       },
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-08T09:19:59.675Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-9892e7dc1484",
@@ -6617,7 +6656,8 @@
       },
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-08T09:19:55.717Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-78cbf83a135e",
@@ -6696,7 +6736,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-08T09:19:55.071Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-e558496b28eb",
@@ -6775,7 +6816,8 @@
       },
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-08T09:19:54.405Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-45194c6f32f7",
@@ -6854,7 +6896,8 @@
       },
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-08T09:19:53.735Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-97f85137b38a",
@@ -7091,7 +7134,8 @@
       },
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-08T09:19:51.765Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-311f9d60d7ea",
@@ -7328,7 +7372,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-08T09:19:49.787Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-c968f7017dcb",
@@ -7413,7 +7458,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-08T09:19:49.121Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-6480a18f7fe0",
@@ -7498,7 +7544,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-08T09:19:48.452Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-f9b1b75906e1",
@@ -7577,7 +7624,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-08T09:19:47.790Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-72ef68d42564",
@@ -7656,13 +7704,14 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-08T09:19:47.138Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-0516bede16b9",
       "slug": "responsabile-del-team-vendite-m-f-d-agenzia-generale-solothurn-oberaargau-swiss-life-solothurn-136bc812e2",
       "slugByLocale": {
-        "it": "teamleiter-vendita-m-w-d-agenzia-generale-solothurn-oberaargau-swiss-life-solothurn",
+        "it": "responsabile-del-team-vendite-m-f-d-agenzia-generale-solothurn-oberaargau-swiss-life-solothurn-136bc812e2",
         "en": "team-leader-sales-m-f-d-general-agency-solothurn-oberaargau-swiss-life-solothurn",
         "de": "teamleiter-verkauf-w-m-d-generalagentur-solothurn-oberaargau-swiss-life-ch",
         "fr": "chef-d-equipe-des-ventes-h-f-d-agence-generale-soleure-oberaargau-swiss-life-solothurn"
@@ -7714,12 +7763,14 @@
       "previousSlugs": [
         "teamleiter-verkauf-w-m-d-generalagentur-solothurn-oberaargau-swiss-life-ch",
         "teamleiter-vendita-w-m-d-agenzia-generale-solothurn-oberaargau-swiss-life-solothurn-ee0051c04c",
+        "responsabile-del-team-vendite-m-f-d-agenzia-generale-solothurn-oberaargau-swiss-life-solothurn-136bc812e2",
         "teamleiter-vendita-m-w-d-agenzia-generale-solothurn-oberaargau-swiss-life-solothurn"
       ],
       "previousSlugsByLocale": {
         "it": [
           "teamleiter-verkauf-w-m-d-generalagentur-solothurn-oberaargau-swiss-life-ch",
           "teamleiter-vendita-w-m-d-agenzia-generale-solothurn-oberaargau-swiss-life-solothurn-ee0051c04c",
+          "responsabile-del-team-vendite-m-f-d-agenzia-generale-solothurn-oberaargau-swiss-life-solothurn-136bc812e2",
           "teamleiter-vendita-m-w-d-agenzia-generale-solothurn-oberaargau-swiss-life-solothurn"
         ]
       },
@@ -7810,7 +7861,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-08T09:19:44.511Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-c23c3a075d2b",
@@ -7889,7 +7941,8 @@
       },
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-08T09:19:43.757Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-7cefdb51138f",
@@ -8047,7 +8100,8 @@
       },
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-08T09:19:41.123Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-9a7ed10ce016",
@@ -8613,7 +8667,8 @@
       },
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-17T09:19:36.433Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-e0a65671ae2f",
@@ -8697,7 +8752,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2027-01-28T09:19:35.447Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-4accb0526e04",
@@ -8860,7 +8916,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-08T09:19:34.063Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-d19c34b9869e",

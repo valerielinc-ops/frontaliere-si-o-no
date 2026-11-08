@@ -1,6 +1,6 @@
 {
   "crawlerKey": "siemens-healthineers",
-  "assembledAt": "2026-11-08T09:27:31.158Z",
+  "assembledAt": "2026-11-08T11:57:21.042Z",
   "runId": "42466571465",
   "jobs": [
     {
@@ -8,7 +8,7 @@
       "slug": "qa-ingegnere-siemens-healthineers-baden",
       "slugByLocale": {
         "it": "qa-ingegnere-siemens-healthineers-baden",
-        "en": "qa-engineer-siemens-healthineers-ch",
+        "en": "qa-engineer-siemens-healthineers-baden",
         "de": "qa-ingenieur-siemens-healthineers-baden",
         "fr": "qa-ingenieur-siemens-healthineers-baden"
       },
@@ -65,6 +65,9 @@
           "qa-engineer-siemens-healthineers-ch"
         ],
         "fr": [
+          "qa-engineer-siemens-healthineers-ch"
+        ],
+        "en": [
           "qa-engineer-siemens-healthineers-ch"
         ]
       },
@@ -174,9 +177,9 @@
     },
     {
       "id": "siemens-healthineers-c8287671500b",
-      "slug": "product-verification-ingegnere-siemens-healthineers-baden",
+      "slug": "product-verification-ingegnere-siemens-healthineers-baden-99389d5012",
       "slugByLocale": {
-        "it": "product-verification-ingegnere-siemens-healthineers-baden",
+        "it": "product-verification-ingegnere-siemens-healthineers-baden-99389d5012",
         "en": "product-verification-engineer-siemens-healthineers-ch",
         "de": "product-verification-ingenieur-siemens-healthineers-baden",
         "fr": "product-verification-ingenieur-siemens-healthineers-baden"
@@ -224,11 +227,13 @@
       "requirementsByLocale": {},
       "jobReqId": "R-31529",
       "previousSlugs": [
-        "product-verification-engineer-siemens-healthineers-ch"
+        "product-verification-engineer-siemens-healthineers-ch",
+        "product-verification-ingegnere-siemens-healthineers-baden"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "product-verification-engineer-siemens-healthineers-ch"
+          "product-verification-engineer-siemens-healthineers-ch",
+          "product-verification-ingegnere-siemens-healthineers-baden"
         ],
         "de": [
           "product-verification-engineer-siemens-healthineers-ch"
@@ -259,12 +264,12 @@
     },
     {
       "id": "siemens-healthineers-6c991f635426",
-      "slug": "product-verification-engineer-siemens-healthineers-ch-2",
+      "slug": "product-verification-ingegnere-siemens-healthineers-baden-0fdcf54aa4",
       "slugByLocale": {
-        "it": "product-verification-engineer-siemens-healthineers-ch-2",
+        "it": "product-verification-ingegnere-siemens-healthineers-baden-0fdcf54aa4",
         "en": "product-verification-engineer-siemens-healthineers-ch",
-        "de": "product-verification-engineer-siemens-healthineers-ch-2",
-        "fr": "product-verification-engineer-siemens-healthineers-ch-2"
+        "de": "product-verification-ingenieur-siemens-healthineers-baden",
+        "fr": "product-verification-ingenieur-siemens-healthineers-baden"
       },
       "company": "Siemens Healthineers",
       "companyKey": "siemens-healthineers",
@@ -309,11 +314,21 @@
       "requirementsByLocale": {},
       "jobReqId": "R-31669",
       "previousSlugs": [
-        "product-verification-engineer-siemens-healthineers-ch"
+        "product-verification-engineer-siemens-healthineers-ch",
+        "product-verification-engineer-siemens-healthineers-ch-2",
+        "product-verification-ingegnere-siemens-healthineers-baden"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "product-verification-engineer-siemens-healthineers-ch"
+          "product-verification-engineer-siemens-healthineers-ch",
+          "product-verification-engineer-siemens-healthineers-ch-2",
+          "product-verification-ingegnere-siemens-healthineers-baden"
+        ],
+        "de": [
+          "product-verification-engineer-siemens-healthineers-ch-2"
+        ],
+        "fr": [
+          "product-verification-engineer-siemens-healthineers-ch-2"
         ]
       },
       "firstSeenAt": "2026-11-03T09:44:38.416Z",
