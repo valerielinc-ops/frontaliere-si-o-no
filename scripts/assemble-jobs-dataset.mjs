@@ -4166,12 +4166,21 @@ function assembleSummaries() {
 
 /**
  * Normalize a source slice and persist the repair before aggregation can cap it.
- * Returns the number of date/title/description repairs, including zero for an already-clean
- * slice so callers can keep their existing aggregation flow unchanged.
+ * Route ownership is repaired here too, while the source slice is still the
+ * complete population. Returns the number of persisted repairs, including zero
+ * for an already-clean slice so callers can keep their existing flow unchanged.
  */
 export function normalizeAndPersistExpiredSlice(slicePath, entries, options = {}) {
-  const repaired = normalizeExpiredAtEntries(entries, options)
+  const normalized = normalizeExpiredAtEntries(entries, options)
     + entries.reduce((count, job) => count + repairJobTranslationSemanticsInPlace(job), 0);
+  const routeResult = collapseDuplicateRouteEntries(entries, {
+    source: `${options.source || 'assemble-expired-slice'}/route-repair`,
+  });
+  const routeChanged = routeResult.collapsed > 0 || routeResult.repairedRoutes > 0;
+  if (routeChanged) entries.splice(0, entries.length, ...routeResult.entries);
+  const repaired = normalized + (routeChanged
+    ? routeResult.collapsed + routeResult.repairedRoutes
+    : 0);
   // `writeJson` is the writeJsonAtomic import above. Keep the repair atomic:
   // this helper runs before the aggregate cap and must not leave a truncated
   // source slice if the process is interrupted during persistence.
@@ -4217,8 +4226,12 @@ export function repairExpiredArchiveSlicesAgainstActive(activeJobs, { sliceDir =
     const collapsed = collapseDuplicateRouteEntries(entries, {
       source: `assemble-jobs-dataset/expired-slice/${path.basename(slicePath)}`,
     });
-    const workingEntries = collapsed.collapsed > 0 ? collapsed.entries : entries;
+    const archiveChanged = collapsed.collapsed > 0 || collapsed.repairedRoutes > 0;
+    const workingEntries = archiveChanged ? collapsed.entries : entries;
     collapsedRoutes += collapsed.collapsed;
+    changed += collapsed.collapsed + collapsed.repairedRoutes;
+    repairedRoutes += collapsed.repairedRoutes;
+    if (details.length < 20) details.push(...(collapsed.repairDetails || []));
 
     const result = repairExpiredRoutesAgainstActive(workingEntries, activeJobs);
     if (result.changed > 0) {
@@ -4226,7 +4239,7 @@ export function repairExpiredArchiveSlicesAgainstActive(activeJobs, { sliceDir =
       changed += result.changed;
       repairedRoutes += result.repairedRoutes;
       if (details.length < 20) details.push(...result.details);
-    } else if (collapsed.collapsed > 0) {
+    } else if (archiveChanged) {
       writeJson(slicePath, workingEntries);
     }
     allEntries.push(...workingEntries);

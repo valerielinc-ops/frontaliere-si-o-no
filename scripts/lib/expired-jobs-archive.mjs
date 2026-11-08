@@ -223,28 +223,27 @@ export function normalizeExpiredAtEntries(entries, opts = {}) {
   return repaired;
 }
 
-function routeValues(job = {}) {
-  const values = [
-    job.slug,
-    ...(job.slugByLocale && typeof job.slugByLocale === 'object' && !Array.isArray(job.slugByLocale)
-      ? Object.values(job.slugByLocale)
-      : []),
-    ...(Array.isArray(job.previousSlugs) ? job.previousSlugs : []),
-    ...(job.previousSlugsByLocale
-      && typeof job.previousSlugsByLocale === 'object'
-      && !Array.isArray(job.previousSlugsByLocale)
-      ? Object.values(job.previousSlugsByLocale).flatMap((slugs) => Array.isArray(slugs) ? slugs : [])
-      : []),
-  ];
-  return new Set(values.filter((value) => typeof value === 'string' && value.length > 0));
-}
-
 function hasExplicitlyDifferentSourceIdentity(expiredJob, activeJob) {
   const activeUrl = String(activeJob?.url ?? '').trim();
   if (!activeUrl) return false;
   const expiredIdentities = archiveRecordSourceIdentities(expiredJob);
   if (expiredIdentities.size === 0) return false;
   return !expiredIdentities.has(buildStableJobIdentity(activeJob));
+}
+
+function explicitArchiveSourceIdentities(record = {}) {
+  const identities = new Set();
+  const add = (value) => {
+    const identity = String(value ?? '').trim();
+    if (identity) identities.add(identity);
+  };
+  add(record.sourceIdentity);
+  for (const history of Array.isArray(record.sourceIdentityHistory)
+    ? record.sourceIdentityHistory
+    : []) {
+    add(history?.sourceIdentity);
+  }
+  return identities;
 }
 
 function collisionRouteSuffix(entry, route, attempt) {
@@ -282,16 +281,16 @@ export function repairExpiredRoutesAgainstActive(expiredJobs, activeJobs) {
 
   const activeRouteOwners = new Map();
   for (const activeJob of activeJobs) {
-    for (const route of routeValues(activeJob)) {
-      const owners = activeRouteOwners.get(route) || [];
+    for (const routeKey of localeRouteKeys(activeJob)) {
+      const owners = activeRouteOwners.get(routeKey) || [];
       if (!owners.includes(activeJob)) owners.push(activeJob);
-      activeRouteOwners.set(route, owners);
+      activeRouteOwners.set(routeKey, owners);
     }
   }
 
   const reservedRoutes = new Set(activeRouteOwners.keys());
   for (const expiredJob of expiredJobs) {
-    for (const route of routeValues(expiredJob)) reservedRoutes.add(route);
+    for (const routeKey of localeRouteKeys(expiredJob)) reservedRoutes.add(routeKey);
   }
 
   let changed = 0;
@@ -299,8 +298,8 @@ export function repairExpiredRoutesAgainstActive(expiredJobs, activeJobs) {
   const details = [];
   for (const expiredJob of expiredJobs) {
     if (!expiredJob || typeof expiredJob !== 'object') continue;
-    const conflictingRoutes = [...routeValues(expiredJob)].filter((route) => {
-      const owners = activeRouteOwners.get(route);
+    const conflictingRouteKeys = [...localeRouteKeys(expiredJob)].filter((routeKey) => {
+      const owners = activeRouteOwners.get(routeKey);
       if (!owners || owners.length === 0) return false;
       // If any active owner is provably the same posting, ghost reconciliation
       // owns this route and must be allowed to remove/merge it normally.
@@ -310,26 +309,134 @@ export function repairExpiredRoutesAgainstActive(expiredJobs, activeJobs) {
       return owners.every((owner) => hasExplicitlyDifferentSourceIdentity(expiredJob, owner));
     });
 
-    for (const route of conflictingRoutes) {
+    for (const routeKey of conflictingRouteKeys) {
+      const locale = localeFromRouteKey(routeKey);
+      const route = rawRouteFromLocaleKey(routeKey);
       let attempt = 0;
       let replacement;
       do {
         replacement = appendSlugDisambiguator(route, collisionRouteSuffix(expiredJob, route, attempt));
         attempt += 1;
-      } while (reservedRoutes.has(replacement));
+      } while (reservedRoutes.has(`${locale}:${replacement}`));
 
       if (!replaceSlugRouteEverywhere(expiredJob, route, replacement, {
         source: 'expired-jobs-archive.repairExpiredRoutesAgainstActive',
         reason: 'route collides with a distinct active posting',
+        locale,
       })) continue;
-      reservedRoutes.add(replacement);
+      reservedRoutes.add(`${locale}:${replacement}`);
       changed += 1;
       repairedRoutes += 1;
-      if (details.length < 20) details.push(`${route} → ${replacement}`);
+      if (details.length < 20) details.push(`${routeKey} → ${locale}:${replacement}`);
     }
   }
 
   return { entries: expiredJobs, changed, repairedRoutes, details };
+}
+
+function hasExplicitlyDifferentArchiveIdentity(left, right) {
+  const leftIdentities = explicitArchiveSourceIdentities(left);
+  const rightIdentities = explicitArchiveSourceIdentities(right);
+  if (leftIdentities.size === 0 || rightIdentities.size === 0) return false;
+  return [...leftIdentities].every((identity) => !rightIdentities.has(identity));
+}
+
+function localeFromRouteKey(routeKey) {
+  const separator = String(routeKey).indexOf(':');
+  return separator > 0 ? String(routeKey).slice(0, separator) : 'it';
+}
+
+function rawRouteFromLocaleKey(routeKey) {
+  const separator = String(routeKey).indexOf(':');
+  return separator >= 0 ? String(routeKey).slice(separator + 1) : String(routeKey);
+}
+
+/**
+ * Give a distinct expired posting its own route before route-collapse can
+ * mistake it for a same-posting history merge.
+ *
+ * A current/history slug is derived data, not a posting identity. When two
+ * entries in the same company archive have a locale route in common, merging
+ * them is safe only when the source identities are not provably different.
+ * The identity-less and ambiguous cases remain untouched; a guessed rewrite
+ * would be worse than a visible duplicate that a later reconciliation can
+ * inspect. A proven distinct older entry keeps all of its route-bearing fields,
+ * but the shared raw slug is moved everywhere through the journal primitive so
+ * no locale/history mirror retains the old owner.
+ *
+ * Mutates `entries` in place and is idempotent.
+ *
+ * @param {object[]} entries
+ * @param {{source?: string}} [options]
+ * @returns {{entries: object[], changed: number, repairedRoutes: number, details: string[]}}
+ */
+export function repairExpiredRoutesWithinArchive(
+  entries,
+  { source = 'expired-jobs-archive.repairExpiredRoutesWithinArchive' } = {},
+) {
+  if (!Array.isArray(entries) || entries.length < 2) {
+    return {
+      entries: Array.isArray(entries) ? entries : [],
+      changed: 0,
+      repairedRoutes: 0,
+      details: [],
+    };
+  }
+
+  const ordered = [...entries].sort(compareArchiveEntries);
+  const owners = new Map();
+  const reservedRoutes = new Set(ordered.flatMap((entry) => [...localeRouteKeys(entry)]));
+  let changed = 0;
+  let repairedRoutes = 0;
+  const details = [];
+
+  for (const entry of ordered) {
+    if (!entry || typeof entry !== 'object' || !entry.companyKey) continue;
+
+    const conflictingRouteKeys = [];
+    for (const routeKey of localeRouteKeys(entry)) {
+      const ownerKey = `${entry.companyKey}::${routeKey}`;
+      const routeOwners = owners.get(ownerKey) || [];
+      if (routeOwners.length === 0) continue;
+      if (routeOwners.every((owner) => hasExplicitlyDifferentArchiveIdentity(entry, owner))) {
+        conflictingRouteKeys.push(routeKey);
+      }
+    }
+
+    for (const routeKey of conflictingRouteKeys) {
+      const locale = localeFromRouteKey(routeKey);
+      const route = rawRouteFromLocaleKey(routeKey);
+      let attempt = 0;
+      let replacement;
+      do {
+        replacement = appendSlugDisambiguator(
+          route,
+          collisionRouteSuffix(entry, route, attempt),
+        );
+        attempt += 1;
+      } while (reservedRoutes.has(`${locale}:${replacement}`));
+
+      if (!replaceSlugRouteEverywhere(entry, route, replacement, {
+        source,
+        reason: 'route collides with a distinct expired posting',
+        locale,
+      })) continue;
+
+      reservedRoutes.add(`${locale}:${replacement}`);
+      changed += 1;
+      repairedRoutes += 1;
+      if (details.length < 20) details.push(`${routeKey} → ${locale}:${replacement}`);
+    }
+
+    for (const routeKey of localeRouteKeys(entry)) {
+      const ownerKey = `${entry.companyKey}::${routeKey}`;
+      const routeOwners = owners.get(ownerKey) || [];
+      if (!routeOwners.includes(entry)) routeOwners.push(entry);
+      owners.set(ownerKey, routeOwners);
+    }
+  }
+
+  return { entries, changed, repairedRoutes, details };
 }
 
 /**
@@ -493,20 +600,21 @@ export function archiveRemovedJobsToSlice(removedJobs, crawlerKey, opts = {}) {
     || bySlug.size !== sizeBefore
     || repaired > 0
     || metadataChanged;
-  const hasActiveGeneration = Array.isArray(opts.activeJobs) && opts.activeJobs.length > 0;
-  // A route repair can be the only mutation on a clean housekeeping run, so
-  // keep reading the existing archive when the caller supplies the current
-  // active generation. Without that opt-in, preserve the historical no-op.
-  if (!needsArchiveWrite && !hasActiveGeneration) return 0;
-
-  const archived = collapseDuplicateRouteEntries(
+  // Read and canonicalize even a clean archive: a previous writer may have
+  // left two distinct source postings owning one historical route, and that
+  // repair must not wait for an unrelated new removal.
+  const collapsed = collapseDuplicateRouteEntries(
     [...bySlug.values()].sort((a, b) => compareExpiredAt(b.expiredAt, a.expiredAt)),
     { source: 'archive-removed-jobs-to-slice' },
-  ).entries;
+  );
+  const archived = collapsed.entries;
   const routeRepair = Array.isArray(opts.activeJobs)
     ? repairExpiredRoutesAgainstActive(archived, opts.activeJobs)
     : { changed: 0 };
-  if (!needsArchiveWrite && routeRepair.changed === 0) return 0;
+  const routeChanged = collapsed.collapsed > 0
+    || collapsed.repairedRoutes > 0
+    || routeRepair.changed > 0;
+  if (!needsArchiveWrite && !routeChanged) return 0;
   writeJsonAtomic(slicePath, archived);
   return added;
 }
@@ -911,6 +1019,7 @@ function archiveEntriesSignature(entries) {
 }
 
 export function collapseDuplicateRouteEntries(entries, options = {}) {
+  const routeRepair = repairExpiredRoutesWithinArchive(entries, options);
   let current = entries;
   let currentSignature = archiveEntriesSignature(current);
   const seenSignatures = new Set([currentSignature]);
@@ -935,6 +1044,8 @@ export function collapseDuplicateRouteEntries(entries, options = {}) {
         // pass is exposed separately for convergence diagnostics.
         capRefused: firstPassCapRefused,
         finalCapRefused: result.capRefused,
+        repairedRoutes: routeRepair.repairedRoutes,
+        repairDetails: routeRepair.details,
       };
     }
 

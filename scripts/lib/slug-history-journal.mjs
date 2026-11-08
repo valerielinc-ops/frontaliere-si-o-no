@@ -26,6 +26,8 @@
 import fs from 'node:fs';
 import { diffLocaleKeys } from './locale-map-diff.mjs';
 
+const SITE_LOCALES = ['it', 'en', 'de', 'fr'];
+
 /**
  * How many event objects stay in memory. The journal used to retain EVERY
  * event for the whole process, but the only bulk consumer is `summarize()`,
@@ -177,17 +179,21 @@ export function removePreviousSlugRoutes(job, routes, {
  * @param {object} job
  * @param {string} fromRoute
  * @param {string} toRoute
- * @param {{source?: string, reason?: string}} [options]
+ * @param {{source?: string, reason?: string, locale?: string}} [options]
  * @returns {number} number of route occurrences renamed
  */
 export function replaceSlugRouteEverywhere(job, fromRoute, toRoute, {
   source = 'replaceSlugRouteEverywhere',
   reason = 'route ownership moved to a distinct posting',
+  locale: targetLocale = null,
 } = {}) {
   if (!job || typeof job !== 'object') return 0;
   const from = String(fromRoute ?? '').trim();
   const to = String(toRoute ?? '').trim();
   if (!from || !to || from === to) return 0;
+
+  const scopedLocale = targetLocale == null ? null : String(targetLocale).trim();
+  if (scopedLocale === '') return 0;
 
   let replaced = 0;
   const recordDrop = (locale) => {
@@ -207,17 +213,57 @@ export function replaceSlugRouteEverywhere(job, fromRoute, toRoute, {
     recordDrop(locale);
   };
 
-  replace(job.slug, (value) => { job.slug = value; }, 'it');
+  if (scopedLocale == null || scopedLocale === 'it') {
+    replace(job.slug, (value) => { job.slug = value; }, 'it');
+  }
 
   if (job.slugByLocale && typeof job.slugByLocale === 'object' && !Array.isArray(job.slugByLocale)) {
     for (const [locale, value] of Object.entries(job.slugByLocale)) {
+      if (scopedLocale != null && locale !== scopedLocale) continue;
       replace(value, (next) => { job.slugByLocale[locale] = next; }, locale);
     }
   }
 
   if (Array.isArray(job.previousSlugs)) {
-    for (let index = 0; index < job.previousSlugs.length; index += 1) {
-      replace(job.previousSlugs[index], (next) => { job.previousSlugs[index] = next; }, null);
+    if (scopedLocale == null) {
+      for (let index = 0; index < job.previousSlugs.length; index += 1) {
+        replace(job.previousSlugs[index], (next) => { job.previousSlugs[index] = next; }, null);
+      }
+    } else {
+      // A flat previous slug is served under every locale. When only one
+      // locale collides, expand the untouched copies into explicit locale
+      // history before removing the shared token; otherwise repairing `it`
+      // would silently delete the valid `de/en/fr` routes too.
+      const retained = [];
+      let flatRouteFound = false;
+      for (const value of job.previousSlugs) {
+        if (value !== from) {
+          retained.push(value);
+          continue;
+        }
+        flatRouteFound = true;
+        replaced += 1;
+        recordDrop(scopedLocale);
+      }
+      if (flatRouteFound) {
+        if (!job.previousSlugsByLocale || typeof job.previousSlugsByLocale !== 'object' || Array.isArray(job.previousSlugsByLocale)) {
+          job.previousSlugsByLocale = {};
+        }
+        for (const locale of SITE_LOCALES) {
+          const list = Array.isArray(job.previousSlugsByLocale[locale])
+            ? job.previousSlugsByLocale[locale]
+            : (job.previousSlugsByLocale[locale] = []);
+          const preserved = locale === scopedLocale ? to : from;
+          if (locale === scopedLocale) {
+            for (let index = 0; index < list.length; index += 1) {
+              if (list[index] === from) list[index] = to;
+            }
+          }
+          if (!list.includes(preserved)) list.push(preserved);
+        }
+      }
+      if (retained.length > 0) job.previousSlugs = retained;
+      else delete job.previousSlugs;
     }
   }
 
@@ -227,6 +273,7 @@ export function replaceSlugRouteEverywhere(job, fromRoute, toRoute, {
     && !Array.isArray(job.previousSlugsByLocale)
   ) {
     for (const [locale, slugs] of Object.entries(job.previousSlugsByLocale)) {
+      if (scopedLocale != null && locale !== scopedLocale) continue;
       if (!Array.isArray(slugs)) continue;
       for (let index = 0; index < slugs.length; index += 1) {
         replace(slugs[index], (next) => { slugs[index] = next; }, locale);
