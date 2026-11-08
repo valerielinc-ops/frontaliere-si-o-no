@@ -2,21 +2,6 @@
   "schemaVersion": 1,
   "posted": [
     {
-      "id": "tio-agenda:64784",
-      "viaDigest": "weekend-digest-2026-11-07",
-      "postedAt": "2026-11-06T16:23:14.526Z"
-    },
-    {
-      "id": "tio-agenda:64829",
-      "viaDigest": "weekend-digest-2026-11-07",
-      "postedAt": "2026-11-06T16:23:14.526Z"
-    },
-    {
-      "id": "tio-agenda:64756",
-      "viaDigest": "weekend-digest-2026-11-07",
-      "postedAt": "2026-11-06T16:23:14.526Z"
-    },
-    {
       "id": "tio-agenda:61721",
       "viaDigest": "weekend-digest-2026-11-07",
       "postedAt": "2026-11-06T16:23:14.526Z"
@@ -5132,6 +5117,57 @@
       "copyAngleIntent": "both",
       "copyHook": "Un appuntamento di musica da verificare prima di organizzarti.",
       "copyCta": "Consulta il programma."
+    },
+    {
+      "id": "myswitzerland:1104e6a101be44b09469dfe5c8a7a0f9",
+      "url": "https://frontaliereticino.ch/eventi/uri/isenthal/",
+      "postId": "951226518080080_122130885075272498",
+      "postedAt": "2026-11-08T15:39:34.857Z",
+      "copyMode": "codex",
+      "copySlot": "event",
+      "copyPromptVersion": "frontaliere-social-copy-v4",
+      "copyPackId": "1fb417e247af2a71",
+      "copyTemplateId": "fb-event-music",
+      "copyAssignmentMode": "deterministic",
+      "copyAngleId": "passo-pratico",
+      "copyPillarId": "opportunita-concrete",
+      "copyAngleIntent": "both",
+      "copyHook": "Un appuntamento di musica da verificare prima di organizzarti.",
+      "copyCta": "Consulta il programma."
+    },
+    {
+      "id": "myswitzerland:d1fa2797c71a4c7894bc4995d2bbaff8",
+      "url": "https://frontaliereticino.ch/eventi/uri/",
+      "postId": "951226518080080_122130885105272498",
+      "postedAt": "2026-11-08T15:39:41.369Z",
+      "copyMode": "codex",
+      "copySlot": "event",
+      "copyPromptVersion": "frontaliere-social-copy-v4",
+      "copyPackId": "1fb417e247af2a71",
+      "copyTemplateId": "fb-event-music",
+      "copyAssignmentMode": "deterministic",
+      "copyAngleId": "passo-pratico",
+      "copyPillarId": "opportunita-concrete",
+      "copyAngleIntent": "both",
+      "copyHook": "Un appuntamento di musica da verificare prima di organizzarti.",
+      "copyCta": "Consulta il programma."
+    },
+    {
+      "id": "myswitzerland:24d3f24a63dc480cb96e33156d693285",
+      "url": "https://frontaliereticino.ch/eventi/uri/isenthal/",
+      "postId": "951226518080080_122130885141272498",
+      "postedAt": "2026-11-08T15:39:47.556Z",
+      "copyMode": "codex",
+      "copySlot": "event",
+      "copyPromptVersion": "frontaliere-social-copy-v4",
+      "copyPackId": "1fb417e247af2a71",
+      "copyTemplateId": "fb-event-theatre",
+      "copyAssignmentMode": "deterministic",
+      "copyAngleId": "contesto-chiaro",
+      "copyPillarId": "vita-oltreconfine",
+      "copyAngleIntent": "searchable",
+      "copyHook": "Una proposta di teatro da controllare prima di inserirla in agenda.",
+      "copyCta": "Scopri l'evento."
     }
   ]
 }
