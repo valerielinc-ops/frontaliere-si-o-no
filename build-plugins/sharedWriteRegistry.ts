@@ -273,11 +273,7 @@ function rememberOutputPathShape(filePath: string): void {
 
   claimedOutputPaths.add(resolved);
   let ancestor = path.dirname(resolved);
-  if (resolved.endsWith(DIRECTORY_INDEX_SUFFIX)) {
-    const parent = path.dirname(ancestor);
-    if (parent === ancestor) return;
-    ancestor = parent;
-  }
+  if (resolved.endsWith(DIRECTORY_INDEX_SUFFIX)) ancestor = path.dirname(ancestor);
   while (ancestor !== resolved) {
     if (!claimedOutputDescendants.has(ancestor)) {
       claimedOutputDescendants.set(ancestor, resolved);
