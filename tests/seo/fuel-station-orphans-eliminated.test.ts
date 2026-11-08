@@ -576,6 +576,20 @@ describe('fuel-station orphans — emittedPaths gate excludes pages the build sk
     expect(countAnchors(html, '/italia/varese/stazioni/q8-via-roma-2/')).toBeGreaterThanOrEqual(1);
     expect(countAnchors(html, '/italia/como/stazioni/')).toBe(0);
   });
+
+  it('stations-index ItemList contains only emitted station URLs', () => {
+    const html = pages[buildFuelIndexPath('it', 'benzina', 'italianStations')]!;
+    const collection = [...html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)]
+      .map((match) => JSON.parse(match[1]) as {
+        '@type'?: string;
+        mainEntity?: { itemListElement?: Array<{ url?: string }> };
+      })
+      .find((block) => block['@type'] === 'CollectionPage');
+    const itemUrls = collection?.mainEntity?.itemListElement?.flatMap((item) => item.url ? [item.url] : []) ?? [];
+
+    expect(itemUrls).toContain('https://frontaliereticino.ch/prezzi-benzina/italia/varese/stazioni/q8-via-roma-2/');
+    expect(itemUrls.some((url) => url.includes('/italia/como/'))).toBe(false);
+  });
 });
 
 describe('fuel-station index pagination — Italian station pages stay within the shared weight budget', () => {
