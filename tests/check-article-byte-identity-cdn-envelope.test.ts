@@ -41,6 +41,15 @@ describe('canonicalizeCdnDataEnvelope — deployment boundary only', () => {
     expect(canonicalizeCdnDataEnvelope(withoutScript)).toBe(empty);
   });
 
+  it('removes envelope indentation without leaving a false head diff', () => {
+    const fast = page(
+      `<meta charset="utf-8">\n ${PRECONNECT}${DNS_PREFETCH}${CDN_SCRIPT}\n <title>Articolo</title>`,
+    );
+    const live = page('<meta charset="utf-8">\n <title>Articolo</title>');
+
+    expect(canonicalizeCdnDataEnvelope(fast)).toBe(live);
+  });
+
   it('keeps a wrong or changed CDN runtime value as a mismatch', () => {
     const wrongOrigin = page(
       '<script>window.__CDN_DATA_BASE__="https://cdn.example.test"</script>',
