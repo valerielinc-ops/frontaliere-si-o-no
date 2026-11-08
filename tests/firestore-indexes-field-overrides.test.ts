@@ -52,6 +52,7 @@ const QUERIED: Array<[string, string, string]> = [
   ['events', 'occurred_at', 'functions/src/lib/preferredSendHour.js'],
   ['events', 'source_channel', 'scripts/newsletter-confirmed-status-backfill.mjs'],
   ['events', 'pair_re_opt_in_at', 'scripts/audit-resubscribe-pairs.mjs'],
+  ['events', 'alert_id', 'scripts/lib/job-alert-subject-ab-data.mjs'],
   ['alerts', 'active', 'scripts/send-job-alerts.mjs, functions/src/jobAlertUnsubscribe.js'],
   ['alerts', 'frequency', 'scripts/send-company-alerts.mjs'],
   ['alerts', 'userId', 'services/jobAlertService.ts'],
@@ -61,6 +62,8 @@ const QUERIED: Array<[string, string, string]> = [
   ['job_email_ranking_stats', 'surface', 'functions/src/lib/jobEmailRankingStore.js'],
   ['job_email_ranking_stats', 'surface_id', 'functions/src/lib/jobEmailRankingStore.js'],
   ['job_email_ranking_stats', 'date', 'functions/src/lib/jobEmailRankingStore.js'],
+  ['application_intents', 'expiresAt', 'functions/src/applicationIntentRetention.js'],
+  ['application_intents', 'retentionUntil', 'functions/src/applicationIntentRetention.js'],
   ['private', 'applicationIntentAuthUid', 'functions/src/authAccountCleanup.js'],
 ];
 
@@ -86,7 +89,6 @@ const MUST_BE_EXEMPT: Array<[string, string]> = [
   ['events', 'metadata'],
   ['events', 'email'],
   ['events', 'maileroo_event'],
-  ['events', 'message_id'],
   ['maileroo_refs', 'campaign_id'],
   ['maileroo_refs', 'email'],
   ['maileroo_refs', 'is_job_alert'],
@@ -322,16 +324,19 @@ describe('firestore.indexes.json — fieldOverrides', () => {
     }
   });
 
-  it('gli override TTL restano con ttl: true e senza indici', () => {
+  it('dichiara TTL solo per retention esplicite e mantiene gli indici richiesti', () => {
     for (const collectionGroup of ['job_email_ranking_stats', 'job_email_ranking_events', 'job_email_ranking_deliveries', 'job_email_affinity']) {
       const override = overrides.find((o) => o.collectionGroup === collectionGroup && o.fieldPath === 'expires_at');
       expect(override, `${collectionGroup}.expires_at`).toBeDefined();
       expect(override?.ttl, `${collectionGroup}.expires_at`).toBe(true);
       expect(override?.indexes, `${collectionGroup}.expires_at`).toEqual([]);
     }
-    // `ttl` compare solo dove serve: un'esenzione semplice non lo dichiara.
+    const deliveryExpiry = overrides.find((o) => o.collectionGroup === 'application_intent_reminder_deliveries' && o.fieldPath === 'expiresAt');
+    expect(deliveryExpiry?.ttl).toBe(true);
+    expect(deliveryExpiry?.indexes).toEqual([]);
+    // TTL is only declared on the explicit expiry fields.
     for (const override of overrides) {
-      if (override.ttl !== undefined) expect(override.fieldPath, key(override.collectionGroup, override.fieldPath)).toBe('expires_at');
+      if (override.ttl !== undefined) expect(['expires_at', 'expiresAt'], key(override.collectionGroup, override.fieldPath)).toContain(override.fieldPath);
     }
   });
 

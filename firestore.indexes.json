@@ -236,6 +236,12 @@
       "indexes": []
     },
     {
+      "collectionGroup": "application_intent_reminder_deliveries",
+      "fieldPath": "expiresAt",
+      "ttl": true,
+      "indexes": []
+    },
+    {
       "collectionGroup": "campaign_deliveries",
       "fieldPath": "clicked_at",
       "indexes": [
@@ -274,6 +280,14 @@
       "collectionGroup": "events",
       "fieldPath": "message_id",
       "indexes": [
+        { "order": "ASCENDING", "queryScope": "COLLECTION_GROUP" }
+      ]
+    },
+    {
+      "collectionGroup": "events",
+      "fieldPath": "alert_id",
+      "indexes": [
+        { "order": "ASCENDING", "queryScope": "COLLECTION" },
         { "order": "ASCENDING", "queryScope": "COLLECTION_GROUP" }
       ]
     },

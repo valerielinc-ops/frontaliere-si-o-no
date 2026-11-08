@@ -36,8 +36,8 @@ const MONITORING_RETRIES = 1;
 const MONITORING_RETRY_BASE_MS = 1_000;
 
 /**
- * Thresholds sit well above the normal day (September 1-12, before the
- * incident) and well below the incident day, so one bad night opens the issue.
+ * Thresholds sit above the current normal day and below the incidents they
+ * guard against, so one bad night opens the issue.
  * Every threshold applies to the PROJECT TOTAL, because that is what the bill
  * counts: two services at 3 GiB of egress cost as much as one at 6 GiB.
  * `breakdownBy` only names the main contributors in the report.
@@ -75,14 +75,38 @@ export const COST_DRIVERS = [
     normal: '~0,15 GiB/giorno senza getPlateAuctions (09/2026)',
   },
   {
+    key: 'cloud-run-requests',
+    label: 'Richieste Cloud Run',
+    metric: 'run.googleapis.com/request_count',
+    filter: 'resource.type="cloud_run_revision" AND resource.labels.location="europe-west6"',
+    breakdownBy: 'resource.label.service_name',
+    threshold: 200_000,
+    unit: 'count',
+    // Diagnostic volume only; billed Cloud Run use is counted by instance time/egress.
+    chfPerUnit: 0,
+    normal: '~70 k/giorno (10/2026); ~115-140 k/giorno oggi',
+  },
+  {
     key: 'cloud-run-instance-time',
     label: 'Tempo istanza fatturabile Cloud Run',
     metric: 'run.googleapis.com/container/billable_instance_time',
     breakdownBy: 'resource.label.service_name',
-    threshold: 40_000,
+    threshold: 20_000,
     unit: 'seconds',
     chfPerUnit: 2.94e-5,
-    normal: '~11.500 s/giorno (09/2026)',
+    normal: '~10.000 s/giorno prima dell\'incidente',
+  },
+  {
+    key: 'firebase-storage-egress',
+    label: 'Traffico in uscita bucket Firebase Storage',
+    metric: 'storage.googleapis.com/network/sent_bytes_count',
+    filter: 'resource.type="gcs_bucket" AND resource.labels.bucket_name="frontaliere-ticino.firebasestorage.app"',
+    breakdownBy: 'resource.label.bucket_name',
+    threshold: 2 * GIB,
+    unit: 'bytes',
+    // Directional only: this metric includes same-location traffic as well as internet egress.
+    chfPerUnit: 0.098 / GIB,
+    normal: '~1,2 GiB/giorno (~35 GiB/30 giorni)',
   },
 ];
 
@@ -229,6 +253,9 @@ export function renderCostReport(evaluation, {
     const { driver } = row;
     lines.push(`| ${driver.label} | ${formatAmount(row.value, driver.unit)} | ${formatAmount(driver.threshold, driver.unit)} | ${row.chf === null ? 'n/d' : row.chf.toFixed(2)} | ${driver.normal} | ${row.status === 'over' ? 'SOPRA' : row.status === 'missing' ? 'MANCANTE' : 'ok'} |`);
   }
+  if (evaluation.rows.some((row) => row.driver.key === 'firebase-storage-egress')) {
+    lines.push('', 'La stima CHF del bucket è indicativa: `network/sent_bytes_count` misura tutti i byte inviati e non distingue l’egress Internet dal traffico Google Cloud nella stessa località.');
+  }
   const storage = evaluation.rows.find((row) => row.driver.key === STORAGE_DRIVER.key);
   if (storage?.level !== undefined) lines.push('', `Storage Firestore attuale: ${formatAmount(storage.level, 'bytes')}.`);
   for (const row of evaluation.breaches) {
@@ -237,17 +264,16 @@ export function renderCostReport(evaluation, {
   }
   renderFirestoreReadAttribution(lines, evaluation, { firestoreAttribution, totalFirestoreReads });
 
-  // Rank Cloud Run services by work, not by calls: on 2026-10-01
-  // getplateauctions made ~6'000 calls, out of the top five by count, yet led
-  // instance time 24'174 s to 3'085 s.
+  // Show instance-time contributors alongside any over-threshold driver:
+  // request volume explains calls, while instance time explains work per call.
   const instanceTime = evaluation.rows.find((row) => row.driver.key === 'cloud-run-instance-time');
-  if (instanceTime?.breakdown.length && evaluation.breaches.some((row) => row.driver.key.startsWith('firestore-'))) {
+  if (instanceTime?.breakdown.length && evaluation.breaches.length) {
     lines.push('', `**Servizi Cloud Run con più tempo istanza nelle 24 h:** ${instanceTime.breakdown.map((item) => `\`${item.name}\` ${formatAmount(item.value, 'seconds')}`).join(', ')}`);
   }
   if (evaluation.breaches.length) {
     lines.push(
       '',
-      '**1-CAUSA (ipotesi):** un servizio chiamato molto più del normale, un lavoro che rilegge/riscrive una collection intera, oppure letture di chiamanti fuori contabilità. La quota non attribuita comprende per esempio Cloud Functions o browser; i Data Access audit log sono spenti. Confronta l\'andamento orario con `run.googleapis.com/request_count` per `service_name`; il servizio che segue la curva è il candidato.',
+      '**1-CAUSA (ipotesi):** richieste Cloud Run in aumento, lavoro più pesante per richiesta, letture Firestore non attribuite o download ripetuti dal bucket Firebase Storage. I breakdown per servizio e bucket aiutano a isolare la curva; i Data Access audit log Firestore sono spenti.',
       `**3-METRICA:** soglie e valori nella tabella. Comando: \`node scripts/monitor-gcp-costs.mjs --dry-run\` con \`FIREBASE_SERVICE_ACCOUNT_JSON\`.`,
       '**4-OSSERVATORE:** questo monitor gira ogni 6 ore e chiude la issue da solo quando tutte le voci rientrano.',
       '**Precedente:** settembre 2026, `getPlateAuctions` da 75-90 M letture/giorno (PR #10800).',

@@ -20,13 +20,15 @@ const incidentDay = {
   'firestore-reads': { value: 75_430_000 },
   'firestore-writes': { value: 257_769 },
   'cloud-run-egress': { value: 12.73 * GIB, breakdown: [{ name: 'getplateauctions', value: 12.68 * GIB }] },
+  'cloud-run-requests': { value: 140_000, breakdown: [{ name: 'api', value: 90_000 }] },
   'cloud-run-instance-time': { value: 39_323, breakdown: [{ name: 'getplateauctions', value: 24_174 }, { name: 'getpublicconfig', value: 3_085 }] },
+  'firebase-storage-egress': { value: 1.2 * GIB, breakdown: [{ name: 'frontaliere-ticino.firebasestorage.app', value: 1.2 * GIB }] },
   'firestore-storage-growth': { value: 1.33 * GIB, level: 27.47 * GIB },
 };
 
 async function testIncidentEvaluation() {
   const evaluation = evaluateCostDrivers(incidentDay);
-  assert.deepEqual(evaluation.breaches.map((row) => row.driver.key), ['firestore-reads', 'cloud-run-egress']);
+  assert.deepEqual(evaluation.breaches.map((row) => row.driver.key), ['firestore-reads', 'cloud-run-egress', 'cloud-run-instance-time']);
   assert.deepEqual(evaluation.missing, []);
 }
 
@@ -35,7 +37,9 @@ async function testNormalEvaluation() {
     'firestore-reads': { value: 800_000 },
     'firestore-writes': { value: 250_000 },
     'cloud-run-egress': { value: 0.15 * GIB },
-    'cloud-run-instance-time': { value: 11_500 },
+    'cloud-run-requests': { value: 70_000 },
+    'cloud-run-instance-time': { value: 10_000 },
+    'firebase-storage-egress': { value: 1.2 * GIB },
     'firestore-storage-growth': { value: 0.4 * GIB, level: 9 * GIB },
   });
   assert.deepEqual(evaluation.breaches, []);
@@ -57,11 +61,18 @@ async function testReportContributors() {
   assert.ok(report.includes('**Egress internet di Cloud Run, primi contributori:** `getplateauctions` 12.68 GiB'));
   assert.ok(report.includes('**Servizi Cloud Run con più tempo istanza nelle 24 h:** `getplateauctions`'));
   assert.ok(report.includes('Storage Firestore attuale: 27.47 GiB.'));
+  assert.ok(report.includes('non distingue l’egress Internet'));
   assert.ok(report.includes('**1-CAUSA (ipotesi):**'));
 }
 
 async function testHealthyReport() {
-  const report = renderCostReport(evaluateCostDrivers({ ...incidentDay, 'firestore-reads': { value: 1 }, 'cloud-run-egress': { value: 1 } }));
+  const report = renderCostReport(evaluateCostDrivers({
+    ...incidentDay,
+    'firestore-reads': { value: 1 },
+    'cloud-run-egress': { value: 1 },
+    'cloud-run-instance-time': { value: 10_000 },
+    'firestore-storage-growth': { value: 1, level: 27 * GIB },
+  }));
   assert.equal(report.includes('1-CAUSA'), false);
   assert.equal(report.includes('più tempo istanza'), false);
 }
@@ -141,6 +152,10 @@ async function testCostDriverPaging() {
         ? { timeSeries: [series('x', 2_000_000)] }
         : filter.includes('data_and_index_storage_bytes')
           ? { timeSeries: [{ points: [point(20 * GIB, '2026-09-24T00:00:00Z'), point(27 * GIB, '2026-10-01T00:00:00Z')] }] }
+          : filter.includes('request_count')
+            ? { timeSeries: [series('api', 140_000)] }
+            : filter.includes('storage.googleapis.com/network/sent_bytes_count')
+              ? { timeSeries: [{ resource: { labels: { bucket_name: 'frontaliere-ticino.firebasestorage.app' } }, points: [point(Math.round(1.2 * GIB))] }] }
           : { timeSeries: [series('getplateauctions', 10)] };
     return { ok: true, status: 200, json: async () => body };
   };
@@ -149,6 +164,13 @@ async function testCostDriverPaging() {
   assert.ok(Math.abs(measurements[STORAGE_DRIVER.key].value - GIB) < 1e-6 * GIB);
   const egressUrl = urls.find((url) => url.includes('sent_bytes_count')) || '';
   assert.ok(new URL(egressUrl).searchParams.get('filter').includes('metric.label.kind="internet"'));
+  const requestUrl = urls.find((url) => url.includes('request_count')) || '';
+  assert.ok(new URL(requestUrl).searchParams.get('filter').includes('resource.labels.location="europe-west6"'));
+  assert.ok(new URL(requestUrl).searchParams.getAll('aggregation.groupByFields').includes('resource.label.service_name'));
+  const storageUrl = urls.find((url) => new URL(url).searchParams.get('filter')?.includes('storage.googleapis.com/network/sent_bytes_count')) || '';
+  assert.ok(new URL(storageUrl).searchParams.get('filter').includes('resource.labels.bucket_name="frontaliere-ticino.firebasestorage.app"'));
+  assert.equal(measurements['cloud-run-requests'].value, 140_000);
+  assert.ok(Math.abs(measurements['firebase-storage-egress'].value - 1.2 * GIB) < 1);
   assert.equal(urls.length, COST_DRIVERS.length + 2);
 }
 
@@ -252,10 +274,23 @@ async function testProjectTotals() {
     ...incidentDay,
     'firestore-reads': { value: 1 },
     'cloud-run-egress': { value: gib.reduce((sum, value) => sum + value, 0) * GIB },
+    'cloud-run-instance-time': { value: 10_000 },
   }).breaches.map((row) => row.driver.key);
   assert.deepEqual(egress(3, 3), ['cloud-run-egress']);
   assert.deepEqual(egress(6), ['cloud-run-egress']);
   assert.deepEqual(egress(2, 2), []);
+}
+
+async function testRequestAndStorageThresholds() {
+  const evaluation = evaluateCostDrivers({
+    ...incidentDay,
+    'firestore-reads': { value: 1 },
+    'cloud-run-egress': { value: 1 },
+    'cloud-run-instance-time': { value: 10_000 },
+    'cloud-run-requests': { value: 190_000 },
+    'firebase-storage-egress': { value: 2.1 * GIB, breakdown: [{ name: 'frontaliere-ticino.firebasestorage.app', value: 2.1 * GIB }] },
+  });
+  assert.deepEqual(evaluation.breaches.map((row) => row.driver.key), ['firebase-storage-egress']);
 }
 
 const tests = [
@@ -279,6 +314,7 @@ const tests = [
   ['unreadable point', testUnreadablePoint],
   ['unreadable JSON', testUnreadableJson],
   ['project totals', testProjectTotals],
+  ['request and Storage thresholds', testRequestAndStorageThresholds],
 ];
 
 let passed = 0;
