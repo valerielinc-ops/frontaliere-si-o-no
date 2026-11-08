@@ -860,22 +860,24 @@ jobs:
               echo "$section-$loc: BUILD_EMIT_SKIP=true — excluded from full-replace push (served by fast-publish only)"
               return 0
             fi
-            # One shard took 13.4 min at the measured maximum (6.1 GB, run
-            # 30980769677). A 30 min deadline gives it >2x that headroom while
-            # preventing a stalled git/network child from holding the deploy
-            # lane indefinitely. A timeout leaves the existing per-locale
-            # live/ok-marker strip behavior unchanged; it adds no noindex and
-            # does not rewrite any page output.
-            echo "[section-push] event=start locale=$loc section=$section timeout_seconds=1800 cleanup_grace_seconds=600"
-            if timeout --verbose --signal=TERM --kill-after=600s 1800s bash scripts/lib/push-section-shard.sh "$section" "$loc" "$PUBLISHER_DIST"; then
+            # A full-overlay ticino-fr push of 9.9 GB / 558,573 files completed
+            # in 2,524s (run 37728960699). A 60 min worker deadline leaves 18 min
+            # beyond that measured run for corpus growth while the 10 min cleanup
+            # grace handles child-process termination. Permanent GitHub tree-size
+            # rejections are caught by shard_report_largest_tree before upload, so
+            # they do not consume this deadline or repeat the same failed push.
+            # Timeout leaves the existing live/ok-marker fallback unchanged and
+            # does not change page output or indexing directives.
+            echo "[section-push] event=start locale=$loc section=$section timeout_seconds=3600 cleanup_grace_seconds=600"
+            if timeout --verbose --signal=TERM --kill-after=600s 3600s bash scripts/lib/push-section-shard.sh "$section" "$loc" "$PUBLISHER_DIST"; then
               echo "[section-push] event=finish locale=$loc section=$section outcome=success"
               return 0
             else
               rc=$?
               if [ "$rc" -eq 124 ]; then
-                echo "::error::[section-push] event=timeout locale=$loc section=$section timeout_seconds=1800 cleanup_grace_seconds=600 exit_code=$rc; existing live/ok-marker fallback remains in effect"
+                echo "::error::[section-push] event=timeout locale=$loc section=$section timeout_seconds=3600 cleanup_grace_seconds=600 exit_code=$rc; existing live/ok-marker fallback remains in effect"
               elif [ "$rc" -eq 137 ]; then
-                echo "::error::[section-push] event=forced-termination locale=$loc section=$section timeout_seconds=1800 cleanup_grace_seconds=600 exit_code=$rc; inspect timeout signal diagnostics to distinguish deadline escalation from runner termination"
+                echo "::error::[section-push] event=forced-termination locale=$loc section=$section timeout_seconds=3600 cleanup_grace_seconds=600 exit_code=$rc; inspect timeout signal diagnostics to distinguish deadline escalation from runner termination"
               else
                 echo "::error::[section-push] event=finish locale=$loc section=$section outcome=failure exit_code=$rc"
               fi
