@@ -29,13 +29,40 @@ function nativeQuestionText(value, counter = null) {
     controlId: clean(element.getAttribute('data-control-id') || ''),
     semanticId: clean(element.getAttribute('data-semantic-id') || ''),
   });
-  const nativeOption = (option, select) => ({
-    value: option.value,
-    label: clean(option.textContent),
-    ...(select.required
-      && !select.multiple && select.size <= 1 && select.options[0] === option
-      && option.parentElement === select && option.value === '' ? { placeholder: true } : {}),
-  });
+  const nativePlaceholderOption = (option, select, label) => {
+    if (!select.required && String(select.getAttribute('aria-required') || '').toLowerCase() !== 'true') return false;
+    if (!select.multiple && select.size <= 1 && select.options[0] === option
+      && option.parentElement === select && option.value === '') {
+      if (select.required) return true;
+      // ARIA conveys that a field is required but does not, by itself, turn
+      // an empty choice into a placeholder: "No preference" can be a valid
+      // answer. Preserve the common ATS conventions that explicitly identify
+      // a prompt, or repeat the field label in the empty option (for example
+      // Umantis' `Land` option for the `Land` field).
+      const optionClass = String(option.className || '');
+      const explicitlyPrompt = option.hasAttribute('data-placeholder')
+        || /(?:^|[\s_-])(?:placeholder|gf_placeholder|select-placeholder)(?:$|[\s_-])/i.test(optionClass);
+      const normalized = value => clean(value).replace(/[\s:*]+$/g, '').toLocaleLowerCase();
+      const labels = [
+        ...(select.labels ? [...select.labels].map(node => node.textContent) : []),
+        select.getAttribute('aria-label') || '',
+        ...(String(select.getAttribute('aria-labelledby') || '').split(/\s+/).filter(Boolean)
+          .map(id => select.ownerDocument?.getElementById(id)?.textContent || '')),
+      ];
+      const repeatsFieldLabel = labels.some(value => normalized(value) && normalized(value) === normalized(label));
+      const conventionalPrompt = /^(?:choose|select|please select|no selection|seleziona(?:re)?|scegli(?:ere)?|bitte(?:\s+aus)?wählen|auswählen|sélectionner|choisir|aucune\s+(?:sélection|selection)|keine\s+auswahl)$/i.test(clean(label));
+      return explicitlyPrompt || repeatsFieldLabel || conventionalPrompt;
+    }
+    return false;
+  };
+  const nativeOption = (option, select) => {
+    const label = clean(option.textContent);
+    return {
+      value: option.value,
+      label,
+      ...(nativePlaceholderOption(option, select, label) ? { placeholder: true } : {}),
+    };
+  };
   const EMPTY_PICKLIST_RE = /^(bitte (aus)?wählen|please select|select|seleziona(re)?|sélectionne[rz]?|choisi(r|ssez)|aucune\s+(?:sélection|selection)(?:née|nee)?|keine\s+auswahl|no\s+selection|nothing\s+selected)\b/i;
   // The ATS classifier knows both vendor hosts and employer-branded
   // Jobs2Web routes. Keep this contract self-contained: this function is
