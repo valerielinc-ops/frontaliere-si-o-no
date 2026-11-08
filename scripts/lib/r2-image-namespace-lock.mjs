@@ -837,7 +837,7 @@ function containsReleaseTimeout(error, seen = new Set()) {
 export function classifyReleaseDeadlineRace(outcome, { deadline } = {}) {
   if (outcome?.timedOut === true) return 'timeout';
   if (!outcome || !Array.isArray(outcome.results)) return 'indeterminate';
-  if (!Number.isFinite(deadline) || !Number.isFinite(outcome.finishedAt)) return 'indeterminate';
+  if (!isSafeLeaseTimestamp(deadline) || !isSafeLeaseTimestamp(outcome.finishedAt)) return 'indeterminate';
   if (outcome.finishedAt < deadline) return 'completed';
   if (outcome.finishedAt > deadline) return 'timeout';
   return 'indeterminate';
@@ -860,20 +860,22 @@ export async function releaseImageNamespaceLeasesWithDeadline(
   positiveDuration(timeoutMs, 'image lease release timeout');
   if (leases.length === 0) return { status: 'released', timedOut: false, released: [] };
 
-  const now = options.now ?? Date.now;
-  const deadline = safeTimestamp(now() + timeoutMs, 'release deadline');
+  const clock = options.now ?? Date.now;
+  const safeNow = () => safeTimestamp(clock(), 'release clock');
+  const startedAt = safeNow();
+  const deadline = safeTimestamp(startedAt + timeoutMs, 'release deadline');
   const timeoutError = new Error(`[r2-image-namespace-lock] rilascio lease immagini oltre il limite (${timeoutMs}ms)`);
   timeoutError.code = 'IMAGE_LEASE_RELEASE_TIMEOUT';
   timeoutError.timeoutMs = timeoutMs;
   const groups = perLease ? leases.map((lease) => [lease]) : [leases];
   let timeoutId;
   const timeout = new Promise((resolve) => {
-    timeoutId = setTimeout(() => resolve({ timedOut: true }), timeoutMs);
+    timeoutId = setTimeout(() => resolve({ timedOut: true }), deadline - startedAt);
   });
   const work = Promise.allSettled(groups.map((group) => {
-    if (now() >= deadline) return Promise.reject(timeoutError);
-    return Promise.resolve().then(() => releaseImpl(group, { ...options, deadline, now }));
-  })).then((results) => ({ timedOut: false, results, finishedAt: now() }));
+    if (safeNow() >= deadline) return Promise.reject(timeoutError);
+    return Promise.resolve().then(() => releaseImpl(group, { ...options, deadline, now: safeNow }));
+  })).then((results) => ({ timedOut: false, results, finishedAt: safeNow() }));
   const outcome = await Promise.race([work, timeout]);
   clearTimeout(timeoutId);
   const deadlineRace = classifyReleaseDeadlineRace(outcome, { deadline });
@@ -888,8 +890,13 @@ export async function releaseImageNamespaceLeasesWithDeadline(
       errors.push(result.reason);
       continue;
     }
-    if (Array.isArray(result.value)) released.push(...result.value);
-    else if (result.value === true) released.push(groups[index][0]?.namespace);
+    if (Array.isArray(result.value)) {
+      released.push(...result.value);
+    } else if (result.value === true && groups[index].length === 1) {
+      released.push(groups[index][0]?.namespace);
+    } else {
+      errors.push(new Error(`[r2-image-namespace-lock] release returned an indeterminate result for ${groups[index].map(({ namespace }) => namespace).join(', ')}`));
+    }
   }
   if (errors.length > 0) {
     if (errors.some((error) => containsReleaseTimeout(error))) {
@@ -902,7 +909,19 @@ export async function releaseImageNamespaceLeasesWithDeadline(
       error: new AggregateError(errors, errors.map((error) => error?.message ?? String(error)).join('; '), { cause: errors[0] }),
     };
   }
-  return { status: 'released', timedOut: false, released: released.filter(Boolean) };
+  const releasedNamespaces = released.filter(Boolean);
+  const notReleased = leases
+    .map(({ namespace }) => namespace)
+    .filter((namespace) => !releasedNamespaces.includes(namespace));
+  if (notReleased.length && releaseNotOwnedIsFatal(options)) {
+    return {
+      status: 'failed',
+      timedOut: false,
+      released: releasedNamespaces,
+      error: new Error(`[r2-image-namespace-lock] leases not released (no longer owned or present): ${notReleased.join(', ')}`),
+    };
+  }
+  return { status: 'released', timedOut: false, released: releasedNamespaces };
 }
 
 export function releaseNotOwnedIsFatal({ fenceMissingCandidate = false, ignoreNotOwned = false } = {}) {

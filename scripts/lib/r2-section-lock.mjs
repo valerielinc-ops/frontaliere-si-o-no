@@ -108,7 +108,8 @@ export function isLockPayload(value) {
 }
 
 export function isLockExpired(lock, now = Date.now()) {
-  return !isLockPayload(lock) || lock.expiresAt <= now;
+  const checkedNow = safeTimestamp(now, 'clock');
+  return !isLockPayload(lock) || lock.expiresAt <= checkedNow;
 }
 
 function encodePathPart(value) {
@@ -279,9 +280,11 @@ export function createR2Request(env = process.env, { fetchImpl = globalThis.fetc
       }
       : normalizedHeaders;
     const signed = signRequest({ ...config, now: now(), method: normalizedMethod, key, body, headers: requestHeaders });
-    const deadlineAt = deadline === undefined ? Date.now() + 30_000 : deadline;
-    if (!Number.isFinite(deadlineAt)) throw new Error('[r2-section-lock] request deadline must be finite');
-    const timeoutMs = deadlineAt - Date.now();
+    const requestStartedAt = safeTimestamp(Date.now(), 'request clock');
+    const deadlineAt = deadline === undefined
+      ? safeTimestamp(requestStartedAt + 30_000, 'request deadline')
+      : safeTimestamp(deadline, 'request deadline');
+    const timeoutMs = deadlineAt - safeTimestamp(Date.now(), 'request clock');
     const timeoutError = new Error('[r2-section-lock] R2 request deadline exceeded');
     timeoutError.name = 'TimeoutError';
     timeoutError.code = 'R2_REQUEST_TIMEOUT';
@@ -494,9 +497,12 @@ export async function acquireSectionLock(
   } = {},
 ) {
   lockKey(section);
+  nonNegativeDuration(timeoutMs, 'acquire timeout');
+  nonNegativeDuration(pollMs, 'poll interval');
   positiveDuration(leaseMs, 'lease duration');
-  const startedAt = safeTimestamp(now(), 'acquiredAt');
-  const deadline = startedAt + timeoutMs;
+  const safeNow = () => safeTimestamp(now(), 'clock');
+  const startedAt = safeNow();
+  const deadline = safeTimestamp(startedAt + timeoutMs, 'acquisition deadline');
   const expiresAt = safeTimestamp(startedAt + leaseMs, 'expiresAt');
   const payload = {
     owner,
@@ -509,7 +515,7 @@ export async function acquireSectionLock(
   let candidateMayExist = false;
   let lockSeenHeld = false;
   try {
-    while (now() <= deadline) {
+    while (safeNow() <= deadline) {
       let currentAfterWrite;
       let created;
       // A waiter polls with GET and only writes once the lock looks free: a
@@ -548,7 +554,7 @@ export async function acquireSectionLock(
         await sleep(100);
         continue;
       }
-      if (isLockExpired(current.payload, now())) {
+      if (isLockExpired(current.payload, safeNow())) {
         if (!current.etag) {
           throw new Error(`[r2-section-lock] lock ${section} has no ETag; refusing an unsafe takeover`);
         }
@@ -569,7 +575,7 @@ export async function acquireSectionLock(
       }
 
       onWait({ section, owner: current.payload.owner, expiresAt: current.payload.expiresAt });
-      const remaining = deadline - now();
+      const remaining = deadline - safeNow();
       if (remaining <= 0) break;
       await sleep(Math.min(pollMs, remaining));
       lockSeenHeld = true;
@@ -791,6 +797,7 @@ export async function releaseSectionLock(
 
 export async function releaseSectionLocks(locks, options = {}) {
   const released = [];
+  const notReleased = [];
   let firstError;
   for (const lock of [...locks].reverse()) {
     try {
@@ -800,11 +807,15 @@ export async function releaseSectionLocks(locks, options = {}) {
         leaseId: lock.leaseId,
         etag: lock.etag,
       })) released.push(lock.section);
+      else notReleased.push(lock.section);
     } catch (error) {
       firstError ??= error;
     }
   }
   if (firstError) throw firstError;
+  if (notReleased.length && options.ignoreNotOwned !== true) {
+    throw new Error(`[r2-section-lock] leases not released (no longer owned or present): ${notReleased.join(', ')}`);
+  }
   return released;
 }
 
