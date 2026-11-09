@@ -116,7 +116,7 @@ import { isPromptPlaceholder } from '../scripts/lib/prompt-placeholder.mjs';
 import { ADSENSE_THIN_WORDS } from '../scripts/adsense-prereview-thresholds.mjs';
 import { stemSearchToken, stemHaystack } from '../services/searchStem.mjs';
 import { cantonSearchTokens } from '../services/cantonList';
-import { projectJobsForLocaleHaystack } from './relatedSearchPostingsCore.mjs';
+import { encodeSearchGramAt, projectJobsForLocaleHaystack } from './relatedSearchPostingsCore.mjs';
 import {
   AGGREGATE_KEY,
   resolveCantonSection,
@@ -1356,7 +1356,10 @@ export class TokenIndex {
   private occupationPostingsByLocale = new Map<Locale, OccupationLocaleIndex>();
   private haystacksByLocale = new Map<Locale, string[]>();
   private postingsByLocale = new Map<Locale, Map<string, number[]>>();
-  private gramPostingsByLocale = new Map<Locale, Map<string, number[]>>();
+  private gramPostingsByLocale = new Map<Locale, {
+    grams2: Map<number, number[]>;
+    grams3: Map<number, number[]>;
+  }>();
   private readonly scratchScores: Uint8Array;
   private readonly touchedIdx: number[] = [];
   private readonly jobs: ReadonlyArray<RawJob>;
@@ -1544,27 +1547,32 @@ export class TokenIndex {
     return arr;
   }
 
-  private getGramPostings(locale: Locale): Map<string, number[]> {
+  private getGramPostings(locale: Locale): { grams2: Map<number, number[]>; grams3: Map<number, number[]> } {
     const cached = this.gramPostingsByLocale.get(locale);
     if (cached) return cached;
 
     const __t = profileStart();
     const haystacks = this.getHaystacks(locale);
-    const grams = new Map<string, number[]>();
-    const seenInJob = new Set<string>();
+    const grams2 = new Map<number, number[]>();
+    const grams3 = new Map<number, number[]>();
+    const seen2 = new Set<number>();
+    const seen3 = new Set<number>();
 
     for (let jobIdx = 0; jobIdx < haystacks.length; jobIdx++) {
       const haystack = haystacks[jobIdx];
-      seenInJob.clear();
+      seen2.clear();
+      seen3.clear();
 
       for (const width of [2, 3]) {
         if (haystack.length < width) continue;
         for (let i = 0; i <= haystack.length - width; i++) {
-          const gram = haystack.slice(i, i + width);
-          if (!isSearchTokenGram(gram)) continue;
-          if (seenInJob.has(gram)) continue;
-          seenInJob.add(gram);
+          const gram = encodeSearchGramAt(haystack, i, width);
+          if (gram < 0) continue;
+          const seen = width === 2 ? seen2 : seen3;
+          if (seen.has(gram)) continue;
+          seen.add(gram);
 
+          const grams = width === 2 ? grams2 : grams3;
           let list = grams.get(gram);
           if (!list) {
             list = [];
@@ -1575,6 +1583,7 @@ export class TokenIndex {
       }
     }
 
+    const grams = { grams2, grams3 };
     this.gramPostingsByLocale.set(locale, grams);
     profileRecord('bc:lazy-grams', __t);
     return grams;
@@ -1583,17 +1592,20 @@ export class TokenIndex {
   private candidateJobsForToken(locale: Locale, token: string): readonly number[] {
     const grams = this.getGramPostings(locale);
     if (token.length <= 2) {
-      return grams.get(token) ?? [];
+      if (token.length !== 2) return [];
+      const gram = encodeSearchGramAt(token, 0, 2);
+      return gram < 0 ? [] : (grams.grams2.get(gram) ?? []);
     }
 
     let rarest: readonly number[] | null = null;
-    const seenTokenGrams = new Set<string>();
+    const seenTokenGrams = new Set<number>();
     for (let i = 0; i <= token.length - 3; i++) {
-      const gram = token.slice(i, i + 3);
+      const gram = encodeSearchGramAt(token, i, 3);
+      if (gram < 0) return [];
       if (seenTokenGrams.has(gram)) continue;
       seenTokenGrams.add(gram);
 
-      const list = grams.get(gram) ?? [];
+      const list = grams.grams3.get(gram) ?? [];
       if (rarest === null || list.length < rarest.length) {
         rarest = list;
         if (rarest.length === 0) break;
@@ -1804,16 +1816,6 @@ export class TokenIndex {
     profileRecord('bc:occupation-index', __tOccupationIndex);
     return index;
   }
-}
-
-function isSearchTokenGram(value: string): boolean {
-  for (let i = 0; i < value.length; i++) {
-    const code = value.charCodeAt(i);
-    const isDigit = code >= 48 && code <= 57;
-    const isLowerAscii = code >= 97 && code <= 122;
-    if (!isDigit && !isLowerAscii) return false;
-  }
-  return true;
 }
 
 function binaryIncludes(sorted: readonly number[], value: number): boolean {

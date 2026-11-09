@@ -105,13 +105,13 @@ export function wantedGramsForTokens(tokens) {
       // Only width-2 grams exist for a 2-char token; a 1-char token can never
       // be a key of the index, so it needs nothing.
       if (token.length === 2) {
-        const gram = encodeGramAt(token, 0, 2);
+        const gram = encodeSearchGramAt(token, 0, 2);
         if (gram >= 0) wanted2.add(gram);
       }
       continue;
     }
     for (let i = 0; i <= token.length - 3; i++) {
-      const gram = encodeGramAt(token, i, 3);
+      const gram = encodeSearchGramAt(token, i, 3);
       if (gram >= 0) wanted3.add(gram);
     }
   }
@@ -122,12 +122,16 @@ const SEARCH_GRAM_BASE = 36;
 
 /**
  * Encode a fixed-width ASCII lowercase alphanumeric gram without allocating a
- * substring. Sparse postings scan every job haystack; calling `slice()` for
+ * substring. Postings indexes scan every job haystack; calling `slice()` for
  * every 2/3-gram created hundreds of millions of short-lived strings on the
- * production corpus even though almost all grams were immediately discarded.
+ * production corpus even when most grams were immediately discarded.
  * Separate 2- and 3-gram maps keep these numeric keys unambiguous.
+ * @param {string} value
+ * @param {number} start
+ * @param {number} width
+ * @returns {number}
  */
-function encodeGramAt(value, start, width) {
+export function encodeSearchGramAt(value, start, width) {
   let encoded = 0;
   for (let i = start; i < start + width; i++) {
     const code = value.charCodeAt(i);
@@ -145,7 +149,7 @@ function encodeGramAt(value, start, width) {
 /** Test helper for fixed-width ASCII alphanumeric grams. */
 export function encodeSearchGram(value) {
   if (value.length !== 2 && value.length !== 3) return -1;
-  return encodeGramAt(value, 0, value.length);
+  return encodeSearchGramAt(value, 0, value.length);
 }
 
 /**
@@ -205,7 +209,7 @@ function buildSparseGramIndex(haystacks, wanted) {
     for (const [width, set] of widths) {
       if (haystack.length < width) continue;
       for (let i = 0; i <= haystack.length - width; i++) {
-        const gram = encodeGramAt(haystack, i, width);
+        const gram = encodeSearchGramAt(haystack, i, width);
         if (gram < 0 || !set.has(gram)) continue;
         const seen = width === 2 ? seen2 : seen3;
         if (seen.has(gram)) continue;
@@ -250,14 +254,14 @@ function sortedHas(sorted, value) {
 export function intersectedCandidatesForToken(token, grams) {
   if (token.length <= 2) {
     if (token.length !== 2) return [];
-    const gram = encodeGramAt(token, 0, 2);
+    const gram = encodeSearchGramAt(token, 0, 2);
     return gram < 0 ? [] : (grams.grams2.get(gram) ?? []);
   }
   /** @type {number[][]} */
   const lists = [];
   const seenTokenGrams = new Set();
   for (let i = 0; i <= token.length - 3; i++) {
-    const gram = encodeGramAt(token, i, 3);
+    const gram = encodeSearchGramAt(token, i, 3);
     // Dense postings have no entry for a non-alphanumeric gram, so any token
     // containing one has no candidates in the sparse index either.
     if (gram < 0) return [];
