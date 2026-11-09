@@ -261,7 +261,6 @@ export async function handleCreateReaderCheckout(req) {
   await readerRef.set(
     {
       stripeCheckoutSessionId: session.id,
-      ...(houseAdAttribution ? { houseAdAttribution } : {}),
       updatedAt: FieldValue.serverTimestamp(),
     },
     { merge: true },

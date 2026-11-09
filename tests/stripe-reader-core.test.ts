@@ -304,7 +304,6 @@ describe('handleCreateReaderCheckout', () => {
       email: 'must-not-reach-stripe@example.test', randomizationId: 'must-not-reach-stripe',
     };
     await handleCreateReaderCheckout(req({
-      get: () => undefined,
       body: { successUrl: 'https://a.test/ok', cancelUrl: 'https://a.test/cancel', houseAdAttribution },
     }));
     expect(stripeCheckoutSessionsCreate).toHaveBeenCalledWith(expect.objectContaining({
@@ -318,6 +317,7 @@ describe('handleCreateReaderCheckout', () => {
       }),
       subscription_data: { metadata: expect.objectContaining({ houseVariant: 'subscription' }) },
     }));
+    expect(store.reader1?.houseAdAttribution).toBeUndefined();
     expect(JSON.stringify(stripeCheckoutSessionsCreate.mock.calls.at(-1))).not.toContain('must-not-reach-stripe');
   });
 
