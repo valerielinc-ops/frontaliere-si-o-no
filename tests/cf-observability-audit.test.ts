@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import {
   buildIssueBody,
+  buildBlockedUaFilters,
   estimateMonthlyLogVolume,
   evaluateChecks,
   isReportOnly,
@@ -28,6 +29,31 @@ const failing = (snapshot: typeof healthy, now = before) =>
   evaluateChecks(snapshot, now).filter((check) => check.failed).map((check) => check.id);
 
 describe('cf-observability-audit checks', () => {
+  it('keeps the leak query aligned with the WAF country scope for legacy Chrome', () => {
+    expect(buildBlockedUaFilters('Baiduspider')).toEqual([
+      {
+        key: '$workers.event.request.headers.user-agent',
+        operation: 'includes',
+        value: 'Baiduspider',
+        type: 'string',
+      },
+    ]);
+    expect(buildBlockedUaFilters('Chrome/99.0.4844.51')).toEqual([
+      {
+        key: '$workers.event.request.headers.user-agent',
+        operation: 'includes',
+        value: 'Chrome/99.0.4844.51',
+        type: 'string',
+      },
+      {
+        key: '$workers.event.request.cf.country',
+        operation: 'eq',
+        value: 'CN',
+        type: 'string',
+      },
+    ]);
+  });
+
   it('has ten checks and passes on a healthy week', () => {
     expect(evaluateChecks(healthy, before)).toHaveLength(10);
     expect(failing(healthy)).toEqual([]);

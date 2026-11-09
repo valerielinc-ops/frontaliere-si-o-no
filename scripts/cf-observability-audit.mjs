@@ -32,10 +32,29 @@ const RETENTION_DAYS = 7;
 
 const INTERNAL_CRAWLER_UA = 'frontaliere-bing-tree-crawler';
 export const WAF_BLOCKED_UAS = ['Baiduspider', 'CorsairBot', 'Chrome/48.0.2564.116', 'Chrome/99.0.4844.51'];
+// The WAF rule scopes the legacy Chrome signatures to Chinese source IPs. A
+// Workers Log is an invocation that made it past the WAF, so counting those UAs
+// without the same country predicate falsely reports legitimate old browsers
+// outside China as a firewall leak.
+const WAF_BLOCKED_UA_COUNTRY = new Map([
+  ['Chrome/48.0.2564.116', 'CN'],
+  ['Chrome/99.0.4844.51', 'CN'],
+]);
 const VERSION_PATHS = ['/commit-hash.txt', '/build-id.txt'];
 const AUTOMATED_UA_RE = /bot|crawl|spider|python|curl|wget|scrapy|go-http|axios|java\//i;
 const WELCOMED_UA_RE =
   /googlebot|bingbot|applebot|gptbot|oai-searchbot|chatgpt|claudebot|claude-user|perplexity|duckduck|yandex|exasearchbot|reflectionbot|frontaliere/i;
+
+const USER_AGENT = '$workers.event.request.headers.user-agent';
+const REQUEST_COUNTRY = '$workers.event.request.cf.country';
+const filter = (key, operation, value, type = 'string') => ({ key, operation, value, type });
+
+export function buildBlockedUaFilters(ua) {
+  const filters = [filter(USER_AGENT, 'includes', ua)];
+  const country = WAF_BLOCKED_UA_COUNTRY.get(ua);
+  if (country) filters.push(filter(REQUEST_COUNTRY, 'eq', country));
+  return filters;
+}
 
 const share = (part, total) => (total > 0 ? part / total : 0);
 const pct = (value) => `${(value * 100).toFixed(1)}%`;
@@ -194,9 +213,7 @@ async function telemetry(body) {
 }
 
 const STATUS = '$workers.event.response.status';
-const USER_AGENT = '$workers.event.request.headers.user-agent';
 const PATH = '$workers.event.path';
-const filter = (key, operation, value, type = 'string') => ({ key, operation, value, type });
 
 export async function collectSnapshot(now = Date.now()) {
   const timeframe = { from: now - WINDOW_DAYS * 864e5, to: now };
@@ -226,7 +243,7 @@ export async function collectSnapshot(now = Date.now()) {
     (point.data ?? []).reduce((sum, row) => sum + (row.value ?? 0), 0),
   );
   const blockedRequests = {};
-  for (const ua of WAF_BLOCKED_UAS) blockedRequests[ua] = await count(filter(USER_AGENT, 'includes', ua));
+  for (const ua of WAF_BLOCKED_UAS) blockedRequests[ua] = await count(...buildBlockedUaFilters(ua));
   let versionRequests = 0;
   for (const path of VERSION_PATHS) versionRequests += await count(filter(PATH, 'eq', path));
 
