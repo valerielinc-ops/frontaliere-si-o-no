@@ -66,6 +66,16 @@ function mirrorAuthSessionMarker(user: unknown | null): void {
  setFirebaseAuthSessionMarker(window.localStorage, Boolean(user));
 }
 
+/** Publish only Firebase's resolved signed-out/signed-in state to the static ad shell. */
+function publishAdsAuthState(user: unknown | null): void {
+ if (typeof window === 'undefined') return;
+ const state = user ? 'authenticated' : 'anonymous';
+ const authWindow = window as Window & { __ftAdsAuthState?: 'unknown' | 'anonymous' | 'authenticated' };
+ if (authWindow.__ftAdsAuthState === state) return;
+ authWindow.__ftAdsAuthState = state;
+ window.dispatchEvent(new CustomEvent('frontaliere:auth-state', { detail: state }));
+}
+
 /** Lightweight synchronous check for an existing Firebase Auth session in localStorage. */
 export function hasPersistedAuthSession(): boolean {
  if (typeof window === 'undefined') return false;
@@ -75,6 +85,7 @@ export function hasPersistedAuthSession(): boolean {
 function shouldStartAuthImmediately(): boolean {
  if (_eagerAuthRequested) return true;
  if (typeof window === 'undefined') return false;
+ if ((window as Window & { __ftAdsAuthStateRequested?: boolean }).__ftAdsAuthStateRequested) return true;
  // If there's already a persisted session, start auth immediately so the user
  // appears logged in right away — no interaction required.
  if (hasPersistedAuthSession()) return true;
@@ -1523,6 +1534,7 @@ export function useAuth(): AuthState & {
  const providerName: 'google' | 'facebook' | 'linkedin' | 'email' =
   provider === 'facebook' || provider === 'linkedin' || provider === 'email' ? provider : 'google';
  mirrorAuthSessionMarker(result.user);
+ publishAdsAuthState(result.user);
  sessionStorage.removeItem('auth_redirect_provider');
  // Mirror the redirect result into local hook state immediately.
  // On some mobile Google redirect returns, Firebase restores the session
@@ -1574,6 +1586,7 @@ export function useAuth(): AuthState & {
  : [],
  });
  mirrorAuthSessionMarker(u);
+ publishAdsAuthState(u);
  setUser(u);
  setLoading(false);
  // A restored session is not a login act: it refreshes the profile of a

@@ -60,6 +60,7 @@ import {
   hasActiveReaderNoAdsEntitlement,
   onReaderEntitlementChange,
 } from '@/services/readerEntitlement';
+import { getReaderSubscriptionAdAttribution, trackReaderSubscriptionAdLanding } from '@/services/houseAdAttribution';
 
 const READER_CHECKOUT_ENDPOINT =
   'https://europe-west6-frontaliere-ticino.cloudfunctions.net/createReaderCheckout';
@@ -311,6 +312,8 @@ const SubscribePage: React.FC = () => {
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
   const [openFaq, setOpenFaq] = useState<number | null>(0);
 
+  useEffect(() => { trackReaderSubscriptionAdLanding(); }, []);
+
   const [emailValue, setEmailValue] = useState('');
   const [passwordValue, setPasswordValue] = useState('');
   const [emailLoginBusy, setEmailLoginBusy] = useState(false);
@@ -387,6 +390,7 @@ const SubscribePage: React.FC = () => {
         body: JSON.stringify({
           successUrl: `${window.location.origin}${window.location.pathname}`,
           cancelUrl: window.location.href,
+          houseAdAttribution: getReaderSubscriptionAdAttribution(),
         }),
       });
       const data = (await res.json().catch(() => ({}))) as {
