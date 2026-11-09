@@ -6056,16 +6056,18 @@ function buildRelatedSearchClustersPlugin(rootDir: string): Plugin {
         if (++processedContexts % 10_000 === 0) {
           console.log(`[related-search-clusters] contexts ${processedContexts}/${candidatesInScope.length} elapsed_ms=${Date.now() - contextStartedAt} heap_mb=${Math.round(process.memoryUsage().heapUsed / 1048576)}`);
         }
-        // Run 425899 reached ~12 GB heap during context matching, then the
-        // existing post-loop collection freed ~2 GB of transient matcher
-        // allocations. Collect in bounded batches so those short-lived arrays
-        // do not push the 16 GB runner into swap before the loop ends.
-        if (shouldForceRelatedSearchContextGc(processedContexts)) {
+        // Run 425899 reached ~12 GB heap during context matching, and this
+        // first checkpoint reclaimed 1.2 GB left by preceding SEO page phases.
+        // Repeating full collections every few thousand candidates reclaimed
+        // only 4–42 MB each and stretched this loop from 59s to 378s, so keep
+        // this single early collection separate from regular memory sampling.
+        const shouldCollectContextGarbage = shouldForceRelatedSearchContextGc(processedContexts);
+        if (processedContexts % 10_000 === 0 || shouldCollectContextGarbage) {
           const sample = process.memoryUsage();
           contextSampledPeakHeapMb = Math.max(contextSampledPeakHeapMb, Math.round(sample.heapUsed / 1048576));
           contextSampledPeakRssMb = Math.max(contextSampledPeakRssMb, Math.round(sample.rss / 1048576));
           contextMemorySampleCount += 1;
-          if (contextGcEnabled && forceGc()) {
+          if (contextGcEnabled && shouldCollectContextGarbage && forceGc()) {
             const afterGc = process.memoryUsage();
             const heapFreedMb = Math.max(0, Math.round((sample.heapUsed - afterGc.heapUsed) / 1048576));
             console.log(
