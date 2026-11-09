@@ -38,6 +38,7 @@ import { permitLabel, permitOptions, permitStatusOf } from './lib/permitStatus.j
 import { civilStatusCode, civilStatusOptions, cvPersonalFacts, isSalutation, personalFieldLabel, salutationFor, salutationGenderFromName, salutationOptions } from './lib/personalFacts.js';
 import { hasCompleteLanguageList, hasExplicitLanguageSection, isLanguageAbilityQuestion, isLanguageNameOnly, languageCodesIn, languageExplicitlyAbsent } from './lib/languageFacts.js';
 import { isIdentityEmailConfirmation } from './lib/identityEmail.js';
+import { platformCandidateFacts, platformSalutationGender } from './assistedApplicationPlatformDefaults.js';
 
 const LEGACY_LANGUAGE_LIST_LIMIT = 12;
 const CANDIDATE_LOCALES = new Set(['it', 'en', 'de', 'fr']);
@@ -578,6 +579,9 @@ export function candidateWithEdits({ order, draft, flow, locale: requestedLocale
   if (has(overrides, 'availability')) profile.availability = overrides.availability;
   if (has(overrides, 'dateOfBirth')) profile.dateOfBirth = overrides.dateOfBirth;
   if (has(overrides, 'nationality')) profile.nationality = overrides.nationality;
+  // Asked at CV upload (owner decision 2026-11-09): the candidate's own word, below a correction of theirs.
+  const uploaded = order?.candidateFacts && typeof order.candidateFacts === 'object' ? order.candidateFacts : {};
+  if (!has(overrides, 'nationality') && !clean(profile.nationality, 80) && clean(uploaded.nationality, 80)) profile.nationality = clean(uploaded.nationality, 80);
   const answers = candidateAnswersForQuestions(draft?.questions, flow?.answers || {}, flow?.questionAnswers || {});
   // A required portal can repeat the applicant's identity e-mail as a
   // confirmation field. It is already known from the order/alias; use that
@@ -596,7 +600,8 @@ export function candidateWithEdits({ order, draft, flow, locale: requestedLocale
   }
   // The status is what the candidate chose (the question, else the field, else an older answer), never the CV's
   // words (decision 2). An availability they gave is the one the CV prints.
-  profile.permitStatus = permitStatusOf(clean(answers.work_permit, 200) || (has(overrides, 'workPermit') ? overrides.workPermit : ''));
+  profile.permitStatus = permitStatusOf(clean(answers.work_permit, 200) || (has(overrides, 'workPermit') ? overrides.workPermit : ''))
+    || (has(overrides, 'workPermit') ? '' : permitStatusOf(uploaded.workPermit));
   const availability = clean(answers.availability, 200);
   if (availability) profile.availability = availability;
   const cv = cvPersonalFacts(draft?.factSources?.text);
@@ -606,10 +611,21 @@ export function candidateWithEdits({ order, draft, flow, locale: requestedLocale
   // for application portals, including a required native title choice. A
   // candidate answer or correction still wins; ambiguous names and an
   // explicitly cleared correction stay blank.
-  if (salutation) answers.salutation = salutation;
+  // The form of address is never asked (owner decision 2026-11-09): a first name the lexicon does not know
+  // takes the platform's reading of it; only a correction the candidate cleared stays blank.
+  const platformSalutation = salutation || (has(overrides, 'salutation') ? ''
+    : salutationFor(platformSalutationGender(identity.firstName, locale), locale));
+  if (platformSalutation) answers.salutation = platformSalutation;
   else delete answers.salutation;
-  const personal = { salutation, civilStatus: has(overrides, 'civilStatus') ? overrides.civilStatus : cv.civilStatusText };
-  return { identity, profile, answers, overrides, personal };
+  // The permit asked at upload answers the permit question of the draft, as the candidate chose it.
+  if (profile.permitStatus && asked.has('work_permit') && !clean(answers.work_permit, 200)) {
+    answers.work_permit = permitLabel(profile.permitStatus, locale);
+  }
+  const personal = { salutation: platformSalutation, civilStatus: has(overrides, 'civilStatus') ? overrides.civilStatus : cv.civilStatusText };
+  // Form-only values (assistedApplicationPlatformDefaults.js): kept apart from `profile`, which the letter
+  // and the CV are written from, so a synthesized street or an estimated birth date is never printed there.
+  const platformFacts = platformCandidateFacts({ order, profile, identity, personal, answers, locale, seed: order?.userId || order?.orderId || '' });
+  return { identity, profile, answers, overrides, personal, platformFacts };
 }
 
 /**

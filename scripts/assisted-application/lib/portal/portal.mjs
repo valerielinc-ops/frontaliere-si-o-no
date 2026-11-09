@@ -774,7 +774,7 @@ export { portalQuestionId, portalQuestionKey, slugId };
  * What the planner may use, with the alias as the e-mail (candidateIdentity).
  * `language`: the form's, for the candidate's Swiss status as a full sentence.
  */
-export function candidateForForm({ identity, profile = {}, answers = {}, draft = {}, portalQuestions = [], extraDocuments = [], language = 'it', personal = {}, job = {}, currentAnswerIds = [], answerSources = {} }) {
+export function candidateForForm({ identity, profile = {}, answers = {}, draft = {}, portalQuestions = [], extraDocuments = [], language = 'it', personal = {}, job = {}, currentAnswerIds = [], answerSources = {}, platformFacts = null }) {
   // The split the candidate chose on the review page, else the surname with its particles (splitName).
   const names = typeof identity.firstName === 'string' ? identity : splitName(identity.name);
   const latest = (profile.experience || [])[0] || {};
@@ -783,7 +783,19 @@ export function candidateForForm({ identity, profile = {}, answers = {}, draft =
   const portalQuestionsAnswered = portalAnswersForQuestions(portalQuestions, answers, draft.portalAnswers?.answers, currentAnswerIds, answerSources);
   // Older drafts may predate the profile enrichment done during draft mode;
   // resolve once more at the browser boundary without an external geocoder.
-  const address = resolveResidenceAddress(profile.address, profile.location);
+  const resolved = resolveResidenceAddress(profile.address, profile.location);
+  // Owner decision 2026-11-09 (functions/src/assistedApplicationPlatformDefaults.js): what the CV does not
+  // say, a form receives from the platform: the town's postal code and country, and a street when a form
+  // requires one. Form-only: the letter and the CV are written from `profile`, never from this object.
+  const facts = platformFacts && typeof platformFacts === 'object' ? platformFacts : null;
+  const factAddress = facts?.address?.city ? facts.address : null;
+  const address = factAddress ? {
+    ...resolved,
+    street: resolved.street || factAddress.street,
+    postalCode: resolved.postalCode || factAddress.postalCode,
+    city: resolved.city || factAddress.city,
+    country: resolved.country || factAddress.countryName,
+  } : resolved;
   return {
     // The target employer is needed for employer-specific eligibility fields
     // such as «Are you already an employee?». It is public posting data, not a
@@ -835,13 +847,14 @@ export function candidateForForm({ identity, profile = {}, answers = {}, draft =
       workPermit: status ? '' : printedPermitText(profile.workPermit),
       availability: profile.availability || '',
       // In the form the portals read.
-      dateOfBirth: isoDateOf(profile.dateOfBirth) || profile.dateOfBirth || '',
+      dateOfBirth: isoDateOf(profile.dateOfBirth) || profile.dateOfBirth || facts?.dateOfBirth || '',
       nationality: profile.nationality || '',
       // What the CV says in its own words, or the candidate corrected (candidateWithEdits `personal`): a
       // portal that asks the civil status is answered from it, not by a question to the candidate. The form
       // of address the CV states is in `answers.salutation` already.
-      civilStatus: personal?.civilStatus || '',
+      civilStatus: personal?.civilStatus || facts?.civilStatusLabel || '',
     },
+    platformFacts: facts,
     // The Swiss status the candidate chose, as a full sentence in the form's language (decision 9). Outside
     // `answers` and `profile`: the substring rule (plan.mjs knownValuesOf) never reads it, so a label holding
     // «Svizzera» or «Schweiz» never backs a nationality answer.
@@ -6396,7 +6409,7 @@ function missingCandidatePortalRequirements(fields, candidate, candidateLocale =
     const label = folded(field.label);
     const allText = folded(fieldText(field));
     const operationalField = { ...field, question: allText, applicationQuestion: field.label || allText, options: field.options };
-    const hasOperationalDefault = Boolean(operationalDefaultAnswer(operationalField));
+    const hasOperationalDefault = Boolean(operationalDefaultAnswer(operationalField, { facts: candidate.platformFacts }));
     const role = residenceFieldRole(field.label);
     const candidateAnswer = candidateAnswerForField(candidate, field, {
       includeProfileWorkPermit: !(isPermitField(field.label) && asksHeldStatus(field.label)),

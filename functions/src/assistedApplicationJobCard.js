@@ -158,6 +158,25 @@ export async function enrichAssistedApplicationOrder(order, { fetchImpl = fetch 
   return enriched;
 }
 
+/**
+ * The salary estimate of the order's job, to store on an order that has none
+ * (concierge applications, older checkouts): the platform answers the salary
+ * expectation with its maximum (owner decision 2026-11-09). null when the
+ * published job has no estimate.
+ */
+export async function orderSalaryEstimatePatch(order, { fetchImpl = fetch } = {}) {
+  if (!order || typeof order !== 'object' || finitePositiveNumber(order.salaryMax)) return null;
+  const salary = detailSalaryFields(await fetchJobDetail(order, fetchImpl));
+  if (!salary.max) return null;
+  return {
+    salaryMax: salary.max,
+    ...(salary.min ? { salaryMin: salary.min } : {}),
+    ...(salary.baseSalary ? { baseSalary: salary.baseSalary } : {}),
+    ...(salary.baseSalary?.currency ? { salaryCurrency: salary.baseSalary.currency } : {}),
+    salarySource: order.salarySource || 'estimated',
+  };
+}
+
 export async function enrichAssistedApplicationOrders(orders, options = {}) {
   const list = Array.isArray(orders) ? orders : [];
   return Promise.all(list.map((order) => enrichAssistedApplicationOrder(order, options)));

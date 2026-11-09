@@ -75,6 +75,7 @@ export interface ApplicationConciergeService {
   applicantLocation?: string | null;
   /** Explicit selector confirmation; absent on legacy services, so consumers must not infer country from the label. */
   applicantLocationCountry?: string | null;
+  candidateFacts?: { workPermit: string; passport: string; nationality: string } | null;
   hasConsent: boolean;
   hasCv: boolean;
   consentedAt?: string | null;
@@ -263,6 +264,7 @@ export async function saveApplicationConciergeProfile(
     applicantPhone?: string;
     applicantLocation?: string;
     applicantLocationCountry?: string;
+    candidateFacts?: { workPermit?: string; passport?: string; nationality?: string };
     consent?: boolean;
     cvStorageKey?: string;
     cvFileName?: string;

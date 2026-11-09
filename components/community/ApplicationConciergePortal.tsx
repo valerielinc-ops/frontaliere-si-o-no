@@ -17,6 +17,7 @@ import SignupPromptModal, { requestConciergeAccessLink } from '@/components/comm
 import ResidenceLocationInput from '@/components/community/ResidenceLocationInput';
 import { AssistedApplicationLegalLinks } from '@/components/community/AssistedApplicationLegalLinks';
 import {
+import { AssistedApplicationCandidateFacts, candidateFactsComplete, cleanCandidateFacts, type CandidateFacts } from '@/components/community/AssistedApplicationCandidateFacts';
   openApplicationConciergeChildReview,
   acceptApplicationConciergeProposal,
   declineApplicationConciergeProposal,
@@ -209,6 +210,7 @@ export default function ApplicationConciergePortal({
   const [name, setName] = useState(previewService?.applicantName || '');
   const [email, setEmail] = useState(previewService?.applicantEmail || previewService?.customerEmail || '');
   const [phone, setPhone] = useState(previewService?.applicantPhone || '');
+  const [facts, setFacts] = useState<CandidateFacts>(previewService?.candidateFacts || {});
   const initialResidence = residenceLocationForEditor(previewService?.applicantLocation || '', previewService?.applicantLocationCountry || '');
   const [location, setLocation] = useState(initialResidence.location);
   const [locationCountryCode, setLocationCountryCode] = useState(initialResidence.countryCode);
@@ -330,6 +332,7 @@ export default function ApplicationConciergePortal({
     setName((value) => value || loaded.applicantName || user.displayName || '');
     setEmail((value) => value || loaded.applicantEmail || loaded.customerEmail || user.email || '');
     setPhone((value) => value || loaded.applicantPhone || '');
+    setFacts((value) => (candidateFactsComplete(value) ? value : { ...(loaded.candidateFacts || {}), ...value }));
     const serviceResidence = residenceLocationForEditor(loaded.applicantLocation || '', loaded.applicantLocationCountry || '');
     if (serviceResidence.location) {
       serviceLocationLoaded.current = true;
@@ -731,6 +734,7 @@ export default function ApplicationConciergePortal({
       applicantEmail: email.trim().toLowerCase(),
       applicantPhone: phone.trim(),
       ...residenceApplicationFields(location, locationCountryCode),
+      ...(candidateFactsComplete(facts) ? { candidateFacts: cleanCandidateFacts(facts) } : {}),
       ...(options.cvStorageKey ? { cvStorageKey: options.cvStorageKey } : {}),
       ...(options.cvFileName ? { cvFileName: options.cvFileName } : {}),
     });
@@ -782,6 +786,10 @@ export default function ApplicationConciergePortal({
 
   const handleCvChange = async (file: File | undefined) => {
     if (!file || !serviceId) return;
+    if (!candidateFactsComplete(facts)) {
+      setError('candidate_facts_required');
+      return;
+    }
     const contentType = fileTypeFor(file);
     if (!contentType || file.size >= MAX_CV_BYTES) {
       setError('invalid_cv_file');
@@ -1204,6 +1212,7 @@ export default function ApplicationConciergePortal({
                   <label className="block text-sm font-medium text-body">{t('jobBoard.concierge.phone')}<input value={phone} onChange={(event) => setPhone(event.target.value)} className="mt-1 w-full rounded-xl border border-edge bg-surface px-3 py-2.5 text-sm text-heading" autoComplete="tel" /></label>
                   <ResidenceLocationInput key={`${serviceId || previewService?.serviceId || "new"}:${authUser?.uid || "anonymous"}`} value={location} countryCode={locationCountryCode} onChange={handleLocationChange} />
                   <p className="-mt-2 text-xs leading-5 text-subtle">{t('jobBoard.concierge.locationHint')}</p>
+                  <AssistedApplicationCandidateFacts value={facts} onChange={setFacts} locale={locale} disabled={busy !== null || expired} />
                   <button type="submit" disabled={busy !== null || expired} className="inline-flex min-h-[44px] items-center justify-center gap-2 rounded-xl border border-edge px-4 py-2 text-sm font-semibold text-body transition-colors hover:border-accent hover:text-accent disabled:opacity-60">{busy === 'profile' && <Loader2 size={15} className="animate-spin" aria-hidden="true" />}{t('jobBoard.concierge.saveData')}</button>
                 </form>
 

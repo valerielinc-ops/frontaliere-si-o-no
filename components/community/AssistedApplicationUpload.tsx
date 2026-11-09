@@ -9,6 +9,7 @@ import { buildPath } from '@/services/router';
 import SumUpPaymentWidget from '@/components/community/SumUpPaymentWidget';
 import { trackAssistedApplicationCompletionOnce } from '@/services/assistedApplicationCompletionTracking';
 import { hasAssistedApplicationConsent } from '@/functions/src/assistedApplicationConstants.js';
+import { AssistedApplicationCandidateFacts, candidateFactsComplete as factsComplete, cleanCandidateFacts, type CandidateFacts } from '@/components/community/AssistedApplicationCandidateFacts';
 import { REPLAY_PRIVATE_ATTRS, REPLAY_PRIVATE_CLASS } from '@/services/replayPrivacy';
 import { getAssistedPaymentResponseShape } from '@/services/assistedApplicationResponseShape';
 import {
@@ -57,7 +58,9 @@ interface AssistedApplicationOrder {
   applicantName?: string | null;
   applicantEmail?: string | null;
   amountTotal?: number | string | null;
+  candidateFacts?: CandidateFacts | null;
 }
+
 
 type PageStatus = 'loading' | 'pending' | 'paid' | 'submitted' | 'tracking' | 'auth_required' | 'error';
 
@@ -179,6 +182,7 @@ export default function AssistedApplicationUpload({
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
+  const [facts, setFacts] = useState<CandidateFacts>({});
   const [consent, setConsent] = useState(false);
   const [consentPersisted, setConsentPersisted] = useState(false);
   const [consentSaving, setConsentSaving] = useState(false);
@@ -239,6 +243,7 @@ export default function AssistedApplicationUpload({
       if (!data) return false;
       setOrder(data);
       setName((value) => value || data.applicantName || '');
+      setFacts((value) => (factsComplete(value) ? value : { ...(data.candidateFacts || {}), ...value }));
       setEmail((value) => value || data.applicantEmail || '');
       setCvStorageKey(data.cvStorageKey || null);
       setCvFileName(data.cvFileName || null);
@@ -508,6 +513,9 @@ export default function AssistedApplicationUpload({
     }
   };
 
+  const candidateFactsComplete = factsComplete(facts);
+  const candidateFacts = () => cleanCandidateFacts(facts);
+
   const handleSaveDetails = async () => {
     if (!order || order.paymentStatus !== 'paid' || !consentPersisted) return;
     if (!name.trim() || !isValidEmail(email)) {
@@ -527,6 +535,7 @@ export default function AssistedApplicationUpload({
         applicantName: name.trim(),
         applicantEmail: email.trim().toLowerCase(),
         applicantPhone: phone.trim() || null,
+        ...(candidateFactsComplete ? { candidateFacts: candidateFacts() } : {}),
         updatedAt: firestoreModule.serverTimestamp(),
       });
       setOrder((current) => current ? { ...current, applicantName: name.trim(), applicantEmail: email.trim().toLowerCase(), applicantPhone: phone.trim() || null } : current);
@@ -540,6 +549,14 @@ export default function AssistedApplicationUpload({
 
   const handleFileChange = async (file: File | undefined) => {
     if (!file || !consentPersisted || order?.paymentStatus !== 'paid' || cvStorageKey) return;
+
+    if (!candidateFactsComplete) {
+
+      setError(t('jobBoard.assisted.candidateFactsRequired'));
+
+      return;
+
+    }
     const contentType = fileTypeFor(file);
     if (!contentType || file.size >= MAX_FILE_SIZE) {
       setError(t('jobBoard.assisted.fileError'));
@@ -567,6 +584,7 @@ export default function AssistedApplicationUpload({
         cvStorageKey: fullPath,
         cvFileName: safeFileName(file.name),
         cvUploadedAt: firestoreModule.serverTimestamp(),
+        ...(candidateFactsComplete ? { candidateFacts: candidateFacts() } : {}),
         updatedAt: firestoreModule.serverTimestamp(),
       });
       setCvStorageKey(fullPath);
@@ -818,6 +836,7 @@ export default function AssistedApplicationUpload({
                         {t('jobBoard.assisted.phone')}
                         <input value={phone} onChange={(event) => { setPhone(event.target.value); setDetailsSaved(false); }} className="mt-1 w-full rounded-lg border border-edge bg-surface px-3 py-2.5 text-sm text-heading" autoComplete="tel" />
                       </label>
+                      <AssistedApplicationCandidateFacts value={facts} onChange={(value) => { setFacts(value); setDetailsSaved(false); }} locale={locale} />
 
                       <div className="flex flex-wrap items-center gap-3">
                         <button type="button" onClick={() => { void handleSaveDetails(); }} disabled={!consentPersisted || consentSaving || uploading || submitBusy} className="inline-flex min-h-[42px] items-center justify-center gap-2 rounded-lg border border-edge px-4 py-2 text-sm font-semibold text-body hover:border-accent disabled:cursor-not-allowed disabled:opacity-50">

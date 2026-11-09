@@ -4,9 +4,11 @@
  */
 import { isPreferredWorkloadQuestion } from './assistedApplicationCandidateEdits.js';
 import { validateAnswer } from './lib/answerRules.js';
+import { platformDefaultAnswer } from './assistedApplicationPlatformDefaults.js';
 import { hasConsentContradiction, isApplicationDataProcessingConsent, isPrivacyReviewAcknowledgment, minimumDataRetentionOption, privacyReviewAcknowledgmentShape } from './lib/applicationConsent.js';
 
-export const OPERATIONAL_DEFAULTS_VERSION = 'operational-preferences-v4';
+// v5 (2026-11-09): the platform defaults of assistedApplicationPlatformDefaults.js.
+export const OPERATIONAL_DEFAULTS_VERSION = 'operational-preferences-v5';
 const norm = value => String(value ?? '').normalize('NFD').replace(/[\u0300-\u036f]/g, '')
   .toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim().replace(/\s+/g, ' ');
 const hasAnswer = value => typeof value === 'boolean' || (typeof value === 'number' && Number.isFinite(value))
@@ -162,8 +164,17 @@ export function operationalQuestionTopic(question) {
   return null;
 }
 
-/** Return a value the actual field can express; never choose another preference. */
-export function operationalDefaultAnswer(question, { locale } = {}) {
+/**
+ * Return a value the actual field can express; never choose another preference.
+ * `facts` (platformCandidateFacts) extends the owner preferences with the
+ * platform defaults of 2026-11-09; without them only the facts that need no
+ * candidate (dates, consents, availabilities) apply.
+ */
+export function operationalDefaultAnswer(question, { locale, facts } = {}) {
+  return ownerPreferenceAnswer(question, { locale }) || platformDefaultAnswer(question, facts || null, { locale });
+}
+
+function ownerPreferenceAnswer(question, { locale } = {}) {
   const topic = operationalQuestionTopic(question);
   if (!topic) return null;
   const options = optionsOf(question);
@@ -239,8 +250,8 @@ export function withOperationalQuestionAnswers(questions, confirmedAnswers = {},
 }
 
 /** An answer is permitted only by the policy for this exact field. */
-export function isOperationalDefaultValue(question, value) {
-  const expected = operationalDefaultAnswer(question);
+export function isOperationalDefaultValue(question, value, options = {}) {
+  const expected = operationalDefaultAnswer(question, options);
   if (!expected) return false;
   if (expected.topic === 'notice_period') {
     const equivalent = equivalentOperationalAnswers(question, expected.value, value);
@@ -252,8 +263,8 @@ export function isOperationalDefaultValue(question, value) {
 }
 
 /** Required form preferences also leave with an email application. Never edit the CV. */
-export function operationalEmailBody(draft, confirmedAnswers = {}) {
-  const { answers, defaults } = withOperationalQuestionAnswers(draft?.questions, confirmedAnswers, { locale: draft?.language });
+export function operationalEmailBody(draft, confirmedAnswers = {}, { facts } = {}) {
+  const { answers, defaults } = withOperationalQuestionAnswers(draft?.questions, confirmedAnswers, { locale: draft?.language, facts });
   const lines = (draft?.questions || []).filter(question => question.required && defaults[question.id])
     .map(question => `${question.applicationQuestion || question.question}: ${answers[question.id]}`);
   const body = draft?.applicationEmail?.body || '';

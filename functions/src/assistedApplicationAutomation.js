@@ -24,6 +24,7 @@
  * ASSISTED_APPLICATION_AUTOMATION ('true' = on). Default: off.
  */
 
+import { orderSalaryEstimatePatch } from './assistedApplicationJobCard.js';
 import { FieldValue } from 'firebase-admin/firestore';
 import { randomUUID } from 'node:crypto';
 import { ASSISTED_APPLICATIONS_COLLECTION, ASSISTED_APPLICATION_AUDIT_SUBCOLLECTION, ASSISTED_APPLICATION_ORDER_ID_RE, ASSISTED_APPLICATION_RUNNER_EVENT_ARRAY_LIMIT } from './assistedApplicationConstants.js';
@@ -532,6 +533,7 @@ export async function maybeStartAutomation(before, after, orderId, {
   runEffect,
   ensureAlias = null,
   nowMs = Date.now(),
+  salaryEstimate = orderSalaryEstimatePatch,
 } = {}) {
   if (!after) return { ok: true, skipped: 'deleted' };
   const cvJustReady = isCvReady(after) && !(isCvReady(before) && before?.cvStorageKey === after.cvStorageKey);
@@ -539,6 +541,10 @@ export async function maybeStartAutomation(before, after, orderId, {
   const eligibility = automationEligibility(after, orderId);
   if (!eligibility.eligible) return { ok: true, skipped: eligibility.reason };
   if (!(await enabled(orderId))) return { ok: true, skipped: 'automation_disabled' };
+  // The salary expectation is the maximum of the job's estimate (owner decision 2026-11-09):
+  // an order without one reads it from the published job before its first draft.
+  const salaryPatch = salaryEstimate ? await Promise.resolve(salaryEstimate(after)).catch(() => null) : null;
+  if (salaryPatch) await orderRefFor(db, orderId).set(salaryPatch, { merge: true }).catch(() => {});
   const reopenPending = after.reopenAfterWithdrawal?.status === 'pending';
   return startAutomation({
     db,
