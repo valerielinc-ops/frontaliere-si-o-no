@@ -18,10 +18,15 @@ import { spawnSync, execFileSync } from 'node:child_process';
 import { pathToFileURL } from 'node:url';
 
 import { listSliceFileNames } from '../lib/crawler-slice-files.mjs';
-import { titleRepairQueueLocales } from '../lib/untranslated-title-repair.mjs';
+import {
+  isTitleRepairQueueSlot,
+  titleRepairQueueLocales,
+} from '../lib/untranslated-title-repair.mjs';
+import { MIN_TITLE_CHARS } from '../validate-translation-completeness.mjs';
 
 const MINUTE_MS = 60_000;
 const JOB_CAP_MS = 350 * MINUTE_MS;
+const MIN_DESCRIPTION_CHARS = 120;
 const PHASES = new Set(['titles', 'descriptions']);
 const ROOT = path.resolve(import.meta.dirname, '../..');
 
@@ -82,6 +87,7 @@ export async function capturePopulation(phase) {
   const files = listSliceFileNames(path.join(ROOT, 'data/jobs/by-crawler')).sort();
   const sliceDigestParts = [];
   const candidates = [];
+  const candidateRefs = [];
   let jobCount = 0;
   const collectDescriptions = phase === 'descriptions' ? await descriptionTasks() : null;
 
@@ -98,6 +104,7 @@ export async function capturePopulation(phase) {
       jobs.forEach((job, index) => {
         for (const { locale } of titleRepairQueueLocales(job, ['it', 'en', 'de', 'fr'])) {
           candidates.push(`${relative}:${index}:${sourceIdentity(job, file, index)}:${locale}`);
+          candidateRefs.push({ relative, index, locale });
         }
       });
       continue;
@@ -107,10 +114,12 @@ export async function capturePopulation(phase) {
       const index = indexByJob.get(task.job);
       if (!Number.isInteger(index)) throw new Error(`description task escaped its source slice: ${file}`);
       candidates.push(`${relative}:${index}:${sourceIdentity(task.job, file, index)}:${task.locale}`);
+      candidateRefs.push({ relative, index, locale: task.locale });
     }
   }
 
   candidates.sort();
+  candidateRefs.sort((a, b) => `${a.relative}:${a.index}:${a.locale}`.localeCompare(`${b.relative}:${b.index}:${b.locale}`));
   return {
     phase,
     fileCount: files.length,
@@ -120,7 +129,49 @@ export async function capturePopulation(phase) {
     candidateFingerprint: sha256(candidates.map((candidate) => `${candidate}\n`)),
     candidateSample: candidates.slice(0, 5),
     candidateTailSample: candidates.slice(-5),
+    candidateRefs,
   };
+}
+
+export function selectedCandidateIssue(job, phase, locale) {
+  if (!job || typeof job !== 'object') return 'job missing from the benchmark slice';
+  if (phase === 'titles') {
+    const title = String(job.titleByLocale?.[locale] || '').trim();
+    if (title.length < MIN_TITLE_CHARS) return `missing/short title (${title.length} chars)`;
+    if (isTitleRepairQueueSlot({ job, locale, title })) {
+      return 'title still matches the repair-lane detector';
+    }
+    return null;
+  }
+
+  const description = String(job.descriptionByLocale?.[locale] || '').trim();
+  if (description.length >= MIN_DESCRIPTION_CHARS) return null;
+  if (locale === (job.sourceLang || 'it') && String(job.description || '').trim().length >= MIN_DESCRIPTION_CHARS) return null;
+  return `missing/short description (${description.length} chars)`;
+}
+
+/**
+ * Validate the exact candidate cohort captured before the lane. This is a
+ * benchmark-local handoff check: production completeness remains governed by
+ * validate-translation-completeness.mjs, while this proves that the selected
+ * lane finished its own persistence barrier without being masked by the known
+ * repository-wide backlog.
+ */
+export function validateSelectedPopulation(population, phase) {
+  const refs = Array.isArray(population?.candidateRefs) ? population.candidateRefs : [];
+  if (refs.length === 0) return [{ reason: 'benchmark candidate references are missing or empty' }];
+  const issues = [];
+  for (const ref of refs) {
+    try {
+      const parsed = JSON.parse(fs.readFileSync(path.join(ROOT, ref.relative), 'utf8'));
+      const jobs = Array.isArray(parsed?.jobs) ? parsed.jobs : [];
+      const issue = selectedCandidateIssue(jobs[ref.index], phase, ref.locale);
+      if (issue) issues.push({ ...ref, reason: issue });
+    } catch (error) {
+      issues.push({ ...ref, reason: `cannot read benchmark slice: ${error.message}` });
+    }
+  }
+  return issues;
 }
 
 function baselineFromEnv() {
@@ -168,6 +219,9 @@ async function recordStage({ filePath, stageName, command }) {
   const finishedAt = Date.now();
   const outcome = processStatus(result);
   const populationAfter = stageName === 'lane' ? await capturePopulation(phase) : null;
+  const selectedLaneIssues = stageName === 'lane'
+    ? validateSelectedPopulation(populationBefore, phase)
+    : null;
   const handoffPath = path.join(ROOT, 'data/translation-deploy-handoff.json');
   let handoffState = null;
   if (stageName === 'handoff' && fs.existsSync(handoffPath)) {
@@ -186,6 +240,10 @@ async function recordStage({ filePath, stageName, command }) {
     ...outcome,
     ...(populationBefore ? { populationBefore } : {}),
     ...(populationAfter ? { populationAfter } : {}),
+    ...(selectedLaneIssues ? {
+      selectedLaneComplete: selectedLaneIssues.length === 0,
+      selectedLaneIssues,
+    } : {}),
     ...(handoffState ? { handoffState } : {}),
   });
   writeReport(filePath, report);
@@ -231,6 +289,7 @@ function summary(report) {
     ),
     candidateCountBefore: population?.candidateCount ?? 0,
     candidateCountAfter: after?.candidateCount ?? null,
+    selectedLaneComplete: lane?.selectedLaneComplete === true,
     handoffState: handoff?.handoffState || null,
   };
 }
@@ -251,6 +310,7 @@ function finalize(filePath) {
     && result.samePopulation
     && result.underJobCap
     && result.candidateCountBefore > 0
+    && result.selectedLaneComplete
     && result.handoffState === 'complete'
     && Boolean(
       result.populationBefore
@@ -270,6 +330,7 @@ function finalize(filePath) {
     `- Population fingerprint: \`${result.populationBefore?.sliceFingerprint || 'missing'}\`; candidate fingerprint: \`${result.populationBefore?.candidateFingerprint || 'missing'}\``,
     `- Lane: **${minutes(result.laneElapsedMs ?? 0)}min**; after lane: ${result.candidateCountAfter ?? 'unknown'} candidates`,
     `- Lane → handoff: **${minutes(result.downstreamElapsedMs ?? 0)}min**; handoff state: **${result.handoffState || 'unknown'}**`,
+    `- Selected-lane handoff: **${result.selectedLaneComplete ? 'complete' : 'incomplete'}**; production-wide completeness is not replaced by this benchmark check`,
     `- Measured benchmark elapsed: **${minutes(result.elapsedMs)}min** / 350min cap; under cap: **${result.underJobCap ? 'yes' : 'no'}**`,
     `- ${baselineText}; lane delta: ${result.baselineLaneDeltaMinutes == null ? 'unknown' : `${result.baselineLaneDeltaMinutes.toFixed(2)}min`}`,
     `- Acceptance: **${result.accepted ? 'PASS' : 'FAIL'}**`,
@@ -310,7 +371,20 @@ async function main() {
     finalize(filePath);
     return;
   }
-  throw new Error('usage: --init | --record --stage <name> -- <command...> | --finalize');
+  if (hasFlag('--verify-selected-lane')) {
+    const report = readReport(filePath);
+    const lane = stage(report, 'lane');
+    const issues = validateSelectedPopulation(lane?.populationBefore, report.phase);
+    if (issues.length > 0) {
+      console.error(`❌ selected benchmark lane incomplete: ${issues.length} candidate(s)`);
+      for (const issue of issues.slice(0, 10)) console.error(`   - ${issue.relative || '(unknown)'}:${issue.index ?? '?'}:${issue.locale || '?'} — ${issue.reason}`);
+      process.exitCode = 1;
+    } else {
+      console.log(`✅ selected benchmark lane complete: ${lane.populationBefore.candidateRefs.length} candidate(s)`);
+    }
+    return;
+  }
+  throw new Error('usage: --init | --record --stage <name> -- <command...> | --verify-selected-lane | --finalize');
 }
 
 if ((() => {
