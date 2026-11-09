@@ -13,6 +13,7 @@
  * Events:
  *  - ad_request   pushed to adsbygoogle queue (slot, format, page_path)
  *  - ad_filled    AdSense filled the slot
+ *  - ad_google_optimized AdSense used its own optimized empty-slot suggestion
  *  - ad_unfilled  AdSense returned no ad
  *  - ad_collapsed slot hidden (no width, fill timeout, script failure, bot skip)
  */
@@ -31,6 +32,7 @@ export type AdEvent =
   | 'ad_waiting'
   | 'ad_measurable'
   | 'ad_filled'
+  | 'ad_google_optimized'
   | 'ad_unfilled'
   | 'ad_unavailable'
   | 'ad_collapsed'

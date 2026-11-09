@@ -83,7 +83,7 @@ const IS_PROD =
 // (≤€0.10 RPM) and pollute coverage metrics.
 const SKIP_FOR_BOT = typeof window !== 'undefined' && isLikelyBot();
 
-type AdState = 'idle' | 'waiting_width' | 'loading' | 'waiting_response' | 'unfilled' | 'unavailable' | 'filled' | 'collapsed';
+type AdState = 'idle' | 'waiting_width' | 'loading' | 'waiting_response' | 'unfilled' | 'unavailable' | 'filled' | 'optimized' | 'collapsed';
 
 
 /**
@@ -496,9 +496,9 @@ function AdSenseBannerInstance({
  // CLS-safe ad container:
  // - Loading/idle: reserve space with minHeight so the layout is stable
  // (maxHeight alone doesn't work when content is 0px tall — it's just a cap)
- // - Filled: natural height, fully visible
+ // - Filled/Google-optimized: natural height, fully visible
  // - Collapsed: zero space, reached only while outside the viewport
- const isVisible = state === 'filled';
+ const isVisible = state === 'filled' || state === 'optimized';
  const isCollapsed = state === 'collapsed';
 
  // The wrapper carries `state` as AD_BANNER_STATE_ATTR: the per-page ad
