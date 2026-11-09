@@ -4,27 +4,27 @@
   "generatorSha256": "1708234993975991196e4b01fd35b611f8024592bae6c50e4f0657ca318ace0b",
   "sourceRepository": "valerielinc-ops/frontaliere-si-o-no",
   "sourceRef": "main",
-  "sourceCommit": "989291c5322ca87d9009906bf296e623afe93f56",
-  "sourceCommitVerified": true,
+  "sourceCommit": "430267f8193a1fa429feea2e3a23833b84afddee",
+  "sourceCommitVerified": false,
   "artifactObservation": {
     "generatorSha256": "1708234993975991196e4b01fd35b611f8024592bae6c50e4f0657ca318ace0b",
     "sourceRef": "main",
-    "sourceCommit": "989291c5322ca87d9009906bf296e623afe93f56"
+    "sourceCommit": "430267f8193a1fa429feea2e3a23833b84afddee"
   },
   "groupCount": 25,
   "artifactCount": 26,
   "observerCount": 8,
-  "crawlerCount": 695,
+  "crawlerCount": 697,
   "crawlerRosterCardinality": {
-    "sourceCommit": "989291c5322ca87d9009906bf296e623afe93f56",
+    "sourceCommit": "430267f8193a1fa429feea2e3a23833b84afddee",
     "groupCount": 25,
     "artifactCount": 26,
-    "crawlerCount": 695
+    "crawlerCount": 697
   },
   "crawlerGeneration": {
     "mode": "shadow",
     "rosterPath": "scripts/ci/crawler-generation-roster.json",
-    "rosterDigest": "sha256:f5347709f52e88c79e7e58281fe51a92eaec19d81ec7346679e5caef7f365094",
+    "rosterDigest": "sha256:470ce375322cae172c07b165ba1bf4f88ee8f0bfcf3a60544e24619a9930be51",
     "artifactRetentionDays": 14,
     "dispatchesTranslation": false
   },
@@ -211,6 +211,7 @@
     "scripts/update-csvm-mustair-jobs.mjs",
     "scripts/update-csvp-poschiavo-jobs.mjs",
     "scripts/update-daler-hopital-jobs.mjs",
+    "scripts/update-data-unit-ag-jobs.mjs",
     "scripts/update-debiopharm-jobs.mjs",
     "scripts/update-decathlon-jobs.mjs",
     "scripts/update-deillon-delley-architectes-jobs.mjs",
@@ -473,6 +474,7 @@
     "scripts/update-privatklinik-meiringen-jobs.mjs",
     "scripts/update-privatklinik-obach-jobs.mjs",
     "scripts/update-privatklinik-wyss-jobs.mjs",
+    "scripts/update-prodyna-com-jobs.mjs",
     "scripts/update-project-interim-jobs.mjs",
     "scripts/update-proman-fleurier-jobs.mjs",
     "scripts/update-prosenectute-ti-jobs.mjs",
@@ -1599,8 +1601,8 @@
     {
       "file": "crawler-group-24.yml",
       "sourceLogic": "crawler-group-24-logic.yml",
-      "sourceSha256": "90b12aa2497ed9d6913706da7e2872ce9bde6c3407d92e8816947f3c8aad68a9",
-      "artifactSha256": "12f195fb58299f172337c5f14fdb133ecca6e7163c319b760a6bde0d30d8fa2d",
+      "sourceSha256": "de285578186e5fe6d1941af6c2b8a368516532df3969860605ff405505601ab8",
+      "artifactSha256": "6c8ec3a8432e45b153debe2c066fc0661bbdb5002b832528aee7accbe1e5d932",
       "generatorSha256": "1708234993975991196e4b01fd35b611f8024592bae6c50e4f0657ca318ace0b",
       "members": [
         "seco-jobroom",
@@ -1630,7 +1632,9 @@
         "a2nails-ch",
         "assura-ch",
         "freestarinformatik",
-        "richnerstutz-ch"
+        "richnerstutz-ch",
+        "data-unit-ag",
+        "prodyna-com"
       ]
     },
     {

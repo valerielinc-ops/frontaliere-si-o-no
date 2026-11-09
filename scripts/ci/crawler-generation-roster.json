@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "groupCount": 25,
-  "crawlerCount": 695,
+  "crawlerCount": 697,
   "groups": {
     "10": [
       "atec-personal",
@@ -466,6 +466,7 @@
       "comuni-ticino",
       "creditx-ch",
       "csl-immobilien-ag",
+      "data-unit-ag",
       "eqe-ch",
       "favresa-ch",
       "freestarinformatik",
@@ -475,6 +476,7 @@
       "lemco-precision-com",
       "lipsuisse-ch",
       "mountains-ch",
+      "prodyna-com",
       "richnerstutz-ch",
       "seco-jobroom",
       "sintio-ch",
@@ -918,6 +920,7 @@
     "csvp-poschiavo": "data/jobs/by-crawler/csvp-poschiavo.json",
     "daler-hopital": "data/jobs/by-crawler/daler-hopital.json",
     "damiani-group": "data/jobs/by-crawler/damiani-group.json",
+    "data-unit-ag": "data/jobs/by-crawler/data-unit-ag.json",
     "davos-klosters-bergbahnen": "data/jobs/by-crawler/davos-klosters-bergbahnen.json",
     "debiopharm": "data/jobs/by-crawler/debiopharm.json",
     "decathlon": "data/jobs/by-crawler/decathlon.json",
@@ -1237,6 +1240,7 @@
     "privatklinik-meiringen": "data/jobs/by-crawler/privatklinik-meiringen.json",
     "privatklinik-obach": "data/jobs/by-crawler/privatklinik-obach.json",
     "privatklinik-wyss": "data/jobs/by-crawler/privatklinik-wyss.json",
+    "prodyna-com": "data/jobs/by-crawler/prodyna-com.json",
     "project-interim": "data/jobs/by-crawler/project-interim.json",
     "proman-fleurier": "data/jobs/by-crawler/proman-fleurier.json",
     "prosenectute-ti": "data/jobs/by-crawler/prosenectute-ti.json",
@@ -1446,5 +1450,5 @@
     "zurich-insurance-sede-ticino": "data/jobs/by-crawler/zurich-insurance-sede-ticino.json",
     "zurzach-care": "data/jobs/by-crawler/zurzach-care.json"
   },
-  "digest": "sha256:f5347709f52e88c79e7e58281fe51a92eaec19d81ec7346679e5caef7f365094"
+  "digest": "sha256:470ce375322cae172c07b165ba1bf4f88ee8f0bfcf3a60544e24619a9930be51"
 }
