@@ -135,6 +135,15 @@ describe('what must be refused', () => {
     expect(isPublishable(raw, 'xml')).toBe(false);
   });
 
+  it('does not hide a C0 reference in comment-shaped text inside a DTD entity value', () => {
+    const xml = '<!DOCTYPE root [<!ENTITY x "<!-- &#8; -->">]><root/>';
+    const findings = inspectDocument(xml, 'xml');
+    expect(findings).toHaveLength(1);
+    expect(findings[0]).toMatchObject({ form: 'reference', code: 0x08 });
+    expect(findings[0].index).toBe(xml.indexOf('&#8;'));
+    expect(isPublishable(xml, 'xml')).toBe(false);
+  });
+
   it('does not let an unterminated XML literal region hide a C0 reference', () => {
     for (const xml of [
       '<root><!--unterminated &#8;',

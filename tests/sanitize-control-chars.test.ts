@@ -37,6 +37,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import {
   isInvalidControlCode,
+  findInvalidXmlReferencesOutsideLiterals,
   sanitizeText,
   sanitizeDeep,
   sanitizeXmlDocument,
@@ -235,6 +236,20 @@ describe('sanitizeXmlDocument, and the sitemap entry that broke', () => {
 
     const raw = '<t><![CDATA[a' + BS + 'b]]></t>';
     expect(sanitizeXmlDocument(raw)).toBe('<t><![CDATA[ab]]></t>');
+  });
+
+  it('does not treat comment-like DTD entity text as an XML comment', () => {
+    const xml = '<!DOCTYPE root [<!ENTITY x "<!-- &#8; -->">]><root/>';
+    expect(findInvalidXmlReferencesOutsideLiterals(xml)).toEqual([
+      { code: 0x08, index: xml.indexOf('&#8;') },
+    ]);
+    expect(sanitizeXmlDocument(xml)).toBe(xml.replace('&#8;', ''));
+  });
+
+  it('preserves a real comment between declarations in the DTD internal subset', () => {
+    const xml = '<!DOCTYPE root [<!--literal &#8;--><!ENTITY x "safe">]><root/>';
+    expect(findInvalidXmlReferencesOutsideLiterals(xml)).toEqual([]);
+    expect(sanitizeXmlDocument(xml)).toBe(xml);
   });
 
   it('does not exempt a numeric C0 reference inside an unterminated XML literal region', () => {

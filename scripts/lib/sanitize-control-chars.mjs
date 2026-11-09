@@ -163,30 +163,145 @@ export function sanitizeDeep(value) {
   return value;
 }
 
+function findXmlMarkupEnd(xml, start) {
+  let quote = null;
+  for (let index = start + 1; index < xml.length; index += 1) {
+    const character = xml[index];
+    if (quote) {
+      if (character === quote) quote = null;
+    } else if (character === '"' || character === "'") {
+      quote = character;
+    } else if (character === '>') {
+      return index + 1;
+    }
+  }
+  return -1;
+}
+
+function isDoctypeStart(xml, index) {
+  if (!xml.startsWith('<!DOCTYPE', index)) return false;
+  const boundary = xml[index + '<!DOCTYPE'.length];
+  return boundary !== undefined && /[\t\n\r >]/u.test(boundary);
+}
+
+/**
+ * A doctype has its own quoted values and internal subset. Delimiter-looking
+ * text inside an entity value is data, while comments and processing
+ * instructions between declarations are real XML literals. Keep the quoted
+ * ranges in the transformed text so numeric C0 references inside them remain
+ * visible to the gate.
+ */
+function transformDoctype(xml, start, transform) {
+  let output = '';
+  let segmentStart = start;
+  let index = start + '<!DOCTYPE'.length;
+  let quote = null;
+  let subsetDepth = 0;
+
+  while (index < xml.length) {
+    const character = xml[index];
+    if (quote) {
+      if (character === quote) quote = null;
+      index += 1;
+      continue;
+    }
+
+    const literal = xml.startsWith('<!--', index)
+      ? { open: '<!--', close: '-->' }
+      : xml.startsWith('<?', index)
+        ? { open: '<?', close: '?>' }
+        : null;
+    if (literal) {
+      output += transform(xml.slice(segmentStart, index), segmentStart);
+      const close = xml.indexOf(literal.close, index + literal.open.length);
+      if (close < 0) {
+        // An unterminated region is not exempt: process its tail as ordinary
+        // text so malformed markup cannot hide a forbidden reference.
+        output += transform(xml.slice(index), index);
+        return { text: output, end: xml.length };
+      }
+      const end = close + literal.close.length;
+      output += xml.slice(index, end);
+      index = end;
+      segmentStart = end;
+      continue;
+    }
+
+    if (character === '"' || character === "'") {
+      quote = character;
+    } else if (character === '[') {
+      subsetDepth += 1;
+    } else if (character === ']' && subsetDepth > 0) {
+      subsetDepth -= 1;
+    } else if (character === '>' && subsetDepth === 0) {
+      const end = index + 1;
+      output += transform(xml.slice(segmentStart, end), segmentStart);
+      return { text: output, end };
+    }
+    index += 1;
+  }
+
+  output += transform(xml.slice(segmentStart), segmentStart);
+  return { text: output, end: xml.length };
+}
+
 function transformOutsideXmlLiterals(xml, transform) {
   let output = '';
   let index = 0;
+
   while (index < xml.length) {
-    const regions = [
-      { start: xml.indexOf('<!--', index), open: '<!--', close: '-->' },
-      { start: xml.indexOf('<![CDATA[', index), open: '<![CDATA[', close: ']]>' },
-      { start: xml.indexOf('<?', index), open: '<?', close: '?>' },
-    ].filter(({ start }) => start >= 0).sort((a, b) => a.start - b.start);
-    const region = regions[0];
-    if (!region) {
+    const markup = xml.indexOf('<', index);
+    if (markup < 0) {
       output += transform(xml.slice(index), index);
       break;
     }
-    output += transform(xml.slice(index, region.start), index);
-    const close = xml.indexOf(region.close, region.start + region.open.length);
-    if (close < 0) {
-      // A literal-region exemption requires a closing delimiter. Malformed XML
-      // must not hide references from the publish gate or sanitizer.
-      output += transform(xml.slice(region.start), region.start);
+    output += transform(xml.slice(index, markup), index);
+
+    const literal = xml.startsWith('<!--', markup)
+      ? { open: '<!--', close: '-->' }
+      : xml.startsWith('<![CDATA[', markup)
+        ? { open: '<![CDATA[', close: ']]>' }
+        : xml.startsWith('<?', markup)
+          ? { open: '<?', close: '?>' }
+          : null;
+    if (literal) {
+      const close = xml.indexOf(literal.close, markup + literal.open.length);
+      if (close < 0) {
+        // A literal-region exemption requires a closing delimiter. Malformed
+        // XML must not hide references from the publish gate or sanitizer.
+        output += transform(xml.slice(markup), markup);
+        break;
+      }
+      const end = close + literal.close.length;
+      output += xml.slice(markup, end);
+      index = end;
+      continue;
+    }
+
+    if (isDoctypeStart(xml, markup)) {
+      const result = transformDoctype(xml, markup, transform);
+      output += result.text;
+      index = result.end;
+      continue;
+    }
+
+    const next = xml[markup + 1];
+    const isMarkup = next === '!' || next === '?' || next === '/' || (next && /[\p{L}_:]/u.test(next));
+    if (!isMarkup) {
+      output += transform(xml.slice(markup, markup + 1), markup);
+      index = markup + 1;
+      continue;
+    }
+
+    const end = findXmlMarkupEnd(xml, markup);
+    if (end < 0) {
+      output += transform(xml.slice(markup), markup);
       break;
     }
-    const end = close + region.close.length;
-    output += xml.slice(region.start, end);
+    // Tags and other markup declarations are transformed as a unit. In
+    // particular, comment/PI-looking text in a quoted attribute is not a
+    // literal XML region and cannot hide a reference.
+    output += transform(xml.slice(markup, end), markup);
     index = end;
   }
   return output;
