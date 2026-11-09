@@ -604,6 +604,15 @@ export async function fetchAllCroixRougeFribourgeoiseJobs() {
       console.log(`  📋 Jobup listings found: ${links.length}`);
     } else {
       const jobupProvenEmpty = isJobupProfileProvenEmpty(jobupHtml);
+
+      if (jobCloudProvenEmpty && jobupProvenEmpty) {
+        console.log('  ✅ Both JobCloud and Jobup state that no position is open.');
+        return markAuthoritativeEmptySnapshot(
+          [],
+          'JobCloud company page says "Aucun poste ouvert actuellement" with no job-bearing links or attributes; Jobup profile says there is no current offer',
+        );
+      }
+
       console.warn('⚠️ Jobup company profile exposed no job links; trying the Jobup employer search fallback.');
       let jobupSearchHtml;
       try {
@@ -624,12 +633,6 @@ export async function fetchAllCroixRougeFribourgeoiseJobs() {
         // JobCloud never answered: a profile/search zero does not prove the
         // employer has no openings, and the fetch failure is the real cause.
         throw jobCloudError;
-      } else if (jobCloudProvenEmpty && jobupProvenEmpty) {
-        console.log('  ✅ Both JobCloud and Jobup state that no position is open.');
-        return markAuthoritativeEmptySnapshot(
-          [],
-          'JobCloud company page says "Aucun poste ouvert actuellement" with no job-bearing links or attributes; Jobup profile says there is no current offer',
-        );
       } else {
         console.warn('⚠️ No job listings found, and the sources do not both state an empty board (markup drift?).');
         return [];

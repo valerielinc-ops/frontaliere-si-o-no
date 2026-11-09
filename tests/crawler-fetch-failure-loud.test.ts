@@ -272,6 +272,22 @@ describe('Croix-Rouge fribourgeoise keeps fetch failure, proven empty and unread
     expect(isAuthoritativeEmptySnapshot(jobs)).toBe(true);
   });
 
+  it('returns the authoritative empty snapshot without querying Jobup search when both proofs are present', async () => {
+    routeFetch([
+      [JOBCLOUD_URL_RE, JOBCLOUD_EMPTY],
+      [JOBUP_URL_RE, JOBUP_EMPTY],
+      [JOBUP_SEARCH_URL_RE, new Error('search down')],
+    ]);
+
+    const jobs = await fetchAllCroixRougeFribourgeoiseJobs();
+
+    expect(jobs).toEqual([]);
+    expect(isAuthoritativeEmptySnapshot(jobs)).toBe(true);
+    expect(fetchHtml.mock.calls.map(([url]) => String(url))).not.toContain(
+      expect.stringMatching(JOBUP_SEARCH_URL_RE),
+    );
+  });
+
   it('stamps the current source empty markup without requiring the legacy payload or selector', async () => {
     routeFetch([
       [JOBCLOUD_URL_RE, JOBCLOUD_CURRENT_EMPTY],
