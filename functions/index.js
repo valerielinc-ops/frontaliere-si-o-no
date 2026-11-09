@@ -3209,22 +3209,21 @@ export const purgeExpiredApplicationConciergeMetaAttribution = onSchedule(
 // that passes the type check starts the flow, which dispatches the GitHub
 // Actions agent (Codex Luna Max) with the order id only.
 export const startAssistedApplicationAutomation = onDocumentWritten(
-  { region: 'europe-west6', memory: '256MiB', document: 'assisted_applications/{orderId}' },
+  // retry: an order whose salary estimate could not be read yet is retried, not started without it.
+  { region: 'europe-west6', memory: '256MiB', retry: true, document: 'assisted_applications/{orderId}' },
   async (event) => {
     const after = event.data?.after;
     if (!after?.exists) return;
     const before = event.data?.before?.exists ? event.data.before.data() : null;
     // Every order of a published job carries its salary estimate, whatever path created it: the
     // platform answers the salary expectation with its maximum (owner decision 2026-11-09).
-    try {
-      const salary = await ensureOrderSalaryEstimate({
-        order: after.data(),
-        write: (patch) => after.ref.set(patch, { merge: true }),
-      });
-      if (salary) console.log('[startAssistedApplicationAutomation] salary estimate', event.params.orderId, salary);
-    } catch (error) {
-      console.error('[startAssistedApplicationAutomation] salary estimate', event.params.orderId, error instanceof Error ? error.message : String(error));
-    }
+    // A transient failure throws out of the handler: the event is retried (retry: true) and the draft is
+    // not started without the salary fact; the start below is idempotent across retries.
+    const salary = await ensureOrderSalaryEstimate({
+      order: after.data(),
+      write: (patch) => after.ref.set(patch, { merge: true }),
+    });
+    if (salary) console.log('[startAssistedApplicationAutomation] salary estimate', event.params.orderId, salary);
     try {
       const result = await maybeStartAutomation(before, after.data(), event.params.orderId, {
         db: getAdminDb(),

@@ -251,8 +251,14 @@ export function platformCandidateFacts({ order = {}, profile = {}, identity = {}
   const permitStatus = permitStatusOf(profile?.permitStatus) || permitStatusOf(answers?.work_permit) || permitStatusOf(uploaded.workPermit);
   const nationality = clean(profile?.nationality, 80) || clean(uploaded.nationality, 80);
   const passport = passportOf({ passport: uploaded.passport, permitStatus, nationality });
+  // The CV's own language is the mother tongue (owner decision 2026-11-09), also when the parser listed it
+  // with a level of its own.
   const cvLanguage = String(profile?.cvLanguage || '').slice(0, 2).toLowerCase();
-  if (cvLanguage && !languages.some((entry) => entry.code === cvLanguage)) languages.push({ code: cvLanguage, level: 'native', inferred: true });
+  if (cvLanguage) {
+    const listed = languages.filter((entry) => entry.code === cvLanguage);
+    if (listed.length) for (const entry of listed) { entry.level = 'native'; entry.inferred = true; }
+    else languages.push({ code: cvLanguage, level: 'native', inferred: true });
+  }
   return {
     version: PLATFORM_DEFAULTS_VERSION,
     locale: language,
@@ -461,7 +467,10 @@ function classifyPlatformSubject(question) {
   if (/\bdocumento d identita\b|\bidentity document\b|\bausweis\w*\b|\bpiece d identite\b/.test(text) && permitOptions) return 'work_permit';
   if (isNationalityField(raw) && !/\b(?:passaport\w*|passport|passeport|reisepass)\b/.test(text)) return 'nationality';
   if (/\b(?:passaport\w*|passport|passeport|reisepass)\b/.test(text) && !/\b(?:numero|number|nummer|scadenza|expir\w*|ablauf)\b/.test(text)) {
-    return /\b(?:ue|eu|efta|aels|svizzer\w*|swiss|schweiz\w*|suisse)\b/.test(text) && isBinary(question) ? 'passport_eu_efta' : 'passport_type';
+    if (!isBinary(question)) return 'passport_type';
+    const swiss = /\b(?:svizzer\w*|swiss|schweiz\w*|suisse)\b/.test(text);
+    const euEfta = /\b(?:ue|eu|efta|aels|aele|europe\w*|europa\w*)\b/.test(text);
+    return swiss && euEfta ? 'passport_swiss_eu_efta' : swiss ? 'passport_swiss' : euEfta ? 'passport_eu_efta' : 'passport_type';
   }
   if (SALUTATION.test(text) && !/\b(?:studio|study|job|position|posizione|stelle|poste|lavoro|qualific\w*|academic|accademico)\b/.test(text)) return 'salutation';
   if (EMAIL_LIKE.test(text) || NOT_ADDRESS.test(text)) {
@@ -674,10 +683,12 @@ export function platformDefaultAnswer(question, facts = null, { locale } = {}) {
     }
     case 'nationality': {
       const code = nationalityOf(known.nationality)?.code || (known.passport === 'swiss' ? 'CH' : '');
-      if (!code && !known.nationality) break;
-      value = options.length
-        ? pickOption(question, (option) => nationalityOf(option)?.code === code || countryCodeOf(option) === code)
-        : (code ? nationalityLabelOf(code, lang) : known.nationality);
+      // A list needs a recognized nationality: an unknown one never picks an option; a free field takes
+      // the candidate's own words.
+      if (options.length) {
+        if (!code) break;
+        value = pickOption(question, (option) => nationalityOf(option)?.code === code || countryCodeOf(option) === code);
+      } else value = code ? nationalityLabelOf(code, lang) : known.nationality;
       break;
     }
     case 'passport_type': {
@@ -694,10 +705,14 @@ export function platformDefaultAnswer(question, facts = null, { locale } = {}) {
         : { swiss: { it: 'Svizzero', en: 'Swiss', de: 'Schweizer', fr: 'Suisse' }, eu_efta: { it: 'UE/AELS', en: 'EU/EFTA', de: 'EU/EFTA', fr: 'UE/AELE' }, other: { it: 'Altro', en: 'Other', de: 'Andere', fr: 'Autre' } }[passport][lang];
       break;
     }
-    case 'passport_eu_efta': {
+    case 'passport_swiss':
+    case 'passport_eu_efta':
+    case 'passport_swiss_eu_efta': {
       const passport = known.passport;
       if (!passport) break;
-      value = passport === 'other' ? noValue(question, lang) : yesValue(question, lang);
+      // Yes only for the passport the wording names: a Swiss-only prompt is no for an EU/EFTA passport.
+      const held = { passport_swiss: ['swiss'], passport_eu_efta: ['eu_efta'], passport_swiss_eu_efta: ['swiss', 'eu_efta'] }[topic];
+      value = held.includes(passport) ? yesValue(question, lang) : noValue(question, lang);
       break;
     }
     // An unticked box already declines: the platform leaves a marketing checkbox as it is.

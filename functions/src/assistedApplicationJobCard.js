@@ -79,17 +79,28 @@ function normalizedBaseSalary(value) {
   return result;
 }
 
-async function fetchJobDetail(order, fetchImpl) {
+/**
+ * The published job detail: `{ detail }`, or `{ detail: null }` when the job has none (no id, 404/410,
+ * not an object). A network failure, a timeout or a server error throws: it says nothing of the job.
+ */
+async function readJobDetail(order, fetchImpl) {
   const jobId = String(order?.jobId || '').trim();
-  if (!JOB_ID_RE.test(jobId)) return null;
+  if (!JOB_ID_RE.test(jobId)) return { detail: null };
+  const response = await fetchImpl(`${JOB_DETAIL_BASE}/${encodeURIComponent(jobId)}.json`, {
+    headers: { Accept: 'application/json' },
+    signal: timeoutSignal(),
+  });
+  if (!response?.ok) {
+    if ([404, 410].includes(Number(response?.status))) return { detail: null };
+    throw new Error(`job_detail_unavailable:${response?.status ?? 'no_response'}`);
+  }
+  const data = await response.json();
+  return { detail: data && typeof data === 'object' ? data : null };
+}
+
+async function fetchJobDetail(order, fetchImpl) {
   try {
-    const response = await fetchImpl(`${JOB_DETAIL_BASE}/${encodeURIComponent(jobId)}.json`, {
-      headers: { Accept: 'application/json' },
-      signal: timeoutSignal(),
-    });
-    if (!response?.ok) return null;
-    const data = await response.json();
-    return data && typeof data === 'object' ? data : null;
+    return (await readJobDetail(order, fetchImpl)).detail;
   } catch {
     return null;
   }
@@ -164,9 +175,11 @@ export async function enrichAssistedApplicationOrder(order, { fetchImpl = fetch 
  * expectation with its maximum (owner decision 2026-11-09). null when the
  * published job has no estimate.
  */
-export async function orderSalaryEstimatePatch(order, { fetchImpl = fetch } = {}) {
+export async function orderSalaryEstimatePatch(order, { fetchImpl = fetch, strict = false } = {}) {
   if (!order || typeof order !== 'object' || finitePositiveNumber(order.salaryMax)) return null;
-  const salary = detailSalaryFields(await fetchJobDetail(order, fetchImpl));
+  // strict: a transient failure throws, so the caller can retry instead of recording «no estimate».
+  const detail = strict ? (await readJobDetail(order, fetchImpl)).detail : await fetchJobDetail(order, fetchImpl);
+  const salary = detailSalaryFields(detail);
   if (!salary.max) return null;
   return {
     salaryMax: salary.max,
@@ -189,7 +202,8 @@ export async function orderSalaryEstimatePatch(order, { fetchImpl = fetch } = {}
 export async function ensureOrderSalaryEstimate({ order, write, fetchImpl = fetch, nowMs = Date.now() }) {
   if (!order || typeof order !== 'object' || !JOB_ID_RE.test(String(order.jobId || '').trim())) return null;
   if (finitePositiveNumber(order.salaryMax) || order.salaryEstimateCheckedAt) return null;
-  const patch = await orderSalaryEstimatePatch(order, { fetchImpl });
+  // A network or server failure throws before anything is written: the order stays retryable.
+  const patch = await orderSalaryEstimatePatch(order, { fetchImpl, strict: true });
   await write(patch ? { ...patch, salaryEstimateCheckedAt: nowMs } : { salaryEstimateCheckedAt: nowMs });
   return patch ? 'estimated' : 'unavailable';
 }

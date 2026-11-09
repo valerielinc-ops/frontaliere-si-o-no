@@ -23,6 +23,7 @@ import { operationalDefaultAnswer, isOperationalDefaultValue, withOperationalQue
 import { candidateWithEdits } from '../functions/src/assistedApplicationCandidateEdits.js';
 import { evaluateRedFlags } from '../functions/src/assistedApplicationFlow.js';
 import { candidateForForm } from '../scripts/assisted-application/lib/portal/portal.mjs';
+import { ensureOrderSalaryEstimate } from '../functions/src/assistedApplicationJobCard.js';
 
 const NOW = Date.parse('2026-11-09T10:00:00Z');
 
@@ -231,5 +232,45 @@ describe('wiring', () => {
     const edited = candidateWithEdits({ order, draft, flow: {} });
     expect(edited.profile).toMatchObject({ permitStatus: 'permit_g', nationality: 'Italiana' });
     expect(edited.answers.work_permit).toBe('Lavoro oggi in Svizzera con un permesso G (frontalieri) valido');
+  });
+});
+
+describe('review of #17764', () => {
+  const en = (question: Record<string, unknown>, given: any) => platformDefaultAnswer({ required: true, ...question }, given, { locale: 'en' })?.value ?? null;
+  const withPassport = (passport: string, nationality = '') => platformCandidateFacts({ order: { candidateFacts: { workPermit: 'none', passport, nationality } }, nowMs: NOW, locale: 'en' });
+
+  it('answers a passport prompt only for the passport it names', () => {
+    expect(en({ question: 'Do you hold a Swiss passport?', type: 'yes_no' }, withPassport('eu_efta'))).toBe('No');
+    expect(en({ question: 'Do you hold a Swiss passport?', type: 'yes_no' }, withPassport('swiss'))).toBe('Yes');
+    expect(en({ question: 'Do you hold an EU/EFTA passport?', type: 'yes_no' }, withPassport('swiss'))).toBe('No');
+    expect(en({ question: 'Do you hold an EU/EFTA passport?', type: 'yes_no' }, withPassport('eu_efta'))).toBe('Yes');
+    expect(en({ question: 'Do you hold a Swiss / EU / EFTA passport?', type: 'yes_no' }, withPassport('eu_efta'))).toBe('Yes');
+    expect(en({ question: 'Do you hold a Swiss / EU / EFTA passport?', type: 'yes_no' }, withPassport('other'))).toBe('No');
+  });
+
+  it('never picks an option for a nationality it does not recognize', () => {
+    expect(en({ question: 'Nationality', type: 'choice', options: ['Other', 'Italian', 'Swiss'] }, withPassport('other', 'Klingon'))).toBeNull();
+    expect(en({ question: 'Nationality', type: 'text' }, withPassport('other', 'Klingon'))).toBe('Klingon');
+    expect(en({ question: 'Nationality', type: 'choice', options: ['Other', 'Italian', 'Swiss'] }, withPassport('eu_efta', 'Italiana'))).toBe('Italian');
+  });
+
+  it('makes the CV language the mother tongue even when the parser gave it a level', () => {
+    const given = platformCandidateFacts({ profile: { cvLanguage: 'it', languages: [{ language: 'Italian', level: 'B2' }] }, nowMs: NOW, locale: 'en' });
+    expect(given.languages).toEqual([{ code: 'it', level: 'native', inferred: true }]);
+    expect(en({ question: 'What is your Italian level?', type: 'choice', options: ['Native', 'C1', 'B2', 'B1'] }, given)).toBe('Native');
+  });
+
+  it('keeps an order retryable when the job detail cannot be read, and marks a job without estimate', async () => {
+    const order = { jobId: 'job-1' };
+    const writes: any[] = [];
+    const write = async (patch: any) => { writes.push(patch); };
+    await expect(ensureOrderSalaryEstimate({ order, write, fetchImpl: (async () => { throw new Error('network down'); }) as any })).rejects.toThrow();
+    await expect(ensureOrderSalaryEstimate({ order, write, fetchImpl: (async () => new Response('', { status: 503 })) as any })).rejects.toThrow('job_detail_unavailable:503');
+    expect(writes).toEqual([]);
+    expect(await ensureOrderSalaryEstimate({ order, write, nowMs: 5, fetchImpl: (async () => new Response('', { status: 404 })) as any })).toBe('unavailable');
+    expect(writes).toEqual([{ salaryEstimateCheckedAt: 5 }]);
+    const detail = { baseSalary: { currency: 'CHF', value: { minValue: 80000, maxValue: 100000, unitText: 'YEAR' } } };
+    expect(await ensureOrderSalaryEstimate({ order, write, nowMs: 6, fetchImpl: (async () => new Response(JSON.stringify(detail), { status: 200 })) as any })).toBe('estimated');
+    expect(writes.at(-1)).toMatchObject({ salaryMax: 100000, salaryMin: 80000, salaryCurrency: 'CHF', salaryEstimateCheckedAt: 6 });
   });
 });
