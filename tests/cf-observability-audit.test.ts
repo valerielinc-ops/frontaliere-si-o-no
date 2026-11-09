@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import {
   buildIssueBody,
+  buildBlockedUaFilters,
   estimateMonthlyLogVolume,
   evaluateChecks,
   isReportOnly,
@@ -28,6 +29,31 @@ const failing = (snapshot: typeof healthy, now = before) =>
   evaluateChecks(snapshot, now).filter((check) => check.failed).map((check) => check.id);
 
 describe('cf-observability-audit checks', () => {
+  it('keeps the leak query aligned with the WAF country scope for legacy Chrome', () => {
+    expect(buildBlockedUaFilters('Baiduspider')).toEqual([
+      {
+        key: '$workers.event.request.headers.user-agent',
+        operation: 'includes',
+        value: 'Baiduspider',
+        type: 'string',
+      },
+    ]);
+    expect(buildBlockedUaFilters('Chrome/99.0.4844.51')).toEqual([
+      {
+        key: '$workers.event.request.headers.user-agent',
+        operation: 'includes',
+        value: 'Chrome/99.0.4844.51',
+        type: 'string',
+      },
+      {
+        key: '$workers.event.request.cf.country',
+        operation: 'eq',
+        value: 'CN',
+        type: 'string',
+      },
+    ]);
+  });
+
   it('has ten checks and passes on a healthy week', () => {
     expect(evaluateChecks(healthy, before)).toHaveLength(10);
     expect(failing(healthy)).toEqual([]);
@@ -50,6 +76,17 @@ describe('cf-observability-audit checks', () => {
 
   it('does not treat a welcomed crawler as unknown', () => {
     expect(failing({ ...healthy, topUserAgents: [{ ua: 'Reflectionbot/1.0', count: 90_000 }] })).toEqual([]);
+  });
+
+  it('recognizes ShapBot as a welcomed AI crawler', () => {
+    expect(
+      failing({
+        ...healthy,
+        topUserAgents: [
+          { ua: 'Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko); compatible; ShapBot/0.1.0', count: 90_000 },
+        ],
+      }),
+    ).toEqual([]);
   });
 
   it('judges sampling and volume only from the cutover date', () => {
@@ -78,5 +115,6 @@ describe('cf-observability-audit checks', () => {
     expect(issueTitle(check)).toBe('Cloudflare observability: query string non oscurate nei log');
     expect(issueTitle(check)).not.toMatch(/\d/);
     expect(buildIssueBody(check)).toContain('cf-observability-audit.mjs --dry-run');
+    expect(buildIssueBody(check)).not.toContain('bin/rc-env.sh');
   });
 });

@@ -214,16 +214,12 @@ let finalOutputManifestFingerprint: string | null = null;
  */
 const claimedOutputDescendants = new Map<string, string>();
 /**
- * Most pages are `<slug>/index.html`, so their parent directory is unique per
- * page. That directory is derived from the claimed index file instead of being
- * stored in `claimedOutputDescendants`, which otherwise pins one extra path
- * string per page for the whole build. A fixed 200,000-claim microbenchmark
- * using absolute `/tmp/bench/<i>/index.html` paths and `--expose-gc` measured a
- * retained heap delta of 75.3 MB before this optimization versus 62.2 MB after
- * it (~17.3% lower, Node v26.9.0); keep that baseline attached to this change.
+ * Keep the concrete descendant path for every ancestor, including the parent
+ * directory of an `index.html` claim. The path is used in the collision error
+ * so the diagnostic identifies the actual file that blocks a later file claim.
+ * Do not derive this entry from the index filename: that was an unmeasured
+ * retention optimization and did not carry a comparable corpus baseline.
  */
-const DIRECTORY_INDEX_BASENAME = 'index.html';
-const DIRECTORY_INDEX_SUFFIX = `${path.sep}${DIRECTORY_INDEX_BASENAME}`;
 // Build emitters normally pass canonical absolute paths. Keep only normalized
 // aliases for the uncommon relative or non-normalized claim.
 const claimedOutputPathAliases = new Set<string>();
@@ -276,15 +272,6 @@ const pathHistoryView: ReadonlyMap<string, readonly ClaimVersion[]> = {
   [Symbol.iterator]: pathHistoryEntries,
 };
 
-function claimedDirectoryIndex(dirPath: string): string | undefined {
-  const indexPath = dirPath.endsWith(path.sep)
-    ? `${dirPath}${DIRECTORY_INDEX_BASENAME}`
-    : `${dirPath}${DIRECTORY_INDEX_SUFFIX}`;
-  return pathHistory.has(indexPath) || claimedOutputPathAliases.has(indexPath)
-    ? indexPath
-    : undefined;
-}
-
 function assertOutputPathShapeAvailable(filePath: string): void {
   const resolved = resolveRetainedPath(filePath);
   let ancestor = path.dirname(resolved);
@@ -301,7 +288,7 @@ function assertOutputPathShapeAvailable(filePath: string): void {
     ancestor = parent;
   }
 
-  const descendant = claimedOutputDescendants.get(resolved) ?? claimedDirectoryIndex(resolved);
+  const descendant = claimedOutputDescendants.get(resolved);
   if (descendant !== undefined) {
     throw new DistPathCollisionError(
       descendant,
@@ -317,7 +304,6 @@ function rememberOutputPathShape(filePath: string): void {
   if (pathHistory.has(filePath)) return;
 
   let ancestor = path.dirname(resolved);
-  if (resolved.endsWith(DIRECTORY_INDEX_SUFFIX)) ancestor = path.dirname(ancestor);
   while (ancestor !== resolved) {
     if (!claimedOutputDescendants.has(ancestor)) {
       claimedOutputDescendants.set(ancestor, resolved);

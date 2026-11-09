@@ -916,11 +916,13 @@ async function redirectTargetIsLive(pathname, origin) {
   return (await redirectTargetAvailability(pathname, origin)) === 'live';
 }
 
-function aliasVerificationUnavailable() {
-  return new Response('Redirect verification temporarily unavailable', {
-    status: 503,
-    headers: { 'Retry-After': '60', 'Cache-Control': 'no-store' },
-  });
+function aliasVerificationUnavailable(url) {
+  return edgeFailureResponse(
+    url,
+    'alias-verification',
+    'Redirect verification temporarily unavailable',
+    { 'Retry-After': '60', 'Cache-Control': 'no-store' },
+  );
 }
 
 const MAP_FETCH_TIMEOUT_MS = 2000;
@@ -1046,12 +1048,12 @@ async function recoverArticleAlias(url, origin, corpusEntry = null) {
       cf: publicOriginCacheOptions(300),
     });
     if (response.status === 404 || response.status === 410) return null;
-    if (!response.ok) return aliasVerificationUnavailable();
+    if (!response.ok) return aliasVerificationUnavailable(url);
     const registry = await response.json();
-    if (!articleAliasRows(route, registry)) return aliasVerificationUnavailable();
+    if (!articleAliasRows(route, registry)) return aliasVerificationUnavailable(url);
     target = articleAliasTarget(url.pathname, registry);
   } catch {
-    return aliasVerificationUnavailable();
+    return aliasVerificationUnavailable(url);
   } finally {
     clearTimeout(timer);
   }
@@ -1060,14 +1062,14 @@ async function recoverArticleAlias(url, origin, corpusEntry = null) {
   let targetEntry = corpusEntry;
   if (targetRoute && !targetEntry) {
     const sections = await loadCorpusSectionRegistry();
-    if (!sections) return aliasVerificationUnavailable();
+    if (!sections) return aliasVerificationUnavailable(url);
     targetEntry = sections.sections[targetRoute.section];
     if (!targetEntry || targetEntry.status !== 'live') return null;
   }
   if (targetEntry && (targetEntry.gone.has(target) || targetEntry.redirects.has(target))) return null;
   const availability = await redirectTargetAvailability(targetRoute ? corpusSectionCdnKey(target) : target,
     targetRoute ? new URL(CDN_BASE).hostname : origin);
-  if (availability === 'unavailable') return aliasVerificationUnavailable();
+  if (availability === 'unavailable') return aliasVerificationUnavailable(url);
   if (availability !== 'live') return null;
   return new Response(null, {
     status: 301,
@@ -1113,14 +1115,14 @@ async function recoverOrphanQueryAlias(url, origin, originIsLive = false) {
       cf: publicOriginCacheOptions(300),
     });
     if (response.status === 404 || response.status === 410) return null;
-    if (!response.ok) return originIsLive ? null : aliasVerificationUnavailable();
+    if (!response.ok) return originIsLive ? null : aliasVerificationUnavailable(url);
     const registry = await response.json();
-    if (!orphanQueryAliasRows(registry)) return originIsLive ? null : aliasVerificationUnavailable();
+    if (!orphanQueryAliasRows(registry)) return originIsLive ? null : aliasVerificationUnavailable(url);
     target = orphanQueryAliasTarget(url.pathname, registry);
-  } catch { return originIsLive ? null : aliasVerificationUnavailable(); } finally { clearTimeout(timer); }
+  } catch { return originIsLive ? null : aliasVerificationUnavailable(url); } finally { clearTimeout(timer); }
   if (!target) return null;
   const availability = await redirectTargetAvailability(target, origin);
-  if (availability === 'unavailable') return aliasVerificationUnavailable();
+  if (availability === 'unavailable') return aliasVerificationUnavailable(url);
   if (availability !== 'live') return null;
   return new Response(null, { status: 301, headers: { Location: target + url.search, 'Cache-Control': RETIRED_MOVED_CACHE_CONTROL } });
 }
@@ -1144,7 +1146,7 @@ async function recoverEmployerProfileAlias(url, origin) {
   const target = `${match[1]}${EMPLOYER_PROFILE_ALIAS_SLUGS[match[2]]}/`;
   if (lookupRetired(target) !== undefined) return null;
   const availability = await redirectTargetAvailability(target, origin);
-  if (availability === 'unavailable') return aliasVerificationUnavailable();
+  if (availability === 'unavailable') return aliasVerificationUnavailable(url);
   if (availability !== 'live') return null;
   return new Response(null, { status: 301, headers: { Location: target + url.search, 'Cache-Control': RETIRED_MOVED_CACHE_CONTROL } });
 }
@@ -1219,15 +1221,15 @@ async function recoverCantonDriftOrphan(url, locale) {
       cf: publicOriginCacheOptions(JOB_CANON_CACHE_TTL),
     });
     if (resp.status === 404 || resp.status === 410) return null;
-    if (!resp.ok) return aliasVerificationUnavailable();
+    if (!resp.ok) return aliasVerificationUnavailable(url);
     map = await resp.json();
   } catch {
-    return aliasVerificationUnavailable();
+    return aliasVerificationUnavailable(url);
   } finally {
     clearTimeout(timer);
   }
 
-  if (!isPlainObject(map)) return aliasVerificationUnavailable();
+  if (!isPlainObject(map)) return aliasVerificationUnavailable(url);
   const entry = map[slug];
   // Per-locale object only: a legacy string value (IT-only map from a stale
   // deploy) or a missing per-locale prefix → null, so we never 301 cross-locale.
@@ -1256,7 +1258,7 @@ async function recoverCantonDriftOrphan(url, locale) {
       if (state === 'live') { availability = 'live'; break; }
       if (state === 'unavailable') availability = 'unavailable';
     }
-    if (availability === 'unavailable') return aliasVerificationUnavailable();
+    if (availability === 'unavailable') return aliasVerificationUnavailable(url);
     if (availability !== 'live') return null;
   }
 
@@ -1568,7 +1570,10 @@ async function serveApplePayDomainVerificationFile(request, url) {
   }
 
   if (originResponse && originResponse.status !== 404 && originResponse.status !== 410) {
-    if (originResponse.status !== 200) return originResponse;
+    if (originResponse.status !== 200) {
+      logUpstreamFailure('apple-pay-origin', url, originResponse);
+      return originResponse;
+    }
     const body = request.method === 'HEAD' ? null : await originResponse.arrayBuffer();
     return new Response(body, {
       status: 200,
@@ -1600,10 +1605,12 @@ async function serveApplePayDomainVerificationFile(request, url) {
     // Return the origin's definitive 404/410 below when both copies miss.
   }
 
-  if (originResponse) return originResponse;
-  return new Response('Apple Pay domain verification unavailable', {
-    status: 503,
-    headers: { 'Retry-After': '30' },
+  if (originResponse) {
+    logUpstreamFailure('apple-pay-origin', url, originResponse);
+    return originResponse;
+  }
+  return edgeFailureResponse(url, 'apple-pay-verification', 'Apple Pay domain verification unavailable', {
+    'Retry-After': '30',
   });
 }
 
@@ -2212,7 +2219,10 @@ export async function upgradeLegacyStub(request, response, refetchAsGet) {
   try {
     text = await response.text();
   } catch {
-    return new Response('Origin unavailable', { status: 503, headers: { 'Retry-After': '30', 'Cache-Control': 'no-store' } });
+    return edgeFailureResponse(url, 'legacy-stub-body', 'Origin unavailable', {
+      'Retry-After': '30',
+      'Cache-Control': 'no-store',
+    });
   }
   if (text.includes(REDIRECT_STUB_MARKER)) return legacyStubMoved(url, target);
   // A live page at a listed path: hand back the same document. text() returned
@@ -2975,7 +2985,7 @@ async function recoverExpiredJobToCantonRoot(url, origin) {
   // beyond the section root), kept for parity with the sibling recoveries.
   if (url.pathname.replace(/\/+$/, '') + '/' === sectionRoot) return null;
   const slugState = await jobCanonSlugState(lowerSegment(m[1]));
-  if (slugState === 'unavailable') return aliasVerificationUnavailable();
+  if (slugState === 'unavailable') return aliasVerificationUnavailable(url);
   if (slugState !== 'known') return null; // unknown slug → real 404, not a soft one
   if (!(await redirectTargetIsLive(sectionRoot, origin))) return null; // unverified → 404
   const location = sectionRoot + url.search + url.hash;
@@ -3101,6 +3111,15 @@ async function serveStaleOnError(url, reason) {
 // query strings may hold unsubscribe tokens and must not reach the logs.
 function logEdgeFailure(reason, url, fields = {}) {
   console.error(JSON.stringify({ event: 'origin_failure', reason, path: url.pathname, ...fields }));
+}
+
+function edgeFailureResponse(url, reason, body, headers) {
+  logEdgeFailure(reason, url);
+  return new Response(body, { status: 503, headers });
+}
+
+function logUpstreamFailure(reason, url, response) {
+  if (response.status >= 500) logEdgeFailure(reason, url, { status: response.status });
 }
 
 async function readStaleCopy(url, reason) {
@@ -3299,6 +3318,8 @@ async function serveShard(request, url, origin, recoveryLocale, ctx, sectionRout
   if (request.method === 'GET' && resp.status >= 500) {
     const stale = await serveStaleOnError(url, `origin-${resp.status}`);
     if (stale) return stale;
+  } else if (resp.status >= 500) {
+    logUpstreamFailure(`origin-${resp.status}`, url, resp);
   }
 
   // Healthy HEAD aliases must resolve before returning the origin response.
@@ -3488,15 +3509,16 @@ export function stripStaleAssetIntegrity(request, response) {
 
 let publicConfigFetchPromise = null;
 
-function publicConfigUnavailableResponse() {
-  return new Response('Public config unavailable', {
-    status: 503,
-    headers: { 'Retry-After': '30', 'Cache-Control': 'no-store' },
+function publicConfigUnavailableResponse(url) {
+  return edgeFailureResponse(url, 'public-config', 'Public config unavailable', {
+    'Retry-After': '30',
+    'Cache-Control': 'no-store',
   });
 }
 
 /** Proxy the allowlisted Remote Config through the production edge cache. */
 export async function servePublicConfig(request) {
+  const url = new URL(request.url);
   if (request.method !== 'GET') {
     return new Response('Method not allowed', {
       status: 405,
@@ -3506,9 +3528,11 @@ export async function servePublicConfig(request) {
 
   if (publicConfigFetchPromise) {
     try {
-      return (await publicConfigFetchPromise).clone();
+      const response = await publicConfigFetchPromise;
+      logUpstreamFailure('public-config', url, response);
+      return response.clone();
     } catch {
-      return publicConfigUnavailableResponse();
+      return publicConfigUnavailableResponse(url);
     }
   }
 
@@ -3526,9 +3550,11 @@ export async function servePublicConfig(request) {
 
   publicConfigFetchPromise = pending;
   try {
-    return (await pending).clone();
+    const response = await pending;
+    logUpstreamFailure('public-config', url, response);
+    return response.clone();
   } catch {
-    return publicConfigUnavailableResponse();
+    return publicConfigUnavailableResponse(url);
   } finally {
     if (publicConfigFetchPromise === pending) publicConfigFetchPromise = null;
   }
@@ -3594,15 +3620,17 @@ const router = {
           || !LEGACY_REPLAY_STATUSES.has(response.status)
           || response.headers.get(PRIVATE_PARAMS_ACK_HEADER)
         ) {
+          logUpstreamFailure('unsubscribe', url, response);
           return response;
         }
         const legacyUpstream = new URL(unsubOrigin);
         legacyUpstream.search = url.search; // carry alertId/email/token/action or c/t
-        return await fetch(new Request(legacyUpstream.toString(), legacySource));
+        const replayResponse = await fetch(new Request(legacyUpstream.toString(), legacySource));
+        logUpstreamFailure('unsubscribe-legacy', url, replayResponse);
+        return replayResponse;
       } catch {
-        return new Response('Unsubscribe service temporarily unavailable', {
-          status: 503,
-          headers: { 'Retry-After': '30' },
+        return edgeFailureResponse(url, 'unsubscribe', 'Unsubscribe service temporarily unavailable', {
+          'Retry-After': '30',
         });
       }
     }
@@ -3655,9 +3683,11 @@ const router = {
     // exact routes intentionally send only the bare paths to the shard.
     if (url.search && /^\/(?:en|de|fr)\.html$/u.test(url.pathname)) {
       try {
-        return await fetchOriginWithRetry(url, request);
+        const response = await fetchOriginWithRetry(url, request);
+        logUpstreamFailure('apex-locale-html', url, response);
+        return response;
       } catch {
-        return new Response('Origin unavailable', { status: 503 });
+        return edgeFailureResponse(url, 'apex-locale-html', 'Origin unavailable');
       }
     }
 
@@ -3700,6 +3730,8 @@ const router = {
         if (request.method === 'GET' && response.status >= 500) {
           const stale = await serveStaleOnError(url, `apex-${response.status}`);
           if (stale) return stale;
+        } else if (response.status >= 500) {
+          logUpstreamFailure(`apex-${response.status}`, url, response);
         }
         if ((request.method === 'GET' || request.method === 'HEAD') && (response.status === 404 || response.status === 200)) {
           const redirect = await recoverOrphanQueryAlias(url, url.hostname, response.status === 200);

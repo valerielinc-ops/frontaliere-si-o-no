@@ -131,6 +131,7 @@ jobs:
       shard_artifact_run_id: ${{ needs.source-identity.outputs.publisher_run_id }}
       deploy_ref: ${{ needs.source-identity.outputs.source_sha }}
       full_scan: true
+      prune_source_images: true
       audit_sample_rate: '1'
       audit_sample_salt: '0'
       audits: >-

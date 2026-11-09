@@ -15,11 +15,13 @@ describe('CDN source maps are not publicly served', () => {
 
     const allowlist = SETUP.slice(allowlistStart, allowlistEnd);
     expect(allowlist).toContain("'SEBot-WA'");
+    expect(allowlist).toContain("'ShapBot'");
 
     const blockedStart = SETUP.indexOf('const BLOCKED_CRAWLER_UAS = [');
     const blockedEnd = SETUP.indexOf('];', blockedStart);
     const blocked = SETUP.slice(blockedStart, blockedEnd);
     expect(blocked).not.toContain('SEBot-WA');
+    expect(blocked).not.toContain('ShapBot');
   });
 
   it('keeps asset source maps in the existing blocking rule on the CDN host', () => {
