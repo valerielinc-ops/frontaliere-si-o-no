@@ -401,7 +401,7 @@ export const TRAFFIC_PRIORITY_LANES = Object.freeze({
  *
  * @param {object[]} pending
  * @param {Record<string, number>} popularity
- * @param {{ reserveForOldest?: number, now?: number, freshFirst?: boolean, lane?: string, cap?: number, priorityOf?: (job: object) => boolean }} [opts]
+ * @param {{ reserveForOldest?: number, now?: number, freshFirst?: boolean, lane?: string, cap?: number, priorityOf?: (job: object) => boolean, priorityBeforeFresh?: boolean }} [opts]
  * @returns {{ order: object[], selected: object[], stats: object }}
  */
 export function buildTrafficPriority(pending, popularity, opts = {}) {
@@ -488,10 +488,24 @@ export function buildTrafficPriority(pending, popularity, opts = {}) {
   // parser) che senza questo numero resterebbe muto — il job continuerebbe a
   // essere servito dallo stride e nessuno saprebbe mai perche' non e' in testa.
   const freshFuture = freshFirst ? scored.filter(isFuture).length : 0;
+  const priorityOf = typeof opts.priorityOf === 'function' ? opts.priorityOf : null;
+  // A repair class may be explicitly placed before the freshness head. Only
+  // non-fresh members move here: fresh members of the class keep the same
+  // 24-hour promise as every other fresh job. This is opt-in because a
+  // consumer-specific repair class must not silently change the shared queue
+  // policy for every caller.
+  const priorityBeforeFresh = Boolean(priorityOf && opts.priorityBeforeFresh === true);
+  const priorityEntries = priorityBeforeFresh
+    ? scored.filter((entry) => priorityOf(entry.job) && Number.isFinite(entry.queuedAt) && !isFuture(entry) && !isFresh(entry))
+    : [];
+  const priorityIndexes = new Set(priorityEntries.map((entry) => entry.index));
+  const regularScored = priorityBeforeFresh
+    ? scored.filter((entry) => !priorityIndexes.has(entry.index))
+    : scored;
   // Within the head, highest traffic first: the cohort is served whole either
   // way, so its internal order only decides who is repaired first inside it.
   const freshCohort = freshFirst
-    ? scored.filter(isFresh).sort((a, b) =>
+    ? regularScored.filter(isFresh).sort((a, b) =>
       b.views - a.views || a.queuedAt - b.queuedAt || a.index - b.index)
     : [];
   // ...unless the cohort would cover the whole slice the caller takes, in which
@@ -500,7 +514,11 @@ export function buildTrafficPriority(pending, popularity, opts = {}) {
   // declares no cap takes the whole queue in one pass, so `jobs.length` IS its
   // cap and nobody starves.
   const capSlots = cap === null ? jobs.length : Math.min(cap, jobs.length);
-  const freshHeadMax = freshHeadCeiling(capSlots, reserveForOldest);
+  const prioritySlots = Math.min(priorityEntries.length, capSlots);
+  const regularCapSlots = Math.max(0, capSlots - prioritySlots);
+  const freshHeadMax = regularCapSlots > 0
+    ? freshHeadCeiling(regularCapSlots, reserveForOldest)
+    : 0;
   const freshHead = freshCohort.slice(0, freshHeadMax);
   const freshHeadCount = freshHead.length;
   // Cut from the head, NOT from the queue: these go back into the stride with
@@ -515,7 +533,7 @@ export function buildTrafficPriority(pending, popularity, opts = {}) {
   // keeps a sparse head from consuming the whole batch.
   const nearMissCap = freshFirst ? Math.max(0, freshHeadMax - freshHeadCount) : 0;
   const nearMiss = freshFirst
-    ? scored
+    ? regularScored
       .filter((s) => !isFresh(s) && !isFuture(s) && Number.isFinite(s.queuedAt)
         && now - s.queuedAt <= NEAR_MISS_WINDOW_MS)
       .sort((a, b) => b.queuedAt - a.queuedAt || b.views - a.views || a.index - b.index)
@@ -524,8 +542,8 @@ export function buildTrafficPriority(pending, popularity, opts = {}) {
   const nearMissIdx = new Set(nearMiss.map((s) => s.index));
   freshHead.push(...nearMiss);
   const rest = freshFirst
-    ? scored.filter((s) => (!isFresh(s) || deferred.has(s.index)) && !nearMissIdx.has(s.index))
-    : scored;
+    ? regularScored.filter((s) => (!isFresh(s) || deferred.has(s.index)) && !nearMissIdx.has(s.index))
+    : regularScored;
 
   /**
    * Highest traffic first; ties broken OLDEST first (not by array order) so
@@ -534,9 +552,10 @@ export function buildTrafficPriority(pending, popularity, opts = {}) {
    *
    * A consumer may provide a bounded repair class (for example, old
    * source-copy descriptions in the free mopup). It is ordered with the same
-   * traffic/age stride, but ahead of the general remainder. The freshness head
-   * and near-miss bridge have already been removed, so this cannot displace the
-   * 24-hour delivery promise or the near-miss bridge.
+   * traffic/age stride. By default it runs ahead of the general remainder
+   * after the freshness head. `priorityBeforeFresh` is the explicit exception
+   * for a stalled repair class; its non-fresh members are removed before
+   * partitioning the regular queue, while fresh members remain in the head.
    */
   const orderRest = (entries) => {
     const byTraffic = [...entries].sort((a, b) =>
@@ -583,17 +602,19 @@ export function buildTrafficPriority(pending, popularity, opts = {}) {
     return ordered;
   };
 
-  const priorityOf = typeof opts.priorityOf === 'function' ? opts.priorityOf : null;
   // Deferred fresh jobs are back in `rest` only because the head ceiling had
   // to preserve the oldest reserve. Keep them in that reserve path rather than
   // allowing a consumer-specific class to pull them ahead again.
-  const priorityRest = priorityOf
+  const priorityRest = !priorityBeforeFresh && priorityOf
     ? rest.filter((entry) => !deferred.has(entry.index) && priorityOf(entry.job))
     : [];
-  const regularRest = priorityOf
+  const regularRest = !priorityBeforeFresh && priorityOf
     ? rest.filter((entry) => deferred.has(entry.index) || !priorityOf(entry.job))
     : rest;
-  const order = freshHead.map((s) => s.job);
+  const order = priorityBeforeFresh
+    ? orderRest(priorityEntries).map((s) => s.job)
+    : [];
+  order.push(...freshHead.map((s) => s.job));
   order.push(...orderRest(priorityRest).map((s) => s.job));
   order.push(...orderRest(regularRest).map((s) => s.job));
 
