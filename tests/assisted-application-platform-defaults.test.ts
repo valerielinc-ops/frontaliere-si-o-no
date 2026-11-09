@@ -10,7 +10,7 @@ import {
 } from '../functions/src/assistedApplicationPlatformDefaults.js';
 import { operationalDefaultAnswer, isOperationalDefaultValue, withOperationalQuestionAnswers } from '../functions/src/assistedApplicationOperationalAnswers.js';
 import { candidateWithEdits } from '../functions/src/assistedApplicationCandidateEdits.js';
-import { openRequiredQuestions } from '../functions/src/assistedApplicationFlow.js';
+import { openRequiredQuestions } from '../scripts/assisted-application/lib/submit.mjs';
 import { candidateForForm } from '../scripts/assisted-application/lib/portal/portal.mjs';
 import { ensureOrderSalaryEstimate, orderWithSalaryEstimate } from '../functions/src/assistedApplicationJobCard.js';
 
@@ -131,7 +131,7 @@ describe('hard questions and consent stay with the candidate', () => {
     expect(operationalDefaultAnswer({ question: 'What is your notice period?', type: 'text' })).toBeNull();
     expect(operationalDefaultAnswer({ question: 'Do you consent to be contacted via WhatsApp?', type: 'yes_no' })).toBeNull();
     expect(operationalDefaultAnswer({ question: 'I consent to processing my personal data for this application.', type: 'checkbox' })).toBeNull();
-    expect(operationalDefaultAnswer({ question: 'Please check this box to acknowledge that you have read the privacy notice.', type: 'checkbox', required: true }))
+    expect(operationalDefaultAnswer({ question: 'Please check this box to acknowledge that you have read the Applicant Privacy Notice.', type: 'checkbox', required: true }))
       .toMatchObject({ value: 'true', topic: 'privacy_review_ack', source: 'policy_default' });
     expect(operationalDefaultAnswer({ question: 'How long may we retain your data for this application?', type: 'choice', options: ['1 year', '2 years'] })).toBeNull();
     expect(operationalDefaultAnswer({ question: 'What is your salary expectation?', type: 'number' })).toBeNull();
@@ -176,7 +176,7 @@ describe('hard questions and consent stay with the candidate', () => {
     expect(platformCandidateFactAnswer({ question: 'Do you hold an EU/EFTA passport?', type: 'yes_no', options: ['Yes', 'No'] }, facts))
       .toMatchObject({ value: 'Yes', source: 'profile' });
     expect(platformCandidateFactAnswer({ question: 'What is your nationality?', type: 'text' }, facts))
-      .toMatchObject({ value: 'Italiano', source: 'profile' });
+      .toMatchObject({ value: 'italiana', source: 'profile' });
     const permit = platformCandidateFactAnswer({ question: 'Do you currently hold a valid Swiss work permit?', type: 'yes_no', options: ['Yes', 'No'] }, facts);
     expect(permit).toMatchObject({ value: 'Yes', source: 'profile' });
   });

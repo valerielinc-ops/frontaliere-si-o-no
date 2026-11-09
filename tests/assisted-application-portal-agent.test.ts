@@ -476,8 +476,7 @@ describe('portal agentic fallback (career-ops: snapshot with refs)', () => {
       if (scenario === 'filter query') expect(element.value).not.toBe(expectedOption);
       else expect(element.value).toBe(expectedOption);
       expect(result).toEqual({ ok: false, error: 'consent_selection_unconfirmed' });
-    }),
-  );
+    });
 
   it.each([
     { question: 'What is your nationality?', value: 'italiana', nativeOption: 'italienne', options: ['allemande', 'italienne', 'suisse'] },

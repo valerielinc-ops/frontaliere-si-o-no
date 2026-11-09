@@ -994,8 +994,8 @@ it('asks only for the missing EOC residence street and permit after resolving kn
 
   expect(result.handoff).toBeUndefined();
   expect(result.unreadableFields).toBeUndefined();
-  expect(result.questions.map((question) => question.id)).toEqual(['portal_residence_address', 'work_permit']);
-  expect(result.questions.map((question) => question.applicationQuestion)).toEqual(['Via', 'Statuto di soggiorno']);
+  expect(result.questions.map((question) => question.id)).toEqual(['portal_residence_address', 'work_permit', 'portal_privacy_consent', 'portal_data_retention']);
+  expect(result.questions.map((question) => question.applicationQuestion)).toEqual(['Via', 'Statuto di soggiorno', processingConsent, retentionQuestion]);
   expect(browser.close).toHaveBeenCalledOnce();
 });
 

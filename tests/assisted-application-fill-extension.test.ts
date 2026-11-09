@@ -1774,7 +1774,7 @@ describe('fill extension: consent and retention require a candidate answer', () 
     const { document, F } = page(`<form>
       <label><input id="consent" type="checkbox" required> ${consent}</label>
       <label><input id="privacyAck" type="checkbox" required> Select this checkbox to confirm that you have read the Privacy Notice for Candidates.</label>
-      <label for="retention">${retentionQuestion}</label><select id="retention"><option value="">Choose</option><option>${future}</option><option>${current}</option></select>
+      <label for="retention">${retentionQuestion}</label><select id="retention" required><option value="">Choose</option><option>${future}</option><option>${current}</option></select>
     </form>`);
     const [consentEntry, ackEntry, retentionEntry] = ['consent', 'privacyAck', 'retention']
       .map(id => F.collect(document).find((entry: any) => entry.element.id === id));
@@ -1795,7 +1795,7 @@ describe('fill extension: consent and retention require a candidate answer', () 
     </form>`);
     const result = await F.fillPage(document, kit, { getFile: async () => null, attempts: new WeakMap() });
     expect((document.getElementById('consent') as HTMLInputElement).checked).toBe(false);
-    expect(result.missing).toContainEqual({ label: consent, answer: '' });
+    expect(result.missing).toContainEqual(expect.objectContaining({ label: consent, answer: '' }));
   });
 
   it('blocks on an optional marketing checkbox the page refuses to clear', async () => {

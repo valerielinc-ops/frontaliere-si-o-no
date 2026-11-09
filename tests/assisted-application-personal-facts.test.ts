@@ -163,7 +163,7 @@ describe('what the CV says is not asked again', () => {
       expect(candidateWithEdits({ order: giulia, draft, flow: {} }).personal.salutation).toBe('');
       const plan = planCandidateEdits({ fields: { salutation: '', civilStatus: '' } }, { order: giulia, draft, flow: {}, locale: 'it' });
       expect(plan.errors).toEqual({});
-      expect(plan.overrides.salutation).toBe('');
+      expect(plan.overrides).not.toHaveProperty('salutation');
       for (const answers of [{}, { salutation: 'Signora' }]) {
         const next = candidateWithEdits({ order: giulia, draft, flow: { answers, formOverrides: plan.overrides } });
         expect(next.personal).toEqual({ salutation: '', civilStatus: '' });
@@ -227,7 +227,7 @@ describe('what the CV says is not asked again', () => {
     const draft = draftOf(CV_FR);
     const plan = (fields: Record<string, string>) => planCandidateEdits({ fields }, { order, draft, flow: {}, locale: 'fr' });
     expect(plan({ salutation: 'Madame', civilStatus: 'Divorcé(e)' })).toMatchObject({ errors: {}, overrides: { salutation: 'Madame', civilStatus: 'Divorcé(e)' } });
-    expect(plan({ salutation: '', civilStatus: '' })).toMatchObject({ errors: {}, overrides: { salutation: '', civilStatus: '' } });
+    expect(plan({ salutation: '', civilStatus: '' })).toMatchObject({ errors: {}, overrides: { civilStatus: '' } });
     expect(Object.keys(plan({ salutation: 'Docteur', civilStatus: 'Heureux' }).errors).sort()).toEqual(['civilStatus', 'salutation']);
   });
 });

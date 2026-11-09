@@ -218,8 +218,9 @@ describe('draft mode', () => {
     expect(draft.matches.find((item: any) => item.index === 0)).toMatchObject({ evidence: '', evidenceUnverified: true });
     expect(draft.matches.find((item: any) => item.index === 1)).toMatchObject({ evidence: expect.stringContaining('tedesco B1'), evidenceUnverified: false });
     // The posting asks for a salary expectation: the question is added even though the model forgot it.
-    // The unambiguous Italian first name already fills the form of address, so it is not asked again.
+    // The candidate's name does not establish a form of address, so the required field stays open.
     expect(draft.questions).toEqual([
+      expect.objectContaining({ id: 'salutation', required: true }),
       expect.objectContaining({ id: 'salary_expectation', required: true, source: 'rule' }),
     ]);
     // "7 anni" is not in the CV: flagged for the operator.

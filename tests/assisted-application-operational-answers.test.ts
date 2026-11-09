@@ -56,7 +56,7 @@ describe('operational preferences at every required-answer gate', () => {
     expect(result.answers).toEqual({ workload: '100%' });
     expect(Object.keys(result.defaults)).toEqual(['workload']);
     expect(Object.values(result.defaults).every(item => item.source === 'policy_default')).toBe(true);
-    expect(evaluateRedFlags(draft).candidate).toEqual([]);
+    expect(evaluateRedFlags(draft).candidate).toEqual(['notice', 'whatsapp']);
     expect(openRequiredQuestions(draft).map(question => question.id)).toEqual(['notice', 'whatsapp']);
     const actual = candidateWithEdits({ order: {}, draft, flow: {} });
     expect(actual.answers).toEqual({});
@@ -67,7 +67,7 @@ describe('operational preferences at every required-answer gate', () => {
     expect(withOperationalQuestionAnswers(questions, { notice: '1 mese', whatsapp: false, workload: 80 }).answers)
       .toEqual({ notice: '1 mese', whatsapp: false, workload: 80 });
     const mixed = { ...draft, questions: [...questions, { id: 'license', question: 'Hai la certificazione richiesta?', type: 'yes_no', required: true }] };
-    expect(evaluateRedFlags(mixed).candidate).toEqual(['license']);
+    expect(evaluateRedFlags(mixed).candidate).toEqual(['notice', 'whatsapp', 'license']);
     expect(openRequiredQuestions(mixed).map(q => q.id)).toEqual(['notice', 'whatsapp', 'license']);
     expect(transition(approved, { type: 'tick' }, { draft: mixed }).flow.state).toBe('needs_candidate_action');
   });
@@ -75,7 +75,7 @@ describe('operational preferences at every required-answer gate', () => {
   it('does not resume a round while a factual question is unanswered', () => {
     expect(transition(approved, { type: 'tick' }, { draft }).flow.state).toBe('needs_candidate_action');
     const answered = { ...draft, questions: [], answers: { notice: '1 mese', whatsapp: false, workload: '100%' } };
-    expect(transition(approved, { type: 'tick' }, { draft: answered }).effects)
+    expect(transition(approved, { type: 'tick' }, { draft: answered, answers: answered.answers }).effects)
       .toEqual([{ type: 'dispatch', mode: 'submit', reason: 'resolved_candidate_answers' }]);
     for (const blocked of [
       { ...approved, dispatch: { mode: 'draft', round: 1 } },
@@ -215,7 +215,7 @@ describe('scope, languages and actual field options', () => {
   });
 
   it('keeps an explicit No on a real privacy checkbox as an uncheck and candidate hold', () => {
-    const { field } = serializedNativePrivacyField();
+    const field = { id: 'processing-consent', kind: 'checkbox', label: 'I consent to processing my personal data for this application.', required: true, checked: true };
     const plan = guardPlan({ actions: [], missingRequired: [] }, [field], {
       identity: {}, profile: {}, answers: {},
       portalQuestionsAnswered: [{ question: field.label, answer: 'No', source: 'candidate' }],
@@ -541,7 +541,7 @@ describe('scope, languages and actual field options', () => {
   });
 
   it.each(['Accetti marketing tramite WhatsApp?', 'Communication via WhatsApp for marketing'])('declines a pure marketing request (owner decision 2026-11-09): %s', question => {
-    expect(operationalDefaultAnswer({ question, type: 'yes_no' })).toMatchObject({ value: 'No', source: 'policy_default' });
+    expect(operationalDefaultAnswer({ question, type: 'yes_no', required: false })).toMatchObject({ value: 'No', source: 'policy_default' });
     expect(operationalDefaultAnswer({ question: `${question} e trattamento dei dati personali`, type: 'yes_no' })).toBeNull();
   });
 
@@ -645,7 +645,7 @@ describe('application consent and data-retention choices', () => {
 });
 
 describe('operational wait recovery after deployment', () => {
-  it('keeps the real MemoryFirestore wait held until the candidate confirms the privacy notice', async () => {
+  it('resumes the real MemoryFirestore wait for the required privacy-reading acknowledgement', async () => {
     const base = 'assisted_applications/privacy_ack_sweep';
     const question = {
       id: 'portal_privacy_ack',
@@ -672,23 +672,29 @@ describe('operational wait recovery after deployment', () => {
       runEffect: async ({ effect }: any) => { effects.push(effect); return { ok: true }; },
     });
     expect(result).toMatchObject({ ticks: 1, failed: 0 });
-    expect(store.read(`${base}/automation/flow`)).toMatchObject({ state: 'needs_candidate_action', heldBy: [`question:${question.id}`] });
-    expect(effects).toEqual([]);
+    expect(store.read(`${base}/automation/flow`)).toMatchObject({ state: 'submitting', heldBy: [] });
+    expect(effects).toEqual([{ type: 'dispatch', mode: 'submit', reason: 'resolved_candidate_answers' }]);
   });
 
   it('deduplicates one wait while recovering a later step on the same order and policy', async () => {
     const base = 'assisted_applications/operational_test';
     const flowPath = `${base}/automation/flow`;
+    const policyQuestion = {
+      id: 'privacy_ack', question: 'Seleziona questa casella per confermare di aver letto l’Informativa sulla privacy per i candidati.',
+      applicationQuestion: REAL_ENGLISH_PRIVACY_ACK, type: 'text', options: [], required: true, source: 'portal',
+    };
+    const policyDraft = { ...draft, questions: [policyQuestion] };
+    const policyFlow = { ...approved, heldBy: [`question:${policyQuestion.id}`] };
     const store = createMemoryFirestore({
       [base]: { paymentStatus: 'paid', automationState: 'needs_candidate_action', operationalAnswerReconciledVersion: 'operational-preferences-v1' },
-      [flowPath]: { ...approved, heldSince: 1000, dispatch: { ...approved.dispatch, requestedAt: 500 } },
-      [`${base}/ai_drafts/current`]: draft,
+      [flowPath]: { ...policyFlow, heldSince: 1000, dispatch: { ...policyFlow.dispatch, requestedAt: 500 } },
+      [`${base}/ai_drafts/current`]: policyDraft,
     });
     const context = { db: store.db, apply: true, nowMs: 2000 };
     expect(await reconcileOperationalAnswers(context)).toMatchObject({ eligible: 1, queued: 1 });
     const firstKey = store.read(base).operationalAnswerReconciledKey;
     expect(await reconcileOperationalAnswers(context)).toMatchObject({ eligible: 0, alreadyQueued: 1 });
-    store.docs.set(flowPath, { ...store.read(flowPath), heldBy: ['question:whatsapp'], heldSince: 3000, dispatch: { ...approved.dispatch, requestedAt: 2500 } });
+    store.docs.set(flowPath, { ...store.read(flowPath), heldBy: [`question:${policyQuestion.id}`], heldSince: 3000, dispatch: { ...policyFlow.dispatch, requestedAt: 2500 } });
     expect(await reconcileOperationalAnswers({ ...context, nowMs: 4000 })).toMatchObject({ eligible: 1, queued: 1 });
     expect(store.read(base).operationalAnswerReconciledKey).not.toBe(firstKey);
     store.docs.set(flowPath, { ...store.read(flowPath), heldBy: ['question:unknown_fact'] });

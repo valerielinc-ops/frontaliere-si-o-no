@@ -4249,13 +4249,9 @@ export async function registrationPrivacyPreflight(page, { accepted = false, tim
     // leaves the way open, and then only past a button that is not shut.
     const sameForm = control => targetControl && targetControl.form >= 0 && control.form === targetControl.form && control.frame === targetControl.frame;
     const { notice } = privacyConsentControls({ ...filled, buttons: filled.buttons.filter(sameForm), links: (filled.links || []).filter(sameForm) });
-    // A link off the form is no way to accept: a ticked own box of the form already is.
+    // A prechecked box is not evidence that the candidate accepted the notice.
     const cta = registrationButton(filled);
-    const answered = Boolean(notice?.leavesDocument) && cta && !cta.disabled && notice.form >= 0
-      && notice.form === cta.form && notice.frame === cta.frame
-      && (filled.fields || []).some((field) => field.checked && ownConsent(field)
-        && field.form === notice.form && field.frame === notice.frame);
-    const blocked = Boolean(notice) && !answered && (!optionalNotice(notice) || Boolean(registrationButton(filled)?.disabled));
+    const blocked = Boolean(notice) && (!optionalNotice(notice) || Boolean(cta?.disabled));
     return blocked ? { privacy: 'unavailable', filled, blocked } : { privacy, filled, blocked };
   }
   if (!registrationButton(filled)?.disabled) return { privacy, filled, blocked: false };

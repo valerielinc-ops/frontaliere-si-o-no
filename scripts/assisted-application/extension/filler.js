@@ -1961,7 +1961,7 @@
       if (cvControls.includes(entry) && !preferredCv.has(entry)) continue;
       if (entry.nativeContractUnavailable === true || entry.consentOwnershipUnknown === true || entry.privacyMetadataIncomplete === true) {
         failed.push(entry.label || entry.kind);
-        missing.push({ label: entry.label || entry.kind, answer: '', reason: 'native_contract_unavailable' });
+        missing.push({ label: entry.label || (entry.labels || []).find(Boolean) || entry.kind, answer: '', reason: 'native_contract_unavailable' });
         continue;
       }
       // A portal can ship a checkbox preselected. Treat it as unconfirmed:

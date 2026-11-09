@@ -89,7 +89,7 @@ export function portalAnswersForFlow(questions, answers, recordedAnswers, memory
     if (addressAnswerNeedsOwnership(question.applicationQuestion || question.question, question)
       && (Object.hasOwn(result, question.id) || (Object.hasOwn(memory, candidateQuestionAnswerKey(question))
         && !String(memory[candidateQuestionAnswerKey(question)] ?? '').trim()))) continue;
-    const key = portalQuestionKey(question);
+    const key = String(question.semanticKey || '').trim() || portalQuestionKey(question);
     if (!key) continue;
     const values = new Map();
     for (const item of records) {

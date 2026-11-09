@@ -64,7 +64,7 @@ describe('fill kit', () => {
       draft: { ...draft, language: 'it', questions: [
         { id: 'application_consent', question: consent, applicationQuestion: consent, type: 'checkbox', required: false },
         { id: 'data_retention', question: retention, applicationQuestion: retention, type: 'choice', required: false,
-          options: ['Conservazione per future offerte di lavoro', shortRetention] },
+          options: ['Conservazione per future offerte di lavoro', 'Eliminazione dopo questa procedura di candidatura'] },
       ] },
     });
 

@@ -2091,8 +2091,8 @@ describe('portal plan guard (career-ops apply rules in code)', () => {
       { id: 'p3', kind: 'checkbox', label: 'Newsletter', required: false, checked: true },
     ], { answers: {}, profile: {}, portalQuestionsAnswered: [] });
     expect(projected.actions).toEqual([
-      expect.objectContaining({ fieldId: 'p2', action: 'uncheck' }),
       { fieldId: 'p3', action: 'uncheck', source: 'consent', value: '' },
+      expect.objectContaining({ fieldId: 'p2', action: 'uncheck' }),
     ]);
     expect(projected.missingRequired.map((item: any) => item.fieldId)).toEqual(['p1', 'p2']);
     expect(holdsValue({ kind: 'select', value: 'f', options: [{ value: 'f', label: 'Frau' }] })).toBe(true);
@@ -2597,7 +2597,7 @@ describe('portal plan guard (career-ops apply rules in code)', () => {
     expect(supportedModifierEvidence.missingRequired).toEqual([]);
   });
 
-  it('derives a native language from the CV language only with contrasting language evidence', () => {
+  it('leaves a native language unanswered when only the CV language is known', () => {
     const candidate = candidateForForm({
       identity: { name: 'Test Candidate', email: 'test@example.com' },
       profile: {
@@ -2612,15 +2612,13 @@ describe('portal plan guard (career-ops apply rules in code)', () => {
       id: 'italian-spoken', kind: 'select', label: 'Qual è il livello di italiano parlato *', required: true,
       options: [{ label: '---' }, { label: 'Lingua madre' }, { label: 'Fluente' }, { label: 'Avanzato' }],
     };
-    expect(candidate.profile.cvLanguage).toBe('it');
-    expect([...inferredNativeLanguageCodes(candidate)]).toEqual(['it']);
-    expect(nativeLanguageOption(field, candidate)).toEqual({ label: 'Lingua madre' });
-    expect(candidateAnswerForField(candidate, field)).toEqual({ value: 'Lingua madre', source: 'profile' });
-    // A model answer that undershoots the supported fact is replaced by the deterministic guard.
-    expect(guardPlan({ actions: [{ fieldId: field.id, action: 'select', value: 'Fluente', source: 'rule' }], missingRequired: [] }, [field], candidate)).toEqual({
-      actions: [{ fieldId: field.id, action: 'select', value: 'Lingua madre', document: 'none', source: 'profile', evidence: '' }],
-      missingRequired: [],
-    });
+    expect(candidate.profile).not.toHaveProperty('cvLanguage');
+    expect([...inferredNativeLanguageCodes(candidate)]).toEqual([]);
+    expect(nativeLanguageOption(field, candidate)).toBeNull();
+    expect(candidateAnswerForField(candidate, field)).toBeNull();
+    const guarded = guardPlan({ actions: [{ fieldId: field.id, action: 'select', value: 'Fluente', source: 'rule' }], missingRequired: [] }, [field], candidate);
+    expect(guarded.actions).toEqual([]);
+    expect(guarded.missingRequired).toContainEqual(expect.objectContaining({ fieldId: field.id }));
 
     const noContrastingEvidence = candidateForForm({
       identity: { name: 'Test Candidate', email: 'test@example.com' },
@@ -2633,7 +2631,6 @@ describe('portal plan guard (career-ops apply rules in code)', () => {
       profile: { cvLanguage: 'it', languages: [{ language: 'Italiano', level: 'C1' }, { language: 'English', level: 'B2' }] },
     });
     expect(nativeLanguageOption(field, conflictingLevel)).toBeNull();
-    expect(planSystemPrompt('it')).toContain('profile.cvLanguage');
   });
 
   // umantis, 2026-10-03: the letter was still at 15% when the CV went in and the send button was reached.
@@ -2839,29 +2836,28 @@ describe('portal runner helpers', () => {
         address: { street: 'Via Test 1', postalCode: '', city: 'Salsomaggiore T. (PR)', country: 'Svizzera' },
       },
     });
-    expect(candidate.identity.address).toMatchObject({ postalCode: '43039', country: 'Italia' });
+    expect(candidate.identity.address).toMatchObject({ postalCode: '', country: 'Svizzera' });
     const cap = { id: 'cap', kind: 'text', label: 'Qual è il tuo CAP di residenza?', required: true, options: [] };
     const bareCap = { id: 'bare-cap', kind: 'text', label: 'CAP', context: 'Dati anagrafici · Indirizzo · CAP', required: true, options: [] };
     const workCap = { id: 'work-cap', kind: 'text', label: 'CAP', context: 'Employer address', required: true, options: [] };
     const country = { id: 'country', kind: 'select', label: 'Qual è la tua nazione di residenza?', required: true, options: [{ label: 'Italia' }, { label: 'Svizzera' }] };
-    expect(candidateAnswerForField(candidate, cap)).toEqual({ value: '43039', source: 'identity' });
-    expect(candidateAnswerForField(candidate, bareCap)).toEqual({ value: '43039', source: 'identity' });
+    expect(candidateAnswerForField(candidate, cap)).toBeNull();
+    expect(candidateAnswerForField(candidate, bareCap)).toBeNull();
     expect(autoAnswersForPortalQuestions({
       questions: [{ id: bareCap.id, source: 'portal', question: bareCap.label, context: bareCap.context, required: true, type: 'text', options: [] }],
       candidate,
       answers: {},
-    })).toEqual({ 'bare-cap': '43039' });
+    })).toEqual({});
     expect(candidateAnswerForField(candidate, workCap)).toBeNull();
-    expect(candidateAnswerForField(candidate, country)).toEqual({ value: 'Italia', source: 'identity' });
+    expect(candidateAnswerForField(candidate, country)).toEqual({ value: 'Svizzera', source: 'identity' });
     const guarded = guardPlan({ actions: [
       { fieldId: 'cap', action: 'fill', value: '00000', document: 'none', source: 'rule', evidence: '' },
       { fieldId: 'country', action: 'select', value: 'Svizzera', document: 'none', source: 'rule', evidence: '' },
     ], missingRequired: [] }, [cap, country], candidate);
     expect(guarded.actions).toEqual(expect.arrayContaining([
-      expect.objectContaining({ fieldId: 'cap', value: '43039', source: 'identity' }),
-      expect.objectContaining({ fieldId: 'country', value: 'Italia', source: 'identity' }),
+      expect.objectContaining({ fieldId: 'country', value: 'Svizzera', source: 'identity' }),
     ]));
-    expect(guarded.missingRequired).toEqual([]);
+    expect(guarded.missingRequired).toContainEqual(expect.objectContaining({ fieldId: 'cap' }));
 
     const unresolvedCap = { id: 'unresolved-cap', kind: 'text', label: 'CAP', context: 'Dati anagrafici · Data di nascita · Indirizzo · CAP · Nazione (di residenza)', required: true, options: [] };
     expect(guardPlan({ actions: [], missingRequired: [] }, [unresolvedCap], { answers: {}, profile: {}, portalQuestionsAnswered: [] }).missingRequired)
@@ -2891,7 +2887,7 @@ describe('portal runner helpers', () => {
     expect(candidate.identity.address.street).toBe('');
     expect(candidateAnswerForField(candidate, street)).toBeNull();
     expect(candidateAnswerForField(candidate, combined)).toBeNull();
-    expect(candidateAnswerForField(candidate, city)).toEqual({ value: 'Luino (VA), Italia', source: 'identity' });
+    expect(candidateAnswerForField(candidate, city)).toEqual({ value: 'Luino', source: 'identity' });
     expect(candidateAnswerForField(candidate, houseNumber)).toBeNull();
     for (const locality of ['Località Luino', 'Localité Luino', 'Ville de Luino', 'Wohnort in Luino']) {
       const labelledLocality = {
