@@ -28,6 +28,8 @@ export function installAdRecovery(
   let pollTimer: ReturnType<typeof setInterval> | undefined;
   let reportedState = '';
   let cmpReopenAt = 0;
+  let blockerDetectedAt = 0;
+  let nativeRecoveryReported = false;
   let popup: HTMLDialogElement | null = null;
   let promo: HTMLElement | null = null;
   let probeResult = 'unknown';
@@ -36,8 +38,11 @@ export function installAdRecovery(
   let promoDismissed = false;
   let lastCmp = '';
   let lastOutcome = '';
+  // Give Funding Choices time to open its certified blocker message first.
+  const inlineRecoveryMessageGraceMs = 4000;
   const storageRead = (key: string) => { try { return sessionStorage.getItem(key); } catch { return null; } };
   const store = (key: string, value: string) => { try { sessionStorage.setItem(key, value); } catch { /* visit-local fallback */ } };
+  const nativeRecoveryWasShown = () => nativeRecoveryReported || storageRead('ft_ad_recovery_google_prompted') === '1';
   const hasDecision = () => { try { return /^(granted|denied)$/.test((w as RecoveryWindow & { __ftAdsConsentDecision?: string }).__ftAdsConsentDecision || localStorage.getItem(config.consentKey) || ''); } catch { return false; } };
   const onScreen = (el: Element) => {
     for (let node: Element | null = el; node; node = node.parentElement) {
@@ -47,6 +52,7 @@ export function installAdRecovery(
     return true;
   };
   const googleMessage = () => Array.from(document.querySelectorAll('.fc-consent-root,.fc-ab-root,.fc-monetization-dialog-container')).some(onScreen);
+  const googleAdBlockRecoveryMessage = () => Array.from(document.querySelectorAll('.fc-ab-root')).some(onScreen);
   const visibleDialog = () => Array.from(document.querySelectorAll('dialog[open],[role="dialog"][aria-modal="true"]')).some(onScreen);
   const filled = () => !!document.querySelector('ins[data-ad-status="filled"],ins[data-ad-status="unfill-optimized"],ins[data-anchor-status="displayed"],[data-ad-state="filled"],[data-ft-ad-state="optimized"]');
   const hasUnfilledHouseSlot = () => Array.from(document.querySelectorAll<HTMLElement>('[data-house]')).some((frame) => {
@@ -104,7 +110,7 @@ export function installAdRecovery(
     schedule();
   };
   const showPopup = () => {
-    if (popup || prompted || storageRead('ft_ad_recovery_prompted') || googleMessage() || visibleDialog()) return;
+    if (popup || prompted || storageRead('ft_ad_recovery_prompted') || nativeRecoveryWasShown() || googleMessage() || visibleDialog()) return;
     // Positive detection uses ad-block copy; a terminal script error gets a
     // neutral explanation. Slow responses, no-fill and unanswered consent do
     // not trigger a modal.
@@ -157,7 +163,7 @@ export function installAdRecovery(
       if (pollTimer === undefined) pollTimer = setInterval(schedule, 1000);
     } else { clearInterval(pollTimer); pollTimer = undefined; }
     if (location.pathname !== path) {
-      path = location.pathname; started = Date.now(); reportedState = ''; removePromo(); closePopup();
+      path = location.pathname; started = Date.now(); blockerDetectedAt = 0; reportedState = ''; removePromo(); closePopup();
     }
     if (!permitted()) { removePromo(); closePopup(); return; }
     if (cmp.state() === 'idle') cmp.load();
@@ -184,7 +190,26 @@ export function installAdRecovery(
         refresh();
       }).catch(() => {});
     }
-    if (filled()) {
+    if (googleAdBlockRecoveryMessage() && !nativeRecoveryWasShown()) {
+      nativeRecoveryReported = true;
+      store('ft_ad_recovery_google_prompted', '1');
+      emit('ad_recovery_prompt', { source: 'funding_choices_native', reason: 'adblock_detected', action: 'shown' });
+    }
+    if (googleMessage()) { removePromo(); closePopup(); return; }
+    const inlineSlotPending = config.inlineHouseAds === true && hasUnfilledHouseSlot();
+    const inlineBlockerConfirmed = inlineSlotPending && reason() === 'adblock_detected';
+    if (inlineBlockerConfirmed) {
+      if (!blockerDetectedAt) blockerDetectedAt = Date.now();
+      if (!nativeRecoveryWasShown()) {
+        const graceRemaining = inlineRecoveryMessageGraceMs - (Date.now() - blockerDetectedAt);
+        if (graceRemaining > 0) { timer = setTimeout(refresh, graceRemaining); return; }
+        showPopup();
+      }
+    } else {
+      blockerDetectedAt = 0;
+      if (config.inlineHouseAds) closePopup();
+    }
+    if (filled() && !(config.inlineHouseAds && inlineSlotPending)) {
       removePromo(); closePopup();
       const pending = Number(storageRead('ft_ad_recovery_reload'));
       if (pending > 0 && Date.now() - pending < 300000 && lastOutcome !== 'ads_restored') {
@@ -193,7 +218,6 @@ export function installAdRecovery(
       }
       return;
     }
-    if (googleMessage()) { removePromo(); closePopup(); return; }
     const age = Date.now() - started;
     if (age < 12000) { timer = setTimeout(refresh, 12000 - age); return; }
     // Merely waiting for a response is not failure: do not cover late Auto Ads
@@ -210,9 +234,14 @@ export function installAdRecovery(
       reportedState = why;
       emit('ad_reliability_state', { reason: why, cmp_state: state, probe: probeResult, decision: hasDecision() ? 'present' : 'none', elapsed_ms: Math.min(600000, Date.now() - started) });
     }
-    // Inline first-party creatives replace the former floating service promo.
-    // Google's certified recovery/CMP remains independent and can still open.
-    if (config.inlineHouseAds) { closePopup(); removePromo(); return; }
+    // Inline first-party creatives own fallback slots. A confirmed blocker may
+    // still need a first-party recovery prompt when Google's native message is
+    // absent (for example on mobile, where Google does not show it).
+    if (config.inlineHouseAds) {
+      if (why === 'adblock_detected' && hasUnfilledHouseSlot() && !nativeRecoveryWasShown()) showPopup();
+      else closePopup();
+      removePromo(); return;
+    }
     if (why === 'adblock_detected' || why === 'script_failed' || why === 'cmp_unavailable') showPopup();
     if (why !== 'response_pending' && why !== 'consent_pending' && why !== 'script_timeout' && why !== 'cmp_timeout') showPromo();
     else { closePopup(); removePromo(); }
