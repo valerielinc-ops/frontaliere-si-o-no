@@ -1907,7 +1907,8 @@ export function candidateAnswerForField(candidate, field, { includeProfileWorkPe
   if (hasExplicitOperationalAnswer(candidate, field)) return null;
   const statedFact = platformCandidateFactAnswer(field, candidate?.platformFacts, { locale: candidate?.platformFacts?.locale });
   if (statedFact) return statedFact;
-  const operational = operationalDefaultAnswer(field, { facts: candidate?.platformFacts });
+  const operational = operationalQuestionTopic(field) === 'privacy_review_ack' && !effectiveRequired(field)
+    ? null : operationalDefaultAnswer(field, { facts: candidate?.platformFacts });
   if (operational) return operational;
   if (topic !== 'current_school') return null;
   const institution = String(candidate?.profile?.currentEducation?.institution || '').trim();
@@ -2070,8 +2071,7 @@ export function guardPlan(plan, fields, candidate = null) {
   // when the vacancy's employer is known and absent from the CV, select its No.
   const targetEmployerNoPick = new Map(fields.map((field) => [field.id, targetEmployerNoOption(field, candidate)]).filter(([, option]) => option));
   for (const [fieldId, option] of targetEmployerNoPick) actions.push({ fieldId, action: 'select', value: option.label, document: 'none', source: 'rule', evidence: '' });
-  // A native language is explicit either in the language list or, conservatively,
-  // in the detected CV language alongside another explicitly levelled language.
+  // A native language is explicit only when the candidate's language list marks it native.
   // It is still a candidate fact: an explicit portal answer always wins.
   const nativePick = new Map(fields.map((field) => [field.id, nativeLanguageOption(field, candidate)]).filter(([, option]) => option));
   for (const [fieldId, option] of nativePick) actions.push({ fieldId, action: 'select', value: option.label, document: 'none', source: 'profile', evidence: '' });

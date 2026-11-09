@@ -237,7 +237,7 @@ describe('legacy operational portal contract reconciliation', () => {
     const expressible = noticeField(['3 mesi', 'Meno di 1 mese']);
     expect(guardPlan({ actions: [], missingRequired: [] }, [expressible], candidate).actions)
       .toEqual([expect.objectContaining({ fieldId: expressible.id, action: 'select', value: 'Meno di 1 mese', source: 'answers' })]);
-    expect(context(store).flow.answers).toEqual({ notice: '7 giorni' });
+    expect(context(store).flow.answers).toEqual({ notice: '7 giorni', whatsapp: 'No' });
   });
 
   it.each([

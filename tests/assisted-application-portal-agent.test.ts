@@ -194,9 +194,21 @@ describe('portal agentic fallback (career-ops: snapshot with refs)', () => {
     const guarded = guardAgentStep(withAgentFieldProvenance(raw, [{
       label: question, required: true, portalNativeContract: { required: false },
     }]), candidate);
-    expect(guarded.status).toBe('act');
+    expect(guarded.status).toBe('done');
     expect(guarded.actions).toEqual([]);
     expect(guarded.questions).toEqual([]);
+  });
+
+  it('holds an optional privacy acknowledgement that is already checked without candidate evidence', () => {
+    const question = 'Please check this box to acknowledge that you have read the Applicant Privacy Notice.';
+    const candidate = { identity: {}, profile: {}, answers: {}, portalQuestionsAnswered: [] };
+    const raw = turn('act', [act({
+      ref: 'e60', action: 'click', question, source: 'consent', kind: 'checkbox', required: true, checked: true,
+    })]);
+    const guarded = guardAgentStep(withAgentFieldProvenance(raw, [{
+      label: question, required: true, checked: true, portalNativeContract: { required: false },
+    }]), candidate);
+    expect(guarded).toMatchObject({ status: 'stuck', reason: 'consent_answer_unmappable', actions: [], questions: [] });
   });
 
   it('stops when the candidate refuses a required consent', () => {
@@ -237,7 +249,7 @@ describe('portal agentic fallback (career-ops: snapshot with refs)', () => {
       const raw = turn('act', [act({
         ref: 'e1', action, kind, question, value: options[0].label, answer: options[0].label, source: 'profile',
       })]);
-      const fields = [{ id: 'privacy', label: question, kind, required: true, options }];
+      const fields = [{ id: 'privacy', label: question, kind, required: false, options }];
       const guarded = guardAgentStep(withAgentFieldProvenance(raw, fields), candidate);
 
       expect(guarded).toMatchObject({ status: 'act', questions: [] });
@@ -254,7 +266,7 @@ describe('portal agentic fallback (career-ops: snapshot with refs)', () => {
       identity: {}, profile: {}, answers: {},
       portalQuestionsAnswered: [{ question, answer: 'No', source: 'answers' }],
     };
-    const fields = [{ id: 'privacy', label: question, kind: 'select', required: true, options: [{ label: 'I agree' }, { label: 'Ask me later' }] }];
+    const fields = [{ id: 'privacy', label: question, kind: 'select', required: false, options: [{ label: 'I agree' }, { label: 'Ask me later' }] }];
     const raw = turn('act', [act({ ref: 'e1', action: 'select', question, value: 'I agree', source: 'profile' })]);
 
     expect(guardAgentStep(withAgentFieldProvenance(raw, fields), candidate)).toMatchObject({
@@ -313,7 +325,7 @@ describe('portal agentic fallback (career-ops: snapshot with refs)', () => {
       { value: 'yes', label: 'I agree', aaId: 'f_yes' },
       { value: 'no', label: 'I do not agree', aaId: 'f_no' },
     ];
-    const fields = [{ id: 'f_yes', frame: 0, label: question, kind: 'radio', required: true, value: '', options }];
+    const fields = [{ id: 'f_yes', frame: 0, label: question, kind: 'radio', required: false, value: '', options }];
     const raw = turn('act', [act({ ref: 'e1', action: 'click', question, kind: 'radio', value: 'I agree', source: 'profile' })]);
     const candidate = { identity: {}, profile: {}, answers: {},
       portalQuestionsAnswered: [{ question, answer: 'No', source: 'answers' }] };
@@ -1165,7 +1177,7 @@ describe('portal agentic fallback (career-ops: snapshot with refs)', () => {
     expect(absent).toMatchObject({ status: 'needs_candidate', questions: [expect.objectContaining({ question })] });
   });
 
-  it('grounds a native-language choice from the CV language and contrasting language levels', () => {
+  it('keeps native language unknown unless the candidate marks it native', () => {
     const candidate = {
       answers: {},
       profile: {
@@ -1176,13 +1188,10 @@ describe('portal agentic fallback (career-ops: snapshot with refs)', () => {
     };
     const question = 'Qual è il livello di italiano scritto?';
     const native = guardAgentStep(turn('act', [act({ action: 'select', value: 'Lingua madre', answer: 'Lingua madre', question, source: 'profile' })]), candidate);
-    expect(native).toMatchObject({ status: 'act', questions: [] });
-    expect(native.actions).toHaveLength(1);
+    expect(native).toMatchObject({ status: 'needs_candidate', actions: [], questions: [expect.objectContaining({ question })] });
 
     const invented = guardAgentStep(turn('act', [act({ action: 'select', value: 'Fluente', answer: 'Fluente', question, source: 'profile' })]), candidate);
-    // A wrong non-native level is dropped rather than sent or turned into a
-    // new candidate question: the CV-derived native fact is already known.
-    expect(invented).toMatchObject({ status: 'done', actions: [], questions: [] });
+    expect(invented).toMatchObject({ status: 'needs_candidate', actions: [], questions: [expect.objectContaining({ question })] });
   });
 
   it('presses an unusual step button only when its name says next step', () => {
@@ -1244,15 +1253,14 @@ describe('portal agentic fallback (career-ops: snapshot with refs)', () => {
       act({ ref: 'e2', action: 'select', value: 'Svizzera', question: 'Qual è la tua nazione di residenza?', answer: 'Svizzera', source: 'rule' }),
       act({ ref: 'e3', action: 'fill', value: '99', question: 'House number', answer: '99', source: 'model' }),
     ]), candidate);
-    expect(guarded).toMatchObject({ status: 'act', questions: [] });
-    expect(guarded.actions.map((action: any) => [action.value, action.source])).toEqual([
-      ['43039', 'identity'],
-      ['Italia', 'identity'],
-      ['12', 'identity'],
-    ]);
+    expect(guarded).toMatchObject({ status: 'needs_candidate', questions: expect.arrayContaining([
+      expect.objectContaining({ question: 'Qual è il tuo CAP di residenza?' }),
+      expect.objectContaining({ question: 'Qual è la tua nazione di residenza?' }),
+    ]) });
+    expect(guarded.actions).toContainEqual(expect.objectContaining({ value: '12', source: 'identity' }));
 
     const asked = guardAgentStep(turn('needs_candidate', [], [{ question: 'Qual è il tuo CAP di residenza?', why: '', type: 'text', options: [] }]), candidate);
-    expect(asked).toMatchObject({ status: 'stuck', questions: [] });
+    expect(asked).toMatchObject({ status: 'needs_candidate', questions: [expect.objectContaining({ question: 'Qual è il tuo CAP di residenza?' })] });
   });
 
   it('carries the fieldset context into the fallback guard for a bare CAP', () => {
@@ -1268,8 +1276,8 @@ describe('portal agentic fallback (career-ops: snapshot with refs)', () => {
     const guarded = guardAgentStep(turn('act', [
       act({ ref: 'e1', action: 'fill', value: '00000', question: 'CAP', context, answer: '00000', source: 'model' }),
     ]), candidate);
-    expect(guarded).toMatchObject({ status: 'act', questions: [] });
-    expect(guarded.actions).toEqual([expect.objectContaining({ value: '43039', source: 'identity', context })]);
+    expect(guarded).toMatchObject({ status: 'needs_candidate', questions: [expect.objectContaining({ question: 'CAP', context })] });
+    expect(guarded.actions).toEqual([]);
   });
 
   it('does not reuse the candidate CAP for a bare employer address', () => {

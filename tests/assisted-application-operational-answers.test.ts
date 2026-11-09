@@ -74,7 +74,7 @@ describe('operational preferences at every required-answer gate', () => {
 
   it('does not resume a round while a factual question is unanswered', () => {
     expect(transition(approved, { type: 'tick' }, { draft }).flow.state).toBe('needs_candidate_action');
-    const answered = { ...draft, questions: [], answers: { notice: '1 mese', whatsapp: false, workload: '100%' } };
+    const answered = { ...draft, answers: { notice: '1 mese', whatsapp: false, workload: '100%' } };
     expect(transition(approved, { type: 'tick' }, { draft: answered, answers: answered.answers }).effects)
       .toEqual([{ type: 'dispatch', mode: 'submit', reason: 'resolved_candidate_answers' }]);
     for (const blocked of [

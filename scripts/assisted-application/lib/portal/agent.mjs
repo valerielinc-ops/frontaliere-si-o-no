@@ -363,7 +363,8 @@ export function guardAgentStep(raw, candidate = null, grounded = new Set()) {
         || action.consentOwnershipUnknown === true || action.nativeContractUnavailable === true || action.privacyMetadataIncomplete === true);
     const unresolvedNativeConsent = action.consentOwnershipUnknown === true || action.nativeContractUnavailable === true || action.privacyMetadataIncomplete === true;
     return action.source === 'policy_default'
-      || action.source === 'consent' || consentTopic || retentionTopic || platformConsentTopic || inferredConsent || optionalPurposeConsent || checkboxConsent || unresolvedNativeConsent
+      || action.source === 'consent' || consentTopic || retentionTopic || platformConsentTopic
+      || requiresExplicitConsentAnswer(formQuestion) || inferredConsent || optionalPurposeConsent || checkboxConsent || unresolvedNativeConsent
       || (languageAction && hasLanguageActionAnswer(action))
       || SENSITIVE.test(question)
       || KNOCK_OUT.test(question)
@@ -431,7 +432,8 @@ export function guardAgentStep(raw, candidate = null, grounded = new Set()) {
       if (action.required !== false) ask(action);
       continue;
     }
-    const consentAction = action.source === 'consent' || consentTopic || platformConsentTopic || inferredConsent || optionalPurposeConsent || checkboxConsent;
+    const consentAction = action.source === 'consent' || consentTopic || platformConsentTopic
+      || requiresExplicitConsentAnswer(formQuestion) || inferredConsent || optionalPurposeConsent || checkboxConsent;
     if (consentAction) {
       const consentAnswer = candidateAnswerForField(candidate, formQuestion);
       const savedAnswer = candidateAnswerForQuestion(candidate, action.question, context, metadata);
@@ -457,9 +459,19 @@ export function guardAgentStep(raw, candidate = null, grounded = new Set()) {
       }
       if (polarity === null) {
         if (required) ask(action);
+        else if (operationalTopic === 'privacy_review_ack') {
+          // Reading an optional notice is not an application decision; omit
+          // the unchecked acknowledgement without asking the candidate.
+          suppressedActions.add(action.ref);
+          grounded.add(key);
+        }
         if (savedAnswer) unresolvedConsentAnswer = true;
         if (action.kind === 'checkbox' && action.checked === true) {
-          if (action.action !== 'click') unresolvedConsentAnswer = true;
+          if (operationalTopic === 'privacy_review_ack') {
+            // A prechecked reading attestation cannot be silently submitted.
+            // Keep it out of candidate Q&A and stop for operator review.
+            unresolvedConsentAnswer = true;
+          } else if (action.action !== 'click') unresolvedConsentAnswer = true;
           else {
             action.answer = '';
             action.source = 'rule';
@@ -636,6 +648,10 @@ export function guardAgentStep(raw, candidate = null, grounded = new Set()) {
     const autocomplete = String(action.autocomplete || '').slice(0, 100);
     const key = questionKey(action.question, context, section, autocomplete);
     if (grounded.has(key)) continue;
+    // An unresolved native control is an operator-side metadata problem, not
+    // a question the candidate can answer. Keep that hold out of candidate Q&A.
+    if (action.nativeRefMismatch === true || action.consentOwnershipUnknown === true
+      || action.nativeContractUnavailable === true || action.privacyMetadataIncomplete === true) continue;
     refused.add(key);
     ask({ question: action.question, ...(context ? { context } : {}), ...(section ? { section } : {}), ...(autocomplete ? { autocomplete } : {}) });
   }
@@ -644,8 +660,8 @@ export function guardAgentStep(raw, candidate = null, grounded = new Set()) {
   const actions = (raw.actions || []).filter((action) => !suppressedActions.has(action.ref)
     && !refused.has(questionKey(action.question, action.context, action.section, action.autocomplete)) && REF_RE.test(action.ref || ''));
   let status = raw.status;
-  if (questions.length) status = 'needs_candidate';
-  else if (unresolvedNativeContract || unresolvedNativeRef || unresolvedConsentAnswer) status = 'stuck';
+  if (unresolvedNativeContract || unresolvedNativeRef || unresolvedConsentAnswer) status = 'stuck';
+  else if (questions.length) status = 'needs_candidate';
   else if (status === 'needs_candidate') status = 'stuck'; // only questions already answered: the owner looks
   else if (status === 'act' && !actions.length) status = 'done';
   return {

@@ -126,7 +126,7 @@ describe('hard questions and consent stay with the candidate', () => {
   });
 
   it('uses only policy-approved workload and privacy-reading soft defaults', () => {
-    const preferred = { question: 'What is your preferred workload?', type: 'text', required: true };
+    const preferred = { id: 'preferred', question: 'What is your preferred workload?', type: 'text', required: true };
     expect(operationalDefaultAnswer(preferred)?.value).toBe('100%');
     expect(operationalDefaultAnswer({ question: 'What is your notice period?', type: 'text' })).toBeNull();
     expect(operationalDefaultAnswer({ question: 'Do you consent to be contacted via WhatsApp?', type: 'yes_no' })).toBeNull();
