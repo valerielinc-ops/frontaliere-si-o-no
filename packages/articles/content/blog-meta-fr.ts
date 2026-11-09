@@ -13695,6 +13695,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.via-libera-tram-treno-luganese.title': 'Feu vert définitif à la réalisation du Tram-train',
     'blog.article.via-libera-tram-treno-luganese.excerpt': 'Le Tribunal fédéral rejette le recours de trois particuliers.',
     'blog.article.via-libera-tram-treno-luganese.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
+    'blog.article.contro-aumento-iva-pesa-meno.title': 'Contre la hausse de la TVA : un impôt qui pèse davantage sur ceux qui ont moins',
+    'blog.article.contro-aumento-iva-pesa-meno.excerpt': 'La position du Parti communiste ne remet pas en cause le versement de la treizième rente.',
+    'blog.article.contro-aumento-iva-pesa-meno.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
 };
 
 export default blogMetaFr;
