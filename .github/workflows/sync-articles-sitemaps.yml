@@ -71,6 +71,7 @@ concurrency:
 permissions:
   contents: write
   pull-requests: write
+  statuses: write
   actions: read
   # A skipped sync exits 0 by design (nothing was written; the previous commit is
   # still consistent). That makes a mirror stuck for good invisible on a wall of
@@ -705,13 +706,12 @@ jobs:
         if: steps.commit.outputs.published-via-pr == 'true'
         continue-on-error: true
         env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           WRITER_OUTCOME: ${{ steps.report_factuality.outcome }}
           SYNC_BRANCH: chore/sync-articles-sitemaps
         run: |
           set -euo pipefail
           echo 'attested=false' >> "$GITHUB_OUTPUT"
-          : "${GITHUB_PAT:?GITHUB_PAT was not loaded from Remote Config}"
-          export GH_TOKEN="$GITHUB_PAT"
           pr_number=''
           for attempt in 1 2 3; do
             pr_number="$(gh pr list --repo "$GITHUB_REPOSITORY" --state open --base main --head "$SYNC_BRANCH" --json number --jq '.[0].number // empty' || true)"
@@ -735,7 +735,11 @@ jobs:
             -f 'context=frontaliere/sync-factuality-writer' \
             -f "description=${description}" \
             -f "target_url=${target_url}" >/dev/null
-          echo "attested=$([ "$state" = success ] && echo true || echo false)" >> "$GITHUB_OUTPUT"
+          if [ "$state" = success ]; then
+            echo 'attested=true' >> "$GITHUB_OUTPUT"
+          else
+            echo 'attested=false' >> "$GITHUB_OUTPUT"
+          fi
           echo "head_sha=$head_sha" >> "$GITHUB_OUTPUT"
 
       # The corpus sync is the automatic writer for packages/articles/content,

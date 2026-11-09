@@ -290,6 +290,7 @@ describe('tests.yml — factuality gate del sync stabile', () => {
     expect(syncWorkflow).toContain('id: report_factuality');
     expect(syncWorkflow).toContain('Attest factuality report for stable sync PR');
     expect(syncWorkflow).toContain('frontaliere/sync-factuality-writer');
+    expect(syncWorkflow).toContain('  statuses: write');
     expect(syncWorkflow).toContain('statuses/${head_sha}');
   });
 });
