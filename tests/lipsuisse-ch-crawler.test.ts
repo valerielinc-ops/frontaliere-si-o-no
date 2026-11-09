@@ -10,6 +10,8 @@ import {
   collectSpecListingRows,
   createSpecUrlPolicy,
   loadSpec,
+  normalizeSpecPagination,
+  readDeclaredListingTotal,
   templateToRegex,
 } from '../scripts/lib/prospector/spec-crawler.mjs';
 
@@ -25,8 +27,16 @@ describe('LIP Suisse crawler parser', () => {
     const detailTemplate = templateToRegex(spec.detailTemplate);
 
     expect(spec.mode).toBe('template');
-    expect(spec.seedUrls).toEqual(['https://www.lipsuisse.ch/offres-emploi/']);
+    expect(spec.seedUrls).toEqual([
+      'https://www.lipsuisse.ch/offres-emploi/?ajax_filter=true&per-page=100',
+    ]);
     expect(spec.detailEnrichment).toBe(true);
+    expect(spec.pagination).toMatchObject({ maxPages: 1, minCoverage: 0.95 });
+    expect(readDeclaredListingTotal(
+      '<h2>30&nbsp;Offres d\'emploi trouvées</h2>',
+      normalizeSpecPagination(spec),
+      spec,
+    )).toBe(30);
     expect(detailTemplate.test('/offres-emploi/assistant-de-direction-batiment-h-f-3/')).toBe(true);
     expect(detailTemplate.test('/offres-emploi/carreleur-2/')).toBe(true);
     expect(detailTemplate.test('/offres-emploi/')).toBe(false);
@@ -35,10 +45,16 @@ describe('LIP Suisse crawler parser', () => {
   it('extracts vacancy links from the index shape instead of the retired detail seed', async () => {
     const spec = loadSpec(LIPSUISSE_CH_KEY);
     const listingUrl = spec.seedUrls[0];
-    const html = `<main>
-      <a href="https://www.lipsuisse.ch/offres-emploi/assistant-de-direction-batiment-h-f-3/">Assistant de direction bâtiment H/F</a>
-      <a href="https://www.lipsuisse.ch/offres-emploi/carreleur-2/">Carreleur</a>
-    </main>`;
+    const vacancyUrls = [
+      'https://www.lipsuisse.ch/offres-emploi/assistant-de-direction-batiment-h-f-3/',
+      'https://www.lipsuisse.ch/offres-emploi/carreleur-2/',
+      ...Array.from({ length: 28 }, (_, index) => (
+        `https://www.lipsuisse.ch/offres-emploi/offre-${index + 1}/`
+      )),
+    ];
+    const html = `<h2>30&nbsp;Offres d'emploi trouvées</h2><main>${vacancyUrls.map((url) => (
+      `<a href="${url}">Vacancy</a>`
+    )).join('')}</main>`;
     const fetchImpl = async (url: string) => {
       if (url === 'https://www.lipsuisse.ch/robots.txt') {
         return new Response('User-agent: *\nAllow: /', { status: 200 });
@@ -57,10 +73,43 @@ describe('LIP Suisse crawler parser', () => {
         retries: 0,
         disableWafProxy: true,
       }, policy);
-      expect(rows.map((row) => row.url)).toEqual([
+      expect(rows).toHaveLength(30);
+      expect(rows.slice(0, 2).map((row) => row.url)).toEqual([
         'https://www.lipsuisse.ch/offres-emploi/assistant-de-direction-batiment-h-f-3/',
         'https://www.lipsuisse.ch/offres-emploi/carreleur-2/',
       ]);
+    } finally {
+      await policy.dispatcher.close();
+    }
+  });
+
+  it('fails closed if the source ignores the enlarged page-size request', async () => {
+    const spec = loadSpec(LIPSUISSE_CH_KEY);
+    const listingUrl = spec.seedUrls[0];
+    const vacancyUrls = Array.from({ length: 10 }, (_, index) => (
+      `https://www.lipsuisse.ch/offres-emploi/offre-${index + 1}/`
+    ));
+    const html = `<h2>30&nbsp;Offres d'emploi trouvées</h2><main>${vacancyUrls.map((url) => (
+      `<a href="${url}">Vacancy</a>`
+    )).join('')}</main>`;
+    const fetchImpl = async (url: string) => {
+      if (url === 'https://www.lipsuisse.ch/robots.txt') {
+        return new Response('User-agent: *\nAllow: /', { status: 200 });
+      }
+      expect(url).toBe(listingUrl);
+      return new Response(html, { status: 200 });
+    };
+    const policy = createSpecUrlPolicy(spec, {
+      lookupImpl: async () => [{ address: '93.184.216.34', family: 4 }],
+    });
+
+    try {
+      await expect(collectSpecListingRows(spec, {
+        fetchImpl,
+        sleepImpl: async () => {},
+        retries: 0,
+        disableWafProxy: true,
+      }, policy)).rejects.toThrow(/listing incompleta: 10\/30/);
     } finally {
       await policy.dispatcher.close();
     }
