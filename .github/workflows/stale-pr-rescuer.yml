@@ -65,7 +65,14 @@ permissions:
   issues: write
 
 concurrency:
-  group: stale-pr-rescuer
+  # `workflow_run` can deliver several tests completions while one scan is
+  # running. A single global group has only one pending slot: GitHub replaces
+  # that slot with the newest event, and the displaced run can fail before a
+  # job is created (`jobs.total_count == 0`). The scan is idempotent by its
+  # class/head markers, so preserve every observed event in its own group.
+  # `github.run_id` covers schedule and manual dispatch, which have no
+  # `workflow_run.id`.
+  group: stale-pr-rescuer-${{ github.event.workflow_run.id || github.run_id }}
   cancel-in-progress: false
 
 jobs:
