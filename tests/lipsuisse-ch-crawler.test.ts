@@ -33,7 +33,7 @@ describe('LIP Suisse crawler parser', () => {
     expect(spec.detailEnrichment).toBe(true);
     expect(spec.pagination).toMatchObject({ maxPages: 1, minCoverage: 0.95 });
     expect(readDeclaredListingTotal(
-      '<h2>30&nbsp;Offres d\'emploi trouvées</h2>',
+      '<h2><span>30</span>&nbsp;<span>Offres d\'emploi trouvées</span></h2>',
       normalizeSpecPagination(spec),
       spec,
     )).toBe(30);
