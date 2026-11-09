@@ -187,21 +187,35 @@ function isDoctypeStart(xml, index) {
 /**
  * A doctype has its own quoted values and internal subset. Delimiter-looking
  * text inside an entity value is data, while comments and processing
- * instructions between declarations are real XML literals. Keep the quoted
- * ranges in the transformed text so numeric C0 references inside them remain
- * visible to the gate.
+ * instructions between declarations are real XML literals. EntityValue and
+ * AttValue references are decoded, but SystemLiteral and PubidLiteral are
+ * opaque identifiers under XML 1.0 and must stay byte-identical.
  */
 function transformDoctype(xml, start, transform) {
   let output = '';
   let segmentStart = start;
   let index = start + '<!DOCTYPE'.length;
   let quote = null;
+  let quoteKind = null;
+  let declaration = 'DOCTYPE';
+  let declarationTokens = ['DOCTYPE'];
+  let currentToken = '';
+  let publicSystemLiteralPending = false;
   let subsetDepth = 0;
 
   while (index < xml.length) {
     const character = xml[index];
     if (quote) {
-      if (character === quote) quote = null;
+      if (character === quote) {
+        const end = index + 1;
+        if (quoteKind === 'system' || quoteKind === 'public') {
+          output += xml.slice(segmentStart, end);
+          segmentStart = end;
+        }
+        if (quoteKind === 'public') publicSystemLiteralPending = true;
+        quote = null;
+        quoteKind = null;
+      }
       index += 1;
       continue;
     }
@@ -224,12 +238,66 @@ function transformDoctype(xml, start, transform) {
       output += xml.slice(index, end);
       index = end;
       segmentStart = end;
+      currentToken = '';
+      declaration = 'DOCTYPE';
+      declarationTokens = ['DOCTYPE'];
+      publicSystemLiteralPending = false;
       continue;
     }
 
+    // Track only the DTD declaration keywords that can introduce system or
+    // public identifiers. Skip their names here so an entity named SYSTEM or
+    // PUBLIC is not mistaken for an external identifier keyword.
+    if (xml.startsWith('<!', index)) {
+      const declarationMatch = /^<!([A-Z]+)/u.exec(xml.slice(index));
+      if (declarationMatch) {
+        declaration = declarationMatch[1];
+        declarationTokens = [declaration];
+        currentToken = '';
+        publicSystemLiteralPending = false;
+        index += declarationMatch[0].length;
+        continue;
+      }
+    }
+
     if (character === '"' || character === "'") {
+      if (currentToken) {
+        declarationTokens.push(currentToken);
+        currentToken = '';
+      }
+      const lastToken = declarationTokens.at(-1);
+      const separatedByWhitespace = /[\t\n\r ]/u.test(xml[index - 1] || '');
+      const identifierContext = ['DOCTYPE', 'ENTITY', 'NOTATION'].includes(declaration)
+        && declarationTokens.length >= 3;
+      if (publicSystemLiteralPending && separatedByWhitespace) {
+        quoteKind = 'system';
+        publicSystemLiteralPending = false;
+      } else if (identifierContext && separatedByWhitespace && lastToken === 'SYSTEM') {
+        quoteKind = 'system';
+      } else if (identifierContext && separatedByWhitespace && lastToken === 'PUBLIC') {
+        quoteKind = 'public';
+      } else {
+        publicSystemLiteralPending = false;
+        quoteKind = 'value';
+      }
+      if (quoteKind === 'system' || quoteKind === 'public') {
+        output += transform(xml.slice(segmentStart, index), segmentStart);
+        segmentStart = index;
+      }
       quote = character;
-    } else if (character === '[') {
+      declarationTokens.push('');
+    } else if (publicSystemLiteralPending && !/\s/u.test(character)) {
+      publicSystemLiteralPending = false;
+    }
+
+    if (/[A-Za-z0-9_.:-]/u.test(character)) {
+      currentToken += character;
+    } else if (currentToken) {
+      declarationTokens.push(currentToken);
+      currentToken = '';
+    }
+
+    if (character === '[') {
       subsetDepth += 1;
     } else if (character === ']' && subsetDepth > 0) {
       subsetDepth -= 1;
@@ -237,6 +305,11 @@ function transformDoctype(xml, start, transform) {
       const end = index + 1;
       output += transform(xml.slice(segmentStart, end), segmentStart);
       return { text: output, end };
+    } else if (character === '>' && subsetDepth > 0) {
+      declaration = 'DOCTYPE';
+      declarationTokens = ['DOCTYPE'];
+      currentToken = '';
+      publicSystemLiteralPending = false;
     }
     index += 1;
   }

@@ -246,6 +246,40 @@ describe('sanitizeXmlDocument, and the sitemap entry that broke', () => {
     expect(sanitizeXmlDocument(xml)).toBe(xml.replace('&#8;', ''));
   });
 
+  it('preserves numeric references in DTD SystemLiteral contexts', () => {
+    const documents = [
+      '<!DOCTYPE root SYSTEM "urn:example?x=&#8;"><root/>',
+      '<!DOCTYPE root PUBLIC "public-id" "urn:example?x=&#8;"><root/>',
+      '<!DOCTYPE root [<!ENTITY x SYSTEM "urn:example?x=&#8;">]><root/>',
+      '<!DOCTYPE root [<!ENTITY x PUBLIC "public-id" "urn:example?x=&#8;">]><root/>',
+    ];
+    for (const xml of documents) {
+      expect(findInvalidXmlReferencesOutsideLiterals(xml)).toEqual([]);
+      expect(sanitizeXmlDocument(xml)).toBe(xml);
+    }
+  });
+
+  it('still decodes references in DTD EntityValue and AttValue strings', () => {
+    const xml = '<!DOCTYPE root [<!ENTITY x "&#8;"><!ATTLIST root a CDATA "&#8;">]><root/>';
+    expect(findInvalidXmlReferencesOutsideLiterals(xml)).toEqual([
+      { code: 0x08, index: xml.indexOf('&#8;') },
+      { code: 0x08, index: xml.lastIndexOf('&#8;') },
+    ]);
+    expect(sanitizeXmlDocument(xml)).toBe(xml.replaceAll('&#8;', ''));
+  });
+
+  it('does not exempt references in malformed DTD identifier syntax', () => {
+    for (const xml of [
+      '<!DOCTYPE root SYSTEM"urn:example?x=&#8;"><root/>',
+      '<!DOCTYPE root PUBLIC "public-id""urn:example?x=&#8;"><root/>',
+    ]) {
+      expect(findInvalidXmlReferencesOutsideLiterals(xml)).toEqual([
+        { code: 0x08, index: xml.indexOf('&#8;') },
+      ]);
+      expect(sanitizeXmlDocument(xml)).toBe(xml.replace('&#8;', ''));
+    }
+  });
+
   it('preserves a real comment between declarations in the DTD internal subset', () => {
     const xml = '<!DOCTYPE root [<!--literal &#8;--><!ENTITY x "safe">]><root/>';
     expect(findInvalidXmlReferencesOutsideLiterals(xml)).toEqual([]);
