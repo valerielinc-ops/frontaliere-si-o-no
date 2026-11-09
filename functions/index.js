@@ -147,7 +147,11 @@ import { runRendererCheck } from './src/assistedApplicationRendererCheck.js';
 import { isNewlyProcessedInterviewInvite, prepareInterviewPack } from './src/assistedApplicationInterviewPrep.js';
 import { handleAssistedApplicationEmailCv } from './src/assistedApplicationEmailCv.js';
 import { handleGetAssistedApplicationCvUrl } from './src/assistedApplicationCvUrl.js';
-import { handleAssistedApplicationInbound, processAssistedApplicationInbound } from './src/assistedApplicationInbound.js';
+import {
+  handleAssistedApplicationInbound,
+  processAssistedApplicationInbound,
+  runAssistedApplicationInboundForwardSweep,
+} from './src/assistedApplicationInbound.js';
 import { ensureOrderAlias } from './src/assistedApplicationAlias.js';
 import { codexStructured } from './src/lib/codexStructured.js';
 import { checkAnswersWithAi } from './src/assistedApplicationAnswerCheck.js';
@@ -3484,6 +3488,26 @@ export const processAssistedApplicationInboundMessage = onDocumentCreated(
       runEffect: (context) => runAutomationEffect(context),
     });
     if (!result.skipped) console.log('[processAssistedApplicationInboundMessage]', result.category, result.forwarded);
+  },
+);
+
+// Retry only employer-message forwards that all providers definitively rejected.
+// The per-message lease quarantines outcomes interrupted after a provider call.
+export const sweepAssistedApplicationInboundForwards = onSchedule(
+  { region: 'europe-west6', schedule: 'every 5 minutes', timeZone: 'Europe/Zurich', memory: '512MiB', timeoutSeconds: 540 },
+  async () => {
+    try {
+      await bridgeEmailCascadeCredentialsToEnv();
+      const summary = await runAssistedApplicationInboundForwardSweep({
+        db: getAdminDb(),
+        bucket: getAssistedApplicationStorage().bucket(ASSISTED_APPLICATION_STORAGE_BUCKET),
+        runKey: await getRemoteConfigValue('ASSISTED_APPLICATION_RUN_KEY'),
+        sendCascade: (emails, options) => sendAssistedApplicationCascade(emails, options),
+      });
+      console.log('[sweepAssistedApplicationInboundForwards]', JSON.stringify({ scanned: summary.scanned, attempted: summary.attempted }));
+    } catch (error) {
+      console.error('[sweepAssistedApplicationInboundForwards]', error instanceof Error ? error.message : String(error));
+    }
   },
 );
 

@@ -7,7 +7,7 @@ vi.mock('../functions/src/remoteConfigSecrets.js', () => ({
 }));
 
 const { ensureOrderAlias } = await import('../functions/src/assistedApplicationAlias.js');
-const { buildForward, classifyByRules, handleAssistedApplicationInbound, processAssistedApplicationInbound } = await import('../functions/src/assistedApplicationInbound.js');
+const { buildForward, classifyByRules, handleAssistedApplicationInbound, processAssistedApplicationInbound, runAssistedApplicationInboundForwardSweep } = await import('../functions/src/assistedApplicationInbound.js');
 const { hostKey, portalAccountStore } = await import('../scripts/assisted-application/lib/portal/account.mjs');
 const { employerResponseOf, employerResponseView } = await import('../functions/src/assistedApplicationEmployerResponse.js');
 
@@ -52,6 +52,31 @@ async function setup(locale = 'de', accountHost = '') {
       .set({ portal: { host: accountHost, passwordEnc: { v: 1 }, verifiedAt: null } });
   }
   return { store, alias };
+}
+
+function withInboxCollectionGroup(store: any) {
+  const collectionGroup = (name: string) => {
+    const query = (filters: Array<[string, string, unknown]> = [], max = Infinity): any => ({
+      where: (field: string, operator: string, value: unknown) => query([...filters, [field, operator, value]], max),
+      limit: (value: number) => query(filters, value),
+      async get() {
+        const docs = store.list('assisted_applications/').filter((path: string) => {
+          const segments = path.split('/');
+          const data = store.read(path);
+          return segments.length === 4 && segments[2] === name && filters.every(([field, operator, value]) => {
+            const actual = field.split('.').reduce((current: any, part) => current?.[part], data);
+            return operator === '==' ? actual === value : operator === '<=' ? actual != null && actual <= value : false;
+          });
+        }).slice(0, max).map((path: string) => ({
+          ref: { path, id: path.split('/').at(-1) },
+          data: () => store.read(path),
+        }));
+        return { docs, empty: docs.length === 0, size: docs.length };
+      },
+    });
+    return query();
+  };
+  return { ...store.db, collectionGroup };
 }
 
 const request = (raw: Buffer, to: string) => ({
@@ -352,22 +377,91 @@ describe('fallback with the model unavailable, through the real handler', () => 
   });
 
   describe('the provider’s answer', () => {
-    it('records a refused send as failed, not as forwarded, and keeps the classification', async () => {
+    it('schedules a bounded retry after a definite provider rejection and keeps the classification', async () => {
       const { store, alias } = await setup();
       const sendCascade = vi.fn(async () => ({ failed: [{ error: 'provider_rejected' }], sent: [] }));
       const { processed, inbox } = await deliverWithoutModel({ store, alias, raw: plainMail({ subject: 'Ihre Bewerbung', text: 'Wir haben Ihre Bewerbung erhalten.' }), sendCascade });
-      expect(processed).toMatchObject({ category: 'auto_acknowledgement', forwarded: 'failed' });
-      expect(inbox.forwarded).toEqual({ status: 'failed', error: 'provider_rejected' });
+      expect(processed).toMatchObject({ category: 'auto_acknowledgement', forwarded: 'retry_scheduled' });
+      expect(inbox).toMatchObject({
+        status: 'processed',
+        category: 'auto_acknowledgement',
+        forwarded: { status: 'retry_scheduled', error: 'provider_rejected' },
+        forwardDelivery: { status: 'retry_scheduled', attempts: 1, retryAt: 61_000 },
+      });
     });
 
-    it('puts the message back to received when the provider throws, and counts nothing', async () => {
+    it('keeps the employer reply recorded and schedules recovery when the cascade throws before a provider attempt', async () => {
       const { store, alias } = await setup();
       const sendCascade = vi.fn(async () => { throw new Error('provider_down'); });
-      await expect(deliverWithoutModel({ store, alias, raw: plainMail({ subject: 'Ihre Bewerbung', text: 'Wir haben Ihre Bewerbung erhalten.' }), sendCascade })).rejects.toThrow('provider_down');
+      const { processed } = await deliverWithoutModel({ store, alias, raw: plainMail({ subject: 'Ihre Bewerbung', text: 'Wir haben Ihre Bewerbung erhalten.' }), sendCascade });
       const [path] = store.list(`${ORDER_PATH}/inbox/`);
-      expect(store.read(path)).toMatchObject({ status: 'received', lastError: 'provider_down' });
-      expect(store.read(ORDER_PATH)?.employerReplies).toBeUndefined();
-      expect(store.read(ORDER_PATH)?.employerResponse).toBeUndefined();
+      expect(processed).toMatchObject({ category: 'auto_acknowledgement', forwarded: 'retry_scheduled' });
+      expect(store.read(path)).toMatchObject({ status: 'processed', forwarded: { status: 'retry_scheduled', error: 'forward_preparation_or_provider_error' } });
+      expect(store.read(ORDER_PATH)?.employerReplies).toBe(1);
+      expect(store.read(ORDER_PATH)?.employerResponse).toMatchObject({ category: 'auto_acknowledgement' });
+    });
+
+    it('retries only when due and stops after three definite failures', async () => {
+      const { store, alias } = await setup();
+      const failed = vi.fn(async () => ({ failed: [{ error: 'provider_rejected' }], sent: [] }));
+      const { messageId, bucket } = await deliverWithoutModel({ store, alias, raw: plainMail({ subject: 'Ihre Bewerbung', text: 'Wir haben Ihre Bewerbung erhalten.' }), sendCascade: failed });
+      expect(failed).toHaveBeenCalledTimes(1);
+
+      const db = withInboxCollectionGroup(store);
+      await runAssistedApplicationInboundForwardSweep({ db, bucket, runKey: RUN_KEY, sendCascade: failed, nowMs: 60_999 });
+      expect(failed).toHaveBeenCalledTimes(1);
+      await runAssistedApplicationInboundForwardSweep({ db, bucket, runKey: RUN_KEY, sendCascade: failed, nowMs: 61_000 });
+      expect(failed).toHaveBeenCalledTimes(2);
+      expect(store.read(`${ORDER_PATH}/inbox/${messageId}`)?.forwardDelivery).toMatchObject({ status: 'retry_scheduled', attempts: 2, retryAt: 361_000 });
+      await runAssistedApplicationInboundForwardSweep({ db, bucket, runKey: RUN_KEY, sendCascade: failed, nowMs: 361_000 });
+      expect(failed).toHaveBeenCalledTimes(3);
+      expect(store.read(`${ORDER_PATH}/inbox/${messageId}`)?.forwarded).toMatchObject({ status: 'failed' });
+      await runAssistedApplicationInboundForwardSweep({ db, bucket, runKey: RUN_KEY, sendCascade: failed, nowMs: 2_000_000 });
+      expect(failed).toHaveBeenCalledTimes(3);
+    });
+
+    it('quarantines an interrupted provider attempt and never blindly resends it', async () => {
+      const { store, alias } = await setup();
+      const sendCascade = vi.fn(async (emails: any[], options: any) => {
+        await options.beforeProviderAttempt(emails[0], 'maileroo');
+        await options.onAmbiguous(emails[0], new Error('response_timeout'));
+        return { sent: [], accepted: [], ambiguous: [emails[0]], failed: [] };
+      });
+      const { messageId, bucket } = await deliverWithoutModel({ store, alias, raw: plainMail({ subject: 'Ihre Bewerbung', text: 'Wir haben Ihre Bewerbung erhalten.' }), sendCascade });
+      expect(store.read(`${ORDER_PATH}/inbox/${messageId}`)?.forwarded).toMatchObject({ status: 'ambiguous' });
+      await runAssistedApplicationInboundForwardSweep({ db: withInboxCollectionGroup(store), bucket, runKey: RUN_KEY, sendCascade, nowMs: 2_000_000 });
+      expect(sendCascade).toHaveBeenCalledTimes(1);
+    });
+
+    it('marks a worker interrupted after the provider intent as ambiguous without calling a provider again', async () => {
+      const { store, alias } = await setup();
+      const { messageId, bucket } = await deliverWithoutModel({
+        store, alias, raw: plainMail({ subject: 'Ihre Bewerbung', text: 'Wir haben Ihre Bewerbung erhalten.' }),
+      });
+      await store.db.collection('assisted_applications').doc(ORDER).collection('inbox').doc(messageId).set({
+        forwardDelivery: { status: 'sending', attempts: 1, claimId: 'interrupted', leaseUntil: 100, providerAttemptStartedAt: 50 },
+        forwarded: { status: 'sending' },
+      }, { merge: true });
+      const sendCascade = vi.fn();
+
+      await runAssistedApplicationInboundForwardSweep({ db: withInboxCollectionGroup(store), bucket, runKey: RUN_KEY, sendCascade, nowMs: 1_000 });
+
+      expect(sendCascade).not.toHaveBeenCalled();
+      expect(store.read(`${ORDER_PATH}/inbox/${messageId}`)?.forwarded).toMatchObject({ status: 'ambiguous' });
+    });
+
+    it('does not resend when the created trigger is redelivered after a durable send record', async () => {
+      const { store, alias } = await setup();
+      const sendCascade = vi.fn(async (emails: any[], options: any) => {
+        await options.beforeProviderAttempt(emails[0], 'maileroo');
+        await options.onSent(emails[0], { provider: 'maileroo' });
+        return { sent: [emails[0]], accepted: [emails[0]], ambiguous: [], failed: [] };
+      });
+      const { messageId, bucket } = await deliverWithoutModel({ store, alias, raw: plainMail({ subject: 'Ihre Bewerbung', text: 'Wir haben Ihre Bewerbung erhalten.' }), sendCascade });
+      const classify = vi.fn(async () => { throw new Error('must not classify twice'); });
+      const duplicate = await processAssistedApplicationInbound({ db: store.db, bucket, orderId: ORDER, messageId, runKey: RUN_KEY, classify, sendCascade, nowMs: 2_000 });
+      expect(duplicate.skipped).toBe(true);
+      expect(sendCascade).toHaveBeenCalledTimes(1);
     });
   });
 
