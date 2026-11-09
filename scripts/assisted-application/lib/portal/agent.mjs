@@ -407,6 +407,7 @@ export function guardAgentStep(raw, candidate = null, grounded = new Set()) {
     }
     if (unresolvedNativeConsent) {
       unresolvedNativeContract = true;
+      suppressedActions.add(action.ref);
       continue;
     }
     if (retentionTopic) {
