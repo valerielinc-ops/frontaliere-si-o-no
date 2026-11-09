@@ -1,23 +1,22 @@
 {
   "key": "board-international",
   "label": "board",
-  "generatedAt": "2026-11-09T10:01:01.224Z",
-  "total": 5,
+  "generatedAt": "2026-11-09T21:33:00.236Z",
+  "total": 4,
   "authoritativeEmptySnapshot": false,
   "authoritativeSnapshotVerified": false,
   "newCount": 0,
   "updatedCount": 0,
-  "removedCount": 0,
-  "unchangedCount": 5,
-  "durationMs": 2520,
-  "avgDurationMs": 2520,
+  "removedCount": 1,
+  "unchangedCount": 4,
+  "durationMs": 1553,
+  "avgDurationMs": 1553,
   "durationHistory": [
-    2520
+    1553
   ],
   "newJobs": [],
   "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "title": "Cloud Operations Specialist",
       "slug": "cloud-operations-specialist-board-international-chiasso-switzerland",
@@ -60,7 +59,9 @@
         "translation": 25,
         "completeness": 25
       }
-    },
+    }
+  ],
+  "unchangedJobs": [
     {
       "title": "Senior GenAI Engineer",
       "slug": "senior-genai-engineer-board-international-chiasso-ticino-switzerland",
@@ -231,5 +232,5 @@
       }
     }
   ],
-  "codeCommit": "f071981dd2d2820cdec3736f76b1b17ee50345bd"
+  "codeCommit": "1dbbd63fa4ef1d645b973703c20eaa910357364d"
 }
