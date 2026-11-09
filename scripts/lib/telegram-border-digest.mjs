@@ -21,7 +21,7 @@ import {
 } from '../../build-plugins/borderWaitData.ts';
 import { fmtMinutes } from '../../services/borderWaitFormat.ts';
 import { SITE_URL, buildArticleUrl, MONTHS_IT } from './social-post-utils.mjs';
-import { escapeHtml } from './telegram-client.mjs';
+import { escapeHtml, TELEGRAM_MESSAGE_MAX } from './telegram-client.mjs';
 import { telegramUrl, TELEGRAM_CAMPAIGN_BORDER } from './telegram-links.mjs';
 import { isGeneratedSocialCopyMode, socialCopyTrackingContent } from './social-copy-pack.mjs';
 import {
@@ -60,51 +60,7 @@ function crossingLine(entry, index, socialCopy) {
   return `${index + 1}. <a href="${href}">${name}</a> — ${escapeHtml(fmtMinutes(entry.avgMinutes))}`;
 }
 
-/**
- * Build the weekly border-ranking message from the on-disk history dir.
- * Returns `{ text:'', rankedCount:0 }` (caller skips) when there is not yet
- * enough data to rank at least two crossings — a broadcast should stay silent
- * rather than post an empty "no data" week.
- *
- * @param {{ historyDir: string, todayIso?: string, days?: number }} opts
- * @returns {{ text: string, rankedCount: number, weekStart: string, weekEnd: string }}
- */
-export function buildWeeklyBorderDigest({ historyDir, todayIso, days = DEFAULT_WINDOW_DAYS, socialCopy } = {}) {
-  const iso = todayIso || new Date().toISOString().slice(0, 10);
-  const ranking = computeRanking(historyDir, iso, { days });
-  // "Classifica dogane Ticino" broadcast is Ticino-branded — the display-name
-  // truthiness check used to double as the Ticino-only filter back when the
-  // registry only covered 26 Ticino crossings. Now that it covers 134
-  // (108 non-Ticino Germany/Austria/Liechtenstein/France crossings added,
-  // #4952/#4889), every crossing has a display name, so that check no
-  // longer excludes them. Filter explicitly instead (same class of bug as
-  // border-wait-ranking-content.mjs `known`, #4952).
-  const known = ranking.filter((r) => BORDER_CROSSING_DISPLAY[r.slug] && isTicinoCrossing(r.slug));
-  const { weekStart, weekEnd } = computeWeekWindow(iso, days);
-
-  if (known.length < 2) {
-    return { text: '', rankedCount: known.length, weekStart, weekEnd };
-  }
-
-  const fastest = known.slice(0, TELEGRAM_BORDER_TOP);
-  const slowest = known.slice(-TELEGRAM_BORDER_TOP).reverse();
-  const funFacts = computeFunFacts(known);
-  const generatedCopy = isGeneratedSocialCopyMode(socialCopy?.copyMode) ? socialCopy : null;
-
-  const rawArticleUrl = buildArticleUrl('frontaliere', RANKING_ARTICLE_SLUGS.it);
-  const articleUrl = rawArticleUrl
-    ? telegramUrl(
-        rawArticleUrl,
-        TELEGRAM_CAMPAIGN_BORDER,
-        socialCopyTrackingContent('ranking_article', generatedCopy),
-      )
-    : rawArticleUrl;
-  const hubUrl = telegramUrl(
-    `${SITE_URL}${buildRootHubPath('it')}`,
-    TELEGRAM_CAMPAIGN_BORDER,
-    socialCopyTrackingContent('live_hub', generatedCopy),
-  );
-
+function renderBorderDigest({ weekStart, weekEnd, fastest, slowest, funFacts, articleUrl, hubUrl, generatedCopy }) {
   const parts = [
     `🚧 <b>Classifica dogane Ticino</b> — settimana del ${escapeHtml(humanRangeIt(weekStart, weekEnd))}`,
     '',
@@ -135,8 +91,71 @@ export function buildWeeklyBorderDigest({ historyDir, todayIso, days = DEFAULT_W
     `🚦 <a href="${escapeHtml(hubUrl)}">Traffico live alle dogane</a>`,
   );
 
+  return parts.filter((line) => line !== undefined && line !== null).join('\n');
+}
+
+/**
+ * Build the weekly border-ranking message from the on-disk history dir.
+ * Returns `{ text:'', rankedCount:0 }` (caller skips) when there is not yet
+ * enough data to rank at least two crossings — a broadcast should stay silent
+ * rather than post an empty "no data" week.
+ *
+ * @param {{ historyDir: string, todayIso?: string, days?: number }} opts
+ * @returns {{ text: string, rankedCount: number, weekStart: string, weekEnd: string }}
+ */
+export function buildWeeklyBorderDigest({ historyDir, todayIso, days = DEFAULT_WINDOW_DAYS, socialCopy } = {}) {
+  const iso = todayIso || new Date().toISOString().slice(0, 10);
+  const ranking = computeRanking(historyDir, iso, { days });
+  // "Classifica dogane Ticino" broadcast is Ticino-branded — the display-name
+  // truthiness check used to double as the Ticino-only filter back when the
+  // registry only covered 26 Ticino crossings. Now that it covers 134
+  // (108 non-Ticino Germany/Austria/Liechtenstein/France crossings added,
+  // #4952/#4889), every crossing has a display name, so that check no
+  // longer excludes them. Filter explicitly instead (same class of bug as
+  // border-wait-ranking-content.mjs `known`, #4952).
+  const known = ranking.filter((r) => BORDER_CROSSING_DISPLAY[r.slug] && isTicinoCrossing(r.slug));
+  const { weekStart, weekEnd } = computeWeekWindow(iso, days);
+
+  if (known.length < 2) {
+    return { text: '', rankedCount: known.length, weekStart, weekEnd };
+  }
+
+  const funFacts = computeFunFacts(known);
+  const generatedCopy = isGeneratedSocialCopyMode(socialCopy?.copyMode) ? socialCopy : null;
+
+  const rawArticleUrl = buildArticleUrl('frontaliere', RANKING_ARTICLE_SLUGS.it);
+  const articleUrl = rawArticleUrl
+    ? telegramUrl(
+        rawArticleUrl,
+        TELEGRAM_CAMPAIGN_BORDER,
+        socialCopyTrackingContent('ranking_article', generatedCopy),
+      )
+    : rawArticleUrl;
+  const hubUrl = telegramUrl(
+    `${SITE_URL}${buildRootHubPath('it')}`,
+    TELEGRAM_CAMPAIGN_BORDER,
+    socialCopyTrackingContent('live_hub', generatedCopy),
+  );
+
+  let visibleTop = TELEGRAM_BORDER_TOP;
+  let text = '';
+  do {
+    text = renderBorderDigest({
+      weekStart,
+      weekEnd,
+      fastest: known.slice(0, visibleTop),
+      slowest: known.slice(-visibleTop).reverse(),
+      funFacts,
+      articleUrl,
+      hubUrl,
+      generatedCopy,
+    });
+    if (text.length <= TELEGRAM_MESSAGE_MAX || visibleTop === 1) break;
+    visibleTop -= 1;
+  } while (visibleTop > 0);
+
   return {
-    text: parts.filter((line) => line !== undefined && line !== null).join('\n'),
+    text,
     rankedCount: known.length,
     weekStart,
     weekEnd,

@@ -519,6 +519,35 @@ describe('buildWeeklyBorderDigest', () => {
     expect(generated.text).toContain('>Leggi la classifica completa</a>');
   });
 
+  it('keeps both CTAs inside Telegram’s hard limit when the ranking is long', () => {
+    const dir = mkdtempSync(path.join(os.tmpdir(), 'bw-'));
+    const slugs = [
+      'chiasso-centro', 'chiasso-brogeda', 'chiasso-strada',
+      'gaggiolo', 'ponte-tresa', 'ronago-novazzano',
+    ];
+    for (let d = 3; d <= 9; d++) {
+      const date = `2026-07-0${d}`;
+      writeDay(dir, date, Object.fromEntries(slugs.map((slug, index) => [slug, makeHours(index + 1)])));
+    }
+
+    const { text } = buildWeeklyBorderDigest({
+      historyDir: dir,
+      todayIso: '2026-07-10',
+      socialCopy: {
+        copyMode: 'codex',
+        copyPackId: '0123456789abcdef',
+        copySlot: 'border',
+        id: 'border-context',
+        hook: 'Il contesto aggiornato della settimana per organizzare meglio lo spostamento.',
+        cta: 'Consulta la guida.',
+      },
+    });
+
+    expect(text.length).toBeLessThanOrEqual(TELEGRAM_MESSAGE_MAX);
+    expect(text).toContain('>Consulta la guida.</a>');
+    expect(text).toContain('>Traffico live alle dogane</a>');
+  });
+
   it('skips (empty text) when fewer than two crossings can be ranked', () => {
     const dir = mkdtempSync(path.join(os.tmpdir(), 'bw-'));
     for (let d = 3; d <= 9; d++) writeDay(dir, `2026-07-0${d}`, { 'chiasso-centro': makeHours(2) });
