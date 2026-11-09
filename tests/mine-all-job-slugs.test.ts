@@ -17,6 +17,7 @@
  * `process.argv[1] === fileURLToPath(import.meta.url)` guard around `main()`
  * in mine-all-job-slugs.mjs).
  */
+import { spawnSync } from 'node:child_process';
 import { describe, expect, it } from 'vitest';
 import {
   buildLocalePathsForCanton,
@@ -42,6 +43,17 @@ describe('measureSerializedJsonObjectLength', () => {
     });
 
     expect(measureSerializedJsonObjectLength(registry)).toBe(expectedLength);
+  });
+
+  it('imports with the native Node ESM loader used by deploy prep', () => {
+    const moduleUrl = new URL('../scripts/mine-all-job-slugs.mjs', import.meta.url).href;
+    const result = spawnSync(
+      process.execPath,
+      ['--input-type=module', '--eval', `await import(${JSON.stringify(moduleUrl)})`],
+      { encoding: 'utf8' },
+    );
+
+    expect(result.status, `${result.stderr}\n${result.stdout}`).toBe(0);
   });
 });
 
