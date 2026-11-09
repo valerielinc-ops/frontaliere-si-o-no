@@ -177,7 +177,7 @@
       }
       const result = await F.fillPage(document, state.kit, { getFile, getFiles, attempts, uploaded });
       const manualReview = result.missing.some((item) => [
-        'unconfirmed_checkbox_could_not_be_cleared', 'unconfirmed_consent_choice', 'required_consent_refused', 'consent_choice_unresolved', 'native_contract_unavailable',
+        'unconfirmed_checkbox_could_not_be_cleared', 'unconfirmed_consent_choice', 'required_consent_refused', 'required_factual_checkbox_refused', 'consent_choice_unresolved', 'native_contract_unavailable',
       ].includes(item.reason));
       if (result.entries && !state.sawForm) {
         state.sawForm = true;

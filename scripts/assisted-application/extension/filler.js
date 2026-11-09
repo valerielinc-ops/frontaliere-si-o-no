@@ -1295,6 +1295,7 @@
     const consentText = consentLabels.join(' ');
     const consentSemanticIds = [entry.name, entry.id, entry.controlId, entry.semanticId, entry.fieldId].filter(Boolean);
     const explicitConsentSource = ['answers', 'candidate', 'user'].includes(fromKit?.source);
+    const isConsentChoice = consentChoice(entry, kit);
     const policyDefaultPrivacyAcknowledgment = fromKit?.source === 'policy_default'
       && entry.required === true
       && isPrivacyReviewAcknowledgment(fromKit.question, ...consentSemanticIds, ...(entry.labels || []));
@@ -1302,11 +1303,7 @@
       && entry.required === false
       && isOptionalPurpose(consentText)
       && /^(?:0|false|no|nein|non|n|nicht)$/i.test(normalize(fromKit.answer));
-    const consentChoice = entry.kind === 'checkbox'
-      || CONSENT_CONTEXT_RE.test(consentText)
-      || isApplicationDataProcessingConsent(consentText, ...consentSemanticIds)
-      || (CONSENT_CHOICE_KINDS.has(entry.kind) && isOptionalPurpose(consentText));
-    if (consentChoice && !explicitConsentSource && !policyDefaultPrivacyAcknowledgment && !policyDefaultOptionalDecline) return null;
+    if (isConsentChoice && !explicitConsentSource && !policyDefaultPrivacyAcknowledgment && !policyDefaultOptionalDecline) return null;
     if (entry.kind === 'file') {
       const label = normalize(`${entry.label} ${fromKit?.question || ''}`);
       const accept = String(entry.element.getAttribute('accept') || '');
@@ -1328,15 +1325,20 @@
       return null;
     }
     if (entry.kind === 'checkbox') {
-      if (!policyDefaultPrivacyAcknowledgment && !policyDefaultOptionalDecline && !explicitConsentSource) return null;
-      return /^(?:1|true|yes|ja|oui|si|y)$/i.test(normalize(fromKit.answer)) ? { check: true } : null;
+      if (isConsentChoice) {
+        if (!policyDefaultPrivacyAcknowledgment && !policyDefaultOptionalDecline && !explicitConsentSource) return null;
+        return /^(?:1|true|yes|ja|oui|si|y)$/i.test(normalize(fromKit.answer)) ? { check: true } : null;
+      }
+      const factSource = ['answers', 'candidate', 'user', 'profile', 'documents'].includes(fromKit?.source);
+      const factPolarity = factSource ? consentAnswerPolarity(fromKit?.answer) : null;
+      return factPolarity === null ? null : { check: factPolarity };
     }
     if (!fromKit) {
       const salutation = candidateSalutationAnswer(entry, kit);
       if (salutation) return salutation;
     }
     const family = ['text', 'textarea', 'combobox', 'select', 'native-date', 'date', 'ui5-date', 'listbox', 'search-select'].includes(entry.kind) ? familyOf(entry) : null;
-    if (consentChoice && CONSENT_CHOICE_KINDS.has(entry.kind) && fromKit) {
+    if (isConsentChoice && CONSENT_CHOICE_KINDS.has(entry.kind) && fromKit) {
       const polarity = consentAnswerPolarity(fromKit.answer);
       const options = choiceOptions(entry);
       if (polarity !== null && options.length) {
@@ -1383,10 +1385,9 @@
     const text = [entry.label, ...(entry.labels || []), fromKit?.question]
       .filter(value => typeof value === 'string' && value.trim()).join(' ');
     const semanticIds = [entry.name, entry.id, entry.controlId, entry.semanticId, entry.fieldId].filter(Boolean);
-    return entry.kind === 'checkbox'
-      || CONSENT_CONTEXT_RE.test(text)
+    return CONSENT_CONTEXT_RE.test(text)
       || isApplicationDataProcessingConsent(text, ...semanticIds)
-      || (CONSENT_CHOICE_KINDS.has(entry.kind) && isOptionalPurpose(text));
+      || (entry.kind !== 'checkbox' && CONSENT_CHOICE_KINDS.has(entry.kind) && isOptionalPurpose(text));
   }
 
   function consentAnswerPolarity(value) {
@@ -1989,6 +1990,11 @@
       if (isConsentChoice && entry.required && explicitConsentAnswer && consentPolarity === false) {
         failed.push(entry.label || entry.kind);
         missing.push({ label: entry.label || entry.kind, answer: '', reason: 'required_consent_refused' });
+        continue;
+      }
+      if (entry.kind === 'checkbox' && entry.required && !isConsentChoice && answer?.check === false) {
+        failed.push(entry.label || entry.kind);
+        missing.push({ label: entry.label || entry.kind, answer: 'No', reason: 'required_factual_checkbox_refused' });
         continue;
       }
       if (isConsentChoice && !isEmpty(entry) && !answer) {

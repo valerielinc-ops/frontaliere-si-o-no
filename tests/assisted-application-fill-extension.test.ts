@@ -1935,6 +1935,20 @@ describe('fill extension: consent and retention require a candidate answer', () 
     expect(result.missing).toContainEqual(expect.objectContaining({ reason: 'required_consent_refused' }));
   });
 
+  it('uses an exact negative answer for a factual select without consent polarity ambiguity', async () => {
+    const question = 'Which permit do you hold?';
+    const { window, document, F } = page(`<label for="permit">${question}</label><select id="permit" required>
+      <option value="no-permit">No permit</option><option value="no-restrictions">No restrictions</option>
+      <option value="b">B permit</option></select>`);
+    const candidate = { ...kit, answers: [...kit.answers, { question, answer: 'No permit', source: 'answers' }] };
+    const entry = F.collect(document).find((item: any) => item.element.id === 'permit');
+    expect(F.answerFor(entry, candidate)).toEqual({ value: 'No permit' });
+    const result = await F.fillPage(document, candidate, { getFile: async () => null, attempts: new WeakMap() });
+    expect((document.getElementById('permit') as HTMLSelectElement).value).toBe('no-permit');
+    expect(result.missing).toEqual([]);
+    window.close();
+  });
+
   it('leaves an optional consent checkbox unchecked for an explicit candidate refusal', async () => {
     const question = 'Would you like to receive marketing updates?';
     const { document, F } = page(`<label><input id="marketing" type="checkbox" checked> ${question}</label>`);
@@ -1942,6 +1956,29 @@ describe('fill extension: consent and retention require a candidate answer', () 
     const result = await F.fillPage(document, candidate, { getFile: async () => null, attempts: new WeakMap() });
     expect((document.getElementById('marketing') as HTMLInputElement).checked).toBe(false);
     expect(result.missing).toEqual([]);
+  });
+
+  it.each(['profile', 'documents'])('fills a factual licence checkbox from %s evidence', async source => {
+    const question = 'Do you hold a driving licence?';
+    const { window, document, F } = page(`<label><input id="licence" type="checkbox" required> ${question}</label>`);
+    const candidate = { ...kit, answers: [...kit.answers, { question, answer: 'Yes', source }] };
+    const result = await F.fillPage(document, candidate, { getFile: async () => null, attempts: new WeakMap() });
+    expect((document.getElementById('licence') as HTMLInputElement).checked).toBe(true);
+    expect(result.filled).toContain(question);
+    expect(result.missing).not.toContainEqual(expect.objectContaining({ reason: 'unconfirmed_consent_choice' }));
+    window.close();
+  });
+
+  it('keeps a required factual checkbox unchecked and asks for manual review when the answer is no', async () => {
+    const question = 'Do you hold a driving licence?';
+    const { window, document, F } = page(`<label><input id="licence" type="checkbox" required checked> ${question}</label>`);
+    const candidate = { ...kit, answers: [...kit.answers, { question, answer: 'No', source: 'profile' }] };
+    const result = await F.fillPage(document, candidate, { getFile: async () => null, attempts: new WeakMap() });
+    expect((document.getElementById('licence') as HTMLInputElement).checked).toBe(false);
+    expect(result.missing).toContainEqual(expect.objectContaining({
+      label: question, answer: 'No', reason: 'required_factual_checkbox_refused',
+    }));
+    window.close();
   });
 
   it('uses the candidate-selected retention option and never chooses the shortest one', () => {

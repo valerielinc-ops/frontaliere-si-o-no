@@ -35,7 +35,7 @@ import { extractFields as extractFieldsRaw, registerPortalChannelType } from './
 import { startPortalDiagnostics, portalHandoffReason } from './diagnostics.mjs';
 import { applicationContractFromPreflight, applicationContractFromSubmission } from './application-contract.mjs';
 import { NO_PORTAL_KNOWLEDGE, labelsAt, learnedButton } from './knowledge.mjs';
-import { addressAnswerNeedsOwnership, candidateAnswerForField, holdsValue, isPermitHistoricalQuestion, ownConsent, planPage, questionTopic, targetEmployerNoOption } from './plan.mjs';
+import { addressAnswerNeedsOwnership, candidateAnswerForField, consentAnswerPolarity, holdsValue, isPermitHistoricalQuestion, ownConsent, planPage, questionTopic, targetEmployerNoOption } from './plan.mjs';
 import { registerCookieSessionRecovery } from './cookie-session.mjs';
 import { portalAnswerForApplication, portalOptionMap, portalQuestionId, portalQuestionKey, slugId } from './question-key.mjs';
 import { codexPrompt } from '../../../../functions/src/assistedApplicationAiPrompts.js';
@@ -4236,7 +4236,7 @@ const registrationButton = (snapshot) => [CREATE_ACCOUNT_RE, SUBMIT_RE, NEXT_RE]
  * silence would be a registration that may have gone through.
  * @returns {Promise<{ privacy: 'none'|'accepted'|'unavailable', filled: object, blocked: boolean }>}
  */
-export async function registrationPrivacyPreflight(page, { accepted = false, timeoutMs = PRIVACY_ENABLE_TIMEOUT_MS } = {}) {
+export async function registrationPrivacyPreflight(page, { accepted = false, candidate = null, timeoutMs = PRIVACY_ENABLE_TIMEOUT_MS } = {}) {
   const initial = await extractFields(page, NAVIGATION);
   const targetControl = registrationButton(initial);
   const privacy = await acceptPrivacyStatement(page, initial, { targetControl });
@@ -4246,12 +4246,25 @@ export async function registrationPrivacyPreflight(page, { accepted = false, tim
   if (privacy === 'none' && accepted) return { privacy, filled, blocked: false };
   if (privacy === 'none') {
     // A button shut by its styling alone reads as free: only an optional notice
-    // leaves the way open, and then only past a button that is not shut.
+    // or an explicitly/approved same-form acknowledgement leaves the way open.
     const sameForm = control => targetControl && targetControl.form >= 0 && control.form === targetControl.form && control.frame === targetControl.frame;
     const { notice } = privacyConsentControls({ ...filled, buttons: filled.buttons.filter(sameForm), links: (filled.links || []).filter(sameForm) });
-    // A prechecked box is not evidence that the candidate accepted the notice.
     const cta = registrationButton(filled);
-    const blocked = Boolean(notice) && (!optionalNotice(notice) || Boolean(cta?.disabled));
+    const approvedAcknowledgment = (field) => {
+      const answer = candidateAnswerForField(candidate, field);
+      const polarity = consentAnswerPolarity(answer?.value);
+      const explicit = ['answers', 'candidate', 'user'].includes(answer?.source) && polarity === true;
+      const approvedPolicy = answer?.source === 'policy_default'
+        && operationalQuestionTopic(field) === 'privacy_review_ack'
+        && (field.portalNativeContract?.required === true || field.required === true)
+        && polarity === true;
+      return explicit || approvedPolicy;
+    };
+    const answered = Boolean(notice?.leavesDocument) && cta && !cta.disabled
+      && notice.form >= 0 && notice.form === cta.form && notice.frame === cta.frame
+      && (filled.fields || []).some((field) => field.checked && ownConsent(field)
+        && field.form === notice.form && field.frame === notice.frame && approvedAcknowledgment(field));
+    const blocked = Boolean(notice) && !answered && (!optionalNotice(notice) || Boolean(cta?.disabled));
     return blocked ? { privacy: 'unavailable', filled, blocked } : { privacy, filled, blocked };
   }
   if (!registrationButton(filled)?.disabled) return { privacy, filled, blocked: false };
@@ -5868,7 +5881,7 @@ export async function handleAuth({ page, snapshot, ctx, allowExistingRegistratio
     }
     // After the fields: SuccessFactors opens its statement only for a chosen country.
     const privacyStartUrl = page.url();
-    const preflight = await registrationPrivacyPreflight(page, { accepted: privacy === 'accepted' });
+    const preflight = await registrationPrivacyPreflight(page, { accepted: privacy === 'accepted', candidate });
     if (preflight.privacy !== 'none') privacy = preflight.privacy;
     if (preflight.blocked) {
       // Nothing was pressed, so no account came of this: as with no button, a

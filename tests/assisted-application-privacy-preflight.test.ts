@@ -337,6 +337,18 @@ describe('required privacy notice dialog controls', () => {
 });
 
 describe('privacy before the registration click', () => {
+  it('allows an explicitly answered same-form acknowledgement when its external notice cannot be opened', async () => {
+    const question = 'I agree to the privacy policy';
+    const markup = `<form id="registration" action="/register">
+      <label><input type="checkbox" id="privacy" name="privacy" required checked> ${question}</label>
+      <a id="notice" href="https://privacy.example.test/policy">Read and accept the privacy policy</a>
+      <button type="button" id="create">Konto anlegen</button></form>`;
+    const fixture = fakePage([markup]);
+    const candidate = { identity: {}, profile: {}, answers: {},
+      portalQuestionsAnswered: [{ question, answer: 'Yes', source: 'answers' }] };
+    expect(await preflight(fixture.page, { candidate })).toMatchObject({ privacy: 'none', blocked: false });
+  });
+
   it('opens, reviews, accepts and waits for the CTA: the observed imperative link', async () => {
     const fixture = fakePage([REGISTRATION()]);
     const clicks = wireNotice(fixture);

@@ -213,6 +213,9 @@ export function resolveResidenceAddress(rawAddress = {}, location = '', cvText =
   const evidenceLines = cvAddressEvidenceLines(cvText);
   const cityCandidate = cityWithoutProvince(rawCity);
   const hasCvSource = String(cvText || '').trim().length > 0;
+  // The profile address is AI-extracted from the CV, so require candidate-header
+  // or explicit residence evidence before using it; work-history addresses are
+  // deliberately excluded by cvAddressEvidenceLines.
   const city = !hasCvSource || appearsInEvidence(cityCandidate, evidenceLines) ? cityCandidate : '';
   const countryCandidate = explicitCountryFrom(address.country) || explicitCountryFrom(rawCity) || explicitCountryFrom(location);
   const country = !hasCvSource || countryAppearsInEvidence(countryCandidate, evidenceLines) ? countryCandidate : '';
