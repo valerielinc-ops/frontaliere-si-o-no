@@ -919,7 +919,8 @@
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-04T09:42:57.629Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "sbb-6eb1004dd0e5",
@@ -5526,7 +5527,8 @@
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-26T09:43:15.618Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "sbb-267b05aacbe5",
@@ -5627,7 +5629,8 @@
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-26T09:43:16.125Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "sbb-48fdac3fd924",
@@ -6894,7 +6897,8 @@
       "validThrough": "2027-01-24T21:44:35.146Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-06-24T12:09:20.673Z",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 1,
+      "needsRetranslation": true
     },
     {
       "id": "sbb-3b00c4c42be3",
@@ -9337,7 +9341,8 @@
       "validThrough": "2027-01-11T21:44:37.057Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-08T21:44:37.057Z",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 1,
+      "needsRetranslation": true
     },
     {
       "id": "sbb-ebd10104b050",
@@ -10138,7 +10143,8 @@
       "streetAddress": "Rotkreuz",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-28T09:43:40.625Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "sbb-9689d0bd71a9",
@@ -10236,7 +10242,8 @@
       "streetAddress": "Birsfelden Hafen",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-25T09:43:40.125Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "sbb-79aa385a6bd8",
@@ -10813,7 +10820,8 @@
       "validThrough": "2026-12-21T21:44:33.076Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-08T21:44:33.076Z",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 1,
+      "needsRetranslation": true
     },
     {
       "id": "sbb-ef34876a529a",
@@ -10924,7 +10932,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-21T21:44:49.556Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 1,
+      "needsRetranslation": true
     },
     {
       "id": "sbb-83c61f0a4674",
@@ -11326,7 +11335,8 @@
       "streetAddress": "Niederglatt",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-14T09:43:33.131Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "sbb-6a4e70dc6ace",
@@ -12156,7 +12166,8 @@
       "streetAddress": "Muttenz",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-09T09:43:31.617Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "sbb-0170b841dcc7",
@@ -12580,7 +12591,8 @@
       "streetAddress": "Spreitenbach",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-09T09:43:31.122Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "sbb-387d1f94c918",
@@ -14362,7 +14374,8 @@
       "validThrough": "2026-12-08T21:44:35.614Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-08T21:44:35.614Z",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 1,
+      "needsRetranslation": true
     },
     {
       "id": "sbb-17030e33d4a9",
@@ -14465,7 +14478,8 @@
       "streetAddress": "Hägendorf",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-09T09:43:30.619Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "sbb-ab9281add8ea",
@@ -15721,7 +15735,8 @@
       "validThrough": "2026-12-08T21:44:34.041Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-08T21:44:34.041Z",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 1,
+      "needsRetranslation": true
     },
     {
       "id": "sbb-95604d8eb223",
@@ -16151,7 +16166,8 @@
       "validThrough": "2026-12-08T21:44:33.554Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-08T21:44:33.554Z",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 1,
+      "needsRetranslation": true
     },
     {
       "id": "sbb-2f1e4873e1d3",
