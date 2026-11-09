@@ -1,5 +1,6 @@
 import { useTranslation } from '@/services/i18n';
-import { PERMIT_STATUSES, permitOptions } from '@/functions/src/lib/permitStatus.js';
+// permitLabels.js, not permitStatus.js: the browser bundle must not carry its lookbehind regexes.
+import { PERMIT_STATUSES, permitOptions } from '@/functions/src/lib/permitLabels.js';
 
 /**
  * Asked with the CV (owner decision 2026-11-09): the work permit, the passport
