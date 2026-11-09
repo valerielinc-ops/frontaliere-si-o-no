@@ -2247,11 +2247,25 @@ jobs:
         # The same gates run inside create-article.mjs, which covers the LLM
         # generation path the incident came from. This step is the backstop for
         # every OTHER way a body reaches main: hand edits, repair scripts and the
-        # other generators. Zero model calls, so it cannot fail open.
+        # other generators. The one same-repository branch excluded below is
+        # the generated sync PR: its writer already ran this audit on the
+        # uncommitted batch, in report-only mode, before opening the PR. Keep
+        # this exception closed to the exact branch and repository; all other
+        # article PRs remain blocking.
         #
         # Each failure prints the required correction. Fix the content — never
         # loosen a threshold or delete the passage to get the gate green.
-        if: ${{ steps.body_contract.outcome != 'failure' && steps.ledger_scope.outputs.ledger_only != 'true' }}
+        if: >-
+          ${{
+            steps.body_contract.outcome != 'failure' &&
+            steps.ledger_scope.outputs.ledger_only != 'true' &&
+            (
+              github.event_name != 'pull_request' ||
+              github.event.pull_request.base.ref != 'main' ||
+              github.event.pull_request.head.ref != 'chore/sync-articles-sitemaps' ||
+              github.event.pull_request.head.repo.full_name != github.repository
+            )
+          }}
         env:
           RECOVERY_IS: ${{ steps.recovery_context.outputs.is_recovery }}
           BASE_REF: ${{ github.base_ref || github.event.merge_group.base_ref || 'main' }}

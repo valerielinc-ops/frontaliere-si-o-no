@@ -9,20 +9,12 @@ import path from 'node:path';
  *
  * Il difetto riparato NON era il gate — `scripts/lib/article-factuality-gates.mjs`
  * è deterministico e segnala correttamente l'articolo citato nell'issue. Era
- * che il gate non era collegato al percorso che pubblica davvero: dal cutover
- * 2026-08-02 (#4974) i body arrivano da nanakokyobashi-rgb/frontaliere-articles
- * attraverso `.github/workflows/sync-articles-sitemaps.yml`, che committa
- * `packages/articles/content` DIRETTAMENTE su `main` senza PR. Su quel percorso
- * ogni hook basato su un diff committato è morto:
- *
- *   - `pull_request` non esiste;
- *   - la run `push: branches: [main]` di tests.yml non parte nemmeno — il sync
- *     pusha col GITHUB_TOKEN del workflow e GitHub non innesca workflow su quei
- *     push (misurato 2026-08-11: il commit di sync 7f1a3b4f ha 4 check-run,
- *     tutte `schedule`/`workflow_run`, zero `push`);
- *   - e se partisse, su un push `github.base_ref` è vuoto, quindi
- *     `--changed origin/${{ github.base_ref || 'main' }}` diffa `origin/main`
- *     con se stesso → scope vuoto → verde senza aver verificato niente.
+ * il collegamento al percorso che pubblica davvero: dal cutover 2026-08-02
+ * (#4974) i body arrivano da nanakokyobashi-rgb/frontaliere-articles attraverso
+ * `.github/workflows/sync-articles-sitemaps.yml`, che audita il batch nel
+ * working tree e lo pubblica tramite la PR stabile
+ * `chore/sync-articles-sitemaps`. Questa PR ha già il reporter report-only del
+ * writer; il gate bloccante di tests.yml resta attivo per ogni altro ingresso.
  *
  * Questi test coprono le due metà che restano: che `--changed-worktree` esista
  * e dichiari il proprio scope in modo distinguibile da un no-op, e che il
@@ -261,6 +253,22 @@ describe('audit-article-factuality.mjs --changed-worktree', () => {
       status = (err as { status?: number }).status ?? 0;
     }
     expect(status).toBe(2);
+  });
+});
+
+describe('tests.yml — factuality gate del sync stabile', () => {
+  it('esclude solo il branch sync same-repo e conserva il gate per gli altri ingressi', () => {
+    const workflow = readFileSync(path.join(ROOT, '.github', 'workflows', 'tests.yml'), 'utf-8');
+    const start = workflow.indexOf('- name: Gate factuality of changed articles');
+    const end = workflow.indexOf('- name: Collect changed paths (corpus gates delegated to frontaliere-articles)', start);
+    expect(start).toBeGreaterThan(-1);
+    expect(end).toBeGreaterThan(start);
+    const step = workflow.slice(start, end);
+    expect(step).toContain("github.event.pull_request.head.ref != 'chore/sync-articles-sitemaps'");
+    expect(step).toContain("github.event.pull_request.head.repo.full_name != github.repository");
+    expect(step).toContain("github.event.pull_request.base.ref != 'main'");
+    expect(step).toContain('node scripts/audit-article-factuality.mjs --changed');
+    expect(step).not.toContain('continue-on-error');
   });
 });
 
