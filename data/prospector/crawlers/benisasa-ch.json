@@ -1,0 +1,25 @@
+{
+  "companyKey": "benisasa-ch",
+  "companyName": "BENISA SA",
+  "companyHost": "benisasa.ch",
+  "verifiedEmployerDomain": "benisasa.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://www.benisasa.ch/jobs"
+  ],
+  "detailTemplate": "/jobs/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 3,
+  "sampleTitles": [
+    "Vedi",
+    "Vedi",
+    "Vedi"
+  ],
+  "canton": "TI",
+  "sourceLang": "it",
+  "learnedAt": "2026-11-09T14:27:06.909Z",
+  "candidateKey": "benisa@cadempino"
+}

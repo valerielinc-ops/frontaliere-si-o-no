@@ -1,0 +1,22 @@
+{
+  "companyKey": "peopleofcoloragainstaidsnetwork",
+  "companyName": "People of Color Against AIDS Network",
+  "companyHost": "peopleofcoloragainstaidsnetwork.applytojob.com",
+  "platform": "applytojob.com",
+  "mode": "known-template",
+  "seedUrls": [
+    "https://peopleofcoloragainstaidsnetwork.applytojob.com/apply"
+  ],
+  "detailTemplate": "/apply/*/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": false,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 2,
+  "sampleTitles": [
+    "Medical Receptionist",
+    "PrEP Navigator and Tester"
+  ],
+  "sourceLang": "en",
+  "learnedAt": "2026-11-09T14:26:17.503Z",
+  "candidateKey": "peopleofcoloragainstaidsnetwork@applytojob.com"
+}

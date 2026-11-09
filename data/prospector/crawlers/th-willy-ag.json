@@ -1,0 +1,23 @@
+{
+  "companyKey": "th-willy-ag",
+  "companyName": "Th. Willy AG",
+  "companyHost": "app.jobportal.abaservices.ch",
+  "verifiedEmployerDomain": "thwilly.ch",
+  "platform": "abaservices.ch",
+  "mode": "jsonld",
+  "seedUrls": [
+    "https://app.jobportal.abaservices.ch/job-advertisement/3d95fa54-6ed7-4844-bc4b-4d2b20c1b7e0/6c065063-6519-2fbc-4727-d62a9fa17722?jp=ABACUS"
+  ],
+  "detailTemplate": "/job-advertisement/3d95fa54-6ed7-4844-bc4b-4d2b20c1b7e0/6c065063-6519-2fbc-4727-d62a9fa17722",
+  "detailEnrichment": false,
+  "employerSiteLocationFallback": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 1,
+  "sampleTitles": [
+    "Sachbearbeiter Disposition"
+  ],
+  "canton": "LU",
+  "sourceLang": "it",
+  "learnedAt": "2026-11-09T14:38:39.945Z",
+  "candidateKey": "th-willy@kriens"
+}

@@ -1,0 +1,23 @@
+{
+  "companyKey": "scene",
+  "companyName": "Scene+",
+  "companyHost": "scene.applytojob.com",
+  "platform": "applytojob.com",
+  "mode": "known-template",
+  "seedUrls": [
+    "https://scene.applytojob.com/apply"
+  ],
+  "detailTemplate": "/apply/*/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": false,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 3,
+  "sampleTitles": [
+    "Senior Data Engineer",
+    "Fraud Product and Operations Lead",
+    "Account Director, Travel and Banking Engagement"
+  ],
+  "sourceLang": "en",
+  "learnedAt": "2026-11-09T14:26:34.400Z",
+  "candidateKey": "scene@applytojob.com"
+}

@@ -1,0 +1,21 @@
+{
+  "companyKey": "sendoso",
+  "companyName": "Sendoso",
+  "companyHost": "sendoso.applytojob.com",
+  "platform": "applytojob.com",
+  "mode": "known-template",
+  "seedUrls": [
+    "https://sendoso.applytojob.com/apply"
+  ],
+  "detailTemplate": "/apply/*/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": false,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 1,
+  "sampleTitles": [
+    "Warehouse Associate - Sign-On Bonus"
+  ],
+  "sourceLang": "en",
+  "learnedAt": "2026-11-09T14:26:35.860Z",
+  "candidateKey": "sendoso@applytojob.com"
+}

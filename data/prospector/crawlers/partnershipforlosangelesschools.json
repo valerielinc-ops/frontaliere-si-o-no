@@ -1,0 +1,25 @@
+{
+  "companyKey": "partnershipforlosangelesschools",
+  "companyName": "Partnership for Los Angeles Schools",
+  "companyHost": "partnershipforlosangelesschools.applytojob.com",
+  "platform": "applytojob.com",
+  "mode": "known-template",
+  "seedUrls": [
+    "https://partnershipforlosangelesschools.applytojob.com/apply"
+  ],
+  "detailTemplate": "/apply/*/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": false,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 7,
+  "sampleTitles": [
+    "2026-27 Teacher Application: All Grade Levels",
+    "Elementary Literacy Coach (Accepting Interest Only)",
+    "Elementary Math Coach (Accepting Interest Only)",
+    "Secondary Literacy Coach",
+    "Secondary Math Coach"
+  ],
+  "sourceLang": "en",
+  "learnedAt": "2026-11-09T14:26:16.071Z",
+  "candidateKey": "partnershipforlosangelesschools@applytojob.com"
+}

@@ -1,0 +1,23 @@
+{
+  "companyKey": "proplaning-ag",
+  "companyName": "Proplaning AG",
+  "companyHost": "my.jobalino.ch",
+  "verifiedEmployerDomain": "proplaning.ch",
+  "platform": "jobalino.ch",
+  "mode": "jsonld",
+  "seedUrls": [
+    "https://my.jobalino.ch/job/b41073c90f165c400f37ffe265a4632e/proplaning-ag/gesamtprojektleiter-baumanagement-w-m-d"
+  ],
+  "detailTemplate": "/job/b41073c90f165c400f37ffe265a4632e/proplaning-ag/gesamtprojektleiter-baumanagement-w-m-d",
+  "detailEnrichment": false,
+  "employerSiteLocationFallback": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 1,
+  "sampleTitles": [
+    "Gesamtprojektleiter Baumanagement (w | m | d) / 100%"
+  ],
+  "canton": "ZH",
+  "sourceLang": "de",
+  "learnedAt": "2026-11-09T14:38:37.487Z",
+  "candidateKey": "proplaning@zurich"
+}

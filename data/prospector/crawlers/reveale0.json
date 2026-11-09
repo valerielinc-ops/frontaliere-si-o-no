@@ -1,0 +1,22 @@
+{
+  "companyKey": "reveale0",
+  "companyName": "Reveal USA",
+  "companyHost": "reveale0.applytojob.com",
+  "platform": "applytojob.com",
+  "mode": "known-template",
+  "seedUrls": [
+    "https://reveale0.applytojob.com/apply"
+  ],
+  "detailTemplate": "/apply/*/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": false,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 2,
+  "sampleTitles": [
+    "Legal & Business Operations Lead",
+    "SAP Advisor"
+  ],
+  "sourceLang": "en",
+  "learnedAt": "2026-11-09T14:26:25.251Z",
+  "candidateKey": "reveale0@applytojob.com"
+}

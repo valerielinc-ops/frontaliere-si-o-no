@@ -1,0 +1,24 @@
+{
+  "companyKey": "rapidfinance",
+  "companyName": "Rapid Finance",
+  "companyHost": "rapidfinance.applytojob.com",
+  "platform": "applytojob.com",
+  "mode": "known-template",
+  "seedUrls": [
+    "https://rapidfinance.applytojob.com/apply"
+  ],
+  "detailTemplate": "/apply/*/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": false,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 4,
+  "sampleTitles": [
+    "Collections Specialist",
+    "Sales Representative (Direct)",
+    "Legal Assistant",
+    "BI Data Analyst (Hybrid)"
+  ],
+  "sourceLang": "en",
+  "learnedAt": "2026-11-09T14:26:23.838Z",
+  "candidateKey": "rapidfinance@applytojob.com"
+}

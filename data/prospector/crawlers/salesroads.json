@@ -1,0 +1,22 @@
+{
+  "companyKey": "salesroads",
+  "companyName": "SalesRoads",
+  "companyHost": "salesroads.applytojob.com",
+  "platform": "applytojob.com",
+  "mode": "known-template",
+  "seedUrls": [
+    "https://salesroads.applytojob.com/apply"
+  ],
+  "detailTemplate": "/apply/*/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": false,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 2,
+  "sampleTitles": [
+    "B2B Appointment Setter - Remote",
+    "Sales Development Representative (SDR) - B2B Outbound"
+  ],
+  "sourceLang": "en",
+  "learnedAt": "2026-11-09T14:26:28.082Z",
+  "candidateKey": "salesroads@applytojob.com"
+}

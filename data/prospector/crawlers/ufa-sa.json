@@ -1,0 +1,23 @@
+{
+  "companyKey": "ufa-sa",
+  "companyName": "UFA SA",
+  "companyHost": "jobs.fenaco.com",
+  "verifiedEmployerDomain": "ufa.ch",
+  "platform": "fenaco.com",
+  "mode": "jsonld",
+  "seedUrls": [
+    "https://jobs.fenaco.com/offene-stellen/spontanbewerber-w-m-d/dec94f0b-3d2d-4a2f-8df5-ca7c9fe29c4a"
+  ],
+  "detailTemplate": "/offene-stellen/spontanbewerber-w-m-d/dec94f0b-3d2d-4a2f-8df5-ca7c9fe29c4a",
+  "detailEnrichment": false,
+  "employerSiteLocationFallback": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 1,
+  "sampleTitles": [
+    "Spontanbewerber w/m/d"
+  ],
+  "canton": "VD",
+  "sourceLang": "de",
+  "learnedAt": "2026-11-09T14:34:04.946Z",
+  "candidateKey": "ufa@puidoux"
+}

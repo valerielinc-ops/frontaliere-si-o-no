@@ -1,0 +1,27 @@
+{
+  "companyKey": "syman-ch",
+  "companyName": "Syman SA",
+  "companyHost": "syman.ch",
+  "verifiedEmployerDomain": "syman.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://www.syman.ch/posti-vacanti-lavoro-fisso"
+  ],
+  "detailTemplate": "/posti-vacanti-fissi/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 30,
+  "sampleTitles": [
+    "RESPONSABILE AMMINISTRATIVO",
+    "AMMINISTRATORE IMMOBILI A REDDITO",
+    "MECCANICO AUTO",
+    "FRIGORISTA",
+    "TECNICO SERRAMENTISTA/CALCOLATORE"
+  ],
+  "canton": "TI",
+  "sourceLang": "it",
+  "learnedAt": "2026-11-09T14:27:16.892Z",
+  "candidateKey": "syman@mezzovico"
+}

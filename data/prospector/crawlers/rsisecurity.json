@@ -1,0 +1,23 @@
+{
+  "companyKey": "rsisecurity",
+  "companyName": "RSI Security",
+  "companyHost": "rsisecurity.applytojob.com",
+  "platform": "applytojob.com",
+  "mode": "known-template",
+  "seedUrls": [
+    "https://rsisecurity.applytojob.com/apply"
+  ],
+  "detailTemplate": "/apply/*/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": false,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 3,
+  "sampleTitles": [
+    "Compliance Program Manager",
+    "GDPR Compliance Consultant",
+    "IT Systems Support Consultant (Tier 2)"
+  ],
+  "sourceLang": "en",
+  "learnedAt": "2026-11-09T14:26:26.664Z",
+  "candidateKey": "rsisecurity@applytojob.com"
+}

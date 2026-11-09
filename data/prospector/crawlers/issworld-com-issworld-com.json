@@ -1,0 +1,27 @@
+{
+  "companyKey": "issworld-com-issworld-com",
+  "companyName": "ISS Facility Services AG",
+  "companyHost": "jobs.issworld.com",
+  "verifiedEmployerDomain": "issworld.com",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://jobs.issworld.com/search/?createNewAlert=false"
+  ],
+  "detailTemplate": "/job/*/*/",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 20,
+  "sampleTitles": [
+    "Vi søger en kvalitetsbevidst kok til vores kunde i Herning",
+    "ISS søger en tilkaldevikar til Servicehub i Odense",
+    "Cloud Hosting Engineer (Database)",
+    "Solution Architect",
+    "Solution Architect"
+  ],
+  "canton": "BE",
+  "sourceLang": "en",
+  "learnedAt": "2026-11-09T14:39:18.927Z",
+  "candidateKey": "iss-facility-services@biel-bienne"
+}
