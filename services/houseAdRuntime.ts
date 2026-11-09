@@ -13,6 +13,8 @@ export function installHouseAds(
   type Entry = { creative: HTMLAnchorElement; timer?: ReturnType<typeof setTimeout>; seen: boolean; data: Record<string, string | number> };
   type HouseWindow = Window & {
     __ftHouseAds?: { refresh: () => void };
+    __ftAdsAuthState?: 'unknown' | 'anonymous' | 'authenticated';
+    __ftAdsAuthStateRequested?: boolean;
     __ftAdsConsentDecision?: string;
     __ftAdBlock?: { blocked?: boolean; adsAllowed?: boolean };
     __ftAdBlockProbe?: string;
@@ -29,9 +31,25 @@ export function installHouseAds(
   const eligibleSince = new WeakMap<HTMLElement, number>();
   const observedWidths = new WeakMap<HTMLElement, number>();
   const counted = new WeakMap<HTMLElement, Set<string>>();
-  let assignment: { variant: HouseAdVariant; enrolled: boolean; experimentId: string; assignmentSource: string } = {
+  let assignment: {
+    variant: HouseAdVariant;
+    enrolled: boolean;
+    experimentId: string;
+    assignmentSource: string;
+    readerSubscriptionVariant: 'control' | 'subscription';
+    readerSubscriptionEnrolled: boolean;
+    readerSubscriptionExperimentId: string;
+    readerSubscriptionAssignmentSource: string;
+  } = {
     variant: 'control', enrolled: false, experimentId: 'house_creatives_v2', assignmentSource: 'local_default',
+    readerSubscriptionVariant: 'control', readerSubscriptionEnrolled: false,
+    readerSubscriptionExperimentId: 'reader_subscription_house_v1', readerSubscriptionAssignmentSource: 'local_default',
   };
+  let authState = w.__ftAdsAuthState || 'unknown';
+  let readerSubscriptionTarget: HTMLElement | null = null;
+  let readerSubscriptionExperimentExposed = false;
+  const readerSubscriptionExperimentImpressions = new WeakSet<HTMLElement>();
+  const readerSubscriptionCardImpressions = new WeakSet<HTMLElement>();
   let ready = false;
   let assignmentRequested = false;
   let scheduled: ReturnType<typeof setTimeout> | undefined;
@@ -63,9 +81,52 @@ export function installHouseAds(
   };
   const blockerConfirmed = () => (w.__ftAdBlock?.blocked === true || w.__ftAdBlockProbe === 'blocked') && w.__ftAdBlock?.adsAllowed !== true;
   const report = (name: string, data: Record<string, string | number>) => { if (permitted() && analyticsAllowed()) emit(name, data); };
+  const readerExperimentData = (creative: Record<string, string | number>) => ({
+    campaign: 'reader_subscription', experiment_id: assignment.readerSubscriptionExperimentId,
+    experiment_variant: assignment.readerSubscriptionVariant, enrolled: 1,
+    assignment_source: assignment.readerSubscriptionAssignmentSource,
+    creative_id: assignment.readerSubscriptionVariant === 'subscription' ? 'subscription_v1' : creative.creative_id,
+    component: `${assignment.readerSubscriptionExperimentId}.${assignment.readerSubscriptionVariant}.test.${creative.locale}`,
+    format: creative.format, locale: creative.locale, placement: creative.placement,
+    surface: creative.surface, device: creative.device,
+  });
+  const recordReaderExperimentExposure = (data: Record<string, string | number>, action: string) => {
+    if (readerSubscriptionExperimentExposed) return;
+    if (read('ft_reader_subscription_attribution_v1')) { readerSubscriptionExperimentExposed = true; return; }
+    readerSubscriptionExperimentExposed = true;
+    report('reader_subscription_experiment_exposure', { ...data, action });
+    if (analyticsAllowed()) try {
+      sessionStorage.setItem('ft_reader_subscription_attribution_v1', JSON.stringify({
+        campaign: 'reader_subscription', experimentId: assignment.readerSubscriptionExperimentId,
+        assignmentSource: assignment.readerSubscriptionAssignmentSource,
+        variant: assignment.readerSubscriptionVariant,
+        creativeId: assignment.readerSubscriptionVariant === 'subscription' ? 'subscription_v1' : 'control_v1',
+        format: data.format, locale: data.locale, placement: data.placement,
+        device: data.device, enrolled: true, touchpoint: 'exposure', attributedAt: Date.now(),
+      }));
+    } catch { /* exposure remains measurable in GA4 */ }
+  };
+  const recordReaderExperimentImpression = (frame: HTMLElement, data: Record<string, string | number>, action: string) => {
+    if (readerSubscriptionExperimentImpressions.has(frame)) return;
+    readerSubscriptionExperimentImpressions.add(frame);
+    report('reader_subscription_experiment_impression', { ...data, action });
+    recordReaderExperimentExposure(data, action);
+  };
+  const recordReaderSubscriptionCardImpression = (frame: HTMLElement, data: Record<string, string | number>, action: string) => {
+    if (readerSubscriptionCardImpressions.has(frame)) return;
+    readerSubscriptionCardImpressions.add(frame);
+    report('reader_subscription_ad_impression', { ...data, action });
+  };
+  const requestAuthState = () => {
+    if (authState !== 'unknown' || w.__ftAdsAuthStateRequested) return;
+    w.__ftAdsAuthStateRequested = true;
+    window.dispatchEvent(new Event('auth:eager'));
+  };
   function requestAssignment() {
     if (assignmentRequested) return;
+    if (!analyticsAllowed()) { ready = true; return; }
     assignmentRequested = true;
+    ready = false;
     const abort = new AbortController();
     const timeout = setTimeout(() => abort.abort(), 3000);
     void (async () => {
@@ -99,6 +160,10 @@ export function installHouseAds(
           enrolled: value.enrolled === true && assignmentSource === 'firebase_remote_config',
           experimentId: 'house_creatives_v2',
           assignmentSource,
+          readerSubscriptionVariant: value.readerSubscriptionVariant === 'subscription' ? 'subscription' : 'control',
+          readerSubscriptionEnrolled: value.readerSubscriptionEnrolled === true && value.readerSubscriptionAssignmentSource === 'firebase_remote_config' && value.readerSubscriptionExperimentId === 'reader_subscription_house_v1',
+          readerSubscriptionExperimentId: 'reader_subscription_house_v1',
+          readerSubscriptionAssignmentSource: value.readerSubscriptionAssignmentSource === 'firebase_remote_config' ? 'firebase_remote_config' : 'local_default',
         };
       }
     })().catch(() => {}).finally(() => {
@@ -139,6 +204,13 @@ export function installHouseAds(
           keys.add(`${path}:${entry.data.creative_id}:${entry.data.format}`); counted.set(frame, keys);
         }
         report('house_ad_impression', { ...entry.data, action: 'viewable_1s' });
+        if (entry.data.campaign === 'reader_subscription') {
+          if (frame) recordReaderSubscriptionCardImpression(frame, entry.data, 'viewable_1s');
+          if (analyticsAllowed()) try { sessionStorage.setItem('ft_reader_subscription_seen_v1', '1'); } catch { /* current page remains capped below */ }
+        }
+        if (frame && frame === readerSubscriptionTarget && authState === 'anonymous' && assignment.readerSubscriptionEnrolled) {
+          recordReaderExperimentImpression(frame, readerExperimentData(entry.data), 'viewable_1s');
+        }
       }, 1000);
     }
   };
@@ -160,7 +232,7 @@ export function installHouseAds(
       observedWidths.delete(frame);
       remove(frame);
     }
-    if (path !== location.pathname) { for (const frame of eligibleFrames) remove(frame); path = location.pathname; }
+    if (path !== location.pathname) { for (const frame of eligibleFrames) remove(frame); path = location.pathname; readerSubscriptionTarget = null; }
     for (const frame of eligibleFrames) if (!frame.isConnected || !permitted()) remove(frame);
     if (!permitted()) return;
     for (const frame of document.querySelectorAll<HTMLElement>('[data-house]')) {
@@ -177,7 +249,7 @@ export function installHouseAds(
       const isFilled = state === 'filled' || state === 'optimized'
         || !!google?.matches('ins[data-ad-status="filled"],ins[data-ad-status="unfill-optimized"]')
         || !!google?.querySelector('ins[data-ad-status="filled"],ins[data-ad-status="unfill-optimized"],[data-ad-state="filled"],[data-ad-state="optimized"]');
-      if (isFilled) { remove(frame); continue; }
+      if (isFilled) { if (readerSubscriptionTarget === frame) readerSubscriptionTarget = null; remove(frame); continue; }
       const gpt = frame.dataset.ftHouseLibrary === 'gpt';
       const requested = !!google && (google.hasAttribute('data-google-query-id') || !!google.querySelector('[data-google-query-id]'));
       const pending = !!google && (google.hasAttribute('data-ft-ad-request-pending') || !!google.querySelector('[data-ft-ad-request-pending]') || state === 'waiting_response' || (state === 'loading' && (!gpt || requested)));
@@ -190,10 +262,13 @@ export function installHouseAds(
       const blocked = blockerConfirmed();
       const decision = w.__ftAdsConsentDecision || read(config.consentKey, true);
       const eligible = blockerOnly ? blocked : blocked || stalled || (!pending && (terminal || failed || (cmpFailed && !decision)));
-      if (!eligible) { eligibleSince.delete(frame); remove(frame); continue; }
+      if (!eligible) { if (readerSubscriptionTarget === frame) readerSubscriptionTarget = null; eligibleSince.delete(frame); remove(frame); continue; }
       // Resolve the experiment arm while the no-fill grace is running so a
       // slow assignment request does not add its full latency afterwards.
-      if (!ready && frame.getBoundingClientRect().width >= 160 && visible(frame)) requestAssignment();
+      if (frame.getBoundingClientRect().width >= 160 && visible(frame)) {
+        requestAuthState();
+        if (!ready || (!assignmentRequested && analyticsAllowed())) requestAssignment();
+      }
       // A blocker or a confirmed 45s request stall should reach the inline
       // creative immediately. Definitive no-fill/failure gets only a short
       // grace for a fill event already queued by Google.
@@ -209,13 +284,31 @@ export function installHouseAds(
       if (!frame.hasAttribute('data-ft-house-eligible')) frame.setAttribute('data-ft-house-eligible', '');
       eligibleFrames.add(frame);
       const width = frame.getBoundingClientRect().width;
-      if (width < 160 || !visible(frame)) continue;
+      if (width < 160 || !visible(frame)) {
+        if (readerSubscriptionTarget === frame) readerSubscriptionTarget = null;
+        continue;
+      }
       if (!ready) { requestAssignment(); continue; }
       const { format, height } = chooseSize(width, Number(frame.dataset.ftHouseHeight) || (google ? parseFloat(google.style.minHeight) || google.getBoundingClientRect().height : 0));
       const portraitArtwork = format === 'billboard' && height >= 500;
       const locale = (['it', 'en', 'de', 'fr'].includes(document.documentElement.lang.slice(0, 2)) ? document.documentElement.lang.slice(0, 2) : 'it') as HouseAdLocale;
       const existing = entries.get(frame);
-      if (existing?.creative.dataset.houseFormat === format && existing.creative.lang === locale && (format !== 'billboard' || existing.creative.dataset.houseArtwork === (portraitArtwork ? 'portrait' : 'wide'))) {
+      const readerExperimentEligible = authState === 'anonymous' && assignment.readerSubscriptionEnrolled;
+      if (readerSubscriptionTarget && !readerSubscriptionTarget.isConnected) readerSubscriptionTarget = null;
+      if (!readerExperimentEligible && readerSubscriptionTarget === frame) readerSubscriptionTarget = null;
+      const noReaderExperimentExposure = !readerSubscriptionExperimentExposed
+        && !read('ft_reader_subscription_attribution_v1') && read('ft_reader_subscription_seen_v1') !== '1';
+      if (readerExperimentEligible && !readerSubscriptionTarget && noReaderExperimentExposure && !existing?.seen) {
+        readerSubscriptionTarget = frame;
+      }
+      const subscriptionTreatment = readerExperimentEligible && readerSubscriptionTarget === frame
+        && assignment.readerSubscriptionVariant === 'subscription';
+      let campaign: 'job_search_automation' | 'reader_subscription' = 'job_search_automation';
+      if (subscriptionTreatment) campaign = 'reader_subscription';
+      if (existing?.creative.dataset.houseCampaign === campaign
+          && existing.creative.dataset.houseFormat === format
+          && existing.creative.lang === locale
+          && (campaign === 'reader_subscription' || format !== 'billboard' || existing.creative.dataset.houseArtwork === (portraitArtwork ? 'portrait' : 'wide'))) {
         if (frame.style.getPropertyValue('--ft-house-height') !== `${height}px`) frame.style.setProperty('--ft-house-height', `${height}px`);
         continue;
       }
@@ -228,11 +321,28 @@ export function installHouseAds(
         : cmpFailed && !decision ? 'consent_loader_failed'
         : state === 'collapsed' ? 'ad_collapsed'
         : 'ad_unavailable';
-      const data = { campaign: 'job_search_automation', experiment_id: assignment.experimentId, experiment_variant: assignment.variant, enrolled: Number(assignment.enrolled), assignment_source: assignment.assignmentSource, creative_id: `${assignment.variant}_v1`, component: `${assignment.experimentId}.${assignment.variant}_v1.${assignment.enrolled ? 'test' : 'fixed'}.${locale}`, fallback_reason: fallbackReason, format, locale, placement, surface: `${format}.${placement}`, device: matchMedia('(max-width:767px)').matches ? 'mobile' : 'desktop' };
-      const creative = render({ variant: assignment.variant, format, locale, placement, portraitArtwork, onClick: () => {
+      const data = campaign === 'reader_subscription'
+        ? { campaign, experiment_id: assignment.readerSubscriptionExperimentId, experiment_variant: assignment.readerSubscriptionVariant, enrolled: Number(assignment.readerSubscriptionEnrolled), assignment_source: assignment.readerSubscriptionAssignmentSource, creative_id: 'subscription_v1', component: `${assignment.readerSubscriptionExperimentId}.${assignment.readerSubscriptionVariant}.test.${locale}`, fallback_reason: fallbackReason, format, locale, placement, surface: `${format}.${placement}`, device: matchMedia('(max-width:767px)').matches ? 'mobile' : 'desktop' }
+        : { campaign, experiment_id: assignment.experimentId, experiment_variant: assignment.variant, enrolled: Number(assignment.enrolled), assignment_source: assignment.assignmentSource, creative_id: `${assignment.variant}_v1`, component: `${assignment.experimentId}.${assignment.variant}_v1.${assignment.enrolled ? 'test' : 'fixed'}.${locale}`, fallback_reason: fallbackReason, format, locale, placement, surface: `${format}.${placement}`, device: matchMedia('(max-width:767px)').matches ? 'mobile' : 'desktop' };
+      const creative = render({ campaign, variant: assignment.variant, format, locale, placement, portraitArtwork, onClick: () => {
         if (!permitted()) return;
         report('house_ad_click', { ...data, action: 'click' });
-        if (analyticsAllowed()) try { sessionStorage.setItem('ft_house_ad_click_v1', JSON.stringify({ campaign: 'job_search_automation', experimentId: assignment.experimentId, assignmentSource: assignment.assignmentSource, variant: assignment.variant, creativeId: `${assignment.variant}_v1`, format, locale, placement, device: data.device, enrolled: assignment.enrolled, clickedAt: Date.now() })); } catch { /* navigation still works */ }
+        if (readerSubscriptionTarget === frame && authState === 'anonymous' && assignment.readerSubscriptionEnrolled) {
+          const experimentData = readerExperimentData(data);
+          recordReaderExperimentImpression(frame, experimentData, 'click_visible');
+          report('reader_subscription_experiment_click', { ...experimentData, action: 'click' });
+        }
+        if (campaign === 'reader_subscription') {
+          recordReaderSubscriptionCardImpression(frame, data, 'click_visible');
+          report('reader_subscription_ad_click', { ...data, action: 'click' });
+          if (analyticsAllowed()) try { sessionStorage.setItem('ft_reader_subscription_ad_click_v1', JSON.stringify({
+            campaign: 'reader_subscription', experimentId: assignment.readerSubscriptionExperimentId,
+            assignmentSource: assignment.readerSubscriptionAssignmentSource,
+            variant: assignment.readerSubscriptionVariant, creativeId: 'subscription_v1',
+            format, locale, placement, device: data.device, enrolled: true,
+            touchpoint: 'click', attributedAt: Date.now(),
+          })); } catch { /* navigation still works */ }
+        } else if (analyticsAllowed()) try { sessionStorage.setItem('ft_house_ad_click_v1', JSON.stringify({ campaign: 'job_search_automation', experimentId: assignment.experimentId, assignmentSource: assignment.assignmentSource, variant: assignment.variant, creativeId: `${assignment.variant}_v1`, format, locale, placement, device: data.device, enrolled: assignment.enrolled, clickedAt: Date.now() })); } catch { /* navigation still works */ }
       } });
       creative.lang = locale;
       host.replaceChildren(creative);
@@ -256,6 +366,10 @@ export function installHouseAds(
   });
   observer.observe(document.documentElement, { childList: true, subtree: true, attributes: true, attributeFilter: ['data-ad-status','data-ft-ad-state','data-ad-state','data-ft-static-ad-state','data-ft-ad-request-pending','data-ft-ad-stalled','data-ft-script-state','data-failed','data-ft-house-height','lang','class','style','open','hidden','aria-modal'] });
   for (const name of [config.consentEvent, 'frontaliere:adblock-data', 'storage', 'popstate', 'seo-tracking:pushstate', 'seo-tracking:replacestate', 'resize']) window.addEventListener(name, schedule);
+  window.addEventListener('frontaliere:auth-state', (event) => {
+    const state = (event as CustomEvent).detail;
+    if (state === 'anonymous' || state === 'authenticated') { authState = state; schedule(); }
+  });
   window.addEventListener('scroll', measure, { passive: true });
   document.addEventListener('visibilitychange', measure);
   const api = { refresh }; w.__ftHouseAds = api; schedule(); return api;

@@ -1,5 +1,8 @@
 import { describe, expect, it } from 'vitest';
-import { summarizeHouseOrders, summarizeHouseTraffic } from '../scripts/analytics/house-ad-readout.mjs';
+import {
+  summarizeHouseOrders, summarizeHouseTraffic, summarizeReaderSubscriptionPurchases,
+  summarizeReaderSubscriptionResults, summarizeReaderSubscriptionTraffic,
+} from '../scripts/analytics/house-ad-readout.mjs';
 
 describe('house creative readout', () => {
   it('separates enrolled/fixed traffic and never manufactures CTR without impressions', () => {
@@ -44,5 +47,43 @@ describe('house creative readout', () => {
     expect(summarizeHouseOrders([service], now - 86400000, now + 1)).toEqual([
       expect.objectContaining({ experimentId: 'house_creatives_v2', variant: 'profile_match', enrolled: true, confirmedPurchases: 1, confirmedRevenueEurCents: 3999 }),
     ]);
+  });
+  it('compares viewable impression CTR by assigned arm and reports subscription-card CTR separately', () => {
+    const row = (event: string, component: string, n: number) => ({ dimensionValues: [event, component, 'rectangle.article-inline', 'mobile'].map(value => ({ value })), metricValues: [{ value: String(n) }] });
+    const result = summarizeReaderSubscriptionTraffic({ rowCount: 8, rows: [
+      row('reader_subscription_experiment_exposure', 'reader_subscription_house_v1.control.test.it', 80),
+      row('reader_subscription_experiment_exposure', 'reader_subscription_house_v1.subscription.test.it', 75),
+      row('reader_subscription_experiment_impression', 'reader_subscription_house_v1.control.test.it', 80),
+      row('reader_subscription_experiment_click', 'reader_subscription_house_v1.control.test.it', 4),
+      row('reader_subscription_experiment_impression', 'reader_subscription_house_v1.subscription.test.it', 75),
+      row('reader_subscription_experiment_click', 'reader_subscription_house_v1.subscription.test.it', 9),
+      row('reader_subscription_ad_impression', 'reader_subscription_house_v1.subscription.test.it', 75),
+      row('reader_subscription_ad_click', 'reader_subscription_house_v1.subscription.test.it', 9),
+    ] });
+    expect(result).toEqual([
+      expect.objectContaining({ variant: 'control', exposures: 80, impressions: 80, clicks: 4, ctr: .05, subscriptionCardImpressions: 0, subscriptionCardClicks: 0, subscriptionCardCtr: null }),
+      expect.objectContaining({ variant: 'subscription', exposures: 75, impressions: 75, clicks: 9, ctr: .12, subscriptionCardImpressions: 75, subscriptionCardClicks: 9, subscriptionCardCtr: .12 }),
+    ]);
+    expect(() => summarizeReaderSubscriptionTraffic({ rowCount: 2, rows: [] })).toThrow('truncated');
+  });
+  it('counts only Stripe-confirmed first payments with bounded experiment attribution', () => {
+    const now = Date.now();
+    const attribution = {
+      campaign: 'reader_subscription', experimentId: 'reader_subscription_house_v1',
+      assignmentSource: 'firebase_remote_config', variant: 'subscription', creativeId: 'subscription_v1',
+      format: 'rectangle', locale: 'it', placement: 'article-inline', device: 'mobile', enrolled: true,
+      touchpoint: 'click', attributedAt: now - 5000,
+    };
+    const subscriptions = [
+      { firstPaidAt: { toMillis: () => now }, houseAdAttribution: attribution },
+      { firstPaidAt: { toMillis: () => now }, houseAdAttribution: { ...attribution, assignmentSource: 'local_default' } },
+      { firstPaidAt: { toMillis: () => now }, houseAdAttribution: { ...attribution, attributedAt: now - 8 * 86400000 } },
+      { firstPaidAt: { toMillis: () => 0 }, houseAdAttribution: attribution },
+    ];
+    const purchases = summarizeReaderSubscriptionPurchases(subscriptions, now - 1000, now + 1);
+    expect(purchases).toEqual([expect.objectContaining({ variant: 'subscription', confirmedPaidSubscriptions: 1 })]);
+    expect(summarizeReaderSubscriptionResults([
+      { variant: 'subscription', locale: 'it', format: 'rectangle', placement: 'article-inline', device: 'mobile', exposures: 50, impressions: 48, clicks: 6, landings: 5, ctr: .125 },
+    ], purchases)).toEqual([expect.objectContaining({ confirmedPaidSubscriptions: 1, confirmedSubscriptionsPerExposedSession: .02 })]);
   });
 });

@@ -2,7 +2,7 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { JSDOM } from 'jsdom';
 import { installHouseAds } from '../services/houseAdRuntime';
 import { createHouseAdCreative, HOUSE_AD_CREATIVE_CSS, HOUSE_AD_VARIANTS } from '../services/houseAdCreative';
-import { sanitizeHouseAdAttribution } from '../functions/src/houseAdAttribution.js';
+import { sanitizeHouseAdAttribution, sanitizeReaderSubscriptionAdAttribution } from '../functions/src/houseAdAttribution.js';
 
 let dom: JSDOM;
 let w: any;
@@ -233,6 +233,28 @@ describe('per-slot first-party creative delivery', () => {
     empty.host.querySelector('a').click();
     expect(JSON.parse(w.sessionStorage.getItem('ft_house_ad_click_v1')).enrolled).toBe(false);
   });
+  it('starts Firebase assignment after analytics consent and uses the next unseen fallback slot', async () => {
+    w.__ftAdsAuthState = 'anonymous';
+    w.localStorage.setItem('frontaliere_consent', JSON.stringify({ analytics: false }));
+    w.fetch.mockResolvedValue({ ok: true, json: async () => ({
+      variant: 'control', enrolled: false, assignmentSource: 'local_default',
+      readerSubscriptionVariant: 'subscription', readerSubscriptionEnrolled: true,
+      readerSubscriptionExperimentId: 'reader_subscription_house_v1',
+      readerSubscriptionAssignmentSource: 'firebase_remote_config',
+    }) });
+    const first = frame('unfilled'); await start();
+    expect(w.fetch).not.toHaveBeenCalled();
+    expect(first.host.querySelector('a')?.dataset.houseCampaign).toBe('job_search_automation');
+
+    w.localStorage.setItem('frontaliere_consent', JSON.stringify({ analytics: true }));
+    w.dispatchEvent(new w.Event(config.consentEvent));
+    const next = frame('unfilled', 'article-end');
+    await vi.advanceTimersByTimeAsync(1600);
+
+    expect(w.fetch).toHaveBeenCalledTimes(1);
+    expect(first.host.querySelector('a')?.dataset.houseCampaign).toBe('job_search_automation');
+    expect(next.host.querySelector('a')?.dataset.houseCampaign).toBe('reader_subscription');
+  });
   it('stores Firebase assignment metadata with the click for purchase attribution', async () => {
     w.fetch.mockResolvedValue({ ok: true, json: async () => ({ variant: 'profile_match', enrolled: true, experimentId: 'house_creatives_v2', assignmentSource: 'firebase_remote_config' }) });
     const empty = frame('unfilled'); await start();
@@ -264,6 +286,102 @@ describe('per-slot first-party creative delivery', () => {
     dom.reconfigure({ url: 'https://frontaliereticino.ch/de/arbeitssuche-schweiz-automatisieren/' });
     const empty = frame('unfilled'); await start(); expect(empty.host.childElementCount).toBe(0);
   });
+  it('puts one subscription card in the next unseen adjacent fallback slot and keeps the following slot for jobs', async () => {
+    w.fetch.mockResolvedValue({ ok: true, json: async () => ({
+      variant: 'control', enrolled: false, assignmentSource: 'local_default',
+      readerSubscriptionVariant: 'subscription', readerSubscriptionEnrolled: true,
+      readerSubscriptionExperimentId: 'reader_subscription_house_v1', readerSubscriptionAssignmentSource: 'firebase_remote_config',
+    }) });
+    const first = frame('unfilled'); await start();
+    expect(w.__ftAdsAuthStateRequested).toBe(true);
+    expect(first.host.querySelector('[data-house-campaign="reader_subscription"]')).toBeNull();
+    expect(first.host.querySelector('a')?.dataset.houseCampaign).toBe('job_search_automation');
+    w.dispatchEvent(new w.CustomEvent('frontaliere:auth-state', { detail: 'anonymous' }));
+    const next = frame('unfilled', 'article-inline-next');
+    const following = frame('unfilled', 'article-end');
+    await vi.advanceTimersByTimeAsync(1600);
+    expect(first.host.querySelector('a')?.dataset.houseCampaign).toBe('job_search_automation');
+    expect(next.host.querySelector('a')?.dataset.houseCampaign).toBe('reader_subscription');
+    expect(following.host.querySelector('a')?.dataset.houseCampaign).toBe('job_search_automation');
+  });
+  it('shows at most one subscription card to an anonymous treatment user and only in owned fallback slots', async () => {
+    w.__ftAdsAuthState = 'anonymous';
+    w.fetch.mockResolvedValue({ ok: true, json: async () => ({
+      variant: 'control', enrolled: false, assignmentSource: 'local_default',
+      readerSubscriptionVariant: 'subscription', readerSubscriptionEnrolled: true,
+      readerSubscriptionExperimentId: 'reader_subscription_house_v1', readerSubscriptionAssignmentSource: 'firebase_remote_config',
+    }) });
+    const first = frame('unfilled'); const second = frame('unfilled', 'article-end'); const paid = frame('filled', 'paid-slot');
+    await start();
+    expect(first.host.querySelector('a')?.dataset.houseCampaign).toBe('reader_subscription');
+    expect(second.host.querySelector('a')?.dataset.houseCampaign).toBe('job_search_automation');
+    expect(second.host.querySelector('a')?.href).toContain('/automatizza-ricerca-lavoro-svizzera/');
+    expect(paid.host.childElementCount).toBe(0);
+    expect(emit.mock.calls.filter(([name]) => name === 'reader_subscription_ad_impression')).toHaveLength(1);
+    expect(emit.mock.calls.filter(([name]) => name === 'reader_subscription_experiment_exposure')).toHaveLength(1);
+    expect(emit.mock.calls.filter(([name]) => name === 'reader_subscription_experiment_impression')).toHaveLength(1);
+    expect(JSON.parse(w.sessionStorage.getItem('ft_reader_subscription_attribution_v1'))).toMatchObject({
+      campaign: 'reader_subscription', experimentId: 'reader_subscription_house_v1',
+      variant: 'subscription', touchpoint: 'exposure', enrolled: true,
+    });
+  });
+  it('measures one matched control slot impression and click for the subscription experiment', async () => {
+    w.__ftAdsAuthState = 'anonymous';
+    w.fetch.mockResolvedValue({ ok: true, json: async () => ({
+      variant: 'control', enrolled: false, assignmentSource: 'local_default',
+      readerSubscriptionVariant: 'control', readerSubscriptionEnrolled: true,
+      readerSubscriptionExperimentId: 'reader_subscription_house_v1', readerSubscriptionAssignmentSource: 'firebase_remote_config',
+    }) });
+    const first = frame('unfilled'); const second = frame('unfilled', 'article-end');
+    await start();
+    expect(first.host.querySelector('a')?.dataset.houseCampaign).toBe('job_search_automation');
+    expect(second.host.querySelector('a')?.dataset.houseCampaign).toBe('job_search_automation');
+    expect(emit.mock.calls.filter(([name]) => name === 'reader_subscription_experiment_exposure')).toHaveLength(1);
+    expect(emit.mock.calls.filter(([name]) => name === 'reader_subscription_experiment_impression')).toHaveLength(1);
+    first.host.querySelector('a').click();
+    second.host.querySelector('a').click();
+    expect(emit.mock.calls.filter(([name]) => name === 'reader_subscription_experiment_click')).toHaveLength(1);
+    expect(emit.mock.calls.find(([name]) => name === 'reader_subscription_experiment_impression')?.[1]).toMatchObject({
+      experiment_id: 'reader_subscription_house_v1', experiment_variant: 'control',
+    });
+  });
+  it('does not show the subscription card to a signed-in treatment user', async () => {
+    w.__ftAdsAuthState = 'authenticated';
+    w.fetch.mockResolvedValue({ ok: true, json: async () => ({
+      variant: 'control', enrolled: false, assignmentSource: 'local_default',
+      readerSubscriptionVariant: 'subscription', readerSubscriptionEnrolled: true,
+      readerSubscriptionExperimentId: 'reader_subscription_house_v1', readerSubscriptionAssignmentSource: 'firebase_remote_config',
+    }) });
+    const empty = frame('unfilled'); await start();
+    expect(empty.host.querySelector('a')?.dataset.houseCampaign).toBe('job_search_automation');
+  });
+  it('keeps a viewable subscription impression stable and stores click attribution separately from job-search clicks', async () => {
+    w.__ftAdsAuthState = 'anonymous';
+    w.fetch.mockResolvedValue({ ok: true, json: async () => ({
+      variant: 'control', enrolled: false, assignmentSource: 'local_default',
+      readerSubscriptionVariant: 'subscription', readerSubscriptionEnrolled: true,
+      readerSubscriptionExperimentId: 'reader_subscription_house_v1', readerSubscriptionAssignmentSource: 'firebase_remote_config',
+    }) });
+    const empty = frame('unfilled'); await start();
+    const creative = empty.host.querySelector('a');
+    expect(creative.dataset.houseCampaign).toBe('reader_subscription');
+    creative.click();
+    expect(JSON.parse(w.sessionStorage.getItem('ft_reader_subscription_ad_click_v1'))).toMatchObject({
+      variant: 'subscription', creativeId: 'subscription_v1', touchpoint: 'click', enrolled: true,
+    });
+    expect(w.sessionStorage.getItem('ft_house_ad_click_v1')).toBeNull();
+    w.__ftHouseAds.refresh(); await vi.advanceTimersByTimeAsync(1200);
+    expect(empty.host.querySelector('a')?.dataset.houseCampaign).toBe('reader_subscription');
+  });
+  it('renders the localized subscription offer for a compact banner', () => {
+    const render = w.eval(`(${createHouseAdCreative.toString()})`);
+    const creative = render({ campaign: 'reader_subscription', variant: 'control', format: 'mobile_banner', locale: 'it', placement: 'article-inline' });
+    expect(creative.href).toContain('/abbonamento/?');
+    expect(creative.textContent).toContain('Naviga senza pubblicità');
+    expect(creative.textContent).toContain('CHF 2.99 al mese');
+    expect(creative.textContent).toContain('Scopri');
+    expect(creative.dataset.houseCreative).toBe('subscription_v1');
+  });
 });
 
 describe('bounded purchase attribution', () => {
@@ -280,4 +398,20 @@ describe('bounded purchase attribution', () => {
     { variant: 'unknown' }, { experimentId: 'unreleased_experiment' }, { creativeId: 'mismatch_v1' }, { placement: 'https://example.test/private/' },
     { clickedAt: Infinity }, { clickedAt: Date.now() + 86400000 }, { clickedAt: Date.now() - 8 * 86400000 },
   ])('rejects invalid or expired metadata %j', bad => { expect(sanitizeHouseAdAttribution({ ...click(), ...bad })).toBeNull(); });
+  it('accepts only bounded Firebase subscription experiment attribution', () => {
+    const value = {
+      campaign: 'reader_subscription', experimentId: 'reader_subscription_house_v1',
+      assignmentSource: 'firebase_remote_config', variant: 'subscription', creativeId: 'subscription_v1',
+      format: 'rectangle', locale: 'it', placement: 'article-inline', device: 'mobile', enrolled: true,
+      touchpoint: 'click', attributedAt: Date.now() - 1000, randomizationId: 'discard-this',
+    };
+    expect(sanitizeReaderSubscriptionAdAttribution(value)).toEqual({
+      campaign: 'reader_subscription', experimentId: 'reader_subscription_house_v1',
+      assignmentSource: 'firebase_remote_config', variant: 'subscription', creativeId: 'subscription_v1',
+      format: 'rectangle', locale: 'it', placement: 'article-inline', device: 'mobile', enrolled: true,
+      touchpoint: 'click', attributedAt: value.attributedAt,
+    });
+    expect(sanitizeReaderSubscriptionAdAttribution({ ...value, variant: 'control', touchpoint: 'click', creativeId: 'control_v1' })).toBeNull();
+    expect(sanitizeReaderSubscriptionAdAttribution({ ...value, placement: 'https://private.example/path' })).toBeNull();
+  });
 });
