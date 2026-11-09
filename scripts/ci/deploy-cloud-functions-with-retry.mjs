@@ -17,11 +17,12 @@ const FUNCTIONS_INDEX_URL = new URL('../../functions/index.js', import.meta.url)
 export const FUNCTION_BATCH_SIZE = 8;
 export const FUNCTION_BATCH_DELAY_MS = 2_000;
 export const FIREBASE_FUNCTIONS_CODEBASE = 'newsletter-webhooks';
+export const FIREBASE_PROJECT_ID = 'frontaliere-ticino';
 
 export const FIREBASE_DEPLOY_ARGS = Object.freeze([
   'deploy',
   '--project',
-  'frontaliere-ticino',
+  FIREBASE_PROJECT_ID,
   '--force',
 ]);
 
@@ -138,11 +139,27 @@ export function isTransientFirebaseQuotaFailure(output) {
 }
 
 /**
+ * Firebase CLI 15.32.0 wraps an intermittent project-wide Functions API list
+ * failure and omits the original HTTP detail from normal output. Keep the
+ * retry tied to the exact project-list signature; a second failure remains
+ * fatal, so permission or persistent API errors cannot be hidden.
+ *
+ * @param {unknown} output
+ * @returns {boolean}
+ */
+export function isTransientFirebaseFunctionListFailure(output) {
+  return new RegExp(`\\bFailed to list functions for ${FIREBASE_PROJECT_ID}\\b`, 'u')
+    .test(String(output ?? ''));
+}
+
+/**
  * @param {unknown} output
  * @returns {boolean}
  */
 export function isTransientFirebaseFailure(output) {
-  return isTransientFirebaseApiHtmlFailure(output) || isTransientFirebaseQuotaFailure(output);
+  return isTransientFirebaseApiHtmlFailure(output)
+    || isTransientFirebaseQuotaFailure(output)
+    || isTransientFirebaseFunctionListFailure(output);
 }
 
 function delay(ms) {
