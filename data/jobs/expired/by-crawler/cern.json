@@ -7450,17 +7450,15 @@
     },
     "slugByLocale": {
       "it": "database-infrastructure-ingegnere-it-da-db-2026-174-ld-cern-geneva",
-      "en": "database-infrastructure-engineer-it-da-db-2026-174-ld-cern-geneva-geneva-switzerland",
+      "en": "database-infrastructure-engineer-it-da-db-2026-174-ld-cern-geneva-geneva-switzerland-2ce2e183",
       "de": "database-infrastructure-ingenieur-it-da-db-2026-174-ld-cern-geneva",
       "fr": "database-infrastructure-ingenieur-it-da-db-2026-174-ld-cern-geneva"
     },
     "sector": "Ricerca / Scienza",
     "expiredAt": "2026-09-04T13:39:42.165Z",
-    "previousSlugs": [
-      "database-infrastructure-engineer-it-da-db-2026-174-ld-cern-geneva-geneva-switzerland"
-    ],
     "previousSlugsByLocale": {
       "it": [
+        "database-infrastructure-engineer-it-da-db-2026-174-ld-cern-geneva-geneva-switzerland-2ce2e183",
         "database-infrastructure-engineer-it-da-db-2026-174-ld-cern-geneva-geneva-switzerland"
       ],
       "de": [
@@ -7468,6 +7466,9 @@
       ],
       "fr": [
         "database-infrastructure-engineer-it-da-db-2026-174-ld-cern-geneva-geneva-switzerland"
+      ],
+      "en": [
+        "database-infrastructure-engineer-it-da-db-2026-174-ld-cern-geneva-geneva-switzerland-2ce2e183"
       ]
     },
     "postalCode": "1211",
@@ -7477,7 +7478,10 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.smartrecruiters.com/cern/744000141717060-database-infrastructure-engineer-it-da-db-2026-174-ld-?oga=true",
-    "firstSeenAt": "2026-08-05T23:02:23.596Z"
+    "firstSeenAt": "2026-08-05T23:02:23.596Z",
+    "previousSlugs": [
+      "database-infrastructure-engineer-it-da-db-2026-174-ld-cern-geneva-geneva-switzerland"
+    ]
   },
   {
     "slug": "progettista-asic-digitale-ep-ese-me-2026-134-grap-cern-geneva",

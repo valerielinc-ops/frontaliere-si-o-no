@@ -1,7 +1,7 @@
 {
   "crawlerKey": "riri",
-  "assembledAt": "2026-11-08T21:25:34.113Z",
-  "runId": "42524122693",
+  "assembledAt": "2026-11-09T09:37:17.740Z",
+  "runId": "42591784763",
   "jobs": [
     {
       "id": "riri-83c0db6110e6",
@@ -49,7 +49,7 @@
       "applyUrl": "https://careers.oerlikon.com/job/Mendrisio-Marketing-Specialist-TI-6850/1454662233/?feedId=null&utm_source=J2WRSS&utm_medium=rss&utm_campaign=J2W_RSS",
       "source": "Riri Group Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-11-08T21:25:28.805Z",
+      "crawledAt": "2026-11-09T09:37:13.331Z",
       "firstSeenAt": "2026-11-05T21:36:17.966Z",
       "salaryMin": 50500,
       "salaryMax": 89000,
@@ -67,7 +67,7 @@
       },
       "streetAddress": "Mendrisio",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-04T21:25:28.805Z",
+      "validThrough": "2027-02-04T09:37:13.331Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -116,7 +116,7 @@
       "applyUrl": "https://careers.oerlikon.com/job/Mendrisio-Receptionist-TI-6850/1435381533/?feedId=null&utm_source=J2WRSS&utm_medium=rss&utm_campaign=J2W_RSS",
       "source": "Riri Group Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-11-08T21:25:28.804Z",
+      "crawledAt": "2026-11-09T09:37:13.330Z",
       "previousSlugsByLocale": {
         "it": [
           "receptionist-mendrisio-riri"
@@ -142,7 +142,7 @@
       },
       "streetAddress": "Mendrisio",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-09T21:25:28.804Z",
+      "validThrough": "2026-12-09T09:37:13.330Z",
       "validThroughSource": "last-observed-window"
     }
   ]
