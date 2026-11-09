@@ -22,6 +22,14 @@ const verifySource = readFileSync(
   new URL('../scripts/assisted-application/lib/portal/verify.mjs', import.meta.url),
   'utf8',
 );
+const ownerExtensionSource = readFileSync(
+  new URL('../scripts/assisted-application/extension/background.js', import.meta.url),
+  'utf8',
+);
+const ownerExtensionGuide = readFileSync(
+  new URL('../scripts/assisted-application/extension/README.md', import.meta.url),
+  'utf8',
+);
 const workflow = YAML.parse(workflowSource) as { jobs?: { agent?: { steps?: Step[]; 'timeout-minutes'?: number } } };
 const agentJob = workflow.jobs?.agent;
 const steps = agentJob?.steps ?? [];
@@ -66,5 +74,12 @@ describe('assisted application agent workflow dependencies', () => {
     expect(portalSource).toContain("if (snapshot.captcha) return await handoff('captcha');");
     expect(portalSource).toContain("if (after.captcha) return await handoff('captcha');");
     expect(portalSource).toContain("if (outcome === 'captcha') return await handoff('captcha');");
+  });
+
+  it('uses Valerie’s separate Chrome extension session after the CI runner hands off', () => {
+    expect(ownerExtensionSource).toContain("case 'fill-order':");
+    expect(ownerExtensionSource).toContain("chrome.tabs.create({ url: 'about:blank', active: true })");
+    expect(ownerExtensionGuide).toContain('Valerie invia la candidatura dal proprio browser');
+    expect(ownerExtensionGuide).toContain('Se il portale mostra un CAPTCHA visibile, risolvilo tu.');
   });
 });

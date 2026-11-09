@@ -654,7 +654,7 @@ function portalChannelType(ctx = {}) {
   return ctx.channelType || '';
 }
 
-/** Launch stock Playwright Chromium; anti-bot challenges go to Valerie. */
+/** Launch stock Playwright Chromium; Valerie handles challenges later in her own Chrome extension session. */
 export function launchPortalBrowser() {
   return launchChromium({
     headless: !headedBrowser(),

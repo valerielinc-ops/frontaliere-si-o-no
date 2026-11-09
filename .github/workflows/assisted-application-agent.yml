@@ -127,7 +127,8 @@ jobs:
 
       # The application uses stock Chromium. It never impersonates a user's
       # browser or automates through anti-bot challenges; CAPTCHA is handed to
-      # Valerie for the owner extension flow.
+      # Valerie for the owner extension flow. That extension runs later in her
+      # own Chrome from the owner queue, not in this isolated CI browser.
       - name: Run agent
         env:
           ORDER_ID: ${{ inputs.order_id }}
