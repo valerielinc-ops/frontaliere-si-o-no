@@ -8,6 +8,7 @@ import {
   parseFunctionNames,
   deployFunctions,
   isTransientFirebaseApiHtmlFailure,
+  isTransientFirebaseFunctionListFailure,
   isTransientFirebaseQuotaFailure,
 } from '../scripts/ci/deploy-cloud-functions-with-retry.mjs';
 
@@ -55,6 +56,16 @@ describe('deploy-cloud-functions-with-retry', () => {
     ].join('\n'))).toBe(true);
     expect(isTransientFirebaseQuotaFailure('Failed to set invoker: permission denied')).toBe(false);
     expect(isTransientFirebaseQuotaFailure('HTTP Error: 429 but no quota detail')).toBe(false);
+  });
+
+  it('recognizes the Firebase CLI project-list wrapper only for this project', () => {
+    expect(isTransientFirebaseFunctionListFailure(
+      'Error: Failed to list functions for frontaliere-ticino',
+    )).toBe(true);
+    expect(isTransientFirebaseFunctionListFailure(
+      'Error: Failed to list functions for another-project',
+    )).toBe(false);
+    expect(isTransientFirebaseFunctionListFailure('Error: permission denied')).toBe(false);
   });
 
   it('retries the idempotent deploy once and returns success', async () => {
@@ -137,6 +148,25 @@ describe('deploy-cloud-functions-with-retry', () => {
     });
 
     expect(result).toMatchObject({ exitCode: 1, attempts: 2 });
+    expect(calls).toEqual([1, 2]);
+  });
+
+  it('retries a project-list failure once and returns success', async () => {
+    const calls: number[] = [];
+    const result = await deployFunctions({
+      run: async (_args, attempt) => {
+        calls.push(attempt);
+        return calls.length === 1
+          ? { exitCode: 1, output: 'Error: Failed to list functions for frontaliere-ticino' }
+          : { exitCode: 0, output: 'deploy succeeded' };
+      },
+      sleep: async () => {},
+      functionNames: ['createReaderCheckout'],
+      batchDelayMs: 0,
+      retryDelayMs: 0,
+    });
+
+    expect(result).toMatchObject({ exitCode: 0, attempts: 2 });
     expect(calls).toEqual([1, 2]);
   });
 });

@@ -253,6 +253,7 @@ const VERIFIED_CRAWLER_UAS = [
   'anthropic-ai',
   'PerplexityBot',
   'Perplexity-User',
+  'ShapBot',
   'MistralAI-User',
   'Google-Extended',
   'cohere-ai',
