@@ -1435,14 +1435,14 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  const localizedVisibleExcerpt = normalizeArticleExcerptPlain(
   blogMetaByLocale[articleLocale][en.articleId]?.excerpt ?? localizedDesc,
  );
- // Hero alt text. The corpus already carries a per-locale `imageAlt` (parsed
- // out of the blog-meta chunks alongside title/excerpt) and nothing consumed
- // it — og:image:alt fell back to the headline. Prefer the real alt, keep the
- // headline as the floor so the attribute is never empty: an <img> without an
- // accessible name fails the repo's own accessibility contract, and a decorative
- // alt="" would tell Discover this image is not about the article.
+ // Hero alt text uses the page locale's metadata independently of the SEO
+ // title/description locale policy above. Italian deliberately has no
+ // `localizedMeta`, but its blog-meta record still provides the localized alt.
+ // Keep the headline as the floor so the attribute is never empty: an <img>
+ // without an accessible name fails the repo's accessibility contract, and a
+ // decorative alt="" would tell Discover this image is not about the article.
  const socialTitle = articleLocale === 'it' ? normalizeArticleTitle(en.ogT) : localizedTitle;
- const heroAlt = localizedMeta?.imageAlt || socialTitle;
+ const heroAlt = blogMetaByLocale[articleLocale][en.articleId]?.imageAlt || socialTitle;
  // Complete a short lede from THIS article's own body, in the page language,
  // and end an over-long one on a whole sentence (see articleMetaDescription.ts).
  // This replaced a fixed EN/DE/FR boilerplate ("Practical guide and free tools
@@ -1986,7 +1986,7 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  <meta property="og:image:width" content="${en.imgW}">
  <meta property="og:image:height" content="${en.imgH}">
  <meta property="og:image:type" content="${en.img?.includes('.webp') ? 'image/webp' : 'image/jpeg'}">
- <meta property="og:image:alt" content="${esc(socialTitle)}">
+ <meta property="og:image:alt" content="${esc(heroAlt)}">
  <meta property="og:locale" content="${LOC_TAG[locale] ?? 'it_CH'}">
  <meta property="og:site_name" content="Frontaliere Ticino">
  ${twitterCardMeta}

@@ -116,7 +116,8 @@ jobs:
           BENCHMARK_ORIGIN: ${{ runner.temp }}/translate-pending-budget-origin.git
         run: |
           git init --bare "$BENCHMARK_ORIGIN"
-          git push "$BENCHMARK_ORIGIN" HEAD:refs/heads/main
+          git -C "$BENCHMARK_ORIGIN" config receive.shallowUpdate true
+          git push --no-thin "$BENCHMARK_ORIGIN" HEAD:refs/heads/main
           git remote set-url origin "$BENCHMARK_ORIGIN"
           git fetch --no-tags origin main
           git config user.name 'translate-pending-budget-benchmark'
@@ -216,6 +217,9 @@ jobs:
           node scripts/ci/translate-pending-budget-benchmark.mjs --record --stage handoff --report "$BENCHMARK_REPORT" -- bash -euo pipefail -c '
             if node scripts/validate-translation-completeness.mjs 2>/dev/null; then
               TRANSLATION_DEPLOY_HANDOFF_STATE=complete bash scripts/lib/git-commit-data.sh --slice-only "✅ Benchmark complete translation deploy handoff" data/translation-deploy-handoff.json
+            elif node scripts/ci/translate-pending-budget-benchmark.mjs --verify-selected-lane --report "$BENCHMARK_REPORT"; then
+              echo "::notice::benchmark-local selected-lane handoff is complete; the known repository-wide backlog remains governed by the production validator."
+              TRANSLATION_DEPLOY_HANDOFF_STATE=complete bash scripts/lib/git-commit-data.sh --slice-only "✅ Benchmark selected-lane deploy handoff" data/translation-deploy-handoff.json
             else
               TRANSLATION_DEPLOY_HANDOFF_STATE=fallback bash scripts/lib/git-commit-data.sh --slice-only "⚠️ Benchmark translation deploy fallback" data/translation-deploy-handoff.json
             fi

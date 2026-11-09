@@ -41,7 +41,7 @@ function extractNewsArticle(html: string): Record<string, unknown> {
   return newsScript!;
 }
 
-/** The three places a headline must agree in, plus the social title. */
+/** The headline surfaces plus the image alternatives used by the page. */
 function readTitles(html: string) {
   return {
     title: decodeHtml(html.match(/<title>([\s\S]*?)<\/title>/)?.[1] ?? ''),
@@ -49,6 +49,7 @@ function readTitles(html: string) {
     headline: String(extractNewsArticle(html).headline ?? ''),
     ogTitle: decodeHtml(html.match(/<meta property="og:title" content="([^"]*)">/)?.[1] ?? ''),
     ogImageAlt: decodeHtml(html.match(/<meta property="og:image:alt" content="([^"]*)">/)?.[1] ?? ''),
+    heroImageAlt: decodeHtml(html.match(/<figure\b[^>]*>\s*<img\b[^>]*\balt="([^"]*)"/)?.[1] ?? ''),
   };
 }
 
@@ -61,6 +62,7 @@ interface TitleSource {
   /** False when the ogTitle carries an escape: counted, never picked as a case. */
   plain: boolean;
   headline: Partial<Record<Locale, string>>;
+  imageAlt: Partial<Record<Locale, string>>;
 }
 
 /**
@@ -84,10 +86,15 @@ function readTitleSources(sectionName: SectionName): TitleSource[] {
     })
     .join('\n');
   const headlines = {} as Record<Locale, Map<string, string>>;
+  const imageAlts = {} as Record<Locale, Map<string, string>>;
   for (const locale of LOCALES) {
     const source = fs.readFileSync(path.join(rootDir, `services/locales/${section.metaPrefix}-${locale}.ts`), 'utf8');
     headlines[locale] = new Map(
       [...source.matchAll(/'blog\.article\.([^']+)\.title'\s*:\s*'((?:[^'\\]|\\.)*)'/g)]
+        .map((match) => [match[1], decodeTsStringEscapes(match[2], { newlineAs: ' ' })]),
+    );
+    imageAlts[locale] = new Map(
+      [...source.matchAll(/'blog\.article\.([^']+)\.imageAlt'\s*:\s*'((?:[^'\\]|\\.)*)'/g)]
         .map((match) => [match[1], decodeTsStringEscapes(match[2], { newlineAs: ' ' })]),
     );
   }
@@ -106,7 +113,11 @@ function readTitleSources(sectionName: SectionName): TitleSource[] {
     // Same order as the engine: the ogTitle, else the SEO title.
     const ogTitle = quoted('ogTitle') || quoted('title') || '';
     const headline: Partial<Record<Locale, string>> = {};
-    for (const locale of LOCALES) headline[locale] = headlines[locale].get(id);
+    const imageAlt: Partial<Record<Locale, string>> = {};
+    for (const locale of LOCALES) {
+      headline[locale] = headlines[locale].get(id);
+      imageAlt[locale] = imageAlts[locale].get(id);
+    }
     byId.set(id, {
       id,
       listed: 1,
@@ -114,6 +125,7 @@ function readTitleSources(sectionName: SectionName): TitleSource[] {
       ogTitle,
       plain: Boolean(ogTitle) && !ogTitle.includes('\\'),
       headline,
+      imageAlt,
     });
   }
   return [...byId.values()];
@@ -159,7 +171,11 @@ const differsFromSocialTitle = (source: TitleSource) =>
 // An Italian headline that is not the social title: the page must show the
 // former and keep the latter for the social card.
 const realHeadlineCase = withUniqueItalianHeadline(frontaliere)
-  .find((source) => isNews(source) && source.listed === 1 && differsFromSocialTitle(source) && isTranslated(source));
+  .find((source) => isNews(source)
+    && source.listed === 1
+    && differsFromSocialTitle(source)
+    && isTranslated(source)
+    && LOCALES.every((locale) => Boolean(source.imageAlt[locale])));
 // The frontaliere chunks overlap: 983 of 4 165 ids were listed twice on
 // 2026-10-07. Such an article is one page and must not collide with itself.
 const listedTwiceCase = withUniqueItalianHeadline(frontaliere)
@@ -211,14 +227,19 @@ describe('NewsArticle title invariant', () => {
     expect(titles.it.h1).toBe(headline);
     expect(titles.it.headline).toBe(headline);
     expect(titles.it.ogTitle).toBe(socialTitle);
-    expect(titles.it.ogImageAlt).toBe(socialTitle);
-    // The other three locales already read their own headline: unchanged.
+    // Other locales keep their existing localized headline/social-title rules.
     for (const locale of ['en', 'de', 'fr'] as const) {
       const localized = normalizeArticleTitle(source.headline[locale]!);
       expect(titles[locale].title).toBe(localized);
       expect(titles[locale].h1).toBe(localized);
       expect(titles[locale].headline).toBe(localized);
       expect(titles[locale].ogTitle).toBe(localized);
+    }
+    // Image alternatives follow each page's localized metadata independently
+    // of the title policy, including Italian's SEO-title fallback.
+    for (const locale of LOCALES) {
+      expect(titles[locale].heroImageAlt).toBe(source.imageAlt[locale]);
+      expect(titles[locale].ogImageAlt).toBe(source.imageAlt[locale]);
     }
   }, 120_000);
 

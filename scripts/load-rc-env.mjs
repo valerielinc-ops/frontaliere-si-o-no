@@ -50,6 +50,14 @@ export const SITE_ONLY_RC_KEYS = new Set([
   'EVENTFROG_ENABLED',
   'EVENTFROG_PUBLIC_API_KEY',
   'EVENTFROG_PUBLIC_API_KEY_EXPIRES_AT',
+  // Stealth browser and crawler policy (owner decision 2026-11-09), read only
+  // by site scripts: scripts/lib/stealth-browser.mjs, robots-policy.mjs.
+  'CLOAKBROWSER_LICENSE_KEY_ASSISTED',
+  'CLOAKBROWSER_LICENSE_KEY_CRAWLER',
+  'STEALTH_BROWSER_ASSISTED',
+  'STEALTH_BROWSER_CRAWLER',
+  'STEALTH_BROWSER_PROXY',
+  'CRAWLER_RESPECT_ROBOTS',
 ]);
 
 // ─── RC Param → Env Var Mapping ──────────────────────────────────────────
@@ -532,6 +540,20 @@ export const RC_TO_ENV = {
   // Unset in RC by default (the action treats unset the same as any value
   // other than '0': proceed).
   ENABLE_OMNIROUTE_FALLBACK:      ['ENABLE_OMNIROUTE_FALLBACK'],
+
+  // Stealth browser (owner decision 2026-11-09, scripts/lib/stealth-browser.mjs):
+  // one CloakBrowser license key per use (one concurrent session each), the
+  // per-use switches ('1' = on; unset or '0' = the usual Chromium), and an
+  // optional upstream proxy for the stealth browser only (may carry
+  // credentials, so it stays masked).
+  CLOAKBROWSER_LICENSE_KEY_ASSISTED: ['CLOAKBROWSER_LICENSE_KEY_ASSISTED'],
+  CLOAKBROWSER_LICENSE_KEY_CRAWLER:  ['CLOAKBROWSER_LICENSE_KEY_CRAWLER'],
+  STEALTH_BROWSER_ASSISTED:       ['STEALTH_BROWSER_ASSISTED'],
+  STEALTH_BROWSER_CRAWLER:        ['STEALTH_BROWSER_CRAWLER'],
+  STEALTH_BROWSER_PROXY:          ['STEALTH_BROWSER_PROXY'],
+  // '0' = crawlers read no robots.txt (scripts/lib/robots-policy.mjs#robotsEnforced);
+  // unset or '1' = respected, the safe default.
+  CRAWLER_RESPECT_ROBOTS:         ['CRAWLER_RESPECT_ROBOTS'],
 };
 
 /**
