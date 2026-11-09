@@ -56,7 +56,6 @@ describe('brefis personal ag crawler parser', () => {
           minCoverage: 0.5,
           numberedPagePattern: "/Vacancyboard/(\\d+)$",
         },
-        rescueOnEmptyListing: true,
       });
     });
 
