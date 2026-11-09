@@ -141,11 +141,13 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           set -euo pipefail
-          # Skip the issue when every profession with signal is already
-          # covered — no gap, no noise.
-          OPP_COUNT="$(node -e "console.log((JSON.parse(require('fs').readFileSync('data/profession-keyword-opportunities.json','utf8')).opportunities||[]).length)")"
+          # Skip the issue when no uncovered profession can be promoted by the
+          # refresh workflow. Non-promotable rows remain in the committed
+          # ranking for diagnosis, but opening an issue for them creates a
+          # recurring action item with no executable fix.
+          OPP_COUNT="$(node -e "const { opportunities = [] } = JSON.parse(require('fs').readFileSync('data/profession-keyword-opportunities.json','utf8')); console.log(opportunities.filter(({ promotable }) => promotable === true).length)")"
           if [ "$OPP_COUNT" -eq 0 ]; then
-            echo "No uncovered opportunities — skipping issue"
+            echo "No promotable uncovered opportunities — skipping issue"
             exit 0
           fi
           # Stable title (no run-number/date in the first 60 chars) →
