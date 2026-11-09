@@ -293,6 +293,34 @@ describe('handleCreateReaderCheckout', () => {
     });
   });
 
+  it('passes only validated reader-ad cohort fields through Stripe metadata', async () => {
+    const { handleCreateReaderCheckout, READER_NOADS_PLAN } = await load();
+    const attributedAt = Date.now() - 1000;
+    const houseAdAttribution = {
+      campaign: 'reader_subscription', experimentId: 'reader_subscription_house_v1',
+      assignmentSource: 'firebase_remote_config', variant: 'subscription', creativeId: 'subscription_v1',
+      format: 'rectangle', locale: 'it', placement: 'article-inline', device: 'mobile',
+      enrolled: true, touchpoint: 'click', attributedAt,
+      email: 'must-not-reach-stripe@example.test', randomizationId: 'must-not-reach-stripe',
+    };
+    await handleCreateReaderCheckout(req({
+      get: () => undefined,
+      body: { successUrl: 'https://a.test/ok', cancelUrl: 'https://a.test/cancel', houseAdAttribution },
+    }));
+    expect(stripeCheckoutSessionsCreate).toHaveBeenCalledWith(expect.objectContaining({
+      metadata: expect.objectContaining({
+        plan: READER_NOADS_PLAN,
+        houseCampaign: 'reader_subscription',
+        houseExperimentId: 'reader_subscription_house_v1',
+        houseVariant: 'subscription',
+        houseTouchpoint: 'click',
+        houseAttributedAt: String(attributedAt),
+      }),
+      subscription_data: { metadata: expect.objectContaining({ houseVariant: 'subscription' }) },
+    }));
+    expect(JSON.stringify(stripeCheckoutSessionsCreate.mock.calls.at(-1))).not.toContain('must-not-reach-stripe');
+  });
+
   it('guest checkout appends session_id with & when successUrl already has a query string', async () => {
     const { handleCreateReaderCheckout } = await load();
     await handleCreateReaderCheckout(
@@ -680,6 +708,34 @@ describe('handleReaderWebhookEvent', () => {
     });
   });
 
+  it('records a confirmed first payment and sanitized experiment cohort from Stripe metadata', async () => {
+    const { handleReaderWebhookEvent, READER_NOADS_PLAN } = await load();
+    const attributedAt = Date.now() - 1000;
+    await handleReaderWebhookEvent({
+      type: 'checkout.session.completed',
+      data: { object: {
+        id: 'cs_paid_1', customer: 'cus_new', subscription: 'sub_paid_1', payment_status: 'paid',
+        metadata: {
+          plan: READER_NOADS_PLAN,
+          readerUid: 'reader1',
+          houseCampaign: 'reader_subscription', houseExperimentId: 'reader_subscription_house_v1',
+          houseAssignmentSource: 'firebase_remote_config', houseVariant: 'subscription',
+          houseCreativeId: 'subscription_v1', houseFormat: 'rectangle', houseLocale: 'it',
+          housePlacement: 'article-inline', houseDevice: 'mobile', houseEnrolled: 'true',
+          houseTouchpoint: 'click', houseAttributedAt: String(attributedAt),
+        },
+      } },
+    }, fakeCtx(ts));
+    expect(store.reader1).toMatchObject({
+      firstPaidAt: ts,
+      houseAdAttribution: {
+        campaign: 'reader_subscription', variant: 'subscription',
+        experimentId: 'reader_subscription_house_v1', touchpoint: 'click', enrolled: true,
+      },
+    });
+    expect(JSON.stringify(store.reader1)).not.toContain('randomizationId');
+  });
+
   it('resolves/creates a Firebase uid from customer_details.email when readerUid metadata is absent (guest checkout)', async () => {
     const { handleReaderWebhookEvent, READER_NOADS_PLAN } = await load();
     const event = {
@@ -838,6 +894,29 @@ describe('handleReaderWebhookEvent', () => {
     const handled = await handleReaderWebhookEvent(event, fakeCtx(ts));
     expect(handled).toBe(true);
     expect(store.reader1.status).toBe('active');
+  });
+
+  it('records the first paid subscription invoice exactly once', async () => {
+    store.reader1 = { stripeCustomerId: 'cus_new', stripeSubscriptionId: 'sub_1', status: 'active' };
+    const { handleReaderWebhookEvent } = await load();
+    const event = { type: 'invoice.paid', data: { object: {
+      customer: 'cus_new', subscription: 'sub_1', billing_reason: 'subscription_create', amount_paid: 299,
+    } } };
+    await handleReaderWebhookEvent(event, fakeCtx(ts));
+    expect(store.reader1.firstPaidAt).toBe(ts);
+    await handleReaderWebhookEvent(event, fakeCtx('__later__'));
+    expect(store.reader1.firstPaidAt).toBe(ts);
+  });
+
+  it('does not count a zero-value subscription invoice as a confirmed purchase', async () => {
+    store.reader1 = { stripeCustomerId: 'cus_new', stripeSubscriptionId: 'sub_1', status: 'active' };
+    const { handleReaderWebhookEvent } = await load();
+    const event = { type: 'invoice.paid', data: { object: {
+      customer: 'cus_new', subscription: 'sub_1', billing_reason: 'subscription_create', amount_paid: 0,
+    } } };
+    await handleReaderWebhookEvent(event, fakeCtx(ts));
+    expect(store.reader1.status).toBe('active');
+    expect(store.reader1.firstPaidAt).toBeUndefined();
   });
 
   it('invoice.paid falls through when no matching reader doc exists (publisher invoice)', async () => {

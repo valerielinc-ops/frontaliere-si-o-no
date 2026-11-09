@@ -57,6 +57,7 @@ import { getAuth } from 'firebase-admin/auth';
 import { FieldValue } from 'firebase-admin/firestore';
 import { getRemoteConfigValue } from './remoteConfigSecrets.js';
 import { verifyCaller, getStripe, db } from './stripePublisherCore.js';
+import { sanitizeReaderSubscriptionAdAttribution } from './houseAdAttribution.js';
 
 /**
  * Stable plan identifier stored in Stripe checkout/subscription metadata and
@@ -69,6 +70,65 @@ import { verifyCaller, getStripe, db } from './stripePublisherCore.js';
 export const READER_NOADS_PLAN = 'reader_noads';
 
 const READER_SUBSCRIPTIONS_COLLECTION = 'reader_subscriptions';
+
+function readerAttributionStripeMetadata(value) {
+  const a = sanitizeReaderSubscriptionAdAttribution(value);
+  if (!a) return {};
+  return {
+    houseCampaign: a.campaign,
+    houseExperimentId: a.experimentId,
+    houseAssignmentSource: a.assignmentSource,
+    houseVariant: a.variant,
+    houseCreativeId: a.creativeId,
+    houseFormat: a.format,
+    houseLocale: a.locale,
+    housePlacement: a.placement,
+    houseDevice: a.device,
+    houseEnrolled: 'true',
+    houseTouchpoint: a.touchpoint,
+    houseAttributedAt: String(a.attributedAt),
+  };
+}
+
+function readerAttributionFromStripeMetadata(metadata) {
+  if (!metadata || typeof metadata !== 'object') return null;
+  return sanitizeReaderSubscriptionAdAttribution({
+    campaign: metadata.houseCampaign,
+    experimentId: metadata.houseExperimentId,
+    assignmentSource: metadata.houseAssignmentSource,
+    variant: metadata.houseVariant,
+    creativeId: metadata.houseCreativeId,
+    format: metadata.houseFormat,
+    locale: metadata.houseLocale,
+    placement: metadata.housePlacement,
+    device: metadata.houseDevice,
+    enrolled: metadata.houseEnrolled === 'true',
+    touchpoint: metadata.houseTouchpoint,
+    attributedAt: Number(metadata.houseAttributedAt),
+  });
+}
+
+async function mergeReaderSubscription(ref, dbInstance, values, { firstPaidAt, ts }) {
+  if (!firstPaidAt) {
+    await ref.set({ ...values, updatedAt: ts }, { merge: true });
+    return;
+  }
+  if (typeof dbInstance?.runTransaction === 'function') {
+    await dbInstance.runTransaction(async (transaction) => {
+      const snapshot = await transaction.get(ref);
+      const current = snapshot.exists ? snapshot.data() : null;
+      transaction.set(ref, {
+        ...values,
+        ...(current?.firstPaidAt == null ? { firstPaidAt: ts } : {}),
+        updatedAt: ts,
+      }, { merge: true });
+    });
+    return;
+  }
+  const snapshot = await ref.get();
+  const current = snapshot.exists ? snapshot.data() : null;
+  await ref.set({ ...values, ...(current?.firstPaidAt == null ? { firstPaidAt: ts } : {}), updatedAt: ts }, { merge: true });
+}
 
 // Claim-exhaustion ledger for handleClaimReaderCheckout (#4800): a paid
 // Checkout Session stays retrievable via stripe.checkout.sessions.retrieve
@@ -124,6 +184,8 @@ export async function handleCreateReaderCheckout(req) {
   const body = req.body || {};
   const successUrl = String(body.successUrl || '');
   const cancelUrl = String(body.cancelUrl || '');
+  const houseAdAttribution = sanitizeReaderSubscriptionAdAttribution(body.houseAdAttribution);
+  const houseMetadata = readerAttributionStripeMetadata(houseAdAttribution);
   if (!/^https?:\/\//.test(successUrl) || !/^https?:\/\//.test(cancelUrl)) {
     return { status: 400, body: { ok: false, error: 'invalid_redirect_urls' } };
   }
@@ -148,8 +210,9 @@ export async function handleCreateReaderCheckout(req) {
       cancel_url: cancelUrl,
       metadata: {
         plan: READER_NOADS_PLAN,
+        ...houseMetadata,
       },
-      subscription_data: { metadata: { plan: READER_NOADS_PLAN } },
+      subscription_data: { metadata: { plan: READER_NOADS_PLAN, ...houseMetadata } },
     });
     return { status: 200, body: { ok: true, url: session.url } };
   }
@@ -190,13 +253,15 @@ export async function handleCreateReaderCheckout(req) {
     metadata: {
       plan: READER_NOADS_PLAN,
       readerUid: uid,
+      ...houseMetadata,
     },
-    subscription_data: { metadata: { plan: READER_NOADS_PLAN, readerUid: uid } },
+    subscription_data: { metadata: { plan: READER_NOADS_PLAN, readerUid: uid, ...houseMetadata } },
   });
 
   await readerRef.set(
     {
       stripeCheckoutSessionId: session.id,
+      ...(houseAdAttribution ? { houseAdAttribution } : {}),
       updatedAt: FieldValue.serverTimestamp(),
     },
     { merge: true },
@@ -414,7 +479,9 @@ export async function handleReaderWebhookEvent(event, { db: dbFn, ts }) {
       // readerByStripeRef and are dropped) while leaving two live Stripe
       // subscriptions charging the same payer. Cancel the newly-created
       // (duplicate) one instead and leave the tracked subscription alone.
-      const existingSnap = await dbFn().collection(READER_SUBSCRIPTIONS_COLLECTION).doc(uid).get();
+      const readerDatabase = dbFn();
+      const readerRef = readerDatabase.collection(READER_SUBSCRIPTIONS_COLLECTION).doc(uid);
+      const existingSnap = await readerRef.get();
       const existingData = existingSnap.exists ? existingSnap.data() : null;
       if (
         existingData?.status === 'active' &&
@@ -436,22 +503,22 @@ export async function handleReaderWebhookEvent(event, { db: dbFn, ts }) {
         return true;
       }
 
-      await dbFn().collection(READER_SUBSCRIPTIONS_COLLECTION).doc(uid).set(
-        {
-          stripeCustomerId: obj.customer || null,
-          stripeSubscriptionId: obj.subscription || null,
-          stripeCheckoutSessionId: obj.id || null,
-          status: 'active',
-          updatedAt: ts,
-        },
-        { merge: true },
-      );
+      const houseAdAttribution = readerAttributionFromStripeMetadata(obj.metadata);
+      await mergeReaderSubscription(readerRef, readerDatabase, {
+        stripeCustomerId: obj.customer || null,
+        stripeSubscriptionId: obj.subscription || null,
+        stripeCheckoutSessionId: obj.id || null,
+        ...(houseAdAttribution ? { houseAdAttribution } : {}),
+        status: 'active',
+      }, { firstPaidAt: obj.payment_status === 'paid', ts });
       return true;
     }
     case 'invoice.paid': {
       const snap = await readerByStripeRef(dbFn, { customerId: obj.customer, subscriptionId: obj.subscription });
       if (!snap) return false;
-      await snap.ref.set({ status: 'active', updatedAt: ts }, { merge: true });
+      await mergeReaderSubscription(snap.ref, dbFn(), { status: 'active' }, {
+        firstPaidAt: obj.billing_reason === 'subscription_create' && Number(obj.amount_paid) > 0, ts,
+      });
       return true;
     }
     case 'invoice.payment_failed': {
