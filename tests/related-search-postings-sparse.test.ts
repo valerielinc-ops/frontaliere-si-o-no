@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import {
   computeTokenPostings,
+  encodeSearchGram,
   intersectedCandidatesForToken,
   wantedGramsForTokens,
 } from '../build-plugins/relatedSearchPostingsCore.mjs';
@@ -50,18 +51,37 @@ describe('related-search postings pre-pass: sparse path', () => {
 
   it('indexes only the grams a token can read', () => {
     const { wanted2, wanted3 } = wantedGramsForTokens(['oss', 'it', 'q', 'lugan']);
-    expect([...wanted2].sort()).toEqual(['it']);
-    expect([...wanted3].sort()).toEqual(['uga', 'gan', 'lug', 'oss'].sort());
+    expect([...wanted2].sort((a, b) => a - b)).toEqual([encodeSearchGram('it')]);
+    expect([...wanted3].sort((a, b) => a - b)).toEqual(
+      ['uga', 'gan', 'lug', 'oss'].map(encodeSearchGram).sort((a, b) => a - b),
+    );
+    expect([...wanted2, ...wanted3].every((gram) => Number.isInteger(gram))).toBe(true);
+  });
+
+  it('encodes only ASCII lowercase alphanumeric grams', () => {
+    expect(encodeSearchGram('it')).not.toBe(encodeSearchGram('ti'));
+    expect(encodeSearchGram('a1')).not.toBe(encodeSearchGram('1a'));
+    expect(encodeSearchGram('éa')).toBe(-1);
+    expect(encodeSearchGram('a-')).toBe(-1);
+    expect(encodeSearchGram('q')).toBe(-1);
+
+    const widths = wantedGramsForTokens(['aa', 'aaa']);
+    expect(widths.wanted2.has(encodeSearchGram('aa'))).toBe(true);
+    expect(widths.wanted3.has(encodeSearchGram('aaa'))).toBe(true);
   });
 
   it('intersects every 3-gram list and keeps ascending order', () => {
-    const grams = new Map<string, number[]>([
-      ['abc', [1, 2, 3, 5, 8]],
-      ['bcd', [2, 3, 8, 9]],
-      ['cde', [0, 3, 8]],
-    ]);
+    const grams = {
+      grams2: new Map<number, number[]>([[encodeSearchGram('ab'), [4, 6]]]),
+      grams3: new Map<number, number[]>([
+        [encodeSearchGram('abc'), [1, 2, 3, 5, 8]],
+        [encodeSearchGram('bcd'), [2, 3, 8, 9]],
+        [encodeSearchGram('cde'), [0, 3, 8]],
+      ]),
+    };
     expect(intersectedCandidatesForToken('abcde', grams)).toEqual([3, 8]);
     expect(intersectedCandidatesForToken('abcx', grams)).toEqual([]);
-    expect(intersectedCandidatesForToken('ab', new Map([['ab', [4, 6]]]))).toEqual([4, 6]);
+    expect(intersectedCandidatesForToken('ab', grams)).toEqual([4, 6]);
+    expect(intersectedCandidatesForToken('a-', grams)).toEqual([]);
   });
 });
