@@ -163,24 +163,86 @@ export function sanitizeDeep(value) {
   return value;
 }
 
+function transformOutsideXmlLiterals(xml, transform) {
+  let output = '';
+  let index = 0;
+  while (index < xml.length) {
+    const regions = [
+      { start: xml.indexOf('<!--', index), open: '<!--', close: '-->' },
+      { start: xml.indexOf('<![CDATA[', index), open: '<![CDATA[', close: ']]>' },
+      { start: xml.indexOf('<?', index), open: '<?', close: '?>' },
+    ].filter(({ start }) => start >= 0).sort((a, b) => a.start - b.start);
+    const region = regions[0];
+    if (!region) {
+      output += transform(xml.slice(index), index);
+      break;
+    }
+    output += transform(xml.slice(index, region.start), index);
+    const close = xml.indexOf(region.close, region.start + region.open.length);
+    if (close < 0) {
+      output += xml.slice(region.start);
+      break;
+    }
+    const end = close + region.close.length;
+    output += xml.slice(region.start, end);
+    index = end;
+  }
+  return output;
+}
+
+function numericReferenceCode(digits) {
+  return digits[0] === 'x'
+    ? Number.parseInt(digits.slice(1), 16)
+    : Number.parseInt(digits, 10);
+}
+
+function isInvalidNumericReference(_reference, digits) {
+  const code = numericReferenceCode(digits);
+  return Number.isFinite(code) && isInvalidControlCode(code);
+}
+
 /**
- * Sanitize a whole XML document: the raw characters, and any numeric character
- * reference that would decode to one.
- *
- * `&#8;` is as fatal as a raw 0x08 — XML forbids the CHARACTER, and a reference
- * is just another spelling of it. The engine's own RSS builder escapes through
- * an entity table, so that spelling is the one a feed would take if the escape
- * ever reached a numeric branch. Both are removed; every other reference
- * (`&amp;`, `&#233;`, `&#x2019;`) is left exactly as written.
+ * Decode only references that represent XML-forbidden C0 characters in XML
+ * character data. References in comments, CDATA, and processing instructions
+ * are literal text and must remain byte-identical there.
+ */
+export function decodeInvalidXmlReferencesOutsideLiterals(xml) {
+  if (typeof xml !== 'string') return xml;
+  return transformOutsideXmlLiterals(xml, (text) => text.replace(
+    /&#(x[0-9a-fA-F]+|[0-9]+);/g,
+    (reference, digits) => isInvalidNumericReference(reference, digits)
+      ? String.fromCharCode(numericReferenceCode(digits))
+      : reference,
+  ));
+}
+
+/** Find invalid numeric references with offsets in the original XML source. */
+export function findInvalidXmlReferencesOutsideLiterals(xml) {
+  if (typeof xml !== 'string') return [];
+  const found = [];
+  transformOutsideXmlLiterals(xml, (text, offset) => {
+    const references = /&#(x[0-9a-fA-F]+|[0-9]+);/g;
+    for (const match of text.matchAll(references)) {
+      if (!isInvalidNumericReference(match[0], match[1])) continue;
+      found.push({ code: numericReferenceCode(match[1]), index: offset + match.index });
+    }
+    return text;
+  });
+  return found;
+}
+
+/**
+ * Sanitize a whole XML document: raw forbidden characters everywhere, and
+ * numeric character references only in XML character data. Numeric references
+ * inside comments, CDATA, and processing instructions are ordinary text.
  */
 export function sanitizeXmlDocument(xml) {
   if (typeof xml !== 'string') return xml;
-  return xml.replace(INVALID_C0, '').replace(/&#(x[0-9a-fA-F]+|[0-9]+);/g, (ref, digits) => {
-    const code = digits[0] === 'x' || digits[0] === 'X'
-      ? Number.parseInt(digits.slice(1), 16)
-      : Number.parseInt(digits, 10);
-    return Number.isFinite(code) && isInvalidControlCode(code) ? '' : ref;
-  });
+  const cleanRaw = xml.replace(INVALID_C0, '');
+  return transformOutsideXmlLiterals(cleanRaw, (text) => text.replace(
+    /&#(x[0-9a-fA-F]+|[0-9]+);/g,
+    (reference, digits) => isInvalidNumericReference(reference, digits) ? '' : reference,
+  ));
 }
 
 /**

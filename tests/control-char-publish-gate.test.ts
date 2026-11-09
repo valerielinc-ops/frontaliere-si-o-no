@@ -126,6 +126,15 @@ describe('what must be refused', () => {
     expect(inspectDocument(xml, 'xml')[0].form).toBe('reference');
   });
 
+  it('keeps references inside XML literal regions but still refuses raw C0 there', () => {
+    const xml = '<!--&#8;--><t><![CDATA[&#x08;]]></t><?probe &#8;?>';
+    expect(inspectDocument(xml, 'xml')).toEqual([]);
+    expect(isPublishable(xml, 'xml')).toBe(true);
+
+    const raw = '<t><![CDATA[a' + BS + 'b]]></t>';
+    expect(isPublishable(raw, 'xml')).toBe(false);
+  });
+
   it('an escaped C0 in a .json document, read by parsing rather than matching', () => {
     const json = JSON.stringify({ ranking: [{ name: `Chi${BS}asso` }] });
     expect(json).not.toMatch(/[\u0000-\u0008]/); // escaped, so byte-clean

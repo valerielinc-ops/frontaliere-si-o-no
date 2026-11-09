@@ -220,6 +220,23 @@ describe('sanitizeXmlDocument, and the sitemap entry that broke', () => {
     expect(sanitizeXmlDocument(xml)).toBe('<t>abc&#233;d&#x2019;e&amp;f</t>');
   });
 
+  it('preserves numeric C0 references inside comments, CDATA, and processing instructions', () => {
+    const xml =
+      '<!--keep &#8;-->' +
+      '<t><![CDATA[keep &#x08;]]></t>' +
+      '<?probe keep &#8;?>' +
+      '<t>remove &#8; from character data</t>';
+    expect(sanitizeXmlDocument(xml)).toBe(
+      '<!--keep &#8;-->' +
+      '<t><![CDATA[keep &#x08;]]></t>' +
+      '<?probe keep &#8;?>' +
+      '<t>remove  from character data</t>',
+    );
+
+    const raw = '<t><![CDATA[a' + BS + 'b]]></t>';
+    expect(sanitizeXmlDocument(raw)).toBe('<t><![CDATA[ab]]></t>');
+  });
+
   it('returns a clean XML document byte-identical', () => {
     const xml = '<?xml version="1.0"?>\n<a>Perché\tsì\r\n</a>\n';
     expect(sanitizeXmlDocument(xml)).toBe(xml);
