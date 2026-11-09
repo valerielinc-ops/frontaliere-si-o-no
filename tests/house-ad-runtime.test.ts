@@ -233,7 +233,7 @@ describe('per-slot first-party creative delivery', () => {
     empty.host.querySelector('a').click();
     expect(JSON.parse(w.sessionStorage.getItem('ft_house_ad_click_v1')).enrolled).toBe(false);
   });
-  it('starts Firebase assignment after analytics consent is granted without leaving the slot blank', async () => {
+  it('starts Firebase assignment after analytics consent and uses the next unseen fallback slot', async () => {
     w.__ftAdsAuthState = 'anonymous';
     w.localStorage.setItem('frontaliere_consent', JSON.stringify({ analytics: false }));
     w.fetch.mockResolvedValue({ ok: true, json: async () => ({
@@ -242,16 +242,18 @@ describe('per-slot first-party creative delivery', () => {
       readerSubscriptionExperimentId: 'reader_subscription_house_v1',
       readerSubscriptionAssignmentSource: 'firebase_remote_config',
     }) });
-    const empty = frame('unfilled'); await start();
+    const first = frame('unfilled'); await start();
     expect(w.fetch).not.toHaveBeenCalled();
-    expect(empty.host.querySelector('a')?.dataset.houseCampaign).toBe('job_search_automation');
+    expect(first.host.querySelector('a')?.dataset.houseCampaign).toBe('job_search_automation');
 
     w.localStorage.setItem('frontaliere_consent', JSON.stringify({ analytics: true }));
     w.dispatchEvent(new w.Event(config.consentEvent));
-    await vi.advanceTimersByTimeAsync(300);
+    const next = frame('unfilled', 'article-end');
+    await vi.advanceTimersByTimeAsync(600);
 
     expect(w.fetch).toHaveBeenCalledTimes(1);
-    expect(empty.host.querySelector('a')?.dataset.houseCampaign).toBe('reader_subscription');
+    expect(first.host.querySelector('a')?.dataset.houseCampaign).toBe('job_search_automation');
+    expect(next.host.querySelector('a')?.dataset.houseCampaign).toBe('reader_subscription');
   });
   it('stores Firebase assignment metadata with the click for purchase attribution', async () => {
     w.fetch.mockResolvedValue({ ok: true, json: async () => ({ variant: 'profile_match', enrolled: true, experimentId: 'house_creatives_v2', assignmentSource: 'firebase_remote_config' }) });
@@ -284,19 +286,21 @@ describe('per-slot first-party creative delivery', () => {
     dom.reconfigure({ url: 'https://frontaliereticino.ch/de/arbeitssuche-schweiz-automatisieren/' });
     const empty = frame('unfilled'); await start(); expect(empty.host.childElementCount).toBe(0);
   });
-  it('keeps the subscription card off the page until Firebase Auth confirms anonymous status', async () => {
+  it('keeps the subscription card off the page until anonymous status and uses the next unseen slot', async () => {
     w.fetch.mockResolvedValue({ ok: true, json: async () => ({
       variant: 'control', enrolled: false, assignmentSource: 'local_default',
       readerSubscriptionVariant: 'subscription', readerSubscriptionEnrolled: true,
       readerSubscriptionExperimentId: 'reader_subscription_house_v1', readerSubscriptionAssignmentSource: 'firebase_remote_config',
     }) });
-    const empty = frame('unfilled'); await start();
+    const first = frame('unfilled'); await start();
     expect(w.__ftAdsAuthStateRequested).toBe(true);
-    expect(empty.host.querySelector('[data-house-campaign="reader_subscription"]')).toBeNull();
-    expect(empty.host.querySelector('a')?.dataset.houseCampaign).toBe('job_search_automation');
+    expect(first.host.querySelector('[data-house-campaign="reader_subscription"]')).toBeNull();
+    expect(first.host.querySelector('a')?.dataset.houseCampaign).toBe('job_search_automation');
     w.dispatchEvent(new w.CustomEvent('frontaliere:auth-state', { detail: 'anonymous' }));
-    await vi.advanceTimersByTimeAsync(200);
-    expect(empty.host.querySelector('a')?.dataset.houseCampaign).toBe('reader_subscription');
+    const next = frame('unfilled', 'article-end');
+    await vi.advanceTimersByTimeAsync(500);
+    expect(first.host.querySelector('a')?.dataset.houseCampaign).toBe('job_search_automation');
+    expect(next.host.querySelector('a')?.dataset.houseCampaign).toBe('reader_subscription');
   });
   it('shows at most one subscription card to an anonymous treatment user and only in owned fallback slots', async () => {
     w.__ftAdsAuthState = 'anonymous';
