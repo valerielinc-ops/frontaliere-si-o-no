@@ -180,7 +180,9 @@ function transformOutsideXmlLiterals(xml, transform) {
     output += transform(xml.slice(index, region.start), index);
     const close = xml.indexOf(region.close, region.start + region.open.length);
     if (close < 0) {
-      output += xml.slice(region.start);
+      // A literal-region exemption requires a closing delimiter. Malformed XML
+      // must not hide references from the publish gate or sanitizer.
+      output += transform(xml.slice(region.start), region.start);
       break;
     }
     const end = close + region.close.length;

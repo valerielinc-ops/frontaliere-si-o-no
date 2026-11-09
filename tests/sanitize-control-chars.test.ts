@@ -237,6 +237,16 @@ describe('sanitizeXmlDocument, and the sitemap entry that broke', () => {
     expect(sanitizeXmlDocument(raw)).toBe('<t><![CDATA[ab]]></t>');
   });
 
+  it('does not exempt a numeric C0 reference inside an unterminated XML literal region', () => {
+    for (const xml of [
+      '<root><!--unterminated &#8;',
+      '<root><![CDATA[unterminated &#8;',
+      '<root><?probe unterminated &#8;',
+    ]) {
+      expect(sanitizeXmlDocument(xml)).not.toContain('&#8;');
+    }
+  });
+
   it('returns a clean XML document byte-identical', () => {
     const xml = '<?xml version="1.0"?>\n<a>Perché\tsì\r\n</a>\n';
     expect(sanitizeXmlDocument(xml)).toBe(xml);

@@ -135,6 +135,17 @@ describe('what must be refused', () => {
     expect(isPublishable(raw, 'xml')).toBe(false);
   });
 
+  it('does not let an unterminated XML literal region hide a C0 reference', () => {
+    for (const xml of [
+      '<root><!--unterminated &#8;',
+      '<root><![CDATA[unterminated &#x08;',
+      '<root><?probe unterminated &#8;',
+    ]) {
+      expect(isPublishable(xml, 'xml')).toBe(false);
+      expect(inspectDocument(xml, 'xml')[0].form).toBe('reference');
+    }
+  });
+
   it('an escaped C0 in a .json document, read by parsing rather than matching', () => {
     const json = JSON.stringify({ ranking: [{ name: `Chi${BS}asso` }] });
     expect(json).not.toMatch(/[\u0000-\u0008]/); // escaped, so byte-clean
