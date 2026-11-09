@@ -1,7 +1,7 @@
 {
   "crawlerKey": "siegfried",
-  "assembledAt": "2026-11-08T21:24:58.570Z",
-  "runId": "42523472083",
+  "assembledAt": "2026-11-09T09:22:54.473Z",
+  "runId": "42590825067",
   "jobs": [
     {
       "id": "siegfried-b2e1fb16eb0f",
@@ -34,7 +34,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Oprateur-de-production-4-8_R26_173",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-08T21:24:51.090Z",
+      "crawledAt": "2026-11-09T09:22:46.927Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -84,7 +84,7 @@
       "addressRegion": "VS",
       "streetAddress": "Evionnaz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-08T21:24:51.090Z",
+      "validThrough": "2026-12-09T09:22:46.927Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -92,7 +92,7 @@
       "slug": "tecnico-di-laboratorio-ad-siegfried-evionnaz",
       "slugByLocale": {
         "it": "tecnico-di-laboratorio-ad-siegfried-evionnaz",
-        "en": "lab-technician-ad-siegfried-evionnaz",
+        "en": "nb-t-a-siegfried-evionnaz",
         "de": "lab-techniker-ad-siegfried-evionnaz",
         "fr": "lab-technician-ad-siegfried-ch"
       },
@@ -118,7 +118,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Lab-Technician-AD_R26_315",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-08T21:24:50.382Z",
+      "crawledAt": "2026-11-09T09:22:46.188Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -163,14 +163,14 @@
         "change-over-techniker-3-8-siegfried-evionnaz",
         "changement-de-technicien-3-8-siegfried-evionnaz",
         "tecnico-di-cambio-3-8-siegfried-evionnaz",
-        "nb-t-a-siegfried-evionnaz"
+        "lab-technician-ad-siegfried-evionnaz"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lab-technician-ad-siegfried-ch"
         ],
         "en": [
-          "nb-t-a-siegfried-evionnaz"
+          "lab-technician-ad-siegfried-evionnaz"
         ],
         "de": [
           "labotechniker-ad-siegfried-evionnaz"
@@ -197,7 +197,7 @@
       "addressRegion": "VS",
       "streetAddress": "Evionnaz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-08T21:24:50.382Z",
+      "validThrough": "2026-12-09T09:22:46.188Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -231,7 +231,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Maintenance-Technician-III_R26_278",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-08T21:24:49.755Z",
+      "crawledAt": "2026-11-09T09:22:45.441Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -284,7 +284,7 @@
       "addressRegion": "VS",
       "streetAddress": "Evionnaz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-08T21:24:49.755Z",
+      "validThrough": "2026-12-09T09:22:45.441Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -318,7 +318,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Intern-Commercial-Excellence_R26_511",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-08T21:24:49.128Z",
+      "crawledAt": "2026-11-09T09:22:44.697Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -369,7 +369,7 @@
       "addressRegion": "AG",
       "streetAddress": "Zofingen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-08T21:24:49.128Z",
+      "validThrough": "2026-12-09T09:22:44.697Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -403,7 +403,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/CAD-Designer_R26_592",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-08T21:24:48.494Z",
+      "crawledAt": "2026-11-09T09:22:43.968Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -451,7 +451,7 @@
       "addressRegion": "VS",
       "streetAddress": "Evionnaz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-08T21:24:48.494Z",
+      "validThrough": "2026-12-09T09:22:43.968Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -485,7 +485,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Stage---Digitalisation-des-Processus-en-Environnement-Pharma_R26_661",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-08T21:24:47.879Z",
+      "crawledAt": "2026-11-09T09:22:43.250Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -536,7 +536,7 @@
       "addressRegion": "VS",
       "streetAddress": "Evionnaz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-08T21:24:47.879Z",
+      "validThrough": "2026-12-09T09:22:43.250Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -570,7 +570,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Ingnieur-en-chimie---Expertise-QC_R26_679",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-08T21:24:47.201Z",
+      "crawledAt": "2026-11-09T09:22:42.539Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -621,7 +621,7 @@
       "addressRegion": "VS",
       "streetAddress": "Evionnaz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-08T21:24:47.201Z",
+      "validThrough": "2026-12-09T09:22:42.539Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -655,7 +655,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Asset-Reliability-Engineer--a-_R26_713",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T21:24:46.582Z",
+      "crawledAt": "2026-11-09T09:22:41.786Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -704,7 +704,7 @@
       "addressRegion": "AG",
       "streetAddress": "Zofingen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-08T21:24:46.582Z",
+      "validThrough": "2026-12-09T09:22:41.786Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -714,7 +714,7 @@
         "it": "manutenzione-testa-siegfried-zofingen",
         "en": "head-maintenance-siegfried-zofingen",
         "de": "head-maintenance-siegfried-ch",
-        "fr": "entretien-de-la-tete-siegfried-zofingen"
+        "fr": "responsable-de-la-maintenance-de-production-siegfried-zofingen"
       },
       "company": "Siegfried",
       "companyKey": "siegfried",
@@ -738,7 +738,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Head-Maintenance_R26_655",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T21:24:45.916Z",
+      "crawledAt": "2026-11-09T09:22:41.057Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -767,14 +767,14 @@
         "fr": [
           "directeur-de-la-maintenance-de-la-production-siegfried-zofingen",
           "production-maintenance-manager-siegfried-zofingen",
-          "responsable-de-la-maintenance-de-production-siegfried-zofingen"
+          "entretien-de-la-tete-siegfried-zofingen"
         ]
       },
       "previousSlugs": [
         "production-maintenance-manager-siegfried-ch",
         "directeur-de-la-maintenance-de-la-production-siegfried-zofingen",
         "production-maintenance-manager-siegfried-zofingen",
-        "responsable-de-la-maintenance-de-production-siegfried-zofingen"
+        "entretien-de-la-tete-siegfried-zofingen"
       ],
       "firstSeenAt": "2026-09-09T14:06:01.758Z",
       "salaryMin": 85500,
@@ -794,7 +794,7 @@
       "addressRegion": "AG",
       "streetAddress": "Zofingen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-08T21:24:45.916Z",
+      "validThrough": "2026-12-09T09:22:41.057Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -828,7 +828,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/CAD-Konstrukteur--m-w-d-_R26_621",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T21:24:45.282Z",
+      "crawledAt": "2026-11-09T09:22:40.337Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -878,7 +878,7 @@
       "addressRegion": "AG",
       "streetAddress": "Zofingen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-13T21:24:45.282Z",
+      "validThrough": "2026-12-13T09:22:40.337Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -912,7 +912,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Senior-Maintenance-Manager_R26_795",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-08T21:24:44.664Z",
+      "crawledAt": "2026-11-09T09:22:39.631Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -963,7 +963,7 @@
       "addressRegion": "VS",
       "streetAddress": "Evionnaz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-18T21:24:44.664Z",
+      "validThrough": "2027-01-18T09:22:39.631Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -997,7 +997,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Stagiaire-HSE_R26_804",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-08T21:24:44.032Z",
+      "crawledAt": "2026-11-09T09:22:38.874Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -1048,7 +1048,7 @@
       "addressRegion": "VS",
       "streetAddress": "Evionnaz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-24T21:24:44.032Z",
+      "validThrough": "2027-01-24T09:22:38.874Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1082,7 +1082,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Chemielaborant-in-analytische-Entwicklung_R26_805",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T21:24:43.400Z",
+      "crawledAt": "2026-11-09T09:22:38.143Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -1133,7 +1133,7 @@
       "addressRegion": "AG",
       "streetAddress": "Zofingen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-26T21:24:43.400Z",
+      "validThrough": "2027-01-26T09:22:38.143Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1167,7 +1167,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Head-of-Engineering---Maintenance_R26_818",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-08T21:24:42.739Z",
+      "crawledAt": "2026-11-09T09:22:37.423Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -1218,7 +1218,7 @@
       "addressRegion": "VS",
       "streetAddress": "Evionnaz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-31T21:24:42.739Z",
+      "validThrough": "2027-01-31T09:22:37.423Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1252,7 +1252,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Stage---Engineering---Maintenance_R26_827",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-08T21:24:42.123Z",
+      "crawledAt": "2026-11-09T09:22:36.693Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -1303,7 +1303,7 @@
       "addressRegion": "VS",
       "streetAddress": "Evionnaz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-02T21:24:42.123Z",
+      "validThrough": "2027-02-02T09:22:36.693Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1337,7 +1337,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Senior-Manager-Business-Development-DP_R26_830",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-08T21:24:41.515Z",
+      "crawledAt": "2026-11-09T09:22:35.967Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -1388,7 +1388,7 @@
       "addressRegion": "AG",
       "streetAddress": "Zofingen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T21:24:41.515Z",
+      "validThrough": "2027-02-03T09:22:35.967Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1396,7 +1396,7 @@
       "slug": "lab-supervisore-stability-siegfried-evionnaz",
       "slugByLocale": {
         "it": "lab-supervisore-stability-siegfried-evionnaz",
-        "en": "nb-ntsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltslts",
+        "en": "nb-ntsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltslts",
         "de": "lab-vorgesetzter-stability-siegfried-evionnaz",
         "fr": "lab-supervisor-stability-siegfried-ch"
       },
@@ -1422,7 +1422,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Lab-Supervisor-Stability_R26_813",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-08T21:24:40.898Z",
+      "crawledAt": "2026-11-09T09:22:35.201Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -1443,14 +1443,14 @@
       "hiringOrganization": "Siegfried Evionnaz SA",
       "previousSlugs": [
         "lab-supervisor-stability-siegfried-ch",
-        "nb-ntsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltslts"
+        "nb-ntsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltslts"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lab-supervisor-stability-siegfried-ch"
         ],
         "en": [
-          "nb-ntsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltslts"
+          "nb-ntsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltslts"
         ],
         "de": [
           "lab-supervisor-stability-siegfried-ch"
@@ -1474,91 +1474,7 @@
       "addressRegion": "VS",
       "streetAddress": "Evionnaz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-27T21:24:40.898Z",
-      "validThroughSource": "last-observed-window"
-    },
-    {
-      "id": "siegfried-3ed8e4d54221",
-      "slug": "assistente-esecutivo-siegfried-zofingen",
-      "slugByLocale": {
-        "it": "assistente-esecutivo-siegfried-zofingen",
-        "en": "executive-assistant-siegfried-ch",
-        "de": "executive-assistent-siegfried-zofingen",
-        "fr": "assistant-executif-siegfried-zofingen"
-      },
-      "company": "Siegfried",
-      "companyKey": "siegfried",
-      "companyDomain": "siegfried.ch",
-      "title": "Executive Assistant",
-      "titleByLocale": {
-        "it": "Assistente esecutivo",
-        "en": "Executive Assistant",
-        "de": "Executive Assistent",
-        "fr": "Assistant exécutif"
-      },
-      "description": "\"Expect to grow\", personally and professionally: At Siegfried, we offer exciting challenges and ample opportunities to showcase your talents. As a trusted and respected partner to the pharmaceutical industry, we uphold the highest standards in safety, quality and sustainability, while fostering a culture that empowers you to thrive. Join a rapidly expanding global company, where diverse perspectives and experiences come together in a collaborative environment. Here, you'll find a workplace that values both collective success and your individual contributions—offering long-term opportunities to grow and make an impact.\n\nYour Role:\nYour Role\n\nIn this highly responsible and varied position, you will take on an exciting mix of administrative, coordination and organisational responsibilities. As a key point of contact, you will ensure smooth day-to-day operations while providing comprehensive support to members of the Executive Board and Senior Management, enabling them to focus on their core responsibilities.\n\nThis is a full-time position, starting in December or by mutual agreement.\n\nYour responsibilities include:\n\n-Providing administrative and organisational support to designated members of Senior Management and the Executive Board\n\n-Managing and coordinating appointments, including comprehensive calendar management\n\n-Organising and booking business travel and customer visits\n\n-Preparing meeting documentation, creating presentations and taking meeting minutes\n\n-Managing expense claims and reimbursements\n\n-Organising customer events and internal corporate functions\n\n-Maintaining internal process databases and contributing to various projects\n\n-Acting as a central point of contact and key interface for internal and external stakeholders\n\n-Handling general correspondence in German and English\n\n-Proactively resolving day-to-day operational issues and addressing unexpected challenges\n Your Profile:\n\nProfessional Qualifications\n\n• At least 3 years of experience in a similar role within an international business environment\n\n• Successfully completed commercial or business administration education, ideally complemented by further education in Executive Assistance, Office Management or Management Support (a recognised Executive Assistant qualification is an advantage)\n\n• Very good written and spoken German and English skills; French or Spanish is an advantage\n\n• Strong IT affinity and excellent command of standard MS Office applications\n\nPersonal Attributes\n\n• Service-oriented, proactive and self-motivated, with a strong sense of initiative\n\n• A collaborative team player with strong communication skills, an ability to think across functions and a natural talent for interacting with people from diverse backgrounds\n\n• Highly organised and flexible, with a structured and solution-oriented approach to work\n\nYour Benefits:\n\n• Pension Fund: Our attractive company pension scheme offers flexible options for tailoring your contribution levels to your individual needs.\n\n• Employee Share Purchase Plan: Benefit from a generous employee share purchase plan with flexible participation options.\n\n• Child Allowance: Siegfried AG provides a child allowance that is 10% higher than the statutory cantonal rate.\n\n• REKA Money: Siegfried AG offers employees a 20% discount on REKA money.\n\n• Staff Restaurant / Cafeteria: Enjoy meals at preferential rates.\n\n• Parking: Benefit from discounted parking facilities.\n\n• Central Location: Conveniently located close to the railway station, with excellent public transport connections.\n\nFounded in 1873 in Zofingen, Switzerland, Siegfried has grown into a global network of 16 sites across three continents. With a team of more than 4,200 highly skilled professionals, we take the innovations of our pharmaceutical customers to industrial scale and manufacture safe drugs for patients worldwide. As a fully integrated CDMO, Siegfried is one of the few organizations today that can carry out the development and manufacturing of APIs and finished dosage forms under one roof. This unique combination of know-how and experience makes us the most trusted partner in the pharmaceutical industry.\n\nSiegfried is a leading CDMO (Contract Development & Manufacturing Organization) headquartered in Zofingen, Switzerland. The company operates manufacturing sites in Evionnaz (Valais), Zofingen (Aargau), and Schlieren (Zurich).",
-      "descriptionByLocale": {
-        "it": "\"Aspetta di crescere\", personalmente e professionalmente: A Siegfried, offriamo interessanti sfide e ampie opportunità per mostrare i vostri talenti. In qualità di partner affidabile e rispettato per l'industria farmaceutica, sosteniamo i più elevati standard di sicurezza, qualità e sostenibilità, promuovendo al contempo una cultura che ti consente di prosperare. Unisciti a una società globale in rapida espansione, dove prospettive e esperienze diverse si uniscono in un ambiente collaborativo. Qui, troverete un posto di lavoro che valorizzi il successo collettivo e i vostri contributi individuali, offrendo opportunità a lungo termine per crescere e fare un impatto.\n\nIl tuo ruolo:\nIl tuo ruolo\n\nIn questa posizione altamente responsabile e varia, si assume un mix emozionante di responsabilità amministrative, di coordinamento e organizzative. Come punto di contatto chiave, garantirai operazioni quotidiane e fluide, fornendo un supporto completo ai membri del comitato esecutivo e della direzione senior, consentendo loro di concentrarsi sulle loro responsabilità principali.\n\nSi tratta di una posizione a tempo pieno, a partire da dicembre o di comune accordo.\n\nLe tue responsabilità includono:\n\n- Fornire supporto amministrativo e organizzativo ai membri designati di Senior Management e del Executive Board\n\n-gestione e coordinamento degli appuntamenti, compresa la gestione completa del calendario\n\n- Organizzazione e prenotazione di viaggi d'affari e visite ai clienti\n\n-Preparare la documentazione di riunione, creare presentazioni e prendere i minuti di riunione\n\n-Gestione delle spese e rimborsi\n\n- Organizzazione eventi e funzioni aziendali interne\n\n- Mantenere database di processo interni e contribuire a vari progetti\n\n-Agitare come punto centrale di contatto e interfaccia chiave per gli stakeholder interni ed esterni\n\n-Mantenere la corrispondenza generale in tedesco e inglese\n\n-Risolvere attivamente questioni operative quotidiane e affrontare sfide inaspettate\nIl tuo profilo:\n\nQualifiche professionali\n\n• Almeno 3 anni di esperienza in un ruolo simile all'interno di un ambiente aziendale internazionale\n\n• Completato con successo l'istruzione commerciale o di amministrazione aziendale, idealmente completato da un'ulteriore formazione in Assistenza esecutiva, Office Management o Management Support (una qualifica riconosciuta Executive Assistant è un vantaggio)\n\n• Molto buono scritto e parlato tedesco e inglese competenze; francese o spagnolo è un vantaggio\n\n• Forte affinità IT e ottimo comando delle applicazioni standard MS Office\n\nAttributi personali\n\n• Servizio orientato, proattivo e automotivato, con un forte senso di iniziativa\n\n• Un team player collaborativo con forti capacità di comunicazione, una capacità di pensare attraverso funzioni e un talento naturale per interagire con persone di diversa provenienza\n\n• Altamente organizzato e flessibile, con un approccio strutturato e orientato alla soluzione al lavoro\n\nI vostri vantaggi:\n\n• Pension Fund: Il nostro attraente sistema pensionistico aziendale offre opzioni flessibili per personalizzare i livelli di contributo alle vostre esigenze individuali.\n\n• Piano di acquisto dei dipendenti: Approfitta di un generoso piano di acquisto azionario dei dipendenti con opzioni di partecipazione flessibili.\n\n• Consentimento del bambino: Siegfried AG fornisce un'indennità per bambini superiore al 10% rispetto al tasso cantonale legale.\n\n• REKA Money: Siegfried AG offre ai dipendenti uno sconto del 20% sui soldi REKA.\n\n• Staff Ristorante / Caffetteria: Godetevi i pasti a tariffe preferenziali.\n\n• Parcheggio: Approfitta dei servizi di parcheggio scontati.\n\n• Posizione centrale: Situato in posizione strategica vicino alla stazione ferroviaria, con ottimi collegamenti con i mezzi pubblici.\n\nFondata nel 1873 a Zofingen, in Svizzera, Siegfried è cresciuta in una rete globale di 16 siti in tre continenti. Con un team di oltre 4.200 professionisti altamente qualificati, portiamo le innovazioni dei nostri clienti farmaceutici a scala industriale e produciamo farmaci sicuri per i pazienti in tutto il mondo. Come CDMO completamente integrato, Siegfried è una delle poche organizzazioni oggi in grado di effettuare lo sviluppo e la produzione di API e forme di dosaggio finito sotto un unico tetto. Questa combinazione unica di know-how ed esperienza ci rende il partner più affidabile nel settore farmaceutico.\n\nSiegfried è un CDMO leader (Contract Development & Manufacturing Organization) con sede a Zofingen, in Svizzera. L'azienda gestisce stabilimenti produttivi a Evionnaz (Valais), Zofingen (Aargau), e Schlieren (Zurich).",
-        "en": "\"Expect to grow\", personally and professionally: At Siegfried, we offer exciting challenges and ample opportunities to showcase your talents. As a trusted and respected partner to the pharmaceutical industry, we uphold the highest standards in safety, quality and sustainability, while fostering a culture that empowers you to thrive. Join a rapidly expanding global company, where diverse perspectives and experiences come together in a collaborative environment. Here, you'll find a workplace that values both collective success and your individual contributions—offering long-term opportunities to grow and make an impact.\n\nYour Role:\nYour Role\n\nIn this highly responsible and varied position, you will take on an exciting mix of administrative, coordination and organisational responsibilities. As a key point of contact, you will ensure smooth day-to-day operations while providing comprehensive support to members of the Executive Board and Senior Management, enabling them to focus on their core responsibilities.\n\nThis is a full-time position, starting in December or by mutual agreement.\n\nYour responsibilities include:\n\n-Providing administrative and organisational support to designated members of Senior Management and the Executive Board\n\n-Managing and coordinating appointments, including comprehensive calendar management\n\n-Organising and booking business travel and customer visits\n\n-Preparing meeting documentation, creating presentations and taking meeting minutes\n\n-Managing expense claims and reimbursements\n\n-Organising customer events and internal corporate functions\n\n-Maintaining internal process databases and contributing to various projects\n\n-Acting as a central point of contact and key interface for internal and external stakeholders\n\n-Handling general correspondence in German and English\n\n-Proactively resolving day-to-day operational issues and addressing unexpected challenges\nYour Profile:\n\nProfessional Qualifications\n\n• At least 3 years of experience in a similar role within an international business environment\n\n• Successfully completed commercial or business administration education, ideally complemented by further education in Executive Assistance, Office Management or Management Support (a recognised Executive Assistant qualification is an advantage)\n\n• Very good written and spoken German and English skills; French or Spanish is an advantage\n\n• Strong IT affinity and excellent command of standard MS Office applications\n\nPersonal Attributes\n\n• Service-oriented, proactive and self-motivated, with a strong sense of initiative\n\n• A collaborative team player with strong communication skills, an ability to think across functions and a natural talent for interacting with people from diverse backgrounds\n\n• Highly organised and flexible, with a structured and solution-oriented approach to work\n\nYour Benefits:\n\n• Pension Fund: Our attractive company pension scheme offers flexible options for tailoring your contribution levels to your individual needs.\n\n• Employee Share Purchase Plan: Benefit from a generous employee share purchase plan with flexible participation options.\n\n• Child Allowance: Siegfried AG provides a child allowance that is 10% higher than the statutory cantonal rate.\n\n• REKA Money: Siegfried AG offers employees a 20% discount on REKA money.\n\n• Staff Restaurant / Cafeteria: Enjoy meals at preferential rates.\n\n• Parking: Benefit from discounted parking facilities.\n\n• Central Location: Conveniently located close to the railway station, with excellent public transport connections.\n\nFounded in 1873 in Zofingen, Switzerland, Siegfried has grown into a global network of 16 sites across three continents. With a team of more than 4,200 highly skilled professionals, we take the innovations of our pharmaceutical customers to industrial scale and manufacture safe drugs for patients worldwide. As a fully integrated CDMO, Siegfried is one of the few organizations today that can carry out the development and manufacturing of APIs and finished dosage forms under one roof. This unique combination of know-how and experience makes us the most trusted partner in the pharmaceutical industry.\n\nSiegfried is a leading CDMO (Contract Development & Manufacturing Organization) headquartered in Zofingen, Switzerland. The company operates manufacturing sites in Evionnaz (Valais), Zofingen (Aargau), and Schlieren (Zurich).",
-        "de": "\"Erwarten zu wachsen\", persönlich und beruflich: Bei Siegfried bieten wir spannende Herausforderungen und reichlich Möglichkeiten, Ihre Talente zu präsentieren. Als vertrauenswürdiger und angesehener Partner der Pharmaindustrie halten wir die höchsten Standards in Bezug auf Sicherheit, Qualität und Nachhaltigkeit ein und fördern gleichzeitig eine Kultur, die es Ihnen ermöglicht, erfolgreich zu sein. Treten Sie einem schnell wachsenden globalen Unternehmen bei, in dem vielfältige Perspektiven und Erfahrungen in einem kollaborativen Umfeld zusammenkommen. Hier finden Sie einen Arbeitsplatz, der sowohl den kollektiven Erfolg als auch Ihre individuellen Beiträge wertschätzt und langfristige Wachstumschancen bietet.\n\nIhre Rolle:\nDeine Rolle\n\nIn dieser sehr verantwortungsvollen und abwechslungsreichen Position übernehmen Sie eine spannende Mischung aus administrativen, koordinierenden und organisatorischen Verantwortlichkeiten. Als zentraler Ansprechpartner sorgen Sie für einen reibungslosen Tagesablauf und unterstützen die Mitglieder des Vorstands und der Geschäftsleitung umfassend, sodass sie sich auf ihre Kernaufgaben konzentrieren können.\n\nDies ist eine Vollzeitstelle, beginnend im Dezember oder im gegenseitigen Einvernehmen.\n\nIhre Aufgaben umfassen:\n\nBereitstellung administrativer und organisatorischer Unterstützung für designierte Mitglieder der Geschäftsleitung und des Vorstands\n\n-Verwaltung und Koordination von Terminen, einschließlich umfassender Kalenderverwaltung\n\nOrganisation und Buchung von Geschäftsreisen und Kundenbesuchen\n\n-Vorbereiten von Besprechungsdokumentationen, Erstellen von Präsentationen und Erstellen von Besprechungsprotokollen\n\n-Verwaltung von Aufwandsforderungen und Erstattungen\n\n-Organisation von Kundenevents und internen Unternehmensfunktionen\n\nPflege von internen Prozessdatenbanken und Beitrag zu verschiedenen Projekten\n\n-Als zentrale Anlaufstelle und zentrale Schnittstelle für interne und externe Stakeholder\n\n-Verarbeitung der allgemeinen Korrespondenz in Deutsch und Englisch\n\nProaktive Lösung der täglichen operativen Probleme und Bewältigung unerwarteter Herausforderungen\nIhr Profil:\n\nBerufsqualifikationen\n\n• Mindestens 3 Jahre Erfahrung in einer ähnlichen Rolle in einem internationalen Geschäftsumfeld\n\n• Erfolgreich abgeschlossene kaufmännische oder betriebswirtschaftliche Ausbildung, ideal ergänzt durch Weiterbildungen in Executive Assistance, Office Management oder Management Support (eine anerkannte Executive Assistant Qualifikation ist von Vorteil)\n\n• Sehr gute schriftliche und gesprochene Deutsch- und Englischkenntnisse; Französisch oder Spanisch ist von Vorteil\n\n• Starke IT-Affinität und hervorragende Beherrschung von Standard-MS Office-Anwendungen\n\nPersönliche Attribute\n\n• Serviceorientiert, proaktiv und selbstmotiviert, mit einem starken Sinn für Initiative\n\n• Ein kollaborativer Teamplayer mit starken Kommunikationsfähigkeiten, der Fähigkeit, über Funktionen hinweg zu denken, und einem natürlichen Talent für die Interaktion mit Menschen mit unterschiedlichen Hintergründen\n\n• Hoch organisiert und flexibel, mit einem strukturierten und lösungsorientierten Arbeitsansatz\n\nIhre Vorteile:\n\n• Pensionskasse: Unsere attraktive betriebliche Altersvorsorge bietet flexible Möglichkeiten, Ihre Beitragshöhen auf Ihre individuellen Bedürfnisse abzustimmen.\n\n• Employee Share Purchase Plan: Profitieren Sie von einem großzügigen Mitarbeiteraktienkaufplan mit flexiblen Beteiligungsoptionen.\n\n• Kinderzulage: Die Siegfried AG gewährt eine Kinderzulage, die 10% über dem gesetzlichen kantonalen Satz liegt.\n\n• REKA Money: Siegfried AG bietet Mitarbeitern 20% Rabatt auf REKA Geld.\n\n• Staff Restaurant / Cafeteria: Genießen Sie Mahlzeiten zu Vorzugspreisen.\n\n• Parken: Profitieren Sie von ermäßigten Parkmöglichkeiten.\n\n• Zentrale Lage: Günstig in der Nähe des Bahnhofs gelegen, mit hervorragender Anbindung an die öffentlichen Verkehrsmittel.\n\n1873 in Zofingen, Schweiz, gegründet, hat sich Siegfried zu einem globalen Netzwerk von 16 Standorten auf drei Kontinenten entwickelt. Mit einem Team von mehr als 4.200 hochqualifizierten Fachkräften bringen wir die Innovationen unserer Pharmakunden in den industriellen Maßstab und stellen sichere Medikamente für Patienten weltweit her. Als voll integriertes CDMO ist Siegfried heute eine der wenigen Organisationen, die die Entwicklung und Herstellung von APIs und fertigen Darreichungsformen unter einem Dach durchführen können. Diese einzigartige Kombination aus Know-how und Erfahrung macht uns zum vertrauenswürdigsten Partner in der Pharmaindustrie.\n\nSiegfried ist eine führende CDMO (Contract Development & Manufacturing Organization) mit Sitz in Zofingen, Schweiz. Das Unternehmen betreibt Produktionsstätten in Evionnaz (Valais), Zofingen (Aargau) und Schlieren (Zürich).",
-        "fr": "\"S'attendre à grandir\", personnellement et professionnellement: Chez Siegfried, nous offrons des défis passionnants et de nombreuses occasions de mettre en valeur vos talents. En tant que partenaire de confiance et respecté de l'industrie pharmaceutique, nous respectons les normes les plus élevées en matière de sécurité, de qualité et de durabilité, tout en favorisant une culture qui vous donne les moyens de prospérer. Rejoignez une entreprise mondiale en expansion rapide, où des perspectives et des expériences diversifiées se réunissent dans un environnement collaboratif. Ici, vous trouverez un milieu de travail qui valorise à la fois la réussite collective et votre contribution individuelle, offrant des occasions à long terme de grandir et d'avoir un impact.\n\nVotre rôle :\nVotre rôle\n\nDans cette position hautement responsable et variée, vous assumerez un ensemble passionnant de responsabilités administratives, de coordination et d'organisation. En tant que point de contact clé, vous assurerez la fluidité des opérations quotidiennes tout en offrant un soutien complet aux membres du Conseil d'administration et à la haute direction, leur permettant de se concentrer sur leurs responsabilités essentielles.\n\nIl s'agit d'un poste à temps plein, à compter de décembre ou d'un commun accord.\n\nVos responsabilités comprennent :\n\n- Fournir un soutien administratif et organisationnel aux membres désignés de la haute direction et au directoire\n\n-Gestion et coordination des nominations, y compris la gestion complète du calendrier\n\n-Organisation et réservation de voyages d'affaires et visites de clients\n\n-Préparer la documentation des réunions, créer des présentations et prendre des comptes rendus de réunions\n\n-Gestion des demandes de remboursement\n\n-Organisation d'événements clients et de fonctions internes\n\n-Maintien des bases de données internes sur les processus et contribution à divers projets\n\n-En tant que point de contact central et interface clé pour les parties prenantes internes et externes\n\nCorrespondance générale en allemand et en anglais\n\n-Résoudre proactivement les problèmes opérationnels quotidiens et relever les défis inattendus\nVotre profil:\n\nCompétences professionnelles\n\n• Au moins 3 ans d'expérience dans un rôle similaire dans un environnement commercial international\n\n• Une formation en administration commerciale ou en administration des affaires, complétée idéalement par une formation continue en aide aux cadres, en gestion de bureau ou en soutien à la gestion (une qualification reconnue d'assistant exécutif est un avantage)\n\n• Très bonnes compétences écrites et parlées en allemand et en anglais; le français ou l'espagnol est un avantage\n\n• Forte affinité informatique et excellente maîtrise des applications standard MS Office\n\nAttributs personnels\n\n• Service orienté, proactif et automotivé, avec un fort sens de l'initiative\n\n• Un joueur d'équipe collaborative avec de solides compétences en communication, une capacité de penser à travers les fonctions et un talent naturel pour interagir avec des personnes de divers horizons\n\n• Très organisé et flexible, avec une approche du travail structurée et orientée vers la solution\n\nVos avantages :\n\n• Caisse de retraite: Notre régime de retraite attrayant offre des options flexibles pour adapter vos niveaux de cotisation à vos besoins individuels.\n\n• Régime d'achat d'actions des employés : Bénéficiez d'un généreux régime d'achat d'actions des employés avec des options de participation flexibles.\n\n• Allocation pour enfant: Siegfried AG verse une allocation pour enfant supérieure de 10 % au taux cantonal légal.\n\n• REKA Money: Siegfried AG offre aux employés une réduction de 20% sur l'argent REKA.\n\n• Restaurant du personnel / Cafétéria: Profitez des repas à des tarifs préférentiels.\n\n• Parking: Bénéficiez d'un parking à prix réduit.\n\n• Situation centrale: Idéalement situé à proximité de la gare, avec d'excellentes connexions de transport en commun.\n\nFondé en 1873 à Zofingen, en Suisse, Siegfried est devenu un réseau mondial de 16 sites répartis sur trois continents. Avec une équipe de plus de 4 200 professionnels hautement qualifiés, nous apportons les innovations de nos clients pharmaceutiques à l'échelle industrielle et fabriquons des médicaments sûrs pour les patients du monde entier. En tant que CDMO entièrement intégré, Siegfried est l'une des rares organisations aujourd'hui à pouvoir réaliser le développement et la fabrication d'API et de formes posologiques finies sous un même toit. Cette combinaison unique de savoir-faire et d'expérience fait de nous le partenaire le plus fiable de l'industrie pharmaceutique.\n\nSiegfried est l'un des principaux CDMO (Contract Development & Manufacturing Organization) dont le siège est à Zofingen, en Suisse. La société exploite des sites de fabrication à Evionnaz (Valais), Zofingen (Aargau) et Schlieren (Zurich)."
-      },
-      "location": "Zofingen",
-      "canton": "AG",
-      "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Executive-Assistant_R26_833",
-      "source": "Siegfried Dedicated Parser (Workday)",
-      "sourceLang": "en",
-      "crawledAt": "2026-11-08T21:24:40.256Z",
-      "addressLocality": "Zofingen",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Amministrazione",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Farmaceutica / Biotecnologia",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-11-06",
-      "postedDate": "2026-11-06",
-      "postingDateSource": "reported",
-      "applyUrl": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Executive-Assistant_R26_833",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "jobReqId": "R26_833",
-      "hiringOrganization": "Siegfried AG",
-      "previousSlugs": [
-        "executive-assistant-siegfried-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "executive-assistant-siegfried-ch"
-        ],
-        "de": [
-          "executive-assistant-siegfried-ch"
-        ],
-        "fr": [
-          "executive-assistant-siegfried-ch"
-        ]
-      },
-      "salaryMin": 62000,
-      "salaryMax": 94000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 62000,
-          "maxValue": 94000,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "4800",
-      "addressRegion": "AG",
-      "streetAddress": "Zofingen",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-04T21:24:40.256Z",
+      "validThrough": "2027-01-27T09:22:35.201Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1592,7 +1508,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Lab-Technician-Stability_R26_835",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-08T21:24:39.628Z",
+      "crawledAt": "2026-11-09T09:22:34.472Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -1643,7 +1559,91 @@
       "addressRegion": "VS",
       "streetAddress": "Evionnaz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-04T21:24:39.628Z",
+      "validThrough": "2027-02-04T09:22:34.472Z",
+      "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "siegfried-3ed8e4d54221",
+      "slug": "assistente-esecutivo-siegfried-zofingen",
+      "slugByLocale": {
+        "it": "assistente-esecutivo-siegfried-zofingen",
+        "en": "executive-assistant-siegfried-ch",
+        "de": "executive-assistent-siegfried-zofingen",
+        "fr": "assistant-executif-siegfried-zofingen"
+      },
+      "company": "Siegfried",
+      "companyKey": "siegfried",
+      "companyDomain": "siegfried.ch",
+      "title": "Executive Assistant",
+      "titleByLocale": {
+        "it": "Assistente esecutivo",
+        "en": "Executive Assistant",
+        "de": "Executive Assistent",
+        "fr": "Assistant exécutif"
+      },
+      "description": "\"Expect to grow\", personally and professionally: At Siegfried, we offer exciting challenges and ample opportunities to showcase your talents. As a trusted and respected partner to the pharmaceutical industry, we uphold the highest standards in safety, quality and sustainability, while fostering a culture that empowers you to thrive. Join a rapidly expanding global company, where diverse perspectives and experiences come together in a collaborative environment. Here, you'll find a workplace that values both collective success and your individual contributions—offering long-term opportunities to grow and make an impact.\n\nYour Role:\nIn this highly responsible and varied position, you will take on an exciting mix of administrative, coordination and organisational responsibilities. As a key point of contact, you will ensure smooth day-to-day operations while providing comprehensive support to members of the Executive Board and Senior Management, enabling them to focus on their core responsibilities.\n\nThis is a full-time position, starting in December or by mutual agreement.\n\nYour responsibilities include:\n\nProviding administrative and organisational support to designated members of Senior Management and the Executive Board\n\nManaging and coordinating appointments, including comprehensive calendar management\n\nOrganising and booking business travel and customer visits\n\nPreparing meeting documentation, creating presentations and taking meeting minutes\n\nManaging expense claims and reimbursements\n\nOrganising customer events and internal corporate functions\n\nMaintaining internal process databases and contributing to various projects\n\nActing as a central point of contact and key interface for internal and external stakeholders\n\nHandling general correspondence in German and English\n\nProactively resolving day-to-day operational issues and addressing unexpected challenges\n Your Profile:\n\nProfessional Qualifications\n\n• At least 3 years of experience in a similar role within an international business environment\n\n• Successfully completed commercial or business administration education, ideally complemented by further education in Executive Assistance, Office Management or Management Support (a recognised Executive Assistant qualification is an advantage)\n\n• Very good written and spoken German and English skills; French or Spanish is an advantage\n\n• Strong IT affinity and excellent command of standard MS Office applications\n\nPersonal Attributes\n\n• Service-oriented, proactive and self-motivated, with a strong sense of initiative\n\n• A collaborative team player with strong communication skills, an ability to think across functions and a natural talent for interacting with people from diverse backgrounds\n\n• Highly organised and flexible, with a structured and solution-oriented approach to work\n\nYour Benefits:\n\n• Pension Fund: Our attractive company pension scheme offers flexible options for tailoring your contribution levels to your individual needs.\n\n• Employee Share Purchase Plan: Benefit from a generous employee share purchase plan with flexible participation options.\n\n• Child Allowance: Siegfried AG provides a child allowance that is 10% higher than the statutory cantonal rate.\n\n• REKA Money: Siegfried AG offers employees a 20% discount on REKA money.\n\n• Staff Restaurant / Cafeteria: Enjoy meals at preferential rates.\n\n• Parking: Benefit from discounted parking facilities.\n\n• Central Location: Conveniently located close to the railway station, with excellent public transport connections.\n\nFounded in 1873 in Zofingen, Switzerland, Siegfried has grown into a global network of 16 sites across three continents. With a team of more than 4,200 highly skilled professionals, we take the innovations of our pharmaceutical customers to industrial scale and manufacture safe drugs for patients worldwide. As a fully integrated CDMO, Siegfried is one of the few organizations today that can carry out the development and manufacturing of APIs and finished dosage forms under one roof. This unique combination of know-how and experience makes us the most trusted partner in the pharmaceutical industry.\n\nSiegfried is a leading CDMO (Contract Development & Manufacturing Organization) headquartered in Zofingen, Switzerland. The company operates manufacturing sites in Evionnaz (Valais), Zofingen (Aargau), and Schlieren (Zurich).",
+      "descriptionByLocale": {
+        "it": "\"Aspetta di crescere\", personalmente e professionalmente: A Siegfried, offriamo interessanti sfide e ampie opportunità per mostrare i vostri talenti. In qualità di partner affidabile e rispettato per l'industria farmaceutica, sosteniamo i più elevati standard di sicurezza, qualità e sostenibilità, promuovendo al contempo una cultura che ti consente di prosperare. Unisciti a una società globale in rapida espansione, dove prospettive e esperienze diverse si uniscono in un ambiente collaborativo. Qui, troverete un posto di lavoro che valorizzi il successo collettivo e i vostri contributi individuali, offrendo opportunità a lungo termine per crescere e fare un impatto.\n\nIl tuo ruolo:\nIl tuo ruolo\n\nIn questa posizione altamente responsabile e varia, si assume un mix emozionante di responsabilità amministrative, di coordinamento e organizzative. Come punto di contatto chiave, garantirai operazioni quotidiane e fluide, fornendo un supporto completo ai membri del comitato esecutivo e della direzione senior, consentendo loro di concentrarsi sulle loro responsabilità principali.\n\nSi tratta di una posizione a tempo pieno, a partire da dicembre o di comune accordo.\n\nLe tue responsabilità includono:\n\n- Fornire supporto amministrativo e organizzativo ai membri designati di Senior Management e del Executive Board\n\n-gestione e coordinamento degli appuntamenti, compresa la gestione completa del calendario\n\n- Organizzazione e prenotazione di viaggi d'affari e visite ai clienti\n\n-Preparare la documentazione di riunione, creare presentazioni e prendere i minuti di riunione\n\n-Gestione delle spese e rimborsi\n\n- Organizzazione eventi e funzioni aziendali interne\n\n- Mantenere database di processo interni e contribuire a vari progetti\n\n-Agitare come punto centrale di contatto e interfaccia chiave per gli stakeholder interni ed esterni\n\n-Mantenere la corrispondenza generale in tedesco e inglese\n\n-Risolvere attivamente questioni operative quotidiane e affrontare sfide inaspettate\nIl tuo profilo:\n\nQualifiche professionali\n\n• Almeno 3 anni di esperienza in un ruolo simile all'interno di un ambiente aziendale internazionale\n\n• Completato con successo l'istruzione commerciale o di amministrazione aziendale, idealmente completato da un'ulteriore formazione in Assistenza esecutiva, Office Management o Management Support (una qualifica riconosciuta Executive Assistant è un vantaggio)\n\n• Molto buono scritto e parlato tedesco e inglese competenze; francese o spagnolo è un vantaggio\n\n• Forte affinità IT e ottimo comando delle applicazioni standard MS Office\n\nAttributi personali\n\n• Servizio orientato, proattivo e automotivato, con un forte senso di iniziativa\n\n• Un team player collaborativo con forti capacità di comunicazione, una capacità di pensare attraverso funzioni e un talento naturale per interagire con persone di diversa provenienza\n\n• Altamente organizzato e flessibile, con un approccio strutturato e orientato alla soluzione al lavoro\n\nI vostri vantaggi:\n\n• Pension Fund: Il nostro attraente sistema pensionistico aziendale offre opzioni flessibili per personalizzare i livelli di contributo alle vostre esigenze individuali.\n\n• Piano di acquisto dei dipendenti: Approfitta di un generoso piano di acquisto azionario dei dipendenti con opzioni di partecipazione flessibili.\n\n• Consentimento del bambino: Siegfried AG fornisce un'indennità per bambini superiore al 10% rispetto al tasso cantonale legale.\n\n• REKA Money: Siegfried AG offre ai dipendenti uno sconto del 20% sui soldi REKA.\n\n• Staff Ristorante / Caffetteria: Godetevi i pasti a tariffe preferenziali.\n\n• Parcheggio: Approfitta dei servizi di parcheggio scontati.\n\n• Posizione centrale: Situato in posizione strategica vicino alla stazione ferroviaria, con ottimi collegamenti con i mezzi pubblici.\n\nFondata nel 1873 a Zofingen, in Svizzera, Siegfried è cresciuta in una rete globale di 16 siti in tre continenti. Con un team di oltre 4.200 professionisti altamente qualificati, portiamo le innovazioni dei nostri clienti farmaceutici a scala industriale e produciamo farmaci sicuri per i pazienti in tutto il mondo. Come CDMO completamente integrato, Siegfried è una delle poche organizzazioni oggi in grado di effettuare lo sviluppo e la produzione di API e forme di dosaggio finito sotto un unico tetto. Questa combinazione unica di know-how ed esperienza ci rende il partner più affidabile nel settore farmaceutico.\n\nSiegfried è un CDMO leader (Contract Development & Manufacturing Organization) con sede a Zofingen, in Svizzera. L'azienda gestisce stabilimenti produttivi a Evionnaz (Valais), Zofingen (Aargau), e Schlieren (Zurich).",
+        "en": "\"Expect to grow\", personally and professionally: At Siegfried, we offer exciting challenges and ample opportunities to showcase your talents. As a trusted and respected partner to the pharmaceutical industry, we uphold the highest standards in safety, quality and sustainability, while fostering a culture that empowers you to thrive. Join a rapidly expanding global company, where diverse perspectives and experiences come together in a collaborative environment. Here, you'll find a workplace that values both collective success and your individual contributions—offering long-term opportunities to grow and make an impact.\n\nYour Role:\nIn this highly responsible and varied position, you will take on an exciting mix of administrative, coordination and organisational responsibilities. As a key point of contact, you will ensure smooth day-to-day operations while providing comprehensive support to members of the Executive Board and Senior Management, enabling them to focus on their core responsibilities.\n\nThis is a full-time position, starting in December or by mutual agreement.\n\nYour responsibilities include:\n\nProviding administrative and organisational support to designated members of Senior Management and the Executive Board\n\nManaging and coordinating appointments, including comprehensive calendar management\n\nOrganising and booking business travel and customer visits\n\nPreparing meeting documentation, creating presentations and taking meeting minutes\n\nManaging expense claims and reimbursements\n\nOrganising customer events and internal corporate functions\n\nMaintaining internal process databases and contributing to various projects\n\nActing as a central point of contact and key interface for internal and external stakeholders\n\nHandling general correspondence in German and English\n\nProactively resolving day-to-day operational issues and addressing unexpected challenges\nYour Profile:\n\nProfessional Qualifications\n\n• At least 3 years of experience in a similar role within an international business environment\n\n• Successfully completed commercial or business administration education, ideally complemented by further education in Executive Assistance, Office Management or Management Support (a recognised Executive Assistant qualification is an advantage)\n\n• Very good written and spoken German and English skills; French or Spanish is an advantage\n\n• Strong IT affinity and excellent command of standard MS Office applications\n\nPersonal Attributes\n\n• Service-oriented, proactive and self-motivated, with a strong sense of initiative\n\n• A collaborative team player with strong communication skills, an ability to think across functions and a natural talent for interacting with people from diverse backgrounds\n\n• Highly organised and flexible, with a structured and solution-oriented approach to work\n\nYour Benefits:\n\n• Pension Fund: Our attractive company pension scheme offers flexible options for tailoring your contribution levels to your individual needs.\n\n• Employee Share Purchase Plan: Benefit from a generous employee share purchase plan with flexible participation options.\n\n• Child Allowance: Siegfried AG provides a child allowance that is 10% higher than the statutory cantonal rate.\n\n• REKA Money: Siegfried AG offers employees a 20% discount on REKA money.\n\n• Staff Restaurant / Cafeteria: Enjoy meals at preferential rates.\n\n• Parking: Benefit from discounted parking facilities.\n\n• Central Location: Conveniently located close to the railway station, with excellent public transport connections.\n\nFounded in 1873 in Zofingen, Switzerland, Siegfried has grown into a global network of 16 sites across three continents. With a team of more than 4,200 highly skilled professionals, we take the innovations of our pharmaceutical customers to industrial scale and manufacture safe drugs for patients worldwide. As a fully integrated CDMO, Siegfried is one of the few organizations today that can carry out the development and manufacturing of APIs and finished dosage forms under one roof. This unique combination of know-how and experience makes us the most trusted partner in the pharmaceutical industry.\n\nSiegfried is a leading CDMO (Contract Development & Manufacturing Organization) headquartered in Zofingen, Switzerland. The company operates manufacturing sites in Evionnaz (Valais), Zofingen (Aargau), and Schlieren (Zurich).",
+        "de": "\"Erwarten zu wachsen\", persönlich und beruflich: Bei Siegfried bieten wir spannende Herausforderungen und reichlich Möglichkeiten, Ihre Talente zu präsentieren. Als vertrauenswürdiger und angesehener Partner der Pharmaindustrie halten wir die höchsten Standards in Bezug auf Sicherheit, Qualität und Nachhaltigkeit ein und fördern gleichzeitig eine Kultur, die es Ihnen ermöglicht, erfolgreich zu sein. Treten Sie einem schnell wachsenden globalen Unternehmen bei, in dem vielfältige Perspektiven und Erfahrungen in einem kollaborativen Umfeld zusammenkommen. Hier finden Sie einen Arbeitsplatz, der sowohl den kollektiven Erfolg als auch Ihre individuellen Beiträge wertschätzt und langfristige Wachstumschancen bietet.\n\nIhre Rolle:\nDeine Rolle\n\nIn dieser sehr verantwortungsvollen und abwechslungsreichen Position übernehmen Sie eine spannende Mischung aus administrativen, koordinierenden und organisatorischen Verantwortlichkeiten. Als zentraler Ansprechpartner sorgen Sie für einen reibungslosen Tagesablauf und unterstützen die Mitglieder des Vorstands und der Geschäftsleitung umfassend, sodass sie sich auf ihre Kernaufgaben konzentrieren können.\n\nDies ist eine Vollzeitstelle, beginnend im Dezember oder im gegenseitigen Einvernehmen.\n\nIhre Aufgaben umfassen:\n\nBereitstellung administrativer und organisatorischer Unterstützung für designierte Mitglieder der Geschäftsleitung und des Vorstands\n\n-Verwaltung und Koordination von Terminen, einschließlich umfassender Kalenderverwaltung\n\nOrganisation und Buchung von Geschäftsreisen und Kundenbesuchen\n\n-Vorbereiten von Besprechungsdokumentationen, Erstellen von Präsentationen und Erstellen von Besprechungsprotokollen\n\n-Verwaltung von Aufwandsforderungen und Erstattungen\n\n-Organisation von Kundenevents und internen Unternehmensfunktionen\n\nPflege von internen Prozessdatenbanken und Beitrag zu verschiedenen Projekten\n\n-Als zentrale Anlaufstelle und zentrale Schnittstelle für interne und externe Stakeholder\n\n-Verarbeitung der allgemeinen Korrespondenz in Deutsch und Englisch\n\nProaktive Lösung der täglichen operativen Probleme und Bewältigung unerwarteter Herausforderungen\nIhr Profil:\n\nBerufsqualifikationen\n\n• Mindestens 3 Jahre Erfahrung in einer ähnlichen Rolle in einem internationalen Geschäftsumfeld\n\n• Erfolgreich abgeschlossene kaufmännische oder betriebswirtschaftliche Ausbildung, ideal ergänzt durch Weiterbildungen in Executive Assistance, Office Management oder Management Support (eine anerkannte Executive Assistant Qualifikation ist von Vorteil)\n\n• Sehr gute schriftliche und gesprochene Deutsch- und Englischkenntnisse; Französisch oder Spanisch ist von Vorteil\n\n• Starke IT-Affinität und hervorragende Beherrschung von Standard-MS Office-Anwendungen\n\nPersönliche Attribute\n\n• Serviceorientiert, proaktiv und selbstmotiviert, mit einem starken Sinn für Initiative\n\n• Ein kollaborativer Teamplayer mit starken Kommunikationsfähigkeiten, der Fähigkeit, über Funktionen hinweg zu denken, und einem natürlichen Talent für die Interaktion mit Menschen mit unterschiedlichen Hintergründen\n\n• Hoch organisiert und flexibel, mit einem strukturierten und lösungsorientierten Arbeitsansatz\n\nIhre Vorteile:\n\n• Pensionskasse: Unsere attraktive betriebliche Altersvorsorge bietet flexible Möglichkeiten, Ihre Beitragshöhen auf Ihre individuellen Bedürfnisse abzustimmen.\n\n• Employee Share Purchase Plan: Profitieren Sie von einem großzügigen Mitarbeiteraktienkaufplan mit flexiblen Beteiligungsoptionen.\n\n• Kinderzulage: Die Siegfried AG gewährt eine Kinderzulage, die 10% über dem gesetzlichen kantonalen Satz liegt.\n\n• REKA Money: Siegfried AG bietet Mitarbeitern 20% Rabatt auf REKA Geld.\n\n• Staff Restaurant / Cafeteria: Genießen Sie Mahlzeiten zu Vorzugspreisen.\n\n• Parken: Profitieren Sie von ermäßigten Parkmöglichkeiten.\n\n• Zentrale Lage: Günstig in der Nähe des Bahnhofs gelegen, mit hervorragender Anbindung an die öffentlichen Verkehrsmittel.\n\n1873 in Zofingen, Schweiz, gegründet, hat sich Siegfried zu einem globalen Netzwerk von 16 Standorten auf drei Kontinenten entwickelt. Mit einem Team von mehr als 4.200 hochqualifizierten Fachkräften bringen wir die Innovationen unserer Pharmakunden in den industriellen Maßstab und stellen sichere Medikamente für Patienten weltweit her. Als voll integriertes CDMO ist Siegfried heute eine der wenigen Organisationen, die die Entwicklung und Herstellung von APIs und fertigen Darreichungsformen unter einem Dach durchführen können. Diese einzigartige Kombination aus Know-how und Erfahrung macht uns zum vertrauenswürdigsten Partner in der Pharmaindustrie.\n\nSiegfried ist eine führende CDMO (Contract Development & Manufacturing Organization) mit Sitz in Zofingen, Schweiz. Das Unternehmen betreibt Produktionsstätten in Evionnaz (Valais), Zofingen (Aargau) und Schlieren (Zürich).",
+        "fr": "\"S'attendre à grandir\", personnellement et professionnellement: Chez Siegfried, nous offrons des défis passionnants et de nombreuses occasions de mettre en valeur vos talents. En tant que partenaire de confiance et respecté de l'industrie pharmaceutique, nous respectons les normes les plus élevées en matière de sécurité, de qualité et de durabilité, tout en favorisant une culture qui vous donne les moyens de prospérer. Rejoignez une entreprise mondiale en expansion rapide, où des perspectives et des expériences diversifiées se réunissent dans un environnement collaboratif. Ici, vous trouverez un milieu de travail qui valorise à la fois la réussite collective et votre contribution individuelle, offrant des occasions à long terme de grandir et d'avoir un impact.\n\nVotre rôle :\nVotre rôle\n\nDans cette position hautement responsable et variée, vous assumerez un ensemble passionnant de responsabilités administratives, de coordination et d'organisation. En tant que point de contact clé, vous assurerez la fluidité des opérations quotidiennes tout en offrant un soutien complet aux membres du Conseil d'administration et à la haute direction, leur permettant de se concentrer sur leurs responsabilités essentielles.\n\nIl s'agit d'un poste à temps plein, à compter de décembre ou d'un commun accord.\n\nVos responsabilités comprennent :\n\n- Fournir un soutien administratif et organisationnel aux membres désignés de la haute direction et au directoire\n\n-Gestion et coordination des nominations, y compris la gestion complète du calendrier\n\n-Organisation et réservation de voyages d'affaires et visites de clients\n\n-Préparer la documentation des réunions, créer des présentations et prendre des comptes rendus de réunions\n\n-Gestion des demandes de remboursement\n\n-Organisation d'événements clients et de fonctions internes\n\n-Maintien des bases de données internes sur les processus et contribution à divers projets\n\n-En tant que point de contact central et interface clé pour les parties prenantes internes et externes\n\nCorrespondance générale en allemand et en anglais\n\n-Résoudre proactivement les problèmes opérationnels quotidiens et relever les défis inattendus\nVotre profil:\n\nCompétences professionnelles\n\n• Au moins 3 ans d'expérience dans un rôle similaire dans un environnement commercial international\n\n• Une formation en administration commerciale ou en administration des affaires, complétée idéalement par une formation continue en aide aux cadres, en gestion de bureau ou en soutien à la gestion (une qualification reconnue d'assistant exécutif est un avantage)\n\n• Très bonnes compétences écrites et parlées en allemand et en anglais; le français ou l'espagnol est un avantage\n\n• Forte affinité informatique et excellente maîtrise des applications standard MS Office\n\nAttributs personnels\n\n• Service orienté, proactif et automotivé, avec un fort sens de l'initiative\n\n• Un joueur d'équipe collaborative avec de solides compétences en communication, une capacité de penser à travers les fonctions et un talent naturel pour interagir avec des personnes de divers horizons\n\n• Très organisé et flexible, avec une approche du travail structurée et orientée vers la solution\n\nVos avantages :\n\n• Caisse de retraite: Notre régime de retraite attrayant offre des options flexibles pour adapter vos niveaux de cotisation à vos besoins individuels.\n\n• Régime d'achat d'actions des employés : Bénéficiez d'un généreux régime d'achat d'actions des employés avec des options de participation flexibles.\n\n• Allocation pour enfant: Siegfried AG verse une allocation pour enfant supérieure de 10 % au taux cantonal légal.\n\n• REKA Money: Siegfried AG offre aux employés une réduction de 20% sur l'argent REKA.\n\n• Restaurant du personnel / Cafétéria: Profitez des repas à des tarifs préférentiels.\n\n• Parking: Bénéficiez d'un parking à prix réduit.\n\n• Situation centrale: Idéalement situé à proximité de la gare, avec d'excellentes connexions de transport en commun.\n\nFondé en 1873 à Zofingen, en Suisse, Siegfried est devenu un réseau mondial de 16 sites répartis sur trois continents. Avec une équipe de plus de 4 200 professionnels hautement qualifiés, nous apportons les innovations de nos clients pharmaceutiques à l'échelle industrielle et fabriquons des médicaments sûrs pour les patients du monde entier. En tant que CDMO entièrement intégré, Siegfried est l'une des rares organisations aujourd'hui à pouvoir réaliser le développement et la fabrication d'API et de formes posologiques finies sous un même toit. Cette combinaison unique de savoir-faire et d'expérience fait de nous le partenaire le plus fiable de l'industrie pharmaceutique.\n\nSiegfried est l'un des principaux CDMO (Contract Development & Manufacturing Organization) dont le siège est à Zofingen, en Suisse. La société exploite des sites de fabrication à Evionnaz (Valais), Zofingen (Aargau) et Schlieren (Zurich)."
+      },
+      "location": "Zofingen",
+      "canton": "AG",
+      "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Executive-Assistant_R26_833",
+      "source": "Siegfried Dedicated Parser (Workday)",
+      "sourceLang": "en",
+      "crawledAt": "2026-11-09T09:22:33.567Z",
+      "addressLocality": "Zofingen",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Amministrazione",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Farmaceutica / Biotecnologia",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-11-06",
+      "postedDate": "2026-11-06",
+      "postingDateSource": "reported",
+      "applyUrl": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Executive-Assistant_R26_833",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "jobReqId": "R26_833",
+      "hiringOrganization": "Siegfried AG",
+      "previousSlugs": [
+        "executive-assistant-siegfried-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "executive-assistant-siegfried-ch"
+        ],
+        "de": [
+          "executive-assistant-siegfried-ch"
+        ],
+        "fr": [
+          "executive-assistant-siegfried-ch"
+        ]
+      },
+      "salaryMin": 62000,
+      "salaryMax": 94000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 62000,
+          "maxValue": 94000,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "4800",
+      "addressRegion": "AG",
+      "streetAddress": "Zofingen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-02-04T09:22:33.567Z",
       "validThroughSource": "last-observed-window"
     }
   ]
