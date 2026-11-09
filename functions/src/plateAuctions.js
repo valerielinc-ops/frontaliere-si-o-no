@@ -4,10 +4,10 @@ import {
   fetchJson,
   fetchHtml,
   fetchPdfText,
+  fetchFixedPricePdfVariants,
   FIXED_PRICE_SOURCE_CONFIGS,
   fetchGePlateAuctions,
   GE_PLATE_AUCTION_SOURCE,
-  resolveVariantPdfUrl,
   parseAiFixedPricePdfText,
   parseBsFixedPricePdfText,
   parseGlFixedPriceJson,
@@ -147,23 +147,23 @@ function makeFixedPriceConnector({ sourceKey, parse }) {
           fetchedAt,
         });
       }
-      const pageHtml = injectedFetcher
-        ? await injectedFetcher(source.pageUrl, { responseType: 'html', timeoutMs: 20000 })
-        : await fetchHtml(source.pageUrl);
       const variants = source.pdfVariants || [{
         fallbackPdfUrl: source.fallbackPdfUrl,
         pdfUrlPattern: source.pdfUrlPattern,
       }];
+      const pdfs = await fetchFixedPricePdfVariants({
+        sourceKey: source.plateCode,
+        pageUrl: source.pageUrl,
+        variants,
+        fetchPage: (url, options) => injectedFetcher
+          ? injectedFetcher(url, { responseType: 'html', timeoutMs: 20000, ...options })
+          : fetchHtml(url, options),
+        fetchPdf: (url) => injectedFetcher
+          ? injectedFetcher(url, { responseType: 'pdf-text', timeoutMs: 30000 })
+          : fetchPdfText(url),
+      });
       const rows = [];
-      for (const variant of variants) {
-        const pdfUrl = resolveVariantPdfUrl(variant, {
-          sourceKey: source.plateCode,
-          pageUrl: source.pageUrl,
-          indexHtml: pageHtml,
-        });
-        const pdf = injectedFetcher
-          ? await injectedFetcher(pdfUrl, { responseType: 'pdf-text', timeoutMs: 30000 })
-          : await fetchPdfText(pdfUrl);
+      for (const { variant, pdfUrl, pdf } of pdfs) {
         rows.push(...parse(pdf, {
           canton: source.canton,
           plateCode: source.plateCode,
