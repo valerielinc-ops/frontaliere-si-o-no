@@ -4,6 +4,7 @@ import path from 'node:path';
 import { describe, expect, it } from 'vitest';
 import {
   auditCycle,
+  attributeRetranslationMatches,
   attributeRetranslationDelta,
   buildCrawlerDataQualityReport,
   executeIssuePacket,
@@ -464,6 +465,19 @@ describe('bounded weekly crawler data-quality candidates (#6787)', () => {
     expect(report.metrics.needsRetranslationMovementByCrawler).toEqual([
       { file: 'seco-jobroom.json', baseline: 10, current: 50, delta: 40 },
     ]);
+  });
+
+  it('parses git grep baseline output after the commit prefix', () => {
+    expect(attributeRetranslationMatches([
+      '3256a46:data/jobs/by-crawler/fachkraft.json:12:  "needsRetranslation": true,',
+      '3256a46:data/jobs/by-crawler/fachkraft.json:24:  "needsRetranslation": true,',
+      '3256a46:data/jobs/by-crawler/stadt-zuerich.json:8:  "needsRetranslation": true,',
+      'otherref:data/jobs/by-crawler/ignored.json:4:  "needsRetranslation": true,',
+      'malformed baseline line',
+    ].join('\n'), '3256a46')).toEqual({
+      'fachkraft.json': 2,
+      'stadt-zuerich.json': 1,
+    });
   });
 
   it('degrades gracefully when no baseline commit is found (shallow checkout), instead of throwing', () => {
