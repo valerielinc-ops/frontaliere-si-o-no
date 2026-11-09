@@ -114342,6 +114342,84 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-smile-varese-como-ticino': {
+    title: 'SMILE: mobilità sostenibile tra Varese, Como e Ticino',
+    description: 'SMILE unisce Varese, Como e Canton Ticino per la mobilità sostenibile. Convegno a Chiasso il 10 novembre 2026.',
+    keywords: 'SMILE, mobilità sostenibile, Varese, Como, Canton Ticino, Chiasso, transfrontaliero',
+    ogTitle: 'SMILE mobilità Varese Como Ticino',
+    ogDescription: 'Scopri i dettagli del progetto SMILE che unisce Varese, Como e Canton Ticino per migliorare la mobilità casa-lavoro e casa-scuola. Convegno a Chiasso il 10/11/2026.',
+    canonicalPath: '/articoli-frontaliere/smile-varese-como-ticino/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "SMILE: mobilità sostenibile tra Varese, Como e Ticino",
+      "description": "SMILE unisce Varese, Como e Canton Ticino per la mobilità sostenibile. Convegno a Chiasso il 10 novembre 2026.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-smile-varese-como-ticino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine illustrativa pertinente al tema dell’articolo"
+      },
+      "datePublished": "2026-11-08T07:04:51+00:00",
+      "dateModified": "2026-11-08T07:04:51+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/smile-varese-como-ticino/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-vivere-magreglio-lavorare-ticino': {
+    title: 'Vivere a Magreglio e lavorare in Ticino da frontaliere',
+    description: 'Guida pratica per chi vive a Magreglio e lavora in Ticino da frontaliere: fiscalita, nuovo accordo, contributi AVS e dati statistici ufficiali.',
+    keywords: 'frontalieri, ticino, svizzera, italia, vivere, magreglio, lavorare, analisi',
+    ogTitle: 'Vivere a Magreglio e lavorare in Ticino da frontaliere: guida e regole',
+    ogDescription: 'Approfondimento completo per chi risiede a Magreglio in provincia di Como e lavora in Ticino: analisi delle norme fiscali, contributi previdenziali e dati aggiornati sui frontalieri.',
+    canonicalPath: '/articoli-frontaliere/vivere-magreglio-lavorare-ticino/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Vivere a Magreglio e lavorare in Ticino da frontaliere",
+      "description": "Guida pratica per chi vive a Magreglio e lavora in Ticino da frontaliere: fiscalita, nuovo accordo, contributi AVS e dati statistici ufficiali.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-vivere-magreglio-lavorare-ticino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine illustrativa pertinente al tema dell’articolo"
+      },
+      "datePublished": "2026-11-09T02:23:35+00:00",
+      "dateModified": "2026-11-09T02:23:35+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/vivere-magreglio-lavorare-ticino/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

@@ -8699,6 +8699,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.avs-iva-tredicesima-rendita.title': 'Popolo vota sull\'aumento IVA per coprire costi tredicesima AVS',
     'blog.article.avs-iva-tredicesima-rendita.excerpt': 'Il 29 novembre il popolo sarà chiamato a esprimersi sull\'aumento dell\'IVA scelto dal Parlamento federale per contribuire a coprire i costi della tredicesima rendita AVS.',
     'blog.article.avs-iva-tredicesima-rendita.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
+    'blog.article.imposta-sostitutiva-pensioni-svizzere.title': 'Imposta sostitutiva del 5% per pensioni svizzere',
+    'blog.article.imposta-sostitutiva-pensioni-svizzere.excerpt': 'Nella risposta n. 125/2024, l\'Agenzia delle Entrate ha esaminato il trattamento fiscale delle prestazioni corrisposte dai regimi previdenziali svizzeri del primo pilastro AVS e del secondo pilastro LPP.',
+    'blog.article.imposta-sostitutiva-pensioni-svizzere.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
 };
 
 export default blogMetaChIt;

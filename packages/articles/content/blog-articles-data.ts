@@ -48105,6 +48105,28 @@ const RAW_ARTICLES_CHUNK_19: Article[] = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'smile-varese-como-ticino',
+ category: 'novita',
+ date: '2026-11-08T07:04:50.592Z',
+ image: '/images/blog/article-smile-varese-como-ticino.webp',
+ hasCalculator: true,
+ articleType: 'news',
+ canton: ['TI'],
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
+ {
+ id: 'vivere-magreglio-lavorare-ticino',
+ category: 'pratico',
+ date: '2026-11-09T02:23:34.224Z',
+ image: '/images/blog/article-vivere-magreglio-lavorare-ticino.webp',
+ hasCalculator: true,
+ articleType: 'evergreen',
+ canton: ['TI'],
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ];
 
 const RAW_ARTICLES: Article[] = [

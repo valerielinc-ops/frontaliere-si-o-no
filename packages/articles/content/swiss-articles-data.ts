@@ -30255,6 +30255,16 @@ const RAW_SWISS_ARTICLES_CHUNK_12: Article[] = [
     authorSlug: 'laura-bianchi',
     authorName: 'Laura Bianchi',
    },
+   {
+    id: 'imposta-sostitutiva-pensioni-svizzere',
+    category: 'pensione',
+    date: '2026-11-08T03:26:08.422Z',
+    image: '/images/blog/article-imposta-sostitutiva-pensioni-svizzere.webp',
+    hasCalculator: true,
+    articleType: 'news',
+    authorSlug: 'laura-bianchi',
+    authorName: 'Laura Bianchi',
+   },
 ];
 
 const RAW_SWISS_ARTICLES: Article[] = [
