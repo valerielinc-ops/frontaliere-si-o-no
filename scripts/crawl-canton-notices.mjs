@@ -55,7 +55,7 @@ import {
   parseZhNewsJson,
 } from './lib/canton-notices-parse.mjs';
 import { classifyNotice } from './lib/canton-notices-classify.mjs';
-import { aiInputBlock, isAllowed, robotsFromResponse } from './lib/robots-policy.mjs';
+import { aiInputBlock, isAllowed, robotsEnforced, robotsFromResponse } from './lib/robots-policy.mjs';
 import { RETRYABLE_STATUS, isTransientFetchError, parseRetryAfterMs } from './lib/transient-fetch.mjs';
 import {
   SCHEMA_VERSION,
@@ -188,7 +188,7 @@ async function groupByBackend(hosts, lookup) {
   return [...groups.values()].map((list) => list.sort());
 }
 
-export async function crawlSources(registry, sources, { fetchImpl = fetch, now = Date.now(), delayScale = 1, lookup = (h) => dns.lookup(h) } = {}) {
+export async function crawlSources(registry, sources, { fetchImpl = fetch, now = Date.now(), delayScale = 1, lookup = (h) => dns.lookup(h), env = process.env } = {}) {
   const byHost = new Map();
   for (const s of sources) {
     const h = new URL(s.url).host;
@@ -215,7 +215,11 @@ export async function crawlSources(registry, sources, { fetchImpl = fetch, now =
   async function runHost(list, pace) {
     const origin = new URL(list[0].url).origin;
     await pace(Math.max(MIN_DELAY_S, ...list.map((x) => Math.min(x.quirks?.crawlDelaySeconds ?? 0, MAX_DELAY_S))));
-    const robotsRes = await httpGet(`${origin}/robots.txt`, { accept: 'text/plain,*/*;q=0.8', fetchImpl });
+    // CRAWLER_RESPECT_ROBOTS=0 (owner decision 2026-11-09): no robots.txt read,
+    // as if the site had none (RFC 9309: 4xx → no restriction).
+    const robotsRes = robotsEnforced(env)
+      ? await httpGet(`${origin}/robots.txt`, { accept: 'text/plain,*/*;q=0.8', fetchImpl })
+      : { status: 404, body: '' };
     const robots = robotsRes.status == null ? robotsFromResponse(503, '') : robotsFromResponse(robotsRes.status, robotsRes.body);
     for (const src of list) {
       const verdict = isAllowed(robots.parsed, ROBOTS_TOKEN, src.url);
