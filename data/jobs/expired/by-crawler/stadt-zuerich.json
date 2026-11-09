@@ -164,21 +164,23 @@
     },
     "slugByLocale": {
       "it": "assistenza-specialistica-scuola-schauenberg-stadt-zurich-zurich",
-      "en": "specialist-care-school-schauenberg-stadt-zurich-zurich",
+      "en": "specialist-care-school-schauenberg-stadt-zurich-zurich-fb4735a9",
       "de": "fachperson-betreuung-schule-schauenberg-stadt-zuerich-zurigo-52106",
       "fr": "soins-specialises-ecole-schauenberg-stadt-zurich-zurich"
     },
     "sector": "Amministrazione Pubblica",
     "expiredAt": "2026-11-09T10:08:38.499Z",
     "previousSlugs": [
-      "fachperson-betreuung-schule-schauenberg-stadt-zuerich-zurigo-52106"
+      "fachperson-betreuung-schule-schauenberg-stadt-zuerich-zurigo-52106",
+      "specialist-care-school-schauenberg-stadt-zurich-zurich"
     ],
     "previousSlugsByLocale": {
       "it": [
         "fachperson-betreuung-schule-schauenberg-stadt-zuerich-zurigo-52106"
       ],
       "en": [
-        "fachperson-betreuung-schule-schauenberg-stadt-zuerich-zurigo-52106"
+        "fachperson-betreuung-schule-schauenberg-stadt-zuerich-zurigo-52106",
+        "specialist-care-school-schauenberg-stadt-zurich-zurich"
       ],
       "fr": [
         "fachperson-betreuung-schule-schauenberg-stadt-zuerich-zurigo-52106"
@@ -22223,15 +22225,19 @@
       "dipl-infermieristica-professionale-hf-fh-gruppo-di-alloggi-per-la-cura-triemlipark-1-stadt-zurich-zurich",
       "dipl-pflegefachperson-hf-fh-pflegewohngruppe-triemlipark-1-stadt-zurich-zurich",
       "dipl-pflegefachperson-hf-fh-pflegewohngruppe-triemlipark-1-stadt-zuerich-zurigo-51488",
-      "dipl-infermiera-hf-fh-triemlipark-2-sito-stadt-zurich-zurich",
       "dipl-pflegefachperson-hf-fh-standort-triemlipark-2-stadt-zuerich-zurigo-51496",
       "dipl-nursing-professional-hf-fh-nursing-accommodation-group-triemlipark-1-stadt-zurich-zurich",
-      "dipl-nurse-hf-fh-triemlipark-2-site-stadt-zurich-zurich",
       "dipl-pflegefachperson-hf-fh-standort-triemlipark-2-stadt-zuerich-zurigo-50556",
       "dipl-groupe-de-soins-infirmiers-hf-fh-triemlipark-1-stadt-zurich-zurich",
+      "dipl-pflegefachperson-hf-fh-standort-triemlipark-2-stadt-zurich-zurich-87b84ccf",
+      "dipl-infermiera-hf-fh-triemlipark-2-sito-stadt-zurich-zurich",
+      "dipl-nurse-hf-fh-triemlipark-2-site-stadt-zurich-zurich",
       "dipl-infirmiere-hf-fh-triemlipark-2-site-stadt-zurich-zurich",
       "dipl-pflegefachperson-hf-fh-standort-triemlipark-2-stadt-zurich-zurich",
-      "dipl-pflegefachperson-hf-fh-standort-triemlipark-2-stadt-zurich-zurich-87b84ccf"
+      "dipl-infermiera-hf-fh-triemlipark-2-sito-stadt-zurich-zurich-da32f36c",
+      "dipl-pflegefachperson-hf-fh-standort-triemlipark-2-stadt-zurich-zurich-44291191",
+      "dipl-nurse-hf-fh-triemlipark-2-site-stadt-zurich-zurich-892a6ccc",
+      "dipl-infirmiere-hf-fh-triemlipark-2-site-stadt-zurich-zurich-3d9a8b14"
     ],
     "previousSlugsByLocale": {
       "de": [
@@ -22240,7 +22246,10 @@
         "dipl-pflegefachperson-hf-fh-pflegewohngruppe-triemlipark-1-stadt-zuerich-zurigo-51488",
         "dipl-pflegefachperson-hf-fh-standort-triemlipark-2-stadt-zuerich-zurigo-51496",
         "dipl-pflegefachperson-hf-fh-standort-triemlipark-2-stadt-zurich-zurich",
-        "dipl-pflegefachperson-hf-fh-standort-triemlipark-2-stadt-zuerich-zurigo-50556"
+        "dipl-pflegefachperson-hf-fh-standort-triemlipark-2-stadt-zuerich-zurigo-50556",
+        "dipl-infermiera-hf-fh-triemlipark-2-sito-stadt-zurich-zurich",
+        "dipl-nurse-hf-fh-triemlipark-2-site-stadt-zurich-zurich",
+        "dipl-infirmiere-hf-fh-triemlipark-2-site-stadt-zurich-zurich"
       ],
       "it": [
         "dipl-pflegefachperson-hf-fh-pflegewohngruppe-koschenruti-stadt-zurich-zurich",
@@ -22248,25 +22257,37 @@
         "dipl-infermieristica-professionale-hf-fh-gruppo-di-alloggi-per-la-cura-triemlipark-1-stadt-zurich-zurich",
         "dipl-pflegefachperson-hf-fh-pflegewohngruppe-triemlipark-1-stadt-zurich-zurich",
         "dipl-pflegefachperson-hf-fh-pflegewohngruppe-triemlipark-1-stadt-zuerich-zurigo-51488",
-        "dipl-infermiera-hf-fh-triemlipark-2-sito-stadt-zurich-zurich",
+        "dipl-infermiera-hf-fh-triemlipark-2-sito-stadt-zurich-zurich-da32f36c",
         "dipl-pflegefachperson-hf-fh-standort-triemlipark-2-stadt-zuerich-zurigo-51496",
         "dipl-pflegefachperson-hf-fh-standort-triemlipark-2-stadt-zurich-zurich-87b84ccf",
+        "dipl-pflegefachperson-hf-fh-standort-triemlipark-2-stadt-zurich-zurich-44291191",
+        "dipl-nurse-hf-fh-triemlipark-2-site-stadt-zurich-zurich",
+        "dipl-infirmiere-hf-fh-triemlipark-2-site-stadt-zurich-zurich",
+        "dipl-infermiera-hf-fh-triemlipark-2-sito-stadt-zurich-zurich",
         "dipl-pflegefachperson-hf-fh-standort-triemlipark-2-stadt-zurich-zurich"
       ],
       "en": [
         "dipl-pflegefachperson-hf-fh-pflegewohngruppe-koschenruti-stadt-zurich-zurich",
         "dipl-nursing-professional-hf-fh-nursing-accommodation-group-triemlipark-1-stadt-zurich-zurich",
         "dipl-pflegefachperson-hf-fh-pflegewohngruppe-triemlipark-1-stadt-zurich-zurich",
-        "dipl-nurse-hf-fh-triemlipark-2-site-stadt-zurich-zurich",
+        "dipl-nurse-hf-fh-triemlipark-2-site-stadt-zurich-zurich-892a6ccc",
         "dipl-pflegefachperson-hf-fh-standort-triemlipark-2-stadt-zurich-zurich-87b84ccf",
+        "dipl-pflegefachperson-hf-fh-standort-triemlipark-2-stadt-zurich-zurich-44291191",
+        "dipl-infermiera-hf-fh-triemlipark-2-sito-stadt-zurich-zurich",
+        "dipl-infirmiere-hf-fh-triemlipark-2-site-stadt-zurich-zurich",
+        "dipl-nurse-hf-fh-triemlipark-2-site-stadt-zurich-zurich",
         "dipl-pflegefachperson-hf-fh-standort-triemlipark-2-stadt-zurich-zurich"
       ],
       "fr": [
         "dipl-pflegefachperson-hf-fh-pflegewohngruppe-koschenruti-stadt-zurich-zurich",
         "dipl-groupe-de-soins-infirmiers-hf-fh-triemlipark-1-stadt-zurich-zurich",
         "dipl-pflegefachperson-hf-fh-pflegewohngruppe-triemlipark-1-stadt-zurich-zurich",
-        "dipl-infirmiere-hf-fh-triemlipark-2-site-stadt-zurich-zurich",
+        "dipl-infirmiere-hf-fh-triemlipark-2-site-stadt-zurich-zurich-3d9a8b14",
         "dipl-pflegefachperson-hf-fh-standort-triemlipark-2-stadt-zurich-zurich-87b84ccf",
+        "dipl-pflegefachperson-hf-fh-standort-triemlipark-2-stadt-zurich-zurich-44291191",
+        "dipl-infermiera-hf-fh-triemlipark-2-sito-stadt-zurich-zurich",
+        "dipl-nurse-hf-fh-triemlipark-2-site-stadt-zurich-zurich",
+        "dipl-infirmiere-hf-fh-triemlipark-2-site-stadt-zurich-zurich",
         "dipl-pflegefachperson-hf-fh-standort-triemlipark-2-stadt-zurich-zurich"
       ]
     },
@@ -23054,12 +23075,15 @@
       "assistenza-scolastica-stadt-zurich-zurich-426459cb",
       "school-assistance-stadt-zurich-zurich-574239b5",
       "aide-scolaire-stadt-zurich-zurich-f0c7b5c5",
+      "assistenza-scolastica-stadt-zurich-zurich-2971c76f",
+      "school-assistance-stadt-zurich-zurich-e1e4181e",
+      "aide-scolaire-stadt-zurich-zurich-06055dae",
       "assistenza-scolastica-stadt-zurich-zurich",
       "school-assistance-stadt-zurich-zurich",
       "aide-scolaire-stadt-zurich-zurich",
-      "assistenza-scolastica-stadt-zurich-zurich-2971c76f",
-      "school-assistance-stadt-zurich-zurich-e1e4181e",
-      "aide-scolaire-stadt-zurich-zurich-06055dae"
+      "assistenza-scolastica-stadt-zurich-zurich-b91e2a45",
+      "school-assistance-stadt-zurich-zurich-a9c116ed",
+      "aide-scolaire-stadt-zurich-zurich-17ac87ea"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -23113,6 +23137,7 @@
         "assistenza-scolastica-stadt-zurich-zurich-0d9d5243",
         "assistenza-scolastica-stadt-zurich-zurich-426459cb",
         "assistenza-scolastica-stadt-zurich-zurich-2971c76f",
+        "assistenza-scolastica-stadt-zurich-zurich-b91e2a45",
         "assistenza-scolastica-stadt-zurich-zurich"
       ],
       "en": [
@@ -23157,6 +23182,7 @@
         "school-assistance-stadt-zurich-zurich-4ea29f86",
         "school-assistance-stadt-zurich-zurich-574239b5",
         "school-assistance-stadt-zurich-zurich-e1e4181e",
+        "school-assistance-stadt-zurich-zurich-a9c116ed",
         "school-assistance-stadt-zurich-zurich"
       ],
       "de": [
@@ -23209,6 +23235,7 @@
         "aide-scolaire-stadt-zurich-zurich-0f9982cb",
         "aide-scolaire-stadt-zurich-zurich-f0c7b5c5",
         "aide-scolaire-stadt-zurich-zurich-06055dae",
+        "aide-scolaire-stadt-zurich-zurich-17ac87ea",
         "aide-scolaire-stadt-zurich-zurich"
       ]
     },
@@ -27773,19 +27800,31 @@
       "sozialpadagogin-o-fachperson-betreuung-stadt-zurich",
       "sozialpadagogin-oder-fachperson-betreuung-stadt-zurich-zurich",
       "social-pedagogue-or-specialist-care-stadt-zurich-zurich",
-      "pedagogue-sociale-ou-soins-specialises-stadt-zurich-zurich"
+      "pedagogue-sociale-ou-soins-specialises-stadt-zurich-zurich",
+      "social-pedagogue-or-specialist-care-stadt-zurich-zurich-1ec744c1",
+      "pedagogue-sociale-ou-soins-specialises-stadt-zurich-zurich-5ed30307"
     ],
     "previousSlugsByLocale": {
       "it": [
         "sozialpadagogin-oder-fachperson-betreuung-stadt-zuerich-zurigo-51732",
-        "sozialpadagogin-o-fachperson-betreuung-stadt-zurich"
+        "sozialpadagogin-o-fachperson-betreuung-stadt-zurich",
+        "social-pedagogue-or-specialist-care-stadt-zurich-zurich",
+        "pedagogue-sociale-ou-soins-specialises-stadt-zurich-zurich"
       ],
       "en": [
         "sozialpadagogin-oder-fachperson-betreuung-stadt-zurich-zurich",
+        "social-pedagogue-or-specialist-care-stadt-zurich-zurich-1ec744c1",
+        "pedagogue-sociale-ou-soins-specialises-stadt-zurich-zurich",
         "social-pedagogue-or-specialist-care-stadt-zurich-zurich"
       ],
       "fr": [
         "sozialpadagogin-oder-fachperson-betreuung-stadt-zurich-zurich",
+        "pedagogue-sociale-ou-soins-specialises-stadt-zurich-zurich-5ed30307",
+        "social-pedagogue-or-specialist-care-stadt-zurich-zurich",
+        "pedagogue-sociale-ou-soins-specialises-stadt-zurich-zurich"
+      ],
+      "de": [
+        "social-pedagogue-or-specialist-care-stadt-zurich-zurich",
         "pedagogue-sociale-ou-soins-specialises-stadt-zurich-zurich"
       ]
     },
@@ -31869,10 +31908,12 @@
       "hr-spezialist-in-stadt-zuerich-zurigo-50834-52bbf833",
       "hr-spezialist-in-stadt-zurich-zurich-e8ecebc4",
       "hr-spezialist-in-stadt-zuerich-zurigo-50834-418665b7",
+      "hr-spezialist-in-stadt-zurich-zurich-e0904e32",
+      "hr-spezialist-in-stadt-zuerich-zurigo-50834-04c0b9c7",
       "hr-spezialist-in-stadt-zurich-zurich",
       "hr-spezialist-in-stadt-zuerich-zurigo-50834",
-      "hr-spezialist-in-stadt-zurich-zurich-e0904e32",
-      "hr-spezialist-in-stadt-zuerich-zurigo-50834-04c0b9c7"
+      "hr-spezialist-in-stadt-zurich-zurich-e5b324fe",
+      "hr-spezialist-in-stadt-zuerich-zurigo-50834-449781c0"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -32338,6 +32379,8 @@
         "hr-spezialist-in-stadt-zuerich-zurigo-50834-418665b7",
         "hr-spezialist-in-stadt-zurich-zurich-e0904e32",
         "hr-spezialist-in-stadt-zuerich-zurigo-50834-04c0b9c7",
+        "hr-spezialist-in-stadt-zurich-zurich-e5b324fe",
+        "hr-spezialist-in-stadt-zuerich-zurigo-50834-449781c0",
         "hr-spezialist-in-stadt-zurich-zurich",
         "hr-spezialist-in-stadt-zuerich-zurigo-50834"
       ],
@@ -32356,6 +32399,7 @@
         "hr-spezialist-in-stadt-zuerich-zurigo-50834-cb204151",
         "hr-spezialist-in-stadt-zuerich-zurigo-50834-09cbd49f",
         "hr-spezialist-in-stadt-zuerich-zurigo-50834-dbab5fe3",
+        "hr-spezialist-in-stadt-zuerich-zurigo-50834-67e23f1a",
         "hr-spezialist-in-stadt-zuerich-zurigo-50834"
       ],
       "fr": [
@@ -34016,8 +34060,9 @@
       "fallbezogene-r-sachbearbeiter-in-stadt-zurich-zurich-5db73848",
       "fallbezogene-r-sachbearbeiter-in-stadt-zurich-zurich-432c1954",
       "fallbezogene-r-sachbearbeiter-in-stadt-zurich-zurich-517e30a1",
+      "fallbezogene-r-sachbearbeiter-in-stadt-zurich-zurich-4d989c3a",
       "fallbezogene-r-sachbearbeiter-in-stadt-zurich-zurich",
-      "fallbezogene-r-sachbearbeiter-in-stadt-zurich-zurich-4d989c3a"
+      "fallbezogene-r-sachbearbeiter-in-stadt-zurich-zurich-a6321439"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -34142,6 +34187,7 @@
         "fallbezogene-r-sachbearbeiter-in-stadt-zurich-zurich-432c1954",
         "fallbezogene-r-sachbearbeiter-in-stadt-zurich-zurich-517e30a1",
         "fallbezogene-r-sachbearbeiter-in-stadt-zurich-zurich-4d989c3a",
+        "fallbezogene-r-sachbearbeiter-in-stadt-zurich-zurich-a6321439",
         "fallbezogene-r-sachbearbeiter-in-stadt-zurich-zurich"
       ],
       "en": [
@@ -34264,6 +34310,7 @@
         "fallbezogene-r-sachbearbeiter-in-stadt-zurich-zurich-432c1954",
         "fallbezogene-r-sachbearbeiter-in-stadt-zurich-zurich-517e30a1",
         "fallbezogene-r-sachbearbeiter-in-stadt-zurich-zurich-4d989c3a",
+        "fallbezogene-r-sachbearbeiter-in-stadt-zurich-zurich-a6321439",
         "fallbezogene-r-sachbearbeiter-in-stadt-zurich-zurich"
       ],
       "de": [
@@ -34500,6 +34547,7 @@
         "fallbezogene-r-sachbearbeiter-in-stadt-zurich-zurich-432c1954",
         "fallbezogene-r-sachbearbeiter-in-stadt-zurich-zurich-517e30a1",
         "fallbezogene-r-sachbearbeiter-in-stadt-zurich-zurich-4d989c3a",
+        "fallbezogene-r-sachbearbeiter-in-stadt-zurich-zurich-a6321439",
         "fallbezogene-r-sachbearbeiter-in-stadt-zurich-zurich"
       ]
     },
