@@ -613,7 +613,7 @@ export function buildTrafficPriority(pending, popularity, opts = {}) {
     : rest;
   const order = priorityBeforeFresh
     ? orderRest(priorityEntries).map((s) => s.job)
-    : freshHead.map((s) => s.job);
+    : [];
   order.push(...freshHead.map((s) => s.job));
   order.push(...orderRest(priorityRest).map((s) => s.job));
   order.push(...orderRest(regularRest).map((s) => s.job));
