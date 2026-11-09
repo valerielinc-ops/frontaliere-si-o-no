@@ -1,7 +1,7 @@
 {
   "crawlerKey": "viva-luzern",
-  "assembledAt": "2026-11-09T09:22:23.518Z",
-  "runId": "42591376376",
+  "assembledAt": "2026-11-09T21:17:23.963Z",
+  "runId": "42700119223",
   "jobs": [
     {
       "id": "viva-luzern-5b65d7a19c0c",
@@ -34,13 +34,13 @@
       "url": "https://jobs.vivaluzern.ch/offene-stellen/fachfrau-mann-gesundheit-oder-betreuung-efz/c09e6e2b-540c-4320-91c5-cb956ab6c7e5",
       "source": "Viva Luzern Dedicated Parser (Prospective medium 1002590)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:21:24.703Z",
+      "crawledAt": "2026-11-09T21:16:44.136Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "6003",
-      "streetAddress": "Interessiert?",
+      "streetAddress": "Schützenstrasse 4",
       "category": "Sanità / Ospedali",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
@@ -100,8 +100,22 @@
           "unitText": "YEAR"
         }
       },
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-09T09:21:24.703Z",
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Viva Luzern",
+        "streetAddress": "Schützenstrasse 4",
+        "postalCode": "6003",
+        "registeredName": "Viva Luzern AG",
+        "matchType": "exact",
+        "streetAddressSource": "zefix-registry",
+        "jobPostalCode": "6003",
+        "addressLocality": "Luzern",
+        "addressRegion": "LU",
+        "checkedAt": "2026-11-09T15:43:05.500Z"
+      },
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-12-09T21:16:44.136Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -111,7 +125,7 @@
         "it": "pflegefachfrau-mann-hf-viva-luzern",
         "en": "certified-nursing-professional-viva-luzern-luzern",
         "de": "pflegefachfrau-mann-hf-viva-luzern-luzern",
-        "fr": "infirmier-infirmiere-diplome-e-es-viva-luzern-luzern"
+        "fr": "professionnel-de-soins-viva-luzern"
       },
       "company": "Viva Luzern",
       "companyKey": "viva-luzern",
@@ -136,13 +150,13 @@
       "url": "https://jobs.vivaluzern.ch/offene-stellen/pflegefachfrau-mann-hf/cc1bce20-e58d-4ae3-9c1a-713f5237ccaa",
       "source": "Viva Luzern Dedicated Parser (Prospective medium 1002590)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:21:24.701Z",
+      "crawledAt": "2026-11-09T21:16:44.134Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "6003",
-      "streetAddress": "Interessiert?",
+      "streetAddress": "Schützenstrasse 4",
       "category": "Sanità / Ospedali",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
@@ -178,7 +192,7 @@
         "registered-nurse-hf-viva-luzern",
         "pflegefachfrau-mann-hf-viva-luzern-luzern-uy50u4",
         "pflegefachfrau-mann-hf-viva-luzern-luzern-1067271482",
-        "professionnel-de-soins-viva-luzern"
+        "infirmier-infirmiere-diplome-e-es-viva-luzern-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -212,7 +226,7 @@
         "fr": [
           "specialiste-des-soins-palliatifs-viva-luzern-luzern",
           "soins-infirmiers-professionnels-hf-viva-luzern",
-          "professionnel-de-soins-viva-luzern"
+          "infirmier-infirmiere-diplome-e-es-viva-luzern-luzern"
         ]
       },
       "firstSeenAt": "2026-07-06T15:43:44.088Z",
@@ -229,8 +243,22 @@
           "unitText": "YEAR"
         }
       },
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-09T09:21:24.701Z",
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Viva Luzern",
+        "streetAddress": "Schützenstrasse 4",
+        "postalCode": "6003",
+        "registeredName": "Viva Luzern AG",
+        "matchType": "exact",
+        "streetAddressSource": "zefix-registry",
+        "jobPostalCode": "6003",
+        "addressLocality": "Luzern",
+        "addressRegion": "LU",
+        "checkedAt": "2026-11-09T15:43:05.500Z"
+      },
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-12-09T21:16:44.134Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -265,7 +293,7 @@
       "url": "https://jobs.vivaluzern.ch/offene-stellen/stv-teamleiter-in-betreuung-und-pflege/ce7584af-db46-4488-9fd9-e5e1f2192316",
       "source": "Viva Luzern Dedicated Parser (Prospective medium 1002590)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:21:24.699Z",
+      "crawledAt": "2026-11-09T21:16:44.132Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -336,8 +364,22 @@
           "unitText": "YEAR"
         }
       },
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Viva Luzern",
+        "streetAddress": "Schützenstrasse 4",
+        "postalCode": "6003",
+        "registeredName": "Viva Luzern AG",
+        "matchType": "exact",
+        "streetAddressSource": "zefix-registry",
+        "jobPostalCode": "6003",
+        "addressLocality": "Luzern",
+        "addressRegion": "LU",
+        "checkedAt": "2026-11-09T15:43:05.500Z"
+      },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-09T09:21:24.699Z",
+      "validThrough": "2026-12-09T21:16:44.132Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -371,7 +413,7 @@
       "url": "https://jobs.vivaluzern.ch/offene-stellen/assistent-in-gesundheit-und-soziales-oder-pflegehelfer-in-srk/f3addf97-defe-43c8-a9d0-85e9c3d28690",
       "source": "Viva Luzern Dedicated Parser (Prospective medium 1002590)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:21:24.696Z",
+      "crawledAt": "2026-11-09T21:16:44.130Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -421,8 +463,22 @@
           "unitText": "YEAR"
         }
       },
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Viva Luzern",
+        "streetAddress": "Schützenstrasse 4",
+        "postalCode": "6003",
+        "registeredName": "Viva Luzern AG",
+        "matchType": "exact",
+        "streetAddressSource": "zefix-registry",
+        "jobPostalCode": "6003",
+        "addressLocality": "Luzern",
+        "addressRegion": "LU",
+        "checkedAt": "2026-11-09T15:43:05.500Z"
+      },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-09T09:21:24.696Z",
+      "validThrough": "2026-12-09T21:16:44.130Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -456,7 +512,7 @@
       "url": "https://jobs.vivaluzern.ch/offene-stellen/fachfrau-mann-gesundheit-efz-keine-geteilten-dienste-im-bereich-pflege/1f23ea8f-dc96-4500-87b5-d5e710d52714",
       "source": "Viva Luzern Dedicated Parser (Prospective medium 1002590)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:21:24.694Z",
+      "crawledAt": "2026-11-09T21:16:44.128Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -506,8 +562,22 @@
           "unitText": "YEAR"
         }
       },
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Viva Luzern",
+        "streetAddress": "Schützenstrasse 4",
+        "postalCode": "6003",
+        "registeredName": "Viva Luzern AG",
+        "matchType": "exact",
+        "streetAddressSource": "zefix-registry",
+        "jobPostalCode": "6003",
+        "addressLocality": "Luzern",
+        "addressRegion": "LU",
+        "checkedAt": "2026-11-09T15:43:05.500Z"
+      },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-09T09:21:24.694Z",
+      "validThrough": "2026-12-09T21:16:44.128Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -542,7 +612,7 @@
       "url": "https://jobs.vivaluzern.ch/offene-stellen/pflegefachfrau-mann-hf-keine-geteilten-dienste-im-bereich-pflege/5370ba7d-fad9-45a2-aa75-5af7fdd17642",
       "source": "Viva Luzern Dedicated Parser (Prospective medium 1002590)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:21:24.692Z",
+      "crawledAt": "2026-11-09T21:16:44.126Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -586,8 +656,22 @@
           "unitText": "YEAR"
         }
       },
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Viva Luzern",
+        "streetAddress": "Schützenstrasse 4",
+        "postalCode": "6003",
+        "registeredName": "Viva Luzern AG",
+        "matchType": "exact",
+        "streetAddressSource": "zefix-registry",
+        "jobPostalCode": "6003",
+        "addressLocality": "Luzern",
+        "addressRegion": "LU",
+        "checkedAt": "2026-11-09T15:43:05.500Z"
+      },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-09T09:21:24.692Z",
+      "validThrough": "2026-12-09T21:16:44.126Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -621,13 +705,13 @@
       "url": "https://jobs.vivaluzern.ch/offene-stellen/assistent-in-gesundheit-und-soziales-oder-pflegehelfer-in-srk-keine-geteilten-dienste-im-bereich-pflege/3d38778e-14ab-41a7-9b3d-ce2bddf702b2",
       "source": "Viva Luzern Dedicated Parser (Prospective medium 1002590)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:21:24.690Z",
+      "crawledAt": "2026-11-09T21:16:44.124Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "6003",
-      "streetAddress": "Interessiert?",
+      "streetAddress": "Schützenstrasse 4",
       "category": "Sanità / Ospedali",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
@@ -669,8 +753,22 @@
           "unitText": "YEAR"
         }
       },
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-09T09:21:24.690Z",
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Viva Luzern",
+        "streetAddress": "Schützenstrasse 4",
+        "postalCode": "6003",
+        "registeredName": "Viva Luzern AG",
+        "matchType": "exact",
+        "streetAddressSource": "zefix-registry",
+        "jobPostalCode": "6003",
+        "addressLocality": "Luzern",
+        "addressRegion": "LU",
+        "checkedAt": "2026-11-09T15:43:05.500Z"
+      },
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-12-09T21:16:44.124Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -705,7 +803,7 @@
       "url": "https://jobs.vivaluzern.ch/offene-stellen/teamleiter-in-betreuung-und-pflege-fuer-die-demenz-wohngruppe/ee8b8ca5-2d50-412e-b489-b01ee0ae385c",
       "source": "Viva Luzern Dedicated Parser (Prospective medium 1002590)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:21:24.688Z",
+      "crawledAt": "2026-11-09T21:16:44.119Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -753,8 +851,22 @@
           "unitText": "YEAR"
         }
       },
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Viva Luzern",
+        "streetAddress": "Schützenstrasse 4",
+        "postalCode": "6003",
+        "registeredName": "Viva Luzern AG",
+        "matchType": "exact",
+        "streetAddressSource": "zefix-registry",
+        "jobPostalCode": "6003",
+        "addressLocality": "Luzern",
+        "addressRegion": "LU",
+        "checkedAt": "2026-11-09T15:43:05.500Z"
+      },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-09T09:21:24.688Z",
+      "validThrough": "2026-12-09T21:16:44.119Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -789,7 +901,7 @@
       "url": "https://jobs.vivaluzern.ch/offene-stellen/pflegefachfrau-mann-hf-fuer-wohnbereich-mit-teils-gerontopsychiatrischer-fachrichtung/b56e0936-9a9e-485d-8d35-cd286dd309a9",
       "source": "Viva Luzern Dedicated Parser (Prospective medium 1002590)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:21:24.686Z",
+      "crawledAt": "2026-11-09T21:16:44.117Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -831,8 +943,22 @@
           "unitText": "YEAR"
         }
       },
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Viva Luzern",
+        "streetAddress": "Schützenstrasse 4",
+        "postalCode": "6003",
+        "registeredName": "Viva Luzern AG",
+        "matchType": "exact",
+        "streetAddressSource": "zefix-registry",
+        "jobPostalCode": "6003",
+        "addressLocality": "Luzern",
+        "addressRegion": "LU",
+        "checkedAt": "2026-11-09T15:43:05.500Z"
+      },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-09T09:21:24.686Z",
+      "validThrough": "2026-12-09T21:16:44.117Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -867,7 +993,7 @@
       "url": "https://jobs.vivaluzern.ch/offene-stellen/teamleitung-nacht-betreuung-und-pflege/f6cf51cf-3352-4ed9-ad4f-e53831f95338",
       "source": "Viva Luzern Dedicated Parser (Prospective medium 1002590)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:21:24.683Z",
+      "crawledAt": "2026-11-09T21:16:44.114Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -928,8 +1054,22 @@
           "unitText": "YEAR"
         }
       },
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Viva Luzern",
+        "streetAddress": "Schützenstrasse 4",
+        "postalCode": "6003",
+        "registeredName": "Viva Luzern AG",
+        "matchType": "exact",
+        "streetAddressSource": "zefix-registry",
+        "jobPostalCode": "6003",
+        "addressLocality": "Luzern",
+        "addressRegion": "LU",
+        "checkedAt": "2026-11-09T15:43:05.500Z"
+      },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-09T09:21:24.683Z",
+      "validThrough": "2026-12-09T21:16:44.114Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -964,7 +1104,7 @@
       "url": "https://jobs.vivaluzern.ch/offene-stellen/teamleiter-in-betreuung-und-pflege/913e4859-1c5d-4545-ace6-4e596a948f0e",
       "source": "Viva Luzern Dedicated Parser (Prospective medium 1002590)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:21:24.681Z",
+      "crawledAt": "2026-11-09T21:16:44.112Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1012,8 +1152,22 @@
           "unitText": "YEAR"
         }
       },
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Viva Luzern",
+        "streetAddress": "Schützenstrasse 4",
+        "postalCode": "6003",
+        "registeredName": "Viva Luzern AG",
+        "matchType": "exact",
+        "streetAddressSource": "zefix-registry",
+        "jobPostalCode": "6003",
+        "addressLocality": "Luzern",
+        "addressRegion": "LU",
+        "checkedAt": "2026-11-09T15:43:05.500Z"
+      },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-14T09:21:24.681Z",
+      "validThrough": "2026-12-13T21:16:44.112Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1047,7 +1201,7 @@
       "url": "https://jobs.vivaluzern.ch/offene-stellen/pflegefachfrau-mann-hf/3329bce2-ce82-4fbc-a21f-2e9461eced23",
       "source": "Viva Luzern Dedicated Parser (Prospective medium 1002590)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:21:24.679Z",
+      "crawledAt": "2026-11-09T21:16:44.110Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1104,8 +1258,22 @@
           "unitText": "YEAR"
         }
       },
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Viva Luzern",
+        "streetAddress": "Schützenstrasse 4",
+        "postalCode": "6003",
+        "registeredName": "Viva Luzern AG",
+        "matchType": "exact",
+        "streetAddressSource": "zefix-registry",
+        "jobPostalCode": "6003",
+        "addressLocality": "Luzern",
+        "addressRegion": "LU",
+        "checkedAt": "2026-11-09T15:43:05.500Z"
+      },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-09T09:21:24.679Z",
+      "validThrough": "2026-12-09T21:16:44.110Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1139,7 +1307,7 @@
       "url": "https://jobs.vivaluzern.ch/offene-stellen/fachfrau-mann-gesundheit-efz/e190e5d0-e970-4a27-92e4-c8a53f587b03",
       "source": "Viva Luzern Dedicated Parser (Prospective medium 1002590)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:21:24.674Z",
+      "crawledAt": "2026-11-09T21:16:44.108Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1180,8 +1348,22 @@
           "unitText": "YEAR"
         }
       },
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Viva Luzern",
+        "streetAddress": "Schützenstrasse 4",
+        "postalCode": "6003",
+        "registeredName": "Viva Luzern AG",
+        "matchType": "exact",
+        "streetAddressSource": "zefix-registry",
+        "jobPostalCode": "6003",
+        "addressLocality": "Luzern",
+        "addressRegion": "LU",
+        "checkedAt": "2026-11-09T15:43:05.500Z"
+      },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-07T09:21:24.674Z",
+      "validThrough": "2027-02-07T21:16:44.108Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1215,7 +1397,7 @@
       "url": "https://jobs.vivaluzern.ch/offene-stellen/pflegefachfrau-mann-hf/65d772c5-cd0f-4a72-a422-6cbb949de951",
       "source": "Viva Luzern Dedicated Parser (Prospective medium 1002590)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:21:24.662Z",
+      "crawledAt": "2026-11-09T21:16:44.105Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1271,8 +1453,22 @@
           "unitText": "YEAR"
         }
       },
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Viva Luzern",
+        "streetAddress": "Schützenstrasse 4",
+        "postalCode": "6003",
+        "registeredName": "Viva Luzern AG",
+        "matchType": "exact",
+        "streetAddressSource": "zefix-registry",
+        "jobPostalCode": "6003",
+        "addressLocality": "Luzern",
+        "addressRegion": "LU",
+        "checkedAt": "2026-11-09T15:43:05.500Z"
+      },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-09T09:21:24.662Z",
+      "validThrough": "2026-12-09T21:16:44.105Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1307,7 +1503,7 @@
       "url": "https://jobs.vivaluzern.ch/offene-stellen/mitarbeiter-in-wohnbereichsgastronomie-im-abendservice/62868e15-4bc9-4a9d-bd54-0b9083540e27",
       "source": "Viva Luzern Dedicated Parser (Prospective medium 1002590)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:21:24.660Z",
+      "crawledAt": "2026-11-09T21:16:44.103Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1348,8 +1544,22 @@
           "unitText": "YEAR"
         }
       },
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Viva Luzern",
+        "streetAddress": "Schützenstrasse 4",
+        "postalCode": "6003",
+        "registeredName": "Viva Luzern AG",
+        "matchType": "exact",
+        "streetAddressSource": "zefix-registry",
+        "jobPostalCode": "6003",
+        "addressLocality": "Luzern",
+        "addressRegion": "LU",
+        "checkedAt": "2026-11-09T15:43:05.500Z"
+      },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-07T09:21:24.660Z",
+      "validThrough": "2027-02-07T21:16:44.103Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1384,7 +1594,7 @@
       "url": "https://jobs.vivaluzern.ch/offene-stellen/pflegefachfrau-mann-hf-oder-fachfrau-mann-gesundheit-efz-im-nachtdienst/6d0fe6ae-81a5-4704-9267-25382f53ca73",
       "source": "Viva Luzern Dedicated Parser (Prospective medium 1002590)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:21:24.658Z",
+      "crawledAt": "2026-11-09T21:16:44.101Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1426,8 +1636,22 @@
           "unitText": "YEAR"
         }
       },
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Viva Luzern",
+        "streetAddress": "Schützenstrasse 4",
+        "postalCode": "6003",
+        "registeredName": "Viva Luzern AG",
+        "matchType": "exact",
+        "streetAddressSource": "zefix-registry",
+        "jobPostalCode": "6003",
+        "addressLocality": "Luzern",
+        "addressRegion": "LU",
+        "checkedAt": "2026-11-09T15:43:05.500Z"
+      },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-03T09:21:24.658Z",
+      "validThrough": "2027-01-03T21:16:44.101Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1462,7 +1686,7 @@
       "url": "https://jobs.vivaluzern.ch/offene-stellen/teamleiter-in-betreuung-und-pflege/fd8f79b8-ca1f-4e5e-952b-63da72aac07f",
       "source": "Viva Luzern Dedicated Parser (Prospective medium 1002590)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:21:24.655Z",
+      "crawledAt": "2026-11-09T21:16:44.098Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1510,8 +1734,22 @@
           "unitText": "YEAR"
         }
       },
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Viva Luzern",
+        "streetAddress": "Schützenstrasse 4",
+        "postalCode": "6003",
+        "registeredName": "Viva Luzern AG",
+        "matchType": "exact",
+        "streetAddressSource": "zefix-registry",
+        "jobPostalCode": "6003",
+        "addressLocality": "Luzern",
+        "addressRegion": "LU",
+        "checkedAt": "2026-11-09T15:43:05.500Z"
+      },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-03T09:21:24.655Z",
+      "validThrough": "2027-01-03T21:16:44.098Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1546,7 +1784,7 @@
       "url": "https://jobs.vivaluzern.ch/offene-stellen/aktivierungsfachfrau-mann-hf/af9e65bf-275f-40d3-b653-4faa1a279cda",
       "source": "Viva Luzern Dedicated Parser (Prospective medium 1002590)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:21:24.653Z",
+      "crawledAt": "2026-11-09T21:16:44.096Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1594,8 +1832,22 @@
           "unitText": "YEAR"
         }
       },
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Viva Luzern",
+        "streetAddress": "Schützenstrasse 4",
+        "postalCode": "6003",
+        "registeredName": "Viva Luzern AG",
+        "matchType": "exact",
+        "streetAddressSource": "zefix-registry",
+        "jobPostalCode": "6003",
+        "addressLocality": "Luzern",
+        "addressRegion": "LU",
+        "checkedAt": "2026-11-09T15:43:05.500Z"
+      },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-04T09:21:24.653Z",
+      "validThrough": "2027-01-04T21:16:44.096Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1630,7 +1882,7 @@
       "url": "https://jobs.vivaluzern.ch/offene-stellen/pflegefachfrau-mann-hf-sofortaufnahme-und-entlastungsangebote/44917df6-f0be-4c3d-b146-7e17d09733e9",
       "source": "Viva Luzern Dedicated Parser (Prospective medium 1002590)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:21:24.650Z",
+      "crawledAt": "2026-11-09T21:16:44.094Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1680,8 +1932,22 @@
           "unitText": "YEAR"
         }
       },
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Viva Luzern",
+        "streetAddress": "Schützenstrasse 4",
+        "postalCode": "6003",
+        "registeredName": "Viva Luzern AG",
+        "matchType": "exact",
+        "streetAddressSource": "zefix-registry",
+        "jobPostalCode": "6003",
+        "addressLocality": "Luzern",
+        "addressRegion": "LU",
+        "checkedAt": "2026-11-09T15:43:05.500Z"
+      },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-13T09:21:24.650Z",
+      "validThrough": "2027-01-13T21:16:44.094Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1716,7 +1982,7 @@
       "url": "https://jobs.vivaluzern.ch/offene-stellen/rai-verantwortliche-r-fachexpertin-fachexperte-rai/cfae330b-2647-419a-982e-1278ff5dc45c",
       "source": "Viva Luzern Dedicated Parser (Prospective medium 1002590)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:21:24.648Z",
+      "crawledAt": "2026-11-09T21:16:44.090Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1764,8 +2030,22 @@
           "unitText": "YEAR"
         }
       },
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Viva Luzern",
+        "streetAddress": "Schützenstrasse 4",
+        "postalCode": "6003",
+        "registeredName": "Viva Luzern AG",
+        "matchType": "exact",
+        "streetAddressSource": "zefix-registry",
+        "jobPostalCode": "6003",
+        "addressLocality": "Luzern",
+        "addressRegion": "LU",
+        "checkedAt": "2026-11-09T15:43:05.500Z"
+      },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-20T09:21:24.648Z",
+      "validThrough": "2027-01-20T21:16:44.090Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1799,7 +2079,7 @@
       "url": "https://jobs.vivaluzern.ch/offene-stellen/pflegefachfrau-mann-nacht-hf/988c4417-e9cb-4ff3-acae-35d2e6c4c5dc",
       "source": "Viva Luzern Dedicated Parser (Prospective medium 1002590)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:21:24.645Z",
+      "crawledAt": "2026-11-09T21:16:44.087Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1849,8 +2129,22 @@
           "unitText": "YEAR"
         }
       },
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Viva Luzern",
+        "streetAddress": "Schützenstrasse 4",
+        "postalCode": "6003",
+        "registeredName": "Viva Luzern AG",
+        "matchType": "exact",
+        "streetAddressSource": "zefix-registry",
+        "jobPostalCode": "6003",
+        "addressLocality": "Luzern",
+        "addressRegion": "LU",
+        "checkedAt": "2026-11-09T15:43:05.500Z"
+      },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-22T09:21:24.645Z",
+      "validThrough": "2027-01-22T21:16:44.087Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1885,7 +2179,7 @@
       "url": "https://jobs.vivaluzern.ch/offene-stellen/aktivierungsfachperson-hf/e395457d-9ced-4254-8fac-0b1d6a92e0ec",
       "source": "Viva Luzern Dedicated Parser (Prospective medium 1002590)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:21:24.642Z",
+      "crawledAt": "2026-11-09T21:16:44.083Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1933,8 +2227,22 @@
           "unitText": "YEAR"
         }
       },
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Viva Luzern",
+        "streetAddress": "Schützenstrasse 4",
+        "postalCode": "6003",
+        "registeredName": "Viva Luzern AG",
+        "matchType": "exact",
+        "streetAddressSource": "zefix-registry",
+        "jobPostalCode": "6003",
+        "addressLocality": "Luzern",
+        "addressRegion": "LU",
+        "checkedAt": "2026-11-09T15:43:05.500Z"
+      },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-22T09:21:24.642Z",
+      "validThrough": "2027-01-22T21:16:44.083Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1969,7 +2277,7 @@
       "url": "https://jobs.vivaluzern.ch/offene-stellen/fachverantwortliche-r-ausbildung-pflege/7300cfe5-eb04-4895-bb4b-3a7f0f93b6d0",
       "source": "Viva Luzern Dedicated Parser (Prospective medium 1002590)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:21:24.640Z",
+      "crawledAt": "2026-11-09T21:16:44.081Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -2017,8 +2325,22 @@
           "unitText": "YEAR"
         }
       },
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Viva Luzern",
+        "streetAddress": "Schützenstrasse 4",
+        "postalCode": "6003",
+        "registeredName": "Viva Luzern AG",
+        "matchType": "exact",
+        "streetAddressSource": "zefix-registry",
+        "jobPostalCode": "6003",
+        "addressLocality": "Luzern",
+        "addressRegion": "LU",
+        "checkedAt": "2026-11-09T15:43:05.500Z"
+      },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-28T09:21:24.640Z",
+      "validThrough": "2027-01-27T21:16:44.081Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2053,7 +2375,7 @@
       "url": "https://jobs.vivaluzern.ch/offene-stellen/mitarbeiter-in-wohnbereichsgastronomie/d318b7b4-9f04-4c49-b8d4-7a6978203c71",
       "source": "Viva Luzern Dedicated Parser (Prospective medium 1002590)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:21:24.637Z",
+      "crawledAt": "2026-11-09T21:16:44.079Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -2103,8 +2425,22 @@
           "unitText": "YEAR"
         }
       },
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Viva Luzern",
+        "streetAddress": "Schützenstrasse 4",
+        "postalCode": "6003",
+        "registeredName": "Viva Luzern AG",
+        "matchType": "exact",
+        "streetAddressSource": "zefix-registry",
+        "jobPostalCode": "6003",
+        "addressLocality": "Luzern",
+        "addressRegion": "LU",
+        "checkedAt": "2026-11-09T15:43:05.500Z"
+      },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-28T09:21:24.637Z",
+      "validThrough": "2027-01-27T21:16:44.079Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2138,7 +2474,7 @@
       "url": "https://jobs.vivaluzern.ch/offene-stellen/mitarbeiter-in-restauration/65c0efac-53c8-4c40-a0af-1e8544d50d76",
       "source": "Viva Luzern Dedicated Parser (Prospective medium 1002590)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:21:24.634Z",
+      "crawledAt": "2026-11-09T21:16:44.077Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -2186,8 +2522,22 @@
           "unitText": "YEAR"
         }
       },
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Viva Luzern",
+        "streetAddress": "Schützenstrasse 4",
+        "postalCode": "6003",
+        "registeredName": "Viva Luzern AG",
+        "matchType": "exact",
+        "streetAddressSource": "zefix-registry",
+        "jobPostalCode": "6003",
+        "addressLocality": "Luzern",
+        "addressRegion": "LU",
+        "checkedAt": "2026-11-09T15:43:05.500Z"
+      },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-09T09:21:24.634Z",
+      "validThrough": "2026-12-09T21:16:44.077Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2221,7 +2571,7 @@
       "url": "https://jobs.vivaluzern.ch/offene-stellen/koechin-koch/4820d0a2-a127-4afb-ad48-dfb0a07b8051",
       "source": "Viva Luzern Dedicated Parser (Prospective medium 1002590)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:21:24.630Z",
+      "crawledAt": "2026-11-09T21:16:44.074Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -2269,8 +2619,22 @@
           "unitText": "YEAR"
         }
       },
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Viva Luzern",
+        "streetAddress": "Schützenstrasse 4",
+        "postalCode": "6003",
+        "registeredName": "Viva Luzern AG",
+        "matchType": "exact",
+        "streetAddressSource": "zefix-registry",
+        "jobPostalCode": "6003",
+        "addressLocality": "Luzern",
+        "addressRegion": "LU",
+        "checkedAt": "2026-11-09T15:43:05.500Z"
+      },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-04T09:21:24.630Z",
+      "validThrough": "2027-02-04T21:16:44.074Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2305,7 +2669,7 @@
       "url": "https://jobs.vivaluzern.ch/offene-stellen/fachapplikationsmanager-in-polypoint-pep/e2fd14c7-fc1f-417f-aee2-67ddbf6ad36e",
       "source": "Viva Luzern Dedicated Parser (Prospective medium 1002590)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:21:24.626Z",
+      "crawledAt": "2026-11-09T21:16:44.070Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -2353,8 +2717,22 @@
           "unitText": "YEAR"
         }
       },
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Viva Luzern",
+        "streetAddress": "Schützenstrasse 4",
+        "postalCode": "6003",
+        "registeredName": "Viva Luzern AG",
+        "matchType": "exact",
+        "streetAddressSource": "zefix-registry",
+        "jobPostalCode": "6003",
+        "addressLocality": "Luzern",
+        "addressRegion": "LU",
+        "checkedAt": "2026-11-09T15:43:05.500Z"
+      },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-05T09:21:24.626Z",
+      "validThrough": "2027-02-05T21:16:44.070Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2388,7 +2766,7 @@
       "url": "https://jobs.vivaluzern.ch/offene-stellen/koechin-koch-efz/9e8626b7-942b-4f39-9f74-7ed25728c1b7",
       "source": "Viva Luzern Dedicated Parser (Prospective medium 1002590)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:21:24.598Z",
+      "crawledAt": "2026-11-09T21:16:44.046Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -2436,8 +2814,22 @@
           "unitText": "YEAR"
         }
       },
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Viva Luzern",
+        "streetAddress": "Schützenstrasse 4",
+        "postalCode": "6003",
+        "registeredName": "Viva Luzern AG",
+        "matchType": "exact",
+        "streetAddressSource": "zefix-registry",
+        "jobPostalCode": "6003",
+        "addressLocality": "Luzern",
+        "addressRegion": "LU",
+        "checkedAt": "2026-11-09T15:43:05.500Z"
+      },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-06T09:21:24.598Z",
+      "validThrough": "2027-02-05T21:16:44.046Z",
       "validThroughSource": "last-observed-window"
     }
   ]

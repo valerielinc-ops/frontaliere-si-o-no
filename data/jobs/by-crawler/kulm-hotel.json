@@ -1,7 +1,7 @@
 {
   "crawlerKey": "kulm-hotel",
-  "assembledAt": "2026-11-09T09:28:20.627Z",
-  "runId": "42591376376",
+  "assembledAt": "2026-11-09T21:22:55.485Z",
+  "runId": "42700119223",
   "jobs": [
     {
       "id": "kulm-hotel-6d5358fd2a15",
@@ -34,7 +34,7 @@
       "url": "https://careers.kulm.com/en/vacancies/708",
       "source": "Kulm Hotel St. Moritz Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-09T09:28:13.708Z",
+      "crawledAt": "2026-11-09T21:22:49.009Z",
       "addressLocality": "Pontresina",
       "postalCode": "7504",
       "addressRegion": "GR",
@@ -110,7 +110,7 @@
       },
       "streetAddress": "Pontresina",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-09T09:28:13.708Z",
+      "validThrough": "2026-12-09T21:22:49.009Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -144,7 +144,7 @@
       "url": "https://careers.kulm.com/en/vacancies/737",
       "source": "Kulm Hotel St. Moritz Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-09T09:28:13.498Z",
+      "crawledAt": "2026-11-09T21:22:48.867Z",
       "addressLocality": "Pontresina",
       "postalCode": "7504",
       "addressRegion": "GR",
@@ -199,7 +199,7 @@
       },
       "streetAddress": "Pontresina",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-15T09:28:13.498Z",
+      "validThrough": "2027-01-14T21:22:48.867Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -233,7 +233,7 @@
       "url": "https://careers.kulm.com/en/vacancies/723",
       "source": "Kulm Hotel St. Moritz Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-09T09:28:12.483Z",
+      "crawledAt": "2026-11-09T21:22:47.913Z",
       "addressLocality": "Pontresina",
       "postalCode": "7504",
       "addressRegion": "GR",
@@ -291,7 +291,7 @@
       },
       "streetAddress": "Pontresina",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-09T09:28:12.483Z",
+      "validThrough": "2026-12-09T21:22:47.913Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -325,7 +325,7 @@
       "url": "https://careers.kulm.com/en/vacancies/733",
       "source": "Kulm Hotel St. Moritz Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-09T09:28:11.464Z",
+      "crawledAt": "2026-11-09T21:22:46.964Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressRegion": "GR",
@@ -378,7 +378,7 @@
       },
       "streetAddress": "St. Moritz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-07T09:28:11.464Z",
+      "validThrough": "2027-02-07T21:22:46.964Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -412,7 +412,7 @@
       "url": "https://careers.kulm.com/en/vacancies/696",
       "source": "Kulm Hotel St. Moritz Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-09T09:28:10.447Z",
+      "crawledAt": "2026-11-09T21:22:46.006Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressRegion": "GR",
@@ -462,7 +462,7 @@
       },
       "streetAddress": "St. Moritz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-29T09:28:10.447Z",
+      "validThrough": "2026-12-28T21:22:46.006Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -496,7 +496,7 @@
       "url": "https://careers.kulm.com/en/vacancies/722",
       "source": "Kulm Hotel St. Moritz Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-09T09:28:09.439Z",
+      "crawledAt": "2026-11-09T21:22:44.921Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressRegion": "GR",
@@ -519,15 +519,15 @@
       "requirementsByLocale": {},
       "department": "Kulm Hotel",
       "pensum": "100%",
-      "firstSeenAt": "2026-11-08T21:38:25.179Z",
+      "previousSlugs": [
+        "ice-master-ice-technician-m-w-d-kulm-hotel-st-moritz"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "ice-master-ice-technician-m-w-d-kulm-hotel-st-moritz"
         ]
       },
-      "previousSlugs": [
-        "ice-master-ice-technician-m-w-d-kulm-hotel-st-moritz"
-      ],
+      "firstSeenAt": "2026-11-08T21:38:25.179Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -543,7 +543,7 @@
       },
       "streetAddress": "St. Moritz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-07T09:28:09.439Z",
+      "validThrough": "2027-02-07T21:22:44.921Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -577,7 +577,7 @@
       "url": "https://careers.kulm.com/en/vacancies/745",
       "source": "Kulm Hotel St. Moritz Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-09T09:28:08.414Z",
+      "crawledAt": "2026-11-09T21:22:43.969Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressRegion": "GR",
@@ -616,7 +616,7 @@
       },
       "streetAddress": "St. Moritz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-07T09:28:08.414Z",
+      "validThrough": "2027-02-07T21:22:43.969Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -650,7 +650,7 @@
       "url": "https://careers.kulm.com/en/vacancies/736",
       "source": "Kulm Hotel St. Moritz Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-09T09:28:07.354Z",
+      "crawledAt": "2026-11-09T21:22:43.014Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressRegion": "GR",
@@ -697,14 +697,14 @@
       },
       "streetAddress": "St. Moritz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-24T09:28:07.354Z",
+      "validThrough": "2026-12-24T21:22:43.014Z",
       "validThroughSource": "last-observed-window"
     },
     {
       "id": "kulm-hotel-fe14f6cf94b1",
       "slug": "responsabile-executive-housekeeping-m-w-d-kulm-hotel-st-moritz-pontresina",
       "slugByLocale": {
-        "it": "direttore-esecutivo-della-pulizia-m-f-d-kulm-hotel-st-moritz-pontresina",
+        "it": "responsabile-executive-housekeeping-m-w-d-kulm-hotel-st-moritz-pontresina",
         "en": "executive-housekeeping-manager-m-w-d-kulm-hotel-st-moritz",
         "de": "geschaftsfuhrer-der-hauswirtschaft-m-w-d-kulm-hotel-st-moritz-pontresina",
         "fr": "directeur-executif-du-menage-m-m-j-kulm-hotel-st-moritz-pontresina"
@@ -731,7 +731,7 @@
       "url": "https://careers.kulm.com/en/vacancies/679",
       "source": "Kulm Hotel St. Moritz Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-09T09:28:06.343Z",
+      "crawledAt": "2026-11-09T21:22:42.009Z",
       "addressLocality": "Pontresina",
       "postalCode": "7504",
       "addressRegion": "GR",
@@ -773,7 +773,8 @@
         "housekeeping-direktor-m-w-d-kulm-hotel-st-moritz-st",
         "directeur-du-menage-m-w-d-kulm-hotel-st-moritz-st-moritz",
         "directeur-du-menage-m-m-j-kulm-hotel-st-moritz-st-moritz",
-        "executive-housekeeping-manager-m-w-d-kulm-hotel-st-moritz"
+        "executive-housekeeping-manager-m-w-d-kulm-hotel-st-moritz",
+        "direttore-esecutivo-della-pulizia-m-f-d-kulm-hotel-st-moritz-pontresina"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -794,7 +795,8 @@
           "housekeeping-direktor-m-w-d-kulm-hotel-st-moritz-st",
           "directeur-du-menage-m-w-d-kulm-hotel-st-moritz-st-moritz",
           "directeur-du-menage-m-m-j-kulm-hotel-st-moritz-st-moritz",
-          "executive-housekeeping-manager-m-w-d-kulm-hotel-st-moritz"
+          "executive-housekeeping-manager-m-w-d-kulm-hotel-st-moritz",
+          "direttore-esecutivo-della-pulizia-m-f-d-kulm-hotel-st-moritz-pontresina"
         ],
         "en": [
           "housekeeping-supervisor-m-w-d-kulm-hotel-st-moritz"
@@ -824,7 +826,7 @@
       },
       "streetAddress": "Pontresina",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-09T09:28:06.343Z",
+      "validThrough": "2026-12-09T21:22:42.009Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -858,7 +860,7 @@
       "url": "https://careers.kulm.com/en/vacancies/735",
       "source": "Kulm Hotel St. Moritz Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-09T09:28:05.326Z",
+      "crawledAt": "2026-11-09T21:22:41.057Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressRegion": "GR",
@@ -898,8 +900,84 @@
       },
       "streetAddress": "St. Moritz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-07T09:28:05.326Z",
+      "validThrough": "2027-02-07T21:22:41.057Z",
       "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "kulm-hotel-849d4022cc45",
+      "slug": "commis-de-rang-m-w-d-kulm-hotel-st-moritz",
+      "slugByLocale": {
+        "en": "commis-de-rang-m-w-d-kulm-hotel-st-moritz",
+        "it": "commis-de-rang-m-w-d-kulm-hotel-st-moritz",
+        "de": "commis-de-rang-m-w-d-kulm-hotel-st-moritz",
+        "fr": "commis-de-rang-m-w-d-kulm-hotel-st-moritz"
+      },
+      "company": "Kulm Hotel St. Moritz",
+      "companyKey": "kulm-hotel",
+      "companyDomain": "kulm.com",
+      "title": "Commis de Rang (m/w/d)",
+      "titleByLocale": {
+        "en": "Commis de Rang (m/w/d)",
+        "it": "Commis de Rang (m/w/d)",
+        "de": "Commis de Rang (m/w/d)",
+        "fr": "Commis de Rang (m/w/d)"
+      },
+      "description": "Commis de Rang (m/w/d) — Kulm Hotel St. Moritz (Grand Hotel Kronenhof), Pontresina (Engadin, Graubünden). Workload: 100%. Contract: 10-Monats-Stelle / 10-month contract. Start: 2026-08-01.\n\nPeople at 1800m above sea level are shaping the Luxury Mountain Travel. Our dynamic and international community offers our guests smart Luxury for an inimitable holiday experience. As a member of the Luxury Kulm Group you are part of the key to our success. Together, we make every stay deeply inspiring, unique and distinctive. And as such, we embrace our culture: understated luxury, inspiration, and a life experience. Together, we make it happen. This is your chance to be a member of our shaping culture: | This is what you move with us:\n• Exclusive Guest Service: You will be the face of our service area, delighting our discerning guests with exceptional service.\n\n• Mise-en-place Preparation: Perfect preparation is key. You will ensure that your station is immaculate and that everything is in place before the guests arrive.\n\n• Seamless Service Support: You will work hand-in-hand with your Chef de Rang to ensure a fluid and elegant service flow. This includes the professional serving and clearing of courses, as well as maintaining a watchful eye on the needs of our guests.\n\n• Seasonal position for winter | This is you:\n• Experience in Luxury Hospitality: You bring experience from renowned hotels/ restaurants and understand the high standards expected in a 5-star establishment.\n\n• Language Skills: You are fluent in English, ideally you speak Italian as well. Any additional languages are a plus.\n\n• Excellent Manners: With your well-groomed appearance and outstanding manners, you leave a lasting impression on our guests.\n\n• Passion for Perfection: You have an eye for detail and strive for perfection in everything you do. Your enthusiasm for the job is reflected in the quality of your work. | Benefits: At Kulm Group, our employees are the heart of our success. We offer attractive development opportunities, comfortable accommodations, affordable meals in the staff restaurant, and numerous perks.",
+      "descriptionByLocale": {
+        "en": "Commis de Rang (m/w/d) — Kulm Hotel St. Moritz (Grand Hotel Kronenhof), Pontresina (Engadin, Graubünden). Workload: 100%. Contract: 10-Monats-Stelle / 10-month contract. Start: 2026-08-01.\n\nPeople at 1800m above sea level are shaping the Luxury Mountain Travel. Our dynamic and international community offers our guests smart Luxury for an inimitable holiday experience. As a member of the Luxury Kulm Group you are part of the key to our success. Together, we make every stay deeply inspiring, unique and distinctive. And as such, we embrace our culture: understated luxury, inspiration, and a life experience. Together, we make it happen. This is your chance to be a member of our shaping culture: | This is what you move with us:\n• Exclusive Guest Service: You will be the face of our service area, delighting our discerning guests with exceptional service.\n\n• Mise-en-place Preparation: Perfect preparation is key. You will ensure that your station is immaculate and that everything is in place before the guests arrive.\n\n• Seamless Service Support: You will work hand-in-hand with your Chef de Rang to ensure a fluid and elegant service flow. This includes the professional serving and clearing of courses, as well as maintaining a watchful eye on the needs of our guests.\n\n• Seasonal position for winter | This is you:\n• Experience in Luxury Hospitality: You bring experience from renowned hotels/ restaurants and understand the high standards expected in a 5-star establishment.\n\n• Language Skills: You are fluent in English, ideally you speak Italian as well. Any additional languages are a plus.\n\n• Excellent Manners: With your well-groomed appearance and outstanding manners, you leave a lasting impression on our guests.\n\n• Passion for Perfection: You have an eye for detail and strive for perfection in everything you do. Your enthusiasm for the job is reflected in the quality of your work. | Benefits: At Kulm Group, our employees are the heart of our success. We offer attractive development opportunities, comfortable accommodations, affordable meals in the staff restaurant, and numerous perks.",
+        "it": "Commis de Rang (m/w/d) — Kulm Hotel St. Moritz (Grand Hotel Kronenhof), Pontresina (Engadin, Graubünden). Workload: 100%. Contract: 10-Monats-Stelle / 10-month contract. Start: 2026-08-01.\n\nPeople at 1800m above sea level are shaping the Luxury Mountain Travel. Our dynamic and international community offers our guests smart Luxury for an inimitable holiday experience. As a member of the Luxury Kulm Group you are part of the key to our success. Together, we make every stay deeply inspiring, unique and distinctive. And as such, we embrace our culture: understated luxury, inspiration, and a life experience. Together, we make it happen. This is your chance to be a member of our shaping culture: | This is what you move with us:\n• Exclusive Guest Service: You will be the face of our service area, delighting our discerning guests with exceptional service.\n\n• Mise-en-place Preparation: Perfect preparation is key. You will ensure that your station is immaculate and that everything is in place before the guests arrive.\n\n• Seamless Service Support: You will work hand-in-hand with your Chef de Rang to ensure a fluid and elegant service flow. This includes the professional serving and clearing of courses, as well as maintaining a watchful eye on the needs of our guests.\n\n• Seasonal position for winter | This is you:\n• Experience in Luxury Hospitality: You bring experience from renowned hotels/ restaurants and understand the high standards expected in a 5-star establishment.\n\n• Language Skills: You are fluent in English, ideally you speak Italian as well. Any additional languages are a plus.\n\n• Excellent Manners: With your well-groomed appearance and outstanding manners, you leave a lasting impression on our guests.\n\n• Passion for Perfection: You have an eye for detail and strive for perfection in everything you do. Your enthusiasm for the job is reflected in the quality of your work. | Benefits: At Kulm Group, our employees are the heart of our success. We offer attractive development opportunities, comfortable accommodations, affordable meals in the staff restaurant, and numerous perks.",
+        "de": "Commis de Rang (m/w/d) — Kulm Hotel St. Moritz (Grand Hotel Kronenhof), Pontresina (Engadin, Graubünden). Workload: 100%. Contract: 10-Monats-Stelle / 10-month contract. Start: 2026-08-01.\n\nPeople at 1800m above sea level are shaping the Luxury Mountain Travel. Our dynamic and international community offers our guests smart Luxury for an inimitable holiday experience. As a member of the Luxury Kulm Group you are part of the key to our success. Together, we make every stay deeply inspiring, unique and distinctive. And as such, we embrace our culture: understated luxury, inspiration, and a life experience. Together, we make it happen. This is your chance to be a member of our shaping culture: | This is what you move with us:\n• Exclusive Guest Service: You will be the face of our service area, delighting our discerning guests with exceptional service.\n\n• Mise-en-place Preparation: Perfect preparation is key. You will ensure that your station is immaculate and that everything is in place before the guests arrive.\n\n• Seamless Service Support: You will work hand-in-hand with your Chef de Rang to ensure a fluid and elegant service flow. This includes the professional serving and clearing of courses, as well as maintaining a watchful eye on the needs of our guests.\n\n• Seasonal position for winter | This is you:\n• Experience in Luxury Hospitality: You bring experience from renowned hotels/ restaurants and understand the high standards expected in a 5-star establishment.\n\n• Language Skills: You are fluent in English, ideally you speak Italian as well. Any additional languages are a plus.\n\n• Excellent Manners: With your well-groomed appearance and outstanding manners, you leave a lasting impression on our guests.\n\n• Passion for Perfection: You have an eye for detail and strive for perfection in everything you do. Your enthusiasm for the job is reflected in the quality of your work. | Benefits: At Kulm Group, our employees are the heart of our success. We offer attractive development opportunities, comfortable accommodations, affordable meals in the staff restaurant, and numerous perks.",
+        "fr": "Commis de Rang (m/w/d) — Kulm Hotel St. Moritz (Grand Hotel Kronenhof), Pontresina (Engadin, Graubünden). Workload: 100%. Contract: 10-Monats-Stelle / 10-month contract. Start: 2026-08-01.\n\nPeople at 1800m above sea level are shaping the Luxury Mountain Travel. Our dynamic and international community offers our guests smart Luxury for an inimitable holiday experience. As a member of the Luxury Kulm Group you are part of the key to our success. Together, we make every stay deeply inspiring, unique and distinctive. And as such, we embrace our culture: understated luxury, inspiration, and a life experience. Together, we make it happen. This is your chance to be a member of our shaping culture: | This is what you move with us:\n• Exclusive Guest Service: You will be the face of our service area, delighting our discerning guests with exceptional service.\n\n• Mise-en-place Preparation: Perfect preparation is key. You will ensure that your station is immaculate and that everything is in place before the guests arrive.\n\n• Seamless Service Support: You will work hand-in-hand with your Chef de Rang to ensure a fluid and elegant service flow. This includes the professional serving and clearing of courses, as well as maintaining a watchful eye on the needs of our guests.\n\n• Seasonal position for winter | This is you:\n• Experience in Luxury Hospitality: You bring experience from renowned hotels/ restaurants and understand the high standards expected in a 5-star establishment.\n\n• Language Skills: You are fluent in English, ideally you speak Italian as well. Any additional languages are a plus.\n\n• Excellent Manners: With your well-groomed appearance and outstanding manners, you leave a lasting impression on our guests.\n\n• Passion for Perfection: You have an eye for detail and strive for perfection in everything you do. Your enthusiasm for the job is reflected in the quality of your work. | Benefits: At Kulm Group, our employees are the heart of our success. We offer attractive development opportunities, comfortable accommodations, affordable meals in the staff restaurant, and numerous perks."
+      },
+      "location": "Pontresina",
+      "canton": "GR",
+      "url": "https://careers.kulm.com/en/vacancies/748",
+      "source": "Kulm Hotel St. Moritz Dedicated Parser",
+      "sourceLang": "en",
+      "crawledAt": "2026-11-09T21:22:40.113Z",
+      "addressLocality": "Pontresina",
+      "postalCode": "7504",
+      "addressRegion": "GR",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Servizio",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "contractType": "10-months",
+      "experienceLevel": "junior",
+      "sector": "Ospitalità / Hotellerie",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "jobStartDate": "2026-08-01T00:00:00.000000Z",
+      "applyUrl": "https://careers.kulm.com/en/vacancies/748",
+      "requirements": [],
+      "requirementsByLocale": {
+        "en": []
+      },
+      "department": "Grand Hotel Kronenhof",
+      "pensum": "100%",
+      "needsRetranslation": true,
+      "salaryMin": 57500,
+      "salaryMax": 87000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 57500,
+          "maxValue": 87000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Pontresina",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-09T21:22:40.113Z",
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-07-02T22:34:26.552Z"
     },
     {
       "id": "kulm-hotel-97329602f0aa",
@@ -932,7 +1010,7 @@
       "url": "https://careers.kulm.com/en/vacancies/746",
       "source": "Kulm Hotel St. Moritz Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-09T09:28:04.301Z",
+      "crawledAt": "2026-11-09T21:22:39.113Z",
       "addressLocality": "Pontresina",
       "postalCode": "7504",
       "addressRegion": "GR",
@@ -985,7 +1063,7 @@
       },
       "streetAddress": "Pontresina",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T09:28:04.301Z",
+      "validThrough": "2027-02-03T21:22:39.113Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1019,7 +1097,7 @@
       "url": "https://careers.kulm.com/en/vacancies/742",
       "source": "Kulm Hotel St. Moritz Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-09T09:28:03.272Z",
+      "crawledAt": "2026-11-09T21:22:38.154Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressRegion": "GR",
@@ -1072,7 +1150,7 @@
       },
       "streetAddress": "St. Moritz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-07T09:28:03.272Z",
+      "validThrough": "2027-02-07T21:22:38.154Z",
       "validThroughSource": "last-observed-window"
     }
   ]

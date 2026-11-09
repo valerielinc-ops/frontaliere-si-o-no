@@ -1,7 +1,7 @@
 {
   "crawlerKey": "sympajobs-reinach-bl",
-  "assembledAt": "2026-11-09T09:25:55.820Z",
-  "runId": "42591376376",
+  "assembledAt": "2026-11-09T21:23:50.411Z",
+  "runId": "42700119223",
   "jobs": [
     {
       "id": "sympajobs-reinach-bl-d34e84f36262",
@@ -35,7 +35,7 @@
       "url": "https://sympajobs.ch/job/flachdach-vorarbeiter-baufuehrer-m-w-d-2/",
       "source": "Sympajobs Official Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:25:45.989Z",
+      "crawledAt": "2026-11-09T21:23:44.695Z",
       "addressLocality": "Baselland",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -82,7 +82,75 @@
       },
       "streetAddress": "Baselland",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-17T09:25:45.989Z",
+      "validThrough": "2027-01-17T21:23:44.695Z",
+      "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "sympajobs-reinach-bl-529b9f1da27e",
+      "slug": "zimmermann-m-w-d-baselland-sympajobs-ch-529b9f1d",
+      "slugByLocale": {
+        "it": "zimmermann-m-w-d-baselland-sympajobs-ch-529b9f1d",
+        "en": "zimmermann-m-w-d-baselland-sympajobs-ch-529b9f1d",
+        "de": "zimmermann-m-w-d-baselland-sympajobs-ch-529b9f1d",
+        "fr": "zimmermann-m-w-d-baselland-sympajobs-ch-529b9f1d"
+      },
+      "slugDisambiguator": "529b9f1d",
+      "company": "Sympajobs AG",
+      "companyKey": "sympajobs-reinach-bl",
+      "companyDomain": "sympajobs.ch",
+      "title": "Zimmermann (M/W/D)",
+      "titleByLocale": {
+        "it": "Zimmermann (M/F/D)",
+        "en": "Zimmermann (M/F/D)",
+        "de": "Zimmermann (M/W/D)",
+        "fr": "Zimmermann (H/F/D)"
+      },
+      "description": "Derzeit suchen wir im Auftrag von verschiedenen Zimmereibetrieben motivierte und zuverlässige Zimmermänner (M/W/D) , die auf der Suche nach einer neuen und spannenden Herausforderung sind.\nDeine Aufgaben\n- Allgemeine Zimmereiarbeiten\n- Abbund und Aufrichten\n- Elementbau\n- Innenausbau\n- Treppenbau\n- Allgemeine Dachsanierungen\nWir erwarten\n- Abgeschlossene Lehre oder Anlehre als Zimmermann oder einige Jahre Berufserfahrung\n- Zuverlässigkeit\n- Saubere und Selbständige Arbeitsweise\n- Sehr gute Deutschkenntnisse\n- Führerschein KL. B wünschenswert\nWir bieten\n- Gute Einarbeitung in ein bestehendes und erfahrenes Team\n- Zeitgemässe Entlohnung\n- Professionelle Betreuung\nFühlst Du dich angesprochen? Dann freuen wir uns auf Deine Bewerbung\nPer E-Mail bewerben | Per WhatsApp bewerben | Tel.: 061 690 93 93 | Mobil: 079 705 99 97\nSympajobs AG\nSeewenweg 6\n4153 Reinach\nBitte beachte, dass wir Bewerbungen per Post sehr gerne berücksichtigen, aus administrativen Gründen jedoch nicht zurückschicken können.",
+      "descriptionByLocale": {
+        "it": "Siamo attualmente alla ricerca di carpentieri motivati e affidabili (M/F/D) che stanno cercando una nuova ed emozionante sfida.\nI tuoi compiti\n- Lavori di carpenteria generale\n- Combinazione e erezione\n- Costruzione elementare\n- Rivestimento interno\n- Lavori di costruzione di scale\n- Ristrutturazioni generali del tetto\nCi aspettiamo\n- Apprendistato completo o apprendistato come falegname o qualche anno di esperienza professionale\n- Affidabilità\n- Lavoro pulito e autonomo\n- Molto buona conoscenza del tedesco\n- Patente di guida KL B auspicabile\nOffriamo\n- Buona formazione in un team esistente ed esperto\n- Retribuzione contemporanea\n- Cura professionale\nTi senti indirizzato? Attendiamo con ansia la vostra applicazione.\nApplicare via email | Applicare da WhatsApp | Tel: 061 690 93 93 | Mobile: 079 705 99 97\nSympajobs AG\nSeewweg 6\n4153 Reinserimento\nSi prega di notare che siamo felici di considerare le applicazioni per posta, ma non possono restituirle per motivi amministrativi.",
+        "en": "We are currently looking for motivated and reliable carpenters (M/F/D) who are looking for a new and exciting challenge.\nYour tasks\n- General carpentry work\n- Combination and erection\n- Elemental construction\n- Interior fitting\n- Stair construction work\n- General roof renovations\nWe expect\n- Completed apprenticeship or apprenticeship as carpenter or some years of professional experience\n- Reliability\n- Clean and self-employed work\n- Very good knowledge of German\n- Driving licence KL B desirable\nWe offer\n- Good training in an existing and experienced team\n- Contemporary remuneration\n- Professional care\nDo you feel addressed? We look forward to your application.\nApply by email | Apply by WhatsApp | Tel.: 061 690 93 93 | Mobile: 079 705 99 97\nSympajobs AG\nSeewweg 6\n4153 Reinach\nPlease note that we are happy to consider applications by post, but cannot return them for administrative reasons.",
+        "de": "Derzeit suchen wir im Auftrag von verschiedenen Zimmereibetrieben motivierte und zuverlässige Zimmermänner (M/W/D) , die auf der Suche nach einer neuen und spannenden Herausforderung sind.\nDeine Aufgaben\n- Allgemeine Zimmereiarbeiten\n- Abbund und Aufrichten\n- Elementbau\n- Innenausbau\n- Treppenbau\n- Allgemeine Dachsanierungen\nWir erwarten\n- Abgeschlossene Lehre oder Anlehre als Zimmermann oder einige Jahre Berufserfahrung\n- Zuverlässigkeit\n- Saubere und Selbständige Arbeitsweise\n- Sehr gute Deutschkenntnisse\n- Führerschein KL. B wünschenswert\nWir bieten\n- Gute Einarbeitung in ein bestehendes und erfahrenes Team\n- Zeitgemässe Entlohnung\n- Professionelle Betreuung\nFühlst Du dich angesprochen? Dann freuen wir uns auf Deine Bewerbung\nPer E-Mail bewerben | Per WhatsApp bewerben | Tel.: 061 690 93 93 | Mobil: 079 705 99 97\nSympajobs AG\nSeewenweg 6\n4153 Reinach\nBitte beachte, dass wir Bewerbungen per Post sehr gerne berücksichtigen, aus administrativen Gründen jedoch nicht zurückschicken können.",
+        "fr": "Nous recherchons actuellement des charpentiers motivés et fiables (H/F/D) qui recherchent un nouveau défi passionnant.\nVos tâches\n- Travaux généraux de menuiserie\n- Combinaison et érection\n- Construction élémentaire\n- Aménagement intérieur\n- Travaux de construction d'escaliers\n- Rénovation générale du toit\nNous attendons\n- Apprentissage ou apprentissage en tant que menuisier ou quelques années d'expérience professionnelle\n- Fiabilité\n- Travail propre et travail indépendant\n- Très bonne connaissance de l'allemand\n- Permis de conduire KL B souhaitable\nNous offrons\n- Bonne formation dans une équipe existante et expérimentée\n- Rémunération contemporaine\n- Soins professionnels\nVous sentez-vous adressé? Nous attendons avec impatience votre candidature.\nPostulez par email.\nSympajobs AG\nVoir 6\n4153 Reinach\nVeuillez noter que nous sommes heureux d'examiner les demandes par la poste, mais que nous ne pouvons pas les renvoyer pour des raisons administratives."
+      },
+      "location": "Baselland",
+      "canton": "BL",
+      "url": "https://sympajobs.ch/job/zimmermann-m-w-d-2/",
+      "source": "Sympajobs Official Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-09T21:23:44.694Z",
+      "addressLocality": "Baselland",
+      "addressRegion": "BL",
+      "addressCountry": "CH",
+      "country": "CH",
+      "employmentType": "OTHER",
+      "contract": "other",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://sympajobs.ch/job/zimmermann-m-w-d-2/",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "firstSeenAt": "2026-10-19T09:25:37.404Z",
+      "salaryMin": 62000,
+      "salaryMax": 94000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 62000,
+          "maxValue": 94000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Baselland",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-17T21:23:44.694Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -117,7 +185,7 @@
       "url": "https://sympajobs.ch/job/flachdachisoleur-m-w-d-2/",
       "source": "Sympajobs Official Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:25:45.988Z",
+      "crawledAt": "2026-11-09T21:23:44.693Z",
       "addressLocality": "Baselland",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -166,75 +234,7 @@
       },
       "streetAddress": "Baselland",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-17T09:25:45.988Z",
-      "validThroughSource": "last-observed-window"
-    },
-    {
-      "id": "sympajobs-reinach-bl-529b9f1da27e",
-      "slug": "zimmermann-m-w-d-baselland-sympajobs-ch-529b9f1d",
-      "slugByLocale": {
-        "it": "zimmermann-m-w-d-baselland-sympajobs-ch-529b9f1d",
-        "en": "zimmermann-m-w-d-baselland-sympajobs-ch-529b9f1d",
-        "de": "zimmermann-m-w-d-baselland-sympajobs-ch-529b9f1d",
-        "fr": "zimmermann-m-w-d-baselland-sympajobs-ch-529b9f1d"
-      },
-      "slugDisambiguator": "529b9f1d",
-      "company": "Sympajobs AG",
-      "companyKey": "sympajobs-reinach-bl",
-      "companyDomain": "sympajobs.ch",
-      "title": "Zimmermann (M/W/D)",
-      "titleByLocale": {
-        "it": "Zimmermann (M/F/D)",
-        "en": "Zimmermann (M/F/D)",
-        "de": "Zimmermann (M/W/D)",
-        "fr": "Zimmermann (H/F/D)"
-      },
-      "description": "Derzeit suchen wir im Auftrag von verschiedenen Zimmereibetrieben motivierte und zuverlässige Zimmermänner (M/W/D) , die auf der Suche nach einer neuen und spannenden Herausforderung sind.\nDeine Aufgaben\n- Allgemeine Zimmereiarbeiten\n- Abbund und Aufrichten\n- Elementbau\n- Innenausbau\n- Treppenbau\n- Allgemeine Dachsanierungen\nWir erwarten\n- Abgeschlossene Lehre oder Anlehre als Zimmermann oder einige Jahre Berufserfahrung\n- Zuverlässigkeit\n- Saubere und Selbständige Arbeitsweise\n- Sehr gute Deutschkenntnisse\n- Führerschein KL. B wünschenswert\nWir bieten\n- Gute Einarbeitung in ein bestehendes und erfahrenes Team\n- Zeitgemässe Entlohnung\n- Professionelle Betreuung\nFühlst Du dich angesprochen? Dann freuen wir uns auf Deine Bewerbung\nPer E-Mail bewerben | Per WhatsApp bewerben | Tel.: 061 690 93 93 | Mobil: 079 705 99 97\nSympajobs AG\nSeewenweg 6\n4153 Reinach\nBitte beachte, dass wir Bewerbungen per Post sehr gerne berücksichtigen, aus administrativen Gründen jedoch nicht zurückschicken können.",
-      "descriptionByLocale": {
-        "it": "Siamo attualmente alla ricerca di carpentieri motivati e affidabili (M/F/D) che stanno cercando una nuova ed emozionante sfida.\nI tuoi compiti\n- Lavori di carpenteria generale\n- Combinazione e erezione\n- Costruzione elementare\n- Rivestimento interno\n- Lavori di costruzione di scale\n- Ristrutturazioni generali del tetto\nCi aspettiamo\n- Apprendistato completo o apprendistato come falegname o qualche anno di esperienza professionale\n- Affidabilità\n- Lavoro pulito e autonomo\n- Molto buona conoscenza del tedesco\n- Patente di guida KL B auspicabile\nOffriamo\n- Buona formazione in un team esistente ed esperto\n- Retribuzione contemporanea\n- Cura professionale\nTi senti indirizzato? Attendiamo con ansia la vostra applicazione.\nApplicare via email | Applicare da WhatsApp | Tel: 061 690 93 93 | Mobile: 079 705 99 97\nSympajobs AG\nSeewweg 6\n4153 Reinserimento\nSi prega di notare che siamo felici di considerare le applicazioni per posta, ma non possono restituirle per motivi amministrativi.",
-        "en": "We are currently looking for motivated and reliable carpenters (M/F/D) who are looking for a new and exciting challenge.\nYour tasks\n- General carpentry work\n- Combination and erection\n- Elemental construction\n- Interior fitting\n- Stair construction work\n- General roof renovations\nWe expect\n- Completed apprenticeship or apprenticeship as carpenter or some years of professional experience\n- Reliability\n- Clean and self-employed work\n- Very good knowledge of German\n- Driving licence KL B desirable\nWe offer\n- Good training in an existing and experienced team\n- Contemporary remuneration\n- Professional care\nDo you feel addressed? We look forward to your application.\nApply by email | Apply by WhatsApp | Tel.: 061 690 93 93 | Mobile: 079 705 99 97\nSympajobs AG\nSeewweg 6\n4153 Reinach\nPlease note that we are happy to consider applications by post, but cannot return them for administrative reasons.",
-        "de": "Derzeit suchen wir im Auftrag von verschiedenen Zimmereibetrieben motivierte und zuverlässige Zimmermänner (M/W/D) , die auf der Suche nach einer neuen und spannenden Herausforderung sind.\nDeine Aufgaben\n- Allgemeine Zimmereiarbeiten\n- Abbund und Aufrichten\n- Elementbau\n- Innenausbau\n- Treppenbau\n- Allgemeine Dachsanierungen\nWir erwarten\n- Abgeschlossene Lehre oder Anlehre als Zimmermann oder einige Jahre Berufserfahrung\n- Zuverlässigkeit\n- Saubere und Selbständige Arbeitsweise\n- Sehr gute Deutschkenntnisse\n- Führerschein KL. B wünschenswert\nWir bieten\n- Gute Einarbeitung in ein bestehendes und erfahrenes Team\n- Zeitgemässe Entlohnung\n- Professionelle Betreuung\nFühlst Du dich angesprochen? Dann freuen wir uns auf Deine Bewerbung\nPer E-Mail bewerben | Per WhatsApp bewerben | Tel.: 061 690 93 93 | Mobil: 079 705 99 97\nSympajobs AG\nSeewenweg 6\n4153 Reinach\nBitte beachte, dass wir Bewerbungen per Post sehr gerne berücksichtigen, aus administrativen Gründen jedoch nicht zurückschicken können.",
-        "fr": "Nous recherchons actuellement des charpentiers motivés et fiables (H/F/D) qui recherchent un nouveau défi passionnant.\nVos tâches\n- Travaux généraux de menuiserie\n- Combinaison et érection\n- Construction élémentaire\n- Aménagement intérieur\n- Travaux de construction d'escaliers\n- Rénovation générale du toit\nNous attendons\n- Apprentissage ou apprentissage en tant que menuisier ou quelques années d'expérience professionnelle\n- Fiabilité\n- Travail propre et travail indépendant\n- Très bonne connaissance de l'allemand\n- Permis de conduire KL B souhaitable\nNous offrons\n- Bonne formation dans une équipe existante et expérimentée\n- Rémunération contemporaine\n- Soins professionnels\nVous sentez-vous adressé? Nous attendons avec impatience votre candidature.\nPostulez par email.\nSympajobs AG\nVoir 6\n4153 Reinach\nVeuillez noter que nous sommes heureux d'examiner les demandes par la poste, mais que nous ne pouvons pas les renvoyer pour des raisons administratives."
-      },
-      "location": "Baselland",
-      "canton": "BL",
-      "url": "https://sympajobs.ch/job/zimmermann-m-w-d-2/",
-      "source": "Sympajobs Official Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:25:45.988Z",
-      "addressLocality": "Baselland",
-      "addressRegion": "BL",
-      "addressCountry": "CH",
-      "country": "CH",
-      "employmentType": "OTHER",
-      "contract": "other",
-      "experienceLevel": "mid",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://sympajobs.ch/job/zimmermann-m-w-d-2/",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "firstSeenAt": "2026-10-19T09:25:37.404Z",
-      "salaryMin": 62000,
-      "salaryMax": 94000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 62000,
-          "maxValue": 94000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Baselland",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-17T09:25:45.988Z",
+      "validThrough": "2027-01-17T21:23:44.693Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -269,7 +269,7 @@
       "url": "https://sympajobs.ch/job/spengler-m-w-d-2/",
       "source": "Sympajobs Official Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:25:45.987Z",
+      "crawledAt": "2026-11-09T21:23:44.692Z",
       "addressLocality": "Baselland",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -316,7 +316,7 @@
       },
       "streetAddress": "Baselland",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-17T09:25:45.987Z",
+      "validThrough": "2027-01-17T21:23:44.692Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -351,7 +351,7 @@
       "url": "https://sympajobs.ch/job/gaertner-m-w-d-2/",
       "source": "Sympajobs Official Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:25:45.986Z",
+      "crawledAt": "2026-11-09T21:23:44.691Z",
       "addressLocality": "Baselland",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -398,7 +398,7 @@
       },
       "streetAddress": "Baselland",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-17T09:25:45.986Z",
+      "validThrough": "2027-01-17T21:23:44.691Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -433,7 +433,7 @@
       "url": "https://sympajobs.ch/job/landschaftsgaertner-m-w-d-2/",
       "source": "Sympajobs Official Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:25:45.985Z",
+      "crawledAt": "2026-11-09T21:23:44.690Z",
       "addressLocality": "Baselland",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -480,7 +480,7 @@
       },
       "streetAddress": "Baselland",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-17T09:25:45.985Z",
+      "validThrough": "2027-01-17T21:23:44.690Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -515,7 +515,7 @@
       "url": "https://sympajobs.ch/job/kranfuehrer-m-w-d-2/",
       "source": "Sympajobs Official Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:25:45.982Z",
+      "crawledAt": "2026-11-09T21:23:44.689Z",
       "addressLocality": "Baselland",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -562,7 +562,7 @@
       },
       "streetAddress": "Baselland",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-17T09:25:45.982Z",
+      "validThrough": "2027-01-17T21:23:44.689Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -597,7 +597,7 @@
       "url": "https://sympajobs.ch/job/schreiner-m-w-d-2/",
       "source": "Sympajobs Official Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:25:45.981Z",
+      "crawledAt": "2026-11-09T21:23:44.688Z",
       "addressLocality": "Baselland",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -644,7 +644,7 @@
       },
       "streetAddress": "Baselland",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-17T09:25:45.981Z",
+      "validThrough": "2027-01-17T21:23:44.688Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -679,7 +679,7 @@
       "url": "https://sympajobs.ch/job/couvreur-ferblantier-h-f-d-2/",
       "source": "Sympajobs Official Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-09T09:25:45.977Z",
+      "crawledAt": "2026-11-09T21:23:44.685Z",
       "addressLocality": "Baselland",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -712,7 +712,7 @@
       },
       "streetAddress": "Baselland",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-17T09:25:45.977Z",
+      "validThrough": "2027-01-17T21:23:44.685Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -747,7 +747,7 @@
       "url": "https://sympajobs.ch/job/platrier-h-f-d-2/",
       "source": "Sympajobs Official Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-09T09:25:45.975Z",
+      "crawledAt": "2026-11-09T21:23:44.684Z",
       "addressLocality": "Baselland",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -788,7 +788,7 @@
       },
       "streetAddress": "Baselland",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-17T09:25:45.975Z",
+      "validThrough": "2027-01-17T21:23:44.684Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -823,7 +823,7 @@
       "url": "https://sympajobs.ch/job/peintre-h-f-d-2/",
       "source": "Sympajobs Official Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-09T09:25:45.974Z",
+      "crawledAt": "2026-11-09T21:23:44.683Z",
       "addressLocality": "Baselland",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -864,7 +864,7 @@
       },
       "streetAddress": "Baselland",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-17T09:25:45.974Z",
+      "validThrough": "2027-01-17T21:23:44.683Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -899,7 +899,7 @@
       "url": "https://sympajobs.ch/job/grutier-h-f-d-2/",
       "source": "Sympajobs Official Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-09T09:25:45.973Z",
+      "crawledAt": "2026-11-09T21:23:44.682Z",
       "addressLocality": "Baselland",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -932,7 +932,7 @@
       },
       "streetAddress": "Baselland",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-17T09:25:45.973Z",
+      "validThrough": "2027-01-17T21:23:44.682Z",
       "validThroughSource": "last-observed-window"
     }
   ]
