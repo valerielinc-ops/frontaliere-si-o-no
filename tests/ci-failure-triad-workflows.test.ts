@@ -92,6 +92,15 @@ describe('CI failure triad workflow regressions (#12926, #12902)', () => {
     expect(history?.run).not.toMatch(/\+refs\/(?:heads|tags)\/\*/u);
   });
 
+  it('opens the profession gap issue only when a row is promotable', () => {
+    const steps = workflow('profession-keyword-opportunities.yml').jobs.rank.steps;
+    const report = steps.find((step: any) => step.name === 'Open/update dedup issue with top opportunities');
+
+    expect(report?.run).toContain('promotable }) => promotable === true');
+    expect(report?.run).toContain('No promotable uncovered opportunities — skipping issue');
+    expect(report?.run).not.toContain(".opportunities||[]).length");
+  });
+
   it('keeps thin-promotion checkout shallow until its targeted history fetch', () => {
     const steps = workflow('refresh-thin-promotions.yml').jobs.refresh.steps;
     const checkout = steps.find((step: any) => step.uses?.startsWith('actions/checkout@'));
