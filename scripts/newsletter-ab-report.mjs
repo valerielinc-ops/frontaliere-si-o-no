@@ -57,7 +57,7 @@ import {
   UNSUB_RATE_CAP_PCT,
   MissingIndexError,
 } from './lib/newsletter-ab-data.mjs';
-import { getFirestoreDb } from './lib/firestore-admin.mjs';
+import { FirestoreReadBudgetExceededError, getFirestoreDb } from './lib/firestore-admin.mjs';
 
 const args = process.argv.slice(2);
 const JSON_OUT = args.includes('--json');
@@ -188,6 +188,7 @@ async function main() {
     // conclude the newest campaign is the healthiest, every time.
     report.window = { closed: segmentReport.windowClosed, daysRemaining: segmentReport.windowDaysRemaining };
   } catch (e) {
+    if (e instanceof FirestoreReadBudgetExceededError) throw e;
     segmentError = e;
     report.segments = null;
     report.unsubscribeGuard = { capPct: UNSUB_RATE_CAP_PCT, overallRate: null, breaches: null, error: e?.message || String(e) };

@@ -1,0 +1,31 @@
+{
+  "schema": 1,
+  "rows": [
+    {
+      "id": "gr-2261",
+      "sourceKey": "GR",
+      "sourceRecordId": "2261",
+      "canton": "Grigioni",
+      "platePrefix": "GR",
+      "plateNumber": "19693",
+      "normalizedPlate": "GR19693",
+      "listingType": "auction",
+      "vehicleType": "car",
+      "auctionStatus": "closed",
+      "currentBidChf": 650,
+      "startingPriceChf": 500,
+      "bidCount": 3,
+      "minimumIncrementChf": 50,
+      "endsAt": "2026-11-08T19:00:00.000Z",
+      "closedAt": "2026-11-08T19:00:00.000Z",
+      "officialAuctionUrl": "https://eauktion.gr.ch/ecari-auction/ui/app/init?locale=de_CH",
+      "officialDetailUrl": "https://eauktion.gr.ch/ecari-auction/ui/app/details/app?id=2261&locale=de_CH",
+      "sourceFetchedAt": "2026-11-08T13:22:50.248Z",
+      "lastVerifiedAt": "2026-11-08T13:22:50.248Z",
+      "firstSeenAt": "2026-10-26T12:59:40.693Z",
+      "lastSeenAt": "2026-11-08T13:22:50.248Z",
+      "dataConfidence": "partial",
+      "rawSnapshotHash": "bdcc2be17e6f"
+    }
+  ]
+}

@@ -72,7 +72,7 @@ import { realpathSync } from 'node:fs';
  */
 
 import fs from 'node:fs';
-import { getFirestoreDb } from './lib/firestore-admin.mjs';
+import { FirestoreReadBudgetExceededError, getFirestoreDb } from './lib/firestore-admin.mjs';
 import { campaignIdFromTags } from '../functions/src/lib/mailerooRef.js';
 
 const args = process.argv.slice(2);
@@ -499,6 +499,7 @@ async function main() {
         + `${DAYS / 2} giorni. Nessun confronto sui tassi in questa run.`);
     }
   } catch (e) {
+    if (e instanceof FirestoreReadBudgetExceededError) throw e;
     baselineReadFailed = true;
     console.warn('⚠️  Nessuno snapshot precedente leggibile:', e?.message || e);
   }

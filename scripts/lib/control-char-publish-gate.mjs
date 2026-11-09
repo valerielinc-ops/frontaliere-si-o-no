@@ -60,8 +60,8 @@
 //          denote, so no heuristic is involved; PLUS `\uXXXX` escapes in the
 //          remaining inline <script> bodies.
 //   .json  parsed, and every decoded string and key scanned.
-//   .xml   raw C0, plus numeric character references (`&#8;`, `&#x8;`). XML
-//          forbids the CHARACTER; a reference is just another spelling of it.
+//   .xml   raw C0, plus numeric references in XML character data. A reference
+//          inside comments, CDATA, or a processing instruction is literal text.
 //   other  raw C0 only.
 //
 // The first attempt at this gate (PR #5488, closed) confined the escape pass to
@@ -109,7 +109,11 @@
 import fs from 'node:fs';
 import path from 'node:path';
 
-import { findControlChars, isInvalidControlCode } from './sanitize-control-chars.mjs';
+import {
+  findControlChars,
+  findInvalidXmlReferencesOutsideLiterals,
+  isInvalidControlCode,
+} from './sanitize-control-chars.mjs';
 
 /**
  * The character class, DERIVED from the shared `isInvalidControlCode` predicate
@@ -132,9 +136,6 @@ const INVALID_C0 = new RegExp(
 
 /** Inline `<script>` blocks; the `src` test is applied to the attributes below. */
 const SCRIPT_BLOCK = /<script\b([^>]*)>([\s\S]*?)<\/script>/gi;
-
-/** Numeric character references, decimal and hex. */
-const NUMERIC_REF = /&#(x[0-9a-fA-F]+|[0-9]+);/g;
 
 /**
  * A run of backslashes introducing `uXXXX`. The RUN is captured, not just one
@@ -288,20 +289,11 @@ function findEscapedInJson(text) {
   }
 }
 
-/** Numeric character references that decode to a control character, for XML. */
+/** Numeric references that decode to a C0 in XML character data, not literals. */
 function findNumericRefs(xml) {
-  const found = [];
-  for (const m of xml.matchAll(NUMERIC_REF)) {
-    const digits = m[1];
-    const code =
-      digits[0] === 'x' || digits[0] === 'X'
-        ? Number.parseInt(digits.slice(1), 16)
-        : Number.parseInt(digits, 10);
-    if (Number.isFinite(code) && isInvalidControlCode(code)) {
-      found.push({ form: 'reference', code, index: m.index, context: contextAt(xml, m.index) });
-    }
-  }
-  return found;
+  return findInvalidXmlReferencesOutsideLiterals(xml).map(({ code, index }) => ({
+    form: 'reference', code, index, context: contextAt(xml, index),
+  }));
 }
 
 /**

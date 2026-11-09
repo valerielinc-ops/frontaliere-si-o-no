@@ -163,24 +163,203 @@ export function sanitizeDeep(value) {
   return value;
 }
 
+function findXmlMarkupEnd(xml, start) {
+  let quote = null;
+  for (let index = start + 1; index < xml.length; index += 1) {
+    const character = xml[index];
+    if (quote) {
+      if (character === quote) quote = null;
+    } else if (character === '"' || character === "'") {
+      quote = character;
+    } else if (character === '>') {
+      return index + 1;
+    }
+  }
+  return -1;
+}
+
+function isDoctypeStart(xml, index) {
+  if (!xml.startsWith('<!DOCTYPE', index)) return false;
+  const boundary = xml[index + '<!DOCTYPE'.length];
+  return boundary !== undefined && /[\t\n\r >]/u.test(boundary);
+}
+
 /**
- * Sanitize a whole XML document: the raw characters, and any numeric character
- * reference that would decode to one.
- *
- * `&#8;` is as fatal as a raw 0x08 — XML forbids the CHARACTER, and a reference
- * is just another spelling of it. The engine's own RSS builder escapes through
- * an entity table, so that spelling is the one a feed would take if the escape
- * ever reached a numeric branch. Both are removed; every other reference
- * (`&amp;`, `&#233;`, `&#x2019;`) is left exactly as written.
+ * A doctype has its own quoted values and internal subset. Delimiter-looking
+ * text inside an entity value is data, while comments and processing
+ * instructions between declarations are real XML literals. Keep the quoted
+ * ranges in the transformed text so numeric C0 references inside them remain
+ * visible to the gate.
+ */
+function transformDoctype(xml, start, transform) {
+  let output = '';
+  let segmentStart = start;
+  let index = start + '<!DOCTYPE'.length;
+  let quote = null;
+  let subsetDepth = 0;
+
+  while (index < xml.length) {
+    const character = xml[index];
+    if (quote) {
+      if (character === quote) quote = null;
+      index += 1;
+      continue;
+    }
+
+    const literal = xml.startsWith('<!--', index)
+      ? { open: '<!--', close: '-->' }
+      : xml.startsWith('<?', index)
+        ? { open: '<?', close: '?>' }
+        : null;
+    if (literal) {
+      output += transform(xml.slice(segmentStart, index), segmentStart);
+      const close = xml.indexOf(literal.close, index + literal.open.length);
+      if (close < 0) {
+        // An unterminated region is not exempt: process its tail as ordinary
+        // text so malformed markup cannot hide a forbidden reference.
+        output += transform(xml.slice(index), index);
+        return { text: output, end: xml.length };
+      }
+      const end = close + literal.close.length;
+      output += xml.slice(index, end);
+      index = end;
+      segmentStart = end;
+      continue;
+    }
+
+    if (character === '"' || character === "'") {
+      quote = character;
+    } else if (character === '[') {
+      subsetDepth += 1;
+    } else if (character === ']' && subsetDepth > 0) {
+      subsetDepth -= 1;
+    } else if (character === '>' && subsetDepth === 0) {
+      const end = index + 1;
+      output += transform(xml.slice(segmentStart, end), segmentStart);
+      return { text: output, end };
+    }
+    index += 1;
+  }
+
+  output += transform(xml.slice(segmentStart), segmentStart);
+  return { text: output, end: xml.length };
+}
+
+function transformOutsideXmlLiterals(xml, transform) {
+  let output = '';
+  let index = 0;
+
+  while (index < xml.length) {
+    const markup = xml.indexOf('<', index);
+    if (markup < 0) {
+      output += transform(xml.slice(index), index);
+      break;
+    }
+    output += transform(xml.slice(index, markup), index);
+
+    const literal = xml.startsWith('<!--', markup)
+      ? { open: '<!--', close: '-->' }
+      : xml.startsWith('<![CDATA[', markup)
+        ? { open: '<![CDATA[', close: ']]>' }
+        : xml.startsWith('<?', markup)
+          ? { open: '<?', close: '?>' }
+          : null;
+    if (literal) {
+      const close = xml.indexOf(literal.close, markup + literal.open.length);
+      if (close < 0) {
+        // A literal-region exemption requires a closing delimiter. Malformed
+        // XML must not hide references from the publish gate or sanitizer.
+        output += transform(xml.slice(markup), markup);
+        break;
+      }
+      const end = close + literal.close.length;
+      output += xml.slice(markup, end);
+      index = end;
+      continue;
+    }
+
+    if (isDoctypeStart(xml, markup)) {
+      const result = transformDoctype(xml, markup, transform);
+      output += result.text;
+      index = result.end;
+      continue;
+    }
+
+    const next = xml[markup + 1];
+    const isMarkup = next === '!' || next === '?' || next === '/' || (next && /[\p{L}_:]/u.test(next));
+    if (!isMarkup) {
+      output += transform(xml.slice(markup, markup + 1), markup);
+      index = markup + 1;
+      continue;
+    }
+
+    const end = findXmlMarkupEnd(xml, markup);
+    if (end < 0) {
+      output += transform(xml.slice(markup), markup);
+      break;
+    }
+    // Tags and other markup declarations are transformed as a unit. In
+    // particular, comment/PI-looking text in a quoted attribute is not a
+    // literal XML region and cannot hide a reference.
+    output += transform(xml.slice(markup, end), markup);
+    index = end;
+  }
+  return output;
+}
+
+function numericReferenceCode(digits) {
+  return digits[0] === 'x'
+    ? Number.parseInt(digits.slice(1), 16)
+    : Number.parseInt(digits, 10);
+}
+
+function isInvalidNumericReference(_reference, digits) {
+  const code = numericReferenceCode(digits);
+  return Number.isFinite(code) && isInvalidControlCode(code);
+}
+
+/**
+ * Decode only references that represent XML-forbidden C0 characters in XML
+ * character data. References in comments, CDATA, and processing instructions
+ * are literal text and must remain byte-identical there.
+ */
+export function decodeInvalidXmlReferencesOutsideLiterals(xml) {
+  if (typeof xml !== 'string') return xml;
+  return transformOutsideXmlLiterals(xml, (text) => text.replace(
+    /&#(x[0-9a-fA-F]+|[0-9]+);/g,
+    (reference, digits) => isInvalidNumericReference(reference, digits)
+      ? String.fromCharCode(numericReferenceCode(digits))
+      : reference,
+  ));
+}
+
+/** Find invalid numeric references with offsets in the original XML source. */
+export function findInvalidXmlReferencesOutsideLiterals(xml) {
+  if (typeof xml !== 'string') return [];
+  const found = [];
+  transformOutsideXmlLiterals(xml, (text, offset) => {
+    const references = /&#(x[0-9a-fA-F]+|[0-9]+);/g;
+    for (const match of text.matchAll(references)) {
+      if (!isInvalidNumericReference(match[0], match[1])) continue;
+      found.push({ code: numericReferenceCode(match[1]), index: offset + match.index });
+    }
+    return text;
+  });
+  return found;
+}
+
+/**
+ * Sanitize a whole XML document: raw forbidden characters everywhere, and
+ * numeric character references only in XML character data. Numeric references
+ * inside comments, CDATA, and processing instructions are ordinary text.
  */
 export function sanitizeXmlDocument(xml) {
   if (typeof xml !== 'string') return xml;
-  return xml.replace(INVALID_C0, '').replace(/&#(x[0-9a-fA-F]+|[0-9]+);/g, (ref, digits) => {
-    const code = digits[0] === 'x' || digits[0] === 'X'
-      ? Number.parseInt(digits.slice(1), 16)
-      : Number.parseInt(digits, 10);
-    return Number.isFinite(code) && isInvalidControlCode(code) ? '' : ref;
-  });
+  const cleanRaw = xml.replace(INVALID_C0, '');
+  return transformOutsideXmlLiterals(cleanRaw, (text) => text.replace(
+    /&#(x[0-9a-fA-F]+|[0-9]+);/g,
+    (reference, digits) => isInvalidNumericReference(reference, digits) ? '' : reference,
+  ));
 }
 
 /**

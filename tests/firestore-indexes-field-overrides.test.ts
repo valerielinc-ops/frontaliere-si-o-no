@@ -49,6 +49,8 @@ const QUERIED: Array<[string, string, string]> = [
   ['events', 'campaign_id', 'scripts/lib/newsletter-ab-data.mjs'],
   ['events', 'event_type', 'scripts/check-unsubscribe-credential-rate.mjs, scripts/build-job-email-affinity.mjs'],
   ['events', 'provider', 'indice composito provider + timestamp'],
+  ['events', 'message_id', 'scripts/lib/job-alert-subject-ab-data.mjs'],
+  ['events', 'alert_id', 'scripts/lib/job-alert-subject-ab-data.mjs'],
   ['events', 'occurred_at', 'functions/src/lib/preferredSendHour.js'],
   ['events', 'source_channel', 'scripts/newsletter-confirmed-status-backfill.mjs'],
   ['events', 'pair_re_opt_in_at', 'scripts/audit-resubscribe-pairs.mjs'],
@@ -84,11 +86,23 @@ const MUST_BE_EXEMPT: Array<[string, string]> = [
   ['campaign_deliveries', 'scheduled_for'],
   ['campaign_deliveries', 'send_time_source'],
   ['campaign_deliveries', 'outcome_contract_version'],
+  ['campaign_deliveries', 'attempted_at'],
+  ['campaign_deliveries', 'bounced_at'],
+  ['campaign_deliveries', 'clicked_links'],
+  ['campaign_deliveries', 'complained_at'],
+  ['campaign_deliveries', 'delivered_at'],
+  ['campaign_deliveries', 'last_clicked_url'],
+  ['campaign_deliveries', 'opened_at'],
+  ['campaign_deliveries', 'suppressed_at'],
+  ['campaign_deliveries', 'updated_at'],
   ['alerts', 'ranking_stats'],
   ['alerts', 'sentJobIds'],
   ['events', 'metadata'],
   ['events', 'email'],
   ['events', 'maileroo_event'],
+  ['events', 'mailjet_event'],
+  ['events', 'mailgun_event'],
+  ['events', 'mailtrap_event'],
   ['maileroo_refs', 'campaign_id'],
   ['maileroo_refs', 'email'],
   ['maileroo_refs', 'is_job_alert'],
@@ -366,6 +380,30 @@ describe('firestore.indexes.json — fieldOverrides', () => {
       { order: 'ASCENDING', queryScope: 'COLLECTION' },
       { order: 'ASCENDING', queryScope: 'COLLECTION_GROUP' },
     ]);
+  });
+
+  it('mantiene solo gli indici degli orari evento interrogati nei log newsletter', () => {
+    const eventType = overrides.find((o) => o.collectionGroup === 'events' && o.fieldPath === 'event_type');
+    expect(eventType?.indexes).toEqual([
+      { order: 'ASCENDING', queryScope: 'COLLECTION' },
+    ]);
+    const occurredAt = overrides.find((o) => o.collectionGroup === 'events' && o.fieldPath === 'occurred_at');
+    expect(occurredAt?.indexes).toEqual([
+      { order: 'DESCENDING', queryScope: 'COLLECTION' },
+    ]);
+  });
+
+  it('limita gli snapshot AdSense al solo indice data e alla retention configurata', () => {
+    const allFields = overrides.find((o) => o.collectionGroup === 'adsense_hourly_snapshots' && o.fieldPath === '*');
+    expect(allFields?.indexes).toEqual([]);
+    const date = overrides.find((o) => o.collectionGroup === 'adsense_hourly_snapshots' && o.fieldPath === 'date');
+    expect(date?.indexes).toEqual([
+      { order: 'ASCENDING', queryScope: 'COLLECTION' },
+    ]);
+    expect(overrides.some((o) => o.collectionGroup === 'adsense_hourly_snapshots' && o.fieldPath === 'capturedAt')).toBe(false);
+    const ttl = overrides.find((o) => o.collectionGroup === 'adsense_hourly_snapshots' && o.fieldPath === 'expiresAt');
+    expect(ttl?.ttl).toBe(true);
+    expect(ttl?.indexes).toEqual([]);
   });
 
   it('i campi pesanti mai interrogati restano esentati', () => {

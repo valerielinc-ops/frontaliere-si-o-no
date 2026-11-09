@@ -2,6 +2,10 @@ import { describe, expect, it } from 'vitest';
 import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import {
+ isAdSenseSnapshotDateIndexNotReady,
+ loadSnapshots,
+} from '../scripts/adsense-hourly-monitor.mjs';
+import {
  buildIssueBody,
  buildSnapshot,
  comparableSnapshot,
@@ -13,6 +17,7 @@ import {
  localClock,
  monitorDecision,
  shiftDate,
+ SNAPSHOT_RETENTION_DAYS,
  snapshotId,
 } from '../scripts/lib/adsense-hourly.mjs';
 import { LOOP_CLOCK_ENTRIES } from '../functions/src/loopClockTable.js';
@@ -38,8 +43,10 @@ describe('calendar helpers', () => {
  });
 
  it('stores zero, not undefined, before AdSense has a row for the day', () => {
-  const snapshot = buildSnapshot({ capturedAt: new Date('2026-10-31T23:05:00Z'), today: undefined });
+  const capturedAt = new Date('2026-10-31T23:05:00Z');
+  const snapshot = buildSnapshot({ capturedAt, today: undefined });
   expect(snapshot).toMatchObject({ date: '2026-11-01', earnings: 0, pageViews: 0, coverage: null });
+  expect(snapshot.expiresAt).toEqual(new Date(capturedAt.getTime() + SNAPSHOT_RETENTION_DAYS * 86_400_000));
  });
 });
 
@@ -135,6 +142,44 @@ describe('monitorDecision', () => {
   expect(diagnose(decision.alarms[0] as never)).toContain('traffico');
   expect(diagnose({ kind: 'closed', pageViewsChange: 0, rpmChange: -0.3 } as never)).toContain('monetizzazione');
   expect(buildIssueBody({ decision, runUrl: 'https://example.test/run' })).toContain('-30%');
+ });
+});
+
+describe('snapshot loading', () => {
+ const indexError = () => Object.assign(new Error(
+  'The query requires a COLLECTION_ASC index for collection adsense_hourly_snapshots and field date. That index is not ready yet.',
+ ), { code: 9 });
+
+ it('falls back only while the date index is propagating', async () => {
+  const calls: string[] = [];
+  const docs = [
+   { data: () => ({ date: '2026-11-08', capturedAt: 'new' }) },
+   { data: () => ({ date: '2026-10-31', capturedAt: 'old' }) },
+   { data: () => ({ date: null, capturedAt: 'unknown' }) },
+  ];
+  const collection = {
+   where: (...args: unknown[]) => {
+    calls.push(`where:${args.join(':')}`);
+    return { get: async () => { throw indexError(); } };
+   },
+   get: async () => {
+    calls.push('get');
+    return { docs };
+   },
+  };
+
+  await expect(loadSnapshots({ collection: () => collection }, '2026-11-01')).resolves.toEqual([docs[0].data()]);
+  expect(calls).toEqual(['where:date:>=:2026-11-01', 'get']);
+ });
+
+ it('does not hide a different Firestore failure behind the fallback', async () => {
+  const collection = {
+   where: () => ({ get: async () => { throw Object.assign(new Error('permission denied'), { code: 7 }); } }),
+   get: async () => ({ docs: [] }),
+  };
+
+  await expect(loadSnapshots({ collection: () => collection }, '2026-11-01')).rejects.toThrow('permission denied');
+  expect(isAdSenseSnapshotDateIndexNotReady(Object.assign(new Error('same message'), { code: 7 }))).toBe(false);
  });
 });
 

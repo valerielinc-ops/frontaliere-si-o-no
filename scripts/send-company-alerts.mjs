@@ -147,6 +147,9 @@ const ROOT = path.resolve(__dirname, '..');
 const JOBS_PATH = path.join(ROOT, 'data', 'jobs.json');
 const FROM_EMAIL = 'Frontaliere Ticino <alerts@frontaliereticino.ch>';
 const DRY_RUN = process.argv.includes('--dry-run');
+const COMPANY_ALERT_DEFERRED_INDEX_CONFIG_ID = 'company-alert-deferred-index';
+const COMPANY_ALERT_DEFERRED_INDEX_VERSION = 1;
+const COMPANY_ALERT_DEFERRED_INDEX_FIELD = 'hasDeferredCompanyAlertWork';
 
 // Kept as a compatibility marker for alert documents written before the
 // explicit-follow consent policy. A permanent empty newsletter status is not
@@ -435,6 +438,14 @@ export function hasDeferredCompanyAlertWork(alerts) {
     return deferredStateForAlert(alert) === DELIVERY_STATES.DEFERRED
       || Object.values(ledger).some((entry) => entry.state === DELIVERY_STATES.DEFERRED);
   });
+}
+
+/** Deferred work and short-lived claims both need to be re-read by later runs. */
+export function hasPendingCompanyAlertWork(alerts) {
+  const rows = Array.isArray(alerts) ? alerts : [];
+  if (hasDeferredCompanyAlertWork(rows)) return true;
+  return rows.some((alert) => Object.values(normalizeDeliveryLedger(alert?.deliveryLedger))
+    .some((entry) => entry.state === DELIVERY_STATES.CLAIMED));
 }
 
 function deferredStateForAlert(alert) {
@@ -879,6 +890,10 @@ export async function persistDeferredDeliveryWrites(db, writes, dryRun) {
             ? DELIVERY_STATES.DEFERRED_EXHAUSTED
             : DELIVERY_STATES.DEFERRED;
         }
+        update.hasDeferredCompanyAlertWork = hasPendingCompanyAlertWork([{
+          ...currentData,
+          ...update,
+        }]);
         tx.update(write.ref, update);
       }
     });
@@ -969,6 +984,7 @@ export async function claimRecipientSections(db, sections, nowMs, claimId, optio
       tx.update(section.alert.ref, {
         deliveryLedger: nextLedger,
         deliveryLastClaimedAt: nowMs,
+        hasDeferredCompanyAlertWork: true,
       });
       claimed.push({
         ...section,
@@ -1021,9 +1037,9 @@ export async function markRecipientDeliveryAttempted(db, dedupWrites, nowMs, cla
         return entry?.state !== DELIVERY_STATES.CLAIMED
           || (safeClaimId && entry.claimId !== safeClaimId);
       })) return 0;
-      rows.push({ write, current });
+      rows.push({ write, current, data: snapshot.data() || {} });
     }
-    for (const { write, current } of rows) {
+    for (const { write, current, data } of rows) {
       const nextLedger = mergeDeliveryLedger(
         current,
         write.sentJobs,
@@ -1036,6 +1052,10 @@ export async function markRecipientDeliveryAttempted(db, dedupWrites, nowMs, cla
         deliveryLastOutcome: 'ambiguous',
         deliveryLastOutcomeAt: nowMs,
         deliveryLastOutcomeReason: 'provider-attempt-unknown',
+        hasDeferredCompanyAlertWork: hasPendingCompanyAlertWork([{
+          ...data,
+          deliveryLedger: nextLedger,
+        }]),
       });
     }
     return rows.length;
@@ -1152,6 +1172,10 @@ export async function finalizeRecipientDelivery(
         update.deliveryLastDeferredReason = null;
         update.deliveryLastDeferredAt = null;
       }
+      update.hasDeferredCompanyAlertWork = hasPendingCompanyAlertWork([{
+        ...data,
+        ...update,
+      }]);
       if (plan.matchCountDelta > 0) {
         update.lastMatchedAt = typeof fieldValues.serverTimestamp === 'function'
           ? fieldValues.serverTimestamp()
@@ -1360,17 +1384,91 @@ async function sendBatch(emails) {
  *
  * `active` stays in the query and stays first: `frequency` alone is not
  * servable by the indexes that exist (measured 2026-08-24 —
- * FAILED_PRECONDITION). The fallback re-issues the digest's wide query if
- * Firestore ever refuses the narrowed one, so an index regression degrades
- * into a more expensive run rather than into unsent alerts.
+ * FAILED_PRECONDITION). On runs without fresh jobs, a persisted flag selects
+ * only deferred work and recoverable claims. A one-time candidate read builds
+ * that index before the sender relies on it; missing indexes fall back to the
+ * complete candidate query rather than dropping alerts.
  *
  * @param {FirebaseFirestore.Firestore} db
  * @returns {Promise<FirebaseFirestore.QuerySnapshot>}
  */
-async function loadImmediateAlertDocs(db) {
+async function backfillCompanyAlertDeferredIndex(db, docs) {
+  const width = Math.max(1, Math.min(FIRESTORE_BATCH_SIZE, 450));
+  const companyAlertDocs = docs.filter((document) => (
+    document.ref.parent?.parent?.parent?.id === 'job_alert_subscribers'
+  ));
+  for (let start = 0; start < companyAlertDocs.length; start += width) {
+    const batch = db.batch();
+    const chunk = companyAlertDocs.slice(start, start + width);
+    for (const document of chunk) {
+      batch.update(document.ref, {
+        [COMPANY_ALERT_DEFERRED_INDEX_FIELD]: hasPendingCompanyAlertWork([document.data() || {}]),
+      });
+    }
+    await batch.commit();
+  }
+  await db.collection('config').doc(COMPANY_ALERT_DEFERRED_INDEX_CONFIG_ID).set({
+    ready: true,
+    version: COMPANY_ALERT_DEFERRED_INDEX_VERSION,
+    ready_at: new Date().toISOString(),
+  }, { merge: true });
+}
+
+export async function loadImmediateAlertDocs(db, {
+  deferredOnly = false,
+  updateIndex = !DRY_RUN,
+} = {}) {
   const base = db.collectionGroup('alerts').where('active', '==', true);
+  let indexReady = false;
   try {
-    return await base.where('frequency', '==', IMMEDIATE_FREQUENCY).get();
+    const indexState = await db.collection('config')
+      .doc(COMPANY_ALERT_DEFERRED_INDEX_CONFIG_ID)
+      .get();
+    indexReady = indexState.exists
+      && indexState.data()?.ready === true
+      && indexState.data()?.version === COMPANY_ALERT_DEFERRED_INDEX_VERSION;
+  } catch (err) {
+    console.warn(`   ⚠️  CompanyAlert backlog index status unavailable; using the complete candidate query (${String(err?.message || err).slice(0, 120)})`);
+  }
+
+  if (deferredOnly && indexReady) {
+    try {
+      const snapshot = await base
+        .where('frequency', '==', IMMEDIATE_FREQUENCY)
+        .where(COMPANY_ALERT_DEFERRED_INDEX_FIELD, '==', true)
+        .get();
+      if (updateIndex) {
+        const staleDocs = (snapshot.docs || []).filter((document) => (
+          document.ref.parent?.parent?.parent?.id === 'job_alert_subscribers'
+          && !hasPendingCompanyAlertWork([document.data() || {}])
+        ));
+        const width = Math.max(1, Math.min(FIRESTORE_BATCH_SIZE, 450));
+        for (let start = 0; start < staleDocs.length; start += width) {
+          const batch = db.batch();
+          for (const document of staleDocs.slice(start, start + width)) {
+            batch.update(document.ref, { [COMPANY_ALERT_DEFERRED_INDEX_FIELD]: false });
+          }
+          await batch.commit();
+        }
+      }
+      return snapshot;
+    } catch (err) {
+      const msg = String(err?.message || '');
+      if (!msg.includes('index') && err?.code !== 9 && err?.code !== 'failed-precondition') throw err;
+      console.warn(`   ⚠️  Deferred-only CompanyAlert query refused (${msg.slice(0, 120)}) — using the complete candidate query.`);
+    }
+  }
+
+  try {
+    const snapshot = await base.where('frequency', '==', IMMEDIATE_FREQUENCY).get();
+    if (!indexReady && updateIndex) {
+      try {
+        await backfillCompanyAlertDeferredIndex(db, snapshot.docs || []);
+      } catch (err) {
+        console.warn(`   ⚠️  CompanyAlert backlog index backfill incomplete; the next live run will retry (${String(err?.message || err).slice(0, 120)})`);
+      }
+    }
+    return snapshot;
   } catch (err) {
     // gRPC FAILED_PRECONDITION is 9; some firebase-admin versions surface the
     // string form instead, and the message wording is not something to rely on
@@ -1401,7 +1499,10 @@ async function main() {
 
   // Narrowed server-side on the cadence half of isImmediateCompanyAlert —
   // see the header note for the production measurement and the fallback.
-  const snap = await loadImmediateAlertDocs(db);
+  const snap = await loadImmediateAlertDocs(db, {
+    deferredOnly: newJobs.length === 0,
+    updateIndex: !DRY_RUN,
+  });
   let alerts = snap.docs
     .filter((d) => d.ref.parent.parent?.parent?.id === 'job_alert_subscribers')
     .map((d) => {

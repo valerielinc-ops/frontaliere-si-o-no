@@ -1,7 +1,7 @@
 {
   "key": "favresa-ch",
   "label": "Favre SA",
-  "generatedAt": "2026-11-08T09:38:35.985Z",
+  "generatedAt": "2026-11-08T21:57:53.131Z",
   "total": 1,
   "discovered": 1,
   "parsed": 1,
@@ -19,10 +19,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 4166,
-  "avgDurationMs": 4166,
+  "durationMs": 5596,
+  "avgDurationMs": 5596,
   "durationHistory": [
-    4166
+    5596
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -40,7 +40,7 @@
       "url": "https://www.groupe-r.ch/emploi.html?id=19",
       "source": "Favre SA Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-08T09:38:15.050Z",
+      "crawledAt": "2026-11-08T21:57:23.134Z",
       "addressLocality": "Corcelles-près-Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -63,7 +63,7 @@
       "salarySource": "estimated",
       "streetAddress": "Corcelles-près-Payerne",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-25T09:38:15.050Z",
+      "validThrough": "2027-01-25T21:57:23.134Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -74,5 +74,5 @@
       }
     }
   ],
-  "codeCommit": "b019e69684c909d5fd747961cb84c9c400bc8446"
+  "codeCommit": "46d8c233794afd1422cd7663ab076bfe9ec2a1c3"
 }

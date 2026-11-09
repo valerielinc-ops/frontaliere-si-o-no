@@ -63,6 +63,29 @@ function readJson(filePath) {
   }
 }
 
+/**
+ * Measure the character length JSON.stringify would emit for a plain JSON
+ * object without allocating one monolithic serialized string. The canonical
+ * slug registry is already sharded on disk, but its logical map can exceed
+ * V8's maximum string length when serialized as one value.
+ */
+export function measureSerializedJsonObjectLength(record) {
+  let length = 2; // opening and closing braces
+  let propertyCount = 0;
+  for (const key in record) {
+    if (!Object.prototype.hasOwnProperty.call(record, key)) continue;
+    const valueJson = JSON.stringify(record[key]);
+    // JSON.stringify omits object properties whose value is undefined,
+    // function, or symbol.
+    if (valueJson === undefined) continue;
+    const keyJson = JSON.stringify(key);
+    if (propertyCount > 0) length++;
+    length += keyJson.length + 1 + valueJson.length; // key, colon, value
+    propertyCount++;
+  }
+  return length;
+}
+
 function isValidJobSlug(slug) {
   if (!slug || typeof slug !== 'string' || slug.length < 3) return false;
   // A real job slug is a single path segment — anything containing a slash
@@ -790,9 +813,9 @@ function main() {
     // firing on every run at 116 MB, silently deleting slugs to buy headroom the
     // split now provides structurally.
     const SIZE_CAP = 95 * 1024 * 1024 * KNOWN_SLUGS_SHARD_COUNT; // 95 MiB per shard
-    let serialized = JSON.stringify(tracking);
-    if (serialized.length > SIZE_CAP) {
-      const preMB = (serialized.length / 1e6).toFixed(1);
+    let serializedLength = measureSerializedJsonObjectLength(tracking);
+    if (serializedLength > SIZE_CAP) {
+      const preMB = (serializedLength / 1e6).toFixed(1);
 
       // Tier 1: prune git-history-only entries
       let pruned1 = 0;
@@ -802,11 +825,11 @@ function main() {
           pruned1++;
         }
       }
-      if (pruned1 > 0) serialized = JSON.stringify(tracking);
-      console.log(`\n  ✂️  Size cap tier 1: pruned ${pruned1} git-history-only entries (${preMB} MB → ${(serialized.length / 1e6).toFixed(1)} MB)`);
+      if (pruned1 > 0) serializedLength = measureSerializedJsonObjectLength(tracking);
+      console.log(`\n  ✂️  Size cap tier 1: pruned ${pruned1} git-history-only entries (${preMB} MB → ${(serializedLength / 1e6).toFixed(1)} MB)`);
 
       // Tier 2: if still over cap, prune compat-path-only echoes
-      if (serialized.length > SIZE_CAP) {
+      if (serializedLength > SIZE_CAP) {
         let pruned2 = 0;
         for (const slug of Object.keys(tracking)) {
           if (!highValueSlugs.has(slug)) {
@@ -814,9 +837,9 @@ function main() {
             pruned2++;
           }
         }
-        serialized = JSON.stringify(tracking);
-        console.log(`  ✂️  Size cap tier 2: pruned ${pruned2} compat-path-only entries (→ ${(serialized.length / 1e6).toFixed(1)} MB)`);
-        if (serialized.length > SIZE_CAP) {
+        serializedLength = measureSerializedJsonObjectLength(tracking);
+        console.log(`  ✂️  Size cap tier 2: pruned ${pruned2} compat-path-only entries (→ ${(serializedLength / 1e6).toFixed(1)} MB)`);
+        if (serializedLength > SIZE_CAP) {
           console.warn(`  ⚠️  Still over ${(SIZE_CAP / 1e6).toFixed(0)} MB after two-tier prune — high-value sources are the growth driver`);
         }
       }

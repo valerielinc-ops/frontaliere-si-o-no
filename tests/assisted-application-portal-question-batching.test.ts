@@ -1,6 +1,6 @@
 import { afterEach, describe, expect, it } from 'vitest';
 import { JSDOM } from 'jsdom';
-import { handleAuth, mergePortalChoiceOptions, portalRequirementsFromMissingRequired, submitViaPortal } from '../scripts/assisted-application/lib/portal/portal.mjs';
+import { handleAuth, mergePortalChoiceOptions, portalRequirementsFromMissingRequired, registrationQuestionSurfaceSignature, submitViaPortal } from '../scripts/assisted-application/lib/portal/portal.mjs';
 import { extractFields } from '../scripts/assisted-application/lib/portal/fields.mjs';
 import { guardPlan } from '../scripts/assisted-application/lib/portal/plan.mjs';
 
@@ -42,8 +42,8 @@ function sameLanguageLocalization(prompt: unknown) {
   }) };
 }
 
-function fakePage({ multiStep = false, conditional = true, registration = false, privacyRevealsUnknown = false, privacyRevealsRequiredFile = false, privacyRevealsKnownAnswer = false, uploadRevealsUnknown = false, workdayUploadUnconfirmed = false, passwordRevealsUnknown = false, asyncRevealsUnknown = false, asyncDescriptionChanges = false, asyncValueChanges = false, successFactorsPicklist = false } = {}) {
-  const privacyReveals = privacyRevealsUnknown || privacyRevealsRequiredFile || privacyRevealsKnownAnswer;
+function fakePage({ multiStep = false, conditional = true, registration = false, privacyRevealsUnknown = false, privacyRevealsRequiredFile = false, privacyRevealsKnownAnswer = false, privacyRevealsConsentOnly = false, uploadRevealsUnknown = false, workdayUploadUnconfirmed = false, passwordRevealsUnknown = false, asyncRevealsUnknown = false, asyncDescriptionChanges = false, asyncValueChanges = false, successFactorsPicklist = false, onWait = undefined as (() => void) | undefined } = {}) {
+  const privacyReveals = privacyRevealsUnknown || privacyRevealsRequiredFile || privacyRevealsKnownAnswer || privacyRevealsConsentOnly;
   const url = workdayUploadUnconfirmed
     ? 'https://acme.wd1.myworkdayjobs.com/apply'
     : successFactorsPicklist ? 'https://career5.successfactors.eu/portalcareer' : 'https://careers.example.test/apply';
@@ -173,6 +173,7 @@ function fakePage({ multiStep = false, conditional = true, registration = false,
         if (index < 0) break;
         timers.splice(index, 1)[0].run();
       }
+      onWait?.();
     },
     getByRole: () => {
       const handle: any = { first: () => handle, filter: () => handle, waitFor: async () => { throw new Error('not found'); }, isVisible: async () => false };
@@ -251,6 +252,8 @@ function fakePage({ multiStep = false, conditional = true, registration = false,
             ? '<label for="required-cv">Curriculum Vitae *</label><input id="required-cv" name="required-cv" type="file" required>'
             : privacyRevealsKnownAnswer
               ? '<label for="origin-region">Region of origin *</label><select id="origin-region" name="origin-region" required><option value="">Choose one</option><option value="TI">Ticino</option><option value="LO">Lombardy</option></select>'
+            : privacyRevealsConsentOnly
+              ? ''
               : '<label for="unknown-requirement">Which professional certification do you hold? *</label><input id="unknown-requirement" name="unknown-requirement" required>');
           if (privacyRevealsKnownAnswer) {
             element('#origin-region').addEventListener('change', () => {
@@ -335,6 +338,87 @@ function portalRunSummary(result: any, plannerTrace: any[] = [], extractionTrace
 }
 
 describe('assisted portal question batching', () => {
+  it('keeps generated password control ids distinct when native identities are absent', () => {
+    const field = {
+      kind: 'text', inputType: 'password', label: 'Password *', name: 'password',
+      domId: '', controlId: '', semanticId: '', required: true, value: 'secret',
+    };
+    const oldSnapshot = { fields: [{ ...field, id: 'generated-password-old' }] };
+    const newSnapshot = { fields: [{ ...field, id: 'generated-password-new' }] };
+
+    expect(registrationQuestionSurfaceSignature(oldSnapshot)).not.toBe(registrationQuestionSurfaceSignature(newSnapshot));
+  });
+
+  it('keeps a SuccessFactors registration with a password visibility control and a required recruiter radio as a candidate question', async () => {
+    let fixture!: ReturnType<typeof fakePage>;
+    fixture = fakePage({
+      registration: true,
+      conditional: false,
+      privacyRevealsConsentOnly: true,
+      onWait: () => {
+        for (const id of ['password', 'password-confirm']) {
+          const current = fixture.window.document.getElementById(id) as HTMLInputElement | null;
+          if (!current?.value) continue;
+          const replacement = current.cloneNode(true) as HTMLInputElement;
+          replacement.value = current.value;
+          replacement.removeAttribute('data-aa-id');
+          current.replaceWith(replacement);
+        }
+      },
+    });
+    const { page, window } = fixture;
+    const recruiterOption = 'Alle Recruiter*innen der Stadt Zürich (mehrere Hundert Personen in allen Organisationseinheiten; erforderlich, damit Ihr Profil gefunden und berücksichtigt werden kann)';
+    window.document.getElementById('privacy')!.textContent = 'Lesen und akzeptieren Sie die Datenschutzerklärung.';
+    window.document.querySelector('label[for="motivation"]')?.remove();
+    window.document.getElementById('motivation')?.remove();
+    window.document.querySelector('form')?.insertAdjacentHTML('afterbegin', `<button type="button">Anzeigen</button>
+      <label for="email">E-Mail-Adresse: *</label><input id="email" name="email" type="email" required>
+      <label for="email-confirm">E-Mail-Adresse erneut eingeben: *</label><input id="email-confirm" name="email-confirm" type="email" required>
+      <label for="first-name">Vorname: *</label><input id="first-name" name="first-name" required>
+      <label for="last-name">Nachname: *</label><input id="last-name" name="last-name" required>
+      <label><input id="jobs-news" name="jobs-news" type="checkbox">Jobs-News Stadt Zürich</label>
+      <label><input type="radio" name="recruiter-visibility" value="yes" required>${recruiterOption}</label>
+      <label><input type="radio" name="recruiter-visibility" value="no">Nein</label>`);
+    const fieldId = (id: string) => window.document.querySelector(`[name="${id}"]`)?.getAttribute('data-aa-id') || '';
+    const recruiterField = () => [...window.document.querySelectorAll('input[name="recruiter-visibility"]')][0]?.getAttribute('data-aa-id') || '';
+    let plannerCalls = 0;
+    const codex = async ({ prompt }: any) => {
+      if (String(prompt).includes('You localize questions from an online job application')) return sameLanguageLocalization(prompt);
+      plannerCalls += 1;
+      const missingRequired = [{ fieldId: recruiterField(), question: recruiterOption, why: '', type: 'choice', options: [recruiterOption, 'Nein'] }];
+      return {
+        actions: [
+          { fieldId: fieldId('email'), action: 'fill', value: 'candidate@example.test' },
+          { fieldId: fieldId('email-confirm'), action: 'fill', value: 'candidate@example.test' },
+          { fieldId: fieldId('first-name'), action: 'fill', value: 'Test' },
+          { fieldId: fieldId('last-name'), action: 'fill', value: 'Candidate' },
+          { fieldId: fieldId('country'), action: 'select', value: 'Italia' },
+        ],
+        missingRequired,
+      };
+    };
+    const accountEvents: string[] = [];
+    const result = await handleAuth({
+      page,
+      snapshot: await extractFields(page, { listboxOptions: false }),
+      ctx: {
+        candidate: { identity: { email: 'candidate@example.test', firstName: 'Test', lastName: 'Candidate' }, profile: { address: { country: 'Italia' } }, answers: {} },
+        candidateLocale: 'en', language: 'en', files: {}, codex,
+        accounts: {
+          load: async () => null,
+          save: async () => { accountEvents.push('save'); },
+          mark: async () => { accountEvents.push('mark'); },
+          discard: async () => { accountEvents.push('discard'); },
+        },
+      },
+    });
+
+    expect(plannerCalls).toBeGreaterThan(0);
+    expect(result.questions.map((question: any) => question.applicationQuestion)).toEqual([recruiterOption]);
+    expect(window.document.getElementById('create')?.getAttribute('data-clicked')).not.toBe('true');
+    expect(accountEvents).toEqual([]);
+  });
+
   it('copies lazy options only when the page, frame URL, frame index, and field id match', () => {
     const current: any = {
       url: 'https://careers.example.test/apply',

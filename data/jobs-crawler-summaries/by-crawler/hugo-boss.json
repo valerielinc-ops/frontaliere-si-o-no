@@ -1,7 +1,7 @@
 {
   "key": "hugo-boss",
   "label": "Hugo Boss",
-  "generatedAt": "2026-11-08T09:39:26.760Z",
+  "generatedAt": "2026-11-08T21:37:33.937Z",
   "total": 1,
   "discovered": 729,
   "parsed": 1,
@@ -10,10 +10,10 @@
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 6898,
-  "avgDurationMs": 6898,
+  "durationMs": 9700,
+  "avgDurationMs": 9700,
   "durationHistory": [
-    6898
+    9700
   ],
   "coverage": "complete",
   "terminationReason": null,
@@ -65,5 +65,5 @@
   ],
   "removedJobs": [],
   "unchangedJobs": [],
-  "codeCommit": "b019e69684c909d5fd747961cb84c9c400bc8446"
+  "codeCommit": "46d8c233794afd1422cd7663ab076bfe9ec2a1c3"
 }

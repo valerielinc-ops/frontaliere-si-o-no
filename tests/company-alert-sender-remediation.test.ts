@@ -1,4 +1,4 @@
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
 import {
   buildAlertProfile,
   jobCompanyIdentityQuarantineReason,
@@ -14,7 +14,9 @@ import {
   deliveryOutcomeForEmail,
   finalizeRecipientDelivery,
   hasDeferredCompanyAlertWork,
+  hasPendingCompanyAlertWork,
   hasRecoverableConsentDeferral,
+  loadImmediateAlertDocs,
   NEWSLETTER_CONSENT_STATUS_UNKNOWN,
   hasExplicitProviderAcceptance,
   isOpenCompanyAlertJob,
@@ -39,8 +41,89 @@ import { canonicalCompanyProfileSlug } from '../build-plugins/shared/companyProf
 
 const NOW = Date.UTC(2026, 8, 9, 12, 0, 0);
 
+describe('CompanyAlert deferred candidate index', () => {
+  it('uses the indexed backlog query when there are no fresh jobs and the index is ready', async () => {
+    const filters: Array<[string, string, unknown]> = [];
+    const snapshot = { docs: [], size: 0, empty: true };
+    const query = {
+      where(field: string, operator: string, value: unknown) {
+        filters.push([field, operator, value]);
+        return this;
+      },
+      get: vi.fn(async () => snapshot),
+    };
+    const db = {
+      collectionGroup: vi.fn(() => query),
+      collection: vi.fn(() => ({
+        doc: () => ({ get: async () => ({
+          exists: true,
+          data: () => ({ ready: true, version: 1 }),
+        }) }),
+      })),
+    } as any;
+
+    await expect(loadImmediateAlertDocs(db, { deferredOnly: true })).resolves.toBe(snapshot);
+
+    expect(filters).toEqual([
+      ['active', '==', true],
+      ['frequency', '==', 'immediate'],
+      ['hasDeferredCompanyAlertWork', '==', true],
+    ]);
+    expect(query.get).toHaveBeenCalledTimes(1);
+  });
+
+  it('backfills deferred work and recoverable claims before marking the index ready', async () => {
+    const updates: Array<{ ref: object; fields: Record<string, unknown> }> = [];
+    const commits: number[] = [];
+    const configSets: Array<Record<string, unknown>> = [];
+    const docs = [
+      {
+        ref: jobAlertRef('deferred'),
+        data: () => ({ deliveryLedger: { 'job-a': { state: DELIVERY_STATES.DEFERRED } } }),
+      },
+      {
+        ref: jobAlertRef('claimed'),
+        data: () => ({ deliveryLedger: { 'job-b': { state: DELIVERY_STATES.CLAIMED } } }),
+      },
+      { ref: jobAlertRef('clear'), data: () => ({ deliveryLedger: {} }) },
+    ];
+    const query = {
+      where() { return this; },
+      get: async () => ({ docs, size: docs.length, empty: false }),
+    };
+    const db = {
+      collectionGroup: () => query,
+      collection: () => ({
+        doc: () => ({
+          get: async () => ({ exists: false, data: () => undefined }),
+          set: async (value: Record<string, unknown>) => { configSets.push(value); },
+        }),
+      }),
+      batch: () => ({
+        update: (documentRef: object, fields: Record<string, unknown>) => updates.push({ ref: documentRef, fields }),
+        commit: async () => { commits.push(updates.length); },
+      }),
+    } as any;
+
+    await loadImmediateAlertDocs(db, { deferredOnly: true, updateIndex: true });
+
+    expect(updates.map(({ fields }) => fields.hasDeferredCompanyAlertWork)).toEqual([true, true, false]);
+    expect(commits).toHaveLength(1);
+    expect(configSets).toHaveLength(1);
+    expect(configSets[0]).toMatchObject({ ready: true, version: 1 });
+    expect(hasPendingCompanyAlertWork([{ deliveryLedger: { 'job-c': { state: DELIVERY_STATES.CLAIMED } } }])).toBe(true);
+  });
+});
+
 function ref(path: string) {
   return { path, id: path.split('/').at(-1) };
+}
+
+function jobAlertRef(id: string) {
+  return {
+    ...ref(`job_alert_subscribers/fixture/alerts/${id}`),
+    parent: { id: 'alerts', parent: { id: 'fixture', parent: { id: 'job_alert_subscribers' } } },
+  };
 }
 
 function alert(

@@ -1,7 +1,7 @@
 {
   "crawlerKey": "favresa-ch",
-  "assembledAt": "2026-11-08T09:38:22.071Z",
-  "runId": "42467106583",
+  "assembledAt": "2026-11-08T21:57:33.862Z",
+  "runId": "42525106254",
   "jobs": [
     {
       "id": "favresa-ch-c34c38934628",
@@ -34,7 +34,7 @@
       "url": "https://www.groupe-r.ch/emploi.html?id=19",
       "source": "Favre SA Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-08T09:38:15.050Z",
+      "crawledAt": "2026-11-08T21:57:23.134Z",
       "addressLocality": "Corcelles-près-Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -83,7 +83,7 @@
       },
       "streetAddress": "Corcelles-près-Payerne",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-25T09:38:15.050Z",
+      "validThrough": "2027-01-25T21:57:23.134Z",
       "validThroughSource": "last-observed-window"
     }
   ]

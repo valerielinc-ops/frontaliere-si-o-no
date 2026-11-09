@@ -915,7 +915,7 @@
         "it": "ausbildung-augenotiker-cfc-w-m-d-fielmann-group-zofingen",
         "en": "ophthalmologist-training-efz-w-m-d-fielmann-group-zofingen",
         "de": "ausbildung-augenotiker-efz-w-m-d-fielmann-ch",
-        "fr": "formation-d-opticien-cfc-m-w-d-fielmann-group-zofingen"
+        "fr": "apprentissage-en-tant-qu-ophtalmologiste-efz-f-m-d-fielmann-group-zofingen"
       },
       "company": "Fielmann Group",
       "companyKey": "fielmann",
@@ -962,7 +962,7 @@
       "previousSlugs": [
         "ausbildung-augenotiker-efz-w-m-d-fielmann-ch",
         "formation-en-ophtalmologie-efz-w-m-d-fielmann-group-zofingen",
-        "apprentissage-en-tant-qu-ophtalmologiste-efz-f-m-d-fielmann-group-zofingen"
+        "formation-d-opticien-cfc-m-w-d-fielmann-group-zofingen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -974,7 +974,7 @@
         "fr": [
           "ausbildung-augenotiker-efz-w-m-d-fielmann-ch",
           "formation-en-ophtalmologie-efz-w-m-d-fielmann-group-zofingen",
-          "apprentissage-en-tant-qu-ophtalmologiste-efz-f-m-d-fielmann-group-zofingen"
+          "formation-d-opticien-cfc-m-w-d-fielmann-group-zofingen"
         ]
       },
       "firstSeenAt": "2026-06-15T23:00:01.676Z",
@@ -6699,9 +6699,9 @@
       "slug": "ottico-ottico-f-m-d-fielmann-group-bern-i",
       "slugByLocale": {
         "it": "ottico-ottico-f-m-d-fielmann-group-bern-i",
-        "en": "optician-fielmann-group-bern-i",
+        "en": "optometrist-w-m-d-fielmann-group-bern-i",
         "de": "augenoptiker-w-m-d-fielmann-ch",
-        "fr": "opticien-fielmann-group-bern-i"
+        "fr": "optometriste-w-m-d-fielmann-group-bern-i"
       },
       "company": "Fielmann Group",
       "companyKey": "fielmann",
@@ -6756,8 +6756,8 @@
         "optician-w-m-d-fielmann-group-bern-i",
         "opticien-w-m-d-fielmann-group-bern-i",
         "optician-fielmann-group-bern",
-        "optometrist-w-m-d-fielmann-group-bern-i",
-        "optometriste-w-m-d-fielmann-group-bern-i"
+        "optician-fielmann-group-bern-i",
+        "opticien-fielmann-group-bern-i"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -6773,7 +6773,7 @@
         ],
         "en": [
           "augenoptiker-w-m-d-fielmann-ch-7",
-          "optometrist-w-m-d-fielmann-group-bern-i"
+          "optician-fielmann-group-bern-i"
         ],
         "de": [
           "horakustiker-w-m-d-fielmann-ch"
@@ -6781,7 +6781,7 @@
         "fr": [
           "augenoptiker-w-m-d-fielmann-ch-7",
           "projektmanager-m-d-fielmann-group-bern",
-          "optometriste-w-m-d-fielmann-group-bern-i"
+          "opticien-fielmann-group-bern-i"
         ]
       },
       "firstSeenAt": "2026-06-15T22:59:07.889Z",
@@ -7497,9 +7497,9 @@
       "slug": "ottico-ottico-f-m-d-fielmann-group-st",
       "slugByLocale": {
         "it": "ottico-ottico-f-m-d-fielmann-group-st",
-        "en": "opticians-m-w-d-fielmann-group-st",
+        "en": "projektleiter-m-d-fielmann-group-st-gallen",
         "de": "augenoptiker-w-m-d-fielmann-ch",
-        "fr": "opticiens-m-w-d-fielmann-group-st"
+        "fr": "augenoptiker-w-m-d-fielmann-ch-3"
       },
       "company": "Fielmann Group",
       "companyKey": "fielmann",
@@ -7551,7 +7551,8 @@
         "ottico-ottico-f-m-d-fielmann-group-st-gallen",
         "projektleiter-m-d-fielmann-group-st",
         "opticiens-m-w-d-fielmann-group-st-gallen",
-        "projektleiter-m-d-fielmann-group-st-gallen"
+        "opticians-m-w-d-fielmann-group-st",
+        "opticiens-m-w-d-fielmann-group-st"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -7563,14 +7564,14 @@
         ],
         "en": [
           "augenoptiker-w-m-d-fielmann-ch-3",
-          "projektleiter-m-d-fielmann-group-st-gallen"
+          "opticians-m-w-d-fielmann-group-st"
         ],
         "de": [
           "augenoptiker-w-m-d-fielmann-group-st"
         ],
         "fr": [
           "projektleiter-m-d-fielmann-group-st",
-          "augenoptiker-w-m-d-fielmann-ch-3"
+          "opticiens-m-w-d-fielmann-group-st"
         ]
       },
       "firstSeenAt": "2026-05-17T10:14:16.197Z",
@@ -7914,8 +7915,8 @@
       "slugByLocale": {
         "de": "augenoptiker-w-m-d-fielmann-ch",
         "it": "ottico-f-m-d-fielmann-group-altdorf",
-        "en": "augenoptiker-m-w-d-fielmann-group-altdorf",
-        "fr": "augenoptiker-m-w-d-fielmann-group-altdorf"
+        "en": "optician-f-m-d-fielmann-group-altdorf-8986bc",
+        "fr": "opticien-f-m-d-fielmann-group-altdorf-8986bc"
       },
       "company": "Fielmann Group",
       "companyKey": "fielmann",
@@ -7923,18 +7924,17 @@
       "title": "Augenoptiker (w/m/d)",
       "titleByLocale": {
         "de": "Augenoptiker (w/m/d)",
-        "it": "Augenoptiker (w/m/d)",
-        "en": "Augenoptiker (w/m/d)",
-        "fr": "Augenoptiker (w/m/d)"
+        "it": "Ottico (m/f/d)",
+        "en": "Opticians (m/f/d)",
+        "fr": "Opticiens (h/f/d)"
       },
       "description": "Wir bei Fielmann sind mehr als Kolleginnen und Kollegen – wir sind ein Team. Unser Zusammenhalt macht uns stark. Durch neue Impulse entwickeln wir uns weiter. Mit Ihrem Einsatz wachsen wir – mal schneller, mal mit Bedacht. Gemeinsam finden wir das richtige Tempo und setzen die Ma ss stäbe von morgen.\n\nWir geben alles – Ihre Vorteile\n\n• Attraktive , leistungsgerechte Vergütung, 13. Gehalt\n\n• Mitarbeiterrabatte für Sie und Ihre Familie, Mitarbeiteraktien sowie zahlreiche weitere Benefits (z.B. Halbtax Schweizerische Bundesbahn SBB, AMAG, Sunrise, UBS etc.​)\n\n• Fachliche und persönliche E ntwicklungsmöglichkeiten in unserem Weiterbildungszentrum Olten sowie über E-Learning\n\n• Familiäre r Teams pirit und ein digitales Arbeitsumfeld\n\n• Sicherer Arbeitsplatz mit umfangreichen Sozialleistungen\n\nWir setzen gemeinsam die Ma ss stäbe von morgen – Ihre Aufgaben\n\n• Setze n Sie s ich für die Zufriedenheit unserer Kundinnen und Kunden ein\n\n• Berate n Sie individuell mit augenoptischer Kompetenz\n\n• Finden Sie für jeden Kunden die passende Brille\n\n• Mit internen Trainings erweitern Sie Ihren Aufgabenbereich\n\nSie begeister n uns – Ihr Profil\n\n• Sie haben eine abgeschlossene Ausbildung in der O ptik\n\n• Der empathische Umgang mit Menschen bereitet Ihnen Freude\n\n• Sie arbeite n selbstständig und verantwortungsbewusst\n\n• Als Teamplayer schätz en Sie eine kooperative Zusammenarbeit\n\n• Neuen Technologien gegenüber sind Sie aufgeschlossen\n\nKlingt nach einem Job in der Augenoptik , in dem Sie Ihre Stärken zeigen können ? Dann freuen wir uns auf Ihre vollständige Bewerbung inklusive Diplomen , Zeugnissen und möglichem Eintrittstermi n – online oder unter personal_ch@fielmann.com .\n\nDie Fielmann-Gruppe ist weltweit das drittgrösste Unternehmen der augenoptischen Branche. Das börsennotierte Familienunternehmen mit Sitz in Hamburg versorgt über ein Omnichannel-Geschäftsmodell seine Kunden mit Brillen, Kontaktlinsen und Hörsystemen. Mehr als 45 Fachgeschäfte befinden sich in der Schweiz und mit rund 180 Lernenden sind wir einer der grössten Ausbildner der Branche.",
       "descriptionByLocale": {
         "de": "Wir bei Fielmann sind mehr als Kolleginnen und Kollegen – wir sind ein Team. Unser Zusammenhalt macht uns stark. Durch neue Impulse entwickeln wir uns weiter. Mit Ihrem Einsatz wachsen wir – mal schneller, mal mit Bedacht. Gemeinsam finden wir das richtige Tempo und setzen die Ma ss stäbe von morgen.\n\nWir geben alles – Ihre Vorteile\n\n• Attraktive , leistungsgerechte Vergütung, 13. Gehalt\n\n• Mitarbeiterrabatte für Sie und Ihre Familie, Mitarbeiteraktien sowie zahlreiche weitere Benefits (z.B. Halbtax Schweizerische Bundesbahn SBB, AMAG, Sunrise, UBS etc.​)\n\n• Fachliche und persönliche E ntwicklungsmöglichkeiten in unserem Weiterbildungszentrum Olten sowie über E-Learning\n\n• Familiäre r Teams pirit und ein digitales Arbeitsumfeld\n\n• Sicherer Arbeitsplatz mit umfangreichen Sozialleistungen\n\nWir setzen gemeinsam die Ma ss stäbe von morgen – Ihre Aufgaben\n\n• Setze n Sie s ich für die Zufriedenheit unserer Kundinnen und Kunden ein\n\n• Berate n Sie individuell mit augenoptischer Kompetenz\n\n• Finden Sie für jeden Kunden die passende Brille\n\n• Mit internen Trainings erweitern Sie Ihren Aufgabenbereich\n\nSie begeister n uns – Ihr Profil\n\n• Sie haben eine abgeschlossene Ausbildung in der O ptik\n\n• Der empathische Umgang mit Menschen bereitet Ihnen Freude\n\n• Sie arbeite n selbstständig und verantwortungsbewusst\n\n• Als Teamplayer schätz en Sie eine kooperative Zusammenarbeit\n\n• Neuen Technologien gegenüber sind Sie aufgeschlossen\n\nKlingt nach einem Job in der Augenoptik , in dem Sie Ihre Stärken zeigen können ? Dann freuen wir uns auf Ihre vollständige Bewerbung inklusive Diplomen , Zeugnissen und möglichem Eintrittstermi n – online oder unter personal_ch@fielmann.com .\n\nDie Fielmann-Gruppe ist weltweit das drittgrösste Unternehmen der augenoptischen Branche. Das börsennotierte Familienunternehmen mit Sitz in Hamburg versorgt über ein Omnichannel-Geschäftsmodell seine Kunden mit Brillen, Kontaktlinsen und Hörsystemen. Mehr als 45 Fachgeschäfte befinden sich in der Schweiz und mit rund 180 Lernenden sind wir einer der grössten Ausbildner der Branche.",
-        "it": "Wir bei Fielmann sind mehr als Kolleginnen und Kollegen – wir sind ein Team. Unser Zusammenhalt macht uns stark. Durch neue Impulse entwickeln wir uns weiter. Mit Ihrem Einsatz wachsen wir – mal schneller, mal mit Bedacht. Gemeinsam finden wir das richtige Tempo und setzen die Ma ss stäbe von morgen.\n\nWir geben alles – Ihre Vorteile\n\n• Attraktive , leistungsgerechte Vergütung, 13. Gehalt\n\n• Mitarbeiterrabatte für Sie und Ihre Familie, Mitarbeiteraktien sowie zahlreiche weitere Benefits (z.B. Halbtax Schweizerische Bundesbahn SBB, AMAG, Sunrise, UBS etc.​)\n\n• Fachliche und persönliche E ntwicklungsmöglichkeiten in unserem Weiterbildungszentrum Olten sowie über E-Learning\n\n• Familiäre r Teams pirit und ein digitales Arbeitsumfeld\n\n• Sicherer Arbeitsplatz mit umfangreichen Sozialleistungen\n\nWir setzen gemeinsam die Ma ss stäbe von morgen – Ihre Aufgaben\n\n• Setze n Sie s ich für die Zufriedenheit unserer Kundinnen und Kunden ein\n\n• Berate n Sie individuell mit augenoptischer Kompetenz\n\n• Finden Sie für jeden Kunden die passende Brille\n\n• Mit internen Trainings erweitern Sie Ihren Aufgabenbereich\n\nSie begeister n uns – Ihr Profil\n\n• Sie haben eine abgeschlossene Ausbildung in der O ptik\n\n• Der empathische Umgang mit Menschen bereitet Ihnen Freude\n\n• Sie arbeite n selbstständig und verantwortungsbewusst\n\n• Als Teamplayer schätz en Sie eine kooperative Zusammenarbeit\n\n• Neuen Technologien gegenüber sind Sie aufgeschlossen\n\nKlingt nach einem Job in der Augenoptik , in dem Sie Ihre Stärken zeigen können ? Dann freuen wir uns auf Ihre vollständige Bewerbung inklusive Diplomen , Zeugnissen und möglichem Eintrittstermi n – online oder unter personal_ch@fielmann.com .\n\nDie Fielmann-Gruppe ist weltweit das drittgrösste Unternehmen der augenoptischen Branche. Das börsennotierte Familienunternehmen mit Sitz in Hamburg versorgt über ein Omnichannel-Geschäftsmodell seine Kunden mit Brillen, Kontaktlinsen und Hörsystemen. Mehr als 45 Fachgeschäfte befinden sich in der Schweiz und mit rund 180 Lernenden sind wir einer der grössten Ausbildner der Branche.",
-        "en": "Wir bei Fielmann sind mehr als Kolleginnen und Kollegen – wir sind ein Team. Unser Zusammenhalt macht uns stark. Durch neue Impulse entwickeln wir uns weiter. Mit Ihrem Einsatz wachsen wir – mal schneller, mal mit Bedacht. Gemeinsam finden wir das richtige Tempo und setzen die Ma ss stäbe von morgen.\n\nWir geben alles – Ihre Vorteile\n\n• Attraktive , leistungsgerechte Vergütung, 13. Gehalt\n\n• Mitarbeiterrabatte für Sie und Ihre Familie, Mitarbeiteraktien sowie zahlreiche weitere Benefits (z.B. Halbtax Schweizerische Bundesbahn SBB, AMAG, Sunrise, UBS etc.​)\n\n• Fachliche und persönliche E ntwicklungsmöglichkeiten in unserem Weiterbildungszentrum Olten sowie über E-Learning\n\n• Familiäre r Teams pirit und ein digitales Arbeitsumfeld\n\n• Sicherer Arbeitsplatz mit umfangreichen Sozialleistungen\n\nWir setzen gemeinsam die Ma ss stäbe von morgen – Ihre Aufgaben\n\n• Setze n Sie s ich für die Zufriedenheit unserer Kundinnen und Kunden ein\n\n• Berate n Sie individuell mit augenoptischer Kompetenz\n\n• Finden Sie für jeden Kunden die passende Brille\n\n• Mit internen Trainings erweitern Sie Ihren Aufgabenbereich\n\nSie begeister n uns – Ihr Profil\n\n• Sie haben eine abgeschlossene Ausbildung in der O ptik\n\n• Der empathische Umgang mit Menschen bereitet Ihnen Freude\n\n• Sie arbeite n selbstständig und verantwortungsbewusst\n\n• Als Teamplayer schätz en Sie eine kooperative Zusammenarbeit\n\n• Neuen Technologien gegenüber sind Sie aufgeschlossen\n\nKlingt nach einem Job in der Augenoptik , in dem Sie Ihre Stärken zeigen können ? Dann freuen wir uns auf Ihre vollständige Bewerbung inklusive Diplomen , Zeugnissen und möglichem Eintrittstermi n – online oder unter personal_ch@fielmann.com .\n\nDie Fielmann-Gruppe ist weltweit das drittgrösste Unternehmen der augenoptischen Branche. Das börsennotierte Familienunternehmen mit Sitz in Hamburg versorgt über ein Omnichannel-Geschäftsmodell seine Kunden mit Brillen, Kontaktlinsen und Hörsystemen. Mehr als 45 Fachgeschäfte befinden sich in der Schweiz und mit rund 180 Lernenden sind wir einer der grössten Ausbildner der Branche.",
-        "fr": "Wir bei Fielmann sind mehr als Kolleginnen und Kollegen – wir sind ein Team. Unser Zusammenhalt macht uns stark. Durch neue Impulse entwickeln wir uns weiter. Mit Ihrem Einsatz wachsen wir – mal schneller, mal mit Bedacht. Gemeinsam finden wir das richtige Tempo und setzen die Ma ss stäbe von morgen.\n\nWir geben alles – Ihre Vorteile\n\n• Attraktive , leistungsgerechte Vergütung, 13. Gehalt\n\n• Mitarbeiterrabatte für Sie und Ihre Familie, Mitarbeiteraktien sowie zahlreiche weitere Benefits (z.B. Halbtax Schweizerische Bundesbahn SBB, AMAG, Sunrise, UBS etc.​)\n\n• Fachliche und persönliche E ntwicklungsmöglichkeiten in unserem Weiterbildungszentrum Olten sowie über E-Learning\n\n• Familiäre r Teams pirit und ein digitales Arbeitsumfeld\n\n• Sicherer Arbeitsplatz mit umfangreichen Sozialleistungen\n\nWir setzen gemeinsam die Ma ss stäbe von morgen – Ihre Aufgaben\n\n• Setze n Sie s ich für die Zufriedenheit unserer Kundinnen und Kunden ein\n\n• Berate n Sie individuell mit augenoptischer Kompetenz\n\n• Finden Sie für jeden Kunden die passende Brille\n\n• Mit internen Trainings erweitern Sie Ihren Aufgabenbereich\n\nSie begeister n uns – Ihr Profil\n\n• Sie haben eine abgeschlossene Ausbildung in der O ptik\n\n• Der empathische Umgang mit Menschen bereitet Ihnen Freude\n\n• Sie arbeite n selbstständig und verantwortungsbewusst\n\n• Als Teamplayer schätz en Sie eine kooperative Zusammenarbeit\n\n• Neuen Technologien gegenüber sind Sie aufgeschlossen\n\nKlingt nach einem Job in der Augenoptik , in dem Sie Ihre Stärken zeigen können ? Dann freuen wir uns auf Ihre vollständige Bewerbung inklusive Diplomen , Zeugnissen und möglichem Eintrittstermi n – online oder unter personal_ch@fielmann.com .\n\nDie Fielmann-Gruppe ist weltweit das drittgrösste Unternehmen der augenoptischen Branche. Das börsennotierte Familienunternehmen mit Sitz in Hamburg versorgt über ein Omnichannel-Geschäftsmodell seine Kunden mit Brillen, Kontaktlinsen und Hörsystemen. Mehr als 45 Fachgeschäfte befinden sich in der Schweiz und mit rund 180 Lernenden sind wir einer der grössten Ausbildner der Branche."
+        "it": "Noi di Fielmann siamo più di colleghi – siamo una squadra. La nostra coesione ci rende forti. Attraverso nuovi impulsi, continuiamo a svilupparci. Con il vostro impegno, cresciamo – a volte più veloce, a volte saggiamente. Insieme troviamo il giusto ritmo e stabiliamo gli standard di domani.\n\nDiamo tutto – I loro vantaggi\n\n• Compensazione attraente e correlata alle prestazioni, 13. Salari\n\n• Riduzioni dei dipendenti per voi e la vostra famiglia, azioni dei dipendenti e numerosi altri vantaggi (ad esempio le FFS Federali di Mezzo Fiscale, AMAG, Sunrise, UBS ecc.)\n\n• Opportunità di sviluppo professionali e personali nel nostro centro di formazione Olten e via e-learning\n\n• Gruppi famigliari pirit e un ambiente di lavoro digitale\n\n• Lavoro sicuro con ampi benefici sociali\n\nInsieme stabiliamo gli standard di domani – I loro compiti\n\n• Io uso n voi s per la soddisfazione dei nostri clienti\n\n• Consigliare individualmente con competenza oculare\n\n• Trova gli occhiali giusti per ogni cliente\n\n• Estendere la formazione interna Sono le loro responsabilità.\n\nCi ispirano - Il tuo profilo\n\n• Hai completato l'allenamento in Optik\n\n• Empatizzare con la gente ti porta gioia\n\n• Lavori in modo indipendente e responsabile\n\n• Come giocatore di squadra, apprezzi una cooperazione cooperativa\n\n• Sei aperto alle nuove tecnologie\n\nSembra un lavoro in ottica oculare dove puoi mostrare i tuoi punti di forza? Quindi non vediamo l'ora della tua candidatura completa, inclusi i diplomi, i certificati e i possibili punti di ingresso – online o su personal ch@fielmann.com.\n\nIl Gruppo Fielmann è la terza azienda leader nel settore oculare in tutto il mondo. La società di famiglia quotata con sede a Amburgo fornisce ai propri clienti occhiali, lenti a contatto e sistemi acustici tramite un modello aziendale omnicanale. Più di 45 negozi specializzati si trovano in Svizzera e con circa 180 apprendisti siamo uno dei più grandi formatori del settore.",
+        "en": "We at Fielmann are more than colleagues – we are a team. Our cohesion makes us strong. Through new impulses, we continue to develop. With your commitment, we grow – sometimes faster, sometimes wisely. Together we find the right pace and set the standards of tomorrow.\n\nWe give everything – Their advantages\n\n• Attractive, performance-related compensation, 13. Salary\n\n• Employee discounts for you and your family, employee shares and numerous other benefits (e.g. Half Tax Swiss Federal Railway SBB, AMAG, Sunrise, UBS etc.)\n\n• Professional and personal development opportunities in our training centre Olten as well as via e-learning\n\n• Family r teams pirit and a digital working environment\n\n• Secure job with extensive social benefits\n\nTogether we set the standards of tomorrow – Their tasks\n\n• I use n you s for the satisfaction of our customers\n\n• Advise you individually with eye-optical competence\n\n• Find the right glasses for every customer\n\n• Extend with internal training They are their responsibilities.\n\nThey inspire us - Your profile\n\n• You have completed training in Optik\n\n• Empathizing with people brings you joy\n\n• You work independently and responsibly\n\n• As a team player, you appreciate a cooperative cooperation\n\n• You are open to new technologies\n\nSounds like a job in eye optics where you can show your strengths? Then we look forward to your complete application including diplomas, certificates and possible entry points – online or at personal ch@fielmann.com.\n\nThe Fielmann Group is the third largest company in the eye-optical industry worldwide. The listed family company based in Hamburg provides its customers with glasses, contact lenses and hearing systems via an omnichannel business model. More than 45 specialist shops are located in Switzerland and with around 180 apprentices we are one of the largest trainers in the industry.",
+        "fr": "Chez Fielmann, nous sommes plus que des collègues – nous sommes une équipe. Notre cohésion nous rend forts. Par de nouvelles impulsions, nous continuons à nous développer. Avec votre engagement, nous grandissons – parfois plus vite, parfois sagement. Ensemble, nous trouvons le bon rythme et fixons les normes de demain.\n\nNous donnons tout – Leurs avantages\n\n• Compensation attrayante et liée au rendement, 13. Salaire\n\n• Remises aux employés pour vous et votre famille, parts des employés et de nombreux autres avantages (par exemple demi-taxes CFF, AMAG, Sunrise, UBS, etc.)\n\n• Possibilités de développement professionnel et personnel dans notre centre de formation Olten ainsi que par e-learning\n\n• Les équipes familiales pirit et un environnement de travail numérique\n\n• Emploi sécurisé avec des prestations sociales étendues\n\nEnsemble, nous fixons les normes de demain – Leurs tâches\n\n• J'utilise n vous s pour la satisfaction de nos clients\n\n• Conseillez-vous individuellement avec une compétence optique\n\n• Trouvez les bonnes lunettes pour chaque client\n\n• Étendre la formation interne Ils sont leurs responsabilités.\n\nIls nous inspirent - Votre profil\n\n• Vous avez suivi une formation à Optik\n\n• Empathie avec les gens vous apporte la joie\n\n• Vous travaillez de manière indépendante et responsable\n\n• En tant que joueur d'équipe, vous appréciez la coopération\n\n• Vous êtes ouvert aux nouvelles technologies\n\nOn dirait un travail dans l'optique oculaire où vous pouvez montrer vos forces ? Ensuite, nous attendons avec impatience votre candidature complète comprenant des diplômes, des certificats et des points d'entrée possibles – en ligne ou à l'adresse personnelle ch@fielmann.com.\n\nLe Groupe Fielmann est la troisième entreprise dans l'industrie de l'optique oculaire au monde. La société familiale cotée basée à Hambourg fournit à ses clients des lunettes, des lentilles de contact et des systèmes auditifs via un modèle d'affaires omnicanal. Plus de 45 magasins spécialisés sont situés en Suisse et avec environ 180 apprentis, nous sommes l'un des plus grands formateurs de l'industrie."
       },
-      "needsRetranslation": true,
       "location": "Altdorf",
       "canton": "UR",
       "url": "https://fielmann.wd3.myworkdayjobs.com/en/External/job/Altdorf/Augenoptiker--w-m-_R-28050",
@@ -7967,16 +7967,15 @@
           "augenoptiker-w-m-d-fielmann-ch"
         ],
         "en": [
-          "optician-f-m-d-fielmann-group-altdorf-8986bc"
+          "augenoptiker-m-w-d-fielmann-group-altdorf"
         ],
         "fr": [
-          "opticien-f-m-d-fielmann-group-altdorf-8986bc"
+          "augenoptiker-m-w-d-fielmann-group-altdorf"
         ]
       },
       "previousSlugs": [
         "augenoptiker-w-m-d-fielmann-ch",
-        "optician-f-m-d-fielmann-group-altdorf-8986bc",
-        "opticien-f-m-d-fielmann-group-altdorf-8986bc"
+        "augenoptiker-m-w-d-fielmann-group-altdorf"
       ],
       "salaryMin": 79000,
       "salaryMax": 121500,
@@ -8330,9 +8329,9 @@
       "slug": "projektleiter-m-d-fielmann-group-sursee",
       "slugByLocale": {
         "it": "projektleiter-m-d-fielmann-group-sursee",
-        "en": "opticians-m-w-d-fielmann-group-sursee",
+        "en": "augenoptiker-w-m-d-fielmann-ch-13",
         "de": "augenoptiker-w-m-d-fielmann-ch",
-        "fr": "opticiens-m-w-d-fielmann-group-sursee"
+        "fr": "augenoptiker-w-m-d-fielmann-ch-13"
       },
       "company": "Fielmann Group",
       "companyKey": "fielmann",
@@ -8380,7 +8379,9 @@
         "augenoptiker-w-m-d-fielmann-ch",
         "augenoptiker-w-m-d-fielmann-ch-13",
         "augenoptiker-w-m-d-fielmann-ch-24",
-        "augenoptiker-w-m-d-fielmann-group-sursee"
+        "augenoptiker-w-m-d-fielmann-group-sursee",
+        "opticians-m-w-d-fielmann-group-sursee",
+        "opticiens-m-w-d-fielmann-group-sursee"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -8389,13 +8390,13 @@
           "augenoptiker-w-m-d-fielmann-ch-24"
         ],
         "en": [
-          "augenoptiker-w-m-d-fielmann-ch-13"
+          "opticians-m-w-d-fielmann-group-sursee"
         ],
         "de": [
           "augenoptiker-w-m-d-fielmann-group-sursee"
         ],
         "fr": [
-          "augenoptiker-w-m-d-fielmann-ch-13"
+          "opticiens-m-w-d-fielmann-group-sursee"
         ]
       },
       "firstSeenAt": "2026-05-13T11:02:33.743Z",
@@ -8612,9 +8613,9 @@
       "slug": "projektleiter-m-d-fielmann-group-biel",
       "slugByLocale": {
         "it": "projektleiter-m-d-fielmann-group-biel",
-        "en": "opticians-m-w-d-fielmann-group-biel",
+        "en": "augenoptiker-w-m-d-fielmann-ch-16",
         "de": "augenoptiker-w-m-d-fielmann-ch",
-        "fr": "opticiens-m-w-d-fielmann-group-biel"
+        "fr": "augenoptiker-w-m-d-fielmann-ch-16"
       },
       "company": "Fielmann Group",
       "companyKey": "fielmann",
@@ -8662,7 +8663,9 @@
         "augenoptiker-w-m-d-fielmann-ch",
         "augenoptiker-w-m-d-fielmann-ch-16",
         "augenoptiker-w-m-d-fielmann-ch-27",
-        "augenoptiker-w-m-d-fielmann-group-biel"
+        "augenoptiker-w-m-d-fielmann-group-biel",
+        "opticians-m-w-d-fielmann-group-biel",
+        "opticiens-m-w-d-fielmann-group-biel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -8671,13 +8674,13 @@
           "augenoptiker-w-m-d-fielmann-ch-27"
         ],
         "en": [
-          "augenoptiker-w-m-d-fielmann-ch-16"
+          "opticians-m-w-d-fielmann-group-biel"
         ],
         "de": [
           "augenoptiker-w-m-d-fielmann-group-biel"
         ],
         "fr": [
-          "augenoptiker-w-m-d-fielmann-ch-16"
+          "opticiens-m-w-d-fielmann-group-biel"
         ]
       },
       "firstSeenAt": "2026-05-13T11:02:31.545Z",
@@ -9301,9 +9304,9 @@
       "slug": "projektleiter-m-d-fielmann-group-basel",
       "slugByLocale": {
         "it": "projektleiter-m-d-fielmann-group-basel",
-        "en": "optician-all-genders-fielmann-group-basel",
+        "en": "augenoptiker-w-m-d-fielmann-ch-24",
         "de": "augenoptiker-w-m-d-fielmann-ch",
-        "fr": "opticien-ne-tous-genres-fielmann-group-basel"
+        "fr": "augenoptiker-w-m-d-fielmann-ch-24"
       },
       "company": "Fielmann Group",
       "companyKey": "fielmann",
@@ -9352,7 +9355,8 @@
         "augenoptiker-w-m-d-fielmann-ch",
         "opticians-m-w-d-fielmann-group-basel",
         "opticiens-m-w-d-fielmann-group-basel",
-        "augenoptiker-w-m-d-fielmann-ch-24"
+        "optician-all-genders-fielmann-group-basel",
+        "opticien-ne-tous-genres-fielmann-group-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -9360,11 +9364,11 @@
         ],
         "en": [
           "opticians-m-w-d-fielmann-group-basel",
-          "augenoptiker-w-m-d-fielmann-ch-24"
+          "optician-all-genders-fielmann-group-basel"
         ],
         "fr": [
           "opticiens-m-w-d-fielmann-group-basel",
-          "augenoptiker-w-m-d-fielmann-ch-24"
+          "opticien-ne-tous-genres-fielmann-group-basel"
         ]
       },
       "firstSeenAt": "2026-08-05T22:56:55.156Z",
@@ -9676,9 +9680,9 @@
       "slug": "projektleiter-m-d-fielmann-group-thalwil",
       "slugByLocale": {
         "it": "projektleiter-m-d-fielmann-group-thalwil",
-        "en": "opticians-m-w-d-fielmann-group-thalwil",
+        "en": "augenoptiker-w-m-d-fielmann-ch-18",
         "de": "augenoptiker-w-m-d-fielmann-ch",
-        "fr": "opticiens-m-w-d-fielmann-group-thalwil"
+        "fr": "augenoptiker-w-m-d-fielmann-ch-18"
       },
       "company": "Fielmann Group",
       "companyKey": "fielmann",
@@ -9726,7 +9730,9 @@
         "augenoptiker-w-m-d-fielmann-ch",
         "augenoptiker-w-m-d-fielmann-ch-18",
         "augenoptiker-w-m-d-fielmann-ch-29",
-        "augenoptiker-w-m-d-fielmann-group-thalwil"
+        "augenoptiker-w-m-d-fielmann-group-thalwil",
+        "opticians-m-w-d-fielmann-group-thalwil",
+        "opticiens-m-w-d-fielmann-group-thalwil"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -9735,13 +9741,13 @@
           "augenoptiker-w-m-d-fielmann-ch-29"
         ],
         "en": [
-          "augenoptiker-w-m-d-fielmann-ch-18"
+          "opticians-m-w-d-fielmann-group-thalwil"
         ],
         "de": [
           "augenoptiker-w-m-d-fielmann-group-thalwil"
         ],
         "fr": [
-          "augenoptiker-w-m-d-fielmann-ch-18"
+          "opticiens-m-w-d-fielmann-group-thalwil"
         ]
       },
       "firstSeenAt": "2026-05-13T11:02:30.075Z",
@@ -10388,9 +10394,9 @@
       "slug": "ottico-f-m-d-fielmann-group-zurich",
       "slugByLocale": {
         "it": "ottico-f-m-d-fielmann-group-zurich",
-        "en": "opticians-m-w-d-fielmann-group-zurich",
+        "en": "optician-f-m-d-fielmann-group-zurich",
         "de": "augenoptiker-w-m-d-fielmann-ch",
-        "fr": "opticiens-m-j-fielmann-group-zurich"
+        "fr": "opticien-f-m-d-fielmann-group-zurich"
       },
       "company": "Fielmann Group",
       "companyKey": "fielmann",
@@ -10443,8 +10449,8 @@
         "opticien-h-f-d-fielmann-group-zurich",
         "opticien-h-f-x-fielmann-group-zurich",
         "ottico-m-f-d-fielmann-group-zurich",
-        "optician-f-m-d-fielmann-group-zurich",
-        "opticien-f-m-d-fielmann-group-zurich"
+        "opticians-m-w-d-fielmann-group-zurich",
+        "opticiens-m-j-fielmann-group-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -10458,11 +10464,11 @@
         ],
         "en": [
           "augenoptiker-m-w-d-fielmann-group-zurich",
-          "optician-f-m-d-fielmann-group-zurich"
+          "opticians-m-w-d-fielmann-group-zurich"
         ],
         "fr": [
           "augenoptiker-m-w-d-fielmann-group-zurich",
-          "opticien-f-m-d-fielmann-group-zurich"
+          "opticiens-m-j-fielmann-group-zurich"
         ]
       },
       "firstSeenAt": "2026-08-05T22:56:55.156Z",

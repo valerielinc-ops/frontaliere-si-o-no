@@ -1,7 +1,7 @@
 {
   "crawlerKey": "sika",
-  "assembledAt": "2026-11-08T09:21:04.240Z",
-  "runId": "42466192948",
+  "assembledAt": "2026-11-08T21:45:43.732Z",
+  "runId": "42524031328",
   "jobs": [
     {
       "id": "sika-830dc4ea55aa",
@@ -34,7 +34,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-801917fc-80ba-4766-a2ec-8beac8c4bb54.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:20:56.864Z",
+      "crawledAt": "2026-11-08T21:45:36.888Z",
       "addressLocality": "Zürich",
       "postalCode": "8001",
       "streetAddress": "Zürich",
@@ -77,7 +77,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-08T09:20:56.864Z",
+      "validThrough": "2026-12-08T21:45:36.888Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -111,7 +111,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-06c3ea52-4733-4376-92fa-edc4842d799a.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:20:55.212Z",
+      "crawledAt": "2026-11-08T21:45:35.172Z",
       "addressLocality": "Düdingen",
       "postalCode": "3186",
       "streetAddress": "Düdingen",
@@ -157,7 +157,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-08T09:20:55.212Z",
+      "validThrough": "2026-12-08T21:45:35.172Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -191,7 +191,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-a83ab262-97a6-4d10-a5a4-e2269c5bfc4a.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-08T09:20:53.703Z",
+      "crawledAt": "2026-11-08T21:45:33.873Z",
       "addressLocality": "Zürich",
       "postalCode": "8001",
       "streetAddress": "Zürich",
@@ -240,7 +240,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-08T09:20:53.703Z",
+      "validThrough": "2026-12-08T21:45:33.873Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -274,7 +274,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-03295a71-729c-4904-8b5e-f2574649a9c0.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-08T09:20:52.193Z",
+      "crawledAt": "2026-11-08T21:45:32.766Z",
       "addressLocality": "Zürich",
       "postalCode": "8001",
       "streetAddress": "Zürich",
@@ -323,7 +323,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-08T09:20:52.193Z",
+      "validThrough": "2026-12-08T21:45:32.766Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -357,7 +357,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-f2a6afde-4e69-437f-a765-7d03d6f26534.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:20:50.545Z",
+      "crawledAt": "2026-11-08T21:45:31.905Z",
       "addressLocality": "Sarnen",
       "postalCode": "6060",
       "streetAddress": "Sarnen",
@@ -406,7 +406,85 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-08T09:20:50.545Z",
+      "validThrough": "2026-12-08T21:45:31.905Z",
+      "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "sika-9ebfce1fb108",
+      "slug": "progetti-strategici-associati-sika-zurich-zurich-switzerland",
+      "slugByLocale": {
+        "en": "strategic-projects-associate-sika-ch",
+        "it": "progetti-strategici-associati-sika-zurich-zurich-switzerland",
+        "de": "strategische-projekte-associate-sika-zurich-zurich-switzerland",
+        "fr": "projets-strategiques-associes-sika-zurich-zurich-switzerland"
+      },
+      "company": "Sika",
+      "companyKey": "sika",
+      "companyDomain": "sika.com",
+      "title": "Strategic Projects Associate",
+      "titleByLocale": {
+        "en": "Strategic Projects Associate",
+        "it": "Progetti strategici associati",
+        "de": "Strategische Projekte Associate",
+        "fr": "Projets stratégiques Associés"
+      },
+      "description": "About the Role\nWe are seeking a Strategic Projects Associate to join our Strategy Team. This role offers high-visibility, versatile regional projects and direct exposure to senior stakeholders and Sika Group Management. We’re looking for someone with a can-do attitude and willing to go the extra mile.\nIn this role you will design and deliver solutions that drive growth and efficiency, working closely with cross-functional teams to gather insights, analyze data, and support both strategic planning and hands-on execution.\nOur Goals - Your Path\n\n• Interpret data, analyse results and define actions with Business, Marketing, Supply Chain and Operations stakeholders to solve key business challenges\n\n• Identify new opportunities provided by available data to generate valuable insights for the business and support growth\n\n• Actively support countries / areas to review their strategic business plans and support translation into operations footprints through regular project drumbeats, dedicated workshops, as well as storytelling guidance and presentation drafting\n\n• Play a key role in analysing the impact of M&A activities on country masterplans and support local teams during the integration processes\n\n• Improve current and develop new processes and solutions and lead their roll-out across country organizations\n\n• Support in drafting presentations and data visualizations for country / area / region top-management leveraging insights identified through data analysis / workshops / other researches\n\n• Create strong link with cross-functional teams to introduce and expand innovative solutions\n\nYour Skills and Experience\nYour Expertise\n\n• Bachelor’s or Master’s degree in Business, Engineering or similar\n\n• Min. 2-3 years of experience with strategic projects and data analysis at a top consulting company\n\n• Proven experience with analysis, process & concept design as well as implementation phases of the project in a workstream lead position\n\n• Strong ability to connect the dots and create compelling stories suitable for the top management team\n\n• Strong analytical thinking and problem-solving skills with ability of translating data insights into actionable plans\n\n• High autonomy combined with an entrepreneurial mindset and a can-do attitude\n\n• Positive and energetic spirit that brings innovative ideas that engage people around you\n\n• Proficiency in Excel and Office suite, knowledge of data visualization software (e.g. Tableau, BI) is a plus\n\n• Fluency in English (written and spoken), German is a plus\n\n• Based in Zurich but flexible for occasional international travels\n\nWhy Join Us\n• We offer intensive training and interesting perspectives for anyone who wants to build a career\n\n• Sika is like a global SME: With subsidiaries in more than 100 countries around the world. This begins in Switzerland and breaks down borders allowing exciting prospects all around the world\n\n• The chance to bring new ideas, interesting areas for development, and taking responsibility early on are some of the key factors that drive Sika's pioneering spirit\nWe look forward to your application. For this position visa sponsorship is not offered and only direct applications will be considered. For any further information please reach us at [email protected]\n\nWe offer competitive salaries, aligned with local market benchmarks and the specific scope and responsibilities of each role. Compensation is determined based skills relevant to the position, education and/or training. We are committed to fair and equitable pay practices in accordance with applicable laws and regulations.\n\nAbout Sika\nSika is a specialty chemicals company with a globally leading position in the development and production of systems and products for bonding, sealing, damping, reinforcing, and protection in the building sector and industry. Sika has subsidiaries in 103 countries around the world, produces in over 400 factories, and develops innovative technologies for customers worldwide. In doing so, it plays a crucial role in enabling the transformation of the construction and transportation industries toward greater environmental compatibility. With more than 33,000 employees, the company generated sales of CHF 11.20 billion in 2025.",
+      "descriptionByLocale": {
+        "en": "About the Role\nWe are seeking a Strategic Projects Associate to join our Strategy Team. This role offers high-visibility, versatile regional projects and direct exposure to senior stakeholders and Sika Group Management. We’re looking for someone with a can-do attitude and willing to go the extra mile.\nIn this role you will design and deliver solutions that drive growth and efficiency, working closely with cross-functional teams to gather insights, analyze data, and support both strategic planning and hands-on execution.\nOur Goals - Your Path\n\n• Interpret data, analyse results and define actions with Business, Marketing, Supply Chain and Operations stakeholders to solve key business challenges\n\n• Identify new opportunities provided by available data to generate valuable insights for the business and support growth\n\n• Actively support countries / areas to review their strategic business plans and support translation into operations footprints through regular project drumbeats, dedicated workshops, as well as storytelling guidance and presentation drafting\n\n• Play a key role in analysing the impact of M&A activities on country masterplans and support local teams during the integration processes\n\n• Improve current and develop new processes and solutions and lead their roll-out across country organizations\n\n• Support in drafting presentations and data visualizations for country / area / region top-management leveraging insights identified through data analysis / workshops / other researches\n\n• Create strong link with cross-functional teams to introduce and expand innovative solutions\n\nYour Skills and Experience\nYour Expertise\n\n• Bachelor’s or Master’s degree in Business, Engineering or similar\n\n• Min. 2-3 years of experience with strategic projects and data analysis at a top consulting company\n\n• Proven experience with analysis, process & concept design as well as implementation phases of the project in a workstream lead position\n\n• Strong ability to connect the dots and create compelling stories suitable for the top management team\n\n• Strong analytical thinking and problem-solving skills with ability of translating data insights into actionable plans\n\n• High autonomy combined with an entrepreneurial mindset and a can-do attitude\n\n• Positive and energetic spirit that brings innovative ideas that engage people around you\n\n• Proficiency in Excel and Office suite, knowledge of data visualization software (e.g. Tableau, BI) is a plus\n\n• Fluency in English (written and spoken), German is a plus\n\n• Based in Zurich but flexible for occasional international travels\n\nWhy Join Us\n• We offer intensive training and interesting perspectives for anyone who wants to build a career\n\n• Sika is like a global SME: With subsidiaries in more than 100 countries around the world. This begins in Switzerland and breaks down borders allowing exciting prospects all around the world\n\n• The chance to bring new ideas, interesting areas for development, and taking responsibility early on are some of the key factors that drive Sika's pioneering spirit\nWe look forward to your application. For this position visa sponsorship is not offered and only direct applications will be considered. For any further information please reach us at [email protected]\n\nWe offer competitive salaries, aligned with local market benchmarks and the specific scope and responsibilities of each role. Compensation is determined based skills relevant to the position, education and/or training. We are committed to fair and equitable pay practices in accordance with applicable laws and regulations.\n\nAbout Sika\nSika is a specialty chemicals company with a globally leading position in the development and production of systems and products for bonding, sealing, damping, reinforcing, and protection in the building sector and industry. Sika has subsidiaries in 103 countries around the world, produces in over 400 factories, and develops innovative technologies for customers worldwide. In doing so, it plays a crucial role in enabling the transformation of the construction and transportation industries toward greater environmental compatibility. With more than 33,000 employees, the company generated sales of CHF 11.20 billion in 2025.",
+        "it": "Informazioni sul ruolo\nStiamo cercando un partner strategico per unirci al nostro team di strategia. Questo ruolo offre alta visibilità, progetti regionali versatili e esposizione diretta agli stakeholder senior e Sika Group Management. Stiamo cercando qualcuno con un atteggiamento in grado di fare e disposto a andare il miglio in più.\nIn questo ruolo si progetta e fornisce soluzioni che spingono la crescita e l'efficienza, lavorando a stretto contatto con team interfunzionali per raccogliere approfondimenti, analizzare i dati, e sostenere sia la pianificazione strategica e l'esecuzione hands-on.\nI nostri obiettivi - il tuo percorso\n\n• Interpretare i dati, analizzare i risultati e definire le azioni con le parti interessate di Business, Marketing, Supply Chain e Operations per risolvere le sfide chiave del business\n\n• Identificare nuove opportunità offerte dai dati disponibili per generare preziose intuizioni per la crescita del business e del supporto\n\n• Sostenere attivamente i paesi / le aree per rivedere i loro piani strategici di business e sostenere la traduzione in impronte di operazioni attraverso progetti regolari drumbeats, workshop dedicati, oltre a storytelling guida e redazione di presentazione\n\n• Svolgere un ruolo chiave nell'analisi dell'impatto delle attività M&A sui masterplan e sostenere le squadre locali durante i processi di integrazione\n\n• Migliorare l'attuale e sviluppare nuovi processi e soluzioni e portare il loro roll-out in tutte le organizzazioni dei paesi\n\n• Supporto nella redazione di presentazioni e visualizzazioni di dati per paese / area / regione top management sfruttando intuizioni identificate attraverso laboratori di analisi dati / altre ricerche\n\n• Creare un forte legame con team interfunzionali per introdurre ed espandere soluzioni innovative\n\nLe tue abilità ed esperienza\nLa tua esperienza\n\n• Laurea o Master in Business, Ingegneria o simili\n\n• Min. 2-3 anni di esperienza con progetti strategici e analisi dei dati in una società di consulenza superiore\n\n• Esperienza comprovata con analisi, progettazione di processi e concetti e fasi di attuazione del progetto in una posizione di guida a flusso di lavoro\n\n• Forte capacità di collegare i punti e creare storie interessanti adatte per il team di gestione superiore\n\n• Forte pensiero analitico e capacità di problem solving con capacità di tradurre intuizioni di dati in piani attuabili\n\n• Alta autonomia combinata con una mentalità imprenditoriale e un atteggiamento can-do\n\n• Spirito positivo ed energico che porta idee innovative che coinvolge le persone intorno a te\n\n• La competenza in Excel e Office suite, la conoscenza del software di visualizzazione dei dati (ad esempio Tableau, BI) è un plus\n\n• Fluenza in inglese (scritto e parlato), tedesco è un plus\n\n• Basato a Zurigo ma flessibile per viaggi internazionali occasionali\n\nPerché unirsi a noi\n• Offriamo formazione intensiva e prospettive interessanti per chiunque voglia costruire una carriera\n\n• Sika è come una PMI globale: con filiali in oltre 100 paesi del mondo. Questo inizia in Svizzera e rompe i confini permettendo prospettive emozionanti in tutto il mondo\n\n• La possibilità di portare nuove idee, aree interessanti per lo sviluppo e la responsabilità sono alcuni dei fattori chiave che spingono lo spirito pionieristico di Sika\nAttendiamo con ansia la vostra applicazione. Per questa posizione la sponsorizzazione del visto non è offerto e solo le domande dirette saranno considerate. Per ulteriori informazioni contattateci all'indirizzo [email protected]\n\nOffriamo stipendi competitivi, allineati con i benchmark del mercato locale e la portata e le responsabilità specifiche di ogni ruolo. Il compenso è determinato competenze basate rilevanti per la posizione, l'istruzione e/o la formazione. Ci impegniamo a pratiche di pagamento equa ed equa in conformità con le leggi e i regolamenti applicabili.\n\nA proposito di Sika\nSika è una società specializzata di prodotti chimici con una posizione leader a livello globale nello sviluppo e nella produzione di sistemi e prodotti per l'associazione, la sigillatura, l'umidificazione, il rafforzamento e la protezione nel settore edilizio e nell'industria. Sika ha filiali in 103 paesi in tutto il mondo, produce in oltre 400 fabbriche e sviluppa tecnologie innovative per i clienti in tutto il mondo. In tal modo, svolge un ruolo cruciale nel consentire la trasformazione delle industrie di costruzione e trasporto verso una maggiore compatibilità ambientale. Con oltre 33.000 dipendenti, la società ha generato vendite di CHF 11.20 miliardi nel 2025.",
+        "de": "Über die Rolle\nWir suchen einen strategischen Projects Associate, um unserem Strategieteam beizutreten. Diese Rolle bietet eine hohe Sichtbarkeit, vielseitige regionale Projekte und direkte Exposition gegenüber leitenden Stakeholdern und Sika Group Management. Wir suchen jemanden mit einer can-do-einstellung und bereit, die extrameile zu gehen.\nIn dieser Rolle entwerfen und liefern Sie Lösungen, die Wachstum und Effizienz fördern, arbeiten eng mit funktionsübergreifenden Teams zusammen, um Erkenntnisse zu sammeln, Daten zu analysieren und sowohl die strategische Planung als auch die praktische Ausführung zu unterstützen.\nUnsere Ziele - Dein Weg\n\n• Interpretieren Sie Daten, analysieren Sie Ergebnisse und definieren Sie Maßnahmen mit Stakeholdern aus den Bereichen Business, Marketing, Supply Chain und Operations, um wichtige geschäftliche Herausforderungen zu lösen\n\n• Identifizieren Sie neue Möglichkeiten, die durch verfügbare Daten bereitgestellt werden, um wertvolle Erkenntnisse für das Geschäft zu generieren und das Wachstum zu unterstützen\n\n• Aktive Unterstützung von Ländern/Gebieten bei der Überprüfung ihrer strategischen Geschäftspläne und Unterstützung der Übersetzung in operative Fußabdrücke durch regelmäßige Projekttrommeln, spezielle Workshops sowie Storytelling-Beratung und Präsentationsgestaltung\n\n• Eine Schlüsselrolle bei der Analyse der Auswirkungen von M&A-Aktivitäten auf Länder-Masterpläne spielen und lokale Teams bei den Integrationsprozessen unterstützen\n\n• Verbessern Sie aktuelle und entwickeln Sie neue Prozesse und Lösungen und führen Sie deren Rollout über Länderorganisationen hinweg\n\n• Unterstützung bei der Erstellung von Präsentationen und Datenvisualisierungen für das Top-Management des Landes / Gebiets / der Region durch Datenanalyse / Workshops / andere Untersuchungen\n\n• Schaffung einer starken Verbindung mit funktionsübergreifenden Teams zur Einführung und Erweiterung innovativer Lösungen\n\nIhre Fähigkeiten und Erfahrungen\nIhre Expertise\n\n• Bachelor- oder Master-Abschluss in Business, Engineering oder ähnlichem\n\n• Mindestens 2-3 Jahre Erfahrung mit strategischen Projekten und Datenanalyse bei einem Top-Beratungsunternehmen\n\n• Nachgewiesene Erfahrung mit Analyse, Prozess & Konzeptgestaltung sowie Umsetzungsphasen des Projekts in einer Workstream Lead Position\n\n• Starke Fähigkeit, die Punkte zu verbinden und überzeugende Geschichten zu erstellen, die für das Top-Management-Team geeignet sind\n\n• Starkes analytisches Denken und Problemlösungsfähigkeiten mit der Fähigkeit, Datenerkenntnisse in umsetzbare Pläne zu übersetzen\n\n• Hohe Autonomie kombiniert mit einer unternehmerischen Denkweise und einer Can-Do-Haltung\n\n• Positiver und energetischer Geist, der innovative Ideen mit sich bringt, die Menschen um Sie herum ansprechen\n\n• Kenntnisse in Excel und Office Suite, Kenntnisse in Datenvisualisierungssoftware (z. B. Tableau, BI) sind ein Plus\n\n• fließend Englisch (geschrieben und gesprochen), Deutsch ist ein Plus\n\n• Sitz in Zürich, aber flexibel für gelegentliche internationale Reisen\n\nWarum kommen Sie zu uns\n• Wir bieten intensives Training und interessante Perspektiven für alle, die eine Karriere aufbauen möchten\n\n• Sika ist wie ein globales KMU: Mit Tochtergesellschaften in mehr als 100 Ländern der Welt. Dies beginnt in der Schweiz und bricht Grenzen ein und ermöglicht spannende Perspektiven auf der ganzen Welt\n\n• Die Möglichkeit, neue Ideen, interessante Entwicklungsbereiche und die frühzeitige Übernahme von Verantwortung einzubringen, sind einige der Schlüsselfaktoren, die Sikas Pioniergeist antreiben.\nWir freuen uns auf Ihre Bewerbung. Für diese Position wird kein Visa-Sponsoring angeboten und nur Direktanträge werden berücksichtigt. Für weitere Informationen kontaktieren Sie uns bitte unter [email protected]\n\nWir bieten wettbewerbsfähige Gehälter, die auf lokale Marktbenchmarks und den spezifischen Umfang und die Verantwortlichkeiten jeder Rolle abgestimmt sind. Die Vergütung wird auf der Grundlage von Fähigkeiten festgelegt, die für die Position, Ausbildung und / oder Ausbildung relevant sind. Wir verpflichten uns zu fairen und gerechten Vergütungspraktiken in Übereinstimmung mit geltenden Gesetzen und Vorschriften.\n\nÜber Sika\nSika ist ein Spezialchemieunternehmen mit einer weltweit führenden Position in der Entwicklung und Produktion von Systemen und Produkten für Kleben, Abdichten, Dämpfen, Bewehren und Schutz im Bausektor und in der Industrie. Sika hat Tochtergesellschaften in 103 Ländern auf der ganzen Welt, produziert in über 400 Fabriken und entwickelt innovative Technologien für Kunden weltweit. Dabei spielt es eine entscheidende Rolle bei der Transformation der Bau- und Transportindustrie hin zu einer besseren Umweltverträglichkeit. Mit mehr als 33.000 Mitarbeitern erwirtschaftete das Unternehmen 2025 einen Umsatz von CHF 11.20 Milliarden.",
+        "fr": "À propos du rôle\nNous cherchons un associé de projets stratégiques pour rejoindre notre équipe stratégique. Ce rôle offre une grande visibilité, des projets régionaux polyvalents et une exposition directe aux principaux intervenants et à la gestion du groupe Sika. Nous recherchons quelqu'un avec une attitude de can-do et prêt à aller le mile supplémentaire.\nDans ce rôle, vous concevrez et fournirez des solutions qui favorisent la croissance et l'efficacité, en travaillant en étroite collaboration avec des équipes interfonctionnelles pour recueillir des idées, analyser des données et soutenir la planification stratégique et l'exécution pratique.\nNos objectifs - Votre chemin\n\n• Interpréter les données, analyser les résultats et définir les actions avec les parties prenantes des entreprises, du marketing, de la chaîne d'approvisionnement et des opérations pour résoudre les principaux défis commerciaux\n\n• Recenser les nouvelles possibilités offertes par les données disponibles pour générer des informations précieuses pour l'entreprise et soutenir la croissance\n\n• Aider activement les pays/domaines à revoir leurs plans d'activités stratégiques et à faciliter la traduction en empreintes opérationnelles grâce à des battements de tambours de projets réguliers, à des ateliers spécialisés ainsi qu'à des conseils et à la rédaction de présentations\n\n• Jouer un rôle clé dans l'analyse de l'impact des activités de fusion-acquisition sur les plans directeurs de pays et appuyer les équipes locales pendant les processus d'intégration\n\n• Améliorer les processus et les solutions actuels et en élaborer de nouvelles et diriger leur déploiement dans les organisations nationales\n\n• Appui à la rédaction de présentations et de visualisations de données pour la gestion de haut niveau par pays/zone/région en tirant parti des idées dégagées grâce à l'analyse de données / ateliers / autres recherches\n\n• Créer un lien fort avec les équipes interfonctionnelles pour introduire et développer des solutions innovantes\n\nVos compétences et votre expérience\nVotre expertise\n\n• Baccalauréat ou maîtrise en affaires, ingénierie ou similaire\n\n• Mini 2-3 ans d'expérience dans les projets stratégiques et l'analyse de données dans une société de conseil de haut niveau\n\n• Expérience éprouvée de l'analyse, de la conception des processus et des concepts ainsi que des phases de mise en œuvre du projet dans une position de chef de file du cycle de travail\n\n• Forte capacité à connecter les points et créer des histoires fascinantes adaptées à l'équipe de direction supérieure\n\n• Forte capacité de réflexion analytique et de résolution de problèmes avec la capacité de traduire les données en plans réalisables\n\n• Haute autonomie associée à un esprit d'entreprise et une attitude de candeur\n\n• Esprit positif et énergique qui apporte des idées innovantes qui engagent les gens autour de vous\n\n• Connaissance des logiciels de visualisation des données (p. ex. Tableau, BI)\n\n• La maîtrise de l'anglais (écrit et parlé), l'allemand est un plus\n\n• Basé à Zurich mais flexible pour les voyages internationaux occasionnels\n\nPourquoi nous rejoindre\n• Nous offrons une formation intensive et des perspectives intéressantes pour tous ceux qui veulent construire une carrière\n\n• Sika est comme une PME mondiale : avec des filiales dans plus de 100 pays à travers le monde. Cela commence en Suisse et décompose les frontières permettant des perspectives passionnantes partout dans le monde\n\n• La chance d'apporter de nouvelles idées, des domaines intéressants pour le développement et la prise de responsabilité tôt sont quelques-uns des facteurs clés qui motivent l'esprit pionnier de Sika\nNous attendons avec impatience votre candidature. Pour ce poste, le parrainage de visa n'est pas offert et seules les demandes directes seront prises en considération. Pour tout renseignement complémentaire, veuillez nous contacter à [email protected]\n\nNous offrons des salaires concurrentiels, conformes aux critères du marché local et à la portée et aux responsabilités spécifiques de chaque rôle. La rémunération est déterminée en fonction des compétences liées au poste, à l'éducation ou à la formation. Nous sommes attachés à des pratiques salariales justes et équitables conformément aux lois et règlements applicables.\n\nÀ propos de Sika\nSika est une société chimique spécialisée qui occupe une position de leader mondial dans le développement et la production de systèmes et de produits pour le collage, l'étanchéité, l'amortissement, le renforcement et la protection dans le secteur du bâtiment et l'industrie. Sika a des filiales dans 103 pays à travers le monde, produit dans plus de 400 usines et développe des technologies innovantes pour les clients dans le monde entier. Ce faisant, il joue un rôle crucial en permettant la transformation des industries de la construction et des transports vers une meilleure compatibilité environnementale. Avec plus de 33 000 employés, l'entreprise a généré des ventes de CHF 11,20 milliards en 2025."
+      },
+      "location": "Zürich, Zurich",
+      "canton": "ZH",
+      "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-0319e643-93ce-4aab-94b0-3609cf3ff530.html",
+      "source": "Sika Dedicated Parser",
+      "sourceLang": "en",
+      "crawledAt": "2026-11-08T21:45:30.733Z",
+      "addressLocality": "Zürich",
+      "postalCode": "8001",
+      "streetAddress": "Zürich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Specialty chemicals (construction & industrial)",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-03-25",
+      "postedDate": "2026-03-25",
+      "postingDateSource": "reported",
+      "applyUrl": "https://www.sika.com/en/career/jobs/job-posting-page/jid-0319e643-93ce-4aab-94b0-3609cf3ff530.html",
+      "requirements": [],
+      "requirementsByLocale": {
+        "en": []
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "strategic-projects-associate-sika-ch"
+        ]
+      },
+      "previousSlugs": [
+        "strategic-projects-associate-sika-ch"
+      ],
+      "salaryMin": 73500,
+      "salaryMax": 111500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 73500,
+          "maxValue": 111500,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-08T21:45:30.733Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -440,7 +518,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-225018cc-701c-4277-b715-54c0dc18286c.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:20:48.799Z",
+      "crawledAt": "2026-11-08T21:45:29.267Z",
       "addressLocality": "Birr",
       "postalCode": "5242",
       "streetAddress": "Birr",
@@ -486,7 +564,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-08T09:20:48.799Z",
+      "validThrough": "2026-12-08T21:45:29.267Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -520,7 +598,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-14ec562b-e189-4f29-a2f7-af58ab74c7f4.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-08T09:20:47.651Z",
+      "crawledAt": "2026-11-08T21:45:28.412Z",
       "addressLocality": "Zürich",
       "postalCode": "8001",
       "streetAddress": "Zürich",
@@ -582,7 +660,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-08T09:20:47.651Z",
+      "validThrough": "2026-12-08T21:45:28.412Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -616,7 +694,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-f6406866-8261-42b2-b18c-75a219d69ce1.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:20:46.067Z",
+      "crawledAt": "2026-11-08T21:45:27.204Z",
       "addressLocality": "Romanshorn",
       "postalCode": "8590",
       "streetAddress": "Romanshorn",
@@ -674,7 +752,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-08T09:20:46.067Z",
+      "validThrough": "2026-12-08T21:45:27.204Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -708,7 +786,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-e62349e4-b260-46b1-b5b1-558137b84dfa.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:20:44.464Z",
+      "crawledAt": "2026-11-08T21:45:25.714Z",
       "addressLocality": "Sarnen",
       "postalCode": "6060",
       "streetAddress": "Sarnen",
@@ -757,7 +835,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-08T09:20:44.464Z",
+      "validThrough": "2026-12-08T21:45:25.714Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -791,7 +869,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-f60aaabf-46d6-48de-bd14-7b67aa95a9ba.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:20:43.710Z",
+      "crawledAt": "2026-11-08T21:45:24.118Z",
       "addressLocality": "Sarnen",
       "postalCode": "6060",
       "streetAddress": "Sarnen",
@@ -840,7 +918,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-08T09:20:43.710Z",
+      "validThrough": "2026-12-08T21:45:24.118Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -874,7 +952,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-465ec003-7a5e-4cd9-881a-2b492edbf36f.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:20:43.346Z",
+      "crawledAt": "2026-11-08T21:45:23.734Z",
       "addressLocality": "Sarnen",
       "postalCode": "6060",
       "streetAddress": "Sarnen",
@@ -923,7 +1001,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-08T09:20:43.346Z",
+      "validThrough": "2026-12-08T21:45:23.734Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -957,7 +1035,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-bdfb0e95-97e0-4a0d-af2c-174bfdd23681.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:20:41.801Z",
+      "crawledAt": "2026-11-08T21:45:22.622Z",
       "addressLocality": "Sarnen",
       "postalCode": "6060",
       "streetAddress": "Sarnen",
@@ -1007,7 +1085,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-08T09:20:41.801Z",
+      "validThrough": "2026-12-08T21:45:22.622Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1041,7 +1119,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-d49d212d-425b-4df8-b472-647e7f47b720.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:20:40.636Z",
+      "crawledAt": "2026-11-08T21:45:21.346Z",
       "addressLocality": "Sarnen",
       "postalCode": "6060",
       "streetAddress": "Sarnen",
@@ -1103,7 +1181,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-08T09:20:40.636Z",
+      "validThrough": "2026-12-08T21:45:21.346Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1137,7 +1215,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-16cc041b-642b-405a-8c8b-1eb258ed05ba.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:20:39.386Z",
+      "crawledAt": "2026-11-08T21:45:20.963Z",
       "addressLocality": "Sarnen",
       "postalCode": "6060",
       "streetAddress": "Sarnen",
@@ -1188,7 +1266,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-08T09:20:39.386Z",
+      "validThrough": "2026-12-08T21:45:20.963Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1222,7 +1300,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-9b6bfb1d-bd31-45c4-ba52-1678901ee794.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:20:37.797Z",
+      "crawledAt": "2026-11-08T21:45:19.698Z",
       "addressLocality": "Altstätten",
       "postalCode": "9450",
       "streetAddress": "Altstätten",
@@ -1273,7 +1351,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-08T09:20:37.797Z",
+      "validThrough": "2026-12-08T21:45:19.698Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1307,7 +1385,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-6a2c4b22-d8ce-4c8f-a8ae-ebef8bb94bb6.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:20:36.688Z",
+      "crawledAt": "2026-11-08T21:45:18.049Z",
       "addressLocality": "Düdingen",
       "postalCode": "3186",
       "streetAddress": "Düdingen",
@@ -1356,7 +1434,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-08T09:20:36.688Z",
+      "validThrough": "2026-12-08T21:45:18.049Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1390,7 +1468,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-f6219ca1-f42f-4e64-8889-27137b4bfc59.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:20:36.329Z",
+      "crawledAt": "2026-11-08T21:45:16.674Z",
       "addressLocality": "Düdingen",
       "postalCode": "3186",
       "streetAddress": "Düdingen",
@@ -1443,7 +1521,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-08T09:20:36.329Z",
+      "validThrough": "2026-12-08T21:45:16.674Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1477,7 +1555,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-d008f907-3479-4421-970f-a81ee94402c3.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:20:35.198Z",
+      "crawledAt": "2026-11-08T21:45:15.485Z",
       "addressLocality": "Zürich",
       "postalCode": "8001",
       "streetAddress": "Zürich",
@@ -1524,7 +1602,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-08T09:20:35.198Z",
+      "validThrough": "2026-12-08T21:45:15.485Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1558,7 +1636,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-9c76864a-9d47-46eb-af82-10893fcfc91e.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-08T09:20:34.836Z",
+      "crawledAt": "2026-11-08T21:45:13.718Z",
       "addressLocality": "Zürich",
       "postalCode": "8001",
       "streetAddress": "Zürich",
@@ -1609,7 +1687,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-08T09:20:34.836Z",
+      "validThrough": "2026-12-08T21:45:13.718Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1643,7 +1721,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-1e013f32-de26-485f-8c7d-1859d42263a3.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-08T09:20:33.510Z",
+      "crawledAt": "2026-11-08T21:45:12.847Z",
       "addressLocality": "Zürich",
       "postalCode": "8001",
       "streetAddress": "Zürich",
@@ -1692,7 +1770,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-08T09:20:33.510Z",
+      "validThrough": "2026-12-08T21:45:12.847Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1726,7 +1804,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-27900974-6b7b-4d4d-bd5b-c30cef1ebc6a.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:20:32.105Z",
+      "crawledAt": "2026-11-08T21:45:11.496Z",
       "addressLocality": "Zürich",
       "postalCode": "8001",
       "streetAddress": "Zürich",
@@ -1775,7 +1853,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-08T09:20:32.105Z",
+      "validThrough": "2026-12-08T21:45:11.496Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1809,7 +1887,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-f3d46566-6b67-4236-ab81-dc432db26d97.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:20:31.364Z",
+      "crawledAt": "2026-11-08T21:45:11.115Z",
       "addressLocality": "Birr",
       "postalCode": "5242",
       "streetAddress": "Birr",
@@ -1854,7 +1932,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-08T09:20:31.364Z",
+      "validThrough": "2026-12-08T21:45:11.115Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1888,7 +1966,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-a59da0b4-eae8-4a6a-bbe8-eb7b46d5097a.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:20:30.608Z",
+      "crawledAt": "2026-11-08T21:45:10.257Z",
       "addressLocality": "Romanshorn",
       "postalCode": "8590",
       "streetAddress": "Romanshorn",
@@ -1939,7 +2017,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-08T09:20:30.608Z",
+      "validThrough": "2026-12-08T21:45:10.257Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1973,7 +2051,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-20c6a9ab-10e9-4574-b3da-f46b36088efb.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:20:29.109Z",
+      "crawledAt": "2026-11-08T21:45:09.063Z",
       "addressLocality": "Romanshorn",
       "postalCode": "8590",
       "streetAddress": "Romanshorn",
@@ -2039,7 +2117,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-08T09:20:29.109Z",
+      "validThrough": "2026-12-08T21:45:09.063Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2073,7 +2151,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-40cd3de7-667b-42a1-8711-7f423ba87261.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:20:28.355Z",
+      "crawledAt": "2026-11-08T21:45:07.265Z",
       "addressLocality": "Arbon / Romanshorn",
       "postalCode": "9320",
       "streetAddress": "Arbon / Romanshorn",
@@ -2119,7 +2197,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-08T09:20:28.355Z",
+      "validThrough": "2026-12-08T21:45:07.265Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2153,7 +2231,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-f8349eaa-d440-4a6a-9632-85b45ced7aac.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-08T09:20:27.991Z",
+      "crawledAt": "2026-11-08T21:45:05.936Z",
       "addressLocality": "Widen",
       "postalCode": "8967",
       "streetAddress": "Widen",
@@ -2202,7 +2280,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-08T09:20:27.991Z",
+      "validThrough": "2026-12-08T21:45:05.936Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2236,7 +2314,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-fb414f0f-92ed-454d-b817-0ce5a4e49072.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:20:26.776Z",
+      "crawledAt": "2026-11-08T21:45:05.073Z",
       "addressLocality": "Zürich",
       "postalCode": "8001",
       "streetAddress": "Zürich",
@@ -2279,7 +2357,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-08T09:20:26.776Z",
+      "validThrough": "2026-12-08T21:45:05.073Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2313,7 +2391,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-f8c274e8-611d-4253-9602-49e5c5a31e35.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:20:25.271Z",
+      "crawledAt": "2026-11-08T21:45:03.361Z",
       "addressLocality": "Birr",
       "postalCode": "5242",
       "streetAddress": "Birr",
@@ -2362,7 +2440,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-08T09:20:25.271Z",
+      "validThrough": "2026-12-08T21:45:03.361Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2396,7 +2474,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-44dde78c-5b75-4262-8b33-9b00aec560ba.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:20:24.523Z",
+      "crawledAt": "2026-11-08T21:45:01.841Z",
       "addressLocality": "Zürich",
       "postalCode": "8001",
       "streetAddress": "Zürich",
@@ -2445,7 +2523,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-08T09:20:24.523Z",
+      "validThrough": "2026-12-08T21:45:01.841Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2479,7 +2557,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-273b4296-5dde-4138-b859-a12db084cba2.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:20:23.302Z",
+      "crawledAt": "2026-11-08T21:45:00.096Z",
       "addressLocality": "Düdingen",
       "postalCode": "3186",
       "streetAddress": "Düdingen",
@@ -2534,7 +2612,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-08T09:20:23.302Z",
+      "validThrough": "2026-12-08T21:45:00.096Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2568,7 +2646,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-5ec60ecb-9201-4f09-ba89-e73491532ae1.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:20:22.536Z",
+      "crawledAt": "2026-11-08T21:44:58.782Z",
       "addressLocality": "Romanshorn",
       "postalCode": "8590",
       "streetAddress": "Romanshorn",
@@ -2612,7 +2690,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-08T09:20:22.536Z",
+      "validThrough": "2026-12-08T21:44:58.782Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2646,7 +2724,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-48ca988c-b964-4894-bbd0-b218553955f1.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:20:21.783Z",
+      "crawledAt": "2026-11-08T21:44:57.748Z",
       "addressLocality": "Zürich",
       "postalCode": "8001",
       "streetAddress": "Zürich",
@@ -2701,7 +2779,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-08T09:20:21.783Z",
+      "validThrough": "2026-12-08T21:44:57.748Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2735,7 +2813,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-876da52f-e983-4a7f-a401-e43daa0a535a.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:20:21.381Z",
+      "crawledAt": "2026-11-08T21:44:55.669Z",
       "addressLocality": "Birr",
       "postalCode": "5242",
       "streetAddress": "Birr",
@@ -2786,7 +2864,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-08T09:20:21.381Z",
+      "validThrough": "2026-12-08T21:44:55.669Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2820,7 +2898,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-7900f36e-3cd1-4050-be26-6d0fe6f179bf.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:20:19.811Z",
+      "crawledAt": "2026-11-08T21:44:54.376Z",
       "addressLocality": "Kemptthal",
       "postalCode": "8310",
       "streetAddress": "Kemptthal",
@@ -2869,7 +2947,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-08T09:20:19.811Z",
+      "validThrough": "2026-12-08T21:44:54.376Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2903,7 +2981,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-3f20ee8a-18d4-46c5-8d78-c08b80e686a8.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-08T09:20:18.560Z",
+      "crawledAt": "2026-11-08T21:44:53.965Z",
       "addressLocality": "Zürich",
       "postalCode": "8001",
       "streetAddress": "Zürich",
@@ -2956,7 +3034,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-08T09:20:18.560Z",
+      "validThrough": "2026-12-08T21:44:53.965Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2990,7 +3068,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-76d19468-d6a7-42d4-b30a-56077410f47f.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-08T09:20:18.193Z",
+      "crawledAt": "2026-11-08T21:44:52.794Z",
       "addressLocality": "Baar",
       "postalCode": "6340",
       "streetAddress": "Baar",
@@ -3044,7 +3122,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-09T09:20:18.193Z",
+      "validThrough": "2026-12-09T21:44:52.794Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3078,7 +3156,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-47ad871c-b3e1-479b-9960-a2ba662a0c62.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:20:17.441Z",
+      "crawledAt": "2026-11-08T21:44:51.161Z",
       "addressLocality": "Düdingen",
       "postalCode": "3186",
       "streetAddress": "Düdingen",
@@ -3121,8 +3199,88 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-20T09:20:17.441Z",
+      "validThrough": "2026-12-20T21:44:51.161Z",
       "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "sika-ead6360560ba",
+      "slug": "conduttore-d-impianto-m-f-operatore-di-processo-m-f-sika-dudingen-canton-of-fribourg",
+      "slugByLocale": {
+        "de": "anlagenfuhrer-w-m-process-operator-f-m-sika-ch",
+        "it": "conduttore-d-impianto-m-f-operatore-di-processo-m-f-sika-dudingen-canton-of-fribourg",
+        "en": "system-manager-m-f-process-operator-m-f-sika-dudingen-canton-of-fribourg",
+        "fr": "conducteur-d-installation-h-f-operateur-de-processus-h-f-sika-dudingen-canton-of-fribourg"
+      },
+      "company": "Sika",
+      "companyKey": "sika",
+      "companyDomain": "sika.com",
+      "title": "Anlagenführer (w/m) / Process Operator (f/m)",
+      "titleByLocale": {
+        "de": "Anlagenführer (w/m) / Process Operator (f/m)",
+        "it": "Operatore dell'impianto (m/f)/ Process Operator (m/f)",
+        "en": "System Manager (m/f) / Process Operator (m/f)",
+        "fr": "Conducteur d'installation (h/f)/opérateur de processus (h/f)"
+      },
+      "description": "Über die Rolle\nFür unseren Produktionsstandort in Düdingen suchen wir per 01. Januar 2027 oder nach Vereinbarung im Bereich Klebstoffherstellung (PUC LV) einen Anlagenführer. Folgende spannende Arbeiten erwarten Sie:\n\n• Sie sind Teil der Sicherheitskultur im Unternehmen\n\n• Sie sind zuständig für die Sicherstellung eines störungsfreien Betriebes auf den zugewiesenen Anlagen unter Einhaltung des Produktionsprogramms\n\n• Sie unterstützen innerhalb des Prozessteams die Minimierung von Fehlchargen, Abfall etc.\n\n• Sie sind mitverantwortlich für die Zielerreichung sowie die Eliminierung von Verlusten im Hinblick auf den Gesamtprozess\n\n• Sie halten die Standards sowie Arbeitsanweisungen, Gesetze und Vorschriften ein, insbesondere die Arbeitssicherheitsvorschriften\n\n• Sie fördern aktiv Verbesserungsmassnahmen innerhalb der gesamten Prozesse\n\nIhre Fähigkeiten und Erfahrungen\n• Abgeschlossene Berufsausbildung sowie ausgewiesene Erfahrung in der industriellen Produktion\n\n• Ein gutes, technisches Flair sowie manuelles Geschick und eine selbständige, eigenverantwortliche, zuverlässige Arbeitsweise\n\n• Sehr gute Deutschkenntnisse (m/s)\n\n• Bereitschaft in einem 3-Schichtbetrieb zu arbeiten\n\n• Gute Kenntnisse der gängigen Office-Software-Programme; SAP-Kenntnisse sind von Vorteil\n\n• Erfahrung im Umgang mit chemischen Rohstoffen ist von Vorteil\n\nWarum Sie zu uns kommen sollten\nDie Sika ist eine Art \"Welt-KMU\": In über 103 Ländern lokal verankert, auf der ganzen Welt zu Hause. Das eröffnet in der Schweiz und über die Grenzen hinaus spannende Perspektiven\nUnkomplizierte Führungskräfte, die Vertrauen schenken, fördern und aktiv unterstützen. Eine familiäre Atmosphäre macht das Arbeiten bei Sika speziell – viele bei uns nennen es den Sika-Spirit\nBei Fragen erteilt Ihnen Frau Jacqueline Zbinden, HR Manager, gerne weitere Auskünfte (Tel. 058 436 6105). Fühlen Sie sich angesprochen? Dann bewerben Sie sich online. Wir freuen uns, Sie kennen zu lernen!\n\nWir bieten wettbewerbsfähige Vergütungen, die sich an den lokalen Marktstandards und den spezifischen Aufgabenbereichen jeder Stelle orientieren. Die Vergütung richtet sich nach den für die Position relevanten Fähigkeiten, Verantwortung, der Ausbildung und/oder der Weiterbildung. Wir verpflichten uns zu fairen und gerechten Vergütungssystematiken in Übereinstimmung mit den geltenden Gesetzen, dem Tarifvertag Chemie und Vorschriften.\n\nÜber Sika\nSika ist ein Spezialchemieunternehmen mit einer führenden Position in der Entwicklung und Herstellung von Systemen und Produkten zum Kleben, Dichten, Dämpfen, Verstärken und Schützen im Bausektor und in der Automobilindustrie. Sika hat Tochtergesellschaften in 103 Ländern der Welt und produziert in über 400 Fabriken. Die mehr als 33.700 Mitarbeitenden erwirtschafteten im Jahr 2025 einen Jahresumsatz von CHF 11.20 Milliarden.",
+      "descriptionByLocale": {
+        "de": "Über die Rolle\nFür unseren Produktionsstandort in Düdingen suchen wir per 01. Januar 2027 oder nach Vereinbarung im Bereich Klebstoffherstellung (PUC LV) einen Anlagenführer. Folgende spannende Arbeiten erwarten Sie:\n\n• Sie sind Teil der Sicherheitskultur im Unternehmen\n\n• Sie sind zuständig für die Sicherstellung eines störungsfreien Betriebes auf den zugewiesenen Anlagen unter Einhaltung des Produktionsprogramms\n\n• Sie unterstützen innerhalb des Prozessteams die Minimierung von Fehlchargen, Abfall etc.\n\n• Sie sind mitverantwortlich für die Zielerreichung sowie die Eliminierung von Verlusten im Hinblick auf den Gesamtprozess\n\n• Sie halten die Standards sowie Arbeitsanweisungen, Gesetze und Vorschriften ein, insbesondere die Arbeitssicherheitsvorschriften\n\n• Sie fördern aktiv Verbesserungsmassnahmen innerhalb der gesamten Prozesse\n\nIhre Fähigkeiten und Erfahrungen\n• Abgeschlossene Berufsausbildung sowie ausgewiesene Erfahrung in der industriellen Produktion\n\n• Ein gutes, technisches Flair sowie manuelles Geschick und eine selbständige, eigenverantwortliche, zuverlässige Arbeitsweise\n\n• Sehr gute Deutschkenntnisse (m/s)\n\n• Bereitschaft in einem 3-Schichtbetrieb zu arbeiten\n\n• Gute Kenntnisse der gängigen Office-Software-Programme; SAP-Kenntnisse sind von Vorteil\n\n• Erfahrung im Umgang mit chemischen Rohstoffen ist von Vorteil\n\nWarum Sie zu uns kommen sollten\nDie Sika ist eine Art \"Welt-KMU\": In über 103 Ländern lokal verankert, auf der ganzen Welt zu Hause. Das eröffnet in der Schweiz und über die Grenzen hinaus spannende Perspektiven\nUnkomplizierte Führungskräfte, die Vertrauen schenken, fördern und aktiv unterstützen. Eine familiäre Atmosphäre macht das Arbeiten bei Sika speziell – viele bei uns nennen es den Sika-Spirit\nBei Fragen erteilt Ihnen Frau Jacqueline Zbinden, HR Manager, gerne weitere Auskünfte (Tel. 058 436 6105). Fühlen Sie sich angesprochen? Dann bewerben Sie sich online. Wir freuen uns, Sie kennen zu lernen!\n\nWir bieten wettbewerbsfähige Vergütungen, die sich an den lokalen Marktstandards und den spezifischen Aufgabenbereichen jeder Stelle orientieren. Die Vergütung richtet sich nach den für die Position relevanten Fähigkeiten, Verantwortung, der Ausbildung und/oder der Weiterbildung. Wir verpflichten uns zu fairen und gerechten Vergütungssystematiken in Übereinstimmung mit den geltenden Gesetzen, dem Tarifvertag Chemie und Vorschriften.\n\nÜber Sika\nSika ist ein Spezialchemieunternehmen mit einer führenden Position in der Entwicklung und Herstellung von Systemen und Produkten zum Kleben, Dichten, Dämpfen, Verstärken und Schützen im Bausektor und in der Automobilindustrie. Sika hat Tochtergesellschaften in 103 Ländern der Welt und produziert in über 400 Fabriken. Die mehr als 33.700 Mitarbeitenden erwirtschafteten im Jahr 2025 einen Jahresumsatz von CHF 11.20 Milliarden.",
+        "it": "Informazioni sul ruolo\nPer il nostro sito di produzione a Düdingen stiamo cercando 01. Gennaio 2027 o d'intesa nell'ambito della produzione di adesivi (PUC LV) un operatore di impianti. Le seguenti interessanti opere vi aspettano:\n\n• Fanno parte della cultura della sicurezza in azienda\n\n• Essi sono responsabili di garantire il funzionamento senza problemi sugli impianti assegnati nel rispetto del programma di produzione\n\n• Sostengono la minimizzazione dei falsi lotti, rifiuti, ecc. all'interno del team di processo.\n\n• Essi sono congiuntamente responsabili del raggiungimento degli obiettivi e dell'eliminazione delle perdite rispetto al processo globale\n\n• Essi rispettano le norme e le istruzioni di lavoro, le leggi e le normative, in particolare le norme di sicurezza sul lavoro\n\n• Promuovano attivamente misure di miglioramento all'interno dell'intero processo\n\nLe tue competenze ed esperienza\n• Formazione professionale completa e comprovata esperienza nella produzione industriale\n\n• Un buon tocco tecnico e un'abilità manuale e un metodo di lavoro indipendente, auto-responsabile e affidabile\n\n• Ottima conoscenza del tedesco (m/s)\n\n• Volontà di lavorare in un funzionamento a 3 turni\n\n• Buona conoscenza dei programmi di software di ufficio comuni; la conoscenza di SAP è un vantaggio\n\n• L'esperienza nella gestione delle materie prime chimiche è un vantaggio\n\nPerché dovresti venire da noi\nLa Sika è una sorta di \"PMI del mondo\": localmente ancorata in oltre 103 paesi, a casa in tutto il mondo. Questo apre prospettive entusiasmanti in Svizzera e oltre i confini\nLeader senza complicazioni che si fidano, promuovono e sostengono attivamente. Un'atmosfera familiare fa lavorare a Sika speciale – molti di noi lo chiamano lo spirito Sika\nSe avete domande, Jacqueline Zbinden, HR Manager, sarà lieto di fornirvi ulteriori informazioni (tel. 058 436 6105). Ti senti indirizzato? Quindi applicare online. Non vediamo l'ora di incontrarvi!\n\nOffriamo una remunerazione competitiva basata sugli standard del mercato locale e sulle responsabilità specifiche di ogni lavoro. La remunerazione si basa sulle competenze, responsabilità, istruzione e/o formazione pertinenti alla posizione. Ci impegniamo a regimi di remunerazione equa ed equa in conformità con le leggi applicabili, l'Accordo di Tariffa Chimica e i regolamenti.\n\nA proposito di Sika\nSika è una società specializzata di prodotti chimici con una posizione leader nello sviluppo e nella produzione di sistemi e prodotti per incollaggio, sigillatura, vaporizzazione, rinforzo e protezione nell'industria della costruzione e dell'automotive. Sika ha filiali in 103 paesi in tutto il mondo e produce in oltre 400 fabbriche. Gli oltre 33.700 dipendenti hanno generato un fatturato annuo di 11.20 miliardi di franchi nel 2025.",
+        "en": "About the role\nFor our production site in Düdingen we are looking for 01. January 2027 or by agreement in the area of adhesive production (PUC LV) a plant operator. The following exciting works await you:\n\n• They are part of the security culture in the company\n\n• They are responsible for ensuring trouble-free operation on the allocated facilities in compliance with the production programme\n\n• They support the minimization of false batches, waste, etc. within the process team.\n\n• They are jointly responsible for achieving goals and eliminating losses with regard to the overall process\n\n• They comply with standards as well as work instructions, laws and regulations, in particular occupational safety regulations\n\n• They actively promote improvement measures within the entire processes\n\nYour skills and experience\n• Completed vocational training and proven experience in industrial production\n\n• A good technical flair as well as manual skill and an independent, self-responsible, reliable working method\n\n• Very good knowledge of German (m/s)\n\n• Willingness to work in a 3-shift operation\n\n• Good knowledge of common office software programs; SAP knowledge is an advantage\n\n• Experience in handling chemical raw materials is an advantage\n\nWhy you should come to us\nThe Sika is a kind of \"world SMEs\": locally anchored in over 103 countries, at home all over the world. This opens up exciting prospects in Switzerland and beyond the borders\nUncomplicated leaders who trust, promote and actively support. A family atmosphere makes working at Sika special – many of us call it the Sika spirit\nIf you have any questions, Jacqueline Zbinden, HR Manager, will be happy to provide you with further information (tel. 058 436 6105). Do you feel addressed? Then apply online. We look forward to meeting you!\n\nWe offer competitive remuneration based on local market standards and the specific responsibilities of each job. The remuneration shall be based on the skills, responsibility, education and/or training relevant to the position. We are committed to fair and equitable remuneration schemes in accordance with applicable laws, the Chemicals Tariff Agreement and regulations.\n\nAbout Sika\nSika is a specialty chemicals company with a leading position in the development and manufacture of systems and products for gluing, sealing, steaming, reinforcing and protecting in the construction and automotive industry. Sika has subsidiaries in 103 countries around the world and produces in over 400 factories. The more than 33,700 employees generated an annual turnover of CHF 11.20 billion in 2025.",
+        "fr": "Sur le rôle\nPour notre site de production à Düdingen nous recherchons 01. Janvier 2027 ou par accord dans le domaine de la production d'adhésif (PUC LV) un exploitant d'usine. Les travaux passionnants suivants vous attendent:\n\n• Ils font partie de la culture de la sécurité dans l'entreprise\n\n• Ils sont chargés d'assurer l'exploitation sans problème des installations attribuées conformément au programme de production.\n\n• Ils soutiennent la minimisation des faux lots, déchets, etc. au sein de l'équipe de traitement.\n\n• Ils sont conjointement responsables de la réalisation des objectifs et de l ' élimination des pertes liées au processus global\n\n• Ils sont conformes aux normes ainsi qu'aux instructions, lois et règlements de travail, en particulier à la réglementation en matière de sécurité au travail.\n\n• Ils encouragent activement les mesures d'amélioration dans l'ensemble des processus\n\nVos compétences et votre expérience\n• Formation professionnelle terminée et expérience prouvée dans la production industrielle\n\n• Un bon style technique ainsi qu'une compétence manuelle et une méthode de travail indépendante, autonome et fiable\n\n• Très bonne connaissance de l'allemand (m/s)\n\n• Volonté de travailler en 3 équipes\n\n• Bonne connaissance des logiciels de bureau communs; connaissance SAP est un avantage\n\n• L'expérience dans la manipulation des matières premières chimiques est un avantage\n\nPourquoi tu devrais venir nous voir ?\nLa Sika est une sorte de « PME mondiales » : implantée localement dans plus de 103 pays, dans le monde entier. Cela ouvre des perspectives passionnantes en Suisse et au-delà des frontières\nDes dirigeants non compliqués qui font confiance, favorisent et soutiennent activement. Une ambiance familiale rend le travail à Sika spécial – beaucoup d'entre nous l'appellent l'esprit Sika\nSi vous avez des questions, Jacqueline Zbinden, HR Manager, sera heureuse de vous fournir de plus amples informations (tél. 058 436 6105). Vous sentez-vous adressé ? Puis appliquez en ligne. Nous sommes impatients de vous rencontrer!\n\nNous offrons une rémunération concurrentielle basée sur les normes du marché local et les responsabilités spécifiques de chaque emploi. La rémunération est fondée sur les compétences, les responsabilités, les études et/ou la formation pertinentes au poste. Nous nous engageons à mettre en place des systèmes de rémunération justes et équitables conformément aux lois applicables, à l'Accord tarifaire sur les produits chimiques et à la réglementation.\n\nÀ propos de Sika\nSika est une entreprise de produits chimiques spécialisés qui occupe une position de premier plan dans le développement et la fabrication de systèmes et de produits de collage, d'étanchéité, de vapeur, de renforcement et de protection dans l'industrie de la construction et de l'automobile. Sika a des filiales dans 103 pays à travers le monde et produit dans plus de 400 usines. Plus de 33 700 salariés ont généré un chiffre d'affaires annuel de CHF 11,20 milliards en 2025."
+      },
+      "location": "Düdingen, Canton of Fribourg",
+      "canton": "FR",
+      "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-de82f5e5-b7fb-4b8a-8d96-634e042e0ee1.html",
+      "source": "Sika Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-08T21:44:49.970Z",
+      "addressLocality": "Düdingen",
+      "postalCode": "3186",
+      "streetAddress": "Düdingen",
+      "addressRegion": "FR",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Produzione",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Specialty chemicals (construction & industrial)",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-09-21",
+      "postedDate": "2026-09-21",
+      "postingDateSource": "reported",
+      "applyUrl": "https://www.sika.com/en/career/jobs/job-posting-page/jid-de82f5e5-b7fb-4b8a-8d96-634e042e0ee1.html",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "anlagenfuhrer-w-m-process-operator-f-m-sika-ch"
+        ]
+      },
+      "previousSlugs": [
+        "anlagenfuhrer-w-m-process-operator-f-m-sika-ch"
+      ],
+      "salaryMin": 71000,
+      "salaryMax": 95500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 71000,
+          "maxValue": 95500,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-20T21:44:49.970Z",
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-07-13T22:33:55.431Z"
     },
     {
       "id": "sika-6e32d5253b3a",
@@ -3155,7 +3313,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-9a597c4f-1ce9-4b5c-acb2-409c36c97ff4.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-08T09:20:14.367Z",
+      "crawledAt": "2026-11-08T21:44:48.204Z",
       "addressLocality": "Zürich",
       "postalCode": "8001",
       "streetAddress": "Zürich",
@@ -3204,7 +3362,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-23T09:20:14.367Z",
+      "validThrough": "2026-12-23T21:44:48.204Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3238,7 +3396,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-de3fd00a-e533-415b-b1b9-2c1ee89f175c.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:20:14.007Z",
+      "crawledAt": "2026-11-08T21:44:46.891Z",
       "addressLocality": "Birr",
       "postalCode": "5242",
       "streetAddress": "Birr",
@@ -3286,7 +3444,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-27T09:20:14.007Z",
+      "validThrough": "2026-12-27T21:44:46.891Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3320,7 +3478,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-061825ed-c5a1-4ab8-85f4-0b31638d5793.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-08T09:20:13.641Z",
+      "crawledAt": "2026-11-08T21:44:46.485Z",
       "addressLocality": "Zürich",
       "postalCode": "8001",
       "streetAddress": "Zürich",
@@ -3369,7 +3527,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-27T09:20:13.641Z",
+      "validThrough": "2026-12-27T21:44:46.485Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3403,7 +3561,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-e59d147a-a3c5-4b0e-a9f6-8eb18e64c66e.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-11-08T09:20:12.062Z",
+      "crawledAt": "2026-11-08T21:44:44.708Z",
       "addressLocality": "Cadenazzo",
       "postalCode": "6593",
       "streetAddress": "Cadenazzo",
@@ -3438,7 +3596,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-29T09:20:12.062Z",
+      "validThrough": "2026-12-29T21:44:44.708Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3472,7 +3630,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-470cd65a-d03e-47ac-81e3-a951817ab102.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:20:11.308Z",
+      "crawledAt": "2026-11-08T21:44:43.263Z",
       "addressLocality": "Birr",
       "postalCode": "5242",
       "streetAddress": "Birr",
@@ -3521,7 +3679,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-29T09:20:11.308Z",
+      "validThrough": "2026-12-29T21:44:43.263Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3555,7 +3713,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-969fd446-9aa7-4f4f-8d15-bbdaa522919a.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:20:10.934Z",
+      "crawledAt": "2026-11-08T21:44:42.392Z",
       "addressLocality": "Birr",
       "postalCode": "5242",
       "streetAddress": "Birr",
@@ -3604,7 +3762,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-10T09:20:10.934Z",
+      "validThrough": "2027-01-10T21:44:42.392Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3638,7 +3796,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-0e422cc2-b766-4b03-b291-57d3cd58c412.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:20:10.565Z",
+      "crawledAt": "2026-11-08T21:44:42.009Z",
       "addressLocality": "Widen",
       "postalCode": "8967",
       "streetAddress": "Widen",
@@ -3687,7 +3845,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-18T09:20:10.565Z",
+      "validThrough": "2027-01-18T21:44:42.009Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3721,7 +3879,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-d5db50f8-cc38-488d-bded-1eccee77963a.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:20:09.814Z",
+      "crawledAt": "2026-11-08T21:44:41.616Z",
       "addressLocality": "Widen",
       "postalCode": "8967",
       "streetAddress": "Widen",
@@ -3770,7 +3928,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-20T09:20:09.814Z",
+      "validThrough": "2027-01-20T21:44:41.616Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3804,7 +3962,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-e8630cdd-fa91-47a4-8a31-db3a890660fa.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T09:20:09.069Z",
+      "crawledAt": "2026-11-08T21:44:41.190Z",
       "addressLocality": "Widen",
       "postalCode": "8967",
       "streetAddress": "Widen",
@@ -3847,7 +4005,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-20T09:20:09.069Z",
+      "validThrough": "2027-01-20T21:44:41.190Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3881,7 +4039,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-eb5c10d3-539b-4691-a17f-8b6d561cd311.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-08T09:20:08.698Z",
+      "crawledAt": "2026-11-08T21:44:39.521Z",
       "addressLocality": "Zürich",
       "postalCode": "8001",
       "streetAddress": "Zürich",
@@ -3930,7 +4088,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-21T09:20:08.698Z",
+      "validThrough": "2027-01-21T21:44:39.521Z",
       "validThroughSource": "last-observed-window"
     }
   ]
