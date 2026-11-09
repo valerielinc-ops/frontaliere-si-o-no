@@ -13681,6 +13681,12 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.roma-cambia-proposta-tassa.title': 'Rome changes health tax proposal for former cross-border workers',
     'blog.article.roma-cambia-proposta-tassa.excerpt': 'Rome wants to change the rules of the so-called health tax before even applying it.',
     'blog.article.roma-cambia-proposta-tassa.imageAlt': 'Illustrative image relevant to the article topic',
+    'blog.article.smile-varese-como-ticino.title': 'SMILE: sustainable mobility between Varese, Como and Ticino',
+    'blog.article.smile-varese-como-ticino.excerpt': 'On November 10, 2026, Chiasso will be the venue for SMILE’s public presentation.',
+    'blog.article.smile-varese-como-ticino.imageAlt': 'Illustrative image relevant to the article topic',
+    'blog.article.vivere-magreglio-lavorare-ticino.title': 'Living in Magreglio and working in Ticino as a border worker',
+    'blog.article.vivere-magreglio-lavorare-ticino.excerpt': 'Analysis and practical information for those who choose to reside in Magreglio, in the province of Como, and work as a border worker in Ticino.',
+    'blog.article.vivere-magreglio-lavorare-ticino.imageAlt': 'Illustrative image relevant to the article topic',
 };
 
 export default blogMetaEn;

@@ -8699,6 +8699,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.avs-iva-tredicesima-rendita.title': 'People vote on VAT increase to cover AVS 13th-pension costs',
     'blog.article.avs-iva-tredicesima-rendita.excerpt': 'On November 29, the people will be called upon to vote on the VAT increase chosen by the Federal Parliament to help cover the costs of the 13th AHV pension.',
     'blog.article.avs-iva-tredicesima-rendita.imageAlt': 'Illustrative image relevant to the article topic',
+    'blog.article.imposta-sostitutiva-pensioni-svizzere.title': '5% substitute tax on Swiss pensions',
+    'blog.article.imposta-sostitutiva-pensioni-svizzere.excerpt': 'In response No. 125/2024, the Italian Revenue Agency examined the tax treatment of benefits paid by the Swiss pension schemes of the first pillar AVS and the second pillar LPP.',
+    'blog.article.imposta-sostitutiva-pensioni-svizzere.imageAlt': 'Illustrative image relevant to the article topic',
 };
 
 export default blogMetaChEn;

@@ -109973,6 +109973,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-imposta-sostitutiva-pensioni-svizzere': {
+    title: 'Imposta sostitutiva del 5% per pensioni svizzere',
+    description: 'Chiarimento Agenzia delle Entrate (risposta n. 125/2024) su imposta sostitutiva 5% per AVS (rendita) e LPP (capitale) per residenti in Italia.',
+    keywords: 'pensioni svizzere, imposta sostitutiva, AVS, LPP, Agenzia delle Entrate, residenza fiscale Italia',
+    ogTitle: 'Imposta sostitutiva 5% pensioni svizzere',
+    ogDescription: 'La risposta n. 125/2024 dell\'Agenzia delle Entrate definisce l\'applicazione dell\'imposta sostitutiva del 5% su rendite AVS e riscatto LPP per chi trasferisce la residenza in Italia.',
+    canonicalPath: '/articoli-svizzera/imposta-sostitutiva-pensioni-svizzere/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Imposta sostitutiva del 5% per pensioni svizzere",
+      "description": "Chiarimento Agenzia delle Entrate (risposta n. 125/2024) su imposta sostitutiva 5% per AVS (rendita) e LPP (capitale) per residenti in Italia.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-imposta-sostitutiva-pensioni-svizzere.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine illustrativa pertinente al tema dell’articolo"
+      },
+      "datePublished": "2026-11-08T03:26:08+00:00",
+      "dateModified": "2026-11-08T03:26:08+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/imposta-sostitutiva-pensioni-svizzere/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

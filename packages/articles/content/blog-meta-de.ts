@@ -13680,6 +13680,12 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.roma-cambia-proposta-tassa.title': 'Rom ändert Vorschlag Gesundheitssteuer für alte Grenzgänger',
     'blog.article.roma-cambia-proposta-tassa.excerpt': 'Rom will die Regeln der sogenannten Gesundheitssteuer ändern, bevor sie überhaupt angewendet wird.',
     'blog.article.roma-cambia-proposta-tassa.imageAlt': 'Illustratives Bild zum Thema des Artikels',
+    'blog.article.smile-varese-como-ticino.title': 'SMILE: Nachhaltige Mobilität zwischen Varese, Como und Tessin',
+    'blog.article.smile-varese-como-ticino.excerpt': 'SMILE zielt darauf ab, eine nachhaltigere, zugänglichere und umfassend integrierte Mobilität im Gebiet zwischen den Provinzen Varese und Como und dem Kanton Tessin zu fördern.',
+    'blog.article.smile-varese-como-ticino.imageAlt': 'Illustratives Bild zum Thema des Artikels',
+    'blog.article.vivere-magreglio-lavorare-ticino.title': 'Leben in Magreglio und Arbeiten im Tessin als Grenzgänger',
+    'blog.article.vivere-magreglio-lavorare-ticino.excerpt': 'Analyse und praktische Informationen für diejenigen, die in Magreglio in der Provinz Como wohnen und als Grenzgänger im Tessin arbeiten möchten.',
+    'blog.article.vivere-magreglio-lavorare-ticino.imageAlt': 'Illustratives Bild zum Thema des Artikels',
 };
 
 export default blogMetaDe;

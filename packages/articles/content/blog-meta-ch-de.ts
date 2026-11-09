@@ -8699,6 +8699,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.avs-iva-tredicesima-rendita.title': 'Volksabstimmung: Mehrwertsteuererhöhung für 13. AHV-Rente',
     'blog.article.avs-iva-tredicesima-rendita.excerpt': 'Am 29. November wird das Volk über die vom eidgenössischen Parlament beschlossene Erhöhung der Mehrwertsteuer zur Mitfinanzierung der Kosten der 13. AHV-Rente abstimmen.',
     'blog.article.avs-iva-tredicesima-rendita.imageAlt': 'Illustratives Bild zum Thema des Artikels',
+    'blog.article.imposta-sostitutiva-pensioni-svizzere.title': '5 % Ersatzsteuer für Schweizer Renten',
+    'blog.article.imposta-sostitutiva-pensioni-svizzere.excerpt': 'In ihrer Antwort Nr. 125/2024 untersuchte die Agentur der Einnahmen die steuerliche Behandlung der Leistungen aus den schweizerischen Vorsorgesystemen der ersten Säule AHV und der zweiten Säule BVG.',
+    'blog.article.imposta-sostitutiva-pensioni-svizzere.imageAlt': 'Illustratives Bild zum Thema des Artikels',
 };
 
 export default blogMetaChDe;

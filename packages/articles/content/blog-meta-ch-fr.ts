@@ -8699,6 +8699,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.avs-iva-tredicesima-rendita.title': 'Vote sur hausse TVA pour coûts 13e AVS',
     'blog.article.avs-iva-tredicesima-rendita.excerpt': 'Le 29 novembre, le peuple sera appelé à s\'exprimer sur l\'augmentation de la TVA choisie par le Parlement fédéral pour contribuer à couvrir les coûts de la treizième rente AVS.',
     'blog.article.avs-iva-tredicesima-rendita.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
+    'blog.article.imposta-sostitutiva-pensioni-svizzere.title': 'Impôt substitutif de 5% pour les pensions suisses',
+    'blog.article.imposta-sostitutiva-pensioni-svizzere.excerpt': 'Dans la réponse n. 125/2024, l\'Agenzia delle Entrate a examiné le traitement fiscal des prestations versées par les régimes de prévoyance suisses du premier pilier AVS et du deuxième pilier LPP.',
+    'blog.article.imposta-sostitutiva-pensioni-svizzere.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
 };
 
 export default blogMetaChFr;

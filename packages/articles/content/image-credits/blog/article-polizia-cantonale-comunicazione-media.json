@@ -1,0 +1,79 @@
+{
+  "schema": 1,
+  "cover": "/images/blog/article-polizia-cantonale-comunicazione-media.webp",
+  "source": "generated-provider",
+  "commons": {
+    "title": "Generated editorial illustration",
+    "pageUrl": "https://openai.com/policies/terms-of-use/",
+    "width": 1200,
+    "height": 675,
+    "revision": "2026-11-09T01:46:16.227Z"
+  },
+  "author": {
+    "text": "frontaliereticino.ch",
+    "name": "frontaliereticino.ch",
+    "url": null,
+    "type": "Organization"
+  },
+  "attribution": null,
+  "licence": {
+    "name": "Generated media — provider terms apply",
+    "family": "other-attribution",
+    "attributionRequired": true,
+    "url": "https://openai.com/policies/terms-of-use/"
+  },
+  "restrictions": [
+    "illustrative-only",
+    "no-real-recognizable-foreground-person",
+    "no-public-figure-face",
+    "no-logo-brand-or-text",
+    "no-specific-real-event-photojournalism"
+  ],
+  "modified": "resized",
+  "fetchedAt": "2026-11-09",
+  "status": "ok",
+  "curation": null,
+  "generated": {
+    "schema": 1,
+    "assetId": "article-polizia-cantonale-comunicazione-media",
+    "kind": "generated",
+    "provider": "openai-codex",
+    "model": "gpt-image-2.5",
+    "executorModel": "gpt-5.6-luna",
+    "promptVersion": "frontaliereticino.generated-image-policy.v1",
+    "promptHash": "f5a70e5d4a23ad9808c610ffea7a14b6b98e7c919921b3f7a0e8464636a901e7",
+    "license": "generated-provider",
+    "licenseUrl": "https://openai.com/policies/terms-of-use/",
+    "credit": "frontaliereticino.ch",
+    "sha256": "eb50141f6c4c439549188386ab9bb03fc632d46f44efd152dcb52fef55805558",
+    "bytes": 175920,
+    "width": 1200,
+    "height": 675,
+    "format": "webp",
+    "generatedAt": "2026-11-09T01:46:16.227Z",
+    "verifiedAt": "2026-11-09T01:46:36.883Z",
+    "restrictions": [
+      "illustrative-only",
+      "no-real-recognizable-foreground-person",
+      "no-public-figure-face",
+      "no-logo-brand-or-text",
+      "no-specific-real-event-photojournalism"
+    ],
+    "scope": "article-hero",
+    "imageUrl": "/images/blog/article-polizia-cantonale-comunicazione-media.webp",
+    "area": "Swiss border region",
+    "season": "all seasons",
+    "variant": "article hero",
+    "vision": {
+      "ok": true,
+      "contains_text": false,
+      "contains_logo": false,
+      "contains_recognizable_face": false,
+      "contains_recognizable_foreground_person": false,
+      "looks_like_specific_real_event": false,
+      "is_photograph": false,
+      "is_topic_relevant": true,
+      "notes": "Original generic synthetic illustration of an institutional headquarters exterior; no text, signage, logos, people, or specific event."
+    }
+  }
+}
