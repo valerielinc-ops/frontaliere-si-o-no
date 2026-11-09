@@ -23,7 +23,7 @@ export const WINDOW_DAYS = 7;
 // autonomous fix for a problem already solved.
 export const FIRST_BACKLOG_RUN = '2026-11-09';
 export const DRY_RUN_COMMAND =
-  'source bin/rc-env.sh && node frontaliere-si-o-no/scripts/cf-observability-audit.mjs --dry-run';
+  'node scripts/cf-observability-audit.mjs --dry-run';
 
 // Cloudflare Observability paid allowances, per billing cycle.
 const INCLUDED_INGEST_GB = 50;
