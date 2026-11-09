@@ -184,25 +184,51 @@ function isDoctypeStart(xml, index) {
   return boundary !== undefined && /[\t\n\r >]/u.test(boundary);
 }
 
+/** XML 1.0 NameChar and S production, kept separate from JavaScript \s. */
+const XML_NAME_CHAR = /^[A-Za-z0-9_.:\-\u00B7\u0300-\u036F\u203F-\u2040\u00C0-\u00D6\u00D8-\u00F6\u00F8-\u02FF\u0370-\u037D\u037F-\u1FFF\u200C-\u200D\u2070-\u218F\u2C00-\u2FEF\u3001-\uD7FF\uF900-\uFDCF\uFDF0-\uFFFD\u{10000}-\u{EFFFF}]$/u;
+
+function isXmlNameChar(character) {
+  return XML_NAME_CHAR.test(character);
+}
+
+function isXmlWhitespace(character) {
+  return character === '\t' || character === '\n' || character === '\r' || character === ' ';
+}
+
 /**
  * A doctype has its own quoted values and internal subset. Delimiter-looking
  * text inside an entity value is data, while comments and processing
- * instructions between declarations are real XML literals. Keep the quoted
- * ranges in the transformed text so numeric C0 references inside them remain
- * visible to the gate.
+ * instructions between declarations are real XML literals. EntityValue and
+ * AttValue references are decoded, but SystemLiteral and PubidLiteral are
+ * opaque identifiers under XML 1.0 and must stay byte-identical.
  */
 function transformDoctype(xml, start, transform) {
   let output = '';
   let segmentStart = start;
   let index = start + '<!DOCTYPE'.length;
   let quote = null;
+  let quoteKind = null;
+  let declaration = 'DOCTYPE';
+  let declarationTokens = ['DOCTYPE'];
+  let currentToken = '';
+  let publicSystemLiteralPending = false;
   let subsetDepth = 0;
 
   while (index < xml.length) {
-    const character = xml[index];
+    const character = String.fromCodePoint(xml.codePointAt(index));
+    const characterWidth = character.length;
     if (quote) {
-      if (character === quote) quote = null;
-      index += 1;
+      if (character === quote) {
+        const end = index + 1;
+        if (quoteKind === 'system' || quoteKind === 'public') {
+          output += xml.slice(segmentStart, end);
+          segmentStart = end;
+        }
+        if (quoteKind === 'public') publicSystemLiteralPending = true;
+        quote = null;
+        quoteKind = null;
+      }
+      index += characterWidth;
       continue;
     }
 
@@ -224,12 +250,73 @@ function transformDoctype(xml, start, transform) {
       output += xml.slice(index, end);
       index = end;
       segmentStart = end;
+      currentToken = '';
+      declaration = 'DOCTYPE';
+      declarationTokens = ['DOCTYPE'];
+      publicSystemLiteralPending = false;
       continue;
     }
 
+    // Track only the DTD declaration keywords that can introduce system or
+    // public identifiers. Skip their names here so an entity named SYSTEM or
+    // PUBLIC is not mistaken for an external identifier keyword.
+    if (xml.startsWith('<!', index)) {
+      const declarationMatch = /^<!([A-Z]+)(?=[\t\n\r ])/u.exec(xml.slice(index));
+      if (declarationMatch) {
+        declaration = declarationMatch[1];
+        declarationTokens = [declaration];
+        currentToken = '';
+        publicSystemLiteralPending = false;
+        index += declarationMatch[0].length;
+        continue;
+      }
+      // A keyword-like prefix without XML whitespace is not a declaration
+      // (e.g. `<!ENTITYfoo`). Do not let its later SYSTEM/PUBLIC-looking
+      // tokens inherit the surrounding DOCTYPE identifier context.
+      declaration = '';
+      declarationTokens = [];
+      currentToken = '';
+      publicSystemLiteralPending = false;
+    }
+
     if (character === '"' || character === "'") {
+      if (currentToken) {
+        declarationTokens.push(currentToken);
+        currentToken = '';
+      }
+      const lastToken = declarationTokens.at(-1);
+      const separatedByWhitespace = isXmlWhitespace(xml[index - 1] || '');
+      const identifierContext = ['DOCTYPE', 'ENTITY', 'NOTATION'].includes(declaration)
+        && declarationTokens.length >= 3;
+      if (publicSystemLiteralPending && separatedByWhitespace) {
+        quoteKind = 'system';
+        publicSystemLiteralPending = false;
+      } else if (identifierContext && separatedByWhitespace && lastToken === 'SYSTEM') {
+        quoteKind = 'system';
+      } else if (identifierContext && separatedByWhitespace && lastToken === 'PUBLIC') {
+        quoteKind = 'public';
+      } else {
+        publicSystemLiteralPending = false;
+        quoteKind = 'value';
+      }
+      if (quoteKind === 'system' || quoteKind === 'public') {
+        output += transform(xml.slice(segmentStart, index), segmentStart);
+        segmentStart = index;
+      }
       quote = character;
-    } else if (character === '[') {
+      declarationTokens.push('');
+    } else if (publicSystemLiteralPending && !isXmlWhitespace(character)) {
+      publicSystemLiteralPending = false;
+    }
+
+    if (isXmlNameChar(character)) {
+      currentToken += character;
+    } else if (currentToken) {
+      declarationTokens.push(currentToken);
+      currentToken = '';
+    }
+
+    if (character === '[') {
       subsetDepth += 1;
     } else if (character === ']' && subsetDepth > 0) {
       subsetDepth -= 1;
@@ -237,8 +324,13 @@ function transformDoctype(xml, start, transform) {
       const end = index + 1;
       output += transform(xml.slice(segmentStart, end), segmentStart);
       return { text: output, end };
+    } else if (character === '>' && subsetDepth > 0) {
+      declaration = 'DOCTYPE';
+      declarationTokens = ['DOCTYPE'];
+      currentToken = '';
+      publicSystemLiteralPending = false;
     }
-    index += 1;
+    index += characterWidth;
   }
 
   output += transform(xml.slice(segmentStart), segmentStart);

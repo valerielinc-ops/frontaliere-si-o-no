@@ -246,6 +246,59 @@ describe('sanitizeXmlDocument, and the sitemap entry that broke', () => {
     expect(sanitizeXmlDocument(xml)).toBe(xml.replace('&#8;', ''));
   });
 
+  it('preserves numeric references in DTD SystemLiteral contexts', () => {
+    const documents = [
+      '<!DOCTYPE root SYSTEM "urn:example?x=&#8;"><root/>',
+      '<!DOCTYPE root PUBLIC "public-id" "urn:example?x=&#8;"><root/>',
+      '<!DOCTYPE root [<!ENTITY x SYSTEM "urn:example?x=&#8;">]><root/>',
+      '<!DOCTYPE root [<!ENTITY x PUBLIC "public-id" "urn:example?x=&#8;">]><root/>',
+    ];
+    for (const xml of documents) {
+      expect(findInvalidXmlReferencesOutsideLiterals(xml)).toEqual([]);
+      expect(sanitizeXmlDocument(xml)).toBe(xml);
+    }
+  });
+
+  it('preserves identifiers after non-ASCII XML names and rejects non-XML whitespace', () => {
+    const nonAsciiName = '<!DOCTYPE é SYSTEM "id&#x1;"><root/>';
+    expect(findInvalidXmlReferencesOutsideLiterals(nonAsciiName)).toEqual([]);
+    expect(sanitizeXmlDocument(nonAsciiName)).toBe(nonAsciiName);
+
+    const nonXmlWhitespace = '<!DOCTYPE root PUBLIC "pub"\u00A0 "sys&#x1;"><root/>';
+    expect(findInvalidXmlReferencesOutsideLiterals(nonXmlWhitespace)).toEqual([
+      { code: 0x01, index: nonXmlWhitespace.indexOf('&#x1;') },
+    ]);
+    expect(sanitizeXmlDocument(nonXmlWhitespace)).toBe(nonXmlWhitespace.replace('&#x1;', ''));
+  });
+
+  it('still decodes references in DTD EntityValue and AttValue strings', () => {
+    const xml = '<!DOCTYPE root [<!ENTITY x "&#8;"><!ATTLIST root a CDATA "&#8;">]><root/>';
+    expect(findInvalidXmlReferencesOutsideLiterals(xml)).toEqual([
+      { code: 0x08, index: xml.indexOf('&#8;') },
+      { code: 0x08, index: xml.lastIndexOf('&#8;') },
+    ]);
+    expect(sanitizeXmlDocument(xml)).toBe(xml.replaceAll('&#8;', ''));
+  });
+
+  it('does not exempt references in malformed DTD identifier syntax', () => {
+    for (const xml of [
+      '<!DOCTYPE root SYSTEM"urn:example?x=&#8;"><root/>',
+      '<!DOCTYPE root PUBLIC "public-id""urn:example?x=&#8;"><root/>',
+    ]) {
+      expect(findInvalidXmlReferencesOutsideLiterals(xml)).toEqual([
+        { code: 0x08, index: xml.indexOf('&#8;') },
+      ]);
+      expect(sanitizeXmlDocument(xml)).toBe(xml.replace('&#8;', ''));
+    }
+  });
+
+  it('does not treat declaration keywords without XML whitespace as identifiers', () => {
+    const xml = '<!DOCTYPE root [<!ENTITYfoo name SYSTEM "id&#x1;">]><root/>';
+    expect(findInvalidXmlReferencesOutsideLiterals(xml)).toEqual([
+      { code: 0x01, index: xml.indexOf('&#x1;') },
+    ]);
+  });
+
   it('preserves a real comment between declarations in the DTD internal subset', () => {
     const xml = '<!DOCTYPE root [<!--literal &#8;--><!ENTITY x "safe">]><root/>';
     expect(findInvalidXmlReferencesOutsideLiterals(xml)).toEqual([]);
