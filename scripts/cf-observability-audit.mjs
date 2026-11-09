@@ -35,7 +35,7 @@ export const WAF_BLOCKED_UAS = ['Baiduspider', 'CorsairBot', 'Chrome/48.0.2564.1
 const VERSION_PATHS = ['/commit-hash.txt', '/build-id.txt'];
 const AUTOMATED_UA_RE = /bot|crawl|spider|python|curl|wget|scrapy|go-http|axios|java\//i;
 const WELCOMED_UA_RE =
-  /googlebot|bingbot|applebot|gptbot|oai-searchbot|chatgpt|claudebot|claude-user|perplexity|duckduck|yandex|exasearchbot|reflectionbot|frontaliere/i;
+  /googlebot|bingbot|applebot|gptbot|oai-searchbot|chatgpt|claudebot|claude-user|perplexity|duckduck|yandex|exasearchbot|reflectionbot|shapbot|frontaliere/i;
 
 const share = (part, total) => (total > 0 ? part / total : 0);
 const pct = (value) => `${(value * 100).toFixed(1)}%`;
