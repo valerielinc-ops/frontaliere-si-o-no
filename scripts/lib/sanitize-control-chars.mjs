@@ -261,7 +261,7 @@ function transformDoctype(xml, start, transform) {
     // public identifiers. Skip their names here so an entity named SYSTEM or
     // PUBLIC is not mistaken for an external identifier keyword.
     if (xml.startsWith('<!', index)) {
-      const declarationMatch = /^<!([A-Z]+)/u.exec(xml.slice(index));
+      const declarationMatch = /^<!([A-Z]+)(?=[\t\n\r ])/u.exec(xml.slice(index));
       if (declarationMatch) {
         declaration = declarationMatch[1];
         declarationTokens = [declaration];
@@ -270,6 +270,13 @@ function transformDoctype(xml, start, transform) {
         index += declarationMatch[0].length;
         continue;
       }
+      // A keyword-like prefix without XML whitespace is not a declaration
+      // (e.g. `<!ENTITYfoo`). Do not let its later SYSTEM/PUBLIC-looking
+      // tokens inherit the surrounding DOCTYPE identifier context.
+      declaration = '';
+      declarationTokens = [];
+      currentToken = '';
+      publicSystemLiteralPending = false;
     }
 
     if (character === '"' || character === "'") {

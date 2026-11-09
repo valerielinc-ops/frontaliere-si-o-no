@@ -292,6 +292,13 @@ describe('sanitizeXmlDocument, and the sitemap entry that broke', () => {
     }
   });
 
+  it('does not treat declaration keywords without XML whitespace as identifiers', () => {
+    const xml = '<!DOCTYPE root [<!ENTITYfoo name SYSTEM "id&#x1;">]><root/>';
+    expect(findInvalidXmlReferencesOutsideLiterals(xml)).toEqual([
+      { code: 0x01, index: xml.indexOf('&#x1;') },
+    ]);
+  });
+
   it('preserves a real comment between declarations in the DTD internal subset', () => {
     const xml = '<!DOCTYPE root [<!--literal &#8;--><!ENTITY x "safe">]><root/>';
     expect(findInvalidXmlReferencesOutsideLiterals(xml)).toEqual([]);
