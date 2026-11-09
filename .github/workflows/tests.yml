@@ -128,6 +128,7 @@ on:
 permissions:
   contents: read
   checks: read
+  statuses: read
   pull-requests: write
   issues: write
   id-token: write
@@ -2237,6 +2238,41 @@ jobs:
             git fetch --no-tags origin "+refs/heads/${tests_guard_ref}:refs/remotes/origin/${tests_guard_ref}" || true
           fi
 
+      # The sync writer audits its uncommitted batch before opening the stable
+      # PR. Its report-only step is deliberately non-blocking for publication,
+      # so the only safe way to skip this gate is a successful commit status
+      # from that writer, attached to THIS PR head SHA. A missing, stale, or
+      # failed status leaves the ordinary gate enabled.
+      - name: Verify sync factuality writer attestation
+        id: sync_factuality_attestation
+        if: >-
+          ${{
+            github.event_name == 'pull_request' &&
+            github.event.pull_request.base.ref == 'main' &&
+            github.event.pull_request.head.ref == 'chore/sync-articles-sitemaps' &&
+            github.event.pull_request.head.repo.full_name == github.repository
+          }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+          STATUS_CONTEXT: frontaliere/sync-factuality-writer
+          RUN_URL_PREFIX: ${{ github.server_url }}/${{ github.repository }}/actions/runs/
+        run: |
+          set -euo pipefail
+          echo 'attested=false' >> "$GITHUB_OUTPUT"
+          success_count=0
+          if ! success_count="$(gh api -X GET "repos/${GITHUB_REPOSITORY}/commits/${HEAD_SHA}/status" \
+            --jq '[.statuses[] | select(.context == env.STATUS_CONTEXT and .state == "success" and .description == "report-only writer audit completed" and ((.target_url // "") | startswith(env.RUN_URL_PREFIX)))] | length' 2>/dev/null)"; then
+            echo '::warning::unable to read the sync factuality writer status; the blocking gate remains enabled'
+            success_count=0
+          fi
+          if [ "${success_count:-0}" -gt 0 ]; then
+            echo 'attested=true' >> "$GITHUB_OUTPUT"
+            echo "Factuality writer attested HEAD ${HEAD_SHA}."
+          else
+            echo "::warning::no successful factuality writer attestation for HEAD ${HEAD_SHA}; running the blocking gate"
+          fi
+
       - name: Gate factuality of changed articles
         # Deterministic guard (incident 2026-07-28, article
         # `frontalieri-altre-tasse-2026`): fails if an article body touched by
@@ -2247,11 +2283,9 @@ jobs:
         # The same gates run inside create-article.mjs, which covers the LLM
         # generation path the incident came from. This step is the backstop for
         # every OTHER way a body reaches main: hand edits, repair scripts and the
-        # other generators. The one same-repository branch excluded below is
-        # the generated sync PR: its writer already ran this audit on the
-        # uncommitted batch, in report-only mode, before opening the PR. Keep
-        # this exception closed to the exact branch and repository; all other
-        # article PRs remain blocking.
+        # other generators. The generated sync PR is exempt only when the
+        # preceding trusted status check proves a successful writer audit for
+        # this exact HEAD; all other article PRs remain blocking.
         #
         # Each failure prints the required correction. Fix the content — never
         # loosen a threshold or delete the passage to get the gate green.
@@ -2260,10 +2294,13 @@ jobs:
             steps.body_contract.outcome != 'failure' &&
             steps.ledger_scope.outputs.ledger_only != 'true' &&
             (
-              github.event_name != 'pull_request' ||
-              github.event.pull_request.base.ref != 'main' ||
-              github.event.pull_request.head.ref != 'chore/sync-articles-sitemaps' ||
-              github.event.pull_request.head.repo.full_name != github.repository
+              (
+                github.event_name != 'pull_request' ||
+                github.event.pull_request.base.ref != 'main' ||
+                github.event.pull_request.head.ref != 'chore/sync-articles-sitemaps' ||
+                github.event.pull_request.head.repo.full_name != github.repository
+              ) ||
+              steps.sync_factuality_attestation.outputs.attested != 'true'
             )
           }}
         env:

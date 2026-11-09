@@ -30,6 +30,7 @@ const {
   issueScope,
   buildReportIssue,
   buildStepSummary,
+  main,
 } = await import('../../scripts/ci/report-synced-article-factuality.mjs');
 
 /** Finding sintetico nella forma emessa da audit-article-factuality.mjs --json. */
@@ -226,7 +227,7 @@ describe('audit-article-factuality.mjs --changed-worktree', () => {
    * niente. Non si asserisce su `scanned`, che dipende da cosa il branch tocca;
    * si asserisce che lo scope sia DICHIARATO e computabile.
    */
-  it('dichiara il proprio scope e non è mai bloccante', () => {
+  it('dichiara il proprio scope e restituisce successo quando è calcolabile', () => {
     const out = execFileSync(
       process.execPath,
       [path.join(ROOT, 'scripts', 'audit-article-factuality.mjs'), '--json', '--changed-worktree'],
@@ -254,21 +255,42 @@ describe('audit-article-factuality.mjs --changed-worktree', () => {
     }
     expect(status).toBe(2);
   });
+
+  it('fallisce l attestazione quando lo scope non è calcolabile', async () => {
+    const code = await main({
+      runAudit: () => ({ scanned: 0, flagged: 0, diffUnavailable: true, findings: [] }),
+      newArticleIds: () => new Set(),
+    });
+    expect(code).toBe(1);
+  });
 });
 
 describe('tests.yml — factuality gate del sync stabile', () => {
   it('esclude solo il branch sync same-repo e conserva il gate per gli altri ingressi', () => {
     const workflow = readFileSync(path.join(ROOT, '.github', 'workflows', 'tests.yml'), 'utf-8');
+    const attestationStart = workflow.indexOf('- name: Verify sync factuality writer attestation');
     const start = workflow.indexOf('- name: Gate factuality of changed articles');
     const end = workflow.indexOf('- name: Collect changed paths (corpus gates delegated to frontaliere-articles)', start);
+    expect(attestationStart).toBeGreaterThan(-1);
     expect(start).toBeGreaterThan(-1);
     expect(end).toBeGreaterThan(start);
+    const attestation = workflow.slice(attestationStart, start);
     const step = workflow.slice(start, end);
+    expect(attestation).toContain('id: sync_factuality_attestation');
+    expect(attestation).toContain('frontaliere/sync-factuality-writer');
+    expect(workflow).toContain('  statuses: read');
     expect(step).toContain("github.event.pull_request.head.ref != 'chore/sync-articles-sitemaps'");
     expect(step).toContain("github.event.pull_request.head.repo.full_name != github.repository");
     expect(step).toContain("github.event.pull_request.base.ref != 'main'");
     expect(step).toContain('node scripts/audit-article-factuality.mjs --changed');
+    expect(step).toContain("steps.sync_factuality_attestation.outputs.attested != 'true'");
     expect(step).not.toContain('continue-on-error');
+
+    const syncWorkflow = readFileSync(path.join(ROOT, '.github', 'workflows', 'sync-articles-sitemaps.yml'), 'utf-8');
+    expect(syncWorkflow).toContain('id: report_factuality');
+    expect(syncWorkflow).toContain('Attest factuality report for stable sync PR');
+    expect(syncWorkflow).toContain('frontaliere/sync-factuality-writer');
+    expect(syncWorkflow).toContain('statuses/${head_sha}');
   });
 });
 

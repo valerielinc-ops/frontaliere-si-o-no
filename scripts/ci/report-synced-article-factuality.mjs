@@ -486,7 +486,10 @@ export async function main({
     // Loud on stdout too: a step summary is easy to miss and this is the state
     // in which the check covered nothing at all.
     console.error('⚠️  Scope non calcolabile — nessun articolo verificato in questo sync.');
-    return 0;
+    // The sync workflow keeps this report-only step non-blocking for the
+    // publication batch, but its failure must remain visible to the stable PR
+    // attestation. A missing scope is not a successful audit.
+    return 1;
   }
   console.log(
     `[factuality] ${report.scanned} body-locale sincronizzati, ${report.flagged} segnalati, `
@@ -546,13 +549,13 @@ if (isInvokedDirectly(import.meta.url)) {
   main()
     .then((code) => process.exit(code))
     .catch((err) => {
-      // Never let reporting turn a tolerated finding into a stopped publish:
-      // the sync must still commit. The step is `continue-on-error` too, so
-      // this is belt and braces on purpose.
+      // The sync step is `continue-on-error`, so a reporter failure does not
+      // discard the whole publication batch. Keep the non-zero outcome visible
+      // so the stable PR cannot mistake a failed audit for a valid attestation.
       console.error(
-        '⚠️  report-synced-article-factuality failed (non-fatal):',
+        '⚠️  report-synced-article-factuality failed:',
         err?.message || err,
       );
-      process.exit(0);
+      process.exit(1);
     });
 }
