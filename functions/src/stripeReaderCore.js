@@ -516,7 +516,11 @@ export async function handleReaderWebhookEvent(event, { db: dbFn, ts }) {
       const snap = await readerByStripeRef(dbFn, { customerId: obj.customer, subscriptionId: obj.subscription });
       if (!snap) return false;
       await mergeReaderSubscription(snap.ref, dbFn(), { status: 'active' }, {
-        firstPaidAt: obj.billing_reason === 'subscription_create' && Number(obj.amount_paid) > 0, ts,
+        // A subscription can start with a zero-value invoice (for example a
+        // trial or credit) and first collect on a later subscription_cycle.
+        // The transaction preserves the timestamp from the first positive
+        // invoice, regardless of its billing_reason.
+        firstPaidAt: Number(obj.amount_paid) > 0, ts,
       });
       return true;
     }

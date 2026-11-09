@@ -919,6 +919,20 @@ describe('handleReaderWebhookEvent', () => {
     expect(store.reader1.firstPaidAt).toBeUndefined();
   });
 
+  it('records the first positive renewal after a zero-value subscription invoice', async () => {
+    store.reader1 = { stripeCustomerId: 'cus_new', stripeSubscriptionId: 'sub_1', status: 'active' };
+    const { handleReaderWebhookEvent } = await load();
+    await handleReaderWebhookEvent({ type: 'invoice.paid', data: { object: {
+      customer: 'cus_new', subscription: 'sub_1', billing_reason: 'subscription_create', amount_paid: 0,
+    } } }, fakeCtx('__zero_value__'));
+    expect(store.reader1.firstPaidAt).toBeUndefined();
+
+    await handleReaderWebhookEvent({ type: 'invoice.paid', data: { object: {
+      customer: 'cus_new', subscription: 'sub_1', billing_reason: 'subscription_cycle', amount_paid: 299,
+    } } }, fakeCtx(ts));
+    expect(store.reader1.firstPaidAt).toBe(ts);
+  });
+
   it('invoice.paid falls through when no matching reader doc exists (publisher invoice)', async () => {
     const { handleReaderWebhookEvent } = await load();
     const event = {
