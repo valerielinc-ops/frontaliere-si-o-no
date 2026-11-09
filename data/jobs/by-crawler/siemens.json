@@ -1,7 +1,7 @@
 {
   "crawlerKey": "siemens",
-  "assembledAt": "2026-11-08T21:16:15.611Z",
-  "runId": "42523180860",
+  "assembledAt": "2026-11-09T09:22:59.491Z",
+  "runId": "42590417002",
   "jobs": [
     {
       "id": "siemens-05eecf023002",
@@ -34,7 +34,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/399122",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-08T21:16:07.138Z",
+      "crawledAt": "2026-11-09T09:22:20.606Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "streetAddress": "Zug",
@@ -79,7 +79,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-08T21:16:07.138Z",
+      "validThrough": "2026-12-09T09:22:20.606Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -113,7 +113,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/502220",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-08T21:16:02.880Z",
+      "crawledAt": "2026-11-09T09:22:14.868Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "streetAddress": "Zug",
@@ -158,7 +158,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-08T21:16:02.880Z",
+      "validThrough": "2026-12-09T09:22:14.868Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -192,7 +192,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/512222",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-08T21:16:00.816Z",
+      "crawledAt": "2026-11-09T09:22:12.083Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "streetAddress": "Zug",
@@ -237,7 +237,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-08T21:16:00.816Z",
+      "validThrough": "2026-12-09T09:22:12.083Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -271,7 +271,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/515121",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-08T21:15:58.732Z",
+      "crawledAt": "2026-11-09T09:22:09.242Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "streetAddress": "Zug",
@@ -316,7 +316,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-08T21:15:58.732Z",
+      "validThrough": "2026-12-09T09:22:09.242Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -350,7 +350,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/515676",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-08T21:15:56.455Z",
+      "crawledAt": "2026-11-09T09:22:06.322Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "streetAddress": "Zug",
@@ -398,7 +398,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-08T21:15:56.455Z",
+      "validThrough": "2026-12-09T09:22:06.322Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -432,7 +432,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/515971",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-08T21:15:54.451Z",
+      "crawledAt": "2026-11-09T09:22:03.425Z",
       "addressLocality": "St. Blaise",
       "addressRegion": "NE",
       "streetAddress": "St. Blaise",
@@ -477,7 +477,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-08T21:15:54.451Z",
+      "validThrough": "2026-12-09T09:22:03.425Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -511,7 +511,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/520015",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-08T21:15:52.230Z",
+      "crawledAt": "2026-11-09T09:22:00.507Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "streetAddress": "Zug",
@@ -548,86 +548,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-08T21:15:52.230Z",
-      "validThroughSource": "last-observed-window"
-    },
-    {
-      "id": "siemens-eac1588ab8d8",
-      "slug": "responsabile-del-team-security-80-100-siemens-reinach",
-      "slugByLocale": {
-        "it": "responsabile-del-team-security-80-100-siemens-reinach",
-        "en": "security-team-leader-80-100-siemens-reinach",
-        "de": "teamleiter-in-security-80-100-siemens-reinach",
-        "fr": "chef-d-equipe-en-securite-80-100-siemens-reinach"
-      },
-      "company": "Siemens",
-      "companyKey": "siemens",
-      "companyDomain": "siemens.com",
-      "title": "Teamleiter:in Security 80–100%",
-      "titleByLocale": {
-        "it": "Responsabile del team Security 80–100%",
-        "en": "Security Team Leader 80–100%",
-        "de": "Teamleiter:in Security 80–100%",
-        "fr": "Chef d'équipe en sécurité 80-100 %"
-      },
-      "description": "Gemeinsam mit unseren Kund:innen verbinden wir die reale und die digitale Welt. Als eines der führenden Technologieunternehmen beschäftigt Siemens in der Schweiz rund 6000 Mitarbeitende. Mit unseren wegweisenden Lösungen in den Bereichen Gebäudetechnik, Energie, Mobilität, Gesundheit und Industrie gestalten wir die Zukunft. In dieser Führungsrolle übernimmst du Verantwortung für ein engagiertes Kundendienstteam im Bereich Security und prägst die Weiterentwicklung unserer Serviceorganisation aktiv mit. Wenn du Menschen führen, operative Exzellenz sicherstellen und Kundennähe mit unternehmerischem Denken verbinden möchtest, bist du bei uns genau richtig. Bewirb dich als Teamleiter:in Security 80–100% und starte ab sofort oder nach Vereinbarung – dein Team freut sich auf dich. Deine neuen Aufgaben\n• Du führst und entwickelst ein Kundendienstteam im Bereich Security in der Region Reinach fachlich, organisatorisch und personell.\n• Du stellst eine zuverlässige, kundenorientierte und wirtschaftliche Auftrags- und Serviceabwicklung sicher – von der Planung über die Koordination bis zur erfolgreichen Umsetzung.\n• Du verantwortest die fachliche, terminliche und kommerzielle Zielerreichung deines Teams und sorgst für Transparenz bei Qualität, Kosten, Terminen und Ressourcen.\n• Du planst und steuerst die personellen sowie materiellen Ressourcen und stellst eine optimale Auslastung sowie eine vorausschauende Einsatzplanung sicher.\n• Du förderst die Entwicklung deiner Mitarbeitenden, stärkst die Zusammenarbeit im Team und schaffst ein Umfeld, in dem Eigenverantwortung und kontinuierliche Verbesserung gelebt werden.\n• Du überprüfst bestehende Prozesse, identifizierst Optimierungspotenziale und setzt Verbesserungen gemeinsam mit deinem Team sowie bereichsübergreifend um.\n• Du arbeitest eng mit internen Schnittstellen, Verkauf, Projektorganisation und Kund:innen zusammen und trägst damit wesentlich zur Kundenzufriedenheit und zum Erfolg unserer Security-Organisation bei. Deine Talente und Erfahrungen\n• Du hast eine abgeschlossene Ausbildung in Elektro-, Sicherheits- oder Gebäudetechnik oder eine IT-Ausbildung mit relevanter Weiterbildung auf Stufe HF/FH/NDS/CAS – oder bringst eine vergleichbare Qualifikation mit.\n• Du verfügst über mehrjährige Erfahrung im Service- oder Projektumfeld, idealerweise in der Sicherheits-, Gebäude- oder Elektrotechnik.\n• Du bringst Führungserfahrung mit oder bist bereit, den nächsten Entwicklungsschritt in eine Führungsrolle zu übernehmen.\n• Du verstehst betriebswirtschaftliche Zusammenhänge, arbeitest strukturiert und triffst Entscheidungen mit Blick auf Qualität, Kundennutzen und Wirtschaftlichkeit.\n• Du bist eine belastbare, engagierte und kommunikative Persönlichkeit, die Menschen motiviert, Verantwortung übernimmt und Veränderungen konstruktiv mitgestaltet.\n• Du arbeitest sicher mit MS Office und nutzt digitale Tools effizient im Führungs- und Arbeitsalltag.\n• Du kommunizierst sehr gut auf Deutsch in Wort und Schrift; Englischkenntnisse und/oder eine weitere Landessprache sind von Vorteil. Deine Vorteile\n• Dein eigenes Elektroauto (das du auch privat nutzen darfst)\n• Selbstständiges, flexibles Arbeiten\n• Viele Weiterentwicklungs- und Entwicklungsmöglichkeiten\n• Zugang zu Aktienplänen für Mitarbeitende\n• Alle Vorteile findest du hier Unsere Unternehmenskultur - dein neues Arbeitsumfeld Die Kultur bei Siemens Schweiz ist mehr als nur ein Arbeitsumfeld – sie ist das Herzstück unseres täglichen Miteinanders und der Schlüssel zu unserem Erfolg. Siemens Schweiz bietet ein zukunftsorientiertes Arbeitsumfeld, das von Innovation, Nachhaltigkeit und persönlicher Entfaltung geprägt ist. Wir zeichnen uns durch Eigenverantwortung, Chancengerechtigkeit und Vielfalt aus, in der sich jede:r Mitarbeitende authentisch einbringen kann. Flexible Arbeitsmodelle und mobiles Arbeiten sind bei uns gelebte Realität und ermöglichen unseren Mitarbeitenden eine ausgewogene Work-Life-Balance. Erfahre mehr und entdecke mit unserem Kulturquiz , ob du zu Siemens passt! « Siemens gehört zu den Pionieren der Technologie, und Teil davon zu sein, macht mich schon irgendwie stolz. » (Teamleiterin bei Siemens) News und Stories Verschaffe dir selbst einen Eindruck davon, wie innovativ Technologie unsere Gegenwart verändern kann. Wenn du mehr dazu erfahren willst, was für Projekte mittels Siemens Technologie umgesetzt werden können, findest du hier einige aktuelle Beispiele . Häufig gestellte Fragen und deine Ansprechperson Hier findest du eine Sammlung häufig gestellter Fragen sowie die Möglichkeit, uns direkt zu kontaktieren. Ich freue mich auf deine Bewerbung. Melanie Talent Acquisition Partner Dein Weg zu Siemens - How we hire Information für Personalvermittlungen: Siemens Schweiz nimmt für diese Position keine Bewerbungen von Personalvermittlungen entgegen. Vielen Dank für das Verständnis.",
-      "descriptionByLocale": {
-        "it": "Insieme ai nostri clienti, connettiamo il mondo reale e digitale. Come una delle principali aziende tecnologiche, Siemens impiega circa 6.000 persone in Svizzera. Con le nostre soluzioni innovative nei settori della tecnologia dell'edilizia, dell'energia, della mobilità, della salute e dell'industria, stiamo plasmando il futuro. In questo ruolo di leadership, si assume la responsabilità di un team di assistenza clienti dedicato nel settore della sicurezza e forma attivamente l'ulteriore sviluppo della nostra organizzazione di servizi. Se si desidera guidare le persone, garantire l'eccellenza operativa e combinare la prossimità del cliente con il pensiero imprenditoriale, si è al posto giusto con noi. Applicare come Team Leader: in Sicurezza 80-100% e iniziare immediatamente o su appuntamento – il vostro team vi aspetta. Le nuove attività\n• Condurrai e svilupperai un team di assistenza clienti nel settore della sicurezza nella regione di Reinach in termini di competenze, organizzazione e personale.\n• L'utente garantisce l'elaborazione di ordini e servizi affidabili, orientati al cliente ed economici, dalla pianificazione al coordinamento all'implementazione di successo.\n• Sei responsabile del raggiungimento professionale, programmato e commerciale degli obiettivi del tuo team e garantisci la trasparenza in qualità, costi, scadenze e risorse.\n• Pianifichi e controlli le risorse umane e materiali e garantisci un utilizzo ottimale e una pianificazione dell'assegnazione previsionale.\n• Promuovete lo sviluppo dei vostri dipendenti, rafforzate la cooperazione nel team e create un ambiente in cui la responsabilità personale e il miglioramento continuo sono vissuti.\n• Controllate i processi esistenti, identificate il potenziale di ottimizzazione e implementate i miglioramenti insieme al vostro team e in tutte le aree.\n• Si lavora a stretto contatto con le interfacce interne, le vendite, l'organizzazione del progetto e i clienti e quindi contribuiscono in modo significativo alla soddisfazione del cliente e al successo della nostra organizzazione di sicurezza. I tuoi talenti ed esperienze\n• Hai completato un apprendistato in tecnologia elettrica, di sicurezza o di costruzione o un'istruzione IT con un'ulteriore formazione rilevante a livello di HF/FH/NDS/CAS – o portare una qualifica simile.\n• Hai diversi anni di esperienza nell'ambiente di servizio o progetto, idealmente in sicurezza, costruzione o ingegneria elettrica.\n• Si porta esperienza di leadership o sono pronti a prendere il prossimo passo di sviluppo in un ruolo di leadership.\n• Comprendono i contesti aziendali, lavorano in modo strutturato e prendono decisioni per quanto riguarda la qualità, il vantaggio del cliente e la redditività.\n• Sei una personalità resiliente, impegnata e comunicativa che motiva le persone, si assume responsabilità e forme cambiano costruttivamente.\n• Si lavora in modo sicuro con MS Office e utilizzare strumenti digitali in modo efficiente nella gestione e nel lavoro di tutti i giorni.\n• Si comunica molto bene in tedesco nella parola e nella scrittura; La conoscenza dell'inglese e/o di un'altra lingua nazionale sono utili. I vantaggi\n• La tua auto elettrica (che puoi anche usare privatamente)\n• Lavorazione indipendente e flessibile\n• Molte altre opportunità di sviluppo e sviluppo\n• Accesso ai piani azionari dei dipendenti\n• Potete trovare tutti i vantaggi qui La nostra cultura aziendale - il tuo nuovo ambiente di lavoro La cultura della Siemens Svizzera è più che un semplice ambiente di lavoro: è al centro della nostra collaborazione quotidiana e della chiave del nostro successo. Siemens Svizzera offre un ambiente di lavoro orientato al futuro caratterizzato da innovazione, sostenibilità e sviluppo personale. Siamo caratterizzati da responsabilità personale, pari opportunità e diversità, in cui ogni dipendente può contribuire in modo autentico. I modelli di lavoro flessibili e il lavoro mobile sono una realtà per noi e permettono ai nostri dipendenti di raggiungere un equilibrio equilibrato della vita lavorativa. Scopri di più e scopri con il nostro quiz culturale se sei adatto per Siemens! Siemens è uno dei pionieri della tecnologia, ed essere parte di esso mi rende orgoglioso.» (Team Leader presso Siemens) Notizie e Stories Ottieni un senso di come la tecnologia innovativa può cambiare il nostro presente. Se volete saperne di più su quali progetti possono essere implementati utilizzando la tecnologia Siemens, ecco alcuni esempi attuali. Domande frequenti e la persona di contatto Qui troverete una raccolta di domande frequenti e la possibilità di contattarci direttamente. Non vedo l'ora della sua candidatura. Melanie Talent Acquisizione Partner La tua strada per Siemens - Come assumere Informazioni per agenzie di reclutamento: Siemens Svizzera non accetta richieste di reclutamento per questa posizione. Grazie per la vostra comprensione.",
-        "en": "Together with our customers, we connect the real and the digital world. As one of the leading technology companies, Siemens employs around 6,000 people in Switzerland. With our groundbreaking solutions in the areas of building technology, energy, mobility, health and industry, we are shaping the future. In this leadership role, you take responsibility for a dedicated customer service team in the area of security and actively shape the further development of our service organization. If you want to lead people, ensure operational excellence and combine customer proximity with entrepreneurial thinking, you are at the right place with us. Apply as Team Leader: in Security 80-100% and start immediately or by appointment – your team is looking forward to you. Your new tasks\n• You will lead and develop a customer service team in the area of security in the Reinach region in terms of expertise, organization and personnel.\n• You ensure reliable, customer-oriented and economical order and service processing – from planning to coordination to successful implementation.\n• You are responsible for the professional, scheduled and commercial achievement of your team’s goals and ensure transparency in quality, costs, deadlines and resources.\n• You plan and control the human and material resources and ensure optimal utilization and forward-looking assignment planning.\n• You promote the development of your employees, strengthen cooperation in the team and create an environment in which personal responsibility and continuous improvement are lived.\n• You review existing processes, identify potential for optimization and implement improvements together with your team and across all areas.\n• You work closely with internal interfaces, sales, project organization and customers and thus contribute significantly to customer satisfaction and the success of our security organization. Your talents and experiences\n• You have completed an apprenticeship in electrical, security or building technology or an IT education with relevant further education at the level of HF/FH/NDS/CAS – or bring a comparable qualification.\n• You have several years of experience in the service or project environment, ideally in security, building or electrical engineering.\n• You bring leadership experience or are ready to take the next development step into a leadership role.\n• You understand business contexts, work in a structured way and make decisions with regard to quality, customer benefit and profitability.\n• You are a resilient, committed and communicative personality who motivates people, takes responsibility and shapes change constructively.\n• You work safely with MS Office and use digital tools efficiently in everyday management and work.\n• You communicate very well in German in word and writing; Knowledge of English and/or another national language are beneficial. Your advantages\n• Your own electric car (which you can also use privately)\n• Independent, flexible working\n• Many further development and development opportunities\n• Access to employee stock plans\n• You can find all the advantages here Our corporate culture - your new working environment The culture at Siemens Switzerland is more than just a working environment – it is at the heart of our daily cooperation and the key to our success. Siemens Switzerland offers a future-oriented working environment characterized by innovation, sustainability and personal development. We are characterized by personal responsibility, equal opportunities and diversity, in which every employee can contribute authentically. Flexible working models and mobile working are a reality for us and enable our employees to achieve a balanced work-life balance. Learn more and discover with our cultural quiz whether you are a fit for Siemens! Siemens is one of the pioneers of technology, and being part of it makes me proud. » (Team Leader at Siemens) News and Stories Get a sense of how innovative technology can change our present. If you want to learn more about what projects can be implemented using Siemens technology, here are some current examples. Frequently Asked Questions and your contact person Here you will find a collection of frequently asked questions as well as the opportunity to contact us directly. I look forward to your application. Melanie Talent Acquisition Partner Your way to Siemens - How we hire Information for recruitment agencies: Siemens Switzerland does not accept recruitment applications for this position. Thank you for your understanding.",
-        "de": "Gemeinsam mit unseren Kund:innen verbinden wir die reale und die digitale Welt. Als eines der führenden Technologieunternehmen beschäftigt Siemens in der Schweiz rund 6000 Mitarbeitende. Mit unseren wegweisenden Lösungen in den Bereichen Gebäudetechnik, Energie, Mobilität, Gesundheit und Industrie gestalten wir die Zukunft. In dieser Führungsrolle übernimmst du Verantwortung für ein engagiertes Kundendienstteam im Bereich Security und prägst die Weiterentwicklung unserer Serviceorganisation aktiv mit. Wenn du Menschen führen, operative Exzellenz sicherstellen und Kundennähe mit unternehmerischem Denken verbinden möchtest, bist du bei uns genau richtig. Bewirb dich als Teamleiter:in Security 80–100% und starte ab sofort oder nach Vereinbarung – dein Team freut sich auf dich. Deine neuen Aufgaben\n• Du führst und entwickelst ein Kundendienstteam im Bereich Security in der Region Reinach fachlich, organisatorisch und personell.\n• Du stellst eine zuverlässige, kundenorientierte und wirtschaftliche Auftrags- und Serviceabwicklung sicher – von der Planung über die Koordination bis zur erfolgreichen Umsetzung.\n• Du verantwortest die fachliche, terminliche und kommerzielle Zielerreichung deines Teams und sorgst für Transparenz bei Qualität, Kosten, Terminen und Ressourcen.\n• Du planst und steuerst die personellen sowie materiellen Ressourcen und stellst eine optimale Auslastung sowie eine vorausschauende Einsatzplanung sicher.\n• Du förderst die Entwicklung deiner Mitarbeitenden, stärkst die Zusammenarbeit im Team und schaffst ein Umfeld, in dem Eigenverantwortung und kontinuierliche Verbesserung gelebt werden.\n• Du überprüfst bestehende Prozesse, identifizierst Optimierungspotenziale und setzt Verbesserungen gemeinsam mit deinem Team sowie bereichsübergreifend um.\n• Du arbeitest eng mit internen Schnittstellen, Verkauf, Projektorganisation und Kund:innen zusammen und trägst damit wesentlich zur Kundenzufriedenheit und zum Erfolg unserer Security-Organisation bei. Deine Talente und Erfahrungen\n• Du hast eine abgeschlossene Ausbildung in Elektro-, Sicherheits- oder Gebäudetechnik oder eine IT-Ausbildung mit relevanter Weiterbildung auf Stufe HF/FH/NDS/CAS – oder bringst eine vergleichbare Qualifikation mit.\n• Du verfügst über mehrjährige Erfahrung im Service- oder Projektumfeld, idealerweise in der Sicherheits-, Gebäude- oder Elektrotechnik.\n• Du bringst Führungserfahrung mit oder bist bereit, den nächsten Entwicklungsschritt in eine Führungsrolle zu übernehmen.\n• Du verstehst betriebswirtschaftliche Zusammenhänge, arbeitest strukturiert und triffst Entscheidungen mit Blick auf Qualität, Kundennutzen und Wirtschaftlichkeit.\n• Du bist eine belastbare, engagierte und kommunikative Persönlichkeit, die Menschen motiviert, Verantwortung übernimmt und Veränderungen konstruktiv mitgestaltet.\n• Du arbeitest sicher mit MS Office und nutzt digitale Tools effizient im Führungs- und Arbeitsalltag.\n• Du kommunizierst sehr gut auf Deutsch in Wort und Schrift; Englischkenntnisse und/oder eine weitere Landessprache sind von Vorteil. Deine Vorteile\n• Dein eigenes Elektroauto (das du auch privat nutzen darfst)\n• Selbstständiges, flexibles Arbeiten\n• Viele Weiterentwicklungs- und Entwicklungsmöglichkeiten\n• Zugang zu Aktienplänen für Mitarbeitende\n• Alle Vorteile findest du hier Unsere Unternehmenskultur - dein neues Arbeitsumfeld Die Kultur bei Siemens Schweiz ist mehr als nur ein Arbeitsumfeld – sie ist das Herzstück unseres täglichen Miteinanders und der Schlüssel zu unserem Erfolg. Siemens Schweiz bietet ein zukunftsorientiertes Arbeitsumfeld, das von Innovation, Nachhaltigkeit und persönlicher Entfaltung geprägt ist. Wir zeichnen uns durch Eigenverantwortung, Chancengerechtigkeit und Vielfalt aus, in der sich jede:r Mitarbeitende authentisch einbringen kann. Flexible Arbeitsmodelle und mobiles Arbeiten sind bei uns gelebte Realität und ermöglichen unseren Mitarbeitenden eine ausgewogene Work-Life-Balance. Erfahre mehr und entdecke mit unserem Kulturquiz , ob du zu Siemens passt! « Siemens gehört zu den Pionieren der Technologie, und Teil davon zu sein, macht mich schon irgendwie stolz. » (Teamleiterin bei Siemens) News und Stories Verschaffe dir selbst einen Eindruck davon, wie innovativ Technologie unsere Gegenwart verändern kann. Wenn du mehr dazu erfahren willst, was für Projekte mittels Siemens Technologie umgesetzt werden können, findest du hier einige aktuelle Beispiele . Häufig gestellte Fragen und deine Ansprechperson Hier findest du eine Sammlung häufig gestellter Fragen sowie die Möglichkeit, uns direkt zu kontaktieren. Ich freue mich auf deine Bewerbung. Melanie Talent Acquisition Partner Dein Weg zu Siemens - How we hire Information für Personalvermittlungen: Siemens Schweiz nimmt für diese Position keine Bewerbungen von Personalvermittlungen entgegen. Vielen Dank für das Verständnis.",
-        "fr": "Avec nos clients, nous connectons le monde réel et numérique. Comme l'une des principales entreprises technologiques, Siemens emploie environ 6 000 personnes en Suisse. Avec nos solutions révolutionnaires dans les domaines de la technologie du bâtiment, de l'énergie, de la mobilité, de la santé et de l'industrie, nous façonnons l'avenir. Dans ce rôle de leadership, vous assumez la responsabilité d'une équipe de service à la clientèle dédiée dans le domaine de la sécurité et façonnez activement le développement de notre organisation de service. Si vous voulez diriger les gens, assurer l'excellence opérationnelle et combiner la proximité avec la pensée entrepreneuriale, vous êtes au bon endroit avec nous. Faites votre demande en tant que chef d'équipe : en sécurité 80-100% et commencez immédiatement ou sur rendez-vous – votre équipe vous attend avec impatience. Vos nouvelles tâches\n• Vous dirigerez et développerez une équipe de service à la clientèle dans le domaine de la sécurité dans la région de Reinach en termes d'expertise, d'organisation et de personnel.\n• Vous assurez un traitement fiable, orienté vers le client et économique des commandes et des services – de la planification à la coordination à la mise en œuvre réussie.\n• Vous êtes responsable de la réalisation professionnelle, programmée et commerciale des objectifs de votre équipe et d'assurer la transparence dans la qualité, les coûts, les délais et les ressources.\n• Vous planifiez et contrôlez les ressources humaines et matérielles et vous assurez une utilisation optimale et une planification prospective des affectations.\n• Vous favorisez le développement de vos employés, renforcez la coopération au sein de l'équipe et créez un environnement dans lequel la responsabilité personnelle et l'amélioration continue sont vécues.\n• Vous examinez les processus existants, identifiez les possibilités d'optimisation et implémentez des améliorations avec votre équipe et dans tous les domaines.\n• Vous travaillez en étroite collaboration avec les interfaces internes, les ventes, l'organisation du projet et les clients et contribuez ainsi de manière significative à la satisfaction des clients et au succès de notre organisation de sécurité. Vos talents et expériences\n• Vous avez suivi un apprentissage en technologie de l'électricité, de la sécurité ou du bâtiment ou une formation en TI avec une formation complémentaire pertinente au niveau de HF/FH/NDS/CAS – ou apportez une qualification comparable.\n• Vous avez plusieurs années d'expérience dans l'environnement de service ou de projet, idéalement en sécurité, en construction ou en génie électrique.\n• Vous apportez de l'expérience en leadership ou êtes prêt à prendre la prochaine étape de développement dans un rôle de leadership.\n• Vous comprenez les contextes d'affaires, travaillez de manière structurée et prenez des décisions en ce qui concerne la qualité, l'avantage client et la rentabilité.\n• Vous êtes une personnalité résiliente, engagée et communicative qui motive les gens, prend les responsabilités et les formes changent de manière constructive.\n• Vous travaillez en toute sécurité avec MS Office et utilisez des outils numériques efficacement dans la gestion et le travail quotidiens.\n• Vous communiquez très bien en allemand par la parole et l'écriture; la connaissance de l'anglais et/ou une autre langue nationale sont bénéfiques. Vos avantages\n• Votre propre voiture électrique (que vous pouvez également utiliser en privé)\n• Travail indépendant et flexible\n• Nombreuses possibilités de développement\n• Accès aux plans d'actions des employés\n• Vous pouvez trouver tous les avantages ici Notre culture d'entreprise - votre nouvel environnement de travail La culture de Siemens Suisse est plus qu'un simple environnement de travail – elle est au cœur de notre coopération quotidienne et la clé de notre succès. Siemens Suisse offre un environnement de travail orienté vers l'avenir caractérisé par l'innovation, la durabilité et le développement personnel. Nous sommes caractérisés par la responsabilité personnelle, l'égalité des chances et la diversité, dans laquelle chaque employé peut contribuer de manière authentique. Des modèles de travail flexibles et mobiles sont une réalité pour nous et permettent à nos employés d'atteindre un équilibre entre le travail et la vie personnelle. En savoir plus et découvrez avec notre quiz culturel si vous êtes un bon pour Siemens! Siemens est l'un des pionniers de la technologie, et en faire partie me rend fier. » (Chemin d'équipe chez Siemens) Nouvelles et histoires Découvrez comment une technologie innovante peut changer notre présent. Si vous voulez en savoir plus sur les projets qui peuvent être mis en œuvre en utilisant la technologie Siemens, voici quelques exemples actuels. Foire aux questions et votre personne-ressource Vous trouverez ici une collection de questions fréquemment posées ainsi que la possibilité de nous contacter directement. J'attends avec impatience votre candidature. Melanie Talent Acquisition Partner Votre chemin vers Siemens - Comment nous embauchons Informations pour les agences de recrutement: Siemens Suisse n'accepte pas les candidatures pour ce poste. Merci de votre compréhension."
-      },
-      "location": "Reinach",
-      "canton": "BL",
-      "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/520431",
-      "source": "Siemens Dedicated Parser (Avature)",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-08T21:15:50.100Z",
-      "addressLocality": "Reinach",
-      "addressRegion": "BL",
-      "streetAddress": "Reinach",
-      "postalCode": "4153",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Amministrazione",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "senior",
-      "sector": "Industria e tecnologia (automazione, energia, infrastrutture digitali)",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-08-31",
-      "postedDate": "2026-08-31",
-      "postingDateSource": "reported",
-      "applyUrl": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/520431",
-      "jobReqId": "520431",
-      "hiringOrganizationName": "Siemens Schweiz AG",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "teamleiter-in-security-80-100-siemens-reinach"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "teamleiter-in-security-80-100-siemens-reinach"
-        ]
-      },
-      "firstSeenAt": "2026-09-26T13:53:00.297Z",
-      "salaryMin": 85500,
-      "salaryMax": 129500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 85500,
-          "maxValue": 129500,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-08T21:15:50.100Z",
+      "validThrough": "2026-12-09T09:22:00.507Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -661,7 +582,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/516981",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T21:15:48.041Z",
+      "crawledAt": "2026-11-09T09:21:57.500Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "streetAddress": "Aarau",
@@ -728,7 +649,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-08T21:15:48.041Z",
+      "validThrough": "2026-12-09T09:21:57.500Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -762,7 +683,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/519503",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T21:15:45.985Z",
+      "crawledAt": "2026-11-09T09:21:54.574Z",
       "addressLocality": "Zuerich",
       "addressRegion": "ZH",
       "streetAddress": "Zuerich",
@@ -819,7 +740,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-08T21:15:45.985Z",
+      "validThrough": "2026-12-09T09:21:54.574Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -853,7 +774,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/509402",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-08T21:15:43.949Z",
+      "crawledAt": "2026-11-09T09:21:51.490Z",
       "addressLocality": "Plan",
       "addressRegion": "GE",
       "streetAddress": "Plan",
@@ -901,7 +822,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-08T21:15:43.949Z",
+      "validThrough": "2026-12-09T09:21:51.490Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -935,7 +856,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/521537",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-08T21:15:39.621Z",
+      "crawledAt": "2026-11-09T09:21:44.968Z",
       "addressLocality": "Corminboeuf",
       "addressRegion": "FR",
       "streetAddress": "Corminboeuf",
@@ -983,7 +904,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-13T21:15:39.621Z",
+      "validThrough": "2026-12-13T09:21:44.968Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1017,7 +938,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/519652",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T21:15:37.519Z",
+      "crawledAt": "2026-11-09T09:21:41.602Z",
       "addressLocality": "Zuerich",
       "addressRegion": "ZH",
       "streetAddress": "Zuerich",
@@ -1062,7 +983,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-15T21:15:37.519Z",
+      "validThrough": "2026-12-15T09:21:41.602Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1096,7 +1017,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/522590",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-08T21:15:35.402Z",
+      "crawledAt": "2026-11-09T09:21:38.796Z",
       "addressLocality": "Plan",
       "addressRegion": "GE",
       "streetAddress": "Plan",
@@ -1147,7 +1068,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-15T21:15:35.402Z",
+      "validThrough": "2026-12-15T09:21:38.796Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1181,7 +1102,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/521574",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T21:15:33.303Z",
+      "crawledAt": "2026-11-09T09:21:35.527Z",
       "addressLocality": "Zuerich",
       "addressRegion": "ZH",
       "streetAddress": "Zuerich",
@@ -1226,7 +1147,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-16T21:15:33.303Z",
+      "validThrough": "2026-12-16T09:21:35.527Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1260,7 +1181,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/523239",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T21:15:31.277Z",
+      "crawledAt": "2026-11-09T09:21:32.070Z",
       "addressLocality": "Ostermundigen",
       "addressRegion": "BE",
       "streetAddress": "Ostermundigen",
@@ -1311,7 +1232,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-20T21:15:31.277Z",
+      "validThrough": "2026-12-20T09:21:32.070Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1345,7 +1266,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/522464",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T21:15:25.036Z",
+      "crawledAt": "2026-11-09T09:21:22.393Z",
       "addressLocality": "Gossau",
       "addressRegion": "SG",
       "streetAddress": "Gossau",
@@ -1404,7 +1325,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-24T21:15:25.036Z",
+      "validThrough": "2026-12-24T09:21:22.393Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1438,7 +1359,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/523703",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T21:15:22.982Z",
+      "crawledAt": "2026-11-09T09:21:19.412Z",
       "addressLocality": "Zuerich",
       "addressRegion": "ZH",
       "streetAddress": "Zuerich",
@@ -1483,7 +1404,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-24T21:15:22.982Z",
+      "validThrough": "2026-12-24T09:21:19.412Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1517,7 +1438,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/524032",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-08T21:15:18.838Z",
+      "crawledAt": "2026-11-09T09:21:13.501Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "streetAddress": "Zug",
@@ -1565,7 +1486,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-27T21:15:18.838Z",
+      "validThrough": "2026-12-27T09:21:13.501Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1599,7 +1520,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/524192",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T21:15:16.873Z",
+      "crawledAt": "2026-11-09T09:21:10.444Z",
       "addressLocality": "Zuerich",
       "addressRegion": "ZH",
       "streetAddress": "Zuerich",
@@ -1649,7 +1570,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-28T21:15:16.873Z",
+      "validThrough": "2026-12-28T09:21:10.444Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1683,7 +1604,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/524205",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-08T21:15:14.721Z",
+      "crawledAt": "2026-11-09T09:21:07.626Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "streetAddress": "Zug",
@@ -1720,7 +1641,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-28T21:15:14.721Z",
+      "validThrough": "2026-12-28T09:21:07.626Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1754,7 +1675,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/523745",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T21:15:12.741Z",
+      "crawledAt": "2026-11-09T09:21:05.008Z",
       "addressLocality": "Reinach",
       "addressRegion": "BL",
       "streetAddress": "Reinach",
@@ -1805,7 +1726,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-31T21:15:12.741Z",
+      "validThrough": "2026-12-31T09:21:05.008Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1839,7 +1760,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/524986",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-08T21:15:10.678Z",
+      "crawledAt": "2026-11-09T09:21:02.361Z",
       "addressLocality": "Plan",
       "addressRegion": "GE",
       "streetAddress": "Plan",
@@ -1884,7 +1805,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-05T21:15:10.678Z",
+      "validThrough": "2027-01-05T09:21:02.361Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1918,7 +1839,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/524909",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T21:15:08.534Z",
+      "crawledAt": "2026-11-09T09:20:59.507Z",
       "addressLocality": "Chur",
       "addressRegion": "GR",
       "streetAddress": "Chur",
@@ -1969,7 +1890,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-06T21:15:08.534Z",
+      "validThrough": "2027-01-06T09:20:59.507Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2003,7 +1924,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/525449",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-08T21:15:06.166Z",
+      "crawledAt": "2026-11-09T09:20:56.426Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "streetAddress": "Zug",
@@ -2048,7 +1969,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-11T21:15:06.166Z",
+      "validThrough": "2027-01-11T09:20:56.426Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2082,7 +2003,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/525913",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-08T21:15:03.989Z",
+      "crawledAt": "2026-11-09T09:20:53.289Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "streetAddress": "Zug",
@@ -2119,7 +2040,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-13T21:15:03.989Z",
+      "validThrough": "2027-01-13T09:20:53.289Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2153,7 +2074,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/526077",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T21:15:01.924Z",
+      "crawledAt": "2026-11-09T09:20:50.428Z",
       "addressLocality": "Zuerich",
       "addressRegion": "ZH",
       "streetAddress": "Zuerich",
@@ -2206,7 +2127,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-14T21:15:01.924Z",
+      "validThrough": "2027-01-14T09:20:50.428Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2240,7 +2161,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/526146",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T21:14:59.862Z",
+      "crawledAt": "2026-11-09T09:20:47.500Z",
       "addressLocality": "Camorino",
       "addressRegion": "TI",
       "streetAddress": "Camorino",
@@ -2277,7 +2198,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-17T21:14:59.862Z",
+      "validThrough": "2027-01-17T09:20:47.500Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2311,7 +2232,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/526305",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T21:14:57.775Z",
+      "crawledAt": "2026-11-09T09:20:44.571Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "streetAddress": "Zug",
@@ -2367,7 +2288,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-17T21:14:57.775Z",
+      "validThrough": "2027-01-17T09:20:44.571Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2401,7 +2322,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/516019",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "it",
-      "crawledAt": "2026-11-08T21:14:55.761Z",
+      "crawledAt": "2026-11-09T09:20:41.561Z",
       "addressLocality": "Camorino",
       "addressRegion": "TI",
       "streetAddress": "Camorino",
@@ -2463,7 +2384,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-23T21:14:55.761Z",
+      "validThrough": "2026-12-23T09:20:41.561Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2497,7 +2418,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/518918",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T21:14:53.740Z",
+      "crawledAt": "2026-11-09T09:20:38.886Z",
       "addressLocality": "Zuerich",
       "addressRegion": "ZH",
       "streetAddress": "Zuerich",
@@ -2547,7 +2468,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-23T21:14:53.740Z",
+      "validThrough": "2026-12-23T09:20:38.886Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2581,7 +2502,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/519416",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T21:14:51.559Z",
+      "crawledAt": "2026-11-09T09:20:35.941Z",
       "addressLocality": "Ostermundigen",
       "addressRegion": "BE",
       "streetAddress": "Ostermundigen",
@@ -2626,7 +2547,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-04T21:14:51.559Z",
+      "validThrough": "2027-01-04T09:20:35.941Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2660,7 +2581,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/519890",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T21:14:49.426Z",
+      "crawledAt": "2026-11-09T09:20:33.186Z",
       "addressLocality": "Gossau",
       "addressRegion": "SG",
       "streetAddress": "Gossau",
@@ -2705,7 +2626,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-23T21:14:49.426Z",
+      "validThrough": "2026-12-23T09:20:33.186Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2739,7 +2660,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/523770",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T21:14:47.358Z",
+      "crawledAt": "2026-11-09T09:20:30.389Z",
       "addressLocality": "Ostermundigen",
       "addressRegion": "BE",
       "streetAddress": "Ostermundigen",
@@ -2787,7 +2708,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-30T21:14:47.358Z",
+      "validThrough": "2026-12-30T09:20:30.389Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2821,7 +2742,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/524996",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T21:14:45.226Z",
+      "crawledAt": "2026-11-09T09:20:27.799Z",
       "addressLocality": "Gossau",
       "addressRegion": "SG",
       "streetAddress": "Gossau",
@@ -2877,7 +2798,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-05T21:14:45.226Z",
+      "validThrough": "2027-01-05T09:20:27.799Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2911,7 +2832,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/525570",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T21:14:43.129Z",
+      "crawledAt": "2026-11-09T09:20:25.219Z",
       "addressLocality": "Root",
       "addressRegion": "LU",
       "streetAddress": "Root",
@@ -2959,7 +2880,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-18T21:14:43.129Z",
+      "validThrough": "2027-01-18T09:20:25.219Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2993,7 +2914,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/526341",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-08T21:14:41.067Z",
+      "crawledAt": "2026-11-09T09:20:22.436Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "streetAddress": "Zug",
@@ -3046,7 +2967,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-19T21:14:41.067Z",
+      "validThrough": "2027-01-19T09:20:22.436Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3080,7 +3001,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/526594",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T21:14:36.943Z",
+      "crawledAt": "2026-11-09T09:20:17.468Z",
       "addressLocality": "Gossau",
       "addressRegion": "SG",
       "streetAddress": "Gossau",
@@ -3131,78 +3052,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-25T21:14:36.943Z",
-      "validThroughSource": "last-observed-window"
-    },
-    {
-      "id": "siemens-9bf541b4a187",
-      "slug": "working-student-process-documentation-specialist-40-60-siemens-zug",
-      "slugByLocale": {
-        "it": "working-student-process-documentation-specialist-40-60-siemens-zug",
-        "en": "working-student-process-documentation-specialist-40-60-siemens-zug",
-        "de": "working-student-process-documentation-specialist-40-60-siemens-zug",
-        "fr": "working-student-process-documentation-specialist-40-60-siemens-zug"
-      },
-      "company": "Siemens",
-      "companyKey": "siemens",
-      "companyDomain": "siemens.com",
-      "title": "Working Student Process & Documentation Specialist 40-60%",
-      "titleByLocale": {
-        "it": "Working Student Process & Documentation Specialista 40-60%",
-        "en": "Working Student Process & Documentation Specialist 40-60%",
-        "de": "Working Student Process & Documentation Spezialist 40-60%",
-        "fr": "Working Student Process & Documentation Spécialiste 40-60%"
-      },
-      "description": "Together with our customers, we combine the real and digital worlds With technology, software and services for smart buildings, we transform the everyday for everyone. By combining the real and digital worlds, we empower our customers to reach their decarbonization goals, lower their operating costs and create world-class occupant experiences for their people. It’s not just about improving buildings – it’s about creating efficient, safe, adaptable and sustainable environments, which improve the way the world lives and works. We look forward to welcoming you to our team. In this role, you will collaborate with a wide range of teams and disciplines, gaining valuable insights into product lifecycle management and process governance in a global organization. You will gradually grow into the role, take on increasing responsibility, and have the opportunity to shape and improve processes with your own ideas. We offer a flexible working environment, a high degree of autonomy, and the opportunity to manage your tasks independently while being supported by an experienced team. Are you passionate about improving processes and optimizing documentation in a dynamic, fast-paced environment? We are looking for a motivated and detail-oriented working student to support our Process Management team in improving processes, maintaining documentation, and driving continuous improvement initiatives. Our shared journey could take you anywhere…where would you like to go? As a student trainee, intern or trainee, you are an important part of #TeamSiemens. Would you also like to play an active role in influencing current trends and developments and make a positive impact on the lives of millions of people in Switzerland? Then you’ve come to the right place! Apply today for the position of Working Student in Process Management & Documentation – your team is looking forward to meeting you! Your new responsibilities\n• Contribute to the continuous improvement and optimization of our product development processes\n• Maintain and update process documentation, templates, and guidelines while ensuring compliance with company standards\n• Assist in implementing updates to enhance efficiency and align with Agile methodologies\n• Creation of training material, communication packages and process roll-out support across the organization\n• Review process documentation for accuracy and suggest improvements in collaboration with experts\n• Manage and organize records to ensure easy access for stakeholders.\n• Support colleagues with process-related inquiries and contribute to cross-functional discussions and workshops\n• Take ownership of assigned topics and independently drive smaller projects and improvement initiatives Your talents and experience\n• You are currently enrolled in a Swiss university degree program in computer science, software engineering or a related field\n• Structured, detail-oriented, and able to manage multiple tasks effectively\n• Good knowledge of Phython, SPARQEL and Rest API\n• Analytical mindset with a strong commitment to accuracy\n• Knowledge of Product Lifecycle Management (PLM) concepts and Agile methodologies is a plus\n• Python Programming Knowledge is a must\n• Passion for IT, process management, and continuous improvement\n• Fluent in English; German is a plus Employee benefits\n• Mobile working from anywhere within Switzerland\n• Opportunity to develop an international professional network\n• Gain experience at one of the largest tech employers in Switzerland\n• Membership in the Siemens Students Association comprising 200 members Our corporate culture – your new working environment The culture at Siemens Switzerland is more than just a working environment – it is at the heart of our day-to-day interactions and the key to our success. Siemens Switzerland offers a future-oriented working environment characterized by innovation, sustainability and personal development. We are characterized by personal responsibility, equal opportunities and diversity, to which every employee can contribute authentically. Flexible working models and remote working are a reality for us and enable our employees to achieve a good work-life balance. Learn more and find out if you are a good match with Siemens by taking our culture quiz ! Frequently asked questions and contact information Here you will find a collection of frequently asked questions and a way to contact us directly. I look forward to receiving your application. Nathalie Talent Acquisition Partner Your way to Siemens - How we hire Information for recruitment agencies: Siemens is not accepting applications from recruitment agencies for this position. Thank you for your understanding.",
-      "descriptionByLocale": {
-        "it": "Insieme ai nostri clienti, uniamo i mondi reali e digitali Con tecnologia, software e servizi per edifici intelligenti, trasformiamo il quotidiano per tutti. Combinando i mondi reali e digitali, possiamo permettere ai nostri clienti di raggiungere i loro obiettivi di decarbonizzazione, abbassare i costi operativi e creare esperienze occupanti di livello mondiale per la loro gente. Non si tratta solo di migliorare gli edifici – si tratta di creare ambienti efficienti, sicuri, adattabili e sostenibili, che migliorano il modo in cui il mondo vive e lavora. Non vediamo l'ora di darvi il benvenuto al nostro team. In questo ruolo, collaborerai con una vasta gamma di team e discipline, acquisendo preziose informazioni sulla gestione del ciclo di vita dei prodotti e sulla governance dei processi in un'organizzazione globale. Crescerai gradualmente nel ruolo, assumerai sempre maggiore responsabilità, e avrai l'opportunità di modellare e migliorare i processi con le tue idee. Offriamo un ambiente di lavoro flessibile, un alto grado di autonomia, e l'opportunità di gestire i vostri compiti in modo indipendente, pur essendo supportato da un team esperto. Sei appassionato di migliorare i processi e ottimizzare la documentazione in un ambiente dinamico e veloce? Siamo alla ricerca di uno studente di lavoro motivato e orientato al dettaglio per supportare il nostro team di Gestione dei processi nel miglioramento dei processi, nel mantenimento della documentazione e nella guida di iniziative di miglioramento continuo. Il nostro viaggio condiviso potrebbe portarti da qualche parte... dove vorresti andare? Come studente tirocinante, tirocinante o tirocinante, sei una parte importante di #TeamSiemens. Vorresti anche svolgere un ruolo attivo nell'influenzare le tendenze e gli sviluppi attuali e avere un impatto positivo sulla vita di milioni di persone in Svizzera? Allora siete venuti nel posto giusto! Applicare oggi per la posizione di Working Student in Process Management & Documentation – il vostro team è impaziente di incontrarvi! Le nuove responsabilità\n• Contribuisci al continuo miglioramento e ottimizzazione dei nostri processi di sviluppo dei prodotti\n• Mantenere e aggiornare la documentazione, i modelli e le linee guida del processo, garantendo al contempo il rispetto degli standard aziendali\n• Assistere nell'implementazione di aggiornamenti per migliorare l'efficienza e allineare con le metodologie Agile\n• Creazione di materiale formativo, pacchetti di comunicazione e supporto di processo roll-out in tutta l'organizzazione\n• Verifica la documentazione del processo per accuratezza e suggerisci miglioramenti in collaborazione con esperti\n• Gestire e organizzare record per garantire un facile accesso agli stakeholder.\n• Sostenere i colleghi con richieste di processo e contribuire a discussioni e workshop interfunzionali\n• Prendere la proprietà di argomenti assegnati e guidare in modo indipendente piccoli progetti e iniziative di miglioramento I tuoi talenti ed esperienza\n• Sei attualmente iscritto a un corso di laurea in scienze informatiche, ingegneria del software o un campo relativo\n• Strutturato, orientato al dettaglio, e in grado di gestire più attività in modo efficace\n• Buona conoscenza di Phython, SPARQEL e Rest API\n• Mindset analitico con un forte impegno per la precisione\n• Conoscenza dei concetti di Product Lifecycle Management (PLM) e metodologie Agile è un plus\n• Python Programming Knowledge è un must\n• Passione per IT, gestione dei processi e miglioramento continuo\n• Fluente in inglese; tedesco è un plus Employee benefit\n• Mobile da qualsiasi parte della Svizzera\n• Possibilità di sviluppare una rete professionale internazionale\n• Ottieni esperienza in uno dei maggiori datori di lavoro tecnologici in Svizzera\n• Iscrizione all'Associazione degli studenti Siemens che comprende 200 membri La nostra cultura aziendale – il tuo nuovo ambiente di lavoro La cultura della Siemens Svizzera è più che un ambiente di lavoro – è al centro delle nostre interazioni quotidiane e della chiave del nostro successo. Siemens Svizzera offre un ambiente di lavoro orientato al futuro caratterizzato da innovazione, sostenibilità e sviluppo personale. Siamo caratterizzati da responsabilità personale, pari opportunità e diversità, a cui ogni dipendente può contribuire in modo autentico. Modelli di lavoro flessibili e lavoro a distanza sono una realtà per noi e permettono ai nostri dipendenti di raggiungere un buon equilibrio di vita lavorativa. Scopri di più e scopri se sei un buon abbinamento con Siemens prendendo il nostro quiz culturale! Domande frequenti e informazioni di contatto Qui troverete una raccolta di domande frequenti e un modo per contattarci direttamente. Non vedo l'ora di ricevere la sua candidatura. Nathalie Talent Acquisizione Partner La tua strada per Siemens - Come assumere Informazioni per le agenzie di reclutamento: Siemens non accetta richieste da agenzie di reclutamento per questa posizione. Grazie per la vostra comprensione.",
-        "en": "Together with our customers, we combine the real and digital worlds With technology, software and services for smart buildings, we transform the everyday for everyone. By combining the real and digital worlds, we empower our customers to reach their decarbonization goals, lower their operating costs and create world-class occupant experiences for their people. It’s not just about improving buildings – it’s about creating efficient, safe, adaptable and sustainable environments, which improve the way the world lives and works. We look forward to welcoming you to our team. In this role, you will collaborate with a wide range of teams and disciplines, gaining valuable insights into product lifecycle management and process governance in a global organization. You will gradually grow into the role, take on increasing responsibility, and have the opportunity to shape and improve processes with your own ideas. We offer a flexible working environment, a high degree of autonomy, and the opportunity to manage your tasks independently while being supported by an experienced team. Are you passionate about improving processes and optimizing documentation in a dynamic, fast-paced environment? We are looking for a motivated and detail-oriented working student to support our Process Management team in improving processes, maintaining documentation, and driving continuous improvement initiatives. Our shared journey could take you anywhere…where would you like to go? As a student trainee, intern or trainee, you are an important part of #TeamSiemens. Would you also like to play an active role in influencing current trends and developments and make a positive impact on the lives of millions of people in Switzerland? Then you’ve come to the right place! Apply today for the position of Working Student in Process Management & Documentation – your team is looking forward to meeting you! Your new responsibilities\n• Contribute to the continuous improvement and optimization of our product development processes\n• Maintain and update process documentation, templates, and guidelines while ensuring compliance with company standards\n• Assist in implementing updates to enhance efficiency and align with Agile methodologies\n• Creation of training material, communication packages and process roll-out support across the organization\n• Review process documentation for accuracy and suggest improvements in collaboration with experts\n• Manage and organize records to ensure easy access for stakeholders.\n• Support colleagues with process-related inquiries and contribute to cross-functional discussions and workshops\n• Take ownership of assigned topics and independently drive smaller projects and improvement initiatives Your talents and experience\n• You are currently enrolled in a Swiss university degree program in computer science, software engineering or a related field\n• Structured, detail-oriented, and able to manage multiple tasks effectively\n• Good knowledge of Phython, SPARQEL and Rest API\n• Analytical mindset with a strong commitment to accuracy\n• Knowledge of Product Lifecycle Management (PLM) concepts and Agile methodologies is a plus\n• Python Programming Knowledge is a must\n• Passion for IT, process management, and continuous improvement\n• Fluent in English; German is a plus Employee benefits\n• Mobile working from anywhere within Switzerland\n• Opportunity to develop an international professional network\n• Gain experience at one of the largest tech employers in Switzerland\n• Membership in the Siemens Students Association comprising 200 members Our corporate culture – your new working environment The culture at Siemens Switzerland is more than just a working environment – it is at the heart of our day-to-day interactions and the key to our success. Siemens Switzerland offers a future-oriented working environment characterized by innovation, sustainability and personal development. We are characterized by personal responsibility, equal opportunities and diversity, to which every employee can contribute authentically. Flexible working models and remote working are a reality for us and enable our employees to achieve a good work-life balance. Learn more and find out if you are a good match with Siemens by taking our culture quiz ! Frequently asked questions and contact information Here you will find a collection of frequently asked questions and a way to contact us directly. I look forward to receiving your application. Nathalie Talent Acquisition Partner Your way to Siemens - How we hire Information for recruitment agencies: Siemens is not accepting applications from recruitment agencies for this position. Thank you for your understanding.",
-        "de": "Gemeinsam mit unseren Kunden verbinden wir die reale und digitale Welt Mit Technologie, Software und Services für intelligente Gebäude verwandeln wir den Alltag für alle. Durch die Kombination der realen und digitalen Welten befähigen wir unsere Kunden, ihre Dekarbonisierungsziele zu erreichen, ihre Betriebskosten zu senken und erstklassige Insassenerlebnisse für ihre Mitarbeiter zu schaffen. Es geht nicht nur darum, Gebäude zu verbessern – es geht darum, effiziente, sichere, anpassungsfähige und nachhaltige Umgebungen zu schaffen, die die Art und Weise, wie die Welt lebt und arbeitet, verbessern. Wir freuen uns, Sie in unserem Team begrüßen zu dürfen. In dieser Funktion arbeiten Sie mit einer Vielzahl von Teams und Disziplinen zusammen und erhalten wertvolle Einblicke in das Produktlebenszyklusmanagement und die Prozessgovernance in einer globalen Organisation. Sie wachsen nach und nach in die Rolle hinein, übernehmen zunehmend Verantwortung und haben die Möglichkeit, Prozesse mit eigenen Ideen zu gestalten und zu verbessern. Wir bieten ein flexibles Arbeitsumfeld, ein hohes Maß an Autonomie und die Möglichkeit, Ihre Aufgaben selbstständig zu erledigen und dabei von einem erfahrenen Team unterstützt zu werden. Haben Sie eine Leidenschaft für die Verbesserung von Prozessen und die Optimierung der Dokumentation in einer dynamischen, schnelllebigen Umgebung? Wir suchen einen motivierten und detailorientierten Werkstudenten, der unser Prozessmanagement-Team dabei unterstützt, Prozesse zu verbessern, die Dokumentation zu pflegen und kontinuierliche Verbesserungsinitiativen voranzutreiben. Unsere gemeinsame Reise könnte dich überall hinbringen ... wohin würdest du gerne gehen? Als studentischer Trainee, Praktikant oder Trainee bist du ein wichtiger Teil von #TeamSiemens. Möchten Sie auch aktiv Einfluss auf aktuelle Trends und Entwicklungen nehmen und das Leben von Millionen Menschen in der Schweiz positiv beeinflussen? Dann bist du an der richtigen Stelle! Bewerben Sie sich noch heute für die Stelle Working Student in Process Management & Documentation – Ihr Team freut sich auf Sie! Ihre neuen Aufgaben\n• Beitrag zur kontinuierlichen Verbesserung und Optimierung unserer Produktentwicklungsprozesse\n• Pflegen und Aktualisieren von Prozessdokumentationen, Vorlagen und Richtlinien bei gleichzeitiger Einhaltung der Unternehmensstandards\n• Unterstützung bei der Implementierung von Updates zur Steigerung der Effizienz und Ausrichtung auf agile Methoden\n• Erstellung von Schulungsmaterial, Kommunikationspaketen und Prozess-Rollout-Unterstützung in der gesamten Organisation\n• Überprüfung der Prozessdokumentation auf Genauigkeit und Verbesserungsvorschläge in Zusammenarbeit mit Experten\n• Verwalten und organisieren Sie Aufzeichnungen, um einen einfachen Zugriff für die Stakeholder zu gewährleisten.\n• Unterstützen Sie Kollegen bei prozessbezogenen Anfragen und tragen Sie zu funktionsübergreifenden Diskussionen und Workshops bei\n• Übernehmen Sie die Verantwortung für zugewiesene Themen und fördern Sie selbstständig kleinere Projekte und Verbesserungsinitiativen Ihre Talente und Erfahrungen\n• Sie sind derzeit in einem Schweizer Hochschulstudium in Informatik, Software Engineering oder einem verwandten Bereich eingeschrieben\n• Strukturiert, detailorientiert und in der Lage, mehrere Aufgaben effektiv zu verwalten\n• Gute Kenntnisse von Phython, SPARQEL und Rest API\n• Analytisches Mindset mit starkem Engagement für Genauigkeit\n• Kenntnisse über Product Lifecycle Management (PLM) Konzepte und agile Methoden sind ein Plus\n• Python Programmierung Wissen ist ein Muss\n• Leidenschaft für IT, Prozessmanagement und kontinuierliche Verbesserung\n• Fließend in Englisch; Deutsch ist ein Plus Mitarbeiterleistungen\n• Mobiles Arbeiten von überall in der Schweiz\n• Möglichkeit, ein internationales professionelles Netzwerk zu entwickeln\n• Sammeln Sie Erfahrungen bei einem der größten Tech-Arbeitgeber der Schweiz\n• Mitgliedschaft in der Siemens Students Association mit 200 Mitgliedern Unsere Unternehmenskultur – Ihr neues Arbeitsumfeld Die Kultur bei Siemens Schweiz ist mehr als nur ein Arbeitsumfeld – sie steht im Mittelpunkt unserer täglichen Interaktionen und ist der Schlüssel zu unserem Erfolg. Siemens Schweiz bietet ein zukunftsorientiertes Arbeitsumfeld, das sich durch Innovation, Nachhaltigkeit und persönliche Entwicklung auszeichnet. Wir zeichnen uns durch Eigenverantwortung, Chancengleichheit und Vielfalt aus, zu der jeder Mitarbeiter authentisch beitragen kann. Flexible Arbeitsmodelle und Remote Working sind für uns Realität und ermöglichen unseren Mitarbeitern eine gute Work-Life-Balance. Erfahren Sie mehr und finden Sie heraus, ob Sie gut zu Siemens passen, indem Sie an unserem Kulturquiz teilnehmen! Häufig gestellte Fragen und Kontaktinformationen Hier finden Sie eine Sammlung von häufig gestellten Fragen und eine Möglichkeit, uns direkt zu kontaktieren. Ich freue mich auf Ihre Bewerbung. Nathalie Talent Acquisition Partner Ihr Weg zu Siemens - Wie wir Informationen für Personalvermittler einstellen: Siemens nimmt keine Bewerbungen von Personalvermittlern für diese Position an. Vielen Dank für Ihr Verständnis.",
-        "fr": "Avec nos clients, nous combinons les mondes réel et numérique Avec la technologie, les logiciels et les services pour les bâtiments intelligents, nous transformons le quotidien pour tous. En combinant les mondes réel et numérique, nous donnons à nos clients les moyens d'atteindre leurs objectifs de décarbonisation, de réduire leurs coûts d'exploitation et de créer des expériences d'occupant de classe mondiale pour leur peuple. Il ne s'agit pas seulement d'améliorer les bâtiments – il s'agit de créer des environnements efficaces, sûrs, adaptables et durables, qui améliorent la façon dont le monde vit et fonctionne. Nous nous réjouissons de vous accueillir dans notre équipe. Dans ce rôle, vous collaborerez avec un large éventail d'équipes et de disciplines, en obtenant des connaissances précieuses sur la gestion du cycle de vie des produits et la gouvernance des processus dans une organisation mondiale. Vous allez progressivement devenir le rôle, assumer une responsabilité croissante, et avoir la possibilité de façonner et d'améliorer les processus avec vos propres idées. Nous offrons un environnement de travail flexible, un haut degré d'autonomie et la possibilité de gérer vos tâches de façon indépendante tout en étant soutenus par une équipe expérimentée. Êtes-vous passionné par l'amélioration des processus et l'optimisation de la documentation dans un environnement dynamique et rapide? Nous sommes à la recherche d'un étudiant de travail motivé et axé sur les détails pour aider notre équipe de gestion des processus à améliorer les processus, à maintenir la documentation et à conduire des initiatives d'amélioration continue. Notre voyage partagé pourrait vous emmener n'importe où... où aimeriez-vous aller ? En tant que stagiaire étudiant, stagiaire ou stagiaire, vous êtes une partie importante de #TeamSiemens. Aimeriez-vous également jouer un rôle actif dans l'influence des tendances et des évolutions actuelles et avoir un impact positif sur la vie de millions de personnes en Suisse? Alors vous êtes au bon endroit ! Postulez aujourd'hui au poste d'étudiant en gestion de processus et documentation – votre équipe est impatiente de vous rencontrer! Vos nouvelles responsabilités\n• Contribuer à l'amélioration et à l'optimisation continues de nos processus de développement de produits\n• Maintenir et mettre à jour la documentation, les modèles et les lignes directrices du processus tout en assurant le respect des normes de l'entreprise\n• Aider à mettre en œuvre des mises à jour pour améliorer l ' efficacité et s ' aligner sur les méthodes Agiles\n• Création de matériel de formation, d ' ensembles de communication et d ' appui au déploiement des processus dans l ' ensemble de l ' organisation\n• Examiner la documentation du processus pour en vérifier l'exactitude et proposer des améliorations en collaboration avec des experts\n• Gérer et organiser les dossiers pour assurer un accès facile aux intervenants.\n• Appuyer les collègues dans leurs enquêtes sur les processus et contribuer aux discussions et ateliers interfonctionnels\n• Prendre en charge les sujets assignés et conduire indépendamment des projets plus petits et des initiatives d'amélioration Vos talents et votre expérience\n• Vous êtes actuellement inscrit à un programme universitaire suisse en informatique, génie logiciel ou un domaine connexe\n• Structurel, axé sur les détails et capable de gérer efficacement plusieurs tâches\n• Bonne connaissance de Phython, SPARQEL et API de repos\n• Un état d'esprit analytique avec un fort engagement pour la précision\n• Connaissance des concepts de gestion du cycle de vie des produits et des méthodologies agiles est un plus\n• Python Programmation La connaissance est un must\n• Passion pour l'informatique, la gestion des processus et l'amélioration continue\n• Fluent en anglais; l'allemand est un plus Avantages sociaux\n• Mobile travaillant partout en Suisse\n• Possibilité de développer un réseau professionnel international\n• Acquérir de l'expérience chez l'un des plus grands employeurs technologiques de Suisse\n• Membre de l'Association des étudiants Siemens comprenant 200 membres Notre culture d'entreprise – votre nouvel environnement de travail La culture de Siemens Suisse est plus qu'un simple environnement de travail – elle est au cœur de nos interactions quotidiennes et la clé de notre succès. Siemens Suisse offre un environnement de travail orienté vers l'avenir caractérisé par l'innovation, la durabilité et le développement personnel. Nous sommes caractérisés par la responsabilité personnelle, l'égalité des chances et la diversité, à laquelle chaque employé peut contribuer de manière authentique. Les modèles de travail flexibles et le travail à distance sont une réalité pour nous et permettent à nos employés d'atteindre un bon équilibre entre le travail et la vie personnelle. En savoir plus et savoir si vous êtes un bon match avec Siemens en prenant notre quiz de culture ! Foire aux questions et coordonnées Vous trouverez ici une collection de questions fréquemment posées et un moyen de nous contacter directement. J'ai hâte de recevoir votre candidature. Nathalie Talent Acquisition Associée Votre chemin vers Siemens - Comment nous embauchons Informations pour les agences de recrutement: Siemens n'accepte pas les candidatures des agences de recrutement pour ce poste. Merci de votre compréhension."
-      },
-      "location": "Zug",
-      "canton": "ZG",
-      "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/523623",
-      "source": "Siemens Dedicated Parser (Avature)",
-      "sourceLang": "en",
-      "crawledAt": "2026-11-08T21:14:34.858Z",
-      "addressLocality": "Zug",
-      "addressRegion": "ZG",
-      "streetAddress": "Zug",
-      "postalCode": "6300",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Amministrazione",
-      "contract": "part-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "intern",
-      "sector": "Industria e tecnologia (automazione, energia, infrastrutture digitali)",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-10-27",
-      "postedDate": "2026-10-27",
-      "postingDateSource": "reported",
-      "applyUrl": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/523623",
-      "jobReqId": "523623",
-      "hiringOrganizationName": "Siemens Schweiz AG, Smart Infrastructure, Global Headquarters",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "firstSeenAt": "2026-09-26T13:51:28.107Z",
-      "salaryMin": 41700,
-      "salaryMax": 63600,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 41700,
-          "maxValue": 63600,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-25T21:14:34.858Z",
+      "validThrough": "2027-01-25T09:20:17.468Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3236,7 +3086,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/527229",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T21:14:32.860Z",
+      "crawledAt": "2026-11-09T09:20:14.830Z",
       "addressLocality": "Volketswil",
       "addressRegion": "ZH",
       "streetAddress": "Volketswil",
@@ -3284,7 +3134,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-25T21:14:32.860Z",
+      "validThrough": "2027-01-25T09:20:14.830Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3318,7 +3168,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/519646",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T21:14:30.729Z",
+      "crawledAt": "2026-11-09T09:20:11.773Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "streetAddress": "Bern",
@@ -3377,7 +3227,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-08T21:14:30.729Z",
+      "validThrough": "2026-12-09T09:20:11.773Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3411,7 +3261,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/527411",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-08T21:14:28.699Z",
+      "crawledAt": "2026-11-09T09:20:08.932Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "streetAddress": "Zug",
@@ -3448,7 +3298,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-26T21:14:28.699Z",
+      "validThrough": "2027-01-26T09:20:08.932Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3482,7 +3332,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/527481",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-08T21:14:26.638Z",
+      "crawledAt": "2026-11-09T09:20:05.966Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "streetAddress": "Zug",
@@ -3527,7 +3377,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-27T21:14:26.638Z",
+      "validThrough": "2027-01-27T09:20:05.966Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3561,7 +3411,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/527239",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-08T21:14:24.510Z",
+      "crawledAt": "2026-11-09T09:20:03.047Z",
       "addressLocality": "Renens",
       "addressRegion": "VD",
       "streetAddress": "Renens",
@@ -3598,7 +3448,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-28T21:14:24.510Z",
+      "validThrough": "2027-01-28T09:20:03.047Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3632,7 +3482,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/525645",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-08T21:14:22.221Z",
+      "crawledAt": "2026-11-09T09:20:00.203Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "streetAddress": "Zug",
@@ -3670,7 +3520,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-31T21:14:22.221Z",
+      "validThrough": "2027-01-31T09:20:00.203Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3704,7 +3554,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/527942",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-08T21:14:15.896Z",
+      "crawledAt": "2026-11-09T09:19:51.818Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "streetAddress": "Zug",
@@ -3741,7 +3591,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-31T21:14:15.896Z",
+      "validThrough": "2027-01-31T09:19:51.818Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3775,7 +3625,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/527580",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T21:14:11.739Z",
+      "crawledAt": "2026-11-09T09:19:45.574Z",
       "addressLocality": "Ostermundigen",
       "addressRegion": "BE",
       "streetAddress": "Ostermundigen",
@@ -3826,7 +3676,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-01T21:14:11.739Z",
+      "validThrough": "2027-02-01T09:19:45.574Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3860,7 +3710,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/528192",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T21:14:05.879Z",
+      "crawledAt": "2026-11-09T09:19:37.227Z",
       "addressLocality": "Zuerich",
       "addressRegion": "ZH",
       "streetAddress": "Zuerich",
@@ -3897,7 +3747,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-01T21:14:05.879Z",
+      "validThrough": "2027-02-01T09:19:37.227Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3931,7 +3781,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/528347",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-08T21:14:01.674Z",
+      "crawledAt": "2026-11-09T09:19:31.711Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "streetAddress": "Zug",
@@ -3982,7 +3832,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-02T21:14:01.674Z",
+      "validThrough": "2027-02-02T09:19:31.711Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4016,7 +3866,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/528541",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-08T21:13:55.743Z",
+      "crawledAt": "2026-11-09T09:19:22.938Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "streetAddress": "Zug",
@@ -4066,7 +3916,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T21:13:55.743Z",
+      "validThrough": "2027-02-03T09:19:22.938Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4100,7 +3950,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/528580",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T21:13:51.792Z",
+      "crawledAt": "2026-11-09T09:19:17.088Z",
       "addressLocality": "Zuerich",
       "addressRegion": "ZH",
       "streetAddress": "Zuerich",
@@ -4145,7 +3995,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-04T21:13:51.792Z",
+      "validThrough": "2027-02-04T09:19:17.088Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4179,7 +4029,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/528707",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-08T21:13:49.674Z",
+      "crawledAt": "2026-11-09T09:19:14.264Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "streetAddress": "Zug",
@@ -4230,7 +4080,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-04T21:13:49.674Z",
+      "validThrough": "2027-02-04T09:19:14.264Z",
       "validThroughSource": "last-observed-window"
     }
   ]
