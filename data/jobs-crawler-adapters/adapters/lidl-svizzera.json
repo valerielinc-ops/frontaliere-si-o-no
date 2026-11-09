@@ -58,17 +58,12 @@
     "https://team.lidl.ch/de/jobs/kundenbetreuer-kundenbetreuerin-self-checkout-20-40-visp-732786",
     "https://team.lidl.ch/de/jobs/kundenbetreuer-kundenbetreuerin-self-checkout-60-80-m-w-d-buetzberg-756817",
     "https://team.lidl.ch/de/jobs/kundenbetreuer-kundenbetreuerin-self-checkout-duebendorf-755625",
-    "https://team.lidl.ch/de/jobs/lehre-detailhandel-eba-oder-efz-beginn-2027-bellach-725856",
-    "https://team.lidl.ch/de/jobs/lehre-detailhandel-eba-oder-efz-beginn-2027-bern-726036",
     "https://team.lidl.ch/de/jobs/lehre-detailhandel-eba-oder-efz-beginn-2027-bern-726041",
     "https://team.lidl.ch/de/jobs/lehre-detailhandel-eba-oder-efz-beginn-2027-biberist-726003",
     "https://team.lidl.ch/de/jobs/lehre-detailhandel-eba-oder-efz-beginn-2027-brig-769146",
     "https://team.lidl.ch/de/jobs/lehre-detailhandel-eba-oder-efz-beginn-2027-duedingen-725876",
     "https://team.lidl.ch/de/jobs/lehre-detailhandel-eba-oder-efz-beginn-2027-lyss-726032",
-    "https://team.lidl.ch/de/jobs/lehre-detailhandel-eba-oder-efz-beginn-2027-reiden-726038",
-    "https://team.lidl.ch/de/jobs/lehre-detailhandel-eba-oder-efz-beginn-2027-rothrist-725887",
     "https://team.lidl.ch/de/jobs/lehre-detailhandel-eba-oder-efz-beginn-2027-spiez-726006",
-    "https://team.lidl.ch/de/jobs/lehre-detailhandel-eba-oder-efz-beginn-2027-sursee-725854",
     "https://team.lidl.ch/de/jobs/lehre-detailhandel-eba-oder-efz-beginn-2027-visp-725843",
     "https://team.lidl.ch/de/jobs/lehrstelle-detailhandel-eba-oder-efz-aarau-ag-727559",
     "https://team.lidl.ch/de/jobs/lehrstelle-detailhandel-eba-oder-efz-altendorf-727522",
@@ -156,14 +151,16 @@
     "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-20-60-chur-752159",
     "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-20-60-duebendorf-740849",
     "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-20-60-jona-758301",
-    "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-20-60-samstagern-711248",
+    "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-20-60-samstagern-769302",
     "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-20-60-sevelen-756510",
+    "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-20-60-siebnen-769304",
     "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-20-60-wetzikon-697094",
     "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-20-60-zuerich-754674",
     "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-20-80-1-baden-757740",
     "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-20-80-1-brugg-757741",
     "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-20-80-1-doettingen-757738",
     "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-20-80-1-wettingen-757737",
+    "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-20-80-1-zuerich-769711",
     "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-20-80-dietikon-738613",
     "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-20-80-sarnen-760699",
     "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-20-80-schlieren-756435",
@@ -216,7 +213,6 @@
     "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-mit-springerfunktion-m-w-d-80-100-schluein-769265",
     "https://team.lidl.ch/fr/jobs/apprentissage-commerce-de-detail-afp-ou-cfc-debut-2027-collombey-muraz-726009",
     "https://team.lidl.ch/fr/jobs/apprentissage-commerce-de-detail-afp-ou-cfc-debut-2027-conthey-725866",
-    "https://team.lidl.ch/fr/jobs/apprentissage-commerce-de-detail-afp-ou-cfc-debut-2027-crissier-726012",
     "https://team.lidl.ch/fr/jobs/apprentissage-commerce-de-detail-afp-ou-cfc-debut-2027-fribourg-726046",
     "https://team.lidl.ch/fr/jobs/apprentissage-commerce-de-detail-afp-ou-cfc-debut-2027-gland-725862",
     "https://team.lidl.ch/fr/jobs/apprentissage-commerce-de-detail-afp-ou-cfc-debut-2027-la-chaux-de-fonds-726019",
@@ -248,7 +244,7 @@
     "https://team.lidl.ch/it/jobs/apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-riazzino-738062"
   ],
   "notes": "Dedicated Lidl crawler seeds from team.lidl.ch LiCa search API (/it/api/v1/search), drained through count-bound language partitions whose totals equal the national CH-wide feed; per-job canton inferred from source-backed city/postal signals, with unresolved CH locations failing closed.",
-  "updatedAt": "2026-11-08T21:41:39.017Z",
+  "updatedAt": "2026-11-09T09:47:47.949Z",
   "seedMetaByUrl": {
     "https://team.lidl.ch/de/jobs/373-venditore-venditrice-m-w-d-40-50-sorengo-762177": {
       "location": "Sorengo",
@@ -501,15 +497,6 @@
       "company": "Lidl Svizzera",
       "companyDomain": "lidl.ch",
       "contract": "Part-time"
-    },
-    "https://team.lidl.ch/de/jobs/lehre-detailhandel-eba-oder-efz-beginn-2027-bern-726036": {
-      "location": "Bern",
-      "addressLocality": "Bern",
-      "canton": "BE",
-      "country": "CH",
-      "company": "Lidl Svizzera",
-      "companyDomain": "lidl.ch",
-      "contract": "Full-time"
     },
     "https://team.lidl.ch/de/jobs/stv.-filialleiter-stv.-filialleiterin-m-w-d-80-100-bern-686600": {
       "location": "Bern",
@@ -916,15 +903,6 @@
       "companyDomain": "lidl.ch",
       "contract": "Full-time"
     },
-    "https://team.lidl.ch/de/jobs/lehre-detailhandel-eba-oder-efz-beginn-2027-bellach-725856": {
-      "location": "Bellach",
-      "addressLocality": "Bellach",
-      "canton": "SO",
-      "country": "CH",
-      "company": "Lidl Svizzera",
-      "companyDomain": "lidl.ch",
-      "contract": "Full-time"
-    },
     "https://team.lidl.ch/de/jobs/stv.-filialleiter-stv.-filialleiterin-m-w-d-80-100-perlen-763040": {
       "location": "Perlen",
       "addressLocality": "Perlen",
@@ -1006,15 +984,6 @@
       "companyDomain": "lidl.ch",
       "contract": "Part-time"
     },
-    "https://team.lidl.ch/de/jobs/lehre-detailhandel-eba-oder-efz-beginn-2027-sursee-725854": {
-      "location": "Sursee",
-      "addressLocality": "Sursee",
-      "canton": "LU",
-      "country": "CH",
-      "company": "Lidl Svizzera",
-      "companyDomain": "lidl.ch",
-      "contract": "Full-time"
-    },
     "https://team.lidl.ch/de/jobs/lehrstelle-detailhandel-eba-oder-efz-roemerswil-727561": {
       "location": "Römerswil",
       "addressLocality": "Römerswil",
@@ -1050,15 +1019,6 @@
       "company": "Lidl Svizzera",
       "companyDomain": "lidl.ch",
       "contract": "Part-time"
-    },
-    "https://team.lidl.ch/de/jobs/lehre-detailhandel-eba-oder-efz-beginn-2027-reiden-726038": {
-      "location": "Reiden",
-      "addressLocality": "Reiden",
-      "canton": "LU",
-      "country": "CH",
-      "company": "Lidl Svizzera",
-      "companyDomain": "lidl.ch",
-      "contract": "Full-time"
     },
     "https://team.lidl.ch/de/jobs/stv.-filialleiter-stv.-filialleiterin-m-w-d-80-100-zug-742313": {
       "location": "Zug",
@@ -1114,7 +1074,7 @@
       "companyDomain": "lidl.ch",
       "contract": "Full-time"
     },
-    "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-20-60-samstagern-711248": {
+    "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-20-60-samstagern-769302": {
       "location": "Samstagern",
       "addressLocality": "Samstagern",
       "canton": "ZH",
@@ -1122,15 +1082,6 @@
       "company": "Lidl Svizzera",
       "companyDomain": "lidl.ch",
       "contract": "Part-time"
-    },
-    "https://team.lidl.ch/de/jobs/lehre-detailhandel-eba-oder-efz-beginn-2027-rothrist-725887": {
-      "location": "Rothrist",
-      "addressLocality": "Rothrist",
-      "canton": "AG",
-      "country": "CH",
-      "company": "Lidl Svizzera",
-      "companyDomain": "lidl.ch",
-      "contract": "Full-time"
     },
     "https://team.lidl.ch/de/jobs/mitarbeiter-mitarbeiterin-self-checkout-und-verkauf-m-w-d-60-rothrist-768071": {
       "location": "Rothrist",
@@ -1142,6 +1093,15 @@
       "contract": "Part-time"
     },
     "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-mit-schichtverantwortung-m-w-d-60-80-siebnen-723258": {
+      "location": "Siebnen",
+      "addressLocality": "Siebnen",
+      "canton": "SZ",
+      "country": "CH",
+      "company": "Lidl Svizzera",
+      "companyDomain": "lidl.ch",
+      "contract": "Part-time"
+    },
+    "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-20-60-siebnen-769304": {
       "location": "Siebnen",
       "addressLocality": "Siebnen",
       "canton": "SZ",
@@ -1565,6 +1525,15 @@
       "contract": "Part-time"
     },
     "https://team.lidl.ch/de/jobs/allrounder-verkauf-m-w-d-20-40-zuerich-755616": {
+      "location": "Zürich",
+      "addressLocality": "Zürich",
+      "canton": "ZH",
+      "country": "CH",
+      "company": "Lidl Svizzera",
+      "companyDomain": "lidl.ch",
+      "contract": "Part-time"
+    },
+    "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-20-80-1-zuerich-769711": {
       "location": "Zürich",
       "addressLocality": "Zürich",
       "canton": "ZH",
@@ -2202,15 +2171,6 @@
       "company": "Lidl Svizzera",
       "companyDomain": "lidl.ch",
       "contract": "Part-time"
-    },
-    "https://team.lidl.ch/fr/jobs/apprentissage-commerce-de-detail-afp-ou-cfc-debut-2027-crissier-726012": {
-      "location": "Crissier",
-      "addressLocality": "Crissier",
-      "canton": "VD",
-      "country": "CH",
-      "company": "Lidl Svizzera",
-      "companyDomain": "lidl.ch",
-      "contract": "Full-time"
     },
     "https://team.lidl.ch/fr/jobs/vendeur-vendeuse-h-f-d-60-bulle-768290": {
       "location": "Bulle",

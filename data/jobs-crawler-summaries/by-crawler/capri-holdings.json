@@ -1,18 +1,19 @@
 {
   "key": "capri-holdings",
   "label": "Capri Holdings",
-  "generatedAt": "2026-11-08T21:37:16.523Z",
+  "generatedAt": "2026-11-09T09:47:38.386Z",
   "total": 4,
-  "newCount": 1,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 3,
-  "durationMs": 32134,
-  "avgDurationMs": 32134,
+  "durationMs": 28123,
+  "avgDurationMs": 28123,
   "durationHistory": [
-    32134
+    28123
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "url": "https://capri.wd1.myworkdayjobs.com/en-US/Michael_Kors/job/Mendrisio/Temporary-Seasonal-Sales-Associate---FoxTown_R_787732",
       "applyUrl": "https://capri.wd1.myworkdayjobs.com/en-US/Michael_Kors/job/Mendrisio/Temporary-Seasonal-Sales-Associate---FoxTown_R_787732",
@@ -27,12 +28,12 @@
       "addressCountry": "CH",
       "postalCode": "6850",
       "streetAddress": "Via Luigi Benteler 1",
-      "slug": "temporary-seasonal-sales-associate-foxtown-capri-holdings",
+      "slug": "vendite-stagionali-temporanee-associate-foxtown-michael-kors-mendrisio",
       "category": "retail",
       "datePosted": "2026-11-08",
       "postedDate": "2026-11-08",
       "postingDateSource": "reported",
-      "crawledAt": "2026-11-08T21:37:02.856Z",
+      "crawledAt": "2026-11-09T09:47:24.035Z",
       "source": "capri-holdings-workday-crawler",
       "employmentType": "PART_TIME",
       "experienceLevel": "MID",
@@ -43,26 +44,24 @@
         "canton": "TI",
         "location": "Mendrisio"
       },
-      "needsRetranslation": true,
       "id": "capri-holdings-773e0b5caf77",
+      "firstSeenAt": "2026-11-08T21:37:02.856Z",
       "salaryMin": 59000,
       "salaryMax": 90500,
       "currency": "CHF",
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-06T21:37:02.856Z",
+      "validThrough": "2027-02-06T09:47:24.035Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-08T21:37:02.856Z",
-      "_qualityScore": 83,
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 16,
+        "translation": 25,
         "completeness": 22
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [
     {
@@ -84,7 +83,7 @@
       "datePosted": "2026-10-31",
       "postedDate": "2026-10-31",
       "postingDateSource": "reported",
-      "crawledAt": "2026-11-08T21:37:02.856Z",
+      "crawledAt": "2026-11-09T09:47:24.035Z",
       "source": "capri-holdings-workday-crawler",
       "employmentType": "PART_TIME",
       "experienceLevel": "MID",
@@ -102,7 +101,7 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-29T21:37:02.856Z",
+      "validThrough": "2027-01-29T09:47:24.035Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 92,
       "_qualityBreakdown": {
@@ -131,7 +130,7 @@
       "datePosted": "2026-10-30",
       "postedDate": "2026-10-30",
       "postingDateSource": "reported",
-      "crawledAt": "2026-11-08T21:37:02.856Z",
+      "crawledAt": "2026-11-09T09:47:24.035Z",
       "source": "capri-holdings-workday-crawler",
       "employmentType": "PART_TIME",
       "experienceLevel": "MID",
@@ -149,7 +148,7 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-28T21:37:02.856Z",
+      "validThrough": "2027-01-28T09:47:24.035Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 96,
       "_qualityBreakdown": {
@@ -178,7 +177,7 @@
       "datePosted": "2026-09-11",
       "postedDate": "2026-09-11",
       "postingDateSource": "reported",
-      "crawledAt": "2026-11-08T21:37:02.856Z",
+      "crawledAt": "2026-11-09T09:47:24.035Z",
       "source": "capri-holdings-workday-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "SENIOR",
@@ -196,7 +195,7 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-10T21:37:02.856Z",
+      "validThrough": "2026-12-10T09:47:24.035Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 96,
       "_qualityBreakdown": {
@@ -207,5 +206,5 @@
       }
     }
   ],
-  "codeCommit": "46d8c233794afd1422cd7663ab076bfe9ec2a1c3"
+  "codeCommit": "f071981dd2d2820cdec3736f76b1b17ee50345bd"
 }
