@@ -410,7 +410,9 @@ export function buildReviewPayload({ order, orderId = '', flow, draft, round, co
   const stillOpen = askedQuestions.some((question) => question.required && !defaults[question.id]
     && (!String(answers[question.id] ?? '').trim() || !requiredPortalConsentAffirmed(question, answers[question.id])));
   const visibleQuestions = stillOpen ? askedQuestions : askedQuestions.filter((question) => !defaults[question.id]);
-  const answerOrigins = answerOriginsForQuestions({ questions: visibleQuestions, answers, answerEvidence, flow: candidateFlow });
+  // Hidden is a presentation choice only: the confirmation contract still covers every question asked, so an
+  // answer saved from a page that showed it (or a later round that shows it again) is accepted as before.
+  const answerOrigins = answerOriginsForQuestions({ questions: askedQuestions, answers, answerEvidence, flow: candidateFlow });
   const confirmationFlow = { ...candidateFlow, answerOrigins };
   const questions = visibleQuestions.map((question) => {
     const view = { ...questionView(question, nowMs, draft?.factSources?.text || ''),
@@ -492,7 +494,7 @@ export function buildReviewPayload({ order, orderId = '', flow, draft, round, co
     answers: Object.fromEntries(questions.map((question) => [question.id, String(answers[question.id] ?? '')])),
     dismissedAnswerSuggestionIds,
     answerQuestionSnapshots: answerConfirmationSnapshotsFor({ userId: order?.userId, orderId, order, flow: confirmationFlow,
-      questions: visibleQuestions, draft, communicationLocale: locale, nowMs }),
+      questions: askedQuestions, draft, communicationLocale: locale, nowMs }),
     documents,
     documentLimits: { maxBytes: MAX_DOCUMENT_BYTES, maxFiles: MAX_FILES_PER_DOCUMENT },
     feedback: (flow?.feedback || []).map((item) => ({ round: item.round, text: item.text })),

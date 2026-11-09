@@ -34,11 +34,12 @@
 
 import { createHash } from 'node:crypto';
 import { createRequire } from 'node:module';
+import { addressContextContract } from './lib/addressContextContract.js';
 import { isoDateOf } from './lib/cvPeriod.js';
 import { languageCodesIn } from './lib/languageFacts.js';
 import { civilStatusCode, civilStatusOption, civilStatusOptions, isCivilStatusField, salutationFor, salutationGenderFromName } from './lib/personalFacts.js';
 import { asksHeldStatus, euEftaNational, isNationalityField, isPermitField, nationalityLabelOf, nationalityOf, permitLabel, permitOptionCode, permitStatusOf } from './lib/permitStatus.js';
-import { zurichToday } from './lib/assistedApplicationQuestionConstraints.js';
+import { defaultStartDate, zurichToday } from './lib/assistedApplicationQuestionConstraints.js';
 
 export const PLATFORM_DEFAULTS_VERSION = 'platform-defaults-v1';
 
@@ -184,13 +185,9 @@ export function ageOn(dateOfBirth, nowMs = Date.now()) {
   return age;
 }
 
-/** Same day, three months later, in Zurich. */
+/** Same day, three months later, in Zurich: the one definition the review page proposes too. */
 export function platformStartDate(nowMs = Date.now()) {
-  const [year, month, day] = zurichToday(nowMs).split('-').map(Number);
-  const target = new Date(Date.UTC(year, month - 1 + PLATFORM_NOTICE_MONTHS, 1));
-  const last = new Date(Date.UTC(target.getUTCFullYear(), target.getUTCMonth() + 1, 0)).getUTCDate();
-  target.setUTCDate(Math.min(day, last));
-  return target.toISOString().slice(0, 10);
+  return defaultStartDate(nowMs);
 }
 
 /** The maximum of the job's salary estimate, annual: order.salaryMax/baseSalary, written at checkout or by the automation. */
@@ -325,8 +322,10 @@ function optionsOf(question) {
     .filter((option) => option && !/^(?:-+|seleziona\w*|select\w*|please select|bitte (?:wahlen|waehlen|auswahlen)|choisir|choose|aucune selection|selezionare)\b/i.test(fold(option) || '-'));
 }
 const typeOf = (question) => String(question?.type || question?.kind || question?.inputType || '').toLowerCase();
+// A yes/no field: its type says so, or every option is a bare yes or no («Sì, ho un permesso…» is a choice).
 const isBinary = (question) => ['yes_no', 'checkbox', 'boolean'].includes(typeOf(question))
-  || (optionsOf(question).length > 0 && optionsOf(question).length <= 3 && optionsOf(question).some((option) => YES.test(fold(option))));
+  || (optionsOf(question).length >= 2 && optionsOf(question).length <= 3
+    && optionsOf(question).every((option) => /^(?:si|yes|ja|oui|no|nein|non|true|false)$/.test(fold(option))));
 
 const YES = /^(?:si|yes|ja|oui|true|1|y)\b/;
 const NO = /^(?:no|nein|non|false|0|n)\b/;
@@ -339,7 +338,6 @@ const STREET = /\b(?:via|strasse|street|rue|indirizzo|adresse|address|anschrift)
 const STREET_STRICT = /\b(?:via|strada|strasse|street|rue)\b/;
 const STREET_NAME_ONLY = /\b(?:nome (?:della )?(?:sua |tua )?via|street name|strassenname|nom de (?:la )?rue)\b/;
 const NOT_ADDRESS = /\b(?:whatsapp|sms|telefon\w*|phone|cellulare|mobile|handy|e ?mail|email|courriel)\b/;
-const WORKLOAD = /\b(?:carico di lavoro|grado d impiego|grado di impiego|grado di occupazione|percentuale (?:di )?lavor\w*|disponibilita lavorativa|pensum|arbeitspensum|beschaftigungsgrad|workload|taux d (?:activite|occupation))\b/;
 const AGE_LIMIT = /\b(?:(meno di|under|unter|moins de|almeno|at least|mindestens|au moins|piu di|over|uber|plus de))\s+(\d{1,2})\s+(?:anni|years?|jahre?|ans)\b/;
 const CITY = /\b(?:citta|city|ort|wohnort|localita|ville|town|comune|lieu|gemeinde)\b/;
 const COUNTRY = /\b(?:paese|nazione|country|land|pays|stato)\b/;
@@ -347,25 +345,104 @@ const RESIDENCE = /\b(?:residen\w*|domicil\w*|wohn\w*|vivi|abiti|live|living|res
 const CITIZENSHIP = /\b(?:nazionalita|nationalit\w*|staatsangeh\w*|citizenship|cittadinanza|citoyennete|passport|passaporto|passeport|pass|nascita|birth|geburt)\b/;
 const SALUTATION = /\b(?:appellativo|anrede|civilite|salutation|form of address|forma di cortesia|titolo|title)\b/;
 const SALARY = /\b(?:salar\w*|stipendi\w*|retribuz\w*|remunera\w*|lohn\w*|gehalt\w*|lohnvorstellung|pretention\w* salariale\w*|compensation|pay expectation\w*|tariffa|rate)\b/;
-const START = /\b(?:availab\w*|disponib\w*|verfugbar\w*|ab wann|start\w*|inizi\w*|entrata in servizio|beginn|eintritt\w*|antritt|arbeitsbeginn|debut|entree en (?:fonction|service)|prise de poste|when can you|earliest)\b/;
-const RELOCATION = /\b(?:trasferir\w*|trasferiment\w*|relocat\w*|umzug\w*|umzieh\w*|demenag\w*|condizioni di residenza|residence conditions|willing to move)\b/;
+// A start date asked as such. «Available» alone is not one: «Available from Monday to Friday» is a schedule.
+const START = /\b(?:start(?:ing)? date|date of (?:start|entry)|earliest (?:possible )?start\w*|when can you start|available from|availability date|data di (?:inizio|entrata|assunzione)|prima data|da quale data|a partire da quale data|quando potresti iniziare|quando puoi iniziare|disponibilita a iniziare|disponibile a iniziare|entrata in servizio|ab wann|eintritts?datum|fruhest\w* eintritt\w*|stellenantritt|arbeitsbeginn|date de debut|date d entree|a partir de quand|prise de poste|disponible a partir)\b/;
+const SCHEDULE = /\b(?:monday|tuesday|wednesday|thursday|friday|saturday|sunday|weekdays?|lunedi|martedi|mercoledi|giovedi|venerdi|sabato|domenica|montag|dienstag|mittwoch|donnerstag|freitag|samstag|sonntag|lundi|mardi|mercredi|jeudi|vendredi|samedi|dimanche|orari\w*|hours?|ore|stunden|heures|uhr|shift\w*|turn\w*|schicht\w*)\b/;
+const RELOCATION = /\b(?:trasferir\w*|trasferiment\w*|relocat\w*|umzug\w*|umzieh\w*|demenag\w*|willing to move)\b/;
 const HYBRID = /\b(?:ibrid\w*|hybrid\w*|hybride|homeoffice|home office|telelavoro|smart working|presenza (?:presso|in) (?:la )?sede)\b/;
 const ON_CALL = /\b(?:picchett\w*|pikett\w*|reperibil\w*|on call|bereitschaft\w*|astreinte|permanence|turni di guardia)\b/;
 const RECORDING = /\b(?:registrazion\w*|recording|recorded|aufnahme\w*|aufzeichn\w*|enregistr\w*|audio)\b/;
 const CONSENT = /\b(?:consens\w*|acconsent\w*|consent\w*|einwillig\w*|zustimm\w*|autoris\w*|accett\w*|accept\w*|informato|informed)\b/;
 const MARKETING = /\b(?:newsletter\w*|marketing|promozional\w*|pubblicit\w*|werbung|werbe\w*|publicit\w*|offerte commerciali|job alert\w*|talent pool|talent community|corsi|academy|opportunita di formazione|weitere angebote|offres commerciales|informazioni (?:su|sulle|riguardo))\b/;
 const PRIVACY = /\b(?:informativa|privacy|datenschutz\w*|protection des donnees|donnees personnelles|trattamento dei (?:tuoi )?dati|dati personali|data protection|personal data|privacy notice|privacy policy)\b/;
-const READ = /\b(?:letto|lett[ao]|read|gelesen|lu|presa visione|preso visione|acknowledge\w*|confermo|confirm\w*|zur kenntnis|accett\w*|accept\w*|consens\w*|acconsent\w*|agree\w*)\b/;
 const LANGUAGE_LEVEL = /\b(?:livello|level|niveau|proficiency|fluency|fluent|conoscenz\w*|kenntnis\w*|competenz\w*|parli|speak|sprechen|parlez|sprachkenntnisse)\b/;
-const WORKLOAD_YES_NO = /\b(?:pensum|grado di occupazione|percentuale|workload|beschaftigungsgrad|taux)\b/;
+
+// One subject per answer. A prompt that joins two subjects («notice period and start date», «WhatsApp
+// contact and data processing», «processing for marketing») is the candidate's: no single platform value
+// answers both halves. The families below are the subjects; a topic belongs to exactly one of them.
+const SUBJECT_FAMILIES = {
+  notice: /\b(?:notice period|notice time|preavviso|kundigungsfrist|preavis)\b/,
+  start: /\b(?:start\w*|inizi\w*|entrata in servizio|beginn|eintritt\w*|antritt|debut|prise de poste|earliest|disponibil\w* (?:a|per) (?:iniziare|entrare))\b/,
+  salary: SALARY,
+  workload: /\b(?:workload|pensum|beschaftigungsgrad|grado di occupazione|grado d impiego|carico di lavoro|taux d (?:activite|occupation))\b/,
+  contact: /\b(?:whatsapp|sms|newsletter|e ?mail|telefon\w*|phone)\b/,
+  privacy: /\b(?:privacy|datenschutz\w*|protezione dei dati|protection des donnees|data protection|trattamento|processing|verarbeitung|traitement|personal data|dati personali|personenbezogen\w*|donnees personnelles)\b/,
+  marketing: MARKETING,
+  terms: /\b(?:terms|conditions|condizioni generali|agb|cgu|subscription|abbonamento|third parties|terze parti|dritte|tiers)\b/,
+  experience: /\b(?:experience|esperienz\w*|erfahrung|years of|anni di)\b/,
+};
+const TOPIC_FAMILY = {
+  salary_expectation: 'salary', start_date: 'start', marketing_opt_in: 'marketing', recording_consent: 'privacy',
+};
+
+/**
+ * Native identifiers (a control's id or semantic name) that name a fact: the
+ * field asks that fact whatever its visible label says, so no other platform
+ * topic may answer it.
+ */
+const NATIVE_FACT_ID = /\b(?:country|nation\w*|permit|workpermit|work_permit|qualification|experience\w*|birth\w*|dob|address|street|postal|zip|city|salary|phone|email)\b/i;
+
+function nativeIdentifiers(question) {
+  return ['semanticId', 'controlId', 'name', 'nativeId', 'autocomplete']
+    .map((key) => question?.[key]).filter((value) => typeof value === 'string' && value.trim())
+    .join(' ').replace(/([a-z])([A-Z])/g, '$1 $2').replace(/[_-]+/g, ' ');
+}
 
 /** The platform topic of a question, or null for one the platform does not answer. */
 export function platformQuestionTopic(question) {
+  const topic = classifyPlatformTopic(question);
+  if (!topic) return null;
+  const text = label(question);
+  const family = TOPIC_FAMILY[topic] || null;
+  const subjects = Object.entries(SUBJECT_FAMILIES).filter(([name, re]) => name !== family && re.test(text)).map(([name]) => name);
+  // An address, a birth date, a permit, a language level … carry no second subject of the list. A marketing
+  // request names its channel («newsletter by e-mail»); declining it declines both.
+  const compatible = { marketing_opt_in: ['contact'] }[topic] || [];
+  if (subjects.some((name) => !compatible.includes(name))) return null;
+  const identifiers = nativeIdentifiers(question);
+  if (identifiers && NATIVE_FACT_ID.test(identifiers)) {
+    const expected = { residence_country: /country/i, work_permit: /permit/i, nationality: /nation/i, birth_date: /birth|dob/i,
+      birth_day: /birth|dob/i, birth_month: /birth|dob/i, birth_year: /birth|dob/i, address_street: /address|street/i,
+      address_street_name: /address|street/i, address_house_number: /address|street/i, residence_postal_code: /postal|zip|address/i,
+      residence_city: /city|address/i, salary_expectation: /salary/i }[topic];
+    if (!expected || !expected.test(identifiers)) return null;
+  }
+  return topic;
+}
+
+const ADDRESS_TOPICS = new Set(['residence_postal_code', 'residence_country', 'residence_city', 'address_street', 'address_street_name', 'address_house_number']);
+const OTHER_PARTY = /\b(?:datore|employer\w*|arbeitgeber\w*|azienda|company|firma|entreprise|employeur|referenz\w*|reference\w*|referee|contatto di emergenza|emergency|notfall\w*|urgence|genitor\w*|parent\w*|eltern|tutore|guardian|fatturazione|billing|rechnung\w*|facturation|consegna|delivery|lieferung|livraison|lavoro precedente|previous job|ultimo impiego)\b/;
+const SELF_OWNER = /\b(?:personal\w*|persona\w*|personlich\w*|personnel\w*|candidat\w*|applicant\w*|bewerber\w*|your|tu[oa]i?|dati anagrafici|anagrafica|contact (?:details|information)|kontakt\w*|coordonnees|residen\w*|wohn\w*|domicil\w*)\b/;
+
+/**
+ * An address field is the candidate's only when nothing says otherwise: its
+ * visible context (section, fieldset, nearby heading) and its native ownership
+ * contract (lib/addressContextContract.js) must not name another party, and an
+ * unreadable contract is not ownership.
+ */
+function candidateOwnsAddress(question) {
+  const around = fold([question?.context, question?.section].filter((value) => typeof value === 'string').join(' '));
+  if (OTHER_PARTY.test(around) || OTHER_PARTY.test(label(question))) return false;
+  const contract = addressContextContract(question);
+  if (contract === undefined) return true;
+  if (contract === null || contract.unknown) return false;
+  const owners = [contract.section, ...contract.owners].map(fold).filter(Boolean);
+  return owners.every((owner) => !OTHER_PARTY.test(owner)) && (owners.length === 0 || owners.some((owner) => SELF_OWNER.test(owner)));
+}
+
+function classifyPlatformTopic(question) {
+  const topic = classifyPlatformSubject(question);
+  return topic && ADDRESS_TOPICS.has(topic) && !candidateOwnsAddress(question) ? null : topic;
+}
+
+function classifyPlatformSubject(question) {
   const text = label(question);
   if (!text) return null;
   const id = String(question?.id || '');
   const type = typeOf(question);
-  if (/^mobility_requirement_/.test(id)) return 'relocation';
+  // A residence condition left by lib/mobilityRequirements.js is a fact (where the candidate lives), not a
+  // willingness: the platform's relocation declaration already met every clause relocation satisfies.
+  if (/^mobility_requirement_/.test(id)) return null;
   if (id === 'salutation' || /\bcome vuoi essere indicat\w*\b|\bform of address\b/.test(text)) return 'salutation';
   if (BIRTH.test(text) && !CITY.test(text) && !COUNTRY.test(text) && !/\bluogo\b|\bort\b|\bplace\b|\blieu\b/.test(text)) {
     const options = optionsOf(question);
@@ -399,21 +476,18 @@ export function platformQuestionTopic(question) {
     if (STREET.test(text) && !CITIZENSHIP.test(text) && !otherParty) return 'address_street';
     if (CITY.test(text) && !CITIZENSHIP.test(text) && !otherParty && (RESIDENCE.test(text) || text.split(' ').length <= 5)) return 'residence_city';
   }
-  if (MARKETING.test(text) && !/\b(?:selezione|recruit\w*|candidatura|application)\b.*\bsolo\b/.test(text)) return 'marketing_opt_in';
+  if (MARKETING.test(text) && !PRIVACY.test(text)) return 'marketing_opt_in';
   if (RECORDING.test(text) && CONSENT.test(text)) return 'recording_consent';
   if (/\bconsenso informato\b|\binformed consent\b/.test(text)) return 'recording_consent';
-  if (PRIVACY.test(text) && READ.test(text)) return 'privacy_ack';
   if (ON_CALL.test(text)) return 'on_call';
   if (HYBRID.test(text)) return 'hybrid';
   if (RELOCATION.test(text)) return 'relocation';
   const languages = languageCodesIn(text);
   if (languages.length === 1 && LANGUAGE_LEVEL.test(text)) return `language:${languages[0]}`;
   if (SALARY.test(text) && !/\b(?:attuale|current|aktuell\w*|actuel\w*)\b/.test(text)) return 'salary_expectation';
-  if (WORKLOAD_YES_NO.test(text) && /\b100\b/.test(text) && type === 'yes_no') return 'workload_full_time';
-  if (WORKLOAD.test(text) && !isBinary(question) && !/\b(?:attuale|current|aktuell\w*|actuel\w*)\b/.test(text)) return 'workload';
   if (AGE_LIMIT.test(text) && isBinary(question)) return 'age_limit';
-  if (START.test(text) && (type === 'date' || ['text', 'textarea', ''].includes(type))
-    && !/\b(?:turn\w*|shift\w*|weekend|sera|night|notte|abend|viagg\w*|travel\w*|trasfert\w*|reisen)\b/.test(text)) return 'start_date';
+  if (START.test(text) && !SCHEDULE.test(text) && (type === 'date' || ['text', 'textarea', ''].includes(type))
+    && !/\b(?:weekend|sera|night|notte|abend|viagg\w*|travel\w*|trasfert\w*|reisen)\b/.test(text)) return 'start_date';
   return null;
 }
 
@@ -626,13 +700,8 @@ export function platformDefaultAnswer(question, facts = null, { locale } = {}) {
       value = passport === 'other' ? noValue(question, lang) : yesValue(question, lang);
       break;
     }
-    case 'marketing_opt_in': value = noValue(question, lang); break;
-    case 'workload': {
-      const percent = String(known.workloadPercent || PLATFORM_WORKLOAD_PERCENT);
-      value = options.length ? pickOption(question, (option) => new RegExp(`^${percent}\\s*%?$`).test(option.trim()) || new RegExp(`\\b${percent}\\s*%`).test(option))
-        : typeOf(question) === 'number' ? percent : `${percent}%`;
-      break;
-    }
+    // An unticked box already declines: the platform leaves a marketing checkbox as it is.
+    case 'marketing_opt_in': value = ['checkbox'].includes(typeOf(question)) ? '' : noValue(question, lang); break;
     case 'age_limit': {
       if (known.age === null || known.age === undefined) break;
       const [, word, limit] = AGE_LIMIT.exec(label(question));
@@ -644,11 +713,9 @@ export function platformDefaultAnswer(question, facts = null, { locale } = {}) {
       break;
     }
     case 'recording_consent':
-    case 'privacy_ack':
     case 'on_call':
     case 'hybrid':
-    case 'relocation':
-    case 'workload_full_time': value = yesValue(question, lang); break;
+    case 'relocation': value = yesValue(question, lang); break;
     case 'salary_expectation': value = salaryValue(question, withLocale); break;
     case 'start_date': value = dateValue(question, known.startDate, lang); break;
     default:

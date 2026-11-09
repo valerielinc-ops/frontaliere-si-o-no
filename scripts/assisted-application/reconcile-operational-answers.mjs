@@ -24,11 +24,39 @@ function releasesWait(flow, result) {
 
 export async function reconcileOperationalAnswers({ db, apply = false, nowMs = Date.now(), salaryEstimate = orderSalaryEstimatePatch }) {
   const counts = { scanned: 0, eligible: 0, queued: 0, alreadyQueued: 0, salaryEstimated: 0 };
-  for (const state of WAITING_STATES) await reconcileState({ db, apply, nowMs, salaryEstimate, state, counts });
+  const salaryPatches = salaryEstimate ? await backfillSalaryEstimates({ db, apply, nowMs, salaryEstimate, counts }) : new Map();
+  for (const state of WAITING_STATES) await reconcileState({ db, apply, nowMs, salaryPatches, state, counts });
   return counts;
 }
 
-async function reconcileState({ db, apply, nowMs, salaryEstimate, state, counts }) {
+/**
+ * Orders written before the salary invariant (checkout before 2026-10-22, every concierge
+ * application) receive the job's estimate, as the order trigger now gives a new one.
+ */
+async function backfillSalaryEstimates({ db, apply, nowMs, salaryEstimate, counts }) {
+  const patches = new Map();
+  let cursor;
+  do {
+    let query = db.collection('assisted_applications').where('paymentStatus', '==', 'paid').orderBy('__name__').limit(100);
+    if (cursor) query = query.startAfter(cursor);
+    const page = await query.get();
+    if (!page.docs.length) break;
+    for (const doc of page.docs) {
+      const order = doc.data();
+      if (Number(order.salaryMax) > 0 || ['submitted', 'withdrawn'].includes(order.submissionStatus)) continue;
+      const patch = await Promise.resolve(salaryEstimate(order)).catch(() => null);
+      if (!patch) continue;
+      counts.salaryEstimated++;
+      patches.set(doc.id, patch);
+      if (apply) await doc.ref.set({ ...patch, salaryEstimateCheckedAt: nowMs }, { merge: true });
+    }
+    cursor = page.docs.at(-1);
+    if (page.docs.length < 100) break;
+  } while (cursor);
+  return patches;
+}
+
+async function reconcileState({ db, apply, nowMs, salaryPatches, state, counts }) {
   let cursor;
   do {
     let query = db.collection('assisted_applications').where('automationState', '==', state)
@@ -39,16 +67,13 @@ async function reconcileState({ db, apply, nowMs, salaryEstimate, state, counts 
     for (const doc of page.docs) {
       counts.scanned++;
       if (doc.data().paymentStatus !== 'paid' || doc.data().refundStatus === 'pending') continue;
-      const salaryPatch = salaryEstimate ? await Promise.resolve(salaryEstimate(doc.data())).catch(() => null) : null;
-      if (salaryPatch) {
-        counts.salaryEstimated++;
-        if (apply) await doc.ref.set(salaryPatch, { merge: true });
-      }
+      // A dry run reads the order as the backfill would leave it.
+      const salaryPatch = apply ? null : salaryPatches.get(doc.id);
       const outcome = await db.runTransaction(async transaction => {
         const [orderDoc, flowDoc, draftDoc] = await Promise.all([
           transaction.get(doc.ref), transaction.get(doc.ref.collection('automation').doc('flow')), transaction.get(doc.ref.collection('ai_drafts').doc('current')),
         ]);
-        const order = { ...orderDoc.data(), ...(salaryPatch && !apply ? salaryPatch : {}) };
+        const order = { ...orderDoc.data(), ...(salaryPatch || {}) };
         if (order?.paymentStatus !== 'paid' || order.refundStatus === 'pending') return null;
         const flow = flowDoc.data();
         // A later portal step may create another wait on this same order.

@@ -147,8 +147,12 @@ export function operationalQuestionTopic(question) {
     question?.question, question?.label, question?.applicationQuestion, question?.context,
     ...(Array.isArray(question?.labels) ? question.labels : []),
     ...optionsOf(question).flatMap(option => [option.label, option.value]),
-  ].filter(value => typeof value === 'string' && value.trim()).join(' ');
-  if (isPreferredWorkloadQuestion(workloadPrompt)) return 'preferred_workload';
+  ].filter(value => typeof value === 'string' && value.trim())
+    // A portal's required marker («* (required)») is not a workload requirement.
+    .map(value => value.replace(/\*?\s*\((?:required|obligatoire|obbligatorio|pflichtfeld)\)|\*/gi, ' ')).join(' ');
+  // A percentage preference fills a percentage field; «available at 80%?» (yes/no) asks a fixed pensum instead.
+  if (isPreferredWorkloadQuestion(workloadPrompt)
+    && !['yes_no', 'checkbox', 'boolean'].includes(question?.type || question?.kind)) return 'preferred_workload';
   if (NOTICE.test(text) && !CONSTRAINED_NOTICE.test(text) && !['yes_no', 'checkbox'].includes(question?.type || question?.kind)) return 'notice_period';
   if (/\bwhatsapp\b/.test(text) && CONTACT.test(text) && !CONTACT_FACT.test(text)) {
     // Adjacent form labels are not candidate facts. A promotional/privacy

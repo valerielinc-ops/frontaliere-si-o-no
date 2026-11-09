@@ -197,7 +197,7 @@ function answerFitsQuestion(value, question) {
 export function isPreferredWorkloadQuestion(value) {
   const text = normalizeQuestionValue(value);
   if (!text || HARD_WORKLOAD_CONSTRAINT.test(text)) return false;
-  const workload = /\b(?:workload|pensum|beschaftigungsgrad|grado di occupazione|percentuale di lavoro|percentuale lavorativa|disponibilita lavorativa|taux d activite|taux d occupation)\b/.test(text);
+  const workload = /\b(?:workload|pensum|arbeitspensum|beschaftigungsgrad|grado di occupazione|grado d impiego|grado di impiego|carico di lavoro|percentuale di lavoro|percentuale lavorativa|disponibilita lavorativa|taux d activite|taux d occupation)\b/.test(text);
   return workload;
 }
 
@@ -617,9 +617,12 @@ export function candidateWithEdits({ order, draft, flow, locale: requestedLocale
     : salutationFor(platformSalutationGender(identity.firstName, locale), locale));
   if (platformSalutation) answers.salutation = platformSalutation;
   else delete answers.salutation;
-  // The permit asked at upload answers the permit question of the draft, as the candidate chose it.
-  if (profile.permitStatus && asked.has('work_permit') && !clean(answers.work_permit, 200)) {
-    answers.work_permit = permitLabel(profile.permitStatus, locale);
+  // The permit asked at upload answers the permit question of the draft, as the candidate chose it; an
+  // answer or a correction of theirs stays as they gave it.
+  const uploadedPermit = permitStatusOf(uploaded.workPermit);
+  if (uploadedPermit && profile.permitStatus === uploadedPermit && asked.has('work_permit')
+    && !clean(answers.work_permit, 200) && !has(overrides, 'workPermit')) {
+    answers.work_permit = permitLabel(uploadedPermit, locale);
   }
   const personal = { salutation: platformSalutation, civilStatus: has(overrides, 'civilStatus') ? overrides.civilStatus : cv.civilStatusText };
   // Form-only values (assistedApplicationPlatformDefaults.js): kept apart from `profile`, which the letter

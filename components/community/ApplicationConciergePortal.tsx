@@ -16,8 +16,8 @@ import SumUpPaymentWidget from '@/components/community/SumUpPaymentWidget';
 import SignupPromptModal, { requestConciergeAccessLink } from '@/components/community/SignupPromptModal';
 import ResidenceLocationInput from '@/components/community/ResidenceLocationInput';
 import { AssistedApplicationLegalLinks } from '@/components/community/AssistedApplicationLegalLinks';
-import {
 import { AssistedApplicationCandidateFacts, candidateFactsComplete, cleanCandidateFacts, type CandidateFacts } from '@/components/community/AssistedApplicationCandidateFacts';
+import {
   openApplicationConciergeChildReview,
   acceptApplicationConciergeProposal,
   declineApplicationConciergeProposal,

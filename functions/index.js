@@ -141,6 +141,7 @@ import {
   postingClosedForOrder,
 } from './src/assistedApplicationAutomation.js';
 import { runAutomationEffect } from './src/assistedApplicationAutomationEffects.js';
+import { ensureOrderSalaryEstimate } from './src/assistedApplicationJobCard.js';
 import { handleAssistedApplicationReview, sendReviewResponse } from './src/assistedApplicationReview.js';
 import { runFollowupSweep } from './src/assistedApplicationFollowupSweep.js';
 import { runRendererCheck } from './src/assistedApplicationRendererCheck.js';
@@ -3213,6 +3214,17 @@ export const startAssistedApplicationAutomation = onDocumentWritten(
     const after = event.data?.after;
     if (!after?.exists) return;
     const before = event.data?.before?.exists ? event.data.before.data() : null;
+    // Every order of a published job carries its salary estimate, whatever path created it: the
+    // platform answers the salary expectation with its maximum (owner decision 2026-11-09).
+    try {
+      const salary = await ensureOrderSalaryEstimate({
+        order: after.data(),
+        write: (patch) => after.ref.set(patch, { merge: true }),
+      });
+      if (salary) console.log('[startAssistedApplicationAutomation] salary estimate', event.params.orderId, salary);
+    } catch (error) {
+      console.error('[startAssistedApplicationAutomation] salary estimate', event.params.orderId, error instanceof Error ? error.message : String(error));
+    }
     try {
       const result = await maybeStartAutomation(before, after.data(), event.params.orderId, {
         db: getAdminDb(),

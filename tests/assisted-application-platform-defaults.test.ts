@@ -138,7 +138,11 @@ describe('questions the platform answers (labels from the census)', () => {
   it('salary, workload, start date', () => {
     expect(answer({ question: 'Qual è la tua aspettativa salariale?', type: 'text' })).toBe("CHF 88'000 lordi annui");
     expect(answer({ question: 'Qual è la tua aspettativa salariale annua in CHF?', type: 'number' })).toBe('88000');
-    expect(answer({ question: 'Qual è il tuo carico di lavoro preferito?', type: 'text' })).toBe('100%');
+    // The workload is the owner's preference (assistedApplicationOperationalAnswers.js), read with the census wording.
+    expect(operationalDefaultAnswer({ question: 'Qual è il tuo carico di lavoro preferito?', type: 'text', required: true }, { facts })?.value).toBe('100%');
+    expect(operationalDefaultAnswer({ question: 'Qual è il tuo grado d\'impiego desiderato?', applicationQuestion: 'gewünschtes Arbeitspensum', type: 'text', required: true }, { facts })?.value).toBe('100%');
+    expect(operationalDefaultAnswer({ question: 'Qual è la tua disponibilità lavorativa desiderata in percentuale?', applicationQuestion: 'What is your desired workload (in %)?* (required)', type: 'number', required: true }, { facts })?.value).toBe('100');
+    expect(operationalDefaultAnswer({ question: 'Il datore richiede un grado di occupazione del 100%', type: 'text' }, { facts })).toBeNull();
     expect(answer({ question: 'Da quale data puoi iniziare a lavorare?', type: 'date' })).toBe('2027-02-09');
     expect(answer({ question: 'Quando potresti iniziare? Indica una data oppure specifica se sei disponibile subito.', type: 'text' })).toBe('09.02.2027');
   });
@@ -146,12 +150,27 @@ describe('questions the platform answers (labels from the census)', () => {
   it('consents, marketing and availabilities', () => {
     expect(answer({ question: 'Puoi fornire il consenso informato alla partecipazione, alla registrazione della conversazione e all’uso dell’audio per il progetto di IA?', type: 'yes_no', options: ['Sì', 'No'] })).toBe('Sì');
     expect(answer({ question: 'Desideri ricevere informazioni sulle opportunità di formazione e sui corsi di TSMG Academy oltre alle comunicazioni relative alla selezione?', type: 'choice', options: ['Yes', 'No'] })).toBe('No');
-    expect(answer({ question: 'Seleziona questa casella per confermare di aver letto l\'Informativa sulla privacy per i candidati.', type: 'checkbox' })).toBe('true');
+    // The privacy notice is the existing consent grammar's (lib/applicationConsent.js), with the census pair.
+    expect(operationalDefaultAnswer({ question: 'Seleziona questa casella per confermare di aver letto l\'Informativa sulla privacy per i candidati.', applicationQuestion: 'Please check this box to acknowledge that you have read the Applicant Privacy Notice.', type: 'text', required: true, source: 'portal' }, { facts })).toMatchObject({ topic: 'privacy_review_ack' });
     expect(answer({ question: 'Sei disponibile a trasferirti nel Canton Ticino, in Svizzera, per questo ruolo?', type: 'yes_no', options: ['Sì', 'No'] })).toBe('Sì');
     expect(answer({ question: 'Sei disponibile a lavorare in modalità ibrida, con presenza presso la sede di Cadempino?', type: 'yes_no', options: ['Sì', 'No'] })).toBe('Sì');
     expect(answer({ question: 'Sei disponibile a partecipare al servizio di picchetto 24h secondo il regolamento aziendale?', type: 'yes_no' })).toBe('Sì');
-    expect(answer({ id: 'mobility_requirement_abc', question: 'Puoi soddisfare tutte le condizioni di residenza o trasferimento riportate qui?', type: 'yes_no', options: ['Sì', 'No'] })).toBe('Sì');
+    // Left by lib/mobilityRequirements.js only for a current residence: a fact, never the platform's.
+    expect(answer({ id: 'mobility_requirement_abc', question: 'Puoi soddisfare tutte le condizioni di residenza o trasferimento riportate qui?', type: 'yes_no', options: ['Sì', 'No'] })).toBeNull();
     expect(answer({ question: 'Hai meno di 26 anni?', type: 'yes_no', options: ['Oui', 'Non'] })).toBe('Non');
+  });
+
+  it('leaves compound prompts and other parties\' addresses to the candidate', () => {
+    for (const question of [
+      'What is your notice period and earliest possible start date?',
+      'Qual è il preavviso e la data di inizio?',
+      'Comunicazione via WhatsApp e consenso privacy',
+      'I consent to the processing of my personal data for marketing and future job offers.',
+    ]) expect(answer({ question, type: 'text' })).toBeNull();
+    expect(answer({ question: 'City', type: 'text', context: 'Employer' })).toBeNull();
+    expect(answer({ question: 'City', type: 'text', addressContext: { section: 'Employer', owners: ['Employer'], unknown: false } })).toBeNull();
+    expect(answer({ question: 'City', type: 'text', addressContext: { section: '', owners: [], unknown: true } })).toBeNull();
+    expect(answer({ question: 'City', type: 'text', addressContext: { section: 'Personal information', owners: ['Personal information'], unknown: false } })).toBe('Como');
   });
 
   it('leaves the questions only the candidate can answer', () => {

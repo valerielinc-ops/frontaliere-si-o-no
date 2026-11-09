@@ -177,6 +177,23 @@ export async function orderSalaryEstimatePatch(order, { fetchImpl = fetch } = {}
   };
 }
 
+/**
+ * Invariant of every order (owner decision 2026-11-09): an order of a published
+ * job carries the job's salary estimate, whatever created it (checkout, an
+ * accepted concierge proposal, the owner). Called by the order's write trigger;
+ * an order whose job has no estimate is marked checked so the trigger does not
+ * fetch again on each write.
+ * @param {{order:object, write:(patch:object)=>Promise<unknown>, fetchImpl?:typeof fetch, nowMs?:number}} input
+ * @returns {Promise<'estimated'|'unavailable'|null>}
+ */
+export async function ensureOrderSalaryEstimate({ order, write, fetchImpl = fetch, nowMs = Date.now() }) {
+  if (!order || typeof order !== 'object' || !JOB_ID_RE.test(String(order.jobId || '').trim())) return null;
+  if (finitePositiveNumber(order.salaryMax) || order.salaryEstimateCheckedAt) return null;
+  const patch = await orderSalaryEstimatePatch(order, { fetchImpl });
+  await write(patch ? { ...patch, salaryEstimateCheckedAt: nowMs } : { salaryEstimateCheckedAt: nowMs });
+  return patch ? 'estimated' : 'unavailable';
+}
+
 export async function enrichAssistedApplicationOrders(orders, options = {}) {
   const list = Array.isArray(orders) ? orders : [];
   return Promise.all(list.map((order) => enrichAssistedApplicationOrder(order, options)));
