@@ -1,7 +1,7 @@
 {
   "crawlerKey": "comuni-ticino",
-  "assembledAt": "2026-11-08T22:02:09.133Z",
-  "runId": "42525106254",
+  "assembledAt": "2026-11-09T09:45:15.686Z",
+  "runId": "42593325916",
   "jobs": [
     {
       "id": "comune-di-minusio-df86ab08f1",
@@ -57,7 +57,7 @@
       "source": "Comune di Minusio Dedicated Parser (albo + PDF)",
       "sourceCrawler": "comuni-ticino",
       "sourceLang": "it",
-      "crawledAt": "2026-11-08T21:55:09.081Z",
+      "crawledAt": "2026-11-09T09:43:20.068Z",
       "firstSeenAt": "2026-11-05T21:50:58.108Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -129,7 +129,7 @@
       "source": "Comune di Minusio Dedicated Parser (albo + PDF)",
       "sourceCrawler": "comuni-ticino",
       "sourceLang": "it",
-      "crawledAt": "2026-11-08T21:55:09.081Z",
+      "crawledAt": "2026-11-09T09:43:20.068Z",
       "firstSeenAt": "2026-11-05T21:50:58.108Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -201,7 +201,7 @@
       "source": "Comune di Monteceneri Dedicated Parser (albo + PDF)",
       "sourceCrawler": "comuni-ticino",
       "sourceLang": "it",
-      "crawledAt": "2026-11-08T21:55:09.081Z",
+      "crawledAt": "2026-11-09T09:43:20.068Z",
       "firstSeenAt": "2026-10-31T22:00:21.787Z",
       "salaryMin": 41600,
       "salaryMax": 63000,
@@ -273,7 +273,7 @@
       "source": "Comune di Morbio Inferiore Dedicated Parser (albo + PDF)",
       "sourceCrawler": "comuni-ticino",
       "sourceLang": "it",
-      "crawledAt": "2026-11-08T21:55:09.081Z",
+      "crawledAt": "2026-11-09T09:43:20.068Z",
       "firstSeenAt": "2026-10-31T22:00:21.787Z",
       "salaryMin": 41600,
       "salaryMax": 63000,
@@ -345,7 +345,7 @@
       "source": "Comune di Losone Dedicated Parser (albo + PDF)",
       "sourceCrawler": "comuni-ticino",
       "sourceLang": "it",
-      "crawledAt": "2026-11-08T21:55:09.081Z",
+      "crawledAt": "2026-11-09T09:43:20.068Z",
       "firstSeenAt": "2026-10-31T22:00:21.787Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -410,14 +410,14 @@
       "datePosted": "2026-10-16",
       "postedDate": "2026-10-16",
       "postingDateSource": "reported",
-      "validThrough": "2026-11-09T00:00:00.000Z",
+      "validThrough": "2027-01-14T09:43:20.068Z",
       "url": "https://www.minusio.ch/Concorso-assunzione-Direttrice-Direttore-dell-Istituto-scolastico-comunale-44a00600?i=1",
       "pdfUrl": "https://www.minusio.ch/Concorso-assunzione-Direttrice-Direttore-dell-Istituto-scolastico-comunale-44a00600?i=1",
       "applyUrl": "https://www.minusio.ch/Concorso-assunzione-Direttrice-Direttore-dell-Istituto-scolastico-comunale-44a00600?i=1",
       "source": "Comune di Minusio Dedicated Parser (albo + PDF)",
       "sourceCrawler": "comuni-ticino",
       "sourceLang": "it",
-      "crawledAt": "2026-11-08T21:55:09.081Z",
+      "crawledAt": "2026-11-09T09:43:20.068Z",
       "firstSeenAt": "2026-10-31T22:00:21.787Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -433,7 +433,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThroughSource": "source"
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "comune-di-biasca-265abc7e1b",
@@ -488,7 +488,7 @@
       "source": "Comune di Biasca Dedicated Parser (albo + PDF)",
       "sourceCrawler": "comuni-ticino",
       "sourceLang": "it",
-      "crawledAt": "2026-11-08T21:55:09.081Z",
+      "crawledAt": "2026-11-09T09:43:20.068Z",
       "firstSeenAt": "2026-10-31T22:00:21.787Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -504,7 +504,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-13T21:55:09.081Z",
+      "validThrough": "2027-01-13T09:43:20.068Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -560,7 +560,7 @@
       "source": "Comune di Biasca Dedicated Parser (albo + PDF)",
       "sourceCrawler": "comuni-ticino",
       "sourceLang": "it",
-      "crawledAt": "2026-11-08T21:55:09.081Z",
+      "crawledAt": "2026-11-09T09:43:20.068Z",
       "firstSeenAt": "2026-10-31T22:00:21.787Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -576,7 +576,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-13T21:55:09.081Z",
+      "validThrough": "2027-01-13T09:43:20.068Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -626,14 +626,14 @@
       "datePosted": "2026-10-15",
       "postedDate": "2026-10-15",
       "postingDateSource": "reported",
-      "validThrough": "2026-11-09T00:00:00.000Z",
+      "validThrough": "2027-01-13T09:43:20.068Z",
       "url": "https://www.pedemonte.ch/Concorso-per-la-nomina-di-una-funzionarioa-amministrativo-contabile-a-tempo-pieno-1e41bd00?i=1",
       "pdfUrl": "https://www.pedemonte.ch/Concorso-per-la-nomina-di-una-funzionarioa-amministrativo-contabile-a-tempo-pieno-1e41bd00?i=1",
       "applyUrl": "https://www.pedemonte.ch/Concorso-per-la-nomina-di-una-funzionarioa-amministrativo-contabile-a-tempo-pieno-1e41bd00?i=1",
       "source": "Comune di Terre di Pedemonte Dedicated Parser (albo + PDF)",
       "sourceCrawler": "comuni-ticino",
       "sourceLang": "it",
-      "crawledAt": "2026-11-08T21:55:09.081Z",
+      "crawledAt": "2026-11-09T09:43:20.068Z",
       "firstSeenAt": "2026-10-31T22:00:21.787Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -649,7 +649,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThroughSource": "source"
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "comune-di-massagno-d5a4657ee9",
@@ -705,7 +705,7 @@
       "source": "Comune di Massagno Dedicated Parser (albo + PDF)",
       "sourceCrawler": "comuni-ticino",
       "sourceLang": "it",
-      "crawledAt": "2026-11-08T21:55:09.081Z",
+      "crawledAt": "2026-11-09T09:43:20.068Z",
       "firstSeenAt": "2026-10-31T22:00:21.787Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -777,7 +777,7 @@
       "source": "Comune di Chiasso Dedicated Parser (albo + PDF)",
       "sourceCrawler": "comuni-ticino",
       "sourceLang": "it",
-      "crawledAt": "2026-11-08T21:55:09.081Z",
+      "crawledAt": "2026-11-09T09:43:20.068Z",
       "firstSeenAt": "2026-10-31T22:00:21.787Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -849,7 +849,7 @@
       "source": "Comune di Collina d'Oro Dedicated Parser (albo + PDF)",
       "sourceCrawler": "comuni-ticino",
       "sourceLang": "it",
-      "crawledAt": "2026-11-08T21:55:09.081Z",
+      "crawledAt": "2026-11-09T09:43:20.068Z",
       "firstSeenAt": "2026-10-31T22:00:21.787Z",
       "salaryMin": 41600,
       "salaryMax": 63000,

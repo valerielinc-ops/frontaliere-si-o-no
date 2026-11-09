@@ -1,7 +1,7 @@
 {
   "crawlerKey": "assura-ch",
-  "assembledAt": "2026-11-08T21:57:21.517Z",
-  "runId": "42525106254",
+  "assembledAt": "2026-11-09T09:45:32.292Z",
+  "runId": "42593325916",
   "jobs": [
     {
       "id": "assura-ch-3bbdf9f3a33f",
@@ -34,7 +34,7 @@
       "url": "https://www.assura.ch/fr/carriere/postes-a-pourvoir/business-anali-lausanne",
       "source": "Assura, l’assicurazione malattie al suo fianco Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-08T21:57:05.194Z",
+      "crawledAt": "2026-11-09T09:45:13.128Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -52,16 +52,16 @@
       "applyUrl": "https://www.assura.ch/fr/carriere/postes-a-pourvoir/business-anali-lausanne",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-11-08T09:38:59.311Z",
+      "previousSlugs": [
+        "business-analyst-80-100-lausanne-assura-ch-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "business-analyst-80-100-lausanne-assura-ch-ch"
         ]
       },
-      "previousSlugs": [
-        "business-analyst-80-100-lausanne-assura-ch-ch"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-11-08T09:38:59.311Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -78,7 +78,7 @@
       "postalCode": "1003",
       "streetAddress": "Lausanne",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-06T21:57:05.194Z",
+      "validThrough": "2027-02-06T09:45:13.128Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -112,7 +112,7 @@
       "url": "https://www.assura.ch/fr/carriere/postes-a-pourvoir/infirmier-conseil-psy-ma",
       "source": "Assura, l’assicurazione malattie al suo fianco Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-08T21:57:05.192Z",
+      "crawledAt": "2026-11-09T09:45:13.121Z",
       "addressLocality": "Le Mont-sur-Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -161,7 +161,7 @@
       "postalCode": "1052",
       "streetAddress": "Le Mont-sur-Lausanne",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-06T21:57:05.192Z",
+      "validThrough": "2027-02-06T09:45:13.121Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -195,7 +195,7 @@
       "url": "https://www.assura.ch/fr/carriere/postes-a-pourvoir/gestionnaire-admin-pu-de-fr",
       "source": "Assura, l’assicurazione malattie al suo fianco Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-08T21:57:05.183Z",
+      "crawledAt": "2026-11-09T09:45:13.114Z",
       "addressLocality": "Pully",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -246,7 +246,7 @@
       "postalCode": "1009",
       "streetAddress": "Pully",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-06T21:57:05.183Z",
+      "validThrough": "2027-02-06T09:45:13.114Z",
       "validThroughSource": "last-observed-window"
     }
   ]

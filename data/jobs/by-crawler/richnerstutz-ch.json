@@ -1,7 +1,7 @@
 {
   "crawlerKey": "richnerstutz-ch",
-  "assembledAt": "2026-11-08T21:58:03.882Z",
-  "runId": "42525106254",
+  "assembledAt": "2026-11-09T09:46:58.618Z",
+  "runId": "42593325916",
   "jobs": [
     {
       "id": "richnerstutz-ch-6bc36da98d81",
@@ -34,7 +34,7 @@
       "url": "https://richnerstutz.ch/jobs/monteur",
       "source": "Richnerstutz AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T21:57:54.850Z",
+      "crawledAt": "2026-11-09T09:46:45.760Z",
       "addressLocality": "Villmergen",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -53,24 +53,24 @@
       "applyUrl": "https://richnerstutz.ch/jobs/monteur",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "monteur-in-5612-villmergen-richnerstutz-ch-ch",
+        "monteur-in-richnerstutz-ag-villmergen"
+      ],
       "previousSlugsByLocale": {
-        "de": [
-          "monteur-in-richnerstutz-ag-villmergen"
-        ],
         "it": [
           "monteur-in-5612-villmergen-richnerstutz-ch-ch"
         ],
         "en": [
           "monteur-in-5612-villmergen-richnerstutz-ch-ch"
         ],
+        "de": [
+          "monteur-in-richnerstutz-ag-villmergen"
+        ],
         "fr": [
           "monteur-in-5612-villmergen-richnerstutz-ch-ch"
         ]
       },
-      "previousSlugs": [
-        "monteur-in-5612-villmergen-richnerstutz-ch-ch",
-        "monteur-in-richnerstutz-ag-villmergen"
-      ],
       "firstSeenAt": "2026-11-08T09:38:33.684Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -87,7 +87,7 @@
       },
       "streetAddress": "Villmergen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-06T21:57:54.850Z",
+      "validThrough": "2027-02-06T09:46:45.760Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -121,7 +121,7 @@
       "url": "https://richnerstutz.ch/jobs/fachplanerin-raumgestaltung",
       "source": "Richnerstutz AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T21:57:54.848Z",
+      "crawledAt": "2026-11-09T09:46:45.752Z",
       "addressLocality": "Villmergen",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -170,7 +170,7 @@
       },
       "streetAddress": "Villmergen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-06T21:57:54.848Z",
+      "validThrough": "2027-02-06T09:46:45.752Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -204,7 +204,7 @@
       "url": "https://richnerstutz.ch/jobs/projektleiterin-werbetechnik",
       "source": "Richnerstutz AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T21:57:54.846Z",
+      "crawledAt": "2026-11-09T09:46:45.750Z",
       "addressLocality": "Villmergen",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -255,7 +255,7 @@
       },
       "streetAddress": "Villmergen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-06T21:57:54.846Z",
+      "validThrough": "2027-02-06T09:46:45.750Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -289,7 +289,7 @@
       "url": "https://richnerstutz.ch/jobs/mitarbeiterin-produktionsplanung-vid",
       "source": "Richnerstutz AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T21:57:54.844Z",
+      "crawledAt": "2026-11-09T09:46:45.742Z",
       "addressLocality": "Villmergen",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -340,7 +340,7 @@
       },
       "streetAddress": "Villmergen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-06T21:57:54.844Z",
+      "validThrough": "2027-02-06T09:46:45.742Z",
       "validThroughSource": "last-observed-window"
     }
   ]
