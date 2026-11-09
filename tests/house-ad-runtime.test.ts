@@ -249,7 +249,7 @@ describe('per-slot first-party creative delivery', () => {
     w.localStorage.setItem('frontaliere_consent', JSON.stringify({ analytics: true }));
     w.dispatchEvent(new w.Event(config.consentEvent));
     const next = frame('unfilled', 'article-end');
-    await vi.advanceTimersByTimeAsync(600);
+    await vi.advanceTimersByTimeAsync(1600);
 
     expect(w.fetch).toHaveBeenCalledTimes(1);
     expect(first.host.querySelector('a')?.dataset.houseCampaign).toBe('job_search_automation');
@@ -298,7 +298,7 @@ describe('per-slot first-party creative delivery', () => {
     expect(first.host.querySelector('a')?.dataset.houseCampaign).toBe('job_search_automation');
     w.dispatchEvent(new w.CustomEvent('frontaliere:auth-state', { detail: 'anonymous' }));
     const next = frame('unfilled', 'article-end');
-    await vi.advanceTimersByTimeAsync(500);
+    await vi.advanceTimersByTimeAsync(1600);
     expect(first.host.querySelector('a')?.dataset.houseCampaign).toBe('job_search_automation');
     expect(next.host.querySelector('a')?.dataset.houseCampaign).toBe('reader_subscription');
   });
