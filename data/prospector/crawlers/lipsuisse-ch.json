@@ -4,12 +4,12 @@
   "companyHost": "lipsuisse.ch",
   "verifiedEmployerDomain": "lipsuisse.ch",
   "platform": "",
-  "mode": "jsonld",
+  "mode": "template",
   "seedUrls": [
-    "https://www.lipsuisse.ch/offres-emploi/carreleur-2/"
+    "https://www.lipsuisse.ch/offres-emploi/"
   ],
-  "detailTemplate": "/offres-emploi/carreleur-2/",
-  "detailEnrichment": false,
+  "detailTemplate": "/offres-emploi/*/",
+  "detailEnrichment": true,
   "employerSiteLocationFallback": true,
   "detailFetchWorkers": 4,
   "sampleVacancyCount": 1,

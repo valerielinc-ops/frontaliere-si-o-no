@@ -6,12 +6,64 @@ import {
   isTrustedDomain,
 } from '../scripts/lib/lipsuisse-ch-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
+import {
+  collectSpecListingRows,
+  createSpecUrlPolicy,
+  loadSpec,
+  templateToRegex,
+} from '../scripts/lib/prospector/spec-crawler.mjs';
 
 describe('LIP Suisse crawler parser', () => {
   // ── Constants ──
   it('exports valid company key and name', () => {
     expect(LIPSUISSE_CH_KEY).toBe('lipsuisse-ch');
     expect(LIPSUISSE_CH_COMPANY_NAME).toBe('LIP Suisse');
+  });
+
+  it('keeps the promoted spec on the live vacancy index', () => {
+    const spec = loadSpec(LIPSUISSE_CH_KEY);
+    const detailTemplate = templateToRegex(spec.detailTemplate);
+
+    expect(spec.mode).toBe('template');
+    expect(spec.seedUrls).toEqual(['https://www.lipsuisse.ch/offres-emploi/']);
+    expect(spec.detailEnrichment).toBe(true);
+    expect(detailTemplate.test('/offres-emploi/assistant-de-direction-batiment-h-f-3/')).toBe(true);
+    expect(detailTemplate.test('/offres-emploi/carreleur-2/')).toBe(true);
+    expect(detailTemplate.test('/offres-emploi/')).toBe(false);
+  });
+
+  it('extracts vacancy links from the index shape instead of the retired detail seed', async () => {
+    const spec = loadSpec(LIPSUISSE_CH_KEY);
+    const listingUrl = spec.seedUrls[0];
+    const html = `<main>
+      <a href="https://www.lipsuisse.ch/offres-emploi/assistant-de-direction-batiment-h-f-3/">Assistant de direction bâtiment H/F</a>
+      <a href="https://www.lipsuisse.ch/offres-emploi/carreleur-2/">Carreleur</a>
+    </main>`;
+    const fetchImpl = async (url: string) => {
+      if (url === 'https://www.lipsuisse.ch/robots.txt') {
+        return new Response('User-agent: *\nAllow: /', { status: 200 });
+      }
+      expect(url).toBe(listingUrl);
+      return new Response(html, { status: 200 });
+    };
+    const policy = createSpecUrlPolicy(spec, {
+      lookupImpl: async () => [{ address: '93.184.216.34', family: 4 }],
+    });
+
+    try {
+      const rows = await collectSpecListingRows(spec, {
+        fetchImpl,
+        sleepImpl: async () => {},
+        retries: 0,
+        disableWafProxy: true,
+      }, policy);
+      expect(rows.map((row) => row.url)).toEqual([
+        'https://www.lipsuisse.ch/offres-emploi/assistant-de-direction-batiment-h-f-3/',
+        'https://www.lipsuisse.ch/offres-emploi/carreleur-2/',
+      ]);
+    } finally {
+      await policy.dispatcher.close();
+    }
   });
 
   // ── isCompanyJob ──
