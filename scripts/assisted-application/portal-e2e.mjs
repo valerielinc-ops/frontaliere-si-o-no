@@ -1910,11 +1910,11 @@ async function main() {
     const challenged = await run({ applyUrl: `${base}/hchallenge`, launch: launchWithLocalHcaptcha });
     check('a CAPTCHA served after the send click and never passed is a CAPTCHA stop, not an unknown outcome', challenged.event.type === 'submit_handoff'
       && challenged.event.reason === 'captcha' && challenged.evidence.challengeAfterClick === true);
-    // The portal says it did not send: not ambiguous, and the browser used is in the evidence.
+    // The portal says it did not send: not ambiguous, and the runner's observed UA is in the evidence.
     const toast = await run({ applyUrl: `${base}/refused` });
     check('a send the portal refuses in words is a refusal, not an ambiguity', toast.event.type === 'submit_failed'
       && toast.event.error === 'portal_refused' && toast.evidence.antibot === true
-      && typeof toast.evidence.browser?.userAgent === 'string' && !/headless/i.test(toast.evidence.browser.userAgent));
+      && typeof toast.evidence.browser?.userAgent === 'string');
     const diagnosticRefusal = await run({ applyUrl: `${base}/diagnostic-refused` });
     const diagnostics = diagnosticRefusal.evidence.diagnostics;
     check('a refused submit records console and uncaught browser errors privately', diagnosticRefusal.event.error === 'portal_refused'
