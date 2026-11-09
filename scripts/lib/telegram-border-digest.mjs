@@ -94,6 +94,57 @@ function renderBorderDigest({ weekStart, weekEnd, fastest, slowest, funFacts, ar
   return parts.filter((line) => line !== undefined && line !== null).join('\n');
 }
 
+function copyPrefix(value, length) {
+  return Array.from(String(value ?? '')).slice(0, length).join('');
+}
+
+/**
+ * Fit untrusted/generated copy before the ranking loop can settle on one
+ * crossing. The fixed digest (including both CTA anchors) must remain intact;
+ * only the dynamic hook and article CTA label may be shortened.
+ */
+function fitGeneratedCopyToTelegramLimit({ generatedCopy, render }) {
+  if (!generatedCopy || render(generatedCopy).length <= TELEGRAM_MESSAGE_MAX) return generatedCopy;
+
+  let bounded = { ...generatedCopy };
+  for (const field of ['hook', 'cta']) {
+    const value = String(bounded[field] ?? '');
+    const characters = Array.from(value);
+    const candidate = (length) => ({
+      ...bounded,
+      [field]: copyPrefix(value, length),
+    });
+    let best = '';
+
+    // An empty CTA uses the deterministic fallback label. Check it separately
+    // because the fallback can be longer than a one-character generated label.
+    if (render(candidate(0)).length <= TELEGRAM_MESSAGE_MAX) best = '';
+    if (characters.length > 0 && render(candidate(1)).length <= TELEGRAM_MESSAGE_MAX) {
+      best = candidate(1)[field];
+      let low = 2;
+      let high = characters.length;
+      while (low <= high) {
+        const middle = Math.floor((low + high) / 2);
+        const current = candidate(middle);
+        if (render(current).length <= TELEGRAM_MESSAGE_MAX) {
+          best = current[field];
+          low = middle + 1;
+        } else {
+          high = middle - 1;
+        }
+      }
+    }
+
+    bounded = { ...bounded, [field]: best };
+    if (render(bounded).length <= TELEGRAM_MESSAGE_MAX) return bounded;
+  }
+
+  // The normal deterministic digest is bounded by the source data. If a
+  // malformed generated object still cannot fit, drop only that copy so the
+  // fixed message and both links are not handed to sendMessage for truncation.
+  return render(null).length <= TELEGRAM_MESSAGE_MAX ? null : bounded;
+}
+
 /**
  * Build the weekly border-ranking message from the on-disk history dir.
  * Returns `{ text:'', rankedCount:0 }` (caller skips) when there is not yet
@@ -137,6 +188,20 @@ export function buildWeeklyBorderDigest({ historyDir, todayIso, days = DEFAULT_W
     socialCopyTrackingContent('live_hub', generatedCopy),
   );
 
+  const oneEntryArgs = {
+    weekStart,
+    weekEnd,
+    fastest: known.slice(0, 1),
+    slowest: known.slice(-1).reverse(),
+    funFacts,
+    articleUrl,
+    hubUrl,
+  };
+  const generatedCopyForRender = fitGeneratedCopyToTelegramLimit({
+    generatedCopy,
+    render: (copy) => renderBorderDigest({ ...oneEntryArgs, generatedCopy: copy }),
+  });
+
   let visibleTop = TELEGRAM_BORDER_TOP;
   let text = '';
   do {
@@ -148,7 +213,7 @@ export function buildWeeklyBorderDigest({ historyDir, todayIso, days = DEFAULT_W
       funFacts,
       articleUrl,
       hubUrl,
-      generatedCopy,
+      generatedCopy: generatedCopyForRender,
     });
     if (text.length <= TELEGRAM_MESSAGE_MAX || visibleTop === 1) break;
     visibleTop -= 1;

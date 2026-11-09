@@ -548,6 +548,31 @@ describe('buildWeeklyBorderDigest', () => {
     expect(text).toContain('>Traffico live alle dogane</a>');
   });
 
+  it('bounds an oversized generated hook before rendering the one-entry digest', () => {
+    const dir = mkdtempSync(path.join(os.tmpdir(), 'bw-'));
+    for (let d = 3; d <= 9; d++) {
+      const date = `2026-07-0${d}`;
+      writeDay(dir, date, {
+        'chiasso-centro': makeHours(2),
+        'ponte-tresa': makeHours(25),
+      });
+    }
+
+    const { text } = buildWeeklyBorderDigest({
+      historyDir: dir,
+      todayIso: '2026-07-10',
+      socialCopy: {
+        copyMode: 'codex',
+        hook: 'h'.repeat(5000),
+        cta: 'Consulta la classifica completa',
+      },
+    });
+
+    expect(text.length).toBeLessThanOrEqual(TELEGRAM_MESSAGE_MAX);
+    expect(text).toContain('>Consulta la classifica completa</a>');
+    expect(text).toContain('>Traffico live alle dogane</a>');
+  });
+
   it('skips (empty text) when fewer than two crossings can be ranked', () => {
     const dir = mkdtempSync(path.join(os.tmpdir(), 'bw-'));
     for (let d = 3; d <= 9; d++) writeDay(dir, `2026-07-0${d}`, { 'chiasso-centro': makeHours(2) });
