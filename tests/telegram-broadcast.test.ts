@@ -144,13 +144,29 @@ describe('sendMessage', () => {
   });
 
   it('truncates over-long text to the API hard limit', async () => {
-    let sentLen = -1;
+    let sentText = '';
     const fetchImpl = (async (_url: string, init: any) => {
-      sentLen = JSON.parse(init.body).text.length;
+      sentText = JSON.parse(init.body).text;
       return { ok: true, status: 200, json: async () => ({ ok: true, result: { message_id: 1 } }) };
     }) as unknown as typeof fetch;
     await sendMessage({ token: 'T', chatId: '@c', text: 'a'.repeat(TELEGRAM_MESSAGE_MAX + 500), fetchImpl });
-    expect(sentLen).toBe(TELEGRAM_MESSAGE_MAX);
+    expect(sentText.length).toBe(TELEGRAM_MESSAGE_MAX);
+  });
+
+  it('truncates HTML only at safe boundaries and closes open tags', async () => {
+    let sentText = '';
+    const fetchImpl = (async (_url: string, init: any) => {
+      sentText = JSON.parse(init.body).text;
+      return { ok: true, status: 200, json: async () => ({ ok: true, result: { message_id: 1 } }) };
+    }) as unknown as typeof fetch;
+    const text = `<b>${'a'.repeat(TELEGRAM_MESSAGE_MAX)} </b><a href="https://example.test/?a=1&amp;b=2">CTA</a>`;
+
+    await sendMessage({ token: 'T', chatId: '@c', text, fetchImpl });
+
+    expect(sentText.length).toBeLessThanOrEqual(TELEGRAM_MESSAGE_MAX);
+    expect(sentText).toMatch(/^<b>[\s\S]*<\/b>$/);
+    expect(sentText).not.toMatch(/<[^>]*$/);
+    expect(sentText).not.toMatch(/&(?:amp|lt|gt|quot|#\d+|#x[0-9a-f]+)?$/i);
   });
 });
 
