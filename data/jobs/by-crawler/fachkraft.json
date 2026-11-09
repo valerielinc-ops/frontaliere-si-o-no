@@ -1308,12 +1308,12 @@
     },
     {
       "id": "fachkraft-ab8de993cdef",
-      "slug": "zimmermann-zimmerin-per-neubauten-e-sanierungen-fachkraft-ch-gmbh-winterthur",
+      "slug": "carpentiere-a-per-nuove-costruzioni-e-ristrutturazioni-fachkraft-ch-gmbh-winterthur-zurich",
       "slugByLocale": {
         "de": "zimmermann-zimmerin-fur-neubauten-und-sanierungen-fachkraft-ch-gmbh-winterthur",
-        "it": "zimmermann-zimmerin-per-neubauten-e-sanierungen-fachkraft-ch-gmbh-winterthur",
-        "en": "zimmermann-zimmerin-fur-neubauten-und-sanierungen-winterthur-zurich-fachkraft-ch",
-        "fr": "zimmermann-zimmerin-fur-neubauten-und-sanierungen-winterthur-zurich-fachkraft-ch"
+        "it": "carpentiere-a-per-nuove-costruzioni-e-ristrutturazioni-fachkraft-ch-gmbh-winterthur-zurich",
+        "en": "carpenter-for-new-buildings-and-renovations-fachkraft-ch-gmbh-winterthur-zurich",
+        "fr": "charpentier-charpentiere-pour-les-nouvelles-constructions-et-les-renovations-fachkraft-ch-gmbh-winterthur-zurich"
       },
       "company": "fachkraft.ch GmbH",
       "companyKey": "fachkraft",
@@ -1360,14 +1360,22 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "zimmermann-zimmerin-fur-neubauten-und-sanierungen-winterthur-zurich-fachkraft-ch"
+          "zimmermann-zimmerin-fur-neubauten-und-sanierungen-winterthur-zurich-fachkraft-ch",
+          "zimmermann-zimmerin-per-neubauten-e-sanierungen-fachkraft-ch-gmbh-winterthur"
         ],
         "de": [
+          "zimmermann-zimmerin-fur-neubauten-und-sanierungen-winterthur-zurich-fachkraft-ch"
+        ],
+        "en": [
+          "zimmermann-zimmerin-fur-neubauten-und-sanierungen-winterthur-zurich-fachkraft-ch"
+        ],
+        "fr": [
           "zimmermann-zimmerin-fur-neubauten-und-sanierungen-winterthur-zurich-fachkraft-ch"
         ]
       },
       "previousSlugs": [
-        "zimmermann-zimmerin-fur-neubauten-und-sanierungen-winterthur-zurich-fachkraft-ch"
+        "zimmermann-zimmerin-fur-neubauten-und-sanierungen-winterthur-zurich-fachkraft-ch",
+        "zimmermann-zimmerin-per-neubauten-e-sanierungen-fachkraft-ch-gmbh-winterthur"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -1388,16 +1396,16 @@
       "validThrough": "2027-01-09T22:48:33.626Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-09-04T13:54:58.996Z",
-      "translationHoldSince": "2026-11-08T22:50:11.080Z"
+      "translationHoldReleasedAt": "2026-11-09T10:51:15.572Z"
     },
     {
       "id": "fachkraft-3e18a61ce637",
-      "slug": "zimmermann-zimmerin-per-schreiner-montage-fachkraft-ch-gmbh-zurich",
+      "slug": "falegname-carpentiere-per-montaggio-falegname-fachkraft-ch-gmbh-zurich-zurich",
       "slugByLocale": {
         "de": "zimmermann-zimmerin-fur-schreiner-montage-zurich-zurich-fachkraft-ch",
-        "it": "zimmermann-zimmerin-per-schreiner-montage-fachkraft-ch-gmbh-zurich",
-        "en": "zimmermann-zimmerin-fur-schreiner-montage-zurich-zurich-fachkraft-ch",
-        "fr": "zimmermann-zimmerin-fur-schreiner-montage-zurich-zurich-fachkraft-ch"
+        "it": "falegname-carpentiere-per-montaggio-falegname-fachkraft-ch-gmbh-zurich-zurich",
+        "en": "carpenter-mounted-carpenter-fachkraft-ch-gmbh-zurich-zurich",
+        "fr": "charpentier-charpentiere-pour-montage-de-menuiserie-fachkraft-ch-gmbh-zurich-zurich"
       },
       "company": "fachkraft.ch GmbH",
       "companyKey": "fachkraft",
@@ -1444,11 +1452,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "zimmermann-zimmerin-fur-schreiner-montage-zurich-zurich-fachkraft-ch",
+          "zimmermann-zimmerin-per-schreiner-montage-fachkraft-ch-gmbh-zurich"
+        ],
+        "en": [
+          "zimmermann-zimmerin-fur-schreiner-montage-zurich-zurich-fachkraft-ch"
+        ],
+        "fr": [
           "zimmermann-zimmerin-fur-schreiner-montage-zurich-zurich-fachkraft-ch"
         ]
       },
       "previousSlugs": [
-        "zimmermann-zimmerin-fur-schreiner-montage-zurich-zurich-fachkraft-ch"
+        "zimmermann-zimmerin-fur-schreiner-montage-zurich-zurich-fachkraft-ch",
+        "zimmermann-zimmerin-per-schreiner-montage-fachkraft-ch-gmbh-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -1469,7 +1485,7 @@
       "validThrough": "2027-01-09T22:48:33.626Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-10-13T22:19:00.269Z",
-      "translationHoldSince": "2026-11-08T22:50:11.080Z"
+      "translationHoldReleasedAt": "2026-11-09T10:51:15.572Z"
     },
     {
       "id": "fachkraft-3e877276dd72",
@@ -1477,8 +1493,8 @@
       "slugByLocale": {
         "de": "zimmermann-zimmerin-fur-schweizweite-einsatze-luzern-luzern-fachkraft-ch",
         "it": "zimmermann-zimmerin-per-schweizweite-einsatze-fachkraft-ch-gmbh-luzern",
-        "en": "zimmermann-zimmerin-fur-schweizweite-einsatze-fachkraft-ch-gmbh-luzern",
-        "fr": "zimmermann-zimmerin-fur-schweizweite-einsatze-fachkraft-ch-gmbh-luzern"
+        "en": "carpenter-for-switzerland-wide-assignments-fachkraft-ch-gmbh-luzern-luzern",
+        "fr": "charpentier-charpentiere-pour-des-missions-dans-toute-la-suisse-fachkraft-ch-gmbh-luzern-luzern"
       },
       "company": "fachkraft.ch GmbH",
       "companyKey": "fachkraft",
@@ -1528,16 +1544,15 @@
           "zimmermann-zimmerin-fur-schweizweite-einsatze-luzern-luzern-fachkraft-ch"
         ],
         "en": [
-          "carpenter-for-switzerland-wide-assignments-fachkraft-ch-gmbh-luzern-luzern"
+          "zimmermann-zimmerin-fur-schweizweite-einsatze-fachkraft-ch-gmbh-luzern"
         ],
         "fr": [
-          "charpentier-charpentiere-pour-des-missions-dans-toute-la-suisse-fachkraft-ch-gmbh-luzern-luzern"
+          "zimmermann-zimmerin-fur-schweizweite-einsatze-fachkraft-ch-gmbh-luzern"
         ]
       },
       "previousSlugs": [
         "zimmermann-zimmerin-fur-schweizweite-einsatze-luzern-luzern-fachkraft-ch",
-        "carpenter-for-switzerland-wide-assignments-fachkraft-ch-gmbh-luzern-luzern",
-        "charpentier-charpentiere-pour-des-missions-dans-toute-la-suisse-fachkraft-ch-gmbh-luzern-luzern"
+        "zimmermann-zimmerin-fur-schweizweite-einsatze-fachkraft-ch-gmbh-luzern"
       ],
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -1569,7 +1584,7 @@
       "validThrough": "2026-12-27T22:48:33.626Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-09-29T22:24:18.141Z",
-      "translationHoldSince": "2026-11-08T22:50:11.080Z"
+      "translationHoldReleasedAt": "2026-11-09T10:51:15.572Z"
     },
     {
       "id": "fachkraft-0d48c8fa772d",
@@ -1658,12 +1673,12 @@
     },
     {
       "id": "fachkraft-87f70716b72f",
-      "slug": "zimmermann-zimmerin-per-neubaubauten-e-innenausbau-fachkraft-ch-gmbh-zurich",
+      "slug": "carpentiere-a-per-nuove-costruzioni-e-finiture-interne-fachkraft-ch-gmbh-zurich-zurich",
       "slugByLocale": {
         "de": "zimmermann-zimmerin-fur-neubaubauten-und-innenausbau-zurich-zurich-fachkraft-ch",
-        "it": "zimmermann-zimmerin-per-neubaubauten-e-innenausbau-fachkraft-ch-gmbh-zurich",
-        "en": "zimmermann-zimmerin-fur-neubaubauten-und-innenausbau-zurich-zurich-fachkraft-ch",
-        "fr": "zimmermann-zimmerin-fur-neubaubauten-und-innenausbau-zurich-zurich-fachkraft-ch"
+        "it": "carpentiere-a-per-nuove-costruzioni-e-finiture-interne-fachkraft-ch-gmbh-zurich-zurich",
+        "en": "carpenter-for-new-buildings-and-interior-design-fachkraft-ch-gmbh-zurich-zurich",
+        "fr": "charpentier-charpentiere-pour-les-nouvelles-constructions-et-l-amenagement-interieur-fachkraft-ch-gmbh-zurich-zurich"
       },
       "company": "fachkraft.ch GmbH",
       "companyKey": "fachkraft",
@@ -1710,11 +1725,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "zimmermann-zimmerin-fur-neubaubauten-und-innenausbau-zurich-zurich-fachkraft-ch",
+          "zimmermann-zimmerin-per-neubaubauten-e-innenausbau-fachkraft-ch-gmbh-zurich"
+        ],
+        "en": [
+          "zimmermann-zimmerin-fur-neubaubauten-und-innenausbau-zurich-zurich-fachkraft-ch"
+        ],
+        "fr": [
           "zimmermann-zimmerin-fur-neubaubauten-und-innenausbau-zurich-zurich-fachkraft-ch"
         ]
       },
       "previousSlugs": [
-        "zimmermann-zimmerin-fur-neubaubauten-und-innenausbau-zurich-zurich-fachkraft-ch"
+        "zimmermann-zimmerin-fur-neubaubauten-und-innenausbau-zurich-zurich-fachkraft-ch",
+        "zimmermann-zimmerin-per-neubaubauten-e-innenausbau-fachkraft-ch-gmbh-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -1735,16 +1758,16 @@
       "validThrough": "2027-02-03T22:48:33.625Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-08T22:48:33.625Z",
-      "translationHoldSince": "2026-11-08T22:50:11.080Z"
+      "translationHoldReleasedAt": "2026-11-09T10:51:15.572Z"
     },
     {
       "id": "fachkraft-2dd153bd9bbe",
-      "slug": "zimmermann-zimmerin-per-neubauten-e-fassaden-fachkraft-ch-gmbh-langenthal",
+      "slug": "carpentiere-a-per-nuove-costruzioni-e-facciate-fachkraft-ch-gmbh-langenthal-bern",
       "slugByLocale": {
         "de": "zimmermann-zimmerin-fur-neubauten-und-fassaden-fachkraft-ch-gmbh-langenthal",
-        "it": "zimmermann-zimmerin-per-neubauten-e-fassaden-fachkraft-ch-gmbh-langenthal",
-        "en": "zimmermann-zimmerin-fur-neubauten-und-fassaden-langenthal-bern-fachkraft-ch",
-        "fr": "zimmermann-zimmerin-fur-neubauten-und-fassaden-langenthal-bern-fachkraft-ch"
+        "it": "carpentiere-a-per-nuove-costruzioni-e-facciate-fachkraft-ch-gmbh-langenthal-bern",
+        "en": "carpenter-for-new-buildings-and-facades-fachkraft-ch-gmbh-langenthal-bern",
+        "fr": "charpentier-charpentiere-pour-les-nouvelles-constructions-et-les-facades-fachkraft-ch-gmbh-langenthal-bern"
       },
       "company": "fachkraft.ch GmbH",
       "companyKey": "fachkraft",
@@ -1791,14 +1814,22 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "zimmermann-zimmerin-fur-neubauten-und-fassaden-langenthal-bern-fachkraft-ch"
+          "zimmermann-zimmerin-fur-neubauten-und-fassaden-langenthal-bern-fachkraft-ch",
+          "zimmermann-zimmerin-per-neubauten-e-fassaden-fachkraft-ch-gmbh-langenthal"
         ],
         "de": [
+          "zimmermann-zimmerin-fur-neubauten-und-fassaden-langenthal-bern-fachkraft-ch"
+        ],
+        "en": [
+          "zimmermann-zimmerin-fur-neubauten-und-fassaden-langenthal-bern-fachkraft-ch"
+        ],
+        "fr": [
           "zimmermann-zimmerin-fur-neubauten-und-fassaden-langenthal-bern-fachkraft-ch"
         ]
       },
       "previousSlugs": [
-        "zimmermann-zimmerin-fur-neubauten-und-fassaden-langenthal-bern-fachkraft-ch"
+        "zimmermann-zimmerin-fur-neubauten-und-fassaden-langenthal-bern-fachkraft-ch",
+        "zimmermann-zimmerin-per-neubauten-e-fassaden-fachkraft-ch-gmbh-langenthal"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -1819,16 +1850,16 @@
       "validThrough": "2027-02-03T22:48:33.625Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-08T22:48:33.625Z",
-      "translationHoldSince": "2026-11-08T22:50:11.080Z"
+      "translationHoldReleasedAt": "2026-11-09T10:51:15.572Z"
     },
     {
       "id": "fachkraft-55a20b7a0a16",
-      "slug": "zimmermann-zimmerin-per-neubauten-e-innenausbau-fachkraft-ch-gmbh-affoltern-am-albis",
+      "slug": "carpentiere-a-per-nuove-costruzioni-e-finiture-interne-fachkraft-ch-gmbh-affoltern-am-albis-zurich",
       "slugByLocale": {
         "de": "zimmermann-zimmerin-fur-neubauten-und-innenausbau-fachkraft-ch-gmbh-affoltern-am-albis",
-        "it": "zimmermann-zimmerin-per-neubauten-e-innenausbau-fachkraft-ch-gmbh-affoltern-am-albis",
-        "en": "zimmermann-zimmerin-fur-neubauten-und-innenausbau-affoltern-am-albis-zurich-fachkraft-ch",
-        "fr": "zimmermann-zimmerin-fur-neubauten-und-innenausbau-affoltern-am-albis-zurich-fachkraft-ch"
+        "it": "carpentiere-a-per-nuove-costruzioni-e-finiture-interne-fachkraft-ch-gmbh-affoltern-am-albis-zurich",
+        "en": "carpenter-for-new-buildings-and-interior-design-fachkraft-ch-gmbh-affoltern-am-albis-zurich",
+        "fr": "charpentier-charpentiere-pour-les-nouvelles-constructions-et-l-amenagement-interieur-fachkraft-ch-gmbh-affoltern-am"
       },
       "company": "fachkraft.ch GmbH",
       "companyKey": "fachkraft",
@@ -1875,14 +1906,22 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "zimmermann-zimmerin-fur-neubauten-und-innenausbau-affoltern-am-albis-zurich-fachkraft-ch"
+          "zimmermann-zimmerin-fur-neubauten-und-innenausbau-affoltern-am-albis-zurich-fachkraft-ch",
+          "zimmermann-zimmerin-per-neubauten-e-innenausbau-fachkraft-ch-gmbh-affoltern-am-albis"
         ],
         "de": [
+          "zimmermann-zimmerin-fur-neubauten-und-innenausbau-affoltern-am-albis-zurich-fachkraft-ch"
+        ],
+        "en": [
+          "zimmermann-zimmerin-fur-neubauten-und-innenausbau-affoltern-am-albis-zurich-fachkraft-ch"
+        ],
+        "fr": [
           "zimmermann-zimmerin-fur-neubauten-und-innenausbau-affoltern-am-albis-zurich-fachkraft-ch"
         ]
       },
       "previousSlugs": [
-        "zimmermann-zimmerin-fur-neubauten-und-innenausbau-affoltern-am-albis-zurich-fachkraft-ch"
+        "zimmermann-zimmerin-fur-neubauten-und-innenausbau-affoltern-am-albis-zurich-fachkraft-ch",
+        "zimmermann-zimmerin-per-neubauten-e-innenausbau-fachkraft-ch-gmbh-affoltern-am-albis"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -1903,16 +1942,16 @@
       "validThrough": "2027-01-31T22:48:33.625Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-02T22:44:34.184Z",
-      "translationHoldSince": "2026-11-08T22:50:11.080Z"
+      "translationHoldReleasedAt": "2026-11-09T10:51:15.572Z"
     },
     {
       "id": "fachkraft-4de182555a39",
-      "slug": "zimmermann-zimmerin-per-neubaubauten-e-innenausbau-fachkraft-ch-gmbh-winterthur",
+      "slug": "carpentiere-a-per-nuove-costruzioni-e-finiture-interne-fachkraft-ch-gmbh-winterthur-zurich",
       "slugByLocale": {
         "de": "zimmermann-zimmerin-fur-neubaubauten-und-innenausbau-fachkraft-ch-gmbh-winterthur",
-        "it": "zimmermann-zimmerin-per-neubaubauten-e-innenausbau-fachkraft-ch-gmbh-winterthur",
-        "en": "zimmermann-zimmerin-fur-neubaubauten-und-innenausbau-winterthur-zurich-fachkraft-ch",
-        "fr": "zimmermann-zimmerin-fur-neubaubauten-und-innenausbau-winterthur-zurich-fachkraft-ch"
+        "it": "carpentiere-a-per-nuove-costruzioni-e-finiture-interne-fachkraft-ch-gmbh-winterthur-zurich",
+        "en": "carpenter-for-new-buildings-and-interior-design-fachkraft-ch-gmbh-winterthur-zurich",
+        "fr": "charpentier-charpentiere-pour-les-nouvelles-constructions-et-l-amenagement-interieur-fachkraft-ch-gmbh-winterthur-zurich"
       },
       "company": "fachkraft.ch GmbH",
       "companyKey": "fachkraft",
@@ -1959,14 +1998,22 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "zimmermann-zimmerin-fur-neubaubauten-und-innenausbau-winterthur-zurich-fachkraft-ch"
+          "zimmermann-zimmerin-fur-neubaubauten-und-innenausbau-winterthur-zurich-fachkraft-ch",
+          "zimmermann-zimmerin-per-neubaubauten-e-innenausbau-fachkraft-ch-gmbh-winterthur"
         ],
         "de": [
+          "zimmermann-zimmerin-fur-neubaubauten-und-innenausbau-winterthur-zurich-fachkraft-ch"
+        ],
+        "en": [
+          "zimmermann-zimmerin-fur-neubaubauten-und-innenausbau-winterthur-zurich-fachkraft-ch"
+        ],
+        "fr": [
           "zimmermann-zimmerin-fur-neubaubauten-und-innenausbau-winterthur-zurich-fachkraft-ch"
         ]
       },
       "previousSlugs": [
-        "zimmermann-zimmerin-fur-neubaubauten-und-innenausbau-winterthur-zurich-fachkraft-ch"
+        "zimmermann-zimmerin-fur-neubaubauten-und-innenausbau-winterthur-zurich-fachkraft-ch",
+        "zimmermann-zimmerin-per-neubaubauten-e-innenausbau-fachkraft-ch-gmbh-winterthur"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -1987,16 +2034,16 @@
       "validThrough": "2027-01-26T22:48:33.625Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-02T22:44:34.184Z",
-      "translationHoldSince": "2026-11-08T22:50:11.080Z"
+      "translationHoldReleasedAt": "2026-11-09T10:51:15.572Z"
     },
     {
       "id": "fachkraft-27fdf2459b55",
-      "slug": "zimmermann-zimmerin-per-neubaubauten-e-sanierungen-fachkraft-ch-gmbh-schaffhausen",
+      "slug": "carpentiere-a-per-nuove-costruzioni-e-ristrutturazioni-fachkraft-ch-gmbh-schaffhausen-schaffhausen",
       "slugByLocale": {
         "de": "zimmermann-zimmerin-fur-neubaubauten-und-sanierungen-schaffhausen-schaffhausen-fachkraft",
-        "it": "zimmermann-zimmerin-per-neubaubauten-e-sanierungen-fachkraft-ch-gmbh-schaffhausen",
-        "en": "zimmermann-zimmerin-fur-neubaubauten-und-sanierungen-schaffhausen-schaffhausen-fachkraft",
-        "fr": "zimmermann-zimmerin-fur-neubaubauten-und-sanierungen-schaffhausen-schaffhausen-fachkraft"
+        "it": "carpentiere-a-per-nuove-costruzioni-e-ristrutturazioni-fachkraft-ch-gmbh-schaffhausen-schaffhausen",
+        "en": "carpenter-for-new-buildings-and-renovations-fachkraft-ch-gmbh-schaffhausen-schaffhausen",
+        "fr": "charpentier-charpentiere-pour-les-nouvelles-constructions-et-les-renovations-fachkraft-ch-gmbh-schaffhausen-schaffhausen"
       },
       "company": "fachkraft.ch GmbH",
       "companyKey": "fachkraft",
@@ -2043,11 +2090,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "zimmermann-zimmerin-fur-neubaubauten-und-sanierungen-schaffhausen-schaffhausen-fachkraft",
+          "zimmermann-zimmerin-per-neubaubauten-e-sanierungen-fachkraft-ch-gmbh-schaffhausen"
+        ],
+        "en": [
+          "zimmermann-zimmerin-fur-neubaubauten-und-sanierungen-schaffhausen-schaffhausen-fachkraft"
+        ],
+        "fr": [
           "zimmermann-zimmerin-fur-neubaubauten-und-sanierungen-schaffhausen-schaffhausen-fachkraft"
         ]
       },
       "previousSlugs": [
-        "zimmermann-zimmerin-fur-neubaubauten-und-sanierungen-schaffhausen-schaffhausen-fachkraft"
+        "zimmermann-zimmerin-fur-neubaubauten-und-sanierungen-schaffhausen-schaffhausen-fachkraft",
+        "zimmermann-zimmerin-per-neubaubauten-e-sanierungen-fachkraft-ch-gmbh-schaffhausen"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -2068,16 +2123,16 @@
       "validThrough": "2027-01-26T22:48:33.625Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-10-14T10:58:12.194Z",
-      "translationHoldSince": "2026-11-08T22:50:11.080Z"
+      "translationHoldReleasedAt": "2026-11-09T10:51:15.572Z"
     },
     {
       "id": "fachkraft-d873d6104aac",
-      "slug": "zimmermann-zimmerin-per-neubaubauten-e-innenausbau-fachkraft-ch-gmbh-horgen",
+      "slug": "carpentiere-a-per-nuove-costruzioni-e-finiture-interne-fachkraft-ch-gmbh-horgen-zurich",
       "slugByLocale": {
         "de": "zimmermann-zimmerin-fur-neubaubauten-und-innenausbau-fachkraft-ch-gmbh-horgen",
-        "it": "zimmermann-zimmerin-per-neubaubauten-e-innenausbau-fachkraft-ch-gmbh-horgen",
-        "en": "zimmermann-zimmerin-fur-neubaubauten-und-innenausbau-horgen-zurich-fachkraft-ch",
-        "fr": "zimmermann-zimmerin-fur-neubaubauten-und-innenausbau-horgen-zurich-fachkraft-ch"
+        "it": "carpentiere-a-per-nuove-costruzioni-e-finiture-interne-fachkraft-ch-gmbh-horgen-zurich",
+        "en": "carpenter-for-new-buildings-and-interior-design-fachkraft-ch-gmbh-horgen-zurich",
+        "fr": "charpentier-charpentiere-pour-les-nouvelles-constructions-et-l-amenagement-interieur-fachkraft-ch-gmbh-horgen-zurich"
       },
       "company": "fachkraft.ch GmbH",
       "companyKey": "fachkraft",
@@ -2124,14 +2179,22 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "zimmermann-zimmerin-fur-neubaubauten-und-innenausbau-horgen-zurich-fachkraft-ch"
+          "zimmermann-zimmerin-fur-neubaubauten-und-innenausbau-horgen-zurich-fachkraft-ch",
+          "zimmermann-zimmerin-per-neubaubauten-e-innenausbau-fachkraft-ch-gmbh-horgen"
         ],
         "de": [
+          "zimmermann-zimmerin-fur-neubaubauten-und-innenausbau-horgen-zurich-fachkraft-ch"
+        ],
+        "en": [
+          "zimmermann-zimmerin-fur-neubaubauten-und-innenausbau-horgen-zurich-fachkraft-ch"
+        ],
+        "fr": [
           "zimmermann-zimmerin-fur-neubaubauten-und-innenausbau-horgen-zurich-fachkraft-ch"
         ]
       },
       "previousSlugs": [
-        "zimmermann-zimmerin-fur-neubaubauten-und-innenausbau-horgen-zurich-fachkraft-ch"
+        "zimmermann-zimmerin-fur-neubaubauten-und-innenausbau-horgen-zurich-fachkraft-ch",
+        "zimmermann-zimmerin-per-neubaubauten-e-innenausbau-fachkraft-ch-gmbh-horgen"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -2152,7 +2215,7 @@
       "validThrough": "2027-01-17T22:48:33.625Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-10-25T22:08:58.481Z",
-      "translationHoldSince": "2026-11-08T22:50:11.080Z"
+      "translationHoldReleasedAt": "2026-11-09T10:51:15.572Z"
     },
     {
       "id": "fachkraft-1152af38f889",
@@ -2160,8 +2223,8 @@
       "slugByLocale": {
         "de": "zimmermann-zimmerin-fur-neubauten-und-sanierungen-uster-zurich-fachkraft-ch",
         "it": "zimmermann-zimmerin-per-neubauten-e-sanierungen-fachkraft-ch-gmbh-uster",
-        "en": "zimmermann-zimmerin-fur-neubauten-und-sanierungen-fachkraft-ch-gmbh-uster",
-        "fr": "zimmermann-zimmerin-fur-neubauten-und-sanierungen-fachkraft-ch-gmbh-uster"
+        "en": "carpenter-for-new-buildings-and-renovations-fachkraft-ch-gmbh-uster-zurich",
+        "fr": "charpentier-pour-de-nouveaux-batiments-et-renovations-fachkraft-ch-gmbh-uster-zurich"
       },
       "company": "fachkraft.ch GmbH",
       "companyKey": "fachkraft",
@@ -2211,16 +2274,15 @@
           "zimmermann-zimmerin-fur-neubauten-und-sanierungen-uster-zurich-fachkraft-ch"
         ],
         "en": [
-          "carpenter-for-new-buildings-and-renovations-fachkraft-ch-gmbh-uster-zurich"
+          "zimmermann-zimmerin-fur-neubauten-und-sanierungen-fachkraft-ch-gmbh-uster"
         ],
         "fr": [
-          "charpentier-pour-de-nouveaux-batiments-et-renovations-fachkraft-ch-gmbh-uster-zurich"
+          "zimmermann-zimmerin-fur-neubauten-und-sanierungen-fachkraft-ch-gmbh-uster"
         ]
       },
       "previousSlugs": [
         "zimmermann-zimmerin-fur-neubauten-und-sanierungen-uster-zurich-fachkraft-ch",
-        "carpenter-for-new-buildings-and-renovations-fachkraft-ch-gmbh-uster-zurich",
-        "charpentier-pour-de-nouveaux-batiments-et-renovations-fachkraft-ch-gmbh-uster-zurich"
+        "zimmermann-zimmerin-fur-neubauten-und-sanierungen-fachkraft-ch-gmbh-uster"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -2241,16 +2303,16 @@
       "validThrough": "2026-12-15T22:48:33.625Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-09-26T15:25:37.874Z",
-      "translationHoldSince": "2026-11-08T22:50:11.080Z"
+      "translationHoldReleasedAt": "2026-11-09T10:51:15.572Z"
     },
     {
       "id": "fachkraft-e93413f61fed",
-      "slug": "zimmermann-zimmerin-per-montage-e-innenausbau-fachkraft-ch-gmbh-st-gallen",
+      "slug": "carpentiere-a-per-montaggio-e-finiture-interne-fachkraft-ch-gmbh-st-gallen-st-gallen",
       "slugByLocale": {
         "de": "zimmermann-zimmerin-fur-montage-und-innenausbau-st-gallen-st-gallen-fachkraft-ch",
-        "it": "zimmermann-zimmerin-per-montage-e-innenausbau-fachkraft-ch-gmbh-st-gallen",
-        "en": "zimmermann-zimmerin-fur-montage-und-innenausbau-st-gallen-st-gallen-fachkraft-ch",
-        "fr": "zimmermann-zimmerin-fur-montage-und-innenausbau-st-gallen-st-gallen-fachkraft-ch"
+        "it": "carpentiere-a-per-montaggio-e-finiture-interne-fachkraft-ch-gmbh-st-gallen-st-gallen",
+        "en": "carpenter-for-assembly-and-interior-design-fachkraft-ch-gmbh-st-gallen-st-gallen",
+        "fr": "charpentier-charpentiere-pour-le-montage-et-l-amenagement-interieur-fachkraft-ch-gmbh-st-gallen-st-gallen"
       },
       "company": "fachkraft.ch GmbH",
       "companyKey": "fachkraft",
@@ -2297,11 +2359,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "zimmermann-zimmerin-fur-montage-und-innenausbau-st-gallen-st-gallen-fachkraft-ch",
+          "zimmermann-zimmerin-per-montage-e-innenausbau-fachkraft-ch-gmbh-st-gallen"
+        ],
+        "en": [
+          "zimmermann-zimmerin-fur-montage-und-innenausbau-st-gallen-st-gallen-fachkraft-ch"
+        ],
+        "fr": [
           "zimmermann-zimmerin-fur-montage-und-innenausbau-st-gallen-st-gallen-fachkraft-ch"
         ]
       },
       "previousSlugs": [
-        "zimmermann-zimmerin-fur-montage-und-innenausbau-st-gallen-st-gallen-fachkraft-ch"
+        "zimmermann-zimmerin-fur-montage-und-innenausbau-st-gallen-st-gallen-fachkraft-ch",
+        "zimmermann-zimmerin-per-montage-e-innenausbau-fachkraft-ch-gmbh-st-gallen"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -2322,7 +2392,7 @@
       "validThrough": "2027-02-02T22:48:33.624Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-08T22:48:33.624Z",
-      "translationHoldSince": "2026-11-08T22:50:11.080Z"
+      "translationHoldReleasedAt": "2026-11-09T10:51:15.572Z"
     },
     {
       "id": "fachkraft-62f783744291",
@@ -2330,8 +2400,8 @@
       "slugByLocale": {
         "de": "zimmermann-zimmerin-fur-neu-und-umbauten-fachkraft-ch-gmbh-bulach",
         "it": "zimmermann-zimmerin-per-neu-e-umbauten-fachkraft-ch-gmbh-bulach",
-        "en": "zimmermann-zimmerin-fur-neu-und-umbauten-bulach-zurich-fachkraft-ch",
-        "fr": "zimmermann-zimmerin-fur-neu-und-umbauten-bulach-zurich-fachkraft-ch"
+        "en": "carpenter-for-new-and-renovations-fachkraft-ch-gmbh-bulach-zurich",
+        "fr": "charpentier-charpentiere-pour-les-nouvelles-constructions-et-les-transformations-fachkraft-ch-gmbh-bulach-zurich"
       },
       "company": "fachkraft.ch GmbH",
       "companyKey": "fachkraft",
@@ -2382,6 +2452,12 @@
         ],
         "de": [
           "zimmermann-zimmerin-fur-neu-und-umbauten-bulach-zurich-fachkraft-ch"
+        ],
+        "en": [
+          "zimmermann-zimmerin-fur-neu-und-umbauten-bulach-zurich-fachkraft-ch"
+        ],
+        "fr": [
+          "zimmermann-zimmerin-fur-neu-und-umbauten-bulach-zurich-fachkraft-ch"
         ]
       },
       "previousSlugs": [
@@ -2406,16 +2482,16 @@
       "validThrough": "2027-01-31T22:48:33.624Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-02T22:44:34.184Z",
-      "translationHoldSince": "2026-11-08T22:50:11.080Z"
+      "translationHoldReleasedAt": "2026-11-09T10:51:15.572Z"
     },
     {
       "id": "fachkraft-4cf37ddb8da5",
-      "slug": "zimmermann-zimmerin-per-montage-e-innenausbau-fachkraft-ch-gmbh-hochdorf",
+      "slug": "carpentiere-a-per-montaggio-e-finiture-interne-fachkraft-ch-gmbh-hochdorf-luzern",
       "slugByLocale": {
         "de": "zimmermann-zimmerin-fur-montage-und-innenausbau-fachkraft-ch-gmbh-hochdorf",
-        "it": "zimmermann-zimmerin-per-montage-e-innenausbau-fachkraft-ch-gmbh-hochdorf",
-        "en": "zimmermann-zimmerin-fur-montage-und-innenausbau-hochdorf-luzern-fachkraft-ch",
-        "fr": "zimmermann-zimmerin-fur-montage-und-innenausbau-hochdorf-luzern-fachkraft-ch"
+        "it": "carpentiere-a-per-montaggio-e-finiture-interne-fachkraft-ch-gmbh-hochdorf-luzern",
+        "en": "carpenter-for-assembly-and-interior-design-fachkraft-ch-gmbh-hochdorf-luzern",
+        "fr": "charpentier-charpentiere-pour-le-montage-et-l-amenagement-interieur-fachkraft-ch-gmbh-hochdorf-luzern"
       },
       "company": "fachkraft.ch GmbH",
       "companyKey": "fachkraft",
@@ -2462,14 +2538,22 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "zimmermann-zimmerin-fur-montage-und-innenausbau-hochdorf-luzern-fachkraft-ch"
+          "zimmermann-zimmerin-fur-montage-und-innenausbau-hochdorf-luzern-fachkraft-ch",
+          "zimmermann-zimmerin-per-montage-e-innenausbau-fachkraft-ch-gmbh-hochdorf"
         ],
         "de": [
+          "zimmermann-zimmerin-fur-montage-und-innenausbau-hochdorf-luzern-fachkraft-ch"
+        ],
+        "en": [
+          "zimmermann-zimmerin-fur-montage-und-innenausbau-hochdorf-luzern-fachkraft-ch"
+        ],
+        "fr": [
           "zimmermann-zimmerin-fur-montage-und-innenausbau-hochdorf-luzern-fachkraft-ch"
         ]
       },
       "previousSlugs": [
-        "zimmermann-zimmerin-fur-montage-und-innenausbau-hochdorf-luzern-fachkraft-ch"
+        "zimmermann-zimmerin-fur-montage-und-innenausbau-hochdorf-luzern-fachkraft-ch",
+        "zimmermann-zimmerin-per-montage-e-innenausbau-fachkraft-ch-gmbh-hochdorf"
       ],
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -2490,16 +2574,16 @@
       "validThrough": "2027-01-25T22:48:33.624Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-10-29T22:59:00.496Z",
-      "translationHoldSince": "2026-11-08T22:50:11.080Z"
+      "translationHoldReleasedAt": "2026-11-09T10:51:15.572Z"
     },
     {
       "id": "fachkraft-f8cf02697be4",
-      "slug": "zimmermann-zimmerin-per-modernen-holzbau-e-innenausbau-fachkraft-ch-gmbh-frauenfeld",
+      "slug": "carpentiere-carpentiere-per-moderne-costruzioni-in-legno-e-interni-fachkraft-ch-gmbh-frauenfeld-thurgau",
       "slugByLocale": {
         "de": "zimmermann-zimmerin-fur-modernen-holzbau-und-innenausbau-fachkraft-ch-gmbh-frauenfeld",
-        "it": "zimmermann-zimmerin-per-modernen-holzbau-e-innenausbau-fachkraft-ch-gmbh-frauenfeld",
-        "en": "zimmermann-zimmerin-fur-modernen-holzbau-und-innenausbau-frauenfeld-thurgau-fachkraft-ch",
-        "fr": "zimmermann-zimmerin-fur-modernen-holzbau-und-innenausbau-frauenfeld-thurgau-fachkraft-ch"
+        "it": "carpentiere-carpentiere-per-moderne-costruzioni-in-legno-e-interni-fachkraft-ch-gmbh-frauenfeld-thurgau",
+        "en": "carpenter-for-modern-timber-construction-and-interior-design-fachkraft-ch-gmbh-frauenfeld-thurgau",
+        "fr": "charpentier-charpentiere-pour-la-construction-en-bois-moderne-et-l-amenagement-interieur-fachkraft-ch-gmbh-frauenfeld"
       },
       "company": "fachkraft.ch GmbH",
       "companyKey": "fachkraft",
@@ -2546,14 +2630,22 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "zimmermann-zimmerin-fur-modernen-holzbau-und-innenausbau-frauenfeld-thurgau-fachkraft-ch"
+          "zimmermann-zimmerin-fur-modernen-holzbau-und-innenausbau-frauenfeld-thurgau-fachkraft-ch",
+          "zimmermann-zimmerin-per-modernen-holzbau-e-innenausbau-fachkraft-ch-gmbh-frauenfeld"
         ],
         "de": [
+          "zimmermann-zimmerin-fur-modernen-holzbau-und-innenausbau-frauenfeld-thurgau-fachkraft-ch"
+        ],
+        "en": [
+          "zimmermann-zimmerin-fur-modernen-holzbau-und-innenausbau-frauenfeld-thurgau-fachkraft-ch"
+        ],
+        "fr": [
           "zimmermann-zimmerin-fur-modernen-holzbau-und-innenausbau-frauenfeld-thurgau-fachkraft-ch"
         ]
       },
       "previousSlugs": [
-        "zimmermann-zimmerin-fur-modernen-holzbau-und-innenausbau-frauenfeld-thurgau-fachkraft-ch"
+        "zimmermann-zimmerin-fur-modernen-holzbau-und-innenausbau-frauenfeld-thurgau-fachkraft-ch",
+        "zimmermann-zimmerin-per-modernen-holzbau-e-innenausbau-fachkraft-ch-gmbh-frauenfeld"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -2574,16 +2666,16 @@
       "validThrough": "2027-01-16T22:48:33.624Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-10-19T11:01:25.499Z",
-      "translationHoldSince": "2026-11-08T22:50:11.080Z"
+      "translationHoldReleasedAt": "2026-11-09T10:51:15.572Z"
     },
     {
       "id": "fachkraft-de8d2fe5ad07",
-      "slug": "zimmermann-zimmerin-per-montage-e-kundenservice-fachkraft-ch-gmbh-zurich",
+      "slug": "carpentiere-a-per-il-montaggio-e-il-servizio-clienti-fachkraft-ch-gmbh-zurich-zurich",
       "slugByLocale": {
         "de": "zimmermann-zimmerin-fur-montage-und-kundenservice-zurich-zurich-fachkraft-ch",
-        "it": "zimmermann-zimmerin-per-montage-e-kundenservice-fachkraft-ch-gmbh-zurich",
-        "en": "zimmermann-zimmerin-fur-montage-und-kundenservice-zurich-zurich-fachkraft-ch",
-        "fr": "zimmermann-zimmerin-fur-montage-und-kundenservice-zurich-zurich-fachkraft-ch"
+        "it": "carpentiere-a-per-il-montaggio-e-il-servizio-clienti-fachkraft-ch-gmbh-zurich-zurich",
+        "en": "carpenter-for-assembly-and-customer-service-fachkraft-ch-gmbh-zurich-zurich",
+        "fr": "charpentier-charpentiere-pour-le-montage-et-le-service-client-fachkraft-ch-gmbh-zurich-zurich"
       },
       "company": "fachkraft.ch GmbH",
       "companyKey": "fachkraft",
@@ -2630,11 +2722,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "zimmermann-zimmerin-fur-montage-und-kundenservice-zurich-zurich-fachkraft-ch",
+          "zimmermann-zimmerin-per-montage-e-kundenservice-fachkraft-ch-gmbh-zurich"
+        ],
+        "en": [
+          "zimmermann-zimmerin-fur-montage-und-kundenservice-zurich-zurich-fachkraft-ch"
+        ],
+        "fr": [
           "zimmermann-zimmerin-fur-montage-und-kundenservice-zurich-zurich-fachkraft-ch"
         ]
       },
       "previousSlugs": [
-        "zimmermann-zimmerin-fur-montage-und-kundenservice-zurich-zurich-fachkraft-ch"
+        "zimmermann-zimmerin-fur-montage-und-kundenservice-zurich-zurich-fachkraft-ch",
+        "zimmermann-zimmerin-per-montage-e-kundenservice-fachkraft-ch-gmbh-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -2655,16 +2755,16 @@
       "validThrough": "2027-01-16T22:48:33.624Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-10-19T11:01:25.499Z",
-      "translationHoldSince": "2026-11-08T22:50:11.080Z"
+      "translationHoldReleasedAt": "2026-11-09T10:51:15.572Z"
     },
     {
       "id": "fachkraft-f382689a859d",
-      "slug": "zimmermann-zimmerin-per-montagen-e-wartung-fachkraft-ch-gmbh-sursee",
+      "slug": "carpentiere-a-per-il-montaggio-e-la-manutenzione-fachkraft-ch-gmbh-sursee-luzern",
       "slugByLocale": {
         "de": "zimmermann-zimmerin-fur-montagen-und-wartung-fachkraft-ch-gmbh-sursee",
-        "it": "zimmermann-zimmerin-per-montagen-e-wartung-fachkraft-ch-gmbh-sursee",
-        "en": "zimmermann-zimmerin-fur-montagen-und-wartung-sursee-luzern-fachkraft-ch",
-        "fr": "zimmermann-zimmerin-fur-montagen-und-wartung-sursee-luzern-fachkraft-ch"
+        "it": "carpentiere-a-per-il-montaggio-e-la-manutenzione-fachkraft-ch-gmbh-sursee-luzern",
+        "en": "carpenter-for-assembly-and-maintenance-fachkraft-ch-gmbh-sursee-luzern",
+        "fr": "charpentier-charpentiere-pour-le-montage-et-l-entretien-fachkraft-ch-gmbh-sursee-luzern"
       },
       "company": "fachkraft.ch GmbH",
       "companyKey": "fachkraft",
@@ -2711,14 +2811,22 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "zimmermann-zimmerin-fur-montagen-und-wartung-sursee-luzern-fachkraft-ch"
+          "zimmermann-zimmerin-fur-montagen-und-wartung-sursee-luzern-fachkraft-ch",
+          "zimmermann-zimmerin-per-montagen-e-wartung-fachkraft-ch-gmbh-sursee"
         ],
         "de": [
+          "zimmermann-zimmerin-fur-montagen-und-wartung-sursee-luzern-fachkraft-ch"
+        ],
+        "en": [
+          "zimmermann-zimmerin-fur-montagen-und-wartung-sursee-luzern-fachkraft-ch"
+        ],
+        "fr": [
           "zimmermann-zimmerin-fur-montagen-und-wartung-sursee-luzern-fachkraft-ch"
         ]
       },
       "previousSlugs": [
-        "zimmermann-zimmerin-fur-montagen-und-wartung-sursee-luzern-fachkraft-ch"
+        "zimmermann-zimmerin-fur-montagen-und-wartung-sursee-luzern-fachkraft-ch",
+        "zimmermann-zimmerin-per-montagen-e-wartung-fachkraft-ch-gmbh-sursee"
       ],
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -2739,16 +2847,16 @@
       "validThrough": "2027-01-09T22:48:33.624Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-10-14T10:58:12.193Z",
-      "translationHoldSince": "2026-11-08T22:50:11.080Z"
+      "translationHoldReleasedAt": "2026-11-09T10:51:15.572Z"
     },
     {
       "id": "fachkraft-9fee0e668d7a",
-      "slug": "zimmermann-zimmerin-per-innenausbau-e-montage-fachkraft-ch-gmbh-hochdorf",
+      "slug": "carpentiere-a-per-interni-e-montaggio-fachkraft-ch-gmbh-hochdorf-luzern",
       "slugByLocale": {
         "de": "zimmermann-zimmerin-fur-innenausbau-und-montage-fachkraft-ch-gmbh-hochdorf",
-        "it": "zimmermann-zimmerin-per-innenausbau-e-montage-fachkraft-ch-gmbh-hochdorf",
-        "en": "zimmermann-zimmerin-fur-innenausbau-und-montage-hochdorf-luzern-fachkraft-ch",
-        "fr": "zimmermann-zimmerin-fur-innenausbau-und-montage-hochdorf-luzern-fachkraft-ch"
+        "it": "carpentiere-a-per-interni-e-montaggio-fachkraft-ch-gmbh-hochdorf-luzern",
+        "en": "carpenter-for-interior-design-and-assembly-fachkraft-ch-gmbh-hochdorf-luzern",
+        "fr": "charpentier-charpentiere-pour-l-amenagement-interieur-et-le-montage-fachkraft-ch-gmbh-hochdorf-luzern"
       },
       "company": "fachkraft.ch GmbH",
       "companyKey": "fachkraft",
@@ -2795,14 +2903,22 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "zimmermann-zimmerin-fur-innenausbau-und-montage-hochdorf-luzern-fachkraft-ch"
+          "zimmermann-zimmerin-fur-innenausbau-und-montage-hochdorf-luzern-fachkraft-ch",
+          "zimmermann-zimmerin-per-innenausbau-e-montage-fachkraft-ch-gmbh-hochdorf"
         ],
         "de": [
+          "zimmermann-zimmerin-fur-innenausbau-und-montage-hochdorf-luzern-fachkraft-ch"
+        ],
+        "en": [
+          "zimmermann-zimmerin-fur-innenausbau-und-montage-hochdorf-luzern-fachkraft-ch"
+        ],
+        "fr": [
           "zimmermann-zimmerin-fur-innenausbau-und-montage-hochdorf-luzern-fachkraft-ch"
         ]
       },
       "previousSlugs": [
-        "zimmermann-zimmerin-fur-innenausbau-und-montage-hochdorf-luzern-fachkraft-ch"
+        "zimmermann-zimmerin-fur-innenausbau-und-montage-hochdorf-luzern-fachkraft-ch",
+        "zimmermann-zimmerin-per-innenausbau-e-montage-fachkraft-ch-gmbh-hochdorf"
       ],
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -2823,16 +2939,16 @@
       "validThrough": "2027-02-03T22:48:33.623Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-08T22:48:33.623Z",
-      "translationHoldSince": "2026-11-08T22:50:11.080Z"
+      "translationHoldReleasedAt": "2026-11-09T10:51:15.572Z"
     },
     {
       "id": "fachkraft-e5b6e2b2165b",
-      "slug": "zimmermann-zimmerin-per-mobelmontage-e-baustellenkoordination-fachkraft-ch-gmbh-zug",
+      "slug": "carpentiere-a-per-il-montaggio-di-mobili-e-il-coordinamento-del-cantiere-fachkraft-ch-gmbh-zug-zug",
       "slugByLocale": {
         "de": "zimmermann-zimmerin-fur-mobelmontage-und-baustellenkoordination-zug-zug-fachkraft-ch",
-        "it": "zimmermann-zimmerin-per-mobelmontage-e-baustellenkoordination-fachkraft-ch-gmbh-zug",
-        "en": "zimmermann-zimmerin-fur-mobelmontage-und-baustellenkoordination-zug-zug-fachkraft-ch",
-        "fr": "zimmermann-zimmerin-fur-mobelmontage-und-baustellenkoordination-zug-zug-fachkraft-ch"
+        "it": "carpentiere-a-per-il-montaggio-di-mobili-e-il-coordinamento-del-cantiere-fachkraft-ch-gmbh-zug-zug",
+        "en": "carpenter-for-furniture-assembly-and-construction-site-coordination-fachkraft-ch-gmbh-zug-zug",
+        "fr": "charpentier-charpentiere-pour-le-montage-de-meubles-et-la-coordination-de-chantiers-fachkraft-ch-gmbh-zug-zug"
       },
       "company": "fachkraft.ch GmbH",
       "companyKey": "fachkraft",
@@ -2879,11 +2995,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "zimmermann-zimmerin-fur-mobelmontage-und-baustellenkoordination-zug-zug-fachkraft-ch",
+          "zimmermann-zimmerin-per-mobelmontage-e-baustellenkoordination-fachkraft-ch-gmbh-zug"
+        ],
+        "en": [
+          "zimmermann-zimmerin-fur-mobelmontage-und-baustellenkoordination-zug-zug-fachkraft-ch"
+        ],
+        "fr": [
           "zimmermann-zimmerin-fur-mobelmontage-und-baustellenkoordination-zug-zug-fachkraft-ch"
         ]
       },
       "previousSlugs": [
-        "zimmermann-zimmerin-fur-mobelmontage-und-baustellenkoordination-zug-zug-fachkraft-ch"
+        "zimmermann-zimmerin-fur-mobelmontage-und-baustellenkoordination-zug-zug-fachkraft-ch",
+        "zimmermann-zimmerin-per-mobelmontage-e-baustellenkoordination-fachkraft-ch-gmbh-zug"
       ],
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -2904,7 +3028,7 @@
       "validThrough": "2027-01-17T22:48:33.623Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-10-25T22:08:58.480Z",
-      "translationHoldSince": "2026-11-08T22:50:11.080Z"
+      "translationHoldReleasedAt": "2026-11-09T10:51:15.572Z"
     },
     {
       "id": "fachkraft-32415e336550",
@@ -3096,12 +3220,12 @@
     },
     {
       "id": "fachkraft-c92a1d3cde5b",
-      "slug": "zimmermann-zimmerin-per-innenausbau-e-umbauten-fachkraft-ch-gmbh-frauenfeld",
+      "slug": "carpentiere-a-per-interni-e-ristrutturazioni-fachkraft-ch-gmbh-frauenfeld-thurgau",
       "slugByLocale": {
         "de": "zimmermann-zimmerin-fur-innenausbau-und-umbauten-fachkraft-ch-gmbh-frauenfeld",
-        "it": "zimmermann-zimmerin-per-innenausbau-e-umbauten-fachkraft-ch-gmbh-frauenfeld",
-        "en": "zimmermann-zimmerin-fur-innenausbau-und-umbauten-frauenfeld-thurgau-fachkraft-ch",
-        "fr": "zimmermann-zimmerin-fur-innenausbau-und-umbauten-frauenfeld-thurgau-fachkraft-ch"
+        "it": "carpentiere-a-per-interni-e-ristrutturazioni-fachkraft-ch-gmbh-frauenfeld-thurgau",
+        "en": "carpenter-for-interior-design-and-conversions-fachkraft-ch-gmbh-frauenfeld-thurgau",
+        "fr": "charpentier-charpentiere-pour-l-amenagement-interieur-et-les-transformations-fachkraft-ch-gmbh-frauenfeld-thurgau"
       },
       "company": "fachkraft.ch GmbH",
       "companyKey": "fachkraft",
@@ -3148,14 +3272,22 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "zimmermann-zimmerin-fur-innenausbau-und-umbauten-frauenfeld-thurgau-fachkraft-ch"
+          "zimmermann-zimmerin-fur-innenausbau-und-umbauten-frauenfeld-thurgau-fachkraft-ch",
+          "zimmermann-zimmerin-per-innenausbau-e-umbauten-fachkraft-ch-gmbh-frauenfeld"
         ],
         "de": [
+          "zimmermann-zimmerin-fur-innenausbau-und-umbauten-frauenfeld-thurgau-fachkraft-ch"
+        ],
+        "en": [
+          "zimmermann-zimmerin-fur-innenausbau-und-umbauten-frauenfeld-thurgau-fachkraft-ch"
+        ],
+        "fr": [
           "zimmermann-zimmerin-fur-innenausbau-und-umbauten-frauenfeld-thurgau-fachkraft-ch"
         ]
       },
       "previousSlugs": [
-        "zimmermann-zimmerin-fur-innenausbau-und-umbauten-frauenfeld-thurgau-fachkraft-ch"
+        "zimmermann-zimmerin-fur-innenausbau-und-umbauten-frauenfeld-thurgau-fachkraft-ch",
+        "zimmermann-zimmerin-per-innenausbau-e-umbauten-fachkraft-ch-gmbh-frauenfeld"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -3176,7 +3308,7 @@
       "validThrough": "2027-01-09T22:48:33.623Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-10-14T10:58:12.192Z",
-      "translationHoldSince": "2026-11-08T22:50:11.080Z"
+      "translationHoldReleasedAt": "2026-11-09T10:51:15.572Z"
     },
     {
       "id": "fachkraft-fc3cbe44aa16",
@@ -8872,12 +9004,12 @@
     },
     {
       "id": "fachkraft-721ec92077b8",
-      "slug": "schreinerpraktiker-in-montage-in-der-werkstatt-fachkraft-ch-gmbh-gossau",
+      "slug": "praticante-falegname-montaggio-in-officina-fachkraft-ch-gmbh-gossau-st-gallen",
       "slugByLocale": {
         "de": "schreinerpraktiker-in-montage-in-der-werkstatt-fachkraft-ch-gmbh-gossau",
-        "it": "schreinerpraktiker-in-montage-in-der-werkstatt-fachkraft-ch-gmbh-gossau",
-        "en": "schreinerpraktiker-in-montage-in-der-werkstatt-fachkraft-ch-gmbh-gossau",
-        "fr": "schreinerpraktiker-in-montage-in-der-werkstatt-fachkraft-ch-gmbh-gossau"
+        "it": "praticante-falegname-montaggio-in-officina-fachkraft-ch-gmbh-gossau-st-gallen",
+        "en": "carpenter-assembly-in-the-workshop-fachkraft-ch-gmbh-gossau-st-gallen-f14ff3",
+        "fr": "praticien-ne-en-menuiserie-montage-en-atelier-fachkraft-ch-gmbh-gossau-st-gallen"
       },
       "company": "fachkraft.ch GmbH",
       "companyKey": "fachkraft",
@@ -8924,14 +9056,22 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "schreinerpraktiker-in-montage-in-der-werkstatt-gossau-st-gallen-fachkraft-ch"
+          "schreinerpraktiker-in-montage-in-der-werkstatt-gossau-st-gallen-fachkraft-ch",
+          "schreinerpraktiker-in-montage-in-der-werkstatt-fachkraft-ch-gmbh-gossau"
         ],
         "de": [
           "schreinerpraktiker-in-montage-in-der-werkstatt-gossau-st-gallen-fachkraft-ch"
+        ],
+        "en": [
+          "schreinerpraktiker-in-montage-in-der-werkstatt-fachkraft-ch-gmbh-gossau"
+        ],
+        "fr": [
+          "schreinerpraktiker-in-montage-in-der-werkstatt-fachkraft-ch-gmbh-gossau"
         ]
       },
       "previousSlugs": [
-        "schreinerpraktiker-in-montage-in-der-werkstatt-gossau-st-gallen-fachkraft-ch"
+        "schreinerpraktiker-in-montage-in-der-werkstatt-gossau-st-gallen-fachkraft-ch",
+        "schreinerpraktiker-in-montage-in-der-werkstatt-fachkraft-ch-gmbh-gossau"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -8952,7 +9092,7 @@
       "validThrough": "2027-02-03T22:48:33.612Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-09-29T22:24:18.121Z",
-      "translationHoldSince": "2026-11-08T22:50:11.080Z"
+      "translationHoldReleasedAt": "2026-11-09T10:51:15.572Z"
     },
     {
       "id": "fachkraft-18d3add0dbfc",
@@ -9045,12 +9185,12 @@
     },
     {
       "id": "fachkraft-811e737eeee0",
-      "slug": "schreiner-in-monteur-in-per-gastro-e-ladenbau-fachkraft-ch-gmbh-bulach",
+      "slug": "falegname-montatrice-per-allestimenti-di-ristoranti-e-negozi-fachkraft-ch-gmbh-bulach-zurich",
       "slugByLocale": {
         "de": "schreiner-in-monteur-in-fur-gastro-und-ladenbau-fachkraft-ch-gmbh-bulach",
-        "it": "schreiner-in-monteur-in-per-gastro-e-ladenbau-fachkraft-ch-gmbh-bulach",
-        "en": "schreiner-in-monteur-in-fur-gastro-und-ladenbau-bulach-zurich-fachkraft-ch",
-        "fr": "schreiner-in-monteur-in-fur-gastro-und-ladenbau-bulach-zurich-fachkraft-ch"
+        "it": "falegname-montatrice-per-allestimenti-di-ristoranti-e-negozi-fachkraft-ch-gmbh-bulach-zurich",
+        "en": "carpenter-installer-for-catering-and-shopfitting-fachkraft-ch-gmbh-bulach-zurich",
+        "fr": "menuisier-ere-monteur-ere-pour-l-amenagement-de-restaurants-et-de-magasins-fachkraft-ch-gmbh-bulach-zurich"
       },
       "company": "fachkraft.ch GmbH",
       "companyKey": "fachkraft",
@@ -9097,14 +9237,22 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "schreiner-in-monteur-in-fur-gastro-und-ladenbau-bulach-zurich-fachkraft-ch"
+          "schreiner-in-monteur-in-fur-gastro-und-ladenbau-bulach-zurich-fachkraft-ch",
+          "schreiner-in-monteur-in-per-gastro-e-ladenbau-fachkraft-ch-gmbh-bulach"
         ],
         "de": [
+          "schreiner-in-monteur-in-fur-gastro-und-ladenbau-bulach-zurich-fachkraft-ch"
+        ],
+        "en": [
+          "schreiner-in-monteur-in-fur-gastro-und-ladenbau-bulach-zurich-fachkraft-ch"
+        ],
+        "fr": [
           "schreiner-in-monteur-in-fur-gastro-und-ladenbau-bulach-zurich-fachkraft-ch"
         ]
       },
       "previousSlugs": [
-        "schreiner-in-monteur-in-fur-gastro-und-ladenbau-bulach-zurich-fachkraft-ch"
+        "schreiner-in-monteur-in-fur-gastro-und-ladenbau-bulach-zurich-fachkraft-ch",
+        "schreiner-in-monteur-in-per-gastro-e-ladenbau-fachkraft-ch-gmbh-bulach"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -9125,7 +9273,7 @@
       "validThrough": "2027-01-18T22:48:33.612Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-10-25T22:08:58.463Z",
-      "translationHoldSince": "2026-11-08T22:50:11.080Z"
+      "translationHoldReleasedAt": "2026-11-09T10:51:15.572Z"
     },
     {
       "id": "fachkraft-161a0b40ded2",
@@ -9495,12 +9643,12 @@
     },
     {
       "id": "fachkraft-97fefb3f972d",
-      "slug": "schreiner-in-mit-montageerfahrung-luzern-luzern-fachkraft-ch",
+      "slug": "falegname-con-esperienza-di-montaggio-fachkraft-ch-gmbh-luzern-luzern",
       "slugByLocale": {
         "de": "schreiner-in-mit-montageerfahrung-luzern-luzern-fachkraft-ch",
-        "it": "schreiner-in-mit-montageerfahrung-luzern-luzern-fachkraft-ch",
-        "en": "schreiner-in-mit-montageerfahrung-luzern-luzern-fachkraft-ch",
-        "fr": "schreiner-in-mit-montageerfahrung-luzern-luzern-fachkraft-ch"
+        "it": "falegname-con-esperienza-di-montaggio-fachkraft-ch-gmbh-luzern-luzern",
+        "en": "carpenter-with-assembly-experience-fachkraft-ch-gmbh-luzern-luzern",
+        "fr": "menuisier-menuisiere-avec-experience-de-montage-fachkraft-ch-gmbh-luzern-luzern"
       },
       "company": "fachkraft.ch GmbH",
       "companyKey": "fachkraft",
@@ -9575,16 +9723,30 @@
       "validThrough": "2027-01-31T22:48:33.611Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-02T22:44:34.174Z",
-      "translationHoldSince": "2026-11-08T22:50:11.080Z"
+      "translationHoldReleasedAt": "2026-11-09T10:51:15.572Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "schreiner-in-mit-montageerfahrung-luzern-luzern-fachkraft-ch"
+        ],
+        "en": [
+          "schreiner-in-mit-montageerfahrung-luzern-luzern-fachkraft-ch"
+        ],
+        "fr": [
+          "schreiner-in-mit-montageerfahrung-luzern-luzern-fachkraft-ch"
+        ]
+      },
+      "previousSlugs": [
+        "schreiner-in-mit-montageerfahrung-luzern-luzern-fachkraft-ch"
+      ]
     },
     {
       "id": "fachkraft-90fe13a98b1f",
-      "slug": "schreiner-in-mit-modernem-maschinenpark-baden-aargau-fachkraft-ch",
+      "slug": "carpentiere-a-con-parco-macchine-moderno-a-fachkraft-ch-gmbh-baden-aargau",
       "slugByLocale": {
         "de": "schreiner-in-mit-modernem-maschinenpark-fachkraft-ch-gmbh-baden",
-        "it": "schreiner-in-mit-modernem-maschinenpark-baden-aargau-fachkraft-ch",
-        "en": "schreiner-in-mit-modernem-maschinenpark-baden-aargau-fachkraft-ch",
-        "fr": "schreiner-in-mit-modernem-maschinenpark-baden-aargau-fachkraft-ch"
+        "it": "carpentiere-a-con-parco-macchine-moderno-a-fachkraft-ch-gmbh-baden-aargau",
+        "en": "carpenter-with-modern-machinery-fachkraft-ch-gmbh-baden-aargau",
+        "fr": "menuisier-menuisiere-avec-un-parc-de-machines-moderne-fachkraft-ch-gmbh-baden-aargau"
       },
       "company": "fachkraft.ch GmbH",
       "companyKey": "fachkraft",
@@ -9648,16 +9810,30 @@
       "validThrough": "2027-01-16T22:48:33.611Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-10-19T11:01:25.478Z",
-      "translationHoldSince": "2026-11-08T22:50:11.080Z"
+      "translationHoldReleasedAt": "2026-11-09T10:51:15.572Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "schreiner-in-mit-modernem-maschinenpark-baden-aargau-fachkraft-ch"
+        ],
+        "en": [
+          "schreiner-in-mit-modernem-maschinenpark-baden-aargau-fachkraft-ch"
+        ],
+        "fr": [
+          "schreiner-in-mit-modernem-maschinenpark-baden-aargau-fachkraft-ch"
+        ]
+      },
+      "previousSlugs": [
+        "schreiner-in-mit-modernem-maschinenpark-baden-aargau-fachkraft-ch"
+      ]
     },
     {
       "id": "fachkraft-bb37607b3969",
-      "slug": "schreiner-in-mit-moderner-holzbearbeitung-fachkraft-ch-gmbh-sursee",
+      "slug": "falegname-con-moderna-lavorazione-del-legno-fachkraft-ch-gmbh-sursee-luzern",
       "slugByLocale": {
         "de": "schreiner-in-mit-moderner-holzbearbeitung-fachkraft-ch-gmbh-sursee",
-        "it": "schreiner-in-mit-moderner-holzbearbeitung-fachkraft-ch-gmbh-sursee",
-        "en": "schreiner-in-mit-moderner-holzbearbeitung-fachkraft-ch-gmbh-sursee",
-        "fr": "schreiner-in-mit-moderner-holzbearbeitung-fachkraft-ch-gmbh-sursee"
+        "it": "falegname-con-moderna-lavorazione-del-legno-fachkraft-ch-gmbh-sursee-luzern",
+        "en": "carpenter-with-modern-woodworking-fachkraft-ch-gmbh-sursee-luzern",
+        "fr": "menuisier-menuisiere-avec-travail-du-bois-moderne-fachkraft-ch-gmbh-sursee-luzern"
       },
       "company": "fachkraft.ch GmbH",
       "companyKey": "fachkraft",
@@ -9704,14 +9880,22 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "schreiner-in-mit-moderner-holzbearbeitung-sursee-luzern-fachkraft-ch"
+          "schreiner-in-mit-moderner-holzbearbeitung-sursee-luzern-fachkraft-ch",
+          "schreiner-in-mit-moderner-holzbearbeitung-fachkraft-ch-gmbh-sursee"
         ],
         "de": [
           "schreiner-in-mit-moderner-holzbearbeitung-sursee-luzern-fachkraft-ch"
+        ],
+        "en": [
+          "schreiner-in-mit-moderner-holzbearbeitung-fachkraft-ch-gmbh-sursee"
+        ],
+        "fr": [
+          "schreiner-in-mit-moderner-holzbearbeitung-fachkraft-ch-gmbh-sursee"
         ]
       },
       "previousSlugs": [
-        "schreiner-in-mit-moderner-holzbearbeitung-sursee-luzern-fachkraft-ch"
+        "schreiner-in-mit-moderner-holzbearbeitung-sursee-luzern-fachkraft-ch",
+        "schreiner-in-mit-moderner-holzbearbeitung-fachkraft-ch-gmbh-sursee"
       ],
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -9732,7 +9916,7 @@
       "validThrough": "2027-01-13T22:48:33.611Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-10-16T10:18:21.888Z",
-      "translationHoldSince": "2026-11-08T22:50:11.080Z"
+      "translationHoldReleasedAt": "2026-11-09T10:51:15.572Z"
     },
     {
       "id": "fachkraft-97d088aaddf7",
@@ -9740,8 +9924,8 @@
       "slugByLocale": {
         "de": "schreiner-in-mit-montageerfahrung-gossau-st-gallen-fachkraft-ch",
         "it": "schreiner-in-mit-montageerfahrung-fachkraft-ch-gmbh-gossau",
-        "en": "schreiner-in-mit-montageerfahrung-fachkraft-ch-gmbh-gossau",
-        "fr": "schreiner-in-mit-montageerfahrung-fachkraft-ch-gmbh-gossau"
+        "en": "carpenter-with-assembly-experience-fachkraft-ch-gmbh-gossau-st-gallen",
+        "fr": "charpentier-avec-experience-en-assemblage-fachkraft-ch-gmbh-gossau-st-gallen"
       },
       "company": "fachkraft.ch GmbH",
       "companyKey": "fachkraft",
@@ -9789,18 +9973,10 @@
       "previousSlugsByLocale": {
         "it": [
           "schreiner-in-mit-montageerfahrung-gossau-st-gallen-fachkraft-ch"
-        ],
-        "en": [
-          "carpenter-with-assembly-experience-fachkraft-ch-gmbh-gossau-st-gallen"
-        ],
-        "fr": [
-          "charpentier-avec-experience-en-assemblage-fachkraft-ch-gmbh-gossau-st-gallen"
         ]
       },
       "previousSlugs": [
-        "schreiner-in-mit-montageerfahrung-gossau-st-gallen-fachkraft-ch",
-        "carpenter-with-assembly-experience-fachkraft-ch-gmbh-gossau-st-gallen",
-        "charpentier-avec-experience-en-assemblage-fachkraft-ch-gmbh-gossau-st-gallen"
+        "schreiner-in-mit-montageerfahrung-gossau-st-gallen-fachkraft-ch"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -9821,7 +9997,7 @@
       "validThrough": "2026-12-23T22:48:33.611Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-09-26T15:25:37.858Z",
-      "translationHoldSince": "2026-11-08T22:50:11.080Z"
+      "translationHoldReleasedAt": "2026-11-09T10:51:15.572Z"
     },
     {
       "id": "fachkraft-63fe418c4bd4",
@@ -9829,8 +10005,8 @@
       "slugByLocale": {
         "de": "schreiner-in-mit-prazisen-bankarbeiten-wil-sg-st-gallen-fachkraft-ch",
         "it": "schreiner-in-con-prazisen-bankarbeiten-fachkraft-ch-gmbh-wil-sg",
-        "en": "schreiner-in-mit-prazisen-bankarbeiten-fachkraft-ch-gmbh-wil-sg",
-        "fr": "schreiner-in-mit-prazisen-bankarbeiten-fachkraft-ch-gmbh-wil-sg"
+        "en": "carpenter-with-precise-banking-work-fachkraft-ch-gmbh-wil-sg-st-gallen",
+        "fr": "charpentier-avec-un-travail-de-banque-precis-fachkraft-ch-gmbh-wil-sg-st-gallen"
       },
       "company": "fachkraft.ch GmbH",
       "companyKey": "fachkraft",
@@ -9880,16 +10056,15 @@
           "schreiner-in-mit-prazisen-bankarbeiten-wil-sg-st-gallen-fachkraft-ch"
         ],
         "en": [
-          "carpenter-with-precise-banking-work-fachkraft-ch-gmbh-wil-sg-st-gallen"
+          "schreiner-in-mit-prazisen-bankarbeiten-fachkraft-ch-gmbh-wil-sg"
         ],
         "fr": [
-          "charpentier-avec-un-travail-de-banque-precis-fachkraft-ch-gmbh-wil-sg-st-gallen"
+          "schreiner-in-mit-prazisen-bankarbeiten-fachkraft-ch-gmbh-wil-sg"
         ]
       },
       "previousSlugs": [
         "schreiner-in-mit-prazisen-bankarbeiten-wil-sg-st-gallen-fachkraft-ch",
-        "carpenter-with-precise-banking-work-fachkraft-ch-gmbh-wil-sg-st-gallen",
-        "charpentier-avec-un-travail-de-banque-precis-fachkraft-ch-gmbh-wil-sg-st-gallen"
+        "schreiner-in-mit-prazisen-bankarbeiten-fachkraft-ch-gmbh-wil-sg"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -9910,7 +10085,7 @@
       "validThrough": "2026-12-20T22:48:33.611Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-09-26T15:25:37.859Z",
-      "translationHoldSince": "2026-11-08T22:50:11.080Z"
+      "translationHoldReleasedAt": "2026-11-09T10:51:15.572Z"
     },
     {
       "id": "fachkraft-6da774f137f1",
@@ -9918,7 +10093,7 @@
       "slugByLocale": {
         "de": "schreiner-in-mit-spritzbecherpistole-und-airmix-luzern-luzern-fachkraft-ch",
         "it": "schreiner-in-con-spritzbecherpistole-e-airmix-fachkraft-ch-gmbh-luzern",
-        "en": "schreiner-in-mit-spritzbecherpistole-und-airmix-fachkraft-ch-gmbh-luzern",
+        "en": "carpenter-with-spray-gun-and-air-mix-fachkraft-ch-gmbh-luzern-luzern",
         "fr": "charpentier-avec-pistolet-a-tuyauterie-et-airmix-fachkraft-ch-gmbh-luzern-luzern"
       },
       "company": "fachkraft.ch GmbH",
@@ -9969,12 +10144,12 @@
           "schreiner-in-mit-spritzbecherpistole-und-airmix-luzern-luzern-fachkraft-ch"
         ],
         "en": [
-          "carpenter-with-spray-gun-and-air-mix-fachkraft-ch-gmbh-luzern-luzern"
+          "schreiner-in-mit-spritzbecherpistole-und-airmix-fachkraft-ch-gmbh-luzern"
         ]
       },
       "previousSlugs": [
         "schreiner-in-mit-spritzbecherpistole-und-airmix-luzern-luzern-fachkraft-ch",
-        "carpenter-with-spray-gun-and-air-mix-fachkraft-ch-gmbh-luzern-luzern"
+        "schreiner-in-mit-spritzbecherpistole-und-airmix-fachkraft-ch-gmbh-luzern"
       ],
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -10006,7 +10181,7 @@
       "validThrough": "2026-12-12T22:48:33.611Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-09-27T00:50:05.863Z",
-      "translationHoldSince": "2026-11-08T22:50:11.080Z"
+      "translationHoldReleasedAt": "2026-11-09T10:51:15.572Z"
     },
     {
       "id": "fachkraft-5ab642e9ba8d",
@@ -10099,12 +10274,12 @@
     },
     {
       "id": "fachkraft-293a942becb4",
-      "slug": "schreiner-in-mit-erfahrung-in-turenfertigung-weinfelden-thurgau-fachkraft-ch",
+      "slug": "falegname-con-esperienza-nella-produzione-di-porte-fachkraft-ch-gmbh-weinfelden-thurgau",
       "slugByLocale": {
         "de": "schreiner-in-mit-erfahrung-in-turenfertigung-fachkraft-ch-gmbh-weinfelden",
-        "it": "schreiner-in-mit-erfahrung-in-turenfertigung-weinfelden-thurgau-fachkraft-ch",
-        "en": "schreiner-in-mit-erfahrung-in-turenfertigung-weinfelden-thurgau-fachkraft-ch",
-        "fr": "schreiner-in-mit-erfahrung-in-turenfertigung-weinfelden-thurgau-fachkraft-ch"
+        "it": "falegname-con-esperienza-nella-produzione-di-porte-fachkraft-ch-gmbh-weinfelden-thurgau",
+        "en": "carpenter-with-experience-in-door-manufacturing-fachkraft-ch-gmbh-weinfelden-thurgau",
+        "fr": "menuisier-experimente-dans-la-fabrication-de-portes-fachkraft-ch-gmbh-weinfelden-thurgau"
       },
       "company": "fachkraft.ch GmbH",
       "companyKey": "fachkraft",
@@ -10168,16 +10343,30 @@
       "validThrough": "2027-01-26T22:48:33.610Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-10-28T20:27:54.504Z",
-      "translationHoldSince": "2026-11-08T22:50:11.080Z"
+      "translationHoldReleasedAt": "2026-11-09T10:51:15.572Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "schreiner-in-mit-erfahrung-in-turenfertigung-weinfelden-thurgau-fachkraft-ch"
+        ],
+        "en": [
+          "schreiner-in-mit-erfahrung-in-turenfertigung-weinfelden-thurgau-fachkraft-ch"
+        ],
+        "fr": [
+          "schreiner-in-mit-erfahrung-in-turenfertigung-weinfelden-thurgau-fachkraft-ch"
+        ]
+      },
+      "previousSlugs": [
+        "schreiner-in-mit-erfahrung-in-turenfertigung-weinfelden-thurgau-fachkraft-ch"
+      ]
     },
     {
       "id": "fachkraft-ceaffb740c37",
-      "slug": "schreiner-in-mit-individueller-einzelanfertigung-fachkraft-ch-gmbh-wil-sg",
+      "slug": "falegname-falegname-con-produzione-individuale-individuale-fachkraft-ch-gmbh-wil-sg-st-gallen",
       "slugByLocale": {
         "de": "schreiner-in-mit-individueller-einzelanfertigung-fachkraft-ch-gmbh-wil-sg",
-        "it": "schreiner-in-mit-individueller-einzelanfertigung-fachkraft-ch-gmbh-wil-sg",
-        "en": "schreiner-in-mit-individueller-einzelanfertigung-fachkraft-ch-gmbh-wil-sg",
-        "fr": "schreiner-in-mit-individueller-einzelanfertigung-fachkraft-ch-gmbh-wil-sg"
+        "it": "falegname-falegname-con-produzione-individuale-individuale-fachkraft-ch-gmbh-wil-sg-st-gallen",
+        "en": "carpenter-with-individual-customisation-fachkraft-ch-gmbh-wil-sg-st-gallen",
+        "fr": "menuisier-menuisiere-avec-fabrication-individuelle-individuelle-fachkraft-ch-gmbh-wil-sg-st-gallen"
       },
       "company": "fachkraft.ch GmbH",
       "companyKey": "fachkraft",
@@ -10224,14 +10413,22 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "schreiner-in-mit-individueller-einzelanfertigung-wil-sg-st-gallen-fachkraft-ch"
+          "schreiner-in-mit-individueller-einzelanfertigung-wil-sg-st-gallen-fachkraft-ch",
+          "schreiner-in-mit-individueller-einzelanfertigung-fachkraft-ch-gmbh-wil-sg"
         ],
         "de": [
           "schreiner-in-mit-individueller-einzelanfertigung-wil-sg-st-gallen-fachkraft-ch"
+        ],
+        "en": [
+          "schreiner-in-mit-individueller-einzelanfertigung-fachkraft-ch-gmbh-wil-sg"
+        ],
+        "fr": [
+          "schreiner-in-mit-individueller-einzelanfertigung-fachkraft-ch-gmbh-wil-sg"
         ]
       },
       "previousSlugs": [
-        "schreiner-in-mit-individueller-einzelanfertigung-wil-sg-st-gallen-fachkraft-ch"
+        "schreiner-in-mit-individueller-einzelanfertigung-wil-sg-st-gallen-fachkraft-ch",
+        "schreiner-in-mit-individueller-einzelanfertigung-fachkraft-ch-gmbh-wil-sg"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -10252,7 +10449,7 @@
       "validThrough": "2027-01-16T22:48:33.610Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-10-19T11:01:25.477Z",
-      "translationHoldSince": "2026-11-08T22:50:11.080Z"
+      "translationHoldReleasedAt": "2026-11-09T10:51:15.572Z"
     },
     {
       "id": "fachkraft-619bf3625e3c",
@@ -10435,12 +10632,12 @@
     },
     {
       "id": "fachkraft-be5d9de716f3",
-      "slug": "schreiner-in-mit-fuhrungsverantwortung-fachkraft-ch-gmbh-hinwil",
+      "slug": "falegname-con-responsabilita-dirigenziale-fachkraft-ch-gmbh-hinwil-zurich",
       "slugByLocale": {
         "de": "schreiner-in-mit-fuhrungsverantwortung-hinwil-zurich-fachkraft-ch",
-        "it": "schreiner-in-mit-fuhrungsverantwortung-fachkraft-ch-gmbh-hinwil",
-        "en": "schreiner-in-mit-fuhrungsverantwortung-fachkraft-ch-gmbh-hinwil",
-        "fr": "schreiner-in-mit-fuhrungsverantwortung-fachkraft-ch-gmbh-hinwil"
+        "it": "falegname-con-responsabilita-dirigenziale-fachkraft-ch-gmbh-hinwil-zurich",
+        "en": "carpenter-with-leadership-responsibility-fachkraft-ch-gmbh-hinwil-zurich",
+        "fr": "menuisier-menuisiere-avec-responsabilite-de-direction-fachkraft-ch-gmbh-hinwil-zurich"
       },
       "company": "fachkraft.ch GmbH",
       "companyKey": "fachkraft",
@@ -10487,11 +10684,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "schreiner-in-mit-fuhrungsverantwortung-hinwil-zurich-fachkraft-ch"
+          "schreiner-in-mit-fuhrungsverantwortung-hinwil-zurich-fachkraft-ch",
+          "schreiner-in-mit-fuhrungsverantwortung-fachkraft-ch-gmbh-hinwil"
+        ],
+        "en": [
+          "schreiner-in-mit-fuhrungsverantwortung-fachkraft-ch-gmbh-hinwil"
+        ],
+        "fr": [
+          "schreiner-in-mit-fuhrungsverantwortung-fachkraft-ch-gmbh-hinwil"
         ]
       },
       "previousSlugs": [
-        "schreiner-in-mit-fuhrungsverantwortung-hinwil-zurich-fachkraft-ch"
+        "schreiner-in-mit-fuhrungsverantwortung-hinwil-zurich-fachkraft-ch",
+        "schreiner-in-mit-fuhrungsverantwortung-fachkraft-ch-gmbh-hinwil"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -10512,7 +10717,7 @@
       "validThrough": "2026-12-15T22:48:33.610Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-09-26T15:25:37.856Z",
-      "translationHoldSince": "2026-11-08T22:50:11.080Z"
+      "translationHoldReleasedAt": "2026-11-09T10:51:15.572Z"
     },
     {
       "id": "fachkraft-70902319a972",
@@ -10593,7 +10798,7 @@
       "validThrough": "2026-12-15T22:48:33.610Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-09-26T15:25:37.857Z",
-      "translationHoldSince": "2026-11-08T22:50:11.080Z"
+      "translationHoldReleasedAt": "2026-11-09T10:51:15.572Z"
     },
     {
       "id": "fachkraft-fb6197c4205f",
@@ -11592,8 +11797,8 @@
       "slugByLocale": {
         "de": "schreiner-in-fur-vielseitige-montagearbeiten-schaffhausen-schaffhausen-fachkraft-ch",
         "it": "schreiner-in-per-vielseitige-montagearbeiten-fachkraft-ch-gmbh-schaffhausen",
-        "en": "schreiner-in-fur-vielseitige-montagearbeiten-fachkraft-ch-gmbh-schaffhausen",
-        "fr": "schreiner-in-fur-vielseitige-montagearbeiten-fachkraft-ch-gmbh-schaffhausen"
+        "en": "carpenter-for-versatile-assembly-work-fachkraft-ch-gmbh-schaffhausen-schaffhausen",
+        "fr": "menuisier-menuisiere-pour-des-travaux-de-montage-polyvalents-fachkraft-ch-gmbh-schaffhausen-schaffhausen"
       },
       "company": "fachkraft.ch GmbH",
       "companyKey": "fachkraft",
@@ -11646,8 +11851,7 @@
         "menuisier-ere-pour-des-travaux-de-montage-varies-fachkraft-ch-gmbh-schaffhausen-schaffhausen",
         "falegname-a-per-lavori-di-montaggio-versatili-fachkraft-ch-gmbh-schaffhausen-schaffhausen",
         "schreiner-in-fur-vielseitige-montagearbeiten-schaffhausen-schaffhausen-fachkraft-ch",
-        "carpenter-for-versatile-assembly-work-fachkraft-ch-gmbh-schaffhausen-schaffhausen",
-        "menuisier-menuisiere-pour-des-travaux-de-montage-polyvalents-fachkraft-ch-gmbh-schaffhausen-schaffhausen"
+        "schreiner-in-fur-vielseitige-montagearbeiten-fachkraft-ch-gmbh-schaffhausen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -11659,11 +11863,11 @@
         "en": [
           "carpenter-for-versatile-installation-work-fachkraft-ch-gmbh-schaffhausen-schaffhausen",
           "carpenter-for-varied-installation-work-fachkraft-ch-gmbh-schaffhausen-schaffhausen",
-          "carpenter-for-versatile-assembly-work-fachkraft-ch-gmbh-schaffhausen-schaffhausen"
+          "schreiner-in-fur-vielseitige-montagearbeiten-fachkraft-ch-gmbh-schaffhausen"
         ],
         "fr": [
           "menuisier-ere-pour-des-travaux-de-montage-varies-fachkraft-ch-gmbh-schaffhausen-schaffhausen",
-          "menuisier-menuisiere-pour-des-travaux-de-montage-polyvalents-fachkraft-ch-gmbh-schaffhausen-schaffhausen"
+          "schreiner-in-fur-vielseitige-montagearbeiten-fachkraft-ch-gmbh-schaffhausen"
         ]
       },
       "salaryMin": 57500,
@@ -25760,7 +25964,7 @@
         "de": "schreiner-in-fur-hochwertigen-innenausbau-zurich-zurich-fachkraft-ch",
         "it": "carpenters-per-l-arredamento-di-alta-qualita-fachkraft-ch-gmbh-zurich-zurich",
         "en": "carpenters-for-high-quality-interior-design-fachkraft-ch-gmbh-zurich-zurich",
-        "fr": "schreiner-in-fur-hochwertigen-innenausbau-fachkraft-ch-gmbh-zurich"
+        "fr": "charpentiers-pour-un-design-interieur-de-haute-qualite-fachkraft-ch-gmbh-zurich-zurich"
       },
       "company": "fachkraft.ch GmbH",
       "companyKey": "fachkraft",
@@ -25816,7 +26020,7 @@
         "menuisier-menuisiere-pour-un-amenagement-interieur-de-haute-qualite-fachkraft-ch-gmbh-zurich-zurich",
         "schreiner-in-per-hochwertigen-innenausbau-fachkraft-ch-gmbh-zurich",
         "schreiner-in-fur-hochwertigen-innenausbau-zurich-zurich-fachkraft-ch",
-        "charpentiers-pour-un-design-interieur-de-haute-qualite-fachkraft-ch-gmbh-zurich-zurich"
+        "schreiner-in-fur-hochwertigen-innenausbau-fachkraft-ch-gmbh-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -25834,7 +26038,7 @@
         "fr": [
           "menuisier-ere-pour-l-amenagement-interieur-haut-de-gamme-fachkraft-ch-gmbh-zurich-zurich",
           "menuisier-menuisiere-pour-un-amenagement-interieur-de-haute-qualite-fachkraft-ch-gmbh-zurich-zurich",
-          "charpentiers-pour-un-design-interieur-de-haute-qualite-fachkraft-ch-gmbh-zurich-zurich"
+          "schreiner-in-fur-hochwertigen-innenausbau-fachkraft-ch-gmbh-zurich"
         ]
       },
       "salaryMin": 73500,
@@ -39133,12 +39337,12 @@
     },
     {
       "id": "fachkraft-a243c65da953",
-      "slug": "sanitarinstallateur-in-per-neu-e-umbauten-fachkraft-ch-gmbh-sursee",
+      "slug": "installatore-trice-di-sanitari-per-nuove-costruzioni-e-ristrutturazioni-fachkraft-ch-gmbh-sursee-luzern",
       "slugByLocale": {
         "de": "sanitarinstallateur-in-fur-neu-und-umbauten-sursee-luzern-fachkraft-ch",
-        "it": "sanitarinstallateur-in-per-neu-e-umbauten-fachkraft-ch-gmbh-sursee",
-        "en": "sanitarinstallateur-in-fur-neu-und-umbauten-fachkraft-ch-gmbh-sursee",
-        "fr": "sanitarinstallateur-in-fur-neu-und-umbauten-fachkraft-ch-gmbh-sursee"
+        "it": "installatore-trice-di-sanitari-per-nuove-costruzioni-e-ristrutturazioni-fachkraft-ch-gmbh-sursee-luzern",
+        "en": "plumbing-fitter-for-new-and-refurbishments-fachkraft-ch-gmbh-sursee-luzern",
+        "fr": "installateur-sanitaire-pour-les-nouvelles-constructions-et-les-transformations-fachkraft-ch-gmbh-sursee-luzern"
       },
       "company": "fachkraft.ch GmbH",
       "companyKey": "fachkraft",
@@ -39197,7 +39401,8 @@
         "installatore-installatrice-di-impianti-sanitari-per-nuove-costruzioni-e-ristrutturazioni-fachkraft-ch-gmbh-sursee-luzern",
         "sanitary-installer-for-new-builds-and-renovations-fachkraft-ch-gmbh-sursee-luzern",
         "installateur-installatrice-sanitaire-pour-constructions-neuves-et-transformations-fachkraft-ch-gmbh-sursee-luzern",
-        "sanitarinstallateur-in-fur-neu-und-umbauten-sursee-luzern-fachkraft-ch"
+        "sanitarinstallateur-in-fur-neu-und-umbauten-sursee-luzern-fachkraft-ch",
+        "sanitarinstallateur-in-per-neu-e-umbauten-fachkraft-ch-gmbh-sursee"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -39205,13 +39410,15 @@
           "installatore-installatrice-sanitario-a-per-nuove-costruzioni-e-ristrutturazioni-fachkraft-ch-gmbh-sursee-luzern",
           "idraulico-per-nuove-costruzioni-e-ristrutturazioni-fachkraft-ch-gmbh-sursee-luzern",
           "installatore-installatrice-di-impianti-sanitari-per-nuove-costruzioni-e-ristrutturazioni-fachkraft-ch-gmbh-sursee-luzern",
-          "sanitarinstallateur-in-fur-neu-und-umbauten-sursee-luzern-fachkraft-ch"
+          "sanitarinstallateur-in-fur-neu-und-umbauten-sursee-luzern-fachkraft-ch",
+          "sanitarinstallateur-in-per-neu-e-umbauten-fachkraft-ch-gmbh-sursee"
         ],
         "en": [
           "sanitary-installer-for-new-construction-and-conversion-fachkraft-ch-gmbh-sursee-luzern",
           "plumbing-installer-for-new-construction-and-renovation-projects-fachkraft-ch-gmbh-sursee-luzern",
           "plumber-plumber-for-new-construction-and-renovations-fachkraft-ch-gmbh-sursee-luzern",
-          "sanitary-installer-for-new-builds-and-renovations-fachkraft-ch-gmbh-sursee-luzern"
+          "sanitary-installer-for-new-builds-and-renovations-fachkraft-ch-gmbh-sursee-luzern",
+          "sanitarinstallateur-in-fur-neu-und-umbauten-fachkraft-ch-gmbh-sursee"
         ],
         "de": [
           "sanitarinstallateur-in-fur-neu-und-umbauten-fachkraft-ch-gmbh-sursee"
@@ -39220,7 +39427,8 @@
           "installation-sanitaire-pour-la-construction-et-la-conversion-fachkraft-ch-gmbh-sursee-luzern",
           "installateur-trice-sanitaire-pour-constructions-neuves-et-transformations-fachkraft-ch-gmbh-sursee-luzern",
           "plombier-pour-constructions-neuves-et-renovations-fachkraft-ch-gmbh-sursee-luzern",
-          "installateur-installatrice-sanitaire-pour-constructions-neuves-et-transformations-fachkraft-ch-gmbh-sursee-luzern"
+          "installateur-installatrice-sanitaire-pour-constructions-neuves-et-transformations-fachkraft-ch-gmbh-sursee-luzern",
+          "sanitarinstallateur-in-fur-neu-und-umbauten-fachkraft-ch-gmbh-sursee"
         ]
       },
       "salaryMin": 69500,
@@ -88332,7 +88540,7 @@
       "slugByLocale": {
         "de": "montage-elektriker-in-fur-stark-und-schwachstrominstallationen-winterthur-zurich-fachkraft",
         "it": "montage-elektriker-in-per-stark-e-schwachstrominstallationen-fachkraft-ch-gmbh-winterthur",
-        "en": "montage-elektriker-in-fur-stark-und-schwachstrominstallationen-fachkraft-ch-gmbh-winterthur",
+        "en": "assembly-electrician-for-high-and-low-current-installations-fachkraft-ch-gmbh-winterthur-zurich",
         "fr": "electricien-ne-de-montage-pour-les-installations-a-courant-fort-et-faible-fachkraft-ch-gmbh-winterthur-zurich"
       },
       "company": "fachkraft.ch GmbH",
@@ -88383,8 +88591,7 @@
         "elettricista-per-installazioni-di-corrente-forte-e-debole-fachkraft-ch-gmbh-winterthur-zurich-d2b349",
         "assembly-electrician-for-high-and-low-voltage-installations-fachkraft-ch-gmbh-winterthur-zurich",
         "electricien-ne-de-montage-pour-installations-a-courant-fort-et-a-courant-faible-fachkraft-ch-gmbh-winterthur-zurich",
-        "montage-elektriker-in-fur-stark-und-schwachstrominstallationen-winterthur-zurich-fachkraft",
-        "assembly-electrician-for-high-and-low-current-installations-fachkraft-ch-gmbh-winterthur-zurich"
+        "montage-elektriker-in-fur-stark-und-schwachstrominstallationen-winterthur-zurich-fachkraft"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -88393,7 +88600,7 @@
         ],
         "en": [
           "assembly-electrician-for-high-and-low-voltage-installations-fachkraft-ch-gmbh-winterthur-zurich",
-          "assembly-electrician-for-high-and-low-current-installations-fachkraft-ch-gmbh-winterthur-zurich"
+          "montage-elektriker-in-fur-stark-und-schwachstrominstallationen-fachkraft-ch-gmbh-winterthur"
         ],
         "de": [
           "montage-elektriker-in-fur-stark-und-schwachstrominstallationen-fachkraft-ch-gmbh-winterthur"
@@ -114169,12 +114376,12 @@
     },
     {
       "id": "fachkraft-a23a99842378",
-      "slug": "maurer-in-per-neu-e-umbauten-fachkraft-ch-gmbh-weinfelden",
+      "slug": "muratore-trice-per-nuove-costruzioni-e-ristrutturazioni-fachkraft-ch-gmbh-weinfelden-thurgau",
       "slugByLocale": {
         "de": "maurer-in-fur-neu-und-umbauten-weinfelden-thurgau-fachkraft-ch",
-        "it": "maurer-in-per-neu-e-umbauten-fachkraft-ch-gmbh-weinfelden",
-        "en": "maurer-in-fur-neu-und-umbauten-weinfelden-thurgau-fachkraft-ch",
-        "fr": "maurer-in-fur-neu-und-umbauten-weinfelden-thurgau-fachkraft-ch"
+        "it": "muratore-trice-per-nuove-costruzioni-e-ristrutturazioni-fachkraft-ch-gmbh-weinfelden-thurgau",
+        "en": "bricklayer-for-new-builds-and-conversions-fachkraft-ch-gmbh-weinfelden-thurgau",
+        "fr": "macon-maconneuse-pour-les-nouvelles-constructions-et-les-transformations-fachkraft-ch-gmbh-weinfelden-thurgau"
       },
       "company": "fachkraft.ch GmbH",
       "companyKey": "fachkraft",
@@ -114221,30 +114428,29 @@
       "needsRetranslation": true,
       "previousSlugs": [
         "maurer-in-per-neu-e-umbauten-fachkraft-ch-gmbh-weinfelden-07e1b6855a",
-        "muratore-trice-per-nuove-costruzioni-e-ristrutturazioni-fachkraft-ch-gmbh-weinfelden-thurgau",
         "mason-for-new-builds-and-conversions-fachkraft-ch-gmbh-weinfelden",
         "macon-ne-pour-constructions-neuves-et-transformations-fachkraft-ch-gmbh-weinfelden",
         "muratore-per-nuove-costruzioni-e-ristrutturazioni-fachkraft-ch-gmbh-weinfelden-thurgau",
-        "bricklayer-for-new-builds-and-conversions-fachkraft-ch-gmbh-weinfelden-thurgau",
         "macon-pour-constructions-neuves-et-renovations-fachkraft-ch-gmbh-weinfelden-thurgau",
         "maurer-in-fur-neu-und-umbauten-fachkraft-ch-gmbh-weinfelden",
         "muratore-muratrice-per-nuove-costruzioni-e-ristrutturazioni-fachkraft-ch-gmbh-weinfelden-thurgau",
         "mason-for-new-builds-and-conversions-fachkraft-ch-gmbh-weinfelden-thurgau",
         "macon-maconne-pour-les-constructions-neuves-et-les-transformations-fachkraft-ch-gmbh-weinfelden-thurgau",
-        "maurer-in-fur-neu-und-umbauten-weinfelden-thurgau-fachkraft-ch"
+        "maurer-in-fur-neu-und-umbauten-weinfelden-thurgau-fachkraft-ch",
+        "maurer-in-per-neu-e-umbauten-fachkraft-ch-gmbh-weinfelden"
       ],
       "previousSlugsByLocale": {
         "it": [
           "maurer-in-per-neu-e-umbauten-fachkraft-ch-gmbh-weinfelden-07e1b6855a",
-          "muratore-trice-per-nuove-costruzioni-e-ristrutturazioni-fachkraft-ch-gmbh-weinfelden-thurgau",
           "muratore-per-nuove-costruzioni-e-ristrutturazioni-fachkraft-ch-gmbh-weinfelden-thurgau",
           "muratore-muratrice-per-nuove-costruzioni-e-ristrutturazioni-fachkraft-ch-gmbh-weinfelden-thurgau",
-          "maurer-in-fur-neu-und-umbauten-weinfelden-thurgau-fachkraft-ch"
+          "maurer-in-fur-neu-und-umbauten-weinfelden-thurgau-fachkraft-ch",
+          "maurer-in-per-neu-e-umbauten-fachkraft-ch-gmbh-weinfelden"
         ],
         "en": [
           "mason-for-new-builds-and-conversions-fachkraft-ch-gmbh-weinfelden",
-          "bricklayer-for-new-builds-and-conversions-fachkraft-ch-gmbh-weinfelden-thurgau",
-          "mason-for-new-builds-and-conversions-fachkraft-ch-gmbh-weinfelden-thurgau"
+          "mason-for-new-builds-and-conversions-fachkraft-ch-gmbh-weinfelden-thurgau",
+          "maurer-in-fur-neu-und-umbauten-weinfelden-thurgau-fachkraft-ch"
         ],
         "de": [
           "maurer-in-fur-neu-und-umbauten-fachkraft-ch-gmbh-weinfelden"
@@ -114252,7 +114458,8 @@
         "fr": [
           "macon-ne-pour-constructions-neuves-et-transformations-fachkraft-ch-gmbh-weinfelden",
           "macon-pour-constructions-neuves-et-renovations-fachkraft-ch-gmbh-weinfelden-thurgau",
-          "macon-maconne-pour-les-constructions-neuves-et-les-transformations-fachkraft-ch-gmbh-weinfelden-thurgau"
+          "macon-maconne-pour-les-constructions-neuves-et-les-transformations-fachkraft-ch-gmbh-weinfelden-thurgau",
+          "maurer-in-fur-neu-und-umbauten-weinfelden-thurgau-fachkraft-ch"
         ]
       },
       "salaryMin": 57500,
@@ -191205,12 +191412,12 @@
     },
     {
       "id": "fachkraft-42a55e399451",
-      "slug": "automatiker-in-per-schweizweite-serviceeinsatze-fachkraft-ch-gmbh-zug",
+      "slug": "operatore-trice-automatico-a-per-interventi-di-assistenza-in-tutta-la-svizzera-fachkraft-ch-gmbh-zug-zug",
       "slugByLocale": {
         "de": "automatiker-in-fur-schweizweite-serviceeinsatze-zug-zug-fachkraft-ch",
-        "it": "automatiker-in-per-schweizweite-serviceeinsatze-fachkraft-ch-gmbh-zug",
-        "en": "automatiker-in-fur-schweizweite-serviceeinsatze-zug-zug-fachkraft-ch",
-        "fr": "automatiker-in-fur-schweizweite-serviceeinsatze-zug-zug-fachkraft-ch"
+        "it": "operatore-trice-automatico-a-per-interventi-di-assistenza-in-tutta-la-svizzera-fachkraft-ch-gmbh-zug-zug",
+        "en": "automation-technician-for-switzerland-wide-service-assignments-fachkraft-ch-gmbh-zug-zug",
+        "fr": "automaticien-ne-pour-les-interventions-de-service-dans-toute-la-suisse-fachkraft-ch-gmbh-zug-zug"
       },
       "company": "fachkraft.ch GmbH",
       "companyKey": "fachkraft",
@@ -191257,11 +191464,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "automatiker-in-fur-schweizweite-serviceeinsatze-zug-zug-fachkraft-ch",
+          "automatiker-in-per-schweizweite-serviceeinsatze-fachkraft-ch-gmbh-zug"
+        ],
+        "en": [
+          "automatiker-in-fur-schweizweite-serviceeinsatze-zug-zug-fachkraft-ch"
+        ],
+        "fr": [
           "automatiker-in-fur-schweizweite-serviceeinsatze-zug-zug-fachkraft-ch"
         ]
       },
       "previousSlugs": [
-        "automatiker-in-fur-schweizweite-serviceeinsatze-zug-zug-fachkraft-ch"
+        "automatiker-in-fur-schweizweite-serviceeinsatze-zug-zug-fachkraft-ch",
+        "automatiker-in-per-schweizweite-serviceeinsatze-fachkraft-ch-gmbh-zug"
       ],
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -191282,7 +191497,7 @@
       "validThrough": "2027-02-04T22:48:33.247Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-08T22:48:33.247Z",
-      "translationHoldSince": "2026-11-08T22:50:11.080Z"
+      "translationHoldReleasedAt": "2026-11-09T10:51:15.572Z"
     },
     {
       "id": "fachkraft-21cc787c328c",
@@ -254767,12 +254982,12 @@
     },
     {
       "id": "fachkraft-af8776988355",
-      "slug": "schreinerpraktiker-in-per-fensterfertigung-fachkraft-ch-gmbh-entlebuch",
+      "slug": "operatore-di-falegnameria-per-la-produzione-di-finestre-fachkraft-ch-gmbh-entlebuch-luzern",
       "slugByLocale": {
         "de": "schreinerpraktiker-in-fur-fensterfertigung-fachkraft-ch-gmbh-entlebuch",
-        "it": "schreinerpraktiker-in-per-fensterfertigung-fachkraft-ch-gmbh-entlebuch",
-        "en": "schreinerpraktiker-in-fur-fensterfertigung-fachkraft-ch-gmbh-entlebuch",
-        "fr": "schreinerpraktiker-in-fur-fensterfertigung-fachkraft-ch-gmbh-entlebuch"
+        "it": "operatore-di-falegnameria-per-la-produzione-di-finestre-fachkraft-ch-gmbh-entlebuch-luzern",
+        "en": "carpentry-practitioner-for-window-production-fachkraft-ch-gmbh-entlebuch-luzern",
+        "fr": "praticien-ne-en-menuiserie-pour-la-fabrication-de-fenetres-fachkraft-ch-gmbh-entlebuch-luzern"
       },
       "company": "fachkraft.ch GmbH",
       "companyKey": "fachkraft",
@@ -254819,14 +255034,23 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "schreinerpraktiker-in-fur-fensterfertigung-entlebuch-luzern-fachkraft-ch"
+          "schreinerpraktiker-in-fur-fensterfertigung-entlebuch-luzern-fachkraft-ch",
+          "schreinerpraktiker-in-per-fensterfertigung-fachkraft-ch-gmbh-entlebuch"
         ],
         "de": [
           "schreinerpraktiker-in-fur-fensterfertigung-entlebuch-luzern-fachkraft-ch"
+        ],
+        "en": [
+          "schreinerpraktiker-in-fur-fensterfertigung-fachkraft-ch-gmbh-entlebuch"
+        ],
+        "fr": [
+          "schreinerpraktiker-in-fur-fensterfertigung-fachkraft-ch-gmbh-entlebuch"
         ]
       },
       "previousSlugs": [
-        "schreinerpraktiker-in-fur-fensterfertigung-entlebuch-luzern-fachkraft-ch"
+        "schreinerpraktiker-in-fur-fensterfertigung-entlebuch-luzern-fachkraft-ch",
+        "schreinerpraktiker-in-per-fensterfertigung-fachkraft-ch-gmbh-entlebuch",
+        "schreinerpraktiker-in-fur-fensterfertigung-fachkraft-ch-gmbh-entlebuch"
       ],
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -254847,7 +255071,7 @@
       "validThrough": "2027-02-04T22:48:33.121Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-08T22:48:33.121Z",
-      "translationHoldSince": "2026-11-08T22:50:11.080Z"
+      "translationHoldReleasedAt": "2026-11-09T10:51:15.572Z"
     },
     {
       "id": "fachkraft-77fbce581b06",
@@ -258801,12 +259025,12 @@
     },
     {
       "id": "fachkraft-903bc3a67a97",
-      "slug": "montage-elektriker-in-mit-selbstandiger-arbeitsweise-st-gallen-st-gallen-fachkraft-ch",
+      "slug": "elettricista-di-montaggio-con-modalita-di-lavoro-indipendente-fachkraft-ch-gmbh-st-gallen-st-gallen",
       "slugByLocale": {
         "de": "montage-elektriker-in-mit-selbstandiger-arbeitsweise-st-gallen-st-gallen-fachkraft-ch",
-        "it": "montage-elektriker-in-mit-selbstandiger-arbeitsweise-st-gallen-st-gallen-fachkraft-ch",
-        "en": "montage-elektriker-in-mit-selbstandiger-arbeitsweise-st-gallen-st-gallen-fachkraft-ch",
-        "fr": "montage-elektriker-in-mit-selbstandiger-arbeitsweise-st-gallen-st-gallen-fachkraft-ch"
+        "it": "elettricista-di-montaggio-con-modalita-di-lavoro-indipendente-fachkraft-ch-gmbh-st-gallen-st-gallen",
+        "en": "assembly-electrician-with-independent-working-method-fachkraft-ch-gmbh-st-gallen-st-gallen",
+        "fr": "electricien-ne-de-montage-travaillant-de-maniere-independante-fachkraft-ch-gmbh-st-gallen-st-gallen"
       },
       "company": "fachkraft.ch GmbH",
       "companyKey": "fachkraft",
@@ -258870,7 +259094,21 @@
       "validThrough": "2027-02-04T22:48:33.111Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-08T22:48:33.111Z",
-      "translationHoldSince": "2026-11-08T22:50:11.080Z"
+      "translationHoldReleasedAt": "2026-11-09T10:51:15.572Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "montage-elektriker-in-mit-selbstandiger-arbeitsweise-st-gallen-st-gallen-fachkraft-ch"
+        ],
+        "en": [
+          "montage-elektriker-in-mit-selbstandiger-arbeitsweise-st-gallen-st-gallen-fachkraft-ch"
+        ],
+        "fr": [
+          "montage-elektriker-in-mit-selbstandiger-arbeitsweise-st-gallen-st-gallen-fachkraft-ch"
+        ]
+      },
+      "previousSlugs": [
+        "montage-elektriker-in-mit-selbstandiger-arbeitsweise-st-gallen-st-gallen-fachkraft-ch"
+      ]
     },
     {
       "id": "fachkraft-8fb2ed960b48",
@@ -267458,12 +267696,12 @@
     },
     {
       "id": "fachkraft-b9bb28a0a2be",
-      "slug": "heizungsinstallateur-in-per-abwechslungsreiche-serviceeinsatze-fachkraft-ch-gmbh-luzern",
+      "slug": "installatore-trice-di-riscaldamento-per-vari-interventi-di-assistenza-fachkraft-ch-gmbh-luzern-luzern",
       "slugByLocale": {
         "de": "heizungsinstallateur-in-fur-abwechslungsreiche-serviceeinsatze-luzern-luzern-fachkraft-ch",
-        "it": "heizungsinstallateur-in-per-abwechslungsreiche-serviceeinsatze-fachkraft-ch-gmbh-luzern",
-        "en": "heizungsinstallateur-in-fur-abwechslungsreiche-serviceeinsatze-luzern-luzern-fachkraft-ch",
-        "fr": "heizungsinstallateur-in-fur-abwechslungsreiche-serviceeinsatze-luzern-luzern-fachkraft-ch"
+        "it": "installatore-trice-di-riscaldamento-per-vari-interventi-di-assistenza-fachkraft-ch-gmbh-luzern-luzern",
+        "en": "heating-installer-for-varied-service-assignments-fachkraft-ch-gmbh-luzern-luzern",
+        "fr": "installateur-trice-de-chauffage-pour-des-interventions-de-service-variees-fachkraft-ch-gmbh-luzern-luzern"
       },
       "company": "fachkraft.ch GmbH",
       "companyKey": "fachkraft",
@@ -267510,11 +267748,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "heizungsinstallateur-in-fur-abwechslungsreiche-serviceeinsatze-luzern-luzern-fachkraft-ch",
+          "heizungsinstallateur-in-per-abwechslungsreiche-serviceeinsatze-fachkraft-ch-gmbh-luzern"
+        ],
+        "en": [
+          "heizungsinstallateur-in-fur-abwechslungsreiche-serviceeinsatze-luzern-luzern-fachkraft-ch"
+        ],
+        "fr": [
           "heizungsinstallateur-in-fur-abwechslungsreiche-serviceeinsatze-luzern-luzern-fachkraft-ch"
         ]
       },
       "previousSlugs": [
-        "heizungsinstallateur-in-fur-abwechslungsreiche-serviceeinsatze-luzern-luzern-fachkraft-ch"
+        "heizungsinstallateur-in-fur-abwechslungsreiche-serviceeinsatze-luzern-luzern-fachkraft-ch",
+        "heizungsinstallateur-in-per-abwechslungsreiche-serviceeinsatze-fachkraft-ch-gmbh-luzern"
       ],
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -267546,7 +267792,7 @@
       "validThrough": "2027-02-04T22:48:33.095Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-08T22:48:33.095Z",
-      "translationHoldSince": "2026-11-08T22:50:11.080Z"
+      "translationHoldReleasedAt": "2026-11-09T10:51:15.572Z"
     },
     {
       "id": "fachkraft-e563a87920e2",
@@ -268457,12 +268703,12 @@
     },
     {
       "id": "fachkraft-c04254b7e46e",
-      "slug": "gartner-in-per-baumpflege-e-gartenunterhalt-fachkraft-ch-gmbh-langenthal",
+      "slug": "giardiniere-a-per-la-cura-degli-alberi-e-la-manutenzione-del-giardino-fachkraft-ch-gmbh-langenthal-bern",
       "slugByLocale": {
         "de": "gartner-in-fur-baumpflege-und-gartenunterhalt-fachkraft-ch-gmbh-langenthal",
-        "it": "gartner-in-per-baumpflege-e-gartenunterhalt-fachkraft-ch-gmbh-langenthal",
-        "en": "gartner-in-fur-baumpflege-und-gartenunterhalt-fachkraft-ch-gmbh-langenthal",
-        "fr": "gartner-in-fur-baumpflege-und-gartenunterhalt-fachkraft-ch-gmbh-langenthal"
+        "it": "giardiniere-a-per-la-cura-degli-alberi-e-la-manutenzione-del-giardino-fachkraft-ch-gmbh-langenthal-bern",
+        "en": "gardener-for-tree-care-and-garden-maintenance-fachkraft-ch-gmbh-langenthal-bern",
+        "fr": "jardinier-ere-pour-l-entretien-des-arbres-et-des-jardins-fachkraft-ch-gmbh-langenthal-bern"
       },
       "company": "fachkraft.ch GmbH",
       "companyKey": "fachkraft",
@@ -268509,14 +268755,23 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "gartner-in-fur-baumpflege-und-gartenunterhalt-langenthal-bern-fachkraft-ch"
+          "gartner-in-fur-baumpflege-und-gartenunterhalt-langenthal-bern-fachkraft-ch",
+          "gartner-in-per-baumpflege-e-gartenunterhalt-fachkraft-ch-gmbh-langenthal"
         ],
         "de": [
           "gartner-in-fur-baumpflege-und-gartenunterhalt-langenthal-bern-fachkraft-ch"
+        ],
+        "en": [
+          "gartner-in-fur-baumpflege-und-gartenunterhalt-fachkraft-ch-gmbh-langenthal"
+        ],
+        "fr": [
+          "gartner-in-fur-baumpflege-und-gartenunterhalt-fachkraft-ch-gmbh-langenthal"
         ]
       },
       "previousSlugs": [
-        "gartner-in-fur-baumpflege-und-gartenunterhalt-langenthal-bern-fachkraft-ch"
+        "gartner-in-fur-baumpflege-und-gartenunterhalt-langenthal-bern-fachkraft-ch",
+        "gartner-in-per-baumpflege-e-gartenunterhalt-fachkraft-ch-gmbh-langenthal",
+        "gartner-in-fur-baumpflege-und-gartenunterhalt-fachkraft-ch-gmbh-langenthal"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -268537,7 +268792,7 @@
       "validThrough": "2027-02-04T22:48:33.093Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-08T22:48:33.093Z",
-      "translationHoldSince": "2026-11-08T22:50:11.080Z"
+      "translationHoldReleasedAt": "2026-11-09T10:51:15.572Z"
     },
     {
       "id": "fachkraft-c2957e188488",
@@ -270051,12 +270306,12 @@
     },
     {
       "id": "fachkraft-2d06b28f3977",
-      "slug": "gartner-in-garten-e-landschaftsbau-per-neuanlagen-e-umanderungen-fachkraft-ch-gmbh-langenthal",
+      "slug": "giardiniere-a-giardinaggio-e-paesaggistica-per-nuovi-impianti-e-modifiche-fachkraft-ch-gmbh-langenthal-bern",
       "slugByLocale": {
         "de": "gartner-in-garten-und-landschaftsbau-fur-neuanlagen-und-umanderungen-fachkraft-ch-gmbh-langenthal",
-        "it": "gartner-in-garten-e-landschaftsbau-per-neuanlagen-e-umanderungen-fachkraft-ch-gmbh-langenthal",
-        "en": "gartner-in-garten-und-landschaftsbau-fur-neuanlagen-und-umanderungen-langenthal-bern",
-        "fr": "gartner-in-garten-und-landschaftsbau-fur-neuanlagen-und-umanderungen-langenthal-bern"
+        "it": "giardiniere-a-giardinaggio-e-paesaggistica-per-nuovi-impianti-e-modifiche-fachkraft-ch-gmbh-langenthal-bern",
+        "en": "gardener-gardening-and-landscaping-for-new-plants-and-modifications-fachkraft-ch-gmbh-langenthal-bern",
+        "fr": "jardinier-jardiniere-jardinage-et-amenagement-paysager-pour-les-nouvelles-installations-et-les-transformations-fachkraft"
       },
       "company": "fachkraft.ch GmbH",
       "companyKey": "fachkraft",
@@ -270103,14 +270358,22 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "gartner-in-garten-und-landschaftsbau-fur-neuanlagen-und-umanderungen-langenthal-bern"
+          "gartner-in-garten-und-landschaftsbau-fur-neuanlagen-und-umanderungen-langenthal-bern",
+          "gartner-in-garten-e-landschaftsbau-per-neuanlagen-e-umanderungen-fachkraft-ch-gmbh-langenthal"
         ],
         "de": [
+          "gartner-in-garten-und-landschaftsbau-fur-neuanlagen-und-umanderungen-langenthal-bern"
+        ],
+        "en": [
+          "gartner-in-garten-und-landschaftsbau-fur-neuanlagen-und-umanderungen-langenthal-bern"
+        ],
+        "fr": [
           "gartner-in-garten-und-landschaftsbau-fur-neuanlagen-und-umanderungen-langenthal-bern"
         ]
       },
       "previousSlugs": [
-        "gartner-in-garten-und-landschaftsbau-fur-neuanlagen-und-umanderungen-langenthal-bern"
+        "gartner-in-garten-und-landschaftsbau-fur-neuanlagen-und-umanderungen-langenthal-bern",
+        "gartner-in-garten-e-landschaftsbau-per-neuanlagen-e-umanderungen-fachkraft-ch-gmbh-langenthal"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -270131,7 +270394,7 @@
       "validThrough": "2027-02-04T22:48:33.090Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-08T22:48:33.090Z",
-      "translationHoldSince": "2026-11-08T22:50:11.080Z"
+      "translationHoldReleasedAt": "2026-11-09T10:51:15.572Z"
     },
     {
       "id": "fachkraft-b2763e5f89d1",
