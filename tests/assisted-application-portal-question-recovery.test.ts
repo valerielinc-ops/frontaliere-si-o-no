@@ -94,10 +94,12 @@ it('allows discovery only when an unknown required portal question has a valid s
   expect(operationalPortalRecoveryReady(noHardAnswer)).toBe(false);
 });
 
-it('keeps the allowlisted preference defaults while never defaulting the hard question', () => {
+it('keeps only the approved workload default while asking about notice and WhatsApp', () => {
   const current = recoveryContext({ answer: null });
   const projected = withOperationalQuestionAnswers(current.draft.questions, current.flow.answers).answers;
-  expect(projected).toMatchObject({ notice: '3 mesi', workload: '100%', whatsapp: 'Sì' });
+  expect(projected).toMatchObject({ workload: '100%' });
+  expect(projected.notice).toBeUndefined();
+  expect(projected.whatsapp).toBeUndefined();
   expect(projected[hardRecoveryQuestion.id]).toBeUndefined();
   expect(operationalPortalRecoveryReady(current)).toBe(false);
 });

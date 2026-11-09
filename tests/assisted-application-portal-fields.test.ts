@@ -1553,16 +1553,18 @@ describe('portal field extraction', () => {
       type: 'checkbox',
       required: true,
     };
-    expect(operationalDefaultAnswer(privacyField)).toMatchObject({ value: 'true', topic: 'privacy_review_ack', source: 'policy_default' });
+    expect(operationalDefaultAnswer(privacyField)).toBeNull();
     const privacyPlan = guardPlan({
       actions: [],
       missingRequired: [{ fieldId: privacyField.id, question: fullPrivacyLabel, why: '', type: 'checkbox', options: [] }],
     }, [privacyField], { answers: {}, profile: {}, portalQuestionsAnswered: [] });
-    expect(privacyPlan.actions).toContainEqual(expect.objectContaining({
-      fieldId: privacyField.id,
-      action: 'check',
-      value: 'true',
-      source: 'policy_default',
+    expect(privacyPlan.actions).not.toContainEqual(expect.objectContaining({ fieldId: privacyField.id, action: 'check' }));
+    expect(privacyPlan.missingRequired).toContainEqual(expect.objectContaining({ fieldId: privacyField.id }));
+    const confirmedPrivacyPlan = guardPlan({ actions: [], missingRequired: [] }, [privacyField], {
+      answers: {}, profile: {}, portalQuestionsAnswered: [{ question: fullPrivacyLabel, answer: 'Yes', source: 'answers' }],
+    });
+    expect(confirmedPrivacyPlan.actions).toContainEqual(expect.objectContaining({
+      fieldId: privacyField.id, action: 'check', source: 'answers',
     }));
     const optionalConsent = {
       id: 'optional-marketing',

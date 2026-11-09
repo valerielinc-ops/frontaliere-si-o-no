@@ -529,8 +529,9 @@ describe('the same grammar on the canonical consent path', () => {
     };
   };
 
-  it('keeps the box the guard always knew, so that a refusal below is the guard and not the harness', async () => {
-    expect(await requiredBox('Ich habe die Datenschutzerklärung gelesen und akzeptiere sie.')).toEqual({ own: true, mandated: true, asked: 0 });
+  it('requires candidate confirmation for a clean required privacy checkbox', async () => {
+    expect(await requiredBox('Ich habe die Datenschutzerklärung gelesen und akzeptiere sie.'))
+      .toEqual({ own: true, mandated: false, asked: 1 });
   });
 
   it.each(privacyAcknowledgments)('accepts the sole privacy-reading acknowledgement in %s as a soft own-consent checkbox', (_locale, label) => {
@@ -571,9 +572,9 @@ describe('the same grammar on the canonical consent path', () => {
     expect(ownConsent({ kind: 'checkbox', required: true, label, ...metadata })).toBe(false);
   });
 
-  it('revalidates privacy policy defaults against the native control before checking the box', () => {
+  it('rejects privacy policy defaults and requires explicit confirmation', () => {
     const label = privacyAcknowledgments[0][1];
-    const planFor = (metadata: Record<string, unknown> = {}) => {
+    const planFor = (metadata: Record<string, unknown> = {}, candidateState = candidate) => {
       const field = {
         id: 'privacy-review', kind: 'checkbox', inputType: 'checkbox', required: true, label,
         ...metadata,
@@ -581,10 +582,13 @@ describe('the same grammar on the canonical consent path', () => {
       return guardPlan({
         actions: [{ fieldId: field.id, action: 'check', value: 'true', document: 'none', source: 'policy_default', evidence: '' }],
         missingRequired: [],
-      }, [field], candidate);
+      }, [field], candidateState);
     };
     const clean = planFor();
-    expect(clean.actions).toContainEqual(expect.objectContaining({ fieldId: 'privacy-review', action: 'check', source: 'policy_default' }));
+    expect(clean.actions.some((action: any) => action.fieldId === 'privacy-review' && action.action === 'check')).toBe(false);
+    expect(clean.missingRequired.some((item: any) => item.fieldId === 'privacy-review')).toBe(true);
+    const confirmed = planFor({}, { ...candidate, portalQuestionsAnswered: [{ question: label, answer: 'Yes', source: 'answers' }] });
+    expect(confirmed.actions).toContainEqual(expect.objectContaining({ fieldId: 'privacy-review', action: 'check', source: 'answers' }));
 
     for (const metadata of [
       { name: 'email', ariaLabel: 'Email' },
@@ -613,7 +617,7 @@ describe('the same grammar on the canonical consent path', () => {
     ['upper case', 'LESE UND AKZEPTIERE DIE DATENSCHUTZERKLÄRUNG'],
     ['no-break spaces', 'Lese und akzeptiere die Datenschutzerklärung'],
   ])('binds the mandate to the required notice: %s', async (_name, label) => {
-    expect(await requiredBox(label)).toEqual({ own: true, mandated: true, asked: 0 });
+    expect(await requiredBox(label)).toEqual({ own: true, mandated: false, asked: 1 });
   });
 
   it.each([

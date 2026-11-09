@@ -36,7 +36,7 @@ import { mkdtemp, rm, writeFile } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import path from 'node:path';
 import { autoAnswersForPortalQuestions, candidateForForm, portalQuestionKey, postingAddressForPortal, submitViaPortal, WAVE1_CHANNELS } from './portal/portal.mjs';
-import { addressAnswerNeedsOwnership } from './portal/plan.mjs';
+import { addressAnswerNeedsOwnership, hasExplicitCandidateAnswerSource, hasExplicitConsentAnswerSource, requiresExplicitCandidateAnswer, requiresExplicitConsentAnswer } from './portal/plan.mjs';
 import { checkPostingLiveness } from './posting-liveness.mjs';
 import { resolvePostingAddressOf, resolvePublishedPostingAddressOf } from './liveness.mjs';
 import { storeEvidence } from './secure-run.mjs';
@@ -81,7 +81,7 @@ export function openRequiredQuestions(draft, answers = {}, { deferPortal = false
 }
 
 /** Project answers already recorded by the portal onto the current draft ids. */
-function portalAnswersForFlow(questions, answers, recordedAnswers, memory = {}) {
+export function portalAnswersForFlow(questions, answers, recordedAnswers, memory = {}) {
   const result = { ...(answers && typeof answers === 'object' ? answers : {}) };
   const records = Array.isArray(recordedAnswers) ? recordedAnswers : [];
   for (const question of Array.isArray(questions) ? questions : []) {
@@ -94,6 +94,9 @@ function portalAnswersForFlow(questions, answers, recordedAnswers, memory = {}) 
     const values = new Map();
     for (const item of records) {
       if (!item || typeof item !== 'object' || item.source === 'policy_default' || !String(item.answer ?? '').trim()) continue;
+      if (requiresExplicitConsentAnswer(question) && !hasExplicitConsentAnswerSource(item.source)) continue;
+      if (!requiresExplicitConsentAnswer(question) && requiresExplicitCandidateAnswer(question)
+        && !hasExplicitCandidateAnswerSource(item.source)) continue;
       if (addressAnswerNeedsOwnership(question.applicationQuestion || question.question, question)) {
         const currentOwner = addressContextContract(question);
         const previousOwner = addressContextContract(item);

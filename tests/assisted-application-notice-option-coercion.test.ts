@@ -54,8 +54,9 @@ describe('notice duration projection onto the native catalogue', () => {
     expect(isOperationalDefaultValue({ question: 'Notice period', type: 'choice', options: ['3 months', answer] }, answer)).toBe(false);
   });
 
-  it('validates canonical default equivalence against this exact field', () => {
-    expect(isOperationalDefaultValue({ question: 'Notice period', type: 'text' }, '3months')).toBe(true);
+  it('does not authorize a notice answer as a default, even when it matches the field', () => {
+    expect(operationalDefaultAnswer({ question: 'Notice period', type: 'text' })).toBeNull();
+    expect(isOperationalDefaultValue({ question: 'Notice period', type: 'text' }, '3months')).toBe(false);
     expect(isOperationalDefaultValue({ question: 'Notice period', type: 'text', validation: { pattern: '^3 months$' } }, '3months')).toBe(false);
     expect(isOperationalDefaultValue({ question: 'Notice period', type: 'choice', options: ['3 mesi'] }, '3 months')).toBe(false);
   });
@@ -125,7 +126,7 @@ describe('notice duration projection onto the native catalogue', () => {
 
   it.each(['Notice period in months', 'Periodo di preavviso in mesi', 'Kündigungsfrist in Monaten', 'Délai de préavis en mois'])('admits only numeric discovery with an explicit month unit: %s', label => {
     const numeric = { question: label, type: 'number', source: 'portal' };
-    expect(operationalDefaultAnswer(numeric)?.value).toBe('3');
+    expect(operationalDefaultAnswer(numeric)).toBeNull();
     expect(operationalAnswerReadyForDiscovery(numeric, '3')).toBe(true);
     expect(operationalAnswerReadyForDiscovery({ ...numeric, validation: { min: 4 } }, '3')).toBe(false);
     expect(operationalAnswerReadyForDiscovery({ question: label, inputType: 'number', validation: { min: 4 } }, '3')).toBe(false);
@@ -146,11 +147,11 @@ describe('notice duration projection onto the native catalogue', () => {
     expect(guarded.missingRequired[0].options).toEqual(['3 months']);
   });
 
-  it('retains a valid choice when native option labels are strings', () => {
+  it('requires a candidate answer when native option labels are strings', () => {
     const native = { ...field, options: ['3 months'] };
     const guarded = guardPlan({ actions: [{ fieldId: field.id, action: 'select', value: '3 months', source: 'policy_default' }], missingRequired: [] }, [native], { identity: {}, answers: {} });
-    expect(guarded.actions).toContainEqual(expect.objectContaining({ fieldId: field.id, value: '3 months' }));
-    expect(guarded.missingRequired).toEqual([]);
+    expect(guarded.actions).toEqual([]);
+    expect(guarded.missingRequired).toContainEqual(expect.objectContaining({ fieldId: field.id }));
   });
 
   it('requires a real native catalogue before filling an operational select discovered during recovery', () => {
@@ -176,7 +177,7 @@ describe('notice duration projection onto the native catalogue', () => {
     const conflict = { ...refused, portalQuestionsAnswered: [...refused.portalQuestionsAnswered, { question: checkbox.label, answer: 'Yes', source: 'answers' }] };
     expect(guardPlan({ actions: [{ fieldId: checkbox.id, action: 'check', value: 'true', source: 'rule' }], missingRequired: [] }, [checkbox], conflict).actions).toEqual([]);
     const fresh = guardPlan({ actions: [{ fieldId: checkbox.id, action: 'check', value: 'true', source: 'policy_default' }], missingRequired: [] }, [checkbox], { identity: {}, profile: {}, answers: {} });
-    expect(fresh.actions).toContainEqual(expect.objectContaining({ action: 'check', source: 'policy_default' }));
+    expect(fresh.actions.some(action => action.action === 'check')).toBe(false);
   });
 
   it('gives the owner fill kit the explicit projected notice ahead of an old policy default', () => {
@@ -191,8 +192,8 @@ describe('notice duration projection onto the native catalogue', () => {
 
   it('keeps the owner preference separate from explicit answers and CV facts', () => {
     const automatic = withOperationalQuestionAnswers([question], {});
-    expect(automatic.answers.notice).toBe('3 mesi');
-    expect(automatic.defaults.notice.source).toBe('policy_default');
+    expect(automatic.answers.notice).toBeUndefined();
+    expect(automatic.defaults.notice).toBeUndefined();
     expect(withOperationalQuestionAnswers([question], { notice: '2 months' }).answers.notice).toBe('2 mesi');
     const original = { answers: { notice: '7 giorni' }, questionAnswers: { notice_period: '7 giorni' } };
     const before = structuredClone(original);

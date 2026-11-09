@@ -746,21 +746,12 @@ export function candidateForForm({ identity, profile = {}, answers = {}, draft =
   const motivation = Object.fromEntries((draft.formAnswers || []).map((field) => [field.key, field.value]));
   const status = permitStatusOf(profile.permitStatus) || permitStatusOf(answers.work_permit);
   const portalQuestionsAnswered = portalAnswersForQuestions(portalQuestions, answers, draft.portalAnswers?.answers, currentAnswerIds, answerSources);
-  // Older drafts may predate the profile enrichment done during draft mode;
-  // resolve once more at the browser boundary without an external geocoder.
-  const resolved = resolveResidenceAddress(profile.address, profile.location);
-  // Owner decision 2026-11-09 (functions/src/assistedApplicationPlatformDefaults.js): what the CV does not
-  // say, a form receives from the platform: the town's postal code and country, and a street when a form
-  // requires one. Form-only: the letter and the CV are written from `profile`, never from this object.
+  // Older drafts may predate profile enrichment; resolve explicit address
+  // fields once more at the browser boundary without deriving a postal code
+  // or country from the locality. Form-only: the letter and CV use `profile`.
+  const resolved = resolveResidenceAddress(profile.address, profile.location, String(draft?.factSources?.text || ''));
   const facts = platformFacts && typeof platformFacts === 'object' ? platformFacts : null;
-  const factAddress = facts?.address?.city ? facts.address : null;
-  const address = factAddress ? {
-    ...resolved,
-    street: resolved.street || factAddress.street,
-    postalCode: resolved.postalCode || factAddress.postalCode,
-    city: resolved.city || factAddress.city,
-    country: resolved.country || factAddress.countryName,
-  } : resolved;
+  const address = resolved;
   return {
     // The target employer is needed for employer-specific eligibility fields
     // such as «Are you already an employee?». It is public posting data, not a
@@ -795,10 +786,6 @@ export function candidateForForm({ identity, profile = {}, answers = {}, draft =
         .map(({ role = '', employer = '', location = '', start = '', end = '' }) => ({ role, employer, location, start, end })),
       languages: profile.languages || [],
       languagesExplicitList: profile.languagesExplicitList === true,
-      // The detected language of the candidate's CV is evidence for the
-      // planner's conservative native-language rule; it is not a nationality
-      // or a replacement for explicitly stated language levels.
-      cvLanguage: profile.cvLanguage || '',
       education: (profile.education || []).slice(0, 4)
         .map(({ degree = '', institution = '', start = '', end = '' }) => ({ degree, institution, start, end })),
       currentEducation: {
@@ -928,7 +915,7 @@ function portalAnswersForQuestions(questions, answers, previousAnswers = [], cur
     const question = String(item?.question || '').trim();
     const answer = String(item?.answer ?? '').trim();
     if (!question || !answer) continue;
-    const prior = { answerId: String(item?.answerId || '').trim() || undefined, question, context: String(item?.context || ''), section: String(item?.section || ''), autocomplete: String(item?.autocomplete || ''), ...addressMetadata(item), answer, source: String(item?.source || 'answers') };
+    const prior = { answerId: String(item?.answerId || '').trim() || undefined, question, context: String(item?.context || ''), section: String(item?.section || ''), autocomplete: String(item?.autocomplete || ''), ...addressMetadata(item), answer, ...(typeof item?.source === 'string' && item.source ? { source: item.source } : {}) };
     const key = keyFor(prior);
     if (currentKeys.has(key)) continue;
     const group = priorGroups.get(key) || [];
