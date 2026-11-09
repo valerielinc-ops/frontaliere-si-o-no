@@ -208,6 +208,20 @@ export async function ensureOrderSalaryEstimate({ order, write, fetchImpl = fetc
   return patch ? 'estimated' : 'unavailable';
 }
 
+/**
+ * The order as the automation must read it: with the salary estimate just written, not the snapshot the
+ * trigger received before the write.
+ * @returns {Promise<{order:object, salary:'estimated'|'unavailable'|null}>}
+ */
+export async function orderWithSalaryEstimate({ order, write, fetchImpl = fetch, nowMs = Date.now() }) {
+  let written = {};
+  const salary = await ensureOrderSalaryEstimate({
+    order, fetchImpl, nowMs,
+    write: async (patch) => { await write(patch); written = { ...written, ...patch }; },
+  });
+  return { order: { ...(order || {}), ...written }, salary };
+}
+
 export async function enrichAssistedApplicationOrders(orders, options = {}) {
   const list = Array.isArray(orders) ? orders : [];
   return Promise.all(list.map((order) => enrichAssistedApplicationOrder(order, options)));

@@ -141,7 +141,7 @@ import {
   postingClosedForOrder,
 } from './src/assistedApplicationAutomation.js';
 import { runAutomationEffect } from './src/assistedApplicationAutomationEffects.js';
-import { ensureOrderSalaryEstimate } from './src/assistedApplicationJobCard.js';
+import { orderWithSalaryEstimate } from './src/assistedApplicationJobCard.js';
 import { handleAssistedApplicationReview, sendReviewResponse } from './src/assistedApplicationReview.js';
 import { runFollowupSweep } from './src/assistedApplicationFollowupSweep.js';
 import { runRendererCheck } from './src/assistedApplicationRendererCheck.js';
@@ -3219,13 +3219,14 @@ export const startAssistedApplicationAutomation = onDocumentWritten(
     // platform answers the salary expectation with its maximum (owner decision 2026-11-09).
     // A transient failure throws out of the handler: the event is retried (retry: true) and the draft is
     // not started without the salary fact; the start below is idempotent across retries.
-    const salary = await ensureOrderSalaryEstimate({
+    const { order, salary } = await orderWithSalaryEstimate({
       order: after.data(),
       write: (patch) => after.ref.set(patch, { merge: true }),
     });
     if (salary) console.log('[startAssistedApplicationAutomation] salary estimate', event.params.orderId, salary);
     try {
-      const result = await maybeStartAutomation(before, after.data(), event.params.orderId, {
+      // The order with the estimate just written, not the stale snapshot of this event.
+      const result = await maybeStartAutomation(before, order, event.params.orderId, {
         db: getAdminDb(),
         runEffect: (context) => runAutomationEffect(context),
         ensureAlias: (args) => ensureOrderAlias(args),

@@ -23,7 +23,7 @@ import { operationalDefaultAnswer, isOperationalDefaultValue, withOperationalQue
 import { candidateWithEdits } from '../functions/src/assistedApplicationCandidateEdits.js';
 import { evaluateRedFlags } from '../functions/src/assistedApplicationFlow.js';
 import { candidateForForm } from '../scripts/assisted-application/lib/portal/portal.mjs';
-import { ensureOrderSalaryEstimate } from '../functions/src/assistedApplicationJobCard.js';
+import { ensureOrderSalaryEstimate, orderWithSalaryEstimate } from '../functions/src/assistedApplicationJobCard.js';
 
 const NOW = Date.parse('2026-11-09T10:00:00Z');
 
@@ -272,5 +272,20 @@ describe('review of #17764', () => {
     const detail = { baseSalary: { currency: 'CHF', value: { minValue: 80000, maxValue: 100000, unitText: 'YEAR' } } };
     expect(await ensureOrderSalaryEstimate({ order, write, nowMs: 6, fetchImpl: (async () => new Response(JSON.stringify(detail), { status: 200 })) as any })).toBe('estimated');
     expect(writes.at(-1)).toMatchObject({ salaryMax: 100000, salaryMin: 80000, salaryCurrency: 'CHF', salaryEstimateCheckedAt: 6 });
+  });
+
+  it('hands the automation the order with the estimate just written', async () => {
+    const detail = { salaryMax: 90000 };
+    const writes: any[] = [];
+    const { order, salary } = await orderWithSalaryEstimate({
+      order: { jobId: 'job-1' }, nowMs: 7,
+      write: async (patch: any) => { writes.push(patch); },
+      fetchImpl: (async () => new Response(JSON.stringify(detail), { status: 200 })) as any,
+    });
+    expect(salary).toBe('estimated');
+    expect(order).toMatchObject({ jobId: 'job-1', salaryMax: 90000, salaryEstimateCheckedAt: 7 });
+    expect(writes).toHaveLength(1);
+    // An order that already has its estimate is handed on unchanged.
+    expect((await orderWithSalaryEstimate({ order: { jobId: 'job-1', salaryMax: 5 }, write: async () => {}, fetchImpl: (async () => { throw new Error('unexpected'); }) as any })).order).toEqual({ jobId: 'job-1', salaryMax: 5 });
   });
 });
