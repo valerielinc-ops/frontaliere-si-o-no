@@ -46,4 +46,10 @@ describe('public Remote Config endpoint', () => {
     expect(workflow).toContain('https://frontaliereticino.ch/api/public-config/');
     expect(workflow).not.toContain('cloudfunctions.net/getPublicConfig');
   });
+
+  it('identifies the scheduled probe to Cloudflare and requests JSON', () => {
+    const workflow = readFileSync(new URL('../.github/workflows/house-creative-readout.yml', import.meta.url), 'utf8');
+    expect(workflow).toContain("'User-Agent': 'FrontaliereTicino-HouseCreativeReadout/1.0 (+https://frontaliereticino.ch)'");
+    expect(workflow).toContain("Accept: 'application/json'");
+  });
 });
