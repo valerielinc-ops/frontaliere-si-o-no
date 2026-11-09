@@ -324,8 +324,9 @@ export async function handleCreateApplicationConciergeCheckout(req) {
     return { status: 403, body: { ok: false, error: 'application_concierge_email_not_verified' } };
   }
 
-  // Email recovery links move an owned, terminal Stripe attempt to SumUp.
-  // Live Stripe sessions are verified and reused by the preflight below.
+  // Payment reminders may explicitly select SumUp for an owned service. New
+  // checkouts also follow the configured provider; an old Stripe session is
+  // moved only after Stripe confirms it is terminal (or we expire it below).
   const useSumUpForPaymentReminder = Boolean(
     resumeServiceId && body.useSumUpForPaymentReminder === true,
   );
@@ -381,6 +382,7 @@ export async function handleCreateApplicationConciergeCheckout(req) {
   let checkoutAttempt = 1;
   let resumePaidServiceId = null;
   let terminalSumUpCheckoutId = null;
+  let migrateStripeResumeToSumUp = false;
   let renewalPriceChanged = false;
   let deletedAccount = false;
   const publishCheckout = async (serviceUpdate, requestUpdate) => firestore.runTransaction(async (transaction) => {
@@ -436,7 +438,9 @@ export async function handleCreateApplicationConciergeCheckout(req) {
       await resumeServiceRef.set({ customerEmail, updatedAt: FieldValue.serverTimestamp() }, { merge: true });
     }
 
-    if (String(resumeService.checkoutSessionStatus || '').toLowerCase() === 'open'
+    const resumeCheckoutStatus = String(resumeService.checkoutSessionStatus || '').toLowerCase();
+    if (resumeCheckoutStatus === 'open'
+      || (resumeService.paymentProvider !== SUMUP_PAYMENT_PROVIDER && resumeCheckoutStatus === 'expired')
       || (resumeService.paymentProvider === SUMUP_PAYMENT_PROVIDER && resumeService.checkoutSessionStatus === 'failed')) {
       if (resumeService.paymentProvider === SUMUP_PAYMENT_PROVIDER && resumeService.sumupCheckoutId) {
         try {
@@ -481,8 +485,25 @@ export async function handleCreateApplicationConciergeCheckout(req) {
             || (session.metadata?.product && session.metadata.product !== APPLICATION_CONCIERGE_PRODUCT)) {
             return { status: 502, body: { ok: false, error: 'application_concierge_checkout_unavailable' } };
           }
-          if (session.status === 'open' && session.payment_status !== 'paid' && session.url) {
-            return { status: 200, body: { ok: true, url: session.url, serviceId: resumeServiceId, amountTotal: expectedPriceOf(resumeService) } };
+          if (session.status === 'open' && session.payment_status !== 'paid') {
+            if (configuredPaymentProvider === SUMUP_PAYMENT_PROVIDER) {
+              if (Number(session.amount_total) !== expectedPriceOf(resumeService)
+                || String(session.currency || '').toLowerCase() !== APPLICATION_CONCIERGE_CURRENCY) {
+                return { status: 502, body: { ok: false, error: 'application_concierge_checkout_unavailable' } };
+              }
+              // An open hosted Stripe checkout could still accept a payment.
+              // Expire it successfully before issuing the replacement SumUp
+              // checkout, so the same service cannot be paid twice.
+              const expired = await stripe.checkout.sessions.expire(session.id);
+              if (expired.id !== session.id || expired.status !== 'expired') {
+                return { status: 409, body: { ok: false, error: 'application_concierge_checkout_conflict' } };
+              }
+              migrateStripeResumeToSumUp = true;
+            } else if (session.url) {
+              return { status: 200, body: { ok: true, url: session.url, serviceId: resumeServiceId, amountTotal: expectedPriceOf(resumeService) } };
+            } else {
+              return { status: 502, body: { ok: false, error: 'application_concierge_checkout_unavailable' } };
+            }
           }
           if (session.status === 'complete' || session.payment_status === 'paid') {
             if (Number(session.amount_total) !== expectedPriceOf(resumeService)
@@ -498,12 +519,18 @@ export async function handleCreateApplicationConciergeCheckout(req) {
             }
             return { status: 409, body: { ok: false, error: 'application_concierge_checkout_conflict' } };
           }
-          if (session.status !== 'expired') {
+          if (session.status !== 'expired' && !migrateStripeResumeToSumUp) {
             return { status: 409, body: { ok: false, error: 'application_concierge_checkout_conflict' } };
           }
+          if (configuredPaymentProvider === SUMUP_PAYMENT_PROVIDER) migrateStripeResumeToSumUp = true;
         } catch {
           return { status: 502, body: { ok: false, error: 'application_concierge_checkout_unavailable' } };
         }
+      } else if (resumeCheckoutStatus === 'expired'
+        && configuredPaymentProvider === SUMUP_PAYMENT_PROVIDER
+        && !resumeService.stripeCheckoutSessionId) {
+        // There is no Stripe session to retrieve or accept payment against.
+        migrateStripeResumeToSumUp = true;
       }
     }
   }
@@ -582,7 +609,7 @@ export async function handleCreateApplicationConciergeCheckout(req) {
           Number(existingService.checkoutAttempt) || 0,
           Number(existingRecord.checkoutAttempt) || 0,
         ) + 1;
-        const paymentProvider = useSumUpForPaymentReminder
+        const paymentProvider = useSumUpForPaymentReminder || migrateStripeResumeToSumUp
           ? SUMUP_PAYMENT_PROVIDER
           : paymentProviderForOrder(existingService);
         requestRecord = {
