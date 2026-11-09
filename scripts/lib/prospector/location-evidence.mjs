@@ -891,6 +891,8 @@ function schemaAddressRegion(addressRegion, addressCountry) {
     : region;
 }
 
+const LIKELY_STREET_NAME_RX = /(?:^|[\s-])[\p{L}.'’]*?(?:strasse|straße|street|road|route|rue|via|viale|chemin|weg|gasse|allee|avenue|boulevard|platz|piazza)\b/iu;
+
 /**
  * SuccessFactors Career Site Builder can publish the workplace only as
  * `streetAddress="Allschwil, CH"`, with every other PostalAddress slot empty
@@ -908,7 +910,9 @@ export function localityCountryFromStreetOnlyAddress(address = {}) {
   if (!match) return null;
   const code = match[2].toUpperCase();
   if (!ISO_ALPHA2_COUNTRY_CODES.has(code) || normalizeSwissCantonCode(code)) return null;
-  return { location: match[1].trim(), addressCountry: code };
+  const locality = match[1].trim();
+  if (LIKELY_STREET_NAME_RX.test(locality)) return null;
+  return { location: locality, addressCountry: code };
 }
 
 /**
@@ -917,8 +921,10 @@ export function localityCountryFromStreetOnlyAddress(address = {}) {
  * Prospector runtime so a foreign first entry cannot hide a later CH place.
  *
  * @param {unknown} jobLocation
+ * @param {{ allowStreetOnlyAddress?: boolean }} [options]
  */
-export function schemaJobLocationCandidates(jobLocation) {
+export function schemaJobLocationCandidates(jobLocation, options = {}) {
+  const allowStreetOnlyAddress = options.allowStreetOnlyAddress === true;
   const places = Array.isArray(jobLocation) ? jobLocation : [jobLocation];
   const candidates = [];
   for (const place of places) {
@@ -932,9 +938,11 @@ export function schemaJobLocationCandidates(jobLocation) {
       const placeName = structuredText(address.name || place.name);
       const postalCode = structuredText(address.postalCode);
       const streetAddress = structuredText(address.streetAddress);
-      const streetOnly = placeName ? null : localityCountryFromStreetOnlyAddress({
-        streetAddress, addressLocality, addressRegion, addressCountry, postalCode,
-      });
+      const streetOnly = allowStreetOnlyAddress && !placeName
+        ? localityCountryFromStreetOnlyAddress({
+          streetAddress, addressLocality, addressRegion, addressCountry, postalCode,
+        })
+        : null;
       if (streetOnly) {
         candidates.push({ ...streetOnly, addressLocality: '', addressRegion: '', postalCode: '', streetAddress: '' });
         continue;

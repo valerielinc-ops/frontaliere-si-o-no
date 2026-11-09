@@ -31,6 +31,20 @@ import {
   schemaJobLocationCandidates,
 } from './location-evidence.mjs';
 
+// A bare `streetAddress="<text>, <ISO>"` is only a locality signal for the
+// SuccessFactors/Career Site Builder source shape that motivated this rule.
+// Custom employer domains need the markup fingerprint; the vendor domains are
+// unambiguous on their own.
+const SUCCESS_FACTORS_HOST_RX = /(?:^|\.)successfactors\.(?:com|eu)$|(?:^|\.)sapsf\.(?:com|eu)$/i;
+const SUCCESS_FACTORS_MARKUP_RX = /(?:\bdata-careersite-propertyid\s*=|\bcsb\.esm\.js\b|\brmkcdn\.successfactors\.com\b)/i;
+
+function isSuccessFactorsSourceContext(html = '', pageUrl = '') {
+  let host = '';
+  try { host = new URL(String(pageUrl || '')).hostname.toLowerCase(); } catch { /* markup may prove the source */ }
+  return SUCCESS_FACTORS_HOST_RX.test(host)
+    || SUCCESS_FACTORS_MARKUP_RX.test(String(html || ''));
+}
+
 /**
  * Tokens that mark a URL path or heading as vacancy-related on their own, in
  * all four locales. Everything listed here means "vacancy" and nothing else.
@@ -381,10 +395,11 @@ function jobPostingBodyText(node) {
 export function extractJsonLd(html, pageUrl) {
   /** @type {Vacancy[]} */
   const out = [];
+  const allowStreetOnlyAddress = isSuccessFactorsSourceContext(html, pageUrl);
   const postingNodes = jsonLdBlocks(html).filter(isJobPostingNode);
   const urlLessPostingCount = postingNodes.filter((node) => !firstString(node.url) && !firstString(node.sameAs)).length;
   for (const node of postingNodes) {
-    const locationCandidates = schemaJobLocationCandidates(node.jobLocation);
+    const locationCandidates = schemaJobLocationCandidates(node.jobLocation, { allowStreetOnlyAddress });
     const primaryLocation = locationCandidates[0] || { location: '', addressCountry: '' };
     const rawExplicitUrl = firstString(node.url) || firstString(node.sameAs);
     let explicitUrl = rawExplicitUrl;
@@ -2062,6 +2077,7 @@ function readItempropContainers(block, property, index) {
 export function extractMicrodata(html, pageUrl, diagnostics = {}) {
   /** @type {Vacancy[]} */
   const out = [];
+  const allowStreetOnlyAddress = isSuccessFactorsSourceContext(html, pageUrl);
   /** @type {Map<string, HtmlTagIndex>} */
   const indexCache = new Map();
   /** @param {string} source @returns {HtmlTagIndex} */
@@ -2108,9 +2124,11 @@ export function extractMicrodata(html, pageUrl, diagnostics = {}) {
         const postalCode = propFrom(container, 'postalCode', containerIndex);
         const streetAddress = propFrom(container, 'streetAddress', containerIndex);
         const directLocation = !locality && !region ? propFrom(container, 'jobLocation', containerIndex) : '';
-        const streetOnly = directLocation ? null : localityCountryFromStreetOnlyAddress({
-          streetAddress, addressLocality: locality, addressRegion: region, addressCountry, postalCode,
-        });
+        const streetOnly = allowStreetOnlyAddress && !directLocation
+          ? localityCountryFromStreetOnlyAddress({
+            streetAddress, addressLocality: locality, addressRegion: region, addressCountry, postalCode,
+          })
+          : null;
         if (streetOnly) return streetOnly;
         return {
           location: [locality || directLocation, region].filter(Boolean).join(', '),
@@ -2131,9 +2149,11 @@ export function extractMicrodata(html, pageUrl, diagnostics = {}) {
       const addressRegion = prop('addressRegion');
       const postalCode = prop('postalCode');
       const streetAddress = prop('streetAddress');
-      const streetOnly = location ? null : localityCountryFromStreetOnlyAddress({
-        streetAddress, addressLocality, addressRegion, addressCountry, postalCode,
-      });
+      const streetOnly = allowStreetOnlyAddress && !location
+        ? localityCountryFromStreetOnlyAddress({
+          streetAddress, addressLocality, addressRegion, addressCountry, postalCode,
+        })
+        : null;
       if (streetOnly) locationCandidates.push(streetOnly);
       else if (location || addressCountry) locationCandidates.push({
         location,

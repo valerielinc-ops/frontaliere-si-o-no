@@ -1304,35 +1304,55 @@ describe('vacancy extraction', () => {
 
   // SKAN (#17539): SuccessFactors puts the workplace only in streetAddress.
   it('reads a street-only "<locality>, <ISO>" microdata address as locality and country', () => {
-    const page = (street: string) => '<div itemscope itemtype="http://schema.org/JobPosting">' +
+    const page = (street: string, successFactors = true) => (successFactors ? '<span data-careersite-propertyid="title">Team Lead ICT</span>' : '') +
+      '<div itemscope itemtype="http://schema.org/JobPosting">' +
       '<span itemprop="jobLocation" itemscope itemtype="http://schema.org/Place">' +
         '<span itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">' +
           `<meta itemprop="streetAddress" content="${street}"></span></span>` +
       '<span itemprop="title">Team Lead ICT</span></div>';
-    const [swiss] = extractMicrodata(page('Allschwil, CH'), 'https://jobs.example/job/1');
+    const [swiss] = extractMicrodata(page('Allschwil, CH'), 'https://jobs.skan.com/job/1');
     expect(swiss.locationCandidates).toEqual([{ location: 'Allschwil', addressCountry: 'CH' }]);
     expect(resolveDetailOrListingSwissGeography(swiss).geography).toMatchObject({
       location: 'Allschwil', canton: 'BL', addressCountry: 'CH',
     });
-    const [foreign] = extractMicrodata(page('Lörrach, DE'), 'https://jobs.example/job/2');
+    const [foreign] = extractMicrodata(page('Lörrach, DE'), 'https://jobs.skan.com/job/2');
     expect(foreign.locationCandidates).toEqual([{ location: 'Lörrach', addressCountry: 'DE' }]);
     expect(resolveDetailOrListingSwissGeography(foreign).geography).toBeNull();
-    for (const street of ['Allschwil, BL', 'Paris, FR', 'Hauptstrasse 1, CH', 'Allschwil']) {
-      const [job] = extractMicrodata(page(street), 'https://jobs.example/job/3');
+    for (const street of ['Allschwil, BL', 'Paris, FR', 'Hauptstrasse, CH', 'Hauptstrasse 1, CH', 'Allschwil']) {
+      const [job] = extractMicrodata(page(street), 'https://jobs.skan.com/job/3');
       expect(job.locationCandidates).toEqual([]);
     }
+    const [untrustedSource] = extractMicrodata(page('Allschwil, CH', false), 'https://jobs.example/job/4');
+    expect(untrustedSource.locationCandidates).toEqual([]);
   });
 
   it('reads a street-only "<locality>, <ISO>" JSON-LD address as locality and country', () => {
-    expect(schemaJobLocationCandidates({
+    const address = {
       '@type': 'Place',
       address: { '@type': 'PostalAddress', streetAddress: 'Allschwil, CH' },
-    })).toEqual([{
+    };
+    expect(schemaJobLocationCandidates(address)).toEqual([]);
+    expect(schemaJobLocationCandidates(address, { allowStreetOnlyAddress: true })).toEqual([{
       location: 'Allschwil', addressCountry: 'CH', addressLocality: '', addressRegion: '', postalCode: '', streetAddress: '',
     }]);
     expect(schemaJobLocationCandidates({
       address: { streetAddress: 'Gewerbestrasse 16', addressLocality: 'Allschwil', addressCountry: 'CH' },
     })).toEqual([expect.objectContaining({ location: 'Allschwil', streetAddress: 'Gewerbestrasse 16' })]);
+
+    const jsonLdPage = (street: string, successFactors = true) =>
+      (successFactors ? '<script src="https://sp-prod.candidateui.com/build/csb.esm.js"></script>' : '') +
+      `<script type="application/ld+json">${JSON.stringify({
+        '@type': 'JobPosting', title: 'Team Lead ICT',
+        jobLocation: { '@type': 'Place', address: { '@type': 'PostalAddress', streetAddress: street } },
+      })}</script>`;
+    const [swiss] = extractJsonLd(jsonLdPage('Allschwil, CH'), 'https://jobs.skan.com/job/1');
+    expect(swiss.locationCandidates).toEqual([{
+      location: 'Allschwil', addressCountry: 'CH', addressLocality: '', addressRegion: '', postalCode: '', streetAddress: '',
+    }]);
+    const [street] = extractJsonLd(jsonLdPage('Hauptstrasse, CH'), 'https://jobs.skan.com/job/2');
+    expect(street.locationCandidates).toEqual([]);
+    const [untrustedSource] = extractJsonLd(jsonLdPage('Allschwil, CH', false), 'https://jobs.example/job/3');
+    expect(untrustedSource.locationCandidates).toEqual([]);
   });
 
   it('balances nested same-name microdata containers without crossing jobs', () => {
