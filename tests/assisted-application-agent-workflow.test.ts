@@ -80,6 +80,6 @@ describe('assisted application agent workflow dependencies', () => {
     expect(ownerExtensionSource).toContain("case 'fill-order':");
     expect(ownerExtensionSource).toContain("chrome.tabs.create({ url: 'about:blank', active: true })");
     expect(ownerExtensionGuide).toContain('Valerie invia la candidatura dal proprio browser');
-    expect(ownerExtensionGuide).toContain('Se il portale mostra un CAPTCHA visibile, risolvilo tu.');
+    expect(ownerExtensionGuide).toMatch(/Se il portale mostra un\s+CAPTCHA visibile, risolvilo tu\./u);
   });
 });
