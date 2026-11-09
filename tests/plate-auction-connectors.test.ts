@@ -7,6 +7,7 @@ import { describe, expect, it, vi } from 'vitest';
 import {
   extractPdfUrl,
   fetchHtml,
+  fetchFixedPricePdfVariants,
   FIXED_PRICE_SOURCE_CONFIGS,
   isEcariCatalogueExplicitlyEmpty,
   isExplicitlyEmptyCatalogue,
@@ -712,6 +713,31 @@ describe('fixed-price PDF url resolution', () => {
     expect(resolveVariantPdfUrl({ pdfUrlPattern: carPattern }, {
       sourceKey: 'bs', pageUrl, indexHtml: liveIndexHtml,
     })).toBe('https://media.bs.ch/original_file/33ac87d5/wuko-pw-36.pdf');
+  });
+
+  it('refreshes the official index after a content-addressed PDF returns 404', async () => {
+    const pages = [
+      '<a href="https://media.bs.ch/original_file/old/wuko-pw-38.pdf">PW</a>',
+      '<a href="https://media.bs.ch/original_file/new/wuko-pw-39.pdf">PW</a>',
+    ];
+    const fetchPage = vi.fn(async (_url: string, _options?: Record<string, unknown>) => pages.shift() || '');
+    const fetchPdf = vi.fn(async (url: string) => {
+      if (url.includes('-38.pdf')) throw new Error(`HTTP 404 from ${url}`);
+      return { text: 'BS 186 4,000.00 Nein', pages: ['BS 186 4,000.00 Nein'] };
+    });
+
+    const [result] = await fetchFixedPricePdfVariants({
+      sourceKey: 'BS',
+      pageUrl,
+      variants: [{ pdfUrlPattern: carPattern }],
+      fetchPage,
+      fetchPdf,
+    });
+
+    expect(result.pdfUrl).toBe('https://media.bs.ch/original_file/new/wuko-pw-39.pdf');
+    expect(fetchPage).toHaveBeenCalledTimes(2);
+    expect(fetchPage.mock.calls[1]?.[1]).toMatchObject({ cache: 'no-store' });
+    expect(fetchPdf).toHaveBeenNthCalledWith(2, result.pdfUrl);
   });
 
   it('names the failure instead of silently substituting a pinned week', () => {
