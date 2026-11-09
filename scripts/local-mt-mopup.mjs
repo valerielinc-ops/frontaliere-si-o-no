@@ -599,7 +599,13 @@ export const MOPUP_TRAFFIC_LANE = 'local-mt-mopup';
  */
 export function orderMopupJobsByTraffic(jobs, popularity, cap, { priorityOf } = {}) {
   const options = { cap, lane: MOPUP_TRAFFIC_LANE };
-  if (typeof priorityOf === 'function') options.priorityOf = priorityOf;
+  if (typeof priorityOf === 'function') {
+    options.priorityOf = priorityOf;
+    // Source-copy descriptions are a free, deterministic repair lane. When
+    // they are stale, they must not remain behind the fresh head forever;
+    // fresh source copies still stay in that head by the shared ordering rule.
+    options.priorityBeforeFresh = true;
+  }
   return buildTrafficPriority(jobs, popularity, options);
 }
 
@@ -1598,7 +1604,7 @@ async function runMopup({ dryRun, maxJobs, rollout, candidateRecorder = null }) 
   );
   for (const line of formatPriorityReport(stats, { freshCoverage: freshMeter.stats() })) console.log(line);
   const selectedSourceCopyJobs = selectedJobs.filter((job) => sourceCopyJobs.has(job)).length;
-  console.log(`   Source-copy description lane: ${selectedSourceCopyJobs}/${sourceCopyCandidateCount} candidate job(s) selected after the freshness head and before the general remainder.`);
+  console.log(`   Source-copy description lane: ${selectedSourceCopyJobs}/${sourceCopyCandidateCount} candidate job(s) selected; stale members run before the freshness head, fresh members remain in it.`);
 
   const byJob = new Map(candidates.map((c) => [c.job, c]));
   const selected = selectedJobs.map((job) => byJob.get(job)).filter(Boolean);
