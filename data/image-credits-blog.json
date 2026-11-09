@@ -93324,6 +93324,80 @@
           "notes": "Original generic synthetic illustration of a modern tram beside a Ticino lakeside landscape; no readable text, logos, or identifiable people."
         }
       }
+    },
+    "generated:article-contro-aumento-iva-pesa-meno": {
+      "source": "generated-provider",
+      "commons": {
+        "title": "Generated editorial illustration",
+        "pageUrl": "https://openai.com/policies/terms-of-use/",
+        "width": 1200,
+        "height": 675,
+        "revision": "2026-11-09T16:08:33.165Z"
+      },
+      "author": {
+        "text": "frontaliereticino.ch",
+        "name": "frontaliereticino.ch",
+        "url": null,
+        "type": "Organization"
+      },
+      "attribution": null,
+      "licence": {
+        "name": "Generated media — provider terms apply",
+        "family": "other-attribution",
+        "attributionRequired": true,
+        "url": "https://openai.com/policies/terms-of-use/"
+      },
+      "restrictions": [
+        "illustrative-only",
+        "no-real-recognizable-foreground-person",
+        "no-public-figure-face",
+        "no-logo-brand-or-text",
+        "no-specific-real-event-photojournalism"
+      ],
+      "fetchedAt": "2026-11-09",
+      "generated": {
+        "schema": 1,
+        "assetId": "article-contro-aumento-iva-pesa-meno",
+        "kind": "generated",
+        "provider": "openai-codex",
+        "model": "gpt-image-2.5",
+        "executorModel": "gpt-5.6-luna",
+        "promptVersion": "frontaliereticino.generated-image-policy.v1",
+        "promptHash": "8bd48c686fa78003f5e04d43d803019c8a87c55e1c8e55d075525d65ac3875e0",
+        "license": "generated-provider",
+        "licenseUrl": "https://openai.com/policies/terms-of-use/",
+        "credit": "frontaliereticino.ch",
+        "sha256": "203b60c70df3d4cfc8e2ad0ea045be4f76435f1713f244deebc237e05361cf42",
+        "bytes": 175628,
+        "width": 1200,
+        "height": 675,
+        "format": "webp",
+        "generatedAt": "2026-11-09T16:08:33.165Z",
+        "verifiedAt": "2026-11-09T16:08:45.834Z",
+        "restrictions": [
+          "illustrative-only",
+          "no-real-recognizable-foreground-person",
+          "no-public-figure-face",
+          "no-logo-brand-or-text",
+          "no-specific-real-event-photojournalism"
+        ],
+        "scope": "article-hero",
+        "imageUrl": "/images/blog/article-contro-aumento-iva-pesa-meno.webp",
+        "area": "Ticino e pendolarismo transfrontaliero",
+        "season": "all seasons",
+        "variant": "article hero",
+        "vision": {
+          "ok": true,
+          "contains_text": false,
+          "contains_logo": false,
+          "contains_recognizable_face": false,
+          "contains_recognizable_foreground_person": false,
+          "looks_like_specific_real_event": false,
+          "is_photograph": false,
+          "is_topic_relevant": true,
+          "notes": "Original photorealistic synthetic illustration of Bellinzona/Ticino with a grocery scale symbolizing fiscal cost; no text, logos, people, or specific event."
+        }
+      }
     }
   },
   "covers": {
@@ -134711,6 +134785,10 @@
     },
     "article-via-libera-tram-treno-luganese": {
       "file": "generated:article-via-libera-tram-treno-luganese",
+      "modified": "resized"
+    },
+    "article-contro-aumento-iva-pesa-meno": {
+      "file": "generated:article-contro-aumento-iva-pesa-meno",
       "modified": "resized"
     }
   }

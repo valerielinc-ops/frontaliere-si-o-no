@@ -13692,6 +13692,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.via-libera-tram-treno-luganese.title': 'Endgültiges grünes Licht für den Bau der Tram-Zug',
     'blog.article.via-libera-tram-treno-luganese.excerpt': 'Das Bundesgericht weist die Klage von drei Privaten ab. Die Ursache liegt in der vorrangigen Etappe des Tram-Zuges.',
     'blog.article.via-libera-tram-treno-luganese.imageAlt': 'Illustratives Bild zum Thema des Artikels',
+    'blog.article.contro-aumento-iva-pesa-meno.title': 'Mehrwertsteuererhöhung: Steuer lastet stärker auf Geringverdiener',
+    'blog.article.contro-aumento-iva-pesa-meno.excerpt': 'Die Position der Kommunistischen Partei stellt die Auszahlung der 13. Rente nicht in Frage.',
+    'blog.article.contro-aumento-iva-pesa-meno.imageAlt': 'Illustratives Bild zum Thema des Artikels',
 };
 
 export default blogMetaDe;
