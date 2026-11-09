@@ -48082,3 +48082,8 @@
 {"eventType":"candidate_attempt","key":"swissteda@zurich","status":"validated","outcome":"weak","at":"2026-11-09T15:13:08.608Z","runId":"42610973403","runAttempt":1,"phase":"validate","eventId":"d46055d5981fc715cff02fde"}
 {"eventType":"candidate_attempt","key":"ch-media@zurich","status":"validated","outcome":"weak","at":"2026-11-09T15:13:12.129Z","runId":"42610973403","runAttempt":1,"phase":"validate","eventId":"0c5a5ee3ca67354af4b8cb4d"}
 {"eventType":"phase_finished","at":"2026-11-09T15:13:12.771Z","outcome":"complete","durationMs":1858096,"inputCount":64,"successCount":18,"retryCount":46,"runId":"42610973403","runAttempt":1,"phase":"validate","eventId":"4cb018732bb7ef809a19f475"}
+{"eventType":"phase_started","at":"2026-11-09T15:16:11.777Z","runId":"42610973403","runAttempt":1,"phase":"promote","eventId":"7e7df514541dd441882ecc70"}
+{"eventType":"candidate_attempt","key":"skan","status":"awaiting_first_crawl","outcome":"updated","at":"2026-11-09T15:16:14.952Z","runId":"42610973403","runAttempt":1,"phase":"promote","eventId":"e95b0ec20abc343a59c08444"}
+{"eventType":"candidate_transition","key":"skan@allschwil","from":"awaiting_first_crawl","to":"production","at":"2026-11-09T15:16:14.953Z","runId":"42610973403","runAttempt":1,"phase":"promote","eventId":"8f8e0db01e202f984b9398db"}
+{"eventType":"candidate_transition","key":"unidistance@brig","from":"awaiting_first_crawl","to":"production","at":"2026-11-09T15:16:14.954Z","runId":"42610973403","runAttempt":1,"phase":"promote","eventId":"7b3668954c8d68b53124e096"}
+{"eventType":"candidate_attempt","key":"creditx@sion","status":"awaiting_first_crawl","outcome":"updated","at":"2026-11-09T15:16:14.954Z","runId":"42610973403","runAttempt":1,"phase":"promote","eventId":"0ed27947a73f1355485f6f37"}
