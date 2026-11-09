@@ -4,12 +4,17 @@
   "companyHost": "lipsuisse.ch",
   "verifiedEmployerDomain": "lipsuisse.ch",
   "platform": "",
-  "mode": "jsonld",
+  "mode": "template",
   "seedUrls": [
-    "https://www.lipsuisse.ch/offres-emploi/carreleur-2/"
+    "https://www.lipsuisse.ch/offres-emploi/?ajax_filter=true&per-page=100"
   ],
-  "detailTemplate": "/offres-emploi/carreleur-2/",
-  "detailEnrichment": false,
+  "detailTemplate": "/offres-emploi/*/",
+  "detailEnrichment": true,
+  "pagination": {
+    "maxPages": 1,
+    "minCoverage": 0.95,
+    "declaredTotalPattern": "([0-9](?:[0-9'’., ]|&nbsp;|&#160;)*)\\s*(?:<[^>]*>|\\s|&nbsp;|&#160;)*Offres\\s+d'emploi\\s+trouvées"
+  },
   "employerSiteLocationFallback": true,
   "detailFetchWorkers": 4,
   "sampleVacancyCount": 1,
