@@ -137,7 +137,7 @@ const JOBUP_NO_VACANCIES_SELECTOR = '[data-cy="company-no-vacancies"]';
 const JOBUP_NO_VACANCIES_TEXT_RE = /Il\s+n['’]y\s+a\s+actuellement\s+aucune\s+offre\s+d['’]emploi/i;
 const JOBUP_DETAIL_PATH_RE = /^\/(?:fr\/emplois|en\/jobs)\/detail\/[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}\/?$/i;
 const JOBCLOUD_DETAIL_PATH_RE = new RegExp(
-  `^/[a-z]{2}/jobs/(?:${LISTING_SLUG}/)?[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}/?$`,
+  `^/[a-z]{2}/jobs/(?:${LISTING_SLUG}/)?[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}/?$`,
   'i',
 );
 
@@ -630,9 +630,10 @@ export async function fetchAllCroixRougeFribourgeoiseJobs() {
           [],
           'JobCloud company page says "Aucun poste ouvert actuellement" with no job-bearing links or attributes; Jobup profile says there is no current offer',
         );
+      } else {
+        console.warn('⚠️ No job listings found, and the sources do not both state an empty board (markup drift?).');
+        return [];
       }
-      console.warn('⚠️ No job listings found, and the sources do not both state an empty board (markup drift?).');
-      return [];
     }
   }
   console.log(`  📋 Listings found: ${links.length}`);
