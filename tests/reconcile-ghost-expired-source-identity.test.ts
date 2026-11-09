@@ -23,6 +23,7 @@
 import { describe, it, expect } from 'vitest';
 import { reconcileGhostExpired } from '../scripts/assemble-jobs-dataset.mjs';
 import { reconcileExpiredSlugs } from '../scripts/reconcile-job-slugs.mjs';
+import { stableSlugHash } from '../scripts/lib/dedicated-crawler-common.mjs';
 
 const BASE = 'https://careers.example-hospital.test/jobs/sub-assistant-medicine';
 const ACTIVE_URL = `${BASE}/11111111-1111-4111-8111-111111111111`;
@@ -139,6 +140,34 @@ describe('reconcileGhostExpired — source identity guard (#11596)', () => {
     const { ghostCount } = reconcileGhostExpired([active], expired);
 
     expect(ghostCount).toBe(1);
+  });
+
+  it('reorders stale hash-tailed bridges after ghost merge and converges on rerun', () => {
+    const active = activeSibling();
+    const foreignOwner = {
+      id: 'example-hospital-foreign-owner',
+      url: 'https://careers.example-hospital.test/jobs/foreign-owner',
+      slug: 'foreign-owner-live',
+      previousSlugs: [],
+    };
+    const foreignBridge = `foreign-owner-old-${stableSlugHash(foreignOwner)}`;
+    const expired = [archivedDuplicate({
+      sourceIdentity: `url:${ACTIVE_URL}`,
+      previousSlugs: [...archivedDuplicate().previousSlugs, foreignBridge],
+      previousSlugsByLocale: { it: [foreignBridge] },
+    })];
+
+    const first = reconcileGhostExpired([active, foreignOwner], expired);
+
+    expect(first.ghostCount).toBe(1);
+    expect(active.previousSlugs).not.toContain(foreignBridge);
+    expect(active.previousSlugsByLocale?.it || []).not.toContain(foreignBridge);
+    expect(foreignOwner.previousSlugs).toContain(foreignBridge);
+
+    const beforeRerun = JSON.stringify([active, foreignOwner]);
+    const second = reconcileGhostExpired([active, foreignOwner], expired);
+    expect(second.ghostCount).toBe(1);
+    expect(JSON.stringify([active, foreignOwner])).toBe(beforeRerun);
   });
 });
 
