@@ -10,7 +10,6 @@ import {
   isSalutation,
   personalFieldLabel,
   salutationFor,
-  salutationGenderFromName,
   salutationOptions,
 } from '../functions/src/lib/personalFacts.js';
 import { buildFormAnswers, candidateIdentity, salutationQuestion } from '../functions/src/assistedApplicationAiDraftCore.js';
@@ -100,13 +99,6 @@ describe('what a CV says of the person in its own words', () => {
     for (const text of ['', 'Dr', 'monsieur le directeur']) expect(isSalutation(text)).toBe(false);
   });
 
-  it('infers only a form of address from an unambiguous first name in the candidate’s locale', () => {
-    expect(salutationGenderFromName('Luca Example', 'it')).toBe('m');
-    expect(salutationGenderFromName('Maria Luisa', 'it')).toBe('f');
-    expect(salutationGenderFromName('Andrea', 'it')).toBe('m');
-    expect(salutationGenderFromName('Andrea', 'fr')).toBe('');
-    expect(salutationGenderFromName('Alex', 'en')).toBe('');
-  });
 });
 
 describe('what the CV says is not asked again', () => {
