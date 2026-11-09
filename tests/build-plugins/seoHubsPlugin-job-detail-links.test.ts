@@ -2,7 +2,7 @@ import { afterEach, describe, expect, it } from 'vitest';
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
-import { emitSeoHubs } from '../../build-plugins/seoHubsPlugin';
+import { buildCantonArchiveJobHref, emitSeoHubs } from '../../build-plugins/seoHubsPlugin';
 import { HUB_LOCALES, HUB_SLUGS, hubSlugFor } from '../../build-plugins/seoHubsData';
 import { writeAllKnownJobSlugs } from '../../scripts/lib/all-known-job-slugs-store.mjs';
 
@@ -12,6 +12,27 @@ describe('SEO job archive detail links', () => {
   afterEach(() => {
     if (rootDir) fs.rmSync(rootDir, { recursive: true, force: true });
     rootDir = '';
+  });
+
+  it('rebuilds historical registry links under the current canton section', () => {
+    expect(buildCantonArchiveJobHref(
+      'it',
+      'ZH',
+      '/cerca-lavoro-ticino/translated-zurich-job/',
+      'fallback-slug',
+    )).toBe('/cerca-lavoro-zurigo/translated-zurich-job/');
+    expect(buildCantonArchiveJobHref(
+      'en',
+      'ZH',
+      '/en/find-jobs-ticino/translated-zurich-job/',
+      'fallback-slug',
+    )).toBe('/en/find-jobs-zurich/translated-zurich-job/');
+    expect(buildCantonArchiveJobHref(
+      'it',
+      'ZH',
+      'https://foreign.example/job/translated-zurich-job/',
+      'fallback-slug',
+    )).toBe('/cerca-lavoro-zurigo/fallback-slug/');
   });
 
   it('does not link historical registry entries without an emitted detail page', () => {

@@ -81,6 +81,7 @@ import {
 } from './shared/seoContentTokens';
 import { ALL_CANTON_CODES, COMPANY_ROUTE_PREFIX, resolveCantonSection, legacyTiSectionRoot } from './shared/cantonSection';
 import { readJobsData, cantonArchivePageCount, type CantonJobEntry } from './shared/cantonArchivePlan';
+import { buildCanonicalJobDetailPath } from './shared/jobDetailPath';
 import { localeOfDistPath, shouldEmitLocale } from './shared/localeEmitFilter';
 import { cantonCompanyHubs } from './shared/cantonCompanyHubRegistry';
 import { hasCantonSectorPage } from './shared/cantonSectorPageRegistry';
@@ -97,6 +98,8 @@ import {
 // links to foreign-locale pages because their files are emitted by another
 // shard and are intentionally absent from this dist.
 const INSPECT_FOREIGN_JOB_LOCALES = HUB_LOCALES.every(shouldEmitLocale);
+const BASE_ORIGIN = new URL(BASE_URL).origin;
+const ARCHIVE_JOB_SLUG = /^[A-Za-z0-9._~-]+$/;
 
 const LOCALE_OG: Record<HubLocale, string> = {
   it: 'it_CH',
@@ -834,6 +837,61 @@ function readJobSlugsMap(
 }
 
 /**
+ * Extract only the leaf slug from a registry URL that belongs to this site.
+ * The registry is historical input, so a malformed or foreign value must not
+ * be reinterpreted as a canonical path by taking an arbitrary substring.
+ */
+function archiveJobSlugFromHref(href: string | undefined): string | null {
+  if (typeof href !== 'string' || href.length === 0) return null;
+  try {
+    const target = new URL(href, `${BASE_URL}/`);
+    if (target.origin !== BASE_ORIGIN || target.search || target.hash) return null;
+    const segments = target.pathname.split('/').filter(Boolean);
+    const slug = segments.at(-1);
+    return slug && ARCHIVE_JOB_SLUG.test(slug) ? slug : null;
+  } catch {
+    return null;
+  }
+}
+
+/**
+ * Rebuild an archive card URL from the current canton while preserving the
+ * registry's locale-specific slug. The registry is intentionally monotonic;
+ * its old section is not authoritative after a job moves canton.
+ */
+export function buildCantonArchiveJobHref(
+  locale: HubLocale,
+  canton: string,
+  registryHref: string | undefined,
+  fallbackSlug: string,
+): string {
+  const slug = archiveJobSlugFromHref(registryHref) ?? fallbackSlug;
+  return buildCanonicalJobDetailPath(locale, canton, slug);
+}
+
+/**
+ * Build a non-ambiguous current-snapshot slug → canton index. A slug observed
+ * under two cantons is deliberately retained as unknown: choosing one would
+ * turn a data conflict into a new redirect frontier.
+ */
+function buildCurrentJobCantonIndex(
+  cantonJobs: ReadonlyMap<string, readonly CantonJobEntry[]>,
+): Map<string, string | null> {
+  const index = new Map<string, string | null>();
+  for (const [canton, jobs] of cantonJobs) {
+    // TI is the legacy fallback for unresolved geography, not evidence that a
+    // non-TI historical URL should be rewritten to the TI section.
+    if (canton === 'TI') continue;
+    for (const job of jobs) {
+      const previous = index.get(job.slug);
+      if (previous === undefined) index.set(job.slug, canton);
+      else if (previous !== canton) index.set(job.slug, null);
+    }
+  }
+  return index;
+}
+
+/**
  * The slug registry is intentionally historical and monotonic. Only link a
  * job from an archive hub when its detail page is present in this build's
  * output; otherwise the deployed locale router can send that stale edge to
@@ -922,12 +980,20 @@ function emittedJobArchiveItems(
   jobPerLocale: Record<HubLocale, Record<string, string>>,
   locale: HubLocale,
   inspectForeignLocales = INSPECT_FOREIGN_JOB_LOCALES,
+  currentJobCantons: ReadonlyMap<string, string | null> = new Map(),
 ): Array<{ slug: string; href: string }> {
   const localeMap = jobPerLocale[locale];
   const itMap = jobPerLocale.it;
   const emitted: Array<{ slug: string; href: string }> = [];
   for (const slug of jobSlugs) {
-    const href = localeMap[slug] || itMap[slug];
+    const localeHref = localeMap[slug];
+    const itHref = itMap[slug];
+    const registryHref = localeHref || itHref;
+    const registryLocale = localeHref ? locale : 'it';
+    const currentCanton = currentJobCantons.get(slug);
+    const href = currentCanton
+      ? buildCantonArchiveJobHref(registryLocale, currentCanton, registryHref, slug)
+      : registryHref;
     if (!href || !hasEmittedJobDetailPage(fs, np, distDir, href, inspectForeignLocales)) continue;
     emitted.push({ slug, href });
   }
@@ -948,7 +1014,9 @@ export function countEmittedJobArchivePages(
   locale: HubLocale = 'it',
 ): number {
   const { slugs, perLocale } = readJobSlugsMap(rootDir);
-  return countEmittedJobArchivePagesForLocale(fs, np, distDir, slugs, perLocale, locale, INSPECT_FOREIGN_JOB_LOCALES);
+  const { cantonJobs } = readJobsData(fs, np, rootDir);
+  const currentJobCantons = buildCurrentJobCantonIndex(cantonJobs);
+  return countEmittedJobArchivePagesForLocale(fs, np, distDir, slugs, perLocale, locale, INSPECT_FOREIGN_JOB_LOCALES, currentJobCantons);
 }
 
 /** Count the rendered archive pages from one shared registry read, per locale. */
@@ -959,9 +1027,11 @@ export function countEmittedJobArchivePagesByLocale(
   distDir: string,
 ): Record<HubLocale, number> {
   const { slugs, perLocale } = readJobSlugsMap(rootDir);
+  const { cantonJobs } = readJobsData(fs, np, rootDir);
+  const currentJobCantons = buildCurrentJobCantonIndex(cantonJobs);
   const counts = {} as Record<HubLocale, number>;
   for (const locale of HUB_LOCALES) {
-    counts[locale] = countEmittedJobArchivePagesForLocale(fs, np, distDir, slugs, perLocale, locale, INSPECT_FOREIGN_JOB_LOCALES);
+    counts[locale] = countEmittedJobArchivePagesForLocale(fs, np, distDir, slugs, perLocale, locale, INSPECT_FOREIGN_JOB_LOCALES, currentJobCantons);
   }
   return counts;
 }
@@ -974,8 +1044,9 @@ function countEmittedJobArchivePagesForLocale(
   perLocale: Record<HubLocale, Record<string, string>>,
   locale: HubLocale,
   inspectForeignLocales = INSPECT_FOREIGN_JOB_LOCALES,
+  currentJobCantons: ReadonlyMap<string, string | null> = new Map(),
 ): number {
-  const itemCount = emittedJobArchiveItems(fs, np, distDir, slugs, perLocale, locale, inspectForeignLocales).length;
+  const itemCount = emittedJobArchiveItems(fs, np, distDir, slugs, perLocale, locale, inspectForeignLocales, currentJobCantons).length;
   return Math.max(1, Math.ceil(itemCount / JOBS_PAGE_SIZE));
 }
 
@@ -2407,14 +2478,17 @@ function emitThinCantonHubs(args: ThinCantonHubArgs): void {
           const startIdx = (pageNum - 1) * tuttiPageSize;
           const pageJobs = jobs.slice(startIdx, startIdx + tuttiPageSize);
           const items = pageJobs.map((j) => {
-            // 1) Try locale-specific path (cathedral-canton-aware).
-            // 2) Fall back to IT path (acceptable — same content, IT URL).
-            // 3) Last-resort legacy form `sectionRoot/slug/`.
+            // 1) Try locale-specific path and rebuild its section from the
+            // current canton (the registry path may be from a former canton).
+            // 2) Fall back to the equivalent current-canton IT path.
+            // 3) Last-resort current-canton path from the snapshot slug.
             const localePath = localeUrlMap[j.slug];
             const itPath = itUrlMap[j.slug];
-            const href = (localePath && (localePath.endsWith('/') ? localePath : `${localePath}/`))
-              || (itPath && (itPath.endsWith('/') ? itPath : `${itPath}/`))
-              || `${sectionRoot}/${j.slug}/`;
+            const href = localePath
+              ? buildCantonArchiveJobHref(locale, canton, localePath, j.slug)
+              : itPath
+                ? buildCantonArchiveJobHref('it', canton, itPath, j.slug)
+                : buildCanonicalJobDetailPath(locale, canton, j.slug);
             return {
               href,
               label: j.role || humanizeSlug(j.slug),
@@ -2897,6 +2971,7 @@ export function emitSeoHubs(args: EmitArgs): { pagesEmitted: number; sitemapEntr
     cantonJobs,
     cantonEmployerCounts,
   } = readJobsData(fs, np, rootDir);
+  const currentJobCantons = buildCurrentJobCantonIndex(cantonJobs);
   const crawledLogos = readCrawledCompanyLogos(fs, np, rootDir);
   const autoSectorInventory = readAutoSectorHubInventory(rootDir);
 
@@ -2924,7 +2999,7 @@ export function emitSeoHubs(args: EmitArgs): { pagesEmitted: number; sitemapEntr
       // locale-specific translated path is missing, fall back to the IT canonical
       // path (item is still browseable; user lands on the IT detail).
       for (const { slug, href } of emittedJobArchiveItems(
-        fs, np, distDir, jobSlugs, jobPerLocale, locale, INSPECT_FOREIGN_JOB_LOCALES,
+        fs, np, distDir, jobSlugs, jobPerLocale, locale, INSPECT_FOREIGN_JOB_LOCALES, currentJobCantons,
       )) {
         items.push({ href, label: humanizeSlug(slug) });
       }
