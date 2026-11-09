@@ -28,9 +28,8 @@ import {
   mergeEmployerResponse,
   mergeEmployerResponseTimeline,
 } from './assistedApplicationEmployerResponse.js';
-import { createHash, timingSafeEqual } from 'node:crypto';
+import { createHash, randomUUID, timingSafeEqual } from 'node:crypto';
 import { ASSISTED_EMAIL_PROVIDERS } from './assistedApplicationEmployerMail.js';
-import { FieldValue } from 'firebase-admin/firestore';
 import { ASSISTED_APPLICATIONS_COLLECTION, PORTAL_ACCOUNTS_DOC_ID } from './assistedApplicationConstants.js';
 import { currentPendingPortalAccount, exactPortalVerificationUrl, MAX_PORTAL_VERIFICATION_URL } from './assistedApplicationPortalSites.js';
 import { orderIdForAlias } from './assistedApplicationAlias.js';
@@ -53,6 +52,9 @@ const RECEIPT_CATEGORIES = new Set([
 const MAX_RAW_BYTES = 12 * 1024 * 1024;
 const MAX_FORWARD_ATTACHMENTS_BYTES = 10 * 1024 * 1024;
 const OWNER_MAILBOX = 'valerie@frontaliereticino.ch';
+const INBOUND_FORWARD_MAX_ATTEMPTS = 3;
+const INBOUND_FORWARD_BACKOFF_MS = [60_000, 5 * 60_000];
+const INBOUND_FORWARD_LEASE_MS = 10 * 60_000;
 
 const ATEXT_RE = /^[A-Za-z0-9!#$%&'*+\-/=?^_`{|}~]$/;
 
@@ -817,11 +819,245 @@ async function settleSubmission(args) {
   }
 }
 
+function forwardedFromDelivery(state) {
+  if (state.status === 'sent') return { status: 'sent', provider: state.provider || null };
+  if (state.status === 'skipped') return { status: 'skipped', ...(state.reason ? { reason: state.reason } : {}) };
+  if (state.status === 'retry_scheduled' || state.status === 'failed' || state.status === 'ambiguous') {
+    return { status: state.status, ...(state.lastError ? { error: String(state.lastError).slice(0, 120) } : {}) };
+  }
+  return { status: state.status || 'queued' };
+}
+
+async function claimInboundForward({ db, ref, nowMs }) {
+  let claimed = null;
+  await db.runTransaction(async (transaction) => {
+    claimed = null;
+    const snapshot = await transaction.get(ref);
+    const current = snapshot.data();
+    if (!current?.processedAt) return;
+    const delivery = current.forwardDelivery || {};
+    const terminal = new Set(['sent', 'ambiguous', 'failed', 'skipped']);
+    if (terminal.has(delivery.status)) return;
+    if (delivery.status === 'retry_scheduled' && Number(delivery.retryAt || 0) > nowMs) return;
+    if (delivery.status === 'sending') {
+      if (Number(delivery.leaseUntil || 0) > nowMs) return;
+      if (Number(delivery.providerAttemptStartedAt || 0) > 0) {
+        const ambiguous = {
+          ...delivery,
+          status: 'ambiguous',
+          leaseUntil: null,
+          lastError: 'provider_outcome_unknown_after_worker_interruption',
+        };
+        transaction.set(ref, { forwardDelivery: ambiguous, forwarded: forwardedFromDelivery(ambiguous) }, { merge: true });
+        return;
+      }
+    }
+    const attempts = Number(delivery.attempts || 0);
+    if (attempts >= INBOUND_FORWARD_MAX_ATTEMPTS) {
+      const failed = { ...delivery, status: 'failed', leaseUntil: null, lastError: delivery.lastError || 'retry_limit_reached' };
+      transaction.set(ref, { forwardDelivery: failed, forwarded: forwardedFromDelivery(failed) }, { merge: true });
+      return;
+    }
+    const claimId = randomUUID();
+    const next = {
+      ...delivery,
+      status: 'sending',
+      attempts: attempts + 1,
+      claimId,
+      claimedAt: nowMs,
+      leaseUntil: nowMs + INBOUND_FORWARD_LEASE_MS,
+      providerAttemptStartedAt: null,
+      attemptedProvider: null,
+      retryAt: null,
+    };
+    transaction.set(ref, { forwardDelivery: next, forwarded: forwardedFromDelivery(next) }, { merge: true });
+    claimed = { claimId, attempts: next.attempts };
+  });
+  return claimed;
+}
+
+async function updateInboundForward({ db, ref, claimId, nowMs, status, provider = null, error = '', retryAt = null }) {
+  let updated = false;
+  await db.runTransaction(async (transaction) => {
+    const snapshot = await transaction.get(ref);
+    const current = snapshot.data();
+    const delivery = current?.forwardDelivery || {};
+    if (!current?.processedAt || delivery.claimId !== claimId || delivery.status !== 'sending') return;
+    const next = {
+      ...delivery,
+      status,
+      provider: status === 'sent' ? provider : null,
+      lastError: error ? String(error).slice(0, 160) : null,
+      retryAt,
+      leaseUntil: null,
+      providerAttemptStartedAt: null,
+      attemptedProvider: null,
+      ...(status === 'sent' ? { sentAt: nowMs } : {}),
+    };
+    transaction.set(ref, { forwardDelivery: next, forwarded: forwardedFromDelivery(next) }, { merge: true });
+    updated = true;
+  });
+  return updated;
+}
+
+function retryTimeFor(attempts, nowMs) {
+  const delay = INBOUND_FORWARD_BACKOFF_MS[Math.max(0, attempts - 1)];
+  return nowMs + delay;
+}
+
+async function attemptAssistedApplicationInboundForward({ db, bucket, orderId, messageId, runKey, sendCascade, nowMs = Date.now() }) {
+  const orderRef = db.collection(ASSISTED_APPLICATIONS_COLLECTION).doc(orderId);
+  const ref = orderRef.collection('inbox').doc(messageId);
+  const claim = await claimInboundForward({ db, ref, nowMs });
+  if (!claim) return { skipped: true, forwarded: (await ref.get()).data()?.forwarded?.status || null };
+
+  let outcome = 'retry_scheduled';
+  try {
+    const [orderSnapshot, inboxSnapshot] = await Promise.all([orderRef.get(), ref.get()]);
+    const order = orderSnapshot.data() || {};
+    const inbox = inboxSnapshot.data() || {};
+    const to = customerEmailFor(order);
+    if (!to || inbox.portalVerificationHost) {
+      const status = inbox.portalVerificationHost ? 'skipped' : 'failed';
+      await updateInboundForward({ db, ref, claimId: claim.claimId, nowMs, status, error: status === 'failed' ? 'candidate_email_missing' : '' });
+      return { forwarded: status };
+    }
+
+    const [file] = await bucket.file(inbox.rawKey).download();
+    const { raw } = decryptJson(JSON.parse(Buffer.from(file).toString('utf8')), runKeyFrom(runKey));
+    const message = parseMimeMessage(Buffer.from(raw, 'base64'));
+    const { attachments, omittedAttachments } = forwardableAttachments(message.attachments);
+    const classification = Object.fromEntries([
+      'category', 'summaryIt', 'summaryCandidate', 'interviewWhen', 'requestedDocuments',
+      'verificationCode', 'verificationUrl', 'needsReply',
+    ].map((key) => [key, inbox[key]]));
+    const sender = String(inbox.from || addressOf(message.from) || message.from || '');
+    const forward = buildForward({ order, orderId, message, classification, sender, omittedAttachments });
+    const sourceFrom = singleMailboxAddress(message.from);
+    const authenticated = Boolean(sourceFrom) && senderAuthenticated(message.headers, sourceFrom);
+    const sourceReplyTo = authenticated ? singleMailboxAddress(message.replyTo) : '';
+    const replyTo = [sourceReplyTo, sourceFrom].find((address) => address
+      && address !== OWNER_MAILBOX
+      && !address.endsWith('@candidature.frontaliereticino.ch'));
+    const company = String(order.companyName || 'Frontaliere Ticino').replace(/["<>\\\r\n]/g, '').slice(0, 60);
+    const item = {
+      payload: {
+        from: `"${company} via Frontaliere Ticino" <${OWNER_MAILBOX}>`,
+        to: [to],
+        subject: forward.subject,
+        html: forward.html,
+        text: forward.text,
+        ...(replyTo ? { replyTo } : {}),
+        ...(attachments.length ? { attachments } : {}),
+        ...assistedEmailTracking(orderId, 'employer_message_forward', { clicks: false }),
+      },
+      recipient: { email: to },
+      meta: { orderId, messageId, key: 'employer_message_forward' },
+    };
+
+    const deliveryOptions = {
+      delayMs: 0,
+      forceProvider: ASSISTED_EMAIL_PROVIDERS,
+      beforeProviderAttempt: async (_email, provider) => {
+        let maySend = false;
+        await db.runTransaction(async (transaction) => {
+          const snapshot = await transaction.get(ref);
+          const current = snapshot.data();
+          const delivery = current?.forwardDelivery || {};
+          if (delivery.claimId !== claim.claimId || delivery.status !== 'sending') return;
+          transaction.set(ref, {
+            forwardDelivery: { ...delivery, providerAttemptStartedAt: Date.now(), attemptedProvider: String(provider || '') },
+          }, { merge: true });
+          maySend = true;
+        });
+        return maySend;
+      },
+      onSent: async (_email, result) => {
+        await updateInboundForward({ db, ref, claimId: claim.claimId, nowMs: Date.now(), status: 'sent', provider: result?.provider || null });
+      },
+      onAmbiguous: async () => {
+        await updateInboundForward({ db, ref, claimId: claim.claimId, nowMs: Date.now(), status: 'ambiguous', error: 'provider_outcome_unknown' });
+      },
+    };
+
+    const result = await sendCascade([item], deliveryOptions);
+    if (result?.ambiguous?.length || result?.failed?.some((entry) => entry.ambiguousDelivery)) {
+      outcome = 'ambiguous';
+      await updateInboundForward({ db, ref, claimId: claim.claimId, nowMs, status: 'ambiguous', error: 'provider_outcome_unknown' });
+    } else if (result?.accepted?.length || (result?.sent?.length && !result?.failed?.length)) {
+      outcome = 'sent';
+      await updateInboundForward({ db, ref, claimId: claim.claimId, nowMs, status: 'sent', provider: result.sent?.[0]?.provider || result.accepted?.[0]?.provider || null });
+    } else if (result?.failed?.length) {
+      const error = 'provider_rejected';
+      outcome = claim.attempts >= INBOUND_FORWARD_MAX_ATTEMPTS ? 'failed' : 'retry_scheduled';
+      await updateInboundForward({
+        db, ref, claimId: claim.claimId, nowMs, status: outcome, error,
+        retryAt: outcome === 'retry_scheduled' ? retryTimeFor(claim.attempts, nowMs) : null,
+      });
+    } else {
+      const current = (await ref.get()).data()?.forwardDelivery || {};
+      if (current.status === 'sent' || current.status === 'ambiguous') outcome = current.status;
+      else if (Number(current.providerAttemptStartedAt || 0) > 0) {
+        outcome = 'ambiguous';
+        await updateInboundForward({ db, ref, claimId: claim.claimId, nowMs, status: 'ambiguous', error: 'provider_outcome_unknown' });
+      } else {
+        outcome = claim.attempts >= INBOUND_FORWARD_MAX_ATTEMPTS ? 'failed' : 'retry_scheduled';
+        await updateInboundForward({
+          db, ref, claimId: claim.claimId, nowMs, status: outcome, error: 'provider_returned_no_delivery_result',
+          retryAt: outcome === 'retry_scheduled' ? retryTimeFor(claim.attempts, nowMs) : null,
+        });
+      }
+    }
+    return { forwarded: outcome };
+  } catch {
+    const current = (await ref.get()).data()?.forwardDelivery || {};
+    if (current.status === 'sent' || current.status === 'ambiguous' || current.status === 'failed') return { forwarded: current.status };
+    const errorCode = 'forward_preparation_or_provider_error';
+    if (Number(current.providerAttemptStartedAt || 0) > 0) {
+      outcome = 'ambiguous';
+      await updateInboundForward({ db, ref, claimId: claim.claimId, nowMs, status: 'ambiguous', error: errorCode });
+    } else {
+      outcome = claim.attempts >= INBOUND_FORWARD_MAX_ATTEMPTS ? 'failed' : 'retry_scheduled';
+      await updateInboundForward({
+        db, ref, claimId: claim.claimId, nowMs, status: outcome, error: errorCode,
+        retryAt: outcome === 'retry_scheduled' ? retryTimeFor(claim.attempts, nowMs) : null,
+      });
+    }
+    return { forwarded: outcome };
+  }
+}
+
+export async function runAssistedApplicationInboundForwardSweep({ db, bucket, runKey, sendCascade, limit = 50, nowMs = Date.now() }) {
+  const [dueRetries, staleSends] = await Promise.all([
+    db.collectionGroup('inbox').where('forwardDelivery.retryAt', '<=', nowMs).limit(limit).get(),
+    db.collectionGroup('inbox')
+      .where('forwardDelivery.status', '==', 'sending')
+      .where('forwardDelivery.leaseUntil', '<=', nowMs)
+      .limit(limit)
+      .get(),
+  ]);
+  const snapshots = new Map();
+  for (const snapshot of [...dueRetries.docs, ...staleSends.docs]) snapshots.set(snapshot.ref.path, snapshot);
+  const results = [];
+  for (const snapshot of snapshots.values()) {
+    const segments = snapshot.ref.path.split('/');
+    if (segments.length !== 4 || segments[0] !== ASSISTED_APPLICATIONS_COLLECTION || segments[2] !== 'inbox') continue;
+    const delivery = snapshot.data()?.forwardDelivery || {};
+    if ((delivery.status === 'queued' || delivery.status === 'retry_scheduled') && Number(delivery.retryAt || 0) > nowMs) continue;
+    if (delivery.status !== 'queued' && delivery.status !== 'retry_scheduled' && delivery.status !== 'sending') continue;
+    if (delivery.status === 'sending' && Number(delivery.leaseUntil || 0) > nowMs) continue;
+    results.push(await attemptAssistedApplicationInboundForward({
+      db, bucket, orderId: segments[1], messageId: segments[3], runKey, sendCascade, nowMs,
+    }));
+  }
+  return { scanned: snapshots.size, attempted: results.filter((result) => !result.skipped).length, results };
+}
+
 /**
- * Step 2, Firestore trigger on `inbox/{id}` (retried on failure): claim,
- * decrypt, classify, forward to the candidate, record, settle a submission of
- * unknown outcome. The claim makes a redelivered trigger a no-op; a failure
- * puts the message back to `received` so the retry processes it.
+ * Step 2, Firestore trigger on `inbox/{id}`: claim, decrypt, classify, and
+ * record the employer response before attempting the candidate forward. A
+ * durable delivery claim retries definite provider rejections; interrupted or
+ * ambiguous provider outcomes are quarantined to prevent duplicate mail.
  *
  * @param {{db, bucket, orderId:string, messageId:string, runKey:string, classify:Function, sendCascade:Function, runEffect?:Function, nowMs?:number}} deps
  *   runEffect: the automation's effects (assistedApplicationAutomationEffects.js), for the settlement
@@ -870,41 +1106,20 @@ export async function processAssistedApplicationInbound({ db, bucket, orderId, m
       }, { subject: rules.sourceSubject, text: rules.sourceText });
     }
 
-    const to = customerEmailFor(order);
-    let forwarded = null;
     // A portal's account verification (a verbatim link or code) is read by the
     // runner that created the account on the alias, and kept from the
     // candidate, only when an account of this order waits for it: a link on
     // that portal's site, or a code. Anything else reaches the candidate.
     const portalVerificationHost = await verificationAccountHost(orderRef, classification, sender, { authenticated, verificationAsked: rules.verificationAsked, linkAsked: rules.linkAsked, text: rules.sourceText });
     const consumedByRunner = Boolean(portalVerificationHost);
-    if (consumedByRunner) forwarded = { status: 'skipped', reason: 'portal_verification' };
-    else if (to) {
-      const { attachments, omittedAttachments } = forwardableAttachments(message.attachments);
-      const forward = buildForward({ order, orderId, message, classification, sender: sender || message.from, omittedAttachments });
-      const sourceReplyTo = authenticated ? singleMailboxAddress(message.replyTo) : '';
-      const replyTo = [sourceReplyTo, sourceFrom].find((address) => address
-        && address !== OWNER_MAILBOX
-        && !address.endsWith('@candidature.frontaliereticino.ch'));
-      const company = String(order.companyName || 'Frontaliere Ticino').replace(/["<>\\\r\n]/g, '').slice(0, 60);
-      const { failed, sent } = await sendCascade([{
-        payload: {
-          from: `"${company} via Frontaliere Ticino" <${OWNER_MAILBOX}>`,
-          to: [to],
-          subject: forward.subject,
-          html: forward.html,
-          text: forward.text,
-          ...(replyTo ? { replyTo } : {}),
-          ...(attachments.length ? { attachments } : {}),
-          // Opens only: the employer's own links stay as the employer wrote them.
-          ...assistedEmailTracking(orderId, 'employer_message_forward', { clicks: false }),
-        },
-        recipient: { email: to },
-        meta: { orderId, key: 'employer_message_forward' },
-      }], { delayMs: 0, forceProvider: ASSISTED_EMAIL_PROVIDERS });
-      forwarded = failed.length ? { status: 'failed', error: String(failed[0].error || '').slice(0, 120) } : { status: 'sent', provider: sent[0]?.provider || null };
-    }
+    const to = customerEmailFor(order);
+    const initialDelivery = consumedByRunner
+      ? { status: 'skipped', reason: 'portal_verification', attempts: 0, lastError: null }
+      : to
+        ? { status: 'queued', attempts: 0, retryAt: nowMs, lastError: null }
+        : { status: 'failed', attempts: 0, lastError: 'candidate_email_missing' };
 
+    let recorded = false;
     await db.runTransaction(async transaction => {
       const [currentMessage, currentOrder] = await Promise.all([transaction.get(ref), transaction.get(orderRef)]);
       if (!currentMessage.exists || currentMessage.data()?.processedAt) return;
@@ -928,10 +1143,11 @@ export async function processAssistedApplicationInbound({ db, bucket, orderId, m
         ...classification,
         correlationStatus: RECEIPT_CATEGORIES.has(classification.category) ? 'verified' : 'unknown',
         portalVerificationHost,
-        forwarded,
+        forwardDelivery: initialDelivery,
+        forwarded: forwardedFromDelivery(initialDelivery),
       }, { merge: true });
       transaction.set(orderRef, {
-        employerReplies: FieldValue.increment(1),
+        employerReplies: Number(liveOrder.employerReplies || 0) + 1,
         ...(Number(claimed.receivedAt) >= Number(liveOrder.lastEmployerReplyAt || 0) ? {
           lastEmployerReplyAt: claimed.receivedAt,
           lastEmployerReplyCategory: classification.category,
@@ -939,14 +1155,21 @@ export async function processAssistedApplicationInbound({ db, bucket, orderId, m
         ...(employerResponse ? { employerResponse } : {}),
         ...(employerResponseTimeline.length ? { employerResponseTimeline } : {}),
       }, { merge: true });
+      recorded = true;
     });
+    if (!recorded) return { ok: true, skipped: true };
+    let forwarded = (await ref.get()).data()?.forwarded?.status || null;
+    if (to && !consumedByRunner) {
+      const delivery = await attemptAssistedApplicationInboundForward({ db, bucket, orderId, messageId, runKey, sendCascade, nowMs });
+      forwarded = delivery.forwarded || forwarded;
+    }
     const settled = runEffect && RECEIPT_CATEGORIES.has(classification.category)
       ? await settleSubmission({ db, orderId, receivedAt: claimed.receivedAt, runEffect, nowMs })
       : null;
     return {
       ok: true,
       category: classification.category,
-      forwarded: forwarded?.status || null,
+      forwarded,
       ...(settled?.ok ? { submissionConfirmed: true } : {}),
     };
   } catch (error) {

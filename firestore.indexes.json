@@ -1,6 +1,14 @@
 {
   "indexes": [
     {
+      "collectionGroup": "inbox",
+      "queryScope": "COLLECTION_GROUP",
+      "fields": [
+        { "fieldPath": "forwardDelivery.status", "order": "ASCENDING" },
+        { "fieldPath": "forwardDelivery.leaseUntil", "order": "ASCENDING" }
+      ]
+    },
+    {
       "collectionGroup": "application_concierge_services",
       "queryScope": "COLLECTION",
       "fields": [
@@ -195,6 +203,15 @@
       "fieldPath": "active",
       "indexes": [
         { "order": "ASCENDING", "queryScope": "COLLECTION" },
+        { "order": "ASCENDING", "queryScope": "COLLECTION_GROUP" }
+      ]
+    },
+    {
+      "collectionGroup": "inbox",
+      "fieldPath": "forwardDelivery.retryAt",
+      "indexes": [
+        { "order": "ASCENDING", "queryScope": "COLLECTION" },
+        { "order": "DESCENDING", "queryScope": "COLLECTION" },
         { "order": "ASCENDING", "queryScope": "COLLECTION_GROUP" }
       ]
     },
