@@ -10,13 +10,11 @@
  *     up the grams of each requested token. This is the historical behaviour.
  *   - sparse (RELATED_SEARCH_POSTINGS_SPARSE=1): index ONLY the grams a
  *     requested token can ever look up. `candidateJobsForToken` reads just
- *     `grams.get(token)` for tokens of length <= 2 and `grams.get(g)` for the
- *     3-grams `g` of longer tokens, and compares list LENGTHS to pick the
- *     rarest. A gram's posting list only depends on which haystacks contain
- *     it, so restricting the index to the queried grams leaves every list the
- *     rarest-gram choice sees — and therefore every result — unchanged. The
- *     gain is that the per-position work drops from "slice + Set + Map push"
- *     for ~all grams to one `Set.has` on a small wanted set.
+ *     numeric keys for only the width-2/3 grams a requested token can read.
+ *     A gram's posting list only depends on which haystacks contain it, so
+ *     restricting the index to queried grams leaves every result unchanged.
+ *     Numeric keys also avoid a short-lived substring allocation for every
+ *     haystack position.
  *
  * @module relatedSearchPostingsCore
  */
@@ -97,7 +95,7 @@ function isSearchTokenGram(value) {
 /**
  * Every gram `candidateJobsForToken` may read for these tokens.
  * @param {readonly string[]} tokens
- * @returns {{ wanted2: Set<string>, wanted3: Set<string> }}
+ * @returns {{ wanted2: Set<number>, wanted3: Set<number> }}
  */
 export function wantedGramsForTokens(tokens) {
   const wanted2 = new Set();
@@ -106,15 +104,52 @@ export function wantedGramsForTokens(tokens) {
     if (token.length <= 2) {
       // Only width-2 grams exist for a 2-char token; a 1-char token can never
       // be a key of the index, so it needs nothing.
-      if (token.length === 2 && isSearchTokenGram(token)) wanted2.add(token);
+      if (token.length === 2) {
+        const gram = encodeSearchGramAt(token, 0, 2);
+        if (gram >= 0) wanted2.add(gram);
+      }
       continue;
     }
     for (let i = 0; i <= token.length - 3; i++) {
-      const gram = token.slice(i, i + 3);
-      if (isSearchTokenGram(gram)) wanted3.add(gram);
+      const gram = encodeSearchGramAt(token, i, 3);
+      if (gram >= 0) wanted3.add(gram);
     }
   }
   return { wanted2, wanted3 };
+}
+
+const SEARCH_GRAM_BASE = 36;
+
+/**
+ * Encode a fixed-width ASCII lowercase alphanumeric gram without allocating a
+ * substring. Postings indexes scan every job haystack; calling `slice()` for
+ * every 2/3-gram created hundreds of millions of short-lived strings on the
+ * production corpus even when most grams were immediately discarded.
+ * Separate 2- and 3-gram maps keep these numeric keys unambiguous.
+ * @param {string} value
+ * @param {number} start
+ * @param {number} width
+ * @returns {number}
+ */
+export function encodeSearchGramAt(value, start, width) {
+  let encoded = 0;
+  for (let i = start; i < start + width; i++) {
+    const code = value.charCodeAt(i);
+    const digit = code >= 48 && code <= 57
+      ? code - 48 + 26
+      : code >= 97 && code <= 122
+        ? code - 97
+        : -1;
+    if (digit < 0) return -1;
+    encoded = encoded * SEARCH_GRAM_BASE + digit;
+  }
+  return encoded;
+}
+
+/** Test helper for fixed-width ASCII alphanumeric grams. */
+export function encodeSearchGram(value) {
+  if (value.length !== 2 && value.length !== 3) return -1;
+  return encodeSearchGramAt(value, 0, value.length);
 }
 
 /**
@@ -152,27 +187,34 @@ function buildDenseGramIndex(haystacks) {
  * Job indexes are pushed in ascending order exactly once per (gram, job), as
  * in the dense build.
  * @param {string[]} haystacks
- * @param {{ wanted2: Set<string>, wanted3: Set<string> }} wanted
- * @returns {Map<string, number[]>}
+ * @param {{ wanted2: Set<number>, wanted3: Set<number> }} wanted
+ * @returns {{ grams2: Map<number, number[]>, grams3: Map<number, number[]> }}
  */
 function buildSparseGramIndex(haystacks, wanted) {
-  /** @type {Map<string, number[]>} */
-  const grams = new Map();
-  /** @type {Map<string, number>} last job index pushed per gram */
-  const lastJob = new Map();
+  /** @type {Map<number, number[]>} */
+  const grams2 = new Map();
+  /** @type {Map<number, number[]>} */
+  const grams3 = new Map();
+  // A gram is inserted once per job. Per-job sets stay bounded by that one
+  // haystack and avoid retaining a second full-corpus Map<gram,lastJob>.
+  const seen2 = new Set();
+  const seen3 = new Set();
   const widths = [];
   if (wanted.wanted2.size > 0) widths.push([2, wanted.wanted2]);
   if (wanted.wanted3.size > 0) widths.push([3, wanted.wanted3]);
   for (let jobIdx = 0; jobIdx < haystacks.length; jobIdx++) {
     const haystack = haystacks[jobIdx];
+    seen2.clear();
+    seen3.clear();
     for (const [width, set] of widths) {
       if (haystack.length < width) continue;
       for (let i = 0; i <= haystack.length - width; i++) {
-        const gram = haystack.slice(i, i + width);
-        // Wanted grams already passed isSearchTokenGram.
-        if (!set.has(gram)) continue;
-        if (lastJob.get(gram) === jobIdx) continue;
-        lastJob.set(gram, jobIdx);
+        const gram = encodeSearchGramAt(haystack, i, width);
+        if (gram < 0 || !set.has(gram)) continue;
+        const seen = width === 2 ? seen2 : seen3;
+        if (seen.has(gram)) continue;
+        seen.add(gram);
+        const grams = width === 2 ? grams2 : grams3;
         let list = grams.get(gram);
         if (!list) {
           list = [];
@@ -182,7 +224,7 @@ function buildSparseGramIndex(haystacks, wanted) {
       }
     }
   }
-  return grams;
+  return { grams2, grams3 };
 }
 
 /** @param {number[]} sorted @param {number} value */
@@ -206,19 +248,26 @@ function sortedHas(sorted, value) {
  * ascending order; the `includes` filter that follows therefore returns the
  * identical list while running on far fewer haystacks.
  * @param {string} token
- * @param {Map<string, number[]>} grams
+ * @param {{ grams2: Map<number, number[]>, grams3: Map<number, number[]> }} grams
  * @returns {number[]}
  */
 export function intersectedCandidatesForToken(token, grams) {
-  if (token.length <= 2) return grams.get(token) ?? [];
+  if (token.length <= 2) {
+    if (token.length !== 2) return [];
+    const gram = encodeSearchGramAt(token, 0, 2);
+    return gram < 0 ? [] : (grams.grams2.get(gram) ?? []);
+  }
   /** @type {number[][]} */
   const lists = [];
   const seenTokenGrams = new Set();
   for (let i = 0; i <= token.length - 3; i++) {
-    const gram = token.slice(i, i + 3);
+    const gram = encodeSearchGramAt(token, i, 3);
+    // Dense postings have no entry for a non-alphanumeric gram, so any token
+    // containing one has no candidates in the sparse index either.
+    if (gram < 0) return [];
     if (seenTokenGrams.has(gram)) continue;
     seenTokenGrams.add(gram);
-    const list = grams.get(gram);
+    const list = grams.grams3.get(gram);
     if (!list || list.length === 0) return [];
     lists.push(list);
   }
@@ -250,9 +299,10 @@ export function computeTokenPostings({ jobs, locale, tokens, sparse = false, tim
     t = now;
   }
 
-  const grams = sparse
+  const sparseGrams = sparse
     ? buildSparseGramIndex(haystacks, wantedGramsForTokens(tokens))
-    : buildDenseGramIndex(haystacks);
+    : null;
+  const denseGrams = sparse ? null : buildDenseGramIndex(haystacks);
   if (timings) {
     const now = performance.now();
     timings.index = now - t;
@@ -261,8 +311,9 @@ export function computeTokenPostings({ jobs, locale, tokens, sparse = false, tim
 
   /** @param {string} token */
   const candidateJobsForToken = (token) => {
+    if (!denseGrams) return [];
     if (token.length <= 2) {
-      return grams.get(token) ?? [];
+      return denseGrams.get(token) ?? [];
     }
     /** @type {number[] | null} */
     let rarest = null;
@@ -271,7 +322,7 @@ export function computeTokenPostings({ jobs, locale, tokens, sparse = false, tim
       const gram = token.slice(i, i + 3);
       if (seenTokenGrams.has(gram)) continue;
       seenTokenGrams.add(gram);
-      const list = grams.get(gram) ?? [];
+      const list = denseGrams.get(gram) ?? [];
       if (rarest === null || list.length < rarest.length) {
         rarest = list;
         if (rarest.length === 0) break;
@@ -284,7 +335,9 @@ export function computeTokenPostings({ jobs, locale, tokens, sparse = false, tim
   const entries = new Array(tokens.length);
   for (let i = 0; i < tokens.length; i++) {
     const token = tokens[i];
-    const candidates = sparse ? intersectedCandidatesForToken(token, grams) : candidateJobsForToken(token);
+    const candidates = sparse
+      ? (sparseGrams ? intersectedCandidatesForToken(token, sparseGrams) : [])
+      : candidateJobsForToken(token);
     const list = [];
     for (const idx of candidates) {
       if (haystacks[idx].includes(token)) list.push(idx);

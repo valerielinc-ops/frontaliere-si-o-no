@@ -213,6 +213,14 @@ let finalOutputManifestFingerprint: string | null = null;
  */
 const claimedOutputPaths = new Set<string>();
 const claimedOutputDescendants = new Map<string, string>();
+/**
+ * Most pages are `<slug>/index.html`, so their parent directory is unique per
+ * page. That directory is derived from the claimed index file instead of being
+ * stored in `claimedOutputDescendants`, which otherwise pins one extra path
+ * string per page for the whole build (~1.8M on a jobs leg).
+ */
+const DIRECTORY_INDEX_BASENAME = 'index.html';
+const DIRECTORY_INDEX_SUFFIX = `${path.sep}${DIRECTORY_INDEX_BASENAME}`;
 const sharedPathDeclarations: SharedPathDeclaration[] = [];
 let buildGeneration = 0;
 
@@ -224,6 +232,13 @@ let buildGeneration = 0;
 function resolveRetainedPath(filePath: string): string {
   const resolved = path.resolve(filePath);
   return resolved === filePath ? filePath : resolved;
+}
+
+function claimedDirectoryIndex(dirPath: string): string | undefined {
+  const indexPath = dirPath.endsWith(path.sep)
+    ? `${dirPath}${DIRECTORY_INDEX_BASENAME}`
+    : `${dirPath}${DIRECTORY_INDEX_SUFFIX}`;
+  return claimedOutputPaths.has(indexPath) ? indexPath : undefined;
 }
 
 function assertOutputPathShapeAvailable(filePath: string): void {
@@ -242,7 +257,7 @@ function assertOutputPathShapeAvailable(filePath: string): void {
     ancestor = parent;
   }
 
-  const descendant = claimedOutputDescendants.get(resolved);
+  const descendant = claimedOutputDescendants.get(resolved) ?? claimedDirectoryIndex(resolved);
   if (descendant !== undefined) {
     throw new DistPathCollisionError(
       descendant,
@@ -258,6 +273,7 @@ function rememberOutputPathShape(filePath: string): void {
 
   claimedOutputPaths.add(resolved);
   let ancestor = path.dirname(resolved);
+  if (resolved.endsWith(DIRECTORY_INDEX_SUFFIX)) ancestor = path.dirname(ancestor);
   while (ancestor !== resolved) {
     if (!claimedOutputDescendants.has(ancestor)) {
       claimedOutputDescendants.set(ancestor, resolved);
@@ -554,6 +570,11 @@ export function getBuildGeneration(): number {
  */
 export function getPathHistory(): ReadonlyMap<string, readonly ClaimVersion[]> {
   return pathHistory;
+}
+
+/** Read-only diagnostic count of directories stored in the path-shape index. */
+export function getOutputShapeDirCount(): number {
+  return claimedOutputDescendants.size;
 }
 
 /**
