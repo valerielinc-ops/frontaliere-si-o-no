@@ -1,7 +1,7 @@
 {
   "key": "mistral-ai",
   "label": "Mistral AI",
-  "generatedAt": "2026-11-02T21:58:16.424Z",
+  "generatedAt": "2026-11-09T09:51:35.049Z",
   "total": 2,
   "discovered": null,
   "parsed": 2,
@@ -13,18 +13,16 @@
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
-  "updatedCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
-  "unchangedCount": 2,
-  "durationMs": 2738,
-  "avgDurationMs": 2738,
+  "unchangedCount": 1,
+  "durationMs": 2987,
+  "avgDurationMs": 2987,
   "durationHistory": [
-    2738
+    2987
   ],
   "newJobs": [],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "updatedJobs": [
     {
       "id": "mistral-ai-c24d6a4a84d2",
       "slug": "account-executive-enterprise-svizzera-romanda-mistral-ai-zurich",
@@ -32,13 +30,13 @@
       "companyKey": "mistral-ai",
       "companyDomain": "mistral.ai",
       "title": "Account Executive, Enterprise, Swiss Romande",
-      "location": "Zurich",
+      "location": "Zurich | Lausanne",
       "canton": "ZH",
       "url": "https://jobs.ashbyhq.com/mistral.ai/19026237-fb3d-480d-a1a3-27204bcb154a",
       "source": "Mistral AI Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-02T21:58:01.147Z",
-      "addressLocality": "Zurich",
+      "crawledAt": "2026-11-09T09:51:14.591Z",
+      "addressLocality": "Zurich | Lausanne",
       "addressCountry": "CH",
       "country": "CH",
       "category": "Amministrazione",
@@ -58,18 +56,20 @@
       "salarySource": "estimated",
       "postalCode": "8001",
       "addressRegion": "ZH",
-      "streetAddress": "Zurich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-27T21:58:01.147Z",
+      "validThrough": "2027-01-28T09:51:14.591Z",
       "validThroughSource": "last-observed-window",
-      "_qualityScore": 97,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 25
+        "completeness": 22
       }
-    },
+    }
+  ],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "mistral-ai-01b2b0d2cc89",
       "slug": "ai-scientist-mistral-ai-ch",
@@ -82,7 +82,7 @@
       "url": "https://jobs.ashbyhq.com/mistral.ai/865fced4-d279-4073-848d-f078c0053155",
       "source": "Mistral AI Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-02T21:58:01.144Z",
+      "crawledAt": "2026-11-09T09:51:14.588Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -105,7 +105,7 @@
       "addressRegion": "ZH",
       "streetAddress": "Zurich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-02T21:58:01.144Z",
+      "validThrough": "2026-12-09T09:51:14.588Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -116,5 +116,5 @@
       }
     }
   ],
-  "codeCommit": "78a002fd724aa76a11ab5057632890ccb6f157c3"
+  "codeCommit": "f071981dd2d2820cdec3736f76b1b17ee50345bd"
 }

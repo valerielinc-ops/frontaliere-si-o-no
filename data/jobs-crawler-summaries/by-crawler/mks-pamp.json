@@ -1,16 +1,16 @@
 {
   "key": "mks-pamp",
   "label": "MKS PAMP",
-  "generatedAt": "2026-11-02T21:58:44.095Z",
-  "total": 6,
+  "generatedAt": "2026-11-09T09:50:51.987Z",
+  "total": 5,
   "newCount": 0,
-  "updatedCount": 3,
-  "removedCount": 0,
+  "updatedCount": 2,
+  "removedCount": 1,
   "unchangedCount": 3,
-  "durationMs": 13607,
-  "avgDurationMs": 13607,
+  "durationMs": 12205,
+  "avgDurationMs": 12205,
   "durationHistory": [
-    13607
+    12205
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -35,10 +35,10 @@
       "datePosted": "2026-10-08T11:03:47+02:00",
       "postedDate": "2026-10-08T11:03:47+02:00",
       "postingDateSource": "reported",
-      "crawledAt": "2026-11-02T21:58:31.102Z",
+      "crawledAt": "2026-11-09T09:50:35.737Z",
       "employmentType": "full-time",
       "contractType": "permanent",
-      "validThrough": "2027-01-06T21:58:31.102Z",
+      "validThrough": "2027-01-06T09:50:35.737Z",
       "id": "mks-pamp-01db383769ae",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -78,7 +78,7 @@
       "postedDate": "2026-08-19T12:39:04+02:00",
       "employmentType": "full-time",
       "contractType": "permanent",
-      "validThrough": "2026-12-02T21:58:31.108Z",
+      "validThrough": "2026-12-09T09:50:35.743Z",
       "id": "mks-pamp-a1552294ce80",
       "salaryMin": 68000,
       "salaryMax": 103000,
@@ -87,7 +87,7 @@
       "salarySource": "estimated",
       "datePosted": "2026-08-19T12:39:04+02:00",
       "postingDateSource": "reported",
-      "crawledAt": "2026-11-02T21:58:31.108Z",
+      "crawledAt": "2026-11-09T09:50:35.743Z",
       "postalCode": "6874",
       "streetAddress": "Castel San Pietro",
       "streetAddressSource": "to-enrich",
@@ -99,7 +99,9 @@
         "translation": 25,
         "completeness": 25
       }
-    },
+    }
+  ],
+  "removedJobs": [
     {
       "title": "Operatore reparto Raffineria",
       "slug": "operatore-reparto-raffineria-mks-pamp-castel-san-pietro",
@@ -145,7 +147,6 @@
       }
     }
   ],
-  "removedJobs": [],
   "unchangedJobs": [
     {
       "title": "Metal Operations Manager",
@@ -168,10 +169,10 @@
       "datePosted": "2026-10-02T15:18:11+02:00",
       "postedDate": "2026-10-02T15:18:11+02:00",
       "postingDateSource": "reported",
-      "crawledAt": "2026-11-02T21:58:31.104Z",
+      "crawledAt": "2026-11-09T09:50:35.740Z",
       "employmentType": "full-time",
       "contractType": "permanent",
-      "validThrough": "2026-12-31T21:58:31.104Z",
+      "validThrough": "2027-01-01T09:50:35.740Z",
       "id": "mks-pamp-74eaacf6a62f",
       "salaryMin": 68000,
       "salaryMax": 103000,
@@ -211,7 +212,7 @@
       "postedDate": "2026-09-29T16:44:49+02:00",
       "employmentType": "full-time",
       "contractType": "permanent",
-      "validThrough": "2026-12-28T21:58:31.106Z",
+      "validThrough": "2026-12-29T09:50:35.741Z",
       "id": "mks-pamp-94c930306b63",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -220,7 +221,7 @@
       "firstSeenAt": "2026-09-29T21:39:07.108Z",
       "datePosted": "2026-09-29T16:44:49+02:00",
       "postingDateSource": "reported",
-      "crawledAt": "2026-11-02T21:58:31.106Z",
+      "crawledAt": "2026-11-09T09:50:35.741Z",
       "postalCode": "6874",
       "streetAddress": "Castel San Pietro",
       "streetAddressSource": "to-enrich",
@@ -254,7 +255,7 @@
       "postedDate": "2026-01-28T11:17:43+01:00",
       "employmentType": "full-time",
       "contractType": "permanent",
-      "validThrough": "2026-12-02T21:58:31.110Z",
+      "validThrough": "2026-12-09T09:50:35.744Z",
       "salaryMin": 92000,
       "salaryMax": 125000,
       "currency": "CHF",
@@ -265,7 +266,7 @@
       "salarySource": "reported",
       "datePosted": "2026-01-28T11:17:43+01:00",
       "postingDateSource": "reported",
-      "crawledAt": "2026-11-02T21:58:31.110Z",
+      "crawledAt": "2026-11-09T09:50:35.744Z",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
@@ -277,5 +278,5 @@
       }
     }
   ],
-  "codeCommit": "78a002fd724aa76a11ab5057632890ccb6f157c3"
+  "codeCommit": "f071981dd2d2820cdec3736f76b1b17ee50345bd"
 }
