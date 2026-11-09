@@ -44,8 +44,31 @@ describe('brefis personal ag crawler parser', () => {
       });
     });
 
-    it('preserves an explicit pagination contract', () => {
+    it('completes a partial explicit pagination contract', () => {
       const pagination = { maxPages: 2, minCoverage: 0.5 };
+      const spec = { companyKey: BREFISPERSONAL_KEY, pagination };
+
+      expect(normalizeBrefispersonalSpec(spec)).toMatchObject({
+        companyKey: BREFISPERSONAL_KEY,
+        pagination: {
+          maxPages: 2,
+          declaredTotalPattern: "Offene\\s+Stellen(?:\\s|&nbsp;|<[^>]+>)*([\\d'’.,]+)",
+          minCoverage: 0.5,
+          numberedPagePattern: "/Vacancyboard/(\\d+)$",
+        },
+        rescueOnEmptyListing: true,
+      });
+    });
+
+    it('preserves a complete explicit pagination contract', () => {
+      const pagination = {
+        ...{
+          maxPages: 2,
+          declaredTotalPattern: "Offene\\s+Stellen(?:\\s|&nbsp;|<[^>]+>)*([\\d'’.,]+)",
+          minCoverage: 0.5,
+          numberedPagePattern: "/Vacancyboard/(\\d+)$",
+        },
+      };
       const spec = { companyKey: BREFISPERSONAL_KEY, pagination };
 
       expect(normalizeBrefispersonalSpec(spec)).toBe(spec);
