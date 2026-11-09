@@ -83,6 +83,26 @@ describe('bounded event-description startup recovery', () => {
     })).toBe(false);
   });
 
+  it('does not replay after the same run has advanced to a newer attempt', () => {
+    expect(shouldRetryEventDescriptionRun({
+      run: {
+        id: 7,
+        run_attempt: 1,
+        conclusion: 'failure',
+        path: EVENT_DESCRIPTION_WORKFLOW_PATH,
+        head_branch: 'main',
+        event: 'schedule',
+      },
+      workflowRuns: [{
+        id: 7,
+        run_attempt: 2,
+        head_branch: 'main',
+        path: EVENT_DESCRIPTION_WORKFLOW_PATH,
+      }],
+      jobs: [],
+    })).toBe(false);
+  });
+
   it('pins the observer to the source workflow and grants only bounded Actions write access', () => {
     const workflow = parse(fs.readFileSync(RECOVERY_WORKFLOW_PATH, 'utf8')) as any;
     expect(workflow.on.workflow_run).toEqual({

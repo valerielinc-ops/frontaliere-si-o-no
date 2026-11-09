@@ -35,16 +35,28 @@ export function isEventDescriptionRunCandidate(run) {
 /**
  * Replaying an older run after a newer main run exists could put an obsolete
  * event-rewrite snapshot behind the newer run. The Actions run id is the
- * durable ordering key exposed by the API.
+ * durable ordering key exposed by the API, but a rerun keeps that id and
+ * advances run_attempt, so both dimensions must be checked.
  */
 export function hasNewerEventDescriptionRun(run, workflowRuns) {
-  if (!Array.isArray(workflowRuns) || !Number.isSafeInteger(run?.id)) return true;
-  return workflowRuns.some((candidate) => (
-    Number.isSafeInteger(candidate?.id)
-    && candidate.id > run.id
-    && candidate.head_branch === 'main'
-    && candidate.path === EVENT_DESCRIPTION_WORKFLOW_PATH
-  ));
+  if (
+    !Array.isArray(workflowRuns)
+    || !Number.isSafeInteger(run?.id)
+    || !Number.isSafeInteger(run?.run_attempt)
+  ) return true;
+  return workflowRuns.some((candidate) => {
+    if (
+      !Number.isSafeInteger(candidate?.id)
+      || candidate.head_branch !== 'main'
+      || candidate.path !== EVENT_DESCRIPTION_WORKFLOW_PATH
+    ) return false;
+    if (candidate.id > run.id) return true;
+    if (candidate.id !== run.id) return false;
+    // A rerun keeps the run id but advances the attempt. Missing data is
+    // ambiguous, so refuse recovery instead of risking a duplicate replay.
+    return !Number.isSafeInteger(candidate.run_attempt)
+      || candidate.run_attempt > run.run_attempt;
+  });
 }
 
 export function shouldRetryEventDescriptionRun({ run, jobs, workflowRuns } = {}) {
