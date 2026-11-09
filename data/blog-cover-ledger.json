@@ -15,10 +15,10 @@
       "2": 197,
       "3": 0,
       "4": 0,
-      "5": 1119,
+      "5": 1122,
       "6": 5061
     },
-    "publishedCovers": 7862,
+    "publishedCovers": 7865,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 1,
     "inheritedRecordsMaterialized": 197,
@@ -216923,6 +216923,105 @@
         "provider": "openai-codex",
         "assetId": "article-zurigo-fondo-abitativo",
         "imageUrl": "/images/blog/article-zurigo-fondo-abitativo.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-finanziamento-tredicesima-avs": {
+      "cover": "/images/blog/article-finanziamento-tredicesima-avs.webp",
+      "hash": "55db043091c7bf17ff2f108d1b16236a7f92d46f0ee94119461507e8d92656d6",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "finanziamento-tredicesima-avs",
+          "category": "pensione",
+          "date": "2026-11-09T10:37:10.589Z",
+          "updatedAt": null,
+          "authorSlug": "laura-bianchi"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-finanziamento-tredicesima-avs.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1794,
+      "verifiedAt": "2026-11-09",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-finanziamento-tredicesima-avs",
+        "imageUrl": "/images/blog/article-finanziamento-tredicesima-avs.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-porrentruy-imposta-budget-2027": {
+      "cover": "/images/blog/article-porrentruy-imposta-budget-2027.webp",
+      "hash": "58a5d7fe238e83ba6e029e7aeb3f1ea94fe2eedf7930f0fed229417d5c98440c",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-ju",
+          "id": "porrentruy-imposta-budget-2027",
+          "category": "fiscale",
+          "date": "2026-11-09T11:29:51.663Z",
+          "updatedAt": null,
+          "authorSlug": "marco-ferrari"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-porrentruy-imposta-budget-2027.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1794,
+      "verifiedAt": "2026-11-09",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-porrentruy-imposta-budget-2027",
+        "imageUrl": "/images/blog/article-porrentruy-imposta-budget-2027.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-via-libera-tram-treno-luganese": {
+      "cover": "/images/blog/article-via-libera-tram-treno-luganese.webp",
+      "hash": "83eb6db694d936e1f7b7c7f682c5a4e423864de2719a5af8a17c65e80670e19b",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "via-libera-tram-treno-luganese",
+          "category": "novita",
+          "date": "2026-11-09T11:39:29.892Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-via-libera-tram-treno-luganese.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1794,
+      "verifiedAt": "2026-11-09",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-via-libera-tram-treno-luganese",
+        "imageUrl": "/images/blog/article-via-libera-tram-treno-luganese.webp",
         "evidence": "generated-engine-record"
       }
     }

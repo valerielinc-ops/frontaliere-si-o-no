@@ -48127,6 +48127,26 @@ const RAW_ARTICLES_CHUNK_19: Article[] = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'finanziamento-tredicesima-avs',
+ category: 'pensione',
+ date: '2026-11-09T10:37:10.589Z',
+ image: '/images/blog/article-finanziamento-tredicesima-avs.webp',
+ hasCalculator: true,
+ articleType: 'news',
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
+ },
+ {
+ id: 'via-libera-tram-treno-luganese',
+ category: 'novita',
+ date: '2026-11-09T11:39:29.892Z',
+ image: '/images/blog/article-via-libera-tram-treno-luganese.webp',
+ hasCalculator: true,
+ articleType: 'news',
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ];
 
 const RAW_ARTICLES: Article[] = [
