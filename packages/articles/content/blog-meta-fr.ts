@@ -13689,6 +13689,12 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.vivere-magreglio-lavorare-ticino.title': 'Vivre à Magreglio et travailler au Tessin en tant que frontalier',
     'blog.article.vivere-magreglio-lavorare-ticino.excerpt': 'Analyse et informations pratiques pour ceux qui choisissent de résider à Magreglio, dans la province de Como, et de travailler comme frontalier au Tessin.',
     'blog.article.vivere-magreglio-lavorare-ticino.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
+    'blog.article.finanziamento-tredicesima-avs.title': 'Augmentation de la TVA de 0,4 point de pourcentage pour la treizième rente AVS',
+    'blog.article.finanziamento-tredicesima-avs.excerpt': 'Elisabeth Baume-Schneider considère la solution équilibrée et définit l\'effort requis par l\'augmentation de la TVA comme correct et cohérent.',
+    'blog.article.finanziamento-tredicesima-avs.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
+    'blog.article.via-libera-tram-treno-luganese.title': 'Feu vert définitif à la réalisation du Tram-train',
+    'blog.article.via-libera-tram-treno-luganese.excerpt': 'Le Tribunal fédéral rejette le recours de trois particuliers.',
+    'blog.article.via-libera-tram-treno-luganese.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
 };
 
 export default blogMetaFr;

@@ -13687,6 +13687,12 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vivere-magreglio-lavorare-ticino.title': 'Living in Magreglio and working in Ticino as a border worker',
     'blog.article.vivere-magreglio-lavorare-ticino.excerpt': 'Analysis and practical information for those who choose to reside in Magreglio, in the province of Como, and work as a border worker in Ticino.',
     'blog.article.vivere-magreglio-lavorare-ticino.imageAlt': 'Illustrative image relevant to the article topic',
+    'blog.article.finanziamento-tredicesima-avs.title': 'VAT increase of 0,4 percentage points for the 13th AVS pension',
+    'blog.article.finanziamento-tredicesima-avs.excerpt': 'The interview focuses on financing the 13th pension payment through two elements that the source presents together: the solution identified and the scenario associated with a possible no vote.',
+    'blog.article.finanziamento-tredicesima-avs.imageAlt': 'Illustrative image relevant to the article topic',
+    'blog.article.via-libera-tram-treno-luganese.title': 'Final approval for the construction of the tram-train',
+    'blog.article.via-libera-tram-treno-luganese.excerpt': 'The Federal Court rejects the appeal of three private individuals.',
+    'blog.article.via-libera-tram-treno-luganese.imageAlt': 'Illustrative image relevant to the article topic',
 };
 
 export default blogMetaEn;
