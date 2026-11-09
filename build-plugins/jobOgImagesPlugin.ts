@@ -468,7 +468,7 @@ function buildCardJsx(model: CardModel): unknown {
                           props: {
                             style: {
                               display: 'flex',
-                              fontSize: 40,
+                              fontSize: 48,
                               fontWeight: 700,
                               letterSpacing: 1.5,
                               color: BRAND_ACCENT,
