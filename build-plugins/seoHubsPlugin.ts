@@ -847,6 +847,7 @@ function archiveJobSlugFromHref(href: string | undefined): string | null {
     const target = new URL(href, `${BASE_URL}/`);
     if (target.origin !== BASE_ORIGIN || target.search || target.hash) return null;
     const segments = target.pathname.split('/').filter(Boolean);
+    if (segments.length < 2) return null;
     const slug = segments.at(-1);
     return slug && ARCHIVE_JOB_SLUG.test(slug) ? slug : null;
   } catch {
@@ -878,11 +879,16 @@ function buildCurrentJobCantonIndex(
   cantonJobs: ReadonlyMap<string, readonly CantonJobEntry[]>,
 ): Map<string, string | null> {
   const index = new Map<string, string | null>();
+  const tiSlugs = new Set((cantonJobs.get('TI') ?? []).map((job) => job.slug));
   for (const [canton, jobs] of cantonJobs) {
     // TI is the legacy fallback for unresolved geography, not evidence that a
     // non-TI historical URL should be rewritten to the TI section.
     if (canton === 'TI') continue;
     for (const job of jobs) {
+      if (tiSlugs.has(job.slug)) {
+        index.set(job.slug, null);
+        continue;
+      }
       const previous = index.get(job.slug);
       if (previous === undefined) index.set(job.slug, canton);
       else if (previous !== canton) index.set(job.slug, null);
