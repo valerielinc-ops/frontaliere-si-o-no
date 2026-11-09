@@ -304,7 +304,15 @@ function stealthContextFor(context, options) {
       }
       // No userAgent/locale/timezone here: CloakBrowser sets them as binary
       // flags, and a CDP override would be a tell. Images stay on too.
-      const stealthContext = await browser.newContext();
+      // A context that cannot open must not strand the key's only seat:
+      // nothing else holds this browser to close it later.
+      let stealthContext;
+      try {
+        stealthContext = await browser.newContext();
+      } catch (err) {
+        await closeAll(browser);
+        throw err;
+      }
       stealthContext.setDefaultNavigationTimeout(DEFAULT_NAV_TIMEOUT_MS);
       return { browser, context: stealthContext };
     })().catch((err) => {
@@ -321,17 +329,26 @@ async function fetchViaStealth(context, url, blocked, options) {
     if (blocked) throw blocked;
     throw new AntiBotBlockError(`CloakBrowser escalation unavailable for ${url}`, { url });
   }
-  const page = await stealth.context.newPage();
-  let response;
-  try {
-    response = await page.goto(url, { waitUntil: 'domcontentloaded' });
-  } catch (err) {
-    await safeClosePage(page);
-    throw new NavigationTimeout(
-      `Navigation to ${url} failed (CloakBrowser): ${err && err.message ? err.message : err}`,
-      { cause: err, url },
-    );
-  }
+  // Same transient retry as the vanilla fetch: a timeout or network blip on
+  // the CloakBrowser navigation must not drop the listing.
+  const { page, response } = await fetchWithRetry(
+    async () => {
+      const attemptPage = await stealth.context.newPage();
+      try {
+        return { page: attemptPage, response: await attemptPage.goto(url, { waitUntil: 'domcontentloaded' }) };
+      } catch (err) {
+        await safeClosePage(attemptPage);
+        throw new NavigationTimeout(
+          `Navigation to ${url} failed (CloakBrowser): ${err && err.message ? err.message : err}`,
+          { cause: err, url },
+        );
+      }
+    },
+    {
+      label: `playwright-runtime CloakBrowser ${url}`,
+      isTransient: (err) => err instanceof NavigationTimeout,
+    },
+  );
   const challenge = await passChallenge(page, {
     timeoutMs: options.challengeTimeoutMs ?? 30_000,
     log: (line) => process.stderr.write(`${line}\n`),

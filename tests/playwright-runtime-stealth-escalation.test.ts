@@ -123,6 +123,28 @@ describe('fetchWithRateLimit stealth escalation', () => {
   });
 });
 
+describe('fetchWithRateLimit stealth escalation — review #17750', () => {
+  it('retries a transient CloakBrowser navigation failure, then returns the page', async () => {
+    const failing = stealthPage([{ title: 'Jobs at Acme' }]);
+    failing.goto.mockImplementation(async () => { throw new Error('page.goto: Timeout 60000ms exceeded.'); });
+    const succeeding = stealthPage([{ title: 'Jobs at Acme' }], 200);
+    const t = setup({ vanillaPages: [blockedPage()], stealthPages: [failing, succeeding] });
+    const page = await fetchWithRateLimit(t.context as never, 'https://acme.test/jobs', { minDelayMs: 0, env: ON, stealthDeps: t.stealthDeps });
+    expect(page).toBe(succeeding);
+    expect(failing.close).toHaveBeenCalled();
+  });
+
+  it('closes a launched CloakBrowser whose context cannot open, freeing the seat for the next escalation', async () => {
+    const t = setup({ vanillaPages: [blockedPage(), blockedPage()], stealthPages: [] });
+    t.cloakBrowser.newContext.mockRejectedValueOnce(new Error('context failed'));
+    await expect(fetchWithRateLimit(t.context as never, 'https://acme.test/jobs', { minDelayMs: 0, env: ON, stealthDeps: t.stealthDeps }))
+      .rejects.toBeInstanceOf(AntiBotBlockError);
+    expect(t.cloakBrowser.close).toHaveBeenCalledTimes(1);
+    await closeAll(t.vanillaBrowser as never);
+    expect(t.vanillaBrowser.close).toHaveBeenCalled();
+  });
+});
+
 describe('createBrowser user agent', () => {
   it('declares the bot unless the stealth escalation is on', async () => {
     vi.resetModules();
