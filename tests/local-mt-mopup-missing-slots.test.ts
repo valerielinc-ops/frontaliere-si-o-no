@@ -254,6 +254,27 @@ describe('local-mt-mopup missingSlots()', () => {
 
     expect(selected.map((job: any) => job.slug)).toEqual(['stale-source-copy']);
   });
+
+  it('puts stale source-copy repairs before a fresh general head', () => {
+    const now = Date.now();
+    const firstSeen = (hoursAgo: number) => new Date(now - hoursAgo * 60 * 60 * 1000).toISOString();
+    const candidates = [
+      { slug: 'fresh-hot', firstSeenAt: firstSeen(1) },
+      { slug: 'stale-source-copy', firstSeenAt: firstSeen(8 * 24), sourceCopyDescription: true },
+      { slug: 'fresh-warm', firstSeenAt: firstSeen(2) },
+    ];
+
+    const { selected, stats } = orderMopupJobsByTraffic(
+      candidates,
+      { 'fresh-hot': 500, 'fresh-warm': 50, 'stale-source-copy': 1 },
+      2,
+      { priorityOf: (job: any) => job.sourceCopyDescription === true },
+    );
+
+    expect(selected.map((job: any) => job.slug)).toEqual(['stale-source-copy', 'fresh-hot']);
+    expect(stats.freshHead).toBe(1);
+    expect(stats.freshDeferred).toBe(1);
+  });
 });
 
 function auditTitleTarget({ id, sourceLang, locale, sourceText, existing, company }) {
