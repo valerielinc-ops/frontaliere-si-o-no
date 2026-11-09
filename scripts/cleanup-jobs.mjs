@@ -69,13 +69,26 @@ const ACTIVE_SLICES_DIR = path.resolve(__dirname, '..', 'data', 'jobs', 'by-craw
 const MAX_CONCURRENCY = Math.max(1, Math.min(20, intFromEnv('JOBS_HOUSEKEEPING_CONCURRENCY', DEFAULT_CONCURRENCY)));
 const TIMEOUT_MS = Math.max(2000, Math.min(15000, intFromEnv('JOBS_HOUSEKEEPING_TIMEOUT_MS', DEFAULT_TIMEOUT_MS)));
 const HOUSEKEEPING_SCOPE = String(process.env.JOBS_HOUSEKEEPING_SCOPE || '').trim();
-const SKIP_URL_VALIDATION = String(process.env.JOBS_SKIP_URL_VALIDATION || '0') === '1';
 
 /** Slice-only mode: operate on a single per-crawler slice file instead of the
  *  monolithic data/jobs.json. Set JOBS_SLICE_FILE to the slice path, e.g.
  *  data/jobs/by-crawler/coop-ticino.json. Assembly into data/jobs.json happens
  *  in the deploy pipeline instead of per-crawler. */
 const SLICE_FILE = String(process.env.JOBS_SLICE_FILE || '').trim();
+
+const EXPLICIT_SKIP_URL_VALIDATION = String(process.env.JOBS_SKIP_URL_VALIDATION || '0') === '1';
+// A grouped crawler has just handed this slice to housekeeping after its
+// source-specific snapshot and anti-shrink checks. The generic URL probe is a
+// separate housekeeping lane: on ATS portals it can mistake a detail-page
+// tombstone/redirect for a closed listing and erase a complete source snapshot
+// before the grouped commit. Keep age pruning, decontamination and slug dedup
+// here; URL validation remains active for unscoped housekeeping and explicit
+// callers that do not provide this grouped slice contract.
+const GROUPED_SLICE_MODE = Boolean(SLICE_FILE && HOUSEKEEPING_SCOPE);
+const SKIP_URL_VALIDATION = EXPLICIT_SKIP_URL_VALIDATION || GROUPED_SLICE_MODE;
+const URL_VALIDATION_SKIP_REASON = EXPLICIT_SKIP_URL_VALIDATION
+  ? 'JOBS_SKIP_URL_VALIDATION=1'
+  : 'grouped crawler slice (source snapshot already accepted)';
 
 /** Maximum age in days before a job is considered stale regardless of URL status.
  *  Override via JOBS_STALE_DAYS env var. Default: 60 days. */
@@ -587,7 +600,7 @@ async function main() {
       // URL validation (honors JOBS_SKIP_URL_VALIDATION for tests + scoped runs)
       const urlRemoved = [];
       if (SKIP_URL_VALIDATION) {
-        console.log(`⏭️  Slice URL validation skipped (JOBS_SKIP_URL_VALIDATION=1) — keeping ${kept.length} jobs`);
+        console.log(`⏭️  Slice URL validation skipped (${URL_VALIDATION_SKIP_REASON}) — keeping ${kept.length} jobs`);
       } else {
         console.log(`🧹 Slice housekeeping: checking ${kept.length} jobs (concurrency=${MAX_CONCURRENCY}, timeout=${TIMEOUT_MS}ms)`);
         // Keyed by resolveJobDiffKey() not bare job.id: id-less per-crawler
