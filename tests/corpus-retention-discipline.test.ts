@@ -229,7 +229,7 @@ describe('corpus retention discipline (#5330)', () => {
     expect(activeMarker, 'active-pages checkpoint disappeared').toBeGreaterThan(-1);
     expect(companyPhase, 'company phase boundary disappeared').toBeGreaterThan(activeMarker);
     for (const release of [
-      'relatedPoolByJob.clear();',
+      'relatedJobSelector.clear();',
       'relatedJobsByCategory.clear();',
       'relatedJobsByLocation.clear();',
       'canonicalCleanedCache.clear();',

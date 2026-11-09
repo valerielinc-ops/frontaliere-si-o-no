@@ -68,6 +68,15 @@
         "value": "roboto",
         "createdAt": "2026-11-02T18:10:29.272Z",
         "reason": "Existing job OG cards use the bundled static Roboto TTF required by the Satori raster renderer; this change adjusts card hierarchy only."
+      },
+      {
+        "rule": "broken-image",
+        "value": "*",
+        "files": [
+          "tests/article-news-title-invariant.test.ts"
+        ],
+        "createdAt": "2026-11-09T06:36:26.267Z",
+        "reason": "False positive: this is a regex that reads generated <img> markup in a test; it adds no image element or empty src to the site."
       }
     ]
   },

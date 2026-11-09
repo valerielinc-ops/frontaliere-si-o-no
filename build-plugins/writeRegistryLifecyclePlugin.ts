@@ -32,7 +32,9 @@ import type { Plugin } from 'vite';
 import {
  reset,
  getCollisions,
- getPathHistory,
+ getClaimedPaths,
+ getCollidingPathHistories,
+ getLatestClaimVersion,
  getDeployManifestHash,
  configureDumpDir,
  getDumpDir,
@@ -161,10 +163,8 @@ function collectCollidingPaths(): Array<{
  versions: ClaimVersion[];
 }> {
  const out: Array<{ path: string; versions: ClaimVersion[] }> = [];
- for (const [p, versions] of getPathHistory()) {
- if (versions.length >= 2) {
+ for (const [p, versions] of getCollidingPathHistories()) {
  out.push({ path: p, versions: versions.slice() });
- }
  }
  // Sort by collision count descending so the heaviest paths are first
  // — useful when eyeballing the JSON.
@@ -190,12 +190,13 @@ function emitDeployContentManifest(rootDir: string, distDir: string): void {
  const stream = fs.createWriteStream(outPath, { encoding: 'utf-8' });
  let buf = '';
  let count = 0;
- for (const [absPath, versions] of getPathHistory()) {
- if (versions.length === 0) continue;
+ for (const absPath of getClaimedPaths()) {
+ const latestVersion = getLatestClaimVersion(absPath);
+ if (!latestVersion) continue;
  const rel = path.relative(distDir, absPath).split(path.sep).join('/');
  // Skip anything that escaped dist (defensive — shouldn't happen).
  if (rel.startsWith('..')) continue;
- const finalHash = getDeployManifestHash(absPath, versions[versions.length - 1].contentHash);
+ const finalHash = getDeployManifestHash(absPath, latestVersion.contentHash);
  buf += `${rel}\t${finalHash}\n`;
  count += 1;
  if (count % 50000 === 0) {

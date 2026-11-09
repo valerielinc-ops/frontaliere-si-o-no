@@ -197,13 +197,14 @@ export interface SharedPathDeclaration {
 
 /**
  * Module-scope state. Cleared per-build by {@link reset}.
- * `pathHistory` accumulates EVERY version of every path the registry sees;
- * the latest entry's `contentHash` is what's currently on disk (modulo the
- * pending parallel-flush race we exist to expose). End-of-build analysis
- * walks this map and finds paths whose `versions.length > 1` — those are
- * the collisions.
+ * `pathHistory` stores a single claim directly for the common no-collision
+ * case, and promotes it to an array only when another distinct version is
+ * recorded. End-of-build analysis walks the multi-version histories to find
+ * collisions.
  */
-const pathHistory = new Map<string, ClaimVersion[]>();
+type StoredClaimHistory = ClaimVersion | ClaimVersion[];
+
+const pathHistory = new Map<string, StoredClaimHistory>();
 /** Deterministic post-process fingerprint applied to claimed HTML in deploy manifests. */
 let finalOutputManifestFingerprint: string | null = null;
 /**
@@ -211,7 +212,6 @@ let finalOutputManifestFingerprint: string | null = null;
  * content versions, while this index answers the cheaper structural question:
  * has a claimed file already made this path a directory, or vice versa?
  */
-const claimedOutputPaths = new Set<string>();
 const claimedOutputDescendants = new Map<string, string>();
 /**
  * Most pages are `<slug>/index.html`, so their parent directory is unique per
@@ -221,6 +221,9 @@ const claimedOutputDescendants = new Map<string, string>();
  */
 const DIRECTORY_INDEX_BASENAME = 'index.html';
 const DIRECTORY_INDEX_SUFFIX = `${path.sep}${DIRECTORY_INDEX_BASENAME}`;
+// Build emitters normally pass canonical absolute paths. Keep only normalized
+// aliases for the uncommon relative or non-normalized claim.
+const claimedOutputPathAliases = new Set<string>();
 const sharedPathDeclarations: SharedPathDeclaration[] = [];
 let buildGeneration = 0;
 
@@ -234,18 +237,56 @@ function resolveRetainedPath(filePath: string): string {
   return resolved === filePath ? filePath : resolved;
 }
 
+function asVersionList(history: StoredClaimHistory): readonly ClaimVersion[] {
+  return Array.isArray(history) ? history : [history];
+}
+
+function* pathHistoryEntries(): Generator<[string, readonly ClaimVersion[]]> {
+  for (const [filePath, history] of pathHistory) {
+    yield [filePath, asVersionList(history)] as [string, readonly ClaimVersion[]];
+  }
+}
+
+const pathHistoryView: ReadonlyMap<string, readonly ClaimVersion[]> = {
+  get size() {
+    return pathHistory.size;
+  },
+  get(filePath) {
+    const history = pathHistory.get(filePath);
+    return history === undefined ? undefined : asVersionList(history);
+  },
+  has(filePath) {
+    return pathHistory.has(filePath);
+  },
+  entries: pathHistoryEntries,
+  keys() {
+    return pathHistory.keys();
+  },
+  *values() {
+    for (const history of pathHistory.values()) yield asVersionList(history);
+  },
+  forEach(callbackfn, thisArg) {
+    for (const [filePath, history] of pathHistoryEntries()) {
+      callbackfn.call(thisArg, history, filePath, pathHistoryView);
+    }
+  },
+  [Symbol.iterator]: pathHistoryEntries,
+};
+
 function claimedDirectoryIndex(dirPath: string): string | undefined {
   const indexPath = dirPath.endsWith(path.sep)
     ? `${dirPath}${DIRECTORY_INDEX_BASENAME}`
     : `${dirPath}${DIRECTORY_INDEX_SUFFIX}`;
-  return claimedOutputPaths.has(indexPath) ? indexPath : undefined;
+  return pathHistory.has(indexPath) || claimedOutputPathAliases.has(indexPath)
+    ? indexPath
+    : undefined;
 }
 
 function assertOutputPathShapeAvailable(filePath: string): void {
   const resolved = resolveRetainedPath(filePath);
   let ancestor = path.dirname(resolved);
   while (ancestor !== resolved) {
-    if (claimedOutputPaths.has(ancestor)) {
+    if (pathHistory.has(ancestor) || claimedOutputPathAliases.has(ancestor)) {
       throw new DistPathCollisionError(
         ancestor,
         resolved,
@@ -269,9 +310,9 @@ function assertOutputPathShapeAvailable(filePath: string): void {
 
 function rememberOutputPathShape(filePath: string): void {
   const resolved = resolveRetainedPath(filePath);
-  if (claimedOutputPaths.has(resolved)) return;
+  if (resolved !== filePath) claimedOutputPathAliases.add(resolved);
+  if (pathHistory.has(filePath)) return;
 
-  claimedOutputPaths.add(resolved);
   let ancestor = path.dirname(resolved);
   if (resolved.endsWith(DIRECTORY_INDEX_SUFFIX)) ancestor = path.dirname(ancestor);
   while (ancestor !== resolved) {
@@ -451,7 +492,7 @@ export function claim(claimPath: string, plugin: string, content: string): Claim
   rememberOutputPathShape(claimPath);
 
   const contentHash = hashContent(content);
-  const versions = pathHistory.get(claimPath);
+  const history = pathHistory.get(claimPath);
   // Avoid retaining a stack frame for every ordinary claim. The concrete
   // caller is still captured on the collision branch below, where the
   // diagnostic needs it.
@@ -463,11 +504,13 @@ export function claim(claimPath: string, plugin: string, content: string): Claim
     timestamp: Date.now() - buildStartMs,
   });
 
-  if (!versions) {
-    pathHistory.set(claimPath, [newVersion()]);
+  if (!history) {
+    pathHistory.set(claimPath, newVersion());
     maybeDumpContent(contentHash, content);
     return 'allow-write';
   }
+
+  const versions = Array.isArray(history) ? history : [history];
 
   // Idempotent: this exact content has already been written for this path
   // (by ANY plugin, at ANY prior time). Common, harmless, and silent.
@@ -484,7 +527,8 @@ export function claim(claimPath: string, plugin: string, content: string): Claim
   const decl = findSharedPathDeclaration(claimPath);
   if (decl) {
     if (decl.winner === plugin) {
-      versions.push(newVersion());
+      if (Array.isArray(history)) history.push(newVersion());
+      else pathHistory.set(claimPath, [history, newVersion()]);
       maybeDumpContent(contentHash, content);
       return 'allow-write';
     }
@@ -507,7 +551,8 @@ export function claim(claimPath: string, plugin: string, content: string): Claim
   // report mode: append the new version, dump its content for analysis,
   // and let the parallel flush race normally (last-writer-wins on disk).
   // We surface every collision at end-of-build, not just the first.
-  versions.push(newVersion());
+  if (Array.isArray(history)) history.push(newVersion());
+  else pathHistory.set(claimPath, [history, newVersion()]);
   maybeDumpContent(contentHash, content);
   return 'allow-write';
 }
@@ -549,8 +594,8 @@ export function declareSharedPath(decl: SharedPathDeclaration): void {
 export function reset(): void {
   pathHistory.clear();
   finalOutputManifestFingerprint = null;
-  claimedOutputPaths.clear();
   claimedOutputDescendants.clear();
+  claimedOutputPathAliases.clear();
   dumpedHashes.clear();
   dumpDirMkdirDone = false;
   buildStartMs = Date.now();
@@ -569,10 +614,39 @@ export function getBuildGeneration(): number {
  * collisions.mjs) iterates this map.
  */
 export function getPathHistory(): ReadonlyMap<string, readonly ClaimVersion[]> {
-  return pathHistory;
+  return pathHistoryView;
 }
 
-/** Read-only diagnostic count of directories stored in the path-shape index. */
+/** Check whether a path has already been claimed without materializing history. */
+export function hasClaimedPath(filePath: string): boolean {
+  return pathHistory.has(filePath);
+}
+
+/** Number of distinct claimed output paths. */
+export function getClaimedPathCount(): number {
+  return pathHistory.size;
+}
+
+/** Iterate claimed paths without copying the registry's keys. */
+export function getClaimedPaths(): IterableIterator<string> {
+  return pathHistory.keys();
+}
+
+/** Latest version for one path without allocating a compatibility history array. */
+export function getLatestClaimVersion(filePath: string): ClaimVersion | undefined {
+  const history = pathHistory.get(filePath);
+  if (!history) return undefined;
+  return Array.isArray(history) ? history[history.length - 1] : history;
+}
+
+/** Iterate only the paths with multiple recorded versions. */
+export function* getCollidingPathHistories(): Generator<[string, readonly ClaimVersion[]]> {
+  for (const [filePath, history] of pathHistory) {
+    if (Array.isArray(history)) yield [filePath, history];
+  }
+}
+
+/** Read-only count for the retained path-shape index. */
 export function getOutputShapeDirCount(): number {
   return claimedOutputDescendants.size;
 }
@@ -585,13 +659,12 @@ export function getOutputShapeDirCount(): number {
  * Paths covered by a {@link declareSharedPath} declaration are EXCLUDED
  * from the result: their multi-version history is intentional, not a
  * collision. Kept for backward compatibility with the legacy console-summary
- * code path; new analysis should walk {@link getPathHistory} directly and
+ * code path; new analysis should walk {@link getCollidingPathHistories} directly and
  * apply its own filtering.
  */
 export function getCollisions(): readonly CollisionRecord[] {
   const records: CollisionRecord[] = [];
-  for (const [claimPath, versions] of pathHistory) {
-    if (versions.length < 2) continue;
+  for (const [claimPath, versions] of getCollidingPathHistories()) {
     if (findSharedPathDeclaration(claimPath)) continue;
     for (let i = 1; i < versions.length; i += 1) {
       const prev = versions[i - 1];
@@ -639,8 +712,7 @@ export function pruneDumpToCollidingHashes(): { kept: number; removed: number } 
   if (!dumpContentDir) return { kept: 0, removed: 0 };
 
   const keepHashes = new Set<string>();
-  for (const [, versions] of pathHistory) {
-    if (versions.length < 2) continue;
+  for (const [, versions] of getCollidingPathHistories()) {
     for (const v of versions) keepHashes.add(v.contentHash);
   }
 
