@@ -94,6 +94,16 @@ const FULL_STATUS_ENUM = {
   EXTENSION_LEVEL_AD_BLOCKER: 2,
   NETWORK_LEVEL_AD_BLOCKER: 3,
 };
+const CANONICAL_STATUS_ENUM = {
+  UNKNOWN: 0,
+  EXTENSION_AD_BLOCKER: 1,
+  NETWORK_LEVEL_AD_BLOCKER: 2,
+  NO_AD_BLOCKER: 3,
+};
+const BOTH_STATUS_ENUM = {
+  ...CANONICAL_STATUS_ENUM,
+  EXTENSION_LEVEL_AD_BLOCKER: 4,
+};
 const FULL_ALLOW_ENUM = { UNKNOWN: 0, ADS_ALLOWED: 1, ADS_NOT_ALLOWED: 2 };
 
 type Scenario = {
@@ -110,6 +120,26 @@ const SCENARIOS: Scenario[] = [
       AdBlockerStatusEnum: FULL_STATUS_ENUM,
       AllowAdsStatusEnum: FULL_ALLOW_ENUM,
       getAdBlockerStatus: () => FULL_STATUS_ENUM.EXTENSION_LEVEL_AD_BLOCKER,
+      getAllowAdsStatus: () => FULL_ALLOW_ENUM.ADS_NOT_ALLOWED,
+    }),
+    expected: { blocked: true, adsAllowed: false },
+  },
+  {
+    name: 'documented EXTENSION_AD_BLOCKER enum, ads not allowed',
+    googlefc: () => ({
+      AdBlockerStatusEnum: CANONICAL_STATUS_ENUM,
+      AllowAdsStatusEnum: FULL_ALLOW_ENUM,
+      getAdBlockerStatus: () => CANONICAL_STATUS_ENUM.EXTENSION_AD_BLOCKER,
+      getAllowAdsStatus: () => FULL_ALLOW_ENUM.ADS_NOT_ALLOWED,
+    }),
+    expected: { blocked: true, adsAllowed: false },
+  },
+  {
+    name: 'both enum spellings are recognized even when their values differ',
+    googlefc: () => ({
+      AdBlockerStatusEnum: BOTH_STATUS_ENUM,
+      AllowAdsStatusEnum: FULL_ALLOW_ENUM,
+      getAdBlockerStatus: () => BOTH_STATUS_ENUM.EXTENSION_LEVEL_AD_BLOCKER,
       getAllowAdsStatus: () => FULL_ALLOW_ENUM.ADS_NOT_ALLOWED,
     }),
     expected: { blocked: true, adsAllowed: false },

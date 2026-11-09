@@ -71,6 +71,7 @@ concurrency:
 permissions:
   contents: write
   pull-requests: write
+  statuses: write
   actions: read
   # A skipped sync exits 0 by design (nothing was written; the previous commit is
   # still consistent). That makes a mirror stuck for good invisible on a wall of
@@ -427,20 +428,12 @@ jobs:
       # The deterministic factuality gates (scripts/lib/article-factuality-gates.mjs)
       # were written for the 2026-07-28 incident and are correct — run against
       # the article issue #5595 reports they flag an institution that does not
-      # exist — but nothing ever ran them on the path that actually publishes.
-      # Since the 2026-08-02 cutover (#4974) article bodies are generated in
-      # nanakokyobashi-rgb/frontaliere-articles and land here through THIS job,
-      # which commits `packages/articles/content` straight to `main` with no PR.
-      # Every committed-diff hook is therefore dead on that path, verified:
-      #
-      #   - `pull_request` runs of tests.yml never see these bodies: no PR;
-      #   - the `push: branches: [main]` run never even STARTS — the push below
-      #     uses this workflow's own GITHUB_TOKEN and GitHub does not trigger
-      #     workflows on such pushes (2026-08-11: sync commit 7f1a3b4f carries
-      #     four check-runs, all `schedule`/`workflow_run`, zero `push`);
-      #   - and if it did start, `github.base_ref` is empty on a push, so
-      #     `--changed origin/${{ github.base_ref || 'main' }}` diffs origin/main
-      #     against itself — an empty scope, green having checked nothing.
+      # exist. This sync is the writer path: it reads the corpus, stages the
+      # exact batch below, audits that uncommitted diff, and then opens the
+      # stable `chore/sync-articles-sitemaps` PR. The ordinary blocking gate in
+      # tests.yml excludes only that exact same-repository branch, so it cannot
+      # turn the report-only writer audit into a second blocking interpretation
+      # of the same batch while every other article PR remains protected.
       #
       # So this step, HERE: the corpus pull above has already written the new
       # bodies into the working tree and the `git add`/`git commit` below has
@@ -456,6 +449,7 @@ jobs:
       # the reasoning and the FACTUALITY_ISSUE_SCOPE knob are documented in
       # scripts/ci/report-synced-article-factuality.mjs.
       - name: Report factuality of the newly synced articles
+        id: report_factuality
         if: steps.gate.outputs.skipped != 'true'
         continue-on-error: true
         env:
@@ -700,6 +694,53 @@ jobs:
           if [ "$has_refresh_changes" = true ]; then
             echo "published-via-pr=true" >> "$GITHUB_OUTPUT"
           fi
+
+      # The stable sync PR is the one deliberate report-only exception to the
+      # ordinary blocking factuality gate in tests.yml. Publish a commit status
+      # only after the PR branch has its final head, so the consumer can prove
+      # that this exact SHA was audited by this writer run. A failed or missing
+      # status leaves the blocking gate enabled; continue-on-error keeps a
+      # status-service outage from discarding the otherwise valid refresh.
+      - name: Attest factuality report for stable sync PR
+        id: factuality_attestation
+        if: steps.commit.outputs.published-via-pr == 'true'
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          WRITER_OUTCOME: ${{ steps.report_factuality.outcome }}
+          SYNC_BRANCH: chore/sync-articles-sitemaps
+        run: |
+          set -euo pipefail
+          echo 'attested=false' >> "$GITHUB_OUTPUT"
+          pr_number=''
+          for attempt in 1 2 3; do
+            pr_number="$(gh pr list --repo "$GITHUB_REPOSITORY" --state open --base main --head "$SYNC_BRANCH" --json number --jq '.[0].number // empty' || true)"
+            [ -n "$pr_number" ] && break
+            sleep "$attempt"
+          done
+          if [ -z "$pr_number" ]; then
+            echo '::warning::stable sync PR was not visible; no factuality attestation was published'
+            exit 0
+          fi
+          head_sha="$(gh pr view "$pr_number" --repo "$GITHUB_REPOSITORY" --json headRefOid --jq '.headRefOid')"
+          state=success
+          description='report-only writer audit completed'
+          if [ "${WRITER_OUTCOME:-}" != 'success' ]; then
+            state=failure
+            description='writer audit failed or scope was unavailable'
+          fi
+          target_url="${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"
+          gh api -X POST "repos/${GITHUB_REPOSITORY}/statuses/${head_sha}" \
+            -f "state=${state}" \
+            -f 'context=frontaliere/sync-factuality-writer' \
+            -f "description=${description}" \
+            -f "target_url=${target_url}" >/dev/null
+          if [ "$state" = success ]; then
+            echo 'attested=true' >> "$GITHUB_OUTPUT"
+          else
+            echo 'attested=false' >> "$GITHUB_OUTPUT"
+          fi
+          echo "head_sha=$head_sha" >> "$GITHUB_OUTPUT"
 
       # The corpus sync is the automatic writer for packages/articles/content,
       # but the SPA reads the stable CDN registry/companion chunks rather than

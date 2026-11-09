@@ -17,22 +17,26 @@ import { isInvokedDirectly } from '../lib/is-invoked-directly.mjs';
  *
  * Since the 2026-08-02 cutover (#4974) bodies are generated in
  * nanakokyobashi-rgb/frontaliere-articles and land here through the sync
- * workflow, which commits `packages/articles/content` STRAIGHT TO `main` with
- * no PR. Every committed-diff hook is therefore dead on that path — verified,
- * not assumed:
+ * workflow. The writer stages the new bodies before opening the stable PR
+ * `chore/sync-articles-sitemaps`; that is the only PR path explicitly paired
+ * with this report-only audit. The ordinary committed-diff gate cannot be the
+ * writer's backstop:
  *
- *   - `pull_request` runs of tests.yml never see these bodies: there is no PR;
- *   - the `push: branches: [main]` run never STARTS — the sync pushes with the
- *     workflow's own GITHUB_TOKEN and GitHub does not trigger workflows on such
- *     pushes (2026-08-11: sync commit 7f1a3b4f carries four check-runs, all
- *     `schedule`/`workflow_run`, zero `push`);
- *   - and if it did start, `github.base_ref` is empty on a push, so
- *     `--changed origin/${{ github.base_ref || 'main' }}` diffs `origin/main`
- *     against itself → empty scope → green having checked nothing.
+ *   - the audit must run before the sync commit/PR is created, when the
+ *     uncommitted working tree is the exact publication batch;
+ *   - a `push: branches: [main]` run is not a reliable fallback because the
+ *     sync uses the workflow's own GITHUB_TOKEN and GitHub does not trigger
+ *     workflows on such pushes;
+ *   - and on a push `github.base_ref` is empty, so
+ *     `--changed origin/${{ github.base_ref || 'main' }}` would diff
+ *     `origin/main` against itself → empty scope → green having checked
+ *     nothing.
  *
- * The only surviving diff of what is about to be published is the sync job's
- * own uncommitted working tree. That is what this reads, via
- * `audit-article-factuality.mjs --changed-worktree`.
+ * The only authoritative diff at that point is the sync job's own uncommitted
+ * working tree. That is what this reads, via
+ * `audit-article-factuality.mjs --changed-worktree`; `tests.yml` keeps its
+ * blocking gate for every other PR and excludes only the exact same-repository
+ * stable sync branch.
  *
  * ── Why it reports instead of blocking ──────────────────────────────────────
  *
@@ -482,7 +486,10 @@ export async function main({
     // Loud on stdout too: a step summary is easy to miss and this is the state
     // in which the check covered nothing at all.
     console.error('⚠️  Scope non calcolabile — nessun articolo verificato in questo sync.');
-    return 0;
+    // The sync workflow keeps this report-only step non-blocking for the
+    // publication batch, but its failure must remain visible to the stable PR
+    // attestation. A missing scope is not a successful audit.
+    return 1;
   }
   console.log(
     `[factuality] ${report.scanned} body-locale sincronizzati, ${report.flagged} segnalati, `
@@ -542,13 +549,13 @@ if (isInvokedDirectly(import.meta.url)) {
   main()
     .then((code) => process.exit(code))
     .catch((err) => {
-      // Never let reporting turn a tolerated finding into a stopped publish:
-      // the sync must still commit. The step is `continue-on-error` too, so
-      // this is belt and braces on purpose.
+      // The sync step is `continue-on-error`, so a reporter failure does not
+      // discard the whole publication batch. Keep the non-zero outcome visible
+      // so the stable PR cannot mistake a failed audit for a valid attestation.
       console.error(
-        '⚠️  report-synced-article-factuality failed (non-fatal):',
+        '⚠️  report-synced-article-factuality failed:',
         err?.message || err,
       );
-      process.exit(0);
+      process.exit(1);
     });
 }
