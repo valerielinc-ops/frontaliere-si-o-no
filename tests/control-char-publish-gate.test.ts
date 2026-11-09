@@ -126,6 +126,35 @@ describe('what must be refused', () => {
     expect(inspectDocument(xml, 'xml')[0].form).toBe('reference');
   });
 
+  it('keeps references inside XML literal regions but still refuses raw C0 there', () => {
+    const xml = '<!--&#8;--><t><![CDATA[&#x08;]]></t><?probe &#8;?>';
+    expect(inspectDocument(xml, 'xml')).toEqual([]);
+    expect(isPublishable(xml, 'xml')).toBe(true);
+
+    const raw = '<t><![CDATA[a' + BS + 'b]]></t>';
+    expect(isPublishable(raw, 'xml')).toBe(false);
+  });
+
+  it('does not hide a C0 reference in comment-shaped text inside a DTD entity value', () => {
+    const xml = '<!DOCTYPE root [<!ENTITY x "<!-- &#8; -->">]><root/>';
+    const findings = inspectDocument(xml, 'xml');
+    expect(findings).toHaveLength(1);
+    expect(findings[0]).toMatchObject({ form: 'reference', code: 0x08 });
+    expect(findings[0].index).toBe(xml.indexOf('&#8;'));
+    expect(isPublishable(xml, 'xml')).toBe(false);
+  });
+
+  it('does not let an unterminated XML literal region hide a C0 reference', () => {
+    for (const xml of [
+      '<root><!--unterminated &#8;',
+      '<root><![CDATA[unterminated &#x08;',
+      '<root><?probe unterminated &#8;',
+    ]) {
+      expect(isPublishable(xml, 'xml')).toBe(false);
+      expect(inspectDocument(xml, 'xml')[0].form).toBe('reference');
+    }
+  });
+
   it('an escaped C0 in a .json document, read by parsing rather than matching', () => {
     const json = JSON.stringify({ ranking: [{ name: `Chi${BS}asso` }] });
     expect(json).not.toMatch(/[\u0000-\u0008]/); // escaped, so byte-clean
