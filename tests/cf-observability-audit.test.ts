@@ -52,6 +52,17 @@ describe('cf-observability-audit checks', () => {
     expect(failing({ ...healthy, topUserAgents: [{ ua: 'Reflectionbot/1.0', count: 90_000 }] })).toEqual([]);
   });
 
+  it('recognizes ShapBot as a welcomed AI crawler', () => {
+    expect(
+      failing({
+        ...healthy,
+        topUserAgents: [
+          { ua: 'Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko); compatible; ShapBot/0.1.0', count: 90_000 },
+        ],
+      }),
+    ).toEqual([]);
+  });
+
   it('judges sampling and volume only from the cutover date', () => {
     const cutover = new Date('2026-12-01T00:00:00Z');
     const fullSampling = { ...healthy, total: 100_000, samplingRate: 1 };
