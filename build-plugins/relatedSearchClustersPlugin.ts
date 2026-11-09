@@ -182,9 +182,13 @@ import {
   printSummary as printRelatedSearchProfile,
 } from './shared/relatedSearchClustersProfiler';
 import { forceGc } from './shared/forceGc';
+import { readSelfAnonMb, resolveThresholds } from './shared/buildMemoryGuard';
 import {
+  createRelatedSearchContextGcCounters,
+  decideRelatedSearchContextGc,
   isRelatedSearchContextGcEnabled,
-  shouldCollectRelatedSearchContextGarbage,
+  recordRelatedSearchContextGcCollection,
+  recordRelatedSearchContextGcSample,
   shouldForceRelatedSearchContextGc,
 } from './shared/relatedSearchContextGc';
 
@@ -6027,10 +6031,15 @@ function buildRelatedSearchClustersPlugin(rootDir: string): Plugin {
       const contextStartedAt = Date.now();
       let processedContexts = 0;
       const contextGcEnabled = isRelatedSearchContextGcEnabled(process.env.RELATED_SEARCH_CONTEXT_GC_CHECKPOINTS);
+      const contextGcCounters = createRelatedSearchContextGcCounters();
+      const contextGuardCeilingMb = resolveThresholds().rssCeilingMb;
+      const contextAnonGuardCeilingMb = Number.isFinite(contextGuardCeilingMb) && contextGuardCeilingMb > 0
+        ? contextGuardCeilingMb
+        : null;
       let contextSampledPeakHeapMb = 0;
       let contextSampledPeakRssMb = 0;
-      let contextMemorySampleCount = 0;
       let contextLastGcHeapUsedBytes: number | null = null;
+      let contextLastGcAnonFootprintMb: number | null = null;
       for (const cand of candidatesInScope) {
         // Single pass, on purpose. #11971 probed each candidate up to the
         // indexability floor and rebuilt the ones that reached it, assuming
@@ -6062,28 +6071,51 @@ function buildRelatedSearchClustersPlugin(rootDir: string): Plugin {
         // 2,500-context checkpoint reclaimed 1.2 GB left by preceding SEO
         // phases, but later forced collections reclaimed only 4–42 MB and
         // stretched the loop from 59s to 378s. Keep bounded checkpoints, but
-        // collect only after 512 MB of additional heap has accumulated.
+        // collect only after 512 MB of heap/anon growth or near the build
+        // memory guard ceiling.
         if (shouldForceRelatedSearchContextGc(processedContexts)) {
           const sample = process.memoryUsage();
+          const anonSample = readSelfAnonMb();
+          const anonFootprintMb = anonSample === null
+            ? null
+            : anonSample.rssMb + anonSample.swapMb;
           contextSampledPeakHeapMb = Math.max(contextSampledPeakHeapMb, Math.round(sample.heapUsed / 1048576));
           contextSampledPeakRssMb = Math.max(contextSampledPeakRssMb, Math.round(sample.rss / 1048576));
-          contextMemorySampleCount += 1;
-          const shouldCollectContextGarbage = shouldCollectRelatedSearchContextGarbage(
+          recordRelatedSearchContextGcSample(contextGcCounters);
+          const gcDecision = decideRelatedSearchContextGc(
             sample.heapUsed,
             contextLastGcHeapUsedBytes,
+            anonFootprintMb,
+            contextLastGcAnonFootprintMb,
+            contextAnonGuardCeilingMb,
           );
-          if (contextGcEnabled && shouldCollectContextGarbage && forceGc()) {
-            const afterGc = process.memoryUsage();
-            contextLastGcHeapUsedBytes = afterGc.heapUsed;
-            const heapFreedMb = Math.max(0, Math.round((sample.heapUsed - afterGc.heapUsed) / 1048576));
+          if (contextGcEnabled && gcDecision.shouldCollect) {
+            if (forceGc()) {
+              recordRelatedSearchContextGcCollection(contextGcCounters);
+              const afterGc = process.memoryUsage();
+              const afterGcAnon = readSelfAnonMb();
+              contextLastGcHeapUsedBytes = afterGc.heapUsed;
+              contextLastGcAnonFootprintMb = afterGcAnon === null
+                ? null
+                : afterGcAnon.rssMb + afterGcAnon.swapMb;
+              const heapFreedMb = Math.max(0, Math.round((sample.heapUsed - afterGc.heapUsed) / 1048576));
+              console.log(
+                `[related-search-clusters] context GC ${processedContexts}/${candidatesInScope.length} reason=${gcDecision.reason} heap_freed_mb=${heapFreedMb} heap_mb=${Math.round(afterGc.heapUsed / 1048576)} rss_mb=${Math.round(afterGc.rss / 1048576)} anon_mb=${contextLastGcAnonFootprintMb ?? 'n/d'} samples=${contextGcCounters.samples} collections=${contextGcCounters.collections}`,
+              );
+            } else {
+              console.log(
+                `[related-search-clusters] context GC ${processedContexts}/${candidatesInScope.length} result=unavailable reason=${gcDecision.reason}+force_gc_unavailable heap_mb=${Math.round(sample.heapUsed / 1048576)} rss_mb=${Math.round(sample.rss / 1048576)} anon_mb=${anonFootprintMb ?? 'n/d'} samples=${contextGcCounters.samples} collections=${contextGcCounters.collections}`,
+              );
+            }
+          } else if (gcDecision.usedHeapOnlyFallback || gcDecision.reason.includes('unavailable')) {
             console.log(
-              `[related-search-clusters] context GC ${processedContexts}/${candidatesInScope.length} heap_freed_mb=${heapFreedMb} heap_mb=${Math.round(afterGc.heapUsed / 1048576)} rss_mb=${Math.round(afterGc.rss / 1048576)}`,
+              `[related-search-clusters] context GC ${processedContexts}/${candidatesInScope.length} result=${contextGcEnabled ? 'skipped' : 'disabled'} reason=${gcDecision.reason} heap_mb=${Math.round(sample.heapUsed / 1048576)} rss_mb=${Math.round(sample.rss / 1048576)} anon_mb=${anonFootprintMb ?? 'n/d'} samples=${contextGcCounters.samples} collections=${contextGcCounters.collections}`,
             );
           }
         }
       }
       console.log(
-        `[related-search-clusters] context memory sampled_peak_heap_mb=${contextSampledPeakHeapMb} sampled_peak_rss_mb=${contextSampledPeakRssMb} samples=${contextMemorySampleCount} gc_checkpoints=${contextGcEnabled ? 'enabled' : 'disabled'}`,
+        `[related-search-clusters] context memory sampled_peak_heap_mb=${contextSampledPeakHeapMb} sampled_peak_rss_mb=${contextSampledPeakRssMb} samples=${contextGcCounters.samples} collections=${contextGcCounters.collections} gc_checkpoints=${contextGcEnabled ? 'enabled' : 'disabled'}`,
       );
       profileRecord('build-contexts', __tContextBuild);
       console.log(`\x1b[36m[related-search-clusters]\x1b[0m ${contexts.length} clusters survived match-≥${MIN_MATCHING_JOBS} filter`);
