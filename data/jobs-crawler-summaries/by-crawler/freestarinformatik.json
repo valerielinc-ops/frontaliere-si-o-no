@@ -1,7 +1,7 @@
 {
   "key": "freestarinformatik",
   "label": "Freestar-Informatik AG",
-  "generatedAt": "2026-11-09T09:44:43.604Z",
+  "generatedAt": "2026-11-09T21:46:21.166Z",
   "total": 1,
   "discovered": null,
   "parsed": 1,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 3981,
-  "avgDurationMs": 3981,
+  "durationMs": 7416,
+  "avgDurationMs": 7416,
   "durationHistory": [
-    3981
+    7416
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -37,7 +37,7 @@
       "url": "https://freestarinformatik.hr4you.org/job/view/464/service-desk-mitarbeiter-in-a-100-ref-2554?page_lang=de",
       "source": "Freestar-Informatik AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:44:09.452Z",
+      "crawledAt": "2026-11-09T21:45:30.633Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -60,7 +60,7 @@
       "postalCode": "3004",
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-04T09:44:09.452Z",
+      "validThrough": "2027-02-04T21:45:30.633Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -71,5 +71,5 @@
       }
     }
   ],
-  "codeCommit": "f071981dd2d2820cdec3736f76b1b17ee50345bd"
+  "codeCommit": "1dbbd63fa4ef1d645b973703c20eaa910357364d"
 }

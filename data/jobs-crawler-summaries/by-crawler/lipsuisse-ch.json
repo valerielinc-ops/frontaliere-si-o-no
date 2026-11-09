@@ -1,17 +1,14 @@
 {
-  "detailCandidates": 0,
-  "detailGone": 0,
-  "detailRejected": 0,
   "key": "lipsuisse-ch",
   "label": "LIP Suisse",
-  "generatedAt": "2026-11-09T09:44:13.071Z",
+  "generatedAt": "2026-11-09T21:46:28.448Z",
   "total": 0,
-  "discovered": 0,
+  "discovered": null,
   "parsed": 0,
-  "lastFetchOutcome": null,
+  "lastFetchOutcome": "selector_miss",
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
-  "abortKind": "no-jobs-parsed",
+  "abortKind": "source-extraction-failed",
   "written": 0,
   "newCount": 0,
   "updatedCount": 0,
@@ -23,5 +20,5 @@
   "unchangedJobs": [],
   "earlyExit": true,
   "exitCode": 0,
-  "codeCommit": "f071981dd2d2820cdec3736f76b1b17ee50345bd"
+  "codeCommit": "1dbbd63fa4ef1d645b973703c20eaa910357364d"
 }
