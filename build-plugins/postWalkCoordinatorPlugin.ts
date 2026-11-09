@@ -119,7 +119,7 @@ import {
 } from './shared/postWalkCoordinatorProfiler';
 import { logBuildMem } from './shared/buildMemLog';
 import { releaseIncrementalManifestState } from './shared/incrementalManifest.mjs';
-import { getPathHistory } from './sharedWriteRegistry';
+import { getClaimedPathCount, getClaimedPaths } from './sharedWriteRegistry';
 import {
   getKeywordLandingPlanSnapshot,
   isStaleKeywordLanding,
@@ -773,24 +773,21 @@ function buildPostWalkCoordinatorPlugin(
         const __tWalk = profileStart();
         const __tEnumeration = profileStart();
         const walkEnumerationStartedAt = Date.now();
-        const currentClaimedPaths = [...getPathHistory().keys()];
-        const currentClaimedSet = new Set(currentClaimedPaths);
+        const currentClaimedPathCount = getClaimedPathCount();
+        const claimedWalkPaths = new Set(getClaimedPaths());
         // A claim persisted by the previous build but not re-claimed now may
         // belong to a page this build no longer emits. Keep it only when the
         // file still exists, so a removed URL never lingers in
         // existingHtmlSet (hreflang/bridge existence checks) nor in the next
         // inventory. Only persisted-only paths pay the stat.
         let persistedClaimsPruned = 0;
-        const persistedClaimedPaths: string[] = [];
         for (const relative of previousWalkInventory?.claimedPaths ?? []) {
           const filePath = path.join(distDir, relative);
-          if (currentClaimedSet.has(filePath)) continue;
-          if (fs.existsSync(filePath)) persistedClaimedPaths.push(filePath);
-          else persistedClaimsPruned++;
+          if (claimedWalkPaths.has(filePath)) continue;
+          if (fs.existsSync(filePath)) {
+            claimedWalkPaths.add(filePath);
+          } else persistedClaimsPruned++;
         }
-        const claimedWalkPaths = [
-          ...new Set([...currentClaimedPaths, ...persistedClaimedPaths]),
-        ];
         const hasPersistedTargetRoots = previousWalkInventory !== null
           || previousUnmanifestedTopLevels !== null;
         const hasPersistedWalkPaths = previousWalkInventory !== null
@@ -802,7 +799,7 @@ function buildPostWalkCoordinatorPlugin(
           && postWalkTargetedWalkEnabled()
           && manifestAllowsTargetedWalk
           && hasPersistedTargetRoots
-          && (claimedWalkPaths.length > 0 || hasPersistedWalkPaths);
+          && (claimedWalkPaths.size > 0 || hasPersistedWalkPaths);
         const indexedInventory: PostWalkIndexedInventory | undefined = previousWalkInventory
           ? {
             topLevels: previousWalkInventory.topLevels,
@@ -817,7 +814,7 @@ function buildPostWalkCoordinatorPlugin(
               + `inventory-claimed=${previousWalkInventory?.claimedPaths.length ?? 0} `
               + `inventory-unmanifested=${previousWalkInventory?.unmanifestedPaths.length ?? 0} `
               + `legacy-top-levels=${previousUnmanifestedTopLevels?.length ?? 0} `
-              + `path-history=${currentClaimedPaths.length} `
+              + `path-history=${currentClaimedPathCount} `
               + `persisted-claims-pruned=${persistedClaimsPruned} `
               + `targeted-walk=${postWalkTargetedWalkEnabled() ? 'opt-in' : 'off'} `
               + `manifests=${manifests === null ? 'missing' : 'loaded'}`,

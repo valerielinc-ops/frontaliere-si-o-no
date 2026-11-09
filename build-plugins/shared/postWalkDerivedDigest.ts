@@ -2,7 +2,7 @@ import { createHash } from 'node:crypto';
 import fs from 'node:fs';
 import path from 'node:path';
 
-import { getBuildGeneration, getPathHistory, hashContent } from '../sharedWriteRegistry';
+import { getBuildGeneration, getLatestClaimVersion, hashContent } from '../sharedWriteRegistry';
 
 export const POST_WALK_DERIVED_SIDECAR_VERSION = 3;
 export const POST_WALK_DERIVED_SIDECAR_FILE = 'post-walk-derived-v3.jsonl';
@@ -154,10 +154,7 @@ export function loadPostWalkDerivedDigestSidecar(rootDir: string): LoadedSidecar
 }
 
 export function latestClaimHash(filePath: string): string | null {
-  const versions = getPathHistory().get(filePath);
-  return versions && versions.length > 0
-    ? versions[versions.length - 1].contentHash
-    : null;
+  return getLatestClaimVersion(filePath)?.contentHash ?? null;
 }
 
 function inferCurrentDerivedKind(distDir: string, filePath: string): PostWalkDerivedKind | null {

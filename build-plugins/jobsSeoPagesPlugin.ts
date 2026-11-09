@@ -135,6 +135,7 @@ import { JOB_BOARD_EDITORIAL_NOINDEX_BRIDGE_MARKER } from './shared/jobBoardEdit
 // primitives (AGENTS.md §6); see build-plugins/shared/jobEventsCrosslink.ts.
 import { nearbyEventsBlockForJobPage } from './shared/jobEventsCrosslink';
 import { EJP_STRIPPED_MARKER } from './shared/ejpMarker';
+import { createRelatedJobSelector } from './shared/relatedJobSelection';
 import { getEnsuredDirsSize, WriteCollector } from './batchWrite';
 import { buildFlatBridgeFromSibling } from './flatHtmlRedirectPlugin';
 import { buildTitleWithBrand, composeSerpJobTitle, JOB_TITLE_CITY_CONNECTOR, TITLE_MAX_CHARS, clampMetaDescription, finalizeJobBoardTitle, truncateHeadline, peelDanglingClauseTail, truncateTitleAtClauseBoundary, MIN_PEELED_TITLE_CHARS, truncateClauseAware } from './shared/titleSuffix';
@@ -1857,6 +1858,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
   orphanGscData?: ReadonlyMap<unknown, unknown>;
   relatedJobsByCategory?: ReadonlyMap<unknown, unknown>;
   relatedJobsByLocation?: ReadonlyMap<unknown, unknown>;
+  relatedJobSelector?: { readonly cacheSize: number };
   titleCollisionByLocale?: JobsSeoLocaleSized;
   noCityTitleCollisionByLocale?: JobsSeoLocaleSized;
   claimedTitlesByLocale?: JobsSeoLocaleSized;
@@ -1930,6 +1932,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
    orphanGscData: jobsSeoMemContext.orphanGscData?.size ?? 0,
    relatedJobsByCategory: jobsSeoMemContext.relatedJobsByCategory?.size ?? 0,
    relatedJobsByLocation: jobsSeoMemContext.relatedJobsByLocation?.size ?? 0,
+   relatedSelectionEntries: jobsSeoMemContext.relatedJobSelector?.cacheSize ?? 0,
    titleCollisionEntries: sumLocaleSizes(jobsSeoMemContext.titleCollisionByLocale),
    noCityTitleCollisionEntries: sumLocaleSizes(jobsSeoMemContext.noCityTitleCollisionByLocale),
    claimedTitleEntries: sumLocaleSizes(jobsSeoMemContext.claimedTitlesByLocale),
@@ -3284,98 +3287,16 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  // Pre-index related-job candidates once. The active detail renderer uses
  // related jobs from the same category OR location; doing that with a full
  // validJobs.filter(...) inside every job × locale page made this block scale
- // with O(jobs² × locales). The buckets preserve the original validJobs order
- // below, so related-link selection stays deterministic and byte-equivalent.
+ // with O(jobs² × locales). Candidate pools are transient: only the six jobs
+ // rendered on each page are retained in the stable-ID/seed cache.
  const __tRelatedIndexBuild = startTimer();
- const relatedJobsByCategory = new Map<unknown, any[]>();
- const relatedJobsByLocation = new Map<unknown, any[]>();
+ const relatedJobSelector = createRelatedJobSelector(validJobs);
+ const relatedJobsByCategory = relatedJobSelector.byCategory;
+ const relatedJobsByLocation = relatedJobSelector.byLocation;
  jobsSeoMemContext.relatedJobsByCategory = relatedJobsByCategory;
  jobsSeoMemContext.relatedJobsByLocation = relatedJobsByLocation;
- const relatedJobSourceIndex = new WeakMap<object, number>();
- for (let idx = 0; idx < validJobs.length; idx++) {
- const indexedJob = validJobs[idx] as any;
- relatedJobSourceIndex.set(indexedJob as object, idx);
- const categoryBucket = relatedJobsByCategory.get(indexedJob.category);
- if (categoryBucket) {
- categoryBucket.push(indexedJob);
- } else {
- relatedJobsByCategory.set(indexedJob.category, [indexedJob]);
- }
- const locationBucket = relatedJobsByLocation.get(indexedJob.location);
- if (locationBucket) {
- locationBucket.push(indexedJob);
- } else {
- relatedJobsByLocation.set(indexedJob.location, [indexedJob]);
- }
- }
+ jobsSeoMemContext.relatedJobSelector = relatedJobSelector;
  recordEmit('active-related-index-build', __tRelatedIndexBuild);
- const relatedPoolByJob = new Map<string, any[]>();
- const getRelatedPool = (job: any): any[] => {
- const __tRelatedIndexed = startTimer();
- const stableId = stableJobId(job);
- const cached = stableId ? relatedPoolByJob.get(stableId) : undefined;
- let relatedPool = cached;
- if (!relatedPool) {
- const seen = new Set<any>();
- relatedPool = [];
- const ownSlug = job.slug;
- const addCandidates = (candidates?: any[]) => {
- if (!candidates) return;
- for (const candidate of candidates) {
- if (!candidate || candidate.slug === ownSlug || seen.has(candidate)) continue;
- seen.add(candidate);
- relatedPool!.push(candidate);
- }
- };
- addCandidates(relatedJobsByCategory.get(job.category));
- addCandidates(relatedJobsByLocation.get(job.location));
- relatedPool.sort((a, b) =>
- (relatedJobSourceIndex.get(a as object) ?? 0) - (relatedJobSourceIndex.get(b as object) ?? 0),
- );
- if (stableId) relatedPoolByJob.set(stableId, relatedPool);
- }
- recordEmit('active-related-pool-indexed', __tRelatedIndexed);
- if (PROFILE_RELATED_COMPARE) {
- const __tRelatedLegacy = startTimer();
- const legacyPool = validJobs
- .filter((r: any) => r.slug !== job.slug && (r.category === job.category || r.location === job.location));
- recordEmit('active-related-pool-legacy', __tRelatedLegacy);
- if (
- legacyPool.length !== relatedPool.length
- || legacyPool.some((legacyJob: any, idx: number) => legacyJob.slug !== relatedPool![idx]?.slug)
- ) {
- relatedCompareMismatches++;
- if (relatedCompareMismatches <= 3) {
- console.warn(`\x1b[33m[jobs-seo-pages]\x1b[0m Related pool mismatch for ${job.slug}`);
- }
- }
- }
- return relatedPool;
- };
-
- const selectRelatedJobs = (relatedPool: any[], relatedSeed: number): any[] => {
-  if (relatedPool.length === 0) return [];
-  const out: any[] = [];
-  const seen = new Set<string>();
-  const limit = Math.min(6, relatedPool.length);
-  for (let i = 0; i < limit; i++) {
-   const idx = (relatedSeed + i * 2654435761) % relatedPool.length;
-   const candidate = relatedPool[idx];
-   if (candidate && !seen.has(candidate.slug)) {
-    seen.add(candidate.slug);
-    out.push(candidate);
-   }
-  }
-  // Top-up with sequential picks if hash collisions reduced the selection.
-  for (let i = 0; out.length < limit && i < relatedPool.length; i++) {
-   const candidate = relatedPool[i];
-   if (candidate && !seen.has(candidate.slug)) {
-    seen.add(candidate.slug);
-    out.push(candidate);
-   }
-  }
-  return out;
- };
 
  // `companyRoutePrefix` / `isCompanyHubNamespaceSlug` now live in
  // `./shared/cantonSection` (COMPANY_ROUTE_PREFIX / isCompanyHubNamespaceSlug)
@@ -4001,7 +3922,6 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  );
  const perJob_matchedCity = CITY_HUB_KEYS.find((c) => jobMatchesCity(job as never, c));
  const perJob_logoUrl = companyLogo(job);
- const perJob_relatedPool = getRelatedPool(job);
  const perJob_relatedSeed = (() => {
  const s = String(job.slug || '');
  let h = 2166136261 >>> 0;
@@ -4011,14 +3931,31 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  }
  return h;
  })();
+ const __tRelatedIndexed = startTimer();
+ const perJob_relatedPool = PROFILE_RELATED_COMPARE
+  ? relatedJobSelector.candidatePoolFor(job)
+  : undefined;
+ const perJob_related = relatedJobSelector.select(job, perJob_relatedSeed, perJob_relatedPool);
+ recordEmit('active-related-pool-indexed', __tRelatedIndexed);
+ if (PROFILE_RELATED_COMPARE) {
+  const __tRelatedLegacy = startTimer();
+  const legacyPool = validJobs
+   .filter((r: any) => r.slug !== job.slug && (r.category === job.category || r.location === job.location));
+  recordEmit('active-related-pool-legacy', __tRelatedLegacy);
+  if (
+   legacyPool.length !== perJob_relatedPool!.length
+   || legacyPool.some((legacyJob: any, idx: number) => legacyJob.slug !== perJob_relatedPool![idx]?.slug)
+  ) {
+   relatedCompareMismatches++;
+   if (relatedCompareMismatches <= 3) {
+    console.warn(`\x1b[33m[jobs-seo-pages]\x1b[0m Related pool mismatch for ${job.slug}`);
+   }
+  }
+ }
  // The HTML renderer selects six cards from the full candidate pool. The
  // manifest carries those same six records; their projections cover every
  // related link the renderer emits, so an unrelated pool candidate must not
  // invalidate this page.
- const perJob_relatedJobs = incrementalManifests
-  ? selectRelatedJobs(perJob_relatedPool, perJob_relatedSeed)
-  : null;
- const perJob_related = perJob_relatedJobs ?? selectRelatedJobs(perJob_relatedPool, perJob_relatedSeed);
  const perJob_relatedCanonicalPaths = perJob_related.map((relatedJob: any) => {
    const relatedCanton = sharedResolveJobCanton(relatedJob as { canton?: string; location?: string });
    return {
@@ -5302,10 +5239,10 @@ ${staticAnalyticsHtml}
  // Keeping their per-job arrays alive through company/editorial emission
  // retains another copy of the corpus graph after the active pages are done.
  // Release them at their last reader, before the next SSG family starts.
- const releasedRelatedPoolEntries = relatedPoolByJob.size;
+ const releasedRelatedSelectionEntries = relatedJobSelector.cacheSize;
  const releasedRelatedCategoryBuckets = relatedJobsByCategory.size;
  const releasedRelatedLocationBuckets = relatedJobsByLocation.size;
- relatedPoolByJob.clear();
+ relatedJobSelector.clear();
  relatedJobsByCategory.clear();
  relatedJobsByLocation.clear();
 
@@ -5323,7 +5260,7 @@ ${staticAnalyticsHtml}
   activeHtmlFallbackEntries: jobHtmlCache.size,
   activeHtmlCachePeakEntries,
   activeHtmlCacheChunks,
-  releasedRelatedPoolEntries,
+  releasedRelatedSelectionEntries,
   releasedRelatedCategoryBuckets,
   releasedRelatedLocationBuckets,
   releasedCanonicalCacheEntries,
