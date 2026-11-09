@@ -60,10 +60,22 @@ describe('#5130 — events-seo-pages does not render locales this shard discards
     // Live slug migrations use a compact locale loop, so their shared helper
     // must guard before rendering or writing each redirect page.
     expect(CODE).toContain(
-      'for (const migration of liveSlugMigrations) for (const locale of LOCALES) emitSlugRedirect(locale, migration);',
+      'for (const migration of liveSlugMigrations) for (const locale of LOCALES) await emitSlugRedirect(locale, migration);',
     );
     expect(CODE).toMatch(
-      /const emitSlugRedirect = \(locale: Locale, migration: EventSlugMigration\) => \{\s*if \(!shouldEmitLocale\(locale\)\) return;/,
+      /const emitSlugRedirect = async \(locale: Locale, migration: EventSlugMigration\) => \{\s*if \(!shouldEmitLocale\(locale\)\) return;/,
+    );
+  });
+
+  it('waits for writer capacity before rendering and retaining each page', () => {
+    expect(CODE).toMatch(
+      /const collector = new WriteCollector\(\{[\s\S]{0,160}autoFlushThreshold: 1024,/,
+    );
+    expect(CODE).toMatch(
+      /const emit = async \(renderPage: \(\) => \{ urlPath: string; html: string; wordCount: number \}\) => \{\s*await collector\.awaitDrainSlot\(2\);\s*const rendered = renderPage\(\);/,
+    );
+    expect(CODE).toMatch(
+      /await collector\.awaitDrainSlot\(2\);\s*const html = renderEventSlugRedirectPage\(/,
     );
   });
 

@@ -5416,7 +5416,14 @@ export function eventsSeoPagesPlugin(rootDir: string): Plugin {
       const eventTitleDisambiguatorFor = (event: SiteEvent, locale: Locale): string | undefined =>
         eventTitleDisambiguators.get(`${locale}|${event.id}`);
 
-      const collector = new WriteCollector({ distDir, pluginName: 'eventsSeoPagesPlugin' });
+      // Keep the event-page producer bounded while it renders each page. The
+      // default 5,000-entry buffer can retain several batches of full HTML if
+      // this synchronous loop outruns the writer pool.
+      const collector = new WriteCollector({
+        distDir,
+        pluginName: 'eventsSeoPagesPlugin',
+        autoFlushThreshold: 1024,
+      });
       writeCatalogImages((relPath, contents) => collector.add(path.join(distDir, relPath), contents));
       let pagesWritten = 0;
       let thinPages = 0;
@@ -5444,15 +5451,18 @@ export function eventsSeoPagesPlugin(rootDir: string): Plugin {
         detailMinWordCounts.set(key, previous === undefined ? wordCount : Math.min(previous, wordCount));
       };
 
-      const emit = (rendered: { urlPath: string; html: string; wordCount: number }) => {
+      const emit = async (renderPage: () => { urlPath: string; html: string; wordCount: number }) => {
+        await collector.awaitDrainSlot(2);
+        const rendered = renderPage();
         if (rendered.wordCount < MIN_INDEXABLE_WORDS) thinPages += 1;
         const indexPath = path.join(distDir, rendered.urlPath, 'index.html');
         const flatPath = path.join(distDir, rendered.urlPath.replace(/\/+$/, '') + '.html');
         collector.add(indexPath, rendered.html);
         collector.add(flatPath, rendered.html);
         pagesWritten += 1;
+        return rendered;
       };
-      const emitSlugRedirect = (locale: Locale, migration: EventSlugMigration) => {
+      const emitSlugRedirect = async (locale: Locale, migration: EventSlugMigration) => {
         if (!shouldEmitLocale(locale)) return;
         const fromPath = pathForEventDetail(
           locale,
@@ -5463,6 +5473,7 @@ export function eventsSeoPagesPlugin(rootDir: string): Plugin {
         const toPath = pathForEventDetail(locale, migration.comune, migration.toSlug, migration.canton);
         const key = eventSlugRedirectKey(locale, fromPath);
         if (fromPath === toPath || canonicalDetailPaths.has(fromPath) || emittedSlugRedirects.has(key)) return;
+        await collector.awaitDrainSlot(2);
         const html = renderEventSlugRedirectPage(locale, toPath, eventById.get(migration.eventId), fromPath);
         const indexPath = path.join(distDir, fromPath, 'index.html');
         const flatPath = path.join(distDir, fromPath.replace(/\/+$/, '') + '.html');
@@ -5571,24 +5582,23 @@ export function eventsSeoPagesPlugin(rootDir: string): Plugin {
           const detailHref = detailHrefFor(locale);
           const ladders = laddersByLocale.get(locale)!;
           const ladderPages = new Map(ladders.map((l) => [l.comune, l.pageCount]));
-          emit(renderHubPage({ locale, canton, events, byComune, dateStamp, weekendDays, distDir, detailHref, otherCantons, otherEvents, ladders }));
+          await emit(() => renderHubPage({ locale, canton, events, byComune, dateStamp, weekendDays, distDir, detailHref, otherCantons, otherEvents, ladders }));
           for (const comune of comuni) {
             const list = byComune.get(comune)!;
             const archivePath = pastComuniByCanton.get(canton)?.has(comune)
               ? historicalComuneArchivePath(locale, canton, comune) : undefined;
-            emit(renderComunePage({ locale, canton, comune, events: list, dateStamp, weekendDays, distDir, detailHref, archivePath, siblingComuni: comuni }));
+            await emit(() => renderComunePage({ locale, canton, comune, events: list, dateStamp, weekendDays, distDir, detailHref, archivePath, siblingComuni: comuni }));
             // Overflow index past page 1 (issue #7329) — same rows, bounded
             // pages. Sitemapped alongside the bucket (see `perCantonSitemap`
             // below): the ladder is the only inbound of the rows it carries.
             for (let page = 2; page <= (ladderPages.get(comune) ?? 1); page += 1) {
-              const rendered = renderOverflowLadderPage({ locale, canton, comune, events: list, cap: EVENT_CARD_CAP, page, dateStamp, distDir, detailHref });
-              emit(rendered);
+              const rendered = await emit(() => renderOverflowLadderPage({ locale, canton, comune, events: list, cap: EVENT_CARD_CAP, page, dateStamp, distDir, detailHref }));
               if (locale === 'it' && page <= (sharedLadderPageCounts.get(comune) ?? 1)) recordItLadderPage(comune, page, rendered);
             }
             // One indexable detail page per event under its comune.
             for (const ev of list) {
               const eventSlug = detailSlugs.get(ev.id)!.slug;
-              const rendered = renderEventDetailPage({
+              const rendered = await emit(() => renderEventDetailPage({
                 locale,
                 event: ev,
                 comune,
@@ -5599,18 +5609,17 @@ export function eventsSeoPagesPlugin(rootDir: string): Plugin {
                 detailHref,
                 metaTitleDisambiguator: eventTitleDisambiguatorFor(ev, locale),
                 demandIndexable: demandIndexable({ canton, comune, slug: eventSlug }, false),
-              });
+              }));
               recordDetailWordCount(canton, comune, eventSlug, rendered.wordCount);
-              emit(rendered);
             }
           }
           // Comune-less events: one bucket listing page + one detail page per
           // event, same treatment as a real comune (see the "other events"
           // bucket page above / detailSlugs population above).
           if (otherEvents.length > 0) {
-            emit(renderOtherEventsPage({ locale, canton, events: otherEvents, dateStamp, weekendDays, distDir, detailHref }));
+            await emit(() => renderOtherEventsPage({ locale, canton, events: otherEvents, dateStamp, weekendDays, distDir, detailHref }));
             for (let page = 2; page <= (ladderPages.get(OTHER_EVENTS_COMUNE_KEY) ?? 1); page += 1) {
-              const rendered = renderOverflowLadderPage({
+              const rendered = await emit(() => renderOverflowLadderPage({
                 locale,
                 canton,
                 comune: OTHER_EVENTS_COMUNE_KEY,
@@ -5620,13 +5629,12 @@ export function eventsSeoPagesPlugin(rootDir: string): Plugin {
                 dateStamp,
                 distDir,
                 detailHref,
-              });
-              emit(rendered);
+              }));
               if (locale === 'it' && page <= (sharedLadderPageCounts.get(OTHER_EVENTS_COMUNE_KEY) ?? 1)) recordItLadderPage(OTHER_EVENTS_COMUNE_KEY, page, rendered);
             }
             for (const ev of otherEvents) {
               const eventSlug = detailSlugs.get(ev.id)!.slug;
-              const rendered = renderEventDetailPage({
+              const rendered = await emit(() => renderEventDetailPage({
                 locale,
                 event: ev,
                 comune: OTHER_EVENTS_COMUNE_KEY,
@@ -5637,15 +5645,14 @@ export function eventsSeoPagesPlugin(rootDir: string): Plugin {
                 detailHref,
                 metaTitleDisambiguator: eventTitleDisambiguatorFor(ev, locale),
                 demandIndexable: demandIndexable({ canton, comune: OTHER_EVENTS_COMUNE_KEY, slug: eventSlug }, false),
-              });
+              }));
               recordDetailWordCount(canton, OTHER_EVENTS_COMUNE_KEY, eventSlug, rendered.wordCount);
-              emit(rendered);
             }
           }
           // Emitted even when empty (the page degrades to a "no events" notice +
           // comune links) so the URL is stable for FB linking, but noindex.
           for (const def of DIGESTS) {
-            emit(renderDigestPage({ def, locale, canton, events: digestEvents.get(def.key)!, dateStamp, distDir, detailHref }));
+            await emit(() => renderDigestPage({ def, locale, canton, events: digestEvents.get(def.key)!, dateStamp, distDir, detailHref }));
           }
         }
 
@@ -5710,22 +5717,21 @@ export function eventsSeoPagesPlugin(rootDir: string): Plugin {
             // Same shard gate as the main render loop above.
             if (!shouldEmitLocale(locale)) { skippedLocaleRenders += 1; continue; }
             const detailHref = detailHrefFor(locale);
-            for (const migration of pastSlugMigrations) emitSlugRedirect(locale, migration);
-            for (const migration of pastHistoricalMigrations) emitSlugRedirect(locale, migration);
+            for (const migration of pastSlugMigrations) await emitSlugRedirect(locale, migration);
+            for (const migration of pastHistoricalMigrations) await emitSlugRedirect(locale, migration);
             if (comune !== OTHER_EVENTS_COMUNE_KEY) {
               const pageCount = Math.ceil(municipalEntries.length / HISTORICAL_ARCHIVE_PAGE_SIZE);
-              const emitArchive = (page: number, municipalHub = false) => {
-                const rendered = renderHistoricalEventsArchivePage({ locale, entries: municipalEntries, page, pageCount,
-                  distDir, municipality: { canton, comune }, municipalHub });
-                emit(rendered);
+              const emitArchive = async (page: number, municipalHub = false) => {
+                const rendered = await emit(() => renderHistoricalEventsArchivePage({ locale, entries: municipalEntries, page, pageCount,
+                  distDir, municipality: { canton, comune }, municipalHub }));
                 municipalArchivePaths.add(rendered.urlPath);
               };
-              for (let page = 1; page <= pageCount; page += 1) emitArchive(page);
-              if (liveSameComune.length === 0) emitArchive(1, true);
+              for (let page = 1; page <= pageCount; page += 1) await emitArchive(page);
+              if (liveSameComune.length === 0) await emitArchive(1, true);
             }
             for (const ev of list) {
               const eventSlug = pastSlugFor.get(ev.id)!;
-              const rendered = renderEventDetailPage({
+              const rendered = await emit(() => renderEventDetailPage({
                 locale,
                 event: ev,
                 comune,
@@ -5737,14 +5743,13 @@ export function eventsSeoPagesPlugin(rootDir: string): Plugin {
                 metaTitleDisambiguator: eventTitleDisambiguatorFor(ev, locale),
                 isPast: true,
                 demandIndexable: demandIndexable({ canton, comune, slug: eventSlug }, true),
-              });
+              }));
               recordDetailWordCount(canton, comune, eventSlug, rendered.wordCount);
-              emit(rendered);
             }
           }
         }
       }
-      for (const migration of liveSlugMigrations) for (const locale of LOCALES) emitSlugRedirect(locale, migration);
+      for (const migration of liveSlugMigrations) for (const locale of LOCALES) await emitSlugRedirect(locale, migration);
 
       // Swiss-wide index hub (issue #3645, F3) — one per locale, always
       // emitted alongside the per-canton hubs above: the `all.length === 0`
@@ -5754,7 +5759,7 @@ export function eventsSeoPagesPlugin(rootDir: string): Plugin {
         // Same shard gate as the render loops above.
         if (!shouldEmitLocale(locale)) { skippedLocaleRenders += 1; continue; }
         const detailHref = detailHrefFor(locale);
-        emit(renderEventsIndexPage({ locale, cantonStats, events: all, dateStamp, weekendDays, distDir, detailHref }));
+        await emit(() => renderEventsIndexPage({ locale, cantonStats, events: all, dateStamp, weekendDays, distDir, detailHref }));
       }
 
       const historicalArchivePageCount = Math.ceil(historicalDetailEntries.length / HISTORICAL_ARCHIVE_PAGE_SIZE);
@@ -5764,7 +5769,7 @@ export function eventsSeoPagesPlugin(rootDir: string): Plugin {
           continue;
         }
         for (let page = 1; page <= historicalArchivePageCount; page += 1) {
-          emit(renderHistoricalEventsArchivePage({
+          await emit(() => renderHistoricalEventsArchivePage({
             locale,
             entries: historicalDetailEntries,
             page,
