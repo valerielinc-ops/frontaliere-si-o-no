@@ -1,7 +1,7 @@
 {
   "crawlerKey": "abb-svizzera-sede-ticino",
-  "assembledAt": "2026-11-09T09:27:28.580Z",
-  "runId": "42590825067",
+  "assembledAt": "2026-11-09T21:23:03.105Z",
+  "runId": "42699418011",
   "jobs": [
     {
       "id": "company-qxj4hb",
@@ -29,7 +29,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-11-09T09:27:18.859Z",
+      "crawledAt": "2026-11-09T21:22:50.349Z",
       "firstSeenAt": "2026-11-04T21:26:27.445Z",
       "titleByLocale": {
         "it": "Tecnico di assistenza sul campo (Regione Svizzera orientale) m/f/d (80-100%)",
@@ -79,10 +79,97 @@
       "postalCode": "5400",
       "streetAddress": "Baden, Aargau",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-07T09:27:18.859Z",
+      "validThrough": "2027-02-07T21:22:50.349Z",
       "validThroughSource": "last-observed-window",
       "salaryMin": 88000,
       "salaryMax": 123000
+    },
+    {
+      "id": "company-nv872x",
+      "slug": "tecnico-a-dell-infrastruttura-di-laboratorio-r-d-80-100-m-f-d-abb-svizzera-sede-ticino-baden-daettwil-aargau",
+      "company": "ABB Svizzera (sede Ticino)",
+      "title": "R&D Labor Infrastruktur Techniker:in (80 - 100%) m/w/d",
+      "location": "Baden-Daettwil, Aargau",
+      "canton": "AG",
+      "category": "finance",
+      "contract": "full-time",
+      "currency": "CHF",
+      "description": "<p>At <b>ABB</b>, we help industries run leaner and cleaner—and every person here makes that happen. You’ll be empowered to lead, supported to grow, and proud of the impact we create together. Join us and help run what runs the world.</p><p style=\"text-align:inherit !important\"></p><p style=\"text-align:left !important\"><b>This position reports to:</b></p>Finance Manager<p style=\"text-align:inherit !important\"></p><p style=\"text-align:inherit !important\">__</p><br /><p><b>Wichtigste Zuständigkeiten :<br /></b></p><ul><li>Verantwortlich für Anpassungen, Umbauten und Renovationen rund um unsere Forschungslabore</li></ul><ul><li>Unterstützung bei Planung, Koordination und Ausführung von neuen Versuchsaufbauten mit Forschern und Laborverantwortlichen (<span style=\"color:#000000\">Bereitschaft zur Teilnahme am Pikettdienst)</span></li></ul><ul><li>Unterstützung, bzw. Mitverantwortung für die forschungsspezifische Infrastruktur bei Wartung, Unterhalt und Erneuerung (z.B. Klima- und Lüftungsanlagen)</li></ul><ul><li>Kontrolle / Freigabe von Lieferanten- und Handwerkerrapporten sowie Rechnungen und ggf. Projektzeiterfassungen</li></ul><p><br /><br /></p><p><span style=\"color:#595959\"><b>Qualifikationen für die Rolle:<br /></b></span></p><ul><li>Abgeschlossene Ausbildung im Handwerk, vorzugsweise im Sanitär- oder Elektrohandwerk</li><li>Mindestens 3-5 Jahre Berufserfahrung</li><li>Technisches Verständnis, Allrounder</li><li>Projektmanagement Kompetenz</li><li>Gute Kommunikation und Teamfähigkeit</li><li>Flexibel, belastbar, proaktiv und lösungsorientiert</li><li>Deutsch vertragssicher (mündlich, schriftlich) sowie gute Englischkenntnisse</li></ul><p><br /><br />Der Rekrutierungsprozess wird von Pedro Labián Sanchez, Talent Acquisition Partner bei ABB Schweiz, betreut.<br /><br />\n\n<br /><br /><b>Key \n• Responsibilities:<br /></b></p><ul><li>Responsible for laboratory modifications, refurbishments, renovations, and facility upgrades.</li><li>Support the planning, coordination, and execution of experimental setups in collaboration with researchers and laboratory managers. (<span style=\"color:#000000\">Willingness to participate in an on-call duty rotation).</span></li><li>Support and share responsibility for the maintenance, upkeep, and renewal of research-specific infrastructure.</li><li>Review and approve supplier service reports, invoices, and project time tracking records.</li><li>Maintain and support climate control and ventilation systems </li></ul><p><br /><b>\n• Qualifications for the Role:<br /></b></p><ul><li>Completed vocational training in a skilled trade, preferably in plumbing, electrical installation, or a related technical field</li><li>Minimum of 3-5 years of relevant professional experience</li><li>Strong technical understanding with a hands-on, versatile approach</li><li>Project management skills and experience</li><li>Strong communication and teamwork abilities</li><li>Flexible, resilient, proactive, and solution-oriented mindset</li><li>Fluent German (spoken and written) and good command of English</li></ul><br /><h3><br /></h3><p>The recruitment process is managed by Pedro Labián Sanchez, Talent Acquisition Partner at ABB Switzerland.</p><p style=\"text-align:inherit !important\"></p><p style=\"text-align:left !important\">Building a cleaner, smarter future takes all kinds of minds: the curious, the courageous, and the creative. That's why we welcome people from all backgrounds and experiences.</p><p style=\"text-align:left !important\"> </p><p>Ready to make an impact? </p><p></p><p>Apply today or visit <a target=\"_blank\" href=\"https://www.abb.com\"><span style=\"color:#0000ff\"><b><u>https://www.abb.com</u></b></span></a> to learn more about the impact of our solutions across the globe.</p>",
+      "requirements": [],
+      "featured": false,
+      "datePosted": "2026-11-09",
+      "postedDate": "2026-11-09",
+      "postingDateSource": "reported",
+      "url": "https://careers.abb/global/en/job/ABB1GLOBALJR00046932EXTERNALENGLOBAL/R-D-Labor-Infrastruktur-Techniker-in---80---100----m-w-d",
+      "applyUrl": "https://careers.abb/global/en/job/ABB1GLOBALJR00046932EXTERNALENGLOBAL/R-D-Labor-Infrastruktur-Techniker-in---80---100----m-w-d",
+      "source": "Company Careers Crawler",
+      "_targetScope": {
+        "type": "adapter_seed_meta",
+        "location": "Baden-Daettwil, Aargau, Switzerland",
+        "canton": "AG"
+      },
+      "companyKey": "abb-svizzera-sede-ticino",
+      "companyDomain": "abb.ch",
+      "crawledAt": "2026-11-09T21:22:50.349Z",
+      "firstSeenAt": "2026-10-09T21:16:59.595Z",
+      "titleByLocale": {
+        "it": "Tecnico/a dell'infrastruttura di laboratorio R&D (80 - 100%) m/f/d",
+        "en": "R&D Labor Infrastruktur Techniker:in (80 - 100%) m/w/d",
+        "de": "Forschungs- und Entwicklungsarbeiten Labor-Infrastruktur(100%) (m/w/d)",
+        "fr": "Technicien·ne en infrastructure de laboratoire R&D (80 - 100%) h/f/d"
+      },
+      "descriptionByLocale": {
+        "it": "<p>Noi di <b>ABB</b> aiutiamo le industrie a funzionare in modo più snello e pulito e ogni persona qui fa sì che ciò accada. Avrai il potere di guidare, sarai supportato nella crescita e sarai orgoglioso dell'impatto che creiamo insieme. Unisciti a noi e aiutaci a gestire ciò che fa funzionare il mondo.</p><p style=\"text-align:inherit !important\"></p><p style=\"text-align:left !important\"><b>Questa posizione riporta a:</b></p>Responsabile finanziario<p style=\"text-align:inherit !important\"></p><p style=\"text-align:inherit !important\">__</p><br /><p><b>Wichtigste Zuständigkeiten:<br /></b></p><ul><li>Verantwortlich für Anpassungen, Umbauten and Renovationen rund um unsere Forschungslabore</li></ul><ul><li>Unterstützung bei Planung, Coordination and Ausführung von neuen Versuchsaufbauten mit Forschern und Laborverantwortlichen </li></ul><ul><li>Unterstützung, bzw. Mitverantwortung für die forschungsspezifische Infrastruktur bei Wartung, Unterhalt und Erneuerung (z.B. Klima- und Lüftungsanlagen)</li></ul><ul><li>Kontrolle / Freigabe von Lieferanten- und Handwerkerrapporten sowie Rechnungen und ggf. Projektzeiterfassungen </li></ul><p><br /><br /></p><p><span style=\"color:#595959\"><b>Qualifikationen für die Rolle:<br /></b></span></p><ul><li>Abgeschlossene Ausbildung im Handwerk, vorzugsweise in Sanitär- oder Elektrohandwerk</li><li>Mindestens 3-5 Jahre Berufserfahrung</li><li>Technisches Verständnis, Allrounder</li><li>Projektmanagement Kompetenz</li><li>Gute Kommunikation und Teamfähigkeit</li><li>Flexibel, belastbar, proaktiv und lösungsorientiert</li><li>Deutsch vertragssicher (mündlich, schriftlich) sowie gute Englischkenntnisse</li></ul><p><br /><br />Der Rekrutierungsprozess wird von Pedro Labián Sanchez, Talent Acquisition Partner presso ABB Schweiz, betreut.<br /><br />\n\n<br /><br /><b>Chiave\n• Responsabilità:<br /></b></p><ul><li>Responsabile delle modifiche, delle ristrutturazioni, dei rinnovamenti e degli aggiornamenti delle strutture del laboratorio.</li><li>Supportare la pianificazione, il coordinamento e l'esecuzione di configurazioni sperimentali in collaborazione con ricercatori e gestori di laboratorio.</li><li>Supportare e condividere la responsabilità per la manutenzione, il mantenimento e il rinnovo di infrastrutture specifiche per la ricerca.</li><li>Esaminare e approvare i rapporti sui servizi dei fornitori, le fatture e il monitoraggio dei tempi di progetto record.</li><li>Mantenere e supportare i sistemi di climatizzazione e ventilazione.</li></ul><p><br /><b>\n• Qualifiche per il ruolo:<br /></b></p><ul><li>Formazione professionale completata in un settore specializzato, preferibilmente in impianti idraulici, impianti elettrici o in un campo tecnico correlato</li><li>Minimo 3-5 anni di esperienza professionale pertinente</li><li>Forte conoscenza tecnica con un approccio pratico e versatile</li><li>Capacità ed esperienza nella gestione di progetti</li><li>Forti capacità di comunicazione e lavoro di squadra</li><li>Flessibile, mentalità resiliente, proattiva e orientata alla soluzione</li><li>Tedesco fluente (parlato e scritto) e buona padronanza dell'inglese</li></ul><br /><h3><br /></h3><p>Il processo di reclutamento è gestito da Pedro Labián Sanchez, Talent Acquisition Partner di ABB Svizzera.</p><p style=\"text-align:inherit !important\"></p><p style=\"text-align:left !important\">Per costruire un futuro più pulito e intelligente sono necessarie menti di tutti i tipi: curiose, coraggiose e creative. Ecco perché diamo il benvenuto a persone di ogni provenienza ed esperienza.</p><p style=\"text-align:left !important\"> </p><p>Pronto a lasciare il segno?\n\n</p><p></p><p>Fai domanda oggi o visita <a target=\"_blank\" href=\"https://www.abb.com\"><span style=\"color:#0000ff\"><b><u>https://www.abb.com</u></b></span></a> per saperne di più sull'impatto delle nostre soluzioni in tutto il mondo.</p>",
+        "en": "<p>At <b>ABB</b>, we help industries run leaner and cleaner—and every person here makes that happen. You’ll be empowered to lead, supported to grow, and proud of the impact we create together. Join us and help run what runs the world.</p><p style=\"text-align:inherit !important\"></p><p style=\"text-align:left !important\"><b>This position reports to:</b></p>Finance Manager<p style=\"text-align:inherit !important\"></p><p style=\"text-align:inherit !important\">__</p><br /><p><b>Wichtigste Zuständigkeiten :<br /></b></p><ul><li>Verantwortlich für Anpassungen, Umbauten und Renovationen rund um unsere Forschungslabore</li></ul><ul><li>Unterstützung bei Planung, Koordination und Ausführung von neuen Versuchsaufbauten mit Forschern und Laborverantwortlichen </li></ul><ul><li>Unterstützung, bzw. Mitverantwortung für die forschungsspezifische Infrastruktur bei Wartung, Unterhalt und Erneuerung (z.B. Klima- und Lüftungsanlagen)</li></ul><ul><li>Kontrolle / Freigabe von Lieferanten- und Handwerkerrapporten sowie Rechnungen und ggf. Projektzeiterfassungen </li></ul><p><br /><br /></p><p><span style=\"color:#595959\"><b>Qualifikationen für die Rolle:<br /></b></span></p><ul><li>Abgeschlossene Ausbildung im Handwerk, vorzugsweise im Sanitär- oder Elektrohandwerk</li><li>Mindestens 3-5 Jahre Berufserfahrung</li><li>Technisches Verständnis, Allrounder</li><li>Projektmanagement Kompetenz</li><li>Gute Kommunikation und Teamfähigkeit</li><li>Flexibel, belastbar, proaktiv und lösungsorientiert</li><li>Deutsch vertragssicher (mündlich, schriftlich) sowie gute Englischkenntnisse</li></ul><p><br /><br />Der Rekrutierungsprozess wird von Pedro Labián Sanchez, Talent Acquisition Partner bei ABB Schweiz, betreut.<br /><br />\n\n<br /><br /><b>Key\n• Responsibilities:<br /></b></p><ul><li>Responsible for laboratory modifications, refurbishments, renovations, and facility upgrades.</li><li>Support the planning, coordination, and execution of experimental setups in collaboration with researchers and laboratory managers.</li><li>Support and share responsibility for the maintenance, upkeep, and renewal of research-specific infrastructure.</li><li>Review and approve supplier service reports, invoices, and project time tracking records.</li><li>Maintain and support climate control and ventilation systems.</li></ul><p><br /><b>\n• Qualifications for the Role:<br /></b></p><ul><li>Completed vocational training in a skilled trade, preferably in plumbing, electrical installation, or a related technical field</li><li>Minimum of 3-5 years of relevant professional experience</li><li>Strong technical understanding with a hands-on, versatile approach</li><li>Project management skills and experience</li><li>Strong communication and teamwork abilities</li><li>Flexible, resilient, proactive, and solution-oriented mindset</li><li>Fluent German (spoken and written) and good command of English</li></ul><br /><h3><br /></h3><p>The recruitment process is managed by Pedro Labián Sanchez, Talent Acquisition Partner at ABB Switzerland.</p><p style=\"text-align:inherit !important\"></p><p style=\"text-align:left !important\">Building a cleaner, smarter future takes all kinds of minds: the curious, the courageous, and the creative. That's why we welcome people from all backgrounds and experiences.</p><p style=\"text-align:left !important\"> </p><p>Ready to make an impact? </p><p></p><p>Apply today or visit <a target=\"_blank\" href=\"https://www.abb.com\"><span style=\"color:#0000ff\"><b><u>https://www.abb.com</u></b></span></a> to learn more about the impact of our solutions across the globe.</p>",
+        "de": "<p>Bei <b>ABB</b> helfen wir Industrien, schlanker und sauberer zu laufen - und jeder Mensch hier macht das möglich. Sie werden in der Lage sein zu führen, unterstützt zu wachsen und stolz auf die Wirkung, die wir gemeinsam schaffen. Helfen Sie uns, das zu führen, was die Welt regiert.</p><p style=\"text-align:inherit !important\"></p><p style=\"text-align:inherit !important\"></b>Diese Position berichtet an:</b></p><p><text-align:inherit !important\"> </p><br /><p><b>Wichtigste Verantwortungen :<br /></b></p><ul><li>Verantwortlich für Anpassungen, Umbauten und Renovationen> um unsere Forschungsarbeit</li></ul><ul><li>Unterstützung bei Planung, Koordinierung und Ausführung von neuen Versuchsaufbauten mit Forschern und Laborverantwortlichen </li></li>. Mitverantwortung für die forschungsspezifische Infrastruktur bei Wartung, Unterhalt und Erneuerung (z.B. Klima- und Lüftungsanlagen)</li></ul><li>Kontrolle / Freigabe von Lieferanten- und Handwerkerrapporten sowie Rechnungen und Projektzeiterfassungen </li></ul><p><br /><br /></p><span style=\"color:#595959\"><b>Qualifikationen für die Rolle:<br /></p><ul><li>Abgeltende Ausbildung im Handwerk,>>Abgeltendes 3-5 Jahre Berufserfahrung</li><li>Technisches Verständnis, Allrounder</li><li>Projektmanagement Kompetenz</li><li><li>Flexibel, belastbar, proaktiv und lösungsorientiert</li><li>Deutsch vertragssicher (mündlich,<li><li>Deutsch vertragssicher (mündlich,<li>)> gute Englischkenntnisse</li></ul><p><br><br>Der Rekrutierung\n\n<br /><br /><b Schlüssel\n• Zuständigkeiten:<br /></b></p><ul><li> Verantwortlich für Labormodifikationen, Renovierungen, Renovierungen und Modernisierungen der Anlagen.</li><li> Unterstützen Sie die Planung, Koordination und Durchführung von Versuchsaufbauten in Zusammenarbeit mit Forschern und Laborleitern.</li><li> Unterstützen und übernehmen Sie die Verantwortung für die Instandhaltung, Instandhaltung und Erneuerung der forschungsspezifischen Infrastruktur.</li><li> Überprüfen und genehmigen Sie Lieferanten-Service-Berichte, Rechnungen und Projekt-Zeit-Tracking-Aufzeichnungen.</li><li>Klima- und Lüftungssysteme pflegen und unterstützen.</li></ul><p><br /><b>\n• Qualifikationen für die Rolle:<br /></b></p><ul><li> Abgeschlossene Berufsausbildung in einem Fachgebiet, vorzugsweise in Sanitärtechnik, Elektroinstallation oder einem verwandten technischen Bereich</li><li>Minimum von 3-5 Jahren einschlägiger Berufserfahrung</li><li>Starkes technisches Verständnis mit einem praktischen, vielseitigen Ansatz</li><li>Projektmanagementfähigkeiten und -erfahrung</li>Starke Kommunikations- und Teamfähigkeit</li><li>Flexible, resiliente, proaktive und lösungsorientierte Denkweise</li><li><li>Fluent Deutsch (gesprochen und geschrieben) und gute Englischkenntnisse</li></ul><br /><h3><br /></h3><p> Der Rekrutierungsprozess wird von Pedro Labián Sanchez, Talent Acquisition Partner bei ABB Schweiz, geleitet.</p><p style=\"text-align:inherit !important\"></p><p style=\"text-align:left !important\"> Der Aufbau einer saubereren, intelligenteren Zukunft erfordert alle Arten von Köpfen: das Neugierige, das Mutige und das Kreative. Deshalb begrüßen wir Menschen mit allen Hintergründen und Erfahrungen.</p><p style=\"text-align:left !important\"> </p><p>Ready to make a impact? </p><p></p><p>Bewerben Sie sich noch heute oder besuchen Sie <a target=\" blank\" href=\"https://www.abb.com\"><span style=\"color:#0000ff\"><b><u>https://www.abb.com</u></b></span></a>, um mehr über die Auswirkungen unserer Lösungen auf der ganzen Welt zu erfahren.</p>",
+        "fr": "<p>Chez <b>ABB</b>, nous aidons les industries à fonctionner de manière plus simple et plus propre, et chaque personne ici y parvient. Vous serez habilité à diriger, soutenu pour grandir et fier de l’impact que nous créons ensemble. Rejoignez-nous et aidez à diriger ce qui dirige le monde.</p><p style=\"text-align:inherit !important\"></p><p style=\"text-align:left !important\"><b>Ce poste relève de :</b></p>Directeur financier<p style=\"text-align:inherit !important\"></p><p style=\"text-align:inherit !important\">__</p><br /><p><b>Wichtigste Zuständigkeiten :<br /></b></p><ul><li>Verantwortlich für Anpassungen, Umbauten und Renovationen rund um notresere Forschungslabore</li></ul><ul><li>Soutien à la planification, à la coordination et à l'ausführung von neuen Versuchsaufbauten mit Forschern et Laborverantlichen </li></ul><ul><li>Unterstützung, bzw. Mitverantwortung für die forschungsspezifische Infrastruktur bei Wartung, Unterhalt und Erneuerung (par exemple Klima- und Lüftungsanlagen)</li></ul><ul><li>Contrôle / Freigabe von Lieferanten- und Handwerkerrapporten sowie Rechnungen et ggf. Projets </li></ul><p><br /><br /></p><p><span style=\"color:#595959\"><b>Qualifications pour le rouleau :<br /></b></span></p><ul><li>Abgeschlossene Ausbildung im Handwerk, vorzugsweise im Sanitär- oder Elektrohandwerk</li><li>Mindestens 3-5 Jahre Berufserfahrung</li><li>Technisches Verständnis, Allrounder</li><li>Projektmanagement Kompetenz</li><li>Gute Kommunikation und Teamfähigkeit</li><li>Flexibel, belastbar, proaktiv und lösungsorientiert</li><li>Deutsch vertragssicher (mündlich, schriftlich) sowie gute Englischkenntnisse</li></ul><p><br /><br />Der Rekrutierungsprozess wird von Pedro Labián Sanchez, Talent Acquisition Partner bei ABB Schweiz, betreut.<br /><br />\n\n<br /><br /><b>Clé\n• Responsabilités :<br /></b></p><ul><li>Responsable des modifications, rénovations, rénovations et mises à niveau des installations du laboratoire.</li><li>Soutenir la planification, la coordination et l'exécution des installations expérimentales en collaboration avec les chercheurs et les gestionnaires de laboratoire.</li><li>Soutenir et partager la responsabilité de la maintenance, de l'entretien et du renouvellement des infrastructures spécifiques à la recherche.</li><li>Examiner et approuver les rapports de service des fournisseurs, les factures et le suivi du temps du projet. enregistrements.</li><li>Entretenir et prendre en charge les systèmes de climatisation et de ventilation.</li></ul><p><br /><b>\n• Qualifications pour le rôle :<br /></b></p><ul><li>Formation professionnelle terminée dans un métier spécialisé, de préférence en plomberie, installation électrique ou dans un domaine technique connexe</li><li>Minimum de 3 à 5 ans d'expérience professionnelle pertinente</li><li>Forte compréhension technique avec une approche pratique et polyvalente</li><li>Compétences et expérience en gestion de projet</li><li>Fortes capacités de communication et de travail en équipe</li><li>Flexible, résilient, proactif, et un état d'esprit orienté vers les solutions</li><li>Allemand courant (parlé et écrit) et bonne maîtrise de l'anglais</li></ul><br /><h3><br />></h3><p>Le processus de recrutement est géré par Pedro Labián Sanchez, partenaire en acquisition de talents chez ABB Suisse.</p><p style=\"text-align:inherit !important\"></p><p style=\"text-align:left !important\">Construire un avenir plus propre et plus intelligent nécessite toutes sortes d'esprits : le curieux, courageux et créatif. C'est pourquoi nous accueillons des personnes de tous horizons et de toutes expériences.</p><p style=\"text-align:left !important\"> </p><p>Prêt à avoir un impact ?\n\n</p><p></p><p>Postulez dès aujourd'hui ou visitez <a target=\"_blank\" href=\"https://www.abb.com\"><span style=\"color:#0000ff\"><b><u>https://www.abb.com</u></b></span></a> pour en savoir plus sur l'impact de nos solutions à travers le monde.</p>"
+      },
+      "slugByLocale": {
+        "it": "tecnico-a-dell-infrastruttura-di-laboratorio-r-d-80-100-m-f-d-abb-svizzera-sede-ticino-baden-daettwil-aargau",
+        "en": "r-d-labor-infrastruktur-techniker-in-80-100-m-w-d-abb-svizzera-sede-ticino-baden-daettwil-aargau-nv872x",
+        "de": "forschungs-und-entwicklungsarbeiten-labor-infrastruktur-100-m-w-d-abb-svizzera-sede-ticino-baden-daettwil-aargau",
+        "fr": "technicien-ne-en-infrastructure-de-laboratoire-r-d-80-100-h-f-d-abb-svizzera-sede-ticino-baden-daettwil-aargau"
+      },
+      "requirementsByLocale": {},
+      "country": "CH",
+      "sourceLang": "en",
+      "previousSlugsByLocale": {
+        "it": [
+          "r-d-labor-infrastruktur-techniker-in-80-100-m-w-d-abb-svizzera-sede-ticino-baden-daettwil-aargau",
+          "r-d-labor-infrastruktur-techniker-in-80-100-m-w-d-abb-svizzera-sede-ticino-baden-daettwil-aargau-nv872x"
+        ],
+        "de": [
+          "r-d-labor-infrastruktur-techniker-in-80-100-m-w-d-abb-svizzera-sede-ticino-baden-daettwil-aargau-nv872x"
+        ],
+        "fr": [
+          "r-d-labor-infrastruktur-techniker-in-80-100-m-w-d-abb-svizzera-sede-ticino-baden-daettwil-aargau-nv872x"
+        ]
+      },
+      "previousSlugs": [
+        "r-d-labor-infrastruktur-techniker-in-80-100-m-w-d-abb-svizzera-sede-ticino-baden-daettwil-aargau",
+        "r-d-labor-infrastruktur-techniker-in-80-100-m-w-d-abb-svizzera-sede-ticino-baden-daettwil-aargau-nv872x"
+      ],
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 107000,
+          "maxValue": 187500,
+          "unitText": "YEAR"
+        }
+      },
+      "addressLocality": "Baden-Daettwil, Aargau",
+      "addressRegion": "AG",
+      "employmentType": "FULL_TIME",
+      "postalCode": "5400",
+      "streetAddress": "Baden-Daettwil, Aargau",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-02-07T21:22:50.349Z",
+      "validThroughSource": "last-observed-window",
+      "salaryMin": 107000,
+      "salaryMax": 187500
     },
     {
       "id": "company-6so4ky",
@@ -110,7 +197,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-11-09T09:27:18.859Z",
+      "crawledAt": "2026-11-09T21:22:50.349Z",
       "firstSeenAt": "2026-10-30T21:24:18.725Z",
       "titleByLocale": {
         "it": "R&D Testing & Lab Specialista (m/w/d) 80 -100%",
@@ -158,7 +245,7 @@
       "postalCode": "8200",
       "streetAddress": "Schaffhausen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-02T09:27:18.859Z",
+      "validThrough": "2027-02-02T21:22:50.349Z",
       "validThroughSource": "last-observed-window",
       "salaryMin": 60000,
       "salaryMax": 102000
@@ -189,7 +276,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-11-09T09:27:18.859Z",
+      "crawledAt": "2026-11-09T21:22:50.349Z",
       "firstSeenAt": "2026-11-02T21:34:31.031Z",
       "titleByLocale": {
         "it": "Medico sperimentale 80 - 100% (m/f/d)",
@@ -245,7 +332,7 @@
       "postalCode": "5400",
       "streetAddress": "Baden-Daettwil, Aargau",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-01T09:27:18.859Z",
+      "validThrough": "2027-02-01T21:22:50.349Z",
       "validThroughSource": "last-observed-window",
       "salaryMin": 64500,
       "salaryMax": 110000
@@ -276,7 +363,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-11-09T09:27:18.859Z",
+      "crawledAt": "2026-11-09T21:22:50.349Z",
       "firstSeenAt": "2026-10-29T21:22:43.214Z",
       "titleByLocale": {
         "it": "R&D Control Ingegnere",
@@ -324,7 +411,7 @@
       "postalCode": "5400",
       "streetAddress": "Baden, Aargau",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-29T09:27:18.859Z",
+      "validThrough": "2027-01-29T21:22:50.349Z",
       "validThroughSource": "last-observed-window",
       "salaryMin": 64500,
       "salaryMax": 110000
@@ -355,7 +442,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-11-09T09:27:18.859Z",
+      "crawledAt": "2026-11-09T21:22:50.349Z",
       "firstSeenAt": "2026-10-01T09:18:02.942Z",
       "slugByLocale": {
         "it": "senior-project-lead-ingegnere-power-systems-80-100-abb-svizzera-sede-ticino-baden-aargau-bebpwv",
@@ -395,7 +482,7 @@
       "postalCode": "5400",
       "streetAddress": "Baden, Aargau",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-29T09:27:18.859Z",
+      "validThrough": "2027-01-29T21:22:50.349Z",
       "validThroughSource": "last-observed-window",
       "salaryMin": 178000,
       "salaryMax": 313000
@@ -429,7 +516,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-11-09T09:27:18.859Z",
+      "crawledAt": "2026-11-09T21:22:50.349Z",
       "firstSeenAt": "2026-10-28T21:30:44.002Z",
       "titleByLocale": {
         "en": "(80 - 100%) Lead DC-DC Converter System Design",
@@ -493,7 +580,7 @@
       "postalCode": "5400",
       "streetAddress": "Baden-Daettwil, Aargau",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-27T09:27:18.859Z",
+      "validThrough": "2027-01-27T21:22:50.349Z",
       "validThroughSource": "last-observed-window",
       "salaryMin": 99500,
       "salaryMax": 169500
@@ -524,7 +611,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-11-09T09:27:18.859Z",
+      "crawledAt": "2026-11-09T21:22:50.349Z",
       "firstSeenAt": "2026-10-20T21:22:24.532Z",
       "titleByLocale": {
         "it": "Specialista della gestione dei dati – Operazioni (m/f/d), 80–100%",
@@ -572,7 +659,7 @@
       "postalCode": "8200",
       "streetAddress": "Schaffhausen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-22T09:27:18.859Z",
+      "validThrough": "2027-01-22T21:22:50.349Z",
       "validThroughSource": "last-observed-window",
       "salaryMin": 67000,
       "salaryMax": 102000
@@ -601,7 +688,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-11-09T09:27:18.859Z",
+      "crawledAt": "2026-11-09T21:22:50.349Z",
       "firstSeenAt": "2026-09-30T21:16:05.084Z",
       "titleByLocale": {
         "it": "Tecnico di Servizio sul Campo (Regione Svizzera Centrale) m/f/d (80-100%)",
@@ -654,7 +741,7 @@
       "postalCode": "5400",
       "streetAddress": "Baden, Aargau",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-19T09:27:18.859Z",
+      "validThrough": "2027-01-19T21:22:50.349Z",
       "validThroughSource": "last-observed-window",
       "salaryMin": 88000,
       "salaryMax": 123000
@@ -685,7 +772,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-11-09T09:27:18.859Z",
+      "crawledAt": "2026-11-09T21:22:50.349Z",
       "firstSeenAt": "2026-06-12T21:50:02.091Z",
       "slugByLocale": {
         "it": "quality-specialista-m-w-d-80-100-abb-svizzera-sede-ticino-schaffhausen-nl64dh",
@@ -725,7 +812,7 @@
       "postalCode": "8200",
       "streetAddress": "Schaffhausen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-19T09:27:18.859Z",
+      "validThrough": "2027-01-19T21:22:50.349Z",
       "validThroughSource": "last-observed-window",
       "salaryMin": 60000,
       "salaryMax": 102000
@@ -756,7 +843,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-11-09T09:27:18.859Z",
+      "crawledAt": "2026-11-09T21:22:50.349Z",
       "firstSeenAt": "2026-09-18T23:15:02.968Z",
       "slugByLocale": {
         "it": "ricerca-scientist-in-operational-technology-ot-cybersecurity-80-100-abb-svizzera-sede-ticino-baden-daettwil-aargau-t7npmb",
@@ -797,7 +884,7 @@
       "postalCode": "5400",
       "streetAddress": "Baden-Daettwil, Aargau",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-23T09:27:18.859Z",
+      "validThrough": "2026-12-23T21:22:50.349Z",
       "validThroughSource": "last-observed-window",
       "salaryMin": 64500,
       "salaryMax": 110000
@@ -831,7 +918,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-11-09T09:27:18.859Z",
+      "crawledAt": "2026-11-09T21:22:50.349Z",
       "firstSeenAt": "2026-09-10T23:12:35.970Z",
       "titleByLocale": {
         "en": "Service Technician f/m/d (80-100%)",
@@ -912,7 +999,7 @@
       "postalCode": "8200",
       "streetAddress": "Schaffhausen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-15T09:27:18.859Z",
+      "validThrough": "2026-12-15T21:22:50.349Z",
       "validThroughSource": "last-observed-window",
       "salaryMin": 81500,
       "salaryMax": 114000
@@ -943,7 +1030,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-11-09T09:27:18.859Z",
+      "crawledAt": "2026-11-09T21:22:50.349Z",
       "firstSeenAt": "2026-06-19T21:13:47.661Z",
       "slugByLocale": {
         "it": "senior-scienziato-80-100-m-f-d-abb-svizzera-sede-ticino-baden-daettwil-aargau",
@@ -983,97 +1070,10 @@
       "postalCode": "5400",
       "streetAddress": "Baden-Daettwil, Aargau",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-12T09:27:18.859Z",
+      "validThrough": "2026-12-12T21:22:50.349Z",
       "validThroughSource": "last-observed-window",
       "salaryMin": 99500,
       "salaryMax": 169500
-    },
-    {
-      "id": "company-nv872x",
-      "slug": "tecnico-a-dell-infrastruttura-di-laboratorio-r-d-80-100-m-f-d-abb-svizzera-sede-ticino-baden-daettwil-aargau",
-      "company": "ABB Svizzera (sede Ticino)",
-      "title": "R&D Labor Infrastruktur Techniker:in (80 - 100%) m/w/d",
-      "location": "Baden-Daettwil, Aargau",
-      "canton": "AG",
-      "category": "finance",
-      "contract": "full-time",
-      "currency": "CHF",
-      "description": "<p>At <b>ABB</b>, we help industries run leaner and cleaner—and every person here makes that happen. You’ll be empowered to lead, supported to grow, and proud of the impact we create together. Join us and help run what runs the world.</p><p style=\"text-align:inherit !important\"></p><p style=\"text-align:left !important\"><b>This position reports to:</b></p>Finance Manager<p style=\"text-align:inherit !important\"></p><p style=\"text-align:inherit !important\">__</p><br /><p><b>Wichtigste Zuständigkeiten :<br /></b></p><ul><li>Verantwortlich für Anpassungen, Umbauten und Renovationen rund um unsere Forschungslabore</li></ul><ul><li>Unterstützung bei Planung, Koordination und Ausführung von neuen Versuchsaufbauten mit Forschern und Laborverantwortlichen (<span style=\"color:#000000\">Bereitschaft zur Teilnahme am Pikettdienst)</span></li></ul><ul><li>Unterstützung, bzw. Mitverantwortung für die forschungsspezifische Infrastruktur bei Wartung, Unterhalt und Erneuerung (z.B. Klima- und Lüftungsanlagen)</li></ul><ul><li>Kontrolle / Freigabe von Lieferanten- und Handwerkerrapporten sowie Rechnungen und ggf. Projektzeiterfassungen</li></ul><p><br /><br /></p><p><span style=\"color:#595959\"><b>Qualifikationen für die Rolle:<br /></b></span></p><ul><li>Abgeschlossene Ausbildung im Handwerk, vorzugsweise im Sanitär- oder Elektrohandwerk</li><li>Mindestens 3-5 Jahre Berufserfahrung</li><li>Technisches Verständnis, Allrounder</li><li>Projektmanagement Kompetenz</li><li>Gute Kommunikation und Teamfähigkeit</li><li>Flexibel, belastbar, proaktiv und lösungsorientiert</li><li>Deutsch vertragssicher (mündlich, schriftlich) sowie gute Englischkenntnisse</li></ul><p><br /><br />Der Rekrutierungsprozess wird von Pedro Labián Sanchez, Talent Acquisition Partner bei ABB Schweiz, betreut.<br /><br />\n\n<br /><br /><b>Key \n• Responsibilities:<br /></b></p><ul><li>Responsible for laboratory modifications, refurbishments, renovations, and facility upgrades.</li><li>Support the planning, coordination, and execution of experimental setups in collaboration with researchers and laboratory managers. (<span style=\"color:#000000\">Willingness to participate in an on-call duty rotation).</span></li><li>Support and share responsibility for the maintenance, upkeep, and renewal of research-specific infrastructure.</li><li>Review and approve supplier service reports, invoices, and project time tracking records.</li><li>Maintain and support climate control and ventilation systems </li></ul><p><br /><b>\n• Qualifications for the Role:<br /></b></p><ul><li>Completed vocational training in a skilled trade, preferably in plumbing, electrical installation, or a related technical field</li><li>Minimum of 3-5 years of relevant professional experience</li><li>Strong technical understanding with a hands-on, versatile approach</li><li>Project management skills and experience</li><li>Strong communication and teamwork abilities</li><li>Flexible, resilient, proactive, and solution-oriented mindset</li><li>Fluent German (spoken and written) and good command of English</li></ul><br /><h3><br /></h3><p>The recruitment process is managed by Pedro Labián Sanchez, Talent Acquisition Partner at ABB Switzerland.</p><p style=\"text-align:inherit !important\"></p><p style=\"text-align:left !important\">Building a cleaner, smarter future takes all kinds of minds: the curious, the courageous, and the creative. That's why we welcome people from all backgrounds and experiences.</p><p style=\"text-align:left !important\"> </p><p>Ready to make an impact? </p><p></p><p>Apply today or visit <a target=\"_blank\" href=\"https://www.abb.com\"><span style=\"color:#0000ff\"><b><u>https://www.abb.com</u></b></span></a> to learn more about the impact of our solutions across the globe.</p>",
-      "requirements": [],
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "url": "https://careers.abb/global/en/job/ABB1GLOBALJR00046932EXTERNALENGLOBAL/R-D-Labor-Infrastruktur-Techniker-in---80---100----m-w-d",
-      "applyUrl": "https://careers.abb/global/en/job/ABB1GLOBALJR00046932EXTERNALENGLOBAL/R-D-Labor-Infrastruktur-Techniker-in---80---100----m-w-d",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Baden-Daettwil, Aargau, Switzerland",
-        "canton": "AG"
-      },
-      "companyKey": "abb-svizzera-sede-ticino",
-      "companyDomain": "abb.ch",
-      "crawledAt": "2026-11-09T09:27:18.859Z",
-      "firstSeenAt": "2026-10-09T21:16:59.595Z",
-      "titleByLocale": {
-        "it": "Tecnico/a dell'infrastruttura di laboratorio R&D (80 - 100%) m/f/d",
-        "en": "R&D Labor Infrastruktur Techniker:in (80 - 100%) m/w/d",
-        "de": "Forschungs- und Entwicklungsarbeiten Labor-Infrastruktur(100%) (m/w/d)",
-        "fr": "Technicien·ne en infrastructure de laboratoire R&D (80 - 100%) h/f/d"
-      },
-      "descriptionByLocale": {
-        "it": "<p>Noi di <b>ABB</b> aiutiamo le industrie a funzionare in modo più snello e pulito e ogni persona qui fa sì che ciò accada. Avrai il potere di guidare, sarai supportato nella crescita e sarai orgoglioso dell'impatto che creiamo insieme. Unisciti a noi e aiutaci a gestire ciò che fa funzionare il mondo.</p><p style=\"text-align:inherit !important\"></p><p style=\"text-align:left !important\"><b>Questa posizione riporta a:</b></p>Responsabile finanziario<p style=\"text-align:inherit !important\"></p><p style=\"text-align:inherit !important\">__</p><br /><p><b>Wichtigste Zuständigkeiten:<br /></b></p><ul><li>Verantwortlich für Anpassungen, Umbauten and Renovationen rund um unsere Forschungslabore</li></ul><ul><li>Unterstützung bei Planung, Coordination and Ausführung von neuen Versuchsaufbauten mit Forschern und Laborverantwortlichen </li></ul><ul><li>Unterstützung, bzw. Mitverantwortung für die forschungsspezifische Infrastruktur bei Wartung, Unterhalt und Erneuerung (z.B. Klima- und Lüftungsanlagen)</li></ul><ul><li>Kontrolle / Freigabe von Lieferanten- und Handwerkerrapporten sowie Rechnungen und ggf. Projektzeiterfassungen </li></ul><p><br /><br /></p><p><span style=\"color:#595959\"><b>Qualifikationen für die Rolle:<br /></b></span></p><ul><li>Abgeschlossene Ausbildung im Handwerk, vorzugsweise in Sanitär- oder Elektrohandwerk</li><li>Mindestens 3-5 Jahre Berufserfahrung</li><li>Technisches Verständnis, Allrounder</li><li>Projektmanagement Kompetenz</li><li>Gute Kommunikation und Teamfähigkeit</li><li>Flexibel, belastbar, proaktiv und lösungsorientiert</li><li>Deutsch vertragssicher (mündlich, schriftlich) sowie gute Englischkenntnisse</li></ul><p><br /><br />Der Rekrutierungsprozess wird von Pedro Labián Sanchez, Talent Acquisition Partner presso ABB Schweiz, betreut.<br /><br />\n\n<br /><br /><b>Chiave\n• Responsabilità:<br /></b></p><ul><li>Responsabile delle modifiche, delle ristrutturazioni, dei rinnovamenti e degli aggiornamenti delle strutture del laboratorio.</li><li>Supportare la pianificazione, il coordinamento e l'esecuzione di configurazioni sperimentali in collaborazione con ricercatori e gestori di laboratorio.</li><li>Supportare e condividere la responsabilità per la manutenzione, il mantenimento e il rinnovo di infrastrutture specifiche per la ricerca.</li><li>Esaminare e approvare i rapporti sui servizi dei fornitori, le fatture e il monitoraggio dei tempi di progetto record.</li><li>Mantenere e supportare i sistemi di climatizzazione e ventilazione.</li></ul><p><br /><b>\n• Qualifiche per il ruolo:<br /></b></p><ul><li>Formazione professionale completata in un settore specializzato, preferibilmente in impianti idraulici, impianti elettrici o in un campo tecnico correlato</li><li>Minimo 3-5 anni di esperienza professionale pertinente</li><li>Forte conoscenza tecnica con un approccio pratico e versatile</li><li>Capacità ed esperienza nella gestione di progetti</li><li>Forti capacità di comunicazione e lavoro di squadra</li><li>Flessibile, mentalità resiliente, proattiva e orientata alla soluzione</li><li>Tedesco fluente (parlato e scritto) e buona padronanza dell'inglese</li></ul><br /><h3><br /></h3><p>Il processo di reclutamento è gestito da Pedro Labián Sanchez, Talent Acquisition Partner di ABB Svizzera.</p><p style=\"text-align:inherit !important\"></p><p style=\"text-align:left !important\">Per costruire un futuro più pulito e intelligente sono necessarie menti di tutti i tipi: curiose, coraggiose e creative. Ecco perché diamo il benvenuto a persone di ogni provenienza ed esperienza.</p><p style=\"text-align:left !important\"> </p><p>Pronto a lasciare il segno?\n\n</p><p></p><p>Fai domanda oggi o visita <a target=\"_blank\" href=\"https://www.abb.com\"><span style=\"color:#0000ff\"><b><u>https://www.abb.com</u></b></span></a> per saperne di più sull'impatto delle nostre soluzioni in tutto il mondo.</p>",
-        "en": "<p>At <b>ABB</b>, we help industries run leaner and cleaner—and every person here makes that happen. You’ll be empowered to lead, supported to grow, and proud of the impact we create together. Join us and help run what runs the world.</p><p style=\"text-align:inherit !important\"></p><p style=\"text-align:left !important\"><b>This position reports to:</b></p>Finance Manager<p style=\"text-align:inherit !important\"></p><p style=\"text-align:inherit !important\">__</p><br /><p><b>Wichtigste Zuständigkeiten :<br /></b></p><ul><li>Verantwortlich für Anpassungen, Umbauten und Renovationen rund um unsere Forschungslabore</li></ul><ul><li>Unterstützung bei Planung, Koordination und Ausführung von neuen Versuchsaufbauten mit Forschern und Laborverantwortlichen </li></ul><ul><li>Unterstützung, bzw. Mitverantwortung für die forschungsspezifische Infrastruktur bei Wartung, Unterhalt und Erneuerung (z.B. Klima- und Lüftungsanlagen)</li></ul><ul><li>Kontrolle / Freigabe von Lieferanten- und Handwerkerrapporten sowie Rechnungen und ggf. Projektzeiterfassungen </li></ul><p><br /><br /></p><p><span style=\"color:#595959\"><b>Qualifikationen für die Rolle:<br /></b></span></p><ul><li>Abgeschlossene Ausbildung im Handwerk, vorzugsweise im Sanitär- oder Elektrohandwerk</li><li>Mindestens 3-5 Jahre Berufserfahrung</li><li>Technisches Verständnis, Allrounder</li><li>Projektmanagement Kompetenz</li><li>Gute Kommunikation und Teamfähigkeit</li><li>Flexibel, belastbar, proaktiv und lösungsorientiert</li><li>Deutsch vertragssicher (mündlich, schriftlich) sowie gute Englischkenntnisse</li></ul><p><br /><br />Der Rekrutierungsprozess wird von Pedro Labián Sanchez, Talent Acquisition Partner bei ABB Schweiz, betreut.<br /><br />\n\n<br /><br /><b>Key\n• Responsibilities:<br /></b></p><ul><li>Responsible for laboratory modifications, refurbishments, renovations, and facility upgrades.</li><li>Support the planning, coordination, and execution of experimental setups in collaboration with researchers and laboratory managers.</li><li>Support and share responsibility for the maintenance, upkeep, and renewal of research-specific infrastructure.</li><li>Review and approve supplier service reports, invoices, and project time tracking records.</li><li>Maintain and support climate control and ventilation systems.</li></ul><p><br /><b>\n• Qualifications for the Role:<br /></b></p><ul><li>Completed vocational training in a skilled trade, preferably in plumbing, electrical installation, or a related technical field</li><li>Minimum of 3-5 years of relevant professional experience</li><li>Strong technical understanding with a hands-on, versatile approach</li><li>Project management skills and experience</li><li>Strong communication and teamwork abilities</li><li>Flexible, resilient, proactive, and solution-oriented mindset</li><li>Fluent German (spoken and written) and good command of English</li></ul><br /><h3><br /></h3><p>The recruitment process is managed by Pedro Labián Sanchez, Talent Acquisition Partner at ABB Switzerland.</p><p style=\"text-align:inherit !important\"></p><p style=\"text-align:left !important\">Building a cleaner, smarter future takes all kinds of minds: the curious, the courageous, and the creative. That's why we welcome people from all backgrounds and experiences.</p><p style=\"text-align:left !important\"> </p><p>Ready to make an impact? </p><p></p><p>Apply today or visit <a target=\"_blank\" href=\"https://www.abb.com\"><span style=\"color:#0000ff\"><b><u>https://www.abb.com</u></b></span></a> to learn more about the impact of our solutions across the globe.</p>",
-        "de": "<p>Bei <b>ABB</b> helfen wir Industrien, schlanker und sauberer zu laufen - und jeder Mensch hier macht das möglich. Sie werden in der Lage sein zu führen, unterstützt zu wachsen und stolz auf die Wirkung, die wir gemeinsam schaffen. Helfen Sie uns, das zu führen, was die Welt regiert.</p><p style=\"text-align:inherit !important\"></p><p style=\"text-align:inherit !important\"></b>Diese Position berichtet an:</b></p><p><text-align:inherit !important\"> </p><br /><p><b>Wichtigste Verantwortungen :<br /></b></p><ul><li>Verantwortlich für Anpassungen, Umbauten und Renovationen> um unsere Forschungsarbeit</li></ul><ul><li>Unterstützung bei Planung, Koordinierung und Ausführung von neuen Versuchsaufbauten mit Forschern und Laborverantwortlichen </li></li>. Mitverantwortung für die forschungsspezifische Infrastruktur bei Wartung, Unterhalt und Erneuerung (z.B. Klima- und Lüftungsanlagen)</li></ul><li>Kontrolle / Freigabe von Lieferanten- und Handwerkerrapporten sowie Rechnungen und Projektzeiterfassungen </li></ul><p><br /><br /></p><span style=\"color:#595959\"><b>Qualifikationen für die Rolle:<br /></p><ul><li>Abgeltende Ausbildung im Handwerk,>>Abgeltendes 3-5 Jahre Berufserfahrung</li><li>Technisches Verständnis, Allrounder</li><li>Projektmanagement Kompetenz</li><li><li>Flexibel, belastbar, proaktiv und lösungsorientiert</li><li>Deutsch vertragssicher (mündlich,<li><li>Deutsch vertragssicher (mündlich,<li>)> gute Englischkenntnisse</li></ul><p><br><br>Der Rekrutierung\n\n<br /><br /><b Schlüssel\n• Zuständigkeiten:<br /></b></p><ul><li> Verantwortlich für Labormodifikationen, Renovierungen, Renovierungen und Modernisierungen der Anlagen.</li><li> Unterstützen Sie die Planung, Koordination und Durchführung von Versuchsaufbauten in Zusammenarbeit mit Forschern und Laborleitern.</li><li> Unterstützen und übernehmen Sie die Verantwortung für die Instandhaltung, Instandhaltung und Erneuerung der forschungsspezifischen Infrastruktur.</li><li> Überprüfen und genehmigen Sie Lieferanten-Service-Berichte, Rechnungen und Projekt-Zeit-Tracking-Aufzeichnungen.</li><li>Klima- und Lüftungssysteme pflegen und unterstützen.</li></ul><p><br /><b>\n• Qualifikationen für die Rolle:<br /></b></p><ul><li> Abgeschlossene Berufsausbildung in einem Fachgebiet, vorzugsweise in Sanitärtechnik, Elektroinstallation oder einem verwandten technischen Bereich</li><li>Minimum von 3-5 Jahren einschlägiger Berufserfahrung</li><li>Starkes technisches Verständnis mit einem praktischen, vielseitigen Ansatz</li><li>Projektmanagementfähigkeiten und -erfahrung</li>Starke Kommunikations- und Teamfähigkeit</li><li>Flexible, resiliente, proaktive und lösungsorientierte Denkweise</li><li><li>Fluent Deutsch (gesprochen und geschrieben) und gute Englischkenntnisse</li></ul><br /><h3><br /></h3><p> Der Rekrutierungsprozess wird von Pedro Labián Sanchez, Talent Acquisition Partner bei ABB Schweiz, geleitet.</p><p style=\"text-align:inherit !important\"></p><p style=\"text-align:left !important\"> Der Aufbau einer saubereren, intelligenteren Zukunft erfordert alle Arten von Köpfen: das Neugierige, das Mutige und das Kreative. Deshalb begrüßen wir Menschen mit allen Hintergründen und Erfahrungen.</p><p style=\"text-align:left !important\"> </p><p>Ready to make a impact? </p><p></p><p>Bewerben Sie sich noch heute oder besuchen Sie <a target=\" blank\" href=\"https://www.abb.com\"><span style=\"color:#0000ff\"><b><u>https://www.abb.com</u></b></span></a>, um mehr über die Auswirkungen unserer Lösungen auf der ganzen Welt zu erfahren.</p>",
-        "fr": "<p>Chez <b>ABB</b>, nous aidons les industries à fonctionner de manière plus simple et plus propre, et chaque personne ici y parvient. Vous serez habilité à diriger, soutenu pour grandir et fier de l’impact que nous créons ensemble. Rejoignez-nous et aidez à diriger ce qui dirige le monde.</p><p style=\"text-align:inherit !important\"></p><p style=\"text-align:left !important\"><b>Ce poste relève de :</b></p>Directeur financier<p style=\"text-align:inherit !important\"></p><p style=\"text-align:inherit !important\">__</p><br /><p><b>Wichtigste Zuständigkeiten :<br /></b></p><ul><li>Verantwortlich für Anpassungen, Umbauten und Renovationen rund um notresere Forschungslabore</li></ul><ul><li>Soutien à la planification, à la coordination et à l'ausführung von neuen Versuchsaufbauten mit Forschern et Laborverantlichen </li></ul><ul><li>Unterstützung, bzw. Mitverantwortung für die forschungsspezifische Infrastruktur bei Wartung, Unterhalt und Erneuerung (par exemple Klima- und Lüftungsanlagen)</li></ul><ul><li>Contrôle / Freigabe von Lieferanten- und Handwerkerrapporten sowie Rechnungen et ggf. Projets </li></ul><p><br /><br /></p><p><span style=\"color:#595959\"><b>Qualifications pour le rouleau :<br /></b></span></p><ul><li>Abgeschlossene Ausbildung im Handwerk, vorzugsweise im Sanitär- oder Elektrohandwerk</li><li>Mindestens 3-5 Jahre Berufserfahrung</li><li>Technisches Verständnis, Allrounder</li><li>Projektmanagement Kompetenz</li><li>Gute Kommunikation und Teamfähigkeit</li><li>Flexibel, belastbar, proaktiv und lösungsorientiert</li><li>Deutsch vertragssicher (mündlich, schriftlich) sowie gute Englischkenntnisse</li></ul><p><br /><br />Der Rekrutierungsprozess wird von Pedro Labián Sanchez, Talent Acquisition Partner bei ABB Schweiz, betreut.<br /><br />\n\n<br /><br /><b>Clé\n• Responsabilités :<br /></b></p><ul><li>Responsable des modifications, rénovations, rénovations et mises à niveau des installations du laboratoire.</li><li>Soutenir la planification, la coordination et l'exécution des installations expérimentales en collaboration avec les chercheurs et les gestionnaires de laboratoire.</li><li>Soutenir et partager la responsabilité de la maintenance, de l'entretien et du renouvellement des infrastructures spécifiques à la recherche.</li><li>Examiner et approuver les rapports de service des fournisseurs, les factures et le suivi du temps du projet. enregistrements.</li><li>Entretenir et prendre en charge les systèmes de climatisation et de ventilation.</li></ul><p><br /><b>\n• Qualifications pour le rôle :<br /></b></p><ul><li>Formation professionnelle terminée dans un métier spécialisé, de préférence en plomberie, installation électrique ou dans un domaine technique connexe</li><li>Minimum de 3 à 5 ans d'expérience professionnelle pertinente</li><li>Forte compréhension technique avec une approche pratique et polyvalente</li><li>Compétences et expérience en gestion de projet</li><li>Fortes capacités de communication et de travail en équipe</li><li>Flexible, résilient, proactif, et un état d'esprit orienté vers les solutions</li><li>Allemand courant (parlé et écrit) et bonne maîtrise de l'anglais</li></ul><br /><h3><br />></h3><p>Le processus de recrutement est géré par Pedro Labián Sanchez, partenaire en acquisition de talents chez ABB Suisse.</p><p style=\"text-align:inherit !important\"></p><p style=\"text-align:left !important\">Construire un avenir plus propre et plus intelligent nécessite toutes sortes d'esprits : le curieux, courageux et créatif. C'est pourquoi nous accueillons des personnes de tous horizons et de toutes expériences.</p><p style=\"text-align:left !important\"> </p><p>Prêt à avoir un impact ?\n\n</p><p></p><p>Postulez dès aujourd'hui ou visitez <a target=\"_blank\" href=\"https://www.abb.com\"><span style=\"color:#0000ff\"><b><u>https://www.abb.com</u></b></span></a> pour en savoir plus sur l'impact de nos solutions à travers le monde.</p>"
-      },
-      "slugByLocale": {
-        "it": "tecnico-a-dell-infrastruttura-di-laboratorio-r-d-80-100-m-f-d-abb-svizzera-sede-ticino-baden-daettwil-aargau",
-        "en": "r-d-labor-infrastruktur-techniker-in-80-100-m-w-d-abb-svizzera-sede-ticino-baden-daettwil-aargau-nv872x",
-        "de": "forschungs-und-entwicklungsarbeiten-labor-infrastruktur-100-m-w-d-abb-svizzera-sede-ticino-baden-daettwil-aargau",
-        "fr": "technicien-ne-en-infrastructure-de-laboratoire-r-d-80-100-h-f-d-abb-svizzera-sede-ticino-baden-daettwil-aargau"
-      },
-      "requirementsByLocale": {},
-      "country": "CH",
-      "sourceLang": "en",
-      "previousSlugsByLocale": {
-        "it": [
-          "r-d-labor-infrastruktur-techniker-in-80-100-m-w-d-abb-svizzera-sede-ticino-baden-daettwil-aargau",
-          "r-d-labor-infrastruktur-techniker-in-80-100-m-w-d-abb-svizzera-sede-ticino-baden-daettwil-aargau-nv872x"
-        ],
-        "de": [
-          "r-d-labor-infrastruktur-techniker-in-80-100-m-w-d-abb-svizzera-sede-ticino-baden-daettwil-aargau-nv872x"
-        ],
-        "fr": [
-          "r-d-labor-infrastruktur-techniker-in-80-100-m-w-d-abb-svizzera-sede-ticino-baden-daettwil-aargau-nv872x"
-        ]
-      },
-      "previousSlugs": [
-        "r-d-labor-infrastruktur-techniker-in-80-100-m-w-d-abb-svizzera-sede-ticino-baden-daettwil-aargau",
-        "r-d-labor-infrastruktur-techniker-in-80-100-m-w-d-abb-svizzera-sede-ticino-baden-daettwil-aargau-nv872x"
-      ],
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 107000,
-          "maxValue": 187500,
-          "unitText": "YEAR"
-        }
-      },
-      "addressLocality": "Baden-Daettwil, Aargau",
-      "addressRegion": "AG",
-      "employmentType": "FULL_TIME",
-      "postalCode": "5400",
-      "streetAddress": "Baden-Daettwil, Aargau",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-08T09:27:18.859Z",
-      "validThroughSource": "last-observed-window",
-      "salaryMin": 107000,
-      "salaryMax": 187500
     },
     {
       "id": "company-1icynn",
@@ -1103,7 +1103,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-11-09T09:27:18.859Z",
+      "crawledAt": "2026-11-09T21:22:50.349Z",
       "firstSeenAt": "2026-09-18T23:15:02.968Z",
       "slugByLocale": {
         "it": "supervisore-meccanico-80-100-abb-svizzera-sede-ticino-baden-aargau",
@@ -1150,7 +1150,7 @@
       "postalCode": "5400",
       "streetAddress": "Baden, Aargau",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-18T09:27:18.859Z",
+      "validThrough": "2026-12-18T21:22:50.349Z",
       "validThroughSource": "last-observed-window",
       "salaryMin": 107000,
       "salaryMax": 187500
@@ -1181,7 +1181,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-11-09T09:27:18.859Z",
+      "crawledAt": "2026-11-09T21:22:50.349Z",
       "firstSeenAt": "2026-10-23T21:17:11.847Z",
       "titleByLocale": {
         "it": "(80 – 100%) Compliance Ingegnere / Senior R&D Ingegnere for SST",
@@ -1229,7 +1229,7 @@
       "postalCode": "5400",
       "streetAddress": "Baden-Daettwil, Aargau",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-22T09:27:18.859Z",
+      "validThrough": "2027-01-21T21:22:50.349Z",
       "validThroughSource": "last-observed-window",
       "salaryMin": 178000,
       "salaryMax": 313000
@@ -1262,7 +1262,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-11-09T09:27:18.859Z",
+      "crawledAt": "2026-11-09T21:22:50.349Z",
       "firstSeenAt": "2026-10-06T21:19:20.619Z",
       "slugByLocale": {
         "en": "field-service-technician-80-100-m-w-d-abb-svizzera-sede-ticino-baden-aargau-fjt399",
@@ -1309,7 +1309,7 @@
       "postalCode": "5400",
       "streetAddress": "Baden, Aargau",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-05T09:27:18.859Z",
+      "validThrough": "2027-01-04T21:22:50.349Z",
       "validThroughSource": "last-observed-window",
       "salaryMin": 72500,
       "salaryMax": 110500
@@ -1340,7 +1340,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-11-09T09:27:18.859Z",
+      "crawledAt": "2026-11-09T21:22:50.349Z",
       "firstSeenAt": "2026-11-05T21:24:54.138Z",
       "titleByLocale": {
         "it": "Global Procurement Sustainability Specialista",
@@ -1388,7 +1388,7 @@
       "postalCode": "5400",
       "streetAddress": "Baden, Aargau",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-04T09:27:18.859Z",
+      "validThrough": "2027-02-04T21:22:50.349Z",
       "validThroughSource": "last-observed-window",
       "salaryMin": 107000,
       "salaryMax": 187500
@@ -1419,7 +1419,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-11-09T09:27:18.859Z",
+      "crawledAt": "2026-11-09T21:22:50.349Z",
       "firstSeenAt": "2026-11-05T21:24:54.138Z",
       "titleByLocale": {
         "it": "Digital Project Ingegnere",
@@ -1467,7 +1467,7 @@
       "postalCode": "5400",
       "streetAddress": "Baden, Aargau",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-04T09:27:18.859Z",
+      "validThrough": "2027-02-04T21:22:50.349Z",
       "validThroughSource": "last-observed-window",
       "salaryMin": 64500,
       "salaryMax": 110000
@@ -1498,7 +1498,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-11-09T09:27:18.859Z",
+      "crawledAt": "2026-11-09T21:22:50.349Z",
       "firstSeenAt": "2026-06-10T22:07:02.928Z",
       "slugByLocale": {
         "it": "global-lead-ingegnere-abb-svizzera-sede-ticino-3ua72t",
@@ -1550,7 +1550,7 @@
       "postalCode": "5400",
       "streetAddress": "Baden, Aargau",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-09T09:27:18.859Z",
+      "validThrough": "2026-12-09T21:22:50.349Z",
       "validThroughSource": "last-observed-window",
       "salaryMin": 178000,
       "salaryMax": 313000
@@ -1583,7 +1583,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-11-09T09:27:18.859Z",
+      "crawledAt": "2026-11-09T21:22:50.349Z",
       "firstSeenAt": "2026-09-26T13:58:28.170Z",
       "slugByLocale": {
         "it": "sales-specialista-panel-builder-80-100-abb-svizzera-sede-ticino-baden-aargau-1czx8o",
@@ -1599,7 +1599,7 @@
       },
       "descriptionByLocale": {
         "en": "<p>At <b>ABB</b>, we help industries run leaner and cleaner—and every person here makes that happen. You’ll be empowered to lead, supported to grow, and proud of the impact we create together. Join us and help run what runs the world.</p><p style=\"text-align:inherit !important\"></p><p style=\"text-align:left !important\"><b>This position reports to:</b></p>EL Product Marketing Manager<p style=\"text-align:inherit !important\"></p><p style=\"text-align:inherit !important\">__</p><p><b>Your Role</b></p><p>In this dynamic sales position, you will contribute to market development with panel manufacturers in French-speaking Switzerland. You will identify market opportunities, build strong customer relationships and successfully position our solutions in the field of power distribution. In close cooperation with internal teams, business partners and stakeholders, you will contribute directly to the sustainable growth of the company.</p><br /><p><b>Working Model: </b>Hybrid</p><p>This position is part of the electrification and smart power department in Baden. The workplace is Morges.</p><br /><p><b>\n• Your responsibilities</b></p><ul><li>You will achieve your business goals by identifying new market opportunities, building a sustainable sales pipeline in Salesforce, and developing targeted sales strategies</li><li>You will attract and develop new customers by demonstrating the benefits of ABB solutions and demonstrating exemplary professionalism in the sales process, communication and follow-up process.</li><li>You maintain long-term partnerships with your customers through early identification of needs, expert advice and excellent service throughout the entire sales cycle</li><li>You will support customer projects from the discovery of the opportunity to its successful completion, developing customized technical and commercial solutions in collaboration with internal teams and partners</li><li>You will coordinate all relevant stakeholders and ensure professional sales processes through clear communication on delivery times, general terms and conditions and contract clauses</li></ul><p> </p><p><b>\n• Requirements</b></p><ul><li>Several years of successful experience in technical sales or project sales, ideally in the areas of electrical distributors, power distribution or building management, with convincing results</li><li>Technical experience and relevant education or training in the field of electrical engineering and electrical distribution</li><li>Ability to manage complex sales processes and communicate effectively with decision-makers at all levels</li><li>The proven ability to build long-term relationships with customers through a partnership-based approach</li><li>Expertise in strategic consulting on business models, market positioning and differentiation arguments</li><li>A person who can work in a team, has professional communication skills and a cross-departmental mindset</li><li>Language skills: French (native), fluency in other languages is an advantage. Valid category B driver's license and valid Swiss work permit</li></ul><p><b> </b></p><p><b>Benefits</b></p><p>\n• We offer our employees the following benefits:</p><ul><li>Employee Stock Ownership Plan (ESAP)</li><li>REKA cheques</li><li>Rabatte (MyDiscounts / Swibeco)</li><li>Advantageous parental leave</li><li>Financial support for fitness</li><li>Company car</li></ul><p><b> </b></p><p><b>Learn more about us</b></p><p><b>ABB Smart Buildings</b> improves the energy efficiency, safety and comfort of all building types through innovative digital technologies and integrated solutions. We support a wide range of markets, from residential to industrial facilities, with scalable solutions that deliver both sustainable and financial benefits while supporting carbon reduction strategies.</p><p>Recruitment is led by Reto Korstick, Talent Partner, ABB Schweiz AG.</p><p style=\"text-align:inherit !important\"></p><p style=\"text-align:left !important\">Building a cleaner, smarter future takes all kinds of minds: the curious, the courageous, and the creative. That's why we welcome people from all backgrounds and experiences.</p><p style=\"text-align:left !important\"> </p><p>Ready to make an impact? </p><p></p><p>Apply today or visit <a target=\"_blank\" href=\"https://www.abb.com\"><span style=\"color:#0000ff\"><b><u>https://www.abb.com</u></b></span></a> to learn more about the impact of our solutions across the globe.</p>",
-        "it": "<p>A <b>ABB</b>, aiutiamo le industrie a gestire più snelle e più pulite.E ogni persona qui fa accadere questo. Avrete il potere di guidare, supportato per crescere e orgogliosi dell'impatto che creiamo insieme.\n\nUnisciti a noi e aiuta a gestire ciò che gira nel mondo.</p><p=\"style=\"text-align:inherit!important\"></p><p style=\"text-align:left!important\"><b>This position reports to:</b></p>EL Product Marketing Manager<p style=\"text-align:inherit!important\"></b></p>Your Role</b></p><p>In questa posizione dinamica di vendita, contribuirete allo sviluppo del mercato con i produttori di pannelli in Svizzera francofonde. Potrete identificare le opportunità di mercato, costruire relazioni con i clienti forti e posizionare con successo le nostre soluzioni nel campo della distribuzione di energia.\n\nIn stretta collaborazione con team interni, partner commerciali e stakeholder, contribuirete direttamente alla crescita sostenibile dell'azienda.</p><br/><p><b>Modello di lavoro: </b>Hybrid</p><p>Questa posizione fa parte del dipartimento di elettrificazione e smart power nel Baden.\n\nIl posto di lavoro è Morges.</p><br /><b> • Le vostre responsabilità</b></p><ul><li>Raggiungete i vostri obiettivi di business individuando nuove opportunità di mercato, costruendo un gasdotto di vendita sostenibile in Salesforce e sviluppando strategie di vendita mirate</li><li>Attraete e svilupperete nuovi clienti dimostrando i vantaggi delle soluzioni ABB e dimostrando una professionalità esemplare nel processo di vendita, comunicazione e follow-up.</li><li>Conservate partnership a lungo termine con i vostri clienti attraverso l'individuazione precoce delle esigenze, la consulenza di esperti e un servizio eccellente\n\nPer tutto il ciclo di vendita</li><li>Sosterrai i progetti dei clienti dalla scoperta dell'opportunità al suo completamento riuscito, sviluppando soluzioni tecniche e commerciali personalizzate in collaborazione con team interni e partner</li><li> >Tu coordinerai tutti i soggetti interessati e assicurerai processi di vendita professionali attraverso una chiara comunicazione sui tempi di consegna, condizioni generali e clausole contrattuali</li></ul><p></p><b> • Requisiti</b></p><ul><li>Più anni di esperienza di successo nelle vendite tecniche o di progetto, idealmente nei settori della vendita di progetti\n\ndistributori elettrici, distribuzione di energia elettrica o gestione di edifici, con risultati convincenti</li><li>Esperienza tecnica e formazione pertinente nel campo dell'ingegneria elettrica e della distribuzione elettrica</li><li>Capacità di gestire processi di vendita complessi e comunicare efficacemente con i decisori a tutti i livelli</li><li>La comprovata capacità di costruire relazioni a lungo termine con i clienti attraverso un approccio basato sulla partnership</li><li>Espertizzare in consulenza strategica su modelli aziendali, posizionamento sul mercato e argomenti di differenziazione</li><li>Una persona che può lavorare in un team,\n\nha capacità di comunicazione professionale e una mentalità trasversale </li><li>Language: francese (nativo), fluenza in altre lingue è un vantaggio.\n\nLa patente di guida di categoria B e il permesso di lavoro svizzero validi </li></ul><p><b></b><p><b><b>Benefits</b></p><p> • Offriamo ai nostri dipendenti i seguenti vantaggi:</p><ul><li>Piano di proprietà del personale (ESAP)</li><li><li>Reka cheques</li><li><li>Rabate (MyDiscounts / Swibeco)</li><li>Advantageous parental leave</li><li><li>Company car</li></ul><b></b></p><b></p><b><b><b>Learn more about us</b></p><p><b><b><p><b>\n\nSosteniamo un'ampia gamma di mercati, dalle strutture residenziali alle industriali, con soluzioni di scalabilità che offrono vantaggi sia sostenibili che finanziari, sostenendo strategie di riduzione del carbonio.</p><p>Il reclutamento è guidato da Reto Kortick, Partner di Total, ABB Schweiz AG.</p><p style=\"text-align:inherit!important\"></p><p style=\"text-align:left!important\">Costruire un futuro più pulito e intelligente richiede ogni tipo di mente: il curioso, il coraggioso e il creativo.\n\nPer questo accogliamo persone provenienti da ogni background ed esperienza.</p><p=\"text-align:left!important\"> </p>Ready per fare un impatto? </p><p><p><p><p>Applicare oggi o visitare <a target=\"_blank\" href=\"https://www.abb.com\"><span style=\"color:#0000ff\"><b><u>https://www.abb.com</u></b></span></a>per saperne di più sull'impatto delle nostre soluzioni in tutto il mondo.</p>",
+        "it": "<p>A <b>ABB</b>, aiutiamo le industrie a gestire più snelle e più pulite.E ogni persona qui fa accadere questo. Avrete il potere di guidare, supportato per crescere e orgogliosi dell'impatto che creiamo insieme.\n\nUnisciti a noi e aiuta a gestire ciò che gira nel mondo.</p><p=\"style=\"text-align:inherit!important\"></p><p style=\"text-align:left!important\"><b>This position reports to:</b></p>EL Product Marketing Manager<p style=\"text-align:inherit!important\"></b></p>Your Role</b></p><p>In questa posizione dinamica di vendita, contribuirete allo sviluppo del mercato con i produttori di pannelli in Svizzera francofonde. Potrete identificare le opportunità di mercato, costruire relazioni con i clienti forti e posizionare con successo le nostre soluzioni nel campo della distribuzione di energia.\n\nIn stretta collaborazione con team interni, partner commerciali e stakeholder, contribuirete direttamente alla crescita sostenibile dell'azienda.</p><br/><p><b>Modello di lavoro: </b>Hybrid</p><p>Questa posizione fa parte del dipartimento di elettrificazione e smart power nel Baden.\n\nIl posto di lavoro è Morges.</p><br /><b>\n• Le vostre responsabilità</b></p><ul><li>Raggiungete i vostri obiettivi di business individuando nuove opportunità di mercato, costruendo un gasdotto di vendita sostenibile in Salesforce e sviluppando strategie di vendita mirate</li><li>Attraete e svilupperete nuovi clienti dimostrando i vantaggi delle soluzioni ABB e dimostrando una professionalità esemplare nel processo di vendita, comunicazione e follow-up.</li><li>Conservate partnership a lungo termine con i vostri clienti attraverso l'individuazione precoce delle esigenze, la consulenza di esperti e un servizio eccellente\n\nPer tutto il ciclo di vendita</li><li>Sosterrai i progetti dei clienti dalla scoperta dell'opportunità al suo completamento riuscito, sviluppando soluzioni tecniche e commerciali personalizzate in collaborazione con team interni e partner</li><li> >Tu coordinerai tutti i soggetti interessati e assicurerai processi di vendita professionali attraverso una chiara comunicazione sui tempi di consegna, condizioni generali e clausole contrattuali</li></ul><p></p><b>\n• Requisiti</b></p><ul><li>Più anni di esperienza di successo nelle vendite tecniche o di progetto, idealmente nei settori della vendita di progetti\n\ndistributori elettrici, distribuzione di energia elettrica o gestione di edifici, con risultati convincenti</li><li>Esperienza tecnica e formazione pertinente nel campo dell'ingegneria elettrica e della distribuzione elettrica</li><li>Capacità di gestire processi di vendita complessi e comunicare efficacemente con i decisori a tutti i livelli</li><li>La comprovata capacità di costruire relazioni a lungo termine con i clienti attraverso un approccio basato sulla partnership</li><li>Espertizzare in consulenza strategica su modelli aziendali, posizionamento sul mercato e argomenti di differenziazione</li><li>Una persona che può lavorare in un team,\n\nha capacità di comunicazione professionale e una mentalità trasversale </li><li>Language: francese (nativo), fluenza in altre lingue è un vantaggio.\n\nLa patente di guida di categoria B e il permesso di lavoro svizzero validi </li></ul><p><b></b><p><b><b>Benefits</b></p><p>\n• Offriamo ai nostri dipendenti i seguenti vantaggi:</p><ul><li>Piano di proprietà del personale (ESAP)</li><li><li>Reka cheques</li><li><li>Rabate (MyDiscounts / Swibeco)</li><li>Advantageous parental leave</li><li><li>Company car</li></ul><b></b></p><b></p><b><b><b>Learn more about us</b></p><p><b><b><p><b>\n\nSosteniamo un'ampia gamma di mercati, dalle strutture residenziali alle industriali, con soluzioni di scalabilità che offrono vantaggi sia sostenibili che finanziari, sostenendo strategie di riduzione del carbonio.</p><p>Il reclutamento è guidato da Reto Kortick, Partner di Total, ABB Schweiz AG.</p><p style=\"text-align:inherit!important\"></p><p style=\"text-align:left!important\">Costruire un futuro più pulito e intelligente richiede ogni tipo di mente: il curioso, il coraggioso e il creativo.\n\nPer questo accogliamo persone provenienti da ogni background ed esperienza.</p><p=\"text-align:left!important\"> </p>Ready per fare un impatto? </p><p><p><p><p>Applicare oggi o visitare <a target=\"_blank\" href=\"https://www.abb.com\"><span style=\"color:#0000ff\"><b><u>https://www.abb.com</u></b></span></a>per saperne di più sull'impatto delle nostre soluzioni in tutto il mondo.</p>",
         "de": "<p>At <b>ABB</b>, we help industries run leaner and cleaner—and every person here makes that happen. You’ll be empowered to lead, supported to grow, and proud of the impact we create together. Join us and help run what runs the world.</p><p style=\"text-align:inherit !important\"></p><p style=\"text-align:left !important\"><b>This position reports to:</b></p>EL Product Marketing Manager<p style=\"text-align:inherit !important\"></p><p style=\"text-align:inherit !important\">__</p><p><b>Your Role</b></p><p>In this dynamic sales position, you will contribute to market development with panel manufacturers in French-speaking Switzerland. You will identify market opportunities, build strong customer relationships and successfully position our solutions in the field of power distribution. In close cooperation with internal teams, business partners and stakeholders, you will contribute directly to the sustainable growth of the company.</p><br /><p><b>Working Model: </b>Hybrid</p><p>This position is part of the electrification and smart power department in Baden. The workplace is Morges.</p><br /><p><b>\n• Your responsibilities</b></p><ul><li>You will achieve your business goals by identifying new market opportunities, building a sustainable sales pipeline in Salesforce, and developing targeted sales strategies</li><li>You will attract and develop new customers by demonstrating the benefits of ABB solutions and demonstrating exemplary professionalism in the sales process, communication and follow-up process.</li><li>You maintain long-term partnerships with your customers through early identification of needs, expert advice and excellent service throughout the entire sales cycle</li><li>You will support customer projects from the discovery of the opportunity to its successful completion, developing customized technical and commercial solutions in collaboration with internal teams and partners</li><li>You will coordinate all relevant stakeholders and ensure professional sales processes through clear communication on delivery times, general terms and conditions and contract clauses</li></ul><p> </p><p><b>\n• Requirements</b></p><ul><li>Several years of successful experience in technical sales or project sales, ideally in the areas of electrical distributors, power distribution or building management, with convincing results</li><li>Technical experience and relevant education or training in the field of electrical engineering and electrical distribution</li><li>Ability to manage complex sales processes and communicate effectively with decision-makers at all levels</li><li>The proven ability to build long-term relationships with customers through a partnership-based approach</li><li>Expertise in strategic consulting on business models, market positioning and differentiation arguments</li><li>A person who can work in a team, has professional communication skills and a cross-departmental mindset</li><li>Language skills: French (native), fluency in other languages is an advantage. Valid category B driver's license and valid Swiss work permit</li></ul><p><b> </b></p><p><b>Benefits</b></p><p>\n• We offer our employees the following benefits:</p><ul><li>Employee Stock Ownership Plan (ESAP)</li><li>REKA cheques</li><li>Rabatte (MyDiscounts / Swibeco)</li><li>Advantageous parental leave</li><li>Financial support for fitness</li><li>Company car</li></ul><p><b> </b></p><p><b>Learn more about us</b></p><p><b>ABB Smart Buildings</b> improves the energy efficiency, safety and comfort of all building types through innovative digital technologies and integrated solutions. We support a wide range of markets, from residential to industrial facilities, with scalable solutions that deliver both sustainable and financial benefits while supporting carbon reduction strategies.</p><p>Recruitment is led by Reto Korstick, Talent Partner, ABB Schweiz AG.</p><p style=\"text-align:inherit !important\"></p><p style=\"text-align:left !important\">Building a cleaner, smarter future takes all kinds of minds: the curious, the courageous, and the creative. That's why we welcome people from all backgrounds and experiences.</p><p style=\"text-align:left !important\"> </p><p>Ready to make an impact? </p><p></p><p>Apply today or visit <a target=\"_blank\" href=\"https://www.abb.com\"><span style=\"color:#0000ff\"><b><u>https://www.abb.com</u></b></span></a> to learn more about the impact of our solutions across the globe.</p>",
         "fr": "<p>À <b>ABB</b>, nous aidons les industries à fonctionner de façon plus rationnelle et plus propre. Vous aurez le pouvoir de diriger, de soutenir pour grandir, et fier de l'impact que nous créons ensemble. Rejoignez-nous et aidez à exécuter ce qui dirige le monde.</p><p style=\"text-align:inherit !important\"></p><p style=\"text-align:left important\"><b> Ce poste relève de :</b></p>EL Product Marketing Manager<p style=\"text-align:inherit !important\"></p><p style=\"text-align:inherit !important\"></p><p><b>Votre rôle</b></p><p>Dans cette position de vente dynamique, vous contribuerez au développement du marché avec les fabricants de panneaux en Suisse francophone. Vous identifierez les opportunités du marché, établirez de solides relations client et positionnerez nos solutions avec succès dans le domaine de la distribution d'électricité. En étroite collaboration avec les équipes internes, les partenaires commerciaux et les intervenants, vous contribuerez directement à la croissance durable de l'entreprise.</p><br /><p><b>Modèle de travail : </b>Hybrid</p><p> Ce poste fait partie du service d'électrification et de puissance intelligente de Baden. Le lieu de travail est Morges.</p><br /><p><b>\n• Vos responsabilités</b></p><ul><li> Vous atteindrez vos objectifs commerciaux en identifiant de nouveaux débouchés commerciaux, en créant un pipeline de vente durable dans Salesforce et en élaborant des stratégies de vente ciblées</li><li> Vous attirerez et développerez de nouveaux clients en démontrant les avantages des solutions ABB et en faisant preuve d'un professionnalisme exemplaire dans le processus de vente, de communication et de suivi.</li><li> Vous maintenez des partenariats à long terme avec vos clients en identifiant rapidement les besoins, les conseils d'experts et l'excellent service tout au long du cycle de vente</li><li> Vous accompagnerez les projets clients de la découverte de l'occasion jusqu'à sa réussite, en développant des solutions techniques et commerciales personnalisées en collaboration avec les équipes internes et les partenaires</li><li> Vous coordonnerez tous les intervenants pertinents et assurerez les processus de vente professionnels en communiquant clairement sur les délais de livraison, les modalités générales et les clauses contractuelles</li></ul><p> </p><p><b>\n• Exigences</b></p><ul><li> Plusieurs années d'expérience réussie dans les ventes techniques ou les ventes de projets, idéalement dans les domaines des distributeurs électriques, de la distribution d'électricité ou de la gestion des bâtiments, avec des résultats convaincants</li><li> Expérience technique et éducation ou formation pertinente dans le domaine du génie électrique et de la distribution électrique</li><li>Capacité de gérer des processus de vente complexes et de communiquer efficacement avec les décideurs à tous les niveaux</li><li> La capacité éprouvée d'établir des relations à long terme avec les clients grâce à une approche fondée sur le partenariat</li><li>Expertise en consultation stratégique sur les modèles d'affaires, le positionnement du marché et les arguments de différenciation</li><li>Une personne qui peut travailler en équipe, possède des compétences en communication professionnelle et un état d'esprit interministériel</li><li>Compétences linguistiques : le français (natif), la maîtrise d'autres langues est un avantage. Permis de conduire de catégorie B valide et permis de travail suisse valide</li></ul><p><b></b></p><p><b>Avantages</b></p><p>\n• Nous offrons à nos employés les avantages suivants :</p><ul><li>Plan d'actionnariat salarié (PAES)</li><li>Chèques REKA</li><li>Rabatte (MyDiscounts / Swibeco)</li><li>Congé parental avantageux</li><li>Soutien financier à la condition physique</li><li>Automobile de la société</li></ul><p><b></b></p><p><b>Pour en savoir plus sur nous</b></p><p><b>BAB Smart Buildings</b> améliore l'efficacité énergétique, la sécurité et le confort de tous les types de bâtiments grâce à des technologies numériques novatrices et à des solutions intégrées. Nous soutenons un large éventail de marchés, des installations résidentielles aux installations industrielles, avec des solutions évolutives qui procurent des avantages à la fois durables et financiers tout en soutenant des stratégies de réduction du carbone.</p>Le recrutement est dirigé par Reto Korstick, Talent Partner, ABB Schweiz AG.</p><p style=\"text-align:inherit !important\"></p><p style=\"text-align:left important\"> Construire un avenir plus propre et plus intelligent prend toutes sortes d'esprits : les curieux, les courageux et les créatifs. C'est pourquoi nous accueillons des gens de tous les horizons et de toutes les expériences.</p><p style=\"text-align:left!important\"> </p><p>Prêt à faire un impact? </p><p></p><p>Appliquer aujourd'hui ou visiter <a cible=\" blank\" href=\"https://www.abb.com\"><span style=\"color:#0000ff\"><b><u>https://www.abb.com</u></b></span></a> pour en savoir plus sur l'impact de nos solutions à travers le monde.</p>"
       },
@@ -1614,8 +1614,6 @@
       },
       "country": "CH",
       "sourceLang": "en",
-      "salaryMin": 72500,
-      "salaryMax": 110500,
       "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -1633,7 +1631,81 @@
       "postalCode": "5400",
       "streetAddress": "Baden, Aargau",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-26T09:27:18.859Z",
+      "validThrough": "2026-12-25T21:22:50.349Z",
+      "validThroughSource": "last-observed-window",
+      "salaryMin": 72500,
+      "salaryMax": 110500
+    },
+    {
+      "id": "company-3m7yko",
+      "slug": "strategy-business-development-tirocinante-m-w-d-80-100-abb-svizzera-sede-ticino-baden-aargau-3m7yko",
+      "company": "ABB Svizzera (sede Ticino)",
+      "title": "Strategy & Business Development Intern f/m/d (80-100%)",
+      "location": "Baden, Aargau",
+      "canton": "AG",
+      "category": "finance",
+      "contract": "full-time",
+      "currency": "CHF",
+      "description": "<p>At <b>ABB</b>, we help industries run leaner and cleaner—and every person here makes that happen. You’ll be empowered to lead, supported to grow, and proud of the impact we create together. Join us and help run what runs the world.</p><p style=\"text-align:inherit !important\"></p><p style=\"text-align:left !important\"><b>This position reports to:</b></p>Strategy M&A Lead<p style=\"text-align:inherit !important\"></p><p style=\"text-align:inherit !important\">__</p><p><span style=\"color:#000000\"><b>Your role and responsibilities</b></span></p><br /><p><span style=\"color:#000000\">In this role, you will work in the global strategy and business development team of ABB's Electrification Service division on strategy development projects and to identify and evaluate inorganic growth opportunities across the division's portfolio. This includes deal sourcing for venture capital investments, strategic partnerships, and merger & acquisition targets.</span></p><p><span style=\"color:#000000\"> </span></p><p><span style=\"color:#000000\">This role provides direct exposure to business strategy, mergers and acquisitions, and investment analysis in an international setting. You will work closely with senior strategy and business stakeholders across the division's global business lines.</span></p><p><span style=\"color:#000000\"> </span></p><p><span style=\"color:#000000\">The working model is: LI-Hybrid</span></p><p><span style=\"color:#000000\"> </span></p><p><span style=\"color:#000000\">You will be mainly accountable for:</span></p><br /><ul><li><span style=\"color:#000000\">Support strategy development by assessing market and customer trends, competitor strategies, and new technologies, developing analytical models to evaluate growth opportunities and inform strategic investment decisions, and preparing high-quality presentations, analyses, and briefings for senior leadership.</span></li><li><span style=\"color:#000000\">Source and screen inorganic growth opportunities (M&A targets, VC investments, and strategic partnerships) aligned with divisional strategy, and build and maintain a structured deal pipeline tracking opportunities across sectors, geographies, and technology areas.</span></li><li><span style=\"color:#000000\">Conduct analysis of potential targets covering market positioning, technology differentiation, financial profile, and strategic fit, develop detailed target profiles, business cases, and investment briefs for senior management and investment committees, and support due diligence in coordination with finance, legal, and business teams.</span></li></ul><br /><p><span style=\"color:#000000\"><b>\n• Qualifications for the role</b></span></p><br /><ul><li><span style=\"color:#000000\">Currently pursuing or recently completed Master's degree in Business Administration, Finance, Economics, Engineering, or a related field</span></li><li><span style=\"color:#000000\">Solid analytical skills with an ability to synthesize complex information into clear, structured output</span></li><li><span style=\"color:#000000\">Proficiency in PowerPoint and Excel; ability and experience in building financial models and presentations from scratch</span></li><li><span style=\"color:#000000\">Genuine interest in strategy and business development, M&A and venture capital</span></li><li><span style=\"color:#000000\">Effective written and verbal communication skills; fluent in English</span></li><li><span style=\"color:#000000\">Detail-oriented, collaborative, and comfortable contributing within a global team environment</span></li><li><span style=\"color:#000000\">Prior internship or project experience in strategy consulting, investment banking / private equity, corporate development / M&A, or VC</span></li></ul><br /><p><span style=\"color:#000000\"><b>More about us</b></span></p><br /><p><span style=\"color:#000000\">ABB's Electrification Business Area is a major provider of electrical distribution and management technologies, solutions and services. Our Electrification Service Division partners with customers to improve the availability, reliability, predictability and sustainability of electrical products and installations. With over 5,000 service professionals across the globe, it delivers a full suite of digitally-enabled care, modernization, and advisory services for electrical systems.</span></p><br /><p><span style=\"color:#000000\">Our mission centers on enabling a low-carbon society, preserving resources, and promoting social progress. Whether serving utilities, industries, data centers, buildings or infrastructure, we collaborate with customers to solve today's greatest energy challenges and accelerate the global transition toward a sustainable, low-carbon future.</span></p><br /><p><span style=\"color:#000000\">The recruitment process is managed by Talent Partner Emma Aslani.</span></p><p style=\"text-align:inherit !important\"></p><p style=\"text-align:left !important\">Building a cleaner, smarter future takes all kinds of minds: the curious, the courageous, and the creative. That's why we welcome people from all backgrounds and experiences.</p><p style=\"text-align:left !important\"> </p><p>Ready to make an impact? </p><p></p><p>Apply today or visit <a target=\"_blank\" href=\"https://www.abb.com\"><span style=\"color:#0000ff\"><b><u>https://www.abb.com</u></b></span></a> to learn more about the impact of our solutions across the globe.</p>",
+      "requirements": [],
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "url": "https://careers.abb/global/en/job/ABB1GLOBALJR00051077EXTERNALENGLOBAL/Strategy---Business-Development-Intern-f-m-d--80-100",
+      "applyUrl": "https://careers.abb/global/en/job/ABB1GLOBALJR00051077EXTERNALENGLOBAL/Strategy---Business-Development-Intern-f-m-d--80-100",
+      "source": "Company Careers Crawler",
+      "_targetScope": {
+        "type": "adapter_seed_meta",
+        "location": "Baden, Aargau, Switzerland",
+        "canton": "AG"
+      },
+      "companyKey": "abb-svizzera-sede-ticino",
+      "companyDomain": "abb.ch",
+      "crawledAt": "2026-11-09T21:22:50.349Z",
+      "firstSeenAt": "2026-10-16T21:23:58.730Z",
+      "slugByLocale": {
+        "it": "strategy-business-development-tirocinante-m-w-d-80-100-abb-svizzera-sede-ticino-baden-aargau-3m7yko",
+        "en": "strategy-business-development-intern-m-w-d-80-100-abb-svizzera-sede-ticino-baden-aargau-3m7yko",
+        "de": "strategy-business-development-praktikant-m-w-d-80-100-abb-svizzera-sede-ticino-baden-aargau-3m7yko",
+        "fr": "strategy-business-development-stagiaire-m-w-d-80-100-abb-svizzera-sede-ticino-baden-aargau-3m7yko"
+      },
+      "titleByLocale": {
+        "en": "Strategy & Business Development Intern f/m/d (80-100%)",
+        "it": "Strategy & Business Development Tirocinante f/m/d (80-100%)",
+        "de": "Strategy & Business Development Praktikant f/m/d (80-100%)",
+        "fr": "Strategy & Business Development Stagiaire f/m/d (80-100%)"
+      },
+      "descriptionByLocale": {
+        "en": "<p>At <b>ABB</b>, we help industries run leaner and cleaner—and every person here makes that happen. You’ll be empowered to lead, supported to grow, and proud of the impact we create together. Join us and help run what runs the world.</p><p style=\"text-align:inherit !important\"></p><p style=\"text-align:left !important\"><b>This position reports to:</b></p>Strategy M&A Lead<p style=\"text-align:inherit !important\"></p><p style=\"text-align:inherit !important\">__</p><p><span style=\"color:#000000\"><b>Your role and responsibilities</b></span></p><br /><p><span style=\"color:#000000\">In this role, you will work in the global strategy and business development team of ABB's Electrification Service division on strategy development projects and to identify and evaluate inorganic growth opportunities across the division's portfolio. This includes deal sourcing for venture capital investments, strategic partnerships, and merger & acquisition targets.</span></p><p><span style=\"color:#000000\"> </span></p><p><span style=\"color:#000000\">This role provides direct exposure to business strategy, mergers and acquisitions, and investment analysis in an international setting. You will work closely with senior strategy and business stakeholders across the division's global business lines.</span></p><p><span style=\"color:#000000\"> </span></p><p><span style=\"color:#000000\">The working model is: LI-Hybrid</span></p><p><span style=\"color:#000000\"> </span></p><p><span style=\"color:#000000\">You will be mainly accountable for:</span></p><br /><ul><li><span style=\"color:#000000\">Support strategy development by assessing market and customer trends, competitor strategies, and new technologies, developing analytical models to evaluate growth opportunities and inform strategic investment decisions, and preparing high-quality presentations, analyses, and briefings for senior leadership.</span></li><li><span style=\"color:#000000\">Source and screen inorganic growth opportunities (M&A targets, VC investments, and strategic partnerships) aligned with divisional strategy, and build and maintain a structured deal pipeline tracking opportunities across sectors, geographies, and technology areas.</span></li><li><span style=\"color:#000000\">Conduct analysis of potential targets covering market positioning, technology differentiation, financial profile, and strategic fit, develop detailed target profiles, business cases, and investment briefs for senior management and investment committees, and support due diligence in coordination with finance, legal, and business teams.</span></li></ul><br /><p><span style=\"color:#000000\"><b>\n• Qualifications for the role</b></span></p><br /><ul><li><span style=\"color:#000000\">Currently pursuing or recently completed Master's degree in Business Administration, Finance, Economics, Engineering, or a related field</span></li><li><span style=\"color:#000000\">Solid analytical skills with an ability to synthesize complex information into clear, structured output</span></li><li><span style=\"color:#000000\">Proficiency in PowerPoint and Excel; ability and experience in building financial models and presentations from scratch</span></li><li><span style=\"color:#000000\">Genuine interest in strategy and business development, M&A and venture capital</span></li><li><span style=\"color:#000000\">Effective written and verbal communication skills; fluent in English</span></li><li><span style=\"color:#000000\">Detail-oriented, collaborative, and comfortable contributing within a global team environment</span></li><li><span style=\"color:#000000\">Prior internship or project experience in strategy consulting, investment banking / private equity, corporate development / M&A, or VC</span></li></ul><br /><p><span style=\"color:#000000\"><b>More about us</b></span></p><br /><p><span style=\"color:#000000\">ABB's Electrification Business Area is a major provider of electrical distribution and management technologies, solutions and services. Our Electrification Service Division partners with customers to improve the availability, reliability, predictability and sustainability of electrical products and installations. With over 5,000 service professionals across the globe, it delivers a full suite of digitally-enabled care, modernization, and advisory services for electrical systems.</span></p><br /><p><span style=\"color:#000000\">Our mission centers on enabling a low-carbon society, preserving resources, and promoting social progress. Whether serving utilities, industries, data centers, buildings or infrastructure, we collaborate with customers to solve today's greatest energy challenges and accelerate the global transition toward a sustainable, low-carbon future.</span></p><br /><p><span style=\"color:#000000\">The recruitment process is managed by Talent Partner Emma Aslani.</span></p><p style=\"text-align:inherit !important\"></p><p style=\"text-align:left !important\">Building a cleaner, smarter future takes all kinds of minds: the curious, the courageous, and the creative. That's why we welcome people from all backgrounds and experiences.</p><p style=\"text-align:left !important\"> </p><p>Ready to make an impact? </p><p></p><p>Apply today or visit <a target=\"_blank\" href=\"https://www.abb.com\"><span style=\"color:#0000ff\"><b><u>https://www.abb.com</u></b></span></a> to learn more about the impact of our solutions across the globe.</p>",
+        "it": "<p>At <b>ABB</b>, we help industries run leaner and cleaner—and every person here makes that happen. You’ll be empowered to lead, supported to grow, and proud of the impact we create together. Join us and help run what runs the world.</p><p style=\"text-align:inherit !important\"></p><p style=\"text-align:left !important\"><b>This position reports to:</b></p>Strategy M&A Lead<p style=\"text-align:inherit !important\"></p><p style=\"text-align:inherit !important\">__</p><p><span style=\"color:#000000\"><b>Your role and responsibilities</b></span></p><br /><p><span style=\"color:#000000\">In this role, you will work in the global strategy and business development team of ABB's Electrification Service division on strategy development projects and to identify and evaluate inorganic growth opportunities across the division's portfolio. This includes deal sourcing for venture capital investments, strategic partnerships, and merger & acquisition targets.</span></p><p><span style=\"color:#000000\"> </span></p><p><span style=\"color:#000000\">This role provides direct exposure to business strategy, mergers and acquisitions, and investment analysis in an international setting. You will work closely with senior strategy and business stakeholders across the division's global business lines.</span></p><p><span style=\"color:#000000\"> </span></p><p><span style=\"color:#000000\">The working model is: LI-Hybrid</span></p><p><span style=\"color:#000000\"> </span></p><p><span style=\"color:#000000\">You will be mainly accountable for:</span></p><br /><ul><li><span style=\"color:#000000\">Support strategy development by assessing market and customer trends, competitor strategies, and new technologies, developing analytical models to evaluate growth opportunities and inform strategic investment decisions, and preparing high-quality presentations, analyses, and briefings for senior leadership.</span></li><li><span style=\"color:#000000\">Source and screen inorganic growth opportunities (M&A targets, VC investments, and strategic partnerships) aligned with divisional strategy, and build and maintain a structured deal pipeline tracking opportunities across sectors, geographies, and technology areas.</span></li><li><span style=\"color:#000000\">Conduct analysis of potential targets covering market positioning, technology differentiation, financial profile, and strategic fit, develop detailed target profiles, business cases, and investment briefs for senior management and investment committees, and support due diligence in coordination with finance, legal, and business teams.</span></li></ul><br /><p><span style=\"color:#000000\"><b>\n• Qualifications for the role</b></span></p><br /><ul><li><span style=\"color:#000000\">Currently pursuing or recently completed Master's degree in Business Administration, Finance, Economics, Engineering, or a related field</span></li><li><span style=\"color:#000000\">Solid analytical skills with an ability to synthesize complex information into clear, structured output</span></li><li><span style=\"color:#000000\">Proficiency in PowerPoint and Excel; ability and experience in building financial models and presentations from scratch</span></li><li><span style=\"color:#000000\">Genuine interest in strategy and business development, M&A and venture capital</span></li><li><span style=\"color:#000000\">Effective written and verbal communication skills; fluent in English</span></li><li><span style=\"color:#000000\">Detail-oriented, collaborative, and comfortable contributing within a global team environment</span></li><li><span style=\"color:#000000\">Prior internship or project experience in strategy consulting, investment banking / private equity, corporate development / M&A, or VC</span></li></ul><br /><p><span style=\"color:#000000\"><b>More about us</b></span></p><br /><p><span style=\"color:#000000\">ABB's Electrification Business Area is a major provider of electrical distribution and management technologies, solutions and services. Our Electrification Service Division partners with customers to improve the availability, reliability, predictability and sustainability of electrical products and installations. With over 5,000 service professionals across the globe, it delivers a full suite of digitally-enabled care, modernization, and advisory services for electrical systems.</span></p><br /><p><span style=\"color:#000000\">Our mission centers on enabling a low-carbon society, preserving resources, and promoting social progress. Whether serving utilities, industries, data centers, buildings or infrastructure, we collaborate with customers to solve today's greatest energy challenges and accelerate the global transition toward a sustainable, low-carbon future.</span></p><br /><p><span style=\"color:#000000\">The recruitment process is managed by Talent Partner Emma Aslani.</span></p><p style=\"text-align:inherit !important\"></p><p style=\"text-align:left !important\">Building a cleaner, smarter future takes all kinds of minds: the curious, the courageous, and the creative. That's why we welcome people from all backgrounds and experiences.</p><p style=\"text-align:left !important\"> </p><p>Ready to make an impact? </p><p></p><p>Apply today or visit <a target=\"_blank\" href=\"https://www.abb.com\"><span style=\"color:#0000ff\"><b><u>https://www.abb.com</u></b></span></a> to learn more about the impact of our solutions across the globe.</p>",
+        "de": "<p>At <b>ABB</b>, we help industries run leaner and cleaner—and every person here makes that happen. You’ll be empowered to lead, supported to grow, and proud of the impact we create together. Join us and help run what runs the world.</p><p style=\"text-align:inherit !important\"></p><p style=\"text-align:left !important\"><b>This position reports to:</b></p>Strategy M&A Lead<p style=\"text-align:inherit !important\"></p><p style=\"text-align:inherit !important\">__</p><p><span style=\"color:#000000\"><b>Your role and responsibilities</b></span></p><br /><p><span style=\"color:#000000\">In this role, you will work in the global strategy and business development team of ABB's Electrification Service division on strategy development projects and to identify and evaluate inorganic growth opportunities across the division's portfolio. This includes deal sourcing for venture capital investments, strategic partnerships, and merger & acquisition targets.</span></p><p><span style=\"color:#000000\"> </span></p><p><span style=\"color:#000000\">This role provides direct exposure to business strategy, mergers and acquisitions, and investment analysis in an international setting. You will work closely with senior strategy and business stakeholders across the division's global business lines.</span></p><p><span style=\"color:#000000\"> </span></p><p><span style=\"color:#000000\">The working model is: LI-Hybrid</span></p><p><span style=\"color:#000000\"> </span></p><p><span style=\"color:#000000\">You will be mainly accountable for:</span></p><br /><ul><li><span style=\"color:#000000\">Support strategy development by assessing market and customer trends, competitor strategies, and new technologies, developing analytical models to evaluate growth opportunities and inform strategic investment decisions, and preparing high-quality presentations, analyses, and briefings for senior leadership.</span></li><li><span style=\"color:#000000\">Source and screen inorganic growth opportunities (M&A targets, VC investments, and strategic partnerships) aligned with divisional strategy, and build and maintain a structured deal pipeline tracking opportunities across sectors, geographies, and technology areas.</span></li><li><span style=\"color:#000000\">Conduct analysis of potential targets covering market positioning, technology differentiation, financial profile, and strategic fit, develop detailed target profiles, business cases, and investment briefs for senior management and investment committees, and support due diligence in coordination with finance, legal, and business teams.</span></li></ul><br /><p><span style=\"color:#000000\"><b>\n• Qualifications for the role</b></span></p><br /><ul><li><span style=\"color:#000000\">Currently pursuing or recently completed Master's degree in Business Administration, Finance, Economics, Engineering, or a related field</span></li><li><span style=\"color:#000000\">Solid analytical skills with an ability to synthesize complex information into clear, structured output</span></li><li><span style=\"color:#000000\">Proficiency in PowerPoint and Excel; ability and experience in building financial models and presentations from scratch</span></li><li><span style=\"color:#000000\">Genuine interest in strategy and business development, M&A and venture capital</span></li><li><span style=\"color:#000000\">Effective written and verbal communication skills; fluent in English</span></li><li><span style=\"color:#000000\">Detail-oriented, collaborative, and comfortable contributing within a global team environment</span></li><li><span style=\"color:#000000\">Prior internship or project experience in strategy consulting, investment banking / private equity, corporate development / M&A, or VC</span></li></ul><br /><p><span style=\"color:#000000\"><b>More about us</b></span></p><br /><p><span style=\"color:#000000\">ABB's Electrification Business Area is a major provider of electrical distribution and management technologies, solutions and services. Our Electrification Service Division partners with customers to improve the availability, reliability, predictability and sustainability of electrical products and installations. With over 5,000 service professionals across the globe, it delivers a full suite of digitally-enabled care, modernization, and advisory services for electrical systems.</span></p><br /><p><span style=\"color:#000000\">Our mission centers on enabling a low-carbon society, preserving resources, and promoting social progress. Whether serving utilities, industries, data centers, buildings or infrastructure, we collaborate with customers to solve today's greatest energy challenges and accelerate the global transition toward a sustainable, low-carbon future.</span></p><br /><p><span style=\"color:#000000\">The recruitment process is managed by Talent Partner Emma Aslani.</span></p><p style=\"text-align:inherit !important\"></p><p style=\"text-align:left !important\">Building a cleaner, smarter future takes all kinds of minds: the curious, the courageous, and the creative. That's why we welcome people from all backgrounds and experiences.</p><p style=\"text-align:left !important\"> </p><p>Ready to make an impact? </p><p></p><p>Apply today or visit <a target=\"_blank\" href=\"https://www.abb.com\"><span style=\"color:#0000ff\"><b><u>https://www.abb.com</u></b></span></a> to learn more about the impact of our solutions across the globe.</p>",
+        "fr": "<p>At <b>ABB</b>, we help industries run leaner and cleaner—and every person here makes that happen. You’ll be empowered to lead, supported to grow, and proud of the impact we create together. Join us and help run what runs the world.</p><p style=\"text-align:inherit !important\"></p><p style=\"text-align:left !important\"><b>This position reports to:</b></p>Strategy M&A Lead<p style=\"text-align:inherit !important\"></p><p style=\"text-align:inherit !important\">__</p><p><span style=\"color:#000000\"><b>Your role and responsibilities</b></span></p><br /><p><span style=\"color:#000000\">In this role, you will work in the global strategy and business development team of ABB's Electrification Service division on strategy development projects and to identify and evaluate inorganic growth opportunities across the division's portfolio. This includes deal sourcing for venture capital investments, strategic partnerships, and merger & acquisition targets.</span></p><p><span style=\"color:#000000\"> </span></p><p><span style=\"color:#000000\">This role provides direct exposure to business strategy, mergers and acquisitions, and investment analysis in an international setting. You will work closely with senior strategy and business stakeholders across the division's global business lines.</span></p><p><span style=\"color:#000000\"> </span></p><p><span style=\"color:#000000\">The working model is: LI-Hybrid</span></p><p><span style=\"color:#000000\"> </span></p><p><span style=\"color:#000000\">You will be mainly accountable for:</span></p><br /><ul><li><span style=\"color:#000000\">Support strategy development by assessing market and customer trends, competitor strategies, and new technologies, developing analytical models to evaluate growth opportunities and inform strategic investment decisions, and preparing high-quality presentations, analyses, and briefings for senior leadership.</span></li><li><span style=\"color:#000000\">Source and screen inorganic growth opportunities (M&A targets, VC investments, and strategic partnerships) aligned with divisional strategy, and build and maintain a structured deal pipeline tracking opportunities across sectors, geographies, and technology areas.</span></li><li><span style=\"color:#000000\">Conduct analysis of potential targets covering market positioning, technology differentiation, financial profile, and strategic fit, develop detailed target profiles, business cases, and investment briefs for senior management and investment committees, and support due diligence in coordination with finance, legal, and business teams.</span></li></ul><br /><p><span style=\"color:#000000\"><b>\n• Qualifications for the role</b></span></p><br /><ul><li><span style=\"color:#000000\">Currently pursuing or recently completed Master's degree in Business Administration, Finance, Economics, Engineering, or a related field</span></li><li><span style=\"color:#000000\">Solid analytical skills with an ability to synthesize complex information into clear, structured output</span></li><li><span style=\"color:#000000\">Proficiency in PowerPoint and Excel; ability and experience in building financial models and presentations from scratch</span></li><li><span style=\"color:#000000\">Genuine interest in strategy and business development, M&A and venture capital</span></li><li><span style=\"color:#000000\">Effective written and verbal communication skills; fluent in English</span></li><li><span style=\"color:#000000\">Detail-oriented, collaborative, and comfortable contributing within a global team environment</span></li><li><span style=\"color:#000000\">Prior internship or project experience in strategy consulting, investment banking / private equity, corporate development / M&A, or VC</span></li></ul><br /><p><span style=\"color:#000000\"><b>More about us</b></span></p><br /><p><span style=\"color:#000000\">ABB's Electrification Business Area is a major provider of electrical distribution and management technologies, solutions and services. Our Electrification Service Division partners with customers to improve the availability, reliability, predictability and sustainability of electrical products and installations. With over 5,000 service professionals across the globe, it delivers a full suite of digitally-enabled care, modernization, and advisory services for electrical systems.</span></p><br /><p><span style=\"color:#000000\">Our mission centers on enabling a low-carbon society, preserving resources, and promoting social progress. Whether serving utilities, industries, data centers, buildings or infrastructure, we collaborate with customers to solve today's greatest energy challenges and accelerate the global transition toward a sustainable, low-carbon future.</span></p><br /><p><span style=\"color:#000000\">The recruitment process is managed by Talent Partner Emma Aslani.</span></p><p style=\"text-align:inherit !important\"></p><p style=\"text-align:left !important\">Building a cleaner, smarter future takes all kinds of minds: the curious, the courageous, and the creative. That's why we welcome people from all backgrounds and experiences.</p><p style=\"text-align:left !important\"> </p><p>Ready to make an impact? </p><p></p><p>Apply today or visit <a target=\"_blank\" href=\"https://www.abb.com\"><span style=\"color:#0000ff\"><b><u>https://www.abb.com</u></b></span></a> to learn more about the impact of our solutions across the globe.</p>"
+      },
+      "needsRetranslation": true,
+      "requirementsByLocale": {},
+      "country": "CH",
+      "sourceLang": "en",
+      "salaryMin": 74500,
+      "salaryMax": 131000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 74500,
+          "maxValue": 131000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressLocality": "Baden, Aargau",
+      "addressRegion": "AG",
+      "employmentType": "FULL_TIME",
+      "postalCode": "5400",
+      "streetAddress": "Baden, Aargau",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-15T21:22:50.349Z",
       "validThroughSource": "last-observed-window"
     }
   ]

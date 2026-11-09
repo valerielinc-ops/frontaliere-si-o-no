@@ -2655,16 +2655,14 @@
     "slugByLocale": {
       "it": "cargo-generale-regionale-m-f-d-planzer-bern",
       "en": "disponent-general-cargo-regional-m-f-d-planzer-bern",
-      "de": "disponent-stuckgut-regional-m-w-d-planzer-bern",
+      "de": "disponent-stuckgut-regional-m-w-d-planzer-bern-f235066a",
       "fr": "marchandises-generales-detachees-h-f-d-planzer-bern"
     },
     "sector": "Trasporti / Logistica",
     "expiredAt": "2026-10-23T21:18:50.693Z",
-    "previousSlugs": [
-      "disponent-stuckgut-regional-m-w-d-planzer-bern"
-    ],
     "previousSlugsByLocale": {
       "it": [
+        "disponent-stuckgut-regional-m-w-d-planzer-bern-f235066a",
         "disponent-stuckgut-regional-m-w-d-planzer-bern"
       ],
       "en": [
@@ -2672,6 +2670,9 @@
       ],
       "fr": [
         "disponent-stuckgut-regional-m-w-d-planzer-bern"
+      ],
+      "de": [
+        "disponent-stuckgut-regional-m-w-d-planzer-bern-f235066a"
       ]
     },
     "postalCode": "3004",
@@ -2681,7 +2682,10 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://live.solique.ch/planzer/job/details/4086530",
-    "firstSeenAt": "2026-09-18T23:10:22.940Z"
+    "firstSeenAt": "2026-09-18T23:10:22.940Z",
+    "previousSlugs": [
+      "disponent-stuckgut-regional-m-w-d-planzer-bern"
+    ]
   },
   {
     "slug": "chauffeur-cat-ce-m-f-d-z-planzer-bern",
@@ -6540,14 +6544,18 @@
       "paketzusteller-m-w-d-planzer-bern-6f983a99",
       "package-delivery-m-f-d-planzer-bern-d2d0ce08",
       "livraison-de-colis-h-f-d-planzer-bern-0e7f325f",
+      "consegna-del-pacchetto-m-f-d-planzer-bern-28349f90",
+      "paketzusteller-m-w-d-planzer-bern-d9ed99e6",
+      "package-delivery-m-f-d-planzer-bern-b27bd96a",
+      "livraison-de-colis-h-f-d-planzer-bern-52f823cf",
       "consegna-del-pacchetto-m-f-d-planzer-bern",
       "package-delivery-m-f-d-planzer-bern",
       "paketzusteller-m-w-d-planzer-bern",
       "livraison-de-colis-h-f-d-planzer-bern",
-      "consegna-del-pacchetto-m-f-d-planzer-bern-28349f90",
-      "paketzusteller-m-w-d-planzer-bern-d9ed99e6",
-      "package-delivery-m-f-d-planzer-bern-b27bd96a",
-      "livraison-de-colis-h-f-d-planzer-bern-52f823cf"
+      "consegna-del-pacchetto-m-f-d-planzer-bern-98223ae0",
+      "paketzusteller-m-w-d-planzer-bern-2b4d698b",
+      "package-delivery-m-f-d-planzer-bern-cf47c4cf",
+      "livraison-de-colis-h-f-d-planzer-bern-8ae51645"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -6572,6 +6580,8 @@
         "paketzusteller-m-w-d-planzer-bern-6f983a99",
         "consegna-del-pacchetto-m-f-d-planzer-bern-28349f90",
         "paketzusteller-m-w-d-planzer-bern-d9ed99e6",
+        "consegna-del-pacchetto-m-f-d-planzer-bern-98223ae0",
+        "paketzusteller-m-w-d-planzer-bern-2b4d698b",
         "consegna-del-pacchetto-m-f-d-planzer-bern",
         "paketzusteller-m-w-d-planzer-bern"
       ],
@@ -6596,6 +6606,8 @@
         "paketzusteller-m-w-d-planzer-bern-6f983a99",
         "package-delivery-m-f-d-planzer-bern-b27bd96a",
         "paketzusteller-m-w-d-planzer-bern-d9ed99e6",
+        "package-delivery-m-f-d-planzer-bern-cf47c4cf",
+        "paketzusteller-m-w-d-planzer-bern-2b4d698b",
         "package-delivery-m-f-d-planzer-bern",
         "paketzusteller-m-w-d-planzer-bern"
       ],
@@ -6620,6 +6632,8 @@
         "livraison-de-colis-h-f-d-planzer-bern-0e7f325f",
         "paketzusteller-m-w-d-planzer-bern-d9ed99e6",
         "livraison-de-colis-h-f-d-planzer-bern-52f823cf",
+        "paketzusteller-m-w-d-planzer-bern-2b4d698b",
+        "livraison-de-colis-h-f-d-planzer-bern-8ae51645",
         "paketzusteller-m-w-d-planzer-bern",
         "livraison-de-colis-h-f-d-planzer-bern"
       ],
@@ -6636,6 +6650,7 @@
         "paketzusteller-m-w-d-planzer-bern-d065d1af",
         "paketzusteller-m-w-d-planzer-bern-6f983a99",
         "paketzusteller-m-w-d-planzer-bern-d9ed99e6",
+        "paketzusteller-m-w-d-planzer-bern-2b4d698b",
         "paketzusteller-m-w-d-planzer-bern"
       ]
     },
@@ -6957,10 +6972,12 @@
       "employes-entretien-et-flotte-h-f-d-planzer-kallnach-1848224c",
       "employees-maintenance-and-fleet-m-f-d-planzer-kallnach-08861c26",
       "employes-entretien-et-flotte-h-f-d-planzer-kallnach-022ca4b9",
+      "employees-maintenance-and-fleet-m-f-d-planzer-kallnach-ad316996",
+      "employes-entretien-et-flotte-h-f-d-planzer-kallnach-fc998c5e",
       "employees-maintenance-and-fleet-m-f-d-planzer-kallnach",
       "employes-entretien-et-flotte-h-f-d-planzer-kallnach",
-      "employees-maintenance-and-fleet-m-f-d-planzer-kallnach-ad316996",
-      "employes-entretien-et-flotte-h-f-d-planzer-kallnach-fc998c5e"
+      "employees-maintenance-and-fleet-m-f-d-planzer-kallnach-c97a7f8a",
+      "employes-entretien-et-flotte-h-f-d-planzer-kallnach-1549a506"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -6997,6 +7014,7 @@
         "employees-maintenance-and-fleet-m-f-d-planzer-kallnach-5c6737e9",
         "employees-maintenance-and-fleet-m-f-d-planzer-kallnach-08861c26",
         "employees-maintenance-and-fleet-m-f-d-planzer-kallnach-ad316996",
+        "employees-maintenance-and-fleet-m-f-d-planzer-kallnach-c97a7f8a",
         "employees-maintenance-and-fleet-m-f-d-planzer-kallnach"
       ],
       "fr": [
@@ -7027,6 +7045,7 @@
         "employes-entretien-et-flotte-h-f-d-planzer-kallnach-1848224c",
         "employes-entretien-et-flotte-h-f-d-planzer-kallnach-022ca4b9",
         "employes-entretien-et-flotte-h-f-d-planzer-kallnach-fc998c5e",
+        "employes-entretien-et-flotte-h-f-d-planzer-kallnach-1549a506",
         "employes-entretien-et-flotte-h-f-d-planzer-kallnach"
       ],
       "de": [
@@ -7519,14 +7538,18 @@
       "mitarbeiter-kommissionierung-m-w-d-planzer-harkingen-ec336a77",
       "employee-picking-m-f-d-planzer-harkingen-eb681f85",
       "selection-des-employes-h-f-d-planzer-harkingen-94deae5b",
+      "collaboratore-trice-kommissionierung-m-w-d-planzer-harkingen-1539a722",
+      "mitarbeiter-kommissionierung-m-w-d-planzer-harkingen-08a3c79f",
+      "employee-picking-m-f-d-planzer-harkingen-8f3a91ef",
+      "selection-des-employes-h-f-d-planzer-harkingen-6abd916c",
       "collaboratore-trice-kommissionierung-m-w-d-planzer-harkingen",
       "mitarbeiter-kommissionierung-m-w-d-planzer-harkingen",
       "employee-picking-m-f-d-planzer-harkingen",
       "selection-des-employes-h-f-d-planzer-harkingen",
-      "collaboratore-trice-kommissionierung-m-w-d-planzer-harkingen-1539a722",
-      "mitarbeiter-kommissionierung-m-w-d-planzer-harkingen-08a3c79f",
-      "employee-picking-m-f-d-planzer-harkingen-8f3a91ef",
-      "selection-des-employes-h-f-d-planzer-harkingen-6abd916c"
+      "collaboratore-trice-kommissionierung-m-w-d-planzer-harkingen-416fe018",
+      "mitarbeiter-kommissionierung-m-w-d-planzer-harkingen-8c3054f3",
+      "employee-picking-m-f-d-planzer-harkingen-f9c3fe63",
+      "selection-des-employes-h-f-d-planzer-harkingen-51f8f1dd"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -7584,6 +7607,8 @@
         "mitarbeiter-kommissionierung-m-w-d-planzer-harkingen-ec336a77",
         "collaboratore-trice-kommissionierung-m-w-d-planzer-harkingen-1539a722",
         "mitarbeiter-kommissionierung-m-w-d-planzer-harkingen-08a3c79f",
+        "collaboratore-trice-kommissionierung-m-w-d-planzer-harkingen-416fe018",
+        "mitarbeiter-kommissionierung-m-w-d-planzer-harkingen-8c3054f3",
         "collaboratore-trice-kommissionierung-m-w-d-planzer-harkingen",
         "mitarbeiter-kommissionierung-m-w-d-planzer-harkingen"
       ],
@@ -7639,6 +7664,8 @@
         "employee-picking-m-f-d-planzer-harkingen-eb681f85",
         "mitarbeiter-kommissionierung-m-w-d-planzer-harkingen-08a3c79f",
         "employee-picking-m-f-d-planzer-harkingen-8f3a91ef",
+        "mitarbeiter-kommissionierung-m-w-d-planzer-harkingen-8c3054f3",
+        "employee-picking-m-f-d-planzer-harkingen-f9c3fe63",
         "mitarbeiter-kommissionierung-m-w-d-planzer-harkingen",
         "employee-picking-m-f-d-planzer-harkingen"
       ],
@@ -7694,6 +7721,8 @@
         "selection-des-employes-h-f-d-planzer-harkingen-94deae5b",
         "mitarbeiter-kommissionierung-m-w-d-planzer-harkingen-08a3c79f",
         "selection-des-employes-h-f-d-planzer-harkingen-6abd916c",
+        "mitarbeiter-kommissionierung-m-w-d-planzer-harkingen-8c3054f3",
+        "selection-des-employes-h-f-d-planzer-harkingen-51f8f1dd",
         "mitarbeiter-kommissionierung-m-w-d-planzer-harkingen",
         "selection-des-employes-h-f-d-planzer-harkingen"
       ],
@@ -7712,6 +7741,7 @@
         "mitarbeiter-kommissionierung-m-w-d-planzer-harkingen-4744446e",
         "mitarbeiter-kommissionierung-m-w-d-planzer-harkingen-8753558c",
         "mitarbeiter-kommissionierung-m-w-d-planzer-harkingen-bfdcb3ec",
+        "mitarbeiter-kommissionierung-m-w-d-planzer-harkingen-95a53d64",
         "mitarbeiter-kommissionierung-m-w-d-planzer-harkingen"
       ]
     },
