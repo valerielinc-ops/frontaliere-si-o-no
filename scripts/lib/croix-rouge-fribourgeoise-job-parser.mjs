@@ -31,9 +31,10 @@
  * so this parser builds the description from the visible rich-text block.
  *
  * If the embedded Company Page stops exposing its cards, the employer's
- * Jobup company profile is used as a same-publisher fallback. This preserves
- * the fail-closed behavior for an actually unreadable source while avoiding a
- * false zero when JobCloud changes the embedded page URL or markup.
+ * Jobup company profile, then the exact-employer Jobup search, are used as
+ * same-publisher fallbacks. This preserves the fail-closed behavior for an
+ * actually unreadable source while avoiding a false zero when JobCloud changes
+ * the embedded page URL or when the Jobup profile lags the live SERP.
  *
  * The listing phase keeps three outcomes apart (issue 11077): job links are
  * crawled; a fetch failure is thrown, never read as an empty listing, so the
@@ -86,6 +87,7 @@ import { parseSwissShortDate } from './hospital-custom-html-helpers.mjs';
 import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 import { markAuthoritativeEmptySnapshot } from './authoritative-empty-snapshot.mjs';
 import { hasPotentialJobData } from './jobcloud-empty-state.mjs';
+import { filterJobupCardsByEmployer, parseJobupSearchCards } from './jobup-ch-feed-common.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -95,10 +97,18 @@ export const CROIX_ROUGE_FRIBOURGEOISE_COMPANY_DOMAIN = 'croix-rouge-fr.ch';
 
 const LISTING_ID = '1773421929172x328595190866247700';
 const ATS_HOST = 'company.jobcloud.ch';
+const LISTING_SLUG = 'croix-rouge-fribourgeoise';
 // locale-segment-ok: '/fr/' is JobCloud's own Company Page URL path, the org only publishes this listing in French
 const LISTING_URL = `https://${ATS_HOST}/fr/job-list/${LISTING_ID}`;
 const JOBUP_HOST = 'www.jobup.ch';
 const JOBUP_COMPANY_URL = 'https://www.jobup.ch/fr/societes/26216-croix-rouge-fribourgeoise/emplois/';
+const JOBUP_SEARCH_URL = 'https://www.jobup.ch/fr/emplois/?term=Croix-Rouge';
+const JOBUP_EMPLOYER_NAMES = [
+  CROIX_ROUGE_FRIBOURGEOISE_COMPANY_NAME,
+  "l'Association fribourgeoise de la Croix-Rouge suisse",
+  'l’Association fribourgeoise de la Croix-Rouge suisse',
+  'Association fribourgeoise de la Croix-Rouge suisse',
+];
 
 // Jobup renders the employer's own cards inside a dedicated list container.
 // Keep the selector list explicit and fail closed: the profile also contains
@@ -126,6 +136,10 @@ const JOBCLOUD_NO_POSITIONS_TEXT_RE = /Aucun poste ouvert actuellement/i;
 const JOBUP_NO_VACANCIES_SELECTOR = '[data-cy="company-no-vacancies"]';
 const JOBUP_NO_VACANCIES_TEXT_RE = /Il\s+n['’]y\s+a\s+actuellement\s+aucune\s+offre\s+d['’]emploi/i;
 const JOBUP_DETAIL_PATH_RE = /^\/(?:fr\/emplois|en\/jobs)\/detail\/[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}\/?$/i;
+const JOBCLOUD_DETAIL_PATH_RE = new RegExp(
+  `^/[a-z]{2}/jobs/(?:${LISTING_SLUG}/)?[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}/?$`,
+  'i',
+);
 
 const SECTOR = 'Sociale / Socio-sanitario';
 
@@ -178,7 +192,7 @@ export function isCroixRougeFribourgeoiseJob(job) {
     key.startsWith('croix-rouge-fribourgeoise') ||
     company.includes('croix-rouge fribourgeoise') ||
     url.includes('croix-rouge-fr.ch') ||
-    (url.includes(ATS_HOST) && url.includes(LISTING_ID))
+    (url.includes(ATS_HOST) && (url.includes(LISTING_ID) || url.includes(`/jobs/${LISTING_SLUG}/`)))
   );
 }
 
@@ -286,10 +300,13 @@ export function resolveAddress(rawLocation = '') {
  * Extract every distinct job-detail link from the listing page's
  * server-rendered CMS collection markup.
  * @param {string} html Listing page HTML.
- * @returns {string[]} Unique relative hrefs, e.g. ["/fr/jobs/{uuid}", ...].
+ * @returns {string[]} Unique relative hrefs, e.g. ["/fr/jobs/{uuid}", "/fr/jobs/croix-rouge-fribourgeoise/{uuid}"].
  */
 export function extractListingLinks(html = '') {
-  const re = /href\s*=\s*(["'])((?:https?:\/\/company\.jobcloud\.ch)?\/[a-z]{2}\/jobs\/[0-9a-fA-F-]{36}\/?(?:[?#][^"']*)?)\1/gi;
+  const re = new RegExp(
+    `href\\s*=\\s*(["'])((?:https?:\\/\\/company\\.jobcloud\\.ch)?\\/[a-z]{2}\\/jobs\\/(?:${LISTING_SLUG}\\/)?[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}\\/?(?:[?#][^"']*)?)\\1`,
+    'gi',
+  );
   const seen = new Set();
   let m;
   // eslint-disable-next-line no-cond-assign
@@ -297,7 +314,7 @@ export function extractListingLinks(html = '') {
     const rawHref = decodeNumericEntities(m[2]).replace(/&amp;/g, '&');
     try {
       const parsed = new URL(rawHref, `https://${ATS_HOST}`);
-      if (parsed.hostname.toLowerCase() !== ATS_HOST) continue;
+      if (parsed.hostname.toLowerCase() !== ATS_HOST || !JOBCLOUD_DETAIL_PATH_RE.test(parsed.pathname)) continue;
       seen.add(rawHref.startsWith('/') ? `${parsed.pathname}${parsed.search}` : parsed.href);
     } catch {
       // Ignore malformed source links and keep scanning the listing page.
@@ -375,6 +392,19 @@ export function extractJobupListingLinks(html = '') {
     dom.window.close();
   }
   return [...seen];
+}
+
+/**
+ * Extract this employer's cards from the Jobup search fallback. The search
+ * result is relevance-ranked and contains other Red Cross entities, so only
+ * the exact source employer names observed on Jobup are admitted.
+ */
+export function extractJobupSearchListingLinks(html = '') {
+  const cards = parseJobupSearchCards(html);
+  const ownedCards = JOBUP_EMPLOYER_NAMES.flatMap((employerName) => (
+    filterJobupCardsByEmployer(cards, employerName)
+  ));
+  return [...new Set(ownedCards.map((card) => card.url).filter(Boolean))];
 }
 
 /**
@@ -544,6 +574,7 @@ export async function fetchAllCroixRougeFribourgeoiseJobs() {
   let links = [];
   let jobCloudError = null;
   let jobCloudProvenEmpty = false;
+  let listingSource = 'JobCloud Company Page';
   try {
     const listingHtml = await fetchHtml(LISTING_URL);
     links = extractListingLinks(listingHtml);
@@ -569,12 +600,31 @@ export async function fetchAllCroixRougeFribourgeoiseJobs() {
     }
     links = extractJobupListingLinks(jobupHtml);
     if (links.length) {
+      listingSource = 'Jobup company profile';
       console.log(`  📋 Jobup listings found: ${links.length}`);
     } else {
-      // JobCloud never answered: one empty fallback does not prove the
-      // employer has no openings, and the fetch failure is the real cause.
-      if (jobCloudError) throw jobCloudError;
-      if (jobCloudProvenEmpty && isJobupProfileProvenEmpty(jobupHtml)) {
+      const jobupProvenEmpty = isJobupProfileProvenEmpty(jobupHtml);
+      console.warn('⚠️ Jobup company profile exposed no job links; trying the Jobup employer search fallback.');
+      let jobupSearchHtml;
+      try {
+        jobupSearchHtml = await fetchHtml(JOBUP_SEARCH_URL);
+      } catch (err) {
+        // A failed search fallback is not an empty search result. Keep the
+        // original JobCloud failure when it is the first failed source, while
+        // still surfacing a standalone Jobup search failure.
+        console.warn(`⚠️ ${CROIX_ROUGE_FRIBOURGEOISE_COMPANY_NAME}: Jobup search fallback unavailable: ${err?.message || err}`);
+        if (jobCloudError) throw jobCloudError;
+        throw err;
+      }
+      links = extractJobupSearchListingLinks(jobupSearchHtml);
+      if (links.length) {
+        listingSource = 'Jobup search';
+        console.log(`  📋 Jobup search listings found: ${links.length}`);
+      } else if (jobCloudError) {
+        // JobCloud never answered: a profile/search zero does not prove the
+        // employer has no openings, and the fetch failure is the real cause.
+        throw jobCloudError;
+      } else if (jobCloudProvenEmpty && jobupProvenEmpty) {
         console.log('  ✅ Both JobCloud and Jobup state that no position is open.');
         return markAuthoritativeEmptySnapshot(
           [],
@@ -637,7 +687,7 @@ export async function fetchAllCroixRougeFribourgeoiseJobs() {
       canton,
       url: detailUrl,
       source: detailUrl.includes('jobup.ch')
-        ? 'Croix-Rouge fribourgeoise Dedicated Parser (Jobup company profile)'
+        ? `Croix-Rouge fribourgeoise Dedicated Parser (${listingSource})`
         : 'Croix-Rouge fribourgeoise Dedicated Parser (JobCloud Company Page)',
       sourceLang,
       crawledAt: new Date().toISOString(),
