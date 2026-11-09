@@ -1,7 +1,7 @@
 {
   "key": "svar-spitalverbund-ar",
   "label": "Spitalverbund Appenzell Ausserrhoden (SVAR)",
-  "generatedAt": "2026-11-08T21:31:41.338Z",
+  "generatedAt": "2026-11-09T09:17:49.136Z",
   "total": 10,
   "discovered": null,
   "parsed": 10,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 10,
-  "durationMs": 11782,
-  "avgDurationMs": 11782,
+  "durationMs": 10108,
+  "avgDurationMs": 10108,
   "durationHistory": [
-    11782
+    10108
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -38,7 +38,7 @@
       "url": "https://live.solique.ch/svar/job/details/4091373",
       "source": "Spitalverbund Appenzell Ausserrhoden (SVAR) Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T21:31:18.043Z",
+      "crawledAt": "2026-11-09T09:17:34.596Z",
       "addressLocality": "Herisau",
       "addressRegion": "AR",
       "addressCountry": "CH",
@@ -62,7 +62,7 @@
       "salarySource": "estimated",
       "streetAddress": "Herisau",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-29T21:31:18.043Z",
+      "validThrough": "2027-01-30T09:17:34.596Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -84,7 +84,7 @@
       "url": "https://live.solique.ch/svar/job/details/4091393",
       "source": "Spitalverbund Appenzell Ausserrhoden (SVAR) Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T21:31:17.411Z",
+      "crawledAt": "2026-11-09T09:17:33.991Z",
       "addressLocality": "Herisau",
       "addressRegion": "AR",
       "addressCountry": "CH",
@@ -108,7 +108,7 @@
       "salarySource": "estimated",
       "streetAddress": "Herisau",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-29T21:31:17.411Z",
+      "validThrough": "2027-01-30T09:17:33.991Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -131,7 +131,7 @@
       "url": "https://live.solique.ch/svar/job/details/4095898",
       "source": "Spitalverbund Appenzell Ausserrhoden (SVAR) Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T21:31:16.779Z",
+      "crawledAt": "2026-11-09T09:17:33.357Z",
       "addressLocality": "Herisau",
       "addressRegion": "AR",
       "addressCountry": "CH",
@@ -155,7 +155,7 @@
       "salarySource": "estimated",
       "streetAddress": "Herisau",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-01T21:31:16.779Z",
+      "validThrough": "2027-01-01T09:17:33.357Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -178,7 +178,7 @@
       "url": "https://live.solique.ch/svar/job/details/4097404",
       "source": "Spitalverbund Appenzell Ausserrhoden (SVAR) Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T21:31:16.143Z",
+      "crawledAt": "2026-11-09T09:17:32.621Z",
       "addressLocality": "Herisau",
       "addressRegion": "AR",
       "addressCountry": "CH",
@@ -202,7 +202,7 @@
       "salarySource": "estimated",
       "streetAddress": "Herisau",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-02T21:31:16.143Z",
+      "validThrough": "2027-02-03T09:17:32.621Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -225,7 +225,7 @@
       "url": "https://live.solique.ch/svar/job/details/4097120",
       "source": "Spitalverbund Appenzell Ausserrhoden (SVAR) Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T21:31:15.497Z",
+      "crawledAt": "2026-11-09T09:17:31.991Z",
       "addressLocality": "Herisau",
       "addressRegion": "AR",
       "addressCountry": "CH",
@@ -249,7 +249,7 @@
       "salarySource": "estimated",
       "streetAddress": "Herisau",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-02T21:31:15.497Z",
+      "validThrough": "2027-02-03T09:17:31.991Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -272,7 +272,7 @@
       "url": "https://live.solique.ch/svar/job/details/4094208",
       "source": "Spitalverbund Appenzell Ausserrhoden (SVAR) Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T21:31:14.821Z",
+      "crawledAt": "2026-11-09T09:17:31.351Z",
       "addressLocality": "Herisau",
       "addressRegion": "AR",
       "addressCountry": "CH",
@@ -296,7 +296,7 @@
       "salarySource": "estimated",
       "streetAddress": "Herisau",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-02T21:31:14.821Z",
+      "validThrough": "2027-02-03T09:17:31.351Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -319,7 +319,7 @@
       "url": "https://live.solique.ch/svar/job/details/4097389",
       "source": "Spitalverbund Appenzell Ausserrhoden (SVAR) Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T21:31:14.194Z",
+      "crawledAt": "2026-11-09T09:17:30.749Z",
       "addressLocality": "Herisau",
       "addressRegion": "AR",
       "addressCountry": "CH",
@@ -343,7 +343,7 @@
       "salarySource": "estimated",
       "streetAddress": "Herisau",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-04T21:31:14.194Z",
+      "validThrough": "2027-01-05T09:17:30.749Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -365,7 +365,7 @@
       "url": "https://live.solique.ch/svar/job/details/4097375",
       "source": "Spitalverbund Appenzell Ausserrhoden (SVAR) Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T21:31:13.564Z",
+      "crawledAt": "2026-11-09T09:17:29.982Z",
       "addressLocality": "Herisau",
       "addressRegion": "AR",
       "addressCountry": "CH",
@@ -389,7 +389,7 @@
       "salarySource": "estimated",
       "streetAddress": "Herisau",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-04T21:31:13.564Z",
+      "validThrough": "2027-01-04T09:17:29.982Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -412,7 +412,7 @@
       "url": "https://live.solique.ch/svar/job/details/4097379",
       "source": "Spitalverbund Appenzell Ausserrhoden (SVAR) Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T21:31:12.936Z",
+      "crawledAt": "2026-11-09T09:17:29.347Z",
       "addressLocality": "Herisau",
       "addressRegion": "AR",
       "addressCountry": "CH",
@@ -436,7 +436,7 @@
       "salarySource": "estimated",
       "streetAddress": "Herisau",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T21:31:12.936Z",
+      "validThrough": "2027-02-04T09:17:29.347Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -459,7 +459,7 @@
       "url": "https://live.solique.ch/svar/job/details/4097383",
       "source": "Spitalverbund Appenzell Ausserrhoden (SVAR) Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T21:31:12.093Z",
+      "crawledAt": "2026-11-09T09:17:28.541Z",
       "addressLocality": "Herisau",
       "addressRegion": "AR",
       "addressCountry": "CH",
@@ -483,7 +483,7 @@
       "salarySource": "estimated",
       "streetAddress": "Herisau",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T21:31:12.093Z",
+      "validThrough": "2027-02-04T09:17:28.541Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -494,5 +494,5 @@
       }
     }
   ],
-  "codeCommit": "46d8c233794afd1422cd7663ab076bfe9ec2a1c3"
+  "codeCommit": "f071981dd2d2820cdec3736f76b1b17ee50345bd"
 }
