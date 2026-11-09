@@ -29398,7 +29398,7 @@ const RAW_ARTICLES_CHUNK_11: Article[] = [
  id: 'classifica-dogane-ticino',
  category: 'novita',
  date: '2026-07-03T11:13:04.641Z',
- updatedAt: '2026-10-26',
+ updatedAt: '2026-11-09',
  image: '/images/places/lugano-view.webp',
  hasCalculator: false,
  canton: ['TI'],
