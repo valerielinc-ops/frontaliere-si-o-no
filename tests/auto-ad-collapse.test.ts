@@ -48,13 +48,18 @@ afterEach(() => {
   vi.useRealTimers();
 });
 
-describe('autoAdHasCreative — only a real creative earns the space', () => {
+describe('autoAdHasCreative — real or Google-owned content earns the space', () => {
   it('a rendered iframe counts as filled', () => {
     expect(autoAdHasCreative(placeContainer('<ins><iframe></iframe></ins>'))).toBe(true);
   });
 
   it('data-ad-status="filled" counts as filled', () => {
     expect(autoAdHasCreative(placeContainer('<ins data-ad-status="filled"></ins>'))).toBe(true);
+  });
+
+  it('Google-owned optimized content stays occupied without being a paid fill', () => {
+    expect(autoAdHasCreative(placeContainer('<ins data-ad-status="unfill-optimized"></ins>'))).toBe(true);
+    expect(autoAdHasCreative(placeContainer('<ins data-ft-ad-state="optimized"></ins>'))).toBe(true);
   });
 
   it('the silent no-answer case does NOT count — this is the whole bug', () => {
@@ -87,6 +92,15 @@ describe('installAutoAdCollapse — gives the space back, but only after the bud
   it('never touches a container that filled (AGENTS.md §7)', () => {
     vi.useFakeTimers();
     const el = placeContainer('<ins data-ad-status="filled"><iframe></iframe></ins>');
+    teardown = installAutoAdCollapse();
+
+    vi.advanceTimersByTime(AD_FILL_TIMEOUT_MS * 3);
+    expect(el.hasAttribute(AUTO_AD_COLLAPSED_ATTR)).toBe(false);
+  });
+
+  it('never collapses a Google-owned optimized container', () => {
+    vi.useFakeTimers();
+    const el = placeContainer('<ins data-ad-status="unfill-optimized"></ins>');
     teardown = installAutoAdCollapse();
 
     vi.advanceTimersByTime(AD_FILL_TIMEOUT_MS * 3);

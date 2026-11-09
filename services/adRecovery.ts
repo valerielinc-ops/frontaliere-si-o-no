@@ -48,12 +48,12 @@ export function installAdRecovery(
   };
   const googleMessage = () => Array.from(document.querySelectorAll('.fc-consent-root,.fc-ab-root,.fc-monetization-dialog-container')).some(onScreen);
   const visibleDialog = () => Array.from(document.querySelectorAll('dialog[open],[role="dialog"][aria-modal="true"]')).some(onScreen);
-  const filled = () => !!document.querySelector('ins[data-ad-status="filled"],ins[data-anchor-status="displayed"],[data-ad-state="filled"]');
+  const filled = () => !!document.querySelector('ins[data-ad-status="filled"],ins[data-ad-status="unfill-optimized"],ins[data-anchor-status="displayed"],[data-ad-state="filled"],[data-ft-ad-state="optimized"]');
   const hasUnfilledHouseSlot = () => Array.from(document.querySelectorAll<HTMLElement>('[data-house]')).some((frame) => {
     const google = frame.querySelector<HTMLElement>('[data-ft-house-google],ins[data-ad-slot]');
     if (!google) return false;
     const state = google.getAttribute('data-ft-ad-state') || google.getAttribute('data-ad-state') || google.getAttribute('data-ft-static-ad-state') || '';
-    return state !== 'filled' && !google.matches('ins[data-ad-status="filled"]') && !google.querySelector('ins[data-ad-status="filled"],[data-ad-state="filled"]');
+    return !['filled', 'optimized'].includes(state) && !google.matches('ins[data-ad-status="filled"],ins[data-ad-status="unfill-optimized"]') && !google.querySelector('ins[data-ad-status="filled"],ins[data-ad-status="unfill-optimized"],[data-ad-state="filled"],[data-ft-ad-state="optimized"]');
   });
   const permitted = () => {
     try { return allowed() && navigator.onLine !== false && document.visibilityState !== 'hidden' && !location.pathname.startsWith(jobPath); }

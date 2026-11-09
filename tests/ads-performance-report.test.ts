@@ -105,7 +105,7 @@ describe('ads performance report helpers', () => {
 
   it('aggregates the real manual lifecycle and keeps absent stages missing for incomplete GA4 data', () => {
     expect(GA4_LIFECYCLE_EVENTS.map((event) => event.name)).toEqual([
-      'ad_request', 'ad_waiting', 'ad_filled', 'ad_unfilled', 'ad_collapsed', 'ad_measurable', 'ad_viewable',
+      'ad_request', 'ad_waiting', 'ad_filled', 'ad_google_optimized', 'ad_unfilled', 'ad_collapsed', 'ad_measurable', 'ad_viewable',
     ]);
     const rows = buildGa4Rows({ rows: [{
       dimensionValues: [

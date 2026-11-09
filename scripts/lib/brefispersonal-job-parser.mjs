@@ -15,7 +15,12 @@ import { mergeSourcePostingDates } from './source-posting-date.mjs';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
 import { inferSwissTargetCanton, rescueSwissCityFromText } from './target-swiss-locations.mjs';
-import { copySpecFetchMetadata, loadSpec, runSpecInProduction } from './prospector/spec-crawler.mjs';
+import {
+  copySpecFetchMetadata,
+  fetchHtmlViaBrowser,
+  loadSpec,
+  runSpecInProduction,
+} from './prospector/spec-crawler.mjs';
 import { BREFISPERSONAL_PAGINATION } from './prospector/brefispersonal-contract.mjs';
 import { resolveSourceBackedSwissGeography } from './prospector/location-evidence.mjs';
 
@@ -131,16 +136,34 @@ function detectEmploymentType(text = '') {
  * template degli URL di dettaglio, appresi dalla pagina reale.
  */
 export function normalizeBrefispersonalSpec(spec) {
-  if (!spec || typeof spec !== 'object' || spec.pagination !== undefined) return spec;
+  if (!spec || typeof spec !== 'object') return spec;
+  const pagination = spec.pagination;
+  if (pagination === undefined || pagination === null) {
+    return {
+      ...spec,
+      pagination: { ...BREFISPERSONAL_PAGINATION },
+    };
+  }
+  if (typeof pagination !== 'object' || Array.isArray(pagination)) return spec;
+  const hasCompletePaginationContract = Object.keys(BREFISPERSONAL_PAGINATION)
+    .every((key) => Object.prototype.hasOwnProperty.call(pagination, key));
+  if (hasCompletePaginationContract) return spec;
   return {
     ...spec,
-    pagination: { ...BREFISPERSONAL_PAGINATION },
+    pagination: { ...BREFISPERSONAL_PAGINATION, ...pagination },
   };
 }
 
 async function fetchJobListings() {
   const spec = normalizeBrefispersonalSpec(loadSpec(BREFISPERSONAL_KEY));
-  return runSpecInProduction(spec);
+  return runSpecInProduction({
+    ...spec,
+    rescueOnEmptyListing: spec.rescueOnEmptyListing === undefined
+      ? true
+      : spec.rescueOnEmptyListing,
+  }, {
+    browserFetchImpl: fetchHtmlViaBrowser,
+  });
 }
 
 /**

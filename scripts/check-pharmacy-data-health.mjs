@@ -467,6 +467,18 @@ export function collectFetchErrors(datasets, duties) {
   return out;
 }
 
+function fetchErrorDetails(entry) {
+  return (Array.isArray(entry?.errors) ? entry.errors : [])
+    .map((error) => String(error ?? '').replace(/\s+/g, ' ').trim())
+    .filter(Boolean)
+    .join(' | ');
+}
+
+function formatFetchErrorProblem(entry, datasetLabel) {
+  const details = fetchErrorDetails(entry);
+  return `${entry.count} errore/i di fetch nel dataset ${datasetLabel}${details ? `: ${details}` : ' (causa non specificata)'}`;
+}
+
 /**
  * Normalizza un campo testuale prima di usarlo come chiave di identità.
  * `scripts/lib/pharmacy-ticino-parser.mjs` emette `address`/`name` come testo
@@ -791,7 +803,7 @@ export function buildReport({ registry, datasets = {}, duties = {}, knownCantonC
     const hint = f.kind === 'anagrafica' ? ' — verificare il workflow sync-pharmacies-border' : '';
     problems.push(`dataset ${f.kind} ${f.key} stale: ${f.reason}${hint}`);
   }
-  for (const e of fetchErrors) problems.push(`${e.count} errore/i di fetch nel dataset ${e.kind} ${e.key}`);
+  for (const e of fetchErrors) problems.push(formatFetchErrorProblem(e, `${e.kind} ${e.key}`));
   for (const c of conflicts) problems.push(`conflitto ${c.type} (${c.key}): ${c.detail}`);
   for (const gap of dutyCoverage.unreportedGaps) {
     problems.push(`release turni ${gap.key} fuori copertura nella settimana del fetch ${gap.weekStart} senza segnale di errore`);
@@ -810,7 +822,7 @@ export function buildReport({ registry, datasets = {}, duties = {}, knownCantonC
         problems.push(`dataset perimetro ${jurisdiction.key} stale: ${jurisdiction.reason || 'freschezza non verificabile'} — verificare il workflow sync-pharmacies-border`);
       }
     }
-    for (const error of borderHealth.fetchErrors) problems.push(`${error.count} errore/i di fetch nel dataset perimetro ${error.key}`);
+    for (const error of borderHealth.fetchErrors) problems.push(formatFetchErrorProblem(error, `perimetro ${error.key}`));
     for (const problem of borderHealth.italyDutyHorizon.problems) problems.push(`orizzonte turni Italia: ${problem}`);
     if (borderHealth.outOfScopeRecords.length) problems.push(`${borderHealth.outOfScopeRecords.length} record fuori perimetro nelle snapshot farmacie`);
     if (borderHealth.sourceMismatches.length) problems.push(`${borderHealth.sourceMismatches.length} record nella snapshot della fonte errata`);
@@ -856,6 +868,7 @@ export function formatReport(report) {
     lines.push(`Freschezza ${f.kind}/${f.key}: ${age} (SLA ${f.maxAgeHours === null ? 'non dichiarato' : `${Math.round(f.maxAgeHours / 24)}g`})${f.stale ? ' ⚠️ STALE' : ''}`);
   }
   lines.push(`Errori di fetch: ${report.fetchErrors.reduce((n, e) => n + e.count, 0)}`);
+  for (const error of report.fetchErrors) lines.push(`  • ${formatFetchErrorProblem(error, `${error.kind} ${error.key}`)}`);
   lines.push(`Conflitti: ${report.conflicts.length}`);
   lines.push(`Copertura release cantonali: ${report.dutyCoverage.entries.length} osservate · gap non segnalati: ${report.dutyCoverage.unreportedGaps.length}`);
   if (!report.dutiesPipeline.available) lines.push(`Turni: ${report.dutiesPipeline.reason}`);
@@ -866,6 +879,7 @@ export function formatReport(report) {
       lines.push(`  • ${jurisdiction.key} [${jurisdiction.sourceStatus}] — ${jurisdiction.recordCount} record · fetch ${age}${jurisdiction.stale ? ' ⚠️ STALE' : ''}`);
     }
     lines.push(`Errori fetch perimetro: ${report.border.fetchErrors.reduce((n, e) => n + e.count, 0)}`);
+    for (const error of report.border.fetchErrors) lines.push(`  • ${formatFetchErrorProblem(error, `perimetro ${error.key}`)}`);
     lines.push(`Orizzonte turni Italia: soglia ${report.border.italyDutyHorizon.horizonDays}g`);
     for (const entry of report.border.italyDutyHorizon.entries) {
       const horizon = entry.horizonDaysAfterFetch === null ? '?' : `${entry.horizonDaysAfterFetch}g`;

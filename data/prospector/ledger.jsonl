@@ -48087,3 +48087,5 @@
 {"eventType":"candidate_transition","key":"skan@allschwil","from":"awaiting_first_crawl","to":"production","at":"2026-11-09T15:16:14.953Z","runId":"42610973403","runAttempt":1,"phase":"promote","eventId":"8f8e0db01e202f984b9398db"}
 {"eventType":"candidate_transition","key":"unidistance@brig","from":"awaiting_first_crawl","to":"production","at":"2026-11-09T15:16:14.954Z","runId":"42610973403","runAttempt":1,"phase":"promote","eventId":"7b3668954c8d68b53124e096"}
 {"eventType":"candidate_attempt","key":"creditx@sion","status":"awaiting_first_crawl","outcome":"updated","at":"2026-11-09T15:16:14.954Z","runId":"42610973403","runAttempt":1,"phase":"promote","eventId":"0ed27947a73f1355485f6f37"}
+{"eventType":"candidate_transition","key":"data-unit","from":"promoted","to":"promoting","at":"2026-11-09T15:16:49.526Z","runId":"42610973403","runAttempt":1,"phase":"promote","eventId":"4e2d6a9fb193326f4ed4434b"}
+{"eventType":"candidate_transition","key":"prodyna@basel","from":"promoted","to":"promoting","at":"2026-11-09T15:16:49.526Z","runId":"42610973403","runAttempt":1,"phase":"promote","eventId":"b7937a9b0eb8e46a1fbb440c"}

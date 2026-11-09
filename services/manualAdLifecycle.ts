@@ -4,8 +4,8 @@ export function observeManualAd(
   el: HTMLElement,
   box: HTMLElement,
   timeoutMs: number,
-  onState: (state: 'waiting_width' | 'loading' | 'waiting_response' | 'filled' | 'unfilled' | 'unavailable' | 'collapsed', reason?: string) => void,
-  emitEvent: (event: 'ad_request' | 'ad_unavailable' | 'ad_waiting' | 'ad_filled' | 'ad_unfilled' | 'ad_collapsed' | 'ad_measurable' | 'ad_viewable', metrics?: Record<string, string | number>) => void,
+  onState: (state: 'waiting_width' | 'loading' | 'waiting_response' | 'filled' | 'optimized' | 'unfilled' | 'unavailable' | 'collapsed', reason?: string) => void,
+  emitEvent: (event: 'ad_request' | 'ad_unavailable' | 'ad_waiting' | 'ad_filled' | 'ad_google_optimized' | 'ad_unfilled' | 'ad_collapsed' | 'ad_measurable' | 'ad_viewable', metrics?: Record<string, string | number>) => void,
 ) {
   // Preserve late Google fills (including known 30s+ creatives), then expose a
   // bounded stall signal so the publisher-owned fallback can occupy the slot.
@@ -16,6 +16,7 @@ export function observeManualAd(
   let requested = false;
   let requestPending = false;
   let filled = false;
+  let viewabilityEligible = false;
   let terminal = '';
   let failureReason = '';
   let measurable = false;
@@ -54,7 +55,7 @@ export function observeManualAd(
   const clearStallTimer = () => { clearTimeout(stallTimer); stallTimer = undefined; };
   const updateView = () => {
     clearViewTimer();
-    if (!filled || !inView || document.visibilityState === 'hidden' || viewable) return;
+    if (!viewabilityEligible || !inView || document.visibilityState === 'hidden' || viewable) return;
     viewTimer = setTimeout(() => {
       if (!stopped && inView && creativeTarget?.isConnected && document.visibilityState !== 'hidden') {
         viewable = true;
@@ -76,7 +77,7 @@ export function observeManualAd(
     if (creativeTarget) resize?.observe(creativeTarget);
   };
   const measure = () => {
-    if (!filled) return;
+    if (!viewabilityEligible) return;
     const creative = findCreative();
     if (creativeTarget !== creative) {
       clearViewTimer();
@@ -147,9 +148,10 @@ export function observeManualAd(
       return;
     }
     const status = el.getAttribute('data-ad-status');
-    if (status === 'filled' && !filled) {
+    if (status === 'filled' && !viewabilityEligible) {
       setRequestPending(false);
       filled = true;
+      viewabilityEligible = true;
       terminal = '';
       clearTimeout(responseTimer);
       clearStallTimer();
@@ -161,6 +163,21 @@ export function observeManualAd(
       emit('ad_filled', metrics());
       if (typeof ResizeObserver !== 'undefined') { resize = new ResizeObserver(measure); resize.observe(el); }
       measure();
+    } else if (status === 'unfill-optimized' && !filled) {
+      // AdSense may replace a no-fill with its own optimized suggestions.
+      // Keep that Google-owned content visible and prevent the house creative
+      // from covering it, but do not count it as a paid ad fill/viewability.
+      setRequestPending(false);
+      filled = true;
+      terminal = '';
+      clearTimeout(responseTimer);
+      clearStallTimer();
+      el.removeAttribute('data-ft-ad-stalled');
+      offscreen?.disconnect();
+      window.removeEventListener('scroll', collapse);
+      window.removeEventListener('resize', collapse);
+      onState('optimized', status);
+      emit('ad_google_optimized', { ...metrics(), ad_status: status });
     } else if (status === 'unfilled' && !filled && !failureReason) {
       emit('ad_unfilled');
       fail('unfilled');
@@ -192,7 +209,7 @@ export function observeManualAd(
       emit('ad_request', metrics());
       responseTimer = setTimeout(() => {
         check();
-        if (filled || terminal || stopped || el.getAttribute('data-ad-status') === 'unfilled') return;
+        if (filled || terminal || stopped || ['unfilled', 'unfill-optimized'].includes(el.getAttribute('data-ad-status') || '')) return;
         // A deadline is not a no-fill. Keep listening: measured company/fuel
         // creatives can arrive after 30 seconds, including 1534px frames.
         onState('waiting_response');
@@ -200,7 +217,7 @@ export function observeManualAd(
         stallTimer = setTimeout(() => {
           stallTimer = undefined;
           check();
-          if (filled || terminal || stopped || !requestPending || el.getAttribute('data-ad-status') === 'unfilled') return;
+          if (filled || terminal || stopped || !requestPending || ['unfilled', 'unfill-optimized'].includes(el.getAttribute('data-ad-status') || '')) return;
           el.setAttribute('data-ft-ad-stalled', 'response_stalled');
           emit('ad_waiting', { reason: 'response_stalled', ...metrics() });
         }, Math.max(0, STALLED_AD_FALLBACK_MS - timeoutMs));

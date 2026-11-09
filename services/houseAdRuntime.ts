@@ -174,7 +174,9 @@ export function installHouseAds(
       let host = frame.querySelector<HTMLElement>('[data-ft-house-host]');
       if (!host) { host = document.createElement('span'); host.setAttribute('data-ft-house-host', ''); frame.append(host); }
       const state = google?.getAttribute('data-ft-ad-state') || google?.getAttribute('data-ad-state') || google?.getAttribute('data-ft-static-ad-state') || '';
-      const isFilled = state === 'filled' || !!google?.matches('ins[data-ad-status="filled"]') || !!google?.querySelector('ins[data-ad-status="filled"],[data-ad-state="filled"]');
+      const isFilled = state === 'filled' || state === 'optimized'
+        || !!google?.matches('ins[data-ad-status="filled"],ins[data-ad-status="unfill-optimized"]')
+        || !!google?.querySelector('ins[data-ad-status="filled"],ins[data-ad-status="unfill-optimized"],[data-ad-state="filled"],[data-ad-state="optimized"]');
       if (isFilled) { remove(frame); continue; }
       const gpt = frame.dataset.ftHouseLibrary === 'gpt';
       const requested = !!google && (google.hasAttribute('data-google-query-id') || !!google.querySelector('[data-google-query-id]'));

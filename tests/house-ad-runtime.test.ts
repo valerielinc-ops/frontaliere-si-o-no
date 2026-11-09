@@ -141,6 +141,14 @@ describe('per-slot first-party creative delivery', () => {
   it.each(['loading', 'waiting_response', 'idle', 'waiting_width'])('does not cover a %s Google slot', async state => {
     const empty = frame(state); await start(); expect(empty.host.childElementCount).toBe(0);
   });
+  it('yields to AdSense optimized empty-slot suggestions', async () => {
+    const optimized = frame('waiting_response');
+    const ins = w.document.createElement('ins'); ins.dataset.adStatus = 'unfill-optimized';
+    optimized.google.append(ins);
+    await start();
+    expect(optimized.host.childElementCount).toBe(0);
+    expect(optimized.el.hasAttribute('data-ft-house-active')).toBe(false);
+  });
   it('fills a still-pending slot when Funding Choices confirms an ad blocker', async () => {
     const empty = frame('waiting_response'); empty.google.setAttribute('data-ft-ad-request-pending', '1');
     w.__ftAdBlock = { blocked: true, adsAllowed: false };

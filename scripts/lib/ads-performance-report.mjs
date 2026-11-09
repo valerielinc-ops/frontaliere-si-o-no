@@ -15,6 +15,7 @@ export const GA4_LIFECYCLE_EVENTS = Object.freeze([
   Object.freeze({ name: 'ad_request', stage: 'request', instrumentation: 'manual AdSense slot request; request_id is excluded' }),
   Object.freeze({ name: 'ad_waiting', stage: 'waiting_for_response', instrumentation: 'manual slot response deadline; not a no-fill verdict' }),
   Object.freeze({ name: 'ad_filled', stage: 'fill', instrumentation: 'manual AdSense and GPT slot fill events' }),
+  Object.freeze({ name: 'ad_google_optimized', stage: 'google_optimized_empty', instrumentation: 'AdSense data-ad-status=unfill-optimized; Google-owned content, not a paid fill' }),
   Object.freeze({ name: 'ad_unfilled', stage: 'unfilled', instrumentation: 'manual AdSense reports data-ad-status=unfilled' }),
   Object.freeze({ name: 'ad_collapsed', stage: 'collapsed', instrumentation: 'manual AdSense and GPT collapsed slots' }),
   Object.freeze({ name: 'ad_measurable', stage: 'measurable', instrumentation: 'manual iframe geometry; not AdSense Active View measurability' }),
