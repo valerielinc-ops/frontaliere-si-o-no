@@ -1,16 +1,16 @@
 {
   "key": "ermenegildo-zegna-logistica",
   "label": "Zegna",
-  "generatedAt": "2026-11-09T09:23:22.365Z",
+  "generatedAt": "2026-11-09T21:18:10.270Z",
   "total": 3,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 3,
-  "durationMs": 9688,
-  "avgDurationMs": 9688,
+  "durationMs": 11751,
+  "avgDurationMs": 11751,
   "durationHistory": [
-    9688
+    11751
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -43,7 +43,7 @@
         "location": "Stabio"
       },
       "sourceLang": "en",
-      "crawledAt": "2026-11-09T09:23:11.781Z",
+      "crawledAt": "2026-11-09T21:17:54.535Z",
       "id": "ermenegildo-zegna-logistica-0293238593f2",
       "salaryMin": 85500,
       "salaryMax": 150000,
@@ -56,7 +56,7 @@
       "postedDate": "",
       "postingDateSource": "unknown",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-21T09:23:11.781Z",
+      "validThrough": "2026-12-20T21:17:54.535Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 88,
       "_qualityBreakdown": {
@@ -84,7 +84,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-11-09T09:23:08.591Z",
+      "crawledAt": "2026-11-09T21:17:51.320Z",
       "source": "zegna-careers-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "",
@@ -105,7 +105,7 @@
       "postalCode": "6855",
       "firstSeenAt": "2026-10-23T09:38:18.202Z",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-22T09:23:08.591Z",
+      "validThrough": "2027-01-21T21:17:51.320Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 88,
       "_qualityBreakdown": {
@@ -133,7 +133,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-11-09T09:23:06.729Z",
+      "crawledAt": "2026-11-09T21:17:49.664Z",
       "source": "zegna-careers-crawler",
       "employmentType": "INTERN",
       "experienceLevel": "",
@@ -154,7 +154,7 @@
       "postalCode": "6855",
       "firstSeenAt": "2026-10-28T20:04:47.969Z",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-13T09:23:06.729Z",
+      "validThrough": "2026-12-12T21:17:49.664Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 88,
       "_qualityBreakdown": {
@@ -165,5 +165,5 @@
       }
     }
   ],
-  "codeCommit": "f071981dd2d2820cdec3736f76b1b17ee50345bd"
+  "codeCommit": "1dbbd63fa4ef1d645b973703c20eaa910357364d"
 }

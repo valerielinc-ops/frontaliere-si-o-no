@@ -1,16 +1,16 @@
 {
   "key": "tarchini-group",
   "label": "Tarchini Group",
-  "generatedAt": "2026-11-09T09:47:04.291Z",
+  "generatedAt": "2026-11-09T21:19:46.138Z",
   "total": 3,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 3,
-  "durationMs": 4389,
-  "avgDurationMs": 4389,
+  "durationMs": 3950,
+  "avgDurationMs": 3950,
   "durationHistory": [
-    4389
+    3950
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -38,10 +38,10 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-11-09T09:46:47.364Z",
+      "crawledAt": "2026-11-09T21:19:34.510Z",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "validThrough": "2027-02-05T09:46:47.364Z",
+      "validThrough": "2027-02-05T21:19:34.510Z",
       "id": "tarchini-group-71f08f97ca1a",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -81,7 +81,7 @@
       "postedDate": "",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "validThrough": "2026-12-09T09:46:47.394Z",
+      "validThrough": "2026-12-09T21:19:34.526Z",
       "salaryMin": 72000,
       "salaryMax": 97000,
       "currency": "CHF",
@@ -93,7 +93,7 @@
       "applicationEmail": "info@tarchinigroup.com",
       "datePosted": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-11-09T09:46:47.394Z",
+      "crawledAt": "2026-11-09T21:19:34.526Z",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
@@ -126,7 +126,7 @@
       "postedDate": "",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "validThrough": "2026-12-29T09:46:47.399Z",
+      "validThrough": "2026-12-28T21:19:34.530Z",
       "id": "tarchini-group-e3e32d44df83",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -135,7 +135,7 @@
       "firstSeenAt": "2026-09-29T21:13:20.401Z",
       "datePosted": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-11-09T09:46:47.399Z",
+      "crawledAt": "2026-11-09T21:19:34.530Z",
       "postalCode": "6850",
       "streetAddress": "Mendrisio",
       "streetAddressSource": "to-enrich",
@@ -149,5 +149,5 @@
       }
     }
   ],
-  "codeCommit": "f071981dd2d2820cdec3736f76b1b17ee50345bd"
+  "codeCommit": "1dbbd63fa4ef1d645b973703c20eaa910357364d"
 }

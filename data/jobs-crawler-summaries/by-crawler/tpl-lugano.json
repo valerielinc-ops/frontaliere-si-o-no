@@ -1,7 +1,7 @@
 {
   "key": "tpl-lugano",
   "label": "TPL Lugano",
-  "generatedAt": "2026-11-08T21:52:30.417Z",
+  "generatedAt": "2026-11-09T21:28:17.979Z",
   "total": 2,
   "discovered": 2,
   "written": 2,
@@ -9,10 +9,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 5757,
-  "avgDurationMs": 5757,
+  "durationMs": 7569,
+  "avgDurationMs": 7569,
   "durationHistory": [
-    5757
+    7569
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -35,7 +35,7 @@
       "datePosted": "2026-10-23",
       "postedDate": "2026-10-23",
       "postingDateSource": "reported",
-      "crawledAt": "2026-11-08T21:52:15.551Z",
+      "crawledAt": "2026-11-09T21:28:00.923Z",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "postalCode": "6900",
@@ -52,7 +52,7 @@
       "salarySource": "reported",
       "firstSeenAt": "2026-10-23T09:21:26.983Z",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-21T21:52:15.551Z",
+      "validThrough": "2027-01-21T21:28:00.923Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 92,
       "_qualityBreakdown": {
@@ -79,7 +79,7 @@
       "datePosted": "2026-10-23",
       "postedDate": "2026-10-23",
       "postingDateSource": "reported",
-      "crawledAt": "2026-11-08T21:52:15.546Z",
+      "crawledAt": "2026-11-09T21:28:00.918Z",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "postalCode": "6900",
@@ -96,7 +96,7 @@
       "salarySource": "estimated",
       "firstSeenAt": "2026-10-23T09:21:26.981Z",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-21T21:52:15.546Z",
+      "validThrough": "2027-01-21T21:28:00.918Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 92,
       "_qualityBreakdown": {
@@ -107,5 +107,5 @@
       }
     }
   ],
-  "codeCommit": "46d8c233794afd1422cd7663ab076bfe9ec2a1c3"
+  "codeCommit": "1dbbd63fa4ef1d645b973703c20eaa910357364d"
 }

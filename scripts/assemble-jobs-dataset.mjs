@@ -4786,6 +4786,13 @@ export function reconcileGhostExpired(activeJobs, expiredJobs, { sliceDir = EXPI
     }
   }
 
+  // Ghost reconciliation runs after the active assembly's normal ownership
+  // pass and can replay a stale hash-tailed bridge carried by the expired
+  // record. Reconcile only after the complete merge, so the final in-memory
+  // active snapshot is order-independent and cannot regrow cross-job history
+  // when it is later projected back to crawler slices (#17834).
+  decontaminateJobs(activeJobs);
+
   return { cleanedExpired, ghostCount, mergedSlugs };
 }
 

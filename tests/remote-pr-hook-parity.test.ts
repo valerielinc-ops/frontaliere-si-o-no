@@ -9,7 +9,10 @@ import {
 } from 'node:fs';
 import { resolve } from 'node:path';
 import { tmpdir } from 'node:os';
-import { runRemoteSiblingPrePush } from '../.github/actions/claude-codex-fallback/git-bridge-server.mjs';
+import {
+  REMOTE_PRE_PUSH_CHECK_TIMEOUT_MS,
+  runRemoteSiblingPrePush,
+} from '../.github/actions/claude-codex-fallback/git-bridge-server.mjs';
 
 const ROOT = resolve(import.meta.dirname, '..');
 const read = (relative: string) => readFileSync(resolve(ROOT, relative), 'utf8');
@@ -121,6 +124,44 @@ describe('remote PR agents use the same committed hook contract as local agents'
       expect(result.stdout).toContain(`--head ${pushedBranchHead}`);
       expect(result.stdout).not.toContain(`--head ${checkedOutHead}`);
       expect(result.stdout).not.toContain('fixture-secret');
+    } finally {
+      rmSync(root, { recursive: true, force: true });
+    }
+  });
+
+  it('does not let a slow advisory sibling scan consume the push', () => {
+    const root = mkdtempSync(resolve(tmpdir(), 'remote-hook-timeout-'));
+    try {
+      mkdirSync(resolve(root, '.githooks'), { recursive: true });
+      mkdirSync(resolve(root, 'scripts', 'ci'), { recursive: true });
+      writeFileSync(resolve(root, '.githooks', 'pre-push'), '# fixture opt-in\n');
+      writeFileSync(
+        resolve(root, 'scripts', 'ci', 'check-sibling-patterns.mjs'),
+        'setTimeout(() => {}, 5000);\n',
+      );
+      execFileSync('git', ['init', '-q', root]);
+      execFileSync('git', [
+        '-C', root,
+        '-c', 'user.name=Fixture',
+        '-c', 'user.email=fixture@example.invalid',
+        'commit', '--allow-empty', '-q', '-m', 'fixture',
+      ]);
+      execFileSync('git', ['-C', root, 'checkout', '-qb', 'checked-out-branch']);
+      const result = runRemoteSiblingPrePush({
+        realGit: 'git',
+        cwd: root,
+        env: {
+          ...process.env,
+          GIT_CONFIG_NOSYSTEM: '1',
+          GIT_CONFIG_GLOBAL: '/dev/null',
+          GIT_CONFIG_SYSTEM: '/dev/null',
+        },
+        workBranchRef: 'refs/heads/checked-out-branch',
+        siblingCheckTimeoutMs: 50,
+      });
+      expect(result.code).toBe(0);
+      expect(result.stderr).toContain(`exceeded 50ms`);
+      expect(REMOTE_PRE_PUSH_CHECK_TIMEOUT_MS).toBe(5_000);
     } finally {
       rmSync(root, { recursive: true, force: true });
     }

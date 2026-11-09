@@ -1,6 +1,7 @@
 import { getRemoteConfig } from 'firebase-admin/remote-config';
 
 export const HOUSE_AD_EXPERIMENT_ID = 'house_creatives_v2';
+export const READER_SUBSCRIPTION_EXPERIMENT_ID = 'reader_subscription_house_v1';
 // Keep in sync with services/houseAdCreative.ts. Unknown Remote Config arms
 // fail closed to the fixed control creative.
 const HOUSE_AD_VARIANTS = new Set([
@@ -9,6 +10,8 @@ const HOUSE_AD_VARIANTS = new Set([
 export const HOUSE_AD_CREATIVE_DEFAULTS = Object.freeze({
   HOUSE_AD_CREATIVE_EXPERIMENT_ENABLED: 'false',
   HOUSE_AD_CREATIVE_VARIANT: 'control',
+  HOUSE_AD_READER_SUBSCRIPTION_EXPERIMENT_ENABLED: 'false',
+  HOUSE_AD_READER_SUBSCRIPTION_VARIANT: 'control',
 });
 
 const TEMPLATE_REFRESH_MS = 5 * 60 * 1000;
@@ -20,6 +23,10 @@ const DEFAULT_ASSIGNMENT = Object.freeze({
   enrolled: false,
   experimentId: HOUSE_AD_EXPERIMENT_ID,
   assignmentSource: 'local_default',
+  readerSubscriptionVariant: 'control',
+  readerSubscriptionEnrolled: false,
+  readerSubscriptionExperimentId: READER_SUBSCRIPTION_EXPERIMENT_ID,
+  readerSubscriptionAssignmentSource: 'local_default',
 });
 
 let cachedTemplate = null;
@@ -92,13 +99,29 @@ export async function resolveHouseAdCreativeAssignment(randomizationId) {
     const config = template.evaluate({ randomizationId });
     const enabledValue = config.getValue('HOUSE_AD_CREATIVE_EXPERIMENT_ENABLED');
     const variantValue = config.getValue('HOUSE_AD_CREATIVE_VARIANT');
+    const readerSubscriptionEnabledValue = config.getValue('HOUSE_AD_READER_SUBSCRIPTION_EXPERIMENT_ENABLED');
+    const readerSubscriptionVariantValue = config.getValue('HOUSE_AD_READER_SUBSCRIPTION_VARIANT');
     const variant = variantValue.asString();
     const source = enabledValue.getSource() === 'remote' || variantValue.getSource() === 'remote'
       ? 'firebase_remote_config'
       : 'local_default';
+    const readerSubscriptionVariant = readerSubscriptionVariantValue.asString();
+    const readerSubscriptionSource = readerSubscriptionEnabledValue.getSource() === 'remote'
+      || readerSubscriptionVariantValue.getSource() === 'remote'
+      ? 'firebase_remote_config'
+      : 'local_default';
+    const readerSubscriptionEnrolled = readerSubscriptionEnabledValue.asBoolean()
+      && ['control', 'subscription'].includes(readerSubscriptionVariant)
+      && readerSubscriptionSource === 'firebase_remote_config';
 
     if (!enabledValue.asBoolean() || !HOUSE_AD_VARIANTS.has(variant)) {
-      return { ...DEFAULT_ASSIGNMENT, assignmentSource: source };
+      return {
+        ...DEFAULT_ASSIGNMENT,
+        assignmentSource: source,
+        readerSubscriptionVariant: readerSubscriptionEnrolled ? readerSubscriptionVariant : 'control',
+        readerSubscriptionEnrolled,
+        readerSubscriptionAssignmentSource: readerSubscriptionSource,
+      };
     }
 
     return {
@@ -106,6 +129,10 @@ export async function resolveHouseAdCreativeAssignment(randomizationId) {
       enrolled: true,
       experimentId: HOUSE_AD_EXPERIMENT_ID,
       assignmentSource: 'firebase_remote_config',
+      readerSubscriptionVariant: readerSubscriptionEnrolled ? readerSubscriptionVariant : 'control',
+      readerSubscriptionEnrolled,
+      readerSubscriptionExperimentId: READER_SUBSCRIPTION_EXPERIMENT_ID,
+      readerSubscriptionAssignmentSource: readerSubscriptionSource,
     };
   } catch {
     // A stale/missing experiment config must never prevent a fallback creative.

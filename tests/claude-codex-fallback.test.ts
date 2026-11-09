@@ -51,6 +51,7 @@ import {
   CHILD_TIMEOUT_MS as GIT_CHILD_TIMEOUT_MS,
   FORCE_KILL_GRACE_MS as GIT_FORCE_KILL_GRACE_MS,
   SHUTDOWN_TIMEOUT_MS as GIT_SHUTDOWN_TIMEOUT_MS,
+  REMOTE_PRE_PUSH_CHECK_TIMEOUT_MS,
   buildGitNetworkArgs,
   canonicalGitRemote,
   isMutatingGitArgs,
@@ -693,6 +694,18 @@ describe('validator dei bridge host-side', () => {
     expect(buildGitNetworkArgs(['push', 'origin', `${workBranch}:${workBranch}`], expectedRemote, { allowedWorkBranch: workBranchRef })).toEqual([
       'push', expectedRemote, `${workBranchRef}:${workBranchRef}`,
     ]);
+    expect(buildGitNetworkArgs(['push', 'origin', 'HEAD'], expectedRemote, {
+      allowedWorkBranch: workBranchRef,
+      partialCloneFilter: 'blob:none',
+    })).toEqual([
+      'push', '--no-thin', expectedRemote, `HEAD:${workBranchRef}`,
+    ]);
+    expect(buildGitNetworkArgs(['push', '--no-thin', 'origin', 'HEAD'], expectedRemote, {
+      allowedWorkBranch: workBranchRef,
+      partialCloneFilter: 'blob:none',
+    })).toEqual([
+      'push', '--no-thin', expectedRemote, `HEAD:${workBranchRef}`,
+    ]);
     expect(buildGitNetworkArgs(['fetch', '--prune'], expectedRemote)).toEqual([
       'fetch', '--prune', expectedRemote,
     ]);
@@ -753,6 +766,7 @@ describe('validator dei bridge host-side', () => {
     expect(GIT_CHILD_TIMEOUT_MS).toBe(120_000);
     expect(GIT_FORCE_KILL_GRACE_MS).toBe(2_000);
     expect(GIT_SHUTDOWN_TIMEOUT_MS).toBe(2_500);
+    expect(REMOTE_PRE_PUSH_CHECK_TIMEOUT_MS).toBe(5_000);
   });
 
   it('forza un child stubborn dopo SIGTERM e non uccide un child già terminato', async () => {

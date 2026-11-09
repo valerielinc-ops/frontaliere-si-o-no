@@ -1,7 +1,7 @@
 {
   "crawlerKey": "tschuggen",
-  "assembledAt": "2026-11-09T09:25:48.278Z",
-  "runId": "42591923938",
+  "assembledAt": "2026-11-09T21:19:21.459Z",
+  "runId": "42700811018",
   "jobs": [
     {
       "id": "tschuggen-a863307370a6",
@@ -34,7 +34,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1069/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:25:39.256Z",
+      "crawledAt": "2026-11-09T21:19:08.804Z",
       "addressLocality": "Arosa",
       "postalCode": "7050",
       "addressCountry": "CH",
@@ -99,9 +99,23 @@
         }
       },
       "addressRegion": "GR",
-      "streetAddress": "Arosa",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-09T09:25:39.256Z",
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Tschuggen Collection",
+        "streetAddress": "Tschuggentorweg 1",
+        "postalCode": "7050",
+        "registeredName": "Tschuggen Collection AG",
+        "matchType": "exact",
+        "streetAddressSource": "zefix-registry",
+        "jobPostalCode": "7050",
+        "addressLocality": "Arosa",
+        "addressRegion": "GR",
+        "checkedAt": "2026-11-09T15:43:47.942Z"
+      },
+      "streetAddress": "Tschuggentorweg 1",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-12-09T21:19:08.804Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -135,7 +149,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1390/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:25:38.381Z",
+      "crawledAt": "2026-11-09T21:19:07.729Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -201,7 +215,7 @@
       "addressRegion": "GR",
       "streetAddress": "St. Moritz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-09T09:25:38.381Z",
+      "validThrough": "2026-12-09T21:19:07.729Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -235,7 +249,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1395/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:25:36.985Z",
+      "crawledAt": "2026-11-09T21:19:05.647Z",
       "addressLocality": "Arosa",
       "postalCode": "7050",
       "addressCountry": "CH",
@@ -281,9 +295,23 @@
         }
       },
       "addressRegion": "GR",
-      "streetAddress": "Arosa",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-30T09:25:36.985Z",
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Tschuggen Collection",
+        "streetAddress": "Tschuggentorweg 1",
+        "postalCode": "7050",
+        "registeredName": "Tschuggen Collection AG",
+        "matchType": "exact",
+        "streetAddressSource": "zefix-registry",
+        "jobPostalCode": "7050",
+        "addressLocality": "Arosa",
+        "addressRegion": "GR",
+        "checkedAt": "2026-11-09T15:43:47.942Z"
+      },
+      "streetAddress": "Tschuggentorweg 1",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-12-30T21:19:05.647Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -317,7 +345,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1396/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:25:36.124Z",
+      "crawledAt": "2026-11-09T21:19:04.612Z",
       "addressLocality": "Arosa",
       "postalCode": "7050",
       "addressCountry": "CH",
@@ -363,9 +391,23 @@
         }
       },
       "addressRegion": "GR",
-      "streetAddress": "Arosa",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-01T09:25:36.124Z",
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Tschuggen Collection",
+        "streetAddress": "Tschuggentorweg 1",
+        "postalCode": "7050",
+        "registeredName": "Tschuggen Collection AG",
+        "matchType": "exact",
+        "streetAddressSource": "zefix-registry",
+        "jobPostalCode": "7050",
+        "addressLocality": "Arosa",
+        "addressRegion": "GR",
+        "checkedAt": "2026-11-09T15:43:47.942Z"
+      },
+      "streetAddress": "Tschuggentorweg 1",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2027-01-01T21:19:04.612Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -399,7 +441,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1399/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:25:35.246Z",
+      "crawledAt": "2026-11-09T21:19:03.567Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -452,7 +494,7 @@
       "addressRegion": "GR",
       "streetAddress": "St. Moritz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-12T09:25:35.246Z",
+      "validThrough": "2027-01-11T21:19:03.567Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -486,7 +528,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1386/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:25:34.587Z",
+      "crawledAt": "2026-11-09T21:19:02.549Z",
       "addressLocality": "Arosa",
       "postalCode": "7050",
       "addressCountry": "CH",
@@ -528,9 +570,23 @@
         }
       },
       "addressRegion": "GR",
-      "streetAddress": "Arosa",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-07T09:25:34.587Z",
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Tschuggen Collection",
+        "streetAddress": "Tschuggentorweg 1",
+        "postalCode": "7050",
+        "registeredName": "Tschuggen Collection AG",
+        "matchType": "exact",
+        "streetAddressSource": "zefix-registry",
+        "jobPostalCode": "7050",
+        "addressLocality": "Arosa",
+        "addressRegion": "GR",
+        "checkedAt": "2026-11-09T15:43:47.942Z"
+      },
+      "streetAddress": "Tschuggentorweg 1",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2027-02-07T21:19:02.549Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -564,7 +620,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1109/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:25:33.154Z",
+      "crawledAt": "2026-11-09T21:19:00.905Z",
       "addressLocality": "Arosa",
       "postalCode": "7050",
       "addressCountry": "CH",
@@ -615,10 +671,112 @@
         }
       },
       "addressRegion": "GR",
-      "streetAddress": "Arosa",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-04T09:25:33.154Z",
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Tschuggen Collection",
+        "streetAddress": "Tschuggentorweg 1",
+        "postalCode": "7050",
+        "registeredName": "Tschuggen Collection AG",
+        "matchType": "exact",
+        "streetAddressSource": "zefix-registry",
+        "jobPostalCode": "7050",
+        "addressLocality": "Arosa",
+        "addressRegion": "GR",
+        "checkedAt": "2026-11-09T15:43:47.942Z"
+      },
+      "streetAddress": "Tschuggentorweg 1",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2027-02-04T21:19:00.905Z",
       "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "tschuggen-2b6a8385ccbe",
+      "slug": "fruhstuckskoch-m-w-d-wintersaison-2026-2027-tschuggen-ch",
+      "slugByLocale": {
+        "de": "fruhstuckskoch-m-w-d-wintersaison-2026-2027-tschuggen-ch",
+        "it": "fruhstuckskoch-m-w-d-wintersaison-2026-2027-tschuggen-ch",
+        "en": "fruhstuckskoch-m-w-d-wintersaison-2026-2027-tschuggen-ch",
+        "fr": "fruhstuckskoch-m-w-d-wintersaison-2026-2027-tschuggen-ch"
+      },
+      "company": "Tschuggen Collection",
+      "companyKey": "tschuggen",
+      "companyDomain": "tschuggencollection.ch",
+      "title": "Frühstückskoch (m/w/d) Wintersaison 2026/2027",
+      "titleByLocale": {
+        "de": "Frühstückskoch (m/w/d) Wintersaison 2026/2027",
+        "it": "Frühstückskoch (m/w/d) Wintersaison 2026/2027",
+        "en": "Frühstückskoch (m/w/d) Wintersaison 2026/2027",
+        "fr": "Frühstückskoch (m/w/d) Wintersaison 2026/2027"
+      },
+      "description": "Das Tschuggen Grand Hotel in Arosa ist ein auf 1'800m Höhe gelegenes 5‑Sterne‑Superior‑Luxushotel in den Bündner Bergen. Als eines der vier Häuser der \"The Tschuggen Collection\", bietet das Haus 128 individuell gestaltete Zimmer, Suiten und Mountainlofts, dazu vier stilvolle Restaurants – darunter das Gourmet‑Highlight La Brezza mit 19 Punkten Gault Millau & zwei Michelin‑Sternen – sowie eine beeindruckende 5 000 m² grosse Spa‑Bergoase, designed by Mario Botta.\nUNSERE VISION - Wir geben der Zeit Ihren Wert zurück.\nSie sind ein leidenschaftlicher und empathischer Gastgeber, wertschätzend & respektvoll?\nDann sind Sie bei uns richtig.\nEintritt per Ende November/Anfangs Dezember\nArbeitsverhältnis befristet bis Ende März 2027\n\nIHR PROFIL\nAbgeschlossene Berufslehre von Vorteil\nBerufserfahrung erwünscht\nFliessende Deutsch- oder Englischkenntnisse sind Voraussetzung, jede weitere Sprache von Vorteil\nBerufserfahrung in 4/5*-Häusern erwünscht\nSorgfalt und Genauigkeit beim Einhalten der Hygienestandards\nGepflegtes Erscheinungsbild\n\nIHRE AUFGABEN\nHerstellen des täglichen Mise en Place für den Frühstücksservice\nZubereiten von warmen Frühstücksgerichten\nSauberhalten des Postens\nEinhalten der HACCP Standards\n\nUNSERE BENEFITS - Das dürfen Sie von uns erwarten:\n• Attraktive Mitarbeiterunterkünfte in der Nähe des Hotel\n• Ausgewogenes Menü-Angebot in unserer Mitarbeitertrattoria mit vegetarischen & veganen Optionen\n• 24/7 Nutzung unseres Fitnesscenters\n• Einheimische Vorteile wie Spezialpreise bei Sportgeschäften, Skipässen und vielem mehr\n• Spezialpreise für Übernachtungen in unseren Häusern der \"The Tschuggen Collection\" sowie den Swiss Deluxe Hotels\n\nFühlen Sie sich angesprochen - Bewerben Sie sich jetzt!\nWir freuen uns über Ihr Bewerbungsdossier - gerne digital:\nBewerbungsschreiben\nVollständiger Lebenslauf inkl. Foto\nZeugnisse & Diplome",
+      "descriptionByLocale": {
+        "de": "Das Tschuggen Grand Hotel in Arosa ist ein auf 1'800m Höhe gelegenes 5‑Sterne‑Superior‑Luxushotel in den Bündner Bergen. Als eines der vier Häuser der \"The Tschuggen Collection\", bietet das Haus 128 individuell gestaltete Zimmer, Suiten und Mountainlofts, dazu vier stilvolle Restaurants – darunter das Gourmet‑Highlight La Brezza mit 19 Punkten Gault Millau & zwei Michelin‑Sternen – sowie eine beeindruckende 5 000 m² grosse Spa‑Bergoase, designed by Mario Botta.\nUNSERE VISION - Wir geben der Zeit Ihren Wert zurück.\nSie sind ein leidenschaftlicher und empathischer Gastgeber, wertschätzend & respektvoll?\nDann sind Sie bei uns richtig.\nEintritt per Ende November/Anfangs Dezember\nArbeitsverhältnis befristet bis Ende März 2027\n\nIHR PROFIL\nAbgeschlossene Berufslehre von Vorteil\nBerufserfahrung erwünscht\nFliessende Deutsch- oder Englischkenntnisse sind Voraussetzung, jede weitere Sprache von Vorteil\nBerufserfahrung in 4/5*-Häusern erwünscht\nSorgfalt und Genauigkeit beim Einhalten der Hygienestandards\nGepflegtes Erscheinungsbild\n\nIHRE AUFGABEN\nHerstellen des täglichen Mise en Place für den Frühstücksservice\nZubereiten von warmen Frühstücksgerichten\nSauberhalten des Postens\nEinhalten der HACCP Standards\n\nUNSERE BENEFITS - Das dürfen Sie von uns erwarten:\n• Attraktive Mitarbeiterunterkünfte in der Nähe des Hotel\n• Ausgewogenes Menü-Angebot in unserer Mitarbeitertrattoria mit vegetarischen & veganen Optionen\n• 24/7 Nutzung unseres Fitnesscenters\n• Einheimische Vorteile wie Spezialpreise bei Sportgeschäften, Skipässen und vielem mehr\n• Spezialpreise für Übernachtungen in unseren Häusern der \"The Tschuggen Collection\" sowie den Swiss Deluxe Hotels\n\nFühlen Sie sich angesprochen - Bewerben Sie sich jetzt!\nWir freuen uns über Ihr Bewerbungsdossier - gerne digital:\nBewerbungsschreiben\nVollständiger Lebenslauf inkl. Foto\nZeugnisse & Diplome",
+        "it": "Das Tschuggen Grand Hotel in Arosa ist ein auf 1'800m Höhe gelegenes 5‑Sterne‑Superior‑Luxushotel in den Bündner Bergen. Als eines der vier Häuser der \"The Tschuggen Collection\", bietet das Haus 128 individuell gestaltete Zimmer, Suiten und Mountainlofts, dazu vier stilvolle Restaurants – darunter das Gourmet‑Highlight La Brezza mit 19 Punkten Gault Millau & zwei Michelin‑Sternen – sowie eine beeindruckende 5 000 m² grosse Spa‑Bergoase, designed by Mario Botta.\nUNSERE VISION - Wir geben der Zeit Ihren Wert zurück.\nSie sind ein leidenschaftlicher und empathischer Gastgeber, wertschätzend & respektvoll?\nDann sind Sie bei uns richtig.\nEintritt per Ende November/Anfangs Dezember\nArbeitsverhältnis befristet bis Ende März 2027\n\nIHR PROFIL\nAbgeschlossene Berufslehre von Vorteil\nBerufserfahrung erwünscht\nFliessende Deutsch- oder Englischkenntnisse sind Voraussetzung, jede weitere Sprache von Vorteil\nBerufserfahrung in 4/5*-Häusern erwünscht\nSorgfalt und Genauigkeit beim Einhalten der Hygienestandards\nGepflegtes Erscheinungsbild\n\nIHRE AUFGABEN\nHerstellen des täglichen Mise en Place für den Frühstücksservice\nZubereiten von warmen Frühstücksgerichten\nSauberhalten des Postens\nEinhalten der HACCP Standards\n\nUNSERE BENEFITS - Das dürfen Sie von uns erwarten:\n• Attraktive Mitarbeiterunterkünfte in der Nähe des Hotel\n• Ausgewogenes Menü-Angebot in unserer Mitarbeitertrattoria mit vegetarischen & veganen Optionen\n• 24/7 Nutzung unseres Fitnesscenters\n• Einheimische Vorteile wie Spezialpreise bei Sportgeschäften, Skipässen und vielem mehr\n• Spezialpreise für Übernachtungen in unseren Häusern der \"The Tschuggen Collection\" sowie den Swiss Deluxe Hotels\n\nFühlen Sie sich angesprochen - Bewerben Sie sich jetzt!\nWir freuen uns über Ihr Bewerbungsdossier - gerne digital:\nBewerbungsschreiben\nVollständiger Lebenslauf inkl. Foto\nZeugnisse & Diplome",
+        "en": "Das Tschuggen Grand Hotel in Arosa ist ein auf 1'800m Höhe gelegenes 5‑Sterne‑Superior‑Luxushotel in den Bündner Bergen. Als eines der vier Häuser der \"The Tschuggen Collection\", bietet das Haus 128 individuell gestaltete Zimmer, Suiten und Mountainlofts, dazu vier stilvolle Restaurants – darunter das Gourmet‑Highlight La Brezza mit 19 Punkten Gault Millau & zwei Michelin‑Sternen – sowie eine beeindruckende 5 000 m² grosse Spa‑Bergoase, designed by Mario Botta.\nUNSERE VISION - Wir geben der Zeit Ihren Wert zurück.\nSie sind ein leidenschaftlicher und empathischer Gastgeber, wertschätzend & respektvoll?\nDann sind Sie bei uns richtig.\nEintritt per Ende November/Anfangs Dezember\nArbeitsverhältnis befristet bis Ende März 2027\n\nIHR PROFIL\nAbgeschlossene Berufslehre von Vorteil\nBerufserfahrung erwünscht\nFliessende Deutsch- oder Englischkenntnisse sind Voraussetzung, jede weitere Sprache von Vorteil\nBerufserfahrung in 4/5*-Häusern erwünscht\nSorgfalt und Genauigkeit beim Einhalten der Hygienestandards\nGepflegtes Erscheinungsbild\n\nIHRE AUFGABEN\nHerstellen des täglichen Mise en Place für den Frühstücksservice\nZubereiten von warmen Frühstücksgerichten\nSauberhalten des Postens\nEinhalten der HACCP Standards\n\nUNSERE BENEFITS - Das dürfen Sie von uns erwarten:\n• Attraktive Mitarbeiterunterkünfte in der Nähe des Hotel\n• Ausgewogenes Menü-Angebot in unserer Mitarbeitertrattoria mit vegetarischen & veganen Optionen\n• 24/7 Nutzung unseres Fitnesscenters\n• Einheimische Vorteile wie Spezialpreise bei Sportgeschäften, Skipässen und vielem mehr\n• Spezialpreise für Übernachtungen in unseren Häusern der \"The Tschuggen Collection\" sowie den Swiss Deluxe Hotels\n\nFühlen Sie sich angesprochen - Bewerben Sie sich jetzt!\nWir freuen uns über Ihr Bewerbungsdossier - gerne digital:\nBewerbungsschreiben\nVollständiger Lebenslauf inkl. Foto\nZeugnisse & Diplome",
+        "fr": "Das Tschuggen Grand Hotel in Arosa ist ein auf 1'800m Höhe gelegenes 5‑Sterne‑Superior‑Luxushotel in den Bündner Bergen. Als eines der vier Häuser der \"The Tschuggen Collection\", bietet das Haus 128 individuell gestaltete Zimmer, Suiten und Mountainlofts, dazu vier stilvolle Restaurants – darunter das Gourmet‑Highlight La Brezza mit 19 Punkten Gault Millau & zwei Michelin‑Sternen – sowie eine beeindruckende 5 000 m² grosse Spa‑Bergoase, designed by Mario Botta.\nUNSERE VISION - Wir geben der Zeit Ihren Wert zurück.\nSie sind ein leidenschaftlicher und empathischer Gastgeber, wertschätzend & respektvoll?\nDann sind Sie bei uns richtig.\nEintritt per Ende November/Anfangs Dezember\nArbeitsverhältnis befristet bis Ende März 2027\n\nIHR PROFIL\nAbgeschlossene Berufslehre von Vorteil\nBerufserfahrung erwünscht\nFliessende Deutsch- oder Englischkenntnisse sind Voraussetzung, jede weitere Sprache von Vorteil\nBerufserfahrung in 4/5*-Häusern erwünscht\nSorgfalt und Genauigkeit beim Einhalten der Hygienestandards\nGepflegtes Erscheinungsbild\n\nIHRE AUFGABEN\nHerstellen des täglichen Mise en Place für den Frühstücksservice\nZubereiten von warmen Frühstücksgerichten\nSauberhalten des Postens\nEinhalten der HACCP Standards\n\nUNSERE BENEFITS - Das dürfen Sie von uns erwarten:\n• Attraktive Mitarbeiterunterkünfte in der Nähe des Hotel\n• Ausgewogenes Menü-Angebot in unserer Mitarbeitertrattoria mit vegetarischen & veganen Optionen\n• 24/7 Nutzung unseres Fitnesscenters\n• Einheimische Vorteile wie Spezialpreise bei Sportgeschäften, Skipässen und vielem mehr\n• Spezialpreise für Übernachtungen in unseren Häusern der \"The Tschuggen Collection\" sowie den Swiss Deluxe Hotels\n\nFühlen Sie sich angesprochen - Bewerben Sie sich jetzt!\nWir freuen uns über Ihr Bewerbungsdossier - gerne digital:\nBewerbungsschreiben\nVollständiger Lebenslauf inkl. Foto\nZeugnisse & Diplome"
+      },
+      "location": "Arosa",
+      "canton": "GR",
+      "url": "https://recruitingapp-2904.umantis.com/Vacancies/1392/Description/1",
+      "source": "Tschuggen Collection Dedicated Parser (Umantis)",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-09T21:18:59.845Z",
+      "addressLocality": "Arosa",
+      "postalCode": "7050",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Gastronomia",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Ospitalità / Hotellerie",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://recruitingapp-2904.umantis.com/Vacancies/1392/Description/1",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "department": "Küche",
+      "hotelName": "Tschuggen Grand Hotel",
+      "needsRetranslation": true,
+      "salaryMin": 62000,
+      "salaryMax": 78000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 62000,
+          "maxValue": 78000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "GR",
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Tschuggen Collection",
+        "streetAddress": "Tschuggentorweg 1",
+        "postalCode": "7050",
+        "registeredName": "Tschuggen Collection AG",
+        "matchType": "exact",
+        "streetAddressSource": "zefix-registry",
+        "jobPostalCode": "7050",
+        "addressLocality": "Arosa",
+        "addressRegion": "GR",
+        "checkedAt": "2026-11-09T15:43:47.942Z"
+      },
+      "streetAddress": "Tschuggentorweg 1",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2027-02-07T21:18:59.845Z",
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-11-09T21:18:59.845Z"
     }
   ]
 }

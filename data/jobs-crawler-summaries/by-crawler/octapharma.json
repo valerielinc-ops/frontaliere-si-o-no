@@ -1,7 +1,7 @@
 {
   "key": "octapharma",
   "label": "Octapharma",
-  "generatedAt": "2026-11-09T09:39:52.246Z",
+  "generatedAt": "2026-11-09T21:21:28.832Z",
   "total": 4,
   "discovered": null,
   "parsed": 4,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 4,
-  "durationMs": 6559,
-  "avgDurationMs": 6559,
+  "durationMs": 6963,
+  "avgDurationMs": 6963,
   "durationHistory": [
-    6559
+    6963
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -37,7 +37,7 @@
       "url": "https://careers.octapharma.com/job/Lachen-Global-Scientifc-Lead-Expert-IBU-Immunotherapy/1454368633/",
       "source": "Octapharma Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-09T09:39:35.636Z",
+      "crawledAt": "2026-11-09T21:21:09.827Z",
       "addressLocality": "Lachen",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -60,7 +60,7 @@
       "salarySource": "estimated",
       "streetAddress": "Lachen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-02T09:39:35.636Z",
+      "validThrough": "2027-02-02T21:21:09.827Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -82,7 +82,7 @@
       "url": "https://careers.octapharma.com/job/Lachen-Group-Senior-Analyst-Quality-Applications/1451699233/",
       "source": "Octapharma Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-09T09:39:35.035Z",
+      "crawledAt": "2026-11-09T21:21:09.169Z",
       "addressLocality": "Lachen",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -105,7 +105,7 @@
       "salarySource": "estimated",
       "streetAddress": "Lachen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-25T09:39:35.035Z",
+      "validThrough": "2027-01-25T21:21:09.169Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -127,7 +127,7 @@
       "url": "https://careers.octapharma.com/job/Lachen-Digital-Marketing-Manager-International-Business-Units/1442919833/",
       "source": "Octapharma Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-09T09:39:34.450Z",
+      "crawledAt": "2026-11-09T21:21:08.621Z",
       "addressLocality": "Lachen",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -150,7 +150,7 @@
       "salarySource": "estimated",
       "streetAddress": "Lachen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-29T09:39:34.450Z",
+      "validThrough": "2026-12-29T21:21:08.621Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -172,7 +172,7 @@
       "url": "https://careers.octapharma.com/job/Lachen-Group-Senior-Manager-IT-Sales%2C-Marketing-&-Communications-Applications/1454562433/",
       "source": "Octapharma Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-09T09:39:33.853Z",
+      "crawledAt": "2026-11-09T21:21:08.096Z",
       "addressLocality": "Lachen",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -195,7 +195,7 @@
       "salarySource": "estimated",
       "streetAddress": "Lachen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T09:39:33.853Z",
+      "validThrough": "2027-02-03T21:21:08.096Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -206,5 +206,5 @@
       }
     }
   ],
-  "codeCommit": "f071981dd2d2820cdec3736f76b1b17ee50345bd"
+  "codeCommit": "1dbbd63fa4ef1d645b973703c20eaa910357364d"
 }

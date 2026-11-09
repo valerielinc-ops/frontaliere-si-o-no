@@ -1,7 +1,7 @@
 {
   "crawlerKey": "invias-swiss",
-  "assembledAt": "2026-11-09T09:44:34.957Z",
-  "runId": "42593325916",
+  "assembledAt": "2026-11-09T21:46:45.420Z",
+  "runId": "42702517910",
   "jobs": [
     {
       "id": "invias-swiss-19e45ae0f00c",
@@ -34,13 +34,13 @@
       "url": "https://invias.swiss/jobs/holzbauplanerin-80-100",
       "source": "Invias AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:44:18.459Z",
+      "crawledAt": "2026-11-09T21:46:35.541Z",
       "addressLocality": "Maienfeld",
       "addressRegion": "GR",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "7304",
-      "streetAddress": "Maienfeld",
+      "streetAddress": "Industriestrasse 19",
       "category": "Altro",
       "contract": "other",
       "employmentType": "OTHER",
@@ -82,8 +82,22 @@
           "unitText": "YEAR"
         }
       },
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T09:44:18.459Z",
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Invias AG",
+        "streetAddress": "Industriestrasse 19",
+        "postalCode": "7304",
+        "registeredName": "Invias AG",
+        "matchType": "exact",
+        "streetAddressSource": "zefix-registry",
+        "jobPostalCode": "7304",
+        "addressLocality": "Maienfeld",
+        "addressRegion": "GR",
+        "checkedAt": "2026-11-09T15:44:06.699Z"
+      },
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2027-02-03T21:46:35.541Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -117,13 +131,13 @@
       "url": "https://invias.swiss/jobs/holzbauingenieurin-bauingenieurin-80-100",
       "source": "Invias AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:44:18.458Z",
+      "crawledAt": "2026-11-09T21:46:35.540Z",
       "addressLocality": "Maienfeld",
       "addressRegion": "GR",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "7304",
-      "streetAddress": "Maienfeld",
+      "streetAddress": "Industriestrasse 19",
       "category": "Altro",
       "contract": "other",
       "employmentType": "OTHER",
@@ -165,8 +179,22 @@
           "unitText": "YEAR"
         }
       },
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T09:44:18.458Z",
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Invias AG",
+        "streetAddress": "Industriestrasse 19",
+        "postalCode": "7304",
+        "registeredName": "Invias AG",
+        "matchType": "exact",
+        "streetAddressSource": "zefix-registry",
+        "jobPostalCode": "7304",
+        "addressLocality": "Maienfeld",
+        "addressRegion": "GR",
+        "checkedAt": "2026-11-09T15:44:06.699Z"
+      },
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2027-02-03T21:46:35.540Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -200,13 +228,13 @@
       "url": "https://invias.swiss/jobs/bauleiterin-80-100",
       "source": "Invias AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:44:18.456Z",
+      "crawledAt": "2026-11-09T21:46:35.539Z",
       "addressLocality": "Maienfeld",
       "addressRegion": "GR",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "7304",
-      "streetAddress": "Maienfeld",
+      "streetAddress": "Industriestrasse 19",
       "category": "Altro",
       "contract": "other",
       "employmentType": "OTHER",
@@ -248,8 +276,22 @@
           "unitText": "YEAR"
         }
       },
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T09:44:18.456Z",
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Invias AG",
+        "streetAddress": "Industriestrasse 19",
+        "postalCode": "7304",
+        "registeredName": "Invias AG",
+        "matchType": "exact",
+        "streetAddressSource": "zefix-registry",
+        "jobPostalCode": "7304",
+        "addressLocality": "Maienfeld",
+        "addressRegion": "GR",
+        "checkedAt": "2026-11-09T15:44:06.699Z"
+      },
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2027-02-03T21:46:35.539Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -283,13 +325,13 @@
       "url": "https://invias.swiss/jobs/technischer-projektleiterin-80-100",
       "source": "Invias AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:44:18.454Z",
+      "crawledAt": "2026-11-09T21:46:35.538Z",
       "addressLocality": "Maienfeld",
       "addressRegion": "GR",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "7304",
-      "streetAddress": "Maienfeld",
+      "streetAddress": "Industriestrasse 19",
       "category": "Tecnica",
       "contract": "other",
       "employmentType": "OTHER",
@@ -331,8 +373,22 @@
           "unitText": "YEAR"
         }
       },
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T09:44:18.454Z",
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Invias AG",
+        "streetAddress": "Industriestrasse 19",
+        "postalCode": "7304",
+        "registeredName": "Invias AG",
+        "matchType": "exact",
+        "streetAddressSource": "zefix-registry",
+        "jobPostalCode": "7304",
+        "addressLocality": "Maienfeld",
+        "addressRegion": "GR",
+        "checkedAt": "2026-11-09T15:44:06.699Z"
+      },
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2027-02-03T21:46:35.538Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -366,13 +422,13 @@
       "url": "https://invias.swiss/jobs/projektleiterin-80-100",
       "source": "Invias AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:44:18.450Z",
+      "crawledAt": "2026-11-09T21:46:35.537Z",
       "addressLocality": "Maienfeld",
       "addressRegion": "GR",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "7304",
-      "streetAddress": "Maienfeld",
+      "streetAddress": "Industriestrasse 19",
       "category": "Altro",
       "contract": "other",
       "employmentType": "OTHER",
@@ -414,8 +470,22 @@
           "unitText": "YEAR"
         }
       },
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T09:44:18.450Z",
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Invias AG",
+        "streetAddress": "Industriestrasse 19",
+        "postalCode": "7304",
+        "registeredName": "Invias AG",
+        "matchType": "exact",
+        "streetAddressSource": "zefix-registry",
+        "jobPostalCode": "7304",
+        "addressLocality": "Maienfeld",
+        "addressRegion": "GR",
+        "checkedAt": "2026-11-09T15:44:06.699Z"
+      },
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2027-02-03T21:46:35.537Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -449,13 +519,13 @@
       "url": "https://invias.swiss/jobs/zeichnerin-fachrichtung-architektur-60-100",
       "source": "Invias AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:44:18.446Z",
+      "crawledAt": "2026-11-09T21:46:35.535Z",
       "addressLocality": "Maienfeld",
       "addressRegion": "GR",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "7304",
-      "streetAddress": "Maienfeld",
+      "streetAddress": "Industriestrasse 19",
       "category": "Altro",
       "contract": "other",
       "employmentType": "OTHER",
@@ -497,8 +567,22 @@
           "unitText": "YEAR"
         }
       },
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T09:44:18.446Z",
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Invias AG",
+        "streetAddress": "Industriestrasse 19",
+        "postalCode": "7304",
+        "registeredName": "Invias AG",
+        "matchType": "exact",
+        "streetAddressSource": "zefix-registry",
+        "jobPostalCode": "7304",
+        "addressLocality": "Maienfeld",
+        "addressRegion": "GR",
+        "checkedAt": "2026-11-09T15:44:06.699Z"
+      },
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2027-02-03T21:46:35.535Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -532,13 +616,13 @@
       "url": "https://invias.swiss/jobs/architektin-b-a-oder-in-ausbildung-50-80",
       "source": "Invias AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:44:18.442Z",
+      "crawledAt": "2026-11-09T21:46:35.534Z",
       "addressLocality": "Maienfeld",
       "addressRegion": "GR",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "7304",
-      "streetAddress": "Maienfeld",
+      "streetAddress": "Industriestrasse 19",
       "category": "Altro",
       "contract": "other",
       "employmentType": "OTHER",
@@ -582,8 +666,22 @@
           "unitText": "YEAR"
         }
       },
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T09:44:18.442Z",
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Invias AG",
+        "streetAddress": "Industriestrasse 19",
+        "postalCode": "7304",
+        "registeredName": "Invias AG",
+        "matchType": "exact",
+        "streetAddressSource": "zefix-registry",
+        "jobPostalCode": "7304",
+        "addressLocality": "Maienfeld",
+        "addressRegion": "GR",
+        "checkedAt": "2026-11-09T15:44:06.699Z"
+      },
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2027-02-03T21:46:35.534Z",
       "validThroughSource": "last-observed-window"
     }
   ]

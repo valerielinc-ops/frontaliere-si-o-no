@@ -1,7 +1,7 @@
 {
   "crawlerKey": "caritas-schweiz",
-  "assembledAt": "2026-11-09T09:24:13.749Z",
-  "runId": "42591098448",
+  "assembledAt": "2026-11-09T21:21:35.038Z",
+  "runId": "42699764511",
   "jobs": [
     {
       "id": "caritas-schweiz-e24ca4232fc9",
@@ -35,7 +35,7 @@
       "url": "https://apply.refline.ch/126757/2389/pub/1/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:24:05.686Z",
+      "crawledAt": "2026-11-09T21:21:28.710Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -87,7 +87,7 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T09:24:05.686Z",
+      "validThrough": "2027-02-02T21:21:28.710Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -122,7 +122,7 @@
       "url": "https://apply.refline.ch/126757/2379/pub/1/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:24:03.989Z",
+      "crawledAt": "2026-11-09T21:21:28.247Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -174,7 +174,7 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-12T09:24:03.989Z",
+      "validThrough": "2027-01-12T21:21:28.247Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -208,7 +208,7 @@
       "url": "https://apply.refline.ch/126757/2020/pub/5/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:24:03.516Z",
+      "crawledAt": "2026-11-09T21:21:27.782Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -260,7 +260,7 @@
       },
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-09T09:24:03.516Z",
+      "validThrough": "2026-12-09T21:21:27.782Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -295,7 +295,7 @@
       "url": "https://apply.refline.ch/126757/2356/pub/3/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:24:03.039Z",
+      "crawledAt": "2026-11-09T21:21:27.317Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -347,7 +347,7 @@
       },
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-09T09:24:03.039Z",
+      "validThrough": "2026-12-09T21:21:27.317Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -382,7 +382,7 @@
       "url": "https://apply.refline.ch/126757/2390/pub/4/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:24:02.566Z",
+      "crawledAt": "2026-11-09T21:21:26.853Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -430,7 +430,7 @@
       },
       "streetAddress": "Luzern",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T09:24:02.566Z",
+      "validThrough": "2027-02-02T21:21:26.853Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -465,7 +465,7 @@
       "url": "https://apply.refline.ch/126757/2391/pub/1/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:24:02.091Z",
+      "crawledAt": "2026-11-09T21:21:26.388Z",
       "addressLocality": "Waldibrücke, Emmen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -503,7 +503,7 @@
       },
       "streetAddress": "Waldibrücke, Emmen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T09:24:02.091Z",
+      "validThrough": "2027-02-02T21:21:26.388Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -538,7 +538,7 @@
       "url": "https://apply.refline.ch/126757/2388/pub/1/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:24:01.618Z",
+      "crawledAt": "2026-11-09T21:21:25.926Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -590,7 +590,7 @@
       },
       "streetAddress": "St. Gallen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-01T09:24:01.618Z",
+      "validThrough": "2027-01-31T21:21:25.926Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -625,7 +625,7 @@
       "url": "https://apply.refline.ch/126757/2387/pub/1/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:24:01.137Z",
+      "crawledAt": "2026-11-09T21:21:25.453Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -679,7 +679,7 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-01T09:24:01.137Z",
+      "validThrough": "2027-01-31T21:21:25.453Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -714,7 +714,7 @@
       "url": "https://apply.refline.ch/126757/2386/pub/1/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:24:00.658Z",
+      "crawledAt": "2026-11-09T21:21:24.989Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -766,7 +766,7 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-28T09:24:00.658Z",
+      "validThrough": "2027-01-28T21:21:24.989Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -801,7 +801,7 @@
       "url": "https://apply.refline.ch/126757/2366/pub/6/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:24:00.179Z",
+      "crawledAt": "2026-11-09T21:21:23.971Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -855,7 +855,7 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-21T09:24:00.179Z",
+      "validThrough": "2026-12-20T21:21:23.971Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -890,7 +890,7 @@
       "url": "https://apply.refline.ch/126757/2384/pub/1/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:23:59.703Z",
+      "crawledAt": "2026-11-09T21:21:23.507Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -944,7 +944,7 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-26T09:23:59.703Z",
+      "validThrough": "2027-01-26T21:21:23.507Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -979,7 +979,7 @@
       "url": "https://apply.refline.ch/126757/2341/pub/4/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:23:59.225Z",
+      "crawledAt": "2026-11-09T21:21:23.043Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1033,7 +1033,7 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-09T09:23:59.225Z",
+      "validThrough": "2026-12-09T21:21:23.043Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1055,11 +1055,11 @@
         "de": "Evaluation Bewältigung der Unwetter 2024 in der Schweiz",
         "fr": "Gestion de la tempête de 2024 en Suisse"
       },
-      "description": "Das Richtige tun. In der Schweiz und in rund 20 Ländern auf vier Kontinenten. Wir suchen Unterstützung bei der\nDie Glückskette, das Schweizerische Rote Kreuz und Caritas Schweiz schreiben die Evaluation der Bewältigung der Unwetter 2024 in der Schweiz aus, an der die drei genannten Organisationen beteiligt waren. Ziel ist es die Katastrophenhilfe im Inland auf ihre Relevanz und Wirksamkeit zu prüfen.\nIhre Aufgaben\nDas Angebot sollte Folgendes umfassen:\n• Begleitschreiben (max. 1 Seite)\n• Konzept mit vorgeschlagener Methodologie (max. 3 Seiten)\n• Grober Arbeitsplan der Durchführung\n• Kostenvoranschlag für den gesamten Auftrag\n• Lebensläufe des Evaluationsteams\n• Zwei relevante Arbeitsproben von idealerweise ähnlichen Mandaten\n• Übersichtstabelle, wie die festgelegten Bewertungskriterien erfüllt werden\nUnsere Anforderungen\nDie Anforderungen sind im beigelegten Pflichtenheft formuliert. Der im Pflichtenheft formulierte Zeitplan verzögert sich um rund drei Wochen. Die Auswahlgespräche finden in den KW 49 oder 50 (online) statt, das Kick-off-Gespräch findet in KW 50 oder 51 (physisch) statt.\nAus Gründen der Gleichbehandlung werden keine weiterführenden Fragen beantwortet.\nWir danken Ihnen für das Interesse und freuen uns auf Ihr Angebot bis am 25. November 2026 über das Online-Portal.\nCaritas Schweiz, Adligenswilerstrasse 15, 6002 Luzern\nwww.caritas.ch",
+      "description": "Das Richtige tun. In der Schweiz und in rund 20 Ländern auf vier Kontinenten. Wir suchen Unterstützung bei der\nDie Glückskette, das Schweizerische Rote Kreuz und Caritas Schweiz schreiben die Evaluation der Bewältigung der Unwetter 2024 in der Schweiz aus, an der die drei genannten Organisationen beteiligt waren. Ziel ist es die Katastrophenhilfe im Inland auf ihre Relevanz und Wirksamkeit zu prüfen.\nIhre Aufgaben\nDas Angebot sollte Folgendes umfassen:\n• Begleitschreiben (max. 1 Seite)\n• Konzept mit vorgeschlagener Methodologie (max. 3 Seiten)\n• Grober Arbeitsplan der Durchführung\n• Kostenvoranschlag für den gesamten Auftrag\n• Lebensläufe des Evaluationsteams\n• Zwei relevante Arbeitsproben von idealerweise ähnlichen Mandaten\n• Übersichtstabelle, wie die festgelegten Bewertungskriterien erfüllt werden\nUnsere Anforderungen\nDie Anforderungen sind im beigelegten Pflichtenheft , cahier des charges formuliert. Der im Pflichtenheft formulierte Zeitplan verzögert sich um rund drei Wochen. Die Auswahlgespräche finden in den KW 49 oder 50 (online) statt, das Kick-off-Gespräch findet in KW 50 oder 51 (physisch) statt.\nAus Gründen der Gleichbehandlung werden keine weiterführenden Fragen beantwortet.\nWir danken Ihnen für das Interesse und freuen uns auf Ihr Angebot bis am 25. November 2026 über das Online-Portal.\nCaritas Schweiz, Adligenswilerstrasse 15, 6002 Luzern\nwww.caritas.ch",
       "descriptionByLocale": {
         "it": "Fare la cosa giusta. In Svizzera e in circa 20 paesi in quattro continenti. Siamo alla ricerca di sostegno nel\nLa catena della fortuna, la Croce Rossa svizzera e la Caritas Svizzera stanno emettendo la valutazione della gestione della tempesta 2024 in Svizzera, in cui sono state coinvolte le tre organizzazioni menzionate. L'obiettivo è quello di controllare la rilevanza e l'efficacia del soccorso di emergenza nazionale.\nI loro compiti\nL'offerta dovrebbe includere:\n• Lettera di copertura (max. 1 pagina)\n• Concetto con metodologia proposta (max. 3 pagine)\n• Piano di lavoro duro per l'attuazione\n• Stime dei costi per l'intero contratto\n• CV del team di valutazione\n• Due campioni di lavoro rilevanti di mandati idealmente simili\n• Tabella panoramica di come vengono soddisfatti i criteri di valutazione definiti\nI nostri requisiti\nI requisiti sono stabiliti nelle specifiche allegate\nKick-off: fine novembre 2026\nPer motivi di parità di trattamento, non saranno risolte ulteriori domande.\nVi ringraziamo per il vostro interesse e non vediamo l'ora della vostra offerta fino al 31 ottobre 2026 tramite il portale online.\nCaritas Svizzera, Adligenswilerstrasse 15, 6002 Lucerna\nwww.caritas.ch",
         "en": "Doing the right thing. In Switzerland and in around 20 countries on four continents. We are looking for support in the\nThe fortune chain, the Swiss Red Cross and Caritas Switzerland are issuing the evaluation of the management of the storm 2024 in Switzerland, in which the three organizations mentioned were involved. The aim is to check the relevance and effectiveness of domestic disaster relief.\nTheir tasks\nThe offer should include:\n• Covering letter (max. 1 page)\n• Concept with proposed methodology (max. 3 pages)\n• Rough work plan for implementation\n• Cost estimate for the entire contract\n• CVs of the evaluation team\n• Two relevant work samples of ideally similar mandates\n• Overview table of how the defined evaluation criteria are met\nOur requirements\nThe requirements are set out in the attached specifications\nKick-off: end of November 2026\nFor reasons of equal treatment, no further questions will be answered.\nWe thank you for your interest and look forward to your offer until 31 October 2026 via the online portal.\nCaritas Switzerland, Adligenswilerstrasse 15, 6002 Lucerne\nwww.caritas.ch",
-        "de": "Das Richtige tun. In der Schweiz und in rund 20 Ländern auf vier Kontinenten. Wir suchen Unterstützung bei der\nDie Glückskette, das Schweizerische Rote Kreuz und Caritas Schweiz schreiben die Evaluation der Bewältigung der Unwetter 2024 in der Schweiz aus, an der die drei genannten Organisationen beteiligt waren. Ziel ist es die Katastrophenhilfe im Inland auf ihre Relevanz und Wirksamkeit zu prüfen.\nIhre Aufgaben\nDas Angebot sollte Folgendes umfassen:\n• Begleitschreiben (max. 1 Seite)\n• Konzept mit vorgeschlagener Methodologie (max. 3 Seiten)\n• Grober Arbeitsplan der Durchführung\n• Kostenvoranschlag für den gesamten Auftrag\n• Lebensläufe des Evaluationsteams\n• Zwei relevante Arbeitsproben von idealerweise ähnlichen Mandaten\n• Übersichtstabelle, wie die festgelegten Bewertungskriterien erfüllt werden\nUnsere Anforderungen\nDie Anforderungen sind im beigelegten Pflichtenheft formuliert. Der im Pflichtenheft formulierte Zeitplan verzögert sich um rund drei Wochen. Die Auswahlgespräche finden in den KW 49 oder 50 (online) statt, das Kick-off-Gespräch findet in KW 50 oder 51 (physisch) statt.\nAus Gründen der Gleichbehandlung werden keine weiterführenden Fragen beantwortet.\nWir danken Ihnen für das Interesse und freuen uns auf Ihr Angebot bis am 25. November 2026 über das Online-Portal.\nCaritas Schweiz, Adligenswilerstrasse 15, 6002 Luzern\nwww.caritas.ch",
+        "de": "Das Richtige tun. In der Schweiz und in rund 20 Ländern auf vier Kontinenten. Wir suchen Unterstützung bei der\nDie Glückskette, das Schweizerische Rote Kreuz und Caritas Schweiz schreiben die Evaluation der Bewältigung der Unwetter 2024 in der Schweiz aus, an der die drei genannten Organisationen beteiligt waren. Ziel ist es die Katastrophenhilfe im Inland auf ihre Relevanz und Wirksamkeit zu prüfen.\nIhre Aufgaben\nDas Angebot sollte Folgendes umfassen:\n• Begleitschreiben (max. 1 Seite)\n• Konzept mit vorgeschlagener Methodologie (max. 3 Seiten)\n• Grober Arbeitsplan der Durchführung\n• Kostenvoranschlag für den gesamten Auftrag\n• Lebensläufe des Evaluationsteams\n• Zwei relevante Arbeitsproben von idealerweise ähnlichen Mandaten\n• Übersichtstabelle, wie die festgelegten Bewertungskriterien erfüllt werden\nUnsere Anforderungen\nDie Anforderungen sind im beigelegten Pflichtenheft , cahier des charges formuliert. Der im Pflichtenheft formulierte Zeitplan verzögert sich um rund drei Wochen. Die Auswahlgespräche finden in den KW 49 oder 50 (online) statt, das Kick-off-Gespräch findet in KW 50 oder 51 (physisch) statt.\nAus Gründen der Gleichbehandlung werden keine weiterführenden Fragen beantwortet.\nWir danken Ihnen für das Interesse und freuen uns auf Ihr Angebot bis am 25. November 2026 über das Online-Portal.\nCaritas Schweiz, Adligenswilerstrasse 15, 6002 Luzern\nwww.caritas.ch",
         "fr": "Faire ce qu'il faut. En Suisse et dans une vingtaine de pays sur quatre continents. Nous sommes à la recherche d'un soutien\nLa chaîne de fortune, la Croix-Rouge suisse et Caritas Suisse publient l'évaluation de la gestion de la tempête 2024 en Suisse, dans laquelle les trois organisations mentionnées ont participé. L'objectif est de vérifier la pertinence et l'efficacité des secours nationaux en cas de catastrophe.\nLeurs tâches\nL'offre devrait comprendre:\n• Lettre d'accompagnement (max. 1 page)\n• Concept avec méthodologie proposée (max. 3 pages)\n• Plan de travail rigoureux pour la mise en œuvre\n• Prévisions de dépenses pour l ' ensemble du contrat\n• CV de l'équipe d'évaluation\n• Deux exemples pertinents de mandats idéalement similaires\n• Tableau général de la manière dont les critères d'évaluation définis sont satisfaits\nNos exigences\nLes exigences sont énoncées dans les spécifications ci-jointes.\nLancement: fin novembre 2026\nPour des raisons d'égalité de traitement, aucune autre question ne sera posée.\nNous vous remercions de votre intérêt et attendons avec impatience votre offre jusqu'au 31 octobre 2026 via le portail en ligne.\nCaritas Suisse, Adligenswilerstrasse 15, 6002 Lucerne\nwww.caritas.ch"
       },
       "needsRetranslation": false,
@@ -1068,7 +1068,7 @@
       "url": "https://apply.refline.ch/126757/2370/pub/1/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:23:58.749Z",
+      "crawledAt": "2026-11-09T21:21:22.579Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1114,7 +1114,7 @@
       },
       "streetAddress": "Luzern",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-25T09:23:58.749Z",
+      "validThrough": "2026-12-24T21:21:22.579Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1205,7 +1205,7 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-18T21:44:22.936Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "caritas-schweiz-39bd21053ee0",
@@ -1293,7 +1293,7 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-20T21:44:22.051Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "caritas-schweiz-63f8f4d9478b",
@@ -1379,7 +1379,7 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-17T21:44:21.609Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     }
   ]
 }
