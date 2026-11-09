@@ -34,7 +34,7 @@
  */
 
 import { shouldSuppressManualInfeedAd } from './adExperiment.ts';
-import { ARTICLE_DETAIL_ATF_PLACEHOLDER_HEIGHT } from '../packages/articles/engine/shared/articleAtfAdExperiment';
+import { ARTICLE_DETAIL_ATF_PLACEHOLDER_HEIGHT } from '../packages/articles/engine/shared/articleAtfAdExperiment.ts';
 
 export { INFEED_AD_EXPERIMENT_ID, INFEED_AD_EXPERIMENT_RC_KILL_KEY, INFEED_AD_VARIANTS } from './adExperiment.ts';
 export { INFEED_AD_TREATMENT_CANTONS as INFEED_AD_AB_TEST_SUPPRESSED_CANTONS } from './adExperiment.ts';
