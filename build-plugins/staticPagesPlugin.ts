@@ -23,6 +23,7 @@ import {
  BASE_URL,
  ANALYTICS_SNIPPET,
  GTAG_SNIPPET,
+ META_PIXEL_BASE_CODE,
  ADSENSE_SNIPPET,
  PARTNERIZE_TAG_SNIPPET,
  OFFERWALL_FC_SNIPPET,
@@ -73,6 +74,7 @@ import { getSalaryGuideIndexItems } from './salaryHubArticles';
 // related PostHog assets into the critical startup window. Static-only pages keep
 // ANALYTICS_SNIPPET so they retain their independent pageview bootstrap.
 const SPA_ANALYTICS_SNIPPET = `${GTAG_SNIPPET}
+ ${META_PIXEL_BASE_CODE}
  ${ADSENSE_SNIPPET}
  ${PARTNERIZE_TAG_SNIPPET}`;
 // Single producer for the hub `ssg-article-grid` (issue #4974 item 4): nanako's

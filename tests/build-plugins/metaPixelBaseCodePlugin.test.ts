@@ -14,7 +14,6 @@ import {
   META_PIXEL_MANIFEST_FINGERPRINT,
   META_PIXEL_MARKER,
   injectMetaPixelBaseCode,
-  injectMetaPixelIntoDist,
   metaPixelBaseCodePlugin,
 } from '@/build-plugins/metaPixelBaseCodePlugin';
 
@@ -34,7 +33,7 @@ afterEach(() => {
 });
 
 describe('metaPixelBaseCodePlugin', () => {
-  it('injects the consent-gated loader into every emitted HTML page without a noscript bypass', async () => {
+  it('injects the consent-gated loader into the Vite-owned index without a noscript bypass', async () => {
     const root = makeTempRoot();
     const dist = path.join(root, 'dist');
     const pages = [
@@ -49,33 +48,28 @@ describe('metaPixelBaseCodePlugin', () => {
     }
 
     const plugin = metaPixelBaseCodePlugin(root) as unknown as {
-      closeBundle: { handler: () => Promise<void> };
+      transformIndexHtml: { handler: (html: string) => string };
+      closeBundle: { handler: () => void };
     };
-    await plugin.closeBundle.handler();
+    const transformed = plugin.transformIndexHtml.handler(fs.readFileSync(pages[0], 'utf8'));
 
+    expect(transformed.indexOf(META_PIXEL_MARKER)).toBeGreaterThan(transformed.indexOf('<head>'));
+    expect(transformed.indexOf(META_PIXEL_MARKER)).toBeLessThan(transformed.indexOf('</head>'));
+    expect(transformed).toContain(META_PIXEL_BASE_CODE);
+    expect(transformed).toContain(`<script defer src="/assets/${META_PIXEL_LOADER_FILENAME}"></script>`);
+    expect(transformed).not.toContain('<noscript>');
+    expect(transformed).not.toContain('facebook.com/tr?id=1090503593451766');
+
+    plugin.closeBundle.handler();
     for (const file of pages) {
-      const html = fs.readFileSync(file, 'utf8');
-      expect(html.indexOf(META_PIXEL_MARKER)).toBeGreaterThan(html.indexOf('<head>'));
-      expect(html.indexOf(META_PIXEL_MARKER)).toBeLessThan(html.indexOf('</head>'));
-      expect(html).toContain(META_PIXEL_BASE_CODE);
-      expect(html).toContain(`<script defer src="/assets/${META_PIXEL_LOADER_FILENAME}"></script>`);
-      expect(html).not.toContain('<noscript>');
-      expect(html).not.toContain('facebook.com/tr?id=1090503593451766');
+      expect(fs.readFileSync(file, 'utf8')).not.toContain(META_PIXEL_MARKER);
       const initialHash = hashContent('<!doctype html><html><head><title>Page</title></head><body>content</body></html>');
       expect(getDeployManifestHash(file, initialHash))
         .toBe(hashContent(`${initialHash}\0${META_PIXEL_MANIFEST_FINGERPRINT}`));
     }
 
-    expect(fs.readFileSync(path.join(dist, 'assets', META_PIXEL_LOADER_FILENAME), 'utf8'))
-      .toBe(META_PIXEL_LOADER_CONTENT);
     expect(META_PIXEL_LOADER_CONTENT).toContain("n('init', '1090503593451766')");
     expect(META_PIXEL_LOADER_CONTENT).toContain("n('track', 'PageView')");
-
-    await expect(injectMetaPixelIntoDist(dist)).resolves.toEqual({
-      htmlFiles: 2,
-      injected: 0,
-      alreadyPresent: 2,
-    });
   });
 
   it('fails rather than silently skipping an HTML page without a head close tag', () => {

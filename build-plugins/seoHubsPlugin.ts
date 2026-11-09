@@ -27,7 +27,7 @@ import { railGutters } from './shared/railGutters';
 import { isPaginationNoindex, isPaginationSitemapEligible } from './shared/paginationIndexPolicy';
 import type npT from 'node:path';
 import { MID_PLUGINS_FAST } from '../scripts/lib/mid-plugins-flag.mjs';
-import { ADSENSE_SNIPPET, BASE_URL, CDN_PRECONNECT_HINT, FAVICON_LINKS, PARTNERIZE_TAG_SNIPPET, ROBOTS_INDEX_ENHANCED_CONTENT } from './constants';
+import { ADSENSE_SNIPPET, BASE_URL, CDN_PRECONNECT_HINT, FAVICON_LINKS, META_PIXEL_BASE_CODE, PARTNERIZE_TAG_SNIPPET, ROBOTS_INDEX_ENHANCED_CONTENT } from './constants';
 import { WEBSITE_ID } from '../services/seo/organizationLd';
 import { asyncCssHeadBlock, rootShell } from './htmlTemplate';
 import { buildSeoPageHtml, renderLocaleVariantNavHtml } from './shared/seoPageShell';
@@ -1394,6 +1394,7 @@ ${hreflangs}${xDefault}${prevLink}${nextLink}
     <script type="application/ld+json">${breadcrumbLd}</script>
     <script type="application/ld+json">${collectionLd}</script>
     ${asyncCssHeadBlock(hasSpaBundle ? entryCss : undefined)}
+    ${META_PIXEL_BASE_CODE}
     ${ADSENSE_SNIPPET}
     ${PARTNERIZE_TAG_SNIPPET}${jobBoardHeadTag}
   </head>
@@ -2336,6 +2337,7 @@ export function buildThinCantonHubHtml(args: {
     ${hreflangHtml}
     <script type="application/ld+json">${breadcrumbLd}</script>${collectionLd ? `\n    <script type="application/ld+json">${collectionLd}</script>` : ''}
     ${asyncCssHeadBlock(hasSpaBundle ? entryCss : undefined)}
+    ${META_PIXEL_BASE_CODE}
     ${ADSENSE_SNIPPET}
     ${PARTNERIZE_TAG_SNIPPET}
     ${jobBoardHeadTag}

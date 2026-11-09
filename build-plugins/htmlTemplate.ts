@@ -7,7 +7,7 @@
  *
  * Phase 3 optimization: reduces string concatenation overhead for 55k+ pages.
  */
-import { FAVICON_LINKS, GTAG_SNIPPET, ADSENSE_SNIPPET, PARTNERIZE_TAG_SNIPPET, BASE_URL, SPA_ACTION_REDIRECT_SCRIPT, SEO_STATIC_CSS_FILENAME, CDN_PRECONNECT_HINT, normalizeRobotsDirective, STATIC_BUILD_ID_META_TAG } from './constants';
+import { FAVICON_LINKS, GTAG_SNIPPET, META_PIXEL_BASE_CODE, ADSENSE_SNIPPET, PARTNERIZE_TAG_SNIPPET, BASE_URL, SPA_ACTION_REDIRECT_SCRIPT, SEO_STATIC_CSS_FILENAME, CDN_PRECONNECT_HINT, normalizeRobotsDirective, STATIC_BUILD_ID_META_TAG } from './constants';
 import { escapeInlineScript } from './shared/inlineJsonScript';
 import { clampMetaDescription } from './shared/titleSuffix';
 import { CRITICAL_CSS_LINK } from './shared/criticalCss';
@@ -139,6 +139,7 @@ export const HEAD_PREFIX = `<meta charset="utf-8">
  */
 export const HEAD_SUFFIX_WITH_SPA = ` ${SPA_ACTION_REDIRECT_SCRIPT}
  ${GTAG_SNIPPET}
+ ${META_PIXEL_BASE_CODE}
  ${ADSENSE_SNIPPET}
  ${PARTNERIZE_TAG_SNIPPET}`;
 
@@ -147,6 +148,7 @@ export const HEAD_SUFFIX_WITH_SPA = ` ${SPA_ACTION_REDIRECT_SCRIPT}
  * For pages that don't need the SPA action redirect (editorial, search, etc.)
  */
 export const HEAD_SUFFIX_GTAG = ` ${GTAG_SNIPPET}
+ ${META_PIXEL_BASE_CODE}
  ${ADSENSE_SNIPPET}
  ${PARTNERIZE_TAG_SNIPPET}`;
 
@@ -569,7 +571,7 @@ export function buildSimplePage(opts: SimplePageOpts): string {
  // carica il bundle SPA: la doc Partnerize lo vuole su OGNI pagina tracciabile.
  // Nessun rischio di doppia esecuzione — una pagina statica ha il proprio <head>,
  // non eredita quello di index.html, e il bundle SPA non include il tag.
- const staticAnalyticsHtml = `\n ${entryJs && !hasStaticAdSlot ? '' : `${GTAG_SNIPPET}\n `}${ADSENSE_SNIPPET}\n ${PARTNERIZE_TAG_SNIPPET}`;
+ const staticAnalyticsHtml = `\n ${META_PIXEL_BASE_CODE}\n ${entryJs && !hasStaticAdSlot ? '' : `${GTAG_SNIPPET}\n `}${ADSENSE_SNIPPET}\n ${PARTNERIZE_TAG_SNIPPET}`;
 
  // Body composition — three modes:
  //
