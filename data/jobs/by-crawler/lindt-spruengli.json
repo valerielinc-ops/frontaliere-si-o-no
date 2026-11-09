@@ -1,7 +1,7 @@
 {
   "crawlerKey": "lindt-spruengli",
-  "assembledAt": "2026-11-09T09:39:26.057Z",
-  "runId": "42591650265",
+  "assembledAt": "2026-11-09T21:21:04.226Z",
+  "runId": "42700471648",
   "jobs": [
     {
       "id": "lindt-spruengli-22b6ca6b4b2c",
@@ -9,7 +9,7 @@
       "slugByLocale": {
         "it": "domanda-non-richiesta-lindt-sprungli-kilchberg",
         "en": "unsolicited-application-lindt-spruengli-kilchberg",
-        "de": "unerbetene-anwendung-lindt-sprungli-kilchberg",
+        "de": "initiativbewerbung-lindt-sprungli-kilchberg",
         "fr": "demande-spontanee-lindt-sprungli-kilchberg"
       },
       "company": "Lindt & Sprüngli",
@@ -34,7 +34,7 @@
       "url": "https://lindtspruengli.wd103.myworkdayjobs.com/LindtSpruengliGroupCareers/job/Kilchberg-Switzerland/Spontaneous-Application_JR102189",
       "source": "Lindt & Sprüngli Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-09T09:39:18.919Z",
+      "crawledAt": "2026-11-09T21:20:56.938Z",
       "addressLocality": "Kilchberg",
       "addressRegion": "ZH",
       "streetAddress": "Seestrasse 204",
@@ -67,7 +67,7 @@
         "personnel-militaire-lindt-sprungli-kilchberg",
         "servicemitarbeiter-in-lindt-sprungli-kilchberg",
         "patissier-in-90-lindt-sprungli-kilchberg",
-        "initiativbewerbung-lindt-sprungli-kilchberg"
+        "unerbetene-anwendung-lindt-sprungli-kilchberg"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -89,7 +89,7 @@
         "de": [
           "unsolicited-application-lindt-spruengli-kilchberg",
           "patissier-in-90-lindt-spruengli-kilchberg",
-          "initiativbewerbung-lindt-sprungli-kilchberg"
+          "unerbetene-anwendung-lindt-sprungli-kilchberg"
         ],
         "fr": [
           "unsolicited-application-lindt-spruengli-kilchberg",
@@ -111,7 +111,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-09T09:39:18.919Z",
+      "validThrough": "2026-12-09T21:20:56.938Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -145,7 +145,7 @@
       "url": "https://lindtspruengli.wd103.myworkdayjobs.com/LindtSpruengliGroupCareers/job/Altendorf-Switzerland/Lehrstelle-als-Logistiker-in-EFZ-Lehrbeginn-Sommer-2027_JR101256-1",
       "source": "Lindt & Sprüngli Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:39:17.886Z",
+      "crawledAt": "2026-11-09T21:20:56.232Z",
       "addressLocality": "Altendorf",
       "addressRegion": "SZ",
       "streetAddress": "Altendorf",
@@ -195,7 +195,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-09T09:39:17.886Z",
+      "validThrough": "2026-12-09T21:20:56.232Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -229,7 +229,7 @@
       "url": "https://lindtspruengli.wd103.myworkdayjobs.com/LindtSpruengliGroupCareers/job/Kilchberg-Switzerland/Lehrstelle-als-Lebensmitteltechnologe--login-EFZ---Lehrbeginn-ab-Sommer-2027_JR102079",
       "source": "Lindt & Sprüngli Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:39:16.307Z",
+      "crawledAt": "2026-11-09T21:20:55.529Z",
       "addressLocality": "Kilchberg",
       "addressRegion": "ZH",
       "streetAddress": "Seestrasse 204",
@@ -280,7 +280,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-09T09:39:16.307Z",
+      "validThrough": "2026-12-09T21:20:55.529Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -314,7 +314,7 @@
       "url": "https://lindtspruengli.wd103.myworkdayjobs.com/LindtSpruengliGroupCareers/job/Kilchberg-Switzerland/Lehrstelle-als-Lebensmittelpraktiker-in-EBA---Lehrbeginn-ab-Sommer-2027_JR102101",
       "source": "Lindt & Sprüngli Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:39:14.809Z",
+      "crawledAt": "2026-11-09T21:20:54.816Z",
       "addressLocality": "Kilchberg",
       "addressRegion": "ZH",
       "streetAddress": "Seestrasse 204",
@@ -365,7 +365,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-09T09:39:14.809Z",
+      "validThrough": "2026-12-09T21:20:54.816Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -399,7 +399,7 @@
       "url": "https://lindtspruengli.wd103.myworkdayjobs.com/LindtSpruengliGroupCareers/job/LCH---CHE---Retail---Lindt-Shop-City---Luzern/Retail-Store-Manager_JR101237",
       "source": "Lindt & Sprüngli Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:39:13.713Z",
+      "crawledAt": "2026-11-09T21:20:54.082Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "streetAddress": "Luzern",
@@ -443,7 +443,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-09T09:39:13.713Z",
+      "validThrough": "2026-12-09T21:20:54.082Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -477,7 +477,7 @@
       "url": "https://lindtspruengli.wd103.myworkdayjobs.com/LindtSpruengliGroupCareers/job/Olten-Switzerland/Lehrstelle-als-Lebensmittelpraktiker-in-EBA---Lehrbeginn-ab-Sommer-2027_JR102995-2",
       "source": "Lindt & Sprüngli Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:39:12.194Z",
+      "crawledAt": "2026-11-09T21:20:53.323Z",
       "addressLocality": "Olten",
       "addressRegion": "SO",
       "streetAddress": "Olten",
@@ -530,91 +530,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-09T09:39:12.194Z",
-      "validThroughSource": "last-observed-window"
-    },
-    {
-      "id": "lindt-spruengli-589a5500e104",
-      "slug": "lindt-chocolate-consulente-verkaufer-in-lindt-shop-lindt-sprungli-kilchberg",
-      "slugByLocale": {
-        "it": "lindt-chocolate-consulente-verkaufer-in-lindt-shop-lindt-sprungli-kilchberg",
-        "en": "lindt-chocolate-advisor-seller-in-lindt-shop-lindt-sprungli-kilchberg",
-        "de": "lindt-chocolate-advisor-verkaufer-in-lindt-shop-lindt-spruengli-kilchberg",
-        "fr": "lindt-chocolate-conseiller-verkaufer-in-lindt-shop-lindt-sprungli-kilchberg"
-      },
-      "company": "Lindt & Sprüngli",
-      "companyKey": "lindt-spruengli",
-      "companyDomain": "lindt-spruengli.com",
-      "title": "Lindt Chocolate Advisor - Verkäufer*in Lindt Shop",
-      "titleByLocale": {
-        "it": "Lindt Chocolate Advisor - venditore in Lindt Shop",
-        "en": "Lindt Chocolate Advisor - seller in Lindt Shop",
-        "de": "Lindt Chocolate Advisor - Verkäufer*in Lindt Shop",
-        "fr": "Lindt Chocolate Advisor - vendeur à Lindt Shop"
-      },
-      "description": "Über uns\n\nWir verzaubern die Welt mit Schokolade! Die Lindt & Sprüngli (Schweiz) AG ist eine Tochtergesellschaft der globalen Lindt & Sprüngli Gruppe mit Hauptsitz und Produktionsstätte in Kilchberg am Zürichsee. In Altendorf betreiben wir unser eigenes Logistikzentrum, während das Lindt Cocoa Center in Olten Kakaomasse für unseren Eigenbedarf sowie für andere europäische Produktionsstätten herstellt. In der ganzen Schweiz betreiben wir stolz 15 Lindt Shops, darunter ikonische Standorte wie das Jungfraujoch und das Verkehrshaus der Schweiz in Luzern. Über 1000 Mitarbeitende aus mehr als 50 Nationen tragen zu unserem Erfolg bei.\n\nWas du bei uns machst:\n\n• Erstklassige Verkaufsberatung unserer internationalen Kundschaft\n\n• Merchandising der Verkaufsregale (inklusive Frischekontrollen)\n\n• Bedienung der Kasse\n\n• Mithilfe bei der Lagerführung\n\n• Erstellung von Abrechnungen\n\nWann du zu uns passt:\n\n• Abgeschlossene Detailhandelsausbildung und/oder Erfahrung in ähnlichen, vor allem dienstleistungsorientierten Brachen, wie Gastronomie und Hotellerie\n\n• Überzeugende Verkaufspersönlichkeit mit einer hohen Kundenorientierung\n\n• Zeitlich flexibel und bereit, auch Wochenendeinsätze zu übernehmen\n\n• Fliessende Deutsch- und gute Englischkenntnisse, weitere Sprachen von Vorteil\n\n• Teamfähige, engagierte und offene Persönlichkeit\n\n• Leidenschaft für unsere Premium-Schokolade und für die Liebe zum Detail\n\nWir sind alle einzigartig!\n\nWir rekrutieren frei von Vorurteilen und berücksichtigen Fähigkeiten und Qualifikationen unbeeinflusst von persönlichen Merkmalen wie Geschlecht, Alter, sexuelle Orientierung, Herkunft, Religion, Familienstand, Beeinträchtigungen, etc.\n\nWohlbefinden\nGesundheit ist uns wichtig. Mit einer Sportprämie, Ergonomieberatung, gesunder Ernährung und weiteren Gesundheitsinitiativen unterstützen wir dich dabei fit zu bleiben.\n\nEntwicklung\nLernen wird bei uns GROSS geschrieben. Für die persönliche und fachliche Weiterentwicklung stehen dir verschiedene spannende Möglichkeiten zur Verfügung.\n\nMobilität\nWir unterstützen dich mit einer monatlichen Mobilitätsprämie und E-Bikes vor Ort. Zudem kannst du auch von der REKA-Card profitieren.\n\nFamilienfreundliches Umfeld - richtig versichert\nUnsere Sozialversicherungen, wie auch der Mutterschaftsurlaub, gehen weit über das Obligatorische hinaus - zum eigenen Schutz sowie für deine Liebsten.\n\nFlexibilität\nJe nach Funktion sind flexible Arbeitszeiten, Home Office sowie Teilzeitarbeit möglich. Zudem bieten wir dir die Option, die Ferientage zu erhöhen.\n\nVergünstigung\nZahlreiche Vergünstigungen wie ein top Personalrestaurant, Rabatte in den Lindt Shops oder tolle Freizeitangebote stehen dir zur Verfügung.",
-      "descriptionByLocale": {
-        "it": "Informazioni su di noi\n\nIncantiamo il mondo con il cioccolato! Lindt & Sprüngli (Svizzera) AG è una filiale del Gruppo globale Lindt & Sprüngli con sede e impianti produttivi a Kilchberg sul Lago di Zurigo. A Altendorf operiamo il nostro centro logistico, mentre il Lindt Cocoa Center di Olten produce la massa di cacao per il nostro utilizzo e per altri impianti produttivi europei. In tutta la Svizzera, operiamo con orgoglio 15 negozi Lindt, tra cui luoghi iconici come Jungfraujoch e la Swiss Transport House di Lucerna. Più di 1000 dipendenti da oltre 50 nazioni contribuiscono al nostro successo.\n\nCosa fai con noi:\n\n• Consulenza di vendita di prima classe per i nostri clienti internazionali\n\n• Merchandising degli scaffali di vendita (compresi i controlli di freschezza)\n\n• Operazione del registro di cassa\n\n• Assistenza nella gestione del magazzino\n\n• Preparazione dei conti\n\nQuando ci si adatta:\n\n• Completata la formazione al dettaglio e/o l'esperienza in settori simili, principalmente orientati al servizio, come la ristorazione e l'ospitalità\n\n• Convincente venditore con un alto livello di orientamento del cliente\n\n• Flessibile nel tempo e pronto a prendere le assegnazioni del fine settimana\n\n• Flusso tedesco e buone abilità inglesi, altre lingue benefiche\n\n• Personalità capace di squadra, impegnata e aperta\n\n• Passione per il nostro cioccolato premium e per l'attenzione ai dettagli\n\nSiamo tutti unici!\n\nReclutiamo senza pregiudizi e consideriamo le competenze e le qualifiche non influenzate da caratteristiche personali come il sesso, l'età, l'orientamento sessuale, l'origine, la religione, lo stato civile, i difetti, ecc.\n\nSalute\nLa salute è importante per noi. Con un bonus sportivo, consigli ergonomici, nutrizione sana e altre iniziative di salute, ti aiutiamo a rimanere in forma.\n\nSviluppo\nImparare è scritto GRANDE con noi. Per lo sviluppo personale e professionale, diverse possibilità emozionanti sono a vostra disposizione.\n\nMobilità\nTi supportiamo con un bonus mensile di mobilità e e-bike in loco. È inoltre possibile usufruire della REKA-Card.\n\nAmbiente familiare - adeguatamente assicurato\nLa nostra assicurazione sociale, così come il congedo di maternità, va ben oltre l'obbligo - per la vostra protezione e per i vostri cari.\n\nFlessibilità\nA seconda della funzione, ore di lavoro flessibili, ufficio domestico e lavoro part-time sono possibili. Vi offriamo anche la possibilità di aumentare i giorni di vacanza.\n\nVantaggio\nNumerosi vantaggi come un ristorante di alto livello, sconti nei negozi Lindt o grandi offerte di svago sono a vostra disposizione.",
-        "en": "About us\n\nWe enchant the world with chocolate! Lindt & Sprüngli (Switzerland) AG is a subsidiary of the global Lindt & Sprüngli Group with headquarters and production facilities in Kilchberg on Lake Zurich. In Altendorf we operate our own logistics centre, while the Lindt Cocoa Center in Olten produces cocoa mass for our own use as well as for other European production facilities. Throughout Switzerland, we proudly operate 15 Lindt shops, including iconic locations such as the Jungfraujoch and the Swiss Transport House in Lucerne. More than 1000 employees from more than 50 nations contribute to our success.\n\nWhat you do with us:\n\n• First-class sales advice for our international customers\n\n• Merchandising of sales shelves (including freshness checks)\n\n• Cash register operation\n\n• Assistance in warehouse management\n\n• Preparation of accounts\n\nWhen you fit in with us:\n\n• Completed retail training and/or experience in similar, mainly service-oriented branches, such as catering and hospitality\n\n• Convincing salesperson with a high level of customer orientation\n\n• Flexible in time and ready to take on weekend assignments\n\n• Flowing German and good English skills, other languages beneficial\n\n• Team-capable, committed and open personality\n\n• Passion for our premium chocolate and for the attention to detail\n\nWe are all unique!\n\nWe recruit free from prejudice and consider skills and qualifications unaffected by personal characteristics such as gender, age, sexual orientation, origin, religion, marital status, impairments, etc.\n\nHealth\nHealth is important to us. With a sports bonus, ergonomics advice, healthy nutrition and other health initiatives, we support you to stay fit.\n\nDevelopment\nLearning is written BIG with us. For personal and professional development, various exciting possibilities are available to you.\n\nMobility\nWe support you with a monthly mobility bonus and e-bikes on site. You can also benefit from the REKA-Card.\n\nFamily-friendly environment - properly insured\nOur social insurance, as well as maternity leave, goes far beyond the mandatory - for your own protection and for your loved ones.\n\nFlexibility\nDepending on the function, flexible working hours, home office and part-time work are possible. We also offer you the option to increase the holiday days.\n\nAdvantage\nNumerous perks such as a top staff restaurant, discounts in the Lindt shops or great leisure offers are at your disposal.",
-        "de": "Über uns\n\nWir verzaubern die Welt mit Schokolade! Die Lindt & Sprüngli (Schweiz) AG ist eine Tochtergesellschaft der globalen Lindt & Sprüngli Gruppe mit Hauptsitz und Produktionsstätte in Kilchberg am Zürichsee. In Altendorf betreiben wir unser eigenes Logistikzentrum, während das Lindt Cocoa Center in Olten Kakaomasse für unseren Eigenbedarf sowie für andere europäische Produktionsstätten herstellt. In der ganzen Schweiz betreiben wir stolz 15 Lindt Shops, darunter ikonische Standorte wie das Jungfraujoch und das Verkehrshaus der Schweiz in Luzern. Über 1000 Mitarbeitende aus mehr als 50 Nationen tragen zu unserem Erfolg bei.\n\nWas du bei uns machst:\n\n• Erstklassige Verkaufsberatung unserer internationalen Kundschaft\n\n• Merchandising der Verkaufsregale (inklusive Frischekontrollen)\n\n• Bedienung der Kasse\n\n• Mithilfe bei der Lagerführung\n\n• Erstellung von Abrechnungen\n\nWann du zu uns passt:\n\n• Abgeschlossene Detailhandelsausbildung und/oder Erfahrung in ähnlichen, vor allem dienstleistungsorientierten Brachen, wie Gastronomie und Hotellerie\n\n• Überzeugende Verkaufspersönlichkeit mit einer hohen Kundenorientierung\n\n• Zeitlich flexibel und bereit, auch Wochenendeinsätze zu übernehmen\n\n• Fliessende Deutsch- und gute Englischkenntnisse, weitere Sprachen von Vorteil\n\n• Teamfähige, engagierte und offene Persönlichkeit\n\n• Leidenschaft für unsere Premium-Schokolade und für die Liebe zum Detail\n\nWir sind alle einzigartig!\n\nWir rekrutieren frei von Vorurteilen und berücksichtigen Fähigkeiten und Qualifikationen unbeeinflusst von persönlichen Merkmalen wie Geschlecht, Alter, sexuelle Orientierung, Herkunft, Religion, Familienstand, Beeinträchtigungen, etc.\n\nWohlbefinden\nGesundheit ist uns wichtig. Mit einer Sportprämie, Ergonomieberatung, gesunder Ernährung und weiteren Gesundheitsinitiativen unterstützen wir dich dabei fit zu bleiben.\n\nEntwicklung\nLernen wird bei uns GROSS geschrieben. Für die persönliche und fachliche Weiterentwicklung stehen dir verschiedene spannende Möglichkeiten zur Verfügung.\n\nMobilität\nWir unterstützen dich mit einer monatlichen Mobilitätsprämie und E-Bikes vor Ort. Zudem kannst du auch von der REKA-Card profitieren.\n\nFamilienfreundliches Umfeld - richtig versichert\nUnsere Sozialversicherungen, wie auch der Mutterschaftsurlaub, gehen weit über das Obligatorische hinaus - zum eigenen Schutz sowie für deine Liebsten.\n\nFlexibilität\nJe nach Funktion sind flexible Arbeitszeiten, Home Office sowie Teilzeitarbeit möglich. Zudem bieten wir dir die Option, die Ferientage zu erhöhen.\n\nVergünstigung\nZahlreiche Vergünstigungen wie ein top Personalrestaurant, Rabatte in den Lindt Shops oder tolle Freizeitangebote stehen dir zur Verfügung.",
-        "fr": "Sur nous\n\nNous enchantons le monde avec du chocolat ! Lindt & Sprüngli (Suisse) AG est une filiale du groupe mondial Lindt & Sprüngli avec siège social et installations de production à Kilchberg sur le lac de Zurich. À Altendorf, nous gérons notre propre centre logistique, tandis que le Lindt Cocoa Center à Olten produit une masse de cacao pour notre propre usage ainsi que pour d'autres installations de production européennes. Dans toute la Suisse, nous exploitons fièrement 15 magasins Lindt, y compris des lieux emblématiques comme le Jungfraujoch et la Swiss Transport House de Lucerne. Plus de 1000 employés de plus de 50 pays contribuent à notre succès.\n\nCe que vous faites de nous :\n\n• Conseils commerciaux de première classe pour nos clients internationaux\n\n• Marchandise des tablettes de vente (y compris les contrôles de la fraîcheur)\n\n• Opérations de caisse\n\n• Assistance à la gestion des entrepôts\n\n• Établissement des comptes\n\nLorsque vous entrez avec nous:\n\n• Formation au commerce de détail et/ou expérience dans des secteurs similaires, principalement axés sur les services, tels que la restauration et l'accueil\n\n• Convaincre le vendeur avec un haut niveau d'orientation client\n\n• Flexible dans le temps et prêt à effectuer des affectations le week-end\n\n• L'allemand et de bonnes compétences en anglais, d'autres langues bénéfiques\n\n• Personnalité capable d'équipe, engagée et ouverte\n\n• Passion pour notre chocolat haut de gamme et pour l'attention au détail\n\nNous sommes tous uniques !\n\nNous recrutons sans préjugés et considérons les compétences et les qualifications qui ne sont pas affectées par des caractéristiques personnelles telles que le sexe, l'âge, l'orientation sexuelle, l'origine, la religion, l'état matrimonial, les déficiences, etc.\n\nSanté\nLa santé est importante pour nous. Avec un bonus sportif, des conseils ergonomiques, une nutrition saine et d'autres initiatives de santé, nous vous soutenons pour rester en forme.\n\nDéveloppement\nL'apprentissage est écrit BIG avec nous. Pour le développement personnel et professionnel, diverses possibilités passionnantes sont à votre disposition.\n\nMobilité\nNous vous accompagnons avec un bonus mensuel de mobilité et des vélos électroniques sur place. Vous pouvez également bénéficier de la carte REKA.\n\nEnvironnement familial - correctement assuré\nNotre assurance sociale, ainsi que le congé de maternité, va bien au-delà de l'obligation - pour votre propre protection et pour vos proches.\n\nFlexibilité\nSelon la fonction, des horaires de travail flexibles, du bureau à domicile et du travail à temps partiel sont possibles. Nous vous offrons également la possibilité d'augmenter les jours de vacances.\n\nAvantages\nDe nombreux avantages tels qu'un restaurant haut de gamme, des réductions dans les magasins Lindt ou de grandes offres de loisirs sont à votre disposition."
-      },
-      "location": "Kilchberg",
-      "canton": "ZH",
-      "url": "https://lindtspruengli.wd103.myworkdayjobs.com/LindtSpruengliGroupCareers/job/Kilchberg-Switzerland/Lindt-Chocolate-Advisor---Verkufer-in-Lindt-Shop_JR103256-1",
-      "source": "Lindt & Sprüngli Dedicated Parser (Workday)",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:39:11.548Z",
-      "addressLocality": "Kilchberg",
-      "addressRegion": "ZH",
-      "streetAddress": "Seestrasse 204",
-      "postalCode": "8802",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Vendita",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Alimentare / Manifattura",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-08-27",
-      "postedDate": "2026-08-27",
-      "postingDateSource": "reported",
-      "applyUrl": "https://lindtspruengli.wd103.myworkdayjobs.com/LindtSpruengliGroupCareers/job/Kilchberg-Switzerland/Lindt-Chocolate-Advisor---Verkufer-in-Lindt-Shop_JR103256-1",
-      "jobReqId": "JR103256",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "lindt-chocolate-advisor-verkaufer-in-lindt-shop-lindt-spruengli-kilchberg"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "lindt-chocolate-advisor-verkaufer-in-lindt-shop-lindt-spruengli-kilchberg"
-        ],
-        "en": [
-          "lindt-chocolate-advisor-verkaufer-in-lindt-shop-lindt-spruengli-kilchberg"
-        ],
-        "fr": [
-          "lindt-chocolate-advisor-verkaufer-in-lindt-shop-lindt-spruengli-kilchberg"
-        ]
-      },
-      "firstSeenAt": "2026-08-31T17:27:06.080Z",
-      "salaryMin": 83000,
-      "salaryMax": 127500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 83000,
-          "maxValue": 127500,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-09T09:39:11.548Z",
+      "validThrough": "2026-12-09T21:20:53.323Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -648,7 +564,7 @@
       "url": "https://lindtspruengli.wd103.myworkdayjobs.com/LindtSpruengliGroupCareers/job/Landquart-Switzerland/Assistant-Shop-Manager--60-80--_JR103772-1",
       "source": "Lindt & Sprüngli Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:39:10.019Z",
+      "crawledAt": "2026-11-09T21:20:52.613Z",
       "addressLocality": "Landquart",
       "addressRegion": "GR",
       "streetAddress": "Landquart",
@@ -696,7 +612,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-30T09:39:10.019Z",
+      "validThrough": "2026-12-30T21:20:52.613Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -730,7 +646,7 @@
       "url": "https://lindtspruengli.wd103.myworkdayjobs.com/LindtSpruengliGroupCareers/job/Kilchberg-Switzerland/Anlagenfhrer-in-Grundfabrikation_JR103638-1",
       "source": "Lindt & Sprüngli Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:39:09.365Z",
+      "crawledAt": "2026-11-09T21:20:51.918Z",
       "addressLocality": "Kilchberg",
       "addressRegion": "ZH",
       "streetAddress": "Seestrasse 204",
@@ -781,7 +697,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-31T09:39:09.365Z",
+      "validThrough": "2026-12-31T21:20:51.918Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -815,7 +731,7 @@
       "url": "https://lindtspruengli.wd103.myworkdayjobs.com/LindtSpruengliGroupCareers/job/Kilchberg-Switzerland/Betriebsmechaniker-in_JR103724-1",
       "source": "Lindt & Sprüngli Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:39:08.289Z",
+      "crawledAt": "2026-11-09T21:20:51.221Z",
       "addressLocality": "Kilchberg",
       "addressRegion": "ZH",
       "streetAddress": "Seestrasse 204",
@@ -867,7 +783,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-04T09:39:08.289Z",
+      "validThrough": "2027-01-04T21:20:51.221Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -901,7 +817,7 @@
       "url": "https://lindtspruengli.wd103.myworkdayjobs.com/LindtSpruengliGroupCareers/job/Aubonne-Switzerland/Assistant-Shop-Manager-Aubonne--80--_JR103769-1",
       "source": "Lindt & Sprüngli Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:39:07.649Z",
+      "crawledAt": "2026-11-09T21:20:50.535Z",
       "addressLocality": "Aubonne",
       "addressRegion": "VD",
       "streetAddress": "Aubonne",
@@ -951,7 +867,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-14T09:39:07.649Z",
+      "validThrough": "2027-01-14T21:20:50.535Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -985,7 +901,7 @@
       "url": "https://lindtspruengli.wd103.myworkdayjobs.com/LindtSpruengliGroupCareers/job/Kilchberg-Switzerland/Aushilfsmitarbeiter-in-Personalrestaurant_JR103978-1",
       "source": "Lindt & Sprüngli Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:39:05.848Z",
+      "crawledAt": "2026-11-09T21:20:49.841Z",
       "addressLocality": "Kilchberg",
       "addressRegion": "ZH",
       "streetAddress": "Seestrasse 204",
@@ -1053,7 +969,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-11T09:39:05.848Z",
+      "validThrough": "2027-01-11T21:20:49.841Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1087,7 +1003,7 @@
       "url": "https://lindtspruengli.wd103.myworkdayjobs.com/LindtSpruengliGroupCareers/job/Kilchberg-Switzerland/Group-Category-Manager-Business-Services_JR103887-1",
       "source": "Lindt & Sprüngli Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-09T09:39:04.688Z",
+      "crawledAt": "2026-11-09T21:20:49.141Z",
       "addressLocality": "Kilchberg",
       "addressRegion": "ZH",
       "streetAddress": "Seestrasse 204",
@@ -1137,7 +1053,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-18T09:39:04.688Z",
+      "validThrough": "2027-01-18T21:20:49.141Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1171,7 +1087,7 @@
       "url": "https://lindtspruengli.wd103.myworkdayjobs.com/LindtSpruengliGroupCareers/job/Zermatt-Switzerland/Lindt-Chocolate-Advisor-40-60----Saisonaushilfe-_JR104112-1",
       "source": "Lindt & Sprüngli Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:39:03.530Z",
+      "crawledAt": "2026-11-09T21:20:48.439Z",
       "addressLocality": "Zermatt",
       "addressRegion": "VS",
       "streetAddress": "Zermatt",
@@ -1221,7 +1137,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-31T09:39:03.530Z",
+      "validThrough": "2027-01-31T21:20:48.439Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1255,7 +1171,7 @@
       "url": "https://lindtspruengli.wd103.myworkdayjobs.com/LindtSpruengliGroupCareers/job/Kilchberg-Switzerland/Internship---Finance---Controlling---6-months--100---_JR104255-1",
       "source": "Lindt & Sprüngli Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-09T09:39:02.869Z",
+      "crawledAt": "2026-11-09T21:20:47.737Z",
       "addressLocality": "Kilchberg",
       "addressRegion": "ZH",
       "streetAddress": "Seestrasse 204",
@@ -1302,7 +1218,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-31T09:39:02.869Z",
+      "validThrough": "2027-01-31T21:20:47.737Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1336,7 +1252,7 @@
       "url": "https://lindtspruengli.wd103.myworkdayjobs.com/LindtSpruengliGroupCareers/job/Landquart-Switzerland/Lindt-Chocolate-Advisor--40-60--_JR104108-1",
       "source": "Lindt & Sprüngli Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:39:02.214Z",
+      "crawledAt": "2026-11-09T21:20:47.039Z",
       "addressLocality": "Landquart",
       "addressRegion": "GR",
       "streetAddress": "Landquart",
@@ -1388,7 +1304,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-26T09:39:02.214Z",
+      "validThrough": "2027-01-26T21:20:47.039Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1422,7 +1338,7 @@
       "url": "https://lindtspruengli.wd103.myworkdayjobs.com/LindtSpruengliGroupCareers/job/Landquart-Switzerland/Lindt-Chocolate-Advisor--20-40--_JR104109-1",
       "source": "Lindt & Sprüngli Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:39:01.534Z",
+      "crawledAt": "2026-11-09T21:20:46.331Z",
       "addressLocality": "Landquart",
       "addressRegion": "GR",
       "streetAddress": "Landquart",
@@ -1474,7 +1390,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-26T09:39:01.534Z",
+      "validThrough": "2027-01-26T21:20:46.331Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1508,7 +1424,7 @@
       "url": "https://lindtspruengli.wd103.myworkdayjobs.com/LindtSpruengliGroupCareers/job/Zermatt-Switzerland/Lindt-Chocolate-Advisor-80-100-_JR104114-1",
       "source": "Lindt & Sprüngli Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:39:00.880Z",
+      "crawledAt": "2026-11-09T21:20:45.632Z",
       "addressLocality": "Zermatt",
       "addressRegion": "VS",
       "streetAddress": "Zermatt",
@@ -1556,7 +1472,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-31T09:39:00.880Z",
+      "validThrough": "2027-01-31T21:20:45.632Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1590,7 +1506,7 @@
       "url": "https://lindtspruengli.wd103.myworkdayjobs.com/LindtSpruengliGroupCareers/job/Kilchberg-Switzerland/Anlagenfhrer-in-Formanlage_JR104217-1",
       "source": "Lindt & Sprüngli Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:39:00.218Z",
+      "crawledAt": "2026-11-09T21:20:44.927Z",
       "addressLocality": "Kilchberg",
       "addressRegion": "ZH",
       "streetAddress": "Seestrasse 204",
@@ -1640,7 +1556,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-01T09:39:00.218Z",
+      "validThrough": "2027-02-01T21:20:44.927Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1674,7 +1590,7 @@
       "url": "https://lindtspruengli.wd103.myworkdayjobs.com/LindtSpruengliGroupCareers/job/Kilchberg-Switzerland/Channel-Activation-Manager-Global-Travel-Retail---Available-Immediately_JR104264-1",
       "source": "Lindt & Sprüngli Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-09T09:38:58.971Z",
+      "crawledAt": "2026-11-09T21:20:44.207Z",
       "addressLocality": "Kilchberg",
       "addressRegion": "ZH",
       "streetAddress": "Seestrasse 204",
@@ -1721,7 +1637,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-02T09:38:58.971Z",
+      "validThrough": "2027-02-02T21:20:44.207Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1755,7 +1671,7 @@
       "url": "https://lindtspruengli.wd103.myworkdayjobs.com/LindtSpruengliGroupCareers/job/LCH---CHE---Plant---Kilchberg---Plant/Betriebselektriker-in_JR104298-2",
       "source": "Lindt & Sprüngli Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:38:58.302Z",
+      "crawledAt": "2026-11-09T21:20:43.465Z",
       "addressLocality": "Kilchberg",
       "addressRegion": "ZH",
       "streetAddress": "Seestrasse 204",
@@ -1807,16 +1723,16 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-03T09:38:58.302Z",
+      "validThrough": "2027-02-03T21:20:43.465Z",
       "validThroughSource": "last-observed-window"
     },
     {
       "id": "lindt-spruengli-5a31bef84b12",
       "slug": "collaboratore-tricein-contabilita-debitori-100-lindt-sprungli-kilchberg",
       "slugByLocale": {
-        "de": "mitarbeiter-in-debitorenbuchhaltung-100-lindt-spruengli-kilchberg",
         "it": "collaboratore-tricein-contabilita-debitori-100-lindt-sprungli-kilchberg",
         "en": "accounts-receivable-employee-100-lindt-sprungli-kilchberg",
+        "de": "mitarbeiter-in-debitorenbuchhaltung-100-lindt-spruengli-kilchberg",
         "fr": "employe-e-comptabilite-debiteurs-100-lindt-sprungli-kilchberg"
       },
       "company": "Lindt & Sprüngli",
@@ -1824,16 +1740,16 @@
       "companyDomain": "lindt-spruengli.com",
       "title": "Mitarbeiter*in Debitorenbuchhaltung 100%",
       "titleByLocale": {
-        "de": "Mitarbeiter*in Debitorenbuchhaltung 100%",
         "it": "Collaboratore/tricein contabilità debitori 100%",
         "en": "Accounts Receivable employee 100%",
+        "de": "Mitarbeiter*in Debitorenbuchhaltung 100%",
         "fr": "Employé· e Comptabilité débiteurs 100 %"
       },
       "description": "Über uns\n\nWir verzaubern die Welt mit Schokolade! Die Lindt & Sprüngli (Schweiz) AG ist eine Tochtergesellschaft der globalen Lindt & Sprüngli Gruppe mit Hauptsitz und Produktionsstätte in Kilchberg am Zürichsee. In Altendorf betreiben wir unser eigenes Logistikzentrum, während das Lindt Cocoa Center in Olten Kakaomasse für unseren Eigenbedarf sowie für andere europäische Produktionsstätten herstellt. In der ganzen Schweiz betreiben wir stolz 15 Lindt Shops, darunter ikonische Standorte wie das Jungfraujoch und das Verkehrshaus der Schweiz in Luzern. Über 1000 Mitarbeitende aus mehr als 50 Nationen tragen zu unserem Erfolg bei.\n\nWas du bei uns machst:\n\n• Tägliche Bank- und Postzahlungseingänge inkl. Kontoabstimmungen erfassen und bearbeiten\n\n• Konto-Bereinigungen sowie das Mahn- und Betreibungswesen selbständig durchführen\n\n• Kreditlimiten überwachen und pflegen sowie Auftragsfreigaben erteilen\n\n• Rechnungen prüfen und freigeben sowie manuelle Rechnungen, Gutschriften und interne Umbuchungen erstellen und verbuchen\n\n• Debitoren-Stammdaten unserer nationalen und internationalen Kunden pflegen und als Master Data Expert den Debitorenprozess fachlich unterstützen\n\n• Auswertungen und Statistiken für Monats- und Jahresabschlüsse erstellen sowie bei Wareninventuren unserer Lindt Chocolate Shops mitwirken\n\n• Arbeitsprozesse in der Debitorenbuchhaltung überwachen und Prozess- sowie IKS-Dokumentationen laufend überprüfen und bei Bedarf aktualisieren\n\nWann du zu uns passt:\n\n• Abgeschlossene kaufmännische Grundausbildung sowie einige Jahre Berufserfahrung in einer vergleichbaren Position\n\n• Weiterbildung als Sachbearbeiter*in Rechnungswesen (oder gleichwertig) von Vorteil\n\n• Gute Kenntnisse in SAP und MS Excel\n\n• Teamfähige, proaktive und humorvolle Person, die analytisch denkt und stufengerecht kommuniziert\n\n• Selbständige und verlässliche Arbeitsweise mit hohem Qualitätsanspruch\n\n• Hands-on-Mentalität, engagiert, offen und entwicklungsfreudig\n\n• Sehr gute Deutschkenntnisse in Wort und Schrift sowie gute Englischkenntnisse für die Zusammenarbeit in unserem internationalen Kundenumfeld\n\nWir sind alle einzigartig!\n\nWir rekrutieren frei von Vorurteilen und berücksichtigen Fähigkeiten und Qualifikationen unbeeinflusst von persönlichen Merkmalen wie Geschlecht, Alter, sexuelle Orientierung, Herkunft, Religion, Familienstand, Beeinträchtigungen, etc.\n\nWohlbefinden\nGesundheit ist uns wichtig. Mit einer Sportprämie, Ergonomieberatung, gesunder Ernährung und weiteren Gesundheitsinitiativen unterstützen wir dich dabei fit zu bleiben.\n\nEntwicklung\nLernen wird bei uns GROSS geschrieben. Für die persönliche und fachliche Weiterentwicklung stehen dir verschiedene spannende Möglichkeiten zur Verfügung.\n\nMobilität\nWir unterstützen dich mit einer monatlichen Mobilitätsprämie und E-Bikes vor Ort. Zudem kannst du auch von der REKA-Card profitieren.\n\nFamilienfreundliches Umfeld - richtig versichert\nUnsere Sozialversicherungen, wie auch der Mutterschaftsurlaub, gehen weit über das Obligatorische hinaus - zum eigenen Schutz sowie für deine Liebsten.\n\nFlexibilität\nJe nach Funktion sind flexible Arbeitszeiten, Home Office sowie Teilzeitarbeit möglich. Zudem bieten wir dir die Option, die Ferientage zu erhöhen.\n\nVergünstigung\nZahlreiche Vergünstigungen wie ein top Personalrestaurant, Rabatte in den Lindt Shops oder tolle Freizeitangebote stehen dir zur Verfügung.",
       "descriptionByLocale": {
-        "de": "Über uns\n\nWir verzaubern die Welt mit Schokolade! Die Lindt & Sprüngli (Schweiz) AG ist eine Tochtergesellschaft der globalen Lindt & Sprüngli Gruppe mit Hauptsitz und Produktionsstätte in Kilchberg am Zürichsee. In Altendorf betreiben wir unser eigenes Logistikzentrum, während das Lindt Cocoa Center in Olten Kakaomasse für unseren Eigenbedarf sowie für andere europäische Produktionsstätten herstellt. In der ganzen Schweiz betreiben wir stolz 15 Lindt Shops, darunter ikonische Standorte wie das Jungfraujoch und das Verkehrshaus der Schweiz in Luzern. Über 1000 Mitarbeitende aus mehr als 50 Nationen tragen zu unserem Erfolg bei.\n\nWas du bei uns machst:\n\n• Tägliche Bank- und Postzahlungseingänge inkl. Kontoabstimmungen erfassen und bearbeiten\n\n• Konto-Bereinigungen sowie das Mahn- und Betreibungswesen selbständig durchführen\n\n• Kreditlimiten überwachen und pflegen sowie Auftragsfreigaben erteilen\n\n• Rechnungen prüfen und freigeben sowie manuelle Rechnungen, Gutschriften und interne Umbuchungen erstellen und verbuchen\n\n• Debitoren-Stammdaten unserer nationalen und internationalen Kunden pflegen und als Master Data Expert den Debitorenprozess fachlich unterstützen\n\n• Auswertungen und Statistiken für Monats- und Jahresabschlüsse erstellen sowie bei Wareninventuren unserer Lindt Chocolate Shops mitwirken\n\n• Arbeitsprozesse in der Debitorenbuchhaltung überwachen und Prozess- sowie IKS-Dokumentationen laufend überprüfen und bei Bedarf aktualisieren\n\nWann du zu uns passt:\n\n• Abgeschlossene kaufmännische Grundausbildung sowie einige Jahre Berufserfahrung in einer vergleichbaren Position\n\n• Weiterbildung als Sachbearbeiter*in Rechnungswesen (oder gleichwertig) von Vorteil\n\n• Gute Kenntnisse in SAP und MS Excel\n\n• Teamfähige, proaktive und humorvolle Person, die analytisch denkt und stufengerecht kommuniziert\n\n• Selbständige und verlässliche Arbeitsweise mit hohem Qualitätsanspruch\n\n• Hands-on-Mentalität, engagiert, offen und entwicklungsfreudig\n\n• Sehr gute Deutschkenntnisse in Wort und Schrift sowie gute Englischkenntnisse für die Zusammenarbeit in unserem internationalen Kundenumfeld\n\nWir sind alle einzigartig!\n\nWir rekrutieren frei von Vorurteilen und berücksichtigen Fähigkeiten und Qualifikationen unbeeinflusst von persönlichen Merkmalen wie Geschlecht, Alter, sexuelle Orientierung, Herkunft, Religion, Familienstand, Beeinträchtigungen, etc.\n\nWohlbefinden\nGesundheit ist uns wichtig. Mit einer Sportprämie, Ergonomieberatung, gesunder Ernährung und weiteren Gesundheitsinitiativen unterstützen wir dich dabei fit zu bleiben.\n\nEntwicklung\nLernen wird bei uns GROSS geschrieben. Für die persönliche und fachliche Weiterentwicklung stehen dir verschiedene spannende Möglichkeiten zur Verfügung.\n\nMobilität\nWir unterstützen dich mit einer monatlichen Mobilitätsprämie und E-Bikes vor Ort. Zudem kannst du auch von der REKA-Card profitieren.\n\nFamilienfreundliches Umfeld - richtig versichert\nUnsere Sozialversicherungen, wie auch der Mutterschaftsurlaub, gehen weit über das Obligatorische hinaus - zum eigenen Schutz sowie für deine Liebsten.\n\nFlexibilität\nJe nach Funktion sind flexible Arbeitszeiten, Home Office sowie Teilzeitarbeit möglich. Zudem bieten wir dir die Option, die Ferientage zu erhöhen.\n\nVergünstigung\nZahlreiche Vergünstigungen wie ein top Personalrestaurant, Rabatte in den Lindt Shops oder tolle Freizeitangebote stehen dir zur Verfügung.",
         "it": "Informazioni su di noi\n\nIncantiamo il mondo con il cioccolato! Lindt & Sprüngli (Svizzera) AG è una filiale del Gruppo globale Lindt & Sprüngli con sede e impianti produttivi a Kilchberg sul Lago di Zurigo. In Altendorf operiamo il nostro centro logistico, mentre il Lindt Cocoa Center di Olten produce la massa di cacao per il nostro utilizzo e per altri impianti produttivi europei. In tutta la Svizzera, operiamo con orgoglio 15 negozi Lindt, tra cui luoghi iconici come Jungfraujoch e la Swiss Transport House di Lucerna. Più di 1000 dipendenti di oltre 50 nazioni contribuiscono al nostro successo.\n\nCosa fai con noi:\n\n• Pagamenti bancari e postali giornalieri incl. Acquisire e modificare le riconciliazione degli account\n\n• Regolazioni complete dell'account e il sistema di funzionamento e di esecuzione indipendentemente\n\n• Monitorare e mantenere i limiti di credito e rilasciare le autorizzazioni\n\n• Controllare e rilasciare fatture e preparare e prenotare fatture manuali, note di credito e rebooking interni\n\n• Mantenere i dati master del debitore dei nostri clienti nazionali e internazionali e come Master Data Expert supporta il processo del debitore\n\n• Creare valutazioni e statistiche per conti mensili e annuali e partecipare agli inventari di beni dei nostri negozi di cioccolato Lindt\n\n• Monitorare i processi di lavoro nella contabilità del debitore e rivedere continuamente il processo e la documentazione ICS e aggiornarli come necessario\n\nQuando ti trovi con noi:\n\n• Formazione commerciale di base completa e diversi anni di esperienza professionale in una posizione comparabile\n\n• Formazione vantaggiosa come impiegato contabile (o equivalente)\n\n• Buona conoscenza di SAP e MS Excel\n\n• Team capace, proattivo e umoristico persona che pensa analiticamente e comunica passo dopo passo\n\n• Metodi di lavoro indipendenti e affidabili con elevati standard di qualità\n\n• mentalità, impegnata, aperta e desiderosa di sviluppare\n\n• Ottima conoscenza del tedesco nelle parole e nella scrittura, nonché buona conoscenza dell'inglese per la cooperazione nel nostro ambiente clienti internazionale\n\nSiamo tutti unici!\n\nReclutiamo senza pregiudizi e consideriamo le competenze e le qualifiche non influenzate da caratteristiche personali come il sesso, l'età, l'orientamento sessuale, l'origine, la religione, lo stato civile, i difetti, ecc.\n\nSalute\nLa salute è importante per noi. Con un bonus sportivo, consigli ergonomici, nutrizione sana e altre iniziative di salute, ti aiutiamo a rimanere in forma.\n\nSviluppo\nImparare è scritto GRANDE con noi. Per lo sviluppo personale e professionale, diverse possibilità emozionanti sono a vostra disposizione.\n\nMobilità\nTi supportiamo con un bonus mensile di mobilità e e-bike in loco. È inoltre possibile usufruire della REKA-Card.\n\nAmbiente familiare - adeguatamente assicurato\nLa nostra assicurazione sociale, così come il congedo di maternità, va ben oltre l'obbligo - per la vostra protezione e per i vostri cari.\n\nFlessibilità\nA seconda della funzione, ore di lavoro flessibili, ufficio domestico e lavoro part-time sono possibili. Vi offriamo anche la possibilità di aumentare i giorni di vacanza.\n\nVantaggio\nNumerosi vantaggi come un ristorante di alto livello, sconti nei negozi Lindt o grandi offerte di svago sono a vostra disposizione.",
         "en": "About us\n\nWe enchant the world with chocolate! Lindt & Sprüngli (Switzerland) AG is a subsidiary of the global Lindt & Sprüngli Group with headquarters and production facilities in Kilchberg on Lake Zurich. In Altendorf we operate our own logistics centre, while the Lindt Cocoa Center in Olten produces cocoa mass for our own use as well as for other European production facilities. Throughout Switzerland, we proudly operate 15 Lindt shops, including iconic locations such as the Jungfraujoch and the Swiss Transport House in Lucerne. More than 1000 employees from more than 50 nations contribute to our success.\n\nWhat you do with us:\n\n• Daily bank and postal payments incl. Capture and edit account reconciliations\n\n• Complete account adjustments and the dunning and operation system independently\n\n• Monitor and maintain credit limits and issue order clearances\n\n• Check and release invoices and prepare and book manual invoices, credit notes and internal rebookings\n\n• Maintain debtor master data of our national and international customers and as Master Data Expert support the debtor process\n\n• Create evaluations and statistics for monthly and annual accounts as well as participate in goods inventories of our Lindt Chocolate Shops\n\n• Monitor work processes in debtor accounting and continuously review process and ICS documentation and update them as needed\n\nWhen you fit in with us:\n\n• Completed basic commercial training and several years of professional experience in a comparable position\n\n• Advantageous training as an accounting clerk (or equivalent)\n\n• Good knowledge of SAP and MS Excel\n\n• Team capable, proactive and humorous person who thinks analytically and communicates step by step\n\n• Independent and reliable working methods with high quality standards\n\n• Hands-on mentality, committed, open and eager to develop\n\n• Very good knowledge of German in words and writing as well as good knowledge of English for cooperation in our international customer environment\n\nWe are all unique!\n\nWe recruit free from prejudice and consider skills and qualifications unaffected by personal characteristics such as gender, age, sexual orientation, origin, religion, marital status, impairments, etc.\n\nHealth\nHealth is important to us. With a sports bonus, ergonomics advice, healthy nutrition and other health initiatives, we support you to stay fit.\n\nDevelopment\nLearning is written BIG with us. For personal and professional development, various exciting possibilities are available to you.\n\nMobility\nWe support you with a monthly mobility bonus and e-bikes on site. You can also benefit from the REKA-Card.\n\nFamily-friendly environment - properly insured\nOur social insurance, as well as maternity leave, goes far beyond the mandatory - for your own protection and for your loved ones.\n\nFlexibility\nDepending on the function, flexible working hours, home office and part-time work are possible. We also offer you the option to increase the holiday days.\n\nAdvantage\nNumerous perks such as a top staff restaurant, discounts in the Lindt shops or great leisure offers are at your disposal.",
+        "de": "Über uns\n\nWir verzaubern die Welt mit Schokolade! Die Lindt & Sprüngli (Schweiz) AG ist eine Tochtergesellschaft der globalen Lindt & Sprüngli Gruppe mit Hauptsitz und Produktionsstätte in Kilchberg am Zürichsee. In Altendorf betreiben wir unser eigenes Logistikzentrum, während das Lindt Cocoa Center in Olten Kakaomasse für unseren Eigenbedarf sowie für andere europäische Produktionsstätten herstellt. In der ganzen Schweiz betreiben wir stolz 15 Lindt Shops, darunter ikonische Standorte wie das Jungfraujoch und das Verkehrshaus der Schweiz in Luzern. Über 1000 Mitarbeitende aus mehr als 50 Nationen tragen zu unserem Erfolg bei.\n\nWas du bei uns machst:\n\n• Tägliche Bank- und Postzahlungseingänge inkl. Kontoabstimmungen erfassen und bearbeiten\n\n• Konto-Bereinigungen sowie das Mahn- und Betreibungswesen selbständig durchführen\n\n• Kreditlimiten überwachen und pflegen sowie Auftragsfreigaben erteilen\n\n• Rechnungen prüfen und freigeben sowie manuelle Rechnungen, Gutschriften und interne Umbuchungen erstellen und verbuchen\n\n• Debitoren-Stammdaten unserer nationalen und internationalen Kunden pflegen und als Master Data Expert den Debitorenprozess fachlich unterstützen\n\n• Auswertungen und Statistiken für Monats- und Jahresabschlüsse erstellen sowie bei Wareninventuren unserer Lindt Chocolate Shops mitwirken\n\n• Arbeitsprozesse in der Debitorenbuchhaltung überwachen und Prozess- sowie IKS-Dokumentationen laufend überprüfen und bei Bedarf aktualisieren\n\nWann du zu uns passt:\n\n• Abgeschlossene kaufmännische Grundausbildung sowie einige Jahre Berufserfahrung in einer vergleichbaren Position\n\n• Weiterbildung als Sachbearbeiter*in Rechnungswesen (oder gleichwertig) von Vorteil\n\n• Gute Kenntnisse in SAP und MS Excel\n\n• Teamfähige, proaktive und humorvolle Person, die analytisch denkt und stufengerecht kommuniziert\n\n• Selbständige und verlässliche Arbeitsweise mit hohem Qualitätsanspruch\n\n• Hands-on-Mentalität, engagiert, offen und entwicklungsfreudig\n\n• Sehr gute Deutschkenntnisse in Wort und Schrift sowie gute Englischkenntnisse für die Zusammenarbeit in unserem internationalen Kundenumfeld\n\nWir sind alle einzigartig!\n\nWir rekrutieren frei von Vorurteilen und berücksichtigen Fähigkeiten und Qualifikationen unbeeinflusst von persönlichen Merkmalen wie Geschlecht, Alter, sexuelle Orientierung, Herkunft, Religion, Familienstand, Beeinträchtigungen, etc.\n\nWohlbefinden\nGesundheit ist uns wichtig. Mit einer Sportprämie, Ergonomieberatung, gesunder Ernährung und weiteren Gesundheitsinitiativen unterstützen wir dich dabei fit zu bleiben.\n\nEntwicklung\nLernen wird bei uns GROSS geschrieben. Für die persönliche und fachliche Weiterentwicklung stehen dir verschiedene spannende Möglichkeiten zur Verfügung.\n\nMobilität\nWir unterstützen dich mit einer monatlichen Mobilitätsprämie und E-Bikes vor Ort. Zudem kannst du auch von der REKA-Card profitieren.\n\nFamilienfreundliches Umfeld - richtig versichert\nUnsere Sozialversicherungen, wie auch der Mutterschaftsurlaub, gehen weit über das Obligatorische hinaus - zum eigenen Schutz sowie für deine Liebsten.\n\nFlexibilität\nJe nach Funktion sind flexible Arbeitszeiten, Home Office sowie Teilzeitarbeit möglich. Zudem bieten wir dir die Option, die Ferientage zu erhöhen.\n\nVergünstigung\nZahlreiche Vergünstigungen wie ein top Personalrestaurant, Rabatte in den Lindt Shops oder tolle Freizeitangebote stehen dir zur Verfügung.",
         "fr": "Sur nous\n\nNous enchantons le monde avec du chocolat ! Lindt & Sprüngli (Suisse) AG est une filiale du groupe mondial Lindt & Sprüngli avec siège et installations de production à Kilchberg sur le lac de Zurich. À Altendorf, nous exploitons notre propre centre logistique, tandis que le Lindt Cocoa Center à Olten produit une masse de cacao pour notre propre usage ainsi que pour d'autres installations de production européennes. Dans toute la Suisse, nous exploitons fièrement 15 magasins Lindt, dont des lieux emblématiques comme le Jungfraujoch et la Swiss Transport House de Lucerne. Plus de 1000 employés de plus de 50 pays contribuent à notre succès.\n\nCe que vous faites de nous :\n\n• Paiements quotidiens bancaires et postaux incl. Capturer et modifier les rapprochements de comptes\n\n• Compléter les ajustements de compte et le système de dunning et d'exploitation indépendamment\n\n• Surveiller et maintenir les limites de crédit et délivrer les autorisations de commande\n\n• Vérifier et relâcher les factures et préparer et comptabiliser les factures manuelles, les notes de crédit et les réservations internes\n\n• Maintenez les données maîtresses de débiteur de nos clients nationaux et internationaux et en tant qu'Expert Master Data supportent le processus débiteur\n\n• Créer des évaluations et des statistiques pour les comptes mensuels et annuels et participer aux inventaires de marchandises de nos chocolateries Lindt\n\n• Surveiller les processus de travail en matière de comptabilité des débiteurs et examiner en permanence la procédure et la documentation du SCI et les mettre à jour au besoin\n\nLorsque vous entrez avec nous:\n\n• Achevé une formation commerciale de base et plusieurs années d'expérience professionnelle dans un poste comparable\n\n• Formation avantageuse comme commis comptable (ou équivalent)\n\n• Bonne connaissance de SAP et MS Excel\n\n• Équipe capable, proactif et humoristique qui pense analytiquement et communique étape par étape\n\n• Méthodes de travail indépendantes et fiables avec des normes de qualité élevées\n\n• Une mentalité pratique, engagée, ouverte et impatiente de se développer\n\n• Très bonne connaissance de l'allemand en mots et en écriture ainsi que bonne connaissance de l'anglais pour la coopération dans notre environnement client international\n\nNous sommes tous uniques !\n\nNous recrutons à l'abri des préjugés et considérons les compétences et les qualifications non affectées par des caractéristiques personnelles telles que le sexe, l'âge, l'orientation sexuelle, l'origine, la religion, l'état matrimonial, les déficiences, etc.\n\nSanté\nLa santé est importante pour nous. Avec un bonus sportif, des conseils ergonomiques, une nutrition saine et d'autres initiatives de santé, nous vous soutenons pour rester en forme.\n\nDéveloppement\nL'apprentissage est écrit BIG avec nous. Pour le développement personnel et professionnel, diverses possibilités passionnantes sont à votre disposition.\n\nMobilité\nNous vous accompagnons avec un bonus mensuel de mobilité et des vélos électroniques sur place. Vous pouvez également bénéficier de la carte REKA.\n\nEnvironnement favorable à la famille - correctement assuré\nNotre assurance sociale, ainsi que le congé de maternité, va bien au-delà de l'obligation - pour votre propre protection et pour vos proches.\n\nFlexibilité\nSelon la fonction, des horaires de travail flexibles, le bureau à domicile et le travail à temps partiel sont possibles. Nous vous offrons également la possibilité d'augmenter les jours fériés.\n\nAvantages\nDe nombreux avantages tels qu'un restaurant haut de gamme, des réductions dans les magasins Lindt ou de grandes offres de loisirs sont à votre disposition."
       },
       "location": "Kilchberg",
@@ -1841,7 +1757,7 @@
       "url": "https://lindtspruengli.wd103.myworkdayjobs.com/LindtSpruengliGroupCareers/job/Kilchberg-Switzerland/Mitarbeiter-in-Debitorenbuchhaltung-100-_JR104277-1",
       "source": "Lindt & Sprüngli Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:38:57.145Z",
+      "crawledAt": "2026-11-09T21:20:42.733Z",
       "addressLocality": "Kilchberg",
       "addressRegion": "ZH",
       "streetAddress": "Seestrasse 204",
@@ -1861,10 +1777,11 @@
       "applyUrl": "https://lindtspruengli.wd103.myworkdayjobs.com/LindtSpruengliGroupCareers/job/Kilchberg-Switzerland/Mitarbeiter-in-Debitorenbuchhaltung-100-_JR104277-1",
       "jobReqId": "JR104277",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
-      "needsRetranslation": true,
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "mitarbeiter-in-debitorenbuchhaltung-100-lindt-spruengli-kilchberg",
+        "collaboratore-trice-in-debitorenbuchhaltung-100-lindt-sprungli-kilchberg"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-debitorenbuchhaltung-100-lindt-spruengli-kilchberg",
@@ -1877,10 +1794,8 @@
           "mitarbeiter-in-debitorenbuchhaltung-100-lindt-spruengli-kilchberg"
         ]
       },
-      "previousSlugs": [
-        "mitarbeiter-in-debitorenbuchhaltung-100-lindt-spruengli-kilchberg",
-        "collaboratore-trice-in-debitorenbuchhaltung-100-lindt-sprungli-kilchberg"
-      ],
+      "needsRetranslation": false,
+      "firstSeenAt": "2026-11-09T09:38:57.145Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -1895,9 +1810,165 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-07T09:38:57.145Z",
+      "validThrough": "2027-02-07T21:20:42.733Z",
+      "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "lindt-spruengli-589a5500e104",
+      "slug": "lindt-chocolate-consulente-verkaufer-in-lindt-shop-lindt-sprungli-kilchberg",
+      "slugByLocale": {
+        "it": "lindt-chocolate-consulente-verkaufer-in-lindt-shop-lindt-sprungli-kilchberg",
+        "en": "lindt-chocolate-advisor-seller-in-lindt-shop-lindt-sprungli-kilchberg",
+        "de": "lindt-chocolate-advisor-verkaufer-in-lindt-shop-lindt-spruengli-kilchberg",
+        "fr": "lindt-chocolate-conseiller-verkaufer-in-lindt-shop-lindt-sprungli-kilchberg"
+      },
+      "company": "Lindt & Sprüngli",
+      "companyKey": "lindt-spruengli",
+      "companyDomain": "lindt-spruengli.com",
+      "title": "Lindt Chocolate Advisor - Verkäufer*in Lindt Shop",
+      "titleByLocale": {
+        "it": "Lindt Chocolate Advisor - venditore in Lindt Shop",
+        "en": "Lindt Chocolate Advisor - seller in Lindt Shop",
+        "de": "Lindt Chocolate Advisor - Verkäufer*in Lindt Shop",
+        "fr": "Lindt Chocolate Advisor - vendeur à Lindt Shop"
+      },
+      "description": "Über uns\n\nWir verzaubern die Welt mit Schokolade! Die Lindt & Sprüngli (Schweiz) AG ist eine Tochtergesellschaft der globalen Lindt & Sprüngli Gruppe mit Hauptsitz und Produktionsstätte in Kilchberg am Zürichsee. In Altendorf betreiben wir unser eigenes Logistikzentrum, während das Lindt Cocoa Center in Olten Kakaomasse für unseren Eigenbedarf sowie für andere europäische Produktionsstätten herstellt. In der ganzen Schweiz betreiben wir stolz 15 Lindt Shops, darunter ikonische Standorte wie das Jungfraujoch und das Verkehrshaus der Schweiz in Luzern. Über 1000 Mitarbeitende aus mehr als 50 Nationen tragen zu unserem Erfolg bei.\n\nWas du bei uns machst:\n\n• Erstklassige Verkaufsberatung unserer internationalen Kundschaft\n\n• Merchandising der Verkaufsregale (inklusive Frischekontrollen)\n\n• Bedienung der Kasse\n\n• Mithilfe bei der Lagerführung\n\n• Erstellung von Abrechnungen\n\nWann du zu uns passt:\n\n• Abgeschlossene Detailhandelsausbildung und/oder Erfahrung in ähnlichen, vor allem dienstleistungsorientierten Brachen, wie Gastronomie und Hotellerie\n\n• Überzeugende Verkaufspersönlichkeit mit einer hohen Kundenorientierung\n\n• Zeitlich flexibel und bereit, auch Wochenendeinsätze zu übernehmen\n\n• Fliessende Deutsch- und gute Englischkenntnisse, weitere Sprachen von Vorteil\n\n• Teamfähige, engagierte und offene Persönlichkeit\n\n• Leidenschaft für unsere Premium-Schokolade und für die Liebe zum Detail\n\nWir sind alle einzigartig!\n\nWir rekrutieren frei von Vorurteilen und berücksichtigen Fähigkeiten und Qualifikationen unbeeinflusst von persönlichen Merkmalen wie Geschlecht, Alter, sexuelle Orientierung, Herkunft, Religion, Familienstand, Beeinträchtigungen, etc.\n\nWohlbefinden\nGesundheit ist uns wichtig. Mit einer Sportprämie, Ergonomieberatung, gesunder Ernährung und weiteren Gesundheitsinitiativen unterstützen wir dich dabei fit zu bleiben.\n\nEntwicklung\nLernen wird bei uns GROSS geschrieben. Für die persönliche und fachliche Weiterentwicklung stehen dir verschiedene spannende Möglichkeiten zur Verfügung.\n\nMobilität\nWir unterstützen dich mit einer monatlichen Mobilitätsprämie und E-Bikes vor Ort. Zudem kannst du auch von der REKA-Card profitieren.\n\nFamilienfreundliches Umfeld - richtig versichert\nUnsere Sozialversicherungen, wie auch der Mutterschaftsurlaub, gehen weit über das Obligatorische hinaus - zum eigenen Schutz sowie für deine Liebsten.\n\nFlexibilität\nJe nach Funktion sind flexible Arbeitszeiten, Home Office sowie Teilzeitarbeit möglich. Zudem bieten wir dir die Option, die Ferientage zu erhöhen.\n\nVergünstigung\nZahlreiche Vergünstigungen wie ein top Personalrestaurant, Rabatte in den Lindt Shops oder tolle Freizeitangebote stehen dir zur Verfügung.",
+      "descriptionByLocale": {
+        "it": "Informazioni su di noi\n\nIncantiamo il mondo con il cioccolato! Lindt & Sprüngli (Svizzera) AG è una filiale del Gruppo globale Lindt & Sprüngli con sede e impianti produttivi a Kilchberg sul Lago di Zurigo. A Altendorf operiamo il nostro centro logistico, mentre il Lindt Cocoa Center di Olten produce la massa di cacao per il nostro utilizzo e per altri impianti produttivi europei. In tutta la Svizzera, operiamo con orgoglio 15 negozi Lindt, tra cui luoghi iconici come Jungfraujoch e la Swiss Transport House di Lucerna. Più di 1000 dipendenti da oltre 50 nazioni contribuiscono al nostro successo.\n\nCosa fai con noi:\n\n• Consulenza di vendita di prima classe per i nostri clienti internazionali\n\n• Merchandising degli scaffali di vendita (compresi i controlli di freschezza)\n\n• Operazione del registro di cassa\n\n• Assistenza nella gestione del magazzino\n\n• Preparazione dei conti\n\nQuando ci si adatta:\n\n• Completata la formazione al dettaglio e/o l'esperienza in settori simili, principalmente orientati al servizio, come la ristorazione e l'ospitalità\n\n• Convincente venditore con un alto livello di orientamento del cliente\n\n• Flessibile nel tempo e pronto a prendere le assegnazioni del fine settimana\n\n• Flusso tedesco e buone abilità inglesi, altre lingue benefiche\n\n• Personalità capace di squadra, impegnata e aperta\n\n• Passione per il nostro cioccolato premium e per l'attenzione ai dettagli\n\nSiamo tutti unici!\n\nReclutiamo senza pregiudizi e consideriamo le competenze e le qualifiche non influenzate da caratteristiche personali come il sesso, l'età, l'orientamento sessuale, l'origine, la religione, lo stato civile, i difetti, ecc.\n\nSalute\nLa salute è importante per noi. Con un bonus sportivo, consigli ergonomici, nutrizione sana e altre iniziative di salute, ti aiutiamo a rimanere in forma.\n\nSviluppo\nImparare è scritto GRANDE con noi. Per lo sviluppo personale e professionale, diverse possibilità emozionanti sono a vostra disposizione.\n\nMobilità\nTi supportiamo con un bonus mensile di mobilità e e-bike in loco. È inoltre possibile usufruire della REKA-Card.\n\nAmbiente familiare - adeguatamente assicurato\nLa nostra assicurazione sociale, così come il congedo di maternità, va ben oltre l'obbligo - per la vostra protezione e per i vostri cari.\n\nFlessibilità\nA seconda della funzione, ore di lavoro flessibili, ufficio domestico e lavoro part-time sono possibili. Vi offriamo anche la possibilità di aumentare i giorni di vacanza.\n\nVantaggio\nNumerosi vantaggi come un ristorante di alto livello, sconti nei negozi Lindt o grandi offerte di svago sono a vostra disposizione.",
+        "en": "About us\n\nWe enchant the world with chocolate! Lindt & Sprüngli (Switzerland) AG is a subsidiary of the global Lindt & Sprüngli Group with headquarters and production facilities in Kilchberg on Lake Zurich. In Altendorf we operate our own logistics centre, while the Lindt Cocoa Center in Olten produces cocoa mass for our own use as well as for other European production facilities. Throughout Switzerland, we proudly operate 15 Lindt shops, including iconic locations such as the Jungfraujoch and the Swiss Transport House in Lucerne. More than 1000 employees from more than 50 nations contribute to our success.\n\nWhat you do with us:\n\n• First-class sales advice for our international customers\n\n• Merchandising of sales shelves (including freshness checks)\n\n• Cash register operation\n\n• Assistance in warehouse management\n\n• Preparation of accounts\n\nWhen you fit in with us:\n\n• Completed retail training and/or experience in similar, mainly service-oriented branches, such as catering and hospitality\n\n• Convincing salesperson with a high level of customer orientation\n\n• Flexible in time and ready to take on weekend assignments\n\n• Flowing German and good English skills, other languages beneficial\n\n• Team-capable, committed and open personality\n\n• Passion for our premium chocolate and for the attention to detail\n\nWe are all unique!\n\nWe recruit free from prejudice and consider skills and qualifications unaffected by personal characteristics such as gender, age, sexual orientation, origin, religion, marital status, impairments, etc.\n\nHealth\nHealth is important to us. With a sports bonus, ergonomics advice, healthy nutrition and other health initiatives, we support you to stay fit.\n\nDevelopment\nLearning is written BIG with us. For personal and professional development, various exciting possibilities are available to you.\n\nMobility\nWe support you with a monthly mobility bonus and e-bikes on site. You can also benefit from the REKA-Card.\n\nFamily-friendly environment - properly insured\nOur social insurance, as well as maternity leave, goes far beyond the mandatory - for your own protection and for your loved ones.\n\nFlexibility\nDepending on the function, flexible working hours, home office and part-time work are possible. We also offer you the option to increase the holiday days.\n\nAdvantage\nNumerous perks such as a top staff restaurant, discounts in the Lindt shops or great leisure offers are at your disposal.",
+        "de": "Über uns\n\nWir verzaubern die Welt mit Schokolade! Die Lindt & Sprüngli (Schweiz) AG ist eine Tochtergesellschaft der globalen Lindt & Sprüngli Gruppe mit Hauptsitz und Produktionsstätte in Kilchberg am Zürichsee. In Altendorf betreiben wir unser eigenes Logistikzentrum, während das Lindt Cocoa Center in Olten Kakaomasse für unseren Eigenbedarf sowie für andere europäische Produktionsstätten herstellt. In der ganzen Schweiz betreiben wir stolz 15 Lindt Shops, darunter ikonische Standorte wie das Jungfraujoch und das Verkehrshaus der Schweiz in Luzern. Über 1000 Mitarbeitende aus mehr als 50 Nationen tragen zu unserem Erfolg bei.\n\nWas du bei uns machst:\n\n• Erstklassige Verkaufsberatung unserer internationalen Kundschaft\n\n• Merchandising der Verkaufsregale (inklusive Frischekontrollen)\n\n• Bedienung der Kasse\n\n• Mithilfe bei der Lagerführung\n\n• Erstellung von Abrechnungen\n\nWann du zu uns passt:\n\n• Abgeschlossene Detailhandelsausbildung und/oder Erfahrung in ähnlichen, vor allem dienstleistungsorientierten Brachen, wie Gastronomie und Hotellerie\n\n• Überzeugende Verkaufspersönlichkeit mit einer hohen Kundenorientierung\n\n• Zeitlich flexibel und bereit, auch Wochenendeinsätze zu übernehmen\n\n• Fliessende Deutsch- und gute Englischkenntnisse, weitere Sprachen von Vorteil\n\n• Teamfähige, engagierte und offene Persönlichkeit\n\n• Leidenschaft für unsere Premium-Schokolade und für die Liebe zum Detail\n\nWir sind alle einzigartig!\n\nWir rekrutieren frei von Vorurteilen und berücksichtigen Fähigkeiten und Qualifikationen unbeeinflusst von persönlichen Merkmalen wie Geschlecht, Alter, sexuelle Orientierung, Herkunft, Religion, Familienstand, Beeinträchtigungen, etc.\n\nWohlbefinden\nGesundheit ist uns wichtig. Mit einer Sportprämie, Ergonomieberatung, gesunder Ernährung und weiteren Gesundheitsinitiativen unterstützen wir dich dabei fit zu bleiben.\n\nEntwicklung\nLernen wird bei uns GROSS geschrieben. Für die persönliche und fachliche Weiterentwicklung stehen dir verschiedene spannende Möglichkeiten zur Verfügung.\n\nMobilität\nWir unterstützen dich mit einer monatlichen Mobilitätsprämie und E-Bikes vor Ort. Zudem kannst du auch von der REKA-Card profitieren.\n\nFamilienfreundliches Umfeld - richtig versichert\nUnsere Sozialversicherungen, wie auch der Mutterschaftsurlaub, gehen weit über das Obligatorische hinaus - zum eigenen Schutz sowie für deine Liebsten.\n\nFlexibilität\nJe nach Funktion sind flexible Arbeitszeiten, Home Office sowie Teilzeitarbeit möglich. Zudem bieten wir dir die Option, die Ferientage zu erhöhen.\n\nVergünstigung\nZahlreiche Vergünstigungen wie ein top Personalrestaurant, Rabatte in den Lindt Shops oder tolle Freizeitangebote stehen dir zur Verfügung.",
+        "fr": "Sur nous\n\nNous enchantons le monde avec du chocolat ! Lindt & Sprüngli (Suisse) AG est une filiale du groupe mondial Lindt & Sprüngli avec siège social et installations de production à Kilchberg sur le lac de Zurich. À Altendorf, nous gérons notre propre centre logistique, tandis que le Lindt Cocoa Center à Olten produit une masse de cacao pour notre propre usage ainsi que pour d'autres installations de production européennes. Dans toute la Suisse, nous exploitons fièrement 15 magasins Lindt, y compris des lieux emblématiques comme le Jungfraujoch et la Swiss Transport House de Lucerne. Plus de 1000 employés de plus de 50 pays contribuent à notre succès.\n\nCe que vous faites de nous :\n\n• Conseils commerciaux de première classe pour nos clients internationaux\n\n• Marchandise des tablettes de vente (y compris les contrôles de la fraîcheur)\n\n• Opérations de caisse\n\n• Assistance à la gestion des entrepôts\n\n• Établissement des comptes\n\nLorsque vous entrez avec nous:\n\n• Formation au commerce de détail et/ou expérience dans des secteurs similaires, principalement axés sur les services, tels que la restauration et l'accueil\n\n• Convaincre le vendeur avec un haut niveau d'orientation client\n\n• Flexible dans le temps et prêt à effectuer des affectations le week-end\n\n• L'allemand et de bonnes compétences en anglais, d'autres langues bénéfiques\n\n• Personnalité capable d'équipe, engagée et ouverte\n\n• Passion pour notre chocolat haut de gamme et pour l'attention au détail\n\nNous sommes tous uniques !\n\nNous recrutons sans préjugés et considérons les compétences et les qualifications qui ne sont pas affectées par des caractéristiques personnelles telles que le sexe, l'âge, l'orientation sexuelle, l'origine, la religion, l'état matrimonial, les déficiences, etc.\n\nSanté\nLa santé est importante pour nous. Avec un bonus sportif, des conseils ergonomiques, une nutrition saine et d'autres initiatives de santé, nous vous soutenons pour rester en forme.\n\nDéveloppement\nL'apprentissage est écrit BIG avec nous. Pour le développement personnel et professionnel, diverses possibilités passionnantes sont à votre disposition.\n\nMobilité\nNous vous accompagnons avec un bonus mensuel de mobilité et des vélos électroniques sur place. Vous pouvez également bénéficier de la carte REKA.\n\nEnvironnement familial - correctement assuré\nNotre assurance sociale, ainsi que le congé de maternité, va bien au-delà de l'obligation - pour votre propre protection et pour vos proches.\n\nFlexibilité\nSelon la fonction, des horaires de travail flexibles, du bureau à domicile et du travail à temps partiel sont possibles. Nous vous offrons également la possibilité d'augmenter les jours de vacances.\n\nAvantages\nDe nombreux avantages tels qu'un restaurant haut de gamme, des réductions dans les magasins Lindt ou de grandes offres de loisirs sont à votre disposition."
+      },
+      "location": "Kilchberg",
+      "canton": "ZH",
+      "url": "https://lindtspruengli.wd103.myworkdayjobs.com/LindtSpruengliGroupCareers/job/Kilchberg-Switzerland/Lindt-Chocolate-Advisor---Verkufer-in-Lindt-Shop_JR103256-1",
+      "source": "Lindt & Sprüngli Dedicated Parser (Workday)",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-09T21:20:42.003Z",
+      "addressLocality": "Kilchberg",
+      "addressRegion": "ZH",
+      "streetAddress": "Seestrasse 204",
+      "postalCode": "8802",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Vendita",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Alimentare / Manifattura",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-08-27",
+      "postedDate": "2026-08-27",
+      "postingDateSource": "reported",
+      "applyUrl": "https://lindtspruengli.wd103.myworkdayjobs.com/LindtSpruengliGroupCareers/job/Kilchberg-Switzerland/Lindt-Chocolate-Advisor---Verkufer-in-Lindt-Shop_JR103256-1",
+      "jobReqId": "JR103256",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "lindt-chocolate-advisor-verkaufer-in-lindt-shop-lindt-spruengli-kilchberg"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "lindt-chocolate-advisor-verkaufer-in-lindt-shop-lindt-spruengli-kilchberg"
+        ],
+        "en": [
+          "lindt-chocolate-advisor-verkaufer-in-lindt-shop-lindt-spruengli-kilchberg"
+        ],
+        "fr": [
+          "lindt-chocolate-advisor-verkaufer-in-lindt-shop-lindt-spruengli-kilchberg"
+        ]
+      },
+      "firstSeenAt": "2026-08-31T17:27:06.080Z",
+      "salaryMin": 83000,
+      "salaryMax": 127500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 83000,
+          "maxValue": 127500,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-09T21:20:42.003Z",
+      "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "lindt-spruengli-1969af39551e",
+      "slug": "marketing-business-analytics-mba-intern-gtr-as-of-1-february-2027-lindt-spruengli",
+      "slugByLocale": {
+        "en": "marketing-business-analytics-mba-intern-gtr-as-of-1-february-2027-lindt-spruengli",
+        "it": "marketing-business-analytics-mba-intern-gtr-as-of-1-february-2027-lindt-spruengli",
+        "de": "marketing-business-analytics-mba-intern-gtr-as-of-1-february-2027-lindt-spruengli",
+        "fr": "marketing-business-analytics-mba-intern-gtr-as-of-1-february-2027-lindt-spruengli"
+      },
+      "company": "Lindt & Sprüngli",
+      "companyKey": "lindt-spruengli",
+      "companyDomain": "lindt-spruengli.com",
+      "title": "Marketing Business Analytics (MBA) Intern GTR as of 1 February 2027",
+      "titleByLocale": {
+        "en": "Marketing Business Analytics (MBA) Intern GTR as of 1 February 2027",
+        "it": "Marketing Business Analytics (MBA) Tirocinante GTR as of 1 February 2027",
+        "de": "Marketing Business Analytics (MBA) Praktikant GTR as of 1 February 2027",
+        "fr": "Marketing Business Analytics (MBA) Stagiaire GTR as of 1 February 2027"
+      },
+      "description": "Lindt & Sprüngli Portrait\n\nThe Marketing Business Analytics Intern has a key role in the GTR Category & Revenue Growth Management (RGM) team, located at the headquarter in Kilchberg. In our global team structure, the MBA Intern is responsible for the efficient and effective execution of central, operational tasks covering several regions and is the owner of the global sell-out database and processes.\n\nThe MBA Intern is a hands-on person, who has a strong background in business & market analytics, brings good analytical thinking skills and is adapting quickly to changing environments.\n\nIn this internship, you are closely working with the CatMan Manager, RGM Manager and Head of Marketing in Kilchberg, and in addition will support the Regional Sales Managers around the globe in their responsibilities. You will gain insights into external performance analysis, reporting, data management and global pricing projects.\n\nKey Duties and Responsibilities:\nMarket & Business Analysis\n- Support in generating and analyzing the sell-out performance on a monthly basis on global, regional and brand level\n- P&M and Novelty tracker and scorecard development and monthly update\n- Update of distribution overviews (weighted & numerical)\n- Formulation of recommendations, insights generation\n- Support in the preparation and active participation in Quarterly Performance Calls with the different geographical regions\n- Ownership of Monthly Competitor Report – qualitative data collection from different sources & sharing with wider GTR community\n\nData Management\n- Own data collection process and harmonization on a global basis\n- Main Point of contact and coordinate with external data agency\n- Build databases and maintain them\n- Ensure high data quality throughout all processes\n\nPricing & Promotion\n- Monitor market pricing across airports, identify relevant price movements of own and competitor products, and translate findings into actionable internal updates. Assess promotional efficiency and effectiveness , identify optimization opportunities, and provide recommendations on promotional mechanics and POS execution.\n- Project support for improvement of reporting and data collection as well as ad-hoc analysis on different topics (own retail reporting, category developments, airport development, sell-out, pricing, promotion).\nMinimum Experience Requirements: Strong interest in Analysis, Pricing, Business & Sales management\n\nPreferred Experience Requirements:\nJob Profile\nFunctional Capabilities:\n- Strategy and business focus by understanding the business, providing decision-support and suitable recommendations\n- Entrepreneurial spirit, embracing change and acting as a change agent for upcoming initiatives\n- Advisory and consultancy mindset, including good communication skills\n- Risk and control know-how as well as strong work ethics\n- Technology and data affinity, going along with strong analytical skills to win beneficial insights from data\n- Drive for results , by monitoring progress, meeting deadlines and interacting with stakeholders to achieve the maximum\n- Process-driven, well-structured problem-solving approach\n- High learning agility and adaptability , with the ability to quickly familiarize themselves with new topics, tasks and ways of working.\n- Team-player attitude , building positive work relationships and working across functional boundaries\n- Excellent Excel knowledge, Power BI knowledge a plus\n\nLanguage Requirements: Strong English language skills written and oral\n\nMinimum Education Requirements: Minimum Bachelor’s degree with focus on Business Administration / Data Science",
+      "descriptionByLocale": {
+        "en": "Lindt & Sprüngli Portrait\n\nThe Marketing Business Analytics Intern has a key role in the GTR Category & Revenue Growth Management (RGM) team, located at the headquarter in Kilchberg. In our global team structure, the MBA Intern is responsible for the efficient and effective execution of central, operational tasks covering several regions and is the owner of the global sell-out database and processes.\n\nThe MBA Intern is a hands-on person, who has a strong background in business & market analytics, brings good analytical thinking skills and is adapting quickly to changing environments.\n\nIn this internship, you are closely working with the CatMan Manager, RGM Manager and Head of Marketing in Kilchberg, and in addition will support the Regional Sales Managers around the globe in their responsibilities. You will gain insights into external performance analysis, reporting, data management and global pricing projects.\n\nKey Duties and Responsibilities:\nMarket & Business Analysis\n- Support in generating and analyzing the sell-out performance on a monthly basis on global, regional and brand level\n- P&M and Novelty tracker and scorecard development and monthly update\n- Update of distribution overviews (weighted & numerical)\n- Formulation of recommendations, insights generation\n- Support in the preparation and active participation in Quarterly Performance Calls with the different geographical regions\n- Ownership of Monthly Competitor Report – qualitative data collection from different sources & sharing with wider GTR community\n\nData Management\n- Own data collection process and harmonization on a global basis\n- Main Point of contact and coordinate with external data agency\n- Build databases and maintain them\n- Ensure high data quality throughout all processes\n\nPricing & Promotion\n- Monitor market pricing across airports, identify relevant price movements of own and competitor products, and translate findings into actionable internal updates. Assess promotional efficiency and effectiveness , identify optimization opportunities, and provide recommendations on promotional mechanics and POS execution.\n- Project support for improvement of reporting and data collection as well as ad-hoc analysis on different topics (own retail reporting, category developments, airport development, sell-out, pricing, promotion).\nMinimum Experience Requirements: Strong interest in Analysis, Pricing, Business & Sales management\n\nPreferred Experience Requirements:\nJob Profile\nFunctional Capabilities:\n- Strategy and business focus by understanding the business, providing decision-support and suitable recommendations\n- Entrepreneurial spirit, embracing change and acting as a change agent for upcoming initiatives\n- Advisory and consultancy mindset, including good communication skills\n- Risk and control know-how as well as strong work ethics\n- Technology and data affinity, going along with strong analytical skills to win beneficial insights from data\n- Drive for results , by monitoring progress, meeting deadlines and interacting with stakeholders to achieve the maximum\n- Process-driven, well-structured problem-solving approach\n- High learning agility and adaptability , with the ability to quickly familiarize themselves with new topics, tasks and ways of working.\n- Team-player attitude , building positive work relationships and working across functional boundaries\n- Excellent Excel knowledge, Power BI knowledge a plus\n\nLanguage Requirements: Strong English language skills written and oral\n\nMinimum Education Requirements: Minimum Bachelor’s degree with focus on Business Administration / Data Science",
+        "it": "Lindt & Sprüngli Portrait\n\nThe Marketing Business Analytics Intern has a key role in the GTR Category & Revenue Growth Management (RGM) team, located at the headquarter in Kilchberg. In our global team structure, the MBA Intern is responsible for the efficient and effective execution of central, operational tasks covering several regions and is the owner of the global sell-out database and processes.\n\nThe MBA Intern is a hands-on person, who has a strong background in business & market analytics, brings good analytical thinking skills and is adapting quickly to changing environments.\n\nIn this internship, you are closely working with the CatMan Manager, RGM Manager and Head of Marketing in Kilchberg, and in addition will support the Regional Sales Managers around the globe in their responsibilities. You will gain insights into external performance analysis, reporting, data management and global pricing projects.\n\nKey Duties and Responsibilities:\nMarket & Business Analysis\n- Support in generating and analyzing the sell-out performance on a monthly basis on global, regional and brand level\n- P&M and Novelty tracker and scorecard development and monthly update\n- Update of distribution overviews (weighted & numerical)\n- Formulation of recommendations, insights generation\n- Support in the preparation and active participation in Quarterly Performance Calls with the different geographical regions\n- Ownership of Monthly Competitor Report – qualitative data collection from different sources & sharing with wider GTR community\n\nData Management\n- Own data collection process and harmonization on a global basis\n- Main Point of contact and coordinate with external data agency\n- Build databases and maintain them\n- Ensure high data quality throughout all processes\n\nPricing & Promotion\n- Monitor market pricing across airports, identify relevant price movements of own and competitor products, and translate findings into actionable internal updates. Assess promotional efficiency and effectiveness , identify optimization opportunities, and provide recommendations on promotional mechanics and POS execution.\n- Project support for improvement of reporting and data collection as well as ad-hoc analysis on different topics (own retail reporting, category developments, airport development, sell-out, pricing, promotion).\nMinimum Experience Requirements: Strong interest in Analysis, Pricing, Business & Sales management\n\nPreferred Experience Requirements:\nJob Profile\nFunctional Capabilities:\n- Strategy and business focus by understanding the business, providing decision-support and suitable recommendations\n- Entrepreneurial spirit, embracing change and acting as a change agent for upcoming initiatives\n- Advisory and consultancy mindset, including good communication skills\n- Risk and control know-how as well as strong work ethics\n- Technology and data affinity, going along with strong analytical skills to win beneficial insights from data\n- Drive for results , by monitoring progress, meeting deadlines and interacting with stakeholders to achieve the maximum\n- Process-driven, well-structured problem-solving approach\n- High learning agility and adaptability , with the ability to quickly familiarize themselves with new topics, tasks and ways of working.\n- Team-player attitude , building positive work relationships and working across functional boundaries\n- Excellent Excel knowledge, Power BI knowledge a plus\n\nLanguage Requirements: Strong English language skills written and oral\n\nMinimum Education Requirements: Minimum Bachelor’s degree with focus on Business Administration / Data Science",
+        "de": "Lindt & Sprüngli Portrait\n\nThe Marketing Business Analytics Intern has a key role in the GTR Category & Revenue Growth Management (RGM) team, located at the headquarter in Kilchberg. In our global team structure, the MBA Intern is responsible for the efficient and effective execution of central, operational tasks covering several regions and is the owner of the global sell-out database and processes.\n\nThe MBA Intern is a hands-on person, who has a strong background in business & market analytics, brings good analytical thinking skills and is adapting quickly to changing environments.\n\nIn this internship, you are closely working with the CatMan Manager, RGM Manager and Head of Marketing in Kilchberg, and in addition will support the Regional Sales Managers around the globe in their responsibilities. You will gain insights into external performance analysis, reporting, data management and global pricing projects.\n\nKey Duties and Responsibilities:\nMarket & Business Analysis\n- Support in generating and analyzing the sell-out performance on a monthly basis on global, regional and brand level\n- P&M and Novelty tracker and scorecard development and monthly update\n- Update of distribution overviews (weighted & numerical)\n- Formulation of recommendations, insights generation\n- Support in the preparation and active participation in Quarterly Performance Calls with the different geographical regions\n- Ownership of Monthly Competitor Report – qualitative data collection from different sources & sharing with wider GTR community\n\nData Management\n- Own data collection process and harmonization on a global basis\n- Main Point of contact and coordinate with external data agency\n- Build databases and maintain them\n- Ensure high data quality throughout all processes\n\nPricing & Promotion\n- Monitor market pricing across airports, identify relevant price movements of own and competitor products, and translate findings into actionable internal updates. Assess promotional efficiency and effectiveness , identify optimization opportunities, and provide recommendations on promotional mechanics and POS execution.\n- Project support for improvement of reporting and data collection as well as ad-hoc analysis on different topics (own retail reporting, category developments, airport development, sell-out, pricing, promotion).\nMinimum Experience Requirements: Strong interest in Analysis, Pricing, Business & Sales management\n\nPreferred Experience Requirements:\nJob Profile\nFunctional Capabilities:\n- Strategy and business focus by understanding the business, providing decision-support and suitable recommendations\n- Entrepreneurial spirit, embracing change and acting as a change agent for upcoming initiatives\n- Advisory and consultancy mindset, including good communication skills\n- Risk and control know-how as well as strong work ethics\n- Technology and data affinity, going along with strong analytical skills to win beneficial insights from data\n- Drive for results , by monitoring progress, meeting deadlines and interacting with stakeholders to achieve the maximum\n- Process-driven, well-structured problem-solving approach\n- High learning agility and adaptability , with the ability to quickly familiarize themselves with new topics, tasks and ways of working.\n- Team-player attitude , building positive work relationships and working across functional boundaries\n- Excellent Excel knowledge, Power BI knowledge a plus\n\nLanguage Requirements: Strong English language skills written and oral\n\nMinimum Education Requirements: Minimum Bachelor’s degree with focus on Business Administration / Data Science",
+        "fr": "Lindt & Sprüngli Portrait\n\nThe Marketing Business Analytics Intern has a key role in the GTR Category & Revenue Growth Management (RGM) team, located at the headquarter in Kilchberg. In our global team structure, the MBA Intern is responsible for the efficient and effective execution of central, operational tasks covering several regions and is the owner of the global sell-out database and processes.\n\nThe MBA Intern is a hands-on person, who has a strong background in business & market analytics, brings good analytical thinking skills and is adapting quickly to changing environments.\n\nIn this internship, you are closely working with the CatMan Manager, RGM Manager and Head of Marketing in Kilchberg, and in addition will support the Regional Sales Managers around the globe in their responsibilities. You will gain insights into external performance analysis, reporting, data management and global pricing projects.\n\nKey Duties and Responsibilities:\nMarket & Business Analysis\n- Support in generating and analyzing the sell-out performance on a monthly basis on global, regional and brand level\n- P&M and Novelty tracker and scorecard development and monthly update\n- Update of distribution overviews (weighted & numerical)\n- Formulation of recommendations, insights generation\n- Support in the preparation and active participation in Quarterly Performance Calls with the different geographical regions\n- Ownership of Monthly Competitor Report – qualitative data collection from different sources & sharing with wider GTR community\n\nData Management\n- Own data collection process and harmonization on a global basis\n- Main Point of contact and coordinate with external data agency\n- Build databases and maintain them\n- Ensure high data quality throughout all processes\n\nPricing & Promotion\n- Monitor market pricing across airports, identify relevant price movements of own and competitor products, and translate findings into actionable internal updates. Assess promotional efficiency and effectiveness , identify optimization opportunities, and provide recommendations on promotional mechanics and POS execution.\n- Project support for improvement of reporting and data collection as well as ad-hoc analysis on different topics (own retail reporting, category developments, airport development, sell-out, pricing, promotion).\nMinimum Experience Requirements: Strong interest in Analysis, Pricing, Business & Sales management\n\nPreferred Experience Requirements:\nJob Profile\nFunctional Capabilities:\n- Strategy and business focus by understanding the business, providing decision-support and suitable recommendations\n- Entrepreneurial spirit, embracing change and acting as a change agent for upcoming initiatives\n- Advisory and consultancy mindset, including good communication skills\n- Risk and control know-how as well as strong work ethics\n- Technology and data affinity, going along with strong analytical skills to win beneficial insights from data\n- Drive for results , by monitoring progress, meeting deadlines and interacting with stakeholders to achieve the maximum\n- Process-driven, well-structured problem-solving approach\n- High learning agility and adaptability , with the ability to quickly familiarize themselves with new topics, tasks and ways of working.\n- Team-player attitude , building positive work relationships and working across functional boundaries\n- Excellent Excel knowledge, Power BI knowledge a plus\n\nLanguage Requirements: Strong English language skills written and oral\n\nMinimum Education Requirements: Minimum Bachelor’s degree with focus on Business Administration / Data Science"
+      },
+      "location": "Kilchberg",
+      "canton": "ZH",
+      "url": "https://lindtspruengli.wd103.myworkdayjobs.com/LindtSpruengliGroupCareers/job/Kilchberg-Switzerland/Marketing-Business-Analytics--MBA--Intern-GTR-as-of-1-February-2027_JR104238-1",
+      "source": "Lindt & Sprüngli Dedicated Parser (Workday)",
+      "sourceLang": "en",
+      "crawledAt": "2026-11-09T21:20:41.263Z",
+      "addressLocality": "Kilchberg",
+      "addressRegion": "ZH",
+      "streetAddress": "Seestrasse 204",
+      "postalCode": "8802",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Marketing",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "intern",
+      "sector": "Alimentare / Manifattura",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-11-09",
+      "postedDate": "2026-11-09",
+      "postingDateSource": "reported",
+      "applyUrl": "https://lindtspruengli.wd103.myworkdayjobs.com/LindtSpruengliGroupCareers/job/Kilchberg-Switzerland/Marketing-Business-Analytics--MBA--Intern-GTR-as-of-1-February-2027_JR104238-1",
+      "jobReqId": "JR104238",
+      "requirements": [],
+      "requirementsByLocale": {
+        "en": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 63500,
+      "salaryMax": 112500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 63500,
+          "maxValue": 112500,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-02-07T21:20:41.263Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-09T09:38:57.145Z"
+      "firstSeenAt": "2026-11-09T21:20:41.263Z"
     }
   ]
 }
