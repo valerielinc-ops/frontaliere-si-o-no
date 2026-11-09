@@ -6169,12 +6169,12 @@
     },
     {
       "id": "kanton-aargau-7dc58063368c",
-      "slug": "fachspezialistin-fachspezialist-obst-e-beerenbau-80-100-kanton-aargau-granichen",
+      "slug": "specialista-in-frutticoltura-80-100-kanton-aargau-granichen",
       "slugByLocale": {
         "de": "fachspezialistin-fachspezialist-obst-und-beerenbau-80-100-kanton-aargau-ch",
-        "it": "fachspezialistin-fachspezialist-obst-e-beerenbau-80-100-kanton-aargau-granichen",
-        "en": "fachspezialistin-fachspezialist-obst-und-beerenbau-80-100-kanton-aargau-ch",
-        "fr": "fachspezialistin-fachspezialist-obst-und-beerenbau-80-100-kanton-aargau-ch"
+        "it": "specialista-in-frutticoltura-80-100-kanton-aargau-granichen",
+        "en": "specialist-specialist-fruit-and-berry-cultivation-80-100-kanton-aargau-granichen",
+        "fr": "specialiste-specialiste-de-la-culture-des-fruits-et-des-baies-80-100-kanton-aargau-granichen"
       },
       "company": "Kanton Aargau",
       "companyKey": "kanton-aargau",
@@ -6224,11 +6224,19 @@
       "department": "Landwirtschaftliches Zentrum Liebegg",
       "previousSlugsByLocale": {
         "it": [
+          "fachspezialistin-fachspezialist-obst-und-beerenbau-80-100-kanton-aargau-ch",
+          "fachspezialistin-fachspezialist-obst-e-beerenbau-80-100-kanton-aargau-granichen"
+        ],
+        "en": [
+          "fachspezialistin-fachspezialist-obst-und-beerenbau-80-100-kanton-aargau-ch"
+        ],
+        "fr": [
           "fachspezialistin-fachspezialist-obst-und-beerenbau-80-100-kanton-aargau-ch"
         ]
       },
       "previousSlugs": [
-        "fachspezialistin-fachspezialist-obst-und-beerenbau-80-100-kanton-aargau-ch"
+        "fachspezialistin-fachspezialist-obst-und-beerenbau-80-100-kanton-aargau-ch",
+        "fachspezialistin-fachspezialist-obst-e-beerenbau-80-100-kanton-aargau-granichen"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -6250,12 +6258,12 @@
     },
     {
       "id": "kanton-aargau-58482a13d319",
-      "slug": "praktikum-come-fachfrau-fachmann-betriebsunterhalt-cfc-kanton-aargau-aarau",
+      "slug": "tirocinio-come-specialista-in-manutenzione-aziendale-afc-kanton-aargau-aarau",
       "slugByLocale": {
         "de": "praktikum-als-fachfrau-fachmann-betriebsunterhalt-efz-kanton-aargau-ch",
-        "it": "praktikum-come-fachfrau-fachmann-betriebsunterhalt-cfc-kanton-aargau-aarau",
-        "en": "praktikum-als-fachfrau-fachmann-betriebsunterhalt-efz-kanton-aargau-ch",
-        "fr": "praktikum-als-fachfrau-fachmann-betriebsunterhalt-efz-kanton-aargau-ch"
+        "it": "tirocinio-come-specialista-in-manutenzione-aziendale-afc-kanton-aargau-aarau",
+        "en": "internship-as-a-specialist-specialist-in-business-maintenance-efz-kanton-aargau-aarau",
+        "fr": "stage-en-tant-que-specialiste-specialiste-de-la-maintenance-des-entreprises-efz-kanton-aargau-aarau"
       },
       "company": "Kanton Aargau",
       "companyKey": "kanton-aargau",
@@ -6306,11 +6314,19 @@
       "department": "Abteilung Berufsbildung und Mittelschule",
       "previousSlugsByLocale": {
         "it": [
+          "praktikum-als-fachfrau-fachmann-betriebsunterhalt-efz-kanton-aargau-ch",
+          "praktikum-come-fachfrau-fachmann-betriebsunterhalt-cfc-kanton-aargau-aarau"
+        ],
+        "en": [
+          "praktikum-als-fachfrau-fachmann-betriebsunterhalt-efz-kanton-aargau-ch"
+        ],
+        "fr": [
           "praktikum-als-fachfrau-fachmann-betriebsunterhalt-efz-kanton-aargau-ch"
         ]
       },
       "previousSlugs": [
-        "praktikum-als-fachfrau-fachmann-betriebsunterhalt-efz-kanton-aargau-ch"
+        "praktikum-als-fachfrau-fachmann-betriebsunterhalt-efz-kanton-aargau-ch",
+        "praktikum-come-fachfrau-fachmann-betriebsunterhalt-cfc-kanton-aargau-aarau"
       ],
       "salaryMin": 52500,
       "salaryMax": 96500,

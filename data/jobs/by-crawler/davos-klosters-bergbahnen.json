@@ -85,12 +85,12 @@
     },
     {
       "id": "davos-klosters-bergbahnen-f2301ed73017",
-      "slug": "seilbahnmechatroniker-in-parsenn-100-davos-klosters-bergbahnen-davos",
+      "slug": "meccatronico-funiviario-a-parsenn-100-davos-klosters-bergbahnen-ag-davos-761809",
       "slugByLocale": {
         "de": "seilbahnmechatroniker-in-parsenn-100-davos-klosters-bergbahnen-davos",
-        "it": "seilbahnmechatroniker-in-parsenn-100-davos-klosters-bergbahnen-davos",
-        "en": "seilbahnmechatroniker-in-parsenn-100-davos-klosters-bergbahnen-davos",
-        "fr": "seilbahnmechatroniker-in-parsenn-100-davos-klosters-bergbahnen-davos"
+        "it": "meccatronico-funiviario-a-parsenn-100-davos-klosters-bergbahnen-ag-davos-761809",
+        "en": "cable-car-mechatronics-technicianin-parsenn-100-davos-klosters-bergbahnen-ag-davos-761809",
+        "fr": "mecatronicien-de-telepheriques-a-parsenn-100-davos-klosters-bergbahnen-ag-davos-761809"
       },
       "company": "Davos Klosters Bergbahnen AG",
       "companyKey": "davos-klosters-bergbahnen-ag",
@@ -150,7 +150,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-19T21:52:02.562Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-04T09:27:08.619Z"
+      "firstSeenAt": "2026-11-04T09:27:08.619Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "seilbahnmechatroniker-in-parsenn-100-davos-klosters-bergbahnen-davos"
+        ],
+        "en": [
+          "seilbahnmechatroniker-in-parsenn-100-davos-klosters-bergbahnen-davos"
+        ],
+        "fr": [
+          "seilbahnmechatroniker-in-parsenn-100-davos-klosters-bergbahnen-davos"
+        ]
+      },
+      "previousSlugs": [
+        "seilbahnmechatroniker-in-parsenn-100-davos-klosters-bergbahnen-davos"
+      ]
     },
     {
       "id": "davos-klosters-bergbahnen-787b2c7cc875",
@@ -307,8 +321,8 @@
       "slugByLocale": {
         "de": "betriebselektriker-in-parsenn-100-davos-klosters-bergbahnen-davos",
         "it": "betriebselektriker-in-parsenn-100-davos-klosters-bergbahnen-ag-davos-ffa5eabcc3",
-        "en": "betriebselektriker-in-parsenn-100-davos-klosters-bergbahnen-davos",
-        "fr": "betriebselektriker-in-parsenn-100-davos-klosters-bergbahnen-davos"
+        "en": "plant-electrician-parsenn-100-davos-klosters-bergbahnen-ag-davos-f4e966",
+        "fr": "electricien-d-exploitation-a-parsenn-100-davos-klosters-bergbahnen-ag-davos-f4e966"
       },
       "company": "Davos Klosters Bergbahnen AG",
       "companyKey": "davos-klosters-bergbahnen-ag",
@@ -374,6 +388,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "betriebselektriker-in-parsenn-100-davos-klosters-bergbahnen-davos"
+        ],
+        "en": [
+          "betriebselektriker-in-parsenn-100-davos-klosters-bergbahnen-davos"
+        ],
+        "fr": [
           "betriebselektriker-in-parsenn-100-davos-klosters-bergbahnen-davos"
         ]
       }
@@ -606,8 +626,8 @@
       "slugByLocale": {
         "de": "betriebs-mechaniker-in-parsenn-100-davos-klosters-bergbahnen-davos",
         "it": "betriebs-mechaniker-in-parsenn-100-davos-klosters-bergbahnen-ag-davos-4ddf4bb7bf",
-        "en": "betriebs-mechaniker-in-parsenn-100-davos-klosters-bergbahnen-davos",
-        "fr": "betriebs-mechaniker-in-parsenn-100-davos-klosters-bergbahnen-davos"
+        "en": "operating-mechanic-in-parsenn-100-davos-klosters-bergbahnen-ag-davos-9dbd11",
+        "fr": "mecanicien-d-exploitation-a-parsenn-100-davos-klosters-bergbahnen-ag-davos-9dbd11"
       },
       "company": "Davos Klosters Bergbahnen AG",
       "companyKey": "davos-klosters-bergbahnen-ag",
@@ -673,6 +693,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "betriebs-mechaniker-in-parsenn-100-davos-klosters-bergbahnen-davos"
+        ],
+        "en": [
+          "betriebs-mechaniker-in-parsenn-100-davos-klosters-bergbahnen-davos"
+        ],
+        "fr": [
           "betriebs-mechaniker-in-parsenn-100-davos-klosters-bergbahnen-davos"
         ]
       }

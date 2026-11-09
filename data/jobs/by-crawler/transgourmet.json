@@ -2080,12 +2080,12 @@
     },
     {
       "id": "transgourmet-a6229d10-934",
-      "slug": "stellvertretende-abteilungsleiterin-stellvertretender-abteilungsleiter-food-transgourmet-2",
+      "slug": "vice-capo-dipartimento-vice-capo-dipartimento-food-transgourmet-pratteln",
       "slugByLocale": {
         "de": "stellvertretende-abteilungsleiterin-stellvertretender-abteilungsleiter-food-transgourmet",
-        "it": "stellvertretende-abteilungsleiterin-stellvertretender-abteilungsleiter-food-transgourmet-2",
-        "en": "stellvertretende-abteilungsleiterin-stellvertretender-abteilungsleiter-food-transgourmet-2",
-        "fr": "stellvertretende-abteilungsleiterin-stellvertretender-abteilungsleiter-food-transgourmet-2"
+        "it": "vice-capo-dipartimento-vice-capo-dipartimento-food-transgourmet-pratteln",
+        "en": "deputy-head-of-department-deputy-head-of-department-food-transgourmet-pratteln",
+        "fr": "chef-adjoint-de-departement-chef-adjoint-de-departement-alimentation-transgourmet-pratteln"
       },
       "company": "Transgourmet",
       "companyKey": "transgourmet",
@@ -2162,7 +2162,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-01-29T21:28:37.599Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-10-31T09:21:33.119Z"
+      "firstSeenAt": "2026-10-31T09:21:33.119Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "stellvertretende-abteilungsleiterin-stellvertretender-abteilungsleiter-food-transgourmet-2"
+        ],
+        "en": [
+          "stellvertretende-abteilungsleiterin-stellvertretender-abteilungsleiter-food-transgourmet-2"
+        ],
+        "fr": [
+          "stellvertretende-abteilungsleiterin-stellvertretender-abteilungsleiter-food-transgourmet-2"
+        ]
+      },
+      "previousSlugs": [
+        "stellvertretende-abteilungsleiterin-stellvertretender-abteilungsleiter-food-transgourmet-2"
+      ]
     }
   ]
 }

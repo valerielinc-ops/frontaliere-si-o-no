@@ -336,12 +336,12 @@
     },
     {
       "id": "fondation-soins-lausanne-d7ea5f33a48d",
-      "slug": "ergotherapeute-h-f-fondation-soins-lausanne-lausanne-2",
+      "slug": "ergoterapisti-m-f-fondation-soins-lausanne-lausanne-2f3bea",
       "slugByLocale": {
         "fr": "ergotherapeute-h-f-fondation-soins-lausanne-lausanne",
-        "it": "ergotherapeute-h-f-fondation-soins-lausanne-lausanne-2",
-        "en": "ergotherapeute-h-f-fondation-soins-lausanne-lausanne-2",
-        "de": "ergotherapeute-h-f-fondation-soins-lausanne-lausanne-2"
+        "it": "ergoterapisti-m-f-fondation-soins-lausanne-lausanne-2f3bea",
+        "en": "ergotherapist-m-f-fondation-soins-lausanne-lausanne-2f3bea",
+        "de": "ergotherapeut-m-w-fondation-soins-lausanne-lausanne"
       },
       "company": "Fondation Soins Lausanne",
       "companyKey": "fondation-soins-lausanne",
@@ -404,7 +404,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-05T22:11:34.872Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-09-19T22:58:44.477Z"
+      "firstSeenAt": "2026-09-19T22:58:44.477Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "ergotherapeute-h-f-fondation-soins-lausanne-lausanne-2"
+        ],
+        "en": [
+          "ergotherapeute-h-f-fondation-soins-lausanne-lausanne-2"
+        ],
+        "de": [
+          "ergotherapeute-h-f-fondation-soins-lausanne-lausanne-2"
+        ]
+      },
+      "previousSlugs": [
+        "ergotherapeute-h-f-fondation-soins-lausanne-lausanne-2"
+      ]
     },
     {
       "id": "fondation-soins-lausanne-20c814d0afc0",

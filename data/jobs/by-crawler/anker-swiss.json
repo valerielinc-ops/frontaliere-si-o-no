@@ -3473,12 +3473,12 @@
     },
     {
       "id": "anker-swiss-de31cb0abc91",
-      "slug": "maler-100-anker-swiss-ticino-ag-bern-de31cb0a",
+      "slug": "pittura-100-anker-swiss-ticino-ag-bern-de31cb0a",
       "slugByLocale": {
         "de": "maler-100-anker-swiss-ticino-ag-bern-de31cb0a",
-        "it": "maler-100-anker-swiss-ticino-ag-bern-de31cb0a",
-        "en": "maler-100-anker-swiss-ticino-ag-bern-de31cb0a",
-        "fr": "maler-100-anker-swiss-ticino-ag-bern-de31cb0a"
+        "it": "pittura-100-anker-swiss-ticino-ag-bern-de31cb0a",
+        "en": "painter-100-anker-swiss-ticino-ag-bern-de31cb0a",
+        "fr": "peintre-100-anker-swiss-ticino-ag-bern-de31cb0a"
       },
       "slugDisambiguator": "de31cb0a",
       "company": "Anker Swiss Ticino AG",
@@ -3527,14 +3527,22 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "maler-100-anker-swiss-ticino-ag-bern-5cc7f7f7"
+          "maler-100-anker-swiss-ticino-ag-bern-5cc7f7f7",
+          "maler-100-anker-swiss-ticino-ag-bern-de31cb0a"
         ],
         "de": [
           "maler-100-anker-swiss-ticino-ag-bern-5cc7f7f7"
+        ],
+        "en": [
+          "maler-100-anker-swiss-ticino-ag-bern-de31cb0a"
+        ],
+        "fr": [
+          "maler-100-anker-swiss-ticino-ag-bern-de31cb0a"
         ]
       },
       "previousSlugs": [
-        "maler-100-anker-swiss-ticino-ag-bern-5cc7f7f7"
+        "maler-100-anker-swiss-ticino-ag-bern-5cc7f7f7",
+        "maler-100-anker-swiss-ticino-ag-bern-de31cb0a"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -3724,12 +3732,12 @@
     },
     {
       "id": "anker-swiss-a68dc936a046",
-      "slug": "gartner-100-anker-swiss-ticino-ag-kerzers-a68dc936",
+      "slug": "giardini-100-anker-swiss-ticino-ag-kerzers-a68dc936",
       "slugByLocale": {
         "de": "gartner-100-anker-swiss-ticino-ag-kerzers-a68dc936",
-        "it": "gartner-100-anker-swiss-ticino-ag-kerzers-a68dc936",
-        "en": "gartner-100-anker-swiss-ticino-ag-kerzers-a68dc936",
-        "fr": "gartner-100-anker-swiss-ticino-ag-kerzers-a68dc936"
+        "it": "giardini-100-anker-swiss-ticino-ag-kerzers-a68dc936",
+        "en": "gardeners-100-anker-swiss-ticino-ag-kerzers-a68dc936",
+        "fr": "jardiniers-100-anker-swiss-ticino-ag-kerzers-a68dc936"
       },
       "slugDisambiguator": "a68dc936",
       "company": "Anker Swiss Ticino AG",
@@ -3778,14 +3786,22 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "gartner-100-anker-swiss-ticino-ag-kerzers-ffa2ed22"
+          "gartner-100-anker-swiss-ticino-ag-kerzers-ffa2ed22",
+          "gartner-100-anker-swiss-ticino-ag-kerzers-a68dc936"
         ],
         "de": [
           "gartner-100-anker-swiss-ticino-ag-kerzers-ffa2ed22"
+        ],
+        "en": [
+          "gartner-100-anker-swiss-ticino-ag-kerzers-a68dc936"
+        ],
+        "fr": [
+          "gartner-100-anker-swiss-ticino-ag-kerzers-a68dc936"
         ]
       },
       "previousSlugs": [
-        "gartner-100-anker-swiss-ticino-ag-kerzers-ffa2ed22"
+        "gartner-100-anker-swiss-ticino-ag-kerzers-ffa2ed22",
+        "gartner-100-anker-swiss-ticino-ag-kerzers-a68dc936"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -3895,8 +3911,8 @@
       "slugByLocale": {
         "de": "elektroinstallateur-100-anker-swiss-ticino-ag-bern-a72b5794",
         "it": "installatore-trice-elettrico-a-100-anker-swiss-ticino-ag-bern",
-        "en": "elektroinstallateur-100-anker-swiss-ticino-ag-bern-a72b5794",
-        "fr": "elektroinstallateur-100-anker-swiss-ticino-ag-bern-a72b5794"
+        "en": "electrical-installer-100-anker-swiss-ticino-ag-bern-a72b5794",
+        "fr": "installateur-electrique-100-anker-swiss-ticino-ag-bern-a72b5794"
       },
       "slugDisambiguator": "a72b5794",
       "company": "Anker Swiss Ticino AG",
@@ -3952,6 +3968,12 @@
         "de": [
           "elektroinstallateur-100-anker-swiss-ticino-ag-bern-0ad6b1d0",
           "elektroinstallateur-100-anker-swiss-ticino-ag-bern-60bb30df"
+        ],
+        "en": [
+          "elektroinstallateur-100-anker-swiss-ticino-ag-bern-a72b5794"
+        ],
+        "fr": [
+          "elektroinstallateur-100-anker-swiss-ticino-ag-bern-a72b5794"
         ]
       },
       "previousSlugs": [
@@ -4555,12 +4577,12 @@
     },
     {
       "id": "anker-swiss-667cd309eedf",
-      "slug": "kranfuhrer-100-anker-swiss-ticino-ag-wadenswil-667cd309",
+      "slug": "operatore-di-gru-100-anker-swiss-ticino-ag-wadenswil-667cd309",
       "slugByLocale": {
         "de": "kranfuhrer-100-anker-swiss-ticino-ag-wadenswil-667cd309",
-        "it": "kranfuhrer-100-anker-swiss-ticino-ag-wadenswil-667cd309",
-        "en": "kranfuhrer-100-anker-swiss-ticino-ag-wadenswil-667cd309",
-        "fr": "kranfuhrer-100-anker-swiss-ticino-ag-wadenswil-667cd309"
+        "it": "operatore-di-gru-100-anker-swiss-ticino-ag-wadenswil-667cd309",
+        "en": "crane-operator-100-anker-swiss-ticino-ag-wadenswil-667cd309",
+        "fr": "operateur-de-grue-100-anker-swiss-ticino-ag-wadenswil-667cd309"
       },
       "slugDisambiguator": "667cd309",
       "company": "Anker Swiss Ticino AG",
@@ -4610,16 +4632,24 @@
       "previousSlugsByLocale": {
         "it": [
           "kranfuhrer-100-anker-swiss-ticino-ag-wadenswil-c8eb8e2b",
-          "kranfuhrer-100-anker-swiss-ticino-ag-wadenswil-9bc3ff50"
+          "kranfuhrer-100-anker-swiss-ticino-ag-wadenswil-9bc3ff50",
+          "kranfuhrer-100-anker-swiss-ticino-ag-wadenswil-667cd309"
         ],
         "de": [
           "kranfuhrer-100-anker-swiss-ticino-ag-wadenswil-c8eb8e2b",
           "kranfuhrer-100-anker-swiss-ticino-ag-wadenswil-9bc3ff50"
+        ],
+        "en": [
+          "kranfuhrer-100-anker-swiss-ticino-ag-wadenswil-667cd309"
+        ],
+        "fr": [
+          "kranfuhrer-100-anker-swiss-ticino-ag-wadenswil-667cd309"
         ]
       },
       "previousSlugs": [
         "kranfuhrer-100-anker-swiss-ticino-ag-wadenswil-c8eb8e2b",
-        "kranfuhrer-100-anker-swiss-ticino-ag-wadenswil-9bc3ff50"
+        "kranfuhrer-100-anker-swiss-ticino-ag-wadenswil-9bc3ff50",
+        "kranfuhrer-100-anker-swiss-ticino-ag-wadenswil-667cd309"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -6909,12 +6939,12 @@
     },
     {
       "id": "anker-swiss-29e5a4120652",
-      "slug": "sanitarinstallateur-100-anker-swiss-ticino-ag-bern-29e5a412",
+      "slug": "installatore-sanitario-100-anker-swiss-ticino-ag-bern-29e5a412",
       "slugByLocale": {
         "de": "sanitarinstallateur-100-anker-swiss-ticino-ag-bern-29e5a412",
-        "it": "sanitarinstallateur-100-anker-swiss-ticino-ag-bern-29e5a412",
-        "en": "sanitarinstallateur-100-anker-swiss-ticino-ag-bern-29e5a412",
-        "fr": "sanitarinstallateur-100-anker-swiss-ticino-ag-bern-29e5a412"
+        "it": "installatore-sanitario-100-anker-swiss-ticino-ag-bern-29e5a412",
+        "en": "sanitary-installer-100-anker-swiss-ticino-ag-bern-29e5a412",
+        "fr": "installation-sanitaire-100-anker-swiss-ticino-ag-bern-29e5a412"
       },
       "slugDisambiguator": "29e5a412",
       "company": "Anker Swiss Ticino AG",
@@ -6962,35 +6992,33 @@
         "de": []
       },
       "previousSlugs": [
-        "installatore-sanitario-100-anker-swiss-ticino-ag-bern-29e5a412",
-        "sanitary-installer-100-anker-swiss-ticino-ag-bern-29e5a412",
-        "installation-sanitaire-100-anker-swiss-ticino-ag-bern-29e5a412",
         "sanitarinstallateur-100-anker-swiss-ticino-ag-bern-bae4b869",
         "sanitarinstallateur-100-anker-swiss-ticino-ag-bern-6b32799d",
         "installatore-sanitario-100-anker-swiss-ticino-ag-bern-6b32799d",
         "sanitary-installer-100-anker-swiss-ticino-ag-bern-6b32799d",
-        "installation-sanitaire-100-anker-swiss-ticino-ag-bern-6b32799d"
+        "installation-sanitaire-100-anker-swiss-ticino-ag-bern-6b32799d",
+        "sanitarinstallateur-100-anker-swiss-ticino-ag-bern-29e5a412"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "installatore-sanitario-100-anker-swiss-ticino-ag-bern-29e5a412",
           "sanitarinstallateur-100-anker-swiss-ticino-ag-bern-bae4b869",
           "sanitarinstallateur-100-anker-swiss-ticino-ag-bern-6b32799d",
-          "installatore-sanitario-100-anker-swiss-ticino-ag-bern-6b32799d"
+          "installatore-sanitario-100-anker-swiss-ticino-ag-bern-6b32799d",
+          "sanitarinstallateur-100-anker-swiss-ticino-ag-bern-29e5a412"
         ],
         "en": [
-          "sanitary-installer-100-anker-swiss-ticino-ag-bern-29e5a412",
           "sanitarinstallateur-100-anker-swiss-ticino-ag-bern-6b32799d",
-          "sanitary-installer-100-anker-swiss-ticino-ag-bern-6b32799d"
+          "sanitary-installer-100-anker-swiss-ticino-ag-bern-6b32799d",
+          "sanitarinstallateur-100-anker-swiss-ticino-ag-bern-29e5a412"
         ],
         "de": [
           "sanitarinstallateur-100-anker-swiss-ticino-ag-bern-bae4b869",
           "sanitarinstallateur-100-anker-swiss-ticino-ag-bern-6b32799d"
         ],
         "fr": [
-          "installation-sanitaire-100-anker-swiss-ticino-ag-bern-29e5a412",
           "sanitarinstallateur-100-anker-swiss-ticino-ag-bern-6b32799d",
-          "installation-sanitaire-100-anker-swiss-ticino-ag-bern-6b32799d"
+          "installation-sanitaire-100-anker-swiss-ticino-ag-bern-6b32799d",
+          "sanitarinstallateur-100-anker-swiss-ticino-ag-bern-29e5a412"
         ]
       },
       "salaryMin": 68500,
@@ -8255,12 +8283,12 @@
     },
     {
       "id": "anker-swiss-bd4047aac803",
-      "slug": "schreiner-100-anker-swiss-ticino-ag-buren-an-der-aare-bd4047aa",
+      "slug": "carpentiere-100-anker-swiss-ticino-ag-buren-an-der-aare-bd4047aa",
       "slugByLocale": {
         "de": "schreiner-100-anker-swiss-ticino-ag-buren-an-der-aare-bd4047aa",
-        "it": "schreiner-100-anker-swiss-ticino-ag-buren-an-der-aare-bd4047aa",
-        "en": "schreiner-100-anker-swiss-ticino-ag-buren-an-der-aare-bd4047aa",
-        "fr": "schreiner-100-anker-swiss-ticino-ag-buren-an-der-aare-bd4047aa"
+        "it": "carpentiere-100-anker-swiss-ticino-ag-buren-an-der-aare-bd4047aa",
+        "en": "carpenters-100-anker-swiss-ticino-ag-buren-an-der-aare-bd4047aa",
+        "fr": "charpentiers-100-anker-swiss-ticino-ag-buren-an-der-aare-bd4047aa"
       },
       "slugDisambiguator": "bd4047aa",
       "company": "Anker Swiss Ticino AG",
@@ -8321,7 +8349,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-20T21:46:12.984Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-10-09T10:46:58.096Z"
+      "firstSeenAt": "2026-10-09T10:46:58.096Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "schreiner-100-anker-swiss-ticino-ag-buren-an-der-aare-bd4047aa"
+        ],
+        "en": [
+          "schreiner-100-anker-swiss-ticino-ag-buren-an-der-aare-bd4047aa"
+        ],
+        "fr": [
+          "schreiner-100-anker-swiss-ticino-ag-buren-an-der-aare-bd4047aa"
+        ]
+      },
+      "previousSlugs": [
+        "schreiner-100-anker-swiss-ticino-ag-buren-an-der-aare-bd4047aa"
+      ]
     },
     {
       "id": "anker-swiss-ec1a99d9398e",
@@ -8412,9 +8454,9 @@
       "slug": "pittore-100-anker-swiss-ticino-ag-ligornetto-9725c8d1",
       "slugByLocale": {
         "it": "pittore-100-anker-swiss-ticino-ag-ligornetto-9725c8d1",
-        "en": "pittore-100-anker-swiss-ticino-ag-ligornetto-9725c8d1",
-        "de": "pittore-100-anker-swiss-ticino-ag-ligornetto-9725c8d1",
-        "fr": "pittore-100-anker-swiss-ticino-ag-ligornetto-9725c8d1"
+        "en": "painter-100-anker-swiss-ticino-ag-ligornetto-9725c8d1",
+        "de": "maler-100-anker-swiss-ticino-ag-ligornetto-9725c8d1",
+        "fr": "peintre-100-anker-swiss-ticino-ag-ligornetto-9725c8d1"
       },
       "slugDisambiguator": "9725c8d1",
       "company": "Anker Swiss Ticino AG",
@@ -8585,12 +8627,12 @@
     },
     {
       "id": "anker-swiss-e09920d3c625",
-      "slug": "metallbauer-100-anker-swiss-ticino-ag-bern-e09920d3",
+      "slug": "lavoratori-100-anker-swiss-ticino-ag-bern-e09920d3",
       "slugByLocale": {
         "de": "metallbauer-100-anker-swiss-ticino-ag-bern-e09920d3",
-        "it": "metallbauer-100-anker-swiss-ticino-ag-bern-e09920d3",
-        "en": "metallbauer-100-anker-swiss-ticino-ag-bern-e09920d3",
-        "fr": "metallbauer-100-anker-swiss-ticino-ag-bern-e09920d3"
+        "it": "lavoratori-100-anker-swiss-ticino-ag-bern-e09920d3",
+        "en": "metalworkers-100-anker-swiss-ticino-ag-bern-e09920d3",
+        "fr": "metaux-100-anker-swiss-ticino-ag-bern-e09920d3"
       },
       "slugDisambiguator": "e09920d3",
       "company": "Anker Swiss Ticino AG",
@@ -8651,7 +8693,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-21T21:46:12.982Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-10-09T10:46:58.095Z"
+      "firstSeenAt": "2026-10-09T10:46:58.095Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "metallbauer-100-anker-swiss-ticino-ag-bern-e09920d3"
+        ],
+        "en": [
+          "metallbauer-100-anker-swiss-ticino-ag-bern-e09920d3"
+        ],
+        "fr": [
+          "metallbauer-100-anker-swiss-ticino-ag-bern-e09920d3"
+        ]
+      },
+      "previousSlugs": [
+        "metallbauer-100-anker-swiss-ticino-ag-bern-e09920d3"
+      ]
     },
     {
       "id": "anker-swiss-c69172e6cc53",
@@ -10176,12 +10232,12 @@
     },
     {
       "id": "anker-swiss-d66512adae75",
-      "slug": "bauwerktrenner-100-anker-swiss-ticino-ag-emmenbrucke-d66512ad",
+      "slug": "partitioner-100-anker-swiss-ticino-ag-emmenbrucke-d66512ad",
       "slugByLocale": {
         "de": "bauwerktrenner-100-anker-swiss-ticino-ag-emmenbrucke-d66512ad",
-        "it": "bauwerktrenner-100-anker-swiss-ticino-ag-emmenbrucke-d66512ad",
+        "it": "partitioner-100-anker-swiss-ticino-ag-emmenbrucke-d66512ad",
         "en": "bauwerktrenner-100-anker-swiss-ticino-ag-emmenbrucke-d66512ad",
-        "fr": "bauwerktrenner-100-anker-swiss-ticino-ag-emmenbrucke-d66512ad"
+        "fr": "partitionnaire-100-anker-swiss-ticino-ag-emmenbrucke-d66512ad"
       },
       "slugDisambiguator": "d66512ad",
       "company": "Anker Swiss Ticino AG",
@@ -10229,17 +10285,16 @@
         "de": []
       },
       "previousSlugs": [
-        "partitioner-100-anker-swiss-ticino-ag-emmenbrucke-d66512ad",
-        "partitionnaire-100-anker-swiss-ticino-ag-emmenbrucke-d66512ad",
         "bauwerktrenner-100-anker-swiss-ticino-ag-emmenbrucke-4f9c7819",
         "partitioner-100-anker-swiss-ticino-ag-emmenbrucke-4f9c7819",
-        "partitionnaire-100-anker-swiss-ticino-ag-emmenbrucke-4f9c7819"
+        "partitionnaire-100-anker-swiss-ticino-ag-emmenbrucke-4f9c7819",
+        "bauwerktrenner-100-anker-swiss-ticino-ag-emmenbrucke-d66512ad"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "partitioner-100-anker-swiss-ticino-ag-emmenbrucke-d66512ad",
           "bauwerktrenner-100-anker-swiss-ticino-ag-emmenbrucke-4f9c7819",
-          "partitioner-100-anker-swiss-ticino-ag-emmenbrucke-4f9c7819"
+          "partitioner-100-anker-swiss-ticino-ag-emmenbrucke-4f9c7819",
+          "bauwerktrenner-100-anker-swiss-ticino-ag-emmenbrucke-d66512ad"
         ],
         "en": [
           "bauwerktrenner-100-anker-swiss-ticino-ag-emmenbrucke-4f9c7819"
@@ -10248,9 +10303,9 @@
           "bauwerktrenner-100-anker-swiss-ticino-ag-emmenbrucke-4f9c7819"
         ],
         "fr": [
-          "partitionnaire-100-anker-swiss-ticino-ag-emmenbrucke-d66512ad",
           "bauwerktrenner-100-anker-swiss-ticino-ag-emmenbrucke-4f9c7819",
-          "partitionnaire-100-anker-swiss-ticino-ag-emmenbrucke-4f9c7819"
+          "partitionnaire-100-anker-swiss-ticino-ag-emmenbrucke-4f9c7819",
+          "bauwerktrenner-100-anker-swiss-ticino-ag-emmenbrucke-d66512ad"
         ]
       },
       "salaryMin": 69500,
@@ -11203,12 +11258,12 @@
     },
     {
       "id": "anker-swiss-e64b72253bc1",
-      "slug": "gartner-100-anker-swiss-ticino-ag-mellingen-e64b7225",
+      "slug": "giardini-100-anker-swiss-ticino-ag-mellingen-e64b7225",
       "slugByLocale": {
         "de": "gartner-100-anker-swiss-ticino-ag-mellingen-e64b7225",
-        "it": "gartner-100-anker-swiss-ticino-ag-mellingen-e64b7225",
-        "en": "gartner-100-anker-swiss-ticino-ag-mellingen-e64b7225",
-        "fr": "gartner-100-anker-swiss-ticino-ag-mellingen-e64b7225"
+        "it": "giardini-100-anker-swiss-ticino-ag-mellingen-e64b7225",
+        "en": "gardeners-100-anker-swiss-ticino-ag-mellingen-e64b7225",
+        "fr": "jardiniers-100-anker-swiss-ticino-ag-mellingen-e64b7225"
       },
       "slugDisambiguator": "e64b7225",
       "company": "Anker Swiss Ticino AG",
@@ -11270,16 +11325,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-24T21:46:12.971Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-09-06T23:03:08.112Z"
+      "firstSeenAt": "2026-09-06T23:03:08.112Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "gartner-100-anker-swiss-ticino-ag-mellingen-e64b7225"
+        ],
+        "en": [
+          "gartner-100-anker-swiss-ticino-ag-mellingen-e64b7225"
+        ],
+        "fr": [
+          "gartner-100-anker-swiss-ticino-ag-mellingen-e64b7225"
+        ]
+      },
+      "previousSlugs": [
+        "gartner-100-anker-swiss-ticino-ag-mellingen-e64b7225"
+      ]
     },
     {
       "id": "anker-swiss-f6fd512eff57",
-      "slug": "gartner-100-anker-swiss-ticino-ag-bern-f6fd512e",
+      "slug": "giardini-100-anker-swiss-ticino-ag-bern-f6fd512e",
       "slugByLocale": {
         "de": "gartner-100-anker-swiss-ticino-ag-bern-f6fd512e",
-        "it": "gartner-100-anker-swiss-ticino-ag-bern-f6fd512e",
-        "en": "gartner-100-anker-swiss-ticino-ag-bern-f6fd512e",
-        "fr": "gartner-100-anker-swiss-ticino-ag-bern-f6fd512e"
+        "it": "giardini-100-anker-swiss-ticino-ag-bern-f6fd512e",
+        "en": "gardeners-100-anker-swiss-ticino-ag-bern-f6fd512e",
+        "fr": "jardiniers-100-anker-swiss-ticino-ag-bern-f6fd512e"
       },
       "slugDisambiguator": "f6fd512e",
       "company": "Anker Swiss Ticino AG",
@@ -11328,14 +11397,22 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "gartner-100-anker-swiss-ticino-ag-bern-135637e2"
+          "gartner-100-anker-swiss-ticino-ag-bern-135637e2",
+          "gartner-100-anker-swiss-ticino-ag-bern-f6fd512e"
         ],
         "de": [
           "gartner-100-anker-swiss-ticino-ag-bern-135637e2"
+        ],
+        "en": [
+          "gartner-100-anker-swiss-ticino-ag-bern-f6fd512e"
+        ],
+        "fr": [
+          "gartner-100-anker-swiss-ticino-ag-bern-f6fd512e"
         ]
       },
       "previousSlugs": [
-        "gartner-100-anker-swiss-ticino-ag-bern-135637e2"
+        "gartner-100-anker-swiss-ticino-ag-bern-135637e2",
+        "gartner-100-anker-swiss-ticino-ag-bern-f6fd512e"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -11777,12 +11854,12 @@
     },
     {
       "id": "anker-swiss-b6359e3a1a52",
-      "slug": "gartner-100-anker-swiss-ticino-ag-koniz-b6359e3a",
+      "slug": "giardini-100-anker-swiss-ticino-ag-koniz-b6359e3a",
       "slugByLocale": {
         "de": "gartner-100-anker-swiss-ticino-ag-koniz-b6359e3a",
-        "it": "gartner-100-anker-swiss-ticino-ag-koniz-b6359e3a",
-        "en": "gartner-100-anker-swiss-ticino-ag-koniz-b6359e3a",
-        "fr": "gartner-100-anker-swiss-ticino-ag-koniz-b6359e3a"
+        "it": "giardini-100-anker-swiss-ticino-ag-koniz-b6359e3a",
+        "en": "gardeners-100-anker-swiss-ticino-ag-koniz-b6359e3a",
+        "fr": "jardiniers-100-anker-swiss-ticino-ag-koniz-b6359e3a"
       },
       "slugDisambiguator": "b6359e3a",
       "company": "Anker Swiss Ticino AG",
@@ -11844,16 +11921,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-24T21:46:12.967Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-10-09T10:46:58.093Z"
+      "firstSeenAt": "2026-10-09T10:46:58.093Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "gartner-100-anker-swiss-ticino-ag-koniz-b6359e3a"
+        ],
+        "en": [
+          "gartner-100-anker-swiss-ticino-ag-koniz-b6359e3a"
+        ],
+        "fr": [
+          "gartner-100-anker-swiss-ticino-ag-koniz-b6359e3a"
+        ]
+      },
+      "previousSlugs": [
+        "gartner-100-anker-swiss-ticino-ag-koniz-b6359e3a"
+      ]
     },
     {
       "id": "anker-swiss-16d9ee799222",
-      "slug": "gartner-100-anker-swiss-ticino-ag-munsingen-16d9ee79",
+      "slug": "giardini-100-anker-swiss-ticino-ag-munsingen-16d9ee79",
       "slugByLocale": {
         "de": "gartner-100-anker-swiss-ticino-ag-munsingen-16d9ee79",
-        "it": "gartner-100-anker-swiss-ticino-ag-munsingen-16d9ee79",
-        "en": "gartner-100-anker-swiss-ticino-ag-munsingen-16d9ee79",
-        "fr": "gartner-100-anker-swiss-ticino-ag-munsingen-16d9ee79"
+        "it": "giardini-100-anker-swiss-ticino-ag-munsingen-16d9ee79",
+        "en": "gardeners-100-anker-swiss-ticino-ag-munsingen-16d9ee79",
+        "fr": "jardiniers-100-anker-swiss-ticino-ag-munsingen-16d9ee79"
       },
       "slugDisambiguator": "16d9ee79",
       "company": "Anker Swiss Ticino AG",
@@ -11915,7 +12006,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-24T21:46:12.967Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-10-09T10:46:58.079Z"
+      "firstSeenAt": "2026-10-09T10:46:58.079Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "gartner-100-anker-swiss-ticino-ag-munsingen-16d9ee79"
+        ],
+        "en": [
+          "gartner-100-anker-swiss-ticino-ag-munsingen-16d9ee79"
+        ],
+        "fr": [
+          "gartner-100-anker-swiss-ticino-ag-munsingen-16d9ee79"
+        ]
+      },
+      "previousSlugs": [
+        "gartner-100-anker-swiss-ticino-ag-munsingen-16d9ee79"
+      ]
     },
     {
       "id": "anker-swiss-8d6d0e3c2bea",
@@ -13512,12 +13617,12 @@
     },
     {
       "id": "anker-swiss-e1e7ae165e4a",
-      "slug": "metallbauer-100-anker-swiss-ticino-ag-biglen-e1e7ae16",
+      "slug": "lavoratori-100-anker-swiss-ticino-ag-biglen-e1e7ae16",
       "slugByLocale": {
         "de": "metallbauer-100-anker-swiss-ticino-ag-biglen-e1e7ae16",
-        "it": "metallbauer-100-anker-swiss-ticino-ag-biglen-e1e7ae16",
-        "en": "metallbauer-100-anker-swiss-ticino-ag-biglen-e1e7ae16",
-        "fr": "metallbauer-100-anker-swiss-ticino-ag-biglen-e1e7ae16"
+        "it": "lavoratori-100-anker-swiss-ticino-ag-biglen-e1e7ae16",
+        "en": "metalworkers-100-anker-swiss-ticino-ag-biglen-e1e7ae16",
+        "fr": "metaux-100-anker-swiss-ticino-ag-biglen-e1e7ae16"
       },
       "slugDisambiguator": "e1e7ae16",
       "company": "Anker Swiss Ticino AG",
@@ -13565,32 +13670,30 @@
         "de": []
       },
       "previousSlugs": [
-        "lavoratori-100-anker-swiss-ticino-ag-biglen-e1e7ae16",
-        "metalworkers-100-anker-swiss-ticino-ag-biglen-e1e7ae16",
-        "metaux-100-anker-swiss-ticino-ag-biglen-e1e7ae16",
         "metallbauer-100-anker-swiss-ticino-ag-biglen-d5b51103",
         "lavoratori-100-anker-swiss-ticino-ag-biglen-d5b51103",
         "metalworkers-100-anker-swiss-ticino-ag-biglen-d5b51103",
-        "metaux-100-anker-swiss-ticino-ag-biglen-d5b51103"
+        "metaux-100-anker-swiss-ticino-ag-biglen-d5b51103",
+        "metallbauer-100-anker-swiss-ticino-ag-biglen-e1e7ae16"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lavoratori-100-anker-swiss-ticino-ag-biglen-e1e7ae16",
           "metallbauer-100-anker-swiss-ticino-ag-biglen-d5b51103",
-          "lavoratori-100-anker-swiss-ticino-ag-biglen-d5b51103"
+          "lavoratori-100-anker-swiss-ticino-ag-biglen-d5b51103",
+          "metallbauer-100-anker-swiss-ticino-ag-biglen-e1e7ae16"
         ],
         "en": [
-          "metalworkers-100-anker-swiss-ticino-ag-biglen-e1e7ae16",
           "metallbauer-100-anker-swiss-ticino-ag-biglen-d5b51103",
-          "metalworkers-100-anker-swiss-ticino-ag-biglen-d5b51103"
+          "metalworkers-100-anker-swiss-ticino-ag-biglen-d5b51103",
+          "metallbauer-100-anker-swiss-ticino-ag-biglen-e1e7ae16"
         ],
         "de": [
           "metallbauer-100-anker-swiss-ticino-ag-biglen-d5b51103"
         ],
         "fr": [
-          "metaux-100-anker-swiss-ticino-ag-biglen-e1e7ae16",
           "metallbauer-100-anker-swiss-ticino-ag-biglen-d5b51103",
-          "metaux-100-anker-swiss-ticino-ag-biglen-d5b51103"
+          "metaux-100-anker-swiss-ticino-ag-biglen-d5b51103",
+          "metallbauer-100-anker-swiss-ticino-ag-biglen-e1e7ae16"
         ]
       },
       "salaryMin": 68500,
@@ -15207,12 +15310,12 @@
     },
     {
       "id": "anker-swiss-2bf7d7ec2d0e",
-      "slug": "zimmermann-100-anker-swiss-ticino-ag-baar-2bf7d7ec",
+      "slug": "carpentiere-100-anker-swiss-ticino-ag-baar-2bf7d7ec",
       "slugByLocale": {
         "de": "zimmermann-100-anker-swiss-ticino-ag-baar-2bf7d7ec",
-        "it": "zimmermann-100-anker-swiss-ticino-ag-baar-2bf7d7ec",
-        "en": "zimmermann-100-anker-swiss-ticino-ag-baar-2bf7d7ec",
-        "fr": "zimmermann-100-anker-swiss-ticino-ag-baar-2bf7d7ec"
+        "it": "carpentiere-100-anker-swiss-ticino-ag-baar-2bf7d7ec",
+        "en": "carpenter-100-anker-swiss-ticino-ag-baar-2bf7d7ec",
+        "fr": "charpentier-100-anker-swiss-ticino-ag-baar-2bf7d7ec"
       },
       "slugDisambiguator": "2bf7d7ec",
       "company": "Anker Swiss Ticino AG",
@@ -15273,7 +15376,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-31T21:46:12.949Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-09-19T23:05:17.445Z"
+      "firstSeenAt": "2026-09-19T23:05:17.445Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "zimmermann-100-anker-swiss-ticino-ag-baar-2bf7d7ec"
+        ],
+        "en": [
+          "zimmermann-100-anker-swiss-ticino-ag-baar-2bf7d7ec"
+        ],
+        "fr": [
+          "zimmermann-100-anker-swiss-ticino-ag-baar-2bf7d7ec"
+        ]
+      },
+      "previousSlugs": [
+        "zimmermann-100-anker-swiss-ticino-ag-baar-2bf7d7ec"
+      ]
     },
     {
       "id": "anker-swiss-843f0c07af2a",
@@ -16858,12 +16975,12 @@
     },
     {
       "id": "anker-swiss-30a6c10e0c70",
-      "slug": "dachdecker-100-anker-swiss-ticino-ag-utzenstorf-30a6c10e",
+      "slug": "copertura-100-anker-swiss-ticino-ag-utzenstorf-30a6c10e",
       "slugByLocale": {
         "de": "dachdecker-100-anker-swiss-ticino-ag-utzenstorf-30a6c10e",
-        "it": "dachdecker-100-anker-swiss-ticino-ag-utzenstorf-30a6c10e",
-        "en": "dachdecker-100-anker-swiss-ticino-ag-utzenstorf-30a6c10e",
-        "fr": "dachdecker-100-anker-swiss-ticino-ag-utzenstorf-30a6c10e"
+        "it": "copertura-100-anker-swiss-ticino-ag-utzenstorf-30a6c10e",
+        "en": "roofing-100-anker-swiss-ticino-ag-utzenstorf-30a6c10e",
+        "fr": "toiture-100-anker-swiss-ticino-ag-utzenstorf-30a6c10e"
       },
       "slugDisambiguator": "30a6c10e",
       "company": "Anker Swiss Ticino AG",
@@ -16912,14 +17029,22 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "dachdecker-100-anker-swiss-ticino-ag-utzenstorf-f758e441"
+          "dachdecker-100-anker-swiss-ticino-ag-utzenstorf-f758e441",
+          "dachdecker-100-anker-swiss-ticino-ag-utzenstorf-30a6c10e"
         ],
         "de": [
           "dachdecker-100-anker-swiss-ticino-ag-utzenstorf-f758e441"
+        ],
+        "en": [
+          "dachdecker-100-anker-swiss-ticino-ag-utzenstorf-30a6c10e"
+        ],
+        "fr": [
+          "dachdecker-100-anker-swiss-ticino-ag-utzenstorf-30a6c10e"
         ]
       },
       "previousSlugs": [
-        "dachdecker-100-anker-swiss-ticino-ag-utzenstorf-f758e441"
+        "dachdecker-100-anker-swiss-ticino-ag-utzenstorf-f758e441",
+        "dachdecker-100-anker-swiss-ticino-ag-utzenstorf-30a6c10e"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -16941,12 +17066,12 @@
     },
     {
       "id": "anker-swiss-8d7210bcceb4",
-      "slug": "spengler-100-anker-swiss-ticino-ag-utzenstorf-8d7210bc",
+      "slug": "lattoniere-100-anker-swiss-ticino-ag-utzenstorf-8d7210bc",
       "slugByLocale": {
         "de": "spengler-100-anker-swiss-ticino-ag-utzenstorf-8d7210bc",
-        "it": "spengler-100-anker-swiss-ticino-ag-utzenstorf-8d7210bc",
-        "en": "spengler-100-anker-swiss-ticino-ag-utzenstorf-8d7210bc",
-        "fr": "spengler-100-anker-swiss-ticino-ag-utzenstorf-8d7210bc"
+        "it": "lattoniere-100-anker-swiss-ticino-ag-utzenstorf-8d7210bc",
+        "en": "tinsmith-100-anker-swiss-ticino-ag-utzenstorf-8d7210bc",
+        "fr": "ferblantier-100-anker-swiss-ticino-ag-utzenstorf-8d7210bc"
       },
       "slugDisambiguator": "8d7210bc",
       "company": "Anker Swiss Ticino AG",
@@ -17007,7 +17132,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-01T21:46:12.939Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-10-09T10:46:58.094Z"
+      "firstSeenAt": "2026-10-09T10:46:58.094Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "spengler-100-anker-swiss-ticino-ag-utzenstorf-8d7210bc"
+        ],
+        "en": [
+          "spengler-100-anker-swiss-ticino-ag-utzenstorf-8d7210bc"
+        ],
+        "fr": [
+          "spengler-100-anker-swiss-ticino-ag-utzenstorf-8d7210bc"
+        ]
+      },
+      "previousSlugs": [
+        "spengler-100-anker-swiss-ticino-ag-utzenstorf-8d7210bc"
+      ]
     },
     {
       "id": "anker-swiss-8384b617486a",
@@ -17681,12 +17820,12 @@
     },
     {
       "id": "anker-swiss-385fe3de072c",
-      "slug": "bauprojektleiter-100-anker-swiss-ticino-ag-zurich-385fe3de",
+      "slug": "project-manager-100-anker-swiss-ticino-ag-zurich-385fe3de",
       "slugByLocale": {
         "de": "bauprojektleiter-100-anker-swiss-ticino-ag-zurich-385fe3de",
-        "it": "bauprojektleiter-100-anker-swiss-ticino-ag-zurich-385fe3de",
-        "en": "bauprojektleiter-100-anker-swiss-ticino-ag-zurich-385fe3de",
-        "fr": "bauprojektleiter-100-anker-swiss-ticino-ag-zurich-385fe3de"
+        "it": "project-manager-100-anker-swiss-ticino-ag-zurich-385fe3de",
+        "en": "construction-project-manager-100-anker-swiss-ticino-ag-zurich-385fe3de",
+        "fr": "gestionnaire-de-projet-de-construction-100-anker-swiss-ticino-ag-zurich-385fe3de"
       },
       "slugDisambiguator": "385fe3de",
       "company": "Anker Swiss Ticino AG",
@@ -17737,23 +17876,27 @@
         "bauprojektleiter-100-anker-swiss-ticino-ag-zurich-f2e59c77",
         "project-manager-100-anker-swiss-ticino-ag-zurich-f2e59c77",
         "construction-project-manager-100-anker-swiss-ticino-ag-zurich-f2e59c77",
-        "gestionnaire-de-projet-de-construction-100-anker-swiss-ticino-ag-zurich-f2e59c77"
+        "gestionnaire-de-projet-de-construction-100-anker-swiss-ticino-ag-zurich-f2e59c77",
+        "bauprojektleiter-100-anker-swiss-ticino-ag-zurich-385fe3de"
       ],
       "previousSlugsByLocale": {
         "it": [
           "bauprojektleiter-100-anker-swiss-ticino-ag-zurich-f2e59c77",
-          "project-manager-100-anker-swiss-ticino-ag-zurich-f2e59c77"
+          "project-manager-100-anker-swiss-ticino-ag-zurich-f2e59c77",
+          "bauprojektleiter-100-anker-swiss-ticino-ag-zurich-385fe3de"
         ],
         "en": [
           "bauprojektleiter-100-anker-swiss-ticino-ag-zurich-f2e59c77",
-          "construction-project-manager-100-anker-swiss-ticino-ag-zurich-f2e59c77"
+          "construction-project-manager-100-anker-swiss-ticino-ag-zurich-f2e59c77",
+          "bauprojektleiter-100-anker-swiss-ticino-ag-zurich-385fe3de"
         ],
         "de": [
           "bauprojektleiter-100-anker-swiss-ticino-ag-zurich-f2e59c77"
         ],
         "fr": [
           "bauprojektleiter-100-anker-swiss-ticino-ag-zurich-f2e59c77",
-          "gestionnaire-de-projet-de-construction-100-anker-swiss-ticino-ag-zurich-f2e59c77"
+          "gestionnaire-de-projet-de-construction-100-anker-swiss-ticino-ag-zurich-f2e59c77",
+          "bauprojektleiter-100-anker-swiss-ticino-ag-zurich-385fe3de"
         ]
       },
       "salaryMin": 73500,
@@ -18440,12 +18583,12 @@
     },
     {
       "id": "anker-swiss-fc82c00d2193",
-      "slug": "gipser-trockenbauer-100-anker-swiss-ticino-ag-giswil-fc82c00d",
+      "slug": "asciugamani-100-anker-swiss-ticino-ag-giswil-fc82c00d",
       "slugByLocale": {
         "de": "gipser-trockenbauer-100-anker-swiss-ticino-ag-giswil-fc82c00d",
-        "it": "gipser-trockenbauer-100-anker-swiss-ticino-ag-giswil-fc82c00d",
-        "en": "gipser-trockenbauer-100-anker-swiss-ticino-ag-giswil-fc82c00d",
-        "fr": "gipser-trockenbauer-100-anker-swiss-ticino-ag-giswil-fc82c00d"
+        "it": "asciugamani-100-anker-swiss-ticino-ag-giswil-fc82c00d",
+        "en": "plaster-dryers-100-anker-swiss-ticino-ag-giswil-fc82c00d",
+        "fr": "sechoirs-a-plaques-100-anker-swiss-ticino-ag-giswil-fc82c00d"
       },
       "slugDisambiguator": "fc82c00d",
       "company": "Anker Swiss Ticino AG",
@@ -18496,23 +18639,27 @@
         "gipser-trockenbauer-100-anker-swiss-ticino-ag-giswil-3c73f4a4",
         "asciugamani-100-anker-swiss-ticino-ag-giswil-3c73f4a4",
         "plaster-dryers-100-anker-swiss-ticino-ag-giswil-3c73f4a4",
-        "sechoirs-a-plat-100-anker-swiss-ticino-ag-giswil-3c73f4a4"
+        "sechoirs-a-plat-100-anker-swiss-ticino-ag-giswil-3c73f4a4",
+        "gipser-trockenbauer-100-anker-swiss-ticino-ag-giswil-fc82c00d"
       ],
       "previousSlugsByLocale": {
         "it": [
           "gipser-trockenbauer-100-anker-swiss-ticino-ag-giswil-3c73f4a4",
-          "asciugamani-100-anker-swiss-ticino-ag-giswil-3c73f4a4"
+          "asciugamani-100-anker-swiss-ticino-ag-giswil-3c73f4a4",
+          "gipser-trockenbauer-100-anker-swiss-ticino-ag-giswil-fc82c00d"
         ],
         "en": [
           "gipser-trockenbauer-100-anker-swiss-ticino-ag-giswil-3c73f4a4",
-          "plaster-dryers-100-anker-swiss-ticino-ag-giswil-3c73f4a4"
+          "plaster-dryers-100-anker-swiss-ticino-ag-giswil-3c73f4a4",
+          "gipser-trockenbauer-100-anker-swiss-ticino-ag-giswil-fc82c00d"
         ],
         "de": [
           "gipser-trockenbauer-100-anker-swiss-ticino-ag-giswil-3c73f4a4"
         ],
         "fr": [
           "gipser-trockenbauer-100-anker-swiss-ticino-ag-giswil-3c73f4a4",
-          "sechoirs-a-plat-100-anker-swiss-ticino-ag-giswil-3c73f4a4"
+          "sechoirs-a-plat-100-anker-swiss-ticino-ag-giswil-3c73f4a4",
+          "gipser-trockenbauer-100-anker-swiss-ticino-ag-giswil-fc82c00d"
         ]
       },
       "salaryMin": 69500,
@@ -20374,12 +20521,12 @@
     },
     {
       "id": "anker-swiss-7f8d3ffa9ccf",
-      "slug": "gartner-100-anker-swiss-ticino-ag-diemerswil-7f8d3ffa",
+      "slug": "giardini-100-anker-swiss-ticino-ag-diemerswil-7f8d3ffa",
       "slugByLocale": {
         "de": "gartner-100-anker-swiss-ticino-ag-diemerswil-7f8d3ffa",
-        "it": "gartner-100-anker-swiss-ticino-ag-diemerswil-7f8d3ffa",
-        "en": "gartner-100-anker-swiss-ticino-ag-diemerswil-7f8d3ffa",
-        "fr": "gartner-100-anker-swiss-ticino-ag-diemerswil-7f8d3ffa"
+        "it": "giardini-100-anker-swiss-ticino-ag-diemerswil-7f8d3ffa",
+        "en": "gardeners-100-anker-swiss-ticino-ag-diemerswil-7f8d3ffa",
+        "fr": "jardiniers-100-anker-swiss-ticino-ag-diemerswil-7f8d3ffa"
       },
       "slugDisambiguator": "7f8d3ffa",
       "company": "Anker Swiss Ticino AG",
@@ -20441,7 +20588,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-04T21:46:12.921Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-06T21:52:19.891Z"
+      "firstSeenAt": "2026-11-06T21:52:19.891Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "gartner-100-anker-swiss-ticino-ag-diemerswil-7f8d3ffa"
+        ],
+        "en": [
+          "gartner-100-anker-swiss-ticino-ag-diemerswil-7f8d3ffa"
+        ],
+        "fr": [
+          "gartner-100-anker-swiss-ticino-ag-diemerswil-7f8d3ffa"
+        ]
+      },
+      "previousSlugs": [
+        "gartner-100-anker-swiss-ticino-ag-diemerswil-7f8d3ffa"
+      ]
     },
     {
       "id": "anker-swiss-9a9ac8c765c9",
@@ -21114,12 +21275,12 @@
     },
     {
       "id": "anker-swiss-66af565d0e4a",
-      "slug": "zimmermann-100-anker-swiss-ticino-ag-kleindottingen-66af565d",
+      "slug": "carpentiere-100-anker-swiss-ticino-ag-kleindottingen-66af565d",
       "slugByLocale": {
         "de": "zimmermann-100-anker-swiss-ticino-ag-kleindottingen-66af565d",
-        "it": "zimmermann-100-anker-swiss-ticino-ag-kleindottingen-66af565d",
-        "en": "zimmermann-100-anker-swiss-ticino-ag-kleindottingen-66af565d",
-        "fr": "zimmermann-100-anker-swiss-ticino-ag-kleindottingen-66af565d"
+        "it": "carpentiere-100-anker-swiss-ticino-ag-kleindottingen-66af565d",
+        "en": "carpenter-100-anker-swiss-ticino-ag-kleindottingen-66af565d",
+        "fr": "charpentier-100-anker-swiss-ticino-ag-kleindottingen-66af565d"
       },
       "slugDisambiguator": "66af565d",
       "company": "Anker Swiss Ticino AG",
@@ -21180,14 +21341,28 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-04T21:46:12.915Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-06T21:52:19.889Z"
+      "firstSeenAt": "2026-11-06T21:52:19.889Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "zimmermann-100-anker-swiss-ticino-ag-kleindottingen-66af565d"
+        ],
+        "en": [
+          "zimmermann-100-anker-swiss-ticino-ag-kleindottingen-66af565d"
+        ],
+        "fr": [
+          "zimmermann-100-anker-swiss-ticino-ag-kleindottingen-66af565d"
+        ]
+      },
+      "previousSlugs": [
+        "zimmermann-100-anker-swiss-ticino-ag-kleindottingen-66af565d"
+      ]
     },
     {
       "id": "anker-swiss-e1b7c4b29897",
-      "slug": "maurer-100-anker-swiss-ticino-ag-wadenswil-e1b7c4b2",
+      "slug": "mason-100-anker-swiss-ticino-ag-wadenswil-e1b7c4b2",
       "slugByLocale": {
         "de": "maurer-100-anker-swiss-ticino-ag-wadenswil-e1b7c4b2",
-        "it": "maurer-100-anker-swiss-ticino-ag-wadenswil-e1b7c4b2",
+        "it": "mason-100-anker-swiss-ticino-ag-wadenswil-e1b7c4b2",
         "en": "maurer-100-anker-swiss-ticino-ag-wadenswil-e1b7c4b2",
         "fr": "maurer-100-anker-swiss-ticino-ag-wadenswil-e1b7c4b2"
       },
@@ -21250,7 +21425,15 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-04T21:46:12.914Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-10-09T21:24:34.913Z"
+      "firstSeenAt": "2026-10-09T21:24:34.913Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "maurer-100-anker-swiss-ticino-ag-wadenswil-e1b7c4b2"
+        ]
+      },
+      "previousSlugs": [
+        "maurer-100-anker-swiss-ticino-ag-wadenswil-e1b7c4b2"
+      ]
     },
     {
       "id": "anker-swiss-d4b0948f1546",

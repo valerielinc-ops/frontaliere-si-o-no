@@ -1061,12 +1061,12 @@
     },
     {
       "id": "h-ju-hopital-du-jura-e7477eb82e3b",
-      "slug": "instrumentiste-de-bloc-operatoire-h-ju-hopital-du-jura-delemont-2",
+      "slug": "operatore-hopital-du-jura-h-ju-delemont",
       "slugByLocale": {
         "fr": "instrumentiste-de-bloc-operatoire-h-ju-hopital-du-jura-delemont",
-        "it": "instrumentiste-de-bloc-operatoire-h-ju-hopital-du-jura-delemont-2",
-        "en": "instrumentiste-de-bloc-operatoire-h-ju-hopital-du-jura-delemont-2",
-        "de": "instrumentiste-de-bloc-operatoire-h-ju-hopital-du-jura-delemont-2"
+        "it": "operatore-hopital-du-jura-h-ju-delemont",
+        "en": "operator-hopital-du-jura-h-ju-delemont",
+        "de": "betreiber-hopital-du-jura-h-ju-delemont"
       },
       "company": "Hôpital du Jura (H-JU)",
       "companyKey": "h-ju-hopital-du-jura",
@@ -1129,7 +1129,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-31T21:45:54.172Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-09-09T23:03:34.932Z"
+      "firstSeenAt": "2026-09-09T23:03:34.932Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "instrumentiste-de-bloc-operatoire-h-ju-hopital-du-jura-delemont-2"
+        ],
+        "en": [
+          "instrumentiste-de-bloc-operatoire-h-ju-hopital-du-jura-delemont-2"
+        ],
+        "de": [
+          "instrumentiste-de-bloc-operatoire-h-ju-hopital-du-jura-delemont-2"
+        ]
+      },
+      "previousSlugs": [
+        "instrumentiste-de-bloc-operatoire-h-ju-hopital-du-jura-delemont-2"
+      ]
     },
     {
       "id": "h-ju-hopital-du-jura-77c92fa345c7",

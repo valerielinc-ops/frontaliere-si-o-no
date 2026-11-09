@@ -1231,8 +1231,8 @@
       "slugByLocale": {
         "de": "sachbearbeiter-gesundheit-alle-swica-basel",
         "it": "responsabile-del-caso-sanitario-tutti-swica-gesundheitsorganisation-basel",
-        "en": "sachbearbeiter-gesundheit-alle-swica-gesundheitsorganisation-basel",
-        "fr": "sachbearbeiter-gesundheit-alle-swica-gesundheitsorganisation-basel"
+        "en": "health-case-officer-all-swica-gesundheitsorganisation-basel",
+        "fr": "agent-de-sante-tous-swica-gesundheitsorganisation-basel"
       },
       "company": "SWICA Gesundheitsorganisation",
       "companyKey": "swica",
@@ -1283,16 +1283,15 @@
           "sachbearbeiter-gesundheit-alle-swica-basel"
         ],
         "en": [
-          "health-case-officer-all-swica-gesundheitsorganisation-basel"
+          "sachbearbeiter-gesundheit-alle-swica-gesundheitsorganisation-basel"
         ],
         "fr": [
-          "agent-de-sante-tous-swica-gesundheitsorganisation-basel"
+          "sachbearbeiter-gesundheit-alle-swica-gesundheitsorganisation-basel"
         ]
       },
       "previousSlugs": [
         "sachbearbeiter-gesundheit-alle-swica-basel",
-        "health-case-officer-all-swica-gesundheitsorganisation-basel",
-        "agent-de-sante-tous-swica-gesundheitsorganisation-basel"
+        "sachbearbeiter-gesundheit-alle-swica-gesundheitsorganisation-basel"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
