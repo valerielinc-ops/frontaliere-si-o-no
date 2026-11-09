@@ -75,6 +75,7 @@ describe('public config edge route', () => {
   });
 
   it('fails open with a non-cacheable response when the function is unreachable', async () => {
+    const errorLog = vi.spyOn(console, 'error').mockImplementation(() => {});
     const fetchMock = vi.spyOn(globalThis, 'fetch').mockRejectedValue(new Error('network unavailable'));
     const [response, concurrentResponse] = await Promise.all([
       worker.fetch(new Request(CACHE_KEY), {}),
@@ -86,5 +87,25 @@ describe('public config edge route', () => {
     expect(concurrentResponse.status).toBe(503);
     expect(concurrentResponse.headers.get('Cache-Control')).toBe('no-store');
     expect(fetchMock).toHaveBeenCalledTimes(1);
+    expect(errorLog).toHaveBeenCalledTimes(2);
+    expect(errorLog.mock.calls.map(([entry]) => JSON.parse(String(entry)))).toEqual([
+      { event: 'origin_failure', reason: 'public-config', path: '/api/public-config/' },
+      { event: 'origin_failure', reason: 'public-config', path: '/api/public-config/' },
+    ]);
+  });
+
+  it('logs an upstream 503 before returning it to the browser', async () => {
+    const errorLog = vi.spyOn(console, 'error').mockImplementation(() => {});
+    vi.spyOn(globalThis, 'fetch').mockResolvedValue(new Response('temporarily unavailable', { status: 503 }));
+
+    const response = await worker.fetch(new Request(CACHE_KEY), {});
+
+    expect(response.status).toBe(503);
+    expect(errorLog).toHaveBeenCalledExactlyOnceWith(JSON.stringify({
+      event: 'origin_failure',
+      reason: 'public-config',
+      path: '/api/public-config/',
+      status: 503,
+    }));
   });
 });

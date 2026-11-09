@@ -78,5 +78,6 @@ describe('cf-observability-audit checks', () => {
     expect(issueTitle(check)).toBe('Cloudflare observability: query string non oscurate nei log');
     expect(issueTitle(check)).not.toMatch(/\d/);
     expect(buildIssueBody(check)).toContain('cf-observability-audit.mjs --dry-run');
+    expect(buildIssueBody(check)).not.toContain('bin/rc-env.sh');
   });
 });
