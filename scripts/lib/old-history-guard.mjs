@@ -693,6 +693,13 @@ export function checkOldHistory({
     baseRefreshed = decision.baseRefreshed;
     result = inspectOldHistory({ cwd, markerRef, headRef, baseRef });
   }
+  // In a non-shallow checkout the commit graph has no hidden parent boundary:
+  // a missing marker is already conclusive. Fetching a retired marker by
+  // object id is redundant here and can spend the bounded network budget on a
+  // remote object that is retained only for stale-history detection.
+  if (result.reason === 'marker-unavailable' && refreshBase && !isShallowRepository(cwd)) {
+    return result;
+  }
   if (result.reason === 'marker-unavailable' && refreshBase) {
     const markerFetched = timed(trace, 'fetch-marker', () => withHistoryGuardLock(cwd, () => fetchCommitObject({ cwd, remote, commitRef: markerRef })));
     if (!markerFetched) return result;

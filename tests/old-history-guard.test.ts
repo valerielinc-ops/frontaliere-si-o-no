@@ -270,6 +270,38 @@ describe('old-history-guard', () => {
     })).toEqual({ outcome: 'pass', reason: 'marker-unavailable' });
   });
 
+  it('non scarica un marker assente da un grafo non-shallow completo', () => {
+    const fixture = rewrittenRemoteFixture();
+    try {
+      const checkout = join(fixture.root, 'complete-checkout');
+      execFileSync('git', [
+        'clone', '--quiet', '--branch', 'main', `file://${fixture.remote}`, checkout,
+      ], {
+        encoding: 'utf8',
+        env: { ...process.env, GIT_CONFIG_NOSYSTEM: '1' },
+        stdio: ['ignore', 'pipe', 'pipe'],
+      });
+
+      expect(git(checkout, 'rev-parse', '--is-shallow-repository')).toBe('false');
+      expect(() => git(checkout, 'cat-file', '-e', `${fixture.fixtureMarker}^{commit}`)).toThrow();
+
+      const trace: TraceEntry[] = [];
+      expect(checkOldHistory({
+        cwd: checkout,
+        markerRef: fixture.fixtureMarker,
+        headRef: 'HEAD',
+        baseRef: 'refs/remotes/origin/main',
+        refreshBase: true,
+        remote: 'origin',
+        branch: 'main',
+        trace,
+      })).toEqual({ outcome: 'pass', reason: 'marker-unavailable' });
+      expect(steps(trace)).toEqual([]);
+    } finally {
+      fixture.cleanup();
+    }
+  });
+
   it('resta inerte prima della riscrittura, quando il base contiene il marker', () => {
     expect(inspectOldHistory({
       cwd: repo,
