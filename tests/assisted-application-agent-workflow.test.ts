@@ -18,6 +18,10 @@ const portalSource = readFileSync(
   new URL('../scripts/assisted-application/lib/portal/portal.mjs', import.meta.url),
   'utf8',
 );
+const verifySource = readFileSync(
+  new URL('../scripts/assisted-application/lib/portal/verify.mjs', import.meta.url),
+  'utf8',
+);
 const workflow = YAML.parse(workflowSource) as { jobs?: { agent?: { steps?: Step[]; 'timeout-minutes'?: number } } };
 const agentJob = workflow.jobs?.agent;
 const steps = agentJob?.steps ?? [];
@@ -44,17 +48,23 @@ describe('assisted application agent workflow dependencies', () => {
     expect(steps[reconcileFailure]?.if).toMatch(/failure\(\)/u);
   });
 
-  // Owner decision 2026-11-09: CloakBrowser gets past what a real browser
-  // passes (Cloudflare interstitial, Turnstile) before a CAPTCHA stop; what is
-  // left still goes to Valerie, and NopeCHA stays out of production.
-  it('tries the stealth challenge pass before a CAPTCHA stop, never NopeCHA', () => {
+  it('hands every CAPTCHA to Valerie without stealth or challenge automation', () => {
+    const runScript = steps.find(step => step.name === 'Run agent')?.run || '';
     expect(workflowSource).not.toContain('NOPECHA_EXTENSION_PATH');
     expect(steps.some(step => /NopeCHA|install-nopecha/iu.test(`${step.name || ''} ${step.run || ''}`))).toBe(false);
-    expect(portalSource).not.toContain('process.env.NOPECHA_EXTENSION_PATH');
+    expect(workflowSource).not.toContain('STEALTH_BROWSER_ASSISTED');
+    expect(workflowSource).not.toContain('CLOAKBROWSER_LICENSE_KEY_ASSISTED');
+    expect(runScript).not.toMatch(/xvfb-run|ASSISTED_APPLICATION_HEADED/u);
+    expect(portalSource).not.toContain('NOPECHA_EXTENSION_PATH');
     expect(portalSource).not.toContain('launchNopechaContext');
     expect(portalSource).not.toContain('awaitCaptcha');
-    expect(portalSource).toContain("if (snapshot.captcha && await passPortalChallenge(browser, page, { log, evidence })) snapshot = await extractFields(page, NAVIGATION);\n      if (snapshot.captcha) return await handoff('captcha');");
-    expect(portalSource).toContain("if (after.captcha && await passPortalChallenge(browser, page, { log, evidence })) after = await extractFields(page, NAVIGATION);\n      if (after.captcha) return await handoff('captcha');");
+    expect(portalSource).not.toContain('launchStealthOrChromium');
+    expect(portalSource).not.toContain('passPortalChallenge');
+    expect(portalSource).not.toContain('chromeUserAgent');
+    expect(verifySource).not.toContain('realisticUserAgent');
+    expect(verifySource).not.toContain('userAgent:');
+    expect(portalSource).toContain("if (snapshot.captcha) return await handoff('captcha');");
+    expect(portalSource).toContain("if (after.captcha) return await handoff('captcha');");
     expect(portalSource).toContain("if (outcome === 'captcha') return await handoff('captcha');");
   });
 });

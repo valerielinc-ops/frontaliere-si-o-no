@@ -1,6 +1,6 @@
 /** Protected inspection: existing-account sign-in, GET reads, no application actions. */
 import { launchChromium } from '../../../lib/ensure-chromium.mjs';
-import { COOKIE_REJECT_RE, headedBrowser, realisticUserAgent } from './portal.mjs';
+import { COOKIE_REJECT_RE, headedBrowser } from './portal.mjs';
 import { extractFields } from './fields.mjs';
 import { SIGN_IN_RE, authPageKind, loginFields } from './account.mjs';
 import { applyActions, findButton, locatorFor } from './fill.mjs';
@@ -84,7 +84,7 @@ export async function verifyPortalApplication({ applyUrl, targetUrl, observedUrl
   let context;
   const proof = { ...(sourceProtocol ? { sourceProtocol } : {}), kind: 'portal_verification', version: 1, observedAt: Date.now(), pages: [], blockedRequests: 0, conclusion: 'unknown' };
   try {
-    context = await browser.newContext({ serviceWorkers: 'block', userAgent: realisticUserAgent(typeof browser.version === 'function' ? browser.version() : ''), viewport: { width: 1366, height: 900 }, locale: 'en-GB' });
+    context = await browser.newContext({ serviceWorkers: 'block', viewport: { width: 1366, height: 900 }, locale: 'en-GB' });
     // No alternate application transport may bypass the HTTP route fence.
     await context.routeWebSocket('**/*', socket => socket.close());
     await context.addInitScript(() => {

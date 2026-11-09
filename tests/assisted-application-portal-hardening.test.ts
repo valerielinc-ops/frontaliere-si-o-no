@@ -24,6 +24,7 @@ import {
   portalRequirementsFromMissingRequired,
   portalRequiredDocumentFromField,
   portalEntryUrl,
+  portalContextOptions,
   postingAddressForPortal,
   verifiedUmantisPostingAddress,
   localizePortalQuestions,
@@ -31,7 +32,6 @@ import {
   isVerifiedPostingEntry,
   isSafeEmployerSitePreread,
   readPortalQuestions,
-  realisticUserAgent,
   startsApplication,
   urlConfirms,
 } from '../scripts/assisted-application/lib/portal/portal.mjs';
@@ -1019,10 +1019,15 @@ describe('portal runner hardening (career-ops apply.md)', () => {
     expect(fitToLength('Coordino un team di sei persone, seguo la formazione', 34)).toBe('Coordino un team di sei persone');
   });
 
-  it('presents the browser as the Chrome it is, without "Headless", on the real system', () => {
-    expect(realisticUserAgent('151.0.7922.34', 'linux')).toBe('Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36');
-    expect(realisticUserAgent('151.0.7922.34', 'darwin')).toContain('Macintosh');
-    expect(realisticUserAgent('', 'linux')).not.toMatch(/headless/i);
+  it('keeps the native browser identity while setting the requested form locale', () => {
+    const options = portalContextOptions({ language: 'fr' });
+    expect(options).toEqual({
+      locale: 'fr-CH',
+      timezoneId: 'Europe/Zurich',
+      viewport: { width: 1366, height: 900 },
+      acceptDownloads: false,
+    });
+    expect(options).not.toHaveProperty('userAgent');
   });
 
   it('answers a knock-out question only with a quote of the candidate data', () => {

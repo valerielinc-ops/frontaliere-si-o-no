@@ -120,16 +120,14 @@ jobs:
 
       # The portal runner drives Chromium; the draft reads a single-page form's
       # questions ahead (career-ops apply.md: identify all questions first).
-      # The same install brings the system libraries CloakBrowser needs; its
-      # own binary is fetched on its first launch (scripts/lib/stealth-browser.mjs).
+      # Install the stock Playwright browser and its system libraries.
       - name: Install Chromium for the portal runner
         run: npx playwright install --with-deps chromium
         timeout-minutes: 15
 
-      # Owner decision 2026-11-09: with STEALTH_BROWSER_ASSISTED on (Remote
-      # Config), the portal runs in CloakBrowser on its own license key and gets
-      # past Cloudflare interstitials and Turnstile; a key already in use falls
-      # back to Chromium. Any CAPTCHA left goes to Valerie's owner takeover.
+      # The application uses stock Chromium. It never impersonates a user's
+      # browser or automates through anti-bot challenges; CAPTCHA is handed to
+      # Valerie for the owner extension flow.
       - name: Run agent
         env:
           ORDER_ID: ${{ inputs.order_id }}
@@ -145,20 +143,11 @@ jobs:
           ASSISTED_APPLICATION_STOP_REPORT: ${{ runner.temp }}/portal-stop.json
           # Candidate-free proof used to close stale portal-stop issues after a pass.
           ASSISTED_APPLICATION_PORTAL_PASS: ${{ runner.temp }}/portal-pass.json
-        # A real (headed) browser on a virtual screen: some ATS turn away a
-        # browser that calls itself HeadlessChrome, in its user agent and in its
-        # client hints.
+        # Keep the runner's actual Playwright identity. Anti-bot challenges are
+        # handed off instead of being hidden or clicked through.
         run: |
           if [ "$MODE" = 'verify_portal' ]; then
-            if command -v xvfb-run >/dev/null 2>&1; then
-              export ASSISTED_APPLICATION_HEADED=1
-              xvfb-run --auto-servernum --server-args="-screen 0 1366x900x24" node scripts/assisted-application/verify-portal.mjs --order "$ORDER_ID" --round "$ROUND" --nonce "$VERIFICATION_NONCE"
-            else
-              node scripts/assisted-application/verify-portal.mjs --order "$ORDER_ID" --round "$ROUND" --nonce "$VERIFICATION_NONCE"
-            fi
-          elif command -v xvfb-run >/dev/null 2>&1; then
-            export ASSISTED_APPLICATION_HEADED=1
-            xvfb-run --auto-servernum --server-args="-screen 0 1366x900x24" node scripts/assisted-application/agent.mjs --order "$ORDER_ID" --mode "$MODE" --round "$ROUND"
+            node scripts/assisted-application/verify-portal.mjs --order "$ORDER_ID" --round "$ROUND" --nonce "$VERIFICATION_NONCE"
           else
             node scripts/assisted-application/agent.mjs --order "$ORDER_ID" --mode "$MODE" --round "$ROUND"
           fi

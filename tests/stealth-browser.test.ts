@@ -43,10 +43,10 @@ describe('stealthConfig', () => {
     expect(stealthConfig('crawler', { STEALTH_BROWSER_CRAWLER: '1', CLOAKBROWSER_LICENSE_KEY_CRAWLER: KEY })).toMatchObject({ enabled: true, licenseKey: KEY });
   });
 
-  it('keeps the two uses on their own flag and key', () => {
+  it('allows stealth only for the crawler purpose', () => {
     const env = { STEALTH_BROWSER_CRAWLER: '1', CLOAKBROWSER_LICENSE_KEY_CRAWLER: KEY };
-    expect(stealthConfig('assisted', env).enabled).toBe(false);
-    expect(stealthConfig('assisted', { STEALTH_BROWSER_ASSISTED: '1', CLOAKBROWSER_LICENSE_KEY_ASSISTED: KEY }).enabled).toBe(true);
+    expect(stealthConfig('crawler', env).enabled).toBe(true);
+    expect(() => stealthConfig('assisted' as never, env)).toThrow(/unknown purpose/);
     expect(() => stealthConfig('other' as never, env)).toThrow(/unknown purpose/);
   });
 });
@@ -65,11 +65,11 @@ describe('classifyStealthFailure', () => {
 });
 
 describe('launchStealthOrChromium', () => {
-  const env = { STEALTH_BROWSER_ASSISTED: '1', CLOAKBROWSER_LICENSE_KEY_ASSISTED: KEY };
+  const env = { STEALTH_BROWSER_CRAWLER: '1', CLOAKBROWSER_LICENSE_KEY_CRAWLER: KEY };
 
   it('uses Chromium, untouched, when the flag is off', async () => {
     const { deps: d, vanilla } = deps({ launch: async () => fakeBrowser('cloak') });
-    const browser = await launchStealthOrChromium({ purpose: 'assisted', headless: false, env: {}, deps: d, log: () => {} });
+    const browser = await launchStealthOrChromium({ purpose: 'crawler', headless: false, env: {}, deps: d, log: () => {} });
     expect(browser).toBe(vanilla);
     expect(browserEngine(browser)).toEqual({ engine: 'chromium', reason: 'disabled' });
     expect(d.cloak.launch).not.toHaveBeenCalled();
@@ -80,7 +80,7 @@ describe('launchStealthOrChromium', () => {
     const cloak = fakeBrowser('cloak');
     const { deps: d } = deps({ launch: async () => cloak });
     const lines: string[] = [];
-    const browser = await launchStealthOrChromium({ purpose: 'assisted', headless: false, locale: 'de-CH', env, deps: d, log: (line: string) => lines.push(line) });
+    const browser = await launchStealthOrChromium({ purpose: 'crawler', headless: false, locale: 'de-CH', env, deps: d, log: (line: string) => lines.push(line) });
     expect(browser).toBe(cloak);
     expect(isStealthBrowser(browser)).toBe(true);
     expect(d.cloak.launch).toHaveBeenCalledWith({ licenseKey: KEY, headless: false, locale: 'de-CH', timezone: 'Europe/Zurich' });
@@ -89,14 +89,14 @@ describe('launchStealthOrChromium', () => {
 
   it('passes the optional stealth proxy through', async () => {
     const { deps: d } = deps({ launch: async () => fakeBrowser('cloak') });
-    await launchStealthOrChromium({ purpose: 'assisted', env: { ...env, STEALTH_BROWSER_PROXY: 'socks5://100.64.0.1:1080' }, deps: d, log: () => {} });
+    await launchStealthOrChromium({ purpose: 'crawler', env: { ...env, STEALTH_BROWSER_PROXY: 'socks5://100.64.0.1:1080' }, deps: d, log: () => {} });
     expect(d.cloak.launch.mock.calls[0][0]).toMatchObject({ proxy: 'socks5://100.64.0.1:1080' });
   });
 
   it('falls back to Chromium when the key\'s only seat is in use', async () => {
     const { deps: d, vanilla } = deps({ launch: async () => { throw new Error(SESSION_LIMIT); } });
     const lines: string[] = [];
-    const browser = await launchStealthOrChromium({ purpose: 'assisted', env, deps: d, log: (line: string) => lines.push(line) });
+    const browser = await launchStealthOrChromium({ purpose: 'crawler', env, deps: d, log: (line: string) => lines.push(line) });
     expect(browser).toBe(vanilla);
     expect(browserEngine(browser)).toEqual({ engine: 'chromium', reason: 'session_in_use' });
     expect(lines.join('\n')).toMatch(/session_in_use/);
@@ -106,7 +106,7 @@ describe('launchStealthOrChromium', () => {
   it('turns a seat refused after the handshake into the same fallback, closing the dying browser', async () => {
     const cloak = fakeBrowser('cloak');
     const { deps: d, vanilla } = deps({ launch: async () => cloak, denial: new Error(SESSION_LIMIT) });
-    const browser = await launchStealthOrChromium({ purpose: 'assisted', env, deps: d, log: () => {} });
+    const browser = await launchStealthOrChromium({ purpose: 'crawler', env, deps: d, log: () => {} });
     expect(browser).toBe(vanilla);
     expect(cloak.close).toHaveBeenCalled();
     expect(browserEngine(browser).reason).toBe('session_in_use');
