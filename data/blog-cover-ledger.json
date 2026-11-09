@@ -15,10 +15,10 @@
       "2": 197,
       "3": 0,
       "4": 0,
-      "5": 1122,
+      "5": 1123,
       "6": 5061
     },
-    "publishedCovers": 7865,
+    "publishedCovers": 7866,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 1,
     "inheritedRecordsMaterialized": 197,
@@ -217022,6 +217022,39 @@
         "provider": "openai-codex",
         "assetId": "article-via-libera-tram-treno-luganese",
         "imageUrl": "/images/blog/article-via-libera-tram-treno-luganese.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-contro-aumento-iva-pesa-meno": {
+      "cover": "/images/blog/article-contro-aumento-iva-pesa-meno.webp",
+      "hash": "203b60c70df3d4cfc8e2ad0ea045be4f76435f1713f244deebc237e05361cf42",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "contro-aumento-iva-pesa-meno",
+          "category": "fiscale",
+          "date": "2026-11-09T16:08:46.833Z",
+          "updatedAt": null,
+          "authorSlug": "laura-bianchi"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-contro-aumento-iva-pesa-meno.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1794,
+      "verifiedAt": "2026-11-09",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-contro-aumento-iva-pesa-meno",
+        "imageUrl": "/images/blog/article-contro-aumento-iva-pesa-meno.webp",
         "evidence": "generated-engine-record"
       }
     }

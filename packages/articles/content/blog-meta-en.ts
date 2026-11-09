@@ -13693,6 +13693,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.via-libera-tram-treno-luganese.title': 'Final approval for the construction of the tram-train',
     'blog.article.via-libera-tram-treno-luganese.excerpt': 'The Federal Court rejects the appeal of three private individuals.',
     'blog.article.via-libera-tram-treno-luganese.imageAlt': 'Illustrative image relevant to the article topic',
+    'blog.article.contro-aumento-iva-pesa-meno.title': 'Against a VAT increase: a tax that weighs more heavily on those who have less',
+    'blog.article.contro-aumento-iva-pesa-meno.excerpt': 'The position of the Communist Party does not call into question the payment of the thirteenth pension.',
+    'blog.article.contro-aumento-iva-pesa-meno.imageAlt': 'Illustrative image relevant to the article topic',
 };
 
 export default blogMetaEn;

@@ -293,6 +293,36 @@ jobs:
                          | select(.key | test("_SHARDS?_LIVE$"))
                          | "export \(.key)=\(.value | @sh)"' <<< "$REPO_VARS_JSON")"
 
+          rehydrateRuntimeBudgetObserved() {
+            local started_at="$1"
+            local locale_rc="$2"
+            local section_rc="$3"
+            local finished_at
+            local elapsed_seconds
+            local outcome=success
+            local summary_path="${GITHUB_STEP_SUMMARY:-/dev/stdout}"
+
+            finished_at="$(date +%s)"
+            elapsed_seconds=$((finished_at - started_at))
+            if [ "$locale_rc" -ne 0 ]; then
+              outcome=locale-failed
+            elif [ "$section_rc" -ne 0 ]; then
+              outcome=sections-degraded
+            fi
+
+            {
+              echo '### Rehydrate runtime budget'
+              echo
+              echo '| metric | observed | reference |'
+              echo '| --- | ---: | --- |'
+              echo "| elapsed_seconds | \`$elapsed_seconds\` | workflow timeout \`350 minutes\` |"
+              echo "| outcome | \`$outcome\` | locale rc=\`$locale_rc\`; sections rc=\`$section_rc\` |"
+              echo "| REHYDRATE_MAX_PARALLEL | \`${REHYDRATE_MAX_PARALLEL:-unknown}\` | baseline \`4\` |"
+            } >> "$summary_path"
+          }
+
+          REHYDRATE_STARTED_AT="$(date +%s)"
+
           # Same order and same failure contract as post-deploy-validate-dist.yml:
           # locale first and hard-fail (an incomplete locale shard is a real
           # gate), sections strictly AFTER it and soft-fail (they warn and
@@ -301,8 +331,23 @@ jobs:
           # the subtree rehydrate_locale wipes and repopulates.
           LOCALE_RC=0
           bash scripts/lib/rehydrate-locale-shards.sh || LOCALE_RC=$?
-          bash scripts/lib/rehydrate-section-shards.sh
+          SECTION_RC=0
+          bash scripts/lib/rehydrate-section-shards.sh || SECTION_RC=$?
+          # Worker-level artifact/clone misses are the documented fail-soft
+          # path: rehydrate-section-shards.sh records them and still returns
+          # zero. Any non-zero that reaches this caller is therefore a
+          # correctness/configuration failure (in particular the
+          # trunk_guard_verdict at the end of the section script). Emit the
+          # measurement before stopping, but never let the following
+          # provenance or SEO audits consume an unsound dist.
+          if [ "$SECTION_RC" -ne 0 ]; then
+            rehydrateRuntimeBudgetObserved "$REHYDRATE_STARTED_AT" "$LOCALE_RC" "$SECTION_RC"
+            exit "$SECTION_RC"
+          fi
           echo "dist/ now holds $(find dist -type f | wc -l) files"
+          # Read-only measurement: preserve the existing locale hard-fail and
+          # section soft-fail contract after the summary has been emitted.
+          rehydrateRuntimeBudgetObserved "$REHYDRATE_STARTED_AT" "$LOCALE_RC" "$SECTION_RC"
           if [ "$LOCALE_RC" -ne 0 ]; then exit "$LOCALE_RC"; fi
 
       - name: Verify replay shard provenance after rehydrate

@@ -2,30 +2,6 @@
   "schemaVersion": 1,
   "posted": [
     {
-      "id": "frontalieri-ticino-calo-2026",
-      "url": "https://frontaliereticino.ch/articoli-frontaliere/frontalieri-ticino-calo-2026/",
-      "ts": "2026-05-07T06:48:09.354Z",
-      "seed": true
-    },
-    {
-      "id": "temporali-ticino-traffico-2024",
-      "url": "https://frontaliereticino.ch/articoli-frontaliere/temporali-ticino-traffico-2024/",
-      "ts": "2026-05-07T06:54:14.978Z",
-      "seed": true
-    },
-    {
-      "id": "progetto-prossimita-locarno-2026",
-      "url": "https://frontaliereticino.ch/articoli-frontaliere/progetto-prossimita-locarno-2026/",
-      "ts": "2026-05-07T07:00:20.309Z",
-      "seed": true
-    },
-    {
-      "id": "media-svizzera-codice-condotta-ia",
-      "url": "https://frontaliereticino.ch/articoli-frontaliere/media-svizzera-codice-condotta-ia/",
-      "ts": "2026-05-07T07:19:56.734Z",
-      "seed": true
-    },
-    {
       "id": "cassis-italia-cornado-risarcimento",
       "url": "https://frontaliereticino.ch/articoli-frontaliere/cassis-italia-cornado-risarcimento/",
       "ts": "2026-05-07T07:37:15.149Z",
@@ -6066,6 +6042,74 @@
       "copyAngleIntent": "both",
       "copyHook": "Un passaggio pratico per leggere un tema oltreconfine con più chiarezza.",
       "copyCta": "Leggi l'approfondimento."
+    },
+    {
+      "id": "contro-aumento-iva-pesa-meno",
+      "url": "https://frontaliereticino.ch/articoli-frontaliere/contro-aumento-iva-pesa-meno/",
+      "ts": "2026-11-09T17:41:29.703Z",
+      "fbPostId": "951226518080080_122130963903272498",
+      "copyMode": "codex",
+      "copySlot": "article",
+      "copyPromptVersion": "frontaliere-social-copy-v4",
+      "copyPackId": "1fb417e247af2a71",
+      "copyTemplateId": "fb-article-context",
+      "copyAssignmentMode": "deterministic",
+      "copyAngleId": "contesto-chiaro",
+      "copyPillarId": "vita-oltreconfine",
+      "copyAngleIntent": "searchable",
+      "copyHook": "Il contesto utile prima di valutare una scelta oltreconfine.",
+      "copyCta": "Approfondisci il tema."
+    },
+    {
+      "id": "via-libera-tram-treno-luganese",
+      "url": "https://frontaliereticino.ch/articoli-frontaliere/via-libera-tram-treno-luganese/",
+      "ts": "2026-11-09T17:41:34.841Z",
+      "fbPostId": "951226518080080_122130963921272498",
+      "copyMode": "codex",
+      "copySlot": "article",
+      "copyPromptVersion": "frontaliere-social-copy-v4",
+      "copyPackId": "1fb417e247af2a71",
+      "copyTemplateId": "fb-article-question",
+      "copyAssignmentMode": "deterministic",
+      "copyAngleId": "domanda-comune",
+      "copyPillarId": "strumenti-utili",
+      "copyAngleIntent": "both",
+      "copyHook": "Una domanda circoscritta può rendere più utile la lettura.",
+      "copyCta": "Consulta la guida."
+    },
+    {
+      "id": "finanziamento-tredicesima-avs",
+      "url": "https://frontaliereticino.ch/articoli-frontaliere/finanziamento-tredicesima-avs/",
+      "ts": "2026-11-09T17:41:39.520Z",
+      "fbPostId": "951226518080080_122130963957272498",
+      "copyMode": "codex",
+      "copySlot": "article",
+      "copyPromptVersion": "frontaliere-social-copy-v4",
+      "copyPackId": "1fb417e247af2a71",
+      "copyTemplateId": "fb-article-question",
+      "copyAssignmentMode": "deterministic",
+      "copyAngleId": "domanda-comune",
+      "copyPillarId": "strumenti-utili",
+      "copyAngleIntent": "both",
+      "copyHook": "Una domanda circoscritta può rendere più utile la lettura.",
+      "copyCta": "Consulta la guida."
+    },
+    {
+      "id": "vivere-magreglio-lavorare-ticino",
+      "url": "https://frontaliereticino.ch/articoli-frontaliere/vivere-magreglio-lavorare-ticino/",
+      "ts": "2026-11-09T17:41:46.559Z",
+      "fbPostId": "951226518080080_122130964047272498",
+      "copyMode": "codex",
+      "copySlot": "article",
+      "copyPromptVersion": "frontaliere-social-copy-v4",
+      "copyPackId": "1fb417e247af2a71",
+      "copyTemplateId": "fb-article-question",
+      "copyAssignmentMode": "deterministic",
+      "copyAngleId": "domanda-comune",
+      "copyPillarId": "strumenti-utili",
+      "copyAngleIntent": "both",
+      "copyHook": "Una domanda circoscritta può rendere più utile la lettura.",
+      "copyCta": "Consulta la guida."
     }
   ]
 }

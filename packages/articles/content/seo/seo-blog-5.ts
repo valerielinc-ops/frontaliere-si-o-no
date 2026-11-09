@@ -114498,6 +114498,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-contro-aumento-iva-pesa-meno': {
+    title: 'Contro aumento IVA: imposta che pesa più su chi ha meno',
+    description: 'Il fronte del No contesta l\'aumento dell\'IVA per la tredicesima AVS. Voto previsto il 29 novembre; il PC stima 180 franchi annui medi.',
+    keywords: 'aumento IVA, tredicesima AVS, fronte No, Partito Comunista, 29 novembre, Bellinzona, contributi salariali',
+    ogTitle: 'Contro aumento IVA: imposta che pesa più su chi ha meno',
+    ogDescription: 'Il fronte del No contesta l\'aumento dell\'IVA per finanziare la tredicesima AVS. Il voto è il 29 novembre; il PC indica 180 franchi annui medi per economia domestica.',
+    canonicalPath: '/articoli-frontaliere/contro-aumento-iva-pesa-meno/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Contro aumento IVA: imposta che pesa più su chi ha meno",
+      "description": "Il fronte del No contesta l'aumento dell'IVA per la tredicesima AVS. Voto previsto il 29 novembre; il PC stima 180 franchi annui medi.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-contro-aumento-iva-pesa-meno.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine illustrativa pertinente al tema dell’articolo"
+      },
+      "datePublished": "2026-11-09T16:08:48+00:00",
+      "dateModified": "2026-11-09T16:08:48+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/contro-aumento-iva-pesa-meno/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
