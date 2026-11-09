@@ -160,6 +160,32 @@ autorevole richiede il marcatore del sito («Nessun documento trovato», «Docum
 presenti: 0»); una pagina irriconoscibile e' `selector_miss`, cosi' un cambio di
 layout non ritira gli annunci.
 
+### Browser stealth e robots.txt (decisione del proprietario, 2026-11-09)
+
+Sostituisce, dove il flag e' acceso, la regola «crawler che si dichiara» e il
+fail-fast su `AntiBotBlockError`. Tutto passa da Remote Config (ponte
+`scripts/load-rc-env.mjs`), con default locale sicuro e attivazione per run.
+
+- `STEALTH_BROWSER_CRAWLER=1` (default `0`): `createBrowser`
+  (`scripts/lib/ats-clients/playwright-runtime.mjs`) non manda piu'
+  `FrontaliereTicino-Bot/1.0` ma lo user agent Chrome del browser, e un
+  `AntiBotBlockError` in `fetchWithRateLimit` porta la stessa URL in CloakBrowser
+  (`scripts/lib/stealth-browser.mjs`, chiave `CLOAKBROWSER_LICENSE_KEY_CRAWLER`).
+  Li' `scripts/lib/challenge-pass.mjs` aspetta l'interstitial Cloudflare e clicca
+  un Turnstile gestito; da quel momento il context resta su CloakBrowser. La
+  chiave ha **un posto solo**: se e' occupato (un'altra run, o una crashata da
+  meno di 4 minuti) si torna al comportamento di prima, cioe' l'errore originale.
+  `closeAll` chiude anche CloakBrowser e libera il posto.
+- `CRAWLER_RESPECT_ROBOTS=0` (default `1`): `robotsEnforced()`
+  (`scripts/lib/robots-policy.mjs`) spegne la lettura di robots.txt nei due
+  client che la applicano, `ticino-comuni-polite-client.mjs` e
+  `crawl-canton-notices.mjs`, segnali `ai-input` compresi. Le pause per host
+  (`MIN_GAP_MS`, `Crawl-delay` dei quirk) restano: proteggono i siti dal carico
+  e i nostri IP dal ban.
+- `STEALTH_BROWSER_PROXY` (facoltativo): proxy upstream del solo browser stealth.
+- I crawler dedicati che chiamano `launchChromium` direttamente e il fallback
+  browser di `shared-jobs-crawler.mjs` non passano ancora da questa escalation.
+
 ## Slug Stability — Jaccard Token Similarity
 
 **Never regenerate slugs unconditionally on every crawl run.** Minor title wording changes (e.g. "per la Ricerca" -> "di ricerca") must NOT produce a new slug, as this orphans the old indexed URL and creates an endless `previousSlugs` chain.

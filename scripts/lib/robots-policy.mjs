@@ -17,6 +17,16 @@
  * completo per questo giro.
  */
 
+/**
+ * Owner decision 2026-11-09: robots.txt is a choice, not a rule, switched by
+ * CRAWLER_RESPECT_ROBOTS (Remote Config → env). The safe local default is
+ * '1' (respect it); '0' reads no robots.txt at all — neither Disallow nor the
+ * AI-input signals — while each crawler keeps its own pacing per host.
+ */
+export function robotsEnforced(env = process.env) {
+  return String(env.CRAWLER_RESPECT_ROBOTS ?? '1').trim() !== '0';
+}
+
 /** @returns {{ groups: { agents: string[], rules: { allow: boolean, path: string }[], crawlDelay: number|null }[], contentSignals: string[] }} */
 export function parseRobotsTxt(text) {
   const groups = [];

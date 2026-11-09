@@ -120,11 +120,16 @@ jobs:
 
       # The portal runner drives Chromium; the draft reads a single-page form's
       # questions ahead (career-ops apply.md: identify all questions first).
+      # The same install brings the system libraries CloakBrowser needs; its
+      # own binary is fetched on its first launch (scripts/lib/stealth-browser.mjs).
       - name: Install Chromium for the portal runner
         run: npx playwright install --with-deps chromium
         timeout-minutes: 15
 
-      # CAPTCHA challenges go to Valerie's owner takeover; this runner never loads a solver.
+      # Owner decision 2026-11-09: with STEALTH_BROWSER_ASSISTED on (Remote
+      # Config), the portal runs in CloakBrowser on its own license key and gets
+      # past Cloudflare interstitials and Turnstile; a key already in use falls
+      # back to Chromium. Any CAPTCHA left goes to Valerie's owner takeover.
       - name: Run agent
         env:
           ORDER_ID: ${{ inputs.order_id }}
@@ -140,9 +145,9 @@ jobs:
           ASSISTED_APPLICATION_STOP_REPORT: ${{ runner.temp }}/portal-stop.json
           # Candidate-free proof used to close stale portal-stop issues after a pass.
           ASSISTED_APPLICATION_PORTAL_PASS: ${{ runner.temp }}/portal-pass.json
-        # A real (headed) Chromium on a virtual screen: some ATS turn away a
+        # A real (headed) browser on a virtual screen: some ATS turn away a
         # browser that calls itself HeadlessChrome, in its user agent and in its
-        # client hints. Nothing is disguised (owner decision 2026-10-01).
+        # client hints.
         run: |
           if [ "$MODE" = 'verify_portal' ]; then
             if command -v xvfb-run >/dev/null 2>&1; then

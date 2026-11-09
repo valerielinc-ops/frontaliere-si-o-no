@@ -49,7 +49,8 @@ import { serializeAccountFailure } from '../../../../functions/src/assistedAppli
 import { addressQuestionAnswer, residenceCountryCode, resolveResidenceAddress } from './residence-address.mjs';
 import { CONFIRM_RE, NEXT_RE, REFUSED_RE, SUBMIT_RE, VALIDATION_RE, applyActions, chooseChooserFiles, documentPaths, findButton, locatorFor, uploadReceipt } from './fill.mjs';
 import { detectLanguageWithConfidence } from '../../../lib/detect-language.mjs';
-import { launchChromium } from '../../../lib/ensure-chromium.mjs';
+import { browserEngine, chromeUserAgent, isStealthBrowser, launchStealthOrChromium } from '../../../lib/stealth-browser.mjs';
+import { passChallenge } from '../../../lib/challenge-pass.mjs';
 import { classifyLiveness, isHardClosed } from '../liveness.mjs';
 import { armFinalFormClickGuardInPage, clearFinalFormGuardInPage, installFinalFormGuardCaptureInPage, readFinalFormGuardStatusInPage } from './form-contract.mjs';
 
@@ -657,12 +658,54 @@ function portalChannelType(ctx = {}) {
 /**
  * The browser's own user agent without "Headless", on the machine's real
  * system: some ATS turn away a browser that calls itself HeadlessChrome
- * (owner decision 2026-10-01). Same Chrome version, nothing else disguised.
+ * (owner decision 2026-10-01). Only for the vanilla Chromium: CloakBrowser
+ * keeps its own, consistent with the rest of its fingerprint.
  */
-export function realisticUserAgent(version, platform = process.platform) {
-  const system = platform === 'darwin' ? 'Macintosh; Intel Mac OS X 10_15_7' : platform === 'win32' ? 'Windows NT 10.0; Win64; x64' : 'X11; Linux x86_64';
-  const major = /^\d+/.exec(String(version || ''))?.[0] || '140';
-  return `Mozilla/5.0 (${system}) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/${major}.0.0.0 Safari/537.36`;
+export const realisticUserAgent = chromeUserAgent;
+
+/**
+ * The portal's browser (owner decision 2026-11-09): CloakBrowser on the
+ * assisted application's own license key when STEALTH_BROWSER_ASSISTED is on,
+ * the usual Chromium otherwise, or when the key's only seat is in use.
+ */
+export function launchPortalBrowser(ctx = {}) {
+  const headless = !headedBrowser();
+  return launchStealthOrChromium({
+    purpose: 'assisted',
+    headless,
+    locale: INTL[ctx.language] || 'de-CH',
+    // The virtual screen is 1366x900 (xvfb-run): the window fills it.
+    args: ['--window-size=1366,900'],
+    fallbackOptions: { headless },
+  });
+}
+
+/**
+ * Context options for the portal's browser. Under CloakBrowser the locale and
+ * timezone are binary flags and the user agent is its own: overriding them
+ * through CDP would be a tell, and viewport null lets the page follow the window.
+ */
+export function portalContextOptions(browser, ctx = {}) {
+  if (isStealthBrowser(browser)) return { viewport: null, acceptDownloads: false };
+  return {
+    userAgent: realisticUserAgent(typeof browser?.version === 'function' ? browser.version() : ''),
+    locale: INTL[ctx.language] || 'de-CH',
+    timezoneId: 'Europe/Zurich',
+    viewport: { width: 1366, height: 900 },
+    acceptDownloads: false,
+  };
+}
+
+/**
+ * Before a CAPTCHA stop: with CloakBrowser, wait out a Cloudflare interstitial
+ * and click a managed Turnstile once (challenge-pass.mjs). True when the page
+ * should be read again; a vanilla Chromium never tries.
+ */
+export async function passPortalChallenge(browser, page, { log = () => {}, evidence } = {}) {
+  if (!isStealthBrowser(browser) || !page) return false;
+  const result = await passChallenge(page, { log }).catch(() => null);
+  if (evidence && result) (evidence.challenges ||= []).push({ passed: result.passed, clicked: result.clicked });
+  return Boolean(result?.passed);
 }
 
 // Path segments that name the employer or the posting, not the portal's page.
@@ -6714,7 +6757,7 @@ export async function readPortalRequirements(ctx) {
       };
     }
   }
-  const launch = ctx.launch || (() => launchChromium({ headless: !headedBrowser() }));
+  const launch = ctx.launch || (() => launchPortalBrowser(ctx));
   let browser = null;
   let page = null;
   let contractDiagnostics = null;
@@ -6745,13 +6788,7 @@ export async function readPortalRequirements(ctx) {
   };
   try {
     browser = await launch();
-    const context = await browser.newContext({
-      userAgent: realisticUserAgent(typeof browser.version === 'function' ? browser.version() : ''),
-      locale: INTL[ctx.language] || 'de-CH',
-      timezoneId: 'Europe/Zurich',
-      viewport: { width: 1366, height: 900 },
-      acceptDownloads: false,
-    });
+    const context = await browser.newContext(portalContextOptions(browser, ctx));
     registerPortalChannelType(context, portalChannelType(ctx));
     await registerCookieSessionRecovery(context, { log: ctx.log });
     if (genericPublicRoute && typeof context.route === 'function') {
@@ -6823,6 +6860,10 @@ export async function readPortalRequirements(ctx) {
     contractSnapshot = snapshot;
     const readableApplication = hasApplicationForm(snapshot)
       && (!snapshot.passwordVisible || snapshot.fields.some((field) => field.kind === 'file') || sendsApplication(snapshot));
+    if (snapshot.captcha && await passPortalChallenge(browser, page, { log: ctx.log })) {
+      snapshot = await extractFields(page, readAhead ? { ...NAVIGATION, includeHidden: true, listboxOptions: false } : NAVIGATION);
+      contractSnapshot = snapshot;
+    }
     if (snapshot.captcha) return await finish({ questions: [], documents: [], handoff: 'captcha_present' });
     if (!readableApplication) {
       // An account portal is allowed to expose only its sign-in/create-account
@@ -6932,7 +6973,7 @@ export async function readPortalQuestions(ctx) {
  * @returns {Promise<{event:object, evidence:object}>}
  */
 export async function submitViaPortal(ctx) {
-  const launch = ctx.launch || (() => launchChromium({ headless: !headedBrowser() }));
+  const launch = ctx.launch || (() => launchPortalBrowser(ctx));
   const channelType = portalChannelType(ctx);
   const log = ctx.log || (() => {});
   // JOIN asks one question per page (e-mail, CV, details, links, permit, salary,
@@ -7033,13 +7074,7 @@ export async function submitViaPortal(ctx) {
   // Step buttons the agent named in this run, with their page: learned only once the portal confirms.
   const namedNext = [];
   try {
-    const contextOptions = {
-      locale: INTL[ctx.language] || 'de-CH',
-      timezoneId: 'Europe/Zurich',
-      viewport: { width: 1366, height: 900 },
-      acceptDownloads: false,
-    };
-    context = await browser.newContext({ ...contextOptions, userAgent: realisticUserAgent(typeof browser.version === 'function' ? browser.version() : '') });
+    context = await browser.newContext(portalContextOptions(browser, ctx));
     registerPortalChannelType(context, channelType);
     await registerCookieSessionRecovery(context, { log: ctx.log });
     // Playwright contexts always expose addInitScript. Keep the adapter
@@ -7053,7 +7088,7 @@ export async function submitViaPortal(ctx) {
     page = await context.newPage();
     // Which browser the portal saw (the run's logs are deleted): headed on the
     // virtual screen or headless, and the user agent it sent.
-    evidence.browser = { headed: headedBrowser(), userAgent: await page.evaluate(() => navigator.userAgent).catch(() => '') };
+    evidence.browser = { headed: headedBrowser(), ...browserEngine(browser), userAgent: await page.evaluate(() => navigator.userAgent).catch(() => '') };
     const entryUrl = portalEntryUrl(ctx);
     await diagnostics.beginAttempt();
     const response = await page.goto(entryUrl, { waitUntil: 'domcontentloaded', timeout: 60_000 });
@@ -7406,6 +7441,7 @@ export async function submitViaPortal(ctx) {
       if (existingReceipt) return existingReceipt;
       evidence.steps.push({ step, url: page.url(), fields: snapshot.fields.length, errors: snapshot.errors || [] });
       log(`portal step ${step}: ${snapshot.fields.length} fields`);
+      if (snapshot.captcha && await passPortalChallenge(browser, page, { log, evidence })) snapshot = await extractFields(page, NAVIGATION);
       if (snapshot.captcha) return await handoff('captcha');
       const observedReceipt = await confirmedReceipt(snapshot);
       if (observedReceipt) return observedReceipt;
@@ -7846,6 +7882,7 @@ export async function submitViaPortal(ctx) {
           }
         }
       }
+      if (after.captcha && await passPortalChallenge(browser, page, { log, evidence })) after = await extractFields(page, NAVIGATION);
       if (after.captcha) return await handoff('captcha');
       // A usual name, or one this portal taught a confirmed submission (level 2).
       const known = await knownFor(page.url());

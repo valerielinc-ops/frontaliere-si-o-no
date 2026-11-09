@@ -12,7 +12,7 @@
  *  3. Nessun aggiramento: niente proxy, niente UA diverso, niente secondo
  *     canale. Un 403/406/429 e' una risposta, e resta tale.
  */
-import { isAllowed, robotsFromResponse } from './robots-policy.mjs';
+import { isAllowed, robotsEnforced, robotsFromResponse } from './robots-policy.mjs';
 
 export const TICINO_COMUNI_USER_AGENT =
   'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)';
@@ -54,6 +54,7 @@ export function createPoliteClient({
   sleep = defaultSleep,
   clock = Date.now,
   timeoutMs = DEFAULT_TIMEOUT_MS,
+  respectRobots = robotsEnforced(),
 } = {}) {
   const robotsByOrigin = new Map();
   const nextSlotByHost = new Map();
@@ -102,6 +103,7 @@ export function createPoliteClient({
 
   /** Il verdetto di robots.txt per un URL, senza consumare il turno dell'host. */
   async function canFetch(url) {
+    if (!respectRobots) return { allowed: true, rule: null, crawlDelay: null };
     const { origin } = new URL(url);
     const robots = await robotsFor(origin);
     if (robots.state === 'unreachable') throw new RobotsUnreachableError(origin);
