@@ -1,21 +1,19 @@
 {
-  "refreshedAt": "2026-11-02T13:09:16.402Z",
+  "refreshedAt": "2026-11-09T13:41:57.022Z",
   "lookbackDays": 90,
   "minImpressions": 1,
   "sources": {
     "gsc": {
-      "ok": true,
-      "rowsScanned": 109327,
-      "noSlashSeen": 370,
-      "jobSectionKept": 357
+      "ok": false,
+      "reason": "The operation was aborted due to timeout"
     },
     "ga4": {
       "ok": true,
       "complete": true,
-      "rowsScanned": 122690,
-      "reportedRows": 122690,
-      "noSlashSeen": 146,
-      "jobSectionKept": 82
+      "rowsScanned": 116027,
+      "reportedRows": 116027,
+      "noSlashSeen": 145,
+      "jobSectionKept": 80
     }
   },
   "keepCount": 1870,
