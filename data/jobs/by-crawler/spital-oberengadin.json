@@ -713,12 +713,12 @@
     },
     {
       "id": "spital-oberengadin-4824e42c9520",
-      "slug": "stationsleiterin-stationsleiter-spital-oberengadin-samedan",
+      "slug": "direttore-della-stazione-stazione-spital-oberengadin-samedan",
       "slugByLocale": {
         "de": "stationsleiterin-stationsleiter-spital-oberengadin-samedan",
-        "it": "stationsleiterin-stationsleiter-spital-oberengadin-samedan",
-        "en": "stationsleiterin-stationsleiter-spital-oberengadin-samedan",
-        "fr": "stationsleiterin-stationsleiter-spital-oberengadin-samedan"
+        "it": "direttore-della-stazione-stazione-spital-oberengadin-samedan",
+        "en": "station-manager-station-manager-spital-oberengadin-samedan",
+        "fr": "gestionnaire-de-station-gestionnaire-de-station-spital-oberengadin-samedan"
       },
       "company": "Spital Oberengadin",
       "companyKey": "spital-oberengadin",
@@ -784,7 +784,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-02T09:24:16.049Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-09-10T23:10:17.261Z"
+      "firstSeenAt": "2026-09-10T23:10:17.261Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "stationsleiterin-stationsleiter-spital-oberengadin-samedan"
+        ],
+        "en": [
+          "stationsleiterin-stationsleiter-spital-oberengadin-samedan"
+        ],
+        "fr": [
+          "stationsleiterin-stationsleiter-spital-oberengadin-samedan"
+        ]
+      },
+      "previousSlugs": [
+        "stationsleiterin-stationsleiter-spital-oberengadin-samedan"
+      ]
     },
     {
       "id": "spital-oberengadin-ad42568a5698",

@@ -249,12 +249,12 @@
     },
     {
       "id": "huntsman-ade20dc7e980",
-      "slug": "technologue-s-en-production-5-equipes-huntsman-ch",
+      "slug": "tecnologo-della-produzione-s-5-squadre-huntsman-corporation-monthey",
       "slugByLocale": {
         "fr": "technologue-s-en-production-5-equipes-huntsman-ch",
-        "it": "technologue-s-en-production-5-equipes-huntsman-ch",
-        "en": "technologue-s-en-production-5-equipes-huntsman-ch",
-        "de": "technologue-s-en-production-5-equipes-huntsman-ch"
+        "it": "tecnologo-della-produzione-s-5-squadre-huntsman-corporation-monthey",
+        "en": "production-technologist-s-5-teams-huntsman-corporation-monthey",
+        "de": "produktionstechnologe-n-5-teams-huntsman-corporation-monthey"
       },
       "company": "Huntsman Corporation",
       "companyKey": "huntsman",
@@ -317,7 +317,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-04T09:49:08.674Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-09T09:49:08.674Z"
+      "firstSeenAt": "2026-11-09T09:49:08.674Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "technologue-s-en-production-5-equipes-huntsman-ch"
+        ],
+        "en": [
+          "technologue-s-en-production-5-equipes-huntsman-ch"
+        ],
+        "de": [
+          "technologue-s-en-production-5-equipes-huntsman-ch"
+        ]
+      },
+      "previousSlugs": [
+        "technologue-s-en-production-5-equipes-huntsman-ch"
+      ]
     },
     {
       "id": "huntsman-36e1a25387c1",

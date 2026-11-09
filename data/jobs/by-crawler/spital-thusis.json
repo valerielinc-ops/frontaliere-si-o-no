@@ -1490,12 +1490,12 @@
     },
     {
       "id": "spital-thusis-7de02c7105a4",
-      "slug": "physiotherapeut-in-80-100-befristet-spital-thusis",
+      "slug": "fisioterapista-80-100-a-tempo-determinato-spital-thusis-thusis",
       "slugByLocale": {
         "de": "physiotherapeut-in-80-100-befristet-spital-thusis-ch",
-        "it": "physiotherapeut-in-80-100-befristet-spital-thusis",
-        "en": "physiotherapeut-in-80-100-befristet-spital-thusis-ch",
-        "fr": "physiotherapeut-in-80-100-befristet-spital-thusis-ch"
+        "it": "fisioterapista-80-100-a-tempo-determinato-spital-thusis-thusis",
+        "en": "physiotherapist-80-100-temporary-spital-thusis-thusis",
+        "fr": "physiotherapeute-80-100-pour-une-duree-limitee-spital-thusis-thusis"
       },
       "company": "Spital Thusis",
       "companyKey": "spital-thusis",
@@ -1556,11 +1556,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "physiotherapeut-in-80-100-befristet-spital-thusis-ch",
+          "physiotherapeut-in-80-100-befristet-spital-thusis"
+        ],
+        "en": [
+          "physiotherapeut-in-80-100-befristet-spital-thusis-ch"
+        ],
+        "fr": [
           "physiotherapeut-in-80-100-befristet-spital-thusis-ch"
         ]
       },
       "previousSlugs": [
-        "physiotherapeut-in-80-100-befristet-spital-thusis-ch"
+        "physiotherapeut-in-80-100-befristet-spital-thusis-ch",
+        "physiotherapeut-in-80-100-befristet-spital-thusis"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,

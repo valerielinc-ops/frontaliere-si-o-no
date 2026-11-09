@@ -11606,12 +11606,12 @@
     },
     {
       "id": "med-ipersonal-ee7ffb590005",
-      "slug": "sanitarinstallateur-in-cfc-ipersonal-ag-au-sg-sg",
+      "slug": "installatore-trice-di-sanitari-afc-ipersonal-ag-au-sg-sg",
       "slugByLocale": {
         "de": "sanitarinstallateur-in-efz-ipersonal-ag-au-sg-sg",
-        "it": "sanitarinstallateur-in-cfc-ipersonal-ag-au-sg-sg",
-        "en": "sanitarinstallateur-in-efz-ipersonal-ag-au-sg-sg",
-        "fr": "sanitarinstallateur-in-efz-ipersonal-ag-au-sg-sg"
+        "it": "installatore-trice-di-sanitari-afc-ipersonal-ag-au-sg-sg",
+        "en": "sanitary-installer-efz-ipersonal-ag-au-sg-sg",
+        "fr": "installateur-trice-sanitaire-cfc-ipersonal-ag-au-sg-sg"
       },
       "company": "iPersonal AG",
       "companyKey": "med-ipersonal",
@@ -11673,21 +11673,29 @@
       "firstSeenAt": "2026-11-09T09:53:24.469Z",
       "previousSlugsByLocale": {
         "it": [
+          "sanitarinstallateur-in-efz-ipersonal-ag-au-sg-sg",
+          "sanitarinstallateur-in-cfc-ipersonal-ag-au-sg-sg"
+        ],
+        "en": [
+          "sanitarinstallateur-in-efz-ipersonal-ag-au-sg-sg"
+        ],
+        "fr": [
           "sanitarinstallateur-in-efz-ipersonal-ag-au-sg-sg"
         ]
       },
       "previousSlugs": [
-        "sanitarinstallateur-in-efz-ipersonal-ag-au-sg-sg"
+        "sanitarinstallateur-in-efz-ipersonal-ag-au-sg-sg",
+        "sanitarinstallateur-in-cfc-ipersonal-ag-au-sg-sg"
       ]
     },
     {
       "id": "med-ipersonal-ddf52e35451f",
-      "slug": "logistiker-in-ipersonal-ag-pratteln-bl",
+      "slug": "operatore-logistico-ipersonal-ag-pratteln-bl",
       "slugByLocale": {
         "de": "logistiker-in-ipersonal-ag-pratteln-bl",
-        "it": "logistiker-in-ipersonal-ag-pratteln-bl",
-        "en": "logistiker-in-ipersonal-ag-pratteln-bl",
-        "fr": "logistiker-in-ipersonal-ag-pratteln-bl"
+        "it": "operatore-logistico-ipersonal-ag-pratteln-bl",
+        "en": "logistics-specialist-ipersonal-ag-pratteln-bl",
+        "fr": "logisticien-ne-ipersonal-ag-pratteln-bl"
       },
       "company": "iPersonal AG",
       "companyKey": "med-ipersonal",
@@ -11749,21 +11757,29 @@
       "firstSeenAt": "2026-11-09T09:53:24.167Z",
       "previousSlugsByLocale": {
         "it": [
-          "logistiker-in-ipersonal-ag-pratteln"
+          "logistiker-in-ipersonal-ag-pratteln",
+          "logistiker-in-ipersonal-ag-pratteln-bl"
+        ],
+        "en": [
+          "logistiker-in-ipersonal-ag-pratteln-bl"
+        ],
+        "fr": [
+          "logistiker-in-ipersonal-ag-pratteln-bl"
         ]
       },
       "previousSlugs": [
-        "logistiker-in-ipersonal-ag-pratteln"
+        "logistiker-in-ipersonal-ag-pratteln",
+        "logistiker-in-ipersonal-ag-pratteln-bl"
       ]
     },
     {
       "id": "med-ipersonal-d620dfbae155",
-      "slug": "lastwagenchauffeur-euse-ipersonal-ag-pratteln-bl",
+      "slug": "camion-driver-uso-ipersonal-ag-pratteln-bl",
       "slugByLocale": {
         "de": "lastwagenchauffeur-euse-ipersonal-ag-pratteln-bl",
-        "it": "lastwagenchauffeur-euse-ipersonal-ag-pratteln-bl",
-        "en": "lastwagenchauffeur-euse-ipersonal-ag-pratteln-bl",
-        "fr": "lastwagenchauffeur-euse-ipersonal-ag-pratteln-bl"
+        "it": "camion-driver-uso-ipersonal-ag-pratteln-bl",
+        "en": "truck-driver-euse-ipersonal-ag-pratteln-bl",
+        "fr": "conducteur-utilisateur-de-camion-ipersonal-ag-pratteln-bl"
       },
       "company": "iPersonal AG",
       "companyKey": "med-ipersonal",
@@ -11821,7 +11837,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-03T09:53:23.863Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-09T09:53:23.863Z"
+      "firstSeenAt": "2026-11-09T09:53:23.863Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "lastwagenchauffeur-euse-ipersonal-ag-pratteln-bl"
+        ],
+        "en": [
+          "lastwagenchauffeur-euse-ipersonal-ag-pratteln-bl"
+        ],
+        "fr": [
+          "lastwagenchauffeur-euse-ipersonal-ag-pratteln-bl"
+        ]
+      },
+      "previousSlugs": [
+        "lastwagenchauffeur-euse-ipersonal-ag-pratteln-bl"
+      ]
     },
     {
       "id": "med-ipersonal-0c78a2734714",
@@ -11908,12 +11938,12 @@
     },
     {
       "id": "med-ipersonal-4ac13da7e9ed",
-      "slug": "metallbauer-in-ipersonal-ag-schenkon-lu",
+      "slug": "metalmeccanico-a-ipersonal-ag-schenkon-lu",
       "slugByLocale": {
         "de": "metallbauer-in-ipersonal-ag-schenkon-lu",
-        "it": "metallbauer-in-ipersonal-ag-schenkon-lu",
-        "en": "metallbauer-in-ipersonal-ag-schenkon-lu",
-        "fr": "metallbauer-in-ipersonal-ag-schenkon-lu"
+        "it": "metalmeccanico-a-ipersonal-ag-schenkon-lu",
+        "en": "metal-worker-ipersonal-ag-schenkon-lu",
+        "fr": "constructeur-constructrice-de-metaux-ipersonal-ag-schenkon-lu"
       },
       "company": "iPersonal AG",
       "companyKey": "med-ipersonal",
@@ -11972,16 +12002,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-04T09:53:23.259Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-09T09:53:23.259Z"
+      "firstSeenAt": "2026-11-09T09:53:23.259Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "metallbauer-in-ipersonal-ag-schenkon-lu"
+        ],
+        "en": [
+          "metallbauer-in-ipersonal-ag-schenkon-lu"
+        ],
+        "fr": [
+          "metallbauer-in-ipersonal-ag-schenkon-lu"
+        ]
+      },
+      "previousSlugs": [
+        "metallbauer-in-ipersonal-ag-schenkon-lu"
+      ]
     },
     {
       "id": "med-ipersonal-1ef2770be348",
-      "slug": "logistiker-in-cfc-ipersonal-ag-untersiggenthal-ag",
+      "slug": "logista-a-afc-ipersonal-ag-untersiggenthal-ag",
       "slugByLocale": {
         "de": "logistiker-in-efz-ipersonal-ag-untersiggenthal-ag",
-        "it": "logistiker-in-cfc-ipersonal-ag-untersiggenthal-ag",
-        "en": "logistiker-in-efz-ipersonal-ag-untersiggenthal-ag",
-        "fr": "logistiker-in-efz-ipersonal-ag-untersiggenthal-ag"
+        "it": "logista-a-afc-ipersonal-ag-untersiggenthal-ag",
+        "en": "logistician-state-certified-ipersonal-ag-untersiggenthal-ag",
+        "fr": "logisticien-ne-cfc-ipersonal-ag-untersiggenthal-ag"
       },
       "company": "iPersonal AG",
       "companyKey": "med-ipersonal",
@@ -12026,12 +12070,20 @@
       "previousSlugsByLocale": {
         "it": [
           "logistiker-in-efz-ipersonal-ag-untersiggenthal-ag",
-          "logistiker-in-cfc-ipersonal-ag-untersiggenthal"
+          "logistiker-in-cfc-ipersonal-ag-untersiggenthal",
+          "logistiker-in-cfc-ipersonal-ag-untersiggenthal-ag"
+        ],
+        "en": [
+          "logistiker-in-efz-ipersonal-ag-untersiggenthal-ag"
+        ],
+        "fr": [
+          "logistiker-in-efz-ipersonal-ag-untersiggenthal-ag"
         ]
       },
       "previousSlugs": [
         "logistiker-in-efz-ipersonal-ag-untersiggenthal-ag",
-        "logistiker-in-cfc-ipersonal-ag-untersiggenthal"
+        "logistiker-in-cfc-ipersonal-ag-untersiggenthal",
+        "logistiker-in-cfc-ipersonal-ag-untersiggenthal-ag"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -12054,12 +12106,12 @@
     },
     {
       "id": "med-ipersonal-0818351deb6f",
-      "slug": "konstrukteur-in-cfc-ipersonal-ag-meinisberg-be",
+      "slug": "progettista-afc-ipersonal-ag-meinisberg-be",
       "slugByLocale": {
         "de": "konstrukteur-in-efz-ipersonal-ag-meinisberg-be",
-        "it": "konstrukteur-in-cfc-ipersonal-ag-meinisberg-be",
-        "en": "konstrukteur-in-efz-ipersonal-ag-meinisberg-be",
-        "fr": "konstrukteur-in-efz-ipersonal-ag-meinisberg-be"
+        "it": "progettista-afc-ipersonal-ag-meinisberg-be",
+        "en": "designer-ipersonal-ag-meinisberg-be",
+        "fr": "concepteur-trice-cfc-ipersonal-ag-meinisberg-be"
       },
       "company": "iPersonal AG",
       "companyKey": "med-ipersonal",
@@ -12121,21 +12173,29 @@
       "firstSeenAt": "2026-11-09T09:53:22.657Z",
       "previousSlugsByLocale": {
         "it": [
+          "konstrukteur-in-efz-ipersonal-ag-meinisberg-be",
+          "konstrukteur-in-cfc-ipersonal-ag-meinisberg-be"
+        ],
+        "en": [
+          "konstrukteur-in-efz-ipersonal-ag-meinisberg-be"
+        ],
+        "fr": [
           "konstrukteur-in-efz-ipersonal-ag-meinisberg-be"
         ]
       },
       "previousSlugs": [
-        "konstrukteur-in-efz-ipersonal-ag-meinisberg-be"
+        "konstrukteur-in-efz-ipersonal-ag-meinisberg-be",
+        "konstrukteur-in-cfc-ipersonal-ag-meinisberg-be"
       ]
     },
     {
       "id": "med-ipersonal-cd8bd47dc605",
-      "slug": "gartner-in-cfc-garten-e-landschaftsbau-ipersonal-ag-stettlen-be",
+      "slug": "giardiniere-a-afc-giardinaggio-e-paesaggistica-ipersonal-ag-stettlen-be",
       "slugByLocale": {
         "de": "gartner-in-efz-garten-und-landschaftsbau-ipersonal-ag-stettlen-be",
-        "it": "gartner-in-cfc-garten-e-landschaftsbau-ipersonal-ag-stettlen-be",
-        "en": "gartner-in-efz-garten-und-landschaftsbau-ipersonal-ag-stettlen-be",
-        "fr": "gartner-in-efz-garten-und-landschaftsbau-ipersonal-ag-stettlen-be"
+        "it": "giardiniere-a-afc-giardinaggio-e-paesaggistica-ipersonal-ag-stettlen-be",
+        "en": "gardener-m-f-x0a-gardening-and-landscaping-ipersonal-ag-stettlen-be",
+        "fr": "jardinier-jardiniere-cfc-horticulture-et-amenagement-paysager-ipersonal-ag-stettlen-be"
       },
       "company": "iPersonal AG",
       "companyKey": "med-ipersonal",
@@ -12180,12 +12240,20 @@
       "previousSlugsByLocale": {
         "it": [
           "gartner-in-efz-garten-und-landschaftsbau-ipersonal-ag-stettlen-be",
-          "gartner-in-cfc-garten-e-landschaftsbau-ipersonal-ag-stettlen"
+          "gartner-in-cfc-garten-e-landschaftsbau-ipersonal-ag-stettlen",
+          "gartner-in-cfc-garten-e-landschaftsbau-ipersonal-ag-stettlen-be"
+        ],
+        "en": [
+          "gartner-in-efz-garten-und-landschaftsbau-ipersonal-ag-stettlen-be"
+        ],
+        "fr": [
+          "gartner-in-efz-garten-und-landschaftsbau-ipersonal-ag-stettlen-be"
         ]
       },
       "previousSlugs": [
         "gartner-in-efz-garten-und-landschaftsbau-ipersonal-ag-stettlen-be",
-        "gartner-in-cfc-garten-e-landschaftsbau-ipersonal-ag-stettlen"
+        "gartner-in-cfc-garten-e-landschaftsbau-ipersonal-ag-stettlen",
+        "gartner-in-cfc-garten-e-landschaftsbau-ipersonal-ag-stettlen-be"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -12208,12 +12276,12 @@
     },
     {
       "id": "med-ipersonal-439df504a193",
-      "slug": "automobil-mechatroniker-in-cfc-ipersonal-ag-eiken-ag",
+      "slug": "meccatronico-a-di-automobili-afc-ipersonal-ag-eiken-ag",
       "slugByLocale": {
         "de": "automobil-mechatroniker-in-efz-ipersonal-ag-eiken-ag",
-        "it": "automobil-mechatroniker-in-cfc-ipersonal-ag-eiken-ag",
-        "en": "automobil-mechatroniker-in-efz-ipersonal-ag-eiken-ag",
-        "fr": "automobil-mechatroniker-in-efz-ipersonal-ag-eiken-ag"
+        "it": "meccatronico-a-di-automobili-afc-ipersonal-ag-eiken-ag",
+        "en": "efz-as-automotive-mechatronics-technician-ipersonal-ag-eiken-ag",
+        "fr": "mecatronicien-ne-automobile-cfc-ipersonal-ag-eiken-ag"
       },
       "company": "iPersonal AG",
       "companyKey": "med-ipersonal",
@@ -12275,21 +12343,29 @@
       "firstSeenAt": "2026-11-09T09:53:22.050Z",
       "previousSlugsByLocale": {
         "it": [
+          "automobil-mechatroniker-in-efz-ipersonal-ag-eiken-ag",
+          "automobil-mechatroniker-in-cfc-ipersonal-ag-eiken-ag"
+        ],
+        "en": [
+          "automobil-mechatroniker-in-efz-ipersonal-ag-eiken-ag"
+        ],
+        "fr": [
           "automobil-mechatroniker-in-efz-ipersonal-ag-eiken-ag"
         ]
       },
       "previousSlugs": [
-        "automobil-mechatroniker-in-efz-ipersonal-ag-eiken-ag"
+        "automobil-mechatroniker-in-efz-ipersonal-ag-eiken-ag",
+        "automobil-mechatroniker-in-cfc-ipersonal-ag-eiken-ag"
       ]
     },
     {
       "id": "med-ipersonal-43c3726908d6",
-      "slug": "automatiker-in-cfc-ipersonal-ag-beringen-sh",
+      "slug": "operatore-trice-automatico-a-afc-ipersonal-ag-beringen-sh",
       "slugByLocale": {
         "de": "automatiker-in-efz-ipersonal-ag-beringen-sh",
-        "it": "automatiker-in-cfc-ipersonal-ag-beringen-sh",
-        "en": "automatiker-in-efz-ipersonal-ag-beringen-sh",
-        "fr": "automatiker-in-efz-ipersonal-ag-beringen-sh"
+        "it": "operatore-trice-automatico-a-afc-ipersonal-ag-beringen-sh",
+        "en": "automation-technician-state-certified-ipersonal-ag-beringen-sh",
+        "fr": "automaticien-ne-cfc-ipersonal-ag-beringen-sh"
       },
       "company": "iPersonal AG",
       "companyKey": "med-ipersonal",
@@ -12351,11 +12427,19 @@
       "firstSeenAt": "2026-11-09T09:53:21.748Z",
       "previousSlugsByLocale": {
         "it": [
+          "automatiker-in-efz-ipersonal-ag-beringen-sh",
+          "automatiker-in-cfc-ipersonal-ag-beringen-sh"
+        ],
+        "en": [
+          "automatiker-in-efz-ipersonal-ag-beringen-sh"
+        ],
+        "fr": [
           "automatiker-in-efz-ipersonal-ag-beringen-sh"
         ]
       },
       "previousSlugs": [
-        "automatiker-in-efz-ipersonal-ag-beringen-sh"
+        "automatiker-in-efz-ipersonal-ag-beringen-sh",
+        "automatiker-in-cfc-ipersonal-ag-beringen-sh"
       ]
     },
     {
@@ -12364,8 +12448,8 @@
       "slugByLocale": {
         "de": "zimmermann-zimmerin-efz-ipersonal-ag-allenwinden-zg",
         "it": "zimmermann-zimmerin-cfc-ipersonal-ag-allenwinden-zg",
-        "en": "zimmermann-zimmerin-efz-ipersonal-ag-allenwinden-zg",
-        "fr": "zimmermann-zimmerin-efz-ipersonal-ag-allenwinden-zg"
+        "en": "carpenter-efz-ipersonal-ag-allenwinden-zg",
+        "fr": "charpentier-charpentiere-cfc-ipersonal-ag-allenwinden-zg"
       },
       "company": "iPersonal AG",
       "companyKey": "med-ipersonal",
@@ -12428,6 +12512,12 @@
       "previousSlugsByLocale": {
         "it": [
           "zimmermann-zimmerin-efz-ipersonal-ag-allenwinden-zg"
+        ],
+        "en": [
+          "zimmermann-zimmerin-efz-ipersonal-ag-allenwinden-zg"
+        ],
+        "fr": [
+          "zimmermann-zimmerin-efz-ipersonal-ag-allenwinden-zg"
         ]
       },
       "previousSlugs": [
@@ -12440,8 +12530,8 @@
       "slugByLocale": {
         "de": "zimmermann-zimmerin-efz-ipersonal-ag-zug-zg",
         "it": "zimmermann-zimmerin-cfc-ipersonal-ag-zug-zg",
-        "en": "zimmermann-zimmerin-efz-ipersonal-ag-zug-zg",
-        "fr": "zimmermann-zimmerin-efz-ipersonal-ag-zug-zg"
+        "en": "carpenter-efz-ipersonal-ag-zug-zg",
+        "fr": "charpentier-charpentiere-cfc-ipersonal-ag-zug-zg"
       },
       "company": "iPersonal AG",
       "companyKey": "med-ipersonal",
@@ -12503,6 +12593,12 @@
       "firstSeenAt": "2026-11-09T09:53:21.142Z",
       "previousSlugsByLocale": {
         "it": [
+          "zimmermann-zimmerin-efz-ipersonal-ag-zug-zg"
+        ],
+        "en": [
+          "zimmermann-zimmerin-efz-ipersonal-ag-zug-zg"
+        ],
+        "fr": [
           "zimmermann-zimmerin-efz-ipersonal-ag-zug-zg"
         ]
       },

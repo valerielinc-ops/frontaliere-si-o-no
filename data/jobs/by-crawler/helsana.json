@@ -2818,12 +2818,12 @@
     },
     {
       "id": "helsana-d64b567bf5cd",
-      "slug": "fachspezialist-leistungen-a-80-helsana-dubendorf-stettbach",
+      "slug": "servizi-specializzati-a-80-helsana-dubendorf-stettbach",
       "slugByLocale": {
         "de": "fachspezialist-leistungen-a-80-helsana-dubendorf-stettbach",
-        "it": "fachspezialist-leistungen-a-80-helsana-dubendorf-stettbach",
-        "en": "fachspezialist-leistungen-a-80-helsana-dubendorf-stettbach",
-        "fr": "fachspezialist-leistungen-a-80-helsana-dubendorf-stettbach"
+        "it": "servizi-specializzati-a-80-helsana-dubendorf-stettbach",
+        "en": "specialist-services-a-80-helsana-dubendorf-stettbach",
+        "fr": "services-specialises-a-80-helsana-dubendorf-stettbach"
       },
       "company": "Helsana",
       "companyKey": "helsana",
@@ -2885,7 +2885,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-07T09:42:09.295Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-09T09:42:09.295Z"
+      "firstSeenAt": "2026-11-09T09:42:09.295Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachspezialist-leistungen-a-80-helsana-dubendorf-stettbach"
+        ],
+        "en": [
+          "fachspezialist-leistungen-a-80-helsana-dubendorf-stettbach"
+        ],
+        "fr": [
+          "fachspezialist-leistungen-a-80-helsana-dubendorf-stettbach"
+        ]
+      },
+      "previousSlugs": [
+        "fachspezialist-leistungen-a-80-helsana-dubendorf-stettbach"
+      ]
     },
     {
       "id": "helsana-872317162e36",

@@ -1299,12 +1299,12 @@
     },
     {
       "id": "spital-affoltern-753676d6f61a",
-      "slug": "sekretariatsmitarbeiterin-sekretariatsmitarbeiter-empfang-radiologie-spital-affoltern",
+      "slug": "membro-del-personale-del-segretariato-che-riceve-radiologia-spital-affoltern-ag-affoltern-am-albis",
       "slugByLocale": {
         "de": "sekretariatsmitarbeiterin-sekretariatsmitarbeiter-empfang-radiologie-spital-affoltern",
-        "it": "sekretariatsmitarbeiterin-sekretariatsmitarbeiter-empfang-radiologie-spital-affoltern",
-        "en": "sekretariatsmitarbeiterin-sekretariatsmitarbeiter-empfang-radiologie-spital-affoltern",
-        "fr": "sekretariatsmitarbeiterin-sekretariatsmitarbeiter-empfang-radiologie-spital-affoltern"
+        "it": "membro-del-personale-del-segretariato-che-riceve-radiologia-spital-affoltern-ag-affoltern-am-albis",
+        "en": "secretariat-staff-member-receiving-radiology-spital-affoltern-ag-affoltern-am-albis",
+        "fr": "fonctionnaire-du-secretariat-recevant-une-radiologie-spital-affoltern-ag-affoltern-am-albis"
       },
       "company": "Spital Affoltern AG",
       "companyKey": "spital-affoltern",
@@ -1366,7 +1366,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-07T09:38:37.663Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-09T09:38:37.663Z"
+      "firstSeenAt": "2026-11-09T09:38:37.663Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sekretariatsmitarbeiterin-sekretariatsmitarbeiter-empfang-radiologie-spital-affoltern"
+        ],
+        "en": [
+          "sekretariatsmitarbeiterin-sekretariatsmitarbeiter-empfang-radiologie-spital-affoltern"
+        ],
+        "fr": [
+          "sekretariatsmitarbeiterin-sekretariatsmitarbeiter-empfang-radiologie-spital-affoltern"
+        ]
+      },
+      "previousSlugs": [
+        "sekretariatsmitarbeiterin-sekretariatsmitarbeiter-empfang-radiologie-spital-affoltern"
+      ]
     },
     {
       "id": "spital-affoltern-f69d2abc979c",

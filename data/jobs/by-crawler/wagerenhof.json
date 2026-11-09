@@ -346,12 +346,12 @@
     },
     {
       "id": "wagerenhof-c0b9151d2c4e",
-      "slug": "fachperson-betreuung-90-wagerenhof-uster",
+      "slug": "assistenza-specialistica-90-stiftung-wagerenhof-uster",
       "slugByLocale": {
         "de": "fachperson-betreuung-90-wagerenhof-uster",
-        "it": "fachperson-betreuung-90-wagerenhof-uster",
-        "en": "fachperson-betreuung-90-wagerenhof-uster",
-        "fr": "fachperson-betreuung-90-wagerenhof-uster"
+        "it": "assistenza-specialistica-90-stiftung-wagerenhof-uster",
+        "en": "specialist-care-90-stiftung-wagerenhof-uster",
+        "fr": "soins-specialises-90-stiftung-wagerenhof-uster"
       },
       "company": "Stiftung Wagerenhof",
       "companyKey": "wagerenhof",
@@ -413,7 +413,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-07T09:41:10.903Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-09T09:41:10.903Z"
+      "firstSeenAt": "2026-11-09T09:41:10.903Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachperson-betreuung-90-wagerenhof-uster"
+        ],
+        "en": [
+          "fachperson-betreuung-90-wagerenhof-uster"
+        ],
+        "fr": [
+          "fachperson-betreuung-90-wagerenhof-uster"
+        ]
+      },
+      "previousSlugs": [
+        "fachperson-betreuung-90-wagerenhof-uster"
+      ]
     },
     {
       "id": "wagerenhof-4a4dd9c3e6bd",

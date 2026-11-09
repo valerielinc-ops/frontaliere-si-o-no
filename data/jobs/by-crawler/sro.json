@@ -2879,12 +2879,12 @@
     },
     {
       "id": "sro-0ac5e61fb6b0",
-      "slug": "dipl-ergotherapeut-in-fh-50-100-sro-langenthal",
+      "slug": "terapista-occupazionale-dipl-fh-50-100-sro-ag-spital-region-oberaargau-langenthal",
       "slugByLocale": {
         "de": "dipl-ergotherapeut-in-fh-50-100-sro-langenthal",
-        "it": "dipl-ergotherapeut-in-fh-50-100-sro-langenthal",
-        "en": "dipl-ergotherapeut-in-fh-50-100-sro-langenthal",
-        "fr": "dipl-ergotherapeut-in-fh-50-100-sro-langenthal"
+        "it": "terapista-occupazionale-dipl-fh-50-100-sro-ag-spital-region-oberaargau-langenthal",
+        "en": "certified-occupational-therapist-fh-50-100-sro-ag-spital-region-oberaargau-langenthal",
+        "fr": "ergotherapeute-dipl-hes-50-100-sro-ag-spital-region-oberaargau-langenthal"
       },
       "company": "SRO AG (Spital Region Oberaargau)",
       "companyKey": "sro",
@@ -2951,7 +2951,21 @@
       "streetAddress": "Langenthal",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "firstSeenAt": "2026-09-10T23:05:48.662Z"
+      "firstSeenAt": "2026-09-10T23:05:48.662Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-ergotherapeut-in-fh-50-100-sro-langenthal"
+        ],
+        "en": [
+          "dipl-ergotherapeut-in-fh-50-100-sro-langenthal"
+        ],
+        "fr": [
+          "dipl-ergotherapeut-in-fh-50-100-sro-langenthal"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-ergotherapeut-in-fh-50-100-sro-langenthal"
+      ]
     },
     {
       "id": "sro-da3f7f0a75a7",

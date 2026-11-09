@@ -659,12 +659,12 @@
     },
     {
       "id": "reha-bellikon-7c841bcf659f",
-      "slug": "orthopadie-technikerin-techniker-reha-bellikon-bellikon",
+      "slug": "tecnico-ortopedico-rehaklinik-bellikon-bellikon",
       "slugByLocale": {
         "de": "orthopadie-technikerin-techniker-reha-bellikon-bellikon",
-        "it": "orthopadie-technikerin-techniker-reha-bellikon-bellikon",
-        "en": "orthopadie-technikerin-techniker-reha-bellikon-bellikon",
-        "fr": "orthopadie-technikerin-techniker-reha-bellikon-bellikon"
+        "it": "tecnico-ortopedico-rehaklinik-bellikon-bellikon",
+        "en": "orthopaedic-technician-technician-rehaklinik-bellikon-bellikon",
+        "fr": "technicien-orthopediste-technicien-rehaklinik-bellikon-bellikon"
       },
       "company": "Rehaklinik Bellikon",
       "companyKey": "reha-bellikon",
@@ -732,7 +732,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-03T09:52:28.336Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-09T09:52:28.336Z"
+      "firstSeenAt": "2026-11-09T09:52:28.336Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "orthopadie-technikerin-techniker-reha-bellikon-bellikon"
+        ],
+        "en": [
+          "orthopadie-technikerin-techniker-reha-bellikon-bellikon"
+        ],
+        "fr": [
+          "orthopadie-technikerin-techniker-reha-bellikon-bellikon"
+        ]
+      },
+      "previousSlugs": [
+        "orthopadie-technikerin-techniker-reha-bellikon-bellikon"
+      ]
     },
     {
       "id": "reha-bellikon-fab746cf5ba1",
@@ -740,8 +754,8 @@
       "slugByLocale": {
         "de": "mitarbeiterin-mitarbeiter-gastronomie-reha-bellikon-bellikon",
         "it": "mitarbeiterin-collaboratore-trice-gastronomie-rehaklinik-bellikon",
-        "en": "mitarbeiterin-mitarbeiter-gastronomie-rehaklinik-bellikon-bellikon",
-        "fr": "mitarbeiterin-mitarbeiter-gastronomie-rehaklinik-bellikon-bellikon"
+        "en": "employee-employee-gastronomy-rehaklinik-bellikon-bellikon",
+        "fr": "gastronomie-des-employes-rehaklinik-bellikon-bellikon"
       },
       "company": "Rehaklinik Bellikon",
       "companyKey": "reha-bellikon",
@@ -795,10 +809,17 @@
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiterin-mitarbeiter-gastronomie-reha-bellikon-bellikon"
+        ],
+        "en": [
+          "mitarbeiterin-mitarbeiter-gastronomie-rehaklinik-bellikon-bellikon"
+        ],
+        "fr": [
+          "mitarbeiterin-mitarbeiter-gastronomie-rehaklinik-bellikon-bellikon"
         ]
       },
       "previousSlugs": [
-        "mitarbeiterin-mitarbeiter-gastronomie-reha-bellikon-bellikon"
+        "mitarbeiterin-mitarbeiter-gastronomie-reha-bellikon-bellikon",
+        "mitarbeiterin-mitarbeiter-gastronomie-rehaklinik-bellikon-bellikon"
       ],
       "salaryMin": 88000,
       "salaryMax": 123000,

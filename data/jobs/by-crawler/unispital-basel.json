@@ -2606,7 +2606,7 @@
       "slug": "fisioterapista-fisioterapista-universitatsspital-basel-basel",
       "slugByLocale": {
         "it": "fisioterapista-fisioterapista-universitatsspital-basel-basel",
-        "en": "physiotherapist-universitatsspital-basel",
+        "en": "physiotherapeutin-physiotherapeut-universitatsspital-basel",
         "de": "physiotherapeutin-physiotherapeut-unispital-basel-ch",
         "fr": "physiotherapeute-physiotherapiste-universitatsspital-basel-basel"
       },
@@ -2655,7 +2655,7 @@
         "physiotherapeutin-physiotherapeut-unispital-basel-ch",
         "physiotherapeutin-physiotherapeut-universitatsspital-basel-basel",
         "physiotherapist-physiotherapist-universitatsspital-basel-basel",
-        "physiotherapeutin-physiotherapeut-universitatsspital-basel"
+        "physiotherapist-universitatsspital-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2665,7 +2665,7 @@
         "en": [
           "physiotherapeutin-physiotherapeut-universitatsspital-basel-basel",
           "physiotherapist-physiotherapist-universitatsspital-basel-basel",
-          "physiotherapeutin-physiotherapeut-universitatsspital-basel"
+          "physiotherapist-universitatsspital-basel"
         ],
         "fr": [
           "physiotherapeutin-physiotherapeut-universitatsspital-basel-basel"
@@ -6416,7 +6416,7 @@
       "slug": "analista-biomedico-hf-universitatsspital-basel-basel-d251e4604d",
       "slugByLocale": {
         "it": "analista-biomedico-hf-universitatsspital-basel-basel-d251e4604d",
-        "en": "biomedicalanalyst-hf-universitatsspital-basel",
+        "en": "biomedical-analyst-hf-universitatsspital-basel-basel",
         "de": "biomedizinische-r-analytiker-in-hf-unispital-basel-ch",
         "fr": "analyste-biomedical-hf-universitatsspital-basel-basel"
       },
@@ -6464,7 +6464,7 @@
       "previousSlugs": [
         "biomedizinische-r-analytiker-in-hf-unispital-basel-ch",
         "biomedizinische-r-analytiker-in-hf-universitatsspital-basel",
-        "biomedical-analyst-hf-universitatsspital-basel-basel"
+        "biomedicalanalyst-hf-universitatsspital-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -6472,7 +6472,7 @@
         ],
         "en": [
           "biomedizinische-r-analytiker-in-hf-universitatsspital-basel",
-          "biomedical-analyst-hf-universitatsspital-basel-basel"
+          "biomedicalanalyst-hf-universitatsspital-basel"
         ],
         "fr": [
           "biomedizinische-r-analytiker-in-hf-universitatsspital-basel"
@@ -6831,7 +6831,7 @@
       "slug": "analista-biomedico-hf-universitatsspital-basel-basel",
       "slugByLocale": {
         "it": "analista-biomedico-hf-universitatsspital-basel-basel",
-        "en": "biomedicalanalyst-hf-universitatsspital-basel",
+        "en": "biomedical-analyst-hf-universitatsspital-basel-basel",
         "de": "biomedizinische-r-analytiker-in-hf-unispital-basel-ch",
         "fr": "analyste-biomedical-hf-universitatsspital-basel-basel"
       },
@@ -6879,7 +6879,7 @@
       "previousSlugs": [
         "biomedizinische-r-analytiker-in-hf-unispital-basel-ch",
         "biomedizinische-r-analytiker-in-hf-universitatsspital-basel",
-        "biomedical-analyst-hf-universitatsspital-basel-basel"
+        "biomedicalanalyst-hf-universitatsspital-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -6887,7 +6887,7 @@
         ],
         "en": [
           "biomedizinische-r-analytiker-in-hf-universitatsspital-basel",
-          "biomedical-analyst-hf-universitatsspital-basel-basel"
+          "biomedicalanalyst-hf-universitatsspital-basel"
         ],
         "fr": [
           "biomedizinische-r-analytiker-in-hf-universitatsspital-basel"
@@ -10331,7 +10331,7 @@
       "slug": "platform-manager-platform-manager-op-universitatsspital-basel-basel",
       "slugByLocale": {
         "it": "platform-manager-platform-manager-op-universitatsspital-basel-basel",
-        "en": "platform-manager-op-universitatsspital-basel",
+        "en": "plattformmanagerin-plattformmanager-op-universitatsspital-basel-basel",
         "de": "plattformmanagerin-plattformmanager-op-unispital-basel-ch",
         "fr": "gestionnaire-de-plateforme-gestionnaire-de-plateforme-op-universitatsspital-basel-basel"
       },
@@ -10378,7 +10378,8 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "plattformmanagerin-plattformmanager-op-unispital-basel-ch",
-        "plattformmanagerin-plattformmanager-op-universitatsspital-basel-basel"
+        "plattformmanagerin-plattformmanager-op-universitatsspital-basel-basel",
+        "platform-manager-op-universitatsspital-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -10386,7 +10387,7 @@
           "plattformmanagerin-plattformmanager-op-universitatsspital-basel-basel"
         ],
         "en": [
-          "plattformmanagerin-plattformmanager-op-universitatsspital-basel-basel"
+          "platform-manager-op-universitatsspital-basel"
         ],
         "fr": [
           "plattformmanagerin-plattformmanager-op-universitatsspital-basel-basel"
@@ -11586,12 +11587,12 @@
     },
     {
       "id": "unispital-basel-e0e0fabadfa3",
-      "slug": "medizintechniker-in-universitatsspital-basel-basel",
+      "slug": "tecnico-medico-universitatsspital-basel-basel",
       "slugByLocale": {
         "de": "medizintechniker-in-unispital-basel-ch",
-        "it": "medizintechniker-in-universitatsspital-basel-basel",
-        "en": "medizintechniker-in-universitatsspital-basel-basel",
-        "fr": "medizintechniker-in-universitatsspital-basel-basel"
+        "it": "tecnico-medico-universitatsspital-basel-basel",
+        "en": "medicaltechnician-universitatsspital-basel-basel",
+        "fr": "technicien-ne-medical-ne-universitatsspital-basel-basel"
       },
       "company": "Universitätsspital Basel",
       "companyKey": "unispital-basel",
@@ -11639,11 +11640,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "medizintechniker-in-unispital-basel-ch"
+          "medizintechniker-in-unispital-basel-ch",
+          "medizintechniker-in-universitatsspital-basel-basel"
+        ],
+        "en": [
+          "medizintechniker-in-universitatsspital-basel-basel"
+        ],
+        "fr": [
+          "medizintechniker-in-universitatsspital-basel-basel"
         ]
       },
       "previousSlugs": [
-        "medizintechniker-in-unispital-basel-ch"
+        "medizintechniker-in-unispital-basel-ch",
+        "medizintechniker-in-universitatsspital-basel-basel"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,

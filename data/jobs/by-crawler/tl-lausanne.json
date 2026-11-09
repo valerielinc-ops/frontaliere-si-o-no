@@ -164,8 +164,8 @@
       "slug": "agente-operativo-apprendista-tl-transports-publics-de-la-region-lausannoise-lausanne",
       "slugByLocale": {
         "it": "agente-operativo-apprendista-tl-transports-publics-de-la-region-lausannoise-lausanne",
-        "en": "apprentices-holding-agents-tl-transports-publics-de-la-region-lausannoise-lausanne",
-        "de": "lehrlings-betriebskrafte-tl-transports-publics-de-la-region-lausannoise-lausanne",
+        "en": "apprentice-operating-agent-tl-transports-publics-de-la-region-lausannoise-lausanne",
+        "de": "auszubildender-betreiber-tl-transports-publics-de-la-region-lausannoise-lausanne",
         "fr": "apprenti-e-agent-e-d-exploitation-tl-lausanne-lausanne"
       },
       "company": "tl (Transports publics de la région lausannoise)",
@@ -212,18 +212,18 @@
       "streetAddress": "Chemin du Closel 15-17",
       "previousSlugs": [
         "apprenti-e-agent-e-d-exploitation-tl-lausanne-lausanne",
-        "apprentice-operating-agent-tl-transports-publics-de-la-region-lausannoise-lausanne",
-        "auszubildender-betreiber-tl-transports-publics-de-la-region-lausannoise-lausanne"
+        "apprentices-holding-agents-tl-transports-publics-de-la-region-lausannoise-lausanne",
+        "lehrlings-betriebskrafte-tl-transports-publics-de-la-region-lausannoise-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
           "apprenti-e-agent-e-d-exploitation-tl-lausanne-lausanne"
         ],
         "en": [
-          "apprentice-operating-agent-tl-transports-publics-de-la-region-lausannoise-lausanne"
+          "apprentices-holding-agents-tl-transports-publics-de-la-region-lausannoise-lausanne"
         ],
         "de": [
-          "auszubildender-betreiber-tl-transports-publics-de-la-region-lausannoise-lausanne"
+          "lehrlings-betriebskrafte-tl-transports-publics-de-la-region-lausannoise-lausanne"
         ]
       },
       "firstSeenAt": "2026-08-31T22:21:32.114Z",
@@ -328,7 +328,7 @@
       "slugByLocale": {
         "it": "apprendistato-logisticista-tl-transports-publics-de-la-region-lausannoise-lausanne",
         "en": "logistician-apprenticeship-tl-transports-publics-de-la-region-lausannoise-lausanne",
-        "de": "lehrlingsausbildung-tl-transports-publics-de-la-region-lausannoise-lausanne",
+        "de": "auszubildender-logistiker-tl-transports-publics-de-la-region-lausannoise-lausanne",
         "fr": "apprenti-e-logisticien-ne-tl-lausanne-lausanne"
       },
       "company": "tl (Transports publics de la région lausannoise)",
@@ -377,14 +377,14 @@
       "previousSlugs": [
         "apprenti-e-logisticien-ne-tl-transports-publics-de-la-region-lausannoise-lausanne",
         "apprenti-e-logisticien-ne-tl-lausanne-lausanne",
-        "auszubildender-logistiker-tl-transports-publics-de-la-region-lausannoise-lausanne"
+        "lehrlingsausbildung-tl-transports-publics-de-la-region-lausannoise-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
           "apprenti-e-logisticien-ne-tl-lausanne-lausanne"
         ],
         "de": [
-          "auszubildender-logistiker-tl-transports-publics-de-la-region-lausannoise-lausanne"
+          "lehrlingsausbildung-tl-transports-publics-de-la-region-lausannoise-lausanne"
         ],
         "fr": [
           "apprenti-e-logisticien-ne-tl-transports-publics-de-la-region-lausannoise-lausanne"
@@ -414,7 +414,7 @@
       "slugByLocale": {
         "it": "vernice-industriale-apprendista-tl-transports-publics-de-la-region-lausannoise-lausanne",
         "en": "apprentice-industrial-varnisher-tl-transports-publics-de-la-region-lausannoise-lausanne",
-        "de": "lehrlinge-industrielle-lackiermaschinen-tl-transports-publics-de-la-region-lausannoise-lausanne",
+        "de": "auszubildender-industrielackier-tl-transports-publics-de-la-region-lausannoise-lausanne",
         "fr": "apprenti-e-vernisseur-euse-industriel-tl-lausanne-lausanne"
       },
       "company": "tl (Transports publics de la région lausannoise)",
@@ -462,14 +462,14 @@
       "streetAddress": "Chemin du Closel 15-17",
       "previousSlugs": [
         "apprenti-e-vernisseur-euse-industriel-tl-lausanne-lausanne",
-        "auszubildender-industrielackier-tl-transports-publics-de-la-region-lausannoise-lausanne"
+        "lehrlinge-industrielle-lackiermaschinen-tl-transports-publics-de-la-region-lausannoise-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
           "apprenti-e-vernisseur-euse-industriel-tl-lausanne-lausanne"
         ],
         "de": [
-          "auszubildender-industrielackier-tl-transports-publics-de-la-region-lausannoise-lausanne"
+          "lehrlinge-industrielle-lackiermaschinen-tl-transports-publics-de-la-region-lausannoise-lausanne"
         ]
       },
       "firstSeenAt": "2026-08-31T22:21:29.901Z",
@@ -573,8 +573,8 @@
       "slug": "apprendimento-automatico-tl-transports-publics-de-la-region-lausannoise-lausanne",
       "slugByLocale": {
         "it": "apprendimento-automatico-tl-transports-publics-de-la-region-lausannoise-lausanne",
-        "en": "apprentices-tl-transports-publics-de-la-region-lausannoise-lausanne",
-        "de": "lehrlinge-tl-transports-publics-de-la-region-lausannoise-lausanne",
+        "en": "automatic-learning-tl-transports-publics-de-la-region-lausannoise-lausanne",
+        "de": "automatisches-lernen-tl-transports-publics-de-la-region-lausannoise-lausanne",
         "fr": "apprenti-es-automaticien-nes-tl-lausanne-lausanne"
       },
       "company": "tl (Transports publics de la région lausannoise)",
@@ -622,18 +622,18 @@
       "streetAddress": "Chemin du Closel 15-17",
       "previousSlugs": [
         "apprenti-es-automaticien-nes-tl-lausanne-lausanne",
-        "automatic-learning-tl-transports-publics-de-la-region-lausannoise-lausanne",
-        "automatisches-lernen-tl-transports-publics-de-la-region-lausannoise-lausanne"
+        "apprentices-tl-transports-publics-de-la-region-lausannoise-lausanne",
+        "lehrlinge-tl-transports-publics-de-la-region-lausannoise-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
           "apprenti-es-automaticien-nes-tl-lausanne-lausanne"
         ],
         "en": [
-          "automatic-learning-tl-transports-publics-de-la-region-lausannoise-lausanne"
+          "apprentices-tl-transports-publics-de-la-region-lausannoise-lausanne"
         ],
         "de": [
-          "automatisches-lernen-tl-transports-publics-de-la-region-lausannoise-lausanne"
+          "lehrlinge-tl-transports-publics-de-la-region-lausannoise-lausanne"
         ]
       },
       "firstSeenAt": "2026-08-31T22:21:29.324Z",
@@ -660,7 +660,7 @@
       "slugByLocale": {
         "it": "apprendisti-nei-trasporti-pubblici-tl-transports-publics-de-la-region-lausannoise-lausanne",
         "en": "apprentices-in-public-transport-tl-transports-publics-de-la-region-lausannoise-lausanne",
-        "de": "lehrlinge-offentliche-verkehrsbetriebe-tl-transports-publics-de-la-region-lausannoise-lausanne",
+        "de": "auszubildende-im-offentlichen-verkehr-tl-transports-publics-de-la-region-lausannoise-lausanne",
         "fr": "apprenti-es-agent-es-de-transports-publics-tl-lausanne-lausanne"
       },
       "company": "tl (Transports publics de la région lausannoise)",
@@ -708,14 +708,14 @@
       "streetAddress": "Chemin du Closel 15-17",
       "previousSlugs": [
         "apprenti-es-agent-es-de-transports-publics-tl-lausanne-lausanne",
-        "auszubildende-im-offentlichen-verkehr-tl-transports-publics-de-la-region-lausannoise-lausanne"
+        "lehrlinge-offentliche-verkehrsbetriebe-tl-transports-publics-de-la-region-lausannoise-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
           "apprenti-es-agent-es-de-transports-publics-tl-lausanne-lausanne"
         ],
         "de": [
-          "auszubildende-im-offentlichen-verkehr-tl-transports-publics-de-la-region-lausannoise-lausanne"
+          "lehrlinge-offentliche-verkehrsbetriebe-tl-transports-publics-de-la-region-lausannoise-lausanne"
         ]
       },
       "firstSeenAt": "2026-08-31T22:21:28.174Z",
@@ -1091,11 +1091,11 @@
     },
     {
       "id": "tl-lausanne-2c3264a056b5",
-      "slug": "stagiaire-innovation-60-80-tl-lausanne-lausanne",
+      "slug": "innovazione-interna-60-80-tl-transports-publics-de-la-region-lausannoise-lausanne",
       "slugByLocale": {
         "fr": "stagiaire-innovation-60-80-tl-lausanne-lausanne",
-        "it": "stagiaire-innovation-60-80-tl-lausanne-lausanne",
-        "en": "stagiaire-innovation-60-80-tl-lausanne-lausanne",
+        "it": "innovazione-interna-60-80-tl-transports-publics-de-la-region-lausannoise-lausanne",
+        "en": "intern-innovation-60-80-tl-transports-publics-de-la-region-lausannoise-lausanne",
         "de": "stagiaire-innovation-60-80-tl-lausanne-lausanne"
       },
       "company": "tl (Transports publics de la région lausannoise)",
@@ -1158,7 +1158,18 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-02T09:53:58.253Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-09T09:53:58.253Z"
+      "firstSeenAt": "2026-11-09T09:53:58.253Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "stagiaire-innovation-60-80-tl-lausanne-lausanne"
+        ],
+        "en": [
+          "stagiaire-innovation-60-80-tl-lausanne-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "stagiaire-innovation-60-80-tl-lausanne-lausanne"
+      ]
     },
     {
       "id": "tl-lausanne-2fccbc35cb55",
@@ -1244,12 +1255,12 @@
     },
     {
       "id": "tl-lausanne-ce7fd76cf2f3",
-      "slug": "stage-pratique-dans-les-projets-d-amenagement-et-de-qualite-de-vie-au-travail-60-100-tl",
+      "slug": "posizionamento-pratico-nella-pianificazione-e-qualita-dei-progetti-di-vita-sul-lavoro-60-100-tl-transports-publics-de-la",
       "slugByLocale": {
         "fr": "stage-pratique-dans-les-projets-d-amenagement-et-de-qualite-de-vie-au-travail-60-100-tl",
-        "it": "stage-pratique-dans-les-projets-d-amenagement-et-de-qualite-de-vie-au-travail-60-100-tl",
-        "en": "stage-pratique-dans-les-projets-d-amenagement-et-de-qualite-de-vie-au-travail-60-100-tl",
-        "de": "stage-pratique-dans-les-projets-d-amenagement-et-de-qualite-de-vie-au-travail-60-100-tl"
+        "it": "posizionamento-pratico-nella-pianificazione-e-qualita-dei-progetti-di-vita-sul-lavoro-60-100-tl-transports-publics-de-la",
+        "en": "practical-placement-in-planning-and-quality-of-life-projects-at-work-60-100-tl-transports-publics-de-la-region",
+        "de": "praktische-platzierung-in-der-planung-und-lebensqualitat-projekte-bei-der-arbeit-60-100-tl-transports-publics-de-la"
       },
       "company": "tl (Transports publics de la région lausannoise)",
       "companyKey": "tl-lausanne",
@@ -1311,16 +1322,30 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-03T09:53:57.116Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-09T09:53:57.116Z"
+      "firstSeenAt": "2026-11-09T09:53:57.116Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "stage-pratique-dans-les-projets-d-amenagement-et-de-qualite-de-vie-au-travail-60-100-tl"
+        ],
+        "en": [
+          "stage-pratique-dans-les-projets-d-amenagement-et-de-qualite-de-vie-au-travail-60-100-tl"
+        ],
+        "de": [
+          "stage-pratique-dans-les-projets-d-amenagement-et-de-qualite-de-vie-au-travail-60-100-tl"
+        ]
+      },
+      "previousSlugs": [
+        "stage-pratique-dans-les-projets-d-amenagement-et-de-qualite-de-vie-au-travail-60-100-tl"
+      ]
     },
     {
       "id": "tl-lausanne-60b41ff67039",
-      "slug": "technicien-is-electrique-leb-tl-lausanne-lausanne",
+      "slug": "is-electrical-technician-leb-tl-transports-publics-de-la-region-lausannoise-lausanne",
       "slugByLocale": {
         "fr": "technicien-is-electrique-leb-tl-lausanne-lausanne",
-        "it": "technicien-is-electrique-leb-tl-lausanne-lausanne",
+        "it": "is-electrical-technician-leb-tl-transports-publics-de-la-region-lausannoise-lausanne",
         "en": "technicien-is-electrique-leb-tl-lausanne-lausanne",
-        "de": "technicien-is-electrique-leb-tl-lausanne-lausanne"
+        "de": "is-elektriker-leb-tl-transports-publics-de-la-region-lausannoise-lausanne"
       },
       "company": "tl (Transports publics de la région lausannoise)",
       "companyKey": "tl-lausanne",
@@ -1382,16 +1407,27 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-03T09:53:56.566Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-09T09:53:56.566Z"
+      "firstSeenAt": "2026-11-09T09:53:56.566Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "technicien-is-electrique-leb-tl-lausanne-lausanne"
+        ],
+        "de": [
+          "technicien-is-electrique-leb-tl-lausanne-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "technicien-is-electrique-leb-tl-lausanne-lausanne"
+      ]
     },
     {
       "id": "tl-lausanne-b83c088bc461",
-      "slug": "agent-methode-leb-tl-lausanne-lausanne",
+      "slug": "agente-metodo-leb-tl-transports-publics-de-la-region-lausannoise-lausanne",
       "slugByLocale": {
         "fr": "agent-methode-leb-tl-lausanne-lausanne",
-        "it": "agent-methode-leb-tl-lausanne-lausanne",
+        "it": "agente-metodo-leb-tl-transports-publics-de-la-region-lausannoise-lausanne",
         "en": "agent-methode-leb-tl-lausanne-lausanne",
-        "de": "agent-methode-leb-tl-lausanne-lausanne"
+        "de": "leb-verfahrensmittel-tl-transports-publics-de-la-region-lausannoise-lausanne"
       },
       "company": "tl (Transports publics de la région lausannoise)",
       "companyKey": "tl-lausanne",
@@ -1453,16 +1489,27 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-03T09:53:56.006Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-09T09:53:56.006Z"
+      "firstSeenAt": "2026-11-09T09:53:56.006Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "agent-methode-leb-tl-lausanne-lausanne"
+        ],
+        "de": [
+          "agent-methode-leb-tl-lausanne-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "agent-methode-leb-tl-lausanne-lausanne"
+      ]
     },
     {
       "id": "tl-lausanne-b0ccb471d1dc",
-      "slug": "coordinateurs-travaux-ferroviaires-leb-tl-lausanne-lausanne",
+      "slug": "computer-per-lavori-ferroviari-leb-tl-transports-publics-de-la-region-lausannoise-lausanne",
       "slugByLocale": {
         "fr": "coordinateurs-travaux-ferroviaires-leb-tl-lausanne-lausanne",
-        "it": "coordinateurs-travaux-ferroviaires-leb-tl-lausanne-lausanne",
-        "en": "coordinateurs-travaux-ferroviaires-leb-tl-lausanne-lausanne",
-        "de": "coordinateurs-travaux-ferroviaires-leb-tl-lausanne-lausanne"
+        "it": "computer-per-lavori-ferroviari-leb-tl-transports-publics-de-la-region-lausannoise-lausanne",
+        "en": "computers-for-railway-works-leb-tl-transports-publics-de-la-region-lausannoise-lausanne",
+        "de": "computer-fur-eisenbahnarbeiten-leb-tl-transports-publics-de-la-region-lausannoise-lausanne"
       },
       "company": "tl (Transports publics de la région lausannoise)",
       "companyKey": "tl-lausanne",
@@ -1524,16 +1571,30 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-03T09:53:55.437Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-09T09:53:55.437Z"
+      "firstSeenAt": "2026-11-09T09:53:55.437Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "coordinateurs-travaux-ferroviaires-leb-tl-lausanne-lausanne"
+        ],
+        "en": [
+          "coordinateurs-travaux-ferroviaires-leb-tl-lausanne-lausanne"
+        ],
+        "de": [
+          "coordinateurs-travaux-ferroviaires-leb-tl-lausanne-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "coordinateurs-travaux-ferroviaires-leb-tl-lausanne-lausanne"
+      ]
     },
     {
       "id": "tl-lausanne-db97bda4ae81",
-      "slug": "technicien-maintenance-voie-gc-leb-tl-lausanne-lausanne",
+      "slug": "tecnico-di-manutenzione-pista-gc-leb-tl-transports-publics-de-la-region-lausannoise-lausanne",
       "slugByLocale": {
         "fr": "technicien-maintenance-voie-gc-leb-tl-lausanne-lausanne",
-        "it": "technicien-maintenance-voie-gc-leb-tl-lausanne-lausanne",
-        "en": "technicien-maintenance-voie-gc-leb-tl-lausanne-lausanne",
-        "de": "technicien-maintenance-voie-gc-leb-tl-lausanne-lausanne"
+        "it": "tecnico-di-manutenzione-pista-gc-leb-tl-transports-publics-de-la-region-lausannoise-lausanne",
+        "en": "track-maintenance-technician-gc-leb-tl-transports-publics-de-la-region-lausannoise-lausanne",
+        "de": "track-maintenance-techniker-gc-leb-tl-transports-publics-de-la-region-lausannoise-lausanne"
       },
       "company": "tl (Transports publics de la région lausannoise)",
       "companyKey": "tl-lausanne",
@@ -1595,16 +1656,30 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-03T09:53:54.891Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-09T09:53:54.891Z"
+      "firstSeenAt": "2026-11-09T09:53:54.891Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "technicien-maintenance-voie-gc-leb-tl-lausanne-lausanne"
+        ],
+        "en": [
+          "technicien-maintenance-voie-gc-leb-tl-lausanne-lausanne"
+        ],
+        "de": [
+          "technicien-maintenance-voie-gc-leb-tl-lausanne-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "technicien-maintenance-voie-gc-leb-tl-lausanne-lausanne"
+      ]
     },
     {
       "id": "tl-lausanne-83bd3164bbac",
-      "slug": "chef-d-equipe-is-et-electrique-leb-tl-lausanne-lausanne",
+      "slug": "is-team-leader-e-leb-elettrico-tl-transports-publics-de-la-region-lausannoise-lausanne",
       "slugByLocale": {
         "fr": "chef-d-equipe-is-et-electrique-leb-tl-lausanne-lausanne",
-        "it": "chef-d-equipe-is-et-electrique-leb-tl-lausanne-lausanne",
-        "en": "chef-d-equipe-is-et-electrique-leb-tl-lausanne-lausanne",
-        "de": "chef-d-equipe-is-et-electrique-leb-tl-lausanne-lausanne"
+        "it": "is-team-leader-e-leb-elettrico-tl-transports-publics-de-la-region-lausannoise-lausanne",
+        "en": "is-team-leader-and-leb-electric-tl-transports-publics-de-la-region-lausannoise-lausanne",
+        "de": "is-teamleiter-und-leb-electric-tl-transports-publics-de-la-region-lausannoise-lausanne"
       },
       "company": "tl (Transports publics de la région lausannoise)",
       "companyKey": "tl-lausanne",
@@ -1666,16 +1741,30 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-03T09:53:54.346Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-09T09:53:54.346Z"
+      "firstSeenAt": "2026-11-09T09:53:54.346Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "chef-d-equipe-is-et-electrique-leb-tl-lausanne-lausanne"
+        ],
+        "en": [
+          "chef-d-equipe-is-et-electrique-leb-tl-lausanne-lausanne"
+        ],
+        "de": [
+          "chef-d-equipe-is-et-electrique-leb-tl-lausanne-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "chef-d-equipe-is-et-electrique-leb-tl-lausanne-lausanne"
+      ]
     },
     {
       "id": "tl-lausanne-45df893cbb15",
-      "slug": "chef-fe-d-equipe-maintenance-voie-leb-tl-lausanne-lausanne",
+      "slug": "team-leader-manutenzione-leb-tl-transports-publics-de-la-region-lausannoise-lausanne",
       "slugByLocale": {
         "fr": "chef-fe-d-equipe-maintenance-voie-leb-tl-lausanne-lausanne",
-        "it": "chef-fe-d-equipe-maintenance-voie-leb-tl-lausanne-lausanne",
-        "en": "chef-fe-d-equipe-maintenance-voie-leb-tl-lausanne-lausanne",
-        "de": "chef-fe-d-equipe-maintenance-voie-leb-tl-lausanne-lausanne"
+        "it": "team-leader-manutenzione-leb-tl-transports-publics-de-la-region-lausannoise-lausanne",
+        "en": "team-leader-maintenance-leb-tl-transports-publics-de-la-region-lausannoise-lausanne",
+        "de": "teamleiter-wartung-leb-tl-transports-publics-de-la-region-lausannoise-lausanne"
       },
       "company": "tl (Transports publics de la région lausannoise)",
       "companyKey": "tl-lausanne",
@@ -1737,16 +1826,30 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-03T09:53:53.778Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-09T09:53:53.778Z"
+      "firstSeenAt": "2026-11-09T09:53:53.778Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "chef-fe-d-equipe-maintenance-voie-leb-tl-lausanne-lausanne"
+        ],
+        "en": [
+          "chef-fe-d-equipe-maintenance-voie-leb-tl-lausanne-lausanne"
+        ],
+        "de": [
+          "chef-fe-d-equipe-maintenance-voie-leb-tl-lausanne-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "chef-fe-d-equipe-maintenance-voie-leb-tl-lausanne-lausanne"
+      ]
     },
     {
       "id": "tl-lausanne-a6396b72abd5",
-      "slug": "chef-fe-de-produit-recettes-et-projets-hors-transports-tl-lausanne-lausanne",
+      "slug": "capo-prodotto-entrate-e-progetti-esclusi-i-trasporti-tl-transports-publics-de-la-region-lausannoise-lausanne",
       "slugByLocale": {
         "fr": "chef-fe-de-produit-recettes-et-projets-hors-transports-tl-lausanne-lausanne",
-        "it": "chef-fe-de-produit-recettes-et-projets-hors-transports-tl-lausanne-lausanne",
-        "en": "chef-fe-de-produit-recettes-et-projets-hors-transports-tl-lausanne-lausanne",
-        "de": "chef-fe-de-produit-recettes-et-projets-hors-transports-tl-lausanne-lausanne"
+        "it": "capo-prodotto-entrate-e-progetti-esclusi-i-trasporti-tl-transports-publics-de-la-region-lausannoise-lausanne",
+        "en": "head-of-product-revenue-and-projects-excluding-transport-tl-transports-publics-de-la-region-lausannoise-lausanne",
+        "de": "kopf-produkt-einnahmen-und-projekte-ohne-verkehr-tl-transports-publics-de-la-region-lausannoise-lausanne"
       },
       "company": "tl (Transports publics de la région lausannoise)",
       "companyKey": "tl-lausanne",
@@ -1808,16 +1911,30 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-04T09:53:53.218Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-09T09:53:53.218Z"
+      "firstSeenAt": "2026-11-09T09:53:53.218Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "chef-fe-de-produit-recettes-et-projets-hors-transports-tl-lausanne-lausanne"
+        ],
+        "en": [
+          "chef-fe-de-produit-recettes-et-projets-hors-transports-tl-lausanne-lausanne"
+        ],
+        "de": [
+          "chef-fe-de-produit-recettes-et-projets-hors-transports-tl-lausanne-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "chef-fe-de-produit-recettes-et-projets-hors-transports-tl-lausanne-lausanne"
+      ]
     },
     {
       "id": "tl-lausanne-e30960b12b91",
-      "slug": "responsable-des-actifs-ferroviaires-installations-de-securite-tl-lausanne-lausanne",
+      "slug": "rail-asset-manager-installazioni-di-sicurezza-tl-transports-publics-de-la-region-lausannoise-lausanne",
       "slugByLocale": {
         "fr": "responsable-des-actifs-ferroviaires-installations-de-securite-tl-lausanne-lausanne",
-        "it": "responsable-des-actifs-ferroviaires-installations-de-securite-tl-lausanne-lausanne",
-        "en": "responsable-des-actifs-ferroviaires-installations-de-securite-tl-lausanne-lausanne",
-        "de": "responsable-des-actifs-ferroviaires-installations-de-securite-tl-lausanne-lausanne"
+        "it": "rail-asset-manager-installazioni-di-sicurezza-tl-transports-publics-de-la-region-lausannoise-lausanne",
+        "en": "rail-asset-manager-safety-installations-tl-transports-publics-de-la-region-lausannoise-lausanne",
+        "de": "verwalter-von-eisenbahnanlagen-sicherheitsanlagen-tl-transports-publics-de-la-region-lausannoise-lausanne"
       },
       "company": "tl (Transports publics de la région lausannoise)",
       "companyKey": "tl-lausanne",
@@ -1879,16 +1996,30 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-04T09:53:52.691Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-09T09:53:52.691Z"
+      "firstSeenAt": "2026-11-09T09:53:52.691Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "responsable-des-actifs-ferroviaires-installations-de-securite-tl-lausanne-lausanne"
+        ],
+        "en": [
+          "responsable-des-actifs-ferroviaires-installations-de-securite-tl-lausanne-lausanne"
+        ],
+        "de": [
+          "responsable-des-actifs-ferroviaires-installations-de-securite-tl-lausanne-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "responsable-des-actifs-ferroviaires-installations-de-securite-tl-lausanne-lausanne"
+      ]
     },
     {
       "id": "tl-lausanne-d8b11af1f5a9",
-      "slug": "specialiste-sci-finances-cdm-24-mois-50-tl-lausanne-lausanne",
+      "slug": "sci-finance-specialist-cdm-24-mesi-50-tl-transports-publics-de-la-region-lausannoise-lausanne",
       "slugByLocale": {
         "fr": "specialiste-sci-finances-cdm-24-mois-50-tl-lausanne-lausanne",
-        "it": "specialiste-sci-finances-cdm-24-mois-50-tl-lausanne-lausanne",
-        "en": "specialiste-sci-finances-cdm-24-mois-50-tl-lausanne-lausanne",
-        "de": "specialiste-sci-finances-cdm-24-mois-50-tl-lausanne-lausanne"
+        "it": "sci-finance-specialist-cdm-24-mesi-50-tl-transports-publics-de-la-region-lausannoise-lausanne",
+        "en": "sci-finance-specialist-cdm-24-months-50-tl-transports-publics-de-la-region-lausannoise-lausanne",
+        "de": "sci-finance-specialist-cdm-24-monate-50-tl-transports-publics-de-la-region-lausannoise-lausanne"
       },
       "company": "tl (Transports publics de la région lausannoise)",
       "companyKey": "tl-lausanne",
@@ -1950,7 +2081,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-05T09:53:52.115Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-09-25T15:03:03.615Z"
+      "firstSeenAt": "2026-09-25T15:03:03.615Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "specialiste-sci-finances-cdm-24-mois-50-tl-lausanne-lausanne"
+        ],
+        "en": [
+          "specialiste-sci-finances-cdm-24-mois-50-tl-lausanne-lausanne"
+        ],
+        "de": [
+          "specialiste-sci-finances-cdm-24-mois-50-tl-lausanne-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "specialiste-sci-finances-cdm-24-mois-50-tl-lausanne-lausanne"
+      ]
     },
     {
       "id": "tl-lausanne-fc5b669ac698",

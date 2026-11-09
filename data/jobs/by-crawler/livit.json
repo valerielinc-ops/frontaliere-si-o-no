@@ -2591,12 +2591,12 @@
     },
     {
       "id": "livit-d3cbf55680be",
-      "slug": "gerant-e-d-immeubles-commerciaux-livit-ag-lausanne",
+      "slug": "responsabile-degli-edifici-commerciali-livit-ag-lausanne",
       "slugByLocale": {
         "fr": "gerant-e-d-immeubles-commerciaux-livit-lausanne",
-        "it": "gerant-e-d-immeubles-commerciaux-livit-ag-lausanne",
-        "en": "gerant-e-d-immeubles-commerciaux-livit-lausanne",
-        "de": "gerant-e-d-immeubles-commerciaux-livit-lausanne"
+        "it": "responsabile-degli-edifici-commerciali-livit-ag-lausanne",
+        "en": "manager-of-commercial-buildings-livit-ag-lausanne",
+        "de": "verwalter-von-geschaftsgebauden-livit-ag-lausanne"
       },
       "company": "Livit AG",
       "companyKey": "livit",
@@ -2644,11 +2644,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "gerant-e-d-immeubles-commerciaux-livit-lausanne",
+          "gerant-e-d-immeubles-commerciaux-livit-ag-lausanne"
+        ],
+        "en": [
+          "gerant-e-d-immeubles-commerciaux-livit-lausanne"
+        ],
+        "de": [
           "gerant-e-d-immeubles-commerciaux-livit-lausanne"
         ]
       },
       "previousSlugs": [
-        "gerant-e-d-immeubles-commerciaux-livit-lausanne"
+        "gerant-e-d-immeubles-commerciaux-livit-lausanne",
+        "gerant-e-d-immeubles-commerciaux-livit-ag-lausanne"
       ],
       "salaryMin": 86500,
       "salaryMax": 120500,

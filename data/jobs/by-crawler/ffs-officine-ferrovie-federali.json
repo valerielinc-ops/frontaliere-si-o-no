@@ -5,11 +5,11 @@
   "jobs": [
     {
       "id": "sbb-c081ae141bb7",
-      "slug": "planificateur-trice-des-ressources-ffs-officine-ferrovie-federali-lausanne",
+      "slug": "pianificatore-risorse-ffs-officine-ferrovie-federali-lausanne",
       "slugByLocale": {
-        "it": "planificateur-trice-des-ressources-ffs-officine-ferrovie-federali-lausanne",
-        "en": "planificateur-trice-des-ressources-ffs-officine-ferrovie-federali-lausanne",
-        "de": "planificateur-trice-des-ressources-ffs-officine-ferrovie-federali-lausanne",
+        "it": "pianificatore-risorse-ffs-officine-ferrovie-federali-lausanne",
+        "en": "resource-planner-ffs-officine-ferrovie-federali-lausanne",
+        "de": "ressourcenplaner-ffs-officine-ferrovie-federali-lausanne",
         "fr": "planificateur-trice-des-ressources-ffs-officine-ferrovie-federali-lausanne"
       },
       "company": "FFS Officine (Ferrovie Federali)",
@@ -97,16 +97,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-07T09:43:05.621Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-09T09:43:05.621Z"
+      "firstSeenAt": "2026-11-09T09:43:05.621Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "planificateur-trice-des-ressources-ffs-officine-ferrovie-federali-lausanne"
+        ],
+        "en": [
+          "planificateur-trice-des-ressources-ffs-officine-ferrovie-federali-lausanne"
+        ],
+        "de": [
+          "planificateur-trice-des-ressources-ffs-officine-ferrovie-federali-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "planificateur-trice-des-ressources-ffs-officine-ferrovie-federali-lausanne"
+      ]
     },
     {
       "id": "sbb-192bcb1a1821",
-      "slug": "1st-level-support-infrastrukturanlagen-m-w-d-ffs-officine-ferrovie-federali-olten-und-zurich-flughafen",
+      "slug": "strutture-di-supporto-di-primo-livello-m-f-d-ffs-officine-ferrovie-federali-olten-und-zurich-flughafen",
       "slugByLocale": {
-        "it": "1st-level-support-infrastrukturanlagen-m-w-d-ffs-officine-ferrovie-federali-olten-und-zurich-flughafen",
+        "it": "strutture-di-supporto-di-primo-livello-m-f-d-ffs-officine-ferrovie-federali-olten-und-zurich-flughafen",
         "en": "1st-level-support-infrastrukturanlagen-m-w-d-ffs-officine-ferrovie-federali-olten-und-zurich-flughafen",
         "de": "1st-level-support-infrastrukturanlagen-m-w-d-ffs-officine-ferrovie-federali-olten-und-zurich-flughafen",
-        "fr": "1st-level-support-infrastrukturanlagen-m-w-d-ffs-officine-ferrovie-federali-olten-und-zurich-flughafen"
+        "fr": "installations-d-infrastructure-de-soutien-de-premier-niveau-h-f-d-ffs-officine-ferrovie-federali-olten-und-zurich"
       },
       "company": "FFS Officine (Ferrovie Federali)",
       "companyKey": "ffs-officine-ferrovie-federali",
@@ -198,15 +212,26 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-07T09:41:29.603Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-09T09:41:29.603Z"
+      "firstSeenAt": "2026-11-09T09:41:29.603Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "1st-level-support-infrastrukturanlagen-m-w-d-ffs-officine-ferrovie-federali-olten-und-zurich-flughafen"
+        ],
+        "fr": [
+          "1st-level-support-infrastrukturanlagen-m-w-d-ffs-officine-ferrovie-federali-olten-und-zurich-flughafen"
+        ]
+      },
+      "previousSlugs": [
+        "1st-level-support-infrastrukturanlagen-m-w-d-ffs-officine-ferrovie-federali-olten-und-zurich-flughafen"
+      ]
     },
     {
       "id": "sbb-1d7898010f06",
-      "slug": "chef-fe-de-projet-transverse-ligne-directe-neuchatel-la-chaux-de-fonds-ffs-officine-ferrovie-federali-renens",
+      "slug": "leader-del-progetto-trasversale-linea-diretta-neuchatel-la-chaux-de-fonds-ffs-officine-ferrovie-federali-renens",
       "slugByLocale": {
-        "it": "chef-fe-de-projet-transverse-ligne-directe-neuchatel-la-chaux-de-fonds-ffs-officine-ferrovie-federali-renens",
-        "en": "chef-fe-de-projet-transverse-ligne-directe-neuchatel-la-chaux-de-fonds-ffs-officine-ferrovie-federali-renens",
-        "de": "chef-fe-de-projet-transverse-ligne-directe-neuchatel-la-chaux-de-fonds-ffs-officine-ferrovie-federali-renens",
+        "it": "leader-del-progetto-trasversale-linea-diretta-neuchatel-la-chaux-de-fonds-ffs-officine-ferrovie-federali-renens",
+        "en": "transverse-project-leader-direct-line-neuchatel-la-chaux-de-fonds-ffs-officine-ferrovie-federali-renens",
+        "de": "querprojektleiter-direktleitung-neuchatel-la-chaux-de-fonds-ffs-officine-ferrovie-federali-renens",
         "fr": "chef-fe-de-projet-transverse-ligne-directe-neuchatel-la-chaux-de-fonds-ffs-officine-ferrovie-federali-renens"
       },
       "company": "FFS Officine (Ferrovie Federali)",
@@ -304,7 +329,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-07T09:41:51.730Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-09T09:41:51.730Z"
+      "firstSeenAt": "2026-11-09T09:41:51.730Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "chef-fe-de-projet-transverse-ligne-directe-neuchatel-la-chaux-de-fonds-ffs-officine-ferrovie-federali-renens"
+        ],
+        "en": [
+          "chef-fe-de-projet-transverse-ligne-directe-neuchatel-la-chaux-de-fonds-ffs-officine-ferrovie-federali-renens"
+        ],
+        "de": [
+          "chef-fe-de-projet-transverse-ligne-directe-neuchatel-la-chaux-de-fonds-ffs-officine-ferrovie-federali-renens"
+        ]
+      },
+      "previousSlugs": [
+        "chef-fe-de-projet-transverse-ligne-directe-neuchatel-la-chaux-de-fonds-ffs-officine-ferrovie-federali-renens"
+      ]
     },
     {
       "id": "sbb-d5a8475b92e4",
@@ -887,9 +926,9 @@
       "slug": "life-cycle-decision-maker-ib-ffs-officine-ferrovie-federali-bellinzona",
       "slugByLocale": {
         "it": "life-cycle-decision-maker-ib-ffs-officine-ferrovie-federali-bellinzona",
-        "en": "life-cycle-decision-maker-ib-ffs-officine-ferrovie-federali-bellinzona",
-        "de": "life-cycle-decision-maker-ib-ffs-officine-ferrovie-federali-bellinzona",
-        "fr": "life-cycle-decision-maker-ib-ffs-officine-ferrovie-federali-bellinzona"
+        "en": "life3-4-decision-maker-ib-ffs-officine-ferrovie-federali-bellinzona",
+        "de": "lebenswegentscheidungstrager-ib-ffs-officine-ferrovie-federali-bellinzona",
+        "fr": "decideur-du-cycle-de-vie-ib-ffs-officine-ferrovie-federali-bellinzona"
       },
       "company": "FFS Officine (Ferrovie Federali)",
       "companyKey": "ffs-officine-ferrovie-federali",
@@ -6741,7 +6780,7 @@
         "it": "ingresso-laterale-come-responsabile-del-traffico-ferroviario-ffs-officine-ferrovie-federali-muttenz",
         "en": "career-change-to-train-traffic-controller-ffs-officine-ferrovie-federali-muttenz",
         "de": "quereinstieg-zugverkehrsleiter-in-ffs-officine-ferrovie-federali-muttenz",
-        "fr": "acces-transversal-responsable-de-la-circulation-des-trains-ffs-officine-ferrovie-federali-muttenz"
+        "fr": "reconversion-professionnelle-en-tant-que-regulateur-rice-du-trafic-ferroviaire-ffs-officine-ferrovie-federali-muttenz"
       },
       "company": "FFS Officine (Ferrovie Federali)",
       "companyKey": "ffs-officine-ferrovie-federali",
@@ -6826,12 +6865,12 @@
         ],
         "fr": [
           "quereinstieg-zugverkehrsleiter-in-ffs-officine-ferrovie-federali-muttenz",
-          "reconversion-professionnelle-en-tant-que-regulateur-rice-du-trafic-ferroviaire-ffs-officine-ferrovie-federali-muttenz"
+          "acces-transversal-responsable-de-la-circulation-des-trains-ffs-officine-ferrovie-federali-muttenz"
         ]
       },
       "previousSlugs": [
         "quereinstieg-zugverkehrsleiter-in-ffs-officine-ferrovie-federali-muttenz",
-        "reconversion-professionnelle-en-tant-que-regulateur-rice-du-trafic-ferroviaire-ffs-officine-ferrovie-federali-muttenz"
+        "acces-transversal-responsable-de-la-circulation-des-trains-ffs-officine-ferrovie-federali-muttenz"
       ],
       "salaryMin": 64500,
       "salaryMax": 110000,
@@ -9304,7 +9343,7 @@
       "id": "sbb-ebd10104b050",
       "slug": "vorarbeiter-in-gleisbau-ffs-officine-ferrovie-federali-brig",
       "slugByLocale": {
-        "it": "vorarbeiter-in-gleisbau-ffs-officine-ferrovie-federali-brig",
+        "it": "caposquadra-nella-costruzione-dei-binari-ffs-officine-ferrovie-federali-brig",
         "en": "track-construction-foreperson-ffs-officine-ferrovie-federali-brig",
         "de": "vorarbeiter-in-gleisbau-ffs-officine-ferrovie-federali-brig",
         "fr": "contremaitre-esse-en-construction-de-voies-ferrees-ffs-officine-ferrovie-federali-brig"
@@ -9389,15 +9428,7 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-11T21:44:50.548Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1,
-      "previousSlugsByLocale": {
-        "it": [
-          "caposquadra-nella-costruzione-dei-binari-ffs-officine-ferrovie-federali-brig"
-        ]
-      },
-      "previousSlugs": [
-        "caposquadra-nella-costruzione-dei-binari-ffs-officine-ferrovie-federali-brig"
-      ]
+      "crawlerMissStreak": 1
     },
     {
       "id": "sbb-5dd87efc39f2",
@@ -9807,7 +9838,7 @@
       "slugByLocale": {
         "it": "ingegnere-ingegnere-civile-delle-strutture-geotecniche-ffs-officine-ferrovie-federali-berne-8def9eb896",
         "en": "civil-engineering-engineer-geotechnical-structures-ffs-officine-ferrovie-federali-berne",
-        "de": "tiefbauingenieurwesen-ffs-officine-ferrovie-federali-berne",
+        "de": "bauingenieur-geotechnische-bauwerke-ffs-officine-ferrovie-federali-berne",
         "fr": "ingenieur-e-genie-civil-ouvrages-geotechnique-ffs-officine-ferrovie-federali-berne"
       },
       "company": "FFS Officine (Ferrovie Federali)",
@@ -9874,7 +9905,7 @@
       "crawledAt": "2026-11-09T09:42:37.125Z",
       "previousSlugs": [
         "ingenieur-e-genie-civil-ouvrages-geotechnique-ffs-officine-ferrovie-federali-berne",
-        "bauingenieur-geotechnische-bauwerke-ffs-officine-ferrovie-federali-berne"
+        "tiefbauingenieurwesen-ffs-officine-ferrovie-federali-berne"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -9885,7 +9916,7 @@
         ],
         "de": [
           "ingenieur-e-genie-civil-ouvrages-geotechnique-ffs-officine-ferrovie-federali-berne",
-          "bauingenieur-geotechnische-bauwerke-ffs-officine-ferrovie-federali-berne"
+          "tiefbauingenieurwesen-ffs-officine-ferrovie-federali-berne"
         ]
       },
       "salaryMin": 73000,
@@ -11103,7 +11134,7 @@
       "slug": "specialista-in-manovra-a-ingresso-laterale-nel-trasporto-merci-di-gossau-ffs-officine-ferrovie-federali-gossau-sg",
       "slugByLocale": {
         "it": "specialista-in-manovra-a-ingresso-laterale-nel-trasporto-merci-di-gossau-ffs-officine-ferrovie-federali-gossau-sg",
-        "en": "quereinstieg-rangierspezialist-in-guterverkehr-gossau-ffs-officine-ferrovie-federali-gossau-sg",
+        "en": "lateral-entry-shunting-specialist-in-freight-transport-gossau-ffs-officine-ferrovie-federali-gossau-sg",
         "de": "quereinstieg-rangierspezialist-in-guterverkehr-gossau-ffs-officine-ferrovie-federali-gossau-sg",
         "fr": "specialiste-de-la-man-uvre-a-entree-laterale-dans-le-transport-de-marchandises-a-gossau-ffs-officine-ferrovie-federali-gossau-sg"
       },
@@ -11161,15 +11192,14 @@
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-09T09:43:32.109Z",
       "previousSlugs": [
-        "quereinstieg-rangierspezialist-in-guterverkehr-gossau-ffs-officine-ferrovie-federali-gossau-sg",
-        "lateral-entry-shunting-specialist-in-freight-transport-gossau-ffs-officine-ferrovie-federali-gossau-sg"
+        "quereinstieg-rangierspezialist-in-guterverkehr-gossau-ffs-officine-ferrovie-federali-gossau-sg"
       ],
       "previousSlugsByLocale": {
         "it": [
           "quereinstieg-rangierspezialist-in-guterverkehr-gossau-ffs-officine-ferrovie-federali-gossau-sg"
         ],
         "en": [
-          "lateral-entry-shunting-specialist-in-freight-transport-gossau-ffs-officine-ferrovie-federali-gossau-sg"
+          "quereinstieg-rangierspezialist-in-guterverkehr-gossau-ffs-officine-ferrovie-federali-gossau-sg"
         ],
         "fr": [
           "quereinstieg-rangierspezialist-in-guterverkehr-gossau-ffs-officine-ferrovie-federali-gossau-sg"
@@ -11804,9 +11834,9 @@
       "slug": "dipendente-della-cabina-di-segnalazione-olten-ffs-officine-ferrovie-federali-olten",
       "slugByLocale": {
         "it": "dipendente-della-cabina-di-segnalazione-olten-ffs-officine-ferrovie-federali-olten",
-        "en": "interlocking-employees-r-olten-ffs-officine-ferrovie-federali-olten",
+        "en": "signal-box-employee-olten-ffs-officine-ferrovie-federali-olten",
         "de": "stellwerkangestellte-r-olten-ffs-officine-ferrovie-federali-olten",
-        "fr": "salaries-interloques-r-olten-ffs-officine-ferrovie-federali-olten"
+        "fr": "employe-du-poste-de-signalisation-olten-ffs-officine-ferrovie-federali-olten"
       },
       "company": "FFS Officine (Ferrovie Federali)",
       "companyKey": "ffs-officine-ferrovie-federali",
@@ -11875,8 +11905,8 @@
       "crawledAt": "2026-11-08T21:44:39.573Z",
       "previousSlugs": [
         "stellwerkangestellte-r-olten-ffs-officine-ferrovie-federali-olten",
-        "signal-box-employee-olten-ffs-officine-ferrovie-federali-olten",
-        "employe-du-poste-de-signalisation-olten-ffs-officine-ferrovie-federali-olten"
+        "interlocking-employees-r-olten-ffs-officine-ferrovie-federali-olten",
+        "salaries-interloques-r-olten-ffs-officine-ferrovie-federali-olten"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -11884,11 +11914,11 @@
         ],
         "en": [
           "stellwerkangestellte-r-olten-ffs-officine-ferrovie-federali-olten",
-          "signal-box-employee-olten-ffs-officine-ferrovie-federali-olten"
+          "interlocking-employees-r-olten-ffs-officine-ferrovie-federali-olten"
         ],
         "fr": [
           "stellwerkangestellte-r-olten-ffs-officine-ferrovie-federali-olten",
-          "employe-du-poste-de-signalisation-olten-ffs-officine-ferrovie-federali-olten"
+          "salaries-interloques-r-olten-ffs-officine-ferrovie-federali-olten"
         ]
       },
       "firstSeenAt": "2026-10-10T09:25:30.948Z",
@@ -14442,9 +14472,9 @@
       "slug": "collaboratore-trice-weichenmontage-ffs-officine-ferrovie-federali-hagendorf",
       "slugByLocale": {
         "it": "collaboratore-trice-weichenmontage-ffs-officine-ferrovie-federali-hagendorf",
-        "en": "associate-weichenmontage-ffs-officine-ferrovie-federali-hagendorf",
+        "en": "switch-assembler-ffs-officine-ferrovie-federali-hagendorf",
         "de": "mitarbeiter-in-weichenmontage-ffs-officine-ferrovie-federali-hagendorf",
-        "fr": "collaborateur-trice-weichenmontage-ffs-officine-ferrovie-federali-hagendorf"
+        "fr": "employe-en-montage-d-aiguillage-ffs-officine-ferrovie-federali-hagendorf"
       },
       "company": "FFS Officine (Ferrovie Federali)",
       "companyKey": "ffs-officine-ferrovie-federali",
@@ -14505,8 +14535,8 @@
       "crawledAt": "2026-11-09T09:43:00.172Z",
       "previousSlugs": [
         "mitarbeiter-in-weichenmontage-ffs-officine-ferrovie-federali-hagendorf",
-        "switch-assembler-ffs-officine-ferrovie-federali-hagendorf",
-        "employe-en-montage-d-aiguillage-ffs-officine-ferrovie-federali-hagendorf"
+        "associate-weichenmontage-ffs-officine-ferrovie-federali-hagendorf",
+        "collaborateur-trice-weichenmontage-ffs-officine-ferrovie-federali-hagendorf"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -14514,11 +14544,11 @@
         ],
         "en": [
           "mitarbeiter-in-weichenmontage-ffs-officine-ferrovie-federali-hagendorf",
-          "switch-assembler-ffs-officine-ferrovie-federali-hagendorf"
+          "associate-weichenmontage-ffs-officine-ferrovie-federali-hagendorf"
         ],
         "fr": [
           "mitarbeiter-in-weichenmontage-ffs-officine-ferrovie-federali-hagendorf",
-          "employe-en-montage-d-aiguillage-ffs-officine-ferrovie-federali-hagendorf"
+          "collaborateur-trice-weichenmontage-ffs-officine-ferrovie-federali-hagendorf"
         ]
       },
       "firstSeenAt": "2026-10-24T21:25:04.967Z",

@@ -4409,12 +4409,12 @@
     },
     {
       "id": "spital-emmental-8eebc5496ef6",
-      "slug": "hausarztin-hausarzt-allgemeine-innere-medizin-a-spital-emmental-burgdorf",
+      "slug": "gp-gp-medicina-interna-generale-a-spital-emmental-burgdorf",
       "slugByLocale": {
         "de": "hausarztin-hausarzt-allgemeine-innere-medizin-a-spital-emmental-burgdorf",
-        "it": "hausarztin-hausarzt-allgemeine-innere-medizin-a-spital-emmental-burgdorf",
-        "en": "hausarztin-hausarzt-allgemeine-innere-medizin-a-spital-emmental-burgdorf",
-        "fr": "hausarztin-hausarzt-allgemeine-innere-medizin-a-spital-emmental-burgdorf"
+        "it": "gp-gp-medicina-interna-generale-a-spital-emmental-burgdorf",
+        "en": "gp-gp-general-internal-medicine-a-spital-emmental-burgdorf",
+        "fr": "gp-gp-medecine-interne-generale-a-spital-emmental-burgdorf"
       },
       "company": "Spital Emmental",
       "companyKey": "spital-emmental",
@@ -4482,7 +4482,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-09T09:17:00.659Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-09-09T13:44:45.935Z"
+      "firstSeenAt": "2026-09-09T13:44:45.935Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "hausarztin-hausarzt-allgemeine-innere-medizin-a-spital-emmental-burgdorf"
+        ],
+        "en": [
+          "hausarztin-hausarzt-allgemeine-innere-medizin-a-spital-emmental-burgdorf"
+        ],
+        "fr": [
+          "hausarztin-hausarzt-allgemeine-innere-medizin-a-spital-emmental-burgdorf"
+        ]
+      },
+      "previousSlugs": [
+        "hausarztin-hausarzt-allgemeine-innere-medizin-a-spital-emmental-burgdorf"
+      ]
     }
   ]
 }

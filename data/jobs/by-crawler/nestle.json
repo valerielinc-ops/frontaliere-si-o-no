@@ -1672,11 +1672,11 @@
     },
     {
       "id": "nestle-1455504933",
-      "slug": "chef-de-partie-nestle-ch",
+      "slug": "capopartita-nestle-lausanne",
       "slugByLocale": {
         "en": "chef-de-partie-nestle-ch",
-        "it": "chef-de-partie-nestle-ch",
-        "de": "chef-de-partie-nestle-ch",
+        "it": "capopartita-nestle-lausanne",
+        "de": "kuchenchef-de-partie-nestle-lausanne",
         "fr": "chef-de-partie-nestle-ch"
       },
       "company": "Nestlé",
@@ -1740,7 +1740,18 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-07T09:49:48.635Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-09T09:49:48.635Z"
+      "firstSeenAt": "2026-11-09T09:49:48.635Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "chef-de-partie-nestle-ch"
+        ],
+        "de": [
+          "chef-de-partie-nestle-ch"
+        ]
+      },
+      "previousSlugs": [
+        "chef-de-partie-nestle-ch"
+      ]
     },
     {
       "id": "nestle-1451603033",

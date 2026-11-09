@@ -422,12 +422,12 @@
     },
     {
       "id": "givaudan-3d3b81e18a57",
-      "slug": "marketing-intern-m-f-d-givaudan-ch",
+      "slug": "marketing-tirocinante-m-f-d-givaudan-kemptthal",
       "slugByLocale": {
         "en": "marketing-intern-m-f-d-givaudan-ch",
-        "it": "marketing-intern-m-f-d-givaudan-ch",
-        "de": "marketing-intern-m-f-d-givaudan-ch",
-        "fr": "marketing-intern-m-f-d-givaudan-ch"
+        "it": "marketing-tirocinante-m-f-d-givaudan-kemptthal",
+        "de": "marketing-praktikant-m-f-d-givaudan-kemptthal",
+        "fr": "marketing-stagiaire-m-f-d-givaudan-kemptthal"
       },
       "company": "Givaudan",
       "companyKey": "givaudan",
@@ -489,7 +489,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-03T09:31:04.899Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-09T09:31:04.899Z"
+      "firstSeenAt": "2026-11-09T09:31:04.899Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "marketing-intern-m-f-d-givaudan-ch"
+        ],
+        "de": [
+          "marketing-intern-m-f-d-givaudan-ch"
+        ],
+        "fr": [
+          "marketing-intern-m-f-d-givaudan-ch"
+        ]
+      },
+      "previousSlugs": [
+        "marketing-intern-m-f-d-givaudan-ch"
+      ]
     },
     {
       "id": "givaudan-b88aaa6c636d",

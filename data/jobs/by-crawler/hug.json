@@ -3339,12 +3339,12 @@
     },
     {
       "id": "hug-968f926c3d73",
-      "slug": "psychologue-au-service-de-psychiatrie-de-l-enfant-et-de-l-adolescent-50-a-60-hug-geneve",
+      "slug": "psichiatria-infantile-e-adolescente-50-60-hug-geneve",
       "slugByLocale": {
         "fr": "psychologue-au-service-de-psychiatrie-de-l-enfant-et-de-l-adolescent-50-a-60-hug-geneve",
-        "it": "psychologue-au-service-de-psychiatrie-de-l-enfant-et-de-l-adolescent-50-a-60-hug-geneve",
-        "en": "psychologue-au-service-de-psychiatrie-de-l-enfant-et-de-l-adolescent-50-a-60-hug-geneve",
-        "de": "psychologue-au-service-de-psychiatrie-de-l-enfant-et-de-l-adolescent-50-a-60-hug-geneve"
+        "it": "psichiatria-infantile-e-adolescente-50-60-hug-geneve",
+        "en": "psychologist-at-child-and-adolescent-psychiatry-service-50-to-60-hug-geneve",
+        "de": "psychologin-beim-kinder-und-jugendpsychiatriedienst-50-bis-60-hug-geneve"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -3407,7 +3407,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-07T09:24:38.502Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-09T09:24:38.502Z"
+      "firstSeenAt": "2026-11-09T09:24:38.502Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "psychologue-au-service-de-psychiatrie-de-l-enfant-et-de-l-adolescent-50-a-60-hug-geneve"
+        ],
+        "en": [
+          "psychologue-au-service-de-psychiatrie-de-l-enfant-et-de-l-adolescent-50-a-60-hug-geneve"
+        ],
+        "de": [
+          "psychologue-au-service-de-psychiatrie-de-l-enfant-et-de-l-adolescent-50-a-60-hug-geneve"
+        ]
+      },
+      "previousSlugs": [
+        "psychologue-au-service-de-psychiatrie-de-l-enfant-et-de-l-adolescent-50-a-60-hug-geneve"
+      ]
     },
     {
       "id": "hug-06958388baf9",
@@ -3495,12 +3509,12 @@
     },
     {
       "id": "hug-1ddd92678a8d",
-      "slug": "secretaire-medical-ou-medicale-100-hug-geneve",
+      "slug": "segreteria-medica-o-medica-100-hug-geneve",
       "slugByLocale": {
         "fr": "secretaire-medical-ou-medicale-100-hug-geneve",
-        "it": "secretaire-medical-ou-medicale-100-hug-geneve",
-        "en": "secretaire-medical-ou-medicale-100-hug-geneve",
-        "de": "secretaire-medical-ou-medicale-100-hug-geneve"
+        "it": "segreteria-medica-o-medica-100-hug-geneve",
+        "en": "medical-or-medical-secretary-100-hug-geneve",
+        "de": "medizinische-oder-medizinische-sekretarin-100-hug-geneve"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -3563,16 +3577,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-07T09:24:38.494Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-09T09:24:38.494Z"
+      "firstSeenAt": "2026-11-09T09:24:38.494Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "secretaire-medical-ou-medicale-100-hug-geneve"
+        ],
+        "en": [
+          "secretaire-medical-ou-medicale-100-hug-geneve"
+        ],
+        "de": [
+          "secretaire-medical-ou-medicale-100-hug-geneve"
+        ]
+      },
+      "previousSlugs": [
+        "secretaire-medical-ou-medicale-100-hug-geneve"
+      ]
     },
     {
       "id": "hug-0836494550f7",
-      "slug": "medecin-interne-remplacant-ou-remplacante-a-l-unite-de-consultation-ambulatoire-de-sante",
+      "slug": "medico-interno-sostituendo-o-sostituendo-l-unita-di-assistenza-sanitaria-ambulatoriale-adolescente-e-giovane-casaa-50",
       "slugByLocale": {
         "fr": "medecin-interne-remplacant-ou-remplacante-a-l-unite-de-consultation-ambulatoire-de-sante",
-        "it": "medecin-interne-remplacant-ou-remplacante-a-l-unite-de-consultation-ambulatoire-de-sante",
-        "en": "medecin-interne-remplacant-ou-remplacante-a-l-unite-de-consultation-ambulatoire-de-sante",
-        "de": "medecin-interne-remplacant-ou-remplacante-a-l-unite-de-consultation-ambulatoire-de-sante"
+        "it": "medico-interno-sostituendo-o-sostituendo-l-unita-di-assistenza-sanitaria-ambulatoriale-adolescente-e-giovane-casaa-50",
+        "en": "internal-physician-replacing-or-replacing-the-adolescent-and-young-adult-outpatient-health-care-unit-casaa-50-hug-geneve",
+        "de": "interner-arzt-ersetzt-oder-ersetzt-die-ambulante-gesundheitsstation-fur-jugendliche-und-junge-erwachsene-casaa-50-hug"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -3635,7 +3663,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-07T09:24:38.485Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-09T09:24:38.485Z"
+      "firstSeenAt": "2026-11-09T09:24:38.485Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "medecin-interne-remplacant-ou-remplacante-a-l-unite-de-consultation-ambulatoire-de-sante"
+        ],
+        "en": [
+          "medecin-interne-remplacant-ou-remplacante-a-l-unite-de-consultation-ambulatoire-de-sante"
+        ],
+        "de": [
+          "medecin-interne-remplacant-ou-remplacante-a-l-unite-de-consultation-ambulatoire-de-sante"
+        ]
+      },
+      "previousSlugs": [
+        "medecin-interne-remplacant-ou-remplacante-a-l-unite-de-consultation-ambulatoire-de-sante"
+      ]
     }
   ]
 }
