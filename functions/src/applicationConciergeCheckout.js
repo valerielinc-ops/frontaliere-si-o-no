@@ -440,7 +440,6 @@ export async function handleCreateApplicationConciergeCheckout(req) {
 
     const resumeCheckoutStatus = String(resumeService.checkoutSessionStatus || '').toLowerCase();
     if (resumeCheckoutStatus === 'open'
-      || (resumeService.paymentProvider !== SUMUP_PAYMENT_PROVIDER && resumeCheckoutStatus === 'expired')
       || (resumeService.paymentProvider === SUMUP_PAYMENT_PROVIDER && resumeService.checkoutSessionStatus === 'failed')) {
       if (resumeService.paymentProvider === SUMUP_PAYMENT_PROVIDER && resumeService.sumupCheckoutId) {
         try {
@@ -526,12 +525,15 @@ export async function handleCreateApplicationConciergeCheckout(req) {
         } catch {
           return { status: 502, body: { ok: false, error: 'application_concierge_checkout_unavailable' } };
         }
-      } else if (resumeCheckoutStatus === 'expired'
-        && configuredPaymentProvider === SUMUP_PAYMENT_PROVIDER
-        && !resumeService.stripeCheckoutSessionId) {
-        // There is no Stripe session to retrieve or accept payment against.
-        migrateStripeResumeToSumUp = true;
       }
+    }
+    if (resumeCheckoutStatus === 'expired'
+      && resumeService.paymentProvider !== SUMUP_PAYMENT_PROVIDER
+      && configuredPaymentProvider === SUMUP_PAYMENT_PROVIDER) {
+      // The ledger only records this terminal state after a signed Stripe
+      // expiry event or a verified provider response; no live session can
+      // still accept payment.
+      migrateStripeResumeToSumUp = true;
     }
   }
 
