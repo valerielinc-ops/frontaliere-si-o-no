@@ -2261,13 +2261,24 @@ jobs:
         run: |
           set -euo pipefail
           echo 'attested=false' >> "$GITHUB_OUTPUT"
-          success_count=0
-          if ! success_count="$(gh api -X GET "repos/${GITHUB_REPOSITORY}/commits/${HEAD_SHA}/status" \
-            --jq '[.statuses[] | select(.context == env.STATUS_CONTEXT and .state == "success" and .description == "report-only writer audit completed" and ((.target_url // "") | startswith(env.RUN_URL_PREFIX)))] | length' 2>/dev/null)"; then
+          latest_attestation=false
+          if ! latest_attestation="$(gh api -X GET "repos/${GITHUB_REPOSITORY}/commits/${HEAD_SHA}/status" \
+            --jq '
+              [.statuses[] | select(.context == env.STATUS_CONTEXT)]
+              | sort_by(.created_at)
+              | .[-1]
+              | if . == null then false
+                else (
+                  .state == "success" and
+                  .description == "report-only writer audit completed" and
+                  ((.target_url // "") | startswith(env.RUN_URL_PREFIX))
+                )
+                end
+            ' 2>/dev/null)"; then
             echo '::warning::unable to read the sync factuality writer status; the blocking gate remains enabled'
-            success_count=0
+            latest_attestation=false
           fi
-          if [ "${success_count:-0}" -gt 0 ]; then
+          if [ "${latest_attestation:-false}" = true ]; then
             echo 'attested=true' >> "$GITHUB_OUTPUT"
             echo "Factuality writer attested HEAD ${HEAD_SHA}."
           else

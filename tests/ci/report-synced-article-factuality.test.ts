@@ -278,6 +278,9 @@ describe('tests.yml — factuality gate del sync stabile', () => {
     const step = workflow.slice(start, end);
     expect(attestation).toContain('id: sync_factuality_attestation');
     expect(attestation).toContain('frontaliere/sync-factuality-writer');
+    expect(attestation).toContain('sort_by(.created_at)');
+    expect(attestation).toContain('.[-1]');
+    expect(attestation).toContain('report-only writer audit completed');
     expect(workflow).toContain('  statuses: read');
     expect(step).toContain("github.event.pull_request.head.ref != 'chore/sync-articles-sitemaps'");
     expect(step).toContain("github.event.pull_request.head.repo.full_name != github.repository");
