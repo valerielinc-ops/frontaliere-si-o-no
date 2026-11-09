@@ -1,7 +1,7 @@
 {
   "crawlerKey": "stiftung-kind-autismus",
-  "assembledAt": "2026-11-09T09:49:27.135Z",
-  "runId": "42592634107",
+  "assembledAt": "2026-11-09T21:37:25.291Z",
+  "runId": "42701670454",
   "jobs": [
     {
       "id": "stiftung-kind-autismus-a8888267502c",
@@ -34,7 +34,7 @@
       "url": "https://app.reflinejobs.io/2044/0108/pub/102/index.html",
       "source": "Stiftung Kind und Autismus Dedicated Parser (Refline 2044)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:49:20.326Z",
+      "crawledAt": "2026-11-09T21:37:18.348Z",
       "addressLocality": "Urdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -84,9 +84,23 @@
           "unitText": "YEAR"
         }
       },
-      "streetAddress": "Urdorf",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-29T09:49:20.326Z",
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Stiftung Kind und Autismus",
+        "streetAddress": "Bergstrasse 28",
+        "postalCode": "8902",
+        "registeredName": "Stiftung Kind und Autismus",
+        "matchType": "exact",
+        "streetAddressSource": "zefix-registry",
+        "jobPostalCode": "8902",
+        "addressLocality": "Urdorf",
+        "addressRegion": "ZH",
+        "checkedAt": "2026-11-09T15:44:25.275Z"
+      },
+      "streetAddress": "Bergstrasse 28",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-12-29T21:37:18.348Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -120,7 +134,7 @@
       "url": "https://app.reflinejobs.io/2044/0105/pub/101/index.html",
       "source": "Stiftung Kind und Autismus Dedicated Parser (Refline 2044)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:49:19.791Z",
+      "crawledAt": "2026-11-09T21:37:17.758Z",
       "addressLocality": "Urdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -170,9 +184,23 @@
           "unitText": "YEAR"
         }
       },
-      "streetAddress": "Urdorf",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-10T09:49:19.791Z",
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Stiftung Kind und Autismus",
+        "streetAddress": "Bergstrasse 28",
+        "postalCode": "8902",
+        "registeredName": "Stiftung Kind und Autismus",
+        "matchType": "exact",
+        "streetAddressSource": "zefix-registry",
+        "jobPostalCode": "8902",
+        "addressLocality": "Urdorf",
+        "addressRegion": "ZH",
+        "checkedAt": "2026-11-09T15:44:25.275Z"
+      },
+      "streetAddress": "Bergstrasse 28",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-12-09T21:37:17.758Z",
       "validThroughSource": "last-observed-window"
     }
   ]

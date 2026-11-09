@@ -1,7 +1,7 @@
 {
   "crawlerKey": "alpiq",
-  "assembledAt": "2026-11-09T09:45:34.303Z",
-  "runId": "42592634107",
+  "assembledAt": "2026-11-09T21:36:37.238Z",
+  "runId": "42701670454",
   "jobs": [
     {
       "id": "alpiq-b2db871ec913",
@@ -50,10 +50,10 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=196&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-09T09:45:14.429Z",
+      "crawledAt": "2026-11-09T21:36:26.601Z",
       "firstSeenAt": "2026-10-05T09:28:37.523Z",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-03T09:45:14.429Z",
+      "validThrough": "2027-01-03T21:36:26.601Z",
       "validThroughSource": "last-observed-window",
       "salaryMin": 83000,
       "salaryMax": 127000,
@@ -116,10 +116,10 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=261&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-09T09:45:14.446Z",
+      "crawledAt": "2026-11-09T21:36:26.626Z",
       "firstSeenAt": "2026-10-29T21:52:53.782Z",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-28T09:45:14.446Z",
+      "validThrough": "2027-01-28T21:36:26.626Z",
       "validThroughSource": "last-observed-window",
       "salaryMin": 83000,
       "salaryMax": 127000,
@@ -179,7 +179,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=281&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-09T09:45:14.447Z",
+      "crawledAt": "2026-11-09T21:36:26.629Z",
       "needsRetranslation": true,
       "firstSeenAt": "2026-10-30T09:47:47.856Z",
       "companyRegisteredAddress": {
@@ -194,7 +194,7 @@
         "streetAddressSource": "zefix-registry"
       },
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-29T09:45:14.447Z",
+      "validThrough": "2027-01-28T21:36:26.629Z",
       "validThroughSource": "last-observed-window",
       "salaryMin": 130000,
       "salaryMax": 198000,
@@ -257,10 +257,10 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=283&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-09T09:45:14.448Z",
+      "crawledAt": "2026-11-09T21:36:26.632Z",
       "firstSeenAt": "2026-10-30T21:41:25.278Z",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-29T09:45:14.448Z",
+      "validThrough": "2027-01-29T21:36:26.632Z",
       "validThroughSource": "last-observed-window",
       "salaryMin": 83000,
       "salaryMax": 127000,
@@ -323,11 +323,11 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=311&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:45:14.452Z",
+      "crawledAt": "2026-11-09T21:36:26.637Z",
       "needsRetranslation": true,
       "firstSeenAt": "2026-09-25T15:00:06.553Z",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-25T09:45:14.452Z",
+      "validThrough": "2026-12-24T21:36:26.637Z",
       "validThroughSource": "last-observed-window",
       "salaryMin": 92000,
       "salaryMax": 140000,
@@ -390,10 +390,10 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=320&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-09T09:45:14.456Z",
+      "crawledAt": "2026-11-09T21:36:26.643Z",
       "firstSeenAt": "2026-11-04T22:03:16.706Z",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T09:45:14.456Z",
+      "validThrough": "2027-02-03T21:36:26.643Z",
       "validThroughSource": "last-observed-window",
       "salaryMin": 74000,
       "salaryMax": 113000,
@@ -411,10 +411,10 @@
     },
     {
       "id": "alpiq-cafc6ebc9931",
-      "slug": "mba-stagista-green-power-business-development-alpiq-lausanne-710655c677",
+      "slug": "mba-intern-green-power-business-development-alpiq-switzerland",
       "slugByLocale": {
-        "en": "mba-intern-green-power-business-development-alpiq-switzerland",
         "it": "mba-stagista-green-power-business-development-alpiq-lausanne-710655c677",
+        "en": "mba-intern-green-power-business-development-alpiq-switzerland",
         "de": "mba-intern-entwicklung-des-geschafts-mit-green-power-alpiq-lausanne"
       },
       "company": "Alpiq",
@@ -455,11 +455,12 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=328&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-09T09:45:14.458Z",
-      "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-02T09:45:14.458Z",
-      "validThroughSource": "last-observed-window",
+      "crawledAt": "2026-11-09T21:36:26.645Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-11-03T21:39:53.841Z",
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-02-02T21:36:26.645Z",
+      "validThroughSource": "last-observed-window",
       "salaryMin": 74000,
       "salaryMax": 113000,
       "salarySource": "estimated",
@@ -472,15 +473,6 @@
           "maxValue": 113000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-11-03T21:39:53.841Z",
-      "previousSlugs": [
-        "mba-intern-green-power-business-development-alpiq-switzerland"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "mba-intern-green-power-business-development-alpiq-switzerland"
-        ]
       }
     },
     {
@@ -548,7 +540,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "previousSlugs": [
         "mba-intern-green-power-business-development-alpiq-switzerland"
       ],

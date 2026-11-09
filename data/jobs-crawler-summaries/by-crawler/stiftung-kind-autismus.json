@@ -1,7 +1,7 @@
 {
   "key": "stiftung-kind-autismus",
   "label": "Stiftung Kind und Autismus",
-  "generatedAt": "2026-11-09T09:49:38.493Z",
+  "generatedAt": "2026-11-09T21:37:39.610Z",
   "total": 2,
   "discovered": null,
   "parsed": 2,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 5823,
-  "avgDurationMs": 5823,
+  "durationMs": 7169,
+  "avgDurationMs": 7169,
   "durationHistory": [
-    5823
+    7169
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -37,7 +37,7 @@
       "url": "https://app.reflinejobs.io/2044/0108/pub/102/index.html",
       "source": "Stiftung Kind und Autismus Dedicated Parser (Refline 2044)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:49:20.326Z",
+      "crawledAt": "2026-11-09T21:37:18.348Z",
       "addressLocality": "Urdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -59,9 +59,23 @@
       "salaryMin": 79000,
       "salaryMax": 134500,
       "salarySource": "estimated",
-      "streetAddress": "Urdorf",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-29T09:49:20.326Z",
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Stiftung Kind und Autismus",
+        "streetAddress": "Bergstrasse 28",
+        "postalCode": "8902",
+        "registeredName": "Stiftung Kind und Autismus",
+        "matchType": "exact",
+        "streetAddressSource": "zefix-registry",
+        "jobPostalCode": "8902",
+        "addressLocality": "Urdorf",
+        "addressRegion": "ZH",
+        "checkedAt": "2026-11-09T15:44:25.275Z"
+      },
+      "streetAddress": "Bergstrasse 28",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-12-29T21:37:18.348Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -83,7 +97,7 @@
       "url": "https://app.reflinejobs.io/2044/0105/pub/101/index.html",
       "source": "Stiftung Kind und Autismus Dedicated Parser (Refline 2044)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:49:19.791Z",
+      "crawledAt": "2026-11-09T21:37:17.758Z",
       "addressLocality": "Urdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -105,9 +119,23 @@
       "salaryMin": 82000,
       "salaryMax": 114500,
       "salarySource": "estimated",
-      "streetAddress": "Urdorf",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-10T09:49:19.791Z",
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Stiftung Kind und Autismus",
+        "streetAddress": "Bergstrasse 28",
+        "postalCode": "8902",
+        "registeredName": "Stiftung Kind und Autismus",
+        "matchType": "exact",
+        "streetAddressSource": "zefix-registry",
+        "jobPostalCode": "8902",
+        "addressLocality": "Urdorf",
+        "addressRegion": "ZH",
+        "checkedAt": "2026-11-09T15:44:25.275Z"
+      },
+      "streetAddress": "Bergstrasse 28",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-12-09T21:37:17.758Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -118,5 +146,5 @@
       }
     }
   ],
-  "codeCommit": "f071981dd2d2820cdec3736f76b1b17ee50345bd"
+  "codeCommit": "1dbbd63fa4ef1d645b973703c20eaa910357364d"
 }
