@@ -30,7 +30,6 @@ import {
 } from './assistedApplicationEmployerResponse.js';
 import { createHash, randomUUID, timingSafeEqual } from 'node:crypto';
 import { ASSISTED_EMAIL_PROVIDERS } from './assistedApplicationEmployerMail.js';
-import { FieldValue } from 'firebase-admin/firestore';
 import { ASSISTED_APPLICATIONS_COLLECTION, PORTAL_ACCOUNTS_DOC_ID } from './assistedApplicationConstants.js';
 import { currentPendingPortalAccount, exactPortalVerificationUrl, MAX_PORTAL_VERIFICATION_URL } from './assistedApplicationPortalSites.js';
 import { orderIdForAlias } from './assistedApplicationAlias.js';
@@ -1148,7 +1147,7 @@ export async function processAssistedApplicationInbound({ db, bucket, orderId, m
         forwarded: forwardedFromDelivery(initialDelivery),
       }, { merge: true });
       transaction.set(orderRef, {
-        employerReplies: FieldValue.increment(1),
+        employerReplies: Number(liveOrder.employerReplies || 0) + 1,
         ...(Number(claimed.receivedAt) >= Number(liveOrder.lastEmployerReplyAt || 0) ? {
           lastEmployerReplyAt: claimed.receivedAt,
           lastEmployerReplyCategory: classification.category,

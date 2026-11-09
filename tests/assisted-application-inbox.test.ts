@@ -227,20 +227,26 @@ describe('employer messages on the alias', () => {
     }
   });
 
-  it('puts a message back to received when processing fails, and processes it once on the retry', async () => {
+  it('keeps the classified message and schedules forwarding recovery when the provider cascade throws', async () => {
     const { store, alias } = await setupInbound();
     const bucket = fakeBucket();
     const accepted = await handleAssistedApplicationInbound(request(employerMail(), alias.address), { db: store.db, bucket, secret: SECRET, runKey: RUN_KEY, nowMs: 1000 });
     const messageId = accepted.body.accepted;
     const classify = vi.fn(async () => ({ category: 'question', summaryIt: '', summaryCandidate: '', interviewWhen: '', requestedDocuments: [], verificationCode: '', verificationUrl: '', needsReply: true }));
     const args = { db: store.db, bucket, orderId: ORDER, messageId, runKey: RUN_KEY, classify, nowMs: 2000 };
-    await expect(processAssistedApplicationInbound({ ...args, sendCascade: vi.fn(async () => { throw new Error('resend_down'); }) })).rejects.toThrow('resend_down');
-    expect(store.read(`assisted_applications/${ORDER}/inbox/${messageId}`)).toMatchObject({ status: 'received', lastError: 'resend_down' });
+    const failedCascade = vi.fn(async () => { throw new Error('resend_down'); });
+    expect(await processAssistedApplicationInbound({ ...args, sendCascade: failedCascade })).toMatchObject({ ok: true, category: 'question', forwarded: 'retry_scheduled' });
+    expect(store.read(`assisted_applications/${ORDER}/inbox/${messageId}`)).toMatchObject({
+      status: 'processed',
+      forwardDelivery: { status: 'retry_scheduled', attempts: 1, retryAt: 62_000, lastError: 'forward_preparation_or_provider_error' },
+      forwarded: { status: 'retry_scheduled', error: 'forward_preparation_or_provider_error' },
+    });
+    expect(store.read(`assisted_applications/${ORDER}`)?.employerReplies).toBe(1);
     const sendCascade = vi.fn(async () => ({ failed: [], sent: [{}] }));
-    expect(await processAssistedApplicationInbound({ ...args, sendCascade })).toMatchObject({ ok: true, category: 'question', forwarded: 'sent' });
-    // A redelivered trigger does nothing more.
+    // A redelivered trigger leaves recovery to the scheduled sweep.
     expect(await processAssistedApplicationInbound({ ...args, sendCascade })).toEqual({ ok: true, skipped: true });
-    expect(sendCascade).toHaveBeenCalledTimes(1);
+    expect(failedCascade).toHaveBeenCalledOnce();
+    expect(sendCascade).not.toHaveBeenCalled();
   });
 
   it('classifies with Codex, keeps only verbatim verification data, stores it encrypted and forwards it', async () => {
@@ -265,7 +271,13 @@ describe('employer messages on the alias', () => {
     const envelope = JSON.parse(bucket.files.get(inbox[0].rawKey)!);
     expect(Buffer.from(decryptJson(envelope, Buffer.from(RUN_KEY, 'base64')).raw, 'base64').toString('latin1')).toContain('Einladung zum Vorstellungsgespr');
     const [[items, options]] = sendCascade.mock.calls as any;
-    expect(options).toEqual({ delayMs: 0, forceProvider: ['maileroo', 'resend'] });
+    expect(options).toMatchObject({
+      delayMs: 0,
+      forceProvider: ['maileroo', 'resend'],
+      beforeProviderAttempt: expect.any(Function),
+      onSent: expect.any(Function),
+      onAmbiguous: expect.any(Function),
+    });
     expect(items[0].payload).toMatchObject({ to: ['maria@example.com'], replyTo: 'hr@arbeitgeber.ch', subject: '[Vorstellungsgespräch] Einladung zum Vorstellungsgespräch' });
     expect(items[0].payload.attachments).toMatchObject([{ filename: 'Einladung.pdf', contentType: 'application/pdf' }]);
     expect(items[0].payload.text).toContain('Einladung zum Gespräch am 12. Oktober');
@@ -287,7 +299,13 @@ describe('employer messages on the alias', () => {
     }));
     await deliver({ store, alias, raw: htmlEmployerMail({ subject: 'Domanda' }), classify, sendCascade });
     const [[, options]] = sendCascade.mock.calls as any;
-    expect(options).toEqual({ delayMs: 0, forceProvider: ['maileroo', 'resend'] });
+    expect(options).toMatchObject({
+      delayMs: 0,
+      forceProvider: ['maileroo', 'resend'],
+      beforeProviderAttempt: expect.any(Function),
+      onSent: expect.any(Function),
+      onAmbiguous: expect.any(Function),
+    });
   });
 
   it('keeps a real verification code and falls back to rules when Codex is unavailable', async () => {
@@ -708,11 +726,17 @@ it('does not recreate a purged inbox or reply projection if retention finishes d
   const { store, alias } = await setupInbound();
   const classify = async () => ({ category: 'auto_acknowledgement', needsReply: false });
   const sendCascade = async () => {
-    await store.db.collection('assisted_applications').doc(ORDER).set({ retentionPurgedAt: 6000 }, { merge: true });
+    await store.db.collection('assisted_applications').doc(ORDER).set({
+      retentionPurgedAt: 6000,
+      employerResponse: null,
+      employerReplies: 0,
+      lastEmployerReplyAt: null,
+      lastEmployerReplyCategory: null,
+    }, { merge: true });
     for (const path of store.list(`assisted_applications/${ORDER}/inbox/`)) store.docs.delete(path);
     return { failed: [], sent: [{ provider: 'maileroo' }] };
   };
   await deliver({ store, alias, raw: employerMail({ subject: 'Application received', text: 'We have received your application.' }), classify, sendCascade, nowMs: 5000 });
   expect(store.list(`assisted_applications/${ORDER}/inbox/`)).toEqual([]);
-  expect(store.read(`assisted_applications/${ORDER}`)?.employerResponse).toBeUndefined();
+  expect(store.read(`assisted_applications/${ORDER}`)?.employerResponse).toBeNull();
 });
