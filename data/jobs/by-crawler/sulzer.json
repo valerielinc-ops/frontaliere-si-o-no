@@ -1,7 +1,7 @@
 {
   "crawlerKey": "sulzer",
-  "assembledAt": "2026-11-08T21:55:13.901Z",
-  "runId": "42524655391",
+  "assembledAt": "2026-11-09T09:42:04.769Z",
+  "runId": "42592634107",
   "jobs": [
     {
       "id": "sulzer-7bb36661ae73",
@@ -34,7 +34,7 @@
       "url": "https://sulzer.wd502.myworkdayjobs.com/en-US/SulzerJobs/job/Winterthur/HR-Administration---Payroll-Manager_JR102620",
       "source": "Sulzer Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-08T21:55:06.512Z",
+      "crawledAt": "2026-11-09T09:41:55.553Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -78,7 +78,7 @@
       "postalCode": "8400",
       "streetAddress": "Winterthur",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-31T21:55:06.512Z",
+      "validThrough": "2026-12-31T09:41:55.553Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -112,7 +112,7 @@
       "url": "https://sulzer.wd502.myworkdayjobs.com/en-US/SulzerJobs/job/Winterthur/Digital-Internal-Communications-Working-Student--Trainee-_JR105047",
       "source": "Sulzer Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-08T21:55:05.682Z",
+      "crawledAt": "2026-11-09T09:41:54.846Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -162,7 +162,7 @@
       "postalCode": "8400",
       "streetAddress": "Winterthur",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-04T21:55:05.682Z",
+      "validThrough": "2027-01-04T09:41:54.846Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -197,7 +197,7 @@
       "url": "https://sulzer.wd502.myworkdayjobs.com/en-US/SulzerJobs/job/Winterthur/R-D-Chemical-Recycling-Intern_JR104882-1",
       "source": "Sulzer Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-08T21:55:04.877Z",
+      "crawledAt": "2026-11-09T09:41:54.164Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -247,7 +247,7 @@
       "postalCode": "8400",
       "streetAddress": "Winterthur",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-06T21:55:04.877Z",
+      "validThrough": "2027-01-06T09:41:54.164Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -282,7 +282,7 @@
       "url": "https://sulzer.wd502.myworkdayjobs.com/en-US/SulzerJobs/job/Winterthur/Legal-Assistant---Paralegal_JR105145-1",
       "source": "Sulzer Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-08T21:55:04.049Z",
+      "crawledAt": "2026-11-09T09:41:53.465Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -334,7 +334,7 @@
       "postalCode": "8400",
       "streetAddress": "Winterthur",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-07T21:55:04.049Z",
+      "validThrough": "2027-01-07T09:41:53.465Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -369,7 +369,7 @@
       "url": "https://sulzer.wd502.myworkdayjobs.com/en-US/SulzerJobs/job/Winterthur/Machine-Diagnostics-Engineer_JR103447-1",
       "source": "Sulzer Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-08T21:55:02.810Z",
+      "crawledAt": "2026-11-09T09:41:52.411Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -412,7 +412,7 @@
       "postalCode": "8400",
       "streetAddress": "Winterthur",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-21T21:55:02.810Z",
+      "validThrough": "2027-01-21T09:41:52.411Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -447,7 +447,7 @@
       "url": "https://sulzer.wd502.myworkdayjobs.com/en-US/SulzerJobs/job/Winterthur/ICT-Supporter_JR105348",
       "source": "Sulzer Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T21:55:02.061Z",
+      "crawledAt": "2026-11-09T09:41:51.723Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -501,8 +501,81 @@
       "postalCode": "8400",
       "streetAddress": "Winterthur",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-24T21:55:02.061Z",
+      "validThrough": "2027-01-24T09:41:51.723Z",
       "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "sulzer-d4bcfedf32ea",
+      "slug": "accounting-manager-sulzer-ch",
+      "slugByLocale": {
+        "en": "accounting-manager-sulzer-ch",
+        "it": "accounting-manager-sulzer-ch",
+        "de": "accounting-manager-sulzer-ch",
+        "fr": "accounting-manager-sulzer-ch"
+      },
+      "company": "Sulzer",
+      "companyKey": "sulzer",
+      "companyDomain": "sulzer.com",
+      "title": "Accounting Manager",
+      "titleByLocale": {
+        "en": "Accounting Manager",
+        "it": "Accounting Manager",
+        "de": "Accounting Manager",
+        "fr": "Accounting Manager"
+      },
+      "description": "Sulzer is a leading engineering company with a proud heritage of innovation. Join our global team to grow your expertise and develop innovative solutions that enable a prosperous and more sustainable society.\n\nAbout the role\n\nJoin our Headquarter team in Winterthur as an Accounting Manager and take responsibility for key accounting activities of Sulzer AG.\n\nIn this role, you will ensure accurate financial reporting, support planning and controlling activities, and collaborate closely with stakeholders across Finance, Accounting, Tax and Treasury.\n\nWhat you will do:\n\n• Manage financial and operational accounting activities.\n\n• Prepare monthly, half-year and annual financial statements in accordance with IFRS and Swiss requirements.\n\n• Manage cost centre and profit centre accounting.\n\n• Prepare budgets, forecasts and monthly financial reporting.\n\n• Analyse financial statements and reconcile balance sheet accounts.\n\n• Coordinate liquidity planning, intercompany matching and netting.\n\n• Act as a contact for accounts receivable, accounts payable and subledger-related topics.\n\n• Contribute to improving accounting processes and controls.\n\nWhat you need to succeed:\n\n• Commercial education with further qualification in Finance and Accounting (eidg. Fachausweis) or equivalent.\n\n• 2–3 years of professional experience in finance and accounting.\n\n• Good knowledge of Swiss accounting requirements and IFRS.\n\n• Advanced Excel skills and working knowledge of SAP FI/CO.\n\n• Fluent German (C2) and good English (B2).\n\n• Independent, reliable and detail-oriented working style.\n\n• Strong communication, teamwork and customer orientation.\n\n• Knowledge of TMS IT2 is an advantage.\n\nWhat we offer you\n\n• 25 days holidays (exclusive of bank holidays) + service days\n\n• Defined contribution pension scheme\n\n• Employee Assistance Program/health care\n\n• On-site car parking/public transport allowance\n\n• Access to a wide range of discounts\n\nSulzer is an equal opportunity employer. We believe in the strength of a diverse workforce and are committed to offering an inclusive work environment.\n\nWe are proud to be recognized as a Top Employer 2026 in Brazil, Canada, China, Finland, Germany, Ireland, Mexico, Switzerland, South Africa, the UK and the USA.",
+      "descriptionByLocale": {
+        "en": "Sulzer is a leading engineering company with a proud heritage of innovation. Join our global team to grow your expertise and develop innovative solutions that enable a prosperous and more sustainable society.\n\nAbout the role\n\nJoin our Headquarter team in Winterthur as an Accounting Manager and take responsibility for key accounting activities of Sulzer AG.\n\nIn this role, you will ensure accurate financial reporting, support planning and controlling activities, and collaborate closely with stakeholders across Finance, Accounting, Tax and Treasury.\n\nWhat you will do:\n\n• Manage financial and operational accounting activities.\n\n• Prepare monthly, half-year and annual financial statements in accordance with IFRS and Swiss requirements.\n\n• Manage cost centre and profit centre accounting.\n\n• Prepare budgets, forecasts and monthly financial reporting.\n\n• Analyse financial statements and reconcile balance sheet accounts.\n\n• Coordinate liquidity planning, intercompany matching and netting.\n\n• Act as a contact for accounts receivable, accounts payable and subledger-related topics.\n\n• Contribute to improving accounting processes and controls.\n\nWhat you need to succeed:\n\n• Commercial education with further qualification in Finance and Accounting (eidg. Fachausweis) or equivalent.\n\n• 2–3 years of professional experience in finance and accounting.\n\n• Good knowledge of Swiss accounting requirements and IFRS.\n\n• Advanced Excel skills and working knowledge of SAP FI/CO.\n\n• Fluent German (C2) and good English (B2).\n\n• Independent, reliable and detail-oriented working style.\n\n• Strong communication, teamwork and customer orientation.\n\n• Knowledge of TMS IT2 is an advantage.\n\nWhat we offer you\n\n• 25 days holidays (exclusive of bank holidays) + service days\n\n• Defined contribution pension scheme\n\n• Employee Assistance Program/health care\n\n• On-site car parking/public transport allowance\n\n• Access to a wide range of discounts\n\nSulzer is an equal opportunity employer. We believe in the strength of a diverse workforce and are committed to offering an inclusive work environment.\n\nWe are proud to be recognized as a Top Employer 2026 in Brazil, Canada, China, Finland, Germany, Ireland, Mexico, Switzerland, South Africa, the UK and the USA.",
+        "it": "Sulzer is a leading engineering company with a proud heritage of innovation. Join our global team to grow your expertise and develop innovative solutions that enable a prosperous and more sustainable society.\n\nAbout the role\n\nJoin our Headquarter team in Winterthur as an Accounting Manager and take responsibility for key accounting activities of Sulzer AG.\n\nIn this role, you will ensure accurate financial reporting, support planning and controlling activities, and collaborate closely with stakeholders across Finance, Accounting, Tax and Treasury.\n\nWhat you will do:\n\n• Manage financial and operational accounting activities.\n\n• Prepare monthly, half-year and annual financial statements in accordance with IFRS and Swiss requirements.\n\n• Manage cost centre and profit centre accounting.\n\n• Prepare budgets, forecasts and monthly financial reporting.\n\n• Analyse financial statements and reconcile balance sheet accounts.\n\n• Coordinate liquidity planning, intercompany matching and netting.\n\n• Act as a contact for accounts receivable, accounts payable and subledger-related topics.\n\n• Contribute to improving accounting processes and controls.\n\nWhat you need to succeed:\n\n• Commercial education with further qualification in Finance and Accounting (eidg. Fachausweis) or equivalent.\n\n• 2–3 years of professional experience in finance and accounting.\n\n• Good knowledge of Swiss accounting requirements and IFRS.\n\n• Advanced Excel skills and working knowledge of SAP FI/CO.\n\n• Fluent German (C2) and good English (B2).\n\n• Independent, reliable and detail-oriented working style.\n\n• Strong communication, teamwork and customer orientation.\n\n• Knowledge of TMS IT2 is an advantage.\n\nWhat we offer you\n\n• 25 days holidays (exclusive of bank holidays) + service days\n\n• Defined contribution pension scheme\n\n• Employee Assistance Program/health care\n\n• On-site car parking/public transport allowance\n\n• Access to a wide range of discounts\n\nSulzer is an equal opportunity employer. We believe in the strength of a diverse workforce and are committed to offering an inclusive work environment.\n\nWe are proud to be recognized as a Top Employer 2026 in Brazil, Canada, China, Finland, Germany, Ireland, Mexico, Switzerland, South Africa, the UK and the USA.",
+        "de": "Sulzer is a leading engineering company with a proud heritage of innovation. Join our global team to grow your expertise and develop innovative solutions that enable a prosperous and more sustainable society.\n\nAbout the role\n\nJoin our Headquarter team in Winterthur as an Accounting Manager and take responsibility for key accounting activities of Sulzer AG.\n\nIn this role, you will ensure accurate financial reporting, support planning and controlling activities, and collaborate closely with stakeholders across Finance, Accounting, Tax and Treasury.\n\nWhat you will do:\n\n• Manage financial and operational accounting activities.\n\n• Prepare monthly, half-year and annual financial statements in accordance with IFRS and Swiss requirements.\n\n• Manage cost centre and profit centre accounting.\n\n• Prepare budgets, forecasts and monthly financial reporting.\n\n• Analyse financial statements and reconcile balance sheet accounts.\n\n• Coordinate liquidity planning, intercompany matching and netting.\n\n• Act as a contact for accounts receivable, accounts payable and subledger-related topics.\n\n• Contribute to improving accounting processes and controls.\n\nWhat you need to succeed:\n\n• Commercial education with further qualification in Finance and Accounting (eidg. Fachausweis) or equivalent.\n\n• 2–3 years of professional experience in finance and accounting.\n\n• Good knowledge of Swiss accounting requirements and IFRS.\n\n• Advanced Excel skills and working knowledge of SAP FI/CO.\n\n• Fluent German (C2) and good English (B2).\n\n• Independent, reliable and detail-oriented working style.\n\n• Strong communication, teamwork and customer orientation.\n\n• Knowledge of TMS IT2 is an advantage.\n\nWhat we offer you\n\n• 25 days holidays (exclusive of bank holidays) + service days\n\n• Defined contribution pension scheme\n\n• Employee Assistance Program/health care\n\n• On-site car parking/public transport allowance\n\n• Access to a wide range of discounts\n\nSulzer is an equal opportunity employer. We believe in the strength of a diverse workforce and are committed to offering an inclusive work environment.\n\nWe are proud to be recognized as a Top Employer 2026 in Brazil, Canada, China, Finland, Germany, Ireland, Mexico, Switzerland, South Africa, the UK and the USA.",
+        "fr": "Sulzer is a leading engineering company with a proud heritage of innovation. Join our global team to grow your expertise and develop innovative solutions that enable a prosperous and more sustainable society.\n\nAbout the role\n\nJoin our Headquarter team in Winterthur as an Accounting Manager and take responsibility for key accounting activities of Sulzer AG.\n\nIn this role, you will ensure accurate financial reporting, support planning and controlling activities, and collaborate closely with stakeholders across Finance, Accounting, Tax and Treasury.\n\nWhat you will do:\n\n• Manage financial and operational accounting activities.\n\n• Prepare monthly, half-year and annual financial statements in accordance with IFRS and Swiss requirements.\n\n• Manage cost centre and profit centre accounting.\n\n• Prepare budgets, forecasts and monthly financial reporting.\n\n• Analyse financial statements and reconcile balance sheet accounts.\n\n• Coordinate liquidity planning, intercompany matching and netting.\n\n• Act as a contact for accounts receivable, accounts payable and subledger-related topics.\n\n• Contribute to improving accounting processes and controls.\n\nWhat you need to succeed:\n\n• Commercial education with further qualification in Finance and Accounting (eidg. Fachausweis) or equivalent.\n\n• 2–3 years of professional experience in finance and accounting.\n\n• Good knowledge of Swiss accounting requirements and IFRS.\n\n• Advanced Excel skills and working knowledge of SAP FI/CO.\n\n• Fluent German (C2) and good English (B2).\n\n• Independent, reliable and detail-oriented working style.\n\n• Strong communication, teamwork and customer orientation.\n\n• Knowledge of TMS IT2 is an advantage.\n\nWhat we offer you\n\n• 25 days holidays (exclusive of bank holidays) + service days\n\n• Defined contribution pension scheme\n\n• Employee Assistance Program/health care\n\n• On-site car parking/public transport allowance\n\n• Access to a wide range of discounts\n\nSulzer is an equal opportunity employer. We believe in the strength of a diverse workforce and are committed to offering an inclusive work environment.\n\nWe are proud to be recognized as a Top Employer 2026 in Brazil, Canada, China, Finland, Germany, Ireland, Mexico, Switzerland, South Africa, the UK and the USA."
+      },
+      "needsRetranslation": true,
+      "location": "Winterthur",
+      "canton": "ZH",
+      "url": "https://sulzer.wd502.myworkdayjobs.com/en-US/SulzerJobs/job/Winterthur/Accounting-Manager_JR104998",
+      "source": "Sulzer Dedicated Parser (Workday)",
+      "sourceLang": "en",
+      "crawledAt": "2026-11-09T09:41:51.032Z",
+      "addressLocality": "Winterthur",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Vendite",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "senior",
+      "sector": "Industria",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-11-09",
+      "postedDate": "2026-11-09",
+      "postingDateSource": "reported",
+      "applyUrl": "https://sulzer.wd502.myworkdayjobs.com/en-US/SulzerJobs/job/Winterthur/Accounting-Manager_JR104998",
+      "requirements": [],
+      "requirementsByLocale": {
+        "en": []
+      },
+      "jobReqId": "JR104998",
+      "salaryMin": 117000,
+      "salaryMax": 180000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 117000,
+          "maxValue": 180000,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "8400",
+      "streetAddress": "Winterthur",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-02-07T09:41:51.032Z",
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-11-09T09:41:51.032Z"
     }
   ]
 }
