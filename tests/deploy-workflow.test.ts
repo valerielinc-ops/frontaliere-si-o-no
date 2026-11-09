@@ -197,6 +197,38 @@ describe('publisher integrity gate and asynchronous historical audits', () => {
     expect(rehydrateStep?.env?.REHYDRATE_MAX_PARALLEL).toBe('1');
   });
 
+  it('prunes only the source-only image tree for the opted-in weekly full replay', () => {
+    const workflow = YAML.parse(AUDIT_REPORT_YML) as any;
+    const full = YAML.parse(AUDIT_FULL_YML) as any;
+    const published = YAML.parse(AUDIT_PUBLISHED_YML) as any;
+    const steps = workflow.jobs.audit.steps;
+    const pruneIndex = steps.findIndex((step: any) => (
+      step.name === 'Prune source-only images before full dist rehydrate'
+    ));
+    const freeIndex = steps.findIndex((step: any) => step.name === 'Free disk space on runner');
+    const rehydrateIndex = steps.findIndex((step: any) => (
+      step.name === 'Rehydrate locale then section shards into dist/ (when sharding active)'
+    ));
+    const prune = steps[pruneIndex];
+
+    expect(workflow.on.workflow_dispatch.inputs.prune_source_images).toMatchObject({
+      default: false,
+      type: 'boolean',
+    });
+    expect(workflow.on.workflow_call.inputs.prune_source_images).toMatchObject({
+      default: false,
+      type: 'boolean',
+    });
+    expect(prune?.if).toBe('${{ inputs.prune_source_images }}');
+    expect(prune?.run).toContain('rm -rf -- public/images');
+    expect(prune?.run).toContain('df -i /');
+    expect(pruneIndex).toBeGreaterThan(-1);
+    expect(pruneIndex).toBeLessThan(freeIndex);
+    expect(pruneIndex).toBeLessThan(rehydrateIndex);
+    expect(full.jobs['full-audit'].with.prune_source_images).toBe(true);
+    expect(published.jobs.report.with.prune_source_images).not.toBe(true);
+  });
+
   it('reconciles sitemap membership after shard rehydration and before final-dist audits', () => {
     const workflow = YAML.parse(AUDIT_REPORT_YML) as any;
     const steps = workflow.jobs.audit.steps;
