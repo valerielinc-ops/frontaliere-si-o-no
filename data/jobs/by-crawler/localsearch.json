@@ -1,7 +1,7 @@
 {
   "crawlerKey": "localsearch",
-  "assembledAt": "2026-11-09T09:22:35.448Z",
-  "runId": "42591232345",
+  "assembledAt": "2026-11-09T21:17:14.242Z",
+  "runId": "42699939144",
   "jobs": [
     {
       "id": "localsearch-6d1ddda45eca",
@@ -34,7 +34,7 @@
       "url": "https://emp.jobylon.com/jobs/360117-localsearch-verkaufsberaterin-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:22:29.818Z",
+      "crawledAt": "2026-11-09T21:17:03.641Z",
       "addressLocality": "Graubünden, Schweiz",
       "addressCountry": "CH",
       "country": "CH",
@@ -77,7 +77,6 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verkaufsberater-aussendienst-localsearch-ch-2",
           "verkaufsberater-in-aussendienst-localsearch-ch-4",
           "verkaufsberater-in-aussendienst-localsearch-graubunden-schweiz",
           "verkaufsberater-in-aussendienst-localsearch-ch-3",
@@ -96,7 +95,8 @@
           "verkaufsberater-in-aussendienst-localsearch-ch",
           "consulente-di-vendita-in-servizio-esterno-localsearch-aargau-schweiz",
           "verkaufsberater-in-aussendienst-localsearch-aargau-schweiz",
-          "verkaufsberater-aussendienst-localsearch-ch"
+          "verkaufsberater-aussendienst-localsearch-ch",
+          "verkaufsberater-aussendienst-localsearch-ch-2"
         ],
         "en": [
           "verkaufsberater-in-aussendienst-localsearch-graubunden-schweiz"
@@ -126,7 +126,7 @@
       "addressRegion": "GR",
       "streetAddress": "Graubünden, Schweiz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-09T09:22:29.818Z",
+      "validThrough": "2026-12-09T21:17:03.641Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -160,7 +160,7 @@
       "url": "https://emp.jobylon.com/jobs/376664-localsearch-verkauferin-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:22:28.384Z",
+      "crawledAt": "2026-11-09T21:17:02.659Z",
       "addressLocality": "Horgen",
       "addressCountry": "CH",
       "country": "CH",
@@ -254,7 +254,6 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-im-aussendienst-localsearch-basel",
           "salesperson-in-the-field-localsearch-basel",
           "vendeur-sur-le-terrain-localsearch-basel",
           "venditore-nel-settore-localsearch-langenthal",
@@ -273,7 +272,8 @@
           "vendeuse-vendeur-sur-le-terrain-localsearch-urdorf",
           "verkaufer-in-im-aussendienst-localsearch-ch",
           "venditore-nel-settore-localsearch-basel",
-          "verkaufer-in-im-aussendienst-localsearch-ch-10"
+          "verkaufer-in-im-aussendienst-localsearch-ch-10",
+          "verkaufer-in-im-aussendienst-localsearch-basel"
         ],
         "en": [
           "verkaufer-in-im-aussendienst-localsearch-horgen"
@@ -303,7 +303,7 @@
       "addressRegion": "ZH",
       "streetAddress": "Horgen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-09T09:22:28.384Z",
+      "validThrough": "2026-12-09T21:17:02.659Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -337,7 +337,7 @@
       "url": "https://emp.jobylon.com/jobs/376665-localsearch-verkauferin-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:22:27.333Z",
+      "crawledAt": "2026-11-09T21:17:01.568Z",
       "addressLocality": "Volketswil",
       "addressCountry": "CH",
       "country": "CH",
@@ -389,7 +389,7 @@
       "addressRegion": "ZH",
       "streetAddress": "Volketswil",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-09T09:22:27.333Z",
+      "validThrough": "2026-12-09T21:17:01.568Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -423,7 +423,7 @@
       "url": "https://emp.jobylon.com/jobs/376668-localsearch-verkauferin-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:22:26.251Z",
+      "crawledAt": "2026-11-09T21:17:00.532Z",
       "addressLocality": "Buchrain",
       "addressCountry": "CH",
       "country": "CH",
@@ -475,7 +475,7 @@
       "addressRegion": "LU",
       "streetAddress": "Buchrain",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-09T09:22:26.251Z",
+      "validThrough": "2026-12-09T21:17:00.532Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -509,7 +509,7 @@
       "url": "https://emp.jobylon.com/jobs/376669-localsearch-verkauferin-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:22:25.211Z",
+      "crawledAt": "2026-11-09T21:16:59.383Z",
       "addressLocality": "Landquart",
       "addressCountry": "CH",
       "country": "CH",
@@ -564,7 +564,7 @@
       "addressRegion": "GR",
       "streetAddress": "Landquart",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-09T09:22:25.211Z",
+      "validThrough": "2026-12-09T21:16:59.383Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -598,7 +598,7 @@
       "url": "https://emp.jobylon.com/jobs/376670-localsearch-verkauferin-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:22:22.171Z",
+      "crawledAt": "2026-11-09T21:16:58.323Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -653,7 +653,7 @@
       "addressRegion": "ZH",
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-09T09:22:22.171Z",
+      "validThrough": "2026-12-09T21:16:58.323Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -687,7 +687,7 @@
       "url": "https://emp.jobylon.com/jobs/376671-localsearch-verkauferin-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:22:21.103Z",
+      "crawledAt": "2026-11-09T21:16:57.283Z",
       "addressLocality": "Bremgarten",
       "addressCountry": "CH",
       "country": "CH",
@@ -738,7 +738,7 @@
       "addressRegion": "ZH",
       "streetAddress": "Bremgarten",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-09T09:22:21.103Z",
+      "validThrough": "2026-12-09T21:16:57.283Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -772,7 +772,7 @@
       "url": "https://emp.jobylon.com/jobs/376672-localsearch-verkauferin-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:22:19.963Z",
+      "crawledAt": "2026-11-09T21:16:56.177Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -827,7 +827,7 @@
       "addressRegion": "BE",
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-09T09:22:19.963Z",
+      "validThrough": "2026-12-09T21:16:56.177Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -861,7 +861,7 @@
       "url": "https://emp.jobylon.com/jobs/376674-localsearch-verkauferin-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:22:18.900Z",
+      "crawledAt": "2026-11-09T21:16:55.099Z",
       "addressLocality": "Muttenz",
       "addressCountry": "CH",
       "country": "CH",
@@ -916,7 +916,7 @@
       "addressRegion": "BL",
       "streetAddress": "Muttenz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-09T09:22:18.900Z",
+      "validThrough": "2026-12-09T21:16:55.099Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -950,7 +950,7 @@
       "url": "https://emp.jobylon.com/jobs/376675-localsearch-verkauferin-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:22:17.864Z",
+      "crawledAt": "2026-11-09T21:16:54.046Z",
       "addressLocality": "Unterentfelden",
       "addressCountry": "CH",
       "country": "CH",
@@ -1005,7 +1005,7 @@
       "addressRegion": "AG",
       "streetAddress": "Unterentfelden",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-09T09:22:17.864Z",
+      "validThrough": "2026-12-09T21:16:54.046Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1039,7 +1039,7 @@
       "url": "https://emp.jobylon.com/jobs/376676-localsearch-verkauferin-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:22:16.834Z",
+      "crawledAt": "2026-11-09T21:16:52.958Z",
       "addressLocality": "Basel",
       "addressCountry": "CH",
       "country": "CH",
@@ -1094,7 +1094,7 @@
       "addressRegion": "BS",
       "streetAddress": "Basel",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-09T09:22:16.834Z",
+      "validThrough": "2026-12-09T21:16:52.958Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1128,7 +1128,7 @@
       "url": "https://emp.jobylon.com/jobs/376679-localsearch-verkauferin-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:22:15.715Z",
+      "crawledAt": "2026-11-09T21:16:51.924Z",
       "addressLocality": "Langenthal",
       "addressCountry": "CH",
       "country": "CH",
@@ -1180,7 +1180,7 @@
       "addressRegion": "BE",
       "streetAddress": "Langenthal",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-09T09:22:15.715Z",
+      "validThrough": "2026-12-09T21:16:51.924Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1214,7 +1214,7 @@
       "url": "https://emp.jobylon.com/jobs/376681-localsearch-verkauferin-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:22:13.726Z",
+      "crawledAt": "2026-11-09T21:16:50.886Z",
       "addressLocality": "Urdorf",
       "addressCountry": "CH",
       "country": "CH",
@@ -1266,7 +1266,7 @@
       "addressRegion": "ZH",
       "streetAddress": "Urdorf",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-09T09:22:13.726Z",
+      "validThrough": "2026-12-09T21:16:50.886Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1300,7 +1300,7 @@
       "url": "https://emp.jobylon.com/jobs/376682-localsearch-verkauferin-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:22:12.444Z",
+      "crawledAt": "2026-11-09T21:16:49.202Z",
       "addressLocality": "Visp",
       "addressCountry": "CH",
       "country": "CH",
@@ -1352,7 +1352,7 @@
       "addressRegion": "VS",
       "streetAddress": "Visp",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-09T09:22:12.444Z",
+      "validThrough": "2026-12-09T21:16:49.202Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1386,7 +1386,7 @@
       "url": "https://emp.jobylon.com/jobs/376683-localsearch-verkauferin-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:22:11.397Z",
+      "crawledAt": "2026-11-09T21:16:48.138Z",
       "addressLocality": "Thun",
       "addressCountry": "CH",
       "country": "CH",
@@ -1438,7 +1438,7 @@
       "addressRegion": "BE",
       "streetAddress": "Thun",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-09T09:22:11.397Z",
+      "validThrough": "2026-12-09T21:16:48.138Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1472,7 +1472,7 @@
       "url": "https://emp.jobylon.com/jobs/376693-localsearch-verkauferin-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:22:10.378Z",
+      "crawledAt": "2026-11-09T21:16:47.024Z",
       "addressLocality": "Lyssach",
       "addressCountry": "CH",
       "country": "CH",
@@ -1529,7 +1529,7 @@
       "addressRegion": "BE",
       "streetAddress": "Lyssach",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-09T09:22:10.378Z",
+      "validThrough": "2026-12-09T21:16:47.024Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1563,7 +1563,7 @@
       "url": "https://emp.jobylon.com/jobs/376694-localsearch-verkauferin-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:22:09.334Z",
+      "crawledAt": "2026-11-09T21:16:45.965Z",
       "addressLocality": "Rapperswil-Jona",
       "addressCountry": "CH",
       "country": "CH",
@@ -1620,7 +1620,7 @@
       "addressRegion": "SG",
       "streetAddress": "Rapperswil-Jona",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-09T09:22:09.334Z",
+      "validThrough": "2026-12-09T21:16:45.965Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1654,7 +1654,7 @@
       "url": "https://emp.jobylon.com/jobs/376697-localsearch-verkauferin-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:22:07.805Z",
+      "crawledAt": "2026-11-09T21:16:44.909Z",
       "addressLocality": "Regensdorf",
       "addressCountry": "CH",
       "country": "CH",
@@ -1711,7 +1711,7 @@
       "addressRegion": "ZH",
       "streetAddress": "Regensdorf",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-09T09:22:07.805Z",
+      "validThrough": "2026-12-09T21:16:44.909Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1745,7 +1745,7 @@
       "url": "https://emp.jobylon.com/jobs/376738-localsearch-verkauferin-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:22:06.770Z",
+      "crawledAt": "2026-11-09T21:16:43.873Z",
       "addressLocality": "Lyssach",
       "addressCountry": "CH",
       "country": "CH",
@@ -1770,7 +1770,6 @@
           "verkaufer-in-im-aussendienst-localsearch-ch"
         ]
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-08-18T09:51:25.156Z",
       "salaryMin": 77500,
       "salaryMax": 118500,
@@ -1789,7 +1788,7 @@
       "addressRegion": "BE",
       "streetAddress": "Lyssach",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-09T09:22:06.770Z",
+      "validThrough": "2026-12-09T21:16:43.873Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1823,7 +1822,7 @@
       "url": "https://emp.jobylon.com/jobs/376753-localsearch-verkauferin-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:22:05.712Z",
+      "crawledAt": "2026-11-09T21:16:42.836Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1848,7 +1847,6 @@
           "verkaufer-in-im-aussendienst-localsearch-ch"
         ]
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-08-18T09:51:25.156Z",
       "salaryMin": 83000,
       "salaryMax": 127500,
@@ -1867,7 +1865,7 @@
       "addressRegion": "ZH",
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-09T09:22:05.712Z",
+      "validThrough": "2026-12-09T21:16:42.836Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1901,7 +1899,7 @@
       "url": "https://emp.jobylon.com/jobs/360110-localsearch-verkaufsberaterin-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:22:04.667Z",
+      "crawledAt": "2026-11-09T21:16:41.804Z",
       "addressLocality": "Baselland, Schweiz",
       "addressCountry": "CH",
       "country": "CH",
@@ -1954,7 +1952,7 @@
       "addressRegion": "ZH",
       "streetAddress": "Baselland, Schweiz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-24T09:22:04.667Z",
+      "validThrough": "2026-12-23T21:16:41.804Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1988,7 +1986,7 @@
       "url": "https://emp.jobylon.com/jobs/386123-localsearch-regionalleitung-sales-mwa-verkauf-von-onlinemarketing-losungen-100/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:22:03.552Z",
+      "crawledAt": "2026-11-09T21:16:40.808Z",
       "addressLocality": "Fehraltorf",
       "addressCountry": "CH",
       "country": "CH",
@@ -2044,7 +2042,7 @@
       "addressRegion": "ZH",
       "streetAddress": "Fehraltorf",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-30T09:22:03.552Z",
+      "validThrough": "2026-12-29T21:16:40.808Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2078,7 +2076,7 @@
       "url": "https://emp.jobylon.com/jobs/310027-localsearch-verkauferin-verkaufer-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:22:02.447Z",
+      "crawledAt": "2026-11-09T21:16:39.728Z",
       "addressLocality": "Sirnach",
       "addressCountry": "CH",
       "country": "CH",
@@ -2121,16 +2119,16 @@
       "addressRegion": "TG",
       "streetAddress": "Sirnach",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-04T09:22:02.447Z",
+      "validThrough": "2027-01-04T21:16:39.728Z",
       "validThroughSource": "last-observed-window"
     },
     {
       "id": "localsearch-0ecd50ed2b81",
       "slug": "agente-di-vendita-in-uscita-60-100-localsearch-zurich",
       "slugByLocale": {
-        "de": "outbound-sales-agent-60-100-localsearch-ch",
         "it": "agente-di-vendita-in-uscita-60-100-localsearch-zurich",
         "en": "outbound-sales-agent-60-100-localsearch-ch",
+        "de": "outbound-sales-agent-60-100-localsearch-ch",
         "fr": "agent-de-vente-sortant-60-100-localsearch-zurich"
       },
       "company": "localsearch",
@@ -2138,16 +2136,16 @@
       "companyDomain": "localsearch.ch",
       "title": "Outbound Sales Agent 60-100%",
       "titleByLocale": {
-        "de": "Outbound Sales Agent 60-100%",
         "it": "Agente di vendita in uscita 60-100 %",
         "en": "Outbound Sales Agent 60-100%",
+        "de": "Outbound Sales Agent 60-100%",
         "fr": "Agent de vente sortant 60-100 %"
       },
       "description": "localsearch ist der führende Marketing- und Werbepartner der Schweizer KMU und betreibt bekannte B2C-Verzeichnisplattformen. Das Produktportfolio von localsearch unterstützt Unternehmen dabei, online gefunden zu werden, Neukunden zu gewinnen und diese langfristig zu binden. Mit einfachen und effektiven Lösungen für Onlinemarketing, einer kompetenten Beratung vor Ort und einem attraktiven Preis-Leistungs-Verhältnis trägt localsearch zum Erfolg der Schweizer KMU in der digitalen Welt bei.\n\nWerde Teil unserer Erfolgsgeschichte und unterstütze uns dabei, Unternehmen auf ihrer digitalen Reise zu begleiten!\n\nDas bieten wir dir:\n\n• Ein attraktives Vergütungsmodell\nDein Erfolg wird unmittelbar belohnt – jede erfolgreiche Beratung und jeder Vertragsabschluss steigert dein Einkommen\n\n• Arbeitsplatz im modernen Büro in Zürich : Du arbeitest hauptsächlich vor Ort mit deinem Team zusammen. Ein Home-Office-Tag pro Woche ist möglich.\n\n• Umfassende Schulungen\nUnsere erfahrenen Coaches unterstützen dich mit strukturierten Trainings, Sales-Know-how und kontinuierlicher Weiterentwicklung\n\n• Ein dynamisches und unterstützendes Team\nDich erwartet eine offene Unternehmenskultur mit starkem Teamspirit, gegenseitiger Unterstützung und einer klaren Performance-Mentalität\n\nDeine Aufgaben\n\n• Du führst Outbound Gespräche mit Schweizer KMU und analysierst deren Online-Sichtbarkeit sowie Marketingpotenzial\n\n• Du berätst Unternehmer auf Augenhöhe zu digitalen Marketinglösungen von localsearch\n\n• Du erkennst Verkaufschancen und führst Gespräche zielorientiert zum Abschluss\n\n• Du entwickelst bestehende Kundenbeziehungen weiter und identifizierst Cross- und Upselling-Potenziale\n\n• Du gewinnst neue KMU-Kunden und baust nachhaltige Geschäftsbeziehungen auf\n\n• Du arbeitest mit strukturierten Sales-Kampagnen und steuerst deine Aktivitäten professionell im CRM-System Salesforce\n\nDu bist\n\n• erfahren im Outbound Sales, Telesales oder B2B Vertrieb\n\n• überzeugungsstark und hast Freude daran, Geschäftsinhaber zu beraten und Lösungen zu verkaufen\n\n• motiviert durch ambitionierte Ziele und starke Verkaufsresultate\n\n• eigenständig, strukturiert und verantwortungsbewusst in deiner Arbeitsweise\n\n• digital affin und interessiert an Marketinglösungen für KMU\n\n• Deutsch auf C2-Niveau, Schweizerdeutsch-Verständnis von Vorteil\n\n• zusätzliche Französisch- oder Italienischkenntnisse sind ein Plus\n\n• Erfahrung mit CRM-Systemen wie Salesforce ist von Vorteil\n\nDiese Rolle passt besonders gut zu dir, wenn\n\n• du Vertrieb als Beratung mit klarer Abschlussverantwortung verstehst\n\n• du gerne mit Unternehmern arbeitest und ihre Herausforderungen verstehst\n\n• du Freude daran hast, durch starke Gespräche und überzeugende Lösungen Abschlüsse zu erzielen\n\nWeitere Informationen zu localsearch als Arbeitgeber findest du hier .\n\nHast du Lust, die Erfolgsgeschichte von localsearch mitzugestalten?\nWir, Robert Peters und das ganze Team, freuen uns auf deine Online-Bewerbung!",
       "descriptionByLocale": {
-        "de": "localsearch ist der führende Marketing- und Werbepartner der Schweizer KMU und betreibt bekannte B2C-Verzeichnisplattformen. Das Produktportfolio von localsearch unterstützt Unternehmen dabei, online gefunden zu werden, Neukunden zu gewinnen und diese langfristig zu binden. Mit einfachen und effektiven Lösungen für Onlinemarketing, einer kompetenten Beratung vor Ort und einem attraktiven Preis-Leistungs-Verhältnis trägt localsearch zum Erfolg der Schweizer KMU in der digitalen Welt bei.\n\nWerde Teil unserer Erfolgsgeschichte und unterstütze uns dabei, Unternehmen auf ihrer digitalen Reise zu begleiten!\n\nDas bieten wir dir:\n\n• Ein attraktives Vergütungsmodell\nDein Erfolg wird unmittelbar belohnt – jede erfolgreiche Beratung und jeder Vertragsabschluss steigert dein Einkommen\n\n• Arbeitsplatz im modernen Büro in Zürich : Du arbeitest hauptsächlich vor Ort mit deinem Team zusammen. Ein Home-Office-Tag pro Woche ist möglich.\n\n• Umfassende Schulungen\nUnsere erfahrenen Coaches unterstützen dich mit strukturierten Trainings, Sales-Know-how und kontinuierlicher Weiterentwicklung\n\n• Ein dynamisches und unterstützendes Team\nDich erwartet eine offene Unternehmenskultur mit starkem Teamspirit, gegenseitiger Unterstützung und einer klaren Performance-Mentalität\n\nDeine Aufgaben\n\n• Du führst Outbound Gespräche mit Schweizer KMU und analysierst deren Online-Sichtbarkeit sowie Marketingpotenzial\n\n• Du berätst Unternehmer auf Augenhöhe zu digitalen Marketinglösungen von localsearch\n\n• Du erkennst Verkaufschancen und führst Gespräche zielorientiert zum Abschluss\n\n• Du entwickelst bestehende Kundenbeziehungen weiter und identifizierst Cross- und Upselling-Potenziale\n\n• Du gewinnst neue KMU-Kunden und baust nachhaltige Geschäftsbeziehungen auf\n\n• Du arbeitest mit strukturierten Sales-Kampagnen und steuerst deine Aktivitäten professionell im CRM-System Salesforce\n\nDu bist\n\n• erfahren im Outbound Sales, Telesales oder B2B Vertrieb\n\n• überzeugungsstark und hast Freude daran, Geschäftsinhaber zu beraten und Lösungen zu verkaufen\n\n• motiviert durch ambitionierte Ziele und starke Verkaufsresultate\n\n• eigenständig, strukturiert und verantwortungsbewusst in deiner Arbeitsweise\n\n• digital affin und interessiert an Marketinglösungen für KMU\n\n• Deutsch auf C2-Niveau, Schweizerdeutsch-Verständnis von Vorteil\n\n• zusätzliche Französisch- oder Italienischkenntnisse sind ein Plus\n\n• Erfahrung mit CRM-Systemen wie Salesforce ist von Vorteil\n\nDiese Rolle passt besonders gut zu dir, wenn\n\n• du Vertrieb als Beratung mit klarer Abschlussverantwortung verstehst\n\n• du gerne mit Unternehmern arbeitest und ihre Herausforderungen verstehst\n\n• du Freude daran hast, durch starke Gespräche und überzeugende Lösungen Abschlüsse zu erzielen\n\nWeitere Informationen zu localsearch als Arbeitgeber findest du hier .\n\nHast du Lust, die Erfolgsgeschichte von localsearch mitzugestalten?\nWir, Robert Peters und das ganze Team, freuen uns auf deine Online-Bewerbung!",
         "it": "localsearch è il principale partner commerciale e pubblicitario delle PMI svizzere e gestisce ben note piattaforme di directory B2C. Il portafoglio di prodotti di localsearch aiuta le aziende a trovare online, ad attrarre nuovi clienti e a mantenerli a lungo termine. Con soluzioni semplici ed efficaci per il marketing online, consulenza competente in loco e un attraente rapporto qualità-prezzo, la ricerca locale contribuisce al successo delle PMI svizzere nel mondo digitale.\n\nDiventa parte della nostra storia di successo e aiutaci ad accompagnare le aziende nel loro viaggio digitale!\n\nQuesto è ciò che vi offriamo:\n\n• Un modello di compensazione attraente\nIl vostro successo è immediatamente ricompensato – Ogni consultazione di successo e ogni contratto aumenta il vostro reddito\n\n• Luogo di lavoro nell'ufficio moderno di Zurigo: Lei lavora principalmente in loco con il Suo team. Un giorno di ufficio domestico a settimana è possibile.\n\n• Formazione estesa\nI nostri allenatori esperti vi supportano con formazione strutturata, know-how di vendita e sviluppo continuo\n\n• Un team dinamico e solidale\nVi aspettate una cultura aziendale aperta con un forte spirito di squadra, un sostegno reciproco e una chiara mentalità delle prestazioni\n\nI tuoi compiti\n\n• Avrai conversazioni in uscita con le PMI svizzere e analizzerai il loro potenziale di visibilità e marketing online\n\n• Si consiglia agli imprenditori in termini uguali sulle soluzioni di marketing digitale da localsearch\n\n• Riconoscete le opportunità di vendita e le conversazioni guidate orientate alla conclusione\n\n• Sviluppi le relazioni con i clienti esistenti e identifichi il potenziale cross- e upselling\n\n• Ottieni nuovi clienti delle PMI e costruisci relazioni commerciali sostenibili\n\n• Lavori con campagne di vendita strutturate e gestisci le tue attività professionalmente nel sistema Salesforce CRM\n\nTu sei\n\n• Esperienza nelle vendite in uscita, Telesales o B2B Vendite\n\n• Convincere e fare il piacere di consigliare i proprietari di affari e vendere soluzioni\n\n• motivati da obiettivi ambiziosi e forti risultati di vendita\n\n• autonomo, strutturato e responsabile nel vostro modo di lavorare\n\n• digitalmente affin e interessati a soluzioni di marketing per le PMI\n\n• tedesco a livello C2, la comprensione tedesca svizzera di vantaggio\n\n• Ulteriori competenze francesi o italiane sono un plus\n\n• Esperienza con sistemi CRM come Salesforce è un vantaggio\n\nQuesto ruolo si adatta particolarmente bene se\n\n• Capisci le vendite come consulenza con chiara responsabilità finale\n\n• ti piace lavorare con gli imprenditori e capire le loro sfide\n\n• Ti piace ottenere offerte attraverso conversazioni forti e soluzioni convincenti\n\nUlteriori informazioni su localsearch come datore di lavoro possono essere trovate qui.\n\nVuoi contribuire a modellare la storia di successo di localsearch?\nNoi, Robert Peters e l'intera squadra, non vediamo l'ora della tua applicazione online!",
         "en": "localsearch is the leading marketing and advertising partner of Swiss SMEs and operates well-known B2C directory platforms. The product portfolio of localsearch helps companies to be found online, to attract new customers and to retain them in the long term. With simple and effective solutions for online marketing, competent advice on site and an attractive price-performance ratio, localsearch contributes to the success of Swiss SMEs in the digital world.\n\nBecome part of our success story and help us accompany companies on their digital journey!\n\nThis is what we offer you:\n\n• An attractive compensation model\nYour success is immediately rewarded – Every successful consultation and every contract agreement increases your income\n\n• Workplace in the modern office in Zurich : You mainly work on site with your team. One home office day per week is possible.\n\n• Extensive training\nOur experienced coaches support you with structured training, sales know-how and continuous development\n\n• A dynamic and supportive team\nYou expect an open corporate culture with a strong team spirit, mutual support and a clear performance mentality\n\nYour tasks\n\n• You will have outbound conversations with Swiss SMEs and analyze their online visibility and marketing potential\n\n• You advise entrepreneurs on equal terms on digital marketing solutions from localsearch\n\n• You recognize sales opportunities and lead conversations goal-oriented to the conclusion\n\n• You develop existing customer relationships and identify cross- and upselling potential\n\n• You gain new SME customers and build sustainable business relationships\n\n• You work with structured sales campaigns and manage your activities professionally in the Salesforce CRM system\n\nYou are\n\n• Experience in Outbound Sales, Telesales or B2B Sales\n\n• Convincing and taking pleasure in advising business owners and selling solutions\n\n• motivated by ambitious goals and strong sales results\n\n• autonomous, structured and responsible in your way of working\n\n• digitally affin and interested in marketing solutions for SMEs\n\n• German at C2 level, Swiss German understanding of advantage\n\n• Additional French or Italian skills are a plus\n\n• Experience with CRM systems like Salesforce is an advantage\n\nThis role suits you especially well if\n\n• You understand sales as consulting with clear final responsibility\n\n• you enjoy working with entrepreneurs and understand their challenges\n\n• You enjoy getting deals through strong conversations and compelling solutions\n\nMore information about localsearch as an employer can be found here.\n\nDo you want to help shape the success story of localsearch?\nWe, Robert Peters and the whole team, look forward to your online application!",
+        "de": "localsearch ist der führende Marketing- und Werbepartner der Schweizer KMU und betreibt bekannte B2C-Verzeichnisplattformen. Das Produktportfolio von localsearch unterstützt Unternehmen dabei, online gefunden zu werden, Neukunden zu gewinnen und diese langfristig zu binden. Mit einfachen und effektiven Lösungen für Onlinemarketing, einer kompetenten Beratung vor Ort und einem attraktiven Preis-Leistungs-Verhältnis trägt localsearch zum Erfolg der Schweizer KMU in der digitalen Welt bei.\n\nWerde Teil unserer Erfolgsgeschichte und unterstütze uns dabei, Unternehmen auf ihrer digitalen Reise zu begleiten!\n\nDas bieten wir dir:\n\n• Ein attraktives Vergütungsmodell\nDein Erfolg wird unmittelbar belohnt – jede erfolgreiche Beratung und jeder Vertragsabschluss steigert dein Einkommen\n\n• Arbeitsplatz im modernen Büro in Zürich : Du arbeitest hauptsächlich vor Ort mit deinem Team zusammen. Ein Home-Office-Tag pro Woche ist möglich.\n\n• Umfassende Schulungen\nUnsere erfahrenen Coaches unterstützen dich mit strukturierten Trainings, Sales-Know-how und kontinuierlicher Weiterentwicklung\n\n• Ein dynamisches und unterstützendes Team\nDich erwartet eine offene Unternehmenskultur mit starkem Teamspirit, gegenseitiger Unterstützung und einer klaren Performance-Mentalität\n\nDeine Aufgaben\n\n• Du führst Outbound Gespräche mit Schweizer KMU und analysierst deren Online-Sichtbarkeit sowie Marketingpotenzial\n\n• Du berätst Unternehmer auf Augenhöhe zu digitalen Marketinglösungen von localsearch\n\n• Du erkennst Verkaufschancen und führst Gespräche zielorientiert zum Abschluss\n\n• Du entwickelst bestehende Kundenbeziehungen weiter und identifizierst Cross- und Upselling-Potenziale\n\n• Du gewinnst neue KMU-Kunden und baust nachhaltige Geschäftsbeziehungen auf\n\n• Du arbeitest mit strukturierten Sales-Kampagnen und steuerst deine Aktivitäten professionell im CRM-System Salesforce\n\nDu bist\n\n• erfahren im Outbound Sales, Telesales oder B2B Vertrieb\n\n• überzeugungsstark und hast Freude daran, Geschäftsinhaber zu beraten und Lösungen zu verkaufen\n\n• motiviert durch ambitionierte Ziele und starke Verkaufsresultate\n\n• eigenständig, strukturiert und verantwortungsbewusst in deiner Arbeitsweise\n\n• digital affin und interessiert an Marketinglösungen für KMU\n\n• Deutsch auf C2-Niveau, Schweizerdeutsch-Verständnis von Vorteil\n\n• zusätzliche Französisch- oder Italienischkenntnisse sind ein Plus\n\n• Erfahrung mit CRM-Systemen wie Salesforce ist von Vorteil\n\nDiese Rolle passt besonders gut zu dir, wenn\n\n• du Vertrieb als Beratung mit klarer Abschlussverantwortung verstehst\n\n• du gerne mit Unternehmern arbeitest und ihre Herausforderungen verstehst\n\n• du Freude daran hast, durch starke Gespräche und überzeugende Lösungen Abschlüsse zu erzielen\n\nWeitere Informationen zu localsearch als Arbeitgeber findest du hier .\n\nHast du Lust, die Erfolgsgeschichte von localsearch mitzugestalten?\nWir, Robert Peters und das ganze Team, freuen uns auf deine Online-Bewerbung!",
         "fr": "localsearch est le principal partenaire commercial et publicitaire des PME suisses et exploite des plateformes d'annuaire B2C bien connues. Le portefeuille de produits de recherche locale aide les entreprises à se retrouver en ligne, à attirer de nouveaux clients et à les conserver à long terme. Avec des solutions simples et efficaces pour le marketing en ligne, des conseils compétents sur le site et un rapport qualité-prix attractif, localsearch contribue au succès des PME suisses dans le monde numérique.\n\nFaites partie de notre réussite et aidez-nous à accompagner les entreprises dans leur parcours numérique !\n\nVoici ce que nous vous proposons :\n\n• Un modèle de rémunération attrayant\nVotre succès est immédiatement récompensé – Chaque consultation réussie et chaque contrat augmente votre revenu\n\n• Milieu de travail dans le bureau moderne de Zurich : Vous travaillez principalement sur place avec votre équipe. Un jour de bureau à domicile par semaine est possible.\n\n• Formation étendue\nNos coachs expérimentés vous accompagnent avec une formation structurée, un savoir-faire commercial et un développement continu\n\n• Une équipe dynamique et solidaire\nVous attendez une culture d'entreprise ouverte avec un esprit d'équipe fort, un soutien mutuel et une mentalité de performance claire\n\nVos tâches\n\n• Vous aurez des conversations avec les PME suisses et analyserez leur visibilité en ligne et leur potentiel marketing\n\n• Vous conseillez les entrepreneurs à des conditions égales sur les solutions de marketing numérique de localsearch\n\n• Vous reconnaissez les opportunités de vente et dirigez des conversations orientées vers la conclusion\n\n• Vous développez des relations client existantes et identifiez le potentiel de vente croisée et de vente\n\n• Vous gagnez de nouveaux clients PME et créez des relations d'affaires durables\n\n• Vous travaillez avec des campagnes de vente structurées et gérez vos activités professionnellement dans le système CRM Salesforce\n\nVous êtes\n\n• Expérience en ventes à l'étranger, en télévente ou en B2B\n\n• Convaincre et prendre plaisir à conseiller les propriétaires d'entreprise et les solutions de vente\n\n• motivés par des objectifs ambitieux et de solides résultats commerciaux\n\n• autonome, structurée et responsable dans votre façon de travailler\n\n• affin numérique et intéressé par des solutions marketing pour les PME\n\n• Allemand au niveau C2, Suisse Allemand compréhension de l'avantage\n\n• Les compétences supplémentaires en français ou en italien\n\n• Expérience avec les systèmes CRM comme Salesforce est un avantage\n\nCe rôle vous convient particulièrement bien si\n\n• Vous comprenez les ventes comme consultant avec une responsabilité finale claire\n\n• vous aimez travailler avec les entrepreneurs et comprendre leurs défis\n\n• Vous aimez obtenir des offres à travers des conversations fortes et des solutions convaincantes\n\nVous trouverez plus d'informations sur la recherche locale en tant qu'employeur ici.\n\nVoulez-vous aider à façonner l'histoire de réussite de localsearch?\nNous, Robert Peters et toute l'équipe, attendons avec impatience votre candidature en ligne!"
       },
       "location": "Zürich",
@@ -2155,7 +2153,7 @@
       "url": "https://emp.jobylon.com/jobs/393356-localsearch-outbound-sales-agent-60-100/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:22:01.354Z",
+      "crawledAt": "2026-11-09T21:16:38.663Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -2171,8 +2169,17 @@
       "postingDateSource": "reported",
       "applyUrl": "https://emp.jobylon.com/jobs/393356-localsearch-outbound-sales-agent-60-100/",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "outbound-sales-agent-60-100-localsearch-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "outbound-sales-agent-60-100-localsearch-ch"
+        ],
+        "fr": [
+          "outbound-sales-agent-60-100-localsearch-ch"
+        ]
       },
       "needsRetranslation": true,
       "salaryMin": 83000,
@@ -2192,19 +2199,9 @@
       "addressRegion": "ZH",
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-07T09:22:01.354Z",
+      "validThrough": "2027-02-07T21:16:38.663Z",
       "validThroughSource": "last-observed-window",
-      "previousSlugsByLocale": {
-        "it": [
-          "outbound-sales-agent-60-100-localsearch-ch"
-        ],
-        "fr": [
-          "outbound-sales-agent-60-100-localsearch-ch"
-        ]
-      },
-      "previousSlugs": [
-        "outbound-sales-agent-60-100-localsearch-ch"
-      ]
+      "firstSeenAt": "2026-11-09T21:16:38.663Z"
     }
   ]
 }
