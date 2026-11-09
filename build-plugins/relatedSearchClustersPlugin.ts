@@ -182,7 +182,10 @@ import {
   printSummary as printRelatedSearchProfile,
 } from './shared/relatedSearchClustersProfiler';
 import { forceGc } from './shared/forceGc';
-import { shouldForceRelatedSearchContextGc } from './shared/relatedSearchContextGc';
+import {
+  isRelatedSearchContextGcEnabled,
+  shouldForceRelatedSearchContextGc,
+} from './shared/relatedSearchContextGc';
 
 // ── Constants ───────────────────────────────────────────────────────────
 
@@ -6022,6 +6025,10 @@ function buildRelatedSearchClustersPlugin(rootDir: string): Plugin {
       const __tContextBuild = profileStart();
       const contextStartedAt = Date.now();
       let processedContexts = 0;
+      const contextGcEnabled = isRelatedSearchContextGcEnabled(process.env.RELATED_SEARCH_CONTEXT_GC_CHECKPOINTS);
+      let contextSampledPeakHeapMb = 0;
+      let contextSampledPeakRssMb = 0;
+      let contextMemorySampleCount = 0;
       for (const cand of candidatesInScope) {
         // Single pass, on purpose. #11971 probed each candidate up to the
         // indexability floor and rebuilt the ones that reached it, assuming
@@ -6054,16 +6061,22 @@ function buildRelatedSearchClustersPlugin(rootDir: string): Plugin {
         // allocations. Collect in bounded batches so those short-lived arrays
         // do not push the 16 GB runner into swap before the loop ends.
         if (shouldForceRelatedSearchContextGc(processedContexts)) {
-          const heapBefore = process.memoryUsage().heapUsed;
-          if (forceGc()) {
-            const memory = process.memoryUsage();
-            const heapFreedMb = Math.max(0, Math.round((heapBefore - memory.heapUsed) / 1048576));
+          const sample = process.memoryUsage();
+          contextSampledPeakHeapMb = Math.max(contextSampledPeakHeapMb, Math.round(sample.heapUsed / 1048576));
+          contextSampledPeakRssMb = Math.max(contextSampledPeakRssMb, Math.round(sample.rss / 1048576));
+          contextMemorySampleCount += 1;
+          if (contextGcEnabled && forceGc()) {
+            const afterGc = process.memoryUsage();
+            const heapFreedMb = Math.max(0, Math.round((sample.heapUsed - afterGc.heapUsed) / 1048576));
             console.log(
-              `[related-search-clusters] context GC ${processedContexts}/${candidatesInScope.length} heap_freed_mb=${heapFreedMb} heap_mb=${Math.round(memory.heapUsed / 1048576)} rss_mb=${Math.round(memory.rss / 1048576)}`,
+              `[related-search-clusters] context GC ${processedContexts}/${candidatesInScope.length} heap_freed_mb=${heapFreedMb} heap_mb=${Math.round(afterGc.heapUsed / 1048576)} rss_mb=${Math.round(afterGc.rss / 1048576)}`,
             );
           }
         }
       }
+      console.log(
+        `[related-search-clusters] context memory sampled_peak_heap_mb=${contextSampledPeakHeapMb} sampled_peak_rss_mb=${contextSampledPeakRssMb} samples=${contextMemorySampleCount} gc_checkpoints=${contextGcEnabled ? 'enabled' : 'disabled'}`,
+      );
       profileRecord('build-contexts', __tContextBuild);
       console.log(`\x1b[36m[related-search-clusters]\x1b[0m ${contexts.length} clusters survived match-≥${MIN_MATCHING_JOBS} filter`);
       tokenIndex.clear(); // GC haystacks + posting lists before the render/emit loop runs

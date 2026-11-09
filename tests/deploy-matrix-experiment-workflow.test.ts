@@ -54,6 +54,7 @@ describe('deploy-matrix-experiment.yml — variant matrix contract', () => {
       'POST_WALK_WALK_LANES',
       'PROFILE_GC_MIN_GROWTH_MB',
       'RELATED_SEARCH_CLUSTERS_NO_CACHE',
+      'RELATED_SEARCH_CONTEXT_GC_CHECKPOINTS',
       'RELATED_SEARCH_POSTINGS_SPARSE',
       'SEQUENTIAL_PROFILE',
       'UV_THREADPOOL_SIZE',
@@ -278,6 +279,15 @@ describe('deploy-matrix-experiment.yml — variant matrix contract', () => {
         JOBS_SEO_REUSE_VERIFY_SAMPLE: '0.02',
       },
     }]);
+  });
+
+  it('accepts the matching-phase GC checkpoint switch for a same-snapshot memory comparison', () => {
+    expect(parseVariants(
+      'baseline=RELATED_SEARCH_CONTEXT_GC_CHECKPOINTS=0\ncandidate=RELATED_SEARCH_CONTEXT_GC_CHECKPOINTS=1',
+    )).toEqual([
+      { name: 'baseline', env: { RELATED_SEARCH_CONTEXT_GC_CHECKPOINTS: '0' } },
+      { name: 'candidate', env: { RELATED_SEARCH_CONTEXT_GC_CHECKPOINTS: '1' } },
+    ]);
   });
 
   // #9613: the extra gcFreed candidates are read from JOBS_SEO_GCFREED_PROBE,

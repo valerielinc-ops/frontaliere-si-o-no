@@ -33,6 +33,9 @@ export const ALLOWED_ENV_KEYS = Object.freeze([
   'FAST_BUILD',
   'SEQUENTIAL_PROFILE',
   'RELATED_SEARCH_CLUSTERS_NO_CACHE',
+  // Build-only canary switch: disable periodic matching-phase GC while
+  // retaining identical sampling and the existing post-loop collection.
+  'RELATED_SEARCH_CONTEXT_GC_CHECKPOINTS',
   'RELATED_SEARCH_POSTINGS_SPARSE',
   // build-plugins/profilePlugin.ts: skip the per-plugin forced GC after a
   // plugin that grew heap/RSS by less than this many MB.
