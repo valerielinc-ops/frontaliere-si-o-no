@@ -412,10 +412,10 @@ jobs:
 
             **Constraint:**
             - Le scritture ammesse sono `gh issue create/edit/comment` sul repository target e `gh pr comment` sulla PR sorgente; mai modificare PR label/state/title e mai chiudere/riaprire issue dal triage.
-            - Le append al body sono append-only: fai la lettura subito prima, confronta baseline/hash e ricostruisci il body nuovo senza cancellare item già presenti. Le letture e la preparazione delle append indipendenti possono essere concorrenti, ma le chiamate di scrittura che applicano l'append vanno serializzate e confermate una alla volta.
+            - Append al body: leggi subito prima, confronta baseline/hash e ricostruisci senza cancellare item. Letture/preparazioni concorrenti; scritture seriali.
             - Incerto sul filtro → crea con rationale "needs triage".
-            - **Scritture seriali e verificabili:** non avviare in parallelo nessuna mutazione GitHub (`gh issue create/edit/comment` o `gh pr comment`), nemmeno su target diversi: il bridge ha una capacità globale limitata. Esegui una mutazione alla volta e attendi l'esito prima della successiva. Se il bridge risponde `busy` o con un errore transitorio, ritenta lo stesso identico comando con backoff bounded (massimo 3 tentativi); non saltare il target e non sostituirlo con un commento generico. Dopo le scritture, rileggi in sola lettura ogni PR del batch positivo e verifica che porti il marker `## Post-merge follow-up triage`; se manca, ritenta serialmente proprio quella scrittura e verifica di nuovo. Dichiarare `Triage completata` è consentito solo quando ogni PR ha il marker confermato dalla rilettura; altrimenti lascia il batch incompleto e riporta il target non scritto.
-            - **Token-lever (solo letture):** chiamate `gh`/lettura indipendenti vanno emesse in parallelo nello stesso messaggio, mai una per turno — un messaggio con più tool-call resta 1 turno. Questa parallelizzazione vale per le letture, non autorizza scritture concorrenti.
+            - **Scritture seriali:** una mutazione alla volta; attendi l'esito e ritenta il comando con backoff bounded (massimo 3) su `busy`/transitorio. Rileggi PR, verifica `## Post-merge follow-up triage`; se manca, ritenta. Completa solo con tutti i marker.
+            - **Token-lever (solo letture):** letture `gh` indipendenti in parallelo; mai scritture concorrenti.
             - NB: la supersede detection NON è scope di questo prompt — la fa già `followup-reconcile.yml` deterministico daily (zero-agent). Una PR nata per un bucket porta `Follow-up item: FU-...` e `Addresses #<bucket>`; non usare `Closes` finché resta anche un item aperto.
 
       # NB: niente self-retry step (era richiesto dal modello per-PR, dove un run fallito
