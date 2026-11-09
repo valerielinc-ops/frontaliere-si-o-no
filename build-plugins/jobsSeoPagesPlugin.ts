@@ -348,7 +348,7 @@ import {
  type CompanyCityKeyDeps,
 } from './shared/companyCityHubPlan';
 import { logBuildMem, type BuildMemDetails } from './shared/buildMemLog';
-import { getPathHistory } from './sharedWriteRegistry';
+import { getOutputShapeDirCount, getPathHistory } from './sharedWriteRegistry';
 import { canonicalCleanedKey } from './shared/canonicalCleanedKey';
 import { buildJobMetaDescription } from './shared/jobMetaDescription';
 import { intFromEnv } from '../scripts/lib/int-from-env.mjs';
@@ -1949,6 +1949,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
    legacyTiBridgeDirs: jobsSeoMemContext.legacyTiBridgeDirs?.size ?? 0,
    jobsEnsuredDirs: jobsSeoMemContext.jobsEnsuredDirs?.size ?? 0,
    pathHistory: getPathHistory().size,
+   outputShapeDirs: getOutputShapeDirCount(),
    ensuredDirs: getEnsuredDirsSize(),
    trafficSet: trafficStats.trafficSet,
    firstSeen: trafficStats.firstSeen,
