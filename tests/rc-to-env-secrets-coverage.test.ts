@@ -204,6 +204,12 @@ describe('RC_TO_ENV keeps site-only Remote Config parameters on the site side', 
       'EVENTFROG_ENABLED',
       'EVENTFROG_PUBLIC_API_KEY',
       'EVENTFROG_PUBLIC_API_KEY_EXPIRES_AT',
+      'CLOAKBROWSER_LICENSE_KEY_ASSISTED',
+      'CLOAKBROWSER_LICENSE_KEY_CRAWLER',
+      'STEALTH_BROWSER_ASSISTED',
+      'STEALTH_BROWSER_CRAWLER',
+      'STEALTH_BROWSER_PROXY',
+      'CRAWLER_RESPECT_ROBOTS',
     ]);
 
     for (const key of SITE_ONLY_RC_KEYS) {

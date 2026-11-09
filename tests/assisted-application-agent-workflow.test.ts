@@ -44,13 +44,17 @@ describe('assisted application agent workflow dependencies', () => {
     expect(steps[reconcileFailure]?.if).toMatch(/failure\(\)/u);
   });
 
-  it('reports real CAPTCHA challenges for Valerie without loading a solver', () => {
+  // Owner decision 2026-11-09: CloakBrowser gets past what a real browser
+  // passes (Cloudflare interstitial, Turnstile) before a CAPTCHA stop; what is
+  // left still goes to Valerie, and NopeCHA stays out of production.
+  it('tries the stealth challenge pass before a CAPTCHA stop, never NopeCHA', () => {
     expect(workflowSource).not.toContain('NOPECHA_EXTENSION_PATH');
     expect(steps.some(step => /NopeCHA|install-nopecha/iu.test(`${step.name || ''} ${step.run || ''}`))).toBe(false);
     expect(portalSource).not.toContain('process.env.NOPECHA_EXTENSION_PATH');
     expect(portalSource).not.toContain('launchNopechaContext');
     expect(portalSource).not.toContain('awaitCaptcha');
-    expect(portalSource).toContain("if (snapshot.captcha) return await handoff('captcha');");
+    expect(portalSource).toContain("if (snapshot.captcha && await passPortalChallenge(browser, page, { log, evidence })) snapshot = await extractFields(page, NAVIGATION);\n      if (snapshot.captcha) return await handoff('captcha');");
+    expect(portalSource).toContain("if (after.captcha && await passPortalChallenge(browser, page, { log, evidence })) after = await extractFields(page, NAVIGATION);\n      if (after.captcha) return await handoff('captcha');");
     expect(portalSource).toContain("if (outcome === 'captcha') return await handoff('captcha');");
   });
 });
