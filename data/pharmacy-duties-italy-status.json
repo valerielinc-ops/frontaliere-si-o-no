@@ -5,9 +5,9 @@
     "varese-ats-2026-2027",
     "vco-asl-2026"
   ],
-  "_fetchedAt": "2026-11-08T11:30:37.929Z",
-  "_attemptedAt": "2026-11-08T11:30:37.929Z",
-  "_lastSuccessfulFetchAt": "2026-11-08T11:30:37.929Z",
+  "_fetchedAt": "2026-11-09T13:20:41.315Z",
+  "_attemptedAt": "2026-11-09T13:20:41.315Z",
+  "_lastSuccessfulFetchAt": "2026-11-09T13:20:41.315Z",
   "_timezone": "Europe/Rome",
   "_scope": {
     "country": "IT",
@@ -32,7 +32,7 @@
       "province": "CO",
       "sourceKey": "como-ats-2026-2027",
       "sourceUrl": "https://www.comune.merone.co.it/novita/comunicati_stampa/novita_138.html",
-      "fetchedAt": "2026-11-08T11:30:37.929Z",
+      "fetchedAt": "2026-11-09T13:20:41.315Z",
       "dutyCount": 76,
       "observedDutyCount": 76,
       "freshness": "fresh",
@@ -50,7 +50,7 @@
       "province": "VA",
       "sourceKey": "varese-ats-2026-2027",
       "sourceUrl": "https://comune.marchirolo.varese.it/Dettaglionews?IDNews=400586",
-      "fetchedAt": "2026-11-08T11:30:37.929Z",
+      "fetchedAt": "2026-11-09T13:20:41.315Z",
       "dutyCount": 92,
       "observedDutyCount": 92,
       "freshness": "fresh",
@@ -68,7 +68,7 @@
       "province": "VB",
       "sourceKey": "vco-asl-2026",
       "sourceUrl": "https://www.aslvco.it/wp-content/uploads/2025/12/2968938.pdf?x88295=",
-      "fetchedAt": "2026-11-08T11:30:37.929Z",
+      "fetchedAt": "2026-11-09T13:20:41.315Z",
       "dutyCount": 7,
       "observedDutyCount": 7,
       "freshness": "fresh",
@@ -92,7 +92,7 @@
     "version": 1,
     "timezone": "Europe/Rome",
     "state": "fresh",
-    "evaluatedAt": "2026-11-08T11:30:37.929Z",
+    "evaluatedAt": "2026-11-09T13:20:41.315Z",
     "scope": {
       "country": "IT",
       "provinces": [
@@ -104,13 +104,13 @@
     "snapshots": {
       "duties": {
         "path": "data/pharmacy-duties-italy.json",
-        "sha256": "504dee4d34a27fcaac7d4d319e08f2ded61c243c04c664d81fb5557d0cef0f1a",
-        "fetchedAt": "2026-11-08T11:30:37.929Z"
+        "sha256": "f61e5eba41d4f816f8c53e11f9ac9ae80abd2b5763d1b795847fe654839f0727",
+        "fetchedAt": "2026-11-09T13:20:41.315Z"
       },
       "status": {
         "path": "data/pharmacy-duties-italy-status.json",
-        "sha256": "5b452833a04b865c68a4ce4e02f2a6b0e2b5f99ee6c384f15165609667cbd870",
-        "fetchedAt": "2026-11-08T11:30:37.929Z"
+        "sha256": "f9a3623f2f1def06831c51644fa4de095c057fc4e5e889cdb3e78e6e179d82c8",
+        "fetchedAt": "2026-11-09T13:20:41.315Z"
       }
     },
     "provinces": {
@@ -118,7 +118,7 @@
         "province": "CO",
         "sourceKey": "como-ats-2026-2027",
         "sourceUrl": "https://www.comune.merone.co.it/novita/comunicati_stampa/novita_138.html",
-        "fetchedAt": "2026-11-08T11:30:37.929Z",
+        "fetchedAt": "2026-11-09T13:20:41.315Z",
         "dutyCount": 76,
         "observedDutyCount": 76,
         "freshness": "fresh",
@@ -136,7 +136,7 @@
         "province": "VA",
         "sourceKey": "varese-ats-2026-2027",
         "sourceUrl": "https://comune.marchirolo.varese.it/Dettaglionews?IDNews=400586",
-        "fetchedAt": "2026-11-08T11:30:37.929Z",
+        "fetchedAt": "2026-11-09T13:20:41.315Z",
         "dutyCount": 92,
         "observedDutyCount": 92,
         "freshness": "fresh",
@@ -154,7 +154,7 @@
         "province": "VB",
         "sourceKey": "vco-asl-2026",
         "sourceUrl": "https://www.aslvco.it/wp-content/uploads/2025/12/2968938.pdf?x88295=",
-        "fetchedAt": "2026-11-08T11:30:37.929Z",
+        "fetchedAt": "2026-11-09T13:20:41.315Z",
         "dutyCount": 7,
         "observedDutyCount": 7,
         "freshness": "fresh",
@@ -169,6 +169,6 @@
         "fetchedVia": "vco-mirror"
       }
     },
-    "releaseId": "pharmacy-italy-v1-5a75da986245fbcbd4cf308bedd78770f761ecd420b1b6871fe35f94b1fef9fc"
+    "releaseId": "pharmacy-italy-v1-aca76dc037e3d86af35f540c90d3be9f43f1f3cfa9d267763e53fd572bacd599"
   }
 }
