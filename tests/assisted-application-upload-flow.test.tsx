@@ -78,6 +78,8 @@ const paidOrder = (overrides: Record<string, unknown> = {}) => ({
   consentedAt: null,
   applicantName: 'Nome di prova',
   applicantEmail: 'candidato@example.test',
+  // Asked with the CV (owner decision 2026-11-09): an order whose candidate already gave them.
+  candidateFacts: { workPermit: 'permit_g', passport: 'eu_efta', nationality: 'Italiana' },
   cvStorageKey: null,
   cvFileName: null,
   ...overrides,
@@ -239,6 +241,29 @@ describe('assisted application consent and CV upload flow', () => {
     expect(mocks.updateDoc).toHaveBeenCalledTimes(2);
     expect(screen.getByText('cv.pdf').closest('[role="status"]')).not.toBeNull();
     expect(fileInput).toBeDisabled();
+  });
+
+  it('asks permit, passport and nationality before the CV and stores them with it', async () => {
+    orderData = paidOrder({ consentVersion: 'assisted-application-v2', consentedAt: { seconds: 1 }, candidateFacts: null });
+    const user = userEvent.setup();
+    const { container } = render(<AssistedApplicationUpload orderId={ORDER_ID} />);
+    await screen.findByRole('button', { name: itCore['jobBoard.assisted.fileCta'] });
+    const fileInput = container.querySelector<HTMLInputElement>('#assisted-application-cv-input') as HTMLInputElement;
+    const cv = () => new File(['pdf data'], 'cv.pdf', { type: 'application/pdf' });
+
+    fireEvent.change(fileInput, { target: { files: [cv()] } });
+    expect(await screen.findByText(itCore['jobBoard.assisted.candidateFactsRequired'])).toBeTruthy();
+    expect(mocks.uploadBytes).not.toHaveBeenCalled();
+
+    await user.selectOptions(screen.getByLabelText(itCore['jobBoard.assisted.workPermit']), 'permit_g');
+    await user.selectOptions(screen.getByLabelText(itCore['jobBoard.assisted.passport']), 'eu_efta');
+    await user.type(screen.getByLabelText(itCore['jobBoard.assisted.nationality']), 'Italiana');
+    fireEvent.change(fileInput, { target: { files: [cv()] } });
+    await waitFor(() => expect(mocks.uploadBytes).toHaveBeenCalledOnce());
+    expect(mocks.updateDoc).toHaveBeenLastCalledWith(expect.anything(), expect.objectContaining({
+      cvStorageKey: `assisted-application-uploads/${ORDER_ID}/cv.pdf`,
+      candidateFacts: { workPermit: 'permit_g', passport: 'eu_efta', nationality: 'Italiana' },
+    }));
   });
 
   it('does not count reopening the same paid order as another checkout completion', async () => {

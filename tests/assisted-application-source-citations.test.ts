@@ -59,7 +59,8 @@ describe('source-bound match evidence', () => {
 
   it.each(['[[cv:999999]]', ''])('keeps a failed mobility citation as a technical retry: %s', evidence => {
     const cv = 'Candidate lives in Italy. Literal [[cv:999999]] appears in the source.';
-    const requirements = { requirements: [{ requirement: 'Residence', quote: 'Resident in Switzerland or willingness to relocate.', importance: 'high', basis: 'stated' }] };
+    // A residence-only clause: the platform's relocation declaration (2026-11-09) does not meet it.
+    const requirements = { requirements: [{ requirement: 'Residence', quote: 'Resident in Switzerland.', importance: 'high', basis: 'stated' }] };
     const sources = sourceCitations({ cv });
     const raw = { verdict: 'good', questions: [], matches: [{ index: 0, status: 'met', evidence }] };
     const sanitized = sanitizeMatch(resolveCitations(raw, 'matches', 'evidence', sources), 1, cv);

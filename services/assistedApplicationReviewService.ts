@@ -85,6 +85,8 @@ export interface ReviewQuestion {
   applicationQuestion?: string;
   applicationQuestionLocale?: string | null;
   why: string;
+  /** Answered by the platform's defaults (owner decision 2026-11-09): shown prefilled, the candidate may change it. */
+  answeredByPlatform?: boolean;
   type: 'text' | 'yes_no' | 'choice' | 'number' | 'date';
   options: string[];
   required: boolean;

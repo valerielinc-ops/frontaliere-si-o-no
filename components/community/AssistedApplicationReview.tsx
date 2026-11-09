@@ -123,6 +123,7 @@ function QuestionField({ question, value, onChange, disabled, error, locale, sav
       )}
       {question.required && <span className="text-danger"> *</span>}
       {question.why && <span className="mt-0.5 block text-xs font-normal text-subtle">{question.why}</span>}
+      {question.answeredByPlatform && <span className="mt-0.5 block text-xs font-normal text-subtle">{t('jobBoard.assisted.review.answeredByPlatform')}</span>}
       {question.type === 'yes_no' ? (
         <select value={value} onChange={(event) => onChange(event.target.value)} disabled={disabled} className={inputClass}>
           <option value="">—</option>

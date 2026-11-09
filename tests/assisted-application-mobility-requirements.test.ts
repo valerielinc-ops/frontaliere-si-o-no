@@ -1,3 +1,4 @@
+import { createHash } from 'node:crypto';
 import { expect, it } from 'vitest';
 import { guardMobilityMatch, swissMobilityRequirement } from '../functions/src/lib/mobilityRequirements.js';
 import { conciergeProposalEligibility, fitNoticeOf } from '../functions/src/assistedApplicationFitNotice.js';
@@ -12,17 +13,24 @@ const requirements = { requirements: [row(quote)] };
 const match = { matches: [{ index: 0, status: 'met', evidence: 'Permit G', evidenceUnverified: false }], verdict: 'good', questions: [] };
 const context = { profile: { location: 'Exampletown, Italy', workPermit: 'Permit G' }, sourceText: 'Exampletown, Italy\nPermit G' };
 
-it('does not treat a cross-border permit as residence or willingness in either funnel', () => {
+it('declares the candidate willing to relocate in both funnels, never asking (owner decision 2026-11-09)', () => {
   const guarded = guardMobilityMatch(requirements, match, context);
-  expect(guarded.matches[0]).toMatchObject({ status: 'partial', evidence: '' });
-  expect(conciergeProposalEligibility(requirements, guarded, context).status).toBe('clarification_required');
-  expect(fitNoticeOf({ requirements: requirements.requirements, matches: guarded.matches, verdict: guarded.verdict })?.gaps).toHaveLength(1);
-  expect(guarded.questions).toHaveLength(1);
-  const question = guarded.questions[0];
-  expect(question).toMatchObject({ required: true, type: 'yes_no', applicationQuestion: quote });
-  expect(operationalDefaultAnswer(question)).toBeNull();
-  expect(evaluateRedFlags({ status: 'ready', round: 1, questions: guarded.questions, job: { source: 'job_detail' }, channel: { type: 'email' } }).candidate).toContain(question.id);
+  // The platform's declaration, not the permit G of the CV, meets the requirement.
+  expect(guarded.matches[0]).toMatchObject({ status: 'met' });
+  expect(guarded.matches[0].evidence).not.toContain('Permit G');
+  expect(conciergeProposalEligibility(requirements, guarded, context).status).not.toBe('clarification_required');
+  expect(fitNoticeOf({ requirements: requirements.requirements, matches: guarded.matches, verdict: guarded.verdict })?.gaps ?? []).toHaveLength(0);
+  expect(guarded.questions).toHaveLength(0);
   expect(context.profile).toEqual({ location: 'Exampletown, Italy', workPermit: 'Permit G' });
+});
+
+it('keeps the candidate’s own «no» to relocating', () => {
+  // The question id guardMobilityMatch derives from the whole clause (lib/mobilityRequirements.js questionFor).
+  const folded = quote.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim();
+  const id = `mobility_requirement_${createHash('sha256').update(folded).digest('hex').slice(0, 32)}`;
+  const declined = guardMobilityMatch(requirements, match, { ...context, answers: { [id]: 'No' } });
+  expect(declined.matches[0]).toMatchObject({ status: 'missing' });
+  expect(declined.verdict).toBe('poor');
 });
 
 it.each([
@@ -32,7 +40,7 @@ it.each([
   quote,
 ])('keeps the condition separate from authorization: %s', clause => {
   expect(swissMobilityRequirement(row(clause))).not.toBeNull();
-  expect(guardMobilityMatch({ requirements: [row(clause)] }, match, context).matches[0].status).toBe('partial');
+  expect(guardMobilityMatch({ requirements: [row(clause)] }, match, context).matches[0].status).toBe('met');
 });
 
 it.each([
@@ -56,20 +64,22 @@ it('uses actual current residence or explicit relocation evidence, without chang
 
 it.each(['Swiss citizenship', 'Company resident in Switzerland', 'Not willing to relocate to Switzerland', 'Lived in Switzerland previously'])('does not repurpose unrelated or negated evidence: %s', evidence => {
   const result = guardMobilityMatch(requirements, { ...match, matches: [{ ...match.matches[0], evidence }] }, { ...context, sourceText: evidence });
-  expect(result.matches[0].status).toBe('partial');
+  // The relocation alternative is met by the platform's declaration, never by the unrelated CV line.
+  expect(result.matches[0]).toMatchObject({ status: 'met', evidence: 'Disponibile al trasferimento (dichiarato dalla piattaforma)' });
 });
 
-it('requires the whole qualified clause and keeps its answer specific to that clause', () => {
-  const withDeadline = { requirements: [row('Resident in Geneva, Switzerland or willing to relocate within 30 days.')] };
-  const first = guardMobilityMatch(requirements, match, context);
-  const question = first.questions[0];
-  const memory = rememberCandidateQuestionAnswers({ questions: [question], answers: { [question.id]: 'Sì' } });
-  expect(guardMobilityMatch(requirements, match, { ...context, memory }).matches[0].status).toBe('met');
-  expect(conciergeProposalEligibility(requirements, guardMobilityMatch(requirements, { ...match, verdict: 'weak' }, { ...context, memory }), context).status).toBe('compatible');
-  const qualified = guardMobilityMatch(withDeadline, match, { ...context, memory, profile: { location: 'Examplecity, Switzerland' }, sourceText: 'Examplecity, Switzerland' });
+it('keeps a candidate answer specific to its whole clause', () => {
+  const folded = (clause: string) => clause.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim();
+  const idOf = (clause: string) => `mobility_requirement_${createHash('sha256').update(folded(clause)).digest('hex').slice(0, 32)}`;
+  const question = { id: idOf(quote), question: 'Puoi soddisfare tutte le condizioni di residenza o trasferimento riportate qui?', applicationQuestion: quote, context: quote, type: 'yes_no' };
+  const memory = rememberCandidateQuestionAnswers({ questions: [question], answers: { [question.id]: 'No' } });
+  expect(guardMobilityMatch(requirements, match, { ...context, memory }).matches[0].status).toBe('missing');
+  // A residence-only clause is a fact, not a willingness: it stays the candidate's question, with its own id.
+  const residenceOnly = { requirements: [row('Must currently reside in Geneva, Switzerland.')] };
+  const qualified = guardMobilityMatch(residenceOnly, match, { ...context, memory });
   expect(qualified.matches[0].status).toBe('partial');
   expect(qualified.questions[0].id).not.toBe(question.id);
-  expect(qualified.questions[0].applicationQuestion).toContain('30 days');
+  expect(qualified.questions[0].applicationQuestion).toContain('Geneva');
   const negative = guardMobilityMatch(requirements, match, { ...context, answers: { [question.id]: false } });
   expect(conciergeProposalEligibility(requirements, negative, context).status).toBe('incompatible');
 });
@@ -85,16 +95,16 @@ it('never truncates required facts when adding rule-derived questions', () => {
 
 
 it.each([
-  'Must reside in Switzerland.',
-  'Currently residing in Switzerland.',
-  'Willing to move to Switzerland.',
-  'Ready for moving to Switzerland.',
-  'Deve risiedere in Svizzera.',
-  'Vous devez résider en Suisse.',
-  'Sie müssen in der Schweiz wohnen.',
-])('guards ordinary residence and relocation verb forms: %s', clause => {
+  ['Must reside in Switzerland.', 'partial'],
+  ['Currently residing in Switzerland.', 'partial'],
+  ['Willing to move to Switzerland.', 'met'],
+  ['Ready for moving to Switzerland.', 'met'],
+  ['Deve risiedere in Svizzera.', 'partial'],
+  ['Vous devez résider en Suisse.', 'partial'],
+  ['Sie müssen in der Schweiz wohnen.', 'partial'],
+])('guards ordinary residence and relocation verb forms: %s', (clause, status) => {
   expect(swissMobilityRequirement(row(clause))).not.toBeNull();
-  expect(guardMobilityMatch({ requirements: [row(clause)] }, match, context).matches[0].status).toBe('partial');
+  expect(guardMobilityMatch({ requirements: [row(clause)] }, match, context).matches[0].status).toBe(status);
 });
 
 it.each([

@@ -402,13 +402,21 @@ export function buildReviewPayload({ order, orderId = '', flow, draft, round, co
   const current = Number(flow?.round) || 1;
   const state = flow?.state || 'drafting';
   const candidateFlow = candidateEditFlow({ orderId, order, flow, draft, nowMs });
-  const { profile, answers: candidateAnswers } = candidateWithEdits({ order, draft, flow: candidateFlow, locale });
-  const answers = withOperationalQuestionAnswers(draft?.questions, candidateAnswers, { locale }).answers;
-  const visibleQuestions = questionsForCandidate(draft?.questions, profile, candidateAnswers, candidateFlow.questionAnswers, draft);
-  const answerOrigins = answerOriginsForQuestions({ questions: visibleQuestions, answers, answerEvidence, flow: candidateFlow });
+  const { profile, answers: candidateAnswers, platformFacts } = candidateWithEdits({ order, draft, flow: candidateFlow, locale });
+  const { answers, defaults } = withOperationalQuestionAnswers(draft?.questions, candidateAnswers, { locale, facts: platformFacts });
+  const askedQuestions = questionsForCandidate(draft?.questions, profile, candidateAnswers, candidateFlow.questionAnswers, draft);
+  // Owner decision 2026-11-09: the questions the platform answered are not asked. Only when a question
+  // remains that nobody answered are they shown with it, prefilled, so the candidate can change them.
+  const stillOpen = askedQuestions.some((question) => question.required && !defaults[question.id]
+    && (!String(answers[question.id] ?? '').trim() || !requiredPortalConsentAffirmed(question, answers[question.id])));
+  const visibleQuestions = stillOpen ? askedQuestions : askedQuestions.filter((question) => !defaults[question.id]);
+  // Hidden is a presentation choice only: the confirmation contract still covers every question asked, so an
+  // answer saved from a page that showed it (or a later round that shows it again) is accepted as before.
+  const answerOrigins = answerOriginsForQuestions({ questions: askedQuestions, answers, answerEvidence, flow: candidateFlow });
   const confirmationFlow = { ...candidateFlow, answerOrigins };
   const questions = visibleQuestions.map((question) => {
-    const view = questionView(question, nowMs, draft?.factSources?.text || '');
+    const view = { ...questionView(question, nowMs, draft?.factSources?.text || ''),
+      ...(defaults[question.id] ? { answeredByPlatform: true } : {}) };
     if (question.id !== 'work_permit') return view;
     const { options, value } = permitQuestionView(view.options, answers.work_permit);
     answers.work_permit = value;
@@ -432,7 +440,7 @@ export function buildReviewPayload({ order, orderId = '', flow, draft, round, co
   // With what the candidate changed on this page (assistedApplicationCandidateEdits.js).
   const formAnswers = formAnswersWithEdits({ order, draft, flow: candidateFlow, locale });
   const applicationEmail = channel.type === 'email' && draft?.applicationEmail
-    ? { to: draft.applicationEmail.to, subject: draft.applicationEmail.subject, body: operationalEmailBody(draft, candidateAnswers) }
+    ? { to: draft.applicationEmail.to, subject: draft.applicationEmail.subject, body: operationalEmailBody(draft, candidateAnswers, { facts: platformFacts }) }
     : null;
   const editSnapshot = candidateEditSnapshot({ secret: editSnapshotSecret, orderId, order, flow, draft,
     communicationLocale: locale, nowMs });
@@ -486,7 +494,7 @@ export function buildReviewPayload({ order, orderId = '', flow, draft, round, co
     answers: Object.fromEntries(questions.map((question) => [question.id, String(answers[question.id] ?? '')])),
     dismissedAnswerSuggestionIds,
     answerQuestionSnapshots: answerConfirmationSnapshotsFor({ userId: order?.userId, orderId, order, flow: confirmationFlow,
-      questions: visibleQuestions, draft, communicationLocale: locale, nowMs }),
+      questions: askedQuestions, draft, communicationLocale: locale, nowMs }),
     documents,
     documentLimits: { maxBytes: MAX_DOCUMENT_BYTES, maxFiles: MAX_FILES_PER_DOCUMENT },
     feedback: (flow?.feedback || []).map((item) => ({ round: item.round, text: item.text })),

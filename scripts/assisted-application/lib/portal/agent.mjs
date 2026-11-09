@@ -426,7 +426,7 @@ export function guardAgentStep(raw, candidate = null, grounded = new Set()) {
     const policyField = { label: action.question, context, ...metadata };
     const resolved = candidateAnswerForField(candidate, policyField);
     const policy = action.source !== 'widget' && resolved?.source === 'policy_default'
-      && isOperationalDefaultValue(policyField, answer);
+      && isOperationalDefaultValue(policyField, answer, { facts: candidate?.platformFacts });
     if (policy) action.source = 'policy_default';
     if (policy || fromCandidate || (languageAbility && (native || quoted))
       || (!languageIntent && !languageAbility && (native || declines || quoted || attached || (knockOut && knownValues === null)))) {

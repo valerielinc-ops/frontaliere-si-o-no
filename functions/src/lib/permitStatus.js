@@ -16,50 +16,15 @@
  * Catalogue rule: a label once offered is never removed from the lookups; a
  * reworded label keeps its old text as an alias (answers store the label).
  *
- * Pure JavaScript, no import.
+ * Pure JavaScript. The status codes and their labels live in permitLabels.js,
+ * the part the browser bundles (this module's lookbehinds must stay server-side).
  */
 
-// Select order of the six statuses.
-export const PERMIT_STATUSES = ['swiss', 'permit_c', 'permit_b', 'permit_l', 'permit_g', 'none'];
+import { PERMIT_LABELS as LABELS, PERMIT_STATUSES, permitLabelLanguage as languageOf, permitOptions } from './permitLabels.js';
+
+export { PERMIT_STATUSES, permitOptions };
 export const HELD_PERMITS = new Set(['permit_c', 'permit_b', 'permit_l', 'permit_g']);
 
-// The options the candidate chooses from, stored as chosen (the visible label). A held permit is one
-// valid today; G names the job it depends on (whether a card is still valid after the job ended differs
-// by canton). Nothing about what a permit allows.
-const LABELS = {
-  it: {
-    swiss: 'Ho la cittadinanza svizzera',
-    permit_c: 'Ho un permesso C (domicilio) valido oggi',
-    permit_b: 'Ho un permesso B (dimora) valido oggi',
-    permit_l: 'Ho un permesso L (dimoranti temporanei) valido oggi',
-    permit_g: 'Lavoro oggi in Svizzera con un permesso G (frontalieri) valido',
-    none: 'Oggi non ho un permesso svizzero',
-  },
-  de: {
-    swiss: 'Ich habe das Schweizer Bürgerrecht',
-    permit_c: 'Ich habe eine heute gültige Niederlassungsbewilligung C',
-    permit_b: 'Ich habe eine heute gültige Aufenthaltsbewilligung B',
-    permit_l: 'Ich habe eine heute gültige Kurzaufenthaltsbewilligung L',
-    permit_g: 'Ich arbeite heute in der Schweiz mit gültiger Grenzgängerbewilligung G',
-    none: 'Ich habe heute keine Schweizer Bewilligung',
-  },
-  fr: {
-    swiss: 'J’ai la nationalité suisse',
-    permit_c: 'J’ai une autorisation d’établissement (permis C) valable aujourd’hui',
-    permit_b: 'J’ai une autorisation de séjour (permis B) valable aujourd’hui',
-    permit_l: 'J’ai une autorisation de courte durée (permis L) valable aujourd’hui',
-    permit_g: 'Je travaille aujourd’hui en Suisse avec un permis G (frontalier) valable',
-    none: 'Je n’ai aujourd’hui aucun permis suisse',
-  },
-  en: {
-    swiss: 'I am a Swiss citizen',
-    permit_c: 'I hold a settlement permit C, valid today',
-    permit_b: 'I hold a residence permit B, valid today',
-    permit_l: 'I hold a short-stay permit L, valid today',
-    permit_g: 'I work in Switzerland today with a valid cross-border permit G',
-    none: 'I hold no Swiss permit today',
-  },
-};
 
 // The permit as the CV prints it: the official name (SEM), never a bare letter (B and C are also
 // driving-licence categories).
@@ -70,11 +35,6 @@ const CV_WORDING = {
   en: { permit_c: 'settlement permit C', permit_b: 'residence permit B', permit_l: 'short-stay permit L', permit_g: 'cross-border commuter permit G' },
 };
 
-/** "de-CH" reads "de"; an unknown language reads Italian. */
-const languageOf = (locale) => {
-  const code = String(locale || '').slice(0, 2).toLowerCase();
-  return LABELS[code] ? code : 'it';
-};
 
 const STATUS_QUESTIONS = {
   it: 'Hai la cittadinanza svizzera o un permesso svizzero valido oggi?',
@@ -104,11 +64,6 @@ export function permitStatusQuestionWhy(locale) {
 const fold = (text) => String(text ?? '').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '')
   .replace(/ß/g, 'ss').replace(/[^a-z0-9]+/g, ' ').trim();
 
-/** The six options in the candidate's language, in select order. */
-export function permitOptions(locale) {
-  const labels = LABELS[languageOf(locale)];
-  return PERMIT_STATUSES.map((code) => labels[code]);
-}
 
 // A wording that speaks of a permit to come, or of needing none: never a status, never printed, always
 // flagged in a generated text. Read only on a stored value or on the clause of a permit mention, so a

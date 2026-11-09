@@ -890,14 +890,15 @@ describe('sweep', () => {
     await startAutomation({ db: store.db, orderId: ORDER, runEffect, nowMs: T0 });
     const draft = { ...readyDraft(), questions: [
       { id: 'work_permit', required: true, question: 'Permesso svizzero?', options: ['C', 'B', 'L', 'G', 'none'] },
-      { id: 'relocation_to_ticino', required: true, question: 'Trasferimento in Ticino?', options: ['yes', 'no'] },
+      // A fact only the candidate states (the platform answers relocation since 2026-11-09).
+      { id: 'driving_licence', required: true, question: 'Patente di categoria B?', options: ['yes', 'no'] },
     ] };
     await store.db.collection('assisted_applications').doc(ORDER).collection('ai_drafts').doc('current').set(draft);
     effects = [];
     await applyAutomationEvent({ db: store.db, orderId: ORDER, event: { type: 'draft_ready', round: 1 }, runEffect, nowMs: T0 });
     expect(store.read(`${ORDER_PATH}/automation/flow`)).toMatchObject({
       state: 'candidate_review',
-      heldBy: ['question:work_permit', 'question:relocation_to_ticino'],
+      heldBy: ['question:work_permit', 'question:driving_licence'],
       deadlineAt: null,
     });
     expect(effects).toEqual([{ type: 'email', kind: 'candidate_review', held: true, round: 1 }]);
@@ -905,11 +906,11 @@ describe('sweep', () => {
     effects = [];
     await store.db.collection('assisted_applications').doc(ORDER).collection('automation').doc('flow').set({
       ...store.read(`${ORDER_PATH}/automation/flow`),
-      answers: { work_permit: 'C', relocation_to_ticino: 'yes' },
+      answers: { work_permit: 'C', driving_licence: 'yes' },
     });
     await applyAutomationEvent({ db: store.db, orderId: ORDER, event: { type: 'candidate_answers' }, actor: 'candidate', runEffect, nowMs: T0 + 1000 });
     expect(store.read(`${ORDER_PATH}/automation/flow`)).toMatchObject({ state: 'candidate_review',
-      heldBy: ['question:work_permit', 'question:relocation_to_ticino'], deadlineAt: null });
+      heldBy: ['question:work_permit', 'question:driving_licence'], deadlineAt: null });
     expect(effects).toEqual([]);
   });
 

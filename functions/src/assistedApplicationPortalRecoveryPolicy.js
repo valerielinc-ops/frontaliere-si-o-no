@@ -3,6 +3,7 @@ import { provenOptionalOperationalPortalQuestion } from './lib/portalNativeContr
 import { candidateQuestionAnswerKey, candidateWithEdits, isUnknownAnswer } from './assistedApplicationCandidateEdits.js';
 import { hasAssistedApplicationConsent } from './assistedApplicationConstants.js';
 import { operationalQuestionTopic, operationalAnswerReadyForDiscovery, withOperationalQuestionAnswers } from './assistedApplicationOperationalAnswers.js';
+import { platformDefaultAnswer } from './assistedApplicationPlatformDefaults.js';
 import { isUnconfirmedSubmission } from './assistedApplicationSubmissionGuard.js';
 import { validateAnswer } from './lib/answerRules.js';
 
@@ -100,8 +101,8 @@ export function operationalPortalRecoveryReady({ order, flow, draft }) {
     || !(Number(draft.completedAt) > 0) || !(Number(flow.dispatch.requestedAt) >= Number(draft.completedAt))) return false;
   if (questions.some(question => isUnknownAnswer(flow.answers?.[question.id])
     || isUnknownAnswer(flow.questionAnswers?.[candidateQuestionAnswerKey(question)]))) return false;
-  const { answers } = candidateWithEdits({ order, draft, flow });
-  const projected = withOperationalQuestionAnswers(questions, answers).answers;
+  const { answers, platformFacts } = candidateWithEdits({ order, draft, flow });
+  const projected = withOperationalQuestionAnswers(questions, answers, { locale: platformFacts?.locale, facts: platformFacts }).answers;
   return questions.every(question => {
     // Draft-level match questions (for example availability) are not native
     // portal controls. They may travel with a portal hold, but only an
@@ -109,6 +110,9 @@ export function operationalPortalRecoveryReady({ order, flow, draft }) {
     // operational default for this lane.
     if (question?.source === 'match') return explicitCandidateAnswerReadyForDiscovery(question, projected[question.id]);
     if (question?.source !== 'portal') return false;
+    // A platform default (owner decision 2026-11-09) is as final as an owner preference.
+    const platform = platformDefaultAnswer(question, platformFacts)?.value;
+    if (platform && platform === projected[question.id]) return true;
     return operationalQuestionTopic(question)
       ? operationalAnswerReadyForDiscovery(question, projected[question.id])
       : explicitCandidateAnswerReadyForDiscovery(question, projected[question.id]);
