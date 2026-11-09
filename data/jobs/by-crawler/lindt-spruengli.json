@@ -1,7 +1,7 @@
 {
   "crawlerKey": "lindt-spruengli",
-  "assembledAt": "2026-11-08T21:39:13.742Z",
-  "runId": "42524031328",
+  "assembledAt": "2026-11-09T09:39:26.057Z",
+  "runId": "42591650265",
   "jobs": [
     {
       "id": "lindt-spruengli-22b6ca6b4b2c",
@@ -9,7 +9,7 @@
       "slugByLocale": {
         "it": "domanda-non-richiesta-lindt-sprungli-kilchberg",
         "en": "unsolicited-application-lindt-spruengli-kilchberg",
-        "de": "unerbetene-anwendung-lindt-sprungli-kilchberg",
+        "de": "initiativbewerbung-lindt-sprungli-kilchberg",
         "fr": "demande-spontanee-lindt-sprungli-kilchberg"
       },
       "company": "Lindt & Sprüngli",
@@ -34,7 +34,7 @@
       "url": "https://lindtspruengli.wd103.myworkdayjobs.com/LindtSpruengliGroupCareers/job/Kilchberg-Switzerland/Spontaneous-Application_JR102189",
       "source": "Lindt & Sprüngli Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-08T21:39:03.076Z",
+      "crawledAt": "2026-11-09T09:39:18.919Z",
       "addressLocality": "Kilchberg",
       "addressRegion": "ZH",
       "streetAddress": "Seestrasse 204",
@@ -67,7 +67,7 @@
         "personnel-militaire-lindt-sprungli-kilchberg",
         "servicemitarbeiter-in-lindt-sprungli-kilchberg",
         "patissier-in-90-lindt-sprungli-kilchberg",
-        "initiativbewerbung-lindt-sprungli-kilchberg"
+        "unerbetene-anwendung-lindt-sprungli-kilchberg"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -89,7 +89,7 @@
         "de": [
           "unsolicited-application-lindt-spruengli-kilchberg",
           "patissier-in-90-lindt-spruengli-kilchberg",
-          "initiativbewerbung-lindt-sprungli-kilchberg"
+          "unerbetene-anwendung-lindt-sprungli-kilchberg"
         ],
         "fr": [
           "unsolicited-application-lindt-spruengli-kilchberg",
@@ -111,7 +111,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-08T21:39:03.076Z",
+      "validThrough": "2026-12-09T09:39:18.919Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -145,7 +145,7 @@
       "url": "https://lindtspruengli.wd103.myworkdayjobs.com/LindtSpruengliGroupCareers/job/Altendorf-Switzerland/Lehrstelle-als-Logistiker-in-EFZ-Lehrbeginn-Sommer-2027_JR101256-1",
       "source": "Lindt & Sprüngli Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T21:39:02.381Z",
+      "crawledAt": "2026-11-09T09:39:17.886Z",
       "addressLocality": "Altendorf",
       "addressRegion": "SZ",
       "streetAddress": "Altendorf",
@@ -195,7 +195,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-08T21:39:02.381Z",
+      "validThrough": "2026-12-09T09:39:17.886Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -229,7 +229,7 @@
       "url": "https://lindtspruengli.wd103.myworkdayjobs.com/LindtSpruengliGroupCareers/job/Kilchberg-Switzerland/Lehrstelle-als-Lebensmitteltechnologe--login-EFZ---Lehrbeginn-ab-Sommer-2027_JR102079",
       "source": "Lindt & Sprüngli Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T21:39:01.670Z",
+      "crawledAt": "2026-11-09T09:39:16.307Z",
       "addressLocality": "Kilchberg",
       "addressRegion": "ZH",
       "streetAddress": "Seestrasse 204",
@@ -280,7 +280,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-08T21:39:01.670Z",
+      "validThrough": "2026-12-09T09:39:16.307Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -314,7 +314,7 @@
       "url": "https://lindtspruengli.wd103.myworkdayjobs.com/LindtSpruengliGroupCareers/job/Kilchberg-Switzerland/Lehrstelle-als-Lebensmittelpraktiker-in-EBA---Lehrbeginn-ab-Sommer-2027_JR102101",
       "source": "Lindt & Sprüngli Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T21:39:00.975Z",
+      "crawledAt": "2026-11-09T09:39:14.809Z",
       "addressLocality": "Kilchberg",
       "addressRegion": "ZH",
       "streetAddress": "Seestrasse 204",
@@ -365,7 +365,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-08T21:39:00.975Z",
+      "validThrough": "2026-12-09T09:39:14.809Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -399,7 +399,7 @@
       "url": "https://lindtspruengli.wd103.myworkdayjobs.com/LindtSpruengliGroupCareers/job/LCH---CHE---Retail---Lindt-Shop-City---Luzern/Retail-Store-Manager_JR101237",
       "source": "Lindt & Sprüngli Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T21:39:00.274Z",
+      "crawledAt": "2026-11-09T09:39:13.713Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "streetAddress": "Luzern",
@@ -443,7 +443,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-08T21:39:00.274Z",
+      "validThrough": "2026-12-09T09:39:13.713Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -477,7 +477,7 @@
       "url": "https://lindtspruengli.wd103.myworkdayjobs.com/LindtSpruengliGroupCareers/job/Olten-Switzerland/Lehrstelle-als-Lebensmittelpraktiker-in-EBA---Lehrbeginn-ab-Sommer-2027_JR102995-2",
       "source": "Lindt & Sprüngli Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T21:38:59.525Z",
+      "crawledAt": "2026-11-09T09:39:12.194Z",
       "addressLocality": "Olten",
       "addressRegion": "SO",
       "streetAddress": "Olten",
@@ -530,7 +530,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-08T21:38:59.525Z",
+      "validThrough": "2026-12-09T09:39:12.194Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -564,7 +564,7 @@
       "url": "https://lindtspruengli.wd103.myworkdayjobs.com/LindtSpruengliGroupCareers/job/Kilchberg-Switzerland/Lindt-Chocolate-Advisor---Verkufer-in-Lindt-Shop_JR103256-1",
       "source": "Lindt & Sprüngli Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T21:38:58.838Z",
+      "crawledAt": "2026-11-09T09:39:11.548Z",
       "addressLocality": "Kilchberg",
       "addressRegion": "ZH",
       "streetAddress": "Seestrasse 204",
@@ -614,7 +614,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-08T21:38:58.838Z",
+      "validThrough": "2026-12-09T09:39:11.548Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -648,7 +648,7 @@
       "url": "https://lindtspruengli.wd103.myworkdayjobs.com/LindtSpruengliGroupCareers/job/Landquart-Switzerland/Assistant-Shop-Manager--60-80--_JR103772-1",
       "source": "Lindt & Sprüngli Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T21:38:58.147Z",
+      "crawledAt": "2026-11-09T09:39:10.019Z",
       "addressLocality": "Landquart",
       "addressRegion": "GR",
       "streetAddress": "Landquart",
@@ -696,7 +696,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-30T21:38:58.147Z",
+      "validThrough": "2026-12-30T09:39:10.019Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -730,7 +730,7 @@
       "url": "https://lindtspruengli.wd103.myworkdayjobs.com/LindtSpruengliGroupCareers/job/Kilchberg-Switzerland/Anlagenfhrer-in-Grundfabrikation_JR103638-1",
       "source": "Lindt & Sprüngli Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T21:38:57.459Z",
+      "crawledAt": "2026-11-09T09:39:09.365Z",
       "addressLocality": "Kilchberg",
       "addressRegion": "ZH",
       "streetAddress": "Seestrasse 204",
@@ -781,7 +781,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-31T21:38:57.459Z",
+      "validThrough": "2026-12-31T09:39:09.365Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -815,7 +815,7 @@
       "url": "https://lindtspruengli.wd103.myworkdayjobs.com/LindtSpruengliGroupCareers/job/Kilchberg-Switzerland/Betriebsmechaniker-in_JR103724-1",
       "source": "Lindt & Sprüngli Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T21:38:56.758Z",
+      "crawledAt": "2026-11-09T09:39:08.289Z",
       "addressLocality": "Kilchberg",
       "addressRegion": "ZH",
       "streetAddress": "Seestrasse 204",
@@ -867,7 +867,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-04T21:38:56.758Z",
+      "validThrough": "2027-01-04T09:39:08.289Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -901,7 +901,7 @@
       "url": "https://lindtspruengli.wd103.myworkdayjobs.com/LindtSpruengliGroupCareers/job/Aubonne-Switzerland/Assistant-Shop-Manager-Aubonne--80--_JR103769-1",
       "source": "Lindt & Sprüngli Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T21:38:56.074Z",
+      "crawledAt": "2026-11-09T09:39:07.649Z",
       "addressLocality": "Aubonne",
       "addressRegion": "VD",
       "streetAddress": "Aubonne",
@@ -951,7 +951,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-14T21:38:56.074Z",
+      "validThrough": "2027-01-14T09:39:07.649Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -985,7 +985,7 @@
       "url": "https://lindtspruengli.wd103.myworkdayjobs.com/LindtSpruengliGroupCareers/job/Kilchberg-Switzerland/Aushilfsmitarbeiter-in-Personalrestaurant_JR103978-1",
       "source": "Lindt & Sprüngli Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T21:38:55.382Z",
+      "crawledAt": "2026-11-09T09:39:05.848Z",
       "addressLocality": "Kilchberg",
       "addressRegion": "ZH",
       "streetAddress": "Seestrasse 204",
@@ -1053,7 +1053,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-11T21:38:55.382Z",
+      "validThrough": "2027-01-11T09:39:05.848Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1087,7 +1087,7 @@
       "url": "https://lindtspruengli.wd103.myworkdayjobs.com/LindtSpruengliGroupCareers/job/Kilchberg-Switzerland/Group-Category-Manager-Business-Services_JR103887-1",
       "source": "Lindt & Sprüngli Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-08T21:38:54.700Z",
+      "crawledAt": "2026-11-09T09:39:04.688Z",
       "addressLocality": "Kilchberg",
       "addressRegion": "ZH",
       "streetAddress": "Seestrasse 204",
@@ -1137,7 +1137,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-18T21:38:54.700Z",
+      "validThrough": "2027-01-18T09:39:04.688Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1171,7 +1171,7 @@
       "url": "https://lindtspruengli.wd103.myworkdayjobs.com/LindtSpruengliGroupCareers/job/Zermatt-Switzerland/Lindt-Chocolate-Advisor-40-60----Saisonaushilfe-_JR104112-1",
       "source": "Lindt & Sprüngli Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T21:38:54.016Z",
+      "crawledAt": "2026-11-09T09:39:03.530Z",
       "addressLocality": "Zermatt",
       "addressRegion": "VS",
       "streetAddress": "Zermatt",
@@ -1221,7 +1221,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-31T21:38:54.016Z",
+      "validThrough": "2027-01-31T09:39:03.530Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1255,7 +1255,7 @@
       "url": "https://lindtspruengli.wd103.myworkdayjobs.com/LindtSpruengliGroupCareers/job/Kilchberg-Switzerland/Internship---Finance---Controlling---6-months--100---_JR104255-1",
       "source": "Lindt & Sprüngli Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-08T21:38:53.318Z",
+      "crawledAt": "2026-11-09T09:39:02.869Z",
       "addressLocality": "Kilchberg",
       "addressRegion": "ZH",
       "streetAddress": "Seestrasse 204",
@@ -1302,7 +1302,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-31T21:38:53.318Z",
+      "validThrough": "2027-01-31T09:39:02.869Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1336,7 +1336,7 @@
       "url": "https://lindtspruengli.wd103.myworkdayjobs.com/LindtSpruengliGroupCareers/job/Landquart-Switzerland/Lindt-Chocolate-Advisor--40-60--_JR104108-1",
       "source": "Lindt & Sprüngli Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T21:38:52.639Z",
+      "crawledAt": "2026-11-09T09:39:02.214Z",
       "addressLocality": "Landquart",
       "addressRegion": "GR",
       "streetAddress": "Landquart",
@@ -1388,7 +1388,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-26T21:38:52.639Z",
+      "validThrough": "2027-01-26T09:39:02.214Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1422,7 +1422,7 @@
       "url": "https://lindtspruengli.wd103.myworkdayjobs.com/LindtSpruengliGroupCareers/job/Landquart-Switzerland/Lindt-Chocolate-Advisor--20-40--_JR104109-1",
       "source": "Lindt & Sprüngli Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T21:38:51.947Z",
+      "crawledAt": "2026-11-09T09:39:01.534Z",
       "addressLocality": "Landquart",
       "addressRegion": "GR",
       "streetAddress": "Landquart",
@@ -1474,7 +1474,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-26T21:38:51.947Z",
+      "validThrough": "2027-01-26T09:39:01.534Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1508,7 +1508,7 @@
       "url": "https://lindtspruengli.wd103.myworkdayjobs.com/LindtSpruengliGroupCareers/job/Zermatt-Switzerland/Lindt-Chocolate-Advisor-80-100-_JR104114-1",
       "source": "Lindt & Sprüngli Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T21:38:51.245Z",
+      "crawledAt": "2026-11-09T09:39:00.880Z",
       "addressLocality": "Zermatt",
       "addressRegion": "VS",
       "streetAddress": "Zermatt",
@@ -1556,7 +1556,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-31T21:38:51.245Z",
+      "validThrough": "2027-01-31T09:39:00.880Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1590,7 +1590,7 @@
       "url": "https://lindtspruengli.wd103.myworkdayjobs.com/LindtSpruengliGroupCareers/job/Kilchberg-Switzerland/Anlagenfhrer-in-Formanlage_JR104217-1",
       "source": "Lindt & Sprüngli Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T21:38:50.519Z",
+      "crawledAt": "2026-11-09T09:39:00.218Z",
       "addressLocality": "Kilchberg",
       "addressRegion": "ZH",
       "streetAddress": "Seestrasse 204",
@@ -1640,7 +1640,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-01T21:38:50.519Z",
+      "validThrough": "2027-02-01T09:39:00.218Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1674,7 +1674,7 @@
       "url": "https://lindtspruengli.wd103.myworkdayjobs.com/LindtSpruengliGroupCareers/job/Kilchberg-Switzerland/Channel-Activation-Manager-Global-Travel-Retail---Available-Immediately_JR104264-1",
       "source": "Lindt & Sprüngli Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-08T21:38:49.820Z",
+      "crawledAt": "2026-11-09T09:38:58.971Z",
       "addressLocality": "Kilchberg",
       "addressRegion": "ZH",
       "streetAddress": "Seestrasse 204",
@@ -1721,7 +1721,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-02T21:38:49.820Z",
+      "validThrough": "2027-02-02T09:38:58.971Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1755,7 +1755,7 @@
       "url": "https://lindtspruengli.wd103.myworkdayjobs.com/LindtSpruengliGroupCareers/job/LCH---CHE---Plant---Kilchberg---Plant/Betriebselektriker-in_JR104298-2",
       "source": "Lindt & Sprüngli Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T21:38:49.124Z",
+      "crawledAt": "2026-11-09T09:38:58.302Z",
       "addressLocality": "Kilchberg",
       "addressRegion": "ZH",
       "streetAddress": "Seestrasse 204",
@@ -1807,8 +1807,89 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-03T21:38:49.124Z",
+      "validThrough": "2027-02-03T09:38:58.302Z",
       "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "lindt-spruengli-5a31bef84b12",
+      "slug": "collaboratore-trice-in-debitorenbuchhaltung-100-lindt-sprungli-kilchberg",
+      "slugByLocale": {
+        "de": "mitarbeiter-in-debitorenbuchhaltung-100-lindt-spruengli-kilchberg",
+        "it": "collaboratore-trice-in-debitorenbuchhaltung-100-lindt-sprungli-kilchberg",
+        "en": "mitarbeiter-in-debitorenbuchhaltung-100-lindt-spruengli-kilchberg",
+        "fr": "mitarbeiter-in-debitorenbuchhaltung-100-lindt-spruengli-kilchberg"
+      },
+      "company": "Lindt & Sprüngli",
+      "companyKey": "lindt-spruengli",
+      "companyDomain": "lindt-spruengli.com",
+      "title": "Mitarbeiter*in Debitorenbuchhaltung 100%",
+      "titleByLocale": {
+        "de": "Mitarbeiter*in Debitorenbuchhaltung 100%",
+        "it": "Collaboratore/trice*in Debitorenbuchhaltung 100%",
+        "en": "Mitarbeiter*in Debitorenbuchhaltung 100%",
+        "fr": "Mitarbeiter*in Debitorenbuchhaltung 100%"
+      },
+      "description": "Über uns\n\nWir verzaubern die Welt mit Schokolade! Die Lindt & Sprüngli (Schweiz) AG ist eine Tochtergesellschaft der globalen Lindt & Sprüngli Gruppe mit Hauptsitz und Produktionsstätte in Kilchberg am Zürichsee. In Altendorf betreiben wir unser eigenes Logistikzentrum, während das Lindt Cocoa Center in Olten Kakaomasse für unseren Eigenbedarf sowie für andere europäische Produktionsstätten herstellt. In der ganzen Schweiz betreiben wir stolz 15 Lindt Shops, darunter ikonische Standorte wie das Jungfraujoch und das Verkehrshaus der Schweiz in Luzern. Über 1000 Mitarbeitende aus mehr als 50 Nationen tragen zu unserem Erfolg bei.\n\nWas du bei uns machst:\n\n• Tägliche Bank- und Postzahlungseingänge inkl. Kontoabstimmungen erfassen und bearbeiten\n\n• Konto-Bereinigungen sowie das Mahn- und Betreibungswesen selbständig durchführen\n\n• Kreditlimiten überwachen und pflegen sowie Auftragsfreigaben erteilen\n\n• Rechnungen prüfen und freigeben sowie manuelle Rechnungen, Gutschriften und interne Umbuchungen erstellen und verbuchen\n\n• Debitoren-Stammdaten unserer nationalen und internationalen Kunden pflegen und als Master Data Expert den Debitorenprozess fachlich unterstützen\n\n• Auswertungen und Statistiken für Monats- und Jahresabschlüsse erstellen sowie bei Wareninventuren unserer Lindt Chocolate Shops mitwirken\n\n• Arbeitsprozesse in der Debitorenbuchhaltung überwachen und Prozess- sowie IKS-Dokumentationen laufend überprüfen und bei Bedarf aktualisieren\n\nWann du zu uns passt:\n\n• Abgeschlossene kaufmännische Grundausbildung sowie einige Jahre Berufserfahrung in einer vergleichbaren Position\n\n• Weiterbildung als Sachbearbeiter*in Rechnungswesen (oder gleichwertig) von Vorteil\n\n• Gute Kenntnisse in SAP und MS Excel\n\n• Teamfähige, proaktive und humorvolle Person, die analytisch denkt und stufengerecht kommuniziert\n\n• Selbständige und verlässliche Arbeitsweise mit hohem Qualitätsanspruch\n\n• Hands-on-Mentalität, engagiert, offen und entwicklungsfreudig\n\n• Sehr gute Deutschkenntnisse in Wort und Schrift sowie gute Englischkenntnisse für die Zusammenarbeit in unserem internationalen Kundenumfeld\n\nWir sind alle einzigartig!\n\nWir rekrutieren frei von Vorurteilen und berücksichtigen Fähigkeiten und Qualifikationen unbeeinflusst von persönlichen Merkmalen wie Geschlecht, Alter, sexuelle Orientierung, Herkunft, Religion, Familienstand, Beeinträchtigungen, etc.\n\nWohlbefinden\nGesundheit ist uns wichtig. Mit einer Sportprämie, Ergonomieberatung, gesunder Ernährung und weiteren Gesundheitsinitiativen unterstützen wir dich dabei fit zu bleiben.\n\nEntwicklung\nLernen wird bei uns GROSS geschrieben. Für die persönliche und fachliche Weiterentwicklung stehen dir verschiedene spannende Möglichkeiten zur Verfügung.\n\nMobilität\nWir unterstützen dich mit einer monatlichen Mobilitätsprämie und E-Bikes vor Ort. Zudem kannst du auch von der REKA-Card profitieren.\n\nFamilienfreundliches Umfeld - richtig versichert\nUnsere Sozialversicherungen, wie auch der Mutterschaftsurlaub, gehen weit über das Obligatorische hinaus - zum eigenen Schutz sowie für deine Liebsten.\n\nFlexibilität\nJe nach Funktion sind flexible Arbeitszeiten, Home Office sowie Teilzeitarbeit möglich. Zudem bieten wir dir die Option, die Ferientage zu erhöhen.\n\nVergünstigung\nZahlreiche Vergünstigungen wie ein top Personalrestaurant, Rabatte in den Lindt Shops oder tolle Freizeitangebote stehen dir zur Verfügung.",
+      "descriptionByLocale": {
+        "de": "Über uns\n\nWir verzaubern die Welt mit Schokolade! Die Lindt & Sprüngli (Schweiz) AG ist eine Tochtergesellschaft der globalen Lindt & Sprüngli Gruppe mit Hauptsitz und Produktionsstätte in Kilchberg am Zürichsee. In Altendorf betreiben wir unser eigenes Logistikzentrum, während das Lindt Cocoa Center in Olten Kakaomasse für unseren Eigenbedarf sowie für andere europäische Produktionsstätten herstellt. In der ganzen Schweiz betreiben wir stolz 15 Lindt Shops, darunter ikonische Standorte wie das Jungfraujoch und das Verkehrshaus der Schweiz in Luzern. Über 1000 Mitarbeitende aus mehr als 50 Nationen tragen zu unserem Erfolg bei.\n\nWas du bei uns machst:\n\n• Tägliche Bank- und Postzahlungseingänge inkl. Kontoabstimmungen erfassen und bearbeiten\n\n• Konto-Bereinigungen sowie das Mahn- und Betreibungswesen selbständig durchführen\n\n• Kreditlimiten überwachen und pflegen sowie Auftragsfreigaben erteilen\n\n• Rechnungen prüfen und freigeben sowie manuelle Rechnungen, Gutschriften und interne Umbuchungen erstellen und verbuchen\n\n• Debitoren-Stammdaten unserer nationalen und internationalen Kunden pflegen und als Master Data Expert den Debitorenprozess fachlich unterstützen\n\n• Auswertungen und Statistiken für Monats- und Jahresabschlüsse erstellen sowie bei Wareninventuren unserer Lindt Chocolate Shops mitwirken\n\n• Arbeitsprozesse in der Debitorenbuchhaltung überwachen und Prozess- sowie IKS-Dokumentationen laufend überprüfen und bei Bedarf aktualisieren\n\nWann du zu uns passt:\n\n• Abgeschlossene kaufmännische Grundausbildung sowie einige Jahre Berufserfahrung in einer vergleichbaren Position\n\n• Weiterbildung als Sachbearbeiter*in Rechnungswesen (oder gleichwertig) von Vorteil\n\n• Gute Kenntnisse in SAP und MS Excel\n\n• Teamfähige, proaktive und humorvolle Person, die analytisch denkt und stufengerecht kommuniziert\n\n• Selbständige und verlässliche Arbeitsweise mit hohem Qualitätsanspruch\n\n• Hands-on-Mentalität, engagiert, offen und entwicklungsfreudig\n\n• Sehr gute Deutschkenntnisse in Wort und Schrift sowie gute Englischkenntnisse für die Zusammenarbeit in unserem internationalen Kundenumfeld\n\nWir sind alle einzigartig!\n\nWir rekrutieren frei von Vorurteilen und berücksichtigen Fähigkeiten und Qualifikationen unbeeinflusst von persönlichen Merkmalen wie Geschlecht, Alter, sexuelle Orientierung, Herkunft, Religion, Familienstand, Beeinträchtigungen, etc.\n\nWohlbefinden\nGesundheit ist uns wichtig. Mit einer Sportprämie, Ergonomieberatung, gesunder Ernährung und weiteren Gesundheitsinitiativen unterstützen wir dich dabei fit zu bleiben.\n\nEntwicklung\nLernen wird bei uns GROSS geschrieben. Für die persönliche und fachliche Weiterentwicklung stehen dir verschiedene spannende Möglichkeiten zur Verfügung.\n\nMobilität\nWir unterstützen dich mit einer monatlichen Mobilitätsprämie und E-Bikes vor Ort. Zudem kannst du auch von der REKA-Card profitieren.\n\nFamilienfreundliches Umfeld - richtig versichert\nUnsere Sozialversicherungen, wie auch der Mutterschaftsurlaub, gehen weit über das Obligatorische hinaus - zum eigenen Schutz sowie für deine Liebsten.\n\nFlexibilität\nJe nach Funktion sind flexible Arbeitszeiten, Home Office sowie Teilzeitarbeit möglich. Zudem bieten wir dir die Option, die Ferientage zu erhöhen.\n\nVergünstigung\nZahlreiche Vergünstigungen wie ein top Personalrestaurant, Rabatte in den Lindt Shops oder tolle Freizeitangebote stehen dir zur Verfügung.",
+        "it": "Über uns\n\nWir verzaubern die Welt mit Schokolade! Die Lindt & Sprüngli (Schweiz) AG ist eine Tochtergesellschaft der globalen Lindt & Sprüngli Gruppe mit Hauptsitz und Produktionsstätte in Kilchberg am Zürichsee. In Altendorf betreiben wir unser eigenes Logistikzentrum, während das Lindt Cocoa Center in Olten Kakaomasse für unseren Eigenbedarf sowie für andere europäische Produktionsstätten herstellt. In der ganzen Schweiz betreiben wir stolz 15 Lindt Shops, darunter ikonische Standorte wie das Jungfraujoch und das Verkehrshaus der Schweiz in Luzern. Über 1000 Mitarbeitende aus mehr als 50 Nationen tragen zu unserem Erfolg bei.\n\nWas du bei uns machst:\n\n• Tägliche Bank- und Postzahlungseingänge inkl. Kontoabstimmungen erfassen und bearbeiten\n\n• Konto-Bereinigungen sowie das Mahn- und Betreibungswesen selbständig durchführen\n\n• Kreditlimiten überwachen und pflegen sowie Auftragsfreigaben erteilen\n\n• Rechnungen prüfen und freigeben sowie manuelle Rechnungen, Gutschriften und interne Umbuchungen erstellen und verbuchen\n\n• Debitoren-Stammdaten unserer nationalen und internationalen Kunden pflegen und als Master Data Expert den Debitorenprozess fachlich unterstützen\n\n• Auswertungen und Statistiken für Monats- und Jahresabschlüsse erstellen sowie bei Wareninventuren unserer Lindt Chocolate Shops mitwirken\n\n• Arbeitsprozesse in der Debitorenbuchhaltung überwachen und Prozess- sowie IKS-Dokumentationen laufend überprüfen und bei Bedarf aktualisieren\n\nWann du zu uns passt:\n\n• Abgeschlossene kaufmännische Grundausbildung sowie einige Jahre Berufserfahrung in einer vergleichbaren Position\n\n• Weiterbildung als Sachbearbeiter*in Rechnungswesen (oder gleichwertig) von Vorteil\n\n• Gute Kenntnisse in SAP und MS Excel\n\n• Teamfähige, proaktive und humorvolle Person, die analytisch denkt und stufengerecht kommuniziert\n\n• Selbständige und verlässliche Arbeitsweise mit hohem Qualitätsanspruch\n\n• Hands-on-Mentalität, engagiert, offen und entwicklungsfreudig\n\n• Sehr gute Deutschkenntnisse in Wort und Schrift sowie gute Englischkenntnisse für die Zusammenarbeit in unserem internationalen Kundenumfeld\n\nWir sind alle einzigartig!\n\nWir rekrutieren frei von Vorurteilen und berücksichtigen Fähigkeiten und Qualifikationen unbeeinflusst von persönlichen Merkmalen wie Geschlecht, Alter, sexuelle Orientierung, Herkunft, Religion, Familienstand, Beeinträchtigungen, etc.\n\nWohlbefinden\nGesundheit ist uns wichtig. Mit einer Sportprämie, Ergonomieberatung, gesunder Ernährung und weiteren Gesundheitsinitiativen unterstützen wir dich dabei fit zu bleiben.\n\nEntwicklung\nLernen wird bei uns GROSS geschrieben. Für die persönliche und fachliche Weiterentwicklung stehen dir verschiedene spannende Möglichkeiten zur Verfügung.\n\nMobilität\nWir unterstützen dich mit einer monatlichen Mobilitätsprämie und E-Bikes vor Ort. Zudem kannst du auch von der REKA-Card profitieren.\n\nFamilienfreundliches Umfeld - richtig versichert\nUnsere Sozialversicherungen, wie auch der Mutterschaftsurlaub, gehen weit über das Obligatorische hinaus - zum eigenen Schutz sowie für deine Liebsten.\n\nFlexibilität\nJe nach Funktion sind flexible Arbeitszeiten, Home Office sowie Teilzeitarbeit möglich. Zudem bieten wir dir die Option, die Ferientage zu erhöhen.\n\nVergünstigung\nZahlreiche Vergünstigungen wie ein top Personalrestaurant, Rabatte in den Lindt Shops oder tolle Freizeitangebote stehen dir zur Verfügung.",
+        "en": "Über uns\n\nWir verzaubern die Welt mit Schokolade! Die Lindt & Sprüngli (Schweiz) AG ist eine Tochtergesellschaft der globalen Lindt & Sprüngli Gruppe mit Hauptsitz und Produktionsstätte in Kilchberg am Zürichsee. In Altendorf betreiben wir unser eigenes Logistikzentrum, während das Lindt Cocoa Center in Olten Kakaomasse für unseren Eigenbedarf sowie für andere europäische Produktionsstätten herstellt. In der ganzen Schweiz betreiben wir stolz 15 Lindt Shops, darunter ikonische Standorte wie das Jungfraujoch und das Verkehrshaus der Schweiz in Luzern. Über 1000 Mitarbeitende aus mehr als 50 Nationen tragen zu unserem Erfolg bei.\n\nWas du bei uns machst:\n\n• Tägliche Bank- und Postzahlungseingänge inkl. Kontoabstimmungen erfassen und bearbeiten\n\n• Konto-Bereinigungen sowie das Mahn- und Betreibungswesen selbständig durchführen\n\n• Kreditlimiten überwachen und pflegen sowie Auftragsfreigaben erteilen\n\n• Rechnungen prüfen und freigeben sowie manuelle Rechnungen, Gutschriften und interne Umbuchungen erstellen und verbuchen\n\n• Debitoren-Stammdaten unserer nationalen und internationalen Kunden pflegen und als Master Data Expert den Debitorenprozess fachlich unterstützen\n\n• Auswertungen und Statistiken für Monats- und Jahresabschlüsse erstellen sowie bei Wareninventuren unserer Lindt Chocolate Shops mitwirken\n\n• Arbeitsprozesse in der Debitorenbuchhaltung überwachen und Prozess- sowie IKS-Dokumentationen laufend überprüfen und bei Bedarf aktualisieren\n\nWann du zu uns passt:\n\n• Abgeschlossene kaufmännische Grundausbildung sowie einige Jahre Berufserfahrung in einer vergleichbaren Position\n\n• Weiterbildung als Sachbearbeiter*in Rechnungswesen (oder gleichwertig) von Vorteil\n\n• Gute Kenntnisse in SAP und MS Excel\n\n• Teamfähige, proaktive und humorvolle Person, die analytisch denkt und stufengerecht kommuniziert\n\n• Selbständige und verlässliche Arbeitsweise mit hohem Qualitätsanspruch\n\n• Hands-on-Mentalität, engagiert, offen und entwicklungsfreudig\n\n• Sehr gute Deutschkenntnisse in Wort und Schrift sowie gute Englischkenntnisse für die Zusammenarbeit in unserem internationalen Kundenumfeld\n\nWir sind alle einzigartig!\n\nWir rekrutieren frei von Vorurteilen und berücksichtigen Fähigkeiten und Qualifikationen unbeeinflusst von persönlichen Merkmalen wie Geschlecht, Alter, sexuelle Orientierung, Herkunft, Religion, Familienstand, Beeinträchtigungen, etc.\n\nWohlbefinden\nGesundheit ist uns wichtig. Mit einer Sportprämie, Ergonomieberatung, gesunder Ernährung und weiteren Gesundheitsinitiativen unterstützen wir dich dabei fit zu bleiben.\n\nEntwicklung\nLernen wird bei uns GROSS geschrieben. Für die persönliche und fachliche Weiterentwicklung stehen dir verschiedene spannende Möglichkeiten zur Verfügung.\n\nMobilität\nWir unterstützen dich mit einer monatlichen Mobilitätsprämie und E-Bikes vor Ort. Zudem kannst du auch von der REKA-Card profitieren.\n\nFamilienfreundliches Umfeld - richtig versichert\nUnsere Sozialversicherungen, wie auch der Mutterschaftsurlaub, gehen weit über das Obligatorische hinaus - zum eigenen Schutz sowie für deine Liebsten.\n\nFlexibilität\nJe nach Funktion sind flexible Arbeitszeiten, Home Office sowie Teilzeitarbeit möglich. Zudem bieten wir dir die Option, die Ferientage zu erhöhen.\n\nVergünstigung\nZahlreiche Vergünstigungen wie ein top Personalrestaurant, Rabatte in den Lindt Shops oder tolle Freizeitangebote stehen dir zur Verfügung.",
+        "fr": "Über uns\n\nWir verzaubern die Welt mit Schokolade! Die Lindt & Sprüngli (Schweiz) AG ist eine Tochtergesellschaft der globalen Lindt & Sprüngli Gruppe mit Hauptsitz und Produktionsstätte in Kilchberg am Zürichsee. In Altendorf betreiben wir unser eigenes Logistikzentrum, während das Lindt Cocoa Center in Olten Kakaomasse für unseren Eigenbedarf sowie für andere europäische Produktionsstätten herstellt. In der ganzen Schweiz betreiben wir stolz 15 Lindt Shops, darunter ikonische Standorte wie das Jungfraujoch und das Verkehrshaus der Schweiz in Luzern. Über 1000 Mitarbeitende aus mehr als 50 Nationen tragen zu unserem Erfolg bei.\n\nWas du bei uns machst:\n\n• Tägliche Bank- und Postzahlungseingänge inkl. Kontoabstimmungen erfassen und bearbeiten\n\n• Konto-Bereinigungen sowie das Mahn- und Betreibungswesen selbständig durchführen\n\n• Kreditlimiten überwachen und pflegen sowie Auftragsfreigaben erteilen\n\n• Rechnungen prüfen und freigeben sowie manuelle Rechnungen, Gutschriften und interne Umbuchungen erstellen und verbuchen\n\n• Debitoren-Stammdaten unserer nationalen und internationalen Kunden pflegen und als Master Data Expert den Debitorenprozess fachlich unterstützen\n\n• Auswertungen und Statistiken für Monats- und Jahresabschlüsse erstellen sowie bei Wareninventuren unserer Lindt Chocolate Shops mitwirken\n\n• Arbeitsprozesse in der Debitorenbuchhaltung überwachen und Prozess- sowie IKS-Dokumentationen laufend überprüfen und bei Bedarf aktualisieren\n\nWann du zu uns passt:\n\n• Abgeschlossene kaufmännische Grundausbildung sowie einige Jahre Berufserfahrung in einer vergleichbaren Position\n\n• Weiterbildung als Sachbearbeiter*in Rechnungswesen (oder gleichwertig) von Vorteil\n\n• Gute Kenntnisse in SAP und MS Excel\n\n• Teamfähige, proaktive und humorvolle Person, die analytisch denkt und stufengerecht kommuniziert\n\n• Selbständige und verlässliche Arbeitsweise mit hohem Qualitätsanspruch\n\n• Hands-on-Mentalität, engagiert, offen und entwicklungsfreudig\n\n• Sehr gute Deutschkenntnisse in Wort und Schrift sowie gute Englischkenntnisse für die Zusammenarbeit in unserem internationalen Kundenumfeld\n\nWir sind alle einzigartig!\n\nWir rekrutieren frei von Vorurteilen und berücksichtigen Fähigkeiten und Qualifikationen unbeeinflusst von persönlichen Merkmalen wie Geschlecht, Alter, sexuelle Orientierung, Herkunft, Religion, Familienstand, Beeinträchtigungen, etc.\n\nWohlbefinden\nGesundheit ist uns wichtig. Mit einer Sportprämie, Ergonomieberatung, gesunder Ernährung und weiteren Gesundheitsinitiativen unterstützen wir dich dabei fit zu bleiben.\n\nEntwicklung\nLernen wird bei uns GROSS geschrieben. Für die persönliche und fachliche Weiterentwicklung stehen dir verschiedene spannende Möglichkeiten zur Verfügung.\n\nMobilität\nWir unterstützen dich mit einer monatlichen Mobilitätsprämie und E-Bikes vor Ort. Zudem kannst du auch von der REKA-Card profitieren.\n\nFamilienfreundliches Umfeld - richtig versichert\nUnsere Sozialversicherungen, wie auch der Mutterschaftsurlaub, gehen weit über das Obligatorische hinaus - zum eigenen Schutz sowie für deine Liebsten.\n\nFlexibilität\nJe nach Funktion sind flexible Arbeitszeiten, Home Office sowie Teilzeitarbeit möglich. Zudem bieten wir dir die Option, die Ferientage zu erhöhen.\n\nVergünstigung\nZahlreiche Vergünstigungen wie ein top Personalrestaurant, Rabatte in den Lindt Shops oder tolle Freizeitangebote stehen dir zur Verfügung."
+      },
+      "location": "Kilchberg",
+      "canton": "ZH",
+      "url": "https://lindtspruengli.wd103.myworkdayjobs.com/LindtSpruengliGroupCareers/job/Kilchberg-Switzerland/Mitarbeiter-in-Debitorenbuchhaltung-100-_JR104277-1",
+      "source": "Lindt & Sprüngli Dedicated Parser (Workday)",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-09T09:38:57.145Z",
+      "addressLocality": "Kilchberg",
+      "addressRegion": "ZH",
+      "streetAddress": "Seestrasse 204",
+      "postalCode": "8802",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Alimentare / Manifattura",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-11-09",
+      "postedDate": "2026-11-09",
+      "postingDateSource": "reported",
+      "applyUrl": "https://lindtspruengli.wd103.myworkdayjobs.com/LindtSpruengliGroupCareers/job/Kilchberg-Switzerland/Mitarbeiter-in-Debitorenbuchhaltung-100-_JR104277-1",
+      "jobReqId": "JR104277",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "mitarbeiter-in-debitorenbuchhaltung-100-lindt-spruengli-kilchberg"
+        ]
+      },
+      "previousSlugs": [
+        "mitarbeiter-in-debitorenbuchhaltung-100-lindt-spruengli-kilchberg"
+      ],
+      "salaryMin": 73500,
+      "salaryMax": 111500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 73500,
+          "maxValue": 111500,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-02-07T09:38:57.145Z",
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-11-09T09:38:57.145Z"
     }
   ]
 }
