@@ -1,7 +1,7 @@
 {
   "crawlerKey": "medimeo",
-  "assembledAt": "2026-11-09T09:44:07.148Z",
-  "runId": "42590552656",
+  "assembledAt": "2026-11-09T21:17:38.302Z",
+  "runId": "42699060732",
   "jobs": [
     {
       "id": "medimeo-0fbd51f530d5",
@@ -34,7 +34,7 @@
       "url": "https://medimeo.ch/job/oberaerztin-oberarzt-radiologie-90-100-bereit-fuer-die-erste-oberarztstelle-3711/",
       "source": "Medimeo AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:43:58.282Z",
+      "crawledAt": "2026-11-09T21:17:32.365Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -85,7 +85,7 @@
       "postalCode": "4500",
       "streetAddress": "Solothurn",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-02T09:43:58.282Z",
+      "validThrough": "2027-02-02T21:17:32.365Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -119,7 +119,7 @@
       "url": "https://medimeo.ch/job/fachaerztin-facharzt-radiologie-80-100-volles-spektrum-eigener-schwerpunkt-3710/",
       "source": "Medimeo AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:43:58.281Z",
+      "crawledAt": "2026-11-09T21:17:32.364Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -168,7 +168,7 @@
       "postalCode": "3004",
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-02T09:43:58.281Z",
+      "validThrough": "2027-02-02T21:17:32.364Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -202,7 +202,7 @@
       "url": "https://medimeo.ch/job/oberarzt-oberaerztin-notfall-teilzeit-60-80-und-ohne-nachtdienste-3712/",
       "source": "Medimeo AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:43:58.276Z",
+      "crawledAt": "2026-11-09T21:17:32.362Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -253,7 +253,7 @@
       "postalCode": "4001",
       "streetAddress": "Basel",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T09:43:58.276Z",
+      "validThrough": "2027-02-03T21:17:32.362Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -287,7 +287,7 @@
       "url": "https://medimeo.ch/job/fachaerztin-facharzt-allgemeine-innere-medizin-80-100-gemeinsam-arbeiten-vom-eigenen-einsatz-profitieren-3716/",
       "source": "Medimeo AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:43:58.274Z",
+      "crawledAt": "2026-11-09T21:17:32.361Z",
       "addressLocality": "Olten",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -336,8 +336,80 @@
       "postalCode": "4600",
       "streetAddress": "Olten",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-04T09:43:58.274Z",
+      "validThrough": "2027-02-04T21:17:32.361Z",
       "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "medimeo-a50820d1585a",
+      "slug": "facharzt-facharztin-dermatologie-60-100-idealer-praxiseinstieg-in-der-schweiz-region",
+      "slugByLocale": {
+        "de": "facharzt-facharztin-dermatologie-60-100-idealer-praxiseinstieg-in-der-schweiz-region",
+        "it": "facharzt-facharztin-dermatologie-60-100-idealer-praxiseinstieg-in-der-schweiz-region",
+        "en": "facharzt-facharztin-dermatologie-60-100-idealer-praxiseinstieg-in-der-schweiz-region",
+        "fr": "facharzt-facharztin-dermatologie-60-100-idealer-praxiseinstieg-in-der-schweiz-region"
+      },
+      "company": "Medimeo AG",
+      "companyKey": "medimeo",
+      "companyDomain": "medimeo.ch",
+      "title": "Facharzt / Fachärztin Dermatologie 60–100% – idealer Praxiseinstieg in der Schweiz",
+      "titleByLocale": {
+        "de": "Facharzt / Fachärztin Dermatologie 60–100% – idealer Praxiseinstieg in der Schweiz",
+        "it": "Facharzt / Fachärztin Dermatologie 60–100% – idealer Praxiseinstieg in der Schweiz",
+        "en": "Facharzt / Fachärztin Dermatologie 60–100% – idealer Praxiseinstieg in der Schweiz",
+        "fr": "Facharzt / Fachärztin Dermatologie 60–100% – idealer Praxiseinstieg in der Schweiz"
+      },
+      "description": "- 9. November 2026\n- 3723\nSie möchten Ihre berufliche Zukunft in der Schweiz gestalten, doch Zulassungsbeschränkungen und fehlende Einstiegsmöglichkeiten erschweren den Wechsel aus Deutschland? Gleichzeitig suchen Sie eine moderne dermatologische Praxis, in der Sie von Beginn an klinisch tätig sein und wertvolle Erfahrung sammeln können?\nDann bietet Ihnen diese Position möglicherweise genau den Einstieg, den Sie suchen.\nFür eine moderne dermatologische Praxis im Kanton Zürich suchen wir Verstärkung durch eine Fachärztin oder Facharzt für Dermatologie und Venerologie.\nDie Praxis gehört zu einer etablierten Fachgruppe mit mehreren spezialisierten Standorten und bieten das gesamte Spektrum der modernen Dermatologie. Dabei profitieren Sie von professionellen Strukturen, einer modernen Infrastruktur sowie einem erfahrenen Team, das Sie beim Einstieg in das Schweizer Gesundheitssystem unterstützt.\nGerade für Kandidatinnen und Kandidaten aus Deutschland bietet sich hier eine seltene Möglichkeit: Der direkte Wechsel in die ambulante Versorgung ist möglich, weil der Betrieb über die notwendige Weiterbildungsbefugnis verfügt.\nIhre Aufgaben:\n- Eigenständige Betreuung dermatologischer Patientinnen und Patienten\n- Diagnostik und Therapie im gesamten Spektrum der konservativen Dermatologie\n- Durchführung ambulanter Eingriffe entsprechend Ihrer Erfahrung\n- Optionaler Ausbau ästhetischer oder laserbasierter Schwerpunkte\n- Interdisziplinärer Austausch innerhalb eines spezialisierten Netzwerks\nIhre Kompetenzen:\n- Facharzttitel Dermatologie und Venerologie\n- Interesse an einer langfristigen Tätigkeit in der Schweiz\n- Hohe Patientenorientierung und Freude an eigenständigem Arbeiten\n- Sehr gute Deutschkenntnisse\n- Bewerbungen aus Deutschland ausdrücklich willkommen. Wir begleiten Sie durch den gesamten Prozess der Anerkennung und der Relocation\nIhre Vorteile:\n- Direkter Einstieg in eine etablierte Schweizer Praxis\n- Unterstützung beim Wechsel aus Deutschland in die Schweiz\n- 42-Stunden-Woche statt der häufig anzutreffenden 45–50 Stunden\n- Keine Nacht-, Wochenend- oder Notfalldienste\n- Fixgehalt ab CHF 192'000 pro Jahr plus Umsatzbeteiligung\n- Moderne Infrastruktur und professionelles Praxismanagement\n- Weiterbildungsmöglichkeiten in konservativer, operativer, ästhetischer und laserbasierter Dermatologie\n- Langfristige Perspektive in einem wachsenden Unternehmen\nIhr Kontakt:\n#3723\nRaphael Minder\n+41 (0)31 310 98 77\nr.minder@medimeo.ch",
+      "descriptionByLocale": {
+        "de": "- 9. November 2026\n- 3723\nSie möchten Ihre berufliche Zukunft in der Schweiz gestalten, doch Zulassungsbeschränkungen und fehlende Einstiegsmöglichkeiten erschweren den Wechsel aus Deutschland? Gleichzeitig suchen Sie eine moderne dermatologische Praxis, in der Sie von Beginn an klinisch tätig sein und wertvolle Erfahrung sammeln können?\nDann bietet Ihnen diese Position möglicherweise genau den Einstieg, den Sie suchen.\nFür eine moderne dermatologische Praxis im Kanton Zürich suchen wir Verstärkung durch eine Fachärztin oder Facharzt für Dermatologie und Venerologie.\nDie Praxis gehört zu einer etablierten Fachgruppe mit mehreren spezialisierten Standorten und bieten das gesamte Spektrum der modernen Dermatologie. Dabei profitieren Sie von professionellen Strukturen, einer modernen Infrastruktur sowie einem erfahrenen Team, das Sie beim Einstieg in das Schweizer Gesundheitssystem unterstützt.\nGerade für Kandidatinnen und Kandidaten aus Deutschland bietet sich hier eine seltene Möglichkeit: Der direkte Wechsel in die ambulante Versorgung ist möglich, weil der Betrieb über die notwendige Weiterbildungsbefugnis verfügt.\nIhre Aufgaben:\n- Eigenständige Betreuung dermatologischer Patientinnen und Patienten\n- Diagnostik und Therapie im gesamten Spektrum der konservativen Dermatologie\n- Durchführung ambulanter Eingriffe entsprechend Ihrer Erfahrung\n- Optionaler Ausbau ästhetischer oder laserbasierter Schwerpunkte\n- Interdisziplinärer Austausch innerhalb eines spezialisierten Netzwerks\nIhre Kompetenzen:\n- Facharzttitel Dermatologie und Venerologie\n- Interesse an einer langfristigen Tätigkeit in der Schweiz\n- Hohe Patientenorientierung und Freude an eigenständigem Arbeiten\n- Sehr gute Deutschkenntnisse\n- Bewerbungen aus Deutschland ausdrücklich willkommen. Wir begleiten Sie durch den gesamten Prozess der Anerkennung und der Relocation\nIhre Vorteile:\n- Direkter Einstieg in eine etablierte Schweizer Praxis\n- Unterstützung beim Wechsel aus Deutschland in die Schweiz\n- 42-Stunden-Woche statt der häufig anzutreffenden 45–50 Stunden\n- Keine Nacht-, Wochenend- oder Notfalldienste\n- Fixgehalt ab CHF 192'000 pro Jahr plus Umsatzbeteiligung\n- Moderne Infrastruktur und professionelles Praxismanagement\n- Weiterbildungsmöglichkeiten in konservativer, operativer, ästhetischer und laserbasierter Dermatologie\n- Langfristige Perspektive in einem wachsenden Unternehmen\nIhr Kontakt:\n#3723\nRaphael Minder\n+41 (0)31 310 98 77\nr.minder@medimeo.ch",
+        "it": "- 9. November 2026\n- 3723\nSie möchten Ihre berufliche Zukunft in der Schweiz gestalten, doch Zulassungsbeschränkungen und fehlende Einstiegsmöglichkeiten erschweren den Wechsel aus Deutschland? Gleichzeitig suchen Sie eine moderne dermatologische Praxis, in der Sie von Beginn an klinisch tätig sein und wertvolle Erfahrung sammeln können?\nDann bietet Ihnen diese Position möglicherweise genau den Einstieg, den Sie suchen.\nFür eine moderne dermatologische Praxis im Kanton Zürich suchen wir Verstärkung durch eine Fachärztin oder Facharzt für Dermatologie und Venerologie.\nDie Praxis gehört zu einer etablierten Fachgruppe mit mehreren spezialisierten Standorten und bieten das gesamte Spektrum der modernen Dermatologie. Dabei profitieren Sie von professionellen Strukturen, einer modernen Infrastruktur sowie einem erfahrenen Team, das Sie beim Einstieg in das Schweizer Gesundheitssystem unterstützt.\nGerade für Kandidatinnen und Kandidaten aus Deutschland bietet sich hier eine seltene Möglichkeit: Der direkte Wechsel in die ambulante Versorgung ist möglich, weil der Betrieb über die notwendige Weiterbildungsbefugnis verfügt.\nIhre Aufgaben:\n- Eigenständige Betreuung dermatologischer Patientinnen und Patienten\n- Diagnostik und Therapie im gesamten Spektrum der konservativen Dermatologie\n- Durchführung ambulanter Eingriffe entsprechend Ihrer Erfahrung\n- Optionaler Ausbau ästhetischer oder laserbasierter Schwerpunkte\n- Interdisziplinärer Austausch innerhalb eines spezialisierten Netzwerks\nIhre Kompetenzen:\n- Facharzttitel Dermatologie und Venerologie\n- Interesse an einer langfristigen Tätigkeit in der Schweiz\n- Hohe Patientenorientierung und Freude an eigenständigem Arbeiten\n- Sehr gute Deutschkenntnisse\n- Bewerbungen aus Deutschland ausdrücklich willkommen. Wir begleiten Sie durch den gesamten Prozess der Anerkennung und der Relocation\nIhre Vorteile:\n- Direkter Einstieg in eine etablierte Schweizer Praxis\n- Unterstützung beim Wechsel aus Deutschland in die Schweiz\n- 42-Stunden-Woche statt der häufig anzutreffenden 45–50 Stunden\n- Keine Nacht-, Wochenend- oder Notfalldienste\n- Fixgehalt ab CHF 192'000 pro Jahr plus Umsatzbeteiligung\n- Moderne Infrastruktur und professionelles Praxismanagement\n- Weiterbildungsmöglichkeiten in konservativer, operativer, ästhetischer und laserbasierter Dermatologie\n- Langfristige Perspektive in einem wachsenden Unternehmen\nIhr Kontakt:\n#3723\nRaphael Minder\n+41 (0)31 310 98 77\nr.minder@medimeo.ch",
+        "en": "- 9. November 2026\n- 3723\nSie möchten Ihre berufliche Zukunft in der Schweiz gestalten, doch Zulassungsbeschränkungen und fehlende Einstiegsmöglichkeiten erschweren den Wechsel aus Deutschland? Gleichzeitig suchen Sie eine moderne dermatologische Praxis, in der Sie von Beginn an klinisch tätig sein und wertvolle Erfahrung sammeln können?\nDann bietet Ihnen diese Position möglicherweise genau den Einstieg, den Sie suchen.\nFür eine moderne dermatologische Praxis im Kanton Zürich suchen wir Verstärkung durch eine Fachärztin oder Facharzt für Dermatologie und Venerologie.\nDie Praxis gehört zu einer etablierten Fachgruppe mit mehreren spezialisierten Standorten und bieten das gesamte Spektrum der modernen Dermatologie. Dabei profitieren Sie von professionellen Strukturen, einer modernen Infrastruktur sowie einem erfahrenen Team, das Sie beim Einstieg in das Schweizer Gesundheitssystem unterstützt.\nGerade für Kandidatinnen und Kandidaten aus Deutschland bietet sich hier eine seltene Möglichkeit: Der direkte Wechsel in die ambulante Versorgung ist möglich, weil der Betrieb über die notwendige Weiterbildungsbefugnis verfügt.\nIhre Aufgaben:\n- Eigenständige Betreuung dermatologischer Patientinnen und Patienten\n- Diagnostik und Therapie im gesamten Spektrum der konservativen Dermatologie\n- Durchführung ambulanter Eingriffe entsprechend Ihrer Erfahrung\n- Optionaler Ausbau ästhetischer oder laserbasierter Schwerpunkte\n- Interdisziplinärer Austausch innerhalb eines spezialisierten Netzwerks\nIhre Kompetenzen:\n- Facharzttitel Dermatologie und Venerologie\n- Interesse an einer langfristigen Tätigkeit in der Schweiz\n- Hohe Patientenorientierung und Freude an eigenständigem Arbeiten\n- Sehr gute Deutschkenntnisse\n- Bewerbungen aus Deutschland ausdrücklich willkommen. Wir begleiten Sie durch den gesamten Prozess der Anerkennung und der Relocation\nIhre Vorteile:\n- Direkter Einstieg in eine etablierte Schweizer Praxis\n- Unterstützung beim Wechsel aus Deutschland in die Schweiz\n- 42-Stunden-Woche statt der häufig anzutreffenden 45–50 Stunden\n- Keine Nacht-, Wochenend- oder Notfalldienste\n- Fixgehalt ab CHF 192'000 pro Jahr plus Umsatzbeteiligung\n- Moderne Infrastruktur und professionelles Praxismanagement\n- Weiterbildungsmöglichkeiten in konservativer, operativer, ästhetischer und laserbasierter Dermatologie\n- Langfristige Perspektive in einem wachsenden Unternehmen\nIhr Kontakt:\n#3723\nRaphael Minder\n+41 (0)31 310 98 77\nr.minder@medimeo.ch",
+        "fr": "- 9. November 2026\n- 3723\nSie möchten Ihre berufliche Zukunft in der Schweiz gestalten, doch Zulassungsbeschränkungen und fehlende Einstiegsmöglichkeiten erschweren den Wechsel aus Deutschland? Gleichzeitig suchen Sie eine moderne dermatologische Praxis, in der Sie von Beginn an klinisch tätig sein und wertvolle Erfahrung sammeln können?\nDann bietet Ihnen diese Position möglicherweise genau den Einstieg, den Sie suchen.\nFür eine moderne dermatologische Praxis im Kanton Zürich suchen wir Verstärkung durch eine Fachärztin oder Facharzt für Dermatologie und Venerologie.\nDie Praxis gehört zu einer etablierten Fachgruppe mit mehreren spezialisierten Standorten und bieten das gesamte Spektrum der modernen Dermatologie. Dabei profitieren Sie von professionellen Strukturen, einer modernen Infrastruktur sowie einem erfahrenen Team, das Sie beim Einstieg in das Schweizer Gesundheitssystem unterstützt.\nGerade für Kandidatinnen und Kandidaten aus Deutschland bietet sich hier eine seltene Möglichkeit: Der direkte Wechsel in die ambulante Versorgung ist möglich, weil der Betrieb über die notwendige Weiterbildungsbefugnis verfügt.\nIhre Aufgaben:\n- Eigenständige Betreuung dermatologischer Patientinnen und Patienten\n- Diagnostik und Therapie im gesamten Spektrum der konservativen Dermatologie\n- Durchführung ambulanter Eingriffe entsprechend Ihrer Erfahrung\n- Optionaler Ausbau ästhetischer oder laserbasierter Schwerpunkte\n- Interdisziplinärer Austausch innerhalb eines spezialisierten Netzwerks\nIhre Kompetenzen:\n- Facharzttitel Dermatologie und Venerologie\n- Interesse an einer langfristigen Tätigkeit in der Schweiz\n- Hohe Patientenorientierung und Freude an eigenständigem Arbeiten\n- Sehr gute Deutschkenntnisse\n- Bewerbungen aus Deutschland ausdrücklich willkommen. Wir begleiten Sie durch den gesamten Prozess der Anerkennung und der Relocation\nIhre Vorteile:\n- Direkter Einstieg in eine etablierte Schweizer Praxis\n- Unterstützung beim Wechsel aus Deutschland in die Schweiz\n- 42-Stunden-Woche statt der häufig anzutreffenden 45–50 Stunden\n- Keine Nacht-, Wochenend- oder Notfalldienste\n- Fixgehalt ab CHF 192'000 pro Jahr plus Umsatzbeteiligung\n- Moderne Infrastruktur und professionelles Praxismanagement\n- Weiterbildungsmöglichkeiten in konservativer, operativer, ästhetischer und laserbasierter Dermatologie\n- Langfristige Perspektive in einem wachsenden Unternehmen\nIhr Kontakt:\n#3723\nRaphael Minder\n+41 (0)31 310 98 77\nr.minder@medimeo.ch"
+      },
+      "location": "Region Zürich",
+      "canton": "ZH",
+      "url": "https://medimeo.ch/job/facharzt-fachaerztin-dermatologie-60-100-idealer-praxiseinstieg-in-der-schweiz-3723/",
+      "source": "Medimeo AG Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-09T21:17:32.359Z",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "other",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-11-09T00:00:00+01:00",
+      "postedDate": "2026-11-09T00:00:00+01:00",
+      "postingDateSource": "reported",
+      "applyUrl": "https://medimeo.ch/job/facharzt-fachaerztin-dermatologie-60-100-idealer-praxiseinstieg-in-der-schweiz-3723/",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 73500,
+      "salaryMax": 111500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 73500,
+          "maxValue": 111500,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "8001",
+      "streetAddress": "Zürich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-02-07T21:17:32.359Z",
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-11-09T21:17:32.359Z"
     }
   ]
 }

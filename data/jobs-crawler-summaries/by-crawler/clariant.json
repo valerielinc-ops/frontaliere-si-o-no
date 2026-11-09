@@ -1,7 +1,7 @@
 {
   "key": "clariant",
   "label": "Clariant",
-  "generatedAt": "2026-11-09T09:42:30.364Z",
+  "generatedAt": "2026-11-09T21:18:07.536Z",
   "total": 1,
   "discovered": null,
   "parsed": 1,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 5338,
-  "avgDurationMs": 5338,
+  "durationMs": 4640,
+  "avgDurationMs": 4640,
   "durationHistory": [
-    5338
+    4640
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -37,7 +37,7 @@
       "url": "https://careers.clariant.com/job/Pratteln-Head-of-ESHA-&-IGSM/1450668933/",
       "source": "Clariant Dedicated Parser (SuccessFactors Jobs2Web)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-09T09:42:12.422Z",
+      "crawledAt": "2026-11-09T21:17:52.854Z",
       "addressLocality": "Pratteln",
       "addressRegion": "Basel-Landschaft",
       "streetAddress": "Rothausstrasse 61",
@@ -60,7 +60,7 @@
       "salaryMax": 313000,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-09T09:42:12.422Z",
+      "validThrough": "2026-12-09T21:17:52.854Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -71,5 +71,5 @@
       }
     }
   ],
-  "codeCommit": "f071981dd2d2820cdec3736f76b1b17ee50345bd"
+  "codeCommit": "1dbbd63fa4ef1d645b973703c20eaa910357364d"
 }

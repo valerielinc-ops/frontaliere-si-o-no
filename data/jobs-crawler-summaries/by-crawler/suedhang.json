@@ -1,7 +1,7 @@
 {
   "key": "suedhang",
   "label": "Klinik Südhang",
-  "generatedAt": "2026-11-09T09:46:13.704Z",
+  "generatedAt": "2026-11-09T21:18:45.108Z",
   "total": 5,
   "discovered": null,
   "parsed": 5,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 5,
-  "durationMs": 12093,
-  "avgDurationMs": 12093,
+  "durationMs": 5679,
+  "avgDurationMs": 5679,
   "durationHistory": [
-    12093
+    5679
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -37,7 +37,7 @@
       "url": "https://www.suedhang.ch/karriere/offene-stellen/mitarbeiterin-reinigung/",
       "source": "Klinik Südhang Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:45:54.984Z",
+      "crawledAt": "2026-11-09T21:18:30.628Z",
       "addressLocality": "Kirchlindach",
       "postalCode": "3038",
       "addressCountry": "CH",
@@ -63,7 +63,7 @@
       "addressRegion": "BE",
       "streetAddress": "Kirchlindach",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-29T09:45:54.984Z",
+      "validThrough": "2026-12-28T21:18:30.628Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -85,7 +85,7 @@
       "url": "https://www.suedhang.ch/karriere/offene-stellen/fachfrau_fachmann_gesundheit/",
       "source": "Klinik Südhang Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:45:54.408Z",
+      "crawledAt": "2026-11-09T21:18:30.112Z",
       "addressLocality": "Kirchlindach",
       "postalCode": "3038",
       "addressCountry": "CH",
@@ -111,7 +111,7 @@
       "addressRegion": "BE",
       "streetAddress": "Kirchlindach",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-09T09:45:54.408Z",
+      "validThrough": "2026-12-09T21:18:30.112Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -134,7 +134,7 @@
       "url": "https://www.suedhang.ch/karriere/offene-stellen/dipl-pflegefachperson-hf/",
       "source": "Klinik Südhang Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:45:53.849Z",
+      "crawledAt": "2026-11-09T21:18:29.596Z",
       "addressLocality": "Kirchlindach",
       "postalCode": "3038",
       "addressCountry": "CH",
@@ -160,7 +160,7 @@
       "addressRegion": "BE",
       "streetAddress": "Kirchlindach",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-24T09:45:53.849Z",
+      "validThrough": "2026-12-23T21:18:29.596Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -182,7 +182,7 @@
       "url": "https://www.suedhang.ch/karriere/offene-stellen/klinische-r_psycholog-in_ambulatorium_biel-bienne/",
       "source": "Klinik Südhang Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:45:53.294Z",
+      "crawledAt": "2026-11-09T21:18:29.077Z",
       "addressLocality": "Ambulatorium Biel/Bienne",
       "postalCode": "2502",
       "addressCountry": "CH",
@@ -208,7 +208,7 @@
       "addressRegion": "BE",
       "streetAddress": "Ambulatorium Biel/Bienne",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-09T09:45:53.294Z",
+      "validThrough": "2026-12-09T21:18:29.077Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -230,7 +230,7 @@
       "url": "https://www.suedhang.ch/karriere/offene-stellen/leitender-arzt-leitende-aerztin/",
       "source": "Klinik Südhang Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:45:48.185Z",
+      "crawledAt": "2026-11-09T21:18:28.562Z",
       "addressLocality": "Kirchlindach",
       "postalCode": "3038",
       "addressCountry": "CH",
@@ -256,7 +256,7 @@
       "addressRegion": "BE",
       "streetAddress": "Kirchlindach",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-09T09:45:48.185Z",
+      "validThrough": "2026-12-09T21:18:28.562Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -267,5 +267,5 @@
       }
     }
   ],
-  "codeCommit": "f071981dd2d2820cdec3736f76b1b17ee50345bd"
+  "codeCommit": "1dbbd63fa4ef1d645b973703c20eaa910357364d"
 }
