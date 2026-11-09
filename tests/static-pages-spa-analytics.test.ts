@@ -6,6 +6,7 @@ import {
   ADSENSE_SNIPPET,
   ANALYTICS_SNIPPET,
   GTAG_SNIPPET,
+  META_PIXEL_BASE_CODE,
   PARTNERIZE_TAG_SNIPPET,
   POSTHOG_SNIPPET,
 } from '../build-plugins/constants';
@@ -19,6 +20,7 @@ const spaBranch = source.slice(spaBranchStart, spaBranchEnd);
 describe('static-page analytics ownership', () => {
   it('keeps the standalone analytics contract for bundle-less pages', () => {
     expect(ANALYTICS_SNIPPET).toContain(GTAG_SNIPPET);
+    expect(ANALYTICS_SNIPPET).toContain(META_PIXEL_BASE_CODE);
     expect(ANALYTICS_SNIPPET).toContain(POSTHOG_SNIPPET);
     expect(ANALYTICS_SNIPPET).toContain(ADSENSE_SNIPPET);
     expect(ANALYTICS_SNIPPET).toContain(PARTNERIZE_TAG_SNIPPET);
@@ -31,6 +33,7 @@ describe('static-page analytics ownership', () => {
     expect(spaBranch).not.toContain('${ANALYTICS_SNIPPET}');
     expect(source).toContain('const SPA_ANALYTICS_SNIPPET');
     expect(source).toContain('${GTAG_SNIPPET}');
+    expect(source).toContain('${META_PIXEL_BASE_CODE}');
     expect(source).toContain('${ADSENSE_SNIPPET}');
     expect(source).toContain('${PARTNERIZE_TAG_SNIPPET}');
     expect(spaBranch).not.toContain('${POSTHOG_SNIPPET}');

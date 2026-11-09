@@ -1345,8 +1345,9 @@ export const PARTNERIZE_TAG_VERSIONED_FILENAME = `partnerize-tag-${createHash('s
 export const THIRD_PARTY_DOCUMENT_INITIAL_GUARD = `try{window.__FT_SENSITIVE_DOCUMENT__=!!(window.__FT_SENSITIVE_DOCUMENT__||/[?#@]/.test(window.location.href+(document.referrer||'')));}catch(e){window.__FT_SENSITIVE_DOCUMENT__=true;}`;
 export const PARTNERIZE_TAG_SNIPPET = `<script>${THIRD_PARTY_DOCUMENT_INITIAL_GUARD}</script><script defer src="/assets/${PARTNERIZE_TAG_VERSIONED_FILENAME}"></script>`;
 
-/** Combined analytics snippet (GA4 + PostHog + AdSense + Partnerize) for static pages without the SPA bundle. */
+/** Combined analytics snippet (GA4 + Meta + PostHog + AdSense + Partnerize) for static pages without the SPA bundle. */
 export const ANALYTICS_SNIPPET = `${GTAG_SNIPPET}
+ ${META_PIXEL_BASE_CODE}
  ${POSTHOG_SNIPPET}
  ${ADSENSE_SNIPPET}
  ${PARTNERIZE_TAG_SNIPPET}`;

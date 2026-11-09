@@ -30,6 +30,7 @@ import {
   BASE_URL,
   FAVICON_LINKS,
   GTAG_SNIPPET,
+  META_PIXEL_BASE_CODE,
   PARTNERIZE_TAG_SNIPPET,
   ADSENSE_SNIPPET,
   CDN_PRECONNECT_HINT,
@@ -790,6 +791,7 @@ ${alternates}
     <script type="application/ld+json">${collectionLd}</script>${itemListLd ? `\n    <script type="application/ld+json">${itemListLd}</script>` : ''}${faqLd ? `\n    <script type="application/ld+json">${faqLd}</script>` : ''}
     ${asyncCssHeadBlock(hasSpaBundle ? entryCss : undefined)}
     ${GTAG_SNIPPET}
+    ${META_PIXEL_BASE_CODE}
     ${ADSENSE_SNIPPET}
     ${PARTNERIZE_TAG_SNIPPET}
     ${jobBoardHeadTags(canonicalUrl)}
