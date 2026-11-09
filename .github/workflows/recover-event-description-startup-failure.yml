@@ -1,0 +1,84 @@
+name: Recover event description rewrite startup failure
+
+# GitHub can mark a workflow run as failed before its root job acquires a
+# runner. The dependent jobs then appear only as skipped, so no step inside
+# event-description-rewrite.yml can report or recover the failure. This
+# observer replays only that exact first-attempt signature; ordinary job
+# failures remain owned by the normal workflow and central failure scanner.
+on:
+  workflow_run:
+    workflows: [Rewrite event descriptions (Codex Luna Max)]
+    types: [completed]
+
+permissions:
+  actions: write
+  contents: read
+
+concurrency:
+  group: recover-event-description-startup-${{ github.event.workflow_run.id || github.run_id }}
+  cancel-in-progress: false
+
+jobs:
+  retry:
+    if: >-
+      github.event.workflow_run.conclusion == 'failure' &&
+      github.event.workflow_run.path == '.github/workflows/event-description-rewrite.yml' &&
+      github.event.workflow_run.head_branch == 'main' &&
+      github.event.workflow_run.run_attempt == 1
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Checkout trusted recovery predicate
+        uses: actions/checkout@v7
+        with:
+          ref: main
+          fetch-depth: 1
+          persist-credentials: false
+          sparse-checkout: scripts/ci/event-description-startup-recovery.mjs
+          sparse-checkout-cone-mode: false
+
+      - name: Retry only an unstarted rewrite run
+        uses: actions/github-script@v9
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const { pathToFileURL } = require('node:url');
+            const { shouldRetryEventDescriptionRun } = await import(pathToFileURL(
+              `${process.env.GITHUB_WORKSPACE}/scripts/ci/event-description-startup-recovery.mjs`,
+            ).href);
+            const run = context.payload.workflow_run;
+            const runAttempt = run?.run_attempt;
+            if (!Number.isSafeInteger(runAttempt) || runAttempt !== 1) {
+              core.info(`Run ${run?.id || '<unknown>'} is not an explicit first attempt; refusing recovery.`);
+              return;
+            }
+            const jobs = await github.paginate(
+              github.rest.actions.listJobsForWorkflowRunAttempt,
+              {
+                ...context.repo,
+                run_id: Number(run.id),
+                attempt_number: runAttempt,
+                per_page: 100,
+              },
+            );
+            const workflowRuns = await github.paginate(
+              github.rest.actions.listWorkflowRuns,
+              {
+                ...context.repo,
+                workflow_id: 'event-description-rewrite.yml',
+                branch: 'main',
+                per_page: 100,
+              },
+            );
+            if (!shouldRetryEventDescriptionRun({ run, jobs, workflowRuns })) {
+              core.info(`Run ${run.id} does not match the bounded startup-failure signature.`);
+              return;
+            }
+            core.warning(
+              `Run ${run.id} failed before the event rewrite plan acquired a runner; `
+              + 'requesting one bounded replay of the same run.',
+            );
+            await github.rest.actions.reRunWorkflow({
+              ...context.repo,
+              run_id: Number(run.id),
+            });
