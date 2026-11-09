@@ -275,7 +275,7 @@ describe('old-history-guard', () => {
     try {
       const checkout = join(fixture.root, 'complete-checkout');
       execFileSync('git', [
-        'clone', '--quiet', '--branch', 'main', `file://${fixture.remote}`, checkout,
+        'clone', '--quiet', '--single-branch', '--branch', 'main', `file://${fixture.remote}`, checkout,
       ], {
         encoding: 'utf8',
         env: { ...process.env, GIT_CONFIG_NOSYSTEM: '1' },
