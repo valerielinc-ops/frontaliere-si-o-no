@@ -127,8 +127,8 @@ jobs:
 
       # The application uses stock Chromium. It never impersonates a user's
       # browser or automates through anti-bot challenges; CAPTCHA is handed to
-      # Valerie for the owner extension flow. That extension runs later in her
-      # own Chrome from the owner queue, not in this isolated CI browser.
+      # Valerie for the owner extension flow. Keep the portal session headed
+      # on a virtual screen so the owner-controlled handoff remains usable.
       - name: Run agent
         env:
           ORDER_ID: ${{ inputs.order_id }}
@@ -145,10 +145,20 @@ jobs:
           # Candidate-free proof used to close stale portal-stop issues after a pass.
           ASSISTED_APPLICATION_PORTAL_PASS: ${{ runner.temp }}/portal-pass.json
         # Keep the runner's actual Playwright identity. Anti-bot challenges are
-        # handed off instead of being hidden or clicked through.
+        # handed off instead of being hidden or clicked through. The virtual
+        # screen is required because headed Chromium is the extension-capable
+        # browser session used for the owner handoff.
         run: |
           if [ "$MODE" = 'verify_portal' ]; then
-            node scripts/assisted-application/verify-portal.mjs --order "$ORDER_ID" --round "$ROUND" --nonce "$VERIFICATION_NONCE"
+            if command -v xvfb-run >/dev/null 2>&1; then
+              export ASSISTED_APPLICATION_HEADED=1
+              xvfb-run --auto-servernum --server-args="-screen 0 1366x900x24" node scripts/assisted-application/verify-portal.mjs --order "$ORDER_ID" --round "$ROUND" --nonce "$VERIFICATION_NONCE"
+            else
+              node scripts/assisted-application/verify-portal.mjs --order "$ORDER_ID" --round "$ROUND" --nonce "$VERIFICATION_NONCE"
+            fi
+          elif command -v xvfb-run >/dev/null 2>&1; then
+            export ASSISTED_APPLICATION_HEADED=1
+            xvfb-run --auto-servernum --server-args="-screen 0 1366x900x24" node scripts/assisted-application/agent.mjs --order "$ORDER_ID" --mode "$MODE" --round "$ROUND"
           else
             node scripts/assisted-application/agent.mjs --order "$ORDER_ID" --mode "$MODE" --round "$ROUND"
           fi

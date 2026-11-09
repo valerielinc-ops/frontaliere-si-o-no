@@ -721,7 +721,7 @@ export function stopReportFrom({ url, reason, step, seen, agent = [] }) {
   };
 }
 
-/** Headful mode is reserved for explicit local inspection; CI keeps it unset. */
+/** Headful mode is opt-in; the assisted-application workflow enables it on Xvfb. */
 export const headedBrowser = () => process.env.ASSISTED_APPLICATION_HEADED === '1';
 
 /** A label that is a generated name, not a question ("select-input-_r_p_", "file:_r_3_:input"). */

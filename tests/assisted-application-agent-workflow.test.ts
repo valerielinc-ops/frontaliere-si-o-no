@@ -62,7 +62,8 @@ describe('assisted application agent workflow dependencies', () => {
     expect(steps.some(step => /NopeCHA|install-nopecha/iu.test(`${step.name || ''} ${step.run || ''}`))).toBe(false);
     expect(workflowSource).not.toContain('STEALTH_BROWSER_ASSISTED');
     expect(workflowSource).not.toContain('CLOAKBROWSER_LICENSE_KEY_ASSISTED');
-    expect(runScript).not.toMatch(/xvfb-run|ASSISTED_APPLICATION_HEADED/u);
+    expect(runScript).toMatch(/xvfb-run/u);
+    expect(runScript).toContain('export ASSISTED_APPLICATION_HEADED=1');
     expect(portalSource).not.toContain('NOPECHA_EXTENSION_PATH');
     expect(portalSource).not.toContain('launchNopechaContext');
     expect(portalSource).not.toContain('awaitCaptcha');
