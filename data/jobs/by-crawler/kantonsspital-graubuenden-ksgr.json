@@ -26,9 +26,12 @@
       "employmentType": "90 - 100%",
       "category": "Gesundheitswesen",
       "crawledAt": "2026-11-08T21:43:39.159Z",
-      "slug": "physiotherapeut-in-kantonsspital-graubunden-chur",
+      "slug": "fisioterapista-in-kantonsspital-graubunden-chur-9b1f67",
       "slugByLocale": {
-        "de": "physiotherapeut-in-kantonsspital-graubunden-chur"
+        "de": "physiotherapeut-in-kantonsspital-graubunden-chur",
+        "it": "fisioterapista-in-kantonsspital-graubunden-chur-9b1f67",
+        "en": "physiotherapist-m-f-x0d-kantonsspital-graubunden-chur",
+        "fr": "physiotherapeute-kantonsspital-graubunden-chur"
       },
       "titleByLocale": {
         "de": "Physiotherapeut:in",
@@ -63,7 +66,15 @@
       "salaryMax": 114000,
       "currency": "CHF",
       "salarySource": "reported",
-      "firstSeenAt": "2026-04-13T21:59:17.590Z"
+      "firstSeenAt": "2026-04-13T21:59:17.590Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "physiotherapeut-in-kantonsspital-graubunden-chur"
+        ]
+      },
+      "previousSlugs": [
+        "physiotherapeut-in-kantonsspital-graubunden-chur"
+      ]
     },
     {
       "id": "10254292",
@@ -1190,7 +1201,10 @@
       "crawledAt": "2026-11-08T21:43:39.164Z",
       "slug": "pflegefachfrau-pflegefachmann-endoskopie-kantonsspital-graubunden-chur",
       "slugByLocale": {
-        "de": "pflegefachfrau-pflegefachmann-endoskopie-kantonsspital-graubunden-chur"
+        "de": "pflegefachfrau-pflegefachmann-endoskopie-kantonsspital-graubunden-chur",
+        "it": "infermiera-infermiera-specialista-endoscopia-kantonsspital-graubunden-chur",
+        "en": "nurse-nurse-specialist-endoscopy-kantonsspital-graubunden-chur",
+        "fr": "infirmiere-infirmiere-specialiste-endoscopie-kantonsspital-graubunden-chur"
       },
       "titleByLocale": {
         "de": "Pflegefachfrau / Pflegefachmann Endoskopie",
@@ -5418,7 +5432,10 @@
       "crawledAt": "2026-11-08T21:43:39.175Z",
       "slug": "berufslehre-fachfrau-fachmann-hotellerie-hauswirtschaft-kantonsspital-graubunden-chur",
       "slugByLocale": {
-        "de": "berufslehre-fachfrau-fachmann-hotellerie-hauswirtschaft-kantonsspital-graubunden-chur"
+        "de": "berufslehre-fachfrau-fachmann-hotellerie-hauswirtschaft-kantonsspital-graubunden-chur",
+        "it": "professionisti-professionisti-industria-alberghiera-kantonsspital-graubunden-chur",
+        "en": "professionals-professionals-hotel-industry-kantonsspital-graubunden-chur",
+        "fr": "professionnels-professionnels-industrie-hoteliere-kantonsspital-graubunden-chur"
       },
       "titleByLocale": {
         "de": "Berufslehre Fachfrau / Fachmann Hotellerie-Hauswirtschaft",

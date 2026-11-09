@@ -8328,8 +8328,8 @@
       "slugByLocale": {
         "en": "product-manager-white-label-funds-18-month-fixed-term-contract-ubs-northern-switzerland-uh9wfd",
         "it": "product-manager-white-label-funds-18-month-fixed-term-contract-ubs-northern-switzerland",
-        "de": "product-manager-white-label-funds-18-month-fixed-term-contract-ubs-northern-switzerland",
-        "fr": "product-manager-white-label-funds-18-month-fixed-term-contract-ubs-northern-switzerland"
+        "de": "produktmanager-white-label-funds-18-monatiger-befristeter-vertrag-ubs-northern-switzerland-switzerland-zurich-fa7ae0",
+        "fr": "product-manager-white-label-funds-contrat-a-duree-determinee-de-18-mois-ubs-northern-switzerland-switzerland-fa7ae0"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -8944,7 +8944,7 @@
       "slugByLocale": {
         "it": "responsabile-relazioni-wm-ubs-zurich",
         "en": "relationship-manager-wm-ubs-zurich",
-        "de": "relationship-manager-wm-osteuropa-ubs-zurich",
+        "de": "responsabile-relazioni-wm-ubs-zurich",
         "fr": "gestionnaire-de-relations-wm-ubs-zurich"
       },
       "company": "UBS",
@@ -8997,11 +8997,15 @@
         "jobType": ""
       },
       "previousSlugs": [
-        "relationship-manager-wm-eastern-europe-ubs-zurich"
+        "relationship-manager-wm-eastern-europe-ubs-zurich",
+        "relationship-manager-wm-osteuropa-ubs-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "relationship-manager-wm-eastern-europe-ubs-zurich"
+        ],
+        "de": [
+          "relationship-manager-wm-osteuropa-ubs-zurich"
         ]
       },
       "firstSeenAt": "2026-10-23T09:26:39.470Z",

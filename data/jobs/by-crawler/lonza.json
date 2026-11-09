@@ -6494,7 +6494,7 @@
       "slugByLocale": {
         "it": "linea-meccanica-m-f-d-lonza-visp",
         "en": "line-mechanic-f-m-d-lonza-ch",
-        "de": "streckenmechaniker-m-w-d-lonza-visp",
+        "de": "line-mechanic-m-w-d-lonza-visp",
         "fr": "mecanicien-de-ligne-h-f-d-lonza-visp"
       },
       "company": "Lonza",
@@ -6541,7 +6541,7 @@
         "line-mechanic-f-m-d-lonza-ch",
         "line-mechanic-f-m-d-lonza-visp",
         "leitungsmechaniker-m-w-d-lonza-visp",
-        "line-mechanic-m-w-d-lonza-visp"
+        "streckenmechaniker-m-w-d-lonza-visp"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -6550,7 +6550,7 @@
         "de": [
           "line-mechanic-f-m-d-lonza-visp",
           "leitungsmechaniker-m-w-d-lonza-visp",
-          "line-mechanic-m-w-d-lonza-visp"
+          "streckenmechaniker-m-w-d-lonza-visp"
         ],
         "fr": [
           "line-mechanic-f-m-d-lonza-ch"
@@ -15096,12 +15096,12 @@
     },
     {
       "id": "lonza-1c1017ecf795",
-      "slug": "anlagen-e-apparatebauer-rohrbau-cfc-80-100-m-w-d-lonza-visp",
+      "slug": "costruttore-di-impianti-e-apparecchiature-per-la-costruzione-di-tubi-efz-80-100-m-f-d-lonza-visp",
       "slugByLocale": {
         "de": "anlagen-und-apparatebauer-rohrbau-efz-80-100-m-w-d-lonza-ch",
-        "it": "anlagen-e-apparatebauer-rohrbau-cfc-80-100-m-w-d-lonza-visp",
-        "en": "anlagen-und-apparatebauer-rohrbau-efz-80-100-m-w-d-lonza-ch",
-        "fr": "anlagen-und-apparatebauer-rohrbau-efz-80-100-m-w-d-lonza-ch"
+        "it": "costruttore-di-impianti-e-apparecchiature-per-la-costruzione-di-tubi-efz-80-100-m-f-d-lonza-visp",
+        "en": "plant-and-equipment-builder-efz-80-100-m-f-d-lonza-visp",
+        "fr": "constructeur-d-installations-et-d-equipements-efz-80-100-h-f-d-lonza-visp"
       },
       "company": "Lonza",
       "companyKey": "lonza",
@@ -15148,11 +15148,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "anlagen-und-apparatebauer-rohrbau-efz-80-100-m-w-d-lonza-ch",
+          "anlagen-e-apparatebauer-rohrbau-cfc-80-100-m-w-d-lonza-visp"
+        ],
+        "en": [
+          "anlagen-und-apparatebauer-rohrbau-efz-80-100-m-w-d-lonza-ch"
+        ],
+        "fr": [
           "anlagen-und-apparatebauer-rohrbau-efz-80-100-m-w-d-lonza-ch"
         ]
       },
       "previousSlugs": [
-        "anlagen-und-apparatebauer-rohrbau-efz-80-100-m-w-d-lonza-ch"
+        "anlagen-und-apparatebauer-rohrbau-efz-80-100-m-w-d-lonza-ch",
+        "anlagen-e-apparatebauer-rohrbau-cfc-80-100-m-w-d-lonza-visp"
       ],
       "salaryMin": 60500,
       "salaryMax": 91500,

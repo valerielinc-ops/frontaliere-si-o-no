@@ -5,12 +5,12 @@
   "jobs": [
     {
       "id": "asanti-ch-c9484f7f316d",
-      "slug": "sachbearbeiter-in-leasing-100-bank-8000-region-zurich-asanti-ch-ch",
+      "slug": "referente-in-leasing-100-banca-asanti-ag-8000-region-zurich",
       "slugByLocale": {
         "de": "sachbearbeiter-in-leasing-100-bank-8000-region-zurich-asanti-ch-ch",
-        "it": "sachbearbeiter-in-leasing-100-bank-8000-region-zurich-asanti-ch-ch",
+        "it": "referente-in-leasing-100-banca-asanti-ag-8000-region-zurich",
         "en": "sachbearbeiter-in-leasing-100-bank-8000-region-zurich-asanti-ch-ch",
-        "fr": "sachbearbeiter-in-leasing-100-bank-8000-region-zurich-asanti-ch-ch"
+        "fr": "collaborateur-trice-en-leasing-a-100-banque-asanti-ag-8000-region-zurich"
       },
       "company": "Asanti AG",
       "companyKey": "asanti-ch",
@@ -73,7 +73,18 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-27T21:55:25.077Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-08T21:55:25.077Z"
+      "firstSeenAt": "2026-11-08T21:55:25.077Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeiter-in-leasing-100-bank-8000-region-zurich-asanti-ch-ch"
+        ],
+        "fr": [
+          "sachbearbeiter-in-leasing-100-bank-8000-region-zurich-asanti-ch-ch"
+        ]
+      },
+      "previousSlugs": [
+        "sachbearbeiter-in-leasing-100-bank-8000-region-zurich-asanti-ch-ch"
+      ]
     },
     {
       "id": "asanti-ch-fc0922708d91",

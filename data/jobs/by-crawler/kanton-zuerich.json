@@ -11989,12 +11989,12 @@
     },
     {
       "id": "kanton-zuerich-5f4c0cd666ed",
-      "slug": "verwaltungssekretar-in-allrounder-in-kantonale-verwaltung-zurich-8330-pfaffikon-zh",
+      "slug": "segretario-amministrativo-tuttofare-kantonale-verwaltung-zurich-8330-pfaffikon-zh-1a4b9d",
       "slugByLocale": {
         "de": "verwaltungssekretar-in-allrounder-in-kanton-zuerich-8330-pfaffikon-zh",
-        "it": "verwaltungssekretar-in-allrounder-in-kantonale-verwaltung-zurich-8330-pfaffikon-zh",
-        "en": "verwaltungssekretar-in-allrounder-in-kantonale-verwaltung-zurich-8330-pfaffikon-zh",
-        "fr": "verwaltungssekretar-in-allrounder-in-kantonale-verwaltung-zurich-8330-pfaffikon-zh"
+        "it": "segretario-amministrativo-tuttofare-kantonale-verwaltung-zurich-8330-pfaffikon-zh-1a4b9d",
+        "en": "administrative-secretary-all-rounder-kantonale-verwaltung-zurich-8330-pfaffikon-zh-1a4b9d",
+        "fr": "secretaire-administratif-polyvalent-kantonale-verwaltung-zurich-8330-pfaffikon-zh-1a4b9d"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -12046,11 +12046,19 @@
       "pensum": "50 - 90%",
       "previousSlugsByLocale": {
         "it": [
-          "verwaltungssekretar-in-allrounder-in-kanton-zuerich-8330-pfaffikon-zh-2"
+          "verwaltungssekretar-in-allrounder-in-kanton-zuerich-8330-pfaffikon-zh-2",
+          "verwaltungssekretar-in-allrounder-in-kantonale-verwaltung-zurich-8330-pfaffikon-zh"
+        ],
+        "en": [
+          "verwaltungssekretar-in-allrounder-in-kantonale-verwaltung-zurich-8330-pfaffikon-zh"
+        ],
+        "fr": [
+          "verwaltungssekretar-in-allrounder-in-kantonale-verwaltung-zurich-8330-pfaffikon-zh"
         ]
       },
       "previousSlugs": [
-        "verwaltungssekretar-in-allrounder-in-kanton-zuerich-8330-pfaffikon-zh-2"
+        "verwaltungssekretar-in-allrounder-in-kanton-zuerich-8330-pfaffikon-zh-2",
+        "verwaltungssekretar-in-allrounder-in-kantonale-verwaltung-zurich-8330-pfaffikon-zh"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -15192,12 +15200,12 @@
     },
     {
       "id": "kanton-zuerich-fad1e5b652e9",
-      "slug": "sozialarbeiter-in-im-kjz-horgen-kanton-zuerich-horgen-2",
+      "slug": "assistente-sociale-nel-kjz-horgen-kantonale-verwaltung-zurich-horgen",
       "slugByLocale": {
         "de": "sozialarbeiter-in-im-kjz-horgen-kanton-zuerich-horgen",
-        "it": "sozialarbeiter-in-im-kjz-horgen-kanton-zuerich-horgen-2",
-        "en": "sozialarbeiter-in-im-kjz-horgen-kanton-zuerich-horgen-2",
-        "fr": "sozialarbeiter-in-im-kjz-horgen-kanton-zuerich-horgen-2"
+        "it": "assistente-sociale-nel-kjz-horgen-kantonale-verwaltung-zurich-horgen",
+        "en": "social-worker-in-the-kjz-horgen-kantonale-verwaltung-zurich-horgen",
+        "fr": "travailleur-social-au-kjz-horgen-kantonale-verwaltung-zurich-horgen"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -15264,7 +15272,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-01T21:48:38.748Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-03T22:06:40.753Z"
+      "firstSeenAt": "2026-11-03T22:06:40.753Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sozialarbeiter-in-im-kjz-horgen-kanton-zuerich-horgen-2"
+        ],
+        "en": [
+          "sozialarbeiter-in-im-kjz-horgen-kanton-zuerich-horgen-2"
+        ],
+        "fr": [
+          "sozialarbeiter-in-im-kjz-horgen-kanton-zuerich-horgen-2"
+        ]
+      },
+      "previousSlugs": [
+        "sozialarbeiter-in-im-kjz-horgen-kanton-zuerich-horgen-2"
+      ]
     },
     {
       "id": "kanton-zuerich-075ea16498ce",

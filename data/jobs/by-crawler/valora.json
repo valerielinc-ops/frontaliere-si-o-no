@@ -1668,12 +1668,12 @@
     },
     {
       "id": "valora-15fe425ea82d",
-      "slug": "verkauferin-verkaufer-k-kiosk-10-std-valora-uetendorf-2",
+      "slug": "venditore-venditore-k-kiosk-10-ore-valora-group-uetendorf",
       "slugByLocale": {
         "de": "verkauferin-verkaufer-k-kiosk-10-std-valora-uetendorf",
-        "it": "verkauferin-verkaufer-k-kiosk-10-std-valora-uetendorf-2",
-        "en": "verkauferin-verkaufer-k-kiosk-10-std-valora-uetendorf-2",
-        "fr": "verkauferin-verkaufer-k-kiosk-10-std-valora-uetendorf-2"
+        "it": "venditore-venditore-k-kiosk-10-ore-valora-group-uetendorf",
+        "en": "seller-seller-k-kiosk-10-hours-valora-group-uetendorf-67dd1a",
+        "fr": "kiosque-vendeur-vendeur-k-10-heures-valora-group-uetendorf-67dd1a"
       },
       "company": "Valora Group",
       "companyKey": "valora",
@@ -1736,7 +1736,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-01-24T21:43:43.292Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-10-29T14:33:01.439Z"
+      "firstSeenAt": "2026-10-29T14:33:01.439Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "verkauferin-verkaufer-k-kiosk-10-std-valora-uetendorf-2"
+        ],
+        "en": [
+          "verkauferin-verkaufer-k-kiosk-10-std-valora-uetendorf-2"
+        ],
+        "fr": [
+          "verkauferin-verkaufer-k-kiosk-10-std-valora-uetendorf-2"
+        ]
+      },
+      "previousSlugs": [
+        "verkauferin-verkaufer-k-kiosk-10-std-valora-uetendorf-2"
+      ]
     },
     {
       "id": "valora-70ff78ec7e2d",
@@ -1821,12 +1835,12 @@
     },
     {
       "id": "valora-f7d602042fe5",
-      "slug": "verkauferin-verkaufer-k-kiosk-15-std-valora-uetendorf-2",
+      "slug": "venditore-k-chiosco-15-ore-valora-group-uetendorf",
       "slugByLocale": {
         "de": "verkauferin-verkaufer-k-kiosk-15-std-valora-uetendorf",
-        "it": "verkauferin-verkaufer-k-kiosk-15-std-valora-uetendorf-2",
-        "en": "verkauferin-verkaufer-k-kiosk-15-std-valora-uetendorf-2",
-        "fr": "verkauferin-verkaufer-k-kiosk-15-std-valora-uetendorf-2"
+        "it": "venditore-k-chiosco-15-ore-valora-group-uetendorf",
+        "en": "seller-k-kiosk-15-hours-valora-group-uetendorf",
+        "fr": "kiosque-k-vendeur-15-heures-valora-group-uetendorf"
       },
       "company": "Valora Group",
       "companyKey": "valora",
@@ -1889,7 +1903,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-01-24T21:43:43.290Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-07-04T12:43:13.456Z"
+      "firstSeenAt": "2026-07-04T12:43:13.456Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "verkauferin-verkaufer-k-kiosk-15-std-valora-uetendorf-2"
+        ],
+        "en": [
+          "verkauferin-verkaufer-k-kiosk-15-std-valora-uetendorf-2"
+        ],
+        "fr": [
+          "verkauferin-verkaufer-k-kiosk-15-std-valora-uetendorf-2"
+        ]
+      },
+      "previousSlugs": [
+        "verkauferin-verkaufer-k-kiosk-15-std-valora-uetendorf-2"
+      ]
     },
     {
       "id": "valora-9b69b4f1f502",

@@ -1728,8 +1728,8 @@
       "slugByLocale": {
         "it": "product-manager-digital-workplace-srg-ssr-zurich",
         "en": "product-manager-digital-workplace-srg-ssr-zurich",
-        "de": "product-manager-digital-workplace-srg-ssr-zurich",
-        "fr": "product-manager-digital-workplace-srg-ssr-zurich"
+        "de": "produktmanager-digital-workplace-srg-ssr-zurich-fcb77d",
+        "fr": "gestionnaire-de-produits-milieu-de-travail-numerique-srg-ssr-zurich"
       },
       "company": "SRG SSR",
       "companyKey": "srg-ssr",
@@ -2121,12 +2121,12 @@
     },
     {
       "id": "srg-ssr-01df8e3695d9",
-      "slug": "product-manager-in-accessibility-services-srg-ssr-zurich-2",
+      "slug": "product-manager-nei-servizi-di-accessibilita-srg-ssr-zurich",
       "slugByLocale": {
         "fr": "product-manager-in-accessibility-services-srg-ssr-zurich",
-        "it": "product-manager-in-accessibility-services-srg-ssr-zurich-2",
+        "it": "product-manager-nei-servizi-di-accessibilita-srg-ssr-zurich",
         "en": "product-manager-in-accessibility-services-srg-ssr-zurich-2",
-        "de": "product-manager-in-accessibility-services-srg-ssr-zurich-2"
+        "de": "produktmanager-in-accessibility-services-srg-ssr-zurich"
       },
       "company": "SRG SSR",
       "companyKey": "srg-ssr",
@@ -2216,7 +2216,18 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-01-25T21:21:19.852Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-10-27T09:36:30.569Z"
+      "firstSeenAt": "2026-10-27T09:36:30.569Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "product-manager-in-accessibility-services-srg-ssr-zurich-2"
+        ],
+        "de": [
+          "product-manager-in-accessibility-services-srg-ssr-zurich-2"
+        ]
+      },
+      "previousSlugs": [
+        "product-manager-in-accessibility-services-srg-ssr-zurich-2"
+      ]
     },
     {
       "id": "srg-ssr-accfa385c6be",
@@ -3869,10 +3880,10 @@
     },
     {
       "id": "srg-ssr-f6056fb8fa18",
-      "slug": "product-owner-erp-dispo-srg-ssr-zurich-2",
+      "slug": "proprietario-di-prodotto-erp-disponibile-srg-ssr-zurich",
       "slugByLocale": {
         "fr": "product-owner-erp-dispo-srg-ssr-zurich",
-        "it": "product-owner-erp-dispo-srg-ssr-zurich-2",
+        "it": "proprietario-di-prodotto-erp-disponibile-srg-ssr-zurich",
         "en": "product-owner-erp-dispo-srg-ssr-zurich-2",
         "de": "product-owner-erp-dispo-srg-ssr-zurich-2"
       },
@@ -3957,7 +3968,15 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-02T21:21:08.681Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-10-21T09:13:58.728Z"
+      "firstSeenAt": "2026-10-21T09:13:58.728Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "product-owner-erp-dispo-srg-ssr-zurich-2"
+        ]
+      },
+      "previousSlugs": [
+        "product-owner-erp-dispo-srg-ssr-zurich-2"
+      ]
     },
     {
       "id": "srg-ssr-b3ac3a235f14",
@@ -3966,7 +3985,7 @@
         "it": "product-owner-erp-dispo-srg-ssr-zurich",
         "en": "product-owner-erp-dispo-srg-ssr-zurich",
         "de": "product-owner-erp-dispo-srg-ssr-zurich",
-        "fr": "product-owner-erp-dispo-srg-ssr-zurich"
+        "fr": "proprietaire-du-produit-erp-jetable-srg-ssr-zurich"
       },
       "company": "SRG SSR",
       "companyKey": "srg-ssr",

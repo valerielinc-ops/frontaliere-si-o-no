@@ -864,12 +864,12 @@
     },
     {
       "id": "baloise-7aa16f31a1df",
-      "slug": "collaboratore-trice-assistenz-hub-privatkunden-bank-m-w-d-baloise-solothurn",
+      "slug": "collaboratore-hub-assistenza-clienti-privati-banca-m-f-d-baloise-solothurn-8fdf20",
       "slugByLocale": {
         "de": "mitarbeiter-assistenz-hub-privatkunden-bank-w-m-d-baloise-solothurn",
-        "it": "collaboratore-trice-assistenz-hub-privatkunden-bank-m-w-d-baloise-solothurn",
-        "en": "mitarbeiter-assistenz-hub-privatkunden-bank-w-m-d-baloise-solothurn-2",
-        "fr": "mitarbeiter-assistenz-hub-privatkunden-bank-w-m-d-baloise-solothurn-2"
+        "it": "collaboratore-hub-assistenza-clienti-privati-banca-m-f-d-baloise-solothurn-8fdf20",
+        "en": "employee-assistance-hub-private-customers-bank-m-f-d-baloise-solothurn-8fdf20",
+        "fr": "hub-d-aide-aux-employes-clients-prives-banque-h-f-d-baloise-solothurn"
       },
       "company": "Baloise",
       "companyKey": "baloise",
@@ -918,11 +918,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-assistenz-hub-privatkunden-bank-w-m-d-baloise-solothurn-2",
+          "collaboratore-trice-assistenz-hub-privatkunden-bank-m-w-d-baloise-solothurn"
+        ],
+        "en": [
+          "mitarbeiter-assistenz-hub-privatkunden-bank-w-m-d-baloise-solothurn-2"
+        ],
+        "fr": [
           "mitarbeiter-assistenz-hub-privatkunden-bank-w-m-d-baloise-solothurn-2"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-assistenz-hub-privatkunden-bank-w-m-d-baloise-solothurn-2"
+        "mitarbeiter-assistenz-hub-privatkunden-bank-w-m-d-baloise-solothurn-2",
+        "collaboratore-trice-assistenz-hub-privatkunden-bank-m-w-d-baloise-solothurn"
       ],
       "salaryMin": 85000,
       "salaryMax": 119000,

@@ -4359,12 +4359,12 @@
     },
     {
       "id": "buergenstock-hotels-b11f7f56213b",
-      "slug": "spa-therapist-aushilfe-w-m-i-buergenstock-hotels-obburgen",
+      "slug": "assistente-terapista-spa-f-m-i-burgenstock-hotels-ag-obburgen",
       "slugByLocale": {
         "de": "spa-therapist-aushilfe-w-m-i-buergenstock-hotels-obburgen",
-        "it": "spa-therapist-aushilfe-w-m-i-buergenstock-hotels-obburgen",
-        "en": "spa-therapist-aushilfe-w-m-i-buergenstock-hotels-obburgen",
-        "fr": "spa-therapist-aushilfe-w-m-i-buergenstock-hotels-obburgen"
+        "it": "assistente-terapista-spa-f-m-i-burgenstock-hotels-ag-obburgen",
+        "en": "spa-therapist-assistant-f-m-i-burgenstock-hotels-ag-obburgen",
+        "fr": "assistant-therapeute-f-m-i-burgenstock-hotels-ag-obburgen"
       },
       "company": "Bürgenstock Hotels AG",
       "companyKey": "buergenstock-hotels",
@@ -4437,7 +4437,21 @@
       "streetAddressSource": "zefix-registry",
       "validThrough": "2027-02-06T21:55:47.554Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-08T21:55:47.554Z"
+      "firstSeenAt": "2026-11-08T21:55:47.554Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "spa-therapist-aushilfe-w-m-i-buergenstock-hotels-obburgen"
+        ],
+        "en": [
+          "spa-therapist-aushilfe-w-m-i-buergenstock-hotels-obburgen"
+        ],
+        "fr": [
+          "spa-therapist-aushilfe-w-m-i-buergenstock-hotels-obburgen"
+        ]
+      },
+      "previousSlugs": [
+        "spa-therapist-aushilfe-w-m-i-buergenstock-hotels-obburgen"
+      ]
     }
   ]
 }

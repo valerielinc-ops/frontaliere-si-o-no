@@ -68899,12 +68899,12 @@
     },
     {
       "id": "stellentreff-ef67dda0d6b9",
-      "slug": "zimmermann-zimmerin-per-vielseitige-holzbauarbeiten-stellentreff-ag-luzern",
+      "slug": "carpentiere-carpentiera-per-costruzioni-in-legno-versatili-stellentreff-ag-luzern-luzern",
       "slugByLocale": {
         "de": "zimmermann-zimmerin-fur-vielseitige-holzbauarbeiten-luzern-luzern-stellentreff-ch",
-        "it": "zimmermann-zimmerin-per-vielseitige-holzbauarbeiten-stellentreff-ag-luzern",
-        "en": "zimmermann-zimmerin-fur-vielseitige-holzbauarbeiten-luzern-luzern-stellentreff-ch",
-        "fr": "zimmermann-zimmerin-fur-vielseitige-holzbauarbeiten-luzern-luzern-stellentreff-ch"
+        "it": "carpentiere-carpentiera-per-costruzioni-in-legno-versatili-stellentreff-ag-luzern-luzern",
+        "en": "carpenter-for-versatile-wood-construction-work-stellentreff-ag-luzern-luzern",
+        "fr": "charpentier-charpentiere-pour-des-travaux-de-construction-en-bois-polyvalents-stellentreff-ag-luzern-luzern"
       },
       "company": "Stellentreff AG",
       "companyKey": "stellentreff",
@@ -68951,11 +68951,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "zimmermann-zimmerin-fur-vielseitige-holzbauarbeiten-luzern-luzern-stellentreff-ch",
+          "zimmermann-zimmerin-per-vielseitige-holzbauarbeiten-stellentreff-ag-luzern"
+        ],
+        "en": [
+          "zimmermann-zimmerin-fur-vielseitige-holzbauarbeiten-luzern-luzern-stellentreff-ch"
+        ],
+        "fr": [
           "zimmermann-zimmerin-fur-vielseitige-holzbauarbeiten-luzern-luzern-stellentreff-ch"
         ]
       },
       "previousSlugs": [
-        "zimmermann-zimmerin-fur-vielseitige-holzbauarbeiten-luzern-luzern-stellentreff-ch"
+        "zimmermann-zimmerin-fur-vielseitige-holzbauarbeiten-luzern-luzern-stellentreff-ch",
+        "zimmermann-zimmerin-per-vielseitige-holzbauarbeiten-stellentreff-ag-luzern"
       ],
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -68976,7 +68984,7 @@
       "validThrough": "2027-02-04T21:56:07.738Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-08T21:56:07.738Z",
-      "translationHoldSince": "2026-11-08T21:56:30.600Z"
+      "translationHoldReleasedAt": "2026-11-09T01:33:50.692Z"
     },
     {
       "id": "stellentreff-6b0bf6c277c6",
@@ -68984,8 +68992,8 @@
       "slugByLocale": {
         "de": "schreiner-in-fur-mobelfertigung-luzern-luzern-stellentreff-ch",
         "it": "carpentiere-per-la-produzione-di-mobili-stellentreff-ag-luzern-luzern",
-        "en": "schreiner-in-fur-mobelfertigung-stellentreff-ag-luzern",
-        "fr": "schreiner-in-fur-mobelfertigung-stellentreff-ag-luzern"
+        "en": "carpenters-for-furniture-production-stellentreff-ag-luzern-luzern",
+        "fr": "charpentiers-pour-la-production-de-meubles-stellentreff-ag-luzern-luzern"
       },
       "company": "Stellentreff AG",
       "companyKey": "stellentreff",
@@ -69035,16 +69043,15 @@
           "schreiner-in-fur-mobelfertigung-luzern-luzern-stellentreff-ch"
         ],
         "en": [
-          "carpenters-for-furniture-production-stellentreff-ag-luzern-luzern"
+          "schreiner-in-fur-mobelfertigung-stellentreff-ag-luzern"
         ],
         "fr": [
-          "charpentiers-pour-la-production-de-meubles-stellentreff-ag-luzern-luzern"
+          "schreiner-in-fur-mobelfertigung-stellentreff-ag-luzern"
         ]
       },
       "previousSlugs": [
         "schreiner-in-fur-mobelfertigung-luzern-luzern-stellentreff-ch",
-        "carpenters-for-furniture-production-stellentreff-ag-luzern-luzern",
-        "charpentiers-pour-la-production-de-meubles-stellentreff-ag-luzern-luzern"
+        "schreiner-in-fur-mobelfertigung-stellentreff-ag-luzern"
       ],
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -69064,16 +69071,16 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-13T21:56:07.723Z",
       "validThroughSource": "last-observed-window",
-      "translationHoldSince": "2026-11-08T21:56:30.600Z"
+      "translationHoldReleasedAt": "2026-11-09T01:33:50.692Z"
     },
     {
       "id": "stellentreff-e3188d3b912e",
-      "slug": "sanitarinstallateur-in-per-neu-e-umbauten-stellentreff-ag-sursee",
+      "slug": "installatore-trice-di-sanitari-per-nuove-costruzioni-e-ristrutturazioni-stellentreff-ag-sursee-luzern",
       "slugByLocale": {
         "de": "sanitarinstallateur-in-fur-neu-und-umbauten-sursee-luzern-stellentreff-ch",
-        "it": "sanitarinstallateur-in-per-neu-e-umbauten-stellentreff-ag-sursee",
-        "en": "sanitarinstallateur-in-fur-neu-und-umbauten-sursee-luzern-stellentreff-ch",
-        "fr": "sanitarinstallateur-in-fur-neu-und-umbauten-sursee-luzern-stellentreff-ch"
+        "it": "installatore-trice-di-sanitari-per-nuove-costruzioni-e-ristrutturazioni-stellentreff-ag-sursee-luzern",
+        "en": "plumbing-fitter-for-new-and-refurbishments-stellentreff-ag-sursee-luzern",
+        "fr": "installateur-sanitaire-pour-les-nouvelles-constructions-et-les-transformations-stellentreff-ag-sursee-luzern"
       },
       "company": "Stellentreff AG",
       "companyKey": "stellentreff",
@@ -69128,24 +69135,28 @@
         "idraulico-a-per-nuove-costruzioni-e-ristrutturazioni-stellentreff-ag-sursee-luzern",
         "plumbing-installer-for-new-builds-and-renovations-stellentreff-ag-sursee-luzern",
         "installateur-trice-sanitaire-pour-les-constructions-neuves-et-les-travaux-de-renovation-stellentreff-ag-sursee-luzern",
-        "sanitarinstallateur-in-fur-neu-und-umbauten-sursee-luzern-stellentreff-ch"
+        "sanitarinstallateur-in-fur-neu-und-umbauten-sursee-luzern-stellentreff-ch",
+        "sanitarinstallateur-in-per-neu-e-umbauten-stellentreff-ag-sursee"
       ],
       "previousSlugsByLocale": {
         "it": [
           "installatore-trice-sanitario-a-per-nuove-costruzioni-e-ristrutturazioni-stellentreff-ag-sursee",
           "installatore-installatrice-di-impianti-sanitari-per-nuove-costruzioni-e-ristrutturazioni-stellentreff-ag-sursee-luzern",
           "idraulico-a-per-nuove-costruzioni-e-ristrutturazioni-stellentreff-ag-sursee-luzern",
-          "sanitarinstallateur-in-fur-neu-und-umbauten-sursee-luzern-stellentreff-ch"
+          "sanitarinstallateur-in-fur-neu-und-umbauten-sursee-luzern-stellentreff-ch",
+          "sanitarinstallateur-in-per-neu-e-umbauten-stellentreff-ag-sursee"
         ],
         "en": [
           "plumbing-installer-for-new-builds-and-renovations-stellentreff-ag-sursee",
           "plumbing-installer-for-new-builds-and-alterations-stellentreff-ag-sursee-luzern",
-          "plumbing-installer-for-new-builds-and-renovations-stellentreff-ag-sursee-luzern"
+          "plumbing-installer-for-new-builds-and-renovations-stellentreff-ag-sursee-luzern",
+          "sanitarinstallateur-in-fur-neu-und-umbauten-sursee-luzern-stellentreff-ch"
         ],
         "fr": [
           "installateur-trice-sanitaire-pour-constructions-neuves-et-transformations-stellentreff-ag-sursee",
           "installateur-trice-sanitaire-pour-les-constructions-neuves-et-les-transformations-stellentreff-ag-sursee-luzern",
-          "installateur-trice-sanitaire-pour-les-constructions-neuves-et-les-travaux-de-renovation-stellentreff-ag-sursee-luzern"
+          "installateur-trice-sanitaire-pour-les-constructions-neuves-et-les-travaux-de-renovation-stellentreff-ag-sursee-luzern",
+          "sanitarinstallateur-in-fur-neu-und-umbauten-sursee-luzern-stellentreff-ch"
         ]
       },
       "salaryMin": 69500,
