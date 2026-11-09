@@ -1,7 +1,24 @@
 {
   "schemaVersion": 1,
-  "lastRunAt": "2026-11-08T11:21:48.613Z",
-  "findings": {},
-  "cleanRuns": 3,
+  "lastRunAt": "2026-11-09T12:58:49.845Z",
+  "findings": {
+    "jobposting-missing|https://frontaliereticino.ch/de/jobs-in-genf/kostenpreismanager-m-w-rolex-geneve/": {
+      "code": "jobposting-missing",
+      "url": "https://frontaliereticino.ch/de/jobs-in-genf/kostenpreismanager-m-w-rolex-geneve/",
+      "consecutiveRuns": 1,
+      "firstSeenAt": "2026-11-09T12:58:49.845Z",
+      "lastSeenAt": "2026-11-09T12:58:49.845Z",
+      "detail": null
+    },
+    "sitemap-noindex|https://frontaliereticino.ch/de/jobs-in-st-gallen/mitarbeiter-verkauf-m-w-d-aldi-suisse-st-gallen/": {
+      "code": "sitemap-noindex",
+      "url": "https://frontaliereticino.ch/de/jobs-in-st-gallen/mitarbeiter-verkauf-m-w-d-aldi-suisse-st-gallen/",
+      "consecutiveRuns": 1,
+      "firstSeenAt": "2026-11-09T12:58:49.845Z",
+      "lastSeenAt": "2026-11-09T12:58:49.845Z",
+      "detail": null
+    }
+  },
+  "cleanRuns": 0,
   "lastActionable": false
 }
