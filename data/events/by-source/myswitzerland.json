@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "sourceKey": "myswitzerland",
   "sourceName": "MySwitzerland",
-  "assembledAt": "2026-11-08T12:38:32.085Z",
+  "assembledAt": "2026-11-09T14:45:10.170Z",
   "events": [
     {
       "id": "myswitzerland:c04dc58cdaf845e0a02375c9baff1584",
@@ -93284,16 +93284,15 @@
     },
     {
       "id": "myswitzerland:6469ad171fa7424b901bea8af721bd45",
-      "title": "Advent im Kurtheater",
+      "title": "Advent im Kurtheater: «Minitheather Hannibal»",
       "titleByLocale": {
-        "it": "Advent im Kurtheater",
-        "en": "Advent im Kurtheater",
-        "de": "Advent im Kurtheater",
-        "fr": "Advent im Kurtheater"
+        "it": "Advent im Kurtheater: «Minitheather Hannibal»",
+        "en": "Advent im Kurtheater: «Minitheather Hannibal»",
+        "de": "Advent im Kurtheater: «Minitheather Hannibal»",
+        "fr": "Advent im Kurtheater: «Minitheather Hannibal»"
       },
       "startDate": "2026-12-07",
       "endDate": "2026-12-07",
-      "startTime": "18:00",
       "category": "Event",
       "venue": "Baden",
       "comune": "Baden",
@@ -93306,7 +93305,14 @@
         "lng": 8.3102615
       },
       "recurring": false,
-      "sourceDescriptionHash": "1756ba70a89a973ea9a1420695055c5e28c1c8526dfb275ca1f705b2179f3328"
+      "sourceDescriptionHash": "be94dd9b754132fb5ebdfe696e9a3e12eb58456e5dbd86ac4746d5cf15f2ac6d",
+      "previousRoutes": [
+        {
+          "canton": "AG",
+          "comune": "Baden",
+          "slug": "advent-im-kurtheater-2026-12-07"
+        }
+      ]
     },
     {
       "id": "myswitzerland:636bf74ebd294510b4d18ba83cec2646",
@@ -274212,6 +274218,500 @@
       },
       "recurring": false,
       "sourceDescriptionHash": "a525299a89e3f6bb1bb1f5a98de225b217f580a2bc8ebff78042bc203726af7c"
+    },
+    {
+      "id": "myswitzerland:677857e321e74ff6a8b81671980dca8a",
+      "title": "Composting Made Easy",
+      "titleByLocale": {
+        "it": "Composting Made Easy",
+        "en": "Composting Made Easy",
+        "de": "Kompostieren leicht gemacht",
+        "fr": "Le compostage en toute simplicité"
+      },
+      "startDate": "2027-03-04",
+      "endDate": "2027-03-04",
+      "category": "Event",
+      "venue": "Naters",
+      "comune": "Naters",
+      "canton": "VS",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/kompostieren-leicht-gemacht/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.322269,
+        "lng": 7.9856366
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "fd8c08d7f0c4fe9887fb3fbf68fa14d5ef334f76b843c7b8a2f37cc2051e3b50"
+    },
+    {
+      "id": "myswitzerland:671aa143972f43e9890a6007597d88f2",
+      "title": "Le Sacre du Piano",
+      "titleByLocale": {
+        "it": "Le Sacre du Piano",
+        "en": "Le Sacre du Piano",
+        "de": "Le Sacre du Piano",
+        "fr": "Le Sacre du Piano"
+      },
+      "startDate": "2027-03-08",
+      "endDate": "2027-03-08",
+      "category": "Event",
+      "venue": "Geneva",
+      "comune": "Genève",
+      "canton": "GE",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/le-sacre-du-piano/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.1867381,
+        "lng": 6.1589184
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "7c1a5e28d475de3075f359c1eac808aa021705e7e727fc6f1f495fcbb26dbbc7"
+    },
+    {
+      "id": "myswitzerland:668ba19c2bb14e569a4dfcec36b6f13a",
+      "title": "Adventsmarkt Detligen",
+      "titleByLocale": {
+        "it": "Adventsmarkt Detligen",
+        "en": "Adventsmarkt Detligen",
+        "de": "Adventsmarkt Detligen",
+        "fr": "Adventsmarkt Detligen"
+      },
+      "startDate": "2026-11-14",
+      "endDate": "2026-11-15",
+      "category": "Event",
+      "venue": "Detligen",
+      "comune": "Radelfingen",
+      "canton": "BE",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/adventsmarkt-detligen/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.0012083,
+        "lng": 7.2696933
+      },
+      "recurring": true,
+      "sourceDescriptionHash": "5983256ada5ee04b29378fe66238f8bf4f63b35ed89d6e41d44745159238e971"
+    },
+    {
+      "id": "myswitzerland:663982b171c04904a9f577f1309a3dd7",
+      "title": "Schneewittli",
+      "titleByLocale": {
+        "it": "Schneewittli",
+        "en": "Schneewittli",
+        "de": "Schneewittli",
+        "fr": "Schneewittli"
+      },
+      "startDate": "2026-12-19",
+      "endDate": "2026-12-19",
+      "category": "Event",
+      "venue": "Kloten",
+      "comune": "Kloten",
+      "canton": "ZH",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/schneewittli/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.444035,
+        "lng": 8.582246
+      },
+      "recurring": false,
+      "performer": [
+        {
+          "name": "Biss"
+        },
+        {
+          "name": "Herz"
+        }
+      ],
+      "sourceDescriptionHash": "89965fcfb7ea4ac735a959b44969cbec2ddba3c22181be99c1f23d92e8d4a550"
+    },
+    {
+      "id": "myswitzerland:661781a14482402e802c2026163e3bf4",
+      "title": "Neon Party mit DJ im \"Alpen Chic\"",
+      "titleByLocale": {
+        "it": "Neon Party mit DJ im \"Alpen Chic\"",
+        "en": "Neon Party mit DJ im \"Alpen Chic\"",
+        "de": "Neon Party mit DJ im \"Alpen Chic\"",
+        "fr": "Neon Party mit DJ im \"Alpen Chic\""
+      },
+      "startDate": "2027-02-06",
+      "endDate": "2027-02-06",
+      "category": "Event",
+      "venue": "Val Surses: Savognin",
+      "comune": "Surses",
+      "canton": "GR",
+      "url": "https://www.myswitzerland.com/it-ch/scoprire-la-svizzera/manifestazioni/neon-party-mit-dj-im-alpen-chic/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.5962945,
+        "lng": 9.5915221
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "331ad841da5ba0c5f198778c740fef3e7410534e66ba3b38061a8329e208c558"
+    },
+    {
+      "id": "myswitzerland:658d38c811f544fe8943e04237eee6a9",
+      "title": "ADAM TEN",
+      "titleByLocale": {
+        "it": "ADAM TEN",
+        "en": "ADAM TEN",
+        "de": "ADAM TEN",
+        "fr": "ADAM TEN"
+      },
+      "startDate": "2026-12-19",
+      "endDate": "2026-12-19",
+      "startTime": "23:00",
+      "category": "Event",
+      "venue": "Zurich",
+      "comune": "Zürich",
+      "canton": "ZH",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/adam-ten/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.3717637,
+        "lng": 8.5363913
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "90a5215320886a1da00d7aeb5452a8c8ebd511957d79cf6ebd9151f6f900209d"
+    },
+    {
+      "id": "myswitzerland:652706db92034c7ba7ce1252cf7ffc62",
+      "title": "Back training",
+      "titleByLocale": {
+        "it": "Back training",
+        "en": "Back training",
+        "de": "Rückentraining",
+        "fr": "Entraînement du dos"
+      },
+      "startDate": "2027-01-13",
+      "endDate": "2027-02-24",
+      "category": "Event",
+      "venue": "Kandersteg",
+      "comune": "Kandersteg",
+      "canton": "BE",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/back-training/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.4701543,
+        "lng": 7.689268
+      },
+      "recurring": true,
+      "sourceDescriptionHash": "30be15ab05c4197323c6ef5cfd9c701e0a8f938141f1951152bdc7af299974eb"
+    },
+    {
+      "id": "myswitzerland:651010a0c952479a83a857ee63d4d4a4",
+      "title": "Kinderworkshop am Mittwoch",
+      "titleByLocale": {
+        "it": "Kinderworkshop am Mittwoch",
+        "en": "Kinderworkshop am Mittwoch",
+        "de": "Kinderworkshop am Mittwoch",
+        "fr": "Kinderworkshop am Mittwoch"
+      },
+      "startDate": "2026-11-11",
+      "endDate": "2026-12-09",
+      "category": "Event",
+      "venue": "Zurich",
+      "comune": "Zürich",
+      "canton": "ZH",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/kinderworkshop-am-mittwoch/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.3701715,
+        "lng": 8.5480282
+      },
+      "recurring": true,
+      "performer": {
+        "name": "Samira Agha Majidi"
+      },
+      "sourceDescriptionHash": "3bcc1370885cefebd007359ef556fb3bdae793e03fccf5fdb2e6ada4d629f29f"
+    },
+    {
+      "id": "myswitzerland:6415330cd49c46fdbc5e5ca0ead7b1d2",
+      "title": "SINGLE PARTY ( 2 FLOOR SPECIAL) | KINKER, BASEL",
+      "titleByLocale": {
+        "it": "SINGLE PARTY ( 2 FLOOR SPECIAL) | KINKER, BASEL",
+        "en": "SINGLE PARTY ( 2 FLOOR SPECIAL) | KINKER, BASEL",
+        "de": "SINGLE PARTY ( 2 FLOOR SPECIAL) | KINKER, BASEL",
+        "fr": "SINGLE PARTY ( 2 FLOOR SPECIAL) | KINKER, BASEL"
+      },
+      "startDate": "2026-11-27",
+      "endDate": "2026-11-28",
+      "category": "Event",
+      "venue": "Münchenstein",
+      "comune": "Münchenstein",
+      "canton": "BL",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/single-party-2-floor-special-kinker-basel/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.5306778,
+        "lng": 7.6071422
+      },
+      "recurring": true,
+      "sourceDescriptionHash": "779522011b802dbf9fa844df128f9921956c88535e4fd1c05a7d821b26829727"
+    },
+    {
+      "id": "myswitzerland:6348d8ad56c84fe1b861034d40c385d8",
+      "title": "Hyper 2000",
+      "titleByLocale": {
+        "it": "Hyper 2000",
+        "en": "Hyper 2000",
+        "de": "Hyper 2000",
+        "fr": "Hyper 2000"
+      },
+      "startDate": "2026-11-20",
+      "endDate": "2026-11-20",
+      "startTime": "23:00",
+      "category": "Event",
+      "venue": "Zurich",
+      "comune": "Zürich",
+      "canton": "ZH",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/hyper-2000/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.3717637,
+        "lng": 8.5363913
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "457dfb4f25f675db2c743bc9ef2abfcbf97863c314007295a48d1b2f94bf65a1"
+    },
+    {
+      "id": "myswitzerland:62e9e8422b5f442faf666905ea9df0a4",
+      "title": "Transgenerationale Traumata",
+      "titleByLocale": {
+        "it": "Transgenerationale Traumata",
+        "en": "Transgenerationale Traumata",
+        "de": "Transgenerationale Traumata",
+        "fr": "Transgenerationale Traumata"
+      },
+      "startDate": "2026-11-25",
+      "endDate": "2026-11-25",
+      "category": "Event",
+      "venue": "Ennenda",
+      "comune": "Glarus",
+      "canton": "GL",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/transgenerationale-traumata/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.0373014,
+        "lng": 9.0751717
+      },
+      "recurring": false,
+      "performer": {
+        "name": "Prof"
+      },
+      "sourceDescriptionHash": "2726bf3d5173ff8dc4157f08bdec69aab3b8067d6d481200e39d90f2f6a973b7"
+    },
+    {
+      "id": "myswitzerland:61cc8fdec8ef4ec0882f0ea6aaf7cf82",
+      "title": "Circular hike in the cultural landscape of Erschmatt",
+      "titleByLocale": {
+        "it": "Circular hike in the cultural landscape of Erschmatt",
+        "en": "Circular hike in the cultural landscape of Erschmatt",
+        "de": "Rundwanderung in der Kulturlandschaft Erschmatt",
+        "fr": "Parcours dans le paysage culturel d'Erschmatt"
+      },
+      "startDate": "2027-09-26",
+      "endDate": "2027-09-26",
+      "category": "Event",
+      "venue": "Erschmatt",
+      "comune": "Leuk",
+      "canton": "VS",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/circular-hike-in-the-cultural-landscape-of-erschmatt/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.3204757,
+        "lng": 7.6904833
+      },
+      "recurring": false,
+      "performer": {
+        "name": "Erlebniswelt Roggen Erschmatt"
+      },
+      "sourceDescriptionHash": "f8da29bd9af40c9bf33436ce4efa96c0341faed4304341ec90b73e8065faea24"
+    },
+    {
+      "id": "myswitzerland:61cb7f6c129f476c8e6eab033cdc5379",
+      "title": "La librairie est invitée à la Couronne, coeur du Grand Chasseral pour l'apéro d'automne",
+      "titleByLocale": {
+        "it": "La librairie est invitée à la Couronne, coeur du Grand Chasseral pour l'apéro d'automne",
+        "en": "La librairie est invitée à la Couronne, coeur du Grand Chasseral pour l'apéro d'automne",
+        "de": "La librairie est invitée à la Couronne, coeur du Grand Chasseral pour l'apéro d'automne",
+        "fr": "La librairie est invitée à la Couronne, coeur du Grand Chasseral pour l'apéro d'automne"
+      },
+      "startDate": "2026-11-12",
+      "endDate": "2026-11-12",
+      "category": "Event",
+      "venue": "Tavannes",
+      "comune": "Tavannes",
+      "canton": "BE",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/la-librairie-est-invitee-a-la-couronne-coeur-du-grand-chasseral-pour-lapero-dautomne/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.2189732,
+        "lng": 7.1978038
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "786c3535f9aba2ef360ffe067d5e27a729953594ceaea84809c36ac4660111bf"
+    },
+    {
+      "id": "myswitzerland:61c898ee98184c33ae6201a06d9cb06d",
+      "title": "Malworkshop - Gemalter Patinaeffekt - 11. März 2027",
+      "titleByLocale": {
+        "it": "Malworkshop - Gemalter Patinaeffekt - 11. März 2027",
+        "en": "Malworkshop - Gemalter Patinaeffekt - 11. März 2027",
+        "de": "Malworkshop - Gemalter Patinaeffekt - 11. März 2027",
+        "fr": "Malworkshop - Gemalter Patinaeffekt - 11. März 2027"
+      },
+      "startDate": "2027-03-11",
+      "endDate": "2027-03-11",
+      "category": "Event",
+      "venue": "Wangen-Brüttisellen",
+      "comune": "Wangen-Brüttisellen",
+      "canton": "ZH",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/malworkshop-gemalter-patinaeffekt-11-maerz-2027/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.421991,
+        "lng": 8.627665
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "6568d401f01045eebeac919a52aa7fee20034981b713481a2b995cf95aa73365"
+    },
+    {
+      "id": "myswitzerland:610981ecfe984440829a7b3387cfd51f",
+      "title": "Fratelli Hüttenabend mit Spiessgrill",
+      "titleByLocale": {
+        "it": "Fratelli Hüttenabend mit Spiessgrill",
+        "en": "Fratelli Hüttenabend mit Spiessgrill",
+        "de": "Fratelli Hüttenabend mit Spiessgrill",
+        "fr": "Fratelli Hüttenabend mit Spiessgrill"
+      },
+      "startDate": "2027-04-01",
+      "endDate": "2027-04-01",
+      "category": "Event",
+      "venue": "Glarus",
+      "comune": "Glarus",
+      "canton": "GL",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/fratelli-huettenabend-mit-spiessgrill/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.0398795,
+        "lng": 9.0687705
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "8af7e57daf29e84337e133b9802cab143fdc11cc524ca6cf627bcb901a20bdb0"
+    },
+    {
+      "id": "myswitzerland:60f40b7a01e54c189e501831c3c379ff",
+      "title": "Vorführung und Beratung - Farbe schafft Räume - 24. Februar 2027",
+      "titleByLocale": {
+        "it": "Vorführung und Beratung - Farbe schafft Räume - 24. Februar 2027",
+        "en": "Vorführung und Beratung - Farbe schafft Räume - 24. Februar 2027",
+        "de": "Vorführung und Beratung - Farbe schafft Räume - 24. Februar 2027",
+        "fr": "Vorführung und Beratung - Farbe schafft Räume - 24. Februar 2027"
+      },
+      "startDate": "2027-02-24",
+      "endDate": "2027-02-24",
+      "category": "Event",
+      "venue": "Wangen-Brüttisellen",
+      "comune": "Wangen-Brüttisellen",
+      "canton": "ZH",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/vorfuehrung-und-beratung-farbe-schafft-raeume-24-februar-2027/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.421991,
+        "lng": 8.627665
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "a5ed7ef1e065ea84dbc936681fdef4126d3e371d1ddeb65514255716464f1be9"
+    },
+    {
+      "id": "myswitzerland:60bf57b7ee0c4d6eb5d77c771d1511c4",
+      "title": "Eishockey 2. Liga: EHC Adelboden vs EHC Mirchel",
+      "titleByLocale": {
+        "it": "Eishockey 2. Liga: EHC Adelboden vs EHC Mirchel",
+        "en": "Eishockey 2. Liga: EHC Adelboden vs EHC Mirchel",
+        "de": "Eishockey 2. Liga: EHC Adelboden vs EHC Mirchel",
+        "fr": "Eishockey 2. Liga: EHC Adelboden vs EHC Mirchel"
+      },
+      "startDate": "2026-11-25",
+      "endDate": "2026-11-25",
+      "category": "Event",
+      "venue": "Adelboden",
+      "comune": "Adelboden",
+      "canton": "BE",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/ice-hockey-match-in-adelboden-3/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.49162,
+        "lng": 7.561502
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "a4ab27e6869f7d5e70fccc6af5780d240020870ab0053f7ca13f7806ff182037"
+    },
+    {
+      "id": "myswitzerland:603dab9a55a442049082746f1cf3c645",
+      "title": "Visual impairment – navigating daily life with a white cane",
+      "titleByLocale": {
+        "it": "Visual impairment – navigating daily life with a white cane",
+        "en": "Visual impairment – navigating daily life with a white cane",
+        "de": "Sehbehinderung – mit dem weissen Stock durch den Alltag",
+        "fr": "Handicap visuel – avec la canne blanche dans la vie quotidienne"
+      },
+      "startDate": "2027-01-18",
+      "endDate": "2027-01-18",
+      "category": "Event",
+      "venue": "Frutigen",
+      "comune": "Frutigen",
+      "canton": "BE",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/visual-impairment-navigating-daily-life-with-a-white-cane/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.5872135,
+        "lng": 7.649829
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "ac1a674982878ce7d6ad0b888f6da000356ef36786753461f22d1b69f08088c5"
+    },
+    {
+      "id": "myswitzerland:5fca8b98a8724379aeb654d84c1ff23b",
+      "title": "National Clean-up Days - Independent trash collection",
+      "titleByLocale": {
+        "it": "National Clean-up Days - Independent trash collection",
+        "en": "National Clean-up Days - Independent trash collection",
+        "de": "Nationale Clean-up Days - selbstständig Abfall sammeln",
+        "fr": "Clean-up Days nationaux - Ramassage autonome de déchets"
+      },
+      "startDate": "2027-09-17",
+      "endDate": "2027-09-18",
+      "category": "Event",
+      "venue": "Salgesch",
+      "comune": "Salgesch",
+      "canton": "VS",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/national-clean-up-days-independent-trash-collection/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.3116051,
+        "lng": 7.5698436
+      },
+      "recurring": true,
+      "sourceDescriptionHash": "ca72851b95b87a64ad6beb49a5a1c72b57268263ef2a927ecd9dd64f1202e923"
     }
   ]
 }
