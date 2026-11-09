@@ -286,7 +286,7 @@ describe('per-slot first-party creative delivery', () => {
     dom.reconfigure({ url: 'https://frontaliereticino.ch/de/arbeitssuche-schweiz-automatisieren/' });
     const empty = frame('unfilled'); await start(); expect(empty.host.childElementCount).toBe(0);
   });
-  it('keeps the subscription card off the page until anonymous status and uses the next unseen slot', async () => {
+  it('puts one subscription card in the next unseen adjacent fallback slot and keeps the following slot for jobs', async () => {
     w.fetch.mockResolvedValue({ ok: true, json: async () => ({
       variant: 'control', enrolled: false, assignmentSource: 'local_default',
       readerSubscriptionVariant: 'subscription', readerSubscriptionEnrolled: true,
@@ -297,10 +297,12 @@ describe('per-slot first-party creative delivery', () => {
     expect(first.host.querySelector('[data-house-campaign="reader_subscription"]')).toBeNull();
     expect(first.host.querySelector('a')?.dataset.houseCampaign).toBe('job_search_automation');
     w.dispatchEvent(new w.CustomEvent('frontaliere:auth-state', { detail: 'anonymous' }));
-    const next = frame('unfilled', 'article-end');
+    const next = frame('unfilled', 'article-inline-next');
+    const following = frame('unfilled', 'article-end');
     await vi.advanceTimersByTimeAsync(1600);
     expect(first.host.querySelector('a')?.dataset.houseCampaign).toBe('job_search_automation');
     expect(next.host.querySelector('a')?.dataset.houseCampaign).toBe('reader_subscription');
+    expect(following.host.querySelector('a')?.dataset.houseCampaign).toBe('job_search_automation');
   });
   it('shows at most one subscription card to an anonymous treatment user and only in owned fallback slots', async () => {
     w.__ftAdsAuthState = 'anonymous';
