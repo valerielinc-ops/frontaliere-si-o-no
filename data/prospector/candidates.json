@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-11-09T15:16:15.069Z",
+  "updatedAt": "2026-11-09T15:16:49.607Z",
   "candidates": {
     "2225": {
       "key": "2225",
@@ -369320,12 +369320,12 @@
     },
     "data-unit": {
       "key": "data-unit",
-      "status": "promoted",
+      "status": "promoting",
       "sources": [
         "seco"
       ],
       "firstSeenAt": "2026-10-11T10:11:08.206Z",
-      "updatedAt": "2026-11-09T14:50:41.364Z",
+      "updatedAt": "2026-11-09T15:16:49.526Z",
       "name": "DATA UNIT AG",
       "city": "",
       "zip": "",
@@ -369600,7 +369600,9 @@
           "logoSourceUrl": "https://www.dataunit.ch/wp-content/uploads/2026/06/logo-data-unit-150x150.png",
           "employerSiteName": "DATA UNIT"
         }
-      ]
+      ],
+      "promotionPr": "17802",
+      "promotionBranch": "prospector/promote-2026-11-09"
     },
     "data-unit@sursee": {
       "key": "data-unit@sursee",
@@ -1119685,12 +1119687,12 @@
     },
     "prodyna@basel": {
       "key": "prodyna@basel",
-      "status": "promoted",
+      "status": "promoting",
       "sources": [
         "seco"
       ],
       "firstSeenAt": "2026-09-18T08:23:23.704Z",
-      "updatedAt": "2026-11-09T14:50:19.674Z",
+      "updatedAt": "2026-11-09T15:16:49.526Z",
       "name": "PRODYNA (Schweiz) AG",
       "city": "Basel",
       "zip": "4052",
@@ -1119949,7 +1119951,9 @@
           "logoSourceUrl": "https://cdn.prod.website-files.com/6267a1f7a8182aa6e6312ff3/6409f4b8940a27d0680b8ca7_256x256.png",
           "employerSiteName": "PRODYNA"
         }
-      ]
+      ],
+      "promotionPr": "17802",
+      "promotionBranch": "prospector/promote-2026-11-09"
     },
     "proemploi.ch": {
       "key": "proemploi.ch",
