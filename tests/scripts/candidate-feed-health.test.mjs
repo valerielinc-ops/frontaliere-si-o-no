@@ -17,6 +17,16 @@ test('recovery defers while a target workflow run is pending', () => {
   for (const statuses of statusSets) assert.match(statuses, /['"]pending['"]/u);
 });
 
+test('recovery run listings are bounded and retry transient GitHub failures', () => {
+  const listings = [...HEALTH_WORKFLOW.matchAll(/listWorkflowRuns\(\{[\s\S]*?\n\s+\}\)/gu)]
+    .map((match) => match[0]);
+  assert.equal(listings.length, 3);
+  for (const listing of listings) {
+    assert.match(listing, /created: `>=\$\{created\}`/u);
+  }
+  assert.equal((HEALTH_WORKFLOW.match(/^\s+retries: 2$/gmu) || []).length, 2);
+});
+
 test('candidate feed health has a native schedule as a fallback to the external loop clock', () => {
   assert.match(HEALTH_WORKFLOW, /schedule:/u);
   assert.match(HEALTH_WORKFLOW, /cron: '23 4,10,16,22 \* \* \*'/u);

@@ -72,14 +72,19 @@ jobs:
         uses: actions/github-script@v9
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
+          retries: 2
           script: |
             const owner = context.repo.owner;
             const repo = context.repo.repo;
+            // Bound the branch-filtered listing: GitHub can serve stale or
+            // transient 5xx responses when an Actions history grows large.
+            const created = new Date(Date.now() - 35 * 86_400_000).toISOString().slice(0, 10);
             const { data } = await github.rest.actions.listWorkflowRuns({
               owner,
               repo,
               workflow_id: 'topic-candidates-mining.yml',
               branch: 'main',
+              created: `>=${created}`,
               per_page: 100,
             });
             const active = data.workflow_runs.some((run) =>
@@ -101,15 +106,20 @@ jobs:
         uses: actions/github-script@v9
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
+          retries: 2
           script: |
             const owner = context.repo.owner;
             const repo = context.repo.repo;
+            // The recovery check only needs live candidates; keep the
+            // branch-filtered listing bounded and retry transient 5xx errors.
+            const created = new Date(Date.now() - 35 * 86_400_000).toISOString().slice(0, 10);
             const [build, publish] = await Promise.all([
               github.rest.actions.listWorkflowRuns({
                 owner,
                 repo,
                 workflow_id: 'deploy.yml',
                 branch: 'main',
+                created: `>=${created}`,
                 per_page: 100,
               }),
               github.rest.actions.listWorkflowRuns({
@@ -117,6 +127,7 @@ jobs:
                 repo,
                 workflow_id: 'deploy-publish.yml',
                 branch: 'main',
+                created: `>=${created}`,
                 per_page: 100,
               }),
             ]);
