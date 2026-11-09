@@ -1,7 +1,7 @@
 {
   "crawlerKey": "schulthess-klinik",
-  "assembledAt": "2026-11-08T21:45:52.068Z",
-  "runId": "42523372820",
+  "assembledAt": "2026-11-09T09:18:40.601Z",
+  "runId": "42590686657",
   "jobs": [
     {
       "id": "schulthess-klinik-06b4cf38c426",
@@ -35,7 +35,7 @@
       "url": "https://job.schulthess-klinik.ch/job-vacancies/director-of-research/cb21f8f4-78f5-4eb2-bd59-fb63262a7b67",
       "source": "Schulthess Klinik Dedicated Parser (Prospective medium 1007262)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-08T21:45:45.044Z",
+      "crawledAt": "2026-11-09T09:18:33.809Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -84,7 +84,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-27T21:45:45.044Z",
+      "validThrough": "2027-01-28T09:18:33.809Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -118,7 +118,7 @@
       "url": "https://job.schulthess-klinik.ch/offene-stellen/med-praxisassistentin-med-praxisassistent-rheumatologie-rehabilitation/325df460-7ca5-4c5f-8931-d867bd6bd673",
       "source": "Schulthess Klinik Dedicated Parser (Prospective medium 1007262)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T21:45:45.041Z",
+      "crawledAt": "2026-11-09T09:18:33.805Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -166,7 +166,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-10T21:45:45.041Z",
+      "validThrough": "2026-12-11T09:18:33.805Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -200,7 +200,7 @@
       "url": "https://job.schulthess-klinik.ch/offene-stellen/mitarbeiterin-mitarbeiter-room-service/cb300619-f117-472e-8e8d-335c4f038eb6",
       "source": "Schulthess Klinik Dedicated Parser (Prospective medium 1007262)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T21:45:45.038Z",
+      "crawledAt": "2026-11-09T09:18:33.803Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -251,7 +251,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-28T21:45:45.038Z",
+      "validThrough": "2027-01-29T09:18:33.803Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -286,7 +286,7 @@
       "url": "https://job.schulthess-klinik.ch/offene-stellen/pflegefachperson-hf-fh-im-bereich-intermediate-care-imc/e7f5a02e-b37e-4d50-b8c3-ce008b0ebf47",
       "source": "Schulthess Klinik Dedicated Parser (Prospective medium 1007262)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T21:45:45.035Z",
+      "crawledAt": "2026-11-09T09:18:33.800Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -329,7 +329,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-17T21:45:45.035Z",
+      "validThrough": "2026-12-17T09:18:33.800Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -364,7 +364,7 @@
       "url": "https://job.schulthess-klinik.ch/offene-stellen/fachfrau-fachmann-gesundheit-fuer-die-bettenstationen/51fc46af-75f0-4499-81d3-118f72c82972",
       "source": "Schulthess Klinik Dedicated Parser (Prospective medium 1007262)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T21:45:45.032Z",
+      "crawledAt": "2026-11-09T09:18:33.798Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -415,93 +415,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-02T21:45:45.032Z",
-      "validThroughSource": "last-observed-window"
-    },
-    {
-      "id": "schulthess-klinik-933af8db8a55",
-      "slug": "addetta-addetto-alle-pulizie-schulthess-klinik-zurich",
-      "slugByLocale": {
-        "it": "addetta-addetto-alle-pulizie-schulthess-klinik-zurich",
-        "en": "employee-employee-cleaning-schulthess-klinik-zurich",
-        "de": "mitarbeiterin-mitarbeiter-reinigung-schulthess-klinik-zurich",
-        "fr": "nettoyage-des-employes-schulthess-klinik-zurich"
-      },
-      "company": "Schulthess Klinik",
-      "companyKey": "schulthess-klinik",
-      "companyDomain": "schulthess-klinik.ch",
-      "title": "Mitarbeiterin / Mitarbeiter Reinigung",
-      "titleByLocale": {
-        "it": "Addetta / Addetto alle pulizie",
-        "en": "Employee / Employee cleaning",
-        "de": "Mitarbeiterin / Mitarbeiter Reinigung",
-        "fr": "Nettoyage des employés"
-      },
-      "description": "Aufgaben:\n• Reinigung von:\n\n• Patientenzimmern (Restant und Austritt)\n\n• Sanitärräumen wie Toiletten, Duschen und Garderoben\n\n• öffentlichen Bereichen\n\n• Restaurantbereich\n\n• Arztpraxen etc.\n\n• Bettenreinigung\n\n• Flexibel einsetzbar im Abenddienst zwischen Montag und Sonntag; mehrheitlich halbtags und an Wochenenden auch ganztags (1-2 Wochenende pro Monat)\n\nAnforderungen:\n• Mehrjährige Berufserfahrung in der Reinigung erwünscht\n\n• Erfahrung im Gesundheitswesen von Vorteil\n\n• Hohe Einsatzbereitschaft und Belastbarkeit\n\n• Flexibel, teamfähig, verantwortungsvoll, rasche Auffassungsgabe\n\n• Sehr gute Deutschkenntnisse\n\nWir bieten:\n• Planbarkeit der Arbeitszeiten und Schichten\n\n• 40 Stundenwoche\n\n• Attraktive Sozialleistungen und zahlreiche Benefits\n\n• Bezahlte oder kompensierbare Umkleidezeit (15 Min./Tag / 6.5 Freitage/Jahr)\n\nDie Schulthess Klinik in Zürich ist eine der führenden orthopädischen Kliniken Europas mit über 1'100 Mitarbeitenden. Unser zentrales Anliegen ist es, Menschen von ihren Schmerzen zu befreien und ihre Mobilität wiederherzustellen. Als Spezialklinik konzentrieren wir uns auf chirurgische Orthopädie, Neurologie, Rheumatologie und Sportmedizin. Die Schulthess Klinik ist Swiss Olympic Medical Center.",
-      "descriptionByLocale": {
-        "it": "Compiti:\n• Pulizia di:\n\n• Camere per i pazienti (soggiorno e uscita)\n\n• Strutture sanitarie come servizi igienici, docce e armadi\n\n• Settore pubblico\n\n• Area ristorante\n\n• pratiche mediche ecc.\n\n• Servizi di pulizia letti\n\n• Servizio diurno flessibile tra lunedì e domenica; per lo più mezza giornata e nei fine settimana anche giorno intero (1-2 fine settimana al mese). Durata fino al 31.08.2027\n\nRequisiti\n• Diversi anni di esperienza professionale nella pulizia desiderata\n\n• L'esperienza sanitaria è benefica\n\n• Alta disponibilità operativa e resilienza\n\n• Flessibile, capace di lavorare di squadra, responsabile, rapida comprensione\n\n• Molto buona conoscenza del tedesco\n\nOffriamo:\n• Pianificabilità delle ore di lavoro e dei turni\n\n• 40 settimana oraria\n\n• Prestazioni sociali interessanti e numerosi vantaggi\n\n• Tempo di cambio pagato o compensabile (15 min./giorno / 6.5 Venerdì/anno)\n\nLa clinica Schulthess di Zurigo è una delle principali cliniche ortopediche in Europa con oltre 1.100 dipendenti. La nostra preoccupazione centrale è quella di liberare le persone dal loro dolore e ripristinare la loro mobilità. Come clinica specializzata, ci concentriamo su ortopedia chirurgica, neurologia, reumatologia e medicina sportiva. La clinica Schulthess è il centro medico olimpico svizzero.",
-        "en": "Tasks:\n• Cleaning of:\n\n• Patient rooms (rest and exit)\n\n• Sanitary facilities such as toilets, showers and wardrobes\n\n• Public sector\n\n• Restaurant area\n\n• medical practices etc.\n\n• Bed cleaning services\n\n• Flexible day service between Monday and Sunday; mostly half-days and on weekends also full-day (1-2 weekends per month). Duration until 31.08.2027\n\nRequirements\n• Several years of professional experience in cleaning desired\n\n• Healthcare experience is beneficial\n\n• High operational readiness and resilience\n\n• Flexible, capable of teamwork, responsible, quick comprehension\n\n• Very good knowledge of German\n\nWe offer:\n• Plannability of working hours and shifts\n\n• 40 hourly week\n\n• Attractive social benefits and numerous benefits\n\n• Paid or compensable changing time (15 min./day / 6.5 Fridays/year)\n\nThe Schulthess Clinic in Zurich is one of the leading orthopaedic clinics in Europe with over 1,100 employees. Our central concern is to free people from their pain and restore their mobility. As a specialist clinic, we focus on surgical orthopedics, neurology, rheumatology and sports medicine. Schulthess Clinic is Swiss Olympic Medical Center.",
-        "de": "Aufgaben:\n• Reinigung von:\n\n• Patientenzimmern (Restant und Austritt)\n\n• Sanitärräumen wie Toiletten, Duschen und Garderoben\n\n• öffentlichen Bereichen\n\n• Restaurantbereich\n\n• Arztpraxen etc.\n\n• Bettenreinigung\n\n• Flexibel einsetzbar im Abenddienst zwischen Montag und Sonntag; mehrheitlich halbtags und an Wochenenden auch ganztags (1-2 Wochenende pro Monat)\n\nAnforderungen:\n• Mehrjährige Berufserfahrung in der Reinigung erwünscht\n\n• Erfahrung im Gesundheitswesen von Vorteil\n\n• Hohe Einsatzbereitschaft und Belastbarkeit\n\n• Flexibel, teamfähig, verantwortungsvoll, rasche Auffassungsgabe\n\n• Sehr gute Deutschkenntnisse\n\nWir bieten:\n• Planbarkeit der Arbeitszeiten und Schichten\n\n• 40 Stundenwoche\n\n• Attraktive Sozialleistungen und zahlreiche Benefits\n\n• Bezahlte oder kompensierbare Umkleidezeit (15 Min./Tag / 6.5 Freitage/Jahr)\n\nDie Schulthess Klinik in Zürich ist eine der führenden orthopädischen Kliniken Europas mit über 1'100 Mitarbeitenden. Unser zentrales Anliegen ist es, Menschen von ihren Schmerzen zu befreien und ihre Mobilität wiederherzustellen. Als Spezialklinik konzentrieren wir uns auf chirurgische Orthopädie, Neurologie, Rheumatologie und Sportmedizin. Die Schulthess Klinik ist Swiss Olympic Medical Center.",
-        "fr": "Tâches :\n• Nettoyage:\n\n• Salles pour patients (rest et sortie)\n\n• Services sanitaires tels que toilettes, douches et armoires\n\n• Secteur public\n\n• Zone restaurant\n\n• pratiques médicales, etc.\n\n• Services de nettoyage des lits\n\n• Service de jour flexible entre le lundi et le dimanche; la plupart des demi-journées et les week-ends aussi journée entière (1-2 week-ends par mois). Durée jusqu'au 31.08.2027\n\nExigences\n• Plusieurs années d'expérience professionnelle dans le nettoyage souhaité\n\n• L'expérience en soins de santé est bénéfique\n\n• Capacité opérationnelle et résilience élevées\n\n• Flexible, capable de travailler en équipe, responsable, compréhension rapide\n\n• Très bonne connaissance de l'allemand\n\nNous offrons:\n• Plannibilité des heures de travail et des postes\n\n• 40 semaines horaires\n\n• Prestations sociales attractives et nombreuses prestations\n\n• Temps de changement payé ou indemnisable (15 min./jour / 6,5 vendredis/année)\n\nLa clinique Schulthess de Zurich est l'une des principales cliniques orthopédiques en Europe avec plus de 1 100 employés. Notre principale préoccupation est de libérer les gens de leur douleur et de rétablir leur mobilité. En tant que clinique spécialisée, nous nous concentrons sur l'orthopédie chirurgicale, la neurologie, la rhumatologie et la médecine sportive. La clinique Schulthess est le centre médical olympique suisse."
-      },
-      "needsRetranslation": false,
-      "location": "Zürich",
-      "canton": "ZH",
-      "url": "https://job.schulthess-klinik.ch/offene-stellen/mitarbeiterin-mitarbeiter-reinigung/7d85d010-0c0a-40a4-93b1-10283e169b11",
-      "source": "Schulthess Klinik Dedicated Parser (Prospective medium 1007262)",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-08T21:45:45.029Z",
-      "addressLocality": "Zürich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8001",
-      "streetAddress": "Lengghalde 2",
-      "category": "Tecnica",
-      "contract": "full-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://job.schulthess-klinik.ch/successfactors/EMEA_ROT/SchulthessK/de/apply?id=2125",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "mitarbeiterin-mitarbeiter-reinigung-schulthess-klinik-zurich",
-        "mitarbeiterin-collaboratore-trice-reinigung-schulthess-klinik-zurich"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "mitarbeiterin-mitarbeiter-reinigung-schulthess-klinik-zurich",
-          "mitarbeiterin-collaboratore-trice-reinigung-schulthess-klinik-zurich"
-        ],
-        "en": [
-          "mitarbeiterin-mitarbeiter-reinigung-schulthess-klinik-zurich"
-        ],
-        "fr": [
-          "mitarbeiterin-mitarbeiter-reinigung-schulthess-klinik-zurich"
-        ]
-      },
-      "firstSeenAt": "2026-11-04T09:18:57.392Z",
-      "salaryMin": 83000,
-      "salaryMax": 126000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 83000,
-          "maxValue": 126000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-02T21:45:45.029Z",
+      "validThrough": "2027-02-03T09:18:33.798Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -536,7 +450,7 @@
       "url": "https://job.schulthess-klinik.ch/offene-stellen/disponentin-disponent-fusschirurgie/85375894-455e-4bd3-ad41-d5a4dc32c493",
       "source": "Schulthess Klinik Dedicated Parser (Prospective medium 1007262)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T21:45:45.027Z",
+      "crawledAt": "2026-11-09T09:18:33.795Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -585,7 +499,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-02T21:45:45.027Z",
+      "validThrough": "2027-02-03T09:18:33.795Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -620,7 +534,7 @@
       "url": "https://job.schulthess-klinik.ch/offene-stellen/pflegefachperson-hf-fh-fuer-die-bettenstationen/1998830d-d5a2-432f-9057-1bf342f95cc5",
       "source": "Schulthess Klinik Dedicated Parser (Prospective medium 1007262)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T21:45:45.024Z",
+      "crawledAt": "2026-11-09T09:18:33.791Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -671,7 +585,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-02T21:45:45.024Z",
+      "validThrough": "2027-02-03T09:18:33.791Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -706,7 +620,7 @@
       "url": "https://job.schulthess-klinik.ch/offene-stellen/radiologiefachperson/9711dbfb-2289-4dd0-ad94-0c1237851361",
       "source": "Schulthess Klinik Dedicated Parser (Prospective medium 1007262)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T21:45:45.021Z",
+      "crawledAt": "2026-11-09T09:18:33.788Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -755,7 +669,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-31T21:45:45.021Z",
+      "validThrough": "2027-02-01T09:18:33.788Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -789,7 +703,7 @@
       "url": "https://job.schulthess-klinik.ch/offene-stellen/oberarzt-oberaerztin-rheumatologie/80b383ed-c642-450a-8422-c8bf703f03ce",
       "source": "Schulthess Klinik Dedicated Parser (Prospective medium 1007262)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T21:45:45.018Z",
+      "crawledAt": "2026-11-09T09:18:33.784Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -838,7 +752,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-26T21:45:45.018Z",
+      "validThrough": "2027-01-27T09:18:33.784Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -872,7 +786,7 @@
       "url": "https://job.schulthess-klinik.ch/offene-stellen/arztsekretaerin-arztsekretaer-wirbelsaeulenchirurgie/cf79116f-0982-4249-b74c-1e5e7b444ca8",
       "source": "Schulthess Klinik Dedicated Parser (Prospective medium 1007262)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T21:45:45.015Z",
+      "crawledAt": "2026-11-09T09:18:33.781Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -921,7 +835,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-02T21:45:45.015Z",
+      "validThrough": "2027-02-03T09:18:33.781Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -956,7 +870,7 @@
       "url": "https://job.schulthess-klinik.ch/offene-stellen/koordinatorin-koordinator-tagdienste-reinigung/6f398567-f6a5-4b77-a4f5-45fc54491d34",
       "source": "Schulthess Klinik Dedicated Parser (Prospective medium 1007262)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T21:45:45.010Z",
+      "crawledAt": "2026-11-09T09:18:33.779Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1005,7 +919,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-03T21:45:45.010Z",
+      "validThrough": "2027-02-03T09:18:33.779Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1040,7 +954,7 @@
       "url": "https://job.schulthess-klinik.ch/offene-stellen/mitarbeiterin-mitarbeiter-room-service-mit-wochenendverantwortung/6b7dae22-2c37-4ac9-b66b-88a790a091c5",
       "source": "Schulthess Klinik Dedicated Parser (Prospective medium 1007262)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T21:45:45.002Z",
+      "crawledAt": "2026-11-09T09:18:33.776Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1091,7 +1005,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-25T21:45:45.002Z",
+      "validThrough": "2027-01-26T09:18:33.776Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1126,7 +1040,7 @@
       "url": "https://job.schulthess-klinik.ch/offene-stellen/klinische-fachspezialistin-klinischer-fachspezialist/c2c51d4c-b260-4010-b39f-082e1eeab07b",
       "source": "Schulthess Klinik Dedicated Parser (Prospective medium 1007262)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T21:45:44.956Z",
+      "crawledAt": "2026-11-09T09:18:33.772Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1175,7 +1089,93 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-04T21:45:44.956Z",
+      "validThrough": "2027-02-05T09:18:33.772Z",
+      "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "schulthess-klinik-933af8db8a55",
+      "slug": "addetta-addetto-alle-pulizie-schulthess-klinik-zurich",
+      "slugByLocale": {
+        "it": "addetta-addetto-alle-pulizie-schulthess-klinik-zurich",
+        "en": "employee-employee-cleaning-schulthess-klinik-zurich",
+        "de": "mitarbeiterin-mitarbeiter-reinigung-schulthess-klinik-zurich",
+        "fr": "nettoyage-des-employes-schulthess-klinik-zurich"
+      },
+      "company": "Schulthess Klinik",
+      "companyKey": "schulthess-klinik",
+      "companyDomain": "schulthess-klinik.ch",
+      "title": "Mitarbeiterin / Mitarbeiter Reinigung",
+      "titleByLocale": {
+        "it": "Addetta / Addetto alle pulizie",
+        "en": "Employee / Employee cleaning",
+        "de": "Mitarbeiterin / Mitarbeiter Reinigung",
+        "fr": "Nettoyage des employés"
+      },
+      "description": "Aufgaben:\n• Reinigung von\n\n• Patientenzimmern (Restant und Austritt)\n\n• Sanitärräumen wie Toiletten, Duschen und Garderoben\n\n• öffentlichen Bereichen\n\n• Restaurantbereich\n\n• Arztpraxen etc.\n\n• Bettenreinigung\n\n• Flexibel einsetzbar im Abenddienst zwischen Montag und Sonntag; mehrheitlich halbtags und an Wochenenden auch ganztags (1-2 Wochenende pro Monat)\n\nAnforderungen:\n• Mehrjährige Berufserfahrung in der Reinigung erwünscht\n\n• Erfahrung im Gesundheitswesen von Vorteil\n\n• Hohe Einsatzbereitschaft und Belastbarkeit\n\n• Flexibel, teamfähig, verantwortungsvoll, rasche Auffassungsgabe\n\n• Sehr gute Deutschkenntnisse\n\nWir bieten:\n• Planbarkeit der Arbeitszeiten und Schichten\n\n• 40 Stundenwoche\n\n• Attraktive Sozialleistungen und zahlreiche Benefits\n\n• Bezahlte oder kompensierbare Umkleidezeit (15 Min./Tag / 6.5 Freitage/Jahr)\n\nDie Schulthess Klinik in Zürich ist eine der führenden orthopädischen Kliniken Europas mit über 1'100 Mitarbeitenden. Unser zentrales Anliegen ist es, Menschen von ihren Schmerzen zu befreien und ihre Mobilität wiederherzustellen. Als Spezialklinik konzentrieren wir uns auf chirurgische Orthopädie, Neurologie, Rheumatologie und Sportmedizin. Die Schulthess Klinik ist Swiss Olympic Medical Center.",
+      "descriptionByLocale": {
+        "it": "Compiti:\n• Pulizia di:\n\n• Camere per i pazienti (soggiorno e uscita)\n\n• Strutture sanitarie come servizi igienici, docce e armadi\n\n• Settore pubblico\n\n• Area ristorante\n\n• pratiche mediche ecc.\n\n• Servizi di pulizia letti\n\n• Servizio diurno flessibile tra lunedì e domenica; per lo più mezza giornata e nei fine settimana anche giorno intero (1-2 fine settimana al mese). Durata fino al 31.08.2027\n\nRequisiti\n• Diversi anni di esperienza professionale nella pulizia desiderata\n\n• L'esperienza sanitaria è benefica\n\n• Alta disponibilità operativa e resilienza\n\n• Flessibile, capace di lavorare di squadra, responsabile, rapida comprensione\n\n• Molto buona conoscenza del tedesco\n\nOffriamo:\n• Pianificabilità delle ore di lavoro e dei turni\n\n• 40 settimana oraria\n\n• Prestazioni sociali interessanti e numerosi vantaggi\n\n• Tempo di cambio pagato o compensabile (15 min./giorno / 6.5 Venerdì/anno)\n\nLa clinica Schulthess di Zurigo è una delle principali cliniche ortopediche in Europa con oltre 1.100 dipendenti. La nostra preoccupazione centrale è quella di liberare le persone dal loro dolore e ripristinare la loro mobilità. Come clinica specializzata, ci concentriamo su ortopedia chirurgica, neurologia, reumatologia e medicina sportiva. La clinica Schulthess è il centro medico olimpico svizzero.",
+        "en": "Tasks:\n• Cleaning of:\n\n• Patient rooms (rest and exit)\n\n• Sanitary facilities such as toilets, showers and wardrobes\n\n• Public sector\n\n• Restaurant area\n\n• medical practices etc.\n\n• Bed cleaning services\n\n• Flexible day service between Monday and Sunday; mostly half-days and on weekends also full-day (1-2 weekends per month). Duration until 31.08.2027\n\nRequirements\n• Several years of professional experience in cleaning desired\n\n• Healthcare experience is beneficial\n\n• High operational readiness and resilience\n\n• Flexible, capable of teamwork, responsible, quick comprehension\n\n• Very good knowledge of German\n\nWe offer:\n• Plannability of working hours and shifts\n\n• 40 hourly week\n\n• Attractive social benefits and numerous benefits\n\n• Paid or compensable changing time (15 min./day / 6.5 Fridays/year)\n\nThe Schulthess Clinic in Zurich is one of the leading orthopaedic clinics in Europe with over 1,100 employees. Our central concern is to free people from their pain and restore their mobility. As a specialist clinic, we focus on surgical orthopedics, neurology, rheumatology and sports medicine. Schulthess Clinic is Swiss Olympic Medical Center.",
+        "de": "Aufgaben:\n• Reinigung von\n\n• Patientenzimmern (Restant und Austritt)\n\n• Sanitärräumen wie Toiletten, Duschen und Garderoben\n\n• öffentlichen Bereichen\n\n• Restaurantbereich\n\n• Arztpraxen etc.\n\n• Bettenreinigung\n\n• Flexibel einsetzbar im Abenddienst zwischen Montag und Sonntag; mehrheitlich halbtags und an Wochenenden auch ganztags (1-2 Wochenende pro Monat)\n\nAnforderungen:\n• Mehrjährige Berufserfahrung in der Reinigung erwünscht\n\n• Erfahrung im Gesundheitswesen von Vorteil\n\n• Hohe Einsatzbereitschaft und Belastbarkeit\n\n• Flexibel, teamfähig, verantwortungsvoll, rasche Auffassungsgabe\n\n• Sehr gute Deutschkenntnisse\n\nWir bieten:\n• Planbarkeit der Arbeitszeiten und Schichten\n\n• 40 Stundenwoche\n\n• Attraktive Sozialleistungen und zahlreiche Benefits\n\n• Bezahlte oder kompensierbare Umkleidezeit (15 Min./Tag / 6.5 Freitage/Jahr)\n\nDie Schulthess Klinik in Zürich ist eine der führenden orthopädischen Kliniken Europas mit über 1'100 Mitarbeitenden. Unser zentrales Anliegen ist es, Menschen von ihren Schmerzen zu befreien und ihre Mobilität wiederherzustellen. Als Spezialklinik konzentrieren wir uns auf chirurgische Orthopädie, Neurologie, Rheumatologie und Sportmedizin. Die Schulthess Klinik ist Swiss Olympic Medical Center.",
+        "fr": "Tâches :\n• Nettoyage:\n\n• Salles pour patients (rest et sortie)\n\n• Services sanitaires tels que toilettes, douches et armoires\n\n• Secteur public\n\n• Zone restaurant\n\n• pratiques médicales, etc.\n\n• Services de nettoyage des lits\n\n• Service de jour flexible entre le lundi et le dimanche; la plupart des demi-journées et les week-ends aussi journée entière (1-2 week-ends par mois). Durée jusqu'au 31.08.2027\n\nExigences\n• Plusieurs années d'expérience professionnelle dans le nettoyage souhaité\n\n• L'expérience en soins de santé est bénéfique\n\n• Capacité opérationnelle et résilience élevées\n\n• Flexible, capable de travailler en équipe, responsable, compréhension rapide\n\n• Très bonne connaissance de l'allemand\n\nNous offrons:\n• Plannibilité des heures de travail et des postes\n\n• 40 semaines horaires\n\n• Prestations sociales attractives et nombreuses prestations\n\n• Temps de changement payé ou indemnisable (15 min./jour / 6,5 vendredis/année)\n\nLa clinique Schulthess de Zurich est l'une des principales cliniques orthopédiques en Europe avec plus de 1 100 employés. Notre principale préoccupation est de libérer les gens de leur douleur et de rétablir leur mobilité. En tant que clinique spécialisée, nous nous concentrons sur l'orthopédie chirurgicale, la neurologie, la rhumatologie et la médecine sportive. La clinique Schulthess est le centre médical olympique suisse."
+      },
+      "needsRetranslation": false,
+      "location": "Zürich",
+      "canton": "ZH",
+      "url": "https://job.schulthess-klinik.ch/offene-stellen/mitarbeiterin-mitarbeiter-reinigung/7d85d010-0c0a-40a4-93b1-10283e169b11",
+      "source": "Schulthess Klinik Dedicated Parser (Prospective medium 1007262)",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-09T09:18:33.748Z",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8001",
+      "streetAddress": "Lengghalde 2",
+      "category": "Tecnica",
+      "contract": "full-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://job.schulthess-klinik.ch/successfactors/EMEA_ROT/SchulthessK/de/apply?id=2125",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "mitarbeiterin-mitarbeiter-reinigung-schulthess-klinik-zurich",
+        "mitarbeiterin-collaboratore-trice-reinigung-schulthess-klinik-zurich"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "mitarbeiterin-mitarbeiter-reinigung-schulthess-klinik-zurich",
+          "mitarbeiterin-collaboratore-trice-reinigung-schulthess-klinik-zurich"
+        ],
+        "en": [
+          "mitarbeiterin-mitarbeiter-reinigung-schulthess-klinik-zurich"
+        ],
+        "fr": [
+          "mitarbeiterin-mitarbeiter-reinigung-schulthess-klinik-zurich"
+        ]
+      },
+      "firstSeenAt": "2026-11-04T09:18:57.392Z",
+      "salaryMin": 83000,
+      "salaryMax": 126000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 83000,
+          "maxValue": 126000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-02-03T09:18:33.748Z",
       "validThroughSource": "last-observed-window"
     }
   ]
