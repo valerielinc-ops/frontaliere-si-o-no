@@ -411,12 +411,12 @@ jobs:
             - **OBBLIGATORIO:** posta `## Post-merge follow-up triage` summary commento su QUELLA PR (#N) — SEMPRE, anche con zero candidate (`## Post-merge follow-up triage: zero outstanding items.`). Questo commento è il MARKER DI IDEMPOTENZA del batch: senza, la prossima run schedulata ri-triagia la stessa PR. Include la sezione `Live-verification` (checklist `- [ ]` batchata) se ce ne sono; vedi FOLLOWUP.md § Closing comment.
 
             **Constraint:**
-            - Le scritture ammesse sono `gh issue create/edit/comment` sul repository target e `gh pr comment` sulla PR sorgente; mai modificare PR label/state/title e mai chiudere/riaprire issue dal triage.
-            - Append al body: leggi subito prima, confronta baseline/hash e ricostruisci senza cancellare item. Letture/preparazioni concorrenti; scritture seriali.
+            - Scritture: `gh issue create/edit/comment` target e `gh pr comment` PR; mai PR label/state/title o chiusura/riapertura issue.
+            - Append-only: leggi prima; confronta baseline/hash, ricostruisci senza perdere item; letture/preparazione parallele, scritture seriali.
             - Incerto sul filtro → crea con rationale "needs triage".
-            - **Scritture seriali:** una mutazione alla volta; attendi l'esito e ritenta il comando con backoff bounded (massimo 3) su `busy`/transitorio. Rileggi PR, verifica `## Post-merge follow-up triage`; se manca, ritenta. Completa solo con tutti i marker.
-            - **Token-lever (solo letture):** letture `gh` indipendenti in parallelo; mai scritture concorrenti.
-            - NB: la supersede detection NON è scope di questo prompt — la fa già `followup-reconcile.yml` deterministico daily (zero-agent). Una PR nata per un bucket porta `Follow-up item: FU-...` e `Addresses #<bucket>`; non usare `Closes` finché resta anche un item aperto.
+            - **Scritture seriali e verificabili:** non avviare in parallelo `gh issue create/edit/comment`/`gh pr comment`, nemmeno su target diversi; attendi esito. `busy`/errore transitorio → stesso comando, backoff bounded, massimo 3 tentativi; non saltare/sostituire. Rileggi ogni PR del batch positivo: marker `## Post-merge follow-up triage` mancante → ritenta serialmente e ricontrolla. `Triage completata` solo con tutti i marker; altrimenti segnala target non scritto.
+            - **Token-lever (solo letture):** letture parallele; non autorizza scritture concorrenti.
+            - NB: supersede in `followup-reconcile.yml`. Bucket: `Follow-up item: FU-...` + `Addresses #<bucket>`; niente `Closes` con item aperti.
 
       # NB: niente self-retry step (era richiesto dal modello per-PR, dove un run fallito
       # = triage perso per sempre). Nel modello batch la finestra e' un lookback fisso
