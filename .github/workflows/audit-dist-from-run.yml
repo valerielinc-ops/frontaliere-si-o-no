@@ -46,6 +46,14 @@ on:
         required: false
         default: false
         type: boolean
+      prune_source_images:
+        description: >-
+          Remove the source-only public/images tree before a known full replay
+          to reserve runner disk for the rehydrated dist. Keep false for
+          arbitrary audit replays whose scripts may inspect source images.
+        required: false
+        default: false
+        type: boolean
       audit_all_audits:
         description: 'Optional CSV filter passed to audit:all (used by the publish-side report job to exclude integrity auditors already run by validate-dist).'
         required: false
@@ -98,6 +106,14 @@ on:
         type: string
       full_scan:
         description: 'Force every manifest-indexed validator to scan the complete population.'
+        required: false
+        default: false
+        type: boolean
+      prune_source_images:
+        description: >-
+          Remove the source-only public/images tree before a known full replay
+          to reserve runner disk for the rehydrated dist. Keep false for
+          arbitrary audit replays whose scripts may inspect source images.
         required: false
         default: false
         type: boolean
@@ -154,6 +170,25 @@ jobs:
           sparse-checkout: |
             /scripts/ci/page-audit-index.mjs
           sparse-checkout-cone-mode: false
+
+      # The weekly full corpus only audits the rehydrated dist plus the
+      # pinned data/scripts inputs. The 4.4 GB source-image tree is not an
+      # input to that list, but retaining it leaves too little headroom for
+      # the complete dist and the final shard ZIP. Keep the opt-in explicit:
+      # arbitrary replays may request an audit that reads source images.
+      - name: Prune source-only images before full dist rehydrate
+        if: ${{ inputs.prune_source_images }}
+        run: |
+          set -euo pipefail
+          if [ -d public/images ]; then
+            size_mb="$(du -sm -- public/images | cut -f1)"
+            rm -rf -- public/images
+            echo "Released ${size_mb} MiB from source-only public/images."
+          else
+            echo 'public/images is already absent.'
+          fi
+          df -h /
+          df -i /
 
       # Rehydrating both shard families onto the extracted tarball needs room
       # the 14 GB default partition doesn't have. Mirrors the identical step in
