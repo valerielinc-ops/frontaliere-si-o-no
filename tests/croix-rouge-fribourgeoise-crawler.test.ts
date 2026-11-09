@@ -41,6 +41,9 @@ describe('Croix-Rouge fribourgeoise crawler parser', () => {
       expect(isCroixRougeFribourgeoiseJob({
         url: 'https://company.jobcloud.ch/fr/job-list/1773421929172x328595190866247700',
       })).toBe(true);
+      expect(isCroixRougeFribourgeoiseJob({
+        url: 'https://company.jobcloud.ch/fr/jobs/croix-rouge-fribourgeoise/a55e0f5b-afe7-4406-a15c-d0a73ef159fd',
+      })).toBe(true);
     });
 
     it('does NOT match a different JobCloud company-page listing id', () => {
@@ -164,6 +167,13 @@ describe('Croix-Rouge fribourgeoise crawler parser', () => {
       expect(extractListingLinks(html)).toEqual([
         'https://company.jobcloud.ch/fr/jobs/962b0a39-e87f-4de4-a068-58083fcebac5/',
         '/fr/jobs/a55e0f5b-afe7-4406-a15c-d0a73ef159fd?list=1773421929172x328595190866247700',
+      ]);
+    });
+
+    it('accepts the current JobCloud company-slug detail path', () => {
+      const html = '<a href="/fr/jobs/croix-rouge-fribourgeoise/962b0a39-e87f-4de4-a068-58083fcebac5">current</a>';
+      expect(extractListingLinks(html)).toEqual([
+        '/fr/jobs/croix-rouge-fribourgeoise/962b0a39-e87f-4de4-a068-58083fcebac5',
       ]);
     });
   });
@@ -523,6 +533,56 @@ describe('fetchAllCroixRougeFribourgeoiseJobs (JobCloud Company Page listing + d
     expect(jobs[0].employmentType).toBe('PART_TIME');
     expect(jobs[0].streetAddress).toBe('Rue G.-Techtermann 2');
     expect(jobs[0].description.length).toBeGreaterThan(50);
+  });
+
+  it('falls back to the Jobup employer search when the company profile has no cards', async () => {
+    const uuid = 'c9da42d5-05a4-44ff-8547-d00e84070851';
+    const detailUrl = `https://www.jobup.ch/fr/emplois/detail/${uuid}/`;
+    const posting = {
+      '@context': 'https://schema.org',
+      '@type': 'JobPosting',
+      title: 'Collaborateur administratif bilingue',
+      description: '<p>La Croix-Rouge fribourgeoise recherche une personne pour gérer les membres, les donateurs, les courriers, les commandes, les réservations et l’accueil. Vous collaborez avec les équipes internes, suivez les demandes et contribuez au bon fonctionnement de l’administration au service des personnes vulnérables dans le canton de Fribourg. Vous assurez également le suivi des dossiers, préparez les réunions, répondez aux sollicitations quotidiennes et travaillez avec les partenaires institutionnels.</p>',
+      datePosted: '2026-11-05',
+      employmentType: 'FULL_TIME',
+      jobLocation: { address: { postalCode: '1700', addressLocality: 'Fribourg', addressCountry: 'CH' } },
+    };
+    const searchHtml = `<!doctype html><html><body><main data-cy="serp-list">
+      <a data-cy="job-link" href="/fr/emplois/detail/${uuid}/">
+        <span class="textStyle_body2">${posting.title}</span>
+        <span>Lieu de travail<!-- -->:</span><p>1700 Fribourg</p>
+        <span>Taux d'activité<!-- -->:</span><p>80%</p>
+        <span>Type de contrat<!-- -->:</span><p>Durée indéterminée</p>
+        <p class="c_gray.700 fw_bold">l'Association fribourgeoise de la Croix-Rouge suisse</p>
+      </a>
+      <a data-cy="job-link" href="/fr/emplois/detail/9851233f-e447-4fcc-aa3e-f51edc209d56/">
+        <span class="textStyle_body2">Vendeuse</span>
+        <p class="c_gray.700 fw_bold">Croix-Rouge genevoise</p>
+      </a>
+    </main></body></html>`;
+
+    vi.spyOn(globalThis, 'fetch').mockImplementation(async (url: unknown) => {
+      const target = String(url);
+      if (target.includes('/job-list/')) {
+        return { ok: true, status: 200, text: async () => '<html><body>JobCloud cards unavailable</body></html>' } as unknown as Response;
+      }
+      if (target.includes('/societes/')) {
+        return { ok: true, status: 200, text: async () => '<html><body><main>Il n\'y a actuellement aucune offre d\'emploi.</main></body></html>' } as unknown as Response;
+      }
+      if (target.includes('/fr/emplois/?term=')) {
+        return { ok: true, status: 200, text: async () => searchHtml } as unknown as Response;
+      }
+      if (target === detailUrl) {
+        return { ok: true, status: 200, text: async () => `<html><body><h1>${posting.title}</h1><script type="application/ld+json">${JSON.stringify(posting)}</script></body></html>` } as unknown as Response;
+      }
+      throw new Error(`unexpected URL ${target}`);
+    });
+
+    const jobs = await fetchAllCroixRougeFribourgeoiseJobs();
+    expect(jobs).toHaveLength(1);
+    expect(jobs[0].url).toBe(detailUrl);
+    expect(jobs[0].source).toContain('Jobup search');
+    expect(jobs[0].title).toBe(posting.title);
   });
 
   it('uses a full visible Jobup body when JSON-LD contains only a short teaser', async () => {
