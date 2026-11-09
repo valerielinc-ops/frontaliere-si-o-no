@@ -307,13 +307,13 @@ describe('sharedWriteRegistry', () => {
  expect(claim(path.join(root, 'guide'), 'pluginB', 'file')).toBe('allow-write');
  });
 
- it('derives an index page directory instead of storing one directory per page', () => {
+ it('retains each index page directory for concrete collision diagnostics', () => {
  const root = path.resolve(os.tmpdir(), 'retained-shape-index-fixture');
  claim(path.join(root, 'jobs', 'first', 'index.html'), 'pluginA', 'html');
  const storedDirs = getOutputShapeDirCount();
  const secondIndex = path.join(root, 'jobs', 'second', 'index.html');
  claim(secondIndex, 'pluginA', 'html');
- expect(getOutputShapeDirCount()).toBe(storedDirs);
+ expect(getOutputShapeDirCount()).toBe(storedDirs + 1);
 
  let error: unknown;
  try {
