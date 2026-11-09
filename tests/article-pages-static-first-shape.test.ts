@@ -34,6 +34,19 @@ describe('article pages emit a static-first body (#4959)', () => {
     expect(source).toContain('articleRootShell(false)');
   });
 
+  it('keeps an eligible control article ready for blocker-only house creative recovery', () => {
+    const source = read('packages/articles/engine/ogPagesPlugin.ts');
+    expect(source).toMatch(/const articleAtfEligible = !isEvent[\s\S]{0,220}sectionSource\.length >= 3[\s\S]{0,180}staticBodyText\.length >= 1400/);
+    expect(source).toContain('const articleAtfBlockerOnlyHtml = articleAtfEligible && !articleAtfAdHtml');
+    expect(source).toContain('data-ft-house-blocker-only="true"');
+    expect(source).toContain('data-ft-house-height="${ARTICLE_DETAIL_ATF_PLACEHOLDER_HEIGHT}"');
+    expect(source).toContain(': articleAtfBlockerOnlyHtml;');
+
+    const reactSource = read('components/community/BlogArticles.tsx');
+    expect(reactSource).toContain('!articleAtfTreatment && !staticArticleAtfHandoff && adEligibleInline');
+    expect(reactSource).toContain('data-ft-house-blocker-only="true"');
+  });
+
   /**
    * #4828 — the sibling-main shape above is only HALF of the staticOverlay
    * shell contract. `build-plugins/htmlTemplate.ts` emits `#root`, then the

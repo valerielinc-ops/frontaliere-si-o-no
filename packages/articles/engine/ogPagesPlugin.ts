@@ -49,6 +49,7 @@ import { parseArticleUrlSlugs } from './shared/articleReaderSource.mjs';
 import {
  ARTICLE_DETAIL_ATF_AD_TEST_VARIANT_RC_KEY,
  ARTICLE_DETAIL_ATF_EXPERIMENT_ID,
+ ARTICLE_DETAIL_ATF_PLACEHOLDER_HEIGHT,
  ARTICLE_DETAIL_ATF_TREATMENT_VARIANT,
  resolveArticleDetailAtfAdVariant,
 } from './shared/articleAtfAdExperiment';
@@ -2079,12 +2080,13 @@ ${href}
  const articleAtfVariant = resolveArticleDetailAtfAdVariant(
   process.env[ARTICLE_DETAIL_ATF_AD_TEST_VARIANT_RC_KEY],
  );
- const articleAtfAdHtml = !isEvent
-  && articleAtfVariant === ARTICLE_DETAIL_ATF_TREATMENT_VARIANT
+ const articleAtfEligible = !isEvent
   && !articleBodyHasPromptPlaceholder
   && sectionSource.length >= 3
   && countWords(staticBodyHtml) >= 220
-  && staticBodyText.length >= 1400
+  && staticBodyText.length >= 1400;
+ const articleAtfAdHtml = articleAtfEligible
+  && articleAtfVariant === ARTICLE_DETAIL_ATF_TREATMENT_VARIANT
   && staticAdSlotHtml
   ? staticAdSlotHtml('article-atf', {
    collapseWhenUnfilled: true,
@@ -2093,9 +2095,12 @@ ${href}
    experimentVariant: articleAtfVariant,
   })
   : '';
+ const articleAtfBlockerOnlyHtml = articleAtfEligible && !articleAtfAdHtml
+  ? `<div class="ft-article-atf-ad" data-house="article-atf" data-ft-house-blocker-only="true" data-ft-house-height="${ARTICLE_DETAIL_ATF_PLACEHOLDER_HEIGHT}" data-ft-article-atf-slot="true" data-ad-experiment="${ARTICLE_DETAIL_ATF_EXPERIMENT_ID}" data-ad-variant="${articleAtfVariant}" aria-label="advertisement"></div>`
+  : '';
  const articleAtfMarkup = articleAtfAdHtml
   ? `<div class="ft-article-atf-ad" data-ft-article-atf-slot="true" data-ad-experiment="${ARTICLE_DETAIL_ATF_EXPERIMENT_ID}" data-ad-variant="${articleAtfVariant}" aria-label="advertisement">${articleAtfAdHtml}</div>`
-  : '';
+  : articleAtfBlockerOnlyHtml;
  const articleAtfDiagMarker = !isEvent && articleAtfVariant === ARTICLE_DETAIL_ATF_TREATMENT_VARIANT
   ? `<meta name="ft-article-atf-variant" data-ad-experiment="${ARTICLE_DETAIL_ATF_EXPERIMENT_ID}" data-ad-variant="${articleAtfVariant}">`
   : '';

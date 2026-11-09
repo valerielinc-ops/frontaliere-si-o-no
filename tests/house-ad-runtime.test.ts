@@ -14,6 +14,11 @@ function frame(state: string, placement = 'article-inline') {
   const host = w.document.createElement('div'); host.dataset.ftHouseHost = '';
   el.append(google, host); w.document.body.append(el); return { el, google, host };
 }
+function blockerOnlyFrame(placement = 'article-atf') {
+  const el = w.document.createElement('div'); el.dataset.house = placement;
+  el.dataset.ftHouseBlockerOnly = 'true'; el.dataset.ftHouseHeight = '220';
+  w.document.body.append(el); return el;
+}
 async function start(allowed = () => true) {
   const install = w.eval(`(${installHouseAds.toString()})`);
   install(w.eval(`(${createHouseAdCreative.toString()})`), HOUSE_AD_CREATIVE_CSS, emit, allowed, config);
@@ -142,6 +147,34 @@ describe('per-slot first-party creative delivery', () => {
     await start();
     expect(empty.host.querySelector('a')).not.toBeNull();
     expect(emit).toHaveBeenCalledWith('house_ad_rendered', expect.objectContaining({ fallback_reason: 'adblock_detected' }));
+  });
+  it('renders a blocker-only article anchor after a confirmed blocker signal without a Google slot', async () => {
+    const anchor = blockerOnlyFrame();
+    await start();
+    expect(anchor.querySelector('[data-ft-house-host] a')).toBeNull();
+
+    w.__ftAdBlock = { blocked: true, adsAllowed: false };
+    w.dispatchEvent(new w.Event('frontaliere:adblock-data'));
+    await vi.advanceTimersByTimeAsync(200);
+
+    expect(anchor.querySelector('[data-ft-house-host] a')).not.toBeNull();
+    expect(anchor.style.getPropertyValue('--ft-house-height')).toBe('220px');
+    expect(emit).toHaveBeenCalledWith('house_ad_rendered', expect.objectContaining({
+      fallback_reason: 'adblock_detected', placement: 'article-atf', format: 'rectangle',
+    }));
+  });
+  it.each([
+    ['no confirmed blocker', undefined],
+    ['allowlisted blocker', { blocked: true, adsAllowed: true }],
+  ] as const)('keeps a blocker-only marker collapsed for %s', async (_label, signal) => {
+    const anchor = blockerOnlyFrame();
+    if (signal) w.__ftAdBlock = signal;
+    await start();
+
+    expect(anchor.querySelector('[data-ft-house-host] a')).toBeNull();
+    expect(anchor.hasAttribute('data-ft-house-active')).toBe(false);
+    expect(w.document.querySelector('#ft-house-creative-style')?.textContent)
+      .toContain('[data-ft-house-blocker-only]:not([data-ft-house-active])');
   });
   it('fills a stalled React/GPT wrapper without clearing its pending request marker', async () => {
     const empty = frame('waiting_response'); empty.google.setAttribute('data-ft-ad-request-pending', '1');

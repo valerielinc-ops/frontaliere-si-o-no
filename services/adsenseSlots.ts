@@ -34,6 +34,7 @@
  */
 
 import { shouldSuppressManualInfeedAd } from './adExperiment.ts';
+import { ARTICLE_DETAIL_ATF_PLACEHOLDER_HEIGHT } from '../packages/articles/engine/shared/articleAtfAdExperiment';
 
 export { INFEED_AD_EXPERIMENT_ID, INFEED_AD_EXPERIMENT_RC_KILL_KEY, INFEED_AD_VARIANTS } from './adExperiment.ts';
 export { INFEED_AD_TREATMENT_CANTONS as INFEED_AD_AB_TEST_SUPPRESSED_CANTONS } from './adExperiment.ts';
@@ -47,7 +48,7 @@ export const AD_SLOTS = {
  format: 'fluid',
  layout: 'in-article',
  fullWidthResponsive: false,
- placeholderMinHeight: 220,
+ placeholderMinHeight: ARTICLE_DETAIL_ATF_PLACEHOLDER_HEIGHT,
  },
  /** Blog: end-of-article multiplex */
  ARTICLE_END_MULTIPLEX: {
