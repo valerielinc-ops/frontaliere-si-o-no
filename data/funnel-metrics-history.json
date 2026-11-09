@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-02T17:00:45.113Z",
+  "updatedAt": "2026-11-09T17:24:06.315Z",
   "entries": [
     {
       "date": "2026-06-08",
@@ -791,6 +791,46 @@
         "rpmCHF": 7.63,
         "desktopRpmCHF": 4.4,
         "revenuePerDayCHF": 21.86
+      },
+      "sourcesOk": {
+        "cls": true,
+        "gsc": true,
+        "adsense": true
+      },
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "date": "2026-11-09",
+      "generatedAt": "2026-11-09T17:24:06.226Z",
+      "cls": {
+        "p75Mobile": 0.15,
+        "p75Desktop": 0.139,
+        "window": {
+          "start": "2026-11-01",
+          "end": "2026-11-07"
+        }
+      },
+      "gsc": {
+        "avgPosition": 10.32,
+        "clicksPerDay": 1677,
+        "ctrByBucket": {
+          "/job-board/": null,
+          "/cerca-lavoro-ticino/": 7.14,
+          "/calcola-stipendio/": 2.2,
+          "/articoli-frontaliere/": 2.69,
+          "/fisco/": 0,
+          "/guida-frontaliere/": 2.99
+        }
+      },
+      "adsense": {
+        "currencyCode": "EUR",
+        "rpm": 7.48,
+        "desktopRpm": 4.11,
+        "revenuePerDay": 23.72,
+        "rpmCHF": 7.48,
+        "desktopRpmCHF": 4.11,
+        "revenuePerDayCHF": 23.72
       },
       "sourcesOk": {
         "cls": true,
