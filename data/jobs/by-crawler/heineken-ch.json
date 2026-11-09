@@ -1,14 +1,14 @@
 {
   "crawlerKey": "heineken-ch",
-  "assembledAt": "2026-11-09T09:51:11.791Z",
-  "runId": "42593065101",
+  "assembledAt": "2026-11-09T21:45:09.525Z",
+  "runId": "42702174264",
   "jobs": [
     {
       "id": "heineken-ch-a716028f91b3",
       "jobReqId": "149312",
       "slug": "autista-c-e-heineken-switzerland-fahrweid",
       "slugByLocale": {
-        "it": "chauffeur-c-e-heineken-switzerland-fahrweid",
+        "it": "autista-c-e-heineken-switzerland-fahrweid",
         "en": "driver-c-e-heineken-switzerland-fahrweid",
         "de": "chauffeur-c-e-heineken-ch-fahrweid",
         "fr": "conducteur-de-categorie-c-e-heineken-switzerland-fahrweid"
@@ -51,15 +51,17 @@
       "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=149312&career_ns=job_application",
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:51:03.379Z",
+      "crawledAt": "2026-11-09T21:45:01.434Z",
       "previousSlugs": [
         "chauffeur-c-e-heineken-ch-fahrweid",
-        "c-c-e-heineken-switzerland-fahrweid"
+        "c-c-e-heineken-switzerland-fahrweid",
+        "chauffeur-c-e-heineken-switzerland-fahrweid"
       ],
       "previousSlugsByLocale": {
         "it": [
           "chauffeur-c-e-heineken-ch-fahrweid",
-          "c-c-e-heineken-switzerland-fahrweid"
+          "c-c-e-heineken-switzerland-fahrweid",
+          "chauffeur-c-e-heineken-switzerland-fahrweid"
         ],
         "en": [
           "c-c-e-heineken-switzerland-fahrweid"
@@ -83,7 +85,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-07T09:51:03.379Z",
+      "validThrough": "2027-02-07T21:45:01.434Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -134,7 +136,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=156187&career_ns=job_application",
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:50:55.921Z",
+      "crawledAt": "2026-11-09T21:44:53.050Z",
       "previousSlugs": [
         "chauffeur-kat-c-e-heineken-ch-luzern",
         "chauffeur-kat-c-e-heineken-switzerland-luzern"
@@ -161,7 +163,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-06T09:50:55.921Z",
+      "validThrough": "2027-01-06T21:44:53.050Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -212,7 +214,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=164368&career_ns=job_application",
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:50:47.788Z",
+      "crawledAt": "2026-11-09T21:44:45.739Z",
       "previousSlugs": [
         "sales-market-analyst-w-m-d-heineken-ch-luzern"
       ],
@@ -237,7 +239,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-09T09:50:47.788Z",
+      "validThrough": "2026-12-09T21:44:45.739Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -288,7 +290,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=164840&career_ns=job_application",
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:50:38.449Z",
+      "crawledAt": "2026-11-09T21:44:37.580Z",
       "previousSlugsByLocale": {
         "de": [
           "specialist-warehouse-m-w-d-heineken-ch-belp"
@@ -324,7 +326,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-09T09:50:38.449Z",
+      "validThrough": "2026-12-09T21:44:37.580Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -375,7 +377,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=164826&career_ns=job_application",
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:50:30.448Z",
+      "crawledAt": "2026-11-09T21:44:30.132Z",
       "previousSlugs": [
         "specialist-business-applications-operations-m-w-d-heineken-ch-luzern"
       ],
@@ -404,7 +406,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-09T09:50:30.448Z",
+      "validThrough": "2026-12-09T21:44:30.132Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -420,18 +422,18 @@
       "company": "Heineken Switzerland",
       "companyKey": "heineken-ch",
       "companyDomain": "theheinekencompany.com",
-      "title": "Chauffeur C/E Orion",
+      "title": "Chauffeur / Tankwagenfahrer CE Gastronomie & Events (m/w/d) - 100%",
       "titleByLocale": {
         "it": "Autista C/E Orion",
         "en": "Driver C/E Orion",
-        "de": "Chauffeur C/E Orion",
+        "de": "Chauffeur / Tankwagenfahrer CE Gastronomie & Events (m/w/d) - 100%",
         "fr": "Chauffeur C/E Orion"
       },
-      "description": "Sie sind verantwortlich für die termingerechte Lieferung aller im Orion-Sortiment enthaltenen Produkte an unsere Kunden, vorwiegend in der Gastronomie und bei Events. Dabei stellen Sie die Verkehrstauglichkeit des Fahrzeugs gemäss den Vorgaben des Strassenverkehrsgesetzes sicher. In dieser lebhaften und vielseitigen Tätigkeit sind Sie für folgende \n• Aufgaben zuständig: Befüllung von Kundentanks mit einem City Liner in der gesamten Schweiz Wartung und Pflege der Aufliegeranlage gemäss festgelegten Standards Fachkundiges Führen und Manövrieren eines City Liners Gewissenhaftes Führen der Qualitätsdokumente Unterstützung in der Transport-Feinverteilung und Lager nach Bedarf Übernachtung im LKW ein- bis zweimal pro Woche bei Bedarf Um diese herausfordernden \n• Aufgaben erfolgreich zu erfüllen, erwarten wir folgende Voraussetzungen: Fahrerbewilligung C und E Berufserfahrung als Chauffeur Erste Ansprechperson mit einwandfreien Umgangsformen, Zuverlässigkeit und Verbindlichkeit Selbstständige und zuverlässige Arbeitsweise zeichnen dich aus Gute Deutschkenntnisse in Wort und Schrift Bereitschaft für früher Arbeitsbeginn (04:30 Uhr) und Wochenendeinsätze bei Bedarf (vorwiegend Samstag) Körperlich fit und belastbar Interessiert? Herr Roger Roggo, HR Business Partner, freut sich auf Ihre vollständigen Bewerbungsunterlagen.",
+      "description": "Respekt, Genuss und Qualität aus Leidenschaft gehören zu unseren Kernwerten. Als Bierproduzent mit Brauereistandorten in Chur und Luzern sowie einem eigenen Getränkehandel mit 17 Standorten in der gesamten Schweiz sind wir ein Unternehmen von nationaler Bedeutung. Wir setzen auf einen Mix aus Tradition, Innovation und Kundennähe. Mit unseren Markenbieren tragen wir zur vielfältigen Schweizer Bierkultur bei. Bewege Hektoliter und steuere unseren City Liner quer durch die Schweiz! Hinter jedem grossen Event und jeder gut besuchten Gastronomie steckt eine Logistik, die zuverlässig funktioniert. Und genau hier kommst du ins Spiel. Als wichtiger Teil unseres Orion-Teams sorgst du dafür, dass unseren Kunden der Nachschub nicht ausgeht. Mit unserem modernen City Liner bist du in der ganzen Schweiz unterwegs, belieferst unsere Gastronomiekunden direkt vor Ort und stellst eine reibungslose Versorgung sicher. Du bist gerne auf Achse, packst mit an und suchst eine abwechslungsreiche Fahrtätigkeit mit Verantwortung? Dann bist du bei uns genau richtig. In dieser vielseitigen Funktion erwartet dich mehr als nur das Fahren von A nach B: Du befüllst Kundentanks mit dem City Liner und bist dafür in der ganzen Schweiz unterwegs Du führst und manövrierst den City Liner sicher und fachkundig Du sorgst dafür, dass die Aufliegeranlage gemäss unseren Standards gewartet und gepflegt ist Du führst die erforderlichen Qualitätsdokumente gewissenhaft und zuverlässig Bei Bedarf unterstützt du deine Kolleginnen und Kollegen in der Transport-Feinverteilung sowie im Lager Je nach Tour übernachtest du ein- bis zweimal pro Woche im LKW Das bringst du mit Führerausweis der Kategorien C und E Berufserfahrung als Chauffeur Ein freundliches und professionelles Auftreten, denn bei unseren Kunden bist du eine wichtige Ansprechperson und das Gesicht unseres Unternehmens vor Ort Eine selbstständige, zuverlässige und verantwortungsbewusste Arbeitsweise Gute Deutschkenntnisse in Wort und Schrift Bereitschaft für einen frühen Arbeitsbeginn ab ca. 04:30 Uhr sowie gelegentliche Wochenendeinsätze Körperliche Fitness und Belastbarkeit Du bist gerne unterwegs, übernimmst Verantwortung und schätzt einen Arbeitsalltag, bei dem kein Tag genau gleich aussieht? Dann möchten wir dich kennenlernen. Steig ein und werde Teil unseres Teams!",
       "descriptionByLocale": {
         "it": "Sei responsabile della consegna tempestiva di tutti i prodotti inclusi nella gamma Orion ai nostri clienti, principalmente nella ristorazione ed eventi. Assicurare la roadworthiness del veicolo in conformità con i requisiti del Road Traffic Act. In questa attività vivace e versatile siete per i seguenti\n• Compiti responsabili: riempimento di serbatoi con un City Liner in tutta la Svizzera Manutenzione e manutenzione del sistema di semirimorchio secondo gli standard specificati Gestione specializzata e manovra di una City Liner Gestione consapevole dei documenti di qualità Supporto nel trasporto distribuzione fine e magazzino come richiesto Pernottamento nel camion una o due volte alla settimana come richiesto\n• Compiti di successo, ci aspettiamo i seguenti prerequisiti: Autista C ed E Work esperienza come autista Prima persona di contatto con modi impeccabile, affidabilità e impegno Metodi di lavoro autonomi e affidabili ti distinguono dalle Buone competenze tedesche in parola e scrittura Prontezza per l'inizio del lavoro (04:30) e weekend assegnazioni se necessario (principalmente sabato) Fisicamente adatta e resiliente Interessi? Il signor Roger Roggo, HR Business Partner, non vede l'ora di presentare i suoi documenti completi.",
         "en": "You are responsible for the timely delivery of all products contained in the Orion range to our customers, mainly in the catering industry and at events. You ensure the vehicle's suitability for traffic according to the regulations of the Road Traffic Act.\n\nIn this lively and versatile activity you are responsible for the following\n• tasks: Filling customer tanks with a City Liner throughout Switzerland Maintenance and maintenance of the trailer system according to specified standards Professional driving and maneuvering of a City Liner Conscient carrying of quality documents Support in transport fine distribution and storage as required Overnight stay in a truck once or twice a week if required To successfully perform these challenging\n• tasks, we expect the following requirements: Driver permit C and E professional experience\n\nas a chauffeur First contact person with flawless handling, reliability and commitment Self-employed and reliable working methods distinguish you from good German knowledge in word and writing readiness for early work start (04:30 clock) and weekend sets if required (mainly Saturday) Physically fit and resilient Interested?\n\nMr Roger Rogue, HR Business Partner, is looking forward to receiving your complete application documents.",
-        "de": "Sie sind verantwortlich für die termingerechte Lieferung aller im Orion-Sortiment enthaltenen Produkte an unsere Kunden, vorwiegend in der Gastronomie und bei Events. Dabei stellen Sie die Verkehrstauglichkeit des Fahrzeugs gemäss den Vorgaben des Strassenverkehrsgesetzes sicher. In dieser lebhaften und vielseitigen Tätigkeit sind Sie für folgende \n• Aufgaben zuständig: Befüllung von Kundentanks mit einem City Liner in der gesamten Schweiz Wartung und Pflege der Aufliegeranlage gemäss festgelegten Standards Fachkundiges Führen und Manövrieren eines City Liners Gewissenhaftes Führen der Qualitätsdokumente Unterstützung in der Transport-Feinverteilung und Lager nach Bedarf Übernachtung im LKW ein- bis zweimal pro Woche bei Bedarf Um diese herausfordernden \n• Aufgaben erfolgreich zu erfüllen, erwarten wir folgende Voraussetzungen: Fahrerbewilligung C und E Berufserfahrung als Chauffeur Erste Ansprechperson mit einwandfreien Umgangsformen, Zuverlässigkeit und Verbindlichkeit Selbstständige und zuverlässige Arbeitsweise zeichnen dich aus Gute Deutschkenntnisse in Wort und Schrift Bereitschaft für früher Arbeitsbeginn (04:30 Uhr) und Wochenendeinsätze bei Bedarf (vorwiegend Samstag) Körperlich fit und belastbar Interessiert? Herr Roger Roggo, HR Business Partner, freut sich auf Ihre vollständigen Bewerbungsunterlagen.",
+        "de": "Respekt, Genuss und Qualität aus Leidenschaft gehören zu unseren Kernwerten. Als Bierproduzent mit Brauereistandorten in Chur und Luzern sowie einem eigenen Getränkehandel mit 17 Standorten in der gesamten Schweiz sind wir ein Unternehmen von nationaler Bedeutung. Wir setzen auf einen Mix aus Tradition, Innovation und Kundennähe. Mit unseren Markenbieren tragen wir zur vielfältigen Schweizer Bierkultur bei. Bewege Hektoliter und steuere unseren City Liner quer durch die Schweiz! Hinter jedem grossen Event und jeder gut besuchten Gastronomie steckt eine Logistik, die zuverlässig funktioniert. Und genau hier kommst du ins Spiel. Als wichtiger Teil unseres Orion-Teams sorgst du dafür, dass unseren Kunden der Nachschub nicht ausgeht. Mit unserem modernen City Liner bist du in der ganzen Schweiz unterwegs, belieferst unsere Gastronomiekunden direkt vor Ort und stellst eine reibungslose Versorgung sicher. Du bist gerne auf Achse, packst mit an und suchst eine abwechslungsreiche Fahrtätigkeit mit Verantwortung? Dann bist du bei uns genau richtig. In dieser vielseitigen Funktion erwartet dich mehr als nur das Fahren von A nach B: Du befüllst Kundentanks mit dem City Liner und bist dafür in der ganzen Schweiz unterwegs Du führst und manövrierst den City Liner sicher und fachkundig Du sorgst dafür, dass die Aufliegeranlage gemäss unseren Standards gewartet und gepflegt ist Du führst die erforderlichen Qualitätsdokumente gewissenhaft und zuverlässig Bei Bedarf unterstützt du deine Kolleginnen und Kollegen in der Transport-Feinverteilung sowie im Lager Je nach Tour übernachtest du ein- bis zweimal pro Woche im LKW Das bringst du mit Führerausweis der Kategorien C und E Berufserfahrung als Chauffeur Ein freundliches und professionelles Auftreten, denn bei unseren Kunden bist du eine wichtige Ansprechperson und das Gesicht unseres Unternehmens vor Ort Eine selbstständige, zuverlässige und verantwortungsbewusste Arbeitsweise Gute Deutschkenntnisse in Wort und Schrift Bereitschaft für einen frühen Arbeitsbeginn ab ca. 04:30 Uhr sowie gelegentliche Wochenendeinsätze Körperliche Fitness und Belastbarkeit Du bist gerne unterwegs, übernimmst Verantwortung und schätzt einen Arbeitsalltag, bei dem kein Tag genau gleich aussieht? Dann möchten wir dich kennenlernen. Steig ein und werde Teil unseres Teams!",
         "fr": "Vous êtes responsable de la livraison en temps opportun de tous les produits inclus dans la gamme Orion à nos clients, principalement dans la restauration et les événements. Vous assurez la navigabilité du véhicule conformément aux exigences de la Loi sur la circulation routière. Dans cette activité vivante et polyvalente, vous êtes pour\n• Tâches à assumer : remplir les réservoirs du client avec un City Liner dans toute la Suisse Entretien et entretien du système semi-remorque selon les normes spécifiées Gestion et manœuvre spécialisées d'un City Liner Gestion consciente des documents de qualité Support dans le transport distribution fine et entrepôt selon les besoins Nuit dans le camion une ou deux fois par semaine selon les besoins\n• Accomplir avec succès les tâches, nous attendons les conditions préalables suivantes: Conducteur d'approbation C et E Expérience de travail en tant que chauffeur Première personne de contact avec des manières impeccables, la fiabilité et l'engagement Les méthodes de travail indépendantes et fiables vous distinguent des bonnes compétences allemandes en paroles et en écriture. M. Roger Roggo, associé d'affaires RH, attend avec impatience vos documents de demande complets."
       },
       "location": "Luzern",
@@ -451,11 +453,45 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "url": "https://careers.theheinekencompany.com/job/heineken-switzerland/switzerland/chauffeur-ce-orion?jobid=127858",
+      "url": "https://careers.theheinekencompany.com/job/heineken-switzerland/switzerland/chauffeur-tankwagenfahrer-ce-gastronomie-events-mwd-100?jobid=127858",
       "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=127858&career_ns=job_application",
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:50:23.441Z",
+      "crawledAt": "2026-11-09T21:44:22.045Z",
+      "previousSlugsByLocale": {
+        "de": [
+          "chauffeur-kat-c-e-heineken-ch-luzern",
+          "chauffeur-tankwagenfahrer-ce-gastronomie-events-m-w-d-100-heineken-ch-luzern"
+        ],
+        "it": [
+          "bezeichnung-chauffeur-c-e-heineken-ch-content-width-device-width",
+          "driver-c-e-heineken-switzerland-warum-zu-uns",
+          "driver-c-e-heineken-switzerland-luzern",
+          "driver-c-e-heineken-switzerland-ungsvolle-aufgabe-erfolgreich-zu-erfullen",
+          "title-chauffeur-kat-c-e-heineken-ch-warum-zu-uns",
+          "title-chauffeur-kat-c-e-heineken-ch-ungsvolle-aufgabe-erfolgreich-zu-erfullen",
+          "chauffeur-c-e-heineken-switzerland-warum-zu-uns",
+          "chauffeur-c-e-heineken-switzerland-luzern",
+          "chauffeur-c-e-heineken-switzerland-ungsvolle-aufgabe-erfolgreich-zu-erfullen",
+          "autista-di-camion-heineken-switzerland-content-width-device-width",
+          "chauffeur-de-camion-heineken-switzerland-content-width-device-width",
+          "titre-truck-driver-heineken-switzerland-content-width-device-width",
+          "autista-di-camion-heineken-switzerland-content-width-device-width-bteei3",
+          "autista-c-e-heineken-switzerland-content-width-device-width",
+          "driver-c-e-heineken-switzerland-content-width-device-width",
+          "chauffeur-c-e-heineken-switzerland-content-width-device-width",
+          "autista-cat-c-e-heineken-switzerland-luzern",
+          "autista-c-e-heineken-switzerland-warum-zu-uns",
+          "chauffeur-c-e-orion-heineken-ch-luzern",
+          "chauffeur-tankwagenfahrer-ce-gastronomie-events-m-w-d-100-heineken-ch-luzern"
+        ],
+        "en": [
+          "driver-cat-c-e-heineken-switzerland-luzern"
+        ],
+        "fr": [
+          "chauffeur-cat-c-e-heineken-switzerland-luzern"
+        ]
+      },
       "previousSlugs": [
         "title-chauffeur-kat-c-e-heineken-ch-content-width-device-width",
         "autista-c-e-heineken-switzerland-luzern",
@@ -482,40 +518,9 @@
         "chauffeur-cat-c-e-heineken-switzerland-luzern",
         "autista-cat-c-e-heineken-switzerland-luzern",
         "autista-c-e-heineken-switzerland-warum-zu-uns",
-        "chauffeur-c-e-orion-heineken-ch-luzern"
+        "chauffeur-c-e-orion-heineken-ch-luzern",
+        "chauffeur-tankwagenfahrer-ce-gastronomie-events-m-w-d-100-heineken-ch-luzern"
       ],
-      "previousSlugsByLocale": {
-        "it": [
-          "bezeichnung-chauffeur-c-e-heineken-ch-content-width-device-width",
-          "driver-c-e-heineken-switzerland-warum-zu-uns",
-          "driver-c-e-heineken-switzerland-luzern",
-          "driver-c-e-heineken-switzerland-ungsvolle-aufgabe-erfolgreich-zu-erfullen",
-          "title-chauffeur-kat-c-e-heineken-ch-warum-zu-uns",
-          "title-chauffeur-kat-c-e-heineken-ch-ungsvolle-aufgabe-erfolgreich-zu-erfullen",
-          "chauffeur-c-e-heineken-switzerland-warum-zu-uns",
-          "chauffeur-c-e-heineken-switzerland-luzern",
-          "chauffeur-c-e-heineken-switzerland-ungsvolle-aufgabe-erfolgreich-zu-erfullen",
-          "autista-di-camion-heineken-switzerland-content-width-device-width",
-          "chauffeur-de-camion-heineken-switzerland-content-width-device-width",
-          "titre-truck-driver-heineken-switzerland-content-width-device-width",
-          "autista-di-camion-heineken-switzerland-content-width-device-width-bteei3",
-          "autista-c-e-heineken-switzerland-content-width-device-width",
-          "driver-c-e-heineken-switzerland-content-width-device-width",
-          "chauffeur-c-e-heineken-switzerland-content-width-device-width",
-          "autista-cat-c-e-heineken-switzerland-luzern",
-          "autista-c-e-heineken-switzerland-warum-zu-uns",
-          "chauffeur-c-e-orion-heineken-ch-luzern"
-        ],
-        "en": [
-          "driver-cat-c-e-heineken-switzerland-luzern"
-        ],
-        "de": [
-          "chauffeur-kat-c-e-heineken-ch-luzern"
-        ],
-        "fr": [
-          "chauffeur-cat-c-e-heineken-switzerland-luzern"
-        ]
-      },
       "needsRetranslation": true,
       "localeMismatchSuppressed": true,
       "localeMismatchSuppressedLen": 1327,
@@ -536,7 +541,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-10T09:50:23.441Z",
+      "validThrough": "2026-12-10T21:44:22.045Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -587,7 +592,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=165451&career_ns=job_application",
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-09T09:50:15.512Z",
+      "crawledAt": "2026-11-09T21:44:13.149Z",
       "previousSlugs": [
         "technician-dbo-m-w-d-heineken-ch-denges",
         "techniker-dbo-m-w-d-heineken-switzerland-denges"
@@ -616,7 +621,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-19T09:50:15.512Z",
+      "validThrough": "2026-12-19T21:44:13.149Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -667,7 +672,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=162220&career_ns=job_application",
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:50:07.981Z",
+      "crawledAt": "2026-11-09T21:44:05.686Z",
       "previousSlugs": [
         "logistics-key-account-specialist-m-w-d-80-100-heineken-ch-luzern"
       ],
@@ -692,7 +697,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-28T09:50:07.981Z",
+      "validThrough": "2026-12-27T21:44:05.686Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -700,9 +705,9 @@
       "jobReqId": "164139",
       "slug": "chauffeur-c-o-c1-m-w-d-arosa-heineken-switzerland-arosa",
       "slugByLocale": {
-        "de": "chauffeur-c-e-m-w-arosa-heineken-ch-arosa",
         "it": "chauffeur-c-o-c1-m-w-d-arosa-heineken-switzerland-arosa",
         "en": "chauffeur-c-oder-c1-m-w-arosa-heineken-ch-arosa",
+        "de": "chauffeur-c-e-m-w-arosa-heineken-ch-arosa",
         "fr": "chauffeur-c-oder-c1-m-w-arosa-heineken-ch-arosa"
       },
       "company": "Heineken Switzerland",
@@ -710,16 +715,16 @@
       "companyDomain": "theheinekencompany.com",
       "title": "Chauffeur Kat. C1/C - Wintersaison 2026/27 Chur & Arosa",
       "titleByLocale": {
-        "de": "Chauffeur Kat. C1/C - Wintersaison 2026/27 Chur & Arosa",
         "it": "Chauffeur Cat. C1/C - Stagione invernale 2026/27 Chur & Arosa",
         "en": "Chauffeur Cat. C1/C - Winter season 2026/27 Chur & Arosa",
+        "de": "Chauffeur Kat. C1/C - Wintersaison 2026/27 Chur & Arosa",
         "fr": "Chauffeur Cat. C1/C - Saison d'hiver 2026/27 Chur & Arosa"
       },
       "description": "Für unsere Tochtergesellschaft Stardrinks AG suchen wir für die Wintersaison 2026/27, befristet von Dezember 2026 bis März 2027, eine selbständige und zuverlässige Persönlichkeit als Chauffeur Kat. C1/C. Dein Arbeitsort ist Chur. Aufgrund der Wintersaison wirst Du während dieser Zeit jedoch vermehrt in Arosa im Einsatz sein und unsere Gastronomiekunden in der Region beliefern. Deine Hauptaufgaben: Belieferung unserer Gastronomiekunden mit Bier und weiteren Getränken nach vorgegebenem Tourenplan Sicherstellung einer zuverlässigen und kundenorientierten Auslieferung Mithilfe im Lager, insbesondere beim Rüsten und Bereitstellen von Bestellungen Unterstützung bei Bedarf im Festservice Professioneller und freundlicher Kontakt mit unseren Kunden Unsere \n• Anforderungen: Gültiger Führerausweis der Kategorie C1 oder C Berufserfahrung als Chauffeur von Vorteil Selbständige, zuverlässige und verantwortungsbewusste Arbeitsweise Freundliches und verbindliches Auftreten sowie sehr gute Deutschkenntnisse Körperliche Fitness und Bereitschaft, tatkräftig mitanzupacken Erfahrung in der Kommissionierung und im Umgang mit Elektroameisen Idealerweise Wohnort in der Region, damit auch Pikett-Einsätze möglich sind Auch wenn es einmal hektischer wird, behältst Du den Überblick und überzeugst mit einer zuverlässigen und unkomplizierten Art. Hast Du Interesse an einer abwechslungsreichen Tätigkeit während der Wintersaison? Dann freuen wir uns auf Deine Bewerbung. Für Fragen steht Dir Javier Senande unter Tel. 079 593 11 59 zur Verfügung.",
       "descriptionByLocale": {
-        "de": "Für unsere Tochtergesellschaft Stardrinks AG suchen wir für die Wintersaison 2026/27, befristet von Dezember 2026 bis März 2027, eine selbständige und zuverlässige Persönlichkeit als Chauffeur Kat. C1/C. Dein Arbeitsort ist Chur. Aufgrund der Wintersaison wirst Du während dieser Zeit jedoch vermehrt in Arosa im Einsatz sein und unsere Gastronomiekunden in der Region beliefern. Deine Hauptaufgaben: Belieferung unserer Gastronomiekunden mit Bier und weiteren Getränken nach vorgegebenem Tourenplan Sicherstellung einer zuverlässigen und kundenorientierten Auslieferung Mithilfe im Lager, insbesondere beim Rüsten und Bereitstellen von Bestellungen Unterstützung bei Bedarf im Festservice Professioneller und freundlicher Kontakt mit unseren Kunden Unsere \n• Anforderungen: Gültiger Führerausweis der Kategorie C1 oder C Berufserfahrung als Chauffeur von Vorteil Selbständige, zuverlässige und verantwortungsbewusste Arbeitsweise Freundliches und verbindliches Auftreten sowie sehr gute Deutschkenntnisse Körperliche Fitness und Bereitschaft, tatkräftig mitanzupacken Erfahrung in der Kommissionierung und im Umgang mit Elektroameisen Idealerweise Wohnort in der Region, damit auch Pikett-Einsätze möglich sind Auch wenn es einmal hektischer wird, behältst Du den Überblick und überzeugst mit einer zuverlässigen und unkomplizierten Art. Hast Du Interesse an einer abwechslungsreichen Tätigkeit während der Wintersaison? Dann freuen wir uns auf Deine Bewerbung. Für Fragen steht Dir Javier Senande unter Tel. 079 593 11 59 zur Verfügung.",
         "it": "Per la nostra controllata Stardrinks AG cerchiamo una personalità indipendente e affidabile come autista per la stagione invernale 2026/27, temporaneamente dal dicembre 2026 al marzo 2027. C1/C. Il tuo posto di lavoro e' Chur. A causa della stagione invernale Durante questo periodo, tuttavia, sarete sempre più in uso in Arosa e fornire i nostri clienti di catering nella regione. I vostri compiti principali: fornire ai nostri clienti di catering birra e altre bevande secondo un piano di tour specificato Garantire un'assistenza di consegna affidabile e orientata al cliente nel magazzino, soprattutto quando si imposta e fornisce l'assistenza agli ordini Se necessario nel Festservice Professional e amichevole contatto con i nostri clienti\n• Requisiti: Valida patente di guida della categoria C1 o C Esperienza professionale come autista vantaggioso Autolavoro, affidabile e responsabile metodi di lavoro Amichevole e vincolante, nonché buona conoscenza della fisica tedesca e la disponibilità ad affrontare attivamente l'esperienza nel raccogliere e gestire formiche elettriche Idealmente luogo di residenza nella regione, in modo che anche le assegnazioni pikett sono possibili Anche se diventa frenetica, si mantiene la visione d'insieme e convincere con un modo affidabile e semplice. Sei interessato a una variegata attività durante la stagione invernale? Attendiamo con ansia la vostra applicazione. Per domande, Javier Senande è disponibile a Tel. 079 593 11 59.",
         "en": "For our subsidiary Stardrinks AG we are looking for an independent and reliable personality as a chauffeur cat for the winter season 2026/27, temporarily from December 2026 to March 2027. C1/C. Your place of work is Chur. Due to the winter season During this time, however, you will increasingly be in use in Arosa and supply our catering customers in the region. Your main tasks: supplying our catering customers with beer and other drinks according to a specified tour plan Ensuring a reliable and customer-oriented delivery assistance in the warehouse, especially when setting up and providing orders Support if necessary in the Festservice Professional and friendly contact with our customers Our\n• Requirements: Valid driving license of category C1 or C Professional experience as a chauffeur advantageous Self-employed, reliable and responsible working methods Friendly and binding appearance as well as very good knowledge of German Physical fitness and willingness to actively tackle experience in picking and handling electric ants Ideally place of residence in the region, so that also pikett assignments are possible Even if it gets hectic, you keep the overview and convince with a reliable and uncomplicated way. Are you interested in a varied activity during the winter season? We look forward to your application. For questions, Javier Senande is available at Tel. 079 593 11 59.",
+        "de": "Für unsere Tochtergesellschaft Stardrinks AG suchen wir für die Wintersaison 2026/27, befristet von Dezember 2026 bis März 2027, eine selbständige und zuverlässige Persönlichkeit als Chauffeur Kat. C1/C. Dein Arbeitsort ist Chur. Aufgrund der Wintersaison wirst Du während dieser Zeit jedoch vermehrt in Arosa im Einsatz sein und unsere Gastronomiekunden in der Region beliefern. Deine Hauptaufgaben: Belieferung unserer Gastronomiekunden mit Bier und weiteren Getränken nach vorgegebenem Tourenplan Sicherstellung einer zuverlässigen und kundenorientierten Auslieferung Mithilfe im Lager, insbesondere beim Rüsten und Bereitstellen von Bestellungen Unterstützung bei Bedarf im Festservice Professioneller und freundlicher Kontakt mit unseren Kunden Unsere \n• Anforderungen: Gültiger Führerausweis der Kategorie C1 oder C Berufserfahrung als Chauffeur von Vorteil Selbständige, zuverlässige und verantwortungsbewusste Arbeitsweise Freundliches und verbindliches Auftreten sowie sehr gute Deutschkenntnisse Körperliche Fitness und Bereitschaft, tatkräftig mitanzupacken Erfahrung in der Kommissionierung und im Umgang mit Elektroameisen Idealerweise Wohnort in der Region, damit auch Pikett-Einsätze möglich sind Auch wenn es einmal hektischer wird, behältst Du den Überblick und überzeugst mit einer zuverlässigen und unkomplizierten Art. Hast Du Interesse an einer abwechslungsreichen Tätigkeit während der Wintersaison? Dann freuen wir uns auf Deine Bewerbung. Für Fragen steht Dir Javier Senande unter Tel. 079 593 11 59 zur Verfügung.",
         "fr": "Pour notre filiale Stardrinks AG, nous recherchons une personnalité indépendante et fiable en tant que chauffeur pour la saison d'hiver 2026/27, temporairement de décembre 2026 à mars 2027. C1/C. Votre lieu de travail est Chur. En raison de la saison hivernale Pendant cette période, cependant, vous serez de plus en plus utilisé à Arosa et fournir nos clients de restauration dans la région. Vos tâches principales: fournir à nos clients de restauration de la bière et d'autres boissons selon un plan de visite spécifique Assurer une assistance fiable et orientée vers le client dans l'entrepôt, en particulier lors de la mise en place et de la prestation des commandes Support si nécessaire dans le Festservice Contact professionnel et amical avec nos clients\n• Exigences: Permis de conduire valide de catégorie C1 ou C Expérience professionnelle en tant que chauffeur avantageux Indépendant, fiable et responsable méthodes de travail Aspect amical et contraignant ainsi que très bonne connaissance de l'allemand Condition physique et volonté de s'attaquer activement à l'expérience dans la cueillette et la manutention des fourmis électriques Idéalement lieu de résidence dans la région, de sorte que également des missions pikett sont possibles Même si elle devient agitée, vous gardez l'aperçu et convainquez avec une manière fiable et non compliquée. Êtes-vous intéressé par une activité variée pendant la saison hivernale? Nous attendons avec impatience votre candidature. Pour toute question, Javier Senade est disponible au tél. 079 593 11 59."
       },
       "location": "Arosa",
@@ -743,18 +748,19 @@
       "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=164139&career_ns=job_application",
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:49:59.139Z",
+      "crawledAt": "2026-11-09T21:43:57.557Z",
       "previousSlugsByLocale": {
-        "it": [
+        "de": [
           "chauffeur-kat-c1-c-wintersaison-2026-27-chur-arosa-heineken-ch-arosa"
         ],
-        "de": [
+        "it": [
           "chauffeur-kat-c1-c-wintersaison-2026-27-chur-arosa-heineken-ch-arosa"
         ]
       },
       "previousSlugs": [
         "chauffeur-kat-c1-c-wintersaison-2026-27-chur-arosa-heineken-ch-arosa"
       ],
+      "firstSeenAt": "2026-11-09T09:49:59.139Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
       "currency": "CHF",
@@ -770,9 +776,8 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-07T09:49:59.139Z",
-      "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-09T09:49:59.139Z"
+      "validThrough": "2027-02-07T21:43:57.557Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "heineken-ch-fae5aa8c7fef",
@@ -822,7 +827,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=168001&career_ns=job_application",
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:49:50.874Z",
+      "crawledAt": "2026-11-09T21:43:51.113Z",
       "previousSlugs": [
         "event-portfolio-specialist-m-w-d-100-heineken-ch-luzern"
       ],
@@ -850,7 +855,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-27T09:49:50.874Z",
+      "validThrough": "2027-01-27T21:43:51.113Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -934,7 +939,7 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-26T22:03:33.315Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     }
   ]
 }
