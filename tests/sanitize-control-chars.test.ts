@@ -259,6 +259,18 @@ describe('sanitizeXmlDocument, and the sitemap entry that broke', () => {
     }
   });
 
+  it('preserves identifiers after non-ASCII XML names and rejects non-XML whitespace', () => {
+    const nonAsciiName = '<!DOCTYPE é SYSTEM "id&#x1;"><root/>';
+    expect(findInvalidXmlReferencesOutsideLiterals(nonAsciiName)).toEqual([]);
+    expect(sanitizeXmlDocument(nonAsciiName)).toBe(nonAsciiName);
+
+    const nonXmlWhitespace = '<!DOCTYPE root PUBLIC "pub"\u00A0 "sys&#x1;"><root/>';
+    expect(findInvalidXmlReferencesOutsideLiterals(nonXmlWhitespace)).toEqual([
+      { code: 0x01, index: nonXmlWhitespace.indexOf('&#x1;') },
+    ]);
+    expect(sanitizeXmlDocument(nonXmlWhitespace)).toBe(nonXmlWhitespace.replace('&#x1;', ''));
+  });
+
   it('still decodes references in DTD EntityValue and AttValue strings', () => {
     const xml = '<!DOCTYPE root [<!ENTITY x "&#8;"><!ATTLIST root a CDATA "&#8;">]><root/>';
     expect(findInvalidXmlReferencesOutsideLiterals(xml)).toEqual([

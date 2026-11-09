@@ -184,6 +184,17 @@ function isDoctypeStart(xml, index) {
   return boundary !== undefined && /[\t\n\r >]/u.test(boundary);
 }
 
+/** XML 1.0 NameChar and S production, kept separate from JavaScript \s. */
+const XML_NAME_CHAR = /^[A-Za-z0-9_.:\-\u00B7\u0300-\u036F\u203F-\u2040\u00C0-\u00D6\u00D8-\u00F6\u00F8-\u02FF\u0370-\u037D\u037F-\u1FFF\u200C-\u200D\u2070-\u218F\u2C00-\u2FEF\u3001-\uD7FF\uF900-\uFDCF\uFDF0-\uFFFD\u{10000}-\u{EFFFF}]$/u;
+
+function isXmlNameChar(character) {
+  return XML_NAME_CHAR.test(character);
+}
+
+function isXmlWhitespace(character) {
+  return character === '\t' || character === '\n' || character === '\r' || character === ' ';
+}
+
 /**
  * A doctype has its own quoted values and internal subset. Delimiter-looking
  * text inside an entity value is data, while comments and processing
@@ -204,7 +215,8 @@ function transformDoctype(xml, start, transform) {
   let subsetDepth = 0;
 
   while (index < xml.length) {
-    const character = xml[index];
+    const character = String.fromCodePoint(xml.codePointAt(index));
+    const characterWidth = character.length;
     if (quote) {
       if (character === quote) {
         const end = index + 1;
@@ -216,7 +228,7 @@ function transformDoctype(xml, start, transform) {
         quote = null;
         quoteKind = null;
       }
-      index += 1;
+      index += characterWidth;
       continue;
     }
 
@@ -266,7 +278,7 @@ function transformDoctype(xml, start, transform) {
         currentToken = '';
       }
       const lastToken = declarationTokens.at(-1);
-      const separatedByWhitespace = /[\t\n\r ]/u.test(xml[index - 1] || '');
+      const separatedByWhitespace = isXmlWhitespace(xml[index - 1] || '');
       const identifierContext = ['DOCTYPE', 'ENTITY', 'NOTATION'].includes(declaration)
         && declarationTokens.length >= 3;
       if (publicSystemLiteralPending && separatedByWhitespace) {
@@ -286,11 +298,11 @@ function transformDoctype(xml, start, transform) {
       }
       quote = character;
       declarationTokens.push('');
-    } else if (publicSystemLiteralPending && !/\s/u.test(character)) {
+    } else if (publicSystemLiteralPending && !isXmlWhitespace(character)) {
       publicSystemLiteralPending = false;
     }
 
-    if (/[A-Za-z0-9_.:-]/u.test(character)) {
+    if (isXmlNameChar(character)) {
       currentToken += character;
     } else if (currentToken) {
       declarationTokens.push(currentToken);
@@ -311,7 +323,7 @@ function transformDoctype(xml, start, transform) {
       currentToken = '';
       publicSystemLiteralPending = false;
     }
-    index += 1;
+    index += characterWidth;
   }
 
   output += transform(xml.slice(segmentStart), segmentStart);
