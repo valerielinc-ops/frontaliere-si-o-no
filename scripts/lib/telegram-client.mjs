@@ -19,6 +19,96 @@ export const TELEGRAM_MESSAGE_MAX = 4096;
 
 export const TELEGRAM_API_BASE = 'https://api.telegram.org';
 
+const TELEGRAM_HTML_TAG_RE = /<\/?[A-Za-z][^>]*>/g;
+const TELEGRAM_HTML_ENTITY_RE = /^&(?:amp|lt|gt|quot|#\d+|#x[0-9a-f]+);/i;
+
+function telegramHtmlTagName(tag) {
+  return tag.match(/^<\/?\s*([A-Za-z][\w-]*)/)?.[1]?.toLowerCase() || '';
+}
+
+function isTelegramHtmlSelfClosingTag(tag, name) {
+  return /\/\s*>$/.test(tag) || new Set(['br', 'hr', 'img', 'input', 'meta', 'link']).has(name);
+}
+
+function closingTelegramHtmlTags(openTags) {
+  return [...openTags].reverse().map((name) => `</${name}>`).join('');
+}
+
+/**
+ * Take a prefix without splitting a Unicode code point or an HTML entity.
+ * The returned length is measured in UTF-16 code units, matching the limit
+ * used by the Bot API client and by JavaScript strings.
+ */
+function takeTelegramTextPrefix(value, maxLength) {
+  let result = '';
+  for (let offset = 0; offset < value.length;) {
+    const entity = value.slice(offset).match(TELEGRAM_HTML_ENTITY_RE)?.[0];
+    const unit = entity || String.fromCodePoint(value.codePointAt(offset));
+    if (result.length + unit.length > maxLength) break;
+    result += unit;
+    offset += unit.length;
+  }
+  return result;
+}
+
+function truncateUnicode(value, maxLength) {
+  if (value.length <= maxLength) return value;
+  return takeTelegramTextPrefix(value, maxLength);
+}
+
+/**
+ * Truncate Telegram HTML without leaving a partial tag behind. A raw
+ * `text.slice(0, 4096)` can cut an `<a href="…">` in half, which makes the
+ * Bot API reject an otherwise valid broadcast with "Unclosed start tag".
+ */
+export function truncateTelegramHtml(value, maxLength = TELEGRAM_MESSAGE_MAX) {
+  if (value.length <= maxLength) return value;
+
+  let output = '';
+  const openTags = [];
+  let cursor = 0;
+  const finish = () => output + closingTelegramHtmlTags(openTags);
+  const appendText = (chunk) => {
+    const reservedForClosingTags = closingTelegramHtmlTags(openTags).length;
+    const available = Math.max(0, maxLength - output.length - reservedForClosingTags);
+    if (chunk.length <= available) {
+      output += chunk;
+      return true;
+    }
+    output += takeTelegramTextPrefix(chunk, available);
+    return false;
+  };
+
+  const tags = value.matchAll(TELEGRAM_HTML_TAG_RE);
+  for (const match of tags) {
+    const plainText = value.slice(cursor, match.index);
+    if (!appendText(plainText)) return finish();
+
+    const tag = match[0];
+    const name = telegramHtmlTagName(tag);
+    const closing = /^<\//.test(tag);
+    if (closing) {
+      if (output.length + tag.length > maxLength) return finish();
+      output += tag;
+      const openIndex = openTags.lastIndexOf(name);
+      if (openIndex !== -1) openTags.splice(openIndex, 1);
+    } else {
+      const selfClosing = isTelegramHtmlSelfClosingTag(tag, name);
+      const nextOpenTags = selfClosing ? openTags : [...openTags, name];
+      if (output.length + tag.length + closingTelegramHtmlTags(nextOpenTags).length > maxLength) {
+        return finish();
+      }
+      output += tag;
+      if (!selfClosing) openTags.push(name);
+    }
+    cursor = match.index + tag.length;
+  }
+
+  const tail = value.slice(cursor);
+  if (!appendText(tail)) return finish();
+  return output;
+}
+
 /**
  * Resolve the bot token + target chat id from the environment.
  *   TELEGRAM_BOT_TOKEN  — BotFather token (secret).
@@ -105,7 +195,9 @@ export async function sendMessage({
   if (!chatId) return fail('missing chat id');
   if (!text) return fail('missing text');
 
-  const body = text.length > TELEGRAM_MESSAGE_MAX ? text.slice(0, TELEGRAM_MESSAGE_MAX) : text;
+  const body = String(parseMode).toUpperCase() === 'HTML'
+    ? truncateTelegramHtml(text, TELEGRAM_MESSAGE_MAX)
+    : truncateUnicode(text, TELEGRAM_MESSAGE_MAX);
   const endpoint = `${TELEGRAM_API_BASE}/bot${token}/sendMessage`;
 
   try {
