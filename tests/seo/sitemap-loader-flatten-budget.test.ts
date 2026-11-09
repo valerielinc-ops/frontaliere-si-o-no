@@ -128,9 +128,9 @@ function measureOverhead(
   };
 }
 
-// Kept small enough to stay a unit test; the per-call cost is what scales, and
-// it is flat in the shard count.
-const LOCS = 8_000;
+// Use the same 45k-<loc> scale as the production-shaped benchmark above. Longer
+// samples make runner scheduling noise a smaller share of each timing result.
+const LOCS = 45_000;
 const REPS = 5;
 
 /**
@@ -149,7 +149,8 @@ const PRODUCTION_FLATTEN_CALLS = 2_000_000;
  * `flat-string.mjs`'s header that actually flattens, sits at 2.88 on the same
  * harness. 1.5 is ~2x above the noisiest honest reading and ~2x below the
  * cheapest wrong flattener, which is the whole separation this bound needs. A
- * looser 4x — the first value tried here — let `split('').join('')` through.
+ * looser 4x — the first value tried here — let `split('').join('')` through. The
+ * larger 45k sample above reduces timing jitter without changing this limit.
  */
 const MAX_OVERHEAD_RATIO = 1.5;
 
