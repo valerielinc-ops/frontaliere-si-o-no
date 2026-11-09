@@ -88,6 +88,17 @@ describe('SPA lifecycle and layout owner', () => {
   expect(document.querySelector('[data-ft-ad-state]')?.getAttribute('data-ft-ad-state')).toBe('filled');
   expect(eventSpy.mock.calls.filter(([event]) => event === 'ad_request')).toHaveLength(1);
  });
+ it('shows AdSense optimized empty-slot suggestions and records a distinct non-fill event', async () => {
+  const { Banner } = await mount();
+  await act(async () => { adScript()!.dispatchEvent(new Event('load')); near(); });
+  const wrapper = document.querySelector<HTMLElement>('[data-ft-ad-state]')!;
+  const ins = document.querySelector('ins')!;
+  await act(async () => { ins.setAttribute('data-ad-status', 'unfill-optimized'); });
+  expect(wrapper.dataset.ftAdState).toBe('optimized');
+  expect(wrapper.style.opacity).toBe('1');
+  expect(eventSpy.mock.calls.some(([event]) => event === 'ad_google_optimized')).toBe(true);
+  expect(eventSpy.mock.calls.some(([event]) => event === 'ad_filled')).toBe(false);
+ });
  it('keeps visible script failure stable, collapses offscreen, retries on online and resets for a SPA route', async () => {
   const { Banner, rerender } = await mount();
   (window as any).__ftAdBlock = { blocked: true };
@@ -148,6 +159,20 @@ describe('static serialized lifecycle', () => {
   document.body.innerHTML = adSlotHtml('JOBDETAIL_TOP_BANNER');
   new Function(ADSENSE_LOADER_CONTENT)(); adScript()!.dispatchEvent(new Event('load')); near();
   expect(track).toHaveBeenCalledWith('event', 'ad_request', expect.objectContaining({ placement: 'jobdetail_top_banner', render_path: 'static' }));
+ });
+ it('keeps optimized empty-slot suggestions visible in the static loader after the response deadline', async () => {
+  const track = vi.fn(); vi.stubGlobal('gtag', track);
+  document.body.innerHTML = adSlotHtml('JOBDETAIL_TOP_BANNER');
+  new Function(ADSENSE_LOADER_CONTENT)(); adScript()!.dispatchEvent(new Event('load')); near();
+  await act(async () => { vi.advanceTimersByTime(30_000); });
+  const slot = document.querySelector('ins')!;
+  expect(slot).toHaveAttribute('data-ft-static-ad-state', 'waiting_response');
+  await act(async () => { slot.setAttribute('data-ad-status', 'unfill-optimized'); });
+  expect(slot).toHaveAttribute('data-ft-static-ad-state', 'optimized');
+  expect(slot).not.toHaveAttribute('data-ft-static-ad-collapsed');
+  expect(track).toHaveBeenCalledWith('event', 'ad_google_optimized', expect.objectContaining({ ad_status: 'unfill-optimized', render_path: 'static' }));
+  await act(async () => { vi.advanceTimersByTime(60_000); });
+  expect(slot).not.toHaveAttribute('data-ft-static-ad-collapsed');
  });
  it('never includes anchor, vignette or automatic in-page slots in manual requests', async () => {
   document.body.innerHTML = '<ins id="manual" class="adsbygoogle" data-ad-slot="1"></ins><ins class="adsbygoogle" data-ad-slot="2" data-anchor-status="displayed"></ins><ins class="adsbygoogle" data-ad-slot="3" data-vignette-loaded="true"></ins><div class="google-auto-placed"><ins class="adsbygoogle" data-ad-slot="4"></ins></div>';

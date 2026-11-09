@@ -190,6 +190,21 @@ describe('manual ad lifecycle shared by SPA and static', () => {
     lifecycle.request(); vi.advanceTimersByTime(AD_FILL_TIMEOUT_MS);
     expect(states).toHaveBeenLastCalledWith('waiting_response');
   });
+  it('keeps AdSense optimized empty-slot suggestions visible without counting them as paid fills', async () => {
+    const { box, el, states, events, lifecycle } = setup();
+    lifecycle.request();
+    vi.advanceTimersByTime(AD_FILL_TIMEOUT_MS);
+    expect(states).toHaveBeenLastCalledWith('waiting_response');
+    vi.advanceTimersByTime(5_000);
+    await status(el, 'unfill-optimized');
+    expect(states).toHaveBeenLastCalledWith('optimized', 'unfill-optimized');
+    expect(box.hasAttribute('data-ft-ad-request-pending')).toBe(false);
+    expect(events).toHaveBeenCalledWith('ad_google_optimized', expect.objectContaining({ ad_status: 'unfill-optimized' }));
+    expect(events).not.toHaveBeenCalledWith('ad_filled', expect.anything());
+    vi.advanceTimersByTime(60_000);
+    expect(states).not.toHaveBeenCalledWith('collapsed', expect.anything());
+    expect(el.hasAttribute('data-ft-ad-stalled')).toBe(false);
+  });
   it.each(['unfilled', 'script_failed'])('keeps visible %s reserve and collapses only offscreen', async (reason) => {
     const { el, states, lifecycle, events } = setup();
     if (reason === 'unfilled') { lifecycle.request(); await status(el, 'unfilled'); } else lifecycle.fail(reason);
