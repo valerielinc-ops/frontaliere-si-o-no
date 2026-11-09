@@ -891,14 +891,40 @@ function schemaAddressRegion(addressRegion, addressCountry) {
     : region;
 }
 
+const LIKELY_STREET_NAME_RX = /(?:^|[\s-])[\p{L}.'’]*?(?:strasse|straße|street|road|route|rue|via|viale|chemin|weg|gasse|allee|avenue|boulevard|platz|piazza)\b/iu;
+
+/**
+ * SuccessFactors Career Site Builder can publish the workplace only as
+ * `streetAddress="Allschwil, CH"`, with every other PostalAddress slot empty
+ * (SKAN, #17539). Read that value as locality + country only when it is
+ * exactly `<locality>, <ISO alpha-2>` and the other slots are empty. A code
+ * that is also a Swiss canton code (`Basel, BS`, `Paris, FR`) is ambiguous
+ * and stays unknown; a real street address has no terminal country code.
+ *
+ * @param {{ streetAddress?: string, addressLocality?: string, addressRegion?: string, addressCountry?: string, postalCode?: string }} address
+ * @returns {{ location: string, addressCountry: string }|null}
+ */
+export function localityCountryFromStreetOnlyAddress(address = {}) {
+  if (address.addressLocality || address.addressRegion || address.addressCountry || address.postalCode) return null;
+  const match = /^([^,\d]+),\s*([A-Za-z]{2})$/.exec(String(address.streetAddress || '').replace(/\s+/g, ' ').trim());
+  if (!match) return null;
+  const code = match[2].toUpperCase();
+  if (!ISO_ALPHA2_COUNTRY_CODES.has(code) || normalizeSwissCantonCode(code)) return null;
+  const locality = match[1].trim();
+  if (LIKELY_STREET_NAME_RX.test(locality)) return null;
+  return { location: locality, addressCountry: code };
+}
+
 /**
  * Preserve every schema.org JobPosting location and its country/address
  * evidence. Dedicated crawlers use the same representation as the generic
  * Prospector runtime so a foreign first entry cannot hide a later CH place.
  *
  * @param {unknown} jobLocation
+ * @param {{ allowStreetOnlyAddress?: boolean }} [options]
  */
-export function schemaJobLocationCandidates(jobLocation) {
+export function schemaJobLocationCandidates(jobLocation, options = {}) {
+  const allowStreetOnlyAddress = options.allowStreetOnlyAddress === true;
   const places = Array.isArray(jobLocation) ? jobLocation : [jobLocation];
   const candidates = [];
   for (const place of places) {
@@ -910,6 +936,17 @@ export function schemaJobLocationCandidates(jobLocation) {
       const addressCountry = structuredText(address.addressCountry);
       const addressRegion = schemaAddressRegion(address.addressRegion, addressCountry);
       const placeName = structuredText(address.name || place.name);
+      const postalCode = structuredText(address.postalCode);
+      const streetAddress = structuredText(address.streetAddress);
+      const streetOnly = allowStreetOnlyAddress && !placeName
+        ? localityCountryFromStreetOnlyAddress({
+          streetAddress, addressLocality, addressRegion, addressCountry, postalCode,
+        })
+        : null;
+      if (streetOnly) {
+        candidates.push({ ...streetOnly, addressLocality: '', addressRegion: '', postalCode: '', streetAddress: '' });
+        continue;
+      }
       const location = [addressLocality || placeName, addressRegion].filter(Boolean).join(', ');
       if (!location && !addressCountry) continue;
       candidates.push({
@@ -917,8 +954,8 @@ export function schemaJobLocationCandidates(jobLocation) {
         addressCountry,
         addressLocality,
         addressRegion,
-        postalCode: structuredText(address.postalCode),
-        streetAddress: structuredText(address.streetAddress),
+        postalCode,
+        streetAddress,
       });
     }
   }
