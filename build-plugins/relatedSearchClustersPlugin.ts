@@ -182,6 +182,7 @@ import {
   printSummary as printRelatedSearchProfile,
 } from './shared/relatedSearchClustersProfiler';
 import { forceGc } from './shared/forceGc';
+import { shouldForceRelatedSearchContextGc } from './shared/relatedSearchContextGc';
 
 // ── Constants ───────────────────────────────────────────────────────────
 
@@ -6047,6 +6048,20 @@ function buildRelatedSearchClustersPlugin(rootDir: string): Plugin {
         if (ctx) contexts.push(ctx);
         if (++processedContexts % 10_000 === 0) {
           console.log(`[related-search-clusters] contexts ${processedContexts}/${candidatesInScope.length} elapsed_ms=${Date.now() - contextStartedAt} heap_mb=${Math.round(process.memoryUsage().heapUsed / 1048576)}`);
+        }
+        // Run 425899 reached ~12 GB heap during context matching, then the
+        // existing post-loop collection freed ~2 GB of transient matcher
+        // allocations. Collect in bounded batches so those short-lived arrays
+        // do not push the 16 GB runner into swap before the loop ends.
+        if (shouldForceRelatedSearchContextGc(processedContexts)) {
+          const heapBefore = process.memoryUsage().heapUsed;
+          if (forceGc()) {
+            const memory = process.memoryUsage();
+            const heapFreedMb = Math.max(0, Math.round((heapBefore - memory.heapUsed) / 1048576));
+            console.log(
+              `[related-search-clusters] context GC ${processedContexts}/${candidatesInScope.length} heap_freed_mb=${heapFreedMb} heap_mb=${Math.round(memory.heapUsed / 1048576)} rss_mb=${Math.round(memory.rss / 1048576)}`,
+            );
+          }
         }
       }
       profileRecord('build-contexts', __tContextBuild);
