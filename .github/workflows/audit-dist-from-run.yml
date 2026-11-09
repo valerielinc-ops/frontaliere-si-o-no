@@ -333,6 +333,17 @@ jobs:
           bash scripts/lib/rehydrate-locale-shards.sh || LOCALE_RC=$?
           SECTION_RC=0
           bash scripts/lib/rehydrate-section-shards.sh || SECTION_RC=$?
+          # Worker-level artifact/clone misses are the documented fail-soft
+          # path: rehydrate-section-shards.sh records them and still returns
+          # zero. Any non-zero that reaches this caller is therefore a
+          # correctness/configuration failure (in particular the
+          # trunk_guard_verdict at the end of the section script). Emit the
+          # measurement before stopping, but never let the following
+          # provenance or SEO audits consume an unsound dist.
+          if [ "$SECTION_RC" -ne 0 ]; then
+            rehydrateRuntimeBudgetObserved "$REHYDRATE_STARTED_AT" "$LOCALE_RC" "$SECTION_RC"
+            exit "$SECTION_RC"
+          fi
           echo "dist/ now holds $(find dist -type f | wc -l) files"
           # Read-only measurement: preserve the existing locale hard-fail and
           # section soft-fail contract after the summary has been emitted.

@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { execFileSync } from 'node:child_process';
-import { mkdtempSync, readFileSync, rmSync } from 'node:fs';
+import { mkdirSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { tmpdir } from 'node:os';
 import YAML from 'yaml';
@@ -52,6 +52,39 @@ function observe(localeRc: number, sectionRc: number): string {
   }
 }
 
+function runRehydrateStep(sectionScript: string): { status: number; summary: string } {
+  const directory = mkdtempSync(join(tmpdir(), 'audit-dist-rehydrate-step-'));
+  const runnerTemp = join(directory, 'runner-temp');
+  const scriptsDirectory = join(directory, 'scripts', 'lib');
+  const summaryPath = join(directory, 'summary.md');
+  mkdirSync(runnerTemp, { recursive: true });
+  mkdirSync(scriptsDirectory, { recursive: true });
+  mkdirSync(join(directory, 'dist'), { recursive: true });
+  writeFileSync(join(scriptsDirectory, 'rehydrate-locale-shards.sh'), '#!/usr/bin/env bash\nexit 0\n');
+  writeFileSync(join(scriptsDirectory, 'rehydrate-section-shards.sh'), `#!/usr/bin/env bash\n${sectionScript}\n`);
+
+  let status = 0;
+  try {
+    execFileSync('bash', ['-c', rehydrateStepScript()], {
+      cwd: directory,
+      env: {
+        ...process.env,
+        GITHUB_STEP_SUMMARY: summaryPath,
+        REHYDRATE_MAX_PARALLEL: '1',
+        REPO_VARS_JSON: '{}',
+        RUNNER_TEMP: runnerTemp,
+      },
+      stdio: 'ignore',
+    });
+  } catch (error) {
+    status = (error as { status?: number }).status ?? 1;
+  }
+
+  const summary = readFileSync(summaryPath, 'utf8');
+  rmSync(directory, { recursive: true, force: true });
+  return { status, summary };
+}
+
 describe('audit-dist-from-run rehydrate runtime budget observer', () => {
   it('records duration, outcome, active parallelism, and the comparison baseline', () => {
     const summary = observe(0, 0);
@@ -80,5 +113,22 @@ describe('audit-dist-from-run rehydrate runtime budget observer', () => {
     expect(sections).toBeGreaterThan(locale);
     expect(observer).toBeGreaterThan(sections);
     expect(exit).toBeGreaterThan(observer);
+  });
+
+  it('hard-fails before the next audit step when the section rehydrate reports unsound dist', () => {
+    const result = runRehydrateStep([
+      'trunk_guard_verdict() { return 1; }',
+      'if ! trunk_guard_verdict "section shard rehydrate"; then exit 1; fi',
+    ].join('\n'));
+
+    expect(result.status).toBe(1);
+    expect(result.summary).toContain('outcome | `sections-degraded`');
+  });
+
+  it('keeps a documented nonfatal section degradation on the soft path', () => {
+    const result = runRehydrateStep('echo "::warning::section shard clone failed"');
+
+    expect(result.status).toBe(0);
+    expect(result.summary).toContain('outcome | `success`');
   });
 });
