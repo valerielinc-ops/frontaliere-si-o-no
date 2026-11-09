@@ -1,7 +1,7 @@
 {
   "crawlerKey": "hilti",
-  "assembledAt": "2026-11-08T21:37:55.978Z",
-  "runId": "42523843605",
+  "assembledAt": "2026-11-09T09:25:54.473Z",
+  "runId": "42591376376",
   "jobs": [
     {
       "id": "hilti-16758-en",
@@ -34,7 +34,7 @@
       "url": "https://careers.hilti.group/en/jobs/16758-en/intern-quality-management-technical-analysis-data-scientist-m-f-x/",
       "source": "Hilti Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-08T21:37:48.614Z",
+      "crawledAt": "2026-11-09T09:25:43.960Z",
       "addressLocality": "Buchs",
       "postalCode": "9470",
       "addressRegion": "SG",
@@ -83,7 +83,7 @@
       },
       "streetAddress": "Buchs",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-08T21:37:48.614Z",
+      "validThrough": "2026-12-09T09:25:43.960Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -117,7 +117,7 @@
       "url": "https://careers.hilti.group/en/jobs/16292-de/quereinsteiger-aus-der-baubranche-technischer-berater-grossraum-luzern-m-w-d-100-oder-jobsharing-50-70-moglich/",
       "source": "Hilti Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T21:37:48.613Z",
+      "crawledAt": "2026-11-09T09:25:43.959Z",
       "addressLocality": "Luzern",
       "postalCode": "6003",
       "addressRegion": "LU",
@@ -163,7 +163,7 @@
       },
       "streetAddress": "Luzern",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-08T21:37:48.613Z",
+      "validThrough": "2026-12-09T09:25:43.959Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -171,7 +171,7 @@
       "slug": "tirocinante-it-controlling-m-f-x-hilti-buchs-st-gallen",
       "slugByLocale": {
         "it": "tirocinante-it-controlling-m-f-x-hilti-buchs-st-gallen",
-        "en": "intern-it-controlling-m-f-x-hilti-buchs",
+        "en": "intern-it-controlling-m-f-x-hilti-ch",
         "de": "praktikant-it-controlling-m-f-x-hilti-buchs-st-gallen",
         "fr": "stagiaire-it-controlling-m-f-x-hilti-buchs-st-gallen"
       },
@@ -197,7 +197,7 @@
       "url": "https://careers.hilti.group/en/jobs/19175-en/intern-it-controlling-m-f-x/",
       "source": "Hilti Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-08T21:37:48.610Z",
+      "crawledAt": "2026-11-09T09:25:43.958Z",
       "addressLocality": "Buchs",
       "postalCode": "9470",
       "addressRegion": "SG",
@@ -216,13 +216,10 @@
       "applyUrl": "https://careers.hilti.group/en/jobs/19175-en/intern-it-controlling-m-f-x/",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "intern-it-controlling-m-f-x-hilti-ch",
-        "tirocinante-it-controlling-m-f-x-hilti-buchs",
-        "praktikant-it-controlling-m-f-x-hilti-buchs",
-        "stagiaire-it-controlling-m-f-x-hilti-buchs"
-      ],
       "previousSlugsByLocale": {
+        "en": [
+          "intern-it-controlling-m-f-x-hilti-buchs"
+        ],
         "it": [
           "intern-it-controlling-m-f-x-hilti-ch",
           "tirocinante-it-controlling-m-f-x-hilti-buchs"
@@ -234,11 +231,15 @@
         "fr": [
           "intern-it-controlling-m-f-x-hilti-ch",
           "stagiaire-it-controlling-m-f-x-hilti-buchs"
-        ],
-        "en": [
-          "intern-it-controlling-m-f-x-hilti-ch"
         ]
       },
+      "previousSlugs": [
+        "intern-it-controlling-m-f-x-hilti-ch",
+        "tirocinante-it-controlling-m-f-x-hilti-buchs",
+        "praktikant-it-controlling-m-f-x-hilti-buchs",
+        "stagiaire-it-controlling-m-f-x-hilti-buchs",
+        "intern-it-controlling-m-f-x-hilti-buchs"
+      ],
       "salaryMin": 54000,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -254,7 +255,7 @@
       },
       "streetAddress": "Buchs",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-08T21:37:48.610Z",
+      "validThrough": "2026-12-09T09:25:43.958Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -262,7 +263,7 @@
       "slug": "tirocinante-cybersecurity-m-f-x-hilti-buchs-st-gallen",
       "slugByLocale": {
         "it": "tirocinante-cybersecurity-m-f-x-hilti-buchs-st-gallen",
-        "en": "intern-cybersecurity-m-f-x-hilti-buchs",
+        "en": "intern-cybersecurity-m-f-x-hilti-ch",
         "de": "praktikant-cybersecurity-m-f-x-hilti-buchs-st-gallen",
         "fr": "stagiaire-cybersecurity-m-f-x-hilti-buchs-st-gallen"
       },
@@ -288,7 +289,7 @@
       "url": "https://careers.hilti.group/en/jobs/19799-en/intern-cybersecurity-m-f-x/",
       "source": "Hilti Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-08T21:37:48.609Z",
+      "crawledAt": "2026-11-09T09:25:43.956Z",
       "addressLocality": "Buchs",
       "postalCode": "9470",
       "addressRegion": "SG",
@@ -307,13 +308,10 @@
       "applyUrl": "https://careers.hilti.group/en/jobs/19799-en/intern-cybersecurity-m-f-x/",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "intern-cybersecurity-m-f-x-hilti-ch",
-        "tirocinante-cybersecurity-m-f-x-hilti-buchs",
-        "praktikant-cybersecurity-m-f-x-hilti-buchs",
-        "stagiaire-cybersecurity-m-f-x-hilti-buchs"
-      ],
       "previousSlugsByLocale": {
+        "en": [
+          "intern-cybersecurity-m-f-x-hilti-buchs"
+        ],
         "it": [
           "intern-cybersecurity-m-f-x-hilti-ch",
           "tirocinante-cybersecurity-m-f-x-hilti-buchs"
@@ -325,11 +323,15 @@
         "fr": [
           "intern-cybersecurity-m-f-x-hilti-ch",
           "stagiaire-cybersecurity-m-f-x-hilti-buchs"
-        ],
-        "en": [
-          "intern-cybersecurity-m-f-x-hilti-ch"
         ]
       },
+      "previousSlugs": [
+        "intern-cybersecurity-m-f-x-hilti-ch",
+        "tirocinante-cybersecurity-m-f-x-hilti-buchs",
+        "praktikant-cybersecurity-m-f-x-hilti-buchs",
+        "stagiaire-cybersecurity-m-f-x-hilti-buchs",
+        "intern-cybersecurity-m-f-x-hilti-buchs"
+      ],
       "salaryMin": 54000,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -345,7 +347,7 @@
       },
       "streetAddress": "Buchs",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-08T21:37:48.609Z",
+      "validThrough": "2026-12-09T09:25:43.956Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -379,7 +381,7 @@
       "url": "https://careers.hilti.group/en/jobs/14822-en/intern-data-ai-product-owner-m-f-x/",
       "source": "Hilti Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-08T21:37:48.608Z",
+      "crawledAt": "2026-11-09T09:25:43.954Z",
       "addressLocality": "Buchs",
       "postalCode": "9470",
       "addressRegion": "SG",
@@ -421,7 +423,7 @@
       },
       "streetAddress": "Buchs",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-23T21:37:48.608Z",
+      "validThrough": "2026-12-23T09:25:43.954Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -455,7 +457,7 @@
       "url": "https://careers.hilti.group/en/jobs/19408-en/solution-owner-ai-analytics-m-f-x/",
       "source": "Hilti Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-08T21:37:48.605Z",
+      "crawledAt": "2026-11-09T09:25:43.953Z",
       "addressLocality": "Buchs",
       "postalCode": "9470",
       "addressRegion": "SG",
@@ -502,7 +504,7 @@
       },
       "streetAddress": "Buchs",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-23T21:37:48.605Z",
+      "validThrough": "2026-12-23T09:25:43.953Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -536,7 +538,7 @@
       "url": "https://careers.hilti.group/en/jobs/19440-de/verkaufsberater-im-aussendienst-baubranche-m-w-d/",
       "source": "Hilti Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T21:37:48.604Z",
+      "crawledAt": "2026-11-09T09:25:43.951Z",
       "addressLocality": "Zürich",
       "postalCode": "8001",
       "addressRegion": "ZH",
@@ -584,7 +586,7 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-23T21:37:48.604Z",
+      "validThrough": "2026-12-23T09:25:43.951Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -618,7 +620,7 @@
       "url": "https://careers.hilti.group/en/jobs/21001-de/verkaufsberater-hilti-store-bern-m-w-d/",
       "source": "Hilti Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T21:37:48.602Z",
+      "crawledAt": "2026-11-09T09:25:43.949Z",
       "addressLocality": "Bern",
       "postalCode": "3004",
       "addressRegion": "BE",
@@ -672,7 +674,7 @@
       },
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-24T21:37:48.602Z",
+      "validThrough": "2026-12-24T09:25:43.949Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -706,7 +708,7 @@
       "url": "https://careers.hilti.group/en/jobs/21035-de/verkaufsberater-hilti-store-chur-m-w-d/",
       "source": "Hilti Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T21:37:48.599Z",
+      "crawledAt": "2026-11-09T09:25:43.948Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressRegion": "GR",
@@ -749,7 +751,7 @@
       },
       "streetAddress": "Chur",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-30T21:37:48.599Z",
+      "validThrough": "2026-12-31T09:25:43.948Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -758,7 +760,7 @@
       "slugByLocale": {
         "it": "addetto-a-al-servizio-clienti-m-f-d-hilti-zurich-zurich",
         "en": "customer-service-m-f-d-hilti-zurich-zurich",
-        "de": "mitarbeiter-kundendienst-m-w-d-hilti-zurich",
+        "de": "mitarbeiter-kundendienst-m-w-d-hilti-ch",
         "fr": "service-client-h-f-d-hilti-zurich-zurich"
       },
       "company": "Hilti",
@@ -774,7 +776,7 @@
       "description": "Wenn aus Anfragen Lösungen werden.\n\nDu liebst es, technische Fragen zu lösen und Kunden mit Deiner Beratung zu begeistern?\nFür unseren Customer Service in Zürich-Wollishofen suchen wir eine serviceorientierte und lernbereite Persönlichkeit, die unsere Kunden in unterschiedlichen Sprachen kompetent berät und begeistert.\nBei uns erwartet Dich ein motiviertes und diverses Team, das gemeinsam ein Ziel verfolgt: unseren Kunden einen erstklassigen Service zu bieten. Dabei zählen für uns nicht nur Deine bisherigen Erfahrungen, sondern vor allem Deine Lernbereitschaft, Deine Lösungsorientierung und Dein Wunsch, jeden Tag einen Unterschied für unsere Kunden zu machen.\n\nDein Profil\n\n• Berufserfahrung in einer ähnlichen Funktion (Kundendienst)\n\n• Sehr gute Deutschkenntnisse sowie sehr gute Italienisch- oder Französischkenntnisse\n\n• Abgeschlossene Berufslehre im Bau- oder technischen Bereich von Vorteil, idealerweise ergänzt durch eine Weiterbildung auf Stufe TK, HF oder FH\n\n• Freude am Kundenkontakt bzw. an der Beratung und Betreuung per Telefon\n\n• Fähigkeit, zu priorisieren und parallel mit mehreren Systemoberflächen zu arbeiten (SAP, OneNote, Sharepoint)\n\nImpressum\n\nHaben wir Dein Interesse geweckt, bei einem der besten Arbeitgeber der Schweiz zu arbeiten? Dann freuen wir uns auf Deine Online-Bewerbung. Deine vollständigen Unterlagen (Motivationsschreiben, CV, Zeugnisse) nehmen wir über unser Online-Karrieretool entgegen. Frau Joèlle Ochsner, HR Talent Partner, freut sich auf Dein Anschreiben.\n\nWas kannst Du erwarten, wenn du Dich bei Hilti bewirbst?\n\n• Wir verpflichten uns, alle Bewerbungen von einem Menschen prüfen zu lassen. Auch wenn niemand unfehlbar ist, stehen wir bei allem, was wir tun, zu unserem personenzentrierten Ansatz.\n\n• Sobald Du Deine Bewerbung eingereicht hast, erhältst du automatische Benachrichtigungen von unserem System (ausgelöst durch unser Rekrutierungsteam).\n\n• Bewerbungen, die es nicht bis zum Vorstellungsgespräch mit einem einstellenden Manager schaffen, erhalten kein personalisiertes Feedback.\n\n• Du kannst davon ausgehen, dass Du innerhalb von 2–3 Wochen (im Durchschnitt) von uns hörst – unabhängig vom Ergebnis. Der gesamte Einstellungsprozess kann zwischen 5 und 6 Wochen dauern.\n\nWir wünschen Dir viel Erfolg in deinem Bewerbungsverfahren.\nSollten technische Probleme während der Bewerbung auftreten, kontaktiere bitte mycareer-techsupport@hilti.com.\n\nVerpflichtung zur Inklusion\n\nInklusion ist bei Hilti ein zentraler Aspekt unserer Arbeitsweise, unseres Führungsstils und unseres gemeinsamen Wachstums. Wir engagieren uns aktiv für Gedankenvielfalt und ein Umfeld, das für alle und überall inklusiv ist. Wir streben fortlaufend danach, dass jede Stimme gehört wird und sich jedes Teammitglied befähigt fühlt, sich einzubringen. Indem wir dieses Fundament schaffen, stärken wir unsere Teams, unsere Innovation und unsere Wirkung, um gemeinsam das Bauwesen zu verbessern.\n\nWarum Hilti\n\nHilti ist ein global führendes Unternehmen in der Bauinnovation mit mehr als 34.000 Teammitgliedern in 120 Ländern. Unser Ziel ist es, das Bauwesen zu verbessern. Deshalb liegt es uns am Herzen, zu lernen, zu wachsen und neue Wege zu finden, eine bleibende Wirkung zu erzielen. Hier kannst Du Deine Stärken einbringen, mit einem globalen und inklusiven Team zusammenarbeiten und Dich sinnvollen Herausforderungen stellen. Bei Hilti kannst Du Deine Ideen durch zielgerichtetes Handeln, Leidenschaft und Teamwork in reale Errungenschaften und Wachstum verwandeln.",
       "descriptionByLocale": {
         "it": "Quando le richieste diventano soluzioni.\n\nTi piace risolvere domande tecniche e ispirare i clienti con il tuo consiglio?\nPer il nostro servizio clienti a Zurigo-Wollishofen, stiamo cercando una personalità orientata al servizio e pronta all'uso che possa consigliare e ispirare i nostri clienti in diverse lingue.\nCon noi, ci si può aspettare un team motivato e diversificato che insieme persegue un obiettivo: offrire ai nostri clienti un servizio di prima classe. Per noi, non solo la vostra esperienza precedente conta, ma soprattutto la vostra disponibilità ad imparare, il vostro orientamento di soluzione e il vostro desiderio di fare la differenza per i nostri clienti ogni giorno.\n\nIl tuo profilo\n\n• Esperienza professionale in una funzione simile (servizio cliente)\n\n• Molto buona conoscenza della conoscenza tedesca e molto buona di italiano o francese\n\n• L'apprendistato professionale completo nella costruzione o nell'area tecnica è vantaggioso, idealmente completato da ulteriore formazione a livello TK, HF o FH\n\n• Divertimento del contatto del cliente o consiglio e supporto per telefono\n\n• Capacità di priorità e lavorare in parallelo con più interfacce di sistema (SAP, OneNote, Sharepoint)\n\nImprint\n\nAbbiamo suscitato il vostro interesse a lavorare per uno dei migliori datori di lavoro in Svizzera? Attendiamo con ansia la vostra applicazione online. Accettiamo i vostri documenti completi (lettera di motivazione, CV, certificati) tramite il nostro strumento di carriera online. La signora Joèlle Ochsner, HR Talent Partner, non vede l'ora di ricevere la sua lettera di presentazione.\n\nCosa puoi aspettarti quando ti applichi a Hilti?\n\n• Ci impegniamo ad avere tutte le applicazioni esaminate da una persona. Anche se nessuno è infallibile, siamo al nostro approccio incentrato sulla persona a tutto ciò che facciamo.\n\n• Una volta presentata la vostra domanda, riceverete notifiche automatiche dal nostro sistema (triggered dal nostro team di reclutamento).\n\n• Le applicazioni che non lo rendono all'intervista con un responsabile dell'assunzione non ricevono feedback personalizzati.\n\n• Ci si può aspettare di sentire da noi entro 2-3 settimane (in media) indipendentemente dal risultato. L'intero processo di reclutamento può richiedere tra 5 e 6 settimane.\n\nVi auguriamo ogni successo nel vostro processo di applicazione.\nSe si verificano problemi tecnici durante l'applicazione, contattare mycareer-techsupport@hilti.com.\n\nImpegno all'inclusione\n\nA Hilti, l'inclusione è un aspetto centrale del nostro modo di lavorare, del nostro stile di leadership e della nostra crescita condivisa. Siamo attivamente impegnati nella diversità del pensiero e di un ambiente che è inclusivo per tutti e ovunque. Continuiamo a sforzarci di sentire ogni voce e per ogni membro del team di sentirsi in grado di contribuire. Costruire questa fondazione, rafforziamo i nostri team, la nostra innovazione e il nostro impatto per migliorare collettivamente la costruzione.\n\nPerché Hilti\n\nHilti è leader globale nell'innovazione costruttiva con oltre 34.000 membri del team in 120 paesi. Il nostro obiettivo è migliorare la costruzione. Ecco perché ci interessa imparare, crescere e trovare nuovi modi per avere un impatto duraturo. Qui puoi contribuire ai tuoi punti di forza, lavorare con un team globale e inclusivo e affrontare sfide significative. A Hilti, puoi trasformare le tue idee in realizzazioni e crescita reali attraverso azioni mirate, passione e lavoro di squadra.",
-        "en": "When requests become solutions.\n\nDo you love solving technical questions and inspiring customers with your advice?\nFor our customer service in Zurich-Wollishofen, we are looking for a service-oriented and ready-to-learn personality who can competently advise and inspire our customers in different languages.\nWith us, you can expect a motivated and diverse team that together pursues one goal: to offer our customers a first-class service. For us, not only your previous experience counts, but above all your willingness to learn, your solution orientation and your desire to make a difference for our customers every day.\n\nYour profile\n\n• Professional experience in a similar function (customer service)\n\n• Very good knowledge of German and very good knowledge of Italian or French\n\n• Completed vocational apprenticeship in the construction or technical area is advantageous, ideally supplemented by further training at level TK, HF or FH\n\n• Enjoyment of customer contact or advice and support by telephone\n\n• Ability to prioritize and work in parallel with multiple system interfaces (SAP, OneNote, Sharepoint)\n\nImprint\n\nHave we aroused your interest in working for one of the best employers in Switzerland? We look forward to your online application. We accept your complete documents (motivation letter, CV, certificates) via our online career tool. Ms. Joèlle Ochsner, HR Talent Partner, is looking forward to receiving your cover letter.\n\nWhat can you expect when applying to Hilti?\n\n• We undertake to have all applications reviewed by one person. Even if no one is infallible, we stand by our person-centered approach to everything we do.\n\n• Once you have submitted your application, you will receive automatic notifications from our system (triggered by our recruitment team).\n\n• Applications that do not make it to the interview with a hiring manager do not receive personalized feedback.\n\n• You can expect to hear from us within 2–3 weeks (on average) regardless of the result. The entire recruitment process can take between 5 and 6 weeks.\n\nWe wish you every success in your application process.\nIf technical problems occur during the application, please contact mycareer-techsupport@hilti.com.\n\nCommitment to Inclusion\n\nAt Hilti, inclusion is a central aspect of our way of working, our leadership style and our shared growth. We are actively committed to diversity of thought and an environment that is inclusive for everyone and everywhere. We continue to strive for every voice to be heard and for every team member to feel empowered to contribute. By building this foundation, we strengthen our teams, our innovation and our impact to collectively improve construction.\n\nWhy Hilti\n\nHilti is a global leader in construction innovation with more than 34,000 team members in 120 countries. Our goal is to improve construction. That’s why we care about learning, growing and finding new ways to make a lasting impact. Here you can contribute your strengths, work with a global and inclusive team and face meaningful challenges. At Hilti, you can turn your ideas into real achievements and growth through purposeful action, passion and teamwork.",
+        "en": "When requests become solutions.\n\nDo you love solving technical questions and inspiring customers with your advice?\nFor our customer service in Zurich-Wollishofen, we are looking for a service-oriented and ready-to-learn personality who can competently advise and inspire our customers in different languages.\nWith us, you can expect a motivated and diverse team that together pursues one goal: to offer our customers a first-class service. For us, not only your previous experience counts, but above all your willingness to learn, your solution orientation and your desire to make a difference for our customers every day.\n\nYour profile\n\n• Professional experience in a similar",
         "de": "Wenn aus Anfragen Lösungen werden.\n\nDu liebst es, technische Fragen zu lösen und Kunden mit Deiner Beratung zu begeistern?\nFür unseren Customer Service in Zürich-Wollishofen suchen wir eine serviceorientierte und lernbereite Persönlichkeit, die unsere Kunden in unterschiedlichen Sprachen kompetent berät und begeistert.\nBei uns erwartet Dich ein motiviertes und diverses Team, das gemeinsam ein Ziel verfolgt: unseren Kunden einen erstklassigen Service zu bieten. Dabei zählen für uns nicht nur Deine bisherigen Erfahrungen, sondern vor allem Deine Lernbereitschaft, Deine Lösungsorientierung und Dein Wunsch, jeden Tag einen Unterschied für unsere Kunden zu machen.\n\nDein Profil\n\n• Berufserfahrung in einer ähnlichen Funktion (Kundendienst)\n\n• Sehr gute Deutschkenntnisse sowie sehr gute Italienisch- oder Französischkenntnisse\n\n• Abgeschlossene Berufslehre im Bau- oder technischen Bereich von Vorteil, idealerweise ergänzt durch eine Weiterbildung auf Stufe TK, HF oder FH\n\n• Freude am Kundenkontakt bzw. an der Beratung und Betreuung per Telefon\n\n• Fähigkeit, zu priorisieren und parallel mit mehreren Systemoberflächen zu arbeiten (SAP, OneNote, Sharepoint)\n\nImpressum\n\nHaben wir Dein Interesse geweckt, bei einem der besten Arbeitgeber der Schweiz zu arbeiten? Dann freuen wir uns auf Deine Online-Bewerbung. Deine vollständigen Unterlagen (Motivationsschreiben, CV, Zeugnisse) nehmen wir über unser Online-Karrieretool entgegen. Frau Joèlle Ochsner, HR Talent Partner, freut sich auf Dein Anschreiben.\n\nWas kannst Du erwarten, wenn du Dich bei Hilti bewirbst?\n\n• Wir verpflichten uns, alle Bewerbungen von einem Menschen prüfen zu lassen. Auch wenn niemand unfehlbar ist, stehen wir bei allem, was wir tun, zu unserem personenzentrierten Ansatz.\n\n• Sobald Du Deine Bewerbung eingereicht hast, erhältst du automatische Benachrichtigungen von unserem System (ausgelöst durch unser Rekrutierungsteam).\n\n• Bewerbungen, die es nicht bis zum Vorstellungsgespräch mit einem einstellenden Manager schaffen, erhalten kein personalisiertes Feedback.\n\n• Du kannst davon ausgehen, dass Du innerhalb von 2–3 Wochen (im Durchschnitt) von uns hörst – unabhängig vom Ergebnis. Der gesamte Einstellungsprozess kann zwischen 5 und 6 Wochen dauern.\n\nWir wünschen Dir viel Erfolg in deinem Bewerbungsverfahren.\nSollten technische Probleme während der Bewerbung auftreten, kontaktiere bitte mycareer-techsupport@hilti.com.\n\nVerpflichtung zur Inklusion\n\nInklusion ist bei Hilti ein zentraler Aspekt unserer Arbeitsweise, unseres Führungsstils und unseres gemeinsamen Wachstums. Wir engagieren uns aktiv für Gedankenvielfalt und ein Umfeld, das für alle und überall inklusiv ist. Wir streben fortlaufend danach, dass jede Stimme gehört wird und sich jedes Teammitglied befähigt fühlt, sich einzubringen. Indem wir dieses Fundament schaffen, stärken wir unsere Teams, unsere Innovation und unsere Wirkung, um gemeinsam das Bauwesen zu verbessern.\n\nWarum Hilti\n\nHilti ist ein global führendes Unternehmen in der Bauinnovation mit mehr als 34.000 Teammitgliedern in 120 Ländern. Unser Ziel ist es, das Bauwesen zu verbessern. Deshalb liegt es uns am Herzen, zu lernen, zu wachsen und neue Wege zu finden, eine bleibende Wirkung zu erzielen. Hier kannst Du Deine Stärken einbringen, mit einem globalen und inklusiven Team zusammenarbeiten und Dich sinnvollen Herausforderungen stellen. Bei Hilti kannst Du Deine Ideen durch zielgerichtetes Handeln, Leidenschaft und Teamwork in reale Errungenschaften und Wachstum verwandeln.",
         "fr": "Lorsque les demandes deviennent des solutions.\n\nVous aimez résoudre des questions techniques et inspirer les clients avec vos conseils?\nPour notre service client à Zurich-Wollishofen, nous recherchons une personnalité orientée vers le service et prête à apprendre, capable de conseiller et d'inspirer nos clients dans différentes langues.\nAvec nous, vous pouvez vous attendre à une équipe motivée et diversifiée qui, ensemble, poursuit un objectif : offrir à nos clients un service de première classe. Pour nous, non seulement votre expérience antérieure compte, mais surtout votre volonté d'apprendre, votre orientation de solution et votre désir de faire une différence pour nos clients chaque jour.\n\nVotre profil\n\n• Expérience professionnelle dans une fonction similaire (service à la clientèle)\n\n• Très bonne connaissance de l'allemand et très bonne connaissance de l'italien ou du français\n\n• L'apprentissage professionnel terminé dans le domaine de la construction ou technique est avantageux, idéalement complété par une formation complémentaire au niveau TK, HF ou FH\n\n• Appréciation du contact avec le client ou conseils et assistance par téléphone\n\n• Capacité de prioriser et de travailler en parallèle avec plusieurs interfaces système (SAP, OneNote, Sharepoint)\n\nEmpreinte\n\nAvons-nous suscité votre intérêt pour travailler pour l'un des meilleurs employeurs de Suisse? Nous nous réjouissons de votre candidature en ligne. Nous acceptons vos documents complets (lettre de motivation, CV, certificats) via notre outil de carrière en ligne. Mme Joëlle Ochsner, associée talentueuse des RH, est impatiente de recevoir votre lettre de présentation.\n\nÀ quoi pouvez-vous vous attendre pour postuler à Hilti?\n\n• Nous nous engageons à faire examiner toutes les demandes par une seule personne. Même si personne n'est infaillible, nous nous tenons à notre approche centrée sur la personne de tout ce que nous faisons.\n\n• Une fois votre candidature soumise, vous recevrez des notifications automatiques de notre système (déclenchement par notre équipe de recrutement).\n\n• Les demandes qui n'arrivent pas à l'entrevue avec un gestionnaire d'embauche ne reçoivent pas de rétroaction personnalisée.\n\n• Vous pouvez vous attendre à recevoir des nouvelles de nous dans les 2-3 semaines (en moyenne) quel que soit le résultat. Le processus de recrutement peut prendre entre 5 et 6 semaines.\n\nNous vous souhaitons plein succès dans votre processus de candidature.\nSi des problèmes techniques surviennent pendant l'application, veuillez contacter mycareer-techsupport@hilti.com.\n\nEngagement en faveur de l'inclusion\n\nÀ Hilti, l'inclusion est un aspect central de notre façon de travailler, de notre style de leadership et de notre croissance partagée. Nous sommes activement attachés à la diversité des pensées et à un environnement inclusif pour tous et partout. Nous continuons de nous efforcer de faire entendre chaque voix et de faire en sorte que chaque membre de l'équipe se sente habilité à contribuer. En construisant cette fondation, nous renforçons nos équipes, notre innovation et notre impact pour améliorer collectivement la construction.\n\nPourquoi Hilti\n\nHilti est un leader mondial de l'innovation dans le secteur de la construction avec plus de 34 000 membres d'équipe dans 120 pays. Notre objectif est d'améliorer la construction. C'est pourquoi nous nous soucions d'apprendre, de grandir et de trouver de nouvelles façons d'avoir un impact durable. Ici, vous pouvez apporter vos forces, travailler avec une équipe globale et inclusive et relever des défis significatifs. Chez Hilti, vous pouvez transformer vos idées en réalisations réelles et en croissance grâce à une action délibérée, à la passion et au travail d'équipe."
       },
@@ -783,7 +785,7 @@
       "url": "https://careers.hilti.group/en/jobs/21131-de/mitarbeiter-kundendienst-m-w-d/",
       "source": "Hilti Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T21:37:48.598Z",
+      "crawledAt": "2026-11-09T09:25:43.946Z",
       "addressLocality": "Zürich",
       "postalCode": "8001",
       "addressRegion": "ZH",
@@ -802,12 +804,10 @@
       "applyUrl": "https://careers.hilti.group/en/jobs/21131-de/mitarbeiter-kundendienst-m-w-d/",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "mitarbeiter-kundendienst-m-w-d-hilti-ch",
-        "collaboratore-trice-kundendienst-m-w-d-hilti-zurich",
-        "mitarbeiter-kundendienst-m-w-d-hilti-zurich"
-      ],
       "previousSlugsByLocale": {
+        "de": [
+          "mitarbeiter-kundendienst-m-w-d-hilti-zurich"
+        ],
         "it": [
           "mitarbeiter-kundendienst-m-w-d-hilti-ch",
           "collaboratore-trice-kundendienst-m-w-d-hilti-zurich"
@@ -815,13 +815,15 @@
         "en": [
           "mitarbeiter-kundendienst-m-w-d-hilti-zurich"
         ],
-        "de": [
-          "mitarbeiter-kundendienst-m-w-d-hilti-ch"
-        ],
         "fr": [
           "mitarbeiter-kundendienst-m-w-d-hilti-zurich"
         ]
       },
+      "previousSlugs": [
+        "mitarbeiter-kundendienst-m-w-d-hilti-ch",
+        "collaboratore-trice-kundendienst-m-w-d-hilti-zurich",
+        "mitarbeiter-kundendienst-m-w-d-hilti-zurich"
+      ],
       "firstSeenAt": "2026-10-14T09:20:56.651Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -838,7 +840,7 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-12T21:37:48.598Z",
+      "validThrough": "2027-01-12T09:25:43.946Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -872,7 +874,7 @@
       "url": "https://careers.hilti.group/en/jobs/21354-de/verkaufsberater-im-aussendienst-baubranche-m-w-d/",
       "source": "Hilti Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T21:37:48.593Z",
+      "crawledAt": "2026-11-09T09:25:43.944Z",
       "addressLocality": "Visp",
       "postalCode": "3930",
       "addressRegion": "VS",
@@ -940,7 +942,7 @@
       },
       "streetAddress": "Visp",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-13T21:37:48.593Z",
+      "validThrough": "2027-01-13T09:25:43.944Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -974,7 +976,7 @@
       "url": "https://careers.hilti.group/en/jobs/21465-de/verkaufsberater-hilti-store-adliswil-m-w-d/",
       "source": "Hilti Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T21:37:48.589Z",
+      "crawledAt": "2026-11-09T09:25:43.943Z",
       "addressLocality": "Adliswil",
       "postalCode": "8134",
       "addressRegion": "ZH",
@@ -1029,7 +1031,7 @@
       },
       "streetAddress": "Adliswil",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-13T21:37:48.589Z",
+      "validThrough": "2027-01-13T09:25:43.943Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1063,7 +1065,7 @@
       "url": "https://careers.hilti.group/en/jobs/21654-de/career-start-marketing-sales-schweiz-m-w-d/",
       "source": "Hilti Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T21:37:48.587Z",
+      "crawledAt": "2026-11-09T09:25:43.941Z",
       "addressLocality": "Zürich",
       "postalCode": "8001",
       "addressRegion": "ZH",
@@ -1116,7 +1118,7 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-14T21:37:48.587Z",
+      "validThrough": "2027-01-15T09:25:43.941Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1150,7 +1152,7 @@
       "url": "https://careers.hilti.group/en/jobs/21397-de/sachbearbeiter-debitorenbuchhaltung-80-100-w-m-d/",
       "source": "Hilti Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T21:37:48.568Z",
+      "crawledAt": "2026-11-09T09:25:43.923Z",
       "addressLocality": "Zürich",
       "postalCode": "8001",
       "addressRegion": "ZH",
@@ -1218,7 +1220,7 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-18T21:37:48.568Z",
+      "validThrough": "2027-01-18T09:25:43.923Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1252,7 +1254,7 @@
       "url": "https://careers.hilti.group/en/jobs/21636-en/it-product-owner-subscription-selling-m-f-x/",
       "source": "Hilti Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-08T21:37:48.567Z",
+      "crawledAt": "2026-11-09T09:25:43.921Z",
       "addressLocality": "Buchs",
       "postalCode": "9470",
       "addressRegion": "SG",
@@ -1301,7 +1303,7 @@
       },
       "streetAddress": "Buchs",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-18T21:37:48.567Z",
+      "validThrough": "2027-01-19T09:25:43.921Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1335,7 +1337,7 @@
       "url": "https://careers.hilti.group/en/jobs/21637-en/red-team-specialist/",
       "source": "Hilti Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-08T21:37:48.565Z",
+      "crawledAt": "2026-11-09T09:25:43.919Z",
       "addressLocality": "Buchs",
       "postalCode": "9470",
       "addressRegion": "SG",
@@ -1384,7 +1386,7 @@
       },
       "streetAddress": "Buchs",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-21T21:37:48.565Z",
+      "validThrough": "2027-01-22T09:25:43.919Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1393,7 +1395,7 @@
       "slugByLocale": {
         "fr": "mitarbeiter-kundendatenverwaltung-m-w-d-hilti-zurich",
         "it": "collaboratore-trice-kundendatenverwaltung-m-w-d-hilti-zurich",
-        "en": "collaborateur-gestion-des-donnees-clients-h-f-d-hilti-ch",
+        "en": "collaborator-customer-data-management-m-w-d-hilti-zurich",
         "de": "mitarbeiter-kundendatenverwaltung-m-w-d-hilti-ch"
       },
       "company": "Hilti",
@@ -1418,7 +1420,7 @@
       "url": "https://careers.hilti.group/en/jobs/20062-fr/collaborateur-gestion-des-donnees-clients-h-f-d/",
       "source": "Hilti Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-08T21:37:48.561Z",
+      "crawledAt": "2026-11-09T09:25:43.917Z",
       "addressLocality": "Zürich",
       "postalCode": "8001",
       "addressRegion": "ZH",
@@ -1443,7 +1445,7 @@
           "collaborateur-gestion-des-donnees-clients-h-f-d-hilti-ch"
         ],
         "en": [
-          "collaborator-customer-data-management-m-w-d-hilti-zurich"
+          "collaborateur-gestion-des-donnees-clients-h-f-d-hilti-ch"
         ],
         "de": [
           "mitarbeiter-kundenstamm-m-w-d-hilti-ch"
@@ -1454,8 +1456,7 @@
       },
       "previousSlugs": [
         "mitarbeiter-kundenstamm-m-w-d-hilti-ch",
-        "collaborateur-gestion-des-donnees-clients-h-f-d-hilti-ch",
-        "collaborator-customer-data-management-m-w-d-hilti-zurich"
+        "collaborateur-gestion-des-donnees-clients-h-f-d-hilti-ch"
       ],
       "firstSeenAt": "2026-08-20T10:09:01.466Z",
       "salaryMin": 73500,
@@ -1473,7 +1474,7 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-21T21:37:48.561Z",
+      "validThrough": "2027-01-22T09:25:43.917Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1507,7 +1508,7 @@
       "url": "https://careers.hilti.group/en/jobs/22022-de/verkaufsberater-hilti-store-winterthur-m-w-d/",
       "source": "Hilti Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T21:37:48.558Z",
+      "crawledAt": "2026-11-09T09:25:43.907Z",
       "addressLocality": "Winterthur",
       "postalCode": "8400",
       "addressRegion": "ZH",
@@ -1556,7 +1557,7 @@
       },
       "streetAddress": "Winterthur",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-27T21:37:48.558Z",
+      "validThrough": "2027-01-28T09:25:43.907Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1590,7 +1591,7 @@
       "url": "https://careers.hilti.group/en/jobs/22245-en/intern-data-science-global-it-m-f-x/",
       "source": "Hilti Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-08T21:37:48.556Z",
+      "crawledAt": "2026-11-09T09:25:43.902Z",
       "addressLocality": "Buchs",
       "postalCode": "9470",
       "addressRegion": "SG",
@@ -1639,7 +1640,7 @@
       },
       "streetAddress": "Buchs",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T21:37:48.556Z",
+      "validThrough": "2027-02-04T09:25:43.902Z",
       "validThroughSource": "last-observed-window"
     }
   ]
