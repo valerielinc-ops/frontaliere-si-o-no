@@ -79,7 +79,13 @@ import {
   STAT_TILE_SUCCESS,
   STAT_TILE_BASE,
 } from './shared/seoContentTokens';
-import { ALL_CANTON_CODES, COMPANY_ROUTE_PREFIX, resolveCantonSection, legacyTiSectionRoot } from './shared/cantonSection';
+import {
+  ALL_CANTON_CODES,
+  COMPANY_ROUTE_PREFIX,
+  resolveCantonFromSection,
+  resolveCantonSection,
+  legacyTiSectionRoot,
+} from './shared/cantonSection';
 import { readJobsData, cantonArchivePageCount, type CantonJobEntry } from './shared/cantonArchivePlan';
 import { buildCanonicalJobDetailPath } from './shared/jobDetailPath';
 import { localeOfDistPath, shouldEmitLocale } from './shared/localeEmitFilter';
@@ -847,8 +853,18 @@ function archiveJobSlugFromHref(href: string | undefined): string | null {
     const target = new URL(href, `${BASE_URL}/`);
     if (target.origin !== BASE_ORIGIN || target.search || target.hash) return null;
     const segments = target.pathname.split('/').filter(Boolean);
-    if (segments.length < 2) return null;
-    const slug = segments.at(-1);
+    let locale: HubLocale = 'it';
+    let section: string;
+    let slug: string | undefined;
+    if (segments.length === 2) {
+      [section, slug] = segments;
+    } else if (segments.length === 3 && ['en', 'de', 'fr'].includes(segments[0])) {
+      locale = segments[0] as Exclude<HubLocale, 'it'>;
+      [, section, slug] = segments;
+    } else {
+      return null;
+    }
+    if (!resolveCantonFromSection(locale, section)) return null;
     return slug && ARCHIVE_JOB_SLUG.test(slug) ? slug : null;
   } catch {
     return null;

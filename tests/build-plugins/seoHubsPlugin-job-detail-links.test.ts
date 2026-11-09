@@ -33,6 +33,12 @@ describe('SEO job archive detail links', () => {
       'https://foreign.example/job/translated-zurich-job/',
       'fallback-slug',
     )).toBe('/cerca-lavoro-zurigo/fallback-slug/');
+    expect(buildCantonArchiveJobHref(
+      'it',
+      'ZH',
+      '/it/calcola-stipendio/',
+      'fallback-slug',
+    )).toBe('/cerca-lavoro-zurigo/fallback-slug/');
   });
 
   it('does not link historical registry entries without an emitted detail page', () => {
