@@ -315,19 +315,21 @@ describe('job-board emitted output', () => {
   it('links only archive pages emitted from the historical snapshot', () => {
     for (const locale of locales) {
       const zurichBase = hubSlugFor('ZH', locale, 'tutti');
-      const zurichLandingDoc = htmlDoc(hubPath(locale, 'ZH'));
+      const zurichRootDoc = htmlDoc(hubPath(locale, 'ZH'));
       const zurichArchiveDoc = htmlDoc(zurichBase);
       const currentCantonJobPath = `${hubPath(locale, 'ZH')}snapshot-zh-0/`;
       const formerCantonJobPath = `${hubPath(locale, 'TI')}snapshot-zh-0/`;
+      // Historical snapshot cards are emitted by the canton tutti archive;
+      // the canton root's editorial block only owns archive pagination links.
       expect(zurichArchiveDoc.querySelector(`a[href="${currentCantonJobPath}"]`)).not.toBeNull();
       expect(zurichArchiveDoc.querySelector(`a[href="${formerCantonJobPath}"]`)).toBeNull();
-      expect(zurichLandingDoc.querySelector(`[data-canton-editorial] a[href="${zurichBase}page-2/"]`)).toBeNull();
+      expect(zurichRootDoc.querySelector(`[data-canton-editorial] a[href="${zurichBase}page-2/"]`)).toBeNull();
       expect(fs.existsSync(path.join(root, 'dist', zurichBase, 'index.html'))).toBe(true);
       expect(fs.existsSync(path.join(root, 'dist', zurichBase, 'page-2/index.html'))).toBe(false);
 
       const sgBase = hubSlugFor('SG', locale, 'tutti');
-      const sgDoc = htmlDoc(hubPath(locale, 'SG'));
-      const archiveLinks = [...sgDoc.querySelectorAll('[data-canton-editorial] a[href]')]
+      const sgRootDoc = htmlDoc(hubPath(locale, 'SG'));
+      const archiveLinks = [...sgRootDoc.querySelectorAll('[data-canton-editorial] a[href]')]
         .map((link) => link.getAttribute('href')!).filter((href) => href.startsWith(sgBase));
       expect(archiveLinks).toContain(`${sgBase}page-2/`);
       for (const href of archiveLinks) expect(fs.existsSync(path.join(root, 'dist', href, 'index.html')), href).toBe(true);
