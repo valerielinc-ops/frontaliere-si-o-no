@@ -160,9 +160,9 @@
       "slug": "marketing-specialist-oerlikon-ch",
       "slugByLocale": {
         "it": "marketing-specialist-oerlikon-ch",
-        "en": "marketing-specialist-oerlikon-ch",
-        "de": "marketing-specialist-oerlikon-ch",
-        "fr": "marketing-specialist-oerlikon-ch"
+        "en": "marketing-299-oerlikon-mendrisio-ti",
+        "de": "marketing-spezialist-oerlikon-mendrisio-ti",
+        "fr": "marketing-specialiste-oerlikon-mendrisio-ti"
       },
       "company": "Oerlikon",
       "companyKey": "oerlikon",
@@ -228,12 +228,12 @@
     },
     {
       "id": "oerlikon-1ce467506992",
-      "slug": "konstruktionsingenieur-gn-oerlikon-wohlen",
+      "slug": "ingegnere-di-progettazione-gn-oerlikon-wohlen",
       "slugByLocale": {
         "de": "konstruktionsingenieur-gn-oerlikon-ch",
-        "it": "konstruktionsingenieur-gn-oerlikon-wohlen",
-        "en": "konstruktionsingenieur-gn-oerlikon-wohlen",
-        "fr": "konstruktionsingenieur-gn-oerlikon-wohlen"
+        "it": "ingegnere-di-progettazione-gn-oerlikon-wohlen",
+        "en": "design-engineer-gn-oerlikon-wohlen",
+        "fr": "ingenieur-de-conception-gn-oerlikon-wohlen"
       },
       "company": "Oerlikon",
       "companyKey": "oerlikon",
@@ -280,11 +280,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "konstruktionsingenieur-gn-oerlikon-ch"
+          "konstruktionsingenieur-gn-oerlikon-ch",
+          "konstruktionsingenieur-gn-oerlikon-wohlen"
+        ],
+        "en": [
+          "konstruktionsingenieur-gn-oerlikon-wohlen"
+        ],
+        "fr": [
+          "konstruktionsingenieur-gn-oerlikon-wohlen"
         ]
       },
       "previousSlugs": [
-        "konstruktionsingenieur-gn-oerlikon-ch"
+        "konstruktionsingenieur-gn-oerlikon-ch",
+        "konstruktionsingenieur-gn-oerlikon-wohlen"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,

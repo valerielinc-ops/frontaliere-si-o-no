@@ -121,32 +121,34 @@ describe('what the CV says is not asked again', () => {
     // The civil status stays out of what the letter and the CV are written from.
     expect(JSON.stringify([edited.profile, edited.answers])).not.toContain('Marié');
     expect(salutationQuestion({ channel, questions: [], answers: edited.answers, locale: 'fr' })).toBeNull();
-    // A CV that says nothing is asked as before.
+    // A CV that says nothing: the platform reads the first name and asks nothing (owner decision 2026-11-09).
     const silent = candidateWithEdits({ order, draft: draftOf('Karim Exemple\nVendeur'), flow: {} });
-    expect(silent.personal).toEqual({ salutation: '', civilStatus: '' });
-    expect(silent.answers).toEqual({});
-    expect(salutationQuestion({ channel, questions: [], answers: silent.answers, locale: 'fr' })).toMatchObject({ id: 'salutation', required: false, options: ['Monsieur', 'Madame', 'Autre'] });
+    expect(silent.personal).toEqual({ salutation: 'Monsieur', civilStatus: '' });
+    expect(silent.answers).toEqual({ salutation: 'Monsieur' });
+    expect(salutationQuestion({ channel, questions: [], answers: silent.answers, locale: 'fr' })).toBeNull();
     // In the candidate's language, whatever language the CV is in.
     expect(candidateWithEdits({ order: { ...order, locale: 'it' }, draft: draftOf(CV_FR), flow: {} }).personal.salutation).toBe('Signor');
   });
 
-  it('uses an unambiguous first name for the form of address and leaves an ambiguous one unknown', () => {
+  it('uses the first name for the form of address, an ambiguous one too (owner decision 2026-11-09)', () => {
     const luca = { locale: 'it', fullName: 'Luca Example', email: 'test@example.com' };
     const supported = candidateWithEdits({ order: luca, draft: draftOf('Luca Example'), flow: {} });
     expect(supported.personal.salutation).toBe('Signor');
     expect(salutationQuestion({ channel, questions: [], answers: supported.answers, locale: 'it' })).toBeNull();
 
     const ambiguous = candidateWithEdits({ order: { ...luca, fullName: 'Alex Morgan' }, draft: draftOf('Alex Morgan'), flow: {} });
-    expect(ambiguous.personal.salutation).toBe('');
-    expect(salutationQuestion({ channel, questions: [], answers: ambiguous.answers, locale: 'en' })).toMatchObject({ id: 'salutation' });
+    expect(ambiguous.personal.salutation).toBe('Signor');
+    expect(salutationQuestion({ channel, questions: [], answers: ambiguous.answers, locale: 'en' })).toBeNull();
+    // A correction the candidate cleared stays blank: their word is the last.
+    expect(candidateWithEdits({ order: { ...luca, fullName: 'Alex Morgan' }, draft: draftOf('Alex Morgan'), flow: { formOverrides: { salutation: '' } } }).personal.salutation).toBe('');
 
     const applicantNamedLuca = candidateWithEdits({ order: { ...luca, applicantName: luca.fullName }, draft: draftOf('Luca Example'), flow: {} });
     expect(applicantNamedLuca.personal.salutation).toBe('Signor');
     expect(salutationQuestion({ channel, questions: [], answers: applicantNamedLuca.answers, locale: 'it' })).toBeNull();
 
     const applicantNamedAlex = candidateWithEdits({ order: { ...luca, fullName: 'Alex Morgan', applicantName: 'Alex Morgan' }, draft: draftOf('Alex Morgan'), flow: {} });
-    expect(applicantNamedAlex.personal.salutation).toBe('');
-    expect(salutationQuestion({ channel, questions: [], answers: applicantNamedAlex.answers, locale: 'en' })).toMatchObject({ id: 'salutation' });
+    expect(applicantNamedAlex.personal.salutation).toBe('Signor');
+    expect(salutationQuestion({ channel, questions: [], answers: applicantNamedAlex.answers, locale: 'en' })).toBeNull();
 
     const normalizedOrder = { locale: 'it', fullName: 'Luca Example' };
     const normalizedDraft = { profile: { fullName: '' }, factSources: { text: '' }, questions: [], formAnswers: [] };
@@ -210,7 +212,9 @@ describe('what the CV says is not asked again', () => {
     expect(fields.find((field: any) => field.key === 'salutation').value).toBe('Monsieur');
     expect(fields.find((field: any) => field.key === 'civilStatus').value).toBe('Marié');
     const silent = formAnswersWithEdits({ order, draft: draftOf('Karim Exemple'), flow: {} });
-    expect(silent.some((field: any) => ['salutation', 'civilStatus'].includes(field.key))).toBe(false);
+    // The form of address is the platform's reading of the first name; a civil status only when the CV says it.
+    expect(silent.find((field: any) => field.key === 'salutation')?.value).toBe('Monsieur');
+    expect(silent.some((field: any) => field.key === 'civilStatus')).toBe(false);
     expect(buildFormAnswers({ identity: { name: 'Karim Exemple' }, profile: {}, documents: {} }).some((field: any) => ['salutation', 'civilStatus'].includes(field.key))).toBe(false);
     // A closed list in the candidate's language; the CV's own word stays shown and selected.
     const view = (key: string, draft = draftOf(CV_FR)) => fieldView(fields.find((field: any) => field.key === key), { draft, locale: 'fr' });

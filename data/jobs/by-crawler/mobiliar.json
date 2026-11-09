@@ -82,8 +82,8 @@
       "slugByLocale": {
         "de": "leiter-in-verkauf-w-m-d-generalagentur-willisau-entlebuch-mobiliar-ch",
         "it": "responsabile-vendita-m-w-d-agenzia-generale-willisau-entlebuch-die-mobiliar-willisau",
-        "en": "leiter-in-verkauf-w-m-d-generalagentur-willisau-entlebuch-mobiliar-ch",
-        "fr": "leiter-in-verkauf-w-m-d-generalagentur-willisau-entlebuch-mobiliar-ch"
+        "en": "sales-manager-m-f-d-general-agency-willisau-entlebuch-die-mobiliar-willisau",
+        "fr": "responsable-des-ventes-h-f-d-agence-generale-willisau-entlebuch-die-mobiliar-willisau"
       },
       "company": "die Mobiliar",
       "companyKey": "mobiliar",
@@ -147,6 +147,12 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "leiter-in-verkauf-w-m-d-generalagentur-willisau-entlebuch-mobiliar-ch"
+        ],
+        "en": [
+          "leiter-in-verkauf-w-m-d-generalagentur-willisau-entlebuch-mobiliar-ch"
+        ],
+        "fr": [
           "leiter-in-verkauf-w-m-d-generalagentur-willisau-entlebuch-mobiliar-ch"
         ]
       },
@@ -6913,9 +6919,9 @@
       "slug": "schadenspezialist-m-w-d-agenzia-generale-wil-sg-die-mobiliar-wil",
       "slugByLocale": {
         "it": "schadenspezialist-m-w-d-agenzia-generale-wil-sg-die-mobiliar-wil",
-        "en": "damage-specialist-m-w-d-general-agency-wil-sg-die-mobiliar-wil",
+        "en": "projektleiter-m-d-die-mobiliar-wil",
         "de": "schadenspezialist-w-m-d-generalagentur-wil-sg-mobiliar-ch",
-        "fr": "specialiste-des-dommages-m-w-d-agence-generale-wil-sg-die-mobiliar-wil"
+        "fr": "projektleiter-m-d-die-mobiliar-wil"
       },
       "company": "die Mobiliar",
       "companyKey": "mobiliar",
@@ -6979,17 +6985,18 @@
       "sfJobId": "1164087255",
       "previousSlugs": [
         "schadenspezialist-w-m-d-generalagentur-wil-sg-mobiliar-ch",
-        "projektleiter-m-d-die-mobiliar-wil"
+        "damage-specialist-m-w-d-general-agency-wil-sg-die-mobiliar-wil",
+        "specialiste-des-dommages-m-w-d-agence-generale-wil-sg-die-mobiliar-wil"
       ],
       "previousSlugsByLocale": {
         "it": [
           "schadenspezialist-w-m-d-generalagentur-wil-sg-mobiliar-ch"
         ],
         "en": [
-          "projektleiter-m-d-die-mobiliar-wil"
+          "damage-specialist-m-w-d-general-agency-wil-sg-die-mobiliar-wil"
         ],
         "fr": [
-          "projektleiter-m-d-die-mobiliar-wil"
+          "specialiste-des-dommages-m-w-d-agence-generale-wil-sg-die-mobiliar-wil"
         ]
       },
       "firstSeenAt": "2026-05-10T22:08:57.734Z",

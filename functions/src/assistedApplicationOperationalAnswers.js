@@ -4,9 +4,11 @@
  */
 import { isPreferredWorkloadQuestion } from './assistedApplicationCandidateEdits.js';
 import { validateAnswer } from './lib/answerRules.js';
+import { platformDefaultAnswer } from './assistedApplicationPlatformDefaults.js';
 import { hasConsentContradiction, isApplicationDataProcessingConsent, isPrivacyReviewAcknowledgment, minimumDataRetentionOption, privacyReviewAcknowledgmentShape } from './lib/applicationConsent.js';
 
-export const OPERATIONAL_DEFAULTS_VERSION = 'operational-preferences-v4';
+// v5 (2026-11-09): the platform defaults of assistedApplicationPlatformDefaults.js.
+export const OPERATIONAL_DEFAULTS_VERSION = 'operational-preferences-v5';
 const norm = value => String(value ?? '').normalize('NFD').replace(/[\u0300-\u036f]/g, '')
   .toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim().replace(/\s+/g, ' ');
 const hasAnswer = value => typeof value === 'boolean' || (typeof value === 'number' && Number.isFinite(value))
@@ -145,8 +147,12 @@ export function operationalQuestionTopic(question) {
     question?.question, question?.label, question?.applicationQuestion, question?.context,
     ...(Array.isArray(question?.labels) ? question.labels : []),
     ...optionsOf(question).flatMap(option => [option.label, option.value]),
-  ].filter(value => typeof value === 'string' && value.trim()).join(' ');
-  if (isPreferredWorkloadQuestion(workloadPrompt)) return 'preferred_workload';
+  ].filter(value => typeof value === 'string' && value.trim())
+    // A portal's required marker («* (required)») is not a workload requirement.
+    .map(value => value.replace(/\*?\s*\((?:required|obligatoire|obbligatorio|pflichtfeld)\)|\*/gi, ' ')).join(' ');
+  // A percentage preference fills a percentage field; «available at 80%?» (yes/no) asks a fixed pensum instead.
+  if (isPreferredWorkloadQuestion(workloadPrompt)
+    && !['yes_no', 'checkbox', 'boolean'].includes(question?.type || question?.kind)) return 'preferred_workload';
   if (NOTICE.test(text) && !CONSTRAINED_NOTICE.test(text) && !['yes_no', 'checkbox'].includes(question?.type || question?.kind)) return 'notice_period';
   if (/\bwhatsapp\b/.test(text) && CONTACT.test(text) && !CONTACT_FACT.test(text)) {
     // Adjacent form labels are not candidate facts. A promotional/privacy
@@ -162,8 +168,17 @@ export function operationalQuestionTopic(question) {
   return null;
 }
 
-/** Return a value the actual field can express; never choose another preference. */
-export function operationalDefaultAnswer(question, { locale } = {}) {
+/**
+ * Return a value the actual field can express; never choose another preference.
+ * `facts` (platformCandidateFacts) extends the owner preferences with the
+ * platform defaults of 2026-11-09; without them only the facts that need no
+ * candidate (dates, consents, availabilities) apply.
+ */
+export function operationalDefaultAnswer(question, { locale, facts } = {}) {
+  return ownerPreferenceAnswer(question, { locale }) || platformDefaultAnswer(question, facts || null, { locale });
+}
+
+function ownerPreferenceAnswer(question, { locale } = {}) {
   const topic = operationalQuestionTopic(question);
   if (!topic) return null;
   const options = optionsOf(question);
@@ -239,8 +254,8 @@ export function withOperationalQuestionAnswers(questions, confirmedAnswers = {},
 }
 
 /** An answer is permitted only by the policy for this exact field. */
-export function isOperationalDefaultValue(question, value) {
-  const expected = operationalDefaultAnswer(question);
+export function isOperationalDefaultValue(question, value, options = {}) {
+  const expected = operationalDefaultAnswer(question, options);
   if (!expected) return false;
   if (expected.topic === 'notice_period') {
     const equivalent = equivalentOperationalAnswers(question, expected.value, value);
@@ -252,8 +267,8 @@ export function isOperationalDefaultValue(question, value) {
 }
 
 /** Required form preferences also leave with an email application. Never edit the CV. */
-export function operationalEmailBody(draft, confirmedAnswers = {}) {
-  const { answers, defaults } = withOperationalQuestionAnswers(draft?.questions, confirmedAnswers, { locale: draft?.language });
+export function operationalEmailBody(draft, confirmedAnswers = {}, { facts } = {}) {
+  const { answers, defaults } = withOperationalQuestionAnswers(draft?.questions, confirmedAnswers, { locale: draft?.language, facts });
   const lines = (draft?.questions || []).filter(question => question.required && defaults[question.id])
     .map(question => `${question.applicationQuestion || question.question}: ${answers[question.id]}`);
   const body = draft?.applicationEmail?.body || '';

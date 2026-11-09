@@ -8450,8 +8450,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-in-kafigaufbereitung-und-reinigung-m-w-d-eth-zurich-ch",
         "it": "collaboratore-trice-kafigaufbereitung-e-reinigung-m-w-d-eth-zurich",
-        "en": "mitarbeiter-in-kafigaufbereitung-und-reinigung-m-w-d-eth-zurich-ch",
-        "fr": "mitarbeiter-in-kafigaufbereitung-und-reinigung-m-w-d-eth-zurich-ch"
+        "en": "cage-preparation-and-cleaning-employee-m-f-d-eth-zurich-zurich",
+        "fr": "collaborateur-trice-kafigaufbereitung-und-reinigung-m-w-d-eth-zurich-zurich"
       },
       "company": "ETH Zürich",
       "companyKey": "eth-zurich",
@@ -8497,6 +8497,12 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-in-kafigaufbereitung-und-reinigung-m-w-d-eth-zurich-ch"
+        ],
+        "en": [
+          "mitarbeiter-in-kafigaufbereitung-und-reinigung-m-w-d-eth-zurich-ch"
+        ],
+        "fr": [
           "mitarbeiter-in-kafigaufbereitung-und-reinigung-m-w-d-eth-zurich-ch"
         ]
       },
@@ -8601,7 +8607,7 @@
       "slugByLocale": {
         "de": "educational-ict-systemspezialist-in-co-projektleiter-in-ai-agents-und-automation-service",
         "it": "educational-ict-systemspezialist-in-co-responsabile-di-progetto-ai-agents-e-automation-service-digitale-prufungen-m-w-d-eth-zurich",
-        "en": "educational-ict-systemspezialist-in-co-projektleiter-in-ai-agents-und-automation-service",
+        "en": "educational-ict-systems-specialist-co-project-manager-ai-agents-and-automation-service-digital-exams-m-f-d-eth-zurich",
         "fr": "educational-ict-systemspezialist-in-co-projektleiter-in-ai-agents-und-automation-service"
       },
       "company": "ETH Zürich",
@@ -8649,6 +8655,9 @@
       "previousSlugsByLocale": {
         "it": [
           "educational-ict-systemspezialist-in-co-projektleiter-in-ai-agents-und-automation-service"
+        ],
+        "en": [
+          "educational-ict-systemspezialist-in-co-projektleiter-in-ai-agents-und-automation-service"
         ]
       },
       "previousSlugs": [
@@ -8677,12 +8686,12 @@
     },
     {
       "id": "eth-zurich-dbf615d6340c",
-      "slug": "studentische-assistenz-per-daten-e-literaturrecherche-m-w-d-eth-zurich",
+      "slug": "assistente-studentesco-per-la-ricerca-di-dati-e-letteratura-m-f-d-eth-zurich-zurich",
       "slugByLocale": {
         "de": "studentische-assistenz-fur-daten-und-literaturrecherche-m-w-d-eth-zurich-ch",
-        "it": "studentische-assistenz-per-daten-e-literaturrecherche-m-w-d-eth-zurich",
-        "en": "studentische-assistenz-fur-daten-und-literaturrecherche-m-w-d-eth-zurich-ch",
-        "fr": "studentische-assistenz-fur-daten-und-literaturrecherche-m-w-d-eth-zurich-ch"
+        "it": "assistente-studentesco-per-la-ricerca-di-dati-e-letteratura-m-f-d-eth-zurich-zurich",
+        "en": "student-assistant-for-data-and-literature-research-m-f-d-eth-zurich-zurich",
+        "fr": "assistant-etudiant-pour-la-recherche-en-donnees-et-litterature-h-f-d-eth-zurich-zurich"
       },
       "company": "ETH Zürich",
       "companyKey": "eth-zurich",
@@ -8728,11 +8737,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "studentische-assistenz-fur-daten-und-literaturrecherche-m-w-d-eth-zurich-ch",
+          "studentische-assistenz-per-daten-e-literaturrecherche-m-w-d-eth-zurich"
+        ],
+        "en": [
+          "studentische-assistenz-fur-daten-und-literaturrecherche-m-w-d-eth-zurich-ch"
+        ],
+        "fr": [
           "studentische-assistenz-fur-daten-und-literaturrecherche-m-w-d-eth-zurich-ch"
         ]
       },
       "previousSlugs": [
-        "studentische-assistenz-fur-daten-und-literaturrecherche-m-w-d-eth-zurich-ch"
+        "studentische-assistenz-fur-daten-und-literaturrecherche-m-w-d-eth-zurich-ch",
+        "studentische-assistenz-per-daten-e-literaturrecherche-m-w-d-eth-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -8757,12 +8774,12 @@
     },
     {
       "id": "eth-zurich-e5e66f171be1",
-      "slug": "lab-manager-and-experimental-technical-support-staff-eth-zurich-ch",
+      "slug": "responsabile-del-laboratorio-e-personale-di-supporto-tecnico-sperimentale-eth-zurich-zurich",
       "slugByLocale": {
         "en": "lab-manager-and-experimental-technical-support-staff-eth-zurich-ch",
-        "it": "lab-manager-and-experimental-technical-support-staff-eth-zurich-ch",
-        "de": "lab-manager-and-experimental-technical-support-staff-eth-zurich-ch",
-        "fr": "lab-manager-and-experimental-technical-support-staff-eth-zurich-ch"
+        "it": "responsabile-del-laboratorio-e-personale-di-supporto-tecnico-sperimentale-eth-zurich-zurich",
+        "de": "lab-manager-und-experimenteller-technischer-support-eth-zurich-zurich",
+        "fr": "gestionnaire-de-laboratoire-et-personnel-de-soutien-technique-experimental-eth-zurich-zurich"
       },
       "company": "ETH Zürich",
       "companyKey": "eth-zurich",
@@ -8824,16 +8841,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-07T09:52:17.327Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-09T09:52:17.327Z"
+      "firstSeenAt": "2026-11-09T09:52:17.327Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "lab-manager-and-experimental-technical-support-staff-eth-zurich-ch"
+        ],
+        "de": [
+          "lab-manager-and-experimental-technical-support-staff-eth-zurich-ch"
+        ],
+        "fr": [
+          "lab-manager-and-experimental-technical-support-staff-eth-zurich-ch"
+        ]
+      },
+      "previousSlugs": [
+        "lab-manager-and-experimental-technical-support-staff-eth-zurich-ch"
+      ]
     },
     {
       "id": "eth-zurich-040815a5a717",
-      "slug": "post-doctoral-position-in-machine-learning-for-engineering-design-eth-zurich-ch",
+      "slug": "posizione-post-dottorale-nell-apprendimento-automatico-per-la-progettazione-ingegneristica-eth-zurich-zurich",
       "slugByLocale": {
         "en": "post-doctoral-position-in-machine-learning-for-engineering-design-eth-zurich-ch",
-        "it": "post-doctoral-position-in-machine-learning-for-engineering-design-eth-zurich-ch",
-        "de": "post-doctoral-position-in-machine-learning-for-engineering-design-eth-zurich-ch",
-        "fr": "post-doctoral-position-in-machine-learning-for-engineering-design-eth-zurich-ch"
+        "it": "posizione-post-dottorale-nell-apprendimento-automatico-per-la-progettazione-ingegneristica-eth-zurich-zurich",
+        "de": "postdoktorand-im-bereich-machine-learning-fur-engineering-design-eth-zurich-zurich",
+        "fr": "position-postdoctorale-en-apprentissage-automatique-pour-la-conception-technique-eth-zurich-zurich"
       },
       "company": "ETH Zürich",
       "companyKey": "eth-zurich",
@@ -8896,16 +8927,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-07T09:52:16.827Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-09T09:52:16.827Z"
+      "firstSeenAt": "2026-11-09T09:52:16.827Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "post-doctoral-position-in-machine-learning-for-engineering-design-eth-zurich-ch"
+        ],
+        "de": [
+          "post-doctoral-position-in-machine-learning-for-engineering-design-eth-zurich-ch"
+        ],
+        "fr": [
+          "post-doctoral-position-in-machine-learning-for-engineering-design-eth-zurich-ch"
+        ]
+      },
+      "previousSlugs": [
+        "post-doctoral-position-in-machine-learning-for-engineering-design-eth-zurich-ch"
+      ]
     },
     {
       "id": "eth-zurich-5de0a9de6b07",
-      "slug": "wissenschaftliche-assistenz-lehre-entwurf-e-digitales-entwerfen-m-w-d-eth-zurich",
+      "slug": "assistente-scientifico-apprendistato-progettazione-e-progettazione-digitale-m-f-d-eth-zurich-zurich",
       "slugByLocale": {
         "de": "wissenschaftliche-assistenz-lehre-entwurf-und-digitales-entwerfen-m-w-d-eth-zurich-ch",
-        "it": "wissenschaftliche-assistenz-lehre-entwurf-e-digitales-entwerfen-m-w-d-eth-zurich",
-        "en": "wissenschaftliche-assistenz-lehre-entwurf-und-digitales-entwerfen-m-w-d-eth-zurich-ch",
-        "fr": "wissenschaftliche-assistenz-lehre-entwurf-und-digitales-entwerfen-m-w-d-eth-zurich-ch"
+        "it": "assistente-scientifico-apprendistato-progettazione-e-progettazione-digitale-m-f-d-eth-zurich-zurich",
+        "en": "scientific-assistant-teaching-design-and-digital-design-m-f-d-eth-zurich-zurich",
+        "fr": "assistant-scientifique-conception-et-conception-numerique-h-f-d-eth-zurich-zurich"
       },
       "company": "ETH Zürich",
       "companyKey": "eth-zurich",
@@ -8951,11 +8996,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "wissenschaftliche-assistenz-lehre-entwurf-und-digitales-entwerfen-m-w-d-eth-zurich-ch",
+          "wissenschaftliche-assistenz-lehre-entwurf-e-digitales-entwerfen-m-w-d-eth-zurich"
+        ],
+        "en": [
+          "wissenschaftliche-assistenz-lehre-entwurf-und-digitales-entwerfen-m-w-d-eth-zurich-ch"
+        ],
+        "fr": [
           "wissenschaftliche-assistenz-lehre-entwurf-und-digitales-entwerfen-m-w-d-eth-zurich-ch"
         ]
       },
       "previousSlugs": [
-        "wissenschaftliche-assistenz-lehre-entwurf-und-digitales-entwerfen-m-w-d-eth-zurich-ch"
+        "wissenschaftliche-assistenz-lehre-entwurf-und-digitales-entwerfen-m-w-d-eth-zurich-ch",
+        "wissenschaftliche-assistenz-lehre-entwurf-e-digitales-entwerfen-m-w-d-eth-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -8980,12 +9033,12 @@
     },
     {
       "id": "eth-zurich-d965d206fd5b",
-      "slug": "doctoral-position-in-machine-learning-for-engineering-design-eth-zurich-ch",
+      "slug": "posizione-medica-nell-apprendimento-delle-macchine-per-la-progettazione-ingegneristica-eth-zurich-zurich",
       "slugByLocale": {
         "en": "doctoral-position-in-machine-learning-for-engineering-design-eth-zurich-ch",
-        "it": "doctoral-position-in-machine-learning-for-engineering-design-eth-zurich-ch",
+        "it": "posizione-medica-nell-apprendimento-delle-macchine-per-la-progettazione-ingegneristica-eth-zurich-zurich",
         "de": "doctoral-position-in-machine-learning-for-engineering-design-eth-zurich-ch",
-        "fr": "doctoral-position-in-machine-learning-for-engineering-design-eth-zurich-ch"
+        "fr": "position-au-doctorat-en-apprentissage-automatique-pour-la-conception-technique-eth-zurich-zurich"
       },
       "company": "ETH Zürich",
       "companyKey": "eth-zurich",
@@ -9047,7 +9100,18 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-07T09:52:15.831Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-09T09:52:15.831Z"
+      "firstSeenAt": "2026-11-09T09:52:15.831Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "doctoral-position-in-machine-learning-for-engineering-design-eth-zurich-ch"
+        ],
+        "fr": [
+          "doctoral-position-in-machine-learning-for-engineering-design-eth-zurich-ch"
+        ]
+      },
+      "previousSlugs": [
+        "doctoral-position-in-machine-learning-for-engineering-design-eth-zurich-ch"
+      ]
     },
     {
       "id": "eth-zurich-0b4eaa463c96",
@@ -9122,12 +9186,12 @@
     },
     {
       "id": "eth-zurich-9e3caafdff63",
-      "slug": "two-doctoral-positions-in-the-snsf-research-project-from-homes-to-habitat-swiss-housing",
+      "slug": "due-posizioni-di-dottorato-nel-progetto-di-ricerca-del-fns-from-homes-to-habitat-swiss-housing-cooperatives-as-agents-of",
       "slugByLocale": {
         "en": "two-doctoral-positions-in-the-snsf-research-project-from-homes-to-habitat-swiss-housing",
-        "it": "two-doctoral-positions-in-the-snsf-research-project-from-homes-to-habitat-swiss-housing",
-        "de": "two-doctoral-positions-in-the-snsf-research-project-from-homes-to-habitat-swiss-housing",
-        "fr": "two-doctoral-positions-in-the-snsf-research-project-from-homes-to-habitat-swiss-housing"
+        "it": "due-posizioni-di-dottorato-nel-progetto-di-ricerca-del-fns-from-homes-to-habitat-swiss-housing-cooperatives-as-agents-of",
+        "de": "zwei-promotionsstellen-im-snf-forschungsprojekt-from-homes-to-habitat-swiss-housing-cooperatives-as-agents-of-socio",
+        "fr": "deux-positions-doctorales-dans-le-projet-de-recherche-du-fns-de-la-maison-a-l-habitat-les-cooperatives-d-habitation"
       },
       "company": "ETH Zürich",
       "companyKey": "eth-zurich",
@@ -9190,16 +9254,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-07T09:52:14.839Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-09T09:52:14.839Z"
+      "firstSeenAt": "2026-11-09T09:52:14.839Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "two-doctoral-positions-in-the-snsf-research-project-from-homes-to-habitat-swiss-housing"
+        ],
+        "de": [
+          "two-doctoral-positions-in-the-snsf-research-project-from-homes-to-habitat-swiss-housing"
+        ],
+        "fr": [
+          "two-doctoral-positions-in-the-snsf-research-project-from-homes-to-habitat-swiss-housing"
+        ]
+      },
+      "previousSlugs": [
+        "two-doctoral-positions-in-the-snsf-research-project-from-homes-to-habitat-swiss-housing"
+      ]
     },
     {
       "id": "eth-zurich-6f6c7c13ca75",
-      "slug": "postdoctoral-researcher-in-technologies-for-home-rehabilitation-after-stroke-eth-zurich-ch",
+      "slug": "ricercatore-post-dottorato-in-tecnologie-per-la-riabilitazione-domestica-dopo-stroke-eth-zurich-singapore",
       "slugByLocale": {
         "en": "postdoctoral-researcher-in-technologies-for-home-rehabilitation-after-stroke-eth-zurich-ch",
-        "it": "postdoctoral-researcher-in-technologies-for-home-rehabilitation-after-stroke-eth-zurich-ch",
-        "de": "postdoctoral-researcher-in-technologies-for-home-rehabilitation-after-stroke-eth-zurich-ch",
-        "fr": "postdoctoral-researcher-in-technologies-for-home-rehabilitation-after-stroke-eth-zurich-ch"
+        "it": "ricercatore-post-dottorato-in-tecnologie-per-la-riabilitazione-domestica-dopo-stroke-eth-zurich-singapore",
+        "de": "postdoktorand-in-technologien-fur-die-rehabilitation-zu-hause-nach-einem-schlaganfall-eth-zurich-singapore",
+        "fr": "chercheur-postdoctoral-en-technologies-de-readaptation-a-domicile-apres-accident-vasculaire-cerebral-eth-zurich"
       },
       "company": "ETH Zürich",
       "companyKey": "eth-zurich",
@@ -9259,16 +9337,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-07T09:52:14.341Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-09T09:52:14.341Z"
+      "firstSeenAt": "2026-11-09T09:52:14.341Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "postdoctoral-researcher-in-technologies-for-home-rehabilitation-after-stroke-eth-zurich-ch"
+        ],
+        "de": [
+          "postdoctoral-researcher-in-technologies-for-home-rehabilitation-after-stroke-eth-zurich-ch"
+        ],
+        "fr": [
+          "postdoctoral-researcher-in-technologies-for-home-rehabilitation-after-stroke-eth-zurich-ch"
+        ]
+      },
+      "previousSlugs": [
+        "postdoctoral-researcher-in-technologies-for-home-rehabilitation-after-stroke-eth-zurich-ch"
+      ]
     },
     {
       "id": "eth-zurich-5bb8f116f6e1",
-      "slug": "doctoral-position-in-robotic-spraying-for-biocementation-eth-zurich-ch",
+      "slug": "posizione-dottorale-nella-spruzzatura-robotizzata-per-la-biocementazione-eth-zurich-zurich",
       "slugByLocale": {
         "en": "doctoral-position-in-robotic-spraying-for-biocementation-eth-zurich-ch",
-        "it": "doctoral-position-in-robotic-spraying-for-biocementation-eth-zurich-ch",
+        "it": "posizione-dottorale-nella-spruzzatura-robotizzata-per-la-biocementazione-eth-zurich-zurich",
         "de": "doctoral-position-in-robotic-spraying-for-biocementation-eth-zurich-ch",
-        "fr": "doctoral-position-in-robotic-spraying-for-biocementation-eth-zurich-ch"
+        "fr": "position-au-doctorat-dans-la-pulverisation-robotique-pour-la-biocementation-eth-zurich-zurich"
       },
       "company": "ETH Zürich",
       "companyKey": "eth-zurich",
@@ -9330,16 +9422,27 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-07T09:52:13.806Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-09T09:52:13.806Z"
+      "firstSeenAt": "2026-11-09T09:52:13.806Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "doctoral-position-in-robotic-spraying-for-biocementation-eth-zurich-ch"
+        ],
+        "fr": [
+          "doctoral-position-in-robotic-spraying-for-biocementation-eth-zurich-ch"
+        ]
+      },
+      "previousSlugs": [
+        "doctoral-position-in-robotic-spraying-for-biocementation-eth-zurich-ch"
+      ]
     },
     {
       "id": "eth-zurich-1ae4f295f080",
-      "slug": "postdoctoral-researcher-metabolism-of-the-neuroblastoma-tumor-microenvironment-eth-zurich",
+      "slug": "ricercatore-post-dottorato-metabolismo-del-microambiente-neuroblastoma-tumor-eth-zurich-zurich",
       "slugByLocale": {
         "en": "postdoctoral-researcher-metabolism-of-the-neuroblastoma-tumor-microenvironment-eth-zurich",
-        "it": "postdoctoral-researcher-metabolism-of-the-neuroblastoma-tumor-microenvironment-eth-zurich",
-        "de": "postdoctoral-researcher-metabolism-of-the-neuroblastoma-tumor-microenvironment-eth-zurich",
-        "fr": "postdoctoral-researcher-metabolism-of-the-neuroblastoma-tumor-microenvironment-eth-zurich"
+        "it": "ricercatore-post-dottorato-metabolismo-del-microambiente-neuroblastoma-tumor-eth-zurich-zurich",
+        "de": "postdoktorand-metabolismus-der-neuroblastom-tumor-mikroumgebung-eth-zurich-zurich",
+        "fr": "chercheur-postdoctoral-metabolisme-du-microenvironnement-des-tumeurs-du-neuroblastome-eth-zurich-zurich"
       },
       "company": "ETH Zürich",
       "companyKey": "eth-zurich",
@@ -9401,7 +9504,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-07T09:52:13.303Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-09T09:52:13.303Z"
+      "firstSeenAt": "2026-11-09T09:52:13.303Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "postdoctoral-researcher-metabolism-of-the-neuroblastoma-tumor-microenvironment-eth-zurich"
+        ],
+        "de": [
+          "postdoctoral-researcher-metabolism-of-the-neuroblastoma-tumor-microenvironment-eth-zurich"
+        ],
+        "fr": [
+          "postdoctoral-researcher-metabolism-of-the-neuroblastoma-tumor-microenvironment-eth-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "postdoctoral-researcher-metabolism-of-the-neuroblastoma-tumor-microenvironment-eth-zurich"
+      ]
     },
     {
       "id": "eth-zurich-549aafb9e019",

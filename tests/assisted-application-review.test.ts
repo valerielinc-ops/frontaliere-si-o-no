@@ -666,13 +666,16 @@ describe('candidate review API', () => {
   it('refuses a start date in the past or an impossible date, and tells the page the earliest one', async () => {
     const availability = { id: 'availability', question: 'Da quale data saresti disponibile a iniziare?', why: '', type: 'date', options: [], required: true };
     const birth = { id: 'birth_date', question: 'Data di nascita', why: '', type: 'date', options: [], required: false };
-    await store.db.collection('assisted_applications').doc(ORDER).collection('ai_drafts').doc('current').set(draft({ questions: [availability, birth] }));
+    // A question only the candidate answers keeps the platform's answers on the page, to be changed (2026-11-09).
+    const licence = { id: 'licence', question: 'Hai la patente B?', why: '', type: 'yes_no', options: [], required: true };
+    await store.db.collection('assisted_applications').doc(ORDER).collection('ai_drafts').doc('current').set(draft({ questions: [availability, birth, licence] }));
     const view = await handleAssistedApplicationReview({ method: 'GET', query: { t: token() } }, deps());
     // T0 is 30-09-2026 10:00 UTC: the start date may be today at the earliest; a birth date has no minimum.
     expect(view.body.questions).toEqual([
-      // Proposed start: first day of the month three months after next month (September → 1 January).
-      expect.objectContaining({ id: 'availability', minDate: '2026-09-30', suggested: '2027-01-01' }),
+      // Proposed start: three months after the submission (owner decision 2026-11-09).
+      expect.objectContaining({ id: 'availability', minDate: '2026-09-30', suggested: '2026-12-30', answeredByPlatform: true }),
       expect.objectContaining({ id: 'birth_date', minDate: null, suggested: null }),
+      expect.objectContaining({ id: 'licence' }),
     ]);
     const answer = (answers: Record<string, string>) => postAnswers(answers);
     expect(await answer({ availability: '1985-09-12' })).toMatchObject({ status: 400, body: { error: 'invalid_answers', fields: { availability: 'La data non può essere nel passato.' } } });
@@ -697,7 +700,8 @@ describe('candidate review API', () => {
       id: 'years', question: 'Anni di esperienza in geriatria?', why: '', type: 'number', options: [], required: false,
       validation: { pattern: '', minLength: 0, maxLength: 10, min: 0, max: 50, minDate: '', example: '5', message: 'Un numero di anni tra 0 e 50.' },
     };
-    await store.db.collection('assisted_applications').doc(ORDER).collection('ai_drafts').doc('current').set(draft({ questions: [notice, years] }));
+    const licence = { id: 'licence', question: 'Hai la patente B?', why: '', type: 'yes_no', options: [], required: true };
+    await store.db.collection('assisted_applications').doc(ORDER).collection('ai_drafts').doc('current').set(draft({ questions: [notice, years, licence] }));
     const view = await handleAssistedApplicationReview({ method: 'GET', query: { t: token() } }, deps());
     // The page receives the rule and checks it while the candidate types.
     expect(view.body.questions[0].validation).toMatchObject({ example: '3 mesi', maxLength: 40 });

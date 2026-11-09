@@ -2126,12 +2126,12 @@
     },
     {
       "id": "localsearch-0ecd50ed2b81",
-      "slug": "outbound-sales-agent-60-100-localsearch-ch",
+      "slug": "agente-di-vendita-in-uscita-60-100-localsearch-zurich",
       "slugByLocale": {
         "de": "outbound-sales-agent-60-100-localsearch-ch",
-        "it": "outbound-sales-agent-60-100-localsearch-ch",
+        "it": "agente-di-vendita-in-uscita-60-100-localsearch-zurich",
         "en": "outbound-sales-agent-60-100-localsearch-ch",
-        "fr": "outbound-sales-agent-60-100-localsearch-ch"
+        "fr": "agent-de-vente-sortant-60-100-localsearch-zurich"
       },
       "company": "localsearch",
       "companyKey": "localsearch",
@@ -2193,7 +2193,18 @@
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-07T09:22:01.354Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "previousSlugsByLocale": {
+        "it": [
+          "outbound-sales-agent-60-100-localsearch-ch"
+        ],
+        "fr": [
+          "outbound-sales-agent-60-100-localsearch-ch"
+        ]
+      },
+      "previousSlugs": [
+        "outbound-sales-agent-60-100-localsearch-ch"
+      ]
     }
   ]
 }

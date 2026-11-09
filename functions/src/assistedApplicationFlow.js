@@ -169,9 +169,9 @@ export function evaluateRedFlags(draft, answers = {}, documents = {}, questionAn
   if (requiredDocumentsFor(draft, flow).some((document) => document.delivery === 'offline')
     && flow?.postalSubmission?.enabled !== true) owner.push('postal_submission_missing');
   const candidateFlow = { ...(flow && typeof flow === 'object' ? flow : {}), answers, questionAnswers };
-  const { profile, answers: candidateAnswers } = candidateWithEdits({ order, draft, flow: candidateFlow });
+  const { profile, answers: candidateAnswers, platformFacts } = candidateWithEdits({ order, draft, flow: candidateFlow });
   const questions = questionsForCandidate(draft?.questions, profile, candidateAnswers, questionAnswers, draft);
-  const projected = withOperationalQuestionAnswers(questions, candidateAnswers).answers;
+  const projected = withOperationalQuestionAnswers(questions, candidateAnswers, { locale: platformFacts?.locale, facts: platformFacts }).answers;
   const candidate = questions
     .filter((question) => question.required
       && (!String(projected?.[question.id] ?? '').trim() || !requiredPortalConsentAffirmed(question, projected?.[question.id])))
@@ -570,21 +570,21 @@ function portalAnswerForQuestion(question, draft) {
   return fallback;
 }
 
-function knownAnswerForQuestion(question, { draft, answers, questionAnswers }) {
+function knownAnswerForQuestion(question, { draft, answers, questionAnswers, facts = null }) {
   if (hasAnswer(answers?.[question.id])) return answers[question.id];
   const projected = candidateAnswersForQuestions(draft?.questions || [], answers, questionAnswers);
   if (hasAnswer(projected?.[question.id])) return projected[question.id];
   const portalAnswer = portalAnswerForQuestion(question, draft);
   if (hasAnswer(portalAnswer)) return portalAnswer;
   const key = candidateQuestionAnswerKey(question);
-  if (!key) return operationalDefaultAnswer(question)?.value;
+  if (!key) return operationalDefaultAnswer(question, { facts })?.value;
   const remembered = candidateAnswersForQuestions([question], {}, questionAnswers);
   if (hasAnswer(remembered?.[question.id])) return remembered[question.id];
   for (const current of Array.isArray(draft?.questions) ? draft.questions : []) {
     if (candidateQuestionAnswerKey(current) !== key) continue;
     if (hasAnswer(projected?.[current.id])) return projected[current.id];
   }
-  return operationalDefaultAnswer(question)?.value;
+  return operationalDefaultAnswer(question, { facts })?.value;
 }
 
 function portalTakeover(next, current, event, nowMs, attemptsOverride = null) {
@@ -1035,12 +1035,14 @@ export function transition(flow, event, { order = {}, draft = null, answers = {}
         effects = [portalTakeover(next, current, { reason: 'portal_needs_candidate' }, nowMs, attempts)];
         break;
       }
+      const { platformFacts } = candidateWithEdits({ order, draft, flow: { ...(flow || {}), answers } });
       const unresolvedQuestions = questionIds.filter((id) => {
         const question = detailsById.get(id) || (draft?.questions || []).find(item => item.id === id) || { id };
         return !hasAnswer(knownAnswerForQuestion(question, {
           draft,
           answers,
           questionAnswers: flow?.questionAnswers || {},
+          facts: platformFacts,
         }));
       });
       // The review page is generated from the draft, not from the runner

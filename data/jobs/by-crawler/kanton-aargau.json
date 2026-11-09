@@ -5322,8 +5322,8 @@
       "slugByLocale": {
         "de": "mitarbeiterin-mitarbeiter-marketing-und-kommunikation-80-100-kanton-aargau-ch",
         "it": "mitarbeiterin-collaboratore-trice-marketing-e-kommunikation-80-100-kanton-aargau-aarau",
-        "en": "mitarbeiterin-mitarbeiter-marketing-und-kommunikation-80-100-kanton-aargau-ch",
-        "fr": "mitarbeiterin-mitarbeiter-marketing-und-kommunikation-80-100-kanton-aargau-ch"
+        "en": "employee-marketing-and-communication-80-100-kanton-aargau-aarau",
+        "fr": "marketing-et-communication-des-employes-80-100-kanton-aargau-aarau"
       },
       "company": "Kanton Aargau",
       "companyKey": "kanton-aargau",
@@ -5373,6 +5373,12 @@
       "department": "Kantonspolizei",
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiterin-mitarbeiter-marketing-und-kommunikation-80-100-kanton-aargau-ch"
+        ],
+        "en": [
+          "mitarbeiterin-mitarbeiter-marketing-und-kommunikation-80-100-kanton-aargau-ch"
+        ],
+        "fr": [
           "mitarbeiterin-mitarbeiter-marketing-und-kommunikation-80-100-kanton-aargau-ch"
         ]
       },
@@ -5569,12 +5575,12 @@
     },
     {
       "id": "kanton-aargau-ae7a455f2d42",
-      "slug": "sachbearbeiterin-sachbearbeiter-fuhrerzulassung-60-100-kanton-aargau-ch",
+      "slug": "licenza-del-conducente-del-personale-60-100-kanton-aargau-schafisheim",
       "slugByLocale": {
         "de": "sachbearbeiterin-sachbearbeiter-fuhrerzulassung-60-100-kanton-aargau-ch",
-        "it": "sachbearbeiterin-sachbearbeiter-fuhrerzulassung-60-100-kanton-aargau-ch",
-        "en": "sachbearbeiterin-sachbearbeiter-fuhrerzulassung-60-100-kanton-aargau-ch",
-        "fr": "sachbearbeiterin-sachbearbeiter-fuhrerzulassung-60-100-kanton-aargau-ch"
+        "it": "licenza-del-conducente-del-personale-60-100-kanton-aargau-schafisheim",
+        "en": "personnel-personnel-driver-license-60-100-kanton-aargau-schafisheim",
+        "fr": "permis-de-conduire-personnel-60-100-kanton-aargau-schafisheim"
       },
       "company": "Kanton Aargau",
       "companyKey": "kanton-aargau",
@@ -5637,7 +5643,21 @@
       },
       "streetAddressSource": "listing-source",
       "validThroughSource": "source",
-      "firstSeenAt": "2026-11-09T09:45:29.254Z"
+      "firstSeenAt": "2026-11-09T09:45:29.254Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeiterin-sachbearbeiter-fuhrerzulassung-60-100-kanton-aargau-ch"
+        ],
+        "en": [
+          "sachbearbeiterin-sachbearbeiter-fuhrerzulassung-60-100-kanton-aargau-ch"
+        ],
+        "fr": [
+          "sachbearbeiterin-sachbearbeiter-fuhrerzulassung-60-100-kanton-aargau-ch"
+        ]
+      },
+      "previousSlugs": [
+        "sachbearbeiterin-sachbearbeiter-fuhrerzulassung-60-100-kanton-aargau-ch"
+      ]
     },
     {
       "id": "kanton-aargau-0b55adfee023",
@@ -6325,12 +6345,12 @@
     },
     {
       "id": "kanton-aargau-ceb7d036b074",
-      "slug": "praktikum-per-maturanden-100-kanton-aargau-aarau",
+      "slug": "tirocinio-per-maturandi-100-kanton-aargau-aarau",
       "slugByLocale": {
         "de": "praktikum-fur-maturanden-100-kanton-aargau-ch",
-        "it": "praktikum-per-maturanden-100-kanton-aargau-aarau",
-        "en": "praktikum-fur-maturanden-100-kanton-aargau-ch",
-        "fr": "praktikum-fur-maturanden-100-kanton-aargau-ch"
+        "it": "tirocinio-per-maturandi-100-kanton-aargau-aarau",
+        "en": "internship-for-maturands-100-kanton-aargau-aarau",
+        "fr": "stage-pour-maturands-100-kanton-aargau-aarau"
       },
       "company": "Kanton Aargau",
       "companyKey": "kanton-aargau",
@@ -6381,11 +6401,19 @@
       "department": "Amt für Migration und Integration",
       "previousSlugsByLocale": {
         "it": [
+          "praktikum-fur-maturanden-100-kanton-aargau-ch",
+          "praktikum-per-maturanden-100-kanton-aargau-aarau"
+        ],
+        "en": [
+          "praktikum-fur-maturanden-100-kanton-aargau-ch"
+        ],
+        "fr": [
           "praktikum-fur-maturanden-100-kanton-aargau-ch"
         ]
       },
       "previousSlugs": [
-        "praktikum-fur-maturanden-100-kanton-aargau-ch"
+        "praktikum-fur-maturanden-100-kanton-aargau-ch",
+        "praktikum-per-maturanden-100-kanton-aargau-aarau"
       ],
       "salaryMin": 52500,
       "salaryMax": 96500,

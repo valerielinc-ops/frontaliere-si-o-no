@@ -8823,7 +8823,7 @@
         "it": "apprendistato-assistent-in-gesundheit-e-soziales-afp-senevita-ittigen-be",
         "en": "assistant-in-health-and-social-affairs-eba-senevita-ittigen-be",
         "de": "lehrstelle-assistent-in-gesundheit-und-soziales-eba-senevita-ittigen-be",
-        "fr": "place-d-apprentissage-d-aide-en-soins-et-accompagnement-afp-senevita-be-ittigen"
+        "fr": "assistant-en-sante-et-affaires-sociales-eba-senevita-ittigen-be"
       },
       "company": "Senevita",
       "companyKey": "senevita",
@@ -8869,7 +8869,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "lehrstelle-assistent-in-gesundheit-und-soziales-eba-senevita-be-ittigen",
-        "assistant-en-sante-et-affaires-sociales-eba-senevita-ittigen-be"
+        "place-d-apprentissage-d-aide-en-soins-et-accompagnement-afp-senevita-be-ittigen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -8879,7 +8879,7 @@
           "lehrstelle-assistent-in-gesundheit-und-soziales-eba-senevita-be-ittigen"
         ],
         "fr": [
-          "assistant-en-sante-et-affaires-sociales-eba-senevita-ittigen-be"
+          "place-d-apprentissage-d-aide-en-soins-et-accompagnement-afp-senevita-be-ittigen"
         ]
       },
       "salaryMin": 66000,
@@ -14240,12 +14240,12 @@
     },
     {
       "id": "senevita-fdf8a2e00d6a",
-      "slug": "pflegehelfer-in-srk-50-100-nachtwache-senevita-be-batterkinden",
+      "slug": "assistente-infermieristico-crs-50-100-guardia-notturna-senevita-be-batterkinden",
       "slugByLocale": {
         "de": "pflegehelfer-in-srk-50-100-nachtwache-senevita-be-batterkinden",
-        "it": "pflegehelfer-in-srk-50-100-nachtwache-senevita-be-batterkinden",
-        "en": "pflegehelfer-in-srk-50-100-nachtwache-senevita-be-batterkinden",
-        "fr": "pflegehelfer-in-srk-50-100-nachtwache-senevita-be-batterkinden"
+        "it": "assistente-infermieristico-crs-50-100-guardia-notturna-senevita-be-batterkinden",
+        "en": "nursing-assistant-srk-50-100-night-watch-senevita-be-batterkinden",
+        "fr": "aide-soignant-e-crs-50-100-veille-de-nuit-senevita-be-batterkinden"
       },
       "company": "Senevita",
       "companyKey": "senevita",
@@ -14308,7 +14308,21 @@
       "streetAddress": "BE Bätterkinden",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "firstSeenAt": "2026-11-09T09:26:22.311Z"
+      "firstSeenAt": "2026-11-09T09:26:22.311Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "pflegehelfer-in-srk-50-100-nachtwache-senevita-be-batterkinden"
+        ],
+        "en": [
+          "pflegehelfer-in-srk-50-100-nachtwache-senevita-be-batterkinden"
+        ],
+        "fr": [
+          "pflegehelfer-in-srk-50-100-nachtwache-senevita-be-batterkinden"
+        ]
+      },
+      "previousSlugs": [
+        "pflegehelfer-in-srk-50-100-nachtwache-senevita-be-batterkinden"
+      ]
     },
     {
       "id": "senevita-b4b7c0357e13",
@@ -16140,12 +16154,12 @@
     },
     {
       "id": "senevita-b5a5a92aeae4",
-      "slug": "selbstbestimmt-pflegen-ohne-klingelstress-spitex-pfleghelferin-ags-20-60-senevita-be-muri",
+      "slug": "cura-autodeterminata-senza-stress-della-campana-spitex-caregiver-ags-20-60-senevita-be-muri-b",
       "slugByLocale": {
         "de": "selbstbestimmt-pflegen-ohne-klingelstress-spitex-pfleghelferin-ags-20-60-senevita-be-muri",
-        "it": "selbstbestimmt-pflegen-ohne-klingelstress-spitex-pfleghelferin-ags-20-60-senevita-be-muri",
-        "en": "selbstbestimmt-pflegen-ohne-klingelstress-spitex-pfleghelferin-ags-20-60-senevita-be-muri",
-        "fr": "selbstbestimmt-pflegen-ohne-klingelstress-spitex-pfleghelferin-ags-20-60-senevita-be-muri"
+        "it": "cura-autodeterminata-senza-stress-della-campana-spitex-caregiver-ags-20-60-senevita-be-muri-b",
+        "en": "self-determined-care-without-bell-stress-spitex-caregiver-ags-20-60-senevita-be-muri-b",
+        "fr": "soins-autodetermines-sans-stress-de-la-cloche-spitex-soignant-ags-20-60-senevita-be-muri-b"
       },
       "company": "Senevita",
       "companyKey": "senevita",
@@ -16194,17 +16208,21 @@
       "previousSlugs": [
         "cura-autodeterminata-senza-stress-dell-anello-spitex-caregiver-ags-20-60-senevita-be-muri-b-114279",
         "self-determined-care-without-ring-stress-spitex-caregiver-ags-20-60-senevita-be-muri-b-114279",
-        "soins-autodetermines-sans-stress-de-l-anneau-spitex-soignant-ags-20-60-senevita-be-muri-b-114279"
+        "soins-autodetermines-sans-stress-de-l-anneau-spitex-soignant-ags-20-60-senevita-be-muri-b-114279",
+        "selbstbestimmt-pflegen-ohne-klingelstress-spitex-pfleghelferin-ags-20-60-senevita-be-muri"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "cura-autodeterminata-senza-stress-dell-anello-spitex-caregiver-ags-20-60-senevita-be-muri-b-114279"
+          "cura-autodeterminata-senza-stress-dell-anello-spitex-caregiver-ags-20-60-senevita-be-muri-b-114279",
+          "selbstbestimmt-pflegen-ohne-klingelstress-spitex-pfleghelferin-ags-20-60-senevita-be-muri"
         ],
         "en": [
-          "self-determined-care-without-ring-stress-spitex-caregiver-ags-20-60-senevita-be-muri-b-114279"
+          "self-determined-care-without-ring-stress-spitex-caregiver-ags-20-60-senevita-be-muri-b-114279",
+          "selbstbestimmt-pflegen-ohne-klingelstress-spitex-pfleghelferin-ags-20-60-senevita-be-muri"
         ],
         "fr": [
-          "soins-autodetermines-sans-stress-de-l-anneau-spitex-soignant-ags-20-60-senevita-be-muri-b-114279"
+          "soins-autodetermines-sans-stress-de-l-anneau-spitex-soignant-ags-20-60-senevita-be-muri-b-114279",
+          "selbstbestimmt-pflegen-ohne-klingelstress-spitex-pfleghelferin-ags-20-60-senevita-be-muri"
         ]
       },
       "salaryMin": 51000,

@@ -51,6 +51,12 @@ function questionFor(row, locale) {
     applicationQuestion: String(row.quote), context: String(row.quote), type: 'yes_no', options: [], required: true,
     validation: sanitizeValidation({}, { type: 'yes_no' }), source: 'rule' };
 }
+const PLATFORM_RELOCATION = {
+  it: 'Disponibile al trasferimento (dichiarato dalla piattaforma)',
+  en: 'Willing to relocate (declared by the platform)',
+  de: 'Umzugsbereit (von der Plattform erklärt)',
+  fr: 'Disposé à déménager (déclaré par la plateforme)',
+};
 function binary(value) {
   if (value === true || /^(?:yes|si|oui|ja|true|1)$/.test(norm(value))) return true;
   if (value === false || /^(?:no|non|nein|false|0)$/.test(norm(value))) return false;
@@ -98,9 +104,15 @@ export function guardMobilityMatch(requirements, match, { profile = {}, sourceTe
     const previous = result.matches[at];
     const answer = binary(confirmed[question.id]);
     const proof = answer === null ? cvProof(row, previous?.evidence, profile, sourceText) : null;
-    const status = answer === true || proof ? 'met' : answer === false ? 'missing' : 'partial';
-    const record = { index, status, evidence: answer !== null ? String(confirmed[question.id]) : proof || '',
-      evidenceUnverified: answer === null && !proof && (!previous || previous.evidenceUnverified === true
+    // The platform always declares the candidate willing to relocate (owner decision 2026-11-09,
+    // assistedApplicationPlatformDefaults.js). That meets a clause relocation satisfies, never a current
+    // residence; the candidate's own «no» still leaves it unmet.
+    const kind = swissMobilityRequirement(row);
+    const platformRelocation = answer === null && !proof && kind.relocation && (kind.alternative || !kind.residence);
+    const status = answer === true || proof || platformRelocation ? 'met' : answer === false ? 'missing' : 'partial';
+    const record = { index, status,
+      evidence: answer !== null ? String(confirmed[question.id]) : proof || (platformRelocation ? PLATFORM_RELOCATION[String(locale || '').slice(0, 2)] || PLATFORM_RELOCATION.it : ''),
+      evidenceUnverified: answer === null && !proof && !platformRelocation && (!previous || previous.evidenceUnverified === true
         || (previous.status !== 'missing' && !String(previous.evidence || '').trim())) };
     if (at < 0) result.matches.push(record); else result.matches[at] = record;
     result.questions = result.questions.filter(q => q.id !== question.id);

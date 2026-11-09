@@ -1372,12 +1372,12 @@
     },
     {
       "id": "sanatorium-kilchberg-472e40510b6d",
-      "slug": "sozialarbeiter-in-sanatorium-kilchberg-kilchberg",
+      "slug": "assistente-sociale-sanatorium-kilchberg-kilchberg",
       "slugByLocale": {
         "de": "sozialarbeiter-in-sanatorium-kilchberg-kilchberg",
-        "it": "sozialarbeiter-in-sanatorium-kilchberg-kilchberg",
-        "en": "sozialarbeiter-in-sanatorium-kilchberg-kilchberg",
-        "fr": "sozialarbeiter-in-sanatorium-kilchberg-kilchberg"
+        "it": "assistente-sociale-sanatorium-kilchberg-kilchberg",
+        "en": "social-worker-sanatorium-kilchberg-kilchberg",
+        "fr": "assistant-e-social-e-sanatorium-kilchberg-kilchberg"
       },
       "company": "Sanatorium Kilchberg",
       "companyKey": "sanatorium-kilchberg",
@@ -1441,7 +1441,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-07T09:36:37.042Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-09T09:36:37.042Z"
+      "firstSeenAt": "2026-11-09T09:36:37.042Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sozialarbeiter-in-sanatorium-kilchberg-kilchberg"
+        ],
+        "en": [
+          "sozialarbeiter-in-sanatorium-kilchberg-kilchberg"
+        ],
+        "fr": [
+          "sozialarbeiter-in-sanatorium-kilchberg-kilchberg"
+        ]
+      },
+      "previousSlugs": [
+        "sozialarbeiter-in-sanatorium-kilchberg-kilchberg"
+      ]
     }
   ]
 }

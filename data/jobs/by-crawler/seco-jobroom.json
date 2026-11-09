@@ -5,12 +5,12 @@
   "jobs": [
     {
       "id": "seco-jobroom-03d9f07a-563e-4c7e-a9c1-0f56ab25b7d8",
-      "slug": "macellaio-salumiere-macelleria-bozzini-sagl-biasca-03d9f07a",
+      "slug": "macellaio-salumi-macelleria-bozzini-sagl-biasca-03d9f07a",
       "slugByLocale": {
         "de": "macellaio-salumiere-macelleria-bozzini-sagl-biasca-03d9f07a",
-        "it": "macellaio-salumiere-macelleria-bozzini-sagl-biasca-03d9f07a",
-        "en": "macellaio-salumiere-macelleria-bozzini-sagl-biasca-03d9f07a",
-        "fr": "macellaio-salumiere-macelleria-bozzini-sagl-biasca-03d9f07a"
+        "it": "macellaio-salumi-macelleria-bozzini-sagl-biasca-03d9f07a",
+        "en": "macellaio-salumiers-macelleria-bozzini-sagl-biasca-03d9f07a",
+        "fr": "salumiers-macellaio-macelleria-bozzini-sagl-biasca-03d9f07a"
       },
       "slugDisambiguator": "03d9f07a",
       "company": "Macelleria Bozzini Sagl",
@@ -75,16 +75,30 @@
       "streetAddressSource": "listing-source",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-09T09:43:20.094Z",
-      "translationHoldSince": "2026-11-09T09:46:08.196Z"
+      "translationHoldReleasedAt": "2026-11-09T13:29:28.438Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "macellaio-salumiere-macelleria-bozzini-sagl-biasca-03d9f07a"
+        ],
+        "en": [
+          "macellaio-salumiere-macelleria-bozzini-sagl-biasca-03d9f07a"
+        ],
+        "fr": [
+          "macellaio-salumiere-macelleria-bozzini-sagl-biasca-03d9f07a"
+        ]
+      },
+      "previousSlugs": [
+        "macellaio-salumiere-macelleria-bozzini-sagl-biasca-03d9f07a"
+      ]
     },
     {
       "id": "seco-jobroom-05681b79-6bb1-460b-8c73-aa5b139fc295",
-      "slug": "oberarzt-oberarztin-psychiatrie-psychosomatik-60-100-rehaklinik-seewis-ag-seewis-05681b79",
+      "slug": "psichiatria-medico-senior-psicosomatica-60-100-rehaklinik-seewis-ag-seewis-dorf-05681b79",
       "slugByLocale": {
         "de": "oberarzt-oberarztin-psychiatrie-psychosomatik-60-100-rehaklinik-seewis-ag-seewis-05681b79",
-        "it": "oberarzt-oberarztin-psychiatrie-psychosomatik-60-100-rehaklinik-seewis-ag-seewis-05681b79",
-        "en": "oberarzt-oberarztin-psychiatrie-psychosomatik-60-100-rehaklinik-seewis-ag-seewis-05681b79",
-        "fr": "oberarzt-oberarztin-psychiatrie-psychosomatik-60-100-rehaklinik-seewis-ag-seewis-05681b79"
+        "it": "psichiatria-medico-senior-psicosomatica-60-100-rehaklinik-seewis-ag-seewis-dorf-05681b79",
+        "en": "senior-physician-psychiatry-psychosomatics-60-100-rehaklinik-seewis-ag-seewis-dorf-05681b79",
+        "fr": "medecin-principal-psychiatrie-psychosomatique-60-100-rehaklinik-seewis-ag-seewis-dorf-05681b79"
       },
       "slugDisambiguator": "05681b79",
       "company": "Rehaklinik Seewis AG",
@@ -149,16 +163,30 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-09T09:43:20.094Z",
-      "translationHoldSince": "2026-11-09T09:46:08.196Z"
+      "translationHoldReleasedAt": "2026-11-09T13:29:28.438Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "oberarzt-oberarztin-psychiatrie-psychosomatik-60-100-rehaklinik-seewis-ag-seewis-05681b79"
+        ],
+        "en": [
+          "oberarzt-oberarztin-psychiatrie-psychosomatik-60-100-rehaklinik-seewis-ag-seewis-05681b79"
+        ],
+        "fr": [
+          "oberarzt-oberarztin-psychiatrie-psychosomatik-60-100-rehaklinik-seewis-ag-seewis-05681b79"
+        ]
+      },
+      "previousSlugs": [
+        "oberarzt-oberarztin-psychiatrie-psychosomatik-60-100-rehaklinik-seewis-ag-seewis-05681b79"
+      ]
     },
     {
       "id": "seco-jobroom-096951f5-22eb-4885-9fec-422a78b8f60a",
-      "slug": "techniker-gebaudeautomation-msrl-avec-competence-gmbh-landquart-096951f5",
+      "slug": "tecnico-di-automazione-dell-edificio-msrl-avec-competence-gmbh-landquart-096951f5",
       "slugByLocale": {
         "de": "techniker-gebaudeautomation-msrl-avec-competence-gmbh-landquart-096951f5",
-        "it": "techniker-gebaudeautomation-msrl-avec-competence-gmbh-landquart-096951f5",
-        "en": "techniker-gebaudeautomation-msrl-avec-competence-gmbh-landquart-096951f5",
-        "fr": "techniker-gebaudeautomation-msrl-avec-competence-gmbh-landquart-096951f5"
+        "it": "tecnico-di-automazione-dell-edificio-msrl-avec-competence-gmbh-landquart-096951f5",
+        "en": "building-automation-technician-msrl-avec-competence-gmbh-landquart-096951f5",
+        "fr": "technicien-en-automatisation-des-batiments-msrl-avec-competence-gmbh-landquart-096951f5"
       },
       "slugDisambiguator": "096951f5",
       "company": "avec compétence GmbH",
@@ -223,15 +251,29 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-09T09:43:20.094Z",
-      "translationHoldSince": "2026-11-09T09:46:08.196Z"
+      "translationHoldReleasedAt": "2026-11-09T13:29:28.438Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "techniker-gebaudeautomation-msrl-avec-competence-gmbh-landquart-096951f5"
+        ],
+        "en": [
+          "techniker-gebaudeautomation-msrl-avec-competence-gmbh-landquart-096951f5"
+        ],
+        "fr": [
+          "techniker-gebaudeautomation-msrl-avec-competence-gmbh-landquart-096951f5"
+        ]
+      },
+      "previousSlugs": [
+        "techniker-gebaudeautomation-msrl-avec-competence-gmbh-landquart-096951f5"
+      ]
     },
     {
       "id": "seco-jobroom-15b3d6e4-065c-44ae-a82a-e8537aff86bd",
-      "slug": "deltav-engineer-ei-c-lonza-group-ag-eyholz-15b3d6e4",
+      "slug": "deltav-ingegnere-ei-c-lonza-group-ag-eyholz-15b3d6e4",
       "slugByLocale": {
         "en": "deltav-engineer-ei-c-lonza-group-ag-eyholz-15b3d6e4",
-        "it": "deltav-engineer-ei-c-lonza-group-ag-eyholz-15b3d6e4",
-        "de": "deltav-engineer-ei-c-lonza-group-ag-eyholz-15b3d6e4",
+        "it": "deltav-ingegnere-ei-c-lonza-group-ag-eyholz-15b3d6e4",
+        "de": "deltav-ingenieur-ei-c-lonza-group-ag-eyholz-15b3d6e4",
         "fr": "deltav-engineer-ei-c-lonza-group-ag-eyholz-15b3d6e4"
       },
       "slugDisambiguator": "15b3d6e4",
@@ -294,7 +336,18 @@
       "streetAddress": "Eyholz",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "firstSeenAt": "2026-11-09T09:43:20.094Z"
+      "firstSeenAt": "2026-11-09T09:43:20.094Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "deltav-engineer-ei-c-lonza-group-ag-eyholz-15b3d6e4"
+        ],
+        "de": [
+          "deltav-engineer-ei-c-lonza-group-ag-eyholz-15b3d6e4"
+        ]
+      },
+      "previousSlugs": [
+        "deltav-engineer-ei-c-lonza-group-ag-eyholz-15b3d6e4"
+      ]
     },
     {
       "id": "seco-jobroom-161cafae-c5c1-48d3-b75f-99d446f3285b",
@@ -458,7 +511,7 @@
         "de": "automatiker-in-vals-coca-cola-hbc-schweiz-ag-vals-1c10966e",
         "it": "tecnico-a-di-automazione-vals-coca-cola-hbc-schweiz-ag-vals-1c10966e",
         "en": "automation-technician-vals-coca-cola-hbc-schweiz-ag-vals-1c10966e",
-        "fr": "automatiker-in-vals-coca-cola-hbc-schweiz-ag-vals-1c10966e"
+        "fr": "automaticien-ne-vals-coca-cola-hbc-schweiz-ag-vals-1c10966e"
       },
       "slugDisambiguator": "1c10966e",
       "company": "Coca-Cola HBC Schweiz AG",
@@ -506,6 +559,9 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "it": [
+          "automatiker-in-vals-coca-cola-hbc-schweiz-ag-vals-1c10966e"
+        ],
+        "fr": [
           "automatiker-in-vals-coca-cola-hbc-schweiz-ag-vals-1c10966e"
         ]
       },
@@ -611,12 +667,12 @@
     },
     {
       "id": "seco-jobroom-1fa254a4-e83c-435a-9bb2-e3d76a8662aa",
-      "slug": "fertigungs-e-problemlosungsmechaniker-w-m-div-ref297949q-bosch-group-scintilla-ag-st-niklaus-vs",
+      "slug": "meccanico-di-produzione-e-risoluzione-dei-problemi-f-m-div-ref297949q-bosch-group-scintilla-ag-st-niklaus-st-1fa254a4",
       "slugByLocale": {
         "de": "fertigungs-und-problemlosungsmechaniker-w-m-div-ref297949q-bosch-group-scintilla-1fa254a4",
-        "it": "fertigungs-e-problemlosungsmechaniker-w-m-div-ref297949q-bosch-group-scintilla-ag-st-niklaus-vs",
-        "en": "fertigungs-und-problemlosungsmechaniker-w-m-div-ref297949q-bosch-group-scintilla-1fa254a4",
-        "fr": "fertigungs-und-problemlosungsmechaniker-w-m-div-ref297949q-bosch-group-scintilla-1fa254a4"
+        "it": "meccanico-di-produzione-e-risoluzione-dei-problemi-f-m-div-ref297949q-bosch-group-scintilla-ag-st-niklaus-st-1fa254a4",
+        "en": "manufacturing-and-problem-solving-mechanic-f-m-div-ref297949-q-bosch-group-scintilla-ag-st-niklaus-st-niklaus-1fa254a4",
+        "fr": "mecanicien-de-la-fabrication-et-de-la-resolution-de-problemes-f-m-div-ref297949-q-bosch-group-scintilla-ag-st-1fa254a4"
       },
       "slugDisambiguator": "1fa254a4",
       "company": "Bosch Group – Scintilla AG St. Niklaus",
@@ -667,11 +723,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "fertigungs-und-problemlosungsmechaniker-w-m-div-ref297949q-bosch-group-scintilla-1fa254a4",
+          "fertigungs-e-problemlosungsmechaniker-w-m-div-ref297949q-bosch-group-scintilla-ag-st-niklaus-vs"
+        ],
+        "en": [
+          "fertigungs-und-problemlosungsmechaniker-w-m-div-ref297949q-bosch-group-scintilla-1fa254a4"
+        ],
+        "fr": [
           "fertigungs-und-problemlosungsmechaniker-w-m-div-ref297949q-bosch-group-scintilla-1fa254a4"
         ]
       },
       "previousSlugs": [
-        "fertigungs-und-problemlosungsmechaniker-w-m-div-ref297949q-bosch-group-scintilla-1fa254a4"
+        "fertigungs-und-problemlosungsmechaniker-w-m-div-ref297949q-bosch-group-scintilla-1fa254a4",
+        "fertigungs-e-problemlosungsmechaniker-w-m-div-ref297949q-bosch-group-scintilla-ag-st-niklaus-vs"
       ],
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -690,7 +754,7 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-10-31T22:00:02.073Z",
-      "translationHoldSince": "2026-11-09T09:46:08.196Z"
+      "translationHoldReleasedAt": "2026-11-09T13:29:28.438Z"
     },
     {
       "id": "seco-jobroom-3714ce5a-245f-4a55-91ac-84a6c12b5b42",
@@ -1016,9 +1080,9 @@
       "slug": "tornitore-baumont-ag-losone-64cb4e11",
       "slugByLocale": {
         "it": "tornitore-baumont-ag-losone-64cb4e11",
-        "en": "tornitore-baumont-ag-losone-64cb4e11",
-        "de": "tornitore-baumont-ag-losone-64cb4e11",
-        "fr": "tornitore-baumont-ag-losone-64cb4e11"
+        "en": "lathe-operator-baumont-ag-losone-64cb4e11",
+        "de": "dreher-baumont-ag-losone-64cb4e11",
+        "fr": "tourneur-baumont-ag-losone-64cb4e11"
       },
       "slugDisambiguator": "64cb4e11",
       "company": "Baumont AG",
@@ -1089,9 +1153,9 @@
       "slug": "programmatore-macchine-cnc-baumont-ag-purasca-7c2db01c",
       "slugByLocale": {
         "it": "programmatore-macchine-cnc-baumont-ag-purasca-7c2db01c",
-        "en": "programmatore-macchine-cnc-baumont-ag-purasca-7c2db01c",
-        "de": "programmatore-macchine-cnc-baumont-ag-purasca-7c2db01c",
-        "fr": "programmatore-macchine-cnc-baumont-ag-purasca-7c2db01c"
+        "en": "cnc-machine-programming-baumont-ag-purasca-7c2db01c",
+        "de": "cnc-maschinenprogrammierung-baumont-ag-purasca-7c2db01c",
+        "fr": "programmation-de-machines-cnc-baumont-ag-purasca-7c2db01c"
       },
       "slugDisambiguator": "7c2db01c",
       "company": "Baumont AG",
@@ -1156,16 +1220,16 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-09T09:43:20.094Z",
-      "translationHoldSince": "2026-11-09T09:46:08.196Z"
+      "translationHoldReleasedAt": "2026-11-09T13:29:28.438Z"
     },
     {
       "id": "seco-jobroom-8692092a-e700-42f2-a9c5-e557dc0b0a32",
-      "slug": "installateur-sanitaire-h-f-100-agat-placements-fixes-et-temporaires-sa-verbier-8692092a",
+      "slug": "strutture-sanitarie-m-f-100-agat-placements-fixes-et-temporaires-sa-verbier-8692092a",
       "slugByLocale": {
         "fr": "installateur-sanitaire-h-f-100-agat-placements-fixes-et-temporaires-sa-verbier-8692092a",
-        "it": "installateur-sanitaire-h-f-100-agat-placements-fixes-et-temporaires-sa-verbier-8692092a",
-        "en": "installateur-sanitaire-h-f-100-agat-placements-fixes-et-temporaires-sa-verbier-8692092a",
-        "de": "installateur-sanitaire-h-f-100-agat-placements-fixes-et-temporaires-sa-verbier-8692092a"
+        "it": "strutture-sanitarie-m-f-100-agat-placements-fixes-et-temporaires-sa-verbier-8692092a",
+        "en": "health-facility-m-f-100-agat-placements-fixes-et-temporaires-sa-verbier-8692092a",
+        "de": "gesundheitseinrichtung-m-w-100-agat-placements-fixes-et-temporaires-sa-verbier-8692092a"
       },
       "slugDisambiguator": "8692092a",
       "company": "AGAT ! Placements fixes et temporaires SA",
@@ -1230,16 +1294,30 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-09T09:43:20.094Z",
-      "translationHoldSince": "2026-11-09T09:46:08.196Z"
+      "translationHoldReleasedAt": "2026-11-09T13:29:28.438Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "installateur-sanitaire-h-f-100-agat-placements-fixes-et-temporaires-sa-verbier-8692092a"
+        ],
+        "en": [
+          "installateur-sanitaire-h-f-100-agat-placements-fixes-et-temporaires-sa-verbier-8692092a"
+        ],
+        "de": [
+          "installateur-sanitaire-h-f-100-agat-placements-fixes-et-temporaires-sa-verbier-8692092a"
+        ]
+      },
+      "previousSlugs": [
+        "installateur-sanitaire-h-f-100-agat-placements-fixes-et-temporaires-sa-verbier-8692092a"
+      ]
     },
     {
       "id": "seco-jobroom-8c9d73ee-89d3-451a-b30f-ec4cb2bd6eec",
-      "slug": "responsable-finances-administration-et-ressources-humaines-80-a-100-victor-8c9d73ee",
+      "slug": "gestione-finanze-amministrazione-e-risorse-umane-80-al-100-victor-armand-zwissig-sa-muraz-sierre-8c9d73ee",
       "slugByLocale": {
         "fr": "responsable-finances-administration-et-ressources-humaines-80-a-100-victor-8c9d73ee",
-        "it": "responsable-finances-administration-et-ressources-humaines-80-a-100-victor-8c9d73ee",
-        "en": "responsable-finances-administration-et-ressources-humaines-80-a-100-victor-8c9d73ee",
-        "de": "responsable-finances-administration-et-ressources-humaines-80-a-100-victor-8c9d73ee"
+        "it": "gestione-finanze-amministrazione-e-risorse-umane-80-al-100-victor-armand-zwissig-sa-muraz-sierre-8c9d73ee",
+        "en": "finance-administration-and-human-resources-manager-80-to-100-victor-armand-zwissig-sa-muraz-sierre-8c9d73ee",
+        "de": "finanz-verwaltungs-und-personalmanager-80-bis-100-victor-armand-zwissig-sa-muraz-sierre-8c9d73ee"
       },
       "slugDisambiguator": "8c9d73ee",
       "company": "Victor & Armand Zwissig SA",
@@ -1304,16 +1382,30 @@
       "streetAddressSource": "listing-source",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-09T09:43:20.094Z",
-      "translationHoldSince": "2026-11-09T09:46:08.196Z"
+      "translationHoldReleasedAt": "2026-11-09T13:29:28.438Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "responsable-finances-administration-et-ressources-humaines-80-a-100-victor-8c9d73ee"
+        ],
+        "en": [
+          "responsable-finances-administration-et-ressources-humaines-80-a-100-victor-8c9d73ee"
+        ],
+        "de": [
+          "responsable-finances-administration-et-ressources-humaines-80-a-100-victor-8c9d73ee"
+        ]
+      },
+      "previousSlugs": [
+        "responsable-finances-administration-et-ressources-humaines-80-a-100-victor-8c9d73ee"
+      ]
     },
     {
       "id": "seco-jobroom-a441fb41-5668-457d-9654-9a4b24d58fcf",
       "slug": "tornitore-baumont-ag-purasca-a441fb41",
       "slugByLocale": {
         "it": "tornitore-baumont-ag-purasca-a441fb41",
-        "en": "tornitore-baumont-ag-purasca-a441fb41",
-        "de": "tornitore-baumont-ag-purasca-a441fb41",
-        "fr": "tornitore-baumont-ag-purasca-a441fb41"
+        "en": "lathe-operator-baumont-ag-purasca-a441fb41",
+        "de": "dreher-baumont-ag-purasca-a441fb41",
+        "fr": "tourneur-baumont-ag-purasca-a441fb41"
       },
       "slugDisambiguator": "a441fb41",
       "company": "Baumont AG",
@@ -1614,12 +1706,12 @@
     },
     {
       "id": "seco-jobroom-bca7a0b6-41e9-4a32-a5c7-bab9281cd7d8",
-      "slug": "intern-80-100-hamilton-ag-domat-ems-bca7a0b6",
+      "slug": "tirocinante-80-100-hamilton-ag-domat-ems-bca7a0b6",
       "slugByLocale": {
         "de": "intern-80-100-hamilton-ag-domat-ems-bca7a0b6",
-        "it": "intern-80-100-hamilton-ag-domat-ems-bca7a0b6",
-        "en": "intern-80-100-hamilton-ag-domat-ems-bca7a0b6",
-        "fr": "intern-80-100-hamilton-ag-domat-ems-bca7a0b6"
+        "it": "tirocinante-80-100-hamilton-ag-domat-ems-bca7a0b6",
+        "en": "internal-80-100-hamilton-ag-domat-ems-bca7a0b6",
+        "fr": "stagiaire-80-100-hamilton-ag-domat-ems-bca7a0b6"
       },
       "slugDisambiguator": "bca7a0b6",
       "company": "Hamilton AG",
@@ -1684,16 +1776,30 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-09T09:43:20.094Z",
-      "translationHoldSince": "2026-11-09T09:46:08.196Z"
+      "translationHoldReleasedAt": "2026-11-09T13:29:28.438Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "intern-80-100-hamilton-ag-domat-ems-bca7a0b6"
+        ],
+        "en": [
+          "intern-80-100-hamilton-ag-domat-ems-bca7a0b6"
+        ],
+        "fr": [
+          "intern-80-100-hamilton-ag-domat-ems-bca7a0b6"
+        ]
+      },
+      "previousSlugs": [
+        "intern-80-100-hamilton-ag-domat-ems-bca7a0b6"
+      ]
     },
     {
       "id": "seco-jobroom-c2c64c03-fe9a-4ce2-a8ad-f7f7c267b9e3",
-      "slug": "motorradmechaniker-mit-efz-holzer-motos-ag-glis-c2c64c03",
+      "slug": "meccanico-moto-con-afc-holzer-motos-ag-glis-c2c64c03",
       "slugByLocale": {
         "de": "motorradmechaniker-mit-efz-holzer-motos-ag-glis-c2c64c03",
-        "it": "motorradmechaniker-mit-efz-holzer-motos-ag-glis-c2c64c03",
-        "en": "motorradmechaniker-mit-efz-holzer-motos-ag-glis-c2c64c03",
-        "fr": "motorradmechaniker-mit-efz-holzer-motos-ag-glis-c2c64c03"
+        "it": "meccanico-moto-con-afc-holzer-motos-ag-glis-c2c64c03",
+        "en": "motorcycle-mechanic-with-efz-holzer-motos-ag-glis-c2c64c03",
+        "fr": "mecanicien-moto-avec-efz-holzer-motos-ag-glis-c2c64c03"
       },
       "slugDisambiguator": "c2c64c03",
       "company": "Holzer Motos AG",
@@ -1759,16 +1865,30 @@
       "streetAddressSource": "listing-source",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-09T09:43:20.094Z",
-      "translationHoldSince": "2026-11-09T09:46:08.196Z"
+      "translationHoldReleasedAt": "2026-11-09T13:29:28.438Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "motorradmechaniker-mit-efz-holzer-motos-ag-glis-c2c64c03"
+        ],
+        "en": [
+          "motorradmechaniker-mit-efz-holzer-motos-ag-glis-c2c64c03"
+        ],
+        "fr": [
+          "motorradmechaniker-mit-efz-holzer-motos-ag-glis-c2c64c03"
+        ]
+      },
+      "previousSlugs": [
+        "motorradmechaniker-mit-efz-holzer-motos-ag-glis-c2c64c03"
+      ]
     },
     {
       "id": "seco-jobroom-c913b412-fbbb-4de9-a26d-9af445576ec4",
       "slug": "operatore-cnc-baumont-ag-purasca-c913b412",
       "slugByLocale": {
         "it": "operatore-cnc-baumont-ag-purasca-c913b412",
-        "en": "operatore-cnc-baumont-ag-purasca-c913b412",
-        "de": "operatore-cnc-baumont-ag-purasca-c913b412",
-        "fr": "operatore-cnc-baumont-ag-purasca-c913b412"
+        "en": "cnc-operator-baumont-ag-purasca-c913b412",
+        "de": "cnc-betreiber-baumont-ag-purasca-c913b412",
+        "fr": "operateur-cnc-baumont-ag-purasca-c913b412"
       },
       "slugDisambiguator": "c913b412",
       "company": "Baumont AG",
@@ -1833,7 +1953,7 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-09T09:43:20.094Z",
-      "translationHoldSince": "2026-11-09T09:46:08.196Z"
+      "translationHoldReleasedAt": "2026-11-09T13:29:28.438Z"
     },
     {
       "id": "seco-jobroom-ca4915c7-0521-4f2c-928e-d0eb72090d2c",
@@ -1842,7 +1962,7 @@
         "de": "ei-c-construction-lead-lonza-group-ag-eyholz-ca4915c7",
         "it": "responsabile-dei-lavori-ei-c-lonza-group-ag-eyholz-ca4915c7",
         "en": "ei-c-construction-lead-lonza-group-ag-eyholz-ca4915c7",
-        "fr": "ei-c-construction-lead-lonza-group-ag-eyholz-ca4915c7"
+        "fr": "dirigeant-de-construction-de-l-ie-et-c-lonza-group-ag-eyholz-ca4915c7"
       },
       "slugDisambiguator": "ca4915c7",
       "company": "Lonza Group AG",
@@ -1891,6 +2011,9 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "ei-c-construction-lead-lonza-group-ag-eyholz-ca4915c7"
+        ],
+        "fr": [
           "ei-c-construction-lead-lonza-group-ag-eyholz-ca4915c7"
         ]
       },
@@ -2080,9 +2203,9 @@
       "slug": "fresatore-baumont-ag-purasca-fea89c89",
       "slugByLocale": {
         "it": "fresatore-baumont-ag-purasca-fea89c89",
-        "en": "fresatore-baumont-ag-purasca-fea89c89",
-        "de": "fresatore-baumont-ag-purasca-fea89c89",
-        "fr": "fresatore-baumont-ag-purasca-fea89c89"
+        "en": "milling-operator-baumont-ag-purasca-fea89c89",
+        "de": "fraser-baumont-ag-purasca-fea89c89",
+        "fr": "fraiseur-baumont-ag-purasca-fea89c89"
       },
       "slugDisambiguator": "fea89c89",
       "company": "Baumont AG",
@@ -7932,12 +8055,12 @@
     },
     {
       "id": "seco-jobroom-2d99a892-225f-4997-be46-ebf1b92f7070",
-      "slug": "konstrukteur-cfc-80-100-schnittstelle-zwischen-engineering-e-produktion-workmanagement-ag-klosters",
+      "slug": "progettista-afc-80-100-interfaccia-tra-ingegneria-e-produzione-workmanagement-ag-klosters-2d99a892",
       "slugByLocale": {
         "de": "konstrukteur-efz-80-100-schnittstelle-zwischen-engineering-und-produktion-2d99a892",
-        "it": "konstrukteur-cfc-80-100-schnittstelle-zwischen-engineering-e-produktion-workmanagement-ag-klosters",
-        "en": "konstrukteur-efz-80-100-schnittstelle-zwischen-engineering-und-produktion-2d99a892",
-        "fr": "konstrukteur-efz-80-100-schnittstelle-zwischen-engineering-und-produktion-2d99a892"
+        "it": "progettista-afc-80-100-interfaccia-tra-ingegneria-e-produzione-workmanagement-ag-klosters-2d99a892",
+        "en": "design-engineer-efz-80-100-interface-between-engineering-and-production-workmanagement-ag-klosters-2d99a892",
+        "fr": "ingenieur-de-conception-efz-80-100-interface-entre-l-ingenierie-et-la-production-workmanagement-ag-klosters-2d99a892"
       },
       "slugDisambiguator": "2d99a892",
       "company": "Workmanagement AG",
@@ -7988,11 +8111,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "konstrukteur-efz-80-100-schnittstelle-zwischen-engineering-und-produktion-2d99a892",
+          "konstrukteur-cfc-80-100-schnittstelle-zwischen-engineering-e-produktion-workmanagement-ag-klosters"
+        ],
+        "en": [
+          "konstrukteur-efz-80-100-schnittstelle-zwischen-engineering-und-produktion-2d99a892"
+        ],
+        "fr": [
           "konstrukteur-efz-80-100-schnittstelle-zwischen-engineering-und-produktion-2d99a892"
         ]
       },
       "previousSlugs": [
-        "konstrukteur-efz-80-100-schnittstelle-zwischen-engineering-und-produktion-2d99a892"
+        "konstrukteur-efz-80-100-schnittstelle-zwischen-engineering-und-produktion-2d99a892",
+        "konstrukteur-cfc-80-100-schnittstelle-zwischen-engineering-e-produktion-workmanagement-ag-klosters"
       ],
       "salaryMin": 67000,
       "salaryMax": 102000,
@@ -8011,7 +8142,7 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-10-31T22:00:02.073Z",
-      "translationHoldSince": "2026-11-09T09:46:08.196Z"
+      "translationHoldReleasedAt": "2026-11-09T13:29:28.438Z"
     },
     {
       "id": "seco-jobroom-2ea295d3-1b8a-404c-ae5c-abadc2705dfc",
@@ -8325,12 +8456,12 @@
     },
     {
       "id": "seco-jobroom-3788ffdc-56f9-4aae-8044-fcf65444eb48",
-      "slug": "betriebselektriker-100-techniker-der-prozesse-lebendig-macht-workmanagement-ag-3788ffdc",
+      "slug": "elettricista-azienda-100-tecnico-che-rende-i-processi-in-vita-workmanagement-ag-ilanz-3788ffdc",
       "slugByLocale": {
         "de": "betriebselektriker-100-techniker-der-prozesse-lebendig-macht-workmanagement-ag-3788ffdc",
-        "it": "betriebselektriker-100-techniker-der-prozesse-lebendig-macht-workmanagement-ag-3788ffdc",
-        "en": "betriebselektriker-100-techniker-der-prozesse-lebendig-macht-workmanagement-ag-3788ffdc",
-        "fr": "betriebselektriker-100-techniker-der-prozesse-lebendig-macht-workmanagement-ag-3788ffdc"
+        "it": "elettricista-azienda-100-tecnico-che-rende-i-processi-in-vita-workmanagement-ag-ilanz-3788ffdc",
+        "en": "company-electrician-100-technician-who-makes-processes-come-alive-workmanagement-ag-ilanz-3788ffdc",
+        "fr": "entreprise-electricien-100-technicien-qui-fait-vivre-les-processus-workmanagement-ag-ilanz-3788ffdc"
       },
       "slugDisambiguator": "3788ffdc",
       "company": "Workmanagement AG",
@@ -8395,16 +8526,30 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-09T09:43:20.094Z",
-      "translationHoldSince": "2026-11-09T09:46:08.196Z"
+      "translationHoldReleasedAt": "2026-11-09T13:29:28.438Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "betriebselektriker-100-techniker-der-prozesse-lebendig-macht-workmanagement-ag-3788ffdc"
+        ],
+        "en": [
+          "betriebselektriker-100-techniker-der-prozesse-lebendig-macht-workmanagement-ag-3788ffdc"
+        ],
+        "fr": [
+          "betriebselektriker-100-techniker-der-prozesse-lebendig-macht-workmanagement-ag-3788ffdc"
+        ]
+      },
+      "previousSlugs": [
+        "betriebselektriker-100-techniker-der-prozesse-lebendig-macht-workmanagement-ag-3788ffdc"
+      ]
     },
     {
       "id": "seco-jobroom-3793dd3c-7e65-4267-b002-b88123f9b1a2",
-      "slug": "polymechaniker-cfc-80-100-verbinde-prazision-e-technik-workmanagement-ag-klosters",
+      "slug": "polimeccanico-efz-80-100-combina-precisione-e-tecnologia-workmanagement-ag-klosters-3793dd3c",
       "slugByLocale": {
         "de": "polymechaniker-efz-80-100-verbinde-prazision-und-technik-workmanagement-ag-3793dd3c",
-        "it": "polymechaniker-cfc-80-100-verbinde-prazision-e-technik-workmanagement-ag-klosters",
-        "en": "polymechaniker-efz-80-100-verbinde-prazision-und-technik-workmanagement-ag-3793dd3c",
-        "fr": "polymechaniker-efz-80-100-verbinde-prazision-und-technik-workmanagement-ag-3793dd3c"
+        "it": "polimeccanico-efz-80-100-combina-precisione-e-tecnologia-workmanagement-ag-klosters-3793dd3c",
+        "en": "polymechanic-efz-80-100-connecting-precision-and-technology-workmanagement-ag-klosters-3793dd3c",
+        "fr": "efz-polymecanique-80-100-precision-et-technologie-de-connexion-workmanagement-ag-klosters-3793dd3c"
       },
       "slugDisambiguator": "3793dd3c",
       "company": "Workmanagement AG",
@@ -8455,11 +8600,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "polymechaniker-efz-80-100-verbinde-prazision-und-technik-workmanagement-ag-3793dd3c",
+          "polymechaniker-cfc-80-100-verbinde-prazision-e-technik-workmanagement-ag-klosters"
+        ],
+        "en": [
+          "polymechaniker-efz-80-100-verbinde-prazision-und-technik-workmanagement-ag-3793dd3c"
+        ],
+        "fr": [
           "polymechaniker-efz-80-100-verbinde-prazision-und-technik-workmanagement-ag-3793dd3c"
         ]
       },
       "previousSlugs": [
-        "polymechaniker-efz-80-100-verbinde-prazision-und-technik-workmanagement-ag-3793dd3c"
+        "polymechaniker-efz-80-100-verbinde-prazision-und-technik-workmanagement-ag-3793dd3c",
+        "polymechaniker-cfc-80-100-verbinde-prazision-e-technik-workmanagement-ag-klosters"
       ],
       "salaryMin": 67000,
       "salaryMax": 102000,
@@ -8478,7 +8631,7 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-10-31T22:00:02.073Z",
-      "translationHoldSince": "2026-11-09T09:46:08.196Z"
+      "translationHoldReleasedAt": "2026-11-09T13:29:28.438Z"
     },
     {
       "id": "seco-jobroom-3c8be79f-0f33-4e9a-8991-039e14a76b05",
@@ -10684,12 +10837,12 @@
     },
     {
       "id": "seco-jobroom-7b944b26-2f5a-4037-89e7-34d4a05085e9",
-      "slug": "zeichner-cfc-specializzazione-architektur-80-100-raume-zeichnen-zukunft-gestalten-workmanagement-ag-landquart",
+      "slug": "disegnatore-afc-indirizzo-architettura-80-100-disegnare-spazi-plasmare-il-futuro-workmanagement-ag-landquart-7b944b26",
       "slugByLocale": {
         "de": "zeichner-efz-fachrichtung-architektur-80-100-raume-zeichnen-zukunft-gestalten-7b944b26",
-        "it": "zeichner-cfc-specializzazione-architektur-80-100-raume-zeichnen-zukunft-gestalten-workmanagement-ag-landquart",
-        "en": "zeichner-efz-fachrichtung-architektur-80-100-raume-zeichnen-zukunft-gestalten-7b944b26",
-        "fr": "zeichner-efz-fachrichtung-architektur-80-100-raume-zeichnen-zukunft-gestalten-7b944b26"
+        "it": "disegnatore-afc-indirizzo-architettura-80-100-disegnare-spazi-plasmare-il-futuro-workmanagement-ag-landquart-7b944b26",
+        "en": "drawing-efz-field-of-architecture-80-100-drawing-rooms-shaping-the-future-workmanagement-ag-landquart-7b944b26",
+        "fr": "dessin-efz-champ-d-architecture-80-100-salles-de-dessin-faconner-le-futur-workmanagement-ag-landquart-7b944b26"
       },
       "slugDisambiguator": "7b944b26",
       "company": "Workmanagement AG",
@@ -10740,11 +10893,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "zeichner-efz-fachrichtung-architektur-80-100-raume-zeichnen-zukunft-gestalten-7b944b26",
+          "zeichner-cfc-specializzazione-architektur-80-100-raume-zeichnen-zukunft-gestalten-workmanagement-ag-landquart"
+        ],
+        "en": [
+          "zeichner-efz-fachrichtung-architektur-80-100-raume-zeichnen-zukunft-gestalten-7b944b26"
+        ],
+        "fr": [
           "zeichner-efz-fachrichtung-architektur-80-100-raume-zeichnen-zukunft-gestalten-7b944b26"
         ]
       },
       "previousSlugs": [
-        "zeichner-efz-fachrichtung-architektur-80-100-raume-zeichnen-zukunft-gestalten-7b944b26"
+        "zeichner-efz-fachrichtung-architektur-80-100-raume-zeichnen-zukunft-gestalten-7b944b26",
+        "zeichner-cfc-specializzazione-architektur-80-100-raume-zeichnen-zukunft-gestalten-workmanagement-ag-landquart"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -10763,7 +10924,7 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-10-31T22:00:02.073Z",
-      "translationHoldSince": "2026-11-09T09:46:08.196Z"
+      "translationHoldReleasedAt": "2026-11-09T13:29:28.438Z"
     },
     {
       "id": "seco-jobroom-7bf53200-7ca2-4cee-8fea-0c0f93b3b1b7",
@@ -15616,12 +15777,12 @@
     },
     {
       "id": "seco-jobroom-f12b97e7-be17-4897-a61c-febb15cba6f3",
-      "slug": "dipl-maschinentechniker-hf-80-100-bindeglied-zwischen-engineering-e-produktion-workmanagement-ag-klosters",
+      "slug": "tecnico-meccanico-dipl-hf-80-100-collegamento-tra-ingegneria-e-produzione-workmanagement-ag-klosters-f12b97e7",
       "slugByLocale": {
         "de": "dipl-maschinentechniker-hf-80-100-bindeglied-zwischen-engineering-und-produktion-f12b97e7",
-        "it": "dipl-maschinentechniker-hf-80-100-bindeglied-zwischen-engineering-e-produktion-workmanagement-ag-klosters",
-        "en": "dipl-maschinentechniker-hf-80-100-bindeglied-zwischen-engineering-und-produktion-f12b97e7",
-        "fr": "dipl-maschinentechniker-hf-80-100-bindeglied-zwischen-engineering-und-produktion-f12b97e7"
+        "it": "tecnico-meccanico-dipl-hf-80-100-collegamento-tra-ingegneria-e-produzione-workmanagement-ag-klosters-f12b97e7",
+        "en": "dipl-machine-technician-hf-80-100-link-between-engineering-and-production-workmanagement-ag-klosters-f12b97e7",
+        "fr": "dipl-machine-technicien-hf-80-100-lien-entre-l-ingenierie-et-la-production-workmanagement-ag-klosters-f12b97e7"
       },
       "slugDisambiguator": "f12b97e7",
       "company": "Workmanagement AG",
@@ -15672,11 +15833,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "dipl-maschinentechniker-hf-80-100-bindeglied-zwischen-engineering-und-produktion-f12b97e7",
+          "dipl-maschinentechniker-hf-80-100-bindeglied-zwischen-engineering-e-produktion-workmanagement-ag-klosters"
+        ],
+        "en": [
+          "dipl-maschinentechniker-hf-80-100-bindeglied-zwischen-engineering-und-produktion-f12b97e7"
+        ],
+        "fr": [
           "dipl-maschinentechniker-hf-80-100-bindeglied-zwischen-engineering-und-produktion-f12b97e7"
         ]
       },
       "previousSlugs": [
-        "dipl-maschinentechniker-hf-80-100-bindeglied-zwischen-engineering-und-produktion-f12b97e7"
+        "dipl-maschinentechniker-hf-80-100-bindeglied-zwischen-engineering-und-produktion-f12b97e7",
+        "dipl-maschinentechniker-hf-80-100-bindeglied-zwischen-engineering-e-produktion-workmanagement-ag-klosters"
       ],
       "salaryMin": 67000,
       "salaryMax": 102000,
@@ -15695,7 +15864,7 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-10-31T22:00:02.073Z",
-      "translationHoldSince": "2026-11-09T09:46:08.196Z"
+      "translationHoldReleasedAt": "2026-11-09T13:29:28.438Z"
     },
     {
       "id": "seco-jobroom-f2f8cc1a-cbd0-470d-8ff1-e96a02cee1e9",
@@ -23092,7 +23261,7 @@
         "de": "dessinateur-gc-specialisation-en-structures-100-cdi-h-f-d-adecco-martigny-c433f225",
         "it": "dessinateur-gc-specialisation-en-structures-100-cdi-h-f-d-adecco-martigny-c433f225",
         "en": "dessinateur-gc-specialisation-en-structures-100-cdi-h-f-d-adecco-martigny-c433f225",
-        "fr": "dessinateur-gc-specialisation-en-structures-100-cdi-h-f-d-adecco-martigny-c433f225"
+        "fr": "d-c-s-100-cdi-h-f-d-adecco-martigny-c433f225"
       },
       "slugDisambiguator": "c433f225",
       "company": "Adecco",
@@ -29920,9 +30089,9 @@
       "slug": "lavoratore-edile-edilizia-principale-edilservizi-swiss-sagl-paradiso-b08e3218",
       "slugByLocale": {
         "it": "lavoratore-edile-edilizia-principale-edilservizi-swiss-sagl-paradiso-b08e3218",
-        "en": "lavoratore-edile-edilizia-principale-edilservizi-swiss-sagl-paradiso",
-        "de": "lavoratore-edile-edilizia-principale-edilservizi-swiss-sagl-paradiso",
-        "fr": "lavoratore-edile-edilizia-principale-edilservizi-swiss-sagl-paradiso"
+        "en": "construction-worker-edilservizi-swiss-sagl-paradiso-b08e3218",
+        "de": "bauarbeiter-edilservizi-swiss-sagl-paradiso-b08e3218",
+        "fr": "ouvriers-de-construction-edilservizi-swiss-sagl-paradiso-b08e3218"
       },
       "slugDisambiguator": "b08e3218",
       "company": "Edilservizi Swiss Sagl",
@@ -29971,19 +30140,17 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "bauarbeiter-edilservizi-swiss-sagl-paradiso-b08e3218"
+          "lavoratore-edile-edilizia-principale-edilservizi-swiss-sagl-paradiso"
         ],
         "en": [
-          "construction-worker-edilservizi-swiss-sagl-paradiso-b08e3218"
+          "lavoratore-edile-edilizia-principale-edilservizi-swiss-sagl-paradiso"
         ],
         "fr": [
-          "ouvriers-de-construction-edilservizi-swiss-sagl-paradiso-b08e3218"
+          "lavoratore-edile-edilizia-principale-edilservizi-swiss-sagl-paradiso"
         ]
       },
       "previousSlugs": [
-        "bauarbeiter-edilservizi-swiss-sagl-paradiso-b08e3218",
-        "construction-worker-edilservizi-swiss-sagl-paradiso-b08e3218",
-        "ouvriers-de-construction-edilservizi-swiss-sagl-paradiso-b08e3218"
+        "lavoratore-edile-edilizia-principale-edilservizi-swiss-sagl-paradiso"
       ],
       "firstSeenAt": "2026-11-04T21:49:10.043Z",
       "salaryMin": 49500,
@@ -33500,9 +33667,9 @@
       "slug": "lavoratori-di-perforazione-m-f-collardi-st-moritz-2f7409c6",
       "slugByLocale": {
         "it": "lavoratori-di-perforazione-m-f-collardi-st-moritz-2f7409c6",
-        "en": "foreur-m-w-d-collardi-st-moritz",
+        "en": "drill-workers-m-f-collardi-st-moritz-2f7409c6",
         "de": "foreur-m-w-d-collardi-st-moritz",
-        "fr": "foreur-m-w-d-collardi-st-moritz"
+        "fr": "ouvriers-de-forage-h-f-collardi-st-moritz-2f7409c6"
       },
       "slugDisambiguator": "2f7409c6",
       "company": "Collardi",
@@ -33559,18 +33726,17 @@
         ],
         "en": [
           "bohrarbeiter-m-w-collardi-st-moritz-2f7409c6",
-          "drill-workers-m-f-collardi-st-moritz-2f7409c6"
+          "foreur-m-w-d-collardi-st-moritz"
         ],
         "fr": [
           "bohrarbeiter-m-w-collardi-st-moritz-2f7409c6",
-          "ouvriers-de-forage-h-f-collardi-st-moritz-2f7409c6"
+          "foreur-m-w-d-collardi-st-moritz"
         ]
       },
       "previousSlugs": [
         "bohrarbeiter-m-w-collardi-st-moritz-2f7409c6",
         "foreur-h-f-collardi-st-moritz-2f7409c6",
-        "drill-workers-m-f-collardi-st-moritz-2f7409c6",
-        "ouvriers-de-forage-h-f-collardi-st-moritz-2f7409c6"
+        "foreur-m-w-d-collardi-st-moritz"
       ],
       "firstSeenAt": "2026-11-05T09:35:14.514Z",
       "salaryMin": 57500,
@@ -43043,9 +43209,9 @@
       "slug": "ein-e-collaboratore-trice-in-saisonarbeiter-80-prim-frais-valais-sa-zermatt-28955270",
       "slugByLocale": {
         "it": "ein-e-collaboratore-trice-in-saisonarbeiter-80-prim-frais-valais-sa-zermatt-28955270",
-        "en": "ein-e-mitarbeiter-in-saisonarbeiter-80-prim-frais-valais-sa-zermatt",
+        "en": "one-employee-seasonal-worker-80-prim-frais-valais-sa-zermatt-28955270",
         "de": "ein-e-mitarbeiter-in-saisonarbeiter-80-prim-frais-valais-sa-zermatt-28955270",
-        "fr": "ein-e-mitarbeiter-in-saisonarbeiter-80-prim-frais-valais-sa-zermatt"
+        "fr": "un-employe-travailleur-saisonnier-80-prim-frais-valais-sa-zermatt-28955270"
       },
       "slugDisambiguator": "28955270",
       "company": "Prim'frais Valais SA",
@@ -43094,8 +43260,8 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "fr": [
-          "un-employe-travailleur-saisonnier-80-prim-frais-valais-sa-zermatt-28955270",
-          "ein-e-mitarbeiter-in-saisonarbeiter-80-prim-frais-valais-sa-zermatt-28955270"
+          "ein-e-mitarbeiter-in-saisonarbeiter-80-prim-frais-valais-sa-zermatt-28955270",
+          "ein-e-mitarbeiter-in-saisonarbeiter-80-prim-frais-valais-sa-zermatt"
         ],
         "it": [
           "ein-e-mitarbeiter-in-saisonarbeiter-80-prim-frais-valais-sa-zermatt-28955270",
@@ -43104,15 +43270,14 @@
         ],
         "en": [
           "ein-e-mitarbeiter-in-saisonarbeiter-80-prim-frais-valais-sa-zermatt-28955270",
-          "one-employee-seasonal-worker-80-prim-frais-valais-sa-zermatt-28955270"
+          "ein-e-mitarbeiter-in-saisonarbeiter-80-prim-frais-valais-sa-zermatt"
         ]
       },
       "previousSlugs": [
         "ein-e-mitarbeiter-in-saisonarbeiter-80-prim-frais-valais-sa-zermatt-28955270",
         "ein-e-collaboratore-trice-in-saisonarbeiter-80-prim-frais-valais-sa-zermatt",
         "un-a-collaboratore-trice-stagionale-all-80-prim-frais-valais-sa-zermatt-28955270",
-        "un-employe-travailleur-saisonnier-80-prim-frais-valais-sa-zermatt-28955270",
-        "one-employee-seasonal-worker-80-prim-frais-valais-sa-zermatt-28955270"
+        "ein-e-mitarbeiter-in-saisonarbeiter-80-prim-frais-valais-sa-zermatt"
       ],
       "firstSeenAt": "2026-11-02T11:10:41.077Z",
       "salaryMin": 48400,
@@ -47553,9 +47718,9 @@
       "slug": "pittore-cappottista-das-team-ag-ligornetto-acb3823c",
       "slugByLocale": {
         "it": "pittore-cappottista-das-team-ag-ligornetto-acb3823c",
-        "en": "pittore-cappottista-das-team-ag-ligornetto",
-        "de": "pittore-cappottista-das-team-ag-ligornetto",
-        "fr": "pittore-cappottista-das-team-ag-ligornetto"
+        "en": "external-insulation-painter-das-team-ag-ligornetto-acb3823c",
+        "de": "maler-fur-warmedammverbundsysteme-das-team-ag-ligornetto-acb3823c",
+        "fr": "peintre-en-isolation-thermique-par-l-exterieur-das-team-ag-ligornetto-acb3823c"
       },
       "slugDisambiguator": "acb3823c",
       "company": "das team ag",
@@ -47603,19 +47768,17 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "maler-fur-warmedammverbundsysteme-das-team-ag-ligornetto-acb3823c"
+          "pittore-cappottista-das-team-ag-ligornetto"
         ],
         "en": [
-          "external-insulation-painter-das-team-ag-ligornetto-acb3823c"
+          "pittore-cappottista-das-team-ag-ligornetto"
         ],
         "fr": [
-          "peintre-en-isolation-thermique-par-l-exterieur-das-team-ag-ligornetto-acb3823c"
+          "pittore-cappottista-das-team-ag-ligornetto"
         ]
       },
       "previousSlugs": [
-        "maler-fur-warmedammverbundsysteme-das-team-ag-ligornetto-acb3823c",
-        "external-insulation-painter-das-team-ag-ligornetto-acb3823c",
-        "peintre-en-isolation-thermique-par-l-exterieur-das-team-ag-ligornetto-acb3823c"
+        "pittore-cappottista-das-team-ag-ligornetto"
       ],
       "firstSeenAt": "2026-11-04T21:49:10.043Z",
       "salaryMin": 49500,
@@ -56901,9 +57064,9 @@
       "slug": "operaio-di-cantiere-c-il-team-sa-riva-san-vitale-1aa6bc44",
       "slugByLocale": {
         "it": "operaio-di-cantiere-c-il-team-sa-riva-san-vitale-1aa6bc44",
-        "en": "operaio-di-cantiere-c-il-team-sa-riva-san-vitale",
-        "de": "operaio-di-cantiere-c-il-team-sa-riva-san-vitale",
-        "fr": "operaio-di-cantiere-c-il-team-sa-riva-san-vitale"
+        "en": "construction-worker-c-il-team-sa-riva-san-vitale-1aa6bc44",
+        "de": "bauarbeiter-c-il-team-sa-riva-san-vitale-1aa6bc44",
+        "fr": "ouvrier-de-construction-c-il-team-sa-riva-san-vitale-1aa6bc44"
       },
       "slugDisambiguator": "1aa6bc44",
       "company": "il team sa",
@@ -56951,19 +57114,17 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "bauarbeiter-c-il-team-sa-riva-san-vitale-1aa6bc44"
+          "operaio-di-cantiere-c-il-team-sa-riva-san-vitale"
         ],
         "en": [
-          "construction-worker-c-il-team-sa-riva-san-vitale-1aa6bc44"
+          "operaio-di-cantiere-c-il-team-sa-riva-san-vitale"
         ],
         "fr": [
-          "ouvrier-de-construction-c-il-team-sa-riva-san-vitale-1aa6bc44"
+          "operaio-di-cantiere-c-il-team-sa-riva-san-vitale"
         ]
       },
       "previousSlugs": [
-        "bauarbeiter-c-il-team-sa-riva-san-vitale-1aa6bc44",
-        "construction-worker-c-il-team-sa-riva-san-vitale-1aa6bc44",
-        "ouvrier-de-construction-c-il-team-sa-riva-san-vitale-1aa6bc44"
+        "operaio-di-cantiere-c-il-team-sa-riva-san-vitale"
       ],
       "firstSeenAt": "2026-11-07T09:45:52.062Z",
       "salaryMin": 49500,
@@ -57226,9 +57387,9 @@
       "slug": "pittore-il-team-sa-bellinzona-23db02a3",
       "slugByLocale": {
         "it": "pittore-il-team-sa-bellinzona-23db02a3",
-        "en": "pittore-il-team-sa-bellinzona",
-        "de": "pittore-il-team-sa-bellinzona",
-        "fr": "pittore-il-team-sa-bellinzona"
+        "en": "painter-il-team-sa-bellinzona-23db02a3",
+        "de": "maler-il-team-sa-bellinzona-23db02a3",
+        "fr": "peintre-il-team-sa-bellinzona-23db02a3"
       },
       "slugDisambiguator": "23db02a3",
       "company": "il team sa",
@@ -57277,19 +57438,17 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "maler-il-team-sa-bellinzona-23db02a3"
+          "pittore-il-team-sa-bellinzona"
         ],
         "en": [
-          "painter-il-team-sa-bellinzona-23db02a3"
+          "pittore-il-team-sa-bellinzona"
         ],
         "fr": [
-          "peintre-il-team-sa-bellinzona-23db02a3"
+          "pittore-il-team-sa-bellinzona"
         ]
       },
       "previousSlugs": [
-        "maler-il-team-sa-bellinzona-23db02a3",
-        "painter-il-team-sa-bellinzona-23db02a3",
-        "peintre-il-team-sa-bellinzona-23db02a3"
+        "pittore-il-team-sa-bellinzona"
       ],
       "firstSeenAt": "2026-11-07T09:45:52.062Z",
       "salaryMin": 49500,
@@ -60457,7 +60616,7 @@
       "slugByLocale": {
         "it": "addetto-alla-costruzione-di-ponteggi-il-team-sa-bellinzona-70e2e8c1",
         "en": "addetto-alla-costruzione-di-ponteggi-il-team-sa-bellinzona-70e2e8c1",
-        "de": "addetto-alla-costruzione-di-ponteggi-il-team-sa-bellinzona",
+        "de": "befestigung-am-bau-von-gerusten-il-team-sa-bellinzona-70e2e8c1",
         "fr": "addetto-alla-costruzione-di-ponteggi-il-team-sa-bellinzona-70e2e8c1"
       },
       "slugDisambiguator": "70e2e8c1",
@@ -60507,11 +60666,11 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "befestigung-am-bau-von-gerusten-il-team-sa-bellinzona-70e2e8c1"
+          "addetto-alla-costruzione-di-ponteggi-il-team-sa-bellinzona"
         ]
       },
       "previousSlugs": [
-        "befestigung-am-bau-von-gerusten-il-team-sa-bellinzona-70e2e8c1"
+        "addetto-alla-costruzione-di-ponteggi-il-team-sa-bellinzona"
       ],
       "firstSeenAt": "2026-11-07T09:45:52.062Z",
       "salaryMin": 49500,
@@ -61176,9 +61335,9 @@
       "slug": "aiuto-pittore-il-team-sa-grancia-8178d34c",
       "slugByLocale": {
         "it": "aiuto-pittore-il-team-sa-grancia-8178d34c",
-        "en": "aiuto-pittore-il-team-sa-grancia",
-        "de": "aiuto-pittore-il-team-sa-grancia",
-        "fr": "aiuto-pittore-il-team-sa-grancia"
+        "en": "help-painter-il-team-sa-grancia-8178d34c",
+        "de": "malerhilfe-il-team-sa-grancia-8178d34c",
+        "fr": "aide-peintre-il-team-sa-grancia-8178d34c"
       },
       "slugDisambiguator": "8178d34c",
       "company": "il team sa",
@@ -61226,19 +61385,17 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "malerhilfe-il-team-sa-grancia-8178d34c"
+          "aiuto-pittore-il-team-sa-grancia"
         ],
         "en": [
-          "help-painter-il-team-sa-grancia-8178d34c"
+          "aiuto-pittore-il-team-sa-grancia"
         ],
         "fr": [
-          "aide-peintre-il-team-sa-grancia-8178d34c"
+          "aiuto-pittore-il-team-sa-grancia"
         ]
       },
       "previousSlugs": [
-        "malerhilfe-il-team-sa-grancia-8178d34c",
-        "help-painter-il-team-sa-grancia-8178d34c",
-        "aide-peintre-il-team-sa-grancia-8178d34c"
+        "aiuto-pittore-il-team-sa-grancia"
       ],
       "firstSeenAt": "2026-11-07T09:45:52.062Z",
       "salaryMin": 49500,
@@ -80038,9 +80195,9 @@
       "slug": "lavoratore-edile-edilizia-principale-il-team-sa-riva-san-vitale-446e549b",
       "slugByLocale": {
         "it": "lavoratore-edile-edilizia-principale-il-team-sa-riva-san-vitale-446e549b",
-        "en": "lavoratore-edile-edilizia-principale-il-team-sa-riva-san-vitale",
-        "de": "lavoratore-edile-edilizia-principale-il-team-sa-riva-san-vitale",
-        "fr": "lavoratore-edile-edilizia-principale-il-team-sa-riva-san-vitale"
+        "en": "construction-worker-il-team-sa-riva-san-vitale-446e549b",
+        "de": "bauarbeiter-il-team-sa-riva-san-vitale-446e549b",
+        "fr": "ouvriers-de-construction-il-team-sa-riva-san-vitale-446e549b"
       },
       "slugDisambiguator": "446e549b",
       "company": "il team sa",
@@ -80088,19 +80245,17 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "bauarbeiter-il-team-sa-riva-san-vitale-446e549b"
+          "lavoratore-edile-edilizia-principale-il-team-sa-riva-san-vitale"
         ],
         "en": [
-          "construction-worker-il-team-sa-riva-san-vitale-446e549b"
+          "lavoratore-edile-edilizia-principale-il-team-sa-riva-san-vitale"
         ],
         "fr": [
-          "ouvriers-de-construction-il-team-sa-riva-san-vitale-446e549b"
+          "lavoratore-edile-edilizia-principale-il-team-sa-riva-san-vitale"
         ]
       },
       "previousSlugs": [
-        "bauarbeiter-il-team-sa-riva-san-vitale-446e549b",
-        "construction-worker-il-team-sa-riva-san-vitale-446e549b",
-        "ouvriers-de-construction-il-team-sa-riva-san-vitale-446e549b"
+        "lavoratore-edile-edilizia-principale-il-team-sa-riva-san-vitale"
       ],
       "firstSeenAt": "2026-11-05T09:35:14.514Z",
       "salaryMin": 49500,
@@ -81329,7 +81484,7 @@
       "slugByLocale": {
         "it": "addetto-alla-costruzione-di-ponteggi-il-team-sa-bellinzona-648a1674",
         "en": "addetto-alla-costruzione-di-ponteggi-il-team-sa-bellinzona-648a1674",
-        "de": "addetto-alla-costruzione-di-ponteggi-il-team-sa-bellinzona-648a1674",
+        "de": "befestigung-am-bau-von-gerusten-il-team-sa-bellinzona-648a1674",
         "fr": "addetto-alla-costruzione-di-ponteggi-il-team-sa-bellinzona-648a1674"
       },
       "slugDisambiguator": "648a1674",
@@ -81377,14 +81532,6 @@
       "validThrough": "2026-12-28T00:00:00.000Z",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugsByLocale": {
-        "de": [
-          "befestigung-am-bau-von-gerusten-il-team-sa-bellinzona-648a1674"
-        ]
-      },
-      "previousSlugs": [
-        "befestigung-am-bau-von-gerusten-il-team-sa-bellinzona-648a1674"
-      ],
       "firstSeenAt": "2026-11-08T21:55:09.353Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -82229,9 +82376,9 @@
       "slug": "lavoratore-edile-edilizia-principale-il-team-sa-bellinzona-7f00910d",
       "slugByLocale": {
         "it": "lavoratore-edile-edilizia-principale-il-team-sa-bellinzona-7f00910d",
-        "en": "lavoratore-edile-edilizia-principale-il-team-sa-bellinzona",
-        "de": "lavoratore-edile-edilizia-principale-il-team-sa-bellinzona",
-        "fr": "lavoratore-edile-edilizia-principale-il-team-sa-bellinzona"
+        "en": "construction-worker-il-team-sa-bellinzona-7f00910d",
+        "de": "bauarbeiter-il-team-sa-bellinzona-7f00910d",
+        "fr": "ouvriers-de-construction-il-team-sa-bellinzona-7f00910d"
       },
       "slugDisambiguator": "7f00910d",
       "company": "il team sa",
@@ -82280,19 +82427,17 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "bauarbeiter-il-team-sa-bellinzona-7f00910d"
+          "lavoratore-edile-edilizia-principale-il-team-sa-bellinzona"
         ],
         "en": [
-          "construction-worker-il-team-sa-bellinzona-7f00910d"
+          "lavoratore-edile-edilizia-principale-il-team-sa-bellinzona"
         ],
         "fr": [
-          "ouvriers-de-construction-il-team-sa-bellinzona-7f00910d"
+          "lavoratore-edile-edilizia-principale-il-team-sa-bellinzona"
         ]
       },
       "previousSlugs": [
-        "bauarbeiter-il-team-sa-bellinzona-7f00910d",
-        "construction-worker-il-team-sa-bellinzona-7f00910d",
-        "ouvriers-de-construction-il-team-sa-bellinzona-7f00910d"
+        "lavoratore-edile-edilizia-principale-il-team-sa-bellinzona"
       ],
       "firstSeenAt": "2026-11-05T09:35:14.514Z",
       "salaryMin": 49500,
@@ -95671,9 +95816,9 @@
       "slug": "pittore-il-team-sa-solduno-d6cbdc66",
       "slugByLocale": {
         "it": "pittore-il-team-sa-solduno-d6cbdc66",
-        "en": "pittore-il-team-sa-solduno",
-        "de": "pittore-il-team-sa-solduno",
-        "fr": "pittore-il-team-sa-solduno"
+        "en": "painter-il-team-sa-solduno-d6cbdc66",
+        "de": "maler-il-team-sa-solduno-d6cbdc66",
+        "fr": "peintre-il-team-sa-solduno-d6cbdc66"
       },
       "slugDisambiguator": "d6cbdc66",
       "company": "il team sa",
@@ -95721,19 +95866,17 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "maler-il-team-sa-solduno-d6cbdc66"
+          "pittore-il-team-sa-solduno"
         ],
         "en": [
-          "painter-il-team-sa-solduno-d6cbdc66"
+          "pittore-il-team-sa-solduno"
         ],
         "fr": [
-          "peintre-il-team-sa-solduno-d6cbdc66"
+          "pittore-il-team-sa-solduno"
         ]
       },
       "previousSlugs": [
-        "maler-il-team-sa-solduno-d6cbdc66",
-        "painter-il-team-sa-solduno-d6cbdc66",
-        "peintre-il-team-sa-solduno-d6cbdc66"
+        "pittore-il-team-sa-solduno"
       ],
       "firstSeenAt": "2026-11-04T21:49:10.043Z",
       "salaryMin": 49500,
@@ -109233,9 +109376,9 @@
       "slug": "dipendenti-del-magazzino-conforama-suisse-sa-chur-6d96af81",
       "slugByLocale": {
         "it": "dipendenti-del-magazzino-conforama-suisse-sa-chur-6d96af81",
-        "en": "lagermitarbeiter-conforama-suisse-sa-chur",
+        "en": "warehouse-employees-conforama-suisse-sa-chur-6d96af81",
         "de": "lagermitarbeiter-conforama-suisse-sa-chur-6d96af81",
-        "fr": "lagermitarbeiter-conforama-suisse-sa-chur"
+        "fr": "employes-d-entrepot-conforama-suisse-sa-chur-6d96af81"
       },
       "slugDisambiguator": "6d96af81",
       "company": "Conforama Suisse SA",
@@ -109283,8 +109426,8 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "fr": [
-          "employes-d-entrepot-conforama-suisse-sa-chur-6d96af81",
-          "lagermitarbeiter-conforama-suisse-sa-chur-6d96af81"
+          "lagermitarbeiter-conforama-suisse-sa-chur-6d96af81",
+          "lagermitarbeiter-conforama-suisse-sa-chur"
         ],
         "it": [
           "lagermitarbeiter-conforama-suisse-sa-chur-6d96af81",
@@ -109292,14 +109435,12 @@
         ],
         "en": [
           "lagermitarbeiter-conforama-suisse-sa-chur-6d96af81",
-          "warehouse-employees-conforama-suisse-sa-chur-6d96af81"
+          "lagermitarbeiter-conforama-suisse-sa-chur"
         ]
       },
       "previousSlugs": [
         "lagermitarbeiter-conforama-suisse-sa-chur-6d96af81",
-        "lagermitarbeiter-conforama-suisse-sa-chur",
-        "employes-d-entrepot-conforama-suisse-sa-chur-6d96af81",
-        "warehouse-employees-conforama-suisse-sa-chur-6d96af81"
+        "lagermitarbeiter-conforama-suisse-sa-chur"
       ],
       "firstSeenAt": "2026-10-31T22:00:02.073Z",
       "salaryMin": 57500,
@@ -141864,12 +142005,12 @@
     },
     {
       "id": "seco-jobroom-f3706f98-e6eb-4124-a325-8e349e4444ef",
-      "slug": "project-leader-integrated-solutions-80-100-w-m-d-hamilton-ag-bonaduz-f3706f98",
+      "slug": "leader-del-progetto-soluzioni-integrate-80-100-m-f-d-hamilton-ag-bonaduz-f3706f98",
       "slugByLocale": {
         "de": "project-leader-integrated-solutions-80-100-w-m-d-hamilton-ag-bonaduz-f3706f98",
-        "it": "project-leader-integrated-solutions-80-100-w-m-d-hamilton-ag-bonaduz-f3706f98",
+        "it": "leader-del-progetto-soluzioni-integrate-80-100-m-f-d-hamilton-ag-bonaduz-f3706f98",
         "en": "project-leader-integrated-solutions-80-100-w-m-d-hamilton-ag-bonaduz-f3706f98",
-        "fr": "project-leader-integrated-solutions-80-100-w-m-d-hamilton-ag-bonaduz-f3706f98"
+        "fr": "chef-de-projet-solutions-integrees-80-100-h-f-d-hamilton-ag-bonaduz-f3706f98"
       },
       "slugDisambiguator": "f3706f98",
       "company": "Hamilton AG",
@@ -141935,7 +142076,18 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-09T09:43:20.094Z",
-      "translationHoldSince": "2026-11-09T09:46:08.196Z"
+      "translationHoldReleasedAt": "2026-11-09T13:29:28.438Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "project-leader-integrated-solutions-80-100-w-m-d-hamilton-ag-bonaduz-f3706f98"
+        ],
+        "fr": [
+          "project-leader-integrated-solutions-80-100-w-m-d-hamilton-ag-bonaduz-f3706f98"
+        ]
+      },
+      "previousSlugs": [
+        "project-leader-integrated-solutions-80-100-w-m-d-hamilton-ag-bonaduz-f3706f98"
+      ]
     },
     {
       "id": "seco-jobroom-01cf3c5b-3662-4174-bb4d-2b9bc3fc8842",
@@ -151775,7 +151927,7 @@
       "slug": "dipendente-di-assemblaggio-produzione-grischa-plast-kunststofftechnik-ag-maienfeld-3aa93a72",
       "slugByLocale": {
         "it": "dipendente-di-assemblaggio-produzione-grischa-plast-kunststofftechnik-ag-maienfeld-3aa93a72",
-        "en": "montage-produktion-mitarbeiterin-grischa-plast-kunststofftechnik-ag-maienfeld",
+        "en": "assembly-production-employee-grischa-plast-kunststofftechnik-ag-maienfeld-3aa93a72",
         "de": "montage-produktion-mitarbeiterin-grischa-plast-kunststofftechnik-ag-maienfeld-3aa93a72",
         "fr": "employe-de-montage-production-grischa-plast-kunststofftechnik-ag-maienfeld-3aa93a72"
       },
@@ -151826,8 +151978,8 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "en": [
-          "assembly-production-employee-grischa-plast-kunststofftechnik-ag-maienfeld-3aa93a72",
-          "montage-produktion-mitarbeiterin-grischa-plast-kunststofftechnik-ag-maienfeld-3aa93a72"
+          "montage-produktion-mitarbeiterin-grischa-plast-kunststofftechnik-ag-maienfeld-3aa93a72",
+          "montage-produktion-mitarbeiterin-grischa-plast-kunststofftechnik-ag-maienfeld"
         ],
         "it": [
           "montage-produktion-mitarbeiterin-grischa-plast-kunststofftechnik-ag-maienfeld-3aa93a72",
@@ -151839,8 +151991,7 @@
       },
       "previousSlugs": [
         "montage-produktion-mitarbeiterin-grischa-plast-kunststofftechnik-ag-maienfeld-3aa93a72",
-        "montage-produktion-mitarbeiterin-grischa-plast-kunststofftechnik-ag-maienfeld",
-        "assembly-production-employee-grischa-plast-kunststofftechnik-ag-maienfeld-3aa93a72"
+        "montage-produktion-mitarbeiterin-grischa-plast-kunststofftechnik-ag-maienfeld"
       ],
       "firstSeenAt": "2026-10-31T22:00:02.073Z",
       "salaryMin": 57500,
@@ -152512,9 +152663,9 @@
       "slug": "macellaio-m-f-d-das-team-ag-lugano-4d6c4658",
       "slugByLocale": {
         "it": "macellaio-m-f-d-das-team-ag-lugano-4d6c4658",
-        "en": "macellaio-m-w-d-das-team-ag-lugano",
-        "de": "macellaio-m-w-d-das-team-ag-lugano",
-        "fr": "macellaio-m-w-d-das-team-ag-lugano"
+        "en": "m-f-d-butcher-das-team-ag-lugano-4d6c4658",
+        "de": "m-w-d-butcher-das-team-ag-lugano-4d6c4658",
+        "fr": "h-f-d-boucher-das-team-ag-lugano-4d6c4658"
       },
       "slugDisambiguator": "4d6c4658",
       "company": "das team ag",
@@ -152562,19 +152713,17 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "m-w-d-butcher-das-team-ag-lugano-4d6c4658"
+          "macellaio-m-w-d-das-team-ag-lugano"
         ],
         "en": [
-          "m-f-d-butcher-das-team-ag-lugano-4d6c4658"
+          "macellaio-m-w-d-das-team-ag-lugano"
         ],
         "fr": [
-          "h-f-d-boucher-das-team-ag-lugano-4d6c4658"
+          "macellaio-m-w-d-das-team-ag-lugano"
         ]
       },
       "previousSlugs": [
-        "m-w-d-butcher-das-team-ag-lugano-4d6c4658",
-        "m-f-d-butcher-das-team-ag-lugano-4d6c4658",
-        "h-f-d-boucher-das-team-ag-lugano-4d6c4658"
+        "macellaio-m-w-d-das-team-ag-lugano"
       ],
       "firstSeenAt": "2026-11-04T21:49:10.043Z",
       "salaryMin": 49500,
@@ -161129,9 +161278,9 @@
       "slug": "lavoratore-edile-edilizia-principale-toba-costruzioni-sagl-minusio-f4d5f4af",
       "slugByLocale": {
         "it": "lavoratore-edile-edilizia-principale-toba-costruzioni-sagl-minusio-f4d5f4af",
-        "en": "lavoratore-edile-edilizia-principale-toba-costruzioni-sagl-minusio",
-        "de": "lavoratore-edile-edilizia-principale-toba-costruzioni-sagl-minusio",
-        "fr": "lavoratore-edile-edilizia-principale-toba-costruzioni-sagl-minusio"
+        "en": "construction-worker-toba-costruzioni-sagl-minusio-f4d5f4af",
+        "de": "bauarbeiter-toba-costruzioni-sagl-minusio-f4d5f4af",
+        "fr": "ouvriers-de-construction-toba-costruzioni-sagl-minusio-f4d5f4af"
       },
       "slugDisambiguator": "f4d5f4af",
       "company": "Toba Costruzioni Sagl",
@@ -161180,19 +161329,17 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "bauarbeiter-toba-costruzioni-sagl-minusio-f4d5f4af"
+          "lavoratore-edile-edilizia-principale-toba-costruzioni-sagl-minusio"
         ],
         "en": [
-          "construction-worker-toba-costruzioni-sagl-minusio-f4d5f4af"
+          "lavoratore-edile-edilizia-principale-toba-costruzioni-sagl-minusio"
         ],
         "fr": [
-          "ouvriers-de-construction-toba-costruzioni-sagl-minusio-f4d5f4af"
+          "lavoratore-edile-edilizia-principale-toba-costruzioni-sagl-minusio"
         ]
       },
       "previousSlugs": [
-        "bauarbeiter-toba-costruzioni-sagl-minusio-f4d5f4af",
-        "construction-worker-toba-costruzioni-sagl-minusio-f4d5f4af",
-        "ouvriers-de-construction-toba-costruzioni-sagl-minusio-f4d5f4af"
+        "lavoratore-edile-edilizia-principale-toba-costruzioni-sagl-minusio"
       ],
       "firstSeenAt": "2026-10-31T22:00:02.073Z",
       "salaryMin": 49500,

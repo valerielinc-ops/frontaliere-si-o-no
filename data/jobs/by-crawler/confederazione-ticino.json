@@ -13939,7 +13939,6 @@
         "it": [
           "gebaudetechniker-in-confederazione-svizzera-bern",
           "gebaudetechniker-in-confederazione-bern",
-          "tecnico-in-confederazione-svizzera-bern",
           "servicetechniker-in-gebaudetechnik-confederazione-bern"
         ],
         "de": [
@@ -13953,7 +13952,6 @@
         "gebaudetechniker-in-confederazione-svizzera-bern",
         "gebaudetechniker-in-confederazione-bern",
         "servicetechniker-in-gebaudetechnik-confederazione-svizzera-bern",
-        "tecnico-in-confederazione-svizzera-bern",
         "servicetechniker-in-gebaudetechnik-confederazione-bern"
       ],
       "salaryMin": 77000,
@@ -17448,7 +17446,7 @@
     },
     {
       "title": "Stv. Leiter/-in und Fachspezialist/-in Bundesrats-, Parlaments- und Departementsgeschäfte",
-      "slug": "stv-responsabile-e-fachspezialist-in-bundesrats-parlaments-e-departementsgeschafte-confederazione-svizzera-bern",
+      "slug": "vice-capo-e-specialista-in-affari-del-consiglio-federale-del-parlamento-e-del-dipartimento-confederazione-svizzera-bern",
       "url": "https://jobs.admin.ch/posti-vacanti/stv-leiter-in-und-fachspezialist-in-bundesrats-parlaments-und-departementsgeschaefte/b223a4e3-9a9b-4fbb-9813-4f7d0fd2ca48",
       "applyUrl": "https://career74.sapsf.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=21006",
       "company": "Confederazione Svizzera",
@@ -17485,19 +17483,27 @@
       },
       "slugByLocale": {
         "de": "stv-leiter-in-und-fachspezialist-in-bundesrats-parlaments-und-departementsgeschafte-confederazione-bern",
-        "it": "stv-responsabile-e-fachspezialist-in-bundesrats-parlaments-e-departementsgeschafte-confederazione-svizzera-bern",
-        "en": "stv-leiter-in-und-fachspezialist-in-bundesrats-parlaments-und-departementsgeschafte-confederazione-bern",
-        "fr": "stv-leiter-in-und-fachspezialist-in-bundesrats-parlaments-und-departementsgeschafte-confederazione-bern"
+        "it": "vice-capo-e-specialista-in-affari-del-consiglio-federale-del-parlamento-e-del-dipartimento-confederazione-svizzera-bern",
+        "en": "deputy-head-and-specialist-in-federal-council-parliament-and-departmental-affairs-confederazione-svizzera-bern",
+        "fr": "responsable-adjoint-et-specialiste-des-affaires-du-conseil-federal-du-parlement-et-des-departements-confederazione"
       },
       "id": "confederazione-ticino-71447078d170",
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "stv-leiter-in-und-fachspezialist-in-bundesrats-parlaments-und-departementsgeschafte-confederazione-bern",
+          "stv-responsabile-e-fachspezialist-in-bundesrats-parlaments-e-departementsgeschafte-confederazione-svizzera-bern"
+        ],
+        "en": [
+          "stv-leiter-in-und-fachspezialist-in-bundesrats-parlaments-und-departementsgeschafte-confederazione-bern"
+        ],
+        "fr": [
           "stv-leiter-in-und-fachspezialist-in-bundesrats-parlaments-und-departementsgeschafte-confederazione-bern"
         ]
       },
       "previousSlugs": [
-        "stv-leiter-in-und-fachspezialist-in-bundesrats-parlaments-und-departementsgeschafte-confederazione-bern"
+        "stv-leiter-in-und-fachspezialist-in-bundesrats-parlaments-und-departementsgeschafte-confederazione-bern",
+        "stv-responsabile-e-fachspezialist-in-bundesrats-parlaments-e-departementsgeschafte-confederazione-svizzera-bern"
       ],
       "salaryMin": 94500,
       "salaryMax": 143000,
@@ -17599,7 +17605,7 @@
     },
     {
       "title": "Metallbauer/-in",
-      "slug": "metallbauer-in-confederazione-thun",
+      "slug": "metalmeccanico-a-confederazione-svizzera-thun",
       "url": "https://jobs.admin.ch/posti-vacanti/metallbauer-in/4e393633-1aa7-49d9-a62b-5018bd634f63",
       "applyUrl": "https://career74.sapsf.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=20980",
       "company": "Confederazione Svizzera",
@@ -17636,9 +17642,9 @@
       },
       "slugByLocale": {
         "de": "metallbauer-in-confederazione-svizzera-thun",
-        "it": "metallbauer-in-confederazione-thun",
-        "en": "metallbauer-in-confederazione-thun",
-        "fr": "metallbauer-in-confederazione-thun"
+        "it": "metalmeccanico-a-confederazione-svizzera-thun",
+        "en": "metal-worker-confederazione-svizzera-thun",
+        "fr": "constructeur-constructrice-de-metaux-confederazione-svizzera-thun"
       },
       "id": "confederazione-ticino-1e58cb1beb1f",
       "needsRetranslation": true,
@@ -17660,11 +17666,25 @@
       "streetAddress": "Thun",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "firstSeenAt": "2026-11-09T09:48:13.749Z"
+      "firstSeenAt": "2026-11-09T09:48:13.749Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "metallbauer-in-confederazione-thun"
+        ],
+        "en": [
+          "metallbauer-in-confederazione-thun"
+        ],
+        "fr": [
+          "metallbauer-in-confederazione-thun"
+        ]
+      },
+      "previousSlugs": [
+        "metallbauer-in-confederazione-thun"
+      ]
     },
     {
       "title": "Mitarbeiter/in Gebäudebetrieb",
-      "slug": "collaboratore-trice-gebaudebetrieb-confederazione-svizzera-biere",
+      "slug": "collaboratore-trice-dell-azienda-edile-confederazione-svizzera-biere",
       "url": "https://jobs.admin.ch/posti-vacanti/mitarbeiter-in-gebaeudebetrieb/ae7569d9-8ab9-4b0d-b1ee-7485440db5ef",
       "applyUrl": "https://career74.sapsf.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=20934",
       "company": "Confederazione Svizzera",
@@ -17701,19 +17721,27 @@
       },
       "slugByLocale": {
         "de": "mitarbeiter-in-gebaudebetrieb-confederazione-biere",
-        "it": "collaboratore-trice-gebaudebetrieb-confederazione-svizzera-biere",
-        "en": "mitarbeiter-in-gebaudebetrieb-confederazione-biere",
-        "fr": "mitarbeiter-in-gebaudebetrieb-confederazione-biere"
+        "it": "collaboratore-trice-dell-azienda-edile-confederazione-svizzera-biere",
+        "en": "employee-in-building-operations-confederazione-svizzera-biere",
+        "fr": "employe-e-exploitation-du-batiment-confederazione-svizzera-biere"
       },
       "id": "confederazione-ticino-21b77f1c15cd",
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-in-gebaudebetrieb-confederazione-biere",
+          "collaboratore-trice-gebaudebetrieb-confederazione-svizzera-biere"
+        ],
+        "en": [
+          "mitarbeiter-in-gebaudebetrieb-confederazione-biere"
+        ],
+        "fr": [
           "mitarbeiter-in-gebaudebetrieb-confederazione-biere"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-gebaudebetrieb-confederazione-biere"
+        "mitarbeiter-in-gebaudebetrieb-confederazione-biere",
+        "collaboratore-trice-gebaudebetrieb-confederazione-svizzera-biere"
       ],
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -17737,7 +17765,7 @@
     },
     {
       "title": "Hochschulpraktikant/in",
-      "slug": "hochschulpraktikant-in-confederazione-svizzera-bern",
+      "slug": "tirocinante-universitario-confederazione-svizzera-bern-13cb90",
       "url": "https://jobs.admin.ch/posti-vacanti/hochschulpraktikant-in/5b5efb61-59e7-409b-a5b5-a6ae767c13b0",
       "applyUrl": "https://career74.sapsf.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=20986",
       "company": "Confederazione Svizzera",
@@ -17774,22 +17802,30 @@
       },
       "slugByLocale": {
         "de": "hochschulpraktikant-in-confederazione-svizzera-bern",
-        "it": "hochschulpraktikant-in-confederazione-svizzera-bern",
-        "en": "hochschulpraktikant-in-confederazione-svizzera-bern",
-        "fr": "hochschulpraktikant-in-confederazione-svizzera-bern"
+        "it": "tirocinante-universitario-confederazione-svizzera-bern-13cb90",
+        "en": "university-trainee-confederazione-svizzera-bern-13cb90",
+        "fr": "stagiaire-universitaire-confederazione-svizzera-bern-13cb90"
       },
       "id": "confederazione-ticino-9ef0fe92ffc8",
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "hochschulpraktikant-in-confederazione-bern"
+          "hochschulpraktikant-in-confederazione-bern",
+          "hochschulpraktikant-in-confederazione-svizzera-bern"
         ],
         "de": [
           "hochschulpraktikant-in-confederazione-bern"
+        ],
+        "en": [
+          "hochschulpraktikant-in-confederazione-svizzera-bern"
+        ],
+        "fr": [
+          "hochschulpraktikant-in-confederazione-svizzera-bern"
         ]
       },
       "previousSlugs": [
-        "hochschulpraktikant-in-confederazione-bern"
+        "hochschulpraktikant-in-confederazione-bern",
+        "hochschulpraktikant-in-confederazione-svizzera-bern"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -17813,7 +17849,7 @@
     },
     {
       "title": "Hochschulpraktikant/in - Sektion Humanitäres Völkerrecht und Menschenrechte",
-      "slug": "hochschulpraktikant-in-sektion-humanitares-volkerrecht-e-menschenrechte-confederazione-svizzera-bern",
+      "slug": "tirocinante-universitario-sezione-diritto-internazionale-umanitario-e-diritti-umani-confederazione-svizzera-bern",
       "url": "https://jobs.admin.ch/posti-vacanti/hochschulpraktikant-in-sektion-humanitaeres-voelkerrecht-und-menschenrechte/32ea234e-9701-4cbc-a3d4-283ed279168d",
       "applyUrl": "https://career74.sapsf.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=20951",
       "company": "Confederazione Svizzera",
@@ -17850,19 +17886,27 @@
       },
       "slugByLocale": {
         "de": "hochschulpraktikant-in-sektion-humanitares-volkerrecht-und-menschenrechte-confederazione-bern",
-        "it": "hochschulpraktikant-in-sektion-humanitares-volkerrecht-e-menschenrechte-confederazione-svizzera-bern",
-        "en": "hochschulpraktikant-in-sektion-humanitares-volkerrecht-und-menschenrechte-confederazione-bern",
-        "fr": "hochschulpraktikant-in-sektion-humanitares-volkerrecht-und-menschenrechte-confederazione-bern"
+        "it": "tirocinante-universitario-sezione-diritto-internazionale-umanitario-e-diritti-umani-confederazione-svizzera-bern",
+        "en": "university-intern-international-humanitarian-law-and-human-rights-section-confederazione-svizzera-bern",
+        "fr": "stagiaire-universitaire-section-du-droit-international-humanitaire-et-des-droits-de-l-homme-confederazione-svizzera-bern"
       },
       "id": "confederazione-ticino-9c205ead2751",
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "hochschulpraktikant-in-sektion-humanitares-volkerrecht-und-menschenrechte-confederazione-bern",
+          "hochschulpraktikant-in-sektion-humanitares-volkerrecht-e-menschenrechte-confederazione-svizzera-bern"
+        ],
+        "en": [
+          "hochschulpraktikant-in-sektion-humanitares-volkerrecht-und-menschenrechte-confederazione-bern"
+        ],
+        "fr": [
           "hochschulpraktikant-in-sektion-humanitares-volkerrecht-und-menschenrechte-confederazione-bern"
         ]
       },
       "previousSlugs": [
-        "hochschulpraktikant-in-sektion-humanitares-volkerrecht-und-menschenrechte-confederazione-bern"
+        "hochschulpraktikant-in-sektion-humanitares-volkerrecht-und-menschenrechte-confederazione-bern",
+        "hochschulpraktikant-in-sektion-humanitares-volkerrecht-e-menschenrechte-confederazione-svizzera-bern"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -17886,7 +17930,7 @@
     },
     {
       "title": "Operationsoffizier/-in Mobilmachung",
-      "slug": "operationsoffizier-in-mobilmachung-confederazione-bern",
+      "slug": "ufficiale-a-operativo-a-mobilitazione-confederazione-svizzera-bern",
       "url": "https://jobs.admin.ch/posti-vacanti/operationsoffizier-in-mobilmachung/5746a8c4-8272-4967-843d-67b58b4e12d7",
       "applyUrl": "https://career74.sapsf.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=20982",
       "company": "Confederazione Svizzera",
@@ -17923,9 +17967,9 @@
       },
       "slugByLocale": {
         "de": "operationsoffizier-in-mobilmachung-confederazione-bern",
-        "it": "operationsoffizier-in-mobilmachung-confederazione-bern",
-        "en": "operationsoffizier-in-mobilmachung-confederazione-bern",
-        "fr": "operationsoffizier-in-mobilmachung-confederazione-bern"
+        "it": "ufficiale-a-operativo-a-mobilitazione-confederazione-svizzera-bern",
+        "en": "operation-officer-mobilization-confederazione-svizzera-bern",
+        "fr": "officier-ere-des-operations-de-mobilisation-confederazione-svizzera-bern"
       },
       "id": "confederazione-ticino-a9f669d0e592",
       "needsRetranslation": true,
@@ -17947,11 +17991,25 @@
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "firstSeenAt": "2026-11-09T09:48:13.749Z"
+      "firstSeenAt": "2026-11-09T09:48:13.749Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "operationsoffizier-in-mobilmachung-confederazione-bern"
+        ],
+        "en": [
+          "operationsoffizier-in-mobilmachung-confederazione-bern"
+        ],
+        "fr": [
+          "operationsoffizier-in-mobilmachung-confederazione-bern"
+        ]
+      },
+      "previousSlugs": [
+        "operationsoffizier-in-mobilmachung-confederazione-bern"
+      ]
     },
     {
       "title": "Jurist/-in DSBO",
-      "slug": "jurist-in-dsbo-confederazione-bern",
+      "slug": "avvocato-a-dsbo-confederazione-svizzera-bern",
       "url": "https://jobs.admin.ch/posti-vacanti/jurist-in-dsbo/51e48c51-dc3c-4985-94e0-866b0436d707",
       "applyUrl": "https://career74.sapsf.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=20997",
       "company": "Confederazione Svizzera",
@@ -17988,9 +18046,9 @@
       },
       "slugByLocale": {
         "de": "jurist-in-dsbo-confederazione-bern",
-        "it": "jurist-in-dsbo-confederazione-bern",
-        "en": "jurist-in-dsbo-confederazione-bern",
-        "fr": "jurist-in-dsbo-confederazione-bern"
+        "it": "avvocato-a-dsbo-confederazione-svizzera-bern",
+        "en": "dsbo-lawyer-confederazione-svizzera-bern",
+        "fr": "juriste-dsbo-confederazione-svizzera-bern"
       },
       "id": "confederazione-ticino-b752d8c91d32",
       "needsRetranslation": true,
@@ -18012,11 +18070,25 @@
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-09T09:48:13.749Z"
+      "firstSeenAt": "2026-11-09T09:48:13.749Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "jurist-in-dsbo-confederazione-bern"
+        ],
+        "en": [
+          "jurist-in-dsbo-confederazione-bern"
+        ],
+        "fr": [
+          "jurist-in-dsbo-confederazione-bern"
+        ]
+      },
+      "previousSlugs": [
+        "jurist-in-dsbo-confederazione-bern"
+      ]
     },
     {
       "title": "Hochschulpraktikant/-in Informatik",
-      "slug": "hochschulpraktikant-in-informatik-confederazione-bern",
+      "slug": "tirocinante-universitario-in-informatica-confederazione-svizzera-bern",
       "url": "https://jobs.admin.ch/posti-vacanti/hochschulpraktikant-in-informatik/1f665daa-bb63-404a-bc20-77b430a3fd05",
       "applyUrl": "https://career74.sapsf.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=20872",
       "company": "Confederazione Svizzera",
@@ -18053,9 +18125,9 @@
       },
       "slugByLocale": {
         "de": "hochschulpraktikant-in-informatik-confederazione-bern",
-        "it": "hochschulpraktikant-in-informatik-confederazione-bern",
-        "en": "hochschulpraktikant-in-informatik-confederazione-bern",
-        "fr": "hochschulpraktikant-in-informatik-confederazione-bern"
+        "it": "tirocinante-universitario-in-informatica-confederazione-svizzera-bern",
+        "en": "university-intern-in-computer-science-confederazione-svizzera-bern",
+        "fr": "stagiaire-universitaire-en-informatique-confederazione-svizzera-bern"
       },
       "id": "confederazione-ticino-715894a61605",
       "needsRetranslation": true,
@@ -18077,11 +18149,25 @@
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "firstSeenAt": "2026-11-09T09:48:13.749Z"
+      "firstSeenAt": "2026-11-09T09:48:13.749Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "hochschulpraktikant-in-informatik-confederazione-bern"
+        ],
+        "en": [
+          "hochschulpraktikant-in-informatik-confederazione-bern"
+        ],
+        "fr": [
+          "hochschulpraktikant-in-informatik-confederazione-bern"
+        ]
+      },
+      "previousSlugs": [
+        "hochschulpraktikant-in-informatik-confederazione-bern"
+      ]
     },
     {
       "title": "Sachbearbeiter/-in Passagierrechte",
-      "slug": "sachbearbeiter-in-passagierrechte-confederazione-ittigen",
+      "slug": "addetto-a-ai-diritti-dei-passeggeri-confederazione-svizzera-ittigen",
       "url": "https://jobs.admin.ch/posti-vacanti/sachbearbeiter-in-passagierrechte/d6961d01-6af5-4621-adb2-ce64ed82cc2f",
       "applyUrl": "https://career74.sapsf.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=20904",
       "company": "Confederazione Svizzera",
@@ -18118,9 +18204,9 @@
       },
       "slugByLocale": {
         "de": "sachbearbeiter-in-passagierrechte-confederazione-ittigen",
-        "it": "sachbearbeiter-in-passagierrechte-confederazione-ittigen",
-        "en": "sachbearbeiter-in-passagierrechte-confederazione-ittigen",
-        "fr": "sachbearbeiter-in-passagierrechte-confederazione-ittigen"
+        "it": "addetto-a-ai-diritti-dei-passeggeri-confederazione-svizzera-ittigen",
+        "en": "passenger-rights-officer-confederazione-svizzera-ittigen",
+        "fr": "responsable-des-droits-des-passagers-confederazione-svizzera-ittigen"
       },
       "id": "confederazione-ticino-bfb92e1bf2c1",
       "needsRetranslation": true,
@@ -18142,7 +18228,21 @@
       "streetAddress": "Ittigen",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "firstSeenAt": "2026-11-09T09:48:13.749Z"
+      "firstSeenAt": "2026-11-09T09:48:13.749Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeiter-in-passagierrechte-confederazione-ittigen"
+        ],
+        "en": [
+          "sachbearbeiter-in-passagierrechte-confederazione-ittigen"
+        ],
+        "fr": [
+          "sachbearbeiter-in-passagierrechte-confederazione-ittigen"
+        ]
+      },
+      "previousSlugs": [
+        "sachbearbeiter-in-passagierrechte-confederazione-ittigen"
+      ]
     },
     {
       "title": "Wirtschaftsinformatiker/-in im SAP-Umfeld",

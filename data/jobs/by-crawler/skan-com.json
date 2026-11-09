@@ -9,8 +9,8 @@
       "slugByLocale": {
         "en": "team-lead-ict-engineering-operations-allschwil-skan-com-ch",
         "it": "team-lead-ict-engineering-operations-allschwil-skan-com-ch",
-        "de": "team-lead-ict-engineering-operations-allschwil-skan-com-ch",
-        "fr": "team-lead-ict-engineering-operations-allschwil-skan-com-ch"
+        "de": "teamleiter-ict-engineering-operations-skan-ag-allschwil",
+        "fr": "chef-d-equipe-ict-engineering-operations-skan-ag-allschwil"
       },
       "company": "SKAN AG",
       "companyKey": "skan-com",
@@ -147,12 +147,12 @@
     },
     {
       "id": "skan-com-2d500f53dbaa",
-      "slug": "apprenticeship-in-2027-automation-engineer-efz-allschwil-skan-com-ch",
+      "slug": "apprendistato-in-2027-automation-ingegnere-cfc-skan-ag-allschwil",
       "slugByLocale": {
         "en": "apprenticeship-in-2027-automation-engineer-efz-allschwil-skan-com-ch",
-        "it": "apprenticeship-in-2027-automation-engineer-efz-allschwil-skan-com-ch",
-        "de": "apprenticeship-in-2027-automation-engineer-efz-allschwil-skan-com-ch",
-        "fr": "apprenticeship-in-2027-automation-engineer-efz-allschwil-skan-com-ch"
+        "it": "apprendistato-in-2027-automation-ingegnere-cfc-skan-ag-allschwil",
+        "de": "ausbildung-in-2027-automation-ingenieur-efz-skan-ag-allschwil",
+        "fr": "apprentissage-in-2027-automation-ingenieur-efz-skan-ag-allschwil"
       },
       "company": "SKAN AG",
       "companyKey": "skan-com",
@@ -214,7 +214,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-07T09:45:12.537Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-09T09:45:12.537Z"
+      "firstSeenAt": "2026-11-09T09:45:12.537Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "apprenticeship-in-2027-automation-engineer-efz-allschwil-skan-com-ch"
+        ],
+        "de": [
+          "apprenticeship-in-2027-automation-engineer-efz-allschwil-skan-com-ch"
+        ],
+        "fr": [
+          "apprenticeship-in-2027-automation-engineer-efz-allschwil-skan-com-ch"
+        ]
+      },
+      "previousSlugs": [
+        "apprenticeship-in-2027-automation-engineer-efz-allschwil-skan-com-ch"
+      ]
     },
     {
       "id": "skan-com-a85a162a22b7",
@@ -289,12 +303,12 @@
     },
     {
       "id": "skan-com-cd96af5b2edd",
-      "slug": "experienced-engineer-for-commissioning-and-qualification-inhouse-onsite-allschwil-skan-com",
+      "slug": "ingegnere-esperto-per-la-messa-in-servizio-e-la-qualificazione-interno-e-in-loco-skan-ag-allschwil",
       "slugByLocale": {
         "en": "experienced-engineer-for-commissioning-and-qualification-inhouse-onsite-allschwil-skan-com",
-        "it": "experienced-engineer-for-commissioning-and-qualification-inhouse-onsite-allschwil-skan-com",
-        "de": "experienced-engineer-for-commissioning-and-qualification-inhouse-onsite-allschwil-skan-com",
-        "fr": "experienced-engineer-for-commissioning-and-qualification-inhouse-onsite-allschwil-skan-com"
+        "it": "ingegnere-esperto-per-la-messa-in-servizio-e-la-qualificazione-interno-e-in-loco-skan-ag-allschwil",
+        "de": "erfahrener-ingenieur-fur-inbetriebnahme-und-qualifizierung-inhouse-onsite-skan-ag-allschwil",
+        "fr": "ingenieur-experimente-pour-la-mise-en-service-et-la-qualification-en-interne-et-sur-site-skan-ag-allschwil"
       },
       "company": "SKAN AG",
       "companyKey": "skan-com",
@@ -357,7 +371,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-07T09:45:12.534Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-09T09:45:12.534Z"
+      "firstSeenAt": "2026-11-09T09:45:12.534Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "experienced-engineer-for-commissioning-and-qualification-inhouse-onsite-allschwil-skan-com"
+        ],
+        "de": [
+          "experienced-engineer-for-commissioning-and-qualification-inhouse-onsite-allschwil-skan-com"
+        ],
+        "fr": [
+          "experienced-engineer-for-commissioning-and-qualification-inhouse-onsite-allschwil-skan-com"
+        ]
+      },
+      "previousSlugs": [
+        "experienced-engineer-for-commissioning-and-qualification-inhouse-onsite-allschwil-skan-com"
+      ]
     }
   ]
 }

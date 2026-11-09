@@ -9,7 +9,7 @@
       "slugByLocale": {
         "it": "domanda-non-richiesta-lindt-sprungli-kilchberg",
         "en": "unsolicited-application-lindt-spruengli-kilchberg",
-        "de": "initiativbewerbung-lindt-sprungli-kilchberg",
+        "de": "unerbetene-anwendung-lindt-sprungli-kilchberg",
         "fr": "demande-spontanee-lindt-sprungli-kilchberg"
       },
       "company": "Lindt & Sprüngli",
@@ -67,7 +67,7 @@
         "personnel-militaire-lindt-sprungli-kilchberg",
         "servicemitarbeiter-in-lindt-sprungli-kilchberg",
         "patissier-in-90-lindt-sprungli-kilchberg",
-        "unerbetene-anwendung-lindt-sprungli-kilchberg"
+        "initiativbewerbung-lindt-sprungli-kilchberg"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -89,7 +89,7 @@
         "de": [
           "unsolicited-application-lindt-spruengli-kilchberg",
           "patissier-in-90-lindt-spruengli-kilchberg",
-          "unerbetene-anwendung-lindt-sprungli-kilchberg"
+          "initiativbewerbung-lindt-sprungli-kilchberg"
         ],
         "fr": [
           "unsolicited-application-lindt-spruengli-kilchberg",
@@ -1812,12 +1812,12 @@
     },
     {
       "id": "lindt-spruengli-5a31bef84b12",
-      "slug": "collaboratore-trice-in-debitorenbuchhaltung-100-lindt-sprungli-kilchberg",
+      "slug": "collaboratore-tricein-contabilita-debitori-100-lindt-sprungli-kilchberg",
       "slugByLocale": {
         "de": "mitarbeiter-in-debitorenbuchhaltung-100-lindt-spruengli-kilchberg",
-        "it": "collaboratore-trice-in-debitorenbuchhaltung-100-lindt-sprungli-kilchberg",
-        "en": "mitarbeiter-in-debitorenbuchhaltung-100-lindt-spruengli-kilchberg",
-        "fr": "mitarbeiter-in-debitorenbuchhaltung-100-lindt-spruengli-kilchberg"
+        "it": "collaboratore-tricein-contabilita-debitori-100-lindt-sprungli-kilchberg",
+        "en": "accounts-receivable-employee-100-lindt-sprungli-kilchberg",
+        "fr": "employe-e-comptabilite-debiteurs-100-lindt-sprungli-kilchberg"
       },
       "company": "Lindt & Sprüngli",
       "companyKey": "lindt-spruengli",
@@ -1867,11 +1867,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-in-debitorenbuchhaltung-100-lindt-spruengli-kilchberg",
+          "collaboratore-trice-in-debitorenbuchhaltung-100-lindt-sprungli-kilchberg"
+        ],
+        "en": [
+          "mitarbeiter-in-debitorenbuchhaltung-100-lindt-spruengli-kilchberg"
+        ],
+        "fr": [
           "mitarbeiter-in-debitorenbuchhaltung-100-lindt-spruengli-kilchberg"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-debitorenbuchhaltung-100-lindt-spruengli-kilchberg"
+        "mitarbeiter-in-debitorenbuchhaltung-100-lindt-spruengli-kilchberg",
+        "collaboratore-trice-in-debitorenbuchhaltung-100-lindt-sprungli-kilchberg"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,

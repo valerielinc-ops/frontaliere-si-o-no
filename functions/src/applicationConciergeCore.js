@@ -1,3 +1,4 @@
+import { sanitizeCandidateFacts } from './assistedApplicationPlatformDefaults.js';
 import {
   employerResponseTimelineView,
   employerResponseView,
@@ -250,6 +251,7 @@ export function serializeApplicationConciergeService(doc, proposalDocs = [], { a
     applicantPhone: optionalString(data.applicantPhone, 80),
     applicantLocation: optionalString(data.applicantLocation, 120),
     applicantLocationCountry: optionalString(data.applicantLocationCountry, 2),
+    candidateFacts: sanitizeCandidateFacts(data.candidateFacts),
     hasConsent: data.consentVersion === APPLICATION_CONCIERGE_CONSENT_VERSION && timestampMillis(data.consentedAt) > 0,
     hasCv: Boolean(cvKeyForService(serviceId, data.cvStorageKey)),
     consentedAt: timestampToIso(data.consentedAt),
@@ -374,6 +376,14 @@ function assertProfileInput(body) {
   const phone = optionalString(body.applicantPhone, 80);
   if (!name || !EMAIL_RE.test(email)) throw new ApplicationConciergeError('invalid_candidate_details', 400);
   return { name, email, phone };
+}
+
+/** Permit, passport and nationality, asked with the CV (owner decision 2026-11-09). */
+function candidateFactsPatch(body) {
+  if (!Object.hasOwn(body, 'candidateFacts')) return {};
+  const facts = sanitizeCandidateFacts(body.candidateFacts);
+  if (!facts) throw new ApplicationConciergeError('invalid_candidate_details', 400);
+  return { candidateFacts: facts };
 }
 
 function applicantLocationPatch(service, serviceId, body) {
@@ -621,6 +631,7 @@ async function saveCandidateProfile(db, serviceId, uid, body) {
     applicantEmail: email,
     applicantPhone: phone,
     ...applicantLocationPatch(service, serviceId, body),
+    ...candidateFactsPatch(body),
     ...consentPatch,
     ...(requestedKey ? {
       cvStorageKey: requestedKey,
@@ -653,6 +664,7 @@ async function recordCandidateConsent(db, serviceId, uid, body) {
     applicantEmail: email,
     applicantPhone: phone,
     ...applicantLocationPatch(service, serviceId, body),
+    ...candidateFactsPatch(body),
     ...(alreadyRecorded ? {} : {
       consentVersion: APPLICATION_CONCIERGE_CONSENT_VERSION,
       consentedAt: Timestamp.now(),
@@ -822,6 +834,10 @@ async function acceptProposal(db, serviceId, proposalId, uid, operationStartedAt
         applicantName: currentService.applicantName || null,
         applicantEmail: currentService.applicantEmail || null,
         applicantPhone: currentService.applicantPhone || null,
+        // The parent's upload answers and residence reach every application (owner decision 2026-11-09).
+        candidateFacts: sanitizeCandidateFacts(currentService.candidateFacts),
+        applicantLocation: optionalString(currentService.applicantLocation, 120),
+        applicantLocationCountry: optionalString(currentService.applicantLocationCountry, 2),
         consentVersion: ASSISTED_APPLICATION_CONSENT_VERSION,
         consentedAt: currentService.consentedAt || now,
         cvStorageKey: targetKey,

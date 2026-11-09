@@ -1803,7 +1803,7 @@ export function candidateAnswerForField(candidate, field, { includeProfileWorkPe
     return value ? { value, source: 'profile' } : null;
   }
   if (hasExplicitOperationalAnswer(candidate, field)) return null;
-  const operational = operationalDefaultAnswer(field);
+  const operational = operationalDefaultAnswer(field, { facts: candidate?.platformFacts });
   if (operational) return operational;
   if (topic !== 'current_school') return null;
   const institution = String(candidate?.profile?.currentEducation?.institution || '').trim();
@@ -2118,7 +2118,7 @@ export function guardPlan(plan, fields, candidate = null) {
       ask(field);
       continue;
     }
-    const fromPolicy = action.source === 'policy_default' && isOperationalDefaultValue(field, action.value);
+    const fromPolicy = action.source === 'policy_default' && isOperationalDefaultValue(field, action.value, { facts: candidate?.platformFacts });
     const fromCandidate = (addressNeedsProvenance
       ? answeredByCandidate(candidate, field.label, action.value, field.context, field)
       : ['answers', 'profile'].includes(action.source) && knownAnswer(knownValues, value))

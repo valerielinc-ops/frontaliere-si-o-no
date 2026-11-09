@@ -6520,12 +6520,12 @@
     },
     {
       "id": "vz-vermoegenszentrum-2a2153187597",
-      "slug": "pwa-praktikum-im-investment-solutions-marz-2027-vz-vermogenszentrum-zug",
+      "slug": "pwa-internship-in-soluzioni-di-investimento-marzo-2027-vz-vermogenszentrum-zug-zug",
       "slugByLocale": {
         "de": "pwa-praktikum-im-investment-solutions-marz-2027-vz-vermoegenszentrum-ch",
-        "it": "pwa-praktikum-im-investment-solutions-marz-2027-vz-vermogenszentrum-zug",
+        "it": "pwa-internship-in-soluzioni-di-investimento-marzo-2027-vz-vermogenszentrum-zug-zug",
         "en": "pwa-praktikum-im-investment-solutions-marz-2027-vz-vermogenszentrum-zug",
-        "fr": "pwa-praktikum-im-investment-solutions-marz-2027-vz-vermogenszentrum-zug"
+        "fr": "stage-pwa-en-solutions-d-investissement-2027-mars-vz-vermogenszentrum-zug-zug"
       },
       "company": "VZ VermögensZentrum",
       "companyKey": "vz-vermoegenszentrum",
@@ -6580,11 +6580,16 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "pwa-praktikum-im-investment-solutions-marz-2027-vz-vermoegenszentrum-ch"
+          "pwa-praktikum-im-investment-solutions-marz-2027-vz-vermoegenszentrum-ch",
+          "pwa-praktikum-im-investment-solutions-marz-2027-vz-vermogenszentrum-zug"
+        ],
+        "fr": [
+          "pwa-praktikum-im-investment-solutions-marz-2027-vz-vermogenszentrum-zug"
         ]
       },
       "previousSlugs": [
-        "pwa-praktikum-im-investment-solutions-marz-2027-vz-vermoegenszentrum-ch"
+        "pwa-praktikum-im-investment-solutions-marz-2027-vz-vermoegenszentrum-ch",
+        "pwa-praktikum-im-investment-solutions-marz-2027-vz-vermogenszentrum-zug"
       ],
       "salaryMin": 59500,
       "salaryMax": 110000,

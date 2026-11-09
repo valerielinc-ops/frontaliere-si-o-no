@@ -1495,12 +1495,12 @@
     },
     {
       "id": "epi-stiftung-70a3b5ef0913",
-      "slug": "fachperson-nachtdienst-epi-stiftung-zurich",
+      "slug": "servizio-notturno-professionale-schweizerische-epilepsie-stiftung-epi-zurich",
       "slugByLocale": {
         "de": "fachperson-nachtdienst-epi-stiftung-zurich",
-        "it": "fachperson-nachtdienst-epi-stiftung-zurich",
-        "en": "fachperson-nachtdienst-epi-stiftung-zurich",
-        "fr": "fachperson-nachtdienst-epi-stiftung-zurich"
+        "it": "servizio-notturno-professionale-schweizerische-epilepsie-stiftung-epi-zurich",
+        "en": "professional-night-service-schweizerische-epilepsie-stiftung-epi-zurich",
+        "fr": "service-de-nuit-professionnel-schweizerische-epilepsie-stiftung-epi-zurich"
       },
       "company": "Schweizerische Epilepsie-Stiftung (EPI)",
       "companyKey": "epi-stiftung",
@@ -1561,16 +1561,30 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-07T09:19:12.568Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachperson-nachtdienst-epi-stiftung-zurich"
+        ],
+        "en": [
+          "fachperson-nachtdienst-epi-stiftung-zurich"
+        ],
+        "fr": [
+          "fachperson-nachtdienst-epi-stiftung-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "fachperson-nachtdienst-epi-stiftung-zurich"
+      ]
     },
     {
       "id": "epi-stiftung-04ac67a5e621",
-      "slug": "fachfrau-fachmann-gesundheit-efz-epi-stiftung-zurich",
+      "slug": "specialista-sanitaria-efz-2009-schweizerische-epilepsie-stiftung-epi-zurich",
       "slugByLocale": {
         "de": "fachfrau-fachmann-gesundheit-efz-epi-stiftung-zurich",
-        "it": "fachfrau-fachmann-gesundheit-efz-epi-stiftung-zurich",
-        "en": "fachfrau-fachmann-gesundheit-efz-epi-stiftung-zurich",
-        "fr": "fachfrau-fachmann-gesundheit-efz-epi-stiftung-zurich"
+        "it": "specialista-sanitaria-efz-2009-schweizerische-epilepsie-stiftung-epi-zurich",
+        "en": "professional-health-efz-schweizerische-epilepsie-stiftung-epi-zurich",
+        "fr": "sante-professionnelle-efz-schweizerische-epilepsie-stiftung-epi-zurich"
       },
       "company": "Schweizerische Epilepsie-Stiftung (EPI)",
       "companyKey": "epi-stiftung",
@@ -1633,7 +1647,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-07T09:19:12.533Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-10-09T21:17:18.659Z"
+      "firstSeenAt": "2026-10-09T21:17:18.659Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachfrau-fachmann-gesundheit-efz-epi-stiftung-zurich"
+        ],
+        "en": [
+          "fachfrau-fachmann-gesundheit-efz-epi-stiftung-zurich"
+        ],
+        "fr": [
+          "fachfrau-fachmann-gesundheit-efz-epi-stiftung-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "fachfrau-fachmann-gesundheit-efz-epi-stiftung-zurich"
+      ]
     }
   ]
 }

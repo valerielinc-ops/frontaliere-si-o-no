@@ -17765,8 +17765,8 @@
       "slugByLocale": {
         "de": "verkaufsberater-in-garden-jumbo-volketswil",
         "it": "verkaufsberater-in-garden-jumbo-volketswil",
-        "en": "verkaufsberater-in-garden-jumbo-volketswil",
-        "fr": "verkaufsberater-in-garden-jumbo-volketswil"
+        "en": "garden-sales-consultant-jumbo-volketswil",
+        "fr": "conseiller-de-vente-a-garden-jumbo-volketswil"
       },
       "company": "JUMBO",
       "companyKey": "jumbo",
@@ -17851,8 +17851,8 @@
       "slugByLocale": {
         "de": "verkaufsberater-in-deco-jumbo-winterthur",
         "it": "verkaufsberater-in-deco-jumbo-winterthur",
-        "en": "verkaufsberater-in-deco-jumbo-winterthur",
-        "fr": "verkaufsberater-in-deco-jumbo-winterthur"
+        "en": "deco-sales-consultant-jumbo-winterthur",
+        "fr": "conseiller-de-vente-in-deco-jumbo-winterthur"
       },
       "company": "JUMBO",
       "companyKey": "jumbo",
@@ -17937,8 +17937,8 @@
       "slugByLocale": {
         "de": "verkaufsberater-in-jumbo-jumbo-murten",
         "it": "verkaufsberater-in-jumbo-jumbo-murten",
-        "en": "verkaufsberater-in-jumbo-jumbo-murten",
-        "fr": "verkaufsberater-in-jumbo-jumbo-murten"
+        "en": "sales-consultant-jumbo-jumbo-murten",
+        "fr": "conseiller-de-vente-a-jumbo-jumbo-murten"
       },
       "company": "JUMBO",
       "companyKey": "jumbo",
@@ -18019,12 +18019,12 @@
     },
     {
       "id": "jumbo-a98202fe-8cb",
-      "slug": "verkaufsberater-in-kasse-services-jumbo-unterentfelden",
+      "slug": "consulenti-di-vendita-in-cassa-servizi-jumbo-unterentfelden",
       "slugByLocale": {
         "de": "verkaufsberater-in-kasse-services-jumbo-unterentfelden",
-        "it": "verkaufsberater-in-kasse-services-jumbo-unterentfelden",
-        "en": "verkaufsberater-in-kasse-services-jumbo-unterentfelden",
-        "fr": "verkaufsberater-in-kasse-services-jumbo-unterentfelden"
+        "it": "consulenti-di-vendita-in-cassa-servizi-jumbo-unterentfelden",
+        "en": "sales-consultant-cashier-services-jumbo-unterentfelden",
+        "fr": "consultants-en-vente-en-caisse-enregistreuse-services-jumbo-unterentfelden"
       },
       "company": "JUMBO",
       "companyKey": "jumbo",
@@ -18101,7 +18101,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-09T09:21:25.386Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-09-09T13:49:14.512Z"
+      "firstSeenAt": "2026-09-09T13:49:14.512Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufsberater-in-kasse-services-jumbo-unterentfelden"
+        ],
+        "en": [
+          "verkaufsberater-in-kasse-services-jumbo-unterentfelden"
+        ],
+        "fr": [
+          "verkaufsberater-in-kasse-services-jumbo-unterentfelden"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufsberater-in-kasse-services-jumbo-unterentfelden"
+      ]
     }
   ]
 }

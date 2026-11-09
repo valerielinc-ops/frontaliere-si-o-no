@@ -259,12 +259,12 @@
     },
     {
       "id": "rhne-reseau-hospitalier-neuchatelois-ccbe9b8a40d7",
-      "slug": "chef-fe-de-clinique-ou-medecin-hospitalier-ere-a-100-en-gastroenterologie-rhne-reseau",
+      "slug": "responsabile-clinica-o-medico-ospedaliero-100-in-gastroenterologia-reseau-hospitalier-neuchatelois-rhne-neuchatel",
       "slugByLocale": {
         "fr": "chef-fe-de-clinique-ou-medecin-hospitalier-ere-a-100-en-gastroenterologie-rhne-reseau",
-        "it": "chef-fe-de-clinique-ou-medecin-hospitalier-ere-a-100-en-gastroenterologie-rhne-reseau",
-        "en": "chef-fe-de-clinique-ou-medecin-hospitalier-ere-a-100-en-gastroenterologie-rhne-reseau",
-        "de": "chef-fe-de-clinique-ou-medecin-hospitalier-ere-a-100-en-gastroenterologie-rhne-reseau"
+        "it": "responsabile-clinica-o-medico-ospedaliero-100-in-gastroenterologia-reseau-hospitalier-neuchatelois-rhne-neuchatel",
+        "en": "head-of-clinic-or-hospital-doctor-100-in-gastroenterology-reseau-hospitalier-neuchatelois-rhne-neuchatel",
+        "de": "leiterin-klinik-oder-krankenhausarzt-100-in-der-gastroenterologie-reseau-hospitalier-neuchatelois-rhne-neuchatel"
       },
       "company": "Réseau hospitalier neuchâtelois (RHNE)",
       "companyKey": "rhne-reseau-hospitalier-neuchatelois",
@@ -327,7 +327,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-07T09:27:18.235Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-09T09:27:18.235Z"
+      "firstSeenAt": "2026-11-09T09:27:18.235Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "chef-fe-de-clinique-ou-medecin-hospitalier-ere-a-100-en-gastroenterologie-rhne-reseau"
+        ],
+        "en": [
+          "chef-fe-de-clinique-ou-medecin-hospitalier-ere-a-100-en-gastroenterologie-rhne-reseau"
+        ],
+        "de": [
+          "chef-fe-de-clinique-ou-medecin-hospitalier-ere-a-100-en-gastroenterologie-rhne-reseau"
+        ]
+      },
+      "previousSlugs": [
+        "chef-fe-de-clinique-ou-medecin-hospitalier-ere-a-100-en-gastroenterologie-rhne-reseau"
+      ]
     },
     {
       "id": "rhne-reseau-hospitalier-neuchatelois-a67d4d96c44e",

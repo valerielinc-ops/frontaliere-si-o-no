@@ -19560,12 +19560,12 @@
     },
     {
       "id": "physioswiss-273cb70e720e",
-      "slug": "arbeiten-ganz-nach-deinen-wunschen-physiotherapie-steinbach-bayweg-9-3123-belp-kanton-bern",
+      "slug": "lavorare-secondo-i-vostri-desideri-physio-swiss-berna",
       "slugByLocale": {
         "de": "arbeiten-ganz-nach-deinen-wunschen-physiotherapie-steinbach-bayweg-9-3123-belp-kanton-bern",
-        "it": "arbeiten-ganz-nach-deinen-wunschen-physiotherapie-steinbach-bayweg-9-3123-belp-kanton-bern",
-        "en": "arbeiten-ganz-nach-deinen-wunschen-physiotherapie-steinbach-bayweg-9-3123-belp-kanton-bern",
-        "fr": "arbeiten-ganz-nach-deinen-wunschen-physiotherapie-steinbach-bayweg-9-3123-belp-kanton-bern"
+        "it": "lavorare-secondo-i-vostri-desideri-physio-swiss-berna",
+        "en": "work-according-to-your-wishes-physio-swiss-berna",
+        "fr": "travaillez-selon-vos-souhaits-physio-swiss-berna"
       },
       "company": "Physio swiss",
       "companyKey": "physioswiss",
@@ -19627,15 +19627,29 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-07T09:55:54.151Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-09T09:55:54.151Z"
+      "firstSeenAt": "2026-11-09T09:55:54.151Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "arbeiten-ganz-nach-deinen-wunschen-physiotherapie-steinbach-bayweg-9-3123-belp-kanton-bern"
+        ],
+        "en": [
+          "arbeiten-ganz-nach-deinen-wunschen-physiotherapie-steinbach-bayweg-9-3123-belp-kanton-bern"
+        ],
+        "fr": [
+          "arbeiten-ganz-nach-deinen-wunschen-physiotherapie-steinbach-bayweg-9-3123-belp-kanton-bern"
+        ]
+      },
+      "previousSlugs": [
+        "arbeiten-ganz-nach-deinen-wunschen-physiotherapie-steinbach-bayweg-9-3123-belp-kanton-bern"
+      ]
     },
     {
       "id": "physioswiss-725a85f0e17c",
-      "slug": "sport-physiotherapeut-in-50-100-in-hongg-physio-swiss-zurich",
+      "slug": "fisioterapista-sportivo-50-100-a-hongg-physio-swiss-8049-zurich",
       "slugByLocale": {
         "de": "sport-physiotherapeut-in-50-100-in-hongg-8049-zurich-physioswiss-ch",
-        "it": "sport-physiotherapeut-in-50-100-in-hongg-physio-swiss-zurich",
-        "en": "sport-physiotherapeut-in-50-100-in-hongg-physio-swiss-zurich",
+        "it": "fisioterapista-sportivo-50-100-a-hongg-physio-swiss-8049-zurich",
+        "en": "sports-physiotherapist-50-100-in-hongg-physio-swiss-8049-zurich",
         "fr": "sport-physiotherapeut-in-50-100-in-hongg-physio-swiss-zurich"
       },
       "company": "Physio swiss",
@@ -19684,11 +19698,16 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "sport-physiotherapeut-in-50-100-in-hongg-8049-zurich-physioswiss-ch"
+          "sport-physiotherapeut-in-50-100-in-hongg-8049-zurich-physioswiss-ch",
+          "sport-physiotherapeut-in-50-100-in-hongg-physio-swiss-zurich"
+        ],
+        "en": [
+          "sport-physiotherapeut-in-50-100-in-hongg-physio-swiss-zurich"
         ]
       },
       "previousSlugs": [
-        "sport-physiotherapeut-in-50-100-in-hongg-8049-zurich-physioswiss-ch"
+        "sport-physiotherapeut-in-50-100-in-hongg-8049-zurich-physioswiss-ch",
+        "sport-physiotherapeut-in-50-100-in-hongg-physio-swiss-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -19711,12 +19730,12 @@
     },
     {
       "id": "physioswiss-feacdb3eb623",
-      "slug": "luzern-physiotherapeut-in-gesucht-physio-swiss-luzern",
+      "slug": "lucerna-fisioterapista-ricercato-physio-swiss-6015-luzern",
       "slugByLocale": {
         "de": "luzern-physiotherapeut-in-gesucht-6015-luzern-physioswiss-ch",
-        "it": "luzern-physiotherapeut-in-gesucht-physio-swiss-luzern",
-        "en": "luzern-physiotherapeut-in-gesucht-physio-swiss-luzern",
-        "fr": "luzern-physiotherapeut-in-gesucht-physio-swiss-luzern"
+        "it": "lucerna-fisioterapista-ricercato-physio-swiss-6015-luzern",
+        "en": "lucerne-physiotherapist-wanted-physio-swiss-6015-luzern",
+        "fr": "lucerne-physiotherapeute-recherche-physio-swiss-6015-luzern"
       },
       "company": "Physio swiss",
       "companyKey": "physioswiss",
@@ -19764,11 +19783,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "luzern-physiotherapeut-in-gesucht-6015-luzern-physioswiss-ch"
+          "luzern-physiotherapeut-in-gesucht-6015-luzern-physioswiss-ch",
+          "luzern-physiotherapeut-in-gesucht-physio-swiss-luzern"
+        ],
+        "en": [
+          "luzern-physiotherapeut-in-gesucht-physio-swiss-luzern"
+        ],
+        "fr": [
+          "luzern-physiotherapeut-in-gesucht-physio-swiss-luzern"
         ]
       },
       "previousSlugs": [
-        "luzern-physiotherapeut-in-gesucht-6015-luzern-physioswiss-ch"
+        "luzern-physiotherapeut-in-gesucht-6015-luzern-physioswiss-ch",
+        "luzern-physiotherapeut-in-gesucht-physio-swiss-luzern"
       ],
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -19791,12 +19818,12 @@
     },
     {
       "id": "physioswiss-e3d80119fc88",
-      "slug": "medizinische-n-masseur-in-60-100-aarau-baden-dattwil-kriens-physioswiss-ch",
+      "slug": "massaggiatore-medico-60-100-physio-swiss-aarau-baden-dattwil-kriens",
       "slugByLocale": {
         "de": "medizinische-n-masseur-in-60-100-aarau-baden-dattwil-kriens-physioswiss-ch",
-        "it": "medizinische-n-masseur-in-60-100-aarau-baden-dattwil-kriens-physioswiss-ch",
-        "en": "medizinische-n-masseur-in-60-100-aarau-baden-dattwil-kriens-physioswiss-ch",
-        "fr": "medizinische-n-masseur-in-60-100-aarau-baden-dattwil-kriens-physioswiss-ch"
+        "it": "massaggiatore-medico-60-100-physio-swiss-aarau-baden-dattwil-kriens",
+        "en": "medical-masseur-60-100-physio-swiss-aarau-baden-dattwil-kriens",
+        "fr": "masseur-medical-60-100-physio-swiss-aarau-baden-dattwil-kriens"
       },
       "company": "Physio swiss",
       "companyKey": "physioswiss",
@@ -19859,16 +19886,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-07T09:55:54.148Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-09T09:55:54.148Z"
+      "firstSeenAt": "2026-11-09T09:55:54.148Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "medizinische-n-masseur-in-60-100-aarau-baden-dattwil-kriens-physioswiss-ch"
+        ],
+        "en": [
+          "medizinische-n-masseur-in-60-100-aarau-baden-dattwil-kriens-physioswiss-ch"
+        ],
+        "fr": [
+          "medizinische-n-masseur-in-60-100-aarau-baden-dattwil-kriens-physioswiss-ch"
+        ]
+      },
+      "previousSlugs": [
+        "medizinische-n-masseur-in-60-100-aarau-baden-dattwil-kriens-physioswiss-ch"
+      ]
     },
     {
       "id": "physioswiss-3887d46854b1",
-      "slug": "d-eine-wunschstelle-physiotherapeutin-con-srk-40-90-physio-swiss-entlebuch",
+      "slug": "d-un-luogo-desiderato-fisioterapista-con-crs-40-90-physio-swiss-lucerna",
       "slugByLocale": {
         "de": "d-eine-wunschstelle-physiotherapeutin-mit-srk-40-90-physio-und-trainingszentrum-entlebuch",
-        "it": "d-eine-wunschstelle-physiotherapeutin-con-srk-40-90-physio-swiss-entlebuch",
-        "en": "d-eine-wunschstelle-physiotherapeutin-mit-srk-40-90-physio-und-trainingszentrum-entlebuch",
-        "fr": "d-eine-wunschstelle-physiotherapeutin-mit-srk-40-90-physio-und-trainingszentrum-entlebuch"
+        "it": "d-un-luogo-desiderato-fisioterapista-con-crs-40-90-physio-swiss-lucerna",
+        "en": "d-a-desired-position-physiotherapist-with-srk-40-90-physio-swiss-lucerna",
+        "fr": "d-une-position-souhaitee-physiotherapeute-avec-srk-40-90-physio-swiss-lucerna"
       },
       "company": "Physio swiss",
       "companyKey": "physioswiss",
@@ -19915,11 +19956,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "d-eine-wunschstelle-physiotherapeutin-mit-srk-40-90-physio-und-trainingszentrum-entlebuch",
+          "d-eine-wunschstelle-physiotherapeutin-con-srk-40-90-physio-swiss-entlebuch"
+        ],
+        "en": [
+          "d-eine-wunschstelle-physiotherapeutin-mit-srk-40-90-physio-und-trainingszentrum-entlebuch"
+        ],
+        "fr": [
           "d-eine-wunschstelle-physiotherapeutin-mit-srk-40-90-physio-und-trainingszentrum-entlebuch"
         ]
       },
       "previousSlugs": [
-        "d-eine-wunschstelle-physiotherapeutin-mit-srk-40-90-physio-und-trainingszentrum-entlebuch"
+        "d-eine-wunschstelle-physiotherapeutin-mit-srk-40-90-physio-und-trainingszentrum-entlebuch",
+        "d-eine-wunschstelle-physiotherapeutin-con-srk-40-90-physio-swiss-entlebuch"
       ],
       "salaryMin": 62600,
       "salaryMax": 95400,
@@ -20022,7 +20071,7 @@
       "id": "physioswiss-704a45f552df",
       "slug": "dipl-terapeuta-fisica-nel-40-100-a-bellach-so-physio-swiss-bellach-a9574cd85a",
       "slugByLocale": {
-        "it": "dipl-terapeuta-fisica-nel-40-100-a-bellach-so-physio-swiss-bellach-a9574cd85a",
+        "it": "dipl-terapeuta-fisica-nel-40-100-a-bellach-so-physio-swiss-bellach",
         "en": "certified-physiotherapist-40-100-in-bellach-so-physio-swiss-soletta",
         "de": "dipl-physiotherapeut-in-40-100-in-bellach-so-omnia-physio-bellach-gurzelenstrasse-14a-4512",
         "fr": "dipl-physiotherapeute-dans-40-100-a-bellach-so-physio-swiss-bellach"
@@ -20069,14 +20118,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "dipl-physiotherapeut-in-40-100-in-bellach-so-omnia-physio-bellach-gurzelenstrasse-14a-4512",
-        "dipl-physiotherapeut-in-40-100-in-bellach-so-physio-swiss-bellach",
-        "dipl-terapeuta-fisica-nel-40-100-a-bellach-so-physio-swiss-bellach"
+        "dipl-physiotherapeut-in-40-100-in-bellach-so-physio-swiss-bellach"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-physiotherapeut-in-40-100-in-bellach-so-omnia-physio-bellach-gurzelenstrasse-14a-4512",
-          "dipl-physiotherapeut-in-40-100-in-bellach-so-physio-swiss-bellach",
-          "dipl-terapeuta-fisica-nel-40-100-a-bellach-so-physio-swiss-bellach"
+          "dipl-physiotherapeut-in-40-100-in-bellach-so-physio-swiss-bellach"
         ],
         "fr": [
           "dipl-physiotherapeut-in-40-100-in-bellach-so-physio-swiss-bellach"

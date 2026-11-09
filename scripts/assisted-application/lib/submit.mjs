@@ -67,10 +67,10 @@ export function navigationHandoffFor(error, { clicked = false, succeeded = false
 }
 
 /** Open required questions block the submission, whatever the channel. */
-export function openRequiredQuestions(draft, answers = {}, { deferPortal = false, questionAnswers = {} } = {}) {
-  const { profile, answers: candidateAnswers } = candidateWithEdits({ order: {}, draft, flow: { answers, questionAnswers } });
+export function openRequiredQuestions(draft, answers = {}, { deferPortal = false, questionAnswers = {}, order = {} } = {}) {
+  const { profile, answers: candidateAnswers, platformFacts } = candidateWithEdits({ order, draft, flow: { answers, questionAnswers } });
   const questions = questionsForCandidate(draft?.questions, profile, candidateAnswers, questionAnswers, draft);
-  const projected = withOperationalQuestionAnswers(questions, candidateAnswers).answers;
+  const projected = withOperationalQuestionAnswers(questions, candidateAnswers, { locale: platformFacts?.locale, facts: platformFacts }).answers;
   return questions.filter((question) => {
     const answer = projected?.[question.id];
     const unresolvedConsent = !requiredPortalConsentAffirmed(question, answer);
@@ -252,6 +252,7 @@ export async function submitApplication(ctx) {
     language: draft?.language,
     personal: initialEdited.personal,
     job: { title: draft?.job?.title || order.jobTitle || '', company: order.companyName || '' },
+    platformFacts: initialEdited.platformFacts,
   });
   const autoAnswerSources = Object.create(null);
   const autoAnswers = autoAnswersForPortalQuestions({ questions: portalQuestions, candidate: initialCandidate, answers: initialEdited.answers, sources: autoAnswerSources });
@@ -263,7 +264,7 @@ export async function submitApplication(ctx) {
   const candidateRequestRound = Number(submitFlow?.candidateRequestTelemetry?.rounds) || 0;
   const answers = submitFlow.answers || {};
   const edited = candidateWithEdits({ order, draft, flow: submitFlow });
-  const emailBody = operationalEmailBody(draft, edited.answers);
+  const emailBody = operationalEmailBody(draft, edited.answers, { facts: edited.platformFacts });
   const log = ctx.log || ((...args) => console.log('[assisted-application]', ...args));
   // The record of a send whose outcome may stay unknown, on the draft (agent.mjs: `sentAttempt`), or null
   // once the send failed for certain. It becomes the record of what left when the owner or the employer's
@@ -296,7 +297,7 @@ export async function submitApplication(ctx) {
   // stopped before the live field context was available. Let the runner read
   // the current form and apply its structural safety checks; if the question
   // is still unanswered, the runner hands it back with its context preserved.
-  const open = openRequiredQuestions(draft, answers, { deferPortal: portalNeedsPlanner(draft), questionAnswers: submitFlow?.questionAnswers });
+  const open = openRequiredQuestions(draft, answers, { deferPortal: portalNeedsPlanner(draft), questionAnswers: submitFlow?.questionAnswers, order });
   const missingDocuments = openRequiredDocuments(draft, submitFlow.documents || {}, submitFlow);
   if (open.length || missingDocuments.length) {
     // Keep the legacy id list for the flow and add the bounded descriptor so
@@ -616,7 +617,7 @@ export async function submitApplication(ctx) {
         skipPostingCheck: submitFlow.dispatch?.reason === 'owner_retry',
         language: draft.language,
         candidateLocale: draft.candidateLocale || order.locale || 'it',
-        candidate: candidateForForm({ identity, profile: edited.profile, answers: edited.answers, currentAnswerIds: originalCurrentAnswerIds, answerSources: autoAnswerSources, draft, portalQuestions, extraDocuments: extras, language: draft.language, personal: edited.personal, job: { title: draft.job?.title || order.jobTitle || '', company: order.companyName || '', organization: liveness.organization || '' } }),
+        candidate: candidateForForm({ identity, profile: edited.profile, answers: edited.answers, currentAnswerIds: originalCurrentAnswerIds, answerSources: autoAnswerSources, draft, portalQuestions, extraDocuments: extras, language: draft.language, personal: edited.personal, job: { title: draft.job?.title || order.jobTitle || '', company: order.companyName || '', organization: liveness.organization || '' }, platformFacts: edited.platformFacts }),
         knownPortalQuestionKeys: portalQuestions.map((question) => portalQuestionKey(question) || question.id).filter(Boolean),
         candidateRequestRound,
         files,

@@ -14942,12 +14942,12 @@
     },
     {
       "id": "stadler-rail-197546ded1c9",
-      "slug": "gruppenleiter-cnc-fertigung-stadler-rail-ch",
+      "slug": "produzione-cnc-leader-di-gruppo-stadler-rail-steinach",
       "slugByLocale": {
         "de": "gruppenleiter-cnc-fertigung-stadler-rail-ch",
-        "it": "gruppenleiter-cnc-fertigung-stadler-rail-ch",
-        "en": "gruppenleiter-cnc-fertigung-stadler-rail-ch",
-        "fr": "gruppenleiter-cnc-fertigung-stadler-rail-ch"
+        "it": "produzione-cnc-leader-di-gruppo-stadler-rail-steinach",
+        "en": "group-leader-cnc-manufacturing-stadler-rail-steinach",
+        "fr": "chef-de-groupe-fabrication-cnc-stadler-rail-steinach"
       },
       "company": "Stadler Rail",
       "companyKey": "stadler-rail",
@@ -15009,7 +15009,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-07T09:45:29.880Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-09T09:45:29.880Z"
+      "firstSeenAt": "2026-11-09T09:45:29.880Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "gruppenleiter-cnc-fertigung-stadler-rail-ch"
+        ],
+        "en": [
+          "gruppenleiter-cnc-fertigung-stadler-rail-ch"
+        ],
+        "fr": [
+          "gruppenleiter-cnc-fertigung-stadler-rail-ch"
+        ]
+      },
+      "previousSlugs": [
+        "gruppenleiter-cnc-fertigung-stadler-rail-ch"
+      ]
     },
     {
       "id": "stadler-rail-3f3da12b2415",

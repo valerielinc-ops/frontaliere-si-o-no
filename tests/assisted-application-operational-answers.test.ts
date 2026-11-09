@@ -137,7 +137,7 @@ describe('scope, languages and actual field options', () => {
   it.each([
     'Can you start within 1 month?', 'Can you confirm a notice period of 1 month?',
     'Earliest start date', 'Notice period maximum 1 month', 'Do you have WhatsApp?',
-    'Your WhatsApp number', 'Accetti marketing tramite WhatsApp?', 'WhatsApp privacy conditions',
+    'Your WhatsApp number', 'WhatsApp privacy conditions',
     'Hai esperienza nella comunicazione via WhatsApp?', 'Can you work 100% shifts?',
     'Hai un diploma?', 'Confermi disponibilità al 100% richiesta?',
     'What is your notice period and earliest possible start date?',
@@ -490,7 +490,12 @@ describe('scope, languages and actual field options', () => {
     expect(isAddressLikeQuestion(label)).toBe(true);
   });
 
-  it.each(['Comunicazione via WhatsApp e consenso privacy', 'Explain communication via WhatsApp', 'Your WhatsApp number', 'Communication via WhatsApp for marketing'])('keeps other text questions unresolved: %s', question => {
+  it.each(['Accetti marketing tramite WhatsApp?', 'Communication via WhatsApp for marketing'])('declines a pure marketing request (owner decision 2026-11-09): %s', question => {
+    expect(operationalDefaultAnswer({ question, type: 'yes_no' })).toMatchObject({ value: 'No', source: 'policy_default' });
+    expect(operationalDefaultAnswer({ question: `${question} e trattamento dei dati personali`, type: 'yes_no' })).toBeNull();
+  });
+
+  it.each(['Comunicazione via WhatsApp e consenso privacy', 'Explain communication via WhatsApp', 'Your WhatsApp number'])('keeps other text questions unresolved: %s', question => {
     expect(operationalDefaultAnswer({ question, type: 'text' })).toBeNull();
     expect(addressQuestionTopic(question)).toBe('');
   });

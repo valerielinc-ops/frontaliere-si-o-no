@@ -1192,12 +1192,12 @@
     },
     {
       "id": "hfr-hopital-fribourgeois-a0fdfec9c76a",
-      "slug": "responsable-transports-hfr-hopital-fribourgeois-fribourg",
+      "slug": "gestione-dei-trasporti-hopital-fribourgeois-hfr-fribourg-switzerland",
       "slugByLocale": {
         "fr": "responsable-transports-hfr-hopital-fribourgeois-fribourg",
-        "it": "responsable-transports-hfr-hopital-fribourgeois-fribourg",
-        "en": "responsable-transports-hfr-hopital-fribourgeois-fribourg",
-        "de": "responsable-transports-hfr-hopital-fribourgeois-fribourg"
+        "it": "gestione-dei-trasporti-hopital-fribourgeois-hfr-fribourg-switzerland",
+        "en": "transport-manager-hopital-fribourgeois-hfr-fribourg-switzerland",
+        "de": "verkehrsleiter-hopital-fribourgeois-hfr-fribourg-switzerland"
       },
       "company": "Hôpital fribourgeois (HFR)",
       "companyKey": "hfr-hopital-fribourgeois",
@@ -1261,7 +1261,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-07T09:49:07.529Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-09T09:49:07.529Z"
+      "firstSeenAt": "2026-11-09T09:49:07.529Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "responsable-transports-hfr-hopital-fribourgeois-fribourg"
+        ],
+        "en": [
+          "responsable-transports-hfr-hopital-fribourgeois-fribourg"
+        ],
+        "de": [
+          "responsable-transports-hfr-hopital-fribourgeois-fribourg"
+        ]
+      },
+      "previousSlugs": [
+        "responsable-transports-hfr-hopital-fribourgeois-fribourg"
+      ]
     },
     {
       "id": "hfr-hopital-fribourgeois-ba1bd0c78a42",

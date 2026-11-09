@@ -5,12 +5,12 @@
   "jobs": [
     {
       "id": "galliker-a55700a516cb",
-      "slug": "sachbearbeiter-tauschgeschafte-a-galliker-altishofen",
+      "slug": "scambi-di-agente-sostanziale-a-galliker-transport-ag-altishofen",
       "slugByLocale": {
         "de": "sachbearbeiter-tauschgeschafte-a-galliker-altishofen",
-        "it": "sachbearbeiter-tauschgeschafte-a-galliker-altishofen",
-        "en": "sachbearbeiter-tauschgeschafte-a-galliker-altishofen",
-        "fr": "sachbearbeiter-tauschgeschafte-a-galliker-altishofen"
+        "it": "scambi-di-agente-sostanziale-a-galliker-transport-ag-altishofen",
+        "en": "substantial-agent-swaps-a-galliker-transport-ag-altishofen",
+        "fr": "echanges-importants-d-agents-a-galliker-transport-ag-altishofen"
       },
       "company": "Galliker Transport AG",
       "companyKey": "galliker",
@@ -73,7 +73,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-03T09:20:57.557Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-09T09:20:57.557Z"
+      "firstSeenAt": "2026-11-09T09:20:57.557Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeiter-tauschgeschafte-a-galliker-altishofen"
+        ],
+        "en": [
+          "sachbearbeiter-tauschgeschafte-a-galliker-altishofen"
+        ],
+        "fr": [
+          "sachbearbeiter-tauschgeschafte-a-galliker-altishofen"
+        ]
+      },
+      "previousSlugs": [
+        "sachbearbeiter-tauschgeschafte-a-galliker-altishofen"
+      ]
     },
     {
       "id": "galliker-e4d507a30ec4",
@@ -156,12 +170,12 @@
     },
     {
       "id": "galliker-a272b99d12a1",
-      "slug": "junior-chauffeur-quereinsteiger-pfungen-m-w-d-galliker-pfungen",
+      "slug": "junior-chauffeur-candidato-a-in-riqualificazione-pfungen-m-w-d-galliker-transport-ag-pfungen",
       "slugByLocale": {
         "de": "junior-chauffeur-quereinsteiger-pfungen-m-w-d-galliker-pfungen",
-        "it": "junior-chauffeur-quereinsteiger-pfungen-m-w-d-galliker-pfungen",
-        "en": "junior-chauffeur-quereinsteiger-pfungen-m-w-d-galliker-pfungen",
-        "fr": "junior-chauffeur-quereinsteiger-pfungen-m-w-d-galliker-pfungen"
+        "it": "junior-chauffeur-candidato-a-in-riqualificazione-pfungen-m-w-d-galliker-transport-ag-pfungen",
+        "en": "junior-chauffeur-lateral-entrants-m-f-d-galliker-transport-ag-pfungen",
+        "fr": "chauffeur-junior-entrants-lateraux-h-f-d-galliker-transport-ag-pfungen"
       },
       "company": "Galliker Transport AG",
       "companyKey": "galliker",
@@ -224,14 +238,28 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-09T09:20:56.759Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-09T09:20:56.759Z"
+      "firstSeenAt": "2026-11-09T09:20:56.759Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "junior-chauffeur-quereinsteiger-pfungen-m-w-d-galliker-pfungen"
+        ],
+        "en": [
+          "junior-chauffeur-quereinsteiger-pfungen-m-w-d-galliker-pfungen"
+        ],
+        "fr": [
+          "junior-chauffeur-quereinsteiger-pfungen-m-w-d-galliker-pfungen"
+        ]
+      },
+      "previousSlugs": [
+        "junior-chauffeur-quereinsteiger-pfungen-m-w-d-galliker-pfungen"
+      ]
     },
     {
       "id": "galliker-a2ce3b63e07c",
-      "slug": "chauffeur-c-ce-a-jona-galliker-jona",
+      "slug": "autista-c-ce-a-jonah-galliker-transport-ag-jona",
       "slugByLocale": {
         "de": "chauffeur-c-ce-a-jona-galliker-jona",
-        "it": "chauffeur-c-ce-a-jona-galliker-jona",
+        "it": "autista-c-ce-a-jonah-galliker-transport-ag-jona",
         "en": "chauffeur-c-ce-a-jona-galliker-jona",
         "fr": "chauffeur-c-ce-a-jona-galliker-jona"
       },
@@ -296,7 +324,15 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-09T09:20:56.357Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-09-02T23:07:44.521Z"
+      "firstSeenAt": "2026-09-02T23:07:44.521Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "chauffeur-c-ce-a-jona-galliker-jona"
+        ]
+      },
+      "previousSlugs": [
+        "chauffeur-c-ce-a-jona-galliker-jona"
+      ]
     },
     {
       "id": "galliker-b3adfc7dfcde",
@@ -3231,7 +3267,7 @@
         "it": "logisticista-a-galliker-transport-ag-altishofen",
         "en": "logistician-a-galliker-transport-ag-altishofen",
         "de": "logistiker-a-galliker-altishofen",
-        "fr": "logisticien-a-galliker-transport-ag-altishofen"
+        "fr": "logistique-a-galliker-transport-ag-altishofen"
       },
       "company": "Galliker Transport AG",
       "companyKey": "galliker",
@@ -3279,7 +3315,7 @@
       "previousSlugs": [
         "logistiker-a-galliker-transport-ag-altishofen",
         "logistiker-a-galliker-altishofen",
-        "logistique-a-galliker-transport-ag-altishofen"
+        "logisticien-a-galliker-transport-ag-altishofen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3291,7 +3327,7 @@
         ],
         "fr": [
           "logistiker-a-galliker-transport-ag-altishofen",
-          "logistique-a-galliker-transport-ag-altishofen"
+          "logisticien-a-galliker-transport-ag-altishofen"
         ]
       },
       "firstSeenAt": "2026-09-02T13:33:22.451Z",
@@ -3478,7 +3514,7 @@
         "it": "membro-del-personale-senior-healthcare-a-galliker-transport-ag-altishofen",
         "en": "senior-staff-member-healthcare-a-galliker-transport-ag-altishofen",
         "de": "leitstandmitarbeiter-healthcare-a-galliker-altishofen",
-        "fr": "operateur-de-centre-de-controle-healthcare-a-galliker-transport-ag-altishofen"
+        "fr": "soins-de-sante-a-galliker-transport-ag-altishofen"
       },
       "company": "Galliker Transport AG",
       "companyKey": "galliker",
@@ -3525,14 +3561,14 @@
       "externalId": "0456",
       "previousSlugs": [
         "leitstandmitarbeiter-healthcare-a-galliker-altishofen",
-        "soins-de-sante-a-galliker-transport-ag-altishofen"
+        "operateur-de-centre-de-controle-healthcare-a-galliker-transport-ag-altishofen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "leitstandmitarbeiter-healthcare-a-galliker-altishofen"
         ],
         "fr": [
-          "soins-de-sante-a-galliker-transport-ag-altishofen"
+          "operateur-de-centre-de-controle-healthcare-a-galliker-transport-ag-altishofen"
         ]
       },
       "firstSeenAt": "2026-08-27T19:49:13.906Z",

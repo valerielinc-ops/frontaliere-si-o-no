@@ -501,12 +501,12 @@
     },
     {
       "id": "stryker-f49c02c1614a",
-      "slug": "kaufmannische-r-lernende-r-stryker-ch",
+      "slug": "apprendisti-commerciali-stryker-selzach",
       "slugByLocale": {
         "de": "kaufmannische-r-lernende-r-stryker-ch",
-        "it": "kaufmannische-r-lernende-r-stryker-ch",
-        "en": "kaufmannische-r-lernende-r-stryker-ch",
-        "fr": "kaufmannische-r-lernende-r-stryker-ch"
+        "it": "apprendisti-commerciali-stryker-selzach",
+        "en": "commercial-learner-stryker-selzach",
+        "fr": "apprenti-e-commercial-e-stryker-selzach"
       },
       "company": "Stryker",
       "companyKey": "stryker",
@@ -570,7 +570,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-07T09:27:32.835Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-09T09:27:32.835Z"
+      "firstSeenAt": "2026-11-09T09:27:32.835Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "kaufmannische-r-lernende-r-stryker-ch"
+        ],
+        "en": [
+          "kaufmannische-r-lernende-r-stryker-ch"
+        ],
+        "fr": [
+          "kaufmannische-r-lernende-r-stryker-ch"
+        ]
+      },
+      "previousSlugs": [
+        "kaufmannische-r-lernende-r-stryker-ch"
+      ]
     }
   ]
 }

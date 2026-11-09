@@ -4326,8 +4326,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-in-fur-sekretariat-70-80-unibe-avenches",
         "it": "collaboratore-trice-per-sekretariat-70-80-universitat-bern-avenches",
-        "en": "mitarbeiter-in-fur-sekretariat-70-80-universitat-bern-avenches",
-        "fr": "mitarbeiter-in-fur-sekretariat-70-80-universitat-bern-avenches"
+        "en": "employee-for-secretariat-70-80-universitat-bern-avenches",
+        "fr": "collaborateur-trice-pour-le-secretariat-70-80-universitat-bern-avenches"
       },
       "company": "Universität Bern",
       "companyKey": "unibe",
@@ -4377,10 +4377,17 @@
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-fur-sekretariat-70-80-unibe-avenches"
+        ],
+        "en": [
+          "mitarbeiter-in-fur-sekretariat-70-80-universitat-bern-avenches"
+        ],
+        "fr": [
+          "mitarbeiter-in-fur-sekretariat-70-80-universitat-bern-avenches"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-fur-sekretariat-70-80-unibe-avenches"
+        "mitarbeiter-in-fur-sekretariat-70-80-unibe-avenches",
+        "mitarbeiter-in-fur-sekretariat-70-80-universitat-bern-avenches"
       ],
       "salaryMin": 48400,
       "salaryMax": 73200,
@@ -4402,12 +4409,12 @@
     },
     {
       "id": "unibe-e5b22ee93614",
-      "slug": "collaborateur-trice-scientifique-a-30-40-unibe-bern",
+      "slug": "collaboratore-scientifico-30-40-universitat-bern-bern",
       "slugByLocale": {
         "fr": "collaborateur-trice-scientifique-a-30-40-unibe-bern",
-        "it": "collaborateur-trice-scientifique-a-30-40-unibe-bern",
-        "en": "collaborateur-trice-scientifique-a-30-40-unibe-bern",
-        "de": "collaborateur-trice-scientifique-a-30-40-unibe-bern"
+        "it": "collaboratore-scientifico-30-40-universitat-bern-bern",
+        "en": "scientific-collaborator-30-40-universitat-bern-bern",
+        "de": "wissenschaftliche-mitarbeiter-30-40-universitat-bern-bern"
       },
       "company": "Universität Bern",
       "companyKey": "unibe",
@@ -4469,7 +4476,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-07T09:49:12.950Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-09T09:49:12.950Z"
+      "firstSeenAt": "2026-11-09T09:49:12.950Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "collaborateur-trice-scientifique-a-30-40-unibe-bern"
+        ],
+        "en": [
+          "collaborateur-trice-scientifique-a-30-40-unibe-bern"
+        ],
+        "de": [
+          "collaborateur-trice-scientifique-a-30-40-unibe-bern"
+        ]
+      },
+      "previousSlugs": [
+        "collaborateur-trice-scientifique-a-30-40-unibe-bern"
+      ]
     }
   ]
 }

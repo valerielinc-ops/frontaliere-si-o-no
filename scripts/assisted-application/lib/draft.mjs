@@ -451,15 +451,10 @@ export async function buildDraft(ctx) {
   });
   let portalContract = null;
   if (readPortal && channel.applyUrl) {
-    // `candidateWithEdits` may derive a salutation from CV wording or a name
-    // for letter formatting. That inference is useful for the letter, but it
-    // is not the candidate's choice for a required portal title field.
+    // The form of address the name gives is the platform's answer to a required
+    // portal title field (owner decision 2026-11-09): never asked, always shown
+    // among the form fields, where the candidate can correct it.
     const portalAnswers = { ...answers };
-    const explicitlyChosenSalutation = Object.hasOwn(edited.overrides, 'salutation')
-      ? String(edited.overrides.salutation || '').trim()
-      : String(flow?.answers?.salutation || '').trim();
-    if (explicitlyChosenSalutation) portalAnswers.salutation = explicitlyChosenSalutation;
-    else delete portalAnswers.salutation;
     const portalResult = await readPortal({
       channelType: channel.type,
       applyUrl: channel.applyUrl,
@@ -474,7 +469,7 @@ export async function buildDraft(ctx) {
       } : {}),
       language,
       candidateLocale: locale,
-      candidate: candidateForForm({ identity, profile, answers: portalAnswers, draft: { formAnswers, coverLetter: { text: letterBody } }, language, personal, job: { title, company: order.companyName || '' } }),
+      candidate: candidateForForm({ identity, profile, answers: portalAnswers, draft: { formAnswers, coverLetter: { text: letterBody } }, language, personal, job: { title, company: order.companyName || '' }, platformFacts: edited.platformFacts }),
       codex,
       log,
     });
