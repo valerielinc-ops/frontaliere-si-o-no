@@ -361,15 +361,13 @@
       "it": "infermiera-hes-es-clinique-romande-de-readaptation-crr-suva-sion",
       "en": "nurse-hes-es-clinique-romande-de-readaptation-crr-suva-sion",
       "de": "krankenschwester-hes-es-clinique-romande-de-readaptation-crr-suva-sion",
-      "fr": "infirmier-ere-hes-es-crr-suva-sion-sion"
+      "fr": "infirmier-ere-hes-es-crr-suva-sion-sion-873cbbdf"
     },
     "sector": "Sanità / Ospedali",
     "expiredAt": "2026-06-10T22:29:51.890Z",
-    "previousSlugs": [
-      "infirmier-ere-hes-es-crr-suva-sion-sion"
-    ],
     "previousSlugsByLocale": {
       "it": [
+        "infirmier-ere-hes-es-crr-suva-sion-sion-873cbbdf",
         "infirmier-ere-hes-es-crr-suva-sion-sion"
       ],
       "en": [
@@ -377,6 +375,9 @@
       ],
       "de": [
         "infirmier-ere-hes-es-crr-suva-sion-sion"
+      ],
+      "fr": [
+        "infirmier-ere-hes-es-crr-suva-sion-sion-873cbbdf"
       ]
     },
     "postalCode": "1950",
@@ -385,7 +386,10 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.crr-suva.ch/clinique-readaptation/infirmier-2387.html",
-    "firstSeenAt": "2026-05-26T22:35:14.977Z"
+    "firstSeenAt": "2026-05-26T22:35:14.977Z",
+    "previousSlugs": [
+      "infirmier-ere-hes-es-crr-suva-sion-sion"
+    ]
   },
   {
     "slug": "infermiere-multiuso-sostituzioni-pianificate-clinique-romande-de-readaptation-crr-suva-sion",
