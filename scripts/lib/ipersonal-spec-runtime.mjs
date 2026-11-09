@@ -387,11 +387,17 @@ export async function readIpersonalListingIndex(html, pageUrl, previousUrls, fet
   }
   if (!base.pathname.endsWith('/')) base.pathname += '/';
   const head = await fetchJson(new URL('kopf.json', base).href);
-  const declared = Number(head?.zahl);
-  const perFile = Number(head?.proDatei);
-  if (!Number.isInteger(declared) || declared < 0 || !Number.isInteger(perFile) || perFile <= 0) {
+  const rawDeclared = head?.zahl;
+  const rawPerFile = head?.proDatei;
+  // Validate the JSON contract before coercion: Number(null), Number(false),
+  // and Number('') all become zero and could authorize a short start-list
+  // snapshot after a malformed header.
+  if (!Number.isSafeInteger(rawDeclared) || rawDeclared < 0
+    || !Number.isSafeInteger(rawPerFile) || rawPerFile <= 0) {
     throw new Error(`listing index ${base.href}kopf.json has no valid zahl/proDatei`);
   }
+  const declared = rawDeclared;
+  const perFile = rawPerFile;
   const fileCount = Math.ceil(declared / perFile);
   if (fileCount > IPERSONAL_LISTING_INDEX_MAX_FILES) {
     throw new Error(`listing index declares ${fileCount} files (max ${IPERSONAL_LISTING_INDEX_MAX_FILES})`);
@@ -426,6 +432,32 @@ export async function readIpersonalListingIndex(html, pageUrl, previousUrls, fet
     scanned += rows.length;
   }
   return { declared, scanned, kept };
+}
+
+/**
+ * Read membership only from the source's actual start-list cards. Navigation,
+ * related-content and footer links can point at the same detail URL without
+ * proving that the vacancy is present in the current listing.
+ *
+ * @param {string} html
+ * @param {string} pageUrl
+ * @returns {Set<string>}
+ */
+function extractIpersonalStartListUrls(html, pageUrl) {
+  const document = new JSDOM(String(html || '')).window.document;
+  return new Set(
+    [...document.querySelectorAll('.stelle-karte a[href]')]
+      .map((link) => {
+        const href = link.getAttribute('href');
+        if (!href) return '';
+        try {
+          return canonicalUrl(new URL(decodeEntities(href), pageUrl));
+        } catch {
+          return '';
+        }
+      })
+      .filter(Boolean),
+  );
 }
 
 /**
@@ -550,11 +582,7 @@ export async function runIpersonalSpecInProduction(spec, runtime = {}) {
     try {
       const index = await readIpersonalListingIndex(html, pageUrl, previousUrls, fetchJson);
       if (!index) return html;
-      const startListUrls = new Set(
-        [...String(html).matchAll(/\bhref\s*=\s*["']([^"']+)["']/gi)].map(([, href]) => {
-          try { return canonicalUrl(new URL(decodeEntities(href), pageUrl)); } catch { return ''; }
-        }),
-      );
+      const startListUrls = extractIpersonalStartListUrls(html, pageUrl);
       const added = index.kept.filter((entry) => !startListUrls.has(canonicalUrl(entry.url)));
       console.log(
         `[prospector:${spec.companyKey}] listing index: ${index.declared} entries declared, `

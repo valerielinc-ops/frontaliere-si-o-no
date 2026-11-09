@@ -12,6 +12,7 @@ import {
   assertCompleteIpersonalSnapshot,
   extractIpersonalDescription,
   getVerifiedIpersonalGeography,
+  readIpersonalListingIndex,
   runIpersonalSpecInProduction,
 } from '../scripts/lib/ipersonal-spec-runtime.mjs';
 import { loadSpec } from '../scripts/lib/prospector/spec-crawler.mjs';
@@ -1443,13 +1444,18 @@ describe('iPersonal client-side listing index (#17594)', () => {
     seedUrls: [seedUrl], mode: 'template', detailTemplate: '/jobs/*/', detailFetchWorkers: 1,
   } as any;
 
-  function sourceFetch(files: Record<string, unknown>, requested: string[] = []) {
+  function sourceFetch(
+    files: Record<string, unknown>,
+    requested: string[] = [],
+    listingExtras = '',
+  ) {
     return (async (input: string | URL | Request) => {
       const url = String(typeof input === 'string' || input instanceof URL ? input : input.url);
       requested.push(url);
       if (url.endsWith('/robots.txt')) return new Response('', { status: 200 });
       if (url === seedUrl) {
         return new Response(`<html><body>
+          ${listingExtras}
           <form data-stellensuche data-stellen-index="/assets/stellen/abc123/"></form>
           <article class="stelle-karte"><h3 class="stelle-karte__titel"><a href="/jobs/start-zuerich/">Fachperson 100%</a></h3></article>
           </body></html>`, { status: 200, headers: { 'Content-Type': 'text/html' } });
@@ -1485,6 +1491,15 @@ describe('iPersonal client-side listing index (#17594)', () => {
     'z/1.json': [indexRow(unpublishedUrl)],
   };
 
+  it('rejects malformed header values before numeric coercion', async () => {
+    await expect(readIpersonalListingIndex(
+      '<form data-stellen-index="/assets/stellen/abc123/"></form>',
+      seedUrl,
+      new Set([listedUrl]),
+      async () => ({ zahl: null, proDatei: 100 }),
+    )).rejects.toThrow(/kopf\.json has no valid zahl\/proDatei/);
+  });
+
   it('keeps previous rows the index still lists, without the rest of the index', async () => {
     const jobs = await runIpersonalSpecInProduction(
       spec,
@@ -1493,6 +1508,18 @@ describe('iPersonal client-side listing index (#17594)', () => {
 
     expect(jobs.map((job) => job.url).sort()).toEqual([listedUrl, startUrl]);
     expect((jobs as any).discoveredCount).toBe(2);
+  });
+
+  it('does not treat non-card links as start-list membership', async () => {
+    const jobs = await runIpersonalSpecInProduction(
+      spec,
+      runtimeFor(
+        sourceFetch(completeIndex, [], '<nav><a href="/jobs/listed-zuerich/">Related job</a></nav>'),
+        [previousRow(listedUrl)],
+      ),
+    );
+
+    expect(jobs.map((job) => job.url).sort()).toEqual([listedUrl, startUrl]);
   });
 
   it('keeps the last good slice when the index is incomplete', async () => {
