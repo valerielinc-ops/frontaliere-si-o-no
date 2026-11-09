@@ -629,8 +629,10 @@
          status of undefined next to a missing enum member would then read as
          "blocked" for a visitor who blocks nothing, and as "allowlisted" for
          one who blocks everything — the two worst answers this bridge can
-         give, both from the same missing check. -->
-    <script>(function(){if(window.__ftFcAdBlockBridge)return;window.__ftFcAdBlockBridge=1;var g=window.googlefc=window.googlefc||{};g.callbackQueue=g.callbackQueue||[];g.callbackQueue.push({'AD_BLOCK_DATA_READY':function(){try{var E=g.AdBlockerStatusEnum||{},A=g.AllowAdsStatusEnum||{};var s=typeof g.getAdBlockerStatus==='function'?g.getAdBlockerStatus():null;var a=typeof g.getAllowAdsStatus==='function'?g.getAllowAdsStatus():null;function eq(v,e){return v!==undefined&&e!==undefined&&v===e;}window.__ftAdBlock={status:s,allowAds:a,blocked:eq(s,E.EXTENSION_LEVEL_AD_BLOCKER)||eq(s,E.NETWORK_LEVEL_AD_BLOCKER),adsAllowed:eq(a,A.ADS_ALLOWED)};try{window.dispatchEvent(new CustomEvent('frontaliere:adblock-data'));}catch(e){}}catch(e){}}});})();</script>
+         give, both from the same missing check. Funding Choices currently
+         documents EXTENSION_AD_BLOCKER in its enum table and uses the older
+         EXTENSION_LEVEL_AD_BLOCKER name in its sample; accept both. -->
+    <script>(function(){if(window.__ftFcAdBlockBridge)return;window.__ftFcAdBlockBridge=1;var g=window.googlefc=window.googlefc||{};g.callbackQueue=g.callbackQueue||[];g.callbackQueue.push({'AD_BLOCK_DATA_READY':function(){try{var E=g.AdBlockerStatusEnum||{},A=g.AllowAdsStatusEnum||{};var s=typeof g.getAdBlockerStatus==='function'?g.getAdBlockerStatus():null;var a=typeof g.getAllowAdsStatus==='function'?g.getAllowAdsStatus():null;function eq(v,e){return v!==undefined&&e!==undefined&&v===e;}window.__ftAdBlock={status:s,allowAds:a,blocked:eq(s,E.EXTENSION_AD_BLOCKER)||eq(s,E.EXTENSION_LEVEL_AD_BLOCKER)||eq(s,E.NETWORK_LEVEL_AD_BLOCKER),adsAllowed:eq(a,A.ADS_ALLOWED)};try{window.dispatchEvent(new CustomEvent('frontaliere:adblock-data'));}catch(e){}}catch(e){}}});})();</script>
 
     <!-- PERF: Funding Choices scripts (loader + anti-adblock fallback below) are
          deferred until after first paint to fix mobile LCP (was 11.3s). The

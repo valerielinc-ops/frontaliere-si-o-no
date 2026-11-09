@@ -2499,9 +2499,9 @@ function BlogArticlesContent({
   import.meta.env.VITE_ARTICLE_DETAIL_ATF_AD_TEST_VARIANT,
  );
  const articleAtfTreatment = articleAtfVariant === ARTICLE_DETAIL_ATF_TREATMENT_VARIANT;
- // Direct SSG article loads already contain the experiment slot outside #root.
- // Keep the hydration handoff single-request; SPA navigations have no static
- // marker and render the same treatment inside React.
+ // Direct SSG article loads carry either the paid treatment slot or the
+ // blocker-only control marker outside #root. Keep hydration single-source;
+ // SPA navigations render the corresponding slot inside React.
  const staticArticleAtfHandoff = deferUntilArticleReady
   && typeof document !== 'undefined'
   && Boolean(document.querySelector('main.seo-static-content [data-ft-article-atf-slot="true"]'));
@@ -2882,6 +2882,18 @@ function BlogArticlesContent({
    />
   </Suspense>
  </div>
+ )}
+
+ {!articleAtfTreatment && !staticArticleAtfHandoff && adEligibleInline && (
+ <div
+  className="ft-article-atf-ad"
+  data-ft-article-atf-slot="true"
+  data-ad-experiment={ARTICLE_DETAIL_ATF_EXPERIMENT_ID}
+  data-ad-variant={articleAtfVariant}
+  data-house="article-atf"
+  data-ft-house-blocker-only="true"
+  data-ft-house-height={AD_SLOTS.ARTICLE_INLINE_MOBILE.placeholderMinHeight}
+ />
  )}
 
  {/* Mobile TOC — collapsible (hidden on xl where it shows in right rail) */}

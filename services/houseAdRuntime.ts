@@ -169,24 +169,25 @@ export function installHouseAds(
         resizeObserver?.observe(frame);
       }
       const google = frame.querySelector<HTMLElement>('[data-ft-house-google],ins[data-ad-slot]');
-      if (!google) continue;
+      const blockerOnly = frame.hasAttribute('data-ft-house-blocker-only');
+      if (!google && !blockerOnly) continue;
       let host = frame.querySelector<HTMLElement>('[data-ft-house-host]');
       if (!host) { host = document.createElement('span'); host.setAttribute('data-ft-house-host', ''); frame.append(host); }
-      const state = google.getAttribute('data-ft-ad-state') || google.getAttribute('data-ad-state') || google.getAttribute('data-ft-static-ad-state') || '';
-      const isFilled = state === 'filled' || google.matches('ins[data-ad-status="filled"]') || !!google.querySelector('ins[data-ad-status="filled"],[data-ad-state="filled"]');
+      const state = google?.getAttribute('data-ft-ad-state') || google?.getAttribute('data-ad-state') || google?.getAttribute('data-ft-static-ad-state') || '';
+      const isFilled = state === 'filled' || !!google?.matches('ins[data-ad-status="filled"]') || !!google?.querySelector('ins[data-ad-status="filled"],[data-ad-state="filled"]');
       if (isFilled) { remove(frame); continue; }
       const gpt = frame.dataset.ftHouseLibrary === 'gpt';
-      const requested = google.hasAttribute('data-google-query-id') || !!google.querySelector('[data-google-query-id]');
-      const pending = google.hasAttribute('data-ft-ad-request-pending') || !!google.querySelector('[data-ft-ad-request-pending]') || state === 'waiting_response' || (state === 'loading' && (!gpt || requested));
+      const requested = !!google && (google.hasAttribute('data-google-query-id') || !!google.querySelector('[data-google-query-id]'));
+      const pending = !!google && (google.hasAttribute('data-ft-ad-request-pending') || !!google.querySelector('[data-ft-ad-request-pending]') || state === 'waiting_response' || (state === 'loading' && (!gpt || requested)));
       const scriptSelector = frame.dataset.ftHouseLibrary === 'gpt' ? 'gpt.js' : 'adsbygoogle.js';
       const failed = Array.from(document.querySelectorAll<HTMLScriptElement>('script[data-failed="1"]')).some(s => s.src.includes(scriptSelector) && !['retry_wait','loading','loaded','waiting_response'].includes(s.dataset.ftScriptState || ''));
       const cmpFailed = !!document.querySelector('script[src*="fundingchoicesmessages.google.com"][data-ft-script-state="failed"]');
-      const googleUnfilled = google.matches('ins[data-ad-status="unfilled"]') || !!google.querySelector('ins[data-ad-status="unfilled"]');
+      const googleUnfilled = !!google && (google.matches('ins[data-ad-status="unfilled"]') || !!google.querySelector('ins[data-ad-status="unfilled"]'));
       const terminal = ['unfilled', 'unavailable', 'collapsed'].includes(state) || googleUnfilled;
-      const stalled = google.hasAttribute('data-ft-ad-stalled') || !!google.querySelector('[data-ft-ad-stalled]');
+      const stalled = !!google && (google.hasAttribute('data-ft-ad-stalled') || !!google.querySelector('[data-ft-ad-stalled]'));
       const blocked = blockerConfirmed();
       const decision = w.__ftAdsConsentDecision || read(config.consentKey, true);
-      const eligible = blocked || stalled || (!pending && (terminal || failed || (cmpFailed && !decision)));
+      const eligible = blockerOnly ? blocked : blocked || stalled || (!pending && (terminal || failed || (cmpFailed && !decision)));
       if (!eligible) { eligibleSince.delete(frame); remove(frame); continue; }
       // Resolve the experiment arm while the no-fill grace is running so a
       // slow assignment request does not add its full latency afterwards.
@@ -208,7 +209,7 @@ export function installHouseAds(
       const width = frame.getBoundingClientRect().width;
       if (width < 160 || !visible(frame)) continue;
       if (!ready) { requestAssignment(); continue; }
-      const { format, height } = chooseSize(width, Number(frame.dataset.ftHouseHeight) || parseFloat(google.style.minHeight) || google.getBoundingClientRect().height);
+      const { format, height } = chooseSize(width, Number(frame.dataset.ftHouseHeight) || (google ? parseFloat(google.style.minHeight) || google.getBoundingClientRect().height : 0));
       const portraitArtwork = format === 'billboard' && height >= 500;
       const locale = (['it', 'en', 'de', 'fr'].includes(document.documentElement.lang.slice(0, 2)) ? document.documentElement.lang.slice(0, 2) : 'it') as HouseAdLocale;
       const existing = entries.get(frame);
@@ -217,7 +218,7 @@ export function installHouseAds(
         continue;
       }
       remove(frame, true);
-      const placement = (frame.dataset.house || google.dataset.adPlacement || google.dataset.adSlot || 'display').replace(/[^a-zA-Z0-9_.:-]/g, '-').slice(0, 80);
+      const placement = (frame.dataset.house || google?.dataset.adPlacement || google?.dataset.adSlot || 'display').replace(/[^a-zA-Z0-9_.:-]/g, '-').slice(0, 80);
       const fallbackReason = blocked ? 'adblock_detected'
         : stalled ? 'response_stalled'
         : failed ? 'script_failed'
@@ -242,7 +243,7 @@ export function installHouseAds(
   }
   function schedule() { if (scheduled) return; scheduled = setTimeout(() => { scheduled = undefined; refresh(); }, 100); }
   const style = document.createElement('style'); style.id = 'ft-house-creative-style';
-  style.textContent = css + '\n[data-house]{position:relative;min-width:0}[data-ft-house-host]{display:none}:where([data-house][data-ft-house-active]){min-height:var(--ft-house-height)}[data-ft-house-active]>[data-ft-house-host]{display:block;position:absolute;inset:0;height:100%;container-type:size;z-index:1}:where([data-house]):has(>ins[data-ft-static-ad-collapsed]):not([data-ft-house-active]),:where(div,li,section):has(>[data-house]:only-child>ins[data-ft-static-ad-collapsed]):not(:has(>[data-ft-house-active])){height:0!important;min-height:0!important;margin-block:0!important;padding-block:0!important;overflow:hidden!important}';
+  style.textContent = css + '\n[data-house]{position:relative;min-width:0}[data-ft-house-host]{display:none}:where([data-house][data-ft-house-active]){min-height:var(--ft-house-height)}:where([data-ft-house-blocker-only]:not([data-ft-house-active])){height:0!important;min-height:0!important;margin-block:0!important;padding-block:0!important;overflow:hidden!important}[data-ft-house-active]>[data-ft-house-host]{display:block;position:absolute;inset:0;height:100%;container-type:size;z-index:1}:where([data-house]):has(>ins[data-ft-static-ad-collapsed]):not([data-ft-house-active]),:where(div,li,section):has(>[data-house]:only-child>ins[data-ft-static-ad-collapsed]):not(:has(>[data-ft-house-active])){height:0!important;min-height:0!important;margin-block:0!important;padding-block:0!important;overflow:hidden!important}';
   document.head.append(style);
   // Assignment is requested only after a genuinely eligible, visible fallback
   // slot appears. Firebase evaluates percentage conditions with the stable ID;

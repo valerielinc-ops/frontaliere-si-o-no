@@ -12,9 +12,11 @@ import {
 } from '@/build-plugins/shared/criticalCss';
 import {
   AD_FILL_TIMEOUT_MS,
+  AD_SLOTS,
   DRIVEBY_DESKTOP_RESERVE_MIN_HEIGHT,
   MULTIPLEX_DESKTOP_MIN_WIDTH,
 } from '@/services/adsenseSlots';
+import { ARTICLE_DETAIL_ATF_PLACEHOLDER_HEIGHT } from '@/packages/articles/engine/shared/articleAtfAdExperiment';
 
 const ROOT = resolve(__dirname, '..');
 
@@ -62,6 +64,8 @@ describe('static AdSense layout recovery', () => {
     expect(html).toContain('data-ad-experiment="article-detail-atf-ad-v1"');
     expect(html).toContain('data-ad-variant="atf"');
     expect(html).toContain('data-ad-layout="in-article"');
+    expect(AD_SLOTS.ARTICLE_INLINE_MOBILE.placeholderMinHeight).toBe(ARTICLE_DETAIL_ATF_PLACEHOLDER_HEIGHT);
+    expect(ARTICLE_DETAIL_ATF_PLACEHOLDER_HEIGHT).toBe(220);
   });
 
   it('wires the static lifecycle to the shared request and script schedulers', () => {

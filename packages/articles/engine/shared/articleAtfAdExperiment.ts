@@ -11,6 +11,8 @@ export const ARTICLE_DETAIL_ATF_AD_TEST_VARIANT_RC_KEY = 'ARTICLE_DETAIL_ATF_AD_
 export const ARTICLE_DETAIL_ATF_EXPERIMENT_ID = 'article-detail-atf-ad-v1';
 export const ARTICLE_DETAIL_ATF_CONTROL_VARIANT = 'control';
 export const ARTICLE_DETAIL_ATF_TREATMENT_VARIANT = 'atf';
+/** Shared floor for the article ATF slot and its blocker-only house creative. */
+export const ARTICLE_DETAIL_ATF_PLACEHOLDER_HEIGHT = 220;
 
 export type ArticleDetailAtfAdVariant =
   | typeof ARTICLE_DETAIL_ATF_CONTROL_VARIANT
