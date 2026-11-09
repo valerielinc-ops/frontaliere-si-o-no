@@ -12,13 +12,13 @@ import {
  reset,
  getCollisions,
  getPathHistory,
+ getOutputShapeDirCount,
  configureDumpDir,
  pruneDumpToCollidingHashes,
  setModeForTest,
  clearDeclarationsForTest,
  WriteCollisionError,
  DistPathCollisionError,
- getOutputShapeDirCount,
 } from '@/build-plugins/sharedWriteRegistry';
 
 describe('sharedWriteRegistry', () => {
