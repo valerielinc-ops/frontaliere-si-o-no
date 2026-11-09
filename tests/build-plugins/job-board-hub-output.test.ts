@@ -315,12 +315,13 @@ describe('job-board emitted output', () => {
   it('links only archive pages emitted from the historical snapshot', () => {
     for (const locale of locales) {
       const zurichBase = hubSlugFor('ZH', locale, 'tutti');
-      const zurichDoc = htmlDoc(hubPath(locale, 'ZH'));
+      const zurichLandingDoc = htmlDoc(hubPath(locale, 'ZH'));
+      const zurichArchiveDoc = htmlDoc(zurichBase);
       const currentCantonJobPath = `${hubPath(locale, 'ZH')}snapshot-zh-0/`;
       const formerCantonJobPath = `${hubPath(locale, 'TI')}snapshot-zh-0/`;
-      expect(zurichDoc.querySelector(`[data-canton-editorial] a[href="${currentCantonJobPath}"]`)).not.toBeNull();
-      expect(zurichDoc.querySelector(`[data-canton-editorial] a[href="${formerCantonJobPath}"]`)).toBeNull();
-      expect(zurichDoc.querySelector(`[data-canton-editorial] a[href="${zurichBase}page-2/"]`)).toBeNull();
+      expect(zurichArchiveDoc.querySelector(`a[href="${currentCantonJobPath}"]`)).not.toBeNull();
+      expect(zurichArchiveDoc.querySelector(`a[href="${formerCantonJobPath}"]`)).toBeNull();
+      expect(zurichLandingDoc.querySelector(`[data-canton-editorial] a[href="${zurichBase}page-2/"]`)).toBeNull();
       expect(fs.existsSync(path.join(root, 'dist', zurichBase, 'index.html'))).toBe(true);
       expect(fs.existsSync(path.join(root, 'dist', zurichBase, 'page-2/index.html'))).toBe(false);
 
