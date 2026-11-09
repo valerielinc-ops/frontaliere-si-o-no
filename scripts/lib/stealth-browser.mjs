@@ -1,16 +1,13 @@
 /**
- * stealth-browser.mjs — CloakBrowser (Chromium patched at the source level)
- * where an anti-bot check or a CAPTCHA stands in the way, the usual Playwright
- * Chromium everywhere else.
+ * stealth-browser.mjs — crawler-only CloakBrowser support. The assisted
+ * application runner uses stock Playwright Chromium and hands CAPTCHA and
+ * anti-bot challenges to Valerie instead of masking automation.
  *
- * Owner decision 2026-11-09 (replaces the 2026-10-01 «nothing is disguised»):
- * the assisted application and the crawlers present themselves as a real
- * user's browser and get past the challenges. Each use has its own CloakBrowser
- * license key (one concurrent session each, Remote Config):
+ * The crawler is the only caller and uses its own CloakBrowser license key
+ * (one concurrent session, Remote Config):
  *
- *   purpose    flag (RC → env)            key (RC → env)
- *   assisted   STEALTH_BROWSER_ASSISTED   CLOAKBROWSER_LICENSE_KEY_ASSISTED
- *   crawler    STEALTH_BROWSER_CRAWLER    CLOAKBROWSER_LICENSE_KEY_CRAWLER
+ *   purpose    flag (RC → env)           key (RC → env)
+ *   crawler    STEALTH_BROWSER_CRAWLER   CLOAKBROWSER_LICENSE_KEY_CRAWLER
  *
  * The flag's safe local default is off ('0'): without Remote Config nothing
  * changes. Activation is per run: the workflow's `node scripts/load-rc-env.mjs`
@@ -25,7 +22,6 @@
 import { ensureChromiumInstalled, launchChromium, __test as chromiumTest } from './ensure-chromium.mjs';
 
 export const STEALTH_PURPOSES = Object.freeze({
-  assisted: Object.freeze({ flag: 'STEALTH_BROWSER_ASSISTED', key: 'CLOAKBROWSER_LICENSE_KEY_ASSISTED' }),
   crawler: Object.freeze({ flag: 'STEALTH_BROWSER_CRAWLER', key: 'CLOAKBROWSER_LICENSE_KEY_CRAWLER' }),
 });
 
@@ -61,10 +57,7 @@ export function classifyStealthFailure(error) {
   return 'launch_error';
 }
 
-/**
- * A desktop Chrome user agent for the browser's own major version, without
- * "Headless": what a vanilla Chromium sends when it should not look like a bot.
- */
+/** A desktop Chrome user agent used only by the separately scoped crawler. */
 export function chromeUserAgent(version, platform = process.platform) {
   const system = platform === 'darwin' ? 'Macintosh; Intel Mac OS X 10_15_7' : platform === 'win32' ? 'Windows NT 10.0; Win64; x64' : 'X11; Linux x86_64';
   const major = /^\d+/.exec(String(version || ''))?.[0] || '140';
@@ -108,7 +101,7 @@ async function lateDenial(cloak, browser, waitMs) {
  * a tell), and should pass viewport: null so the page follows the window.
  *
  * @param {object} options
- * @param {'assisted'|'crawler'} options.purpose
+ * @param {'crawler'} options.purpose
  * @param {boolean} [options.headless=true]
  * @param {string} [options.locale] e.g. 'de-CH'
  * @param {string} [options.timezone='Europe/Zurich']
