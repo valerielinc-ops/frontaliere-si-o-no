@@ -107,6 +107,25 @@ function runGit(args) {
 }
 
 /**
+ * Attribute `git grep <commit> -- <path>` output to the matched slice.
+ * Its line format starts with `<commit>:<path>:<line>:<content>`; the commit
+ * must be stripped before looking for the path separator.
+ */
+export function attributeRetranslationMatches(output = '', commit = '') {
+  const byCrawler = {};
+  const prefix = `${commit}:`;
+  for (const match of String(output).split(/\r?\n/).filter(Boolean)) {
+    if (!commit || !match.startsWith(prefix)) continue;
+    const pathAndLine = match.slice(prefix.length);
+    const separator = pathAndLine.indexOf(':');
+    if (separator < 1) continue;
+    const file = path.posix.basename(pathAndLine.slice(0, separator));
+    if (file) byCrawler[file] = (byCrawler[file] || 0) + 1;
+  }
+  return byCrawler;
+}
+
+/**
  * Locate the commit that anchors the translation-backlog baseline. The
  * workflow's "Deepen history" step widens the checkout past `windowDays`
  * before this runs, but that widening is a separate CI step outside this
@@ -134,12 +153,7 @@ function baselineRetranslation(windowDays, relativeDataDir) {
   }
   const byCrawler = {};
   const matches = result.stdout.split(/\r?\n/).filter(Boolean);
-  for (const match of matches) {
-    const separator = match.indexOf(':');
-    if (separator < 1) continue;
-    const file = path.posix.basename(match.slice(0, separator));
-    byCrawler[file] = (byCrawler[file] || 0) + 1;
-  }
+  Object.assign(byCrawler, attributeRetranslationMatches(result.stdout, commit));
   return { commit, count: matches.length, byCrawler };
 }
 
