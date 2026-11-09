@@ -2247,6 +2247,7 @@ jobs:
         id: sync_factuality_attestation
         if: >-
           ${{
+            steps.body_contract.outcome != 'failure' &&
             github.event_name == 'pull_request' &&
             github.event.pull_request.base.ref == 'main' &&
             github.event.pull_request.head.ref == 'chore/sync-articles-sitemaps' &&
