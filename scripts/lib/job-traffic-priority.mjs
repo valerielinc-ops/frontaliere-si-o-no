@@ -496,7 +496,7 @@ export function buildTrafficPriority(pending, popularity, opts = {}) {
   // policy for every caller.
   const priorityBeforeFresh = Boolean(priorityOf && opts.priorityBeforeFresh === true);
   const priorityEntries = priorityBeforeFresh
-    ? scored.filter((entry) => priorityOf(entry.job) && !isFresh(entry))
+    ? scored.filter((entry) => priorityOf(entry.job) && Number.isFinite(entry.queuedAt) && !isFuture(entry) && !isFresh(entry))
     : [];
   const priorityIndexes = new Set(priorityEntries.map((entry) => entry.index));
   const regularScored = priorityBeforeFresh

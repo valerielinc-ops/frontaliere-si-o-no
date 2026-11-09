@@ -275,6 +275,30 @@ describe('local-mt-mopup missingSlots()', () => {
     expect(stats.freshHead).toBe(1);
     expect(stats.freshDeferred).toBe(1);
   });
+
+  it('keeps a future source-copy repair out of the pre-fresh prefix', () => {
+    const now = Date.now();
+    const candidates = [
+      {
+        slug: 'future-source-copy',
+        firstSeenAt: new Date(now + 60 * 60 * 1000).toISOString(),
+        sourceCopyDescription: true,
+      },
+      {
+        slug: 'fresh-general',
+        firstSeenAt: new Date(now - 60 * 60 * 1000).toISOString(),
+      },
+    ];
+
+    const { selected } = orderMopupJobsByTraffic(
+      candidates,
+      { 'future-source-copy': 500, 'fresh-general': 1 },
+      1,
+      { priorityOf: (job: any) => job.sourceCopyDescription === true },
+    );
+
+    expect(selected.map((job: any) => job.slug)).toEqual(['fresh-general']);
+  });
 });
 
 function auditTitleTarget({ id, sourceLang, locale, sourceText, existing, company }) {
