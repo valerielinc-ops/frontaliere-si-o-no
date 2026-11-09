@@ -1,7 +1,7 @@
 {
   "crawlerKey": "endeso",
-  "assembledAt": "2026-11-08T22:10:35.018Z",
-  "runId": "42524208373",
+  "assembledAt": "2026-11-09T09:29:15.153Z",
+  "runId": "42591923938",
   "jobs": [
     {
       "id": "endeso-059be3085543",
@@ -34,7 +34,7 @@
       "url": "https://endeso.ch/jobs/job-28135-webentwickler-in-backend-php/",
       "source": "endeso GmbH Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T22:10:29.275Z",
+      "crawledAt": "2026-11-09T09:29:10.008Z",
       "addressLocality": "Thurgau",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -93,7 +93,7 @@
       },
       "firstSeenAt": "2026-10-23T09:46:03.738Z",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-20T22:10:29.275Z",
+      "validThrough": "2027-01-20T09:29:10.008Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -127,7 +127,7 @@
       "url": "https://endeso.ch/jobs/job-28134-haushaltshilfe-raumpflege-teilzeit-region-zuerich-stadt/",
       "source": "endeso GmbH Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T22:10:29.275Z",
+      "crawledAt": "2026-11-09T09:29:10.008Z",
       "addressLocality": "Zürich Stadt",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -180,7 +180,7 @@
       },
       "firstSeenAt": "2026-10-23T09:46:03.738Z",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-20T22:10:29.275Z",
+      "validThrough": "2027-01-20T09:29:10.008Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -214,7 +214,7 @@
       "url": "https://endeso.ch/jobs/job-28137-regionalbetreiber-luzern/",
       "source": "endeso GmbH Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T22:10:29.274Z",
+      "crawledAt": "2026-11-09T09:29:10.007Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -265,7 +265,7 @@
       },
       "firstSeenAt": "2026-10-23T09:46:03.737Z",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-20T22:10:29.274Z",
+      "validThrough": "2027-01-20T09:29:10.007Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -299,7 +299,7 @@
       "url": "https://endeso.ch/jobs/job-28136-personalberater-in-hr-funktionen/",
       "source": "endeso GmbH Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T22:10:29.274Z",
+      "crawledAt": "2026-11-09T09:29:10.007Z",
       "addressLocality": "Frauenfeld",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -357,7 +357,7 @@
         "streetAddressSource": "zefix-registry"
       },
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-20T22:10:29.274Z",
+      "validThrough": "2027-01-20T09:29:10.007Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -391,7 +391,7 @@
       "url": "https://endeso.ch/jobs/job-28139-regionalbetreiber-bern/",
       "source": "endeso GmbH Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T22:10:29.273Z",
+      "crawledAt": "2026-11-09T09:29:10.006Z",
       "addressLocality": "Region Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -434,7 +434,7 @@
       },
       "firstSeenAt": "2026-09-19T23:00:29.195Z",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-10T22:10:29.273Z",
+      "validThrough": "2026-12-10T09:29:10.006Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -468,7 +468,7 @@
       "url": "https://endeso.ch/jobs/job-28138-regionalbetreiber-zug/",
       "source": "endeso GmbH Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T22:10:29.273Z",
+      "crawledAt": "2026-11-09T09:29:10.006Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -515,84 +515,7 @@
       },
       "firstSeenAt": "2026-10-08T21:30:36.198Z",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-10T22:10:29.273Z",
-      "validThroughSource": "last-observed-window"
-    },
-    {
-      "id": "endeso-b57322022c3e",
-      "slug": "housekeeper-impiegato-in-stipendio-mensile-famiglia-privata-endeso-gmbh-zug",
-      "slugByLocale": {
-        "it": "housekeeper-impiegato-in-stipendio-mensile-famiglia-privata-endeso-gmbh-zug",
-        "en": "housekeeper-employed-in-monthly-salary-private-household-endeso-gmbh-zug",
-        "de": "haushalterin-im-monatsgehalt-angestellt-privathaushalt-zug-endeso-ch",
-        "fr": "menage-employe-dans-le-salaire-mensuel-menage-prive-endeso-gmbh-zug"
-      },
-      "company": "endeso GmbH",
-      "companyKey": "endeso",
-      "companyDomain": "endeso.ch",
-      "title": "Haushälterin im Monatsgehalt angestellt - Privathaushalt",
-      "titleByLocale": {
-        "it": "Housekeeper impiegato in stipendio mensile - famiglia privata",
-        "en": "Housekeeper employed in monthly salary - private household",
-        "de": "Haushälterin im Monatsgehalt angestellt - Privathaushalt",
-        "fr": "Ménage employé dans le salaire mensuel - ménage privé"
-      },
-      "description": "Zurück\nHaushälterin im Monatsgehalt angestellt - Privathaushalt\nFestanstellung / Zug\nFür unsere Mandantin in Cham ZG suchen wir für einen gehobenen Einpersonenhaushalt per sofort oder nach Vereinbarung eine erfahrene Haushälterin für eine abwechslungsreiche Position im Pensum von 60 bis 100 %.\nAls wichtige Unterstützung im Alltag sorgen Sie für einen gepflegten, gut organisierten Haushalt und entlasten die Kundschaft bei den täglichen hauswirtschaftlichen Aufgaben.\nZu Ihrem Verantwortungsbereich gehören die allgemeine Haushaltsführung, die Wäschepflege inklusive Waschen und Bügeln sowie die Zubereitung gesunder und abwechslungsreicher Mahlzeiten. Idealerweise bringen Sie zudem Erfahrung im Servieren und im Umgang mit Gästen mit.\nAbgerundet wird Ihr abwechslungsreicher Aufgabenbereich durch die Erledigung von Einkäufen, die Koordination von Handwerkern sowie die Übernahme gelegentlich anfallender, leichter Gartenarbeiten.\nSie arbeiten an festen Tagen von Montag bis Freitag und sind zudem flexibel für Abend- und Wochenendeinsätze.\nDiese Position bietet Ihnen die aussergewöhnliche Chance auf eine direkte Festanstellung in einem exklusiven Privathaushalt, in dem Sie Ihre Fähigkeiten vollständig entfalten können.\nWas Sie mitbringen sollten:\n- Mehrjährige Erfahrung als Haushaltshilfe im Privathaushalt\n- Erfahrung im Umgang mit hochwertigen Materialien\n- fundierte Kenntnisse in der Wäschepflege, einschliesslich des Waschens und Bügelns\n- Hohe Zuverlässigkeit, Diskretion und starkes Verantwortungsbewusstsein\n- Selbstständigkeit und ein ausgeprägtes Auge für Ordnung und Details\n- Langfristige Anstellung angestrebt\n- Fliessende Deutschkenntnisse\nWas Sie erwartet:\n- Wertschätzendes, persönliches Arbeitsumfeld\n- Historischer, stilvoll gepflegter Privathaushalt\n- Attraktive Vergütung mit einzigartiger Vorsorgelösung\n- 5 Wochen Ferien & langfristige Anstellung\n- Kurze Entscheidungswege\n- Kleines, motiviertes Team mit gutem Zusammenhalt\nHaben wir Ihr Interesse geweckt?\nBewerben Sie sich online und erfahren Sie mehr über die oben aufgeführte Vakanz. Wir offerieren Ihnen auch gerne weitere interessante Stellen/Projekte, welche wir nicht online publizieren.*\nRef.-Nummer:\n28141\nStellenart:\nFestanstellung\nPensum:\n60% bis 100%\nStellenort:\nZug",
-      "descriptionByLocale": {
-        "it": "Indietro\nHousekeeper impiegato in stipendio mensile - famiglia privata\nLavoro permanente / treno\nPer il nostro cliente a Cham ZG, siamo alla ricerca di una famiglia di una persona di lusso con immediato o su appuntamento una governante esperta per una posizione variata nella quantità di 60 al 100%.\nCome supporto importante nella vita di tutti i giorni, fornisci una famiglia ben curata e ben organizzata e allevi il cliente nelle attività domestiche quotidiane.\nLe vostre responsabilità includono la gestione generale delle famiglie, la lavanderia, compreso il lavaggio e la stiratura, e la preparazione di pasti sani e vari. Idealmente, si porta anche esperienza nel servire e trattare con gli ospiti.\nLa vostra variegata area di lavoro è arrotondata completando gli acquisti, coordinando artigiani e prendendo occasionalmente, lavori di giardinaggio leggero.\nLavorano nei giorni fissi dal lunedì al venerdì e sono anche flessibili per le assegnazioni serali e weekend.\nQuesta posizione ti offre la straordinaria possibilità di una posizione permanente diretta in un'esclusiva famiglia privata dove puoi sviluppare pienamente le tue abilità.\nCosa dovreste portare:\n- Diversi anni di esperienza come aiutante domestico privato\n- Esperienza nella gestione di materiali di alta qualità\n- Conoscenza approfondita della lavanderia, tra cui lavaggio e stiratura\n- Alta affidabilità, discrezione e un forte senso di responsabilità\n- Indipendenza e un occhio attento per ordine e dettaglio\n- Occupazione a lungo termine\n- Conoscenze di flusso del tedesco\nCosa aspettarsi:\n- Ambiente di lavoro personalizzato\n- Casa privata storica, elegantemente mantenuta\n- Compensazione attraente con una soluzione pensione unica\n- 5 settimane di ferie e di lavoro a lungo termine\n- Percorsi decisionali brevi\n- Piccolo e motivato team con buona coesione\nAbbiamo suscitato il vostro interesse?\nApplicare online e saperne di più sul posto vacante di cui sopra. Siamo anche felici di offrirvi altri lavori interessanti / progetti che non pubblichiamo online. *\nNumero di riferimento:\n27902\nTipo di lavoro:\nOccupazione permanente\nPensum:\n60% al 100%\nPosizione:\nTreno\nFile di caricamento (possibile selezione multipla) Sono d'accordo con le disposizioni di protezione dei dati.",
-        "en": "Back\nHousekeeper employed in monthly salary - private household\nPermanent employment / Train\nFor our client in Cham ZG, we are looking for an upscale one-person household with immediate or by appointment an experienced housekeeper for a varied position in the amount of 60 to 100%.\nAs an important support in everyday life, you provide a well-kept, well-organized household and relieve the customer in the daily domestic tasks.\nYour responsibilities include general household management, laundry care including washing and ironing, and the preparation of healthy and varied meals. Ideally, you also bring experience in serving and dealing with guests.\nYour varied task area is rounded off by completing purchases, coordinating craftsmen and taking on occasional, light gardening work.\nThey work on fixed days from Monday to Friday and are also flexible for evening and weekend assignments.\nThis position offers you the extraordinary chance of a direct permanent position in an exclusive private household where you can fully develop your skills.\nWhat you should bring:\n- Several years of experience as a private household helper\n- Experience in handling high-quality materials\n- In-depth knowledge of laundry care, including washing and ironing\n- High reliability, discretion and a strong sense of responsibility\n- Independence and a keen eye for order and detail\n- Long-term employment\n- Flowing knowledge of German\nWhat to expect:\n- Appreciative, personal working environment\n- Historical, stylishly maintained private household\n- Attractive compensation with a unique pension solution\n- 5 weeks of holidays and long-term employment\n- Short decision paths\n- Small, motivated team with good cohesion\nHave we aroused your interest?\nApply online and learn more about the vacancy listed above. We are also happy to offer you other interesting jobs / projects that we do not publish online. *\nReference number:\n27902\nJob type:\nPermanent employment\nPensum:\n60% to 100%\nLocation:\nTrain\nUpload file (multiple selection possible) I agree with the data protection provisions.",
-        "de": "Zurück\nHaushälterin im Monatsgehalt angestellt - Privathaushalt\nFestanstellung / Zug\nFür unsere Mandantin in Cham ZG suchen wir für einen gehobenen Einpersonenhaushalt per sofort oder nach Vereinbarung eine erfahrene Haushälterin für eine abwechslungsreiche Position im Pensum von 60 bis 100 %.\nAls wichtige Unterstützung im Alltag sorgen Sie für einen gepflegten, gut organisierten Haushalt und entlasten die Kundschaft bei den täglichen hauswirtschaftlichen Aufgaben.\nZu Ihrem Verantwortungsbereich gehören die allgemeine Haushaltsführung, die Wäschepflege inklusive Waschen und Bügeln sowie die Zubereitung gesunder und abwechslungsreicher Mahlzeiten. Idealerweise bringen Sie zudem Erfahrung im Servieren und im Umgang mit Gästen mit.\nAbgerundet wird Ihr abwechslungsreicher Aufgabenbereich durch die Erledigung von Einkäufen, die Koordination von Handwerkern sowie die Übernahme gelegentlich anfallender, leichter Gartenarbeiten.\nSie arbeiten an festen Tagen von Montag bis Freitag und sind zudem flexibel für Abend- und Wochenendeinsätze.\nDiese Position bietet Ihnen die aussergewöhnliche Chance auf eine direkte Festanstellung in einem exklusiven Privathaushalt, in dem Sie Ihre Fähigkeiten vollständig entfalten können.\nWas Sie mitbringen sollten:\n- Mehrjährige Erfahrung als Haushaltshilfe im Privathaushalt\n- Erfahrung im Umgang mit hochwertigen Materialien\n- fundierte Kenntnisse in der Wäschepflege, einschliesslich des Waschens und Bügelns\n- Hohe Zuverlässigkeit, Diskretion und starkes Verantwortungsbewusstsein\n- Selbstständigkeit und ein ausgeprägtes Auge für Ordnung und Details\n- Langfristige Anstellung angestrebt\n- Fliessende Deutschkenntnisse\nWas Sie erwartet:\n- Wertschätzendes, persönliches Arbeitsumfeld\n- Historischer, stilvoll gepflegter Privathaushalt\n- Attraktive Vergütung mit einzigartiger Vorsorgelösung\n- 5 Wochen Ferien & langfristige Anstellung\n- Kurze Entscheidungswege\n- Kleines, motiviertes Team mit gutem Zusammenhalt\nHaben wir Ihr Interesse geweckt?\nBewerben Sie sich online und erfahren Sie mehr über die oben aufgeführte Vakanz. Wir offerieren Ihnen auch gerne weitere interessante Stellen/Projekte, welche wir nicht online publizieren.*\nRef.-Nummer:\n28141\nStellenart:\nFestanstellung\nPensum:\n60% bis 100%\nStellenort:\nZug",
-        "fr": "Précédent\nMénage employé dans le salaire mensuel - ménage privé\nEmploi permanent / Train\nPour notre client à Cham ZG, nous recherchons un foyer haut de gamme avec immédiatement ou sur rendez-vous une femme de ménage expérimentée pour un poste varié de 60 à 100%.\nComme un soutien important dans la vie quotidienne, vous fournissez un ménage bien entretenu, bien organisé et soulager le client dans les tâches domestiques quotidiennes.\nVos responsabilités comprennent la gestion générale du ménage, les soins de blanchisserie, y compris le lavage et le repassage, et la préparation de repas sains et variés. Idéalement, vous apportez également de l'expérience dans le service et les relations avec les invités.\nVotre zone de travail variée est complétée par l'achèvement des achats, la coordination des artisans et des travaux occasionnels de jardinage léger.\nIls travaillent les jours fixes du lundi au vendredi et sont également flexibles pour les affectations du soir et du week-end.\nCe poste vous offre l'extraordinaire chance d'une position permanente directe dans un foyer privé exclusif où vous pouvez développer pleinement vos compétences.\nCe que vous devriez apporter:\n- Plusieurs années d'expérience en tant qu'aide familiale privée\n- Expérience dans la manipulation de matériaux de haute qualité\n- Connaissance approfondie de la lessive, y compris le lavage et le repassage\n- Haute fiabilité, discrétion et sens des responsabilités\n- Indépendance et souci de l'ordre et du détail\n- Emploi de longue durée\n- Connaissance de l'allemand\nÀ quoi s'attendre :\n- Environnement de travail personnel et apprécié\n- Historique, élégamment entretenu ménage privé\n- Compensation attrayante avec une solution de retraite unique\n- 5 semaines de vacances et d'emploi à long terme\n- Voies de décision courtes\n- Petite équipe motivée avec une bonne cohésion\nAvons-nous suscité votre intérêt ?\nPostuler en ligne et en savoir plus sur le poste vacant mentionné ci-dessus. Nous sommes également heureux de vous offrir d'autres emplois / projets intéressants que nous ne publions pas en ligne. *\nNuméro de référence:\n27902\nType d'emploi:\nEmploi permanent\nUn stylo :\n60% à 100%\nLieu:\nTrain\nTélécharger le fichier (sélection multiple possible) Je suis d'accord avec les dispositions relatives à la protection des données."
-      },
-      "location": "Zug",
-      "canton": "ZG",
-      "url": "https://endeso.ch/jobs/job-28141-haushaelterin-im-monatsgehalt-angestellt-privathaushalt/",
-      "source": "endeso GmbH Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-08T22:10:29.271Z",
-      "addressLocality": "Zug",
-      "addressRegion": "ZG",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "6300",
-      "streetAddress": "Zug",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 69500,
-          "maxValue": 106000,
-          "unitText": "YEAR"
-        }
-      },
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-09-11",
-      "postedDate": "2026-09-11",
-      "postingDateSource": "reported",
-      "applyUrl": "https://endeso.ch/jobs/job-28141-haushaelterin-im-monatsgehalt-angestellt-privathaushalt/",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "salaryMin": 69500,
-      "salaryMax": 106000,
-      "salarySource": "estimated",
-      "previousSlugs": [
-        "haushalterin-im-monatsgehalt-angestellt-privathaushalt-zug-endeso-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "haushalterin-im-monatsgehalt-angestellt-privathaushalt-zug-endeso-ch"
-        ]
-      },
-      "firstSeenAt": "2026-09-19T23:00:29.189Z",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-10T22:10:29.271Z",
+      "validThrough": "2026-12-10T09:29:10.006Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -626,7 +549,7 @@
       "url": "https://endeso.ch/jobs/job-28140-regionale-repraesentantin-swissbutler/",
       "source": "endeso GmbH Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T22:10:29.271Z",
+      "crawledAt": "2026-11-09T09:29:10.004Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -669,7 +592,163 @@
       },
       "firstSeenAt": "2026-09-19T23:00:29.190Z",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-10T22:10:29.271Z",
+      "validThrough": "2026-12-10T09:29:10.004Z",
+      "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "endeso-66216181cba7",
+      "slug": "capo-giardiniere-per-il-parcheggio-di-un-castello-endeso-gmbh-zug",
+      "slugByLocale": {
+        "it": "capo-giardiniere-per-il-parcheggio-di-un-castello-endeso-gmbh-zug",
+        "en": "chief-gardener-for-the-parking-of-a-castle-endeso-gmbh-zug",
+        "de": "chefgartner-in-fur-die-parkanlage-eines-schlosses-zug-endeso-ch",
+        "fr": "chef-jardinier-pour-le-parking-d-un-chateau-endeso-gmbh-zug"
+      },
+      "company": "endeso GmbH",
+      "companyKey": "endeso",
+      "companyDomain": "endeso.ch",
+      "title": "Chefgärtner/in für die Parkanlage eines Schlosses",
+      "titleByLocale": {
+        "it": "Capo giardiniere per il parcheggio di un castello",
+        "en": "Chief gardener for the parking of a castle",
+        "de": "Chefgärtner/in für die Parkanlage eines Schlosses",
+        "fr": "Chef jardinier pour le parking d'un château"
+      },
+      "description": "Zurück\nChefgärtner/in für die Parkanlage eines Schlosses\nFestanstellung / Zug\nFür unsere Mandantin in Cham ZG suchen wir per sofort oder nach Vereinbarung eine erfahrene Chefgärtnerin oder einen erfahrenen Chefgärtner (80 bis 100 %) für einen einzigartigen historischen Schlosspark in zentraler Lage am Zugersee.\nIn dieser verantwortungsvollen Schlüsselposition wirken Sie aktiv an der Weiterentwicklung eines einzigartigen Parkprojekts mit, das Tradition und Zukunft auf besondere Weise verbindet.\nZu Ihren Aufgaben gehören die Pflege, Instandhaltung und kontinuierliche Weiterentwicklung der gesamten Parkanlage sowie die Betreuung des Obst- und Gemüseanbaus. Darüber hinaus übernehmen Sie Wartungs-, Unterhalts- und Reinigungsarbeiten an Maschinen, Geräten und Gebäuden.\nGemeinsam mit einem kleinen, eingespielten Gärtnerteam sorgen Sie dafür, dass die Anlage ganzjährig in einem repräsentativen und gepflegten Zustand bleibt.\nWas Sie mitbringen sollten:\n- Berufserfahrung als Gärtner/in EFZ, Obergärtner/in FA oder vergleichbare Qualifikationen\n- Eigeninitiative, Organisationsfähigkeit, Teamführungsqualitäten\n- Interesse an der Kreislaufwirtschaft, Neugierde für ökologische Parkpflege, Nachhaltigkeit und Biodiversität\n- Auge für Ästhetik und Details\n- Strukturierte Arbeitsweise sowie geübter Umgang mit MS-Office-Programmen\n- Langfristige Anstellung angestrebt\n- Führerschein der Kategorie B\n- Fliessende Deutschkenntnisse\nWas Sie erwartet:\n- Wertschätzendes, motivierendes Arbeitsumfeld\n- Flache Hierarchie mit kurzen Entscheidungswegen und umfangreichem Gestaltungsspielraum\n- Attraktive Vergütung mit einzigartiger Vorsorgelösung\n- Moderner Maschinenpark\n- 5 Wochen Ferien\nHaben wir Ihr Interesse geweckt?\nBewerben Sie sich online und erfahren Sie mehr über die oben aufgeführte Vakanz. Wir offerieren Ihnen auch gerne weitere interessante Stellen/Projekte, welche wir nicht online publizieren.*\nRef.-Nummer:\n28142\nStellenart:\nFestanstellung\nPensum:\n80% bis 100%\nStellenort:\nZug",
+      "descriptionByLocale": {
+        "it": "Indietro\nCapo giardiniere per il parcheggio di un castello\nLavoro permanente / treno\nPer il nostro cliente a Cham ZG, siamo alla ricerca di un esperto giardiniere (da 80 a 100%) per un parco di castello storico unico in una posizione centrale sul lago Zug.\nIn questa posizione chiave responsabile, siete attivamente coinvolti nell'ulteriore sviluppo di un progetto di parcheggio unico che combina tradizione e futuro in modo speciale.\nI vostri compiti includono la cura, la manutenzione e lo sviluppo continuo dell'intero parco, nonché la cura della coltivazione di frutta e verdura. Inoltre, si occupa di manutenzione, manutenzione e pulizia su macchine, attrezzature e edifici.\nInsieme a una piccola squadra di giardinieri esperti, si assicura che il complesso resti in una condizione rappresentativa e ben tenuto tutto l'anno.\nCosa dovreste portare:\n- Esperienza professionale come giardiniere EFZ, giardiniere superiore/FA o qualifiche comparabili\n- Iniziativa, capacità organizzativa, competenze di leadership di squadra\n- Interesse nell'economia circolare, curiosità per il parcheggio ecologico, la sostenibilità e la biodiversità\n- Occhio per Estetica e Dettagli\n- Metodi di lavoro strutturati e gestione esperta dei programmi MS-Office\n- Occupazione a lungo termine\n- Titolo di guida della categoria B\n- Conoscenze di flusso del tedesco\nCosa aspettarsi:\n- Ambiente di lavoro sensibile e motivante\n- Gerarchia piatta con brevi percorsi decisionali e ampia portata per il design\n- Compensazione attraente con una soluzione pensione unica\n- Moderno parco macchine\n- 5 settimane di vacanza\nAbbiamo suscitato il vostro interesse?\nApplicare online e saperne di più sul posto vacante di cui sopra. Siamo anche felici di offrirvi altri lavori interessanti / progetti che non pubblichiamo online. *\nNumero di riferimento:\n27903\nTipo di lavoro:\nOccupazione permanente\nPensum:\n80% al 100%\nPosizione:\nTreno",
+        "en": "Back\nChief gardener for the parking area of a castle\nPermanent employment / Train\nFor our client in Cham ZG, we are looking for an experienced chief gardener (80 to 100%) for a unique historic castle park in a central location on Lake Zug.\nIn this responsible key position, you are actively involved in the further development of a unique parking project that combines tradition and future in a special way.\nYour tasks include the care, maintenance and continuous development of the entire park as well as the care of fruit and vegetable cultivation. In addition, you take over maintenance, maintenance and cleaning work on machines, equipment and buildings.\nTogether with a small team of experienced gardeners, you ensure that the complex remains in a representative and well-kept condition all year round.\nWhat you should bring:\n- Professional experience as an EFZ gardener, upper gardener/FA or comparable qualifications\n- Initiative, organisational capacity, team leadership skills\n- Interest in the circular economy, curiosity for ecological parking, sustainability and biodiversity\n- Eye for Aesthetics and Details\n- Structured working methods and experienced handling of MS-Office programs\n- Long-term employment\n- Category B driving licence\n- Flowing knowledge of German\nWhat to expect:\n- Appreciative, motivating working environment\n- Flat hierarchy with short decision paths and extensive scope for design\n- Attractive compensation with a unique pension solution\n- Modern machinery park\n- 5 weeks holiday\nHave we aroused your interest?\nApply online and learn more about the vacancy listed above. We are also happy to offer you other interesting jobs / projects that we do not publish online. *\nReference number:\n27903\nJob type:\nPermanent employment\nPensum:\n80% to 100%\nLocation:\nTrain",
+        "de": "Zurück\nChefgärtner/in für die Parkanlage eines Schlosses\nFestanstellung / Zug\nFür unsere Mandantin in Cham ZG suchen wir per sofort oder nach Vereinbarung eine erfahrene Chefgärtnerin oder einen erfahrenen Chefgärtner (80 bis 100 %) für einen einzigartigen historischen Schlosspark in zentraler Lage am Zugersee.\nIn dieser verantwortungsvollen Schlüsselposition wirken Sie aktiv an der Weiterentwicklung eines einzigartigen Parkprojekts mit, das Tradition und Zukunft auf besondere Weise verbindet.\nZu Ihren Aufgaben gehören die Pflege, Instandhaltung und kontinuierliche Weiterentwicklung der gesamten Parkanlage sowie die Betreuung des Obst- und Gemüseanbaus. Darüber hinaus übernehmen Sie Wartungs-, Unterhalts- und Reinigungsarbeiten an Maschinen, Geräten und Gebäuden.\nGemeinsam mit einem kleinen, eingespielten Gärtnerteam sorgen Sie dafür, dass die Anlage ganzjährig in einem repräsentativen und gepflegten Zustand bleibt.\nWas Sie mitbringen sollten:\n- Berufserfahrung als Gärtner/in EFZ, Obergärtner/in FA oder vergleichbare Qualifikationen\n- Eigeninitiative, Organisationsfähigkeit, Teamführungsqualitäten\n- Interesse an der Kreislaufwirtschaft, Neugierde für ökologische Parkpflege, Nachhaltigkeit und Biodiversität\n- Auge für Ästhetik und Details\n- Strukturierte Arbeitsweise sowie geübter Umgang mit MS-Office-Programmen\n- Langfristige Anstellung angestrebt\n- Führerschein der Kategorie B\n- Fliessende Deutschkenntnisse\nWas Sie erwartet:\n- Wertschätzendes, motivierendes Arbeitsumfeld\n- Flache Hierarchie mit kurzen Entscheidungswegen und umfangreichem Gestaltungsspielraum\n- Attraktive Vergütung mit einzigartiger Vorsorgelösung\n- Moderner Maschinenpark\n- 5 Wochen Ferien\nHaben wir Ihr Interesse geweckt?\nBewerben Sie sich online und erfahren Sie mehr über die oben aufgeführte Vakanz. Wir offerieren Ihnen auch gerne weitere interessante Stellen/Projekte, welche wir nicht online publizieren.*\nRef.-Nummer:\n28142\nStellenart:\nFestanstellung\nPensum:\n80% bis 100%\nStellenort:\nZug",
+        "fr": "Précédent\nChef jardinier pour le parking d'un château\nEmploi permanent / Train\nPour notre client à Cham ZG, nous recherchons un chef jardinier expérimenté (80 à 100%) pour un parc historique unique dans un emplacement central sur le lac Zug.\nDans cette position clé responsable, vous participez activement au développement d'un projet de stationnement unique qui allie tradition et avenir d'une manière spéciale.\nVos tâches comprennent le soin, l'entretien et le développement continu de l'ensemble du parc ainsi que le soin de la culture des fruits et légumes. En outre, vous prenez en charge l'entretien, l'entretien et le nettoyage des machines, des équipements et des bâtiments.\nAvec une petite équipe de jardiniers expérimentés, vous assurez que le complexe reste dans un état représentatif et bien entretenu toute l'année.\nCe que vous devriez apporter:\n- Expérience professionnelle en tant que jardinier EFZ, jardinier supérieur/FA ou qualifications comparables\n- Initiative, capacité organisationnelle, compétences en leadership d'équipe\n- Intérêt pour l'économie circulaire, curiosité pour le stationnement écologique, durabilité et biodiversité\n- Oeil pour l'esthétique et les détails\n- Méthodes de travail structurées et traitement expérimenté des programmes MS-Office\n- Emploi de longue durée\n- Permis de conduire de catégorie B\n- Connaissance de l'allemand\nÀ quoi s'attendre :\n- Appréciation, motivation de l'environnement de travail\n- Hiérarchie plate avec chemins de décision courts et vaste portée pour la conception\n- Compensation attrayante avec une solution de retraite unique\n- Parc de machines modernes\n- 5 semaines de vacances\nAvons-nous suscité votre intérêt ?\nPostuler en ligne et en savoir plus sur le poste vacant mentionné ci-dessus. Nous sommes également heureux de vous offrir d'autres emplois / projets intéressants que nous ne publions pas en ligne. *\nNuméro de référence:\n27903\nType d'emploi:\nEmploi permanent\nUn stylo :\n80% à 100%\nLieu:\nTrain"
+      },
+      "location": "Zug",
+      "canton": "ZG",
+      "url": "https://endeso.ch/jobs/job-28142-chefgaertner-in-fuer-die-parkanlage-eines-schlosses/",
+      "source": "endeso GmbH Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-09T09:29:10.003Z",
+      "addressLocality": "Zug",
+      "addressRegion": "ZG",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "6300",
+      "streetAddress": "Zug",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 69500,
+          "maxValue": 106000,
+          "unitText": "YEAR"
+        }
+      },
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "senior",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-09-11",
+      "postedDate": "2026-09-11",
+      "postingDateSource": "reported",
+      "applyUrl": "https://endeso.ch/jobs/job-28142-chefgaertner-in-fuer-die-parkanlage-eines-schlosses/",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "salaryMin": 69500,
+      "salaryMax": 106000,
+      "salarySource": "reported",
+      "previousSlugs": [
+        "chefgartner-in-per-la-parkanlage-eines-schlosses-endeso-gmbh-zug",
+        "chefgartner-in-fur-die-parkanlage-eines-schlosses-zug-endeso-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "chefgartner-in-per-la-parkanlage-eines-schlosses-endeso-gmbh-zug",
+          "chefgartner-in-fur-die-parkanlage-eines-schlosses-zug-endeso-ch"
+        ]
+      },
+      "firstSeenAt": "2026-09-19T23:00:29.183Z",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-10T09:29:10.003Z",
+      "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "endeso-b57322022c3e",
+      "slug": "housekeeper-impiegato-in-stipendio-mensile-famiglia-privata-endeso-gmbh-zug",
+      "slugByLocale": {
+        "it": "housekeeper-impiegato-in-stipendio-mensile-famiglia-privata-endeso-gmbh-zug",
+        "en": "housekeeper-employed-in-monthly-salary-private-household-endeso-gmbh-zug",
+        "de": "haushalterin-im-monatsgehalt-angestellt-privathaushalt-zug-endeso-ch",
+        "fr": "menage-employe-dans-le-salaire-mensuel-menage-prive-endeso-gmbh-zug"
+      },
+      "company": "endeso GmbH",
+      "companyKey": "endeso",
+      "companyDomain": "endeso.ch",
+      "title": "Haushälterin im Monatsgehalt angestellt - Privathaushalt",
+      "titleByLocale": {
+        "it": "Housekeeper impiegato in stipendio mensile - famiglia privata",
+        "en": "Housekeeper employed in monthly salary - private household",
+        "de": "Haushälterin im Monatsgehalt angestellt - Privathaushalt",
+        "fr": "Ménage employé dans le salaire mensuel - ménage privé"
+      },
+      "description": "Zurück\nHaushälterin im Monatsgehalt angestellt - Privathaushalt\nFestanstellung / Zug\nFür unsere Mandantin in Cham ZG suchen wir für einen gehobenen Einpersonenhaushalt per sofort oder nach Vereinbarung eine erfahrene Haushälterin für eine abwechslungsreiche Position im Pensum von 60 bis 100 %.\nAls wichtige Unterstützung im Alltag sorgen Sie für einen gepflegten, gut organisierten Haushalt und entlasten die Kundschaft bei den täglichen hauswirtschaftlichen Aufgaben.\nZu Ihrem Verantwortungsbereich gehören die allgemeine Haushaltsführung, die Wäschepflege inklusive Waschen und Bügeln sowie die Zubereitung gesunder und abwechslungsreicher Mahlzeiten. Idealerweise bringen Sie zudem Erfahrung im Servieren und im Umgang mit Gästen mit.\nAbgerundet wird Ihr abwechslungsreicher Aufgabenbereich durch die Erledigung von Einkäufen, die Koordination von Handwerkern sowie die Übernahme gelegentlich anfallender, leichter Gartenarbeiten.\nSie arbeiten an festen Tagen von Montag bis Freitag und sind zudem flexibel für Abend- und Wochenendeinsätze.\nDiese Position bietet Ihnen die aussergewöhnliche Chance auf eine direkte Festanstellung in einem exklusiven Privathaushalt, in dem Sie Ihre Fähigkeiten vollständig entfalten können.\nWas Sie mitbringen sollten:\n- Mehrjährige Erfahrung als Haushaltshilfe im Privathaushalt\n- Erfahrung im Umgang mit hochwertigen Materialien\n- fundierte Kenntnisse in der Wäschepflege, einschliesslich des Waschens und Bügelns\n- Hohe Zuverlässigkeit, Diskretion und starkes Verantwortungsbewusstsein\n- Selbstständigkeit und ein ausgeprägtes Auge für Ordnung und Details\n- Langfristige Anstellung angestrebt\n- Fliessende Deutschkenntnisse\nWas Sie erwartet:\n- Wertschätzendes, persönliches Arbeitsumfeld\n- Historischer, stilvoll gepflegter Privathaushalt\n- Attraktive Vergütung mit einzigartiger Vorsorgelösung\n- 5 Wochen Ferien & langfristige Anstellung\n- Kurze Entscheidungswege\n- Kleines, motiviertes Team mit gutem Zusammenhalt\nHaben wir Ihr Interesse geweckt?\nBewerben Sie sich online und erfahren Sie mehr über die oben aufgeführte Vakanz. Wir offerieren Ihnen auch gerne weitere interessante Stellen/Projekte, welche wir nicht online publizieren.*\nRef.-Nummer:\n28141\nStellenart:\nFestanstellung\nPensum:\n60% bis 100%\nStellenort:\nZug",
+      "descriptionByLocale": {
+        "it": "Indietro\nHousekeeper impiegato in stipendio mensile - famiglia privata\nLavoro permanente / treno\nPer il nostro cliente a Cham ZG, siamo alla ricerca di una famiglia di una persona di lusso con immediato o su appuntamento una governante esperta per una posizione variata nella quantità di 60 al 100%.\nCome supporto importante nella vita di tutti i giorni, fornisci una famiglia ben curata e ben organizzata e allevi il cliente nelle attività domestiche quotidiane.\nLe vostre responsabilità includono la gestione generale delle famiglie, la lavanderia, compreso il lavaggio e la stiratura, e la preparazione di pasti sani e vari. Idealmente, si porta anche esperienza nel servire e trattare con gli ospiti.\nLa vostra variegata area di lavoro è arrotondata completando gli acquisti, coordinando artigiani e prendendo occasionalmente, lavori di giardinaggio leggero.\nLavorano nei giorni fissi dal lunedì al venerdì e sono anche flessibili per le assegnazioni serali e weekend.\nQuesta posizione ti offre la straordinaria possibilità di una posizione permanente diretta in un'esclusiva famiglia privata dove puoi sviluppare pienamente le tue abilità.\nCosa dovreste portare:\n- Diversi anni di esperienza come aiutante domestico privato\n- Esperienza nella gestione di materiali di alta qualità\n- Conoscenza approfondita della lavanderia, tra cui lavaggio e stiratura\n- Alta affidabilità, discrezione e un forte senso di responsabilità\n- Indipendenza e un occhio attento per ordine e dettaglio\n- Occupazione a lungo termine\n- Conoscenze di flusso del tedesco\nCosa aspettarsi:\n- Ambiente di lavoro personalizzato\n- Casa privata storica, elegantemente mantenuta\n- Compensazione attraente con una soluzione pensione unica\n- 5 settimane di ferie e di lavoro a lungo termine\n- Percorsi decisionali brevi\n- Piccolo e motivato team con buona coesione\nAbbiamo suscitato il vostro interesse?\nApplicare online e saperne di più sul posto vacante di cui sopra. Siamo anche felici di offrirvi altri lavori interessanti / progetti che non pubblichiamo online. *\nNumero di riferimento:\n27902\nTipo di lavoro:\nOccupazione permanente\nPensum:\n60% al 100%\nPosizione:\nTreno\nFile di caricamento (possibile selezione multipla) Sono d'accordo con le disposizioni di protezione dei dati.",
+        "en": "Back\nHousekeeper employed in monthly salary - private household\nPermanent employment / Train\nFor our client in Cham ZG, we are looking for an upscale one-person household with immediate or by appointment an experienced housekeeper for a varied position in the amount of 60 to 100%.\nAs an important support in everyday life, you provide a well-kept, well-organized household and relieve the customer in the daily domestic tasks.\nYour responsibilities include general household management, laundry care including washing and ironing, and the preparation of healthy and varied meals. Ideally, you also bring experience in serving and dealing with guests.\nYour varied task area is rounded off by completing purchases, coordinating craftsmen and taking on occasional, light gardening work.\nThey work on fixed days from Monday to Friday and are also flexible for evening and weekend assignments.\nThis position offers you the extraordinary chance of a direct permanent position in an exclusive private household where you can fully develop your skills.\nWhat you should bring:\n- Several years of experience as a private household helper\n- Experience in handling high-quality materials\n- In-depth knowledge of laundry care, including washing and ironing\n- High reliability, discretion and a strong sense of responsibility\n- Independence and a keen eye for order and detail\n- Long-term employment\n- Flowing knowledge of German\nWhat to expect:\n- Appreciative, personal working environment\n- Historical, stylishly maintained private household\n- Attractive compensation with a unique pension solution\n- 5 weeks of holidays and long-term employment\n- Short decision paths\n- Small, motivated team with good cohesion\nHave we aroused your interest?\nApply online and learn more about the vacancy listed above. We are also happy to offer you other interesting jobs / projects that we do not publish online. *\nReference number:\n27902\nJob type:\nPermanent employment\nPensum:\n60% to 100%\nLocation:\nTrain\nUpload file (multiple selection possible) I agree with the data protection provisions.",
+        "de": "Zurück\nHaushälterin im Monatsgehalt angestellt - Privathaushalt\nFestanstellung / Zug\nFür unsere Mandantin in Cham ZG suchen wir für einen gehobenen Einpersonenhaushalt per sofort oder nach Vereinbarung eine erfahrene Haushälterin für eine abwechslungsreiche Position im Pensum von 60 bis 100 %.\nAls wichtige Unterstützung im Alltag sorgen Sie für einen gepflegten, gut organisierten Haushalt und entlasten die Kundschaft bei den täglichen hauswirtschaftlichen Aufgaben.\nZu Ihrem Verantwortungsbereich gehören die allgemeine Haushaltsführung, die Wäschepflege inklusive Waschen und Bügeln sowie die Zubereitung gesunder und abwechslungsreicher Mahlzeiten. Idealerweise bringen Sie zudem Erfahrung im Servieren und im Umgang mit Gästen mit.\nAbgerundet wird Ihr abwechslungsreicher Aufgabenbereich durch die Erledigung von Einkäufen, die Koordination von Handwerkern sowie die Übernahme gelegentlich anfallender, leichter Gartenarbeiten.\nSie arbeiten an festen Tagen von Montag bis Freitag und sind zudem flexibel für Abend- und Wochenendeinsätze.\nDiese Position bietet Ihnen die aussergewöhnliche Chance auf eine direkte Festanstellung in einem exklusiven Privathaushalt, in dem Sie Ihre Fähigkeiten vollständig entfalten können.\nWas Sie mitbringen sollten:\n- Mehrjährige Erfahrung als Haushaltshilfe im Privathaushalt\n- Erfahrung im Umgang mit hochwertigen Materialien\n- fundierte Kenntnisse in der Wäschepflege, einschliesslich des Waschens und Bügelns\n- Hohe Zuverlässigkeit, Diskretion und starkes Verantwortungsbewusstsein\n- Selbstständigkeit und ein ausgeprägtes Auge für Ordnung und Details\n- Langfristige Anstellung angestrebt\n- Fliessende Deutschkenntnisse\nWas Sie erwartet:\n- Wertschätzendes, persönliches Arbeitsumfeld\n- Historischer, stilvoll gepflegter Privathaushalt\n- Attraktive Vergütung mit einzigartiger Vorsorgelösung\n- 5 Wochen Ferien & langfristige Anstellung\n- Kurze Entscheidungswege\n- Kleines, motiviertes Team mit gutem Zusammenhalt\nHaben wir Ihr Interesse geweckt?\nBewerben Sie sich online und erfahren Sie mehr über die oben aufgeführte Vakanz. Wir offerieren Ihnen auch gerne weitere interessante Stellen/Projekte, welche wir nicht online publizieren.*\nRef.-Nummer:\n28141\nStellenart:\nFestanstellung\nPensum:\n60% bis 100%\nStellenort:\nZug",
+        "fr": "Précédent\nMénage employé dans le salaire mensuel - ménage privé\nEmploi permanent / Train\nPour notre client à Cham ZG, nous recherchons un foyer haut de gamme avec immédiatement ou sur rendez-vous une femme de ménage expérimentée pour un poste varié de 60 à 100%.\nComme un soutien important dans la vie quotidienne, vous fournissez un ménage bien entretenu, bien organisé et soulager le client dans les tâches domestiques quotidiennes.\nVos responsabilités comprennent la gestion générale du ménage, les soins de blanchisserie, y compris le lavage et le repassage, et la préparation de repas sains et variés. Idéalement, vous apportez également de l'expérience dans le service et les relations avec les invités.\nVotre zone de travail variée est complétée par l'achèvement des achats, la coordination des artisans et des travaux occasionnels de jardinage léger.\nIls travaillent les jours fixes du lundi au vendredi et sont également flexibles pour les affectations du soir et du week-end.\nCe poste vous offre l'extraordinaire chance d'une position permanente directe dans un foyer privé exclusif où vous pouvez développer pleinement vos compétences.\nCe que vous devriez apporter:\n- Plusieurs années d'expérience en tant qu'aide familiale privée\n- Expérience dans la manipulation de matériaux de haute qualité\n- Connaissance approfondie de la lessive, y compris le lavage et le repassage\n- Haute fiabilité, discrétion et sens des responsabilités\n- Indépendance et souci de l'ordre et du détail\n- Emploi de longue durée\n- Connaissance de l'allemand\nÀ quoi s'attendre :\n- Environnement de travail personnel et apprécié\n- Historique, élégamment entretenu ménage privé\n- Compensation attrayante avec une solution de retraite unique\n- 5 semaines de vacances et d'emploi à long terme\n- Voies de décision courtes\n- Petite équipe motivée avec une bonne cohésion\nAvons-nous suscité votre intérêt ?\nPostuler en ligne et en savoir plus sur le poste vacant mentionné ci-dessus. Nous sommes également heureux de vous offrir d'autres emplois / projets intéressants que nous ne publions pas en ligne. *\nNuméro de référence:\n27902\nType d'emploi:\nEmploi permanent\nUn stylo :\n60% à 100%\nLieu:\nTrain\nTélécharger le fichier (sélection multiple possible) Je suis d'accord avec les dispositions relatives à la protection des données."
+      },
+      "location": "Zug",
+      "canton": "ZG",
+      "url": "https://endeso.ch/jobs/job-28141-haushaelterin-im-monatsgehalt-angestellt-privathaushalt/",
+      "source": "endeso GmbH Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-09T09:29:10.003Z",
+      "addressLocality": "Zug",
+      "addressRegion": "ZG",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "6300",
+      "streetAddress": "Zug",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 69500,
+          "maxValue": 106000,
+          "unitText": "YEAR"
+        }
+      },
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-09-11",
+      "postedDate": "2026-09-11",
+      "postingDateSource": "reported",
+      "applyUrl": "https://endeso.ch/jobs/job-28141-haushaelterin-im-monatsgehalt-angestellt-privathaushalt/",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "salaryMin": 69500,
+      "salaryMax": 106000,
+      "salarySource": "estimated",
+      "previousSlugs": [
+        "haushalterin-im-monatsgehalt-angestellt-privathaushalt-zug-endeso-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "haushalterin-im-monatsgehalt-angestellt-privathaushalt-zug-endeso-ch"
+        ]
+      },
+      "firstSeenAt": "2026-09-19T23:00:29.189Z",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-10T09:29:10.003Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -703,7 +782,7 @@
       "url": "https://endeso.ch/jobs/job-28143-projektleiter-in-elektroinstallation/",
       "source": "endeso GmbH Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T22:10:29.270Z",
+      "crawledAt": "2026-11-09T09:29:10.002Z",
       "addressLocality": "Frauenfeld",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -757,86 +836,7 @@
         "streetAddressSource": "zefix-registry"
       },
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-10T22:10:29.270Z",
-      "validThroughSource": "last-observed-window"
-    },
-    {
-      "id": "endeso-66216181cba7",
-      "slug": "capo-giardiniere-per-il-parcheggio-di-un-castello-endeso-gmbh-zug",
-      "slugByLocale": {
-        "it": "capo-giardiniere-per-il-parcheggio-di-un-castello-endeso-gmbh-zug",
-        "en": "chief-gardener-for-the-parking-of-a-castle-endeso-gmbh-zug",
-        "de": "chefgartner-in-fur-die-parkanlage-eines-schlosses-zug-endeso-ch",
-        "fr": "chef-jardinier-pour-le-parking-d-un-chateau-endeso-gmbh-zug"
-      },
-      "company": "endeso GmbH",
-      "companyKey": "endeso",
-      "companyDomain": "endeso.ch",
-      "title": "Chefgärtner/in für die Parkanlage eines Schlosses",
-      "titleByLocale": {
-        "it": "Capo giardiniere per il parcheggio di un castello",
-        "en": "Chief gardener for the parking of a castle",
-        "de": "Chefgärtner/in für die Parkanlage eines Schlosses",
-        "fr": "Chef jardinier pour le parking d'un château"
-      },
-      "description": "Zurück\nChefgärtner/in für die Parkanlage eines Schlosses\nFestanstellung / Zug\nFür unsere Mandantin in Cham ZG suchen wir per sofort oder nach Vereinbarung eine erfahrene Chefgärtnerin oder einen erfahrenen Chefgärtner (80 bis 100 %) für einen einzigartigen historischen Schlosspark in zentraler Lage am Zugersee.\nIn dieser verantwortungsvollen Schlüsselposition wirken Sie aktiv an der Weiterentwicklung eines einzigartigen Parkprojekts mit, das Tradition und Zukunft auf besondere Weise verbindet.\nZu Ihren Aufgaben gehören die Pflege, Instandhaltung und kontinuierliche Weiterentwicklung der gesamten Parkanlage sowie die Betreuung des Obst- und Gemüseanbaus. Darüber hinaus übernehmen Sie Wartungs-, Unterhalts- und Reinigungsarbeiten an Maschinen, Geräten und Gebäuden.\nGemeinsam mit einem kleinen, eingespielten Gärtnerteam sorgen Sie dafür, dass die Anlage ganzjährig in einem repräsentativen und gepflegten Zustand bleibt.\nWas Sie mitbringen sollten:\n- Berufserfahrung als Gärtner/in EFZ, Obergärtner/in FA oder vergleichbare Qualifikationen\n- Eigeninitiative, Organisationsfähigkeit, Teamführungsqualitäten\n- Interesse an der Kreislaufwirtschaft, Neugierde für ökologische Parkpflege, Nachhaltigkeit und Biodiversität\n- Auge für Ästhetik und Details\n- Strukturierte Arbeitsweise sowie geübter Umgang mit MS-Office-Programmen\n- Langfristige Anstellung angestrebt\n- Führerschein der Kategorie B\n- Fliessende Deutschkenntnisse\nWas Sie erwartet:\n- Wertschätzendes, motivierendes Arbeitsumfeld\n- Flache Hierarchie mit kurzen Entscheidungswegen und umfangreichem Gestaltungsspielraum\n- Attraktive Vergütung mit einzigartiger Vorsorgelösung\n- Moderner Maschinenpark\n- 5 Wochen Ferien\nHaben wir Ihr Interesse geweckt?\nBewerben Sie sich online und erfahren Sie mehr über die oben aufgeführte Vakanz. Wir offerieren Ihnen auch gerne weitere interessante Stellen/Projekte, welche wir nicht online publizieren.*\nRef.-Nummer:\n28142\nStellenart:\nFestanstellung\nPensum:\n80% bis 100%\nStellenort:\nZug",
-      "descriptionByLocale": {
-        "it": "Indietro\nCapo giardiniere per il parcheggio di un castello\nLavoro permanente / treno\nPer il nostro cliente a Cham ZG, siamo alla ricerca di un esperto giardiniere (da 80 a 100%) per un parco di castello storico unico in una posizione centrale sul lago Zug.\nIn questa posizione chiave responsabile, siete attivamente coinvolti nell'ulteriore sviluppo di un progetto di parcheggio unico che combina tradizione e futuro in modo speciale.\nI vostri compiti includono la cura, la manutenzione e lo sviluppo continuo dell'intero parco, nonché la cura della coltivazione di frutta e verdura. Inoltre, si occupa di manutenzione, manutenzione e pulizia su macchine, attrezzature e edifici.\nInsieme a una piccola squadra di giardinieri esperti, si assicura che il complesso resti in una condizione rappresentativa e ben tenuto tutto l'anno.\nCosa dovreste portare:\n- Esperienza professionale come giardiniere EFZ, giardiniere superiore/FA o qualifiche comparabili\n- Iniziativa, capacità organizzativa, competenze di leadership di squadra\n- Interesse nell'economia circolare, curiosità per il parcheggio ecologico, la sostenibilità e la biodiversità\n- Occhio per Estetica e Dettagli\n- Metodi di lavoro strutturati e gestione esperta dei programmi MS-Office\n- Occupazione a lungo termine\n- Titolo di guida della categoria B\n- Conoscenze di flusso del tedesco\nCosa aspettarsi:\n- Ambiente di lavoro sensibile e motivante\n- Gerarchia piatta con brevi percorsi decisionali e ampia portata per il design\n- Compensazione attraente con una soluzione pensione unica\n- Moderno parco macchine\n- 5 settimane di vacanza\nAbbiamo suscitato il vostro interesse?\nApplicare online e saperne di più sul posto vacante di cui sopra. Siamo anche felici di offrirvi altri lavori interessanti / progetti che non pubblichiamo online. *\nNumero di riferimento:\n27903\nTipo di lavoro:\nOccupazione permanente\nPensum:\n80% al 100%\nPosizione:\nTreno",
-        "en": "Back\nChief gardener for the parking area of a castle\nPermanent employment / Train\nFor our client in Cham ZG, we are looking for an experienced chief gardener (80 to 100%) for a unique historic castle park in a central location on Lake Zug.\nIn this responsible key position, you are actively involved in the further development of a unique parking project that combines tradition and future in a special way.\nYour tasks include the care, maintenance and continuous development of the entire park as well as the care of fruit and vegetable cultivation. In addition, you take over maintenance, maintenance and cleaning work on machines, equipment and buildings.\nTogether with a small team of experienced gardeners, you ensure that the complex remains in a representative and well-kept condition all year round.\nWhat you should bring:\n- Professional experience as an EFZ gardener, upper gardener/FA or comparable qualifications\n- Initiative, organisational capacity, team leadership skills\n- Interest in the circular economy, curiosity for ecological parking, sustainability and biodiversity\n- Eye for Aesthetics and Details\n- Structured working methods and experienced handling of MS-Office programs\n- Long-term employment\n- Category B driving licence\n- Flowing knowledge of German\nWhat to expect:\n- Appreciative, motivating working environment\n- Flat hierarchy with short decision paths and extensive scope for design\n- Attractive compensation with a unique pension solution\n- Modern machinery park\n- 5 weeks holiday\nHave we aroused your interest?\nApply online and learn more about the vacancy listed above. We are also happy to offer you other interesting jobs / projects that we do not publish online. *\nReference number:\n27903\nJob type:\nPermanent employment\nPensum:\n80% to 100%\nLocation:\nTrain",
-        "de": "Zurück\nChefgärtner/in für die Parkanlage eines Schlosses\nFestanstellung / Zug\nFür unsere Mandantin in Cham ZG suchen wir per sofort oder nach Vereinbarung eine erfahrene Chefgärtnerin oder einen erfahrenen Chefgärtner (80 bis 100 %) für einen einzigartigen historischen Schlosspark in zentraler Lage am Zugersee.\nIn dieser verantwortungsvollen Schlüsselposition wirken Sie aktiv an der Weiterentwicklung eines einzigartigen Parkprojekts mit, das Tradition und Zukunft auf besondere Weise verbindet.\nZu Ihren Aufgaben gehören die Pflege, Instandhaltung und kontinuierliche Weiterentwicklung der gesamten Parkanlage sowie die Betreuung des Obst- und Gemüseanbaus. Darüber hinaus übernehmen Sie Wartungs-, Unterhalts- und Reinigungsarbeiten an Maschinen, Geräten und Gebäuden.\nGemeinsam mit einem kleinen, eingespielten Gärtnerteam sorgen Sie dafür, dass die Anlage ganzjährig in einem repräsentativen und gepflegten Zustand bleibt.\nWas Sie mitbringen sollten:\n- Berufserfahrung als Gärtner/in EFZ, Obergärtner/in FA oder vergleichbare Qualifikationen\n- Eigeninitiative, Organisationsfähigkeit, Teamführungsqualitäten\n- Interesse an der Kreislaufwirtschaft, Neugierde für ökologische Parkpflege, Nachhaltigkeit und Biodiversität\n- Auge für Ästhetik und Details\n- Strukturierte Arbeitsweise sowie geübter Umgang mit MS-Office-Programmen\n- Langfristige Anstellung angestrebt\n- Führerschein der Kategorie B\n- Fliessende Deutschkenntnisse\nWas Sie erwartet:\n- Wertschätzendes, motivierendes Arbeitsumfeld\n- Flache Hierarchie mit kurzen Entscheidungswegen und umfangreichem Gestaltungsspielraum\n- Attraktive Vergütung mit einzigartiger Vorsorgelösung\n- Moderner Maschinenpark\n- 5 Wochen Ferien\nHaben wir Ihr Interesse geweckt?\nBewerben Sie sich online und erfahren Sie mehr über die oben aufgeführte Vakanz. Wir offerieren Ihnen auch gerne weitere interessante Stellen/Projekte, welche wir nicht online publizieren.*\nRef.-Nummer:\n28142\nStellenart:\nFestanstellung\nPensum:\n80% bis 100%\nStellenort:\nZug",
-        "fr": "Précédent\nChef jardinier pour le parking d'un château\nEmploi permanent / Train\nPour notre client à Cham ZG, nous recherchons un chef jardinier expérimenté (80 à 100%) pour un parc historique unique dans un emplacement central sur le lac Zug.\nDans cette position clé responsable, vous participez activement au développement d'un projet de stationnement unique qui allie tradition et avenir d'une manière spéciale.\nVos tâches comprennent le soin, l'entretien et le développement continu de l'ensemble du parc ainsi que le soin de la culture des fruits et légumes. En outre, vous prenez en charge l'entretien, l'entretien et le nettoyage des machines, des équipements et des bâtiments.\nAvec une petite équipe de jardiniers expérimentés, vous assurez que le complexe reste dans un état représentatif et bien entretenu toute l'année.\nCe que vous devriez apporter:\n- Expérience professionnelle en tant que jardinier EFZ, jardinier supérieur/FA ou qualifications comparables\n- Initiative, capacité organisationnelle, compétences en leadership d'équipe\n- Intérêt pour l'économie circulaire, curiosité pour le stationnement écologique, durabilité et biodiversité\n- Oeil pour l'esthétique et les détails\n- Méthodes de travail structurées et traitement expérimenté des programmes MS-Office\n- Emploi de longue durée\n- Permis de conduire de catégorie B\n- Connaissance de l'allemand\nÀ quoi s'attendre :\n- Appréciation, motivation de l'environnement de travail\n- Hiérarchie plate avec chemins de décision courts et vaste portée pour la conception\n- Compensation attrayante avec une solution de retraite unique\n- Parc de machines modernes\n- 5 semaines de vacances\nAvons-nous suscité votre intérêt ?\nPostuler en ligne et en savoir plus sur le poste vacant mentionné ci-dessus. Nous sommes également heureux de vous offrir d'autres emplois / projets intéressants que nous ne publions pas en ligne. *\nNuméro de référence:\n27903\nType d'emploi:\nEmploi permanent\nUn stylo :\n80% à 100%\nLieu:\nTrain"
-      },
-      "location": "Zug",
-      "canton": "ZG",
-      "url": "https://endeso.ch/jobs/job-28142-chefgaertner-in-fuer-die-parkanlage-eines-schlosses/",
-      "source": "endeso GmbH Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-08T22:10:29.270Z",
-      "addressLocality": "Zug",
-      "addressRegion": "ZG",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "6300",
-      "streetAddress": "Zug",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 69500,
-          "maxValue": 106000,
-          "unitText": "YEAR"
-        }
-      },
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "senior",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-09-11",
-      "postedDate": "2026-09-11",
-      "postingDateSource": "reported",
-      "applyUrl": "https://endeso.ch/jobs/job-28142-chefgaertner-in-fuer-die-parkanlage-eines-schlosses/",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "salaryMin": 69500,
-      "salaryMax": 106000,
-      "salarySource": "reported",
-      "previousSlugs": [
-        "chefgartner-in-per-la-parkanlage-eines-schlosses-endeso-gmbh-zug",
-        "chefgartner-in-fur-die-parkanlage-eines-schlosses-zug-endeso-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "chefgartner-in-per-la-parkanlage-eines-schlosses-endeso-gmbh-zug",
-          "chefgartner-in-fur-die-parkanlage-eines-schlosses-zug-endeso-ch"
-        ]
-      },
-      "firstSeenAt": "2026-09-19T23:00:29.183Z",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-10T22:10:29.270Z",
+      "validThrough": "2026-12-10T09:29:10.002Z",
       "validThroughSource": "last-observed-window"
     }
   ]
