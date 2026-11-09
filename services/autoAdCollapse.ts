@@ -48,18 +48,21 @@ export const AUTO_AD_CONTAINER_SELECTOR = '.google-auto-placed';
 export const AUTO_AD_COLLAPSED_ATTR = 'data-ft-autoad-collapsed';
 
 /**
- * True when the container is actually showing an ad, i.e. its space is earned.
+ * True when the container is showing an ad or Google-owned optimized content,
+ * i.e. its space is occupied. Optimized content is not a paid fill.
  *
  * Deliberately positive ("has a creative") rather than a list of failure
  * states: `data-ad-status` has exactly one value that means an ad is on
  * screen, while the ways of *not* filling are open-ended — absent, `unfilled`,
- * and the silent no-answer case this module exists for. Anything that is not
- * demonstrably filled is treated as unresolved, which is the safe direction:
+ * and the silent no-answer case this module exists for. Google-owned
+ * `unfill-optimized` content is occupied even though it is not a paid fill.
+ * Anything else that is not demonstrably filled is treated as unresolved, which is the safe direction:
  * the worst case is collapsing a box that had nothing in it.
  */
 export function autoAdHasCreative(el: Element): boolean {
   if (el.querySelector('iframe')) return true;
-  return !!el.querySelector('ins[data-ad-status="filled"]');
+  return el.matches('[data-ft-ad-state="optimized"],[data-ad-status="unfill-optimized"]')
+    || !!el.querySelector('ins[data-ad-status="filled"],ins[data-ad-status="unfill-optimized"],[data-ft-ad-state="optimized"]');
 }
 
 type Watch = {
@@ -136,7 +139,7 @@ function watch(el: HTMLElement): void {
       childList: true,
       subtree: true,
       attributes: true,
-      attributeFilter: ['data-ad-status'],
+      attributeFilter: ['data-ad-status', 'data-ft-ad-state'],
     });
     w.subtree = subtree;
   }

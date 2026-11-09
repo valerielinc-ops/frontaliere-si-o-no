@@ -282,6 +282,33 @@ describe('IAB detection and independent recovery surface', () => {
     expect(houseRefresh).not.toHaveBeenCalled();
     expect(emit).not.toHaveBeenCalledWith('ad_block_probe', expect.anything());
   });
+  it('does not recover or replace a Google-owned optimized slot', async () => {
+    w.localStorage.setItem('frontaliere_ads_consent', 'granted');
+    const google = slot(300);
+    google.setAttribute('data-ad-status', 'unfill-optimized');
+    google.setAttribute('data-ft-ad-state', 'optimized');
+    const houseRefresh = vi.fn();
+    w.__ftHouseAds = { refresh: houseRefresh };
+    recovery('clear', 'loaded');
+    w.document.dispatchEvent(new w.Event('DOMContentLoaded'));
+    await vi.advanceTimersByTimeAsync(13000);
+    expect(houseRefresh).not.toHaveBeenCalled();
+    expect(w.document.querySelector('dialog,.ft-recovery-promo')).toBeNull();
+    expect(emit).not.toHaveBeenCalledWith('ad_block_probe', expect.anything());
+  });
+  it('does not probe an inline house slot occupied by optimized Google content', async () => {
+    const houseSlot = w.document.createElement('div');
+    houseSlot.setAttribute('data-house', 'article-inline');
+    houseSlot.innerHTML = '<div data-ft-house-google data-ft-ad-state="optimized"><ins data-ad-status="unfill-optimized"></ins></div>';
+    w.document.body.append(houseSlot);
+    const houseRefresh = vi.fn();
+    w.__ftHouseAds = { refresh: houseRefresh };
+    recovery('clear', 'loaded', true);
+    w.document.dispatchEvent(new w.Event('DOMContentLoaded'));
+    await vi.advanceTimersByTimeAsync(13000);
+    expect(houseRefresh).not.toHaveBeenCalled();
+    expect(emit).not.toHaveBeenCalledWith('ad_block_probe', expect.anything());
+  });
   it('reports a clear inline probe only after the slot remains unfilled for six seconds', async () => {
     const houseSlot = w.document.createElement('div');
     houseSlot.setAttribute('data-house', 'article-inline');
