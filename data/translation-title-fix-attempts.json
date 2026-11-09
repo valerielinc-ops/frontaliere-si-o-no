@@ -4616,9 +4616,10 @@
       "source": "7b1656d7b156"
     },
     "siemens-9ecd09f6bfb3|de|en": {
-      "attempts": 4,
-      "lastAttemptAt": "2026-10-27T16:08:16.025Z",
-      "source": "60ea3b9e2f6f"
+      "attempts": 5,
+      "lastAttemptAt": "2026-11-09T22:50:02.551Z",
+      "source": "60ea3b9e2f6f",
+      "rung": "unserved"
     },
     "roche-ab83569f3467|en|de": {
       "attempts": 2,
@@ -41907,9 +41908,10 @@
       "lastAttemptAt": "2026-10-08T19:30:40.149Z"
     },
     "bucherer-265df438e695|de|en": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-10-14T14:36:40.086Z",
-      "source": "97bcc2020b8e"
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-09T22:50:09.469Z",
+      "source": "97bcc2020b8e",
+      "rung": "unserved"
     },
     "bucherer-c9bcd5ba4b1d|de|en": {
       "attempts": 1,
@@ -76908,15 +76910,21 @@
     },
     "schindler-76e786c7203d|de|en": {
       "attempts": 1,
-      "lastAttemptAt": "2026-10-06T15:55:38.730Z"
+      "lastAttemptAt": "2026-11-09T22:49:58.482Z",
+      "source": "d8334919dd09",
+      "rung": "myMemory"
     },
     "schindler-76e786c7203d|de|fr": {
       "attempts": 1,
-      "lastAttemptAt": "2026-10-06T15:55:40.075Z"
+      "lastAttemptAt": "2026-11-09T22:49:59.693Z",
+      "source": "d8334919dd09",
+      "rung": "myMemory"
     },
     "schindler-76e786c7203d|de|it": {
-      "attempts": 5,
-      "lastAttemptAt": "2026-10-09T14:37:06.311Z"
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-09T22:50:00.462Z",
+      "source": "d8334919dd09",
+      "rung": "myMemory"
     },
     "guess-europe-e5dae7f10329|de|en": {
       "attempts": 5,
@@ -97659,22 +97667,22 @@
       "lastAttemptAt": "2026-10-07T02:51:17.351Z"
     },
     "ikea-64aaf9247e78|de|en": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-02T23:20:06.439Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-09T22:49:55.336Z",
       "source": "bf082fcbd313",
-      "rung": "codex"
+      "rung": "myMemory"
     },
     "ikea-64aaf9247e78|de|fr": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-02T23:20:24.127Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-09T22:49:56.605Z",
       "source": "bf082fcbd313",
-      "rung": "codex"
+      "rung": "myMemory"
     },
     "ikea-64aaf9247e78|de|it": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-02T23:20:27.937Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-09T22:49:57.466Z",
       "source": "bf082fcbd313",
-      "rung": "codex"
+      "rung": "myMemory"
     },
     "agroscope-cc7eeb643a79|de|it": {
       "attempts": 1,
@@ -110630,15 +110638,21 @@
     },
     "spital-emmental-e4af86857da1|de|en": {
       "attempts": 1,
-      "lastAttemptAt": "2026-10-07T12:09:57.088Z"
+      "lastAttemptAt": "2026-11-09T22:49:51.334Z",
+      "source": "1b60b2a9742b",
+      "rung": "myMemory"
     },
     "spital-emmental-e4af86857da1|de|fr": {
       "attempts": 1,
-      "lastAttemptAt": "2026-10-07T12:09:58.393Z"
+      "lastAttemptAt": "2026-11-09T22:49:52.572Z",
+      "source": "1b60b2a9742b",
+      "rung": "myMemory"
     },
     "spital-emmental-e4af86857da1|de|it": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-10-08T19:17:58.818Z"
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-09T22:49:53.357Z",
+      "source": "1b60b2a9742b",
+      "rung": "myMemory"
     },
     "equans-49c25e920466|de|en": {
       "attempts": 5,
@@ -120985,7 +120999,9 @@
     },
     "spitex-ch-8405031f9114|de|it": {
       "attempts": 1,
-      "lastAttemptAt": "2026-10-07T21:10:28.607Z"
+      "lastAttemptAt": "2026-11-09T22:50:27.379Z",
+      "source": "7ee102977e4d",
+      "rung": "myMemory"
     },
     "stellenpartner-8d21bce41d10|de|it": {
       "attempts": 1,
@@ -157799,7 +157815,9 @@
     },
     "bucherer-cc014a306171|de|en": {
       "attempts": 1,
-      "lastAttemptAt": "2026-10-08T14:27:07.681Z"
+      "lastAttemptAt": "2026-11-09T22:50:25.320Z",
+      "source": "caab874a5e5d",
+      "rung": "myMemory"
     },
     "confederazione-ticino-c1f1d74e12d1|de|en": {
       "attempts": 1,
@@ -163109,7 +163127,9 @@
     },
     "spitex-ch-e89cfbf641a7|de|it": {
       "attempts": 1,
-      "lastAttemptAt": "2026-10-09T02:38:31.140Z"
+      "lastAttemptAt": "2026-11-09T22:50:28.329Z",
+      "source": "d0002595bf7b",
+      "rung": "myMemory"
     },
     "delvitech-sa-572058706020|en|de": {
       "attempts": 2,
@@ -167626,7 +167646,9 @@
     },
     "spitex-ch-77ef23219699|de|it": {
       "attempts": 1,
-      "lastAttemptAt": "2026-10-09T23:52:20.166Z"
+      "lastAttemptAt": "2026-11-09T22:50:29.345Z",
+      "source": "6dc4e16b80e6",
+      "rung": "myMemory"
     },
     "spital-thurgau-88910e7fb471|de|en": {
       "attempts": 1,
@@ -233509,9 +233531,10 @@
       "source": "3ee95a79e3d0"
     },
     "zfv-unternehmungen-19fa751623b4|de|en": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-10-23T21:59:17.905Z",
-      "source": "adb28cc9452c"
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-09T22:50:02.990Z",
+      "source": "adb28cc9452c",
+      "rung": "myMemory"
     },
     "senevita-adf535453a1d|de|en": {
       "attempts": 1,
@@ -233550,9 +233573,10 @@
       "source": "3ee95a79e3d0"
     },
     "zfv-unternehmungen-19fa751623b4|de|fr": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-10-23T21:59:23.900Z",
-      "source": "adb28cc9452c"
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-09T22:50:04.301Z",
+      "source": "adb28cc9452c",
+      "rung": "myMemory"
     },
     "senevita-adf535453a1d|de|fr": {
       "attempts": 1,
@@ -315937,8 +315961,8 @@
       "rung": "codex"
     },
     "seco-jobroom-4bd6d19f-1f97-4144-9c52-27b9ba2f41fc|de|en": {
-      "attempts": 3,
-      "lastAttemptAt": "2026-11-05T20:53:36.124Z",
+      "attempts": 4,
+      "lastAttemptAt": "2026-11-09T22:50:04.968Z",
       "source": "4d6c3ebb34dd",
       "rung": "myMemory"
     },
@@ -316033,14 +316057,14 @@
       "rung": "codex"
     },
     "seco-jobroom-876b4e61-5947-4c84-9606-a416cd68ebc4|it|en": {
-      "attempts": 3,
-      "lastAttemptAt": "2026-11-05T20:53:48.955Z",
+      "attempts": 4,
+      "lastAttemptAt": "2026-11-09T22:50:14.433Z",
       "source": "c6cd178e72ef",
       "rung": "unserved"
     },
     "seco-jobroom-6ade51c2-58df-4602-8855-5f06d4ede166|de|fr": {
-      "attempts": 3,
-      "lastAttemptAt": "2026-11-05T20:53:53.752Z",
+      "attempts": 4,
+      "lastAttemptAt": "2026-11-09T22:50:20.872Z",
       "source": "8cb7f3420b5e",
       "rung": "unserved"
     },
@@ -316405,8 +316429,8 @@
       "rung": "codex"
     },
     "posta-svizzera-centro-regionale-526d80def7fa|de|en": {
-      "attempts": 3,
-      "lastAttemptAt": "2026-11-05T20:53:50.772Z",
+      "attempts": 4,
+      "lastAttemptAt": "2026-11-09T22:50:21.697Z",
       "source": "d11610553158",
       "rung": "unserved"
     },
@@ -316969,10 +316993,10 @@
       "rung": "codex"
     },
     "emil-frey-c42e70b427d7|de|en": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-04T00:26:21.651Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-09T22:50:21.432Z",
       "source": "1257ef744f93",
-      "rung": "codex"
+      "rung": "myMemory"
     },
     "emil-frey-fa19b65874c3|de|en": {
       "attempts": 1,
@@ -317035,10 +317059,10 @@
       "rung": "codex"
     },
     "emil-frey-c42e70b427d7|de|fr": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-04T00:26:42.527Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-09T22:50:22.527Z",
       "source": "1257ef744f93",
-      "rung": "codex"
+      "rung": "myMemory"
     },
     "emil-frey-fa19b65874c3|de|fr": {
       "attempts": 1,
@@ -317101,10 +317125,10 @@
       "rung": "codex"
     },
     "emil-frey-c42e70b427d7|de|it": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-04T00:26:55.445Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-09T22:50:23.344Z",
       "source": "1257ef744f93",
-      "rung": "codex"
+      "rung": "myMemory"
     },
     "emil-frey-fa19b65874c3|de|it": {
       "attempts": 1,
@@ -340483,8 +340507,8 @@
       "rung": "myMemory"
     },
     "uzh-472052cfbffe|en|de": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-07T08:14:44.608Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-09T22:50:24.301Z",
       "source": "5d10b2e24e2e",
       "rung": "myMemory"
     },
@@ -340885,8 +340909,8 @@
       "rung": "mozhiDdg"
     },
     "ikea-d25efc3361c3|en|de": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-07T08:15:51.865Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-09T22:50:26.297Z",
       "source": "e7a3b89ec2b9",
       "rung": "myMemory"
     },
@@ -355445,6 +355469,768 @@
       "lastAttemptAt": "2026-11-09T18:28:14.058Z",
       "source": "f01282e484f2",
       "rung": "unserved"
+    },
+    "emil-frey-73f1ca4c2089|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-09T22:47:51.327Z",
+      "source": "26a90b813d57",
+      "rung": "myMemory"
+    },
+    "emil-frey-73f1ca4c2089|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-09T22:47:51.717Z",
+      "source": "26a90b813d57",
+      "rung": "myMemory"
+    },
+    "denner-7d272528331d|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-09T22:47:52.328Z",
+      "source": "f006d26239e5",
+      "rung": "myMemory"
+    },
+    "denner-7d272528331d|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-09T22:47:53.708Z",
+      "source": "f006d26239e5",
+      "rung": "myMemory"
+    },
+    "denner-fb75ad43e73a|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-09T22:47:53.708Z",
+      "source": "f006d26239e5",
+      "rung": "myMemory"
+    },
+    "denner-fb75ad43e73a|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-09T22:47:53.708Z",
+      "source": "f006d26239e5",
+      "rung": "myMemory"
+    },
+    "denner-7d272528331d|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-09T22:47:54.483Z",
+      "source": "f006d26239e5",
+      "rung": "myMemory"
+    },
+    "denner-fb75ad43e73a|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-09T22:47:54.483Z",
+      "source": "f006d26239e5",
+      "rung": "myMemory"
+    },
+    "denner-7a34074d350d|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-09T22:47:55.644Z",
+      "source": "3da2f939cc93",
+      "rung": "myMemory"
+    },
+    "denner-7a34074d350d|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-09T22:47:57.160Z",
+      "source": "3da2f939cc93",
+      "rung": "myMemory"
+    },
+    "denner-7a34074d350d|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-09T22:47:58.036Z",
+      "source": "3da2f939cc93",
+      "rung": "myMemory"
+    },
+    "uzh-43a03cebb3ca|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-09T22:47:58.212Z",
+      "source": "b8525c1d9dd4",
+      "rung": "myMemory"
+    },
+    "uzh-43a03cebb3ca|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-09T22:47:59.547Z",
+      "source": "b8525c1d9dd4",
+      "rung": "myMemory"
+    },
+    "uzh-43a03cebb3ca|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-09T22:48:00.346Z",
+      "source": "b8525c1d9dd4",
+      "rung": "myMemory"
+    },
+    "stadt-bern-0e9763db4b31|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-09T22:48:01.356Z",
+      "source": "f5e87af50584",
+      "rung": "myMemory"
+    },
+    "stadt-bern-0e9763db4b31|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-09T22:48:02.677Z",
+      "source": "f5e87af50584",
+      "rung": "myMemory"
+    },
+    "stadt-bern-0e9763db4b31|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-09T22:48:03.476Z",
+      "source": "f5e87af50584",
+      "rung": "myMemory"
+    },
+    "migrolino-329add6dd624|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-09T22:48:04.664Z",
+      "source": "7b29ebbc55da",
+      "rung": "myMemory"
+    },
+    "migrolino-329add6dd624|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-09T22:48:05.957Z",
+      "source": "7b29ebbc55da",
+      "rung": "myMemory"
+    },
+    "migrolino-0fb7b8e8c905|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-09T22:48:05.957Z",
+      "source": "7b29ebbc55da",
+      "rung": "myMemory"
+    },
+    "migrolino-0fb7b8e8c905|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-09T22:48:05.957Z",
+      "source": "7b29ebbc55da",
+      "rung": "myMemory"
+    },
+    "migrolino-329add6dd624|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-09T22:48:06.396Z",
+      "source": "7b29ebbc55da",
+      "rung": "myMemory"
+    },
+    "migrolino-0fb7b8e8c905|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-09T22:48:06.396Z",
+      "source": "7b29ebbc55da",
+      "rung": "myMemory"
+    },
+    "equans-5385068c2dc6|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-09T22:48:07.423Z",
+      "source": "fc49bed5adea",
+      "rung": "myMemory"
+    },
+    "equans-5385068c2dc6|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-09T22:48:08.720Z",
+      "source": "fc49bed5adea",
+      "rung": "myMemory"
+    },
+    "equans-5385068c2dc6|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-09T22:48:09.470Z",
+      "source": "fc49bed5adea",
+      "rung": "myMemory"
+    },
+    "galliker-fe27c4981311|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-09T22:48:10.562Z",
+      "source": "236483873b80",
+      "rung": "myMemory"
+    },
+    "equans-efbb30786741|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-09T22:48:11.335Z",
+      "source": "db38c0927505",
+      "rung": "myMemory"
+    },
+    "equans-efbb30786741|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-09T22:48:12.349Z",
+      "source": "db38c0927505",
+      "rung": "myMemory"
+    },
+    "denner-33193aa9e1bd|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-09T22:48:13.418Z",
+      "source": "ed705cbf67ea",
+      "rung": "myMemory"
+    },
+    "denner-33193aa9e1bd|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-09T22:48:14.801Z",
+      "source": "ed705cbf67ea",
+      "rung": "myMemory"
+    },
+    "denner-33193aa9e1bd|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-09T22:48:15.552Z",
+      "source": "ed705cbf67ea",
+      "rung": "myMemory"
+    },
+    "galliker-7de7bf746bae|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-09T22:48:16.437Z",
+      "source": "2b2f1339bd8b",
+      "rung": "myMemory"
+    },
+    "galliker-ec0e7d1b24e0|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-09T22:48:17.735Z",
+      "source": "d9df539eb507",
+      "rung": "myMemory"
+    },
+    "galliker-35409cba24dc|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-09T22:48:18.468Z",
+      "source": "90e4405b1738",
+      "rung": "myMemory"
+    },
+    "galliker-917b734e7b60|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-09T22:48:20.073Z",
+      "source": "d3bb910632e7",
+      "rung": "myMemory"
+    },
+    "luks-37f7ae92f32f|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-09T22:48:20.653Z",
+      "source": "568483c75ae0",
+      "rung": "myMemory"
+    },
+    "jumbo-2f4b1cb8-bca|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-09T22:48:21.335Z",
+      "source": "65ab4dcd0aab",
+      "rung": "myMemory"
+    },
+    "jumbo-2f4b1cb8-bca|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-09T22:48:22.625Z",
+      "source": "65ab4dcd0aab",
+      "rung": "myMemory"
+    },
+    "jumbo-2f4b1cb8-bca|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-09T22:48:23.340Z",
+      "source": "65ab4dcd0aab",
+      "rung": "myMemory"
+    },
+    "bls-1b61f88d2862|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-09T22:48:24.403Z",
+      "source": "ed71af890185",
+      "rung": "myMemory"
+    },
+    "bls-1b61f88d2862|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-09T22:48:25.432Z",
+      "source": "ed71af890185",
+      "rung": "myMemory"
+    },
+    "bucherer-92aa3304edc2|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-09T22:48:26.834Z",
+      "source": "c610c15249a4",
+      "rung": "myMemory"
+    },
+    "bucherer-92aa3304edc2|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-09T22:48:27.512Z",
+      "source": "c610c15249a4",
+      "rung": "myMemory"
+    },
+    "bucherer-cc014a306171|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-09T22:48:28.747Z",
+      "source": "caab874a5e5d",
+      "rung": "myMemory"
+    },
+    "bucherer-cc014a306171|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-09T22:48:29.425Z",
+      "source": "caab874a5e5d",
+      "rung": "myMemory"
+    },
+    "lonza-e09dbb8ce027|en|de": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-09T22:48:30.433Z",
+      "source": "f37f91a1dfbf",
+      "rung": "myMemory"
+    },
+    "lonza-17828ba46e64|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-09T22:48:31.535Z",
+      "source": "0be6dd471c12",
+      "rung": "myMemory"
+    },
+    "deloitte-77dae699c5f1|en|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-09T22:48:33.507Z",
+      "source": "d1ddcf07c9b3",
+      "rung": "myMemory"
+    },
+    "deloitte-77dae699c5f1|en|de": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-09T22:48:33.647Z",
+      "source": "d1ddcf07c9b3",
+      "rung": "mozhiDdg"
+    },
+    "sobi-11e24dfd94e6|en|de": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-09T22:48:34.673Z",
+      "source": "d9f028b5e241",
+      "rung": "mozhiDdg"
+    },
+    "spital-zollikerberg-6c79a59a2f5b|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-09T22:48:35.600Z",
+      "source": "e1e82600540e",
+      "rung": "myMemory"
+    },
+    "spital-zollikerberg-3c48348d05be|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-09T22:48:36.466Z",
+      "source": "ac97eba27a9f",
+      "rung": "myMemory"
+    },
+    "jumbo-cea3ec8b-ebb|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-09T22:48:37.416Z",
+      "source": "9361d8f83a3f",
+      "rung": "myMemory"
+    },
+    "jumbo-cea3ec8b-ebb|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-09T22:48:38.594Z",
+      "source": "9361d8f83a3f",
+      "rung": "myMemory"
+    },
+    "jumbo-cea3ec8b-ebb|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-09T22:48:39.336Z",
+      "source": "9361d8f83a3f",
+      "rung": "myMemory"
+    },
+    "jumbo-d7945baf-503|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-09T22:48:40.335Z",
+      "source": "11c84ce009aa",
+      "rung": "myMemory"
+    },
+    "jumbo-d7945baf-503|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-09T22:48:41.606Z",
+      "source": "11c84ce009aa",
+      "rung": "myMemory"
+    },
+    "jumbo-d7945baf-503|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-09T22:48:42.366Z",
+      "source": "11c84ce009aa",
+      "rung": "myMemory"
+    },
+    "jumbo-d28d2430-3c0|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-09T22:48:43.527Z",
+      "source": "7497f5d963f9",
+      "rung": "myMemory"
+    },
+    "jumbo-d28d2430-3c0|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-09T22:48:44.863Z",
+      "source": "7497f5d963f9",
+      "rung": "myMemory"
+    },
+    "jumbo-d28d2430-3c0|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-09T22:48:45.489Z",
+      "source": "7497f5d963f9",
+      "rung": "myMemory"
+    },
+    "jumbo-00d8154d-e60|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-09T22:48:46.422Z",
+      "source": "795b88526779",
+      "rung": "myMemory"
+    },
+    "jumbo-00d8154d-e60|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-09T22:48:47.776Z",
+      "source": "795b88526779",
+      "rung": "myMemory"
+    },
+    "jumbo-00d8154d-e60|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-09T22:48:48.483Z",
+      "source": "795b88526779",
+      "rung": "myMemory"
+    },
+    "gesundheitszentrum-fricktal-f1cde0dfcb29|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-09T22:48:49.452Z",
+      "source": "8d55e0116e68",
+      "rung": "myMemory"
+    },
+    "gesundheitszentrum-fricktal-f1cde0dfcb29|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-09T22:48:50.683Z",
+      "source": "8d55e0116e68",
+      "rung": "myMemory"
+    },
+    "gesundheitszentrum-fricktal-f1cde0dfcb29|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-09T22:48:51.529Z",
+      "source": "8d55e0116e68",
+      "rung": "myMemory"
+    },
+    "ksw-0bb7c33f37b6|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-09T22:48:52.381Z",
+      "source": "58f88159647e",
+      "rung": "myMemory"
+    },
+    "vitrea-gesundheit-e5b921e1fc05|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-09T22:48:53.496Z",
+      "source": "b2ac56d937d3",
+      "rung": "myMemory"
+    },
+    "vitrea-gesundheit-e6144cb6b4cf|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-09T22:48:54.861Z",
+      "source": "cebb7c007b0f",
+      "rung": "myMemory"
+    },
+    "vitrea-gesundheit-e6144cb6b4cf|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-09T22:48:55.463Z",
+      "source": "cebb7c007b0f",
+      "rung": "myMemory"
+    },
+    "planzer-629f5bb3a0c4|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-09T22:48:56.364Z",
+      "source": "8acdf0a973e1",
+      "rung": "myMemory"
+    },
+    "planzer-629f5bb3a0c4|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-09T22:48:57.610Z",
+      "source": "8acdf0a973e1",
+      "rung": "myMemory"
+    },
+    "planzer-629f5bb3a0c4|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-09T22:48:58.410Z",
+      "source": "8acdf0a973e1",
+      "rung": "myMemory"
+    },
+    "fmi-d7eb11a74d1d|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-09T22:48:59.466Z",
+      "source": "6993764ed5bb",
+      "rung": "myMemory"
+    },
+    "vz-vermoegenszentrum-80fe059ee32a|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-09T22:49:00.529Z",
+      "source": "7ee5690e4c24",
+      "rung": "myMemory"
+    },
+    "vz-vermoegenszentrum-80fe059ee32a|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-09T22:49:01.757Z",
+      "source": "7ee5690e4c24",
+      "rung": "myMemory"
+    },
+    "vz-vermoegenszentrum-80fe059ee32a|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-09T22:49:02.593Z",
+      "source": "7ee5690e4c24",
+      "rung": "myMemory"
+    },
+    "puk-zuerich-1a87e2d0dc16|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-09T22:49:03.587Z",
+      "source": "069bfbac4eb6",
+      "rung": "myMemory"
+    },
+    "bkw-e7cfcbda7372|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-09T22:49:05.414Z",
+      "source": "4a37b13f915b",
+      "rung": "myMemory"
+    },
+    "bkw-9a251ae96766|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-09T22:49:06.405Z",
+      "source": "12a1b63de779",
+      "rung": "myMemory"
+    },
+    "bkw-cf93440fd598|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-09T22:49:07.361Z",
+      "source": "8f34b943ff87",
+      "rung": "myMemory"
+    },
+    "bkw-cf93440fd598|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-09T22:49:08.631Z",
+      "source": "8f34b943ff87",
+      "rung": "myMemory"
+    },
+    "bkw-1e2b0592dc51|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-09T22:49:09.342Z",
+      "source": "dc2f1fb43897",
+      "rung": "myMemory"
+    },
+    "bkw-1e2b0592dc51|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-09T22:49:10.708Z",
+      "source": "dc2f1fb43897",
+      "rung": "myMemory"
+    },
+    "bkw-1e2b0592dc51|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-09T22:49:11.495Z",
+      "source": "dc2f1fb43897",
+      "rung": "myMemory"
+    },
+    "bkw-3e7b46e2ba66|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-09T22:49:12.413Z",
+      "source": "87fa5ac9d786",
+      "rung": "myMemory"
+    },
+    "bkw-d438443cd1e0|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-09T22:49:13.333Z",
+      "source": "389bbccbccb5",
+      "rung": "myMemory"
+    },
+    "bkw-d438443cd1e0|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-09T22:49:14.628Z",
+      "source": "389bbccbccb5",
+      "rung": "myMemory"
+    },
+    "bkw-d438443cd1e0|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-09T22:49:15.420Z",
+      "source": "389bbccbccb5",
+      "rung": "myMemory"
+    },
+    "stadt-bern-fb96bed79447|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-09T22:49:16.520Z",
+      "source": "c763209a2545",
+      "rung": "myMemory"
+    },
+    "helvetia-76bb137615e0|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-09T22:49:17.540Z",
+      "source": "0e527e44d2b2",
+      "rung": "myMemory"
+    },
+    "helvetia-71da2676624f|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-09T22:49:18.826Z",
+      "source": "c2d85b437274",
+      "rung": "myMemory"
+    },
+    "helvetia-71da2676624f|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-09T22:49:19.515Z",
+      "source": "c2d85b437274",
+      "rung": "myMemory"
+    },
+    "helvetia-e83e2510daf4|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-09T22:49:20.729Z",
+      "source": "7505f6d89b91",
+      "rung": "myMemory"
+    },
+    "helvetia-e83e2510daf4|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-09T22:49:21.541Z",
+      "source": "7505f6d89b91",
+      "rung": "myMemory"
+    },
+    "spitex-ch-135815554c2a|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-09T22:49:22.510Z",
+      "source": "2107aef5736f",
+      "rung": "myMemory"
+    },
+    "spitex-ch-135815554c2a|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-09T22:49:23.737Z",
+      "source": "2107aef5736f",
+      "rung": "myMemory"
+    },
+    "spitex-ch-135815554c2a|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-09T22:49:24.425Z",
+      "source": "2107aef5736f",
+      "rung": "myMemory"
+    },
+    "spitex-ch-e7ccbaaaa068|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-09T22:49:25.483Z",
+      "source": "86610b47ce57",
+      "rung": "myMemory"
+    },
+    "spitex-ch-e7ccbaaaa068|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-09T22:49:26.907Z",
+      "source": "86610b47ce57",
+      "rung": "myMemory"
+    },
+    "fincons-group-9475f0852d59|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-09T22:49:27.581Z",
+      "source": "7283c9fdc38e",
+      "rung": "unserved"
+    },
+    "spitex-ch-e7ccbaaaa068|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-09T22:49:27.715Z",
+      "source": "86610b47ce57",
+      "rung": "myMemory"
+    },
+    "spital-thurgau-179e40bd2b72|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-09T22:49:28.499Z",
+      "source": "4ff2687737f2",
+      "rung": "myMemory"
+    },
+    "spital-thurgau-179e40bd2b72|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-09T22:49:29.738Z",
+      "source": "4ff2687737f2",
+      "rung": "myMemory"
+    },
+    "spital-thurgau-179e40bd2b72|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-09T22:49:30.571Z",
+      "source": "4ff2687737f2",
+      "rung": "myMemory"
+    },
+    "spital-thurgau-58ffb5ebe38a|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-09T22:49:31.378Z",
+      "source": "0bea8b1dcfb2",
+      "rung": "myMemory"
+    },
+    "spital-thurgau-58ffb5ebe38a|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-09T22:49:32.659Z",
+      "source": "0bea8b1dcfb2",
+      "rung": "myMemory"
+    },
+    "spital-thurgau-58ffb5ebe38a|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-09T22:49:33.508Z",
+      "source": "0bea8b1dcfb2",
+      "rung": "myMemory"
+    },
+    "schindler-3dac71c6ad9b|fr|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-09T22:49:35.189Z",
+      "source": "03fe94a90e6f",
+      "rung": "myMemory"
+    },
+    "axpo-group-c8d17953cd6f|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-09T22:49:36.072Z",
+      "source": "b6ad34f39888",
+      "rung": "myMemory"
+    },
+    "axpo-group-c8d17953cd6f|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-09T22:49:36.809Z",
+      "source": "b6ad34f39888",
+      "rung": "myMemory"
+    },
+    "axpo-group-c8d17953cd6f|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-09T22:49:37.492Z",
+      "source": "b6ad34f39888",
+      "rung": "myMemory"
+    },
+    "michel-gruppe-ag-6875bdb78f14|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-09T22:49:38.360Z",
+      "source": "8e5f94d69f29",
+      "rung": "myMemory"
+    },
+    "michel-gruppe-ag-6875bdb78f14|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-09T22:49:39.738Z",
+      "source": "8e5f94d69f29",
+      "rung": "myMemory"
+    },
+    "michel-gruppe-ag-6875bdb78f14|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-09T22:49:40.462Z",
+      "source": "8e5f94d69f29",
+      "rung": "myMemory"
+    },
+    "company-esytc|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-09T22:49:41.441Z",
+      "source": "1aeb36c21e47",
+      "rung": "myMemory"
+    },
+    "company-esytc|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-09T22:49:42.636Z",
+      "source": "1aeb36c21e47",
+      "rung": "myMemory"
+    },
+    "company-esytc|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-09T22:49:43.549Z",
+      "source": "1aeb36c21e47",
+      "rung": "myMemory"
+    },
+    "company-esytb|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-09T22:49:44.478Z",
+      "source": "083c7eb1ddd4",
+      "rung": "myMemory"
+    },
+    "company-esyte|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-09T22:49:45.397Z",
+      "source": "a85b09f2d6cf",
+      "rung": "myMemory"
+    },
+    "company-esyte|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-09T22:49:46.651Z",
+      "source": "a85b09f2d6cf",
+      "rung": "myMemory"
+    },
+    "company-esyte|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-09T22:49:47.513Z",
+      "source": "a85b09f2d6cf",
+      "rung": "myMemory"
+    },
+    "hess-carrosserie-92ccbb8923c4|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-09T22:49:48.337Z",
+      "source": "4bb621ecce90",
+      "rung": "myMemory"
+    },
+    "hess-carrosserie-92ccbb8923c4|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-09T22:49:49.563Z",
+      "source": "4bb621ecce90",
+      "rung": "myMemory"
+    },
+    "hess-carrosserie-92ccbb8923c4|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-09T22:49:50.372Z",
+      "source": "4bb621ecce90",
+      "rung": "myMemory"
     }
   }
 }
