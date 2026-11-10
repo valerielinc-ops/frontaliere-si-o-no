@@ -162,6 +162,16 @@ describe('assisted application consent and CV upload flow', () => {
     expect(mocks.updateDoc).not.toHaveBeenCalled();
   });
 
+  it('shows the employer’s automatic receipt without pointing to an e-mail it never received', async () => {
+    orderData = paidOrder({
+      submissionStatus: 'submitted', automationState: 'submitted',
+      employerResponse: { category: 'auto_acknowledgement', receivedAt: Date.now(), needsReply: false },
+    });
+    render(<AssistedApplicationUpload orderId={ORDER_ID} />);
+    await screen.findByText(itCore['jobBoard.assisted.employerResponse.auto_acknowledgement']);
+    expect(screen.queryByText(itCore['jobBoard.assisted.employerResponse.emailHint'])).toBeNull();
+  });
+
   it.each([false, true])('refreshes an advanced order on a stale page (transition during write: %s)', async (duringWrite) => {
     orderData = paidOrder({ consentVersion: 'assisted-application-v2', consentedAt: { seconds: 1 }, cvStorageKey: 'private/cv.pdf' });
     const user = userEvent.setup();
