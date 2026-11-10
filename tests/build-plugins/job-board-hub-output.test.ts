@@ -17,6 +17,7 @@ import { selectJobBoardInventory } from '../../services/jobBoardInventory';
 import { runActiveJobPostingCoverageGate } from '../../scripts/ci/assert-active-jobposting-coverage.mjs';
 import { buildJobBoardListingMetadata } from '../../services/seo/jobBoardListingMetadata';
 import { findRelativePostedText } from '../helpers/relativePostedText';
+import { formatLatestPostingSentence } from '../../build-plugins/shared/latestPostingDate';
 
 const locales = ['it', 'en', 'de', 'fr'] as const;
 const prefix = (locale: string) => locale === 'it' ? '' : `/${locale}`;
@@ -187,11 +188,14 @@ describe('job-board emitted output', () => {
     ['en', 'Page generated', 'Updated'],
     ['de', 'Seite erstellt', 'Aktualisiert'],
     ['fr', 'Page générée', 'Mis à jour'],
-  ] as const)('labels the city page build clock as generation in %s', (locale, generated, updated) => {
+  ] as const)('dates the city page from its newest reported offer, not from the build, in %s', (locale, generated, updated) => {
     const document = htmlDoc(`${hubPath(locale, 'ZH')}zurich/`);
-    const eyebrow = document.querySelector('header .sx-kick')?.textContent || '';
-    expect(eyebrow).toContain(generated);
-    expect(eyebrow).not.toContain(updated);
+    const eyebrow = document.querySelector('header .sx-kick');
+    const day = jobs[0].datePosted.slice(0, 10);
+    expect(eyebrow?.querySelector('time')?.getAttribute('datetime')).toBe(day);
+    expect(eyebrow?.textContent).toBe(formatLatestPostingSentence(day, locale));
+    expect(eyebrow?.textContent).not.toContain(generated);
+    expect(eyebrow?.textContent).not.toContain(updated);
   });
 
   it('uses the loaded listing snapshot for all hub counts and geographic metadata', () => {
@@ -547,7 +551,7 @@ describe('job-board emitted output', () => {
     }
   });
 
-  it.each(['archived-first-seen', 'archived-unverified', 'archived-crawl-only', 'archived-expiry-only', 'archived-sparse', 'archived-no-dates', 'archived-invalid-dates', 'archived-no-employer', 'archived-no-title'])(
+  it.each(['archived-first-seen', 'archived-unverified', 'archived-crawl-only', 'archived-expiry-only', 'archived-sparse', 'archived-no-employer', 'archived-no-title'])(
     'emits a complete closed JobPosting when archive evidence is incomplete: %s', (slug) => {
       for (const locale of locales) {
         const document = htmlDoc(`${hubPath(locale, 'TI')}${slug}/`);
@@ -572,7 +576,10 @@ describe('job-board emitted output', () => {
     },
   );
 
-  it.each(['archived-source-on-expiry', 'archived-posted-only', 'archived-future-only', 'archived-future-expiry', 'archived-late-posting'])(
+  // No archive date at all (missing or unparseable): the only deadline left
+  // would be the build clock, which is neither evidence nor stable between
+  // builds, so the closed vacancy carries no JobPosting (archivedJobPosting.ts).
+  it.each(['archived-source-on-expiry', 'archived-posted-only', 'archived-future-only', 'archived-future-expiry', 'archived-late-posting', 'archived-no-dates', 'archived-invalid-dates'])(
     'does not emit JobPosting for contradictory or missing archive evidence: %s', (slug) => {
       for (const locale of locales) {
         const document = htmlDoc(`${hubPath(locale, 'TI')}${slug}/`);

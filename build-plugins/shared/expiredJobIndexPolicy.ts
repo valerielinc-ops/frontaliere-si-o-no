@@ -4,8 +4,12 @@
 // being indexable.
 //
 // An expired offer keeps a 200 soft-landing (archive notice, same-company
-// live jobs, links back to the board) and keeps its existing structured data
-// — this policy only decides the robots directive and sitemap membership.
+// live jobs, links back to the board). This policy decides the robots
+// directive, sitemap membership and — since a noindex page cannot use it in
+// Search, and Google asks an expired posting to drop the markup or carry a
+// past validThrough — whether the archived JobPosting is emitted at all
+// (jobsSeoPagesPlugin.ts, getCurrentJobPostingLd). WebPage and
+// BreadcrumbList structured data stay.
 // It stays `index,follow` (on top of the existing ≥50-word floor) while EITHER
 //
 //   - it expired less than EXPIRED_JOB_INDEX_GRACE_DAYS ago: the window in
