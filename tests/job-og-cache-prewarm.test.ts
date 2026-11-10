@@ -18,8 +18,8 @@ describe('job OG cache prewarm and deferred publication', () => {
     const workspace = fs.mkdtempSync(path.join(os.tmpdir(), 'job-og-r2-delta-'));
     try {
       const sourceDir = path.join(workspace, 'source');
-      const deltaDir = path.join(workspace, 'delta');
       const previousManifest = path.join(workspace, 'previous.json');
+      const changedFiles = path.join(workspace, 'changed.txt');
       const candidateManifest = path.join(workspace, 'candidate.json');
       const deferredSlugs = path.join(workspace, 'deferred.json');
       fs.mkdirSync(path.join(sourceDir, 'jobs'), { recursive: true });
@@ -37,7 +37,7 @@ describe('job OG cache prewarm and deferred publication', () => {
         R2_DELTA,
         sourceDir,
         previousManifest,
-        deltaDir,
+        changedFiles,
         candidateManifest,
         deferredSlugs,
       ], { encoding: 'utf8' });
@@ -46,9 +46,97 @@ describe('job OG cache prewarm and deferred publication', () => {
         files: Array<{ path: string; sha256: string }>;
       };
       expect(candidate.files.find((file) => file.path === 'jobs/deferred-card.webp')?.sha256).toBe(oldHash);
-      expect(fs.existsSync(path.join(deltaDir, 'jobs/deferred-card.webp'))).toBe(false);
-      expect(fs.existsSync(path.join(deltaDir, 'jobs/new-card.webp'))).toBe(true);
+      expect(fs.readFileSync(changedFiles, 'utf8').trim().split('\n')).toEqual([
+        'jobs/archive-landing-card.webp',
+        'jobs/new-card.webp',
+      ]);
       expect(output).toContain('preserved_deferred=1');
+    } finally {
+      fs.rmSync(workspace, { recursive: true, force: true });
+    }
+  });
+
+  it('keeps a cold OG checkpoint limited to verified files and resumes the rest as a delta', () => {
+    const workspace = fs.mkdtempSync(path.join(os.tmpdir(), 'job-og-r2-progress-'));
+    try {
+      const sourceDir = path.join(workspace, 'source');
+      const previousManifest = path.join(workspace, 'published.json');
+      const changedFiles = path.join(workspace, 'changed.txt');
+      const completedFiles = path.join(workspace, 'completed.txt');
+      const candidateManifest = path.join(workspace, 'candidate.json');
+      fs.mkdirSync(path.join(sourceDir, 'jobs'), { recursive: true });
+      fs.writeFileSync(path.join(sourceDir, 'jobs/a.webp'), 'verified A');
+      fs.writeFileSync(path.join(sourceDir, 'jobs/b.webp'), 'not copied yet');
+
+      const first = execFileSync(process.execPath, [
+        R2_DELTA, sourceDir, previousManifest, changedFiles, candidateManifest,
+      ], { encoding: 'utf8' });
+      expect(first).toContain('mode=full previous=missing');
+      fs.writeFileSync(completedFiles, 'jobs/a.webp\n');
+      execFileSync(process.execPath, [
+        R2_DELTA, 'record-progress', candidateManifest, previousManifest, changedFiles,
+        completedFiles, previousManifest, sourceDir, 'partial',
+      ], { encoding: 'utf8' });
+
+      const partial = JSON.parse(fs.readFileSync(previousManifest, 'utf8')) as {
+        files: Array<{ path: string; sha256: string }>;
+      };
+      expect(partial.files.map((file) => file.path)).toEqual(['jobs/a.webp']);
+      expect(partial.files[0].sha256).toMatch(/^[a-f0-9]{64}$/);
+
+      // The successful copy already checkpointed A. A later source mutation
+      // cannot change what the R2 object contains, and must not make every
+      // subsequent partial checkpoint rehash that previously verified path.
+      fs.writeFileSync(path.join(sourceDir, 'jobs/a.webp'), 'changed after checkpoint');
+      execFileSync(process.execPath, [
+        R2_DELTA, 'record-progress', candidateManifest, previousManifest, changedFiles,
+        completedFiles, previousManifest, sourceDir, 'partial',
+      ], { encoding: 'utf8' });
+      fs.writeFileSync(path.join(sourceDir, 'jobs/a.webp'), 'verified A');
+
+      const resumed = execFileSync(process.execPath, [
+        R2_DELTA, sourceDir, previousManifest, changedFiles, candidateManifest,
+      ], { encoding: 'utf8' });
+      expect(resumed).toContain('mode=delta previous=valid');
+      expect(fs.readFileSync(changedFiles, 'utf8')).toBe('jobs/b.webp\n');
+
+      fs.writeFileSync(completedFiles, 'jobs/b.webp\n');
+      execFileSync(process.execPath, [
+        R2_DELTA, 'record-progress', candidateManifest, previousManifest, changedFiles,
+        completedFiles, previousManifest, sourceDir, 'complete',
+      ], { encoding: 'utf8' });
+      const complete = JSON.parse(fs.readFileSync(previousManifest, 'utf8')) as {
+        files: Array<{ path: string; sha256: string }>;
+      };
+      expect(complete.files.map((file) => file.path)).toEqual(['jobs/a.webp', 'jobs/b.webp']);
+      expect(complete.files[1].sha256).toMatch(/^[a-f0-9]{64}$/);
+    } finally {
+      fs.rmSync(workspace, { recursive: true, force: true });
+    }
+  });
+
+  it('refuses to checkpoint paths whose OG source changed after the candidate was hashed', () => {
+    const workspace = fs.mkdtempSync(path.join(os.tmpdir(), 'job-og-r2-unverified-'));
+    try {
+      const sourceDir = path.join(workspace, 'source');
+      const previousManifest = path.join(workspace, 'published.json');
+      const changedFiles = path.join(workspace, 'changed.txt');
+      const completedFiles = path.join(workspace, 'completed.txt');
+      const candidateManifest = path.join(workspace, 'candidate.json');
+      fs.mkdirSync(path.join(sourceDir, 'jobs'), { recursive: true });
+      const sourceFile = path.join(sourceDir, 'jobs/a.webp');
+      fs.writeFileSync(sourceFile, 'candidate');
+      execFileSync(process.execPath, [
+        R2_DELTA, sourceDir, previousManifest, changedFiles, candidateManifest,
+      ], { encoding: 'utf8' });
+      fs.writeFileSync(completedFiles, 'jobs/a.webp\n');
+      fs.writeFileSync(sourceFile, 'changed after hash');
+
+      expect(() => execFileSync(process.execPath, [
+        R2_DELTA, 'record-progress', candidateManifest, previousManifest, changedFiles,
+        completedFiles, previousManifest, sourceDir, 'partial',
+      ], { encoding: 'utf8', stdio: ['ignore', 'pipe', 'pipe'] })).toThrow();
+      expect(fs.existsSync(previousManifest)).toBe(false);
     } finally {
       fs.rmSync(workspace, { recursive: true, force: true });
     }
