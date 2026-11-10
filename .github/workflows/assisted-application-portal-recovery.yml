@@ -68,8 +68,6 @@ jobs:
           sparse-checkout: |
             functions
             scripts
-            data/swiss-locality-postal-codes.json
-            data/swiss-postal-code-index.json
             package.json
             package-lock.json
       - uses: actions/setup-node@v7

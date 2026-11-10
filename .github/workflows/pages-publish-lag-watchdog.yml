@@ -167,6 +167,44 @@ jobs:
             --workflow "${{ github.workflow }}" \
             --resolve
 
+      # Cadence reading (scripts/check-pages-publish-lag.mjs →
+      # DEFAULT_CADENCE_*): fewer than 3 distinct commits published in the last
+      # 24 h while content is pending. It measures the product objective (new
+      # job offers live 3-4 times a day), not a fault, so it is REPORT-ONLY: its
+      # own issue at priority medium, never the step's exit code, never a gate
+      # on deploy.yml / deploy-publish.yml. `cadence_degraded` is empty when
+      # the deployment history was unreadable — then neither step runs.
+      - name: Open / dedup cadence issue
+        if: steps.check.outputs.cadence_degraded == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          CADENCE_SUMMARY: ${{ steps.check.outputs.cadence_summary }}
+        run: |
+          node scripts/lib/github-issue-creator.mjs \
+            --title "Pages publish cadence below target: under 3 publishes in 24h" \
+            --description "${CADENCE_SUMMARY}
+
+          This is the cadence objective, not the lag fault: the pipeline may be healthy and simply too slow or too often red. Throughput is bounded by the serialized deploy.yml build (one at a time, cron every 10 min), so the levers are build wall time and build success rate, not the schedule.
+
+          - \`gh run list --workflow=deploy.yml --event workflow_dispatch --repo ${{ github.repository }}\` for build conclusions and durations.
+          - \`gh run list --workflow=deploy-publish.yml --repo ${{ github.repository }}\` for the publish half.
+
+          Issue auto-resolves on the first watchdog run that counts 3 or more publishes in the trailing 24h." \
+            --priority 3 \
+            --label automation \
+            --workflow "${{ github.workflow }}"
+
+      - name: Resolve cadence issue when the target is met
+        if: steps.check.outputs.cadence_degraded == 'false'
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          node scripts/lib/github-issue-creator.mjs \
+            --title "Pages publish cadence below target: under 3 publishes in 24h" \
+            --workflow "${{ github.workflow }}" \
+            --resolve
+
       # Watcher-del-watcher: if the check step failed WITHOUT going through
       # the intentional degraded path (no `summary` output — a crash, not a
       # real lag reading), page separately so the monitor's own breakage

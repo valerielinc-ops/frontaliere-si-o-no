@@ -35,7 +35,7 @@ import { extractFields as extractFieldsRaw, registerPortalChannelType } from './
 import { startPortalDiagnostics, portalHandoffReason } from './diagnostics.mjs';
 import { applicationContractFromPreflight, applicationContractFromSubmission } from './application-contract.mjs';
 import { NO_PORTAL_KNOWLEDGE, labelsAt, learnedButton } from './knowledge.mjs';
-import { addressAnswerNeedsOwnership, candidateAnswerForField, consentAnswerPolarity, holdsValue, isPermitHistoricalQuestion, ownConsent, planPage, questionTopic, targetEmployerNoOption } from './plan.mjs';
+import { addressAnswerNeedsOwnership, candidateAnswerForField, holdsValue, isPermitHistoricalQuestion, ownConsent, planPage, questionTopic, targetEmployerNoOption } from './plan.mjs';
 import { registerCookieSessionRecovery } from './cookie-session.mjs';
 import { portalAnswerForApplication, portalOptionMap, portalQuestionId, portalQuestionKey, slugId } from './question-key.mjs';
 import { codexPrompt } from '../../../../functions/src/assistedApplicationAiPrompts.js';
@@ -746,12 +746,21 @@ export function candidateForForm({ identity, profile = {}, answers = {}, draft =
   const motivation = Object.fromEntries((draft.formAnswers || []).map((field) => [field.key, field.value]));
   const status = permitStatusOf(profile.permitStatus) || permitStatusOf(answers.work_permit);
   const portalQuestionsAnswered = portalAnswersForQuestions(portalQuestions, answers, draft.portalAnswers?.answers, currentAnswerIds, answerSources);
-  // Older drafts may predate profile enrichment; resolve explicit address
-  // fields once more at the browser boundary without deriving a postal code
-  // or country from the locality. Form-only: the letter and CV use `profile`.
-  const resolved = resolveResidenceAddress(profile.address, profile.location, String(draft?.factSources?.text || ''));
+  // Older drafts may predate the profile enrichment done during draft mode;
+  // resolve once more at the browser boundary without an external geocoder.
+  const resolved = resolveResidenceAddress(profile.address, profile.location);
+  // Owner decision 2026-11-09 (functions/src/assistedApplicationPlatformDefaults.js): what the CV does not
+  // say, a form receives from the platform: the town's postal code and country, and a street when a form
+  // requires one. Form-only: the letter and the CV are written from `profile`, never from this object.
   const facts = platformFacts && typeof platformFacts === 'object' ? platformFacts : null;
-  const address = resolved;
+  const factAddress = facts?.address?.city ? facts.address : null;
+  const address = factAddress ? {
+    ...resolved,
+    street: resolved.street || factAddress.street,
+    postalCode: resolved.postalCode || factAddress.postalCode,
+    city: resolved.city || factAddress.city,
+    country: resolved.country || factAddress.countryName,
+  } : resolved;
   return {
     // The target employer is needed for employer-specific eligibility fields
     // such as «Are you already an employee?». It is public posting data, not a
@@ -786,6 +795,10 @@ export function candidateForForm({ identity, profile = {}, answers = {}, draft =
         .map(({ role = '', employer = '', location = '', start = '', end = '' }) => ({ role, employer, location, start, end })),
       languages: profile.languages || [],
       languagesExplicitList: profile.languagesExplicitList === true,
+      // The detected language of the candidate's CV is evidence for the
+      // planner's conservative native-language rule; it is not a nationality
+      // or a replacement for explicitly stated language levels.
+      cvLanguage: profile.cvLanguage || '',
       education: (profile.education || []).slice(0, 4)
         .map(({ degree = '', institution = '', start = '', end = '' }) => ({ degree, institution, start, end })),
       currentEducation: {
@@ -915,7 +928,7 @@ function portalAnswersForQuestions(questions, answers, previousAnswers = [], cur
     const question = String(item?.question || '').trim();
     const answer = String(item?.answer ?? '').trim();
     if (!question || !answer) continue;
-    const prior = { answerId: String(item?.answerId || '').trim() || undefined, question, context: String(item?.context || ''), section: String(item?.section || ''), autocomplete: String(item?.autocomplete || ''), ...addressMetadata(item), answer, ...(typeof item?.source === 'string' && item.source ? { source: item.source } : {}) };
+    const prior = { answerId: String(item?.answerId || '').trim() || undefined, question, context: String(item?.context || ''), section: String(item?.section || ''), autocomplete: String(item?.autocomplete || ''), ...addressMetadata(item), answer, source: String(item?.source || 'answers') };
     const key = keyFor(prior);
     if (currentKeys.has(key)) continue;
     const group = priorGroups.get(key) || [];
@@ -4236,7 +4249,7 @@ const registrationButton = (snapshot) => [CREATE_ACCOUNT_RE, SUBMIT_RE, NEXT_RE]
  * silence would be a registration that may have gone through.
  * @returns {Promise<{ privacy: 'none'|'accepted'|'unavailable', filled: object, blocked: boolean }>}
  */
-export async function registrationPrivacyPreflight(page, { accepted = false, candidate = null, timeoutMs = PRIVACY_ENABLE_TIMEOUT_MS } = {}) {
+export async function registrationPrivacyPreflight(page, { accepted = false, timeoutMs = PRIVACY_ENABLE_TIMEOUT_MS } = {}) {
   const initial = await extractFields(page, NAVIGATION);
   const targetControl = registrationButton(initial);
   const privacy = await acceptPrivacyStatement(page, initial, { targetControl });
@@ -4246,25 +4259,16 @@ export async function registrationPrivacyPreflight(page, { accepted = false, can
   if (privacy === 'none' && accepted) return { privacy, filled, blocked: false };
   if (privacy === 'none') {
     // A button shut by its styling alone reads as free: only an optional notice
-    // or an explicitly/approved same-form acknowledgement leaves the way open.
+    // leaves the way open, and then only past a button that is not shut.
     const sameForm = control => targetControl && targetControl.form >= 0 && control.form === targetControl.form && control.frame === targetControl.frame;
     const { notice } = privacyConsentControls({ ...filled, buttons: filled.buttons.filter(sameForm), links: (filled.links || []).filter(sameForm) });
+    // A link off the form is no way to accept: a ticked own box of the form already is.
     const cta = registrationButton(filled);
-    const approvedAcknowledgment = (field) => {
-      const answer = candidateAnswerForField(candidate, field);
-      const polarity = consentAnswerPolarity(answer?.value);
-      const explicit = ['answers', 'candidate', 'user'].includes(answer?.source) && polarity === true;
-      const approvedPolicy = answer?.source === 'policy_default'
-        && operationalQuestionTopic(field) === 'privacy_review_ack'
-        && (field.portalNativeContract?.required === true || field.required === true)
-        && polarity === true;
-      return explicit || approvedPolicy;
-    };
-    const answered = Boolean(notice?.leavesDocument) && cta && !cta.disabled
-      && notice.form >= 0 && notice.form === cta.form && notice.frame === cta.frame
+    const answered = Boolean(notice?.leavesDocument) && cta && !cta.disabled && notice.form >= 0
+      && notice.form === cta.form && notice.frame === cta.frame
       && (filled.fields || []).some((field) => field.checked && ownConsent(field)
-        && field.form === notice.form && field.frame === notice.frame && approvedAcknowledgment(field));
-    const blocked = Boolean(notice) && !answered && (!optionalNotice(notice) || Boolean(cta?.disabled));
+        && field.form === notice.form && field.frame === notice.frame);
+    const blocked = Boolean(notice) && !answered && (!optionalNotice(notice) || Boolean(registrationButton(filled)?.disabled));
     return blocked ? { privacy: 'unavailable', filled, blocked } : { privacy, filled, blocked };
   }
   if (!registrationButton(filled)?.disabled) return { privacy, filled, blocked: false };
@@ -5881,7 +5885,7 @@ export async function handleAuth({ page, snapshot, ctx, allowExistingRegistratio
     }
     // After the fields: SuccessFactors opens its statement only for a chosen country.
     const privacyStartUrl = page.url();
-    const preflight = await registrationPrivacyPreflight(page, { accepted: privacy === 'accepted', candidate });
+    const preflight = await registrationPrivacyPreflight(page, { accepted: privacy === 'accepted' });
     if (preflight.privacy !== 'none') privacy = preflight.privacy;
     if (preflight.blocked) {
       // Nothing was pressed, so no account came of this: as with no button, a
@@ -7289,7 +7293,13 @@ export async function submitViaPortal(ctx) {
       // A held-permit value recorded during this run describes a runner form
       // action, not a separate candidate portal response. Keep it in run
       // evidence, but do not present it as an answered portal question.
-      const recorded = [...given.values()].filter((item) => !isHeldPermitQuestion(item.question));
+      // The evidence log represents checkbox actions as ✓/✗. Those marks are
+      // display-only, not candidate answers; including them beside an explicit
+      // Yes/No answer makes the consent matcher treat the candidate's answer
+      // as conflicting on the next planner pass. `visibleAnswers` below
+      // reconstructs a checkbox answer only when it matches candidate data.
+      const recorded = [...given.values()].filter((item) => !isHeldPermitQuestion(item.question)
+        && !['✓', '✗'].includes(String(item.answer || '').trim()));
       const recordedKeys = new Set(recorded.map(answerKey));
       const fold = (value) => String(value || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/\s+/g, ' ').trim().toLowerCase();
       const isPhoneCode = (field) => /\b(?:country\s+phone\s+code|phone\s+code|country\s+code|dial(?:ing)?\s+code|indicativo|vorwahl|prefisso)\b/i.test(String(field?.label || ''));

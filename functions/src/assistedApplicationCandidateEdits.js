@@ -35,10 +35,10 @@ import {
 import { answerMessage, safePattern, validateAnswer } from './lib/answerRules.js';
 import { isoDateOf } from './lib/cvPeriod.js';
 import { permitLabel, permitOptions, permitStatusOf } from './lib/permitStatus.js';
-import { civilStatusCode, civilStatusOptions, cvPersonalFacts, isSalutation, personalFieldLabel, salutationOptions } from './lib/personalFacts.js';
+import { civilStatusCode, civilStatusOptions, cvPersonalFacts, isSalutation, personalFieldLabel, salutationFor, salutationGenderFromName, salutationOptions } from './lib/personalFacts.js';
 import { hasCompleteLanguageList, hasExplicitLanguageSection, isLanguageAbilityQuestion, isLanguageNameOnly, languageCodesIn, languageExplicitlyAbsent } from './lib/languageFacts.js';
 import { isIdentityEmailConfirmation } from './lib/identityEmail.js';
-import { platformCandidateFacts } from './assistedApplicationPlatformDefaults.js';
+import { platformCandidateFacts, platformSalutationGender } from './assistedApplicationPlatformDefaults.js';
 
 const LEGACY_LANGUAGE_LIST_LIMIT = 12;
 const CANDIDATE_LOCALES = new Set(['it', 'en', 'de', 'fr']);
@@ -537,9 +537,11 @@ function splitLanguages(text) {
  * source: the code of the status the candidate chose (lib/permitStatus.js),
  * '' when none.
  * `personal`: the form of address and the civil status, derived here at every
- * read. A form of address is used only when the candidate answered or corrected
- * it; neither a name nor gendered CV wording proves the candidate's preference.
- * Explicit civil-status wording from the CV remains available for correction.
+ * read too: what the candidate answered or corrected, else what the CV states
+ * explicitly or an unambiguous first name supports (lib/personalFacts.js). A form of address known from either source also stands as `answers.salutation`, so the
+ * question is not asked and the portal's field is filled as if answered. The
+ * civil status stays out of `profile` and `answers`: the letter and the CV
+ * are written from those, and neither says whom the candidate married.
  * @returns {{identity:{name:string,email:string,phone:string,firstName:string,lastName:string}, profile:object & {permitStatus:string}, answers:object, overrides:object, personal:{salutation:string, civilStatus:string}}}
  */
 export function candidateWithEdits({ order, draft, flow, locale: requestedLocale }) {
@@ -604,8 +606,15 @@ export function candidateWithEdits({ order, draft, flow, locale: requestedLocale
   if (availability) profile.availability = availability;
   const cv = cvPersonalFacts(draft?.factSources?.text);
   const locale = candidateLocaleOf(requestedLocale, order);
-  const salutation = salutationNow({ answers, overrides });
-  const platformSalutation = salutation;
+  const salutation = salutationNow({ answers, overrides, cvGender: cv.gender || salutationGenderFromName(identity.firstName, locale), locale });
+  // An unambiguous first name is the owner's approved form-of-address default
+  // for application portals, including a required native title choice. A
+  // candidate answer or correction still wins; ambiguous names and an
+  // explicitly cleared correction stay blank.
+  // The form of address is never asked (owner decision 2026-11-09): a first name the lexicon does not know
+  // takes the platform's reading of it; only a correction the candidate cleared stays blank.
+  const platformSalutation = salutation || (has(overrides, 'salutation') ? ''
+    : salutationFor(platformSalutationGender(identity.firstName, locale), locale));
   if (platformSalutation) answers.salutation = platformSalutation;
   else delete answers.salutation;
   // The permit asked at upload answers the permit question of the draft, as the candidate chose it; an
@@ -616,23 +625,26 @@ export function candidateWithEdits({ order, draft, flow, locale: requestedLocale
     answers.work_permit = permitLabel(uploadedPermit, locale);
   }
   const personal = { salutation: platformSalutation, civilStatus: has(overrides, 'civilStatus') ? overrides.civilStatus : cv.civilStatusText };
-  // Form-only values (assistedApplicationPlatformDefaults.js) are kept apart from `profile`,
-  // which the letter and the CV are written from.
+  // Form-only values (assistedApplicationPlatformDefaults.js): kept apart from `profile`, which the letter
+  // and the CV are written from, so a synthesized street or an estimated birth date is never printed there.
   const platformFacts = platformCandidateFacts({ order, profile, identity, personal, answers, locale, seed: order?.userId || order?.orderId || '' });
   return { identity, profile, answers, overrides, personal, platformFacts };
 }
 
 /**
- * The candidate's form of address as of now. Only the candidate's own answer or correction is authoritative:
+ * The candidate's form of address as of now. What the CV says is a default, never a rule; the candidate's
+ * own word comes first, in this order:
  *  1. the field they corrected on the review page, even emptied (`has`, not truthiness), whatever an older
  *     answer says: `answers.salutation` «Monsieur» with `formOverrides.salutation` «» gives «». It holds
  *     across rounds, and a draft written afterwards does not ask the question again (lib/draft.mjs): the
  *     older answer would otherwise come back with the question (review of #12348);
- *  2. their answer to the question.
+ *  2. their answer to the question;
+ *  3. only where they touched neither, the gender the CV explicitly states in its own words or the locale-aware
+ *     default for an unambiguous first name. Unknown and ambiguous names leave the field blank.
  */
-function salutationNow({ answers, overrides }) {
+function salutationNow({ answers, overrides, cvGender, locale }) {
   if (has(overrides, 'salutation')) return overrides.salutation;
-  return clean(answers.salutation, 40);
+  return clean(answers.salutation, 40) || salutationFor(cvGender, locale);
 }
 
 /**

@@ -1553,18 +1553,16 @@ describe('portal field extraction', () => {
       type: 'checkbox',
       required: true,
     };
-    expect(operationalDefaultAnswer(privacyField)).toMatchObject({ value: 'true', source: 'policy_default' });
+    expect(operationalDefaultAnswer(privacyField)).toMatchObject({ value: 'true', topic: 'privacy_review_ack', source: 'policy_default' });
     const privacyPlan = guardPlan({
       actions: [],
       missingRequired: [{ fieldId: privacyField.id, question: fullPrivacyLabel, why: '', type: 'checkbox', options: [] }],
     }, [privacyField], { answers: {}, profile: {}, portalQuestionsAnswered: [] });
-    expect(privacyPlan.actions).toContainEqual(expect.objectContaining({ fieldId: privacyField.id, action: 'check', source: 'policy_default' }));
-    expect(privacyPlan.missingRequired).not.toContainEqual(expect.objectContaining({ fieldId: privacyField.id }));
-    const confirmedPrivacyPlan = guardPlan({ actions: [], missingRequired: [] }, [privacyField], {
-      answers: {}, profile: {}, portalQuestionsAnswered: [{ question: fullPrivacyLabel, answer: 'Yes', source: 'answers' }],
-    });
-    expect(confirmedPrivacyPlan.actions).toContainEqual(expect.objectContaining({
-      fieldId: privacyField.id, action: 'check', source: 'answers',
+    expect(privacyPlan.actions).toContainEqual(expect.objectContaining({
+      fieldId: privacyField.id,
+      action: 'check',
+      value: 'true',
+      source: 'policy_default',
     }));
     const optionalConsent = {
       id: 'optional-marketing',
@@ -1600,7 +1598,7 @@ describe('portal field extraction', () => {
     // No gender in the candidate's data: an invented answer is dropped and the question goes to the candidate.
     const candidate = { answers: {}, profile: {}, portalQuestionsAnswered: [] };
     const guarded = guardPlan({ actions: [{ fieldId: gender.id, action: 'select', source: 'rule', value: 'Weiblich' }], missingRequired: [] }, page.fields, candidate);
-    expect(guarded.actions).toEqual([expect.objectContaining({ fieldId: news.id, action: 'select', value: 'Nein', source: 'policy_default' })]);
+    expect(guarded.actions).toEqual([]);
     expect(guarded.missingRequired).toEqual([expect.objectContaining({ fieldId: gender.id, question: 'Geschlecht', type: 'choice', options: ['Weiblich', 'Männlich'] })]);
   });
 

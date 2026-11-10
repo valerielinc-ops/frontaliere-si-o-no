@@ -1,14 +1,16 @@
 /**
  * Conservative, deterministic normalisation of a candidate's residence.
  *
- * Address fields are filled only from values stated in the candidate's
- * profile or CV. A locality does not prove its postal code or country; missing
- * address details remain questions for the candidate.
+ * This is geographic address data, not a nationality or immigration-status
+ * inference. A CAP is filled only from an explicit CV CAP or from the local
+ * locality/province directory. Ambiguous localities remain empty so the
+ * candidate is still asked. The directory is generated from GeoNames' Italy
+ * postal-code export; it is deliberately not a network lookup at application
+ * time, which would send the candidate's address to a third party.
  */
 
 import { createRequire } from 'node:module';
 import { nationalityOf } from '../../../../functions/src/lib/permitStatus.js';
-import { officialLocalityPostalCode } from '../../../../scripts/lib/swiss-locality-directory.mjs';
 
 const require = createRequire(import.meta.url);
 const ITALY_POSTAL_DIRECTORY = require('../../data/italy-postal-codes.json');
@@ -118,17 +120,22 @@ function localityOnlyStreet(street, { city, location, postalCode, country, provi
 const entries = (Array.isArray(ITALY_POSTAL_DIRECTORY.entries) ? ITALY_POSTAL_DIRECTORY.entries : [])
   .map(([name, province, postalCode]) => ({ name: String(name), province: String(province).toUpperCase(), postalCode: String(postalCode) }))
   .filter((entry) => entry.name && /^[A-Z]{2}$/.test(entry.province) && /^\d{5}$/.test(entry.postalCode));
+const SWISS_CANTONS = new Set(['AG', 'AI', 'AR', 'BE', 'BL', 'BS', 'FR', 'GE', 'GL', 'GR', 'JU', 'LU', 'NE', 'NW', 'OW', 'SG', 'SH', 'SO', 'SZ', 'TG', 'TI', 'UR', 'VD', 'VS', 'ZG', 'ZH']);
+const POSTAL_CACHE = new Map();
 
 /** Return one CAP, or '' when the locality is not uniquely resolvable. */
 export function resolveItalianPostalCode(city, province = '') {
   const cityText = cityWithoutProvince(city);
   const provinceCode = String(province || '').toUpperCase().trim();
+  const cacheKey = `${provinceCode}|${key(cityText)}`;
+  if (POSTAL_CACHE.has(cacheKey)) return POSTAL_CACHE.get(cacheKey);
   if (!cityText) return '';
   const scoped = entries.filter((entry) => !provinceCode || entry.province === provinceCode);
   const exact = scoped.filter((entry) => key(entry.name) === key(cityText));
   const matches = exact.length ? exact : scoped.filter((entry) => localityEquivalent(cityText, entry.name));
   const codes = new Set(matches.map((entry) => entry.postalCode));
   const result = codes.size === 1 ? [...codes][0] : '';
+  POSTAL_CACHE.set(cacheKey, result);
   return result;
 }
 
@@ -141,107 +148,40 @@ function explicitCountry(value) {
   return '';
 }
 
-function explicitCountryFrom(value) {
-  const exact = explicitCountry(value);
-  if (exact) return exact;
-  const text = fold(value);
-  const suffix = /(?:^|\s)(italia|italy|italie|italien|svizzera|switzerland|suisse|schweiz|germania|germany|allemagne|deutschland|francia|france|it|ch|de|fr)$/.exec(text)?.[1];
-  return explicitCountry(suffix || '');
-}
-
-const CV_SECTION_RE = /\b(?:esperienz\w*|experience|berufserfahrung|work history|education|istruzion\w*|formazione|ausbildung|formation|competenz\w*|qualific\w*|skills|capacita|competenze)\b/i;
-const NON_RESIDENCE_RE = /\b(?:employer|company|azienda|arbeitgeber|entreprise|soci[ée]t[ée]|work(?:place|\s+(?:location|address|country|city|town))|job\s+(?:location|address|city|town)|office|headquarters|sede|datore\s+di\s+lavoro|born|geburt|nascit\w*|naissance|birth\s+(?:date|place)|data\s+di\s+nascita)\b/i;
-
-function cvAddressEvidenceLines(cvText) {
-  const all = String(cvText || '').split(/\r?\n/).map((line) => compact(line)).filter(Boolean);
-  const header = [];
-  for (const line of all.slice(0, 16)) {
-    if (CV_SECTION_RE.test(line)) break;
-    if (!NON_RESIDENCE_RE.test(line)) header.push(line);
-  }
-  const residence = all.filter((line) => GENERAL_ADDRESS_LABEL_RE.test(line) && !NON_RESIDENCE_RE.test(line));
-  return [...new Set([...header, ...residence])];
-}
-
-function appearsInEvidence(value, lines) {
-  const needle = key(value);
-  if (!needle) return false;
-  return lines.some((line) => {
-    const haystack = key(line);
-    return haystack === needle || ` ${haystack} `.includes(` ${needle} `);
-  });
-}
-
-function countryAppearsInEvidence(country, lines) {
-  const code = ({ Italia: 'IT', Svizzera: 'CH', Germania: 'DE', Francia: 'FR' })[country];
-  if (!code) return false;
-  const names = {
-    IT: /\b(?:italia|italy|italie|italien)\b/i,
-    CH: /\b(?:svizzera|switzerland|suisse|schweiz)\b/i,
-    DE: /\b(?:germania|germany|allemagne|deutschland)\b/i,
-    FR: /\b(?:francia|france)\b/i,
-  }[code];
-  const codeToken = new RegExp(`(?:^|[\\s([{:/\\-–—])${code}(?=$|[\\s)\\]}:/\\-–—])`, 'i');
-  return lines.some((line) => names.test(line) || codeToken.test(line));
-}
-
 function explicitPostalCode(cvText, city, province) {
-  const withoutCalendarDates = (line) => String(line || '').replace(
-    /\b(?:\d{1,2}[./-]\d{1,2}[./-]\d{4}|\d{4}[./-]\d{1,2}[./-]\d{1,2})\b/g,
-    ' ',
-  );
-  const lines = cvAddressEvidenceLines(cvText).filter((line) => {
-    if (NON_RESIDENCE_RE.test(line)) return false;
-    if (GENERAL_ADDRESS_LABEL_RE.test(line)) return true;
-    return Boolean(city && appearsInEvidence(city, [line]) && /\b\d{4,5}\b/.test(withoutCalendarDates(line)));
-  });
-  const codes = [...new Set(lines.flatMap((line) => withoutCalendarDates(line).match(/\b\d{4,5}\b/g) || []))];
+  const lines = String(cvText || '').split(/\r?\n/)
+    .filter((line) => /\b(?:residen\w*|domicil\w*|indirizzo\s+(?:di\s+)?residen\w*|home\s+address|current\s+address|adresse\s+(?:de\s+)?(?:r[eé]sidence|residence)|wohn(?:sitz|adresse)\w*)\b/i.test(line))
+    .filter((line) => !/\b(?:employer|company|azienda|arbeitgeber|entreprise|soci[ée]t[ée]|work(?:place|\s+(?:location|address|country|city|town))|job\s+(?:location|address|city|town)|office|headquarters|sede|datore\s+di\s+lavoro)\b/i.test(line));
+  const codes = [...new Set(lines.flatMap((line) => line.match(/\b\d{5}\b/g) || []))];
   if (codes.length !== 1) return '';
-  const code = codes[0];
-  const swiss = officialLocalityPostalCode(city, province);
-  if (swiss) return swiss === code ? code : '';
-  if (/^(?:18|19|20)\d{2}$/.test(code) && !lines.some((line) => POSTAL_LABEL_RE.test(line))) return '';
-  const italian = resolveItalianPostalCode(city, province);
-  return !italian || italian === code ? code : '';
+  const known = resolveItalianPostalCode(city, province);
+  return !known || known === codes[0] ? codes[0] : '';
 }
 
-/** Resolve only stated address fields while preserving the candidate's wording. */
+/**
+ * Resolve address fields while preserving the candidate's wording. The
+ * returned country is intentionally limited to explicit country names and
+ * unambiguous Italian/Swiss locality signals.
+ */
 export function resolveResidenceAddress(rawAddress = {}, location = '', cvText = '') {
   const address = rawAddress && typeof rawAddress === 'object' ? rawAddress : {};
-  const statedCity = compact(address.city);
-  const rawCity = statedCity || compact(location);
+  const rawCity = compact(address.city) || compact(location);
   const province = provinceFrom(address.city) || provinceFrom(location);
-  const evidenceLines = cvAddressEvidenceLines(cvText);
-  const sourceLines = String(cvText || '').split(/\r?\n/).map((line) => compact(line)).filter(Boolean);
-  const evidenceKeys = new Set(evidenceLines.map(key));
-  const nonResidenceLines = sourceLines.filter(line => !evidenceKeys.has(key(line)));
-  const cityCandidate = cityWithoutProvince(rawCity);
-  const hasCvSource = String(cvText || '').trim().length > 0;
-  // The profile address is extracted from the CV. Keep its explicit fields
-  // even when the text was abbreviated, but reject values found only outside
-  // the candidate header/residence lines (for example, at an employer).
-  const occursOnlyOutsideResidence = value => hasCvSource
-    && appearsInEvidence(value, nonResidenceLines)
-    && !appearsInEvidence(value, evidenceLines);
-  const countryOccursOnlyOutsideResidence = value => hasCvSource
-    && countryAppearsInEvidence(value, nonResidenceLines)
-    && !countryAppearsInEvidence(value, evidenceLines);
-  const locationCity = cityWithoutProvince(location);
-  const city = statedCity && !occursOnlyOutsideResidence(cityCandidate)
-    ? cityCandidate
-    : (!hasCvSource || appearsInEvidence(locationCity, evidenceLines) ? locationCity : '');
-  const countryCandidate = explicitCountryFrom(address.country) || explicitCountryFrom(rawCity) || explicitCountryFrom(location);
-  const country = countryCandidate && !countryOccursOnlyOutsideResidence(countryCandidate) ? countryCandidate
-    : (!hasCvSource || countryAppearsInEvidence(countryCandidate, evidenceLines) ? countryCandidate : '');
+  const explicit = explicitCountry(address.country) || explicitCountry(rawCity) || explicitCountry(location);
+  const city = cityWithoutProvince(rawCity);
+  const knownItalianPostal = resolveItalianPostalCode(city, province);
   const rawStatedPostal = compact(address.postalCode, 20);
   const statedPostal = postalCodeDigits(rawStatedPostal) || rawStatedPostal;
-  const postalCode = statedPostal && !occursOnlyOutsideResidence(statedPostal) ? statedPostal
-    : explicitPostalCode(cvText, city, province) || (hasCvSource ? '' : statedPostal);
+  const postalCode = knownItalianPostal
+    || explicitPostalCode(cvText, city, province)
+    || statedPostal;
+  const country = (knownItalianPostal ? 'Italia' : '')
+    || explicit
+    || (SWISS_CANTONS.has(province) && /^\d{4}$/.test(statedPostal) ? 'Svizzera' : '');
   // Remove a known postal code copied into the street field. A bare
   // four/five-digit value is rejected below as an ambiguous postal code, while
   // longer numbers with a street remain eligible as explicit civic numbers.
-  const streetCandidate = compact(address.street);
-  const street = occursOnlyOutsideResidence(streetCandidate) ? '' : streetCandidate;
+  const street = compact(address.street);
   const knownPostalDigits = postalCodeDigits(postalCode);
   const streetWithoutKnownPostal = knownPostalDigits
     ? street.replace(new RegExp(`\\b${knownPostalDigits}\\b`, 'g'), ' ')
@@ -262,7 +202,7 @@ export function resolveResidenceAddress(rawAddress = {}, location = '', cvText =
       province,
     }) ? '' : cleanStreet,
     postalCode,
-    city,
+    city: compact(address.city) || city,
     country,
   };
 }
@@ -336,10 +276,7 @@ export function addressQuestionAnswer(candidate, topic, streetOverride = null) {
     if (value !== null && value !== undefined && String(value).trim()) rawAddress[key] = value;
   }
   if (streetOverride !== null && ['address', 'address_street', 'address_house_number'].includes(topic)) rawAddress.street = streetOverride;
-  // Residence fields only use facts already resolved from the residence
-  // address. `location` can describe a job or school and belongs only to
-  // candidate contact fields, not to a home-address question.
-  const address = resolveResidenceAddress(rawAddress);
+  const address = resolveResidenceAddress(rawAddress, identity.location || profile.location);
   if (topic === 'address_street') return /\p{L}/u.test(address.street) ? address.street : '';
   if (topic === 'address') {
     return /\p{L}/u.test(address.street) && houseNumberFromAddress(address.street, address.postalCode)
@@ -348,7 +285,7 @@ export function addressQuestionAnswer(candidate, topic, streetOverride = null) {
   }
   if (topic === 'address_house_number') return houseNumberFromAddress(address.street, address.postalCode);
   if (topic === 'residence_postal_code') return address.postalCode;
-  if (topic === 'residence_city') return address.city;
+  if (topic === 'residence_city') return address.city || compact(identity.location || profile.location);
   if (topic === 'residence_country') return address.country;
   return '';
 }

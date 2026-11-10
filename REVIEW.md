@@ -43,7 +43,7 @@ impossibile → fail-closed.
 
 | Marker | Quando |
 |---|---|
-| 🔴 Important | Rompe funnel/monetizzazione/traffico. Bug che blocca rendering, regressione SEO/AdSense, structured data invalido, scope critico mancante. **Scope-feature dovuto lasciato in `## Non implementato` come deferral senza essere fatto né avere un next-step/piano-di-completamento (post-#8)** |
+| 🔴 Important | Rovescia o riscrive una decisione di `DECISIONS.md` senza nuova riga datata (AGENTS.md #10). Rompe funnel/monetizzazione/traffico. Bug che blocca rendering, regressione SEO/AdSense, structured data invalido, scope critico mancante. **Scope-feature dovuto lasciato in `## Non implementato` come deferral senza essere fatto né avere un next-step/piano-di-completamento (post-#8)** |
 | 🟡 Nit | Migliora ma non blocca. Semplificazione, leggibilità, refactor anti-duplicazione, **code-smell che crea maintenance debt** (hardcoded values che invecchiano, comment grossly oversized). **Cap 3/review**; oltre → `+N similar nits` in summary |
 | 🟣 Pre-existing | Bug già pre-PR. Solo se rilevante al diff |
 | ❓ q | Domanda genuina quando incerto (no speculazione) |
