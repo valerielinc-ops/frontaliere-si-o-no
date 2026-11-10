@@ -373,8 +373,8 @@ export async function fetchErrorDiagnostics(token, zoneId, opts = {}) {
  * @param {string} token   CF API token (Analytics:Read)
  * @param {string} zoneId  resolved zone tag
  * @param {object} [opts]
- * @param {number} [opts.windowHours=1]   size of each window, in hours
- * @param {number} [opts.windowCount=48]  number of contiguous windows to sweep
+ * @param {number} [opts.windowHours=1]   size of each window, in hours (bounded below one day)
+ * @param {number} [opts.windowCount=48]  number of contiguous windows to sweep (bounded to the retention horizon)
  * @param {number} [opts.minStatus=404]   floor on edgeResponseStatus (>=)
  * @param {number} [opts.maxStatus]       ceiling on edgeResponseStatus (<=)
  * @param {string} [opts.host]            filter to one clientRequestHTTPHost
@@ -382,8 +382,10 @@ export async function fetchErrorDiagnostics(token, zoneId, opts = {}) {
  * @param {typeof fetch} [opts.fetchImpl=fetch] network implementation
  * @returns {Promise<{rows:Array<{path:string,count:number}>, windowsOk:number, windowCount:number}>}
  *   `rows` — normalized (trailing-slash-stripped) path + summed count across
- *   all windows. `windowsOk` — windows that returned successfully (a single
- *   failed window is skipped, not fatal, to tolerate transient CF 5xx).
+ *   all successful windows. `windowsOk` — windows that returned successfully (a
+ *   single failed window is skipped, not fatal, to tolerate transient CF 5xx;
+ *   if every window fails, the first error is propagated rather than returning
+ *   an empty dataset that could be mistaken for no 404s).
  */
 export async function sweepErrorPathsWindowed(token, zoneId, opts = {}) {
   const fetchImpl = opts.fetchImpl ?? fetch;
