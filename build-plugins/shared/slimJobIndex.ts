@@ -13,7 +13,7 @@
 // byte-shape-identical to its slim-index entry BY CONSTRUCTION. A copy-paste
 // across the two plugins would let them drift (AGENTS.md §6).
 
-import { jobDisplayTitle } from '../../scripts/lib/job-title-identity.mjs';
+import { localizedJobDisplayTitle } from '../../scripts/lib/job-title-identity.mjs';
 import { jobDescriptionPreview } from '../../services/jobs/descriptionPreview';
 
 /** Fields included in the slim index file (listing + filtering + routing + the
@@ -108,9 +108,9 @@ export function buildLocaleJob(job: JobEntry, locale: string): Record<string, un
 
   return {
     ...rest,
-    // Every locale shows the employer's own title; only the interface is
-    // translated (scripts/lib/job-title-identity.mjs).
-    title: jobDisplayTitle({ title: job.title, titleByLocale, sourceLang: job.sourceLang }),
+    // The locale's translated title, the employer's original only when the
+    // locale has no usable translation (scripts/lib/job-title-identity.mjs).
+    title: localizedJobDisplayTitle({ title: job.title, titleByLocale: titleByLocale || {}, sourceLang: job.sourceLang }, locale),
     description,
     descriptionPreview: jobDescriptionPreview(description),
     requirements: requirementsByLocale?.[locale] || job.requirements || [],

@@ -1365,16 +1365,14 @@
     "slugByLocale": {
       "it": "medico-senior-medicina-interna-generale-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
       "en": "senior-physician-senior-physician-general-internal-medicine-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
-      "de": "oberarztin-oberarzt-allgemeine-innere-medizin-m-w-d-svar-spitalverbund-ar-herisau",
+      "de": "oberarztin-oberarzt-allgemeine-innere-medizin-m-w-d-svar-spitalverbund-ar-herisau-4c24fcbe",
       "fr": "medecin-superieur-medecin-superieur-general-medecine-interne-h-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau"
     },
     "sector": "Sanità / Ospedali",
     "expiredAt": "2026-10-17T09:12:53.091Z",
-    "previousSlugs": [
-      "oberarztin-oberarzt-allgemeine-innere-medizin-m-w-d-svar-spitalverbund-ar-herisau"
-    ],
     "previousSlugsByLocale": {
       "it": [
+        "oberarztin-oberarzt-allgemeine-innere-medizin-m-w-d-svar-spitalverbund-ar-herisau-4c24fcbe",
         "oberarztin-oberarzt-allgemeine-innere-medizin-m-w-d-svar-spitalverbund-ar-herisau"
       ],
       "en": [
@@ -1382,6 +1380,9 @@
       ],
       "fr": [
         "oberarztin-oberarzt-allgemeine-innere-medizin-m-w-d-svar-spitalverbund-ar-herisau"
+      ],
+      "de": [
+        "oberarztin-oberarzt-allgemeine-innere-medizin-m-w-d-svar-spitalverbund-ar-herisau-4c24fcbe"
       ]
     },
     "postalCode": "9100",
@@ -1402,6 +1403,9 @@
         "firstSeenAt": "2026-09-11T13:33:11.778Z",
         "title": "Oberärztin / Oberarzt Allgemeine Innere Medizin (m/w/d)"
       }
+    ],
+    "previousSlugs": [
+      "oberarztin-oberarzt-allgemeine-innere-medizin-m-w-d-svar-spitalverbund-ar-herisau"
     ]
   },
   {
@@ -1512,7 +1516,7 @@
     "slugByLocale": {
       "it": "infermiere-a-diplomato-a-hf-per-il-turno-di-notte-50-100-spitalverbund-appenzell-ausserrhoden-svar-herisau",
       "en": "dipl-nurse-hf-for-the-night-watch-50-100-spitalverbund-appenzell-ausserrhoden-svar-herisau",
-      "de": "dipl-pflegefachperson-hf-fur-die-nachtwache-50-100-svar-spitalverbund-ar-herisau",
+      "de": "dipl-pflegefachperson-hf-fur-die-nachtwache-50-100-svar-spitalverbund-ar-herisau-287e5cc0",
       "fr": "dipl-infirmiere-hf-pour-la-garde-de-nuit-50-100-spitalverbund-appenzell-ausserrhoden-svar-herisau"
     },
     "sector": "Sanità / Ospedali",
@@ -1524,6 +1528,16 @@
     "previousSlugsByLocale": {
       "it": [
         "dipl-pflegefachperson-hf-per-la-nachtwache-50-100-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+        "dipl-pflegefachperson-hf-fur-die-nachtwache-50-100-svar-spitalverbund-ar-herisau-287e5cc0",
+        "dipl-pflegefachperson-hf-fur-die-nachtwache-50-100-svar-spitalverbund-ar-herisau"
+      ],
+      "en": [
+        "dipl-pflegefachperson-hf-fur-die-nachtwache-50-100-svar-spitalverbund-ar-herisau"
+      ],
+      "de": [
+        "dipl-pflegefachperson-hf-fur-die-nachtwache-50-100-svar-spitalverbund-ar-herisau-287e5cc0"
+      ],
+      "fr": [
         "dipl-pflegefachperson-hf-fur-die-nachtwache-50-100-svar-spitalverbund-ar-herisau"
       ]
     },
@@ -1716,10 +1730,12 @@
       "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-92a5cb08",
       "sozialarbeiter-in-per-den-sozialdienst-in-der-akutsomatik-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-aec23fa4",
       "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-4e12b46e",
+      "sozialarbeiter-in-per-den-sozialdienst-in-der-akutsomatik-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-34e95023",
+      "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-45f7f622",
       "sozialarbeiter-in-per-den-sozialdienst-in-der-akutsomatik-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
       "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar",
-      "sozialarbeiter-in-per-den-sozialdienst-in-der-akutsomatik-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-34e95023",
-      "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-45f7f622"
+      "sozialarbeiter-in-per-den-sozialdienst-in-der-akutsomatik-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-b2f6e6c3",
+      "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-7ecd87f2"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -1784,6 +1800,8 @@
         "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-4e12b46e",
         "sozialarbeiter-in-per-den-sozialdienst-in-der-akutsomatik-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-34e95023",
         "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-45f7f622",
+        "sozialarbeiter-in-per-den-sozialdienst-in-der-akutsomatik-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-b2f6e6c3",
+        "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-7ecd87f2",
         "sozialarbeiter-in-per-den-sozialdienst-in-der-akutsomatik-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
         "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar"
       ],
@@ -1803,6 +1821,7 @@
         "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-750e6eec",
         "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-172abfb0",
         "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-8270b4d1",
+        "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-c1a3a083",
         "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar"
       ],
       "de": [
@@ -1821,6 +1840,7 @@
         "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-172abfb0",
         "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-8270b4d1",
         "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-c1a3a083",
+        "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-c1eab9f6",
         "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar"
       ],
       "fr": [
@@ -1839,6 +1859,7 @@
         "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-750e6eec",
         "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-172abfb0",
         "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-8270b4d1",
+        "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar-c1a3a083",
         "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar"
       ]
     },
@@ -1964,12 +1985,15 @@
       "fachfrau-fachmann-gesundheit-cfc-o-mpa-per-bettenstation-con-fokus-auf-innere-medizin-m-w-d-spitalverbund-3166a13c",
       "fachfrau-fachmann-gesundheit-efz-oder-mpa-fur-bettenstation-mit-fokus-auf-innere-medizin-m-9210592d",
       "health-efz-or-mpa-for-bed-station-with-focus-on-internal-medicine-m-f-d-spitalverbund-appenzell-ausserrhoden-b2711574",
+      "fachfrau-fachmann-gesundheit-cfc-o-mpa-per-bettenstation-con-fokus-auf-innere-medizin-m-w-d-spitalverbund-ab8c5bc3",
+      "fachfrau-fachmann-gesundheit-efz-oder-mpa-fur-bettenstation-mit-fokus-auf-innere-medizin-m-28db6f0f",
+      "health-efz-or-mpa-for-bed-station-with-focus-on-internal-medicine-m-f-d-spitalverbund-appenzell-ausserrhoden-6b990d22",
       "fachfrau-fachmann-gesundheit-cfc-o-mpa-per-bettenstation-con-fokus-auf-innere-medizin-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
       "fachfrau-fachmann-gesundheit-efz-oder-mpa-fur-bettenstation-mit-fokus-auf-innere-medizin-m",
       "health-efz-or-mpa-for-bed-station-with-focus-on-internal-medicine-m-f-d-spitalverbund-appenzell-ausserrhoden-svar",
-      "fachfrau-fachmann-gesundheit-cfc-o-mpa-per-bettenstation-con-fokus-auf-innere-medizin-m-w-d-spitalverbund-ab8c5bc3",
-      "fachfrau-fachmann-gesundheit-efz-oder-mpa-fur-bettenstation-mit-fokus-auf-innere-medizin-m-28db6f0f",
-      "health-efz-or-mpa-for-bed-station-with-focus-on-internal-medicine-m-f-d-spitalverbund-appenzell-ausserrhoden-6b990d22"
+      "fachfrau-fachmann-gesundheit-cfc-o-mpa-per-bettenstation-con-fokus-auf-innere-medizin-m-w-d-spitalverbund-07657f04",
+      "fachfrau-fachmann-gesundheit-efz-oder-mpa-fur-bettenstation-mit-fokus-auf-innere-medizin-m-92950775",
+      "health-efz-or-mpa-for-bed-station-with-focus-on-internal-medicine-m-f-d-spitalverbund-appenzell-ausserrhoden-1b90413b"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -2035,6 +2059,8 @@
         "fachfrau-fachmann-gesundheit-efz-oder-mpa-fur-bettenstation-mit-fokus-auf-innere-medizin-m-9210592d",
         "fachfrau-fachmann-gesundheit-cfc-o-mpa-per-bettenstation-con-fokus-auf-innere-medizin-m-w-d-spitalverbund-ab8c5bc3",
         "fachfrau-fachmann-gesundheit-efz-oder-mpa-fur-bettenstation-mit-fokus-auf-innere-medizin-m-28db6f0f",
+        "fachfrau-fachmann-gesundheit-cfc-o-mpa-per-bettenstation-con-fokus-auf-innere-medizin-m-w-d-spitalverbund-07657f04",
+        "fachfrau-fachmann-gesundheit-efz-oder-mpa-fur-bettenstation-mit-fokus-auf-innere-medizin-m-92950775",
         "fachfrau-fachmann-gesundheit-cfc-o-mpa-per-bettenstation-con-fokus-auf-innere-medizin-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
         "fachfrau-fachmann-gesundheit-efz-oder-mpa-fur-bettenstation-mit-fokus-auf-innere-medizin-m"
       ],
@@ -2082,6 +2108,8 @@
         "health-efz-or-mpa-for-bed-station-with-focus-on-internal-medicine-m-f-d-spitalverbund-appenzell-ausserrhoden-b2711574",
         "fachfrau-fachmann-gesundheit-efz-oder-mpa-fur-bettenstation-mit-fokus-auf-innere-medizin-m-2ad53a9d",
         "health-efz-or-mpa-for-bed-station-with-focus-on-internal-medicine-m-f-d-spitalverbund-appenzell-ausserrhoden-6b990d22",
+        "fachfrau-fachmann-gesundheit-efz-oder-mpa-fur-bettenstation-mit-fokus-auf-innere-medizin-m-98eae3b2",
+        "health-efz-or-mpa-for-bed-station-with-focus-on-internal-medicine-m-f-d-spitalverbund-appenzell-ausserrhoden-1b90413b",
         "fachfrau-fachmann-gesundheit-efz-oder-mpa-fur-bettenstation-mit-fokus-auf-innere-medizin-m",
         "health-efz-or-mpa-for-bed-station-with-focus-on-internal-medicine-m-f-d-spitalverbund-appenzell-ausserrhoden-svar"
       ],
@@ -2102,6 +2130,7 @@
         "fachfrau-fachmann-gesundheit-efz-oder-mpa-fur-bettenstation-mit-fokus-auf-innere-medizin-m-29f5f9ed",
         "fachfrau-fachmann-gesundheit-efz-oder-mpa-fur-bettenstation-mit-fokus-auf-innere-medizin-m-2ad53a9d",
         "fachfrau-fachmann-gesundheit-efz-oder-mpa-fur-bettenstation-mit-fokus-auf-innere-medizin-m-98eae3b2",
+        "fachfrau-fachmann-gesundheit-efz-oder-mpa-fur-bettenstation-mit-fokus-auf-innere-medizin-m-e5e417ff",
         "fachfrau-fachmann-gesundheit-efz-oder-mpa-fur-bettenstation-mit-fokus-auf-innere-medizin-m"
       ],
       "fr": [
@@ -2121,6 +2150,7 @@
         "fachfrau-fachmann-gesundheit-efz-oder-mpa-fur-bettenstation-mit-fokus-auf-innere-medizin-m-33c4929e",
         "fachfrau-fachmann-gesundheit-efz-oder-mpa-fur-bettenstation-mit-fokus-auf-innere-medizin-m-29f5f9ed",
         "fachfrau-fachmann-gesundheit-efz-oder-mpa-fur-bettenstation-mit-fokus-auf-innere-medizin-m-2ad53a9d",
+        "fachfrau-fachmann-gesundheit-efz-oder-mpa-fur-bettenstation-mit-fokus-auf-innere-medizin-m-98eae3b2",
         "fachfrau-fachmann-gesundheit-efz-oder-mpa-fur-bettenstation-mit-fokus-auf-innere-medizin-m"
       ]
     },
@@ -3308,12 +3338,15 @@
       "dipl-pflegefachperson-hf-privatstation-come-dauernachtwache-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-6fe72cae",
       "dipl-pflegefachperson-hf-privatstation-als-dauernachtwache-m-w-d-svar-spitalverbund-ar-5573c6ae",
       "dipl-nursing-professional-hf-private-station-as-permanent-night-watch-m-f-d-spitalverbund-appenzell-5454b2d8",
+      "dipl-pflegefachperson-hf-privatstation-come-dauernachtwache-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-76f34956",
+      "dipl-pflegefachperson-hf-privatstation-als-dauernachtwache-m-w-d-svar-spitalverbund-ar-4865c074",
+      "dipl-nursing-professional-hf-private-station-as-permanent-night-watch-m-f-d-spitalverbund-appenzell-642f58b4",
       "dipl-pflegefachperson-hf-privatstation-come-dauernachtwache-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
       "dipl-pflegefachperson-hf-privatstation-als-dauernachtwache-m-w-d-svar-spitalverbund-ar",
       "dipl-nursing-professional-hf-private-station-as-permanent-night-watch-m-f-d-spitalverbund-appenzell-ausserrhoden-svar",
-      "dipl-pflegefachperson-hf-privatstation-come-dauernachtwache-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-76f34956",
-      "dipl-pflegefachperson-hf-privatstation-als-dauernachtwache-m-w-d-svar-spitalverbund-ar-4865c074",
-      "dipl-nursing-professional-hf-private-station-as-permanent-night-watch-m-f-d-spitalverbund-appenzell-642f58b4"
+      "dipl-pflegefachperson-hf-privatstation-come-dauernachtwache-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-af67751d",
+      "dipl-pflegefachperson-hf-privatstation-als-dauernachtwache-m-w-d-svar-spitalverbund-ar-d82b261f",
+      "dipl-nursing-professional-hf-private-station-as-permanent-night-watch-m-f-d-spitalverbund-appenzell-f20f1057"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -3409,6 +3442,8 @@
         "dipl-pflegefachperson-hf-privatstation-als-dauernachtwache-m-w-d-svar-spitalverbund-ar-5573c6ae",
         "dipl-pflegefachperson-hf-privatstation-come-dauernachtwache-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-76f34956",
         "dipl-pflegefachperson-hf-privatstation-als-dauernachtwache-m-w-d-svar-spitalverbund-ar-4865c074",
+        "dipl-pflegefachperson-hf-privatstation-come-dauernachtwache-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-af67751d",
+        "dipl-pflegefachperson-hf-privatstation-als-dauernachtwache-m-w-d-svar-spitalverbund-ar-d82b261f",
         "dipl-pflegefachperson-hf-privatstation-come-dauernachtwache-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
         "dipl-pflegefachperson-hf-privatstation-als-dauernachtwache-m-w-d-svar-spitalverbund-ar"
       ],
@@ -3503,6 +3538,8 @@
         "dipl-nursing-professional-hf-private-station-as-permanent-night-watch-m-f-d-spitalverbund-appenzell-5454b2d8",
         "dipl-pflegefachperson-hf-privatstation-als-dauernachtwache-m-w-d-svar-spitalverbund-ar-4865c074",
         "dipl-nursing-professional-hf-private-station-as-permanent-night-watch-m-f-d-spitalverbund-appenzell-642f58b4",
+        "dipl-pflegefachperson-hf-privatstation-als-dauernachtwache-m-w-d-svar-spitalverbund-ar-d82b261f",
+        "dipl-nursing-professional-hf-private-station-as-permanent-night-watch-m-f-d-spitalverbund-appenzell-f20f1057",
         "dipl-pflegefachperson-hf-privatstation-als-dauernachtwache-m-w-d-svar-spitalverbund-ar",
         "dipl-nursing-professional-hf-private-station-as-permanent-night-watch-m-f-d-spitalverbund-appenzell-ausserrhoden-svar"
       ],
@@ -3555,6 +3592,7 @@
         "dipl-pflegefachperson-hf-privatstation-als-dauernachtwache-m-w-d-svar-spitalverbund-ar-900ef9d9",
         "dipl-pflegefachperson-hf-privatstation-als-dauernachtwache-m-w-d-svar-spitalverbund-ar-5573c6ae",
         "dipl-pflegefachperson-hf-privatstation-als-dauernachtwache-m-w-d-svar-spitalverbund-ar-4865c074",
+        "dipl-pflegefachperson-hf-privatstation-als-dauernachtwache-m-w-d-svar-spitalverbund-ar-d82b261f",
         "dipl-pflegefachperson-hf-privatstation-als-dauernachtwache-m-w-d-svar-spitalverbund-ar"
       ],
       "de": [
@@ -3574,6 +3612,7 @@
         "dipl-pflegefachperson-hf-privatstation-als-dauernachtwache-m-w-d-svar-spitalverbund-ar-19be833c",
         "dipl-pflegefachperson-hf-privatstation-als-dauernachtwache-m-w-d-svar-spitalverbund-ar-8a0c69f3",
         "dipl-pflegefachperson-hf-privatstation-als-dauernachtwache-m-w-d-svar-spitalverbund-ar-538e0505",
+        "dipl-pflegefachperson-hf-privatstation-als-dauernachtwache-m-w-d-svar-spitalverbund-ar-9fcd77b8",
         "dipl-pflegefachperson-hf-privatstation-als-dauernachtwache-m-w-d-svar-spitalverbund-ar"
       ]
     },

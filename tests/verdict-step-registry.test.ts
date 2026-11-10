@@ -649,6 +649,70 @@ describe('scan-unreported-failures — una run di solo verdetto non è un fallim
     expect(issueCalls('create')).toEqual([]);
   });
 
+  it('un owner di aste preesistente riaperto dalla run copre il verdetto anche se poi viene chiuso', async () => {
+    const platePath = '.github/workflows/refresh-plate-auctions.yml';
+    const plateName = 'Refresh Plate Auctions';
+    const plateRun = {
+      id: '42773664646',
+      event: 'schedule',
+      head_branch: 'main',
+      created_at: '2026-11-10T07:12:25Z',
+      updated_at: '2026-11-10T07:23:11Z',
+      html_url: 'https://github.com/o/r/actions/runs/42773664646',
+    };
+    const plateJobs = {
+      total_count: 1,
+      jobs: [{
+        name: 'refresh-plate-auctions',
+        conclusion: 'failure',
+        steps: [
+          { name: 'Fail closed on source health or snapshot drift', conclusion: 'success' },
+          { name: 'Fail the run on the source-health verdict', conclusion: 'failure' },
+        ],
+      }],
+    };
+    const closedOwner = {
+      number: 17852,
+      title: 'Plate auction source degraded: BS',
+      created_at: '2026-11-09T22:24:18Z',
+      updated_at: '2026-11-10T08:19:55Z',
+      closed_at: '2026-11-10T08:19:55Z',
+      body: `**Workflow:** ${plateName}`,
+    };
+    const recurrenceComment = {
+      created_at: '2026-11-10T07:23:07Z',
+      body: `🔁 **Reopened**\n\n**Misura corrente:**\n\n- Run: ${plateRun.html_url}`,
+    };
+
+    vi.setSystemTime(new Date('2026-11-10T08:21:00Z'));
+    execFileSync.mockReset();
+    execFileSync.mockImplementation((_cmd: string, args: string[]) => {
+      if (args[0] === 'issue' && args[1] === 'list') return '[]';
+      if (args[0] === 'issue' && args[1] === 'view') return JSON.stringify({ body: '', comments: [] });
+      if (args[0] === 'api') {
+        const p = String(args[1]);
+        if (p.includes('/actions/workflows?')) {
+          return tsv([['plate-workflow', plateName, platePath, 'active', '2026-01-01T00:00:00Z']]);
+        }
+        if (p.includes('/actions/runs?created=')) {
+          return tsv([[plateRun.id, 'plate-workflow', plateRun.event, plateRun.head_branch, 'failure',
+            plateRun.created_at, plateRun.updated_at, plateRun.html_url, platePath]]);
+        }
+        if (p.includes(`/actions/runs/${plateRun.id}/jobs`)) return JSON.stringify(plateJobs);
+        if (p.includes(`/issues/${closedOwner.number}/comments`)) return JSON.stringify([recurrenceComment]);
+        if (p.includes('/issues?state=closed')) return JSON.stringify([closedOwner]);
+        return '';
+      }
+      if (args[0] === 'issue' && ['reopen', 'comment', 'create', 'edit'].includes(args[1])) {
+        return 'https://github.com/o/r/issues/12079';
+      }
+      return '';
+    });
+
+    await scanFailures();
+    expect(issueCalls('create')).toEqual([]);
+  });
+
   it('ownerSignalPersisted: solo una issue della famiglia aggiornata dall\'inizio della run è una prova', () => {
     const entry = VERDICT_STEPS[MONITOR_PATH];
     const run = { created_at: RED_RUN.created_at };

@@ -1,10 +1,10 @@
 {
   "key": "ergolz-klinik",
   "label": "Ergolz Klinik",
-  "generatedAt": "2026-11-09T21:18:26.212Z",
+  "generatedAt": "2026-11-10T09:20:48.433Z",
   "total": 3,
   "discovered": null,
-  "parsed": 3,
+  "parsed": 1,
   "lastFetchOutcome": null,
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 3,
-  "durationMs": 5741,
-  "avgDurationMs": 5741,
+  "durationMs": 4191,
+  "avgDurationMs": 4191,
   "durationHistory": [
-    5741
+    4191
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -38,7 +38,7 @@
       "url": "https://ergolz.cardiance.com/wp-content/uploads/sites/4/2026/04/Inserat-Anasthesie-Pflege-60-80.pdf",
       "source": "Ergolz Klinik Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T21:18:11.757Z",
+      "crawledAt": "2026-11-10T09:20:27.986Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -72,7 +72,7 @@
       },
       "streetAddress": "Hammerstrasse 35",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-09T21:18:11.757Z",
+      "validThrough": "2026-12-10T09:20:27.986Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -131,6 +131,7 @@
       "streetAddressSource": "zefix-registry",
       "validThrough": "2026-12-09T21:18:11.071Z",
       "validThroughSource": "last-observed-window",
+      "crawlerMissStreak": 1,
       "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -187,6 +188,7 @@
       "streetAddressSource": "zefix-registry",
       "validThrough": "2026-12-23T21:18:10.365Z",
       "validThroughSource": "last-observed-window",
+      "crawlerMissStreak": 1,
       "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -196,5 +198,5 @@
       }
     }
   ],
-  "codeCommit": "1dbbd63fa4ef1d645b973703c20eaa910357364d"
+  "codeCommit": "854e7bdddbff5b4e0e90fb9b90efe81503dfc091"
 }

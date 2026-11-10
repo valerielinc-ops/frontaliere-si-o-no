@@ -1,5 +1,5 @@
 import { isCrawlerVisitorAgent } from '@/functions/src/lib/returnVisit.js';
-import { jobDisplayTitle } from '../../scripts/lib/job-title-identity.mjs';
+import { localizedJobDisplayTitle } from '../../scripts/lib/job-title-identity.mjs';
 import { resolveReportedPostingDate } from '../../scripts/lib/job-posting-date.mjs';
 /**
  * JobExpiredView — view for jobs found in /data/expired-jobs.json.
@@ -190,7 +190,7 @@ export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAcces
  const prefix = PREFIX_BY_LOCALE[locale] ?? '';
  const listingPath = `${prefix}/${sectionSlug}/`.replace(/\/+/g, '/');
 
- const localizedTitle = jobDisplayTitle(job) || job.title;
+ const localizedTitle = localizedJobDisplayTitle(job, locale) || job.title;
  const handleGateCopy = useJobCopyAttribution({
  enabled: !alreadySignedIn,
  jobTitle: localizedTitle,
@@ -645,7 +645,7 @@ export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAcces
  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3" data-job-related-grid>
  {relatedJobs.slice(0, 6).flatMap((rj, rjIdx, rjArr) => {
  const rjSlug = rj.slug;
- const rjTitle = jobDisplayTitle(rj) || rjSlug;
+ const rjTitle = localizedJobDisplayTitle(rj, locale) || rjSlug;
  const rjLocation = formatJobLocation(rj.location, rj.canton);
  const rjPath = `${prefix}/${sectionSlug}/${rjSlug}/`.replace(/\/+/g, '/');
  const rjLogo = cdnImageUrl(resolveCompanyLogoUrl({ company: rj.company, companyKey: rj.companyKey, companyDomain: rj.companyDomain, url: rj.url }));

@@ -1,6 +1,6 @@
 import { runOnFirstEngagement } from '@/services/runOnFirstEngagement';
 import AffiliateLink from '@/components/shared/AffiliateLink';
-import { jobDisplayTitle } from '../../scripts/lib/job-title-identity.mjs';
+import { localizedJobDisplayTitle } from '../../scripts/lib/job-title-identity.mjs';
 import { useState, useEffect, useLayoutEffect, useRef, useMemo, useCallback, Suspense, memo, Fragment, type FC, type ReactNode, type ReactElement, type CSSProperties } from 'react';
 import { lazyRetry } from '@/services/lazyRetry';
 import { resilientImport } from '@/services/resilientImport';
@@ -2988,7 +2988,7 @@ function BlogArticlesContent({
  </div>
  <div className="min-w-0 flex-1">
  <p className="text-sm font-semibold text-body truncate group-hover:text-accent transition-colors">
- {jobDisplayTitle(job)}
+ {localizedJobDisplayTitle(job, locale)}
  </p>
  <p className="text-sm text-muted truncate">
  {job.company} · {job.location}
@@ -3210,7 +3210,7 @@ function BlogArticlesContent({
  </div>
  <div className="min-w-0">
  <p className="text-sm font-semibold text-body line-clamp-2">
- {jobDisplayTitle(job)}
+ {localizedJobDisplayTitle(job, locale)}
  </p>
  <p className="text-sm text-subtle mt-0.5">{job.company} · {job.location}</p>
  </div>

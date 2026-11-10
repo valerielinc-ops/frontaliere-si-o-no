@@ -8,7 +8,7 @@
  * useful offer summary and gives each profession page a real payload of its
  * own.
  */
-import { jobDisplayTitle } from '../../scripts/lib/job-title-identity.mjs';
+import { localizedJobDisplayTitle } from '../../scripts/lib/job-title-identity.mjs';
 import type { FeaturedJob } from '../professionJobsAggregate';
 import type { ProfessionLocale } from '../professionLandingsData';
 import { escHtml } from './htmlEscape';
@@ -71,7 +71,7 @@ export function professionOfferInsightLines(
 ): string[] {
   const candidates = jobs
     .map((job) => {
-      const title = sanitizeJobTitleForDisplay(jobDisplayTitle(job));
+      const title = sanitizeJobTitleForDisplay(localizedJobDisplayTitle(job, locale));
       const company = stripLiteralMarkdown(clean(job.company));
       const locality = stripLiteralMarkdown(clean(job.addressLocality) || clean(job.city));
       const line = [title, company, locality].filter(Boolean).join(' — ');

@@ -11,9 +11,14 @@
  * candidate (name and its parts, e-mail, alias, phone, birth date in its
  * usual formats, address, answers) is struck out first, and e-mail
  * addresses and phone numbers in any text too.
+ *
+ * Each field also carries the shape of its value, never the value
+ * (value-shape.mjs, closed vocabulary): «Vorname» holding an e-mail shows up
+ * as `mismatch:name`, a value the portal cut at its maxlength as `truncated`.
  */
 
 import { isoDateOf } from '../../../../functions/src/lib/cvPeriod.js';
+import { publicValueShape } from './value-shape.mjs';
 
 const STRUCK = '[dato del candidato]';
 const EMAIL_RE = /[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}/gi;
@@ -55,7 +60,10 @@ export function redactStopReport(report, values = []) {
     channel: String(report.channel || ''),
     step: Number(report.step) || 0,
     buttons: (report.buttons || []).map(strike).slice(0, 30),
-    fields: (report.fields || []).slice(0, 30).map((field) => ({ label: strike(field.label), kind: String(field.kind || ''), required: Boolean(field.required) })),
+    fields: (report.fields || []).slice(0, 30).map((field) => {
+      const valueShape = publicValueShape(field.valueShape);
+      return { label: strike(field.label), kind: String(field.kind || ''), required: Boolean(field.required), ...(valueShape ? { valueShape } : {}) };
+    }),
     errors: (report.errors || []).map(strike).slice(0, 8),
     agent: (report.agent || []).map((item) => ({ hint: String(item.hint || ''), status: String(item.status || '') })),
   };
@@ -109,6 +117,16 @@ const REASONS = {
 
 const code = (value) => `\`${String(value).replace(/`/g, "'")}\``;
 
+/** «, contiene: email» for a field's value shape; nothing for a field without one. */
+const valueShapeText = (shape) => {
+  const safe = publicValueShape(shape);
+  if (!safe) return '';
+  const note = safe === 'truncated' ? ' (troncato dal portale al maxlength)'
+    : safe === 'changed' ? ' (il portale ha tenuto un valore diverso da quello scritto)'
+      : safe.startsWith('mismatch:') ? ` (incoerente: il campo chiede ${safe.slice('mismatch:'.length)})` : '';
+  return `, contiene: ${safe}${note}`;
+};
+
 /** Title, body and de-duplication key of the issue (one issue per host, reason and page). */
 export function stopIssue(report, runUrl = '') {
   const reason = REASONS[report.reason] || report.reason || 'stop';
@@ -127,7 +145,7 @@ export function stopIssue(report, runUrl = '') {
     `**Pulsanti:** ${report.buttons.length ? report.buttons.map(code).join(', ') : '—'}`,
     '',
     '**Campi:**',
-    ...(report.fields.length ? report.fields.map((field) => `- ${code(field.label || '(senza etichetta)')} — ${field.kind}${field.required ? ', obbligatorio' : ''}`) : ['- —']),
+    ...(report.fields.length ? report.fields.map((field) => `- ${code(field.label || '(senza etichetta)')} — ${field.kind}${field.required ? ', obbligatorio' : ''}${valueShapeText(field.valueShape)}`) : ['- —']),
     '',
     `**Messaggi del modulo:** ${report.errors.length ? report.errors.map(code).join(', ') : '—'}`,
     '',

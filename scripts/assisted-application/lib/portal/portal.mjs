@@ -35,7 +35,8 @@ import { extractFields as extractFieldsRaw, registerPortalChannelType } from './
 import { startPortalDiagnostics, portalHandoffReason } from './diagnostics.mjs';
 import { applicationContractFromPreflight, applicationContractFromSubmission } from './application-contract.mjs';
 import { NO_PORTAL_KNOWLEDGE, labelsAt, learnedButton } from './knowledge.mjs';
-import { addressAnswerNeedsOwnership, candidateAnswerForField, holdsValue, isPermitHistoricalQuestion, ownConsent, planPage, questionTopic, targetEmployerNoOption } from './plan.mjs';
+import { addressAnswerNeedsOwnership, candidateAnswerForField, expectedValueShape, holdsValue, isPermitHistoricalQuestion, ownConsent, planPage, questionTopic, targetEmployerNoOption } from './plan.mjs';
+import { publicValueShape, readbackShape, reportedValueShape } from './value-shape.mjs';
 import { registerCookieSessionRecovery } from './cookie-session.mjs';
 import { portalAnswerForApplication, portalOptionMap, portalQuestionId, portalQuestionKey, slugId } from './question-key.mjs';
 import { codexPrompt } from '../../../../functions/src/assistedApplicationAiPrompts.js';
@@ -702,8 +703,11 @@ export function anonymizePath(url) {
  * (self-correction, level 3): the portal's host, the anonymized page, the
  * buttons, the fields' labels and kinds, the form's messages. Never a value:
  * agent.mjs also strikes every value of the candidate out before it leaves.
+ * Each free-text field carries its value's shape instead (value-shape.mjs:
+ * `empty`, `email`, `name`, `mismatch:name`…), and `readback` the runner's
+ * own comparison of what it typed with what the page kept (`truncated`).
  */
-export function stopReportFrom({ url, reason, step, seen, agent = [] }) {
+export function stopReportFrom({ url, reason, step, seen, agent = [], readback = [] }) {
   let host = '';
   try {
     host = new URL(url).hostname;
@@ -716,10 +720,62 @@ export function stopReportFrom({ url, reason, step, seen, agent = [] }) {
     reason,
     step,
     buttons: [...new Set((seen?.buttons || []).map((button) => String(button.text || '').trim()).filter(Boolean))].slice(0, 30),
-    fields: (seen?.fields || []).slice(0, 30).map((field) => ({ label: String(field.label || '').slice(0, 120), kind: field.kind, required: Boolean(field.required) })),
+    fields: (seen?.fields || []).slice(0, 30).map((field) => {
+      const valueShape = stopReportValueShape(field, readback);
+      return { label: String(field.label || '').slice(0, 120), kind: field.kind, required: Boolean(field.required), ...(valueShape ? { valueShape } : {}) };
+    }),
     errors: (seen?.errors || []).slice(0, 8),
     agent: agent.map((item) => ({ hint: item.hint, status: item.status })),
   };
+}
+
+const FREE_TEXT_KINDS = new Set(['text', 'textarea', 'date', 'email', 'tel']);
+
+/**
+ * The public shape of one field's value (never the value): the runner's
+ * read-back finding for that control when it has one, otherwise the shape of
+ * what the page holds, `mismatch:<expected>` when it contradicts the field.
+ * Choice, checkbox, file and password controls carry none.
+ */
+export function stopReportValueShape(field, readback = []) {
+  if (!field || field.inputType === 'password' || field.inputType === 'file') return '';
+  const finding = (Array.isArray(readback) ? readback : []).find((item) => item && (
+    (item.fieldId && item.fieldId === field.id)
+    || (!item.fieldId && item.label && item.label === String(field.label || '').slice(0, 120))));
+  const fromReadback = publicValueShape(finding?.shape);
+  if (fromReadback) return fromReadback;
+  if (Array.isArray(field.options) && field.options.length) return '';
+  if (field.kind && !FREE_TEXT_KINDS.has(String(field.kind))) return '';
+  // An optional field that constrains no shape (a «Note») says nothing a
+  // fixer needs: only identity-shaped or required fields carry one.
+  const expected = expectedValueShape(field);
+  if (!expected && !field.required) return '';
+  return publicValueShape(reportedValueShape({ expected, value: field.value }));
+}
+
+/**
+ * The runner's comparison of a typed value with what the control kept, for
+ * the encrypted diagnostics and the public stop report: label, expected
+ * shape, `truncated` (the control kept a prefix within its maxLength) or
+ * `changed` (it kept something else), the control's maxLength. Never a value.
+ */
+export function registrationReadbackFindings(actions = [], fields = []) {
+  const findings = [];
+  for (const action of actions) {
+    if (action?.action !== 'fill') continue;
+    const field = fields.find((item) => item.id === action.fieldId);
+    if (!field || field.inputType === 'password' || field.inputType === 'file') continue;
+    const shape = readbackShape({ planned: action.value, read: field.value, maxLength: field.maxLength });
+    if (!['truncated', 'mismatch'].includes(shape)) continue;
+    findings.push({
+      fieldId: field.id,
+      label: String(field.label || '').slice(0, 120),
+      expected: expectedValueShape(field),
+      shape: shape === 'mismatch' ? 'changed' : shape,
+      ...(Number.isSafeInteger(Number(field.maxLength)) && Number(field.maxLength) > 0 ? { maxLength: Number(field.maxLength) } : {}),
+    });
+  }
+  return findings;
 }
 
 /** Headful mode is opt-in; the assisted-application workflow enables it on Xvfb. */
@@ -5819,12 +5875,23 @@ export async function handleAuth({ page, snapshot, ctx, allowExistingRegistratio
   // A known registration answer can reveal more required fields (Coop's
   // country selection is one example). Apply only guarded, non-upload answers
   // first; do not ask from the planner's earlier, partial view of the form.
+  // What the page kept of each typed answer (value-shape invariant): a value
+  // the control cut at its maxlength, or replaced, is a named finding in the
+  // encrypted diagnostics and in the public stop report, never a silent
+  // mismatch. The same planned value cut once is cut again: no replan for it.
+  let readbackFindings = [];
+  const readbackHandoff = () => ({
+    handoff: 'portal_needs_candidate',
+    ...(readbackFindings.length ? { valueShapes: readbackFindings.map(({ planned: _planned, ...finding }) => finding) } : {}),
+  });
   while (true) {
     const actions = registrationPlan.actions.filter((action) =>
       ['fill', 'select', 'check', 'uncheck'].includes(action.action)
       && !knownAnswerMatches(registrationSnapshot.fields.find((field) => field.id === action.fieldId), action));
     if (!actions.length) break;
-    if (registrationReplans >= MAX_REDRAWS_PER_PAGE) return { handoff: 'portal_needs_candidate' };
+    if (actions.some((action) => readbackFindings.some((finding) => finding.shape === 'truncated'
+      && finding.fieldId === action.fieldId && finding.planned === action.value))) return readbackHandoff();
+    if (registrationReplans >= MAX_REDRAWS_PER_PAGE) return readbackHandoff();
     const registrationUrl = page.url();
     const results = await applyActions(page, registrationSnapshot.fields, actions, ctx.files);
     if (actions.some((action) => !results.some((result) => result.fieldId === action.fieldId && result.ok))) {
@@ -5834,6 +5901,18 @@ export async function handleAuth({ page, snapshot, ctx, allowExistingRegistratio
     const stable = await waitForStableQuestionSurface(page, registrationSnapshot, registrationUrl, { registration: true });
     if (stable.status !== 'stable') return { handoff: 'portal_needs_candidate' };
     registrationSnapshot = accountRegistrationSnapshot(await refreshChoiceCatalogues(page, stable.snapshot));
+    const found = registrationReadbackFindings(actions, registrationSnapshot.fields);
+    // `planned` stays in memory only, to recognise the same plan next turn.
+    readbackFindings = found.map((finding) => ({
+      ...finding,
+      planned: actions.find((action) => action.fieldId === finding.fieldId)?.value,
+    }));
+    if (found.length && diagnostics?.data) {
+      diagnostics.data.valueShape = [
+        ...(Array.isArray(diagnostics.data.valueShape) ? diagnostics.data.valueShape : []),
+        ...found.map((finding) => ({ phase: 'registration', ...finding })),
+      ].slice(-20);
+    }
     registrationPlan = await planPage({
       snapshot: { ...registrationSnapshot, fields: registrationSnapshot.fields.filter((field) => field.inputType !== 'password') },
       candidate,
@@ -6221,6 +6300,18 @@ export function urlConfirms(url, snapshot, context = {}) {
   return DONE_URL_RE.test(url) && !REVIEW_URL_RE.test(url) && applicationReceipt(snapshot, { ...context, url });
 }
 
+/**
+ * The click moved this posting's application to another page that is its
+ * final review, whose own words say the application is sent only by a later
+ * Submit/Apply (Deloitte's Avature, order JvKpYedw 2026-10-30: the profile's
+ * Apply opened /ApplicationReview «please select Submit to finalise your
+ * application»). The portal itself states that nothing was submitted yet.
+ */
+export function advancedToFinalReview(snapshot, { url, submissionUrl, applyUrl, sourceProtocol = null, job = {} } = {}) {
+  if (!snapshot || !url || !submissionUrl || url === submissionUrl) return false;
+  return applicationStage(snapshot, { url, applyUrl, sourceProtocol, job }).kind === 'final_review';
+}
+
 async function waitForOutcome(page, context = {}) {
   const started = Date.now();
   const deadline = started + OUTCOME_TIMEOUT_MS;
@@ -6233,6 +6324,7 @@ async function waitForOutcome(page, context = {}) {
     let snapshot = await extractFields(page, NAVIGATION).catch(() => null);
     if (snapshot && applicationReceipt({ ...snapshot, text }, { ...context, url: page.url() })) return 'confirmed';
     if (urlConfirms(page.url(), snapshot && { ...snapshot, text }, context)) return 'confirmed';
+    if (advancedToFinalReview(snapshot && { ...snapshot, text }, { ...context, url: page.url() })) return 'review_pending';
     if (snapshot?.captcha) return 'captcha';
     if (Date.now() > started + 4000 && (VALIDATION_RE.test(text) || snapshot?.errors?.length)) return 'validation';
   }
@@ -6947,6 +7039,13 @@ export async function readPortalQuestions(ctx) {
  * @param {ReturnType<import('./account.mjs').portalAccountStore>} [ctx.accounts] the order's portal accounts; without it a login page is handed over
  * @returns {Promise<{event:object, evidence:object}>}
  */
+// Stops on the posting page that an employer's regional gate produces:
+// Yellowshark greys out its Apply control and keeps a consent banner on the
+// gated page (order 1EpmkrDu, 2026-11-04/06: the 13 runs that got the notice
+// stopped under four different reasons). handoff() reports them as the gate
+// when the page states it.
+const REGION_GATED_STOPS = new Set(['portal_control_click_unresolved', 'cookie_preferences_unresolved']);
+
 export async function submitViaPortal(ctx) {
   const launch = ctx.launch || (() => launchPortalBrowser(ctx));
   const channelType = portalChannelType(ctx);
@@ -6994,6 +7093,12 @@ export async function submitViaPortal(ctx) {
   const uploadedCvUrls = new Set();
   // Where the runner stopped, for whoever takes over (encrypted with the rest of the evidence).
   const handoff = async (reason, metadata = {}) => {
+    // A posting that refuses applications from this connection's region (the
+    // employer geolocates the runner's IP) explains the stops on the posting
+    // page that follow it: a dead Apply control, the gated page's consent
+    // banner. Report the cause, which another runner can clear, not its symptom.
+    if (REGION_GATED_STOPS.has(reason) && page && evidence.steps.length === 0
+      && isApplicationRegionUnsupported(await pageText(page).catch(() => ''))) reason = 'application_region_unsupported';
     reason = portalHandoffReason(reason, {
       diagnostics: evidence.diagnostics,
       attempt: diagnostics?.currentAttempt(),
@@ -7001,10 +7106,12 @@ export async function submitViaPortal(ctx) {
     });
     if (page) {
       evidence.handoffScreenshot = (await page.screenshot({ fullPage: true }).catch(() => Buffer.from(''))).toString('base64');
-      // What a fixer needs to teach the runner this page (level 3); a CAPTCHA is no code fix.
-      if (!['captcha', 'captcha_provider_unavailable'].includes(reason)) {
+      // What a fixer needs to teach the runner this page (level 3); a CAPTCHA
+      // is no code fix, nor is a regional gate on the runner's IP (#17112 and
+      // #17132 tried to click through it): the retry ladder owns that one.
+      if (!['captcha', 'captcha_provider_unavailable', 'application_region_unsupported'].includes(reason)) {
         const seen = await extractFields(page, NAVIGATION).catch(() => null);
-        evidence.stopReport = stopReportFrom({ url: page.url(), reason, step: evidence.steps.length, seen, agent: evidence.steps.at(-1)?.agent || [] });
+        evidence.stopReport = stopReportFrom({ url: page.url(), reason, step: evidence.steps.length, seen, agent: evidence.steps.at(-1)?.agent || [], readback: metadata.valueShapes || [] });
       }
     }
     const failure = serializeAccountFailure(metadata.accountFailure);
@@ -7207,6 +7314,7 @@ export async function submitViaPortal(ctx) {
       && !ctx.skipPostingCheck;
     if (match === 'mismatch' && !postingCheckPending && !ctx.skipPostingCheck) return await handoff('posting_mismatch');
     let validationRetries = 0;
+    let reviewAdvances = 0;
     let stuckOnPage = 0;
     let authSteps = 0;
     // The passwords this run typed into application forms that create their own account, by host.
@@ -7478,7 +7586,7 @@ export async function submitViaPortal(ctx) {
           kind: 'otp_verification',
           outcome: auth.handoff || 'ok',
         };
-        if (auth.handoff) return await handoff(auth.handoff, { accountFailure: auth.accountFailure });
+        if (auth.handoff) return await handoff(auth.handoff, { accountFailure: auth.accountFailure, valueShapes: auth.valueShapes });
         snapshot = auth.snapshot;
         if (auth.reopen && !hasApplicationForm(snapshot) && !findButton(snapshot.buttons, NEXT_RE) && !findButton(snapshot.buttons, SUBMIT_RE)) {
           await page.goto(entryUrl, { waitUntil: 'domcontentloaded', timeout: 60_000 });
@@ -7570,7 +7678,7 @@ export async function submitViaPortal(ctx) {
           // How the sign-in button was found (clickButton): by id, again after a redraw, or scoped role.
           ...(auth.pressed ? { pressed: auth.pressed } : {}),
         };
-        if (auth.handoff) return await handoff(auth.handoff, { accountFailure: auth.accountFailure });
+        if (auth.handoff) return await handoff(auth.handoff, { accountFailure: auth.accountFailure, valueShapes: auth.valueShapes });
         if (auth.questions?.length || auth.documents?.length) return {
           event: {
             type: 'submit_needs_candidate', questions: auth.questions || [], documents: auth.documents || [],
@@ -8172,6 +8280,16 @@ export async function submitViaPortal(ctx) {
         return { event: { type: 'submit_succeeded', channel: 'portal' }, evidence };
       }
       if (outcome === 'captcha') return await handoff('captcha');
+      if (outcome === 'review_pending') {
+        // Not an unknown outcome: the portal's review page says the
+        // application still waits for its own final button. Release the
+        // claim as not sent, then let the loop bind and guard that button.
+        if (ctx.onConfirmedNotSent) await ctx.onConfirmedNotSent({ reason: 'portal_review_pending' });
+        if (reviewAdvances >= 1) return await handoff('application_stage_unknown');
+        reviewAdvances += 1;
+        snapshot = await extractFields(page);
+        continue;
+      }
       if (outcome === 'validation' && validationRetries < 1) {
         if (ctx.onConfirmedNotSent) await ctx.onConfirmedNotSent({ reason: 'portal_validation' });
         validationRetries += 1;

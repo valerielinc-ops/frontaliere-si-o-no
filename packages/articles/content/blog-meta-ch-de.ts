@@ -8705,6 +8705,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.peso-burocrazia-imprese-svizzera.title': 'Bürokratiegewicht Unternehmen Schweiz: 67% halten es für hoch',
     'blog.article.peso-burocrazia-imprese-svizzera.excerpt': 'Gemäss der nationalen Umfrage von gfs.bern im Auftrag von economiesuisse, die heute veröffentlicht wurde, halten 67% der 1’527 befragten Unternehmen den Verwaltungsaufwand für hoch, wie Keystone-ATS berichtet.',
     'blog.article.peso-burocrazia-imprese-svizzera.imageAlt': 'Illustratives Bild zum Thema des Artikels',
+    'blog.article.pamini-contributi-salari-svizzera.title': 'Pamini (Udc): Löhne und Grenzgänger, bei den Beiträgen handeln',
+    'blog.article.pamini-contributi-salari-svizzera.excerpt': 'Der redaktionelle Titel präsentiert Pamini (Udc) mit einem präzisen Hinweis: das Thema der Löhne und Grenzgänger mit dem Kapitel der Beiträge zu verbinden.',
+    'blog.article.pamini-contributi-salari-svizzera.imageAlt': 'Illustratives Bild zum Thema des Artikels',
 };
 
 export default blogMetaChDe;
