@@ -526,8 +526,11 @@ export function refusal(action, info, { reservedButtons = [] } = {}) {
     if ((info.submits && !intermediateSubmit) || FINAL_RE.test(info.name) || SUBMIT_RE.test(info.name)) return 'final_submit_reserved';
     if (NEXT_RE.test(info.name)) return 'navigation_reserved';
     if (info.leaves) return 'link_reserved';
-    // The caller's own reserved controls (the account page: create account, sign in, privacy statement).
-    if (reservedButtons.some((pattern) => pattern.test(info.name))) return 'account_action_reserved';
+  }
+  // The caller's own reserved controls (the account page: create account, sign in, privacy statement),
+  // whatever their shape: a privacy checkbox or its label belongs to the runner's own preflight too.
+  if ((action.action === 'click' || action.action === 'press') && reservedButtons.some((pattern) => pattern.test(info.name))) {
+    return 'account_action_reserved';
   }
   if (info.inputType === 'password') return 'password_reserved';
   if (action.action === 'press' && (!KEYS.has(action.value) || (action.value === 'Enter' && !info.inList))) return 'key_refused';

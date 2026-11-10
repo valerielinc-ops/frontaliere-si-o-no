@@ -1,7 +1,7 @@
 import { afterEach, describe, expect, it } from 'vitest';
 import { JSDOM } from 'jsdom';
 import * as portal from '../scripts/assisted-application/lib/portal/portal.mjs';
-import { AGENT_SCHEMA } from '../scripts/assisted-application/lib/portal/agent.mjs';
+import { AGENT_SCHEMA, refusal } from '../scripts/assisted-application/lib/portal/agent.mjs';
 
 const { submitViaPortal, isAgentRecoverableAuthStop } = portal as any;
 
@@ -338,6 +338,12 @@ describe('the agentic fallback on the account page', { timeout: 120_000 }, () =>
     // Nothing converged: the owner gets the original handoff, with the agent's evidence.
     expect(step.auth).toMatchObject({ outcome: 'portal_needs_candidate', stop: 'registration_answer_unconfirmed', agentRecovery: { status: 'stuck' } });
     expect(step.agent).toEqual([expect.objectContaining({ hint: 'registration_incomplete', status: 'stuck' })]);
+  });
+
+  it('refuses the agent a reserved privacy checkbox or label as it refuses the button', () => {
+    expect(refusal({ action: 'click' }, { button: false, inputType: 'checkbox', name: 'I accept' }, { reservedButtons: [/accept/i] })).toBe('account_action_reserved');
+    expect(refusal({ action: 'click' }, { button: false, inputType: 'checkbox', name: 'Datenschutzerklärung gelesen' }, { reservedButtons: [/datenschutz/i] })).toBe('account_action_reserved');
+    expect(refusal({ action: 'fill', value: 'Rossi' }, { button: false, inputType: 'text', name: 'Nachname', editable: true }, { reservedButtons: [/accept/i] })).toBe('');
   });
 
   it('turns what the candidate data does not say into a candidate question, never into an answer', async () => {
