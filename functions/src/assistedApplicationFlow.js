@@ -22,7 +22,9 @@
  *     (assistedApplicationFitNotice.js);
  *   - candidate flags (a required answer only the candidate can give: work
  *     permit, salary expectation, availability, a portal screening question)
- *     hold `candidate_review` until the candidate answers.
+ *     hold `candidate_review` until the candidate answers, or until the platform answers them (a rule,
+ *     the CV, the decision engine): the tick drops each hold the platform now answers (owner directive
+ *     2026-11-10; scripts/assisted-application/reconcile-review-questions.mjs re-evaluates older orders).
  *
  * This module is pure: `transition(flow, event, context)` returns the next
  * flow and the side effects (e-mails, workflow dispatches) the caller runs.
@@ -759,6 +761,24 @@ export function transition(flow, event, { order = {}, draft = null, answers = {}
       ) {
         effects = enterCandidateReview(next, flags, nowMs, { resend: false });
         break;
+      }
+      // Some of those holds are answered now (a platform rule, the CV, the decision engine: owner directive
+      // 2026-11-10, also for the orders written before it) while the rest, a document for example, is still
+      // the candidate's: the answered ones drop and the wait goes on for the rest, with its own clock and no
+      // e-mail. Only holds of this draft, and never one that was not held before.
+      if (
+        state === 'candidate_review'
+        && current.heldBy.length > 0
+        && current.heldBy.every((held) => /^(question|document):/.test(String(held)))
+        && candidateHoldsBelongToDraft(current.heldBy, draft, flow)
+      ) {
+        const open = new Set(candidateHolds(flags));
+        const remaining = current.heldBy.filter((held) => open.has(held));
+        if (remaining.length > 0 && remaining.length < current.heldBy.length && remaining.length === open.size) {
+          next.heldBy = remaining;
+          effects = [];
+          break;
+        }
       }
       // An already approved round held only by obsolete/missing operational
       // answers can resume on a normal tick. Never release unknown holds,
