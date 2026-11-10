@@ -49745,3 +49745,6 @@
 {"eventType":"candidate_attempt","key":"voicepoint@wetzikon-zh","status":"validated","outcome":"weak","at":"2026-11-10T14:35:32.458Z","runId":"42806463778","runAttempt":1,"phase":"validate","eventId":"696408fe039d92acbe0ce736"}
 {"eventType":"candidate_attempt","key":"rohr-max@gruningen","status":"validated","outcome":"weak","at":"2026-11-10T14:35:49.334Z","runId":"42806463778","runAttempt":1,"phase":"validate","eventId":"b0cbc378064466fd6827e9d1"}
 {"eventType":"phase_finished","at":"2026-11-10T14:35:50.173Z","outcome":"complete","durationMs":1965052,"inputCount":63,"successCount":27,"retryCount":36,"runId":"42806463778","runAttempt":1,"phase":"validate","eventId":"5aa13c472bc67790ee5fb860"}
+{"eventType":"phase_started","at":"2026-11-10T14:38:03.541Z","runId":"42806463778","runAttempt":1,"phase":"promote","eventId":"7fa2aca855e363874eb581f8"}
+{"eventType":"candidate_attempt","key":"skan","status":"awaiting_first_crawl","outcome":"updated","at":"2026-11-10T14:38:07.437Z","runId":"42806463778","runAttempt":1,"phase":"promote","eventId":"15c80ca786796602f39e2317"}
+{"eventType":"candidate_attempt","key":"creditx@sion","status":"awaiting_first_crawl","outcome":"updated","at":"2026-11-10T14:38:07.437Z","runId":"42806463778","runAttempt":1,"phase":"promote","eventId":"fd2c7c550b39aa0ed4ef7af9"}
