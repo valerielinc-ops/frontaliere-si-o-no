@@ -56,10 +56,23 @@ import { Analytics, unlockAchievement } from '@/services/analyticsProxy';
 
 const CANONICAL_ORIGIN = 'https://frontaliereticino.ch';
 const JOB_BOARD_COMPANY_PREFIX_RE = /^(azienda|company|unternehmen|entreprise)-[a-z0-9-]+$/;
+const EMPLOYER_PROFILE_PATH_RE = /^(?:\/(en|de|fr))?\/aziende\/([a-z0-9][a-z0-9-]*)\/?$/i;
 
 function jobBoardCompanySlugFromPath(pathname: string): string | null {
  const slug = pathname.split('/').filter(Boolean).pop() || '';
  return JOB_BOARD_COMPANY_PREFIX_RE.test(slug) ? slug : null;
+}
+
+function companyFallbackSlugFromPath(pathname: string, locale: Locale = 'it'): string | null {
+ const direct = jobBoardCompanySlugFromPath(pathname);
+ if (direct) return direct;
+ const profileMatch = pathname.match(EMPLOYER_PROFILE_PATH_RE);
+ if (profileMatch) {
+  const loc = ((profileMatch[1] || locale || 'it').toLowerCase()) as Locale;
+  const prefix = loc === 'en' ? 'company' : loc === 'de' ? 'unternehmen' : loc === 'fr' ? 'entreprise' : 'azienda';
+  return `${prefix}-${profileMatch[2].toLowerCase()}`;
+ }
+ return null;
 }
 
 export interface NavigationState {
@@ -186,7 +199,15 @@ export function useNavigationState(): NavigationState {
  const [seoLanding, setSeoLanding] = useState<SeoLandingId | null>(initialRoute.route.seoLanding || null);
  const [glossaryTerm, setGlossaryTerm] = useState<GlossaryTermId | null>(initialRoute.route.glossaryTerm || null);
  const [borderCrossing, setBorderCrossing] = useState<BorderCrossingId | null>(initialRoute.route.borderCrossing || null);
- const [jobSlug, setJobSlug] = useState<string | null>(initialRoute.route.jobSlug || null);
+ const initialCompanyFallbackSlug = initialRoute.route.activeTab === 'job-board' && initialRoute.route.staticOverlay && typeof window !== 'undefined'
+  ? companyFallbackSlugFromPath(window.location.pathname, initialRoute.locale)
+  : null;
+ const initialMissingStaticCompanyBody = Boolean(initialCompanyFallbackSlug)
+  && typeof document !== 'undefined'
+  && !document.querySelector('main.seo-static-content');
+ const [jobSlug, setJobSlug] = useState<string | null>(
+  initialRoute.route.jobSlug || (initialMissingStaticCompanyBody ? initialCompanyFallbackSlug : null),
+ );
  const [author, setAuthor] = useState<string | null>(initialRoute.route.author || null);
  const [taxReturnCountry, setTaxReturnCountry] = useState<'italia' | 'svizzera' | undefined>(initialRoute.route.taxReturnCountry);
  const [showApiStatus, setShowApiStatus] = useState(false);
@@ -230,7 +251,7 @@ export function useNavigationState(): NavigationState {
  // Starting in overlay mode leaves the shard's article on screen. Cold
  // frontaliere details defer the bundle/runtime handoff until after first paint.
  const [staticOverlay, setStaticOverlay] = useState<boolean>(
- () => !!initialRoute.route.staticOverlay
+ () => (!!initialRoute.route.staticOverlay && !initialMissingStaticCompanyBody)
  || initialFrontaliereStaticArticle
  || (!!pendingArticleSlug(initialRoute.route) && initialHasStaticArticleFallback),
  );
@@ -612,6 +633,9 @@ export function useNavigationState(): NavigationState {
  // resolution is a full reload so the browser fetches the canonical
  // static page. This keeps URL/content always consistent and is rare in
  // practice (back-button after navigating away from an SEO landing).
+ const companyFallbackSlug = route.activeTab === 'job-board' && route.staticOverlay
+   ? companyFallbackSlugFromPath(pathname, urlLocale)
+   : null;
  if (route.staticOverlay && typeof document !== 'undefined') {
    // A snapshot that owned the body of the page we are leaving (an article,
    // a canton topic hub) is not the static landing we are going to.
@@ -622,11 +646,14 @@ export function useNavigationState(): NavigationState {
        removeOwnedStaticSnapshot(main);
      }
    }
-   if (!document.querySelector('main.seo-static-content')) {
+   if (!document.querySelector('main.seo-static-content') && !companyFallbackSlug) {
      window.location.reload();
      return;
    }
  }
+ const missingStaticCompanyBody = Boolean(companyFallbackSlug)
+   && typeof document !== 'undefined'
+   && !document.querySelector('main.seo-static-content');
  // Query-only links can leave every pathname-derived state unchanged. Apply
  // every navigation even then, so the current URL reaches the rendered view.
  setRouteRevision(revision => revision + 1);
@@ -641,7 +668,7 @@ export function useNavigationState(): NavigationState {
  // fall back to when resolution fails.
  const hasArticleFallback = hasStaticArticleFallback();
  const keepsStaticArticle = shouldKeepStaticFallbackOutsideRoot(route, 'article', isStaticArticleFallbackInDocument());
- const nextOverlay = !!route.staticOverlay
+ const nextOverlay = (!!route.staticOverlay && !missingStaticCompanyBody)
  || (!!pendingArticleSlug(route) && hasArticleFallback);
  setArticleStaticFallbackKey(
   keepsStaticArticle ? staticArticleFallbackRouteKey(route, urlLocale) : null,
@@ -677,7 +704,7 @@ export function useNavigationState(): NavigationState {
  setSeoLanding(route.seoLanding || null);
  setGlossaryTerm(route.glossaryTerm || null);
  setBorderCrossing(route.borderCrossing || null);
- setJobSlug(route.jobSlug || null);
+ setJobSlug(route.jobSlug || (missingStaticCompanyBody ? companyFallbackSlug : null));
  setAuthor(route.author || null);
  setLocale(urlLocale);
  // Update SEO meta tags — use 404-specific noindex for unrecognized routes

@@ -63,7 +63,12 @@ import { buildCanonicalJobDetailPath } from './shared/jobDetailPath';
 import { buildCurrentWeekPath } from './weeklyEmployersData';
 import { buildSectorHubPath, SECTOR_HUB_KEYS, type SectorHubKey } from './jobSectorLanding';
 import { buildEmployerProfilePath, canonicalCompanyProfileSlug } from './shared/companyProfileSlug.mjs';
-import { BRIDGE_FLOOR, MIN_ACTIVE_JOBS } from './shared/employerProfileConfig.mjs';
+import { BRIDGE_FLOOR, MAX_PROFILES, MIN_ACTIVE_JOBS } from './shared/employerProfileConfig.mjs';
+import {
+  buildEmployerProfileRecord,
+  compareEmployerRecords,
+  groupJobsByEmployerSlug,
+} from './shared/employerProfileRecords.mjs';
 import { loadEmployerDemandSlugs } from './shared/employerDemandSignal.mjs';
 import { buildCompanyOrganization } from './shared/jobPostingSchema';
 import { isAllowlistedJobHref } from './shared/employerProfileJobLinks';
@@ -823,30 +828,15 @@ export function employerProfilePagesPlugin(rootDir: string): Plugin {
       }
 
       const dsPath = np.resolve(rootDir, 'data/employer-profiles.json');
-      if (!fs.existsSync(dsPath)) {
-        console.log('\x1b[33m[employer-profile-pages]\x1b[0m no employer-profiles.json — nothing to emit.');
-        resolveEmployerProfilesFlushed([]);
-        return;
-      }
-      let dataset: EmployerDataset;
-      try {
-        dataset = JSON.parse(fs.readFileSync(dsPath, 'utf-8')) as EmployerDataset;
-      } catch (err) {
-        console.warn('\x1b[33m[employer-profile-pages]\x1b[0m dataset parse failed:', err);
-        resolveEmployerProfilesFlushed([]);
-        return;
-      }
-      const profiles = dataset.profiles || [];
-      const belowFloor = dataset.belowFloor || [];
-      const knownEmployerProfileSlugs = new Set(
-        [...profiles, ...belowFloor]
-          .map((record) => String(record.slug || '').trim())
-          .filter(Boolean),
-      );
-      if (profiles.length === 0 && belowFloor.length === 0) {
-        console.log('\x1b[33m[employer-profile-pages]\x1b[0m empty dataset — nothing to emit.');
-        resolveEmployerProfilesFlushed([]);
-        return;
+      let dataset: EmployerDataset = {};
+      if (fs.existsSync(dsPath)) {
+        try {
+          dataset = JSON.parse(fs.readFileSync(dsPath, 'utf-8')) as EmployerDataset;
+        } catch (err) {
+          console.warn('\x1b[33m[employer-profile-pages]\x1b[0m dataset parse failed, falling back to live corpus:', err);
+        }
+      } else {
+        console.log('\x1b[33m[employer-profile-pages]\x1b[0m no employer-profiles.json — deriving from live corpus.');
       }
 
       // Group active jobs by the SAME canonical slug the dataset uses.
@@ -855,17 +845,116 @@ export function employerProfilePagesPlugin(rootDir: string): Plugin {
       // the 12.6k-entry array alive for the rest of closeBundle only makes the
       // release below harder to reason about (see it for the memory story).
       let jobs: CorpusJob[] | null = loadJobsJson<CorpusJob>(rootDir);
-      const bySlug = new Map<string, CorpusJob[]>();
-      for (const job of jobs) {
-        const company = String(job.company || '').trim();
-        if (!company) continue;
-        const slug = canonicalCompanyProfileSlug(company, job.companyKey);
-        if (!slug) continue;
-        const arr = bySlug.get(slug);
-        if (arr) arr.push(job);
-        else bySlug.set(slug, [job]);
-      }
+      const bySlug = groupJobsByEmployerSlug(jobs) as Map<string, CorpusJob[]>;
       jobs = null;
+
+      // Reconcile the committed snapshot with the live corpus.
+      //
+      // `data/employer-profiles.json` is refreshed a few times a week, whereas
+      // the canton company hubs (`/cerca-lavoro-<canton>/azienda-<slug>/`) are
+      // built from the live corpus on every deploy. Without this pass, a
+      // company that crosses MIN_ACTIVE_JOBS between two snapshot refreshes
+      // (or rises from `belowFloor` into the full-profile band) gets a live
+      // canton hub while `/aziende/<slug>/` hard-404s -> 404.html -> SPA
+      // staticOverlay over missing HTML (e.g. `comune-di-minusio`, 3 live
+      // postings, absent from the snapshot the build read).
+      //
+      // Rules:
+      //  1. Snapshot `profiles` keep their committed record (preserving the
+      //     28-day `trend` from hiring history, which only the generator reads).
+      //  2. Snapshot `belowFloor` entries whose live count has crossed
+      //     `MIN_ACTIVE_JOBS` are promoted to full `EmployerProfile` records
+      //     via the shared `buildEmployerProfileRecord` aggregator; the rest
+      //     stay in `belowFloor` with their live count when still >= 1, or keep
+      //     their snapshot count so a previously-emitted bridge URL never
+      //     disappears into a 404 between snapshot refreshes.
+      //  3. Live-corpus employers absent from both snapshot arrays are derived
+      //     on the fly with the same shared aggregator: `>= MIN_ACTIVE_JOBS`
+      //     enter `profiles` (bounded by `MAX_PROFILES`), `BRIDGE_FLOOR ..
+      //     MIN_ACTIVE_JOBS - 1` enter `belowFloor`.
+      const snapshotProfiles = dataset.profiles || [];
+      const snapshotBelowFloor = dataset.belowFloor || [];
+      const seenSlugs = new Set<string>();
+      const profiles: EmployerProfile[] = [];
+      const belowFloor: BelowFloorRecord[] = [];
+      let livePromotedFromBelowFloor = 0;
+      let liveDiscoveredProfiles = 0;
+      let liveDiscoveredBridges = 0;
+
+      for (const profile of snapshotProfiles) {
+        const slug = String(profile.slug || '').trim();
+        if (!slug || seenSlugs.has(slug)) continue;
+        seenSlugs.add(slug);
+        profiles.push(profile);
+      }
+
+      const liveCandidateProfiles: EmployerProfile[] = [];
+      for (const rec of snapshotBelowFloor) {
+        const slug = String(rec.slug || '').trim();
+        if (!slug || seenSlugs.has(slug)) continue;
+        seenSlugs.add(slug);
+        const group = bySlug.get(slug) || [];
+        if (group.length >= MIN_ACTIVE_JOBS) {
+          const built = buildEmployerProfileRecord(slug, group, {
+            salarySummary: reportedSalarySummary,
+            trend: null,
+          });
+          if (built && built.band === 'profile') {
+            liveCandidateProfiles.push(built.record as EmployerProfile);
+            livePromotedFromBelowFloor++;
+            continue;
+          }
+        }
+        belowFloor.push(
+          group.length > 0 ? { ...rec, activeJobs: group.length } : rec,
+        );
+      }
+
+      for (const [slug, group] of bySlug) {
+        if (seenSlugs.has(slug)) continue;
+        const built = buildEmployerProfileRecord(slug, group, {
+          salarySummary: reportedSalarySummary,
+          trend: null,
+        });
+        if (!built) continue;
+        seenSlugs.add(slug);
+        if (built.band === 'profile') {
+          liveCandidateProfiles.push(built.record as EmployerProfile);
+          liveDiscoveredProfiles++;
+        } else {
+          belowFloor.push(built.record as BelowFloorRecord);
+          liveDiscoveredBridges++;
+        }
+      }
+
+      if (liveCandidateProfiles.length > 0) {
+        liveCandidateProfiles.sort(compareEmployerRecords);
+        const remainingSlots = Math.max(0, MAX_PROFILES - profiles.length);
+        for (const p of liveCandidateProfiles.slice(0, remainingSlots)) {
+          profiles.push(p);
+        }
+        for (const overflow of liveCandidateProfiles.slice(remainingSlots)) {
+          belowFloor.push({
+            slug: overflow.slug,
+            name: overflow.name,
+            activeJobs: overflow.activeJobs,
+            sector: overflow.sector ?? null,
+            canton: overflow.cantons[0]?.name ?? null,
+          });
+        }
+      }
+
+      const knownEmployerProfileSlugs = new Set(
+        [...profiles, ...belowFloor]
+          .map((record) => String(record.slug || '').trim())
+          .filter(Boolean),
+      );
+      if (profiles.length === 0 && belowFloor.length === 0) {
+        console.log('\x1b[33m[employer-profile-pages]\x1b[0m empty dataset and live corpus — nothing to emit.');
+        releaseJobsJson(rootDir);
+        resolveEmployerProfilesFlushed([]);
+        return;
+      }
 
       // Company-keyed search demand, read ONCE for the whole emit. Empty on
       // every unknown — artifact absent (the normal state until the weekly
@@ -1213,7 +1302,8 @@ export function employerProfilePagesPlugin(rootDir: string): Plugin {
 
       const written = await collector.flush();
       console.log(
-        `\x1b[36m[employer-profile-pages]\x1b[0m ${profiles.length} profiles + ${belowFloor.length} below-floor → ` +
+        `\x1b[36m[employer-profile-pages]\x1b[0m ${profiles.length} profiles + ${belowFloor.length} below-floor ` +
+        `(live gap-fill: +${livePromotedFromBelowFloor} promoted, +${liveDiscoveredProfiles} profiles, +${liveDiscoveredBridges} bridges) → ` +
         `${profilePages} profile pages (${thinDowngraded} noindex-thin) + ${bridgePages} bridge pages ` +
         `— flushed ${written} files.`,
       );
