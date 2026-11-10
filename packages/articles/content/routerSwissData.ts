@@ -2923,6 +2923,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'disoccupazione-stabile-ottobre': { it: 'disoccupazione-stabile-ottobre', en: 'stable-unemployment-october', de: 'disoccupationsstabil-oktober', fr: 'chomage-stable-octobre' },
  'avs-iva-tredicesima-rendita': { it: 'avs-iva-tredicesima-rendita', en: 'avs-iva-thirteenth-pension', de: 'avs-iva-dreizehnte-rente', fr: 'avs-iva-treizieme-rente' },
  'imposta-sostitutiva-pensioni-svizzere': { it: 'imposta-sostitutiva-pensioni-svizzere', en: 'substitute-tax-swiss-pensions', de: 'impostensubstitut-schweizer-renten', fr: 'impot-substitut-pensions-suisses' },
+ 'peso-burocrazia-imprese-svizzera': { it: 'peso-burocrazia-imprese-svizzera', en: 'burden-bureaucracy-swiss-firms', de: 'burokratie-last-schweizer-firmen', fr: 'poids-bureaucratie-entreprises-suisse' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */
