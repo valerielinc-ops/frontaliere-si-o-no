@@ -262,3 +262,42 @@ describe('review round 2 (#17902)', () => {
     expect(applicationEntryControls(snapshot, { ...entryContext, job: { title: role } })).toEqual([apply]);
   });
 });
+
+describe('review round 3 (#17902)', () => {
+  const requisitionContext = { ...entryContext, job: { ...entryContext.job, jobId: '123' } };
+  const openMenuSnapshot = (marker: string, href: string) => ({
+    url: postingUrl,
+    fields: [],
+    buttons: [
+      { id: 'toggle', text: 'Jetzt bewerben', popup: true, section: role, context: `${role} · Jetzt bewerben`, frame: 0 },
+      { id: 'manual', text: 'Jetzt bewerben', menuItem: true, href, section: role, vacancyContext: `${role} · ${marker}`, frame: 0 },
+      { id: 'linkedin', text: 'Apply with LinkedIn', menuItem: true, href, section: role, vacancyContext: `${role} · ${marker}`, frame: 0 },
+    ],
+  });
+
+  it.each([['#-link', `${postingUrl}#`], ['script', '']])('rejects a same-title %s menu item of another requisition', (_name, href) => {
+    expect(applicationEntryControls(openMenuSnapshot('Job ID 456', href), requisitionContext)).toEqual([]);
+  });
+
+  it.each([['#-link', `${postingUrl}#`], ['script', '']])('returns only the own %s menu item of the right requisition', (_name, href) => {
+    const snapshot = openMenuSnapshot('Job ID 123', href);
+    expect(applicationEntryControls(snapshot, requisitionContext)).toEqual([snapshot.buttons[1]]);
+  });
+
+  it('reserves the posting Apply menu item ahead of 40 earlier actions and 20 foreign menu items', () => {
+    const actions = Array.from({ length: 40 }, (_, index) => `<button type="button">Aktion ${index}</button>`).join('');
+    const foreign = Array.from({ length: 20 }, (_, index) => `<li role="none"><a role="menuitem" href="/topic/${index}">Thema ${index}</a></li>`).join('');
+    const html = `<main><section>
+      <h1>${role}</h1>
+      ${actions}
+      <div class="dropdown"><button class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Themen</button>
+        <ul class="dropdown-menu">${foreign}<li role="none"><a role="menuitem" id="apply" href="#">Jetzt bewerben</a></li></ul></div>
+    </section></main>`;
+    const { read } = domPage(html, postingUrl);
+    const snapshot = read();
+    expect(snapshot.buttons.length).toBeLessThanOrEqual(60);
+    const apply = snapshot.buttons.find((button: any) => button.domId === 'apply');
+    expect(apply).toMatchObject({ menuItem: true });
+    expect(applicationEntryControls(snapshot, { ...entryContext, job: { title: role } })).toEqual([apply]);
+  });
+});

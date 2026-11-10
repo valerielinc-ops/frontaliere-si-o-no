@@ -1301,18 +1301,28 @@ function fieldlessApplicationEntryContextMatchesPosting(control, context = {}) {
 // An Apply dropdown on the verified posting route sits under the vacancy's
 // own heading, which names the role but rarely the employer (Helsana's
 // Career Site Builder page). The page-level posting check already bound the
-// employer; locally the heading must still be this role, carry no other
-// posting identity, and name no other employer.
+// employer. Locally, a posting/requisition marker must be this posting's own
+// (any other one, or an ambiguous pair, rejects the control), the heading
+// must name no other employer, and it must pass the posting match on the
+// role.
 function disclosureEntryContextMatchesPosting(control, context = {}) {
-  if (controlPostingIdentity(control) !== '') return false;
+  const identity = controlPostingIdentity(control);
+  if (identity === null) return false;
+  if (identity !== '' && identity !== expectedPostingIdentity(context)) return false;
+  // The control's own label («Apply to Google») is the entry, not context
+  // naming another employer: only the text around it is checked.
+  const ownLabels = [control?.text, control?.label, control?.ariaLabel, control?.title]
+    .map((value) => String(value || '').trim()).filter(Boolean);
   const localContext = [control?.vacancyContext, control?.section, control?.context]
     .filter(Boolean)
+    .map((value) => ownLabels.reduce((text, label) => text.replace(new RegExp(escapeRegex(label), 'ig'), ' '), String(value)))
     .join(' ')
+    .replace(/\s+/g, ' ')
     .trim();
   const job = context.job || {};
   if (!localContext || !job.title) return true;
   if (namesAnotherEmployer(localContext, job)) return false;
-  return titleMatches(localContext, job.title);
+  return postingMatch(localContext, { title: job.title }, context.postingUrl) === 'match';
 }
 
 // A few legacy employer pages render the only application opener as a native
@@ -1373,6 +1383,9 @@ export function applicationEntryControls(snapshot = {}, context = {}) {
   const matching = controls.filter((control) => !control?.disabled && !control?.chrome
     && startsApplication(control?.text || control?.label)
     && !(control?.menuItem === true && socialApplicationEntry(control))
+    // An opened menu item usually links to `#`, which matches the posting
+    // route by construction: it must also carry this posting's context.
+    && !(control?.menuItem === true && !disclosureEntryContextMatchesPosting(control, context))
     && applicationEntryBelongsToPosting(control, context));
   const ownMatching = matching.filter((control) => !socialApplicationEntry(control));
   if (ownMatching.length) return ownMatching;

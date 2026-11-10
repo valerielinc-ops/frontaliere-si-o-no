@@ -1247,9 +1247,11 @@ function nativeQuestionText(value, counter = null) {
   // keep a menu item only while the toggle owning its menu reports itself
   // expanded, so closed menus and navigation menubars stay out of the snapshot.
   const DISCLOSURE_TOGGLE = '[aria-haspopup="true"], [aria-haspopup="menu"], [data-toggle="dropdown"], [data-bs-toggle="dropdown"]';
-  // Share of the 60-control snapshot budget that opened menu items may use.
+  // The snapshot's control budget, the share of it that opened menu items may
+  // use, and the places reserved for application entries before either.
+  const SNAPSHOT_BUTTON_BUDGET = 60;
   const MENU_ITEM_BUDGET = 20;
-  let menuItemsKept = 0;
+  const APPLICATION_ENTRY_RESERVE = 10;
   const disclosureToggle = (element) => element.matches(DISCLOSURE_TOGGLE);
   const openedMenuItem = (element) => {
     if (element.getAttribute('role') !== 'menuitem') return false;
@@ -1338,7 +1340,7 @@ function nativeQuestionText(value, counter = null) {
   };
   const openModal = [...document.querySelectorAll('[aria-modal="true"]')].find(visible) || null;
   const behindModal = (element) => Boolean(openModal) && !openModal.contains(element) && hiddenFromPeople(element);
-  const buttons = [...document.querySelectorAll(BUTTONS)]
+  const candidateButtons = [...document.querySelectorAll(BUTTONS)]
     .filter((element) => (visible(element) && !underClickFilter(element) && !behindModal(element) && element.getAttribute('aria-haspopup') !== 'listbox')
       && actionControl(element))
     .map((element) => ({
@@ -1380,12 +1382,30 @@ function nativeQuestionText(value, counter = null) {
       ...(openedMenuItem(element) ? { menuItem: true } : {}),
       ...noticeMetadata(element),
     }))
-    .filter((button) => button.text)
-    // An opened menu may list dozens of items. They share the 60-control
-    // budget with the page's own actions, so they get at most a fixed share
-    // of it: a long menu can never push the posting's Apply out of the snapshot.
-    .filter((button) => !button.menuItem || (menuItemsKept += 1) <= MENU_ITEM_BUDGET)
-    .slice(0, 60);
+    .filter((button) => button.text);
+  // The snapshot keeps at most 60 controls. Application entries («Jetzt
+  // bewerben», «Apply») get their places first, wherever they are in the
+  // DOM; the rest fill the budget in document order, with opened menu items
+  // limited to a fixed share. Neither a long menu nor a long page can push
+  // the posting's own Apply out of the snapshot. Document order is kept.
+  const buttons = (() => {
+    const kept = new Set();
+    for (const button of candidateButtons) {
+      if (kept.size >= APPLICATION_ENTRY_RESERVE) break;
+      if (applicationEntryLabel(button.text)) kept.add(button);
+    }
+    let menuItems = [...kept].filter((button) => button.menuItem).length;
+    for (const button of candidateButtons) {
+      if (kept.size >= SNAPSHOT_BUTTON_BUDGET) break;
+      if (kept.has(button)) continue;
+      if (button.menuItem) {
+        if (menuItems >= MENU_ITEM_BUDGET) continue;
+        menuItems += 1;
+      }
+      kept.add(button);
+    }
+    return candidateButtons.filter((button) => kept.has(button));
+  })();
   // Bind every field and action to its actual owner, so a site-search field
   // cannot turn a nearby Apply link into the application's final form.
   for (const field of fields) {
