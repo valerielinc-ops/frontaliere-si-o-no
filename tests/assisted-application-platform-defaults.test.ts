@@ -174,6 +174,11 @@ describe('questions the platform answers (labels from the census)', () => {
     expect(answer({ question: 'City', type: 'text', addressContext: { section: 'Employer', owners: ['Employer'], unknown: false } })).toBeNull();
     expect(answer({ question: 'City', type: 'text', addressContext: { section: '', owners: [], unknown: true } })).toBeNull();
     expect(answer({ question: 'City', type: 'text', addressContext: { section: 'Personal information', owners: ['Personal information'], unknown: false } })).toBe('Como');
+    // Helsana (2026-11-10): the candidate's own profile and application form own the address.
+    const profileOwned = { section: 'IT Management Assistenz (a) 80% (34525)', owners: ['Profilinformationen', 'Stellenbewerbungsformular'], unknown: false };
+    expect(platformQuestionTopic({ question: '* Via, n.', applicationQuestion: '* Strasse, Nr.', type: 'text', required: true, source: 'portal', addressContext: profileOwned })).toBe('address_street');
+    expect(answer({ question: 'City', type: 'text', addressContext: { section: 'Mein Profil', owners: ['Mein Profil'], unknown: false } })).toBe('Como');
+    expect(answer({ question: 'City', type: 'text', addressContext: { section: 'Arbeitgeber', owners: ['Profilinformationen', 'Arbeitgeber'], unknown: false } })).toBeNull();
   });
 
   it('leaves the questions only the candidate can answer', () => {
