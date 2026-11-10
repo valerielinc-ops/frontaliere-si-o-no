@@ -53,6 +53,44 @@ export function currentPendingPortalAccount(accounts, portalHost) {
     && entry.verifiedAt == null ? entry : null;
 }
 
+/**
+ * The order's accounts still waiting for their verification, one per host (a
+ * host with an ambiguous record set is left out, as currentPendingPortalAccount does).
+ */
+export function pendingPortalAccounts(accounts) {
+  const hosts = new Set(Object.values(accounts || {})
+    .filter((entry) => entry && typeof entry === 'object' && !Array.isArray(entry))
+    .map((entry) => String(entry.host || '').toLowerCase())
+    .filter(Boolean));
+  return [...hosts].map((host) => currentPendingPortalAccount(accounts, host)).filter(Boolean);
+}
+
+/**
+ * The code of a portal's account verification may come from the employer's own
+ * domain instead of the ATS host (a SuccessFactors tenant on career74.sapsf.eu
+ * mails from job@stelle.admin.ch). A code only fills the one-time-code page the
+ * runner itself opened, so it is bound to the waiting account whose registrable
+ * domain is the sender's, else to the order's sole waiting account created before
+ * the message. A link never takes this path: it is opened, so it needs its exact host.
+ */
+export function pendingAccountForCode(accounts, senderHost, { receivedAt } = {}) {
+  const sender = String(senderHost || '').toLowerCase();
+  if (!sender) return null;
+  const at = Number(receivedAt);
+  const waiting = pendingPortalAccounts(accounts)
+    .filter((entry) => !(Number.isFinite(at) && Number(entry.createdAt) > at));
+  const named = waiting.filter((entry) => registrable(entry.host) === registrable(sender));
+  if (named.length === 1) return named[0];
+  if (named.length > 0 || waiting.length !== 1) return null;
+  // The sole account is bound only when it provably existed before the message
+  // (the runner stamps createdAt when it stores the credential).
+  const [sole] = waiting;
+  // A real number only: Number(null) is 0, which would predate every message.
+  const { createdAt } = sole;
+  return typeof receivedAt === 'number' && Number.isFinite(receivedAt)
+    && typeof createdAt === 'number' && Number.isFinite(createdAt) && createdAt <= receivedAt ? sole : null;
+}
+
 /** A verification link on the portal's own site (or its ATS family), over https. */
 export function sameSite(url, portalHost) {
   let target;
