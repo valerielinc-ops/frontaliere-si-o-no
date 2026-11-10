@@ -16,6 +16,9 @@ import {
   isIgnoredPath,
   filterUnignored,
   evaluatePublishLag,
+  evaluatePublishCadence,
+  DEFAULT_CADENCE_WINDOW_HOURS,
+  DEFAULT_CADENCE_MIN_PUBLISHES,
   // @ts-expect-error — plain .mjs, no type declarations
 } from '../scripts/check-pages-publish-lag.mjs';
 
@@ -213,5 +216,67 @@ describe('evaluatePublishLag — stalled-queue signal', () => {
     expect(
       evaluatePublishLag({ ...young, ageMinutes: 600, buildInFlight: true, buildIdleMinutes: 500 }),
     ).toEqual({ degraded: true, reason: 'lag' });
+  });
+});
+
+describe('evaluatePublishCadence — trailing-24h publish count (plan item 12)', () => {
+  const nowMs = Date.now();
+  const hoursAgo = (h: number) => new Date(nowMs - h * 3600000).toISOString();
+
+  it('pins the objective: at least 3 distinct publishes in a 24h window', () => {
+    expect(DEFAULT_CADENCE_WINDOW_HOURS).toBe(24);
+    expect(DEFAULT_CADENCE_MIN_PUBLISHES).toBe(3);
+  });
+
+  it('is below target with two publishes in 24h while content is pending', () => {
+    const publishes = [
+      { sha: 'a', publishedAt: hoursAgo(2) },
+      { sha: 'b', publishedAt: hoursAgo(13) },
+    ];
+    expect(evaluatePublishCadence({ publishes, nowMs, pendingCount: 5 })).toEqual({
+      belowTarget: true,
+      count: 2,
+      shas: ['a', 'b'],
+    });
+  });
+
+  it('meets the target with three distinct publishes inside the window', () => {
+    const publishes = [
+      { sha: 'a', publishedAt: hoursAgo(1) },
+      { sha: 'b', publishedAt: hoursAgo(9) },
+      { sha: 'c', publishedAt: hoursAgo(23) },
+    ];
+    expect(evaluatePublishCadence({ publishes, nowMs, pendingCount: 5 }).belowTarget).toBe(false);
+  });
+
+  it('counts a retried deploy of the same commit once', () => {
+    // deploy-publish.yml retries actions/deploy-pages: two Deployment objects,
+    // one commit. Counting both would report a cadence the site never had.
+    const publishes = [
+      { sha: 'a', publishedAt: hoursAgo(1) },
+      { sha: 'a', publishedAt: hoursAgo(1.2) },
+      { sha: 'b', publishedAt: hoursAgo(9) },
+    ];
+    expect(evaluatePublishCadence({ publishes, nowMs, pendingCount: 5 })).toMatchObject({
+      belowTarget: true,
+      count: 2,
+    });
+  });
+
+  it('ignores publishes older than the window and unparseable timestamps', () => {
+    const publishes = [
+      { sha: 'a', publishedAt: hoursAgo(3) },
+      { sha: 'b', publishedAt: hoursAgo(25) },
+      { sha: 'c', publishedAt: 'not-a-date' },
+    ];
+    expect(evaluatePublishCadence({ publishes, nowMs, pendingCount: 5 }).count).toBe(1);
+  });
+
+  it('never fires with nothing pending: a quiet main is not a missed objective', () => {
+    expect(evaluatePublishCadence({ publishes: [], nowMs, pendingCount: 0 })).toEqual({
+      belowTarget: false,
+      count: 0,
+      shas: [],
+    });
   });
 });
