@@ -61,6 +61,12 @@ describe('selected posting route whose rendered text starts with a skip link', (
     expect(hasVacancySpecificPostingEvidence(text, job, { pageUrl: postingUrl, pageTitle, pageHeading: heading, postingUrl })).toBe(false);
   });
 
+  it('keeps a heading with only part of the role a mismatch (review of #18003)', () => {
+    expect(hasVacancySpecificPostingEvidence(renderedPosting('Product Manager'), job, {
+      pageUrl: postingUrl, pageTitle, pageHeading: 'Product Manager', postingUrl,
+    })).toBe(false);
+  });
+
   it('keeps a heading that names a second employer a mismatch', () => {
     const heading = 'IT Product Manager bei Muster Bank';
     expect(hasVacancySpecificPostingEvidence(renderedPosting(heading), job, {
@@ -109,5 +115,7 @@ describe('postingMainHeading', () => {
   it('gives nothing for two different headings or none', async () => {
     expect(await postingMainHeading(pageOf('<h1>IT Product Manager</h1><h1>Senior Software Engineer Java</h1>'))).toBe('');
     expect(await postingMainHeading(pageOf('<h2>IT Product Manager</h2>'))).toBe('');
+    // A different heading after ten copies of the role is still a second heading (review of #18003).
+    expect(await postingMainHeading(pageOf(`${'<h1>IT Product Manager</h1>'.repeat(10)}<h1>Apply now</h1>`))).toBe('');
   });
 });

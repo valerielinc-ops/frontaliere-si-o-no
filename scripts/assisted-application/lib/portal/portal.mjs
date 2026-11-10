@@ -3462,7 +3462,11 @@ function isRoleHeading(heading, title) {
   if (!text || text.length > 200 || !title || !titleMatches(text, title)) return false;
   const wanted = new Set(normalizeWords(title).split(' ').filter(Boolean));
   const seen = normalizeWords(text).split(' ').filter(Boolean);
-  return seen.length > 0 && seen.every((word) => wanted.has(word) || TITLE_GENDER_MARKERS.has(word) || /^\d{1,3}$/.test(word));
+  const shown = new Set(seen);
+  // Every word of the role is there («Product Manager» is not «IT Product Manager»), the gender markers of
+  // the title aside, and nothing but those markers or a workload around it.
+  return seen.length > 0 && [...wanted].every((word) => shown.has(word) || TITLE_GENDER_MARKERS.has(word))
+    && seen.every((word) => wanted.has(word) || TITLE_GENDER_MARKERS.has(word) || /^\d{1,3}$/.test(word));
 }
 
 /** The single main heading (h1) the page shows, or '' when it shows none or several different ones. */
@@ -3475,8 +3479,11 @@ export async function postingMainHeading(page) {
     })
     .map((node) => String(node.innerText || node.textContent || '').replace(/\s+/g, ' ').trim())
     .filter(Boolean)
-    .slice(0, 10)).catch(() => null);
-  const distinct = [...new Set(Array.isArray(headings) ? headings : [])];
+    .slice(0, 201)).catch(() => null);
+  // Distinct across every visible main heading: a different one after ten copies of the role still counts. A page
+  // with more main headings than that is no single-heading posting.
+  if (!Array.isArray(headings) || headings.length > 200) return '';
+  const distinct = [...new Set(headings)];
   return distinct.length === 1 ? distinct[0].slice(0, 200) : '';
 }
 
