@@ -359,3 +359,23 @@ describe('address fields in the candidate own form whose labels name a company (
     expect(platformQuestionTopic(field('Indirizzo', { context: 'Nome · Cognome · E-mail · Indirizzo · Numero di telefono' }))).toBe('address_street');
   });
 });
+
+describe('CV locations as real CVs write them (census 2026-11-10: 38 of 44 towns resolved)', () => {
+  const at = (location: string) => platformCandidateFacts({ profile: { location }, nowMs: NOW, locale: 'it' }).address;
+
+  it('reads a town followed by its province written out, or by a note in brackets', () => {
+    expect(at('Cantù, Como')).toMatchObject({ city: 'Cantù', country: 'IT', postalCode: expect.stringMatching(/^\d{5}$/) });
+    expect(at('Lugano (Abitazione)')).toMatchObject({ city: 'Lugano', country: 'CH', postalCode: '6900' });
+    // The province code in brackets is still a region, not a note.
+    expect(at('Como (CO)')).toMatchObject({ city: 'Como', country: 'IT' });
+  });
+
+  it('deduces the country of a town abroad even without a public postal list for it', () => {
+    expect(at('Valencia, Spain')).toMatchObject({ country: 'ES', countryName: 'Spagna', postalCode: '' });
+    expect(at('Bucarest, Romania')).toMatchObject({ country: 'RO', countryName: 'Romania' });
+  });
+
+  it('never takes another word of the text for a town', () => {
+    expect(at('Zona industriale, Nessunluogo').postalCode).toBe('');
+  });
+});

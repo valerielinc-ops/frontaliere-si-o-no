@@ -107,6 +107,26 @@ const COUNTRY_NAMES = {
   FR: { it: 'Francia', en: 'France', de: 'Frankreich', fr: 'France' },
   AT: { it: 'Austria', en: 'Austria', de: 'Österreich', fr: 'Autriche' },
   LI: { it: 'Liechtenstein', en: 'Liechtenstein', de: 'Liechtenstein', fr: 'Liechtenstein' },
+  // Countries a CV names after the town («…, Spain», «…, Romania»): the country is deduced even where the public
+  // postal lists (CH, IT) give no code.
+  ES: { it: 'Spagna', en: 'Spain', de: 'Spanien', fr: 'Espagne' },
+  PT: { it: 'Portogallo', en: 'Portugal', de: 'Portugal', fr: 'Portugal' },
+  RO: { it: 'Romania', en: 'Romania', de: 'Rumänien', fr: 'Roumanie' },
+  PL: { it: 'Polonia', en: 'Poland', de: 'Polen', fr: 'Pologne' },
+  NL: { it: 'Paesi Bassi', en: 'Netherlands', de: 'Niederlande', fr: 'Pays-Bas' },
+  BE: { it: 'Belgio', en: 'Belgium', de: 'Belgien', fr: 'Belgique' },
+  GB: { it: 'Regno Unito', en: 'United Kingdom', de: 'Vereinigtes Königreich', fr: 'Royaume-Uni' },
+  GR: { it: 'Grecia', en: 'Greece', de: 'Griechenland', fr: 'Grèce' },
+  HR: { it: 'Croazia', en: 'Croatia', de: 'Kroatien', fr: 'Croatie' },
+  SI: { it: 'Slovenia', en: 'Slovenia', de: 'Slowenien', fr: 'Slovénie' },
+  HU: { it: 'Ungheria', en: 'Hungary', de: 'Ungarn', fr: 'Hongrie' },
+  CZ: { it: 'Repubblica Ceca', en: 'Czech Republic', de: 'Tschechien', fr: 'Tchéquie' },
+  SK: { it: 'Slovacchia', en: 'Slovakia', de: 'Slowakei', fr: 'Slovaquie' },
+  BG: { it: 'Bulgaria', en: 'Bulgaria', de: 'Bulgarien', fr: 'Bulgarie' },
+  RS: { it: 'Serbia', en: 'Serbia', de: 'Serbien', fr: 'Serbie' },
+  AL: { it: 'Albania', en: 'Albania', de: 'Albanien', fr: 'Albanie' },
+  UA: { it: 'Ucraina', en: 'Ukraine', de: 'Ukraine', fr: 'Ukraine' },
+  TR: { it: 'Turchia', en: 'Turkey', de: 'Türkei', fr: 'Turquie' },
 };
 const COUNTRY_BY_NAME = new Map();
 for (const [code, names] of Object.entries(COUNTRY_NAMES)) {
@@ -139,9 +159,18 @@ export function splitTown(value) {
     region = (regionMatch[1] || regionMatch[2] || regionMatch[3]).toUpperCase();
     text = text.slice(0, regionMatch.index).trim();
   }
+  // A note in brackets that is no province code («Lugano (Abitazione)») is not part of the town.
+  text = text.replace(/\s*\([^)]*\)\s*$/, '').trim();
   // A leading postal code («22100 Como») is not part of the town.
   const postal = /^(\d{4,5})\s+(.+)$/.exec(text);
-  return { town: (postal ? postal[2] : text).replace(/,\s*$/, '').trim(), region, country, statedPostal: postal?.[1] || '' };
+  let town = (postal ? postal[2] : text).replace(/,\s*$/, '').trim();
+  // «Town, Province» with the province written out («…, Como»): the town is the part before the comma when the
+  // whole text is no town of the directory and that part is.
+  if (town.includes(',') && !postalDirectory().has(fold(town))) {
+    const first = town.split(',')[0].trim();
+    if (first && postalDirectory().has(fold(first))) town = first;
+  }
+  return { town, region, country, statedPostal: postal?.[1] || '' };
 }
 
 /**
