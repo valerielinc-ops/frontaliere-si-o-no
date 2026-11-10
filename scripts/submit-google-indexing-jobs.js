@@ -9,14 +9,16 @@
  * concurrency group `indexing-api-jobs-ledger` (one writer of the ledger at a
  * time). It runs daily right after the PT quota reset, with the URLs the GSC
  * monitor found WITHOUT a "Job Postings" rich result as `--priority-file`, and
- * after every completed deploy-publish (small `--max`, so new jobs reach
+ * after every successful publish (post-deploy-publish.yml dispatches
+ * monitor-gsc-seo.yml with mode=post-publish; small `--max`, so new jobs reach
  * Google the same day).
  *
  * Source of URLs: the LIVE job sitemaps (what Google is told exists), so the
  * script needs neither a build nor jobs.json. What to send and in which order
  * is decided by scripts/lib/indexing-jobs-planner.mjs against a persistent
- * ledger (`--ledger`, restored/saved by actions/cache) that also carries the
- * per-day request counter.
+ * ledger (`--ledger`, pulled from / pushed to Firestore around this script by
+ * scripts/lib/indexing-ledger-store.mjs) that also carries the per-day
+ * request counter.
  * Every URL is fetched live before it is notified: URL_UPDATED only for a 200
  * page carrying JobPosting without noindex, URL_DELETED only for 404/410 or
  * noindex. Nothing that is not a job page is ever sent.
@@ -35,8 +37,15 @@
  *   node scripts/submit-google-indexing-jobs.js [--max N] [--max-first-run N]
  *        [--priority-file f.json] [--ledger path] [--dry-run]
  *
- * Exits 0, because notification is best-effort and must not fail a deploy, with
- * one exception: exit 1 when the restored ledger exists but is invalid.
+ * Exit codes — a green run must mean the notifications could be attempted:
+ *   0  done, including "nothing to send", the daily quota already spent, and
+ *      a 429 "Quota exceeded" from Google (expected at 200/day, the day is
+ *      closed in the ledger and the next day resumes);
+ *   1  configuration/auth error: invalid ledger, no credentials, no identity
+ *      Google accepts as Search Console owner, 403 on publish, or an
+ *      unexpected exception (the 2026-10-28 → 2026-11-10 runs exited 0 on all
+ *      of these, so a green check proved nothing).
+ * Every outcome is also written to the step summary and as an annotation.
  */
 
 import { readFileSync, existsSync, appendFileSync } from 'node:fs';
@@ -51,6 +60,7 @@ import {
   loadLedger,
   observeSitemap,
   planSubmissions,
+  countDedupSkipped,
   recordOutcome,
   reserveQuota,
   judgeLive,
@@ -215,22 +225,59 @@ function summary(lines) {
   try { appendFileSync(process.env.GITHUB_STEP_SUMMARY, `${lines.join('\n')}\n`); } catch { /* ignore */ }
 }
 
+export const TIERS = ['new', 'delete', 'priority', 'updated', 'backlog'];
+
+/**
+ * One line + one summary table per run, whatever the outcome: sent per class,
+ * skipped for dedup, quota left. `outcome` is the run verdict shown first.
+ */
+export function formatRunReport({ outcome, byTier = {}, dedupSkipped = 0, liveSkipped = 0, failed = 0, spent = 0, budget = DAILY_BUDGET, today }) {
+  const tiers = TIERS.map((t) => `${t}=${byTier[t] || 0}`).join(' ');
+  const sent = TIERS.reduce((n, t) => n + (byTier[t] || 0), 0);
+  const left = Math.max(0, budget - spent);
+  return {
+    line: `${outcome}: sent ${sent} (${tiers}), skipped ${dedupSkipped} for dedup + ${liveSkipped} by live check, failed ${failed}; quota ${spent}/${budget} used, ${left} left (day ${today} PT)`,
+    table: [
+      '## Google Indexing API — job pages',
+      '',
+      `**${outcome}**`,
+      '',
+      '| new | delete | priority | updated | backlog | skipped: dedup | skipped: live check | failed | quota used | quota left |',
+      '|---|---|---|---|---|---|---|---|---|---|',
+      `| ${TIERS.map((t) => byTier[t] || 0).join(' | ')} | ${dedupSkipped} | ${liveSkipped} | ${failed} | ${spent}/${budget} | ${left} |`,
+    ],
+  };
+}
+
 // ── Main ────────────────────────────────────────────────────
 
 async function main() {
   const args = parseArgs(process.argv.slice(2));
   const today = quotaDayKey();
-  log('📨', `Google Indexing API — JobPosting notifications (quota day ${today} PT${args.dryRun ? ', DRY RUN' : ''})`);
+  log('📨', `Google Indexing API — JobPosting notifications (quota day ${today} PT, daily quota ${DAILY_BUDGET}${args.dryRun ? ', DRY RUN' : ''})`);
 
-  // Sole bootstrap point of the shared ledger: this run is daily, right after
-  // the PT reset, so a lost cache comes back with the day's count near zero and
-  // the article publisher, which refuses to run without a ledger, resumes. A
-  // file that exists but does not parse still holds an unknown spend: stop
-  // loudly, keep it, and let the failure issue ask for the cache entry deletion.
-  const ledger = loadLedger(existsSync(args.ledger) ? readFileSync(args.ledger, 'utf-8') : null, today);
+  const counts = { liveSkipped: 0, failed: 0 };
+  const byTier = {};
+  let ledger = null;
+  let dedupSkipped = 0;
+  const report = (outcome, level = 'notice') => {
+    const r = formatRunReport({
+      outcome, byTier, dedupSkipped, liveSkipped: counts.liveSkipped, failed: counts.failed,
+      spent: ledger ? spentOn(ledger, today) : 0, today,
+    });
+    log('📊', r.line);
+    console.log(`::${level} title=Indexing API (jobs)::${r.line}`);
+    summary(r.table);
+  };
+  const fail = (outcome) => { report(outcome, 'error'); process.exitCode = 1; };
+
+  // Sole bootstrap point of the shared ledger: the workflow pulls it from
+  // Firestore first, and a pull that found nothing leaves no file — only then
+  // does this run start from zero. A file that exists but does not parse still
+  // holds an unknown spend: stop loudly and keep it.
+  ledger = loadLedger(existsSync(args.ledger) ? readFileSync(args.ledger, 'utf-8') : null, today);
   if (!ledger) {
-    log('❌', `Ledger ${args.ledger} is invalid — no request sent; delete the indexing-api-jobs-ledger cache entries to bootstrap it again`);
-    process.exitCode = 1;
+    fail(`Ledger ${args.ledger} is invalid — no request sent (inspect Firestore ci_state/indexing-api-jobs-ledger)`);
     return;
   }
   const spent = spentOn(ledger, today);
@@ -239,10 +286,13 @@ async function main() {
 
   let entries;
   try { entries = await loadLiveJobUrls(); } catch (err) {
-    log('⚠️', `Live sitemaps unreadable (${err.message}) — skipping, ledger untouched`);
+    // The live site being unreachable says nothing about our configuration;
+    // the next run retries with the ledger untouched.
+    report(`Live sitemaps unreadable (${err.message}) — nothing sent, ledger untouched`, 'warning');
     return;
   }
   observeSitemap(ledger, entries, today);
+  dedupSkipped = countDedupSkipped(ledger);
   const save = () => { if (!args.dryRun) writeLedgerFile(args.ledger, ledger); };
   const reserveRequest = () => {
     const reserved = reserveQuota(ledger, today);
@@ -250,46 +300,52 @@ async function main() {
     return reserved;
   };
 
-  if (runBudget <= 0) { log('ℹ️', 'Daily budget reached — skipping'); save(); return; }
+  if (runBudget <= 0) { save(); report('Daily quota already spent — nothing sent'); return; }
 
   const priority = readPriority(args.priorityFile);
-  if (priority.length) log('🎯', `${priority.length} priority URL(s) from ${args.priorityFile}`);
+  if (args.priorityFile) {
+    log('🎯', existsSync(args.priorityFile)
+      ? `${priority.length} priority URL(s) without Jobs rich result from ${args.priorityFile}`
+      : `No ${args.priorityFile} (the GSC monitor did not run in this workflow run)`);
+  }
   const plan = planSubmissions(ledger, { today, max: runBudget, priority });
-  if (plan.length === 0) { log('ℹ️', 'Nothing to notify'); save(); return; }
+  if (plan.length === 0) { save(); report('Nothing to notify'); return; }
 
   const token = args.dryRun ? null : await resolveOwnerToken(plan[0].url);
-  if (!args.dryRun && !token) { save(); return; }
+  if (!args.dryRun && !token) {
+    save();
+    fail('No credentials Google accepts as Search Console owner — nothing sent');
+    return;
+  }
 
-  const counts = { sent: 0, skipped: 0, failed: 0 };
-  const byTier = {};
+  let sent = 0;
   let consecutive429 = 0;
+  let verdict = 'Done';
+  let fatal = false;
   // Bound the live fetches: landing pages share the job-detail URL shape, and
   // a backlog full of them must not turn one run into thousands of GETs.
   const maxChecks = runBudget * 4;
   const checked = await runLiveChecks(plan.slice(0, maxChecks));
-  for (const { item, verdict } of checked) {
-    if (counts.sent >= runBudget) break;
-    if (verdict !== 'ok') {
-      counts.skipped += 1;
-      if (!args.dryRun && verdict !== 'transient') {
-        recordOutcome(ledger, item, verdict, today);
+  for (const { item, verdict: live } of checked) {
+    if (sent >= runBudget) break;
+    if (live !== 'ok') {
+      counts.liveSkipped += 1;
+      if (!args.dryRun && live !== 'transient') {
+        recordOutcome(ledger, item, live, today);
         save();
       }
       continue;
     }
     if (args.dryRun) {
-      counts.sent += 1;
+      sent += 1;
       byTier[item.tier] = (byTier[item.tier] || 0) + 1;
       log('  ', `would ${item.type} [${item.tier}] ${item.url}`);
       continue;
     }
     const res = await publish(token, item.url, item.type, 1, reserveRequest);
-    if (res.quotaExhausted) {
-      log('🛑', 'Shared Indexing API quota exhausted — stopping');
-      break;
-    }
+    if (res.quotaExhausted) { verdict = 'Shared daily quota exhausted'; break; }
     if (res.ok) {
-      counts.sent += 1;
+      sent += 1;
       consecutive429 = 0;
       byTier[item.tier] = (byTier[item.tier] || 0) + 1;
       recordOutcome(ledger, item, 'sent', today, { quotaReserved: true });
@@ -298,31 +354,27 @@ async function main() {
     } else {
       counts.failed += 1;
       log('  ⚠️', `${item.type} ${res.status} ${item.url} ${res.body || ''}`.trim());
-      if (res.status === 403) { log('🛑', 'Permission error — aborting run'); break; }
+      if (res.status === 401 || res.status === 403) {
+        verdict = `Permission error ${res.status} from the Indexing API — run aborted`;
+        fatal = true;
+        break;
+      }
       if (res.status === 429 && ++consecutive429 >= 2) {
         // Google's own counter is the truth: close the day so later callers skip.
         ledger.days[today] = DAILY_BUDGET;
-        log('🛑', 'Quota exhausted (429) — closing the day');
+        verdict = 'Google quota exceeded (429) — day closed, resumes after the PT reset';
         break;
       }
     }
     await sleep(150);
   }
   save();
-  const tiers = Object.entries(byTier).map(([t, n]) => `${t}=${n}`).join(' ') || 'none';
-  log('📊', `Sent ${counts.sent}, skipped ${counts.skipped} (live check), failed ${counts.failed}; tiers: ${tiers}. Day total ${spentOn(ledger, today)}/${DAILY_BUDGET}`);
-  summary([
-    '## Google Indexing API — job pages',
-    '',
-    `| Sent | Skipped (live check) | Failed | Tiers | Day total |`,
-    `|---|---|---|---|---|`,
-    `| ${counts.sent} | ${counts.skipped} | ${counts.failed} | ${tiers} | ${spentOn(ledger, today)}/${DAILY_BUDGET} |`,
-  ]);
+  if (fatal) fail(verdict); else report(args.dryRun ? `${verdict} (dry run)` : verdict);
 }
 
 if (isInvokedDirectly(import.meta.url)) {
   main().catch((err) => {
-    log('❌', `Unhandled error: ${err.message}`);
-    process.exit(0);
+    console.log(`::error title=Indexing API (jobs)::Unhandled error: ${err.stack || err.message}`);
+    process.exit(1);
   });
 }

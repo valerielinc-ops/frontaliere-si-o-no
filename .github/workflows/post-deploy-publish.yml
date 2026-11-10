@@ -596,9 +596,10 @@ jobs:
               --in-place-resolver-cmd "REDDIT_POSTED_LEDGER_PATH=data/reddit-posted-articles.json node scripts/lib/resolve-reddit-posted-jobs-conflict.mjs && git add -A"
 
       # Google Indexing API (job pages) no longer runs here: it lives in
-      # monitor-gsc-seo.yml, which this deploy-publish completion triggers via
-      # workflow_run. One serialized job owns the notification ledger and its
-      # daily counter, so two writers can never race on the shared budget.
+      # monitor-gsc-seo.yml, which the "Dispatch Indexing API top-up" step
+      # below starts after this publish. One serialized job owns the
+      # notification ledger and its daily counter, so two writers can never
+      # race on the shared budget.
       - name: Post-deploy indexing (parallel)
         if: success() && steps.live_identity.outputs.status == 'match'
         continue-on-error: true
@@ -640,6 +641,43 @@ jobs:
             echo "::warning::Some post-deploy indexing steps failed (non-blocking)"
           fi
           echo "✅ Post-deploy indexing complete"
+
+      # Same-day Google Indexing API top-up for the jobs this publish made
+      # live. An explicit dispatch, not a `workflow_run` on deploy-publish.yml:
+      # that trigger never fired from 2026-10-24 to 2026-11-10 (deploy-publish
+      # is itself dispatched with GITHUB_TOKEN, and GitHub drops the next
+      # workflow_run hop; see the header of monitor-gsc-seo.yml). The caller
+      # grants this job `actions: read` only, so GITHUB_TOKEN cannot dispatch:
+      # the App installation token can (actions: write is verified at mint,
+      # APP_TOKEN_ACTIONS), with Remote Config's GITHUB_PAT as fallback. A
+      # failed dispatch is an annotation, never a failed publish.
+      - name: Mint App token for the Indexing API top-up dispatch
+        if: success() && steps.live_identity.outputs.status == 'match'
+        continue-on-error: true
+        env:
+          APP_ID: ${{ secrets.APP_ID }}
+          APP_PRIVATE_KEY: ${{ secrets.APP_PRIVATE_KEY }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+        run: node scripts/ci/mint-app-token.mjs
+
+      - name: Dispatch Indexing API top-up (monitor-gsc-seo.yml mode=post-publish)
+        if: success() && steps.live_identity.outputs.status == 'match'
+        continue-on-error: true
+        run: |
+          if [ "${APP_TOKEN_ACTIONS:-false}" = "true" ] && [ -n "${APP_TOKEN:-}" ]; then
+            TOKEN="$APP_TOKEN"; WHO="App token"
+          elif [ -n "${GITHUB_PAT:-}" ]; then
+            TOKEN="$GITHUB_PAT"; WHO="GITHUB_PAT"
+          else
+            echo "::error title=Indexing API top-up::no token that may dispatch (APP_TOKEN_ACTIONS=${APP_TOKEN_ACTIONS:-unset}, GITHUB_PAT empty) — new jobs wait for the 08:20 UTC run"
+            exit 1
+          fi
+          if GH_TOKEN="$TOKEN" gh workflow run monitor-gsc-seo.yml --repo "$GITHUB_REPOSITORY" --ref main -f mode=post-publish; then
+            echo "✅ Indexing API top-up dispatched with the $WHO"
+          else
+            echo "::error title=Indexing API top-up::dispatch of monitor-gsc-seo.yml failed with the $WHO"
+            exit 1
+          fi
 
       # Last step: register the run as last_known_good in the deploy
       # registry. Must come AFTER side-effects so a partial publish

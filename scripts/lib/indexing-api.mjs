@@ -6,8 +6,10 @@
  *
  * No external dependencies — uses Node.js built-in `crypto` for JWT signing.
  *
- * Quota: the approved 2,000-request project budget is shared with the job
- * publisher through the serialized indexing-api-jobs-ledger.
+ * Quota: the project's daily publish budget (DAILY_BUDGET, 200 by default —
+ * see indexing-api-quota.mjs) is shared with the job publisher through the
+ * serialized indexing-api-jobs-ledger, persisted in Firestore by
+ * scripts/lib/indexing-ledger-store.mjs.
  *
  * @see https://developers.google.com/search/apis/indexing-api/v3/quickstart
  */
