@@ -20,7 +20,8 @@ export function AssistedApplicationEmployerResponse({ response, timeline = [], c
         <p className="break-words text-sm font-semibold text-heading">{t(`jobBoard.assisted.employerResponse.${update.category}`)}</p>
         <time dateTime={received.toISOString()} className="block text-xs tabular-nums text-subtle">{new Intl.DateTimeFormat(locale, { dateStyle: 'medium', timeStyle: 'short' }).format(received)}</time>
         {update.needsReply && <p className="text-sm font-medium text-body">{t('jobBoard.assisted.employerResponse.needsReply')}</p>}
-        {!compact && <p className="pt-2 text-sm leading-relaxed text-subtle">{t('jobBoard.assisted.employerResponse.emailHint')}</p>}
+        {/* An automatic receipt is not forwarded (assistedApplicationInbound.js): no e-mail to point to. */}
+        {!compact && update.category !== 'auto_acknowledgement' && <p className="pt-2 text-sm leading-relaxed text-subtle">{t('jobBoard.assisted.employerResponse.emailHint')}</p>}
         {updates.length > 1 && <div className="mt-3 border-t border-edge pt-3">
           <p className="text-xs font-semibold uppercase tracking-wide text-subtle">{t('jobBoard.assisted.employerResponse.timeline')}</p>
           <ol className="mt-2 space-y-2 border-l border-edge pl-3">

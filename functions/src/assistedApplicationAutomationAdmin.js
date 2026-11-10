@@ -151,6 +151,7 @@ export async function loadAutomationForAdmin(db, orderId, { signUrl } = {}) {
       summaryIt: item.summaryIt || '',
       interviewWhen: item.interviewWhen || '',
       forwarded: item.forwarded?.status || null,
+      forwardedReason: item.forwarded?.reason || null,
     }));
   if (!flow && !draft && !inbox.length && !accounts.length && !followup && !orderSnapshot.data()?.candidateAlias?.address) return null;
   // One signature per key and load: the CV that left is usually the tailored CV signed here already.
