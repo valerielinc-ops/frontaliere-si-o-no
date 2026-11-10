@@ -1,7 +1,7 @@
 {
   "crawlerKey": "spital-nidwalden",
-  "assembledAt": "2026-11-09T09:30:33.462Z",
-  "runId": "42592207737",
+  "assembledAt": "2026-11-10T09:42:33.649Z",
+  "runId": "42789497555",
   "jobs": [
     {
       "id": "spital-nidwalden-53bec9e347d8",
@@ -35,13 +35,13 @@
       "url": "https://jobs.luks.ch/offene-stellen/mpa-oder-arztsekretaer-in-sekretariat-klinik-anaesthesie-intensiv-und-schmerzmedizin/3274f595-7e18-4d13-8faf-71ed1170fbd7",
       "source": "Spital Nidwalden Dedicated Parser (Prospective medium 1003280)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:30:23.457Z",
+      "crawledAt": "2026-11-10T09:42:26.586Z",
       "addressLocality": "Stans",
       "addressRegion": "NW",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "6370",
-      "streetAddress": "Stans",
+      "streetAddress": "Ennetmooserstrasse 19",
       "category": "Sanità / Ospedali",
       "contract": "full-time",
       "employmentType": "PART_TIME",
@@ -96,8 +96,22 @@
           "unitText": "YEAR"
         }
       },
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-09T09:30:23.457Z",
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Spital Nidwalden",
+        "streetAddress": "Ennetmooserstrasse 19",
+        "postalCode": "6370",
+        "registeredName": "Spital Nidwalden AG",
+        "matchType": "exact",
+        "streetAddressSource": "zefix-registry",
+        "jobPostalCode": "6370",
+        "addressLocality": "Stans",
+        "addressRegion": "NW",
+        "checkedAt": "2026-11-09T15:43:18.299Z"
+      },
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-12-10T09:42:26.586Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -132,13 +146,13 @@
       "url": "https://jobs.luks.ch/offene-stellen/pflegefachperson-hf-fh-fuer-den-einstieg-in-die-intensivmedizin/35fc51ce-162d-4cad-be0c-f3caa8311268",
       "source": "Spital Nidwalden Dedicated Parser (Prospective medium 1003280)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:30:23.455Z",
+      "crawledAt": "2026-11-10T09:42:26.585Z",
       "addressLocality": "Stans",
       "addressRegion": "NW",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "6370",
-      "streetAddress": "Stans",
+      "streetAddress": "Ennetmooserstrasse 19",
       "category": "Sanità / Ospedali",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
@@ -176,8 +190,22 @@
           "unitText": "YEAR"
         }
       },
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-17T09:30:23.455Z",
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Spital Nidwalden",
+        "streetAddress": "Ennetmooserstrasse 19",
+        "postalCode": "6370",
+        "registeredName": "Spital Nidwalden AG",
+        "matchType": "exact",
+        "streetAddressSource": "zefix-registry",
+        "jobPostalCode": "6370",
+        "addressLocality": "Stans",
+        "addressRegion": "NW",
+        "checkedAt": "2026-11-09T15:43:18.299Z"
+      },
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-12-17T09:42:26.585Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -212,13 +240,13 @@
       "url": "https://jobs.luks.ch/offene-stellen/ausbildungsplatz-zur-dipl-expertin-notfallpflege-nds-hf-zum-dipl-experten-notfallpflege-nds-hf-mit-ausbildungsstart-im-september-2027/4bcbdc68-e76f-4b5f-9d15-2caaf74689e6",
       "source": "Spital Nidwalden Dedicated Parser (Prospective medium 1003280)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:30:23.454Z",
+      "crawledAt": "2026-11-10T09:42:26.584Z",
       "addressLocality": "Stans",
       "addressRegion": "NW",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "6370",
-      "streetAddress": "Stans",
+      "streetAddress": "Ennetmooserstrasse 19",
       "category": "Formazione",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
@@ -254,8 +282,22 @@
           "unitText": "YEAR"
         }
       },
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-29T09:30:23.454Z",
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Spital Nidwalden",
+        "streetAddress": "Ennetmooserstrasse 19",
+        "postalCode": "6370",
+        "registeredName": "Spital Nidwalden AG",
+        "matchType": "exact",
+        "streetAddressSource": "zefix-registry",
+        "jobPostalCode": "6370",
+        "addressLocality": "Stans",
+        "addressRegion": "NW",
+        "checkedAt": "2026-11-09T15:43:18.299Z"
+      },
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-12-29T09:42:26.584Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -290,13 +332,13 @@
       "url": "https://jobs.luks.ch/offene-stellen/stationssekretaer-in-gebaersaal-und-mutter-kind-station/73ce42f0-ba3b-4e0c-98c5-c307fae4ceb9",
       "source": "Spital Nidwalden Dedicated Parser (Prospective medium 1003280)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:30:23.452Z",
+      "crawledAt": "2026-11-10T09:42:26.583Z",
       "addressLocality": "Stans",
       "addressRegion": "NW",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "6370",
-      "streetAddress": "Stans",
+      "streetAddress": "Ennetmooserstrasse 19",
       "category": "Sanità / Ospedali",
       "contract": "full-time",
       "employmentType": "PART_TIME",
@@ -337,8 +379,22 @@
           "unitText": "YEAR"
         }
       },
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-29T09:30:23.452Z",
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Spital Nidwalden",
+        "streetAddress": "Ennetmooserstrasse 19",
+        "postalCode": "6370",
+        "registeredName": "Spital Nidwalden AG",
+        "matchType": "exact",
+        "streetAddressSource": "zefix-registry",
+        "jobPostalCode": "6370",
+        "addressLocality": "Stans",
+        "addressRegion": "NW",
+        "checkedAt": "2026-11-09T15:43:18.299Z"
+      },
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-12-29T09:42:26.583Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -373,13 +429,13 @@
       "url": "https://jobs.luks.ch/offene-stellen/radiologiefachperson-hf/79dad9bc-89ca-4b07-b71e-d3b51ea59932",
       "source": "Spital Nidwalden Dedicated Parser (Prospective medium 1003280)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:30:23.450Z",
+      "crawledAt": "2026-11-10T09:42:26.582Z",
       "addressLocality": "Stans",
       "addressRegion": "NW",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "6370",
-      "streetAddress": "Stans",
+      "streetAddress": "Ennetmooserstrasse 19",
       "category": "Sanità / Ospedali",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
@@ -415,8 +471,22 @@
           "unitText": "YEAR"
         }
       },
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-31T09:30:23.450Z",
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Spital Nidwalden",
+        "streetAddress": "Ennetmooserstrasse 19",
+        "postalCode": "6370",
+        "registeredName": "Spital Nidwalden AG",
+        "matchType": "exact",
+        "streetAddressSource": "zefix-registry",
+        "jobPostalCode": "6370",
+        "addressLocality": "Stans",
+        "addressRegion": "NW",
+        "checkedAt": "2026-11-09T15:43:18.299Z"
+      },
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-12-31T09:42:26.582Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -451,13 +521,13 @@
       "url": "https://jobs.luks.ch/offene-stellen/dipl-pflegefachperson-hf-endoskopie/4ec1c80a-8f18-4be4-a662-a89ae7853f12",
       "source": "Spital Nidwalden Dedicated Parser (Prospective medium 1003280)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:30:23.449Z",
+      "crawledAt": "2026-11-10T09:42:26.581Z",
       "addressLocality": "Stans",
       "addressRegion": "NW",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "6370",
-      "streetAddress": "Stans",
+      "streetAddress": "Ennetmooserstrasse 19",
       "category": "Sanità / Ospedali",
       "contract": "full-time",
       "employmentType": "PART_TIME",
@@ -499,8 +569,22 @@
           "unitText": "YEAR"
         }
       },
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-11T09:30:23.449Z",
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Spital Nidwalden",
+        "streetAddress": "Ennetmooserstrasse 19",
+        "postalCode": "6370",
+        "registeredName": "Spital Nidwalden AG",
+        "matchType": "exact",
+        "streetAddressSource": "zefix-registry",
+        "jobPostalCode": "6370",
+        "addressLocality": "Stans",
+        "addressRegion": "NW",
+        "checkedAt": "2026-11-09T15:43:18.299Z"
+      },
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2027-01-11T09:42:26.581Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -534,13 +618,13 @@
       "url": "https://jobs.luks.ch/offene-stellen/mitarbeiter-in-apotheke/e97c1537-1707-4614-8b6e-969e41879976",
       "source": "Spital Nidwalden Dedicated Parser (Prospective medium 1003280)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:30:23.446Z",
+      "crawledAt": "2026-11-10T09:42:26.579Z",
       "addressLocality": "Stans",
       "addressRegion": "NW",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "6370",
-      "streetAddress": "Stans",
+      "streetAddress": "Ennetmooserstrasse 19",
       "category": "Sanità / Ospedali",
       "contract": "full-time",
       "employmentType": "PART_TIME",
@@ -584,8 +668,22 @@
           "unitText": "YEAR"
         }
       },
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-24T09:30:23.446Z",
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Spital Nidwalden",
+        "streetAddress": "Ennetmooserstrasse 19",
+        "postalCode": "6370",
+        "registeredName": "Spital Nidwalden AG",
+        "matchType": "exact",
+        "streetAddressSource": "zefix-registry",
+        "jobPostalCode": "6370",
+        "addressLocality": "Stans",
+        "addressRegion": "NW",
+        "checkedAt": "2026-11-09T15:43:18.299Z"
+      },
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2027-01-24T09:42:26.579Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -620,13 +718,13 @@
       "url": "https://jobs.luks.ch/offene-stellen/pflegefachfrau-mann-hf-onkologie/2f65b06a-3e73-41d7-887b-21cb91d1708c",
       "source": "Spital Nidwalden Dedicated Parser (Prospective medium 1003280)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:30:23.445Z",
+      "crawledAt": "2026-11-10T09:42:26.578Z",
       "addressLocality": "Stans",
       "addressRegion": "NW",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "6370",
-      "streetAddress": "Stans",
+      "streetAddress": "Ennetmooserstrasse 19",
       "category": "Sanità / Ospedali",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
@@ -668,8 +766,22 @@
           "unitText": "YEAR"
         }
       },
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-26T09:30:23.445Z",
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Spital Nidwalden",
+        "streetAddress": "Ennetmooserstrasse 19",
+        "postalCode": "6370",
+        "registeredName": "Spital Nidwalden AG",
+        "matchType": "exact",
+        "streetAddressSource": "zefix-registry",
+        "jobPostalCode": "6370",
+        "addressLocality": "Stans",
+        "addressRegion": "NW",
+        "checkedAt": "2026-11-09T15:43:18.299Z"
+      },
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2027-01-26T09:42:26.578Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -704,13 +816,13 @@
       "url": "https://jobs.luks.ch/offene-stellen/teamleitung-der-intensivstation-w-m-d/8af6e857-15e1-4637-9506-11073f709a41",
       "source": "Spital Nidwalden Dedicated Parser (Prospective medium 1003280)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:30:23.442Z",
+      "crawledAt": "2026-11-10T09:42:26.577Z",
       "addressLocality": "Stans",
       "addressRegion": "NW",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "6370",
-      "streetAddress": "Stans",
+      "streetAddress": "Ennetmooserstrasse 19",
       "category": "Sanità / Ospedali",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
@@ -752,8 +864,22 @@
           "unitText": "YEAR"
         }
       },
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-29T09:30:23.442Z",
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Spital Nidwalden",
+        "streetAddress": "Ennetmooserstrasse 19",
+        "postalCode": "6370",
+        "registeredName": "Spital Nidwalden AG",
+        "matchType": "exact",
+        "streetAddressSource": "zefix-registry",
+        "jobPostalCode": "6370",
+        "addressLocality": "Stans",
+        "addressRegion": "NW",
+        "checkedAt": "2026-11-09T15:43:18.299Z"
+      },
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2027-01-29T09:42:26.577Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -787,13 +913,13 @@
       "url": "https://jobs.luks.ch/offene-stellen/klinische-fachspezialistin-klinischer-fachspezialist-orthopaedie-unfallchirurgie/14f66b0b-b429-4827-ae56-8ccbe9964e3d",
       "source": "Spital Nidwalden Dedicated Parser (Prospective medium 1003280)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:30:23.440Z",
+      "crawledAt": "2026-11-10T09:42:26.575Z",
       "addressLocality": "Stans",
       "addressRegion": "NW",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "6370",
-      "streetAddress": "Stans",
+      "streetAddress": "Ennetmooserstrasse 19",
       "category": "Sanità / Ospedali",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
@@ -840,8 +966,22 @@
           "unitText": "YEAR"
         }
       },
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-11T09:30:23.440Z",
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Spital Nidwalden",
+        "streetAddress": "Ennetmooserstrasse 19",
+        "postalCode": "6370",
+        "registeredName": "Spital Nidwalden AG",
+        "matchType": "exact",
+        "streetAddressSource": "zefix-registry",
+        "jobPostalCode": "6370",
+        "addressLocality": "Stans",
+        "addressRegion": "NW",
+        "checkedAt": "2026-11-09T15:43:18.299Z"
+      },
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2027-01-11T09:42:26.575Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -876,13 +1016,13 @@
       "url": "https://jobs.luks.ch/offene-stellen/chefaerztin-chefarzt-allgemeine-innere-medizin-standort-stans/76b803fc-c4ed-43da-a84e-7ab609b136cb",
       "source": "Spital Nidwalden Dedicated Parser (Prospective medium 1003280)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:30:23.437Z",
+      "crawledAt": "2026-11-10T09:42:26.574Z",
       "addressLocality": "Stans",
       "addressRegion": "NW",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "6370",
-      "streetAddress": "Stans",
+      "streetAddress": "Ennetmooserstrasse 19",
       "category": "Sanità / Ospedali",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
@@ -918,8 +1058,22 @@
           "unitText": "YEAR"
         }
       },
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-18T09:30:23.437Z",
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Spital Nidwalden",
+        "streetAddress": "Ennetmooserstrasse 19",
+        "postalCode": "6370",
+        "registeredName": "Spital Nidwalden AG",
+        "matchType": "exact",
+        "streetAddressSource": "zefix-registry",
+        "jobPostalCode": "6370",
+        "addressLocality": "Stans",
+        "addressRegion": "NW",
+        "checkedAt": "2026-11-09T15:43:18.299Z"
+      },
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-12-18T09:42:26.574Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -954,13 +1108,13 @@
       "url": "https://jobs.luks.ch/offene-stellen/sozialarbeiter-in-sozial-und-austrittsberatung/54beabef-1cc9-41d2-811a-868370fa622e",
       "source": "Spital Nidwalden Dedicated Parser (Prospective medium 1003280)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:30:23.420Z",
+      "crawledAt": "2026-11-10T09:42:26.565Z",
       "addressLocality": "Stans",
       "addressRegion": "NW",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "6370",
-      "streetAddress": "Stans",
+      "streetAddress": "Ennetmooserstrasse 19",
       "category": "Sanità / Ospedali",
       "contract": "full-time",
       "employmentType": "OTHER",
@@ -1004,8 +1158,22 @@
           "unitText": "YEAR"
         }
       },
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-04T09:30:23.420Z",
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Spital Nidwalden",
+        "streetAddress": "Ennetmooserstrasse 19",
+        "postalCode": "6370",
+        "registeredName": "Spital Nidwalden AG",
+        "matchType": "exact",
+        "streetAddressSource": "zefix-registry",
+        "jobPostalCode": "6370",
+        "addressLocality": "Stans",
+        "addressRegion": "NW",
+        "checkedAt": "2026-11-09T15:43:18.299Z"
+      },
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2027-02-04T09:42:26.565Z",
       "validThroughSource": "last-observed-window"
     }
   ]

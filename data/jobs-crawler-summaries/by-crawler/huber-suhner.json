@@ -1,7 +1,7 @@
 {
   "key": "huber-suhner",
   "label": "Huber+Suhner AG",
-  "generatedAt": "2026-11-08T21:51:21.727Z",
+  "generatedAt": "2026-11-10T09:31:59.424Z",
   "total": 1,
   "discovered": null,
   "parsed": 1,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 4933,
-  "avgDurationMs": 4933,
+  "durationMs": 6864,
+  "avgDurationMs": 6864,
   "durationHistory": [
-    4933
+    6864
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -38,7 +38,7 @@
       "url": "https://recruiting.hubersuhner.com/Vacancies/8333/Description/1",
       "source": "Huber+Suhner AG Dedicated Parser (Umantis @ recruiting.hubersuhner.com)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-08T21:51:10.730Z",
+      "crawledAt": "2026-11-10T09:31:40.910Z",
       "addressLocality": "Pfäffikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -65,7 +65,7 @@
       "salaryMax": 102500,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-21T21:51:10.730Z",
+      "validThrough": "2027-01-21T09:31:40.910Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -76,5 +76,5 @@
       }
     }
   ],
-  "codeCommit": "46d8c233794afd1422cd7663ab076bfe9ec2a1c3"
+  "codeCommit": "854e7bdddbff5b4e0e90fb9b90efe81503dfc091"
 }

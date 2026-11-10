@@ -8702,6 +8702,12 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.imposta-sostitutiva-pensioni-svizzere.title': 'Impôt substitutif de 5% pour les pensions suisses',
     'blog.article.imposta-sostitutiva-pensioni-svizzere.excerpt': 'Dans la réponse n. 125/2024, l\'Agenzia delle Entrate a examiné le traitement fiscal des prestations versées par les régimes de prévoyance suisses du premier pilier AVS et du deuxième pilier LPP.',
     'blog.article.imposta-sostitutiva-pensioni-svizzere.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
+    'blog.article.peso-burocrazia-imprese-svizzera.title': 'Poids de la bureaucratie pour les entreprises suisses : 67% le jugent élevé',
+    'blog.article.peso-burocrazia-imprese-svizzera.excerpt': 'Selon l’enquête nationale menée par gfs.bern pour le compte d’economiesuisse et publiée aujourd’hui, 67% des 1’527 entreprises interrogées considèrent la charge administrative élevée, comme le rapporte Keystone-ATS.',
+    'blog.article.peso-burocrazia-imprese-svizzera.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
+    'blog.article.pamini-contributi-salari-svizzera.title': 'Pamini (Udc) : salaires et frontaliers, agir avec les cotisations',
+    'blog.article.pamini-contributi-salari-svizzera.excerpt': 'Le titre éditorial présente Pamini (Udc) avec une indication précise : relier le thème des salaires et des frontaliers au chapitre des cotisations.',
+    'blog.article.pamini-contributi-salari-svizzera.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
 };
 
 export default blogMetaChFr;

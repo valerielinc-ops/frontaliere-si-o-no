@@ -1,7 +1,7 @@
 {
   "key": "somedia",
   "label": "Somedia AG",
-  "generatedAt": "2026-11-09T09:26:26.690Z",
+  "generatedAt": "2026-11-10T09:37:39.401Z",
   "total": 4,
   "discovered": null,
   "parsed": 4,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 4,
-  "durationMs": 8522,
-  "avgDurationMs": 8522,
+  "durationMs": 9278,
+  "avgDurationMs": 9278,
   "durationHistory": [
-    8522
+    9278
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -37,7 +37,7 @@
       "url": "https://jobs.somedia.ch/Instructional-Designerin-E-Learning-80-100-de-j432.html",
       "source": "Somedia AG Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:26:07.690Z",
+      "crawledAt": "2026-11-10T09:37:14.279Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -87,7 +87,7 @@
       "url": "https://jobs.somedia.ch/Polygrafin-oder-Grafikerin-100-mit-Lernendenbetreuung-de-j427.html",
       "source": "Somedia AG Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:26:06.645Z",
+      "crawledAt": "2026-11-10T09:37:13.139Z",
       "addressLocality": "Ilanz",
       "addressCountry": "CH",
       "country": "CH",
@@ -137,7 +137,7 @@
       "url": "https://jobs.somedia.ch/Sales-Managerin-Aussendienst-80-100-de-j416.html",
       "source": "Somedia AG Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:26:05.705Z",
+      "crawledAt": "2026-11-10T09:37:12.111Z",
       "addressLocality": "Glarus",
       "addressCountry": "CH",
       "country": "CH",
@@ -187,7 +187,7 @@
       "url": "https://jobs.somedia.ch/Senior-Marketing-Automation-Managerin-80-100-de-j430.html",
       "source": "Somedia AG Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:26:04.678Z",
+      "crawledAt": "2026-11-10T09:37:10.965Z",
       "addressLocality": "Chur",
       "addressCountry": "CH",
       "country": "CH",
@@ -227,5 +227,5 @@
       }
     }
   ],
-  "codeCommit": "f071981dd2d2820cdec3736f76b1b17ee50345bd"
+  "codeCommit": "854e7bdddbff5b4e0e90fb9b90efe81503dfc091"
 }

@@ -1,16 +1,16 @@
 {
   "key": "dxt-commodities",
   "label": "DXT Commodities",
-  "generatedAt": "2026-11-09T09:29:53.083Z",
+  "generatedAt": "2026-11-10T09:22:02.469Z",
   "total": 1,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 4317,
-  "avgDurationMs": 4317,
+  "durationMs": 3538,
+  "avgDurationMs": 3538,
   "durationHistory": [
-    4317
+    3538
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -30,7 +30,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-11-09T09:29:41.656Z",
+      "crawledAt": "2026-11-10T09:21:54.430Z",
       "source": "dxt-careers-crawler",
       "sourceLang": "en",
       "employmentType": "FULL_TIME",
@@ -51,7 +51,7 @@
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-26T09:29:41.656Z",
+      "validThrough": "2027-01-26T09:21:54.430Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 90,
       "_qualityBreakdown": {
@@ -62,5 +62,5 @@
       }
     }
   ],
-  "codeCommit": "f071981dd2d2820cdec3736f76b1b17ee50345bd"
+  "codeCommit": "854e7bdddbff5b4e0e90fb9b90efe81503dfc091"
 }

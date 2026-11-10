@@ -30,5 +30,9 @@ export function legacyTransportHoldReason({ flow, submission = {}, draft }) {
   if (holds.length !== 1) return null;
   if (holds[0] === 'email_failed' && record.channel === 'email' && record.reason === 'email_failed') return 'email_provider_unavailable';
   if (record.channel === 'portal' && navigationInfrastructureFailure(holds[0]) && navigationInfrastructureFailure(record.reason)) return 'navigation_unavailable';
+  // Held before the regional notice was known to follow the runner's IP: the
+  // run stopped on the posting page, before any form, and released its claim.
+  if (record.channel === 'portal' && holds[0] === 'portal:application_region_unsupported'
+    && record.reason === 'application_region_unsupported' && record.confirmedNotSent === true) return 'application_region_unsupported';
   return null;
 }

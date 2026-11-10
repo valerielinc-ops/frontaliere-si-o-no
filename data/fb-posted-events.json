@@ -2,21 +2,6 @@
   "schemaVersion": 1,
   "posted": [
     {
-      "id": "tio-agenda:64774",
-      "viaDigest": "weekend-digest-2026-11-07",
-      "postedAt": "2026-11-06T16:23:14.526Z"
-    },
-    {
-      "id": "tio-agenda:64801",
-      "viaDigest": "weekend-digest-2026-11-07",
-      "postedAt": "2026-11-06T16:23:14.526Z"
-    },
-    {
-      "id": "tio-agenda:64814",
-      "viaDigest": "weekend-digest-2026-11-07",
-      "postedAt": "2026-11-06T16:23:14.526Z"
-    },
-    {
       "id": "weekend-digest-ZH-2026-11-07",
       "url": "https://frontaliereticino.ch/eventi/zurigo/questo-weekend/",
       "postId": "951226518080080_122130723471272498",
@@ -5204,6 +5189,57 @@
       "copyAngleIntent": "searchable",
       "copyHook": "Una proposta di teatro da controllare prima di inserirla in agenda.",
       "copyCta": "Scopri l'evento."
+    },
+    {
+      "id": "myswitzerland:f850ff80ccf744c99de1e9f8f0a2c6e4",
+      "url": "https://frontaliereticino.ch/eventi/uri/",
+      "postId": "951226518080080_122130970821272498",
+      "postedAt": "2026-11-09T19:15:52.567Z",
+      "copyMode": "codex",
+      "copySlot": "event",
+      "copyPromptVersion": "frontaliere-social-copy-v4",
+      "copyPackId": "1fb417e247af2a71",
+      "copyTemplateId": "fb-event-conference",
+      "copyAssignmentMode": "deterministic",
+      "copyAngleId": "domanda-comune",
+      "copyPillarId": "strumenti-utili",
+      "copyAngleIntent": "both",
+      "copyHook": "Una conferenza locale da valutare con le informazioni aggiornate.",
+      "copyCta": "Apri le informazioni."
+    },
+    {
+      "id": "myswitzerland:338568b78d66456ab69cdcb2788d109d",
+      "url": "https://frontaliereticino.ch/eventi/turgovia/kreuzlingen/",
+      "postId": "951226518080080_122130970857272498",
+      "postedAt": "2026-11-09T19:16:02.498Z",
+      "copyMode": "codex",
+      "copySlot": "event",
+      "copyPromptVersion": "frontaliere-social-copy-v4",
+      "copyPackId": "1fb417e247af2a71",
+      "copyTemplateId": "fb-event-conference",
+      "copyAssignmentMode": "deterministic",
+      "copyAngleId": "domanda-comune",
+      "copyPillarId": "strumenti-utili",
+      "copyAngleIntent": "both",
+      "copyHook": "Una conferenza locale da valutare con le informazioni aggiornate.",
+      "copyCta": "Apri le informazioni."
+    },
+    {
+      "id": "myswitzerland:f5e7ced9945a41c49147143c7ee2497b",
+      "url": "https://frontaliereticino.ch/eventi/vallese/albinen/",
+      "postId": "951226518080080_122130970905272498",
+      "postedAt": "2026-11-09T19:16:09.405Z",
+      "copyMode": "codex",
+      "copySlot": "event",
+      "copyPromptVersion": "frontaliere-social-copy-v4",
+      "copyPackId": "1fb417e247af2a71",
+      "copyTemplateId": "fb-event-music",
+      "copyAssignmentMode": "deterministic",
+      "copyAngleId": "passo-pratico",
+      "copyPillarId": "opportunita-concrete",
+      "copyAngleIntent": "both",
+      "copyHook": "Un appuntamento di musica da verificare prima di organizzarti.",
+      "copyCta": "Consulta il programma."
     }
   ]
 }

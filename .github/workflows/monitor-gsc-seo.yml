@@ -5,20 +5,37 @@ name: Monitor GSC Job Indexation
 # monitor just found WITHOUT a "Job Postings" rich result.
 # 08:20 UTC is after the Indexing API quota reset (midnight America/Los_Angeles,
 # 07:00 UTC in summer, 08:00 UTC in winter), so this run opens the quota day.
-# Every completed deploy-publish also triggers the `indexing` job alone, so new
-# jobs reach Google the same day (this replaced the inline post-deploy call).
+#
+# After every successful publish, post-deploy-publish.yml dispatches this
+# workflow with `mode=post-publish`: only the `indexing` job runs, with a
+# small top-up, so new jobs reach Google the same day. That dispatch replaced a
+# `workflow_run` trigger on "Publish to GitHub Pages (deploy + validate)" that
+# never fired once from 2026-10-24 to 2026-11-10 (only `schedule` runs in the
+# history): deploy-publish.yml is itself started by a GITHUB_TOKEN
+# workflow_dispatch from deploy.yml, and GitHub does not deliver the next
+# workflow_run hop of such a run — the same loss lighthouse-ci.yml and
+# runtime-reliability-watch.yml measured in 2026-09. It also required
+# conclusion == success, while 17 of the last 20 publishes concluded failure on
+# a validator after Pages had already been deployed.
+#
+# Quota: Google grants 200 publish requests/day (INDEXING_API_DAILY_QUOTA).
+# Whichever run opens the quota day may take all of it but TOPUP_RESERVE, which
+# is left for the post-publish top-ups of the same day.
 on:
   schedule:
     - cron: '20 8 * * *'
-  workflow_run:
-    workflows: ['Publish to GitHub Pages (deploy + validate)']
-    types: [completed]
   workflow_dispatch:
     inputs:
-      indexing_max:
-        description: 'Max Indexing API notifications this run (default 2000 of the approved 2000/day job budget; deploy-triggered runs share the same ledger)'
+      mode:
+        description: 'full = monitor + indexing; post-publish = indexing top-up only (dispatched by post-deploy-publish.yml)'
         required: false
-        default: '2000'
+        default: full
+        type: choice
+        options: [full, post-publish]
+      indexing_max:
+        description: 'Max Indexing API notifications this run (empty = 15 for post-publish, daily quota minus the top-up reserve otherwise)'
+        required: false
+        default: ''
         type: string
       dry_run:
         description: 'Dry run (no issues, no Indexing API notifications)'
@@ -32,9 +49,17 @@ permissions:
   actions: read
   statuses: write
 
+env:
+  # Real Google quota (publish requests per day, per GCP project). Raise it
+  # here only after Google approves a higher quota in the Cloud console.
+  INDEXING_API_DAILY_QUOTA: '200'
+  # Requests the run opening the quota day leaves to the post-publish top-ups
+  # (4-5 publishes a day x 15).
+  INDEXING_API_TOPUP_RESERVE: '60'
+
 jobs:
   monitor:
-    if: github.event_name != 'workflow_run'
+    if: github.event_name == 'schedule' || inputs.mode != 'post-publish'
     runs-on: ubuntu-latest
     timeout-minutes: 30
     concurrency:
@@ -114,17 +139,18 @@ jobs:
             --label Bug \
             --workflow "${{ github.workflow }}"
 
-  # Sole owner of the Indexing API ledger (notified URLs + per-day counter).
+  # Owner of the Indexing API ledger (notified URLs + per-day counter), stored
+  # in Firestore (scripts/lib/indexing-ledger-store.mjs) — not in the Actions
+  # cache, which evicted it before every run from 2026-10-24 to 2026-11-10.
   # The job-level group serializes every writer across scheduled, dispatched
-  # and deploy-triggered runs: restore → submit → save never overlap, so two
-  # runs cannot both read the same counter. A newer pending run may replace an
-  # older pending one; nothing is lost, the ledger carries the backlog and the
-  # first run of each quota day takes the large share (--max-first-run).
+  # and post-publish runs AND fast-publish-article.yml's notify job: pull →
+  # submit → push never overlap, and the push is conditioned on the version
+  # pulled. A newer pending run may replace an older pending one; nothing is
+  # lost, the ledger carries the backlog and the first run of each quota day
+  # takes the large share (--max-first-run).
   indexing:
     needs: monitor
-    if: >-
-      always() &&
-      (github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success')
+    if: always() && !cancelled()
     runs-on: ubuntu-latest
     timeout-minutes: 30
     concurrency:
@@ -188,26 +214,39 @@ jobs:
           name: job-rich-missing
           path: /tmp/job-rich-missing
 
-      - name: Restore Indexing API job ledger
-        uses: actions/cache@v6
-        with:
-          path: /tmp/indexing-api-jobs-ledger.json
-          key: indexing-api-jobs-ledger-${{ github.run_id }}-${{ github.run_attempt }}
-          restore-keys: |
-            indexing-api-jobs-ledger-
+      # No continue-on-error: a ledger that cannot be read must stop the run.
+      # Submitting from an empty ledger is exactly the duplicate spend this
+      # store removes, and without a pull receipt the push below refuses.
+      - name: Pull Indexing API ledger from Firestore
+        id: ledger_pull
+        run: node scripts/lib/indexing-ledger-store.mjs pull --ledger /tmp/indexing-api-jobs-ledger.json
 
       - name: Notify job pages to Google Indexing API
-        # Exits 0 unless the restored ledger is invalid. Scheduled/dispatched: up
-        # to indexing_max. Deploy-triggered: 15, or 2000 when it is the first
-        # run of the quota day. A missing ledger is bootstrapped here.
+        # Exit 1 on configuration/auth errors (invalid ledger, no owner
+        # identity, 403); exit 0 on Google's 429 quota stop, which is expected
+        # at 200/day. Post-publish: 15. Otherwise: the daily quota minus the
+        # top-up reserve. Whichever run opens the quota day takes the large
+        # share. A ledger Firestore does not have yet is bootstrapped here.
         env:
-          INPUT_MAX: ${{ github.event_name == 'workflow_run' && '15' || inputs.indexing_max || '2000' }}
+          INPUT_MODE: ${{ github.event_name == 'schedule' && 'full' || inputs.mode }}
+          INPUT_MAX: ${{ inputs.indexing_max }}
           INPUT_DRY_RUN: ${{ inputs.dry_run }}
         run: |
-          case "$INPUT_MAX" in ''|*[!0-9]*) echo "::error::indexing_max must be an integer"; exit 1 ;; esac
-          ARGS=(--max "$INPUT_MAX" --max-first-run 2000 --ledger /tmp/indexing-api-jobs-ledger.json --priority-file /tmp/job-rich-missing/job-rich-missing.json)
+          FIRST_RUN_SHARE=$(( INDEXING_API_DAILY_QUOTA - INDEXING_API_TOPUP_RESERVE ))
+          if [ -z "$INPUT_MAX" ]; then
+            if [ "$INPUT_MODE" = "post-publish" ]; then INPUT_MAX=15; else INPUT_MAX=$FIRST_RUN_SHARE; fi
+          fi
+          case "$INPUT_MAX" in *[!0-9]*) echo "::error::indexing_max must be an integer"; exit 1 ;; esac
+          ARGS=(--max "$INPUT_MAX" --max-first-run "$FIRST_RUN_SHARE" --ledger /tmp/indexing-api-jobs-ledger.json --priority-file /tmp/job-rich-missing/job-rich-missing.json)
           if [ "$INPUT_DRY_RUN" = "true" ]; then ARGS+=(--dry-run); fi
           node scripts/submit-google-indexing-jobs.js "${ARGS[@]}"
+
+      # always(): reservations made before a failure are real Google requests
+      # and must reach the stored counter. Never after a failed pull (the
+      # receipt would be missing) and never on a dry run (nothing was sent).
+      - name: Push Indexing API ledger to Firestore
+        if: always() && steps.ledger_pull.outcome == 'success' && inputs.dry_run != true
+        run: node scripts/lib/indexing-ledger-store.mjs push --ledger /tmp/indexing-api-jobs-ledger.json
 
       - name: Cleanup credentials
         if: always()

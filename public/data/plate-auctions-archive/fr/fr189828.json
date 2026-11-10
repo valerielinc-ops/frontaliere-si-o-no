@@ -2,9 +2,9 @@
   "schema": 1,
   "rows": [
     {
-      "id": "fr-7212",
+      "id": "fr-7342",
       "sourceKey": "FR",
-      "sourceRecordId": "7212",
+      "sourceRecordId": "7342",
       "canton": "Friburgo",
       "platePrefix": "FR",
       "plateNumber": "189828",
@@ -12,20 +12,20 @@
       "listingType": "auction",
       "vehicleType": "car",
       "auctionStatus": "closed",
-      "currentBidChf": 150,
-      "startingPriceChf": 150,
+      "currentBidChf": 100,
+      "startingPriceChf": 100,
       "bidCount": 0,
       "minimumIncrementChf": 50,
-      "endsAt": "2026-09-28T10:00:00.000Z",
-      "closedAt": "2026-09-28T10:00:00.000Z",
+      "endsAt": "2026-11-09T11:00:00.000Z",
+      "closedAt": "2026-11-09T11:00:00.000Z",
       "officialAuctionUrl": "https://appls.ocn.ch/ecari-auction?locale=fr_ch",
-      "officialDetailUrl": "https://appls.ocn.ch/ecari-auction/ui/app/details/app?id=7212&locale=fr_ch",
-      "sourceFetchedAt": "2026-09-28T05:47:05.059Z",
-      "lastVerifiedAt": "2026-09-28T05:47:05.059Z",
-      "firstSeenAt": "2026-09-25T10:24:30.674Z",
-      "lastSeenAt": "2026-09-28T05:47:05.059Z",
+      "officialDetailUrl": "https://appls.ocn.ch/ecari-auction/ui/app/details/app?id=7342&locale=fr_ch",
+      "sourceFetchedAt": "2026-11-09T05:47:05.660Z",
+      "lastVerifiedAt": "2026-11-09T05:47:05.660Z",
+      "firstSeenAt": "2026-11-02T11:47:02.658Z",
+      "lastSeenAt": "2026-11-09T05:47:05.660Z",
       "dataConfidence": "partial",
-      "rawSnapshotHash": "01c3df7a2c31"
+      "rawSnapshotHash": "9776c9f8cf26"
     }
   ]
 }

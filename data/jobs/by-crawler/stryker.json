@@ -1,7 +1,7 @@
 {
   "crawlerKey": "stryker",
-  "assembledAt": "2026-11-09T09:27:44.752Z",
-  "runId": "42592781621",
+  "assembledAt": "2026-11-10T09:41:19.003Z",
+  "runId": "42790102984",
   "jobs": [
     {
       "id": "stryker-b91369d6d475",
@@ -35,7 +35,7 @@
       "url": "https://stryker.wd1.myworkdayjobs.com/en-US/StrykerCareers/job/Selzach-Switzerland/Lean-Specialist--m-w-d----Process-Improvement_R566531",
       "source": "Stryker Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:27:38.450Z",
+      "crawledAt": "2026-11-10T09:41:11.706Z",
       "addressLocality": "Selzach",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -77,9 +77,23 @@
         }
       },
       "postalCode": "2545",
-      "streetAddress": "Selzach",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-09T09:27:38.450Z",
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Stryker",
+        "streetAddress": "Bohnackerweg 1",
+        "postalCode": "2545",
+        "registeredName": "Stryker GmbH",
+        "matchType": "exact",
+        "streetAddressSource": "zefix-registry",
+        "jobPostalCode": "2545",
+        "addressLocality": "Selzach",
+        "addressRegion": "SO",
+        "checkedAt": "2026-11-09T15:42:58.574Z"
+      },
+      "streetAddress": "Bohnackerweg 1",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-12-10T09:41:11.706Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -113,7 +127,7 @@
       "url": "https://stryker.wd1.myworkdayjobs.com/en-US/StrykerCareers/job/Selzach-Switzerland/XMLNAME--Senior--EHS-Manager--m-w-d--Arbeitssicherheit--Umweltschutz_R573690-1",
       "source": "Stryker Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-09T09:27:37.718Z",
+      "crawledAt": "2026-11-10T09:41:11.040Z",
       "addressLocality": "Selzach",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -155,9 +169,23 @@
         }
       },
       "postalCode": "2545",
-      "streetAddress": "Selzach",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T09:27:37.718Z",
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Stryker",
+        "streetAddress": "Bohnackerweg 1",
+        "postalCode": "2545",
+        "registeredName": "Stryker GmbH",
+        "matchType": "exact",
+        "streetAddressSource": "zefix-registry",
+        "jobPostalCode": "2545",
+        "addressLocality": "Selzach",
+        "addressRegion": "SO",
+        "checkedAt": "2026-11-09T15:42:58.574Z"
+      },
+      "streetAddress": "Bohnackerweg 1",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-12-14T09:41:11.040Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -192,7 +220,7 @@
       "url": "https://stryker.wd1.myworkdayjobs.com/en-US/StrykerCareers/job/Selzach-Switzerland/Berufsbildner--m-w-d-_R574592",
       "source": "Stryker Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:27:36.996Z",
+      "crawledAt": "2026-11-10T09:41:10.391Z",
       "addressLocality": "Selzach",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -244,9 +272,23 @@
         }
       },
       "postalCode": "2545",
-      "streetAddress": "Selzach",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-05T09:27:36.996Z",
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Stryker",
+        "streetAddress": "Bohnackerweg 1",
+        "postalCode": "2545",
+        "registeredName": "Stryker GmbH",
+        "matchType": "exact",
+        "streetAddressSource": "zefix-registry",
+        "jobPostalCode": "2545",
+        "addressLocality": "Selzach",
+        "addressRegion": "SO",
+        "checkedAt": "2026-11-09T15:42:58.574Z"
+      },
+      "streetAddress": "Bohnackerweg 1",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2027-01-05T09:41:10.391Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -281,7 +323,7 @@
       "url": "https://stryker.wd1.myworkdayjobs.com/en-US/StrykerCareers/job/Selzach-Switzerland/Praktikum-im-Bereich-Produktionstechnik--Fertigung-Produktion----ab-Februar-Mrz-2027-6-Monate_R569865",
       "source": "Stryker Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:27:36.288Z",
+      "crawledAt": "2026-11-10T09:41:09.178Z",
       "addressLocality": "Selzach",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -334,9 +376,23 @@
         }
       },
       "postalCode": "2545",
-      "streetAddress": "Selzach",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-28T09:27:36.288Z",
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Stryker",
+        "streetAddress": "Bohnackerweg 1",
+        "postalCode": "2545",
+        "registeredName": "Stryker GmbH",
+        "matchType": "exact",
+        "streetAddressSource": "zefix-registry",
+        "jobPostalCode": "2545",
+        "addressLocality": "Selzach",
+        "addressRegion": "SO",
+        "checkedAt": "2026-11-09T15:42:58.574Z"
+      },
+      "streetAddress": "Bohnackerweg 1",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-12-28T09:41:09.178Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -370,7 +426,7 @@
       "url": "https://stryker.wd1.myworkdayjobs.com/en-US/StrykerCareers/job/Selzach-Switzerland/Project-Associate--m-f-d--as-part-of-our-Regulatory-Affairs-team_R576188",
       "source": "Stryker Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-09T09:27:35.518Z",
+      "crawledAt": "2026-11-10T09:41:08.529Z",
       "addressLocality": "Selzach",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -412,9 +468,23 @@
         }
       },
       "postalCode": "2545",
-      "streetAddress": "Selzach",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-25T09:27:35.518Z",
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Stryker",
+        "streetAddress": "Bohnackerweg 1",
+        "postalCode": "2545",
+        "registeredName": "Stryker GmbH",
+        "matchType": "exact",
+        "streetAddressSource": "zefix-registry",
+        "jobPostalCode": "2545",
+        "addressLocality": "Selzach",
+        "addressRegion": "SO",
+        "checkedAt": "2026-11-09T15:42:58.574Z"
+      },
+      "streetAddress": "Bohnackerweg 1",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2027-01-25T09:41:08.529Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -449,7 +519,7 @@
       "url": "https://stryker.wd1.myworkdayjobs.com/en-US/StrykerCareers/job/Biberist-Switzerland/Territory-Sales-Manager---Account-Manager--m-w-d---Peripheral-Vascular--Stryker-PV----Westschweiz_R576479",
       "source": "Stryker Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:27:34.426Z",
+      "crawledAt": "2026-11-10T09:41:07.480Z",
       "addressLocality": "Biberist",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -496,16 +566,16 @@
       "postalCode": "4562",
       "streetAddress": "Biberist",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-02T09:27:34.426Z",
+      "validThrough": "2027-02-02T09:41:07.480Z",
       "validThroughSource": "last-observed-window"
     },
     {
       "id": "stryker-f49c02c1614a",
       "slug": "apprendisti-commerciali-stryker-selzach",
       "slugByLocale": {
-        "de": "kaufmannische-r-lernende-r-stryker-ch",
         "it": "apprendisti-commerciali-stryker-selzach",
         "en": "commercial-learner-stryker-selzach",
+        "de": "kaufmannische-r-lernende-r-stryker-ch",
         "fr": "apprenti-e-commercial-e-stryker-selzach"
       },
       "company": "Stryker",
@@ -513,25 +583,25 @@
       "companyDomain": "stryker.com",
       "title": "Kaufmännische/-r Lernende/-r",
       "titleByLocale": {
-        "de": "Kaufmännische/-r Lernende/-r",
         "it": "Apprendisti commerciali",
         "en": "Commercial learner",
+        "de": "Kaufmännische/-r Lernende/-r",
         "fr": "Apprenti (e) commercial (e)"
       },
       "description": "Work Flexibility: Onsite\n\nDu bist kontaktfreudig, übernimmst gerne Verantwortung und magst selbständiges Arbeiten?\nWir bieten Dir eine anspruchsvolle Ausbildungszeit mit einer vielseitigen, praktischen sowie theoretischen Ausbildung am Arbeitsplatz. Dich erwarten abwechslungsreiche und interessante Tätigkeiten. Zudem gewinnst Du Einblicke in diverse Fachbereiche unseres Unternehmens. Als Ausgleich zu Berufsschule und Ausbildungsbetrieb sorgen wir mit spannenden Aktivitäten für einen guten Austausch zwischen unseren Azubis.\n\nDas erwartet Dich:\n\n• Du durchläufst verschiedene Abteilungen anhand eines maßgeschneiderten Durchlaufplans, wobei wir Dir die Möglichkeit zur aktiven Mitgestaltung bieten.\n\n• Neben Schulungen und der Möglichkeit in interdisziplinären Projektteams an kleinen Standortprojekten mitzuwirken, erhältst Du regelmäßig Feedback zur Unterstützung Deiner persönlichen Entwicklung.\n\nDas zeichnet Dich aus:\n\n• Du verfügst über einen guten Schulabschluss.\n\n• Ein hohes Mass an Sorgfalt und Organisationstalent zeichnen Dich aus.\n\n• Du arbeitest gerne im Team und möchtest mit Deinen Fähigkeiten zu unserem Erfolg beitragen.\n\nWir bieten:\n\n• Hilfsbereite Kolleg*innen & ein freundliches Arbeitsklima\n\n• Hauseigene Ausbildungswerkstatt mit modernen Maschinen\n\n• Intensive Prüfungsvorbereitung & abwechslungsreicher Durchlaufplan\n\nDeine Bewerbung:\nVielfalt ist uns wichtig. Wir freuen uns über Bewerbungen von Menschen ungeachtet ihrer ethnischen, nationalen oder sozialen Herkunft, ihres Geschlechts, einer Behinderung, ihres Alters oder ihrer sexuellen Identität.\n\nWir freuen uns auf Deine aussagekräftige Online-Bewerbung inklusive aller relevanten Dokumente. Bitte beachte, in unserem Bewerbungsverfahren unter dem Punkt „Lebenslauf“ direkt alle Anhänge als eine Datei hochzuladen.\n\nSwitzerland Pay Ranges:\n• Switzerland : CHF52,200 - CHF87,000 CHF Annual\n\nAt Stryker, we believe transparency helps candidates make confident decisions about their next career step. Compensation is an important part of that process and we want to be clear about how pay is determined. The compensation information posted for this role may be presented as a salary range or a fixed amount depending on the role. In addition to base salary, this role may be eligible for incentive compensation (such as bonus and/or commissions where applicable), along with Stryker’s comprehensive benefits package.\n\nIf you’d like to learn more about the salary or the benefits associated with this role, your recruiter will be happy to walk you through the details as you progress through the hiring process.\n\nTravel Percentage: 0%",
       "descriptionByLocale": {
-        "de": "Work Flexibility: Onsite\n\nDu bist kontaktfreudig, übernimmst gerne Verantwortung und magst selbständiges Arbeiten?\nWir bieten Dir eine anspruchsvolle Ausbildungszeit mit einer vielseitigen, praktischen sowie theoretischen Ausbildung am Arbeitsplatz. Dich erwarten abwechslungsreiche und interessante Tätigkeiten. Zudem gewinnst Du Einblicke in diverse Fachbereiche unseres Unternehmens. Als Ausgleich zu Berufsschule und Ausbildungsbetrieb sorgen wir mit spannenden Aktivitäten für einen guten Austausch zwischen unseren Azubis.\n\nDas erwartet Dich:\n\n• Du durchläufst verschiedene Abteilungen anhand eines maßgeschneiderten Durchlaufplans, wobei wir Dir die Möglichkeit zur aktiven Mitgestaltung bieten.\n\n• Neben Schulungen und der Möglichkeit in interdisziplinären Projektteams an kleinen Standortprojekten mitzuwirken, erhältst Du regelmäßig Feedback zur Unterstützung Deiner persönlichen Entwicklung.\n\nDas zeichnet Dich aus:\n\n• Du verfügst über einen guten Schulabschluss.\n\n• Ein hohes Mass an Sorgfalt und Organisationstalent zeichnen Dich aus.\n\n• Du arbeitest gerne im Team und möchtest mit Deinen Fähigkeiten zu unserem Erfolg beitragen.\n\nWir bieten:\n\n• Hilfsbereite Kolleg*innen & ein freundliches Arbeitsklima\n\n• Hauseigene Ausbildungswerkstatt mit modernen Maschinen\n\n• Intensive Prüfungsvorbereitung & abwechslungsreicher Durchlaufplan\n\nDeine Bewerbung:\nVielfalt ist uns wichtig. Wir freuen uns über Bewerbungen von Menschen ungeachtet ihrer ethnischen, nationalen oder sozialen Herkunft, ihres Geschlechts, einer Behinderung, ihres Alters oder ihrer sexuellen Identität.\n\nWir freuen uns auf Deine aussagekräftige Online-Bewerbung inklusive aller relevanten Dokumente. Bitte beachte, in unserem Bewerbungsverfahren unter dem Punkt „Lebenslauf“ direkt alle Anhänge als eine Datei hochzuladen.\n\nSwitzerland Pay Ranges:\n• Switzerland : CHF52,200 - CHF87,000 CHF Annual\n\nAt Stryker, we believe transparency helps candidates make confident decisions about their next career step. Compensation is an important part of that process and we want to be clear about how pay is determined. The compensation information posted for this role may be presented as a salary range or a fixed amount depending on the role. In addition to base salary, this role may be eligible for incentive compensation (such as bonus and/or commissions where applicable), along with Stryker’s comprehensive benefits package.\n\nIf you’d like to learn more about the salary or the benefits associated with this role, your recruiter will be happy to walk you through the details as you progress through the hiring process.\n\nTravel Percentage: 0%",
         "it": "Flessibilità del lavoro: Onsite\n\nSei socievole, come assumersi la responsabilità e come lavoro indipendente?\nVi offriamo un periodo di formazione impegnativo con una formazione versatile, pratica e teorica sul posto di lavoro. Potete aspettarvi attività varie e interessanti. Potrai anche ottenere informazioni su varie aree della nostra azienda. Come compensazione per la scuola professionale e la società di formazione, garantiamo un buon scambio tra i nostri allievi con attività emozionanti.\n\nQuesto è ciò che vi aspetta:\n\n• Attraverserete diversi reparti basati su un piano di flusso di lavoro su misura, dove vi offriamo l'opportunità di partecipare attivamente.\n\n• Oltre alla formazione e alla possibilità di partecipare a team di progetto interdisciplinari su piccoli progetti di localizzazione, riceverai un feedback regolare per sostenere il tuo sviluppo personale.\n\nQuesto ti distingue:\n\n• Hai un buon diploma di scuola.\n\n• Un alto grado di cura e talento organizzativo ti caratterizzano.\n\n• Ti piace lavorare in una squadra e vuoi contribuire al nostro successo con le tue abilità.\n\nOffriamo:\n\n• colleghi e un ambiente di lavoro amichevole\n\n• Laboratorio di formazione interna con macchine moderne\n\n• Preparazione intensiva dell'esame e piano di throughput vario\n\nLa tua domanda:\nLa diversità è importante per noi. Accogliamo favorevolmente le domande da persone indipendentemente dalla loro origine etnica, nazionale o sociale, sesso, disabilità, età o identità sessuale.\n\nAttendiamo con ansia la vostra significativa applicazione online, compresi tutti i documenti pertinenti. Si prega di notare di caricare tutti gli allegati direttamente come un file nel nostro processo di applicazione sotto la voce “CV”.\n\nSvizzera Gamma di pagamento:\n• Svizzera: CHF52.200 - CHF87.000 CHF Annuale\n\nA Stryker, crediamo che la trasparenza aiuti i candidati a prendere decisioni fiduciose circa il loro prossimo passo di carriera. La compensazione è una parte importante di questo processo e vogliamo essere chiari su come la paga è determinata. Le informazioni di compensazione pubblicate per questo ruolo possono essere presentate come un intervallo di stipendio o un importo fisso a seconda del ruolo. Oltre allo stipendio base, questo ruolo può essere idoneo per la compensazione degli incentivi (come bonus e/o commissioni ove applicabile), insieme al pacchetto completo dei benefici di Stryker.\n\nSe volete saperne di più sul salario o sui benefici associati a questo ruolo, il vostro recruiter sarà felice di accompagnarvi attraverso i dettagli mentre si procede attraverso il processo di assunzione.\n\nPercentuale di viaggio: 0%",
         "en": "Work Flexibility: Onsite\n\nYou are sociable, like to take on responsibility and like independent work?\nWe offer you a challenging training period with a versatile, practical and theoretical training in the workplace. You can expect varied and interesting activities. You will also gain insights into various areas of our company. As a compensation to vocational school and training company, we ensure a good exchange between our trainees with exciting activities.\n\nThis is what awaits you:\n\n• You will run through different departments based on a tailor-made workflow plan, where we offer you the opportunity to actively participate.\n\n• In addition to training and the opportunity to participate in interdisciplinary project teams on small location projects, you will receive regular feedback to support your personal development.\n\nThis sets you apart:\n\n• You have a good school diploma.\n\n• A high degree of care and organizational talent characterize you.\n\n• You like to work in a team and want to contribute to our success with your skills.\n\nWe offer:\n\n• Helpful colleagues and a friendly working atmosphere\n\n• In-house training workshop with modern machines\n\n• Intensive exam preparation & varied throughput plan\n\nYour application:\nDiversity is important to us. We welcome applications from people regardless of their ethnic, national or social origin, gender, disability, age or sexual identity.\n\nWe look forward to your meaningful online application including all relevant documents. Please note to upload all attachments directly as one file in our application process under the item “CV”.\n\nSwitzerland Pay Ranges:\n• Switzerland : CHF52,200 - CHF87,000 CHF Annual\n\nAt Stryker, we believe transparency helps candidates make confident decisions about their next career step. Compensation is an important part of that process and we want to be clear about how pay is determined. The compensation information posted for this role may be presented as a salary range or a fixed amount depending on the role. In addition to base salary, this role may be eligible for incentive compensation (such as bonus and/or commissions where applicable), along with Stryker’s comprehensive benefits package.\n\nIf you’d like to learn more about the salary or the benefits associated with this role, your recruiter will be happy to walk you through the details as you progress through the hiring process.\n\nTravel Percentage: 0%",
+        "de": "Work Flexibility: Onsite\n\nDu bist kontaktfreudig, übernimmst gerne Verantwortung und magst selbständiges Arbeiten?\nWir bieten Dir eine anspruchsvolle Ausbildungszeit mit einer vielseitigen, praktischen sowie theoretischen Ausbildung am Arbeitsplatz. Dich erwarten abwechslungsreiche und interessante Tätigkeiten. Zudem gewinnst Du Einblicke in diverse Fachbereiche unseres Unternehmens. Als Ausgleich zu Berufsschule und Ausbildungsbetrieb sorgen wir mit spannenden Aktivitäten für einen guten Austausch zwischen unseren Azubis.\n\nDas erwartet Dich:\n\n• Du durchläufst verschiedene Abteilungen anhand eines maßgeschneiderten Durchlaufplans, wobei wir Dir die Möglichkeit zur aktiven Mitgestaltung bieten.\n\n• Neben Schulungen und der Möglichkeit in interdisziplinären Projektteams an kleinen Standortprojekten mitzuwirken, erhältst Du regelmäßig Feedback zur Unterstützung Deiner persönlichen Entwicklung.\n\nDas zeichnet Dich aus:\n\n• Du verfügst über einen guten Schulabschluss.\n\n• Ein hohes Mass an Sorgfalt und Organisationstalent zeichnen Dich aus.\n\n• Du arbeitest gerne im Team und möchtest mit Deinen Fähigkeiten zu unserem Erfolg beitragen.\n\nWir bieten:\n\n• Hilfsbereite Kolleg*innen & ein freundliches Arbeitsklima\n\n• Hauseigene Ausbildungswerkstatt mit modernen Maschinen\n\n• Intensive Prüfungsvorbereitung & abwechslungsreicher Durchlaufplan\n\nDeine Bewerbung:\nVielfalt ist uns wichtig. Wir freuen uns über Bewerbungen von Menschen ungeachtet ihrer ethnischen, nationalen oder sozialen Herkunft, ihres Geschlechts, einer Behinderung, ihres Alters oder ihrer sexuellen Identität.\n\nWir freuen uns auf Deine aussagekräftige Online-Bewerbung inklusive aller relevanten Dokumente. Bitte beachte, in unserem Bewerbungsverfahren unter dem Punkt „Lebenslauf“ direkt alle Anhänge als eine Datei hochzuladen.\n\nSwitzerland Pay Ranges:\n• Switzerland : CHF52,200 - CHF87,000 CHF Annual\n\nAt Stryker, we believe transparency helps candidates make confident decisions about their next career step. Compensation is an important part of that process and we want to be clear about how pay is determined. The compensation information posted for this role may be presented as a salary range or a fixed amount depending on the role. In addition to base salary, this role may be eligible for incentive compensation (such as bonus and/or commissions where applicable), along with Stryker’s comprehensive benefits package.\n\nIf you’d like to learn more about the salary or the benefits associated with this role, your recruiter will be happy to walk you through the details as you progress through the hiring process.\n\nTravel Percentage: 0%",
         "fr": "Flexibilité du travail : sur place\n\nVous êtes sociable, vous aimez prendre des responsabilités et comme un travail indépendant ?\nNous vous proposons une période de formation stimulante avec une formation polyvalente, pratique et théorique sur le lieu de travail. Vous pouvez vous attendre à des activités variées et intéressantes. Vous aurez également un aperçu de différents domaines de notre entreprise. En compensation de l'école professionnelle et de l'entreprise de formation, nous garantissons un bon échange entre nos stagiaires avec des activités passionnantes.\n\nVoilà ce qui vous attend :\n\n• Vous passerez par différents départements sur la base d'un plan de travail sur mesure, où nous vous offrons la possibilité de participer activement.\n\n• En plus de la formation et de la possibilité de participer à des équipes de projets interdisciplinaires sur des projets de petits emplacements, vous recevrez régulièrement des commentaires pour appuyer votre perfectionnement personnel.\n\nCela vous distingue :\n\n• Vous avez un bon diplôme scolaire.\n\n• Un haut degré de soin et de talent organisationnel vous caractérisent.\n\n• Vous aimez travailler en équipe et voulez contribuer à notre succès avec vos compétences.\n\nNous offrons:\n\n• Chers collègues et une ambiance de travail conviviale\n\n• Atelier de formation interne avec machines modernes\n\n• Préparation des examens intensifs et plan de débit varié\n\nVotre demande :\nLa diversité est importante pour nous. Nous accueillons favorablement les demandes émanant de personnes, quelle que soit leur origine ethnique, nationale ou sociale, leur sexe, leur handicap, leur âge ou leur identité sexuelle.\n\nNous attendons avec impatience votre application en ligne pertinente, y compris tous les documents pertinents. Veuillez noter de télécharger toutes les pièces jointes directement comme un seul fichier dans notre processus d'application sous l'élément \"CV\".\n\nSuisse Gammes de paye :\n• Suisse : 52 200 CHF - 87 000 CHF Tous les ans\n\nChez Stryker, nous croyons que la transparence aide les candidats à prendre des décisions confiantes quant à leur prochaine étape de carrière. La rémunération est un élément important de ce processus et nous voulons être clairs sur la façon dont la rémunération est déterminée. Les renseignements sur la rémunération affichés pour ce rôle peuvent être présentés comme une échelle salariale ou un montant fixe selon le rôle. En plus du salaire de base, ce rôle peut être admissible à une rémunération incitative (comme la prime et/ou les commissions, le cas échéant), ainsi qu'à un ensemble complet de prestations de Stryker.\n\nSi vous souhaitez en savoir plus sur le salaire ou les avantages associés à ce rôle, votre recruteur sera heureux de vous guider dans les détails au fur et à mesure que vous progresserez dans le processus d'embauche.\n\nPourcentage des voyages : 0%"
       },
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "location": "Selzach",
       "canton": "SO",
       "url": "https://stryker.wd1.myworkdayjobs.com/en-US/StrykerCareers/job/Selzach-Switzerland/Admin-Apprentice_R569040",
       "source": "Stryker Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:27:32.835Z",
+      "crawledAt": "2026-11-10T09:41:06.314Z",
       "addressLocality": "Selzach",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -548,10 +618,23 @@
       "postingDateSource": "reported",
       "applyUrl": "https://stryker.wd1.myworkdayjobs.com/en-US/StrykerCareers/job/Selzach-Switzerland/Admin-Apprentice_R569040",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "jobReqId": "R569040",
+      "previousSlugs": [
+        "kaufmannische-r-lernende-r-stryker-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "kaufmannische-r-lernende-r-stryker-ch"
+        ],
+        "en": [
+          "kaufmannische-r-lernende-r-stryker-ch"
+        ],
+        "fr": [
+          "kaufmannische-r-lernende-r-stryker-ch"
+        ]
+      },
+      "firstSeenAt": "2026-11-09T09:27:32.835Z",
       "salaryMin": 53000,
       "salaryMax": 80500,
       "salarySource": "estimated",
@@ -566,25 +649,110 @@
         }
       },
       "postalCode": "2545",
-      "streetAddress": "Selzach",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-07T09:27:32.835Z",
-      "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-09T09:27:32.835Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "kaufmannische-r-lernende-r-stryker-ch"
-        ],
-        "en": [
-          "kaufmannische-r-lernende-r-stryker-ch"
-        ],
-        "fr": [
-          "kaufmannische-r-lernende-r-stryker-ch"
-        ]
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Stryker",
+        "streetAddress": "Bohnackerweg 1",
+        "postalCode": "2545",
+        "registeredName": "Stryker GmbH",
+        "matchType": "exact",
+        "streetAddressSource": "zefix-registry",
+        "jobPostalCode": "2545",
+        "addressLocality": "Selzach",
+        "addressRegion": "SO",
+        "checkedAt": "2026-11-09T15:42:58.574Z"
       },
-      "previousSlugs": [
-        "kaufmannische-r-lernende-r-stryker-ch"
-      ]
+      "streetAddress": "Bohnackerweg 1",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2027-02-07T09:41:06.314Z",
+      "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "stryker-2fe831788d82",
+      "slug": "cnc-mechaniker-m-w-d-langdrehen-fertigung-prozessoptimierung-stryker-ch",
+      "slugByLocale": {
+        "de": "cnc-mechaniker-m-w-d-langdrehen-fertigung-prozessoptimierung-stryker-ch",
+        "it": "cnc-mechaniker-m-w-d-langdrehen-fertigung-prozessoptimierung-stryker-ch",
+        "en": "cnc-mechaniker-m-w-d-langdrehen-fertigung-prozessoptimierung-stryker-ch",
+        "fr": "cnc-mechaniker-m-w-d-langdrehen-fertigung-prozessoptimierung-stryker-ch"
+      },
+      "company": "Stryker",
+      "companyKey": "stryker",
+      "companyDomain": "stryker.com",
+      "title": "CNC Mechaniker (m/w/d) Langdrehen - Fertigung & Prozessoptimierung",
+      "titleByLocale": {
+        "de": "CNC Mechaniker (m/w/d) Langdrehen - Fertigung & Prozessoptimierung",
+        "it": "CNC Mechaniker (m/w/d) Langdrehen - Fertigung & Prozessoptimierung",
+        "en": "CNC Mechaniker (m/w/d) Langdrehen - Fertigung & Prozessoptimierung",
+        "fr": "CNC Mechaniker (m/w/d) Langdrehen - Fertigung & Prozessoptimierung"
+      },
+      "description": "Work Flexibility: Onsite\n\nFür unser Fertigungsteam am Standort Selzach (CH) suchen wir einen CNC Mechaniker (m/w/d), der mit Präzision und hohem Qualitätsanspruch an der Herstellung unserer Medizinprodukte arbeitet. In dieser Rolle arbeiten Sie an modernen CNC-Langdrehmaschinen und leisten einen direkten Beitrag dazu, dass unsere Produkte zuverlässig die hohen Qualitätsanforderungen der Medizintechnik erfüllen.\n\nDie Position ist zunächst auf 12 Monate befristet.\n\nDas erwartet Sie:\n\n• Verantwortung für die präzise Bearbeitung von Metallen zur Herstellung unserer hochwertigen Medizinprodukte an hochmodernen CNC-Langdrehmaschinen des Herstellers STAR mit Siemens- und Fanuc-Steuerung\n\n• Eigenständiges Einrichten, Bedienen und Entladen der CNC-Langdrehmaschinen sowie Überwachung des laufenden Fertigungsprozesses\n\n• Übernahme von Verantwortung für die Qualität der von Ihnen hergestellten Produkte unter Verwendung verschiedener Mess- und Prüfmittel sowie Sicherstellung der vorgegebenen Qualitätsanforderungen\n\n• Durchführung von Qualitätskontrollen und frühzeitiges Erkennen von Abweichungen im Fertigungsprozess\n\n• Eine aktive Rolle bei der kontinuierlichen Optimierung unserer Fertigungsprozesse mit Fokus auf Qualität, Effizienz und Prozessstabilität\n\nDas zeichnet Sie aus:\n\nErforderlich:\n\n• Abgeschlossene technische Berufsausbildung als Polymechaniker, Zerspanungsmechaniker, CNC Mechaniker oder eine vergleichbare technische Qualifikation\n\n• Mindestens zwei Jahre Berufserfahrung in der CNC-Drehbearbeitung an Langdrehmaschinen\n\n• Erfahrung im Umgang mit Mess- und Prüfmitteln zur Qualitätskontrolle von gefertigten Bauteilen\n\n• Bereitschaft zur Arbeit im 3-Schicht-Modell\n\n• Sehr gute Deutschkenntnisse in Wort und Schrift.\n\nBevorzugt\n\n• Erfahrung im produzierenden Medizintechnikumfeld\n\n• Erfahrung mit Maschinen des Herstellers STAR\n\nIhre Bewerbung\nWir freuen uns auf Ihre aussagekräftige Online-Bewerbung unter Angabe Ihrer Gehaltsvorstellungen und inklusive aller relevanten Dokumente (Anschreiben, aktueller Lebenslauf, Zeugnisse, ggf. Arbeitserlaubnis). Laden Sie bitte unter dem Punkt „Lebenslauf“ alle Anhänge direkt hoch.\n\nWir haben die Charta der Vielfalt unterzeichnet und sind stolz darauf, Teil dieser Initiative zur Förderung von Diversity in der Arbeitswelt zu sein. Denn Vielfalt ist uns wichtig! Wir freuen uns über Bewerbungen von Menschen ungeachtet ihrer ethnischen, nationalen oder sozialen Herkunft, ihres Geschlechts, einer Behinderung, ihres Alters oder ihrer sexuellen Identität.\n\nSwitzerland Pay Ranges:\n• Switzerland : CHF63,500 - CHF105,700 CHF Annual\n\nAt Stryker, we believe transparency helps candidates make confident decisions about their next career step. Compensation is an important part of that process and we want to be clear about how pay is determined. The compensation information posted for this role may be presented as a salary range or a fixed amount depending on the role. In addition to base salary, this role may be eligible for incentive compensation (such as bonus and/or commissions where applicable), along with Stryker’s comprehensive benefits package.\n\nIf you’d like to learn more about the salary or the benefits associated with this role, your recruiter will be happy to walk you through the details as you progress through the hiring process.\n\nTravel Percentage: None",
+      "descriptionByLocale": {
+        "de": "Work Flexibility: Onsite\n\nFür unser Fertigungsteam am Standort Selzach (CH) suchen wir einen CNC Mechaniker (m/w/d), der mit Präzision und hohem Qualitätsanspruch an der Herstellung unserer Medizinprodukte arbeitet. In dieser Rolle arbeiten Sie an modernen CNC-Langdrehmaschinen und leisten einen direkten Beitrag dazu, dass unsere Produkte zuverlässig die hohen Qualitätsanforderungen der Medizintechnik erfüllen.\n\nDie Position ist zunächst auf 12 Monate befristet.\n\nDas erwartet Sie:\n\n• Verantwortung für die präzise Bearbeitung von Metallen zur Herstellung unserer hochwertigen Medizinprodukte an hochmodernen CNC-Langdrehmaschinen des Herstellers STAR mit Siemens- und Fanuc-Steuerung\n\n• Eigenständiges Einrichten, Bedienen und Entladen der CNC-Langdrehmaschinen sowie Überwachung des laufenden Fertigungsprozesses\n\n• Übernahme von Verantwortung für die Qualität der von Ihnen hergestellten Produkte unter Verwendung verschiedener Mess- und Prüfmittel sowie Sicherstellung der vorgegebenen Qualitätsanforderungen\n\n• Durchführung von Qualitätskontrollen und frühzeitiges Erkennen von Abweichungen im Fertigungsprozess\n\n• Eine aktive Rolle bei der kontinuierlichen Optimierung unserer Fertigungsprozesse mit Fokus auf Qualität, Effizienz und Prozessstabilität\n\nDas zeichnet Sie aus:\n\nErforderlich:\n\n• Abgeschlossene technische Berufsausbildung als Polymechaniker, Zerspanungsmechaniker, CNC Mechaniker oder eine vergleichbare technische Qualifikation\n\n• Mindestens zwei Jahre Berufserfahrung in der CNC-Drehbearbeitung an Langdrehmaschinen\n\n• Erfahrung im Umgang mit Mess- und Prüfmitteln zur Qualitätskontrolle von gefertigten Bauteilen\n\n• Bereitschaft zur Arbeit im 3-Schicht-Modell\n\n• Sehr gute Deutschkenntnisse in Wort und Schrift.\n\nBevorzugt\n\n• Erfahrung im produzierenden Medizintechnikumfeld\n\n• Erfahrung mit Maschinen des Herstellers STAR\n\nIhre Bewerbung\nWir freuen uns auf Ihre aussagekräftige Online-Bewerbung unter Angabe Ihrer Gehaltsvorstellungen und inklusive aller relevanten Dokumente (Anschreiben, aktueller Lebenslauf, Zeugnisse, ggf. Arbeitserlaubnis). Laden Sie bitte unter dem Punkt „Lebenslauf“ alle Anhänge direkt hoch.\n\nWir haben die Charta der Vielfalt unterzeichnet und sind stolz darauf, Teil dieser Initiative zur Förderung von Diversity in der Arbeitswelt zu sein. Denn Vielfalt ist uns wichtig! Wir freuen uns über Bewerbungen von Menschen ungeachtet ihrer ethnischen, nationalen oder sozialen Herkunft, ihres Geschlechts, einer Behinderung, ihres Alters oder ihrer sexuellen Identität.\n\nSwitzerland Pay Ranges:\n• Switzerland : CHF63,500 - CHF105,700 CHF Annual\n\nAt Stryker, we believe transparency helps candidates make confident decisions about their next career step. Compensation is an important part of that process and we want to be clear about how pay is determined. The compensation information posted for this role may be presented as a salary range or a fixed amount depending on the role. In addition to base salary, this role may be eligible for incentive compensation (such as bonus and/or commissions where applicable), along with Stryker’s comprehensive benefits package.\n\nIf you’d like to learn more about the salary or the benefits associated with this role, your recruiter will be happy to walk you through the details as you progress through the hiring process.\n\nTravel Percentage: None",
+        "it": "Work Flexibility: Onsite\n\nFür unser Fertigungsteam am Standort Selzach (CH) suchen wir einen CNC Mechaniker (m/w/d), der mit Präzision und hohem Qualitätsanspruch an der Herstellung unserer Medizinprodukte arbeitet. In dieser Rolle arbeiten Sie an modernen CNC-Langdrehmaschinen und leisten einen direkten Beitrag dazu, dass unsere Produkte zuverlässig die hohen Qualitätsanforderungen der Medizintechnik erfüllen.\n\nDie Position ist zunächst auf 12 Monate befristet.\n\nDas erwartet Sie:\n\n• Verantwortung für die präzise Bearbeitung von Metallen zur Herstellung unserer hochwertigen Medizinprodukte an hochmodernen CNC-Langdrehmaschinen des Herstellers STAR mit Siemens- und Fanuc-Steuerung\n\n• Eigenständiges Einrichten, Bedienen und Entladen der CNC-Langdrehmaschinen sowie Überwachung des laufenden Fertigungsprozesses\n\n• Übernahme von Verantwortung für die Qualität der von Ihnen hergestellten Produkte unter Verwendung verschiedener Mess- und Prüfmittel sowie Sicherstellung der vorgegebenen Qualitätsanforderungen\n\n• Durchführung von Qualitätskontrollen und frühzeitiges Erkennen von Abweichungen im Fertigungsprozess\n\n• Eine aktive Rolle bei der kontinuierlichen Optimierung unserer Fertigungsprozesse mit Fokus auf Qualität, Effizienz und Prozessstabilität\n\nDas zeichnet Sie aus:\n\nErforderlich:\n\n• Abgeschlossene technische Berufsausbildung als Polymechaniker, Zerspanungsmechaniker, CNC Mechaniker oder eine vergleichbare technische Qualifikation\n\n• Mindestens zwei Jahre Berufserfahrung in der CNC-Drehbearbeitung an Langdrehmaschinen\n\n• Erfahrung im Umgang mit Mess- und Prüfmitteln zur Qualitätskontrolle von gefertigten Bauteilen\n\n• Bereitschaft zur Arbeit im 3-Schicht-Modell\n\n• Sehr gute Deutschkenntnisse in Wort und Schrift.\n\nBevorzugt\n\n• Erfahrung im produzierenden Medizintechnikumfeld\n\n• Erfahrung mit Maschinen des Herstellers STAR\n\nIhre Bewerbung\nWir freuen uns auf Ihre aussagekräftige Online-Bewerbung unter Angabe Ihrer Gehaltsvorstellungen und inklusive aller relevanten Dokumente (Anschreiben, aktueller Lebenslauf, Zeugnisse, ggf. Arbeitserlaubnis). Laden Sie bitte unter dem Punkt „Lebenslauf“ alle Anhänge direkt hoch.\n\nWir haben die Charta der Vielfalt unterzeichnet und sind stolz darauf, Teil dieser Initiative zur Förderung von Diversity in der Arbeitswelt zu sein. Denn Vielfalt ist uns wichtig! Wir freuen uns über Bewerbungen von Menschen ungeachtet ihrer ethnischen, nationalen oder sozialen Herkunft, ihres Geschlechts, einer Behinderung, ihres Alters oder ihrer sexuellen Identität.\n\nSwitzerland Pay Ranges:\n• Switzerland : CHF63,500 - CHF105,700 CHF Annual\n\nAt Stryker, we believe transparency helps candidates make confident decisions about their next career step. Compensation is an important part of that process and we want to be clear about how pay is determined. The compensation information posted for this role may be presented as a salary range or a fixed amount depending on the role. In addition to base salary, this role may be eligible for incentive compensation (such as bonus and/or commissions where applicable), along with Stryker’s comprehensive benefits package.\n\nIf you’d like to learn more about the salary or the benefits associated with this role, your recruiter will be happy to walk you through the details as you progress through the hiring process.\n\nTravel Percentage: None",
+        "en": "Work Flexibility: Onsite\n\nFür unser Fertigungsteam am Standort Selzach (CH) suchen wir einen CNC Mechaniker (m/w/d), der mit Präzision und hohem Qualitätsanspruch an der Herstellung unserer Medizinprodukte arbeitet. In dieser Rolle arbeiten Sie an modernen CNC-Langdrehmaschinen und leisten einen direkten Beitrag dazu, dass unsere Produkte zuverlässig die hohen Qualitätsanforderungen der Medizintechnik erfüllen.\n\nDie Position ist zunächst auf 12 Monate befristet.\n\nDas erwartet Sie:\n\n• Verantwortung für die präzise Bearbeitung von Metallen zur Herstellung unserer hochwertigen Medizinprodukte an hochmodernen CNC-Langdrehmaschinen des Herstellers STAR mit Siemens- und Fanuc-Steuerung\n\n• Eigenständiges Einrichten, Bedienen und Entladen der CNC-Langdrehmaschinen sowie Überwachung des laufenden Fertigungsprozesses\n\n• Übernahme von Verantwortung für die Qualität der von Ihnen hergestellten Produkte unter Verwendung verschiedener Mess- und Prüfmittel sowie Sicherstellung der vorgegebenen Qualitätsanforderungen\n\n• Durchführung von Qualitätskontrollen und frühzeitiges Erkennen von Abweichungen im Fertigungsprozess\n\n• Eine aktive Rolle bei der kontinuierlichen Optimierung unserer Fertigungsprozesse mit Fokus auf Qualität, Effizienz und Prozessstabilität\n\nDas zeichnet Sie aus:\n\nErforderlich:\n\n• Abgeschlossene technische Berufsausbildung als Polymechaniker, Zerspanungsmechaniker, CNC Mechaniker oder eine vergleichbare technische Qualifikation\n\n• Mindestens zwei Jahre Berufserfahrung in der CNC-Drehbearbeitung an Langdrehmaschinen\n\n• Erfahrung im Umgang mit Mess- und Prüfmitteln zur Qualitätskontrolle von gefertigten Bauteilen\n\n• Bereitschaft zur Arbeit im 3-Schicht-Modell\n\n• Sehr gute Deutschkenntnisse in Wort und Schrift.\n\nBevorzugt\n\n• Erfahrung im produzierenden Medizintechnikumfeld\n\n• Erfahrung mit Maschinen des Herstellers STAR\n\nIhre Bewerbung\nWir freuen uns auf Ihre aussagekräftige Online-Bewerbung unter Angabe Ihrer Gehaltsvorstellungen und inklusive aller relevanten Dokumente (Anschreiben, aktueller Lebenslauf, Zeugnisse, ggf. Arbeitserlaubnis). Laden Sie bitte unter dem Punkt „Lebenslauf“ alle Anhänge direkt hoch.\n\nWir haben die Charta der Vielfalt unterzeichnet und sind stolz darauf, Teil dieser Initiative zur Förderung von Diversity in der Arbeitswelt zu sein. Denn Vielfalt ist uns wichtig! Wir freuen uns über Bewerbungen von Menschen ungeachtet ihrer ethnischen, nationalen oder sozialen Herkunft, ihres Geschlechts, einer Behinderung, ihres Alters oder ihrer sexuellen Identität.\n\nSwitzerland Pay Ranges:\n• Switzerland : CHF63,500 - CHF105,700 CHF Annual\n\nAt Stryker, we believe transparency helps candidates make confident decisions about their next career step. Compensation is an important part of that process and we want to be clear about how pay is determined. The compensation information posted for this role may be presented as a salary range or a fixed amount depending on the role. In addition to base salary, this role may be eligible for incentive compensation (such as bonus and/or commissions where applicable), along with Stryker’s comprehensive benefits package.\n\nIf you’d like to learn more about the salary or the benefits associated with this role, your recruiter will be happy to walk you through the details as you progress through the hiring process.\n\nTravel Percentage: None",
+        "fr": "Work Flexibility: Onsite\n\nFür unser Fertigungsteam am Standort Selzach (CH) suchen wir einen CNC Mechaniker (m/w/d), der mit Präzision und hohem Qualitätsanspruch an der Herstellung unserer Medizinprodukte arbeitet. In dieser Rolle arbeiten Sie an modernen CNC-Langdrehmaschinen und leisten einen direkten Beitrag dazu, dass unsere Produkte zuverlässig die hohen Qualitätsanforderungen der Medizintechnik erfüllen.\n\nDie Position ist zunächst auf 12 Monate befristet.\n\nDas erwartet Sie:\n\n• Verantwortung für die präzise Bearbeitung von Metallen zur Herstellung unserer hochwertigen Medizinprodukte an hochmodernen CNC-Langdrehmaschinen des Herstellers STAR mit Siemens- und Fanuc-Steuerung\n\n• Eigenständiges Einrichten, Bedienen und Entladen der CNC-Langdrehmaschinen sowie Überwachung des laufenden Fertigungsprozesses\n\n• Übernahme von Verantwortung für die Qualität der von Ihnen hergestellten Produkte unter Verwendung verschiedener Mess- und Prüfmittel sowie Sicherstellung der vorgegebenen Qualitätsanforderungen\n\n• Durchführung von Qualitätskontrollen und frühzeitiges Erkennen von Abweichungen im Fertigungsprozess\n\n• Eine aktive Rolle bei der kontinuierlichen Optimierung unserer Fertigungsprozesse mit Fokus auf Qualität, Effizienz und Prozessstabilität\n\nDas zeichnet Sie aus:\n\nErforderlich:\n\n• Abgeschlossene technische Berufsausbildung als Polymechaniker, Zerspanungsmechaniker, CNC Mechaniker oder eine vergleichbare technische Qualifikation\n\n• Mindestens zwei Jahre Berufserfahrung in der CNC-Drehbearbeitung an Langdrehmaschinen\n\n• Erfahrung im Umgang mit Mess- und Prüfmitteln zur Qualitätskontrolle von gefertigten Bauteilen\n\n• Bereitschaft zur Arbeit im 3-Schicht-Modell\n\n• Sehr gute Deutschkenntnisse in Wort und Schrift.\n\nBevorzugt\n\n• Erfahrung im produzierenden Medizintechnikumfeld\n\n• Erfahrung mit Maschinen des Herstellers STAR\n\nIhre Bewerbung\nWir freuen uns auf Ihre aussagekräftige Online-Bewerbung unter Angabe Ihrer Gehaltsvorstellungen und inklusive aller relevanten Dokumente (Anschreiben, aktueller Lebenslauf, Zeugnisse, ggf. Arbeitserlaubnis). Laden Sie bitte unter dem Punkt „Lebenslauf“ alle Anhänge direkt hoch.\n\nWir haben die Charta der Vielfalt unterzeichnet und sind stolz darauf, Teil dieser Initiative zur Förderung von Diversity in der Arbeitswelt zu sein. Denn Vielfalt ist uns wichtig! Wir freuen uns über Bewerbungen von Menschen ungeachtet ihrer ethnischen, nationalen oder sozialen Herkunft, ihres Geschlechts, einer Behinderung, ihres Alters oder ihrer sexuellen Identität.\n\nSwitzerland Pay Ranges:\n• Switzerland : CHF63,500 - CHF105,700 CHF Annual\n\nAt Stryker, we believe transparency helps candidates make confident decisions about their next career step. Compensation is an important part of that process and we want to be clear about how pay is determined. The compensation information posted for this role may be presented as a salary range or a fixed amount depending on the role. In addition to base salary, this role may be eligible for incentive compensation (such as bonus and/or commissions where applicable), along with Stryker’s comprehensive benefits package.\n\nIf you’d like to learn more about the salary or the benefits associated with this role, your recruiter will be happy to walk you through the details as you progress through the hiring process.\n\nTravel Percentage: None"
+      },
+      "needsRetranslation": true,
+      "location": "Selzach",
+      "canton": "SO",
+      "url": "https://stryker.wd1.myworkdayjobs.com/en-US/StrykerCareers/job/Selzach-Switzerland/CNC-Mechaniker--m-w-d--Langdrehen---Fertigung---Prozessoptimierung_R576387",
+      "source": "Stryker Dedicated Parser (Workday)",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-10T09:41:05.684Z",
+      "addressLocality": "Selzach",
+      "addressRegion": "SO",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Tecnica",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Medtech / Dispositivi medici",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-11-10",
+      "postedDate": "2026-11-10",
+      "postingDateSource": "reported",
+      "applyUrl": "https://stryker.wd1.myworkdayjobs.com/en-US/StrykerCareers/job/Selzach-Switzerland/CNC-Mechaniker--m-w-d--Langdrehen---Fertigung---Prozessoptimierung_R576387",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "jobReqId": "R576387",
+      "salaryMin": 77000,
+      "salaryMax": 116500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 77000,
+          "maxValue": 116500,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "2545",
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Stryker",
+        "streetAddress": "Bohnackerweg 1",
+        "postalCode": "2545",
+        "registeredName": "Stryker GmbH",
+        "matchType": "exact",
+        "streetAddressSource": "zefix-registry",
+        "jobPostalCode": "2545",
+        "addressLocality": "Selzach",
+        "addressRegion": "SO",
+        "checkedAt": "2026-11-09T15:42:58.574Z"
+      },
+      "streetAddress": "Bohnackerweg 1",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2027-02-08T09:41:05.684Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }

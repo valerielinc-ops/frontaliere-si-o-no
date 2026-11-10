@@ -1,16 +1,16 @@
 {
   "key": "cedes",
   "label": "CEDES",
-  "generatedAt": "2026-11-09T09:16:11.761Z",
+  "generatedAt": "2026-11-10T09:17:43.431Z",
   "total": 2,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 6087,
-  "avgDurationMs": 6087,
+  "durationMs": 4952,
+  "avgDurationMs": 4952,
   "durationHistory": [
-    6087
+    4952
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -40,7 +40,7 @@
       "url": "https://www.cedes.com/en/career/jobs/production-assistant/",
       "source": "CEDES Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-09T09:15:46.381Z",
+      "crawledAt": "2026-11-10T09:17:24.497Z",
       "firstSeenAt": "2026-10-27T21:19:40.726Z",
       "salaryMin": 60000,
       "salaryMax": 102000,
@@ -59,7 +59,7 @@
       },
       "streetAddress": "Kantonsstrasse 14",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-26T09:15:46.381Z",
+      "validThrough": "2027-01-26T09:17:24.497Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -93,7 +93,7 @@
       "url": "https://www.cedes.com/en/career/jobs/unsolicited-applications/",
       "source": "CEDES Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-09T09:15:46.008Z",
+      "crawledAt": "2026-11-10T09:17:24.143Z",
       "firstSeenAt": "2026-04-13T10:12:14.899Z",
       "salaryMin": 60000,
       "salaryMax": 102000,
@@ -112,7 +112,7 @@
       },
       "streetAddress": "Kantonsstrasse 14",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-09T09:15:46.008Z",
+      "validThrough": "2026-12-10T09:17:24.143Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 89,
       "_qualityBreakdown": {
@@ -123,5 +123,5 @@
       }
     }
   ],
-  "codeCommit": "f071981dd2d2820cdec3736f76b1b17ee50345bd"
+  "codeCommit": "854e7bdddbff5b4e0e90fb9b90efe81503dfc091"
 }

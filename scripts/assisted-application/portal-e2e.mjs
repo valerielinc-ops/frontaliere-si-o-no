@@ -35,8 +35,15 @@ import { registerCookieSessionRecovery } from './lib/portal/cookie-session.mjs';
 import { normalizeLabel } from './lib/portal/knowledge.mjs';
 
 const ALIAS = 'c-abcdefghjk@candidature.frontaliereticino.ch';
+const PORTAL_TEST_DATA_RETENTION_KEEP_OPTION = 'I consent to my data being stored, including after a specific job has been filled, and to being advised of any interesting job offers.';
+const PORTAL_TEST_DATA_RETENTION_ANSWER = 'I would like my data to be deleted once the present application process is complete.';
+const PORTAL_TEST_DATA_RETENTION_CONTEXT = `Data release * · ${PORTAL_TEST_DATA_RETENTION_KEEP_OPTION} · ${PORTAL_TEST_DATA_RETENTION_ANSWER}`;
+const PORTAL_TEST_PRIVACY_CONTEXT = 'Concierge Host';
+const fakeLocalizationUnknowns = [];
+const safeFixtureLabel = (value) => String(value || '').replace(/[^\p{L}\p{N} _.,?*'’()-]/gu, '').slice(0, 140);
 // Synthetic candidate facts keep the fake planner's identity, contact, birth
-// date, and permit answers grounded. Pass null to omit a fact under test.
+// date, permit answer, and explicit consent answers grounded. Pass null to omit
+// a fact under test; consent is never inferred from the portal's checkbox.
 const portalTestCandidate = ({ dateOfBirth = '12.05.1990', permitAnswer = 'Yes' } = {}) => ({
   identity: { email: ALIAS, firstName: 'Luca', lastName: 'Bianchi', phone: '+41 79 000 00 00' },
   profile: {
@@ -46,13 +53,30 @@ const portalTestCandidate = ({ dateOfBirth = '12.05.1990', permitAnswer = 'Yes' 
   },
   answers: {
     salutation: 'Mr',
+    portal_privacy_consent: 'Yes',
+    portal_data_retention: PORTAL_TEST_DATA_RETENTION_ANSWER,
     ...(permitAnswer
       ? { work_permit: 'Permesso G', valid_work_permit: permitAnswer }
       : {}),
   },
-  portalQuestionsAnswered: permitAnswer
-    ? [{ id: 'valid_work_permit', question: 'Do you hold a valid work permit?', answer: permitAnswer }]
-    : [],
+  portalQuestionsAnswered: [
+    ...(permitAnswer ? [{ id: 'valid_work_permit', question: 'Do you hold a valid work permit?', answer: permitAnswer, source: 'user' }] : []),
+    { question: 'Ich akzeptiere die Datenschutzerklärung', answer: 'Ja', source: 'user' },
+    { question: 'I agree to the Privacy Policy Statement', answer: 'Yes', source: 'user' },
+    // Explicit answers carry the same section context the native-field reader
+    // records, so matching cannot leak across repeated questions or sections.
+    {
+      question: 'I agree to the Privacy Policy Statement', answer: 'Yes', source: 'user',
+      context: PORTAL_TEST_PRIVACY_CONTEXT, section: PORTAL_TEST_PRIVACY_CONTEXT,
+    },
+    {
+      question: 'Data release', answer: PORTAL_TEST_DATA_RETENTION_ANSWER, source: 'user',
+    },
+    {
+      question: 'Data release', answer: PORTAL_TEST_DATA_RETENTION_ANSWER, source: 'user',
+      context: PORTAL_TEST_DATA_RETENTION_CONTEXT, section: 'Data release *',
+    },
+  ],
 });
 // Synthetic-portal diagnostics only: never serialize values, credentials or
 // arbitrary evidence when a checked lifecycle stops before its expected phase.
@@ -92,6 +116,7 @@ const safePortalNavigationDiagnostic = (entry = {}) => {
 };
 const stopContext = ({ event = {}, evidence = {}, portalNavigationDiagnostics = [] }) => ({
   type: event.type, reason: event.reason, error: event.error, stage: event.stage,
+  ...(fakeLocalizationUnknowns.length ? { fakeLocalizationUnknowns: fakeLocalizationUnknowns.slice(-3) } : {}),
   ...(evidence.finalFormGuardFailure ? { finalFormGuardFailure: evidence.finalFormGuardFailure } : {}),
   ...(Array.isArray(evidence.finalOutcomes) ? { finalOutcomes: evidence.finalOutcomes } : {}),
   ...(evidence.finalUrl ? { finalUrl: (() => {
@@ -104,8 +129,16 @@ const stopContext = ({ event = {}, evidence = {}, portalNavigationDiagnostics = 
   ...(evidence.postingMatch ? { postingMatch: evidence.postingMatch, postingMatchVia: evidence.postingMatchVia } : {}),
   ...(Array.isArray(portalNavigationDiagnostics) && portalNavigationDiagnostics.length
     ? { portalNavigation: portalNavigationDiagnostics.slice(0, 12).map(safePortalNavigationDiagnostic) } : {}),
-  questions: (Array.isArray(event.questions) ? event.questions : []).map(question =>
-    typeof question === 'string' ? question : question.question || question.label || question.fieldId || question.id),
+  questions: (Array.isArray(event.questions) ? event.questions : []).map(question => {
+    if (typeof question === 'string') return question;
+    return {
+      fieldId: safeFixtureLabel(question.fieldId || question.id),
+      applicationQuestion: safeFixtureLabel(question.applicationQuestion || question.portalQuestion || ''),
+      context: safeFixtureLabel(question.context || ''),
+      section: safeFixtureLabel(question.section || ''),
+      question: safeFixtureLabel(question.question || question.label || ''),
+    };
+  }),
   steps: (evidence.steps || []).slice(-2).map(step => ({
     step: step.step, ...(step.url ? { location: safeLocation(step.url) } : {}),
     fields: step.fields, requiredFieldsUnfilled: step.requiredFieldsUnfilled,
@@ -254,7 +287,7 @@ function fakePortal() {
       ${closed ? '<div id="documents-section"></div>' : umantisDocuments}
       <label for="hear">How did you hear about us? *</label><select id="hear" name="hear"><option value="">Please select</option><option value="home">Company homepage</option><option value="board">Online job board</option><option value="misc">Miscellaneous</option></select>
       <label><input type="checkbox" name="employee"> I am a current employee of your company</label>
-      <fieldset><legend>Data release *</legend><label><input type="radio" name="release" value="keep"> I consent to my data being stored, including after a specific job has been filled, and to being advised of any interesting job offers.</label><label><input type="radio" name="release" value="delete"> I would like my data to be deleted once the present application process is complete.</label></fieldset>
+      <fieldset><legend>Data release *</legend><label><input type="radio" name="release" value="keep"> ${PORTAL_TEST_DATA_RETENTION_KEEP_OPTION}</label><label><input type="radio" name="release" value="delete"> ${PORTAL_TEST_DATA_RETENTION_ANSWER}</label></fieldset>
       <label><input type="checkbox" name="privacy"> I agree to the Privacy Policy Statement *</label>
       <input type="hidden" id="letter_stored" name="letter_stored" value=""><input type="hidden" id="cv_stored" name="cv_stored" value="">
       <button type="submit">Submit final application</button>`, true)}
@@ -1024,6 +1057,7 @@ function fakeAgent(prompt) {
 
 // A password field must never reach the planner: the runner types it (account.mjs).
 let plannerSawPassword = false;
+let plannerSawPrivacyCheckboxJa = false;
 
 /** Planner stand-in: answers by label, as the real planner does for these fields. */
 async function fakeCodex({ prompt }) {
@@ -1045,7 +1079,63 @@ async function fakeCodex({ prompt }) {
           validationMessage: '',
         };
       }
-      if (!/valid work permit/i.test(applicationQuestion)) throw new Error('fake_localizer_unknown_fixture');
+      if (/^title\b|salutation|form of address/i.test(applicationQuestion)) {
+        const optionMap = (question.applicationOptions || question.options || []).map((application) => ({
+          candidate: /^mr\.?$/i.test(application) ? 'Signor' : /^mrs?\.?$|^ms\.?$/i.test(application) ? 'Signora' : /^other$/i.test(application) ? 'Altro' : '',
+          application,
+        }));
+        if (optionMap.some((pair) => !pair.candidate)) {
+          fakeLocalizationUnknowns.push(safeFixtureLabel(applicationQuestion));
+          throw new Error('fake_localizer_unknown_fixture');
+        }
+        return {
+          id: question.id,
+          sourceLocale: 'en',
+          question: 'Quale appellativo vuoi usare nei moduli di candidatura?',
+          why: 'Il portale richiede di scegliere un appellativo.',
+          options: optionMap.map((pair) => pair.candidate),
+          optionMap,
+          validationMessage: '',
+        };
+      }
+      if (/data release|data retention|retention period/i.test(applicationQuestion)) {
+        const optionMap = (question.applicationOptions || question.options || []).map((application) => ({
+          candidate: /stored|keep|retain|future/i.test(application)
+            ? 'Acconsento alla conservazione dei miei dati anche dopo questa candidatura per future opportunità di lavoro.'
+            : /deleted|delete|present application process/i.test(application)
+              ? 'Desidero che i miei dati siano cancellati al termine dell’attuale procedura di candidatura.'
+              : '',
+          application,
+        }));
+        if (optionMap.some((pair) => !pair.candidate)) {
+          fakeLocalizationUnknowns.push(safeFixtureLabel(applicationQuestion));
+          throw new Error('fake_localizer_unknown_fixture');
+        }
+        return {
+          id: question.id,
+          sourceLocale: 'en',
+          question: 'Per quanto tempo autorizzi il portale a conservare i tuoi dati personali?',
+          why: 'Scegli per quanto tempo autorizzi la conservazione dei dati.',
+          options: optionMap.map((pair) => pair.candidate),
+          optionMap,
+          validationMessage: '',
+        };
+      }
+      if (/privacy policy|privacy statement|data protection/i.test(applicationQuestion)) {
+        return {
+          id: question.id,
+          sourceLocale: 'en',
+          question: 'Accetti la dichiarazione sulla protezione dei dati?',
+          why: 'Il portale richiede di accettare la dichiarazione sulla protezione dei dati.',
+          options: [],
+          optionMap: [],
+          validationMessage: '',
+        };
+      }
+      if (!/valid work permit/i.test(applicationQuestion)) {
+        fakeLocalizationUnknowns.push(safeFixtureLabel(applicationQuestion));
+        throw new Error('fake_localizer_unknown_fixture');
+      }
       const optionMap = (question.applicationOptions || question.options || []).map((application) => ({
         candidate: /^yes$/i.test(application) ? 'Sì' : /^no$/i.test(application) ? 'No' : application,
         application,
@@ -1063,6 +1153,8 @@ async function fakeCodex({ prompt }) {
   }
   const request = JSON.parse(prompt.slice(prompt.lastIndexOf('{"form"'), prompt.lastIndexOf('\n\nReturn exactly')));
   const { form, candidate } = request;
+  if ((candidate?.portalQuestionsAnswered || []).some((item) => /privacy policy statement/i.test(item.question || '')
+    && String(item.answer || '').trim().toLowerCase() === 'ja')) plannerSawPrivacyCheckboxJa = true;
   if (form.fields.some((field) => /password|kennwort/i.test(field.label))) plannerSawPassword = true;
   const actions = form.fields.map((field) => {
     const act = (action, value = '', extra = {}) => ({ fieldId: field.id, action, value, document: 'none', source: 'identity', ...extra });
@@ -1079,7 +1171,10 @@ async function fakeCodex({ prompt }) {
       return act('fill', answer, { source: 'answers' });
     }
     if (/e-?mail/i.test(field.label)) return act('fill', ALIAS);
-    if (/datenschutz|privacy policy/i.test(field.label)) return act('check', '', { source: 'consent' });
+    if (/datenschutz|privacy policy/i.test(field.label)) {
+      const answer = candidate?.portalQuestionsAnswered?.find((item) => /datenschutz|privacy policy/i.test(item.question || ''))?.answer || '';
+      return act('check', '', { source: answer ? 'answers' : 'consent' });
+    }
     if (/vermittlungsb/i.test(field.label)) return act('select', 'Ja', { source: 'rule' });
     if (/anrede/i.test(field.label)) return act('select', 'Herr', { source: 'answers' });
     if (/geburtsdatum/i.test(field.label)) return act('fill', '1990-05-12', { source: 'profile' });
@@ -1104,7 +1199,10 @@ async function fakeCodex({ prompt }) {
       return act('select', answer, { source: 'answers' });
     }
     if (/^title/i.test(field.label)) return act('select', 'Mr', { source: 'answers' });
-    if (/data release/i.test(field.label)) return act('select', (field.options || []).find((option) => /deleted/.test(option)) || '', { source: 'consent' });
+    if (/data release/i.test(field.label)) {
+      const answer = candidate?.portalQuestionsAnswered?.find((item) => /data release/i.test(item.question || ''))?.answer || '';
+      return act('select', answer, { source: answer ? 'answers' : 'consent' });
+    }
     if (field.kind === 'file') return act('upload', '', { document: 'cv', source: 'documents' });
     return act('skip', '', { source: 'rule' });
   });
@@ -1440,6 +1538,7 @@ async function main() {
     && portalUploadActionKey('/wizard', 1, redrawnGeneratedCvField, ambiguousGeneratedCvRedraw, [selectedGeneratedCvRecord]) === null
     && portalUploadActionKey('/wizard', 1, singleFieldAfterDuplicateShrinks[0], singleFieldAfterDuplicateShrinks, [selectedDuplicateGeneratedRecord]) === null);
   const runUmantisChecks = async () => {
+    plannerSawPrivacyCheckboxJa = false;
     const hotelSaved = new Map();
     const hotelAccounts = {
       async load(host) { return hotelSaved.get(host) || null; },
@@ -1453,7 +1552,9 @@ async function main() {
     const hotelDry = await run({ applyUrl: `${base}/hotel-job`, job: hotelJob, accounts: hotelAccounts, dryRun: true });
     check('umantis: a dry run fills the form that asks for its own password up to the send button, and keeps no account', hotelDry.event.type === 'dry_run_ready'
       && !hotelDry.event.stage && hotelDry.evidence.finalButton?.label === 'Submit final application' && hotelSaved.size === 0 && umantis.applications.length === 0
-      && hotelDry.evidence.steps.some((step) => step.auth?.kind === 'inline' && step.auth.outcome === 'dry_run'), stopContext(hotelDry));
+      && hotelDry.evidence.steps.some((step) => step.auth?.kind === 'inline' && step.auth.outcome === 'dry_run')
+      && hotelDry.evidence.answers.some((item) => /privacy policy statement/i.test(item.question) && item.answer === '✓' && item.source === 'answers')
+      && plannerSawPrivacyCheckboxJa, stopContext(hotelDry));
     check('umantis: the company is read on the posting, the role on the form it opened', hotelDry.evidence.postingMatch === 'match' && hotelDry.evidence.postingMatchVia === 'posting_page');
     let guardCalls = 0;
     const hotel = await run({ applyUrl: `${base}/hotel-job`, job: hotelJob, accounts: hotelAccounts, onBeforeSubmit: async () => { guardCalls += 1; } });
@@ -2003,7 +2104,10 @@ async function main() {
         const candidate = portalTestCandidate();
         candidate.answers.work_permit = 'Permesso G';
         candidate.answers[permitQuestion.id] = 'Yes';
-        candidate.portalQuestionsAnswered = [{ id: permitQuestion.id, question: permitQuestion.applicationQuestion || permitQuestion.question, context: permitQuestion.context, section: permitQuestion.section, autocomplete: permitQuestion.autocomplete, answer: 'Yes' }];
+        candidate.portalQuestionsAnswered = [
+          ...candidate.portalQuestionsAnswered.filter((item) => item.id !== permitQuestion.id),
+          { id: permitQuestion.id, question: permitQuestion.applicationQuestion || permitQuestion.question, context: permitQuestion.context, section: permitQuestion.section, autocomplete: permitQuestion.autocomplete, answer: 'Yes', source: 'user' },
+        ];
         const resumedApplication = await run({ candidate });
         check('an answered registration question resumes account creation and submits the application',
           resumedApplication.event.type === 'submit_succeeded' && state.registeredPermit === 'Yes'

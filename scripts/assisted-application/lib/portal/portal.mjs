@@ -35,7 +35,8 @@ import { extractFields as extractFieldsRaw, registerPortalChannelType } from './
 import { startPortalDiagnostics, portalHandoffReason } from './diagnostics.mjs';
 import { applicationContractFromPreflight, applicationContractFromSubmission } from './application-contract.mjs';
 import { NO_PORTAL_KNOWLEDGE, labelsAt, learnedButton } from './knowledge.mjs';
-import { addressAnswerNeedsOwnership, candidateAnswerForField, holdsValue, isPermitHistoricalQuestion, ownConsent, planPage, questionTopic, targetEmployerNoOption } from './plan.mjs';
+import { addressAnswerNeedsOwnership, candidateAnswerForField, expectedValueShape, holdsValue, isPermitHistoricalQuestion, ownConsent, planPage, questionTopic, targetEmployerNoOption } from './plan.mjs';
+import { publicValueShape, readbackShape, reportedValueShape } from './value-shape.mjs';
 import { registerCookieSessionRecovery } from './cookie-session.mjs';
 import { portalAnswerForApplication, portalOptionMap, portalQuestionId, portalQuestionKey, slugId } from './question-key.mjs';
 import { codexPrompt } from '../../../../functions/src/assistedApplicationAiPrompts.js';
@@ -43,6 +44,7 @@ import { splitName } from '../../../../functions/src/assistedApplicationAiDraftC
 import { isFetchablePublicUrl, resolvesToPublicHost } from '../../../../functions/src/assistedApplicationAiJob.js';
 import { sanitizeValidation } from '../../../../functions/src/lib/answerRules.js';
 import { operationalAnswerForOption, operationalDefaultAnswer, operationalQuestionTopic } from '../../../../functions/src/assistedApplicationOperationalAnswers.js';
+import { decideLiveQuestions } from '../decision-answers.mjs';
 import { isoDateOf } from '../../../../functions/src/lib/cvPeriod.js';
 import { asksHeldStatus, isPermitField, nationalityLabelOf, nationalityOf, permitOptions, permitStatusFromCandidate, permitStatusOf, permitStatement, permitStatusQuestion, permitStatusQuestionWhy, printedPermitText } from '../../../../functions/src/lib/permitStatus.js';
 import { formatInternationalPhone, phoneCountryLabel } from '../../../../functions/src/lib/phoneNormalization.js';
@@ -286,6 +288,45 @@ const POPUP_GRACE_MS = 6_000;
 const NAVIGATION = { listboxOptions: false };
 // Codex turns of the agentic fallback in one run (each page has AGENT_ROUNDS at most).
 const MAX_AGENT_CALLS = 16;
+// The account page's technical stops (handleAuth's `authStop`) that the agentic fallback may try
+// to complete, once per page and stop and within MAX_AGENT_CALLS, before the owner gets the page.
+// Each one is raised before any account button was pressed on this surface: the form simply did
+// not converge (a value that did not stay, a surface that kept redrawing, replans exhausted). The
+// agent fills fields only; the runner then re-reads the stable surface and walks its own guarded
+// path again (privacy preflight, credential saved right before the create click, OTP after it).
+// Deliberately NOT recoverable, so they still go straight to the owner:
+// - a surface that moved by itself (`*_surface_moved`): a navigation the runner did not ask for
+//   may have been a form submission, and nothing ambiguous is ever retried;
+// - `privacy_not_accepted`, unreadable labels and unhandled required files: their own paths
+//   (consent guard, candidate questions, uploads) decide them;
+// - every stop after an account click (create refused/unanswered, sign-in failed, verification
+//   without the e-mail, control errors): the account state is then unknown or needs the mailbox;
+// - `no_create_button`/`no_sign_in_button`: the agent never presses account buttons;
+// - submit-stage handoffs such as `portal_ambiguous`: they never come from the account page, and
+//   an ambiguous send is never retried.
+const AUTH_AGENT_RECOVERABLE_STOPS = new Set([
+  'registration_replans_exhausted',
+  'registration_answer_unconfirmed',
+  'registration_surface_unstable',
+  'privacy_question_surface_unstable',
+  'privacy_question_answer_unconfirmed',
+  'sign_in_typing_unconfirmed',
+]);
+/**
+ * Whether handleAuth's result is a technical stop the agentic fallback may try (see above).
+ * `portal_ambiguous` is refused even if some path ever tagged it: an ambiguous send is never retried.
+ */
+export function isAgentRecoverableAuthStop(result) {
+  return Boolean(result?.handoff) && result.handoff !== 'portal_ambiguous' && AUTH_AGENT_RECOVERABLE_STOPS.has(result.authStop);
+}
+// Controls of the account page reserved to the runner while the agent fills it: creating the
+// account, signing in, and the privacy statement with its dialog (registrationPrivacyPreflight).
+const AUTH_AGENT_RESERVED_BUTTONS = [
+  CREATE_ACCOUNT_RE,
+  SIGN_IN_RE,
+  /datenschutz|privacy|privacidad|confidentialit|riservatezza|protezione dei dati|einwilligung|einverst|consent|konto|account|profil|regist|anmeld|einlogg|log ?in|accedi|connexion|connecter|inscri/i,
+  /^(akzeptieren|akzeptiere|ich akzeptiere|accept|i accept|agree|i agree|zustimmen|stimme zu|ich stimme zu|accetta|accetto|accettare|accepter|acceptez|j['’]accepte)\b/i,
+];
 
 function accountFailure(code, stage) {
   return serializeAccountFailure({ code, stage }) || { code: 'unknown', stage: 'unknown' };
@@ -701,8 +742,11 @@ export function anonymizePath(url) {
  * (self-correction, level 3): the portal's host, the anonymized page, the
  * buttons, the fields' labels and kinds, the form's messages. Never a value:
  * agent.mjs also strikes every value of the candidate out before it leaves.
+ * Each free-text field carries its value's shape instead (value-shape.mjs:
+ * `empty`, `email`, `name`, `mismatch:name`…), and `readback` the runner's
+ * own comparison of what it typed with what the page kept (`truncated`).
  */
-export function stopReportFrom({ url, reason, step, seen, agent = [] }) {
+export function stopReportFrom({ url, reason, step, seen, agent = [], readback = [] }) {
   let host = '';
   try {
     host = new URL(url).hostname;
@@ -715,10 +759,62 @@ export function stopReportFrom({ url, reason, step, seen, agent = [] }) {
     reason,
     step,
     buttons: [...new Set((seen?.buttons || []).map((button) => String(button.text || '').trim()).filter(Boolean))].slice(0, 30),
-    fields: (seen?.fields || []).slice(0, 30).map((field) => ({ label: String(field.label || '').slice(0, 120), kind: field.kind, required: Boolean(field.required) })),
+    fields: (seen?.fields || []).slice(0, 30).map((field) => {
+      const valueShape = stopReportValueShape(field, readback);
+      return { label: String(field.label || '').slice(0, 120), kind: field.kind, required: Boolean(field.required), ...(valueShape ? { valueShape } : {}) };
+    }),
     errors: (seen?.errors || []).slice(0, 8),
     agent: agent.map((item) => ({ hint: item.hint, status: item.status })),
   };
+}
+
+const FREE_TEXT_KINDS = new Set(['text', 'textarea', 'date', 'email', 'tel']);
+
+/**
+ * The public shape of one field's value (never the value): the runner's
+ * read-back finding for that control when it has one, otherwise the shape of
+ * what the page holds, `mismatch:<expected>` when it contradicts the field.
+ * Choice, checkbox, file and password controls carry none.
+ */
+export function stopReportValueShape(field, readback = []) {
+  if (!field || field.inputType === 'password' || field.inputType === 'file') return '';
+  const finding = (Array.isArray(readback) ? readback : []).find((item) => item && (
+    (item.fieldId && item.fieldId === field.id)
+    || (!item.fieldId && item.label && item.label === String(field.label || '').slice(0, 120))));
+  const fromReadback = publicValueShape(finding?.shape);
+  if (fromReadback) return fromReadback;
+  if (Array.isArray(field.options) && field.options.length) return '';
+  if (field.kind && !FREE_TEXT_KINDS.has(String(field.kind))) return '';
+  // An optional field that constrains no shape (a «Note») says nothing a
+  // fixer needs: only identity-shaped or required fields carry one.
+  const expected = expectedValueShape(field);
+  if (!expected && !field.required) return '';
+  return publicValueShape(reportedValueShape({ expected, value: field.value }));
+}
+
+/**
+ * The runner's comparison of a typed value with what the control kept, for
+ * the encrypted diagnostics and the public stop report: label, expected
+ * shape, `truncated` (the control kept a prefix within its maxLength) or
+ * `changed` (it kept something else), the control's maxLength. Never a value.
+ */
+export function registrationReadbackFindings(actions = [], fields = []) {
+  const findings = [];
+  for (const action of actions) {
+    if (action?.action !== 'fill') continue;
+    const field = fields.find((item) => item.id === action.fieldId);
+    if (!field || field.inputType === 'password' || field.inputType === 'file') continue;
+    const shape = readbackShape({ planned: action.value, read: field.value, maxLength: field.maxLength });
+    if (!['truncated', 'mismatch'].includes(shape)) continue;
+    findings.push({
+      fieldId: field.id,
+      label: String(field.label || '').slice(0, 120),
+      expected: expectedValueShape(field),
+      shape: shape === 'mismatch' ? 'changed' : shape,
+      ...(Number.isSafeInteger(Number(field.maxLength)) && Number(field.maxLength) > 0 ? { maxLength: Number(field.maxLength) } : {}),
+    });
+  }
+  return findings;
 }
 
 /** Headful mode is opt-in; the assisted-application workflow enables it on Xvfb. */
@@ -760,7 +856,11 @@ export function candidateForForm({ identity, profile = {}, answers = {}, draft =
     postalCode: resolved.postalCode || factAddress.postalCode,
     city: resolved.city || factAddress.city,
     country: resolved.country || factAddress.countryName,
-  } : resolved;
+  } : {
+    ...resolved,
+    // No town: the country the platform still knows (the CV's or the order's, else the upload answers).
+    country: resolved.country || facts?.address?.countryName || '',
+  };
   return {
     // The target employer is needed for employer-specific eligibility fields
     // such as «Are you already an employee?». It is public posting data, not a
@@ -1298,6 +1398,33 @@ function fieldlessApplicationEntryContextMatchesPosting(control, context = {}) {
   return titleMatches(localContext, job.title);
 }
 
+// An Apply dropdown on the verified posting route sits under the vacancy's
+// own heading, which names the role but rarely the employer (Helsana's
+// Career Site Builder page). The page-level posting check already bound the
+// employer. Locally, a posting/requisition marker must be this posting's own
+// (any other one, or an ambiguous pair, rejects the control), the heading
+// must name no other employer, and it must pass the posting match on the
+// role.
+function disclosureEntryContextMatchesPosting(control, context = {}) {
+  const identity = controlPostingIdentity(control);
+  if (identity === null) return false;
+  if (identity !== '' && identity !== expectedPostingIdentity(context)) return false;
+  // The control's own label («Apply to Google») is the entry, not context
+  // naming another employer: only the text around it is checked.
+  const ownLabels = [control?.text, control?.label, control?.ariaLabel, control?.title]
+    .map((value) => String(value || '').trim()).filter(Boolean);
+  const localContext = [control?.vacancyContext, control?.section, control?.context]
+    .filter(Boolean)
+    .map((value) => ownLabels.reduce((text, label) => text.replace(new RegExp(escapeRegex(label), 'ig'), ' '), String(value)))
+    .join(' ')
+    .replace(/\s+/g, ' ')
+    .trim();
+  const job = context.job || {};
+  if (!localContext || !job.title) return true;
+  if (namesAnotherEmployer(localContext, job)) return false;
+  return postingMatch(localContext, { title: job.title }, context.postingUrl) === 'match';
+}
+
 // A few legacy employer pages render the only application opener as a native
 // button whose value is deliberately generic («cliccando qui», «click here»).
 // That label is not provenance by itself: it is accepted only when the
@@ -1306,6 +1433,26 @@ function fieldlessApplicationEntryContextMatchesPosting(control, context = {}) {
 // there is no competing semantic Apply control. This keeps the security gate
 // closed for generic buttons on listings and for neighbouring roles.
 const GENERIC_APPLICATION_ENTRY_RE = /^(?:clicca(?:ndo)?\s+qui|click\s+here|cliquez?\s+ici|hier\s+klicken|hier\s+bewerben|apply\s+here|candidarsi\s+qui|fare\s+clic\s+qui)$/iu;
+
+// Social sign-in entries hand the application to a third-party account. A
+// brand name alone is not one («Apply to Google» is a posting at Google):
+// the label must say the entry goes *through* the provider («Apply with
+// LinkedIn», «Bewerbung mit LinkedIn starten», «Sign in with Google»), or the
+// control's own id must name the provider as its sign-in option (Career Site
+// Builder: `applyOption-top-linkedin`).
+const SOCIAL_PROVIDER = String.raw`(?:linked\s?in|xing|indeed|facebook|google|apple|seek)`;
+const SOCIAL_APPLICATION_LABEL_RE = new RegExp(String.raw`\b(?:with|using|via|through|mit|über|ueber|con|tramite|avec|par)\s+(?:(?:your|my|ihrem|deinem|il\s+tuo|votre)\s+)?${SOCIAL_PROVIDER}\b`, 'iu');
+const SOCIAL_APPLICATION_ID_RE = new RegExp(String.raw`(?:^|[-_])(?:apply|sign[-_]?in|login|social)?[-_]?option[-_](?:[a-z]+[-_])?${SOCIAL_PROVIDER}$|(?:^|[-_])(?:apply|sign[-_]?in|login)[-_](?:with[-_])?${SOCIAL_PROVIDER}$`, 'iu');
+
+function applicationEntryLabel(control) {
+  return String(control?.text || control?.label || '').normalize('NFKC').replace(/\s+/g, ' ').trim().toLowerCase();
+}
+
+function socialApplicationEntry(control) {
+  return [control?.text, control?.label, control?.ariaLabel, control?.title]
+    .some((value) => SOCIAL_APPLICATION_LABEL_RE.test(String(value || '').replace(/\s+/g, ' ')))
+    || SOCIAL_APPLICATION_ID_RE.test(String(control?.domId || ''));
+}
 
 function genericApplicationEntryLabel(value) {
   const text = String(value || '').normalize('NFKC').replace(/\s+/g, ' ').trim()
@@ -1330,9 +1477,18 @@ export function applicationEntryControls(snapshot = {}, context = {}) {
     ...(Array.isArray(snapshot.buttons) ? snapshot.buttons : []),
     ...(Array.isArray(snapshot.links) ? snapshot.links : []),
   ];
+  // A third-party sign-in («Apply with LinkedIn») cannot be completed by the
+  // runner. A social item of an opened Apply menu is never an entry, and an
+  // own entry always wins over a social one that merely comes first.
   const matching = controls.filter((control) => !control?.disabled && !control?.chrome
     && startsApplication(control?.text || control?.label)
+    && !(control?.menuItem === true && socialApplicationEntry(control))
+    // An opened menu item usually links to `#`, which matches the posting
+    // route by construction: it must also carry this posting's context.
+    && !(control?.menuItem === true && !disclosureEntryContextMatchesPosting(control, context))
     && applicationEntryBelongsToPosting(control, context));
+  const ownMatching = matching.filter((control) => !socialApplicationEntry(control));
+  if (ownMatching.length) return ownMatching;
   if (matching.length || context.allowSingleExternalApplicationEntry !== true) return matching;
 
   const genericEntries = controls.filter((control) => genericUmantisApplicationEntryBelongsToPosting(control, snapshot, context));
@@ -1361,6 +1517,29 @@ export function applicationEntryControls(snapshot = {}, context = {}) {
     && /^(?:\/[a-zA-Z0-9%._-]+)?\/job\/[^/]+(?:\/[^/]+)?\/?$/i.test(posting.pathname)
     && Array.isArray(snapshot.fields) && snapshot.fields.length === 0
     && scriptEntries.length === 1 && allEntries.length === 1) return scriptEntries;
+  // SuccessFactors Career Site Builder repeats one Apply dropdown above and
+  // below the vacancy. Identical disclosure toggles are one entry: open the
+  // first. Once its menu is open, the single own (non-social) menu item is
+  // the entry; the toggles that opened it are not alternatives to it. The
+  // page is the verified posting route without fields, so the controls'
+  // heading may name only the role: it must not name another posting or
+  // employer.
+  const ownEntries = allEntries.filter((control) => !(control.menuItem === true && socialApplicationEntry(control)));
+  const disclosureEntries = ownEntries.filter((control) => (control.popup === true || control.menuItem === true)
+    && !control.formId && (Number(control.frame) || 0) === 0
+    && (!control.href || samePortalRoute(control.href, context.postingUrl, context.postingUrl))
+    && disclosureEntryContextMatchesPosting(control, context));
+  if (posting && current && current.origin === posting.origin
+    && current.pathname === posting.pathname && current.search === posting.search
+    && /^(?:\/[a-zA-Z0-9%._-]+)?\/job\/[^/]+(?:\/[^/]+)?\/?$/i.test(posting.pathname)
+    && Array.isArray(snapshot.fields) && snapshot.fields.length === 0
+    && disclosureEntries.length > 0 && disclosureEntries.length === ownEntries.length) {
+    const menuEntries = disclosureEntries.filter((control) => control.menuItem === true);
+    if (menuEntries.length === 1) return menuEntries;
+    const toggles = disclosureEntries.filter((control) => control.popup === true);
+    const toggleLabels = new Set(toggles.map((control) => applicationEntryLabel(control)));
+    if (!allEntries.some((control) => control.menuItem === true) && toggles.length >= 1 && toggleLabels.size === 1) return toggles.slice(0, 1);
+  }
   const unbound = controls.filter((control) => {
     if (control?.disabled || control?.chrome || !startsApplication(control?.text || control?.label)) return false;
     const target = comparablePortalRoute(control?.href);
@@ -2176,9 +2355,13 @@ async function confirmCookieChoiceDismissed(page, snapshot, origin, blockingCont
   await page.waitForTimeout(800);
   const current = await cookiePageSnapshot(page);
   if (!current || !origin || pageOrigin(page) !== origin) return { status: 'unresolved', snapshot: current || snapshot };
-  const remainingPreferences = await findCookieControls(page, current, COOKIE_CUSTOMIZE_RE, {
+  // Consent law keeps a «Cookie settings» opener in the site's header or
+  // footer after every choice. Once the decision controls are gone, such a
+  // site-chrome opener outside any dialog is the persistent entry point, not
+  // the banner still waiting for an answer.
+  const remainingPreferences = (await findCookieControls(page, current, COOKIE_CUSTOMIZE_RE, {
     genericPreferences: true, manageConsent: true,
-  });
+  })).filter((control) => !(control.chrome === true && !control.dialog && !control.dialogId));
   const persistentYellowsharkOpener = remainingPreferences.length > 0 && Boolean(openedBy)
     && remainingPreferences.every((remainingPreference) => COOKIE_MANAGE_CONSENT_RE.test(cookieControlLabel(remainingPreference))
       && COOKIE_MANAGE_CONSENT_RE.test(cookieControlLabel(openedBy))
@@ -2360,12 +2543,23 @@ async function openApplicationForm(context, page, snapshot, stageContext = null)
       if (['receipt', 'review_navigation', 'final_review', 'posting_mismatch'].includes(stage.kind) || stage.prefinal
         || (REVIEW_URL_RE.test(new URL(page.url()).pathname) && findButton(snapshot.buttons, SUBMIT_RE))) return result();
     }
-    const buttonEntries = ownedEntries.filter((control) => (snapshot.buttons || []).includes(control));
+    // A verified same-requisition SuccessFactors module route binds the
+    // vacancy more strongly than a Career Site Builder Apply dropdown, whose
+    // menu leads to the tenant's generic sign-in. Keep that route first.
+    const disclosureOnly = ownedEntries.length > 0 && ownedEntries.every((control) => control.popup === true);
+    const verifiedModuleRoute = disclosureOnly && hop === 0 && stageContext?.postingEntry === true
+      && isSuccessFactorsPostingEntry({
+        applyUrl: stageContext.applyUrl,
+        postingUrl: page.url(),
+        postingRouteProof: stageContext.postingRouteProof,
+      });
+    const selectableEntries = verifiedModuleRoute ? [] : ownedEntries;
+    const buttonEntries = selectableEntries.filter((control) => (snapshot.buttons || []).includes(control));
     const manual = buttonEntries.find((button) => MANUAL_APPLY_RE.test(button.text || button.label || '')) || null;
     const apply = manual ? null : buttonEntries[0] || null;
     const linkEntry = manual || apply
       ? null
-      : ownedEntries.find((control) => (snapshot.links || []).includes(control)) || null;
+      : selectableEntries.find((control) => (snapshot.links || []).includes(control)) || null;
     const link = linkEntry ? locatorFor(page, linkEntry) : null;
     const linkVisible = link
       ? await link.waitFor({ state: 'visible', timeout: 6_000 }).then(() => true, () => false)
@@ -4031,7 +4225,8 @@ const optionalNotice = (control) => ownConsent.isOptionalPurpose(control.text, c
 const privacyStatementControl = (control) => !control.disabled && !control.chrome && !control.leavesDocument && ownConsent.isRequiredNotice(control);
 
 export const PRIVACY_REVIEW_RE = /(dpcs|data[\s_-]*privacy.*(?:review|read|accept)|privacy.*(?:review|read|accept)|datenschutz.*(?:gelesen|akzept|zustimm)|(?:ich habe|i have|j['’]ai|ho)\s+.*(?:gelesen|reviewed|read|lu|letto)|(?:presa|preso|prise|pris)\s+visione|consent.*(?:review|read|accept|gelesen|lu|letto))/i;
-export const PRIVACY_ACCEPT_RE = /^(akzeptieren|akzeptiere|ich akzeptiere|accept|i accept|agree|i agree|zustimmen|stimme zu|ich stimme zu|accetta|accetto|accettare|accepter|acceptez|j['’]accepte)(?:\s+(?:und|and|et|e)\s+(?:weiter|fortfahren|continue|proceed|continuer|continuare|continua|schlie(?:ss|ß)en|close|fermer|chiudi))?\W*$/i;
+// «Zur Kenntnis genommen» (SBB, 2026-11-10) and the other acknowledgements close the statement as accepted.
+export const PRIVACY_ACCEPT_RE = /^(akzeptieren|akzeptiere|ich akzeptiere|accept|i accept|agree|i agree|zustimmen|stimme zu|ich stimme zu|accetta|accetto|accettare|accepter|acceptez|j['’]accepte|(?:zur )?kenntnis genommen|ich habe (?:es )?zur kenntnis genommen|gelesen und akzeptiert|einverstanden|ich bin einverstanden|acknowledged?|i acknowledge|read and accepted|(?:ho )?pres[ao] visione|letto e accettato|(?:j['’]ai )?pris connaissance|lu et accept[ée])(?:\s+(?:und|and|et|e)\s+(?:weiter|fortfahren|continue|proceed|continuer|continuare|continua|schlie(?:ss|ß)en|close|fermer|chiudi))?\W*$/i;
 // How long a form gets to free its button after the notice was accepted.
 const PRIVACY_ENABLE_TIMEOUT_MS = 8_000;
 
@@ -5588,7 +5783,7 @@ export async function openVerifiedSignInNavigation(page, snapshot) {
  * it on the alias, or verify it. Returns the next page, a handoff reason,
  * questions for the candidate, or `dryRun` (a dry run never creates an account).
  */
-export async function handleAuth({ page, snapshot, ctx, allowExistingRegistration = false, diagnostics = null, recreated = false }) {
+export async function handleAuth({ page, snapshot, ctx, allowExistingRegistration = false, diagnostics = null, recreated = false, typedSecrets = null }) {
   const host = new URL(page.url()).hostname;
   const kind = authPageKind(snapshot);
   const account = await ctx.accounts.load(host);
@@ -5598,6 +5793,16 @@ export async function handleAuth({ page, snapshot, ctx, allowExistingRegistratio
   // or submits another registration; the candidate must sign in themselves.
   if (!account && hasExistingAccountPrompt(snapshot)) {
     return accountHandoff('account', 'login_unobserved', 'login');
+  }
+
+  // A one-time-code page is neither a sign-in nor a registration form, even
+  // when the portal masks the code as a password input (federal
+  // SuccessFactors, 2026-11-10): typing the alias and password there found no
+  // e-mail field and ended as `login_unobserved`. Only this order's unverified
+  // account can answer it, with the e-mailed code.
+  if (kind === 'none' && codeField(snapshot)) {
+    if (account && !account.verifiedAt) return verifyAccount({ page, host, sinceMs: account.createdAt || 0, ctx, snapshot });
+    return accountHandoff('account_verification', 'verification_unobserved', 'verification');
   }
 
   const canResendVerification = hasResendVerificationControl(snapshot);
@@ -5632,7 +5837,7 @@ export async function handleAuth({ page, snapshot, ctx, allowExistingRegistratio
     if (openedRegistration) {
       const registration = await awaitAuthView(page, snapshot);
       if (authPageKind(registration) !== 'create') return accountHandoff('account_verification', 'verification_unobserved', 'verification');
-      return handleAuth({ page, snapshot: registration, ctx, allowExistingRegistration: true, diagnostics });
+      return handleAuth({ page, snapshot: registration, ctx, allowExistingRegistration: true, diagnostics, typedSecrets });
     }
   }
 
@@ -5642,11 +5847,15 @@ export async function handleAuth({ page, snapshot, ctx, allowExistingRegistratio
     // and the button pressed is the one of the reading made right before the click.
     let form = snapshot;
     let typed = false;
+    typedSecrets?.add(account.password);
     for (let attempt = 0; attempt < 2 && !typed; attempt += 1) {
       const { email, password } = loginFields(form);
       if (!email || !password) return accountHandoff('account', 'login_unobserved', 'login');
+      // An e-mail already in the field (the agentic fallback typed it where a pasted value does
+      // not stay) is left alone: filling it again would undo it.
+      const emailKept = String(email.value || '').trim().toLowerCase() === String(account.email || '').trim().toLowerCase();
       await applyActions(page, form.fields, [
-        { fieldId: email.id, action: 'fill', value: account.email },
+        ...(emailKept ? [] : [{ fieldId: email.id, action: 'fill', value: account.email }]),
         { fieldId: password.id, action: 'fill', value: account.password },
       ], {});
       await page.waitForTimeout(AUTH_TYPED_WAIT_MS);
@@ -5654,7 +5863,7 @@ export async function handleAuth({ page, snapshot, ctx, allowExistingRegistratio
       const now = loginFields(form);
       typed = Boolean(now.email?.value) && Boolean(now.password?.value);
     }
-    if (!typed) return accountHandoff('account', 'login_unobserved', 'login');
+    if (!typed) return { ...accountHandoff('account', 'login_unobserved', 'login'), authStop: 'sign_in_typing_unconfirmed' };
     const shown = form.errors || [];
     diagnostics?.beforeClick('account');
     const pressed = await clickFirst(page, form, [SIGN_IN_RE, SUBMIT_RE, NEXT_RE]);
@@ -5684,7 +5893,7 @@ export async function handleAuth({ page, snapshot, ctx, allowExistingRegistratio
       if (!await clickFirst(page, after, [CREATE_ACCOUNT_RE])) return accountHandoff('account_sign_in_failed', 'no_create_button', 'login');
       const registration = await awaitAuthView(page, after);
       if (authPageKind(registration) !== 'create') return accountHandoff('account_sign_in_failed', 'login_unobserved', 'login');
-      return handleAuth({ page, snapshot: registration, ctx, diagnostics, recreated: true });
+      return handleAuth({ page, snapshot: registration, ctx, diagnostics, recreated: true, typedSecrets });
     }
     // Signed in: the account exists, whatever its registration left on record (`unanswered`, `pending`). A
     // later sign-in that fails is then no reason to create it again. A successful saved-credential login also
@@ -5818,21 +6027,46 @@ export async function handleAuth({ page, snapshot, ctx, allowExistingRegistratio
   // A known registration answer can reveal more required fields (Coop's
   // country selection is one example). Apply only guarded, non-upload answers
   // first; do not ask from the planner's earlier, partial view of the form.
+  // What the page kept of each typed answer (value-shape invariant): a value
+  // the control cut at its maxlength, or replaced, is a named finding in the
+  // encrypted diagnostics and in the public stop report, never a silent
+  // mismatch. The same planned value cut once is cut again: no replan for it.
+  let readbackFindings = [];
+  const readbackHandoff = () => ({
+    handoff: 'portal_needs_candidate',
+    ...(readbackFindings.length ? { valueShapes: readbackFindings.map(({ planned: _planned, ...finding }) => finding) } : {}),
+  });
   while (true) {
     const actions = registrationPlan.actions.filter((action) =>
       ['fill', 'select', 'check', 'uncheck'].includes(action.action)
       && !knownAnswerMatches(registrationSnapshot.fields.find((field) => field.id === action.fieldId), action));
     if (!actions.length) break;
-    if (registrationReplans >= MAX_REDRAWS_PER_PAGE) return { handoff: 'portal_needs_candidate' };
+    // A value the control cuts at its maxlength does not fit whoever types it: no agentic retry.
+    if (actions.some((action) => readbackFindings.some((finding) => finding.shape === 'truncated'
+      && finding.fieldId === action.fieldId && finding.planned === action.value))) return readbackHandoff();
+    // `authStop` names the technical stop for the agentic fallback (AUTH_AGENT_RECOVERABLE_STOPS).
+    if (registrationReplans >= MAX_REDRAWS_PER_PAGE) return { ...readbackHandoff(), authStop: 'registration_replans_exhausted' };
     const registrationUrl = page.url();
     const results = await applyActions(page, registrationSnapshot.fields, actions, ctx.files);
     if (actions.some((action) => !results.some((result) => result.fieldId === action.fieldId && result.ok))) {
-      return { handoff: 'portal_needs_candidate' };
+      return { handoff: 'portal_needs_candidate', authStop: 'registration_answer_unconfirmed' };
     }
-    if (page.url() !== registrationUrl) return { handoff: 'portal_needs_candidate' };
+    if (page.url() !== registrationUrl) return { handoff: 'portal_needs_candidate', authStop: 'registration_surface_moved' };
     const stable = await waitForStableQuestionSurface(page, registrationSnapshot, registrationUrl, { registration: true });
-    if (stable.status !== 'stable') return { handoff: 'portal_needs_candidate' };
+    if (stable.status !== 'stable') return { handoff: 'portal_needs_candidate', authStop: 'registration_surface_unstable' };
     registrationSnapshot = accountRegistrationSnapshot(await refreshChoiceCatalogues(page, stable.snapshot));
+    const found = registrationReadbackFindings(actions, registrationSnapshot.fields);
+    // `planned` stays in memory only, to recognise the same plan next turn.
+    readbackFindings = found.map((finding) => ({
+      ...finding,
+      planned: actions.find((action) => action.fieldId === finding.fieldId)?.value,
+    }));
+    if (found.length && diagnostics?.data) {
+      diagnostics.data.valueShape = [
+        ...(Array.isArray(diagnostics.data.valueShape) ? diagnostics.data.valueShape : []),
+        ...found.map((finding) => ({ phase: 'registration', ...finding })),
+      ].slice(-20);
+    }
     registrationPlan = await planPage({
       snapshot: { ...registrationSnapshot, fields: registrationSnapshot.fields.filter((field) => field.inputType !== 'password') },
       candidate,
@@ -5851,6 +6085,8 @@ export async function handleAuth({ page, snapshot, ctx, allowExistingRegistratio
     )),
   };
   const password = account?.password || newPortalPassword({ portal: host });
+  // Struck from what the agentic fallback sees of this page, should it be called after a stop.
+  typedSecrets?.add(password);
   const sinceMs = Date.now();
   const saveCredentialBeforeCreate = async () => {
     if (credentialSaved) return;
@@ -5868,6 +6104,12 @@ export async function handleAuth({ page, snapshot, ctx, allowExistingRegistratio
   let privacy = 'none';
   let repairAttempts = 0;
   const noted = (result) => (privacy === 'none' ? result : { ...result, privacy });
+  // A registration surface that did not converge before the create click: the credential is parked
+  // as on every exit, and the stop is named for the agentic fallback (AUTH_AGENT_RECOVERABLE_STOPS).
+  const technicalStop = async (authStop) => {
+    await parkRegistrationCredential(authStop);
+    return noted({ handoff: 'portal_needs_candidate', authStop });
+  };
   while (true) {
     const plannedActions = registrationPlan.actions.filter((action) => !registrationActionSatisfied(
       registrationSnapshot.fields.find((field) => field.id === action.fieldId), action,
@@ -5895,8 +6137,7 @@ export async function handleAuth({ page, snapshot, ctx, allowExistingRegistratio
     }
     const { filled } = preflight;
     if (page.url() !== privacyStartUrl || filled.url !== privacyStartUrl) {
-      await parkRegistrationCredential('privacy_question_surface_moved');
-      return noted({ handoff: 'portal_needs_candidate' });
+      return await technicalStop('privacy_question_surface_moved');
     }
     // Blur and accepting the notice can both reveal required controls. A fresh,
     // stable read and plan must prove that the account form is still complete
@@ -5908,8 +6149,7 @@ export async function handleAuth({ page, snapshot, ctx, allowExistingRegistratio
     } else {
       const settled = await waitForStableQuestionSurface(page, filled, privacyUrl, { registration: true });
       if (settled.status !== 'stable') {
-        await parkRegistrationCredential('privacy_question_surface_unstable');
-        return noted({ handoff: 'portal_needs_candidate' });
+        return await technicalStop('privacy_question_surface_unstable');
       }
       // A known answer can redraw the registration form before credentials are
       // typed. Keep one post-credential planner pass in that case: the
@@ -5922,8 +6162,7 @@ export async function handleAuth({ page, snapshot, ctx, allowExistingRegistratio
         : await planStableRegistrationSurface(settled.snapshot, privacyUrl);
     }
     if (privacyPlan.status !== 'stable') {
-      await parkRegistrationCredential('privacy_question_surface_unstable');
-      return noted({ handoff: 'portal_needs_candidate' });
+      return await technicalStop('privacy_question_surface_unstable');
     }
     const stableRegistrationSnapshot = privacyPlan.snapshot;
     const stablePlan = privacyPlan.plan;
@@ -5962,13 +6201,11 @@ export async function handleAuth({ page, snapshot, ctx, allowExistingRegistratio
     ));
     if (newlyRequiredActions.length) {
       if (privacySurfaceReplans >= MAX_REDRAWS_PER_PAGE) {
-        await parkRegistrationCredential('privacy_question_surface_unstable');
-        return noted({ handoff: 'portal_needs_candidate' });
+        return await technicalStop('privacy_question_surface_unstable');
       }
       const appliedAfterPrivacy = await applyActions(page, stableRegistrationSnapshot.fields, newlyRequiredActions, ctx.files);
       if (newlyRequiredActions.some((action) => !appliedAfterPrivacy.some((result) => result.fieldId === action.fieldId && result.ok))) {
-        await parkRegistrationCredential('privacy_question_answer_unconfirmed');
-        return noted({ handoff: 'portal_needs_candidate' });
+        return await technicalStop('privacy_question_answer_unconfirmed');
       }
       for (const action of newlyRequiredActions.filter((item) => item.action === 'upload')) {
         const field = stableRegistrationSnapshot.fields.find((candidateField) => candidateField.id === action.fieldId);
@@ -5979,18 +6216,15 @@ export async function handleAuth({ page, snapshot, ctx, allowExistingRegistratio
         }
       }
       if (page.url() !== privacyUrl) {
-        await parkRegistrationCredential('privacy_question_surface_moved');
-        return noted({ handoff: 'portal_needs_candidate' });
+        return await technicalStop('privacy_question_surface_moved');
       }
       const afterPrivacyActions = await waitForStableQuestionSurface(page, stableRegistrationSnapshot, privacyUrl, { registration: true });
       if (afterPrivacyActions.status !== 'stable') {
-        await parkRegistrationCredential('privacy_question_surface_unstable');
-        return noted({ handoff: 'portal_needs_candidate' });
+        return await technicalStop('privacy_question_surface_unstable');
       }
       const replanned = await planStableRegistrationSurface(afterPrivacyActions.snapshot, privacyUrl);
       if (replanned.status !== 'stable') {
-        await parkRegistrationCredential('privacy_question_surface_unstable');
-        return noted({ handoff: 'portal_needs_candidate' });
+        return await technicalStop('privacy_question_surface_unstable');
       }
       registrationSnapshot = accountRegistrationSnapshot(replanned.snapshot);
       registrationPlan = {
@@ -6220,6 +6454,18 @@ export function urlConfirms(url, snapshot, context = {}) {
   return DONE_URL_RE.test(url) && !REVIEW_URL_RE.test(url) && applicationReceipt(snapshot, { ...context, url });
 }
 
+/**
+ * The click moved this posting's application to another page that is its
+ * final review, whose own words say the application is sent only by a later
+ * Submit/Apply (Deloitte's Avature, order JvKpYedw 2026-10-30: the profile's
+ * Apply opened /ApplicationReview «please select Submit to finalise your
+ * application»). The portal itself states that nothing was submitted yet.
+ */
+export function advancedToFinalReview(snapshot, { url, submissionUrl, applyUrl, sourceProtocol = null, job = {} } = {}) {
+  if (!snapshot || !url || !submissionUrl || url === submissionUrl) return false;
+  return applicationStage(snapshot, { url, applyUrl, sourceProtocol, job }).kind === 'final_review';
+}
+
 async function waitForOutcome(page, context = {}) {
   const started = Date.now();
   const deadline = started + OUTCOME_TIMEOUT_MS;
@@ -6232,6 +6478,7 @@ async function waitForOutcome(page, context = {}) {
     let snapshot = await extractFields(page, NAVIGATION).catch(() => null);
     if (snapshot && applicationReceipt({ ...snapshot, text }, { ...context, url: page.url() })) return 'confirmed';
     if (urlConfirms(page.url(), snapshot && { ...snapshot, text }, context)) return 'confirmed';
+    if (advancedToFinalReview(snapshot && { ...snapshot, text }, { ...context, url: page.url() })) return 'review_pending';
     if (snapshot?.captcha) return 'captcha';
     if (Date.now() > started + 4000 && (VALIDATION_RE.test(text) || snapshot?.errors?.length)) return 'validation';
   }
@@ -6946,6 +7193,13 @@ export async function readPortalQuestions(ctx) {
  * @param {ReturnType<import('./account.mjs').portalAccountStore>} [ctx.accounts] the order's portal accounts; without it a login page is handed over
  * @returns {Promise<{event:object, evidence:object}>}
  */
+// Stops on the posting page that an employer's regional gate produces:
+// Yellowshark greys out its Apply control and keeps a consent banner on the
+// gated page (order 1EpmkrDu, 2026-11-04/06: the 13 runs that got the notice
+// stopped under four different reasons). handoff() reports them as the gate
+// when the page states it.
+const REGION_GATED_STOPS = new Set(['portal_control_click_unresolved', 'cookie_preferences_unresolved']);
+
 export async function submitViaPortal(ctx) {
   const launch = ctx.launch || (() => launchPortalBrowser(ctx));
   const channelType = portalChannelType(ctx);
@@ -6993,6 +7247,12 @@ export async function submitViaPortal(ctx) {
   const uploadedCvUrls = new Set();
   // Where the runner stopped, for whoever takes over (encrypted with the rest of the evidence).
   const handoff = async (reason, metadata = {}) => {
+    // A posting that refuses applications from this connection's region (the
+    // employer geolocates the runner's IP) explains the stops on the posting
+    // page that follow it: a dead Apply control, the gated page's consent
+    // banner. Report the cause, which another runner can clear, not its symptom.
+    if (REGION_GATED_STOPS.has(reason) && page && evidence.steps.length === 0
+      && isApplicationRegionUnsupported(await pageText(page).catch(() => ''))) reason = 'application_region_unsupported';
     reason = portalHandoffReason(reason, {
       diagnostics: evidence.diagnostics,
       attempt: diagnostics?.currentAttempt(),
@@ -7000,10 +7260,12 @@ export async function submitViaPortal(ctx) {
     });
     if (page) {
       evidence.handoffScreenshot = (await page.screenshot({ fullPage: true }).catch(() => Buffer.from(''))).toString('base64');
-      // What a fixer needs to teach the runner this page (level 3); a CAPTCHA is no code fix.
-      if (!['captcha', 'captcha_provider_unavailable'].includes(reason)) {
+      // What a fixer needs to teach the runner this page (level 3); a CAPTCHA
+      // is no code fix, nor is a regional gate on the runner's IP (#17112 and
+      // #17132 tried to click through it): the retry ladder owns that one.
+      if (!['captcha', 'captcha_provider_unavailable', 'application_region_unsupported'].includes(reason)) {
         const seen = await extractFields(page, NAVIGATION).catch(() => null);
-        evidence.stopReport = stopReportFrom({ url: page.url(), reason, step: evidence.steps.length, seen, agent: evidence.steps.at(-1)?.agent || [] });
+        evidence.stopReport = stopReportFrom({ url: page.url(), reason, step: evidence.steps.length, seen, agent: evidence.steps.at(-1)?.agent || [], readback: metadata.valueShapes || [] });
       }
     }
     const failure = serializeAccountFailure(metadata.accountFailure);
@@ -7206,6 +7468,7 @@ export async function submitViaPortal(ctx) {
       && !ctx.skipPostingCheck;
     if (match === 'mismatch' && !postingCheckPending && !ctx.skipPostingCheck) return await handoff('posting_mismatch');
     let validationRetries = 0;
+    let reviewAdvances = 0;
     let stuckOnPage = 0;
     let authSteps = 0;
     // The passwords this run typed into application forms that create their own account, by host.
@@ -7257,9 +7520,11 @@ export async function submitViaPortal(ctx) {
     const openedOnce = new Set();
     const openTries = new Map();
     const profileSectionsDone = new Set();
-    // What went into the form, question by question (career-ops application-answers):
-    // for the interview prep, and for Valerie when she finishes by hand. The last answer wins.
+    // Semantic answers for planner retries (career-ops application-answers):
+    // checkbox markers are never treated as candidate answers. The last answer wins.
     const given = new Map();
+    // Human-readable evidence keeps the action as it appeared in the form (✓/✗).
+    const evidenceGiven = new Map();
     evidence.answers = [];
     // What went into the form's file fields, for the record of what left (submit.mjs `sent`): slots and counts only.
     evidence.uploads = [];
@@ -7268,7 +7533,7 @@ export async function submitViaPortal(ctx) {
       const name = String(document);
       evidence.uploads.push({ document: name, files: Number(files) || 1 });
     };
-    const record = (question, answer, source, context = '', section = '', autocomplete = '', metadata = {}) => {
+    const record = (question, answer, source, context = '', section = '', autocomplete = '', metadata = {}, plannerAnswer = undefined) => {
       if (!question || !String(answer ?? '').trim()) return;
       const label = String(question).slice(0, 200);
       const surrounding = String(context || '').slice(0, 240);
@@ -7276,7 +7541,7 @@ export async function submitViaPortal(ctx) {
       const fieldAutocomplete = String(autocomplete || '').slice(0, 100);
       const item = { question: label, context: surrounding, section: heading, autocomplete: fieldAutocomplete, ...addressMetadata(metadata) };
       const key = portalQuestionKey(item) || portalQuestionId(item) || label;
-      given.set(key, {
+      const recordedAnswer = {
         question: label,
         ...addressMetadata(metadata),
         answer: String(answer).slice(0, 2000),
@@ -7284,8 +7549,15 @@ export async function submitViaPortal(ctx) {
         ...(surrounding ? { context: surrounding } : {}),
         ...(heading ? { section: heading } : {}),
         ...(fieldAutocomplete ? { autocomplete: fieldAutocomplete } : {}),
-      });
-      evidence.answers = [...given.values()].slice(0, 80);
+      };
+      evidenceGiven.set(key, recordedAnswer);
+      if (plannerAnswer === undefined) given.set(key, recordedAnswer);
+      else {
+        const semanticAnswer = String(plannerAnswer ?? '').trim();
+        if (semanticAnswer) given.set(key, { ...recordedAnswer, answer: semanticAnswer.slice(0, 2000) });
+        else given.delete(key);
+      }
+      evidence.answers = [...evidenceGiven.values()].slice(0, 80);
     };
     const candidateWithRecordedAnswers = (candidate, current) => {
       const answerKey = (item) => portalQuestionKey(item) || portalQuestionId(item);
@@ -7293,7 +7565,13 @@ export async function submitViaPortal(ctx) {
       // A held-permit value recorded during this run describes a runner form
       // action, not a separate candidate portal response. Keep it in run
       // evidence, but do not present it as an answered portal question.
-      const recorded = [...given.values()].filter((item) => !isHeldPermitQuestion(item.question));
+      // The evidence log represents checkbox actions as ✓/✗. Those marks are
+      // display-only, not candidate answers; including them beside an explicit
+      // Yes/No answer makes the consent matcher treat the candidate's answer
+      // as conflicting on the next planner pass. `visibleAnswers` below
+      // reconstructs a checkbox answer only when it matches candidate data.
+      const recorded = [...given.values()].filter((item) => !isHeldPermitQuestion(item.question)
+        && !['✓', '✗'].includes(String(item.answer || '').trim()));
       const recordedKeys = new Set(recorded.map(answerKey));
       const fold = (value) => String(value || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/\s+/g, ' ').trim().toLowerCase();
       const isPhoneCode = (field) => /\b(?:country\s+phone\s+code|phone\s+code|country\s+code|dial(?:ing)?\s+code|indicativo|vorwahl|prefisso)\b/i.test(String(field?.label || ''));
@@ -7332,7 +7610,7 @@ export async function submitViaPortal(ctx) {
     // The agentic fallback: once per page and reason, within the run's budget.
     let agentCalls = 0;
     const agentTried = new Set();
-    const runAgent = async (current, hint) => {
+    const runAgent = async (current, hint, { secrets = [], reservedButtons = [] } = {}) => {
       const key = `${pageSignature(page, current)}|${hint}`;
       if (!ctx.codex || agentTried.has(key) || agentCalls >= MAX_AGENT_CALLS) return null;
       agentTried.add(key);
@@ -7347,8 +7625,9 @@ export async function submitViaPortal(ctx) {
           candidateLocale: ctx.candidateLocale,
           codex: ctx.codex,
           files: ctx.files,
-          secrets: [...ownPasswords.values()],
+          secrets: [...ownPasswords.values(), ...secrets],
           maxRounds: Math.min(AGENT_ROUNDS, MAX_AGENT_CALLS - agentCalls),
+          reservedButtons,
           log,
         });
       } catch (error) {
@@ -7377,7 +7656,9 @@ export async function submitViaPortal(ctx) {
       // the current planning surface.
       return mergePortalChoiceOptions(current, refreshed);
     };
-    const askCandidate = async (questions, current = snapshot) => {
+    // The questions the decision engine already decided or left in this run: each is tried once.
+    const engineTried = new Set();
+    const askCandidate = async (questions, current = snapshot, { decide = false } = {}) => {
       const questionSnapshot = await snapshotWithPortalOptions(current);
       const requirements = portalRequirementsFromMissingRequired(questionSnapshot.fields, questions, {
         candidate: ctx.candidate,
@@ -7397,6 +7678,23 @@ export async function submitViaPortal(ctx) {
       }
       if (!request) return null;
       if (request.handoff) return await handoff(request.handoff);
+      // The decision engine before the candidate (owner mandate 2026-11-10, lib/decision-answers.mjs): what it
+      // decides by the owner's principles joins the platform's proposals and the page is planned again, so the
+      // planner fills it; only what it leaves (CANDIDATE_ONLY_CATEGORIES, failed checks) reaches the candidate.
+      if (decide) {
+        const fresh = (request.questions || []).filter((question) => !engineTried.has(portalQuestionKey(question) || question.id));
+        for (const question of fresh) engineTried.add(portalQuestionKey(question) || question.id);
+        const engine = fresh.length
+          ? await decideLiveQuestions({ questions: fresh, candidate: ctx.candidate, codex: ctx.codex, log })
+          : { ids: [], decisions: [] };
+        if (engine.decisions.length) (evidence.steps.at(-1).decisions ||= []).push(...engine.decisions);
+        if (engine.ids.length) {
+          const facts = ctx.candidate.platformFacts;
+          facts.decisionAnswers = { ...(facts.decisionAnswers || {}), ...engine.decided };
+          log(`decision engine: ${engine.ids.length} of ${fresh.length} questions decided, planning again`);
+          return { replan: true };
+        }
+      }
       return {
         event: {
           type: 'submit_needs_candidate',
@@ -7405,6 +7703,44 @@ export async function submitViaPortal(ctx) {
         },
         evidence,
       };
+    };
+
+    // Passwords handleAuth typed in this run (generated or stored): struck from the agent's snapshot.
+    const authSecrets = new Set();
+    const authAgentTried = new Set();
+    /**
+     * The agentic fallback on an account page that stopped on a technical stop. It never presses an
+     * account button (AUTH_AGENT_RESERVED_BUTTONS) nor types a password (agent.mjs refuses both);
+     * what the candidate data does not say becomes a candidate question (askCandidate). On the same,
+     * stable account page it hands back to handleAuth, whose guards decide the click.
+     * @returns {Promise<{status:string, auth?:object, request?:object}>}
+     */
+    const recoverAuthWithAgent = async (stopped) => {
+      const startUrl = page.url();
+      const current = await extractFields(page, NAVIGATION).catch(() => null);
+      if (!current || !current.passwordVisible || !['create', 'sign_in'].includes(authPageKind(current))) return { status: 'not_account_page' };
+      const key = `${startUrl}|${authPageKind(current)}|${stopped.authStop}`;
+      if (authAgentTried.has(key)) return { status: 'already_tried' };
+      authAgentTried.add(key);
+      const agent = await runAgent(current, authPageKind(current) === 'sign_in' ? 'sign_in_incomplete' : 'registration_incomplete', {
+        secrets: [...authSecrets],
+        reservedButtons: AUTH_AGENT_RESERVED_BUTTONS,
+      });
+      if (!agent) return { status: 'unavailable' };
+      if (agent.status === 'needs_candidate') {
+        const request = await askCandidate(agent.questions, current);
+        return request ? { status: agent.status, request } : { status: agent.status };
+      }
+      const acted = (agent.evidence?.rounds || []).some((round) => (round.actions || []).some((action) => action.ok));
+      if (agent.status === 'unavailable' || (agent.status !== 'done' && !acted)) return { status: agent.status };
+      // The agent may not leave the page: whatever it pressed that moved it is not retried here.
+      if (agent.moved || page.url() !== startUrl) return { status: 'moved' };
+      const stable = await waitForStableQuestionSurface(page, current, startUrl, { registration: true });
+      if (stable.status !== 'stable' || !stable.snapshot.passwordVisible || authPageKind(stable.snapshot) !== authPageKind(current)) {
+        return { status: agent.status };
+      }
+      const auth = await handleAuth({ page, snapshot: stable.snapshot, ctx, diagnostics, typedSecrets: authSecrets });
+      return { status: agent.status, auth };
     };
 
     let loopAttemptStarted = false;
@@ -7443,7 +7779,7 @@ export async function submitViaPortal(ctx) {
           kind: 'otp_verification',
           outcome: auth.handoff || 'ok',
         };
-        if (auth.handoff) return await handoff(auth.handoff, { accountFailure: auth.accountFailure });
+        if (auth.handoff) return await handoff(auth.handoff, { accountFailure: auth.accountFailure, valueShapes: auth.valueShapes });
         snapshot = auth.snapshot;
         if (auth.reopen && !hasApplicationForm(snapshot) && !findButton(snapshot.buttons, NEXT_RE) && !findButton(snapshot.buttons, SUBMIT_RE)) {
           await page.goto(entryUrl, { waitUntil: 'domcontentloaded', timeout: 60_000 });
@@ -7510,8 +7846,27 @@ export async function submitViaPortal(ctx) {
         if (!ctx.accounts) return await handoff('account', { accountFailure: accountFailure('unknown', 'login') });
         if (++authSteps > MAX_AUTH_STEPS) return await handoff('account', { accountFailure: accountFailure('auth_steps_exhausted', 'login') });
         let auth;
+        let agentRecovery = null;
         try {
-          auth = await handleAuth({ page, snapshot, ctx, diagnostics });
+          auth = await handleAuth({ page, snapshot, ctx, diagnostics, typedSecrets: authSecrets });
+          // A technical stop of the account page (AUTH_AGENT_RECOVERABLE_STOPS) gets the agentic
+          // fallback once per page and stop before the owner does: the agent fills fields only,
+          // then the deterministic path runs again on a stable re-read. Its own outcome stands
+          // unless it stops again on a technical stop: the owner then gets the original handoff.
+          if (isAgentRecoverableAuthStop(auth)) {
+            const stopped = auth;
+            agentRecovery = { stop: stopped.authStop, status: 'not_run' };
+            const recovered = await recoverAuthWithAgent(stopped);
+            agentRecovery.status = recovered.status;
+            if (recovered.request) {
+              evidence.steps.at(-1).auth = { kind: authPageKind(snapshot), outcome: 'questions', agentRecovery };
+              return recovered.request;
+            }
+            if (recovered.auth && !isAgentRecoverableAuthStop(recovered.auth)) {
+              auth = recovered.auth;
+              agentRecovery.outcome = auth.handoff || 'ok';
+            }
+          }
         } catch (error) {
           // A control of the account page that could not be pressed or typed into (covered by a dialog,
           // redrawn away): another run finds the same page. Thrown, it ended the run with no page kept
@@ -7531,11 +7886,13 @@ export async function submitViaPortal(ctx) {
         evidence.steps.at(-1).auth = {
           kind: authPageKind(snapshot),
           outcome: auth.handoff || (auth.questions?.length || auth.documents?.length ? 'questions' : auth.dryRun ? 'dry_run' : 'ok'),
+          ...(auth.authStop ? { stop: auth.authStop } : {}),
+          ...(agentRecovery ? { agentRecovery } : {}),
           ...(auth.privacy ? { privacy: auth.privacy } : {}),
           // How the sign-in button was found (clickButton): by id, again after a redraw, or scoped role.
           ...(auth.pressed ? { pressed: auth.pressed } : {}),
         };
-        if (auth.handoff) return await handoff(auth.handoff, { accountFailure: auth.accountFailure });
+        if (auth.handoff) return await handoff(auth.handoff, { accountFailure: auth.accountFailure, valueShapes: auth.valueShapes });
         if (auth.questions?.length || auth.documents?.length) return {
           event: {
             type: 'submit_needs_candidate', questions: auth.questions || [], documents: auth.documents || [],
@@ -7770,7 +8127,11 @@ export async function submitViaPortal(ctx) {
           const field = action && snapshot.fields.find((item) => item.id === result.fieldId);
           if (!field || field.inputType === 'password') continue;
           const answer = { upload: uploadLabel(action.document, ctx.candidate), check: '✓', uncheck: '✗' }[action.action] ?? action.value;
-          record(field.label || field.name || field.id, answer, action.source, field.context, field.section, field.autocomplete, field);
+          const isCheckboxAction = ['check', 'uncheck'].includes(action.action);
+          const plannerAnswer = !isCheckboxAction ? undefined
+            : ['answers', 'candidate', 'user'].includes(action.source)
+              ? (action.action === 'check' ? 'ja' : 'nein') : null;
+          record(field.label || field.name || field.id, answer, action.source, field.context, field.section, field.autocomplete, field, plannerAnswer);
         }
         evidence.steps.at(-1).actions = actions.map(({ fieldId, action, source, document }) => ({ fieldId, action, source, document }));
         evidence.steps.at(-1).failures = results.filter((result) => !result.ok);
@@ -7849,7 +8210,9 @@ export async function submitViaPortal(ctx) {
               unclearQuestions = candidateQuestions;
               agentHint = 'unclear_fields';
             } else {
-              const request = await askCandidate(candidateQuestions, snapshot);
+              const request = await askCandidate(candidateQuestions, snapshot, { decide: true });
+              // Planned again without spending a step: each question goes to the engine once (engineTried).
+              if (request?.replan) { step -= 1; continue; }
               if (request) return request;
             }
           }
@@ -8131,6 +8494,16 @@ export async function submitViaPortal(ctx) {
         return { event: { type: 'submit_succeeded', channel: 'portal' }, evidence };
       }
       if (outcome === 'captcha') return await handoff('captcha');
+      if (outcome === 'review_pending') {
+        // Not an unknown outcome: the portal's review page says the
+        // application still waits for its own final button. Release the
+        // claim as not sent, then let the loop bind and guard that button.
+        if (ctx.onConfirmedNotSent) await ctx.onConfirmedNotSent({ reason: 'portal_review_pending' });
+        if (reviewAdvances >= 1) return await handoff('application_stage_unknown');
+        reviewAdvances += 1;
+        snapshot = await extractFields(page);
+        continue;
+      }
       if (outcome === 'validation' && validationRetries < 1) {
         if (ctx.onConfirmedNotSent) await ctx.onConfirmedNotSent({ reason: 'portal_validation' });
         validationRetries += 1;

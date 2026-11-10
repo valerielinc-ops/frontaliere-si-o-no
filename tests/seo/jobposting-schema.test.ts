@@ -265,7 +265,8 @@ describe('buildJobPostingSchema — partial input (missing address + salary)', (
     });
     expect(schema.baseSalary).toMatchObject({ value: { minValue: 61000, maxValue: 77000 } });
     expect(schema.employmentType).toEqual(['FULL_TIME', 'TEMPORARY']);
-    expect(schema.validThrough).toBe(new Date(sourceValidThrough).toISOString());
+    // A date-only source deadline closes at the end of that day.
+    expect(schema.validThrough).toBe(`${sourceValidThrough}T23:59:59.999Z`);
   });
 
   it('uses the curated HQ tuple only in the HQ city and only as a whole', () => {
@@ -316,32 +317,37 @@ describe('buildJobPostingSchema — missing publication under different build cl
 });
 
 describe('buildJobPostingSchema — application destination', () => {
-  it('keeps directApply false when only an applyUrl is available without employer proof', () => {
+  // Owner decision 2026-11-10: every ACTIVE job page offers the site's
+  // assisted application, so the page is the application flow whatever the
+  // employer's apply destination is.
+  it.each([
+    ['no apply URL at all', {}],
+    ['an aggregator apply URL without employer proof', { applyUrl: 'https://jobs.example.test/application/123' }],
+    ['a hosted ATS destination', { companyDomain: 'example.com', applyUrl: 'https://example.wd5.myworkdayjobs.com/en-US/careers/job/123' }],
+    ['an employer-owned apply URL', { companyDomain: 'example.com', applyUrl: 'https://careers.example.com/application/123' }],
+  ] as const)('declares directApply true on an active posting with %s', (_label, applyFields) => {
+    const schema = buildJobPostingSchema({
+      ...applyFields,
+      title: 'Operatore sanitario',
+      description:
+        'Descrizione sufficientemente lunga per verificare il percorso di candidatura assistita del lavoro.',
+      company: 'Esempio SA',
+    }, OPTS);
+    expect(schema.directApply).toBe(true);
+  });
+
+  it('lets an archived caller state its own directApply value', () => {
     const schema = buildJobPostingSchema({
       title: 'Operatore sanitario',
       description:
         'Descrizione sufficientemente lunga per verificare il percorso di candidatura esterno del lavoro.',
       company: 'Esempio SA',
       applyUrl: 'https://jobs.example.test/application/123',
-      url: '',
-    }, OPTS);
+    }, { ...OPTS, directApply: false });
     expect(schema.directApply).toBe(false);
   });
 
-  it('marks a same-organisation application subdomain as direct apply', () => {
-    const schema = buildJobPostingSchema({
-      title: 'Operatore sanitario',
-      description:
-        'Descrizione sufficientemente lunga per verificare il percorso di candidatura esterno del lavoro.',
-      company: 'Esempio SA',
-      companyDomain: 'example.com',
-      applyUrl: 'https://careers.example.com/application/123',
-      url: 'https://www.example.com/jobs/123',
-    }, OPTS);
-    expect(schema.directApply).toBe(true);
-  });
-
-  it('keeps the typed applyUrl/companyDomain pair through the slim boundary', () => {
+  it('keeps the typed applyUrl/companyDomain ownership check through the slim boundary', () => {
     const directApplyFields: Pick<JobInput, 'applyUrl' | 'companyDomain'> = {
       applyUrl: 'https://careers.example.com/application/123',
       companyDomain: 'example.com',
@@ -349,26 +355,8 @@ describe('buildJobPostingSchema — application destination', () => {
 
     expect(SLIM_INDEX_FIELDS.has('applyUrl')).toBe(true);
     expect(isEmployerOwnedApplyUrl(directApplyFields)).toBe(true);
-    expect(buildJobPostingSchema({
-      ...directApplyFields,
-      title: 'Operatore sanitario',
-      description:
-        'Descrizione sufficientemente lunga per verificare il percorso tipizzato di candidatura diretta.',
-      company: 'Esempio SA',
-    }, OPTS).directApply).toBe(true);
-  });
-
-  it('does not label a hosted ATS destination as employer direct apply', () => {
-    const schema = buildJobPostingSchema({
-      title: 'Operatore sanitario',
-      description:
-        'Descrizione sufficientemente lunga per verificare il percorso di candidatura esterno del lavoro.',
-      company: 'Esempio SA',
-      companyDomain: 'example.com',
-      applyUrl: 'https://example.wd5.myworkdayjobs.com/en-US/careers/job/123',
-      url: 'https://www.example.com/jobs/123',
-    }, OPTS);
-    expect(schema.directApply).toBe(false);
+    expect(isEmployerOwnedApplyUrl({ ...directApplyFields, applyUrl: 'https://example.wd5.myworkdayjobs.com/x' })).toBe(false);
+    expect(isEmployerOwnedApplyUrl({ applyUrl: 'https://jobs.example.test/application/123' })).toBe(false);
   });
 
   it('keeps the raw ownership domain separate from hiringOrganization.sameAs', () => {
@@ -786,8 +774,17 @@ describe('buildJobPostingSchema — bounded validThrough coverage', () => {
     const now = new Date('2026-10-26T00:00:00.000Z');
     const fromCrawl = buildJobPostingSchema(job({ crawledAt: '2026-10-01T00:00:00.000Z', postedDate: '2026-09-01' }), { ...OPTS, now });
     expect(fromCrawl.validThrough).toBe('2026-11-30T00:00:00.000Z');
+    const fromRecentPost = buildJobPostingSchema(job({ postedDate: '2026-10-20' }), { ...OPTS, now });
+    expect(fromRecentPost.validThrough).toBe('2027-01-18T00:00:00.000Z');
+  });
+
+  it('never emits an active posting whose publication cap already lapsed', () => {
+    // Before 2026-11-10 this asserted '2025-12-19' at a 2026-10-26 build: an
+    // active page published an already-expired JobPosting. A lapsed window
+    // yields to the bounded build-clock window instead.
+    const now = new Date('2026-10-26T00:00:00.000Z');
     const fromPosted = buildJobPostingSchema(job({ postedDate: '2025-09-20' }), { ...OPTS, now });
-    expect(fromPosted.validThrough).toBe('2025-12-19T00:00:00.000Z');
+    expect(fromPosted.validThrough).toBe(new Date(now.getTime() + 90 * 86400000).toISOString());
   });
 
   it('keeps a future source deadline verbatim', () => {
@@ -797,7 +794,7 @@ describe('buildJobPostingSchema — bounded validThrough coverage', () => {
 
   it('replaces an expired source date with the honest last-observation window', () => {
     const explicitPast = daysAgoIso(120);
-    const observedAt = daysAgoIso(200);
+    const observedAt = daysAgoIso(10);
     const schema = buildJobPostingSchema(
       job({
         validThrough: explicitPast,
@@ -807,6 +804,22 @@ describe('buildJobPostingSchema — bounded validThrough coverage', () => {
       OPTS,
     );
     expect(schema.validThrough).toBe(new Date(Date.parse(observedAt) + 89 * 86400000).toISOString());
+  });
+
+  it('falls back to the bounded build-clock window when the observation window lapsed', () => {
+    // An observation 200 days old gives observedAt + 89d, i.e. a deadline in
+    // the past on a page that still presents the offer as open.
+    const now = new Date();
+    const observedAt = daysAgoIso(200);
+    const schema = buildJobPostingSchema(
+      job({
+        validThrough: daysAgoIso(120),
+        postedDate: new Date(Date.parse(observedAt) - 86_400_000).toISOString(),
+        crawledAt: observedAt,
+      }),
+      { ...OPTS, now },
+    );
+    expect(schema.validThrough).toBe(new Date(now.getTime() + 90 * 86400000).toISOString());
   });
 });
 

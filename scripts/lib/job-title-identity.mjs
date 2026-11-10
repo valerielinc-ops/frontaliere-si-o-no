@@ -1,23 +1,32 @@
 /**
- * Job title identity — the employer's own title, shown unchanged in every
- * locale variant of a job page.
+ * Job title identity and presentation.
  *
- * Decision (owner, SEO plan 2026-10-23): the language variants of a job page
- * (/en/, /de/, /fr/ and the Italian page of a non-Italian posting) translate
- * the INTERFACE, never the employer's job title. The machine-translated
- * `titleByLocale` slots stay in the data (search aliases and slug history read
- * them) but are no longer what a reader or a crawler sees as the title:
+ * Two different questions, two functions:
  *
- *   "Macchinista M1, M2,M3"      → EN/DE/FR slot "M1, M2"   (trade dropped)
- *   "Macchinista M1"             → EN "Knife M1", DE "Messer M1"
- *   "Collaboratore/trice dell'economia domestica"
- *                                → DE "Beitragszahler/Titel der Binnenwirtschaft"
+ *   - IDENTITY — `originalJobTitle` / `jobDisplayTitle` (no locale): the title
+ *     as the employer published it. Dedup, matching, slug repair, search
+ *     aliases and the non-localized channels (emails, chatbot) key on this
+ *     value; it never changes with the reader's language.
+ *   - PRESENTATION — `localizedJobDisplayTitle(job, locale)`: the title a page
+ *     in `locale` shows (<title>, og/twitter, H1, breadcrumb, meta
+ *     description, JobPosting.title, hub ItemList names, SPA view).
  *
- * The repo's own audit (`scripts/audit-job-title-locale.mjs`) measured roughly
- * a third of the non-source title slots as wrong-language on 2026-08-11, and
- * the defects above are not wrong-language at all — they are wrong meaning,
- * which no lexical detector can see. The original title is the only value
- * that is right by construction.
+ * Decision (owner, 2026-11-10 — supersedes the SEO-plan decision of
+ * 2026-10-23 that showed the employer's original title in every locale): a
+ * job page shows its title IN THE LANGUAGE OF THE PAGE, i.e. the translated
+ * `titleByLocale[locale]` slot — the same slot the locale slug is derived
+ * from. The original title is the fallback ONLY when the locale has no usable
+ * translation:
+ *
+ *   - `missing`   — no `titleByLocale[locale]` slot (or an empty one);
+ *   - `truncated` — the slot is a TRUNCATION of the source title rather than a
+ *     translation ("M1, M2" for "Macchinista M1, M2,M3",
+ *     `localeTitleDropsSourceWords`): the slug writers already refuse that
+ *     slot (`losslessSlugTitle`), so the page title follows the slug.
+ *
+ * Locale-flattened records (slim index, SPA seed) carry no `titleByLocale`:
+ * their `title` IS the localized title written by `buildLocaleJob`, so the
+ * presentation function returns it as is.
  *
  * Dependency-free on purpose: imported by the SSG plugins, the SPA and the
  * Node slug writers (`scripts/regenerate-slugs-by-locale.mjs`).
@@ -95,8 +104,9 @@ export function originalJobTitle(job) {
 }
 
 /**
- * The title every locale variant of a job page displays: the original title,
- * with back-to-back repeated words collapsed.
+ * The employer's original title with back-to-back repeated words collapsed.
+ * Locale-independent: use it for identity and for channels that have no page
+ * language. A page in a locale displays `localizedJobDisplayTitle` instead.
  *
  * @param {unknown} job
  * @returns {string}
@@ -105,10 +115,77 @@ export function jobDisplayTitle(job) {
   return dedupeAdjacentTitleWords(originalJobTitle(job));
 }
 
+function shortLocale(locale) {
+  return clean(locale).toLowerCase().split(/[-_]/)[0];
+}
+
 /**
- * Search text for a job title. The employer title is what the UI displays,
- * while every localized slot remains a search alias so a query in the locale's
- * language still finds the job.
+ * A machine translation sometimes closes the title with a sentence period
+ * ("Carpentiere per lavori di assistenza e manutenzione.") that the employer's
+ * title does not have. Drop that one period. Kept: a short abbreviation
+ * ("… Dipl.", "… dott."), a compound abbreviation ("… Dipl.-Ing.", "… Kaufm.-techn."),
+ * a period the source also ends with, and any final word the source itself
+ * writes with a period (a long abbreviation copied untranslated, "… Kaufm.").
+ */
+function dropTranslationPeriod(translated, sourceTitle) {
+  if (!/[\p{L}\p{N})]{5,}\.$/u.test(translated)) return translated;
+  const source = clean(sourceTitle);
+  if (source.endsWith('.')) return translated;
+  const lastWord = translated.split(' ').pop() || '';
+  if (/[.\-]/u.test(lastWord.slice(0, -1))) return translated;
+  if (source.split(' ').some((word) => word.toLowerCase() === lastWord.toLowerCase())) return translated;
+  return translated.slice(0, -1).trimEnd();
+}
+
+/**
+ * Which title a page in `locale` shows, and why.
+ *
+ * @param {unknown} job
+ * @param {string} locale  page locale (`it`, `en`, `de`, `fr`; `de-CH` accepted)
+ * @returns {{ title: string, source: 'translation' | 'original', reason: 'translated' | 'flattened' | 'missing' | 'truncated' }}
+ */
+export function localizedJobTitleResolution(job, locale) {
+  const original = jobDisplayTitle(job);
+  if (!job || typeof job !== 'object') return { title: original, source: 'original', reason: 'missing' };
+  const byLocale = job.titleByLocale && typeof job.titleByLocale === 'object' ? job.titleByLocale : null;
+  if (!byLocale) {
+    // Locale-flattened record: `title` already is the locale's title.
+    const flattened = dedupeAdjacentTitleWords(clean(job.title));
+    return flattened
+      ? { title: flattened, source: 'translation', reason: 'flattened' }
+      : { title: original, source: 'original', reason: 'missing' };
+  }
+  const translated = clean(byLocale[shortLocale(locale)]);
+  if (!translated) return { title: original, source: 'original', reason: 'missing' };
+  const sourceTitle = originalJobTitle(job);
+  if (localeTitleDropsSourceWords(translated, sourceTitle)) {
+    return { title: original, source: 'original', reason: 'truncated' };
+  }
+  const title = dedupeAdjacentTitleWords(dropTranslationPeriod(translated, sourceTitle));
+  return title
+    ? { title, source: 'translation', reason: 'translated' }
+    : { title: original, source: 'original', reason: 'missing' };
+}
+
+/**
+ * decisione del proprietario 2026-11-10: titolo nella lingua della pagina; supera #15094.
+ *
+ * The title a job page (or any job surface) in `locale` displays: the
+ * translated title, falling back to the employer's original only when the
+ * locale has no usable translation (see `localizedJobTitleResolution`).
+ *
+ * @param {unknown} job
+ * @param {string} locale
+ * @returns {string}
+ */
+export function localizedJobDisplayTitle(job, locale) {
+  return localizedJobTitleResolution(job, locale).title;
+}
+
+/**
+ * Search text for a job title: the employer's original title plus every
+ * localized slot as a search alias, so a query in any language finds the job
+ * whichever title the page displays.
  *
  * @param {unknown} job
  * @returns {string}

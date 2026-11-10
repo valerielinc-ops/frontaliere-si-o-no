@@ -1,7 +1,7 @@
 {
   "crawlerKey": "zaugg",
-  "assembledAt": "2026-11-09T09:51:23.008Z",
-  "runId": "42593191622",
+  "assembledAt": "2026-11-09T21:44:22.876Z",
+  "runId": "42702345348",
   "jobs": [
     {
       "id": "zaugg-497e71aa8479",
@@ -34,7 +34,7 @@
       "url": "https://www.zaugg.swiss/?section=2250&language=de_DE&itemid1541=3728&detail1541=1",
       "source": "ZAUGG AG official careers page",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:51:16.660Z",
+      "crawledAt": "2026-11-09T21:44:15.953Z",
       "addressLocality": "Eggiwil",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -77,9 +77,23 @@
           "unitText": "YEAR"
         }
       },
-      "streetAddress": "Eggiwil",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-09T09:51:16.660Z",
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "ZAUGG AG",
+        "streetAddress": "Holzmatt 651b",
+        "postalCode": "3537",
+        "registeredName": "ZAUGG AG",
+        "matchType": "exact",
+        "streetAddressSource": "zefix-registry",
+        "jobPostalCode": "3537",
+        "addressLocality": "Eggiwil",
+        "addressRegion": "BE",
+        "checkedAt": "2026-11-09T15:45:02.704Z"
+      },
+      "streetAddress": "Holzmatt 651b",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-12-09T21:44:15.953Z",
       "validThroughSource": "last-observed-window"
     }
   ]

@@ -21,7 +21,7 @@ import {
 } from '../../build-plugins/borderWaitData.ts';
 import { fmtMinutes } from '../../services/borderWaitFormat.ts';
 import { SITE_URL, buildArticleUrl, MONTHS_IT } from './social-post-utils.mjs';
-import { escapeHtml } from './telegram-client.mjs';
+import { escapeHtml, TELEGRAM_MESSAGE_MAX } from './telegram-client.mjs';
 import { telegramUrl, TELEGRAM_CAMPAIGN_BORDER } from './telegram-links.mjs';
 import { isGeneratedSocialCopyMode, socialCopyTrackingContent } from './social-copy-pack.mjs';
 import {
@@ -60,51 +60,7 @@ function crossingLine(entry, index, socialCopy) {
   return `${index + 1}. <a href="${href}">${name}</a> — ${escapeHtml(fmtMinutes(entry.avgMinutes))}`;
 }
 
-/**
- * Build the weekly border-ranking message from the on-disk history dir.
- * Returns `{ text:'', rankedCount:0 }` (caller skips) when there is not yet
- * enough data to rank at least two crossings — a broadcast should stay silent
- * rather than post an empty "no data" week.
- *
- * @param {{ historyDir: string, todayIso?: string, days?: number }} opts
- * @returns {{ text: string, rankedCount: number, weekStart: string, weekEnd: string }}
- */
-export function buildWeeklyBorderDigest({ historyDir, todayIso, days = DEFAULT_WINDOW_DAYS, socialCopy } = {}) {
-  const iso = todayIso || new Date().toISOString().slice(0, 10);
-  const ranking = computeRanking(historyDir, iso, { days });
-  // "Classifica dogane Ticino" broadcast is Ticino-branded — the display-name
-  // truthiness check used to double as the Ticino-only filter back when the
-  // registry only covered 26 Ticino crossings. Now that it covers 134
-  // (108 non-Ticino Germany/Austria/Liechtenstein/France crossings added,
-  // #4952/#4889), every crossing has a display name, so that check no
-  // longer excludes them. Filter explicitly instead (same class of bug as
-  // border-wait-ranking-content.mjs `known`, #4952).
-  const known = ranking.filter((r) => BORDER_CROSSING_DISPLAY[r.slug] && isTicinoCrossing(r.slug));
-  const { weekStart, weekEnd } = computeWeekWindow(iso, days);
-
-  if (known.length < 2) {
-    return { text: '', rankedCount: known.length, weekStart, weekEnd };
-  }
-
-  const fastest = known.slice(0, TELEGRAM_BORDER_TOP);
-  const slowest = known.slice(-TELEGRAM_BORDER_TOP).reverse();
-  const funFacts = computeFunFacts(known);
-  const generatedCopy = isGeneratedSocialCopyMode(socialCopy?.copyMode) ? socialCopy : null;
-
-  const rawArticleUrl = buildArticleUrl('frontaliere', RANKING_ARTICLE_SLUGS.it);
-  const articleUrl = rawArticleUrl
-    ? telegramUrl(
-        rawArticleUrl,
-        TELEGRAM_CAMPAIGN_BORDER,
-        socialCopyTrackingContent('ranking_article', generatedCopy),
-      )
-    : rawArticleUrl;
-  const hubUrl = telegramUrl(
-    `${SITE_URL}${buildRootHubPath('it')}`,
-    TELEGRAM_CAMPAIGN_BORDER,
-    socialCopyTrackingContent('live_hub', generatedCopy),
-  );
-
+function renderBorderDigest({ weekStart, weekEnd, fastest, slowest, funFacts, articleUrl, hubUrl, generatedCopy }) {
   const parts = [
     `🚧 <b>Classifica dogane Ticino</b> — settimana del ${escapeHtml(humanRangeIt(weekStart, weekEnd))}`,
     '',
@@ -135,8 +91,136 @@ export function buildWeeklyBorderDigest({ historyDir, todayIso, days = DEFAULT_W
     `🚦 <a href="${escapeHtml(hubUrl)}">Traffico live alle dogane</a>`,
   );
 
+  return parts.filter((line) => line !== undefined && line !== null).join('\n');
+}
+
+function copyPrefix(value, length) {
+  return Array.from(String(value ?? '')).slice(0, length).join('');
+}
+
+/**
+ * Fit untrusted/generated copy before the ranking loop can settle on one
+ * crossing. The fixed digest (including both CTA anchors) must remain intact;
+ * only the dynamic hook and article CTA label may be shortened.
+ */
+function fitGeneratedCopyToTelegramLimit({ generatedCopy, render }) {
+  if (!generatedCopy || render(generatedCopy).length <= TELEGRAM_MESSAGE_MAX) return generatedCopy;
+
+  let bounded = { ...generatedCopy };
+  for (const field of ['hook', 'cta']) {
+    const value = String(bounded[field] ?? '');
+    const characters = Array.from(value);
+    const candidate = (length) => ({
+      ...bounded,
+      [field]: copyPrefix(value, length),
+    });
+    let best = '';
+
+    // An empty CTA uses the deterministic fallback label. Check it separately
+    // because the fallback can be longer than a one-character generated label.
+    if (render(candidate(0)).length <= TELEGRAM_MESSAGE_MAX) best = '';
+    if (characters.length > 0 && render(candidate(1)).length <= TELEGRAM_MESSAGE_MAX) {
+      best = candidate(1)[field];
+      let low = 2;
+      let high = characters.length;
+      while (low <= high) {
+        const middle = Math.floor((low + high) / 2);
+        const current = candidate(middle);
+        if (render(current).length <= TELEGRAM_MESSAGE_MAX) {
+          best = current[field];
+          low = middle + 1;
+        } else {
+          high = middle - 1;
+        }
+      }
+    }
+
+    bounded = { ...bounded, [field]: best };
+    if (render(bounded).length <= TELEGRAM_MESSAGE_MAX) return bounded;
+  }
+
+  // The normal deterministic digest is bounded by the source data. If a
+  // malformed generated object still cannot fit, drop only that copy so the
+  // fixed message and both links are not handed to sendMessage for truncation.
+  return render(null).length <= TELEGRAM_MESSAGE_MAX ? null : bounded;
+}
+
+/**
+ * Build the weekly border-ranking message from the on-disk history dir.
+ * Returns `{ text:'', rankedCount:0 }` (caller skips) when there is not yet
+ * enough data to rank at least two crossings — a broadcast should stay silent
+ * rather than post an empty "no data" week.
+ *
+ * @param {{ historyDir: string, todayIso?: string, days?: number }} opts
+ * @returns {{ text: string, rankedCount: number, weekStart: string, weekEnd: string }}
+ */
+export function buildWeeklyBorderDigest({ historyDir, todayIso, days = DEFAULT_WINDOW_DAYS, socialCopy } = {}) {
+  const iso = todayIso || new Date().toISOString().slice(0, 10);
+  const ranking = computeRanking(historyDir, iso, { days });
+  // "Classifica dogane Ticino" broadcast is Ticino-branded — the display-name
+  // truthiness check used to double as the Ticino-only filter back when the
+  // registry only covered 26 Ticino crossings. Now that it covers 134
+  // (108 non-Ticino Germany/Austria/Liechtenstein/France crossings added,
+  // #4952/#4889), every crossing has a display name, so that check no
+  // longer excludes them. Filter explicitly instead (same class of bug as
+  // border-wait-ranking-content.mjs `known`, #4952).
+  const known = ranking.filter((r) => BORDER_CROSSING_DISPLAY[r.slug] && isTicinoCrossing(r.slug));
+  const { weekStart, weekEnd } = computeWeekWindow(iso, days);
+
+  if (known.length < 2) {
+    return { text: '', rankedCount: known.length, weekStart, weekEnd };
+  }
+
+  const funFacts = computeFunFacts(known);
+  const generatedCopy = isGeneratedSocialCopyMode(socialCopy?.copyMode) ? socialCopy : null;
+
+  const rawArticleUrl = buildArticleUrl('frontaliere', RANKING_ARTICLE_SLUGS.it);
+  const articleUrl = rawArticleUrl
+    ? telegramUrl(
+        rawArticleUrl,
+        TELEGRAM_CAMPAIGN_BORDER,
+        socialCopyTrackingContent('ranking_article', generatedCopy),
+      )
+    : rawArticleUrl;
+  const hubUrl = telegramUrl(
+    `${SITE_URL}${buildRootHubPath('it')}`,
+    TELEGRAM_CAMPAIGN_BORDER,
+    socialCopyTrackingContent('live_hub', generatedCopy),
+  );
+
+  const oneEntryArgs = {
+    weekStart,
+    weekEnd,
+    fastest: known.slice(0, 1),
+    slowest: known.slice(-1).reverse(),
+    funFacts,
+    articleUrl,
+    hubUrl,
+  };
+  const generatedCopyForRender = fitGeneratedCopyToTelegramLimit({
+    generatedCopy,
+    render: (copy) => renderBorderDigest({ ...oneEntryArgs, generatedCopy: copy }),
+  });
+
+  let visibleTop = TELEGRAM_BORDER_TOP;
+  let text = '';
+  do {
+    text = renderBorderDigest({
+      weekStart,
+      weekEnd,
+      fastest: known.slice(0, visibleTop),
+      slowest: known.slice(-visibleTop).reverse(),
+      funFacts,
+      articleUrl,
+      hubUrl,
+      generatedCopy: generatedCopyForRender,
+    });
+    if (text.length <= TELEGRAM_MESSAGE_MAX || visibleTop === 1) break;
+    visibleTop -= 1;
+  } while (visibleTop > 0);
+
   return {
-    text: parts.filter((line) => line !== undefined && line !== null).join('\n'),
+    text,
     rankedCount: known.length,
     weekStart,
     weekEnd,

@@ -21,6 +21,10 @@ export const SOCKET_TIMEOUT_MS = 30_000;
 export const CHILD_TIMEOUT_MS = 120_000;
 export const RESPONSE_TIMEOUT_MS = SOCKET_TIMEOUT_MS + CHILD_TIMEOUT_MS;
 export const SHUTDOWN_TIMEOUT_MS = FORCE_KILL_GRACE_MS + 500;
+// The sibling scan is advisory: the satisfiable enforcement point is the PR
+// creation gate. Keep a slow scan from consuming the Codex delivery watchdog
+// after the model has already finished the fix and is trying to push it.
+export const REMOTE_PRE_PUSH_CHECK_TIMEOUT_MS = 5_000;
 
 const allowedCommands = new Set(['push', 'fetch', 'pull', 'ls-remote']);
 const blockedGlobalOptions = new Set(['-C', '-c', '--git-dir', '--work-tree', '--namespace', '--exec-path', '--config-env', '--config', '--global', '--system', '--local', '--worktree', '--upload-pack', '--receive-pack']);
@@ -209,7 +213,10 @@ function safeExpectedRemote(value) {
 }
 
 /** Replace the model's mutable `origin` lookup with the host-approved URL. */
-export function buildGitNetworkArgs(args, expectedRemote, { allowedWorkBranch = '' } = {}) {
+export function buildGitNetworkArgs(args, expectedRemote, {
+  allowedWorkBranch = '',
+  partialCloneFilter = '',
+} = {}) {
   const remote = safeExpectedRemote(expectedRemote);
   if (!remote) {
     throw new Error('Git bridge expected remote is invalid');
@@ -227,6 +234,13 @@ export function buildGitNetworkArgs(args, expectedRemote, { allowedWorkBranch = 
   }
   if (remoteIndex >= 0) result[remoteIndex] = remote;
   else result.push(remote);
+  // A blobless/treeless checkout cannot safely construct a thin pack when a
+  // delta base is still behind the promisor boundary. The action deliberately
+  // keeps the partial-clone declaration in the host-side shadow; make the
+  // matching push invariant automatic instead of relying on model wording.
+  if (result[0] === 'push' && partialCloneFilter && !result.includes('--no-thin')) {
+    result.splice(1, 0, '--no-thin');
+  }
   return result;
 }
 
@@ -342,7 +356,13 @@ export function resolveCurrentWorkBranchRef({ realGit, cwd, env }) {
  * boundary. Repositories that do not ship the site hook/checker (for example
  * the corpus checkout) remain opt-out by construction.
  */
-export function runRemoteSiblingPrePush({ realGit, cwd, env, workBranchRef }) {
+export function runRemoteSiblingPrePush({
+  realGit,
+  cwd,
+  env,
+  workBranchRef,
+  siblingCheckTimeoutMs = REMOTE_PRE_PUSH_CHECK_TIMEOUT_MS,
+}) {
   const hook = path.join(cwd, '.githooks', 'pre-push');
   const checker = path.join(cwd, 'scripts', 'ci', 'check-sibling-patterns.mjs');
   if (!fs.existsSync(hook) || !fs.existsSync(checker)) {
@@ -388,10 +408,21 @@ export function runRemoteSiblingPrePush({ realGit, cwd, env, workBranchRef }) {
     env: checkerEnv,
     encoding: 'utf8',
     stdio: ['ignore', 'pipe', 'pipe'],
-    timeout: CHILD_TIMEOUT_MS,
+    timeout: siblingCheckTimeoutMs,
+    killSignal: 'SIGKILL',
     maxBuffer: MAX_OUTPUT_BYTES,
   });
   if (result.error) {
+    if (result.error.code === 'ETIMEDOUT' || result.signal === 'SIGKILL') {
+      return {
+        // This hook is advisory by contract. A large sibling scan must not
+        // turn a completed fix into a lost push when the Codex watchdog is
+        // already in its delivery tail.
+        code: 0,
+        stdout: String(result.stdout || ''),
+        stderr: `Codex Git bridge: advisory sibling pre-push check exceeded ${siblingCheckTimeoutMs}ms; continuing with the push\n`,
+      };
+    }
     return {
       code: 2,
       stdout: String(result.stdout || ''),
@@ -421,9 +452,11 @@ function main() {
   const configuredRemote = process.env.CODEX_GIT_REMOTE || expectedRemote;
   if (!socketPath || !token || !realGit || !cwd || !gitDir || !commonGitDir || !hostScratch || !expectedRemote || configuredRemote !== expectedRemote) process.exit(2);
   let shadowCommonDir;
+  let partialCloneFilter = '';
   try {
+    partialCloneFilter = readPartialCloneFilter(realGit, commonGitDir);
     shadowCommonDir = writeShadowCommonDir(hostScratch, commonGitDir, expectedRemote, {
-      partialCloneFilter: readPartialCloneFilter(realGit, commonGitDir),
+      partialCloneFilter,
     });
   } catch {
     process.exit(2);
@@ -556,7 +589,10 @@ function main() {
       client.setTimeout(RESPONSE_TIMEOUT_MS, timeoutClient);
       let childArgs;
       try {
-        childArgs = buildGitNetworkArgs(args, expectedRemote, { allowedWorkBranch });
+        childArgs = buildGitNetworkArgs(args, expectedRemote, {
+          allowedWorkBranch,
+          partialCloneFilter,
+        });
       } catch (error) {
         finish({ code: 2, stderr: `bridge request: ${error.message}\n` });
         return;

@@ -826,15 +826,18 @@ function fetchHttpsText(url, {
   ca,
   accept,
   retryOn404 = true,
+  cache,
   redirectsRemaining = 4,
 } = {}) {
   return new Promise((resolve, reject) => {
+    const headers = {
+      Accept: accept || 'text/html,application/xhtml+xml',
+      'User-Agent': userAgent || process.env.JOBS_CRAWLER_USER_AGENT || 'FrontaliereTicinoBot/1.0',
+      ...(cache === 'no-store' ? { 'Cache-Control': 'no-cache', Pragma: 'no-cache' } : {}),
+    };
     const request = https.request(url, {
       method: 'GET',
-      headers: {
-        Accept: accept || 'text/html,application/xhtml+xml',
-        'User-Agent': userAgent || process.env.JOBS_CRAWLER_USER_AGENT || 'FrontaliereTicinoBot/1.0',
-      },
+      headers,
       ca: [...tls.rootCertificates, ca].join('\n'),
     }, (response) => {
       const chunks = [];
@@ -850,6 +853,7 @@ function fetchHttpsText(url, {
             ca,
             accept,
             retryOn404,
+            cache,
             redirectsRemaining: redirectsRemaining - 1,
           }));
           return;
@@ -881,6 +885,7 @@ export async function fetchHtml(url, {
   ca,
   accept,
   retryOn404 = true,
+  cache,
 } = {}) {
   const maxRetries = Number.isInteger(retries) && retries >= 0 ? retries : 2;
   let lastError;
@@ -893,14 +898,17 @@ export async function fetchHtml(url, {
         // Keep custom-CA requests inside this retry loop. FR's SwissSign
         // certificate path uses `https.request`; returning it directly here
         // used to make one transient TLS timeout degrade the whole source.
-        return await fetchHttpsText(url, { timeoutMs, userAgent, ca, accept, retryOn404 });
+        return await fetchHttpsText(url, { timeoutMs, userAgent, ca, accept, retryOn404, cache });
       }
+      const headers = {
+        Accept: accept || 'text/html,application/xhtml+xml',
+        'User-Agent': userAgent || process.env.JOBS_CRAWLER_USER_AGENT || 'FrontaliereTicinoBot/1.0',
+        ...(cache === 'no-store' ? { 'Cache-Control': 'no-cache', Pragma: 'no-cache' } : {}),
+      };
       const response = await fetch(url, {
         redirect: 'follow',
-        headers: {
-          Accept: accept || 'text/html,application/xhtml+xml',
-          'User-Agent': userAgent || process.env.JOBS_CRAWLER_USER_AGENT || 'FrontaliereTicinoBot/1.0',
-        },
+        ...(cache ? { cache } : {}),
+        headers,
         signal: controller.signal,
       });
       if (!response.ok) {
@@ -1006,6 +1014,62 @@ export function resolveVariantPdfUrl(variant, { sourceKey, pageUrl, indexHtml })
     console.warn(`[plate-auctions:${sourceKey}] ${variant.pdfUrlPattern} matched no href on ${pageUrl}; falling back to the configured ${pdfUrl}`);
   }
   return normalizePlateAuctionUrl(pdfUrl);
+}
+
+function isHttpNotFound(error) {
+  return /\bHTTP\s+404\b/i.test(error instanceof Error ? error.message : String(error));
+}
+
+/**
+ * Fetch fixed-price PDFs from the official index, recovering one bounded
+ * publication race when a content-addressed link returns 404. BS rotates the
+ * hash and weekly filename in the page and on media.bs.ch separately; a page
+ * read can therefore advertise the new object while the CDN still answers
+ * 404, or can serve the old page after that object has been retired. Re-read
+ * the index once with cache bypass and accept only the same configured
+ * variant pattern. No pinned or unrelated PDF is ever substituted.
+ *
+ * `fetchPage` and `fetchPdf` are injectable because the deployed collector and
+ * the static collector use different fetch boundaries (the former also uses
+ * a response-type aware test/Cloud Function fetcher). Keeping the recovery
+ * here prevents the two consumers from drifting again.
+ */
+export async function fetchFixedPricePdfVariants({
+  sourceKey,
+  pageUrl,
+  variants,
+  fetchPage = fetchHtml,
+  fetchPdf = fetchPdfText,
+}) {
+  let indexHtml = await fetchPage(pageUrl);
+  const resolved = [];
+  for (const variant of variants) {
+    let pdfUrl = resolveVariantPdfUrl(variant, {
+      sourceKey,
+      pageUrl,
+      indexHtml,
+    });
+    let pdf;
+    try {
+      pdf = await fetchPdf(pdfUrl);
+    } catch (error) {
+      if (!isHttpNotFound(error)) throw error;
+      const refreshedIndexHtml = await fetchPage(pageUrl, { cache: 'no-store' });
+      const refreshedPdfUrl = resolveVariantPdfUrl(variant, {
+        sourceKey,
+        pageUrl,
+        indexHtml: refreshedIndexHtml,
+      });
+      console.warn(
+        `[plate-auctions:${sourceKey}] PDF returned HTTP 404; refreshed the official index before retrying ${refreshedPdfUrl}`,
+      );
+      indexHtml = refreshedIndexHtml;
+      pdfUrl = refreshedPdfUrl;
+      pdf = await fetchPdf(pdfUrl);
+    }
+    resolved.push({ variant, pdfUrl, pdf });
+  }
+  return resolved;
 }
 
 async function extractPdfText(arrayBuffer) {

@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-09T13:05:33.562Z",
+  "generatedAt": "2026-11-10T12:50:57.018Z",
   "windowDays": 7,
   "dutyHubPath": "/farmacie-di-turno/",
   "cantons": {
@@ -9,7 +9,7 @@
         "TI"
       ],
       "state": "fresh",
-      "fetchedAt": "2026-11-09T13:04:45.061Z",
+      "fetchedAt": "2026-11-10T12:50:07.043Z",
       "sourceUrl": "https://www.ofct.ch/farmacieturno/",
       "sourceType": "official",
       "duties": [
@@ -39,15 +39,6 @@
           "startsAt": "2026-11-07T07:00:00.000Z",
           "endsAt": "2026-11-14T07:00:00.000Z",
           "sourceUrl": "https://www.ofct.ch/luganese/"
-        },
-        {
-          "pharmacy": "Liver",
-          "city": "Chiasso",
-          "coverageName": "Mendrisiotto",
-          "dutyType": "day",
-          "startsAt": "2026-11-07T07:00:00.000Z",
-          "endsAt": "2026-11-10T07:00:00.000Z",
-          "sourceUrl": "https://www.ofct.ch/mendrisiotto/"
         },
         {
           "pharmacy": "San Nicolao",
@@ -93,6 +84,24 @@
           "startsAt": "2026-11-14T07:00:00.000Z",
           "endsAt": "2026-11-17T07:00:00.000Z",
           "sourceUrl": "https://www.ofct.ch/mendrisiotto/"
+        },
+        {
+          "pharmacy": "Moesa",
+          "city": "Castione",
+          "coverageName": "Bellinzonese",
+          "dutyType": "day",
+          "startsAt": "2026-11-16T17:30:00.000Z",
+          "endsAt": "2026-11-20T17:30:00.000Z",
+          "sourceUrl": "https://www.ofct.ch/bellinzonese/"
+        },
+        {
+          "pharmacy": "Zanini SA",
+          "city": "Stabio",
+          "coverageName": "Mendrisiotto",
+          "dutyType": "day",
+          "startsAt": "2026-11-17T07:00:00.000Z",
+          "endsAt": "2026-11-21T07:00:00.000Z",
+          "sourceUrl": "https://www.ofct.ch/mendrisiotto/"
         }
       ],
       "unresolvedDuties": 3
@@ -102,19 +111,10 @@
         "GE"
       ],
       "state": "fresh",
-      "fetchedAt": "2026-11-09T13:05:32.447Z",
+      "fetchedAt": "2026-11-10T12:50:55.611Z",
       "sourceUrl": "https://pharmageneve.swiss/pharmacie-de-garde/",
       "sourceType": "association",
       "duties": [
-        {
-          "pharmacy": "pharma24",
-          "city": "Genève",
-          "coverageName": "Genève",
-          "dutyType": "24h",
-          "startsAt": "2026-11-08T23:00:00.000Z",
-          "endsAt": "2026-11-09T23:00:00.000Z",
-          "sourceUrl": "https://pharmageneve.swiss/pharmacie-de-garde/"
-        },
         {
           "pharmacy": "pharma24",
           "city": "Genève",
@@ -177,6 +177,15 @@
           "startsAt": "2026-11-15T23:00:00.000Z",
           "endsAt": "2026-11-16T23:00:00.000Z",
           "sourceUrl": "https://pharmageneve.swiss/pharmacie-de-garde/"
+        },
+        {
+          "pharmacy": "pharma24",
+          "city": "Genève",
+          "coverageName": "Genève",
+          "dutyType": "24h",
+          "startsAt": "2026-11-16T23:00:00.000Z",
+          "endsAt": "2026-11-17T23:00:00.000Z",
+          "sourceUrl": "https://pharmageneve.swiss/pharmacie-de-garde/"
         }
       ],
       "unresolvedDuties": 0
@@ -186,7 +195,7 @@
         "JU"
       ],
       "state": "fresh",
-      "fetchedAt": "2026-11-09T13:05:33.562Z",
+      "fetchedAt": "2026-11-10T12:50:57.018Z",
       "sourceUrl": "https://www.jura.ch/fr/Autorites/Administration/CHA/SIC/Urgences/Numeros-d-urgence-Urgence.html",
       "sourceType": "official",
       "duties": [
@@ -207,15 +216,6 @@
           "startsAt": "2026-11-07T07:00:00.000Z",
           "endsAt": "2026-11-14T07:00:00.000Z",
           "sourceUrl": "https://www.jura.ch/Htdocs/Files/v/01baf7bafb804ba41706469e756cfccecfac1eee8116c5ba49fc8a29abfe57a6.pdf/Plan-de-garde-des-pharmacies-de-Delemont-en-2026.pdf?download=1"
-        },
-        {
-          "pharmacy": "Centre Migros",
-          "city": "Moutier",
-          "coverageName": "Moutier",
-          "dutyType": "night",
-          "startsAt": "2026-11-09T17:30:00.000Z",
-          "endsAt": "2026-11-10T07:00:00.000Z",
-          "sourceUrl": "https://www.jura.ch/Htdocs/Files/v/7f1515f9545180504c2d10f45dc07fb2704ad22e31937b789f63868e1c469ca0.pdf/Plan-de-garde-des-pharmacies-de-Moutier-en-2026.pdf?download=1"
         },
         {
           "pharmacy": "Centre Migros",
@@ -306,6 +306,15 @@
           "startsAt": "2026-11-15T17:30:00.000Z",
           "endsAt": "2026-11-15T18:00:00.000Z",
           "sourceUrl": "https://www.jura.ch/Htdocs/Files/v/7f1515f9545180504c2d10f45dc07fb2704ad22e31937b789f63868e1c469ca0.pdf/Plan-de-garde-des-pharmacies-de-Moutier-en-2026.pdf?download=1"
+        },
+        {
+          "pharmacy": "Centre Coop",
+          "city": "Moutier",
+          "coverageName": "Moutier",
+          "dutyType": "night",
+          "startsAt": "2026-11-16T17:30:00.000Z",
+          "endsAt": "2026-11-17T07:00:00.000Z",
+          "sourceUrl": "https://www.jura.ch/Htdocs/Files/v/7f1515f9545180504c2d10f45dc07fb2704ad22e31937b789f63868e1c469ca0.pdf/Plan-de-garde-des-pharmacies-de-Moutier-en-2026.pdf?download=1"
         }
       ],
       "unresolvedDuties": 0
@@ -315,19 +324,10 @@
         "BS"
       ],
       "state": "fresh",
-      "fetchedAt": "2026-11-09T13:05:33.562Z",
+      "fetchedAt": "2026-11-10T12:50:57.018Z",
       "sourceUrl": "https://www.bs.ch/gd/md/hoheitliche-funktionen/kantonsapothekerin/liste-der-apotheken-basel-stadt",
       "sourceType": "official",
       "duties": [
-        {
-          "pharmacy": "24 Stunden Apotheke Basel AG",
-          "city": "Basel",
-          "coverageName": "Basilea Città",
-          "dutyType": "24h",
-          "startsAt": "2026-11-08T23:00:00.000Z",
-          "endsAt": "2026-11-09T23:00:00.000Z",
-          "sourceUrl": "https://www.bs.ch/gd/md/hoheitliche-funktionen/kantonsapothekerin/liste-der-apotheken-basel-stadt"
-        },
         {
           "pharmacy": "24 Stunden Apotheke Basel AG",
           "city": "Basel",
@@ -389,6 +389,15 @@
           "dutyType": "24h",
           "startsAt": "2026-11-15T23:00:00.000Z",
           "endsAt": "2026-11-16T23:00:00.000Z",
+          "sourceUrl": "https://www.bs.ch/gd/md/hoheitliche-funktionen/kantonsapothekerin/liste-der-apotheken-basel-stadt"
+        },
+        {
+          "pharmacy": "24 Stunden Apotheke Basel AG",
+          "city": "Basel",
+          "coverageName": "Basilea Città",
+          "dutyType": "24h",
+          "startsAt": "2026-11-16T23:00:00.000Z",
+          "endsAt": "2026-11-17T23:00:00.000Z",
           "sourceUrl": "https://www.bs.ch/gd/md/hoheitliche-funktionen/kantonsapothekerin/liste-der-apotheken-basel-stadt"
         }
       ],
@@ -399,19 +408,10 @@
         "ZH"
       ],
       "state": "fresh",
-      "fetchedAt": "2026-11-09T13:05:33.562Z",
+      "fetchedAt": "2026-11-10T12:50:57.018Z",
       "sourceUrl": "https://www.avkz.ch/notfalldienst",
       "sourceType": "association",
       "duties": [
-        {
-          "pharmacy": "Bellevue Apotheke",
-          "city": "Zürich",
-          "coverageName": "Zurigo",
-          "dutyType": "24h",
-          "startsAt": "2026-11-08T23:00:00.000Z",
-          "endsAt": "2026-11-09T23:00:00.000Z",
-          "sourceUrl": "https://www.avkz.ch/notfalldienst"
-        },
         {
           "pharmacy": "Bellevue Apotheke",
           "city": "Zürich",
@@ -474,6 +474,15 @@
           "startsAt": "2026-11-15T23:00:00.000Z",
           "endsAt": "2026-11-16T23:00:00.000Z",
           "sourceUrl": "https://www.avkz.ch/notfalldienst"
+        },
+        {
+          "pharmacy": "Bellevue Apotheke",
+          "city": "Zürich",
+          "coverageName": "Zurigo",
+          "dutyType": "24h",
+          "startsAt": "2026-11-16T23:00:00.000Z",
+          "endsAt": "2026-11-17T23:00:00.000Z",
+          "sourceUrl": "https://www.avkz.ch/notfalldienst"
         }
       ],
       "unresolvedDuties": 0
@@ -483,7 +492,7 @@
         "SO"
       ],
       "state": "fresh",
-      "fetchedAt": "2026-11-09T13:05:33.562Z",
+      "fetchedAt": "2026-11-10T12:50:57.018Z",
       "sourceUrl": "https://avso.ch/notfalldienst-apotheken/",
       "sourceType": "association",
       "duties": [

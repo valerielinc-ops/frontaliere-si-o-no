@@ -153,7 +153,7 @@ step_spa_fallback() {
 # R2 — never an edge-cached stale value.
 _publish_cdn_r2() {
   local stage="$1"
-  local og_copy_option="${2:-}"
+  local og_changed_files="${2:-}" og_manifest_candidate="${3:-}"
   if [ -z "${R2_ACCESS_KEY_ID:-}" ] || [ -z "${R2_SECRET_ACCESS_KEY:-}" ] \
      || [ -z "${R2_S3_ENDPOINT:-}" ] || [ -z "${R2_BUCKET:-}" ]; then
     echo "::warning::CDN_TARGET=r2 but R2_* creds missing — skipping CDN publish (assets stay in dist)"
@@ -176,15 +176,14 @@ _publish_cdn_r2() {
   # newer mtime → it re-uploaded the WHOLE payload (~35k PutObject/deploy,
   # measured), which would exhaust the R2 free-tier Class-A budget (1M/mo) in
   # ~2 days. With copy --checksum stable assets and unchanged data are skipped.
-  # For og/, a local SHA-256 manifest stages only files changed since the last
-  # successful OG copy; small deltas also use --no-traverse to avoid
-  # listing the accumulated prefix. Broad OG changes keep --fast-list, which
-  # is cheaper than a per-object destination lookup for every card. (First
-  # rclone run may re-PUT files aws had stored multipart — composite ETag ≠
-  # plain MD5 — once; thereafter single-part.)
+  # For og/, a local SHA-256 manifest writes the changed relative paths to a
+  # file. Rclone copies those paths in 1,000-file batches with --no-traverse;
+  # each successful batch is source-hash-checked and checkpointed before the
+  # next one starts. A full copy therefore avoids first staging 1.2 GB locally,
+  # and a later data/assets failure cannot discard the OG progress. (First
+  # R2 copy may re-PUT files stored multipart by aws — composite ETag ≠ plain
+  # MD5 — once; thereafter single-part.)
   local rtmp="${RUNNER_TEMP:-/tmp}"
-  local og_manifest_candidate="$rtmp/r2-og-published-manifest.next.json"
-  local og_manifest_synced_hash="$rtmp/r2-og-published-manifest.synced.sha256"
   if ! command -v rclone >/dev/null 2>&1; then
     echo "[r2] rclone not found — installing static binary…"
     # --retry: a bare Recv-failure/Connection-reset on this single-shot download
@@ -284,7 +283,7 @@ _publish_cdn_r2() {
     fi
   }
   _r2_image_namespace_lease_exit_cleanup() {
-    local exit_status=$?
+    local exit_status="${1:-$?}"
     trap '' EXIT INT TERM
     if [ "${_IMAGE_NAMESPACE_LEASE_RELEASE_ALLOWED:-1}" = 1 ] && ! _r2_image_lease_stop_timeout; then
       _IMAGE_NAMESPACE_LEASE_RELEASE_ALLOWED=0
@@ -303,12 +302,17 @@ _publish_cdn_r2() {
     if ! _r2_image_lease_stop_timeout; then
       _IMAGE_NAMESPACE_LEASE_RELEASE_ALLOWED=0
     fi
-    exit "$exit_status"
+    # Run cleanup while _r2_with_image_namespace_leases' locals are still in
+    # scope. Letting `exit` invoke the EXIT trap after this function unwinds
+    # loses the owned lease context under `set -u` and can skip its release.
+    _r2_image_namespace_lease_exit_cleanup "$exit_status"
   }
   _r2_sync() { # <limit-s> <src-dir> <dst-prefix> <cache-control> [json-log] [copy-option] — COPY (additive, no delete)
     [ -d "$2" ] || return 0
     local attempts=2 attempt=1 sync_status=0 attempt_log=""
     local -a copy_flags=()
+    local -a stats_flags=(--stats=60s --stats-one-line --stats-log-level=NOTICE)
+    local -a copy_args=(copy "$2" "$bkt/$3")
     case "${6:-}" in
       no-traverse) copy_flags+=(--no-traverse) ;;
       force-no-traverse) copy_flags+=(--no-traverse --ignore-times) ;;
@@ -320,6 +324,26 @@ _publish_cdn_r2() {
       # and leave provenance JSON sidecars to the ordinary images batch.
       copy_flags+=(--include '*.webp' --header-upload 'Content-Type: image/webp')
     fi
+    if [ "${#copy_flags[@]}" -gt 0 ]; then
+      copy_args+=("${copy_flags[@]}")
+    fi
+    copy_args+=(--header-upload "Cache-Control: $4" "${stats_flags[@]}")
+    _r2_sync_logged_copy() { # <limit-s> <attempt-log> <rclone-copy-args...>
+      local limit="$1" attempt_log="$2"
+      shift 2
+      if timeout -k 15 "$limit" "${RC[@]}" "$@" -v --use-json-log 2>&1 \
+        | tee "$attempt_log" \
+        | while IFS= read -r log_line; do
+          case "$log_line" in
+            *'"msg":"Transferred:'*) printf '[rclone-progress] %s\n' "$log_line" ;;
+            *'"level":"error"'*) printf '[rclone-error] %s\n' "$log_line" ;;
+          esac
+        done; then
+        return 0
+      else
+        return $?
+      fi
+    }
     # `copy` is additive and checksum-diffed, so repeating a prefix resumes
     # objects left behind by a timed-out attempt without deleting live keys.
     # Keep each attempt's upload log separately and append it to the aggregate:
@@ -333,8 +357,10 @@ _publish_cdn_r2() {
       if [ -n "${5:-}" ]; then
         attempt_log="$5.attempt-$attempt"
         rm -f "$attempt_log"
-        if _r2_image_lease_wait_timeout timeout -k 15 "$1" "${RC[@]}" copy "$2" "$bkt/$3" "${copy_flags[@]}" --header-upload "Cache-Control: $4" --stats=0 \
-          -v --use-json-log --log-file="$attempt_log"; then
+        # Rclone's JSON log is retained for the assets purge ledger. Tee it as
+        # it is written and print only periodic stats/errors, so a long copy is
+        # observable without buffering every object log until completion.
+        if _r2_image_lease_wait_timeout _r2_sync_logged_copy "$1" "$attempt_log" "${copy_args[@]}"; then
           sync_status=0
         else
           sync_status=$?
@@ -343,10 +369,9 @@ _publish_cdn_r2() {
         # not alter the sync result returned below.
         if [ -s "$attempt_log" ]; then
           cat "$attempt_log" >> "$5"
-          cat "$attempt_log"
         fi
         rm -f "$attempt_log"
-      elif _r2_image_lease_wait_timeout timeout -k 15 "$1" "${RC[@]}" copy "$2" "$bkt/$3" "${copy_flags[@]}" --header-upload "Cache-Control: $4" --stats=0; then
+      elif _r2_image_lease_wait_timeout timeout -k 15 "$1" "${RC[@]}" "${copy_args[@]}"; then
         sync_status=0
       else
         sync_status=$?
@@ -363,6 +388,82 @@ _publish_cdn_r2() {
       attempt=$((attempt + 1))
     done
     return 1
+  }
+  _r2_sync_og_delta() { # <limit-s> <source-dir> <changed-list> <candidate> <completed-list> <published-manifest>
+    local limit="$1" source_dir="$2" changed_list="$3" candidate="$4"
+    local completed_list="$5" published_manifest="$6" batch_dir="$rtmp/r2-og-batches-$$"
+    local batch_size=1000 batch_index=0 total_files=0
+    local relative_path batch_file completed_tmp
+    local -a batch_paths=()
+
+    mkdir -p "$batch_dir" "$(dirname "$published_manifest")"
+    : > "$completed_list"
+    total_files="$(wc -l < "$changed_list" | tr -d '[:space:]')"
+    if [ "$total_files" -eq 0 ]; then
+      node scripts/ci/prepare-r2-og-delta.mjs record-progress \
+        "$candidate" "$published_manifest" "$changed_list" "$completed_list" \
+        "$published_manifest" "$source_dir" complete
+      return $?
+    fi
+
+    _r2_sync_og_batch() {
+      local count="$#" status=0
+      [ "$count" -gt 0 ] || return 0
+      batch_index=$((batch_index + 1))
+      batch_file="$batch_dir/batch-$(printf '%05d' "$batch_index").txt"
+      printf '%s\n' "$@" > "$batch_file"
+      echo "[r2-og] batch ${batch_index}/$(((total_files + batch_size - 1) / batch_size)) start ($count files)"
+      if _r2_image_lease_wait_timeout timeout -k 15 "$limit" "${RC[@]}" copy "$source_dir" "$bkt/og" \
+        --files-from-raw "$batch_file" --no-traverse \
+        --header-upload 'Cache-Control: public,max-age=86400' \
+        --stats=60s --stats-one-line --stats-log-level=NOTICE; then
+        status=0
+      else
+        status=$?
+        rm -f "$batch_file"
+        return "$status"
+      fi
+      completed_tmp="$completed_list.tmp-$$"
+      cat "$completed_list" "$batch_file" > "$completed_tmp" && mv "$completed_tmp" "$completed_list" || {
+        rm -f "$batch_file" "$completed_tmp"
+        return 1
+      }
+      if ! node scripts/ci/prepare-r2-og-delta.mjs record-progress \
+        "$candidate" "$published_manifest" "$changed_list" "$completed_list" \
+        "$published_manifest" "$source_dir" partial; then
+        rm -f "$batch_file"
+        return 1
+      fi
+      echo "[r2-og] batch ${batch_index}/$(((total_files + batch_size - 1) / batch_size)) verified and checkpointed"
+      rm -f "$batch_file"
+      return 0
+    }
+
+    while IFS= read -r relative_path || [ -n "$relative_path" ]; do
+      [ -n "$relative_path" ] || continue
+      batch_paths+=("$relative_path")
+      if [ "${#batch_paths[@]}" -ge "$batch_size" ]; then
+        if ! _r2_sync_og_batch "${batch_paths[@]}"; then
+          rm -rf "$batch_dir"
+          return 1
+        fi
+        batch_paths=()
+      fi
+    done < "$changed_list"
+    if [ "${#batch_paths[@]}" -gt 0 ] && ! _r2_sync_og_batch "${batch_paths[@]}"; then
+      rm -rf "$batch_dir"
+      return 1
+    fi
+
+    if ! node scripts/ci/prepare-r2-og-delta.mjs record-progress \
+      "$candidate" "$published_manifest" "$changed_list" "$completed_list" \
+      "$published_manifest" "$source_dir" complete; then
+      rm -rf "$batch_dir"
+      return 1
+    fi
+    echo "[r2-og] complete manifest checkpointed (${total_files} changed file(s))"
+    rm -rf "$batch_dir"
+    return 0
   }
   _r2_with_image_namespace_leases() { # <namespace-list> <command> <argv...> — run the image batch under all present namespace leases
     local _image_lease_namespaces="$1"
@@ -623,7 +724,7 @@ _publish_cdn_r2() {
       \( -name 'gtag-init-*.js' -o -name 'adsense-loader-*.js' -o -name 'partnerize-tag-*.js' -o -name 'site-support-*.js' -o -name 'meta-pixel-base-code-*.js' \) \
       -exec mv {} "$_hashed_assets_stage/" \;
   fi
-  _r2_sync 420 "$stage/assets" assets "public,max-age=600,must-revalidate" "$_assets_log"
+  _r2_sync 420 "$stage/assets" assets "public,max-age=600,must-revalidate" "$_assets_log" no-traverse
   assets_sync_status=$?
   if [ -n "$(ls -A "$_hashed_assets_stage" 2>/dev/null)" ]; then
     # These few loaders share assets/ with every historical release. Do not
@@ -640,7 +741,7 @@ _publish_cdn_r2() {
   if [ -d "$_release_assets_stage" ]; then
     mkdir -p "$stage/assets"
     mv "$_release_assets_stage" "$stage/assets/releases"
-    if ! _r2_sync 420 "$stage/assets/releases" assets/releases "public,max-age=31536000,immutable" "$_release_assets_log"; then
+    if ! _r2_sync 420 "$stage/assets/releases" assets/releases "public,max-age=31536000,immutable" "$_release_assets_log" no-traverse; then
       assets_sync_status=1
     fi
     rm -f "$_release_assets_log"
@@ -664,21 +765,18 @@ _publish_cdn_r2() {
   if [ "$assets_sync_status" -eq 0 ]; then
     assets_sync_ok=1
   fi
-  if _r2_sync "$_t_og" "$stage/og" og "public,max-age=86400" "" "$og_copy_option"; then
-    # This manifest covers only og/. Its copy is complete even if a later R2
-    # prefix fails and withholds the global build marker. Bind the completion
-    # record to these exact candidate bytes so a retry cannot promote a
-    # different/unpublished manifest from the same runner temp directory.
-    if [ -s "$og_manifest_candidate" ]; then
-      local og_manifest_hash=""
-      if og_manifest_hash="$(sha256sum "$og_manifest_candidate" | awk '{print $1}')" \
-        && [[ "$og_manifest_hash" =~ ^[a-f0-9]{64}$ ]]; then
-        printf '%s\n' "$og_manifest_hash" > "$og_manifest_synced_hash.tmp" \
-          && mv "$og_manifest_synced_hash.tmp" "$og_manifest_synced_hash"
-      else
-        echo "::warning::[r2-og-manifest] could not fingerprint the successfully copied OG manifest"
-      fi
+  if [ -n "$og_changed_files" ] && [ -s "$og_manifest_candidate" ]; then
+    # The source list is the exact content delta. Copy in bounded batches with
+    # no destination traversal, checkpointing only a batch whose rclone copy
+    # and source-hash validation both succeeded. The complete candidate is
+    # promoted immediately after the last batch, before images/data can fail.
+    if ! _r2_sync_og_delta "$_t_og" "$PREP_CWD/dist/og" "$og_changed_files" \
+      "$og_manifest_candidate" "$rtmp/r2-og-completed-files.txt" \
+      "$PREP_CWD/.cache/r2-og-published-manifest.json"; then
+      ok=0
     fi
+  elif _r2_sync "$_t_og" "$stage/og" og "public,max-age=86400" "" no-traverse; then
+    :
   else
     ok=0
   fi
@@ -702,7 +800,9 @@ _publish_cdn_r2() {
   else
     _r2_sync 120 "$stage/images" images "public,max-age=86400"
   fi
-  _r2_sync 1800 "$stage/data"     data      "public,max-age=600"
+  # Data is additive; avoid listing the full existing prefix and check each
+  # current source key directly instead.
+  _r2_sync 1800 "$stage/data"     data      "public,max-age=600" "" no-traverse
   _r2_sync 120 "$stage/job-canon" job-canon "public,max-age=600"
   timeout -k 10 "$_t_obj" "${RC[@]}" copyto "$stage/index.html" "$bkt/index.html" \
     --header-upload "Content-Type: text/html; charset=utf-8" --header-upload "Cache-Control: public,max-age=600" || ok=0
@@ -1093,39 +1193,29 @@ step_push_cdn() {
   # them; generate-article.yml commits each new one), so the public/images/blog
   # copy below ALREADY pushes them to ${CDN}/images/blog/thumbnails/ — the offload
   # script then deletes the dist copy of dist/images/blog/thumbnails.
-  local r2_og_copy_option=""
+  local r2_og_changed_files="${RUNNER_TEMP:-/tmp}/r2-og-changed-files.txt"
   local r2_og_candidate="${RUNNER_TEMP:-/tmp}/r2-og-published-manifest.next.json"
-  if [ "$cdn_target" = "r2" ] && [ -d dist/og ]; then
-    rm -f "$r2_og_candidate"
+  local r2_og_delta_ready=0
+  rm -f "$r2_og_changed_files" "$r2_og_candidate"
+  if { [ "$cdn_target" = "r2" ] || [ "$cdn_target" = "both" ]; } && [ -d dist/og ]; then
     local r2_og_summary=""
-    if r2_og_summary="$(node scripts/ci/prepare-r2-og-delta.mjs dist/og .cache/r2-og-published-manifest.json "$stage/og" "$r2_og_candidate")"; then
+    if r2_og_summary="$(node scripts/ci/prepare-r2-og-delta.mjs dist/og .cache/r2-og-published-manifest.json "$r2_og_changed_files" "$r2_og_candidate" .cache/og-jobs/.deferred-r2-og.json)"; then
       echo "[r2-og] $r2_og_summary"
       case "$r2_og_summary" in
-        mode=full\ *)
-          cp -r dist/og "$stage/og" || {
-            echo "::error::[r2-og-manifest] could not stage the full OG directory" >&2
-            return 1
-          }
-          ;;
-        mode=delta\ *)
-          case "$r2_og_summary" in
-            *" no_traverse=true") r2_og_copy_option="no-traverse" ;;
-          esac
-          ;;
+        mode=full\ *|mode=delta\ *) r2_og_delta_ready=1 ;;
         *)
           echo "::warning::[r2-og-manifest] unexpected helper output; falling back to full OG stage"
           rm -f "$r2_og_candidate"
-          rm -rf "$stage/og"
-          cp -r dist/og "$stage/og" || {
-            echo "::error::[r2-og-manifest] could not stage the full OG directory" >&2
-            return 1
-          }
+          rm -f "$r2_og_changed_files"
           ;;
       esac
     else
       echo "::warning::[r2-og-manifest] delta preparation failed; falling back to full OG stage"
-      rm -f "$r2_og_candidate"
-      rm -rf "$stage/og"
+      rm -f "$r2_og_changed_files" "$r2_og_candidate"
+    fi
+    # `both` also sends the complete OG tree to the legacy Pages publish below;
+    # keep that stage while R2 consumes the exact manifest delta.
+    if [ "$r2_og_delta_ready" -ne 1 ] || [ "$cdn_target" = "both" ]; then
       cp -r dist/og "$stage/og" || {
         echo "::error::[r2-og-manifest] could not stage the full OG directory" >&2
         return 1
@@ -1259,7 +1349,7 @@ step_push_cdn() {
   # timestamps — not a runtime asset, must not be published).
   find "$stage" -name '.DS_Store' -delete 2>/dev/null || true
   rm -f "$stage/assets/.hash-age.json" 2>/dev/null || true
-  if [ ! -d "$stage/og" ] && [ ! -d "$stage/data" ] && [ ! -d "$stage/assets" ] && [ ! -d "$stage/images" ] && [ ! -d "$stage/job-canon" ]; then
+  if [ ! -d "$stage/og" ] && [ ! -s "$r2_og_candidate" ] && [ ! -d "$stage/data" ] && [ ! -d "$stage/assets" ] && [ ! -d "$stage/images" ] && [ ! -d "$stage/job-canon" ]; then
     echo "no offloadable assets present — skipping CDN push"; return 0
   fi
   printf '<!doctype html><meta charset=utf-8><title>frontaliereticino.ch CDN</title>frontaliereticino.ch asset CDN' > "$stage/index.html"
@@ -1270,7 +1360,7 @@ step_push_cdn() {
   # parallel — zero-downtime cutover. 'r2' is R2-only (post-flip). 'pages'
   # (default) is the legacy git force-push, byte-identical to before.
   if [ "$cdn_target" = "r2" ] || [ "$cdn_target" = "both" ]; then
-    _publish_cdn_r2 "$stage" "$r2_og_copy_option"
+    _publish_cdn_r2 "$stage" "$r2_og_changed_files" "$r2_og_candidate"
     if [ "$cdn_target" = "r2" ]; then
       cd "$PREP_CWD"
       return 0

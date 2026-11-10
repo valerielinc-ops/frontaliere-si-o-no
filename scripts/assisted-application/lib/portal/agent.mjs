@@ -154,6 +154,11 @@ export const HINTS = {
   refused: 'The page did not move on after Next: the form refused a value or a required answer is missing. Look for error messages and fix them.',
   no_form_controls: 'No standard form controls were found on this page: its questions are custom widgets.',
   unclear_fields: 'Some required fields have no readable label (generated ids such as "select-input-_r_p_"): find their real question on the page and answer it.',
+  // The account registration/sign-in page (handleAuth) the deterministic filler could not complete.
+  // The runner alone types the password, accepts the privacy statement and presses the account
+  // button, after its own stable re-read: the agent only answers this page's other fields.
+  registration_incomplete: 'This is the portal\'s account registration page, before the application itself. The deterministic filler could not complete it (a field did not keep its value, or the form kept redrawing). Fill or choose every field of this page you can answer from the candidate data (e-mail and its repetition, names, country of residence, other personal fields); type into a field that rejects a pasted value. Leave the password fields, the privacy statement and its dialog, and the button that creates the account or signs in to the runner: never press them. Do not invent anything the data does not say: ask with needs_candidate. When every field you can answer is answered, return done.',
+  sign_in_incomplete: 'This is the portal\'s sign-in page for the candidate\'s existing account. The values the runner typed did not stay in the form: something on the page (a notice or dialog over the form, a widget around the e-mail field) undoes them. Make the form usable: acknowledge or close what blocks it, and type the candidate\'s e-mail where it does not keep a pasted value. Never type a password, never press the sign-in button, never accept cookies or a privacy statement: the runner does. When the form can be typed into, return done.',
   required_fields_unfilled: 'The portal still has required fields unfilled. Inspect the current page and repair every required field you can answer from the candidate profile, CV/documents, or previously saved portal answers. This includes custom controls and CV/document uploads when the matching file is available. Do not ask again for known answers and do not invent facts; use needs_candidate only for required information that is genuinely unavailable.',
 };
 
@@ -472,8 +477,15 @@ async function describe(locator) {
     const form = control.closest('form');
     const submits = Boolean(form) && ((control.tagName === 'BUTTON' && (control.getAttribute('type') || 'submit').toLowerCase() === 'submit') || (control.tagName === 'INPUT' && control.type === 'submit'));
     const href = control.tagName === 'A' ? control.getAttribute('href') || '' : '';
+    // The associated labels (<label for>, a wrapping <label>, aria-labelledby): a checkbox
+    // whose only name is an external «I accept» label is still the account's privacy control.
+    const labelledBy = (control.getAttribute('aria-labelledby') || '').split(/\s+/).filter(Boolean)
+      .map((id) => element.ownerDocument.getElementById(id)?.textContent || '');
+    const labelName = [...(element.labels || []), ...labelledBy.map((text) => ({ textContent: text }))]
+      .map((label) => label.textContent || '').join(' ').replace(/\s+/g, ' ').trim().slice(0, 200);
     return {
       name,
+      labelName,
       button: Boolean(button),
       tag,
       inputType: tag === 'input' ? element.type : '',
@@ -486,7 +498,7 @@ async function describe(locator) {
 }
 
 /** Why the action must not run on this element, or '' (the runner alone moves on and submits). */
-export function refusal(action, info) {
+export function refusal(action, info, { reservedButtons = [] } = {}) {
   const { languageIntent, languageAbility, languageLabelOnly, languageContextPresent } = languageActionKind(action);
   const languageAction = languageIntent || languageAbility || languageLabelOnly || languageContextPresent;
   if (action.action === 'press' && languageIntent
@@ -521,6 +533,16 @@ export function refusal(action, info) {
     if ((info.submits && !intermediateSubmit) || FINAL_RE.test(info.name) || SUBMIT_RE.test(info.name)) return 'final_submit_reserved';
     if (NEXT_RE.test(info.name)) return 'navigation_reserved';
     if (info.leaves) return 'link_reserved';
+  }
+  // The caller's own reserved controls (the account page: create account, sign in, privacy statement),
+  // whatever their shape: a privacy checkbox or its label belongs to the runner's own preflight too.
+  // Every action that changes the control's state; the label is read with and without its leading
+  // first-person pronoun («I accept» is the «accept» control).
+  const names = [info.name, info.labelName || ''].filter(Boolean)
+    .flatMap((name) => [name, name.replace(/^\s*(?:(?:ich|io|je|i)\b\s*|j['’]\s*)/i, '')]);
+  if (['click', 'press', 'check', 'uncheck'].includes(action.action)
+    && reservedButtons.some((pattern) => names.some((name) => pattern.test(name)))) {
+    return 'account_action_reserved';
   }
   if (info.inputType === 'password') return 'password_reserved';
   if (action.action === 'press' && (!KEYS.has(action.value) || (action.value === 'Enter' && !info.inList))) return 'key_refused';
@@ -592,11 +614,11 @@ async function upload(page, locator, info, paths) {
 }
 
 /** One action on its ref; never throws. `files`: how many files an upload set. */
-export async function runAction(page, action, files = {}) {
+export async function runAction(page, action, files = {}, { reservedButtons = [] } = {}) {
   try {
     const locator = page.locator(`aria-ref=${action.ref}`);
     const info = await describe(locator);
-    const refused = refusal(action, info);
+    const refused = refusal(action, info, { reservedButtons });
     if (refused) return { ok: false, error: refused };
     const value = String(action.value || '');
     let uploaded = 0;
@@ -776,7 +798,7 @@ export function withAgentFieldProvenance(raw, fields = []) {
  * Completes the current page with Codex on the accessibility snapshot.
  * @returns {Promise<{status:'done'|'needs_candidate'|'stuck'|'unavailable', questions?:Array, advanceRef?:string, moved?:boolean, reason?:string, calls:number, evidence:object}>}
  */
-export async function completeWithAgent({ page, hint, errors = [], candidate, candidateLocale, codex, files = {}, secrets = [], maxRounds = AGENT_ROUNDS, fields = [], log = () => {} }) {
+export async function completeWithAgent({ page, hint, errors = [], candidate, candidateLocale, codex, files = {}, secrets = [], maxRounds = AGENT_ROUNDS, fields = [], reservedButtons = [], log = () => {} }) {
   const evidence = { hint, rounds: [] };
   const history = [];
   const startUrl = page.url();
@@ -811,7 +833,7 @@ export async function completeWithAgent({ page, hint, errors = [], candidate, ca
     if (step.status === 'done') return end({ status: 'done', advanceRef: step.advanceRef, submitRef: step.submitRef, calls: round });
     const results = [];
     for (const action of step.actions) {
-      const result = await runAction(page, action, files);
+      const result = await runAction(page, action, files, { reservedButtons });
       // No values in the evidence's rounds: the answers travel apart, to the encrypted record.
       record.actions.push({
         ref: action.ref, action: action.action, question: action.question, source: action.source, ok: result.ok, ...(result.error ? { error: result.error } : {}),

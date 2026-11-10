@@ -1,7 +1,7 @@
 {
   "crawlerKey": "spital-maennedorf",
-  "assembledAt": "2026-11-09T09:26:19.016Z",
-  "runId": "42590417002",
+  "assembledAt": "2026-11-10T09:16:55.791Z",
+  "runId": "42787527739",
   "jobs": [
     {
       "id": "spital-maennedorf-e3b8e098b8c9",
@@ -35,7 +35,7 @@
       "source": "Spital Männedorf Dedicated Parser (Umantis tenant 2736)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-11-09T09:26:11.644Z",
+      "crawledAt": "2026-11-10T09:16:49.705Z",
       "addressLocality": "Männedorf",
       "postalCode": "8708",
       "addressCountry": "CH",
@@ -87,9 +87,23 @@
         }
       },
       "addressRegion": "ZH",
-      "streetAddress": "Männedorf",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-09T09:26:11.644Z",
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Spital Männedorf",
+        "streetAddress": "Asylstrasse 10",
+        "postalCode": "8708",
+        "registeredName": "Spital Männedorf AG",
+        "matchType": "exact",
+        "streetAddressSource": "zefix-registry",
+        "jobPostalCode": "8708",
+        "addressLocality": "Männedorf",
+        "addressRegion": "ZH",
+        "checkedAt": "2026-11-09T15:43:32.637Z"
+      },
+      "streetAddress": "Asylstrasse 10",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-12-10T09:16:49.705Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -124,7 +138,7 @@
       "source": "Spital Männedorf Dedicated Parser (Umantis tenant 2736)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-11-09T09:26:09.632Z",
+      "crawledAt": "2026-11-10T09:16:47.724Z",
       "addressLocality": "Männedorf",
       "postalCode": "8708",
       "addressCountry": "CH",
@@ -181,9 +195,23 @@
         }
       },
       "addressRegion": "ZH",
-      "streetAddress": "Männedorf",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-09T09:26:09.632Z",
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Spital Männedorf",
+        "streetAddress": "Asylstrasse 10",
+        "postalCode": "8708",
+        "registeredName": "Spital Männedorf AG",
+        "matchType": "exact",
+        "streetAddressSource": "zefix-registry",
+        "jobPostalCode": "8708",
+        "addressLocality": "Männedorf",
+        "addressRegion": "ZH",
+        "checkedAt": "2026-11-09T15:43:32.637Z"
+      },
+      "streetAddress": "Asylstrasse 10",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-12-10T09:16:47.724Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -218,7 +246,7 @@
       "source": "Spital Männedorf Dedicated Parser (Umantis tenant 2736)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-11-09T09:26:07.637Z",
+      "crawledAt": "2026-11-10T09:16:45.701Z",
       "addressLocality": "Männedorf",
       "postalCode": "8708",
       "addressCountry": "CH",
@@ -284,9 +312,23 @@
         }
       },
       "addressRegion": "ZH",
-      "streetAddress": "Männedorf",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-09T09:26:07.637Z",
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Spital Männedorf",
+        "streetAddress": "Asylstrasse 10",
+        "postalCode": "8708",
+        "registeredName": "Spital Männedorf AG",
+        "matchType": "exact",
+        "streetAddressSource": "zefix-registry",
+        "jobPostalCode": "8708",
+        "addressLocality": "Männedorf",
+        "addressRegion": "ZH",
+        "checkedAt": "2026-11-09T15:43:32.637Z"
+      },
+      "streetAddress": "Asylstrasse 10",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-12-10T09:16:45.701Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -320,7 +362,7 @@
       "url": "https://recruitingapp-2736.umantis.com/Vacancies/1840/Description/1",
       "source": "Spital Männedorf Dedicated Parser (Umantis tenant 2736)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:26:05.636Z",
+      "crawledAt": "2026-11-10T09:16:43.707Z",
       "addressLocality": "Männedorf",
       "postalCode": "8708",
       "addressCountry": "CH",
@@ -410,9 +452,23 @@
         }
       },
       "addressRegion": "ZH",
-      "streetAddress": "Männedorf",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-09T09:26:05.636Z",
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Spital Männedorf",
+        "streetAddress": "Asylstrasse 10",
+        "postalCode": "8708",
+        "registeredName": "Spital Männedorf AG",
+        "matchType": "exact",
+        "streetAddressSource": "zefix-registry",
+        "jobPostalCode": "8708",
+        "addressLocality": "Männedorf",
+        "addressRegion": "ZH",
+        "checkedAt": "2026-11-09T15:43:32.637Z"
+      },
+      "streetAddress": "Asylstrasse 10",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-12-10T09:16:43.707Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -446,7 +502,7 @@
       "url": "https://recruitingapp-2736.umantis.com/Vacancies/1098/Description/1",
       "source": "Spital Männedorf Dedicated Parser (Umantis tenant 2736)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:26:03.646Z",
+      "crawledAt": "2026-11-10T09:16:41.684Z",
       "addressLocality": "Männedorf",
       "postalCode": "8708",
       "addressCountry": "CH",
@@ -519,9 +575,23 @@
         }
       },
       "addressRegion": "ZH",
-      "streetAddress": "Männedorf",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-09T09:26:03.646Z",
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Spital Männedorf",
+        "streetAddress": "Asylstrasse 10",
+        "postalCode": "8708",
+        "registeredName": "Spital Männedorf AG",
+        "matchType": "exact",
+        "streetAddressSource": "zefix-registry",
+        "jobPostalCode": "8708",
+        "addressLocality": "Männedorf",
+        "addressRegion": "ZH",
+        "checkedAt": "2026-11-09T15:43:32.637Z"
+      },
+      "streetAddress": "Asylstrasse 10",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-12-10T09:16:41.684Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -555,7 +625,7 @@
       "url": "https://recruitingapp-2736.umantis.com/Vacancies/1783/Description/1",
       "source": "Spital Männedorf Dedicated Parser (Umantis tenant 2736)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:26:01.649Z",
+      "crawledAt": "2026-11-10T09:16:39.696Z",
       "addressLocality": "Männedorf",
       "postalCode": "8708",
       "addressCountry": "CH",
@@ -624,9 +694,23 @@
         }
       },
       "addressRegion": "ZH",
-      "streetAddress": "Männedorf",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-09T09:26:01.649Z",
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Spital Männedorf",
+        "streetAddress": "Asylstrasse 10",
+        "postalCode": "8708",
+        "registeredName": "Spital Männedorf AG",
+        "matchType": "exact",
+        "streetAddressSource": "zefix-registry",
+        "jobPostalCode": "8708",
+        "addressLocality": "Männedorf",
+        "addressRegion": "ZH",
+        "checkedAt": "2026-11-09T15:43:32.637Z"
+      },
+      "streetAddress": "Asylstrasse 10",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-12-10T09:16:39.696Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -661,7 +745,7 @@
       "source": "Spital Männedorf Dedicated Parser (Umantis tenant 2736)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-11-09T09:25:59.663Z",
+      "crawledAt": "2026-11-10T09:16:37.703Z",
       "addressLocality": "Männedorf",
       "postalCode": "8708",
       "addressCountry": "CH",
@@ -744,9 +828,23 @@
         }
       },
       "addressRegion": "ZH",
-      "streetAddress": "Männedorf",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-09T09:25:59.663Z",
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Spital Männedorf",
+        "streetAddress": "Asylstrasse 10",
+        "postalCode": "8708",
+        "registeredName": "Spital Männedorf AG",
+        "matchType": "exact",
+        "streetAddressSource": "zefix-registry",
+        "jobPostalCode": "8708",
+        "addressLocality": "Männedorf",
+        "addressRegion": "ZH",
+        "checkedAt": "2026-11-09T15:43:32.637Z"
+      },
+      "streetAddress": "Asylstrasse 10",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-12-10T09:16:37.703Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -780,7 +878,7 @@
       "url": "https://recruitingapp-2736.umantis.com/Vacancies/1882/Description/1",
       "source": "Spital Männedorf Dedicated Parser (Umantis tenant 2736)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:25:57.617Z",
+      "crawledAt": "2026-11-10T09:16:35.698Z",
       "addressLocality": "Männedorf",
       "postalCode": "8708",
       "addressCountry": "CH",
@@ -862,9 +960,23 @@
         }
       },
       "addressRegion": "ZH",
-      "streetAddress": "Männedorf",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-09T09:25:57.617Z",
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Spital Männedorf",
+        "streetAddress": "Asylstrasse 10",
+        "postalCode": "8708",
+        "registeredName": "Spital Männedorf AG",
+        "matchType": "exact",
+        "streetAddressSource": "zefix-registry",
+        "jobPostalCode": "8708",
+        "addressLocality": "Männedorf",
+        "addressRegion": "ZH",
+        "checkedAt": "2026-11-09T15:43:32.637Z"
+      },
+      "streetAddress": "Asylstrasse 10",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-12-10T09:16:35.698Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -899,7 +1011,7 @@
       "source": "Spital Männedorf Dedicated Parser (Umantis tenant 2736)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-11-09T09:25:55.666Z",
+      "crawledAt": "2026-11-10T09:16:33.683Z",
       "addressLocality": "Männedorf",
       "postalCode": "8708",
       "addressCountry": "CH",
@@ -974,9 +1086,23 @@
         }
       },
       "addressRegion": "ZH",
-      "streetAddress": "Männedorf",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-09T09:25:55.666Z",
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Spital Männedorf",
+        "streetAddress": "Asylstrasse 10",
+        "postalCode": "8708",
+        "registeredName": "Spital Männedorf AG",
+        "matchType": "exact",
+        "streetAddressSource": "zefix-registry",
+        "jobPostalCode": "8708",
+        "addressLocality": "Männedorf",
+        "addressRegion": "ZH",
+        "checkedAt": "2026-11-09T15:43:32.637Z"
+      },
+      "streetAddress": "Asylstrasse 10",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-12-10T09:16:33.683Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1010,7 +1136,7 @@
       "url": "https://recruitingapp-2736.umantis.com/Vacancies/1958/Description/1",
       "source": "Spital Männedorf Dedicated Parser (Umantis tenant 2736)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:25:53.636Z",
+      "crawledAt": "2026-11-10T09:16:31.687Z",
       "addressLocality": "Männedorf",
       "postalCode": "8708",
       "addressCountry": "CH",
@@ -1083,9 +1209,23 @@
         }
       },
       "addressRegion": "ZH",
-      "streetAddress": "Männedorf",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-09T09:25:53.636Z",
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Spital Männedorf",
+        "streetAddress": "Asylstrasse 10",
+        "postalCode": "8708",
+        "registeredName": "Spital Männedorf AG",
+        "matchType": "exact",
+        "streetAddressSource": "zefix-registry",
+        "jobPostalCode": "8708",
+        "addressLocality": "Männedorf",
+        "addressRegion": "ZH",
+        "checkedAt": "2026-11-09T15:43:32.637Z"
+      },
+      "streetAddress": "Asylstrasse 10",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-12-10T09:16:31.687Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1120,7 +1260,7 @@
       "source": "Spital Männedorf Dedicated Parser (Umantis tenant 2736)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-11-09T09:25:51.647Z",
+      "crawledAt": "2026-11-10T09:16:29.702Z",
       "addressLocality": "Männedorf",
       "postalCode": "8708",
       "addressCountry": "CH",
@@ -1178,9 +1318,23 @@
         }
       },
       "addressRegion": "ZH",
-      "streetAddress": "Männedorf",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-09T09:25:51.647Z",
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Spital Männedorf",
+        "streetAddress": "Asylstrasse 10",
+        "postalCode": "8708",
+        "registeredName": "Spital Männedorf AG",
+        "matchType": "exact",
+        "streetAddressSource": "zefix-registry",
+        "jobPostalCode": "8708",
+        "addressLocality": "Männedorf",
+        "addressRegion": "ZH",
+        "checkedAt": "2026-11-09T15:43:32.637Z"
+      },
+      "streetAddress": "Asylstrasse 10",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-12-10T09:16:29.702Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1214,7 +1368,7 @@
       "url": "https://recruitingapp-2736.umantis.com/Vacancies/1952/Description/1",
       "source": "Spital Männedorf Dedicated Parser (Umantis tenant 2736)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:25:49.647Z",
+      "crawledAt": "2026-11-10T09:16:27.755Z",
       "addressLocality": "Männedorf",
       "postalCode": "8708",
       "addressCountry": "CH",
@@ -1295,9 +1449,23 @@
         }
       },
       "addressRegion": "ZH",
-      "streetAddress": "Männedorf",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-09T09:25:49.647Z",
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Spital Männedorf",
+        "streetAddress": "Asylstrasse 10",
+        "postalCode": "8708",
+        "registeredName": "Spital Männedorf AG",
+        "matchType": "exact",
+        "streetAddressSource": "zefix-registry",
+        "jobPostalCode": "8708",
+        "addressLocality": "Männedorf",
+        "addressRegion": "ZH",
+        "checkedAt": "2026-11-09T15:43:32.637Z"
+      },
+      "streetAddress": "Asylstrasse 10",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-12-10T09:16:27.755Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1332,7 +1500,7 @@
       "source": "Spital Männedorf Dedicated Parser (Umantis tenant 2736)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-11-09T09:25:47.630Z",
+      "crawledAt": "2026-11-10T09:16:25.788Z",
       "addressLocality": "Männedorf",
       "postalCode": "8708",
       "addressCountry": "CH",
@@ -1384,9 +1552,23 @@
         }
       },
       "addressRegion": "ZH",
-      "streetAddress": "Männedorf",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-09T09:25:47.630Z",
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Spital Männedorf",
+        "streetAddress": "Asylstrasse 10",
+        "postalCode": "8708",
+        "registeredName": "Spital Männedorf AG",
+        "matchType": "exact",
+        "streetAddressSource": "zefix-registry",
+        "jobPostalCode": "8708",
+        "addressLocality": "Männedorf",
+        "addressRegion": "ZH",
+        "checkedAt": "2026-11-09T15:43:32.637Z"
+      },
+      "streetAddress": "Asylstrasse 10",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-12-10T09:16:25.788Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1420,7 +1602,7 @@
       "url": "https://recruitingapp-2736.umantis.com/Vacancies/1904/Description/1",
       "source": "Spital Männedorf Dedicated Parser (Umantis tenant 2736)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:25:45.653Z",
+      "crawledAt": "2026-11-10T09:16:23.710Z",
       "addressLocality": "Männedorf",
       "postalCode": "8708",
       "addressCountry": "CH",
@@ -1473,9 +1655,23 @@
         }
       },
       "addressRegion": "ZH",
-      "streetAddress": "Männedorf",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-09T09:25:45.653Z",
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Spital Männedorf",
+        "streetAddress": "Asylstrasse 10",
+        "postalCode": "8708",
+        "registeredName": "Spital Männedorf AG",
+        "matchType": "exact",
+        "streetAddressSource": "zefix-registry",
+        "jobPostalCode": "8708",
+        "addressLocality": "Männedorf",
+        "addressRegion": "ZH",
+        "checkedAt": "2026-11-09T15:43:32.637Z"
+      },
+      "streetAddress": "Asylstrasse 10",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-12-10T09:16:23.710Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1509,7 +1705,7 @@
       "url": "https://recruitingapp-2736.umantis.com/Vacancies/1987/Description/1",
       "source": "Spital Männedorf Dedicated Parser (Umantis tenant 2736)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:25:43.644Z",
+      "crawledAt": "2026-11-10T09:16:21.729Z",
       "addressLocality": "Männedorf",
       "postalCode": "8708",
       "addressCountry": "CH",
@@ -1557,9 +1753,23 @@
         }
       },
       "addressRegion": "ZH",
-      "streetAddress": "Männedorf",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-09T09:25:43.644Z",
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Spital Männedorf",
+        "streetAddress": "Asylstrasse 10",
+        "postalCode": "8708",
+        "registeredName": "Spital Männedorf AG",
+        "matchType": "exact",
+        "streetAddressSource": "zefix-registry",
+        "jobPostalCode": "8708",
+        "addressLocality": "Männedorf",
+        "addressRegion": "ZH",
+        "checkedAt": "2026-11-09T15:43:32.637Z"
+      },
+      "streetAddress": "Asylstrasse 10",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-12-10T09:16:21.729Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1594,7 +1804,7 @@
       "source": "Spital Männedorf Dedicated Parser (Umantis tenant 2736)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-11-09T09:25:41.657Z",
+      "crawledAt": "2026-11-10T09:16:19.699Z",
       "addressLocality": "Männedorf",
       "postalCode": "8708",
       "addressCountry": "CH",
@@ -1641,9 +1851,23 @@
         }
       },
       "addressRegion": "ZH",
-      "streetAddress": "Männedorf",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-09T09:25:41.657Z",
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Spital Männedorf",
+        "streetAddress": "Asylstrasse 10",
+        "postalCode": "8708",
+        "registeredName": "Spital Männedorf AG",
+        "matchType": "exact",
+        "streetAddressSource": "zefix-registry",
+        "jobPostalCode": "8708",
+        "addressLocality": "Männedorf",
+        "addressRegion": "ZH",
+        "checkedAt": "2026-11-09T15:43:32.637Z"
+      },
+      "streetAddress": "Asylstrasse 10",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-12-10T09:16:19.699Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1678,7 +1902,7 @@
       "source": "Spital Männedorf Dedicated Parser (Umantis tenant 2736)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-11-09T09:25:39.631Z",
+      "crawledAt": "2026-11-10T09:16:17.729Z",
       "addressLocality": "Männedorf",
       "postalCode": "8708",
       "addressCountry": "CH",
@@ -1735,9 +1959,23 @@
         }
       },
       "addressRegion": "ZH",
-      "streetAddress": "Männedorf",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-09T09:25:39.631Z",
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Spital Männedorf",
+        "streetAddress": "Asylstrasse 10",
+        "postalCode": "8708",
+        "registeredName": "Spital Männedorf AG",
+        "matchType": "exact",
+        "streetAddressSource": "zefix-registry",
+        "jobPostalCode": "8708",
+        "addressLocality": "Männedorf",
+        "addressRegion": "ZH",
+        "checkedAt": "2026-11-09T15:43:32.637Z"
+      },
+      "streetAddress": "Asylstrasse 10",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-12-10T09:16:17.729Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1772,7 +2010,7 @@
       "source": "Spital Männedorf Dedicated Parser (Umantis tenant 2736)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-11-09T09:25:37.643Z",
+      "crawledAt": "2026-11-10T09:16:15.718Z",
       "addressLocality": "Männedorf",
       "postalCode": "8708",
       "addressCountry": "CH",
@@ -1828,9 +2066,23 @@
         }
       },
       "addressRegion": "ZH",
-      "streetAddress": "Männedorf",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-09T09:25:37.643Z",
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Spital Männedorf",
+        "streetAddress": "Asylstrasse 10",
+        "postalCode": "8708",
+        "registeredName": "Spital Männedorf AG",
+        "matchType": "exact",
+        "streetAddressSource": "zefix-registry",
+        "jobPostalCode": "8708",
+        "addressLocality": "Männedorf",
+        "addressRegion": "ZH",
+        "checkedAt": "2026-11-09T15:43:32.637Z"
+      },
+      "streetAddress": "Asylstrasse 10",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-12-10T09:16:15.718Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1865,7 +2117,7 @@
       "source": "Spital Männedorf Dedicated Parser (Umantis tenant 2736)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-11-09T09:25:35.669Z",
+      "crawledAt": "2026-11-10T09:16:13.706Z",
       "addressLocality": "Männedorf",
       "postalCode": "8708",
       "addressCountry": "CH",
@@ -1918,9 +2170,23 @@
         }
       },
       "addressRegion": "ZH",
-      "streetAddress": "Männedorf",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-09T09:25:35.669Z",
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Spital Männedorf",
+        "streetAddress": "Asylstrasse 10",
+        "postalCode": "8708",
+        "registeredName": "Spital Männedorf AG",
+        "matchType": "exact",
+        "streetAddressSource": "zefix-registry",
+        "jobPostalCode": "8708",
+        "addressLocality": "Männedorf",
+        "addressRegion": "ZH",
+        "checkedAt": "2026-11-09T15:43:32.637Z"
+      },
+      "streetAddress": "Asylstrasse 10",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-12-10T09:16:13.706Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1954,7 +2220,7 @@
       "url": "https://recruitingapp-2736.umantis.com/Vacancies/1984/Description/1",
       "source": "Spital Männedorf Dedicated Parser (Umantis tenant 2736)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:25:33.645Z",
+      "crawledAt": "2026-11-10T09:16:11.721Z",
       "addressLocality": "Männedorf",
       "postalCode": "8708",
       "addressCountry": "CH",
@@ -2002,9 +2268,23 @@
         }
       },
       "addressRegion": "ZH",
-      "streetAddress": "Männedorf",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-09T09:25:33.645Z",
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Spital Männedorf",
+        "streetAddress": "Asylstrasse 10",
+        "postalCode": "8708",
+        "registeredName": "Spital Männedorf AG",
+        "matchType": "exact",
+        "streetAddressSource": "zefix-registry",
+        "jobPostalCode": "8708",
+        "addressLocality": "Männedorf",
+        "addressRegion": "ZH",
+        "checkedAt": "2026-11-09T15:43:32.637Z"
+      },
+      "streetAddress": "Asylstrasse 10",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-12-10T09:16:11.721Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2039,7 +2319,7 @@
       "source": "Spital Männedorf Dedicated Parser (Umantis tenant 2736)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-11-09T09:25:31.640Z",
+      "crawledAt": "2026-11-10T09:16:09.715Z",
       "addressLocality": "Männedorf",
       "postalCode": "8708",
       "addressCountry": "CH",
@@ -2095,9 +2375,23 @@
         }
       },
       "addressRegion": "ZH",
-      "streetAddress": "Männedorf",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-09T09:25:31.640Z",
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Spital Männedorf",
+        "streetAddress": "Asylstrasse 10",
+        "postalCode": "8708",
+        "registeredName": "Spital Männedorf AG",
+        "matchType": "exact",
+        "streetAddressSource": "zefix-registry",
+        "jobPostalCode": "8708",
+        "addressLocality": "Männedorf",
+        "addressRegion": "ZH",
+        "checkedAt": "2026-11-09T15:43:32.637Z"
+      },
+      "streetAddress": "Asylstrasse 10",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-12-10T09:16:09.715Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2131,7 +2425,7 @@
       "url": "https://recruitingapp-2736.umantis.com/Vacancies/2001/Description/1",
       "source": "Spital Männedorf Dedicated Parser (Umantis tenant 2736)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:25:29.679Z",
+      "crawledAt": "2026-11-10T09:16:07.698Z",
       "addressLocality": "Männedorf",
       "postalCode": "8708",
       "addressCountry": "CH",
@@ -2186,9 +2480,23 @@
         }
       },
       "addressRegion": "ZH",
-      "streetAddress": "Männedorf",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-09T09:25:29.679Z",
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Spital Männedorf",
+        "streetAddress": "Asylstrasse 10",
+        "postalCode": "8708",
+        "registeredName": "Spital Männedorf AG",
+        "matchType": "exact",
+        "streetAddressSource": "zefix-registry",
+        "jobPostalCode": "8708",
+        "addressLocality": "Männedorf",
+        "addressRegion": "ZH",
+        "checkedAt": "2026-11-09T15:43:32.637Z"
+      },
+      "streetAddress": "Asylstrasse 10",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-12-10T09:16:07.698Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2223,7 +2531,7 @@
       "source": "Spital Männedorf Dedicated Parser (Umantis tenant 2736)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-11-09T09:25:27.687Z",
+      "crawledAt": "2026-11-10T09:16:05.739Z",
       "addressLocality": "Männedorf",
       "postalCode": "8708",
       "addressCountry": "CH",
@@ -2277,9 +2585,23 @@
         }
       },
       "addressRegion": "ZH",
-      "streetAddress": "Männedorf",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-09T09:25:27.687Z",
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Spital Männedorf",
+        "streetAddress": "Asylstrasse 10",
+        "postalCode": "8708",
+        "registeredName": "Spital Männedorf AG",
+        "matchType": "exact",
+        "streetAddressSource": "zefix-registry",
+        "jobPostalCode": "8708",
+        "addressLocality": "Männedorf",
+        "addressRegion": "ZH",
+        "checkedAt": "2026-11-09T15:43:32.637Z"
+      },
+      "streetAddress": "Asylstrasse 10",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-12-10T09:16:05.739Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2301,12 +2623,12 @@
         "de": "Dipl. Expertin NDS HF Intensivpflege 80-100% (m/w/d)",
         "fr": "Dipl. Expert NDS HF soins intensifs 80-100% (h/f/d)"
       },
-      "description": "Spital Männedorf – Dein ganz besonderer Arbeitsort.\nOb ein kleines „Danke“ oder ein morgendliches „Grüezi“ - bei uns stehen echte Wertschätzung und Menschlichkeit im Vordergrund. Die Nähe in unserem Haus macht den Alltag unkompliziert und ermöglicht patientenzentrierte Arbeit auf höchstem Niveau. In einem Umfeld, in dem interdisziplinäre Zusammenarbeit auf Augenhöhe selbstverständlich ist, bieten wir individuelle Behandlungen von der medizinischen Erstversorgung bis zur Rehabilitation.\n\nDas Wesen deiner Tätigkeit:\n\n• Fachgerechte Überwachung unserer Patientinnen und Patienten\n• Kompetente, professionelle Pflege und Begleitung von Patientinnen und Patienten sowie deren Angehörigen in Krisensituationen\n• Aktive Begleitung der Studierenden NDS Intensivpflege und andere Berufsgruppen im Gesundheitswesen\n\nDie Basis deiner Leistung:\n\n• Diplom Expertin / Experte Intensivpflege NDS HF mit Berufserfahrung\n• Vertraut mit betriebswirtschaftlichen Themen im Alltag\n• Gute Organisations- und Kommunikationsfähigkeit mit ziel- und lösungsorientiertem Denken und Handeln\n• Kompetente und belastbare Persönlichkeit, welche auch in hektischen Situationen die nötige Ruhe bewahrt\n\nDie Gründe deiner Entscheidung:\nWir bieten moderne Arbeitsbedingungen, fördern interne Weiterbildungen und setzen auf fachlichen Austausch über alle Disziplinen hinweg. Die ruhige Lage direkt am See und die Nähe zur pulsierenden Stadt Zürich runden deinen Arbeitsplatz ab. Darüber hinaus kannst du dich auf ganz spezielle Vorteile freuen.",
+      "description": "Spital Männedorf – Dein ganz besonderer Arbeitsort.\nOb ein kleines „Danke“ oder ein morgendliches „Grüezi“ - bei uns stehen echte Wertschätzung und Menschlichkeit im Vordergrund. Die Nähe in unserem Haus macht den Alltag unkompliziert und ermöglicht patientenzentrierte Arbeit auf höchstem Niveau. In einem Umfeld, in dem interdisziplinäre Zusammenarbeit auf Augenhöhe selbstverständlich ist, bieten wir individuelle Behandlungen von der medizinischen Erstversorgung bis zur Rehabilitation.\n\nDas Wesen deiner Tätigkeit:\n\n• Fachgerechte Überwachung und Betreuung der Patientinnen und Patienten\n• Kompetente und professionelle Pflege sowie Begleitung von Patientinnen und Patienten und deren Angehörigen in Krisensituationen\n• Aktive Begleitung und Förderung der Studierenden NDS Intensivpflege sowie weiterer Berufsgruppen im Gesundheitswesen\n• Möglichkeit zur fachlichen Weiterentwicklung im Bereich Berufsbildung und zur Übernahme der Funktion als Berufsbildnerin bzw. Berufsbildner\n\nDie Basis deiner Leistung:\n\n• Diplom als Expertin / Experte Intensivpflege NDS HF mit entsprechender Berufserfahrung\n• Vertrautheit mit betriebswirtschaftlichen Themen im Berufsalltag\n• Ausgeprägte Organisations- und Kommunikationsfähigkeit sowie ziel- und lösungsorientiertes Denken und Handeln\n• Kompetente und belastbare Persönlichkeit, die auch in hektischen Situationen Ruhe und Übersicht bewahrt\n• Bereitschaft, bei Interesse an einer Tätigkeit in der Berufsbildung eine SVEB-Weiterbildung zu absolvieren\n\nDie Gründe deiner Entscheidung:\nWir bieten moderne Arbeitsbedingungen, fördern interne Weiterbildungen und setzen auf fachlichen Austausch über alle Disziplinen hinweg. Die ruhige Lage direkt am See und die Nähe zur pulsierenden Stadt Zürich runden deinen Arbeitsplatz ab. Darüber hinaus kannst du dich auf ganz spezielle Vorteile freuen.",
       "descriptionByLocale": {
-        "it": "Spital Männedorf – Il vostro luogo di lavoro molto speciale.\nChe sia un piccolo “grazie” o una mattina “grüezi” – ci concentriamo sull’apprezzamento reale e sull’umanità. La vicinanza nella nostra casa rende la vita di tutti i giorni semplice e permette il lavoro incentrato sul paziente al massimo livello. In un ambiente in cui la cooperazione interdisciplinare a livello degli occhi è una questione naturalmente, offriamo trattamenti individuali da cure mediche primarie a riabilitazione.\n\nLa natura della vostra attività:\n\n• Monitoraggio professionale dei nostri pazienti\n• Competenza, cura professionale e sostegno dei pazienti e dei loro parenti in situazioni di crisi\n• Accompagnamento attivo degli studenti NDS Intensive Care e di altri gruppi professionali nell'assistenza sanitaria\n\nLa base delle tue prestazioni:\n\n• Diploma Expert / Expert Intensive Care NDS HF con esperienza professionale\n• Familiare con gli argomenti di gestione aziendale nella vita quotidiana\n• Buone capacità organizzative e di comunicazione con il pensiero e l'azione orientati agli obiettivi\n• Personalità competente e resiliente che mantiene la calma necessaria anche in situazioni frenetiche\n\nLe ragioni della vostra decisione:\nOffriamo condizioni di lavoro moderne, promuovere la formazione interna e concentrarsi sullo scambio professionale in tutte le discipline. La posizione tranquilla direttamente sul lago e la vicinanza alla vivace città di Zurigo arrotondano il vostro posto di lavoro. Inoltre, si può aspettare molto vantaggi speciali.",
-        "en": "Spital Männedorf – Your very special place of work.\nWhether a small “thank you” or a morning “grüezi” – we focus on real appreciation and humanity. The proximity in our house makes everyday life uncomplicated and allows patient-centered work at the highest level. In an environment where interdisciplinary cooperation at eye level is a matter of course, we offer individual treatments from primary medical care to rehabilitation.\n\nThe nature of your activity:\n\n• Professional monitoring of our patients\n• Competent, professional care and support of patients and their relatives in crisis situations\n• Active accompaniment of students NDS Intensive Care and other professional groups in health care\n\nThe basis of your performance:\n\n• Diploma Expert / Expert Intensive Care NDS HF with professional experience\n• Familiar with business management topics in everyday life\n• Good organizational and communication skills with goal-oriented and solution-oriented thinking and action\n• Competent and resilient personality that maintains the necessary calm even in hectic situations\n\nThe reasons for your decision:\nWe offer modern working conditions, promote internal training and focus on professional exchange across all disciplines. The quiet location directly on the lake and the proximity to the vibrant city of Zurich round off your workplace. In addition, you can look forward to very special advantages.",
-        "de": "Spital Männedorf – Dein ganz besonderer Arbeitsort.\nOb ein kleines „Danke“ oder ein morgendliches „Grüezi“ - bei uns stehen echte Wertschätzung und Menschlichkeit im Vordergrund. Die Nähe in unserem Haus macht den Alltag unkompliziert und ermöglicht patientenzentrierte Arbeit auf höchstem Niveau. In einem Umfeld, in dem interdisziplinäre Zusammenarbeit auf Augenhöhe selbstverständlich ist, bieten wir individuelle Behandlungen von der medizinischen Erstversorgung bis zur Rehabilitation.\n\nDas Wesen deiner Tätigkeit:\n\n• Fachgerechte Überwachung unserer Patientinnen und Patienten\n• Kompetente, professionelle Pflege und Begleitung von Patientinnen und Patienten sowie deren Angehörigen in Krisensituationen\n• Aktive Begleitung der Studierenden NDS Intensivpflege und andere Berufsgruppen im Gesundheitswesen\n\nDie Basis deiner Leistung:\n\n• Diplom Expertin / Experte Intensivpflege NDS HF mit Berufserfahrung\n• Vertraut mit betriebswirtschaftlichen Themen im Alltag\n• Gute Organisations- und Kommunikationsfähigkeit mit ziel- und lösungsorientiertem Denken und Handeln\n• Kompetente und belastbare Persönlichkeit, welche auch in hektischen Situationen die nötige Ruhe bewahrt\n\nDie Gründe deiner Entscheidung:\nWir bieten moderne Arbeitsbedingungen, fördern interne Weiterbildungen und setzen auf fachlichen Austausch über alle Disziplinen hinweg. Die ruhige Lage direkt am See und die Nähe zur pulsierenden Stadt Zürich runden deinen Arbeitsplatz ab. Darüber hinaus kannst du dich auf ganz spezielle Vorteile freuen.",
-        "fr": "Spital Männedorf – Votre lieu de travail très spécial.\nQu'il s'agisse d'un petit merci ou d'un matin, nous nous concentrons sur l'appréciation et l'humanité réelles. La proximité de notre maison rend la vie quotidienne simple et permet un travail centré sur le patient au plus haut niveau. Dans un environnement où la coopération interdisciplinaire au niveau des yeux est une question bien sûr, nous offrons des traitements individuels, des soins médicaux primaires à la réadaptation.\n\nLa nature de votre activité :\n\n• Surveillance professionnelle de nos patients\n• Soins et soutien professionnels et compétents des patients et de leurs proches en situation de crise\n• Accompagnement actif des étudiants SDN Soins intensifs et autres groupes professionnels en soins de santé\n\nLa base de votre performance:\n\n• Expert / Expert Soins intensifs NDS HF avec expérience professionnelle\n• Familiariser avec les sujets de gestion d'entreprise dans la vie quotidienne\n• Bonnes aptitudes en matière d ' organisation et de communication, avec une réflexion et une action orientées vers des objectifs et des solutions\n• Personnalité compétente et résiliente qui maintient le calme nécessaire même dans des situations agitées\n\nLes raisons de votre décision :\nNous offrons des conditions de travail modernes, promouvons la formation interne et nous nous concentrons sur les échanges professionnels dans toutes les disciplines. L'emplacement calme directement sur le lac et la proximité de la ville animée de Zurich complètent votre lieu de travail. En outre, vous pouvez attendre avec impatience des avantages très spéciaux."
+        "it": "Spital Männedorf – Il vostro luogo di lavoro molto speciale.\nSe un piccolo “grazie” o una mattina “Grüezi” – ci concentriamo sull’apprezzamento reale e sull’umanità. La vicinanza nella nostra casa rende la vita di tutti i giorni semplice e consente il lavoro incentrato sul paziente al massimo livello. In un ambiente in cui la cooperazione interdisciplinare a livello degli occhi è una questione naturalmente, offriamo trattamenti individuali da cure mediche primarie a riabilitazione.\n\nLa natura della vostra attività:\n\n• Monitoraggio professionale e cura dei pazienti\n• Cura e supporto professionale e professionale dei pazienti e dei loro parenti in situazioni di crisi\n• Supporto attivo e promozione degli studenti NDS Intensive Care e di altri gruppi professionali nel settore sanitario\n• Opportunità di ulteriore sviluppo professionale nel settore della formazione professionale e di assumere la funzione di formatore professionale o formatore professionale\n\nLa base delle tue prestazioni:\n\n• Diploma come esperto / esperto terapia intensiva NDS HF con corrispondente esperienza professionale\n• Familiarità con gli argomenti di gestione aziendale nel lavoro quotidiano\n• Forte capacità organizzative e di comunicazione, così come il pensiero e l'azione mirati e orientati alla soluzione\n• Personalità competente e resiliente che mantiene calma e panoramica anche in situazioni frenetiche\n• Volontà di intraprendere la formazione SVEB se interessati a lavorare nella formazione professionale\n\nLe ragioni della vostra decisione:\nOffriamo condizioni di lavoro moderne, promuovere la formazione interna e concentrarsi sullo scambio professionale in tutte le discipline. La posizione tranquilla direttamente sul lago e la vicinanza alla vivace città di Zurigo arrotondano il vostro posto di lavoro. Inoltre, si può aspettare molto vantaggi speciali.",
+        "en": "Spital Männedorf – Your very special place of work.\nWhether a small “thank you” or a morning “Grüezi” – we focus on real appreciation and humanity. The proximity in our house makes everyday life uncomplicated and allows patient-centered work at the highest level. In an environment where interdisciplinary cooperation at eye level is a matter of course, we offer individual treatments from primary medical care to rehabilitation.\n\nThe nature of your activity:\n\n• Professional monitoring and care of patients\n• Competent and professional care and support of patients and their relatives in crisis situations\n• Active support and promotion of students NDS Intensive Care as well as other professional groups in the health care sector\n• Opportunity for further professional development in the field of vocational training and to take on the function as a vocational trainer or Professional trainers\n\nThe basis of your performance:\n\n• Diploma as an expert / expert intensive care NDS HF with corresponding professional experience\n• Familiarity with business management topics in everyday work\n• Strong organisational and communication skills as well as goal- and solution-oriented thinking and action\n• Competent and resilient personality that keeps calm and overview even in hectic situations\n• Willingness to undertake SVEB training if interested in working in vocational training\n\nThe reasons for your decision:\nWe offer modern working conditions, promote internal training and focus on professional exchange across all disciplines. The quiet location directly on the lake and the proximity to the vibrant city of Zurich round off your workplace. In addition, you can look forward to very special advantages.",
+        "de": "Spital Männedorf – Dein ganz besonderer Arbeitsort.\nOb ein kleines „Danke“ oder ein morgendliches „Grüezi“ - bei uns stehen echte Wertschätzung und Menschlichkeit im Vordergrund. Die Nähe in unserem Haus macht den Alltag unkompliziert und ermöglicht patientenzentrierte Arbeit auf höchstem Niveau. In einem Umfeld, in dem interdisziplinäre Zusammenarbeit auf Augenhöhe selbstverständlich ist, bieten wir individuelle Behandlungen von der medizinischen Erstversorgung bis zur Rehabilitation.\n\nDas Wesen deiner Tätigkeit:\n\n• Fachgerechte Überwachung und Betreuung der Patientinnen und Patienten\n• Kompetente und professionelle Pflege sowie Begleitung von Patientinnen und Patienten und deren Angehörigen in Krisensituationen\n• Aktive Begleitung und Förderung der Studierenden NDS Intensivpflege sowie weiterer Berufsgruppen im Gesundheitswesen\n• Möglichkeit zur fachlichen Weiterentwicklung im Bereich Berufsbildung und zur Übernahme der Funktion als Berufsbildnerin bzw. Berufsbildner\n\nDie Basis deiner Leistung:\n\n• Diplom als Expertin / Experte Intensivpflege NDS HF mit entsprechender Berufserfahrung\n• Vertrautheit mit betriebswirtschaftlichen Themen im Berufsalltag\n• Ausgeprägte Organisations- und Kommunikationsfähigkeit sowie ziel- und lösungsorientiertes Denken und Handeln\n• Kompetente und belastbare Persönlichkeit, die auch in hektischen Situationen Ruhe und Übersicht bewahrt\n• Bereitschaft, bei Interesse an einer Tätigkeit in der Berufsbildung eine SVEB-Weiterbildung zu absolvieren\n\nDie Gründe deiner Entscheidung:\nWir bieten moderne Arbeitsbedingungen, fördern interne Weiterbildungen und setzen auf fachlichen Austausch über alle Disziplinen hinweg. Die ruhige Lage direkt am See und die Nähe zur pulsierenden Stadt Zürich runden deinen Arbeitsplatz ab. Darüber hinaus kannst du dich auf ganz spezielle Vorteile freuen.",
+        "fr": "Spital Männedorf – Votre lieu de travail très spécial.\nQu'il s'agisse d'un petit merci ou d'un matin, nous nous concentrons sur l'appréciation et l'humanité réelles. La proximité de notre maison rend la vie quotidienne simple et permet un travail centré sur le patient au plus haut niveau. Dans un environnement où la coopération interdisciplinaire au niveau des yeux est une question bien sûr, nous offrons des traitements individuels, des soins médicaux primaires à la réadaptation.\n\nLa nature de votre activité :\n\n• Surveillance et soins professionnels des patients\n• Soins et soutien professionnels et compétents des patients et de leurs proches en situation de crise\n• Soutien actif et promotion des étudiants SND Soins intensifs ainsi que d'autres groupes professionnels dans le secteur des soins de santé\n• Possibilité de poursuivre le perfectionnement professionnel dans le domaine de la formation professionnelle et d'assumer la fonction de formateur professionnel ou de formateur professionnel\n\nLa base de votre performance:\n\n• Diplôme d'expert / expert en soins intensifs NDS HF avec expérience professionnelle correspondante\n• Familiarité avec les sujets de gestion d'entreprise dans le travail quotidien\n• Des compétences solides en matière d'organisation et de communication ainsi qu'une réflexion et une action orientées vers des objectifs et des solutions\n• Personnalité compétente et résiliente qui garde le calme et la vue d'ensemble même dans des situations agitées\n• Volonté d'entreprendre une formation SVEB s'il est intéressé à travailler dans la formation professionnelle\n\nLes raisons de votre décision :\nNous offrons des conditions de travail modernes, promouvons la formation interne et nous nous concentrons sur les échanges professionnels dans toutes les disciplines. L'emplacement calme directement sur le lac et la proximité de la ville animée de Zurich complètent votre lieu de travail. En outre, vous pouvez attendre avec impatience des avantages très spéciaux."
       },
       "location": "Männedorf",
       "canton": "ZH",
@@ -2314,7 +2636,7 @@
       "source": "Spital Männedorf Dedicated Parser (Umantis tenant 2736)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-11-09T09:25:25.655Z",
+      "crawledAt": "2026-11-10T09:16:03.715Z",
       "addressLocality": "Männedorf",
       "postalCode": "8708",
       "addressCountry": "CH",
@@ -2362,9 +2684,23 @@
         }
       },
       "addressRegion": "ZH",
-      "streetAddress": "Männedorf",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-09T09:25:25.655Z",
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Spital Männedorf",
+        "streetAddress": "Asylstrasse 10",
+        "postalCode": "8708",
+        "registeredName": "Spital Männedorf AG",
+        "matchType": "exact",
+        "streetAddressSource": "zefix-registry",
+        "jobPostalCode": "8708",
+        "addressLocality": "Männedorf",
+        "addressRegion": "ZH",
+        "checkedAt": "2026-11-09T15:43:32.637Z"
+      },
+      "streetAddress": "Asylstrasse 10",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-12-10T09:16:03.715Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2399,7 +2735,7 @@
       "source": "Spital Männedorf Dedicated Parser (Umantis tenant 2736)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-11-09T09:25:23.633Z",
+      "crawledAt": "2026-11-10T09:16:01.776Z",
       "addressLocality": "Männedorf",
       "postalCode": "8708",
       "addressCountry": "CH",
@@ -2450,9 +2786,23 @@
         }
       },
       "addressRegion": "ZH",
-      "streetAddress": "Männedorf",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-09T09:25:23.633Z",
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Spital Männedorf",
+        "streetAddress": "Asylstrasse 10",
+        "postalCode": "8708",
+        "registeredName": "Spital Männedorf AG",
+        "matchType": "exact",
+        "streetAddressSource": "zefix-registry",
+        "jobPostalCode": "8708",
+        "addressLocality": "Männedorf",
+        "addressRegion": "ZH",
+        "checkedAt": "2026-11-09T15:43:32.637Z"
+      },
+      "streetAddress": "Asylstrasse 10",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-12-10T09:16:01.776Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2487,7 +2837,7 @@
       "source": "Spital Männedorf Dedicated Parser (Umantis tenant 2736)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-11-09T09:25:21.640Z",
+      "crawledAt": "2026-11-10T09:15:59.710Z",
       "addressLocality": "Männedorf",
       "postalCode": "8708",
       "addressCountry": "CH",
@@ -2540,9 +2890,23 @@
         }
       },
       "addressRegion": "ZH",
-      "streetAddress": "Männedorf",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-09T09:25:21.640Z",
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Spital Männedorf",
+        "streetAddress": "Asylstrasse 10",
+        "postalCode": "8708",
+        "registeredName": "Spital Männedorf AG",
+        "matchType": "exact",
+        "streetAddressSource": "zefix-registry",
+        "jobPostalCode": "8708",
+        "addressLocality": "Männedorf",
+        "addressRegion": "ZH",
+        "checkedAt": "2026-11-09T15:43:32.637Z"
+      },
+      "streetAddress": "Asylstrasse 10",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-12-10T09:15:59.710Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2576,7 +2940,7 @@
       "url": "https://recruitingapp-2736.umantis.com/Vacancies/2014/Description/1",
       "source": "Spital Männedorf Dedicated Parser (Umantis tenant 2736)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:25:19.637Z",
+      "crawledAt": "2026-11-10T09:15:57.905Z",
       "addressLocality": "Männedorf",
       "postalCode": "8708",
       "addressCountry": "CH",
@@ -2631,9 +2995,23 @@
         }
       },
       "addressRegion": "ZH",
-      "streetAddress": "Männedorf",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-23T09:25:19.637Z",
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Spital Männedorf",
+        "streetAddress": "Asylstrasse 10",
+        "postalCode": "8708",
+        "registeredName": "Spital Männedorf AG",
+        "matchType": "exact",
+        "streetAddressSource": "zefix-registry",
+        "jobPostalCode": "8708",
+        "addressLocality": "Männedorf",
+        "addressRegion": "ZH",
+        "checkedAt": "2026-11-09T15:43:32.637Z"
+      },
+      "streetAddress": "Asylstrasse 10",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-12-23T09:15:57.905Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2668,7 +3046,7 @@
       "source": "Spital Männedorf Dedicated Parser (Umantis tenant 2736)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-11-09T09:25:17.615Z",
+      "crawledAt": "2026-11-10T09:15:55.779Z",
       "addressLocality": "Männedorf",
       "postalCode": "8708",
       "addressCountry": "CH",
@@ -2721,9 +3099,23 @@
         }
       },
       "addressRegion": "ZH",
-      "streetAddress": "Männedorf",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-28T09:25:17.615Z",
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Spital Männedorf",
+        "streetAddress": "Asylstrasse 10",
+        "postalCode": "8708",
+        "registeredName": "Spital Männedorf AG",
+        "matchType": "exact",
+        "streetAddressSource": "zefix-registry",
+        "jobPostalCode": "8708",
+        "addressLocality": "Männedorf",
+        "addressRegion": "ZH",
+        "checkedAt": "2026-11-09T15:43:32.637Z"
+      },
+      "streetAddress": "Asylstrasse 10",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-12-28T09:15:55.779Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2758,7 +3150,7 @@
       "source": "Spital Männedorf Dedicated Parser (Umantis tenant 2736)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-11-09T09:25:15.623Z",
+      "crawledAt": "2026-11-10T09:15:53.760Z",
       "addressLocality": "Männedorf",
       "postalCode": "8708",
       "addressCountry": "CH",
@@ -2815,9 +3207,23 @@
         }
       },
       "addressRegion": "ZH",
-      "streetAddress": "Männedorf",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-12T09:25:15.623Z",
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Spital Männedorf",
+        "streetAddress": "Asylstrasse 10",
+        "postalCode": "8708",
+        "registeredName": "Spital Männedorf AG",
+        "matchType": "exact",
+        "streetAddressSource": "zefix-registry",
+        "jobPostalCode": "8708",
+        "addressLocality": "Männedorf",
+        "addressRegion": "ZH",
+        "checkedAt": "2026-11-09T15:43:32.637Z"
+      },
+      "streetAddress": "Asylstrasse 10",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2027-01-12T09:15:53.760Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2851,7 +3257,7 @@
       "url": "https://recruitingapp-2736.umantis.com/Vacancies/2023/Description/1",
       "source": "Spital Männedorf Dedicated Parser (Umantis tenant 2736)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:25:13.633Z",
+      "crawledAt": "2026-11-10T09:15:51.756Z",
       "addressLocality": "Männedorf",
       "postalCode": "8708",
       "addressCountry": "CH",
@@ -2908,9 +3314,23 @@
         }
       },
       "addressRegion": "ZH",
-      "streetAddress": "Männedorf",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-17T09:25:13.633Z",
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Spital Männedorf",
+        "streetAddress": "Asylstrasse 10",
+        "postalCode": "8708",
+        "registeredName": "Spital Männedorf AG",
+        "matchType": "exact",
+        "streetAddressSource": "zefix-registry",
+        "jobPostalCode": "8708",
+        "addressLocality": "Männedorf",
+        "addressRegion": "ZH",
+        "checkedAt": "2026-11-09T15:43:32.637Z"
+      },
+      "streetAddress": "Asylstrasse 10",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2027-01-18T09:15:51.756Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2945,7 +3365,7 @@
       "source": "Spital Männedorf Dedicated Parser (Umantis tenant 2736)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-11-09T09:25:11.621Z",
+      "crawledAt": "2026-11-10T09:15:49.698Z",
       "addressLocality": "Männedorf",
       "postalCode": "8708",
       "addressCountry": "CH",
@@ -3001,9 +3421,23 @@
         }
       },
       "addressRegion": "ZH",
-      "streetAddress": "Männedorf",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-18T09:25:11.621Z",
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Spital Männedorf",
+        "streetAddress": "Asylstrasse 10",
+        "postalCode": "8708",
+        "registeredName": "Spital Männedorf AG",
+        "matchType": "exact",
+        "streetAddressSource": "zefix-registry",
+        "jobPostalCode": "8708",
+        "addressLocality": "Männedorf",
+        "addressRegion": "ZH",
+        "checkedAt": "2026-11-09T15:43:32.637Z"
+      },
+      "streetAddress": "Asylstrasse 10",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2027-01-19T09:15:49.698Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3037,7 +3471,7 @@
       "url": "https://recruitingapp-2736.umantis.com/Vacancies/1207/Description/1",
       "source": "Spital Männedorf Dedicated Parser (Umantis tenant 2736)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:25:09.612Z",
+      "crawledAt": "2026-11-10T09:15:47.726Z",
       "addressLocality": "Männedorf",
       "postalCode": "8708",
       "addressCountry": "CH",
@@ -3085,9 +3519,23 @@
         }
       },
       "addressRegion": "ZH",
-      "streetAddress": "Männedorf",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-09T09:25:09.612Z",
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Spital Männedorf",
+        "streetAddress": "Asylstrasse 10",
+        "postalCode": "8708",
+        "registeredName": "Spital Männedorf AG",
+        "matchType": "exact",
+        "streetAddressSource": "zefix-registry",
+        "jobPostalCode": "8708",
+        "addressLocality": "Männedorf",
+        "addressRegion": "ZH",
+        "checkedAt": "2026-11-09T15:43:32.637Z"
+      },
+      "streetAddress": "Asylstrasse 10",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-12-10T09:15:47.726Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3121,7 +3569,7 @@
       "url": "https://recruitingapp-2736.umantis.com/Vacancies/2032/Description/1",
       "source": "Spital Männedorf Dedicated Parser (Umantis tenant 2736)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:25:07.628Z",
+      "crawledAt": "2026-11-10T09:15:45.714Z",
       "addressLocality": "Männedorf",
       "postalCode": "8708",
       "addressCountry": "CH",
@@ -3170,9 +3618,23 @@
         }
       },
       "addressRegion": "ZH",
-      "streetAddress": "Männedorf",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-02T09:25:07.628Z",
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Spital Männedorf",
+        "streetAddress": "Asylstrasse 10",
+        "postalCode": "8708",
+        "registeredName": "Spital Männedorf AG",
+        "matchType": "exact",
+        "streetAddressSource": "zefix-registry",
+        "jobPostalCode": "8708",
+        "addressLocality": "Männedorf",
+        "addressRegion": "ZH",
+        "checkedAt": "2026-11-09T15:43:32.637Z"
+      },
+      "streetAddress": "Asylstrasse 10",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2027-02-02T09:15:45.714Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3206,7 +3668,7 @@
       "url": "https://recruitingapp-2736.umantis.com/Vacancies/1989/Description/1",
       "source": "Spital Männedorf Dedicated Parser (Umantis tenant 2736)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:25:05.650Z",
+      "crawledAt": "2026-11-10T09:15:43.747Z",
       "addressLocality": "Männedorf",
       "postalCode": "8708",
       "addressCountry": "CH",
@@ -3259,9 +3721,23 @@
         }
       },
       "addressRegion": "ZH",
-      "streetAddress": "Männedorf",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-04T09:25:05.650Z",
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Spital Männedorf",
+        "streetAddress": "Asylstrasse 10",
+        "postalCode": "8708",
+        "registeredName": "Spital Männedorf AG",
+        "matchType": "exact",
+        "streetAddressSource": "zefix-registry",
+        "jobPostalCode": "8708",
+        "addressLocality": "Männedorf",
+        "addressRegion": "ZH",
+        "checkedAt": "2026-11-09T15:43:32.637Z"
+      },
+      "streetAddress": "Asylstrasse 10",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2027-02-04T09:15:43.747Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3295,7 +3771,7 @@
       "url": "https://recruitingapp-2736.umantis.com/Vacancies/2031/Description/1",
       "source": "Spital Männedorf Dedicated Parser (Umantis tenant 2736)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:25:03.663Z",
+      "crawledAt": "2026-11-10T09:15:41.718Z",
       "addressLocality": "Männedorf",
       "postalCode": "8708",
       "addressCountry": "CH",
@@ -3346,9 +3822,23 @@
         }
       },
       "addressRegion": "ZH",
-      "streetAddress": "Männedorf",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-04T09:25:03.663Z",
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Spital Männedorf",
+        "streetAddress": "Asylstrasse 10",
+        "postalCode": "8708",
+        "registeredName": "Spital Männedorf AG",
+        "matchType": "exact",
+        "streetAddressSource": "zefix-registry",
+        "jobPostalCode": "8708",
+        "addressLocality": "Männedorf",
+        "addressRegion": "ZH",
+        "checkedAt": "2026-11-09T15:43:32.637Z"
+      },
+      "streetAddress": "Asylstrasse 10",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2027-02-04T09:15:41.718Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3363,11 +3853,11 @@
       "company": "Spital Männedorf",
       "companyKey": "spital-maennedorf",
       "companyDomain": "spitalmaennedorf.ch",
-      "title": "Oberarzt Anästhesiologie 50-100% Anästhesie & Intensivmedizin (m/w/d)",
+      "title": "Oberarzt Anästhesiologie 50-100% (m/w/d)",
       "titleByLocale": {
         "it": "Anestesiologia medica senior 50-100% anestesia e medicina intensiva di cura (m/f/d)",
         "en": "Senior physician anesthesiology 50-100% anesthesia & intensive care medicine (m/f/d)",
-        "de": "Oberarzt Anästhesiologie 50-100% Anästhesie & Intensivmedizin (m/w/d)",
+        "de": "Oberarzt Anästhesiologie 50-100% (m/w/d)",
         "fr": "Anesthésiologie médecin senior 50-100% anesthésie et médecine de soins intensifs (h/f/d)"
       },
       "description": "Spital Männedorf – Ihr ganz besonderer Arbeitsort.\nOb ein kleines „Danke“ oder ein morgendliches „Grüezi“ - bei uns stehen echte Wertschätzung und Menschlichkeit im Vordergrund. Die Nähe in unserem Haus macht den Alltag unkompliziert und ermöglicht patientenzentrierte Arbeit auf höchstem Niveau. In einem Umfeld, in dem interdisziplinäre Zusammenarbeit auf Augenhöhe selbstverständlich ist, bieten wir individuelle Behandlungen von der medizinischen Erstversorgung bis zur Rehabilitation.\n\nDas Wesen Ihrer Tätigkeit:\n\n• Selbständige perioperative Betreuung unserer Patientinnen und Patienten aus einem breiten chirurgischen Spektrum\n• Einsätze im Schockraum, im Gebärsaal, im Akutschmerzdienst sowie der Anästhesie-Sprechstunde\n• Mitbetreuung unserer Patientinnen und Patienten im Dienstbetrieb auf der Intensivstation, wobei jederzeit ein Intensivmediziner im Hintergrund zur Verfügung steht\n\nDie Basis Ihrer Leistung:\n\n• Facharzttitel (oder kurz davor) in Anästhesiologie (FMH oder äquivalent)\n• Erfahrung in den gängigen Regionalanästhesie-Verfahren und Kenntnisse in der Intensivmedizin\n• Initiative, motivierte und teamorientierte Persönlichkeit\n• Freude an enger, kooperativer Zusammenarbeit mit allen Berufsgruppen im perioperativen Bereich\n\nDie Vorzüge Ihrer Position:\n\n• Eine anspruchsvolle Tätigkeit in einem breiten Spektrum der Anästhesiologie und der Intensivmedizin\n• Mitarbeit in einem dynamischen Team mit der Möglichkeit zur aktiven Mitgestaltung\n• Sehr gute verkehrstechnische Anbindung\n• Möglichkeit und Förderung der individuellen Weiterentwicklung\n\nDie Gründe Ihrer Entscheidung:\nWir bieten moderne Arbeitsbedingungen, medizinische Technologien auf dem neuesten Stand, fördern interne Weiterbildungen und setzen auf fachlichen Austausch über alle Disziplinen hinweg. Die ruhige Lage direkt am See und die Nähe zur pulsierenden Stadt Zürich runden Ihren Arbeitsplatz ab. Darüber hinaus können Sie sich auf ganz spezielle Vorteile freuen.",
@@ -3382,8 +3872,8 @@
       "url": "https://recruitingapp-2736.umantis.com/Vacancies/1930/Description/1",
       "source": "Spital Männedorf Dedicated Parser (Umantis tenant 2736)",
       "sourceLang": "de",
-      "needsRetranslation": false,
-      "crawledAt": "2026-11-09T09:25:01.621Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-11-10T09:15:39.706Z",
       "addressLocality": "Männedorf",
       "postalCode": "8708",
       "addressCountry": "CH",
@@ -3406,17 +3896,19 @@
       "pensumMax": 100,
       "pensum": "50 - 100%",
       "previousSlugs": [
-        "oberarzt-anasthesiologie-50-100-anasthesie-intensivmedizin-m-w-d-spital-maennedorf-ch"
+        "oberarzt-anasthesiologie-50-100-anasthesie-intensivmedizin-m-w-d-spital-maennedorf-ch",
+        "oberarzt-anasthesiologie-50-100-m-w-d-spital-maennedorf-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "oberarzt-anasthesiologie-50-100-anasthesie-intensivmedizin-m-w-d-spital-maennedorf-ch"
+          "oberarzt-anasthesiologie-50-100-anasthesie-intensivmedizin-m-w-d-spital-maennedorf-ch",
+          "oberarzt-anasthesiologie-50-100-m-w-d-spital-maennedorf-ch"
         ],
         "de": [
           "oberarzt-anasthesiologie-50-100-anasthesie-intensivmedizin-m-w-d-spital-maennedorf-ch"
         ]
       },
-      "firstSeenAt": "2026-11-07T09:24:39.031Z",
+      "firstSeenAt": "2026-08-11T10:08:13.243Z",
       "salaryMin": 124000,
       "salaryMax": 173000,
       "salarySource": "estimated",
@@ -3431,9 +3923,23 @@
         }
       },
       "addressRegion": "ZH",
-      "streetAddress": "Männedorf",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-05T09:25:01.621Z",
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Spital Männedorf",
+        "streetAddress": "Asylstrasse 10",
+        "postalCode": "8708",
+        "registeredName": "Spital Männedorf AG",
+        "matchType": "exact",
+        "streetAddressSource": "zefix-registry",
+        "jobPostalCode": "8708",
+        "addressLocality": "Männedorf",
+        "addressRegion": "ZH",
+        "checkedAt": "2026-11-09T15:43:32.637Z"
+      },
+      "streetAddress": "Asylstrasse 10",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-12-10T09:15:39.706Z",
       "validThroughSource": "last-observed-window"
     }
   ]

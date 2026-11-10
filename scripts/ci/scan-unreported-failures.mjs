@@ -878,18 +878,20 @@ export function ownerSignalPersisted(entry, openIssues, run) {
  *
  * Una issue chiusa non può coprire un crash generico: questa funzione viene
  * chiamata solo per una voce di `VERDICT_STEPS`, e richiede che l'evento che
- * ha scritto l'owner sia riferibile alla run osservata. Per il listing REST
- * l'unico evento owner verificabile è la creazione dell'issue durante la run
- * (`run.created_at <= createdAt <= run.updated_at`); una issue già esistente
- * che viene chiusa durante o dopo la run non è prova del suo verdetto. La
- * chiusura deve inoltre seguire la creazione, anche quando la scansione legge
- * il rosso storico dopo una run sana.
+ * ha scritto l'owner sia riferibile alla run osservata. La creazione dell'issue
+ * durante la run (`run.created_at <= createdAt <= run.updated_at`) resta la
+ * prova più forte. Un owner preesistente può però essere riaperto dalla run e
+ * chiuso prima della scansione successiva: in quel caso il listing REST espone
+ * solo la data di creazione originale, quindi si accetta esclusivamente il
+ * commento di ricorrenza che contiene l'URL/run esatta. Una issue aggiornata o
+ * chiusa senza quel commento non è prova del suo verdetto.
  *
  * @param {{ owner?: string }|null} entry la voce di `VERDICT_STEPS`
- * @param {Array<{ title?: string, createdAt?: string, closedAt?: string }>|null} closedIssues
- * @param {{ created_at?: string, updated_at?: string }} run
+ * @param {Array<{ title?: string, createdAt?: string, updatedAt?: string, closedAt?: string, comments?: Array }>|null} closedIssues
+ * @param {{ id?: string|number, html_url?: string, created_at?: string, updated_at?: string }} run
+ * @param {{ readComments?: (issue: object) => Array|null }} [options]
  */
-export function closedOwnerSignalPersisted(entry, closedIssues, run) {
+export function closedOwnerSignalPersisted(entry, closedIssues, run, { readComments } = {}) {
   const owner = typeof entry?.owner === 'string' ? entry.owner : '';
   if (!owner.trim() || !Array.isArray(closedIssues)) return false;
   const startedAt = Date.parse(run?.created_at ?? '');
@@ -899,8 +901,38 @@ export function closedOwnerSignalPersisted(entry, closedIssues, run) {
     if (typeof issue?.title !== 'string' || !issue.title.startsWith(owner)) return false;
     const createdAt = Date.parse(issue.createdAt ?? '');
     const closedAt = Date.parse(issue.closedAt ?? '');
-    return Number.isFinite(createdAt) && Number.isFinite(closedAt)
-      && createdAt >= startedAt && createdAt <= finishedAt && closedAt >= createdAt;
+    if (Number.isFinite(createdAt) && Number.isFinite(closedAt)
+      && createdAt >= startedAt && createdAt <= finishedAt && closedAt >= createdAt) {
+      return true;
+    }
+
+    // A previously-created owner can be reopened by the failing workflow and
+    // then closed by the recovery/follow-up loop before this scanner reads the
+    // red run. `updatedAt`/`closedAt` alone cannot distinguish that sequence
+    // from an unrelated close, so require the creator's run-specific recurrence
+    // comment as the second, exact proof.
+    const updatedAt = Date.parse(issue.updatedAt ?? '');
+    if (!Number.isFinite(updatedAt) || updatedAt < startedAt
+      || !Number.isFinite(closedAt) || closedAt < startedAt) return false;
+    const comments = Array.isArray(issue.comments)
+      ? issue.comments
+      : typeof readComments === 'function' ? readComments(issue) : null;
+    if (!Array.isArray(comments)) return false;
+    const runUrl = String(run?.html_url ?? '').trim();
+    const runId = String(run?.id ?? '').trim();
+    const runToken = runUrl || (runId ? `/actions/runs/${runId}` : '');
+    if (!runToken) return false;
+    return comments.some((comment) => {
+      const body = typeof comment === 'string' ? comment : String(comment?.body ?? '');
+      const created = Date.parse(
+        typeof comment === 'object' ? (comment?.created_at ?? comment?.createdAt ?? '') : '',
+      );
+      if (!Number.isFinite(created) || created < startedAt || created > closedAt) return false;
+      if (!body.includes(runToken)) return false;
+      return body.includes('🔁')
+        || body.includes('Recurrence on workflow run.')
+        || body.includes('**Misura corrente:**');
+    });
   });
 }
 
@@ -1497,6 +1529,29 @@ export async function scanFailures() {
 
   let closedHistory = null;
   let closedHistoryLoaded = false;
+  const closedOwnerCommentsMemo = new Map();
+  const readClosedOwnerComments = (issue) => {
+    const number = Number(issue?.number);
+    if (!Number.isInteger(number) || number < 1) return null;
+    if (closedOwnerCommentsMemo.has(number)) return closedOwnerCommentsMemo.get(number);
+    const raw = gh(
+      ['api', `repos/${REPO || '{owner}/{repo}'}/issues/${number}/comments?per_page=100`, '--paginate', '--slurp'],
+      { allowFailure: true },
+    );
+    let comments = null;
+    if (raw !== null) {
+      try {
+        const parsed = JSON.parse(raw || 'null');
+        if (Array.isArray(parsed)) {
+          comments = parsed.every(Array.isArray) ? parsed.flat() : parsed;
+        }
+      } catch {
+        comments = null;
+      }
+    }
+    closedOwnerCommentsMemo.set(number, comments);
+    return comments;
+  };
   const loadClosedHistory = () => {
     if (!closedHistoryLoaded) {
       closedHistory = closedIssueHistory(horizon);
@@ -1553,7 +1608,9 @@ export async function scanFailures() {
       // still scoped to verdict owners; it never covers a generic failure.
       const history = loadClosedHistory();
       ownerPersisted = Boolean(
-        history && closedOwnerSignalPersisted(verdictEntry, history.domainOwners, run),
+        history && closedOwnerSignalPersisted(verdictEntry, history.domainOwners, run, {
+          readComments: readClosedOwnerComments,
+        }),
       );
     }
     if (verdictOnly && !ownerPersisted) {

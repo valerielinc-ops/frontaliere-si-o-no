@@ -928,3 +928,16 @@ describe('native consent metadata cannot contradict a privacy-looking label', ()
     expect(opened).toBe(0);
   });
 });
+
+describe('the privacy statement accepted by its acknowledgement button', () => {
+  it('reads «Zur Kenntnis genommen» and the other acknowledgements as acceptance, not print or close', () => {
+    const { PRIVACY_ACCEPT_RE } = portal as any;
+    // SBB on SuccessFactors (2026-11-10): the statement opened with «Zur Kenntnis genommen», «Drucken», «Schliessen».
+    for (const label of ['Zur Kenntnis genommen', 'Einverstanden', 'Acknowledged', 'Ho preso visione', 'J’ai pris connaissance', 'Gelesen und akzeptiert']) {
+      expect(PRIVACY_ACCEPT_RE.test(label), label).toBe(true);
+    }
+    for (const label of ['Drucken', 'Schliessen', 'weitere Informationen', 'Print', 'Close']) {
+      expect(PRIVACY_ACCEPT_RE.test(label), label).toBe(false);
+    }
+  });
+});

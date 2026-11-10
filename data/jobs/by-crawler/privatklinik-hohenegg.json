@@ -1,7 +1,7 @@
 {
   "crawlerKey": "privatklinik-hohenegg",
-  "assembledAt": "2026-11-09T09:18:03.243Z",
-  "runId": "42590825067",
+  "assembledAt": "2026-11-10T09:17:19.909Z",
+  "runId": "42787973128",
   "jobs": [
     {
       "id": "privatklinik-hohenegg-ab3fc3a8544f",
@@ -34,7 +34,7 @@
       "url": "https://apply.refline.ch/640332/0063/pub/6/index.html",
       "source": "Privatklinik Hohenegg Dedicated Parser (Refline 640332)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:17:54.328Z",
+      "crawledAt": "2026-11-10T09:17:11.281Z",
       "addressLocality": "Meilen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -84,9 +84,23 @@
           "unitText": "YEAR"
         }
       },
-      "streetAddress": "Meilen",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-09T09:17:54.328Z",
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Privatklinik Hohenegg",
+        "streetAddress": "Hohenegg 1",
+        "postalCode": "8706",
+        "registeredName": "Privatklinik Hohenegg AG",
+        "matchType": "exact",
+        "streetAddressSource": "zefix-registry",
+        "jobPostalCode": "8706",
+        "addressLocality": "Meilen",
+        "addressRegion": "ZH",
+        "checkedAt": "2026-11-09T15:43:11.574Z"
+      },
+      "streetAddress": "Hohenegg 1",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-12-10T09:17:11.281Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -121,7 +135,7 @@
       "url": "https://apply.refline.ch/640332/0038/pub/15/index.html",
       "source": "Privatklinik Hohenegg Dedicated Parser (Refline 640332)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:17:53.834Z",
+      "crawledAt": "2026-11-10T09:17:10.825Z",
       "addressLocality": "Meilen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -170,9 +184,23 @@
           "unitText": "YEAR"
         }
       },
-      "streetAddress": "Meilen",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-09T09:17:53.834Z",
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Privatklinik Hohenegg",
+        "streetAddress": "Hohenegg 1",
+        "postalCode": "8706",
+        "registeredName": "Privatklinik Hohenegg AG",
+        "matchType": "exact",
+        "streetAddressSource": "zefix-registry",
+        "jobPostalCode": "8706",
+        "addressLocality": "Meilen",
+        "addressRegion": "ZH",
+        "checkedAt": "2026-11-09T15:43:11.574Z"
+      },
+      "streetAddress": "Hohenegg 1",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-12-10T09:17:10.825Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -207,7 +235,7 @@
       "url": "https://apply.refline.ch/640332/0057/pub/5/index.html",
       "source": "Privatklinik Hohenegg Dedicated Parser (Refline 640332)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:17:53.341Z",
+      "crawledAt": "2026-11-10T09:17:10.380Z",
       "addressLocality": "Meilen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -259,9 +287,23 @@
           "unitText": "YEAR"
         }
       },
-      "streetAddress": "Meilen",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-09T09:17:53.341Z",
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Privatklinik Hohenegg",
+        "streetAddress": "Hohenegg 1",
+        "postalCode": "8706",
+        "registeredName": "Privatklinik Hohenegg AG",
+        "matchType": "exact",
+        "streetAddressSource": "zefix-registry",
+        "jobPostalCode": "8706",
+        "addressLocality": "Meilen",
+        "addressRegion": "ZH",
+        "checkedAt": "2026-11-09T15:43:11.574Z"
+      },
+      "streetAddress": "Hohenegg 1",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-12-10T09:17:10.380Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -295,7 +337,7 @@
       "url": "https://apply.refline.ch/640332/0055/pub/2/index.html",
       "source": "Privatklinik Hohenegg Dedicated Parser (Refline 640332)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:17:52.855Z",
+      "crawledAt": "2026-11-10T09:17:09.934Z",
       "addressLocality": "Meilen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -349,9 +391,23 @@
           "unitText": "YEAR"
         }
       },
-      "streetAddress": "Meilen",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-09T09:17:52.855Z",
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Privatklinik Hohenegg",
+        "streetAddress": "Hohenegg 1",
+        "postalCode": "8706",
+        "registeredName": "Privatklinik Hohenegg AG",
+        "matchType": "exact",
+        "streetAddressSource": "zefix-registry",
+        "jobPostalCode": "8706",
+        "addressLocality": "Meilen",
+        "addressRegion": "ZH",
+        "checkedAt": "2026-11-09T15:43:11.574Z"
+      },
+      "streetAddress": "Hohenegg 1",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-12-10T09:17:09.934Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -386,7 +442,7 @@
       "url": "https://apply.refline.ch/640332/0052/pub/3/index.html",
       "source": "Privatklinik Hohenegg Dedicated Parser (Refline 640332)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:17:52.332Z",
+      "crawledAt": "2026-11-10T09:17:09.477Z",
       "addressLocality": "Meilen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -440,9 +496,23 @@
           "unitText": "YEAR"
         }
       },
-      "streetAddress": "Meilen",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-09T09:17:52.332Z",
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Privatklinik Hohenegg",
+        "streetAddress": "Hohenegg 1",
+        "postalCode": "8706",
+        "registeredName": "Privatklinik Hohenegg AG",
+        "matchType": "exact",
+        "streetAddressSource": "zefix-registry",
+        "jobPostalCode": "8706",
+        "addressLocality": "Meilen",
+        "addressRegion": "ZH",
+        "checkedAt": "2026-11-09T15:43:11.574Z"
+      },
+      "streetAddress": "Hohenegg 1",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-12-10T09:17:09.477Z",
       "validThroughSource": "last-observed-window"
     }
   ]

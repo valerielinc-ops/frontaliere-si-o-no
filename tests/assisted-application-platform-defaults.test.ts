@@ -18,7 +18,9 @@ import {
   platformQuestionTopic,
   platformStartDate,
   sanitizeCandidateFacts,
+  passportOf,
 } from '../functions/src/assistedApplicationPlatformDefaults.js';
+import { guardPlan } from '../scripts/assisted-application/lib/portal/plan.mjs';
 import { operationalDefaultAnswer, isOperationalDefaultValue, withOperationalQuestionAnswers } from '../functions/src/assistedApplicationOperationalAnswers.js';
 import { candidateWithEdits } from '../functions/src/assistedApplicationCandidateEdits.js';
 import { evaluateRedFlags } from '../functions/src/assistedApplicationFlow.js';
@@ -287,5 +289,19 @@ describe('review of #17764', () => {
     expect(writes).toHaveLength(1);
     // An order that already has its estimate is handed on unchanged.
     expect((await orderWithSalaryEstimate({ order: { jobId: 'job-1', salaryMax: 5 }, write: async () => {}, fetchImpl: (async () => { throw new Error('unexpected'); }) as any })).order).toEqual({ jobId: 'job-1', salaryMax: 5 });
+  });
+});
+
+describe('review of #17879', () => {
+  it('reads the passport only from the upload answer', () => {
+    expect(passportOf({ nationality: 'Italy' } as any)).toBe('');
+    expect(passportOf({ permitStatus: 'swiss' } as any)).toBe('');
+    expect(passportOf({ passport: 'eu_efta' })).toBe('eu_efta');
+  });
+
+  it('keeps a natively required control required when the generic flag says otherwise', () => {
+    const field = { id: 'f1', kind: 'text', label: 'Codice fiscale', required: false, portalNativeContract: { required: true } };
+    const plan = guardPlan({ actions: [], missingRequired: [] }, [field], { identity: {}, profile: {}, answers: {} });
+    expect(plan.missingRequired).toContainEqual(expect.objectContaining({ fieldId: 'f1' }));
   });
 });

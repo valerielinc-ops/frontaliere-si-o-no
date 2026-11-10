@@ -300,6 +300,17 @@ describe('fill extension: native checkbox ownership contract', () => {
   });
 });
 
+describe('fill extension: a preselected marketing box is declined (owner decision 2026-11-09)', () => {
+  it('unticks an optional newsletter box the portal shipped ticked when the candidate gave no yes', async () => {
+    const html = '<label for="news">Send me the newsletter and marketing offers</label><input id="news" type="checkbox" checked data-aa-id="n1">';
+    const declined = page(html);
+    (declined.window as any).CompilaRunnerFields = () => ({ fields: [{ id: 'n1', label: 'Send me the newsletter and marketing offers' }] });
+    await declined.F.fillPage(declined.document, kit, { getFile: async () => null, attempts: new WeakMap(), uploaded: new Set() });
+    expect((declined.document.getElementById('news') as HTMLInputElement).checked).toBe(false);
+    declined.window.close();
+  });
+});
+
 describe('fill extension: exact native metadata binding', () => {
   const field = { id: 'shared', label: 'City', section: 'Personal information', context: 'City',
     addressContext: { section: 'Personal information', owners: ['Personal information'], unknown: false } };

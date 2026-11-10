@@ -1,7 +1,7 @@
 {
   "key": "mistral-ai",
   "label": "Mistral AI",
-  "generatedAt": "2026-11-09T09:51:35.049Z",
+  "generatedAt": "2026-11-10T09:47:15.290Z",
   "total": 2,
   "discovered": null,
   "parsed": 2,
@@ -13,16 +13,18 @@
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
-  "updatedCount": 1,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 2987,
-  "avgDurationMs": 2987,
+  "unchangedCount": 2,
+  "durationMs": 3958,
+  "avgDurationMs": 3958,
   "durationHistory": [
-    2987
+    3958
   ],
   "newJobs": [],
-  "updatedJobs": [
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "mistral-ai-c24d6a4a84d2",
       "slug": "account-executive-enterprise-svizzera-romanda-mistral-ai-zurich",
@@ -35,7 +37,7 @@
       "url": "https://jobs.ashbyhq.com/mistral.ai/19026237-fb3d-480d-a1a3-27204bcb154a",
       "source": "Mistral AI Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-09T09:51:14.591Z",
+      "crawledAt": "2026-11-10T09:46:55.436Z",
       "addressLocality": "Zurich | Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -57,7 +59,7 @@
       "postalCode": "8001",
       "addressRegion": "ZH",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-28T09:51:14.591Z",
+      "validThrough": "2027-01-28T09:46:55.436Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 94,
       "_qualityBreakdown": {
@@ -66,10 +68,7 @@
         "translation": 25,
         "completeness": 22
       }
-    }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": [
+    },
     {
       "id": "mistral-ai-01b2b0d2cc89",
       "slug": "ai-scientist-mistral-ai-ch",
@@ -82,7 +81,7 @@
       "url": "https://jobs.ashbyhq.com/mistral.ai/865fced4-d279-4073-848d-f078c0053155",
       "source": "Mistral AI Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-09T09:51:14.588Z",
+      "crawledAt": "2026-11-10T09:46:55.431Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -105,7 +104,7 @@
       "addressRegion": "ZH",
       "streetAddress": "Zurich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-09T09:51:14.588Z",
+      "validThrough": "2026-12-10T09:46:55.431Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -116,5 +115,5 @@
       }
     }
   ],
-  "codeCommit": "f071981dd2d2820cdec3736f76b1b17ee50345bd"
+  "codeCommit": "854e7bdddbff5b4e0e90fb9b90efe81503dfc091"
 }

@@ -31,6 +31,7 @@ import { readAttr, scanStartTags } from '../html-attr.mjs';
 import { decodeEntities } from './entities.mjs';
 import { politeFetch } from './polite-fetch.mjs';
 import { normalizeHost } from './registrable.mjs';
+import { extractPdfJobContentFromUrl } from '../pdf-job-content.mjs';
 import {
   officialEmployerLocationLinks,
   resolveDetailOrListingSwissGeography,
@@ -38,7 +39,7 @@ import {
   sourceBackedSwissGeographyFields,
 } from './location-evidence.mjs';
 import { PROSPECTOR_DIR } from './config.mjs';
-import { createSpecUrlPolicy } from './public-fetch-policy.mjs';
+import { createSpecUrlPolicy, resolveProspectorFetch } from './public-fetch-policy.mjs';
 import { isConnectionLevelFetchError, isConnectionLevelFetchResult, WAF_IP_BLOCK_STATUS } from '../transient-fetch.mjs';
 import { CRAWLER_FETCH_FAILURE_OUTCOMES, CRAWLER_FETCH_OUTCOMES } from '../crawler-fetch-outcome.mjs';
 import { DETAIL_DROP_ADVISORY_MIN_CANDIDATES } from '../crawler-detail-drop.mjs';
@@ -72,6 +73,158 @@ export function loadSpec(companyKey, dir = path.join(PROSPECTOR_DIR, 'crawlers')
 const BROWSER_RESCUE_USER_AGENT =
   'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 '
   + '(KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36';
+const PDF_BODY_PREFIX = 'frontaliere-pdf-base64:';
+const MAX_SPEC_PDF_BYTES = 10 * 1024 * 1024;
+
+/**
+ * Preserve PDF bytes while keeping the same politeFetch URL, robots, redirect,
+ * DNS and throttling checks used by HTML detail pages.
+ * @param {typeof fetch} fetchImpl
+ */
+function createPdfSafeFetch(fetchImpl) {
+  const fetch = resolveProspectorFetch(fetchImpl);
+  return async (url, init = {}) => {
+    const response = await fetch(url, init);
+    if (response.status >= 300 && response.status < 400) return response;
+    if (typeof response.arrayBuffer !== 'function') return response;
+
+    const bytes = Buffer.from(await response.arrayBuffer());
+    const isPdf = bytes.subarray(0, 5).toString('latin1') === '%PDF-';
+    const body = isPdf
+      ? `${PDF_BODY_PREFIX}${bytes.toString('base64')}`
+      : new TextDecoder().decode(bytes);
+    return {
+      ok: response.ok,
+      status: response.status,
+      url: response.url || url,
+      headers: response.headers,
+      text: async () => body,
+    };
+  };
+}
+
+const PDF_NEXT_SECTION_RX = /\s+(?=(?:introduzione|mansioni|requisiti|candidatura|introduction|responsibilities|requirements|application|aufgaben|anforderungen|bewerbung|responsabilit[àa]|profil|postulation)\b)/iu;
+
+function pdfLabelledFieldValue(text, label) {
+  const normalizedLabel = String(label || '').trim();
+  if (!normalizedLabel) return '';
+  const escapedLabel = normalizedLabel.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  const labelMatch = new RegExp(`\\b${escapedLabel}\\s*:\\s*`, 'iu').exec(String(text || ''));
+  if (!labelMatch) return '';
+  const remainder = String(text || '').slice(labelMatch.index + labelMatch[0].length);
+  const nextSection = PDF_NEXT_SECTION_RX.exec(remainder);
+  if (!nextSection) return '';
+  const value = remainder.slice(0, nextSection.index).trim().replace(/[.;,]+$/, '');
+  return value && value.length <= 120 && !/:\s/.test(value) ? value : '';
+}
+
+function pdfTitleBetweenMarkers(text, leadIn, endLabel) {
+  const normalizedText = String(text || '').replace(/\s+/g, ' ').trim();
+  const normalizedLeadIn = String(leadIn || '').trim().replace(/\s+/g, ' ');
+  const normalizedEndLabel = String(endLabel || '').trim().replace(/\s+/g, ' ');
+  if (!normalizedLeadIn || !normalizedEndLabel) return '';
+  const leadStart = normalizedText.toLocaleLowerCase().indexOf(normalizedLeadIn.toLocaleLowerCase());
+  if (leadStart < 0) return '';
+  const titleStart = leadStart + normalizedLeadIn.length;
+  const tail = normalizedText.slice(titleStart);
+  const escapedEndLabel = normalizedEndLabel.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  const endMatch = new RegExp(`\\b${escapedEndLabel}\\b`, 'iu').exec(tail);
+  if (!endMatch) return '';
+  const title = tail.slice(0, endMatch.index).trim().replace(/^[\s:–—-]+|[\s:–—-]+$/g, '');
+  return title.length >= 3 && title.length <= 160 && !/[.!?]\s/.test(title) ? title : '';
+}
+
+function pdfApplyUrlFromAnnotations(links, allowedHost, allowedPathPrefix) {
+  const host = String(allowedHost || '').trim().toLowerCase();
+  const pathPrefix = String(allowedPathPrefix || '').trim();
+  if (!host || !pathPrefix.startsWith('/')) return '';
+  for (const link of Array.isArray(links) ? links : []) {
+    try {
+      const url = new URL(link);
+      if (url.protocol === 'https:'
+        && url.hostname.toLowerCase() === host
+        && url.pathname.startsWith(pathPrefix)
+        && !url.username
+        && !url.password) return url.href;
+    } catch {
+      // Ignore malformed annotation targets.
+    }
+  }
+  return '';
+}
+
+function pdfApplyUrlFromText(text, allowedHost, allowedPathPrefix, fallbackUrl = '') {
+  const source = String(text || '');
+  const links = [];
+  for (const match of source.matchAll(/<a\b[^>]*>/giu)) {
+    const href = readAttr(match[0], 'href');
+    if (href) links.push(href);
+  }
+  for (const match of source.matchAll(/\]\((https:\/\/[^)\s]+)\)/giu)) links.push(match[1]);
+  for (const match of source.matchAll(/https:\/\/[^\s<>"'()[\]]+/giu)) {
+    links.push(match[0].replace(/[),.;!?]+$/u, ''));
+  }
+  links.push(fallbackUrl);
+  return pdfApplyUrlFromAnnotations(links, allowedHost, allowedPathPrefix);
+}
+
+function pdfTextAsHtml(text, locationLabel = '', titleLeadIn = '', titleEndLabel = '', applyUrl = '') {
+  const paragraphs = String(text || '').split(/\n\s*\n/).map((part) => part.trim()).filter(Boolean);
+  const escapeHtml = (value) => value.replace(/[&<>]/g, (character) => ({
+    '&': '&amp;',
+    '<': '&lt;',
+    '>': '&gt;',
+  }));
+  const workplace = pdfLabelledFieldValue(text, locationLabel);
+  const title = pdfTitleBetweenMarkers(text, titleLeadIn, titleEndLabel);
+  const titleHeading = title ? `<h1>${escapeHtml(title)}</h1>` : '';
+  const applyLink = applyUrl
+    ? `<p><a data-prospector-pdf-apply-url="true" href="${escapeHtml(applyUrl)}">Candidatura online</a></p>`
+    : '';
+  const workplaceField = workplace
+    ? `<h3>${escapeHtml(locationLabel)}</h3><p>${escapeHtml(workplace)}</p>`
+    : '';
+  return `<html><body><main>${titleHeading}${workplaceField}${applyLink}${paragraphs.map((paragraph) => (
+    `<p>${escapeHtml(paragraph).replace(/\n/g, '<br>')}</p>`
+  )).join('')}</main></body></html>`;
+}
+
+async function parsePdfResponseBody(url, body, result, runtime, locationLabel = '', titleLeadIn = '', titleEndLabel = '', applyUrlHost = '', applyUrlPathPrefix = '', fallbackApplyUrl = '') {
+  const bytes = Buffer.from(String(body).slice(PDF_BODY_PREFIX.length), 'base64');
+  if (bytes.length > MAX_SPEC_PDF_BYTES) {
+    throw Object.assign(new Error(`PDF detail exceeds ${MAX_SPEC_PDF_BYTES} bytes`), {
+      status: result.status,
+      retryable: false,
+    });
+  }
+  const arrayBuffer = bytes.buffer.slice(bytes.byteOffset, bytes.byteOffset + bytes.byteLength);
+  const extracted = await extractPdfJobContentFromUrl(url, {
+    timeoutMs: runtime.timeoutMs,
+    proxyRescue: false,
+    fetchImpl: async () => ({
+      ok: true,
+      status: 200,
+      url,
+      headers: { get: (name) => name.toLowerCase() === 'content-type' ? 'application/pdf' : null },
+      arrayBuffer: async () => arrayBuffer,
+    }),
+  });
+  if (!extracted.text) {
+    throw Object.assign(new Error(extracted.error || 'PDF detail has no readable text'), {
+      status: result.status,
+      retryable: false,
+    });
+  }
+  const applyUrl = pdfApplyUrlFromAnnotations(
+    [...(Array.isArray(extracted.links) ? extracted.links : []), fallbackApplyUrl],
+    applyUrlHost,
+    applyUrlPathPrefix,
+  );
+  return {
+    ...result,
+    body: pdfTextAsHtml(extracted.text, locationLabel, titleLeadIn, titleEndLabel, applyUrl),
+  };
+}
 
 function browserAbortReason(signal, message) {
   if (signal?.reason) return signal.reason;
@@ -558,7 +711,9 @@ async function fetchOfficialEmployerSiteLocation(spec, runtime = {}) {
  * @param {any} urlPolicy
  * @param {Record<string, any>} runtime
  * @param {{ method?: string, body?: string, contentType?: string, accept?: string,
- *   headers?: Record<string, string|undefined>, allowJinaProxy?: boolean }} [request]
+ *   headers?: Record<string, string|undefined>, allowJinaProxy?: boolean, readPdf?: boolean,
+ *   detailLocationLabel?: string, detailTitleLeadIn?: string, detailTitleEndLabel?: string,
+ *   detailApplyUrlHost?: string, detailApplyUrlPathPrefix?: string, detailApplyUrl?: string }} [request]
  */
 export async function fetchRuntimePage(url, urlPolicy, runtime, request = {}) {
   const notifyPageFetched = (page) => {
@@ -571,7 +726,9 @@ export async function fetchRuntimePage(url, urlPolicy, runtime, request = {}) {
   const result = await politeFetch(url, {
     urlPolicy,
     dispatcher: urlPolicy.dispatcher,
-    fetchImpl: runtime.fetchImpl,
+    fetchImpl: request.readPdf === true
+      ? createPdfSafeFetch(runtime.fetchImpl)
+      : runtime.fetchImpl,
     sleepImpl: runtime.sleepImpl,
     retries: runtime.retries,
     retryBaseMs: runtime.retryBaseMs,
@@ -583,6 +740,23 @@ export async function fetchRuntimePage(url, urlPolicy, runtime, request = {}) {
     accept: request.accept,
     headers: { ...(runtime.headers || {}), ...(request.headers || {}) },
   });
+  const isPdfBody = request.readPdf === true
+    && typeof result.body === 'string'
+    && result.body.startsWith(PDF_BODY_PREFIX);
+  if (result.ok && isPdfBody) {
+    return notifyPageFetched(await parsePdfResponseBody(
+      result.url || url,
+      result.body,
+      result,
+      runtime,
+      request.detailLocationLabel,
+      request.detailTitleLeadIn,
+      request.detailTitleEndLabel,
+      request.detailApplyUrlHost,
+      request.detailApplyUrlPathPrefix,
+      request.detailApplyUrl,
+    ));
+  }
   let wafProxyExhausted = false;
   const directChallenge = result.ok && looksLikeAntiBotChallenge(result.body);
   const connectionLevelFailure = isConnectionLevelFetchResult(result);
@@ -594,7 +768,15 @@ export async function fetchRuntimePage(url, urlPolicy, runtime, request = {}) {
   // the body is an explicit anti-bot challenge. Without this check a promoted
   // spec crawler feeds the interstitial to vacancy extraction, gets zero rows,
   // and the standard pipeline records a misleading `no-jobs-parsed` bail-out.
-  if (result.ok && !directChallenge) return notifyPageFetched(result);
+  if (result.ok && !directChallenge) {
+    if (request.readPdf === true) {
+      throw Object.assign(new Error(`Expected a PDF detail response from ${result.url || url}`), {
+        status: result.status,
+        retryable: Number(result.status) >= 500,
+      });
+    }
+    return notifyPageFetched(result);
+  }
 
   // Two source-side egress failures can be rescued by the clean-IP Jina path:
   // (a) a public career page answers 403/406/415/451, or an explicit 200
@@ -618,12 +800,28 @@ export async function fetchRuntimePage(url, urlPolicy, runtime, request = {}) {
       sleepImpl: runtime.jinaSleepImpl,
     });
     if (proxiedBody != null && !looksLikeAntiBotChallenge(proxiedBody)) {
+      const applyUrl = request.readPdf === true
+        ? pdfApplyUrlFromText(
+          proxiedBody,
+          request.detailApplyUrlHost,
+          request.detailApplyUrlPathPrefix,
+          request.detailApplyUrl,
+        )
+        : '';
       return notifyPageFetched({
         ...result,
         ok: true,
         status: 200,
         url: result.url || url,
-        body: proxiedBody,
+        body: request.readPdf === true
+          ? pdfTextAsHtml(
+            proxiedBody,
+            request.detailLocationLabel,
+            request.detailTitleLeadIn,
+            request.detailTitleEndLabel,
+            applyUrl,
+          )
+          : proxiedBody,
         proxiedBy: 'jina',
       });
     }
@@ -646,12 +844,28 @@ export async function fetchRuntimePage(url, urlPolicy, runtime, request = {}) {
     && request.allowJinaProxy !== false) {
     const browserBody = await tryBrowserRescue(url, runtime);
     if (browserBody) {
+      const applyUrl = request.readPdf === true
+        ? pdfApplyUrlFromText(
+          browserBody,
+          request.detailApplyUrlHost,
+          request.detailApplyUrlPathPrefix,
+          request.detailApplyUrl,
+        )
+        : '';
       return notifyPageFetched({
         ...result,
         ok: true,
         status: 200,
         url: result.url || url,
-        body: browserBody,
+        body: request.readPdf === true
+          ? pdfTextAsHtml(
+            browserBody,
+            request.detailLocationLabel,
+            request.detailTitleLeadIn,
+            request.detailTitleEndLabel,
+            applyUrl,
+          )
+          : browserBody,
         proxiedBy: 'browser',
       });
     }
@@ -2464,6 +2678,9 @@ export async function collectSpecListingRows(spec, runtime, validateUrl) {
  * }>>}
  */
 export async function runSpecInProduction(spec, runtime = {}) {
+  if (spec.browserRescue === true && typeof runtime.browserFetchImpl !== 'function') {
+    runtime = { ...runtime, browserFetchImpl: fetchHtmlViaBrowser };
+  }
   const validateUrl = createSpecUrlPolicy(spec, { lookupImpl: runtime.lookupImpl || dnsLookup });
   try {
     const rows = await collectSpecListingRows(spec, runtime, validateUrl);
@@ -2641,12 +2858,28 @@ export async function runSpecInProduction(spec, runtime = {}) {
           const detailUrl = row.sourceUrl || row.url;
           let page;
           try {
-            page = await fetchRuntimePage(detailUrl, validateUrl, runtime);
+            page = await fetchRuntimePage(detailUrl, validateUrl, runtime, {
+              readPdf: spec.detailFormat === 'pdf',
+              detailLocationLabel: spec.detailLocationLabel,
+              detailTitleLeadIn: spec.detailTitleLeadIn,
+              detailTitleEndLabel: spec.detailTitleEndLabel,
+              detailApplyUrlHost: spec.detailApplyUrlHost,
+              detailApplyUrlPathPrefix: spec.detailApplyUrlPathPrefix,
+              detailApplyUrl: row.applyUrl,
+            });
           } catch (error) {
             // Stessa regola di retry del validatore — see detail-extract.mjs.
             const fallbackUrl = runtimeDetailFallbackUrl(spec, error?.status, detailUrl);
             if (!fallbackUrl) throw error;
-            page = await fetchRuntimePage(fallbackUrl, validateUrl, runtime);
+            page = await fetchRuntimePage(fallbackUrl, validateUrl, runtime, {
+              readPdf: spec.detailFormat === 'pdf',
+              detailLocationLabel: spec.detailLocationLabel,
+              detailTitleLeadIn: spec.detailTitleLeadIn,
+              detailTitleEndLabel: spec.detailTitleEndLabel,
+              detailApplyUrlHost: spec.detailApplyUrlHost,
+              detailApplyUrlPathPrefix: spec.detailApplyUrlPathPrefix,
+              detailApplyUrl: row.applyUrl,
+            });
           }
           // Same extractor the validator grades with — see detail-extract.mjs.
           const detail = extractRuntimeDetailFields(spec, page.body, page.url || detailUrl, {
@@ -2684,6 +2917,7 @@ export async function runSpecInProduction(spec, runtime = {}) {
             ...publication,
             postedAt: publication.postedDate || null,
             employmentType: detail.employmentType || row.employmentType };
+          if (detail.applyUrl) publishable.applyUrl = detail.applyUrl;
           // Free-text NPA variance is measured for diagnostics, but its current
           // precision/recall is not an authority for indexed job geography.
           // Keep the source-backed contract fail-closed until the experiment

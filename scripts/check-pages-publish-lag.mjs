@@ -185,6 +185,42 @@ const DEFAULT_LAG_HOURS = 9;
  */
 const DEFAULT_STALLED_QUEUE_MINUTES = 240;
 
+/**
+ * CADENCE — the third reading, and the only one that measures the PRODUCT
+ * objective instead of a fault envelope.
+ *
+ * Objective (owner, 2026-11-10, plan item 12): new job offers reach production
+ * at least 3-4 times a day. Google for Jobs halved its impressions from October
+ * and the freshness queries ("offerte lavoro ticino negli ultimi 3 giorni")
+ * went from 1465 impressions to 0, so "slow but working" is itself a cost here.
+ *
+ * Why a COUNT over a trailing window and not a second age threshold. The age
+ * signal above already sits at 9 h, and its sizing comment explains why it
+ * cannot go lower: the measured worst LEGITIMATE merge→live latency is ~7.6 h.
+ * An "age > 8 h" reading would be the same signal one hour earlier — inside the
+ * legitimate envelope, so noise — and it would still say nothing about a
+ * pipeline that publishes at 7 h, 7 h, 10 h intervals (2.4/day, objective
+ * missed, no single gap alarming). Counting distinct published commits in the
+ * last 24 h is the objective itself, read directly.
+ *
+ * Measured on the last 100 github-pages deployments (2026-10-13 → 2026-11-06,
+ * 99 with a `success` status): gap between successful publishes p50 4.0 h,
+ * p90 10.3 h, p95 21.7 h, max 37.7 h; replaying evaluatePublishCadence hourly
+ * over 2026-10-14T07Z → 2026-11-06T07Z (distinct commits, deployment creation
+ * time as the publish time) puts the count below 3 at 143 of 553 ticks (26%),
+ * and at 0 on 2026-11-10. That is NOT false-positive noise to be
+ * tuned away: in those hours the objective was genuinely missed. It is why this
+ * reading is REPORT-ONLY (its own issue, priority medium, never the exit code,
+ * never a gate on any deploy), while the age/stalled-queue verdicts above keep
+ * their fault semantics and their priority-high issue.
+ *
+ * Same fail-open rule as everything else here: an unreadable deployment
+ * history leaves the reading `unknown` (no open, no resolve), and with nothing
+ * dist-affecting pending the count is irrelevant and never fires.
+ */
+export const DEFAULT_CADENCE_WINDOW_HOURS = 24;
+export const DEFAULT_CADENCE_MIN_PUBLISHES = 3;
+
 // ── Pure logic (unit-tested; NO network/IO) ─────────────────────────
 
 /**
@@ -310,6 +346,40 @@ export function evaluatePublishLag({
   return { degraded: false, reason: null };
 }
 
+/**
+ * The cadence reading (see DEFAULT_CADENCE_* above), pure.
+ *
+ * A publish is one DISTINCT commit that reached `success` on github-pages:
+ * the deploy job's retry can create two Deployment objects for the same sha,
+ * and counting both would report a cadence the site never had.
+ *
+ * @param {object} o
+ * @param {{sha: string, publishedAt: string}[]} o.publishes successful publishes
+ * @param {number} o.nowMs
+ * @param {number} o.pendingCount dist-affecting files waiting right now
+ * @param {number} [o.windowHours]
+ * @param {number} [o.minPublishes]
+ * @returns {{belowTarget: boolean, count: number, shas: string[]}}
+ */
+export function evaluatePublishCadence({
+  publishes,
+  nowMs,
+  pendingCount,
+  windowHours = DEFAULT_CADENCE_WINDOW_HOURS,
+  minPublishes = DEFAULT_CADENCE_MIN_PUBLISHES,
+}) {
+  const since = nowMs - windowHours * 3600000;
+  const shas = [];
+  for (const p of publishes) {
+    const at = Date.parse(p.publishedAt);
+    if (!Number.isFinite(at) || at <= since || at > nowMs) continue;
+    if (!shas.includes(p.sha)) shas.push(p.sha);
+  }
+  const count = shas.length;
+  if (pendingCount <= 0) return { belowTarget: false, count, shas };
+  return { belowTarget: count < minPublishes, count, shas };
+}
+
 // ── Network (not unit-tested; exercised live) ───────────────────────
 
 function authToken() {
@@ -329,8 +399,7 @@ async function ghJson(urlPath) {
  * deploy-starvation stretch — the exact scenario this watchdog exists to
  * catch — the most recent records can all be non-success, and a narrow
  * window would fail-open (skip) instead of alerting. */
-async function findLastSuccessfulDeployment() {
-  const deployments = await ghJson(`/repos/${REPO}/deployments?environment=github-pages&per_page=100`);
+async function findLastSuccessfulDeployment(deployments) {
   for (const d of deployments) {
     const statuses = await ghJson(`/repos/${REPO}/deployments/${d.id}/statuses?per_page=5`);
     if (statuses[0]?.state === 'success') {
@@ -338,6 +407,32 @@ async function findLastSuccessfulDeployment() {
     }
   }
   return null;
+}
+
+/**
+ * Successful publishes inside the cadence window. Unlike
+ * findLastSuccessfulDeployment, the LATEST status cannot be the test here: a
+ * superseded deployment's newest status is `inactive`, stamped on top of the
+ * `success` it once had, so every publish but the current one would be missed.
+ * The `success` status anywhere in the list is the publish moment.
+ *
+ * Only deployments created up to 2 h before the window are read: a publish
+ * whose deployment object was created earlier than that cannot reach
+ * `success` inside the window (the deploy job's server-side poll gives up at
+ * 40 min), and the bound keeps this to ~10 status calls on a normal day.
+ *
+ * Throws on API error; the caller turns that into an `unknown` reading.
+ */
+async function listSuccessfulPublishesSince(deployments, sinceMs) {
+  const createdFloor = sinceMs - 2 * 3600000;
+  const publishes = [];
+  for (const d of deployments) {
+    if (Date.parse(d.created_at) < createdFloor) continue;
+    const statuses = await ghJson(`/repos/${REPO}/deployments/${d.id}/statuses?per_page=20`);
+    const success = statuses.find((s) => s.state === 'success');
+    if (success) publishes.push({ sha: d.sha, publishedAt: success.created_at });
+  }
+  return publishes;
 }
 
 /** @returns {{ files: string[], truncated: boolean }} `truncated`: GitHub's
@@ -397,11 +492,13 @@ async function main() {
     process.exit(0);
   }
 
+  let deployments;
   let last;
   let changed;
   let truncated;
   try {
-    last = await findLastSuccessfulDeployment();
+    deployments = await ghJson(`/repos/${REPO}/deployments?environment=github-pages&per_page=100`);
+    last = await findLastSuccessfulDeployment(deployments);
     if (!last) {
       console.log('⚠️ No successful github-pages deployment found in the last 100 — skipping (fail open)');
       process.exit(0);
@@ -446,6 +543,40 @@ async function main() {
     for (const f of pending.slice(0, 15)) console.log(`  - ${f}`);
   }
   console.log('────────────────────────────────');
+
+  // Cadence: written to GITHUB_OUTPUT BEFORE the lag verdict, because a
+  // degraded lag exits 1 below and the workflow reads both outputs from this
+  // one step. `cadence_degraded` stays EMPTY on an unreadable history, so the
+  // workflow neither opens nor resolves the cadence issue on that tick.
+  let cadenceDegraded = '';
+  let cadenceSummary = '';
+  try {
+    const sinceMs = nowMs - DEFAULT_CADENCE_WINDOW_HOURS * 3600000;
+    const publishes = await listSuccessfulPublishesSince(deployments, sinceMs);
+    const cadence = evaluatePublishCadence({ publishes, nowMs, pendingCount: pending.length });
+    cadenceDegraded = cadence.belowTarget ? 'true' : 'false';
+    const listed = publishes
+      .filter((p) => cadence.shas.includes(p.sha))
+      .map((p) => `- ${p.sha.slice(0, 10)} at ${p.publishedAt}`);
+    cadenceSummary = [
+      `Publish CADENCE below target: ${cadence.count} distinct commit(s) reached github-pages in the last ${DEFAULT_CADENCE_WINDOW_HOURS}h (target >= ${DEFAULT_CADENCE_MIN_PUBLISHES}/day, plan item 12: new job offers in production 3-4 times a day).`,
+      `Last successful GitHub Pages publish: ${last.sha.slice(0, 10)} at ${last.publishedAt} (${ageMinutes} min ago).`,
+      `Build queue at check time: ${queueState}.`,
+      ...(listed.length > 0 ? ['Publishes in the window:', ...listed] : ['No publish in the window.']),
+    ].join('\n');
+    console.log(
+      `Cadence: ${cadence.count} distinct publish(es) in the last ${DEFAULT_CADENCE_WINDOW_HOURS}h (target >= ${DEFAULT_CADENCE_MIN_PUBLISHES}) → ${cadence.belowTarget ? 'BELOW TARGET' : 'ok'}`,
+    );
+  } catch (err) {
+    console.log(`⚠️ Could not read the publish cadence (${err.message}) — cadence reading unknown this run.`);
+  }
+  if (process.env.GITHUB_OUTPUT) {
+    const safe = cadenceSummary.split('"').join("'").split(String.fromCharCode(96)).join("'");
+    fs.appendFileSync(
+      process.env.GITHUB_OUTPUT,
+      `cadence_degraded=${cadenceDegraded}\ncadence_summary<<EOF_CADENCE\n${safe}\nEOF_CADENCE\n`,
+    );
+  }
 
   const { degraded, reason } = evaluatePublishLag({
     ageMinutes,

@@ -1,7 +1,7 @@
 {
   "crawlerKey": "wuerth-international",
-  "assembledAt": "2026-11-09T09:27:46.802Z",
-  "runId": "42591923938",
+  "assembledAt": "2026-11-10T09:39:10.704Z",
+  "runId": "42789192376",
   "jobs": [
     {
       "id": "wuerth-international-bdc84a71a252",
@@ -36,7 +36,7 @@
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "7000",
-      "streetAddress": "Chur, Graubünden",
+      "streetAddress": "Aspermontstrasse 1",
       "category": "technology",
       "sector": "Industria / Distribuzione",
       "contract": "part-time",
@@ -50,7 +50,7 @@
       "applyUrl": "https://www.wurth-international.com/CH-WINT/Karriere/Job-Portal/Bewerbungsformular_PraktikumCorp.Houskeeping.php",
       "source": "Wuerth International Dedicated Parser (HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:27:40.303Z",
+      "crawledAt": "2026-11-10T09:39:04.358Z",
       "previousSlugs": [
         "praktikum-im-bereich-corporate-houskeeping-40-wuerth-international-chur"
       ],
@@ -74,8 +74,22 @@
           "unitText": "YEAR"
         }
       },
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-09T09:27:40.303Z",
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Würth International",
+        "streetAddress": "Aspermontstrasse 1",
+        "postalCode": "7000",
+        "registeredName": "Würth International AG",
+        "matchType": "exact",
+        "streetAddressSource": "zefix-registry",
+        "jobPostalCode": "7000",
+        "addressLocality": "Chur",
+        "addressRegion": "GR",
+        "checkedAt": "2026-11-09T15:43:05.500Z"
+      },
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-12-10T09:39:04.358Z",
       "validThroughSource": "last-observed-window"
     }
   ]

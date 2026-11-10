@@ -11,7 +11,7 @@ import {
   fetchHtml,
   fetchJson,
   fetchPdfText,
-  resolveVariantPdfUrl,
+  fetchFixedPricePdfVariants,
   parseAiFixedPricePdfText,
   parseBsFixedPricePdfText,
   parseGlFixedPriceJson,
@@ -28,7 +28,11 @@ const PARSERS = {
   ur: parseUrFixedPricePdfText,
 };
 
-export async function fetchFixedPriceSource(sourceKey, { now = new Date() } = {}) {
+export async function fetchFixedPriceSource(sourceKey, {
+  now = new Date(),
+  fetchPage = fetchHtml,
+  fetchPdf = fetchPdfText,
+} = {}) {
   const config = FIXED_PRICE_SOURCE_CONFIGS[sourceKey];
   const parse = PARSERS[sourceKey];
   if (!config || typeof parse !== 'function') throw new Error(`Unknown fixed-price source: ${sourceKey}`);
@@ -50,19 +54,19 @@ export async function fetchFixedPriceSource(sourceKey, { now = new Date() } = {}
         });
       }
 
-      const indexHtml = await fetchHtml(config.pageUrl);
       const variants = config.pdfVariants || [{
         fallbackPdfUrl: config.fallbackPdfUrl,
         pdfUrlPattern: config.pdfUrlPattern,
       }];
+      const pdfs = await fetchFixedPricePdfVariants({
+        sourceKey: config.plateCode,
+        pageUrl: config.pageUrl,
+        variants,
+        fetchPage,
+        fetchPdf,
+      });
       const rows = [];
-      for (const variant of variants) {
-        const pdfUrl = resolveVariantPdfUrl(variant, {
-          sourceKey,
-          pageUrl: config.pageUrl,
-          indexHtml,
-        });
-        const pdf = await fetchPdfText(pdfUrl);
+      for (const { variant, pdfUrl, pdf } of pdfs) {
         rows.push(...parse(pdf, {
           canton: config.canton,
           plateCode: config.plateCode,

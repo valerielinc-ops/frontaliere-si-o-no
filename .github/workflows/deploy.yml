@@ -381,6 +381,8 @@ jobs:
         env:
           JOBS_SKIP_URL_VALIDATION: '1'
         run: node scripts/cleanup-jobs.mjs
+      - name: Refresh employer-profiles snapshot from live corpus
+        run: node scripts/build-employer-profiles.mjs
       - name: Refresh weekly-employers footer link list
         run: node scripts/refresh-weekly-employers-top-pairs.mjs
       - name: Mine all job slugs for 404 coverage
@@ -490,6 +492,8 @@ jobs:
       # opt-in; every other event/input resolves to '1'.
       BUILD_PROFILE: '1'
       ASSET_CDN: 'https://cdn.frontaliereticino.ch'
+      JOB_OG_RENDER_BUDGET_S: '1800'
+      JOB_OG_PUBLISH_TARGET: ${{ vars.CDN_TARGET || 'pages' }}
       # Restored to 2 (#4959 §4): the post-walk worker no longer imports the
       # site-shell graph. injectContextualLinks moved to a leaf module with
       # type-only imports, so plain Node ESM inside the worker resolves it —
@@ -812,7 +816,7 @@ jobs:
       # undo the OG copy, so only the OG-specific completion record is needed.
       # A cache miss deliberately falls back to one full additive copy.
       - name: Restore last published R2 OG manifest
-        if: ${{ matrix.locale == 'it' && vars.CDN_TARGET == 'r2' }}
+        if: ${{ matrix.locale == 'it' && (vars.CDN_TARGET == 'r2' || vars.CDN_TARGET == 'both') }}
         uses: actions/cache/restore@v6
         with:
           path: .cache/r2-og-published-manifest.json
@@ -1104,6 +1108,31 @@ jobs:
         with:
           path: .cache/og-jobs
           key: og-jobs-${{ runner.os }}-${{ steps.job_og_image_version.outputs.version }}-${{ hashFiles('build-plugins/jobOgImagesPlugin.ts', 'public/fonts/Roboto-*.ttf', 'data/company-logos-manifest.json') }}-${{ github.run_id }}
+
+      # Non-IT publisher tails and section-shard staging run in separate
+      # directories/runners. Hand off the exact list the IT renderer deferred
+      # so their offloader rewrites those previews to the emitted archive card.
+      - name: Prepare deferred job OG fallback handoff
+        if: matrix.locale == 'it' && steps.build_step.outcome == 'success'
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p "$RUNNER_TEMP/job-og-deferred"
+          if [ -s .cache/og-jobs/.deferred-fallbacks.json ]; then
+            cp .cache/og-jobs/.deferred-fallbacks.json "$RUNNER_TEMP/job-og-deferred/fallbacks.json"
+          else
+            printf '[]\n' > "$RUNNER_TEMP/job-og-deferred/fallbacks.json"
+          fi
+          node -e 'const fs=require("fs");const v=JSON.parse(fs.readFileSync(process.argv[1],"utf8"));if(!Array.isArray(v)||v.some(s=>typeof s!=="string"||!s||s.includes("/")||s.includes("\\")))process.exit(1)' "$RUNNER_TEMP/job-og-deferred/fallbacks.json"
+
+      - name: Upload deferred job OG fallback handoff
+        if: matrix.locale == 'it' && steps.build_step.outcome == 'success'
+        uses: actions/upload-artifact@v7
+        with:
+          name: job-og-deferred-fallbacks-${{ github.run_id }}
+          path: ${{ runner.temp }}/job-og-deferred/fallbacks.json
+          retention-days: 8
+          if-no-files-found: error
 
       - name: Build profile summary
         if: always()
@@ -1645,6 +1674,14 @@ jobs:
           R2_TIMEOUT_OG_S: '900'
         run: bash scripts/lib/deploy-it-pages-prep.sh
 
+      - name: Save R2 OG manifest after early CDN push
+        if: ${{ always() && matrix.locale == 'it' && (vars.CDN_TARGET == 'r2' || vars.CDN_TARGET == 'both') && hashFiles('.cache/r2-og-published-manifest.json') != '' }}
+        uses: actions/cache/save@v6
+        continue-on-error: true
+        with:
+          path: .cache/r2-og-published-manifest.json
+          key: r2-og-published-${{ github.run_id }}-${{ hashFiles('.cache/r2-og-published-manifest.json') }}
+
       # One more try BEFORE the section fan-out gives up. A failed early push
       # skips every section shard, the strip then no-ops, and the apex goes past
       # the 10 GB Pages cap. Run 41145698648 lost the whole publish that way: the
@@ -1664,6 +1701,14 @@ jobs:
           DEPLOY_BUILD_ID: ${{ needs.matrix-setup.outputs.build_id }}
           DEPLOY_CDN_PUSH_ONLY: '1'
         run: bash scripts/lib/deploy-it-pages-prep.sh
+
+      - name: Save R2 OG manifest after early CDN retry
+        if: ${{ always() && matrix.locale == 'it' && steps.cdn-push-early-retry.outcome != 'skipped' && (vars.CDN_TARGET == 'r2' || vars.CDN_TARGET == 'both') && hashFiles('.cache/r2-og-published-manifest.json') != '' }}
+        uses: actions/cache/save@v6
+        continue-on-error: true
+        with:
+          path: .cache/r2-og-published-manifest.json
+          key: r2-og-published-${{ github.run_id }}-${{ hashFiles('.cache/r2-og-published-manifest.json') }}
 
       # Persiste peak_anon_mb/peak_rss_mb/wall_seconds per-leg cross-run:
       # senza questo, il referto letto da "Read build memory report" e'
@@ -2442,40 +2487,16 @@ jobs:
           OFFLOAD_CDN_WORKERS: '4'
         run: bash scripts/lib/deploy-it-pages-prep.sh
 
-      - name: Promote successfully published R2 OG manifest
-        id: promote-r2-og-manifest
-        if: ${{ always() && matrix.locale == 'it' && vars.CDN_TARGET == 'r2' }}
-        shell: bash
-        run: |
-          set -euo pipefail
-          candidate="$RUNNER_TEMP/r2-og-published-manifest.next.json"
-          synced_hash="$RUNNER_TEMP/r2-og-published-manifest.synced.sha256"
-          if [ ! -s "$candidate" ]; then
-            echo "::warning::[r2-og-manifest] no candidate manifest was produced; keeping the last published manifest"
-            exit 0
-          fi
-          if [ ! -s "$synced_hash" ]; then
-            echo "::warning::[r2-og-manifest] OG copy did not complete; keeping the last published manifest"
-            exit 0
-          fi
-          expected="$(cat "$synced_hash")"
-          actual="$(sha256sum "$candidate" | awk '{print $1}')"
-          if [[ ! "$expected" =~ ^[a-f0-9]{64}$ || "$actual" != "$expected" ]]; then
-            echo "::warning::[r2-og-manifest] candidate differs from the successfully copied OG manifest"
-            exit 0
-          fi
-          mkdir -p .cache
-          cp "$candidate" .cache/r2-og-published-manifest.json.tmp
-          mv .cache/r2-og-published-manifest.json.tmp .cache/r2-og-published-manifest.json
-          echo "promoted=true" >> "$GITHUB_OUTPUT"
-
-      - name: Save successfully published R2 OG manifest
-        if: ${{ always() && steps.promote-r2-og-manifest.outputs.promoted == 'true' }}
+      # Refresh the LRU position after the later, larger caches have been
+      # written. The OG checkpoint is already saved after the early push, so a
+      # timeout above still leaves resumable progress.
+      - name: Save final R2 OG manifest cache
+        if: ${{ always() && matrix.locale == 'it' && (vars.CDN_TARGET == 'r2' || vars.CDN_TARGET == 'both') && hashFiles('.cache/r2-og-published-manifest.json') != '' }}
         uses: actions/cache/save@v6
         continue-on-error: true
         with:
           path: .cache/r2-og-published-manifest.json
-          key: r2-og-published-${{ github.run_id }}
+          key: r2-og-published-${{ github.run_id }}-final-${{ hashFiles('.cache/r2-og-published-manifest.json') }}
 
       # Refresh the R2 copies the Worker serves for EDGE_PUSHED_FILES.
       #

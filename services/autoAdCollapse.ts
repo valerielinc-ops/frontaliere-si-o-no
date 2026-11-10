@@ -46,6 +46,7 @@ export const AUTO_AD_CONTAINER_SELECTOR = '.google-auto-placed';
  *  collapse rule on this exact attribute — `tests/auto-ad-collapse.test.ts`
  *  pins the two together so a rename here cannot silently un-style the rule. */
 export const AUTO_AD_COLLAPSED_ATTR = 'data-ft-autoad-collapsed';
+const OCCUPIED_AD_SELECTOR = 'ins[data-ad-status="filled"],ins[data-ad-status="unfill-optimized"],ins[data-anchor-status="displayed"],[data-ad-state="filled"],[data-ad-state="optimized"],[data-ft-ad-state="filled"],[data-ft-ad-state="optimized"],[data-ft-static-ad-state="filled"],[data-ft-static-ad-state="optimized"]';
 
 /**
  * True when the container is showing an ad or Google-owned optimized content,
@@ -61,8 +62,7 @@ export const AUTO_AD_COLLAPSED_ATTR = 'data-ft-autoad-collapsed';
  */
 export function autoAdHasCreative(el: Element): boolean {
   if (el.querySelector('iframe')) return true;
-  return el.matches('[data-ft-ad-state="optimized"],[data-ad-status="unfill-optimized"]')
-    || !!el.querySelector('ins[data-ad-status="filled"],ins[data-ad-status="unfill-optimized"],[data-ft-ad-state="optimized"]');
+  return el.matches(OCCUPIED_AD_SELECTOR) || !!el.querySelector(OCCUPIED_AD_SELECTOR);
 }
 
 type Watch = {
@@ -139,7 +139,7 @@ function watch(el: HTMLElement): void {
       childList: true,
       subtree: true,
       attributes: true,
-      attributeFilter: ['data-ad-status', 'data-ft-ad-state'],
+      attributeFilter: ['data-ad-status', 'data-ad-state', 'data-ft-ad-state', 'data-ft-static-ad-state', 'data-anchor-status'],
     });
     w.subtree = subtree;
   }

@@ -110012,6 +110012,84 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-peso-burocrazia-imprese-svizzera': {
+    title: 'Peso burocrazia imprese Svizzera: 67% lo giudica elevato',
+    description: 'Sondaggio gfs.bern: 67% delle aziende svizzere giudica elevato l\'onere amministrativo. Il 64% rileva un incremento in cinque anni. Tre su dieci rinunciano a investimenti.',
+    keywords: 'burocrazia svizzera, imprese svizzere, onere amministrativo, economiesuisse, gfs.bern, obblighi federali',
+    ogTitle: 'Peso burocrazia imprese Svizzera: 67% lo giudica elevato',
+    ogDescription: 'Ricerca gfs.bern per economiesuisse: 67% delle 1\'527 aziende intervistate giudica elevato l\'onere amministrativo; il 64% nota un incremento in cinque anni. Le richieste includono digitalizzazione e sportelli unici.',
+    canonicalPath: '/articoli-svizzera/peso-burocrazia-imprese-svizzera/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Peso burocrazia imprese Svizzera: 67% lo giudica elevato",
+      "description": "Sondaggio gfs.bern: 67% delle aziende svizzere giudica elevato l'onere amministrativo. Il 64% rileva un incremento in cinque anni. Tre su dieci rinunciano a investimenti.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-peso-burocrazia-imprese-svizzera.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine illustrativa pertinente al tema dell’articolo"
+      },
+      "datePublished": "2026-11-10T01:49:37+00:00",
+      "dateModified": "2026-11-10T01:49:37+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/peso-burocrazia-imprese-svizzera/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-pamini-contributi-salari-svizzera': {
+    title: 'Pamini (Udc): salari e frontalieri, agire con i contributi',
+    description: 'La posizione indicata per Pamini su salari e frontalieri: contributi AVS, AD, LPP e differenza rispetto a LAMal e imposte svizzere.',
+    keywords: 'Pamini, salari svizzeri, frontalieri, contributi AVS, LPP, imposte svizzere, salario minimo cantonale, LAMal',
+    ogTitle: 'Pamini: contributi, salari e frontalieri',
+    ogDescription: 'Il richiamo ad agire con i contributi confronta AVS/AHV, AD e LPP/BVG con i premi LAMal/KVG e l’imposta federale diretta. Sono distinti anche i ruoli di AFC/ESTV, Cantoni e previdenza sociale, senza importi inventati.',
+    canonicalPath: '/articoli-svizzera/pamini-contributi-salari-svizzera/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Pamini (Udc): salari e frontalieri, agire con i contributi",
+      "description": "La posizione indicata per Pamini su salari e frontalieri: contributi AVS, AD, LPP e differenza rispetto a LAMal e imposte svizzere.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-pamini-contributi-salari-svizzera.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine illustrativa pertinente al tema dell’articolo"
+      },
+      "datePublished": "2026-11-10T09:09:48+00:00",
+      "dateModified": "2026-11-10T09:09:48+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/pamini-contributi-salari-svizzera/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

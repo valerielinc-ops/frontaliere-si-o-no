@@ -30265,6 +30265,26 @@ const RAW_SWISS_ARTICLES_CHUNK_12: Article[] = [
     authorSlug: 'laura-bianchi',
     authorName: 'Laura Bianchi',
    },
+   {
+    id: 'peso-burocrazia-imprese-svizzera',
+    category: 'fiscale',
+    date: '2026-11-10T01:49:36.072Z',
+    image: '/images/blog/article-peso-burocrazia-imprese-svizzera.webp',
+    hasCalculator: true,
+    articleType: 'news',
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
+   {
+    id: 'pamini-contributi-salari-svizzera',
+    category: 'pratico',
+    date: '2026-11-10T09:09:47.527Z',
+    image: '/images/blog/article-pamini-contributi-salari-svizzera.webp',
+    hasCalculator: true,
+    articleType: 'evergreen',
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 const RAW_SWISS_ARTICLES: Article[] = [

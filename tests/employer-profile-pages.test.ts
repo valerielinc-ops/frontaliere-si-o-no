@@ -77,6 +77,42 @@ function smallCompanyJob(i: number) {
   };
 }
 
+function minusioJob(i: number) {
+  return {
+    ...job(i),
+    slug: `concorso-pubblico-${i}-comune-di-minusio`,
+    company: 'Comune di Minusio',
+    companyKey: 'comune-di-minusio',
+    location: 'Minusio',
+    canton: 'TI',
+    title: `Collaboratore comunale ${i}`,
+  };
+}
+
+function risingCompanyJob(i: number) {
+  return {
+    ...job(i),
+    slug: `analista-${i}-rising-co-bellinzona`,
+    company: 'Rising Co',
+    companyKey: 'rising-co',
+    location: 'Bellinzona',
+    canton: 'TI',
+    title: `Analista Rising Co ${i}`,
+  };
+}
+
+function freshBridgeJob(i: number) {
+  return {
+    ...job(i),
+    slug: `operatore-${i}-fresh-bridge-co-locarno`,
+    company: 'Fresh Bridge Co',
+    companyKey: 'fresh-bridge-co',
+    location: 'Locarno',
+    canton: 'TI',
+    title: `Operatore Fresh Bridge ${i}`,
+  };
+}
+
 beforeAll(async () => {
   root = fs.mkdtempSync(path.join(os.tmpdir(), 'emp-profiles-'));
   fs.mkdirSync(path.join(root, 'data'), { recursive: true });
@@ -132,6 +168,7 @@ beforeAll(async () => {
       ],
       belowFloor: [
         { slug: 'tiny-co', name: 'Tiny Co', activeJobs: 2, sector: 'Altro', canton: 'TI' },
+        { slug: 'rising-co', name: 'Rising Co', activeJobs: 2, sector: 'Finanza', canton: 'TI' },
         // 54-char legal name: BOTH title candidates overflow TITLE_MAX_CHARS
         // (66), so this exercises composePlaceTitle's truncateHeadline
         // fallback on the bridge — which had no length budget at all before
@@ -152,6 +189,9 @@ beforeAll(async () => {
       ...Array.from({ length: 14 }, (_, i) => job(i + 1)),
       ...Array.from({ length: 6 }, (_, i) => eocJob(i + 1)),
       ...Array.from({ length: 3 }, (_, i) => smallCompanyJob(i + 1)),
+      ...Array.from({ length: 3 }, (_, i) => minusioJob(i + 1)),
+      ...Array.from({ length: 3 }, (_, i) => risingCompanyJob(i + 1)),
+      ...Array.from({ length: 2 }, (_, i) => freshBridgeJob(i + 1)),
       // Slugless job: must be skipped by BOTH the card renderer and the
       // ItemList JSON-LD (no JobPosting pointing at the bare homepage).
       { ...job(7), slug: '' },
@@ -533,7 +573,44 @@ describe('employerProfilePagesPlugin', () => {
     const xml = read('sitemap-employer-profiles.xml');
     expect(xml).toContain('https://frontaliereticino.ch/aziende/acme-corp/');
     expect(xml).toContain('/aziende/small-co/');
+    expect(xml).toContain('/aziende/comune-di-minusio/');
+    expect(xml).toContain('/aziende/rising-co/');
     expect(xml).not.toContain('/aziende/tiny-co/'); // bridge is noindex → excluded
+    expect(xml).not.toContain('/aziende/fresh-bridge-co/'); // live-discovered bridge is noindex → excluded
+  });
+
+  it('discovers above-floor employers from live jobs.json even when absent from employer-profiles.json', () => {
+    for (const rel of [
+      'aziende/comune-di-minusio/index.html',
+      'en/aziende/comune-di-minusio/index.html',
+      'de/aziende/comune-di-minusio/index.html',
+      'fr/aziende/comune-di-minusio/index.html',
+    ]) {
+      expect(fs.existsSync(path.join(root, 'dist', rel)), rel).toBe(true);
+    }
+    const html = read('aziende/comune-di-minusio/index.html');
+    expect(html).toContain('name=robots content="index, follow');
+    expect(html).toContain('Offerte di lavoro Comune di Minusio');
+    expect(html).toContain('Collaboratore comunale 1');
+    const counts = JSON.parse(read('data/employer-job-counts.json')) as Record<string, number>;
+    expect(counts['comune-di-minusio']).toBe(3);
+  });
+
+  it('promotes a belowFloor snapshot entry to a full indexable profile when live jobs reach MIN_ACTIVE_JOBS', () => {
+    const html = read('aziende/rising-co/index.html');
+    expect(html).toContain('name=robots content="index, follow');
+    expect(html).toContain('Offerte di lavoro Rising Co');
+    expect(html).toContain('Analista Rising Co 1');
+    const counts = JSON.parse(read('data/employer-job-counts.json')) as Record<string, number>;
+    expect(counts['rising-co']).toBe(3);
+  });
+
+  it('emits a noindex bridge for a live-discovered employer with 2 active jobs', () => {
+    const html = read('aziende/fresh-bridge-co/index.html');
+    expect(html).toContain('name=robots content=noindex,follow');
+    expect(html).toContain('Fresh Bridge Co');
+    const counts = JSON.parse(read('data/employer-job-counts.json')) as Record<string, number>;
+    expect(counts['fresh-bridge-co']).toBe(2);
   });
 
   it('folds declared brand aliases into the canonical slug (no SERP cannibalization)', () => {

@@ -27,7 +27,7 @@
 import { describe, it, expect, beforeAll } from 'vitest';
 import { execFile, execFileSync } from 'node:child_process';
 import { resolve, join } from 'node:path';
-import { mkdtempSync, mkdirSync, writeFileSync, readFileSync, symlinkSync } from 'node:fs';
+import { mkdtempSync, mkdirSync, writeFileSync, readFileSync, rmSync, symlinkSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import YAML from 'yaml';
 
@@ -100,6 +100,36 @@ describe('deploy.yml — the IT CDN push runs BEFORE anything publishes (#5251)'
     expect(early).toBeGreaterThan(-1);
     expect(early).toBeLessThan(again);
     expect(again).toBeLessThan(sections);
+  });
+
+  it('checkpoints the R2 OG manifest after the early push and retry, even when either push fails', () => {
+    const restore = step('Restore last published R2 OG manifest');
+    const saveEarly = step('Save R2 OG manifest after early CDN push');
+    const saveRetry = step('Save R2 OG manifest after early CDN retry');
+    const saveFinal = step('Save final R2 OG manifest cache');
+    const prep = readFileSync(PREP_SH, 'utf8');
+    expect(restore).toContain("vars.CDN_TARGET == 'r2' || vars.CDN_TARGET == 'both'");
+    expect(restore).toContain('restore-keys: |\n            r2-og-published-');
+    expect(saveEarly).toMatch(/if: \$\{\{ always\(\)[\s\S]*?r2-og-published-manifest\.json/);
+    expect(saveEarly).toContain('actions/cache/save@v6');
+    expect(saveEarly).toContain("hashFiles('.cache/r2-og-published-manifest.json')");
+    expect(saveRetry).toMatch(/if: \$\{\{ always\(\)[\s\S]*?r2-og-published-manifest\.json/);
+    expect(saveRetry).toContain('actions/cache/save@v6');
+    expect(saveRetry).toContain("hashFiles('.cache/r2-og-published-manifest.json')");
+    expect(saveFinal).toContain('actions/cache/save@v6');
+    expect(saveFinal).toContain("key: r2-og-published-${{ github.run_id }}-final-");
+    expect(DEPLOY_YML.indexOf('Save R2 OG manifest after early CDN push')).toBeLessThan(
+      DEPLOY_YML.indexOf('Retry early CDN push'),
+    );
+    expect(DEPLOY_YML.indexOf('Save R2 OG manifest after early CDN retry')).toBeLessThan(
+      DEPLOY_YML.indexOf('Push section shards (IT →'),
+    );
+    expect(DEPLOY_YML.indexOf('Save final R2 OG manifest cache')).toBeGreaterThan(
+      DEPLOY_YML.indexOf('Deploy prep (IT → Pages + CDN)'),
+    );
+    expect(DEPLOY_YML).not.toContain('Promote successfully published R2 OG manifest');
+    expect(prep).toContain('[ "$cdn_target" = "r2" ] || [ "$cdn_target" = "both" ]');
+    expect(prep).toContain('if [ "$r2_og_delta_ready" -ne 1 ] || [ "$cdn_target" = "both" ]; then');
   });
 
   // Run 42313737885: the 300s override timed out twice on a cold OG delta;
@@ -1128,8 +1158,8 @@ describe('deploy.yml — the #5331 abort is actually wired to the gate step', ()
 });
 
 // ── scripts/lib/deploy-it-pages-prep.sh — the two phases ─────────────────────
-function runPrep(env: Record<string, string>): { code: number; stdout: string } {
-  const dir = mkdtempSync(join(tmpdir(), 'prep-'));
+function runPrep(env: Record<string, string>, workspace = mkdtempSync(join(tmpdir(), 'prep-'))): { code: number; stdout: string } {
+  const dir = workspace;
   // Since #12150 the CDN push fails closed unless dist carries the GA4
   // producer pair (stable alias + the one content-addressed file the HTML
   // names), so the smallest dist that reaches the push section has both.
@@ -1188,6 +1218,30 @@ describe('deploy-it-pages-prep.sh — DEPLOY_CDN_PUSH_ONLY runs the CDN push and
     // This is the handshake that keeps the payload published exactly once.
     const r = runPrep({ CDN_BASE: 'https://cdn.frontaliereticino.ch', CDN_TARGET: 'pages' });
     expect(r.stdout).toMatch(/already set by the early CDN push phase — skipping the CDN push/);
+  });
+
+  it('a retry clears a partial stage and rebuilds the GA4 pair from dist', () => {
+    const workspace = mkdtempSync(join(tmpdir(), 'prep-cdn-retry-'));
+    try {
+      const interruptedStage = join(workspace, 'cdn-stage');
+      mkdirSync(join(interruptedStage, 'assets'), { recursive: true });
+      writeFileSync(join(interruptedStage, 'assets', 'partial-file.js'), 'partial attempt');
+
+      const r = runPrep({
+        DEPLOY_CDN_PUSH_ONLY: '1',
+        CDN_TARGET: 'pages',
+        CDN_STAGE_DIR: interruptedStage,
+      }, workspace);
+
+      expect(r.code).toBe(1); // The missing Pages key is the expected final handshake failure.
+      expect(r.stdout).toMatch(/no CDN_DEPLOY_KEY secret — skipping CDN push/);
+      expect(r.stdout).not.toMatch(/CDN asset stage must contain gtag-init/);
+      expect(r.stdout).not.toMatch(/partial-file\.js/);
+      expect(readFileSync(join(workspace, 'dist', 'assets', 'gtag-init.js'), 'utf8')).toBe('');
+      expect(readFileSync(join(workspace, 'dist', 'assets', 'gtag-init-0a1b2c3d.js'), 'utf8')).toBe('');
+    } finally {
+      rmSync(workspace, { recursive: true, force: true });
+    }
   });
 
   it('NEGATIVE CASE — without CDN_BASE the full prep still performs the push itself', () => {

@@ -144,13 +144,29 @@ describe('sendMessage', () => {
   });
 
   it('truncates over-long text to the API hard limit', async () => {
-    let sentLen = -1;
+    let sentText = '';
     const fetchImpl = (async (_url: string, init: any) => {
-      sentLen = JSON.parse(init.body).text.length;
+      sentText = JSON.parse(init.body).text;
       return { ok: true, status: 200, json: async () => ({ ok: true, result: { message_id: 1 } }) };
     }) as unknown as typeof fetch;
     await sendMessage({ token: 'T', chatId: '@c', text: 'a'.repeat(TELEGRAM_MESSAGE_MAX + 500), fetchImpl });
-    expect(sentLen).toBe(TELEGRAM_MESSAGE_MAX);
+    expect(sentText.length).toBe(TELEGRAM_MESSAGE_MAX);
+  });
+
+  it('truncates HTML only at safe boundaries and closes open tags', async () => {
+    let sentText = '';
+    const fetchImpl = (async (_url: string, init: any) => {
+      sentText = JSON.parse(init.body).text;
+      return { ok: true, status: 200, json: async () => ({ ok: true, result: { message_id: 1 } }) };
+    }) as unknown as typeof fetch;
+    const text = `<b>${'a'.repeat(TELEGRAM_MESSAGE_MAX)} </b><a href="https://example.test/?a=1&amp;b=2">CTA</a>`;
+
+    await sendMessage({ token: 'T', chatId: '@c', text, fetchImpl });
+
+    expect(sentText.length).toBeLessThanOrEqual(TELEGRAM_MESSAGE_MAX);
+    expect(sentText).toMatch(/^<b>[\s\S]*<\/b>$/);
+    expect(sentText).not.toMatch(/<[^>]*$/);
+    expect(sentText).not.toMatch(/&(?:amp|lt|gt|quot|#\d+|#x[0-9a-f]+)?$/i);
   });
 });
 
@@ -501,6 +517,60 @@ describe('buildWeeklyBorderDigest', () => {
     });
     expect(generated.text).toContain('La situazione aggiornata &amp; spiegata');
     expect(generated.text).toContain('>Leggi la classifica completa</a>');
+  });
+
+  it('keeps both CTAs inside Telegram’s hard limit when the ranking is long', () => {
+    const dir = mkdtempSync(path.join(os.tmpdir(), 'bw-'));
+    const slugs = [
+      'chiasso-centro', 'chiasso-brogeda', 'chiasso-strada',
+      'gaggiolo', 'ponte-tresa', 'ronago-novazzano',
+    ];
+    for (let d = 3; d <= 9; d++) {
+      const date = `2026-07-0${d}`;
+      writeDay(dir, date, Object.fromEntries(slugs.map((slug, index) => [slug, makeHours(index + 1)])));
+    }
+
+    const { text } = buildWeeklyBorderDigest({
+      historyDir: dir,
+      todayIso: '2026-07-10',
+      socialCopy: {
+        copyMode: 'codex',
+        copyPackId: '0123456789abcdef',
+        copySlot: 'border',
+        id: 'border-context',
+        hook: 'Il contesto aggiornato della settimana per organizzare meglio lo spostamento.',
+        cta: 'Consulta la guida.',
+      },
+    });
+
+    expect(text.length).toBeLessThanOrEqual(TELEGRAM_MESSAGE_MAX);
+    expect(text).toContain('>Consulta la guida.</a>');
+    expect(text).toContain('>Traffico live alle dogane</a>');
+  });
+
+  it('bounds an oversized generated hook before rendering the one-entry digest', () => {
+    const dir = mkdtempSync(path.join(os.tmpdir(), 'bw-'));
+    for (let d = 3; d <= 9; d++) {
+      const date = `2026-07-0${d}`;
+      writeDay(dir, date, {
+        'chiasso-centro': makeHours(2),
+        'ponte-tresa': makeHours(25),
+      });
+    }
+
+    const { text } = buildWeeklyBorderDigest({
+      historyDir: dir,
+      todayIso: '2026-07-10',
+      socialCopy: {
+        copyMode: 'codex',
+        hook: 'h'.repeat(5000),
+        cta: 'Consulta la classifica completa',
+      },
+    });
+
+    expect(text.length).toBeLessThanOrEqual(TELEGRAM_MESSAGE_MAX);
+    expect(text).toContain('>Consulta la classifica completa</a>');
+    expect(text).toContain('>Traffico live alle dogane</a>');
   });
 
   it('skips (empty text) when fewer than two crossings can be ranked', () => {

@@ -1,7 +1,7 @@
 {
   "crawlerKey": "ameos-ch",
-  "assembledAt": "2026-11-09T09:47:13.243Z",
-  "runId": "42590552656",
+  "assembledAt": "2026-11-10T13:17:43.800Z",
+  "runId": "42787673945",
   "jobs": [
     {
       "id": "ameos-ch-65c6d66d688e",
@@ -35,7 +35,7 @@
       "url": "https://karriere.ameos.eu/offene-stellen/stelle/14192-assistenz-sachbearbeitung-in-der-administration-100%25-in-z%C3%BCrich",
       "source": "AMEOS Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:46:52.000Z",
+      "crawledAt": "2026-11-10T09:22:08.338Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -84,7 +84,7 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-11T09:46:52.000Z",
+      "validThrough": "2027-01-11T09:22:08.338Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -118,7 +118,7 @@
       "url": "https://karriere.ameos.eu/offene-stellen/stelle/9270-unterassistent-pj-innere-medizin-in-einsiedeln",
       "source": "AMEOS Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:46:50.961Z",
+      "crawledAt": "2026-11-10T09:22:07.385Z",
       "addressLocality": "Einsiedeln",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -168,7 +168,7 @@
       },
       "streetAddress": "Einsiedeln",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-09T09:46:50.961Z",
+      "validThrough": "2026-12-10T09:22:07.385Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -202,7 +202,7 @@
       "url": "https://karriere.ameos.eu/offene-stellen/stelle/9318-unterassistent-pj-chirurgie-in-einsiedeln",
       "source": "AMEOS Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:46:49.928Z",
+      "crawledAt": "2026-11-10T09:22:06.373Z",
       "addressLocality": "Einsiedeln",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -245,7 +245,7 @@
       },
       "streetAddress": "Einsiedeln",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-09T09:46:49.928Z",
+      "validThrough": "2026-12-10T09:22:06.373Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -280,7 +280,7 @@
       "url": "https://karriere.ameos.eu/offene-stellen/stelle/11782-mitarbeiter-case-management-in-einsiedeln",
       "source": "AMEOS Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:46:48.878Z",
+      "crawledAt": "2026-11-10T09:22:05.430Z",
       "addressLocality": "Einsiedeln",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -348,8 +348,6 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-m-w-d-interdisziplinare-bettenstation-ameos-einsiedeln-33fd4a91",
-          "dipl-pflegefachperson-m-w-d-interdisziplinare-bettenstation-ameos-einsiedeln-7caf2b7b",
           "dipl-pflegefachperson-m-w-d-interdisziplinare-bettenstation-ameos-einsiedeln-8aee7c7f",
           "dipl-pflegefachperson-m-w-d-interdisziplinare-bettenstation-ameos-einsiedeln-778ef1df",
           "dipl-pflegefachperson-m-w-d-interdisziplinare-bettenstation-ameos-einsiedeln-5a16a46c",
@@ -367,7 +365,9 @@
           "dipl-pflegefachperson-m-w-d-interdisziplinare-bettenstation-ameos-einsiedeln-c87b02f1",
           "dipl-pflegefachperson-m-w-d-interdisziplinare-bettenstation-ameos-einsiedeln-7032f159",
           "dipl-pflegefachperson-m-w-d-interdisziplinare-bettenstation-ameos-einsiedeln-c47394d9",
-          "dipl-pflegefachperson-m-w-d-interdisziplinare-bettenstation-ameos-einsiedeln-dbbf866a"
+          "dipl-pflegefachperson-m-w-d-interdisziplinare-bettenstation-ameos-einsiedeln-dbbf866a",
+          "dipl-pflegefachperson-m-w-d-interdisziplinare-bettenstation-ameos-einsiedeln-33fd4a91",
+          "dipl-pflegefachperson-m-w-d-interdisziplinare-bettenstation-ameos-einsiedeln-7caf2b7b"
         ],
         "fr": [
           "mitarbeiter-m-w-d-case-management-ameos-schweiz-einsiedeln"
@@ -389,7 +389,7 @@
       },
       "streetAddress": "Einsiedeln",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-09T09:46:48.878Z",
+      "validThrough": "2026-12-10T09:22:05.430Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -423,7 +423,7 @@
       "url": "https://karriere.ameos.eu/offene-stellen/stelle/14240-dipl-rettungssanit%C3%A4ter-in-einsiedeln",
       "source": "AMEOS Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:46:47.726Z",
+      "crawledAt": "2026-11-10T09:22:04.508Z",
       "addressLocality": "Einsiedeln",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -472,7 +472,7 @@
       },
       "streetAddress": "Einsiedeln",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-12T09:46:47.726Z",
+      "validThrough": "2027-01-12T09:22:04.508Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -507,7 +507,7 @@
       "url": "https://karriere.ameos.eu/offene-stellen/stelle/14237-fachperson-gesundheit-interdisziplin%C3%A4re-privatstation-in-einsiedeln",
       "source": "AMEOS Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:46:46.600Z",
+      "crawledAt": "2026-11-10T09:22:03.580Z",
       "addressLocality": "Einsiedeln",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -556,7 +556,7 @@
       },
       "streetAddress": "Einsiedeln",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-12T09:46:46.600Z",
+      "validThrough": "2027-01-12T09:22:03.580Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -591,7 +591,7 @@
       "url": "https://karriere.ameos.eu/offene-stellen/stelle/14871-operativen-eink%C3%A4ufer-in-einsiedeln",
       "source": "AMEOS Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:46:45.563Z",
+      "crawledAt": "2026-11-10T09:22:02.657Z",
       "addressLocality": "Einsiedeln",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -640,7 +640,7 @@
       },
       "streetAddress": "Einsiedeln",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-20T09:46:45.563Z",
+      "validThrough": "2027-01-20T09:22:02.657Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -675,7 +675,7 @@
       "url": "https://karriere.ameos.eu/offene-stellen/stelle/14868-sachbearbeiter-finanzbuchhaltung-in-einsiedeln",
       "source": "AMEOS Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:46:44.528Z",
+      "crawledAt": "2026-11-10T09:22:01.659Z",
       "addressLocality": "Einsiedeln",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -724,7 +724,7 @@
       },
       "streetAddress": "Einsiedeln",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-21T09:46:44.528Z",
+      "validThrough": "2027-01-21T09:22:01.659Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -759,7 +759,7 @@
       "url": "https://karriere.ameos.eu/offene-stellen/stelle/15746-dipl-radiologiefachperson-in-einsiedeln",
       "source": "AMEOS Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:46:43.494Z",
+      "crawledAt": "2026-11-10T09:22:00.741Z",
       "addressLocality": "Einsiedeln",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -808,7 +808,7 @@
       },
       "streetAddress": "Einsiedeln",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T09:46:43.494Z",
+      "validThrough": "2027-02-03T09:22:00.741Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -843,7 +843,7 @@
       "url": "https://karriere.ameos.eu/offene-stellen/stelle/14934-mitarbeiter-integrales-kapazit%C3%A4tsmanagement-in-einsiedeln",
       "source": "AMEOS Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:46:42.435Z",
+      "crawledAt": "2026-11-10T09:21:59.820Z",
       "addressLocality": "Einsiedeln",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -892,87 +892,7 @@
       },
       "streetAddress": "Einsiedeln",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-24T09:46:42.435Z",
-      "validThroughSource": "last-observed-window"
-    },
-    {
-      "id": "ameos-ch-e7574768d958",
-      "slug": "capo-di-psicologia-m-f-d-ameos-schweiz-brunnen",
-      "slugByLocale": {
-        "it": "capo-di-psicologia-m-f-d-ameos-schweiz-brunnen",
-        "en": "head-of-psychology-m-f-d-ameos-schweiz-brunnen",
-        "de": "leitung-psychologie-m-w-d-ameos-brunnen",
-        "fr": "responsable-de-la-psychologie-h-f-d-ameos-schweiz-brunnen"
-      },
-      "company": "AMEOS Schweiz",
-      "companyKey": "ameos-ch",
-      "companyDomain": "karriere.ameos.eu",
-      "title": "Leitung Psychologie (m/w/d)",
-      "titleByLocale": {
-        "it": "Capo di Psicologia (m/f/d)",
-        "en": "Head of Psychology (m/f/d)",
-        "de": "Leitung Psychologie (m/w/d)",
-        "fr": "Responsable de la psychologie (h/f/d)"
-      },
-      "description": "Zur Verstärkung unseres Teams im AMEOS Seeklinikum Brunnen suchen wir per November 2026 oder nach Vereinbarung eine initiative und engagierte Persönlichkeit als\n\nLeitung Psychologie (m/w/d) — 80-100%, stationär\n\nIhre Vorteile\nWir bieten Ihnen die Möglichkeit, Teil unseres familiären Teams zu werden. Es erwartet Sie ein vielseitiges, attraktives Arbeitsumfeld, in dem Sie Patientinnen auf einer unserer Stationen fachverantwortlich betreuen. Weiter erwartet Sie ein strukturiertes Fortbildungs- und Supervisionsprogramm. Unsere Klinik von der SIWF der FMH als B-Spital anerkannt, wodurch anrechenbare Zeit für die Eidgenössische Anerkennung und das Anordnungsmodell erworben werden kann. Unser Arbeitsort Brunnen befindet sich in einer Umgebung mit hoher Lebensqualität sowie vielen Freizeitaktivitäten und ist von Luzern, Zug oder Zürich mit allen Verkehrsmitteln sehr gut erreichbar, auch mit dem Schiff.\n\nIhre Aufgaben\n• Operative, betriebliche, fachliche und personelle Leitung der Funktionseinheit\n• Mitarbeit in der Führung der Gesamtklinik, zum Beispiel Bereichsleitung\n• Budgetverantwortung und -management im Rahmen der bestehenden Kompetenzordnung\n• Führung von Mitarbeitenden verschiedener beruflicher Disziplinen im Verantwortungsbereich\n• Sicherstellung der fachlichen Ausbildung von Assistenzpsychologinnen / Assistenzpsychologen, Assistenzärztinnen / Assistenzärzten und Psychologie Praktikantinnen / Praktikanten\n• Sicherstellung und Koordination der interdisziplinären Versorgung von Patientinnen und Patienten im Verantwortungsbereich\n• Berücksichtigung und Gewährleistung der Einhaltung gesetzlicher Grundlagen\n• Mitarbeit bei strategischen und konzeptionellen Aufgabenstellungen\n• Förderung der interprofessionellen Zusammenarbeit\n• Sicherstellung eines optimalen Informationsflusses innerhalb des Verantwortungsbereichs sowie gegenüber Vorgesetzten und weiteren relevanten Stellen\n• Aktive Teilnahme an Besprechungen und Teamsitzungen sowie Einbringen von Erfahrungen aus Fort- und Weiterbildungen\n• Kompetenzen/Verantwortungen\n• Situatives Führung der Mitarbeitenden im Zuständigkeitsbereich\n• Gewissenhafte Durchführung der übertragenen Aufgaben und Sicherstellung von Aufgaben bei eigener Abwesenheit\n• Pflege des fachlichen Austausches im interdisziplinären Behandlungsteam\n\nIhr Profil\n• Sie verfügen über eine Eidgenössische Anerkennung in Psychotherapie und ideal mehrjährige Erfahrung in diesem Beruf.\n• Erfahrung in Teamleitung ist von Vorteil.\n• Sie sind offen für interdisziplinäres Arbeiten im Team und zuverlässig in der Dokumentation.\n• Vorerfahrung in Schlafmedizin ist willkommen, vertiefende Einarbeitung gewünscht.\n• Sie verfügen über ausgeprägte Führungs- und Kommunikationskompetenzen und fördern aktiv den fachlichen sowie interprofessionellen Austausch.",
-      "descriptionByLocale": {
-        "it": "Per rafforzare il nostro team all'AMEOS Seeklinikum Brunnen, stiamo cercando un'iniziativa e una personalità impegnata a partire dal novembre 2026 o d'accordo.\n\nCapo di Psicologia (m/f/d) — 80-100%, stazionario\n\nI loro vantaggi\nVi offriamo l'opportunità di entrare a far parte della nostra squadra di famiglia. Ci si può aspettare un ambiente di lavoro versatile e attraente in cui si prende cura di pazienti in una delle nostre stazioni. Inoltre, puoi aspettarti un programma di formazione e supervisione strutturato. La nostra clinica è riconosciuta dalla SIWF della FMH come B-Spital, il che significa che è possibile ottenere il tempo idoneo per il riconoscimento federale svizzero e il modello di disposizione. La nostra posizione di lavoro Brunnen si trova in un ambiente con un'alta qualità di vita e molte attività ricreative ed è molto facile da raggiungere da Lucerna, Zug o Zurigo con tutti i mezzi di trasporto, tra cui in nave.\n\nI loro compiti\n• Gestione delle risorse operative, operative, tecniche e umane dell'unità funzionale\n• Collaborazione nella gestione della clinica generale, ad esempio gestione divisionale\n• Responsabilità e gestione del bilancio nel quadro delle norme di competenza esistenti\n• Gestione dei dipendenti di varie discipline professionali nel settore della responsabilità\n• Assicurare la formazione professionale di psicologi assistenti, medici assistenti e tirocinanti di psicologia\n• Assicurare e coordinare la cura interdisciplinare dei pazienti nel settore della responsabilità\n• Considerazione e garanzia del rispetto delle basi giuridiche\n• Cooperazione nei compiti strategici e concettuali\n• Promuovere la cooperazione interprofessionale\n• Garantire un flusso ottimale di informazioni all'interno dell'area di responsabilità, nonché ai supervisori e agli altri organismi pertinenti\n• Partecipazione attiva alle riunioni e alle riunioni di squadra, nonché esperienza di ulteriore formazione e formazione\n• Competenze / responsabilità\n• Gestione della situazione dei dipendenti nel settore della responsabilità\n• Esecuzione coscienziosa dei compiti delegati e salvaguardia dei compiti in loro assenza\n• Manutenzione dello scambio professionale nel team di trattamento interdisciplinare\n\nIl tuo profilo\n• Hanno un riconoscimento federale svizzero in psicoterapia e idealmente diversi anni di esperienza in questa professione.\n• L'esperienza nella leadership del team è un vantaggio.\n• Sono aperti al lavoro interdisciplinare in un team e affidabili nella documentazione.\n• Esperienza precedente in medicina del sonno è benvenuto, conoscenza approfondita desiderato.\n• Hanno forti capacità di leadership e comunicazione e promuovere attivamente lo scambio professionale e interprofessionale.",
-        "en": "To strengthen our team at the AMEOS Seeklinikum Brunnen, we are looking for an initiative and committed personality as of November 2026 or by agreement.\n\nHead of Psychology (m/f/d) — 80-100%, stationary\n\nTheir advantages\nWe offer you the opportunity to become part of our family team. You can expect a versatile, attractive working environment in which you take care of patients on one of our stations. Furthermore, you can expect a structured training and supervision program. Our clinic is recognised by the SIWF of the FMH as a B-Spital, which means that eligible time for the Swiss Federal Recognition and the arrangement model can be acquired. Our work location Brunnen is located in an environment with a high quality of life and many leisure activities and is very easy to reach from Lucerne, Zug or Zurich by all means of transport, including by ship.\n\nTheir tasks\n• Operational, operational, technical and human resources management of the functional unit\n• Collaboration in the management of the overall clinic, for example divisional management\n• Budget responsibility and management within the framework of the existing rules of competence\n• Management of employees of various professional disciplines in the area of responsibility\n• Ensuring the professional training of assistant psychologists, assistant doctors and psychology interns\n• Ensuring and coordinating the interdisciplinary care of patients in the area of responsibility\n• Consideration and guarantee of compliance with legal bases\n• Cooperation in strategic and conceptual tasks\n• Promoting interprofessional cooperation\n• Ensuring an optimal flow of information within the area of responsibility as well as to supervisors and other relevant bodies\n• Active participation in meetings and team meetings as well as contributing experience from further education and training\n• Competences/responsibilities\n• Situational management of employees in the area of responsibility\n• Conscientious performance of the delegated tasks and safeguarding of tasks in their own absence\n• Maintenance of professional exchange in the interdisciplinary treatment team\n\nYour profile\n• They have a Swiss Federal Recognition in Psychotherapy and ideally several years of experience in this profession.\n• Experience in team leadership is an advantage.\n• They are open to interdisciplinary work in a team and reliable in documentation.\n• Previous experience in sleep medicine is welcome, in-depth familiarization desired.\n• They have strong leadership and communication skills and actively promote professional and interprofessional exchange.",
-        "de": "Zur Verstärkung unseres Teams im AMEOS Seeklinikum Brunnen suchen wir per November 2026 oder nach Vereinbarung eine initiative und engagierte Persönlichkeit als\n\nLeitung Psychologie (m/w/d) — 80-100%, stationär\n\nIhre Vorteile\nWir bieten Ihnen die Möglichkeit, Teil unseres familiären Teams zu werden. Es erwartet Sie ein vielseitiges, attraktives Arbeitsumfeld, in dem Sie Patientinnen auf einer unserer Stationen fachverantwortlich betreuen. Weiter erwartet Sie ein strukturiertes Fortbildungs- und Supervisionsprogramm. Unsere Klinik von der SIWF der FMH als B-Spital anerkannt, wodurch anrechenbare Zeit für die Eidgenössische Anerkennung und das Anordnungsmodell erworben werden kann. Unser Arbeitsort Brunnen befindet sich in einer Umgebung mit hoher Lebensqualität sowie vielen Freizeitaktivitäten und ist von Luzern, Zug oder Zürich mit allen Verkehrsmitteln sehr gut erreichbar, auch mit dem Schiff.\n\nIhre Aufgaben\n• Operative, betriebliche, fachliche und personelle Leitung der Funktionseinheit\n• Mitarbeit in der Führung der Gesamtklinik, zum Beispiel Bereichsleitung\n• Budgetverantwortung und -management im Rahmen der bestehenden Kompetenzordnung\n• Führung von Mitarbeitenden verschiedener beruflicher Disziplinen im Verantwortungsbereich\n• Sicherstellung der fachlichen Ausbildung von Assistenzpsychologinnen / Assistenzpsychologen, Assistenzärztinnen / Assistenzärzten und Psychologie Praktikantinnen / Praktikanten\n• Sicherstellung und Koordination der interdisziplinären Versorgung von Patientinnen und Patienten im Verantwortungsbereich\n• Berücksichtigung und Gewährleistung der Einhaltung gesetzlicher Grundlagen\n• Mitarbeit bei strategischen und konzeptionellen Aufgabenstellungen\n• Förderung der interprofessionellen Zusammenarbeit\n• Sicherstellung eines optimalen Informationsflusses innerhalb des Verantwortungsbereichs sowie gegenüber Vorgesetzten und weiteren relevanten Stellen\n• Aktive Teilnahme an Besprechungen und Teamsitzungen sowie Einbringen von Erfahrungen aus Fort- und Weiterbildungen\n• Kompetenzen/Verantwortungen\n• Situatives Führung der Mitarbeitenden im Zuständigkeitsbereich\n• Gewissenhafte Durchführung der übertragenen Aufgaben und Sicherstellung von Aufgaben bei eigener Abwesenheit\n• Pflege des fachlichen Austausches im interdisziplinären Behandlungsteam\n\nIhr Profil\n• Sie verfügen über eine Eidgenössische Anerkennung in Psychotherapie und ideal mehrjährige Erfahrung in diesem Beruf.\n• Erfahrung in Teamleitung ist von Vorteil.\n• Sie sind offen für interdisziplinäres Arbeiten im Team und zuverlässig in der Dokumentation.\n• Vorerfahrung in Schlafmedizin ist willkommen, vertiefende Einarbeitung gewünscht.\n• Sie verfügen über ausgeprägte Führungs- und Kommunikationskompetenzen und fördern aktiv den fachlichen sowie interprofessionellen Austausch.",
-        "fr": "Pour renforcer notre équipe à l'AMEOS Seeklinikum Brunnen, nous recherchons une initiative et une personnalité engagée dès novembre 2026 ou par accord.\n\nResponsable de la psychologie (h/f/d) — 80-100%, stationnaire\n\nLeurs avantages\nNous vous offrons la possibilité de faire partie de notre équipe familiale. Vous pouvez vous attendre à un environnement de travail polyvalent et attrayant dans lequel vous prenez soin des patients sur une de nos stations. De plus, vous pouvez vous attendre à un programme structuré de formation et de supervision. Notre clinique est reconnue par le SIWF de la FMH comme un B-Spital, ce qui signifie que le temps admissible à la reconnaissance fédérale suisse et le modèle d'arrangement peuvent être acquis. Notre lieu de travail Brunnen est situé dans un environnement de haute qualité de vie et de nombreuses activités de loisirs et est très facile d'accès depuis Lucerne, Zug ou Zurich par tous les moyens de transport, y compris par bateau.\n\nLeurs tâches\n• Gestion des ressources opérationnelles, opérationnelles, techniques et humaines du groupe fonctionnel\n• Collaboration dans la gestion de l'ensemble de la clinique, par exemple la gestion divisionnaire\n• Responsabilité budgétaire et gestion dans le cadre des règles de compétence existantes\n• Gestion des employés de diverses disciplines professionnelles dans le domaine de responsabilité\n• Assurer la formation professionnelle des psychologues adjoints, des médecins adjoints et des stagiaires en psychologie\n• Assurer et coordonner les soins interdisciplinaires des patients dans le domaine de responsabilité\n• Examen et garantie du respect des bases juridiques\n• Coopération dans les tâches stratégiques et conceptuelles\n• Promouvoir la coopération interprofessionnelle\n• Assurer un flux optimal d'informations dans le domaine de responsabilité ainsi qu'aux autorités de surveillance et autres organismes compétents\n• Participation active aux réunions et réunions d'équipe ainsi qu'à l'expérience acquise en matière d'éducation et de formation continue\n• Compétences/responsabilités\n• Gestion de la situation des salariés dans le domaine de responsabilité\n• Exécution consciencieuse des tâches déléguées et sauvegarde des tâches en leur propre absence\n• Maintien des échanges professionnels dans l'équipe de traitement interdisciplinaire\n\nVotre profil\n• Ils ont une reconnaissance fédérale suisse en psychothérapie et idéalement plusieurs années d'expérience dans cette profession.\n• L'expérience du leadership d'équipe est un avantage.\n• Ils sont ouverts au travail interdisciplinaire en équipe et fiables dans la documentation.\n• Une expérience antérieure en médecine du sommeil est bienvenue, une familiarisation approfondie souhaitée.\n• Ils possèdent de solides compétences en leadership et en communication et favorisent activement les échanges professionnels et interprofessionnels."
-      },
-      "needsRetranslation": false,
-      "location": "Brunnen",
-      "canton": "SZ",
-      "url": "https://karriere.ameos.eu/offene-stellen/stelle/10368-leitung-psychologie-in-brunnen",
-      "source": "AMEOS Schweiz Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:46:41.428Z",
-      "addressLocality": "Brunnen",
-      "addressRegion": "SZ",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "6440",
-      "category": "IT",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-08-18",
-      "postedDate": "2026-08-18",
-      "postingDateSource": "reported",
-      "applyUrl": "https://karriere.ameos.eu/offene-stellen/stelle/10368-leitung-psychologie-in-brunnen",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "responsabile-psicologia-m-f-d-ameos-schweiz-brunnen",
-        "leitung-psychologie-m-w-d-ameos-brunnen"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "responsabile-psicologia-m-f-d-ameos-schweiz-brunnen",
-          "leitung-psychologie-m-w-d-ameos-brunnen"
-        ]
-      },
-      "firstSeenAt": "2026-08-18T22:03:36.010Z",
-      "salaryMin": 114500,
-      "salaryMax": 195000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 114500,
-          "maxValue": 195000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Brunnen",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-09T09:46:41.428Z",
+      "validThrough": "2027-01-24T09:21:59.820Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1006,7 +926,7 @@
       "url": "https://karriere.ameos.eu/offene-stellen/stelle/12839-diplomierte-pflegefachperson-hf-in-brunnen",
       "source": "AMEOS Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:46:40.269Z",
+      "crawledAt": "2026-11-10T09:21:58.860Z",
       "addressLocality": "Brunnen",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -1049,7 +969,7 @@
       },
       "streetAddress": "Brunnen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-22T09:46:40.269Z",
+      "validThrough": "2026-12-22T09:21:58.860Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1083,7 +1003,7 @@
       "url": "https://karriere.ameos.eu/offene-stellen/stelle/13903-dipl-pflegefachperson-hf-nachtdienst-in-brunnen",
       "source": "AMEOS Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:46:39.187Z",
+      "crawledAt": "2026-11-10T09:21:57.902Z",
       "addressLocality": "Brunnen",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -1132,7 +1052,7 @@
       },
       "streetAddress": "Brunnen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-10T09:46:39.187Z",
+      "validThrough": "2027-01-10T09:21:57.902Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1167,7 +1087,7 @@
       "url": "https://karriere.ameos.eu/offene-stellen/stelle/14390-stationsleitung-und-stellvertretende-leitung-pflege-in-brunnen",
       "source": "AMEOS Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:46:38.109Z",
+      "crawledAt": "2026-11-10T09:21:56.958Z",
       "addressLocality": "Brunnen",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -1210,7 +1130,7 @@
       },
       "streetAddress": "Brunnen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-10T09:46:38.109Z",
+      "validThrough": "2027-01-10T09:21:56.958Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1245,7 +1165,7 @@
       "url": "https://karriere.ameos.eu/offene-stellen/stelle/14339-assistenzarzt-psychiatrie-und-psychotherapie-in-brunnen",
       "source": "AMEOS Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:46:37.078Z",
+      "crawledAt": "2026-11-10T09:21:56.023Z",
       "addressLocality": "Brunnen",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -1288,7 +1208,7 @@
       },
       "streetAddress": "Brunnen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-10T09:46:37.078Z",
+      "validThrough": "2027-01-10T09:21:56.023Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1323,7 +1243,7 @@
       "url": "https://karriere.ameos.eu/offene-stellen/stelle/15504-oberarzt-undoder-leitender-facharzt-psychiatrie-und-psychotherapie-in-brunnen",
       "source": "AMEOS Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:46:36.045Z",
+      "crawledAt": "2026-11-10T09:21:55.072Z",
       "addressLocality": "Brunnen",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -1374,7 +1294,7 @@
       },
       "streetAddress": "Brunnen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-01T09:46:36.045Z",
+      "validThrough": "2027-02-01T09:21:55.072Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1409,7 +1329,7 @@
       "url": "https://karriere.ameos.eu/offene-stellen/stelle/15540-eidgen%C3%B6ssisch-anerkannter-psychotherapeut-undoder-leitung-psychologie-in-brunnen",
       "source": "AMEOS Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:46:35.021Z",
+      "crawledAt": "2026-11-10T09:21:54.146Z",
       "addressLocality": "Brunnen",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -1460,8 +1380,80 @@
       },
       "streetAddress": "Brunnen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-01T09:46:35.021Z",
+      "validThrough": "2027-02-01T09:21:54.146Z",
       "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "ameos-ch-4e2497d3a354",
+      "slug": "leitung-m-w-d-psychologie-ameos-brunnen",
+      "slugByLocale": {
+        "de": "leitung-m-w-d-psychologie-ameos-brunnen",
+        "it": "leitung-m-w-d-psychologie-ameos-brunnen",
+        "en": "leitung-m-w-d-psychologie-ameos-brunnen",
+        "fr": "leitung-m-w-d-psychologie-ameos-brunnen"
+      },
+      "company": "AMEOS Schweiz",
+      "companyKey": "ameos-ch",
+      "companyDomain": "karriere.ameos.eu",
+      "title": "Leitung (m/w/d) Psychologie",
+      "titleByLocale": {
+        "de": "Leitung (m/w/d) Psychologie",
+        "it": "Leitung (m/w/d) Psychologie",
+        "en": "Leitung (m/w/d) Psychologie",
+        "fr": "Leitung (m/w/d) Psychologie"
+      },
+      "description": "Zur Verstärkung unseres Teams im AMEOS Seeklinikum Brunnen suchen wir per November 2026 oder nach Vereinbarung eine initiative und engagierte Persönlichkeit als\n\nLeitung (m/w/d) Psychologie — 80-100%, stationär\n\nIhre Vorteile\nWir bieten Ihnen die Möglichkeit, Teil unseres familiären Teams zu werden. Es erwartet Sie ein vielseitiges, attraktives Arbeitsumfeld, in dem Sie Patientinnen auf einer unserer Stationen fachverantwortlich betreuen. Weiter erwartet Sie ein strukturiertes Fortbildungs- und Supervisionsprogramm. Unsere Klinik ist von der SIWF der FMH als B-Spital anerkannt, wodurch anrechenbare Zeit für die Eidgenössische Anerkennung und das Anordnungsmodell erworben werden kann. Unser Arbeitsort Brunnen befindet sich in einer Umgebung mit hoher Lebensqualität sowie vielen Freizeitaktivitäten und ist von Luzern, Zug oder Zürich mit allen Verkehrsmitteln sehr gut erreichbar, auch mit dem Schiff.\n\nIhre Aufgaben\n• Operative, betriebliche, fachliche und personelle Leitung der Funktionseinheit\n• Mitarbeit in der Führung der Gesamtklinik, zum Beispiel Bereichsleitung\n• Budgetverantwortung und -management im Rahmen der bestehenden Kompetenzordnung\n• Führung von Mitarbeitenden verschiedener beruflicher Disziplinen im Verantwortungsbereich\n• Sicherstellung der fachlichen Ausbildung von Assistenzpsychologinnen/Assistenzpsychologen, Assistenzärztinnen/Assistenzärzten und Psychologie-Praktikantinnen/-Praktikanten\n• Sicherstellung und Koordination der interdisziplinären Versorgung von Patientinnen und Patienten im Verantwortungsbereich\n• Berücksichtigung und Gewährleistung der Einhaltung gesetzlicher Grundlagen\n• Mitarbeit bei strategischen und konzeptionellen Aufgabenstellungen\n• Förderung der interprofessionellen Zusammenarbeit\n• Sicherstellung eines optimalen Informationsflusses innerhalb des Verantwortungsbereichs sowie gegenüber Vorgesetzten und weiteren relevanten Stellen\n• Aktive Teilnahme an Besprechungen und Teamsitzungen sowie Einbringen von Erfahrungen aus Fort- und Weiterbildungen\n• Kompetenzen/Verantwortungen\n• Situative Führung der Mitarbeitenden im Zuständigkeitsbereich\n• Gewissenhafte Durchführung der übertragenen Aufgaben und Sicherstellung von Aufgaben bei eigener Abwesenheit\n• Pflege des fachlichen Austausches im interdisziplinären Behandlungsteam\n\nIhr Profil\n• Sie verfügen über eine Eidgenössische Anerkennung in Psychotherapie und ideal mehrjährige Erfahrung in diesem Beruf.\n• Erfahrung in Teamleitung ist von Vorteil.\n• Sie sind offen für interdisziplinäres Arbeiten im Team und zuverlässig in der Dokumentation.\n• Vorerfahrung in Schlafmedizin ist willkommen, vertiefende Einarbeitung gewünscht.\n• Sie verfügen über ausgeprägte Führungs- und Kommunikationskompetenzen und fördern aktiv den fachlichen sowie interprofessionellen Austausch.",
+      "descriptionByLocale": {
+        "de": "Zur Verstärkung unseres Teams im AMEOS Seeklinikum Brunnen suchen wir per November 2026 oder nach Vereinbarung eine initiative und engagierte Persönlichkeit als\n\nLeitung (m/w/d) Psychologie — 80-100%, stationär\n\nIhre Vorteile\nWir bieten Ihnen die Möglichkeit, Teil unseres familiären Teams zu werden. Es erwartet Sie ein vielseitiges, attraktives Arbeitsumfeld, in dem Sie Patientinnen auf einer unserer Stationen fachverantwortlich betreuen. Weiter erwartet Sie ein strukturiertes Fortbildungs- und Supervisionsprogramm. Unsere Klinik ist von der SIWF der FMH als B-Spital anerkannt, wodurch anrechenbare Zeit für die Eidgenössische Anerkennung und das Anordnungsmodell erworben werden kann. Unser Arbeitsort Brunnen befindet sich in einer Umgebung mit hoher Lebensqualität sowie vielen Freizeitaktivitäten und ist von Luzern, Zug oder Zürich mit allen Verkehrsmitteln sehr gut erreichbar, auch mit dem Schiff.\n\nIhre Aufgaben\n• Operative, betriebliche, fachliche und personelle Leitung der Funktionseinheit\n• Mitarbeit in der Führung der Gesamtklinik, zum Beispiel Bereichsleitung\n• Budgetverantwortung und -management im Rahmen der bestehenden Kompetenzordnung\n• Führung von Mitarbeitenden verschiedener beruflicher Disziplinen im Verantwortungsbereich\n• Sicherstellung der fachlichen Ausbildung von Assistenzpsychologinnen/Assistenzpsychologen, Assistenzärztinnen/Assistenzärzten und Psychologie-Praktikantinnen/-Praktikanten\n• Sicherstellung und Koordination der interdisziplinären Versorgung von Patientinnen und Patienten im Verantwortungsbereich\n• Berücksichtigung und Gewährleistung der Einhaltung gesetzlicher Grundlagen\n• Mitarbeit bei strategischen und konzeptionellen Aufgabenstellungen\n• Förderung der interprofessionellen Zusammenarbeit\n• Sicherstellung eines optimalen Informationsflusses innerhalb des Verantwortungsbereichs sowie gegenüber Vorgesetzten und weiteren relevanten Stellen\n• Aktive Teilnahme an Besprechungen und Teamsitzungen sowie Einbringen von Erfahrungen aus Fort- und Weiterbildungen\n• Kompetenzen/Verantwortungen\n• Situative Führung der Mitarbeitenden im Zuständigkeitsbereich\n• Gewissenhafte Durchführung der übertragenen Aufgaben und Sicherstellung von Aufgaben bei eigener Abwesenheit\n• Pflege des fachlichen Austausches im interdisziplinären Behandlungsteam\n\nIhr Profil\n• Sie verfügen über eine Eidgenössische Anerkennung in Psychotherapie und ideal mehrjährige Erfahrung in diesem Beruf.\n• Erfahrung in Teamleitung ist von Vorteil.\n• Sie sind offen für interdisziplinäres Arbeiten im Team und zuverlässig in der Dokumentation.\n• Vorerfahrung in Schlafmedizin ist willkommen, vertiefende Einarbeitung gewünscht.\n• Sie verfügen über ausgeprägte Führungs- und Kommunikationskompetenzen und fördern aktiv den fachlichen sowie interprofessionellen Austausch.",
+        "it": "Zur Verstärkung unseres Teams im AMEOS Seeklinikum Brunnen suchen wir per November 2026 oder nach Vereinbarung eine initiative und engagierte Persönlichkeit als\n\nLeitung (m/w/d) Psychologie — 80-100%, stationär\n\nIhre Vorteile\nWir bieten Ihnen die Möglichkeit, Teil unseres familiären Teams zu werden. Es erwartet Sie ein vielseitiges, attraktives Arbeitsumfeld, in dem Sie Patientinnen auf einer unserer Stationen fachverantwortlich betreuen. Weiter erwartet Sie ein strukturiertes Fortbildungs- und Supervisionsprogramm. Unsere Klinik ist von der SIWF der FMH als B-Spital anerkannt, wodurch anrechenbare Zeit für die Eidgenössische Anerkennung und das Anordnungsmodell erworben werden kann. Unser Arbeitsort Brunnen befindet sich in einer Umgebung mit hoher Lebensqualität sowie vielen Freizeitaktivitäten und ist von Luzern, Zug oder Zürich mit allen Verkehrsmitteln sehr gut erreichbar, auch mit dem Schiff.\n\nIhre Aufgaben\n• Operative, betriebliche, fachliche und personelle Leitung der Funktionseinheit\n• Mitarbeit in der Führung der Gesamtklinik, zum Beispiel Bereichsleitung\n• Budgetverantwortung und -management im Rahmen der bestehenden Kompetenzordnung\n• Führung von Mitarbeitenden verschiedener beruflicher Disziplinen im Verantwortungsbereich\n• Sicherstellung der fachlichen Ausbildung von Assistenzpsychologinnen/Assistenzpsychologen, Assistenzärztinnen/Assistenzärzten und Psychologie-Praktikantinnen/-Praktikanten\n• Sicherstellung und Koordination der interdisziplinären Versorgung von Patientinnen und Patienten im Verantwortungsbereich\n• Berücksichtigung und Gewährleistung der Einhaltung gesetzlicher Grundlagen\n• Mitarbeit bei strategischen und konzeptionellen Aufgabenstellungen\n• Förderung der interprofessionellen Zusammenarbeit\n• Sicherstellung eines optimalen Informationsflusses innerhalb des Verantwortungsbereichs sowie gegenüber Vorgesetzten und weiteren relevanten Stellen\n• Aktive Teilnahme an Besprechungen und Teamsitzungen sowie Einbringen von Erfahrungen aus Fort- und Weiterbildungen\n• Kompetenzen/Verantwortungen\n• Situative Führung der Mitarbeitenden im Zuständigkeitsbereich\n• Gewissenhafte Durchführung der übertragenen Aufgaben und Sicherstellung von Aufgaben bei eigener Abwesenheit\n• Pflege des fachlichen Austausches im interdisziplinären Behandlungsteam\n\nIhr Profil\n• Sie verfügen über eine Eidgenössische Anerkennung in Psychotherapie und ideal mehrjährige Erfahrung in diesem Beruf.\n• Erfahrung in Teamleitung ist von Vorteil.\n• Sie sind offen für interdisziplinäres Arbeiten im Team und zuverlässig in der Dokumentation.\n• Vorerfahrung in Schlafmedizin ist willkommen, vertiefende Einarbeitung gewünscht.\n• Sie verfügen über ausgeprägte Führungs- und Kommunikationskompetenzen und fördern aktiv den fachlichen sowie interprofessionellen Austausch.",
+        "en": "Zur Verstärkung unseres Teams im AMEOS Seeklinikum Brunnen suchen wir per November 2026 oder nach Vereinbarung eine initiative und engagierte Persönlichkeit als\n\nLeitung (m/w/d) Psychologie — 80-100%, stationär\n\nIhre Vorteile\nWir bieten Ihnen die Möglichkeit, Teil unseres familiären Teams zu werden. Es erwartet Sie ein vielseitiges, attraktives Arbeitsumfeld, in dem Sie Patientinnen auf einer unserer Stationen fachverantwortlich betreuen. Weiter erwartet Sie ein strukturiertes Fortbildungs- und Supervisionsprogramm. Unsere Klinik ist von der SIWF der FMH als B-Spital anerkannt, wodurch anrechenbare Zeit für die Eidgenössische Anerkennung und das Anordnungsmodell erworben werden kann. Unser Arbeitsort Brunnen befindet sich in einer Umgebung mit hoher Lebensqualität sowie vielen Freizeitaktivitäten und ist von Luzern, Zug oder Zürich mit allen Verkehrsmitteln sehr gut erreichbar, auch mit dem Schiff.\n\nIhre Aufgaben\n• Operative, betriebliche, fachliche und personelle Leitung der Funktionseinheit\n• Mitarbeit in der Führung der Gesamtklinik, zum Beispiel Bereichsleitung\n• Budgetverantwortung und -management im Rahmen der bestehenden Kompetenzordnung\n• Führung von Mitarbeitenden verschiedener beruflicher Disziplinen im Verantwortungsbereich\n• Sicherstellung der fachlichen Ausbildung von Assistenzpsychologinnen/Assistenzpsychologen, Assistenzärztinnen/Assistenzärzten und Psychologie-Praktikantinnen/-Praktikanten\n• Sicherstellung und Koordination der interdisziplinären Versorgung von Patientinnen und Patienten im Verantwortungsbereich\n• Berücksichtigung und Gewährleistung der Einhaltung gesetzlicher Grundlagen\n• Mitarbeit bei strategischen und konzeptionellen Aufgabenstellungen\n• Förderung der interprofessionellen Zusammenarbeit\n• Sicherstellung eines optimalen Informationsflusses innerhalb des Verantwortungsbereichs sowie gegenüber Vorgesetzten und weiteren relevanten Stellen\n• Aktive Teilnahme an Besprechungen und Teamsitzungen sowie Einbringen von Erfahrungen aus Fort- und Weiterbildungen\n• Kompetenzen/Verantwortungen\n• Situative Führung der Mitarbeitenden im Zuständigkeitsbereich\n• Gewissenhafte Durchführung der übertragenen Aufgaben und Sicherstellung von Aufgaben bei eigener Abwesenheit\n• Pflege des fachlichen Austausches im interdisziplinären Behandlungsteam\n\nIhr Profil\n• Sie verfügen über eine Eidgenössische Anerkennung in Psychotherapie und ideal mehrjährige Erfahrung in diesem Beruf.\n• Erfahrung in Teamleitung ist von Vorteil.\n• Sie sind offen für interdisziplinäres Arbeiten im Team und zuverlässig in der Dokumentation.\n• Vorerfahrung in Schlafmedizin ist willkommen, vertiefende Einarbeitung gewünscht.\n• Sie verfügen über ausgeprägte Führungs- und Kommunikationskompetenzen und fördern aktiv den fachlichen sowie interprofessionellen Austausch.",
+        "fr": "Zur Verstärkung unseres Teams im AMEOS Seeklinikum Brunnen suchen wir per November 2026 oder nach Vereinbarung eine initiative und engagierte Persönlichkeit als\n\nLeitung (m/w/d) Psychologie — 80-100%, stationär\n\nIhre Vorteile\nWir bieten Ihnen die Möglichkeit, Teil unseres familiären Teams zu werden. Es erwartet Sie ein vielseitiges, attraktives Arbeitsumfeld, in dem Sie Patientinnen auf einer unserer Stationen fachverantwortlich betreuen. Weiter erwartet Sie ein strukturiertes Fortbildungs- und Supervisionsprogramm. Unsere Klinik ist von der SIWF der FMH als B-Spital anerkannt, wodurch anrechenbare Zeit für die Eidgenössische Anerkennung und das Anordnungsmodell erworben werden kann. Unser Arbeitsort Brunnen befindet sich in einer Umgebung mit hoher Lebensqualität sowie vielen Freizeitaktivitäten und ist von Luzern, Zug oder Zürich mit allen Verkehrsmitteln sehr gut erreichbar, auch mit dem Schiff.\n\nIhre Aufgaben\n• Operative, betriebliche, fachliche und personelle Leitung der Funktionseinheit\n• Mitarbeit in der Führung der Gesamtklinik, zum Beispiel Bereichsleitung\n• Budgetverantwortung und -management im Rahmen der bestehenden Kompetenzordnung\n• Führung von Mitarbeitenden verschiedener beruflicher Disziplinen im Verantwortungsbereich\n• Sicherstellung der fachlichen Ausbildung von Assistenzpsychologinnen/Assistenzpsychologen, Assistenzärztinnen/Assistenzärzten und Psychologie-Praktikantinnen/-Praktikanten\n• Sicherstellung und Koordination der interdisziplinären Versorgung von Patientinnen und Patienten im Verantwortungsbereich\n• Berücksichtigung und Gewährleistung der Einhaltung gesetzlicher Grundlagen\n• Mitarbeit bei strategischen und konzeptionellen Aufgabenstellungen\n• Förderung der interprofessionellen Zusammenarbeit\n• Sicherstellung eines optimalen Informationsflusses innerhalb des Verantwortungsbereichs sowie gegenüber Vorgesetzten und weiteren relevanten Stellen\n• Aktive Teilnahme an Besprechungen und Teamsitzungen sowie Einbringen von Erfahrungen aus Fort- und Weiterbildungen\n• Kompetenzen/Verantwortungen\n• Situative Führung der Mitarbeitenden im Zuständigkeitsbereich\n• Gewissenhafte Durchführung der übertragenen Aufgaben und Sicherstellung von Aufgaben bei eigener Abwesenheit\n• Pflege des fachlichen Austausches im interdisziplinären Behandlungsteam\n\nIhr Profil\n• Sie verfügen über eine Eidgenössische Anerkennung in Psychotherapie und ideal mehrjährige Erfahrung in diesem Beruf.\n• Erfahrung in Teamleitung ist von Vorteil.\n• Sie sind offen für interdisziplinäres Arbeiten im Team und zuverlässig in der Dokumentation.\n• Vorerfahrung in Schlafmedizin ist willkommen, vertiefende Einarbeitung gewünscht.\n• Sie verfügen über ausgeprägte Führungs- und Kommunikationskompetenzen und fördern aktiv den fachlichen sowie interprofessionellen Austausch."
+      },
+      "needsRetranslation": true,
+      "location": "Brunnen",
+      "canton": "SZ",
+      "url": "https://karriere.ameos.eu/offene-stellen/stelle/16011-leitung-psychologie-in-brunnen",
+      "source": "AMEOS Schweiz Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-10T09:21:53.218Z",
+      "addressLocality": "Brunnen",
+      "addressRegion": "SZ",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "6440",
+      "category": "IT",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-11-05T09:34:39+01:00",
+      "postedDate": "2026-11-05T09:34:39+01:00",
+      "postingDateSource": "reported",
+      "applyUrl": "https://karriere.ameos.eu/offene-stellen/stelle/16011-leitung-psychologie-in-brunnen",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "salaryMin": 74500,
+      "salaryMax": 127000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 74500,
+          "maxValue": 127000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Brunnen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-02-03T09:21:53.218Z",
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-11-10T09:21:53.218Z"
     },
     {
       "id": "ameos-ch-340009b830bc",
@@ -1495,7 +1487,7 @@
       "url": "https://karriere.ameos.eu/offene-stellen/stelle/11806-sozialarbeiter-m-w-d-in-der-klinischen-sozialberatung-in-brunnen",
       "source": "AMEOS Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:46:33.875Z",
+      "crawledAt": "2026-11-10T09:21:52.286Z",
       "addressLocality": "Brunnen",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -1538,7 +1530,7 @@
       },
       "streetAddress": "Brunnen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-23T09:46:33.875Z",
+      "validThrough": "2026-12-23T09:21:52.286Z",
       "validThroughSource": "last-observed-window"
     }
   ]

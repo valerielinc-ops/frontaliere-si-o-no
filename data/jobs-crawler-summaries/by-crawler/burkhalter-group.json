@@ -1,16 +1,16 @@
 {
   "key": "burkhalter-group",
   "label": "burkhalter",
-  "generatedAt": "2026-11-09T09:37:11.333Z",
-  "total": 247,
+  "generatedAt": "2026-11-10T09:22:24.610Z",
+  "total": 244,
   "newCount": 0,
   "updatedCount": 3,
-  "removedCount": 0,
-  "unchangedCount": 244,
-  "durationMs": 497963,
-  "avgDurationMs": 497963,
+  "removedCount": 3,
+  "unchangedCount": 241,
+  "durationMs": 491774,
+  "avgDurationMs": 491774,
   "durationHistory": [
-    497963
+    491774
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -39,7 +39,7 @@
       "postingDateSource": "reported",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-11-09T09:36:58.202Z",
+      "crawledAt": "2026-11-10T09:22:14.144Z",
       "coordinates": [
         46.7255703,
         7.6144883
@@ -51,7 +51,7 @@
       "salarySource": "reported",
       "firstSeenAt": "2026-09-28T03:38:03.399Z",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-09T09:36:58.202Z",
+      "validThrough": "2026-12-10T09:22:14.144Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -82,7 +82,7 @@
       "postedDate": "2026-06-05",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-11-09T09:36:58.209Z",
+      "crawledAt": "2026-11-10T09:22:14.148Z",
       "coordinates": [
         46.489223,
         9.845449
@@ -99,7 +99,7 @@
       "datePosted": "2026-06-05",
       "postingDateSource": "reported",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-09T09:36:58.209Z",
+      "validThrough": "2026-12-10T09:22:14.148Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -130,7 +130,7 @@
       "postedDate": "2019-04-02",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-11-09T09:36:58.325Z",
+      "crawledAt": "2026-11-10T09:22:14.230Z",
       "coordinates": [
         47.4800309,
         8.9938264
@@ -147,7 +147,7 @@
       "datePosted": "2019-04-02",
       "postingDateSource": "reported",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-09T09:36:58.325Z",
+      "validThrough": "2026-12-10T09:22:14.230Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -158,7 +158,152 @@
       }
     }
   ],
-  "removedJobs": [],
+  "removedJobs": [
+    {
+      "title": "Projektleiter Heizung (80 - 100%)",
+      "slug": "project-manager-riscaldamento-80-100-kreis-wasser-ag-st-gallen",
+      "url": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/projektleiter-heizung-1693",
+      "applyUrl": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/projektleiter-heizung-1693",
+      "company": "kreis wasser ag",
+      "companyKey": "burkhalter-group",
+      "companyDomain": "burkhalter.ch",
+      "location": "St. Gallen",
+      "addressLocality": "St. Gallen",
+      "addressRegion": "SG",
+      "addressCountry": "CH",
+      "canton": "SG",
+      "country": "CH",
+      "category": "Ingegneria & Tecnica",
+      "sector": "Impiantistica & Tecnologia Edilizia",
+      "source": "burkhalter-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-06-24",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "crawledAt": "2026-11-09T21:25:50.577Z",
+      "coordinates": [
+        47.410293,
+        9.3385108
+      ],
+      "id": "burkhalter-group-2b94d4e2a8f2",
+      "salaryMin": 57500,
+      "salaryMax": 87000,
+      "currency": "CHF",
+      "postalCode": "9000",
+      "firstSeenAt": "2026-06-24T11:04:48.331Z",
+      "salarySource": "reported",
+      "sourceIdentity": "url:https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/projektleiter-heizung-1693",
+      "streetAddress": "Moosstrasse 52",
+      "datePosted": "2026-06-24",
+      "postingDateSource": "reported",
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-09T21:25:50.577Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 97,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 25,
+        "completeness": 25
+      }
+    },
+    {
+      "title": "Projektleiter Sanitär (80 - 100%)",
+      "slug": "capo-progetto-sanitario-80-100-kreis-wasser-ag-st-gallen",
+      "url": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/projektleiter-sanitaer-1684",
+      "applyUrl": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/projektleiter-sanitaer-1684",
+      "company": "kreis wasser ag",
+      "companyKey": "burkhalter-group",
+      "companyDomain": "burkhalter.ch",
+      "location": "St. Gallen",
+      "addressLocality": "St. Gallen",
+      "addressRegion": "SG",
+      "addressCountry": "CH",
+      "canton": "SG",
+      "country": "CH",
+      "category": "Ingegneria & Tecnica",
+      "sector": "Impiantistica & Tecnologia Edilizia",
+      "source": "burkhalter-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-05-19",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "crawledAt": "2026-11-09T21:25:50.581Z",
+      "coordinates": [
+        47.410293,
+        9.3385108
+      ],
+      "id": "burkhalter-group-dc667d8473d9",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "currency": "CHF",
+      "streetAddress": "Moosstrasse 52",
+      "postalCode": "9000",
+      "firstSeenAt": "2026-05-19T21:43:30.715Z",
+      "salarySource": "reported",
+      "sourceIdentity": "url:https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/projektleiter-sanitaer-1684",
+      "datePosted": "2026-05-19",
+      "postingDateSource": "reported",
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-09T21:25:50.581Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 97,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 25,
+        "completeness": 25
+      }
+    },
+    {
+      "title": "Sanitärplaner / angehender Projektleiter Sanitär (m/w) (100%)",
+      "slug": "pianificatore-sanitario-aspirante-responsabile-di-progetto-sanitario-m-f-100-kreis-wasser-ag-st-gallen",
+      "url": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/sanitaerplaner-angehender-projektleiter-sanitaer-m-w-1550",
+      "applyUrl": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/sanitaerplaner-angehender-projektleiter-sanitaer-m-w-1550",
+      "company": "kreis wasser ag",
+      "companyKey": "burkhalter-group",
+      "companyDomain": "burkhalter.ch",
+      "location": "St. Gallen",
+      "addressLocality": "St. Gallen",
+      "addressRegion": "SG",
+      "addressCountry": "CH",
+      "canton": "SG",
+      "country": "CH",
+      "category": "Ingegneria & Tecnica",
+      "sector": "Impiantistica & Tecnologia Edilizia",
+      "source": "burkhalter-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-01-05",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "crawledAt": "2026-11-09T21:25:50.596Z",
+      "coordinates": [
+        47.410293,
+        9.3385108
+      ],
+      "id": "burkhalter-group-32e8ed73e1f5",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "currency": "CHF",
+      "streetAddress": "Moosstrasse 52",
+      "postalCode": "9000",
+      "firstSeenAt": "2026-05-17T09:50:14.854Z",
+      "salarySource": "reported",
+      "sourceIdentity": "url:https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/sanitaerplaner-angehender-projektleiter-sanitaer-m-w-1550",
+      "datePosted": "2026-01-05",
+      "postingDateSource": "reported",
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-09T21:25:50.596Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 97,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 25,
+        "completeness": 25
+      }
+    }
+  ],
   "unchangedJobs": [
     {
       "title": "CHEF/FE DE PROJETS en installations électriques (100%)",
@@ -185,7 +330,7 @@
       "postingDateSource": "reported",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-11-09T09:36:58.189Z",
+      "crawledAt": "2026-11-10T09:22:14.133Z",
       "coordinates": [
         46.3939445,
         6.2296183
@@ -197,7 +342,7 @@
       "salarySource": "reported",
       "firstSeenAt": "2026-10-30T21:29:05.984Z",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-28T09:36:58.189Z",
+      "validThrough": "2027-01-28T09:22:14.133Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 99,
       "_qualityBreakdown": {
@@ -232,7 +377,7 @@
       "postingDateSource": "reported",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-11-09T09:36:58.190Z",
+      "crawledAt": "2026-11-10T09:22:14.134Z",
       "coordinates": [
         46.8823512,
         9.8788827
@@ -244,7 +389,7 @@
       "salarySource": "estimated",
       "firstSeenAt": "2026-10-30T09:24:34.482Z",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-28T09:36:58.190Z",
+      "validThrough": "2027-01-28T09:22:14.134Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -279,7 +424,7 @@
       "postingDateSource": "reported",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-11-09T09:36:58.191Z",
+      "crawledAt": "2026-11-10T09:22:14.135Z",
       "coordinates": [
         46.8823512,
         9.8788827
@@ -291,7 +436,7 @@
       "salarySource": "reported",
       "firstSeenAt": "2026-10-30T09:24:34.482Z",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-28T09:36:58.191Z",
+      "validThrough": "2027-01-28T09:22:14.135Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -326,7 +471,7 @@
       "postingDateSource": "reported",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-11-09T09:36:58.192Z",
+      "crawledAt": "2026-11-10T09:22:14.136Z",
       "coordinates": [
         47.3182296,
         8.5215463
@@ -338,7 +483,7 @@
       "salarySource": "estimated",
       "firstSeenAt": "2026-10-29T21:50:46.437Z",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-27T09:36:58.192Z",
+      "validThrough": "2027-01-27T09:22:14.136Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -373,7 +518,7 @@
       "postingDateSource": "reported",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-11-09T09:36:58.193Z",
+      "crawledAt": "2026-11-10T09:22:14.136Z",
       "coordinates": [
         47.3182296,
         8.5215463
@@ -385,7 +530,7 @@
       "salarySource": "estimated",
       "firstSeenAt": "2026-10-29T21:50:46.438Z",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-27T09:36:58.193Z",
+      "validThrough": "2027-01-27T09:22:14.136Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -420,7 +565,7 @@
       "postingDateSource": "reported",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-11-09T09:36:58.193Z",
+      "crawledAt": "2026-11-10T09:22:14.137Z",
       "coordinates": [
         46.9669411,
         9.5551841
@@ -432,7 +577,7 @@
       "salarySource": "estimated",
       "firstSeenAt": "2026-10-28T20:21:43.442Z",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-26T09:36:58.193Z",
+      "validThrough": "2027-01-26T09:22:14.137Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -467,7 +612,7 @@
       "postingDateSource": "reported",
       "employmentType": "part-time",
       "contractType": "part-time",
-      "crawledAt": "2026-11-09T09:36:58.194Z",
+      "crawledAt": "2026-11-10T09:22:14.138Z",
       "coordinates": [
         47.5208062,
         7.6743755
@@ -478,7 +623,7 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-25T09:36:58.194Z",
+      "validThrough": "2027-01-25T09:22:14.138Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-05T09:34:45.359Z",
       "_qualityScore": 97,
@@ -514,7 +659,7 @@
       "postingDateSource": "reported",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-11-09T09:36:58.194Z",
+      "crawledAt": "2026-11-10T09:22:14.138Z",
       "coordinates": [
         46.815006,
         7.1356868
@@ -526,7 +671,7 @@
       "salarySource": "estimated",
       "firstSeenAt": "2026-10-26T21:50:07.464Z",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-24T09:36:58.194Z",
+      "validThrough": "2027-01-24T09:22:14.138Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 99,
       "_qualityBreakdown": {
@@ -561,7 +706,7 @@
       "postingDateSource": "reported",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-11-09T09:36:58.195Z",
+      "crawledAt": "2026-11-10T09:22:14.139Z",
       "coordinates": [
         47.3765752,
         8.5603708
@@ -573,7 +718,7 @@
       "salarySource": "estimated",
       "firstSeenAt": "2026-05-13T21:47:32.310Z",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-21T09:36:58.195Z",
+      "validThrough": "2027-01-21T09:22:14.139Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -608,7 +753,7 @@
       "postingDateSource": "reported",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-11-09T09:36:58.195Z",
+      "crawledAt": "2026-11-10T09:22:14.139Z",
       "coordinates": [
         47.5646191,
         9.150227
@@ -620,7 +765,7 @@
       "salarySource": "estimated",
       "firstSeenAt": "2026-10-19T09:24:25.606Z",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-17T09:36:58.195Z",
+      "validThrough": "2027-01-17T09:22:14.139Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -655,7 +800,7 @@
       "postingDateSource": "reported",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-11-09T09:36:58.196Z",
+      "crawledAt": "2026-11-10T09:22:14.140Z",
       "coordinates": [
         47.0884912,
         8.3439045
@@ -667,7 +812,7 @@
       "salarySource": "estimated",
       "firstSeenAt": "2026-10-07T21:26:55.297Z",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-06T09:36:58.196Z",
+      "validThrough": "2027-01-06T09:22:14.140Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -702,7 +847,7 @@
       "postingDateSource": "reported",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-11-09T09:36:58.196Z",
+      "crawledAt": "2026-11-10T09:22:14.140Z",
       "coordinates": [
         47.0884912,
         8.3439045
@@ -714,7 +859,7 @@
       "salarySource": "estimated",
       "firstSeenAt": "2026-10-07T21:26:55.298Z",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-05T09:36:58.196Z",
+      "validThrough": "2027-01-05T09:22:14.140Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -745,7 +890,7 @@
       "postedDate": "2026-09-21",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-11-09T09:36:58.197Z",
+      "crawledAt": "2026-11-10T09:22:14.140Z",
       "coordinates": [
         47.3765752,
         8.5603708
@@ -762,7 +907,7 @@
       "datePosted": "2026-09-21",
       "postingDateSource": "reported",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-20T09:36:58.197Z",
+      "validThrough": "2026-12-20T09:22:14.140Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -793,7 +938,7 @@
       "postedDate": "2026-09-15",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-11-09T09:36:58.197Z",
+      "crawledAt": "2026-11-10T09:22:14.141Z",
       "coordinates": [
         46.1080222,
         7.9256477
@@ -810,7 +955,7 @@
       "datePosted": "2026-09-15",
       "postingDateSource": "reported",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-14T09:36:58.197Z",
+      "validThrough": "2026-12-14T09:22:14.141Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -841,7 +986,7 @@
       "postedDate": "2026-09-15",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-11-09T09:36:58.198Z",
+      "crawledAt": "2026-11-10T09:22:14.141Z",
       "coordinates": [
         47.0884912,
         8.3439045
@@ -858,7 +1003,7 @@
       "datePosted": "2026-09-15",
       "postingDateSource": "reported",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-14T09:36:58.198Z",
+      "validThrough": "2026-12-14T09:22:14.141Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -889,7 +1034,7 @@
       "postedDate": "2026-08-24",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-11-09T09:36:58.198Z",
+      "crawledAt": "2026-11-10T09:22:14.141Z",
       "coordinates": [
         47.5567228,
         7.5424767
@@ -906,7 +1051,7 @@
       "datePosted": "2026-08-24",
       "postingDateSource": "reported",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-09T09:36:58.198Z",
+      "validThrough": "2026-12-10T09:22:14.141Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -937,7 +1082,7 @@
       "postedDate": "2026-08-21",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-11-09T09:36:58.199Z",
+      "crawledAt": "2026-11-10T09:22:14.142Z",
       "coordinates": [
         47.3885458,
         8.495987
@@ -954,7 +1099,7 @@
       "datePosted": "2026-08-21",
       "postingDateSource": "reported",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-09T09:36:58.199Z",
+      "validThrough": "2026-12-10T09:22:14.142Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -985,7 +1130,7 @@
       "postedDate": "2026-08-21",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-11-09T09:36:58.200Z",
+      "crawledAt": "2026-11-10T09:22:14.142Z",
       "coordinates": [
         47.5517966,
         9.2740066
@@ -1002,7 +1147,7 @@
       "datePosted": "2026-08-21",
       "postingDateSource": "reported",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-09T09:36:58.200Z",
+      "validThrough": "2026-12-10T09:22:14.142Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -1033,7 +1178,7 @@
       "postedDate": "2026-08-21",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-11-09T09:36:58.201Z",
+      "crawledAt": "2026-11-10T09:22:14.143Z",
       "coordinates": [
         47.5517966,
         9.2740066
@@ -1050,7 +1195,7 @@
       "datePosted": "2026-08-21",
       "postingDateSource": "reported",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-09T09:36:58.201Z",
+      "validThrough": "2026-12-10T09:22:14.143Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -1081,7 +1226,7 @@
       "postedDate": "2026-08-05",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-11-09T09:36:58.201Z",
+      "crawledAt": "2026-11-10T09:22:14.144Z",
       "coordinates": [
         47.1896268,
         8.8482094
@@ -1098,7 +1243,7 @@
       "datePosted": "2026-08-05",
       "postingDateSource": "reported",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-09T09:36:58.201Z",
+      "validThrough": "2026-12-10T09:22:14.144Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -1129,7 +1274,7 @@
       "postedDate": "2026-07-31",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-11-09T09:36:58.202Z",
+      "crawledAt": "2026-11-10T09:22:14.144Z",
       "coordinates": [
         47.5567228,
         7.5424767
@@ -1146,7 +1291,7 @@
       "datePosted": "2026-07-31",
       "postingDateSource": "reported",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-09T09:36:58.202Z",
+      "validThrough": "2026-12-10T09:22:14.144Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -1177,7 +1322,7 @@
       "postedDate": "2026-07-16",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-11-09T09:36:58.202Z",
+      "crawledAt": "2026-11-10T09:22:14.145Z",
       "coordinates": [
         46.1078651,
         7.0997695
@@ -1194,7 +1339,7 @@
       "datePosted": "2026-07-16",
       "postingDateSource": "reported",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-09T09:36:58.202Z",
+      "validThrough": "2026-12-10T09:22:14.145Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -1225,7 +1370,7 @@
       "postedDate": "2026-07-10",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-11-09T09:36:58.203Z",
+      "crawledAt": "2026-11-10T09:22:14.145Z",
       "coordinates": [
         47.3885458,
         8.495987
@@ -1242,7 +1387,7 @@
       "datePosted": "2026-07-10",
       "postingDateSource": "reported",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-09T09:36:58.203Z",
+      "validThrough": "2026-12-10T09:22:14.145Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -1273,7 +1418,7 @@
       "postedDate": "2026-07-01",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-11-09T09:36:58.203Z",
+      "crawledAt": "2026-11-10T09:22:14.145Z",
       "coordinates": [
         46.9669411,
         9.5551841
@@ -1290,55 +1435,7 @@
       "datePosted": "2026-07-01",
       "postingDateSource": "reported",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-09T09:36:58.203Z",
-      "validThroughSource": "last-observed-window",
-      "_qualityScore": 97,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 25
-      }
-    },
-    {
-      "title": "Projektleiter Heizung (80 - 100%)",
-      "slug": "project-manager-riscaldamento-80-100-kreis-wasser-ag-st-gallen",
-      "url": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/projektleiter-heizung-1693",
-      "applyUrl": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/projektleiter-heizung-1693",
-      "company": "kreis wasser ag",
-      "companyKey": "burkhalter-group",
-      "companyDomain": "burkhalter.ch",
-      "location": "St. Gallen",
-      "addressLocality": "St. Gallen",
-      "addressRegion": "SG",
-      "addressCountry": "CH",
-      "canton": "SG",
-      "country": "CH",
-      "category": "Ingegneria & Tecnica",
-      "sector": "Impiantistica & Tecnologia Edilizia",
-      "source": "burkhalter-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-06-24",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "crawledAt": "2026-11-09T09:36:58.207Z",
-      "coordinates": [
-        47.410293,
-        9.3385108
-      ],
-      "id": "burkhalter-group-2b94d4e2a8f2",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
-      "currency": "CHF",
-      "postalCode": "9000",
-      "firstSeenAt": "2026-06-24T11:04:48.331Z",
-      "salarySource": "reported",
-      "sourceIdentity": "url:https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/projektleiter-heizung-1693",
-      "streetAddress": "Moosstrasse 52",
-      "datePosted": "2026-06-24",
-      "postingDateSource": "reported",
-      "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-09T09:36:58.207Z",
+      "validThrough": "2026-12-10T09:22:14.145Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -1369,7 +1466,7 @@
       "postedDate": "2026-06-15",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-11-09T09:36:58.208Z",
+      "crawledAt": "2026-11-10T09:22:14.148Z",
       "coordinates": [
         47.4691438,
         9.0315766
@@ -1386,7 +1483,7 @@
       "datePosted": "2026-06-15",
       "postingDateSource": "reported",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-09T09:36:58.208Z",
+      "validThrough": "2026-12-10T09:22:14.148Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -1417,7 +1514,7 @@
       "postedDate": "2026-06-01",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-11-09T09:36:58.209Z",
+      "crawledAt": "2026-11-10T09:22:14.148Z",
       "coordinates": [
         46.9530906,
         9.5696389
@@ -1434,7 +1531,7 @@
       "datePosted": "2026-06-01",
       "postingDateSource": "reported",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-09T09:36:58.209Z",
+      "validThrough": "2026-12-10T09:22:14.148Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -1465,7 +1562,7 @@
       "postedDate": "2026-06-01",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-11-09T09:36:58.210Z",
+      "crawledAt": "2026-11-10T09:22:14.149Z",
       "coordinates": [
         46.9530906,
         9.5696389
@@ -1482,7 +1579,7 @@
       "datePosted": "2026-06-01",
       "postingDateSource": "reported",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-09T09:36:58.210Z",
+      "validThrough": "2026-12-10T09:22:14.149Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -1513,7 +1610,7 @@
       "postedDate": "2026-05-28",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-11-09T09:36:58.210Z",
+      "crawledAt": "2026-11-10T09:22:14.149Z",
       "coordinates": [
         47.3765752,
         8.5603708
@@ -1530,7 +1627,7 @@
       "datePosted": "2026-05-28",
       "postingDateSource": "reported",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-09T09:36:58.210Z",
+      "validThrough": "2026-12-10T09:22:14.149Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -1541,44 +1638,92 @@
       }
     },
     {
-      "title": "Projektleiter Sanitär (80 - 100%)",
-      "slug": "capo-progetto-sanitario-80-100-kreis-wasser-ag-st-gallen",
-      "url": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/projektleiter-sanitaer-1684",
-      "applyUrl": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/projektleiter-sanitaer-1684",
-      "company": "kreis wasser ag",
+      "title": "Elektro-Servicemonteur/in (100%)",
+      "slug": "installatore-di-servizio-elettrico-100-elektro-bau-ag-filiale-lenzburg-lenzburg",
+      "url": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/elektro-servicemonteur-fuer-unterhalts-und-kleinauftraege-339",
+      "applyUrl": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/elektro-servicemonteur-fuer-unterhalts-und-kleinauftraege-339",
+      "company": "Elektro-Bau AG, Filiale Lenzburg",
       "companyKey": "burkhalter-group",
       "companyDomain": "burkhalter.ch",
-      "location": "St. Gallen",
-      "addressLocality": "St. Gallen",
-      "addressRegion": "SG",
+      "location": "Lenzburg",
+      "addressLocality": "Lenzburg",
+      "addressRegion": "AG",
       "addressCountry": "CH",
-      "canton": "SG",
+      "canton": "AG",
       "country": "CH",
       "category": "Ingegneria & Tecnica",
       "sector": "Impiantistica & Tecnologia Edilizia",
       "source": "burkhalter-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-05-19",
+      "postedDate": "2026-05-08",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-11-09T09:36:58.212Z",
+      "crawledAt": "2026-11-10T09:22:14.149Z",
       "coordinates": [
-        47.410293,
-        9.3385108
+        47.3935972,
+        8.1643977
       ],
-      "id": "burkhalter-group-dc667d8473d9",
+      "id": "burkhalter-group-8d5de775aa7d",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
-      "streetAddress": "Moosstrasse 52",
-      "postalCode": "9000",
-      "firstSeenAt": "2026-05-19T21:43:30.715Z",
+      "streetAddress": "Lenzhardstrasse 11",
+      "postalCode": "5600",
+      "firstSeenAt": "2026-05-16T21:11:14.995Z",
       "salarySource": "reported",
-      "sourceIdentity": "url:https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/projektleiter-sanitaer-1684",
-      "datePosted": "2026-05-19",
+      "sourceIdentity": "url:https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/elektro-servicemonteur-fuer-unterhalts-und-kleinauftraege-339",
+      "datePosted": "2026-05-08",
       "postingDateSource": "reported",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-09T09:36:58.212Z",
+      "validThrough": "2026-12-10T09:22:14.149Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 97,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 25,
+        "completeness": 25
+      }
+    },
+    {
+      "title": "Elektro-Servicemonteur/in (100%)",
+      "slug": "installatore-di-servizio-elettrico-100-elektro-bau-ag-rothrist-rothrist",
+      "url": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/elektro-servicemonteur-fuer-unterhalts-und-kleinauftraege-339-1",
+      "applyUrl": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/elektro-servicemonteur-fuer-unterhalts-und-kleinauftraege-339-1",
+      "company": "Elektro-Bau AG Rothrist",
+      "companyKey": "burkhalter-group",
+      "companyDomain": "burkhalter.ch",
+      "location": "Rothrist",
+      "addressLocality": "Rothrist",
+      "addressRegion": "AG",
+      "addressCountry": "CH",
+      "canton": "AG",
+      "country": "CH",
+      "category": "Ingegneria & Tecnica",
+      "sector": "Impiantistica & Tecnologia Edilizia",
+      "source": "burkhalter-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-05-08",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "crawledAt": "2026-11-10T09:22:14.150Z",
+      "coordinates": [
+        47.3096077,
+        7.8926763
+      ],
+      "id": "burkhalter-group-71e65ffae073",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "currency": "CHF",
+      "streetAddress": "Helblingstrasse 4",
+      "postalCode": "4852",
+      "firstSeenAt": "2026-05-15T21:23:51.094Z",
+      "salarySource": "reported",
+      "sourceIdentity": "url:https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/elektro-servicemonteur-fuer-unterhalts-und-kleinauftraege-339-1",
+      "datePosted": "2026-05-08",
+      "postingDateSource": "reported",
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-10T09:22:14.150Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -1589,5 +1734,5 @@
       }
     }
   ],
-  "codeCommit": "f071981dd2d2820cdec3736f76b1b17ee50345bd"
+  "codeCommit": "854e7bdddbff5b4e0e90fb9b90efe81503dfc091"
 }

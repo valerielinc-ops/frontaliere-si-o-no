@@ -1,7 +1,7 @@
 {
   "crawlerKey": "selecta",
-  "assembledAt": "2026-11-09T09:25:48.280Z",
-  "runId": "42591923938",
+  "assembledAt": "2026-11-10T09:36:31.271Z",
+  "runId": "42789192376",
   "jobs": [
     {
       "id": "selecta-b92530adfcbe",
@@ -10,7 +10,7 @@
         "it": "tecnico-di-servizio-m-f-d-selecta-tessin",
         "en": "service-technician-m-f-d-selecta-tessin",
         "de": "servicetechniker-m-w-d-selecta-region-tessin",
-        "fr": "servicetechniker-m-w-d-selecta-tessin"
+        "fr": "technicien-de-service-m-w-d-selecta-tessin"
       },
       "company": "Selecta",
       "companyKey": "selecta",
@@ -34,7 +34,7 @@
       "url": "https://careers.selecta.ch/Job/4626",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:25:39.162Z",
+      "crawledAt": "2026-11-10T09:36:21.102Z",
       "addressLocality": "Tessin",
       "addressRegion": "TI",
       "streetAddress": "Tessin",
@@ -63,8 +63,7 @@
       "previousSlugs": [
         "servicetechniker-m-w-d-selecta-tessin",
         "technicien-de-service-h-f-d-selecta-tessin",
-        "servicetechniker-m-w-d-selecta-region-tessin",
-        "technicien-de-service-m-w-d-selecta-tessin"
+        "servicetechniker-m-w-d-selecta-region-tessin"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -76,7 +75,7 @@
         ],
         "fr": [
           "technicien-de-service-h-f-d-selecta-tessin",
-          "technicien-de-service-m-w-d-selecta-tessin"
+          "servicetechniker-m-w-d-selecta-tessin"
         ]
       },
       "firstSeenAt": "2026-09-26T14:02:34.123Z",
@@ -94,7 +93,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-09T09:25:39.162Z",
+      "validThrough": "2026-12-10T09:36:21.102Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -128,7 +127,7 @@
       "url": "https://careers.selecta.ch/Job/4591",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:25:39.041Z",
+      "crawledAt": "2026-11-10T09:36:20.965Z",
       "addressLocality": "Zürich / Aargau",
       "addressRegion": "AG",
       "streetAddress": "Zürich / Aargau",
@@ -182,7 +181,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-09T09:25:39.041Z",
+      "validThrough": "2026-12-10T09:36:20.965Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -216,7 +215,7 @@
       "url": "https://careers.selecta.ch/Job/4628",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:25:38.918Z",
+      "crawledAt": "2026-11-10T09:36:20.829Z",
       "addressLocality": "Kirchberg BE",
       "addressRegion": "BE",
       "streetAddress": "Kirchberg BE",
@@ -265,7 +264,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-09T09:25:38.918Z",
+      "validThrough": "2026-12-10T09:36:20.829Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -299,7 +298,7 @@
       "url": "https://careers.selecta.ch/Job/4589",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:25:38.796Z",
+      "crawledAt": "2026-11-10T09:36:20.697Z",
       "addressLocality": "Kirchberg BE",
       "addressRegion": "BE",
       "streetAddress": "Kirchberg BE",
@@ -351,17 +350,17 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-09T09:25:38.796Z",
+      "validThrough": "2026-12-10T09:36:20.697Z",
       "validThroughSource": "last-observed-window"
     },
     {
       "id": "selecta-f525a4ac08a1",
       "slug": "servizio-clienti-m-w-d-selecta-wallis",
       "slugByLocale": {
-        "it": "account-manager-m-f-d-selecta-wallis",
-        "en": "account-manager-m-f-d-selecta-wallis",
+        "it": "servizio-clienti-m-w-d-selecta-wallis",
+        "en": "customer-service-provider-m-w-d-selecta-wallis",
         "de": "kundenbetreuer-m-w-d-selecta-region-wallis",
-        "fr": "gestionnaire-de-comptes-m-f-d-selecta-wallis"
+        "fr": "fournisseur-de-services-a-la-clientele-m-w-d-selecta-wallis"
       },
       "company": "Selecta",
       "companyKey": "selecta",
@@ -385,7 +384,7 @@
       "url": "https://careers.selecta.ch/Job/4606",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:25:38.130Z",
+      "crawledAt": "2026-11-10T09:36:20.557Z",
       "addressLocality": "Wallis",
       "addressRegion": "VS",
       "streetAddress": "Wallis",
@@ -414,19 +413,20 @@
       "previousSlugs": [
         "kundenbetreuer-m-w-d-selecta-wallis",
         "kundenbetreuer-m-w-d-selecta-region-wallis",
-        "customer-service-provider-m-w-d-selecta-wallis",
-        "fournisseur-de-services-a-la-clientele-m-w-d-selecta-wallis"
+        "account-manager-m-f-d-selecta-wallis",
+        "gestionnaire-de-comptes-m-f-d-selecta-wallis"
       ],
       "previousSlugsByLocale": {
         "it": [
           "kundenbetreuer-m-w-d-selecta-wallis",
-          "kundenbetreuer-m-w-d-selecta-region-wallis"
+          "kundenbetreuer-m-w-d-selecta-region-wallis",
+          "account-manager-m-f-d-selecta-wallis"
         ],
         "en": [
-          "customer-service-provider-m-w-d-selecta-wallis"
+          "account-manager-m-f-d-selecta-wallis"
         ],
         "fr": [
-          "fournisseur-de-services-a-la-clientele-m-w-d-selecta-wallis"
+          "gestionnaire-de-comptes-m-f-d-selecta-wallis"
         ]
       },
       "firstSeenAt": "2026-09-26T14:02:32.256Z",
@@ -444,7 +444,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-09T09:25:38.130Z",
+      "validThrough": "2026-12-10T09:36:20.557Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -478,7 +478,7 @@
       "url": "https://careers.selecta.ch/Job/4633",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:25:38.006Z",
+      "crawledAt": "2026-11-10T09:36:20.422Z",
       "addressLocality": "Reinach BL / Kirchberg BE",
       "addressRegion": "BE",
       "streetAddress": "Reinach BL / Kirchberg BE",
@@ -527,7 +527,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-15T09:25:38.006Z",
+      "validThrough": "2026-12-15T09:36:20.422Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -561,7 +561,7 @@
       "url": "https://careers.selecta.ch/Job/4634",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:25:37.323Z",
+      "crawledAt": "2026-11-10T09:36:20.284Z",
       "addressLocality": "Kirchberg BE",
       "addressRegion": "BE",
       "streetAddress": "Kirchberg BE",
@@ -613,7 +613,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-15T09:25:37.323Z",
+      "validThrough": "2026-12-15T09:36:20.284Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -647,7 +647,7 @@
       "url": "https://careers.selecta.ch/Job/4609",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:25:36.623Z",
+      "crawledAt": "2026-11-10T09:36:20.150Z",
       "addressLocality": "Wädenswil bis Glarus",
       "addressRegion": "GL",
       "streetAddress": "Wädenswil bis Glarus",
@@ -696,7 +696,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-09T09:25:36.623Z",
+      "validThrough": "2026-12-10T09:36:20.150Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -730,7 +730,7 @@
       "url": "https://careers.selecta.ch/Job/4608",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:25:36.479Z",
+      "crawledAt": "2026-11-10T09:36:20.011Z",
       "addressLocality": "Dübendorf / Volketswil / Pfäffikon",
       "addressRegion": "ZH",
       "streetAddress": "Dübendorf / Volketswil / Pfäffikon",
@@ -779,7 +779,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-09T09:25:36.479Z",
+      "validThrough": "2026-12-10T09:36:20.011Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -813,7 +813,7 @@
       "url": "https://careers.selecta.ch/Job/4558",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:25:36.349Z",
+      "crawledAt": "2026-11-10T09:36:19.355Z",
       "addressLocality": "Kirchberg BE",
       "addressRegion": "BE",
       "streetAddress": "Kirchberg BE",
@@ -862,7 +862,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-09T09:25:36.349Z",
+      "validThrough": "2026-12-10T09:36:19.355Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -896,7 +896,7 @@
       "url": "https://careers.selecta.ch/Job/4557",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:25:35.670Z",
+      "crawledAt": "2026-11-10T09:36:19.218Z",
       "addressLocality": "Kirchberg BE",
       "addressRegion": "BE",
       "streetAddress": "Kirchberg BE",
@@ -945,7 +945,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-09T09:25:35.670Z",
+      "validThrough": "2026-12-10T09:36:19.218Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -979,7 +979,7 @@
       "url": "https://careers.selecta.ch/Job/4610",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:25:34.990Z",
+      "crawledAt": "2026-11-10T09:36:19.084Z",
       "addressLocality": "Sursee",
       "addressRegion": "LU",
       "streetAddress": "Sursee",
@@ -1036,7 +1036,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-09T09:25:34.990Z",
+      "validThrough": "2026-12-10T09:36:19.084Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1070,7 +1070,7 @@
       "url": "https://careers.selecta.ch/Job/4615",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:25:34.844Z",
+      "crawledAt": "2026-11-10T09:36:18.945Z",
       "addressLocality": "Sargans / Landquart",
       "addressRegion": "GR",
       "streetAddress": "Sargans / Landquart",
@@ -1119,7 +1119,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-09T09:25:34.844Z",
+      "validThrough": "2026-12-10T09:36:18.945Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1153,7 +1153,7 @@
       "url": "https://careers.selecta.ch/Job/4616",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:25:34.706Z",
+      "crawledAt": "2026-11-10T09:36:18.804Z",
       "addressLocality": "primär Spiez",
       "addressRegion": "BE",
       "streetAddress": "primär Spiez",
@@ -1202,7 +1202,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-09T09:25:34.706Z",
+      "validThrough": "2026-12-10T09:36:18.804Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1236,7 +1236,7 @@
       "url": "https://careers.selecta.ch/Job/4623",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:25:34.566Z",
+      "crawledAt": "2026-11-10T09:36:18.667Z",
       "addressLocality": "Wolhusen / Luzern",
       "addressRegion": "LU",
       "streetAddress": "Wolhusen / Luzern",
@@ -1285,7 +1285,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-09T09:25:34.566Z",
+      "validThrough": "2026-12-10T09:36:18.667Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1319,7 +1319,7 @@
       "url": "https://careers.selecta.ch/Job/4637",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:25:33.875Z",
+      "crawledAt": "2026-11-10T09:36:18.533Z",
       "addressLocality": "Oberwallis und Berner Oberland",
       "addressRegion": "VS",
       "streetAddress": "Oberwallis und Berner Oberland",
@@ -1374,7 +1374,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-14T09:25:33.875Z",
+      "validThrough": "2027-01-14T09:36:18.533Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1408,7 +1408,7 @@
       "url": "https://careers.selecta.ch/Job/4601",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:25:33.734Z",
+      "crawledAt": "2026-11-10T09:36:18.395Z",
       "addressLocality": "Kirchberg BE -",
       "addressRegion": "BE",
       "streetAddress": "Kirchberg BE -",
@@ -1463,7 +1463,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-09T09:25:33.734Z",
+      "validThrough": "2026-12-10T09:36:18.395Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1497,7 +1497,7 @@
       "url": "https://careers.selecta.ch/Job/4600",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:25:33.062Z",
+      "crawledAt": "2026-11-10T09:36:18.257Z",
       "addressLocality": "Kirchberg BE -",
       "addressRegion": "BE",
       "streetAddress": "Kirchberg BE -",
@@ -1546,7 +1546,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-09T09:25:33.062Z",
+      "validThrough": "2026-12-10T09:36:18.257Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1580,7 +1580,7 @@
       "url": "https://careers.selecta.ch/Job/4638",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:25:32.333Z",
+      "crawledAt": "2026-11-10T09:36:18.114Z",
       "addressLocality": "Bern - Betreuung der Kantine im Bundeshaus",
       "addressRegion": "BE",
       "streetAddress": "Bern - Betreuung der Kantine im Bundeshaus",
@@ -1635,100 +1635,8 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-26T09:25:32.333Z",
+      "validThrough": "2027-01-26T09:36:18.114Z",
       "validThroughSource": "last-observed-window"
-    },
-    {
-      "id": "selecta-d119c57872ba",
-      "slug": "operatore-automatico-m-f-d-selecta-solothurn",
-      "slugByLocale": {
-        "it": "operatore-automatico-m-f-d-selecta-solothurn",
-        "en": "automatic-operator-m-f-d-selecta-solothurn",
-        "de": "automatenbetreuer-m-w-d-selecta-region-solothurn",
-        "fr": "operateur-automatique-m-f-d-selecta-solothurn"
-      },
-      "company": "Selecta",
-      "companyKey": "selecta",
-      "companyDomain": "selecta.com",
-      "title": "Automatenbetreuer (m/w/d)",
-      "titleByLocale": {
-        "it": "Operatore automatico (m/f/d)",
-        "en": "Automatic operator (m/f/d)",
-        "de": "Automatenbetreuer (m/w/d)",
-        "fr": "Opérateur automatique (m/f/d)"
-      },
-      "description": "Automatenbetreuer (m/w/d) 100% - Befristete Anstellung (Start per sofort bis ca. 31. August 2026 oder bis auf Weiteres) Die Selecta-Gruppe, die ihren Hauptsitz seit 1957 in der Schweiz hat, ist Europas führender Anbieter von Kaffee- und innovativen FoodTech-Lösungen am Arbeitsplatz und im öffentlichen Raum. Jeden Tag versorgen wir mehr als 10 Millionen Menschen in 16 Ländern Europas mit Premium-Kaffee und -Getränken, Snacks und frischen Mahlzeiten. Unseren Erfolg mit einem Jahresumsatz von 1,4 Milliarden Euro verdanken wir unseren ca. 6.000 hochqualifizierten, engagierten und leidenschaftlichen Selecta-Mitarbeiter:innen, die täglich Millionen von Momenten der Freude für unsere Kunden:innen und deren Konsumenten:innen schaffen. Nachhaltigkeit ist ein integraler Bestandteil unserer Geschäftstätigkeit und konzentriert sich auf die Schlüsselbereiche, in denen wir einen positiven Beitrag leisten können. Arbeitsort Region Solothurn Arbeitsbeginn Befristete Anstellung (Start per sofort bis ca. 31. August 2026 oder länger) Hauptaufgaben\n• Betreuung von Kaffee-, Verpflegungs- und Getränkestationen in der Region Solothurn\n• Sicherstellung des Reinigungs-, Befüllungs- und Wartungsservices an Automatenstandorten\n• Kundenorientierte Betreuung und Ansprechpartner/in vor Ort\n• Gewährleistung eines gepflegten und einladenden Erscheinungsbilds der Pausenzonen Ausbildung\n• Ausbildung im Gastgewerbe, Detailhandel (Lebensmittelbranche) oder einem vergleichbaren Dienstleistungsbereich von Vorteil Profil\n• Führerausweis Kategorie B (Handschaltung)\n• Guter Orientierungssinn\n• Selbstständige, flexible und zuverlässige Arbeitsweise\n• Teamfähigkeit und Belastbarkeit\n• Gute Deutschkenntnisse in Wort und Schrift\n• Gepflegtes Erscheinungsbild und freundliche Umgangsformen\n• Positive, kunden- und dienstleistungsorientierte Persönlichkeit Spezielles Bewerben Haben wir Dein Interesse geweckt? Dann möchten wir Dich gerne kennenlernen. Auf Deine Bewerbung freuen wir uns. Bitte bewirb Dich online auf dem Selecta Karriereportal. Es werden keine Bewerbungen per E-Mail oder Post berücksichtigt.",
-      "descriptionByLocale": {
-        "it": "Supervisore automatico (m/f/d) 100% - Occupazione temporanea (avviare immediatamente fino a circa 31.) Il Gruppo Selecta, con sede in Svizzera dal 1957, è il principale fornitore europeo di caffè e soluzioni innovative per la tecnologia alimentare sul posto di lavoro e negli spazi pubblici. Ogni giorno, serviamo più di 10 milioni di persone in 16 paesi europei con caffè e bevande premium, snack e pasti freschi. Il nostro successo con un fatturato annuo di 1,4 miliardi di euro è dovuto al nostro ca. 6.000 dipendenti Selecta altamente qualificati, impegnati e appassionati: donne che creano milioni di momenti di gioia per i nostri clienti ogni giorno: donne e consumatori: donne. La sostenibilità è parte integrante della nostra attività e si concentra sulle aree chiave in cui possiamo dare un contributo positivo. Luogo di lavoro Solothurn Region Inizio del lavoro Occupazione temporanea (avviare immediatamente fino al 31 agosto 2026 o più) Principali compiti\n• Cura di caffè, cibo e bevande stazioni nella regione di Solothurn\n• Garantire servizi di pulizia, riempimento e manutenzione presso i siti di macchine\n• Supporto e referente orientati al cliente sul sito\n• Assicurare un aspetto ben curato e invitante della formazione delle zone di rottura\n• Formazione nell'industria dell'ospitalità, commercio al dettaglio (industria alimentare) o un settore di servizi comparabile di vantaggio Profilo\n• Titolo di guida della categoria B (controllo manuale)\n• Buon senso della direzione\n• Metodo di lavoro indipendente, flessibile e affidabile\n• Lavoro di squadra e resilienza\n• Buona conoscenza del tedesco nelle parole e nella scrittura\n• aspetto attento e modi amichevoli\n• Personalità positiva, orientata al cliente e al servizio Applicazione speciale Abbiamo suscitato il vostro interesse? Allora vorremmo conoscerti. Attendiamo con ansia la vostra applicazione. Si prega di applicare online sul portale di carriera Selecta. Non saranno prese in considerazione applicazioni via e-mail o posta.",
-        "en": "Automata supervisor (m/f/d) 100% - Temporary employment (start immediately until about 31.) August 2026 or until further notice The Selecta Group, headquartered in Switzerland since 1957, is Europe’s leading provider of coffee and innovative food tech solutions in the workplace and in public spaces. Every day, we serve more than 10 million people in 16 European countries with premium coffee and drinks, snacks and fresh meals. Our success with an annual turnover of 1.4 billion euros is due to our approx. 6,000 highly qualified, committed and passionate Selecta employees: women who create millions of moments of joy for our customers every day: women and their consumers: women. Sustainability is an integral part of our business and focuses on the key areas where we can make a positive contribution. Work location Solothurn Region Work start Temporary employment (start immediately until 31 August 2026 or longer) Main tasks\n• Care of coffee, food and drink stations in the Solothurn region\n• Ensuring cleaning, filling and maintenance services at machine sites\n• Customer-oriented support and contact person on site\n• Ensuring a well-kept and inviting appearance of the break zones training\n• Training in the hospitality industry, retail trade (food industry) or a comparable service sector of advantage Profile\n• Category B driving licence (manual control)\n• Good sense of direction\n• Independent, flexible and reliable working method\n• Teamwork and resilience\n• Good knowledge of German in words and writing\n• Careful appearance and friendly manners\n• Positive, customer- and service-oriented personality Special Applying Have we aroused your interest? Then we would like to meet you. We look forward to your application. Please apply online on the Selecta career portal. No applications by e-mail or post will be considered.",
-        "de": "Automatenbetreuer (m/w/d) 100% - Befristete Anstellung (Start per sofort bis ca. 31. August 2026 oder bis auf Weiteres) Die Selecta-Gruppe, die ihren Hauptsitz seit 1957 in der Schweiz hat, ist Europas führender Anbieter von Kaffee- und innovativen FoodTech-Lösungen am Arbeitsplatz und im öffentlichen Raum. Jeden Tag versorgen wir mehr als 10 Millionen Menschen in 16 Ländern Europas mit Premium-Kaffee und -Getränken, Snacks und frischen Mahlzeiten. Unseren Erfolg mit einem Jahresumsatz von 1,4 Milliarden Euro verdanken wir unseren ca. 6.000 hochqualifizierten, engagierten und leidenschaftlichen Selecta-Mitarbeiter:innen, die täglich Millionen von Momenten der Freude für unsere Kunden:innen und deren Konsumenten:innen schaffen. Nachhaltigkeit ist ein integraler Bestandteil unserer Geschäftstätigkeit und konzentriert sich auf die Schlüsselbereiche, in denen wir einen positiven Beitrag leisten können. Arbeitsort Region Solothurn Arbeitsbeginn Befristete Anstellung (Start per sofort bis ca. 31. August 2026 oder länger) Hauptaufgaben\n• Betreuung von Kaffee-, Verpflegungs- und Getränkestationen in der Region Solothurn\n• Sicherstellung des Reinigungs-, Befüllungs- und Wartungsservices an Automatenstandorten\n• Kundenorientierte Betreuung und Ansprechpartner/in vor Ort\n• Gewährleistung eines gepflegten und einladenden Erscheinungsbilds der Pausenzonen Ausbildung\n• Ausbildung im Gastgewerbe, Detailhandel (Lebensmittelbranche) oder einem vergleichbaren Dienstleistungsbereich von Vorteil Profil\n• Führerausweis Kategorie B (Handschaltung)\n• Guter Orientierungssinn\n• Selbstständige, flexible und zuverlässige Arbeitsweise\n• Teamfähigkeit und Belastbarkeit\n• Gute Deutschkenntnisse in Wort und Schrift\n• Gepflegtes Erscheinungsbild und freundliche Umgangsformen\n• Positive, kunden- und dienstleistungsorientierte Persönlichkeit Spezielles Bewerben Haben wir Dein Interesse geweckt? Dann möchten wir Dich gerne kennenlernen. Auf Deine Bewerbung freuen wir uns. Bitte bewirb Dich online auf dem Selecta Karriereportal. Es werden keine Bewerbungen per E-Mail oder Post berücksichtigt.",
-        "fr": "Superviseur Automata (m/f/j) 100% - Emploi temporaire (démarrer immédiatement jusqu'à environ 31.) Août 2026 ou jusqu'à nouvel ordre Le groupe Selecta, dont le siège social est en Suisse depuis 1957, est le premier fournisseur européen de café et de solutions innovantes en matière de technologie alimentaire sur le lieu de travail et dans les espaces publics. Chaque jour, nous servons plus de 10 millions de personnes dans 16 pays européens avec un café et des boissons haut de gamme, des collations et des repas frais. Notre succès avec un chiffre d'affaires annuel de 1,4 milliard d'euros est dû à notre approx. 6 000 employés hautement qualifiés, engagés et passionnés : des femmes qui créent des millions de moments de joie pour nos clients chaque jour : des femmes et leurs consommateurs : des femmes. La durabilité fait partie intégrante de notre activité et se concentre sur les domaines clés où nous pouvons apporter une contribution positive. Lieu de travail Région Soleure Début du travail Emploi temporaire (début immédiat jusqu'au 31 août 2026 ou plus) Principales tâches\n• Soins des stations de café, de nourriture et de boissons dans la région de Soleure\n• Assurer des services de nettoyage, de remplissage et d'entretien sur les sites de machines\n• Support orienté client et personne de contact sur le site\n• Assurer une formation bien entretenue et invitante des zones de pause\n• Formation dans le secteur de l'hôtellerie, du commerce de détail (industrie alimentaire) ou d'un secteur de services comparable\n• Permis de conduire de catégorie B (contrôle manuel)\n• Bonne direction\n• Méthode de travail indépendante, flexible et fiable\n• Travail d'équipe et résilience\n• Bonne connaissance de l'allemand en mots et en écriture\n• Aspect soigné et manières amicales\n• Personnalité positive, axée sur le client et le service Application spéciale Nous avons suscité votre intérêt? Alors nous aimerions vous rencontrer. Nous attendons avec impatience votre candidature. Veuillez postuler en ligne sur le portail de carrière Selecta. Aucune demande par courrier électronique ou par la poste ne sera examinée."
-      },
-      "location": "Solothurn",
-      "canton": "SO",
-      "url": "https://careers.selecta.ch/Job/4614",
-      "source": "Selecta Dedicated Parser (eRecruiter)",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-08T22:09:07.197Z",
-      "addressLocality": "Solothurn",
-      "addressRegion": "SO",
-      "streetAddress": "Solothurn",
-      "postalCode": "4500",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Assistenza Clienti",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Vending / Food & Coffee Tech",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-06-25",
-      "postedDate": "2026-06-25",
-      "postingDateSource": "reported",
-      "applyUrl": "https://careers.selecta.ch/Job/4614",
-      "department": "",
-      "jobReqId": "4614",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "_targetScope": {
-        "canton": "SO",
-        "location": "Solothurn"
-      },
-      "previousSlugs": [
-        "automatenbetreuer-m-w-d-selecta-solothurn",
-        "automatenbetreuer-m-w-d-selecta-region-solothurn"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "automatenbetreuer-m-w-d-selecta-solothurn",
-          "automatenbetreuer-m-w-d-selecta-region-solothurn"
-        ],
-        "en": [
-          "automatenbetreuer-m-w-d-selecta-solothurn"
-        ],
-        "fr": [
-          "automatenbetreuer-m-w-d-selecta-solothurn"
-        ]
-      },
-      "firstSeenAt": "2026-07-04T11:56:45.264Z",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-08T22:09:07.197Z",
-      "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1
     }
   ]
 }

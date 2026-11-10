@@ -269,6 +269,63 @@ describe('IAB detection and independent recovery surface', () => {
     expect(w.__ftAdBlockProbe).toBe('blocked');
     expect(houseRefresh).toHaveBeenCalled();
   });
+  it('shows blocker guidance in inline mode for a missed slot without touching a filled Google slot', async () => {
+    const houseRefresh = vi.fn();
+    w.__ftHouseAds = { refresh: houseRefresh };
+    const filledSlot = w.document.createElement('ins');
+    filledSlot.setAttribute('data-ad-status', 'filled');
+    w.document.body.append(filledSlot);
+    const houseSlot = w.document.createElement('div');
+    houseSlot.setAttribute('data-house', 'article-inline');
+    const pendingGoogleSlot = w.document.createElement('div');
+    pendingGoogleSlot.setAttribute('data-ft-house-google', '');
+    pendingGoogleSlot.setAttribute('data-ft-ad-state', 'waiting_response');
+    houseSlot.append(pendingGoogleSlot);
+    w.document.body.append(houseSlot);
+
+    recovery('blocked', 'loaded', true);
+    w.document.dispatchEvent(new w.Event('DOMContentLoaded'));
+    await vi.advanceTimersByTimeAsync(5000);
+
+    const dialog = w.document.querySelector('dialog[open]');
+    expect(dialog?.textContent).toContain('Abbiamo rilevato un blocco pubblicitario');
+    expect(filledSlot.getAttribute('data-ad-status')).toBe('filled');
+    expect(houseRefresh).toHaveBeenCalled();
+    const allow = Array.from(dialog!.querySelectorAll('button')).find((el: any) => el.textContent === 'Come autorizzare il sito') as any;
+    allow.click();
+    expect(dialog?.textContent).toContain('icona del leone');
+    expect(w.localStorage.getItem('frontaliere_ads_consent')).toBeNull();
+  });
+  it('records and defers to Google’s native recovery message instead of stacking a second popup', async () => {
+    const houseSlot = w.document.createElement('div');
+    houseSlot.setAttribute('data-house', 'article-inline');
+    houseSlot.innerHTML = '<div data-ft-house-google data-ft-ad-state="waiting_response"></div>';
+    w.document.body.append(houseSlot);
+    const nativeMessage = w.document.createElement('div');
+    nativeMessage.className = 'fc-ab-root';
+    w.document.body.append(nativeMessage);
+
+    const recoveryApi = recovery('blocked', 'loaded', true);
+    w.document.dispatchEvent(new w.Event('DOMContentLoaded'));
+    await vi.advanceTimersByTimeAsync(6000);
+
+    expect(w.document.querySelector('dialog,.ft-recovery-promo')).toBeNull();
+    expect(emit).toHaveBeenCalledWith('ad_recovery_prompt', expect.objectContaining({ source: 'funding_choices_native', action: 'shown' }));
+    nativeMessage.remove();
+    recoveryApi.refresh();
+    await vi.advanceTimersByTimeAsync(5000);
+    expect(w.document.querySelector('dialog,.ft-recovery-promo')).toBeNull();
+  });
+  it('does not show blocker copy in inline mode for an inconclusive probe or a terminal loader error', async () => {
+    const houseSlot = w.document.createElement('div');
+    houseSlot.setAttribute('data-house', 'article-inline');
+    houseSlot.innerHTML = '<div data-ft-house-google data-ft-ad-state="waiting_response"></div>';
+    w.document.body.append(houseSlot);
+    recovery('clear', 'failed', true);
+    w.document.dispatchEvent(new w.Event('DOMContentLoaded'));
+    await vi.advanceTimersByTimeAsync(14000);
+    expect(w.document.querySelector('dialog')).toBeNull();
+  });
   it('does not run or report a blocker probe when every inline house slot is filled', async () => {
     const houseRefresh = vi.fn();
     w.__ftHouseAds = { refresh: houseRefresh };
@@ -300,6 +357,28 @@ describe('IAB detection and independent recovery surface', () => {
     const houseSlot = w.document.createElement('div');
     houseSlot.setAttribute('data-house', 'article-inline');
     houseSlot.innerHTML = '<div data-ft-house-google data-ft-ad-state="optimized"><ins data-ad-status="unfill-optimized"></ins></div>';
+    w.document.body.append(houseSlot);
+    const houseRefresh = vi.fn();
+    w.__ftHouseAds = { refresh: houseRefresh };
+    recovery('clear', 'loaded', true);
+    w.document.dispatchEvent(new w.Event('DOMContentLoaded'));
+    await vi.advanceTimersByTimeAsync(13000);
+    expect(houseRefresh).not.toHaveBeenCalled();
+    expect(emit).not.toHaveBeenCalledWith('ad_block_probe', expect.anything());
+  });
+  it.each([
+    ['generic optimized state', 'data-ad-state'],
+    ['React lifecycle state', 'data-ft-ad-state'],
+    ['static-shell lifecycle state', 'data-ft-static-ad-state'],
+  ])('keeps an inline slot occupied when %s is reported on a descendant', async (_label, attribute) => {
+    const houseSlot = w.document.createElement('div');
+    houseSlot.setAttribute('data-house', 'article-inline');
+    const google = w.document.createElement('div');
+    google.setAttribute('data-ft-house-google', '');
+    const state = w.document.createElement('ins');
+    state.setAttribute(attribute, 'optimized');
+    google.append(state);
+    houseSlot.append(google);
     w.document.body.append(houseSlot);
     const houseRefresh = vi.fn();
     w.__ftHouseAds = { refresh: houseRefresh };

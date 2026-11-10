@@ -8702,6 +8702,12 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.imposta-sostitutiva-pensioni-svizzere.title': '5 % Ersatzsteuer für Schweizer Renten',
     'blog.article.imposta-sostitutiva-pensioni-svizzere.excerpt': 'In ihrer Antwort Nr. 125/2024 untersuchte die Agentur der Einnahmen die steuerliche Behandlung der Leistungen aus den schweizerischen Vorsorgesystemen der ersten Säule AHV und der zweiten Säule BVG.',
     'blog.article.imposta-sostitutiva-pensioni-svizzere.imageAlt': 'Illustratives Bild zum Thema des Artikels',
+    'blog.article.peso-burocrazia-imprese-svizzera.title': 'Bürokratiegewicht Unternehmen Schweiz: 67% halten es für hoch',
+    'blog.article.peso-burocrazia-imprese-svizzera.excerpt': 'Gemäss der nationalen Umfrage von gfs.bern im Auftrag von economiesuisse, die heute veröffentlicht wurde, halten 67% der 1’527 befragten Unternehmen den Verwaltungsaufwand für hoch, wie Keystone-ATS berichtet.',
+    'blog.article.peso-burocrazia-imprese-svizzera.imageAlt': 'Illustratives Bild zum Thema des Artikels',
+    'blog.article.pamini-contributi-salari-svizzera.title': 'Pamini (Udc): Löhne und Grenzgänger, bei den Beiträgen handeln',
+    'blog.article.pamini-contributi-salari-svizzera.excerpt': 'Der redaktionelle Titel präsentiert Pamini (Udc) mit einem präzisen Hinweis: das Thema der Löhne und Grenzgänger mit dem Kapitel der Beiträge zu verbinden.',
+    'blog.article.pamini-contributi-salari-svizzera.imageAlt': 'Illustratives Bild zum Thema des Artikels',
 };
 
 export default blogMetaChDe;

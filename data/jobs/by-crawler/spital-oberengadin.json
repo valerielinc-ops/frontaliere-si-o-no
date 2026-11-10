@@ -1,7 +1,7 @@
 {
   "crawlerKey": "spital-oberengadin",
-  "assembledAt": "2026-11-09T09:24:27.580Z",
-  "runId": "42591232345",
+  "assembledAt": "2026-11-10T09:24:20.345Z",
+  "runId": "42788430182",
   "jobs": [
     {
       "id": "spital-oberengadin-f539b754af76",
@@ -35,7 +35,7 @@
       "url": "https://live.solique.ch/stiftung-gesundheitsversorgung-oberengadin/job/details/4084342",
       "source": "Spital Oberengadin Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:24:21.074Z",
+      "crawledAt": "2026-11-10T09:24:14.869Z",
       "addressLocality": "Samedan",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -86,9 +86,23 @@
           "unitText": "YEAR"
         }
       },
-      "streetAddress": "Samedan",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-11T09:24:21.074Z",
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Spital Oberengadin",
+        "streetAddress": "Via Nouva 3",
+        "postalCode": "7503",
+        "registeredName": "Spital Oberengadin AG",
+        "matchType": "exact",
+        "streetAddressSource": "zefix-registry",
+        "jobPostalCode": "7503",
+        "addressLocality": "Samedan",
+        "addressRegion": "GR",
+        "checkedAt": "2026-11-09T15:43:47.942Z"
+      },
+      "streetAddress": "Via Nouva 3",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2027-01-11T09:24:14.869Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -123,7 +137,7 @@
       "url": "https://live.solique.ch/stiftung-gesundheitsversorgung-oberengadin/job/details/4084397",
       "source": "Spital Oberengadin Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:24:20.432Z",
+      "crawledAt": "2026-11-10T09:24:14.294Z",
       "addressLocality": "Samedan",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -175,9 +189,23 @@
           "unitText": "YEAR"
         }
       },
-      "streetAddress": "Samedan",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-11T09:24:20.432Z",
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Spital Oberengadin",
+        "streetAddress": "Via Nouva 3",
+        "postalCode": "7503",
+        "registeredName": "Spital Oberengadin AG",
+        "matchType": "exact",
+        "streetAddressSource": "zefix-registry",
+        "jobPostalCode": "7503",
+        "addressLocality": "Samedan",
+        "addressRegion": "GR",
+        "checkedAt": "2026-11-09T15:43:47.942Z"
+      },
+      "streetAddress": "Via Nouva 3",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2027-01-11T09:24:14.294Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -211,7 +239,7 @@
       "url": "https://live.solique.ch/stiftung-gesundheitsversorgung-oberengadin/job/details/4084910",
       "source": "Spital Oberengadin Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:24:19.828Z",
+      "crawledAt": "2026-11-10T09:24:13.549Z",
       "addressLocality": "Samedan",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -261,9 +289,23 @@
           "unitText": "YEAR"
         }
       },
-      "streetAddress": "Samedan",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-12T09:24:19.828Z",
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Spital Oberengadin",
+        "streetAddress": "Via Nouva 3",
+        "postalCode": "7503",
+        "registeredName": "Spital Oberengadin AG",
+        "matchType": "exact",
+        "streetAddressSource": "zefix-registry",
+        "jobPostalCode": "7503",
+        "addressLocality": "Samedan",
+        "addressRegion": "GR",
+        "checkedAt": "2026-11-09T15:43:47.942Z"
+      },
+      "streetAddress": "Via Nouva 3",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2027-01-12T09:24:13.549Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -298,7 +340,7 @@
       "url": "https://live.solique.ch/stiftung-gesundheitsversorgung-oberengadin/job/details/4089847",
       "source": "Spital Oberengadin Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:24:19.216Z",
+      "crawledAt": "2026-11-10T09:24:12.962Z",
       "addressLocality": "Samedan",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -353,9 +395,23 @@
           "unitText": "YEAR"
         }
       },
-      "streetAddress": "Samedan",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-19T09:24:19.216Z",
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Spital Oberengadin",
+        "streetAddress": "Via Nouva 3",
+        "postalCode": "7503",
+        "registeredName": "Spital Oberengadin AG",
+        "matchType": "exact",
+        "streetAddressSource": "zefix-registry",
+        "jobPostalCode": "7503",
+        "addressLocality": "Samedan",
+        "addressRegion": "GR",
+        "checkedAt": "2026-11-09T15:43:47.942Z"
+      },
+      "streetAddress": "Via Nouva 3",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2027-01-19T09:24:12.962Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -390,7 +446,7 @@
       "url": "https://live.solique.ch/stiftung-gesundheitsversorgung-oberengadin/job/details/4088639",
       "source": "Spital Oberengadin Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:24:18.610Z",
+      "crawledAt": "2026-11-10T09:24:12.252Z",
       "addressLocality": "Samedan",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -441,9 +497,23 @@
           "unitText": "YEAR"
         }
       },
-      "streetAddress": "Samedan",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-18T09:24:18.610Z",
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Spital Oberengadin",
+        "streetAddress": "Via Nouva 3",
+        "postalCode": "7503",
+        "registeredName": "Spital Oberengadin AG",
+        "matchType": "exact",
+        "streetAddressSource": "zefix-registry",
+        "jobPostalCode": "7503",
+        "addressLocality": "Samedan",
+        "addressRegion": "GR",
+        "checkedAt": "2026-11-09T15:43:47.942Z"
+      },
+      "streetAddress": "Via Nouva 3",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2027-01-18T09:24:12.252Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -478,7 +548,7 @@
       "url": "https://live.solique.ch/stiftung-gesundheitsversorgung-oberengadin/job/details/4092861",
       "source": "Spital Oberengadin Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:24:18.004Z",
+      "crawledAt": "2026-11-10T09:24:11.674Z",
       "addressLocality": "Samedan",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -529,9 +599,23 @@
           "unitText": "YEAR"
         }
       },
-      "streetAddress": "Samedan",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-26T09:24:18.004Z",
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Spital Oberengadin",
+        "streetAddress": "Via Nouva 3",
+        "postalCode": "7503",
+        "registeredName": "Spital Oberengadin AG",
+        "matchType": "exact",
+        "streetAddressSource": "zefix-registry",
+        "jobPostalCode": "7503",
+        "addressLocality": "Samedan",
+        "addressRegion": "GR",
+        "checkedAt": "2026-11-09T15:43:47.942Z"
+      },
+      "streetAddress": "Via Nouva 3",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2027-01-26T09:24:11.674Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -565,7 +649,7 @@
       "url": "https://live.solique.ch/stiftung-gesundheitsversorgung-oberengadin/job/details/4096536",
       "source": "Spital Oberengadin Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:24:17.397Z",
+      "crawledAt": "2026-11-10T09:24:10.958Z",
       "addressLocality": "Samedan",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -618,9 +702,23 @@
           "unitText": "YEAR"
         }
       },
-      "streetAddress": "Samedan",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-01T09:24:17.397Z",
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Spital Oberengadin",
+        "streetAddress": "Via Nouva 3",
+        "postalCode": "7503",
+        "registeredName": "Spital Oberengadin AG",
+        "matchType": "exact",
+        "streetAddressSource": "zefix-registry",
+        "jobPostalCode": "7503",
+        "addressLocality": "Samedan",
+        "addressRegion": "GR",
+        "checkedAt": "2026-11-09T15:43:47.942Z"
+      },
+      "streetAddress": "Via Nouva 3",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2027-02-01T09:24:10.958Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -655,7 +753,7 @@
       "url": "https://live.solique.ch/stiftung-gesundheitsversorgung-oberengadin/job/details/4096147",
       "source": "Spital Oberengadin Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:24:16.794Z",
+      "crawledAt": "2026-11-10T09:24:10.347Z",
       "addressLocality": "Samedan",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -706,18 +804,32 @@
           "unitText": "YEAR"
         }
       },
-      "streetAddress": "Samedan",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-01T09:24:16.794Z",
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Spital Oberengadin",
+        "streetAddress": "Via Nouva 3",
+        "postalCode": "7503",
+        "registeredName": "Spital Oberengadin AG",
+        "matchType": "exact",
+        "streetAddressSource": "zefix-registry",
+        "jobPostalCode": "7503",
+        "addressLocality": "Samedan",
+        "addressRegion": "GR",
+        "checkedAt": "2026-11-09T15:43:47.942Z"
+      },
+      "streetAddress": "Via Nouva 3",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2027-02-01T09:24:10.347Z",
       "validThroughSource": "last-observed-window"
     },
     {
       "id": "spital-oberengadin-4824e42c9520",
       "slug": "direttore-della-stazione-stazione-spital-oberengadin-samedan",
       "slugByLocale": {
-        "de": "stationsleiterin-stationsleiter-spital-oberengadin-samedan",
         "it": "direttore-della-stazione-stazione-spital-oberengadin-samedan",
         "en": "station-manager-station-manager-spital-oberengadin-samedan",
+        "de": "stationsleiterin-stationsleiter-spital-oberengadin-samedan",
         "fr": "gestionnaire-de-station-gestionnaire-de-station-spital-oberengadin-samedan"
       },
       "company": "Spital Oberengadin",
@@ -725,24 +837,25 @@
       "companyDomain": "spital-oberengadin.ch",
       "title": "Stationsleiterin / Stationsleiter",
       "titleByLocale": {
-        "de": "Stationsleiterin / Stationsleiter",
         "it": "Direttore della stazione/stazione",
         "en": "Station manager/station manager",
+        "de": "Stationsleiterin / Stationsleiter",
         "fr": "Gestionnaire de station/gestionnaire de station"
       },
       "description": "Die Spital Oberengadin AG, ein Betrieb der KSGR-Gruppe, ist in Samedan mit dem grössten Spital Südbündens für die medizinische Grundversorgung sowie für die Notfallversorgung der Bevölkerung und der Gäste verantwortlich. Wir suchen für die interdisziplinäre Akutstation per 01.12.2026 oder nach Vereinbarung eine/n motivierte/n\n\nIhre Aufgaben\n\n• Führung, Entwicklung und Einsatzplanung der Mitarbeitenden\n• aktive Mitarbeit im Pflegealltag sowie Unterstützung des Teams in anspruchsvollen Pflegesituationen\n• Sicherstellung einer professionellen, patientenorientierten Pflege sowie einer lückenlosen Dokumentation und Informationsweitergabe\n• Überwachung und Sicherstellung der Einhaltung von Qualitätsstandards und Richtlinien, sowie Förderung einer hohen Dienstleistungsqualität\n• Mitverantwortung für den wirtschaftlichen Einsatz der Ressourcen\n\nIhr Profil\n\n• abgeschlossene Ausbildung zur/zum Dipl. Pflegefachfrau/-mann HF/FH (SRK-Anerkennung bei ausländischen Abschlüssen)\n• mindestens zwei Jahre Erfahrung in einem Schweizer Akutspital\n• erste Führungserfahrung von Vorteil\n• Führungsweiterbildung oder die Bereitschaft, eine zu absolvieren\n• versierte MS Office-Kenntnisse\n• sehr gute Deutschkenntnisse (mündlich und schriftlich), Italienischkenntnisse von Vorteil\n\nPensum: 80-100%",
       "descriptionByLocale": {
-        "de": "Die Spital Oberengadin AG, ein Betrieb der KSGR-Gruppe, ist in Samedan mit dem grössten Spital Südbündens für die medizinische Grundversorgung sowie für die Notfallversorgung der Bevölkerung und der Gäste verantwortlich. Wir suchen für die interdisziplinäre Akutstation per 01.12.2026 oder nach Vereinbarung eine/n motivierte/n\n\nIhre Aufgaben\n\n• Führung, Entwicklung und Einsatzplanung der Mitarbeitenden\n• aktive Mitarbeit im Pflegealltag sowie Unterstützung des Teams in anspruchsvollen Pflegesituationen\n• Sicherstellung einer professionellen, patientenorientierten Pflege sowie einer lückenlosen Dokumentation und Informationsweitergabe\n• Überwachung und Sicherstellung der Einhaltung von Qualitätsstandards und Richtlinien, sowie Förderung einer hohen Dienstleistungsqualität\n• Mitverantwortung für den wirtschaftlichen Einsatz der Ressourcen\n\nIhr Profil\n\n• abgeschlossene Ausbildung zur/zum Dipl. Pflegefachfrau/-mann HF/FH (SRK-Anerkennung bei ausländischen Abschlüssen)\n• mindestens zwei Jahre Erfahrung in einem Schweizer Akutspital\n• erste Führungserfahrung von Vorteil\n• Führungsweiterbildung oder die Bereitschaft, eine zu absolvieren\n• versierte MS Office-Kenntnisse\n• sehr gute Deutschkenntnisse (mündlich und schriftlich), Italienischkenntnisse von Vorteil\n\nPensum: 80-100%",
         "it": "Spital Oberengadin AG, società del Gruppo KSGR, è responsabile dell'assistenza medica di base e dell'assistenza di emergenza per la popolazione e gli ospiti di Samedan, con il più grande ospedale della Germania meridionale. Siamo alla ricerca di un'unità di cura interdisciplinare acuta a partire dal 01.12.2026 o di un accordo motivato\n\nI loro compiti\n\n• Gestione, sviluppo e pianificazione operativa dei dipendenti\n• Partecipazione attiva alla cura quotidiana e supporto del team in situazioni di cura impegnative\n• Garantire la cura professionale, orientata al paziente e la documentazione e la condivisione delle informazioni senza soluzione di continuità\n• Monitoraggio e conformità agli standard e alle linee guida di qualità e promozione dell'alta qualità dei servizi\n• Responsabilità condivisa per l'uso economico delle risorse\n\nIl tuo profilo\n\n• Formazione completa per/per il Dipl. Specialista infermieristico HF/FH (riconoscimento SRC per gradi stranieri)\n• almeno due anni di esperienza in un ospedale acuto svizzero\n• La prima esperienza di leadership è utile\n• Formazione di leadership o la volontà di completare uno\n• Esperienza delle competenze di MS Office\n• conoscenza molto buona del tedesco (verbale e scritto), conoscenza del italiano vantaggioso\n\nPensum: 80-100 %",
         "en": "Spital Oberengadin AG, a company of the KSGR Group, is responsible for basic medical care and emergency care for the population and guests in Samedan, with the largest hospital in southern Germany. We are looking for an interdisciplinary acute care unit as of 01.12.2026 or by agreement a motivated\n\nTheir tasks\n\n• Management, development and operational planning of employees\n• Active participation in day-to-day care as well as support of the team in demanding care situations\n• Ensuring professional, patient-oriented care as well as seamless documentation and information sharing\n• Monitoring and ensuring compliance with quality standards and guidelines and promoting high quality of service\n• Shared responsibility for the economic use of resources\n\nYour profile\n\n• Completed training for/for the Dipl. Nursing specialist HF/FH (SRC recognition for foreign degrees)\n• at least two years of experience in a Swiss acute hospital\n• First leadership experience is beneficial\n• Leadership training or the willingness to complete one\n• Experienced MS Office skills\n• very good knowledge of German (verbal and written), knowledge of Italian advantageous\n\nPensum: 80-100 %",
+        "de": "Die Spital Oberengadin AG, ein Betrieb der KSGR-Gruppe, ist in Samedan mit dem grössten Spital Südbündens für die medizinische Grundversorgung sowie für die Notfallversorgung der Bevölkerung und der Gäste verantwortlich. Wir suchen für die interdisziplinäre Akutstation per 01.12.2026 oder nach Vereinbarung eine/n motivierte/n\n\nIhre Aufgaben\n\n• Führung, Entwicklung und Einsatzplanung der Mitarbeitenden\n• aktive Mitarbeit im Pflegealltag sowie Unterstützung des Teams in anspruchsvollen Pflegesituationen\n• Sicherstellung einer professionellen, patientenorientierten Pflege sowie einer lückenlosen Dokumentation und Informationsweitergabe\n• Überwachung und Sicherstellung der Einhaltung von Qualitätsstandards und Richtlinien, sowie Förderung einer hohen Dienstleistungsqualität\n• Mitverantwortung für den wirtschaftlichen Einsatz der Ressourcen\n\nIhr Profil\n\n• abgeschlossene Ausbildung zur/zum Dipl. Pflegefachfrau/-mann HF/FH (SRK-Anerkennung bei ausländischen Abschlüssen)\n• mindestens zwei Jahre Erfahrung in einem Schweizer Akutspital\n• erste Führungserfahrung von Vorteil\n• Führungsweiterbildung oder die Bereitschaft, eine zu absolvieren\n• versierte MS Office-Kenntnisse\n• sehr gute Deutschkenntnisse (mündlich und schriftlich), Italienischkenntnisse von Vorteil\n\nPensum: 80-100%",
         "fr": "Spital Oberengadin AG, une société du groupe KSGR, est responsable des soins médicaux de base et des soins d'urgence pour la population et les invités à Samedan, avec le plus grand hôpital du sud de l'Allemagne. Nous sommes à la recherche d'une unité interdisciplinaire de soins actifs au 01.12.2026 ou d'un accord motivé\n\nLeurs tâches\n\n• Gestion, perfectionnement et planification opérationnelle des employés\n• Participation active aux soins quotidiens et soutien de l'équipe dans des situations exigeantes\n• Assurer des soins professionnels et axés sur le patient ainsi qu'une documentation et un partage d'information transparents\n• Suivi et mise en conformité avec les normes et directives de qualité et promotion de la qualité du service\n• Responsabilité partagée pour l'utilisation économique des ressources\n\nVotre profil\n\n• Formation complète pour le Dipl. Spécialiste des soins infirmiers HF/FH (reconnaissance SRC pour les diplômes étrangers)\n• au moins deux ans d'expérience dans un hôpital suisse aigu\n• Première expérience de leadership est bénéfique\n• Formation en leadership ou volonté d'en terminer une\n• Compétences acquises en MS Office\n• très bonne connaissance de l'allemand (verbal et écrit), connaissance de l'italien avantageux\n\nRécipient: 80-100 %"
       },
+      "needsRetranslation": false,
       "location": "Samedan",
       "canton": "GR",
       "url": "https://live.solique.ch/stiftung-gesundheitsversorgung-oberengadin/job/details/4096938",
       "source": "Spital Oberengadin Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:24:16.049Z",
+      "crawledAt": "2026-11-10T09:24:09.402Z",
       "addressLocality": "Samedan",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -760,31 +873,14 @@
       "postingDateSource": "reported",
       "applyUrl": "https://live.solique.ch/stiftung-gesundheitsversorgung-oberengadin/job/details/4096938",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "externalId": "4096938",
       "pensumMin": 80,
       "pensumMax": 100,
       "pensum": "80 - 100%",
-      "salaryMin": 81500,
-      "salaryMax": 114000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 81500,
-          "maxValue": 114000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Samedan",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-02T09:24:16.049Z",
-      "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-09-10T23:10:17.261Z",
+      "previousSlugs": [
+        "stationsleiterin-stationsleiter-spital-oberengadin-samedan"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "stationsleiterin-stationsleiter-spital-oberengadin-samedan"
@@ -796,92 +892,38 @@
           "stationsleiterin-stationsleiter-spital-oberengadin-samedan"
         ]
       },
-      "previousSlugs": [
-        "stationsleiterin-stationsleiter-spital-oberengadin-samedan"
-      ]
-    },
-    {
-      "id": "spital-oberengadin-ad42568a5698",
-      "slug": "wintersaison-dipl-expertin-experte-nds-notfallpflege-o-dipl-pflegefachperson-con-nachweisbarer-erfahrung-in-notfallpflege-spital-oberengadin-samedan",
-      "slugByLocale": {
-        "it": "wintersaison-dipl-expertin-experte-nds-notfallpflege-o-dipl-pflegefachperson-con-nachweisbarer-erfahrung-in-notfallpflege-spital-oberengadin-samedan",
-        "en": "winter-season-expert-expert-nds-emergency-care-or-dipl-nurse-with-proven-experience-in-emergency-care-spital-oberengadin",
-        "de": "wintersaison-dipl-expertin-experte-nds-notfallpflege-oder-dipl-pflegefachperson-mit",
-        "fr": "saison-d-hiver-expert-expert-snd-soins-d-urgence-ou-dipl-infirmiere-ayant-une-experience-eprouvee-des-soins-d-urgence"
-      },
-      "company": "Spital Oberengadin",
-      "companyKey": "spital-oberengadin",
-      "companyDomain": "spital-oberengadin.ch",
-      "title": "Wintersaison! Dipl. Expertin / Experte NDS Notfallpflege oder Dipl. Pflegefachperson mit nachweisbarer Erfahrung in Notfallpflege",
-      "titleByLocale": {
-        "it": "Stagione invernale! Esperta / Esperto dipl. NDS in cure d’emergenza oppure infermiere/a diplomato/a con esperienza comprovata nelle cure d’emergenza",
-        "en": "Winter season! Expert / Expert NDS Emergency Care or Dipl. Nurse with proven experience in emergency care",
-        "de": "Wintersaison! Dipl. Expertin / Experte NDS Notfallpflege oder Dipl. Pflegefachperson mit nachweisbarer Erfahrung in Notfallpflege",
-        "fr": "Saison d'hiver ! Expert / Expert SND Soins d'urgence ou Dipl. Infirmière ayant une expérience éprouvée des soins d'urgence"
-      },
-      "description": "Das Spital Oberengadin AG in Samedan, ein Betrieb der KSGR-Gruppe, ist mit dem grössten Spital Südbündens für die medizinische Grundversorgung und die Notfallversorgung der Bevölkerung und der Gäste verantwortlich. Zur Verstärkung unseres Teams suchen wir für die Wintersaison (Dezember 2026 bis März/April 2027) eine Kollegin, einen Kollegen.\n\nIhre Aufgaben\n\n• Triagierung der Patientinnen und Patienten nach Manchester Triage System\n• Gewährleistung einer sicheren, fachlich kompetenten Erstversorgung von Patientinnen und Patienten aller Altersgruppen – vom Säugling bis zum hochbetagten Menschen – sämtlicher Schweregrade sowie unterschiedlicher soziokultureller Hintergründe mit chirurgischen, internistischen und psychosozialen Notfallindikationen\n• Point-of-Care-Testing im Spät- und Nachtdienst\n• Anwendung diverser Gipsapplikationen\n• Betreuung bei und nach ambulanten kleinen Operationen\n• Betreuung von Nachkontrollen\n\nIhr Profil\n\n• Abschluss als Expertin / Experte NDS Notfallpflege oder äquivalentes Diplom mit Schweizer Anerkennung oder\n• Dipl. Pflegefachperson HF/FH mit nachweisbarer Berufserfahrung in interdisziplinärer Notfallpflege\n• belastbare und verantwortungsbewusste Persönlichkeit mit hohem Qualitätsbewusstsein\n• genaue, selbständige und organisierte Arbeitsweise\n• Teamfähigkeit und Flexibilität (optimale Dienstleistungsbereitschaft je nach saisonaler Auslastung)\n• wertschätzende Grundhaltung gegenüber Patientinnen und Patienten, Angehörigen und Mitarbeitenden\n• Deutsch in Wort und Schrift, Italienisch und Englisch, weitere Sprachen von Vorteil\n\nPensum: 80-100%",
-      "descriptionByLocale": {
-        "it": "Spital Oberengadin AG a Samedan, società del Gruppo KSGR, è responsabile dell'assistenza medica di base e dell'assistenza di emergenza per la popolazione e gli ospiti con il più grande ospedale della Germania meridionale. Per rafforzare il nostro team, stiamo cercando un collega per la stagione invernale (dicembre 2026 - marzo/aprile 2027).\n\nI loro compiti\n\n• Triagulazione dei pazienti secondo il sistema di triage di Manchester\n• Assicurare cure iniziali sicure e professionalmente competenti per i pazienti di tutti i gruppi di età – dai neonati agli anziani – di tutti i livelli di gravità e diversi background socio-culturali con indicazioni di emergenza chirurgiche, internistiche e psicosociali\n• Test point-of-care nel servizio di tarda e notte\n• Applicazione di varie applicazioni di gesso\n• Cura durante e dopo piccole operazioni ambulatoriale\n• Controllo di follow-up\n\nIl tuo profilo\n\n• laurea come esperto / esperto NDS Emergency Care o diploma equivalente con riconoscimento svizzero o\n• Dipl. Infermieristica professionale HF/FH con comprovata esperienza professionale nell'assistenza interdisciplinare di emergenza\n• personalità resiliente e responsabile con la consapevolezza di alta qualità\n• Metodi di lavoro precisi, indipendenti e organizzati\n• Lavoro di squadra e flessibilità (ottima disponibilità a fornire servizi a seconda del carico stagionale)\n• Atteggiamento favorevole verso pazienti, parenti e dipendenti\n• Tedesco in parola e scrittura, italiano e inglese, altre lingue benefiche\n\nPenso: 80-100 %",
-        "en": "Spital Oberengadin AG in Samedan, a company of the KSGR Group, is responsible for basic medical care and emergency care for the population and guests with the largest hospital in southern Germany. To strengthen our team, we are looking for a colleague for the winter season (December 2026 to March/April 2027).\n\nTheir tasks\n\n• Triagulation of patients according to the Manchester Triage System\n• Ensuring safe, professionally competent initial care for patients of all age groups – from infants to the elderly – of all severity levels and different socio-cultural backgrounds with surgical, internistic and psychosocial emergency indications\n• Point-of-care testing in late and night service\n• Application of various gypsum applications\n• Care during and after small outpatient operations\n• Follow-up checks\n\nYour profile\n\n• degree as an expert / expert NDS Emergency Care or equivalent diploma with Swiss recognition or\n• Dipl. Nursing professional HF/FH with proven professional experience in interdisciplinary emergency care\n• resilient and responsible personality with high quality awareness\n• Accurate, independent and organised working methods\n• Teamwork and flexibility (optimal willingness to provide services depending on seasonal load)\n• Appreciative attitude towards patients, relatives and employees\n• German in word and writing, Italian and English, other languages beneficial\n\nPensum: 80-100 %",
-        "de": "Das Spital Oberengadin AG in Samedan, ein Betrieb der KSGR-Gruppe, ist mit dem grössten Spital Südbündens für die medizinische Grundversorgung und die Notfallversorgung der Bevölkerung und der Gäste verantwortlich. Zur Verstärkung unseres Teams suchen wir für die Wintersaison (Dezember 2026 bis März/April 2027) eine Kollegin, einen Kollegen.\n\nIhre Aufgaben\n\n• Triagierung der Patientinnen und Patienten nach Manchester Triage System\n• Gewährleistung einer sicheren, fachlich kompetenten Erstversorgung von Patientinnen und Patienten aller Altersgruppen – vom Säugling bis zum hochbetagten Menschen – sämtlicher Schweregrade sowie unterschiedlicher soziokultureller Hintergründe mit chirurgischen, internistischen und psychosozialen Notfallindikationen\n• Point-of-Care-Testing im Spät- und Nachtdienst\n• Anwendung diverser Gipsapplikationen\n• Betreuung bei und nach ambulanten kleinen Operationen\n• Betreuung von Nachkontrollen\n\nIhr Profil\n\n• Abschluss als Expertin / Experte NDS Notfallpflege oder äquivalentes Diplom mit Schweizer Anerkennung oder\n• Dipl. Pflegefachperson HF/FH mit nachweisbarer Berufserfahrung in interdisziplinärer Notfallpflege\n• belastbare und verantwortungsbewusste Persönlichkeit mit hohem Qualitätsbewusstsein\n• genaue, selbständige und organisierte Arbeitsweise\n• Teamfähigkeit und Flexibilität (optimale Dienstleistungsbereitschaft je nach saisonaler Auslastung)\n• wertschätzende Grundhaltung gegenüber Patientinnen und Patienten, Angehörigen und Mitarbeitenden\n• Deutsch in Wort und Schrift, Italienisch und Englisch, weitere Sprachen von Vorteil\n\nPensum: 80-100%",
-        "fr": "Spital Oberengadin AG à Samedan, une société du groupe KSGR, est responsable des soins médicaux de base et des soins d'urgence pour la population et les clients avec le plus grand hôpital dans le sud de l'Allemagne. Pour renforcer notre équipe, nous cherchons un collègue pour la saison hivernale (de décembre 2026 à mars/avril 2027).\n\nLeurs tâches\n\n• Triagulation des patients selon le système Manchester Triage\n• Assurer des soins initiaux sûrs et professionnels pour les patients de tous les groupes d'âge – des nourrissons aux personnes âgées – de tous niveaux de gravité et de différents milieux socioculturels avec des indications d'urgence chirurgicale, interniste et psychosociale\n• Tests au point de service en service de nuit et tard\n• Application de diverses applications de gypse\n• Soins pendant et après de petites opérations ambulatoires\n• Contrôles de suivi\n\nVotre profil\n\n• diplôme d'expert / expert NDS Emergency Care ou diplôme équivalent avec reconnaissance suisse ou\n• Dipl. Soins infirmiers professionnels HF/FH avec une expérience professionnelle reconnue en soins d'urgence interdisciplinaires\n• personnalité résiliente et responsable avec une sensibilisation de haute qualité\n• Méthodes de travail précises, indépendantes et organisées\n• Travail d'équipe et flexibilité (capacité optimale de fournir des services selon la charge saisonnière)\n• Appréciation envers les patients, les parents et les employés\n• Allemand en paroles et en écriture, italien et anglais, autres langues bénéfiques\n\nPensum: 80-100 %"
-      },
-      "needsRetranslation": false,
-      "location": "Samedan",
-      "canton": "GR",
-      "url": "https://live.solique.ch/stiftung-gesundheitsversorgung-oberengadin/job/details/4076992",
-      "source": "Spital Oberengadin Dedicated Parser (Solique careers portal)",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-08T21:15:07.627Z",
-      "addressLocality": "Samedan",
-      "addressRegion": "GR",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "7503",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-09-30",
-      "postedDate": "2026-09-30",
-      "postingDateSource": "reported",
-      "applyUrl": "https://live.solique.ch/stiftung-gesundheitsversorgung-oberengadin/job/details/4076992",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "externalId": "4076992",
-      "pensumMin": 80,
-      "pensumMax": 100,
-      "pensum": "80 - 100%",
-      "previousSlugs": [
-        "wintersaison-dipl-expertin-experte-nds-notfallpflege-oder-dipl-pflegefachperson-mit"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "wintersaison-dipl-expertin-experte-nds-notfallpflege-oder-dipl-pflegefachperson-mit"
-        ]
-      },
-      "firstSeenAt": "2026-10-08T21:19:48.615Z",
-      "salaryMin": 81500,
-      "salaryMax": 114000,
+      "firstSeenAt": "2026-09-10T23:10:17.261Z",
+      "salaryMin": 110500,
+      "salaryMax": 154000,
       "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 81500,
-          "maxValue": 114000,
+          "minValue": 110500,
+          "maxValue": 154000,
           "unitText": "YEAR"
         }
       },
-      "streetAddress": "Samedan",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-29T21:15:07.627Z",
-      "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Spital Oberengadin",
+        "streetAddress": "Via Nouva 3",
+        "postalCode": "7503",
+        "registeredName": "Spital Oberengadin AG",
+        "matchType": "exact",
+        "streetAddressSource": "zefix-registry",
+        "jobPostalCode": "7503",
+        "addressLocality": "Samedan",
+        "addressRegion": "GR",
+        "checkedAt": "2026-11-09T15:43:47.942Z"
+      },
+      "streetAddress": "Via Nouva 3",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2027-02-02T09:24:09.402Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }

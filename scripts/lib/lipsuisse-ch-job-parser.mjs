@@ -2,7 +2,7 @@
 /**
  * LIP Suisse job parser — Fetcher and job builder.
  *
- * Source: https://www.lipsuisse.ch/offres-emploi/carreleur-2/
+ * Source: https://www.lipsuisse.ch/offres-emploi/
  *
  * Exports the 4 required functions for the crawler template:
  *   - fetchAllLipsuisseChJobs()  — Fetch and parse all jobs
@@ -27,7 +27,7 @@ export const LIPSUISSE_CH_KEY = 'lipsuisse-ch';
 export const LIPSUISSE_CH_COMPANY_NAME = 'LIP Suisse';
 export const LIPSUISSE_CH_COMPANY_DOMAIN = 'lipsuisse.ch';
 
-const CAREER_URL = 'https://www.lipsuisse.ch/offres-emploi/carreleur-2/';
+const CAREER_URL = 'https://www.lipsuisse.ch/offres-emploi/';
 
 /* ── Helpers ───────────────────────────────────────────────── */
 

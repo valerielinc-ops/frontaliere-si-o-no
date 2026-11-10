@@ -1,7 +1,7 @@
 {
   "crawlerKey": "hfr-hopital-fribourgeois",
-  "assembledAt": "2026-11-09T09:49:26.462Z",
-  "runId": "42592634107",
+  "assembledAt": "2026-11-10T09:41:14.437Z",
+  "runId": "42789954982",
   "jobs": [
     {
       "id": "hfr-hopital-fribourgeois-533bf9597390",
@@ -34,7 +34,7 @@
       "url": "https://fa-eswr-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/fr/sites/CX_1/job/1538",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Oracle HCM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-09T09:49:19.187Z",
+      "crawledAt": "2026-11-10T09:41:07.043Z",
       "addressLocality": "Tafers",
       "addressRegion": "FR",
       "streetAddress": "Tafers",
@@ -82,7 +82,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-28T09:49:19.187Z",
+      "validThrough": "2027-01-28T09:41:07.043Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -116,7 +116,7 @@
       "url": "https://fa-eswr-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/fr/sites/CX_1/job/1523",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Oracle HCM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-09T09:49:18.440Z",
+      "crawledAt": "2026-11-10T09:41:06.482Z",
       "addressLocality": "Riaz",
       "addressRegion": "FR",
       "streetAddress": "Riaz",
@@ -169,7 +169,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-28T09:49:18.440Z",
+      "validThrough": "2027-01-28T09:41:06.482Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -204,7 +204,7 @@
       "url": "https://fa-eswr-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/fr/sites/CX_1/job/1508",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Oracle HCM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-09T09:49:17.918Z",
+      "crawledAt": "2026-11-10T09:41:05.930Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "streetAddress": "Fribourg",
@@ -255,7 +255,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-28T09:49:17.918Z",
+      "validThrough": "2027-01-28T09:41:05.930Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -290,7 +290,7 @@
       "url": "https://fa-eswr-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/fr/sites/CX_1/job/1511",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Oracle HCM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-09T09:49:17.195Z",
+      "crawledAt": "2026-11-10T09:41:05.049Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "streetAddress": "Fribourg",
@@ -341,7 +341,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-28T09:49:17.195Z",
+      "validThrough": "2027-01-28T09:41:05.049Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -375,7 +375,7 @@
       "url": "https://fa-eswr-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/fr/sites/CX_1/job/1477",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Oracle HCM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-09T09:49:16.436Z",
+      "crawledAt": "2026-11-10T09:41:04.503Z",
       "addressLocality": "Meyriez",
       "addressRegion": "FR",
       "streetAddress": "Meyriez",
@@ -423,7 +423,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-27T09:49:16.436Z",
+      "validThrough": "2027-01-28T09:41:04.503Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -445,12 +445,12 @@
         "de": "Stellvertretender Leiter der Klinik",
         "fr": "Chef-fe de clinique adjoint-e"
       },
-      "description": "L’Unité d’infectiologie est reconnue par l’ISFM comme établissement de formation postgraduée de catégorie B en infectiologie. Rattachée au Département de médecine et spécialités, elle exerce son activité principalement à HFR Fribourg – Hôpital cantonal, auprès de patients complexes (unités d’isolement pour les traitements onco-hématologiques, soins intensifs) et assure une consultance téléphonique pour les 3 sites périphériques de l’hôpital. Elle propose une consultation ambulatoire (VIH, Hépatite, infectiologie générale) pour la population fribourgeoise. L’infectiologie dédie une partie de ses activités à la supervision de l’Unité de prévention et contrôle de l’infection.\n L’unité d’infectiologie de l’hôpital fribourgeois recherche un-e :\n\n• Vous assurez en horaire de journée les demandes de consultations provenant des différentes spécialités hospitalières et ambulatoires notamment en infectiologie générale, orthopédie septique, infections chirurgicales et pour des patients immunosupprimés.\n\n• Sous la supervision des médecins cadres, vous assurez la prise en charge infectiologique et le suivi des patients qui vous sont confiés dans l’ensemble de l’institution.\n\n• Vous participez au rapport quotidien du laboratoire de microbiologie.\n\n• Vous participez à la formation postgraduée.\n\n• Vous participez à la supervision des assistants en tournus de médecine interne\n\nVous souhaitez vous orienter vers un titre de spécialiste en infectiologie et avez effectué une partie ou l’entier de votre formation en médecine interne. Nous vous offrons la possibilité de rejoindre l’unité d’infectiologie pour une durée maximale de 18 mois .\n Exigences :\n\n• Diplôme fédéral de médecin ou diplôme reconnu équivalent par la Commission des professions médicales (MEBEKO)\n\n• Formation en médecine interne dont au moins 2 ans d’expérience en milieu hospitalier.\n\n• Souhait d’obtenir le titre de spécialiste en Infectiologie.\n\n• Expérience préalable en infectiologie clinique constitue un atout.\n\n• Sens de la coopération dans une équipe et en multidisciplinaire, engagement et disponibilité.\n\n• Maitrise de la langue française, et très bonne capacité d’expression ecrite et orale.",
+      "description": "L’Unité d’infectiologie est reconnue par l’ISFM comme établissement de formation postgraduée de catégorie B en infectiologie. Rattachée au Département de médecine et spécialités, elle exerce son activité principalement à HFR Fribourg – Hôpital cantonal, auprès de patients complexes (unités d’isolement pour les traitements onco-hématologiques, soins intensifs) et assure une consultance téléphonique pour les 3 sites périphériques de l’hôpital. Elle propose une consultation ambulatoire (VIH, Hépatite, infectiologie générale) pour la population fribourgeoise. L’infectiologie dédie une partie de ses activités à la supervision de l’Unité de prévention et contrôle de l’infection.\n L’unité d’infectiologie de l’hôpital fribourgeois recherche un-e :\n\n• Vous assurez en horaire de journée les demandes de consultations provenant des différentes spécialités hospitalières et ambulatoires notamment en infectiologie générale, orthopédie septique, infections chirurgicales et pour des patients immunosupprimés.\n\n• Sous la supervision des médecins cadres, vous assurez la prise en charge infectiologique et le suivi des patients qui vous sont confiés dans l’ensemble de l’institution.\n\n• Vous participez au rapport quotidien du laboratoire de microbiologie.\n\n• Vous participez à la formation postgraduée.\n\n• Vous participez à la supervision des assistants en tournus de médecine interne\n\nVous souhaitez vous orienter vers un titre de spécialiste en infectiologie et avez effectué une partie ou l’entier de votre formation en médecine interne. Nous vous offrons la possibilité de rejoindre l’unité d’infectiologie pour une durée maximale de 18 mois .\n Exigences :\n\n• Diplôme fédéral de médecin ou diplôme reconnu équivalent par la Commission des professions médicales (MEBEKO)\n\n• Formation en médecine interne dont au moins 2 ans d’expérience en milieu hospitalier.\n\n• Souhait d’obtenir le titre de spécialiste en Infectiologie.\n\n• Expérience préalable en infectiologie clinique constitue un atout.\n\n• Sens de la coopération dans une équipe et en multidisciplinaire, engagement et disponibilité.\n\n• Maitrise de la langue française, et très bonne capacité d’expression écrite et orale.",
       "descriptionByLocale": {
         "it": "L'unità Infectiology è riconosciuta da ISFM come istituto di formazione post-laurea di categoria B in infettiveologia. Situato nel Dipartimento di Medicina e Specialità, opera principalmente in HFR Fribourg – Ospedale cantonale, con pazienti complessi (unità di isolamento per trattamenti onco-haematologici, terapia intensiva) e fornisce una consultazione telefonica per i tre siti periferici dell'ospedale. Esso propone una consultazione ambulatoria (HIV, epatite, malattia infettiva generale) per la popolazione Friburgois. L'infezione dedica parte delle sue attività alla supervisione dell'unità di prevenzione e controllo delle infezioni.\nL'unità infettiva dell'ospedale Fribourg sta cercando un:\n\n• Si assicurano in un giorno le richieste di consultazioni dalle varie specialità ospedaliere e ambulatoriali, tra cui infettiologia generale, ortopedia settica, infezioni chirurgiche e pazienti immunosoppresso.\n\n• Sotto la supervisione dei medici esecutivi, si assicura la gestione infettiva e il follow-up dei pazienti a voi affidati in tutta l'istituzione.\n\n• Stai partecipando al rapporto giornaliero del laboratorio di microbiologia.\n\n• Si partecipa alla formazione post-laurea.\n\n• Si partecipa alla supervisione di assistenti in medicina interna gira\n\nSi desidera passare a una laurea come specialista infettivo e hanno completato alcuni o tutta la vostra formazione in medicina interna. Vi offriamo la possibilità di aderire all'unità di infezione per un massimo di 18 mesi.\nRequisiti:\n\n• Diploma federale di medico o diploma riconosciuto equivalente dalla Commissione delle professioni mediche (MEBEKO)\n\n• Formazione in medicina interna che comprende almeno 2 anni di esperienza in ospedale.\n\n• Vuole ottenere il titolo di specialista in Malattia Infettiva.\n\n• La prima esperienza nell'infezione clinica è un bene.\n\n• Significato della cooperazione in un team e in multidisciplinare, impegno e disponibilità.\n\n• Padrone della lingua francese, e molto buona capacità di espressione scritta e orale.",
         "en": "The Infectiology Unit is recognized by ISFM as a Category B post-graduate training institution in infectiousology. Located in the Department of Medicine and Specialties, it operates mainly in HFR Fribourg – Cantonal Hospital, with complex patients (isolation units for onco-haematological treatments, intensive care) and provides a telephone consultation for the three peripheral sites of the hospital. It proposes an ambulatory consultation (HIV, Hepatitis, general infectious disease) for the Fribourgeois population. Infectiology devotes part of its activities to the supervision of the Infection Prevention and Control Unit.\nThe infectiology unit of the Fribourg hospital is looking for a:\n\n• You ensure on a daytime basis the requests for consultations from the various hospital and outpatient specialties, including general infectiology, septic orthopaedics, surgical infections and immunosuppressed patients.\n\n• Under the supervision of the executive doctors, you ensure the infectious management and follow-up of the patients entrusted to you throughout the institution.\n\n• You are participating in the microbiology laboratory's daily report.\n\n• You participate in post-graduate training.\n\n• You participate in the supervision of assistants in internal medicine turns\n\nYou want to move to a degree as an infectious specialist and have completed some or all of your training in internal medicine. We offer you the possibility to join the infection unit for a maximum of 18 months.\nRequirements:\n\n• Federal diploma of doctor or diploma recognized equivalent by the Medical Professions Commission (MEBEKO)\n\n• Training in internal medicine including at least 2 years of experience in hospital.\n\n• Wants to get the title of specialist in Infectious Disease.\n\n• Prior experience in clinical infection is an asset.\n\n• Meaning of cooperation in a team and in multidisciplinary, commitment and availability.\n\n• Mastery of the French language, and very good capacity for written and oral expression.",
         "de": "Die Abteilung für Infektiologie wird von der ISFM als postgraduale Ausbildungseinrichtung der Kategorie B in Infektiologie anerkannt. Es befindet sich in der Abteilung für Medizin und Spezialgebiete und ist hauptsächlich im HFR-Krankenhaus Freiburg mit komplexen Patienten (Isolationseinheiten für onkohämatologische Behandlungen, Intensivstation) tätig und bietet eine telefonische Beratung für die drei peripheren Standorte des Krankenhauses. Es schlägt eine ambulante Konsultation (HIV, Hepatitis, allgemeine Infektionskrankheit) für die Freiburger Bevölkerung vor. Die Infektiologie widmet einen Teil ihrer Aktivitäten der Überwachung der Infection Prevention and Control Unit.\nDie Infektiologieabteilung des Freiburger Krankenhauses sucht eine:\n\n• Sie stellen tagsüber die Anfragen nach Konsultationen von den verschiedenen Krankenhaus- und ambulanten Fachgebieten sicher, einschließlich allgemeiner Infektiologie, septischer Orthopädie, chirurgischer Infektionen und immunsupprimierter Patienten.\n\n• Unter der Aufsicht der leitenden Ärzte, stellen Sie die Infektionsmanagement und Nachsorge der Ihnen anvertrauten Patienten in der gesamten Einrichtung.\n\n• Sie nehmen am täglichen Bericht des Mikrobiologielabors teil.\n\n• Sie nehmen an einer postgradualen Ausbildung teil.\n\n• Sie beteiligen sich an der Betreuung von Assistenten in der inneren Medizin dreht\n\nSie möchten zu einem gewissen Grad als Infektionsspezialist zu bewegen und haben einige oder alle Ihre Ausbildung in der inneren Medizin abgeschlossen. Wir bieten Ihnen die Möglichkeit, sich der Infektionseinheit für maximal 18 Monate anzuschließen.\nAnforderungen:\n\n• Bundesarztdiplom oder Diplom anerkannt gleichwertig von der Medical Professions Commission (MEBEKO)\n\n• Ausbildung in der inneren Medizin einschließlich mindestens 2 Jahre Erfahrung im Krankenhaus.\n\n• Will den Titel eines Spezialisten für Infektionskrankheiten bekommen.\n\n• Vorerfahrung in der klinischen Infektion ist ein Vorteil.\n\n• Bedeutung der Zusammenarbeit im Team und in multidisziplinärer, Engagement und Verfügbarkeit.\n\n• Beherrschung der französischen Sprache und sehr gute Fähigkeit zum schriftlichen und mündlichen Ausdruck.",
-        "fr": "L’Unité d’infectiologie est reconnue par l’ISFM comme établissement de formation postgraduée de catégorie B en infectiologie. Rattachée au Département de médecine et spécialités, elle exerce son activité principalement à HFR Fribourg – Hôpital cantonal, auprès de patients complexes (unités d’isolement pour les traitements onco-hématologiques, soins intensifs) et assure une consultance téléphonique pour les 3 sites périphériques de l’hôpital. Elle propose une consultation ambulatoire (VIH, Hépatite, infectiologie générale) pour la population fribourgeoise. L’infectiologie dédie une partie de ses activités à la supervision de l’Unité de prévention et contrôle de l’infection.\nL’unité d’infectiologie de l’hôpital fribourgeois recherche un-e :\n\n• Vous assurez en horaire de journée les demandes de consultations provenant des différentes spécialités hospitalières et ambulatoires notamment en infectiologie générale, orthopédie septique, infections chirurgicales et pour des patients immunosupprimés.\n\n• Sous la supervision des médecins cadres, vous assurez la prise en charge infectiologique et le suivi des patients qui vous sont confiés dans l’ensemble de l’institution.\n\n• Vous participez au rapport quotidien du laboratoire de microbiologie.\n\n• Vous participez à la formation postgraduée.\n\n• Vous participez à la supervision des assistants en tournus de médecine interne\n\nVous souhaitez vous orienter vers un titre de spécialiste en infectiologie et avez effectué une partie ou l’entier de votre formation en médecine interne. Nous vous offrons la possibilité de rejoindre l’unité d’infectiologie pour une durée maximale de 18 mois .\nExigences :\n\n• Diplôme fédéral de médecin ou diplôme reconnu équivalent par la Commission des professions médicales (MEBEKO)\n\n• Formation en médecine interne dont au moins 2 ans d’expérience en milieu hospitalier.\n\n• Souhait d’obtenir le titre de spécialiste en Infectiologie.\n\n• Expérience préalable en infectiologie clinique constitue un atout.\n\n• Sens de la coopération dans une équipe et en multidisciplinaire, engagement et disponibilité.\n\n• Maitrise de la langue française, et très bonne capacité d’expression ecrite et orale."
+        "fr": "L’Unité d’infectiologie est reconnue par l’ISFM comme établissement de formation postgraduée de catégorie B en infectiologie. Rattachée au Département de médecine et spécialités, elle exerce son activité principalement à HFR Fribourg – Hôpital cantonal, auprès de patients complexes (unités d’isolement pour les traitements onco-hématologiques, soins intensifs) et assure une consultance téléphonique pour les 3 sites périphériques de l’hôpital. Elle propose une consultation ambulatoire (VIH, Hépatite, infectiologie générale) pour la population fribourgeoise. L’infectiologie dédie une partie de ses activités à la supervision de l’Unité de prévention et contrôle de l’infection.\nL’unité d’infectiologie de l’hôpital fribourgeois recherche un-e :\n\n• Vous assurez en horaire de journée les demandes de consultations provenant des différentes spécialités hospitalières et ambulatoires notamment en infectiologie générale, orthopédie septique, infections chirurgicales et pour des patients immunosupprimés.\n\n• Sous la supervision des médecins cadres, vous assurez la prise en charge infectiologique et le suivi des patients qui vous sont confiés dans l’ensemble de l’institution.\n\n• Vous participez au rapport quotidien du laboratoire de microbiologie.\n\n• Vous participez à la formation postgraduée.\n\n• Vous participez à la supervision des assistants en tournus de médecine interne\n\nVous souhaitez vous orienter vers un titre de spécialiste en infectiologie et avez effectué une partie ou l’entier de votre formation en médecine interne. Nous vous offrons la possibilité de rejoindre l’unité d’infectiologie pour une durée maximale de 18 mois .\nExigences :\n\n• Diplôme fédéral de médecin ou diplôme reconnu équivalent par la Commission des professions médicales (MEBEKO)\n\n• Formation en médecine interne dont au moins 2 ans d’expérience en milieu hospitalier.\n\n• Souhait d’obtenir le titre de spécialiste en Infectiologie.\n\n• Expérience préalable en infectiologie clinique constitue un atout.\n\n• Sens de la coopération dans une équipe et en multidisciplinaire, engagement et disponibilité.\n\n• Maitrise de la langue française, et très bonne capacité d’expression écrite et orale."
       },
       "needsRetranslation": false,
       "location": "Fribourg, Switzerland",
@@ -458,7 +458,7 @@
       "url": "https://fa-eswr-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/fr/sites/CX_1/job/1421",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Oracle HCM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-09T09:49:15.639Z",
+      "crawledAt": "2026-11-10T09:41:03.681Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "streetAddress": "Fribourg",
@@ -511,41 +511,42 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-28T09:49:15.639Z",
+      "validThrough": "2027-01-28T09:41:03.681Z",
       "validThroughSource": "last-observed-window"
     },
     {
       "id": "hfr-hopital-fribourgeois-a4787cd8f211",
       "slug": "capo-della-clinica-hopital-fribourgeois-hfr-fribourg-switzerland-2634be",
       "slugByLocale": {
-        "fr": "chef-fe-de-clinique-hfr-hopital-fribourgeois-fribourg",
         "it": "capo-della-clinica-hopital-fribourgeois-hfr-fribourg-switzerland-2634be",
         "en": "head-of-clinic-hopital-fribourgeois-hfr-fribourg-switzerland-2634be",
-        "de": "leiter-der-klinik-hopital-fribourgeois-hfr-fribourg-switzerland-2634be"
+        "de": "leiter-der-klinik-hopital-fribourgeois-hfr-fribourg-switzerland-2634be",
+        "fr": "chef-fe-de-clinique-hfr-hopital-fribourgeois-fribourg"
       },
       "company": "Hôpital fribourgeois (HFR)",
       "companyKey": "hfr-hopital-fribourgeois",
       "companyDomain": "h-fr.ch",
       "title": "Chef-fe de clinique",
       "titleByLocale": {
-        "fr": "Chef-fe de clinique",
         "it": "Capo della clinica",
         "en": "Head of clinic",
-        "de": "Leiter der Klinik"
+        "de": "Leiter der Klinik",
+        "fr": "Chef-fe de clinique"
       },
       "description": "Afin de compléter son équipe, la Direction médicale de l’hôpital fribourgeois recherche pour le centre métabolique de l’HFR Fribourg – Hôpital cantonal un-e\n\n• Activité variée dans les domaines métabolique (patients en situation d’obésité)\n\n• Assurer la supervision des médecins-assistant-e-s du service\n\n• Collaborer au sein d'une équipe expérimentée et motivée, composée de médecins, de personnel infirmier, diététicien-ne-s et psychologues\n\n• Possibilité de se familiariser avec la nutrition clinique\n\n• Possibilité d’effectuer des ultrasons supervisés (POCUS)\n\n• Diplôme fédéral de médecin ou équivalent\n\n• Plusieurs années d’expérience en tant que médecin-assistant-e en médecine interne\n\n• Capacité d’écoute de suivi de malades chroniques\n\n• Une expérience dans les domaines du métabolisme, obésité, diabétologie et éventuellement en endocrinologie serait un avantage\n\n• Possibilité de reconnaissance d’une année de formation de médecine interne catégorie A\n\n• Personnalité ouverte et collégiale, désireuse de s’intégrer dans les habitudes du service et avec l’équipe en place ainsi que de collaborer activement avec les médecins des autres services de l’hôpital\n\n• Maîtrise de la langue française",
       "descriptionByLocale": {
-        "fr": "Afin de compléter son équipe, la Direction médicale de l’hôpital fribourgeois recherche pour le centre métabolique de l’HFR Fribourg – Hôpital cantonal un-e\n\n• Activité variée dans les domaines métabolique (patients en situation d’obésité)\n\n• Assurer la supervision des médecins-assistant-e-s du service\n\n• Collaborer au sein d'une équipe expérimentée et motivée, composée de médecins, de personnel infirmier, diététicien-ne-s et psychologues\n\n• Possibilité de se familiariser avec la nutrition clinique\n\n• Possibilité d’effectuer des ultrasons supervisés (POCUS)\n\n• Diplôme fédéral de médecin ou équivalent\n\n• Plusieurs années d’expérience en tant que médecin-assistant-e en médecine interne\n\n• Capacité d’écoute de suivi de malades chroniques\n\n• Une expérience dans les domaines du métabolisme, obésité, diabétologie et éventuellement en endocrinologie serait un avantage\n\n• Possibilité de reconnaissance d’une année de formation de médecine interne catégorie A\n\n• Personnalité ouverte et collégiale, désireuse de s’intégrer dans les habitudes du service et avec l’équipe en place ainsi que de collaborer activement avec les médecins des autres services de l’hôpital\n\n• Maîtrise de la langue française",
         "it": "Al fine di completare il suo team, la Direzione Medica dell'ospedale di Friburgo sta cercando il centro metabolico della HFR Freiburg – Ospedale cantonale\n\n• Variazione dell'attività metabolica (pazienti con obesità)\n\n• Supervisione degli assistenti medici nel dipartimento\n\n• Collaborare su un team esperto e motivato di medici, infermieri, dietisti e psicologi\n\n• Possibilità di conoscere la nutrizione clinica\n\n• Capacità di eseguire ultrasuoni supervisionati (POCUS)\n\n• Grado federale di dottore o equivalente\n\n• Diversi anni di esperienza come medico assistente nella medicina interna\n\n• Capacità di ascoltare i pazienti cronici\n\n• L'esperienza nelle aree di metabolismo, obesità, diabete e possibilmente endocrinologia sarebbe un vantaggio.\n\n• Possibilità di riconoscimento di un anno di formazione medica interna categoria A\n\n• Personalità aperta e collegiale, che desidera integrare nelle abitudini di servizio e con il team esistente, nonché collaborare attivamente con i medici in altri servizi ospedalieri\n\n• Mastery della lingua francese",
         "en": "In order to complete its team, the Medical Directorate of the Freiburg hospital is looking for the metabolic centre of the HFR Freiburg – Cantonal Hospital\n\n• Varied metabolic activity (patients with obesity)\n\n• Supervising medical assistants in the department\n\n• Collaborate on an experienced and motivated team of physicians, nurses, dieticians and psychologists\n\n• Possibility to become familiar with clinical nutrition\n\n• Ability to perform supervised ultrasound (POCUS)\n\n• Federal degree of doctor or equivalent\n\n• Several years of experience as an assistant physician in internal medicine\n\n• Ability to listen to chronic patients\n\n• Experience in the areas of metabolism, obesity, diabetes and possibly endocrinology would be an advantage.\n\n• Possibility of recognition of one year of internal medicine training category A\n\n• Open and collegial personality, wishing to integrate into service habits and with the existing team as well as to actively collaborate with doctors in other hospital services\n\n• Mastery of the French language",
-        "de": "Um sein Team zu vervollständigen, sucht die Ärztliche Direktion des Freiburger Krankenhauses das Stoffwechselzentrum der HFR Freiburg – Kantonalklinik\n\n• Variierte metabolische Aktivität (Patienten mit Fettleibigkeit)\n\n• Beaufsichtigung der medizinischen Assistenten in der Abteilung\n\n• Zusammenarbeit mit einem erfahrenen und motivierten Team von Ärzten, Krankenschwestern, Diätassistenten und Psychologen\n\n• Möglichkeit, sich mit der klinischen Ernährung vertraut zu machen\n\n• Fähigkeit, überwachten Ultraschall (POCUS) durchzuführen\n\n• Bundesarztgrad oder gleichwertig\n\n• Mehrjährige Erfahrung als Assistenzarzt in der Inneren Medizin\n\n• Fähigkeit, chronischen Patienten zuzuhören\n\n• Erfahrungen in den Bereichen Stoffwechsel, Fettleibigkeit, Diabetes und möglicherweise Endokrinologie wären von Vorteil.\n\n• Möglichkeit der Anerkennung eines Jahres der Ausbildung für Innere Medizin Kategorie A\n\n• Offene und kollegiale Persönlichkeit, die sich in Servicegewohnheiten und mit dem bestehenden Team integrieren und aktiv mit Ärzten in anderen Krankenhausdiensten zusammenarbeiten möchte\n\n• Beherrschung der französischen Sprache"
+        "de": "Um sein Team zu vervollständigen, sucht die Ärztliche Direktion des Freiburger Krankenhauses das Stoffwechselzentrum der HFR Freiburg – Kantonalklinik\n\n• Variierte metabolische Aktivität (Patienten mit Fettleibigkeit)\n\n• Beaufsichtigung der medizinischen Assistenten in der Abteilung\n\n• Zusammenarbeit mit einem erfahrenen und motivierten Team von Ärzten, Krankenschwestern, Diätassistenten und Psychologen\n\n• Möglichkeit, sich mit der klinischen Ernährung vertraut zu machen\n\n• Fähigkeit, überwachten Ultraschall (POCUS) durchzuführen\n\n• Bundesarztgrad oder gleichwertig\n\n• Mehrjährige Erfahrung als Assistenzarzt in der Inneren Medizin\n\n• Fähigkeit, chronischen Patienten zuzuhören\n\n• Erfahrungen in den Bereichen Stoffwechsel, Fettleibigkeit, Diabetes und möglicherweise Endokrinologie wären von Vorteil.\n\n• Möglichkeit der Anerkennung eines Jahres der Ausbildung für Innere Medizin Kategorie A\n\n• Offene und kollegiale Persönlichkeit, die sich in Servicegewohnheiten und mit dem bestehenden Team integrieren und aktiv mit Ärzten in anderen Krankenhausdiensten zusammenarbeiten möchte\n\n• Beherrschung der französischen Sprache",
+        "fr": "Afin de compléter son équipe, la Direction médicale de l’hôpital fribourgeois recherche pour le centre métabolique de l’HFR Fribourg – Hôpital cantonal un-e\n\n• Activité variée dans les domaines métabolique (patients en situation d’obésité)\n\n• Assurer la supervision des médecins-assistant-e-s du service\n\n• Collaborer au sein d'une équipe expérimentée et motivée, composée de médecins, de personnel infirmier, diététicien-ne-s et psychologues\n\n• Possibilité de se familiariser avec la nutrition clinique\n\n• Possibilité d’effectuer des ultrasons supervisés (POCUS)\n\n• Diplôme fédéral de médecin ou équivalent\n\n• Plusieurs années d’expérience en tant que médecin-assistant-e en médecine interne\n\n• Capacité d’écoute de suivi de malades chroniques\n\n• Une expérience dans les domaines du métabolisme, obésité, diabétologie et éventuellement en endocrinologie serait un avantage\n\n• Possibilité de reconnaissance d’une année de formation de médecine interne catégorie A\n\n• Personnalité ouverte et collégiale, désireuse de s’intégrer dans les habitudes du service et avec l’équipe en place ainsi que de collaborer activement avec les médecins des autres services de l’hôpital\n\n• Maîtrise de la langue française"
       },
+      "needsRetranslation": false,
       "location": "Fribourg, Switzerland",
       "canton": "FR",
       "url": "https://fa-eswr-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/fr/sites/CX_1/job/1420",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Oracle HCM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-09T09:49:14.875Z",
+      "crawledAt": "2026-11-10T09:41:02.884Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "streetAddress": "Fribourg",
@@ -567,6 +568,21 @@
       "externalId": "1420",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "chef-fe-de-clinique-hfr-hopital-fribourgeois-fribourg-2"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "chef-fe-de-clinique-hfr-hopital-fribourgeois-fribourg-2"
+        ],
+        "en": [
+          "chef-fe-de-clinique-hfr-hopital-fribourgeois-fribourg-2"
+        ],
+        "de": [
+          "chef-fe-de-clinique-hfr-hopital-fribourgeois-fribourg-2"
+        ]
+      },
+      "firstSeenAt": "2026-11-06T22:04:58.243Z",
       "salaryMin": 115000,
       "salaryMax": 160000,
       "salarySource": "estimated",
@@ -581,56 +597,42 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-27T09:49:14.875Z",
-      "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-06T22:04:58.243Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "chef-fe-de-clinique-hfr-hopital-fribourgeois-fribourg-2"
-        ],
-        "en": [
-          "chef-fe-de-clinique-hfr-hopital-fribourgeois-fribourg-2"
-        ],
-        "de": [
-          "chef-fe-de-clinique-hfr-hopital-fribourgeois-fribourg-2"
-        ]
-      },
-      "previousSlugs": [
-        "chef-fe-de-clinique-hfr-hopital-fribourgeois-fribourg-2"
-      ]
+      "validThrough": "2027-01-27T09:41:02.884Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "hfr-hopital-fribourgeois-392144471367",
       "slug": "capo-della-clinica-hopital-fribourgeois-hfr-fribourg-switzerland-cea670",
       "slugByLocale": {
-        "fr": "chef-fe-de-clinique-hfr-hopital-fribourgeois-fribourg",
         "it": "capo-della-clinica-hopital-fribourgeois-hfr-fribourg-switzerland-cea670",
         "en": "head-of-clinic-hopital-fribourgeois-hfr-fribourg-switzerland-cea670",
-        "de": "leiter-der-klinik-hopital-fribourgeois-hfr-fribourg-switzerland-cea670"
+        "de": "leiter-der-klinik-hopital-fribourgeois-hfr-fribourg-switzerland-cea670",
+        "fr": "chef-fe-de-clinique-hfr-hopital-fribourgeois-fribourg"
       },
       "company": "Hôpital fribourgeois (HFR)",
       "companyKey": "hfr-hopital-fribourgeois",
       "companyDomain": "h-fr.ch",
       "title": "Chef-fe de clinique",
       "titleByLocale": {
-        "fr": "Chef-fe de clinique",
         "it": "Capo della clinica",
         "en": "Head of clinic",
-        "de": "Leiter der Klinik"
+        "de": "Leiter der Klinik",
+        "fr": "Chef-fe de clinique"
       },
       "description": "Dans le but d’assurer la qualité des soins ambulatoires et hospitaliers et d’assurer la participation à la formation pré- et post-grade en neurologie (clinique C), la direction médicale de l’hôpital fribourgeois recherche pour le service de neurologie de l’HFR Fribourg – Hôpital cantonal, un-e\n\n• participer à une prise en charge de qualité des patient-e-s dans la stroke unit et les unités d’hospitalisation\n\n• participer aux consultations ambulatoires\n\n• soutenir dans la mesure du possible l’activité neurophysiologique (en particulier Doppler et/ou ENMG) de la consultation hospitalière et ambulatoire\n\n• participer au service de piquet\n\n• superviser les médecins-assistant-e-s et participer à leur formation\n\n• participer aux études cliniques multicentriques ou développées localement\n\n• participer à l’enseignement des étudiants de l’Université de Fribourg\n\n• titulaire FMH de spécialiste en neurologie (ou équivalent) ou en dernière année de formation en tant que neurologue\n\n• au moins 3 années d’expérience en neurologie dans une clinique A\n\n• idéalement certificat SSNC ou équivalent pour Doppler, ENMG, et/ou EEG\n\n• maîtrise de la langue française (écrite et orale) et allemande (orale)\n\n• personnalité dynamique, ouverte et collégiale\n\n• intérêt pour la neurologie générale, l’enseignement et la recherche clinique",
       "descriptionByLocale": {
-        "fr": "Dans le but d’assurer la qualité des soins ambulatoires et hospitaliers et d’assurer la participation à la formation pré- et post-grade en neurologie (clinique C), la direction médicale de l’hôpital fribourgeois recherche pour le service de neurologie de l’HFR Fribourg – Hôpital cantonal, un-e\n\n• participer à une prise en charge de qualité des patient-e-s dans la stroke unit et les unités d’hospitalisation\n\n• participer aux consultations ambulatoires\n\n• soutenir dans la mesure du possible l’activité neurophysiologique (en particulier Doppler et/ou ENMG) de la consultation hospitalière et ambulatoire\n\n• participer au service de piquet\n\n• superviser les médecins-assistant-e-s et participer à leur formation\n\n• participer aux études cliniques multicentriques ou développées localement\n\n• participer à l’enseignement des étudiants de l’Université de Fribourg\n\n• titulaire FMH de spécialiste en neurologie (ou équivalent) ou en dernière année de formation en tant que neurologue\n\n• au moins 3 années d’expérience en neurologie dans une clinique A\n\n• idéalement certificat SSNC ou équivalent pour Doppler, ENMG, et/ou EEG\n\n• maîtrise de la langue française (écrite et orale) et allemande (orale)\n\n• personnalité dynamique, ouverte et collégiale\n\n• intérêt pour la neurologie générale, l’enseignement et la recherche clinique",
         "it": "Al fine di garantire la qualità delle cure ospedaliere e ospedaliere e garantire la partecipazione alla formazione pre- e post-grado in neurologia (Clinical C), la gestione medica della ricerca ospedaliera di Friburgo per il servizio neurologico dell'Ospedale cantonale di HFR Freiburg,\n\n• partecipare alla gestione della qualità dei pazienti nell'unità di ictus e unità ospedaliere\n\n• partecipare a consultazioni ambulatoriale\n\n• supporto per quanto possibile attività neurofisiologica (in particolare Doppler e/o ENMG) di consultazione ospedaliera e ambulatorio\n\n• partecipare al servizio picket\n\n• supervisionare e partecipare alla formazione del medico\n\n• partecipare a studi clinici multicentri o localmente sviluppati\n\n• partecipare all'insegnamento degli studenti dell'Università di Friburgo\n\n• titolare FMH di neurologia specialista (o equivalente) o anno finale di formazione come neurologo\n\n• almeno 3 anni di esperienza in neurologia in una clinica A\n\n• certificato SSNC o equivalente per Doppler, ENMG e/o EEG\n\n• padronanza della lingua francese (scritta e orale) e tedesca (orale)\n\n• personalità dinamica, aperta e collegiale\n\n• interesse per la neurologia generale, l'insegnamento e la ricerca clinica",
         "en": "In order to ensure the quality of outpatient and hospital care and to ensure participation in the pre- and post-grade training in neurology (Clinical C), the medical management of the Freiburg hospital research for the neurology service of the HFR Freiburg – Cantonal Hospital, a\n\n• participate in quality management of patients in the stroke unit and hospital units\n\n• participate in outpatient consultations\n\n• support as much as possible neurophysiological activity (in particular Doppler and/or ENMG) of hospital and outpatient consultation\n\n• participating in the picket service\n\n• supervise and participate in physician training\n\n• participate in multicentre or locally developed clinical studies\n\n• participating in the teaching of students of the University of Fribourg\n\n• FMH holder of neurology specialist (or equivalent) or final year of training as a neurologist\n\n• at least 3 years of experience in neurology in a clinic A\n\n• ideally SSNC certificate or equivalent for Doppler, ENMG, and/or EEG\n\n• mastery of the French language (written and oral) and German (oral)\n\n• dynamic, open and collegial personality\n\n• interest in general neurology, teaching and clinical research",
-        "de": "Um die Qualität der ambulanten und Krankenhausversorgung zu gewährleisten und die Teilnahme an der Vor- und Nachschulung in Neurologie (Clinical C) sicherzustellen, wird die medizinische Leitung der Freiburger Krankenhausforschung für den Neurologiedienst des HFR Freiburg – Kantonalspitals, ein\n\n• Beteiligung am Qualitätsmanagement von Patienten in der Schlaganfall- und Krankenhauseinheit\n\n• Teilnahme an ambulanten Konsultationen\n\n• Unterstützung möglichst neurophysiologischer Aktivitäten (insbesondere Doppler und/oder ENMG) im Krankenhaus und ambulanter Beratung\n\n• Teilnahme am Streikpostendienst\n\n• Beaufsichtigung und Teilnahme an der Ausbildung von Ärzten\n\n• Teilnahme an multizentrischen oder lokal entwickelten klinischen Studien\n\n• Teilnahme an der Lehre von Studierenden der Universität Freiburg\n\n• FMH Inhaber von Neurologie-Spezialist (oder gleichwertig) oder letztes Jahr der Ausbildung zum Neurologen\n\n• mindestens 3 Jahre Erfahrung in Neurologie in einer Klinik A\n\n• Idealerweise SSNC-Zertifikat oder gleichwertig für Doppler, ENMG und / oder EEG\n\n• Beherrschung der französischen Sprache (schriftlich und mündlich) und Deutsch (mündlich)\n\n• dynamische, offene und kollegiale Persönlichkeit\n\n• Interesse an allgemeiner Neurologie, Lehre und klinischer Forschung"
+        "de": "Um die Qualität der ambulanten und Krankenhausversorgung zu gewährleisten und die Teilnahme an der Vor- und Nachschulung in Neurologie (Clinical C) sicherzustellen, wird die medizinische Leitung der Freiburger Krankenhausforschung für den Neurologiedienst des HFR Freiburg – Kantonalspitals, ein\n\n• Beteiligung am Qualitätsmanagement von Patienten in der Schlaganfall- und Krankenhauseinheit\n\n• Teilnahme an ambulanten Konsultationen\n\n• Unterstützung möglichst neurophysiologischer Aktivitäten (insbesondere Doppler und/oder ENMG) im Krankenhaus und ambulanter Beratung\n\n• Teilnahme am Streikpostendienst\n\n• Beaufsichtigung und Teilnahme an der Ausbildung von Ärzten\n\n• Teilnahme an multizentrischen oder lokal entwickelten klinischen Studien\n\n• Teilnahme an der Lehre von Studierenden der Universität Freiburg\n\n• FMH Inhaber von Neurologie-Spezialist (oder gleichwertig) oder letztes Jahr der Ausbildung zum Neurologen\n\n• mindestens 3 Jahre Erfahrung in Neurologie in einer Klinik A\n\n• Idealerweise SSNC-Zertifikat oder gleichwertig für Doppler, ENMG und / oder EEG\n\n• Beherrschung der französischen Sprache (schriftlich und mündlich) und Deutsch (mündlich)\n\n• dynamische, offene und kollegiale Persönlichkeit\n\n• Interesse an allgemeiner Neurologie, Lehre und klinischer Forschung",
+        "fr": "Dans le but d’assurer la qualité des soins ambulatoires et hospitaliers et d’assurer la participation à la formation pré- et post-grade en neurologie (clinique C), la direction médicale de l’hôpital fribourgeois recherche pour le service de neurologie de l’HFR Fribourg – Hôpital cantonal, un-e\n\n• participer à une prise en charge de qualité des patient-e-s dans la stroke unit et les unités d’hospitalisation\n\n• participer aux consultations ambulatoires\n\n• soutenir dans la mesure du possible l’activité neurophysiologique (en particulier Doppler et/ou ENMG) de la consultation hospitalière et ambulatoire\n\n• participer au service de piquet\n\n• superviser les médecins-assistant-e-s et participer à leur formation\n\n• participer aux études cliniques multicentriques ou développées localement\n\n• participer à l’enseignement des étudiants de l’Université de Fribourg\n\n• titulaire FMH de spécialiste en neurologie (ou équivalent) ou en dernière année de formation en tant que neurologue\n\n• au moins 3 années d’expérience en neurologie dans une clinique A\n\n• idéalement certificat SSNC ou équivalent pour Doppler, ENMG, et/ou EEG\n\n• maîtrise de la langue française (écrite et orale) et allemande (orale)\n\n• personnalité dynamique, ouverte et collégiale\n\n• intérêt pour la neurologie générale, l’enseignement et la recherche clinique"
       },
+      "needsRetranslation": false,
       "location": "Fribourg, Switzerland",
       "canton": "FR",
       "url": "https://fa-eswr-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/fr/sites/CX_1/job/1397",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Oracle HCM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-09T09:49:14.107Z",
+      "crawledAt": "2026-11-10T09:41:02.022Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "streetAddress": "Fribourg",
@@ -652,6 +654,21 @@
       "externalId": "1397",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "chef-fe-de-clinique-hfr-hopital-fribourgeois-fribourg-3"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "chef-fe-de-clinique-hfr-hopital-fribourgeois-fribourg-3"
+        ],
+        "en": [
+          "chef-fe-de-clinique-hfr-hopital-fribourgeois-fribourg-3"
+        ],
+        "de": [
+          "chef-fe-de-clinique-hfr-hopital-fribourgeois-fribourg-3"
+        ]
+      },
+      "firstSeenAt": "2026-11-06T22:04:58.243Z",
       "salaryMin": 115000,
       "salaryMax": 160000,
       "salarySource": "estimated",
@@ -666,23 +683,8 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-27T09:49:14.107Z",
-      "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-06T22:04:58.243Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "chef-fe-de-clinique-hfr-hopital-fribourgeois-fribourg-3"
-        ],
-        "en": [
-          "chef-fe-de-clinique-hfr-hopital-fribourgeois-fribourg-3"
-        ],
-        "de": [
-          "chef-fe-de-clinique-hfr-hopital-fribourgeois-fribourg-3"
-        ]
-      },
-      "previousSlugs": [
-        "chef-fe-de-clinique-hfr-hopital-fribourgeois-fribourg-3"
-      ]
+      "validThrough": "2027-01-27T09:41:02.022Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "hfr-hopital-fribourgeois-0fc4713bc8fd",
@@ -715,7 +717,7 @@
       "url": "https://fa-eswr-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/fr/sites/CX_1/job/1605",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Oracle HCM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-09T09:49:13.534Z",
+      "crawledAt": "2026-11-10T09:41:01.104Z",
       "addressLocality": "Tafers",
       "addressRegion": "FR",
       "streetAddress": "Tafers",
@@ -763,7 +765,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T09:49:13.534Z",
+      "validThrough": "2027-02-03T09:41:01.104Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -797,7 +799,7 @@
       "url": "https://fa-eswr-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/fr/sites/CX_1/job/1604",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Oracle HCM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-09T09:49:12.776Z",
+      "crawledAt": "2026-11-10T09:41:00.279Z",
       "addressLocality": "Tafers",
       "addressRegion": "FR",
       "streetAddress": "Tafers",
@@ -848,7 +850,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T09:49:12.776Z",
+      "validThrough": "2027-02-03T09:41:00.279Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -870,12 +872,12 @@
         "de": "Ersatzkrankenschwester",
         "fr": "Infirmier-ère remplaçant-e"
       },
-      "description": "Afin de compléter son équipe, la direction des soins recherche pour son équipe de remplacement, des\n\n• assurer tous les types de remplacements en fonction des besoins et des missions confiées\n\n• prodiguer des soins de qualité en partenariat avec le ou la patient-e et son entourage, dans le respect de la philosophie de soins en vigueur et dans un souci d’amélioration continue\n\n• collaborer avec les membres de l’équipe pluridisciplinaire\n\n• s’adapter rapidement aux différents services de soins\n\n• diplôme d’infirmier-ère en soins généraux, niveau ES ou HES, ou formation jugée équivalente\n\n• maîtrise des gestes techniques avec des compétences professionnelles multiples\n\n• maîtrise de la langue française ou allemande avec de bonnes connaissances de l’autre langue\n\n• très bonnes capacités d'adaptation\n\n• très bonnes flexibilité et disponibilité\n\n• capacités relationnelles et sens de la communication\n\n• très bonnes connaissances du réseau et des sites HFR\n\n• bonne connaissance des outils informatiques usuels\n\n• volonté à suivre les formations nécessaires à l’adaptation au poste\n\n• être véhiculé pour travailler sur les 4 sites",
+      "description": "Afin de compléter son équipe, la direction des soins recherche pour son équipe de remplacement, des Infirmier-ère remplaçant-e\n\n• assurer tous les types de remplacements en fonction des besoins et des missions confiées\n\n• prodiguer des soins de qualité en partenariat avec le ou la patient-e et son entourage, dans le respect de la philosophie de soins en vigueur et dans un souci d’amélioration continue\n\n• collaborer avec les membres de l’équipe pluridisciplinaire\n\n• s’adapter rapidement aux différents services de soins\n\n• diplôme d’infirmier-ère en soins généraux, niveau ES ou HES, ou formation jugée équivalente\n\n• maîtrise des gestes techniques avec des compétences professionnelles multiples\n\n• maîtrise de la langue française ou allemande avec de bonnes connaissances de l’autre langue\n\n• très bonnes capacités d'adaptation\n\n• très bonnes flexibilité et disponibilité\n\n• capacités relationnelles et sens de la communication\n\n• très bonnes connaissances du réseau et des sites HFR\n\n• bonne connaissance des outils informatiques usuels\n\n• volonté à suivre les formations nécessaires à l’adaptation au poste\n\n• être véhiculé pour travailler sur les 4 sites",
       "descriptionByLocale": {
         "it": "Al fine di integrare il suo team, la gestione della cura sta cercando il suo team sostitutivo,\n\n• garantire tutti i tipi di sostituzioni come richiesto e richiesto\n\n• fornire assistenza di qualità in collaborazione con il paziente e l'ambiente del paziente, in conformità con l'attuale filosofia di cura e al fine di migliorare continuamente\n\n• collaborare con i membri del team multidisciplinari\n\n• adattarsi rapidamente a diversi servizi di assistenza\n\n• grado di assistenza generale, livello ES o HES, o formazione equivalente\n\n• padronanza dei gesti tecnici con molteplici competenze professionali\n\n• padronanza della lingua francese o tedesca con buona conoscenza dell'altra lingua\n\n• molto buona adattabilità\n\n• ottima flessibilità e disponibilità\n\n• capacità relazionali e senso della comunicazione\n\n• ottima conoscenza della rete HFR e dei siti\n\n• buona conoscenza degli strumenti informatici comuni\n\n• volontà di prendere la formazione necessaria per adattarsi al post\n\n• essere trasportato a lavorare sui 4 siti",
         "en": "In order to complement its team, the care management is looking for its replacement team,\n\n• ensure all types of replacements as required and required\n\n• providing quality care in partnership with the patient and the patient's environment, in accordance with the current care philosophy and with a view to continuous improvement\n\n• collaborate with multidisciplinary team members\n\n• adapt quickly to different care services\n\n• degree in general care, ES or HES level, or equivalent training\n\n• mastery of technical gestures with multiple professional skills\n\n• mastery of the French or German language with good knowledge of the other language\n\n• very good adaptability\n\n• very good flexibility and availability\n\n• relational abilities and sense of communication\n\n• very good knowledge of the HFR network and sites\n\n• good knowledge of common computer tools\n\n• willingness to take the necessary training to adapt to the post\n\n• be conveyed to work on the 4 sites",
         "de": "Um sein Team zu ergänzen, sucht das Pflegemanagement sein Ersatzteam,\n\n• sicherstellen, dass alle Arten von Ersatz wie erforderlich und erforderlich\n\n• Bereitstellung einer qualitativ hochwertigen Versorgung in Partnerschaft mit dem Patienten und der Umgebung des Patienten, in Übereinstimmung mit der aktuellen Pflegephilosophie und im Hinblick auf eine kontinuierliche Verbesserung\n\n• Zusammenarbeit mit multidisziplinären Teammitgliedern\n\n• sich schnell an verschiedene Pflegedienste anzupassen\n\n• Abschluss in Allgemeinpflege, ES- oder HES-Ebene oder gleichwertige Ausbildung\n\n• Beherrschung von technischen Gesten mit mehreren beruflichen Fähigkeiten\n\n• Beherrschung der französischen oder deutschen Sprache mit guten Kenntnissen der anderen Sprache\n\n• sehr gute Anpassbarkeit\n\n• sehr gute Flexibilität und Verfügbarkeit\n\n• relationale Fähigkeiten und Sinn für Kommunikation\n\n• sehr gute Kenntnisse des HFR-Netzwerks und der HFR-Standorte\n\n• gute Kenntnisse der gängigen Computer-Tools\n\n• Bereitschaft, die notwendige Ausbildung zu nehmen, um sich an die Stelle anzupassen\n\n• werden vermittelt, um an den 4 Standorten zu arbeiten",
-        "fr": "Afin de compléter son équipe, la direction des soins recherche pour son équipe de remplacement, des\n\n• assurer tous les types de remplacements en fonction des besoins et des missions confiées\n\n• prodiguer des soins de qualité en partenariat avec le ou la patient-e et son entourage, dans le respect de la philosophie de soins en vigueur et dans un souci d’amélioration continue\n\n• collaborer avec les membres de l’équipe pluridisciplinaire\n\n• s’adapter rapidement aux différents services de soins\n\n• diplôme d’infirmier-ère en soins généraux, niveau ES ou HES, ou formation jugée équivalente\n\n• maîtrise des gestes techniques avec des compétences professionnelles multiples\n\n• maîtrise de la langue française ou allemande avec de bonnes connaissances de l’autre langue\n\n• très bonnes capacités d'adaptation\n\n• très bonnes flexibilité et disponibilité\n\n• capacités relationnelles et sens de la communication\n\n• très bonnes connaissances du réseau et des sites HFR\n\n• bonne connaissance des outils informatiques usuels\n\n• volonté à suivre les formations nécessaires à l’adaptation au poste\n\n• être véhiculé pour travailler sur les 4 sites"
+        "fr": "Afin de compléter son équipe, la direction des soins recherche pour son équipe de remplacement, des Infirmier-ère remplaçant-e\n\n• assurer tous les types de remplacements en fonction des besoins et des missions confiées\n\n• prodiguer des soins de qualité en partenariat avec le ou la patient-e et son entourage, dans le respect de la philosophie de soins en vigueur et dans un souci d’amélioration continue\n\n• collaborer avec les membres de l’équipe pluridisciplinaire\n\n• s’adapter rapidement aux différents services de soins\n\n• diplôme d’infirmier-ère en soins généraux, niveau ES ou HES, ou formation jugée équivalente\n\n• maîtrise des gestes techniques avec des compétences professionnelles multiples\n\n• maîtrise de la langue française ou allemande avec de bonnes connaissances de l’autre langue\n\n• très bonnes capacités d'adaptation\n\n• très bonnes flexibilité et disponibilité\n\n• capacités relationnelles et sens de la communication\n\n• très bonnes connaissances du réseau et des sites HFR\n\n• bonne connaissance des outils informatiques usuels\n\n• volonté à suivre les formations nécessaires à l’adaptation au poste\n\n• être véhiculé pour travailler sur les 4 sites"
       },
       "needsRetranslation": false,
       "location": "Fribourg, Switzerland",
@@ -883,7 +885,7 @@
       "url": "https://fa-eswr-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/fr/sites/CX_1/job/1601",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Oracle HCM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-09T09:49:10.707Z",
+      "crawledAt": "2026-11-10T09:40:59.715Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "streetAddress": "Fribourg",
@@ -934,7 +936,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T09:49:10.707Z",
+      "validThrough": "2027-02-03T09:40:59.715Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -956,19 +958,20 @@
         "de": "Assistent-e en soins et santé communautaire remplaçant-e",
         "fr": "Assistant-e en soins et santé communautaire remplaçant-e"
       },
-      "description": "Afin de compléter son équipe, la direction des soins recherche pour son équipe de remplacement, des\n\n• Accueillir et soutenir les patient-e-s selon les normes professionnelles en vigueur et selon l’organisation du service\n\n• Prodiguer des soins techniques de qualité\n\n• Participer à la mise en œuvre du projet thérapeutique avec le patient ou la patiente, en collaboration étroite avec l’équipe interdisciplinaire\n\n• Participer activement au bon fonctionnement du service en proposant des mesures d’amélioration\n\n• Travailler en binôme avec l’infirmier-ère\n\n• Certificat d'assistant-e en soins et santé communautaire\n\n• Travail de jour et de nuit\n\n• Maîtrise de la langue française ou allemande avec de bonnes connaissances de l’autre langue\n\n• Très bonnes flexibilité et disponibilité\n\n• Très bonnes connaissances du réseau et des sites HFR\n\n• Maîtrise des outils informatiques usuels\n\n• Capacité à travailler en équipe pluridisciplinaire\n\n• Etre véhiculé pour travailler sur les 4 sites",
+      "description": "Afin de compléter son équipe, la direction des soins recherche pour son équipe de remplacement, des Assistant-e en soins et santé communautaire remplaçant-e\n\n• Accueillir et soutenir les patient-e-s selon les normes professionnelles en vigueur et selon l’organisation du service\n\n• Prodiguer des soins techniques de qualité\n\n• Participer à la mise en œuvre du projet thérapeutique avec le patient ou la patiente, en collaboration étroite avec l’équipe interdisciplinaire\n\n• Participer activement au bon fonctionnement du service en proposant des mesures d’amélioration\n\n• Travailler en binôme avec l’infirmier-ère\n\n• Certificat d'assistant-e en soins et santé communautaire\n\n• Travail de jour et de nuit\n\n• Maîtrise de la langue française ou allemande avec de bonnes connaissances de l’autre langue\n\n• Très bonnes flexibilité et disponibilité\n\n• Très bonnes connaissances du réseau et des sites HFR\n\n• Maîtrise des outils informatiques usuels\n\n• Capacité à travailler en équipe pluridisciplinaire\n\n• Etre véhiculé pour travailler sur les 4 sites",
       "descriptionByLocale": {
         "it": "Al fine di integrare il suo team, la gestione della cura sta cercando il suo team sostitutivo,\n\n• Accogliere e sostenere i pazienti secondo gli standard professionali attuali e l'organizzazione dei servizi\n\n• Fornire assistenza tecnica di qualità\n\n• Partecipa all'attuazione del progetto terapeutico con il paziente, in stretta collaborazione con il team interdisciplinare\n\n• Partecipa attivamente al corretto funzionamento del servizio proponendo misure di miglioramento\n\n• Lavorare in coppia con infermiera\n\n• Certificato di Assistente per la Salute e la Cura della Comunità\n\n• Lavoro di giorno e notte\n\n• Masterizzazione della lingua francese o tedesca con buona conoscenza dell'altra lingua\n\n• Ottima flessibilità e disponibilità\n\n• Ottima conoscenza della rete HFR e dei siti\n\n• Mastery di strumenti informatici comuni\n\n• Capacità di lavorare in un team multidisciplinare\n\n• Essere trasportato a lavorare sui 4 siti",
         "en": "In order to complement its team, the care management is looking for its replacement team,\n\n• Welcoming and supporting patients according to current professional standards and service organization\n\n• Providing quality technical care\n\n• Participate in the implementation of the therapeutic project with the patient, in close collaboration with the interdisciplinary team\n\n• Actively participate in the proper functioning of the service by proposing improvement measures\n\n• Working in pairs with nurse\n\n• Certificate of Community Health and Care Assistant\n\n• Day and night work\n\n• Mastery of the French or German language with good knowledge of the other language\n\n• Very good flexibility and availability\n\n• Very good knowledge of the HFR network and sites\n\n• Mastery of common computer tools\n\n• Ability to work in a multidisciplinary team\n\n• Being transported to work on the 4 sites",
         "de": "Um sein Team zu ergänzen, sucht das Pflegemanagement sein Ersatzteam,\n\n• Begrüßung und Unterstützung von Patienten nach aktuellen professionellen Standards und Serviceorganisation\n\n• Bereitstellung hochwertiger technischer Betreuung\n\n• Beteiligen Sie sich an der Durchführung des therapeutischen Projekts mit dem Patienten, in enger Zusammenarbeit mit dem interdisziplinären Team\n\n• Aktiv am ordnungsgemäßen Funktionieren des Dienstes teilnehmen, indem Verbesserungsmaßnahmen vorgeschlagen werden\n\n• Arbeiten in Paaren mit Krankenschwester\n\n• Bescheinigung des Gesundheits- und Pflegeassistenten der Gemeinschaft\n\n• Tag- und Nachtarbeit\n\n• Beherrschung der französischen oder deutschen Sprache mit guten Kenntnissen der anderen Sprache\n\n• Sehr gute Flexibilität und Verfügbarkeit\n\n• Sehr gute Kenntnisse des HFR-Netzwerks und der HFR-Standorte\n\n• Beherrschung gemeinsamer Computer-Tools\n\n• Fähigkeit, in einem multidisziplinären Team zu arbeiten\n\n• Transportiert, um an den 4 Standorten zu arbeiten",
-        "fr": "Afin de compléter son équipe, la direction des soins recherche pour son équipe de remplacement, des\n\n• Accueillir et soutenir les patient-e-s selon les normes professionnelles en vigueur et selon l’organisation du service\n\n• Prodiguer des soins techniques de qualité\n\n• Participer à la mise en œuvre du projet thérapeutique avec le patient ou la patiente, en collaboration étroite avec l’équipe interdisciplinaire\n\n• Participer activement au bon fonctionnement du service en proposant des mesures d’amélioration\n\n• Travailler en binôme avec l’infirmier-ère\n\n• Certificat d'assistant-e en soins et santé communautaire\n\n• Travail de jour et de nuit\n\n• Maîtrise de la langue française ou allemande avec de bonnes connaissances de l’autre langue\n\n• Très bonnes flexibilité et disponibilité\n\n• Très bonnes connaissances du réseau et des sites HFR\n\n• Maîtrise des outils informatiques usuels\n\n• Capacité à travailler en équipe pluridisciplinaire\n\n• Etre véhiculé pour travailler sur les 4 sites"
+        "fr": "Afin de compléter son équipe, la direction des soins recherche pour son équipe de remplacement, des Assistant-e en soins et santé communautaire remplaçant-e\n\n• Accueillir et soutenir les patient-e-s selon les normes professionnelles en vigueur et selon l’organisation du service\n\n• Prodiguer des soins techniques de qualité\n\n• Participer à la mise en œuvre du projet thérapeutique avec le patient ou la patiente, en collaboration étroite avec l’équipe interdisciplinaire\n\n• Participer activement au bon fonctionnement du service en proposant des mesures d’amélioration\n\n• Travailler en binôme avec l’infirmier-ère\n\n• Certificat d'assistant-e en soins et santé communautaire\n\n• Travail de jour et de nuit\n\n• Maîtrise de la langue française ou allemande avec de bonnes connaissances de l’autre langue\n\n• Très bonnes flexibilité et disponibilité\n\n• Très bonnes connaissances du réseau et des sites HFR\n\n• Maîtrise des outils informatiques usuels\n\n• Capacité à travailler en équipe pluridisciplinaire\n\n• Etre véhiculé pour travailler sur les 4 sites"
       },
+      "needsRetranslation": true,
       "location": "Fribourg, Switzerland",
       "canton": "FR",
       "url": "https://fa-eswr-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/fr/sites/CX_1/job/1599",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Oracle HCM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-09T09:49:09.986Z",
+      "crawledAt": "2026-11-10T09:40:58.884Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "streetAddress": "Fribourg",
@@ -1016,7 +1019,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T09:49:09.986Z",
+      "validThrough": "2027-02-03T09:40:58.884Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1051,7 +1054,7 @@
       "url": "https://fa-eswr-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/fr/sites/CX_1/job/1537",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Oracle HCM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-09T09:49:09.176Z",
+      "crawledAt": "2026-11-10T09:40:58.051Z",
       "addressLocality": "Tafers",
       "addressRegion": "FR",
       "streetAddress": "Tafers",
@@ -1102,7 +1105,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-04T09:49:09.176Z",
+      "validThrough": "2027-02-04T09:40:58.051Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1136,7 +1139,7 @@
       "url": "https://fa-eswr-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/fr/sites/CX_1/job/1493",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Oracle HCM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-09T09:49:08.274Z",
+      "crawledAt": "2026-11-10T09:40:57.233Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "streetAddress": "Fribourg",
@@ -1187,41 +1190,42 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-04T09:49:08.274Z",
+      "validThrough": "2027-02-04T09:40:57.233Z",
       "validThroughSource": "last-observed-window"
     },
     {
       "id": "hfr-hopital-fribourgeois-a0fdfec9c76a",
       "slug": "gestione-dei-trasporti-hopital-fribourgeois-hfr-fribourg-switzerland",
       "slugByLocale": {
-        "fr": "responsable-transports-hfr-hopital-fribourgeois-fribourg",
         "it": "gestione-dei-trasporti-hopital-fribourgeois-hfr-fribourg-switzerland",
         "en": "transport-manager-hopital-fribourgeois-hfr-fribourg-switzerland",
-        "de": "verkehrsleiter-hopital-fribourgeois-hfr-fribourg-switzerland"
+        "de": "verkehrsleiter-hopital-fribourgeois-hfr-fribourg-switzerland",
+        "fr": "responsable-transports-hfr-hopital-fribourgeois-fribourg"
       },
       "company": "Hôpital fribourgeois (HFR)",
       "companyKey": "hfr-hopital-fribourgeois",
       "companyDomain": "h-fr.ch",
       "title": "Responsable Transports",
       "titleByLocale": {
-        "fr": "Responsable Transports",
         "it": "Gestione dei trasporti",
         "en": "Transport Manager",
-        "de": "Verkehrsleiter"
+        "de": "Verkehrsleiter",
+        "fr": "Responsable Transports"
       },
       "description": "• assurer la conduite humaine, organisationnelle et opérationnelle du service, en garantissant la qualité, la sécurité et la continuité des transports de patients et de marchandises\n\n• encadrer, fédérer et développer l’équipe : définir des objectifs clairs, accompagner les collaborateurs, évaluer les résultats et veiller au respect du cadre de travail\n\n• faire évoluer les pratiques et renforcer une culture de coopération, de responsabilisation et d’orientation patient en valorisant les compétences et les initiatives des collaborateurs\n\n• piloter les projets liés aux transports et à la logistique, de l’analyse des besoins à la mise en œuvre, en assurant le suivi des délais, des ressources et des résultats\n\n• assurer le lien entre les différents services de l’hôpital et l’équipe des transporteurs\n\n• développer la collaboration avec les services de soins, médicaux, techniques et logistiques afin d’améliorer la coordination et la fluidité des transports\n\n• analyser l’activité à partir d’observations de terrain et d’indicateurs pertinents, définir les actions d’amélioration et en mesurer les effets\n\n• contrôler et assurer le suivi et l’entretien des équipements de transport\n\n• connaître et faire appliquer les règles inhérentes à la gestion des déchets, aux transports patients et à la sécurité\n\n• participer et stimuler le travail interdisciplinaire accompagner le changement de culture dans l’équipe\n\n• collaborer au développement et à la gestion du département Achats et approvisionnement dans le respect de la charte et des valeurs HFR\n\n• formation professionnelle dans le domaine de la logistique, des transports, de la santé ou dans un domaine pertinent complétée par une formation en management, ou parcours jugé équivalent\n\n• certificat de transport de patients intramuros ou équivalent (possibilité de l’acquérir en cours d’emploi)\n\n• expérience réussie d’au moins 5 ans dans l’encadrement d’une équipe opérationnelle ; une expérience en milieu hospitalier constitue un atout\n\n• expérience concrète dans la conduite de projets et la mise en œuvre de changements organisationnels, avec des résultats démontrables\n\n• leadership fédérateur et capacité à poser un cadre clair, à prendre des décisions et à en assurer l’application avec équité et constance\n\n• maîtrise de la langue française avec de très bonnes connaissances de la langue allemande\n\n• compétences confirmées en communication, en négociation et en gestion des conflits ; une expérience du dialogue avec les représentants du personnel ou les partenaires sociaux constitue un atout\n\n• aptitude à structurer les activités, à gérer les priorités et à utiliser des indicateurs pour améliorer la qualité et l’efficience du service",
       "descriptionByLocale": {
-        "fr": "• assurer la conduite humaine, organisationnelle et opérationnelle du service, en garantissant la qualité, la sécurité et la continuité des transports de patients et de marchandises\n\n• encadrer, fédérer et développer l’équipe : définir des objectifs clairs, accompagner les collaborateurs, évaluer les résultats et veiller au respect du cadre de travail\n\n• faire évoluer les pratiques et renforcer une culture de coopération, de responsabilisation et d’orientation patient en valorisant les compétences et les initiatives des collaborateurs\n\n• piloter les projets liés aux transports et à la logistique, de l’analyse des besoins à la mise en œuvre, en assurant le suivi des délais, des ressources et des résultats\n\n• assurer le lien entre les différents services de l’hôpital et l’équipe des transporteurs\n\n• développer la collaboration avec les services de soins, médicaux, techniques et logistiques afin d’améliorer la coordination et la fluidité des transports\n\n• analyser l’activité à partir d’observations de terrain et d’indicateurs pertinents, définir les actions d’amélioration et en mesurer les effets\n\n• contrôler et assurer le suivi et l’entretien des équipements de transport\n\n• connaître et faire appliquer les règles inhérentes à la gestion des déchets, aux transports patients et à la sécurité\n\n• participer et stimuler le travail interdisciplinaire accompagner le changement de culture dans l’équipe\n\n• collaborer au développement et à la gestion du département Achats et approvisionnement dans le respect de la charte et des valeurs HFR\n\n• formation professionnelle dans le domaine de la logistique, des transports, de la santé ou dans un domaine pertinent complétée par une formation en management, ou parcours jugé équivalent\n\n• certificat de transport de patients intramuros ou équivalent (possibilité de l’acquérir en cours d’emploi)\n\n• expérience réussie d’au moins 5 ans dans l’encadrement d’une équipe opérationnelle ; une expérience en milieu hospitalier constitue un atout\n\n• expérience concrète dans la conduite de projets et la mise en œuvre de changements organisationnels, avec des résultats démontrables\n\n• leadership fédérateur et capacité à poser un cadre clair, à prendre des décisions et à en assurer l’application avec équité et constance\n\n• maîtrise de la langue française avec de très bonnes connaissances de la langue allemande\n\n• compétences confirmées en communication, en négociation et en gestion des conflits ; une expérience du dialogue avec les représentants du personnel ou les partenaires sociaux constitue un atout\n\n• aptitude à structurer les activités, à gérer les priorités et à utiliser des indicateurs pour améliorer la qualité et l’efficience du service",
         "it": "• garantire la condotta umana, organizzativa e operativa del servizio, garantendo la qualità, la sicurezza e la continuità del trasporto paziente e merci\n\n• struttura, federazione e sviluppo del team: definire obiettivi chiari, sostenere i dipendenti, valutare i risultati e garantire il rispetto del quadro\n\n• modificare le pratiche e rafforzare una cultura della cooperazione, della responsabilità e della guida dei pazienti valutando le competenze e le iniziative dei dipendenti\n\n• progetti pilota di trasporto e logistica, dall'analisi delle esigenze all'implementazione, monitoraggio del tempo, risorse e risultati\n\n• garantire il collegamento tra i diversi servizi dell'ospedale e il team di trasporto\n\n• sviluppare la collaborazione con servizi sanitari, medici, tecnici e logistici per migliorare il coordinamento e la fluidità dei trasporti\n\n• analizzare l'attività da osservazioni e indicatori rilevanti sul campo, definire azioni di miglioramento e misurare i loro effetti\n\n• controllo e monitoraggio e manutenzione delle attrezzature di trasporto\n\n• conoscenza e applicazione delle norme di gestione dei rifiuti, trasporto e sicurezza dei pazienti\n\n• partecipare e stimolare il lavoro interdisciplinare che accompagna il cambiamento culturale nel team\n\n• collaborare allo sviluppo e alla gestione del Dipartimento Procurement and Supply in conformità con la Carta e i Valori HFR\n\n• formazione professionale nel settore della logistica, dei trasporti, della salute o in un settore rilevante integrato dalla formazione manageriale, o percorso ritenuto equivalente\n\n• certificato di trasporto di pazienti intramonali o equivalenti (possibilità di acquisire in-servizio)\n\n• esperienza di successo di almeno 5 anni nella supervisione di un team operativo; un'esperienza ospedaliera è un bene\n\n• esperienza concreta nella realizzazione di progetti e nell'attuazione di cambiamenti organizzativi, con risultati dimostrabili\n\n• unificare la leadership e la capacità di stabilire un quadro chiaro, prendere decisioni e garantire la sua applicazione con correttezza e coerenza\n\n• padronanza della lingua francese con buona conoscenza della lingua tedesca\n\n• competenze confermate nella comunicazione, negoziazione e gestione dei conflitti; l'esperienza di dialogo con i rappresentanti del personale o le parti sociali è un asset\n\n• capacità di strutturare attività, gestire priorità e utilizzare indicatori per migliorare la qualità e l'efficienza dei servizi",
         "en": "• ensure the human, organisational and operational conduct of the service, ensuring the quality, safety and continuity of patient and freight transport\n\n• framework, federate and develop the team: define clear objectives, support employees, evaluate results and ensure compliance with the framework\n\n• changing practices and strengthening a culture of cooperation, accountability and patient guidance by valuing the skills and initiatives of employees\n\n• pilot transport and logistics projects, from needs analysis to implementation, monitoring time, resources and results\n\n• ensure the link between the different services of the hospital and the transport team\n\n• develop collaboration with healthcare, medical, technical and logistical services in order to improve coordination and fluidity of transport\n\n• analyse activity from relevant field observations and indicators, define improvement actions and measure their effects\n\n• control and monitor and maintain transport equipment\n\n• knowledge and enforcement of waste management, patient transport and safety rules\n\n• participate and stimulate interdisciplinary work accompanying cultural change in the team\n\n• collaborate in the development and management of the Procurement and Supply Department in accordance with the HFR Charter and Values\n\n• vocational training in the field of logistics, transport, health or in a relevant field supplemented by management training, or route deemed equivalent\n\n• certificate of transport of patients intramural or equivalent (possibility to acquire in-service)\n\n• successful experience of at least 5 years in supervising an operational team; a hospital experience is an asset\n\n• concrete experience in carrying out projects and implementing organizational changes, with demonstrable results\n\n• unifying leadership and ability to set a clear framework, make decisions and ensure its application with fairness and consistency\n\n• mastery of the French language with very good knowledge of the German language\n\n• confirmed skills in communication, negotiation and conflict management; experience of dialogue with staff representatives or social partners is an asset\n\n• ability to structure activities, manage priorities and use indicators to improve service quality and efficiency",
-        "de": "• Gewährleistung der menschlichen, organisatorischen und betrieblichen Durchführung des Dienstes, Gewährleistung der Qualität, Sicherheit und Kontinuität des Patienten- und Güterverkehrs\n\n• Rahmen, föderieren und entwickeln das Team: klare Ziele definieren, Mitarbeiter unterstützen, Ergebnisse bewerten und die Einhaltung des Rahmens sicherstellen\n\n• Änderung der Praktiken und Stärkung einer Kultur der Zusammenarbeit, Rechenschaftspflicht und Patientenberatung durch Bewertung der Fähigkeiten und Initiativen der Mitarbeiter\n\n• Pilottransport- und Logistikprojekte, von der Bedarfsanalyse bis zur Umsetzung, Überwachung von Zeit, Ressourcen und Ergebnissen\n\n• Gewährleistung der Verbindung zwischen den verschiedenen Diensten des Krankenhauses und des Transportteams\n\n• Entwicklung der Zusammenarbeit mit Gesundheits-, Medizin-, Technik- und Logistikdiensten zur Verbesserung der Koordination und des Verkehrsflusses\n\n• Analyse der Aktivität aus relevanten Feldbeobachtungen und Indikatoren, Definition von Verbesserungsmaßnahmen und Messung ihrer Auswirkungen\n\n• Steuerung, Überwachung und Wartung von Transportmitteln\n\n• Kenntnisse und Durchsetzung von Abfallbewirtschaftung, Patiententransport und Sicherheitsvorschriften\n\n• sich beteiligen und interdisziplinäre Arbeit anregen, die den Kulturwandel im Team begleitet\n\n• Zusammenarbeit bei der Entwicklung und Verwaltung der Beschaffungs- und Versorgungsabteilung gemäß der HFR-Charta und -Werte\n\n• Berufsausbildung in den Bereichen Logistik, Verkehr, Gesundheit oder in einem relevanten Bereich, ergänzt durch eine Managementausbildung, oder eine als gleichwertig erachtete Strecke\n\n• Bescheinigung über die Beförderung von Patienten intramural oder gleichwertig (Möglichkeit des Erwerbs im Betrieb)\n\n• Erfolgreiche Erfahrung von mindestens 5 Jahren in der Überwachung eines operativen Teams; eine Krankenhauserfahrung ist ein Gewinn\n\n• konkrete Erfahrungen bei der Durchführung von Projekten und der Umsetzung organisatorischer Veränderungen mit nachweisbaren Ergebnissen\n\n• Vereinheitlichung der Führung und der Fähigkeit, einen klaren Rahmen festzulegen, Entscheidungen zu treffen und ihre Anwendung mit Fairness und Konsistenz sicherzustellen\n\n• Beherrschung der französischen Sprache mit sehr guten Kenntnissen der deutschen Sprache\n\n• bestätigte Fähigkeiten in Kommunikation, Verhandlung und Konfliktmanagement; Erfahrungen im Dialog mit Personalvertretern oder Sozialpartnern sind von Vorteil\n\n• Fähigkeit, Aktivitäten zu strukturieren, Prioritäten zu verwalten und Indikatoren zur Verbesserung der Servicequalität und -effizienz zu verwenden"
+        "de": "• Gewährleistung der menschlichen, organisatorischen und betrieblichen Durchführung des Dienstes, Gewährleistung der Qualität, Sicherheit und Kontinuität des Patienten- und Güterverkehrs\n\n• Rahmen, föderieren und entwickeln das Team: klare Ziele definieren, Mitarbeiter unterstützen, Ergebnisse bewerten und die Einhaltung des Rahmens sicherstellen\n\n• Änderung der Praktiken und Stärkung einer Kultur der Zusammenarbeit, Rechenschaftspflicht und Patientenberatung durch Bewertung der Fähigkeiten und Initiativen der Mitarbeiter\n\n• Pilottransport- und Logistikprojekte, von der Bedarfsanalyse bis zur Umsetzung, Überwachung von Zeit, Ressourcen und Ergebnissen\n\n• Gewährleistung der Verbindung zwischen den verschiedenen Diensten des Krankenhauses und des Transportteams\n\n• Entwicklung der Zusammenarbeit mit Gesundheits-, Medizin-, Technik- und Logistikdiensten zur Verbesserung der Koordination und des Verkehrsflusses\n\n• Analyse der Aktivität aus relevanten Feldbeobachtungen und Indikatoren, Definition von Verbesserungsmaßnahmen und Messung ihrer Auswirkungen\n\n• Steuerung, Überwachung und Wartung von Transportmitteln\n\n• Kenntnisse und Durchsetzung von Abfallbewirtschaftung, Patiententransport und Sicherheitsvorschriften\n\n• sich beteiligen und interdisziplinäre Arbeit anregen, die den Kulturwandel im Team begleitet\n\n• Zusammenarbeit bei der Entwicklung und Verwaltung der Beschaffungs- und Versorgungsabteilung gemäß der HFR-Charta und -Werte\n\n• Berufsausbildung in den Bereichen Logistik, Verkehr, Gesundheit oder in einem relevanten Bereich, ergänzt durch eine Managementausbildung, oder eine als gleichwertig erachtete Strecke\n\n• Bescheinigung über die Beförderung von Patienten intramural oder gleichwertig (Möglichkeit des Erwerbs im Betrieb)\n\n• Erfolgreiche Erfahrung von mindestens 5 Jahren in der Überwachung eines operativen Teams; eine Krankenhauserfahrung ist ein Gewinn\n\n• konkrete Erfahrungen bei der Durchführung von Projekten und der Umsetzung organisatorischer Veränderungen mit nachweisbaren Ergebnissen\n\n• Vereinheitlichung der Führung und der Fähigkeit, einen klaren Rahmen festzulegen, Entscheidungen zu treffen und ihre Anwendung mit Fairness und Konsistenz sicherzustellen\n\n• Beherrschung der französischen Sprache mit sehr guten Kenntnissen der deutschen Sprache\n\n• bestätigte Fähigkeiten in Kommunikation, Verhandlung und Konfliktmanagement; Erfahrungen im Dialog mit Personalvertretern oder Sozialpartnern sind von Vorteil\n\n• Fähigkeit, Aktivitäten zu strukturieren, Prioritäten zu verwalten und Indikatoren zur Verbesserung der Servicequalität und -effizienz zu verwenden",
+        "fr": "• assurer la conduite humaine, organisationnelle et opérationnelle du service, en garantissant la qualité, la sécurité et la continuité des transports de patients et de marchandises\n\n• encadrer, fédérer et développer l’équipe : définir des objectifs clairs, accompagner les collaborateurs, évaluer les résultats et veiller au respect du cadre de travail\n\n• faire évoluer les pratiques et renforcer une culture de coopération, de responsabilisation et d’orientation patient en valorisant les compétences et les initiatives des collaborateurs\n\n• piloter les projets liés aux transports et à la logistique, de l’analyse des besoins à la mise en œuvre, en assurant le suivi des délais, des ressources et des résultats\n\n• assurer le lien entre les différents services de l’hôpital et l’équipe des transporteurs\n\n• développer la collaboration avec les services de soins, médicaux, techniques et logistiques afin d’améliorer la coordination et la fluidité des transports\n\n• analyser l’activité à partir d’observations de terrain et d’indicateurs pertinents, définir les actions d’amélioration et en mesurer les effets\n\n• contrôler et assurer le suivi et l’entretien des équipements de transport\n\n• connaître et faire appliquer les règles inhérentes à la gestion des déchets, aux transports patients et à la sécurité\n\n• participer et stimuler le travail interdisciplinaire accompagner le changement de culture dans l’équipe\n\n• collaborer au développement et à la gestion du département Achats et approvisionnement dans le respect de la charte et des valeurs HFR\n\n• formation professionnelle dans le domaine de la logistique, des transports, de la santé ou dans un domaine pertinent complétée par une formation en management, ou parcours jugé équivalent\n\n• certificat de transport de patients intramuros ou équivalent (possibilité de l’acquérir en cours d’emploi)\n\n• expérience réussie d’au moins 5 ans dans l’encadrement d’une équipe opérationnelle ; une expérience en milieu hospitalier constitue un atout\n\n• expérience concrète dans la conduite de projets et la mise en œuvre de changements organisationnels, avec des résultats démontrables\n\n• leadership fédérateur et capacité à poser un cadre clair, à prendre des décisions et à en assurer l’application avec équité et constance\n\n• maîtrise de la langue française avec de très bonnes connaissances de la langue allemande\n\n• compétences confirmées en communication, en négociation et en gestion des conflits ; une expérience du dialogue avec les représentants du personnel ou les partenaires sociaux constitue un atout\n\n• aptitude à structurer les activités, à gérer les priorités et à utiliser des indicateurs pour améliorer la qualité et l’efficience du service"
       },
+      "needsRetranslation": false,
       "location": "Fribourg, Switzerland",
       "canton": "FR",
       "url": "https://fa-eswr-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/fr/sites/CX_1/job/1591",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Oracle HCM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-09T09:49:07.529Z",
+      "crawledAt": "2026-11-10T09:40:56.695Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "streetAddress": "Fribourg",
@@ -1242,26 +1246,10 @@
       "jobReqId": "1591",
       "externalId": "1591",
       "requirements": [],
-      "requirementsByLocale": {
-        "fr": []
-      },
-      "salaryMin": 68500,
-      "salaryMax": 104000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-07T09:49:07.529Z",
-      "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-09T09:49:07.529Z",
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "responsable-transports-hfr-hopital-fribourgeois-fribourg"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "responsable-transports-hfr-hopital-fribourgeois-fribourg"
@@ -1273,82 +1261,23 @@
           "responsable-transports-hfr-hopital-fribourgeois-fribourg"
         ]
       },
-      "previousSlugs": [
-        "responsable-transports-hfr-hopital-fribourgeois-fribourg"
-      ]
-    },
-    {
-      "id": "hfr-hopital-fribourgeois-ba1bd0c78a42",
-      "slug": "infirmier-ere-sage-femme-homme-sage-femme-hfr-hopital-fribourgeois-fribourg",
-      "slugByLocale": {
-        "it": "infirmier-ere-sage-femme-homme-sage-femme-hfr-hopital-fribourgeois-fribourg",
-        "en": "infirmier-ere-sage-femme-homme-sage-femme-hfr-hopital-fribourgeois-fribourg",
-        "de": "infirmier-ere-sage-femme-homme-sage-femme-hfr-hopital-fribourgeois-fribourg",
-        "fr": "infirmier-ere-sage-femme-homme-sage-femme-hfr-hopital-fribourgeois-fribourg"
-      },
-      "company": "Hôpital fribourgeois (HFR)",
-      "companyKey": "hfr-hopital-fribourgeois",
-      "companyDomain": "h-fr.ch",
-      "title": "Infirmier-ère sage-femme / homme sage-femme",
-      "titleByLocale": {
-        "it": "Infirmier-ère sage-femme / omme sage-femme",
-        "en": "Infirmier-ère sage-femme / homme sage-femme",
-        "de": "Infirmier-ère sage-femme / homme sage-femme",
-        "fr": "Infirmier-ère sage-femme / homme sage-femme"
-      },
-      "description": "• prodiguer des soins globaux et individuels aux couples mères-enfants en respectant la conception des soins et protocoles du service en post-partum\n\n• participer à l’encadrement des étudiant-e-s et des nouveaux collaborateurs et nouvelles collaboratrices\n\n• fonctionner en polyvalente :  salle d’accouchement et/ou service post-natal\n\n• Sie betreuen die Mütter und ihre Neugeborenen umfassend und individuell, wobei Sie sich an das Pflegeleitbild und an die Protokolle der Abteilung halten.\n\n• Sie wirken an der Betreuung der neuen Mitarbeitenden und der Studierenden mit.\n\n• Sie üben eine vielseitige Tätigkeit im Gebärzimmer und/oder auf dem Wochenbett aus.\n\n• diplôme de sage-femme ou d’infirmier-ère sage-femme\n\n• minimum deux ans d’expérience au sein d’un service d’obstétrique\n\n• maîtrise de la langue française ou allemande avec de bonnes connaissances de l’autre langue\n\n• maîtrise des outils informatiques de base\n\n• aptitude au travail d’équipe et pluridisciplinaire\n\n• autonomie, dynamisme, adaptation rapide et flexibilité\n\n• sens de l’organisation et des responsabilités\n\n• Dipl. Hebamme HF/FH oder dipl. Pflegefachfrau/-mann mit Ausbildung zur Hebamme\n\n• Mind. 2 Jahre Erfahrung auf einer Geburtshilfeabteilung\n\n• Deutsch oder Französisch mit guten Kenntnissen der anderen Sprache\n\n• Beherrschen der grundlegenden Informatikprogramme\n\n• Fähigkeit zur interdisziplinären Arbeit und Teamfähigkeit\n\n• Selbstständigkeit, Dynamik, hohe Anpassungsfähigkeit und Flexibilität\n\n• Organisationsvermögen und Verantwortungsbewusstsein",
-      "descriptionByLocale": {
-        "it": "• des soins globaux et individuels aux couples mères-enfants en rispettaant la concezione des soins et protocols du service en post-partum\n\n• participer à l’encadrement des étudiant-e-s et des nouveaux collaborazioniurs et nouvelles collaborazionitrices\n\n• fonctionner en polivalente : salle d’accouchement et/ou service post-natale\n\n• Si occupano delle madri e dei loro neonati in modo completo e individuale, aderendo alla dichiarazione della missione di cura e ai protocolli del dipartimento.\n\n• Partecipano alla cura di nuovi dipendenti e studenti.\n\n• Essi svolgono un'attività versatile nella sala natale e/o sul post-partum.\n\n• diplôme de sage-femme ou d’infirmier-ère sage-femme\n\n• minimo deux ans d’expérience au sein d’un service d’obstétrique\n\n• maîtrise de la langue française ou allenande avec de bonnes connaissances de l’autre langue\n\n• maîtrise des outils Informaques de base\n\n• aptitude au travail d’équipe et pluridisciplinare\n\n• autonomia, dinamismi, adattamento rapido e flexibilité\n\n• sens de l’organisation et des responsabilités\n\n• Dipl. Midwife HF/FH o dipl. Infermieristica professionale con addestramento ostetrico\n\n• Mente. 2 anni di esperienza in un reparto di ostetricia\n\n• Tedesco o Francese con buona conoscenza dell'altra lingua\n\n• Mastering di programmi di scienze informatiche di base\n\n• Capacità di lavorare interdisciplinare e lavoro di squadra\n\n• Indipendenza, dinamismo, elevata adattabilità e flessibilità\n\n• Capacità e responsabilità organizzative",
-        "en": "• prodiguer des soins globaux et individuels aux couples mères-enfants en respectant la conception des soins et protocoles du service en post-partum\n\n• participer à l’encadrement des étudiant-e-s et des nouveaux collaborationurs et nouvelles collaboratrices\n\n• fonctionner en polyvalente : salle d’accouchement et/ou service post-natal\n\n• They look after the mothers and their newborns comprehensively and individually, adhering to the nursing mission statement and the protocols of the department.\n\n• They participate in the care of new employees and students.\n\n• They perform a versatile activity in the birth room and/or on the postpartum.\n\n• diplôme de sage-femme ou d’infirmier-ère sage-femme\n\n• minimum deux ans d’expérience au sein d’un service d’obstétrique\n\n• maîtrise de la langue française ou allenande avec de bonnes connaissances de l’autre langue\n\n• maîtrise des outils informatiques de base\n\n• aptitude au travail d’équipe et pluridisciplinaire\n\n• autonomy, dynamisme, adaptation rapide et flexibilité\n\n• sens de l’organisation et des responsabilités\n\n• Dipl. Midwife HF/FH or dipl. Nursing professional with midwife training\n\n• Mind. 2 years of experience in an obstetrics department\n\n• German or French with good knowledge of the other language\n\n• Mastering basic computer science programs\n\n• Ability to work interdisciplinary and teamwork\n\n• Independence, dynamism, high adaptability and flexibility\n\n• Organisational capacity and responsibility",
-        "de": "• prodiguer des soins globaux et individuels aux couples mères-enfants en respectant la conception des soins et protocoles du service en post-partum\n\n• participer à l’encadrement des étudiant-e-s et des nouveaux collaborateurs et nouvelles collaboratrices\n\n• fonctionner en polyvalente : salle d’accouchement et/ou service post-natal\n\n• Sie betreuen die Mütter und ihre Neugeborenen umfassend und individuell, wobei Sie sich an das Pflegeleitbild und an die Protokolle der Abteilung halten.\n\n• Sie wirken an der Betreuung der neuen Mitarbeitenden und der Studierenden mit.\n\n• Sie üben eine vielseitige Tätigkeit im Gebärzimmer und/oder auf dem Wochenbett aus.\n\n• diplôme de sage-femme ou d’infirmier-ère sage-femme\n\n• minimum deux ans d’expérience au sein d’un service d’obstétrique\n\n• maîtrise de la langue française ou allemande avec de bonnes connaissances de l’autre langue\n\n• maîtrise des outils informatiques de base\n\n• aptitude au travail d’équipe et pluridisciplinaire\n\n• autonomie, dynamisme, adaptation rapide et flexibilité\n\n• sens de l’organisation et des responsabilités\n\n• Dipl. Hebamme HF/FH oder dipl. Pflegefachfrau/-mann mit Ausbildung zur Hebamme\n\n• Mind. 2 Jahre Erfahrung auf einer Geburtshilfeabteilung\n\n• Deutsch oder Französisch mit guten Kenntnissen der anderen Sprache\n\n• Beherrschen der grundlegenden Informatikprogramme\n\n• Fähigkeit zur interdisziplinären Arbeit und Teamfähigkeit\n\n• Selbstständigkeit, Dynamik, hohe Anpassungsfähigkeit und Flexibilität\n\n• Organisationsvermögen und Verantwortungsbewusstsein",
-        "fr": "• prodiguer des soins globaux et individuels aux couples mères-enfants en respectant la conception des soins et protocoles du service en post-partum\n\n• participant à l'enseignement des étudiants-e-s et des nouveaux collaborateurs et nouvelles collaborateurs\n\n• fonctionner en polyvalente : salle d'accueil et/ou service postnatal\n\n• Ils s'occupent des mères et de leurs nouveau-nés de façon complète et individuelle, en respectant l'énoncé de mission et les protocoles du ministère.\n\n• Ils participent aux soins des nouveaux employés et étudiants.\n\n• Ils effectuent une activité polyvalente dans la salle de naissance et/ou sur le postpartum.\n\n• diplôme de sage-femme ou d'infirmier-ère sage-femme\n\n• minimum deux ans d'expérience au sein d'un service\n\n• maîtrise de la langue française ou allemande avec de bonnes connaissances de l'autre langue\n\n• maîtrise des outils informatiques de base\n\n• aptitude au travail d'équipe et pluridisciplinaire\n\n• autonomie, dynamisme, adaptation rapide et flexibilité\n\n• sens de l'organisation et des responsabilités\n\n• Dipl. Sage-femme HF/FH ou dipl. Professionnel infirmier avec formation de sage-femme\n\n• De rien. 2 ans d'expérience en obstétrique\n\n• Allemand ou français avec une bonne connaissance de l'autre langue\n\n• Maîtrise des programmes informatiques de base\n\n• Capacité de travailler interdisciplinaire et en équipe\n\n• Indépendance, dynamisme, grande adaptabilité et flexibilité\n\n• Capacité et responsabilité organisationnelles"
-      },
-      "needsRetranslation": true,
-      "location": "Fribourg, Switzerland",
-      "canton": "FR",
-      "url": "https://fa-eswr-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/fr/sites/CX_1/job/1571",
-      "source": "HFR Hôpital fribourgeois Dedicated Parser (Oracle HCM)",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-08T21:57:43.677Z",
-      "addressLocality": "Fribourg",
-      "addressRegion": "FR",
-      "streetAddress": "Fribourg",
-      "postalCode": "1700",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-10-29T10:12:18+00:00",
-      "postedDate": "2026-10-29T10:12:18+00:00",
-      "postingDateSource": "reported",
-      "applyUrl": "https://fa-eswr-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/fr/sites/CX_1/job/1571",
-      "jobReqId": "1571",
-      "externalId": "1571",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "firstSeenAt": "2026-11-06T22:05:01.042Z",
-      "salaryMin": 85000,
-      "salaryMax": 119000,
+      "firstSeenAt": "2026-11-09T09:49:07.529Z",
+      "salaryMin": 94500,
+      "salaryMax": 143000,
       "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 85000,
-          "maxValue": 119000,
+          "minValue": 94500,
+          "maxValue": 143000,
           "unitText": "YEAR"
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-27T21:57:43.677Z",
-      "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1
+      "validThrough": "2027-02-07T09:40:56.695Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }

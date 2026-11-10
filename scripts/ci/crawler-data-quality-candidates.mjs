@@ -19,6 +19,7 @@ import { fileURLToPath } from 'node:url';
 import { processFiles as scanPreviousSlugContamination } from '../decontaminate-prev-slugs.mjs';
 import { listSliceFileNames } from '../lib/crawler-slice-files.mjs';
 import { extractStableJobId } from '../lib/job-match-key.mjs';
+import { measureHeartbeatlessActiveJobs } from '../lib/job-observation-heartbeat.mjs';
 
 const SCRIPT_DIR = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(SCRIPT_DIR, '..', '..');
@@ -107,6 +108,25 @@ function runGit(args) {
 }
 
 /**
+ * Attribute `git grep <commit> -- <path>` output to the matched slice.
+ * Its line format starts with `<commit>:<path>:<line>:<content>`; the commit
+ * must be stripped before looking for the path separator.
+ */
+export function attributeRetranslationMatches(output = '', commit = '') {
+  const byCrawler = {};
+  const prefix = `${commit}:`;
+  for (const match of String(output).split(/\r?\n/).filter(Boolean)) {
+    if (!commit || !match.startsWith(prefix)) continue;
+    const pathAndLine = match.slice(prefix.length);
+    const separator = pathAndLine.indexOf(':');
+    if (separator < 1) continue;
+    const file = path.posix.basename(pathAndLine.slice(0, separator));
+    if (file) byCrawler[file] = (byCrawler[file] || 0) + 1;
+  }
+  return byCrawler;
+}
+
+/**
  * Locate the commit that anchors the translation-backlog baseline. The
  * workflow's "Deepen history" step widens the checkout past `windowDays`
  * before this runs, but that widening is a separate CI step outside this
@@ -134,12 +154,7 @@ function baselineRetranslation(windowDays, relativeDataDir) {
   }
   const byCrawler = {};
   const matches = result.stdout.split(/\r?\n/).filter(Boolean);
-  for (const match of matches) {
-    const separator = match.indexOf(':');
-    if (separator < 1) continue;
-    const file = path.posix.basename(match.slice(0, separator));
-    byCrawler[file] = (byCrawler[file] || 0) + 1;
-  }
+  Object.assign(byCrawler, attributeRetranslationMatches(result.stdout, commit));
   return { commit, count: matches.length, byCrawler };
 }
 
@@ -245,7 +260,12 @@ function housekeepingSignals(slices, nowMs) {
       }
     }
   }
-  return { emptyLocaleBuckets, staleActive };
+  // `staleActive` above only sees records that HAVE a crawledAt. An active
+  // record without one is outside every freshness window, so it is measured
+  // separately: target 0 once each crawler has written its slice through the
+  // heartbeat-stamping writer (lib/job-observation-heartbeat.mjs).
+  const heartbeatlessActive = measureHeartbeatlessActiveJobs(slices);
+  return { emptyLocaleBuckets, staleActive, heartbeatlessActive };
 }
 
 function finding({ key, title, category, summary, evidence, affectedFiles, nextStep }) {
@@ -366,6 +386,20 @@ export function buildCrawlerDataQualityReport({
     }));
   }
 
+  const heartbeatless = housekeeping.heartbeatlessActive || null;
+  if (heartbeatless && heartbeatless.heartbeatless > 0) {
+    findings.push(finding({
+      key: 'active-records-without-crawledAt',
+      title: '[data-quality] housekeeping: record attivi senza crawledAt',
+      category: 'freshness-contract',
+      summary: `${heartbeatless.heartbeatless} record attivi su ${heartbeatless.active} non hanno crawledAt`,
+      evidence: heartbeatless.byCrawler.slice(0, MAX_EXAMPLES)
+        .map((entry) => `${entry.crawler}: ${entry.heartbeatless}/${entry.active} senza crawledAt`),
+      affectedFiles: heartbeatless.byCrawler.map((entry) => `data/jobs/by-crawler/${entry.crawler}.json`),
+      nextStep: 'Verificare che il crawler scriva lo slice con writeJobsCrawlerSlice dopo una run riuscita (lo stamp di crawledAt è nel writer); misura: node scripts/measure-heartbeatless-active-jobs.mjs.',
+    }));
+  }
+
   return {
     schemaVersion: 1,
     generatedAt,
@@ -385,6 +419,7 @@ export function buildCrawlerDataQualityReport({
       needsRetranslationBaselineUnavailable: !translation,
       emptyLocaleBuckets: housekeeping.emptyLocaleBuckets.length,
       staleActiveRecords: housekeeping.staleActive.length,
+      heartbeatlessActiveRecords: heartbeatless ? heartbeatless.heartbeatless : null,
     },
     findings,
   };

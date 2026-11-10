@@ -1,14 +1,14 @@
 {
   "key": "croix-rouge-fribourgeoise",
   "label": "Croix-Rouge fribourgeoise",
-  "generatedAt": "2026-11-09T09:19:09.932Z",
+  "generatedAt": "2026-11-10T09:16:35.060Z",
   "total": 0,
   "discovered": null,
-  "parsed": 0,
+  "parsed": 2,
   "lastFetchOutcome": null,
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
-  "abortKind": "no-jobs-parsed",
+  "abortKind": "thin-source-all",
   "written": 0,
   "newCount": 0,
   "updatedCount": 0,
@@ -20,5 +20,5 @@
   "unchangedJobs": [],
   "earlyExit": true,
   "exitCode": 0,
-  "codeCommit": "f071981dd2d2820cdec3736f76b1b17ee50345bd"
+  "codeCommit": "854e7bdddbff5b4e0e90fb9b90efe81503dfc091"
 }

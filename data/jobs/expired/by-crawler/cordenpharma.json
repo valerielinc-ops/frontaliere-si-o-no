@@ -305,16 +305,14 @@
     "slugByLocale": {
       "it": "operatore-di-sistema-m-f-d-3-shift-cordenpharma-ettingen",
       "en": "system-operator-m-f-d-3-shift-cordenpharma-ettingen",
-      "de": "anlagenfuhrer-m-w-d-3-schicht-cordenpharma-ettingen",
+      "de": "anlagenfuhrer-m-w-d-3-schicht-cordenpharma-ettingen-708a2c9b",
       "fr": "operateur-de-reseau-m-f-d-cordenpharma-ettingen"
     },
     "sector": "Farmaceutico / CDMO",
     "expiredAt": "2026-09-08T14:04:32.262Z",
-    "previousSlugs": [
-      "anlagenfuhrer-m-w-d-3-schicht-cordenpharma-ettingen"
-    ],
     "previousSlugsByLocale": {
       "it": [
+        "anlagenfuhrer-m-w-d-3-schicht-cordenpharma-ettingen-708a2c9b",
         "anlagenfuhrer-m-w-d-3-schicht-cordenpharma-ettingen"
       ],
       "en": [
@@ -331,7 +329,10 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://career.cordenpharma.com/de/p/ettingen/jobs/20928/anlagenfuhrer-mwd-3-schicht-ettingen-schweiz",
-    "firstSeenAt": "2026-07-16T12:36:02.888Z"
+    "firstSeenAt": "2026-07-16T12:36:02.888Z",
+    "previousSlugs": [
+      "anlagenfuhrer-m-w-d-3-schicht-cordenpharma-ettingen"
+    ]
   },
   {
     "slug": "head-of-development-m-f-d-innovative-synthesis-cordenpharma-liestal",

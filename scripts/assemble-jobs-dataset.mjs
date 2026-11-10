@@ -135,6 +135,7 @@ import { previousRunSliceJobs, recordPreviousRunSlice } from './lib/crawler-prev
 import { isIncomplete } from './lib/translation-incomplete.mjs';
 import { officialPostalCodeForLocation } from './lib/swiss-locality-directory.mjs';
 import { startPipelinePhase } from './lib/pipeline-phase-timing.mjs';
+import { stampWriterObservedCrawledAt } from './lib/job-observation-heartbeat.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
@@ -2804,7 +2805,13 @@ export function isNearDuplicateLocalizedTitle(candidate, source) {
  *   the removal. The anti-shrink refusal itself is never bypassed.
  * @param {object[]} [options.observedJobs] - Rows returned by this run's
  *   successful source fetch; only matching persisted rows get a fresh
- *   `crawledAt` heartbeat.
+ *   `crawledAt` heartbeat. Declare it when the slice can carry rows this run
+ *   did NOT see without marking them (`crawlerMissStreak`); an empty array
+ *   declares a write that observed nothing. When it is omitted the write
+ *   itself is the observation: every active row (not grace, not expired)
+ *   whose heartbeat the writer owns gets a fresh `crawledAt`
+ *   (lib/job-observation-heartbeat.mjs), so no crawler can persist an active
+ *   vacancy without one.
  * @param {unknown[]} [options.housekeepingProof] - Definitive route-preserving
  *   evidence for every removed job when accepting a source-verified shrink or
  *   a deliberate thin-source quarantine. Internal callers only; unproven
@@ -2857,9 +2864,18 @@ export function writeJobsCrawlerSlice(crawlerKey, jobs, options = {}) {
   // Harden location + backfill safe metadata defaults BEFORE any downstream
   // gate so corrupted location strings never reach the assemble-time Swiss
   // whitelist (the biggest dropper). Idempotent with the assemble-time net.
-  // Only refresh crawledAt for rows supplied by this run's successful source
-  // fetch; retained jobs in a partial slice are not proof of current liveness.
-  const observedCrawledAtRefreshed = stampObservedCrawledAt(jobs, options.observedJobs);
+  // Only refresh crawledAt for rows this run's successful source fetch saw;
+  // retained jobs in a partial slice are not proof of current liveness. A
+  // caller that declares its observation (`observedJobs`) is taken at its
+  // word. Otherwise the successful write is the observation of the active rows
+  // it carries: grace rows (`crawlerMissStreak > 0`) are the crawler's own
+  // "not seen this run" mark and stay unstamped, and a heartbeat a crawler sets
+  // at fetch time is left to it. Without this default 39 crawlers persisted
+  // 1.544 active vacancies with no crawledAt at all (2026-11-10), which no
+  // age-out ever reached.
+  const observedCrawledAtRefreshed = Array.isArray(options.observedJobs)
+    ? stampObservedCrawledAt(jobs, options.observedJobs)
+    : stampWriterObservedCrawledAt(jobs);
   const norm = normalizeParsedJobsForSlice(jobs);
   if (observedCrawledAtRefreshed > 0 || norm.locationFixed > 0 || norm.localityBackfilled > 0 || norm.regionDefaulted > 0 || norm.sourceGeographyReconciled > 0 || norm.urlNormalized > 0 || norm.applyUrlBackfilled > 0 || norm.countryEvidenceCanonicalized > 0 || norm.emptyCountryEvidenceRemoved > 0 || norm.streetAddressResolved > 0 || norm.validThroughResolved > 0 || norm.streetAddressToEnrich > 0) {
     console.log(`  🧭 Upstream normalize: observed crawledAt refreshed ${observedCrawledAtRefreshed}, location cleaned ${norm.locationFixed}, addressLocality backfilled ${norm.localityBackfilled}, addressRegion defaulted ${norm.regionDefaulted}, source geography reconciled ${norm.sourceGeographyReconciled}, streetAddress resolved ${norm.streetAddressResolved} (to-enrich ${norm.streetAddressToEnrich}), validThrough resolved ${norm.validThroughResolved}, country evidence canonicalized ${norm.countryEvidenceCanonicalized}, empty country evidence removed ${norm.emptyCountryEvidenceRemoved}, url absolutized ${norm.urlNormalized}, applyUrl backfilled ${norm.applyUrlBackfilled}`);
@@ -4785,6 +4801,13 @@ export function reconcileGhostExpired(activeJobs, expiredJobs, { sliceDir = EXPI
       }
     }
   }
+
+  // Ghost reconciliation runs after the active assembly's normal ownership
+  // pass and can replay a stale hash-tailed bridge carried by the expired
+  // record. Reconcile only after the complete merge, so the final in-memory
+  // active snapshot is order-independent and cannot regrow cross-job history
+  // when it is later projected back to crawler slices (#17834).
+  decontaminateJobs(activeJobs);
 
   return { cleanedExpired, ghostCount, mergedSlugs };
 }

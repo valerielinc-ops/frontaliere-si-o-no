@@ -216,6 +216,7 @@ describe('parsers whose listing catch used to return [] now propagate the fetch 
 describe('Croix-Rouge fribourgeoise keeps fetch failure, proven empty and unreadable zero apart', () => {
   const JOBCLOUD_URL_RE = /company\.jobcloud\.ch\/fr\/job-list\//;
   const JOBUP_URL_RE = /www\.jobup\.ch\/fr\/societes\//;
+  const JOBUP_SEARCH_URL_RE = /www\.jobup\.ch\/fr\/emplois\/\?term=/;
   const JOBCLOUD_EMPTY = '<html><body><script>self.__next_f.push([1,"{\\"initialJobs\\":[],\\"categories\\":[]}"])</script>'
     + '<div><p class="text-lg">Aucun poste ouvert actuellement</p></div></body></html>';
   const JOBCLOUD_CURRENT_EMPTY = '<html><body><main><p>Aucun poste ouvert actuellement</p><p>Revenez bientôt.</p></main></body></html>';
@@ -252,26 +253,58 @@ describe('Croix-Rouge fribourgeoise keeps fetch failure, proven empty and unread
   });
 
   it('propagates the JobCloud failure when only the fallback answered with no jobs', async () => {
-    routeFetch([[JOBCLOUD_URL_RE, new Error('jobcloud down')], [JOBUP_URL_RE, JOBUP_EMPTY]]);
+    routeFetch([
+      [JOBCLOUD_URL_RE, new Error('jobcloud down')],
+      [JOBUP_URL_RE, JOBUP_EMPTY],
+      [JOBUP_SEARCH_URL_RE, JOBUP_EMPTY],
+    ]);
     await expect(fetchAllCroixRougeFribourgeoiseJobs()).rejects.toThrow(/jobcloud down/);
   });
 
   it('stamps an authoritative empty snapshot when both sources state there is no opening', async () => {
-    routeFetch([[JOBCLOUD_URL_RE, JOBCLOUD_EMPTY], [JOBUP_URL_RE, JOBUP_EMPTY]]);
+    routeFetch([
+      [JOBCLOUD_URL_RE, JOBCLOUD_EMPTY],
+      [JOBUP_URL_RE, JOBUP_EMPTY],
+      [JOBUP_SEARCH_URL_RE, JOBUP_EMPTY],
+    ]);
     const jobs = await fetchAllCroixRougeFribourgeoiseJobs();
     expect(jobs).toEqual([]);
     expect(isAuthoritativeEmptySnapshot(jobs)).toBe(true);
   });
 
+  it('returns the authoritative empty snapshot without querying Jobup search when both proofs are present', async () => {
+    routeFetch([
+      [JOBCLOUD_URL_RE, JOBCLOUD_EMPTY],
+      [JOBUP_URL_RE, JOBUP_EMPTY],
+      [JOBUP_SEARCH_URL_RE, new Error('search down')],
+    ]);
+
+    const jobs = await fetchAllCroixRougeFribourgeoiseJobs();
+
+    expect(jobs).toEqual([]);
+    expect(isAuthoritativeEmptySnapshot(jobs)).toBe(true);
+    expect(fetchHtml.mock.calls.map(([url]) => String(url))).not.toContain(
+      expect.stringMatching(JOBUP_SEARCH_URL_RE),
+    );
+  });
+
   it('stamps the current source empty markup without requiring the legacy payload or selector', async () => {
-    routeFetch([[JOBCLOUD_URL_RE, JOBCLOUD_CURRENT_EMPTY], [JOBUP_URL_RE, JOBUP_CURRENT_EMPTY]]);
+    routeFetch([
+      [JOBCLOUD_URL_RE, JOBCLOUD_CURRENT_EMPTY],
+      [JOBUP_URL_RE, JOBUP_CURRENT_EMPTY],
+      [JOBUP_SEARCH_URL_RE, JOBUP_CURRENT_EMPTY],
+    ]);
     const jobs = await fetchAllCroixRougeFribourgeoiseJobs();
     expect(jobs).toEqual([]);
     expect(isAuthoritativeEmptySnapshot(jobs)).toBe(true);
   });
 
   it('keeps an unreadable JobCloud page as the fail-closed unstamped zero', async () => {
-    routeFetch([[JOBCLOUD_URL_RE, JOBCLOUD_DRIFTED], [JOBUP_URL_RE, JOBUP_EMPTY]]);
+    routeFetch([
+      [JOBCLOUD_URL_RE, JOBCLOUD_DRIFTED],
+      [JOBUP_URL_RE, JOBUP_EMPTY],
+      [JOBUP_SEARCH_URL_RE, JOBUP_EMPTY],
+    ]);
     const jobs = await fetchAllCroixRougeFribourgeoiseJobs();
     expect(jobs).toEqual([]);
     expect(isAuthoritativeEmptySnapshot(jobs)).toBe(false);
@@ -315,7 +348,11 @@ describe('Croix-Rouge fribourgeoise keeps fetch failure, proven empty and unread
 
   it('does not stamp a Croix-Rouge zero when JobCloud keeps an unrecognized job URL', async () => {
     const jobCloudWithUnknownJob = `${JOBCLOUD_CURRENT_EMPTY}<a href="/fr/jobs/nouveau-poste">Poste</a>`;
-    routeFetch([[JOBCLOUD_URL_RE, jobCloudWithUnknownJob], [JOBUP_URL_RE, JOBUP_EMPTY]]);
+    routeFetch([
+      [JOBCLOUD_URL_RE, jobCloudWithUnknownJob],
+      [JOBUP_URL_RE, JOBUP_EMPTY],
+      [JOBUP_SEARCH_URL_RE, JOBUP_EMPTY],
+    ]);
 
     const jobs = await fetchAllCroixRougeFribourgeoiseJobs();
 
@@ -325,7 +362,11 @@ describe('Croix-Rouge fribourgeoise keeps fetch failure, proven empty and unread
 
   it('does not stamp a Croix-Rouge zero when Jobup keeps an unrecognized detail attribute', async () => {
     const jobupWithUnknownJob = `${JOBUP_CURRENT_EMPTY}<article data-href="/fr/emplois/detail/nouveau-format">Poste</article>`;
-    routeFetch([[JOBCLOUD_URL_RE, JOBCLOUD_EMPTY], [JOBUP_URL_RE, jobupWithUnknownJob]]);
+    routeFetch([
+      [JOBCLOUD_URL_RE, JOBCLOUD_EMPTY],
+      [JOBUP_URL_RE, jobupWithUnknownJob],
+      [JOBUP_SEARCH_URL_RE, JOBUP_EMPTY],
+    ]);
 
     const jobs = await fetchAllCroixRougeFribourgeoiseJobs();
 
@@ -343,6 +384,7 @@ describe('Croix-Rouge fribourgeoise keeps fetch failure, proven empty and unread
     routeFetch([
       [JOBCLOUD_URL_RE, jobCloudHtml],
       [JOBUP_URL_RE, jobupHtml],
+      [JOBUP_SEARCH_URL_RE, jobupHtml],
     ]);
 
     const jobs = await fetchAllCroixRougeFribourgeoiseJobs();

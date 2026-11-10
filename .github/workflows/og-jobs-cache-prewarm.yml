@@ -1,0 +1,276 @@
+name: Prewarm per-job OG image cache
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - build-plugins/shared/jobOgImageVersion.mjs
+      - build-plugins/jobOgImagesPlugin.ts
+      - public/fonts/Roboto-*.ttf
+      - data/company-logos-manifest.json
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: write
+
+concurrency:
+  group: og-jobs-cache-prewarm-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  prepare:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    outputs:
+      has_missing: ${{ steps.plan.outputs.has_missing }}
+      version: ${{ steps.job_og_version.outputs.version }}
+    steps:
+      - name: Checkout main
+        uses: actions/checkout@v7
+        with:
+          ref: main
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: '22'
+
+      - name: Cache node_modules
+        id: node-modules-cache
+        uses: actions/cache@v6
+        with:
+          path: node_modules
+          key: node-modules-${{ runner.os }}-node22-${{ hashFiles('package-lock.json') }}
+
+      - name: Install dependencies
+        if: steps.node-modules-cache.outputs.cache-hit != 'true'
+        run: npm ci
+
+      - name: Resolve job OG image cache version
+        id: job_og_version
+        shell: bash
+        run: |
+          set -euo pipefail
+          version="$(node --input-type=module -e "import { JOB_OG_IMAGE_VERSION } from './build-plugins/shared/jobOgImageVersion.mjs'; process.stdout.write(JOB_OG_IMAGE_VERSION)")"
+          if [[ ! "$version" =~ ^[A-Za-z0-9._-]+$ ]]; then
+            echo "Invalid job OG image cache version: $version" >&2
+            exit 1
+          fi
+          printf 'version=%s\n' "$version" >> "$GITHUB_OUTPUT"
+
+      - name: Restore compatible per-job OG images
+        id: job-og-cache
+        uses: actions/cache/restore@v6
+        with:
+          path: .cache/og-jobs
+          key: og-jobs-${{ runner.os }}-${{ steps.job_og_version.outputs.version }}-${{ hashFiles('build-plugins/jobOgImagesPlugin.ts', 'public/fonts/Roboto-*.ttf', 'data/company-logos-manifest.json') }}-prewarm-probe-${{ github.run_id }}
+          restore-keys: |
+            og-jobs-${{ runner.os }}-${{ steps.job_og_version.outputs.version }}-${{ hashFiles('build-plugins/jobOgImagesPlugin.ts', 'public/fonts/Roboto-*.ttf', 'data/company-logos-manifest.json') }}-
+            og-jobs-${{ runner.os }}-${{ steps.job_og_version.outputs.version }}-
+
+      # The deploy build consumes the prep snapshot produced after assembly and
+      # cleanup. Recreate those same job inputs here, outside its critical path.
+      - name: Compute assemble-jobs cache key
+        id: assemble_cache_key
+        uses: ./.github/actions/assemble-jobs-cache-key
+        with:
+          args: --stats
+
+      - name: Restore compatible assemble-jobs output
+        if: steps.assemble_cache_key.outputs.key != ''
+        uses: actions/cache@v6
+        with:
+          path: .cache/assemble-jobs
+          key: assemble-jobs-${{ runner.os }}-${{ steps.assemble_cache_key.outputs.key }}
+          restore-keys: |
+            assemble-jobs-${{ runner.os }}-
+
+      - name: Assemble deploy job dataset
+        run: node scripts/assemble-jobs-dataset.mjs --stats
+
+      - name: Clean deploy job dataset
+        env:
+          JOBS_SKIP_URL_VALIDATION: '1'
+        run: node scripts/cleanup-jobs.mjs
+
+      - name: Plan missing OG cards across four shards
+        id: plan
+        run: ./node_modules/.bin/tsx scripts/ci/prepare-job-og-cache-prewarm.ts "$RUNNER_TEMP/og-job-prewarm-inputs"
+
+      - name: Upload shard render plans
+        if: steps.plan.outputs.has_missing == 'true'
+        uses: actions/upload-artifact@v7
+        with:
+          name: og-jobs-prewarm-inputs
+          path: ${{ runner.temp }}/og-job-prewarm-inputs/*.json
+          retention-days: 1
+          compression-level: 0
+
+  render:
+    needs: prepare
+    if: needs.prepare.outputs.has_missing == 'true' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    strategy:
+      fail-fast: false
+      max-parallel: 2
+      matrix:
+        shard: [0, 1, 2, 3]
+    steps:
+      - name: Checkout main
+        uses: actions/checkout@v7
+        with:
+          ref: main
+          # checkout sparse: generato da scripts/ci/apply-checkout-profiles.mjs
+          sparse-checkout: |
+            /*
+            !/public/images/
+            !/data/jobs/
+            !/data/seo-404-compat/
+            !/data/translation-cache/
+            !/packages/articles/content/
+            !/data/all-known-job-slugs/
+            !/data/orphan-enriched-data/
+            !/docs/
+            !/public/data/
+            !/data/related-search-candidates.json
+            !/data/cf-hot-404s.json
+            !/data/jobs-ai-cache.json
+            !/data/dist-size-history.jsonl
+            !/data/jobs-stats-history.json
+            !/data/url-first-seen.json
+            !/data/jobs-snapshots-history/
+            !/data/slug-registry.json
+            !/data/evidence-index.json
+            !/data/health-premiums/
+            !/data/jobs-crawler-summaries/
+            /public/images/brands/
+          sparse-checkout-cone-mode: false
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: '22'
+
+      - name: Cache node_modules
+        id: node-modules-cache
+        uses: actions/cache@v6
+        with:
+          path: node_modules
+          key: node-modules-${{ runner.os }}-node22-${{ hashFiles('package-lock.json') }}
+
+      - name: Install dependencies
+        if: steps.node-modules-cache.outputs.cache-hit != 'true'
+        run: npm ci
+
+      - name: Download shard render plans
+        uses: actions/download-artifact@v8
+        with:
+          name: og-jobs-prewarm-inputs
+          path: ${{ runner.temp }}/og-job-prewarm-inputs
+
+      - name: Render missing cards with the build renderer
+        run: >-
+          ./node_modules/.bin/tsx scripts/ci/render-job-og-cache-prewarm.ts
+          "$RUNNER_TEMP/og-job-prewarm-inputs/shard-${{ matrix.shard }}.json"
+
+      - name: Upload rendered cache shard
+        uses: actions/upload-artifact@v7
+        with:
+          name: og-jobs-cache-${{ matrix.shard }}
+          path: .cache/og-jobs
+          include-hidden-files: true
+          if-no-files-found: ignore
+          retention-days: 1
+          compression-level: 0
+
+  save-cache:
+    needs: [prepare, render]
+    if: >-
+      ${{ always() &&
+          needs.prepare.result == 'success' &&
+          (needs.render.result == 'success' || needs.render.result == 'skipped') &&
+          github.ref == 'refs/heads/main' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout main
+        uses: actions/checkout@v7
+        with:
+          ref: main
+          # checkout sparse: generato da scripts/ci/apply-checkout-profiles.mjs
+          sparse-checkout: |
+            /*
+            !/public/images/
+            !/data/jobs/
+            !/data/seo-404-compat/
+            !/data/translation-cache/
+            !/packages/articles/content/
+            !/data/all-known-job-slugs/
+            !/data/orphan-enriched-data/
+            !/docs/
+            !/public/data/
+            !/data/related-search-candidates.json
+            !/data/cf-hot-404s.json
+            !/data/jobs-ai-cache.json
+            !/data/dist-size-history.jsonl
+            !/data/jobs-stats-history.json
+            !/data/url-first-seen.json
+            !/data/jobs-snapshots-history/
+            !/data/slug-registry.json
+            !/data/evidence-index.json
+            !/data/health-premiums/
+            !/data/jobs-crawler-summaries/
+          sparse-checkout-cone-mode: false
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: '22'
+
+      - name: Restore latest compatible per-job OG cache
+        uses: actions/cache/restore@v6
+        with:
+          path: .cache/og-jobs
+          key: og-jobs-${{ runner.os }}-${{ needs.prepare.outputs.version }}-${{ hashFiles('build-plugins/jobOgImagesPlugin.ts', 'public/fonts/Roboto-*.ttf', 'data/company-logos-manifest.json') }}-prewarm-merge-${{ github.run_id }}
+          restore-keys: |
+            og-jobs-${{ runner.os }}-${{ needs.prepare.outputs.version }}-${{ hashFiles('build-plugins/jobOgImagesPlugin.ts', 'public/fonts/Roboto-*.ttf', 'data/company-logos-manifest.json') }}-
+            og-jobs-${{ runner.os }}-${{ needs.prepare.outputs.version }}-
+
+      - name: Merge rendered shards
+        if: needs.prepare.outputs.has_missing == 'true'
+        uses: actions/download-artifact@v8
+        with:
+          pattern: og-jobs-cache-*
+          merge-multiple: true
+          path: .cache/og-jobs
+
+      - name: Validate merged cache and write completion marker
+        shell: bash
+        run: |
+          set -euo pipefail
+          count="$(find .cache/og-jobs -maxdepth 1 -type f -name '*.webp' | wc -l | tr -d '[:space:]')"
+          if [ "$count" -lt 1 ]; then
+            echo "No rendered job OG cache files were merged" >&2
+            exit 1
+          fi
+          printf '{"prewarmed":true,"webp_files":%s}\n' "$count" > .cache/og-jobs/.complete
+          echo "Merged $count OG WebP cache file(s)."
+
+      - name: Save one prewarmed cache entry
+        uses: actions/cache/save@v6
+        with:
+          path: .cache/og-jobs
+          key: og-jobs-${{ runner.os }}-${{ needs.prepare.outputs.version }}-${{ hashFiles('build-plugins/jobOgImagesPlugin.ts', 'public/fonts/Roboto-*.ttf', 'data/company-logos-manifest.json') }}-prewarm-${{ github.run_id }}
+
+      - name: Add workflow summary
+        if: always()
+        run: |
+          {
+            echo '### Job OG cache prewarm'
+            echo
+            echo "Version: ${{ needs.prepare.outputs.version }}"
+            echo 'The merged cache key uses the same `og-jobs-Linux-<version>-` restore prefix as deploy.yml.'
+          } >> "$GITHUB_STEP_SUMMARY"

@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "groupCount": 25,
-  "crawlerCount": 697,
+  "crawlerCount": 698,
   "groups": {
     "10": [
       "atec-personal",
@@ -486,6 +486,7 @@
       "zindel-united-swiss"
     ],
     "25": [
+      "locarno-film-festival",
       "protectas"
     ],
     "01": [
@@ -1142,6 +1143,7 @@
     "lis-lugano-istituti-sociali": "data/jobs/by-crawler/lis-lugano-istituti-sociali.json",
     "livit": "data/jobs/by-crawler/livit.json",
     "localsearch": "data/jobs/by-crawler/localsearch.json",
+    "locarno-film-festival": "data/jobs/by-crawler/locarno-film-festival.json",
     "logitech": "data/jobs/by-crawler/logitech.json",
     "lombard-odier": "data/jobs/by-crawler/lombard-odier.json",
     "lombardi-group": "data/jobs/by-crawler/lombardi-group.json",
@@ -1450,5 +1452,5 @@
     "zurich-insurance-sede-ticino": "data/jobs/by-crawler/zurich-insurance-sede-ticino.json",
     "zurzach-care": "data/jobs/by-crawler/zurzach-care.json"
   },
-  "digest": "sha256:470ce375322cae172c07b165ba1bf4f88ee8f0bfcf3a60544e24619a9930be51"
+  "digest": "sha256:9ca283146fff46139b46d15a64a4c208b43860630e207065a2cdb7c328cc060b"
 }

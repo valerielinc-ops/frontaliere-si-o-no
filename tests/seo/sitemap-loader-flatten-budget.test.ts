@@ -88,50 +88,64 @@ function elapsedMs(fn: () => unknown): number {
   return Number(process.hrtime.bigint() - t0) / 1e6;
 }
 
-function median(values: number[]): number {
-  const sorted = [...values].sort((a, b) => a - b);
-  return sorted[Math.floor(sorted.length / 2)];
-}
+type Overhead = { plainMs: number; flatMs: number; deltaMs: number; ratio: number };
 
-/** Pair the two loops and use the median to reject one noisy shared-runner sample. */
-function measureOverhead(
-  plainFn: () => unknown,
-  flatFn: () => unknown,
-  reps: number,
-): { plainMs: number; flatMs: number; deltaMs: number; ratio: number } {
-  const plainSamples: number[] = [];
-  const flatSamples: number[] = [];
-  const deltaSamples: number[] = [];
-  const ratioSamples: number[] = [];
+/**
+ * Interleave the two loops and keep each one's FASTEST sample. Contention on a
+ * shared runner only ever adds time, so the minimum is the reading closest to
+ * the loop's own cost. The earlier median-of-5 of per-pair ratios was not: in
+ * deploy run 42649761480 (and 42619730081) `npm run gate:seo-source` runs this
+ * file next to ~160 others on 4 vCPUs, and a single descheduled ~5 ms sample
+ * pushed the median to 1.63-1.74. Reproduced locally with 6 CPU/GC hogs: the
+ * median-of-5 flagged the correct Buffer flattener in 9/30 trials AND let
+ * `split('').join('')` through in 4/30.
+ */
+function measureOverhead(plainFn: () => unknown, flatFn: () => unknown, reps: number): Overhead {
+  let plainMs = Infinity;
+  let flatMs = Infinity;
 
   for (let i = 0; i < reps; i++) {
-    let plainMs: number;
-    let flatMs: number;
     if (i % 2 === 0) {
-      plainMs = elapsedMs(plainFn);
-      flatMs = elapsedMs(flatFn);
+      plainMs = Math.min(plainMs, elapsedMs(plainFn));
+      flatMs = Math.min(flatMs, elapsedMs(flatFn));
     } else {
-      flatMs = elapsedMs(flatFn);
-      plainMs = elapsedMs(plainFn);
+      flatMs = Math.min(flatMs, elapsedMs(flatFn));
+      plainMs = Math.min(plainMs, elapsedMs(plainFn));
     }
-    plainSamples.push(plainMs);
-    flatSamples.push(flatMs);
-    deltaSamples.push(flatMs - plainMs);
-    ratioSamples.push((flatMs - plainMs) / plainMs);
   }
 
-  return {
-    plainMs: median(plainSamples),
-    flatMs: median(flatSamples),
-    deltaMs: median(deltaSamples),
-    ratio: median(ratioSamples),
-  };
+  const deltaMs = flatMs - plainMs;
+  return { plainMs, flatMs, deltaMs, ratio: deltaMs / plainMs };
+}
+
+/**
+ * A wrong flattener is slow on EVERY attempt; a busy runner is slow on some.
+ * Re-measure while the bound is exceeded and keep the best attempt, so one
+ * contended window cannot fail the gate but a real regression still does.
+ * Same harness under the same 6-hog load: 0/30 false failures (worst 1.23) and
+ * `split('').join('')` caught 30/30 (best 3.30) — the 1.5 bound is unchanged.
+ */
+function bestOverhead(
+  plainFn: () => unknown,
+  flatFn: () => unknown,
+  withinBudget: (o: Overhead) => boolean,
+): Overhead {
+  let best = measureOverhead(plainFn, flatFn, REPS);
+  for (let attempt = 1; attempt < ATTEMPTS && !withinBudget(best); attempt++) {
+    const next = measureOverhead(plainFn, flatFn, REPS);
+    if (next.ratio < best.ratio) best = next;
+  }
+  return best;
 }
 
 // Kept small enough to stay a unit test; the per-call cost is what scales, and
-// it is flat in the shard count.
+// it is flat in the shard count. Longer samples do not buy stability here: at
+// 45k `<loc>` the median-of-5 still failed the correct Buffer flattener 5/5
+// under the same 6-hog load (ratio up to 2.0) — a bigger shard means more
+// allocation per sample, so GC pressure grows with it instead of averaging out.
 const LOCS = 8_000;
-const REPS = 5;
+const REPS = 15;
+const ATTEMPTS = 3;
 
 /**
  * Upper bound on the `flatString` calls one `validate:sitemap-pages` run makes,
@@ -171,11 +185,12 @@ describe('validate-sitemap-pages sitemap loaders: flatten wall-time budget', () 
     hreflangLoop(xml, false);
     hreflangLoop(xml, true);
 
-    const loc = measureOverhead(() => locLoop(xml, false), () => locLoop(xml, true), REPS);
-    const hre = measureOverhead(
+    const withinRatio = (o: Overhead) => o.ratio < MAX_OVERHEAD_RATIO;
+    const loc = bestOverhead(() => locLoop(xml, false), () => locLoop(xml, true), withinRatio);
+    const hre = bestOverhead(
       () => hreflangLoop(xml, false),
       () => hreflangLoop(xml, true),
-      REPS,
+      withinRatio,
     );
 
     expect(
@@ -193,13 +208,16 @@ describe('validate-sitemap-pages sitemap loaders: flatten wall-time budget', () 
     locLoop(xml, false);
     locLoop(xml, true);
 
-    const { deltaMs } = measureOverhead(
+    const extrapolate = (deltaMs: number) => {
+      const perCallNs = (Math.max(deltaMs, 0) * 1e6) / LOCS;
+      return { perCallNs, extrapolatedMs: (perCallNs * PRODUCTION_FLATTEN_CALLS) / 1e6 };
+    };
+    const { deltaMs } = bestOverhead(
       () => locLoop(xml, false),
       () => locLoop(xml, true),
-      REPS,
+      (o) => extrapolate(o.deltaMs).extrapolatedMs < EXTRAPOLATED_BUDGET_MS,
     );
-    const perCallNs = (Math.max(deltaMs, 0) * 1e6) / LOCS;
-    const extrapolatedMs = (perCallNs * PRODUCTION_FLATTEN_CALLS) / 1e6;
+    const { perCallNs, extrapolatedMs } = extrapolate(deltaMs);
 
     expect(
       extrapolatedMs,

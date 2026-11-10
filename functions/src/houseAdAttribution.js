@@ -28,3 +28,31 @@ export function sanitizeHouseAdAttribution(value, now = Date.now()) {
     creativeId: value.creativeId, format: value.format, locale: value.locale,
     placement: value.placement, device: value.device, enrolled, clickedAt: value.clickedAt };
 }
+
+/** Minimal cohort data for the reader-subscription creative experiment. */
+export function sanitizeReaderSubscriptionAdAttribution(value, now = Date.now()) {
+  if (!value || typeof value !== 'object' || Array.isArray(value)) return null;
+  const variants = ['control', 'subscription'];
+  const formats = ['mobile_banner', 'mobile_large', 'rectangle', 'leaderboard', 'billboard', 'skyscraper'];
+  if (value.campaign !== 'reader_subscription'
+      || value.experimentId !== 'reader_subscription_house_v1'
+      || !variants.includes(value.variant)
+      || value.creativeId !== (value.variant === 'subscription' ? 'subscription_v1' : 'control_v1')
+      || !formats.includes(value.format)
+      || !['it', 'en', 'de', 'fr'].includes(value.locale)
+      || !['mobile', 'desktop'].includes(value.device)
+      || value.assignmentSource !== 'firebase_remote_config'
+      || value.enrolled !== true
+      || !['click', 'exposure'].includes(value.touchpoint)
+      || (value.touchpoint === 'click' && value.variant !== 'subscription')
+      || typeof value.placement !== 'string' || !/^[a-zA-Z0-9_.:-]{1,80}$/.test(value.placement)
+      || typeof value.attributedAt !== 'number' || !Number.isFinite(value.attributedAt)
+      || value.attributedAt > now || now - value.attributedAt > 7 * 86400000) return null;
+  return {
+    campaign: 'reader_subscription', experimentId: 'reader_subscription_house_v1',
+    assignmentSource: 'firebase_remote_config', variant: value.variant,
+    creativeId: value.creativeId, format: value.format, locale: value.locale,
+    placement: value.placement, device: value.device, enrolled: true,
+    touchpoint: value.touchpoint, attributedAt: value.attributedAt,
+  };
+}

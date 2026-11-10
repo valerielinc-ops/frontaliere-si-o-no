@@ -30,6 +30,7 @@ import {
  ANALYTICS_EMISSION_ID_FACTORY_JS,
  GA4_BOT_GATE_FN,
  GTAG_LOADER_SNIPPET,
+ META_PIXEL_BASE_CODE,
  TELEMETRY_SANITIZER_JS,
  PARTNERIZE_TAG_SNIPPET,
  POSTHOG_SNIPPET,
@@ -120,6 +121,7 @@ if(document.readyState!=='loading')patch();else document.addEventListener('DOMCo
  <meta name="robots" content="noindex,nofollow">
  <link rel="canonical" href="${BASE_URL}/go/${partner.id}/">
  ${SEO_STATIC_CSS_LINK}
+ ${META_PIXEL_BASE_CODE}
  ${GTAG_LOADER_SNIPPET}
  ${CF_BEACON_SNIPPET}
  ${POSTHOG_SNIPPET}
