@@ -1253,13 +1253,40 @@ function nativeQuestionText(value, counter = null) {
   const MENU_ITEM_BUDGET = 20;
   const APPLICATION_ENTRY_RESERVE = 10;
   const disclosureToggle = (element) => element.matches(DISCLOSURE_TOGGLE);
-  const openedMenuItem = (element) => {
+  // The toggle that owns a menu item's menu, proved in this order: a toggle
+  // whose aria-controls/aria-owns names a container of the item; the toggle
+  // immediately before the item's menu; the nearest ancestor holding exactly
+  // one toggle. Two toggles at the same level without either proof own
+  // nothing, so an expanded sibling menu never opens another menu's items.
+  const menuOwnerToggle = (element) => {
+    const toggles = [...document.querySelectorAll(DISCLOSURE_TOGGLE)]
+      .filter((candidate) => candidate !== element && !candidate.contains(element) && !element.contains(candidate));
+    let depth = 0;
+    for (let node = element.parentElement; node && node !== document.body && depth < 5; node = node.parentElement, depth += 1) {
+      if (!node.id) continue;
+      const owner = toggles.find((candidate) => ['aria-controls', 'aria-owns']
+        .some((attribute) => String(candidate.getAttribute(attribute) || '').split(/\s+/).includes(node.id)));
+      if (owner) return owner;
+    }
+    const menu = element.closest('[role="menu"], .dropdown-menu, ul, ol');
+    if (menu?.previousElementSibling && toggles.includes(menu.previousElementSibling)) return menu.previousElementSibling;
+    depth = 0;
+    for (let node = element.parentElement; node && node !== document.body && depth < 5; node = node.parentElement, depth += 1) {
+      const scoped = toggles.filter((candidate) => node.contains(candidate));
+      if (scoped.length === 1) return scoped[0];
+      if (scoped.length > 1) return null;
+    }
+    return null;
+  };
+  const openedMenuItem = (element) => element.getAttribute('role') === 'menuitem'
+    && menuOwnerToggle(element)?.getAttribute('aria-expanded') === 'true';
+  // A menu item near any disclosure toggle belongs to a disclosure menu.
+  const disclosureMenuItem = (element) => {
     if (element.getAttribute('role') !== 'menuitem') return false;
     let depth = 0;
     for (let node = element.parentElement; node && node !== document.body && depth < 5; node = node.parentElement, depth += 1) {
-      const toggle = [...node.querySelectorAll(DISCLOSURE_TOGGLE)]
-        .find((candidate) => candidate !== element && !candidate.contains(element) && !element.contains(candidate));
-      if (toggle) return toggle.getAttribute('aria-expanded') === 'true';
+      if ([...node.querySelectorAll(DISCLOSURE_TOGGLE)].some((candidate) => candidate !== element
+        && !candidate.contains(element) && !element.contains(candidate))) return true;
     }
     return false;
   };
@@ -1423,7 +1450,10 @@ function nativeQuestionText(value, counter = null) {
   // A plain link is no button, so that no button search meets an ordinary link, yet a required notice can
   // be printed as one. Read apart with its target: portal.mjs can verify a unique external Apply handoff.
   const links = [...document.querySelectorAll('a[href]')]
-    .filter((element) => !actionControl(element) && visible(element) && !behindModal(element) && !isSiteChromeControl(element) && buttonName(element))
+    .filter((element) => !actionControl(element) && visible(element) && !behindModal(element) && !isSiteChromeControl(element) && buttonName(element)
+      // An item of a disclosure menu that is closed, or whose owner toggle is
+      // not proved, is no page link either: only its opened menu exposes it.
+      && !disclosureMenuItem(element))
     .slice(0, 60)
     .map((element) => ({
       id: idFor(element),

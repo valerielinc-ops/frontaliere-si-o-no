@@ -263,6 +263,46 @@ describe('review round 2 (#17902)', () => {
   });
 });
 
+describe('review round 4 (#17902)', () => {
+  const siblingDropdowns = {
+    adjacent: `<main><section><h1>${role}</h1><div class="actions">
+      <button class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Jetzt bewerben</button>
+      <ul class="dropdown-menu"><li role="none"><a role="menuitem" id="apply-first" href="#">Jetzt bewerben</a></li></ul>
+      <button class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Jetzt bewerben</button>
+      <ul class="dropdown-menu"><li role="none"><a role="menuitem" id="apply-second" href="#">Jetzt bewerben</a></li></ul>
+    </div></section></main>`,
+    'aria-controls': `<main><section><h1>${role}</h1><div class="actions">
+      <button class="dropdown-toggle" aria-haspopup="true" aria-controls="menu-second" aria-expanded="false">Jetzt bewerben</button>
+      <button class="dropdown-toggle" aria-haspopup="true" aria-controls="menu-first" aria-expanded="true">Jetzt bewerben</button>
+      <ul id="menu-first" class="dropdown-menu"><li role="none"><a role="menuitem" id="apply-first" href="#">Jetzt bewerben</a></li></ul>
+      <ul id="menu-second" class="dropdown-menu"><li role="none"><a role="menuitem" id="apply-second" href="#">Jetzt bewerben</a></li></ul>
+    </div></section></main>`,
+  };
+
+  it.each(Object.entries(siblingDropdowns))('opens only the items of the expanded sibling dropdown (%s)', (_layout, html) => {
+    const { read } = domPage(html, postingUrl);
+    const snapshot = read();
+    const items = snapshot.buttons.filter((button: any) => button.menuItem === true);
+    expect(items.map((button: any) => button.domId)).toEqual(['apply-first']);
+    expect(snapshot.buttons.some((button: any) => button.domId === 'apply-second')).toBe(false);
+    expect(applicationEntryControls(snapshot, entryContext)).toEqual([items[0]]);
+  });
+
+  it('opens no item when two toggles share a container without ownership proof', () => {
+    const html = `<main><section><h1>${role}</h1><div class="actions">
+      <button class="dropdown-toggle" aria-haspopup="true" aria-expanded="true">Jetzt bewerben</button>
+      <button class="dropdown-toggle" aria-haspopup="true" aria-expanded="false">Jetzt bewerben</button>
+      <p>Optionen</p>
+      <ul class="dropdown-menu"><li role="none"><a role="menuitem" id="apply-unowned" href="#">Jetzt bewerben</a></li></ul>
+    </div></section></main>`;
+    const { read } = domPage(html, postingUrl);
+    const snapshot = read();
+    expect(snapshot.buttons.some((button: any) => button.domId === 'apply-unowned')).toBe(false);
+    expect(snapshot.links.some((link: any) => link.text === 'Jetzt bewerben')).toBe(false);
+    expect(applicationEntryControls(snapshot, entryContext).some((control: any) => control.menuItem || control.domId === 'apply-unowned')).toBe(false);
+  });
+});
+
 describe('review round 3 (#17902)', () => {
   const requisitionContext = { ...entryContext, job: { ...entryContext.job, jobId: '123' } };
   const openMenuSnapshot = (marker: string, href: string) => ({
