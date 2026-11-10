@@ -3,8 +3,8 @@
  *
  * Decides WHICH job URLs to notify on a given day and in which order, from:
  *   - the live job sitemaps (what Google is told exists right now),
- *   - a persistent ledger of what was already notified (restored from the
- *     Actions cache by the calling workflow),
+ *   - a persistent ledger of what was already notified (pulled from and
+ *     pushed back to Firestore by scripts/lib/indexing-ledger-store.mjs),
  *   - an optional priority list (job pages the GSC monitor inspected and found
  *     WITHOUT a "Job Postings" rich result).
  *
@@ -16,8 +16,11 @@
  * updated ones flowing first.
  *
  * Quota: Google's default Indexing API quota is 200 publish requests per day
- * per GCP project, reset at midnight America/Los_Angeles. The day key below is
- * therefore the Pacific date, not UTC.
+ * per GCP project (DAILY_BUDGET, see indexing-api-quota.mjs), reset at
+ * midnight America/Los_Angeles. The day key below is therefore the Pacific
+ * date, not UTC. With 200 requests for ~32k job URLs nothing may be spent
+ * twice: a URL is notified again only when its type changes (UPDATED →
+ * DELETED) or the sitemap lastmod moves past the last notification.
  *
  * @module scripts/lib/indexing-jobs-planner
  */
@@ -30,10 +33,13 @@ import { DAILY_BUDGET } from './indexing-api-quota.mjs';
 
 export const LEDGER_VERSION = 1;
 export { DAILY_BUDGET };
-/** Share of the run budget URL_DELETED may take, so deletions never starve updates (and vice versa). */
-export const DELETE_SHARE = 0.2;
-/** A priority URL (monitor: no Jobs rich result) is re-notified at most this often. */
-export const PRIORITY_RESUBMIT_DAYS = 3;
+/**
+ * A never-notified job is "new" (top tier) while its sitemap lastmod — the
+ * job's datePosted/update date — or the day the ledger first saw it in the
+ * sitemaps is at most this many days old. One day = "posted in the last 24h"
+ * at the date-only resolution of a sitemap lastmod.
+ */
+export const NEW_JOB_DAYS = 1;
 /** A URL that failed the live JobPosting check is re-checked after this many days. */
 export const NOT_JOB_RECHECK_DAYS = 7;
 /** A URL gone from the sitemaps but still served indexable is re-checked after this many days. */
@@ -193,15 +199,18 @@ export function observeSitemap(ledger, entries, today) {
 }
 
 /**
- * Ordered work list. Tiers (first wins):
- *   1. priority — active URLs the monitor found without a Jobs rich result
- *      (re-notified at most every PRIORITY_RESUBMIT_DAYS);
- *   2. new — first seen after the ledger was bootstrapped, never notified;
- *   3. delete — dropped from the sitemaps after the ledger saw it there, never
- *      URL_DELETED-notified (capped at
- *      DELETE_SHARE of the run; the caller still verifies 404/410/noindex);
+ * Ordered work list. Tiers (first wins), as ratified on 2026-11-10 — Google
+ * for Jobs rewards a job page that reaches it while the posting is fresh:
+ *   1. new — never notified, posted (lastmod) or first seen in the sitemaps
+ *      within NEW_JOB_DAYS; Italian URL before its EN/DE/FR alternates;
+ *   2. delete — dropped from the sitemaps after the ledger saw it there, never
+ *      URL_DELETED-notified (the caller still verifies 404/410/noindex);
+ *   3. priority — active URLs the GSC monitor found without a Jobs rich
+ *      result (`job-rich-missing`), first among the updates;
  *   4. updated — sitemap lastmod newer than the last notification;
- *   5. never notified — the bootstrap backlog, newest lastmod first.
+ *   5. backlog — never notified, newest lastmod first.
+ * Never planned: an URL+type already notified whose lastmod has not moved
+ * (see `countDedupSkipped`), a priority URL that is not an active sitemap job.
  *
  * @param {object} ledger
  * @param {{today: string, max: number, priority?: string[]}} opts
@@ -217,26 +226,27 @@ export function planSubmissions(ledger, { today, max, priority = [] }) {
     out.push({ url, type, tier });
   };
   const fresh = (e) => !e.gone && !(e.n && daysBetween(e.n, today) < NOT_JOB_RECHECK_DAYS);
+  const changedSinceSent = (e) => !e.s || Boolean(e.m && e.m > e.s);
   const entries = Object.entries(ledger.urls);
+
+  const isNew = (e) => fresh(e) && !e.s && (
+    (e.m && daysBetween(e.m, today) <= NEW_JOB_DAYS)
+    || (e.f > ledger.createdAt && daysBetween(e.f, today) <= NEW_JOB_DAYS)
+  );
+  entries
+    .filter(([, e]) => isNew(e))
+    .sort(([ua, a], [ub, b]) => newRank(ua) - newRank(ub) || (b.m || '').localeCompare(a.m || ''))
+    .forEach(([url]) => push(url, 'URL_UPDATED', 'new'));
+
+  entries
+    .filter(([, e]) => e.gone && !e.d && !(e.g && daysBetween(e.g, today) < GONE_RECHECK_DAYS))
+    .sort(([, a], [, b]) => String(b.gone).localeCompare(String(a.gone)))
+    .forEach(([url]) => push(url, 'URL_DELETED', 'delete'));
 
   for (const url of priority) {
     const e = ledger.urls[url];
-    if (!e || !fresh(e)) continue;
-    if (e.s && daysBetween(e.s, today) < PRIORITY_RESUBMIT_DAYS) continue;
+    if (!e || !fresh(e) || !changedSinceSent(e)) continue;
     push(url, 'URL_UPDATED', 'priority');
-  }
-  for (const [url, e] of entries) {
-    if (fresh(e) && !e.s && e.f > ledger.createdAt) push(url, 'URL_UPDATED', 'new');
-  }
-  const deleteCap = Math.max(1, Math.floor(max * DELETE_SHARE));
-  let deletes = 0;
-  for (const [url, e] of entries) {
-    if (deletes >= deleteCap) break;
-    // Any URL the sitemaps advertised to Google and then dropped.
-    if (!e.gone || e.d) continue;
-    if (e.g && daysBetween(e.g, today) < GONE_RECHECK_DAYS) continue;
-    push(url, 'URL_DELETED', 'delete');
-    deletes += 1;
   }
   for (const [url, e] of entries) {
     if (fresh(e) && e.s && e.m && e.m > e.s) push(url, 'URL_UPDATED', 'updated');
@@ -247,6 +257,32 @@ export function planSubmissions(ledger, { today, max, priority = [] }) {
   for (const [url] of backlog) push(url, 'URL_UPDATED', 'backlog');
 
   return out;
+}
+
+/**
+ * URLs the planner deliberately did NOT plan because Google already has the
+ * current version: notified URL_UPDATED with no lastmod change since, or gone
+ * and already URL_DELETED. Logged every run so the saving is visible.
+ * @param {object} ledger
+ */
+export function countDedupSkipped(ledger) {
+  let n = 0;
+  for (const e of Object.values(ledger.urls)) {
+    if (e.gone ? Boolean(e.d) : Boolean(e.s && !(e.m && e.m > e.s))) n += 1;
+  }
+  return n;
+}
+
+/**
+ * Order inside the "new" tier: the Italian URL of every new job before any
+ * EN/DE/FR alternate (one request per job reaches Google first), Ticino first.
+ * @param {string} url
+ */
+export function newRank(url) {
+  const path = url.slice(SITE_ORIGIN.length);
+  const localized = /^\/(?:en|de|fr)\//.test(path) ? 2 : 0;
+  const ticino = /^(?:\/(?:en|de|fr))?\/[a-z-]*-(?:ticino|tessin)\//.test(path) ? 0 : 1;
+  return localized + ticino;
 }
 
 /**
