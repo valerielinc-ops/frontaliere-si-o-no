@@ -101,6 +101,17 @@ describe('attested Castagnola regional duty URL migration', () => {
     expect(emittedDutyCityPaths.filter((pathname) => aliasPaths.has(pathname))).toEqual([]);
   });
 
+  it('resolves city duty navigation through the canonical regional route', () => {
+    const descriptor = pages.pharmacyPageDescriptors().find(row => row.kind === 'city' && row.citySlug === 'castagnola');
+    expect(descriptor).toBeTruthy();
+    for (const [locale, aliasPath] of aliases) {
+      const targetPath = buildPharmacyPath({ kind: 'duty-city', locale, citySlug: 'lugano' });
+      const page = pages.buildPharmacyDirectoryPage(descriptor!, locale, '');
+      expect(page.html).toContain(`href="${targetPath}"`);
+      expect(page.html).not.toContain(`href="${aliasPath}"`);
+    }
+  });
+
   it('keeps non-aliased locale duty-city pages when only Italian has a bridge', () => {
     const onlyItalianRedirects = {
       [aliases[0][1]]: '/farmacie/ticino/lugano/di-turno/',

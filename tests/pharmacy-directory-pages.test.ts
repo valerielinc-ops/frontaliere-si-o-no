@@ -83,6 +83,22 @@ describe('pharmacy URL aliases', () => {
     const bridge = buildPharmacyAliasBridge(italian!);
     expect(bridge).toContain('https://frontaliereticino.ch/farmacie/ticino/lugano/farmacia-castagnola-lugano/');
   });
+
+  it('links the Castagnola city pages to the canonical Lugano duty route', () => {
+    const descriptor = pharmacyPageDescriptors().find((candidate) => candidate.kind === 'city' && candidate.citySlug === 'castagnola');
+    expect(descriptor).toBeDefined();
+    for (const locale of locales) {
+      const cityPath = buildPharmacyPath({ kind: 'city', country: 'CH', citySlug: 'castagnola', locale });
+      const targetPath = buildPharmacyPath({ kind: 'duty-city', locale, citySlug: 'lugano' });
+      const aliasPath = buildPharmacyPath({ kind: 'duty-city', locale, citySlug: 'castagnola' });
+      const root = makeTempRoot();
+      const built = buildPharmacyDirectoryPage(descriptor!, locale, root);
+
+      expect(built.path).toBe(cityPath);
+      expect(built.html).toContain(`href="${targetPath}"`);
+      expect(built.html).not.toContain(`href="${aliasPath}"`);
+    }
+  });
 });
 
 describe('pharmacy directory static pages', () => {
