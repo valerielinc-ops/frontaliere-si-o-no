@@ -157,6 +157,7 @@ describe('bounded Cloud Functions hosted-runner recovery', () => {
     });
     expect(recovery.permissions).toMatchObject({ actions: 'write', checks: 'read' });
     expect(recovery.jobs.retry.if).toContain("run_attempt == 1");
+    expect(recovery.jobs.retry.steps[0].with['sparse-checkout']).toContain('scripts/ci/lib/workflow-run-list-recovery.mjs');
     expect(recovery.jobs.retry.steps.at(-1).uses).toBe('actions/github-script@v9');
     expect(recovery.jobs.retry.steps.at(-1).with.script).toContain('shouldRetryCloudFunctionsRun');
     expect(recovery.jobs.retry.steps.at(-1).with.script).toContain('listRecentCloudFunctionsRuns');

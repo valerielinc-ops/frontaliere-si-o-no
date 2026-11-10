@@ -1,5 +1,17 @@
+import { listRecentWorkflowRunsWithRetry } from './lib/workflow-run-list-recovery.mjs';
+
 export const EVENT_DESCRIPTION_WORKFLOW_PATH = '.github/workflows/event-description-rewrite.yml';
+export const EVENT_DESCRIPTION_WORKFLOW_ID = 'event-description-rewrite.yml';
 export const EVENT_DESCRIPTION_PLAN_JOB = 'plan';
+
+export async function listRecentEventDescriptionRuns({
+  ...options
+} = {}) {
+  return listRecentWorkflowRunsWithRetry({
+    ...options,
+    workflowId: EVENT_DESCRIPTION_WORKFLOW_ID,
+  });
+}
 
 /**
  * A failed run can contain only skipped dependent jobs when Actions fails

@@ -38,7 +38,9 @@ jobs:
           ref: main
           fetch-depth: 1
           persist-credentials: false
-          sparse-checkout: scripts/ci/cloud-functions-hosted-runner-recovery.mjs
+          sparse-checkout: |
+            scripts/ci/cloud-functions-hosted-runner-recovery.mjs
+            scripts/ci/lib/workflow-run-list-recovery.mjs
           sparse-checkout-cone-mode: false
 
       - name: Retry only an unassigned hosted-runner deploy
