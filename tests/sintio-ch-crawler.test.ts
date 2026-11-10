@@ -1,4 +1,5 @@
 import { describe, it, expect } from 'vitest';
+import { readFileSync } from 'node:fs';
 import {
   SINTIO_CH_KEY,
   SINTIO_CH_COMPANY_NAME,
@@ -6,12 +7,27 @@ import {
   isTrustedDomain,
 } from '../scripts/lib/sintio-ch-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
+import { templateToRegex } from '../scripts/lib/prospector/spec-crawler.mjs';
 
 describe('Sintio crawler parser', () => {
   // ── Constants ──
   it('exports valid company key and name', () => {
     expect(SINTIO_CH_KEY).toBe('sintio-ch');
     expect(SINTIO_CH_COMPANY_NAME).toBe('Sintio');
+  });
+
+  it('uses the stable company listing as the seed for vacancy discovery', () => {
+    const spec = JSON.parse(readFileSync(
+      new URL('../data/prospector/crawlers/sintio-ch.json', import.meta.url),
+      'utf8',
+    ));
+
+    expect(spec.seedUrls).toEqual(['https://join.com/companies/sintio']);
+    expect(spec.detailTemplate).toBe('/companies/sintio/*');
+    expect(templateToRegex(spec.detailTemplate).test(
+      '/companies/sintio/another-current-vacancy',
+    )).toBe(true);
+    expect(templateToRegex(spec.detailTemplate).test('/companies/sintio')).toBe(false);
   });
 
   // ── isCompanyJob ──
