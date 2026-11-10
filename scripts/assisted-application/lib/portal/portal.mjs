@@ -3375,6 +3375,7 @@ function boundPostingConflictText(formText, job, { pageUrl = '', postingUrl = ''
 export function hasVacancySpecificPostingEvidence(pageText, job = {}, {
   pageUrl = '',
   pageTitle = '',
+  pageHeading = '',
   postingUrl = '',
   postingRouteProof = null,
   vacancyIdentityContexts = [],
@@ -3394,7 +3395,17 @@ export function hasVacancySpecificPostingEvidence(pageText, job = {}, {
   // rendered page text: a generic document title must not hide an unrelated
   // role in the selected route, while a proven employer/location suffix in
   // the posting body may be ignored.
-  if (!organizationCompatible || namesAnotherEmployer(routeBound ? pageText : sourceText, job, { allowPostingLocation: routeBound })) return false;
+  // namesAnotherEmployer reads the first line of its text as the page's title.
+  // The rendered text of a selected route starts with whatever the site puts
+  // first, often a skip link («Zum Inhalt springen», «Skip to content»; order
+  // 1EpmkrDu, jobs.yellowshark.com, 2026-11-10: posting_mismatch before its
+  // Apply). When the page's own main heading is exactly the role, that heading
+  // is the title line; the employer-conflict rule still reads the whole page.
+  // A heading naming another role, a second employer or nothing keeps the
+  // rendered first line, as before.
+  const routeHeading = routeBound && isRoleHeading(pageHeading, job?.title) ? String(pageHeading).trim() : '';
+  const conflictText = routeBound ? (routeHeading ? `${routeHeading}\n${pageText}` : pageText) : sourceText;
+  if (!organizationCompatible || namesAnotherEmployer(conflictText, job, { allowPostingLocation: routeBound })) return false;
   if (routeBound) return true;
   const titleMatched = Boolean(job?.title && titleMatches(pageTitle, job.title));
   // The source page must identify the role in its title. Its employer may be
@@ -3463,6 +3474,44 @@ export function successFactorsRequisitionShown(formText, job = {}, { pageUrl = '
     && [...line.matchAll(otherRequisition)].every((found) => found[0].replace(/\D/g, '') === module.requisition)
     && titleMatches(line.replace(otherRequisition, ' '), job.title)
     && titleWordsOnly(line.replace(otherRequisition, ' '), job.title));
+}
+
+/**
+ * The page's main heading is the order's role and nothing else: every word of
+ * the role, and around it only gender markers or a workload («(m/w/d)»,
+ * «80-100%»). Another role, an employer or a slogan in it is not this role.
+ */
+export function isRoleHeading(heading, title) {
+  const text = String(heading || '').trim();
+  if (!text || text.length > 200 || !title || !titleMatches(text, title)) return false;
+  const wanted = new Set(normalizeWords(title).split(' ').filter(Boolean));
+  // A workload («80-100%», «100 %») is the only number allowed around the role; it is taken out before the words.
+  const seen = normalizeWords(text.replace(/\b\d{1,3}(?:\s*[-–]\s*\d{1,3})?\s*%/g, ' ')).split(' ').filter(Boolean);
+  const shown = new Set(seen);
+  // Every word of the role is there («Product Manager» is not «IT Product Manager»), the gender markers of
+  // the title aside, and nothing but those markers or a workload around it.
+  return seen.length > 0 && [...wanted].every((word) => shown.has(word) || TITLE_GENDER_MARKERS.has(word))
+    && seen.every((word) => wanted.has(word) || TITLE_GENDER_MARKERS.has(word));
+}
+
+/** The single main heading (h1) the page shows, or '' when it shows none or several different ones. */
+export async function postingMainHeading(page) {
+  if (typeof page?.evaluate !== 'function') return '';
+  const headings = await page.evaluate(() => [...document.querySelectorAll('h1, [role="heading"][aria-level="1"]')]
+    .filter((node) => {
+      const rect = node.getBoundingClientRect();
+      const style = window.getComputedStyle(node);
+      return rect.width > 0 && rect.height > 0 && style.display !== 'none' && style.visibility !== 'hidden';
+    })
+    .map((node) => String(node.innerText || node.textContent || '').replace(/\s+/g, ' ').trim())
+    .filter(Boolean)
+    .slice(0, 201)).catch(() => null);
+  // Distinct across every visible main heading: a different one after ten copies of the role still counts. A page
+  // with more main headings than that is no single-heading posting.
+  if (!Array.isArray(headings) || headings.length > 200) return '';
+  const distinct = [...new Set(headings)];
+  // The whole heading: isRoleHeading refuses one longer than a title, never a cut that hides «… at Other Employer».
+  return distinct.length === 1 ? distinct[0] : '';
 }
 
 /** The line names the role and nothing else of substance (no second role or employer around it). */
@@ -7708,6 +7757,7 @@ export async function readPortalRequirements(ctx) {
     const sourcePostingMatched = hasJobContract && hasVacancySpecificPostingEvidence(sourcePostingText, ctx.job, {
       pageUrl: page.url(),
       pageTitle: sourceTitle,
+      pageHeading: await postingMainHeading(page),
       postingUrl: ctx.postingUrl,
       postingRouteProof: ctx.postingRouteProof,
       vacancyIdentityContexts: currentVacancyIdentityContexts(snapshot),
@@ -8118,6 +8168,7 @@ export async function submitViaPortal(ctx) {
       || hasVacancySpecificPostingEvidence(initialPageText, ctx.job, {
         pageUrl: postingUrl,
         pageTitle: postingTitle,
+        pageHeading: await postingMainHeading(page),
         postingUrl: ctx.postingUrl,
         postingRouteProof: ctx.postingRouteProof,
         vacancyIdentityContexts: currentVacancyIdentityContexts(snapshot),
