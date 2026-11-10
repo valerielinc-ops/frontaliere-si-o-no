@@ -206,7 +206,8 @@
         "operateur-de-grue-avec-suva-id-h-f-yellowshark-ag-zurich-zh",
         "crane-operator-with-suva-id-m-f-yellowshark-ag-zurich-zh-5ad27e35",
         "kranfuhrer-mit-suva-ausweis-m-w-zurich-zh-yellowshark-ch-e3d94696",
-        "crane-operator-with-suva-id-m-f-yellowshark-ag-zurich-zh"
+        "crane-operator-with-suva-id-m-f-yellowshark-ag-zurich-zh",
+        "kranfuhrer-mit-suva-ausweis-m-w-zurich-zh-yellowshark-ch"
       ],
       "fr": [
         "operateur-de-grue-avec-suva-id-h-f-yellowshark-ag-zurich-zh-84ccb715",
@@ -214,13 +215,15 @@
         "crane-operator-with-suva-id-m-f-yellowshark-ag-zurich-zh",
         "operateur-de-grue-avec-suva-id-h-f-yellowshark-ag-zurich-zh-43d393b1",
         "kranfuhrer-mit-suva-ausweis-m-w-zurich-zh-yellowshark-ch-e3d94696",
-        "operateur-de-grue-avec-suva-id-h-f-yellowshark-ag-zurich-zh"
+        "operateur-de-grue-avec-suva-id-h-f-yellowshark-ag-zurich-zh",
+        "kranfuhrer-mit-suva-ausweis-m-w-zurich-zh-yellowshark-ch"
       ],
       "de": [
         "kranfuhrer-mit-suva-ausweis-m-w-zurich-zh-yellowshark-ch-cc9d40ef",
         "crane-operator-with-suva-id-m-f-yellowshark-ag-zurich-zh",
         "operateur-de-grue-avec-suva-id-h-f-yellowshark-ag-zurich-zh",
-        "kranfuhrer-mit-suva-ausweis-m-w-zurich-zh-yellowshark-ch-e3d94696"
+        "kranfuhrer-mit-suva-ausweis-m-w-zurich-zh-yellowshark-ch-e3d94696",
+        "kranfuhrer-mit-suva-ausweis-m-w-zurich-zh-yellowshark-ch"
       ]
     },
     "postalCode": "8001",
@@ -455,7 +458,8 @@
       "de": [
         "lavoratori-di-legno-m-f-yellowshark-ag-zurich-zh",
         "holzbau-arbeiter-m-w-zurich-zh-yellowshark-ch-9601e321",
-        "holzbau-arbeiter-m-w-zurich-zh-yellowshark-ch-7b9f50d7"
+        "holzbau-arbeiter-m-w-zurich-zh-yellowshark-ch-7b9f50d7",
+        "holzbau-arbeiter-m-w-zurich-zh-yellowshark-ch"
       ]
     },
     "postalCode": "8001",
@@ -18344,16 +18348,14 @@
     "slugByLocale": {
       "it": "leiter-elektro-technik-100-m-w-d-yellowshark-ag-rotkreuz",
       "en": "head-of-electrical-technology-100-m-f-d-yellowshark-ag-rotkreuz-zg",
-      "de": "leiter-elektro-technik-100-m-w-d-rotkreuz-zg-yellowshark-ch",
+      "de": "leiter-elektro-technik-100-m-w-d-rotkreuz-zg-yellowshark-ch-d0226ee0",
       "fr": "responsable-electrique-technologie-100-h-f-d-yellowshark-ag-rotkreuz-zg"
     },
     "sector": "Altro",
     "expiredAt": "2026-11-01T10:03:17.188Z",
-    "previousSlugs": [
-      "leiter-elektro-technik-100-m-w-d-rotkreuz-zg-yellowshark-ch"
-    ],
     "previousSlugsByLocale": {
       "it": [
+        "leiter-elektro-technik-100-m-w-d-rotkreuz-zg-yellowshark-ch-d0226ee0",
         "leiter-elektro-technik-100-m-w-d-rotkreuz-zg-yellowshark-ch"
       ],
       "en": [
@@ -18361,6 +18363,9 @@
       ],
       "fr": [
         "leiter-elektro-technik-100-m-w-d-rotkreuz-zg-yellowshark-ch"
+      ],
+      "de": [
+        "leiter-elektro-technik-100-m-w-d-rotkreuz-zg-yellowshark-ch-d0226ee0"
       ]
     },
     "postalCode": "6343",
@@ -18370,7 +18375,10 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.yellowshark.com/job/sa064017",
-    "firstSeenAt": "2026-10-06T22:04:36.895Z"
+    "firstSeenAt": "2026-10-06T22:04:36.895Z",
+    "previousSlugs": [
+      "leiter-elektro-technik-100-m-w-d-rotkreuz-zg-yellowshark-ch"
+    ]
   },
   {
     "slug": "m-f-yellowshark-ag-bern-be",
@@ -19078,16 +19086,14 @@
     "slugByLocale": {
       "it": "projektleiter-umwelt-e-energietechnik-m-w-d-100-yellowshark-ag-baden",
       "en": "project-manager-environmental-and-energy-technology-m-f-100-yellowshark-ag-baden-ag",
-      "de": "projektleiter-umwelt-und-energietechnik-m-w-100-baden-ag-yellowshark-ch",
+      "de": "projektleiter-umwelt-und-energietechnik-m-w-100-baden-ag-yellowshark-ch-34129cfa",
       "fr": "gestionnaire-de-projet-technologies-environnementales-et-energetiques-h-f-100-yellowshark-ag-baden-ag"
     },
     "sector": "Altro",
     "expiredAt": "2026-11-01T10:03:17.188Z",
-    "previousSlugs": [
-      "projektleiter-umwelt-und-energietechnik-m-w-100-baden-ag-yellowshark-ch"
-    ],
     "previousSlugsByLocale": {
       "it": [
+        "projektleiter-umwelt-und-energietechnik-m-w-100-baden-ag-yellowshark-ch-34129cfa",
         "projektleiter-umwelt-und-energietechnik-m-w-100-baden-ag-yellowshark-ch"
       ],
       "en": [
@@ -19095,6 +19101,9 @@
       ],
       "fr": [
         "projektleiter-umwelt-und-energietechnik-m-w-100-baden-ag-yellowshark-ch"
+      ],
+      "de": [
+        "projektleiter-umwelt-und-energietechnik-m-w-100-baden-ag-yellowshark-ch-34129cfa"
       ]
     },
     "postalCode": "5400",
@@ -19104,7 +19113,10 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.yellowshark.com/job/sa064019",
-    "firstSeenAt": "2026-09-28T21:58:25.614Z"
+    "firstSeenAt": "2026-09-28T21:58:25.614Z",
+    "previousSlugs": [
+      "projektleiter-umwelt-und-energietechnik-m-w-100-baden-ag-yellowshark-ch"
+    ]
   },
   {
     "slug": "sachbearbeiter-servizio-interno-yellowshark-ag-dielsdorf",
@@ -26910,25 +26922,29 @@
     "slugByLocale": {
       "it": "tecnici-di-servizio-in-tutto-il-mondo-m-f-100-yellowshark-ag-wetzikon-zh-zh",
       "en": "service-technicians-worldwide-m-f-100-yellowshark-ag-wetzikon-zh-zh",
-      "de": "servicetechniker-weltweit-m-w-100-wetzikon-zh-zh-yellowshark-ch",
+      "de": "servicetechniker-weltweit-m-w-100-wetzikon-zh-zh-yellowshark-ch-36daf880",
       "fr": "techniciens-de-service-dans-le-monde-entier-h-f-100-yellowshark-ag-wetzikon-zh-zh"
     },
     "sector": "Altro",
     "expiredAt": "2026-10-29T10:16:09.987Z",
     "previousSlugs": [
-      "servicetechniker-weltweit-m-w-100-wetzikon-zh-zh-yellowshark-ch",
-      "servicetechniker-weltweit-m-w-d-100-yellowshark-ag-wetzikon-zh"
+      "servicetechniker-weltweit-m-w-d-100-yellowshark-ag-wetzikon-zh",
+      "servicetechniker-weltweit-m-w-100-wetzikon-zh-zh-yellowshark-ch"
     ],
     "previousSlugsByLocale": {
       "it": [
-        "servicetechniker-weltweit-m-w-100-wetzikon-zh-zh-yellowshark-ch",
-        "servicetechniker-weltweit-m-w-d-100-yellowshark-ag-wetzikon-zh"
+        "servicetechniker-weltweit-m-w-100-wetzikon-zh-zh-yellowshark-ch-36daf880",
+        "servicetechniker-weltweit-m-w-d-100-yellowshark-ag-wetzikon-zh",
+        "servicetechniker-weltweit-m-w-100-wetzikon-zh-zh-yellowshark-ch"
       ],
       "en": [
         "servicetechniker-weltweit-m-w-100-wetzikon-zh-zh-yellowshark-ch"
       ],
       "fr": [
         "servicetechniker-weltweit-m-w-100-wetzikon-zh-zh-yellowshark-ch"
+      ],
+      "de": [
+        "servicetechniker-weltweit-m-w-100-wetzikon-zh-zh-yellowshark-ch-36daf880"
       ]
     },
     "postalCode": "8620",
@@ -34730,25 +34746,29 @@
     "slugByLocale": {
       "it": "tecnico-di-servizio-ingegneria-elettrica-100-m-f-yellowshark-ag-olten-so",
       "en": "service-technician-electrical-engineering-100-m-f-yellowshark-ag-olten-so",
-      "de": "servicetechniker-elektrotechnik-100-m-w-olten-so-yellowshark-ch",
+      "de": "servicetechniker-elektrotechnik-100-m-w-olten-so-yellowshark-ch-3dd3a6a0",
       "fr": "technicien-de-service-genie-electrique-100-h-f-yellowshark-ag-olten-so"
     },
     "sector": "Altro",
     "expiredAt": "2026-10-26T09:58:17.423Z",
     "previousSlugs": [
-      "servicetechniker-elektrotechnik-100-m-w-olten-so-yellowshark-ch",
-      "servicetechniker-elektrotechnik-100-m-w-d-yellowshark-ag-olten"
+      "servicetechniker-elektrotechnik-100-m-w-d-yellowshark-ag-olten",
+      "servicetechniker-elektrotechnik-100-m-w-olten-so-yellowshark-ch"
     ],
     "previousSlugsByLocale": {
       "it": [
-        "servicetechniker-elektrotechnik-100-m-w-olten-so-yellowshark-ch",
-        "servicetechniker-elektrotechnik-100-m-w-d-yellowshark-ag-olten"
+        "servicetechniker-elektrotechnik-100-m-w-olten-so-yellowshark-ch-3dd3a6a0",
+        "servicetechniker-elektrotechnik-100-m-w-d-yellowshark-ag-olten",
+        "servicetechniker-elektrotechnik-100-m-w-olten-so-yellowshark-ch"
       ],
       "en": [
         "servicetechniker-elektrotechnik-100-m-w-olten-so-yellowshark-ch"
       ],
       "fr": [
         "servicetechniker-elektrotechnik-100-m-w-olten-so-yellowshark-ch"
+      ],
+      "de": [
+        "servicetechniker-elektrotechnik-100-m-w-olten-so-yellowshark-ch-3dd3a6a0"
       ]
     },
     "postalCode": "4600",
