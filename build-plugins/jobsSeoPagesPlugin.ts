@@ -433,6 +433,203 @@ const normalizedRoutePath = (value: string): string => {
  return `/${raw.replace(/^\/+|\/+$/g, '')}/`;
 };
 
+/**
+ * Compact map-compatible native-route snapshot. A regular Map stores one
+ * composite `locale:slug` string and one heap entry per locale route. The
+ * corpus has several million such routes, while route slugs and prefixes are
+ * shared across locales. This representation stores each slug once, prefix
+ * strings once, and locale prefix IDs plus insertion order in typed arrays.
+ * `JOBS_SEO_NATIVE_ROUTE_INDEX=legacy` exists only to compare the previous
+ * Map implementation in the no-deploy memory experiment.
+ */
+class NativeJobPrefixIndex implements ReadonlyMap<string, string> {
+ private routeIdBySlug = new Map<string, number>();
+ private slugByRouteId: string[] = [''];
+ private prefixIdByValue = new Map<string, number>();
+ private prefixById: string[] = [''];
+ private prefixIdsByLocale: Uint32Array[] = JOB_SEO_LOCALES.map(() => new Uint32Array(0));
+ private insertionOrder = new Uint32Array(0);
+ private entryCount = 0;
+ private insertionCount = 0;
+ private readonly legacy: Map<string, string> | null;
+ private readonly legacyPrefixByLocale: Record<JobSeoLocale, string>;
+
+ constructor(
+  legacyPrefixByLocale: Record<JobSeoLocale, string>,
+  useLegacyMap = process.env.JOBS_SEO_NATIVE_ROUTE_INDEX === 'legacy',
+ ) {
+  this.legacyPrefixByLocale = legacyPrefixByLocale;
+  this.legacy = useLegacyMap ? new Map<string, string>() : null;
+ }
+
+ get size(): number {
+  return this.legacy?.size ?? this.entryCount;
+ }
+
+ get(key: string): string | undefined {
+  if (this.legacy) return this.legacy.get(key);
+  const separator = key.indexOf(':');
+  if (separator <= 0) return undefined;
+  const localeIndex = JOB_SEO_LOCALES.indexOf(key.slice(0, separator) as JobSeoLocale);
+  if (localeIndex < 0) return undefined;
+  return this.getFor(JOB_SEO_LOCALES[localeIndex], key.slice(separator + 1));
+ }
+
+ has(key: string): boolean {
+  if (this.legacy) return this.legacy.has(key);
+  const separator = key.indexOf(':');
+  if (separator <= 0) return false;
+  const localeIndex = JOB_SEO_LOCALES.indexOf(key.slice(0, separator) as JobSeoLocale);
+  if (localeIndex < 0) return false;
+  const routeId = this.routeIdBySlug.get(key.slice(separator + 1));
+  return routeId !== undefined && this.prefixIdsByLocale[localeIndex][routeId] !== 0;
+ }
+
+ getFor(locale: JobSeoLocale, slug: string): string | undefined {
+  if (this.legacy) return this.legacy.get(`${locale}:${slug}`);
+  const routeId = this.routeIdBySlug.get(slug);
+  if (routeId === undefined) return undefined;
+  const prefixId = this.prefixIdsByLocale[JOB_SEO_LOCALES.indexOf(locale)][routeId];
+  return prefixId === 0 ? undefined : this.prefixById[prefixId];
+ }
+
+ hasFor(locale: JobSeoLocale, slug: string): boolean {
+  if (this.legacy) return this.legacy.has(`${locale}:${slug}`);
+  const routeId = this.routeIdBySlug.get(slug);
+  return routeId !== undefined && this.prefixIdsByLocale[JOB_SEO_LOCALES.indexOf(locale)][routeId] !== 0;
+ }
+
+ nativePrefixFor(locale: JobSeoLocale, slug: string, tracking: JobRouteTracking): string | undefined {
+  const indexedPrefix = this.getFor(locale, slug);
+  if (indexedPrefix !== undefined || this.legacy) return indexedPrefix;
+  const value = tracking[slug]?.[locale];
+  if (!value) return undefined;
+  const normalized = normalizedRoutePath(value);
+  const legacyPrefix = this.legacyPrefixByLocale[locale];
+  if (normalized.startsWith(legacyPrefix)) {
+   const nextSlash = normalized.indexOf('/', legacyPrefix.length);
+   if (nextSlash === normalized.length - 1 && nextSlash > legacyPrefix.length) return undefined;
+  }
+  const routeEnd = normalized.length - 1;
+  const routeStart = normalized.lastIndexOf('/', routeEnd - 1) + 1;
+  const routeSlug = normalized.slice(routeStart, routeEnd);
+  if (routeSlug !== slug) return undefined;
+  return normalized.slice(0, -(routeSlug.length + 1));
+ }
+
+ get isLegacyMode(): boolean {
+  return this.legacy !== null;
+ }
+
+ setFor(locale: JobSeoLocale, slug: string, prefix: string): this {
+  if (this.legacy) {
+   this.legacy.set(`${locale}:${slug}`, prefix);
+   return this;
+  }
+  const localeIndex = JOB_SEO_LOCALES.indexOf(locale);
+  let routeId = this.routeIdBySlug.get(slug);
+  if (routeId === undefined) {
+   routeId = this.slugByRouteId.length;
+   this.routeIdBySlug.set(slug, routeId);
+   this.slugByRouteId.push(slug);
+   this.ensureRouteCapacity(routeId + 1);
+  }
+  let prefixId = this.prefixIdByValue.get(prefix);
+  if (prefixId === undefined) {
+   prefixId = this.prefixById.length;
+   this.prefixIdByValue.set(prefix, prefixId);
+   this.prefixById.push(prefix);
+  }
+  const previousPrefixId = this.prefixIdsByLocale[localeIndex][routeId];
+  if (previousPrefixId === 0) {
+   this.entryCount += 1;
+   this.appendInsertionOrder(routeId, localeIndex);
+  }
+  this.prefixIdsByLocale[localeIndex][routeId] = prefixId;
+  return this;
+ }
+
+ set(key: string, prefix: string): this {
+  const separator = key.indexOf(':');
+  if (separator <= 0) throw new Error(`Invalid native route index key: ${key}`);
+  const locale = key.slice(0, separator) as JobSeoLocale;
+  if (!(JOB_SEO_LOCALES as readonly string[]).includes(locale)) {
+   throw new Error(`Invalid native route locale: ${locale}`);
+  }
+  return this.setFor(locale, key.slice(separator + 1), prefix);
+ }
+
+ keys(): MapIterator<string> {
+  if (this.legacy) return this.legacy.keys();
+  return this.iterateEntries('key') as MapIterator<string>;
+ }
+
+ values(): MapIterator<string> {
+  if (this.legacy) return this.legacy.values();
+  return this.iterateEntries('value') as MapIterator<string>;
+ }
+
+ entries(): MapIterator<[string, string]> {
+  if (this.legacy) return this.legacy.entries();
+  return this.iterateEntries('entry') as MapIterator<[string, string]>;
+ }
+
+ [Symbol.iterator](): MapIterator<[string, string]> {
+  return this.entries();
+ }
+
+ forEach(callbackfn: (value: string, key: string, map: ReadonlyMap<string, string>) => void, thisArg?: unknown): void {
+  for (const [key, value] of this.entries()) callbackfn.call(thisArg, value, key, this);
+ }
+
+ clear(): void {
+  this.legacy?.clear();
+  this.routeIdBySlug.clear();
+  this.slugByRouteId = [''];
+  this.prefixIdByValue.clear();
+  this.prefixById = [''];
+  this.prefixIdsByLocale = JOB_SEO_LOCALES.map(() => new Uint32Array(0));
+  this.insertionOrder = new Uint32Array(0);
+  this.entryCount = 0;
+  this.insertionCount = 0;
+ }
+
+ private *iterateEntries(mode: 'key' | 'value' | 'entry'): Generator<string | [string, string]> {
+  for (let index = 0; index < this.insertionCount; index += 1) {
+   const encoded = this.insertionOrder[index];
+   const routeId = encoded >>> 2;
+   const localeIndex = encoded & 3;
+   const prefixId = this.prefixIdsByLocale[localeIndex][routeId];
+   if (prefixId === 0) continue;
+   const value = this.prefixById[prefixId];
+   if (mode === 'value') yield value;
+   else {
+    const key = `${JOB_SEO_LOCALES[localeIndex]}:${this.slugByRouteId[routeId]}`;
+    yield mode === 'key' ? key : [key, value];
+   }
+  }
+ }
+
+ private ensureRouteCapacity(required: number): void {
+  if (this.prefixIdsByLocale[0].length >= required) return;
+  const capacity = Math.max(4096, this.prefixIdsByLocale[0].length * 2, required);
+  this.prefixIdsByLocale = this.prefixIdsByLocale.map((current) => {
+   const next = new Uint32Array(capacity);
+   next.set(current);
+   return next;
+  });
+ }
+
+ private appendInsertionOrder(routeId: number, localeIndex: number): void {
+  if (this.insertionCount === this.insertionOrder.length) {
+   const next = new Uint32Array(Math.max(4096, this.insertionOrder.length * 2));
+   next.set(this.insertionOrder);
+   this.insertionOrder = next;
+  }
+  this.insertionOrder[this.insertionCount++] = (routeId << 2) | localeIndex;
+ }
+}
+
 /** Snapshot native ownership for a bounded set of tracking rows.
  * The caller may pass the active or historical slug candidates relevant to
  * the current emit phase; omitting it is reserved for small standalone tests.
@@ -443,15 +640,15 @@ export function buildNativeJobPrefixIndex(
  sectionByLocale: Record<JobSeoLocale, string>,
  compatEligibleTrackingSlugs?: ReadonlySet<string>,
  activeRouteOwners?: Map<string, number>,
-): Map<string, string> {
- const index = new Map<string, string>();
- const prefixes = new Map<string, string>();
+): NativeJobPrefixIndex {
  const legacyPrefixByLocale = Object.fromEntries(
   JOB_SEO_LOCALES.map((locale) => [
    locale,
    normalizedRoutePath(`${localePrefix[locale]}/${sectionByLocale[locale]}`),
   ]),
  ) as Record<JobSeoLocale, string>;
+ const index = new NativeJobPrefixIndex(legacyPrefixByLocale);
+ const prefixes = new Map<string, string>();
  for (const trackingSlug in tracking) {
   if (!Object.prototype.hasOwnProperty.call(tracking, trackingSlug)) continue;
   if (compatEligibleTrackingSlugs && !compatEligibleTrackingSlugs.has(trackingSlug)) continue;
@@ -464,8 +661,10 @@ export function buildNativeJobPrefixIndex(
    if (!value) continue;
    const normalized = normalizedRoutePath(value);
    const legacyPrefix = legacyPrefixByLocale[locale];
-   const rest = normalized.slice(legacyPrefix.length);
-   if (normalized.startsWith(legacyPrefix) && rest.length > 1 && !rest.slice(0, -1).includes('/')) continue;
+   if (normalized.startsWith(legacyPrefix)) {
+    const nextSlash = normalized.indexOf('/', legacyPrefix.length);
+    if (nextSlash === normalized.length - 1 && nextSlash > legacyPrefix.length) continue;
+   }
    const slugEnd = normalized.length - 1;
    const slugStart = normalized.lastIndexOf('/', slugEnd - 1) + 1;
    const slug = normalized.slice(slugStart, slugEnd);
@@ -478,7 +677,7 @@ export function buildNativeJobPrefixIndex(
    const prefix = normalized.slice(0, -(slug.length + 1));
    const sharedPrefix = prefixes.get(prefix) ?? prefix;
    prefixes.set(sharedPrefix, sharedPrefix);
-   index.set(`${locale}:${slug}`, sharedPrefix);
+   index.setFor(locale, slug, sharedPrefix);
   }
  }
  return index;
@@ -486,13 +685,13 @@ export function buildNativeJobPrefixIndex(
 
 /** Append historical ownership in place, keeping active route owners intact. */
 export function appendNativeJobPrefixIndex(
- index: Map<string, string>,
+ index: NativeJobPrefixIndex,
  tracking: JobRouteTracking,
  localePrefix: Record<JobSeoLocale, string>,
  sectionByLocale: Record<JobSeoLocale, string>,
  compatEligibleTrackingSlugs: ReadonlySet<string>,
  activeRouteOwners: ReadonlyMap<string, number>,
-): Map<string, string> {
+): NativeJobPrefixIndex {
  const prefixes = new Map<string, string>();
  const legacyPrefixByLocale = Object.fromEntries(
   JOB_SEO_LOCALES.map((locale) => [
@@ -510,13 +709,14 @@ export function appendNativeJobPrefixIndex(
    if (!value) continue;
    const normalized = normalizedRoutePath(value);
    const legacyPrefix = legacyPrefixByLocale[locale];
-   const rest = normalized.slice(legacyPrefix.length);
-   if (normalized.startsWith(legacyPrefix) && rest.length > 1 && !rest.slice(0, -1).includes('/')) continue;
+   if (normalized.startsWith(legacyPrefix)) {
+    const nextSlash = normalized.indexOf('/', legacyPrefix.length);
+    if (nextSlash === normalized.length - 1 && nextSlash > legacyPrefix.length) continue;
+   }
    const slugEnd = normalized.length - 1;
    const slugStart = normalized.lastIndexOf('/', slugEnd - 1) + 1;
    const slug = normalized.slice(slugStart, slugEnd);
    if (!slug) continue;
-   const key = `${locale}:${slug}`;
    // Active route ownership is carried by the locale mask in the caller's
    // existing slug map. This avoids copying every active key into a second
    // Set while still distinguishing active entries from historical entries
@@ -526,8 +726,13 @@ export function appendNativeJobPrefixIndex(
    const sharedPrefix = prefixes.get(prefix) ?? prefix;
    prefixes.set(sharedPrefix, sharedPrefix);
    // Later expired rows retain the same last-owner-wins behavior as the
-   // standalone index; only pre-existing active owners are protected.
-   index.set(key, sharedPrefix);
+   // standalone index; only pre-existing active owners are protected. In the
+   // compact mode ordinary identity routes are recovered from tracking on
+   // lookup. Keep locale aliases and later identity owners that must override
+   // an alias already seen, preserving the old Map's last-owner-wins result.
+   if (index.isLegacyMode || slug !== trackingSlug || index.hasFor(locale, slug)) {
+    index.setFor(locale, slug, sharedPrefix);
+   }
   }
  }
  return index;
@@ -538,7 +743,7 @@ export function nativeJobPathRecoveredByWorker(
  slug: string,
  relPath: string,
  tracking: JobRouteTracking,
- nativeJobPrefixByLocaleAndSlug: ReadonlyMap<string, string>,
+ nativeJobPrefixByLocaleAndSlug: NativeJobPrefixIndex,
 ): boolean {
  if (locale === 'it') return false;
  const normalized = normalizedRoutePath(relPath);
@@ -548,7 +753,7 @@ export function nativeJobPathRecoveredByWorker(
  const routeStart = normalized.lastIndexOf('/', routeEnd - 1) + 1;
  const routeSlug = normalized.slice(routeStart, routeEnd);
  if (!routeSlug) return false;
- const nativePrefix = nativeJobPrefixByLocaleAndSlug.get(`${locale}:${routeSlug}`);
+ const nativePrefix = nativeJobPrefixByLocaleAndSlug.nativePrefixFor(locale, routeSlug, tracking);
  return nativePrefix !== undefined && nativePrefix !== normalized.slice(0, -(routeSlug.length + 1));
 }
 
@@ -13386,7 +13591,7 @@ ${staticAnalyticsHtml}
  const SLICE_AUGMENT_CAP = intFromEnv('EXPIRED_SLICE_AUGMENT_CAP', 60000);
  expiredSliceOverflow = new ExpiredSliceOverflow();
  if (fs.existsSync(expiredSlicesDir)) {
- const emittedSlugs = new Set(Object.keys(tracking));
+ const isTrackedSlug = (slug: string): boolean => Object.prototype.hasOwnProperty.call(tracking, slug);
  // Predicato condiviso (scripts/lib/crawler-slice-files.mjs): e' lo stesso che
  // assemble-jobs-dataset.mjs applica gia' a EXPIRED_SLICES_DIR. `.json` da solo
  // raccoglieva anche i companion `-locale-cache` e gli orfani `.cleanup-tmp`.
@@ -13401,7 +13606,7 @@ ${staticAnalyticsHtml}
  }
  }
  const sliceAugmented = augmentExpiredSliceIndex(
- expiredSliceJobs(), emittedSlugs, expiredBySlug, expiredSliceOverflow,
+ expiredSliceJobs(), isTrackedSlug, expiredBySlug, expiredSliceOverflow,
  SLICE_AUGMENT_CAP, _jobRecency,
  );
  if (sliceAugmented > 0) {
@@ -16592,9 +16797,13 @@ ${staticAnalyticsHtml}
  }));
 
  // Last-reader release, proven by after-self-heal: the final safety-net loop
- // has consumed tracking and activeJobDirs. Do not clear
- // pathHistory; the write-registry report still owns that cross-plugin state.
- for (const key of Object.keys(tracking)) delete tracking[key];
+ // has consumed tracking and activeJobDirs. Replace the giant registry in one
+ // assignment instead of allocating Object.keys(tracking) and deleting over
+ // a million properties. Drop the memory probe's second reference at the same
+ // boundary. Do not clear pathHistory; the write-registry report still owns
+ // that cross-plugin state.
+ tracking = Object.create(null) as typeof tracking;
+ jobsSeoMemContext.tracking = undefined;
  activeJobDirs.clear();
  historicalArchiveFallbacks.clear();
 
@@ -16725,6 +16934,7 @@ ${staticAnalyticsHtml}
   }
   jobsSeoReuse?.logSummary();
  } finally {
+  jobsSeoReuse?.release();
   // Resolve after the shared manifest write. The related plugin awaits this
   // barrier before writing its own entries into the same per-locale map.
   resolveJobsSeoPagesFlushed();

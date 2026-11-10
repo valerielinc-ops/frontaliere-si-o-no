@@ -848,6 +848,106 @@ function safeLocaleFileName(locale) {
   return `${name}.jsonl`;
 }
 
+const MANIFEST_WRITE_SORT_CHUNK_SIZE = 16_384;
+
+function compareManifestRunHeads(left, right) {
+  return compareStrings(left.path, right.path) || left.runIndex - right.runIndex;
+}
+
+function pushManifestRunHead(heap, head) {
+  let index = heap.length;
+  heap.push(head);
+  while (index > 0) {
+    const parent = (index - 1) >> 1;
+    if (compareManifestRunHeads(heap[parent], head) <= 0) break;
+    heap[index] = heap[parent];
+    index = parent;
+  }
+  heap[index] = head;
+}
+
+function popManifestRunHead(heap) {
+  const first = heap[0];
+  const last = heap.pop();
+  if (heap.length === 0) return first;
+  let index = 0;
+  while (true) {
+    const left = (index * 2) + 1;
+    if (left >= heap.length) break;
+    const right = left + 1;
+    const child = right < heap.length && compareManifestRunHeads(heap[right], heap[left]) < 0
+      ? right
+      : left;
+    if (compareManifestRunHeads(last, heap[child]) <= 0) break;
+    heap[index] = heap[child];
+    index = child;
+  }
+  heap[index] = last;
+  return first;
+}
+
+function createManifestRunReader(file) {
+  const fd = fs.openSync(file, 'r');
+  const buffer = Buffer.allocUnsafe(64 * 1024);
+  let offset = 0;
+  let length = 0;
+  let carry = [];
+  let closed = false;
+  return {
+    next() {
+      while (true) {
+        const newline = buffer.indexOf(0x0a, offset);
+        if (newline >= 0 && newline < length) {
+          const parts = [...carry, buffer.subarray(offset, newline)];
+          offset = newline + 1;
+          carry = [];
+          return JSON.parse(Buffer.concat(parts).toString('utf8'));
+        }
+        if (offset < length) carry.push(Buffer.from(buffer.subarray(offset, length)));
+        const bytesRead = fs.readSync(fd, buffer, 0, buffer.length, null);
+        offset = 0;
+        length = bytesRead;
+        if (bytesRead === 0) {
+          if (carry.length === 0) return null;
+          const line = Buffer.concat(carry).toString('utf8');
+          carry = [];
+          return JSON.parse(line);
+        }
+      }
+    },
+    close() {
+      if (closed) return;
+      closed = true;
+      fs.closeSync(fd);
+    },
+  };
+}
+
+function writeManifestPathRuns(temp, entriesByPath, runPaths) {
+  const runsByKind = new Map(PAGE_KINDS.map((kind) => [kind, []]));
+  const pendingByKind = new Map(PAGE_KINDS.map((kind) => [kind, []]));
+  let runNumber = 0;
+  const flushRun = (kind, paths) => {
+    paths.sort(compareStrings);
+    const runPath = `${temp}.paths-${runNumber++}`;
+    runPaths.push(runPath);
+    fs.writeFileSync(runPath, `${paths.map((pagePath) => JSON.stringify(pagePath)).join('\n')}\n`, 'utf8');
+    runsByKind.get(kind).push(runPath);
+    paths.length = 0;
+  };
+
+  for (const [pagePath, entry] of entriesByPath) {
+    const pending = pendingByKind.get(entry.kind);
+    pending.push(pagePath);
+    if (pending.length >= MANIFEST_WRITE_SORT_CHUNK_SIZE) flushRun(entry.kind, pending);
+  }
+  for (const kind of PAGE_KINDS) {
+    const pending = pendingByKind.get(kind);
+    if (pending.length > 0) flushRun(kind, pending);
+  }
+  return runsByKind;
+}
+
 export class IncrementalManifest {
   constructor(locale) {
     this.locale = String(locale);
@@ -963,6 +1063,8 @@ export class IncrementalManifest {
     const temp = path.join(manifestDir, `.${fileName}.${process.pid}.tmp`);
     const summary = this.toJSON();
     let fd = null;
+    let runsByKind = new Map();
+    const runPaths = [];
     try {
       fd = fs.openSync(temp, 'w');
       const writeLine = (record) => fs.writeSync(fd, `${JSON.stringify(record)}\n`);
@@ -975,22 +1077,36 @@ export class IncrementalManifest {
           ? { jobsSeoEmitterFingerprint: this.jobsSeoEmitterFingerprint }
           : {}),
       });
-      const entriesForKind = new Map(PAGE_KINDS.map((kind) => [kind, []]));
-      for (const [pagePath, entry] of this.entriesByPath) {
-        entriesForKind.get(entry.kind).push([pagePath, entry]);
-      }
+      runsByKind = writeManifestPathRuns(temp, this.entriesByPath, runPaths);
       for (const kind of PAGE_KINDS) {
-        const entries = entriesForKind.get(kind);
-        if (entries.length === 0) continue;
+        const runs = runsByKind.get(kind);
+        if (runs.length === 0) continue;
         writeLine({ type: 'kind', kind, ...this.kindMetadata.get(kind) });
-        entries.sort(([left], [right]) => compareStrings(left, right));
-        for (const [pagePath, entry] of entries) {
-          writeLine({
-            path: pagePath,
-            hash: entry.hash,
-            ...(entry.reuseHash ? { reuseHash: entry.reuseHash } : {}),
-            ...(entry.postWalk ? { postWalk: entry.postWalk } : {}),
-          });
+        const readers = [];
+        try {
+          const heap = [];
+          for (const run of runs) readers.push(createManifestRunReader(run));
+          for (let runIndex = 0; runIndex < readers.length; runIndex += 1) {
+            const pagePath = readers[runIndex].next();
+            if (pagePath !== null) pushManifestRunHead(heap, { path: pagePath, runIndex });
+          }
+          while (heap.length > 0) {
+            const { path: pagePath, runIndex } = popManifestRunHead(heap);
+            const entry = this.entriesByPath.get(pagePath);
+            if (!entry || entry.kind !== kind) {
+              throw new Error(`Incremental manifest path run lost entry: ${pagePath}`);
+            }
+            writeLine({
+              path: pagePath,
+              hash: entry.hash,
+              ...(entry.reuseHash ? { reuseHash: entry.reuseHash } : {}),
+              ...(entry.postWalk ? { postWalk: entry.postWalk } : {}),
+            });
+            const nextPath = readers[runIndex].next();
+            if (nextPath !== null) pushManifestRunHead(heap, { path: nextPath, runIndex });
+          }
+        } finally {
+          for (const reader of readers) reader.close();
         }
       }
       const footer = { type: 'footer', counts: summary.counts };
@@ -1002,6 +1118,9 @@ export class IncrementalManifest {
       fd = null;
       fs.renameSync(temp, target);
     } finally {
+      for (const runPath of runPaths) {
+        if (fs.existsSync(runPath)) fs.unlinkSync(runPath);
+      }
       if (fd !== null) fs.closeSync(fd);
       if (fs.existsSync(temp)) fs.unlinkSync(temp);
     }

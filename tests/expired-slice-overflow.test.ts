@@ -8,6 +8,8 @@ describe('expired slice overflow', () => {
   it('wires overflow into both native consumers and closes it on build failure', () => {
     const source = fs.readFileSync('build-plugins/jobsSeoPagesPlugin.ts', 'utf8');
     expect(source).toContain('augmentExpiredSliceIndex(');
+    expect(source).toContain('const isTrackedSlug = (slug: string): boolean => Object.prototype.hasOwnProperty.call(tracking, slug)');
+    expect(source).not.toContain('new Set(Object.keys(tracking))');
     expect(source).toContain('expiredBySlug.get(slug) ?? expiredSliceOverflow.get(slug)');
     expect(source).toContain('expiredSliceOverflow.keys()');
     const recency = source.slice(source.indexOf('const _expiredSlugRecency ='), source.indexOf('expiredSlugs.sort('));
@@ -15,6 +17,21 @@ describe('expired slice overflow', () => {
     expect(recency).not.toContain('expiredSliceOverflow.get(');
     expect(source).toMatch(/finally\s*\{\s*\/\/[^\n]*\n\s*expiredSliceOverflow\?\.close\(\);/);
     expect(source).not.toContain('sliceAugmentCapped');
+  });
+  it('accepts a lazy emitted-slug membership lookup with the same result as a Set', () => {
+    const jobs = [{ slug: 'master', previousSlugs: ['wanted', 'not-emitted'] }];
+    const emitted = new Set(['master', 'wanted']);
+    const build = (membership: ReadonlySet<string> | ((slug: string) => boolean)) => {
+      const primary = new Map<string, typeof jobs[number]>();
+      const overflow = new ExpiredSliceOverflow<typeof jobs[number]>();
+      try {
+        const retained = augmentExpiredSliceIndex(jobs, membership, primary, overflow, 10, () => 0);
+        return { retained, aliases: [...primary.keys(), ...overflow.keys()].sort() };
+      } finally { overflow.close(); }
+    };
+
+    expect(build((slug) => emitted.has(slug))).toEqual(build(emitted));
+    expect(build((slug) => emitted.has(slug))).toEqual({ retained: 2, aliases: ['master', 'wanted'] });
   });
   it.each([0, 1, 2])('retains late crawler content and primary winners with a RAM cap of %s', (cap) => {
     const primaryJob = { slug: 'shared', title: 'Recent primary', previousSlugs: [] as string[] };
