@@ -256,12 +256,12 @@
     },
     {
       "id": "medimeo-0a1064fa8f4a",
-      "slug": "facharztin-facharzt-innere-medizin-60-100-zurich-nahe-flughafen-region-zurich-medimeo-ch",
+      "slug": "specialista-medicina-interna-specialista-60-100-zurigo-vicino-aeroporto-medimeo-ag-region-zurich",
       "slugByLocale": {
         "de": "facharztin-facharzt-innere-medizin-60-100-zurich-nahe-flughafen-region-zurich-medimeo-ch",
-        "it": "facharztin-facharzt-innere-medizin-60-100-zurich-nahe-flughafen-region-zurich-medimeo-ch",
-        "en": "facharztin-facharzt-innere-medizin-60-100-zurich-nahe-flughafen-region-zurich-medimeo-ch",
-        "fr": "facharztin-facharzt-innere-medizin-60-100-zurich-nahe-flughafen-region-zurich-medimeo-ch"
+        "it": "specialista-medicina-interna-specialista-60-100-zurigo-vicino-aeroporto-medimeo-ag-region-zurich",
+        "en": "specialist-specialist-internal-medicine-60-100-zurich-near-airport-medimeo-ag-region-zurich",
+        "fr": "specialiste-specialiste-medecine-interne-60-100-zurich-pres-de-l-aeroport-medimeo-ag-region-zurich"
       },
       "company": "Medimeo AG",
       "companyKey": "medimeo",
@@ -323,16 +323,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-08T09:20:05.459Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-10T09:20:05.459Z"
+      "firstSeenAt": "2026-11-10T09:20:05.459Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "facharztin-facharzt-innere-medizin-60-100-zurich-nahe-flughafen-region-zurich-medimeo-ch"
+        ],
+        "en": [
+          "facharztin-facharzt-innere-medizin-60-100-zurich-nahe-flughafen-region-zurich-medimeo-ch"
+        ],
+        "fr": [
+          "facharztin-facharzt-innere-medizin-60-100-zurich-nahe-flughafen-region-zurich-medimeo-ch"
+        ]
+      },
+      "previousSlugs": [
+        "facharztin-facharzt-innere-medizin-60-100-zurich-nahe-flughafen-region-zurich-medimeo-ch"
+      ]
     },
     {
       "id": "medimeo-4623c024bd01",
-      "slug": "per-grenzganger-innen-allgemeinmediziner-facharztin-allgemeinmedizin-gesucht-medimeo-ag-olten",
+      "slug": "per-i-frontalieri-ricerca-di-un-medico-di-medicina-generale-specialista-in-medicina-generale-medimeo-ag-olten-aargau",
       "slugByLocale": {
         "de": "fur-grenzganger-innen-allgemeinmediziner-facharztin-allgemeinmedizin-gesucht-olten-aargau",
-        "it": "per-grenzganger-innen-allgemeinmediziner-facharztin-allgemeinmedizin-gesucht-medimeo-ag-olten",
-        "en": "fur-grenzganger-innen-allgemeinmediziner-facharztin-allgemeinmedizin-gesucht-medimeo-ag-olten",
-        "fr": "fur-grenzganger-innen-allgemeinmediziner-facharztin-allgemeinmedizin-gesucht-medimeo-ag-olten"
+        "it": "per-i-frontalieri-ricerca-di-un-medico-di-medicina-generale-specialista-in-medicina-generale-medimeo-ag-olten-aargau",
+        "en": "for-cross-border-commuters-general-practitioner-specialist-in-general-medicine-wanted-medimeo-ag-olten-aargau",
+        "fr": "pour-les-frontaliers-medecin-generaliste-specialiste-en-medecine-generale-recherchee-medimeo-ag-olten-aargau"
       },
       "company": "Medimeo AG",
       "companyKey": "medimeo",
@@ -379,11 +393,20 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "fur-grenzganger-innen-allgemeinmediziner-facharztin-allgemeinmedizin-gesucht-olten-aargau"
+          "fur-grenzganger-innen-allgemeinmediziner-facharztin-allgemeinmedizin-gesucht-olten-aargau",
+          "per-grenzganger-innen-allgemeinmediziner-facharztin-allgemeinmedizin-gesucht-medimeo-ag-olten"
+        ],
+        "en": [
+          "fur-grenzganger-innen-allgemeinmediziner-facharztin-allgemeinmedizin-gesucht-medimeo-ag-olten"
+        ],
+        "fr": [
+          "fur-grenzganger-innen-allgemeinmediziner-facharztin-allgemeinmedizin-gesucht-medimeo-ag-olten"
         ]
       },
       "previousSlugs": [
-        "fur-grenzganger-innen-allgemeinmediziner-facharztin-allgemeinmedizin-gesucht-olten-aargau"
+        "fur-grenzganger-innen-allgemeinmediziner-facharztin-allgemeinmedizin-gesucht-olten-aargau",
+        "per-grenzganger-innen-allgemeinmediziner-facharztin-allgemeinmedizin-gesucht-medimeo-ag-olten",
+        "fur-grenzganger-innen-allgemeinmediziner-facharztin-allgemeinmedizin-gesucht-medimeo-ag-olten"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,

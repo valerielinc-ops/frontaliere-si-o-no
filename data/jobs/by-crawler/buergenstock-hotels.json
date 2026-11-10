@@ -4121,12 +4121,12 @@
     },
     {
       "id": "buergenstock-hotels-c6cbd58f1ccd",
-      "slug": "night-butler-100-m-w-d-buergenstock-hotels-obburgen",
+      "slug": "butler-notturno-100-m-f-d-burgenstock-hotels-ag-obburgen",
       "slugByLocale": {
         "de": "night-butler-100-m-w-d-buergenstock-hotels-obburgen",
-        "it": "night-butler-100-m-w-d-buergenstock-hotels-obburgen",
+        "it": "butler-notturno-100-m-f-d-burgenstock-hotels-ag-obburgen",
         "en": "night-butler-100-m-w-d-buergenstock-hotels-obburgen",
-        "fr": "night-butler-100-m-w-d-buergenstock-hotels-obburgen"
+        "fr": "butler-de-nuit-100-h-f-d-burgenstock-hotels-ag-obburgen"
       },
       "company": "Bürgenstock Hotels AG",
       "companyKey": "buergenstock-hotels",
@@ -4199,16 +4199,27 @@
       "streetAddressSource": "zefix-registry",
       "validThrough": "2026-12-10T09:38:03.401Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-05-20T06:08:49.097Z"
+      "firstSeenAt": "2026-05-20T06:08:49.097Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "night-butler-100-m-w-d-buergenstock-hotels-obburgen"
+        ],
+        "fr": [
+          "night-butler-100-m-w-d-buergenstock-hotels-obburgen"
+        ]
+      },
+      "previousSlugs": [
+        "night-butler-100-m-w-d-buergenstock-hotels-obburgen"
+      ]
     },
     {
       "id": "buergenstock-hotels-4eb8f6e02a50",
-      "slug": "aushilfe-housekeeping-portier-40-60-m-w-d-stundenlohn-buergenstock-hotels-obburgen",
+      "slug": "manutenzione-porter-40-60-m-f-d-salario-orario-burgenstock-hotels-ag-obburgen",
       "slugByLocale": {
         "de": "aushilfe-housekeeping-portier-40-60-m-w-d-stundenlohn-buergenstock-hotels-obburgen",
-        "it": "aushilfe-housekeeping-portier-40-60-m-w-d-stundenlohn-buergenstock-hotels-obburgen",
-        "en": "aushilfe-housekeeping-portier-40-60-m-w-d-stundenlohn-buergenstock-hotels-obburgen",
-        "fr": "aushilfe-housekeeping-portier-40-60-m-w-d-stundenlohn-buergenstock-hotels-obburgen"
+        "it": "manutenzione-porter-40-60-m-f-d-salario-orario-burgenstock-hotels-ag-obburgen",
+        "en": "housekeeping-porter-40-60-m-f-d-hourly-wage-burgenstock-hotels-ag-obburgen",
+        "fr": "porteur-menager-40-60-h-f-d-salaire-horaire-burgenstock-hotels-ag-obburgen"
       },
       "company": "Bürgenstock Hotels AG",
       "companyKey": "buergenstock-hotels",
@@ -4281,7 +4292,21 @@
       "streetAddressSource": "zefix-registry",
       "validThrough": "2026-12-10T09:38:02.658Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-08-13T10:16:54.744Z"
+      "firstSeenAt": "2026-08-13T10:16:54.744Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "aushilfe-housekeeping-portier-40-60-m-w-d-stundenlohn-buergenstock-hotels-obburgen"
+        ],
+        "en": [
+          "aushilfe-housekeeping-portier-40-60-m-w-d-stundenlohn-buergenstock-hotels-obburgen"
+        ],
+        "fr": [
+          "aushilfe-housekeeping-portier-40-60-m-w-d-stundenlohn-buergenstock-hotels-obburgen"
+        ]
+      },
+      "previousSlugs": [
+        "aushilfe-housekeeping-portier-40-60-m-w-d-stundenlohn-buergenstock-hotels-obburgen"
+      ]
     },
     {
       "id": "buergenstock-hotels-fd63e26d79b2",

@@ -4687,12 +4687,12 @@
     },
     {
       "id": "balgrist-a749d51b3c35",
-      "slug": "administrative-assistenz-or-x-w-m-d-50-balgrist-zurich",
+      "slug": "assistenza-amministrativa-or-x-m-f-d-50-universitatsklinik-balgrist-zurich",
       "slugByLocale": {
         "de": "administrative-assistenz-or-x-w-m-d-50-balgrist-zurich",
-        "it": "administrative-assistenz-or-x-w-m-d-50-balgrist-zurich",
-        "en": "administrative-assistenz-or-x-w-m-d-50-balgrist-zurich",
-        "fr": "administrative-assistenz-or-x-w-m-d-50-balgrist-zurich"
+        "it": "assistenza-amministrativa-or-x-m-f-d-50-universitatsklinik-balgrist-zurich",
+        "en": "administrative-assistance-or-x-m-f-d-50-universitatsklinik-balgrist-zurich",
+        "fr": "assistance-administrative-or-x-h-f-d-50-universitatsklinik-balgrist-zurich"
       },
       "company": "Universitätsklinik Balgrist",
       "companyKey": "balgrist",
@@ -4753,7 +4753,21 @@
       },
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-08T09:18:07.603Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "previousSlugsByLocale": {
+        "it": [
+          "administrative-assistenz-or-x-w-m-d-50-balgrist-zurich"
+        ],
+        "en": [
+          "administrative-assistenz-or-x-w-m-d-50-balgrist-zurich"
+        ],
+        "fr": [
+          "administrative-assistenz-or-x-w-m-d-50-balgrist-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "administrative-assistenz-or-x-w-m-d-50-balgrist-zurich"
+      ]
     },
     {
       "id": "balgrist-d8c0414ff4e4",

@@ -2722,12 +2722,12 @@
     },
     {
       "id": "swica-ff27d616bb09",
-      "slug": "hochschulpraktikum-corporate-communication-newsroom-swica-winterthur",
+      "slug": "universita-internship-comunicazione-aziendale-newsroom-swica-gesundheitsorganisation-winterthur",
       "slugByLocale": {
         "de": "hochschulpraktikum-corporate-communication-newsroom-swica-winterthur",
-        "it": "hochschulpraktikum-corporate-communication-newsroom-swica-winterthur",
+        "it": "universita-internship-comunicazione-aziendale-newsroom-swica-gesundheitsorganisation-winterthur",
         "en": "hochschulpraktikum-corporate-communication-newsroom-swica-winterthur",
-        "fr": "hochschulpraktikum-corporate-communication-newsroom-swica-winterthur"
+        "fr": "stage-universitaire-communication-d-entreprise-salle-de-presse-swica-gesundheitsorganisation-winterthur"
       },
       "company": "SWICA Gesundheitsorganisation",
       "companyKey": "swica",
@@ -2790,7 +2790,18 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-08T09:44:48.948Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-10T09:44:48.948Z"
+      "firstSeenAt": "2026-11-10T09:44:48.948Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "hochschulpraktikum-corporate-communication-newsroom-swica-winterthur"
+        ],
+        "fr": [
+          "hochschulpraktikum-corporate-communication-newsroom-swica-winterthur"
+        ]
+      },
+      "previousSlugs": [
+        "hochschulpraktikum-corporate-communication-newsroom-swica-winterthur"
+      ]
     }
   ]
 }

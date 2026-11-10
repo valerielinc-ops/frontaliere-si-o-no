@@ -944,12 +944,12 @@
     },
     {
       "id": "spital-affoltern-235bcbc7f2b8",
-      "slug": "logistikerin-logistiker-spital-affoltern-ag-affoltern-am-albis",
+      "slug": "logisticista-logistica-spital-affoltern-ag-affoltern-am-albis",
       "slugByLocale": {
         "de": "logistikerin-logistiker-spital-affoltern-affoltern-am-albis",
-        "it": "logistikerin-logistiker-spital-affoltern-ag-affoltern-am-albis",
-        "en": "logistikerin-logistiker-spital-affoltern-affoltern-am-albis",
-        "fr": "logistikerin-logistiker-spital-affoltern-affoltern-am-albis"
+        "it": "logisticista-logistica-spital-affoltern-ag-affoltern-am-albis",
+        "en": "logistician-logistician-spital-affoltern-ag-affoltern-am-albis",
+        "fr": "logisticien-logisticien-spital-affoltern-ag-affoltern-am-albis"
       },
       "company": "Spital Affoltern AG",
       "companyKey": "spital-affoltern",
@@ -996,11 +996,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "logistikerin-logistiker-spital-affoltern-affoltern-am-albis",
+          "logistikerin-logistiker-spital-affoltern-ag-affoltern-am-albis"
+        ],
+        "en": [
+          "logistikerin-logistiker-spital-affoltern-affoltern-am-albis"
+        ],
+        "fr": [
           "logistikerin-logistiker-spital-affoltern-affoltern-am-albis"
         ]
       },
       "previousSlugs": [
-        "logistikerin-logistiker-spital-affoltern-affoltern-am-albis"
+        "logistikerin-logistiker-spital-affoltern-affoltern-am-albis",
+        "logistikerin-logistiker-spital-affoltern-ag-affoltern-am-albis"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,

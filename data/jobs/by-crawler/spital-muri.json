@@ -2196,12 +2196,12 @@
     },
     {
       "id": "spital-muri-9455950f9dc8",
-      "slug": "leitende-arztin-leitender-arzt-interdisziplinare-notfallstation-spital-muri-muri-ag",
+      "slug": "senior-medico-capo-unita-di-emergenza-interdisciplinare-spital-muri-muri-ag",
       "slugByLocale": {
         "de": "leitende-arztin-leitender-arzt-interdisziplinare-notfallstation-spital-muri-muri-ag",
-        "it": "leitende-arztin-leitender-arzt-interdisziplinare-notfallstation-spital-muri-muri-ag",
-        "en": "leitende-arztin-leitender-arzt-interdisziplinare-notfallstation-spital-muri-muri-ag",
-        "fr": "leitende-arztin-leitender-arzt-interdisziplinare-notfallstation-spital-muri-muri-ag"
+        "it": "senior-medico-capo-unita-di-emergenza-interdisciplinare-spital-muri-muri-ag",
+        "en": "senior-physician-chief-interdisciplinary-emergency-unit-spital-muri-muri-ag",
+        "fr": "medecin-chef-d-unite-interdisciplinaire-d-urgence-spital-muri-muri-ag"
       },
       "company": "Spital Muri",
       "companyKey": "spital-muri",
@@ -2267,16 +2267,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-08T09:19:29.682Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-10T09:19:29.682Z"
+      "firstSeenAt": "2026-11-10T09:19:29.682Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "leitende-arztin-leitender-arzt-interdisziplinare-notfallstation-spital-muri-muri-ag"
+        ],
+        "en": [
+          "leitende-arztin-leitender-arzt-interdisziplinare-notfallstation-spital-muri-muri-ag"
+        ],
+        "fr": [
+          "leitende-arztin-leitender-arzt-interdisziplinare-notfallstation-spital-muri-muri-ag"
+        ]
+      },
+      "previousSlugs": [
+        "leitende-arztin-leitender-arzt-interdisziplinare-notfallstation-spital-muri-muri-ag"
+      ]
     },
     {
       "id": "spital-muri-4f5cc046cc27",
-      "slug": "fachmitarbeiterin-fachmitarbeiter-integrales-kapazitatenmanagement-ikm",
+      "slug": "specialista-membro-del-personale-gestione-integrata-della-capacita-ikm-disposizione-paziente-spital-muri-muri-ag",
       "slugByLocale": {
         "de": "fachmitarbeiterin-fachmitarbeiter-integrales-kapazitatenmanagement-ikm",
-        "it": "fachmitarbeiterin-fachmitarbeiter-integrales-kapazitatenmanagement-ikm",
-        "en": "fachmitarbeiterin-fachmitarbeiter-integrales-kapazitatenmanagement-ikm",
-        "fr": "fachmitarbeiterin-fachmitarbeiter-integrales-kapazitatenmanagement-ikm"
+        "it": "specialista-membro-del-personale-gestione-integrata-della-capacita-ikm-disposizione-paziente-spital-muri-muri-ag",
+        "en": "specialist-staff-member-integral-capacity-management-ikm-patient-disposition-spital-muri-muri-ag",
+        "fr": "membre-du-personnel-specialise-gestion-integree-des-capacites-ikm-disposition-des-patients-spital-muri-muri-ag"
       },
       "company": "Spital Muri",
       "companyKey": "spital-muri",
@@ -2342,7 +2356,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-08T09:19:28.953Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-10T09:19:28.953Z"
+      "firstSeenAt": "2026-11-10T09:19:28.953Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachmitarbeiterin-fachmitarbeiter-integrales-kapazitatenmanagement-ikm"
+        ],
+        "en": [
+          "fachmitarbeiterin-fachmitarbeiter-integrales-kapazitatenmanagement-ikm"
+        ],
+        "fr": [
+          "fachmitarbeiterin-fachmitarbeiter-integrales-kapazitatenmanagement-ikm"
+        ]
+      },
+      "previousSlugs": [
+        "fachmitarbeiterin-fachmitarbeiter-integrales-kapazitatenmanagement-ikm"
+      ]
     }
   ]
 }

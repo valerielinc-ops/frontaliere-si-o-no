@@ -6796,12 +6796,12 @@
     },
     {
       "id": "vz-vermoegenszentrum-b0304debc656",
-      "slug": "versicherungsbetreuer-in-im-herzen-von-zurich-vz-vermogenszentrum-zurich",
+      "slug": "consulente-assicurativo-nel-cuore-di-zurigo-vz-vermogenszentrum-zurich-zurich",
       "slugByLocale": {
         "de": "versicherungsbetreuer-in-im-herzen-von-zurich-vz-vermoegenszentrum-ch",
-        "it": "versicherungsbetreuer-in-im-herzen-von-zurich-vz-vermogenszentrum-zurich",
-        "en": "versicherungsbetreuer-in-im-herzen-von-zurich-vz-vermogenszentrum-zurich",
-        "fr": "versicherungsbetreuer-in-im-herzen-von-zurich-vz-vermogenszentrum-zurich"
+        "it": "consulente-assicurativo-nel-cuore-di-zurigo-vz-vermogenszentrum-zurich-zurich",
+        "en": "insurance-advisor-in-the-heart-of-zurich-vz-vermogenszentrum-zurich-zurich",
+        "fr": "assure-e-au-c-ur-de-zurich-vz-vermogenszentrum-zurich-zurich"
       },
       "company": "VZ VermögensZentrum",
       "companyKey": "vz-vermoegenszentrum",
@@ -6861,11 +6861,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "versicherungsbetreuer-in-im-herzen-von-zurich-vz-vermoegenszentrum-ch"
+          "versicherungsbetreuer-in-im-herzen-von-zurich-vz-vermoegenszentrum-ch",
+          "versicherungsbetreuer-in-im-herzen-von-zurich-vz-vermogenszentrum-zurich"
+        ],
+        "en": [
+          "versicherungsbetreuer-in-im-herzen-von-zurich-vz-vermogenszentrum-zurich"
+        ],
+        "fr": [
+          "versicherungsbetreuer-in-im-herzen-von-zurich-vz-vermogenszentrum-zurich"
         ]
       },
       "previousSlugs": [
-        "versicherungsbetreuer-in-im-herzen-von-zurich-vz-vermoegenszentrum-ch"
+        "versicherungsbetreuer-in-im-herzen-von-zurich-vz-vermoegenszentrum-ch",
+        "versicherungsbetreuer-in-im-herzen-von-zurich-vz-vermogenszentrum-zurich"
       ],
       "salaryMin": 79000,
       "salaryMax": 131000,
