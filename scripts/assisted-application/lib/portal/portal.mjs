@@ -3029,6 +3029,45 @@ export function hasReadOnlyVacancyEvidence(pageText, job = {}, { pageTitle = '' 
  * a URL pair that proves this exact posting's apply route; the route is
  * provenance, not a generic employer-site fallback.
  */
+/**
+ * The SuccessFactors application the runner asked for, read on the page itself (Stellenportal Bund eHSYErA1,
+ * 2026-11-10). After sign-in SuccessFactors serves the form at `/portalcareer?_s.crb=…`, with neither the company
+ * nor the requisition in its address, and a federal tenant names no employer the order's data names («Swiss Armed
+ * Forces (VTG)» against «Schweizerische Eidgenossenschaft»): the company check alone said `mismatch` on the right
+ * form. What binds it is the heading SuccessFactors writes on every application, the role and its requisition
+ * («Application Manager/-in (20604)»), on the same tenant host as the module address the runner entered
+ * (`/career?company=…&career_ns=job_application&career_job_req_id=20604`). Another requisition, another role, a
+ * requisition away from the role's own line or another host is not this posting.
+ */
+export function successFactorsRequisitionShown(formText, job = {}, { pageUrl = '', applyUrl = '' } = {}) {
+  let module;
+  let page;
+  try {
+    module = successFactorsModuleIdentity(new URL(String(applyUrl || '')));
+    page = new URL(String(pageUrl || ''));
+  } catch {
+    return false;
+  }
+  if (!module || !job?.title || page.origin !== module.origin
+    || !['/portalcareer', '/career'].includes(page.pathname.replace(/\/+$/, ''))) return false;
+  const requisition = new RegExp(`\\(\\s*${module.requisition}\\s*\\)`);
+  const otherRequisition = /\(\s*\d{1,20}\s*\)/g;
+  return String(formText || '').split(/\r?\n/).some((line) => requisition.test(line)
+    && [...line.matchAll(otherRequisition)].every((found) => found[0].replace(/\D/g, '') === module.requisition)
+    && titleMatches(line.replace(otherRequisition, ' '), job.title)
+    && titleWordsOnly(line.replace(otherRequisition, ' '), job.title));
+}
+
+/** The line names the role and nothing else of substance (no second role or employer around it). */
+// Gender markers a portal adds to a title («m/w/d», «(a)», «-in»): no other role.
+const TITLE_GENDER_MARKERS = new Set(['m', 'w', 'd', 'f', 'x', 'h', 'a', 'e', 'r', 'in', 'innen', 'div', 'divers']);
+function titleWordsOnly(line, title) {
+  const wanted = new Set(normalizeWords(title).split(' ').filter(Boolean));
+  const seen = normalizeWords(line).split(' ').filter(Boolean);
+  // Every other word is a different role or an employer («Senior …», «… bei X»).
+  return seen.length > 0 && seen.every((word) => wanted.has(word) || TITLE_GENDER_MARKERS.has(word));
+}
+
 export function formPostingMatch(formText, job = {}, {
   postingMatched = false,
   postingEntry = false,
@@ -3036,6 +3075,7 @@ export function formPostingMatch(formText, job = {}, {
   pageUrl = '',
   postingUrl = '',
   postingRouteProof = null,
+  applyUrl = '',
 } = {}) {
   const direct = postingMatch(formText, job, pageUrl);
   const formPostingUrl = umantisFormPostingUrl(pageUrl, postingUrl);
@@ -3064,6 +3104,8 @@ export function formPostingMatch(formText, job = {}, {
     if (namesAnotherEmployer(boundPostingConflictText(formText, job, { pageUrl, postingUrl: formPostingUrl }), job, { allowPostingLocation: true })) return 'mismatch';
     return 'match';
   }
+  // The requisition the runner entered, shown with its role on the same SuccessFactors tenant.
+  if (direct === 'mismatch' && successFactorsRequisitionShown(formText, job, { pageUrl, applyUrl })) return 'match';
   if (direct !== 'mismatch' || !postingMatched) return direct;
   // A conflicting employer identity on the form: no fallback to the role.
   if (namesAnotherEmployer(formText, job)) return 'mismatch';
@@ -4691,14 +4733,52 @@ function stableUploadTriggerDiscriminator(button) {
 const SUCCESS_FACTORS_DIALOG_SLOT_RE = /\s(?:öffnet\s+ein\s+dialog(?:feld|fenster)?|opens\s+a\s+dialog(?:\s+box)?|ouvre\s+une\s+(?:boîte\s+de\s+)?dialogue|apre\s+(?:una\s+)?(?:finestra\s+di\s+)?dialogo)\s*$/iu;
 const SUCCESS_FACTORS_FILLED_SLOT_RE = /\b(?:edit\s+document|dokument\s+bearbeiten|modifica\s+(?:il\s+)?documento|modifier\s+(?:le\s+)?document)\b/i;
 
+/** The document a slot caption names ('cv' | 'cover_letter'); '' when it names neither, or both. */
+function documentSlotCaptionKind(caption) {
+  const cv = CV_DOCUMENT_CONTEXT_RE.test(caption);
+  const coverLetter = COVER_LETTER_DOCUMENT_CONTEXT_RE.test(caption);
+  return cv && !coverLetter ? 'cv' : coverLetter && !cv ? 'cover_letter' : '';
+}
+
 /** The document a SuccessFactors slot button takes ('cv' | 'cover_letter'), or '' for any other control. */
 export function successFactorsDocumentSlotKind(button) {
   const text = String(button?.text || '').replace(/\s+/g, ' ').trim();
   if (!SUCCESS_FACTORS_DIALOG_SLOT_RE.test(text) || SUCCESS_FACTORS_FILLED_SLOT_RE.test(text)) return '';
-  const caption = text.replace(SUCCESS_FACTORS_DIALOG_SLOT_RE, '');
-  const cv = CV_DOCUMENT_CONTEXT_RE.test(caption);
-  const coverLetter = COVER_LETTER_DOCUMENT_CONTEXT_RE.test(caption);
-  return cv && !coverLetter ? 'cv' : coverLetter && !cv ? 'cover_letter' : '';
+  return documentSlotCaptionKind(text.replace(SUCCESS_FACTORS_DIALOG_SLOT_RE, ''));
+}
+
+// The other documents a slot caption may list beside the CV («Lebenslauf - Zeugnisse - Diplome», Helsana
+// s2Tbwwjd). Every part of the caption must be one of these nouns: a caption with any other word is a question.
+const SLOT_CAPTION_PART_RE = new RegExp(`^(?:${CV_DOCUMENT_TERMS}|${COVER_LETTER_DOCUMENT_TERMS}`
+  + '|(?:arbeits|schul|abschluss|diplom|lehr|zwischen)?zeugnis(?:se)?|diplom(?:e|i|as?)?|dipl[oô]mes?'
+  + '|zertifikate?|certificat(?:s|i)?|certificates?|attestati|attestations?|referenzen|references|referenze'
+  + '|dokumente|documents|documenti|(?:bewerbungs)?unterlagen|bewerbungsdossier|anh[aä]nge|beilagen|attachments|allegati'
+  + '|pi[eè]ces\\s+jointes)$', 'iu');
+const SLOT_CAPTION_SEPARATOR_RE = /\s*[-–—/,;|+&·]\s*|\s+(?:und|and|et|e|ed|sowie)\s+/iu;
+const anchoredPattern = (pattern) => new RegExp(`^(?:${pattern.source})$`, pattern.flags.replace('g', ''));
+const CAPTION_UPLOAD_RE = { cv: anchoredPattern(CV_UPLOAD_RE), cover_letter: anchoredPattern(COVER_LETTER_UPLOAD_RE) };
+
+/**
+ * The document a held portal question really is ('cv' | 'cover_letter'), or '' for a question. A runner that
+ * found no upload action in a document slot reported the empty slot as a required text question (Helsana
+ * s2Tbwwjd, «Lebenslauf - Zeugnisse - Diplome»): the draft keeps only the slot's caption, so it is read with
+ * the slot rule above (successFactorsDocumentSlotKind) and accepted only when the caption is nothing but
+ * document names, or exactly an upload instruction («Lebenslauf hochladen»), on a free text field with no
+ * options and no format. «Lebenslauf und Motivationsschreiben», a question mark, or any other word: ''.
+ */
+export function portalQuestionDocumentSlotKind(question) {
+  if (question?.source !== 'portal') return '';
+  const type = String(question.type || 'text').trim().toLowerCase();
+  if (!['text', 'file'].includes(type) || (Array.isArray(question.options) && question.options.length)
+    || String(question.validation?.pattern || '').trim()) return '';
+  const caption = String(question.applicationQuestion || question.question || '').replace(/\s+/g, ' ')
+    .replace(/^[\s*:]+|[\s*:]+$/g, '').trim();
+  if (!caption || caption.length > 120 || /[?¿()]/.test(caption)) return '';
+  const kind = documentSlotCaptionKind(caption);
+  if (!kind) return '';
+  if (CAPTION_UPLOAD_RE[kind].test(caption)) return kind;
+  const parts = caption.split(SLOT_CAPTION_SEPARATOR_RE).map(part => part.trim());
+  return parts.length <= 6 && parts.every(part => SLOT_CAPTION_PART_RE.test(part)) ? kind : '';
 }
 
 export function uploadButtonCandidatesFor(snapshot, kind) {
@@ -7276,6 +7356,7 @@ export async function readPortalRequirements(ctx) {
         pageUrl: page.url(),
         postingUrl: formPostingUrl,
         postingRouteProof: ctx.postingRouteProof,
+        applyUrl: ctx.applyUrl,
       });
       contractPostingMatch = formMatch === 'mismatch' ? 'mismatch' : formMatch === 'match' ? 'match' : 'unknown';
       if (formMatch === 'mismatch') return await finish({ questions: [], documents: [], handoff: 'posting_mismatch' }, { status: 'blocked' });
@@ -7624,9 +7705,13 @@ export async function submitViaPortal(ctx) {
         pageUrl,
         postingUrl,
         postingRouteProof: ctx.postingRouteProof,
+        applyUrl: ctx.applyUrl,
       });
       // Said in the evidence: the company was read on the posting (or in its data), the form names only the role.
-      if (result === 'match' && postingMatch(seen, ctx.job, pageUrl) === 'mismatch') evidence.postingMatchVia = namedByItsData ? 'posting_data' : 'posting_page';
+      if (result === 'match' && postingMatch(seen, ctx.job, pageUrl) === 'mismatch') {
+        evidence.postingMatchVia = successFactorsRequisitionShown(seen, ctx.job, { pageUrl, applyUrl: ctx.applyUrl }) ? 'successfactors_requisition'
+          : namedByItsData ? 'posting_data' : 'posting_page';
+      }
       return result;
     };
     const pendingOtpAccount = async (current) => {
