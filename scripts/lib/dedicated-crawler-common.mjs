@@ -7603,7 +7603,11 @@ const ACTIVE_JOB_RETIREMENT_MS = ACTIVE_JOB_RETIREMENT_DAYS * 24 * 60 * 60 * 100
  * Miss-streak grace absorbs a couple of transient pagination holes; this bound
  * expires a job that was never recrawled (or never had crawledAt refreshed)
  * even when the miss streak never advanced. Missing/unparseable crawledAt
- * fails open — same as cleanup-jobs' `ts > 0` guard.
+ * fails open here: at merge time a row without a heartbeat has no slice write
+ * time to anchor it, and its first-seen date alone would retire, on its first
+ * miss, a row last listed yesterday. Such rows are aged by cleanup-jobs
+ * instead (`jobLastObservedAtMs`, lib/job-observation-heartbeat.mjs), and the
+ * slice writer stamps every active row it observes, so new ones do not arise.
  *
  * @param {object} job
  * @param {number} [nowMs]
