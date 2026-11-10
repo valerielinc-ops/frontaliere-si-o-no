@@ -1100,7 +1100,7 @@ describe('Albergo Gardenia authoritative crawler', () => {
   it.each([
     ['robots denial', { ok: false, status: 0, blockedByRobots: true }],
     ['URL-policy denial', { ok: false, status: 0, policyBlocked: true }],
-    ['HTTP response', { ok: false, status: 503 }],
+    ['permanent HTTP response', { ok: false, status: 404 }],
   ])('does not cross the host alias for %s', async (_label, result) => {
     const fetchPage = vi.fn(async (url: string) => ({ ...result, url, body: '', host: new URL(url).hostname }));
     const browserFetchPage = vi.fn();
@@ -1117,7 +1117,7 @@ describe('Albergo Gardenia authoritative crawler', () => {
   it.each([
     ['robots denial', { ok: false, status: 0, blockedByRobots: true }],
     ['URL-policy denial', { ok: false, status: 0, policyBlocked: true }],
-    ['HTTP response', { ok: false, status: 503 }],
+    ['permanent HTTP response', { ok: false, status: 404 }],
   ])('does not classify deterministic %s as a connection-level soft exit', async (_label, result) => {
     const fetchPage = vi.fn(async (url: string) => ({ ...result, url, body: '', host: new URL(url).hostname }));
     let failure: unknown;
