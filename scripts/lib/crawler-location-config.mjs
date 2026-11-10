@@ -113,6 +113,7 @@ export const COMPANY_HQ = {
   'cerbios-pharma':               { city: 'Barbengo',           canton: 'TI', postalCode: '6917', addressRegion: 'TI' },
   'citta-di-bellinzona':          { city: 'Bellinzona',         canton: 'TI', postalCode: '6500', addressRegion: 'TI' },
   'citta-di-locarno':             { city: 'Locarno',            canton: 'TI', postalCode: '6600', addressRegion: 'TI' },
+  'locarno-film-festival':         { city: 'Locarno',            canton: 'TI', postalCode: '6600', addressRegion: 'TI' },
   'citta-di-lugano':              { city: 'Lugano',             canton: 'TI', postalCode: '6900', addressRegion: 'TI' },
   'corner':                       { city: 'Lugano',             canton: 'TI', postalCode: '6901', addressRegion: 'TI' },
   'csc-costruzioni':              { city: 'Lugano',             canton: 'TI', postalCode: '6900', addressRegion: 'TI' },

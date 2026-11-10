@@ -44,6 +44,7 @@ import { resolveDetailOrListingSwissGeography } from './location-evidence.mjs';
 import { gradeJobLike } from '../job-like.mjs';
 import { isSpontaneousApplicationTitle } from '../spontaneous-application.mjs';
 import { createSpecUrlPolicy } from './public-fetch-policy.mjs';
+import { fetchRuntimePage } from './spec-crawler.mjs';
 import { extractRuntimeDetailFields, runtimeDetailFallbackUrl } from './detail-extract.mjs';
 import { selectValidationSample } from './validation-sample.mjs';
 import { qualityContractVersionOf } from './quality-contract.mjs';
@@ -406,11 +407,48 @@ export async function gradeVacancy(vacancy, fetchOptions = {}) {
     } catch {
       return out;
     }
-    res = await politeFetch(vacancy.url, fetchOptions);
+    const fetchDetail = (url) => fetchOptions.spec?.detailFormat === 'pdf'
+      ? fetchRuntimePage(url, fetchOptions.urlPolicy, {
+        fetchImpl: fetchOptions.fetchImpl,
+        sleepImpl: fetchOptions.sleepImpl,
+        retries: fetchOptions.retries,
+        retryBaseMs: fetchOptions.retryBaseMs,
+        timeoutMs: fetchOptions.timeoutMs,
+        hostDelayMs: fetchOptions.hostDelayMs,
+      }, {
+        readPdf: true,
+        detailLocationLabel: fetchOptions.spec.detailLocationLabel,
+        detailTitleLeadIn: fetchOptions.spec.detailTitleLeadIn,
+        detailTitleEndLabel: fetchOptions.spec.detailTitleEndLabel,
+        detailApplyUrlHost: fetchOptions.spec.detailApplyUrlHost,
+        detailApplyUrlPathPrefix: fetchOptions.spec.detailApplyUrlPathPrefix,
+      })
+      : politeFetch(url, fetchOptions);
+    try {
+      res = await fetchDetail(vacancy.url);
+    } catch (error) {
+      res = {
+        ok: false,
+        status: Number(error?.status) || 0,
+        body: '',
+        url: vacancy.url,
+      };
+    }
     if (!res.ok) {
       // Stesso retry del runtime, o il gate boccia pagine che il crawler legge.
       const fallbackUrl = runtimeDetailFallbackUrl(fetchOptions.spec || {}, res.status, vacancy.url);
-      if (fallbackUrl) res = await politeFetch(fallbackUrl, fetchOptions);
+      if (fallbackUrl) {
+        try {
+          res = await fetchDetail(fallbackUrl);
+        } catch (error) {
+          res = {
+            ok: false,
+            status: Number(error?.status) || 0,
+            body: '',
+            url: fallbackUrl,
+          };
+        }
+      }
     }
   }
   out.status = res.status;

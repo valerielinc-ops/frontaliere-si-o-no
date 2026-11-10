@@ -18,6 +18,7 @@ import { extractDetailFields, isSufficientVacancyDescription, textOf } from './e
 import { dedupeLocationCandidates } from './location-evidence.mjs';
 import { extractPageExecutiveDetailFields } from './pageexecutive-detail.mjs';
 import { extractUmantisDetailFields, umantisDetailFallbackUrl } from './umantis-detail.mjs';
+import { readAttr } from '../html-attr.mjs';
 import { normalizeSwissCantonCode } from '../target-swiss-locations.mjs';
 
 const PHYSIOSWISS_ACCESSIBLE_TITLE_RX = /^Stellenanzeige\s+(.+?)\s+öffnen\.?$/iu;
@@ -99,6 +100,25 @@ function labelledLocationEvidence(value) {
   };
 }
 
+function sourcePdfApplyUrl(html, spec) {
+  const allowedHost = String(spec?.detailApplyUrlHost || '').trim().toLowerCase();
+  const pathPrefix = String(spec?.detailApplyUrlPathPrefix || '').trim();
+  if (spec?.detailFormat !== 'pdf' || !allowedHost || !pathPrefix.startsWith('/')) return '';
+  const anchor = /<a\b[^>]*\bdata-prospector-pdf-apply-url\s*=\s*(["'])true\1[^>]*>/i.exec(String(html || ''))?.[0];
+  const href = anchor ? readAttr(anchor, 'href') : '';
+  try {
+    const url = new URL(href);
+    if (url.protocol !== 'https:'
+      || url.hostname.toLowerCase() !== allowedHost
+      || !url.pathname.startsWith(pathPrefix)
+      || url.username
+      || url.password) return '';
+    return url.href;
+  } catch {
+    return '';
+  }
+}
+
 /**
  * @param {{ platform?: string }} spec
  * @param {string} html
@@ -117,6 +137,8 @@ export function extractRuntimeDetailFields(spec, html, url, opts = {}) {
     recordUrl: opts.recordUrl,
     recordTitle,
   });
+  const pdfApplyUrl = sourcePdfApplyUrl(html, spec);
+  if (pdfApplyUrl) detail.applyUrl = pdfApplyUrl;
   const labelledLocation = extractLabelledDetailValue(html, spec?.detailLocationLabel);
   if (labelledLocation) {
     // The named source heading describes the vacancy's workplace. Replace the

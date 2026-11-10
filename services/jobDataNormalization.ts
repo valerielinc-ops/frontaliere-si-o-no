@@ -378,6 +378,7 @@ export const CRAWLED_COMPANY_LOGOS: Record<string, string> = {
  'lipsuisse-ch': 'https://www.lipsuisse.ch/wp-content/uploads/Favicon.svg',
  'lis-lugano-istituti-sociali': gFavicon('lugano-lis.ch'),
  'localsearch': '/images/brands/localsearch.png',
+ 'locarno-film-festival': cLogo('locarnofestival.ch'),
  'logitech': cLogo('logitech.com'),
  'lombard-odier': cLogo('lombardodier.com'),
  'lombardi-group': '/images/brands/lombardi-group.png',
