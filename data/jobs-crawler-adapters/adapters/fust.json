@@ -10,6 +10,28 @@
     "jsonld"
   ],
   "seedMetaByUrl": {
+    "https://jobs.fust.ch/offene-stellen/schreinermonteur-in-kuechen-baeder/4f23fbb6-01bd-489e-b1e1-574af07a7a53": {
+      "location": "Oberbüren",
+      "canton": "SG",
+      "title": "Schreinermonteur:in Küchen & Bäder",
+      "sourceId": "10258041",
+      "company": "Fust",
+      "contract": "A tempo indeterminato",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown"
+    },
+    "https://jobs.fust.ch/offene-stellen/disponent-in-kuechen-und-baeder/9a5ecf00-048a-426d-8b78-045a64a61426": {
+      "location": "Burgdorf",
+      "canton": "BE",
+      "title": "Disponent:in Küchen und Bäder 80% - 100%",
+      "sourceId": "10258035",
+      "company": "Fust",
+      "contract": "A tempo indeterminato",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown"
+    },
     "https://jobs.fust.ch/offene-stellen/servicetechniker-in-heimservice/3db3fe32-09e9-4939-a5a5-c80f982ad6a8": {
       "location": "Zürcher Oberland / Obersee",
       "canton": "ZH",
@@ -180,17 +202,6 @@
       "canton": "BE",
       "title": "Servicetechniker:in Heimservice",
       "sourceId": "10245271",
-      "company": "Fust",
-      "contract": "A tempo indeterminato",
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown"
-    },
-    "https://jobs.fust.ch/offene-stellen/disponent-in-kuechen-und-baeder/6e9bab01-71b7-4fa5-9317-f2c2f5478d32": {
-      "location": "Burgdorf",
-      "canton": "BE",
-      "title": "Disponent:in Küchen und Bäder 80% - 100%",
-      "sourceId": "10242297",
       "company": "Fust",
       "contract": "A tempo indeterminato",
       "datePosted": "",
@@ -604,17 +615,6 @@
       "postedDate": "",
       "postingDateSource": "unknown"
     },
-    "https://jobs.fust.ch/offene-stellen/schreinermonteur-in-kuechen-baeder/fd1ed25b-a31a-4378-890a-fa7013c66088": {
-      "location": "Oberbüren",
-      "canton": "SG",
-      "title": "Schreinermonteur:in Küchen & Bäder",
-      "sourceId": "10232627",
-      "company": "Fust",
-      "contract": "A tempo indeterminato",
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown"
-    },
     "https://jobs.fust.ch/posti-vacanti/apprendistato-commercio-al-dettaglio-afc-settore-multimedia/d547b30a-43e2-41ac-8178-f6f3108b9a1d": {
       "location": "Grancia",
       "canton": "TI",
@@ -925,8 +925,10 @@
     }
   },
   "notes": "Fust (Coop Group) — CH-wide discovery across all 26 cantons via Prospective.ch JobBooster (Career Center 1000103). Detail pages on jobs.fust.ch expose JSON-LD JobPosting and source workplace metadata.",
-  "updatedAt": "2026-11-09T21:38:06.766Z",
+  "updatedAt": "2026-11-10T21:29:56.185Z",
   "seedDetailUrls": [
+    "https://jobs.fust.ch/offene-stellen/schreinermonteur-in-kuechen-baeder/4f23fbb6-01bd-489e-b1e1-574af07a7a53",
+    "https://jobs.fust.ch/offene-stellen/disponent-in-kuechen-und-baeder/9a5ecf00-048a-426d-8b78-045a64a61426",
     "https://jobs.fust.ch/offene-stellen/servicetechniker-in-heimservice/3db3fe32-09e9-4939-a5a5-c80f982ad6a8",
     "https://jobs.fust.ch/offene-stellen/sanitaermonteur-in-kuechen-baeder/665a86f0-2860-4835-8bc6-ed0fc835a3a9",
     "https://jobs.fust.ch/posti-vacanti/falegname-montatore-di-cucine-bagni/69340185-9356-4844-9795-5c5bb05b2022",
@@ -943,7 +945,6 @@
     "https://jobs.fust.ch/offene-stellen/heimliefermonteur-in-von-elektrohaushaltgeraeten/a8280c83-1f7c-4c4c-8333-890075871762",
     "https://jobs.fust.ch/offene-stellen/verkaufsberater-in-fuer-elektrohaushalt-und-multimedia/9b170607-8546-4f88-a83a-97f8c5a62f85",
     "https://jobs.fust.ch/offene-stellen/servicetechniker-in-heimservice/da8070ea-9eaf-4691-b806-13df477bf874",
-    "https://jobs.fust.ch/offene-stellen/disponent-in-kuechen-und-baeder/6e9bab01-71b7-4fa5-9317-f2c2f5478d32",
     "https://jobs.fust.ch/offene-stellen/sachbearbeiter-in-kundendienst-kuechen-baeder/2ffe1d89-11aa-4159-ba6a-f1af6eeaa05e",
     "https://jobs.fust.ch/offene-stellen/sachbearbeiter-in-kundendienst-kuechen-baeder/73024bd3-bcf0-461a-82cf-916a3abf0cd0",
     "https://jobs.fust.ch/offene-stellen/mitarbeiter-in-intralogistik-bereich-wareneingang/62cb1abf-a1ca-433b-ae2d-bbd79bb8c68c",
@@ -981,7 +982,6 @@
     "https://jobs.fust.ch/offene-stellen/detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen/c75699a3-d89f-4ec3-b707-7778b17d4b27",
     "https://jobs.fust.ch/offene-stellen/detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen/6d764f7a-18a0-4fc8-bacb-71c281824526",
     "https://jobs.fust.ch/offene-stellen/schreinermonteur-in-kuechen-baeder/e2cb6196-7f03-4274-950f-2ee322609923",
-    "https://jobs.fust.ch/offene-stellen/schreinermonteur-in-kuechen-baeder/fd1ed25b-a31a-4378-890a-fa7013c66088",
     "https://jobs.fust.ch/posti-vacanti/apprendistato-commercio-al-dettaglio-afc-settore-multimedia/d547b30a-43e2-41ac-8178-f6f3108b9a1d",
     "https://jobs.fust.ch/postes-vacants/apprentissage-de-gestionnaire-du-commerce-de-detail-cfc-conception-et-realisation-d-experiences-d-achat/c505227d-dba0-4db6-ba21-a5a8cdb0bb4e",
     "https://jobs.fust.ch/offene-stellen/detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen/0cd6aae5-f1a5-42ac-99ec-726666645315",
